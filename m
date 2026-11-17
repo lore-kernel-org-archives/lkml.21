@@ -1,72 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794938164;
-	b=cU43zv8Z/bxmc4LVTOkz6rXLJAo6ZnljJE+2gnAtc9eZu43zsyoTqy4OVaFG89A+bllN
-	 vf4wGpFARfB7byOsxch6BbK3ZFWo9CDGwWBpoRYCaIGKIZ6Xw7tD+m1wb7WSB9yBBzicY
-	 zT3ax9C6haXEKrvUlLrfu3zyn6LM49h0Wq5LRftsr4OxCXXd1ui9Gq43rm0H0yhZhedLj
-	 /ZefI0ynobnJphXe5poqAjq7Fn/0449lLuA2bCC3mQi/ylcnik5qVpQI+Q3r2QkYaZEg9
-	 i6doEuutVCUZ9AvPs9eP54EJQSo3bZMOQLK2GniD3pNOyafVfzoW9Xzh2DHF7bSk+rA==
+	t=1794938190;
+	b=kudSIPdtbyeP3RM2hgk3qnNC8EsaISRDQz1F4MCAXAZ/ZDz0qhgU6RdoXjufev+MoB6a
+	 nZkFROIoG+y7GNJC2nizY/AY5aoOobf8NjLDmzE674cJtaaNa5SRB+5ibbGl1N6OqFd3n
+	 uiz8T6Bp2Uw1yBVmnSbR7XxCt0LSYm/9zu2oSN272PRQuAFfHCKbiVn6DLIfV3LTBwlqJ
+	 sPhZNu4kwTCcDNK5GTYtGWh9nEX79rwRAh53dQUNpQ2BuCsj/VDNN7ZmvZTXN1/fT8cw4
+	 WwdasS0DadxFatdYQ1Tz+WSvtkanSOGOdjfVJHxTLsFcWAVp6x/cj3iBf/vUbkkClQQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794938164;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794938190;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=T8O9pwUGQ2brZ8j9a0QlxNmuyzXqnR/QIbOa8Ct2Gyg=;
-	b=VJSJEmr4z4lomr+tyUJjrOZrRmdgZj3moU7/fyvCSG9M28dcDLbMQ7xf1LywF+AEzjxD
-	 C2iEvFbWey8CdNynVSTm320DRFOBu/fY1ElH3VjfO3CPO34YqUH/87BoLqwynDim6IZp5
-	 VSU4IhB4zrfEaXC0z847SDjBKULD2Dyes5/e1VBDHhfqkZh9K/Hsve22/g9rT7+GpKZPf
-	 2b2+zbvQXkTKb/liSpNEMN8KgmfRyh6UTCTrh4GTZGdrru4RKsqncNP6aOlXT0FcjFNdM
-	 H4BxosI4TEbgHzt7IhFTByaN8lNEB/aX/h88+MBPxxGuI/D4fGh+H5V8WaUQFalcpYg==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=VVlqUuDaHHbnxgwwnSebk+sIEp6EqZaEprfb4H4MTjo=;
+	b=utc+ekiS5s+3W7kwQN9GubJyGSh26Rqy68jZSicjbchm69O6rViJt9/ELdyPJzv209lv
+	 UDh91Vc5N1tIJOh3MVnznYJwLZA1gF/DGTmbKiZUVle70h8g9RKx/Hl8eEJSIynVmjvEt
+	 wRSAE/t0UevVFSoXO1gpkcHLlmOpXCM270+70cn/DCmsWAa7Ixc5vV0Pn60uuLxTNMIWa
+	 pK2JrLG/UMhZsn5rq2J2yyjD5mE+k23GUUzHT2DrYUIoi93g1ks1jrBTEnrDWIs//6XYI
+	 bmDYLMsO46dOGZmCwIRG555PhboNvGeobXBwesqPkyUBfcoZB/53SNIWXwO7NcAM60g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--tadamsjr.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=a9jSBfIT;
-	arc=none smtp.remote-ip=209.85.210.70
-Received: from mail-ot1-f70.google.com (mail-ot1-f70.google.com [209.85.210.70])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bGgXECm1;
+	arc=none smtp.remote-ip=209.85.221.41
+Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com [209.85.221.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B11C606A32C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:56:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B11C606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--tadamsjr.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4ACA6606A32F
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:56:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4ACA6606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=a9jSBfIT
-Received: by mail-ot1-f70.google.com with SMTP id 46e09a7af769-847e2926d94so41160a34.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 09:56:03 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bGgXECm1
+Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-48b001cd92bso20449f8f.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 09:56:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794938162; x=1795542962; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=T8O9pwUGQ2brZ8j9a0QlxNmuyzXqnR/QIbOa8Ct2Gyg=;
-        b=a9jSBfITwQrefrS6i2LBTXcmgaEFNI6udlXDHZq820TD6v0mghurhUXWf0A2bgN8he
-         bn4bFLE2/i2ZbJEZxiOcj8Fjwr/H6dnV6yVkpCFjujPR9CHdOxS4UoLQr0eCPvt5sfma
-         H3LX2OtAjf3gyW7OD986HdAXNDEM2KIykD0sk/Idtbqn8yOVDM6AO4rT7hTp4Q5NhNzr
-         k9Mv3186fNPb1Ij3FV4NdLYVvYpnHlfgavpAkLX2vRRrmeUv99oSa9ogHQmHI33AkqbZ
-         FPbHIIDgtWdwBVj+QGfzg7nJ8bdLl5bEG9TcyWkfQgD9ZpVYA2tqPH+VO0DOdITHIpGo
-         z6/Q==
+        d=gmail.com; s=20260707; t=1794938188; x=1795542988; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=VVlqUuDaHHbnxgwwnSebk+sIEp6EqZaEprfb4H4MTjo=;
+        b=bGgXECm1LP9RW5geQBlwXHQWEanPdLe5eA/jns5JvGNV17/XRn1NU8B1+HaJacOx5G
+         +Q/7cGx76qwnPbRqUr381I24iBqBcHXkCaFJjmMXxOSk0wIkju/FnRbDxT5T2shLt7En
+         OHOQhZvFompfSOMpuSMZ8Q3d/t6SMtQ5MewXXPxKfqDnffXqLfN0MZvaHDuV7ey+YkkU
+         1KNy0EZf2AgevVQ1qNd1n4jYQEsWuMaPIKjDHsBTAJwDWi/AmFahlUqd7cpuSYUNtJgE
+         kC9t6Hicc6pRXdY9DkSeBvMMT40nJdIfmPpRadUn+PzT6POBZ14sk0NzYkK3xBpUxzaU
+         ad+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794938162; x=1795542962;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=T8O9pwUGQ2brZ8j9a0QlxNmuyzXqnR/QIbOa8Ct2Gyg=;
-        b=0/RjTW6sxgjtKpDVvZRiE4nuKpS0fOxj7g8L3Q7M0uwpfXe8rZRr8/US5aSNk10iJt
-         YoOVw9aQIPVU/g+59pWZnq0ioofTuqfXoYXJqiADsp042i6mPJAvFbb9fNzFgZtua6rJ
-         REu2OojTEjMSIzJcFP8IGRrXEKsFTzOo9PBzutOysA0cCP8Q17AlVeNjavjR0phK4as5
-         4ssozVQwLgcWXUcXmYMZOtJvf4NYNz7wgt9MyVJOMteSPWd1sHUH6hytc2h0xrVIZZbj
-         ko0dTtDs9wzVgSPUwZGLpjHd2WmAzwj8DbakY65zk9jjhg385GqrpH3jSCbQZD9Lsahi
-         0x5w==
-X-Forwarded-Encrypted: i=1; AL+hErE0ltmaYgvASmIQxxbvRvUl5HRtOBjT3+htpLtyj281z6E4ArrV9cCuBdqix3apmIRD+Mqkw+MIncupw6o=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+7ivydS8cLQV9iqCfoCII7HcSru0sxfORfSVaHVVYMVMtOkTEX
-	/JBkcT9QlrdGq4AeMNB/vTglnY2a6qBCmoqYoLjPdzsVLdhdfyoqWgaZtBwF6L2oBvlMQEdnnE+
-	evXuhJTYy7QI60g==
-X-Received: from ilbdv26-n1.prod.google.com ([2002:a05:6e02:401a:10b0:544:45eb:2ab])
- (user=tadamsjr job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:1784:b0:4dd:18c7:5448 with SMTP id 5614622812f47-5773db2cd83mr507794b6e.56.1794938162043;
- Tue, 17 Nov 2026 09:56:02 -0800 (PST)
-Date: Tue, 17 Nov 2026 09:55:58 -0800
+        d=1e100.net; s=20260707; t=1794938188; x=1795542988;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=VVlqUuDaHHbnxgwwnSebk+sIEp6EqZaEprfb4H4MTjo=;
+        b=GrDUpfHfAwq/LXJY5BrtMeVQ9bItLFgJ78EHtJ7cdIZ/nbrUSdv7LRObFGdc1qtSzU
+         ifLpzkq6WP27w/zScv7zBEdlf9BhiCPhk3tjYBSHfnAPEZ+fA0Tkgs7PNaJMf/jF4/yI
+         8S368XIsVLDhAVfmxeaZNA2b6PLbMNDdENlIW8OiUizLiOewQ57BPCKOmeQZzx+ZptBO
+         uPss5ZZ72tHfeMf90SLxaOS/i243oWya3Os8eYkIr2X6ImLpn3z/rfGATFQiJrmm1sP4
+         c/ZAlmzBA4x95q04L0qnvdYtRUogVP3K1cg/U2rh2Klv6lpY0YpfYAdih3rtV0gozebY
+         fArQ==
+X-Forwarded-Encrypted: i=1; AL+hErEdl8Q/7VlRZSsbH1Na+rC7ZERT+JjOGS3h1ZckMROUWbtFdt8l7Ac3D8BGHfhliIZzgxhHGNWb+/3/QDU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9o1ETKNEKUM9XyEE1f7IHxBiXqDNEWUJh0ZY9dPzfr8YVL6ENM
+	giN9PYq8QWh0h2mLcU1r2vCwV6l5ETSUZDxKiG+I5yMkkO5QCOWOqzjj
+X-Gm-Gg: AZFdTZfnVKUlv2GW3gPEG3Xf+yOjFtdQ85y0ZaFR6VhiSOsyrd7iimN+Ra+uapGvmRc
+	rwt/IoMxMEZFqwdLQuKCmZhbcA2S3erzgZNwUlf5XucSEX4KfDGrhNVnt/2vMs6oq1AjL1mvWio
+	n9f/ZXGlItJ/pm6IfVyI29l6T6Y/Hx1F5fP6y7/qIXGGkFHd5GanaPINUMHLcWQJ4yXespyi+kX
+	DqHW6Um9rmey74p4PyjFqp1XlbA1Yb6UhwLPBmNZsf26ODZBWGMGX0Gdl7K3BnpA23gmE7PCbVn
+	xEaqfgIEg32kknUs1jkMQe372GkWpUSLpClCS8PBvBREdKa38nOQ+LA09p0rfATkNo954ThIomv
+	73XNzXRwwJoRJxsWn9rVDiy2aJf14KBlfD4xBG1Oq0Wu/rUy5ZGGjrccab+WDBa4bqsD2HaaU2w
+	/VSjFEFSSCrRTb8k898n4rfUDfc6mIzjKef0biNcLRgQtPCsXT09/o22VyfUq4JzYnpQGafibF2
+	vqYXJ8Cp5D5BvTMhv8jPsa/JX2Pq7zpxFzXs1JqRl1Opyun8g5aR2JFQ8knj8Q0g6c59i1I0gAp
+	91AXxgU2Uyy4zIXZa39cxO1qxvuygWACrGsoKXWm3VfWVA==
+X-Received: by 2002:a05:6000:26c7:b0:48c:67d6:a87a with SMTP id ffacd0b85a97d-4a639ff6138mr506509f8f.32.1794938188531;
+        Tue, 17 Nov 2026 09:56:28 -0800 (PST)
+Received: from Kyiv.home.arpa ([2a0e:1d47:4093:b600:11a1:dc8c:1ed6:51c5])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a654a8c37fsm47723f8f.18.2026.11.17.09.56.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 09:56:28 -0800 (PST)
+From: Volodymyr Chapman <volodymyrchapman@gmail.com>
+To: andriy.shevchenko@intel.com
+Cc: sakari.ailus@linux.intel.com,
+	mchehab@kernel.org,
+	dan.scally@ideasonboard.com,
+	hansg@kernel.org,
+	andy@kernel.org,
+	gregkh@linuxfoundation.org,
+	linux-media@vger.kernel.org,
+	linux-staging@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/3] media: Add Sony IMX175 sensor driver (Lenovo ThinkPad 10 rear camera)
+Date: Tue, 17 Nov 2026 17:56:14 +0000
+Message-ID: <20261117175614.11710-1-volodymyrchapman@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <avwnh1o6rFzayxkj@ashevche-desk.local>
+References: <20261116175151.20150-1-volodymyrchapman@gmail.com> <avwnh1o6rFzayxkj@ashevche-desk.local>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,162 +103,40 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
-Message-ID: <20261117175558.4146151-1-tadamsjr@google.com>
-Subject: [PATCH v2] scsi: pm8001: Offset hardware queue index for MSI-X pre-vector
-From: TJ Adams <tadamsjr@google.com>
-To: Jack Wang <jinpu.wang@cloud.ionos.com>, 
-	"James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>, 
-	"Martin K . Petersen" <mkp@kernel.org>
-Cc: Bart Van Assche <bvanassche@acm.org>, John Garry <john.garry@linux.dev>, linux-scsi@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Terrence Adams <tadamsjr@google.com>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-From: Terrence Adams <tadamsjr@google.com>
+Hi Andy,
 
-When MSI-X interrupt vectors are configured in pm8001_setup_msix(), the
-driver requests vector affinity with .pre_vectors = 1 to reserve Vector
-0 for non-affinitized housekeeping interrupts.
+On Tue, Nov 17, 2026 at 12:08:07PM +0200, Andy Shevchenko wrote:
+> > Not supported: the voice coil motor (the firmware does not name its
+> > type) and the LM3554 flash.
+>
+> Why not flash? It's in the kernel provided by drivers/leds/leds-lm355x.c
 
-blk_mq_map_hw_queues() maps hardware queues (hwq 0 to nr_hw_queues - 1)
-with an offset of 1, mapping hwq 0 to Vector 1, hwq 1 to Vector 2, etc.
+I should have mentioned that leds-lm355x cannot be used on this machine as
+it is: it only probes with platform data (it has no ACPI or DT matching,
+and nothing in the tree provides the platform data), it does not drive the
+LM3554's HWEN enable line, which has to be raised here before the chip
+responds, and it registers plain LED class devices rather than a flash
+LED class device.
 
-However, pm80xx_chip_get_q_index() retrieves the queue index directly
-from blk_mq_unique_tag_to_hwq(tag) without adding 1 for the pre-vector
-offset. Consequently, commands on hwq 0 are issued with responseQueue 0
-(firing unmanaged Vector 0 on CPU 0), while hwq k fires Vector k (the
-CPU affinitized to hwq k-1).
+When atomisp's own LM3554 driver was removed in commit f1aa35ab5943
+("media: atomisp: Drop the atomisp custom lm3554 flash driver"), the
+commit message said it should be re-implemented with the
+led-class-flash API if it turned out to be needed, so that is what I
+did. The new driver binds to the same ACPI ID (INTCF1C) and uses the
+same GPIO order (0 strobe, 1 torch, 2 enable) as the removed one.
 
-This results in 100% of I/O completion interrupts being delivered to the
-wrong CPU core, causing heavy cross-CPU IPIs, cache line bouncing, and
-increased kernel and IRQ CPU processing overhead.
+I have sent it to linux-leds:
 
-Define PM8001_PRE_VECTORS for the reserved housekeeping vector and use
-it consistently across MSI-X vector allocation, hardware queue setup and
-mapping, and queue index lookup. Update pm80xx_chip_get_q_index() to
-accept pm8001_ha and add PM8001_PRE_VECTORS to
-blk_mq_unique_tag_to_hwq() whenever multi-queue is enabled
-(number_of_intr > PM8001_PRE_VECTORS), routing completion interrupts to
-their affinitized CPU cores.
+https://lore.kernel.org/linux-leds/20261116180809.26946-1-volodymyrchapman@gmail.com/
 
-Fixes: 42f22fe36d51 ("scsi: pm8001: Expose hardware queues for pm80xx")
-Signed-off-by: Terrence Adams <tadamsjr@google.com>
----
-Changes in v2:
-- Define PM8001_PRE_VECTORS in pm8001_defs.h instead of hardcoding 1 and
-  use it consistently across pm8001_setup_msix(), pm8001_pci_probe(),
-  pm8001_map_queues(), and pm80xx_chip_get_q_index() (Bart Van Assche).
+Whether that or extending leds-lm355x is the better way is up to the LED
+maintainers; I will ask on that thread. In v2 of this series, I will reword
+the cover letter to point to it. The VCM has since turned out to be a
+DW9714 at the address listed in _CRS, and I have a follow-up patch for
+it which I can include in v2.
 
-v1: https://lore.kernel.org/all/20261116224811.3362188-1-tadamsjr@google.com/
-
-LLM assisted with drafting the fix, v2 refactor, and commit message.
-
- drivers/scsi/pm8001/pm8001_defs.h |  1 +
- drivers/scsi/pm8001/pm8001_init.c | 15 +++++++++------
- drivers/scsi/pm8001/pm80xx_hwi.c  | 13 +++++++++----
- 3 files changed, 19 insertions(+), 10 deletions(-)
-
-diff --git a/drivers/scsi/pm8001/pm8001_defs.h b/drivers/scsi/pm8001/pm8001_defs.h
-index a9605ca317f3..ef7b6257cc8b 100644
---- a/drivers/scsi/pm8001/pm8001_defs.h
-+++ b/drivers/scsi/pm8001/pm8001_defs.h
-@@ -178,6 +178,7 @@ enum port_type {
- #define	PM8001_MAX_INB_NUM	 64
- #define	PM8001_MAX_OUTB_NUM	 64
- #define	PM8001_CAN_QUEUE	 508	/* SCSI Queue depth */
-+#define PM8001_PRE_VECTORS	 1	/* non-affinitized housekeeping vector */
- 
- /* Inbound/Outbound queue size */
- #define IOMB_SIZE_SPC		64
-diff --git a/drivers/scsi/pm8001/pm8001_init.c b/drivers/scsi/pm8001/pm8001_init.c
-index 5af81c73a8f8..b1788788b7ed 100644
---- a/drivers/scsi/pm8001/pm8001_init.c
-+++ b/drivers/scsi/pm8001/pm8001_init.c
-@@ -104,8 +104,9 @@ static void pm8001_map_queues(struct Scsi_Host *shost)
- 	struct pm8001_hba_info *pm8001_ha = sha->lldd_ha;
- 	struct blk_mq_queue_map *qmap = &shost->tag_set.map[HCTX_TYPE_DEFAULT];
- 
--	if (pm8001_ha->number_of_intr > 1) {
--		blk_mq_map_hw_queues(qmap, &pm8001_ha->pdev->dev, 1);
-+	if (pm8001_ha->number_of_intr > PM8001_PRE_VECTORS) {
-+		blk_mq_map_hw_queues(qmap, &pm8001_ha->pdev->dev,
-+				     PM8001_PRE_VECTORS);
- 		return;
- 	}
- 
-@@ -977,10 +978,11 @@ static u32 pm8001_setup_msix(struct pm8001_hba_info *pm8001_ha)
- 		 * include in the affinity spreading.
- 		 */
- 		struct irq_affinity desc = {
--			.pre_vectors = 1,
-+			.pre_vectors = PM8001_PRE_VECTORS,
- 		};
- 		rc = pci_alloc_irq_vectors_affinity(
--				pm8001_ha->pdev, 2, PM8001_MAX_MSIX_VEC,
-+				pm8001_ha->pdev, PM8001_PRE_VECTORS + 1,
-+				PM8001_MAX_MSIX_VEC,
- 				PCI_IRQ_MSIX | PCI_IRQ_AFFINITY, &desc);
- 	}
- 
-@@ -1183,8 +1185,9 @@ static int pm8001_pci_probe(struct pci_dev *pdev,
- 
- 	PM8001_CHIP_DISP->chip_post_init(pm8001_ha);
- 
--	if (pm8001_ha->number_of_intr > 1) {
--		shost->nr_hw_queues = pm8001_ha->number_of_intr - 1;
-+	if (pm8001_ha->number_of_intr > PM8001_PRE_VECTORS) {
-+		shost->nr_hw_queues = pm8001_ha->number_of_intr -
-+				      PM8001_PRE_VECTORS;
- 		/*
- 		 * For now, ensure we're not sent too many commands by setting
- 		 * host_tagset. This is also required if we start using request
-diff --git a/drivers/scsi/pm8001/pm80xx_hwi.c b/drivers/scsi/pm8001/pm80xx_hwi.c
-index d2572dd66071..1d4f5ee861c1 100644
---- a/drivers/scsi/pm8001/pm80xx_hwi.c
-+++ b/drivers/scsi/pm8001/pm80xx_hwi.c
-@@ -4328,14 +4328,19 @@ static int check_enc_sat_cmd(struct sas_task *task)
- 	return ret;
- }
- 
--static u32 pm80xx_chip_get_q_index(struct sas_task *task)
-+static u32 pm80xx_chip_get_q_index(struct pm8001_hba_info *pm8001_ha,
-+				   struct sas_task *task)
- {
- 	struct request *rq = sas_task_find_rq(task);
- 
- 	if (!rq)
- 		return 0;
- 
--	return blk_mq_unique_tag_to_hwq(blk_mq_unique_tag(rq));
-+	if (pm8001_ha->number_of_intr > PM8001_PRE_VECTORS)
-+		return blk_mq_unique_tag_to_hwq(blk_mq_unique_tag(rq)) +
-+		       PM8001_PRE_VECTORS;
-+
-+	return 0;
- }
- 
- /**
-@@ -4371,7 +4376,7 @@ static int pm80xx_chip_ssp_io_req(struct pm8001_hba_info *pm8001_ha,
- 	ssp_cmd.ssp_iu.efb_prio_attr |= (task->ssp_task.task_attr & 7);
- 	memcpy(ssp_cmd.ssp_iu.cdb, task->ssp_task.cmd->cmnd,
- 		       task->ssp_task.cmd->cmd_len);
--	q_index = pm80xx_chip_get_q_index(task);
-+	q_index = pm80xx_chip_get_q_index(pm8001_ha, task);
- 
- 	/* Check if encryption is set */
- 	if (pm8001_ha->chip->encrypt &&
-@@ -4510,7 +4515,7 @@ static int pm80xx_chip_sata_req(struct pm8001_hba_info *pm8001_ha,
- 	u32 opc = OPC_INB_SATA_HOST_OPSTART;
- 	memset(&sata_cmd, 0, sizeof(sata_cmd));
- 
--	q_index = pm80xx_chip_get_q_index(task);
-+	q_index = pm80xx_chip_get_q_index(pm8001_ha, task);
- 
- 	if (task->data_dir == DMA_NONE && !task->ata_task.use_ncq) {
- 		ATAP = 0x04; /* no data*/
-
-base-commit: 666539eecdf4db623f5e3c3e55cf9f2dfad24aa4
--- 
-2.56.1.703.gf848ed807c-goog
-
+Thanks,
+Volodymyr
