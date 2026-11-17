@@ -1,99 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794953735;
-	b=LejrapT2d1WXIzV2JDKiSF6UxxvWKYANJSTcHV94EMiDsS6VK/XFUL39sSPEQ2WBvV6y
-	 pqgWl3vqevmDTn+e7DhjOZfcehoTGB/W6hjsczhHH94wwVZ4kf3XsIX4/vnHQUyOCnssA
-	 Gl4fl/ax+3qhNG6iIox//dhNYJTb2PqTmp/KROannu+EQM9PvykjpnrxONlOC2dPdPdRL
-	 ol7G7jscUoEB1LQaV6cwgKipYM2NK7JY5S+tjs1Zgyov+hzmS6Dn80rBEVCN4fjVwnvSy
-	 tcOYkTRF2zvYNEE9rD9DjqTXbtUWoLzBW6DqP7XPjC55bwR2oDULZhashWNGFnCJ8Hg==
+	t=1794953744;
+	b=x6/cCB51bsrRFBgri84VeWz9dbZOlU5lyYLB7BCMCQFGftsE5jyH0poHv6fkF3SgG/au
+	 C/GT7+JUsFcTLyv70oTI5xNgK9G9O2cwiziQos7qlNNnuRX1xodtiq+9wAHmtNQtJ6Q6D
+	 uQiVOAHGDV9EfTVfnT0X8uvRqjuBDIdxTxzvI43AGRnov0Wlepi8Lkz5EPXSaiJeeNsvz
+	 qljDU1vJrzEvhk8aErQzV7MkMEFG+gsjIJKE+4yFakO6ISUKIz3c3PK3QEggnRtFYqAIO
+	 ZFVS5a85trgI6K/sHYDuivH6forqQQBw1b6zuAxnJcg3ydvBMUTiCA8wK05fQtosLmg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794953735;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794953744;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=AFP+oprX2JfHEH4/+I3VRIaXxkKhreRWUhH9rG04Zmo=;
-	b=TMXY4zNLcisahRvWH9ZR7Jb9RTgtGD1OOVVsy3Ivdag66cQn5SxCu6TMXbo0UVRWmzar
-	 FaVCEx58GEnlN3hdQtTN2S82Y4pE/c3F1aHY9b308fUVyxlm07ldiBcpmSuXwljFMhoQJ
-	 UBmXdtBuPwP62NGiT1kMt30t+wCdHMkDgBx7cOYzY+zCy/o/0+l9aIlT43n9Y0iRkKq9q
-	 l/zjJ+g81keMdW+gSFtzZsBoy72VRfbaokxX2gk2An6njMH/rORsUi+KirtREynxqW0YN
-	 RdMfvoFw83NvYwkfBh/vtxrlyvQ3IijG2Wuv/w7O/vJYnNJCU8y+/ywCHBxEvHdytVQ==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=4aMMFkXBmhDNbkMddHOYmKs1ldPvaFgEp/CTY5zVmKE=;
+	b=4R5hWyIY7BHF/jBM2QjqYpsE7fn3HBmFrWwWnlTtdLBwkg9Zkog5Q7i5W5saIQX9uT8o
+	 /eY1IPhuv1r1e4yjbFgx36K5QBm3qayyvYzfSsXKvnnUCQTGf2qm2DYgadyL+QT/SyuSW
+	 W2fHD7u8ZpqfDdjQtj2lAzk4hsBrv0xC4cXF1EJbaXmymm+d/GZqQnlUxnY8ufT1KT14z
+	 6aDYuUsar46JVE+2WQ2WEY24PxAsijDL54GhSybbULnmbXPw2IgIrYwL+NkBDePahqhyY
+	 L7Xbe0S5/LnUi6iA1ZDtYXq2gOBmvWmkT0wi02cXuWq5tje47qfe5fmOutrc/DXH4JQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YlofpBdx;
-	arc=none smtp.remote-ip=209.85.128.42
-Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
+	dmarc=pass header.from=networkplumber.org;
+	spf=pass smtp.mailfrom=networkplumber.org;
+	dkim=pass header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=iLzZAJv4;
+	arc=none smtp.remote-ip=209.85.215.178
+Received: from mail-pg1-f178.google.com (mail-pg1-f178.google.com [209.85.215.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A11B7606A32F
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:15:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A11B7606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 059BC606A32A
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:15:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 059BC606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=networkplumber.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=networkplumber.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YlofpBdx
-Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4a210470b49so2847755e9.2
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 14:15:34 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=iLzZAJv4
+Received: by mail-pg1-f178.google.com with SMTP id 41be03b00d2f7-cdb1199bfd8so194312a12.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 14:15:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794953733; x=1795558533; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=AFP+oprX2JfHEH4/+I3VRIaXxkKhreRWUhH9rG04Zmo=;
-        b=YlofpBdxcRIXvu5cJ/kkVBkDOJ7x6iCSTMHuNVHP14QSPtUPXkfJOLBtKAG2vYvKHm
-         FKWooWNn4U+Dm9hxOxobcBNiu5Ap2+m/ZIMjWDMeJ3j5+j0t2v5Q0rEpkElqlduz7tJu
-         UHtZvrPa0EPYEo8OanDAubeBaOZsSK1kdZFstCfuNkA4kRzIXoowloKMC8jv+rLFj75z
-         2PdwO1nVZ7+BdkzwSzG32d25RAzNVyOWkrDv61rYSZ1wn+jZu66rXIlKTo2SLm1uQLfj
-         U4UNt27YC3Eh8G2ivlLGyi7lEAD9oay6fFH96Yo/J2n/MECh3a8LdAuZZNPMcKscap6e
-         K4fA==
+        d=networkplumber-org.20260707.gappssmtp.com; s=20260707; t=1794953743; x=1795558543; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=4aMMFkXBmhDNbkMddHOYmKs1ldPvaFgEp/CTY5zVmKE=;
+        b=iLzZAJv4uBcQGjiU0dI/Vsw4/dmlRf4at12apEjV4V6j0aVpQG0bh7yrpkDAr6Ui5/
+         i5GuYcg60UhpYMTsWZiSROyIKDeQleH9TJqFeGpbaZo5fRHm6xn8GrX7zdCtROmbUKCT
+         o/ZWHqCmNML6o30xb+6UgxPPZp+hgRH99Va5I6c+AoGj5fj93cYZaAImzj4LWxmF2Ebi
+         kZykwj8q8Baq9NfsbVDT5L59kFxDAlNd1ZKsWA+sbxTYMka3w0jPuiYqgZT0z1WnaqU5
+         ZO+f32Pn/YtPv6p+t7UmfBQ6HWdRY52DnvSLF2EiT0XSQq00Px6OEw7GOD7huiSIcwEM
+         LbTw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794953733; x=1795558533;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=AFP+oprX2JfHEH4/+I3VRIaXxkKhreRWUhH9rG04Zmo=;
-        b=gaXhZDPuGo8XUUGss5KKBEleiIRQY2rK/ichH5qL1SGE86KpQIzEd7E19DHDqFx3DZ
-         k3fQ75acdVUU0aPOMKyOUlcdsUWqypEHu2AEEf00UMTqKDoinQ3KpVfmRX/9EJYmZ1F3
-         aapM7NMVn7+ixLROrgeYtoOoDyvR/Y4ZnICPU/VhB2I6jEk9ESvzJtroASZNUUo8Xuhc
-         MmpJ7Gg3W9xlzGjITDiIUYEoQJiAZjx5f8KiYIXHNN9MYGhhkRehzAo1bVIXPBjR/uDf
-         npcNC4ZDfTfY6LHHcadLbBmNBH7QglLEWJpRtTErC/xjD7710THiy3kDDSq6Bz+s4LjG
-         QaVA==
-X-Forwarded-Encrypted: i=1; AL+hErHP1DKsNH7ETCVUZJ7da4dOqGRIWRRVbAUxeN+FK6iQmc1RJeG0yYu040/VO4ziLu94DfdzuxB8s9Uvdz4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Kc6cm82eUGDyAQifZbai/0GLxwO7iKWL32V3vXIJtSrHAZBp8
-	7Yupy1QuypRH5eaFSr5RAAk3qSV4IEV7OSkJijh4nLv0FreDinV2KN4J
-X-Gm-Gg: AYBFou2DIpI4jZkyUR/zId3qMCqxaeR4JN1+deZoH/mF8nj8yAEh5oNEIufoJEA5zg6
-	JL9hPKpbsrSqXDBjd/m8fG3qARcw5crPnnh44ewQ/pDS62CJmr4D5jCJ8cicvwUnJTHRa9Rq8M6
-	+f2oB1BSkF66/gwSMRmUB5p/PrZPYfZSxJ82qI4+hb/gJsCh3SG6Z9OzS5LVsf5GEGwPqoEVGIV
-	vOCDIYY6j2BZ7/hpZ5+1R35fAYRzWN5ajn5pAd8aHEIisDgCiVQOCflijgpBb+sorVF23NmuSdq
-	9YolCZDBu9A10RbHGhQN1yX5rZWMv+x4h5kqW3A8atFpXptzfeLL74c0IdY593yOpjxrYt1Baxl
-	PJv+w/tJz68UHTsuX/HXbqHHjuyyUZHdoE2FqBvKRUSnqFd757m5H4zv1rIe4eTl1+kC3jdj5DM
-	N1PuUxQMr6cfbqX8qhZdrHYVuPC1cuQuHOan0/Q7RXhcw3OrGc1HeiKI/9GSPqaFGaHVeEucIoO
-	zPvmFGIoM2b8/tyUWNOlPR3sg03H+8ld69xo9pYGnbERSjGj2G5VSN0DJ8qTDaJR35/0NxaxUu1
-	3ANXtH2kvv1ANzT+y6seqv/BJbUoo2tbtvdzrSV3nZaYWGUD7RNNHVa9C8AxSJRgLg==
-X-Received: by 2002:a05:600c:698d:b0:4bb:6947:3e1d with SMTP id 5b1f17b1804b1-4bb7da2c0a2mr9913865e9.20.1794953732442;
-        Tue, 17 Nov 2026 14:15:32 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb783f7eecsm171197495e9.3.2026.11.17.14.15.31
+        d=1e100.net; s=20260707; t=1794953743; x=1795558543;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=4aMMFkXBmhDNbkMddHOYmKs1ldPvaFgEp/CTY5zVmKE=;
+        b=oneRpbU7KjLQ5Me5JGtXtupgt+kGnrRXvprWnUo3TDE88R96QMLAE4+JQ0ORDcAxNt
+         wbbBDPT4NsWL4GV7AdE9Qd7bxK3ZHKaGLt399WmBHLMSGU7Vtpk49Y9jBRiDMvOz1NW5
+         kphVADZ2OND4weikLQ1xT6nW1/otBa9LTBmifEG/THzYlq+iVsWhH7VS2mg7tSnURW/1
+         KCxPJrXI61NL93Ogd7hXX+cPe6CQ/XSPvvtfMgPAuM0+wGujYkL75SOOFZpa+dobC+oG
+         W91huXrC8k9WfwJ18+3uWb90skSs35lgJd/MxU1Oa9B1scC/3P1WiXLULQKDsc7+/Gx3
+         s1eQ==
+X-Forwarded-Encrypted: i=1; AL+hErG3C16R85hHA+Fy2MB0pX8AsA8/zv/JPKG36pm5YY6ds1VuEts3IQB9ezC0Wvc+fUKl/cq7AoQmOm8W/tA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+dIIWVxRyMTl//cWSPJfVJ4ENvA1gkjz3u1rlLcxRTzPQEONW2
+	U8GaLINtHB48BH4C6R6dgE+1VYWzsjC6axBZuvqs0ukcF/c6NnMGe505zEju9Z1PlWI=
+X-Gm-Gg: AZFdTZdIhrCnlxNSHFjMPl0gzO3vEhgzqthLz/cC6uPo4Viqi5yPPaAIZ6Q7FabbdPf
+	+TyXwMPkjLVNBUOv/wbgIGdzqW+UVpGw0hm7u8WEDeXMNqbA7bo6VPy/vXW0ogrxcu81pF0GG1+
+	qZ+nKJQRpvC6YKX/f1wP764B31xRHLlyNazi0Hw2Nl1HusrEaAzHHgXS0+yvY+Ze6V6gc9SNw+0
+	pfjwkZhDAwSnjPsMVz8wnsrNOEWLHn7jplXqhnMAi4gYLWu1tq4ZMWxRJqPfTkJAfuiHVt1dTZl
+	5E9S6HjKXlXwktdqqtN7HR9zHj+LpItj5/ovUDJVZGPgjP9dP7Ie+hoNKZMHBypvbWvVYuIV6Om
+	ahNsjFpnDa8/+uo5gqZuMAVbFhq3559j4AggdDaXgkMceD4IiNh8dnq+UBlrq3sy0nhyL961R0r
+	qddugnpZWEuyys6JSL/s9WN+cXnFHf9NZVYdNRKc32y/OlM1/lmwwsNo5HAJOZwuAagpagFxnof
+	w1BfzYN6ay57jlAVOYMdBiD9JiMV1LvU2MpXTEC4KyacyXW7aJ5emFNhyuJycZfjzmzGPfTsDNB
+	L4U29H1lLO9exUgBgcWhYNMWCH7ji1lJ7sh6yosYfhzy65K209GdmwZt2koWeZxUqIMddQNdUBv
+	UAH2WNd9Ov4qQow==
+X-Received: by 2002:a17:90b:4488:b0:3ac:b048:fa13 with SMTP id 98e67ed59e1d1-3b3d07d5320mr718689a91.67.1794953743438;
+        Tue, 17 Nov 2026 14:15:43 -0800 (PST)
+Received: from phoenix.lan (204-195-112-43.wavecable.com. [204.195.112.43])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d5570208sm38067a91.0.2026.11.17.14.15.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 14:15:32 -0800 (PST)
-Date: Tue, 17 Nov 2026 22:15:31 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Manikanta Maddireddy <mmaddireddy@nvidia.com>
-Cc: <jingoohan1@gmail.com>, <mani@kernel.org>, <lpieralisi@kernel.org>,
- <kwilczynski@kernel.org>, <bhelgaas@google.com>,
- <linux-pci@vger.kernel.org>, <robh@kernel.org>,
- <thierry.reding@kernel.org>, <jonathanh@nvidia.com>, <vidyas@nvidia.com>,
- <cassel@kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-tegra@vger.kernel.org>
-Subject: Re: [PATCH v3 1/2] PCI: tegra194: Use FIELD_*() for register fields
-Message-ID: <20261117221531.26d6e0d2@pumpkin>
-In-Reply-To: <20261102092238.3917883-2-mmaddireddy@nvidia.com>
-References: <20261102092238.3917883-1-mmaddireddy@nvidia.com>
-	<20261102092238.3917883-2-mmaddireddy@nvidia.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+        Tue, 17 Nov 2026 14:15:42 -0800 (PST)
+From: Stephen Hemminger <stephen@networkplumber.org>
+To: netdev@vger.kernel.org
+Cc: dsahern@kernel.org,
+	Stephen Hemminger <stephen@networkplumber.org>,
+	Ido Schimmel <idosch@nvidia.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Sabrina Dubroca <sd@queasysnail.net>,
+	Andrea Parri <parri.andrea@gmail.com>,
+	Stanislav Fomichev <sdf.kernel@gmail.com>,
+	Nikolaos Gkarlis <nickgarlis@gmail.com>,
+	Willem de Bruijn <willemb@google.com>,
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH net-next v3 1/3] rtnetlink: return EMSGSIZE when first dump entry does not fit
+Date: Tue, 17 Nov 2026 14:13:42 -0800
+Message-ID: <20261117221538.184948-2-stephen@networkplumber.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261117221538.184948-1-stephen@networkplumber.org>
+References: <20261117221538.184948-1-stephen@networkplumber.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,42 +111,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On Mon, 2 Nov 2026 14:52:37 +0530
-Manikanta Maddireddy <mmaddireddy@nvidia.com> wrote:
+If a route entry is too large for the dump skb, the dump is silently
+truncated and no error is returned.
 
-> Several Tegra194 APPL and DesignWare register fields are programmed
-> with open-coded shifts, which makes the register programming more
-> verbose than necessary.
-> 
-> Use FIELD_PREP(), FIELD_MODIFY() and FIELD_GET() at the Tegra call
-> sites where values are shifted into fields. The LTSSM state constants
-> are converted from pre-shifted register values to unshifted field
-> values for FIELD_GET().
-> 
-> Suggested-by: Bjorn Helgaas <bhelgaas@google.com>
-> Link: https://lore.kernel.org/r/20260515070753.3852840-2-mmaddireddy@nvidia.com
-> Signed-off-by: Manikanta Maddireddy <mmaddireddy@nvidia.com>
-> ---
->  drivers/pci/controller/dwc/pcie-tegra194.c | 137 ++++++++++-----------
->  1 file changed, 67 insertions(+), 70 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pcie-tegra194.c b/drivers/pci/controller/dwc/pcie-tegra194.c
-> index 26e2ac5c5869..62bbfcefe6fe 100644
-> --- a/drivers/pci/controller/dwc/pcie-tegra194.c
-> +++ b/drivers/pci/controller/dwc/pcie-tegra194.c
-> @@ -51,8 +51,7 @@
->  #define APPL_CTRL_SYS_PRE_DET_STATE		BIT(6)
->  #define APPL_CTRL_LTSSM_EN			BIT(7)
->  #define APPL_CTRL_HW_HOT_RST_EN			BIT(20)
-> -#define APPL_CTRL_HW_HOT_RST_MODE_MASK		GENMASK(1, 0)
-> -#define APPL_CTRL_HW_HOT_RST_MODE_SHIFT		22
-> +#define APPL_CTRL_HW_HOT_RST_MODE_MASK		GENMASK(23, 22)
+For handlers with RTNL_FLAG_DUMP_SPLIT_NLM_DONE, rtnl_dumpit() drops
+-EMSGSIZE and returns skb->len. With an empty skb this is 0, so the
+dump ends with NLMSG_DONE and status 0, and the remaining entries are
+lost.
 
-Changing the value of a constant without changing its name
-is heading in the direction of a a recipe for disaster.
-It doesn't take much (eg a partial backport) for things to go awry.
+The first dump skb is allocated from __netlink_dump_start() while
+max_recvmsg_len is still 0, so it is only NLMSG_GOODSIZE. On a 4K page
+kernel that is under 4000 bytes, and a 500 way multipath route does not
+fit:
 
-David
+  ip link add dummy0 type dummy
+  ip link set dummy0 up
+  ip route add 198.51.100.0/24 table 100 \
+        $(for i in $(seq 500); do echo -n "nexthop dev dummy0 "; done)
+  ip route show table 100
+
+The dump prints nothing and exits 0
+
+Only ignore -EMSGSIZE when the skb has data, so that an entry which
+does not fit in an empty skb reports the error to user space.
+
+This only covers handlers which report a too large entry with
+-EMSGSIZE, such as the IPv4 FIB dump. inet6_dump_fib() instead returns
+a positive value when the first route does not fit, so the check added
+here never fires for it; that case is fixed by the next patch in this
+series.
+
+Fixes: 5b4b62a169e1 ("rtnetlink: make the "split" NLM_DONE handling generic")
+Signed-off-by: Stephen Hemminger <stephen@networkplumber.org>
+Reviewed-by: Ido Schimmel <idosch@nvidia.com>
+---
+ net/core/rtnetlink.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/net/core/rtnetlink.c b/net/core/rtnetlink.c
+index e141340172ce..2777796a4ed2 100644
+--- a/net/core/rtnetlink.c
++++ b/net/core/rtnetlink.c
+@@ -7043,7 +7043,10 @@ static int rtnl_dumpit(struct sk_buff *skb, struct netlink_callback *cb)
+ 	 * Some applications which parse netlink manually depend on this.
+ 	 */
+ 	if (cb->flags & RTNL_FLAG_DUMP_SPLIT_NLM_DONE) {
+-		if (err < 0 && err != -EMSGSIZE)
++		/* -EMSGSIZE with nothing in the skb is an error, as returning
++		 * a length of 0 would end the dump as if it was complete.
++		 */
++		if (err < 0 && (err != -EMSGSIZE || !skb->len))
+ 			return err;
+ 		if (!err)
+ 			cb->data = NULL;
+-- 
+2.53.0
+
