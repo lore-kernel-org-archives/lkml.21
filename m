@@ -1,47 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794954409;
-	b=CbFWbkPTFkFrhBI5eCViqCZ7bVrjJg5jNE9fDaHf43B4o1uLHIV+rOdfZcwmhqI6U7vq
-	 pQKiT/ElwrJMnIgYK3ZjJQ1KhIUavt5aPym5FEZt1Uy5RjL20os57BSxfwu7Fr3vz4+zt
-	 xHxe5RYLtn4Q/6+wvfiDZ7QHk7jofQDDN/By5e18Rngj3pblhJbJE3xtJrOJl9iknNff9
-	 MJ6w6rml7NqXRybw982hfMOYNkKbcH1vkjpDL3YMvcxbzIs12LZUp3CvwGBv7aT/mn1dA
-	 g9aa6QwzK1pvF0ihUxdtcgNcn7Kad68h/4dhLmDthtaW8P2KbJeCJzoYyAvmkWmjUaA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794954409;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=4s3mRwUX6ILMJnNwIdnhxtjyTyFSrX3O/LnhuPICPo8=;
-	b=duB30OjKznI9Lt/NnxaoQJVyXvBaNSiIAvehd4SU8vvIoLU1fwzXGmVvgpA4KkpSjIND
-	 tOUJjA/Sle8rB5XVMSHo+Wyn3a27Dq9ziStupy/M5IkScGqtATRv2rlXVCSL9zdhf1sRF
-	 Q5MATH1TYpOAajcGQ0lu98CzD5BhXfFWC5zRUAUCaL1sczqRwCkxOdPSBtg/mXD2WGKrZ
-	 NqCLroCcGpAHAhWjDTDxO+2+rY0KIeIZmsqPgTLZv9wWxBoUYw5CcyKmoMAVrwbZeO1Fn
-	 V4xCKDrHuQPFTl10LyhhFMZqNeKp4Eb1nDt8SLXkgRjD1lD65arHnHCD0Wm28X6nUVA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nbPCRoQE;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.172
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794954440;
+	b=fsVy3+0g1N//iRbODmzUlQdMTar3Dktayl3Lpus7jcbbmDa/GXM+m40URrxu5Hkw1fP9
+	 RwWQgjFvqlb6HjyO637SbnUGVgQs/BngybpQr3MDt6s7ttw2nzyLD1PDIo4FYM4JZuBrG
+	 c5veFsroFuz7Cmj+NyhkMxkqyl8Oa5M7jxIfcaW9Xcu1ho8aH44L1pUkbtaM5vpfFU/Mb
+	 E5YC5yFklWu52TDBQ9p4Ay4PNFdUlFhepQnohiraMTKY78Rbf3F2+7vNPwRrz0ng3yFJ+
+	 8SJNdxmZ73twentW74twA45XwigDZKg+C5BnLKB2iDqNKhtPDIe6c2dKuOxIqDJO15A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794954440;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=Qc4tF92xQdHPstDc9OOaR7th/jMxJe62KjbX9qJMUYY=;
+	b=jKW9P8VlAHKw81zEhJMA4b1Pwq/i2vux/KMLUHuJjBm6uhVhJv46brpvsDZcFdCNa4BO
+	 rhXkkKjcj0AZzBfMlrAbCUQ02L6dYCIw2Ct15WJNzVVZbzEb/nTlUhWx6JU8KZRsxkGYp
+	 SR39LdS/8YZ2hki0LdhtWX5oqZUXxvFoemThUcQkoXhW55oPgIN0o8yOu3nod9Grd2m/4
+	 kXENobOyOeAydoA8M640Y1antMdA0daLuTUigqxmCsTDt2jUxLfMXzh6ulsNHT3C6pWlN
+	 mpV+qWYR1TK+5O/mN/KejhflvzYkwU7vtui6jpb1eN82xyBrGBCePCbhHDbxY7d+QIA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IB9KSB2I;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.172
+Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E728F606A31C;
-	Tue, 17 Nov 2026 22:26:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4DA41606A32C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:27:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4DA41606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nbPCRoQE
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFC151F000C4;
-	Tue, 17 Nov 2026 22:26:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794954408;
-	bh=4s3mRwUX6ILMJnNwIdnhxtjyTyFSrX3O/LnhuPICPo8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=nbPCRoQE3o89KlLREqLTWYyUtsNPEovbGEBCvg9Bs5W+CQn+EDoSd4kW6CqQ6noPn
-	 fij8XDQ78Aiz1EQNF/Hnm/KK6k1ivKx51Rs40LhTRyKdis/NA0QALWgxa1jEn7XRrO
-	 WqI2TGo5r17KymhUe132c+/rkmGIwK7In96jrBpnei3XIdW2MCH3wwmhw63UR7WLv2
-	 yVsOlDs+YPNQvWkY+UMnWYyMYjKrrDoAr11HslTU11tjeKxn6U3EieqogoqSJvWMXD
-	 N84lCTVVRl/84g9ywTc6nzbFoO5ebOnayr+Ug7EKMg8ituJcg7A6tTW+g5Zi7FTqZK
-	 GrJXO1eClwF3Q==
-Message-ID: <44bb9bd5-42f5-46d2-8dca-dd220aa221cb@kernel.org>
-Date: Tue, 17 Nov 2026 23:26:38 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IB9KSB2I
+Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-380b40319bdso682468eec.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 14:27:20 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794954439; cv=none;
+        d=google.com; s=arc-20260327;
+        b=EzGmTA/3Fi5UkkdG3qJofYnFbTTsQSVmNuEHd+X0o9n0Dgq0VmnRiYMiZtzUdNTP7A
+         lJccotU7eG8jK+ZemsIc5bA+8ehb70t7p5ueoUQAqMW/1+rlBXJ7GYmDnP3hVEmI9yKK
+         6JpAmil8Vy5NS90nyh9veKlnfA5Om0NtyWcjIwKI9RhpQOdTwQmOJc4ZVbqHRdQLTizq
+         vwXqAlhFpcy5TRwfMnuVTtzmf4zjqkZ1KXSc9O4C0SNnRqfes35HaiXneM32VswCcDvd
+         CMl0YJUuO6tgcaj3k3MmZqa+e2grSN4dVbHB8d1Pwo2Mqpnb4J1+8K6rYoQjBrIIIGqr
+         qlfg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Qc4tF92xQdHPstDc9OOaR7th/jMxJe62KjbX9qJMUYY=;
+        fh=CxrGVsK8dtoqdVXdyCbLSuGxHh3hYFynGISQTHLDhMg=;
+        b=Ysdur3UK6gPZhIMyXiO88zD1FiJvoW25FVii/NtmOzZdxv7L/l2PEWTM3VlWnkvy+q
+         1qwfbBIqzYLDUmHyBKh9zo8fY6zdz5YNvBCVxc3gi6cB4pQV987ZHVoIQTFF42Ihu+GU
+         NShkTUeD0NkRNuUF1ht2/t02qNoywXIqmHvaH3g47wsR/Y0dEnGanqSemnCoHobhXBZA
+         FTqZomLM+wgeefcuGV+DW0E7Y9HwiDOhXAhDsu6/YiFbdnYV3hBhPV5H9TlaxEbH+NbC
+         4dPI/gIvNtCZFt+9PALHtFp5bas8/x4wfSrV/idKXJafFNFgutUg3pyTKOJ+QutVjPCu
+         vwHg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794954439; x=1795559239; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Qc4tF92xQdHPstDc9OOaR7th/jMxJe62KjbX9qJMUYY=;
+        b=IB9KSB2IO7iBgCq+jpeGWdjPjnYtClNviws6DaTkktO+PylGhjg0GKWFZiRmTiYy8k
+         MyTQahP6c3RdjvveNi5QxsAzzUV37zetQh/aHiKX6hMOXlz71Jnr/1tBkfzavydq9+Fj
+         dSWU/IZSX6OejLPtgrnhjpR4RKxo8Qzbucd0RZrms6HayGn7wzdzbz5jUeJzI1v/Kiq0
+         w3PkJrIbbIHptZ8tqCmNDuLqktqioEjbVBlGMSr9gbPdb+KMJiRCC5XmRHtJTg/Zl8Pm
+         Fq8rBhEkuK1mAGxWxuZT7Hd+7i8WF8esFnW6jsWBDjMz6AlDQDuW8aneGxrCDiBy1evn
+         XOGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794954439; x=1795559239;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Qc4tF92xQdHPstDc9OOaR7th/jMxJe62KjbX9qJMUYY=;
+        b=CE+jhLDsvozmS1yOEquu7GqQ+AUlt6CeVb3u4DJrSmUdeyWiKiBUHO5h9UhXvjynOX
+         C/vlbxBgeQiYbLOOEQUf0Luy1ivFnbF6SbYG75frD7L+iGKCFt4FnrnX3mDLF02pLGyn
+         FSEXswYDJcxSypy2vrcl6O9PCC3KbaawNqljQUzdMIS9ZH3wNHLQEM6L+X+CHyWTKBdV
+         VVOighooTDwbak3zKWtHuoClC5DJf2KaTTRpQ78HNUwokW6F8MK23/MIWVzN9BOZ8WcC
+         EGPAXTPEpSYBoOtYsAbvwycVMcDiRQxZk7NvpnMurHwe0aGaNwz8dxnY2Ug2uSBqJYkx
+         XpUQ==
+X-Forwarded-Encrypted: i=1; AL+hErGcIHQzd25wD1IZnGcz9TY7w5YmmPji8hcVKsze3S1zDvKGECKw2Aqk1ewEFfBp1vTSMlxFWkkqfVKmqXQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Ze0TeNQkI3tQ0g3MhdVaME51XqegVz2kwKsCJxN/TeoQjB0UH
+	RfuKr5ij4Fl9YiSpa+mwc2AmP0mXMMj6wtOCn3q+xsgX12czMPcvtSCRxDRTo3OHlLVT77rZMcI
+	YLvboUnd4zeEzKcCHRGIpPAJRqhaaG/k=
+X-Gm-Gg: AZFdTZeKSX/gDJGNhx+i/awXOD++SzZieB++7iX+InpsZqb6Hhx7sqnKkJ5kPCB+Hx9
+	YkCQdkjeqk0VwM/0zQYrsq1zD53QyDLpIYAUnYXsFJPnpmkjaXLc8Wi/7JVIR2zZrBg9qyJyvqM
+	dIEUd1XMtPWhC7aemzw+ltbStM624jn89W+GddpCQ0FSAuwSDzYLnsKZ5IFLMDjjsZjPL4Mpywt
+	1ACe55youtv0PmNz45IU15Gucx1r0n+YYGJuMFK4Fdyk9H/hoz+AJ5mtotXH3v4B0ShvJwLilP8
+	ueTpvxXPxVFREQw+MMImyEcNjLBkJ0KKFf25rXSFWkCwCV+ZaUeR95JXYyhDH/shbUUfXvYWiq+
+	V+otWtkj/ujZdKKdhakTaSGZyuktQOjrpOZoOE0JW97zLGiCiAz5vnUVYz14+qbexj1Vt/0s5hj
+	ENzEeugSrJ1qmhX68NgsccV0KDov69oTygYVb3lDk=
+X-Received: by 2002:a05:7300:7314:b0:375:c5e1:931d with SMTP id
+ 5a478bee46e88-38280c2e5fbmr1001348eec.25.1794954439224; Tue, 17 Nov 2026
+ 14:27:19 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,60 +105,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 3/6] soc: fsl: guts: add the RCW override of the pad
- muxes
-To: Vladimir Oltean <vladimir.oltean@nxp.com>, vjardin@free.fr
-Cc: Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>,
- Frank Li <Frank.Li@nxp.com>, Jacky Bai <ping.bai@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- NXP S32 Linux Team <s32@nxp.com>, Linus Walleij <linusw@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev, Ioana Ciornei <ioana.ciornei@nxp.com>
-References: <20261117-for-upstream-lx2160a-rcw-pinmux-v1-v7-0-5d7201970629@free.fr>
- <20261117-for-upstream-lx2160a-rcw-pinmux-v1-v7-0-5d7201970629@free.fr>
- <20261117-for-upstream-lx2160a-rcw-pinmux-v1-v7-3-5d7201970629@free.fr>
- <20261117-for-upstream-lx2160a-rcw-pinmux-v1-v7-3-5d7201970629@free.fr>
- <avzCrmvlOQh0RVjT@lxl00025.wbi.nxp.com>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <avzCrmvlOQh0RVjT@lxl00025.wbi.nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <CAJ6F8CFSfgdZqaKMndGZtbaww32Xr_KVL3gA_2Jemgv9i9vskg@mail.gmail.com>
+ <CAJ6F8CFgkgksyk6YM3NdMkQNhSFWV4depC4c-mHvpDHpnjhM-Q@mail.gmail.com>
+ <6ab4a114-57b2-40c7-99d4-55a4ac4c9a9c@leemhuis.info> <CAJ6F8CHzm4=ryY+j3ao6doR=-67Lq=3-w-kbhk1wdvtYDhyNeA@mail.gmail.com>
+ <CAGEkeHdxaC2BBg5wWOCL0pj0r4Ks6mD_a3KpE7h+en9Aupb4zA@mail.gmail.com>
+In-Reply-To: <CAGEkeHdxaC2BBg5wWOCL0pj0r4Ks6mD_a3KpE7h+en9Aupb4zA@mail.gmail.com>
+From: =?UTF-8?Q?Cl=C3=A9ment_Smagghe?= <cle.smagghe@gmail.com>
+Date: Tue, 17 Nov 2026 23:27:07 +0100
+X-Gm-Features: Aa3M54pO67MCZLcmJlYCwS3g7jZlLsxu4gjlyt9JHnihscax6mlfWNEjuiM6Vfo
+Message-ID: <CAJ6F8CF5FF6-+Z6tOA7Gz=m_Cvxz-n7G=bqVY5H+fBCV3kbo_Q@mail.gmail.com>
+Subject: Re: [REGRESSION] ntfs3: existing files/dirs with ':' in their name
+ became inaccessible in 7.3 (ads on by default)
+To: Hungyu Lin <dennylin0707@gmail.com>
+Cc: Thorsten Leemhuis <regressions@leemhuis.info>, almaz.alexandrovich@paragon-software.com, 
+	ntfs3@lists.linux.dev, regressions@lists.linux.dev, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
+On Tuesday, Nov 17, 2026 at 8:29 PM, Hungyu Lin <dennylin0707@gmail.com> wr=
+ote :
+>
+> On Sat, Nov 14, 2026 at 7:43 AM Cl=C3=A9ment Smagghe <cle.smagghe@gmail.c=
+om> wrote:
+>
+> I sent a fix that makes 'ads' opt-in again:
+> https://lore.kernel.org/all/20261115103845.56074-1-dennylin0707@gmail.com=
+/
+>
+> Could you reply with your Tested-by if it works for you?
 
+Hi Hungyu,
 
-Le 17/11/2026 à 22:10, Vladimir Oltean a écrit :
-> On Tue, Nov 17, 2026 at 03:53:13PM +0100, Vincent Jardin via B4 Relay wrote:
->> From: Vincent Jardin <vjardin@free.fr>
->>
->> fsl_guts_rcw_rmw() only serves the SerDes lane modes. Export it for
->> the pad-mux fields of the RCW, and for them only:
->>   - fsl_guts_pmux_read() reads the pad-mux fields of a status register
->>   - fsl_guts_pmux_override() changes pad-mux fields of one under
->>     rcwcr_lock and waits for the status register to follow
->>   - fsl_guts_pmux_override_supported() tells whether the SoC has pad-mux
->>     fields and whether the DCSR view of DCFG, which holds the override
->>     registers, is mapped
->>
->> Each SoC lists in its fsl_soc_data the fields that can be overridden,
->> per RCWSR: a register or a field outside of this list is refused, so
->> the SerDes protocols stay with fsl_guts_lane_set_mode(). The LX2160A
->> lists the pad muxes of RCWSR12 to RCWSR14 and of RCWSR27.
->>
->> Suggested-by: Vladimir Oltean <vladimir.oltean@nxp.com>
->> Acked-by: Frank Li <Frank.li@nxp.com>
->> Signed-off-by: Vincent Jardin <vjardin@free.fr>
->> ---
-> 
-> Looks good, thanks.
-> 
-> Reviewed-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+Thanks a lot for the quick fix. Your patch doesn't apply as-is to
+v7.3.4 (the context line 'opts->ugm =3D 1;' only exists in 7.4), so I
+applied the same one-line removal on top of v7.3.4, rebuilt the ntfs3
+module with the Arch config and tested on the affected volume:
 
-Acked-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+- mounted without any 'ads' option: 'ads' no longer shows up in the
+  mount options, both existing directories with ':' in their name can
+  be stat'ed again, and a new directory with ':' in its name can be
+  created, stat'ed, renamed and removed;
+- mounted with an explicit 'ads' option: ADS mode is enabled and
+  shown in the mount options as before.
 
+Tested-by: Cl=C3=A9ment Smagghe <cle.smagghe@gmail.com>
 
+A minor, non-blocking suggestion: Documentation/filesystems/ntfs3.rst
+says every option can be negated with a "no" prefix, but 'noads' is
+rejected (only 'ads' / 'ads=3D<bool>' are registered). Accepting
+'noads', or at least documenting 'ads=3D0', would avoid confusion. Not
+a blocker for this fix, though.
+
+Thanks again,
+Cl=C3=A9ment
