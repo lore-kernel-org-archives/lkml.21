@@ -1,114 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.22
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794943329;
-	b=iKilCR3mQkgqoX/rav/KjQbRqDyIWj9gvz+Dc0/kVMMqGstxpvBJWBB0qUIu84zg3V0l
-	 MLVm0NnPsqAr/YNqIxvlkPAlt/Lv/Dy14qlNMat7dvG2um+cPxZJ0H5EWY1GYl5ZDpms7
-	 Mzl8sTikO3HxmVBQiMzEzCLr5mHE5xphqVx73GXND7CWHaRSAsIpVI5N41pvEWqSbLPs8
-	 GczNWwDd10/HJmtJ1kTy97Rr/hskaUZU0CUOLqi0nByqkeJcREq6fT5Hr3CRKdlLyn5gz
-	 ey7gEVne38ASQu96xE2/Wge1/aKTrY6ag0hvSN4judsaxGOSvI7ZkxDOvtoPbD0r7jA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794943329;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
-	 Content-Type:X-NV-OnPremToCloud:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=P0nl3az0FrnI86MzNYtGIeDDnt/B5ura6HZHXXE3EeU=;
-	b=ucqOdMJiEt8ufduFLkVzBBXX1KZPfHEvCTm6SAI0pedzVyfuTlC6CnSyLlioZb+mA6KG
-	 jaahPxGHn1fSfw4yrjg0A5s27GH9pyFFE5EmN9dpE7vLLJA8znI+KFISk6t63yinJSWQm
-	 mb9TJz0vrjlgVQJhssiUwTP1J+Im874EWmORarhE08eORajUQs2hV2QD60LueWoa8ca91
-	 1fOGPo5NyXxGlPnmcnm4PWgukBMqaeJ8aBb545ppNrQQGQy9GZUGNXxIVDemkkGCeRT61
-	 BreOSna0WB58/650Ahkt/blmEncZNFseKwhCnHQOSqzZ9DNqaz9yBhrGG4+s1LqxLOw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=XsSt7yUJ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.22
-Received: from MW6PR02CU001.outbound.protection.outlook.com (mail-westus2azon11012022.outbound.protection.outlook.com [52.101.48.22])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.202
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794943328;
+	b=1D0a+dSbmWGzi8fcC5bkAhcS7S6pPssYcXTNHOB1XkVve+Z/I0x/CDGZnA5msre48t1v
+	 +uc1GnG6ZoGIMK86Fjwg+mI4SMrxjDb2J0g6D1bCdcESwl1Rj+Mauy5d9/OsRPXJn3pxi
+	 e7tY1MJeXi5oONna17PUkAZIFo9SAiQwWU3eg+mJmIG/qu6ohonc74X9CtxE7tQuayi1f
+	 i34xkDd/wkPVAUJpcUBEe9hBIkFJhpcjvC2k/AZ3Q8mrWKK8OtI58th10/JyzLM0mFk0K
+	 BdWN/BJrjneeC25ce+iY0eSLnnjIqHnRtfilpit95EoBASfajbcrHK1SS1I1X1cNsyw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794943328;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=+qxp1esyIUrBFvVUQXu4Fp0WugiEP0FEew9x0QA2Wgs=;
+	b=hjYB+kNrV7izomJyDUMqsKDmjUfcTNQeYRJjGfEd1quVmGoJ7161ZJL4NC+G6wyjhGyj
+	 TUSA6xXi9ISikfa6WHNdju+ExBNocUf7hx+H1dWLFQrw0atMmEJbjD9fEXIBchKvY0cTP
+	 2tHQrMTp3vdPsmhUH3cG0cQnJmnjCkWBN5cKyATmG8ebbjyPDY5DBmkCeAq+WsF/oFkqL
+	 eY6b3J/BEemYZG8DIV3i3vQNs19xcSUcRqe/kvrXju0cbafjl4A5zlCaGPSlEUSKPeiRh
+	 Ahnb7eWg8wuAEkoGGTlnxYUHK+GbjojeEehOCa3ngv5B7HxirUBJiXn3ZJqeiqae2sw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=jGWrZj9z;
+	arc=none smtp.remote-ip=91.218.175.202
+Received: from mta0.migadu.com (out-202.mta0.migadu.com [91.218.175.202])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23232606A331
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:22:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 23232606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33525606A336
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:22:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33525606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=XsSt7yUJ
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ybbRBqvWG0yJ6kkTCOuqMUZMK+Yxa4rchX7M8z9IG8Fk8uQKwWvfK+RlcOgdc0JbiodsllYhyRcHT0FOUc7MpGbme+MbIQaFv3MbpXjnNRXq5OzKdzLsMI5hUGG++A09vWyThYufWTPw6mhlRG1P8In3I/9yyILYF84sIRcU849gOGm3V38AmJ5rJypivG7ugVVQJDPJZ6yO8UB0h41pn9yIg99t41UodvEFZZV6J1N1X+oLAOp4MHaXQObLs9BVxeL/glO7yiF6drGKkEzbkRweWVuz070nbFxq1ra78xEwEcZ138UxM6ZK6DDKJ9zah2WKDHew++u4ZbKaK49u6Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=P0nl3az0FrnI86MzNYtGIeDDnt/B5ura6HZHXXE3EeU=;
- b=uxCZC4Q9AQTAbL8y3yJxqSPyusewd8VCm5J5usHuoRy60FBbZ7ymux8QncGqqq+8O08L0PlLgHJCD49qBKd84gmr/q7Q3rgeKjal6UqAb4OVqxwySo1SyRYKxfwQWtAGlBo/HFGcMxh62vh6utevuwTjPB7ff5kF2wx1cjRTbC9TV3pw61G2WPfEnTKkO5UtmoT3PNBTgriFgbYJB3/U4CeOkHqbaG5KNdFI15Y/UvdS3rm0AkpOfvLWQRNuscsiiyr3PO/9qSVI9oApG+bP1EOB4Up1BiE01qoAV4am3eiCR0uGXZR5MyvvWkAUVG7TiSAslfZPiEe5n4FPjIlLjg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=P0nl3az0FrnI86MzNYtGIeDDnt/B5ura6HZHXXE3EeU=;
- b=XsSt7yUJfcHZERcfEjygy0B2JAOuQ9k8W6R85f7N6fvR1UuFH9433vBjeLgv2k+OhTRGvamP1+KgIHUppgKvZ8EKn0IJ/nCmMRVAAxZ5iLe9A5TJQn0uNSOuo8U609jp+F+SR4BMBa01z9Nr1hNG37tgQm5xIMcLWrYrKAM5oMIgUepn1CGtVVjrK26wrOzPgPWDUrTzPd8v3OJqZze4QlGL9dEG90LoJ8zNiLde6SqUidviSsq1cl6P462tDNTvCAHa/zAcmb1U8acL0Tr0VbDF6dVtBpbstvZ9Tg0Hkzh9MEx3IGPcwNpnGKGlj/7zCwoWSclizy28yCZbokyhUw==
-Received: from BL1PR13CA0154.namprd13.prod.outlook.com (2603:10b6:208:2bd::9)
- by SA1PR12MB9246.namprd12.prod.outlook.com (2603:10b6:806:3ac::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.10; Tue, 17 Nov
- 2026 19:22:03 +0000
-Received: from BN2PEPF0000A990.namprd04.prod.outlook.com
- (2603:10b6:208:2bd:cafe::48) by BL1PR13CA0154.outlook.office365.com
- (2603:10b6:208:2bd::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.0 via Frontend Transport; Tue, 17
- Nov 2026 19:22:03 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.118.233) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- BN2PEPF0000A990.mail.protection.outlook.com (10.167.248.137) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Tue, 17 Nov 2026 19:22:02 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 17 Nov
- 2026 11:21:36 -0800
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Tue, 17 Nov 2026 11:21:35 -0800
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.13) by mail.nvidia.com
- (10.126.190.181) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Tue, 17 Nov 2026 11:21:35 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <will@kernel.org>, <jgg@nvidia.com>
-CC: <robin.murphy@arm.com>, <joro@8bytes.org>, <praan@google.com>,
-	<kevin.tian@intel.com>, <smostafa@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <jamien@nvidia.com>, <kas@kernel.org>,
-	Cristian Prundeanu <cpru@amazon.com>, Breno Leitao <leitao@kernel.org>,
-	<xueshuai@linux.alibaba.com>, <john.garry@arm.com>
-Subject: [PATCH v13 01/12] iommu: Pass in NULL old_domain when attaching a deferred device
-Date: Tue, 17 Nov 2026 11:21:18 -0800
-Message-ID: <d38f0479995fe866a56bfcedb55368816622f9fa.1794942324.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1794942324.git.nicolinc@nvidia.com>
-References: <cover.1794942324.git.nicolinc@nvidia.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=jGWrZj9z
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=mAKwi96oY/q+eQn01d5OThbyg3FcYSu5b7y3y9Tyctw=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794943326; v=1; x=1795548126;
+ b=jGWrZj9zXlD8d/Fc77v/X5fboTC0cSV3U89ukpBtLMXI+dKNJLAiJYraPgmnfWFoD8QxRyXU
+ ET4VbOYfbsefKuy435nQjPmttflBUqyo4sR9ZnRNWAA00b/GdVTz7OrEwvztOEFBXs24jiWHf0s
+ bz4U+boPZWSUWHXQ90yICYaQ=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta10.migadu.com with ESMTPS id 8aa539796b05af36;
+	Tue, 17 Nov 2026 19:22:05 +0000
+X-Mizu-Trace-ID: 8aa539796b05af36
+X-Migadu-Flow: FLOW_OUT
+From: Ihor Solodrai <ihor.solodrai@linux.dev>
+To: Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Cc: Alan Maguire <alan.maguire@oracle.com>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Song Liu <song@kernel.org>,
+	Tejun Heo <tj@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	sched-ext@lists.linux.dev
+Subject: [PATCH bpf-next v1 1/4] libbpf: Fall back to kernel ___ flavors when resolving kfuncs
+Date: Tue, 17 Nov 2026 12:21:50 -0700
+Message-ID: <20261117192153.3384031-2-ihor.solodrai@linux.dev>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261117192153.3384031-1-ihor.solodrai@linux.dev>
+References: <20261117192153.3384031-1-ihor.solodrai@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,99 +78,253 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF0000A990:EE_|SA1PR12MB9246:EE_
-X-MS-Office365-Filtering-Correlation-Id: be9ba46a-dd41-4a5e-31af-08df44e00f4d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|82310400026|1800799024|36860700016|7416014|23010399003|18002099003|6133799003|22082099003|261009223027099003|11063799006|56012099006|261102123227099003|261026121527099003|261021135927099003|261026140227099003|10067099003|261022075727099003|261028144727099003|261021121427099003|261022105027099003|261021123027099003;
-X-Microsoft-Antispam-Message-Info:
-	ruywKT1L/zQo5jtffKvamoywthkcEcfNYEkCjJZxynLERE8g10wIakDslUquycF/9Lfpht81l/v/X1/3xmdmnsu5Glg7fLPDfvwErjI0s64Yc+QP9AL539aqTbDSp/gAzNO0jWPmryJVm1CZZeWucfjzdkIKbxnOxP5gJY4qWpNgmAW1pW/5vtUKYPw898nPC/fKWLPacRXP22o0hCAswolr4WXt89FGvH8vyNHz1JZrYr9NpzQLIOi5Y90oktgYTxJisfjLnysyrz/lJuDQSzN93AYBf5O9NtSfqwC51XZtAqWw54LckE0S5ud1o2CBiK5xN5OW/6E46djlFNQxzQEw9rc76l10MxxLNeeP2QeYUYjFpJDbWBiE+tF0pC76zWcNHfrM1N7ynLb8x2h/M+xR/2KPI2pY2IqVDc2sqjaVfC4jLCrvay7Jzrv2//7q96JnT1ung0d9jiGNW2xFnIlxMf1OeHYRoSmQRgWl7/jQl7uKF7fWa7O5KfjHfwgNQk29Z10maIphHDilQX8emHhP61i1haIifpnuhsCaIRDhgPR+fUmNFU2eEN0ayUCQomkjl74YiCjmF4ML2Yfg9ogTHWe9jtUyBlcKBKALpvT8u++A2S2L7ZHovnWf/2IrauRcQPTRRvE8MKr1I8t3DFJa0fEG9UK4J/pRNO6RiI78ztMTCdM81T7InWQoVD4J9LckctQ9o1DsXpeYVRl01w==
-X-Forefront-Antispam-Report:
-	CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(82310400026)(1800799024)(36860700016)(7416014)(23010399003)(18002099003)(6133799003)(22082099003)(261009223027099003)(11063799006)(56012099006)(261102123227099003)(261026121527099003)(261021135927099003)(261026140227099003)(10067099003)(261022075727099003)(261028144727099003)(261021121427099003)(261022105027099003)(261021123027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	JfXIBH6ienMAUj2U8bKTTgPVOsLm1C6WkrOsyU89LrB17bDbwxu2/dGijaYb2ClmwsJrK+vqpPDLj100+enaUUmicE3sDuro7Yao7WvKIxQpIPLU7WbhxgKO/TSaVkLQkxQTLfKxtWwjKYZQw1+Z9VZRDGvK5zUAGYDXwpqWq8Vv5x5YkJqCr9kk16H3TWmvgXy9kRZXP4Y0BF1o+44ka29CQFa9huyt19qJa6KCgFjsjD5q+vPu7w8qD1aUlmdZluTYQYKmw1a5gfhF0G/tpg6/wH6XEVOC2L7MV4C2RUYe6rvrMFsqBzSri5olArydKPyX6W46Iol20LISw66iklQID4a6Q30Wy2HVmLHBpnx6sjA9OLhDFMpDklvKpRP5YEqalK/9hGAxZgL/uOj3ueVnRwTHi2DwIAHIpK7Po8aQZUv8QOUKUPdL9hFXnj7g
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 19:22:02.8130
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: be9ba46a-dd41-4a5e-31af-08df44e00f4d
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	BN2PEPF0000A990.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB9246
 
-When a driver defers the default domain attachment of a device, the IOMMU
-core skips the attachment in __iommu_device_set_domain() but still sets the
-group->domain to the group->default_domain. Since the driver has not seen
-this attachment, iommu_deferred_attach() later finalizes it by passing in a
-NULL old_domain.
+When resolving a kfunc, libbpf strips the ___<flavor> suffix from its
+name and binds the kfunc with the resulting name if its prototype is
+compatible. So when a kfunc foo changes its prototype, the kernel can't
+keep the old one available to existing BPF programs as foo___v1: they
+declare foo, and libbpf never looks at foo___v1.
 
-However, two other paths pass in the group->domain as the old_domain for a
-deferred device:
- - __iommu_device_set_domain(), when attaching a non-default domain
- - pci_dev_reset_iommu_prepare(), when attaching the group->blocking_domain
+sched_ext worked around this by giving the new prototype the name
+scx_bpf_dsq_insert___v2 and spelling it scx_bpf_dsq_insert___v2___compat
+in BPF programs, so that the stripped name matches the kernel name
+exactly. That leaks kernel naming into BPF programs, and calling the
+kfunc as vmlinux.h declares it fails: scx_bpf_dsq_insert___v2 strips to
+scx_bpf_dsq_insert, whose prototype is incompatible.
 
-A driver uses the given old_domain to clean up the device's state in that
-domain. However, a deferred device has no state in the group->domain, since
-the driver has never attached the device to it. So, the driver would end up
-cleaning up a state that does not exist.
+If the kfunc with the stripped name is missing or its prototype is
+incompatible, look among the kfuncs named <name>___<flavor>, in vmlinux
+first and then in the first module that has any, and bind the one whose
+prototype is compatible. Only FUNCs with the bpf_kfunc decl tag are
+candidates. More than one compatible flavor is an error even for a kfunc
+declared __weak: ambiguity isn't absence.
 
-In practice, the first path is unlikely, since it requires the device to be
-attached to a non-default domain before its first DMA mapping. The second
-path is reachable when an ATS supported device gets reset before its first
-DMA mapping.
+The lookup of the stripped name comes first and is unchanged, so
+bindings that work today stay the same.
 
-Pass in a NULL old_domain on both paths for a deferred device.
+Print the name of the chosen kfunc in the debug message.
 
-Note that pci_dev_reset_iommu_done() can keep using the group->domain for
-recovering the device, because pci_dev_reset_iommu_prepare() has unset the
-attach_deferred flag.
-
-This will be needed for the SMMUv3 driver to support the kdump mode, where
-it relies on the given old_domain to unreference the invalidation entries
-of a master.
-
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+Signed-off-by: Ihor Solodrai <ihor.solodrai@linux.dev>
 ---
- drivers/iommu/iommu.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+ tools/lib/bpf/btf.c             |  26 ++++++
+ tools/lib/bpf/libbpf.c          | 140 +++++++++++++++++++++++++++++++-
+ tools/lib/bpf/libbpf_internal.h |   1 +
+ 3 files changed, 165 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-index b486b8bbd1fcd..4585ffa9a73c9 100644
---- a/drivers/iommu/iommu.c
-+++ b/drivers/iommu/iommu.c
-@@ -2420,6 +2420,8 @@ static int __iommu_device_set_domain(struct iommu_group *group,
- 		if (new_domain == group->default_domain)
- 			return 0;
- 		dev->iommu->attach_deferred = 0;
-+		/* The driver has never attached the device to old_domain */
-+		old_domain = NULL;
- 	}
+diff --git a/tools/lib/bpf/btf.c b/tools/lib/bpf/btf.c
+index a4bf01403a43..9eb13c8a95a5 100644
+--- a/tools/lib/bpf/btf.c
++++ b/tools/lib/bpf/btf.c
+@@ -1164,6 +1164,32 @@ static __s32 btf_find_type_by_name_bsearch(const struct btf *btf, const char *na
+ 	return btf__type_cnt(btf);
+ }
  
- 	ret = __iommu_attach_device(new_domain, dev, old_domain);
-@@ -4059,8 +4061,13 @@ int pci_dev_reset_iommu_prepare(struct pci_dev *pdev)
- 
- 	/* Stage RID domain at blocking_domain while retaining group->domain */
- 	if (group->domain != group->blocking_domain) {
-+		struct iommu_domain *old_domain = group->domain;
++/*
++ * Set [*start, *end) to the IDs of btf's own types that can have a name
++ * starting with prefix. On BTF sorted by name these are exactly the ones that
++ * do, a contiguous run found by binary search; otherwise all own types.
++ */
++void btf_name_prefix_range(const struct btf *btf, const char *prefix, __u32 *start, __u32 *end)
++{
++	__u32 i, n = btf__type_cnt(btf);
++	size_t len = strlen(prefix);
 +
-+		/* The driver has never attached a deferred device */
-+		if (pdev->dev.iommu->attach_deferred)
-+			old_domain = NULL;
- 		ret = __iommu_attach_device(group->blocking_domain, &pdev->dev,
--					    group->domain);
-+					    old_domain);
- 		if (ret) {
- 			gdev->reset_depth--;
- 			return ret;
++	if (btf->named_start_id <= 0) {
++		*start = btf->start_id;
++		*end = n;
++		return;
++	}
++	*start = btf_find_type_by_name_bsearch(btf, prefix, btf->named_start_id);
++	for (i = *start; i < n; i++) {
++		const struct btf_type *t = btf_type_by_id(btf, i);
++		const char *name = btf__str_by_offset(btf, t->name_off);
++
++		if (strncmp(name, prefix, len) != 0)
++			break;
++	}
++	*end = i;
++}
++
+ static __s32 btf_find_by_name_kind(const struct btf *btf, int start_id,
+ 				   const char *type_name, __s32 kind)
+ {
+diff --git a/tools/lib/bpf/libbpf.c b/tools/lib/bpf/libbpf.c
+index 1efc0dd37b2e..9089e9c55dfd 100644
+--- a/tools/lib/bpf/libbpf.c
++++ b/tools/lib/bpf/libbpf.c
+@@ -9513,6 +9513,130 @@ static int bpf_object__resolve_ksym_var_btf_id(struct bpf_object *obj,
+ 	return 0;
+ }
+ 
++/* t is the bpf_kfunc decl tag of FUNC id */
++static inline bool btf_is_kfunc_tag(const struct btf *btf, const struct btf_type *t, int id)
++{
++	const char *name;
++
++	if (!btf_is_decl_tag(t) || t->type != id)
++		return false;
++	if (btf_decl_tag(t)->component_idx != -1)
++		return false;
++	name = btf__name_by_offset(btf, t->name_off);
++	return strcmp(name, "bpf_kfunc") == 0;
++}
++
++/* FUNC id has the bpf_kfunc decl tag */
++static bool btf_is_kfunc(const struct btf *btf, int id)
++{
++	__u32 i, n;
++
++	btf_name_prefix_range(btf, "bpf_kfunc", &i, &n);
++	for (; i < n; i++) {
++		if (btf_is_kfunc_tag(btf, btf__type_by_id(btf, i), id))
++			return true;
++	}
++	return false;
++}
++
++/* id is a kfunc named <name>___<flavor>, where len is strlen(name) */
++static bool btf_is_kfunc_flavor(const struct btf *btf, int id, const char *name, size_t len)
++{
++	const struct btf_type *t = btf__type_by_id(btf, id);
++	const char *kname;
++
++	if (!btf_is_func(t))
++		return false;
++	kname = btf__name_by_offset(btf, t->name_off);
++	if (strncmp(kname, name, len) != 0)
++		return false;
++	/* kname is <name> itself, already tried by the exact lookup */
++	if (kname[len] == '\0')
++		return false;
++	if (bpf_core_essential_name_len(kname) != len)
++		return false;
++	return btf_is_kfunc(btf, id);
++}
++
++/*
++ * Find the kfunc named <name>___<flavor> among btf's own types whose
++ * prototype is compatible with ext's.
++ *
++ * Returns the kfunc's type id, 0 if no flavor is compatible, -ESRCH if there
++ * are no flavors, or -ENOTUNIQ if more than one is compatible.
++ */
++static int find_kfunc_flavor(const struct bpf_object *obj, const struct extern_desc *ext,
++			     const struct btf *btf)
++{
++	const char *name = ext->essent_name ?: ext->name;
++	size_t len = strlen(name);
++	bool has_flavors = false;
++	int found = 0;
++	__u32 i, n;
++
++	btf_name_prefix_range(btf, name, &i, &n);
++	for (; i < n; i++) {
++		const struct btf_type *t = btf__type_by_id(btf, i);
++
++		if (!btf_is_kfunc_flavor(btf, i, name, len))
++			continue;
++		has_flavors = true;
++		if (bpf_core_types_are_compat(obj->btf, ext->ksym.type_id, btf, t->type) <= 0)
++			continue;
++		if (found)
++			return -ENOTUNIQ;
++		found = i;
++	}
++	if (!has_flavors)
++		return -ESRCH;
++	return found;
++}
++
++/*
++ * Like find_ksym_btf_id(), but for a ___flavor of ext's kfunc: vmlinux first,
++ * then the first module that has any. *res_btf and *res_mod_btf are only set
++ * when a compatible flavor is found.
++ */
++static int find_kfunc_flavor_btf_id(struct bpf_object *obj, const struct extern_desc *ext,
++				    struct btf **res_btf, struct module_btf **res_mod_btf)
++{
++	struct module_btf *mod_btf = NULL;
++	struct btf *btf = obj->btf_vmlinux;
++	int i, id, err;
++
++	id = find_kfunc_flavor(obj, ext, btf);
++	if (id == -ESRCH) {
++		err = load_module_btfs(obj);
++		if (err)
++			return err;
++
++		for (i = 0; i < obj->btf_module_cnt && id == -ESRCH; i++) {
++			mod_btf = &obj->btf_modules[i];
++			btf = mod_btf->btf;
++			id = find_kfunc_flavor(obj, ext, btf);
++		}
++	}
++	if (id > 0) {
++		*res_btf = btf;
++		*res_mod_btf = mod_btf;
++	}
++	return id;
++}
++
++/* ext's kfunc is missing, or kfunc_id's prototype is incompatible with ext's */
++static bool need_kfunc_flavor(const struct bpf_object *obj, const struct extern_desc *ext,
++			      const struct btf *kern_btf, int kfunc_id)
++{
++	const struct btf_type *t;
++
++	if (kfunc_id == -ESRCH)
++		return true;
++	if (kfunc_id < 0)
++		return false;
++	t = btf__type_by_id(kern_btf, kfunc_id);
++	return bpf_core_types_are_compat(obj->btf, ext->ksym.type_id, kern_btf, t->type) <= 0;
++}
++
+ static int bpf_object__resolve_ksym_func_btf_id(struct bpf_object *obj,
+ 						struct extern_desc *ext)
+ {
+@@ -9526,6 +9650,17 @@ static int bpf_object__resolve_ksym_func_btf_id(struct bpf_object *obj,
+ 
+ 	kfunc_id = find_ksym_btf_id(obj, ext->essent_name ?: ext->name, BTF_KIND_FUNC, &kern_btf,
+ 				    &mod_btf);
++	if (need_kfunc_flavor(obj, ext, kern_btf, kfunc_id)) {
++		ret = find_kfunc_flavor_btf_id(obj, ext, &kern_btf, &mod_btf);
++		if (ret == -ENOTUNIQ) {
++			/* an error even if declared __weak: ambiguity isn't absence */
++			pr_warn("extern (func ksym) '%s': more than one compatible kfunc flavor\n",
++				ext->name);
++			return ret;
++		}
++		if (ret && ret != -ESRCH)
++			kfunc_id = ret;
++	}
+ 	if (kfunc_id < 0) {
+ 		if (kfunc_id == -ESRCH && ext->is_weak)
+ 			return 0;
+@@ -9579,8 +9714,9 @@ static int bpf_object__resolve_ksym_func_btf_id(struct bpf_object *obj,
+ 	 * {kernel_btf_id, kernel_btf_obj_fd} -> fixup ld_imm64.
+ 	 */
+ 	ext->ksym.kernel_btf_obj_fd = mod_btf ? mod_btf->fd : 0;
+-	pr_debug("extern (func ksym) '%s': resolved to %s [%d]\n",
+-		 ext->name, mod_btf ? mod_btf->name : "vmlinux", kfunc_id);
++	pr_debug("extern (func ksym) '%s': resolved to %s '%s' [%d]\n",
++		 ext->name, mod_btf ? mod_btf->name : "vmlinux",
++		 btf__name_by_offset(kern_btf, kern_func->name_off), kfunc_id);
+ 
+ 	return 0;
+ }
+diff --git a/tools/lib/bpf/libbpf_internal.h b/tools/lib/bpf/libbpf_internal.h
+index e90b5336bac0..c84521ea562e 100644
+--- a/tools/lib/bpf/libbpf_internal.h
++++ b/tools/lib/bpf/libbpf_internal.h
+@@ -248,6 +248,7 @@ struct btf_type *btf_type_by_id(const struct btf *btf, __u32 type_id);
+ const char *btf_kind_str(const struct btf_type *t);
+ const struct btf_type *skip_mods_and_typedefs(const struct btf *btf, __u32 id, __u32 *res_id);
+ const struct btf_header *btf_header(const struct btf *btf);
++void btf_name_prefix_range(const struct btf *btf, const char *prefix, __u32 *start, __u32 *end);
+ void btf_set_base_btf(struct btf *btf, const struct btf *base_btf);
+ int btf_relocate(struct btf *btf, const struct btf *base_btf, __u32 **id_map,
+ 		 __u32 **str_map);
 -- 
-2.43.0
+2.56.1
 
