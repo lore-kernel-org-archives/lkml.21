@@ -1,73 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794948871;
-	b=V5xiNQ7iTkSOlXKce8G9txAxsgnXKSNyE2C3rM7/wN80dGGdc/8iGWs+M97+hZNyFA9J
-	 Ip7XkRyJ4JqKdfA6g/IKr3rs7ZoeE3tZSpAyCMRS5Im3hNlO96BOhHo3kKBfxM2Ua6imf
-	 xsALzKK0S6SlCIOxUXkGQi3eALZVn3LU2y/J3prIWZzUUVicUHmQ7DvdBCLptPFs1TLFy
-	 qlHpwGMu1W9Zisq87qliLFBZ2TjkFeJiRa7C6RZeW4v3FcliQWGVdE17aZaZJLgEIB2Wx
-	 Fop5sfKJn8tGlm/adg7yxZoTke8nxWc5kRXcJNh7Z+wr7JxHnObzjx2HePXvBXNEpGA==
+	t=1794948896;
+	b=EDhuRTve/j9/ajASzoaezwTG7meCaLLMmr7Y/vFUTEfvAlUspe90NuAvyhQ9R+P/uGdx
+	 o8Pf5cb/KAmG1x2j+zIiAGpo6aGyWMmBwGFvnIS1BVvIGo8borhBkI8+fHuXyrnvPCT8s
+	 9Oq7QsoQXY1rkGcFTS45yU7k2BpUPN3VjewXrXR7UJVbF+HZrVDsnilqi6Ac+WR52+IwL
+	 f4Q6/k6+yP3o5YYk51A1WIo9BrBCyzMsG3M9aj7FtAxb5UV2IvnrOULvubQdGGyOdgLge
+	 Sm8U9jJ1qnombEePvk7xTxedOc5WuwGl8AdlgND6USc51C09zToT1f2pBiPKzOOtsFA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794948871;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Reply-To:Date:
-	 Mime-Version:X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=jQWYmjlxMo6/xEEDxDasX03frXsDyPZi9DBQiy9773M=;
-	b=W0GuMKbndT2+wwROl1UFs+iHsTNvhkWAG9iLBWsIjBIcT4Izs5SNzYCXXWLCc2f+SOu9
-	 oDsgFKzbs86rpzTC0mxh0v33mp8UBwl7MFAWW44iIPzMbRvuKvfEhjELyeGu5RAdCnymG
-	 P2iU4Xz0gfMA4mOrivdUYinW/gWteQCGY89xVf/a0qOg+xu2MissYVob9pPKB/SngEwmH
-	 5mu1ajB54hgo9kamuYt3jQ5nEKlN4xi5lnSZ8uoolRAfGLR8vP/ISURJaSvtPzlnxK3bV
-	 YfZmCiZpdejE8VTxqORbgn7qbMiBjgzXIZv5Ef8fGGNCZIAuOb5jWxS0Me7OM2myV4Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794948896;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=XRrmtaJXQcHPgHjUtAr7Ja7rU75296IprzuTdzeTZgc=;
+	b=GCxRgFYZMFJwF/YBZSSIim1p1d5mbfmlXvr+PLVBBvGtRGr+Jg8HisPCPmumAhx/GiK5
+	 nzzk0KhmCeV43RGo6pPe5pk47aMoUHm+bFo4iJmnhjWVzu1KCDwje7RqpTQQdWRTZM1Dv
+	 f0jjcIkVJn+Vmu+bVVi5ttsR6NJMY7xpYuwCRFlG0t95DbREoM7DJ5vJUjfxPNSXgZk8M
+	 F6IUNwcIC22Bp1VNkfdyOSFP0ZShMS8TqqOczXsgzlkRe1R7W7ze7uFMsJiyrWYtROo9+
+	 8jGW08Suo9C6yqb9M1FDdw5Rbktb/QenugwCn63qOReWSqeRwxcNPswJP6o+DXF/f8Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--seanjc.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Mtl+Njnk;
-	arc=none smtp.remote-ip=209.85.216.70
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QSIOw+23;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B571606A32A
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:54:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B571606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--seanjc.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id C64AF606A31C;
+	Tue, 17 Nov 2026 20:54:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Mtl+Njnk
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3ae7faf4ff7so158848a91.3
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 12:54:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794948870; x=1795553670; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :reply-to:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=jQWYmjlxMo6/xEEDxDasX03frXsDyPZi9DBQiy9773M=;
-        b=Mtl+NjnkvTCaz4aRAZ0EwJEvYxx4/iEGPXx8ZmE0C1SrK0rP90cC3gHITqJD7Pjda+
-         sLHkrM3XB8hLtCf20UTAw/j3PF9moAx4MsARzYAAHKl1g5U7tG45B0ZLTtVfZ6jp3Mom
-         2UDxPh4x3EBNy2dZHFoccDPMpIkqr5aettqqIqEE4aNnK7Zz7Fcugp8bl7phUuArEyE5
-         soEJ+qyMZ9Fagkhkv7wfrKG3BxXZ92f/1C2b07qkvKI6wQs2nlH3rtgNSYTh2DGEgt2s
-         NeK3yXCQQz68/lGI+XsmXbD6hb3Ip07bPpEee3t6oyoI9kl8eOlKQCZLePoDbbnmSdLk
-         wmKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794948870; x=1795553670;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=jQWYmjlxMo6/xEEDxDasX03frXsDyPZi9DBQiy9773M=;
-        b=LIBdYECXCT38XqVAsR4V66+0ya5B+F7UaXpOL1TVlyp5DuGn6SGI/pnlCeIM3Qroh9
-         rzjFaD9rXnYM87ksQG0uBtuKVDPwtQUrIp/QkXEvAL5nekGFPAgVZO4fjIqmSGLRR92E
-         bKzGI1fFxZ6xrzRUoiN+mrNJdJSG0tkMZp19TpiKFhymp9jeFy8zmX1dqIrIZj5+VcNi
-         waYdxjsDUncTwW9nUALMsWlbI8AJILj65rwzrhxGvOrod3GD4mmH5JNzeJtlrpnOLdAA
-         LRCS8nSbk7r3dThlJMAdOEYsv1jG7BEtNZbG1ggHySGCezNmCx0kvJN8fLSgFdTQcvT6
-         LpUA==
-X-Forwarded-Encrypted: i=1; AL+hErHQBgnzAPVCSAqd2rKcFbUMn6fwhIgTw42BJ0yxhKhAAfxGJYJY3DVE0WFnKRCrW0VR3pPZS9zi3a9AzUE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9IjW92uIJWeohI3Nfn1nepEMbIv3n3VkDDEyUNhZtTac9eWoz+
-	R+XgM2VYIpNhkU5fAiEr6NsWD94kdtni0ySz6DB5Hcd76CuqflKUXkVk+CKM6oozokvBVod2Nqh
-	YXCu4/A==
-X-Received: from pjpb6.prod.google.com ([2002:a17:90a:9906:b0:3b3:9d13:d781])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4b8b:b0:3ab:a3ee:33ad
- with SMTP id 98e67ed59e1d1-3b3d074da04mr556296a91.22.1794948869798; Tue, 17
- Nov 2026 12:54:29 -0800 (PST)
-Reply-To: Sean Christopherson <seanjc@google.com>
-Date: Tue, 17 Nov 2026 12:54:28 -0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QSIOw+23
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id D4F9D1F000C4;
+	Tue, 17 Nov 2026 20:54:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794948896;
+	bh=XRrmtaJXQcHPgHjUtAr7Ja7rU75296IprzuTdzeTZgc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=QSIOw+23KO7sT+peMfCgKOW21k98uNBwkMQsEzuUKBPCr045oc0uM3N1levgzR9ju
+	 oXwBzKwvbsWv8uCelcqd68ngfi+lEhCasNh9kt5f1sYN55Yc9EI1vXdRGUKmLgL+2r
+	 KM5DkBU4dp4qUsyyfudAMK7oONRsyzyzA4Z2b7dIuc8StNGoxjc1Mv106yu28apZie
+	 ViDhUSKBgkvva38bYzIHb+2MbgaY5qbfQASGBlXy92nIhpF3a1eMWXhw2GMCQ7xZS5
+	 eS0Qm9EVMdW8tbhAoN69qz5P+Dgp6da0wwcxeWUwdy83mS4dmt6+JS59npU6FkG5TR
+	 9lXRs0lrCueTw==
+Date: Tue, 17 Nov 2026 22:54:52 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: Siddharth Chintamaneni <sidchintamaneni@gmail.com>,
+	Peter Huewe <peterhuewe@gmx.de>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Stuart Yoder <stuart.yoder@arm.com>, apais@microsoft.com,
+	rachelmenge@linux.microsoft.com, hargar@linux.microsoft.com,
+	linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/4] tpm: Cache TPM2 start method
+Message-ID: <avy_HKn6whTYgCV4@kernel.org>
+References: <20261115013456.212141-1-sidchintamaneni@gmail.com>
+ <20261115013456.212141-2-sidchintamaneni@gmail.com>
+ <avy3xBltfKeCs85x@e129823.arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,91 +62,99 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
-Message-ID: <20261117205428.3717-1-seanjc@google.com>
-Subject: [PATCH] KVM: Send reschedule IPIs instead of SMP function calls for
- non-waiting requests
-From: Sean Christopherson <seanjc@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Sean Christopherson <seanjc@google.com>, kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Satish Kharat <satishkh@cisco.com>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <avy3xBltfKeCs85x@e129823.arm.com>
 
-When kicking multiple vCPUs for a non-waiting request, send a reschedule
-IPI to each vCPU instead of batching IPIs via a single SMP function call so
-that KVM can make non-waiting requests with IRQs disabled.  I.e. handle
-multi-vCPU kicks the same way KVM handles single-vCPU kicks, for the exact
-same reason.
+On Tue, Nov 17, 2026 at 08:23:32PM +0000, Yeoreum Yun wrote:
+> LGTM.
+> 
+> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> 
+> On Sun, Nov 15, 2026 at 01:34:53AM +0000, Siddharth Chintamaneni wrote:
+> > From: Jarkko Sakkinen <jarkko@kernel.org>
+> > 
+> > Both tpm_tis and tpm_crb retrieve the start method from the ACPI TPM2
+> > table during device probe, and tpm_crb_ffa also needs it before chip
+> > allocation.
+> > 
+> > Cache the start method in tpm2_acpi_start_method during tpm_init(), log
+> > it when a TPM2 ACPI table is present, and export it for the leaf
+> > drivers, defaulting to ACPI_TPM2_NOT_ALLOWED when the table is absent or
+> > invalid.
+> > 
+> > Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
+> > Co-developed-by: Siddharth Chintamaneni <sidchintamaneni@gmail.com>
+> > Signed-off-by: Siddharth Chintamaneni <sidchintamaneni@gmail.com>
+> > ---
+> >  drivers/char/tpm/tpm-interface.c | 21 +++++++++++++++++++++
+> >  drivers/char/tpm/tpm.h           |  1 +
+> >  2 files changed, 22 insertions(+)
+> > 
+> > diff --git a/drivers/char/tpm/tpm-interface.c b/drivers/char/tpm/tpm-interface.c
+> > index e0385b16616b..c18b060d7da2 100644
+> > --- a/drivers/char/tpm/tpm-interface.c
+> > +++ b/drivers/char/tpm/tpm-interface.c
+> > @@ -534,8 +534,17 @@ int tpm_get_random(struct tpm_chip *chip, u8 *out, size_t max)
+> >  }
+> >  EXPORT_SYMBOL_GPL(tpm_get_random);
+> >  
+> > +#ifdef CONFIG_ACPI
+> > +u32 tpm2_acpi_start_method = ACPI_TPM2_NOT_ALLOWED;
+> > +EXPORT_SYMBOL_GPL(tpm2_acpi_start_method);
+> > +#endif
+> > +
+> >  static int __init tpm_init(void)
+> >  {
+> > +#ifdef CONFIG_ACPI
+> > +	struct acpi_table_tpm2 *tbl;
+> > +	acpi_status status;
+> > +#endif
+> >  	int rc;
+> >  
+> >  	rc = class_register(&tpm_class);
+> > @@ -562,6 +571,18 @@ static int __init tpm_init(void)
+> >  		goto out_unreg_chrdev;
+> >  	}
+> >  
+> > +#ifdef CONFIG_ACPI
+> > +	if (!acpi_disabled) {
+> > +		status = acpi_get_table(ACPI_SIG_TPM2, 1, (typeof(tbl->header) **)&tbl);
+> > +		if (ACPI_SUCCESS(status)) {
+> > +			if (tbl->header.length >= sizeof(*tbl))
+> > +				tpm2_acpi_start_method = tbl->start_method;
+> > +			acpi_put_table((struct acpi_table_header *)tbl);
+> > +			pr_info("tpm: TPM2 ACPI start method: 0x%02x\n", tpm2_acpi_start_method);
+> > +		}
+> > +	}
+> > +#endif
+> > +
+> >  	return 0;
+> >  
+> >  out_unreg_chrdev:
+> > diff --git a/drivers/char/tpm/tpm.h b/drivers/char/tpm/tpm.h
+> > index fa554c5ad80b..212ca2410c93 100644
+> > --- a/drivers/char/tpm/tpm.h
+> > +++ b/drivers/char/tpm/tpm.h
+> > @@ -100,6 +100,7 @@ void tpm_sysfs_add_device(struct tpm_chip *chip);
+> >  
+> >  
+> >  #ifdef CONFIG_ACPI
+> > +extern u32 tpm2_acpi_start_method;
+> >  extern void tpm_add_ppi(struct tpm_chip *chip);
+> >  #else
+> >  static inline void tpm_add_ppi(struct tpm_chip *chip)
+> > 
+> > base-commit: 7e52fc165aa50e70e8df3c879d04fc0ff1673d4a
+> > -- 
+> > 2.45.4
+> > 
+> 
+> -- 
+> Sincerely,
+> Yeoreum Yun
 
-Avoiding SMP function calls for non-waiting requests fixes a potential
-deadlock if KVM VMX triggers KVM_REQ_UNBLOCK to all vCPUs when starting
-device assignmennt:
+Thank you. OK, I'll just apply these.
 
-  WARNING: kernel/smp.c:943 at smp_call_function_many_cond
-    kvm_make_all_cpus_request [kvm]
-    kvm_arch_irq_bypass_add_producer [kvm]
-    __connect [irqbypass]
-    irq_bypass_register_producer [irqbypass]
-    vfio_msi_set_vector_signal [vfio_pci_core]
-
-Send reschedule IPIs immediately to avoid having to re-walk the set of CPUs,
-even though it makes the code slightly convoluted.  It's also generally
-advantageous to kick vCPUs as soon as possible, e.g. so that the target
-vCPU(s) can react to pending events/actions, but that's purely nice-to-have
-as there are very few paths in KVM that kick multiple vCPUs for non-waiting
-requests.
-
-Fixes: 77e1b8332d1d ("KVM: x86: Decouple device assignment from IRQ bypass")
-Cc: stable@vger.kernel.org
-Reported-by: Satish Kharat <satishkh@cisco.com>
-Closes: https://lore.kernel.org/all/20261116-b4-kvm-irq-bypass-irqs-20261116-v1-1-6cc721a062fd@cisco.com
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- virt/kvm/kvm_main.c | 17 ++++++++++++++---
- 1 file changed, 14 insertions(+), 3 deletions(-)
-
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index cf4cb586f140..0b733746884c 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -218,7 +218,10 @@ static inline bool kvm_kick_many_cpus(struct cpumask *cpus, bool wait)
- 	if (cpumask_empty(cpus))
- 		return false;
- 
--	smp_call_function_many(cpus, ack_kick, NULL, wait);
-+	/* See kvm_vcpu_kick() and kvm_make_vcpu_request() for details. */
-+	if (wait)
-+		smp_call_function_many(cpus, ack_kick, NULL, wait);
-+
- 	return true;
- }
- 
-@@ -241,12 +244,20 @@ static void kvm_make_vcpu_request(struct kvm_vcpu *vcpu, unsigned int req,
- 	 * satisfied if the vCPU migrates. Entering READING_SHADOW_PAGE_TABLES
- 	 * after this point is also OK, as the requirement is only that KVM wait
- 	 * for vCPUs that were reading SPTEs _before_ any changes were
--	 * finalized. See kvm_vcpu_kick() for more details on handling requests.
-+	 * finalized.
-+	 *
-+	 * See kvm_vcpu_kick() for more details on handling requests, including
-+	 * the use of a reschedule IPI for non-waiting requests.  If waiting is
-+	 * required, batch the SMP function call until after all to-be-kicked
-+	 * CPUs are gathered, to avoid waiting multiple times.
- 	 */
- 	if (kvm_request_needs_ipi(vcpu, req)) {
- 		cpu = READ_ONCE(vcpu->cpu);
--		if (cpu != -1 && cpu != current_cpu)
-+		if (cpu != -1 && cpu != current_cpu) {
-+			if (!(req & KVM_REQUEST_WAIT))
-+				smp_send_reschedule(cpu);
- 			__cpumask_set_cpu(cpu, tmp);
-+		}
- 	}
- }
- 
-
-base-commit: d21eef2084a9af87ac2a783bc7c2b175ba114e4e
--- 
-2.56.1.703.gf848ed807c-goog
-
+Br, Jarkko
