@@ -1,100 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.44
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.174
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794937360;
-	b=zc+GrSAxyX+/6+aHxr5pRYAHPzl5f8umHHahUebb6ndp0anh6UGUm2DGrXGE7iS2ebqy
-	 yBl89ezOWp3J25EFWn4fitRRSkMhaU3r6GkC3KqsTUDrWGb8f6KPQ2uRuvDqk9dN9woLz
-	 gIaq9FAG0SiWhBx+8gT+mcO+TGEN4Jm5Jp7as+YsJ3r2otl8oYschMOe8L8XYY5Xy1N6E
-	 voI4FL0d9PrBNO03z+CQk8bdqdKxo2Ely26gKUVmhoHsswKyvb9l4Ys/t4UdODwxaYUum
-	 pIdre92t1VgUKcKSU4HAJWiEoKyLc87UXX5+jy5pZ2B0P0boHmkjvizNEnk4nzrR1Pg==
+	t=1794937384;
+	b=TyAEFW41xz/d2fcDSR/gb78r66VY0JK6WaZE6WtoTSZlmSjZMbTRZXh2eEaClpBbLCpt
+	 IYJLoNPIXC45Ltpy4Sa5fgZ4FY8jlzncGw2+m84iWP70Hmz/S3XMlULO0IjXcFWUlGqrK
+	 1Hit5KHxYn1HJKI6zuYLtxfsrVhjJuVHhhtAf2kfdOdBP/vRi7CsjJfYjC0vpJ+wKQk+z
+	 JOhZ6tpuUxyxQ1HfdzBBe4mCKG6Pe9D4RaOPUW8gapGqNGoPWNuWtIjVoPvE/hafqu0y9
+	 bm3ulbSnxjaOmWa/vDipn0p/uSAsVUp/NqxPi/M+dibrdHsVshdHIoanyn9PDojEnZw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794937360;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794937384;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
 	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
 	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=C0Br6uNbCeSZG/D0SaMC7uBQz4y4PQvjObMC5HHmvxw=;
-	b=tx+7Kmbr3X4dGmZ1wU8usWlZmnGvalus8b5jFx1TlHt400Wb3JGf5eF8kW5h1NmSGeFY
-	 vM8mMS8pX4tDiXSuF72Fwu7BEl98Y4wPdeAzHef+K7D23l8vKUmqHWSouHd1eooBoELEs
-	 9RWMFI0F1p968WjJY8vyvegV4GUg/woQljWQ2lFEmcEmlUf183o/YemzCoJTLbqveP0dW
-	 Yzlla2yJHae9N9bFzbnhQKezYS6dBEfjnQFqnnrozqsQBFZJCbzxkivt2UHXYD+yURwbk
-	 Ugx8LQM77nJN4qSJ7Q3rDLM++ulzpXGjYplKmrhGuAM+xbcW3znKbUScmjg0wPM0B8g==
+	bh=nvzZs1q5voEwvj1dbc4nqY6RN+HlKTD/o3FysXVRy+g=;
+	b=3qCfgRUQ//3LnPB87k/XFXn5eex7HnMnXz0KBtuevmGUQkl+sW6dr0k46iTcLJ2IAol3
+	 GJ3XIw1e+Sk9coSoH40SAWLATVPEMxvTPnsVMOMoMxUTPan6lin39ZtVHcV+13RFegJ8C
+	 FIZHiG0dQEnpShkYcrsJf+EZPjNbZQk92DHlLU/BnjRlryKHKMH86ZcO1Q6/gIUI33qGH
+	 mTmnKZpq55V1VT/oDpBuHZ+AnyUaoWJXHdunZp3jHdCBpKKMoKEW2a6wx4shlLDppmKQz
+	 ++slryv/10KZhoQDgNTUN7QlobFROz2BJ9QVWqqsPuheCki9I6zglfJxoYdI4DZvxFw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=amacapital.net;
-	spf=pass smtp.mailfrom=amacapital.net;
-	dkim=pass header.d=amacapital-net.20260707.gappssmtp.com header.i=@amacapital-net.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=EEvWGAFb;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.44
-Received: from mail-lf1-f44.google.com (mail-lf1-f44.google.com [209.85.167.44])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pJK78JQH;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.174
+Received: from mail-lj1-f174.google.com (mail-lj1-f174.google.com [209.85.208.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90EA9606A32F
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:42:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90EA9606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=amacapital.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amacapital.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52D59606A32C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:43:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 52D59606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=amacapital-net.20260707.gappssmtp.com header.i=@amacapital-net.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=EEvWGAFb
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5bfbc67991cso21709e87.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 09:42:40 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794937359; cv=none;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pJK78JQH
+Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-3ae3a5d440aso1376121fa.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 09:43:04 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794937382; cv=none;
         d=google.com; s=arc-20260327;
-        b=mGbAPt71bsx3D7dvcoghPdGrH0ykl9ZBs6mEgndYCISbinMeUs7aJnySTqh79sciy4
-         kCHz4t2w6Ar4RZN9depJuQJ8yghWDTdpvcFhjH7veOF3sX9/EDGmh4Tst96mncVVq43P
-         dzlXQ3itVsWjJS9/i4otB/2OtvJhhvhwjJfhGUdjihcGMNriGhtuYEaeoNkOHeAKCJaK
-         ADpA7v4BexfrB0S+Tpto9C4ds3nJL8jkf8fq0y4vvjcVt25yf1eVH9ZaB8oztYTsRVdZ
-         HV6EyirD8ooaLLb9lnsM7FZEHSwADm88ZucFmMzt3URVyZVJhbl2uhapgrc59gPA3mcC
-         4JAw==
+        b=PVdyTa73RrrpjlyA2pJdMUZt4rPZg5+WanMb8uzt0QU9OeRmbxYsEYr5otXb2b5hUJ
+         fZTt1QR47kX9mOysdbs/od6b4QqSL45WFo8xNcvebKiEPcugji3M+qEqLadXI06BPT/8
+         3cx+tr7nYDL/0k2j+Cz5J3sbjBKzIQUp4ADF9RzlDXgiO47NK8KTADiCfWPfE6sTj1EV
+         RXjGs5/Au40er+2nxp8gqtMFVU8n0oI1znFHrAPd2C8LIQmSx8CazidTYHmzq0J76Gv2
+         zBFBKnNCmDFr8TZXI7BubuywHJThAuMQFyX8jwZEKuD3m803ETz8c9RNNduFkZXRH6lm
+         +78Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=C0Br6uNbCeSZG/D0SaMC7uBQz4y4PQvjObMC5HHmvxw=;
-        fh=WAET+SiewUKqPQBDNKe9b96q7TmPE5Wp7ZzJBt2sk98=;
-        b=QSJYwV2e317nG77esVruBOyQNz3BbLVulpzn1tNTf2P1eH75eav1ThZZqLS1RjSckI
-         opa6DLJCWrJ1genFzZgLmzGkE25VfRTRbJExKzQz+po/F3t+2PkiM2JcKHHhDkxyDPsL
-         gto8ekJ5PBpfrvOv7CkeIdS4hVDfAQvuEHIo3DRBFqpA/S7fIkNaItj9rhfIuSSAUqDB
-         EC1nQAFXNC1AaGp5Twj/E0AKEVyIo+l+doUdLlVsw1pBmyT1RL+e1QjzgOJKGWp597h7
-         DXdXXhaqLMoyO2jbYHjGCCAN7gTARGio5rHNjGTi5/wH6aL2E1Wh5aHmHK6Q5ssKb5S5
-         Njkw==;
+        bh=nvzZs1q5voEwvj1dbc4nqY6RN+HlKTD/o3FysXVRy+g=;
+        fh=vDS4+X4JjF431JCcL3M4YgHHl3pleuShQ9UUhwThbsQ=;
+        b=Q+eH/WW72UvUr0t5UsFXp1Hiql/L8Vrhedm3jWUFxWDPaHpnUVz72bD4Q8PTmayGsZ
+         bv0Om5ImkaaOKZe6YYBrh6R88wc5+Rb9dYNRZHsR/dPUkLPRF6gRgylzpAbEH8QZ2rdJ
+         sfwPN9vkLaH7O3EjDbRTAEvxnDjZx6fvLcEDw4iYuHe04qX3zmq0MTTmgwK59of2HfdO
+         O8EnA+dE7JO8VlRAySrg830InqGm1gkvvyFuNGUYz/y8OsGFT8SiLke8ov8HVlBEB8qF
+         B+Eunx6oYSUwSMe0seA+6GliahCbHtHxbpelI88TYSR9SWH9jzEDrY0gk/UcGv7H8ceu
+         bSOQ==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amacapital-net.20260707.gappssmtp.com; s=20260707; t=1794937359; x=1795542159; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794937382; x=1795542182; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=C0Br6uNbCeSZG/D0SaMC7uBQz4y4PQvjObMC5HHmvxw=;
-        b=EEvWGAFbOmPz0e1bruaOl0rjybH0s4KDHt1ZdsIprIDdOYSYYFkdgv0P5ZbqLm9wOt
-         QUKZ38KmXI7yBp+GV0/eyJrlR0x9jaOEr3Ii55nnjpnVrQIiwkaoActJokk0nmQSZd7G
-         61WKKrB70e3ufmKjp4oHO9TAABVl1efKkOpBvtOYK6RF6gVHy0E+rjZz0xIx57DanHDh
-         1TInlFBGPv/IJYMg1cTj312Sc7q2gHY8Ugtu6+Jpk/LKIOoiULHPpgJvsVB0ghEN1g8q
-         2dPQMdyQdgbZ8hjQrp+yJxxt3I0107KE+viwJ2hHYYVk4FGOG+dWGVAy9wgHIHfa0LWA
-         TeLQ==
+        bh=nvzZs1q5voEwvj1dbc4nqY6RN+HlKTD/o3FysXVRy+g=;
+        b=pJK78JQHngzfVAOhh+bAZ18z9qClPx7EUlb+eUYv+l6UG0HetMaBj6Pa/X7B8I2XIZ
+         eVFyqpPP45jn2eNemdddEz/STarrtyPopzZiezq3r0a/yWjyPZh8Yp5TbEpjakfM8Fk3
+         iZVVaQREyoLyK0sBtNOIkecIuHoZq0492+2u3bOkVceYcFZbZAnRTmoL+R3C8UyTJfOP
+         E1CWzxQVvrVLQ8D+t7iN4CsrrKAGo6knnTL8s3pxr7hviMpMGHKyVqr6mGwMCXUU2ldc
+         JXLpSXUaL4rKva469YAlP6h7rOy3ciH0nHwsb0OnCFuOOfONesAGNh4PTDkrYAqKzZLg
+         8MiA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794937359; x=1795542159;
+        d=1e100.net; s=20260707; t=1794937382; x=1795542182;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=C0Br6uNbCeSZG/D0SaMC7uBQz4y4PQvjObMC5HHmvxw=;
-        b=nWKbZepZgKQHOftPhDR8wheICGd86wArvTOE5eorejlVvAPz5CV/laN4tO1Db49FKo
-         O+Baol4UsaL5gbWv8UvxPiOw3FntPu1rcxCVEHCbYsGx/J+O8rPQwKJv1LDvns78GYrS
-         F5ZasB4193/PisvPc/AgVHoTiIa3EGMBTMaBXeCvr6eQZhnGCAFK9XMu5UEjGLlIZWVb
-         CKfMJMGGHiy8cJwM/8jnwXPS2NvUcGq7oOrNz/3F20MUONDyJbwMDXO4Vh7jbE3tJTf4
-         CJYznCDZP1b9pO2Y+SLtM+YrvOzijPtnJ1YO2QydyhE7UHxCVvnEzmX46ToDQrXI6uHQ
-         dWcg==
-X-Forwarded-Encrypted: i=1; AL+hErEiVPY9PYFx/8lUtFIKm6oEFaSaHxDBzxWUisDdvsrAGCXwZu7eRZOBOK7YZuvK8P3mjbbVsbiU93/Kxm0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9ygwhp8wJpsc2FNyg6oLWvMyhUSMe2NYwIT0yjUomFCSfidBK+
-	opdULh0hHiOBeVcVGPltTPKUBWMs0Myu/EgLFeaxQ+/maVNNaZucNfkC/YplOXWXcTKHW9vx4PF
-	0Lj8iRaWVQ+bKx6RCKWcVigzpjHfPYHYg1TI6UVSC
-X-Gm-Gg: AYBFou1mR+Tc0UT4VSUkYhwnymWZBLPIQrnukDL/DzWVhACraJ5mkAAYRpsoS9VeIoz
-	4MLj4iZsM2tzkzMxmsGKpJsuRuEjWKfc2HKA86XTI5Og9HQr8p0Kj1VPdZcceMnMOiLbWBoB7IX
-	G76IjT6z1HpnYDX9VwMh8XAGFsQL9bUIYC5CXFuX0BgNKXIQZuWKPHlVOV/6Ts8JSuIwpGEYgvz
-	wO7Tb4aKYrbCJiR65a/Cup+j/b3UAgQnuvxb8JLbVG2ElckQOC1NCuhkB7t3y5AkenGMWGuK+mE
-	Hj+9W9GS5F99QhaJS7kZCY7Zx7lv213l6YRydevyCI9LJmrVD00k5xFRfQTbiTbAz1KSByH3buI
-	KjvFZTSem16lELVPFH4AnUK7fZv6KG95SEw==
-X-Received: by 2002:ac2:4bc9:0:b0:5c1:4ccf:f0b8 with SMTP id
- 2adb3069b0e04-5c170a0bb3cmr7252657e87.16.1794937358574; Tue, 17 Nov 2026
- 09:42:38 -0800 (PST)
+        bh=nvzZs1q5voEwvj1dbc4nqY6RN+HlKTD/o3FysXVRy+g=;
+        b=xMVEt445pT6nk0Si2prfpxJTo4bXAikyQVrkKJyYAl66Br1rDvvoslgBCtQ+LMAMgq
+         /MVbBAJSm1HKMH7ybnak2dCICqVYMo2vJAhnhSThAAP8XQV1nANe9uqtgoGwEAmyEVB7
+         +6tfVWKUZFAxYSbyvs4JEEbWhhyN+/B7nZUtV/Pcv3lZ7NHLmfWjDGdIkTomNsodUn5p
+         MHZWxK8gzG5ayMhLwIcb0pjhyDhsb3qVqXdFob6mFGvizaK4OKPPSXD07HPf1heEYQ9J
+         mT4dg/DM7JY9U/tSu1DBvGGHjxr8uTsxbN5aLtFRLaY726Tz+XEP8pp1iDrv8tyx7MrO
+         SxzQ==
+X-Forwarded-Encrypted: i=1; AL+hErF9Y2ncP7qt5djXh+6onLA/p4mpi0mNs4Ga9z3uhi2dXC++4ZTASAOF9I4Hli0PXBE+EMTVPcPFDGhYPH4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8X0sYOTW7ND8v0Qk+0ICd4zG6qRLoWSDynMmqcqtXkm9K0nE+w
+	YbdXKIX+CU/95sGUwsMEI51zKogr5rVmURh9e+9qIl0lRMVNOAxpjInvHHqLkoi5Hzk1fUmpolG
+	fzGiTwMp/zFOn8EBT9EmuffPI/VfD0Ck=
+X-Gm-Gg: AYBFou0HEH5m8Zzc0PcKm9gAPTouHsFYxdfHfKLG8fsAagvZ5eqbg2n05M3sdN3WeR/
+	I5/LoVGuAOmBSZsGje4uyb5eWZ+5lpmONkVhLHRx04rTW8Vm32hAdOaRn0+I/zv3Z3DNcH+TOfK
+	pxBxJO7ybyuHztRHEl2j0Am7X1lt4UDethPVV9TaqpFoYO0/kfFpQmCdVzvDCm5tsQ7deQzpUVU
+	fJc0O2Y3cmVAoLaB7YgKtTASqLLgZ5iT2AVp5IbZKseUE67GFup4uFBfkBzg/LW8CLF0wl/QzA+
+	N7lC8k7WR1vkkCnb78020IQ/ptD7JEl1NtyHCN7oNp3D5vnrSCoiUYE6llZODgDu1/l8F/HwAiB
+	NKFqBClcUwAnRezybVGvl8eyEZwYpVNKzmlDzSiRkdAe3DyCGqTD1X7WfbCpUx3lqNBj6wFGcLA
+	zXHmrnuKwnei5aAxWeDrHJh9XoCWljuS4aI0s0lGU9tbjKa8gp+/4UdMr3XW1QBBowoEBO
+X-Received: by 2002:a05:651c:a171:b0:3a6:5ec0:7977 with SMTP id
+ 38308e7fff4ca-3ae2b52e925mr48966131fa.22.1794937382329; Tue, 17 Nov 2026
+ 09:43:02 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,59 +105,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117050841.3289652-1-jarkko@kernel.org> <20261117050841.3289652-8-jarkko@kernel.org>
-In-Reply-To: <20261117050841.3289652-8-jarkko@kernel.org>
-From: Andy Lutomirski <luto@amacapital.net>
-Date: Tue, 17 Nov 2026 09:42:26 -0800
-X-Gm-Features: Aa3M54o6AJsup2EB_D5C3UIkkriS8wK22wW9apyv8KKATx5_DoWBh2HrH9mfDyU
-Message-ID: <CALCETrWtbUFQGDOCHkxAN9O4i29ixfL5KKF1Cqw2-CjxKwC6gQ@mail.gmail.com>
-Subject: Re: [RFC PATCH 07/13] rootns: Add rootns_enter() system call
-To: Jarkko Sakkinen <jarkko@kernel.org>
-Cc: linux-fsdevel@vger.kernel.org, linux-api@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, linux-mm@kvack.org, 
-	linux-security-module@vger.kernel.org, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Andrew Morton <akpm@linux-foundation.org>, 
-	Ben Segall <bsegall@google.com>, Christian Brauner <brauner@kernel.org>, 
-	David Hildenbrand <david@kernel.org>, David Howells <dhowells@redhat.com>, 
-	Davidlohr Bueso <dave@stgolabs.net>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
-	Ingo Molnar <mingo@redhat.com>, Jan Kara <jack@suse.cz>, Jonathan Corbet <corbet@lwn.net>, 
-	Juri Lelli <juri.lelli@redhat.com>, Kees Cook <kees@kernel.org>, 
-	K Prateek Nayak <kprateek.nayak@amd.com>, "Liam R. Howlett" <liam@infradead.org>, 
-	Lorenzo Stoakes <ljs@kernel.org>, Manfred Spraul <manfred@colorfullife.com>, Mel Gorman <mgorman@suse.de>, 
-	Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>, Neal Gompa <neal@gompa.dev>, 
-	Paul Moore <paul@paul-moore.com>, Pavel Tikhomirov <ptikhomirov@virtuozzo.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Randy Dunlap <rdunlap@infradead.org>, 
-	Serge Hallyn <sergeh@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Steven Rostedt <rostedt@goodmis.org>, Suren Baghdasaryan <surenb@google.com>, 
-	Valentin Schneider <vschneid@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
-	Vlastimil Babka <vbabka@kernel.org>
+References: <20261109-ppc32-perf-v1-0-a6e8a55b3b48@gmail.com>
+ <20261109-ppc32-perf-v1-7-a6e8a55b3b48@gmail.com> <3950cc84-93bf-4830-8a37-57f9739a84b0@linux.ibm.com>
+In-Reply-To: <3950cc84-93bf-4830-8a37-57f9739a84b0@linux.ibm.com>
+From: Matt Turner <mattst88@gmail.com>
+Date: Tue, 17 Nov 2026 12:42:50 -0500
+X-Gm-Features: AclHuK9QUI3yDbyT2B0UUj_KZN-ImAYjLn5ew9el98OjTN6HFOxuPodteoFnxMI
+Message-ID: <CAEdQ38Hr-pdXs2XYyFr0ryFsdeQ4xC5W9yG_xfDBhN068cDtBg@mail.gmail.com>
+Subject: Re: [PATCH 7/8] powerpc/perf: Use SIAR for sample addresses on 32-bit
+To: Tanushree Shah <tshah@linux.ibm.com>
+Cc: Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, Shrikanth Hegde <sshegde@linux.ibm.com>, 
+	Paul Mackerras <paulus@ozlabs.org>, linuxppc-dev@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Nov 16, 2026 at 9:09=E2=80=AFPM Jarkko Sakkinen <jarkko@kernel.org>=
- wrote:
->
-> Multithreaded userspace daemons cannot call setns(CLONE_NEWUSER) or
-> safely mutate process-wide filesystem state in place before spawning a
-> child into a target namespace set.
->
-> Add the rootns_enter() system call to fork a child process directly into
-> a rootns whose root mount has been installed. Transition the rootns from
-> ROOTNS_READY through ROOTNS_FORKING to ROOTNS_RUNNING for the first
-> process so it becomes PID 1, serialize concurrent entrants on waitq
-> until bootstrap resolves, and admit subsequent callers into the running
-> PID namespace until teardown begins.
->
-> Require CAP_SYS_ADMIN in the target user namespace, forbid credential or
-> PR_SET_NO_NEW_PRIVS privilege escalation
+On Tue, Nov 17, 2026 at 11:11=E2=80=AFAM Tanushree Shah <tshah@linux.ibm.co=
+m>
+wrote:> One question: the callchain still walks from regs (gpr[1],
+link), but
+> its first entry now comes from SIAR. Can SIAR and the interrupted PC
+> end up on opposite sides of user/kernel? If so, would the callchain
+> be affected? Something like perf record -g on a workload that switches
+> between user and kernel often might show it.
 
-Why are you disallowing this if no_new_privs?
+Yes, it happens. I ran perf record -g -e cycles -c 1000000 on a loop
+that does a little work in user space and then calls getppid(). Of
+16953 samples, 3022 had SIAR and the interrupted PC in different
+modes.
 
-This isn't necessarily a showstopper, but fork() is really quite slow
-in many cases.  It would be nice to have a more spawn-like API
-available.  I assume it's possible to open a file in the target's
-mountns by some sane API even without entering that mountns, as a side
-effect of how the fsopen / move_mount mechanism works.
+2193 had SIAR in the syscall exit path (__kuep_unlock,
+ret_from_syscall, syscall_exit_finish, syscall_exit_prepare) and the
+interrupted PC in user space. The exception is held off while MSR[EE]
+is clear, so it's taken just after the rfi. The sample is marked as a
+kernel sample, but the callchain is a user callchain that starts with
+a kernel address, so perf can't resolve that entry, and the actual
+user PC (in libc's syscall()) is missing.
 
---Andy
+801 had SIAR in the system call vector at 0xc00. That code runs with
+translation off, so SIAR holds a real address. The interrupted PC was
+in the kernel, but these were marked as user samples at a bogus
+address.
+
+The other 28 had SIAR in user space and the interrupted PC in the
+kernel.
+
+In v2 I'll use SIAR only when it's in the same mode as the
+interrupted context and fall back to regs->nip otherwise, which is
+what the code did before this patch:
+
+static inline void perf_read_regs(struct pt_regs *regs)
+{
+        unsigned long siar =3D mfspr(SPRN_SIAR);
+
+        regs->result =3D siar && is_kernel_addr(siar) =3D=3D !user_mode(reg=
+s);
+}
+
+A real-mode vector address isn't a kernel address, so this covers the
+0xc00 case too, and perf_get_misc_flags() no longer needs to look at
+SIAR. With that change the same test had no mismatched samples out
+of 18069. The share of samples in the kernel went from 44% to 46%
+(perf stat puts it at 57% of cycles), so falling back to regs->nip
+near the transitions doesn't lose anything.
+
+Good catch, thanks.
