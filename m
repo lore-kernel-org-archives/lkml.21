@@ -1,91 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794951761;
-	b=zTn0QQk6dcb03trx13hEuji8wlFIdsbGmWr6lrijw/Q/Anu3t/0wZd4VceWwkc06JBW9
-	 yiHAvhPzIKwBB6PppYXQInwNY+d1HjcNt5Ms5kg3BXr9lIpkLGCGO2Nc3vPlNZcOp91dX
-	 Zd4vtgpO80w9RiMUoHoF5chpWHeWXmscxqx6+CO8ibzd6CA2uoy1dC0ywm/YAlJGZ+LCw
-	 XCXJ+cnhjXCgyMGBmPkfItu8atb3E26w5yBJ/mc0ogjm4tEaTydekQZCIEE0y0PPXkfLt
-	 tp4LG3nfVmA7qndp+jn8+cWfThETZhKSIlGRZt3pQHVbELslSC5cNH7i6z05VJCcWKw==
+	t=1794951813;
+	b=VrIahKWBZatcjjZl2YEo28f/vGykwWMZvL2PmKXiFzpZfQWgWxwT1+RWde6JJHu4C/gE
+	 LkBwoFdadpl9fsyOLDll5E3ZTOcOxnfhnw8NKife/ZGtJh9J/CeRz3wzGULFp+jzUf/SV
+	 /JAu8Qiq6OfwyQwhoVes9DXdRkGtx4ZOYpwAxA4fJcaqmjRt3iWMxBYVbX9C8mDnnGE5y
+	 k5Goju3EREBtkWKGncAPm/NdSb/4S1/V+W1YWGCAnlkxI8fLHMau2IR0Df7epDeFuTwoE
+	 qrI8hKMTvBEBG3MKWfHUB3dZqjHiAgyjYt/jsUUoPgsDeRhc36InOaRto9BT1D5jQEg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794951761;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
-	 User-Agent:MIME-Version;
-	bh=6IozNtdf6HbKzKGMEo6l7v3ccDJ192jbBuLKZ0N87Pg=;
-	b=5AiyTLk9BC2H7bGsJKrmYiXoBLsx+KG8q8hrjt9Rt/qh/qj2AW2i8ypqUs5AzM2DRJJ1
-	 7ZqQ/fc6cIDr7/0nZLv+/iGbuZkK/SAbK2XKrIm+rRR7Wxb0UU2KtcZHO2NHTa6w3RAd8
-	 zpZjfI+lClOkAPIQOkD5nvxufjg97UTx0YqTDYE0VrZiU/r9NWR9M/bPPrv/JmrUK25+l
-	 H1v/4YsqbGW6u/AnzrIJNjwkuxDtYMqIwmdDk8CjohCQqIycbS4xOxEGRE9VksOAGBStV
-	 DUyu2BBX30pGGzuAoGfZx1CNLsLWJe7bug1KtlK4OOxSaBEQaaGEBRam1NVpro6qoxg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794951813;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=kDVcn8uLG74ma32d8wtmy7ktrF0XJBSPshTOfgs6Qj8=;
+	b=cjTN7ii2MhBc2YR48rgaNItYEURXSBBby9rOZaK4R2w0jETpLv7HUL6tUL0N4D1keVDb
+	 vy0OS8o8JYPJn1AcpzZFB3EcubHAqqRGEzYePbp5wpUs1w689ycO2IQKRXQjW2lCO6EMD
+	 8+hNKhemI5Ql3azbO8Nu1ih/2MOw7sM+jOZrqY9RW7vZNLRKIRhetMe/xYRUvMX3S8kUN
+	 0Iq9P276Q/YGHeIG/V1ITVtF8Kq18pK0uARDM/kLrXnIki+dx0rSrKYs0wX425Jhr6jXC
+	 /5Mi0ssKYBz2TtlqX+nY62lLa5RNSgs9LiXMEkldgfJqtH2E72xV7JK3g9R5pWOQAig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=DK60HOsv;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=fail header.from=sung-woo.kim;
+	spf=pass smtp.mailfrom=gmail.com;
+	arc=none smtp.remote-ip=74.125.82.173
+Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com [74.125.82.173])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0656606A31C;
-	Tue, 17 Nov 2026 21:42:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F0656606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=DK60HOsv
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1794951759;
-	bh=DAWQCPgIzEXdD/gx6UFSHeVExfzcx4VAtZ2MtqyfUWw=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=DK60HOsvAA0/+ZyRO3J5fy8osZDPA14ty+SokRJI3jsLyf/Sj9cb4EzYHWw9kJRzW
-	 XzjIdg9OFznj+GKZJKXceaJacr/x6t8LMeHcxZ4RqIoh+HewI9ofPoEohHQmNOZIG9
-	 5Vzlf3UWf0rIrNofsKfu3pvkgeHHMHd2GYkQ70BpFttX9gahHlFLt3kh3SimzCOriH
-	 B3ay2SOyIF6koiwI3muBRXvZ2ha5SK/glTuzwooFjz5pRHxheA4+wsxHPLoVS317v7
-	 Zh9o5qwQtbcQ7LfRuq+JkbUTBjWh+OumaUEaLOj9+pdnnTQX9+orCRHDG7SAtHCA2a
-	 RizjA9w4pVsKw==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1336717E0406;
-	Tue, 17 Nov 2026 22:42:36 +0100 (CET)
-Message-ID: <980bbf45de0983f6b38a6b1f8dbf5a20310fc66c.camel@collabora.com>
-Subject: Re: [PATCH 09/14] media: verisilicon: Cancel job with runtime pm
- put/clk disable on failure
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Paul Kocialkowski <paulk@sys-base.io>, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-  Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,  Pengutronix Kernel Team	
- <kernel@pengutronix.de>, Benjamin Gaignard
- <benjamin.gaignard@collabora.com>,  Philipp Zabel <p.zabel@pengutronix.de>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Hans Verkuil	
- <hverkuil@kernel.org>, Marco Felsch <m.felsch@pengutronix.de>, Michael
- Tretter	 <m.tretter@pengutronix.de>
-Date: Tue, 17 Nov 2026 16:42:35 -0500
-In-Reply-To: <20260522101653.2565125-10-paulk@sys-base.io>
-References: <20260522101653.2565125-1-paulk@sys-base.io>
-	 <20260522101653.2565125-10-paulk@sys-base.io>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-nCR6jsSSCS1asrKum/3e"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E80F606A32C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:43:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E80F606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=sung-woo.kim
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Received: by mail-dy1-f173.google.com with SMTP id 5a478bee46e88-36e99cf7bb3so507121eec.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 13:43:32 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794951811; x=1795556611;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=kDVcn8uLG74ma32d8wtmy7ktrF0XJBSPshTOfgs6Qj8=;
+        b=l1u9DgoKZBhwAejcTn0qLcDTRZUtt6yl92txMcfY4BRIGVa6r7x2wcv+Y6f4VgCe/f
+         trm0z/9borXa5X9xMjhNPUedcKAY3fA1WlAKIYsL5mfaqPYau6sXVTT+tMZaVcTh+FEo
+         x+WHdJk1j1ecZk/pvO+JMUmWVOlzNG9NzGzm56uPz1E2iUnG9zgXNS16ip3HXZCVP2US
+         NASEglJLpIII7XAjpDJiZhU2wimpqr7j9/2F15eZp+oK7HdbftC0Acbdq7qsoEFWLsHo
+         udiwhbkPm8wm6V7SIVri6qgKwssI21JMngLAqYMtTNkvyW06XaCE7er792Lcnv0EikAs
+         bM5g==
+X-Forwarded-Encrypted: i=1; AL+hErFNW0nIHsCn/0HHMZYqi3YjYxUUw06KPJDA6CzaEks8NbycljZw2lmPjuUOsXTSiJOCoKE8L4HvD0kc4NQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+QUz5l6ZVrObO/+cCJwp2XRnizOmeK0AROcfEfBTxnK85IDelc
+	B/p2VgA93d5lAwFLTCOKsPMbqMivaHFU/Q/qjZ38M91py/OTHFIvvgL8
+X-Gm-Gg: AZFdTZePjxOXYR+bp9ohmhgKPB+s2FcMkJpPGA/1/3mnCFmP20m6/gAXzYFT5ai90Kq
+	LUxV9njnMiBjhkv0QybwQ5mAXK+pE378Nn0hpcR7BaEq4Y5ctNonasS+E6NWbtVBubM1NXyKomO
+	+vKTXYrT6wpsqsuzC3fM//OWiO2UMB/ttWadaNOXpKawCbOyQfybHENo+lkxD/kjs2mcxIuamxA
+	+LnWAWOGq1QschOeObTOLxVG4hhSJWUZFNbdQXLSAf+tMnirb85p939KQhgsC+7tEGxCsvVowys
+	18W6HAz9qe2ckEfkeCW+0+0OT5AuEbFhD9XJnQQnPGb5WULWB1IHYCZ6HSuKe6cctDTHoUMr1fe
+	ME5o3v0nU/B9UnoETVKqY2SMjDcc2W3XyAd9EjmskCeXcz3r2/YkB1n+wzXCiyMemVB8wJCAgFL
+	9VnL6C1gQqdC+UsWjbmmgz0EcDJw8yHErAwF+STMHJqd/iOX+yFzVDbAkaH4PX84yE2K3U2qUWm
+	8muwaV2ExvP/JY7YUUsTh4EI52rFhDjHYc68kWDA06VvTYajCbrzliwS2lxqfFZ1RoG8L0J9Bs3
+	nIbCmeKYF8cSQ7vyXVogJAb9Hq4f9nvCBbBKPmpNzA8xHo6Xj0IIRbNS5SFbiR3D2OkKwdiQbu7
+	rV2vMU7xv3o2XPMg=
+X-Received: by 2002:a05:7300:6a90:b0:369:ef63:ea95 with SMTP id 5a478bee46e88-3828101fb2emr560648eec.6.1794951811344;
+        Tue, 17 Nov 2026 13:43:31 -0800 (PST)
+Received: from tofu.taila6b446.ts.net ([128.210.0.165])
+        by smtp.googlemail.com with ESMTPSA id 5a478bee46e88-382a45260a8sm1303828eec.3.2026.11.17.13.43.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 13:43:30 -0800 (PST)
+From: Sungwoo Kim <iam@sung-woo.kim>
+To: Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>
+Cc: Dave Tian <daveti@purdue.edu>,
+	Sungwoo Kim <iam@sung-woo.kim>,
+	Takashi Iwai <tiwai@suse.de>,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] ALSA: hda: remove unused chain_id entries from fixups
+Date: Tue, 17 Nov 2026 16:41:57 -0500
+Message-ID: <20261117214157.2815179-2-iam@sung-woo.kim>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,88 +84,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
---=-nCR6jsSSCS1asrKum/3e
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Several HDA fixups specify a chain_id without setting the chained
+flag, so the chained fixups are never executed.
 
-Le vendredi 22 mai 2026 =C3=A0 12:16 +0200, Paul Kocialkowski a =C3=A9crit=
-=C2=A0:
-> The no-pm variant of hantro_job_finish is only good to use directly if
-> runtime pm get failed. In other cases, we need to do a runtime pm put
-> and bulk clk disable to correctly undo what was set up.
->=20
-> Fixes: 892bb6ecead9 ("media: hantro: do a PM resume earlier")
-> Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
+Remove these unused chain_id entries.
 
-Seems already fixed by 556ab0b2741d6 ("media: hantro: release runtime resou=
-rces
-when device_run fails".
+Suggested-by: Takashi Iwai <tiwai@suse.de>
+Signed-off-by: Sungwoo Kim <iam@sung-woo.kim>
+---
+v1: https://lore.kernel.org/linux-sound/20261115132215.4084031-2-iam@sung-woo.kim/
+v1->v2:
+- Remove chain_id instead of setting chained true
 
-> ---
->  .../media/platform/verisilicon/hantro_drv.c   | 19 ++++++++++++-------
->  1 file changed, 12 insertions(+), 7 deletions(-)
->=20
-> diff --git a/drivers/media/platform/verisilicon/hantro_drv.c b/drivers/me=
-dia/platform/verisilicon/hantro_drv.c
-> index e0c11fe8b55c..e21306f2bf2e 100644
-> --- a/drivers/media/platform/verisilicon/hantro_drv.c
-> +++ b/drivers/media/platform/verisilicon/hantro_drv.c
-> @@ -169,29 +169,34 @@ void hantro_end_prepare_run(struct hantro_ctx *ctx)
->  static void device_run(void *priv)
->  {
->  =09struct hantro_ctx *ctx =3D priv;
-> +=09struct hantro_dev *vpu =3D ctx->dev;
->  =09struct vb2_v4l2_buffer *src, *dst;
->  =09int ret;
-> =20
->  =09src =3D hantro_get_src_buf(ctx);
->  =09dst =3D hantro_get_dst_buf(ctx);
-> =20
-> -=09ret =3D pm_runtime_resume_and_get(ctx->dev->dev);
-> +=09ret =3D pm_runtime_resume_and_get(vpu->dev);
->  =09if (ret < 0)
-> -=09=09goto err_cancel_job;
-> +=09=09goto err_cancel_job_no_pm;
-> =20
-> -=09ret =3D clk_bulk_enable(ctx->dev->variant->num_clocks, ctx->dev->cloc=
-ks);
-> +=09ret =3D clk_bulk_enable(vpu->variant->num_clocks, vpu->clocks);
->  =09if (ret)
-> -=09=09goto err_cancel_job;
-> +=09=09goto err_cancel_job_pm;
-> =20
->  =09v4l2_m2m_buf_copy_metadata(src, dst, true);
-> =20
->  =09if (ctx->codec_ops->run(ctx))
-> -=09=09goto err_cancel_job;
-> +=09=09goto err_cancel_job_clk;
-> =20
->  =09return;
-> =20
-> -err_cancel_job:
-> -=09hantro_job_finish_no_pm(ctx->dev, ctx, VB2_BUF_STATE_ERROR);
-> +err_cancel_job_clk:
-> +=09clk_bulk_disable(vpu->variant->num_clocks, vpu->clocks);
-> +err_cancel_job_pm:
-> +=09pm_runtime_put_autosuspend(vpu->dev);
-> +err_cancel_job_no_pm:
-> +=09hantro_job_finish_no_pm(vpu, ctx, VB2_BUF_STATE_ERROR);
->  }
-> =20
->  static const struct v4l2_m2m_ops vpu_m2m_ops =3D {
+The unused chain_id entries were introduced by:
+- f1ec5be17b9a ("ALSA: hda/realtek: Add alc269/alc662 pin-tables for Loongson-3 laptops")
+- f83bb2592482 ("ALSA: hda/conexant: Add quirk for LENOVO 20149 Notebook model")
 
---=-nCR6jsSSCS1asrKum/3e
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+ sound/hda/codecs/conexant.c       | 1 -
+ sound/hda/codecs/realtek/alc269.c | 5 -----
+ sound/hda/codecs/realtek/alc662.c | 1 -
+ 3 files changed, 7 deletions(-)
 
------BEGIN PGP SIGNATURE-----
+diff --git a/sound/hda/codecs/conexant.c b/sound/hda/codecs/conexant.c
+index 5f2b0b55ab6e..5b5250043a50 100644
+--- a/sound/hda/codecs/conexant.c
++++ b/sound/hda/codecs/conexant.c
+@@ -974,7 +974,6 @@ static const struct hda_fixup cxt_fixups[] = {
+ 			{ 0x1a, 0x05d71030 },
+ 			{ }
+ 		},
+-		.chain_id = CXT_FIXUP_STEREO_DMIC,
+ 	},
+ 	[CXT_FIXUP_INC_MIC_BOOST] = {
+ 		.type = HDA_FIXUP_FUNC,
+diff --git a/sound/hda/codecs/realtek/alc269.c b/sound/hda/codecs/realtek/alc269.c
+index 96fa8c2782bb..96b691926570 100644
+--- a/sound/hda/codecs/realtek/alc269.c
++++ b/sound/hda/codecs/realtek/alc269.c
+@@ -6431,7 +6431,6 @@ static const struct hda_fixup alc269_fixups[] = {
+ 			{ 0x1e, 0x411111f0 },
+ 			{ }
+ 		},
+-		.chain_id = ALC269_FIXUP_DMIC,
+ 	},
+ 	[ALC269_FIXUP_CZC_TMI] = {
+ 		.type = HDA_FIXUP_PINS,
+@@ -6449,7 +6448,6 @@ static const struct hda_fixup alc269_fixups[] = {
+ 			{ 0x20, 0x8000ffff },
+ 			{ }
+ 		},
+-		.chain_id = ALC269_FIXUP_DMIC,
+ 	},
+ 	[ALC269_FIXUP_CZC_L101] = {
+ 		.type = HDA_FIXUP_PINS,
+@@ -6467,7 +6465,6 @@ static const struct hda_fixup alc269_fixups[] = {
+ 			{ 0x1e, 0x411111f0 },
+ 			{ }
+ 		},
+-		.chain_id = ALC269_FIXUP_DMIC,
+ 	},
+ 	[ALC269_FIXUP_LEMOTE_A1802] = {
+ 		.type = HDA_FIXUP_PINS,
+@@ -6485,7 +6482,6 @@ static const struct hda_fixup alc269_fixups[] = {
+ 			{ 0x21, 0x03214020 },
+ 			{ }
+ 		},
+-		.chain_id = ALC269_FIXUP_DMIC,
+ 	},
+ 	[ALC269_FIXUP_LEMOTE_A190X] = {
+ 		.type = HDA_FIXUP_PINS,
+@@ -6497,7 +6493,6 @@ static const struct hda_fixup alc269_fixups[] = {
+ 			{ 0x1b, 0x0201401f }, /* front lineout */
+ 			{ }
+ 		},
+-		.chain_id = ALC269_FIXUP_DMIC,
+ 	},
+ 	[ALC256_FIXUP_INTEL_NUC8_RUGGED] = {
+ 		.type = HDA_FIXUP_PINS,
+diff --git a/sound/hda/codecs/realtek/alc662.c b/sound/hda/codecs/realtek/alc662.c
+index a0efd4596c88..6a65ec772e9b 100644
+--- a/sound/hda/codecs/realtek/alc662.c
++++ b/sound/hda/codecs/realtek/alc662.c
+@@ -629,7 +629,6 @@ static const struct hda_fixup alc662_fixups[] = {
+ 	[ALC668_FIXUP_ASUS_Nx51_HEADSET_MODE] = {
+ 		.type = HDA_FIXUP_FUNC,
+ 		.v.func = alc_fixup_headset_mode_alc668,
+-		.chain_id = ALC662_FIXUP_BASS_CHMAP
+ 	},
+ 	[ALC668_FIXUP_ASUS_Nx51] = {
+ 		.type = HDA_FIXUP_PINS,
+-- 
+2.47.3
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCavzKSwAKCRDZQZRRKWBy
-9L+6AQDMKLPrZhSUG++b0MtI5ik0wMRxfL/1mxitEeqZmMEMPQD6A0XQSzZQJRLC
-7KBSAin35Q9wXNZx0/Tkx7GU4aMYcwk=
-=tZTf
------END PGP SIGNATURE-----
-
---=-nCR6jsSSCS1asrKum/3e--
