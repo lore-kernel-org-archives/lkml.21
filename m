@@ -1,112 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794948014;
-	b=FMjqyNoEz5ulN9dpl/wtTNhJRMZWXqOGJfCZlXGpR1hPD9tYEZ3xbNv57o3QjG0Wp2VM
-	 niGgXJFzuxrynIDD6K8VJRPgcxIjZYEJlKz85tO4zsUBvCVEDCd2b87cPwCHScGXtgOLP
-	 22340b+FxHN9NHPMFGa2fOlJzpBcpVunn7o0AONjTHh4oZAvZC5xVNoikHc15/PecgAr6
-	 pN1p3TgfSa4lCgfkOENLSyuejhE2aplt7jwYc11KcHecxO2kETXPOqrjAwAiFSMA1lYij
-	 AGHC/19424PVD2UCVJRnocwQOhumNjxdknSbYaQsnBjC3gCaKw5fyd/w/Hw5QBTu6+w==
+	t=1794948016;
+	b=MrksgvApbWT/w3hJwB7N0EuaHdyAvwAomBBi0JwNcolaa0CmPrvmG5O8059m4idn4wIu
+	 2x9g4sP4+TUAuAG1979ddNNj5XldctWr4hT5uN8sgbMDSi9MfCk45xITzrk52zGGoYlZp
+	 QBinJ4ILzl36lBnaumlp1WZ/DQlqYYp+vKmLsYTWM/X1DF8/u6fZDeEPx22ixZeqJsUh4
+	 fBRWxmeUwqKMjreWzlos3hVNRipmaHfgbQo9mg5Uzk9XemwBpZXZjbXQODE1Wkm5ltB30
+	 4MIlLm3hiTjJAuuljVx+Xr9S5JKZU9dyMGLTlq+vj9rAIOjjQHyIZfRKybJ/EBx4QAQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794948014;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=6EdTFJwYriIb4IdCOT1qSEgGV4PWIdtBBRJW54ecre8=;
-	b=nHV/8ihc1UF1AqFU4mmBfvIvBv6velO5fyPrn0rZj3keQexL/APGYdY71NSwGKre1kfa
-	 KAP+kMW4wLorkeXlpSQFyiaDzrHzTpfSaW5I2vnj6CXTn1JRF+gPEPui/fJ83wNo7+jVI
-	 xkrsxdykXMX5mkb7E+/z0qV4KXTmhvgLDEFT+4F84+EUy9KYTefBL1p6Kbcz+7jEgCoLG
-	 rPI0HtMUAdkeCgHLIrsuKrW9SoHLmEWmRnVGWUwjp+vz1PQp1t8obaFUDajcnUV853je/
-	 P/qxAMMJMoBIpqAzvHSyM8x0nQITXSI11GlmOHH7zkFbUGgBmlK5PS6R8WXx4Ju4Ngw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794948016;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=Kq3gYAeKi+2MlDRtqxzklMdRJ3gSx3YIPGqwyIvmiBI=;
+	b=GHQOHDRYoAF+YEXdOyD6wn9FaH8nLldvNDGWTSJIVhkNdPGCyg4GJgMGpHH9cjG4G2TA
+	 lXWX9dgaCaB1iwEl/vw9/poCN7+T439P3qx0a8wOmMc+ZPKjnPjOpKb1IBidBvImHm3pf
+	 c85s6SY/KYSV3Qo3xGSYv640H+U4C5abdQEbq4l5W6nGrRpjAxE23Ej1VhyxfBfWOIYf4
+	 vx6B9cweCFGVx5DsOlp639tlr31R50CNp80+NIF6lFpN/JWq9bVXvu5M4pYJt9emOgMxU
+	 XTJJ32oZn1zeYhaYHEEUyMG2CUvn7WcGFaVGkx7jFRp0wtI81cYveqq2DL0u55jf14Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ZqJwLEzn;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=jeaI2QF2;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="bTiU/sjM";
+	arc=none smtp.remote-ip=209.85.215.175
+Received: from mail-pg1-f175.google.com (mail-pg1-f175.google.com [209.85.215.175])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 096F9606A32C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:40:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 096F9606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FA8E606A33F
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:40:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3FA8E606A33F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ZqJwLEzn;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=jeaI2QF2
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AHJ6J8c3997253
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:40:13 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	6EdTFJwYriIb4IdCOT1qSEgGV4PWIdtBBRJW54ecre8=; b=ZqJwLEznxyO5/+t9
-	dNksUVKxE4vWPKKN0pfkdNvMjGadFAsLAucDT7lWDgUjXtN2fAurs11GjG4SsaFb
-	4d5VSun5AOUeKU6IoL65fgo77p6jlB+vMsHkSGZPISXK8CGzbaYhhjRtTgom2YYX
-	FmX0aqO5UD+Q5CE6LQ/EwDBxiqjiswmSggaboV8+trVAVXmz22a8EukWSdmbnhLH
-	a2Zfy+vlPHfc7Yw6GRrKcCUXw3UdP3y1f78F3Doh0IxuOUdfw3hMSg6pM/vn+47l
-	HM/T44CYjvXHPM3ToYlkr3lTvegCqxlFJeOXHRROHUsUzEo0MxN9L2QjM03O9B/A
-	aB18XQ==
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0mv12m8x-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:40:13 +0000 (GMT)
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-33713e5e6daso416705eec.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 12:40:13 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bTiU/sjM
+Received: by mail-pg1-f175.google.com with SMTP id 41be03b00d2f7-cd8ba7c2694so161731a12.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 12:40:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1794948013; x=1795552813; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=6EdTFJwYriIb4IdCOT1qSEgGV4PWIdtBBRJW54ecre8=;
-        b=jeaI2QF2Kndz030dEbpShU54M03e3pF1POIQul20/CyhQCcDhMmjpdEc3NdVhJSWpk
-         Nv0hCVZuosHtr1D9bL5jDnVQm9xodAlX3hLChkz6FpK5aDs8/B7k1jV611jQVbPf4M9+
-         Tkaub4kAK88a/pD69KwUxGMp4RvaPiFMOPp5sRNQMmiLsk60NfP7LbTnS41qzgtj+0mY
-         XG2eqwCt70tsKGJgpnoGnhS4huxZcpJmk7EGkbDBtTsR2Bb7GQ+Me4YLx8Ob0AlrOiJ8
-         oOnCto7jIgEFY8ZnmbxBB+nrCFjiztrJQxxiA/ot5QXDfwwU7K00cHnoy3HcDyhV8W9r
-         zBGQ==
+        d=gmail.com; s=20260707; t=1794948015; x=1795552815; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Kq3gYAeKi+2MlDRtqxzklMdRJ3gSx3YIPGqwyIvmiBI=;
+        b=bTiU/sjMPtCymeMImE84FMoNfMicqjV+11YzX2hrUSPBdg/rtOOwEHhiMm9AuJAzpr
+         qBgmWwdCgZo2DLamrTQx2qvG2Xi+U4Ckkq5RXKEq7eyZRUUTILgLHZVHq82ffb8CuRGA
+         jM/QtyyPc6yZSgCoQVAelP7kfcOtoiJ6g23l47m6Lz0g1h4GXzywadYkWt8xOragMtaK
+         fwD//E0B/j5KjQDuHscdkJiVDpESTjmjnW/FXz3oVsgwc6Uu6/RzYxC2w22XOBze3D3c
+         m5ReXZ4/FBI8zOdMvr4V7e9+NSDcBiSyP2jpMKjLomuWkzuLUeE7ANZldH96U2p78e1E
+         8R5Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794948013; x=1795552813;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1794948015; x=1795552815;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=6EdTFJwYriIb4IdCOT1qSEgGV4PWIdtBBRJW54ecre8=;
-        b=2jTnnQ32rvdnwwD/Fy4ms6ALng8GOHcKehFNXOygfTa5Ba6U6v3UzMJ4yaysMaTYUH
-         JAMid90ZHthCyYH8PBmm9cLYnENiy6+zK7nZev5TjNfS2MwzLtAq151Xl1RkN/3O+qk6
-         Mw9tFYSoMhgoDX9L3BBsg9cFp9Hnq4pBtK7wxrp8SMoOSYFVDYZCotsvdAcT+lLvQRHx
-         hQjOOyaBDuMq3hVwolg8pk+KzxsR0+O9qDqNwLbg2Dd0pyTO47Ud79pAWtACM9LS/uW6
-         d/Ez/Ul+3KrzHcFNLRDtJW/u7W7/MEfcmoZcx7+JWQrYIWVutGcz+H2E1VISrQzZJozu
-         ++KA==
-X-Forwarded-Encrypted: i=1; AL+hErHrR88doIROmms9VKWlQNy6Tk9CoPn7cmNfv11hWFWzeUKRCGUWZ0Jkcdin8bFSElWAoBaRfQgBof5SCk4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9XsSSdVUKBo7TNzR/DUJGdw22bRwehSQU3+L/laPWAvwLyKbEV
-	PZU1uiwk+KfkYG6658pJvZ/hh3Kpk9BE6n8y+UGU91KPvxAK5NhnKDfd+9kLSWODXSraYnf3h3t
-	agL3BIoZhzqWfWMbzgTeDE5FqXe7sw3MD0sAVAXfRGBBEL6x8PXd1Et9lzXHR7jsDqy4=
-X-Gm-Gg: AZFdTZcxNIwLsvRSVo3AFk8jIEsbLJajQeXbFeNC/bEeIWdy8WGbuCqsmf55XxzwQFp
-	5YF/obT64Kb7d2VQ+vXaWi61Lkv+aSQlDINRXGDfaWrobI+XEJG0YaJ8EgcEUyExJ+06Pgw4i8K
-	wd3JlDE6rwFGhDhA9TPz/c8GNHgTDLdHuJVkOO5qzijz8TXmFUmOPBTPWkU83Lh2Vb83TiECKDW
-	rOBEFsZhfOn+43MSYNcchCsuJr8sdyNPBTseMTVu7gZ/GrnbVjAO8jrNPKDHPyWtuOAWsiwX+pb
-	aERf0EYKOtXKVw1SYf8MgDMkQrt8AcD6l6srvCch4TsCMIb0lgpm3rRtLlQ+P9DazonHHJagYKF
-	L2LUeF+28Rxsu9qttEgxe8+gNfit1LwHyDUZMvnkXjNNpIf7TcdIOeiM0WBMQOz0vz3PIYtGrke
-	6ttDHQLd0fkML/L1A20ls3gA==
-X-Received: by 2002:a05:7300:de4c:b0:36a:1f4f:3e9 with SMTP id 5a478bee46e88-3828101de20mr538644eec.20.1794948012311;
-        Tue, 17 Nov 2026 12:40:12 -0800 (PST)
-X-Received: by 2002:a05:7300:de4c:b0:36a:1f4f:3e9 with SMTP id 5a478bee46e88-3828101de20mr538610eec.20.1794948011623;
-        Tue, 17 Nov 2026 12:40:11 -0800 (PST)
-Received: from [10.73.198.203] (pat_11.qualcomm.com. [192.35.156.11])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a6304ff2sm456352eec.6.2026.11.17.12.40.10
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Nov 2026 12:40:11 -0800 (PST)
-Message-ID: <c3a45db8-43a5-4aaa-9251-5f6231e83d59@oss.qualcomm.com>
+        bh=Kq3gYAeKi+2MlDRtqxzklMdRJ3gSx3YIPGqwyIvmiBI=;
+        b=Tr5LwWf7Y+st5LRjWdOxFS/DWFbij7OjDO7lcUj86pV+IWe+YxDAUTcSuomcDg81Az
+         PjOi8Cw4GURbRZC8O+agw1ejgoFQwpFXBpPMbf2W1wlXcFe+0iIRnk0O5hDw26ECezYk
+         /PbHhusyWIvLGwHPmzTae9igx4k0SP1ak60TSxDmiCngyhi9J/M3tgeXlP7xVFgWUZjF
+         JbaZ5lOfDd3DkXPLmPWHiDydXvw8ajp+zElg6bIFUTUvy2/bNJOjl49fDcjC5HuIPJAP
+         G7f6cnirv1HGgi1I2PhRLB+GPPngl3KZ3RIjXpC1jU5mkIYPPsH3fbra3iKVRydNO68/
+         Z1FA==
+X-Gm-Message-State: APuU4Z/7lAPMyAqbJeeNmbyaZuzQUEj2buNlTyWB9DnB7hb/j33gvoju
+	45LJ2oNXa0hIguw7cQ2IFuaXT35f+1Co1qCDkzj2U6Z7WmDtf/rIUoeuEhdjzw==
+X-Gm-Gg: AZFdTZdFMt6W0ibl5qK5yGOyJYjGt0UQR4H+xdcWDIj46u7J7uZwoR7vV0fuE3nJ9nI
+	4e92hpMKoV1QoVNMiT6EaZR98Hv//s9tAKt7UJUbfougx17Vs4UI/rhUZXtER7TU7ZoDq1Xer2V
+	PZhMdaWhpscCQrhczRRCLSBAyGCWT8rX1DCL03rzjY4sDEis90Vfdysjdt/qVkNBw6Bqz/+WFDq
+	Z2jezMHvRilrgBDyzhi6JyZKbN4pBO2dC8zVDvBkPcmDxvuMTsso6ED8d6C1Ev6BvM1s6TENen+
+	w78h716y7f45GQxNxptIjU5cn/ncxvsmBoEPnmFU6x4IhN1hrg2Hp3DhxngTncP/1rWIojo7E84
+	tWtnXvRvecn9QXadYZz1p4141lGI20igo+Vxo25s3g66eqOA0XOzJ7rtxjkIa3R1gWFImxc9bk5
+	jAWrHO32v52HGDhkpk4VjjAMQuwGAxb77APr1Tr8KKqoZhdSAfQaXpfoT8V+37NpwRM3X4O6XNK
+	AunN7HZoLi+naz8SCCLskgfcuG8xDvgvemve7yMtQ1V/Ez4htEzMzY4keoBSNoFwam+Ak0f/dF4
+	rb6w/Rif20SInQ8pU4rV380pxYFYTPXA3TtsyRBVfbKYedtEBhJlE9becPmrJH+EgPRHMMhPl6J
+	M6/boWcGdMSl2fufmX5suWWq/gIYXcb0UndQ7qpx/F8Hkw4E=
+X-Received: by 2002:a17:90b:5390:b0:3ac:929e:691 with SMTP id 98e67ed59e1d1-3b3d0759d78mr560936a91.17.1794948015486;
+        Tue, 17 Nov 2026 12:40:15 -0800 (PST)
+Received: from f2fs-test.c.googlers.com.com (193.67.125.34.bc.googleusercontent.com. [34.125.67.193])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d1acde45sm547366a91.11.2026.11.17.12.40.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 12:40:14 -0800 (PST)
+From: Daeho Jeong <daeho43@gmail.com>
+To: linux-kernel@vger.kernel.org,
+	linux-f2fs-devel@lists.sourceforge.net,
+	kernel-team@android.com
+Cc: Daeho Jeong <daehojeong@google.com>
+Subject: [PATCH] f2fs-tools: fix calloc() calls with transposed arguments
 Date: Tue, 17 Nov 2026 12:40:10 -0800
+Message-ID: <20261117204010.1742691-1-daeho43@gmail.com>
+X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,98 +94,139 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] phy: qualcomm: qmp-combo: Differentiate clocks related to
- the USB block
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Vinod Koul <vkoul@kernel.org>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Manivannan Sadhasivam <mani@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org,
-        linux-kernel@vger.kernel.org, jason.pettit@oss.qualcomm.com
-References: <20260930-qmp_phy_usb_clks_v1-v1-1-d4dccc9eb263@oss.qualcomm.com>
- <c1abd9d4-98ef-4469-b4f3-94a8dcad9d0b@oss.qualcomm.com>
-Content-Language: en-US
-From: Wesley Cheng <wesley.cheng@oss.qualcomm.com>
-In-Reply-To: <c1abd9d4-98ef-4469-b4f3-94a8dcad9d0b@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: U0S1a2ZQ1o4YNb0vpZW2_tfkiMU8bAA2
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDA4MiBTYWx0ZWRfX7AL0cUikJYrX
- dCRpn1AZ4jXmmfWGJnkOVIgTn/cfEyyGOZqnKMTOYh52n1WfFb8VkTecGX9Wvm988jwfhCmNsul
- Z//Q2L+Cj9qTOr4RlwsNTW6rc6uQMf0=
-X-Proofpoint-ORIG-GUID: U0S1a2ZQ1o4YNb0vpZW2_tfkiMU8bAA2
-X-Authority-Analysis: v=2.4 cv=Cuwq4X4D c=1 sm=1 tr=0 ts=6afcbbad cx=c_pps
- a=Uww141gWH0fZj/3QKPojxA==:117 a=ZdW6uxA9NKXbfdqeeS2OGA==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=EUspDBNiAAAA:8 a=_nty3mnF_QhVk_yABmMA:9 a=QEXdDO2ut3YA:10
- a=PxkB5W3o20Ba91AHUih5:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDA4MiBTYWx0ZWRfX/CBgW7b1HmfZ
- rFC4LpFbcC4fJJ/y1PTC1AUjs6RkTKAffjHogbCGEI6aZAFB1Rnx376RKe3G845/FRyxc0PfdXQ
- zERD+cbYG49iReFoLZ2hkmLLx5Vq0lk/dc8VHHbdc0KOdZMaPrn6WUSkytWgWgGUlKOkdWgs/rL
- 9bgp4uXFQNR9owefWs5n6iHNmxIX6kxfrckf1F09AAww8sSrMAFYPfuKYcNJO17epLhenNpoahv
- 3jSIGnIRQ5MdEuVkR/9Auct8INbViMVBYOINmDNVKA4kExBxHW1yd3jb3qKHBvOkfDu480OVXci
- QsPcnusqqaFDCGPvbeQBgEKMRec/5+XZhGUFjfzSEBYptk9V4TX89Tv8XETs5mOW68RZi2ecl1F
- Jmh8BZo6O15koX6TKf53h7Fu3VzQieIw3uJhNLVZSTiSNaBepha5xhpY6wAPVbmhOWQAeOtD6XM
- f9dA4y8FFnjEa42uqhg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-17_04,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 bulkscore=0 adultscore=0 clxscore=1015 priorityscore=1501
- spamscore=0 malwarescore=0 impostorscore=0 lowpriorityscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611170082
+Content-Transfer-Encoding: 8bit
 
+From: Daeho Jeong <daehojeong@google.com>
 
+GCC 14 and later warn about a calloc() call that has sizeof() in the
+first argument and not in the second one, and the CI builds with
+-Wextra -Werror:
 
-On 10/16/2026 5:13 AM, Konrad Dybcio wrote:
-> On 10/1/26 3:16 AM, Wesley Cheng wrote:
->> The Qualcomm QMP combo PHY has a USB and Displayport block that is
->> sourced with different clocks.  In situations where the USB path is not
->> utilized, and only Displayport is active, unnecessary clocks are enabled
->> and not used.  Split the current clock list into USB specific clocks,
->> which will be enabled whenever the USB initialization routine is
->> executed.
->>
->> In addition, move autonomous mode control specifically when USB is
->> active, as its primary purpose is to detect RX detection and LFPS
->> signals, which occurs only when USB is active.
->>
->> Signed-off-by: Wesley Cheng <wesley.cheng@oss.qualcomm.com>
->> ---
-> 
-> GPT has the following concerns:
-> 
-> [P1] Don't disable USB clocks that USB init didn't acquire
-> drivers/phy/qualcomm/phy-qcom-qmp-combo.c: USB init/runtime suspend
-> 
-> When USB4 is active, `qmp_combo_usb_init()` takes its early return and
-> increments `usb_init_count` before the new clock-enable call. Runtime
-> suspend then uses that count to disable `usb_clks`, although that path
-> didn't acquire them. This can unbalance clock references; the count
-> needs to reflect actual clock ownership, or the USB4 case needs
-> separate handling.
-> 
-> => the USB4 state machinery is a bit fragile.. but perhaps an if or
->     two will solve things
+  libf2fs.c: In function 'utf8_to_utf16':
+  libf2fs.c:127:47: error: 'calloc' sizes specified with 'sizeof' in the earlier argument and not in the later argument [-Werror=calloc-transposed-args]
+    127 |         uint16_t *volume_name = calloc(sizeof(uint16_t), MAX_VOLUME_NAME);
+        |                                               ^~~~~~~~
+  libf2fs.c:127:47: note: earlier argument should specify number of elements, later size of each element
 
-Sorry, didn't get back to you in a long time.  I think this should be fine 
-once I add the proper enable path in the USB4 init routine as well, since 
-it is required for USB4 to work.  So now, when usb4 init runs, the usb_clks 
-are enabled.
+Pass the number of elements first and the size of an element second in
+all the calls that the compiler reports. No functional change.
 
-> 
-> [P2] Unwind clocks if USB-clock resume fails
-> drivers/phy/qualcomm/phy-qcom-qmp-combo.c: runtime resume
-> 
-> The patch enables the common clocks and `pipe_clk` before enabling
-> `usb_clks`. If the latter enable fails, it returns without disabling
-> the earlier clocks, leaving them enabled after a failed resume.
+Signed-off-by: Daeho Jeong <daehojeong@google.com>
+---
+ fsck/fsck.c        | 8 ++++----
+ fsck/mount.c       | 6 +++---
+ lib/libf2fs.c      | 4 ++--
+ mkfs/f2fs_format.c | 4 ++--
+ 4 files changed, 11 insertions(+), 11 deletions(-)
 
-ACK.
-
-Thanks
-Wesley Cheng
+diff --git a/fsck/fsck.c b/fsck/fsck.c
+index a56c16b..56d4744 100644
+--- a/fsck/fsck.c
++++ b/fsck/fsck.c
+@@ -95,7 +95,7 @@ static int add_into_hard_link_list(struct f2fs_sb_info *sbi,
+ 	struct f2fs_fsck *fsck = F2FS_FSCK(sbi);
+ 	struct hard_link_node *node = NULL, *tmp = NULL, *prev = NULL;
+ 
+-	node = calloc(sizeof(struct hard_link_node), 1);
++	node = calloc(1, sizeof(struct hard_link_node));
+ 	ASSERT(node != NULL);
+ 
+ 	node->nid = nid;
+@@ -2119,7 +2119,7 @@ int fsck_chk_inline_dentries(struct f2fs_sb_info *sbi,
+ 	make_dentry_ptr(&d, node_blk, inline_dentry, 2);
+ 
+ 	fsck->dentry_depth++;
+-	new_dentry = calloc(sizeof(struct f2fs_dentry), 1);
++	new_dentry = calloc(1, sizeof(struct f2fs_dentry));
+ 	ASSERT(new_dentry != NULL);
+ 
+ 	new_dentry->depth = fsck->dentry_depth;
+@@ -2164,7 +2164,7 @@ int fsck_chk_dentry_blk(struct f2fs_sb_info *sbi, int casefolded, u32 blk_addr,
+ 	ASSERT(ret >= 0);
+ 
+ 	fsck->dentry_depth++;
+-	new_dentry = calloc(sizeof(struct f2fs_dentry), 1);
++	new_dentry = calloc(1, sizeof(struct f2fs_dentry));
+ 	ASSERT(new_dentry != NULL);
+ 	new_dentry->depth = fsck->dentry_depth;
+ 	memcpy(new_dentry->name, child->p_name, F2FS_NAME_LEN);
+@@ -2637,7 +2637,7 @@ void fsck_init(struct f2fs_sb_info *sbi)
+ 	ASSERT(tree_mark_size != 0);
+ 	tree_mark = calloc(tree_mark_size, 1);
+ 	ASSERT(tree_mark != NULL);
+-	fsck->dentry = calloc(sizeof(struct f2fs_dentry), 1);
++	fsck->dentry = calloc(1, sizeof(struct f2fs_dentry));
+ 	ASSERT(fsck->dentry != NULL);
+ 	memcpy(fsck->dentry->name, "/", 1);
+ 	fsck->dentry_end = fsck->dentry;
+diff --git a/fsck/mount.c b/fsck/mount.c
+index 98d797e..f4d1363 100644
+--- a/fsck/mount.c
++++ b/fsck/mount.c
+@@ -3587,8 +3587,8 @@ void build_nat_area_bitmap(struct f2fs_sb_info *sbi)
+ 	fsck->nat_area_bitmap = calloc(fsck->nat_area_bitmap_sz, 1);
+ 	ASSERT(fsck->nat_area_bitmap);
+ 
+-	fsck->entries = calloc(sizeof(struct f2fs_nat_entry),
+-					fsck->nr_nat_entries);
++	fsck->entries = calloc(fsck->nr_nat_entries,
++					sizeof(struct f2fs_nat_entry));
+ 	ASSERT(fsck->entries);
+ 
+ 	for (block_off = 0; block_off < nr_nat_blks; block_off++) {
+@@ -3763,7 +3763,7 @@ static struct fsync_inode_entry *add_fsync_inode(struct list_head *head,
+ {
+ 	struct fsync_inode_entry *entry;
+ 
+-	entry = calloc(sizeof(struct fsync_inode_entry), 1);
++	entry = calloc(1, sizeof(struct fsync_inode_entry));
+ 	if (!entry)
+ 		return NULL;
+ 	entry->ino = ino;
+diff --git a/lib/libf2fs.c b/lib/libf2fs.c
+index b23d9c7..307cfcb 100644
+--- a/lib/libf2fs.c
++++ b/lib/libf2fs.c
+@@ -124,7 +124,7 @@ int utf8_to_utf16(char *output, const char *input, size_t outsize,
+ 	const char *inp = input;
+ 	uint16_t *outp;
+ 	wchar_t wc;
+-	uint16_t *volume_name = calloc(sizeof(uint16_t), MAX_VOLUME_NAME);
++	uint16_t *volume_name = calloc(MAX_VOLUME_NAME, sizeof(uint16_t));
+ 
+ 	if (!volume_name)
+ 		return -ENOMEM;
+@@ -219,7 +219,7 @@ int utf16_to_utf8(char *output, const char *input, size_t outsize,
+ 	char *outp = output;
+ 	wchar_t wc;
+ 	uint16_t *inp;
+-	uint16_t *volume_name = calloc(sizeof(uint16_t), MAX_VOLUME_NAME);
++	uint16_t *volume_name = calloc(MAX_VOLUME_NAME, sizeof(uint16_t));
+ 
+ 	if (!volume_name)
+ 		return -ENOMEM;
+diff --git a/mkfs/f2fs_format.c b/mkfs/f2fs_format.c
+index 33d3da9..d4a02ee 100644
+--- a/mkfs/f2fs_format.c
++++ b/mkfs/f2fs_format.c
+@@ -757,7 +757,7 @@ static int f2fs_init_sit_area(void)
+ 	blk_size = 1 << get_sb(log_blocksize);
+ 	seg_size = (1 << get_sb(log_blocks_per_seg)) * blk_size;
+ 
+-	zero_buf = calloc(sizeof(uint8_t), seg_size);
++	zero_buf = calloc(seg_size, sizeof(uint8_t));
+ 	if(zero_buf == NULL) {
+ 		MSG(1, "\tError: Calloc Failed for sit_zero_buf!!!\n");
+ 		return -1;
+@@ -791,7 +791,7 @@ static int f2fs_init_nat_area(void)
+ 	blk_size = 1 << get_sb(log_blocksize);
+ 	seg_size = (1 << get_sb(log_blocks_per_seg)) * blk_size;
+ 
+-	nat_buf = calloc(sizeof(uint8_t), seg_size);
++	nat_buf = calloc(seg_size, sizeof(uint8_t));
+ 	if (nat_buf == NULL) {
+ 		MSG(1, "\tError: Calloc Failed for nat_zero_blk!!!\n");
+ 		return -1;
+-- 
+2.56.1.703.gf848ed807c-goog
 
