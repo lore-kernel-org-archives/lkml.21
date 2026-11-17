@@ -1,61 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794937661;
-	b=yY3ib0C+zHiPjxJ8/uaThAZKUdv1dSrSyqT2EZobdzQaBtJ4HyCP1EF3Qg0bMM/deejB
-	 EUHeFxpcBCyfGL/hc3zNNkJjuvk58f5jiezJ6hJF5oTSYrMq72rBZNxpNEbdv6VDvq9qS
-	 au/WJtARCNXElmKbQghlYB+xdaPVe708Av7gAnTTloAUfVf4wCjdAL2weyEFXvyGs38MQ
-	 ahNrGnzW9dI2G8NlbWwc6m37Q9q7Kln6jsuBLbf+IL4GNxFO7qlCBDngTm3erB9y7libq
-	 3MdRF/wXKlZ4d790n1qxDLptUL6BDpXcSxUvb/0SqbJMiSLL/QE0T/BWNLEVMNAzgCg==
+	t=1794937704;
+	b=d7lNlaBLwRbvaiZVc7uELoKwwiCYuEelG5lsNQ4gqe+WFrQ8d8l3gccBjq4ckD40GRTs
+	 c6QCxD0mE4NVDXbA+0w7tzwbdciHSfgw4eplaiSMhOdJS2B5aZQ71WQQz79p0hAbWlJB2
+	 MELF8UTEn9OjHtzbp4EPWprAdKacGn61IGwHwT90ZQres/Zw5rGrXGKIAJ90BguZer2n5
+	 6D78euYrRB9ijVQDSECqhReiCGmJdl3agGrWx2Kf5MQ44omDtNofTjHX/c1HrRgWnrkev
+	 HHQfnLvxaKjg+7AIZNh/AxOwDN7fvniipX6+tYOPQuD50QIH2b4+/iQc2E3gP4RVOcQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794937661;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=cR2AOpEGYiKzlikyUl8O8YBDqVn1oEriwrxHwFqrRDc=;
-	b=oSCo3jrwxXU9UR+EQIf/NiznVD62nk8i4ChKWWt+asbij0UtbDxjPSPX5Ebv7JqJddoQ
-	 gmkCsEg742bycPFRAxX76RpPFcglpMXCN4hL2K2qv5Jyq6wyOO/yuJ8v0ktkd+m6qbI1x
-	 /MnLMt68d9+EVTPKWM4+Dgh6/6iH+kjozQ8ONGbVjTxhDogkgLCnzoTWSJt3Jq/YxM7fL
-	 RWiQ+3mFArUU4KOerTVdVH7hpWRT2ylNgh3IK35vJswVa7lS1RLLyr68nfSehYrSXa3wf
-	 EoDQ5c5hZs7p0iuKxCIPDp34OyaGMNs/UlTOkrrUTksSsA4BlbO4TcckSt2ToOCvpNw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794937704;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=W1XUrXb0Axy6Uwz0DDSqe48SEQbs+/1sUxhzTtuVo/k=;
+	b=0p9EsQpWRjtuAKYHW9bQ5c0jruAwJ9ybYMzEn8FtEdjPVePDrvb/h3getw6fZ7+t50Gg
+	 HRX+h04M1gxWpBK2kcEmgzN9YVcYJE5QexFfaQrRZi2uqdY65g8EdtUk3eotWHETuPvcl
+	 9Lp4/HShHI10ouC+UoDwiS9WFekrjjXlWwl67crZnUZK+lDmXYIb/hAOBUBO6o9h7bsPl
+	 GJLnjKSgfxzRT0OVzDsqfurosVceTRs1DG8dV4NajWL8VGZkE/+SO0AOUwa5WlUk0tmCp
+	 QmLIRbJwsg19e7jo+gBTar2StJ2nCqzXX64z1a1bZgjAV+7hpQQuUHMbXz3BVSD0O3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZEmtPG3s;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0EFEE606A31C;
-	Tue, 17 Nov 2026 17:47:41 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=e5akOanX;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 093F9606A31C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:48:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 093F9606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZEmtPG3s
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E5B21F000C4;
-	Tue, 17 Nov 2026 17:47:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794937660;
-	bh=cR2AOpEGYiKzlikyUl8O8YBDqVn1oEriwrxHwFqrRDc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ZEmtPG3s6pzK3McY+POU0Zq2TtX9e07Rj1YqBffwbPVGP8TkDyQJCNbdPeg2omzxW
-	 faO2+XQKzaVmTsVMjy4bEJ9cWc0xGyqjv92fhd0DO2LTt3egZtGCtK7DzJMeS501eq
-	 mOzVO6yAQHf8dxcm57tesdPrPpt1U1REoMWk//2mNIlHiAmixSEY1FCMGteYEB+Tpk
-	 XBEEneUOaZCy5JVsvirYZWR/hreA139SsdaICnhvMAExt0Ey4XACSXIYgDooRh+qjd
-	 exUltOpX4iTIn8XI04WZwuCbRjG50FeYqJ5lv4u2+v5YgoGDyo/TrfO/aNiWXGugaq
-	 UGOcPA2xwfI0w==
-Date: Tue, 17 Nov 2026 17:47:35 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Mina Chou <minachou@andestech.com>
-Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, jic23@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, geert+renesas@glider.be,
-	magnus.damm@gmail.com, prabhakar.mahadev-lad.rj@bp.renesas.com,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	randolph@andestech.com, cyyang772@andestech.com,
-	tim609@andestech.com, az70021@gmail.com
-Subject: Re: [PATCH v2 19/19] dt-bindings: riscv: add Andes A27L2 CPU
- compatible
-Message-ID: <20261117-yippee-blissful-76204cadd922@spud>
-References: <20261116003937.1776888-1-minachou@andestech.com>
- <20261116-dreamless-matador-3163d4abbf0b@spud>
- <avvH6t8NHrya+hz6@atcsi01.andestech.com>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=e5akOanX
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 67E581A00;
+	Tue, 17 Nov 2026 09:48:20 -0800 (PST)
+Received: from e137867.cambridge.arm.com (unknown [10.2.213.11])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 599043F632;
+	Tue, 17 Nov 2026 09:48:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1794937703; bh=DW3UobvvF0aF2F6eNdFyHOGPEMTX8V9/vx7ipryBXiQ=;
+	h=From:To:Cc:Subject:Date:From;
+	b=e5akOanXACtuTU4lhmdefCKfJWb1oSpNYfwd/eLcypSPjyRuUq3xdLIyUOON14LrZ
+	 Kb/wJFKqw6Rz2pK2b+M5ZRLWC/OdZGewgx9kG/6qQkV4DkHnOl9QO++Yns6xyyvGTw
+	 NgbydoI9pYvn4YRtXOwFIYTljtdAlLdzzmseGUm0=
+From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Cc: Vladimir Murzin <vladimir.murzin@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Kiryl Shutsemau <kas@kernel.org>,
+	Breno Leitao <leitao@debian.org>,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Doug Anderson <dianders@chromium.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Huth <thuth@redhat.com>,
+	Dawei Li <dawei.li@linux.dev>,
+	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+	kernel-team@meta.com,
+	linux-kernel@vger.kernel.org,
+	Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Subject: [PATCH 0/3] arm64: sdei: fix entry edge cases, pseudo-NMI
+Date: Tue, 17 Nov 2026 17:48:11 +0000
+Message-ID: <20261117174814.95936-1-ada.coupriediaz@arm.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,65 +73,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="yL4HbPHY7ZmtVyGZ"
-Content-Disposition: inline
-In-Reply-To: <avvH6t8NHrya+hz6@atcsi01.andestech.com>
+Content-Transfer-Encoding: 8bit
 
---yL4HbPHY7ZmtVyGZ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi,
 
-On Tue, Nov 17, 2026 at 11:20:10AM +0800, Mina Chou wrote:
-> On Mon, Nov 16, 2026 at 06:26:33PM +0000, Conor Dooley wrote:
-> > [EXTERNAL MAIL]
->=20
-> > Date: Mon, 16 Nov 2026 18:26:33 +0000
-> > From: Conor Dooley <conor@kernel.org>
-> > To: Mina Hui-Min Chou <minachou@andestech.com>
-> > Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-> >  alex@ghiti.fr, jic23@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-> >  conor+dt@kernel.org, geert+renesas@glider.be, magnus.damm@gmail.com,
-> >  prabhakar.mahadev-lad.rj@bp.renesas.com, linux-riscv@lists.infradead.o=
-rg,
-> >  devicetree@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
-> >  linux-kernel@vger.kernel.org, randolph@andestech.com,
-> >  cyyang772@andestech.com, tim609@andestech.com, az70021@gmail.com
-> > Subject: Re: [PATCH v2 19/19] dt-bindings: riscv: add Andes A27L2 CPU
-> >  compatible
-> >=20
-> > On Mon, Nov 16, 2026 at 08:39:37AM +0800, Mina Hui-Min Chou wrote:
-> > > Add the compatible string for the Andes A27L2 CPU core, which is used
-> > > in the Allwinner V821 sun300i SoC. The V821 devicetree will be submit=
-ted
-> > > separately by Allwinner.
-> >=20
-> > I'm going to apply this, on the basis that it will be used elsewhere.
-> > Ordinarily, it should come with the allwinner series.
-> >=20
->=20
-> Hi Conor,
->=20
-> Got it, thanks for applying it~
+As discussed in [0], SDEI entry has a number of remaining issues.
+This small series aims to fix the biggest potential issues :
+ - Patch 1 : with KVM in VHE, VBAR_EL1 might not be correct
+ - Patch 2 : PMR was not handled at all when using pseudo-NMI
+ - Patch 3 : very early SDEI interrupt might end up with `current == NULL`
 
-Just to note, because this patch was separated, sashiko did not review the
-driver changes. They looked fine at a quick glance, but I would like to
-see another revision (with this patch excluded obviously and the things
-that have been commented on so far solved) so that it can take a look.
+I have booted the patches, but I don't have an SDEI test setup yet,
+so I would really appreciate real-world testing that nothing breaks while
+I set up something, /especially/ with `CONFIG_ARM64_PSEUDO_NMI=y` and
+`irqchip.gicv3_pseudo_nmi=1` given the new PMR handling !
 
-Thanks,
-Conor.
 
---yL4HbPHY7ZmtVyGZ
-Content-Type: application/pgp-signature; name=signature.asc
+Contrary to what I said in [0], patch 1 and 2 fix things in C rather than
+in entry.S. SDEI is already a special case and very edge-case-y, so
+as we cannot really hope to share code with the regular entry path,
+we might as well handle the edge cases that we can in C.
 
------BEGIN PGP SIGNATURE-----
+I think everything should be easily backportable if needed, though patch 3
+depends on commit 3d8c1a013d78 ("arm64: smp: initialize cpu offset
+earlier") which I don't think is in the 5.10 tree.
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCavyTNwAKCRB4tDGHoIJi
-0nDfAPwKHrmXEY408835g7LwKKUsD3y2VAZE1B3oMkjVyjOigQD+NM5PZ2WItqP6
-lGZX8OLP+0WQqR6FozKNWS1q0T38KAg=
-=oYqq
------END PGP SIGNATURE-----
 
---yL4HbPHY7ZmtVyGZ--
+There are a couple of possible un-addressed issues still:
+ - SWPAN is not handled on SDEI entry, but users of both SDEI and SWPAN
+   are quite unlikely. Given that SDEI can interrupt anything at any time,
+   and SWPAN is already very fiddly because of non-atomic register
+   accesses, we might disallow the combination if it causes issues ;
+ - Pointer Authentication is not handled either, but is not covered here as
+   it does not present an immediate functionnal issue.
+
+
+Thanks in advance
+Ada
+
+Based on v7.4-rc3
+[0]: https://lore.kernel.org/r/20261105120835.3321912-1-kirill@shutemov.name 
+
+Ada Couprie Diaz (3):
+  arm64: entry: sdei: always set VBAR_EL1 on SDEI entry
+  arm64: entry: sdei: save and restore PMR for pseudo-NMI
+  arm64: head: set __entry_task along with task setup
+
+ arch/arm64/kernel/entry-common.c | 40 ++++++++++++++++++++++----------
+ arch/arm64/kernel/head.S         |  3 +++
+ arch/arm64/kernel/process.c      |  3 ---
+ 3 files changed, 31 insertions(+), 15 deletions(-)
+
+
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+-- 
+2.43.0
+
