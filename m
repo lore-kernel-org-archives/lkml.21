@@ -1,57 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794939552;
-	b=n8sK7VEEDYciGzes7RRQ6rvwNsA3zf19tSqwMWAs3UtAHlcqjKly8NX8ZmhlCyinmGy8
-	 nNNGKINRC4yUC6vqDnV2K5YXUkWrt0y9FSkcgpjPfhtfJn/RbXfuzCIGKICxu+65woTpm
-	 r9wNttCA+9uAefZBtqmRfqSLC7X3y4vgC3lo5ZMAleHTxDUorqKV4MoHPPNG3jzEKar6G
-	 hk37Jmnt7yXsa8LJ02LEOl3XcUPZB1ac9FPg3NQB2dpT5WJJKp+RUnNgq2BF1QBByk2JS
-	 uNxrctfKsA8PWh39FOezKRGX8BgSnbOrE2yMmeO7qxNgNS6CwZ0VYLRN6Bo0aqDUFXg==
+	t=1794939557;
+	b=mRYTJAj1P58WZ4uBI/Yz3xR3qRTVI+Ru4DxQD1TKdeekOkv/eqCFz+htTZKYt3d5sFkR
+	 uKCJr+XgQFIRCac53lNoeiA4FinmTXuKzRjpCTAA32KfeJeZHY+9at+h11adprK7ldVUI
+	 9CGTuDnXiq9MvXW0BW+6mN2nHtRpDTDncEvGquvXdLq/0O5PV3OFAcax2rPLmMD0tf7MH
+	 F58n6cIubnE8ndfEGPgJkIiUmnj19cxjo9RgC83vYN+f7UDKJqUmhyldtHFc2LQRh145g
+	 zUptk69oI/wLF8W+DTLuWmlLqyL4QsOfYMYAuy+Vx38IBUR8SC/BcFlZJrg/OIYB3AQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794939552;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794939557;
 	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
 	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=CW/I17uRA+9OoTPu4DOFZ3sl7gn3y0mirZMDPaSXl+o=;
-	b=gu0kd8P/f2G8FyKYqTpThQD2TKadVH9AbGRBZ7N4XsOfga4MKUimutIawnpFSwoBVAv4
-	 kaDfKm9FFQT2L+Cwp5h7lXW5vufRyMIXNNqx9p9iDbBFGeW0Ng2O+P4rMMJywVmU3INvL
-	 IkMcsDzb58gDKabggb949aomkF2D8o5Oy5Efkbf/rz+X7O8p2KLwSdZMcy94UzW5uwRo8
-	 X9n7wWQLINlUmP+yvEKzJq5SmfwGZktMax9fAUpzmnnUvXUi2x1bdxnVPix3iN6lENYLK
-	 HTzNYcpNoiEUU0u6NLBCovRL6hiG0e8IUIQcKg6mdnN3BvAqQcWtkcU3/AScyvuRWnA==
+	bh=vg40dQb3GyjaM/MxwfceZkeTged0zEm24vPCwQKrnkI=;
+	b=dyIvnMFb3Uqb2hwk19ipam9nI0uv6BIRCq3TyNKw9o7Y7Ffwv66J7aap5bVdyOK5R4JA
+	 dbSKAe9u88MbYTHkFhPTnMANrsAzllUHXF00NKTcuDvCFDpBXJshkdg3HFXfNMPmZMzqb
+	 YgBbUNQbm49Fdx4gRc2n8DSbsmMv246hEdDBmcFTbPL8fSy+uzra5HLfXrZJk9NBqBm8V
+	 FyGpi41thQBCQVYPtaCNlZSCY7nwXWBJtHkDsIIhUkZRUgQl5xkl5np02LLdA8nKJSloV
+	 TkxT+IsrA9evz3+e5ulqL7hnahJzNBxXVVNPIMrijo8hsCdqb4NXpaPWABpUhY7G4EA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fZCh+R25;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=igGL+6q4;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F093B606A31C;
-	Tue, 17 Nov 2026 18:19:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DFB10606A330;
+	Tue, 17 Nov 2026 18:19:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fZCh+R25
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5ECF51F000C5;
-	Tue, 17 Nov 2026 18:19:10 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=igGL+6q4
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 936091F000C5;
+	Tue, 17 Nov 2026 18:19:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794939551;
-	bh=CW/I17uRA+9OoTPu4DOFZ3sl7gn3y0mirZMDPaSXl+o=;
+	s=k20260515; t=1794939556;
+	bh=vg40dQb3GyjaM/MxwfceZkeTged0zEm24vPCwQKrnkI=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=fZCh+R25zEsDeFStPRcaQPGJbY+3MapI0tO/jH6dJPLXtA7nRnjHMAoYTP6j+MZxC
-	 VPmtIAeYMma3numyw7ToI4T7mUEMzyqRwSK1ax30qKJyQnKMkk3PGRByK91McgnHQW
-	 JEbLuIT4Y3nIXKvSuT3AZvCRbdCdbps/8P0CNyDmkSU8xVV5h3IuHqhRKe+9lilNYM
-	 bLipzJoFvnpLw38iUU/6fnm5GqZSC2DIElM2RxxY/p1rHTOU6jrplzbtyJEwRUAJYs
-	 3Y52Ila56RZsKXU7A7TogR45nGk/+ZZiEAu4BCED6walBUCmOfyI9npB0AOHFA+ggb
-	 iutZdY/5HNyaQ==
+	b=igGL+6q4Da5+IEnxwi16adVTd03LHQO/AXNqfgMSGbkn3e2WJPOfsNkPcFAlKERnl
+	 UKaCLa66zLshq3iIsEhBLbZhvpowyo20w69zt0V1gtoeu2uwhiIsDIFndEq85MpgPz
+	 2FEmhpneQLcYMzCh7sFlEVCj5iIsZEvieQ794KTuX6fq/mz6lQZ3DZrSBvBWzboGrY
+	 sLOnraMWKA4KzDq17n9VYZq8gL4EirxRE3Wst6LoX7GPtkxe3hh+wWQkA6pTLpmIhF
+	 wdEYvKowlWk5JJx07cuBNqmZapku++MMpuR31Wnoioei8ojxZHN/F+cPNcyL8dfcLA
+	 9Jb81giaBmy0Q==
 From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, 
- Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-msm@vger.kernel.org
-In-Reply-To: <20261117052257.34849-1-xiaqinghuan@mail.ustc.edu.cn>
-References: <20261117052257.34849-1-xiaqinghuan@mail.ustc.edu.cn>
-Subject: Re: [PATCH v12 0/2] regulator: add the Will Semiconductor WL2868C
- camera PMIC
-Message-Id: <179493225071.77896.10185420836573973098.b4-ty@b4>
-Date: Tue, 17 Nov 2026 16:17:30 +0000
+To: Maxim Kochetkov <fido_max@inbox.ru>, 
+ Andrew Jackson <Andrew.Jackson@arm.com>, 
+ Xingyu Wu <xingyu.wu@starfivetech.com>, phucduc.bui@gmail.com
+Cc: Tim Bird <tim.bird@sony.com>, Yuri Zaporozhets <yuriz@vodafonemail.de>, 
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, linux-sound@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261111022731.8243-1-phucduc.bui@gmail.com>
+References: <20261111022731.8243-1-phucduc.bui@gmail.com>
+Subject: Re: [PATCH v3 0/6] ASoC: dwc: Fix several issues in the I2S driver
+Message-Id: <179492885684.77896.4596853748674055063.b4-ty@b4>
+Date: Tue, 17 Nov 2026 15:20:56 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,36 +66,46 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1575; i=broonie@kernel.org;
- h=from:subject:message-id; bh=fMx7Bkqimjjk6heIhmF8dptsJXfqkwgXFBsNOPjpWeo=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLL+zJrzmUt3tsLLZ35Mvnv9Pi2K8BTfHDjlDX/39YpNi
- /QMunybO0pZGMS4GGTFFFnisrhf1pe8XsN3cGEbzBxWJpAhDFycAjCR/UyMDPc3al6TmsOy/UPi
- gqNWL22uPHLc4LbGpPIql8bRbuFl8/YzMkz58TzAw/x+T9ezvXP70jg2TUhk/PPpr7/5Fs51up3
- aabwA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1945; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=lHsvseC/SgaaidQmhlOI0G8I6Fn6dKWvEYamUk32QDQ=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLL+zFrA3fi4c6/YddYkF/5JzZkpp27OOrdBjrOb79Ai6
+ zLl0GkfOkpZGMS4GGTFFFnisrhf1pe8XsN3cGEbzBxWJpAhDFycAjCRLwqMDGtMaqV2XpWZ6Rcn
+ d4I9ouXkpYzv0ndiflWwtZxn2sPFeIThf+lLzzKj7hNv5/wS1K/b8fL+6s23nk5ds7kz5Kd0iOe
+ Fy9wA
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-On Tue, 17 Nov 2026 13:22:55 +0800, Qianhui Xu wrote:
-> regulator: add the Will Semiconductor WL2868C camera PMIC
+On Wed, 11 Nov 2026 09:27:25 +0700, phucduc.bui@gmail.com wrote:
+> ASoC: dwc: Fix several issues in the I2S driver
 > 
-> *** AI-assistance disclosure ***
-> This cover letter and the two patches below were prepared with the help
-> of an LLM coding assistant.  The author reviewed every line, ran every
-> gate quoted in this letter himself, and takes full responsibility for
-> the content.
+> From: bui duc phuc <phucduc.bui@gmail.com>
+> 
+> Hi all,
+> 
+> This series addresses several issues in the DesignWare I2S driver,
+> including clock rate calculation, DAI configuration, channel limits,
+> DMA FIFO sizing, and error handling.
 > 
 > [...]
 
 Applied to
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-7.5
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
 
 Thanks!
 
-[1/2] regulator: dt-bindings: willsemi,wl2868c: add the WL2868C camera PMIC
-      https://git.kernel.org/broonie/regulator/c/84e67d2ee13f
-[2/2] regulator: willsemi,wl2868c: add the WL2868C camera PMIC driver
-      https://git.kernel.org/broonie/regulator/c/602f57223457
+[1/6] ASoC: dwc: Fix bit clock rate in TDM mode
+      https://git.kernel.org/broonie/sound/c/1b1af8e535b1
+[2/6] ASoC: dwc: Fix error handling in dw_i2s_set_fmt()
+      https://git.kernel.org/broonie/sound/c/6d814b962a87
+[3/6] ASoC: dwc: Fix channels_max derived from COMP_PARAM_1
+      https://git.kernel.org/broonie/sound/c/0b67b15489be
+[4/6] ASoC: dwc: Fix DMA fifo_size calculation
+      https://git.kernel.org/broonie/sound/c/89c6374420f7
+[5/6] ASoC: dwc: Propagate optional IRQ lookup errors
+      https://git.kernel.org/broonie/sound/c/5d836a3a1e51
+[6/6] ASoC: dwc: Remove redundant error messages
+      https://git.kernel.org/broonie/sound/c/6d871a9e6a16
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
