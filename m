@@ -1,91 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.44
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794939222;
-	b=vTRAi6qExrSKI7PXhy9NAipIhtiFmlzCSO532+ZT9i/ctjPa4ROcAKFkf5NC9WyBMyu7
-	 9E5a0n+vKoAIKXuL/xy4D8rZ/vUHlA9tTMOSDKKyEd5s/rtJin2GdgEaH5UdVY7Uxr6+l
-	 LRDHrsdcjHzNfBzysksIM4CIhRuL6wQgLiOO0lutxv58iZWddjR16/e68Xy9CIVtrZhoB
-	 VGwjDAJ4KNzjxbi0U0mmTLi85lim0vOvmSd9bRxihrqvBXeRMZUsaYqY8Bl/caAWq2bfx
-	 tDolUMKUAWNaFNeDfiDvklFZs3GPHP2JDwL9htunQvS6aoHeotEqMIwtxfTf1nx1/nA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794939222;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.173
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794939219;
+	b=fyhVZgULOfHHjAU+DXNTqdNL51j4jZZrWLpgO3CL4tRlEalR6Ftz3bENM2u5ICd01vvB
+	 rkdRZycPtgdq3q11/wf39MKJBe79frfZEQFilVn4IE+nncVLYbIPT/5AwoGNa1uwsWtFx
+	 /+Dov2m6/iY4PKfpiurGx9AQs6F3sDTH3Mq6QQQ3zmi6qDpZEppPmeT/il1szC/HuQ9jk
+	 NagZUjA7rbnQDgKnDz3d6l5twfrKQ936wR5e2oZ1PBLO+FfG8CBqKj6gVHWS0XW1fSf5D
+	 9oTbRk4hPlRiF4BkbHgRypM1jjNlY5p+gE5eowuDjvNffqcvgHiG/IU7ZJYcQq+07/Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794939219;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=VmJwPAKmkjpaPlFxmcST3cwAQG1JNPaGXGhzymmNX0E=;
-	b=dw9wH++b3W7VtDOezIqzdsKTwPGCJG1mVWdE2nIHwUa5ldhxO1wjTsBftGZuRRJqf9uS
-	 2gAEFbNL29OPrGk9JaT5vRYgl7/oCXUd82veIwB0ZGhIU336RFW+fQ865kCpm85LvgKTW
-	 TYX+4aU+/+BlAzrviG+YxSqC1qtWlgzD8oDNv9MmDymB8WQQLQ3YCU07nLRInXOX0uPAK
-	 Xvwe41A4NrCN9OvtagCpxJYeVMHEFPwzqBwAP20PEBMmthVfdD0NfbW0C8SmusVgFbkLL
-	 gR2ueXURpJZlLxpqHkqB5FbK7qyj4aopMxcN7MppE5bkfn7UGuq3J+6SHmu1hcPe81Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=erlUER00uutbOeUXRe0dMlrIK7k5YTIn1N9SBf2g4jc=;
+	b=iON/elap8TJcEZWGO+3ex0e57utWdb9h8brdlR2/mFeWIhadaN+e5uHidp8EEEdv2Be7
+	 mnMQF97lTaP+cEYmFmFN2UKlYHwAcBtG1Gwq+CaZGYMlIP/D8ugIzyDMd1Rsxy0v5/fNs
+	 XReCaMFYKH0m/TRo+d5oYKyBl15klFcJXFzRggFOmEgDHcV9AeUraSwT+mMrTPry9kKwt
+	 yBZBWHDLVKe/O9MijhSIuLEXAVvXhW9Mvtkbn69/AEtTSW4u1NbD3Knv6L1C3mc498mq8
+	 zybu9g3pZqy85A12nUxRfpiwbbSGaiTyqydR5YJoQOA7b4i3rhTBIJBi+PMS77Xa0AQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=O+eNLKGi;
-	arc=none smtp.remote-ip=74.125.224.44
-Received: from mail-yx1-f44.google.com (mail-yx1-f44.google.com [74.125.224.44])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yWq8fIRK;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.173
+Received: from mail-lj1-f173.google.com (mail-lj1-f173.google.com [209.85.208.173])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2AF9606A33B
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:13:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2AF9606A33B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF703606A8A4
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:13:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AF703606A8A4
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=O+eNLKGi
-Received: by mail-yx1-f44.google.com with SMTP id 956f58d0204a3-67583c777abso1694675d50.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 10:13:41 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yWq8fIRK
+Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-3ae25c846edso1383011fa.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 10:13:38 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794939217; cv=none;
+        d=google.com; s=arc-20260327;
+        b=U9L+TpTav1pWN1XXB5KxT+SDizEClOuNZYkOH7Uv+EXAUjC8h8QGE6wPDAvgLJflRK
+         uawKB5c6fjZc7xASsIlR+WcjfYWQt+iNLZdlvwWgn/tlVlAhkPTaYnO9UJTl8FWHTtLT
+         rpflrwm7kma8t2dkjDNLHS5OgULDEDhfvgNRgeQzPH2qpeDqFPlwOGB0ZK/jjZ46VBq8
+         0xbAZIHz6YTiwzJ9cxmT/ckUeyr+z/h1RApfH5KhzBzh2+WaGMtgjMEq2VgUwjjD4Xgf
+         KaXf7d+Lde6gdeBV+opTUjclrYURxOKwUnJhr3svfbRBtaM4cAJtBEB3TlLlbOqHTWWi
+         rYpQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=erlUER00uutbOeUXRe0dMlrIK7k5YTIn1N9SBf2g4jc=;
+        fh=Sw+CXiVvJDa3qcVyLWWwYav/r8Rl5npwdkk0LtJbKwc=;
+        b=MMN/kwaYwoH/MoPTt3aE+LjTiteSYxDKCnFB55US6+IFZitiZqSLfx9exGum/jJP7U
+         7VD4bM4mirXR/5vx2vndylyODNHG8JiUr4wgV9+q/rt1PSig9lpdi1M4zPXLkqt4Gc0z
+         oU0kExT7o2vnV/ovesZTHkXGerDP+GADNVqDPdXkmofU5Fyqz+c7XLlKs5pwkupI96Ad
+         lHzPsibylBpCA4r+R35CsLcityXgDCtP8hPD4dBBGT2VQfyvi/2ueRvKP4LMoTvdUVQJ
+         qynhE+NfYrU67QxzvZXi8nFH2xl+r9kkdfdmzZ2bgFRdDZKj+vNO4+xtxofuv8GthxZj
+         KDDg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794939221; x=1795544021; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=VmJwPAKmkjpaPlFxmcST3cwAQG1JNPaGXGhzymmNX0E=;
-        b=O+eNLKGizaKvCjcBFEPklrUdI6prwcylupkEF35VptnltgWqNEux7MOuHb+SDkx5jB
-         O2YBkx70K56s4/CYCkiUSvGtyup8Lsx6SgYv0nnjy/nYnX15phR4QjgUy+4HIpn192gF
-         kJ/5qnLgAvCPteGUvEgMXDzynLfgCneUUtyhyqT9ItC5tbMECcJW5nViiMWWqg5htRsK
-         RdPzqrR+FATHhPikVmvkp08iBo2mqzvqGqqnkDbzguZ9r3QlGPxRnttdluSffAKHHH0u
-         uvOVPqUyQmHk1gGbq9ONEY4DjkvDKZytgBIF7ddU81D5WDv3kwYq3MVRRANuE4pFuWOG
-         FVAw==
+        d=gmail.com; s=20260707; t=1794939217; x=1795544017; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=erlUER00uutbOeUXRe0dMlrIK7k5YTIn1N9SBf2g4jc=;
+        b=yWq8fIRKsYvOVYJkN+zuhrDf5zzTzUqBNqndE5f6I0NuyPm5k1QYBU1TxuA6LUrayP
+         u9g/rJO1y8oNXunkiwTxK/PEnIDGWko/TH/y6fdqeoZVr5MsQ38hY+z2KpG3sgq6BJWk
+         Uk+PxgsWz4df/3Q3gszOS0a28AGCRXK7qrNrs1liYe8mvfvy0RnMZDm+HY4rEK2OLNdl
+         D2O2ciFFGs/v3uIhVFRIcdDMCp1tY8Cx2whBmtqPrFLKaSr1dI29ZNSeJFdbxCrEUFQW
+         HB6ed0+jh3NibJOScnRUnJw3EhuLteXt9rttaO5Wl9w1CYEPMjG8/8bAlAkv7VxP311K
+         I4QA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794939221; x=1795544021;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1794939217; x=1795544017;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=VmJwPAKmkjpaPlFxmcST3cwAQG1JNPaGXGhzymmNX0E=;
-        b=t/V0ACftJFgqqMDEqsF3fj+ulVS5MJYPE1lH5w1K5yoKJAeS9mmEIzXbyHnfe3torY
-         ZYoHJAw8kzG7EyyNYfyTzTiYieLtKARYcpGLxNp+CsNf7gUodLxkf45lHizlyF3j5dYa
-         mgXFqAuhjEp43hg0O23iOc+HmbmZw46GCI84MPWB3ZF4wx0SWvyR8YkBN6zjnOLvfpcU
-         aCKsbEJqz/a77ygsd414YGlHtYqRU/8SuSxAgajaXB3/7HS2iQHP5tMLK+D0wPc+Aead
-         D1YK2wlGX4og0gDYGDvQeMbX29bafefpYqpxQBpuBjQXS9EVdq2hcTZunodGJ6U0EP0j
-         pleg==
-X-Forwarded-Encrypted: i=1; AL+hErGcopFmXMFkIxCxlHROn5x2B1AYa4LIOkXZNBkRgjGhk3KyY5+J/nZWIvvA/dTMlQgM3yy0o/46AZ/oUKo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8SKF9ez2ncfXzcbujyAWR/cnLUVJ8rYOVLVQ5nPY6oGi7IiioI
-	nOy3uQD2/f9y0YafkRtOEOzRtkxLIw9cd/ly7IHeUqUSVR5Q4Q8kLLFB
-X-Gm-Gg: AZFdTZccW++FdX3IzfpweKWZKT8If9j+nOT7Coq951XXtvFcInjLuv4pM++utW9f39m
-	IOC/WGnd3v2SYun9rmH4lbOiVZA6xnhN3etf54EpeJJ2B+VwWGjubBQiqcUl6VmkoOyu8s5omaF
-	EIZWsmloXbGZTjgsCt3j9kw+N+U2nzDmXeNGYBhYuQKB5MRVi4aL7PU1TX9gkdvbzghU5kURvr8
-	f4eX6rfVXzYc1vXbZ4LPYPMeG9ZVIfgq9hL3K/vuoszADWP6YqW+6DUMJwwVZN7Tt+ygFe8rViM
-	ZBX9qvpDPb1TaC+IMyK1U92VX3/108jpWFOczOKMTydlGKD9BIaf6xHmoHLSD8na1aETB4XSBFu
-	EqpGI1RaQJmGT/4LhJ6+88l6RpeTHTwr+YTli8vfxh7XY/2CwLfwh/VZfk3hXxtB2qP4CXlfGa/
-	n3suClLrxt8+uGHE97iz+LDb8VceB90+4GsskY5N7YQe5LUXsocjnC0E2Q4vByQtWkNELs1rJOd
-	8hAr2qJnwnnncfMb/nCJwmhhqL+6jAq7l9pFKthGkOXNxVigVS5dJ43QkB6tSlQWLLiHM6mULxM
-	vQa5ZTKvUpd432MLhmoC1FCk1miHjDr7zNAwP3OvTV2amZAPAbBOb9COBdJiQsXHHcUoKTjDGl3
-	n8vPWxP8pkPajcxa7ibUapBt3lFFvihsJgmgynk6uIFusP9SnBTVNmbwbCwwE+xvBFeCnaFcQie
-	pehfvcHCmTcIS2HvvDTbfX7mBWNGRvlD/ql8eEego=
-X-Received: by 2002:a05:690e:4894:10b0:677:c90f:46bf with SMTP id 956f58d0204a3-67dc7869e78mr1202178d50.17.1794939220704;
-        Tue, 17 Nov 2026 10:13:40 -0800 (PST)
-Received: from localhost (107-220-129-194.lightspeed.chrlnc.sbcglobal.net. [107.220.129.194])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67dd3f284bdsm291489d50.3.2026.11.17.10.13.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 10:13:39 -0800 (PST)
-From: Matt Turner <mattst88@gmail.com>
-Date: Tue, 17 Nov 2026 13:13:32 -0500
-Subject: [PATCH v3 5/7] alpha: marvel: register a platform device for the
- environmental sensors
+        bh=erlUER00uutbOeUXRe0dMlrIK7k5YTIn1N9SBf2g4jc=;
+        b=mrRl4zGF0dGQ89NiZV7So0xVxr1IEEBynH9+g0Fh2bnyS4oIcte17z0Cj7WZfd5sxJ
+         dxDaE0cOycy1idKpgitmiCYPgD53CbnRnazd2PGPz77HFp8nCkcXVgDPdtrii/D1XsFh
+         8eOd/+RNdM9WMFlOdCGWeYWPpMbKLAb3+xehxAHOieiMIN7Lw4QhxS9j6o3Idco3vMaM
+         NJQPvkxlTcDfo/zmiLMXI6ChleIJDtFLJV7nEoNCL4geFmvrbkBp3QCWt4FVL7Za7Alk
+         G2Wh5yzU4DNiGTZLKiNXC0BC6XiPKHd2TuF17iOYrxdo4uqxCU7gGdq3EUeISDhivDeH
+         1hrw==
+X-Forwarded-Encrypted: i=1; AL+hErEddCgGe/kF1c3xFMOM9JC7g2yZ/w2WhAG0QehATeV+gplGRM6d+MGprgf56ARV0XSFiru+D/A+j75h8oY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9T3fQOaBo2xHs/hF5LfCsvVgK4AhrT/voQd+SMF/PKL8K4TE1e
+	1JQLIQ09MTToEz1dU08if7lSfszneGyfqpZ984WeDbCdLEB/5DLTvbQAG6lNHZDY7AzwITzohdt
+	wudTmm8fkV6g4PMxUtoT0oMjAfRx/7cs=
+X-Gm-Gg: AYBFou0nM6cwTblHsmmoweF1dSV5kjj/NxgfXnl0RAU+7MnoeEVSWdZKUEZzRriwgY1
+	HmbhU3RskaEevaDuSeQhYKz80rh50nP3/1guh0t/ajxHjwNSkRQGd/SIdnWQbsl98IUS6yjH7Si
+	R6PayHrQKZ348thB8BtJopMb2a44BY5kXfbfpU2N0jmRScB8tHmxp3YmLL3h3uZPC343GnrHLuB
+	Q7q/toVHDdz4aow45A8w0k20ZIuiNZ84RdrIvwLQbQ15KT9Ez3nlksVhsUxl6Ere69KOZX2+RQC
+	ptZtABwujQD71Gn1sHDX/kEWdYdscEdF2pbOfVlWiZcaeyOyv6781I1yCXxIDMzF4LxJXsp2cBB
+	e4Rbvl1ORPlIPgObMnzLuV7TeFQirfqY4otH/1Zu3GT+CCp/umLw0cupSfpZfrvc2Egm/TPUphn
+	kL2JXbpf/VGeF1KClT0yIpq3eVQMzClERaFbWqHerqS3KD5dA=
+X-Received: by 2002:a2e:ab0c:0:b0:3ab:f9b:974 with SMTP id 38308e7fff4ca-3ae2b6b6de0mr41375121fa.29.1794939216626;
+ Tue, 17 Nov 2026 10:13:36 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,64 +104,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261117-marvel-env-v3-5-0edc370fdca9@gmail.com>
-References: <20261117-marvel-env-v3-0-0edc370fdca9@gmail.com>
-In-Reply-To: <20261117-marvel-env-v3-0-0edc370fdca9@gmail.com>
-To: Richard Henderson <richard.henderson@linaro.org>, 
- Magnus Lindholm <linmag7@gmail.com>, Guenter Roeck <linux@roeck-us.net>
-Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-hwmon@vger.kernel.org, linux-doc@vger.kernel.org, 
- Matt Turner <mattst88@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1146; i=mattst88@gmail.com;
- h=from:subject:message-id; bh=eCxTz6/wFgOEYqUhWdz1P8hGqwqPQw6s+J+8BeCiWlI=;
- b=owGbwMvMwCW25rVmCc8sv+mMp9WSGLL+zPTY//i0pq3747akHGmzgvRFG/gWHTaQnx15YdojP
- tlTJjL/Oz6yMIhxMcwUU2SJW6/IMqttx1Kf09K/YOawMoEMkRZpYAACFga+3MS8UiMdIz1TbUM9
- QyBDxygeIqfHoJFZXFyaWqSbVlDkkJdfkliSmZ9XrJdfkJpXkF6gl5aZVpKRkV9UnAo0Qi8vtcT
- U1dHNyNDAxNLRwszJwtHUxNnZydDJzdHR2dXJyNLcxMDZ0tHE1dKcgYtTAOaaQGGGv9Iqi2oDCr
- /0brrgzSkd4LnS+st1+S2qf2cssukOjV95lI3hn9bcpUq5DX4xr3g3SE4tuD9z+bQP/CHXdu4uT
- itTuZdVywAA
-X-Developer-Key: i=mattst88@gmail.com; a=openpgp;
- fpr=3BB639E56F861FA2E86505690FDD682D974CA72A
+References: <20261116-marvel-env-v2-0-ef614eb2e7f1@gmail.com>
+ <20261116-marvel-env-v2-6-ef614eb2e7f1@gmail.com> <71d115df-0380-4724-8cc1-ca7da0aa5fc4@roeck-us.net>
+In-Reply-To: <71d115df-0380-4724-8cc1-ca7da0aa5fc4@roeck-us.net>
+From: Matt Turner <mattst88@gmail.com>
+Date: Tue, 17 Nov 2026 13:13:23 -0500
+X-Gm-Features: AclHuK_oNiRl-U7dZo5t_PUbIvckg4PZjah-4kUWpzh4pr8I4MHJijK9LPm47r0
+Message-ID: <CAEdQ38G0hC3QvZrM-YLUGUT=0DQqjJi=G=CWu=2fUwZLs1wLBQ@mail.gmail.com>
+Subject: Re: [PATCH v2 6/7] hwmon: Add driver for Marvel AlphaServer
+ environmental sensors
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: Richard Henderson <richard.henderson@linaro.org>, Magnus Lindholm <linmag7@gmail.com>, 
+	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-hwmon@vger.kernel.org, linux-doc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Register a "marvel_env" platform device on Marvel systems booted from
-SRM, for the hwmon driver to bind to.
+On Tue, Nov 17, 2026 at 11:13=E2=80=AFAM Guenter Roeck <linux@roeck-us.net>=
+ wrote:
+> This is not how the update_interval is supposed to be used. update_interv=
+al
+> is expected to be programmed into the chip.
+>
+> Soft intervals should be hard-coded.
 
-Reviewed-by: Magnus Lindholm <linmag7@gmail.com>
-Signed-off-by: Matt Turner <mattst88@gmail.com>
----
- arch/alpha/kernel/core_marvel.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+Understood. v3 drops the update_interval attribute and refreshes a unit
+at most once every 10 seconds.
 
-diff --git a/arch/alpha/kernel/core_marvel.c b/arch/alpha/kernel/core_marvel.c
-index bd918028b410..d2e1e45cdf1e 100644
---- a/arch/alpha/kernel/core_marvel.c
-+++ b/arch/alpha/kernel/core_marvel.c
-@@ -21,6 +21,7 @@
- #include <linux/module.h>
- #include <linux/memblock.h>
- #include <linux/workqueue.h>
-+#include <linux/platform_device.h>
- 
- #include <asm/ptrace.h>
- #include <asm/smp.h>
-@@ -1142,3 +1143,13 @@ long marvel_cfgtree_partial_update(unsigned long offset)
- 	return status;
- }
- EXPORT_SYMBOL_GPL(marvel_cfgtree_partial_update);
-+
-+static int __init marvel_env_init(void)
-+{
-+	if (alpha_mv.init_arch != marvel_init_arch || !alpha_using_srm)
-+		return 0;
-+
-+	return PTR_ERR_OR_ZERO(platform_device_register_simple("marvel_env",
-+							       -1, NULL, 0));
-+}
-+device_initcall(marvel_env_init);
-
--- 
-2.56.1
-
+Thanks,
+Matt
