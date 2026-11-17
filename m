@@ -1,111 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.48
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794940320;
-	b=s2lWXqUv/U5kyHzSggA15ficpHj8+p2PAEb1L4sP87qTyl5rJCLtravPZ9rHAqRf2xlc
-	 ukbnYdEFsDJBhNHvO1gPqdToFl98gP53dZtTkxBTmKKE4ksAF0YkAvy6ph47kyA/z7bLz
-	 E8DTKYHgJh84Mh1CpIIe2SBlT90tnvxU68pvAfA28OGFRyvhQEldgepeHV2jrvpQ+vtWy
-	 tEpUXcw77uxV989xY1CbCOGLXyW10Zhg7dSGPqWRN5yzdvNqeQjYa2jaqez2L3E0DgznC
-	 fRBwZ366gw4ISHoiBuhwY31NHXEBmyHDnYy7g7GoYiruiQNA5s2CKpPmJjS7jhZb7/g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794940320;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:Content-Type:
-	 X-Originating-IP:X-ClientProxiedBy:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=vTj/Q6hE4aF3VMfJuX2ZcVUYtl9jjFf38wwDv3jeX6k=;
-	b=xMoNYwCHLNXNMDowaeDAqjt/STK4+wDcagJyamYJiWBqPM8smtNGqKwJdQMAwoC8erPL
-	 gYqamMQopiQzozNAapTfX6pOZbr3HslmWKIQMvlLDe1gDWrPeuVMPKNJVz1IFKh27GYCw
-	 sJMuWjxGA/9qu1G1qXRr0t+RK/ffexiaNhXeWfxhYR1Ik9IDlViKQkflmipuP+c3xGd6A
-	 z7tsXdyaLjP/xzdQ5MUTgiCgRN3NwQvZlHIozsRkPwZMxuxjTWdrm1IlLF3SySvB81lRj
-	 5PrYlicJSlCYio3dImlMkP44aOcFFC6g/iKwTzw7/Q9GY0QS4c1fseP3AGQylgRSVKA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=foss.st.com;
-	spf=pass smtp.mailfrom=foss.st.com;
-	dkim=pass header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=jPO8Mh8O;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.48
-Received: from PA4PR04CU001.outbound.protection.outlook.com (mail-francecentralazon11013048.outbound.protection.outlook.com [40.107.162.48])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794940321;
+	b=YpXLU0UQvpNOWlXzZ33awc4+j+da7gcQ8TQ9Hvs7n6nwtgVoSatGefDIcTQJd53ZfvCH
+	 1G87mPZHv/icYovZd1K3KiO+VzO4BEH/kIMsfZ5FfesrvaEKYKUwIHbzb9CXJgc4lDCyZ
+	 k2YBfH7Gc4LDKJm7AccZ2Znlk6vAY98Ss5rPeN/Rqao0eoaeJmxfRySGsL27QDvcRUk7E
+	 wA2tIVeGTYbZlp/WAR4jxFoVnfKNLOB20+dqByPJJenkXvCYj/s1vFM6SBMovODxe2fAy
+	 sC9HD8wDHlvw8a7IXoYCodqruwoR2rRbYMDlSWBuJbm+yWMesEXtMrILAtcOw02vLQg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794940321;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=Ubfk8Z6lwe0ShJEzI9YzXqY42fIAdl4Hrtye981QR3g=;
+	b=RqtIS2CKLK3vJoAWuwbM/bOC4qlqyRPOvCM7rubYlYmeQ+JytjteY1msAK8shTv/0lTm
+	 WZq+CUBBZ+XdOqHhdZF4CHjzMRsZDgAby8gHIz2mg2ZpQS4VMcRTepoKPyfflFn4YMJMq
+	 6WgUx+0B8a9F63JpxFh9dDizUpQ4JufxwsNT6Zpux0vMMh3XV01WJgRk4HsNOb9i9Ypgg
+	 GgCMDj1MQpsj6F5HnO+kaZ4yiW49lSnSxk832yYmOGDhFllizBv6mNoXJDt3f5cPGe2oE
+	 eOvVvxlwLJoW2YoNxe+MVgzh+CIQR3pjAajuUK13Cu85fMDSFSJ/Vivdeujx4JDJYUg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=dNM1Mc3j;
+	arc=none smtp.remote-ip=198.175.65.12
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D45E5606A88D;
-	Tue, 17 Nov 2026 18:31:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D45E5606A88D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=foss.st.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=foss.st.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 505CC60A3812;
+	Tue, 17 Nov 2026 18:32:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 505CC60A3812
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=jPO8Mh8O
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=O+TW8Q8QzhgG0t0dUuAlfJd4EKk7dtT2zsKRhuH6IbRBH1hR4qDGfA2eCkwUVJlk5LaqPqPQOoC4rJST9RcgGS/wTz938ma0bUajm9Mk4+AnntkvZQwT9Egs4nkxWTZu3d8VtKDp5neI/zE/oZ3vARELEd7zquV/tNNCArnMMJInU5dj4MnEYTq56/DGv1L4iTTs6ezfYgv10fp4i4Guw+rwPNRczUVAFFFMkW4M+hCSRGMsMaddCQ7ce/x8qdi7JTuAynRrLxeHUrHmFZvkD/gQ7SDqf7nBCjbG3DyKnMB/86Vm+i5LJ0xRc+PJp4UUaXW0Pg+fzco8lVU+ENxMSQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vTj/Q6hE4aF3VMfJuX2ZcVUYtl9jjFf38wwDv3jeX6k=;
- b=wguFTNhZVDT3A2x7zEILpHIItTAGtElcWXe+kCjocpQHaIRZazyJRz8ZTN4qAepJ17z5YW2jrlv1aYIHh0gtVv8PpskV7jfGgezZRRBFx+zfLjna60ni36hICnffGAsBb3ezKzFMkVsX9YShTXdRS6IaTLymqJ0FVOrmK8+pNA7lfGLjvRnB3BZJueXTyAp9S98LJ9iVFo65iultFkk6G8zHDD48KIR+9I1vH4dP2BFIXi07aKcYTgcpQIyOInkice6tbUQ0osK+hiAtvd7OB99itkik3N/syyH8BkDJ+K8N8GedwMEB9Xfmwi3SA92n0xDE26Ocp/mdTfopUltSiQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vTj/Q6hE4aF3VMfJuX2ZcVUYtl9jjFf38wwDv3jeX6k=;
- b=jPO8Mh8OUEZeAoyGVYFC10oL7Iz8Rq0Wlp9O021vHvHR4rgRn1esgvziHd7lStyrMwdCsfLqNUz+Iu35K+JaaSPeju8weGvOYogV+f/m1dzE0swvD458BeeOYWEmhMPq2jcxLEgQkS9qPACRgmlCG2WaGylcdkkjPRAAOyHqtaMJqaxKHhiNUEcwMLdHfw3fLCbiD8gc4s7r6OSaDCzV19dXb5VsfwXWvlu+CnKDGSB79tPA4pRyHfVnJnkIOFQRg+bJON5Q0DHSwZwaWkkd5iwHfPFidhfhwzOZsrReCteApskyLnvNudRu2q8LNRhvhIqVJ69dfqnL1vZ2WdtsZA==
-Received: from DU6P191CA0033.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:53f::8) by
- VI1PR10MB3245.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:803:133::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.8; Tue, 17 Nov
- 2026 18:31:53 +0000
-Received: from DB1PEPF000509F3.eurprd02.prod.outlook.com
- (2603:10a6:10:53f:cafe::1f) by DU6P191CA0033.outlook.office365.com
- (2603:10a6:10:53f::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.14 via Frontend Transport; Tue,
- 17 Nov 2026 18:31:53 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.59) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- DB1PEPF000509F3.mail.protection.outlook.com (10.167.242.149) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Tue, 17 Nov 2026 18:31:53 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Tue, 17 Nov
- 2026 19:32:37 +0100
-Received: from localhost (10.48.87.100) by STKDAG1NODE2.st.com (10.75.128.133)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 17 Nov
- 2026 19:31:52 +0100
-From: Patrick Delaunay <patrick.delaunay@foss.st.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
-CC: Conor Dooley <conor@kernel.org>, Mark Brown <broonie@kernel.org>, "Patrick
- Delaunay" <patrick.delaunay@foss.st.com>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>
-Subject: [PATCH v2 2/2] arm64: dts: st: add SCMI regulators for stm32mp215f-dk board
-Date: Tue, 17 Nov 2026 19:28:46 +0100
-Message-ID: <20261117192843.v2.2.I2f210226b26e3b5a80ad5207860a15fa657b55de@changeid>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261117183121.654286-1-patrick.delaunay@foss.st.com>
-References: <20261117183121.654286-1-patrick.delaunay@foss.st.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=dNM1Mc3j
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1794940320; x=1826476320;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=OdtB8hecPd1O2fKBX/ET7WL7NdNQIi58fBooNGrYdqk=;
+  b=dNM1Mc3j9ruNfa8EHBF2L6e/1U2f6eMMjFXo8n4MeBAv3K5c2TptfAc/
+   /1a87PuL2btRRlALU9D05N2emyFNuuLkRVFD/h/eXeB/JLthIQAd6qTdx
+   1TtkGED9F3Vi08vs8PrZY8wgiMXaYtTc0vNRBVI2O1aJRtLegluT5U3rP
+   hwAMO5f9q5Aj/2fESzBBZOoRenZY+grgZMUrhuwYWWwWIQ8eLxOh3K40s
+   ZBpHe9EfgjbZ9HMQUZprZkMHrMwSnk4cfIZlpzUrCcu79p0en3FVIp/jy
+   CUfBn8gteXayHNieV57wXiBHAa4pGBeNMHiCa4DQL9QTVnGqQ/NJS9kIN
+   w==;
+X-CSE-ConnectionGUID: yEm+4y/XTNmoVsJ/OJCGKQ==
+X-CSE-MsgGUID: MwSEQ9CGRpWH2ehd2+q46g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3607260"
+X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
+   d="scan'208";a="3607260"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 10:30:48 -0800
+X-CSE-ConnectionGUID: ZkwrNhQNTYaB3H0LTw5pgg==
+X-CSE-MsgGUID: zT+h9UCZRsGEaBe55WuDrg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
+   d="scan'208";a="9775033"
+Received: from chang-linux-3.sc.intel.com (HELO chang-linux-3) ([172.25.66.174])
+  by orviesa003.jf.intel.com with ESMTP; 17 Nov 2026 10:30:48 -0800
+From: "Chang S. Bae" <chang.seok.bae@intel.com>
+To: seanjc@google.com,
+	jmattson@google.com
+Cc: pbonzini@redhat.com,
+	kvm@vger.kernel.org,
+	x86@kernel.org,
+	linux-kernel@vger.kernel.org,
+	zhao1.liu@intel.com,
+	chang.seok.bae@intel.com,
+	kernel test robot <oliver.sang@intel.com>
+Subject: [PATCH v9 06/20] KVM: VMX: Refactor instruction information decoding
+Date: Tue, 17 Nov 2026 18:02:56 +0000
+Message-ID: <20261117180310.921701-7-chang.seok.bae@intel.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261117180310.921701-1-chang.seok.bae@intel.com>
+References: <20261117180310.921701-1-chang.seok.bae@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,88 +87,287 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB1PEPF000509F3:EE_|VI1PR10MB3245:EE_
-X-MS-Office365-Filtering-Correlation-Id: fd8efb1d-5be8-4149-8d2a-08df44d90d7c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|82310400026|36860700016|10067099003|11063799006|56012099006|261026121527099003|261021123027099003|261021121427099003|261102123227099003|261009223027099003|18002099003|22082099003|3023799007|44046007;
-X-Microsoft-Antispam-Message-Info:
-	ACRhQhH1N+UcnCJkL8yC2uK8/D1V8ddsvw8RRpBSPG11wYmvXN3ELjp4g97VNYGsDerFiCDNws5B5B6uUchG9Wcy251BubottW66OCp9KSKwxaw479y+iCeZapIViZN0oUIbJViBVcfJax8SgBv5HizLazuK41dnWeVzvBM285Lfyicrqj4HS6w/44O0tbw3BeOQbLcNg/VjVaye4fHG7WfLSxlmdX/oW4/e1Wm9dvWAnGvmfdSNX/VPxnmIVEJ0l8uzoCNw+hr5g/BJpx0KVG5WgNfOJxQLX/CGP2C6xNy3dS8BbnLffXOLI17U4SzwyxXNYpL9qCQkE8/qV7l9MP9XnqzgolhKg6jHweFF8VtHMaNBfBuK1KSwHXaEUf+bcWQ4+ffOlt2WvSwu77Q7VS1/rfQUbncI7248PRDtm47DUk+yLfRuzfWUdxblWcGhke8gAy8hDBHw7EaaXAoKlglhi2ynQGDcuCM11RoP8dGVj+qvrMsZ7JXyhpEmLSEiSciatp36W28Cnvgy0ciWukILkO5AjvsX5RP6ukwrAasdD6HUJ8/pJ1gPBy5s0EqAT82TvwGnNSj5hnTaQkPbVtFo+EonHphEdKnMA1eb37xvDoIzEeo8SE15QVdsqORJMAF1RS8/uYFRmCScat7pjiC/tGLYHKpUKcN3Z8dOtmPvBtuuOGfX7YkOCr/OR4JbxKMRjXKGdZsiK1hssNbuCEm2SglCsWpU+YV23SkVuaINYtGd6G9Wc3l+UvYSoYHD
-X-Forefront-Antispam-Report:
-	CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(82310400026)(36860700016)(10067099003)(11063799006)(56012099006)(261026121527099003)(261021123027099003)(261021121427099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003)(3023799007)(44046007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	vnmgy90GjijZ3OusIDw7tiUO+vQ5fRFIWGTm1KEpRJPy0W3yyTxsA8bF3wiBJf4nRI0hlXlRJBUddS93fMRZqbCSQCiSh5qXOz9m0K3mPLnQU9gUGgnPKQ4UWhRF3v1Ko7lxkJiBoPp+PTtOqpvTlX5uWk6mBhsqjuGoldabXPQNb9Y9DLEXzZASU6xnnBCfw53h9QFbed/gnrjbRgRtMrHlsU8nm+FDLOuhY1UfgmfKWYf3oAexZlH1JE55EXrx+pAutMnIay1Ommqx4oktEKY8048rHcLeM/sZlHFrHiaHhzEra8h484UGbmcfew0uUL4e0y96QDjhBrc7b40A35nhyIrocm+1K1M5tv+Y59J4YlQwYHRxi0NEhF4wLO0lg9iFnL3WRW53NfXE8tznOSvV6Z9/2oaijpiahA+QObWvX9z9vwXmkGaVctgYmfKs
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 18:31:53.3641
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: fd8efb1d-5be8-4149-8d2a-08df44d90d7c
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	DB1PEPF000509F3.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR10MB3245
 
-Add SCMI-based regulator nodes:
-- vddcore (BUCK1)
-- vdd3v3_usb (LDO4)
-- vdd_flash (LDO5)
-- vdda_1v8 (LDO6)
-- v3v3 (GPO1)
+KVM currently decodes the VMX instruction information field using a mix
+of open-coded bit manipulations and ad hoc helpers. Convert all decoding
+to use helpers to centralize the decoding logic for the transition to a
+wider instruction information.
 
-These regulators are provided through the SCMI voltage protocol
-and will be used by on-board peripherals.
+No functional change intended.
 
-Signed-off-by: Patrick Delaunay <patrick.delaunay@foss.st.com>
+Tested-by: kernel test robot <oliver.sang@intel.com>
+Tested-by: Zhao Liu <zhao1.liu@intel.com>
+Signed-off-by: Chang S. Bae <chang.seok.bae@intel.com>
+Reviewed-by: Jim Mattson <jmattson@google.com>
 ---
+V8 -> V9: Rebased on 7.4-rc1
+---
+ arch/x86/kvm/vmx/nested.c | 58 +++++++++++++++++++--------------------
+ arch/x86/kvm/vmx/vmx.c    |  9 +++---
+ arch/x86/kvm/vmx/vmx.h    | 48 +++++++++++++++++++++++++++++---
+ 3 files changed, 77 insertions(+), 38 deletions(-)
 
-(no changes since v1)
-
- arch/arm64/boot/dts/st/stm32mp215f-dk.dts | 23 +++++++++++++++++++++++
- 1 file changed, 23 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/st/stm32mp215f-dk.dts b/arch/arm64/boot/dts/st/stm32mp215f-dk.dts
-index a1285abc80ca..fc7010bf8d88 100644
---- a/arch/arm64/boot/dts/st/stm32mp215f-dk.dts
-+++ b/arch/arm64/boot/dts/st/stm32mp215f-dk.dts
-@@ -48,6 +48,29 @@ &bsec {
- 	bootph-all;
- };
+diff --git a/arch/x86/kvm/vmx/nested.c b/arch/x86/kvm/vmx/nested.c
+index ccd7843f43c6..da73ed81d99c 100644
+--- a/arch/x86/kvm/vmx/nested.c
++++ b/arch/x86/kvm/vmx/nested.c
+@@ -5218,7 +5218,7 @@ static void nested_vmx_triple_fault(struct kvm_vcpu *vcpu)
+  * #UD, #GP, or #SS.
+  */
+ int get_vmx_mem_address(struct kvm_vcpu *vcpu, unsigned long exit_qualification,
+-			u64 vmx_instruction_info, bool wr, int len, gva_t *ret)
++			u64 instr_info, bool wr, int len, gva_t *ret)
+ {
+ 	gva_t off;
+ 	bool exn;
+@@ -5226,20 +5226,20 @@ int get_vmx_mem_address(struct kvm_vcpu *vcpu, unsigned long exit_qualification,
  
-+&scmi_regu {
-+	scmi_vddcore: regulator@5 {
-+		reg = <VOLTD_SCMI_STPMIC_BUCK1>;
-+		regulator-name = "vddcore";
-+	};
-+	scmi_vdd3v3_usb: regulator@f {
-+		reg = <VOLTD_SCMI_STPMIC_LDO4>;
-+		regulator-name = "vdd3v3_usb";
-+	};
-+	scmi_vdd_flash: regulator@10 {
-+		reg = <VOLTD_SCMI_STPMIC_LDO5>;
-+		regulator-name = "vdd_flash";
-+	};
-+	scmi_vdda_1v8: regulator@11 {
-+		reg = <VOLTD_SCMI_STPMIC_LDO6>;
-+		regulator-name = "vdda_1v8";
-+	};
-+	scmi_v3v3: regulator@15 {
-+		reg = <VOLTD_SCMI_STPMIC_GPO1>;
-+		regulator-name = "v3v3";
-+	};
-+};
+ 	/*
+ 	 * According to Vol. 3B, "Information for VM Exits Due to Instruction
+-	 * Execution", on an exit, vmx_instruction_info holds most of the
+-	 * addressing components of the operand. Only the displacement part
+-	 * is put in exit_qualification (see 3B, "Basic VM-Exit Information").
++	 * Execution", on an exit, instr_info holds most of the addressing
++	 * components of the operand. Only the displacement part is put in
++	 * exit_qualification (see 3B, "Basic VM-Exit Information").
+ 	 * For how an actual address is calculated from all these components,
+ 	 * refer to Vol. 1, "Operand Addressing".
+ 	 */
+-	int  scaling = vmx_instruction_info & 3;
+-	int  addr_size = (vmx_instruction_info >> 7) & 7;
+-	bool is_reg = vmx_instruction_info & (1u << 10);
+-	int  seg_reg = (vmx_instruction_info >> 15) & 7;
+-	int  index_reg = (vmx_instruction_info >> 18) & 0xf;
+-	bool index_is_valid = !(vmx_instruction_info & (1u << 22));
+-	int  base_reg       = (vmx_instruction_info >> 23) & 0xf;
+-	bool base_is_valid  = !(vmx_instruction_info & (1u << 27));
++	int  scaling        = vmx_get_instr_info_scaling(instr_info);
++	int  addr_size      = vmx_get_instr_info_addr_size(instr_info);
++	bool is_reg         = vmx_get_instr_info_is_reg(instr_info);
++	int  seg_reg        = vmx_get_instr_info_seg_reg(instr_info);
++	int  index_reg      = vmx_get_instr_info_index_reg(instr_info);
++	bool index_is_valid = vmx_get_instr_info_index_is_valid(instr_info);
++	int  base_reg       = vmx_get_instr_info_base_reg(instr_info);
++	bool base_is_valid  = vmx_get_instr_info_base_is_valid(instr_info);
+ 
+ 	if (is_reg) {
+ 		kvm_queue_exception(vcpu, UD_VECTOR);
+@@ -5657,7 +5657,7 @@ static int handle_vmread(struct kvm_vcpu *vcpu)
+ 		return 1;
+ 
+ 	/* Decode instruction info and find the field to read */
+-	field = kvm_register_read(vcpu, (((instr_info) >> 28) & 0xf));
++	field = kvm_register_read(vcpu, vmx_get_instr_info_reg2(instr_info));
+ 
+ 	if (!nested_vmx_is_evmptr12_valid(vmx)) {
+ 		/*
+@@ -5705,8 +5705,8 @@ static int handle_vmread(struct kvm_vcpu *vcpu)
+ 	 * Note that the number of bits actually copied is 32 or 64 depending
+ 	 * on the guest's mode (32 or 64 bit), not on the given field's length.
+ 	 */
+-	if (instr_info & BIT(10)) {
+-		kvm_register_write(vcpu, (((instr_info) >> 3) & 0xf), value);
++	if (vmx_get_instr_info_is_reg(instr_info)) {
++		kvm_register_write(vcpu, vmx_get_instr_info_reg(instr_info), value);
+ 	} else {
+ 		len = is_64_bit_mode(vcpu) ? 8 : 4;
+ 		if (get_vmx_mem_address(vcpu, exit_qualification,
+@@ -5779,8 +5779,8 @@ static int handle_vmwrite(struct kvm_vcpu *vcpu)
+ 	     get_vmcs12(vcpu)->vmcs_link_pointer == INVALID_GPA))
+ 		return nested_vmx_failInvalid(vcpu);
+ 
+-	if (instr_info & BIT(10))
+-		value = kvm_register_read(vcpu, (((instr_info) >> 3) & 0xf));
++	if (vmx_get_instr_info_is_reg(instr_info))
++		value = kvm_register_read(vcpu, vmx_get_instr_info_reg(instr_info));
+ 	else {
+ 		len = is_64_bit_mode(vcpu) ? 8 : 4;
+ 		if (get_vmx_mem_address(vcpu, exit_qualification,
+@@ -5791,7 +5791,7 @@ static int handle_vmwrite(struct kvm_vcpu *vcpu)
+ 			return kvm_handle_memory_failure(vcpu, r, &e);
+ 	}
+ 
+-	field = kvm_register_read(vcpu, (((instr_info) >> 28) & 0xf));
++	field = kvm_register_read(vcpu, vmx_get_instr_info_reg2(instr_info));
+ 
+ 	offset = get_vmcs12_field_offset(field);
+ 	if (offset < 0)
+@@ -5978,7 +5978,7 @@ static int handle_invept(struct kvm_vcpu *vcpu)
+ {
+ 	struct vcpu_vmx *vmx = to_vmx(vcpu);
+ 	unsigned long type, roots_to_free;
+-	u64 vmx_instruction_info;
++	u64 instr_info;
+ 	struct kvm_mmu *mmu;
+ 	gva_t gva;
+ 	struct x86_exception e;
+@@ -5998,8 +5998,8 @@ static int handle_invept(struct kvm_vcpu *vcpu)
+ 	if (!nested_vmx_check_permission(vcpu))
+ 		return 1;
+ 
+-	vmx_instruction_info = vmx_get_instr_info();
+-	gpr_index = vmx_get_instr_info_reg2(vmx_instruction_info);
++	instr_info = vmx_get_instr_info();
++	gpr_index = vmx_get_instr_info_reg2(instr_info);
+ 	type = kvm_register_read(vcpu, gpr_index);
+ 
+ 	types = (vmx->nested.msrs.ept_caps >> VMX_EPT_EXTENT_SHIFT) & 6;
+@@ -6011,7 +6011,7 @@ static int handle_invept(struct kvm_vcpu *vcpu)
+ 	 * operand is read even if it isn't needed (e.g., for type==global)
+ 	 */
+ 	if (get_vmx_mem_address(vcpu, vt_get_exit_qual(vcpu),
+-			vmx_instruction_info, false, sizeof(operand), &gva))
++				instr_info, false, sizeof(operand), &gva))
+ 		return 1;
+ 	r = kvm_read_guest_virt(vcpu, gva, &operand, sizeof(operand), &e);
+ 	if (r != X86EMUL_CONTINUE)
+@@ -6058,8 +6058,8 @@ static int handle_invept(struct kvm_vcpu *vcpu)
+ static int handle_invvpid(struct kvm_vcpu *vcpu)
+ {
+ 	struct vcpu_vmx *vmx = to_vmx(vcpu);
+-	u64 vmx_instruction_info;
+ 	unsigned long type, types;
++	u64 instr_info;
+ 	gva_t gva;
+ 	struct x86_exception e;
+ 	struct {
+@@ -6079,8 +6079,8 @@ static int handle_invvpid(struct kvm_vcpu *vcpu)
+ 	if (!nested_vmx_check_permission(vcpu))
+ 		return 1;
+ 
+-	vmx_instruction_info = vmx_get_instr_info();
+-	gpr_index = vmx_get_instr_info_reg2(vmx_instruction_info);
++	instr_info = vmx_get_instr_info();
++	gpr_index = vmx_get_instr_info_reg2(instr_info);
+ 	type = kvm_register_read(vcpu, gpr_index);
+ 
+ 	types = (vmx->nested.msrs.vpid_caps &
+@@ -6094,7 +6094,7 @@ static int handle_invvpid(struct kvm_vcpu *vcpu)
+ 	 * operand is read even if it isn't needed (e.g., for type==global)
+ 	 */
+ 	if (get_vmx_mem_address(vcpu, vt_get_exit_qual(vcpu),
+-			vmx_instruction_info, false, sizeof(operand), &gva))
++				instr_info, false, sizeof(operand), &gva))
+ 		return 1;
+ 	r = kvm_read_guest_virt(vcpu, gva, &operand, sizeof(operand), &e);
+ 	if (r != X86EMUL_CONTINUE)
+@@ -6424,16 +6424,16 @@ static bool nested_vmx_exit_handled_encls(struct kvm_vcpu *vcpu,
+ static bool nested_vmx_exit_handled_vmcs_access(struct kvm_vcpu *vcpu,
+ 	struct vmcs12 *vmcs12, gpa_t bitmap)
+ {
+-	u64 vmx_instruction_info;
+ 	unsigned long field;
++	u64 instr_info;
+ 	u8 b;
+ 
+ 	if (!nested_cpu_has_shadow_vmcs(vmcs12))
+ 		return true;
+ 
+ 	/* Decode instruction info and find the field to access */
+-	vmx_instruction_info = vmx_get_instr_info();
+-	field = kvm_register_read(vcpu, (((vmx_instruction_info) >> 28) & 0xf));
++	instr_info = vmx_get_instr_info();
++	field = kvm_register_read(vcpu, vmx_get_instr_info_reg2(instr_info));
+ 
+ 	/* Out-of-range fields always cause a VM exit from L2 to L1 */
+ 	if (field >> 15)
+diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
+index 5d95f8138628..e6d77508dede 100644
+--- a/arch/x86/kvm/vmx/vmx.c
++++ b/arch/x86/kvm/vmx/vmx.c
+@@ -6154,8 +6154,8 @@ static int handle_monitor_trap(struct kvm_vcpu *vcpu)
+ 
+ static int handle_invpcid(struct kvm_vcpu *vcpu)
+ {
+-	u64 vmx_instruction_info;
+ 	unsigned long type;
++	u64 instr_info;
+ 	gva_t gva;
+ 	struct {
+ 		u64 pcid;
+@@ -6168,16 +6168,15 @@ static int handle_invpcid(struct kvm_vcpu *vcpu)
+ 		return 1;
+ 	}
+ 
+-	vmx_instruction_info = vmx_get_instr_info();
+-	gpr_index = vmx_get_instr_info_reg2(vmx_instruction_info);
++	instr_info = vmx_get_instr_info();
++	gpr_index = vmx_get_instr_info_reg2(instr_info);
+ 	type = kvm_register_read(vcpu, gpr_index);
+ 
+ 	/* According to the Intel instruction reference, the memory operand
+ 	 * is read even if it isn't needed (e.g., for type==all)
+ 	 */
+ 	if (get_vmx_mem_address(vcpu, vt_get_exit_qual(vcpu),
+-				vmx_instruction_info, false,
+-				sizeof(operand), &gva))
++				instr_info, false, sizeof(operand), &gva))
+ 		return 1;
+ 
+ 	return kvm_handle_invpcid(vcpu, type, gva);
+diff --git a/arch/x86/kvm/vmx/vmx.h b/arch/x86/kvm/vmx/vmx.h
+index cda6e9707686..205d5719034d 100644
+--- a/arch/x86/kvm/vmx/vmx.h
++++ b/arch/x86/kvm/vmx/vmx.h
+@@ -684,14 +684,54 @@ static inline u64 vmx_get_instr_info(void)
+ 	return vmcs_read32(VMX_INSTRUCTION_INFO);
+ }
+ 
+-static inline int vmx_get_instr_info_reg(u64 vmx_instr_info)
++static inline int vmx_get_instr_info_reg(u64 instr_info)
+ {
+-	return (vmx_instr_info >> 3) & 0xf;
++	return (instr_info >> 3) & 0xf;
+ }
+ 
+-static inline int vmx_get_instr_info_reg2(u64 vmx_instr_info)
++static inline int vmx_get_instr_info_reg2(u64 instr_info)
+ {
+-	return (vmx_instr_info >> 28) & 0xf;
++	return (instr_info >> 28) & 0xf;
++}
 +
- &usart2 {
- 	status = "okay";
- };
++static inline int vmx_get_instr_info_scaling(u64 instr_info)
++{
++	return instr_info & 3;
++}
++
++static inline int vmx_get_instr_info_addr_size(u64 instr_info)
++{
++	return (instr_info >> 7) & 7;
++}
++
++static inline bool vmx_get_instr_info_is_reg(u64 instr_info)
++{
++	return !!(instr_info & BIT(10));
++}
++
++static inline int vmx_get_instr_info_seg_reg(u64 instr_info)
++{
++	return (instr_info >> 15) & 7;
++}
++
++static inline int vmx_get_instr_info_index_reg(u64 instr_info)
++{
++	return (instr_info >> 18) & 0xf;
++}
++
++static inline bool vmx_get_instr_info_index_is_valid(u64 instr_info)
++{
++	return !(instr_info & BIT(22));
++}
++
++static inline int vmx_get_instr_info_base_reg(u64 instr_info)
++{
++	return (instr_info >> 23) & 0xf;
++}
++
++static inline bool vmx_get_instr_info_base_is_valid(u64 instr_info)
++{
++	return !(instr_info & BIT(27));
+ }
+ 
+ static inline bool vmx_can_use_ipiv(struct kvm_vcpu *vcpu)
 -- 
-2.43.0
+2.53.0
 
