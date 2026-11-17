@@ -1,88 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.22
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794952323;
-	b=QDlz9yukhucOy2wRQmSdKnv/1vbaVmgETEPDyKWxNmf3q9sZpDKxdtaAt+U1PzfPbBkv
-	 ZLhOZT6lOBY+Brxdd4p4pT+iAr8SMv0NqaL0XCdh+yr650vM4jGntcx6BrVpjXOd8TsQL
-	 ptUHzNawh1DBht1+oNRs/Kps4iGnQiVR/kUrbQ6A0s8TtnbG1rvHwPU0Zn5vl4L/4//9U
-	 mf/5VuHdUBfTqTnmpAvJJ0nbJgr0zg/dooJFV7wUN0CkSG7E0cHUL0asNyukSW01XZLRH
-	 nx+zkMXkMPpY1jF2kCNFNsRfrRahTc/sQzWkrsSS9u6LT2K3oBejiBf2rGNLTPML6sA==
+	t=1794952350;
+	b=cdGqTgMNsUFkIityCZpWxa1W7KK6mbosb4PYRA63gEFU/SfnwT6yjKAh0sMygnL7z8XG
+	 s3Blhh15WZQ2tRu3obr4SQNgl0Q3RCBYwRntV/+u/qpLlnEd8T5JPD/TCVvLA1ECfza3R
+	 52DwliK/3kDJdh4IGgNdoxn9w+P+GNXV13L8MoSQf1psoX+SfCta3eG6HfQaDjP6sQvef
+	 lOmupgZ9BGw+pnoraV+yDrgLDxnDCclGeYqd+R73AWCfmNUFUi7dDE87REGJ9h6x4k8dc
+	 C9uNLgeqONdEYCvSSZXaGI1vy2CJ739J3fzue9GYShlDAEHeC2uRlzUYUNz77EafAdA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794952323;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=1qwGms5hMR2ux4q7/I/Tiy8y6p3Q9O52I2CVtKqKrq4=;
-	b=l+bWBCCi6JZDzKcteCc0QnRNnzfWD5S2fhC5CDsMV44/8CfQ/zGH0++Y38BmNcKVZiTb
-	 Yyf4ZNSjLE+h/kCjXU6lHU260plH6V6nSbZ68MLSMXwab0DYlCyfWhLTQxfzyx2cqLj30
-	 BdPlnZIZXTxBY1ARlOP6xTN7Ws4wKII0dAaplQUkH+xbmja7h01O9N8X1G5H8mL6N/pCG
-	 AkUH9UVl6u3mJ2hSgVS9XTjqIyCGNDS+Zz6FwLm9xKBEkp4+GRXMSa3e8FRDXK1Vp1fQj
-	 DL2pCWVZE6ROJFhFlPQJYK1U4xCGO8I9zckMLFfPrYW5IZAZJdQ7Bsy6mJy7f9Uo80A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794952350;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:From:To:Cc:References:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
+	 UI-OutboundReport;
+	bh=Eceg391Xk42ZnSt+YoVuGPfxfK5df/jR8tiW7SvsTVU=;
+	b=zrEwNqRTXvGFIU/c6Pu/njBsV+LJBBnvEwwQMfI4DN8ZFDx8kE7XRVcXyOR3Qpsuhr9O
+	 u/8YR6qlXKnljLN3bE00LMOto9LBU3TnD//BE5yWVEzC4mau/gwDvWKEe71vbPtb4zzX9
+	 jtrdt/02u0q0nDFYBwTTmMCvdnH26smo8zbxWIIe12+9kmPEHTtPtOIs81NGuPYv3cfU4
+	 lZkfebwVYURuLxoPdkRvlJls3woOWIbScSoAl3Rm/xU5v54s/Y0DtD+uwZvB9fTmh0zmX
+	 NsAhUoWL7FODKECgr2oqb0rI8dQ8p/pP8a5AuE3NnqNOIjiVAXoVzUtCNXNtJFjPd8A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=udPMbES0;
-	arc=none smtp.remote-ip=74.125.82.177
-Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmx.de;
+	spf=pass smtp.mailfrom=gmx.de;
+	dkim=pass header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=aJ83hRE+;
+	arc=none smtp.remote-ip=212.227.17.22
+Received: from mout.gmx.net (mout.gmx.net [212.227.17.22])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B6CF606A31C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:52:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1B6CF606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AF78606A32A
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:52:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4AF78606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gmx.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmx.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=udPMbES0
-Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-381f65e4e4bso624241eec.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 13:52:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794952322; x=1795557122; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1qwGms5hMR2ux4q7/I/Tiy8y6p3Q9O52I2CVtKqKrq4=;
-        b=udPMbES0S0UI5JNlspXvnRXGLvL+W2zq0yiU1w96P37k5Clj8PLIHs74era0RAU0Ck
-         hxRFnHVeaE1+K46NXpoMDEBiOQN/jbrobcU5NvTyPHLWcBaeZ9WOZBsY3pWYImVnK1l/
-         Tz5SAWxpqn/9xRjvU+94p5aXsYnx1riQgoEdSjoPMC7+epTrL4hPPk7UGIoGiyMVNFdb
-         qo5xaFet9hI6c8jd4rUhZpd6duPUY/0wB8iRajlAOC62OMBievQT89txsk3+q/fUv9+c
-         8/1IDUj/+gx+Q5KvRQ+7UwJVQHznrEP1SfY8LzaZLCQWEf3256bjNMGf1Se7W/eHIxMu
-         NAXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794952322; x=1795557122;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=1qwGms5hMR2ux4q7/I/Tiy8y6p3Q9O52I2CVtKqKrq4=;
-        b=YLPB/mLJNGpCFUXuXMq+tGpW1blyHkWiskpF2KXtDgSRLrE9hmR8kxycOT7slKaN3f
-         +Ab8XTDZEAxtmmVjNHIM2IGZ9HMLM3yyHs3IndRM7Iq97fFX3AoGV/AmhtwMrmKFmmoA
-         HQ1MGVm1gpMrXWE7ey/uZ4aC75ehd+NOBSr1b6jqa7TT1P/8+ZRzGy5blfPu0jy8np5W
-         rUeyy5X6sCY/rOd/OnaoQyA+HXgLcJGCsDQfmW7agtAtyRcvPIMkOoX3GzYsaMQyydRP
-         +kPtNNHfBHXVTI8B0d03Y4H9TqNSgSl3zu22nSdQBpVks99JtOjoUm8q72krtC4JvMD7
-         oiwA==
-X-Forwarded-Encrypted: i=1; AL+hErEVX/BATXYtUr38rJuNuXWVS2dSPvi/j/WEjCaO+/tY8PgO9gFci228xuqppx+z5QTV2d1QQ4z3eXFJd6Q=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Yd6xVTXg7AJ2fGm8geq9gZwyPSvV1SsOt03LIofUQvjgr+vVx
-	/6MG2mULWQQ4XIq0hvxi6CfeGC7N6V/KysY4xQSzYqlU3d//dS+ctJTi
-X-Gm-Gg: AZFdTZdpGqA9r0wFlFInWDXLghUgjBcdeMx+ud5Ydm+AYIYUtUdIZovKHBNjfL8aVWO
-	IMra7/678VZgHCRvc6VYN69FJ59++mhOeBfgfJh2+Yvs2GcUOYeOsQE8nVaKTwBwTMeh/F7l/iV
-	e/3fQELKikr4VglSMMEFVK68fDq8SnIY5n8iwWp9YdNOb1uDJ+Fv87epXMqXGScBIIqX3xg2qMV
-	nkkWDVKpUCaDeDuV4ACiLscJo9whvGmRQ8BIddewMZTc3n+0JUmeNyjcXjvdbfW25Pntiy6VXOJ
-	1s85mzW3jUY545cVnleTNW5XAXXK6MuqzcENA6LariM5P9M1RFzK3dVePpoMARB8MWSuVmhQYYx
-	X9fq0OgV4jiyNTTu9xCuOxCvfQLhs1xe/2dYhabNupopFGbEy9zIvimwHthHaP9xRat8SBUCWCe
-	Tp40+eDqJAp68NGxU3Q3EvyimAhlimP3C8OHnIHZLBVzm8+XG1xax1Spu+JVLaWqnQPos4tpFtV
-	3Hjy9p/U03tes0WW/+uTzN/tU6H1bDfJM9f2lc2cZbzigLiyZ8DYe5MHUZi9SHYiEYz8JD37izm
-	CCEI5c/dUx9hZ1Gu8uiAQ9PoQ6HwSGfrR2wUb7ShpJFXFcHSHaRhtHdC4DRK6sVn27o=
-X-Received: by 2002:a05:7301:da17:b0:378:314:402c with SMTP id 5a478bee46e88-382814260bamr585440eec.28.1794952322062;
-        Tue, 17 Nov 2026 13:52:02 -0800 (PST)
-Received: from ?IPV6:2620:10d:c085:21d6::11c9? ([2620:10d:c090:400::5:bd16])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a4522829sm852730eec.1.2026.11.17.13.52.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Nov 2026 13:52:01 -0800 (PST)
-Message-ID: <09ae2064-38ff-4d25-83e5-0ac4c3eb1658@gmail.com>
-Date: Tue, 17 Nov 2026 13:52:00 -0800
+	dkim=pass (2048-bit key) header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=aJ83hRE+
+DKIM2-Signature:  i=1; m=1; t=1794952347;
+ mf=PFdfQXJtaW5AZ214LmRlPg==;
+ rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+ d=gmx.de;
+ s=s31663417:rsa-sha256:jhIpZ0HiUSlyNPsCC2kjO1oXztKR
+   0o6MnBFOKgMbSwRe+qlk3t2xUMIHDruibI6D+M7+jj0umVqDa10BmZeRev2wKcMQh49vBhkim5F
+   NrS2wieaDJ8lZxi6KK7EJtO0A00KY8HrQ5Ql2VvDPomQJC3fsT4DFI/nwFmp7vwWYHxgh6x9wih
+   R0EjTKKtp/UkMVqXBt0wT4T8zirmfGBifaXj25LUQ6LGCVVn3hhlLybnBq6cPQYgGxP0wPdDyOQ
+   FzbZ+0KyNlT0zOlnGNTLgxYH9gC3YYLdHFPYRY67hTsycVuuJZJRCmvIKyUKtRGlZG3LgFmES1K
+   PDiROCZcI7VhXg==;
+Message-Instance:  m=1;
+ h=sha256:
+   f5p5Q7HmsLP93/PzIGPvPboP/nWlBHW5FdbHJD4ihPI=:
+   jun/dwhHutmLhG3YndF0nQhsQbU208pAz8oPxVyc1xM=,
+  sha512:
+   EDLJJwn83xxKBAhXSKkaoQQfvgC3VpvQ9gBuvhhqjoDpVB93k0C3vqkvovd2XOVd6pRjTOmW7q8sTl1aoJrPow==:
+   4YVZ39JjSBN9B5W2Av1l46H6H6zo9IrUMk3inddlzkjVDCH5QzZ3iwZFB7A3c9AilTdyfk3GSf8t759F/aKH8A==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
+	s=s31663417; t=1794952343; x=1795557143; i=w_armin@gmx.de;
+	bh=Eceg391Xk42ZnSt+YoVuGPfxfK5df/jR8tiW7SvsTVU=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:From:To:
+	 Cc:References:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=aJ83hRE+tWPXkgdvwEEEiO2HoAh3SfOF4C8c9F/YhobK+1mY9sGu6HdqGuNEkU4H
+	 Lq4ajO9cehoxHysUOMa27cWDWz55mj8yaH5e4MXNrYPdmcASscZSFFc861jcjfzZA
+	 tIjEmO3pFocNS/orLd39/paYYGk9WEbGF+Ch7qLM8nozahO3Vs/uP+UmSc5nFgLEX
+	 3ev78kQNNI7N9GAzMbrcYu/Alx0pp0naoSOovgPuGKfYmWw/ht9D4myRrTa8WM3Jo
+	 ePtdsi/khXUBwbbZ3noxNBA8ZnO0tsK/fW3f4DXuSLN67TVMArtZCC+WhIJRWJZ9A
+	 iK7Ze/dkNr4j9UPCqg==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MRCKC-1x6HXX0WaS-00StNT; Tue, 17
+ Nov 2026 22:52:23 +0100
+Message-ID: <573e079b-09a0-423a-92f7-6213672feb59@gmx.de>
+Date: Tue, 17 Nov 2026 22:52:22 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,136 +81,156 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: mlx5: Allow police as the last action of a
- TC rule
-To: Mark Bloch <mbloch@nvidia.com>, netdev@vger.kernel.org
-Cc: saeedm@nvidia.com, leon@kernel.org, tariqt@nvidia.com,
- cjubran@nvidia.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org, idosch@nvidia.com
-References: <20261117031337.4126403-1-mohsin.bashr@gmail.com>
- <82d9959a-8176-4433-94a4-ff72445306ca@nvidia.com>
+Subject: Re: [PATCH 2/2] platform/x86: dell-wmi-aio: Ignore HDMI Input event
+From: Armin Wolf <W_Armin@gmx.de>
+To: hansg@kernel.org, ilpo.jarvinen@linux.intel.com
+Cc: platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org,
+ teolyub@gmail.com
+References: <20261117214604.397131-1-W_Armin@gmx.de>
+ <20261117214604.397131-2-W_Armin@gmx.de>
 Content-Language: en-US
-From: Mohsin Bashir <mohsin.bashr@gmail.com>
-In-Reply-To: <82d9959a-8176-4433-94a4-ff72445306ca@nvidia.com>
+In-Reply-To: <20261117214604.397131-2-W_Armin@gmx.de>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:I0AI9RmzhzPr6fBXd3ThWJEZz7s/oVf0lE8ncGpNstX/4AvGOtx
+ 1ZGEN4ARj2YiCD9YV2O8JFax334/GFk3eZm5c3vibx2rcR8d75GoISmZGGtVl2POIphS8pO
+ 5ZLMhOMsUxi4hT+VKBfP27r5xAepu2b+e8FVznYvnQydUTGrPcFH90X3AYQI3MYZpV56VHO
+ oGE8BCb3gSPHqJCgGIq8A==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:GeYwQwYcgNo=;xJfxFqXyqqJD0SqJBpqqM6dzXZt
+ 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
 
+Am 17.11.26 um 22:45 schrieb Armin Wolf:
+> Event 0xDDF2 is used to signal that the HDMI input was enabled.
+> Ignore this event since the feature seems to work fine without
+> any userspace interaction required.
 
+I forgot to ask Teodora if this patch is appropriate, so please wait=20
+till Teodora as given her OK on this patch.
 
-On 11/17/26 11:18 AM, Mark Bloch wrote:
-> On 17/11/2026 5:13, Mohsin Bashir wrote:
->> From: Mohsin Bashir <hmohsin@meta.com>
->>
->> In switchdev mode, mlx5 offloads police only when other actions follow
->> it. TC needs no extra action for a police-only rule to work. The mlx5
->> driver makes every police rule forward to the post meter table, but for
->> a rate police it adds that forward only after verify_attr_actions() has
->> checked the rule, so the check rejects it. The ok result of police is
->> also handled as pipe. In TC, ok accepts the packet and ends the action
->> list, whereas mlx5 goes on with the actions after police.
->>
->> Support police as the only action of a rule. Set the forward while
->> parsing police, as is already done for police with mtu, and forward
->> an ok result to the end of the TC chains, as the driver does when it
->> offloads the gact ok action. The upcoming selftest series also relies on
->> such rules for TC offload validation.
->>
->> The patch was tested on a ConnectX-7 in switchdev mode with the command
->> below, and it was verified that the rule is offloaded and limits the
->> matching traffic to the configured rate, using the hardware drop counter.
->>
->>    tc filter add dev eth0 ingress pref 100 protocol ipv6 flower skip_sw \
->>      ip_proto udp dst_port 5201 \
->>      action police rate 100mbit burst 1m conform-exceed drop/ok
->>
->> Cc: Carolina Jubran <cjubran@nvidia.com>
->> Signed-off-by: Mohsin Bashir <hmohsin@meta.com>
->> ---
->>   drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c | 3 ++-
->>   drivers/net/ethernet/mellanox/mlx5/core/en_tc.c            | 3 +++
->>   2 files changed, 5 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
->> index 1bd1c94fb977..52295f5d644c 100644
->> --- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
->> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
->> @@ -94,13 +94,14 @@ tc_act_parse_police(struct mlx5e_tc_act_parse_state *parse_state,
->>   		      MLX5_FLOW_STEERING_CAP_MATCH_RANGES))
->>   			return -EOPNOTSUPP;
->>   
->> -		attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
->>   		attr->flags |= MLX5_ATTR_FLAG_MTU;
->>   	} else {
->>   		attr->action |= MLX5_FLOW_CONTEXT_ACTION_EXECUTE_ASO;
->>   		attr->exe_aso_type = MLX5_EXE_ASO_FLOW_METER;
->>   	}
->>   
->> +	attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
-> 
-> This makes every police that is the lact action pass verify_attr_actions()
-> not only ok case described.
-> 
-> what happens with:
-> "police ... conform-exceed drop/pipe"
-> with this not writes to FTEID_TO_REG so what happens once a packet
-> reaches the port action table?
-> 
-> also what about:
-> tc filter add dev eth0 ingress pref 100 protocol ipv6 flower skip_sw \
->      ip_proto udp dst_port 5201 \
->      action police rate 100mbit burst 1m conform-exceed drop/pipe \
->      action police rate 100mbit burst 1m conform-exceed drop/pipe
-> 
-> won't this create a loop?
-> 
+Thanks,
+Armin Wolf
 
-Thanks for reviewing Mark.
-
-Ahh! I missed the loop case. I had a patch to handle pipe on the last 
-police but I dropped it, since my testing showed the post_act table 
-still passed the packets up. Let me respin and send pipe and jump on the 
-last police to the end of the TC chains. Would that work in your opinion?
-
->> +
->>   	return 0;
->>   }
->>   
->> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
->> index 1d35c97aea0b..8685e41487f3 100644
->> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
->> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
->> @@ -3892,6 +3892,9 @@ alloc_branch_attr(struct mlx5e_tc_flow *flow,
->>   		attr->action |= MLX5_FLOW_CONTEXT_ACTION_DROP;
->>   		break;
->>   	case FLOW_ACTION_ACCEPT:
->> +		attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
->> +		attr->flags |= MLX5_ATTR_FLAG_ACCEPT;
->> +		break;
->>   	case FLOW_ACTION_PIPE:
->>   		err = set_branch_dest_ft(flow->priv, attr);
->>   		if (err)
-> 
-> This also changes rules where police is not the last action.
-> The conform result defaults to ok when it is not given.
-> 
-> action police rate 100mbit burst 1m conform-exceed drop \
->          action mirred egress redirect dev eth2
-> 
-> 
-> won't with this change the conforming packets go to the tc end table
-> and not to the redirect dev?
-> The rule is still reported as offloaded and installs the redirect
-> which can't reached now.
-> 
-
-Maybe I am missing something here, but when the conform action is not 
-given, doesn't it default to ok? For example, if we have
-   action police rate 100mbit burst 1m conform-exceed drop action drop
-shouldn't conforming packets still be pushed up rather than dropped by 
-the following action, making the action drop (or the action mirred) dead 
-code?
-
-> Mark
-> 
+> Signed-off-by: Armin Wolf <W_Armin@gmx.de>
+> ---
+>   drivers/platform/x86/dell/dell-wmi-aio.c | 1 +
+>   1 file changed, 1 insertion(+)
+>=20
+> diff --git a/drivers/platform/x86/dell/dell-wmi-aio.c b/drivers/platform=
+/x86/dell/dell-wmi-aio.c
+> index cea50ccac7ea..277fccb0acca 100644
+> --- a/drivers/platform/x86/dell/dell-wmi-aio.c
+> +++ b/drivers/platform/x86/dell/dell-wmi-aio.c
+> @@ -53,6 +53,7 @@ static const struct key_entry dell_wmi_aio_keymap[] =
+=3D {
+>   	{ KE_KEY, 0xe006, { KEY_BRIGHTNESSUP } },
+>   	{ KE_KEY, 0xe005, { KEY_BRIGHTNESSDOWN } },
+>   	{ KE_KEY, 0xe00b, { KEY_SWITCHVIDEOMODE } },
+> +	{ KE_IGNORE, 0xddf2, { KEY_UNKNOWN } }, /* HDMI Input enabled */
+>   	{ KE_END, 0 }
+>   };
+>  =20
 
