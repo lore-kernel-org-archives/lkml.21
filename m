@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794950116;
-	b=oEbBjEmxSTr6w4Tseb22wT5yZHS6ldKUtQIUmURRVqRoBm/QFN0QKKW8Nge0Wh0EM8/5
-	 Kw099hMs3VF/RYNYYeRbfFk+LQZ66EShKzzPifE+aaWhV0d/M4+wmkQCHSEaO6hmFWWH+
-	 V9EeWpXxhAOwjyrC8Yq6C8fWvPzACHDfa5kTZBfs4cncG7CTCbCScSUzw26MVoXZmgTjL
-	 Y4bCKVzGQ7VYXdaIi/qPrBbGpWCuo8irt6EQI+5RJi5BETftCM8JG45a1KsI9xbB6bLiX
-	 YT55HzPm5KaJ8Mtm3m2ZOHSkk5EaGj27zD2sRdlsS0P0+LM6JiwjqVraoIZvV3OOImQ==
+	t=1794950182;
+	b=mrt/XWzc5rw4LccXO5NVOwJlK80L2bsU4Q101d5QQTWrh2YIEATRNmiLdgS1O3NzY90G
+	 31EX4/DPpUcRcAqr0IRHnLv4gx4Y1b+d650RxZJGNHg+3ocI0wQvkCCugjLf2LbxOvvIw
+	 UXgeB5Y62lJLXtGA7dWSLPKJL9adOKNX/jBVJLLB+zNXI3DnRiLOZ/SoAmKD4Oesr+jqu
+	 fvnPgDwuuGaKsbFNpkZL5Gn7LRG/4vKNdn1VR0gQ1qADtXldhbCFnbnwCLcaqrjq6mhFd
+	 Uo3YI5+eSAS2tIESg9EmQfeh1RIj9m73A4TJO5ZqKbdpqPBdtny/AdXEnjPlrKqEnyw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794950116;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794950182;
 	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
 	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=edLdvJ5BDjaRt6RMx5EffH6A7el1uRIb0sy/VvsQYKw=;
-	b=m0HFl34r5hhQsipXPKlF+uWZ8SwT6a2sO6cqkyDf2XnoS6rMySlXZEFnuOWlWWaQ+j+d
-	 mXCutjHtdoYEFFXzBJ8ghQSxAbgaTtPit/QgYStasPfXdrhwVhqE7xFMzXnHb9pxF2Rt9
-	 b9KiQISqT93wRFmT8T2L2tsjjyba2SDZ33+kIV54TCEcY7tK6ArusHExdv1KE1e5xHY07
-	 PAeKO/LXiaYpPV8pGcRAG9keis3Ee5Fc+qMR/ZifDuIJhVFZzmp7Nno3OpqNwfFQS2T/m
-	 PUhy2eEK/wbUhn+zwWonOdl2qyuCqlsSmZJkUDh/YfDzOjJ5eOHZL+T8FeYZU2Zqrqw==
+	bh=zqAg+LPxRBAVJs264I0Nj4xAJBhpyH8UCjGixQkGIfw=;
+	b=CbW8RnUeYVwzthT5nEsyA199A0HrldFidThvl/BBwPkG9e5U50nIPDTTYjJ88BzLeK3+
+	 92VT9KX2hllMoKwbirbeaewJIb5wUPI5stcjWs5gy6ZSY9mJe9G3ksdvyLx3f7WPC8CQT
+	 bcuK2pwy+TVTmZuKzqJXwbilq99bL+fWKH+qtdF47Y6EZL3PpClmMjD65iAA9LJaI7M14
+	 dMuf67PC+BMhhx6j+r5As13TXC/HlQyjpyMXXKTFMVnFmnm5zMsz0l9fsZLrOLv93VBls
+	 bPvY4zi9wg1+EbWdBj+oJC4ZgzGZYDQWo+s7jHrnl99jIYuXZmh6olFJIwecEOx92lw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=geZMmNkz;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NfT3BCBl;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B627B606A32F
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:15:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E38F606A31C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:16:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=geZMmNkz
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92C561F000C4;
-	Tue, 17 Nov 2026 21:15:13 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NfT3BCBl
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D400F1F000C4;
+	Tue, 17 Nov 2026 21:16:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794950116;
-	bh=edLdvJ5BDjaRt6RMx5EffH6A7el1uRIb0sy/VvsQYKw=;
+	s=k20260515; t=1794950182;
+	bh=zqAg+LPxRBAVJs264I0Nj4xAJBhpyH8UCjGixQkGIfw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=geZMmNkzgGVXwgzgiftX/pDbrM45HqLo9V6rUnvZM3za/H5jbhPJ1hU97R8l6LZFi
-	 XdCH61sbo+xgVx67ujUxGFhSOYBdxAfog3e3UpezVvy4x6O/T51qI5AUUVhiZTpS61
-	 RiolJYAKQ5g05U7taZS0nOKhsJ5oKHdrIKkDdZ92jTgqT0OHXf6otza9Q+ENu8fS7/
-	 z4ihSUCv2nfgxEqJuD6+ABu6gv3EYJSYgDNGxgvMr5zxDQ1EA5Jqklzkbg4Qle1oyZ
-	 tCWownKAnEfgdQP2+y+lnYdbk+2/VHP3qlNQ21cEQrdP6wGo0eOMNWBv2TbMNhCud/
-	 6ildXgxaLx/qg==
-Message-ID: <5fc2f2aa-a6d9-42b5-a839-48ddaad60498@kernel.org>
-Date: Tue, 17 Nov 2026 22:15:08 +0100
+	b=NfT3BCBlL2QuXC4ZmkKQKUBf34y68I4+H23xRXOWODNFtczmXf4BF7M0qvY0wOCoQ
+	 ZpCWSc3/fN8iOlEx53CxcU20Jjq0w0x40y5XvbLbYVYEjQw0gqe0LNeOrILacFjzf2
+	 YioqfyXmpZqu2ubj3sWcrJMARkdM2gxVxb9OfI3D6G5NGcuippcxs9kDiYhBDJkloO
+	 CnqYP/fT705C0nNdjq2P4oQ4AiANMUNUfv97/85fXCWrioxHP/M2hYJ59bW8NqAlkO
+	 kZNkW+qns82j0ZHEVsOHt3toN0SHcduSP5ic72rMqUWaXAhHiSyyyFOPTyxnjra9Dn
+	 iRTKC7xyHRAwg==
+Message-ID: <0efca67f-5ab1-4ab2-8607-abf94366d384@kernel.org>
+Date: Tue, 17 Nov 2026 22:16:15 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,12 +53,13 @@ Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH] mm/userfaultfd: check exclusivity of the page being moved
-To: nakixii <nakixii@gmail.com>, Andrew Morton <akpm@linux-foundation.org>
-Cc: Mike Rapoport <rppt@kernel.org>, Peter Xu <peterx@redhat.com>,
+To: Mike Rapoport <rppt@kernel.org>, nakixii <nakixii@gmail.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Peter Xu <peterx@redhat.com>,
  Suren Baghdasaryan <surenb@google.com>, Lokesh Gidra
  <lokeshgidra@google.com>, Kairui Song <kasong@tencent.com>,
  linux-mm@kvack.org, linux-kernel@vger.kernel.org
 References: <20261117191853.1314834-1-nakixii@gmail.com>
+ <20261117195228.2675563-1-rppt@kernel.org>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -105,49 +106,28 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20261117191853.1314834-1-nakixii@gmail.com>
+In-Reply-To: <20261117195228.2675563-1-rppt@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-On 11/17/26 20:18, nakixii wrote:
-> move_pages_ptes() gets the folio of a present source PTE and then checks
-> PageAnonExclusive() on the first page of that folio.  PG_anon_exclusive
-> is per page, so for a PTE-mapped large folio this can give the wrong
-> answer for the page that is actually being moved.
+On 11/17/26 20:52, Mike Rapoport wrote:
+> On Wed, Nov 18, 2026 at 03:18:53AM +0800, nakixii wrote:
+>> move_pages_ptes() gets the folio of a present source PTE and then checks
+>> PageAnonExclusive() on the first page of that folio.  PG_anon_exclusive
+>> is per page, so for a PTE-mapped large folio this can give the wrong
+>> answer for the page that is actually being moved.
+>>
+>> This happens after fork().  fork() clears the flag on every page of the
+>> folio.  Once the child exits, a write fault in the parent can reuse the
+>> large folio, and do_wp_page() sets the flag again only on the faulting
+>> page.
 > 
-> This happens after fork().  fork() clears the flag on every page of the
-> folio.  Once the child exits, a write fault in the parent can reuse the
-> large folio, and do_wp_page() sets the flag again only on the faulting
-> page.  Reclaim can leave the same state behind when try_to_unmap()
-> replaces the earlier pages with swap entries and then fails on a later
-> one.
-> 
-> Moving that page with UFFDIO_MOVE then fails with -EBUSY, even though
-> the folio could be split and the page moved.  Callers that fall back to
-> UFFDIO_COPY on -EBUSY end up copying instead.
+> COW reuse of PTE-mapped large folios only appeared with commit
+> 1da190f4d0a6 ("mm: Copy-on-Write (COW) reuse support for PTE-mapped
+> THP"), so this scenario didn't exist when UFFDIO_MOVE was added.
 
-Ah, I was about to say, nothing bad will happen because we reject to move large
-folios.
-
-So this is pretty harmless and pretty uncommon to hit.
-
-> @@ -1570,8 +1571,14 @@ static long move_pages_ptes(struct mm_struct *mm, pmd_t *dst_pmd, pmd_t *src_pmd
->  				goto out;
->  			}
->  
-> -			folio = vm_normal_folio(src_vma, src_addr, orig_src_pte);
-> -			if (!folio || !PageAnonExclusive(&folio->page)) {
-> +			/*
-> +			 * PG_anon_exclusive is per page. The first page of a
-> +			 * large folio can be shared while the page mapped here
-> +			 * is still exclusive, so check the page being moved.
-> +			 */
-> +			page = vm_normal_page(src_vma, src_addr, orig_src_pte);
-> +			folio = page ? page_folio(page) : NULL;
-> +			if (!folio || !PageAnonExclusive(page)) {
-
-Yeah, we could have also moved it after the split and test for an early
-folio_likely_mapped_shared() first, but doesn't really matter.
+You could construct something odd even without that by using MADV_DONTFORK on
+parts of the folio to then fork().
 
 -- 
 Cheers,
