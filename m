@@ -1,100 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.41
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794938190;
-	b=kudSIPdtbyeP3RM2hgk3qnNC8EsaISRDQz1F4MCAXAZ/ZDz0qhgU6RdoXjufev+MoB6a
-	 nZkFROIoG+y7GNJC2nizY/AY5aoOobf8NjLDmzE674cJtaaNa5SRB+5ibbGl1N6OqFd3n
-	 uiz8T6Bp2Uw1yBVmnSbR7XxCt0LSYm/9zu2oSN272PRQuAFfHCKbiVn6DLIfV3LTBwlqJ
-	 sPhZNu4kwTCcDNK5GTYtGWh9nEX79rwRAh53dQUNpQ2BuCsj/VDNN7ZmvZTXN1/fT8cw4
-	 WwdasS0DadxFatdYQ1Tz+WSvtkanSOGOdjfVJHxTLsFcWAVp6x/cj3iBf/vUbkkClQQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794938190;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=VVlqUuDaHHbnxgwwnSebk+sIEp6EqZaEprfb4H4MTjo=;
-	b=utc+ekiS5s+3W7kwQN9GubJyGSh26Rqy68jZSicjbchm69O6rViJt9/ELdyPJzv209lv
-	 UDh91Vc5N1tIJOh3MVnznYJwLZA1gF/DGTmbKiZUVle70h8g9RKx/Hl8eEJSIynVmjvEt
-	 wRSAE/t0UevVFSoXO1gpkcHLlmOpXCM270+70cn/DCmsWAa7Ixc5vV0Pn60uuLxTNMIWa
-	 pK2JrLG/UMhZsn5rq2J2yyjD5mE+k23GUUzHT2DrYUIoi93g1ks1jrBTEnrDWIs//6XYI
-	 bmDYLMsO46dOGZmCwIRG555PhboNvGeobXBwesqPkyUBfcoZB/53SNIWXwO7NcAM60g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bGgXECm1;
-	arc=none smtp.remote-ip=209.85.221.41
-Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com [209.85.221.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794938206;
+	b=I8bS8UHs+IHjETn9FzL8EK5MqwlkkqwcLhJKj2NP8eNP8MDBQRaWW24sgRASmxe9aOsa
+	 Ci7I39nIO3UmAtXQyK6T/gqaRZBNXxbnvTDFRL03ZkbOxECc1z7APTCcLOXL/PhNkriXS
+	 TdUwfzN6YgxF1dDqDgG9u2VyyVB8pG7KWbh7aAP3l9kSigMHRf/yaoxHGgH+WixJudHIF
+	 vlZNTNPUFlMICXdknO0+YYFhjiWbu7XEPU5qaoKz6K8qXY8vGNl1DvMxAkYtMWG5H8JZ7
+	 a6lPEJ2JexziUUhZ2+9ZGNqGl4wmBxpYSMpSoGp4JM+T0swU/LpoTefi1fRmIvLHgEQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794938206;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=C40fiRCk9L71R/bApiGXNANtJYBkFW0sGqUATJahP2I=;
+	b=KfmDbnxLAViLjvkRyJVrsNsHhn2jNOcsPCvAd0xfW8W5au5t72F6sh7niJZW5vm4hIfg
+	 +/IO2R06QS9W73XQeEK9u6PATwuLZslCqV5iw86s5Ag4hfBXWW/HED6EMqZS/EPhCExvy
+	 rRQIWu6dlq/t8lUeV1uuxhhvtQFN1B1rCWRoiz64t6mQtuHfjyYY4FfQGw7lGqZUr69ip
+	 xS+E/naMS+TZOiE3+FHE4WD8R+Iu8ExsRG7iWWjbvPjRsCvdb5FoT8IxabpQrb2J7+v5c
+	 rn2jr20HUYXtyIOjl0oH3j6t6UbpWVAzAdTWB7K45JrwA/rOH2haIPbm8LmKOwyBZIQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LQG6pzzm;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB1B2606A31C;
+	Tue, 17 Nov 2026 17:56:45 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LQG6pzzm
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1794938205;
+	b=aWYx0xNZqNAaqw7Dzw/UUivJQBVbDQfxXrDmPBoDEh0FLJtjLiAgsJfJRKU0WvZNy9PH
+	 0jLHGuTC63HqWc8eekyKrLD5lBTRJej41ak34A8OsosG0Liw09AoXv5GR8884j9XegVxE
+	 EYA43BXAqL5jHKuf0D2uMtFhH1EJRZlv7h+/tcgzfmbv4mQbsZ5SBK3ZEgUK1UBM5+YfP
+	 0QRIst6nKMPu6Y3VGBBNZdT4jf00asD8lJqoaG92HPhvvThcaNd9ms1Ju2Xs7Kxz0xlc6
+	 xQaasfcndN++6qcocJt8pK3FMhmlL3TRrFbf8IDuKh9bwhqH+ItsceOkeszKwGtn2xA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1794938205;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=C40fiRCk9L71R/bApiGXNANtJYBkFW0sGqUATJahP2I=;
+	b=tlRS/NFZTVsZYPjd3/94S/5qEqOa/1mYKFx9dnvEg6+BnPE5Z50LwvF8oF7Y1cv5R/GU
+	 HM2kpU6HXw58RglchD2mMlOMc+LqpXtCMXSxNhnc18Qj29h+wYKopOGulvmVTc9cqjqpC
+	 LGH8KN+XRzANni3bytiDAzXfsIb5nIOybVZ0Ca7gwDaOM0i/iHearSNOSEanQYCDivWnU
+	 VAwUoVsKVCheLAonMpfa/wN2iKxMrGi7b1Jya8523kF5K3teaKqXU7AR5pECfd7serLPY
+	 1ZLcVd3girC9kflfE+OrlQvScNnzyvdMqyTW9eXX8sQSlpS3US9TwB3ofLbejyee/MQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4ACA6606A32F
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:56:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4ACA6606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bGgXECm1
-Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-48b001cd92bso20449f8f.2
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 09:56:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794938188; x=1795542988; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=VVlqUuDaHHbnxgwwnSebk+sIEp6EqZaEprfb4H4MTjo=;
-        b=bGgXECm1LP9RW5geQBlwXHQWEanPdLe5eA/jns5JvGNV17/XRn1NU8B1+HaJacOx5G
-         +Q/7cGx76qwnPbRqUr381I24iBqBcHXkCaFJjmMXxOSk0wIkju/FnRbDxT5T2shLt7En
-         OHOQhZvFompfSOMpuSMZ8Q3d/t6SMtQ5MewXXPxKfqDnffXqLfN0MZvaHDuV7ey+YkkU
-         1KNy0EZf2AgevVQ1qNd1n4jYQEsWuMaPIKjDHsBTAJwDWi/AmFahlUqd7cpuSYUNtJgE
-         kC9t6Hicc6pRXdY9DkSeBvMMT40nJdIfmPpRadUn+PzT6POBZ14sk0NzYkK3xBpUxzaU
-         ad+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794938188; x=1795542988;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=VVlqUuDaHHbnxgwwnSebk+sIEp6EqZaEprfb4H4MTjo=;
-        b=GrDUpfHfAwq/LXJY5BrtMeVQ9bItLFgJ78EHtJ7cdIZ/nbrUSdv7LRObFGdc1qtSzU
-         ifLpzkq6WP27w/zScv7zBEdlf9BhiCPhk3tjYBSHfnAPEZ+fA0Tkgs7PNaJMf/jF4/yI
-         8S368XIsVLDhAVfmxeaZNA2b6PLbMNDdENlIW8OiUizLiOewQ57BPCKOmeQZzx+ZptBO
-         uPss5ZZ72tHfeMf90SLxaOS/i243oWya3Os8eYkIr2X6ImLpn3z/rfGATFQiJrmm1sP4
-         c/ZAlmzBA4x95q04L0qnvdYtRUogVP3K1cg/U2rh2Klv6lpY0YpfYAdih3rtV0gozebY
-         fArQ==
-X-Forwarded-Encrypted: i=1; AL+hErEdl8Q/7VlRZSsbH1Na+rC7ZERT+JjOGS3h1ZckMROUWbtFdt8l7Ac3D8BGHfhliIZzgxhHGNWb+/3/QDU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9o1ETKNEKUM9XyEE1f7IHxBiXqDNEWUJh0ZY9dPzfr8YVL6ENM
-	giN9PYq8QWh0h2mLcU1r2vCwV6l5ETSUZDxKiG+I5yMkkO5QCOWOqzjj
-X-Gm-Gg: AZFdTZfnVKUlv2GW3gPEG3Xf+yOjFtdQ85y0ZaFR6VhiSOsyrd7iimN+Ra+uapGvmRc
-	rwt/IoMxMEZFqwdLQuKCmZhbcA2S3erzgZNwUlf5XucSEX4KfDGrhNVnt/2vMs6oq1AjL1mvWio
-	n9f/ZXGlItJ/pm6IfVyI29l6T6Y/Hx1F5fP6y7/qIXGGkFHd5GanaPINUMHLcWQJ4yXespyi+kX
-	DqHW6Um9rmey74p4PyjFqp1XlbA1Yb6UhwLPBmNZsf26ODZBWGMGX0Gdl7K3BnpA23gmE7PCbVn
-	xEaqfgIEg32kknUs1jkMQe372GkWpUSLpClCS8PBvBREdKa38nOQ+LA09p0rfATkNo954ThIomv
-	73XNzXRwwJoRJxsWn9rVDiy2aJf14KBlfD4xBG1Oq0Wu/rUy5ZGGjrccab+WDBa4bqsD2HaaU2w
-	/VSjFEFSSCrRTb8k898n4rfUDfc6mIzjKef0biNcLRgQtPCsXT09/o22VyfUq4JzYnpQGafibF2
-	vqYXJ8Cp5D5BvTMhv8jPsa/JX2Pq7zpxFzXs1JqRl1Opyun8g5aR2JFQ8knj8Q0g6c59i1I0gAp
-	91AXxgU2Uyy4zIXZa39cxO1qxvuygWACrGsoKXWm3VfWVA==
-X-Received: by 2002:a05:6000:26c7:b0:48c:67d6:a87a with SMTP id ffacd0b85a97d-4a639ff6138mr506509f8f.32.1794938188531;
-        Tue, 17 Nov 2026 09:56:28 -0800 (PST)
-Received: from Kyiv.home.arpa ([2a0e:1d47:4093:b600:11a1:dc8c:1ed6:51c5])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a654a8c37fsm47723f8f.18.2026.11.17.09.56.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 09:56:28 -0800 (PST)
-From: Volodymyr Chapman <volodymyrchapman@gmail.com>
-To: andriy.shevchenko@intel.com
-Cc: sakari.ailus@linux.intel.com,
-	mchehab@kernel.org,
-	dan.scally@ideasonboard.com,
-	hansg@kernel.org,
-	andy@kernel.org,
-	gregkh@linuxfoundation.org,
-	linux-media@vger.kernel.org,
-	linux-staging@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/3] media: Add Sony IMX175 sensor driver (Lenovo ThinkPad 10 rear camera)
-Date: Tue, 17 Nov 2026 17:56:14 +0000
-Message-ID: <20261117175614.11710-1-volodymyrchapman@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <avwnh1o6rFzayxkj@ashevche-desk.local>
-References: <20261116175151.20150-1-volodymyrchapman@gmail.com> <avwnh1o6rFzayxkj@ashevche-desk.local>
+	by smtp.kernel.org (Postfix) with ESMTPS id 479811F000C7;
+	Tue, 17 Nov 2026 17:56:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794938205;
+	bh=C40fiRCk9L71R/bApiGXNANtJYBkFW0sGqUATJahP2I=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=LQG6pzzmKLChzL8WIgMYahsCt06zWqgvfvcrOnFYRB777NSNYFHyLZNVWyuD68bw3
+	 oq4wGwSdj/Hl7MBNbAjNeZpjYLFmxK0f8QOjIESa2M9RuOlZ/R/Dj68wPk826GvAuI
+	 f/QP/UCVat2iqRoidhHcIkP3JykdDJF96fUgkaj7BLtfUcpQCh8PdNDb6tWrXv3dw+
+	 bNABVnzbOlua94/mXlzxZ6MaTaKzQvv9i1n+8zKB8ABZuInTIy5U6OTh2WukBJtqlg
+	 vsrQ2CzAujPFeslklgpZ6WUp76lBrOGj/vUFQ6ctsuSl5qToraZJfKfD8GprboB1RT
+	 ceUJ0uQLT+7tg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 8E13F4AA28;
+	Tue, 17 Nov 2026 17:56:44 +0000 (UTC)
+From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
+Subject: [PATCH v2 0/3] iio: adc: mt6359-auxadc: various fixes
+Date: Tue, 17 Nov 2026 19:56:31 +0200
+Message-Id: <20261117-6768-6358-fixes-v2-0-1ffc3c2f3c80@protonmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,39 +83,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WNwQ6CMBBEf4X07Bq2DaV64j8Mh1IWWSOUtEg0h
+ H+34Nnjy8ybWUWkwBTFNVtFoIUj+zGBPGXC9Xa8E3CbWMhcasRcgS61Aa0KAx2/KULnWldebGc
+ JUSRrCnQESbrVP46v5kFu3mf2Rs9x9uFzXC649/6vLwg5SGu0sUphIZtqCn7242D5eXZ+EPW2b
+ V8x5aBZxQAAAA==
+X-Change-ID: 20261103-6768-6358-fixes-fcdc79afae11
+To: Jonathan Cameron <jic23@kernel.org>, 
+ David Lechner <dlechner@baylibre.com>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Andy Shevchenko <andy@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+Cc: Chen-Yu Tsai <wenst@chromium.org>, linux-iio@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, Roman Vivchar <rva333@protonmail.com>, 
+ Jonathan Cameron <jic23@kernel.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794938202; l=1125;
+ i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
+ bh=bnuhqaQ0sDql99jd/NNF2dGROwPEVF0Qts64YTX5a1c=;
+ b=JPZx9Vw82WzozSKA++qp1LgaxtkvhMc/qkvoitXKXucEkCFXc38/VDZfO+PSBBS0T1oTuWQIL
+ anX3euNZ+/pA07fDikoSFIV9mNH2RTxNOdjQaDrnhj+/gVlOO5Mf+vo
+X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
+ pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
+X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
+ auth_id=777
+X-Original-From: Roman Vivchar <rva333@protonmail.com>
+Reply-To: rva333@protonmail.com
 
-Hi Andy,
+This patch series fixes various bugs in the mt6359 auxadc driver. For
+some reason, the driver had channel types for temperature or resistance,
+while the ADC can report only voltage. There were also issues with
+battery channel ready bit masking and scale calculation.
 
-On Tue, Nov 17, 2026 at 12:08:07PM +0200, Andy Shevchenko wrote:
-> > Not supported: the voice coil motor (the firmware does not name its
-> > type) and the LM3554 flash.
->
-> Why not flash? It's in the kernel provided by drivers/leds/leds-lm355x.c
+Changes were verified on the mt6358 (mt6768 platform). Compile-tested
+only for others.
 
-I should have mentioned that leds-lm355x cannot be used on this machine as
-it is: it only probes with platform data (it has no ACPI or DT matching,
-and nothing in the tree provides the platform data), it does not drive the
-LM3554's HWEN enable line, which has to be raised here before the chip
-responds, and it registers plain LED class devices rather than a flash
-LED class device.
+Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+---
+Changes in v2:
+- Clarify bit number in the patch 2 commit message (Jonathan)
+- Link to v1: https://patch.msgid.link/20261103-6768-6358-fixes-v1-0-2a868a33152b@protonmail.com
 
-When atomisp's own LM3554 driver was removed in commit f1aa35ab5943
-("media: atomisp: Drop the atomisp custom lm3554 flash driver"), the
-commit message said it should be re-implemented with the
-led-class-flash API if it turned out to be needed, so that is what I
-did. The new driver binds to the same ACPI ID (INTCF1C) and uses the
-same GPIO order (0 strobe, 1 torch, 2 enable) as the removed one.
+---
+Roman Vivchar (3):
+      iio: adc: mt6359-auxadc: correct channel types to IIO_VOLTAGE
+      iio: adc: mt6359-auxadc: mask conversion ready bit in mt6358_read_imp
+      iio: adc: mt6359-auxadc: fix scale calculation
 
-I have sent it to linux-leds:
+ drivers/iio/adc/mt6359-auxadc.c | 88 ++++++++++++++++++++---------------------
+ 1 file changed, 42 insertions(+), 46 deletions(-)
+---
+base-commit: 7649ba73f9e7e1e04d0b46213e39c79ae09dd55c
+change-id: 20261103-6768-6358-fixes-fcdc79afae11
 
-https://lore.kernel.org/linux-leds/20261116180809.26946-1-volodymyrchapman@gmail.com/
+Best regards,
+--  
+rva3 <rva333@protonmail.com>
 
-Whether that or extending leds-lm355x is the better way is up to the LED
-maintainers; I will ask on that thread. In v2 of this series, I will reword
-the cover letter to point to it. The VCM has since turned out to be a
-DW9714 at the address listed in _CRS, and I have a follow-up patch for
-it which I can include in v2.
 
-Thanks,
-Volodymyr
