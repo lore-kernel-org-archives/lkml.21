@@ -1,81 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794940324;
-	b=vfC7hbKUXqrA7deue4qJ8ryIH1SDwbHPZq2rjLVr5QLQp64wjbKEylzR9VHhFEjRWb+n
-	 fM6Dh9oaCrzdozSFbv4g+/vCirJJ2fuUqNiZfa63FOPbWhRETNkVyyni5YqgISB8axGNz
-	 E4lOzaHBGTXa0afVjKnEewtKtv7ENP4a79P/Oa5jWu+YcN0IY902lhLdGUeUB2WqRWlIB
-	 1JlQV7dNmiRC2q18QycmrIJTHqSeSOHNgL5rvS/5zNAjtXQzooQ7RjZaXcjn3lEbFPmiG
-	 5QwEdc7xskB7HekqeSOO0k2PzJ0fRJiSQbTlZs4OWBdK7AUO7rnKYrUUZLMtd9NcflA==
+	t=1794940332;
+	b=uTvhMz6aGNc8ydBYvJ6sCut88/eXh7eIb5Xg1qSj8lteAwi40jqMFK7hYjT7dwI5/9O4
+	 9S1cNsT9CV9rwaPlXPFcxw0LIcF7c7vC4P42ObwXdYA/8Kv4THcXNxwp7cRCOCMv4oQuy
+	 /HLRxUGFEf2RE0NU3O4IbF1AS6CZFmZPHkKMjFejX7iNS0QXDvN/aKlvgRlEukI0LesyI
+	 hwUdkOpTdkj0LwR5lWW/31vtZHbXDjGbFqghJsxOlv4GdiqvX0fWBfABpv+Np1vjeUs7m
+	 JgL7aBZEVfaIA8V0kK6iZDs9p9+Zg74i90GjPWjFycxy9RDojnfymqhIjUmoRkbUdqw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794940324;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=Gg+ehJ2HGC9dWPUKwLePbwD9mlm6IlQD+RPBdGpC4C4=;
-	b=onVmmTQUwIMfwn+VpBufdCGK3N1F9r/Qa7h23SuRfFR80BTIRaIfOdOWEaY/kSkEIr0B
-	 Fwi3BZV92JGdZ81vLVKbb+gopQIDVrWenq8Suyeh8dbl9i2CQQez4T3FFB+wbm8JCihJc
-	 ZGgeKQcX8usomSuDB1yx0NAYB3dqOfCUBYX50uYG6ofZ9fJ+PgD+JbuouRNeuEyAfpUak
-	 3fvbG+egEGKKkXWK9aLMSbvnKE5t684dauoy4gSJsmPmVMKyjHyCIlBZUSJCO63/WGgqz
-	 hX0Ezha6mLjr4foyRZGHXzpn+gBnz+Rq+IE+9Uh570VlcfjEDVcA2jERpR2D9XhD5AQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794940332;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=PvX28kMT2JOA9V7LVP/iYVU7syU20+iC1OkNeLZAOFU=;
+	b=gN1ydrq6HhEghnwQy0rci9h5kWbrGJYDz5K6Fmfz1I3DL/GMpaYsdbwgfwFbbpWKC3GS
+	 P8Q9LjjxARKsJkT3BPnF+EFAR8ocDd7+4MOD+XmpChtivdXGSJibJF+UBFfjPMe1kX20T
+	 nHUFYWzzijDd3vSJ/xcQDKrtctyoPNc53jI7KescQiuvZJnDnbHBFVcAsLczOpVvtwn0Z
+	 M9/k/rYYlOt3MfCGJKEFmEvzR4RsMn4mKfwbh7kK+G2X8/wSPzhh5YDk+nTpVF2GxsPWM
+	 zl8CN6uYswziLorbtz0IpAkCdmAR4dSz4NEFwptWOO9gXAHulB8TaKL9+lkgUAlE31g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=k2N5dyzZ;
-	arc=none smtp.remote-ip=198.175.65.12
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WXzWu4HH;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E45560A383F;
-	Tue, 17 Nov 2026 18:32:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E45560A383F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4940960A261F;
+	Tue, 17 Nov 2026 18:32:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=k2N5dyzZ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1794940324; x=1826476324;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=tVs1toSb8l0V5BYa07sP0WKwxQSV0Fe6SzcqIQLr7oI=;
-  b=k2N5dyzZALt9ZZ/Dsyfj6dVC1REU3GbC4EMhYZ2Lwxsp8kdMFfV0thms
-   GdEq9gnCZjQBwh+6kP+je++ob/r88RFFLVcQzfpgMtbtsNK3DkRsxxnvE
-   0MbcaTd7zF0OROtocl1ocdb+/CZ4jnuSZ9Xt9p8nm8kL03OqTAUHal0DN
-   SmpHIjho45uypCr+wqA4Ydm2nAFgwH+yoG0WiRmju0Nj1ZYhsyqlSGKJX
-   sd3IM6OPF2KITZEGcWSJuq+stT9/8CdEf3GPiPYTSuLZnUUh1n+Jhhdrh
-   1OLgUySQbpumvo+TDAgh5AEJBik5Qm9TIyZ+wOLVolY1Ie5JAG2IT1U67
-   g==;
-X-CSE-ConnectionGUID: DbuW7ATiR1C8Rywp6F6tFw==
-X-CSE-MsgGUID: xB5vBwXJQV+vlA4KpjnSfg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3607273"
-X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
-   d="scan'208";a="3607273"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 10:30:50 -0800
-X-CSE-ConnectionGUID: wgC2QjPqT2GbbzFtf1m4DA==
-X-CSE-MsgGUID: 9QPHxLH4Qiu4m8nZRLz11A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
-   d="scan'208";a="9775043"
-Received: from chang-linux-3.sc.intel.com (HELO chang-linux-3) ([172.25.66.174])
-  by orviesa003.jf.intel.com with ESMTP; 17 Nov 2026 10:30:50 -0800
-From: "Chang S. Bae" <chang.seok.bae@intel.com>
-To: seanjc@google.com,
-	jmattson@google.com
-Cc: pbonzini@redhat.com,
-	kvm@vger.kernel.org,
-	x86@kernel.org,
-	linux-kernel@vger.kernel.org,
-	zhao1.liu@intel.com,
-	chang.seok.bae@intel.com
-Subject: [PATCH v9 07/20] KVM: VMX: Remove unused control-register access defines
-Date: Tue, 17 Nov 2026 18:02:57 +0000
-Message-ID: <20261117180310.921701-8-chang.seok.bae@intel.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261117180310.921701-1-chang.seok.bae@intel.com>
-References: <20261117180310.921701-1-chang.seok.bae@intel.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WXzWu4HH
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E02FB1F000C5;
+	Tue, 17 Nov 2026 18:32:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794940332;
+	bh=PvX28kMT2JOA9V7LVP/iYVU7syU20+iC1OkNeLZAOFU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=WXzWu4HHGGKFkosG2W8m6TAHTJeu74jnTyk2/2eKhQg1x9D8yzJWRciKHxxA+cCFD
+	 Y7/lTodu9vRLqwSXbHmwavH3ssPx1sgiilTASBf7tKG1G5/RghKa/Q2E+hKFqRZiK1
+	 MwnvoPqjW1b6AavB2L0Vdqs4x6Nwo2viI+99EDD0sBbrmEF/XsKyrjhVmoEd0x9jqJ
+	 5rcZaB6GM3lJYBZWlocxMaTSvYCeaWjrT2tgiSWLtfAqPqSJi5es0pxiB2o5vFSzo7
+	 zBJhtMW5o0nLayEAXtz+92oXMu7Y/mIp9hBMACC6Qi0JC9r6QOnohqeRZBp/42oQ9/
+	 5jyf7STTal2zA==
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Date: Tue, 17 Nov 2026 18:31:35 +0000
+Subject: [PATCH v2 4/4] mm/huge_memory: only compare PFNs of huge entries
+ on huge fault insert
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,49 +53,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261117-huge-pfnmap-fault-races-v2-4-276007e73bcb@kernel.org>
+References: <20261117-huge-pfnmap-fault-races-v2-0-276007e73bcb@kernel.org>
+In-Reply-To: <20261117-huge-pfnmap-fault-races-v2-0-276007e73bcb@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>, 
+ David Hildenbrand <david@kernel.org>, 
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+ Michal Hocko <mhocko@suse.com>, Alex Williamson <alex@shazbot.org>, 
+ Peter Xu <peterx@redhat.com>, Zi Yan <ziy@nvidia.com>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, 
+ Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
+ Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
+ Kiryl Shutsemau <kas@kernel.org>, Wei Liu <wei.liu@kernel.org>, 
+ Roman Kisel <romank@linux.microsoft.com>, 
+ Saurabh Sengar <ssengar@linux.microsoft.com>, 
+ Naman Jain <namjain@linux.microsoft.com>, 
+ Michael Kelley <mhklinux@outlook.com>
+Cc: ljs@kernel.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+ Eliav Farber <farbere@amazon.com>, stable@vger.kernel.org, 
+ "Jose A. Perez de Azpillaga" <azpijr@gmail.com>, 
+ "Gregory Price (Meta)" <gourry@gourry.net>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2957; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=Ud05cZZbfU6vNs2buNKiOFsC3ukoxS/P1Cwl2+ETDnM=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLL+zO3+/e6r2kKtptUaGvku6tWvbmjM/1lsznKn7vwDq
+ zWnlKZv6ihlYRDjYpAVU2R5/kV8f5BI2LzOC/5uMHNYmUCGMHBxCsBEvmgyMixU4NGxtEqvr/np
+ rH10b7LnT5YF6az6CzftvFJltbdOuZqR4WbgijzGru3PFr3dNVdkVs78w0+l+o/V/it5V+pwQyv
+ xNyMA
+X-Developer-Key: i=ljs@kernel.org; a=openpgp;
+ fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 
-CONTROL_REG_ACCESS_REG becomes misleading with EGPRs. Rather than leave
-stale, unused definitions behind, remove them all.
+A driver that implements both ->fault and ->huge_fault must anticipate
+concurrent use of both.
 
-Signed-off-by: Chang S. Bae <chang.seok.bae@intel.com>
-Reviewed-by: Jim Mattson <jmattson@google.com>
+This can happen, for example, if a user calls prctl(PR_SET_THP_DISABLE)
+concurrent with faulting, as that only holds the mmap write lock and thus
+does not exclude faulting threads stabilised by VMA lock.
+
+insert_pmd() and insert_pud() have issues with this as they both assume
+that, if the page table entry being populated is not empty, it must be a
+present huge entry.
+
+This is problematic as if it is a write fault, it compares its PFN against
+the one being inserted, warning if they differ, on the assumption that the
+entry is a huge leaf.
+
+Since the entry may be a page table, this is invalid and can result in
+spurious warnings.
+
+Equally, the entry might be non-present. Nothing can install such an entry
+in the VMAs that reach this code today, but there is no reason to rely upon
+that.
+
+Therefore only examine the PFN if the entry is both present and huge, and
+otherwise simply return VM_FAULT_NOPAGE so the fault is retried and handled
+at the appropriate level.
+
+This is what already happens for a read fault, for which the existing entry
+is not examined at all.
+
+Target the commit which introduced the first driver which both mixes fault
+orders and passes the write flag for the fix (since this commit, both
+drm_gem_shmem and panthor are prey to this issue).
+
+Reported-by: Eliav Farber <farbere@amazon.com>
+Closes: https://lore.kernel.org/all/20261112051440.16140-4-farbere@amazon.com/
+Fixes: 7bfe3b8ea6e3 ("Drivers: hv: Introduce mshv_vtl driver")
+Cc: stable@vger.kernel.org
+Reviewed-by: Jose A. Perez de Azpillaga <azpijr@gmail.com>
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+Tested-by: Gregory Price (Meta) <gourry@gourry.net>
+Reviewed-by: Gregory Price (Meta) <gourry@gourry.net>
+Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 ---
- arch/x86/include/asm/vmx.h | 19 -------------------
- 1 file changed, 19 deletions(-)
+ mm/huge_memory.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/arch/x86/include/asm/vmx.h b/arch/x86/include/asm/vmx.h
-index e49b836c7313..def6d3a6d154 100644
---- a/arch/x86/include/asm/vmx.h
-+++ b/arch/x86/include/asm/vmx.h
-@@ -453,27 +453,8 @@ enum vmcs_field {
- /*
-  * Exit Qualifications for MOV for Control Register Access
-  */
--#define CONTROL_REG_ACCESS_NUM          0x7     /* 2:0, number of control reg.*/
--#define CONTROL_REG_ACCESS_TYPE         0x30    /* 5:4, access type */
--#define CONTROL_REG_ACCESS_REG          0xf00   /* 10:8, general purpose reg. */
- #define LMSW_SOURCE_DATA_SHIFT 16
- #define LMSW_SOURCE_DATA  (0xFFFF << LMSW_SOURCE_DATA_SHIFT) /* 16:31 lmsw source */
--#define REG_EAX                         (0 << 8)
--#define REG_ECX                         (1 << 8)
--#define REG_EDX                         (2 << 8)
--#define REG_EBX                         (3 << 8)
--#define REG_ESP                         (4 << 8)
--#define REG_EBP                         (5 << 8)
--#define REG_ESI                         (6 << 8)
--#define REG_EDI                         (7 << 8)
--#define REG_R8                         (8 << 8)
--#define REG_R9                         (9 << 8)
--#define REG_R10                        (10 << 8)
--#define REG_R11                        (11 << 8)
--#define REG_R12                        (12 << 8)
--#define REG_R13                        (13 << 8)
--#define REG_R14                        (14 << 8)
--#define REG_R15                        (15 << 8)
+diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+index 0d589be136d2..ab267ad48020 100644
+--- a/mm/huge_memory.c
++++ b/mm/huge_memory.c
+@@ -1643,6 +1643,10 @@ static vm_fault_t insert_pmd(struct vm_area_struct *vma, unsigned long addr,
+ 		const unsigned long pfn = fop.is_folio ? folio_pfn(fop.folio) :
+ 					  fop.pfn;
  
- /*
-  * Exit Qualifications for MOV for Debug Register Access
++		/* We may have raced a fault which installed a page table. */
++		if (!pmd_present(*pmd) || !pmd_leaf(*pmd))
++			goto out_unlock;
++
+ 		if (write) {
+ 			if (pmd_pfn(*pmd) != pfn) {
+ 				WARN_ON_ONCE(!is_huge_zero_pmd(*pmd));
+@@ -1770,6 +1774,10 @@ static vm_fault_t insert_pud(struct vm_area_struct *vma, unsigned long addr,
+ 		const unsigned long pfn = fop.is_folio ? folio_pfn(fop.folio) :
+ 					  fop.pfn;
+ 
++		/* We may have raced a fault which installed a page table. */
++		if (!pud_present(*pud) || !pud_leaf(*pud))
++			goto out_unlock;
++
+ 		if (write) {
+ 			if (WARN_ON_ONCE(pud_pfn(*pud) != pfn))
+ 				goto out_unlock;
+
 -- 
-2.53.0
+2.56.0
 
