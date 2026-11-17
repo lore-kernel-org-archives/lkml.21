@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794939378;
-	b=3+IJb7expsw4T+um1hUUM52QawNE5Fxkw+fi6PC+HNFXDlq63gXS+HvS2NcrG2qJ/IPN
-	 I0a1ELZcVib9g6nItElIq8YYeo8pVpGPR4JAssGUzrTky0a0WiNmPqO76OgC0ZQcYE8hj
-	 KnqUGYYIAtH2cZuIqL5VWbnXDR9WsZt3AHCRKx3bzBOPvDjW7Ciy+3wy49H6JSxlAaudf
-	 5PtuprvWJmnOzOWxK5BMwWzggEbfeuR1qq9uLVt8dTiWJItZq4uTSRoBtJW4MfqsUzY0V
-	 9lssEGSZm8UYaCk5fp8D6oL/FXMPndiRMvnpm6uJxa3bz17poQcw66ZVY52LeMDjmsQ==
+	t=1794939375;
+	b=2ffTfa/JTGDUJEK16iwyKDieO54JefKub3sABoDCAXW9TmqKsRuWb19HWbKmor/8Hc3j
+	 mBsUhD08yCGA815lywsluAjZiAf0fbMeD8BgPYIVwwLvDwBK7bCQR8+KMvNqx+f41j5HX
+	 jL3aZ7Wv9zL3rRI/T4LCAtYT2HEY3F07rrveQgq/3bK6RIZ8hTrCp4Y/XzNar73956F7n
+	 05bVj86TVcdd99U5lZ3weyZB5o/2WpDnAksRzB+Cl/WvLMD7L47zvkha8KioVyJB1AWlb
+	 T/WijPer6eVwG3HhzMLIZSeEAiRxSHwjWZrJ6m9lWH1gLBDADpCm0CjCT8yYclPBqYQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794939378;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794939375;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=G3F1D5a6ZABD/Ct6UJJ0a/xHnccDHKfohgnWBX8JTZo=;
-	b=qzUt/Kk8hM0FZy8bSbLHvis7G5Z2xyZ6JwCn/megeo00wosADUNXz6k+dyJLBs2c0yBb
-	 s77s6f+Wi9vhu61uNbeLOVkQHmhQvLlNx5GUwYQfOSAtm8Nk3JLmKghUHeoxqOKVIwLH/
-	 6sm/gFYhuSYkKcA7PjUu/voof44iK0MkdfTuzALyHrx36R+CfTgb/kzWTVf45eZTPR+15
-	 ZADsmytp9P/rQ3Xh0fNKGyVe3js4vZlSo9h8urm76EZdcbcRs5d3GCzSxtvuHyu+NwcGX
-	 50As7tDMJeyhDHg55giBtJFbjEafg7ZYnjs/Pz1msm44mlIl+Qf7TW+N/CzWb1m1krA==
+	bh=TUIrBrOTgzgmyk6kl26pUhy9DQuBuGR438tBzebx9QA=;
+	b=nIQEYPSK/6T9P+SRTEH72D25P30/ERHbxkZTITI72/h4mx/ez1cDrkdQWv6ATuwaPm1Y
+	 cxRmV83hS8xVJDw4xT0qn1t9dnTXfIej4UezkkXWpt4oNCrpSOfNpoDJNkJaUICJd2AUk
+	 FQPc4vp/zbjsDoV7vR9E46me8k4tStHJqMv1Se6AvNl3umr/r3PfYjeV4rY+Zj5JjgEnG
+	 Q4bbgkvi7rwkQnXHZFI2UKxW6uzwSeBzPsdh+xKT4m3f34yKhvGNMcajOSU/vfAHwGcGa
+	 KKUX9hlPzc0jLQ2l0ABze+AhIjRRz7VUYZbxur+7Sv7UtQHxZoW8hifLDduKfMBzIhg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=cloudflare.com;
 	spf=pass smtp.mailfrom=cloudflare.com;
-	dkim=pass header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=FqQ862oe;
-	arc=none smtp.remote-ip=209.85.208.46
-Received: from mail-ed1-f46.google.com (mail-ed1-f46.google.com [209.85.208.46])
+	dkim=pass header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=ct39gTeO;
+	arc=none smtp.remote-ip=209.85.218.45
+Received: from mail-ej1-f45.google.com (mail-ej1-f45.google.com [209.85.218.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9B1C606A331
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:16:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9B1C606A331
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF0EE606A32F
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:16:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DF0EE606A32F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=cloudflare.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudflare.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=FqQ862oe
-Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-6b757029223so220164a12.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 10:16:17 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=ct39gTeO
+Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-c50a2efbe1dso801276266b.3
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 10:16:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cloudflare.com; s=google09082023; t=1794939376; x=1795544176; darn=vger.kernel.org;
+        d=cloudflare.com; s=google09082023; t=1794939373; x=1795544173; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=G3F1D5a6ZABD/Ct6UJJ0a/xHnccDHKfohgnWBX8JTZo=;
-        b=FqQ862oetmz1K12bF74clKD6N1+dPa/uE3WY/3hPfxyjvk19FalxbBVFypbiwog2Vr
-         c4T+iwR8gTiPjsGK2SFczq+LS+oSAX4/8jCqj1GOut8VR2FHRFQ9z+VZCfDPl9Ks7oh+
-         P2n5gsl4OpTBPGuhQyUoyMpmpfh5kO2SdRzRcDeUoxHpY96ie5sh4erhAuBm4HRVlaKX
-         UedtR6XkOXX6CjXIyHql0Qe+/6HO7dPw02CjdIjmVH8VYLtZmqS8Zn7Ypt2RddjCvNNg
-         9CXHEN0eoaJNPGIhVWhWW5uizVU99GS1pTOUki/iUc4U8l1apn4mQHorzxuCHZqHi3nI
-         SakQ==
+        bh=TUIrBrOTgzgmyk6kl26pUhy9DQuBuGR438tBzebx9QA=;
+        b=ct39gTeOPqqzNOu1cYN8qIqrSWum8W/cRJTuXbyaGIoTF7sPfa/apC2s4M8rE0OAK8
+         A+23IFq5nG4K9NSQb+30CqQxrUoa6Z/gfx9ESzldcPZDqSA9ACPlIEaqUp2dtlH3KIZg
+         C1yLdyIoxSXcdnIpaUMXjxm1kfIf9Lrxbmg11g09hy6tOAfzDFwZvEDvslQjQxNMX7a+
+         Y5LUiAzzR8UvT29CU0qIIOzqW9P8dxRPw1c/l0+nBikA+21HeCEZ9xk5B0ji2WgdaoIb
+         GTgVsCLIYsdzFGUIeJP1n+LmEt80jqvkrdTxId/AvCFMTWOSZLQshm8XlP8QhptUDtzI
+         23CQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794939376; x=1795544176;
+        d=1e100.net; s=20260707; t=1794939373; x=1795544173;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=G3F1D5a6ZABD/Ct6UJJ0a/xHnccDHKfohgnWBX8JTZo=;
-        b=DY1wmjdZcObhaiJhxwG7iLDdM5OSZtRHx3AsAuG5keoDJ7ZmpGkt/ls2Gj7rGV2FZu
-         wtLaU3WDHHV18Oqw3MZSQ72tKQmozYyoqnfrdaGxngrWUGQigNH5jl6mfN2+OGPBdfsQ
-         28HqUamF4RjSouVMtqw5QIQqJVJugofaMX3ODnsYouLAZnj89lJ9EC0oa8P3qnJ2GII9
-         T/bQhLOAylHuh9Y4wLXViznliZkWOuYcJZs5j7MPAOFxHuWdB/zuTBGueURwGxfb1+Tq
-         /vkJdJz65GNGe0980cwKNruBk5DJsg9Xy/5DqniHldPUpcJKXCoPl0bMuBD626RCiLO1
-         BI6A==
-X-Forwarded-Encrypted: i=1; AL+hErGkLtoxVfweCbFyc+P+9/QowfgkwwCQvlSAc6UQqsEBI83UIidCw4uoXW92+v8UDX2wiTus0K4slqzkpDs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8PD3P1UE+WfiDu4NXHeil6F29evNkwCiGbxV2jdl7GcMnv7JoZ
-	8Xd0b/Dof6t5mg8l1AXeIxF6JVaODTVzGglqzKD2ov39LSDZNwvMDk/egkqtWkebKfA=
-X-Gm-Gg: AYBFou174adDfZs3sD39pJuefBCWMMyFiz0wynWTrn5YlCNWT4qrEHAbZeW6NtN5j/5
-	AFlZ7Dx9l0VwXyIB8VKr+W/lb9Q5QyrCYN7voO5xaWaASyVLCJ9GMC0IikCGTEdsZQ5ddqbkpH3
-	xr0htyAF5uCfMQ+C8H7zMiaJkRMYwgRWnYce6g0Qrg9ovUE2BfRlJriVGb3dgQbuTej4Mi4TGSO
-	0q5dQqjN4vOaog3zbBdGkTx+ybDajb8+lG9ePubmwqg0RlYJDrAuJI6Y+y5lE4vJsnYyuUk8zoZ
-	nYLEei2yi2tkz8y8Me2A8akAIz0bw1L/1xeYO//b5nlxJbr/zSDVA3N4f6x9a+HxlOItpZYeN7u
-	r2B0US5/bMrzw5P/AkMHWGwTBKEs51ICVhJsX8VTVmnG7Glxra+FCewZ2DcsC7Ma3ZdKDPur3kV
-	BEdUkTyoU2YyNmSB7gO16d38wjMHi8ykKtrGppG3WHTu0aOVwKU+aUsdmsyTKBdBzl4DFXIdq5C
-	pvdjB7u5qoqbv6RvVMk5hsUW5Nj9aO1zdd5i4SvIQ61J9ia6cr8V8hJit2pmqzYkuU9/SIFg8t9
-	DdJs/9PAq5ZAKH8fXoDQSct6YkT1oh1eZrInuH5hqfBVGgJ9SHtELeOC0WEGA/AMkHRh
-X-Received: by 2002:a05:6402:2341:b0:6b7:ce4a:7cfb with SMTP id 4fb4d7f45d1cf-6b887eb69e5mr71531a12.24.1794939376195;
-        Tue, 17 Nov 2026 10:16:16 -0800 (PST)
+        bh=TUIrBrOTgzgmyk6kl26pUhy9DQuBuGR438tBzebx9QA=;
+        b=WRZm9sxEwsnLAOGa2Baz5Cf3+tAKeR2oEusuutJg/zbqdab6rB3oEtvfTkMi9IS8ui
+         UDO67pQAnA8Mw0+tEw7/VMV5HBqpSu5pQQEfMVuUIqGrLvALXsc2L6pPDyZveqJnvRUI
+         UnH3pLiYylaZNAOvCPSoGOnVXF0ddN5fmkciqBMbEb8ETaZrkGR1TK02wMGEY1lZKLed
+         69OyD5nobPrA/F2yE8OeHAufU2i6R4BRkEEoNurCJSmWXdWdldHzVGms8saCipmMMQFG
+         +PH968VyBQDszR6QnDfYcqoJDcnC9wlnJ8GRpx14E4W+uyYhxQ+ZJBJESJ5edJ0toHaz
+         ftYA==
+X-Forwarded-Encrypted: i=1; AL+hErGd5aP6wKClRD7tFpVaMKwQ7K4Tl8vzGese5q8antM9KISMW7u9pTYEZv0UsE2yRr29DpEwJ1xMRmgfRNc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8HNk0Gbxgnr07skf2aNoexkSDRzUs42fbffv19xHwg1YqBk2nP
+	aSNXeiarZ4e5sv+hBqL0wLCjHnyWrPqD+AiKYQSdvHXoDn7y/F4KFm/fHj1JwulCRY0=
+X-Gm-Gg: AYBFou2rfh41O1/6DTJmgWf5SAwTJLiJMd0nyDxqIBVVIj9u4aHW6TVWipN447GvHrn
+	iCydWGYNjnE6+dn9R/jW1ILoOfjLrGGV6wKTH4JMNsZportQUzmike+Mcms2K5FxZcBNt8fLVzH
+	pXfLstoR+YlmHH2e3dk1+ILJ1SvaQ822l3rOkmymK77Jiy+TE+9bvM69kdkUcQBLzVl/PkYYqeg
+	P964vJMPWOJrl+ayQWPFfD7f1GHjwv9q7hRgUw8L+gCN5h/83EYBe/gUwDYbvefR/J7yj6oD+MF
+	G2eHwIfY30T9jO9G+vbM+29n+XuPZ+iyPfl9rB/0XBTJi+CDfnO8Fj+p1gnyesBCbANVey50QSE
+	i8wZ2rtWFPIrwMLjUfF7TnEWGXHkFLFLJgFTPTiDfzL61tUzd4W27S2NjDxj2o3sGuqzqFgfa30
+	Y27ohZOINxqR8323fmFe75LS1FUbHbpX866xmekYii2Y7n/Kk9RC63VNQpFglNXYwQUdcKyyyaX
+	yvMtu8eW02mhsb90+4VglSf/8kG2fq2VGgpFt327TaBR0UQdpDq2YLKBOxKH735uG5bsaKkeKu8
+	J5v64V2zddF3QLmaqakXplTxIrmENzdi0LQTtNL+Cu0MZS0=
+X-Received: by 2002:a17:907:d7c9:b0:c2e:63ba:1f90 with SMTP id a640c23a62f3a-c510e58731cmr7270066b.48.1794939373210;
+        Tue, 17 Nov 2026 10:16:13 -0800 (PST)
 Received: from L9JK9NPFH9 ([2a09:bac6:37ad:1e5a::306:c])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b886a7d7b2sm93434a12.6.2026.11.17.10.16.13
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b886a7d7b2sm93434a12.6.2026.11.17.10.16.09
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 17 Nov 2026 10:16:14 -0800 (PST)
+        Tue, 17 Nov 2026 10:16:11 -0800 (PST)
 From: Tianyi Gao <tianyi@cloudflare.com>
 To: Simon Schippers <simon.schippers@tu-dortmund.de>
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -98,12 +98,12 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	linux-kernel@vger.kernel.org,
 	kernel-team@cloudflare.com,
 	tianyi.gao@linux.dev
-Subject: Re: [PATCH net 2/2] veth: wake the peer txq when deleting NAPI
-Date: Tue, 17 Nov 2026 18:16:06 +0000
-Message-ID: <20261117181607.30219-2-tianyi@cloudflare.com>
+Subject: Re: [PATCH net 1/2] veth: wake a stopped peer txq beyond real_num_tx_queues
+Date: Tue, 17 Nov 2026 18:16:05 +0000
+Message-ID: <20261117181607.30219-1-tianyi@cloudflare.com>
 X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261113104648.225983-3-simon.schippers@tu-dortmund.de>
-References: <20261113104648.225983-1-simon.schippers@tu-dortmund.de> <20261113104648.225983-3-simon.schippers@tu-dortmund.de>
+In-Reply-To: <20261113104648.225983-2-simon.schippers@tu-dortmund.de>
+References: <20261113104648.225983-1-simon.schippers@tu-dortmund.de> <20261113104648.225983-2-simon.schippers@tu-dortmund.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -118,14 +118,13 @@ Content-Transfer-Encoding: 8bit
 
 Hi Simon,
 
-On Fri, Nov 13, 2026 at 11:46:48AM +0100, Simon Schippers wrote:
-> +		/* veth_poll() can no longer wake a txq stopped on a full ring */
-> +		if (peer && i < peer->num_tx_queues)
-> +			netif_wake_subqueue(peer, i);
+On Fri, Nov 13, 2026 at 11:46:47AM +0100, Simon Schippers wrote:
+> Fixes: dc82a33297fc ("veth: apply qdisc backpressure on full ptr_ring to reduce TX drops")
 
-I have reproduced the stall with your script and repro_delay_us 2000
-(stuck after 14 GRO toggles) and confirmed this patch fixes it (all 300
-toggles pass).
+I agree with Sashiko on the Fixes tag.
+
+I have reproduced the stall with your script (stuck after 2 cycles) and
+confirmed this patch fixes it (all 30 cycles pass).
 It is tested with veth from net at 5e9b2ad9b838, as a module on an arm64
 VM with 8 vCPUs.
 
