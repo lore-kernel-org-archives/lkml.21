@@ -1,72 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794952649;
-	b=hW0rXtzLuGmTAKMMsHc2Y1dLFvuWuMl4Z/Qga4iSW39dQn2lC89WLy3twjF3dNrpi1E7
-	 1kXpjgBmWMs2YOUCk2ukal8JSJGh9EvtvIjLmyrvS630LIM7AB1kfAVB0mahpvREht89r
-	 9viweHkuONSsNrYgik+wRZywCDAeseCNxqWR9n2TduDGZrnJz/ER0ODCxRRREAaWWn7ia
-	 vqit5ttJS76FFY6qTSPeLL3tCdDA6fDgjXwleuqUt1IKL8QKet1hAghmg1DAPXokC0i9p
-	 ZUyrCgLhKHyEmlKiUr5YxoVO5dO84wqZG7GO4jB8wMr/6PW6hkG35D/EKWeCFI1Vgdw==
+	t=1794952685;
+	b=iwLOzZOhrXN7FYJ0Ui7Y/iJ9sHoLO63pYkVIABj6Rd7hhMX8Tg+CGhzVQZee0yLHLvH5
+	 TRTurjlFABTnxshKrJplqFTVLcxjGBMMFckrXZEIE8EP80bWq6x05QDcVDXMCYBYv5BEr
+	 iDwXeV3Pgzi0ztePz3/3uKQHa9rSzQxHdl2qXEyMeMou4+sPEfGMcvZ53syMeCDpPWY2O
+	 U/145DUYC8aNfzBtVxB1txGe8MwSkosrdPMiAsGwBedUZuKLyUyWpii6gonH4EMreXhCC
+	 iYbG/foWxIEqNQAf/vGPeJeRY+moU3Z9l+HawvlbtLHvsDninRWDjV+ydlHvT4ht9oA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794952649;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=fm0JOqfmumXNaYfIcKsaZgcOXsOJwEEHVEF9rB5LLwc=;
-	b=PLjvlKTbvlBVgF5zK0IQJ2mKBDy0W6eJDNbX7FYYO9b031MG76IM8GxFo++j857jZqVZ
-	 gPj1u+LSTy4g4cyc4AIqrYQUjL3mA41D6DEKJSaGykdlyylzaNbOfnLzJcSRlIyF2PpBq
-	 1LmrXeeFFX7fchuavmEyfcKQoNHYu8cxu02v03ejicXr67cZW7dcPlPyE3gLqUYHCM6Vu
-	 V6O7C7WJlm8XdTZjQM5qtuWPxQKHSNQ1HThKUlms2AASfIHY+lzQcnQMwjvDzcq8L8D4q
-	 BJ1+1FHhdVWVzSTtAIsAYQ0EkLohb5vBSjI9cu0eRKirSRBd4bmGqLUOKSmufg5XACg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794952685;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	b=NbJQB0XsP0J0cTEnTRuXWp3JSA0+Dcyl7DOO/y25OCajhNmIEzp7PYfV7MWjFTIrXmjv
+	 RZ1h2wdkjTjJR/XXZF3D+s8N3mys4l3r0C07RKOXXwZU/UeP4HNKydIIUQIAwlmLHPN7f
+	 +RFka7fYDA6OMpugsbHOvDOBSfUYd5dsLg4Tj9zK8gZtG59dQura3dcRFLsSi84lyjn/h
+	 V0q6xauU0oidn660Nj9Mm6A6rNsn4PwpuX+kyuWBG5o5C1x9X7jS/IVl2VTfHaHc7RDEf
+	 ras6FyEcDFxeaLooMxQ7kKOJtWjXUrBW7PUT4PgQChIIB1JkK1uQoEJFcsfkpvnERYQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P21UoPiJ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TOipi2Gn;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5C07606A32A;
-	Tue, 17 Nov 2026 21:57:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1087B606A32C;
+	Tue, 17 Nov 2026 21:58:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P21UoPiJ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D4BF1F000C8;
-	Tue, 17 Nov 2026 21:57:29 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TOipi2Gn
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC8F21F000C4;
+	Tue, 17 Nov 2026 21:58:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794952649;
-	bh=fm0JOqfmumXNaYfIcKsaZgcOXsOJwEEHVEF9rB5LLwc=;
+	s=k20260515; t=1794952684;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=P21UoPiJcGdKOtXwqso+eLvWIqZkUziwRvE050c36SS317OVJyHDRl06NhHExC9r/
-	 s+6GnSwBZoPPETzpIdlKj6pQWz3JVMw9bVhyfpE5q2lsbaPRJgPVigP+8ddTgZ4cAv
-	 qUE/2j6NliS9MP8nSCn4pAO9UAMcnKzRRevzNZjPOPuQWvyGYWH7vvBtrkAJllJ0gY
-	 tGRTX8x0gDqyYYKwQf7qKbZZZqU3kjus5dd3L1cN3MtOv2h2bttb1muY6us4cQZg1v
-	 N0wxDPxgwwwO+3wXStJKfqTOFwXX4Ymawsl/8U9N63xMQNmMYTKDXHXHf6VOiEwfZC
-	 6mgH4xARN7vkQ==
-From: Oliver Upton <oupton@kernel.org>
-To: Marc Zyngier <maz@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Michael Reeves <michael.reeves077@gmail.com>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Myria Sarvay <myrialsarvay@gmail.com>,
-	Yureka Lilian <yureka@cyberchaos.dev>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>,
-	asahi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/2] arm64: Add KVM support for newer Apple Silicon CPUs
-Date: Tue, 17 Nov 2026 13:57:24 -0800
-Message-ID: <179495264127.1456871.1866504028661732526.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261021-apple-m3-m4-kvm-v2-0-04905152cc2a@gmail.com>
-References: <20261021-apple-m3-m4-kvm-v2-0-04905152cc2a@gmail.com>
+	b=TOipi2Gn9g12jJUnbbeLWgeIDKXmICwzCs1Wg7VcUIdYuZjNFzZs8G4rUW6repJNU
+	 hMK3ZKRecQ5HHNuG8ZyLRRbUotGqw5flZJxrciOCOics2VkzzsKV2xLn1qui4WOIZR
+	 9VtiXuJGviCSwgEnvSPLyvurh8XmzDkAeMofWlx6cfx6E/n4srYPGmD0dw28p3TDnK
+	 xrq8jWsPZXcgl4BMzbhh2Er/ezVHevLzuma7Widr9ndSUegjosArLmqGvFTj1YRWk3
+	 Jb7Pb8zodjTtr9HxYbFlL7XBug+Y6PH3GltpJa9YlK2ylkEnGn1LVwrxjluBYSQeoM
+	 YrFMJiM8vN0Rg==
+From: netdev-bot+sinfo@kernel.org
+To: Hungyu Lin <dennylin0707@gmail.com>
+Cc: edumazet@kernel.org, ncardwell@google.com, kuniyu@google.com,
+ davem@davemloft.net, dsahern@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, 0x7f454c46@gmail.com, fruggeri@arista.com,
+ noureddine@arista.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] net/tcp-ao: fix reset key lookup for IPv4 segments on
+ IPv6 listeners
+Date: Tue, 17 Nov 2026 21:58:03 +0000
+Message-ID: <179495268339.3291.8580287623562744537@kernel.org>
+In-Reply-To: <20261117215554.68071-1-dennylin0707@gmail.com>
+References: <20261117215554.68071-1-dennylin0707@gmail.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,28 +64,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
 
-On Wed, 21 Oct 2026 10:53:19 +1100, Michael Reeves wrote:
-> This series enables KVM support on Apple Silicon M3 (base, Pro and Max),
-> base M4, A18 Pro and M5 Pro CPUs.
-> 
-> The first patch adds the CPU part numbers and MIDR definitions.
-> 
-> The second patch adds these CPUs to the existing Apple Silicon PMU and
-> broken SEIS workarounds. It also enables TDIR detection so KVM can trap
-> guest DIR accesses without trapping all common registers.
-> 
-> [...]
+Hi!
 
-Applied to next, thanks!
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-[1/2] arm64: Add CPU part numbers for newer Apple Silicon CPUs
-      https://git.kernel.org/kvmarm/kvmarm/c/61615311ce39
-[2/2] arm64: Apply existing Apple Silicon CPU workarounds to newer CPUs
-      https://git.kernel.org/kvmarm/kvmarm/c/3a7b70524c54
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
 
---
-Best,
-Oliver
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
+
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
+
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
+-- 
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
