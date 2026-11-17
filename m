@@ -1,102 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.28
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794955809;
-	b=SkcLC3Oq7qtXTenfGKCYIZ6I8U0wz4v8oHKnW67M+sRMpXmhjpHBHuYRzi9CT+L2YbvZ
-	 /QeC99BG7JsBJiL51GHfA/L+5GulkDV1MpOKhIQNY96jxDfeO3tB3N0m38FCmDBVkph8H
-	 SGlmahqWGpQk+Iyyys+eyl4urqdlf44cWaXATzGk+zIf3ys+wVjuSj2XyPjkWgZy1hjjv
-	 C7N7oKgZPZl85bdAF0R23kyh54sDuXTyD/rqydAiD5/0MkeUqR1itejPjQWzYd0dzc8Te
-	 EZw4VOWIsl+FWTSq3xmRmGTGpgYHnCFXzFuc4bzsD2ci3O3lgbEzya5q4wrxLYXu8vA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794955809;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=WMhSUz1LlYJ3f9uHtgh7pHFOXEBdgw+5QwtVNW1sA8A=;
-	b=kb1kYSggjPLqM0tp3d8+w1Q3ZGx9VTWK7VFxFp/axFR1hflZZLPQvb3U5o6zMYGiYcIE
-	 4nhM0cULsYmiCBh755bT8+07vla5AXq5xEN4ll8PfE0IuHFstHLHoAQvOLqybayXD4AEh
-	 XPp3Io5oHGugXLztvGc6Q6ouxTDGi/waXlS/rs/fol1pnrdz3oo1znHn3zig97Ec0qdje
-	 VeNUSD0BA9byQiO/6gxvYKKFw6FTyK5ihjWy1DvKY6LVxuHEaqn7O1p6/RLW+VlXO6R2j
-	 emaSj5fXxLJ55wBd/cEAsJiMTV9wC2ANBaqL+89lR+cTb1kC9v3Af7EYoDqAYOSDskA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=Bb0IMvDX;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.28
-Received: from SN4PR0501CU005.outbound.protection.outlook.com (mail-southcentralusazon11011028.outbound.protection.outlook.com [40.93.194.28])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.181
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794955832;
+	b=bApJNFlSZ2k8No0jWggPUBPCGTEMrqvGA5Xz+y6c7GZvnw/Bb6JCA7uLEyoWmCGxMR04
+	 idLYMCYPHxLLFwqeMkf3W5My5GrZNmOMIKZWxKtY0GunHXHf+UW5LM05OmxXQQBX7WSpG
+	 uC6rEit8C8SOGqGHuqk5xJvvWaVZwtXmCSgkQ2DnGDangb3u0B1goHCjA1Kau2AdALVyF
+	 klKntNfSoUTH8aFYDaxzDxB05SAZQuJC+wl4ycB5Dv+4hBb+gC+P9qPEn11bgf+Lg2pWF
+	 qV4O/pvynreAEJrzy3Cj1bNK5lQ+1aPSddwsXdj5HrSiC2eoe9/Q9owU4x8C0TMqVNQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794955832;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=v5LZprz+0la2YSbdDTFfgchlevOg7w1sc283MrLEFHQ=;
+	b=QHhA82C++XAgEFuomVB5pkW2at872jIW9jy9VcdUIFCKCvQFAmARXS/9W1AQ/KiLApHy
+	 X9dBkOl9q3ajFyCqXf2kyGuVOeOXHf0HNSQDSRYSSrdmOMdMjJItA0h0ks7KFMJHIL//Q
+	 q7MFV69YABU8Sl70bTnpGlekW9qM1iOeZ15ZW8aAhklHF4zUB9F21re/FU88Lgzk85+Eo
+	 CpKRunFQL59IY5VJueOioNkWuKg2JfGy6rLt/SUfXLMX8pLWLUtaAlDCHFPLsZuggGyLv
+	 yc7w8ecU6liM0POa1tpnTdgZxtaG5bq6nFX9nqhOH/FPakVYhdFHyzRH5kKt3VbcqGQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WdfVn2u4;
+	arc=none smtp.remote-ip=74.125.82.181
+Received: from mail-dy1-f181.google.com (mail-dy1-f181.google.com [74.125.82.181])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2BA7606A31C;
-	Tue, 17 Nov 2026 22:50:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2BA7606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B776C606A32A
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:50:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B776C606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=Bb0IMvDX
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jCnI8jI5oI5n8TXdnai+CuvJlhucgpTrD+gzmDwdIs1xN1LJSHCANkV6tPg4xNlJk/vxem/nR+JR0g3Qd7dt2y3EV2o8G1X9Z1PBVgqS4o1jqOruQNjx01evnTaVbtjH0/0s7Q40KUm2xxJr1jld7/ZEvchY4uIddT+tMTCMip+svGhEJvTgYOJihHgK3WNpvD5wVehyJ+2c3rCskEBYmpLHQ6kS4ierMwD0uVI9q2QYKfOs4wid7tJPOetj5rf0O7Xm6KczkuAOCJa6NaAEbryuGneFoIJ0+TcjUd2/XPNmAploqLx+6v08h05oocDl3rHFmjaxQ4DjhSqLdNppKw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WMhSUz1LlYJ3f9uHtgh7pHFOXEBdgw+5QwtVNW1sA8A=;
- b=ZSW+PvaxDHIDWeqwNN1JeIFGjzMjxzpTcBCCPXnkm4MqgWYK+35LJU5e+M9yBpno488bdGwP08eOKRUsqKgNrEAxhKJrzTYsPMpjTnd0+Bu5kYu30H2J+LS0BTIPgP5rGK14rO5fZa24M3Lfm4ONGE3Vh5IOnDVm7tOZELmC7+eEx+LIKXVy5rBn7ZgUMYxS4n7ssBHqmjVxZOW9k4OJjEHFy4wPQBgOGj6DpKUTnTKYIndSQvk+sf6ux7sqcbQl4xum3YC5p8VV8nQy8I8Uyc2GeCtI4qHWbzGZiMJR5qtkdgfM6htFCiOp3BoHML5F7G1EDIn+AlVKQMkwbC4LEA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WMhSUz1LlYJ3f9uHtgh7pHFOXEBdgw+5QwtVNW1sA8A=;
- b=Bb0IMvDXaTxoyw20PD3Xr9PRl/tNZzm69bVhirR4HzvCsElpbxLsoLGefiGPwARgl6LWRgMrWxnevz1g8j7pVEnKNcKU0MVXr4IoVQ7dPth90XJ3rTFM66kY81WhCT1uy6J/LgBjCCa0xVM15RfCF4Viz4LMZdpikI5WPbTVICE=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from CHAPR12MB999249.namprd12.prod.outlook.com
- (2603:10b6:610:300::24) by DS7PR12MB6333.namprd12.prod.outlook.com
- (2603:10b6:8:96::15) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 17 Nov
- 2026 22:50:04 +0000
-Received: from CHAPR12MB999249.namprd12.prod.outlook.com
- ([fe80::1cfd:535b:cec6:5077]) by CHAPR12MB999249.namprd12.prod.outlook.com
- ([fe80::1cfd:535b:cec6:5077%4]) with mapi id 15.21.0615.013; Tue, 17 Nov 2026
- 22:50:04 +0000
-Message-ID: <241a1cde-679f-4325-8cdd-63a59c891502@amd.com>
-Date: Tue, 17 Nov 2026 16:49:59 -0600
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 18/25] dmaengine: sdxi: Add context submission helper
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, David Rientjes <rientjes@google.com>,
- John.Kariuki@amd.com, Jonathan Cameron <jic23@kernel.org>,
- Kinsey Ho <kinseyho@google.com>,
- Mario Limonciello <mario.limonciello@amd.com>,
- PradeepVineshReddy.Kodamati@amd.com, Shivank Garg <shivankg@amd.com>,
- Stephen Bates <Stephen.Bates@amd.com>, Tycho Andersen <tycho@kernel.org>,
- Wei Huang <wei.huang2@amd.com>, Wei Xu <weixugc@google.com>,
- dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pci@vger.kernel.org
-References: <20261103-sdxi-base-v4-0-3668ccc7aab8@amd.com>
- <20261103-sdxi-base-v4-18-3668ccc7aab8@amd.com>
- <avdE7dckg2azmum3@lizhi-Precision-Tower-5810>
-Content-Language: en-US
-From: "Lynch, Nathan" <nathan.lynch@amd.com>
-In-Reply-To: <avdE7dckg2azmum3@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SA1PR02CA0007.namprd02.prod.outlook.com
- (2603:10b6:806:2cf::18) To CHAPR12MB999249.namprd12.prod.outlook.com
- (2603:10b6:610:300::24)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WdfVn2u4
+Received: by mail-dy1-f181.google.com with SMTP id 5a478bee46e88-380b40319bdso703778eec.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 14:50:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794955831; x=1795560631; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=v5LZprz+0la2YSbdDTFfgchlevOg7w1sc283MrLEFHQ=;
+        b=WdfVn2u42i3Av2qTH269DHP7zpKExvU06VLNqsFEEqviGe9sXQ76Eh4dOyXZ4eGA4t
+         PqKsufesmyweD/WXi684Ji3/ES1nIoL9OUJb42HGmSApFCq5t1adMRf73YlCybw/7S2p
+         2LSR+rREHFK4K7L3ZyMOeWuOU/3VqL+j52Eyclx6OgI2RNM8XUrJe5M5E8NiJp0go6mM
+         Y8QHkvrACn6M6rrEWQoNI5MoqHBWOyx8Va1Cbd76gstMjoxYZFE1ov3X3tt+TzkaVb8a
+         CXrSyklHehkrZDj0pB7tWZI8kElbbc8tbvFJ81BdiYtV96aEhP4lZcoffKB7nREtIutX
+         e8qg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794955831; x=1795560631;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=v5LZprz+0la2YSbdDTFfgchlevOg7w1sc283MrLEFHQ=;
+        b=meMHxTAAmhSn2Aem8ouND10sp/aMG6qX9j3YmlewNWeks5ZdbWKaxlJ7l0k+VuQS8Q
+         L8UB1Xenwc9ltRbe6aHubJt/mZvTMqyBbyuIBR4/qcQOIgn4nJiVp8J0alZ/rW1+NByR
+         4JEnOQG6hUHTw5fY3xJ4z/5XfD5mdS0nh7lVvu5LOcP5sDbMfnO75mjXztsz16DbkR/k
+         4dXpBdmp+nqj2x4RUJZfbUz+Wsg64b+0Wdi72g70YYHYqILR3er9rxb0snBY+5/gMd51
+         C0APXdMWjCpjpejYLPTIAzR3MR81JbbIkwVY7WtpKXE9FkMBli80liA035eK+SMw7q3P
+         2jsA==
+X-Forwarded-Encrypted: i=1; AL+hErFZkmAQ15yZB67lEc5c/Q9hPtuyHYqvBbx+/MthHF5R2wDBVavLEGY7UtPxGB+5Xt7xsVWWvhf9oG14aAw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z95LH6k7KhlNQm8X5VE3nRfGuecuO9e2rJ55RDfHTTbY8N/XMnd
+	4lVNu+BBLQ1NwkLblSy+THOjOqxTGeTlvE4/iDHX9kfrxPIyswENid6o
+X-Gm-Gg: AZFdTZfYqXyyDUq4FNle+xs/ressOjvtYIN7v7UkmYtgTY6/ZlF7vSkGy5QomT2Q62Q
+	V5eUn28NUXEt2Vy5M3FnVQBWnqtrIAYRN2gO61cNaJ2kRirPHrsBUWdUU3efMPEfZm7BlHkWCJw
+	RB+sv/3s0rT4AJccPPd6zLMd3S9ZbVAv8EUQ4ZNTmprlJ85KZVy6/ZOxU11OZEh+Nc4j2yZ/uEb
+	KuUaDHupLM0qssvUOfmB7l1dT+LSMJYb1lvEK9k7Sm0lO+o0ISUlIOQcqBGbzkm6GX1OwUNPPId
+	9WKyypZ+mIa9Ry8/VJ4lL/wS2v5FWz2+JtRICBs2617FdOlJqP7yQJdxQS7FQE2YrGQh0+b8XM0
+	nEvspoKpXgi8pQATJpE2OleVmBzHilklztFzL5yJYuyHsh2VXkq+0PDzNzXPHOjbAtp6gjpmrlg
+	dk5viksVfD4MfBpchocl08VrlQ66KP5mN0TqOW3YXEVqFEd6vGNPrQYxj7c8UjvxrlCN6OBRS5Z
+	L8i4IQAnl/x4QE9ThJKLsljhgV2AwbK7Uv/zo9SNTleQOeGh7zw+IeyKMYLaP9QZPi/64uT066g
+	n1ZIVHDEGspsy0vftK0fOMywHamMzl+OxcweaArT/+Q9NEIHZpo5MMLbHuHXqYfInwEsoGqSLSS
+	CHMkXAA8Az+rAUxH8bmKF1puCpjeDKOS47Z9W+SqJmmpjV5suHJfQKoJYxf+uOWIqDbUTFTYFGC
+	/oTxAr8HGlXFgfUtxoxZ6oX6YdjfaCJrXJBzz39vSHZYT3lroHruAMyC8+5keFpmx9kawOL0Mg9
+	1UdU9Ue6hL3ag==
+X-Received: by 2002:a05:7300:101:b0:375:388:a6d5 with SMTP id 5a478bee46e88-38281213cd5mr745964eec.32.1794955830577;
+        Tue, 17 Nov 2026 14:50:30 -0800 (PST)
+Received: from FT6N242TWK ([223.181.112.111])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a6800338sm1299282eec.11.2026.11.17.14.50.25
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 17 Nov 2026 14:50:29 -0800 (PST)
+From: Shashank Mohan Jain <jain.sm@gmail.com>
+To: Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Alexei Starovoitov <ast@kernel.org>
+Cc: Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH bpf] rqspinlock: Reset tail if no waiter queues behind the queue head
+Date: Wed, 18 Nov 2026 04:20:23 +0530
+Message-ID: <20261117225023.36660-1-jain.sm@gmail.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,99 +107,109 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CHAPR12MB999249:EE_|DS7PR12MB6333:EE_
-X-MS-Office365-Filtering-Correlation-Id: 66746215-c8c2-4ca1-8624-08df44fd1e8a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|7416014|1800799024|376014|366016|23010399003|56012099006|261021121427099003|4143699003|11063799006|10067099003|261102123227099003|18002099003|6133799003|22082099003;
-X-Microsoft-Antispam-Message-Info:
-	O65JvZXS5/bz9fLHr0J3HeZ5QEfgCwt43ZQaDUcCBNYmUciwFO7iMUhSVh6kpXj3C2y9U3uT68i20PY7rsADuo5HROUQWWh9kqvJe7lUc4TB+b3ysfK6zykWJy2ta1vltQnGHGli6Gej9S5y307wR607yMhEM44vxh/cU/Q+OtANeOM79TpUyFZdX9CMYJpJ7usBD9yPRB2UtSlIumk3rt5lDMMWf2vFJOBFUva1SECP7oefb0/flEB/iuuKAp695YKYS3WxlOvkUmc1wLFRj27/DRf7iq8YzPFUKho1/VvVRJRKjceSkyjOKmBpD7+aZ4eXkvTzk6I58ub9lTnrAHQudz5TZA2Zr1Rny3Mp7ox9mERYyEJ2XRDZupSXbCtyAnET+z/JL27Gfo0FNSWk7zaS/Rnyh3gY54WX9SB66ndk02XRIr78lp5R5d2rgrmHzZtdf7TQVCDeon9ClQq3zEswwx8zZReho8HZJHJ27/td02BtqbUvBPHK6RzVhlYuB/KmteFJw7bict83JdaotlMXjyytso/RjrUMpm2Dy39N7TBRmNe5Q2lO1TnNFHdbvEBCQF+YkL28kUaSPAhrspviNICnOLKqwl6sG9lofJf+dBsr7FZi+6XHyEFAlH3b1j9fJZ3VWv0IrCxodEgdPfubNtpSdK1TznKKB1rZYD8=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHAPR12MB999249.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(23010399003)(56012099006)(261021121427099003)(4143699003)(11063799006)(10067099003)(261102123227099003)(18002099003)(6133799003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?YzZ4Y2IxUnBETkZKUWx4Mm9RdmlMa290UFBiamVwdVFtNWdEbUl5akNGVUlw?=
- =?utf-8?B?M1R6cVRGQUcwU2dwQVBIUktSSCtuU0wxZFZTTmlNSVcvdDJrdzNVZnNqenBJ?=
- =?utf-8?B?SmpTM3NlUEkxOGhKdlNYTTJUa2k0N1o4QkZRa1JKMFlQemJUbm5PSlNRMVJE?=
- =?utf-8?B?ekpLbUowMHdQa3dmU3Y1NGQ1YmpiRGhEY0p0cmJVUXhzb0ZTbnJ1Znh0S0Zh?=
- =?utf-8?B?VWRHK0lJMUVIRGlxcHpUTm5WY1Y2SzFsVi8xYnc4c3BhQlhZV2l3K04zZHBk?=
- =?utf-8?B?a25vejVFMDZWN1pPQjAwbGZZeGpNaUtXT3lMSnY2QnJwT2VjZ0FqMnl6RUNZ?=
- =?utf-8?B?QUlwTHllMmpCSGZ3Q1ZKUTdRejJUS09lSUJzWUswNG9WMWVnRnNJMWVvTmhz?=
- =?utf-8?B?SWJNRDVSQjBQLysyZDZuZm1LRjM4Y3J4WGZRZlg2NnRMR1UvbWVUMVI2cUpi?=
- =?utf-8?B?eXY3VGJTNEpvMzlTck1nMmpuMlNUSHh5V05rb0k4WXdqcGxuYTFleXpvUHVO?=
- =?utf-8?B?UUZ5LzhSNGpubkJ2QWY4SEhldlBNMjNjT2tBMWVoVy9EZDl1QjMxYjk3WWts?=
- =?utf-8?B?QnNSRWtXREx2Ym10OTVrc3pNMFI2V01EWHhDNUNzNmJRNThPZU54SHhNcGN2?=
- =?utf-8?B?UnBBdHV3WFMvQjc0SEtGdFgxVkIyRWpZTk56WVQ0L3l5T29lcGtYL3U4UUZQ?=
- =?utf-8?B?SjNRY2JDZWRWMHlzZTAvcFg1VXFveFd0emhPSkpvaHBMaXNnODZsSERPdnlv?=
- =?utf-8?B?QWNHTEU0a05FMXhHNlM0RFc2OTdTSHM0TC9TYlVaZ29wbk9Hd0xGUnNGc0ha?=
- =?utf-8?B?VFlKK0x5ckhNdWUxQmJGUGZzcUJONFhxaW1CQkZ5a05GbHg5TG1Gb3B6dEc3?=
- =?utf-8?B?L0hTaktSbWE4bDBoRGpocFcvU0lhRGxmcnFMZEFDazZtNklxR0V2NSt2NmNa?=
- =?utf-8?B?eTEwREV3MkxLSCtlSVVvbnVWWXVIWmdrNnBhelJVR1A0cm5LaHczVDVJa3BH?=
- =?utf-8?B?NzJmU0VITlJiS29GSDZQMGFacHc1TEttVmVHZ0IrNW1zdmJJYmZhUFpWR2VJ?=
- =?utf-8?B?c09DU1BvamhkMFBJalhpQ3dEOHA1Q3NyR1hrbk9xVDlRMlFEMHVBTXZJS1ZV?=
- =?utf-8?B?WmRsYzVKSG0xUkZZRGRYYTJOVFk2a0NPWmk1dGU5Qk9tb283SUNSWTMvbDdV?=
- =?utf-8?B?TzgwMzRVQUVRQi9LUEJzb29XdWMxK2NSa3hTRTdXWGk0WnJLMG5XRWU3Y0hu?=
- =?utf-8?B?RXdZODdTWUo5YmJLcjNjVWg1cTVHcmF6M2lMZnpYbmZjUEhBZjkvQk1ORFM4?=
- =?utf-8?B?aVpoZXpPUk1xZlhEV3NLUXBYUUpGQ1hESHliZlNlQmlVNzJrNCtXc0ltR1pI?=
- =?utf-8?B?TndCK0FabzkrQzFWTThaNXkvbldTU1NoakpDOGRQNDdhbGh2WW1pcTlGN1NC?=
- =?utf-8?B?NjlQQnFBSWViNmxPemdrTUVxMGQ5WmZQTnEzeDBaZHYzQ0JtbjZqV3d4TVE0?=
- =?utf-8?B?aVNFbGV3MzZ0YWVKUWJFVjJjWXRtZXVQQzNpNm9TWUpQVUlXa0VkcHh5RnRt?=
- =?utf-8?B?SFh1cENHVlpSb0lEYnlYNkkwU1ZUVElGMDNtYlo0aDZmZ3FJVEpWeHVZc2Yv?=
- =?utf-8?B?RWtwd1JLczliTTdLSEFTRTdGUlM1bXlHakxNMUFFZFNsUTd2dW9LUVZKbUtP?=
- =?utf-8?B?UGVVS2pienQzOXJiZ2orMTYrY01mMFF4N0IvL1gxeXhDbU5aMk9EUXJrOFhi?=
- =?utf-8?B?TXVKbUFCSVdqTkQvK1NteVBpbmdkb1hrcU95dzZCS3NBZXpqcGhCL20rYkJZ?=
- =?utf-8?B?N05ScWw4Qlp3Q0dWVmtrdk9FMHlxNEZzTHRLSnVNMDRsTjA2ckI1aVpGS0hn?=
- =?utf-8?B?WGtHSWJwTUt3RTVmNmREY3lDdWJ4dlNhMUYvZjY5anhjSTdTdHhrWnVIY2Rx?=
- =?utf-8?B?b2JFY0txOE5IMjBrd0Q3ODFWN2paTzUrNldDYUdESnZpSExuMVFFbUppd0lp?=
- =?utf-8?B?ZzZkdFlZdmpmS3pBVlFaNVY2Kzh3Y241aXgycjBYb1BDbmtXR1d5b1p6bk5O?=
- =?utf-8?B?RWtXYTNGUGpDZTM1VnpreG0rc1RqdlNHN1gwM0tRN0ZHQ3J5b2s5ZUM0YnlW?=
- =?utf-8?B?cmljcUNaTXBBVS96a1pPYTIvN1lLMXZtZVRJU3pJVlNXOEhIZDYvb2xvUHFr?=
- =?utf-8?B?Y2twQ0NudENkeHZiczBZLy9CNEx4SDQzL1lpd1d1NW9Ib3BxeW82V3ZWYzl3?=
- =?utf-8?B?Q3pXeVJDUDlhUHBoMHZWbGE5THdpM3VGSXY0NEFEWUZNUG9xVDdteS9sNDVw?=
- =?utf-8?Q?AJbTrth//KMGi+yT0/?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 66746215-c8c2-4ca1-8624-08df44fd1e8a
-X-MS-Exchange-CrossTenant-AuthSource: CHAPR12MB999249.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 22:50:04.1052
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ediERMb0J+KRsxURzRbD9pYVpNQlOHEoHDArCyDOAaVnAnxeCrcY8b9PDa7+QOftTOicp4thpNVzQevE+1pipA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB6333
+Content-Transfer-Encoding: 8bit
 
-On 11/13/2026 11:12 AM, Frank Li wrote:
-> On Tue, Nov 03, 2026 at 08:49:59PM -0600, Nathan Lynch wrote:
->> +static inline void sdxi_desc_make_valid(struct sdxi_desc *desc)
->> +{
->> +	u32 opcode = le32_to_cpu(desc->opcode);
->> +
->> +	sdxi_desc_vl_expect(desc, 0);
->> +	FIELD_MODIFY(SDXI_DSC_VL, &opcode, 1);
->> +	/*
->> +	 * Once vl is set, no more modifications to the descriptor
->> +	 * payload are allowed. Ensure the vl update is ordered after
->> +	 * all other initialization of the descriptor.
->> +	 */
->> +	dma_wmb();
->> +	WRITE_ONCE(desc->opcode, cpu_to_le32(opcode));
->> +}
->> +
->> +static inline void sdxi_desc_set_fence(struct sdxi_desc *desc)
->> +{
->> +	u32 opcode = le32_to_cpu(desc->opcode);
->> +
->> +	sdxi_desc_vl_expect(desc, 0);
->> +	FIELD_MODIFY(SDXI_DSC_FE, &opcode, 1);
-> 
-> why no dma_wmb() here?
+When the head of the wait queue claims the lock and its cmpxchg from
+n,0,0 to 0,0,1 fails, it sets the locked bit and waits for node->next,
+with no timeout. The comment, taken from qspinlock, says the cmpxchg
+can only fail if somebody queued behind us, or if a waiter set PENDING,
+which will then see our tail and queue behind us.
 
-Because there are no ordering considerations until a descriptor is made
-valid. All other descriptor initialization, including the fence bit's
-value, must be visible to the SDXI implementation before it sees the
-valid bit go to 1, after which software is not allowed to make any other
-changes to the descriptor.
+In rqspinlock that waiter does not always queue. After clear_pending()
+it goes to queue:, and two paths return -EDEADLK there before
+xchg_tail():
+
+ - the trylock fallback for an NMI waiter whose per-CPU node is busy
+   (in_nmi() && idx > 0), or when idx >= _Q_MAX_NODES;
+ - check_deadlock_AA(), when this CPU already holds an entry for the
+   lock.
+
+For example, with the queue head H alone in the queue:
+
+  CPU 0 (H, head)                    CPU 1 (NMI, idx 1 on another lock)
+  reads lock->val == H,0,0
+                                     queued_fetch_set_pending_acquire()
+                                       sees tail H
+  try_cmpxchg(H,0,0 -> 0,0,1) fails
+  set_locked()          -> H,1,1
+                                     clear_pending()   -> H,0,1
+                                     in_nmi() && idx > 0, trylock fails
+                                     return -EDEADLK
+  waits for node->next ...
+
+H now owns the lock and spins until another context queues on the same
+lock. For a lock that is rarely taken, such as a hash map bucket lock,
+that can be a long time, with interrupts disabled, so it shows up as an
+RCU stall or a hard lockup. The same happens on v6.17 and v6.18 for any
+NMI waiter, as the trylock fallback was used for all of them.
+
+The AA path needs the interrupted context to have taken its entry for
+the lock and not to try the lock again, so it is much narrower.
+
+While waiting for the successor, reset the tail if it still points to
+us, as the deadlock and timeout exits already do, and keep the lock. If
+the tail has moved, a waiter has done xchg_tail() and will link into
+our node, so keep waiting for it. try_cmpxchg_tail() reads the lock
+word first, so the loop only adds a plain load while a successor
+finishes linking.
+
+Found with a TLA+ model of the slow path. A userspace port of the slow
+path, driven through the interleaving above, hangs without this change
+and completes with the lock word clean with it. I have not reproduced
+the hang on a running kernel.
+
+Fixes: 0d80e7f951be ("rqspinlock: Choose trylock fallback for NMI waiters")
+Fixes: 087849cca31d ("rqspinlock: Precede non-head waiter queueing with AA check")
+Cc: stable@vger.kernel.org
+Assisted-by: LLM
+Signed-off-by: Shashank Mohan Jain <jain.sm@gmail.com>
+---
+Prepared with Claude Code (Anthropic), model Claude Opus 5.5
+(claude-opus-5-5).
+
+Based on mainline 63fdb511c27a. bpf and bpf-next have the same
+rqspinlock.c. The TLA+ model and the userspace replay are not part of
+the patch; I can post them if they help.
+
+ kernel/bpf/rqspinlock.c | 19 ++++++++++++++-----
+ 1 file changed, 14 insertions(+), 5 deletions(-)
+
+diff --git a/kernel/bpf/rqspinlock.c b/kernel/bpf/rqspinlock.c
+index 111ec80..c50afaf 100644
+--- a/kernel/bpf/rqspinlock.c
++++ b/kernel/bpf/rqspinlock.c
+@@ -635,17 +635,26 @@ waitq_timeout:
+ 	}
+ 
+ 	/*
+-	 * Either somebody is queued behind us or _Q_PENDING_VAL got set
+-	 * which will then detect the remaining tail and queue behind us
+-	 * ensuring we'll see a @next.
++	 * Either somebody is queued behind us or _Q_PENDING_VAL got set.
++	 * Unlike in qspinlock, the waiter that set _Q_PENDING_VAL may return
++	 * without queueing behind us (AA check, trylock fallback).
+ 	 */
+ 	set_locked(lock);
+ 
+ 	/*
+ 	 * contended path; wait for next if not observed yet, release.
++	 *
++	 * If we are still the tail, nobody has queued behind us and nobody
++	 * will link into our node, so reset the tail instead of waiting for
++	 * @next forever with the lock held.
++	 *
++	 * n,*,1 -> 0,*,1
+ 	 */
+-	if (!next)
+-		next = smp_cond_load_relaxed(&node->next, (VAL));
++	while (!next && !(next = READ_ONCE(node->next))) {
++		if (try_cmpxchg_tail(lock, tail, 0))
++			goto release;
++		cpu_relax();
++	}
+ 
+ 	arch_mcs_spin_unlock_contended(&next->locked);
+ 
+-- 
+2.54.0 (Apple Git-157)
 
