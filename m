@@ -1,106 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.10
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794942175;
-	b=fgfVSlGYSbDvVwg/EKbmF15I/lom0CrBiNLWBWPIKoA7THe06+k4/OIichGUBsAIyADd
-	 6hAekqYug0R6ZTcIBDXif2ye4fC0385QAa1hpQ5rTUpcOSBmp4cXhdgV/dsGio9OM+fOO
-	 ChL+ZxMa8tupS9IKuwugKBBUJRxZUQbOg0tfJFNUFLlVEQlce3+JXwpGWyQMdx4wnDTmQ
-	 Q5KBj5dKjal5Z021/c1pYgdJCCPS2zzwpKeOrrmt1scRI8iZUgrke+OmsGT4973nUQJ8A
-	 ye88LVySvPYm8T6GjT70KhsP5UupisagMZFkh/lwggNWqIWD5D2PvFJCqL2rApu6oSg==
+	t=1794942387;
+	b=arvYb0Bc2K0EsjsbSseLL9q3GWIW8hQVwRof9X/I3Mr3K9I0ZLO6uhfmF8oIIJOwnGZM
+	 lYdhw9zf/0prf2RwJe2WyedpqjJW7nyCDfkoV3jTjpiVbmsLwtMtH+OUZUIGp07SWb5ms
+	 yoYzerw6cLErH11pYgH0DIZHtby8m2MQmM+p9RBSvmMWNRDWk8cgux/mmdrs6TUEHILB4
+	 4qB/1Um0FQRPqzX4gWcyiH/K+wk6iBCOvxfguPvQh9wg2MCAiMQLH9z5tVtolqsZ9Tq0V
+	 otsFcng0j0P1+yT3mmqQ+CVY5peB9z0ipC1qLQpvsU+2oOiRGMu+YO2Lu1DynysCR+w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794942175;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=EhI5TLOlL+9vNzhu+UAy+2REBUSKFNqlNp3HDll8Qkg=;
-	b=3B84mPfil1UqWihCxJ2YXknPECdpWvUF2ttuURhcNn/xDcgE7nNOP4zhqbpXtikP57eu
-	 PHGaww2xTfa3JN+S+iaj3hTTrGW8vIMQK7k1ezC5yiyDvcIYZhm76Lb7tD2N4Wl2zCCSQ
-	 m2AE/dAQLvt6rblwjO6vaHmTxFoR6AI5uJCHJNTzD4iqJaMDSbaJ+win9zZzHAmU6fh7H
-	 W7Fa8w/t2Ht746+0ZBCAYLTmYv7OviG2Tt4NrD0F7DtUFTW/8zdOvqHCo3os9iJqNjAFp
-	 fEyYEzbXW8T5a4FNQh4T5/AgKrlOnuKDgnn0Mz79solWSJMQ5VRK5zQgbauYxb5QUQg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794942387;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=ONV8yidisx/RIQoXMY9+iP5IXiVVLo6SvS4RZj3FJfk=;
+	b=boCDHir35SaUENiDKb/xRDEGSUYOxtHxiHcwN9wisyLARybUEB0Pv+VRcS5VyYNjtgTW
+	 c0TBOEzVmHONBbWcNYdKnGLkWLkoroBvTYlYDo8ajeOr7HWM6ew/9BqHJwO/vPY/wvU7y
+	 KLwunu1tS9HhAq6EoejH9vSgYKNFzA0eUOKajpUvn5Erxrd06M1DDp61EeFEKviOUZTit
+	 VDFWpmczBbMu7WCzEvWSTY2RzjshpMeQS55pJcFlB6MQVOvd68PM7wdGTM6tHW/E4F22u
+	 eU/hZqT9ocrNnd46UZ0aVgf3VZrXkTx4GSNh+OvTMzJT8wmJMn+QllemOhA/ettY0kg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=SZv7BbFj;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=djsaEppF;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=YBdSkgGP;
+	arc=none smtp.remote-ip=198.175.65.10
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.10])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 346FE606A32F
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:02:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 346FE606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92622606A31C;
+	Tue, 17 Nov 2026 19:06:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 92622606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=SZv7BbFj;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=djsaEppF
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1794942174;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=EhI5TLOlL+9vNzhu+UAy+2REBUSKFNqlNp3HDll8Qkg=;
-	b=SZv7BbFjWPDOQ2LRlb+FFdIMM+yRBNSl1BjTonF6ONMrBXgZH9cM/UzvPvLGRBeH7Sw8rl
-	sx3H9uUUcplg4fUCYJXzA6KaD/T18JvnnPAbD+NSccNhT/LkKbRaS3KslGRQLTwjAlEDwv
-	7dmy00cQev9exZMVciCHqCp9KnTAWYo=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-137-P-84Ri5jONahR1wFeMPJwA-1; Tue, 17 Nov 2026 14:02:50 -0500
-X-MC-Unique: P-84Ri5jONahR1wFeMPJwA-1
-X-Mimecast-MFC-AGG-ID: P-84Ri5jONahR1wFeMPJwA_1794942170
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-48e0389d6f9so56089f8f.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:02:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1794942169; x=1795546969; darn=vger.kernel.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=EhI5TLOlL+9vNzhu+UAy+2REBUSKFNqlNp3HDll8Qkg=;
-        b=djsaEppFheB/OSdCyYwXFM96wxsVd5uWgRNozzLPp8iRTQU86Iv5hY6ZWGPprCfSX1
-         JCZbc5GY6XGnLwNc74XhTHwlJRLTGsrkCJpA7YMMmIDJWsk4NUeA8hAy6YlpuNgB0ZsB
-         vWba4yokU0i0cuCa/tdHNqmmNzitoMnD/Kh3Ro9NCo5isu79kkb2ap4d7YgQXLMCIXCP
-         CN0MloMBQROoYjnP6kSQWT8amReza7DWPObHqqZWGIkZVPX/BgpDU4g/Fp2GyEIu8sHM
-         +7AMtDPj6DhqGlQ1bQ1eLgc8ubvegI4htiGlMtSjYKMlaswawPr00WRu9/oRUcYLWVfL
-         hvLA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794942169; x=1795546969;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=EhI5TLOlL+9vNzhu+UAy+2REBUSKFNqlNp3HDll8Qkg=;
-        b=NmXzAb7aKktlq1t0SdhCtM4S1Qij9zWjztF8IQFA1qXgcOPF1T4155uEfUoncwcnqO
-         CPygwxjaggrayHcth4hrnVEAcLWi0tOvuZTKUR8ptE2EUeYqxpJHIBAnVUZqvYR5AKrD
-         nylus41Cul2EqVVpYJinfSJQd8U6ScT0JfiRGHEW/OiDjzarnjDWnf5amsjz/NswQERE
-         yOY8gq5OSUizpA2O9yH1pMs2gx36V9/GZzZDz81LXK4d6Tl/H/tSSVKyu8sPR6BZdgia
-         5HN9K1moKWDnw589p3gJvrRf6q/v3UFrBzPD1W3zOvDJhc+C7NIyFJgIlq7pUeAjYnrM
-         BU3Q==
-X-Gm-Message-State: APuU4Z8jO7eXWIDp8O79Q0eOWFAD+cCUAEvdaZj0z5ZQajGtF4oSxl0N
-	KSKRJiyOoZsD9f9MaBDgdvMJIB4BP5C1Ol95QPdPthXxAMWpqNYgMA9vLu4n5Eqa/qj9E74Qwo8
-	uB1EK9Ai77twfLdcO/lC1jXDgFdYInY40lcfKK1n8sC79xDzRGiWAJoZS7k12iKGWnQ==
-X-Gm-Gg: AZFdTZepOz7iNWycF551vIzJ2pOf0ZWTJT+Kcn6s7IZtwB8448FBdg2XX0W+tmNGPff
-	SDfc2FhcciHfqrAPgwQ9+jab8a9tWYf9YIdbLGlif90+AX4cGM+MlMa9lkfdW3SdJYWq3dlnDh/
-	2KqwcgGgrqO+REwsYaFWoH0vXR2nJHz8bujYKhGT6T6ZFSukCuDGI2IzIpBp9DqW+0SrMyK7I4I
-	bbLp0sMT5OM3ZEjkFsYqE3+FojWIIQQ+PaV9LiiSws1VMWU80VdTw9TB26Q3eYNIg7SvA3JfkhX
-	lne40Lv+633X+bblRCPIBXCKFLVpWRBSGzoa2QNbpJvlSlXPcPW23AouuTiJNBK43T1rjWcEKtL
-	g1t2E4hkQHGw1sE4zima1xYOlkdykVjAs7Vjs2LfkPROOA47DCce1iPinyale4tIQVhJ/2ggcW8
-	tqimAd5LrylJs=
-X-Received: by 2002:a05:6000:3108:b0:48f:bcf0:2026 with SMTP id ffacd0b85a97d-4a6389ed16amr883019f8f.13.1794942169607;
-        Tue, 17 Nov 2026 11:02:49 -0800 (PST)
-X-Received: by 2002:a05:6000:3108:b0:48f:bcf0:2026 with SMTP id ffacd0b85a97d-4a6389ed16amr882975f8f.13.1794942169208;
-        Tue, 17 Nov 2026 11:02:49 -0800 (PST)
-Received: from [192.168.0.19] (217.red-88-4-146.dynamicip.rima-tde.net. [88.4.146.217])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a656095e98sm276159f8f.42.2026.11.17.11.02.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 11:02:48 -0800 (PST)
-From: Sergio Lopez <slp@redhat.com>
-Date: Tue, 17 Nov 2026 20:01:52 +0100
-Subject: [PATCH v2] vsock/vmci: reject datagram binds in local network
- namespaces
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=YBdSkgGP
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1794942386; x=1826478386;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Lpi+TTbxwx568hEuDzt3sLnsrTMp++AYoozCyuX0ehc=;
+  b=YBdSkgGPltLUKshcORYrtFLdMpOqLzEc9ScSaMfLx3G7uCS4Bh73a8LE
+   JbjMEQVgRIF0agbq4jtJwTRCyazAsEqnAYbtYVDna2D3csSZdxYND85gS
+   S0E+aK1Nga7v73n6fnMlX6kaW6kEabKqCm7VetzUtfL2gNVjo7DKAt3+i
+   /Us51oI9DjOINh//jvPRmL5jP1TKJCYrsXgBw67EV2eFvJnIrL13d9aqz
+   FsqkQ3dEDGes1rnssPrv2NZpDobUMI6pWQ5JMJACx3RRYHj4mlYhlp4ZL
+   hNfvI/DIZpyg8mLS2KfLTdVGPvRV4PXRnAfj4PKKauKVJ80BFn0sgbUGw
+   A==;
+X-CSE-ConnectionGUID: NHs2o3yDQOOLHywGB6mj2Q==
+X-CSE-MsgGUID: zxuiPNOVRHefUmvFdw8Z/Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3650906"
+X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
+   d="scan'208";a="3650906"
+Received: from fmviesa013.fm.intel.com ([10.60.135.153])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 11:06:26 -0800
+X-CSE-ConnectionGUID: KEH076GzQMuK8nmGl3WZww==
+X-CSE-MsgGUID: MVdfJmBvSU+PA7xzAc0CNw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
+   d="scan'208";a="11846763"
+Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.254])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 11:06:23 -0800
+Date: Tue, 17 Nov 2026 21:06:21 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: raffaele.tranfaglia@gmail.com
+Cc: Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Michael Hennerich <Michael.Hennerich@analog.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Andy Shevchenko <andy@kernel.org>, linux@analog.com,
+	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] iio: light: adux1020: return early on unsupported
+ channel types
+Message-ID: <avylrU1cexaQp1mM@ashevche-desk.local>
+References: <20261117-adux1020-guard-v2-0-89707fa070c9@gmail.com>
+ <20261117-adux1020-guard-v2-2-89707fa070c9@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,106 +84,216 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261117-vsock-vmci-netns-isolation-v2-1-d6f35e86416a@redhat.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42NQQrCMBBFr1Jm7UgnrS248h7SRUhGO2gTyYSgl
- N7d2BO4fA/++ysoJ2GFc7NC4iIqMVQwhwbcbMOdUXxlMK0ZiKjDotE9sCxOMHAOiqLxaXOd4cj
- 9MHbGOz92UAOvxDd57/HrVHkWzTF99q9CP/tXthASOvataU8924Euif1s89HFBaZt277ToLM+x
- QAAAA==
-X-Change-ID: 20261113-vsock-vmci-netns-isolation-7e46732dcd73
-To: Bryan Tan <bryan-bt.tan@broadcom.com>, 
- Vishnu Dasa <vishnu.dasa@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Stefano Garzarella <sgarzare@redhat.com>, 
- Bobby Eshleman <bobbyeshleman@meta.com>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Simon Horman <horms@kernel.org>, "Michael S. Tsirkin" <mst@redhat.com>
-Cc: linux-kernel@vger.kernel.org, virtualization@lists.linux.dev, 
- netdev@vger.kernel.org, stable@vger.kernel.org, 
- Sergio Lopez <slp@redhat.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2665; i=slp@redhat.com;
- h=from:subject:message-id; bh=TprLl35HMOZ700RHSD7wldVyF8nfQtfAOCm+aXiPq8I=;
- b=owEBbQKS/ZANAwAKAfRpJ40vDAI1AcsmYgBq/KTKg78yHHA1T+U5q33lvKFKhEHajCHacKczx
- gRFaBZa1/uJAjMEAAEKAB0WIQS+1fz3US2GgJFC6KL0aSeNLwwCNQUCavykygAKCRD0aSeNLwwC
- NZmaD/9qZAz5FLYTpTVOASrTHfMHxQjA4+DunomqrpVGDSV+BIUU2Ro4t/zHcZhv9m3tc0lx8s0
- FimzrAPcFwIDyWn12MetCnXqsav6Up6oXDk8BTuKWa0wGZbEBoBnlQ25ywTodqur3XXTnkYP+Ls
- VCCJCeNA0vfttrII+qqFdAHIXDfxPQefp2MFrsplHJQEIrWw6ZUKQ6m9oUDUFmr8PGKhJ0zlnA6
- b0F6nHW0nyX+mHPh8vVOfpDE1hQIwtxb5IKnpYVpzgBGFAufVfbvl31VzykbyGMJ9bECmhZZ9yN
- CAIBHlb3PzFNXUT8tHPcpL+jqUC8roU6si7hcqfEiOynAFoiSq0w5lu0HKWxbdwk+thKngd8jzY
- z3Y6eHNWdUSbdWABZalFGN1yuUe0gp4AyjGlxzvF2AqmhtpvFHGeCehA0WfJEgEDi+pfaNWoJCP
- mEwSJMxhOKxpfCXAjRK5d/PI0fD0B9TOLxR5JDKUs3CWhc39NTXYxZ5WRAQS2sw27SS8/VLVjF7
- t3MtOExaHVigSx0R20rRWKNucV7t9gZOFktQXvOYYpKRyOov8EFHkDA1lGlLtaBLn+k++acUzSR
- Fktu3CdnHDFv9AWIl8hgc1PTbBJhizS50YTN+u1bvIVXMcvV9t5Yufk0RGOKinb0zt6X8293phK
- vVURjCf2xVn2qNg==
-X-Developer-Key: i=slp@redhat.com; a=openpgp;
- fpr=BED5FCF7512D86809142E8A2F469278D2F0C0235
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117-adux1020-guard-v2-2-89707fa070c9@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-VMCI already rejects datagram sends from local network namespaces, but a
-datagram bind still creates a receive handle in VMCI's global port space.
-A VMCI sender outside the namespace can therefore deliver to the local
-socket. Its handle also prevents a global-namespace socket from binding
-the same port.
+On Tue, Nov 17, 2026 at 07:11:02AM +0000, Raffaele Tranfaglia via B4 Relay wrote:
+> 
+> Now that adux1020_read_raw() and adux1020_write_raw() can return
+> directly, check the channel type with an inverted condition and return
+> -EINVAL early instead of nesting the work in an inner switch or if
+> block. This removes one level of indentation and makes the two
+> functions consistent with each other.
+> 
+> While at it, drop the stray semicolon after the closing brace of
+> adux1020_read_raw().
+> 
+> No functional change intended.
 
-Reject VMCI datagram binds in local namespaces. No namespace-local
-datagram transport exists, so EOPNOTSUPP reflects the available receive
-paths. Unbound datagram connect() and sendmsg() also return EOPNOTSUPP
-because both call vsock_auto_bind(). The receive callback rejects any
-local-mode socket as a defensive check.
+...
 
-In a KASAN/lockdep QEMU guest, a reproducer observed cross-namespace
-delivery and the global port collision before the fix. After the fix,
-local bind returns EOPNOTSUPP, the global bind succeeds, and a global
-VMCI datagram still reaches the global socket.
+> static int adux1020_read_raw(struct iio_dev *indio_dev,
 
-Fixes: eafb64f40ca4 ("vsock: add netns to vsock core")
-Cc: stable@vger.kernel.org
-Link: https://lore.kernel.org/all/sashiko-outbox-212907@kernel.org/
-Acked-by: Bobby Eshleman <bobbyeshleman@meta.com>
-Signed-off-by: Sergio Lopez <slp@redhat.com>
----
-Changes in v2:
-- Combine the VMCI receive checks and clarify the auto-bind effects on
-  datagram connect() and sendmsg() (thanks to Stefano Garzarella).
-- Carry Bobby Eshleman's Acked-by.
-- Link to v1: https://lore.kernel.org/r/20261113-vsock-vmci-netns-isolation-v1-1-ced02054ea61@redhat.com
----
- net/vmw_vsock/vmci_transport.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+	struct regmap *map = data->regmap;
 
-diff --git a/net/vmw_vsock/vmci_transport.c b/net/vmw_vsock/vmci_transport.c
-index 1f186e8f8364..d53704e31af3 100644
---- a/net/vmw_vsock/vmci_transport.c
-+++ b/net/vmw_vsock/vmci_transport.c
-@@ -627,7 +627,8 @@ static int vmci_transport_recv_dgram_cb(void *data, struct vmci_datagram *dg)
- 	 * outside of the create and destruct socket functions.
- 	 */
- 	vsk = vsock_sk(sk);
--	if (!vmci_transport_allow_dgram(vsk, dg->src.context))
-+	if (!vsock_net_mode_global(vsk) ||
-+	    !vmci_transport_allow_dgram(vsk, dg->src.context))
- 		return VMCI_ERROR_NO_ACCESS;
- 
- 	size = VMCI_DG_SIZE(dg);
-@@ -1697,6 +1698,10 @@ static int vmci_transport_dgram_bind(struct vsock_sock *vsk,
- 	u32 flags;
- 	int err;
- 
-+	/* VMCI handles are global and cannot serve local namespaces. */
-+	if (!vsock_net_mode_global(vsk))
-+		return -EOPNOTSUPP;
-+
- 	/* VMCI will select a resource ID for us if we provide
- 	 * VMCI_INVALID_ID.
- 	 */
+>  	switch (mask) {
+>  	case IIO_CHAN_INFO_RAW:
+> -		switch (chan->type) {
+> -		case IIO_PROXIMITY:
+> -			ret = adux1020_set_mode(data, ADUX1020_MODE_PROX_I);
+> -			if (ret < 0)
+> -				return ret;
+> -
+> -			ret = adux1020_measure(data, ADUX1020_MODE_PROX_I, buf);
+> -			if (ret < 0)
+> -				return ret;
+> -
+> -			*val = buf[0];
+> -			return IIO_VAL_INT;
+> -		default:
+> +		if (chan->type != IIO_PROXIMITY)
+>  			return -EINVAL;
+> -		}
+> -	case IIO_CHAN_INFO_PROCESSED:
+> -		switch (chan->type) {
+> -		case IIO_CURRENT:
+> -			ret = regmap_read(data->regmap,
+> -					  ADUX1020_REG_LED_CURRENT, &regval);
+> -			if (ret < 0)
+> -				return ret;
+>  
+> -			regval = regval & ADUX1020_LED_CURRENT_MASK;
+> +		ret = adux1020_set_mode(data, ADUX1020_MODE_PROX_I);
+> +		if (ret < 0)
+> +			return ret;
+> +
+> +		ret = adux1020_measure(data, ADUX1020_MODE_PROX_I, buf);
+> +		if (ret < 0)
+> +			return ret;
+>  
+> -			*val = adux1020_led_currents[regval][0];
+> -			*val2 = adux1020_led_currents[regval][1];
+> +		*val = buf[0];
+>  
+> -			return IIO_VAL_INT_PLUS_MICRO;
+> -		default:
+> +		return IIO_VAL_INT;
+> +	case IIO_CHAN_INFO_PROCESSED:
+> +		if (chan->type != IIO_CURRENT)
+>  			return -EINVAL;
+> -		}
+> +
+> +		ret = regmap_read(data->regmap, ADUX1020_REG_LED_CURRENT,
+> +				  &regval);
 
----
-base-commit: 65ba8f34ec886ec72b2c07ddc8cf3d815c32869d
-change-id: 20261113-vsock-vmci-netns-isolation-7e46732dcd73
+		ret = regmap_read(map, ADUX1020_REG_LED_CURRENT, &regval);
 
-Best regards,
+> +		if (ret < 0)
+
+While at it, drop ' < 0' parts for regmap error codes.
+
+> +			return ret;
+> +
+> +		regval = regval & ADUX1020_LED_CURRENT_MASK;
+> +
+> +		*val = adux1020_led_currents[regval][0];
+> +		*val2 = adux1020_led_currents[regval][1];
+> +
+> +		return IIO_VAL_INT_PLUS_MICRO;
+>  	case IIO_CHAN_INFO_SAMP_FREQ:
+> -		switch (chan->type) {
+> -		case IIO_PROXIMITY:
+> -			ret = regmap_read(data->regmap, ADUX1020_REG_FREQUENCY,
+> -					  &regval);
+> -			if (ret < 0)
+> -				return ret;
+> -
+> -			regval = FIELD_GET(ADUX1020_PROX_FREQ_MASK, regval);
+> -			if (regval >= ARRAY_SIZE(adux1020_rates))
+> -				return -EINVAL;
+> -
+> -			*val = adux1020_rates[regval][0];
+> -			*val2 = adux1020_rates[regval][1];
+> -
+> -			return IIO_VAL_INT_PLUS_MICRO;
+> -		default:
+> +		if (chan->type != IIO_PROXIMITY)
+>  			return -EINVAL;
+> -		}
+
+> +		ret = regmap_read(data->regmap, ADUX1020_REG_FREQUENCY,
+> +				  &regval);
+> +		if (ret < 0)
+> +			return ret;
+
+Ditto.
+
+> +		regval = FIELD_GET(ADUX1020_PROX_FREQ_MASK, regval);
+> +		if (regval >= ARRAY_SIZE(adux1020_rates))
+> +			return -EINVAL;
+> +
+> +		*val = adux1020_rates[regval][0];
+> +		*val2 = adux1020_rates[regval][1];
+> +
+> +		return IIO_VAL_INT_PLUS_MICRO;
+>  	default:
+>  		return -EINVAL;
+>  	}
+
+> -};
+> +}
+
+Strictly speaking this doesn't belong to the patch, but since it's intrusive
+enough and the change is in the same (touched) function I don't mind it be
+here.
+
+...
+
+> static int adux1020_write_raw(struct iio_dev *indio_dev,
+
+>  	switch (mask) {
+>  	case IIO_CHAN_INFO_SAMP_FREQ:
+> -		if (chan->type == IIO_PROXIMITY) {
+> -			i = adux1020_find_index(adux1020_rates,
+> -						ARRAY_SIZE(adux1020_rates),
+> -						val, val2);
+> -			if (i < 0)
+> -				return i;
+> -
+> -			return regmap_update_bits(data->regmap,
+> -						  ADUX1020_REG_FREQUENCY,
+> -						  ADUX1020_PROX_FREQ_MASK,
+> -						  ADUX1020_PROX_FREQ(i));
+> -		}
+> -		break;
+> +		if (chan->type != IIO_PROXIMITY)
+> +			return -EINVAL;
+> +
+> +		i = adux1020_find_index(adux1020_rates,
+> +					ARRAY_SIZE(adux1020_rates), val, val2);
+
+Split logically.
+
+		i = adux1020_find_index(adux1020_rates,
+					ARRAY_SIZE(adux1020_rates),
+					val, val2);
+
+or make the first line longer
+
+		i = adux1020_find_index(adux1020_rates, ARRAY_SIZE(adux1020_rates),
+					val, val2);
+
+> +		if (i < 0)
+> +			return i;
+> +
+> +		return regmap_update_bits(data->regmap, ADUX1020_REG_FREQUENCY,
+> +					  ADUX1020_PROX_FREQ_MASK,
+> +					  ADUX1020_PROX_FREQ(i));
+>  	case IIO_CHAN_INFO_PROCESSED:
+> -		if (chan->type == IIO_CURRENT) {
+> -			i = adux1020_find_index(adux1020_led_currents,
+> +		if (chan->type != IIO_CURRENT)
+> +			return -EINVAL;
+> +
+> +		i = adux1020_find_index(adux1020_led_currents,
+>  					ARRAY_SIZE(adux1020_led_currents),
+>  					val, val2);
+> -			if (i < 0)
+> -				return i;
+> +		if (i < 0)
+> +			return i;
+>  
+> -			return regmap_update_bits(data->regmap,
+> -						  ADUX1020_REG_LED_CURRENT,
+> -						  ADUX1020_LED_CURRENT_MASK, i);
+> -		}
+> -		break;
+> +		return regmap_update_bits(data->regmap,
+> +					  ADUX1020_REG_LED_CURRENT,
+> +					  ADUX1020_LED_CURRENT_MASK, i);
+>  	default:
+> -		break;
+> +		return -EINVAL;
+>  	}
+> -
+> -	return -EINVAL;
+>  }
+
 -- 
-Sergio Lopez <slp@redhat.com>
+With Best Regards,
+Andy Shevchenko
+
 
