@@ -1,77 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.21
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794954665;
-	b=wtt0/G5yy54T5g7fOVft4PVg90d36fkAF1QgdWF4p2kdijognhHCqTAOenMxe9SNEdyJ
-	 nWdHbOi5xRYsNrpvGmNVUgCCHrOtmGd6rl8UoX0AIhNgDMLEQy+j+q/ohhL9/KqfF+Awe
-	 15zq9iN8JJaqIXrV7gMXOHyIlxrlCdOaELW36qbZjEqACLNQxn6gr+l/zndl45HTUysmi
-	 tUMikUTbb1gdCzPFDsVxkGRUIX6f782AlGc57NDDSA6lIiLBAqT9J91P9uujv6CuXkyor
-	 m60a6Exp3xyfqRMxxF0tkDJkiqb3EBH+odddFMojxNfIAz5zASv/CkY2OsvxQn9h65A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794954665;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
-	 UI-OutboundReport;
-	bh=y+e9NIyLZ99372VSzEOimXUz7LwYtjzQkyF/ebKtfOo=;
-	b=R+cEgBU2hUX2MLIIbPh3vnNlgpbUidn7ANeGvp9XaNnl7TGfzx8RgcQ9jg8r5wToyeCA
-	 eGPccALifeOn/60+tDXQAbj1KlEbuaDUy2q3bpVZ9vsEXBRwsSasJVZAjwcQ6qjuFjKxp
-	 YtA0mBQmDleAcq7Qr0bI4ebwOxLlsZbjBp5HD1KpYSW/EHUdIi6C1m052cOVjsabVe4Y0
-	 oQDGp4Y1SnYnFQV//Xqs+fmH53VeBEoYy9eupRzcdj/dZ9qnAVrs7GlqbwKaPWP+6wh2O
-	 IoTVNAMO4uF4PUR/aygaiEQWB+xQirpEQTRzQUBwcXv+pPOY5r9Peq7QKFFenbdOp9Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmx.de;
-	spf=pass smtp.mailfrom=gmx.de;
-	dkim=pass header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=ibL71rS6;
-	arc=none smtp.remote-ip=212.227.17.21
-Received: from mout.gmx.net (mout.gmx.net [212.227.17.21])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.45
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794954735;
+	b=Fpq+bWY/+3PpJ3o5+JsrXC0oADgRvme0us1RiEXPHaZEC+j3tiR/TZ3HNubTHAzsNk+V
+	 6RUmZ4Ztu3w7AtwVPk0JMMkTE+cUj2+RmNU4EJ44etlRUFLL5tPhK3LMaJBRznJWy58Cv
+	 uxW4gFfgtWtvE3xsgYSnXi/zP7JPdHtADpMkpohS2RBGmoYEO3LiLT7OSVy+seLiCenc0
+	 ZvcN8dA/sJgPhUJK0IOckj9zHKkhmjlaNgJ8J4cBan99pOmAPtvzdoai9/dA9yiY7p1IW
+	 2WKq+k1F4WaY0NsuXXRaBp0BB7UqY1K0Da37+uggIHT1mHB2aghqJC8rPBT8k0aGatA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794954735;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type:
+	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=OZ/M9ja6XgjtpGs4U+MHpmE2XhjgAeyHJGbTosQL02s=;
+	b=khzaAjzQ0aK7uGV/iKTavo6a3I2kemKMvVVd/Rz7mg3G0ZQvqt33KuLWolO7lRNVbkDs
+	 YrfLShWy5ylySl/UyyA+PM94zXw0RQxwAqgpqaydKzXAMUbnNvSnHzY6MLJ5bJNVGmHqu
+	 9i/k9n1VYPmajuGXI/OwDXN2n3A8+wUaD0s1s6Xg7kS8TmF9pT0R+0mah750bFSLs9hMK
+	 n4qoLv2BuKdQLNcwH+9CNmom8VuS1B8KNvx0MHGz6Zwx9pHi29fcDsX2TuRxXvqTCmPUB
+	 znyDr49Z+A200svLO595uOf/o8qXTeG6tFhO39dJ0YwlsQwE54ARYzrReL1fRqBUAyg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=rEaBlfb7;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.45
+Received: from DM5PR21CU001.outbound.protection.outlook.com (mail-centralusazon11011045.outbound.protection.outlook.com [52.101.62.45])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F80A606A336
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:31:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5F80A606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gmx.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmx.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53EDF606A31C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:32:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53EDF606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=ibL71rS6
-DKIM2-Signature:  i=1; m=1; t=1794954662;
- mf=PFdfQXJtaW5AZ214LmRlPg==;
- rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
- d=gmx.de;
- s=s31663417:rsa-sha256:RVZEFz2VQR5j22HcITjKLY0KuMTJ
-   Gpr5fO91WJiXoBNIOgo1+GhwkOss6t2rOMZWo3l5J2CUV9ANdX66avw5AwPtpOq0/mvFKg7LqnG
-   4G4xeeNgMY5a3FDw9fRSSCKVXQbXTUSA/lENZnoX5IlUrB/Ly7aMTHq6Pza2xsRZ+eomNHVSYC7
-   n3L3MPvaRTZW6d/9R6cKAK/m9k7RLGVVtqkkjZryWQW/fKBa3KqtaR8P6lSm2ZOnNQZQXOhfmAM
-   CvqhJ9yv8RGuXe9gki7I8bZN07Z81wm3mGfbJ4KHE0e7EGUKNFq9ppSmK5p+DpPCemB2vqVR/51
-   3liv3PpV//BvvQ==;
-Message-Instance:  m=1;
- h=sha256:
-   EuDouZKNy8J7EMUL9ISZHz2EoJ6V54Cy6Ns7tShDPh0=:
-   Ep8FroOW4fNT1t+S65CCditT8kkrTbMuEGLWWWWHZVg=,
-  sha512:
-   sjXdJPWs8rcO993N3pWXe/ogRwDolzHsOAEKVu2wiH3LMV3TVcxfMRwoO+Ojtfga3TtCuj62cDmaCD6fPaR+2Q==:
-   7+rjqT3jJ4YmAee9jzYgAtpuhJFU7JAL3gF0ayRSgQ2c58cnJLzFAwBd6PJpis8F/LvAn9PMDBteLaUf4nqBkg==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
-	s=s31663417; t=1794954654; x=1795559454; i=w_armin@gmx.de;
-	bh=y+e9NIyLZ99372VSzEOimXUz7LwYtjzQkyF/ebKtfOo=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=ibL71rS6MuuSU1mfNA4RZ7FXyVs+1fDUnQiz44HXJsThm8WzW19tpLxfW9rfYnU0
-	 xV4+X3Gp+sPenwcjFcEjQ8SbYAV9J85RRYrrVTB4N+YpfT+L5vtP5XJeYpn/QRRhk
-	 M8wcS0prA79bwDBlgmAk/fq6pM0K7lW4fnKm2A62Bp1VgdL0veqZWIMn3HXTLlpeW
-	 jbF0EhxaT3NrGgiH+5f0PJAis39S0QGKbNSOxJyAbeABp85jIx+2hyYMUDalthvth
-	 N1e8vhLT75o0fjeLnteKS2IaPA92I+28i5LqVRR1FhmScnyeqJJq5MOnZaBxxsW/P
-	 iAtmTmjeTSUDapQp8A==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1N0Fxf-1wXkPC3pCx-00vpGF; Tue, 17
- Nov 2026 23:30:53 +0100
-Message-ID: <848ebb18-b9bf-4747-9403-fa8da4fba2ad@gmx.de>
-Date: Tue, 17 Nov 2026 23:30:52 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=rEaBlfb7
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pWRAmzdXu7p5W0wCkOKONfebNzt+zqn+JLRgnPq9kZ1ojvxggkAbv/E4pXvwZtO+p4zPdC7jdEwJew3JSBjHg4G5Gy7ByAn8F+g5wrS5kPDYFA7N06SHFdTUjmh5Sa9akuP8BjNiD6UKRi1SJHdw6lTx4fmCflHCKpJmSRWef8LUobvD7KUiVNbOaDrFEt24pi/TpOaac5sike+Z41r4O0PPHNe4HjyJthnC4kzUIk4Vj4dxWiCmd0mwP8h9Bzcr/frwkJYOpbJ7UoymSFmgXXyFPIqEnEOMvt9bXUtCqpwTDxUMzVYfwAeaCgZ+TKqDt9Si/mbfhJD9YlyqONwt7w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OZ/M9ja6XgjtpGs4U+MHpmE2XhjgAeyHJGbTosQL02s=;
+ b=yn4P/oUww7v8fKvYtVtvuPc1Zz5Svz3Pg32FV50BWy3RjW5hp8kvSq6TNGsunvdJ0zO9nzCIWQagrDKdxMmXvtPrfzgGzJRRZO7IISEIV631F5+T0fcRHxnPyN7UTTfrpfVcwiAanBMEzuKFzKCHGeLsZlkEWcl1mcf7CfyuQvwlIsOOKnNOms/fueplPjUXu75saVU2pgq7kYnAjg9WDDF7WYCU551d3/nFHaJVUtO+v1W7mvIEL8AAYWHVUEia8z5nyVvhjbZzCM8H3IyqCgZi02FzI+vnRcJ5hgqj9um8VzaLXnuG3J2e6aBRq3MiXm9WRXbvpHL61TUetduDIA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OZ/M9ja6XgjtpGs4U+MHpmE2XhjgAeyHJGbTosQL02s=;
+ b=rEaBlfb7aTty0UEXRF/43GOf6mi6nuoVVUKVFq2/nzqoCJL9xse9hagOpAFqfz+OJVa4bvED0lMen6uR2X7FhcSThzdqaB5ZbFRob2/r+ani6z9kGc8tSKIhsFNC3bU9Mo58ydLJl1O80YMqCRCIiXDS9jUZVgkZVo2PN6wW0vM=
+Received: from CH0PR13CA0003.namprd13.prod.outlook.com (2603:10b6:610:b1::8)
+ by CY8PR12MB7217.namprd12.prod.outlook.com (2603:10b6:930:5b::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 17 Nov
+ 2026 22:32:00 +0000
+Received: from CH7PEPF0000001B.namprd21.prod.outlook.com
+ (2603:10b6:610:b1:cafe::63) by CH0PR13CA0003.outlook.office365.com
+ (2603:10b6:610:b1::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.4 via Frontend Transport; Tue, 17
+ Nov 2026 22:32:00 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ CH7PEPF0000001B.mail.protection.outlook.com (10.167.244.170) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.0 via Frontend Transport; Tue, 17 Nov 2026 22:32:00 +0000
+Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 17 Nov
+ 2026 16:31:50 -0600
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb09.amd.com
+ (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 17 Nov
+ 2026 16:31:45 -0600
+Received: from xsjlizhih51.xilinx.com (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
+ Transport; Tue, 17 Nov 2026 16:31:45 -0600
+From: Max Zhen <max.zhen@amd.com>
+To: <ogabbay@kernel.org>, <quic_jhugo@quicinc.com>,
+	<dri-devel@lists.freedesktop.org>, <mario.limonciello@amd.com>,
+	<karol.wachowski@linux.intel.com>, <lizhi.hou@amd.com>
+CC: Max Zhen <max.zhen@amd.com>, <linux-kernel@vger.kernel.org>,
+	<sonal.santan@amd.com>
+Subject: [PATCH V1 RESEND] accel/amdxdna: Fix SMU command execution on platforms without interrupt trigger
+Date: Tue, 17 Nov 2026 14:31:42 -0800
+Message-ID: <20261117223142.179304-1-max.zhen@amd.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,474 +113,157 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] platform/x86: dell: Add new dell-wmi-pega driver
-To: =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Cc: Hans de Goede <hansg@kernel.org>, platform-driver-x86@vger.kernel.org,
- LKML <linux-kernel@vger.kernel.org>, teolyub@gmail.com
-References: <20261117214604.397131-1-W_Armin@gmx.de>
- <f71860dd-cf85-ddd9-8e47-7279205f46ab@linux.intel.com>
-Content-Language: en-US
-From: Armin Wolf <W_Armin@gmx.de>
-In-Reply-To: <f71860dd-cf85-ddd9-8e47-7279205f46ab@linux.intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:jb0Gi/eTDiz0/yX6Lxsdh1pyhuAGRBtqLkIry5RTmnVE+AOcNHw
- z+V0zpnKJTAKQ2SDCEykr3xC294R4sMAmlnv4uN62WFCFVQCt2yGyzS7LNCC2CMOpckTKOY
- W4BM255toslAcN+Nnx/7ZxOlALtecKVJfIAetVvR1Sv0hlcif4T57JXCxT7u3SYysMlO0NH
- tOUEHuZoYUKm7WcjjIY5w==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:ioUPAb53sIA=;gb09tFxIM77Iuh7QygFCAH+WbdA
- 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
- V2/723HTFlqzY=
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH7PEPF0000001B:EE_|CY8PR12MB7217:EE_
+X-MS-Office365-Filtering-Correlation-Id: 311620a0-fb4d-487f-3b9c-08df44fa987f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|36860700016|82310400026|1800799024|376014|23010399003|6133799003|18002099003|261009223027099003|3023799007|261022113327099003|261022075727099003|261021135927099003|261022115727099003|261022105027099003|261021123027099003|261021121427099003|261026130827099003|261026121527099003|261026140227099003|261026135527099003|261028144727099003|56012099006|11063799006|261021130227099003|261021133027099003|10067099003|261102123227099003;
+X-Microsoft-Antispam-Message-Info:
+	rqcsOeY7TK9jz7vMp3Q2MEv4TIeRY8C031TcQ+vVqZn2gYJtyZls7RoXtaQkRT9oRG9xuCDkqy2G0/rzOteI1hBFUuPQoKSf7TfCAXPO3eC5Ves7k4M9PcqgAOdKJlm0QqhivZnw6Vp4nyCz3Ll2nD3RQ/gLHr+cW86preoJdKLiTP3kUxqUSSQZhS6YtcIy277m45gS0FxhOAEpoQCgaO0dFoH9SZtK5r3ohSVklBhuVidhaKsXEONg+7Us5Efrn3hMjcnh5rmY6ggGSFZsW2woy989yCV0QTW7RYG8jSZ8e+WGihNubB3yOVo38Jxd9ccUKAHc39DoZy6BJw4RYr2gsFWfYXfelOJlmk0J2WcFKjBrenZKXGGZmkVEDG1/b3Ki2i7HAySsUZovyWn847maUFSKXf2N1MHBER7QdEWSQ09BqCtQDyVDajMTVuQMs77tFSO1IzeOXRZYJmtQMTFTBRSyKQYZh1Kp4xzUzNikdN+p0QZUSOA1+Vb6HO9BQwqqPN4N8BL/2pXNiaUXeNBP8TXz45JJXRkJ5kIxW21LhJ+jot/UTodRo2RjCfLuxdnwGwLnK8i3jK6nt0NZua3KdD6yKEgM3CONO3R278I5LuV8z/KW3mhfB7OjRoPl1BDXvL1By3lJ1eGynJenhRBh7o+cX5Y3q7eJ7QeBYDEp2n8IsrhyAtg+xG7TeJFXsEUeDu+zyykrlf3+sVTQcg==
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(1800799024)(376014)(23010399003)(6133799003)(18002099003)(261009223027099003)(3023799007)(261022113327099003)(261022075727099003)(261021135927099003)(261022115727099003)(261022105027099003)(261021123027099003)(261021121427099003)(261026130827099003)(261026121527099003)(261026140227099003)(261026135527099003)(261028144727099003)(56012099006)(11063799006)(261021130227099003)(261021133027099003)(10067099003)(261102123227099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	fNnaK7eHBUqB8Oqi29ZQdOEFLkkYPaDLLf5Ho8X05OPS8jDvyrQ4PLOX3vO+H99FpRjuoODEhq7iUYiTpEqEGG4Vf5RLPXCibv8orYYLXAfpQVaa8IQmjkgutGOiT/prJOa+MxFyPOeXBmgjZ5g3EW0vjxOuXvU7LStuNP0idhXhxV5KQbCPjGT48Ct0tQWLOAFlyrGGYdjhBwLMpFyViJlCuF6n8+izUND0OvZlANmRJIjtZsmEVEh7xaHVIKiH89eObdHuMzuq5SqbD1cJQ7ufqT/t/JwGYGTircgodlUrNWMzRLcfgXK0jAZn2wT1IPGsf/buV0X9UvGUgl8euVDNBDo7tyRGsDHNorrJa0uoKvyYrIvBL53/+v3mcQ6ilibFnjssKJhF2G8O1WQMGiLAWWVsVVUHQGbVht8WpPf1p2hFWIAXkxGevPQifW/3
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 22:32:00.0542
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 311620a0-fb4d-487f-3b9c-08df44fa987f
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	CH7PEPF0000001B.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7217
 
-Am 17.11.26 um 23:17 schrieb Ilpo J=C3=A4rvinen:
-> On Tue, 17 Nov 2026, Armin Wolf wrote:
->=20
->> A user has reported that the WMI hotkey events on Dell All-In-One
->> machines need to be manually enabled on some models thru a separate
->> WMI device. This WMI device seems to be present on many other models
->> but has no effect on them.
->=20
-> Can you rephrase this to not textually depend on "user" or "user's
-> report", just state what the problem is, not how you became aware of it.
->=20
->> Add a small driver for enabling support for this WMI device. This
->> enables the HDMI Input key on the Dell OptiPlex 7400 All-in-One
->> machine.
->>
->> Reported-by: Teodora <teolyub@gmail.com>
->> Closes: https://lore.kernel.org/platform-driver-x86/0TZENT.54P2IBFQRED2=
-2@gmail.com
->> Tested-by: Teodora <teolyub@gmail.com>
->> Signed-off-by: Armin Wolf <W_Armin@gmx.de>
->> ---
->>   Documentation/wmi/devices/dell-wmi-pega.rst | 82 ++++++++++++++++++
->>   MAINTAINERS                                 |  6 ++
->>   drivers/platform/x86/dell/Kconfig           | 13 +++
->>   drivers/platform/x86/dell/Makefile          |  1 +
->>   drivers/platform/x86/dell/dell-wmi-pega.c   | 93 ++++++++++++++++++++=
+SMU command execution currently unconditionally manipulates
+SMU_INTR_REG when issuing a command. This works on platforms that
+require an interrupt trigger to start command processing, but it
+causes failures on platforms where commands are executed directly
+through the command and argument registers.
+
+Add a per-device SMU configuration flag indicating whether the
+interrupt mechanism is required. When enabled, wait for the interrupt
+register to become idle before submitting a command and trigger
+execution by writing to SMU_INTR_REG. When disabled, skip the
+interrupt handshake and rely on the command register write to start
+execution.
+
+This allows the common SMU implementation to correctly support both
+interrupt-driven and non-interrupt-driven firmware interfaces.
+
+Signed-off-by: Max Zhen <max.zhen@amd.com>
+---
+ drivers/accel/amdxdna/aie.h       |  1 +
+ drivers/accel/amdxdna/aie2_pci.c  |  1 +
+ drivers/accel/amdxdna/aie2_pci.h  |  1 +
+ drivers/accel/amdxdna/aie_smu.c   | 20 +++++++++++++++-----
+ drivers/accel/amdxdna/npu1_regs.c |  1 +
+ 5 files changed, 19 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/accel/amdxdna/aie.h b/drivers/accel/amdxdna/aie.h
+index 13af4b9b2cf2b..991e45ac7f364 100644
+--- a/drivers/accel/amdxdna/aie.h
++++ b/drivers/accel/amdxdna/aie.h
+@@ -110,6 +110,7 @@ struct aie_bar_off_pair {
+ 
+ struct smu_config {
+ 	void __iomem    *smu_regs[SMU_MAX_REGS];
++	bool		intr_enabled;
+ };
+ 
+ struct psp_config {
+diff --git a/drivers/accel/amdxdna/aie2_pci.c b/drivers/accel/amdxdna/aie2_pci.c
+index a3866e8933e61..cc53c1fc39443 100644
+--- a/drivers/accel/amdxdna/aie2_pci.c
++++ b/drivers/accel/amdxdna/aie2_pci.c
+@@ -603,6 +603,7 @@ static int aie2_init(struct amdxdna_dev *xdna)
+ 
+ 	for (i = 0; i < SMU_MAX_REGS; i++)
+ 		smu_conf.smu_regs[i] = tbl[SMU_REG_BAR(ndev, i)] + SMU_REG_OFF(ndev, i);
++	smu_conf.intr_enabled = ndev->priv->smu_intr_enabled;
+ 	ndev->aie.smu_hdl = aiem_smu_create(&xdna->ddev, &smu_conf);
+ 	if (!ndev->aie.smu_hdl) {
+ 		XDNA_ERR(xdna, "failed to create smu");
+diff --git a/drivers/accel/amdxdna/aie2_pci.h b/drivers/accel/amdxdna/aie2_pci.h
+index 13391275df318..26e3ccdaddd54 100644
+--- a/drivers/accel/amdxdna/aie2_pci.h
++++ b/drivers/accel/amdxdna/aie2_pci.h
+@@ -190,6 +190,7 @@ struct amdxdna_dev_priv {
+ 	struct aie_bar_off_pair		sram_offs[SRAM_MAX_INDEX];
+ 	struct aie_bar_off_pair		psp_regs_off[PSP_MAX_REGS];
+ 	struct aie_bar_off_pair		smu_regs_off[SMU_MAX_REGS];
++	bool				smu_intr_enabled;
+ 	const struct aie_hw_ops		*hw_ops;
+ };
+ 
+diff --git a/drivers/accel/amdxdna/aie_smu.c b/drivers/accel/amdxdna/aie_smu.c
+index 62aea550aabcf..36a5cf88aea75 100644
+--- a/drivers/accel/amdxdna/aie_smu.c
++++ b/drivers/accel/amdxdna/aie_smu.c
+@@ -26,22 +26,31 @@
+ 
+ struct smu_device {
+ 	struct drm_device	*ddev;
+-	struct smu_config	conf;
+ 	void __iomem		*smu_regs[SMU_MAX_REGS];
++	bool			intr_enabled;
+ };
+ 
+ static int aie_smu_exec(struct smu_device *smu, u32 reg_cmd, u32 reg_arg, u32 *out)
+ {
+-	u32 resp;
++	u32 resp, intr;
+ 	int ret;
+ 
++	if (smu->intr_enabled) {
++		ret = readx_poll_timeout(readl, SMU_REG(smu, SMU_INTR_REG), intr,
++					 !(intr & 0x2), AIE_INTERVAL, AIE_TIMEOUT);
++		if (ret) {
++			drm_err(smu->ddev, "wait for smu intr idle timed out, 0x%x", intr);
++			return ret;
++		}
++	}
 +
->>   5 files changed, 195 insertions(+)
->>   create mode 100644 Documentation/wmi/devices/dell-wmi-pega.rst
->>   create mode 100644 drivers/platform/x86/dell/dell-wmi-pega.c
->>
->> diff --git a/Documentation/wmi/devices/dell-wmi-pega.rst b/Documentatio=
-n/wmi/devices/dell-wmi-pega.rst
->> new file mode 100644
->> index 000000000000..935c8511594b
->> --- /dev/null
->> +++ b/Documentation/wmi/devices/dell-wmi-pega.rst
->> @@ -0,0 +1,82 @@
->> +.. SPDX-License-Identifier: GPL-2.0-or-later
->> +
->> +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
->> +Dell All-In-One Series Platform Integration (dell-wmi-pega)
->> +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
->> +
->> +Introduction
->> +------------
->> +
->> +Many Dell All-In-One devices contain a WMI device for notifying the un=
-derlying platform
->> +of various OS-specific events like power up, shutdown and backlight br=
-ightness control.
->> +
->> +Not implementing support for this WMI device might prevent hotkeys exp=
-osed over WMI from
->> +working on some models.
->> +
->> +WMI interface description
->> +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D
->> +
->> +The WMI interface description can be decoded from the embedded binary =
-MOF (bmof)
->> +data using the `bmfdec <https://github.com/pali/bmfdec>`_ utility:
->> +
->> +::
->> +
->> + [WMI, Dynamic, Provider("WmiProv"), Locale("MS\\0x409"),
->> +  Description("Class used to operate method - WMBC"),
->> +  guid("{2D703EE8-36AC-4F88-BDB5-7556CE6B2946}") : ToInstance]
->> + class AcpiOSD_WMBC_method : WMIMethod {
->> +
->> +   [key, read]
->> +   string InstanceName;
->> +
->> +   [read]
->> +   boolean Active;
->> +
->> +   [WmiMethodId(1), Implemented, read, write,
->> +    Description("Invoked by AP when system up.")]
->> +   void PegaOemNotificationStartUp([out, Description("Return Value")] =
-uint32 RetVal);
->> +
->> +   [WmiMethodId(2), Implemented, read, write,
->> +    Description("Invoked by AP when system is going to off state.")]
->> +   void PegaOemNotificationStop([out, Description("Return Value")] uin=
-t32 RetVal);
->> +
->> +   [WmiMethodId(3), Implemented, read, write,
->> +    Description("Invoked by Application to tune up brightness.")]
->> +   void PegaOemNotificationBrightnessUP([out, Description("Return Valu=
-e")] uint32 RetVal);
->> +
->> +   [WmiMethodId(4), Implemented, read, write,
->> +    Description("Invoked by Application to tune down brightness.")]
->> +   void PegaOemNotificationBrightnessDown([out, Description("Return Va=
-lue")] uint32 RetVal);
->> +
->> +   [WmiMethodId(5), Implemented, read, write, Description("Reserved.")=
-]
->> +   void PegaOemNotificationRSVD1([out, Description("Return Value")] ui=
-nt32 RetVal);
->> +
->> +   [WmiMethodId(6), Implemented, read, write, Description("Reserved.")=
-]
->> +   void PegaOemNotificationRSVD2([out, Description("Return Value")] ui=
-nt32 RetVal);
->> + };
->> +
->> +The return value of each WMI method should be equal to the WMI method =
-ID.
->> +
->> +WMI method PegaOemNotificationStartUp()
->> +---------------------------------------
->> +
->> +Notifies the platform that the OS is operational. On some models this =
-WMI method also enables
->> +reporting of hotkey events over WMI.
->> +
->> +WMI method PegaOemNotificationStop()
->> +------------------------------------
->> +
->> +Notifies the platform that the OS is shutting down.
->> +
->> +WMI method PegaOemNotificationBrightnessUP()
->> +--------------------------------------------
->> +
->> +Notifies the platform that the user wants to increase the backlight br=
-ightness. This WMI method
->> +usually only forwards this request to the acpi-video driver, so the de=
-ll-wmi-pega driver does
->> +not use it.
->=20
-> Could these paragraphs be reflowed to 80 chars as long textual lines are
-> harder to read (eye movement required).
+ 	writel(0, SMU_REG(smu, SMU_RESP_REG));
+ 	writel(reg_arg, SMU_REG(smu, SMU_ARG_REG));
+ 	writel(reg_cmd, SMU_REG(smu, SMU_CMD_REG));
+ 
+-	/* Clear and set SMU_INTR_REG to kick off */
+-	writel(0, SMU_REG(smu, SMU_INTR_REG));
+-	writel(1, SMU_REG(smu, SMU_INTR_REG));
++	/* Set SMU_INTR_REG to kick off */
++	if (smu->intr_enabled)
++		writel(1, SMU_REG(smu, SMU_INTR_REG));
+ 
+ 	ret = readx_poll_timeout(readl, SMU_REG(smu, SMU_RESP_REG), resp,
+ 				 resp, AIE_INTERVAL, AIE_TIMEOUT);
+@@ -148,6 +157,7 @@ struct smu_device *aiem_smu_create(struct drm_device *ddev, struct smu_config *c
+ 
+ 	smu->ddev = ddev;
+ 	memcpy(smu->smu_regs, conf->smu_regs, sizeof(smu->smu_regs));
++	smu->intr_enabled = conf->intr_enabled;
+ 
+ 	return smu;
+ }
+diff --git a/drivers/accel/amdxdna/npu1_regs.c b/drivers/accel/amdxdna/npu1_regs.c
+index b4a0ede636f0d..0b45375ea1108 100644
+--- a/drivers/accel/amdxdna/npu1_regs.c
++++ b/drivers/accel/amdxdna/npu1_regs.c
+@@ -124,6 +124,7 @@ static const struct amdxdna_dev_priv npu1_dev_priv = {
+ 		DEFINE_BAR_OFFSET(SMU_RESP_REG, NPU1_SMU, MPNPU_PUB_SCRATCH6),
+ 		DEFINE_BAR_OFFSET(SMU_OUT_REG,  NPU1_SMU, MPNPU_PUB_SCRATCH7),
+ 	},
++	.smu_intr_enabled = true,
+ 	.hw_ops		= &(const struct aie_hw_ops) {
+ 		.set_dpm = npu1_set_dpm,
+ 	},
+-- 
+2.34.1
 
-Sure, will do.
-
->> +WMI method PegaOemNotificationBrightnessDown()
->> +----------------------------------------------
->> +
->> +Notifies the platform that the user wants to decrease the backlight br=
-ightness. See
->> +``PegaOemNotificationBrightnessUP()`` for details.
->> diff --git a/MAINTAINERS b/MAINTAINERS
->> index bd31e734669e..fb9a80f96900 100644
->> --- a/MAINTAINERS
->> +++ b/MAINTAINERS
->> @@ -7534,6 +7534,12 @@ M:	Pali Roh=C3=A1r <pali@kernel.org>
->>   S:	Maintained
->>   F:	drivers/platform/x86/dell/dell-wmi-base.c
->>  =20
->> +DELL WMI PEGA DRIVER
->> +M:	Armin Wolf <W_Armin@gmx.de>
->> +S:	Odd Fixes
->> +F:	Documentation/wmi/devices/dell-wmi-pega.rst
->> +F:	drivers/platform/x86/dell/dell-wmi-pega.c
->> +
->>   DELL WMI SYSMAN DRIVER
->>   M:	Prasanth Ksr <prasanth.ksr@dell.com>
->>   L:	Dell.Client.Kernel@dell.com
->> diff --git a/drivers/platform/x86/dell/Kconfig b/drivers/platform/x86/d=
-ell/Kconfig
->> index 9f0016056d7e..289379383ccb 100644
->> --- a/drivers/platform/x86/dell/Kconfig
->> +++ b/drivers/platform/x86/dell/Kconfig
->> @@ -228,6 +228,7 @@ config DELL_WMI_AIO
->>   	depends on ACPI_WMI
->>   	depends on INPUT
->>   	select INPUT_SPARSEKMAP
->> +	imply DELL_WMI_PEGA
->>   	help
->>   	  Say Y here if you want to support WMI-based hotkeys on Dell
->>   	  All-In-One machines.
->> @@ -262,6 +263,18 @@ config DELL_WMI_LED
->>   	  This adds support for the Latitude 2100 and similar
->>   	  notebooks that have an external LED.
->>  =20
->> +config DELL_WMI_PEGA
->> +	tristate "Dell WMI AIO Platform Support"
->> +	default m
->> +	depends on ACPI_WMI
->> +	help
->> +	  This option adds support for WMI-based platform integration on Dell=
- All-In-One machines.
->> +	  This driver is necessary for enabling the delivery of hotkey events=
- to the dell-wmi-aio
->> +	  driver on some machines.
->> +
->> +	  To compile this drivers as a module, choose M here: the module will=
- be called
->> +	  dell-wmi-pega.
->> +
->>   config DELL_WMI_SYSMAN
->>   	tristate "Dell WMI-based Systems management driver"
->>   	default m
->> diff --git a/drivers/platform/x86/dell/Makefile b/drivers/platform/x86/=
-dell/Makefile
->> index 470874c6e6e6..46c91c240a2c 100644
->> --- a/drivers/platform/x86/dell/Makefile
->> +++ b/drivers/platform/x86/dell/Makefile
->> @@ -27,5 +27,6 @@ obj-$(CONFIG_DELL_WMI_AIO)			+=3D dell-wmi-aio.o
->>   obj-$(CONFIG_DELL_WMI_DESCRIPTOR)		+=3D dell-wmi-descriptor.o
->>   obj-$(CONFIG_DELL_WMI_DDV)			+=3D dell-wmi-ddv.o
->>   obj-$(CONFIG_DELL_WMI_LED)			+=3D dell-wmi-led.o
->> +obj-$(CONFIG_DELL_WMI_PEGA)			+=3D dell-wmi-pega.o
->>   obj-$(CONFIG_DELL_WMI_SYSMAN)			+=3D dell-wmi-sysman/
->>   obj-$(CONFIG_DELL_DW5826E_RESET)		+=3D dell-dw5826e-reset.o
->> diff --git a/drivers/platform/x86/dell/dell-wmi-pega.c b/drivers/platfo=
-rm/x86/dell/dell-wmi-pega.c
->> new file mode 100644
->> index 000000000000..ddb1b6cc6b1c
->> --- /dev/null
->> +++ b/drivers/platform/x86/dell/dell-wmi-pega.c
->> @@ -0,0 +1,93 @@
->> +// SPDX-License-Identifier: GPL-2.0-or-later
->> +/*
->> + * WMI platform integration for Dell All-In-One series.
->> + *
->> + * Copyright (C) 2026 Armin Wolf <W_Armin@gmx.de>
->> + *
->> + * Based on earlier work by Teodora <teolyub@gmail.com>.
->> + */
->> +
->> +#define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
->> +
->> +#include <linux/cleanup.h>
->> +#include <linux/device.h>
->> +#include <linux/device/driver.h>
->> +#include <linux/dev_printk.h>
->> +#include <linux/kernel.h>
->=20
-> What for is this?
->=20
-> I suspect direct device.h include isn't necessary either (and it's
-> anyway guaranteed to come through wmi.h).
-
-Good question, i copied it from one of the other WMI drivers.
-
-I will remove both includes in the next revision.
-
->=20
->> +#include <linux/module.h>
->> +#include <linux/slab.h>
->> +#include <linux/types.h>
->> +#include <linux/wmi.h>
->> +
->> +#define PEGA_GUID	"2D703EE8-36AC-4F88-BDB5-7556CE6B2946"
->> +
->> +enum dell_pega_method {
->> +	DELL_PEGA_NOTIFICATION_STARTUP		=3D 0x01,
->> +	DELL_PEGA_NOTIFICATION_STOP		=3D 0x02,
->> +	DELL_PEGA_NOTIFICATION_BRIGHTNESS_UP	=3D 0x03,
->> +	DELL_PEGA_NOTIFICATION_BRIGHTNESS_DOWN	=3D 0x04,
->> +	DELL_PEGA_NOTIFICATION_RESERVED_1	=3D 0x05,
->> +	DELL_PEGA_NOTIFICATION_RESERVED_2	=3D 0x06,
->> +};
->> +
->> +static int dell_wmi_pega_invoke(struct wmi_device *wdev, enum dell_peg=
-a_method method)
->> +{
->> +	struct wmi_buffer input =3D { };
->> +	struct wmi_buffer output;
->> +	int ret;
->> +
->> +	ret =3D wmidev_invoke_method(wdev, 0x0, method, &input, &output, size=
-of(__le32));
->> +	if (ret < 0)
->> +		return ret;
->> +
->> +	__le32 *result __free(kfree) =3D output.data;
->> +	/* The return value should always be equal to the WMI method ID */
->> +	if (le32_to_cpu(*result) !=3D method)
->=20
-> Include for le32_to_cpu()
-
-What would be the correct include for this?
-
->=20
->> +		return -EIO;
->> +
->> +	return 0;
->> +}
->> +
->> +static int dell_wmi_pega_probe(struct wmi_device *wdev, const void *co=
-ntext)
->> +{
->> +	int ret;
->> +
->> +	ret =3D dell_wmi_pega_invoke(wdev, DELL_PEGA_NOTIFICATION_STARTUP);
->> +	if (ret < 0)
->> +		dev_err(&wdev->dev,
->> +			"Failed to notify platform of startup, some hotkeys might not work\=
-n");
->=20
-> braces for multiline constructs.
->=20
->> +
->> +	return ret;
->> +}
->> +
->> +static void dell_wmi_pega_shutdown(struct wmi_device *wdev)
->> +{
->> +	int ret;
->> +
->> +	ret =3D dell_wmi_pega_invoke(wdev, DELL_PEGA_NOTIFICATION_STOP);
->> +	if (ret < 0)
->> +		dev_warn(&wdev->dev, "Failed to notify platform of shutdown\n");
->> +}
->> +
->> +static const struct wmi_device_id dell_wmi_pega_id_table[] =3D {
->> +	{ PEGA_GUID, NULL },
->> +	{ }
->> +};
->> +MODULE_DEVICE_TABLE(wmi, dell_wmi_pega_id_table);
->> +
->> +static struct wmi_driver dell_wmi_pega_driver =3D {
->> +	.driver =3D {
->> +		.name =3D "dell-wmi-pega",
->> +		.probe_type =3D PROBE_PREFER_ASYNCHRONOUS,
->> +	},
->> +	.id_table =3D dell_wmi_pega_id_table,
->> +	.probe =3D dell_wmi_pega_probe,
->> +	.remove =3D dell_wmi_pega_shutdown,
->> +	.shutdown =3D dell_wmi_pega_shutdown,
->> +	.no_singleton =3D true,
->> +};
->> +module_wmi_driver(dell_wmi_pega_driver);
->> +
->> +MODULE_AUTHOR("Armin Wolf <W_Armin@gmx.de>");
->> +MODULE_DESCRIPTION("Dell All-In-One series platform integration");
->> +MODULE_LICENSE("GPL");
->=20
-> Just the mandatory nitpicking :-), seems fine otherwise.
-
-Thanks,
-
-i will wait with sending a v2 until Teodora has tested the second patch.
-
-Thanks,
-Armin Wolf
