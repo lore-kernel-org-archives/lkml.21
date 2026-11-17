@@ -1,58 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=204.191.154.188
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794955598;
-	b=JBCmWd6Kl+mGWQ/3wEVlnF1U6xU8AK25Zeo2YgPf3mh9DM/KePcu5k6VoWxlmBrdxdHF
-	 FTio0nsDpieI6GxQHpdoDU7Q9DJfBpI6AEteteW+XXi9RgXE7j4cK46i7OGxxsFgS4gpJ
-	 BLkUoaqt6CYATMrecBUiwfQJyxIGogJitHouZYSwbkO9OxCA2vhxwJf0XJhDdOByz9uYH
-	 rR640QlR30wq19hvFPCZl3dLL4duJwByNv1uwA80V+OqqeKBahlnyyYV501QHFzPskMvO
-	 Bj0LP03SxLhXotfwkHNyi6AmsJFWADHIrHu+3zYbdqZfcMIbFWuiLolFM+Tr4bI/37Q==
+	t=1794955605;
+	b=2ooMvwUiy3SxlRkP0mKhySiYIBpNWq9E/oPI4k9kbcpYYouGWC4B44oGQtVkZ7tjGNs3
+	 ScrlP0oGflK5PdsKIfi7O+XomjFpEHATaZGXukHpJiBqv4PxRMgraw7X+X4oXIKCnnxhx
+	 XU0uWlJyFswFXJ+Kz7Oxy/dzMgDMLcVNxDudC7vyTnlFFk06Pm9SQXEiJKsl3G0AluXYT
+	 z+5u02czVy/B7q/u8/p2w7Tz2kf5PJ4CezOXchdHUdrV3YncLhst2yxa000m4Qzmt5cDM
+	 1x5/JZ5r5d6Bo4S4ArapSXGR2rBnz5o2rHKygvw+0aFAD0Zc/huYw+X6HFKRTQlChCA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794955598;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-SA-Exim-Connect-IP:
-	 X-SA-Exim-Rcpt-To:X-SA-Exim-Mail-From:X-Spam-Checker-Version:
-	 X-Spam-Level:X-Spam-Status:Subject:X-SA-Exim-Version:
-	 X-SA-Exim-Scanned;
-	bh=3bFobh93H5Y9gH9JLlZYlof8ARaWu2vaQTy0fe8lDcw=;
-	b=lntnr2qjhC7h5eujt+Ql+FXsRANwj7ogkl7kcrcM2exsQ6wYYp/2LTMzbGbY2eIgInFI
-	 zOIfpCnJsj4RxrHwAU8oZzIxSMsO3Z30BG1Jh9SqaMLutnTj20yo4bOs2b+Gp300ZX6EA
-	 xm+s5J8fXA9lFvMroE618arGi5CwgWLxff4TrckGw8NhGL7GfBRR/kbwpmGn/gkPR6Esh
-	 ii8a/us4qgZT7r95lVDtHfhb0kRttdyVn0CvI9NCPQNoYWAceVJ1npkob8IWVjF5vM0Oq
-	 eJ09hMhNsLIYTSI8XStADtXsCsQFiM7C7tVhVz81jvPVeYh8C3ZLwLRykAkNokRy/Ig==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794955605;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=O42IkrS9jeTCK/NHaai3Y1tyVx5hVS+EWpn+Yy3d8yI=;
+	b=n64q5YS0EgMdViA0tsMzQpbVoSkY+gfJ3HYLSrq4z1LT1zTIV/turwP+483TfeV5m6c6
+	 6gGa4aEsGD0MJ235Zkzk+IIh9uZZ/JSZH7sc/5oKCHCfGMscwixxj9XNoq2gtP/P4trqs
+	 pxwa783rFJcqMxp7440APl5c7dFokEuikU/3S0NTc5XdEJzuPAe5cHVsApCaANJ8J47GZ
+	 /P2Pa19GEPzS6W90P4PeGZvTrtH+rAAqhnA2mL8HJFsY+6NZEyno5gxEIbuf4XIClm/H+
+	 OKemIxeEt5J2sDO02EFElVDOK71C6e/IRg+4w00l8PX8US1lwDjaAYwV/ysMHaGbV4w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=deltatee.com;
-	spf=pass smtp.mailfrom=deltatee.com;
-	dkim=pass header.d=deltatee.com header.i=@deltatee.com header.a=rsa-sha256 header.s=20200525 header.b=YA7SgByQ;
-	arc=none smtp.remote-ip=204.191.154.188
-Received: from ale.deltatee.com (ale.deltatee.com [204.191.154.188])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iyO9GWF2;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71547606A31C;
-	Tue, 17 Nov 2026 22:46:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 71547606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=deltatee.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=deltatee.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37FC7606A32A;
+	Tue, 17 Nov 2026 22:46:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=deltatee.com header.i=@deltatee.com header.a=rsa-sha256 header.s=20200525 header.b=YA7SgByQ
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=deltatee.com; s=20200525; h=Subject:In-Reply-To:From:References:Cc:To:
-	MIME-Version:Date:Message-ID:content-disposition;
-	bh=3bFobh93H5Y9gH9JLlZYlof8ARaWu2vaQTy0fe8lDcw=; b=YA7SgByQcrhKs/jSWI3mztvIXJ
-	n6xejJ9MdEAwC+vwS2RNFmZs5dMFzOAID9kXIrfMeFqV5gprabk8OlZbesGxjm31ZAyrB1tBneSpl
-	MDJ2vgsVlbQ75UDhMoAMU+dYGBAtSUqYHp6/IvyeJZZ2gI58YO+ft4MVjJMwvuFTb5U0x3+BeJQxN
-	K3fwL1iU7geT8C1z6/0+Jw7hJNGm5HALkvYR4aYTiF2W0uW++m4nvTKVCUSGJsd+I8FYUiICp3cDm
-	fNRY8W5d+lD9loSSOkgS57VNG2BinM4tAyVT72YEdaP8jO+Q8+5yaU5z+Dxl/QrQIv8nDKr9wZ6uo
-	zrWB4EMA==;
-Received: from guinness.priv.deltatee.com ([172.16.1.162])
-	by ale.deltatee.com with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.98.2)
-	(envelope-from <logang@deltatee.com>)
-	id 1xTRwi-00000001VKY-3KAu;
-	Tue, 17 Nov 2026 16:46:37 -0600
-Message-ID: <c2df58c9-6ddb-4125-aa1f-897e90b33e9d@deltatee.com>
-Date: Tue, 17 Nov 2026 16:46:36 -0600
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iyO9GWF2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E46F41F000C4;
+	Tue, 17 Nov 2026 22:46:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794955605;
+	bh=O42IkrS9jeTCK/NHaai3Y1tyVx5hVS+EWpn+Yy3d8yI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=iyO9GWF2tAcGIGrZynM3V9LMbB3J3bzToMv8b0reAugTl73Sx4KZii0IJsV1VBfx2
+	 WGvl6RFuotOhxRMGJoU5ayKO92eMS8kwLZx140AxWWqTpy1TxTk7iygRo06VzvBHN8
+	 KgfG5jrSvA2PiQ2lsc3Hi8WtAeEc1rF1q65+j9gD3pvTbBZ3l2yVzKr4usIwcq/JDY
+	 1Q9IWj5Xy4plv83pxJOrsAZLBVGf/2uNbBCzHtYS7sCo6FbiBMr4DZC2tt/7qHdLew
+	 Unjnf5r8pOmNdxp5RiA1ljIGfHRjlqUJWM/5YFgQaHNYPv+MkAG8YQg8pzZumR8Sg/
+	 0JwSgIuselQYw==
+Date: Tue, 17 Nov 2026 14:46:43 -0800
+From: Oliver Upton <oupton@kernel.org>
+To: Colton Lewis <coltonlewis@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Leonardo Bras <leo.bras@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] KVM: arm64: Fix inverted E2H0 check for
+ HCR_EL2.NV1
+Message-ID: <avzZUyu9EhxAWtbd@kernel.org>
+References: <20261117204535.4036191-1-coltonlewis@google.com>
+ <20261117204535.4036191-2-coltonlewis@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,51 +63,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
- Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.li@nxp.com>,
- Sashiko <sashiko-bot@kernel.org>
-References: <20261117165135.746241-1-logang@deltatee.com>
- <20261117165135.746241-7-logang@deltatee.com>
- <avyrd_b0yQ4Nqk-O@lizhi-Precision-Tower-5810>
-Content-Language: en-CA
-From: Logan Gunthorpe <logang@deltatee.com>
-In-Reply-To: <avyrd_b0yQ4Nqk-O@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 172.16.1.162
-X-SA-Exim-Rcpt-To: Frank.li@oss.nxp.com, dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, vkoul@kernel.org, Frank.li@nxp.com, sashiko-bot@kernel.org
-X-SA-Exim-Mail-From: logang@deltatee.com
-X-Spam-Level: 
-Subject: Re: [PATCH v3 6/6] dmaengine: plx_dma: don't invoke client callbacks
- with ring_lock held
-X-SA-Exim-Version: 4.2.1 (built Sun, 23 Feb 2025 07:57:16 +0000)
-X-SA-Exim-Scanned: Yes (on ale.deltatee.com)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117204535.4036191-2-coltonlewis@google.com>
 
-
-
-On 2026-11-17 13:31, Frank Li wrote:
-> On Tue, Nov 17, 2026 at 10:51:35AM -0600, Logan Gunthorpe wrote:
->> @@ -166,22 +171,35 @@ static void plx_dma_process_desc(struct plx_dma_dev *plxdev)
->>
->>  		dma_cookie_complete(&desc->txd);
->>  		dma_descriptor_unmap(&desc->txd);
->> -		dmaengine_desc_get_callback_invoke(&desc->txd, &res);
->> +		dmaengine_desc_get_callback(&desc->txd, &cb);
->>  		desc->txd.callback = NULL;
->>  		desc->txd.callback_result = NULL;
->> -
->>  		plxdev->tail++;
->> +
->> +		spin_unlock_bh(&plxdev->ring_lock);
->> +		dmaengine_desc_callback_invoke(&cb, &res);
+On Tue, Nov 17, 2026 at 08:45:34PM +0000, Colton Lewis wrote:
+> ID_AA64MMFR4_EL1.E2H0 is a signed 4-bit field where:
+>   - 0b0000 (IMP, 0): FEAT_E2H0 is implemented.
+>   - 0b1111 (NI, -1): FEAT_E2H0 is not implemented, except HCR_EL2.NV1
+>     is implemented.
+>   - 0b1110 (NI_NV1, -2): Neither HCR_EL2.E2H == 0 nor HCR_EL2.NV1 is
+>     implemented, and HCR_EL2.NV1 is RES0.
 > 
-> Common method is slice to local complete queue in ring_lock. Then unlock
-> ring_lock after while loop. Then invoke cb in complete queue.
-The PLX driver has no software queue. The hardware queue is large enough
-that having a software queue would have been wasted overhead. So the
-virt-dma pattern doesn't apply here. I'd really rather avoid adding a
-whole other software queue just to fix this issue that isn't that complex.
+> Prior to commit b2a324ff01fe ("KVM: arm64: Use HCR_EL2 feature map to
+> drive fixed-value bits"), kvm_init_nv_sysregs() marked HCR_EL2.NV1 as
+> RES0 when !kvm_has_feat(kvm, ID_AA64MMFR4_EL1, E2H0, NI), i.e., when the
+> signed E2H0 field is less than NI (-1), which matches NI_NV1 (-2).
+> 
+> When converting HCR_EL2 to the feature map, feat_nv2_e2h0_ni() was
+> written as !kvm_has_feat(kvm, FEAT_E2H0), where FEAT_E2H0 checks
+> E2H0 >= IMP (0). This inverted the condition: feat_nv2_e2h0_ni()
+> evaluates to true when E2H0 < 0 (including NI_NV1), leaving HCR_EL2.NV1
+> writable instead of RES0 for VHE-only nested guests where KVM advertises
+> ID_AA64MMFR4_EL1.E2H0 = NI_NV1.
+> 
+> Check kvm_has_feat(kvm, ID_AA64MMFR4_EL1, E2H0, NI) so that HCR_EL2.NV1
+> is treated as implemented only when E2H0 is IMP or NI, and forced to
+> RES0 when E2H0 is NI_NV1. Rename the helper from feat_nv2_e2h0_ni() to
+> feat_nv2_nv1_not_res0() to clearly reflect what it tests.
+> 
+> Fixes: b2a324ff01fe ("KVM: arm64: Use HCR_EL2 feature map to drive fixed-value bits")
+> Signed-off-by: Colton Lewis <coltonlewis@google.com>
+> ---
+>  arch/arm64/kvm/config.c | 7 ++++---
+>  1 file changed, 4 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+> index adaf26ab93b85..a975ac73ed876 100644
+> --- a/arch/arm64/kvm/config.c
+> +++ b/arch/arm64/kvm/config.c
+> @@ -256,9 +256,10 @@ static bool feat_nv2(struct kvm *kvm)
+>  		kvm_has_feat(kvm, ID_AA64MMFR2_EL1, NV, NV2));
+>  }
+>  
+> -static bool feat_nv2_e2h0_ni(struct kvm *kvm)
+> +static bool feat_nv2_nv1_not_res0(struct kvm *kvm)
+>  {
+> -	return feat_nv2(kvm) && !kvm_has_feat(kvm, FEAT_E2H0);
+> +	return feat_nv2(kvm) &&
+> +	       kvm_has_feat(kvm, ID_AA64MMFR4_EL1, E2H0, NI);
+>  }
 
-Logan
+This could benefit from a comment, because testing for NI as a feature
+is very misleading. Also, I don't why this needs to spill onto another
+line.
+
+	/*
+	 * The E2H0 field is a 'negative' feature field, where a value
+	 * of -1 implies FEAT_E2H0 is not implemented but does not
+	 * restrict the use of HCR_EL2.NV1.
+	 */
+	return feat_nv2(kvm) && kvm_has_feat(kvm, ID_AA64MMFR4_EL1, E2H0, NI);
+
+Thanks,
+Oliver
