@@ -1,109 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794943955;
-	b=OD/fS6g/CAqjMzKZey+M17FMzZQCQ7eZqRVByLvi1K8v354Jwt09hTJsGAYZbJwjqz48
-	 A+Bc6xKFLdTszzFUEXROGjXaEpvpbyCJqm5VmRW/rnE65rAKKh1qHmuxvu5Dh9fap24M5
-	 gWOVGmpaPU7fnXyB6ffU84zkDegSwNEsy/BhJGYGx7KiRv2LOCBczggW81wObk/sYAPMj
-	 9tWMkmhf2fE+7+aFijfK5uoScAtehvyIUPHUYVtAZHGZr6nWUd+IV51telxuRrjQp9ddG
-	 VO/NAL+v0pnqodr+7uGrShSuSgVHnTjx8oHAQTiusYIeO9b63xPQVmqOBFEftm9H6uw==
+	t=1794943956;
+	b=LJqw3zztOskVJ8kQ4G2Y/lI8IgH22S9mjc+ZQ87/KbUScv+kjLVybtk0h/++ngAxMZE3
+	 O917J3El5ktncGArphc7Ie2juQe2XO5FNYWXlL2QlK+XPMc0KZu5Vfap1/b8BHFgY3MG4
+	 lOIpTTaHIr5DHmUnNbzDcjB+NkOnJa+Tc7i0Ta6FdF2265PXHJSMDlXpSocaaxmdisujv
+	 5+zbdAlcfAn8efcFMgZzQ/tWKZh/J94X0Uy7cf6mtEb17Ib8quRhn3Kqm3gy+zvKfczdW
+	 z9nnKKkQyc3U+UGgOeIyT7RDFHzvJjAPhI3MMAieH9bdUyX2Ooh5VkiHPttr228b7YQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794943955;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794943956;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=QRb7JywDaOBMPCH2tWj2QCwMr3VPEjBdd/ccyMn80sc=;
-	b=BHFW1opdMDTMrW5bP/1tIOQ64Y2BR7AglmNx3ZD+lJRczqAH+7vkKxnuJT6JGJu1IE++
-	 4JkNIb7xlW/ruc+884ZcdNoE024ulR70SCqcBgjfqhwHcsMAEZrBy0Yxh9sbA7Pobw7xy
-	 OPDukKhMco/T2XwoJNlxshKVueBSy2q1Coz/Lq6casIcaCLedaCdfY+lR7g+TBRasehyp
-	 ATNqgk1p/X7ouJlJVFViMM+I9LEmurpwey53hZkWgVTNjBSsMrbR2iyuFuuF+z/wDfXtG
-	 CDghAwzHmSw13LiiDv2MqEaofMGPfE5u2ZqI2fy/ESfBTcvwuHV619tVRYCapV26jgg==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-B4-Tracking:X-Change-Id:X-Developer-Key:X-Developer-Signature:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=CWEIybWOyPQ+4rZV05KjYSAVt6nHfWxtoLBA9Fvcf20=;
+	b=1HRZ1YzXRk8f4x9l6nlbvjz8221A8Miv+ADpnAmb6OHizjg2wtHBodloRGGz1wtd6qhZ
+	 2d+1q2jXLJ6N4xo8KfR3jI8fvmSjk4JrECKleHO51sINR+xG4QYVTIXVKsvN/AKyNbSrn
+	 9imJOwaxqeU22CXhczxXpEGM9W0HySpzDzwmr6V0P5FvhxMfhoBPIsXkXBV4ee6eCdj60
+	 fkNKAOSEPXKbfPcPlCECj776/B0q7y1X+yFAhMiKaoT9uDK624dVk+NKIohz1gS7Aq9J8
+	 C3Uk2k26hk+ITsYAikmpZnL+6gU4yqYME0Lp11Ehl4QilmH6vDNnVJEIvvLMMiQY7HA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=E0k8dyV9;
-	arc=none smtp.remote-ip=74.125.82.52
-Received: from mail-dl1-f52.google.com (mail-dl1-f52.google.com [74.125.82.52])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=LOap06DJ;
+	arc=none smtp.remote-ip=209.85.221.70
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com [209.85.221.70])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF1BF606A89E
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:32:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF1BF606A89E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3B6860A260D
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:32:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3B6860A260D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=E0k8dyV9
-Received: by mail-dl1-f52.google.com with SMTP id a92af1059eb24-1b50a4bd2f3so324417c88.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:32:34 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=LOap06DJ
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-4925ef75fc4so83246f8f.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:32:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794943954; x=1795548754; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=QRb7JywDaOBMPCH2tWj2QCwMr3VPEjBdd/ccyMn80sc=;
-        b=E0k8dyV9EW/OAdU3DOJRo8EKjc1kVidZQjzanX0ozQRgWHftHd4k+vjxEvxt7/TMdy
-         CcLD3BH3WgOkSJuFjpTOYPBw+C20B6lsIHc6z1yKY3MHhzYH06+RYI8TwW/awHs/5xr+
-         iXppTGmsEAxny8An4TWQxV3X9AekLZ4YnPCpEz0nnPAKphadqSUgbCPDqRCtNWM9v4P2
-         xdCm0P41xBF8VEyMJJeVa6z6UB0EEv2yW3d+9XTgHN2UROgjIquvRylffsFAavjm5Fms
-         EiGe749qMzCdl46DS26XR0ODm79og8HIBtP3qQz6YUBcAmvEU+6Iiw528tW5z+idCCS2
-         YH0w==
+        d=google.com; s=20260707; t=1794943954; x=1795548754; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=CWEIybWOyPQ+4rZV05KjYSAVt6nHfWxtoLBA9Fvcf20=;
+        b=LOap06DJg3ibAXIcvqMVQw8Ao0Y1NyxeIoRmnhaJfVJI6ryAuAMd2ifvJ8m2EVEWvP
+         +TuEJIjfydWoMmZ+30PzqA8jUo1Z2Jy+KoMAQrbAydEUcw0LSPSOxxVBGI2RiU6hj8lU
+         gIQQuxyWRraBAcmSqYkb02T0NBNo+FrPNHlgeureOLNgSW4sFGyJE9h25tKZEOc1N2OU
+         e6I0s/mT84+0q8ZGpDmuYMHDs2ucatwx5iE9++bmaE5CYb/1Gqc2gsnIB8C2jrEIxTTc
+         rm04QkNUb9Ri8XHQLQfRpjTclpQEl55t1YGtJc+t+1ZzdKVie2vH1MVXfciPpnGmbSom
+         wMzw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1794943954; x=1795548754;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=QRb7JywDaOBMPCH2tWj2QCwMr3VPEjBdd/ccyMn80sc=;
-        b=YKCFEPYaX8QTuQO0HKSDzyzdZV+2n7ecDL1K38xx5J59DlSXufZBmHPisZTwdZmJHK
-         o0HbIlkfkvFY4pjNgO32VYLfrzcc2oqP9yr7bR+ScP/1M4gaUKN7bAaJDZj7gIF955c3
-         5cUTf6xAIE/g9Ks9oIQXNPzFC3oAPbQVrQthcwWx5ISsY5X0ZO9N/KGt/GiIfHJl2toc
-         P5vxhmdedBTSTJ90WqNWG0tuOAsU382Hh8RXVO1AHYciWozEwFLnrIoS4oLu0x82dvwD
-         BgsKPk/mb7TJug3N8kDrTyOanYdYiQaKmLeB283y9AE6iu2zU3ofYARXSf2Q5yYzkpa7
-         /QGg==
-X-Forwarded-Encrypted: i=1; AL+hErH93XLp84yC2nesRcfo0wxUuxjwV31jhwgcFshcPrkIluhd8gvU+AeRmHarG8kZYKKVxrXiRD/S1fPTPh0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8sxTzo1zxRYYOH0qo/Syq3jyujAspK5/Fa3l6i4ljX6eI8kwBS
-	B7PnQMjPvs/r1VtPAV1sDKZSWVj+/IK18VRO+Xs69qH9Qay6LEDQFTb5
-X-Gm-Gg: AYBFou3Hqwigfj419s5KrMfexMzB1Rk774pdGkfJ4UjqjpmqsJN2GsJLuTI6cepsdvb
-	T5d1IkXV4/OgARMaAAPsUtuZTTohPastReORUFHczDbdy1M13c8BjR+ioF6fE63H9B2bsaprtwB
-	yvROFntR/axNbiVAOIC4cyCG8X+cn/ynoaYwEkYXws3SWG+ONG+MslucwNdG/Dn6tdjfL9y1g4q
-	lnrsAjChm8u5WjbsZGfLnQ4Dd5rcn+st9y4W6P6VozuPAl2FxSBLS6yPIk4ByMLH52i2KMNH2bT
-	UghrPEa6e1Xuo71sTCjCwHDIQLSwwVqzOaw3lv3NhNNAa9HBFnQpvwDiAOB+ciXVaZRCOBRb3Ph
-	cCWAUAku84uEut9ZiVlPmV0YECfeARvXjQK5i2kW9vKvCxvMSirff+ebR5Tg7zBVYETqJrB08i2
-	+8hDc0Kx+0LCKsFN1oTfJbvee1OYYXJVThAejPtqZV0E6WwV881ol3jXpNalJETHAefhjnulp+v
-	7OV02Ve36k8m5X/gWDFH9cBbiiEs81WQGlOTq9TQjsqPjCFXMDgZPTvBi9aizYkxaBHP2MkQ3To
-	o/jU0U1C
-X-Received: by 2002:a05:701b:418c:20b0:1b2:6a01:f55e with SMTP id a92af1059eb24-1b543d2cc00mr528114c88.34.1794943954025;
-        Tue, 17 Nov 2026 11:32:34 -0800 (PST)
-Received: from eldorado ([2600:8802:b00:1f88::287])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a63059e3sm173376eec.5.2026.11.17.11.32.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 11:32:33 -0800 (PST)
-From: Florian Fainelli <f.fainelli@gmail.com>
-To: netdev@vger.kernel.org
-Cc: Florian Fainelli <f.fainelli@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Jijie Shao <shaojijie@huawei.com>,
-	Simon Horman <horms@kernel.org>,
-	Runyu Xiao <runyu.xiao@seu.edu.cn>,
-	David Yang <mmyangfl@gmail.com>,
-	Herbert Valerio Riedel <hvr@gnu.org>,
-	Danny Kukawka <danny.kukawka@bisect.de>,
-	Mugunthan V N <mugunthanvnm@ti.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	linux-kernel@vger.kernel.org (open list),
-	Manuel Lauss <manuel.lauss@gmail.com>
-Subject: [PATCH net v3 04/10] net: au1000: report MDIO transaction timeouts
-Date: Tue, 17 Nov 2026 11:32:17 -0800
-Message-ID: <20261117193223.2795612-5-f.fainelli@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261117193223.2795612-1-f.fainelli@gmail.com>
-References: <20261117193223.2795612-1-f.fainelli@gmail.com>
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=CWEIybWOyPQ+4rZV05KjYSAVt6nHfWxtoLBA9Fvcf20=;
+        b=ReAt21UsRrfHWs3pFyAPUX1NWa/n9kU916rp4JlWYCqjZaF8DxhfSNGtYnVCL2Zaf0
+         nhtGJBvxxMo5wnnKVNqm3Go8rLlV1qxi+8oSxqS0FvHKQTIQ4a3BK0XF3TDcgeoFMKbn
+         /SjfdIS8Q3k080ulLELGFGxamJqBKphrwmTeLXgBhrSsFMROPmr/I/kDO4VGVXDLiT6n
+         EPR5iHzmC6rZTRLehn9s+kbhJdGTrV90A5iNTpwP3aw6jJL85F9axdVC2xs9fLGRj3pY
+         QHFDqnhpbjzJH8SR8QnBanCFFqPfNhwiweyA7zrHX6dlcnq59iVEbVri7kmgH9gCo4aI
+         rSgw==
+X-Forwarded-Encrypted: i=1; AL+hErFp2nqmCuQml6mxjO5Aa1G0/+FYiS9OinLz+CaXW1LH2aFrcM/M3c4AloTK6XmHY6SCEWGJce5KWUHm5Ds=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+FDA7RAKUdB6bBMewIbCLapJMw012wfMOgudhBrFx1GdXZ86ah
+	/0bnbzIs2dOST3m2j2Z2xd33/BqyqVnVubOZWNBDD9IQQYVdOhn7BJWHkMwLNwZ2fQ+yTKK6aKu
+	5Kywyb/QCwRX5iPNfaw==
+X-Received: from wrno8.prod.google.com ([2002:adf:eac8:0:b0:4a3:4620:1d69])
+ (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:adf:e193:0:b0:48e:4300:c6d8 with SMTP id ffacd0b85a97d-4a63de52730mr1008245f8f.35.1794943953550;
+ Tue, 17 Nov 2026 11:32:33 -0800 (PST)
+Date: Tue, 17 Nov 2026 19:32:17 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,101 +76,79 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAMKr/GoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzNDQ0Mz3ZLKIt2i1NzEAl2j3CRd80RT4yQLE3PT5LRkJaCegqLUtMwKsHn RsbW1AOkuzV5fAAAA
+X-Change-Id: 20261116-tyr-remap-2mb-7a53b8475cfc
+X-Developer-Key: i=aliceryhl@google.com; a=openpgp; fpr=49F6C1FAA74960F43A5B86A1EE7A392FDE96209F
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1679; i=aliceryhl@google.com;
+ h=from:subject:message-id; bh=vSb8dcnD2eG8K9E1baNk0JXzV820WUHmszz9zfbL9p4=;
+ b=owEBbQKS/ZANAwAKAQRYvu5YxjlGAcsmYgBq/KvIxRmUX8ES1X5aoMSyIxD/DGyKY46COBIZk
+ l3WJbGYM6KJAjMEAAEKAB0WIQSDkqKUTWQHCvFIvbIEWL7uWMY5RgUCavyryAAKCRAEWL7uWMY5
+ RlBYD/9LZxWa1EOICrXfCQo6+2FEaGCBTsGLsBCGNZt1aDkE705pnOcpv89yKcb61oL5jKTgTnW
+ xpQGfS8/AHinHSIETT2reeDB4YrpfzKFFlHy+s5uCvqaMrDkS0xGr3eeSsaIDFJWASvdkEippTS
+ 96axYSKcL7IFwFLAmgcG6sX6tc0b5GG6YfPj75KMsMDqJ3kzAy4GDySRre+ze+MkIPI5rPoSdlC
+ bDZ1yQZ+MrXVRxE2tuP33TmNT2izHdDsTxsdkPvzk7AGQ+oihOvv6lzCMkGxAhW+iBy91sIchkX
+ /ewCL9ObYoq8wv3Fo0015JzMRoffi43yZVGOgl2jWFo/tAfMB0Q9JHTVRlIC6z2Mqwx6cGSbLJq
+ 2y2G/r950f+7EEb0Sk8FQDfRZbzval9lsEozVfD+HmJhsjPsowLG2Ts6hYCYggj1F6apuPx05oK
+ bGAWMT2i3wIdIs47VBY+0nGf7hM4dTIQ8gTLYTtEEv3Uqup3mp+APnE3UgC20V73mFjgF+a+bd0
+ ct/HDow4DEd8WlnxgPELic8aqxm7FxfePM7Mmc0Z9EsXXPs5ntYG4v696CXy794wL5Ab7FxxOSq
+ vghzvQB8amoJ5I6nF85Ee23Zss/K18MPB4vI9M4+qLYN2grL4wfzZKk3nCZkI9DsMoWR6CGB/8j /nHigx3AoV+EAnA==
+X-Mailer: b4 0.14.3
+Message-ID: <20261117-tyr-remap-2mb-v1-0-2a8efd4c8180@google.com>
+Subject: [PATCH 0/4] drm/tyr: fix partial 2MB block unmaps on GPUVM remap
+From: Alice Ryhl <aliceryhl@google.com>
+To: Daniel Almeida <daniel.almeida@collabora.com>, 
+	Deborah Brouwer <deborah.brouwer@collabora.com>, Sami Tolvanen <samitolvanen@google.com>
+Cc: Danilo Krummrich <dakr@kernel.org>, Matthew Brost <matthew.brost@intel.com>, 
+	"=?utf-8?q?Thomas_Hellstr=C3=B6m?=" <thomas.hellstrom@linux.intel.com>, Miguel Ojeda <ojeda@kernel.org>, 
+	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+	"=?utf-8?q?Bj=C3=B6rn_Roy_Baron?=" <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>, 
+	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
+	"=?utf-8?q?Onur_=C3=96zkan?=" <work@onurozkan.dev>, "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Boris Brezillon <boris.brezillon@collabora.com>, 
+	dri-devel@lists.freedesktop.org, rust-for-linux@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
+	Alice Ryhl <aliceryhl@google.com>
+Content-Type: text/plain; charset="utf-8"
 
-The MDIO write callback reports success even if the controller stays
-busy and no write is issued. Propagate timeout errors and wait for write
-completion so failure of the final transaction is reported to phylib as
-well. Return ETIMEDOUT for read timeouts too.
+Tyr configures its ARM64 LPAE page tables with 4KB and 2MB block sizes,
+but arm-lpae rejects unmapping part of a 2MB block. As a result, a
+partial unmap or overlapping remap that splits a 2MB block in
+GpuVmData::sm_step_remap() fails in __arm_lpae_unmap().
 
-Use readl_poll_timeout() for write completion with a 20 microsecond sleep
-interval and a 20 millisecond timeout. The MDIO callback runs in sleepable
-context, so avoid adding millisecond busy-waits for completion.
+This series ports the remap fix and supporting accessors from tyr-dev
+onto drm-rust-next, along with a defensive bounds check in pt_unmap():
 
-Fixes: 0638dec01e89 ("[PATCH] net: au1000_eth: PHY framework conversion")
-Signed-off-by: Florian Fainelli <f.fainelli@gmail.com>
+1. Add the GpuVa::data_ref() accessor.
+2. Add the IoPageTable::iova_to_phys() accessor.
+3. Expand sub-block unmaps in sm_step_remap() to 2MB boundaries when
+   the swept head/tail fragment is physically contiguous, widen the AS
+   lock over the expanded range, rebuild the surviving fragments, and
+   take the preallocated GPUVAs before mutating page tables.
+4. Check the remaining-length subtraction in pt_unmap() against
+   underflow.
+
+Signed-off-by: Alice Ryhl <aliceryhl@google.com>
 ---
- drivers/net/ethernet/amd/au1000_eth.c | 22 +++++++++++++++-------
- 1 file changed, 15 insertions(+), 7 deletions(-)
+Sami Tolvanen (4):
+      rust: drm/gpuvm: add GpuVa::data_ref accessor
+      rust: iommu: pgtable: add iova_to_phys
+      drm/tyr: vm: expand sub-block unmaps to 2MB boundaries on remap
+      drm/tyr: vm: check the remaining length in pt_unmap()
 
-diff --git a/drivers/net/ethernet/amd/au1000_eth.c b/drivers/net/ethernet/amd/au1000_eth.c
-index 7063f9e5bc7c..1935b1d4b173 100644
---- a/drivers/net/ethernet/amd/au1000_eth.c
-+++ b/drivers/net/ethernet/amd/au1000_eth.c
-@@ -41,6 +41,7 @@
- #include <linux/platform_device.h>
- #include <linux/cpu.h>
- #include <linux/io.h>
-+#include <linux/iopoll.h>
- 
- #include <asm/mipsregs.h>
- #include <asm/irq.h>
-@@ -278,7 +279,7 @@ static int au1000_mdio_read(struct net_device *dev, int phy_addr, int reg)
- 		mdelay(1);
- 		if (--timedout == 0) {
- 			netdev_err(dev, "read_MII busy timeout!!\n");
--			return -1;
-+			return -ETIMEDOUT;
- 		}
- 	}
- 
-@@ -292,26 +293,27 @@ static int au1000_mdio_read(struct net_device *dev, int phy_addr, int reg)
- 		mdelay(1);
- 		if (--timedout == 0) {
- 			netdev_err(dev, "mdio_read busy timeout!!\n");
--			return -1;
-+			return -ETIMEDOUT;
- 		}
- 	}
- 	return readl(mii_data_reg);
- }
- 
--static void au1000_mdio_write(struct net_device *dev, int phy_addr,
--			      int reg, u16 value)
-+static int au1000_mdio_write(struct net_device *dev, int phy_addr,
-+			     int reg, u16 value)
- {
- 	struct au1000_private *aup = netdev_priv(dev);
- 	u32 *const mii_control_reg = &aup->mac->mii_control;
- 	u32 *const mii_data_reg = &aup->mac->mii_data;
- 	u32 timedout = 20;
- 	u32 mii_control;
-+	int ret;
- 
- 	while (readl(mii_control_reg) & MAC_MII_BUSY) {
- 		mdelay(1);
- 		if (--timedout == 0) {
- 			netdev_err(dev, "mdio_write busy timeout!!\n");
--			return;
-+			return -ETIMEDOUT;
- 		}
- 	}
- 
-@@ -320,6 +322,13 @@ static void au1000_mdio_write(struct net_device *dev, int phy_addr,
- 
- 	writel(value, mii_data_reg);
- 	writel(mii_control, mii_control_reg);
-+
-+	ret = readl_poll_timeout(mii_control_reg, mii_control,
-+				 !(mii_control & MAC_MII_BUSY), 20, 20000);
-+	if (ret)
-+		netdev_err(dev, "mdio_write completion timeout\n");
-+
-+	return ret;
- }
- 
- static int au1000_mdiobus_read(struct mii_bus *bus, int phy_addr, int regnum)
-@@ -344,8 +353,7 @@ static int au1000_mdiobus_write(struct mii_bus *bus, int phy_addr, int regnum,
- 	 */
- 	au1000_enable_mac(dev, 0);
- 
--	au1000_mdio_write(dev, phy_addr, regnum, value);
--	return 0;
-+	return au1000_mdio_write(dev, phy_addr, regnum, value);
- }
- 
- static int au1000_mdiobus_reset(struct mii_bus *bus)
+ drivers/gpu/drm/tyr/mmu.rs               |  13 +++
+ drivers/gpu/drm/tyr/mmu/address_space.rs |  29 ++++++
+ drivers/gpu/drm/tyr/vm.rs                | 152 ++++++++++++++++++++++++++++---
+ rust/kernel/drm/gpuvm/va.rs              |   6 ++
+ rust/kernel/iommu/pgtable.rs             |  23 +++++
+ 5 files changed, 209 insertions(+), 14 deletions(-)
+---
+base-commit: 8045d0e7d208ad389a387f1407ce0db9070805af
+change-id: 20261116-tyr-remap-2mb-7a53b8475cfc
+
+Best regards,
 -- 
-2.53.0
+Alice Ryhl <aliceryhl@google.com>
 
