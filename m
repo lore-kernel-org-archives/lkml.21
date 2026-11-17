@@ -1,55 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.247
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794937776;
-	b=xTrTrNcx7ee/bRzSYxkpXsw9x1jp67yWzQBUG2HLJzOcNESd2iJH0DZ6Jh44hiG15jsT
-	 NEr0qErTcieyHZ4zf41E2O6iD+gA9GqmUV9P3beIpnMFGyslXhyW6MMtnX6KJJDJS+VEI
-	 VRTfyhMF5MKHFAxdkwoLqNuERleWSRozrz+C791eU4L/Ua69n1hCY1M7XFeYfSjQ2d4eW
-	 j/cVOMAPM2G53s7nhGH8bU2TFT0nc0QjwiDWIEBN7gy9NTJ7VsjtKGW5g/EQkLi9Rm+cL
-	 GTbmpcUu1wU9NfIwjjuTBuhThQKkHHbQuyMCIpRLeeTaceFaE4AGLbGfdmTHNb6wEgg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794937776;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Content-Type:Content-Transfer-Encoding:
-	 From:Mime-Version:Subject:Date:Message-Id:References:Cc:In-Reply-To:
-	 To:X-Mailer;
-	bh=USqC8s22nHYoDzDQF9uFHHFGZ31h3DAy1gNTvMcr9dU=;
-	b=CGaxBHpi51x4JAgkTSXeZIKaC099e2L9IZY7eWpjT26ZKdod+7owWoePoA20GjGiX8NO
-	 wKJt16tXcZnj98hy28xBqpCI+rzqQ0qhTkzRVj1KkclkfqfK/0urbZ3vBqo66JQNV6/ZB
-	 AshRdHV2cyodtMUGTNrtNNQyaFIGHiP5RA+KTY+Imbfwt9cQh8qagkXY5M1PjhYNU7wPg
-	 9FmPua5EBvUh4DoKNcXWQ2TqgeVKfCyttyvadh//hfnZ6SfKCPcYOYQ722vpCRhWcbgpK
-	 FWK9RfqBrNFIoORYCVNcXz6V0imaOXSZDJGffU3YdTiagZsnbblunhh4h9rGidbUyNw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=YfIRHYZI;
-	arc=none smtp.remote-ip=95.215.58.247
-Received: from mta1.migadu.com (out-247.mta1.migadu.com [95.215.58.247])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.171
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794937825;
+	b=4IdCWArLoNtBgIKJOIU2CLJs4SvGO6R27PVi5V1IE3doT7cv4bvBOzf6P6eMmRrPjBDP
+	 xFym30sIcXFwWK4QKJ29iQAHRgL0McHw5umqeSMLej0f2gqURA6kCc77LZi6np9DaJFJT
+	 2u6OVRJ6MGie/YG/Se7bRmpAzP4WDnHMirgWE4gPh1mciXL8LwkEvv/jbeb/2U+tM4miB
+	 YWwUGadH841HMeBS0/sXm2/s3icRC/HdGcpEFF6hH6XzC2N9ftGjknxuSzKr+kY4LmvCD
+	 32vHX1QCh+amqFlS4Gdo7Z12QkZZDarlfkkWW0MYWibf5nDDKzAQYgI9BO9IGoS+xfQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794937825;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=0z/Im30AFHM2eAi9Tnr3FY66+g/q3NA8hwNcbiYP2mc=;
+	b=tfS+EUXA4Kz1uSKCwXT7gcPIliT6AMdCA00BEklpGOPuCFeJ755za/oGt+qF7M9JDQem
+	 u6HKBjxXOpvmcp6vsIQw7Ln2miCM7+9cz91Lr9QGh1ENfk1NUmJSFPe37/SSF4oPDhcb2
+	 Qzpmh69AmCgNmTm9H1xlRt5F1L3X4xKn42auc5KWcV9iGll5gQzVGsUZgb4E/fxnU+j2P
+	 IaSxYmOUa6egdgTbhPwaJrNA4QMa6PGm8RKTanDQ6yuuH7aJhljaClOHV9ZzQtupQPyS+
+	 ZiDBAAVmrUmZZqeYMJic5SytcI5815YXCaUM6+1SwV9vkkpCLyA3UMzIhI9g6CJFegg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XyvFBtYw;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.171
+Received: from mail-yw1-f171.google.com (mail-yw1-f171.google.com [209.85.128.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81C54606A32F
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:49:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81C54606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6A96606A31C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:50:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6A96606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=YfIRHYZI
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=4nUZbHSGDeC5EzVQv/op9L9Mno790WzQ1pC5Hx0vt5Q=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1794937773; v=1; x=1795542573;
- b=YfIRHYZI1UkGKEdWhq1EsKsV9sJ5TYB/Zor6pnppHWXMR+Tfw/P0oJtiSJ90IDue4AnhNKo3
- PTSTnowS2ll+bQhIUgVIX0Z0CEMV8bc+3svVjImk9HUApeCyBM10uA5XI/AVJ3L2ZgtHwzuMnPV
- uukKNDjFQs7JjM74a0TimTCc=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta12.migadu.com with ESMTPS id 4b46ce5bd6d34d3e;
-	Tue, 17 Nov 2026 17:49:33 +0000
-X-Mizu-Trace-ID: 4b46ce5bd6d34d3e
-X-Migadu-Flow: FLOW_OUT
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-From: Aditya Garg <aditya.garg@linux.dev>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XyvFBtYw
+Received: by mail-yw1-f171.google.com with SMTP id 00721157ae682-8b4cc793704so24769067b3.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 09:50:24 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794937824; cv=none;
+        d=google.com; s=arc-20260327;
+        b=sNrsNIbeojWN1tChqt9CQk1FHD3UfzLik2qsD0SOCoLzEejOYbl7G84idseH4xvGUF
+         OqpzCZDkWjdeZfsZsumhmI1Xa0upfGCHHS3VVCflxsczVBj02lqNINl+Vs05+PxxLWw/
+         +9a9jIt/sEdJpIlma+fTSWXnbyUSNYz5Pbpjmss7fmcKnAIAg0s3/N+UutV30DSBiV0+
+         L701+dw033UOL8jb4hTbb4PrcYLkqq3cOFNsWPnd3dtzVX6EUJTpOj47AA346l/rBFdf
+         wMn4/MPGzjOInkgVX3X6SxkJavwODPY3mdh0cqdGoYA0t5RAvJPXg5LFz/B5AF1VBH5G
+         eElA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=0z/Im30AFHM2eAi9Tnr3FY66+g/q3NA8hwNcbiYP2mc=;
+        fh=EWMZXYEyD96hVJJrZTUDk0yrpb0AUCI+yxHlRIlr0cg=;
+        b=It6DzL8Xs6KjR+XhjIpQL9b2fRx9/BV8SZbwKWGfQKVhADoUVTHg/ImkaR/lRwV+F2
+         nPfQdluoXIl7Rqb790a0pZFcqPcnZX+/HOwzSJFPjPUv6x1b4bFHc3fayRiRe9UoaMQf
+         XqQHhcDUeezcCbSMYMRAJzbeSQuy5PIP5jpA6EMpZJvrnXJiSxh+GXDwBWHabtKHGRpI
+         9agEhamLgDVHQRMnVLtROVtnuBqEyhGHIU2jASUMUYBKFGF4XIuHSiDMwL5hLCxUbU0o
+         p67ZbQmskE/KPIEPPB4rCVsOt1+I+u+UPxhYOXBQi4Mf9ZKxD8K3hFI7Z1bjhj0/4o+P
+         6iWg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794937824; x=1795542624; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=0z/Im30AFHM2eAi9Tnr3FY66+g/q3NA8hwNcbiYP2mc=;
+        b=XyvFBtYwfwl70PFylqvsEnpy5PTrdD+sPB6f1H6T2mnCXjT4L6Zy654U/PNxg3T0Jb
+         2aIfIjtp/nfS3DrA7hDB6I4Kw02Iu4EzLhiT/JkWHq8T6XrLaJPOtUN9hIWFsRgOlr5n
+         WlOQKBYBl8JYttiMmvYRpTj3NwYv2Oh23gPD5W0iAKV9hdSlofdGuFVJIDQ6cM88Mxqc
+         oWfytNvze7QJkyoJ7mSwoli5wu8xKlBm0YbSD2kM2n8kiGzOIZXNtdqCwNFRv/5aqQTU
+         bseO0k3gWygiYwZt0KWKosh/tqXj401ZlJnAjPCUQUdVg6zRiiQMNqnK8tmoHEfiswTd
+         9Usw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794937824; x=1795542624;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=0z/Im30AFHM2eAi9Tnr3FY66+g/q3NA8hwNcbiYP2mc=;
+        b=NA4pm7MruRIM0+T+HT6iC4bKx86YW6EVZdV7VN7ziyXT1VIK1QtVLrkFJpFxVeQ6nT
+         2bSDE/HdqCMGs7QHCImBysw/Xwslyyb7Zbz+V5VD5veXjqURodBeY/JygJneM4S9SvL2
+         muz4n4s1dp4S2Rar32ZF56Lp3CvGhEUmmCXOwJenyCide4tt1+yvVGnFz/kJ1HSX/J32
+         Sw/cU62fghjq9UWpXtGpqY1hkpYQBKqD4rlqawciafEapJuPpIsvkjqDOCsFwTtFWmXY
+         f8IbNvR2pVIPBCsujAqstaDzZI0GO3FmmNJGPC2yUxiMqQ+bDaFpNB19oKm9zK1/F2Qt
+         BjhA==
+X-Forwarded-Encrypted: i=1; AL+hErFIC9rhxyW2Cmx/LR5NQB74zkYhkgIstIiexTL+8kVIMh04VQs45YU14elaSL4ejoOz6W6CmG2CisZUl5o=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/FHezeElIMgeSUPK2JJz5mqTNhgvv4FF09Ryg9O+Od+KwU7UmM
+	h/MHUwp1P8de/HgWC58tL5MUkZ0pJiccs1T9/Vl/+AKY9jANa/f/0O14rLXAIJAFZLikHLH36x6
+	NKatCMbQG8/EWyNJ18tHC3I8ttCywzag=
+X-Gm-Gg: AZFdTZcjUBjvIei42rbbi0gOw0bHhg9oGl2bodrjXE6NhuoWb4sqpeD119dBaOaZdmm
+	bhO95AZMpAKHsnNwfxQEpWTBOm14+gIdTTMCZbt9zWHFEDrqq1jNtTB0n4JwQgR0iya/uAOLJhI
+	p7oe10U09NVvxGQWZO7Pzv86C4Vj+Plo8qO1rH/wVRFZ1Q4oIHlhBoZAlPminHk4KcrDHJgM/rC
+	TIkXW3i7WwDgQZlZmbn7RK6sFmCOw0cvPVj14OERIZDD5TrWnY2MCJmTqMZyFZn79SQNKS7G/sE
+	y60/9zRt0kupGgWFCirEDfGNUQlVV/K/lUw8a7YMH+1EFXcrOQuurdqcPODEpoeHMPyRsC4H0hz
+	VA6tDvj7goEpnLc0EFSGhzrOGQyHVVzOlTSe1Inv0w0hZSQ22IQKzpC4WJADooKNj0vAxdHw=
+X-Received: by 2002:a05:690e:4196:b0:67d:ae02:4603 with SMTP id
+ 956f58d0204a3-67dd3fc2a51mr113492d50.90.1794937823656; Tue, 17 Nov 2026
+ 09:50:23 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,101 +102,52 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0 (1.0)
-Subject: Re: [PATCH] wifi: brcmfmac: leave the AP 4-way handshake to the host on Apple chips
-Date: Tue, 17 Nov 2026 23:19:18 +0530
-Message-Id: <BF5FB50E-063E-4EAA-A06D-ADC3670DEAE9@linux.dev>
-References: <20261116203719.281605-3-arend.vanspriel@broadcom.com>
-Cc: Andre Eikmeyer <dev@deq.rocks>, arend.vanspriel@broadcom.com,
- linux-wireless@vger.kernel.org, brcm80211@lists.linux.dev,
- brcm80211-dev-list.pdl@broadcom.com, linux-kernel@vger.kernel.org,
- Yossef Osman <Yossef.Osman@proton.me>
-In-Reply-To: <20261116203719.281605-3-arend.vanspriel@broadcom.com>
-To: Arend van Spriel <arend.vanspriel@broadcom.com>
-X-Mailer: iPad Mail (24B119)
+MIME-Version: 1.0
+References: <20261116175151.20150-1-volodymyrchapman@gmail.com>
+ <20261116175151.20150-3-volodymyrchapman@gmail.com> <avwk93N8D7AYGzDX@ashevche-desk.local>
+In-Reply-To: <avwk93N8D7AYGzDX@ashevche-desk.local>
+From: Volodymyr Chapman <volodymyrchapman@gmail.com>
+Date: Tue, 17 Nov 2026 17:50:12 +0000
+X-Gm-Features: Aa3M54rRQ1-bLYzTuwIPPkNUo0RYfScU4jd-nC1VUspHbX57A9OiM6Umcza7INE
+Message-ID: <CAN1s30pEE5vN7Yuz9Y5_+4M6-TeTNTmHA_hYLR9KLnXj05RWfQ@mail.gmail.com>
+Subject: Re: [PATCH 2/3] media: ipu-bridge: Add Sony IMX175 (INTCF1A)
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Sakari Ailus <sakari.ailus@linux.intel.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Dan Scally <dan.scally@ideasonboard.com>, 
+	Hans de Goede <hansg@kernel.org>, Andy Shevchenko <andy@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-media@vger.kernel.org, 
+	linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
+Hi Andy,
 
+Thanks for the review.
 
-> On 17 Nov 2026, at 2:07=E2=80=AFAM, Arend van Spriel <arend.vanspriel@broa=
-dcom.com> wrote:
->=20
-> =EF=BB=BFOn Wed, 4 Nov 2026 16:16:29 +0100, Andre Eikmeyer <dev@deq.rocks>=
- wrote:
->> The Apple firmware for the BCM4364 and BCM4377 lists "idauth" in its
->> capabilities, so brcmfmac enables BRCMF_FEAT_FWAUTH and advertises
->> NL80211_EXT_FEATURE_4WAY_HANDSHAKE_AP_PSK. hostapd and wpa_supplicant
->> then pass the PSK to the driver and leave the AP side of the 4-way
->> handshake to the firmware. On the BCM4364 that handshake never
->> completes.
->>=20
->> [...]
->>=20
->> Clear BRCMF_FEAT_FWAUTH on the chips in Apple's T2 Macs, so the host
->> runs the handshake.
->=20
-> [...]
->=20
->> ---
->> .../wireless/broadcom/brcm80211/brcmfmac/feature.c | 14 ++++++++++++++
->> 1 file changed, 14 insertions(+)
->=20
->> @@ -318,6 +318,20 @@ void brcmf_feat_attach(struct brcmf_pub *drvr)
->>                    BIT(BRCMF_FEAT_WOWL_GTK);
->>        }
->>    }
->> +    /* The Apple firmware for these chips lists "idauth", but in AP mode=
+> Enough to mention this in the cover letter message.
 
->> +     * its authenticator never completes the 4-way handshake and the
->> +     * station is dropped after about 8 s. Leave the handshake to the ho=
-st.
->> +     */
->> +    switch (drvr->bus_if->chip) {
->> +    case BRCM_CC_4355_CHIP_ID:
->> +    case BRCM_CC_4364_CHIP_ID:
->> +    case BRCM_CC_4377_CHIP_ID:
->> +        ifp->drvr->feat_flags &=3D ~BIT(BRCMF_FEAT_FWAUTH);
->> +        break;
->> +    default:
->> +        break;
->> +    }
->> +
->>    /* MBSS does not work for all chips */
->>    switch (drvr->bus_if->chip) {
->=20
-> The commit message and the test report only cover BCM4364 and BCM4377,
-> but the code also clears FWAUTH for BCM4355. Where does that come from?
-> Was it tested, and is BCM4355 found in T2 Macs? If not, please drop it
-> or justify it.
+> This paragraph needs to be once in a cover letter, no need to have it in the
+> individual commit messages.
 
-4355 is also a Mac specific chip found in MacBookAir8,1 and 8,2. I'm actuall=
-y surprised you forgot about that especially when there was a whole issue wh=
-en Cypress named their chip firmware wrongly as 4355.
+OK, in V2 the testing details and the AI assistance note will be in the
+cover letter only.
 
->=20
-> The chip ID check has the same problem as in the ARP/ND offload patch [1]:=
+> Since the ACPI HID here is broken (it's actually a PNP ID), can you also
+> provide (as a comment) the excerpt from DSDT to show that device description?
 
-> the issue is described as specific to the Apple firmware, but the quirk
-> applies to every BCM4355, BCM4364 and BCM4377, and those users would lose
-> offloaded AP PSK. Please restrict it as suggested there.
->=20
-> Note that BRCMF_FEAT_FWAUTH is required for NL80211_EXT_FEATURE_SAE_OFFLOA=
-D_AP
-> in brcmf_setup_wiphy(). Please mention in the commit message whether
-> that is affected on these chips (i.e. whether the firmware offers "sae"
-> at all) or confirm it is intentionally dropped too.
->=20
-> Have you looked at the actual root cause (e.g. missing/incorrect
-> "idauth" related iovars such as setting the PMK or wsec_info for AP on
-> this firmware)? If the offload is never usable on these firmwares, say
-> so in the commit message with reference to the firmware version(s)
-> checked.
->=20
-> [...]
->=20
-> Minor: please add the target tree to the subject (wifibot series_format
-> warning).
->=20
-> [1] https://lore.kernel.org/all/20261104151620.70671-1-dev@deq.rocks/
->=20
-> Regards,
-> Arend
+Of course. From the ThinkPad 10 (20C3, BIOS GWET50WW 1.50) DSDT:
+
+Device (CAM1)
+{
+Name (_ADR, Zero)
+Name (_HID, "INTCF1A")
+Name (_CID, "INTCF1A")
+Name (_SUB, "221B17AA")
+Name (_DDN, "Sony IMX175")
+Name (_UID, One)
+...
+
+I will add that as a comment above the INTCF1A entry. Should the same
+comment go to the INTCF1A entry in atomisp_csi2_bridge.c (patch 3/3)?
+
+Thanks,
+Volodymyr
