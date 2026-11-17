@@ -1,102 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.52
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.23
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794951121;
-	b=2JRb7LkHzDOM+aXCUtxl8Vv3orwvT10DWg96v3UHuQ5690dFq3nIaME/bOWgaV3L+RjU
-	 voWG/FqTCzWMwWaJbUPtXXhsYvzzS+CHImCPdbnGzIJLldJ+SNc8NNyFJL8vW3TaqsY9U
-	 fHXXeqjvMSnEd+e/vNfbguUMq1RpauRLSpSQQGDxNDQoyAAep7PDQwsluGa4SG0bc6M1j
-	 EO20qOivfYFGgfwxca9MLXbMs+quU/ZBl2cDSPMAmr9U4rGL5NXBB/bCviZRyqjK+EGnb
-	 mejL98acD9U6CDkuqCEHhe4tehDmNZM28Fb5VfrTpsRILcSXGGrl9tsVksWJzfzVDeA==
+	t=1794951153;
+	b=5EDhvlawAqsI0MusxfQDKUHi0I1nzWEJ94yDGkt4FJ/i0H2TJO3l29G4jF/x2BYfMNkq
+	 gK40uMAFKJPRgH8+KjV9IjljO9JtXcQHuMh0inB7FlJOWPvv7q48bN4WT3hmiekiRwbGx
+	 oLPp1CKBJF5KO2ZMD2gjrjhdwx4Fm250/7AQBx6Ow9MRdFDGKEuAcsuob7wpOR58k0/UJ
+	 UkxQVxtJqB0sSVrfDD+cj3zg9H3JHGkqhdZPK5D9TG5Sta2+fkjYpqfkoMO8kWid8T3Oq
+	 U2cIZf6sVrJIDv8qR3MVzuddZRvlQDIm6NjXKx7H9sHfgXt6qbBJaGuDMBSH0+89Wnw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794951121;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=B7xLf94htoLObSBPI81qpSW6fILxkkeL+R1ouXhRrTk=;
-	b=zKSFPnGkuaFWkKm/cJQqvYKK2iac10eJuH5c02vH1a7BLjAms89ULQrGSjPLHoHbzWfC
-	 rXZ5zwygDUcDfmVv6ukOAxLQo1AiJht5rLq0MbMEmhVP917/r3ecMmGhYavlcWbejOrGK
-	 PfmmJ1GBJF3J74gpYVFhEiCiz4WAT6rv7DkNnmLRLuvxmK8+Gqy5mxZgSSuslUMQKzNfM
-	 Jp+r202nqfTfQXGfsJJqSMYjU/8UN4RAm9t/KAu1gwxUVrMjJLM9iVFopzQTKN1//ThOH
-	 0RSshOtjXWbaaF+Hi0eWfCzELxrSrWGXZeNg/lCKw0gVjqJ8jq5zdtYMCTt+4kzYpzQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794951153;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:
+	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=Qw4j55Mfr2ziGuRrQ6H0SjibobW31rKl/HtHdw0fmMM=;
+	b=Hu69nui8Ti5scT7jYXGrEKv/fe9qoYhvBLow57EI60n6HXkXZJP/x1ASmQbRoOEnI17/
+	 NzYVdP/N4CLMbtoMz64EjDbjI/IXkubVMLuZLvcqnyMpzHqbdsI6Dz8XuTmMxk9ap3XO/
+	 A9wHumXG695dwwdRqRakgT55nyMA6/st0PDbVkwDPoDQ6cVSOxR+7pab1m0kn8EZNV/5t
+	 zD4iwRjFYA7y7Jak6aqXy3aQ6BUMGho1Iy00v+DRFM87dh1EBoh+W/2XCGh8BuhLRn+Nv
+	 I30141+F1JMmk11B+3TJ8f+dU8S1hA4HZgnIc1To6SQr6zxOeJsGWrvEsp45G9kSQgg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="eiudZg/I";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.52
-Received: from mail-ej1-f52.google.com (mail-ej1-f52.google.com [209.85.218.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=nxp.com;
+	spf=pass smtp.mailfrom=nxp.com;
+	dkim=pass header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=U0qdgMNA;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.23
+Received: from AM0PR83CU005.outbound.protection.outlook.com (mail-westeuropeazon11010023.outbound.protection.outlook.com [52.101.69.23])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55FED606A330
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:32:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55FED606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20C7F606A32A;
+	Tue, 17 Nov 2026 21:32:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 20C7F606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=eiudZg/I
-Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-c40f29667e6so30016566b.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 13:32:01 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794951120; cv=none;
-        d=google.com; s=arc-20260327;
-        b=rr4zYVosreYt2QrvwI2DZr9uT3EGHJMH8SUNLgoFSdd6XF0I6MF6jyNB4EEWruqAii
-         5AqsudMvTqgFkNlahKmaN/v3N/yMC9tZChT830LNvLU8QiECArXm+tMBFJ3EuZbQwMO2
-         /pEfT78hMAhSKavy/Qp0dorwvERKA6qK6xzNIcvsioW5NTxNgQiMqd4JlX0kDf3Hy82N
-         O1WyaS/CBmc4ZHZ0GVYuUuOINqo3hNhE3cR23zV7Jaxd+w6XDG2pwM63xhsOV5VRQh+S
-         CIRaIBJdYAYGRMZNOfPycnmQFt0E+RkSoAH3dADldWbXOutzzAYUigbRj6rOupBnZmZw
-         HoQw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=B7xLf94htoLObSBPI81qpSW6fILxkkeL+R1ouXhRrTk=;
-        fh=jvYmh9+MtwiUPg854IwNxZ+fRBiQeOs8xWFUWVFl5ZQ=;
-        b=efeurDKOHjE30CauxKQxoBfuVRIsNuzp78C8/k7er7Qgms7aBbIU4fhyvWQQJ4USk2
-         s4wmKAcz+fs6NksSPaGXj0ZYhtSDxsMAre4z6yJ+TeZXJRJBVatZwjC5++MwoR3Eu7HP
-         cuLIo16lhZpgDB0xSafHZ+4gBIEsYH1Zpx7yfui177oODMn+0CPretPMbl/nBNS2zmin
-         iNNd+P6HmNj7Kn0LCJ8wtFUUeYaz647/dHQ0ywmAvpIriPSpcx225Ow7cp7pt/qhr2Ys
-         Acc1EmFFt/vmHSoEuV2tjeFn5HB0rAsN5uSNeS4H+uFStVwk1WF+FM7Ik+tims0nyTvN
-         U1zw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794951120; x=1795555920; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=B7xLf94htoLObSBPI81qpSW6fILxkkeL+R1ouXhRrTk=;
-        b=eiudZg/I6LmnHOR9/TL994jv5j1td1odizQeKMZle1ZMiazbnZgAUzl3EpU2y9Mlok
-         IZbJPbXG/1xKLWormHjDTBxmvWnAM2Osm/AiaUjpjy2q15ZU4InYW3hPAGKK3SZI+zT9
-         M9QCKjIkdIvDOgO9KRq9quiKKQUpoo9SFdoNi+FvS5mSOiaMfrRmBJ/Q2iGbEMPXg3lb
-         giebI5SqEL2gHjpLQHD37scpdxJggyH6O0SIRIsyCH5VwP81Wf9jsXI7IPIIU29pU9rB
-         RsVrUtBxQNkcrUT9DTxDHpVa6+TMOVSOpHHVP0SjsVPIBJDs2X4moKsUHUZbOjJULk0+
-         hy7Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794951120; x=1795555920;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=B7xLf94htoLObSBPI81qpSW6fILxkkeL+R1ouXhRrTk=;
-        b=DjVBlnfXLwrtuNG5IvyDpkuma+Vqj0vqBbRJm3c7jjSQCUOua2HYrkeVKkRMS9bUhi
-         5eahKwbxlzxXIs9A22NO//+6yiqviV34OG/nSb4pZUQNQ16rX9X+ZMpcu3CcSNeiqLvC
-         ANrvev1yJZ50XPA764kJb4dEcAIiaN5AdYaMJMy6HozkuXZD3rpYOPdo0n+nm+Ec8Wu+
-         5fGTyBQsoqyV/+Y9ob1vRGJndbJOvDRf3c5I+Jd1VLNrKfUqUEB7TwxCYNMMdUb+K5hw
-         9V2WmgCFB633PIdrTvxDukQpio/cehZDdKz6X6Ty7hevl8Jpb7wJYWpBhKUlX9UgqOJd
-         nJBA==
-X-Forwarded-Encrypted: i=1; AL+hErEl6PHS7v7u0dcB5Y0M0qG86G0BhrvNA/p5INzZfSJ+CpexaYaNybaXqms0ZsqHFZsKITH7GIYTAa6NSh4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+UMgr+zVbgvL1Lfzd5vRjPrN91mjy1jCPiFdDM0EGaHvi6U2sE
-	21Ggiq9uKyWsDxyuAIKwweuLJPik1tOujtwTRISuoPdf5zrfp8Fh0v8m3O/qiAEakk8cXl2ffxP
-	bKg84u7ifSr9wyJnLDFcmN/+fYxCdgWKL5v8dP3aW
-X-Gm-Gg: AYBFou0i0/f6xA+FdiNA1WX0RhASZcgZBKau38hDB5fUI6H++Ui7CyHPkEs4ovtvjys
-	OF2JKC4EqlZLlLN/1G4z7L8acOMaBB3CDYRKTjdu5JPH+/Vu+9edXRaSeSXIBPE4eXe+LOoC9ja
-	56RR6f4KchtTyzNNxAGLLWyk9DXZMCoG9dSGcWlpOx3w+xNS/elL7zrYvYlvUbN/rCtBNjpYh/R
-	ZjnJo3XYjZCblMkcNKdJAvC63P9mXCguf/InQGHa5Y3A1gx9T26ReZJfDj5oAGTlxgXe0SjaS0r
-	8XNvZVa3JzXgqtKYAa/0HWrcr1CvK3AEgp2aOnsTRtesWbC6wkEu0RQAvV4vSqAeTigDZUHLZVu
-	kyzOMcNOlkfRBCHyz+UJ9a0sBANTU+z+KUPQE+uu1WnY1xMc0SQOmiH5mhuf+OoclB+iq7kt4I7
-	DG8qz1vLrVg+pBfvaizBJPApwxurJbLciWWqZu474lpT7XMfFdkNN4olWk8ECuXKm7cD5d5Glft
-	BJASDbs
-X-Received: by 2002:a17:907:9805:b0:c40:4848:f7fa with SMTP id
- a640c23a62f3a-c510e563fc5mr38867966b.44.1794951119176; Tue, 17 Nov 2026
- 13:31:59 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=U0qdgMNA
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GQsJRcRtAC4XF2iQj1PKRWo0zheUO9odPep9LaAzh4ckP5sDhwxYWZgajulWpIPYW2VGVOJ1tFe+gEQvWfbZplJMfJkQDcMFck23bRpFeXaLD1fp5RBG15Hq3eh4Ffa8UvQef4j64cJTs1FtDkIlmPxh+noSn+OTKzJGTF1ToDt+UDIUnHvhFWMhFA8flHuF+B/wmlWhVGBdpZ7EI/ZoscefEB2b+aOmUy3CjVE+cZDdHGE6ZApRwDL+2RU7jGESsJrHy0lXuzm+HA7IDb07xKMmxg6z0DIK+lQUjLTIkS6zSuv+ygpeKO4No5/S/0uvAQz8MGYXP9IteG7q2dwuyQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Qw4j55Mfr2ziGuRrQ6H0SjibobW31rKl/HtHdw0fmMM=;
+ b=L0sk8XQIb8LW0jIxb6lUsfo5ScwPgYcNea5JIytS0PqTlKzsFS8Dn5hgrZZVAn4xARHKsKBeYhvLM76wizUCjSQg2Kc9PTM220+L7rMnZc4WEeLwiDapUSwfV7a3xsfmn17Qj7OTMmc5R1sMrs9Ui+rAmQ8Yxr7Pq9KPi9n1OyPFT1KBe0xtSVp8diBelMhMN9oX+njgNhn4JraI56UUten/ujFUBLyEGh0nEYSyno6YibeXqs5Ys8YQZAIc9W2fEWaE2Q2iPiYxHUhwyd/nqVDMrwfgr0gId0ej6VglQpijNqPOlnysYd3e/sf6oDWqOhcXHxdXPfKpJ9L4XyCi8g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Qw4j55Mfr2ziGuRrQ6H0SjibobW31rKl/HtHdw0fmMM=;
+ b=U0qdgMNAOX0+HWPChBtk1kBBoZ24V6p6dCQ5mwEi0/BQCMobWGiiYiNzmIkUl88I8IAAcNd2USMaFaz3S4wNqqEe9jPDQv3hdyqh9i4LRmntgB/qD34d7F4HhCmu9twE9POSWSlKgL4e7AqwNx0EAELRKEqpRanBMhSXrrYtphTRaDsFDJDj6lLCC0jBpdIib2Ntn2pp7DpSZkU6kC+9gT1eBdcFozco5jJ4C/B3E+VG8KKeKcytuU64W/KK16mvZ1OHhmlMdQMSR+vVQcAULWEfSkg3c8HSjhP3ClCvbmA+SI3C+1kQpKTO8Aj6ZSmaWMyFmvnsJVKXd0oMF+P6lg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM0PR04MB6900.eurprd04.prod.outlook.com (2603:10a6:208:17d::10)
+ by MA8PR04MB391102.eurprd04.prod.outlook.com (2603:10a6:250:7c::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 17 Nov
+ 2026 21:32:30 +0000
+Received: from AM0PR04MB6900.eurprd04.prod.outlook.com
+ ([fe80::7fda:8431:ca1b:b023]) by AM0PR04MB6900.eurprd04.prod.outlook.com
+ ([fe80::7fda:8431:ca1b:b023%4]) with mapi id 15.21.0615.013; Tue, 17 Nov 2026
+ 21:32:30 +0000
+Date: Tue, 17 Nov 2026 23:32:26 +0200
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: vjardin@free.fr
+Cc: Dong Aisheng <aisheng.dong@nxp.com>, 
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, NXP S32 Linux Team <s32@nxp.com>, 
+	Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, Ioana Ciornei <ioana.ciornei@nxp.com>
+Subject: Re: [PATCH v7 6/6] arm64: dts: lx2160a: drop the I2C bus recovery of
+ i2c6 and i2c7
+Message-ID: <avzGrorxOg2GmYOl@lxl00025.wbi.nxp.com>
+References: <20261117-for-upstream-lx2160a-rcw-pinmux-v1-v7-0-5d7201970629@free.fr>
+ <20261117-for-upstream-lx2160a-rcw-pinmux-v1-v7-6-5d7201970629@free.fr>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117-for-upstream-lx2160a-rcw-pinmux-v1-v7-6-5d7201970629@free.fr>
+X-ClientProxiedBy: AM0P190CA0018.EURP190.PROD.OUTLOOK.COM
+ (2603:10a6:208:190::28) To AM0PR04MB6900.eurprd04.prod.outlook.com
+ (2603:10a6:208:17d::10)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,148 +104,157 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <6afbad4d.f3cfa7c9.844a4.0002.GAE@google.com> <6afc757f.6a9a30c8.1f5211.0003.GAE@google.com>
-In-Reply-To: <6afc757f.6a9a30c8.1f5211.0003.GAE@google.com>
-From: James Houghton <jthoughton@google.com>
-Date: Tue, 17 Nov 2026 13:31:22 -0800
-X-Gm-Features: AclHuK-mQfOt6xf_AE9IEd0i5-njzqVyPoo6411iIz3N-PqchfLdoPzuHJk7sjE
-Message-ID: <CADrL8HU_L2kph5c1xUw4oH-Z==raYBSRbni1ATtQ5JwMG4_JUA@mail.gmail.com>
-Subject: Re: [syzbot] [kvm?] WARNING in kvm_dirty_ring_push (2)
-To: syzbot <syzbot+55eaa971f4924b62c9a5@syzkaller.appspotmail.com>
-Cc: kvm@vger.kernel.org, lei.cao@stratus.com, linux-kernel@vger.kernel.org, 
-	pbonzini@redhat.com, peterx@redhat.com, seanjc@google.com, 
-	syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM0PR04MB6900:EE_|MA8PR04MB391102:EE_
+X-MS-Office365-Filtering-Correlation-Id: 24d89bfc-e154-411f-8b25-08df44f2487d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|10070799003|19092799006|366016|376014|1800799024|7416014|18002099003|6133799003|22082099003|261009223027099003|11063799006|4143699003|5023799004|56012099006|261028144727099003|261022075727099003|261022105027099003|261026121527099003|261021123027099003|261026140227099003|261021121427099003|261102123227099003|10067099003|15866825006|41080700001;
+X-Microsoft-Antispam-Message-Info:
+	4gNZwoXrCZbV1oQ0VpcQihgjG0ATpnGQrjNJMbtz4shulGMH9UrprJ9sJeOEmEhfrUchh0i8E6N5Nxulx0AdrmsTC1+dieohE1pRiARyy9h8P0J4qNV6WgOWKM8e34z5uQUOXbQTOkNl/NPDv0xl3aw0MIxaMJfaiaWoVAXIEtmHWmVB3EE/u8750FZy/b8y4VVHtMNZeoaQSqcjKgAWTlWDTcKyzcT5cPMH5bqfa4gHNGtZDNjdjFe0zrBfMfuq9gtop1enDWOryQmtE3p2WHaZ4VifMNGNeiPnDCDM7APblEZLjoxUB4TnaikcgYPD1c8MoPZWLuVTHi4mcP4zQnH4Ikq2Q9u7KZr9UP4Pi2zgdfQ/lgWPbPfBLVUimWCjeljp39e5cJQihspLeCyILGYWJngcbs8VScga3A1ZU3G3R+Lq1vnRD34LjEvvVNL89i253/NnWiF5BYhDFfDKBGg8OTgmyRKZAYEuGdcLWXEyRCRKQe5OZufWd7jpQs9KLVmHV6A1lmIzvbo0WeDmFFIxVTJ/ursjYdYViyZjrnn6Odi6PGdxoUHAE4vTaKW+Qa+51hkRa9lVuCSlO8VJUCXh9NlBGbDRBzI2u8nSyUUiEXVmnuYkNRWaTQ1qgErQ6ImLVqf1UIqz2EhmIE8O6elhKDgYVAi+kx4Ar9HYKeJ7+JzqsTKpg6X6oP7aV9H7cd+DNpyM4cbcKpFI8G5F9Q==
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6900.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(10070799003)(19092799006)(366016)(376014)(1800799024)(7416014)(18002099003)(6133799003)(22082099003)(261009223027099003)(11063799006)(4143699003)(5023799004)(56012099006)(261028144727099003)(261022075727099003)(261022105027099003)(261026121527099003)(261021123027099003)(261026140227099003)(261021121427099003)(261102123227099003)(10067099003)(15866825006)(41080700001);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?GXKT4gIyKYUl011sh9g5vW2o5lFKc+G45KBOB3lTrCi7lqLOc4MmcL6fxdXW?=
+ =?us-ascii?Q?UTT8pXl5yNIMa7BcyhzYVoPDaQ56pnTAU3SlqYsuvVbgRveMktd7Mq5C4/VG?=
+ =?us-ascii?Q?JfOoy9HGJjP2I132CHLyWy3aGPakxQvQ355+aTf47CH1mGPKOSOub1Ol0xTo?=
+ =?us-ascii?Q?QiwjjORuCWJmJXG1a5KJ07Ir5Msa5/NN/Tk5pzi8oRny792tUyOasPCxwZu3?=
+ =?us-ascii?Q?iIL0Ylim9ChEjp0b27zHSoPpXs/Nt+b9FKYkt54Q7t8wBhr8hoQ3pdX2rIK7?=
+ =?us-ascii?Q?6IHemwNEdGfMKVkMgdVa/D/Ft46wRktpalT5TCwhhtZIoPSBnA3FezXpGVLN?=
+ =?us-ascii?Q?LaLzd8tWWSNCh9m+cVMJjPx9GCAYcfULPlvZrLrkmSH8QvIZiNWZNP3v6cbZ?=
+ =?us-ascii?Q?rjEh2XeP0fzP6XTieDsW+hazRdN6hBusXmxzOHSK9lCFd5ZJOC4NtWpd8dAS?=
+ =?us-ascii?Q?fkCtu0c4jujWOgHNAsKA/zJhVLEeUjQ1K8P+DHDxlEJSrQ3eQpqr9/Bq6dz5?=
+ =?us-ascii?Q?djJjlGv2JzGvVW8Y+QU1JfFr7jW38EBUj/Oxq/egoaVTQBM7Fg8UoOwGUI1n?=
+ =?us-ascii?Q?eR0tuALRwCD07icwbZpJQouIbhxultXeK1lYOyPUNggYuMB7O4tDkyPN/Qhh?=
+ =?us-ascii?Q?Uw6baGmhaHgdwNI4TlfsZCzL9HT+3PENZK84o/O3CDZU5pZJxGkkAV7EpJFJ?=
+ =?us-ascii?Q?aL+8Df9uwZ2B0RSUKdAjcOn8yW6hD51wja48vXkJ10VN8pH86bhW9g5OCKLf?=
+ =?us-ascii?Q?YXTSZIx/r+3kx5HAXRx9aryHGJtOTqSlF3k9Cih6hjyU1gNvEq1UgicWIgMi?=
+ =?us-ascii?Q?2bpLQzPLC/wBo/ip995fMKxfA02JRRkefkgrhia2eDaEc/B23LMRJKyz+wvc?=
+ =?us-ascii?Q?ehi6Usal7kSYXa4J+F/o38fm5YzSAMsSI4AO3pQSP4bC84z4dZwU4QUlbJ73?=
+ =?us-ascii?Q?w1i6rKnIx58lM7CW0/Dcggo/Qa627rkqB0fvTQtHBawHh59jRRtSlwjn3RDc?=
+ =?us-ascii?Q?8idTLGBbrhoZgugpHflpSIU89nZFpdfi/ucdfRzfNI74O6a7xUgdIdgASalT?=
+ =?us-ascii?Q?W9KaoQGdGvUZMR572J7dfCtWlBP8CP7X+5YaJxQYim9IWu32u6tL4YStNq0T?=
+ =?us-ascii?Q?Q2yYXIj3IzKdK1Tkk/Ml/AkpBibKzCZMp+gyC2BZxn7V9VojOYtUzU6J5f4Y?=
+ =?us-ascii?Q?y5wjCHAPvQjYgTf3PFnWYQUTmVoxSh2qiawRpCvmxH7u4efvbltufWDmPe11?=
+ =?us-ascii?Q?qMlfJVB9ov7aOjJLw6eFNUQt8S8o5DDn0wV0nr7FMbuYxNAUR62O78tFP8N6?=
+ =?us-ascii?Q?JmA871fXZEORH1uTbClT9epd8sJLxTEY41AxxsjnsVlT06fDw3SZBl2FiJLd?=
+ =?us-ascii?Q?DkaiwGObDBLKUTrtZLniirCNz224+saTYAKN1/PFkyCbYIca/T+69V++LU3s?=
+ =?us-ascii?Q?+dKVDf3m09uZf7qsmXNlq2pvA29HOUyhUpZLhRb9/a4pU5939tSC12jFbXx6?=
+ =?us-ascii?Q?T1MzCHdnSOHsRc5G8xDwt5+5HOkqJCVReTYnCHmDv+b2isMgFbtKccOpXzSg?=
+ =?us-ascii?Q?QNHemxk8JMaYyMFnJuvMdts3KmUiTg7NHOdOO+ytndI1AlotHOtxc1UNtNha?=
+ =?us-ascii?Q?oCf0PPGE7j+I5dLf6AvAoRz08g4eS3//qBuS286D1yTXJpBhuELOYrZy/Gon?=
+ =?us-ascii?Q?sliKsL0MLl+Jk1Q7s3HTiHkfd/VbntZhVTMuWzjxoAH9dIjJMQyapC8Lbxwe?=
+ =?us-ascii?Q?Z7Fjs8dBJxEEzZ1yo7AWpOU/V9xJWOOyW3Qczp+G+Z5bVfxeo6cnX+hlgG60?=
+X-MS-Exchange-AntiSpam-MessageData-1: Hf5UScD8p58VQw==
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 24d89bfc-e154-411f-8b25-08df44f2487d
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6900.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 21:32:30.0285
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: K9aKnepHK6R3gqK4kMTwXPALxWM2PPABFhZ3+4C301AwM5qQ2IsOeLa15biGpzgc8sGqt6CDOqldmpeBnuVlzw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA8PR04MB391102
 
-On Tue, Nov 17, 2026 at 7:40=E2=80=AFAM syzbot
-<syzbot+55eaa971f4924b62c9a5@syzkaller.appspotmail.com> wrote:
->
-> syzbot has found a reproducer for the following issue on:
->
-> HEAD commit:    749a4de37040 Add linux-next specific files for 20261116
-> git tree:       linux-next
-> console output: https://syzkaller.appspot.com/x/log.txt?x=3D1341e5c358000=
-0
-> kernel config:  https://syzkaller.appspot.com/x/.config?x=3Dfedda7175e1c0=
-b47
-> dashboard link: https://syzkaller.appspot.com/bug?extid=3D55eaa971f4924b6=
-2c9a5
-> compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.=
-8
-> syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=3D139fd73d580=
-000
-> C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=3D10c1e5c358000=
-0
->
-> Downloadable assets:
-> disk image: https://storage.googleapis.com/syzbot-assets/9bd53057353b/dis=
-k-749a4de3.raw.xz
-> vmlinux: https://storage.googleapis.com/syzbot-assets/a0d84c6a978c/vmlinu=
-x-749a4de3.xz
-> kernel image: https://storage.googleapis.com/syzbot-assets/7e9b601ca025/b=
-zImage-749a4de3.xz
->
-> The issue was bisected by AI to:
->
-> commit fb04a1eddb1a65b6588a021bdc132270d5ae48bb
-> Author: Peter Xu <peterx@redhat.com>
-> Date:   Thu Oct 1 01:22:22 2020 +0000
->
->     KVM: X86: Implement ring-based dirty memory tracking
->
-> AI reasoning:   https://syzkaller.appspot.com/ai_job?id=3D8ec79404-c0f6-4=
-141-a152-96124787ad82
->
-> AI-generated root cause summary:
-> The KVM dirty ring implementation maps the per-vCPU dirty ring buffer
-> (ring->dirty_gfns) writable into userspace. In kvm_dirty_ring_reset(), KV=
-M
-> iterates over entries marked with KVM_DIRTY_GFN_F_RESET and increments
-> ring->reset_index without verifying that reset_index has not advanced pas=
-t
-> ring->dirty_index. When userspace sets KVM_DIRTY_GFN_F_RESET on un-dirtie=
-d
-> entries, reset_index surpasses dirty_index, causing kvm_dirty_ring_used()
-> (dirty_index - reset_index) to underflow to a large 32-bit unsigned integ=
-er
-> (~UINT_MAX). On subsequent guest memory writes, kvm_dirty_ring_push() che=
-cks
-> kvm_dirty_ring_full(), observes that the used entry count exceeds ring->s=
-ize,
-> and triggers the WARN_ON_ONCE(kvm_dirty_ring_full(ring)) assertion.
->
-> full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=3D55eaa97=
-1f4924b62c9a5
->
-> IMPORTANT: if you fix the issue, please add the following tag to the comm=
-it:
-> Reported-by: syzbot+55eaa971f4924b62c9a5@syzkaller.appspotmail.com
->
-> The cause commit was identified by AI and may be wrong.
-> If you agree with it, please also add:
-> Fixes: fb04a1eddb1a ("KVM: X86: Implement ring-based dirty memory trackin=
-g")
->
-> ------------[ cut here ]------------
-> kvm_dirty_ring_full(ring)
-> WARNING: arch/x86/kvm/../../../virt/kvm/dirty_ring.c:225 at kvm_dirty_rin=
-g_push+0x2b2/0x5e0 virt/kvm/dirty_ring.c:225, CPU#0: syz.0.2477/13660
-> Modules linked in:
-> CPU: 0 UID: 0 PID: 13660 Comm: syz.0.2477 Not tainted syzkaller #0 PREEMP=
-T(full)
-> Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS G=
-oogle 11/06/2026
-> RIP: 0010:kvm_dirty_ring_push+0x2b2/0x5e0 virt/kvm/dirty_ring.c:225
-> Code: 38 be 08 00 00 00 e8 8d 10 08 01 f0 80 4b 38 08 48 83 c4 18 5b 41 5=
-c 41 5d 41 5e 41 5f 5d c3 cc cc cc cc cc e8 cf 84 88 00 90 <0f> 0b 90 e9 f8=
- fd ff ff e8 c1 84 88 00 90 0f 0b 90 e9 00 ff ff ff
-> RSP: 0018:ffffc900065872e0 EFLAGS: 00010293
-> RAX: ffffffff81412d31 RBX: ffff888059575100 RCX: ffff88802a9b0000
-> RDX: 0000000000000000 RSI: 0000000000000400 RDI: 00000000fffffffe
-> RBP: 1ffff1100b2aedc9 R08: ffff8880369ec9d7 R09: 1ffff11006d3d93a
-> R10: dffffc0000000000 R11: ffffed1006d3d93b R12: ffff888059576e50
-> R13: 1ffff1100b2aedca R14: 0000000000000400 R15: 00000000fffffffe
-> FS:  00007f585c1b76c0(0000) GS:ffff888123134000(0000) knlGS:0000000000000=
-000
-> CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-> CR2: 0000000000000000 CR3: 000000007a420000 CR4: 00000000003526f0
-> Call Trace:
->  <TASK>
->  make_spte+0x71a/0xc80 arch/x86/kvm/mmu/spte.c:296
->  tdp_mmu_map_handle_target_level arch/x86/kvm/mmu/tdp_mmu.c:1144 [inline]
->  kvm_tdp_mmu_map+0x140e/0x1f40 arch/x86/kvm/mmu/tdp_mmu.c:1300
->  kvm_tdp_mmu_page_fault arch/x86/kvm/mmu/mmu.c:5029 [inline]
->  kvm_tdp_page_fault+0x2f7/0x3a0 arch/x86/kvm/mmu/mmu.c:5042
->  kvm_mmu_do_page_fault+0x31d/0x640 arch/x86/kvm/mmu/mmu.c:5089
->  kvm_mmu_page_fault+0x1f8/0xc00 arch/x86/kvm/mmu/mmu.c:6698
->  vt_handle_exit+0x28/0x160 arch/x86/kvm/vmx/main.c:974
->  vcpu_enter_guest arch/x86/kvm/x86.c:8540 [inline]
->  vcpu_run+0x4da1/0x7890 arch/x86/kvm/x86.c:8695
->  kvm_arch_vcpu_ioctl_run+0xe83/0x18b0 arch/x86/kvm/x86.c:9035
->  kvm_vcpu_ioctl+0xa61/0xfd0 virt/kvm/kvm_main.c:4595
->  vfs_ioctl fs/ioctl.c:52 [inline]
->  __do_sys_ioctl fs/ioctl.c:604 [inline]
->  __se_sys_ioctl+0xfc/0x170 fs/ioctl.c:590
->  do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
->  do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
->  entry_SYSCALL_64_after_hwframe+0x77/0x7f
-> RIP: 0033:0x00007f585b3a94d9
-> Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 48 89 f8 48 89 f=
-7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff=
- ff 73 01 c3 48 c7 c1 e8 ff ff ff f7 d8 64 89 01 48
-> RSP: 002b:00007f585c1b7028 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
-> RAX: ffffffffffffffda RBX: 00007f585b626090 RCX: 00007f585b3a94d9
-> RDX: 0000000000000000 RSI: 000000000000ae80 RDI: 0000000000000005
-> RBP: 00007f585b438136 R08: 0000000000000000 R09: 0000000000000000
-> R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
-> R13: 00007f585b626128 R14: 00007f585b626090 R15: 00007ffe50d85978
->  </TASK>
+On Tue, Nov 17, 2026 at 03:53:16PM +0100, Vincent Jardin via B4 Relay wrote:
+> From: Vincent Jardin <vjardin@free.fr>
+> 
+> IIC7 and IIC8, the i2c6 and i2c7 nodes, exist only on the SDHC2_DAT[7:4]
+> pads, and one RCW field, SDHC2_DAT74_PMUX, muxes all four of them:
+>  - 0b010 gives both buses
+>  - 0b001 gives GPIO2[18:15]
+> 
+> The bus recovery of one controller therefore switches the pads of the
+> other one to GPIO too, and breaks a transfer of that bus, or its
+> target role.
+> No lock shared by the two drivers can avoid that.
+> 
+> The description cannot work either: both nodes point at the same two
+> states of the same pad-mux group, so the controller that probes second
+> fails with "pin ... already requested".
+> No board enables either bus, which is why it did not show.
+> 
+> Drop the pinctrl and the recovery GPIOs of both nodes, and the two states
+> nothing else uses. A board that uses one of the buses can add its own.
 
-Hi,
+You bring a good point, not sure why you didn't bring it on v6 prior to
+sending this new series?
 
-I've posted what I think is the right fix for this here[1], first
-patch of the series.
+As you say, a board may choose to use just one of iic7/iic8, and in that
+case, bus recovery should work, as we don't care about the pin states of
+the other unused bus. I failed to see this yesterday and deemed the
+entire configuration as deletable.
 
-[1] https://lore.kernel.org/kvm/20261117212913.3634487-1-jthoughton@google.=
-com/
+Now I think it's pretty strange to delete the pinctrl and gpio phandles
+from the common SoC dtsi and to tell board authors to duplicate them
+themselves if they are in that situation.
+
+I think a better alternative would be to add some comments like
+"Bus recovery functional only if i2c7 is disabled" above i2c6, and
+"Bus recovery functional only if i2c6 is disabled" above i2c7?
+
+I'm not sure whether maintainers could just ignore this patch while
+applying?
+
+> 
+> Suggested-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+> Link: https://lore.kernel.org/all/avtsY-7-I7_pdyD0@lxl00025.wbi.nxp.com/
+> Signed-off-by: Vincent Jardin <vjardin@free.fr>
+> ---
+>  arch/arm64/boot/dts/freescale/fsl-lx216x.dtsi | 20 --------------------
+>  1 file changed, 20 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/fsl-lx216x.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx216x.dtsi
+> index b0bb7bf944059..64903e935131b 100644
+> --- a/arch/arm64/boot/dts/freescale/fsl-lx216x.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/fsl-lx216x.dtsi
+> @@ -852,16 +852,6 @@ esdhc0_data75_pins: sdhc1-dir-sdhc-pins {
+>  					groups = "sdhc1-dir";
+>  				};
+>  
+> -				gpio1_18_15_pins: iic8-iic7-gpio-pins {
+> -					function = "gpio";
+> -					groups = "sdhc2-data74";
+> -				};
+> -
+> -				i2c6_i2c7_pins: iic8-iic7-i2c-pins {
+> -					function = "i2c";
+> -					groups = "sdhc2-data74";
+> -				};
+> -
+>  				i2c0_pins: iic1-i2c-pins {
+>  					function = "i2c";
+>  					groups = "iic1";
+> @@ -1038,11 +1028,6 @@ i2c6: i2c@2060000 {
+>  			clock-names = "ipg";
+>  			clocks = <&clockgen QORIQ_CLK_PLATFORM_PLL
+>  					    QORIQ_CLK_PLL_DIV(16)>;
+> -			pinctrl-names = "default", "gpio";
+> -			pinctrl-0 = <&i2c6_i2c7_pins>;
+> -			pinctrl-1 = <&gpio1_18_15_pins>;
+> -			scl-gpios = <&gpio1 16 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+> -			sda-gpios = <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+>  			status = "disabled";
+>  		};
+>  
+> @@ -1055,11 +1040,6 @@ i2c7: i2c@2070000 {
+>  			clock-names = "ipg";
+>  			clocks = <&clockgen QORIQ_CLK_PLATFORM_PLL
+>  					    QORIQ_CLK_PLL_DIV(16)>;
+> -			pinctrl-names = "default", "gpio";
+> -			pinctrl-0 = <&i2c6_i2c7_pins>;
+> -			pinctrl-1 = <&gpio1_18_15_pins>;
+> -			scl-gpios = <&gpio1 18 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+> -			sda-gpios = <&gpio1 17 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+>  			status = "disabled";
+>  		};
+>  
+> 
+> -- 
+> 2.43.0
+> 
+>
