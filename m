@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.69
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794943958;
-	b=USX7So/Dqo3GrCeLhzf/Hwsgcy793f7dS2/tmse1nNG3FRGNQc1YWgm0fWwRJ0pv7hRP
-	 SVy/vrxwldrXCYlM8/SDf3HmsNWm3NMkMndmIWbI2BjQUNlkHWOaCVTeugFORK9ywJRV+
-	 jFXlzJI6rmnG1hJRx8oJCyOaXcER0rZF0xWunajONsQizOt+I2oXaetW4Fh2s2eUOqCP+
-	 hgmH7Y7f9gnnHDQS/EfNqW93t31LRXjaIP1KMkkEI8nfyngT4he0JUXeeE1GOfpAwfV2q
-	 g3izRFBf/wQm7C9hJk3QR1NDHa00yj+A3e1YHchR0Z4nGpIx5Ee90okxLFzgToFnd5Q==
+	t=1794943959;
+	b=okC1hFAn+gc/Brj20MbkA/uFXURt+5xD6a+URLOtsDG6acNODz9dxOzCOEm/F2w5zqk7
+	 0ozJibtJ0LxHtIdIiecwP9R2XqImALWE+12wlxsu9991os8EQZ6abF0TSNIEWRPoKODFX
+	 RXdl9ETFlxwBggZ1u1Heb7s7MmXhvlvDS8NGnz3TW0zRYz/KJtzLZYbH0Z2+CBx9CIAiI
+	 frvpYN1dLMi1m/l+tt7jZFs46ltRFSjC2GBl6KXHq/IqF+6G3eHICoKMs3cBv1Y2/ekrv
+	 4O3TdwvDbLEQopYjkW0JDpjXTqDo91DK8TOD8MQSvj+bzqLtDjuF96/xPWsqjWmXWdA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794943958;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794943959;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Developer-Key:X-Developer-Signature:
 	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=+0+txM7MPeyJRwa0Sn9PNj0P/voFCRRCRvjyl+hjpB4=;
-	b=Ax3+K4o5HYVq8Ae3pSHNX+rXPIebN1CRGz4+QmKXRRteF31q+5uQEljpwPPty4sbJ7GW
-	 e6xUr0LjH+aLoTB9jizZ/w0ocWtLhcuHc4vQh0srx5OC3GmzWp8Spx9SSAgl+6GSAGXXY
-	 WPNhdQ6waKL49/t/ItNJNGP9DBx5Ic9nMZk6Locynenhfa4nRCZdm0lWQfNJX0Dy99XgJ
-	 9Az20BiN9eyQ9OBmz3LQKKli6xCPGkK2GLPxOVYRbBHywBKzq2DmiAQpGMqqKl0QpyFqF
-	 PhlyoQR6z5EX1iwU1/G0Dmn77W6/tu41eNSlGFNiWbLpB8qiJCNmasXPVHCiCwz4xLA==
+	bh=H4pN2M9wOQsksT8v2A6luJsQGTApmzqSYccD0MaszVk=;
+	b=T3C08HJmBZ/Cme7pC6W5OALdeSUxOZEdBSx/UYTgL2wxxFVme6MmJf7IeDRu6q2XYWI8
+	 AhmJiu25dinzAV05aJmZ83WIWmIFGUuqfBV1wLNgslFRnlyNL+0YN6a0FQbE1w+SfoOod
+	 slAS+aOC1xpEtkwFJWpV7pGBWUHMq5/BKQVJkxii2b6GsOxqWHMf7VU9dVlYpvF/ayzgM
+	 mlpA0s05JeV093ExFo9HEDagD8mPSO2Ynf1BrsI9viVnl8bPWqfY6HyO1MPU47f8S0X3P
+	 4NWjFBKBiAF6Sw7MjH97vvW01I29Sr5cvzdzt6UjToZzuYSTbZp7o1KXsOvgoSNjj9A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="ouk+s3U/";
-	arc=none smtp.remote-ip=209.85.221.70
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com [209.85.221.70])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=M9GVB9o7;
+	arc=none smtp.remote-ip=209.85.221.69
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com [209.85.221.69])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3E5F60A263E
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:32:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3E5F60A263E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24F54606A88E
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:32:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 24F54606A88E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ouk+s3U/
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-49d70f45b22so96406f8f.2
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:32:37 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=M9GVB9o7
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-4925ef75fc4so83259f8f.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:32:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794943956; x=1795548756; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1794943957; x=1795548757; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=+0+txM7MPeyJRwa0Sn9PNj0P/voFCRRCRvjyl+hjpB4=;
-        b=ouk+s3U/cPUMl5YYG9bfqgivs6ZmlkfkAFuyZnJVTXuly+H1q4mQTQFxfqdkXiT9/w
-         9+TJvMayC75X4YPONvjwpvac6H9gIV7vKiwK4ZoA56aY3MdLrBFVY6KDrlu/Xtymqu43
-         HCaISoxA21xeIDV1iK+gj9R1lqz3Z3cb6rQd513/pYvz2Tn4ZWIUwM23eBqFcpG+1e48
-         7nNkZxIlbrMQVcih1tA0kL+x93O/3/q+RlVMOF6nlwY0vawGCpGpY6XnKlb9dVUCGcao
-         jO18l7RUkxSYEyqwxBFXNjLhkkYoZ1o/cVBtDdGPvI2p5ritq1dHYEjaFembsXCTmYbn
-         aEVw==
+        bh=H4pN2M9wOQsksT8v2A6luJsQGTApmzqSYccD0MaszVk=;
+        b=M9GVB9o75OoC6BHxgpU9PCl+CnnZnv+uB/3w68k7H8o8Vl6twEBeGQS/0zyJ/bAihI
+         MPlUpolKwoSnFxWE9tOMIZSfBIpAcgpyUPM9sZHGVL2zcFhjURug9i+b9d2I2jMtuNpA
+         +sCfXkMKJ87/cZDZw9Z46IvbId23+97dP6H3QTJwsKn7z998Uxs0J5YNvo67fW8ZaTm1
+         sHmF59RC4fuPGXy8WGArX4BkV1NAyx4iOJ/7mx46ioFW/c0jRnx6dWabJ8gcPYI/COji
+         PnxzYrfhysocf9nZiHO0uhAr2ugYqIBRTTU7J7euyIpi5hP9Z2VlDpFyFqIMkLG9kaZw
+         Am5Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794943956; x=1795548756;
+        d=1e100.net; s=20260707; t=1794943957; x=1795548757;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=+0+txM7MPeyJRwa0Sn9PNj0P/voFCRRCRvjyl+hjpB4=;
-        b=rESjcVX4UQUSMA0Z+HAm23fMbff9Yzm46JAlc5PhjBHSCk4EWhu9MUNlnKEKUpfq/C
-         bsWMxcoQ5VZWW01v8bMXghLsIWivup/jju4/v2XJPBznx1KemQz595DhPSm9+iWQfoRl
-         eh7zTSwYjuxmhRaoqMssRAGfc64w7HyD6fKRlJ/57THSLbsyTNVg0rVJ9NimCo0U15ro
-         yeV0vS1KNOi16bFiOHcnhpxL2YekCxv8Nf8yecuavyu3ZxCBCoYK8esGepLNO7LkR/H2
-         mN07tjM0m5Fo4wbEWq2Ll37tRpI+EJi6lTBfktR1dTL9kdIbzIsR2QymmpGU7ZUTjaFp
-         yS+g==
-X-Forwarded-Encrypted: i=1; AL+hErHNBIljlCZvy3mmO4hW3QwUFhX4Y5r9pb5bSul249C4p+tlqrY0Ztq4/CEfgtZw6t4/5gLwkvu9JrQ6ffo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/8NNG2fnCO9sKRjTywPCE/e7nO7KMwDYKHgB+oRVizuNBvmrMf
-	BHMmbELynrB4buHUDYMEmQDuTsZi/RxYufYAH5ezx2e3PhLECJrDLmaVVZhKcCjrQVrWqlv9u6d
-	zDfMdNaXgXoV/RO5ujg==
-X-Received: from wrnb4.prod.google.com ([2002:adf:e644:0:b0:4a4:9fcb:c0d2])
+        bh=H4pN2M9wOQsksT8v2A6luJsQGTApmzqSYccD0MaszVk=;
+        b=HkbowGKd30DWlXVeo+NShudvosApl9gAasF097EE5GrUIfwHBYyp6LDYFppBB9pfVi
+         CH9GGLf1qyGXYlttbyMlc3zikUHJSdItVw751zjaEFu6DZmf+Ri/HjAP/17IzBiRVh9G
+         W7L31zXqiyy+Cix/FmaKXYw3c2xEqQb69Y2Aq5mFBy9f0881HKqweeSSfwXzRYFknAVK
+         6ZRG8jrKZxs/pG6RJvw5jqbAytU+pjQ4r1boYI48Lp/t7sI8RXbchjSM3XcFkwE1zlzx
+         IE9bNRHOyQAgqkOyIEf2z0DTvaCzkxLJIkovvFKwme37ZXSUcrf193hCsDAlpGH+pA5+
+         di6A==
+X-Forwarded-Encrypted: i=1; AL+hErHdliV5MokBb0KO9bnJ40ezN4/mbr9lIEP5baXW+WqoElBW60nGz3pln/wb3kuP7KM1ysZexb94B6gQAMw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+oQR5dUK3hTBbGo77RK3YjxCuaanqPLNQ9aZqjG6FYkgBuWSQe
+	lqwd8H0C3G97t4RMULJwB3i0r+78LC3BIW5FbDD+uOrxh1SU2XYEHkAozImmm+QcWBtoHxEZbQ4
+	DFrXDcmbPPBIn4LbNrA==
+X-Received: from wrri7.prod.google.com ([2002:adf:fc07:0:b0:48e:a88:307b])
  (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:983:b0:492:820d:107e with SMTP id ffacd0b85a97d-4a63cd0eb78mr804149f8f.47.1794943955847;
- Tue, 17 Nov 2026 11:32:35 -0800 (PST)
-Date: Tue, 17 Nov 2026 19:32:18 +0000
+ 2002:a5d:4b41:0:b0:4a3:8b21:51bf with SMTP id ffacd0b85a97d-4a63f182f83mr740599f8f.48.1794943957287;
+ Tue, 17 Nov 2026 11:32:37 -0800 (PST)
+Date: Tue, 17 Nov 2026 19:32:19 +0000
 In-Reply-To: <20261117-tyr-remap-2mb-v1-0-2a8efd4c8180@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,22 +81,22 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261117-tyr-remap-2mb-v1-0-2a8efd4c8180@google.com>
 X-Developer-Key: i=aliceryhl@google.com; a=openpgp; fpr=49F6C1FAA74960F43A5B86A1EE7A392FDE96209F
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1205; i=aliceryhl@google.com;
- h=from:subject:message-id; bh=qullzfbasZ1PBAiwmelJR8Wu/8Cq09DzJ4AhkY0NXXE=;
- b=owEBbQKS/ZANAwAKAQRYvu5YxjlGAcsmYgBq/KvQhhfo/i3hpH5lFbOyDEwYbHCYaKQPRqu7h
- BvCnbobi0mJAjMEAAEKAB0WIQSDkqKUTWQHCvFIvbIEWL7uWMY5RgUCavyr0AAKCRAEWL7uWMY5
- RojaD/92+hR/vatJndmWWwF1FE/2fpo442zd/mWkRgzBkO4VFIAIzF35Ckwt+5scDlitsJkhc4o
- 7T+bS69Ze3KLWfegrGht24waHlj7oB6wbMYYWLuZPB4utAyG5ljJC0mvJ1qATyBmphbuTCBLuFi
- 5wHzxgysG3H0vwDgykoqSpqhIhuDKyYQFHTOa+gQZhI/xcR0TLOEx0Dfw6zILOQX17t8WJz345G
- KDFh2xc0uqfU3sV8o9EcmfTo6F1641JtsXVIZY+Oc8yCAv826HzwsxKkFFYyfjlic3zEblEubUV
- xhxRwbdq76B9Xmq0i9Y1COm6pHZb9KUaT+yeeYxGUEamZwGS/M5a1palNLRGlKuWT8AOfxIiWcx
- x/w6kfDtP2nKNMYdbIFzkDF78wkZAsanc9VJOAca1Zotbxsz7w0NKQNoYgUV6WrYcbUQ/PVupF/
- g+6zuUAwfP1uey0kc0/sMvH3qwmkT0hHalKomEES5QimHuMCP738vgMWnft4jczbjNevxCtr7CT
- 6vrskXM6peY7eqcGV+YNA7uCIc8fRk5XD+IXrNInmibFCEIe8m7qUPHjcOL28p7WLdh42VO/4Cq
- vXfm9Xij3ONUlRy/h4Vdizgeo4bpmukCIFSSZnsdGDujDlDMIDbMcpZ1cibReJ/j390RfadZalx zRc6pYOXWN28N3w==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2309; i=aliceryhl@google.com;
+ h=from:subject:message-id; bh=+WyZnWDfy306Ajq1PPGtwj5xtYYAYr61kK3N/Swr1tU=;
+ b=owEBbQKS/ZANAwAKAQRYvu5YxjlGAcsmYgBq/KvQsa1UM5WU2G5oJXUq4SO8VXyaXylfiF4lZ
+ iZXO7H889uJAjMEAAEKAB0WIQSDkqKUTWQHCvFIvbIEWL7uWMY5RgUCavyr0AAKCRAEWL7uWMY5
+ RmOED/9SPEc5SVbIFzMOA6exlWVkV17LrOPMbmZ73sFVMoW6dCfBjoLKmng6Ja/pJd0w8Dv3LzD
+ CpvEactijAk0jM504Lfmq0eO3Hlu7DpONrjHI+6FRM3pEY7wItYzrkKlhaCp1UmneTU301YlJhe
+ xWOV1nOW9Jxt2tBUlTG1mL9eeUiXB/cyfGesZFlTg1OGvyIA+zscZIf6qyf36NL6/rYp6tog4CJ
+ ObGH201LRf/gJx3W4Wwfma+Fmu6adSlZf3I/4dXwqf5TLtSYuSt9mIxZEVYsmaWgSepSLsPwriF
+ b8KsXKB3oR6FD5nRgJEWoiQSvbXaQ4h/yDq0CX5ohQ1nTSlSAtrzKAiuKTmP2XYpaBvFQOQNLzQ
+ QKK9NGzbeulrMV/+dc2l2GhzgbbKUvHYQ85IdcxdCY6vWRs4+EkOp32kW/iDpaQfotRqxItDSdb
+ a/SN3nsMgQPLc9NgV5Zmakgr9HdXrOxFeF8N1xFRgaB2Rggd0LyV0mpKM7WLFRl4hmGVctueN9G
+ aXQuMEtmhaFiEGToBlacYoxZxAL0Qf5zQ8GJYGLqXY3LEI8ICybR3mYK9Zxd7jxIubVUUp9E+l2
+ yiHoYfcfmW884QNrI2NgtfgooFHlOA3QbRPK9rVtt5JhMOaIgBEXuPA3Whj24i04wGYc1Sa2XCQ YjvraWdGlh012KQ==
 X-Mailer: b4 0.14.3
-Message-ID: <20261117-tyr-remap-2mb-v1-1-2a8efd4c8180@google.com>
-Subject: [PATCH 1/4] rust: drm/gpuvm: add GpuVa::data_ref accessor
+Message-ID: <20261117-tyr-remap-2mb-v1-2-2a8efd4c8180@google.com>
+Subject: [PATCH 2/4] rust: iommu: pgtable: add iova_to_phys
 From: Alice Ryhl <aliceryhl@google.com>
 To: Daniel Almeida <daniel.almeida@collabora.com>, 
 	Deborah Brouwer <deborah.brouwer@collabora.com>, Sami Tolvanen <samitolvanen@google.com>
@@ -115,35 +115,52 @@ Content-Type: text/plain; charset="utf-8"
 
 From: Sami Tolvanen <samitolvanen@google.com>
 
-Tyr's VM_BIND remap path rebuilds page-table mappings for the fragments
-that survive a split, and those fragments must keep the protection flags
-of the original mapping. Add GpuVa::data_ref() so the remap step can
-read the VaData of an existing mapping.
+Tyr's VM_BIND remap path rebuilds the page-table mappings that a partial
+unmap sweeps away, recovering their backing from the still-present
+entries. Add IoPageTable::iova_to_phys(), which returns the physical
+address that an iova maps to.
 
 Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
 [aliceryhl: split into separate gpuvm and iommu commits]
 Signed-off-by: Alice Ryhl <aliceryhl@google.com>
 ---
- rust/kernel/drm/gpuvm/va.rs | 6 ++++++
- 1 file changed, 6 insertions(+)
+ rust/kernel/iommu/pgtable.rs | 23 +++++++++++++++++++++++
+ 1 file changed, 23 insertions(+)
 
-diff --git a/rust/kernel/drm/gpuvm/va.rs b/rust/kernel/drm/gpuvm/va.rs
-index 46493f0ec5a6..f81302faba61 100644
---- a/rust/kernel/drm/gpuvm/va.rs
-+++ b/rust/kernel/drm/gpuvm/va.rs
-@@ -87,6 +87,12 @@ pub fn obj(&self) -> &T::Object {
-         unsafe { <T::Object as IntoGEMObject>::from_raw((*self.as_raw()).gem.obj) }
+diff --git a/rust/kernel/iommu/pgtable.rs b/rust/kernel/iommu/pgtable.rs
+index 5f9b42ca92c2..306c03862a72 100644
+--- a/rust/kernel/iommu/pgtable.rs
++++ b/rust/kernel/iommu/pgtable.rs
+@@ -199,6 +199,29 @@ pub unsafe fn unmap_pages(&self, iova: usize, pgsize: usize, pgcount: usize) ->
+         // SAFETY: The safety requirements of this method are sufficient to call `unmap_pages`.
+         unsafe { (unmap_pages)(self.raw_ops(), iova, pgsize, pgcount, core::ptr::null_mut()) }
      }
- 
-+    /// Access the driver-private [`VaData`](DriverGpuVm::VaData) associated with this mapping.
-+    #[inline]
-+    pub fn data_ref(&self) -> &T::VaData {
-+        &self.data
-+    }
 +
-     /// Returns the underlying [`GpuVmBo`] object that backs this [`GpuVa`].
-     #[inline]
-     pub fn vm_bo(&self) -> &GpuVmBo<T> {
++    /// Translate an `iova` to the physical address it maps to.
++    ///
++    /// Returns [`None`] if `iova` is not mapped. As in the underlying C op, a mapping to physical
++    /// address 0 is indistinguishable from unmapped and also reports [`None`]. The returned address
++    /// includes the offset of `iova` within the mapping block, so it is exact for any `iova`, not
++    /// just block-aligned ones. This walk is lock-free and does not allocate.
++    ///
++    /// # Safety
++    ///
++    /// No other io-pgtable operation may modify the entry covering `iova` while this walk
++    /// executes.
++    #[inline]
++    pub unsafe fn iova_to_phys(&self, iova: usize) -> Option<PhysAddr> {
++        // SAFETY: The `iova_to_phys` function in `io_pgtable_ops` is never null.
++        let iova_to_phys = unsafe { (*self.raw_ops()).iova_to_phys.unwrap_unchecked() };
++
++        // SAFETY: The safety requirements of this method are sufficient to call `iova_to_phys`.
++        let paddr = unsafe { (iova_to_phys)(self.raw_ops(), iova) };
++
++        // A zero return means `iova` is not mapped.
++        (paddr != 0).then_some(paddr)
++    }
+ }
+ 
+ // For the initial users of these rust bindings, the GPU FW is managing the IOTLB and performs all
 
 -- 
 2.56.1.703.gf848ed807c-goog
