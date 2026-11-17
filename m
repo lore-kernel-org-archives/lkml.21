@@ -1,55 +1,53 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794950422;
-	b=Oor4ZW8QSB4tMkKJP+uHo1oclNFYVjbuC3PqDOkx2eKvVFgGcOBg17k/CxZdNTZjAln3
-	 yXQT1JnNKtkjR8+Enm7vVMYTP6lzEL077RISWjP8O6rIKIdDMEA/qaIf8x81BwWEg3XUS
-	 g+71pn4w5W2WNZezQ2abL0SuN9XWfZ2kxruG4X2MsWaOcMLaajWmQQIdHxFU4fmg0QMeH
-	 mGOhTV+lskNpxCIlL8p6OaoJ96r2cvvPJ0OiXe1i0ah2iRw/kx69k7qezigLiYvyxbCLZ
-	 PItIh6uOYaHIQd1/RvkAhM8jL5gggyPEIRSk6bwWrJ9yZKxUG360a86R17FEeIi827g==
+	t=1794950428;
+	b=ekl1wjfLhIX//WQ4EUAVv9WSTwSV/tAMld6D3G1p1x0/G76HnJ1QrHtrD8h22ct0eAOW
+	 XA+733ulxgav/1h4yivPGas3uTrBA5R9AhEPuEutfkWY991BBXtdEhMfZlcf/DFVuxpvQ
+	 GNk/fd6xNkzAUPd+CM9tl/PffET8PrEN5ITdTyOPzYO735TCMhB585mQMoowZalJ8RZRB
+	 NrYzPEPDgr07ZxYPsbVLQAfliEfpiGqIv094dCHBs8P0FoeWweruycnrWASKHd5MWT0Em
+	 W2Xi+L4OieLs7RF3fK+myrhVnbUhsw5KhePTeuYp2IWbl1XqC0V3uIHG1t8xgGZrSOw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794950422;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=iGBY6pPGdt665O/LNZZyvPu55C366I0ivMrwgomHXZs=;
-	b=RuKjkrqrSaNgsAl5HvabK22jZgTUYFOcJnBV8/We46+2TbHRk/i2Gm6VgetVBInTRhTF
-	 GfotZ32eukGV9JTt8aH1olvAg+j3Kw9h1a+Qz8mal1EDZed+gHhogd5CF9ar6T7E37i8q
-	 qn47316WphqMbhB0x4q9jGNhAWXlOKw6HK5LnRjUQKUhtzFw0/cNzDByH4yLlbztilguX
-	 3i5BIZFPipdYkAaYWdkh+S4sdly7cDBWg6nAZYdKj0mYg0uFmKUgs6zL3pEfxXMNYCBdG
-	 hqC5wnFbinuMTp0odRmH6N9K0FXUA1Fn3RmWsuQZjlnRK9yEkzomBc1cY+NuTNjnV4w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794950428;
+	h=Received:DKIM-Signature:Date:Message-ID:From:To:Cc:Subject:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=DheqoHKPiK2wYR7ZSru1q0/iSSyu0uoVd6RuyNzgFAM=;
+	b=wtoy4eYANZhD64ECrdKFRqe/O94nELaoUmFVYLFn9vHZvhn4UkYHirzY3opblp2uJ1U5
+	 r6KwRWkyoQgda1wmtDitDjPn3zxXVD04jIcEzQ7sAvPzlQnM0MaVoAPocLv9g55JVhv2F
+	 Wm5XsF5HT4pW1GqoEk+rmdhgkYHj1vDj5gGbH+cGrOw2LzYs/PZP8IxDiXy+E9ECty5Rz
+	 oOi6e7SwBL/z3mwuztoLxScpWKowYmIWGSGazi6cBGXCtI84gh/sW/ZfLdWuAkXmeSUJF
+	 VG+Wscln053bgu86H53iEqh4BeA0rFY6kp4m+W8Rh4Jw1fAX2mFBBqCL9t0d2sRYB9Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YoDem+AT;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WdI5DEdQ;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43E49606A32A
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:20:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EEC7606A31C;
+	Tue, 17 Nov 2026 21:20:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YoDem+AT
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE66B1F000C9
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:20:21 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WdI5DEdQ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4C7A1F000CC;
+	Tue, 17 Nov 2026 21:20:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794950421;
-	bh=iGBY6pPGdt665O/LNZZyvPu55C366I0ivMrwgomHXZs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=YoDem+AT0QRAWmaS49ofjMVfTlKctJefFqajPnv7dCWmJoyXSbBAkQyiE9tFvFNqs
-	 WUSNbOIrXFwrlzuCkXlesHZnwIb2Ge/JLf5vk+f9XAO3KGh7WkIaYEXe/X1Pq+9foa
-	 /oH51RI8ruABMjLPQoH58w5MKs8UnWgeVzv+My7dFaqM6+VK/08wOWYPYQQWEv35Yv
-	 E4uIBZByTZLH2+mEGjQ1/hakxhq2nIAj/xq4NQLbSEQZmNEp6Jra/tdG9XJl23GItY
-	 dA9G/7xNrUOly17HloFjDuFvV49hemNLBzwB7EGQl8IUMpO1KlXYb07OYilH8Q1yxY
-	 XAnNwRF3TIPYA==
-Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-3adf9b1f5aeso13722901fa.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 13:20:21 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGcI5YuD+LEs8dY7gNhgfI+1pvzkCTaYxCsY9J9FjxEq3PFt9p3nOniwR246D4tWCyx+jNqIIg4iOcVzkk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+IEE0KnM1Znrrrh8Ur2riIPX2r6c9C4UN9ujS8cXnS+NjxOFcO
-	lIYs54a2uSQmLGpersQ2rgJylxkeKjnQyFWr7RcwieVe17gXCTiF451ZI+Y9zhyEgEgxo6eVkY7
-	XZL/ze2cpIYLZ2mvYNKPEdKkJW7yeS9I=
-X-Received: by 2002:a05:6512:2304:b0:5c1:4e10:20b2 with SMTP id
- 2adb3069b0e04-5c1a0f94392mr1254808e87.45.1794950420663; Tue, 17 Nov 2026
- 13:20:20 -0800 (PST)
+	s=k20260515; t=1794950428;
+	bh=DheqoHKPiK2wYR7ZSru1q0/iSSyu0uoVd6RuyNzgFAM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=WdI5DEdQdZ3fV1EGq0oRY4/NzPMI3slniVFwwbMflkvfPMj2fwyxvfhoWM29R3rW5
+	 SqUQ3x5bMLJnJHUzI/txe81vZWIGxmTLt9mW60OW19uKm3YziUAdt6D87tnM0JaNqI
+	 2ZzkgzYMbXL5hLdl4kJj0jgZsYNlg8kDUwHy9AFLLGtgJmzTDi6uI2g2oolZ1xh02D
+	 otz2aa2AiX0wtmjwiaChD3Niq3deBWxvcrm8qVsnWdpLlYpMlq4qpy93S4ye6GePDo
+	 KOh7/pTqSegXUVK1YOuRLK/UgX5yx2CwxmJuc6HJOGUHN/VngRTJuf4qOUNAVsovYV
+	 NsFrYoDqLlJJw==
+Date: Tue, 17 Nov 2026 11:20:27 -1000
+Message-ID: <4a8412ecdace6db2f1f3099e30d04efc@kernel.org>
+From: Tejun Heo <tj@kernel.org>
+To: Yu Miao <yumiao@kylinos.cn>
+Cc: cgroups@vger.kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, corbet@lwn.net, skhan@linuxfoundation.org, rdunlap@infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, jiayuan.chen@shopee.com, nphamcs@gmail.com
+Subject: Re: [PATCH] Docs/admin-guide/cgroup-v2: add missing npn tags to zswap stats
+In-Reply-To: <20261117062620.346767-1-yumiao@kylinos.cn>
+References: <20261117062620.346767-1-yumiao@kylinos.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,38 +57,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261109194910.2282454-1-sahaj123.sc@gmail.com> <20261109194910.2282454-3-sahaj123.sc@gmail.com>
-In-Reply-To: <20261109194910.2282454-3-sahaj123.sc@gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 17 Nov 2026 22:20:08 +0100
-X-Gmail-Original-Message-ID: <CAD++jLm-Zo=L5A8kTDKaBojmdHT67TZLqc+LjgWPmYq2dTZGvQ@mail.gmail.com>
-X-Gm-Features: Aa3M54rX2Yw2mzLa-c0fBDhd98NWpVXKyS6G16iraPzzN9vKI1SD94pE8d26hWc
-Message-ID: <CAD++jLm-Zo=L5A8kTDKaBojmdHT67TZLqc+LjgWPmYq2dTZGvQ@mail.gmail.com>
-Subject: Re: [PATCH 2/2] gpio: davinci: allocate bank IRQ data before
- installing handlers
-To: Sahaj Chaudhari <sahaj123.sc@gmail.com>
-Cc: brgl@kernel.org, j-keerthy@ti.com, nsekhar@ti.com, 
-	prabhakar.csengg@gmail.com, avinashphilip@ti.com, sujithkv@ti.com, 
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
 
-On Mon, Nov 9, 2026 at 8:48=E2=80=AFPM Sahaj Chaudhari <sahaj123.sc@gmail.c=
-om> wrote:
+Hello,
 
-> If allocation fails partway through bank setup, previously installed
-> chained handlers still point at devm-managed data that is released when
-> probe fails. Allocate the complete bank-data array before installing the
-> first chained handler so an allocation failure leaves no handlers behind.
->
-> This fixes the probe-failure path; it does not change ordinary device
-> removal.
->
-> Fixes: b5cf3fd827d2 ("gpio: davinci: Redesign driver to accommodate ngpio=
-s in one gpio chip")
-> Signed-off-by: Sahaj Chaudhari <sahaj123.sc@gmail.com>
+On Tue, Nov 17, 2026 at 02:26:20PM +0800, Yu Miao wrote:
+> The zswap, zswapped and zswap_incomp entries never show up in
+> memory.numa_stat, so add the 'npn' tag to all three.
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+The npn tags are off in other places too. Can you fix them all while at
+it?
 
-Yours,
-Linus Walleij
+- swpin_zero, swpout_zero, zswpin, zswpout and zswpwb aren't in
+  memory.numa_stat either and are missing the tag.
+
+- pgscan_{kswapd,direct,khugepaged,proactive}, the matching pgsteal_*
+  and pgrefill are in memory.numa_stat since e4f4fc7aa8b7 ("mm: move
+  pgscan, pgsteal, pgrefill to node stats") and shouldn't carry the tag
+  anymore. The pgscan and pgsteal totals are still npn.
+
+Also, this should go through -mm. Can you please cc Andrew Morton
+<akpm@linux-foundation.org> and linux-mm@kvack.org when reposting?
+
+Thanks.
+
+--
+tejun
