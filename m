@@ -1,68 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.124
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794937243;
-	b=1iHFPPg5wMXlaFqy7gytnKxxYJfdyoNdzErMD+qRCSX0VtKCH2UoYi/0mrCvbQZyEcIq
-	 frWofIbfUkGSfmBKtbmjMP0C1HNwjlguFOyn+gnEBlNDJcZZB4FC4QVoPGfJAlRIu2hqm
-	 e1zNcd5hWe3OSUro1pr23R95WsVBwRGrvtFKW14HenaAEEUfSsy4nIrFdzT6vUxGdvXSY
-	 V/wuTR20K0+Wa2ipc0aSBPhuQGDGXufX0cG/p0aOiRmg6PUV0N9AHyGDynuJ/NmrVQGXS
-	 BqWOJh4QYwzyVGCSiSx40IKXMB6zXH05xep3dlxnMhfezLqxZsKssi/mF/iqB3AF4wg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794937243;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=dH3XbXnDqDUIiU7bFseXAANFSe3VoFujE+ufZbliiUE=;
-	b=31BF25c0CbhgcoGNA0cuyCDTyZiqTXBs7QRzr6duieOIvpbU3Dc2EYY7lZsx8ab0fBKv
-	 jTsLbFAbQaqHp4V8aCkK0vw79vkJ7UV5zp0X8/6ZgxY8X/PxyMgepCCXKupxHgASxdF0s
-	 ZiePnKsVo6eOdy0tGmbKwU43vgmkJ/l4RyZFJ//fldW7NAHrVS2ibOU2jICYsRJNvCqKe
-	 B3VRtFTPfFMXe1Ocy9DYtXigAKTsVSR3HeNbompft9GsvHM9z/xUr6/nNNJj4GEHRgyIb
-	 vNoi9jMfrsN7VBJbpk6kxh6YzHMyGkQzaPuOzjqr21GICb/Gds7/sGTOIo9AXL2nq2A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=xiaopeng.com;
-	spf=pass smtp.mailfrom=xiaopeng.com;
-	dkim=pass header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=C0H1mFnN;
-	arc=none smtp.remote-ip=115.124.28.124
-Received: from out28-124.mail.aliyun.com (out28-124.mail.aliyun.com [115.124.28.124])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794937270;
+	b=4j02hOUGlRU/8joafLNxicAhYNjpyYDhZ9aBHgJ0oSjLQOR653i0oAK1Vuupc0/cXgCJ
+	 kAlK/Pw6gXfIlMIJjBWNh9UsftSdw99ki6r/qhUrvdfVHO17QYU17RrkG2GCDHf3W4Gmp
+	 07NKZbImylA3M/Thkg9sUKKfy0HuE0VnnPcSVUTbZ+vZchvaQ4vKCcpJe/XsQtvUqWBi3
+	 E/TqjMrkwwTtre3sY2/cbj//PsheaciUDQNQkh0NFutAiB6W5bIz07JOde4Br8er8Gode
+	 I2WUnP6QD95XcSConYhRIav+GXfB9hKd+9RXEv6YUXWi70xWlGpsczWT56YVf81MgOg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794937270;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=PkXhu0l4H/bANI7i7NIqN6ewWg2q567ZHzhlp9epxj0=;
+	b=h8uoJrQstMWHBRg/A5XFasNVduSEdoOTN9dAvggI5dD0Qi3xwCKNW2A5noznyw4uVBJJ
+	 31WNm5LWNM3V295qBlXbwFz+kXjnsMUOyCp6NFwjV9meIzlZtdwdzh9lqYcwkRGMo3BWQ
+	 hM/K8HNgEWGXTcaeUcjVChyDavcmhQKoACnmkwUx93H1IOv0yJ+jMsAZyWl6bP3E8Rp7R
+	 UFPW0fFVwOw7ymxujYGEu/Vtadt0/T5cy9qlSoQhCsvZMYK1u59tPpmf+uJQk3GSUtVYt
+	 7h9w6LN9IQz4zXGnggMdpCZsfzllW0aUgORSHob+RF1O2+2UAS+qWMlWL34Gaj0PMFg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DWppmC3Y;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 920C8606A33B;
+	Tue, 17 Nov 2026 17:41:10 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DWppmC3Y
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1794937270;
+	b=hggrTW6cLkQC3AYNrB4Zxq2N3Re5awRVSB5k9oViYArguAA+O7QJFxrDm02+1Txdtuja
+	 9MuUDWgQFlkUTuptskXpONytOkI+AmKUZGiImRwcDw84judH84Wy9rbr5+RkJsWp4p/Hd
+	 7nOCdNmsFbAXQU+nFIARw5E7RdH81oM3BJYO0n+YJMbbWdP4QVHUixqx7rL+jyY62Yytn
+	 HPqZt3N693LBvRd2gUDyO4ld5CYhBMhIfvCvQO3YUMUGR0Pt1M8kIRiPFZD9fL9hj+mgS
+	 /m6te7QBHWL0Om/YtpDySawjTs843v5uIQv1swkJSuzV/FEq89VOJf4Ty2gWka8sG5A==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1794937270;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=PkXhu0l4H/bANI7i7NIqN6ewWg2q567ZHzhlp9epxj0=;
+	b=tIEk1ppPBwLozEYDsRxQ+pu8V4z3xKss2O4THVw+il/iQ6h4M+yJtHEeAHr2AGlgPrk7
+	 J9rRCXfkQJ8NYwLC3NsaOwSPjv/S2X8aacv6Jop++0yaHT7aDP8pZfIiL7x6BtVaYkIu4
+	 4rXK1qyjE7ZLDp8PKQoI0cMY0gGUfv9+Gj3lnxnh42em5K93UDiPMgtl70P81qcrC13Xi
+	 E/QrdyA1gHRL+0Okq+oPUPLk+aYDj77sU4neQbyM2ba2ff1xma2su/9ow23Tpd3jhwUca
+	 0Neczip8hL+hYgaAIOch8CRAFaLlKldC4S3xOD8LgRnkOo0b45cbfBUjEqUuKjzIuBQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9B9E606A8BC;
-	Tue, 17 Nov 2026 17:40:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9B9E606A8BC
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=xiaopeng.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xiaopeng.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=C0H1mFnN
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=xiaopeng.com; s=default;
-	t=1794937233; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=dH3XbXnDqDUIiU7bFseXAANFSe3VoFujE+ufZbliiUE=;
-	b=C0H1mFnN1TKCZTbpxRcG5A/1shhO5XVxRR/R+aa0qECab3HulELQbaKp8na2M2z/IoKpBsdXmAuy6ndXQA49to7Efs8Psa/0vGgwB3By2XwpNrmeiOii+P0SVh5aiJi6twLAu3oTzwu8FHhYNHcgNgUKWIatjRjRv1HRp5WHoKQ=
-X-Alimail-AntiSpam:AC=CONTINUE;BC=0.04450693|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.00378321-8.81247e-05-0.996129;FP=14274760503927538816|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033037034020;MF=fangxy@xiaopeng.com;NM=1;PH=DS;RN=14;RT=14;SR=0;TI=SMTPD_---.k4BATMI_1794937231;
-Received: from localhost.localdomain(mailfrom:fangxy@xiaopeng.com fp:SMTPD_---.k4BATMI_1794937231 cluster:ay29)
-          by smtp.aliyun-inc.com;
-          Wed, 18 Nov 2026 01:40:33 +0800
-From: Fang Xieyan <fangxy@xiaopeng.com>
-To: Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	Sergey Ryazanov <ryazanov.s.a@gmail.com>,
-	netdev@vger.kernel.org
-Cc: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Simon Horman <horms@kernel.org>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Maoyi Xie <maoyixie.tju@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Guanglei Zhu <zhugl3@xiaopeng.com>
-Subject: [PATCH net v2 3/5] net: wwan: iosm: bound the ACBH command chain walk
-Date: Wed, 18 Nov 2026 01:39:38 +0800
-Message-ID: <20261117173940.34970-4-fangxy@xiaopeng.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20261117173940.34970-1-fangxy@xiaopeng.com>
-References: <20261117173940.34970-1-fangxy@xiaopeng.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id 28C161F000C9;
+	Tue, 17 Nov 2026 17:41:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794937270;
+	bh=PkXhu0l4H/bANI7i7NIqN6ewWg2q567ZHzhlp9epxj0=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=DWppmC3YJ+OENrdCD9tYrnH00mjPBCcZ3gHZ3BpwqDZgCnwBxZj1awQthflsmMgIa
+	 wxMFETa37KvWG/L2arX22ytn9EFGv6/PpDZrdG9xKoCPXwqFE4YRIWwZlsJne6i5t1
+	 RoZ52Xi/FRbP0uqQxbXsg+Da1aaZErL5DqGV9fuKeC5NaPFXkyJxae7aR0rS+uh+yu
+	 HCmrqoRfPzlDCpfBu2dcWGTSXLTp4uzicl0MIeSaWGLQERCCYP1tuQCymcD7PRNmm6
+	 1W0Hbgq/+Mym9T3LNSQ8YlKQyrf7YEtB90NYJPOX6AnbozeHxeQzore4Q09Lx8zPUa
+	 vrNTHtR4lP5Tw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id A8B084AA1A;
+	Tue, 17 Nov 2026 17:41:08 +0000 (UTC)
+From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
+Date: Tue, 17 Nov 2026 19:40:59 +0200
+Subject: [PATCH v3 2/2] backlight: add ktd3137 support
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,105 +82,355 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261117-6768-ktd3137-v3-2-b4fd957e3b00@protonmail.com>
+References: <20261117-6768-ktd3137-v3-0-b4fd957e3b00@protonmail.com>
+In-Reply-To: <20261117-6768-ktd3137-v3-0-b4fd957e3b00@protonmail.com>
+To: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>, 
+ Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>
+Cc: dri-devel@lists.freedesktop.org, linux-leds@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-fbdev@vger.kernel.org, Roman Vivchar <rva333@protonmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794937267; l=10091;
+ i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
+ bh=3qfYLeE00rYscZFZNTo27W69H4V8j5fx2mW1XJdwLWk=;
+ b=M2ea4aK8o93N3XAH4RLnHppI/BiYl6ndmwPi/qP1whBHgVJfQDQGyz3yqhDiD30uTfTMXVU2M
+ 9q7IJi7rJVNDpQtAFWFKjucjjKOX32IOkoO1x/HRkisniC4GNGTmm/K
+X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
+ pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
+X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
+ auth_id=777
+X-Original-From: Roman Vivchar <rva333@protonmail.com>
+Reply-To: rva333@protonmail.com
+Content-Transfer-Encoding: 7bit
 
-ipc_mux_dl_acb_decode() walks the command chain of a received
-Aggregated Command Block. first_cmd_index is passed through
-array_index_nospec() with sizeof(struct mux_cmdh) as its bound, which
-treats a byte offset as an array index and drops every command at or
-beyond that offset. next_cmd_index is not validated, so the walk can
-read past the end of the skb, loop on an earlier command, or decode
-the header just read as a second command.
+From: Roman Vivchar <rva333@protonmail.com>
 
-Bound every command offset by the received length and require room
-for a complete command header. Validate the next index before
-processing the command carrying it: it has to advance past the
-current header and leave room for a complete next header, and only
-zero terminates the chain. The offsets then strictly increase and the
-walk terminates. The array_index_nospec() call is removed and
-block_length is only sanity checked.
+Add support for the KTD3137 display backlight IC. It's used in various
+Xiaomi phones, such as Xiaomi Redmi Note 9.
 
-Fixes: 1f52d7b62285 ("net: wwan: iosm: Enable M.2 7360 WWAN card support")
-Cc: stable@vger.kernel.org
-Reviewed-by: Guanglei Zhu <zhugl3@xiaopeng.com>
-Signed-off-by: Fang Xieyan <fangxy@xiaopeng.com>
+Signed-off-by: Roman Vivchar <rva333@protonmail.com>
 ---
- drivers/net/wwan/iosm/iosm_ipc_mux_codec.c | 46 ++++++++++++++++++----
- 1 file changed, 38 insertions(+), 8 deletions(-)
+ MAINTAINERS                       |   1 +
+ drivers/video/backlight/Kconfig   |  11 ++
+ drivers/video/backlight/Makefile  |   1 +
+ drivers/video/backlight/ktd3137.c | 257 ++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 270 insertions(+)
 
-diff --git a/drivers/net/wwan/iosm/iosm_ipc_mux_codec.c b/drivers/net/wwan/iosm/iosm_ipc_mux_codec.c
-index 65421f6b4c91..a8448e273c02 100644
---- a/drivers/net/wwan/iosm/iosm_ipc_mux_codec.c
-+++ b/drivers/net/wwan/iosm/iosm_ipc_mux_codec.c
-@@ -526,30 +526,60 @@ static void ipc_mux_dl_acbcmd_decode(struct iosm_mux *ipc_mux,
- /* Decode an aggregated command block. */
- static void ipc_mux_dl_acb_decode(struct iosm_mux *ipc_mux, struct sk_buff *skb)
- {
-+	size_t hdr_len = offsetof(struct mux_cmdh, param);
- 	struct mux_acbh *acbh;
- 	struct mux_cmdh *cmdh;
--	u32 next_cmd_index;
-+	u32 block_length, cmd_index, next_cmd_index;
- 	u8 *block;
- 	int size;
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 24dd5b43f167..23114fd09445 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -14622,6 +14622,7 @@ KTD3137 BACKLIGHT DRIVER
+ M:	Roman Vivchar <rva333@protonmail.com>
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/leds/backlight/kinetic,ktd3137.yaml
++F:	drivers/video/backlight/ktd3137.c
  
-+	if (skb->len < sizeof(struct mux_acbh))
-+		return;
-+
- 	acbh = (struct mux_acbh *)(skb->data);
- 	block = (u8 *)(skb->data);
-+	block_length = le32_to_cpu(acbh->block_length);
+ KTEST
+ M:	Steven Rostedt <rostedt@goodmis.org>
+diff --git a/drivers/video/backlight/Kconfig b/drivers/video/backlight/Kconfig
+index 7c66b8840d88..0196b8597367 100644
+--- a/drivers/video/backlight/Kconfig
++++ b/drivers/video/backlight/Kconfig
+@@ -199,6 +199,17 @@ config BACKLIGHT_KTD2801
+ 	  Say Y to enable the backlight driver for the Kinetic KTD2801 1-wire
+ 	  GPIO-controlled backlight found in Samsung Galaxy Core Prime VE LTE.
  
--	next_cmd_index = le32_to_cpu(acbh->first_cmd_index);
--	next_cmd_index = array_index_nospec(next_cmd_index,
--					    sizeof(struct mux_cmdh));
-+	/*
-+	 * The uplink encoder leaves block_length at the ACBH header size.
-+	 * It cannot delimit the command chain, so use skb->len to bound
-+	 * the command offsets.
-+	 */
-+	if (block_length < sizeof(struct mux_acbh) || block_length > skb->len)
-+		return;
++config BACKLIGHT_KTD3137
++	tristate "Backlight Driver for Kinetic KTD3137"
++	depends on I2C
++	select REGMAP_I2C
++	help
++	  Say Y to enable the backlight driver for the Kinetic KTD3137
++	  found in various Xiaomi smartphones.
 +
-+	cmd_index = le32_to_cpu(acbh->first_cmd_index);
++	  To compile this driver as a module, choose M here: the module
++	  will be called ktd3137.
 +
-+	while (cmd_index != 0) {
-+		/* Past the block header, and a full command header fits. */
-+		if (cmd_index < sizeof(struct mux_acbh) ||
-+		    cmd_index > skb->len ||
-+		    hdr_len > skb->len - cmd_index)
-+			break;
- 
--	while (next_cmd_index != 0) {
--		cmdh = (struct mux_cmdh *)&block[next_cmd_index];
-+		cmdh = (struct mux_cmdh *)&block[cmd_index];
- 		next_cmd_index = le32_to_cpu(cmdh->next_cmd_index);
+ config BACKLIGHT_KTZ8866
+ 	tristate "Backlight Driver for Kinetic KTZ8866"
+ 	depends on I2C
+diff --git a/drivers/video/backlight/Makefile b/drivers/video/backlight/Makefile
+index 34469711c6cd..b2d3b69e9e32 100644
+--- a/drivers/video/backlight/Makefile
++++ b/drivers/video/backlight/Makefile
+@@ -38,6 +38,7 @@ obj-$(CONFIG_BACKLIGHT_HP700)		+= jornada720_bl.o
+ obj-$(CONFIG_BACKLIGHT_IPAQ_MICRO)	+= ipaq_micro_bl.o
+ obj-$(CONFIG_BACKLIGHT_KTD253)		+= ktd253-backlight.o
+ obj-$(CONFIG_BACKLIGHT_KTD2801)		+= ktd2801-backlight.o
++obj-$(CONFIG_BACKLIGHT_KTD3137)		+= ktd3137.o
+ obj-$(CONFIG_BACKLIGHT_KTZ8866)		+= ktz8866.o
+ obj-$(CONFIG_BACKLIGHT_LM3509)		+= lm3509_bl.o
+ obj-$(CONFIG_BACKLIGHT_LM3533)		+= lm3533_bl.o
+diff --git a/drivers/video/backlight/ktd3137.c b/drivers/video/backlight/ktd3137.c
+new file mode 100644
+index 000000000000..94a10b3be859
+--- /dev/null
++++ b/drivers/video/backlight/ktd3137.c
+@@ -0,0 +1,257 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Copyright (c) 2025-2026 Roman Vivchar <rva333@protonmail.com>
++ *
++ * Backlight driver for the Kinetic KTD3137
++ */
 +
-+		/*
-+		 * The next index has to move past this header, stay inside
-+		 * the received data and leave room for a header of its own.
-+		 */
-+		if (next_cmd_index != 0 &&
-+		    (next_cmd_index <= cmd_index ||
-+		     next_cmd_index - cmd_index < hdr_len ||
-+		     next_cmd_index > skb->len ||
-+		     skb->len - next_cmd_index < hdr_len))
-+			break;
++#include <linux/backlight.h>
++#include <linux/bitfield.h>
++#include <linux/delay.h>
++#include <linux/err.h>
++#include <linux/gpio/consumer.h>
++#include <linux/i2c.h>
++#include <linux/module.h>
++#include <linux/property.h>
++#include <linux/regmap.h>
++#include <linux/regulator/consumer.h>
 +
- 		if (ipc_mux_dl_cmdresps_decode_process(ipc_mux, cmdh->param,
- 						       cmdh->command_type,
- 						       cmdh->if_id,
- 						       cmdh->transaction_id)) {
--			size = offsetof(struct mux_cmdh, param) +
--				sizeof(cmdh->param.flow_ctl);
-+			size = hdr_len + sizeof(cmdh->param.flow_ctl);
- 			ipc_mux_dl_acbcmd_decode(ipc_mux, cmdh, size);
- 		}
++#define KTD3137_REG_DEV_ID		0x00
++#define KTD3137_REG_SW_RESET		0x01
++#define KTD3137_REG_MODE		0x02
++#define KTD3137_REG_CONTROL		0x03
++#define KTD3137_REG_RATIO_LSB		0x04
++#define KTD3137_REG_RATIO_MSB		0x05
++#define KTD3137_REG_PWM			0x06
++#define KTD3137_REG_RAMP_ON		0x07
++#define KTD3137_REG_TRANS_RAMP		0x08
++#define KTD3137_REG_FLASH_SETTING	0x09
++#define KTD3137_REG_STATUS		0x0a
++#define KTD3137_REG_MAX			0x0a
 +
-+		cmd_index = next_cmd_index;
- 	}
- }
- 
++/* KTD3137_REG_DEV_ID */
++#define KTD3137_DEV_ID_A		0x12
++#define KTD3137_DEV_ID_B		0x18
++
++/* KTD3137_REG_MODE */
++#define KTD3137_MODE_BL_EN		BIT(0)
++#define KTD3137_MODE_CURRENT_MASK	GENMASK(7, 3)
++
++/* KTD3137_REG_CONTROL */
++#define KTD3137_CONTROL_LINEAR		(BIT(1) | BIT(2))
++#define KTD3137_CONTROL_IND_2P6A	BIT(3)
++#define KTD3137_CONTROL_OVP_32V		BIT(5)
++#define KTD3137_CONTROL_FREQ_1000KHZ	BIT(6)
++#define KTD3137_CONTROL_DEFAULT		(KTD3137_CONTROL_IND_2P6A | \
++					 KTD3137_CONTROL_OVP_32V | \
++					 KTD3137_CONTROL_FREQ_1000KHZ)
++
++/* KTD3137_REG_RATIO_LSB */
++#define KTD3137_RATIO_LSB_MASK		GENMASK(2, 0)
++
++/* KTD3137_REG_PWM */
++#define KTD3137_PWM_CH1_EN		BIT(0)
++#define KTD3137_PWM_CH2_EN		BIT(1)
++#define KTD3137_PWM_FILTER_6LSB		(BIT(3) | BIT(4))
++#define KTD3137_PWM_DISABLE		BIT(7)
++#define KTD3137_PWM_DEFAULT		(KTD3137_PWM_CH1_EN | \
++					 KTD3137_PWM_CH2_EN | \
++					 KTD3137_PWM_FILTER_6LSB | \
++					 KTD3137_PWM_DISABLE)
++
++/* KTD3137_REG_RAMP_ON */
++#define KTD3137_RAMP_ON_MASK		GENMASK(7, 4)
++#define KTD3137_RAMP_OFF_MASK		GENMASK(3, 0)
++/* Ramp ON: 2ms, OFF: 8ms */
++#define KTD3137_RAMP_DEFAULT		(FIELD_PREP(KTD3137_RAMP_ON_MASK, 4) | \
++					 FIELD_PREP(KTD3137_RAMP_OFF_MASK, 4))
++
++#define KTD3137_MAX_BRIGHTNESS		2047
++
++#define KTD3137_I_MIN_UA		5000
++#define KTD3137_I_MAX_UA		29800
++#define KTD3137_I_STEP_UA		800
++#define KTD3137_I_DEFAULT_UA		20200
++
++struct ktd3137 {
++	struct device *dev;
++	struct regmap *regmap;
++	u32 led_current;
++};
++
++static const struct regmap_config ktd3137_regmap_config = {
++	.reg_bits = 8,
++	.val_bits = 8,
++	.max_register = KTD3137_REG_MAX,
++};
++
++static int ktd3137_init(struct ktd3137 *ktd)
++{
++	int ret;
++
++	ret = regmap_write(ktd->regmap, KTD3137_REG_CONTROL,
++			   KTD3137_CONTROL_DEFAULT | KTD3137_CONTROL_LINEAR);
++	if (ret)
++		return ret;
++
++	ret = regmap_write(ktd->regmap, KTD3137_REG_PWM, KTD3137_PWM_DEFAULT);
++	if (ret)
++		return ret;
++
++	ret = regmap_write(ktd->regmap, KTD3137_REG_RAMP_ON, KTD3137_RAMP_DEFAULT);
++	if (ret)
++		return ret;
++
++	ret = regmap_write(ktd->regmap, KTD3137_REG_TRANS_RAMP, 0x00);
++	if (ret)
++		return ret;
++
++	return regmap_update_bits(ktd->regmap, KTD3137_REG_MODE,
++				  KTD3137_MODE_CURRENT_MASK, ktd->led_current);
++}
++
++static int ktd3137_backlight_update_status(struct backlight_device *backlight_dev)
++{
++	struct ktd3137 *ktd = bl_get_data(backlight_dev);
++	unsigned int brightness = backlight_get_brightness(backlight_dev);
++	int ret;
++
++	if (brightness > 0) {
++		ret = regmap_write(ktd->regmap, KTD3137_REG_RATIO_LSB,
++				   brightness & KTD3137_RATIO_LSB_MASK);
++		if (ret)
++			return ret;
++
++		ret = regmap_write(ktd->regmap, KTD3137_REG_RATIO_MSB,
++				   brightness >> 3);
++		if (ret)
++			return ret;
++	}
++
++	return regmap_update_bits(ktd->regmap, KTD3137_REG_MODE,
++				  KTD3137_MODE_BL_EN,
++				  brightness ? KTD3137_MODE_BL_EN : 0);
++}
++
++static const struct backlight_ops ktd3137_backlight_ops = {
++	.options = BL_CORE_SUSPENDRESUME,
++	.update_status = ktd3137_backlight_update_status,
++};
++
++static int ktd3137_parse_dt(struct ktd3137 *ktd)
++{
++	u32 max_ua = KTD3137_I_DEFAULT_UA;
++	u32 val;
++
++	device_property_read_u32(ktd->dev, "led-max-microamp", &max_ua);
++
++	if (max_ua < KTD3137_I_MIN_UA || max_ua > KTD3137_I_MAX_UA)
++		return dev_err_probe(ktd->dev, -EINVAL,
++				     "led-max-microamp (%u) out of range\n", max_ua);
++
++	val = (max_ua - KTD3137_I_MIN_UA) / KTD3137_I_STEP_UA;
++	ktd->led_current = FIELD_PREP(KTD3137_MODE_CURRENT_MASK, val);
++
++	return 0;
++}
++
++static int ktd3137_probe(struct i2c_client *client)
++{
++	struct backlight_device *backlight_dev;
++	struct backlight_properties props = { };
++	struct gpio_desc *enable_gpio;
++	struct ktd3137 *ktd;
++	u32 val;
++	int ret;
++
++	ktd = devm_kzalloc(&client->dev, sizeof(*ktd), GFP_KERNEL);
++	if (!ktd)
++		return -ENOMEM;
++
++	ktd->dev = &client->dev;
++
++	ret = devm_regulator_get_enable(ktd->dev, "vin");
++	if (ret)
++		return dev_err_probe(ktd->dev, ret, "failed to power up\n");
++
++	enable_gpio = devm_gpiod_get_optional(ktd->dev, "enable", GPIOD_OUT_HIGH);
++	if (IS_ERR(enable_gpio))
++		return dev_err_probe(ktd->dev, PTR_ERR(enable_gpio),
++				     "failed to get enable gpio\n");
++
++	/* HWEN should stay HIGH for at least 150us before I2C can be used */
++	fsleep(150);
++
++	ktd->regmap = devm_regmap_init_i2c(client, &ktd3137_regmap_config);
++	if (IS_ERR(ktd->regmap))
++		return dev_err_probe(ktd->dev, PTR_ERR(ktd->regmap),
++				     "failed to init regmap\n");
++
++	ret = regmap_read(ktd->regmap, KTD3137_REG_DEV_ID, &val);
++	if (ret)
++		return dev_err_probe(ktd->dev, ret, "failed to read chip id\n");
++
++	if (val != KTD3137_DEV_ID_A && val != KTD3137_DEV_ID_B)
++		return dev_err_probe(ktd->dev, -ENODEV,
++				     "unsupported chip id: 0x%02x\n", val);
++
++	ret = ktd3137_parse_dt(ktd);
++	if (ret)
++		return ret;
++
++	ret = ktd3137_init(ktd);
++	if (ret)
++		return dev_err_probe(ktd->dev, ret, "failed to init chip\n");
++
++	props.type = BACKLIGHT_RAW;
++	props.max_brightness = KTD3137_MAX_BRIGHTNESS;
++	props.brightness = KTD3137_MAX_BRIGHTNESS;
++	props.scale = BACKLIGHT_SCALE_LINEAR;
++	device_property_read_u32(ktd->dev, "default-brightness", &props.brightness);
++
++	backlight_dev = devm_backlight_device_register(ktd->dev,
++						       "ktd3137-backlight",
++						       ktd->dev, ktd,
++						       &ktd3137_backlight_ops,
++						       &props);
++	if (IS_ERR(backlight_dev))
++		return dev_err_probe(ktd->dev, PTR_ERR(backlight_dev),
++				     "failed to register backlight device\n");
++
++	i2c_set_clientdata(client, backlight_dev);
++	return backlight_update_status(backlight_dev);
++}
++
++static void ktd3137_remove(struct i2c_client *client)
++{
++	struct backlight_device *backlight_dev = i2c_get_clientdata(client);
++
++	backlight_dev->props.brightness = 0;
++	backlight_update_status(backlight_dev);
++}
++
++static const struct i2c_device_id ktd3137_ids[] = {
++	{ .name = "ktd3137" },
++	{ }
++};
++MODULE_DEVICE_TABLE(i2c, ktd3137_ids);
++
++static const struct of_device_id ktd3137_match_table[] = {
++	{ .compatible = "kinetic,ktd3137" },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, ktd3137_match_table);
++
++static struct i2c_driver ktd3137_driver = {
++	.driver = {
++		.name = "ktd3137",
++		.of_match_table = ktd3137_match_table,
++	},
++	.probe = ktd3137_probe,
++	.remove = ktd3137_remove,
++	.id_table = ktd3137_ids,
++};
++module_i2c_driver(ktd3137_driver);
++
++MODULE_DESCRIPTION("Kinetic KTD3137 Backlight Driver");
++MODULE_LICENSE("GPL");
+
 -- 
-2.50.1
+2.56.1
+
 
