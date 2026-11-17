@@ -1,75 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.69
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794943959;
-	b=okC1hFAn+gc/Brj20MbkA/uFXURt+5xD6a+URLOtsDG6acNODz9dxOzCOEm/F2w5zqk7
-	 0ozJibtJ0LxHtIdIiecwP9R2XqImALWE+12wlxsu9991os8EQZ6abF0TSNIEWRPoKODFX
-	 RXdl9ETFlxwBggZ1u1Heb7s7MmXhvlvDS8NGnz3TW0zRYz/KJtzLZYbH0Z2+CBx9CIAiI
-	 frvpYN1dLMi1m/l+tt7jZFs46ltRFSjC2GBl6KXHq/IqF+6G3eHICoKMs3cBv1Y2/ekrv
-	 4O3TdwvDbLEQopYjkW0JDpjXTqDo91DK8TOD8MQSvj+bzqLtDjuF96/xPWsqjWmXWdA==
+	t=1794943961;
+	b=OS76oXvgs6llhg3qmKX30uNsLPFojXyd7fcyIYEyOprkGkubbQhTT/aoNFl2t1gpJVv+
+	 cnKDKoyAF3+AahiC5lU8OxbtdEw4X821Yz3wYEQ6WRY/8qEsnULEjUtflfk8O8sJ0SWVm
+	 b3Tid5zpgNRF2YqJO0yzKlwcuKlgiUxBZfMe7uoNOkFxMPTRpE2iEvwey/h7RzkQ2mqiF
+	 kV/X1D9lw2XSV1G1HiRveOd/ZVQGfxtd4aiSPGaxa8ue/82CGlf9gRa7HG2kGXMS8Z0EK
+	 q8BjYAKKjmBYKhBfVkxFXVAf3FtNpebbLLkM/osjAYOHNnxX7vkiygz+zU0WJQ9Wj4w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794943959;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794943961;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Developer-Key:X-Developer-Signature:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=H4pN2M9wOQsksT8v2A6luJsQGTApmzqSYccD0MaszVk=;
-	b=T3C08HJmBZ/Cme7pC6W5OALdeSUxOZEdBSx/UYTgL2wxxFVme6MmJf7IeDRu6q2XYWI8
-	 AhmJiu25dinzAV05aJmZ83WIWmIFGUuqfBV1wLNgslFRnlyNL+0YN6a0FQbE1w+SfoOod
-	 slAS+aOC1xpEtkwFJWpV7pGBWUHMq5/BKQVJkxii2b6GsOxqWHMf7VU9dVlYpvF/ayzgM
-	 mlpA0s05JeV093ExFo9HEDagD8mPSO2Ynf1BrsI9viVnl8bPWqfY6HyO1MPU47f8S0X3P
-	 4NWjFBKBiAF6Sw7MjH97vvW01I29Sr5cvzdzt6UjToZzuYSTbZp7o1KXsOvgoSNjj9A==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=56TQbsxmUPRqyb4FwMMv1HmmxLULm7kUzSEoRK8zoLQ=;
+	b=mE5rQiO4T+jvQXsLXkzm7CN4zp5hNzLxfx6VIcv/AMtRU8Nbr9yG/DsW1zi2yHaCnb4k
+	 CoCxzW01Kw1aLlW76wdqduGYELN85ckRfJ0dxO6XCJtUHBzDP1ctQqSGTdlntTy+c3iqF
+	 U2p8LLX0Qg8F8/nlM+tcBsuFRmymUJPPbFf1qukRDP2ldvqc/seXpf8ykLu2n4XEIzkjW
+	 kfMGuvgJcY0BSm0MRRicpXTXtLji7VA8RGlWfLdUbXSo9tHx3lnL04P7zAIomnXXY5204
+	 xq5FhPLLa+lKBS74+PuqHIAXNKvrJF+Ry7Lxwj2//0D4kiSSjQHPQKo8tkl2PqQ3nJw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=M9GVB9o7;
-	arc=none smtp.remote-ip=209.85.221.69
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com [209.85.221.69])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dhrdHD8K;
+	arc=none smtp.remote-ip=74.125.82.170
+Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24F54606A88E
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:32:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 24F54606A88E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A422F60A3837
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:32:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A422F60A3837
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=M9GVB9o7
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-4925ef75fc4so83259f8f.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:32:38 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dhrdHD8K
+Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-3704d30b84fso415701eec.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:32:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794943957; x=1795548757; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=H4pN2M9wOQsksT8v2A6luJsQGTApmzqSYccD0MaszVk=;
-        b=M9GVB9o75OoC6BHxgpU9PCl+CnnZnv+uB/3w68k7H8o8Vl6twEBeGQS/0zyJ/bAihI
-         MPlUpolKwoSnFxWE9tOMIZSfBIpAcgpyUPM9sZHGVL2zcFhjURug9i+b9d2I2jMtuNpA
-         +sCfXkMKJ87/cZDZw9Z46IvbId23+97dP6H3QTJwsKn7z998Uxs0J5YNvo67fW8ZaTm1
-         sHmF59RC4fuPGXy8WGArX4BkV1NAyx4iOJ/7mx46ioFW/c0jRnx6dWabJ8gcPYI/COji
-         PnxzYrfhysocf9nZiHO0uhAr2ugYqIBRTTU7J7euyIpi5hP9Z2VlDpFyFqIMkLG9kaZw
-         Am5Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794943957; x=1795548757;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1794943960; x=1795548760; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=H4pN2M9wOQsksT8v2A6luJsQGTApmzqSYccD0MaszVk=;
-        b=HkbowGKd30DWlXVeo+NShudvosApl9gAasF097EE5GrUIfwHBYyp6LDYFppBB9pfVi
-         CH9GGLf1qyGXYlttbyMlc3zikUHJSdItVw751zjaEFu6DZmf+Ri/HjAP/17IzBiRVh9G
-         W7L31zXqiyy+Cix/FmaKXYw3c2xEqQb69Y2Aq5mFBy9f0881HKqweeSSfwXzRYFknAVK
-         6ZRG8jrKZxs/pG6RJvw5jqbAytU+pjQ4r1boYI48Lp/t7sI8RXbchjSM3XcFkwE1zlzx
-         IE9bNRHOyQAgqkOyIEf2z0DTvaCzkxLJIkovvFKwme37ZXSUcrf193hCsDAlpGH+pA5+
-         di6A==
-X-Forwarded-Encrypted: i=1; AL+hErHdliV5MokBb0KO9bnJ40ezN4/mbr9lIEP5baXW+WqoElBW60nGz3pln/wb3kuP7KM1ysZexb94B6gQAMw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+oQR5dUK3hTBbGo77RK3YjxCuaanqPLNQ9aZqjG6FYkgBuWSQe
-	lqwd8H0C3G97t4RMULJwB3i0r+78LC3BIW5FbDD+uOrxh1SU2XYEHkAozImmm+QcWBtoHxEZbQ4
-	DFrXDcmbPPBIn4LbNrA==
-X-Received: from wrri7.prod.google.com ([2002:adf:fc07:0:b0:48e:a88:307b])
- (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a5d:4b41:0:b0:4a3:8b21:51bf with SMTP id ffacd0b85a97d-4a63f182f83mr740599f8f.48.1794943957287;
- Tue, 17 Nov 2026 11:32:37 -0800 (PST)
-Date: Tue, 17 Nov 2026 19:32:19 +0000
-In-Reply-To: <20261117-tyr-remap-2mb-v1-0-2a8efd4c8180@google.com>
+        bh=56TQbsxmUPRqyb4FwMMv1HmmxLULm7kUzSEoRK8zoLQ=;
+        b=dhrdHD8KgfGYXwGTjMMA3hDKvYf7bB6mbtx4simgXUENyABEWjcX2ZjButVRclPrKA
+         B7/vPj2A1bYzE2YahTWURWywtoLnrw7xnz9bCa23639VCmgQtCnYh7wMeWcD2k/VlPii
+         Ai0Iabbw0iJuZ5Ngdh4EgEqFl/WYvdewQ6EFq5+KIdugKq2PKOVqBuH3QtXlQQpNXcvb
+         1dEkY07UyzISyA8OCSj2wKqrMFqVPdUs6oeCPgBhD38U26KLdLKnlvolvB+YhfwxEvwc
+         YeRGx0IsPbbDwDGZquItEM5EgnWY3sdtInCJFMuBSpaI7d6pi50PLpS2TZOSKMTRLO7N
+         x5bg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794943960; x=1795548760;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=56TQbsxmUPRqyb4FwMMv1HmmxLULm7kUzSEoRK8zoLQ=;
+        b=gshAzWE/79zTHdfUQmALsw8+oBEw4jRqvpVNxXaLhCjVR2SPm/21EXxfZg5C7ka9cN
+         umk+O45rFBaWq7uG6i+7ia2TJd7d1Rqy4Urmt/HpFavQnC45BsPMl8+oFu9VvaPrGV2q
+         VEPBpwUB7yIFpYJ/GrT8nq1G25514w9Zi6FZ4UFk69Vtfp0+VVS9bfM+EpNvX3agMmhZ
+         1PHaYmxkVYpObPHSEwyw8hb+p7qZvrElCoKKXuz0JJcPkYGixadbubWqPK0mSJlrr8x9
+         zF2uqXQNAKUKeJgm/yL8i+fgkd1He8erSBvZdQBs/P+5NZ1aK1F9rN0w+FsrE1OjjEYh
+         m9mA==
+X-Forwarded-Encrypted: i=1; AL+hErEmBk+G80LOIpcDnGVM4SnK2wyfNiIWV3K/QH2eT1UUv3fcflUgVexNI7HuNgJTA5RuHbYgniaPvE5c7kY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/p1O2NeoeqCfS76sKlgUvMdn6pABStb28HK1RGW5W7zvXQfJhF
+	7KA0KhYpn4M/esraxiSUG1icY2P/rN7cGbqLzaVGVIdo8F9JYFmc+TYY
+X-Gm-Gg: AZFdTZcamJ3LdN8VY+LLfNQ3DA/aRFpzLdDN4xkj7dWQDNkz9WefuPB0FpIEO99WPQ0
+	BdTuotSvQRdrA3ryl9RMrOWOT2uGpkWG5EiyDG2L1S3o+vBLxlErh1txWYHVXUbnTXjdIpeqF2y
+	Kwr0Hy7jzzMjR0S1Inx1/D/2HWYmP0DNg9rjr96ybjv782OsP9P4xBJW2e8l4tyuEdG6iofCRIb
+	kzse5wIUwwW1WH/LQzU0YQGdnmfnntzsTaLsjiUL0rDq++2xJ+ALhzQqhMReCEMVHEpih3+XKkE
+	fzuvsHQ47+7DWsqDyOPKK7m4ngczF57UMXA54WzbSsI2po0fbN/Ux+phHFuMIwrdFLJQoiohgmp
+	nnY7+alU5xJKqnuyk8w0QOzeSGaULYw7FfKku7h8gfGHXiD6Ah7z5aN6eev/jFQEehGKPR7NYXL
+	C9RvHtqsp217BrI94jR+TtJu/XjcqDXcGEnsSc89QsbQHKnDGv42GLS+RHX7G0QSMrKCFot/JQr
+	+IoChrBMeSUPW68drrkpfC6IXGPhZzCfvyRijoKKh5ZywbzNrzUcofkU3gBxyCu5aoMU3prl3LW
+	Vd+XeuAuXrKeg5M4G/TsMUMxKK6WDw==
+X-Received: by 2002:a05:7300:f408:b0:369:f035:661 with SMTP id 5a478bee46e88-38280a3c1f8mr421180eec.15.1794943959764;
+        Tue, 17 Nov 2026 11:32:39 -0800 (PST)
+Received: from eldorado ([2600:8802:b00:1f88::287])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a63059e3sm173376eec.5.2026.11.17.11.32.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 11:32:38 -0800 (PST)
+From: Florian Fainelli <f.fainelli@gmail.com>
+To: netdev@vger.kernel.org
+Cc: Florian Fainelli <f.fainelli@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Jijie Shao <shaojijie@huawei.com>,
+	Simon Horman <horms@kernel.org>,
+	Runyu Xiao <runyu.xiao@seu.edu.cn>,
+	David Yang <mmyangfl@gmail.com>,
+	Herbert Valerio Riedel <hvr@gnu.org>,
+	Danny Kukawka <danny.kukawka@bisect.de>,
+	Mugunthan V N <mugunthanvnm@ti.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	linux-kernel@vger.kernel.org (open list),
+	Manuel Lauss <manuel.lauss@gmail.com>
+Subject: [PATCH net v3 07/10] net: au1000: restore RX buffer addresses when restarting the MAC
+Date: Tue, 17 Nov 2026 11:32:20 -0800
+Message-ID: <20261117193223.2795612-8-f.fainelli@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261117193223.2795612-1-f.fainelli@gmail.com>
+References: <20261117193223.2795612-1-f.fainelli@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,90 +112,41 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261117-tyr-remap-2mb-v1-0-2a8efd4c8180@google.com>
-X-Developer-Key: i=aliceryhl@google.com; a=openpgp; fpr=49F6C1FAA74960F43A5B86A1EE7A392FDE96209F
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2309; i=aliceryhl@google.com;
- h=from:subject:message-id; bh=+WyZnWDfy306Ajq1PPGtwj5xtYYAYr61kK3N/Swr1tU=;
- b=owEBbQKS/ZANAwAKAQRYvu5YxjlGAcsmYgBq/KvQsa1UM5WU2G5oJXUq4SO8VXyaXylfiF4lZ
- iZXO7H889uJAjMEAAEKAB0WIQSDkqKUTWQHCvFIvbIEWL7uWMY5RgUCavyr0AAKCRAEWL7uWMY5
- RmOED/9SPEc5SVbIFzMOA6exlWVkV17LrOPMbmZ73sFVMoW6dCfBjoLKmng6Ja/pJd0w8Dv3LzD
- CpvEactijAk0jM504Lfmq0eO3Hlu7DpONrjHI+6FRM3pEY7wItYzrkKlhaCp1UmneTU301YlJhe
- xWOV1nOW9Jxt2tBUlTG1mL9eeUiXB/cyfGesZFlTg1OGvyIA+zscZIf6qyf36NL6/rYp6tog4CJ
- ObGH201LRf/gJx3W4Wwfma+Fmu6adSlZf3I/4dXwqf5TLtSYuSt9mIxZEVYsmaWgSepSLsPwriF
- b8KsXKB3oR6FD5nRgJEWoiQSvbXaQ4h/yDq0CX5ohQ1nTSlSAtrzKAiuKTmP2XYpaBvFQOQNLzQ
- QKK9NGzbeulrMV/+dc2l2GhzgbbKUvHYQ85IdcxdCY6vWRs4+EkOp32kW/iDpaQfotRqxItDSdb
- a/SN3nsMgQPLc9NgV5Zmakgr9HdXrOxFeF8N1xFRgaB2Rggd0LyV0mpKM7WLFRl4hmGVctueN9G
- aXQuMEtmhaFiEGToBlacYoxZxAL0Qf5zQ8GJYGLqXY3LEI8ICybR3mYK9Zxd7jxIubVUUp9E+l2
- yiHoYfcfmW884QNrI2NgtfgooFHlOA3QbRPK9rVtt5JhMOaIgBEXuPA3Whj24i04wGYc1Sa2XCQ YjvraWdGlh012KQ==
-X-Mailer: b4 0.14.3
-Message-ID: <20261117-tyr-remap-2mb-v1-2-2a8efd4c8180@google.com>
-Subject: [PATCH 2/4] rust: iommu: pgtable: add iova_to_phys
-From: Alice Ryhl <aliceryhl@google.com>
-To: Daniel Almeida <daniel.almeida@collabora.com>, 
-	Deborah Brouwer <deborah.brouwer@collabora.com>, Sami Tolvanen <samitolvanen@google.com>
-Cc: Danilo Krummrich <dakr@kernel.org>, Matthew Brost <matthew.brost@intel.com>, 
-	"=?utf-8?q?Thomas_Hellstr=C3=B6m?=" <thomas.hellstrom@linux.intel.com>, Miguel Ojeda <ojeda@kernel.org>, 
-	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
-	"=?utf-8?q?Bj=C3=B6rn_Roy_Baron?=" <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>, 
-	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
-	"=?utf-8?q?Onur_=C3=96zkan?=" <work@onurozkan.dev>, "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
-	Robin Murphy <robin.murphy@arm.com>, Boris Brezillon <boris.brezillon@collabora.com>, 
-	dri-devel@lists.freedesktop.org, rust-for-linux@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
-	Alice Ryhl <aliceryhl@google.com>
-Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-From: Sami Tolvanen <samitolvanen@google.com>
+The MAC DMA engine updates each receive descriptor's address as it
+transfers data. Clearing the descriptor control bits during reset does
+not restore the buffer's starting address.
 
-Tyr's VM_BIND remap path rebuilds the page-table mappings that a partial
-unmap sweeps away, recovering their backing from the still-present
-entries. Add IoPageTable::iova_to_phys(), which returns the physical
-address that an iova maps to.
+au1000_init() only set RX_DMA_ENABLE on the address left in the
+descriptor. After closing and reopening the interface, a receive could
+therefore start partway through its buffer and overwrite memory beyond
+the allocation.
 
-Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
-[aliceryhl: split into separate gpuvm and iommu commits]
-Signed-off-by: Alice Ryhl <aliceryhl@google.com>
+Reload each RX descriptor from rx_db_inuse before enabling it, as the
+receive completion path already does.
+
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Signed-off-by: Florian Fainelli <f.fainelli@gmail.com>
 ---
- rust/kernel/iommu/pgtable.rs | 23 +++++++++++++++++++++++
- 1 file changed, 23 insertions(+)
+ drivers/net/ethernet/amd/au1000_eth.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/rust/kernel/iommu/pgtable.rs b/rust/kernel/iommu/pgtable.rs
-index 5f9b42ca92c2..306c03862a72 100644
---- a/rust/kernel/iommu/pgtable.rs
-+++ b/rust/kernel/iommu/pgtable.rs
-@@ -199,6 +199,29 @@ pub unsafe fn unmap_pages(&self, iova: usize, pgsize: usize, pgcount: usize) ->
-         // SAFETY: The safety requirements of this method are sufficient to call `unmap_pages`.
-         unsafe { (unmap_pages)(self.raw_ops(), iova, pgsize, pgcount, core::ptr::null_mut()) }
-     }
-+
-+    /// Translate an `iova` to the physical address it maps to.
-+    ///
-+    /// Returns [`None`] if `iova` is not mapped. As in the underlying C op, a mapping to physical
-+    /// address 0 is indistinguishable from unmapped and also reports [`None`]. The returned address
-+    /// includes the offset of `iova` within the mapping block, so it is exact for any `iova`, not
-+    /// just block-aligned ones. This walk is lock-free and does not allocate.
-+    ///
-+    /// # Safety
-+    ///
-+    /// No other io-pgtable operation may modify the entry covering `iova` while this walk
-+    /// executes.
-+    #[inline]
-+    pub unsafe fn iova_to_phys(&self, iova: usize) -> Option<PhysAddr> {
-+        // SAFETY: The `iova_to_phys` function in `io_pgtable_ops` is never null.
-+        let iova_to_phys = unsafe { (*self.raw_ops()).iova_to_phys.unwrap_unchecked() };
-+
-+        // SAFETY: The safety requirements of this method are sufficient to call `iova_to_phys`.
-+        let paddr = unsafe { (iova_to_phys)(self.raw_ops(), iova) };
-+
-+        // A zero return means `iova` is not mapped.
-+        (paddr != 0).then_some(paddr)
-+    }
- }
+diff --git a/drivers/net/ethernet/amd/au1000_eth.c b/drivers/net/ethernet/amd/au1000_eth.c
+index 0e9226ea05e1..cb2f3333ba9f 100644
+--- a/drivers/net/ethernet/amd/au1000_eth.c
++++ b/drivers/net/ethernet/amd/au1000_eth.c
+@@ -724,7 +724,8 @@ static int au1000_init(struct net_device *dev)
  
- // For the initial users of these rust bindings, the GPU FW is managing the IOTLB and performs all
-
+ 
+ 	for (i = 0; i < NUM_RX_DMA; i++)
+-		aup->rx_dma_ring[i]->buff_stat |= RX_DMA_ENABLE;
++		writel(lower_32_bits(aup->rx_db_inuse[i]->dma_addr) |
++		       RX_DMA_ENABLE, &aup->rx_dma_ring[i]->buff_stat);
+ 
+ 	wmb(); /* drain writebuffer */
+ 
 -- 
-2.56.1.703.gf848ed807c-goog
+2.53.0
 
