@@ -1,89 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794944305;
-	b=plKqhmOnSfL5Sxwr2j0zkT0WG306NyZp9L6CTu2YagL2fbSnp5hIIWLecE89J0pz76tY
-	 kfeyE6bUHIy3UCmvrze4GCxVoOSu6NNDX5HJyovXHz/cKLIqwk8pzOv9bD0ECIRqCePsv
-	 OqsjwF0PsIDT3d7pWM5h33hc5ygW9SZElVA1HILO55o33tdoUl9puR7PrIt2DwsvKycPw
-	 bqNwScqBP51s3OHdOcimXj1M0/Jeb0TJA7DIiphW/3lXtZhm4biL4SX0+s7zjN6WGvHEh
-	 movSTg2KFtAA0kUx6M0bBezl5AOHeERNUpNAWHDT6GOdu01WoBMR3WxDP1w/1kc1THg==
+	t=1794944307;
+	b=Hd53nKlV9NsrrU5uwRhs0gjAM7IoeJNsVqA/21eR0xhvqcSKPf6iZUQ5V6huXsP4zWLl
+	 Nai+/VV3jCG6D71GPLEhJDmbgK0fZD7SHV8k/nJw5/wPtF9xeDxlFNjJjKljS5AwiWu1J
+	 pT7V5OREvWqwjM44zkyQ9eoa7kSibZXHQ1j1ce78kO3GhfR5RiUUNMZF+p5oWU3CR/rCe
+	 Lah5Vusd9kEtqCYQxamES4NeIoWD8eDj9ro74bpMQb+hD7ufm7liqJhAYhFMG9cZOoP8M
+	 amQm2/1wjce0BNtWAdO3mGBDtBSTExyoW9XLyNZumKal7/tLQJu8XKaRDsnbNPI2G4A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794944305;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794944307;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
-	bh=m51bps/KpxA6Kr+kAwjiotkCQAl0xbHrJDx13A2RW/M=;
-	b=WP4eLe98rlMhGg19JDCmwkWijuknUrutDSl8Sw2B8WZcumDjQ3LxyGwnHSJTSsCxMww+
-	 h9LDn3rCs5qhfCoUI1RhBRWSftqwVX/4dtNxRHHyQP1mXi5UiW3easpWK4i96rqxw49mY
-	 BIes1XQwfmEWiS5UTeooSPZqLTMTq5QDmmoBFiLOWTAqkUW+vmCQWPnPX3RDFKvmD85eo
-	 6ESevtm2gL+9seiCnQkkf/ZZhJMXBRC5IrgUe2DJujK2FLn69Q4eZztToHgOtiehvgAQw
-	 ZYhp+3Lp139hiteAtKJk7a3S9RnIU6L8JP0c/lrqjgcTKPXyh9Glkt3x/w68GLnM33g==
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
+	bh=mzUXuDR8OHK81TyfGQx/IwpVMtB3XzAxHCLnFDfTBRk=;
+	b=Qofr4E7wBORqSyOZHFk4SpATBCILetmST/Gwou5T2qhpa6qteG3Rdeh3bPX/zFRm0XdW
+	 pIIlI99cOpDmfI3GHpd8QjuJYmZ6r7R3OOQb+XVXkj2OktQbVqYZeaosFYTuOGZHos/s5
+	 Hhb8ZYSzywCppThlzbRviaOxE0791EHZa/9p4DwBqTH9/6P0RdST6sTo1vdZaWoQKQkty
+	 mW3ubvmmHdlmQfavlp5cPdXdCztEZMRsJ0kQWVoj48/Z5/acvUf2wdrnVaZljIzwIdiOx
+	 s/0UiYni2r+UB7DleoPyojAmi00XajurQL4NXTvP6lRfrTsKCnb4pw62m2n2MhbBZoA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rHM3Q0iX;
-	arc=none smtp.remote-ip=209.85.161.52
-Received: from mail-oo1-f52.google.com (mail-oo1-f52.google.com [209.85.161.52])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ISNM2mRp;
+	arc=none smtp.remote-ip=209.85.161.54
+Received: from mail-oo1-f54.google.com (mail-oo1-f54.google.com [209.85.161.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 652CC606A31C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:38:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 652CC606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6945F606A339
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:38:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6945F606A339
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rHM3Q0iX
-Received: by mail-oo1-f52.google.com with SMTP id 006d021491bc7-6d68de53053so150849eaf.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:38:25 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ISNM2mRp
+Received: by mail-oo1-f54.google.com with SMTP id 006d021491bc7-6d68de53053so150876eaf.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:38:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794944304; x=1795549104; darn=vger.kernel.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=m51bps/KpxA6Kr+kAwjiotkCQAl0xbHrJDx13A2RW/M=;
-        b=rHM3Q0iXEosJ6bFTKvCCBc2WXntQuP6hi2AaNTnZ0WMppBfmEupE6xIcCQg8HKB8CT
-         uuuOPfF9FixEyQG/X72h4QLOiWUmc5CKX8fMvzLyEqKy+HC8YHtk74g2jnAdsep300h8
-         5TqZ0Nu2mQ2NOFgiIgsRq+hAoL8UC/J+C5IAg+dOSyHZnLHi8RG7mD5SJwaqGbrO5FPB
-         Y+O3W+40Dr5d6LvdVG8lKMPktYps5Mp+t8Vb5MPr54tOZ+WDQPlzjgE6HY759ByiJtU0
-         tcChX/D1054d2u0/3c1aPG0EDGYX7pleNwifdJwZo5ojSFH9mZRe9ttF6DZim75wvMYi
-         tBBg==
+        d=gmail.com; s=20260707; t=1794944306; x=1795549106; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=mzUXuDR8OHK81TyfGQx/IwpVMtB3XzAxHCLnFDfTBRk=;
+        b=ISNM2mRpMjnLlPKxM1AQrz10AhUQpXumcwBTXms1TdWu6I1ctRP5axExZKeJ9LzzVH
+         dzJbZp9XJsw99fU3LOPz0ot5dMZEUfR15E9763zfsi6SpotW3QMNASUITfecBO82I++T
+         wxPQxdVS9mxtm2bbg3yqWMmByBShHlkJiFPBliVASuaQaco6lJk5vsvTCJQvqAahY2t3
+         A99iCUAClyfakFdTaEc3VQDRk1E38olc5/nsS8+Znax4cpVLpqsnCleMbMVa90jz+Wd0
+         wcSPVoOIJB3yClyoM6A2vJmn+MomRGHBikbvraD7QRAt7zRTM8lBf5sbmoFJKtxrNA/N
+         jjCg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794944304; x=1795549104;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=m51bps/KpxA6Kr+kAwjiotkCQAl0xbHrJDx13A2RW/M=;
-        b=b61D8HxDZHjV0wyNvqwrGM9TSCCT5lPu7WEmUQRO4Rb073Xtm+3svyoVzZO+2aZIaZ
-         2lWb1/VbJSyo063nIhy0jATb4BrTYXzhOJp/6SPyZbm3UDzJgRDWbYOfRGLBMUflyv1d
-         xG/zqa9/xAYjQeck2Kd4p7MlTTaugKJZvJmJjY4mVVl07isOGiy15v6E3sOkXlE5cUyZ
-         kaSl3P5ly3KT0Uu6ZwQGA7Sw7guc8xya0FfeKi8l4zMeEg2+Lyj/pXBhP5p8uTLI3Mjm
-         ClYSk6FYkn3bn0HPoWeTqf3Pvr/rH+oHoJtKsV9iyIrQ7ReqOzeFv50u5UBElZoYPFrt
-         EP5Q==
-X-Forwarded-Encrypted: i=1; AL+hErH1qYuUgza3QWejLNDWw74lgOOOwbq2IHJmh1r36Ac/iMDBtvAlZWhUikXqAb4pmqI0QCsOEKtX9tLQKoA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9t6m/Te3EJpGH04CA01EeCMgKyA9jZ0y0RnreQJkzTBFrsNet2
-	C/+uiiiido4QBdli+TkqUJiLJVxyR3PZhzed+Jr4tvEqDZn9dft2U7xZ
-X-Gm-Gg: AYBFou3uLnVfs2KsmLw4adAr/vfcZHqDvZfNgPTIU3cbWyjHGQVbUI0xFKeGtv2x2pt
-	1oZo51QRZbq9WMSURNy+7Yz7gjU/eplxUd1Bweup+rWRA/9M/+GyafH7sG5qtM4eEWTpkDvizBS
-	tfeMl8pkNy+cEg7M1JG0rSmJBKprKLa4mmGJhsvdoNGV97dmTM3iyrIN8N4clXg0d+ToiWc4xs7
-	8NBb77m6VNSkIlMoiFJ0AhV6VQ6TCsyW62o4JdblIp8JrmqQ5MOIEuxPdx1oggh5ygd/8Tme4Nf
-	tWW5i+QoxvoPbRtgUDmx31ZSWWQ+GK8+zjjt+JbN4tjHq5hCxYzXrBMgtl6BWnKyICPrhq8Wf1N
-	0xVds1wsc4jL0EkuOrg0FoMtjnhJUCPqm5BBBcGIWoZVHBTe5q8qRCrPW5JoiWbiqWXt1DGBAko
-	z2ono2psk9Ck4zWeS2H4pbzXta3FWPWDQFAt8tpldIE4shdT3suTHIrpDtYoPwbiQ6Ntpz1ySy4
-	YP4+24iIy8JNbLwdB0BbqItYILxvkFY7xD7JcbkbU+cevMQLrb4zrPqzjL3a0V+IuaLrZcJSjsY
-	J7DRuCljsYxnHwDqjaiww/e2bz2Ka25x3YuygVuRfF+UozsLcz2l2GBi2pxbx1cUEUym1rlm3wQ
-	JztV2dT1K4Cwh7RjHZRENccCiVMgsNcQdeUrkSrI/tsLCdcKFn+hziJi1fouDvd3DzNvqWIHHhG
-	4fWk3NpoY5qVGE6JJP4uFKZ/0GMEMqffbIgZvRNz8IM/fCZwTAQLGfs2aNbPBTVWcFTO6CwHNB
-X-Received: by 2002:a05:6820:83d1:20b0:71a:f0dc:eca with SMTP id 006d021491bc7-71b18517f47mr215592eaf.40.1794944304317;
-        Tue, 17 Nov 2026 11:38:24 -0800 (PST)
+        d=1e100.net; s=20260707; t=1794944306; x=1795549106;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mzUXuDR8OHK81TyfGQx/IwpVMtB3XzAxHCLnFDfTBRk=;
+        b=eje5JsxUTvOkfhEIGBG3GDink6rGPw7FoxSuZQ+H3s/BePYqkMsPaJn9sPoQk3/sN2
+         PPXvy8v+PYjMETonWuCmufCYhOGUaswPKLw6p+gqBdLEtvYjZdHYvtRaf56TQyV22Ft/
+         BMHrLeowubkEZ6wcXPJA7YQO83ppTXV0UZhLmzjs6997OLTrzZx+S2ocG91O3zXwOl3f
+         J5xYdyXVoD3toFggwUAISrn7GOWHF3ZXXqD0wSi3jd0ce/PQiwVCiAM4U4qVq9fqTPmq
+         E9nKzErvseBjhjdadLY0X9f95kvECVrK3eCQ/jFUKf/bsfr1XFYjzFqAnkAbNw07PkXu
+         /+jw==
+X-Forwarded-Encrypted: i=1; AL+hErGu5yt1XIagXF7z95TPacxHz4uqRt6neX9fnmZInFbgp11j3ay1PZJwkJm9bXYlNAjEl6eFifMlAKZwfnY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8QpKk/owdvIpieVw8FaQY1/QBgVuU3g6AuIHduVdSdrQXVb9Ot
+	JwRKac5eZdyzWHabI1mJbPb9gt1e8qUw8+NOrYBw13vdS3eRFX4xa6D8
+X-Gm-Gg: AYBFou3zbde5py5pRfzFK6MR521aqPMxq1kUMcSkD9cONx2uN+eRHnZFKBeY7dpSWcb
+	nFQv6lK5giTKQLz1+ZlU0+yXxedZ/r98Gsc5VfgSScO/c7QFwtzp2VaziSyY5lefNG2kD0x+tkV
+	i2VK+bWrbVX+fBQ4V3+EmT+ZqHkrzfxGjJFrNJoDtQDDi8mBUfVOPfk2CAzvMKeo/+qZwLWpQCK
+	J5p9Jv26hGrl7+4k0GI0vzHvKpspjozhhEL2Uqn0Hebx/fbDH9Z01jhZr/Irq/2xHgNGk7WGFwQ
+	HJ4Kql4kNcoe3EolhaW99dlaGc1S+S3sPJU9gOHYwS1OazuM5b7a+G3Hi4/5iwE1MmzMLFtp9g0
+	Qz4Uv9ox/s1n6+PnBv3ekq/LD8BLA3n3hls/BJym1KPY4k6o4wUI2StAF/yCLsVcRiFpFQDi4ON
+	eXxnXwI5l4LguspYtofNah0shSRztt3LPwqxYN+KTRUQPSh19envDZiEyS2lCca/6xuFO1ytm7U
+	hxZZBZVQfwxwCf4litFC0rTn3Mmsuv//r95RXLowK4dwarvG5ceTQC1bHMZ++f2E1irfetO1cmJ
+	F+HhQOuNZ1sFBYGmZ1Hf1gsnEDSD/rOXa0UgiZprHiSwlp6lmbgTD5dMRBT3b2yESxsxa84sT5m
+	n8nsTJ71rvqqaVXJcXV5ceN+eiZ+crs3SjnzxypWSKecyOnBpMLD6bBUfmWuZWKdFXHgHo8aoJG
+	XC9alN8alTuCSWj8zCXso7Xbw994piH6N4zrMuEPCRZwEiYZxCb9A=
+X-Received: by 2002:a05:6820:55c4:20b0:71a:fcbf:2476 with SMTP id 006d021491bc7-71b18485668mr207605eaf.14.1794944306356;
+        Tue, 17 Nov 2026 11:38:26 -0800 (PST)
 Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b192272ffsm146281eaf.2.2026.11.17.11.38.21
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b192272ffsm146281eaf.2.2026.11.17.11.38.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 11:38:22 -0800 (PST)
+        Tue, 17 Nov 2026 11:38:25 -0800 (PST)
 From: James Hilliard <james.hilliard1@gmail.com>
-Subject: [PATCH 00/11] nvmem: complete provider and layout disconnection
-Date: Tue, 17 Nov 2026 12:38:07 -0700
-Message-Id: <20261117-submit-nvmem-provider-lifetime-v1-v1-0-3cfbd48812b5@gmail.com>
+Date: Tue, 17 Nov 2026 12:38:08 -0700
+Subject: [PATCH 01/11] nvmem: retain the provider node until device release
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,11 +95,9 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/y2OQW6DMBBFr4K8zuCYSq3CVaIsMHyTabGh4wEhR
- bl7ndDl0zy9Pw+TIYxs2uphBBtnnlMBd6pMf+/SCOKhsGnOzadz7ovy6iMrpS0i0iLzxgOEJg5
- QjqDNUfCN/xjcpQl9Z0pnEQTe3xvX28El8o1eX+F/Q/C7lnE9NOO7DFIB2uquuuTW2pG1/oEkT
- PUso11Wb3Mf7cRp3e1xeDk2Cye27//qwlWYhRJ2Nbfn8w+LaNKD7wAAAA==
-X-Change-ID: 20261117-submit-nvmem-provider-lifetime-v1-fb2b3d192fca
+Message-Id: <20261117-submit-nvmem-provider-lifetime-v1-v1-1-3cfbd48812b5@gmail.com>
+References: <20261117-submit-nvmem-provider-lifetime-v1-v1-0-3cfbd48812b5@gmail.com>
+In-Reply-To: <20261117-submit-nvmem-provider-lifetime-v1-v1-0-3cfbd48812b5@gmail.com>
 To: Srinivas Kandagatla <srini@kernel.org>, 
  Mathieu Dubois-Briand <mathieu.dubois-briand@bootlin.com>, 
  Michael Walle <mwalle@kernel.org>, 
@@ -111,62 +109,42 @@ Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
  linux-mtd@lists.infradead.org, James Hilliard <james.hilliard1@gmail.com>
 X-Mailer: b4 0.17-dev
 
-NVMEM unregister already disconnects register callbacks with SRCU. Some
-accesses extend beyond those callbacks: keepout traversal, cell
-post-processing, DT fixups and device matching can still use provider
-state. Layout unbind also leaves its cells and their callbacks available
-to retained consumers.
+An NVMEM device can remain referenced after its provider unregisters.
+Keep a reference to its OF node so retained devices do not depend on the
+provider retaining the node. Drop that reference in the device release
+callback, including registration-error paths.
 
-Extend the existing drain to those accesses, and retire layout-owned
-cells independently of provider cells. Old handles retain core-owned
-metadata and reject further access. Explicit cell references and sysfs
-group ownership make layout removal and rebind independent of existing
-consumers. Release the write-protect GPIO when callbacks are drained so
-a retained consumer does not prevent provider reprobe.
-
-The final patch lets providers distinguish an explicit NULL module owner
-from the parent-driver fallback, for callbacks implemented by built-in
-subsystem code.
-
-This separates the NVMEM work previously included in the raw NAND
-retained-handle series [0], following Paul's request for smaller patches
-[1]. It builds on the NVMEM for-next tree at 6628e7d4c6b, including the
-existing SRCU protection and device-reference ownership.
-
-[0] https://lore.kernel.org/r/20261115-submit-rawnand-retained-handle-lifetime-v1-v5-1-cbc49c5c5e74@gmail.com/
-[1] https://lore.kernel.org/r/9c247830067d2192acfe08080d1c5f2bb366cf1a.camel@crapouillou.net/
-
-Assisted-by: Codex:gpt-6-astra
+Fixes: 1333a6779501 ("nvmem: core: allow specifying of_node")
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
-James Hilliard (11):
-      nvmem: retain the provider node until device release
-      nvmem: drain keepout and cell post-processing accesses
-      nvmem: exclude disconnected providers from callback admission
-      nvmem: release write protection when the provider disconnects
-      nvmem: reference cell entries independently of their provider list
-      nvmem: manage cell attributes independently of device resources
-      nvmem: distinguish layout cells from provider cells
-      nvmem: disconnect cells before removing their layout
-      nvmem: disconnect published devices before registration rollback
-      nvmem: u-boot-env: propagate cell registration errors
-      nvmem: allow providers to specify an explicit NULL owner
+ drivers/nvmem/core.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
- drivers/nvmem/core.c                 | 426 ++++++++++++++++++++++++-----------
- drivers/nvmem/internals.h            |   4 +
- drivers/nvmem/layouts.c              |   2 +
- drivers/nvmem/layouts/fixed-layout.c |   2 +-
- drivers/nvmem/layouts/onie-tlv.c     |  19 +-
- drivers/nvmem/layouts/sl28vpd.c      |   2 +-
- drivers/nvmem/layouts/u-boot-env.c   |  25 +-
- include/linux/nvmem-provider.h       |  16 +-
- 8 files changed, 352 insertions(+), 144 deletions(-)
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-base-tree: https://git.kernel.org/pub/scm/linux/kernel/git/srini/nvmem.git for-next
-change-id: 20261117-submit-nvmem-provider-lifetime-v1-fb2b3d192fca
+diff --git a/drivers/nvmem/core.c b/drivers/nvmem/core.c
+index 7d4cce8e2742..802637f375f8 100644
+--- a/drivers/nvmem/core.c
++++ b/drivers/nvmem/core.c
+@@ -570,6 +570,7 @@ static void nvmem_release(struct device *dev)
+ 	gpiod_put(nvmem->wp_gpio);
+ 	nvmem_device_remove_all_cells(nvmem);
+ 	ida_free(&nvmem_ida, nvmem->id);
++	of_node_put(nvmem->dev.of_node);
+ 	cleanup_srcu_struct(&nvmem->srcu);
+ 	kfree(nvmem);
+ }
+@@ -973,9 +974,9 @@ struct nvmem_device *nvmem_register(const struct nvmem_config *config)
+ 	nvmem->keepout = config->keepout;
+ 	nvmem->nkeepout = config->nkeepout;
+ 	if (config->of_node)
+-		nvmem->dev.of_node = config->of_node;
++		nvmem->dev.of_node = of_node_get(config->of_node);
+ 	else
+-		nvmem->dev.of_node = config->dev->of_node;
++		nvmem->dev.of_node = of_node_get(config->dev->of_node);
+ 
+ 	switch (config->id) {
+ 	case NVMEM_DEVID_NONE:
 
-Best regards,
---  
-James Hilliard <james.hilliard1@gmail.com>
+-- 
+2.53.0
 
