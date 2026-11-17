@@ -1,104 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.153.30
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794947607;
-	b=hpoHCGShIERzUqsKI91kRHxm578tWU+N396jwgVQfggbVqEYyCwrSGdmfVEHofKQf+iA
-	 NMVLuNOxJKEVifCMwCaGnENhqqmgBYf3n+3+yzwXRTdUI0jvRLvpRLytoZhMA0hooQEvp
-	 PbzLtwf8jhhfaEJ80Xd2ToQBRRxcBqMsrZ5vvnPPH7QmY4Ungv4aB4agIJ08rpVtTt5GU
-	 YXM+EsEVoB+ZggJi8ghyfbTEXeMiDaD/NCA8U4YN9RhKtZQ+C3Tfcha1f4+k1PBkUSQgT
-	 heKqLKoTmUP/vSokr9WpDC033s/CHeS21hwo8cXkQiPYEwXNhFiDowR+NWitmxu4RPQ==
+	t=1794947659;
+	b=2KntqBgHiBD3fTAholeGx6Hvltg3RxjggrNJ5jraJrTcRI427XwDxPGKHw/4nvKA3duR
+	 lxMvZbRJ2cMg6VeeLvDpuX75TtXcEdJiG0wRKWrRn3cEtknm87AllqPjh/IL9J9AE1UrT
+	 cF7HaCMXb7RMRreJX+3BrKEs/MBmD4COE0NKg4/4vYpeK+qxg4SCHWiYNe5LT0dI+dF5T
+	 KJW+hlTd3OIHF+nierw5Friq0dcv9ISDLPjFvPvha9W6GPzG0cswNbDIRvPdkLkF1eIyz
+	 yeFDdAsKeHBcVc6IdPjcZkDjher7lxtEQ+9EbapMmxwsQfvLwIjP0E41slTISzuFkoA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794947607;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:From:To:CC:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version;
-	bh=ltJA9djPiDGmbqOIDOCvgyBxMIZpbHwdIGl8VFOEXRs=;
-	b=IIs7ip01Hrxl6WIaW5zalRWGQU3rw7eREJnf3YTKcrXtg/clEAeDTY6NrBhq9xUH6Rqh
-	 jjxSLBKa61xu4AQg3FWnDX13u3jZPsZwGIx/wLHI2C3Ke66U0H9uQDMFSR6HOaYNOb/K4
-	 k3ymjcn8+y/g7lWE3Ufeyz+ypYfQH4zLM8CaGiyoJ7lUcZB2z/HVLR4Rvr8yUYtDTkB90
-	 RhHQCswPOjJoNGW3tv/5F4u4YVQ2uVx8Sf0V5NMgxtmEV2k2JQUoEL3IXupr5KxnftGpa
-	 zr5H4gg7FCGJ7N0NXd+Qd1ned/hsmGAKonA8dygXjrZWm/6Xfcx2ys9GkiRiVIvRO5g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794947659;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=/ZMhcm/JCcD+M3t4azWcucL31huBZZJYoXQAph0Cu/Q=;
+	b=vu/Mk026de/MFINn2Fw2YhKX+yQB0cvW5CNXky++2peZR4O0DzIK+Utqbk43FQGmSl0X
+	 HS5BHsF9HWh1MctRDQMnmpQHOQkFkaLY4IDIXpuYHgrOeZAt7MPL7O6Ggyqi66D1AHLDG
+	 44TPgC3LHfGADki8JIyBjGh9pMwmG5Ut08YAZconvrBIs2D7NJ4vNLNzqZoCr+8hLOoHh
+	 llc8ivDaSNQX46CNXk0U6CVSHNSqTdd/IA0he/IxMzvXL8/lX9rYqtvq7vzgQLfwgyscA
+	 lpFZVuy/vubbLbB2DQLZ0A5ncEMmLY0PM2D9/nyQ6QJDyCrjRmvGjpW6IeloFy0vrAw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=meta.com;
-	spf=pass smtp.mailfrom=meta.com;
-	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=DTrS7jFo;
-	arc=none smtp.remote-ip=67.231.153.30
-Received: from mx0b-00082601.pphosted.com (mx0b-00082601.pphosted.com [67.231.153.30])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=rowland.harvard.edu;
+	spf=fail smtp.mailfrom=g.harvard.edu;
+	dkim=pass header.d=rowland.harvard.edu header.i=@rowland.harvard.edu header.a=rsa-sha256 header.s=google header.b=GS8p0iFE;
+	arc=none smtp.remote-ip=209.85.160.170
+Received: from mail-qt1-f170.google.com (mail-qt1-f170.google.com [209.85.160.170])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FA3C606A89B;
-	Tue, 17 Nov 2026 20:33:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4FA3C606A89B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85E51606A885
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:34:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85E51606A885
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rowland.harvard.edu
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=g.harvard.edu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=DTrS7jFo
-Received: from pps.filterd (m0148460.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AHJ9Tc31359758;
-	Tue, 17 Nov 2026 12:33:14 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	pps82601-s2048-2026-q3; bh=ltJA9djPiDGmbqOIDOCvgyBxMIZpbHwdIGl8V
-	FOEXRs=; b=DTrS7jFoHB0W8BxKVekX3F7HylpYWAbXKmLa9vCXM+KjntGPDvrBc
-	xx2ShGal42bQ50OMct/EOQGVIoEeX+pXzHfhHsTjZVgmGhGqfTqFfXRdQU4NdfrD
-	dSRhLYpx9YKVEgBfZbrI/nl955QKtUiMQzc0rzEOELhXQs75ObW++7UzygWzJj2d
-	2jfgevLeDoPfCYmExZPYHKixSYUCROlELY58+Z1fi9zk72sL5jlKxk3ewTsNSzL9
-	4uMG5wZTWL9yAMSNHlfJPO1C9EKpWZl5QkPmVE2S9CWHb/LPpX4oEuq3np2j9WEc
-	ZSbXcOyct5huWHC3+howc3U1FeMs/pb6Q==
-Received: from maileast.thefacebook.com ([163.114.135.16])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j0rk6m7ce-2
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Tue, 17 Nov 2026 12:33:09 -0800 (PST)
-Received: from localhost (2620:10d:c0a8:1c::1b) by mail.thefacebook.com
- (2620:10d:c0a9:6f::8fd4) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Tue, 17 Nov
- 2026 20:31:43 +0000
-From: Todd Freed <toddfreed@meta.com>
-To: <netdev@vger.kernel.org>
-CC: "David S. Miller" <davem@davemloft.net>,
-        Andrew Lunn
-	<andrew+netdev@lunn.ch>,
-        =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?=
-	<bjorn@kernel.org>,
-        Boris Pismenny <borisp@nvidia.com>, Cosmin Ratiu
-	<cratiu@nvidia.com>,
-        Daniel Zahka <daniel.zahka@gmail.com>,
-        David Ahern
-	<dsahern@kernel.org>,
-        Dragos Tatulea <dtatulea@nvidia.com>,
-        Eric Dumazet
-	<edumazet@kernel.org>, Ido Schimmel <idosch@nvidia.com>,
-        Jakub Kicinski
-	<kuba@kernel.org>,
-        John Fastabend <john.fastabend@gmail.com>,
-        Leon Romanovsky
-	<leon@kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-kselftest@vger.kernel.org>, <linux-rdma@vger.kernel.org>,
-        Mark Bloch
-	<mbloch@nvidia.com>, Paolo Abeni <pabeni@redhat.com>,
-        Raed Salem
-	<raeds@nvidia.com>,
-        Rahul Rameshbabu <rrameshbabu@nvidia.com>,
-        Sabrina
- Dubroca <sd@queasysnail.net>,
-        Saeed Mahameed <saeedm@nvidia.com>, Shuah Khan
-	<shuah@kernel.org>,
-        Simon Horman <horms@kernel.org>, Tariq Toukan
-	<tariqt@nvidia.com>,
-        Wei Wang <weiwan@google.com>,
-        Willem de Bruijn
-	<willemdebruijn.kernel@gmail.com>,
-        <stable@vger.kernel.org>
-Subject: [PATCH net v6 1/8] net/mlx5e: ring the tx doorbell when an accel offload drops a packet
-Date: Tue, 17 Nov 2026 12:31:30 -0800
-Message-ID: <20261117203137.804424-2-toddfreed@meta.com>
-X-Mailer: git-send-email 2.53.1
-In-Reply-To: <20261117203137.804424-1-toddfreed@meta.com>
-References: <20261117203137.804424-1-toddfreed@meta.com>
+	dkim=pass (2048-bit key) header.d=rowland.harvard.edu header.i=@rowland.harvard.edu header.a=rsa-sha256 header.s=google header.b=GS8p0iFE
+Received: by mail-qt1-f170.google.com with SMTP id d75a77b69052e-53644ab1f7bso2004341cf.3
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 12:34:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rowland.harvard.edu; s=google; t=1794947658; x=1795552458; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=/ZMhcm/JCcD+M3t4azWcucL31huBZZJYoXQAph0Cu/Q=;
+        b=GS8p0iFEUF/En0yzlT+JcuCpLdO2j8huJwWM9K1FLGiMQrTQ4OKuEnYY7jh34BNQHz
+         Y4JUGy80u1H7sIxiUEgWPoUrNvkqgm2wtp5Tz1Slc5r11ygXc27JiVS3gBazpRwbam7g
+         5LoK9Z1PU88QvaMAyD4AkS/9tbw8YYH27s/RWFW6pGc3jxIzOQjkvgXElvfHBrWkXBok
+         yHZ53avyhHLSXtdZYUi9T4YYYgMrPW/YXKkxI8Lg8BT4foCHmPFLw4SMXPY3jMSxKsVS
+         WxnZD7Gr0kItymyPk9aX7ZDMXsNg94Q3+reBGHl3F165VA+74YLCFsizb4mHQfGD6+tG
+         gA0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794947658; x=1795552458;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/ZMhcm/JCcD+M3t4azWcucL31huBZZJYoXQAph0Cu/Q=;
+        b=cmSKpf4yq9xPtWXNtT6H980oEcKD2IJypmuJSKlJwUN2loAehMU/cga2LwfVSC4Ueo
+         omtL4qFQdLmX9DbDEmCupAuzVV1Re4TokCH6fsSw66UIdIl2kMa/gzoOsPIKar4wEv2C
+         NHYDzV6I0i+uW1ge6bvg5xsMRbQQrtUf8g6aL90dK3rqmaJ++U2poKQMkuVGnUovrnSu
+         WalpMjOMoz3z4Nq4gcpZS4WZQkPhxf6e1uXvagMBkJcbzvLLIeWHyw+ADKXtma3Y9Ilb
+         EdKYQgYouzkhoKxhfG0O8tRXKvihO+IF3XrhptpPTDOigeakffKHdxoWmDQYVoyd6sbm
+         Wdjw==
+X-Forwarded-Encrypted: i=1; AL+hErFSOjpcJ0YQZodDWFogM0vVN4TaaYCfiqsRcpSNfcIWTdY9ptHJBq/WchwSIBNA8RWLo70rZbBt3PyAOFo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/vzu7gTRM5MJ7g3YCVRsr/bQtIhY/1VYWG2HCGTzve/qOjrvfM
+	U6uI2pD/6P6qOhqP7SliCpVFbNUS08SlLy6tY/OEhSxLShDYIKjEMo8+E0iOM7JIWg==
+X-Gm-Gg: AYBFou2ld5htQ+y+i3U6spCxSxPK4GTTMxjhBQb+nZLmxyVeZjbwCyliufJWPkctn0q
+	hPi8pgII2JVpsHNsmAh61RVyAuij0VWCpPRROLvyinXsXiOjHhENwKp2gMDyx07t6bZx6u4ALLi
+	6r745mle+7NqW5xz+GtHc4T4HgQgzmp7mbpJG75zP8MfWT5UNcQka37PqX4dIqkiVhYVQHlMzwA
+	M4lUbFLlvaBQaybvq+SI5z4Klgl9N8pppZ25d9esU/Rxy8f1YvNo+tBhTjyFs4L4Tp7lcClCmF0
+	xoJkIH143Jjc7OcOyxfKiYNGMFtGGZxhVWgq/qxbk8bx3Xyw6JTFrxY372aiG52SiJCC8MiqjnT
+	cKT0/5ERNDm4fvyhv4NndncXzXNGjYF7lrIGNyq0Qd1zpNh/UQVkeAwR/YEIt5HQVoQBRrk/vyZ
+	nq41fdJFtkoAzlZBhijVHvrKA0w8asqxllRuJ5+fUTDAmzb/AU52bI5A8EOhfzYlHjALc048KOw
+	v8TgCnwzmNvWy3ZaRR4UDEKT+wjUGbwFj+0RvRSDQOTuvMRuXkxLXUEUd2x/z5JGEQMbD66321D
+	o/gtZR3EcI09995XIIL6Piesf1A3/g==
+X-Received: by 2002:a05:622a:230b:b0:535:8509:3138 with SMTP id d75a77b69052e-55d5a308334mr8458151cf.11.1794947658309;
+        Tue, 17 Nov 2026 12:34:18 -0800 (PST)
+Received: from rowland.harvard.edu ([2601:19b:d00:161a::d398])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d5909ec98sm5319881cf.22.2026.11.17.12.34.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 12:34:17 -0800 (PST)
+Date: Tue, 17 Nov 2026 15:34:14 -0500
+From: 'Alan Stern' <stern@rowland.harvard.edu>
+To: gichoon.han@samsung.com
+Cc: 'Greg Kroah-Hartman' <gregkh@linuxfoundation.org>,
+	'Takashi Iwai' <tiwai@suse.de>, linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] usb: host: ehci-sched: Don't let a bogus siTD remaining
+ length underflow
+Message-ID: <852edee1-229c-4685-a124-497ed2ed85a1@rowland.harvard.edu>
+References: <CGME20261116052855epcas1p403c518b90d70d98752ad0ca2d9ac05e9@epcas1p4.samsung.com>
+ <20261116052851.2272125-1-gichoon.han@samsung.com>
+ <5ed0f4b7-beb3-4059-9e12-b9738af65d91@rowland.harvard.edu>
+ <000001dd762a$1b15f230$5141d690$@samsung.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,83 +101,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Proofpoint-ORIG-GUID: Xx1OceeYUAaMX6TozBv1SHRo-1O9Odug
-X-Authority-Analysis: v=2.4 cv=Q7xHcI2a c=1 sm=1 tr=0 ts=6afcba07 cx=c_pps
- a=MfjaFnPeirRr97d5FC5oHw==:117 a=MfjaFnPeirRr97d5FC5oHw==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22
- a=JnKecZnUtZousrUlYMGU:22 a=VwQbUJbxAAAA:8 a=VabnemYjAAAA:8
- a=sFFrJGLWhHAlujGt_t4A:9 a=gKebqoRLp9LExxC7YDUY:22
-X-Proofpoint-GUID: Xx1OceeYUAaMX6TozBv1SHRo-1O9Odug
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDA4MiBTYWx0ZWRfX/xM6JMi8FdeF
- 9Okgz8+FPQjYBLZk/VE+qTJZwIvtYDL8Hs6haIyhXbVwUG8bAEL/4xgbrkU6VM1QHJO/RIPRFOt
- gm6ImVl5IBiNvOe6Vcj2tjTxrtOGsaEoCB5QeMJ2IOhMEZbQQdVqaaZs/0k6FN3ZQnwrZkbKPgN
- HT8FhCixMTrqn8oDnLWrOGC8tLt9hro1V+dKpbVa2nAA/npF1Y+YZoIKE4u3jK/+AWYdVF2cIr+
- ALyBM1vil4CjCZPOuyl6DsCKWu0sSvk+SMVpyOpsuk/Wm1Kip+ioKHlDlwp5CKkD2bUr3kwljgn
- qwgCy3DZnfp8jhYK3NiH5aOU31RkEVKr5EdyGhljDJqzWSdiVEjaJ/IdAVQRrPHSRAIkNcY1c/8
- x+ICaCLpydugixruY4UEq6FWRI6NQu0J78RaygP2oE/ANF30RkyRP0hPrvLxb0sPA7ZhiKqXtDw
- bmYW/qy8PBDCpscku+Q==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDA4MiBTYWx0ZWRfX+RcSobzMjjHc
- rzsS+uIMkJX3BiY+GYlChVaWUQKpc3RclRFgpPYhxHd72vQ/MKIsmxT1x3zr6jHVroLIagXUmSg
- WdLGJpHZsKB/+nzbTfWADYzaErGGirw=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-17_04,2026-11-16_01,2025-10-01_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <000001dd762a$1b15f230$5141d690$@samsung.com>
 
-when mlx5e_accel_tx_begin() drops the skb, e.g. because psp can't
-encapsulate it, mlx5e_xmit() returns without posting anything. the skbs
-before it in a bulk dequeue may have been posted with xmit_more, which
-defers the doorbell to the next one, and an mpwqe session may be open.
-the device then doesn't see them until the next transmit on that sq, and
-since the queue isn't stopped, the tx watchdog doesn't fire.
+On Tue, Nov 17, 2026 at 09:25:10AM +0900, gichoon.han@samsung.com wrote:
+> On Mon, Nov 16, 2026 at ..., Alan Stern wrote:
+> > The type of CPU doesn't matter as much as the type of EHCI controller,
+> > since you're talking about a controller hardware bug.
+> 
+> Fair point.  It is the on-chip EHCI controller of a Novatek TV SoC
+> (DT compatible "nvt,NT72668-ehci"), driven by ehci-hcd through a
+> vendor platform glue that is not in mainline.
+> 
+> > Actually the bug lies in the host controller hardware.  Not the driver.
+> 
+> Agreed, I'll fix the wording.
+> 
+> > So you have no way of knowing whether this patch really fixes the
+> > problem?
+> 
+> Not directly, no.  I don't have the siTD contents from the failing
+> device,
 
-flush the sq on this drop like the dma error paths do: close the mpwqe
-session, post a nop and ring the doorbell.
+Why not?
 
-mlx5e_tx_flush() doesn't check whether the nop leaves less than
-stop_room in the sq. for the dma error paths that is rare, but a run of
-offload drops would post nops without stopping the queue, and could
-overrun wqes in flight. so check it in mlx5e_tx_flush(), like the other
-producers do. the completion of the nop wakes the queue again.
+>  so the claim that the controller wrote a remaining count
+> larger than the programmed length is an inference: the faulting
+> memcpy() still had about 122 KB left to copy out of a full-speed
+> packet, which can be at most 1023 bytes, and this subtraction is the
+> only place in the path that can produce a value that large.
 
-the next patch makes the psp drop reachable from user space, with an
-ipv6 extension header set on a psp socket.
+You make a good case, but I'd still like to see more definitive proof if 
+at all possible.
 
-Fixes: 2ac9cfe78223 ("net/mlx5e: IPSec, Add Innova IPSec offload TX data path")
-Cc: stable@vger.kernel.org
-Signed-off-by: Todd Freed <toddfreed@meta.com>
----
- drivers/net/ethernet/mellanox/mlx5/core/en_tx.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+> What the patch does guarantee is narrower: whatever the controller
+> writes into the siTD, ehci-hcd never hands a class driver an
+> actual_length larger than the requested length.  The crash itself is
+> already prevented on the ALSA side.
+> 
+> If you think that is not enough to justify the change without
+> hardware confirmation, I'm fine with dropping it.  Otherwise I'll
+> send a v2 with the controller identified and the wording fixed.
 
-diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tx.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tx.c
-index 14479da98f42..006bf976def1 100644
---- a/drivers/net/ethernet/mellanox/mlx5/core/en_tx.c
-+++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tx.c
-@@ -365,6 +365,7 @@ static void mlx5e_tx_flush(struct mlx5e_txqsq *sq)
- 	};
- 
- 	wqe = mlx5e_post_nop(&sq->wq, sq->sqn, &sq->pc);
-+	mlx5e_tx_check_stop(sq);
- 	mlx5e_notify_hw(&sq->wq, sq->pc, sq->uar_map, &wqe->ctrl);
- }
- 
-@@ -672,8 +673,13 @@ netdev_tx_t mlx5e_xmit(struct sk_buff *skb, struct net_device *dev)
- 	}
- 
- 	/* May send SKBs and WQEs. */
--	if (unlikely(!mlx5e_accel_tx_begin(dev, sq, skb, &accel)))
-+	if (unlikely(!mlx5e_accel_tx_begin(dev, sq, skb, &accel))) {
-+		/* The skb was dropped: ring the doorbell which the previous
-+		 * ones may have deferred to it
-+		 */
-+		mlx5e_tx_flush(sq);
- 		return NETDEV_TX_OK;
-+	}
- 
- 	mlx5e_sq_xmit_prepare(sq, skb, &accel, &attr);
- 
--- 
-2.53.1-Meta
+Go ahead and send v2; I'll probably okay it.  And do try to get a real 
+smoking gun on the failing device.
 
+Alan Stern
