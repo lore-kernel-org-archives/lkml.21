@@ -1,97 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.16
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794952510;
-	b=YcjRweJCRP6r6ccbS5B0Nmrjt4lShp4jqQGcUzpR1tQ6Ktr1IIAdYnR9YFz2fFoayL8A
-	 HaNy8uNO7EFyliRM8d5XapJHQWMrkQoe35UIkOnOFdWJaSDvKZPRAxG+sqAz2HQe1ewuy
-	 W4EE+zuS7cmdrdFtLOjrgtqVo4jk8Gg7ntW+j2IDp2EC2Q9frCdnSoJ9WkOfhgT6/xAlX
-	 BQ+AxqndDNyKTeeUA8sx4H1+7VB1h7ieflvyUBkTqUwymDukJEfV9OWvodzgXJIoq3HSk
-	 8CXGu0vuym/9xNUo4OT5ToGskPVaviCi61ypeBcWTGac2AUwGq9CxvaYb7Gki9CUvIA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794952510;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:CC:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=mW04H9HayYKKWo49PA9s/px1EZWSYQhj7RcnC+xFWqs=;
-	b=e15vRUauCI1lzB4zqsPWeGRr/KeU6rfcyV4bfcg40j0Dee6TDTvez0esnyniMmzkhfQY
-	 xVQEngIeP2TKDFjCswrmzmmPoQL9buE2xylmaN7dLJqd6TI7sL+/H9gs1PoKJ3utyf6bA
-	 jqKpPskHZ9XqAa6GvS3i1bFJLJ9U4hjcumblxY71F8jLTHPLd4TNCPr2SLdGpUV7EUkpy
-	 4arPqqmIl214o8L0s0cyYfrAlr/qDmJi1WA730UAJSWnq7Q2P6dcDI0mwatqW2cJlI5A5
-	 kdGMhSmqyhEqGjDpodtjWOf0eMyiqBY+BR5CQA5m0n0SP00vr9YdKkVeVZ6v/3iakpA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=tSzymhDp;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.16
-Received: from DM5PR21CU001.outbound.protection.outlook.com (mail-centralusazon11011016.outbound.protection.outlook.com [52.101.62.16])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.8
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794952567;
+	b=rzc+IXaJhz0g1QsWGb4tEw3GTctLbLknnn1JmyS3tNrjWaej5XVaUXzbbQDMoNnmWOs5
+	 nLpsEqdHJcR2e9WvPXi/U/MCyOq99KgrGpXJOgcOALeW50hMPh2ilmHn579WnvDy0O7t5
+	 n+K4bJuZNOqHKbtDzJuveSVNyyuPW7hLzzd8VGnRwHWtBn5yLDu4WuOwzOfR013v8tlM4
+	 hJVgoi7nDMdiagZulqW5lXhfi5/nN55k5Rd6a9/B5HVkb8GFbb9H+ztRYBfzEKIB5Hgje
+	 ciu1a8UhKz/CHhJnTuS2GWB8LF7EvVOWQRveL3q/T/FDYbw+0ko+ONoFnxkCHJiogtg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794952567;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=DSjrH7EnnuVI6DIehpVdsnek9CpkzZq1NaBOFJ/JCTk=;
+	b=seIEXo0KjISZnQ7HcMsR8kp5dItcqKMqSMUsuYilgk1DmOU/tEoJDy9PuhRqp73p17WE
+	 3ztHWN4pW6n1IN3dzWnM2pK4PFhx9iS+5dz0O4CzAoDHHHc4XLehe2q3xXyvqSHQ3qLQz
+	 Xzw2i/FuBc6Z00yIvbxN7ulccc3h6VnmV5ohwlg4O7HYs3eSoWffgtDi/G+FadCYnv3Rs
+	 l9awdHV5+1G9W26No6T9o+8JSLh3Z14t/qh/HjsvwW6AvNdLSQTE9n8DR7nO8s/esPG/p
+	 F4F2N/JUfPSUraNXMp553EyuwbAynORicEoV6r50k6OX6z9Jg7OiJWU7QJ0vrS9vWFg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="g2/nqwqx";
+	arc=none smtp.remote-ip=74.125.229.8
+Received: from mail-dy2-f8.google.com (mail-dy2-f8.google.com [74.125.229.8])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B491606A31C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:55:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B491606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6BCCF606A31C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:56:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6BCCF606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=tSzymhDp
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WADjP2n3QxVz+8HksXjPy985jv1Ckhvpkl4BhNruvUsIIoLoZimDJs0szly6bI84wGbCcd+GO5WfzVQQMDC1qv6YBBEnydsl2A+FdnaIU9LT6aMdKhToQZU1G9411eBsff51arYyEMEWOvy2ssQZD+Ck1GPysJW37toUp7DbyrCm+4r8yoH5y7L5vBdp7sx4QvxFFkkcithCJfsUGMUk+ygLbeK/ZEVEuZmOvbDWKDJLemoqJnPqAkZjxMquAAGIHDh1ezpzxFIOuYwzD/7R9CPuc1m857i9CHYhhKXyi/ONiBbX2Xw0Yh3OtPu6dHCF0Pj5prR+/8T+Hjc/kmbZAw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mW04H9HayYKKWo49PA9s/px1EZWSYQhj7RcnC+xFWqs=;
- b=icBCdmTWht6WXEeK8ybpodMcuoyDihnVevFEUYPerJeH2or7WUkSig9l8GTryxDRJuIX7e4e0qmcfwENclslZYosIzG5R37GjNHDa8s099THxwS2MjBEQJZi6gPwHGGanPNj/RzVOVua3Jt3Hp18Bn3YC/uToqebCosAWzJe3ErE4GGFWr4vvT5Qou6+Uh80g2nGK82Q82KkwcGVqTzxDvEX730FRR4I/Dla++c8+YBcgtXWaAEGhH1Rq8clrXkWCbRlFxMxdchLv8hUGZOR8//QCU+E3mq3+90E50gQPsyVH2Rw9pN8dRTn3WbqsjkDKdI4E/RLKygrZHd6c0xGpg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mW04H9HayYKKWo49PA9s/px1EZWSYQhj7RcnC+xFWqs=;
- b=tSzymhDpGnwdn4rAYWXBfLhdG+sEk0foGAV7JjR0znZL/Mch8QX6jWZdGfJizxZrfMU3Bib7UKerkGGWg4iSlEsFciGnWTCbnqo9g7l/96QjzOZKAIzwoBue3ZaYiD48TRMIuO/W0WKv15LphcqzsEJ+4x+i6C5DEiv4lcQj344=
-Received: from CH2PR19CA0024.namprd19.prod.outlook.com (2603:10b6:610:4d::34)
- by MW4PR12MB7483.namprd12.prod.outlook.com (2603:10b6:303:212::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 17 Nov
- 2026 21:54:54 +0000
-Received: from DM3PEPF000265BD.namprd04.prod.outlook.com
- (2603:10b6:610:4d:cafe::41) by CH2PR19CA0024.outlook.office365.com
- (2603:10b6:610:4d::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.10 via Frontend Transport; Tue,
- 17 Nov 2026 21:54:54 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- DM3PEPF000265BD.mail.protection.outlook.com (10.167.23.250) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Tue, 17 Nov 2026 21:54:54 +0000
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 17 Nov
- 2026 15:54:54 -0600
-Received: from [172.19.68.164] (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Tue, 17 Nov 2026 15:54:53 -0600
-Message-ID: <d0f66e86-e5e1-4882-8c4c-ba403380892a@amd.com>
-Date: Tue, 17 Nov 2026 13:54:48 -0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g2/nqwqx
+Received: by mail-dy2-f8.google.com with SMTP id 5a478bee46e88-382afece6d8so16637eec.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 13:56:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794952565; x=1795557365; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=DSjrH7EnnuVI6DIehpVdsnek9CpkzZq1NaBOFJ/JCTk=;
+        b=g2/nqwqx07e0tdK4DVJHIslgFnzAaRUxAAi5stbTk5pgexoRPdIoPYLuE6Qg0R9zBd
+         4QvujGZdubMPFGPgZTKNz/EfuvBTgFRWHzS5CkcNqkRsA/LGBiW0kLBtDsNaitT1siDb
+         mf17xXp5d/FR2SlhosXgz96l1fCaRRpjpbwXVe4HYJVIr2yJgnACE4HdZmlEKvqUHgcU
+         WXJxNDTxRg3Lk7tD5CtDDtW2tjjqle4ZM9LJhqimuPA3E3YeIJl6xWlrunHDHYPiavFV
+         VsISdeUccAe+wZp9hoRaLBkZeefll2L9+txv3Jj/Razygsk95O0yVwZeKGGgyGp4nK5Q
+         1MRQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794952565; x=1795557365;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=DSjrH7EnnuVI6DIehpVdsnek9CpkzZq1NaBOFJ/JCTk=;
+        b=17q7tP72L8qMKqwzE3z72Xz5TxmjyBfYsCNpkhvc849aVYVmKapSv3eV9/3WT7pbOV
+         5Ysv+JZNkMGwIlclLZda8SLSwJtn1uO16Z7zLPJ1Yg1HmhcsS0eP3on6MObmhIsyjits
+         diDFCWQYVDlccLg2CXvVDnIY1EIIKQ8k9UYwS6V5WK2Dt4vIg3f2DpKTnDLmxK7CLGYL
+         2e1xyXFEuZD7uWyW/61iCUXmGQExaNB6LQ+XU7sc52upvK6cPTV5j6n4VIgBgQt1E6mV
+         Km88W/R7LUpWp4sB+b+jt9uCMP3aAsoIv9cg4pxlk2zTzTjfe9oEjuIhccmgBHdpah6F
+         pzkA==
+X-Forwarded-Encrypted: i=1; AL+hErEbFHfyPHzTA7A6T2eWOrm1Nn5kOMf2ot61T3rLKSoubCGw9dIeQErXs1uijQKfQRA8YaSlFcofuOIG0e8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+RdJPJ0e+yAnP9GAAnupHGDf9mEbU8dfLwXwfD5y+so/NOw9m2
+	iWBmjOTSVi5m5W2LsnmPsY2N/1PYODtVX14w9H5s1j0zZ595VQ6Y03gZ
+X-Gm-Gg: AYBFou1F3imFcYSygJf7FFx8V/4bwFfSLxE3rR+qpM9KZrUEzh0wbMPOGmDKJlQROPL
+	MvDy/xAV5e4OGm8JcdZRyNRv/jXxFywjUbo7PTaVshcbqZQ2Hb2GWYuJmVToYEl3+UacMmIGnrb
+	mR/J2HePa9jcKRGBpbXamF27VRytTfHxZXW7+5/bmKptcRvGRMY9M6dk41CqjgPBMBX97hLYmU5
+	heCYG9U2YZ3s0GdT7+9INOxUINZVRkwkMdzkLqgnZdNJI+v4p4kTNuiwFrd/nWeXtBKRWYmDU0u
+	pTeNrdW9oohxvWI+7Jm6bCDmy8hwU+ZfXuerWpaMG/mIrf/SS0/FQXAketO+yifzNVc5DW+ErD4
+	ERAS7zrhNWOqDV4Os5EzAT+O2y/0+tzG91Tpj3ruL/nAS2SD1mC9rEbsn7L1/wu2mhfVLXY2hBg
+	PLU+ZsTHBw2JNCS4SF87UuPXwjVkuAxsHjIWW9OSNAkE4Pu9DyQ9j2QCtsqeFsm/3RlDMFBDUsd
+	ZahX2FEavY8C0nRuNAMA95bFtzM5VCF+HTKc4/GQavflXHC8jelAbt7ptFYI9F7sIMa1C2jiORa
+	atteTd8b7MaMIfszKaN//IIxwkUcsBtXD+3eMDcWHYudSgIOLsMIAe+57r6QsSJdRo34ljv1Tvf
+	Qdffs9LeRCpyXwExGkYTzqQd1lJGhh9BIW3FV4A==
+X-Received: by 2002:a05:7300:dd03:b0:376:aa76:6a15 with SMTP id 5a478bee46e88-3828120efe5mr619582eec.28.1794952565407;
+        Tue, 17 Nov 2026 13:56:05 -0800 (PST)
+Received: from localhost.localdomain ([98.148.34.5])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a7bbf0d6sm726796eec.25.2026.11.17.13.56.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 13:56:05 -0800 (PST)
+From: Hungyu Lin <dennylin0707@gmail.com>
+To: edumazet@kernel.org,
+	ncardwell@google.com
+Cc: kuniyu@google.com,
+	davem@davemloft.net,
+	dsahern@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	0x7f454c46@gmail.com,
+	fruggeri@arista.com,
+	noureddine@arista.com,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	dennylin0707@gmail.com
+Subject: [PATCH net] net/tcp-ao: fix reset key lookup for IPv4 segments on IPv6 listeners
+Date: Tue, 17 Nov 2026 21:55:54 +0000
+Message-ID: <20261117215554.68071-1-dennylin0707@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,87 +106,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V2 2/2] accel/amdxdna: Abort jobs when the firmware
- context is gone
-To: Lizhi Hou <lizhi.hou@amd.com>, <ogabbay@kernel.org>,
-	<quic_jhugo@quicinc.com>, <dri-devel@lists.freedesktop.org>,
-	<mario.limonciello@amd.com>, <karol.wachowski@linux.intel.com>
-CC: <linux-kernel@vger.kernel.org>, <sonal.santan@amd.com>
-References: <20261117212733.172074-1-lizhi.hou@amd.com>
- <20261117212733.172074-2-lizhi.hou@amd.com>
-Content-Language: en-US
-From: Max Zhen <max.zhen@amd.com>
-In-Reply-To: <20261117212733.172074-2-lizhi.hou@amd.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM3PEPF000265BD:EE_|MW4PR12MB7483:EE_
-X-MS-Office365-Filtering-Correlation-Id: 79d056d9-3fd2-4acc-aab8-08df44f569f4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|376014|36860700016|23010399003|82310400026|56012099006|261021121427099003|261022105027099003|4143699003|11063799006|10067099003|261026140227099003|261022075727099003|261028144727099003|261102123227099003|261021123027099003|261009223027099003|18002099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	GC4kr3+qSuWKEWrVGsBGDLM+BBrCGwDOywiyrEk2O+WgG5VHm5dpCbKzMshiDkJaxqMda3V9q+PtBSLhCtWZDR/0xbPUNFZwhlsa+pvsizGepZUPPARCblF/jHhhnbg10HR4LFAQDNi1+ptWU/6ZtBNUAtwhzam2A5xhVe35KGidEowEn7RkVOz9JbT1M2Bn+6bOjXsK0lrCEeOMegxOO+bwFivh9bRXo2hLX5/GJAAQJTLaRCbLoWrMPJPjXRhjn+48gKNiVuAgPewRwsfgzd1/B3YayURYvY3+wNpJoQ+hNWC3W1BriaKKcCWivFu3eDfBGaYfOQGuk11WdlHtQ4cK/2gxU6Zn+qLDYh+yBvB9vtWtl0tvfKRBy12CfreIMi4S0vUK4IsS+Y4qJIobeKnwRgR75MSEsG8+0lnK+KJm+ir89blR5ZUTsDeOb+1WbFVeTxCbdz2GrDp6tbOGZQm0YxgRgLC8yT9PJMcm/y57fSKmroJnc/CEIDA8sdoBwr5rOBqgowtVL7MEaf6T0iG3RYUmUHuL+hRgnpewPmFy/OGZw1Yr3YTC57Gn7s3947Dt/+fWszE9NTcfScicblC97KEYm+Hn5p564sLgKJxEwYV82EbtMqaDZntu2IEFHaPQSx/96wT/1jNAkW8cTi/6d0+KayZuQcr+mUntiUQvNoKvkzxYIDMEMHNEVjxvbNNF3nT7Mvj+yHZZFvzQWg==
-X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(36860700016)(23010399003)(82310400026)(56012099006)(261021121427099003)(261022105027099003)(4143699003)(11063799006)(10067099003)(261026140227099003)(261022075727099003)(261028144727099003)(261102123227099003)(261021123027099003)(261009223027099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	hZy68C7lWctkBBvW554SgyGrMz/5cQZ/pkZ0MLBcZkgo6ZTQ4nn09Iu0S4RFUBPknlX9TzNxzMOZvEmpZ6oJMPareoTbExxiopodzwZwQWHlpe2NJz7w3YSSptpgku+ymdbShK3qkQSoVB1T6qlT3GOIpNCL8z41mDhQdJPbgC/thj5NEaGxRe6cffFuj3aXLB5PtwCAcWSodsc8zKbHNW7Ib6PoCXeHCB42MfzqQuf1YswPbMEirYmq0qrLpSKZxe9ZqoY5cVgVpTPagVdgnm5iP30PsstIqysEd08RmCA1fJdUp2UIdoWbd9WtXFEorI9AKNkqwuBM/ZS3m9Y2Wz3/S52H/KEiWN3+r3shLcCkiKV7HmvqshhTePK0myhhYJXNZHcSBkcCSpEm7r3oAcsNe1Y79OiQXMszzjFRnH2WCj/pGepPA6LMEwPPZqzd
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 21:54:54.4375
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 79d056d9-3fd2-4acc-aab8-08df44f569f4
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	DM3PEPF000265BD.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7483
+Content-Transfer-Encoding: 8bit
 
+tcp_ao_prepare_reset() looks up the key for a reset that is sent on
+behalf of a listener by the address of the peer. It takes that address
+from the IPv6 header whenever the listener is an AF_INET6 socket, also
+when the segment is an IPv4 one that arrived on a dual-stack listener.
+The address is then read from the middle of the IPv4 header, the key of
+the peer is not found and the reset is not sent.
 
+The v4-mapped check that follows does not help: it looks at
+sk->sk_v6_daddr, which is the unspecified address for a listener, and
+it runs after the address has been picked.
 
-On 11/17/2026 Tue 13:27, Lizhi Hou wrote:
-> aie2_sched_job_run() returned NULL when the firmware context is gone
-> (mbox_chann pointer is NULL). The DRM scheduler treats a NULL return as
-> a job that completed without an error.
-> 
-> Return ERR_PTR(-ECANCELED) so the error is recorded on the fence, and mark
-> the command BO aborted.
-> 
-> Fixes: 6b13cb8f48a4 ("accel/amdxdna: Fix runtime suspend deadlock when there is pending job")
-> Signed-off-by: Lizhi Hou <lizhi.hou@amd.com>
-Reviewed-by: Max Zhen <max.zhen@amd.com>
-> ---
->   drivers/accel/amdxdna/aie2_ctx.c | 14 ++++++++++++--
->   1 file changed, 12 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/accel/amdxdna/aie2_ctx.c b/drivers/accel/amdxdna/aie2_ctx.c
-> index 32458d05635f9..c42ea1b4e08d2 100644
-> --- a/drivers/accel/amdxdna/aie2_ctx.c
-> +++ b/drivers/accel/amdxdna/aie2_ctx.c
-> @@ -404,8 +404,18 @@ aie2_sched_job_run(struct drm_sched_job *sched_job)
->   	trace_xdna_job(sched_job, hwctx->name, "job run",
->   		       job->seq, job->drv_cmd ? job->drv_cmd->opcode : DEFAULT_IO);
->   
-> -	if (!hwctx->priv->mbox_chann)
-> -		return NULL;
-> +	/*
-> +	 * The firmware context is gone, but the scheduler keeps draining the
-> +	 * entity, for example from drm_sched_entity_destroy(). Returning NULL
-> +	 * would make the DRM scheduler signal the job fence without an error
-> +	 * and user space would see the command as successfully completed.
-> +	 * Abort the job instead. Driver internal commands have no command BO.
-> +	 */
-> +	if (!hwctx->priv->mbox_chann) {
-> +		if (cmd_abo)
-> +			amdxdna_cmd_set_state(cmd_abo, ERT_CMD_STATE_ABORT);
-> +		return ERR_PTR(-ECANCELED);
-> +	}
->   
->   	if (!mmget_not_zero(job->mm))
->   		return ERR_PTR(-ESRCH);
+Use the protocol of the segment to tell the family, like
+tcp_v6_do_rcv() does.
+
+Fixes: 06b22ef29591 ("net/tcp: Wire TCP-AO to request sockets")
+Cc: stable@vger.kernel.org
+Signed-off-by: Hungyu Lin <dennylin0707@gmail.com>
+---
+ net/ipv4/tcp_ao.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/net/ipv4/tcp_ao.c b/net/ipv4/tcp_ao.c
+index bb7bbc20ba3f..656dbf805cfc 100644
+--- a/net/ipv4/tcp_ao.c
++++ b/net/ipv4/tcp_ao.c
+@@ -813,14 +813,12 @@ int tcp_ao_prepare_reset(const struct sock *sk, struct sk_buff *skb,
+ 			sisn = th->seq;
+ 			disn = 0;
+ 		}
++		if (skb->protocol == htons(ETH_P_IP))
++			family = AF_INET;
+ 		if (IS_ENABLED(CONFIG_IPV6) && family == AF_INET6)
+ 			addr = (union tcp_md5_addr *)&ipv6_hdr(skb)->saddr;
+ 		else
+ 			addr = (union tcp_md5_addr *)&ip_hdr(skb)->saddr;
+-#if IS_ENABLED(CONFIG_IPV6)
+-		if (family == AF_INET6 && ipv6_addr_v4mapped(&sk->sk_v6_daddr))
+-			family = AF_INET;
+-#endif
+ 
+ 		sk = sk_const_to_full_sk(sk);
+ 		ao_info = rcu_dereference(tcp_sk(sk)->ao_info);
+-- 
+2.43.0
 
