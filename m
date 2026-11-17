@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794941601;
-	b=QcDlG8er2omAy+dgzpSx43mpMjOsStsOM1N2IokWOYcuwmwGA8ueo0jyXqo91vBBi8c7
-	 bUjszxiKLf9H3oYSqUNXJFGl76cDh+gChBad7a+mEmmwER2TRM99Vip5EhejRK2eQrhQ3
-	 +pT01x5jL76TovDqwd55XihYRz2lylEfNpzIM2iuuFcPlMeZ73GZUY3ijkbKYnk74c0tx
-	 G28hnoK2Dkl0hYyl88fbJ+/I6ByAPqAtsCm8ZEoqN90JyA4jXx6RsRcdNCP+VFxVi2e0H
-	 Z232nR9VYrWLLSmZfAdyFhll6NGa0bKknsrb7fTAhM/AUfiuQv5rMAaQ/WE7Z9I/EWA==
+	t=1794941609;
+	b=bpVUd9WppoDzB50aH+JRODpArBS1K/uNUzMmX0a2Q4geWG5W10RDtEtbLhVPEt9eXpzF
+	 DuS2wyMZB8UdQ+8feoSL+Ve3WWHB+Om8WlqvEPVcCajgKOSzbNNbqe8oQYVqhu10DTmnj
+	 WzM78MWZRJSWrzCdRIzba3sgXdu8hVhg2En8m62oalFHkkJPZz+Ou5m2IPln9tSWo3ccH
+	 VF+nrTgXVLzma5NeWpoG0lbJ65/CivCYK4ekKaPOUXWVQUq2tJPKEfdcg9zPFrFsKt+ij
+	 PJJXGJwgX+wW7xJSbR74SY7Pbrcqq5ePOlXcIVoKPcvnLcFNckoLxeXTnyANrOyY97g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794941601;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794941609;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=lni1T8sGWJxKiSpvIclY14rJSadn/nODQffQ1TUmK1c=;
-	b=h8Nqzbseb4D2XurWWaMs4ffpwCGBn5adx8uqbpH0Svady7BsNRLLDu27Fy+w+u24ImWP
-	 5Bi8ofoy5x8IviXsGxjTZXwBRF8pI6i+H7fV2N8yxOdKWsUJkkh++ipi09o7S61xTVEg/
-	 xlg9M7RWUu3/r7kZWrWbFopAM+sflBP0AhD0sBUsX3uu3B+jyFvSVL0YlGG5K6gPzYolR
-	 znjsc7CqHOlfZMVbs6BdyE2IZubxNUEB1MSNB4GNM2iiNbhoY8EUR/axiV1bN4hG/A9i+
-	 g2B0U5k4Vd8wNYcYShiT/eiflNlYYc7PtM5hHSxGEwSe6vtPKpL74ceYY6AZ8xVAVmw==
+	bh=+eQgWQMaxGbnv9/EySqmZ3Nf1AIeAIXLRrfeXp8Ga94=;
+	b=YnpxTevvUaKSIzZKlrZ97ad9nXPjTXJmjJ8V/3RRYIPneaUsbdQfwxag1/iv82cRoRAw
+	 80c17A6gACMJKe5PjXJEtx9LnBwYL0Df54CVPcXiOZqDqylQkeAUmV+teXACVGNvnoSlo
+	 B3tZc/e1jmNGHTDzCfcLvxstSprjC5gIcC5X1v5eOr3b52cq1kTfxTgY0qf1aa7YnjERm
+	 M7Iee2b0TczX9ThGBrAhg28/Sv+lMt76o6FcL9fP5CmMRlJT52k5DpAAaDD+rxcyrgyb6
+	 0KRifHf8jC4uvTzUanTufpk6b5orn5FTW+R1pT3GwArJjjxrwvZwAoyMEfItCDj8t4g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=R863hZcr;
-	arc=none smtp.remote-ip=74.125.82.72
-Received: from mail-dl1-f72.google.com (mail-dl1-f72.google.com [74.125.82.72])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Sx0brMjm;
+	arc=none smtp.remote-ip=74.125.82.197
+Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71323606A31C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:53:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 71323606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC5BF606A33E
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:53:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC5BF606A33E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=R863hZcr
-Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-1a5005fd0f8so230353c88.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 10:53:20 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Sx0brMjm
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-341eff9e381so244858eec.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 10:53:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794941600; x=1795546400; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1794941608; x=1795546408; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=lni1T8sGWJxKiSpvIclY14rJSadn/nODQffQ1TUmK1c=;
-        b=R863hZcrmaMmKpi1otrguLxrdXHRsGX5NpngKdg09ekPlwZbQeS7uss5X2BD53MRS7
-         WZDPRqennmvLHkmQgdvHIGoEtncXBsDyI1cFhcq5lQKZjdO1Jm9JwijKnyc/FOy/JwRZ
-         lpKdflspli+bX5nFw/I9bgzSIHpQQgzo0xzSS4X/zPE0TB2HOHuk8jGbmlo9whS5Ld+j
-         9gMVWCPzVlD7vx6cdSDokB1Lc8/g3wR5QpdJoxzugZVx6wSFo99ox810vhnAItQkeue+
-         2TPtHvQTpQ6PEE3QbJIr3Sr3cxEpLuvWbg0C95TIWxF6IDj3QFyqSwxhR2+HZmf+nE1u
-         jpYg==
+        bh=+eQgWQMaxGbnv9/EySqmZ3Nf1AIeAIXLRrfeXp8Ga94=;
+        b=Sx0brMjmXy421qFEkZLF/Lo6GcRR1oZD+D5GNCfgJKjoJ8xwCXLCxI9oha90b3CH3K
+         1xKbaIO3be010RcxkWL+1Sq5eoh2RWWXscY1JQpURsHf5SQI0h/Ip01oOBf+HHFM51aV
+         T6zrtQFXEmc0Mo7y9mhtxkxnOD3edosiChUx+EFyTzyxpQrFc2LtcGAOEqfYjK6wYN3v
+         5ja3AeExwdaCrhlAFIKw7vcGkkZyEZ55vvxxYuOa1OXOwi1Hpbd713hJ3XlAIoMT3cD3
+         ex46FC/ttp/41ej/s3Diqz9RsDP9W/VbtpXmAVhpy0afvLTEUEjvdsGGoBNLynP83ttN
+         xWYA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794941600; x=1795546400;
+        d=1e100.net; s=20260707; t=1794941608; x=1795546408;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=lni1T8sGWJxKiSpvIclY14rJSadn/nODQffQ1TUmK1c=;
-        b=Ftjbt+l8KiE436XFkdFEAz0PdnjGPQNFJ7DKgZCTb7LXmnyNGRaV9RLRahcFrXHZ57
-         HuihrK4kQle5uDz7fH7tvQcNeahL7zkpq78ecUPzyIH0fclmCsG9S/agnK645YGmIzAZ
-         pJTakbOo6EZr4mVkov+c1PJUi3IKvK1PxWuZ5PwbeCtyvQHkG+UPiQNlRzVVmRJnCvdb
-         USfsBPGDuVS659IUbGkYE0ybiRFT4NUHCccHWoSpwwrV/8UMWOroWcbdOrN/qWmSNkde
-         G13qcFYYEzDRqE0l8FBegKqsEgCZVr7r+nz+626+AWT41x2uioCuMpjbH4Zjsukwnz5H
-         gnJg==
-X-Forwarded-Encrypted: i=1; AL+hErEo4QQ5vB8tL1y4HXsrH+vLGiBb2+v3jqu9LW06YhwaxprFPGZQQtopYFZ2/6vpHWwbjmhyCL9YqMUf0DQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8v13Eo28cXw3UhxkgdBr3ttnnDTaIcHdcra9zhXhw5G2BW47cu
-	S2ZQ7eGLgX9NK0S75jAC8JVtd8rkkTfp9AMKEoVslMH5WTy8GChyduxt3ycQoMoriemKazW0wBN
-	WTk/xhG+Jnw==
-X-Received: from dldnz13.prod.google.com ([2002:a05:701a:ca0d:b0:163:a42e:b837])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:701a:ccdd:20b0:1b5:3aca:8116
- with SMTP id a92af1059eb24-1b543c2a00amr424835c88.33.1794941598939; Tue, 17
- Nov 2026 10:53:18 -0800 (PST)
-Date: Tue, 17 Nov 2026 10:53:01 -0800
+        bh=+eQgWQMaxGbnv9/EySqmZ3Nf1AIeAIXLRrfeXp8Ga94=;
+        b=BermwY+Befww4m30ZpWUBvXz8Rr8tnCk2mqa3ReZ9Kxu4SWVKD8NidMmD/okCLKEFk
+         GIFY3eRN6TEaBQ+XkCR77oods4d++A4EN8faJDM4N/rFVnIKzj9VMRBZXwWmDGJmzY93
+         DzohUABF98NJv/z/nFM12nWkliXS0eRsxXyLtvRUijv4xz7doZ1Q6W4x2gPl0Kl6nvOd
+         BWZpMqVJiyvGLPlS5JA/dR/q7God6fzNoOYpR/K8TMxnbfrhilxYAQcsiMe9B99eoQYG
+         N/Iwiv8eNcP5AFlD6esE8E+9l+QpN8b+BXLQd4eXA96TmnK5HIJAIHoLRORGwxcpuPb2
+         NwrA==
+X-Forwarded-Encrypted: i=1; AL+hErFRfXT8XFHgV+UC6Ov14og6uc3zd3+UlcpeTZ7Yu7BAWnQpIozLDXPcsuXTkbZUmmJdh5gxCX06680Of/E=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+MxwMTRzkYzKgx8KETcQIYzNaFlMUf1KzRV9NKYLr8RDATZGnj
+	TBsThTIo+kCqOsFruOgQvWTR7owDwtbwthkGsThyzlvdeLT09kGp9e4o/eLe/rcmAy4UYXMRwsC
+	YOKIxgbQrBw==
+X-Received: from dycnh22.prod.google.com ([2002:a05:7300:ce96:b0:353:41aa:1e9d])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:fb02:b0:36a:3453:a356
+ with SMTP id 5a478bee46e88-38281b03e42mr260248eec.36.1794941607543; Tue, 17
+ Nov 2026 10:53:27 -0800 (PST)
+Date: Tue, 17 Nov 2026 10:53:05 -0800
 In-Reply-To: <20261117185305.108003-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,9 +81,9 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261117185305.108003-1-irogers@google.com>
 X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
-Message-ID: <20261117185305.108003-6-irogers@google.com>
-Subject: [PATCH v6 5/9] perf symbol: Switch backing storage from rbtree to
- struct symbols array
+Message-ID: <20261117185305.108003-10-irogers@google.com>
+Subject: [PATCH v6 9/9] perf test symbols: Add tests for symbol shrinking and
+ session alloc wrappers
 From: Ian Rogers <irogers@google.com>
 To: Namhyung Kim <namhyung@kernel.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
 	Alireza Haghdoost <haghdoost@uber.com>, Ian Rogers <irogers@google.com>
@@ -92,2579 +92,898 @@ Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, Jiri 
 	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-Previously, DSO symbols were stored in an unprotected rb_root_cached
-with a 24-byte struct rb_node embedded inside every struct symbol. That
-design had three drawbacks:
-1. Embedding struct rb_node (3 pointers, 24 bytes on 64-bit) accounted
-   for nearly 40% of struct symbol's fixed header size and scattered
-   symbol lookups across non-contiguous heap nodes.
-2. Unlike struct dsos and struct maps, the symbol rbtree had no lock
-   protecting concurrent lookups, sorting, and insertions.
-3. Deduplicating symbols, splitting kallsyms, and trimming excess symbol
-   container capacity under memory pressure benefit from operating on a
-   compact array under a lock.
+Ensure the new symbol sorting, DSO-lifetime symbol and DSO shrinking,
+dso_symbol reference pinning, on-demand DSO reload after unreferenced
+eviction, and session-scoped allocation wrappers are verified by
+'perf test symbols' (including under REFCNT_CHECKING=1).
 
-Replace struct rb_node in struct symbol with a locked, lazily-sorted
-pointer array in struct symbols, matching the design of struct dsos and
-struct maps:
-
-- Introduce struct symbols containing a rw_semaphore lock, primary
-  address-sorted symbols array, secondary name-sorted symbols_by_name
-  array, counts, capacity, and sorted state flags.
-- Lazily sort symbols by start address using qsort (symbols__sort_locked)
-  and use binary search in symbols__find().
-- Update symbols__fixup_duplicate(), symbols__fixup_end(),
-  maps__split_kallsyms_for_kcore(), and maps__split_kallsyms() to
-  operate on the sorted array and compact entries in place.
-- Convert symbols__for_each_entry(), dso__for_each_symbol(), and
-  map__for_each_symbol() to callback-based iteration under
-  symbols->lock, matching dsos__for_each_dso() and maps__for_each_map().
-- Remove the unsynchronized single-entry dso->last_find_result cache and
-  dso__reset_find_symbol_cache() since binary search over a contiguous
-  array is cache-friendly.
-- Remove the direct rb_erase_cached() workaround in builtin-annotate.c's
-  add_sample().
-- Update the TUI map browser (ui/browsers/map.c) to snapshot the sorted
-  symbol array into an entries array and use ui_browser__argv_refresh
-  and ui_browser__argv_seek instead of ui_browser__rb_tree_refresh.
-
-Using 'perf bench internals symbols':
-
-  Before (perf binary):
-    Average DSO load + sort: 7.041 msec (+- 0.051 msec)
-    Average DSO memory usage: 1401 KB (+- 4 KB)
-    Average bulk insert + lookup: 1453.950 usec (+- 10.895 usec)
-  After (perf binary, -13.5% load, -14.6% memory, -7.7% bulk):
-    Average DSO load + sort: 6.089 msec (+- 0.039 msec)
-    Average DSO memory usage: 1197 KB (+- 3 KB)
-    Average bulk insert + lookup: 1341.500 usec (+- 21.564 usec)
-
-  Before (libLLVM.so.21.1):
-    Average DSO load + sort: 78.599 msec (+- 0.857 msec)
-    Average DSO memory usage: 9530 KB (+- 5 KB)
-  After (libLLVM.so.21.1, -22.3% load, -8.1% memory):
-    Average DSO load + sort: 61.074 msec (+- 0.236 msec)
-    Average DSO memory usage: 8755 KB (+- 1 KB)
+Add unit tests to 'perf test symbols' covering:
+- test_symbols_sorted_insert(): Verify ascending symbols__insert(),
+  out-of-order dso__insert_symbol() maintaining sorted order, and
+  unsorted symbols__insert() followed by sort-on-lookup in
+  dso__find_symbol().
+- test_symbols_shrink(): Verify symbols__shrink() reclaims the secondary
+  symbols_by_name index and trims unused capacity in symbols->symbols
+  while keeping live symbols intact, and verify
+  symbols__try_delete_unannotated() preserves annotated symbol tables.
+- test_dsos_shrink(): Verify dsos__shrink() evicts unreferenced user
+  DSOs while retaining DSOs with active external references and vDSOs.
+- test_session_alloc_shrink(): Verify machine__session(),
+  dso__session(), perf_session__malloc/zalloc/calloc/realloc/strdup(),
+  and perf_session__shrink().
+- test_dso_shrink_and_reload(): Verify dso__shrink() on a referenced ELF
+  DSO reclaims auxiliary buffers while preserving symbol pointers,
+  dso_symbol__copy() pins DSO symbols across dsos__shrink() until
+  dso_symbol__exit(), and dsos__shrink() on an unreferenced hit DSO
+  evicts its symbol table and transparently reloads it on a subsequent
+  map__find_symbol().
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/arch/powerpc/util/sym-handling.c |  34 +-
- tools/perf/builtin-annotate.c               |  11 -
- tools/perf/builtin-kmem.c                   |  51 +-
- tools/perf/tests/hists_common.c             |   5 +-
- tools/perf/tests/symbols.c                  |  62 +-
- tools/perf/tests/vmlinux-kallsyms.c         | 181 +++---
- tools/perf/ui/browser.c                     |   3 +
- tools/perf/ui/browsers/hists.c              |   3 +-
- tools/perf/ui/browsers/map.c                |  62 +-
- tools/perf/util/auxtrace.c                  | 109 ++--
- tools/perf/util/db-export.c                 |   4 +-
- tools/perf/util/dso.c                       |  50 +-
- tools/perf/util/dso.h                       |  68 +--
- tools/perf/util/intel-pt.c                  |  74 ++-
- tools/perf/util/libbfd.c                    |   3 +-
- tools/perf/util/machine.c                   |  30 +-
- tools/perf/util/map.c                       |  36 +-
- tools/perf/util/map.h                       |   8 +-
- tools/perf/util/probe-event.c               |  98 +--
- tools/perf/util/symbol-elf.c                |  12 +-
- tools/perf/util/symbol.c                    | 643 ++++++++++++++------
- tools/perf/util/symbol.h                    |  72 ++-
- tools/perf/util/symbol_fprintf.c            |  25 +-
- 23 files changed, 1011 insertions(+), 633 deletions(-)
+ tools/perf/tests/symbols.c | 779 ++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 768 insertions(+), 11 deletions(-)
 
-diff --git a/tools/perf/arch/powerpc/util/sym-handling.c b/tools/perf/arch/powerpc/util/sym-handling.c
-index 947bfad7aa59..f87d77262c00 100644
---- a/tools/perf/arch/powerpc/util/sym-handling.c
-+++ b/tools/perf/arch/powerpc/util/sym-handling.c
-@@ -115,13 +115,27 @@ void arch__fix_tev_from_maps(struct perf_probe_event *pev,
- }
- 
- #ifdef HAVE_LIBELF_SUPPORT
-+struct post_process_probe_trace_events_args {
-+	struct perf_probe_event *pev;
-+	struct probe_trace_event *tev;
-+	struct map *map;
-+};
-+
-+static int post_process_probe_trace_events_cb(struct symbol *sym, void *data)
-+{
-+	struct post_process_probe_trace_events_args *args = data;
-+
-+	if (map__unmap_ip(args->map, sym->start) == args->tev->point.address) {
-+		arch__fix_tev_from_maps(args->pev, args->tev, args->map, sym);
-+		return 1;
-+	}
-+	return 0;
-+}
-+
- void arch__post_process_probe_trace_events(struct perf_probe_event *pev,
- 					   int ntevs)
- {
--	struct probe_trace_event *tev;
- 	struct map *map;
--	struct symbol *sym = NULL;
--	struct rb_node *tmp;
- 	int i = 0;
- 
- 	map = get_target_map(pev->target, pev->nsi, pev->uprobes);
-@@ -129,13 +143,13 @@ void arch__post_process_probe_trace_events(struct perf_probe_event *pev,
- 		return;
- 
- 	for (i = 0; i < ntevs; i++) {
--		tev = &pev->tevs[i];
--		map__for_each_symbol(map, sym, tmp) {
--			if (map__unmap_ip(map, sym->start) == tev->point.address) {
--				arch__fix_tev_from_maps(pev, tev, map, sym);
--				break;
--			}
--		}
-+		struct post_process_probe_trace_events_args args = {
-+			.pev = pev,
-+			.tev = &pev->tevs[i],
-+			.map = map,
-+		};
-+
-+		map__for_each_symbol(map, post_process_probe_trace_events_cb, &args);
- 	}
- }
- #endif /* HAVE_LIBELF_SUPPORT */
-diff --git a/tools/perf/builtin-annotate.c b/tools/perf/builtin-annotate.c
-index 7cb7e03d9a21..65846110c309 100644
---- a/tools/perf/builtin-annotate.c
-+++ b/tools/perf/builtin-annotate.c
-@@ -258,17 +258,6 @@ static int add_sample(struct perf_sample *sample,
- 	    (al->sym == NULL ||
- 	     strcmp(ann->sym_hist_filter, al->sym->name) != 0)) {
- 		/* We're only interested in a symbol named sym_hist_filter */
--		/*
--		 * FIXME: why isn't this done in the symbol_filter when loading
--		 * the DSO?
--		 */
--		if (al->sym != NULL) {
--			struct dso *dso = map__dso(al->map);
--
--			rb_erase_cached(&al->sym->rb_node, dso__symbols(dso));
--			symbol__delete(al->sym);
--			dso__reset_find_symbol_cache(dso);
--		}
- 		return 0;
- 	}
- 
-diff --git a/tools/perf/builtin-kmem.c b/tools/perf/builtin-kmem.c
-index 8693c6b135ca..87869c717266 100644
---- a/tools/perf/builtin-kmem.c
-+++ b/tools/perf/builtin-kmem.c
-@@ -341,13 +341,33 @@ static int callcmp(const void *a, const void *b)
- 		return -1;
- }
- 
-+static int build_alloc_func_list_cb(struct symbol *sym, void *data)
-+{
-+	regex_t *alloc_func_regex = data;
-+	struct alloc_func *func;
-+
-+	if (regexec(alloc_func_regex, sym->name, 0, NULL, 0))
-+		return 0;
-+
-+	func = realloc(alloc_func_list,
-+		       (nr_alloc_funcs + 1) * sizeof(*func));
-+	if (func == NULL)
-+		return -ENOMEM;
-+
-+	pr_debug("alloc func: %s\n", sym->name);
-+	func[nr_alloc_funcs].start = sym->start;
-+	func[nr_alloc_funcs].end   = sym->end;
-+	func[nr_alloc_funcs].name  = sym->name;
-+
-+	alloc_func_list = func;
-+	nr_alloc_funcs++;
-+	return 0;
-+}
-+
- static int build_alloc_func_list(void)
- {
- 	int ret;
- 	struct map *kernel_map;
--	struct symbol *sym;
--	struct rb_node *node;
--	struct alloc_func *func;
- 	struct machine *machine = &kmem_session->machines.host;
- 	regex_t alloc_func_regex;
- 	static const char pattern[] = "^_?_?(alloc|get_free|get_zeroed)_pages?";
-@@ -364,30 +384,17 @@ static int build_alloc_func_list(void)
- 	kernel_map = machine__kernel_map(machine);
- 	if (map__load(kernel_map) < 0) {
- 		pr_err("cannot load kernel map\n");
-+		regfree(&alloc_func_regex);
- 		return -ENOENT;
- 	}
- 
--	map__for_each_symbol(kernel_map, sym, node) {
--		if (regexec(&alloc_func_regex, sym->name, 0, NULL, 0))
--			continue;
--
--		func = realloc(alloc_func_list,
--			       (nr_alloc_funcs + 1) * sizeof(*func));
--		if (func == NULL)
--			return -ENOMEM;
--
--		pr_debug("alloc func: %s\n", sym->name);
--		func[nr_alloc_funcs].start = sym->start;
--		func[nr_alloc_funcs].end   = sym->end;
--		func[nr_alloc_funcs].name  = sym->name;
--
--		alloc_func_list = func;
--		nr_alloc_funcs++;
--	}
-+	ret = map__for_each_symbol(kernel_map, build_alloc_func_list_cb, &alloc_func_regex);
-+	regfree(&alloc_func_regex);
-+	if (ret)
-+		return ret;
- 
--	qsort(alloc_func_list, nr_alloc_funcs, sizeof(*func), funcmp);
-+	qsort(alloc_func_list, nr_alloc_funcs, sizeof(*alloc_func_list), funcmp);
- 
--	regfree(&alloc_func_regex);
- 	return 0;
- }
- 
-diff --git a/tools/perf/tests/hists_common.c b/tools/perf/tests/hists_common.c
-index 187f12f5bc21..0d3acb03e02c 100644
---- a/tools/perf/tests/hists_common.c
-+++ b/tools/perf/tests/hists_common.c
-@@ -146,7 +146,10 @@ struct machine *setup_fake_machine(struct machines *machines)
- 				goto out;
- 			}
- 
--			symbols__insert(dso__symbols(dso), sym);
-+			if (symbols__insert(dso__symbols(dso), sym)) {
-+				dso__put(dso);
-+				goto out;
-+			}
- 		}
- 
- 		dso__put(dso);
 diff --git a/tools/perf/tests/symbols.c b/tools/perf/tests/symbols.c
-index d3180db45ee6..1220f97b77bb 100644
+index 1220f97b77bb..ed98b0caddc7 100644
 --- a/tools/perf/tests/symbols.c
 +++ b/tools/perf/tests/symbols.c
-@@ -116,39 +116,50 @@ static int create_map(struct test_info *ti, char *filename, struct map **map_p)
- 	return TEST_OK;
+@@ -1,20 +1,34 @@
+ // SPDX-License-Identifier: GPL-2.0
+ #include <linux/compiler.h>
++#include <linux/list.h>
+ #include <linux/string.h>
++#include <linux/zalloc.h>
+ #include <sys/mman.h>
+ #include <elf.h>
++#include <errno.h>
+ #include <inttypes.h>
+ #include <limits.h>
++#include <pthread.h>
++#include <stdatomic.h>
++#include <stdbool.h>
++#include <stddef.h>
++#include <stdio.h>
+ #include <stdlib.h>
++#include <string.h>
+ #include <unistd.h>
++#include "annotate.h"
+ #include "debug.h"
+ #include "dso.h"
+ #include "env.h"
+ #include "machine.h"
++#include "session.h"
++#include "srcline.h"
+ #include "thread.h"
+ #include "symbol.h"
+ #include "map.h"
++#include "map_symbol.h"
+ #include "util.h"
++#include "vdso.h"
+ #include "tests.h"
+ 
+ struct test_info {
+@@ -182,6 +196,486 @@ static int process_subdivided_dso(struct machine *machine, struct dso *dso)
+ 	return ret < 0 ? TEST_FAIL : TEST_OK;
  }
  
-+struct test_dso_args {
-+	struct symbol *last_sym;
-+	int ret;
-+};
-+
-+static int test_dso_cb(struct symbol *sym, void *data)
++static int noop_visit_cb(struct symbol *sym __maybe_unused, void *data __maybe_unused)
 +{
-+	struct test_dso_args *args = data;
-+	struct symbol *last_sym = args->last_sym;
-+
-+	if (symbol__type(sym) != STT_FUNC && symbol__type(sym) != STT_GNU_IFUNC)
-+		return 0;
-+
-+	/* Check for overlapping function symbols */
-+	if (last_sym && sym->start < last_sym->end) {
-+		pr_debug("Overlapping symbols:\n");
-+		symbol__fprintf(last_sym, stderr);
-+		symbol__fprintf(sym, stderr);
-+		args->ret = TEST_FAIL;
-+	}
-+	/* Check for zero-length function symbol */
-+	if (sym->start == sym->end) {
-+		pr_debug("Zero-length symbol:\n");
-+		symbol__fprintf(sym, stderr);
-+		args->ret = TEST_FAIL;
-+	}
-+	args->last_sym = sym;
 +	return 0;
 +}
 +
- static int test_dso(struct dso *dso)
- {
--	struct symbol *last_sym = NULL;
--	struct rb_node *nd;
--	int ret = TEST_OK;
-+	struct test_dso_args args = {
-+		.last_sym = NULL,
-+		.ret = TEST_OK,
-+	};
- 
- 	/* dso__fprintf() prints all the symbols */
- 	if (verbose > 1)
- 		dso__fprintf(dso, stderr);
- 
--	for (nd = rb_first_cached(dso__symbols(dso)); nd; nd = rb_next(nd)) {
--		struct symbol *sym = rb_entry(nd, struct symbol, rb_node);
--
--		if (symbol__type(sym) != STT_FUNC && symbol__type(sym) != STT_GNU_IFUNC)
--			continue;
-+	dso__for_each_symbol(dso, test_dso_cb, &args);
- 
--		/* Check for overlapping function symbols */
--		if (last_sym && sym->start < last_sym->end) {
--			pr_debug("Overlapping symbols:\n");
--			symbol__fprintf(last_sym, stderr);
--			symbol__fprintf(sym, stderr);
--			ret = TEST_FAIL;
--		}
--		/* Check for zero-length function symbol */
--		if (sym->start == sym->end) {
--			pr_debug("Zero-length symbol:\n");
--			symbol__fprintf(sym, stderr);
--			ret = TEST_FAIL;
--		}
--		last_sym = sym;
--	}
--
--	return ret;
-+	return args.ret;
- }
- 
- static int subdivided_dso_cb(struct dso *dso, struct machine *machine __maybe_unused, void *d)
-@@ -487,3 +498,4 @@ struct test_suite suite__symbols = {
- 	.desc = "Symbols",
- 	.test_cases = tests__symbols,
- };
-+
-diff --git a/tools/perf/tests/vmlinux-kallsyms.c b/tools/perf/tests/vmlinux-kallsyms.c
-index 9396c8a77c86..38f5c9584e15 100644
---- a/tools/perf/tests/vmlinux-kallsyms.c
-+++ b/tools/perf/tests/vmlinux-kallsyms.c
-@@ -113,6 +113,7 @@ static bool is_ignored_symbol(const char *name, char type)
- struct test__vmlinux_matches_kallsyms_cb_args {
- 	struct machine kallsyms;
- 	struct map *vmlinux_map;
-+	int err;
- 	bool header_printed;
- };
- 
-@@ -185,16 +186,101 @@ static int test__vmlinux_matches_kallsyms_cb3(struct map *map, void *data)
- 	return 0;
- }
- 
-+static int test__vmlinux_matches_kallsyms_sym_cb(struct symbol *sym, void *data)
++static int test_symbols_shrink(void)
 +{
-+	struct test__vmlinux_matches_kallsyms_cb_args *args = data;
-+	/*
-+	 * Step 4:
-+	 *
-+	 * kallsyms will be internally on demand sorted by name so that we can
-+	 * find the reference relocation * symbol, i.e. the symbol we will use
-+	 * to see if the running kernel was relocated by checking if it has the
-+	 * same value in the vmlinux file we load.
-+	 */
-+	struct map *kallsyms_map = machine__kernel_map(&args->kallsyms);
-+	struct symbol *pair, *first_pair;
-+	u64 mem_start, mem_end;
++	struct symbols symbols;
++	struct symbol *sym1, *sym2, *sym3;
++	int ret = TEST_FAIL;
 +
-+	if (sym->start == sym->end)
-+		return 0;
++	symbols__init(&symbols);
 +
-+	mem_start = map__unmap_ip(args->vmlinux_map, sym->start);
-+	mem_end = map__unmap_ip(args->vmlinux_map, sym->end);
-+
-+	first_pair = machine__find_kernel_symbol(&args->kallsyms, mem_start, NULL);
-+	pair = first_pair;
-+
-+	if (pair && UM(pair->start) == mem_start) {
-+next_pair:
-+		if (arch__compare_symbol_names(sym->name, pair->name) == 0) {
-+			/*
-+			 * kallsyms don't have the symbol end, so we
-+			 * set that by using the next symbol start - 1,
-+			 * in some cases we get this up to a page
-+			 * wrong, trace_kmalloc when I was developing
-+			 * this code was one such example, 2106 bytes
-+			 * off the real size. More than that and we
-+			 * _really_ have a problem.
-+			 */
-+			s64 skew = mem_end - UM(pair->end);
-+
-+			if (llabs(skew) >= page_size) {
-+				pr_debug("WARN: %#" PRIx64 ": diff end addr for %s v: %#"
-+					 PRIx64 " k: %#" PRIx64 "\n",
-+					 mem_start, sym->name, mem_end,
-+					 UM(pair->end));
-+			}
-+
-+			/*
-+			 * Do not count this as a failure, because we
-+			 * could really find a case where it's not
-+			 * possible to get proper function end from
-+			 * kallsyms.
-+			 */
-+			return 0;
-+		}
-+		pair = machine__find_kernel_symbol_by_name(&args->kallsyms,
-+							   sym->name, NULL);
-+		if (pair) {
-+			if (UM(pair->start) == mem_start)
-+				goto next_pair;
-+
-+			pr_debug("WARN: %#" PRIx64 ": diff name v: %s k: %s\n",
-+				 mem_start, sym->name, pair->name);
-+		} else {
-+			pr_debug("WARN: %#" PRIx64 ": diff name v: %s k: %s\n",
-+				 mem_start, sym->name, first_pair->name);
-+		}
-+
-+		return 0;
++	sym1 = symbol__new(0x100, 0x50, STB_GLOBAL, STT_FUNC, "sym1");
++	sym2 = symbol__new(0x200, 0x50, STB_GLOBAL, STT_FUNC, "sym2");
++	sym3 = symbol__new(0x300, 0x50, STB_GLOBAL, STT_FUNC, "sym3");
++	if (!sym1 || !sym2 || !sym3) {
++		symbol__delete(sym1);
++		symbol__delete(sym2);
++		symbol__delete(sym3);
++		goto out;
 +	}
 +
-+	if (mem_start == map__end(args->kallsyms.vmlinux_map)) {
-+		/*
-+		 * Ignore aliases to _etext, i.e. to the end of the kernel text area,
-+		 * such as __indirect_thunk_end.
-+		 */
-+		return 0;
++	symbols__insert(&symbols, sym1);
++	symbols__insert(&symbols, sym2);
++	symbols__insert(&symbols, sym3);
++	symbols__visit_by_name(&symbols, noop_visit_cb, NULL);
++	if (!symbols.symbols_by_name || symbols.allocated <= symbols.cnt) {
++		pr_debug("Expected populated symbols_by_name and excess capacity!\n");
++		goto out;
 +	}
-+	if (is_ignored_symbol(sym->name, symbol__type(sym))) {
-+		/*
-+		 * Ignore hidden symbols, see scripts/kallsyms.c for the details
-+		 */
-+		return 0;
-+	}
-+	pr_debug("ERR : %#" PRIx64 ": %s not on kallsyms\n",
-+		 mem_start, sym->name);
-+
-+	args->err = -1;
-+	return 0;
-+}
-+
- static int test__vmlinux_matches_kallsyms(struct test_suite *test __maybe_unused,
- 					int subtest __maybe_unused)
- {
- 	int err = TEST_FAIL;
--	struct rb_node *nd;
--	struct symbol *sym;
--	struct map *kallsyms_map;
- 	struct machine vmlinux = { 0 };
- 	struct maps *maps;
--	u64 mem_start, mem_end;
- 	struct test__vmlinux_matches_kallsyms_cb_args args;
- 
- 	/*
-@@ -240,16 +326,6 @@ static int test__vmlinux_matches_kallsyms(struct test_suite *test __maybe_unused
- 		goto out;
- 	}
- 
--	/*
--	 * Step 4:
--	 *
--	 * kallsyms will be internally on demand sorted by name so that we can
--	 * find the reference relocation * symbol, i.e. the symbol we will use
--	 * to see if the running kernel was relocated by checking if it has the
--	 * same value in the vmlinux file we load.
--	 */
--	kallsyms_map = machine__kernel_map(&args.kallsyms);
--
- 	/*
- 	 * Step 5:
- 	 *
-@@ -279,7 +355,7 @@ static int test__vmlinux_matches_kallsyms(struct test_suite *test __maybe_unused
- 		goto out;
- 	}
- 
--	err = 0;
-+	args.err = 0;
- 	/*
- 	 * Step 7:
- 	 *
-@@ -287,79 +363,8 @@ static int test__vmlinux_matches_kallsyms(struct test_suite *test __maybe_unused
- 	 * in the kallsyms dso. For the ones that are in both, check its names and
- 	 * end addresses too.
- 	 */
--	map__for_each_symbol(args.vmlinux_map, sym, nd) {
--		struct symbol *pair, *first_pair;
--
--		sym  = rb_entry(nd, struct symbol, rb_node);
--
--		if (sym->start == sym->end)
--			continue;
--
--		mem_start = map__unmap_ip(args.vmlinux_map, sym->start);
--		mem_end = map__unmap_ip(args.vmlinux_map, sym->end);
--
--		first_pair = machine__find_kernel_symbol(&args.kallsyms, mem_start, NULL);
--		pair = first_pair;
--
--		if (pair && UM(pair->start) == mem_start) {
--next_pair:
--			if (arch__compare_symbol_names(sym->name, pair->name) == 0) {
--				/*
--				 * kallsyms don't have the symbol end, so we
--				 * set that by using the next symbol start - 1,
--				 * in some cases we get this up to a page
--				 * wrong, trace_kmalloc when I was developing
--				 * this code was one such example, 2106 bytes
--				 * off the real size. More than that and we
--				 * _really_ have a problem.
--				 */
--				s64 skew = mem_end - UM(pair->end);
--				if (llabs(skew) >= page_size)
--					pr_debug("WARN: %#" PRIx64 ": diff end addr for %s v: %#" PRIx64 " k: %#" PRIx64 "\n",
--						 mem_start, sym->name, mem_end,
--						 UM(pair->end));
--
--				/*
--				 * Do not count this as a failure, because we
--				 * could really find a case where it's not
--				 * possible to get proper function end from
--				 * kallsyms.
--				 */
--				continue;
--			} else {
--				pair = machine__find_kernel_symbol_by_name(&args.kallsyms,
--									   sym->name, NULL);
--				if (pair) {
--					if (UM(pair->start) == mem_start)
--						goto next_pair;
--
--					pr_debug("WARN: %#" PRIx64 ": diff name v: %s k: %s\n",
--						 mem_start, sym->name, pair->name);
--				} else {
--					pr_debug("WARN: %#" PRIx64 ": diff name v: %s k: %s\n",
--						 mem_start, sym->name, first_pair->name);
--				}
--
--				continue;
--			}
--		} else if (mem_start == map__end(args.kallsyms.vmlinux_map)) {
--			/*
--			 * Ignore aliases to _etext, i.e. to the end of the kernel text area,
--			 * such as __indirect_thunk_end.
--			 */
--			continue;
--		} else if (is_ignored_symbol(sym->name, symbol__type(sym))) {
--			/*
--			 * Ignore hidden symbols, see scripts/kallsyms.c for the details
--			 */
--			continue;
--		} else {
--			pr_debug("ERR : %#" PRIx64 ": %s not on kallsyms\n",
--				 mem_start, sym->name);
--		}
--
--		err = -1;
--	}
-+	map__for_each_symbol(args.vmlinux_map, test__vmlinux_matches_kallsyms_sym_cb, &args);
-+	err = args.err;
- 
- 	if (verbose <= 0)
- 		goto out;
-diff --git a/tools/perf/ui/browser.c b/tools/perf/ui/browser.c
-index 321187b204d3..c7451f640d1d 100644
---- a/tools/perf/ui/browser.c
-+++ b/tools/perf/ui/browser.c
-@@ -622,6 +622,9 @@ static int ui_browser__color_config(const char *var, const char *value,
- 
- void ui_browser__argv_seek(struct ui_browser *browser, off_t offset, int whence)
- {
-+	if (browser->nr_entries == 0)
-+		return;
-+
- 	switch (whence) {
- 	case SEEK_SET:
- 		browser->top = browser->entries;
-diff --git a/tools/perf/ui/browsers/hists.c b/tools/perf/ui/browsers/hists.c
-index 6f9d9f7aec91..ad6882744eba 100644
---- a/tools/perf/ui/browsers/hists.c
-+++ b/tools/perf/ui/browsers/hists.c
-@@ -2532,7 +2532,8 @@ static struct symbol *symbol__new_unresolved(u64 addr, struct map *map)
- 			return NULL;
- 		}
- 
--		dso__insert_symbol(map__dso(map), sym);
-+		if (dso__insert_symbol(map__dso(map), sym))
-+			return NULL;
- 	}
- 
- 	return sym;
-diff --git a/tools/perf/ui/browsers/map.c b/tools/perf/ui/browsers/map.c
-index be7390156edd..51a71b20947f 100644
---- a/tools/perf/ui/browsers/map.c
-+++ b/tools/perf/ui/browsers/map.c
-@@ -24,7 +24,7 @@ struct map_browser {
- 
- static void map_browser__write(struct ui_browser *browser, void *nd, int row)
- {
--	struct symbol *sym = rb_entry(nd, struct symbol, rb_node);
-+	struct symbol *sym = *(struct symbol **)nd;
- 	struct map_browser *mb = container_of(browser, struct map_browser, b);
- 	bool current_entry = ui_browser__is_current_entry(browser, row);
- 	int width;
-@@ -56,17 +56,16 @@ static int map_browser__search(struct map_browser *browser)
- 		sym = map__find_symbol_by_name(browser->map, target);
- 
- 	if (sym != NULL) {
--		struct rb_node *nd;
--		u32 idx = 0;
-+		struct symbol **entries = browser->b.entries;
- 
- 		/*
--		 * Walk the map browser's symbol entries to find the matching
--		 * symbol node and its display row index, then position the
--		 * browser cursor at that entry.
-+		 * Scan the map browser's symbol entries to find the matching
-+		 * symbol and its display row index, then position the browser
-+		 * cursor at that entry.
- 		 */
--		for (nd = rb_first(browser->b.entries); nd; nd = rb_next(nd), ++idx) {
--			if (&sym->rb_node == nd) {
--				browser->b.top = nd;
-+		for (u32 idx = 0; idx < browser->b.nr_entries; ++idx) {
-+			if (entries[idx] == sym) {
-+				browser->b.top = &entries[idx];
- 				browser->b.index = browser->b.top_idx = idx;
- 				break;
- 			}
-@@ -109,27 +108,48 @@ static int map_browser__run(struct map_browser *browser)
- 
- int map__browse(struct map *map)
- {
-+	struct symbols *symbols = dso__symbols(map__dso(map));
- 	struct map_browser mb = {
- 		.b = {
--			.entries = dso__symbols(map__dso(map)),
--			.refresh = ui_browser__rb_tree_refresh,
--			.seek	 = ui_browser__rb_tree_seek,
-+			.refresh = ui_browser__argv_refresh,
-+			.seek	 = ui_browser__argv_seek,
- 			.write	 = map_browser__write,
- 		},
- 		.map = map,
- 	};
--	struct rb_node *nd;
-+	struct symbol **entries = NULL;
-+	unsigned int nr_entries = 0;
- 	char tmp[BITS_PER_LONG / 4];
- 	u64 maxaddr = 0;
--
--	for (nd = rb_first(mb.b.entries); nd; nd = rb_next(nd)) {
--		struct symbol *pos = rb_entry(nd, struct symbol, rb_node);
--
--		if (maxaddr < pos->end)
--			maxaddr = pos->end;
--		++mb.b.nr_entries;
-+	int ret;
 +
 +	/*
-+	 * Snapshot the DSO's sorted symbol array under symbols->lock for use
-+	 * with ui_browser__argv_refresh and ui_browser__argv_seek.
++	 * First shrink: reclaims symbols_by_name and trims excess capacity in
++	 * symbols.symbols while keeping all 3 symbols intact.
 +	 */
-+	symbols__sort_read_lock(symbols);
-+	nr_entries = symbols->cnt;
-+	if (nr_entries > 0) {
-+		entries = malloc(nr_entries * sizeof(*entries));
-+		if (entries) {
-+			for (unsigned int idx = 0; idx < nr_entries; idx++) {
-+				struct symbol *pos = symbols->symbols[idx];
++	if (symbols__shrink(&symbols) != 2 || symbols.cnt != 3 ||
++	    symbols.allocated != 3 || symbols.symbols_by_name != NULL) {
++		pr_debug("First symbols__shrink failed (cnt=%u, allocated=%u)!\n",
++			 symbols.cnt, symbols.allocated);
++		goto out;
++	}
 +
-+				entries[idx] = pos;
-+				if (maxaddr < pos->end)
-+					maxaddr = pos->end;
-+			}
-+		} else {
-+			nr_entries = 0;
-+		}
- 	}
-+	up_read(&symbols->lock);
++	/*
++	 * Second shrink with no symbols_by_name and no excess capacity is a no-op.
++	 */
++	if (symbols__shrink(&symbols) != 0 || symbols.cnt != 3) {
++		pr_debug("Second symbols__shrink failed (cnt=%u)!\n", symbols.cnt);
++		goto out;
++	}
 +
-+	mb.b.entries = entries;
-+	mb.b.nr_entries = nr_entries;
- 
- 	mb.addrlen = snprintf(tmp, sizeof(tmp), "%" PRIx64, maxaddr);
--	return map_browser__run(&mb);
-+	ret = map_browser__run(&mb);
-+	free(entries);
++	/*
++	 * Verify symbols__try_delete_unannotated() skips deletion when any
++	 * symbol has an entry in the annotations hashmap and deletes all
++	 * symbols once unannotated.
++	 */
++	if (!symbol__annotation(sym1) || !symbol__annotated(sym1)) {
++		pr_debug("symbol__annotation(sym1) failed!\n");
++		goto out;
++	}
++	if (symbols__try_delete_unannotated(&symbols, NULL, NULL) || symbols.cnt != 3) {
++		pr_debug("symbols__try_delete_unannotated deleted annotated table!\n");
++		goto out;
++	}
++	symbol__annotation_delete(sym1);
++	if (symbol__annotated(sym1) ||
++	    !symbols__try_delete_unannotated(&symbols, NULL, NULL) ||
++	    symbols.cnt != 0) {
++		pr_debug("symbols__try_delete_unannotated failed after clearing annotation!\n");
++		goto out;
++	}
++
++	ret = TEST_OK;
++out:
++	symbols__exit(&symbols);
 +	return ret;
- }
-diff --git a/tools/perf/util/auxtrace.c b/tools/perf/util/auxtrace.c
-index 8bb491d389a2..fdffdf60983a 100644
---- a/tools/perf/util/auxtrace.c
-+++ b/tools/perf/util/auxtrace.c
-@@ -2713,61 +2713,96 @@ static bool dso_sym_match(struct symbol *sym, const char *name, int *cnt,
- 		idx < 0);
- }
- 
-+struct print_duplicate_syms_args {
-+	const char *sym_name;
-+	bool near;
-+	int cnt;
-+};
-+
-+static int print_duplicate_syms_cb(struct symbol *sym, void *data)
-+{
-+	struct print_duplicate_syms_args *args = data;
-+
-+	if (dso_sym_match(sym, args->sym_name, &args->cnt, -1)) {
-+		pr_err("#%d\t0x%"PRIx64"\t%c\t%s\n",
-+		       ++args->cnt, sym->start,
-+		       symbol__binding(sym) == STB_GLOBAL ? 'g' :
-+		       symbol__binding(sym) == STB_LOCAL  ? 'l' : 'w',
-+		       sym->name);
-+		args->near = true;
-+	} else if (args->near) {
-+		args->near = false;
-+		pr_err("\t\twhich is near\t\t%s\n", sym->name);
-+	}
-+	return 0;
 +}
 +
- static void print_duplicate_syms(struct dso *dso, const char *sym_name)
- {
--	struct symbol *sym;
--	bool near = false;
--	int cnt = 0;
-+	struct print_duplicate_syms_args args = {
-+		.sym_name = sym_name,
-+		.near = false,
-+		.cnt = 0,
-+	};
- 
- 	pr_err("Multiple symbols with name '%s'\n", sym_name);
- 
--	sym = dso__first_symbol(dso);
--	while (sym) {
--		if (dso_sym_match(sym, sym_name, &cnt, -1)) {
--			pr_err("#%d\t0x%"PRIx64"\t%c\t%s\n",
--			       ++cnt, sym->start,
--			       symbol__binding(sym) == STB_GLOBAL ? 'g' :
--			       symbol__binding(sym) == STB_LOCAL  ? 'l' : 'w',
--			       sym->name);
--			near = true;
--		} else if (near) {
--			near = false;
--			pr_err("\t\twhich is near\t\t%s\n", sym->name);
--		}
--		sym = dso__next_symbol(sym);
--	}
-+	dso__for_each_symbol(dso, print_duplicate_syms_cb, &args);
- 
- 	pr_err("Disambiguate symbol name by inserting #n after the name e.g. %s #2\n",
- 	       sym_name);
- 	pr_err("Or select a global symbol by inserting #0 or #g or #G\n");
- }
- 
-+struct find_dso_sym_args {
-+	const char *sym_name;
-+	u64 *start;
-+	u64 *size;
-+	int idx;
-+	int cnt;
-+	bool duplicate;
++static int test_dsos_shrink(void)
++{
++	struct dsos dsos;
++	struct dso *dso1, *dso2, *vdso;
++	int ret = TEST_FAIL;
++
++	dsos__init(&dsos);
++
++	dso1 = dsos__findnew_id(&dsos, "/tmp/perf_test_dso1", NULL);
++	dso2 = dsos__findnew_id(&dsos, "/tmp/perf_test_dso2", NULL);
++	vdso = dsos__findnew_id(&dsos, DSO__NAME_VDSO, NULL);
++	if (!dso1 || !dso2 || !vdso) {
++		dso__put(dso1);
++		dso__put(dso2);
++		dso__put(vdso);
++		goto out;
++	}
++
++	/*
++	 * Keep the caller's active reference on dso1; drop caller references on
++	 * dso2 and vdso.
++	 */
++	dso__put(dso2);
++	dso__put(vdso);
++
++	/*
++	 * First shrink: dso2 has refcnt == 1 and no symbols, so it is evicted;
++	 * dso1 (refcnt == 2) and vdso (dso__is_vdso() == true) are retained.
++	 */
++	if (dsos__shrink(&dsos) != 1 || dsos.cnt != 2) {
++		pr_debug("First dsos__shrink failed (cnt=%u)!\n", dsos.cnt);
++		dso__put(dso1);
++		goto out;
++	}
++
++	dso__put(dso1);
++	if (dsos__shrink(&dsos) != 1 || dsos.cnt != 1 || !dso__is_vdso(dsos.dsos[0])) {
++		pr_debug("Second dsos__shrink failed (cnt=%u)!\n", dsos.cnt);
++		goto out;
++	}
++
++	ret = TEST_OK;
++out:
++	dsos__exit(&dsos);
++	return ret;
++}
++
++struct shrink_lock_race_args {
++	struct dso *dso;
++	atomic_bool stop;
 +};
 +
-+static int find_dso_sym_cb(struct symbol *sym, void *data)
++static void *shrink_lock_race_worker(void *arg)
 +{
-+	struct find_dso_sym_args *args = data;
++	struct shrink_lock_race_args *args = arg;
 +
-+	if (*args->start) {
-+		if (!*args->size)
-+			*args->size = sym->start - *args->start;
-+		if (args->idx > 0) {
-+			if (*args->size)
-+				return 1;
-+		} else if (dso_sym_match(sym, args->sym_name, &args->cnt, args->idx)) {
-+			args->duplicate = true;
-+			return 1;
++	while (!atomic_load_explicit(&args->stop, memory_order_relaxed))
++		dso__find_binary_type(args->dso);
++
++	return NULL;
++}
++
++static int test_session_alloc_shrink(void)
++{
++	struct perf_session *session = zalloc(sizeof(*session));
++	struct dso *dso;
++	struct thread *th;
++	pid_t pid = getpid();
++	char *p1 = NULL, *p2 = NULL, *p3 = NULL, *s = NULL, *tmp;
++	int ret = TEST_FAIL;
++
++	if (!session)
++		return TEST_FAIL;
++
++	perf_env__init(&session->header.env);
++	if (machines__init(&session->machines, session))
++		goto out;
++	session->machines.host.env = &session->header.env;
++	if (machine__session(&session->machines.host) != session) {
++		pr_debug("machine__session did not return owning session!\n");
++		goto out;
++	}
++
++	dso = machine__findnew_dso(&session->machines.host, "/tmp/perf_test_session_dso");
++	if (!dso)
++		goto out;
++	if (dso__session(dso) != session) {
++		pr_debug("dso__session did not return owning session!\n");
++		dso__put(dso);
++		goto out;
++	}
++	dso__put(dso);
++
++	p1 = perf_session__malloc(session, 64);
++	p2 = perf_session__zalloc(session, 64);
++	p3 = perf_session__calloc(session, 4, 16);
++	s = perf_session__strdup(session, "perf_session_alloc_test");
++	if (!p1 || !p2 || !p3 || !s || strcmp(s, "perf_session_alloc_test") != 0) {
++		pr_debug("perf_session allocation wrappers failed!\n");
++		goto out;
++	}
++
++	tmp = perf_session__realloc(session, p1, 128);
++	if (!tmp) {
++		pr_debug("perf_session__realloc failed!\n");
++		goto out;
++	}
++	p1 = tmp;
++
++	if (perf_session__shrink(session) == 0 || session->machines.host.dsos.cnt != 0) {
++		pr_debug("perf_session__shrink failed to evict unreferenced DSO!\n");
++		goto out;
++	}
++
++	/*
++	 * Regression test for AB-BA lock inversion between dso__lock(dso_A)
++	 * (held by dso__load() when calling perf_session__shrink() to evict
++	 * unreferenced dso_B) and _dso__data_open_lock (acquired before
++	 * dso__lock(dso_A) by dso__find_binary_type()).
++	 */
++	dso = machine__findnew_dso(&session->machines.host, "/tmp/perf_test_contended_dso");
++	if (!dso)
++		goto out;
++	{
++		bool was_singlethreaded = perf_singlethreaded;
++		struct shrink_lock_race_args race_args = {
++			.dso = dso,
++			.stop = false,
++		};
++		pthread_t worker;
++
++		perf_set_multithreaded();
++		if (pthread_create(&worker, NULL, shrink_lock_race_worker, &race_args) != 0) {
++			if (was_singlethreaded)
++				perf_set_singlethreaded();
++			dso__put(dso);
++			goto out;
 +		}
-+	} else if (dso_sym_match(sym, args->sym_name, &args->cnt, args->idx)) {
-+		*args->start = sym->start;
-+		*args->size = sym->end - sym->start;
++		for (int i = 0; i < 200; i++) {
++			struct dso *evict = machine__findnew_dso(&session->machines.host,
++								 "/tmp/perf_test_evict_dso");
++
++			dso__put(evict);
++			mutex_lock(dso__lock(dso));
++			RC_CHK_ACCESS(dso)->bintype_searched = 0;
++			perf_session__shrink(session);
++			mutex_unlock(dso__lock(dso));
++		}
++		atomic_store_explicit(&race_args.stop, true, memory_order_relaxed);
++		pthread_join(worker, NULL);
++		if (was_singlethreaded)
++			perf_set_singlethreaded();
 +	}
-+	return 0;
++	dso__put(dso);
++	perf_session__shrink(session);
++
++	/*
++	 * Verify perf_session__e_machine() -> threads__for_each_thread() does
++	 * not self-deadlock on table->lock when a non-leader thread looks up or
++	 * creates its leader thread in the same shard.
++	 */
++	{
++		bool was_singlethreaded = perf_singlethreaded;
++		uint16_t e_machine;
++
++		perf_set_multithreaded();
++		th = machine__findnew_thread(&session->machines.host, pid,
++					     pid + THREADS__TABLE_SIZE);
++		if (!th) {
++			if (was_singlethreaded)
++				perf_set_singlethreaded();
++			goto out;
++		}
++		thread__put(th);
++		e_machine = perf_session__e_machine(session, NULL);
++		if (was_singlethreaded)
++			perf_set_singlethreaded();
++		if (e_machine == EM_NONE) {
++			pr_debug("perf_session__e_machine failed!\n");
++			goto out;
++		}
++	}
++
++	ret = TEST_OK;
++out:
++	free(p1);
++	free(p2);
++	free(p3);
++	free(s);
++	machines__exit(&session->machines);
++	perf_env__exit(&session->header.env);
++	free(session);
++	return ret;
 +}
 +
- static int find_dso_sym(struct dso *dso, const char *sym_name, u64 *start,
- 			u64 *size, int idx)
- {
--	struct symbol *sym;
--	int cnt = 0;
-+	struct find_dso_sym_args args = {
-+		.sym_name = sym_name,
-+		.start = start,
-+		.size = size,
-+		.idx = idx,
-+		.cnt = 0,
-+		.duplicate = false,
-+	};
- 
- 	*start = 0;
- 	*size = 0;
- 
--	sym = dso__first_symbol(dso);
--	while (sym) {
--		if (*start) {
--			if (!*size)
--				*size = sym->start - *start;
--			if (idx > 0) {
--				if (*size)
--					return 0;
--			} else if (dso_sym_match(sym, sym_name, &cnt, idx)) {
--				print_duplicate_syms(dso, sym_name);
--				return -EINVAL;
--			}
--		} else if (dso_sym_match(sym, sym_name, &cnt, idx)) {
--			*start = sym->start;
--			*size = sym->end - sym->start;
--		}
--		sym = dso__next_symbol(sym);
-+	dso__for_each_symbol(dso, find_dso_sym_cb, &args);
-+	if (args.duplicate) {
-+		print_duplicate_syms(dso, sym_name);
-+		return -EINVAL;
- 	}
- 
- 	if (!*start)
-diff --git a/tools/perf/util/db-export.c b/tools/perf/util/db-export.c
-index e7b807e968cf..b3790383237f 100644
---- a/tools/perf/util/db-export.c
-+++ b/tools/perf/util/db-export.c
-@@ -289,8 +289,8 @@ static int db_ids_from_al(struct db_export *dbe, struct addr_location *al,
- 
- 		if (!al->sym) {
- 			al->sym = symbol__new(al->addr, 0, 0, 0, "unknown");
--			if (al->sym)
--				dso__insert_symbol(dso, al->sym);
-+			if (al->sym && dso__insert_symbol(dso, al->sym))
-+				al->sym = NULL;
- 		}
- 
- 		if (al->sym) {
-diff --git a/tools/perf/util/dso.c b/tools/perf/util/dso.c
-index e46cd614eb21..3d7db37ff095 100644
---- a/tools/perf/util/dso.c
-+++ b/tools/perf/util/dso.c
-@@ -1808,12 +1808,7 @@ bool dso__loaded(const struct dso *dso)
- 
- bool dso__sorted_by_name(const struct dso *dso)
- {
--	return RC_CHK_ACCESS(dso)->sorted_by_name;
--}
--
--void dso__set_sorted_by_name(struct dso *dso)
--{
--	RC_CHK_ACCESS(dso)->sorted_by_name = true;
-+	return RC_CHK_ACCESS(dso)->symbols.sorted_by_name;
- }
- 
- struct dso *dso__new_id(const char *name, const struct dso_id *id)
-@@ -1831,9 +1826,7 @@ struct dso *dso__new_id(const char *name, const struct dso_id *id)
- 			dso->id = *id;
- 		dso__set_long_name_id(res, dso->name, false);
- 		dso__set_short_name(res, dso->name, false);
--		dso->symbols = RB_ROOT_CACHED;
--		dso->symbol_names = NULL;
--		dso->symbol_names_len = 0;
-+		symbols__init(&dso->symbols);
- 		dso->inlined_nodes = RB_ROOT_CACHED;
- 		dso->srclines = RB_ROOT_CACHED;
- 		dso->data_types = RB_ROOT;
-@@ -1844,7 +1837,6 @@ struct dso *dso__new_id(const char *name, const struct dso_id *id)
- 		dso->is_64_bit = (sizeof(void *) == 8);
- 		dso->loaded = 0;
- 		dso->rel = 0;
--		dso->sorted_by_name = 0;
- 		dso->has_srcline = 1;
- 		dso->a2l_fails = 1;
- 		dso->kernel = DSO_SPACE__USER;
-@@ -1878,9 +1870,7 @@ void dso__delete(struct dso *dso)
- 	/* free inlines first, as they reference symbols */
- 	inlines__tree_delete(&RC_CHK_ACCESS(dso)->inlined_nodes);
- 	srcline__tree_delete(&RC_CHK_ACCESS(dso)->srclines);
--	symbols__delete(&RC_CHK_ACCESS(dso)->symbols);
--	RC_CHK_ACCESS(dso)->symbol_names_len = 0;
--	zfree(&RC_CHK_ACCESS(dso)->symbol_names);
-+	symbols__exit(&RC_CHK_ACCESS(dso)->symbols);
- 	annotated_data_type__tree_delete(dso__data_types(dso));
- 	global_var_type__tree_delete(dso__global_vars(dso));
- 
-@@ -2011,22 +2001,34 @@ static size_t dso__fprintf_buildid(struct dso *dso, FILE *fp)
- 	return fprintf(fp, "%s", sbuild_id);
- }
- 
-+struct dso__fprintf_cb_args {
-+	FILE *fp;
-+	size_t ret;
++struct shrink_reload_find_args {
++	struct symbol *kept;
++	u64 first_start;
++	u64 second_start;
++	char *second_name;
++	u64 max_end;
 +};
 +
-+static int dso__fprintf_cb(struct symbol *pos, void *data)
++static int shrink_reload_find_cb(struct symbol *sym, void *data)
 +{
-+	struct dso__fprintf_cb_args *args = data;
++	struct shrink_reload_find_args *args = data;
 +
-+	args->ret += symbol__fprintf(pos, args->fp);
-+	return 0;
-+}
-+
- size_t dso__fprintf(struct dso *dso, FILE *fp)
- {
--	struct rb_node *nd;
--	size_t ret = fprintf(fp, "dso: %s (", dso__short_name(dso));
-+	struct dso__fprintf_cb_args args = {
-+		.fp = fp,
-+		.ret = fprintf(fp, "dso: %s (", dso__short_name(dso)),
-+	};
- 
- 	if (dso__short_name(dso) != dso__long_name(dso))
--		ret += fprintf(fp, "%s, ", dso__long_name(dso));
--	ret += fprintf(fp, "%sloaded, ", dso__loaded(dso) ? "" : "NOT ");
--	ret += dso__fprintf_buildid(dso, fp);
--	ret += fprintf(fp, ")\n");
--	for (nd = rb_first_cached(dso__symbols(dso)); nd; nd = rb_next(nd)) {
--		struct symbol *pos = rb_entry(nd, struct symbol, rb_node);
--		ret += symbol__fprintf(pos, fp);
--	}
-+		args.ret += fprintf(fp, "%s, ", dso__long_name(dso));
-+	args.ret += fprintf(fp, "%sloaded, ", dso__loaded(dso) ? "" : "NOT ");
-+	args.ret += dso__fprintf_buildid(dso, fp);
-+	args.ret += fprintf(fp, ")\n");
-+	dso__for_each_symbol(dso, dso__fprintf_cb, &args);
- 
--	return ret;
-+	return args.ret;
- }
- 
- enum dso_type dso__type(struct dso *dso, struct machine *machine)
-diff --git a/tools/perf/util/dso.h b/tools/perf/util/dso.h
-index d5f7382d4e13..f23cf9957aec 100644
---- a/tools/perf/util/dso.h
-+++ b/tools/perf/util/dso.h
-@@ -13,6 +13,7 @@
- #include "build-id.h"
- #include "debuginfo.h"
- #include "mutex.h"
-+#include "symbol.h"
- #include <internal/rc_check.h>
- 
- struct machine;
-@@ -287,18 +288,12 @@ struct auxtrace_cache;
- DECLARE_RC_STRUCT(dso) {
- 	struct mutex	 lock;
- 	struct dsos	 *dsos;
--	struct rb_root_cached symbols;
--	struct symbol	 **symbol_names;
--	size_t		 symbol_names_len;
-+	struct symbols	 symbols;
- 	struct rb_root_cached inlined_nodes;
- 	struct rb_root_cached srclines;
- 	struct rb_root	 data_types;
- 	struct rb_root	 global_vars;
- 
--	struct {
--		u64		addr;
--		struct symbol	*symbol;
--	} last_find_result;
- 	u64		 text_offset;
- 	u64		 text_end;
- 	const char	 *short_name;
-@@ -351,7 +346,6 @@ DECLARE_RC_STRUCT(dso) {
- 	u8		 is_64_bit:1;
- 	u8		 bintype_searched:1;
- 	u8		 debuginfo_searched:1;
--	bool		 sorted_by_name;
- 	bool		 loaded;
- 	u8		 rel;
- 	char		 name[];
-@@ -365,11 +359,14 @@ int dso_id__cmp(const struct dso_id *a, const struct dso_id *b);
- /* dso__for_each_symbol - iterate over the symbols of given type
-  *
-  * @dso: the 'struct dso *' in which symbols are iterated
-- * @pos: the 'struct symbol *' to use as a loop cursor
-- * @n: the 'struct rb_node *' to use as a temporary storage
-+ * @cb: callback function invoked for each symbol
-+ * @data: opaque data pointer passed to @cb
-  */
--#define dso__for_each_symbol(dso, pos, n)	\
--	symbols__for_each_entry(dso__symbols(dso), pos, n)
-+#define dso__for_each_symbol(dso, cb, data)	\
-+	symbols__for_each_entry(dso__symbols(dso), cb, data)
-+
-+#define dso__for_each_symbol_by_name(dso, cb, data)	\
-+	symbols__visit_by_name(dso__symbols(dso), cb, data)
- 
- static inline void *dso__a2l(const struct dso *dso)
- {
-@@ -598,26 +595,6 @@ static inline void dso__set_kernel(struct dso *dso, enum dso_space_type kernel)
- 	RC_CHK_ACCESS(dso)->kernel = kernel;
- }
- 
--static inline u64 dso__last_find_result_addr(const struct dso *dso)
--{
--	return RC_CHK_ACCESS(dso)->last_find_result.addr;
--}
--
--static inline void dso__set_last_find_result_addr(struct dso *dso, u64 addr)
--{
--	RC_CHK_ACCESS(dso)->last_find_result.addr = addr;
--}
--
--static inline struct symbol *dso__last_find_result_symbol(const struct dso *dso)
--{
--	return RC_CHK_ACCESS(dso)->last_find_result.symbol;
--}
--
--static inline void dso__set_last_find_result_symbol(struct dso *dso, struct symbol *symbol)
--{
--	RC_CHK_ACCESS(dso)->last_find_result.symbol = symbol;
--}
--
- static inline enum dso_load_errno *dso__load_errno(struct dso *dso)
- {
- 	return &RC_CHK_ACCESS(dso)->load_errno;
-@@ -730,31 +707,11 @@ static inline struct rb_root *dso__global_vars(struct dso *dso)
- 	return &RC_CHK_ACCESS(dso)->global_vars;
- }
- 
--static inline struct rb_root_cached *dso__symbols(struct dso *dso)
-+static inline struct symbols *dso__symbols(struct dso *dso)
- {
- 	return &RC_CHK_ACCESS(dso)->symbols;
- }
- 
--static inline struct symbol **dso__symbol_names(struct dso *dso)
--{
--	return RC_CHK_ACCESS(dso)->symbol_names;
--}
--
--static inline void dso__set_symbol_names(struct dso *dso, struct symbol **names)
--{
--	RC_CHK_ACCESS(dso)->symbol_names = names;
--}
--
--static inline size_t dso__symbol_names_len(struct dso *dso)
--{
--	return RC_CHK_ACCESS(dso)->symbol_names_len;
--}
--
--static inline void dso__set_symbol_names_len(struct dso *dso, size_t len)
--{
--	RC_CHK_ACCESS(dso)->symbol_names_len = len;
--}
--
- static inline const char *dso__symsrc_filename(const struct dso *dso)
- {
- 	return RC_CHK_ACCESS(dso)->symsrc_filename;
-@@ -823,13 +780,12 @@ bool dso__loaded(const struct dso *dso);
- 
- static inline bool dso__has_symbols(const struct dso *dso)
- {
--	return !RB_EMPTY_ROOT(&RC_CHK_ACCESS(dso)->symbols.rb_root);
-+	return RC_CHK_ACCESS(dso)->symbols.cnt > 0;
- }
- 
- char *dso__filename_with_chroot(const struct dso *dso, const char *filename);
- 
- bool dso__sorted_by_name(const struct dso *dso);
--void dso__set_sorted_by_name(struct dso *dso);
- void dso__sort_by_name(struct dso *dso);
- 
- int dso__swap_init(struct dso *dso, unsigned char eidata);
-@@ -953,8 +909,6 @@ struct map *dso__new_map(const char *name);
- struct dso *machine__findnew_kernel(struct machine *machine, const char *name,
- 				    const char *short_name, int dso_type);
- 
--void dso__reset_find_symbol_cache(struct dso *dso);
--
- size_t dso__fprintf_symbols_by_name(struct dso *dso, FILE *fp);
- size_t dso__fprintf(struct dso *dso, FILE *fp);
- 
-diff --git a/tools/perf/util/intel-pt.c b/tools/perf/util/intel-pt.c
-index e8b9c8a67b0a..9b7d315ca391 100644
---- a/tools/perf/util/intel-pt.c
-+++ b/tools/perf/util/intel-pt.c
-@@ -2988,13 +2988,37 @@ static int intel_pt_sample(struct intel_pt_queue *ptq)
- 	return 0;
- }
- 
-+struct intel_pt_switch_ip_args {
-+	struct map *map;
-+	const char *name;
-+	bool check_global;
-+	u64 ip;
-+};
-+
-+static int intel_pt_switch_ip_cb(struct symbol *sym, void *data)
-+{
-+	struct intel_pt_switch_ip_args *args = data;
-+	u64 ip;
-+
-+	if (args->check_global && symbol__binding(sym) != STB_GLOBAL)
++	if (!args->kept) {
++		args->kept = sym;
++		args->first_start = sym->start;
++		args->max_end = sym->end;
 +		return 0;
-+
-+	if (!strcmp(sym->name, args->name)) {
-+		ip = map__unmap_ip(args->map, sym->start);
-+		if (ip >= map__start(args->map) && ip < map__end(args->map)) {
-+			args->ip = ip;
-+			return 1;
-+		}
 +	}
++	if (!args->second_name && sym->start >= args->max_end) {
++		args->second_start = sym->start;
++		args->second_name = strdup(sym->name);
++		if (!args->second_name)
++			return -ENOMEM;
++	}
++	if (sym->end > args->max_end)
++		args->max_end = sym->end;
 +	return 0;
 +}
 +
- static u64 intel_pt_switch_ip(struct intel_pt *pt, u64 *ptss_ip)
++static int test_dso_shrink_and_reload(struct test_info *ti, char *filename, struct map **map_p)
++{
++	struct shrink_reload_find_args args = {
++		.kept = NULL,
++		.first_start = 0,
++		.second_start = 0,
++		.second_name = NULL,
++		.max_end = 0,
++	};
++	struct map *map = *map_p;
++	struct dso *dso = map__dso(map);
++	struct symbols *syms = dso__symbols(dso);
++	struct symbol *sym, *reloaded;
++	unsigned int initial_cnt;
++
++	if (!dso__can_shrink_symbols(dso) || dso__kernel(dso))
++		return TEST_SKIP;
++	initial_cnt = syms->cnt;
++	if (dso__for_each_symbol(dso, shrink_reload_find_cb, &args) < 0)
++		return TEST_FAIL;
++	if (!args.second_name)
++		return TEST_SKIP;
++
++	/*
++	 * While dso is referenced by map (refcnt > 1), dso__shrink() reclaims
++	 * auxiliary buffers (such as symbols_by_name) while keeping all symbols
++	 * and their pointers valid.
++	 */
++	dso__sort_by_name(dso);
++	if (syms->num_by_name < 2) {
++		free(args.second_name);
++		return TEST_FAIL;
++	}
++	{
++		size_t idx = 0;
++		struct symbol *expected_next = syms->symbols_by_name[1];
++		u8 hdr_byte = 0;
++
++		/* Populate dso data fd and cache so dso__shrink() reclaims them too. */
++		(void)dso__data_read_offset(dso, ti->machine, 0, &hdr_byte, 1);
++
++		if (dso__shrink(dso) == 0 || syms->cnt != initial_cnt ||
++		    syms->symbols_by_name != NULL || dso__data(dso)->fd >= 0) {
++			pr_debug("dso__shrink on referenced DSO failed!\n");
++			free(args.second_name);
++			return TEST_FAIL;
++		}
++		if (dso__next_symbol_by_name(dso, &idx) != expected_next || idx != 1) {
++			pr_debug("dso__next_symbol_by_name failed to rebuild symbols_by_name!\n");
++			free(args.second_name);
++			return TEST_FAIL;
++		}
++		dso__shrink(dso);
++	}
++
++	sym = dso__find_symbol(dso, args.first_start);
++	if (sym != args.kept) {
++		pr_debug("Symbol pointer changed after dso__shrink on referenced DSO!\n");
++		free(args.second_name);
++		return TEST_FAIL;
++	}
++
++	/*
++	 * Verify struct dso_symbol retains a reference on its owning DSO even
++	 * after the map reference is dropped, preventing dsos__shrink() from
++	 * evicting the DSO's symbol table until dso_symbol__exit() is called.
++	 */
++	dso__set_hit(dso);
++	{
++		struct dso_symbol src = {
++			.dso = dso,
++			.sym = args.kept,
++		};
++		struct dso_symbol pinned;
++		struct inline_node *inode;
++		struct symbol *inlined_sym;
++		char *srcline;
++
++		dso_symbol__copy(&pinned, &src);
++		map__zput(*map_p);
++		dsos__shrink(&ti->machine->dsos);
++		if (!dso__loaded(pinned.dso) ||
++		    dso__symbols(pinned.dso)->cnt != initial_cnt ||
++		    dso__find_symbol(pinned.dso, args.first_start) != pinned.sym) {
++			pr_debug("dso_symbol failed to pin DSO symbols across dsos__shrink!\n");
++			dso_symbol__exit(&pinned);
++			free(args.second_name);
++			return TEST_FAIL;
++		}
++
++		/*
++		 * Populate dso->inlined_nodes (referencing both a base symbol
++		 * from dso->symbols and an owned inlined symbol) and
++		 * dso->srclines so dsos__shrink() exercises freeing inlines
++		 * before freeing the underlying symbol table.
++		 */
++		inode = zalloc(sizeof(*inode));
++		inlined_sym = new_inline_sym(pinned.dso, pinned.sym, "inlined_helper");
++		srcline = strdup("test.c:1");
++		if (!inode || !inlined_sym || !srcline) {
++			free(inode);
++			if (inlined_sym && symbol__inlined(inlined_sym))
++				symbol__delete(inlined_sym);
++			free(srcline);
++			dso_symbol__exit(&pinned);
++			free(args.second_name);
++			return TEST_FAIL;
++		}
++		inode->addr = args.first_start;
++		INIT_LIST_HEAD(&inode->val);
++		if (inline_list__append(inlined_sym, SRCLINE_UNKNOWN, inode) < 0) {
++			if (symbol__inlined(inlined_sym))
++				symbol__delete(inlined_sym);
++			inline_node__delete(inode);
++			free(srcline);
++			dso_symbol__exit(&pinned);
++			free(args.second_name);
++			return TEST_FAIL;
++		}
++		if (inline_list__append(pinned.sym, SRCLINE_UNKNOWN, inode) < 0) {
++			inline_node__delete(inode);
++			free(srcline);
++			dso_symbol__exit(&pinned);
++			free(args.second_name);
++			return TEST_FAIL;
++		}
++		inlines__tree_insert(dso__inlined_nodes(pinned.dso), inode);
++		srcline__tree_insert(dso__srclines(pinned.dso), args.first_start, srcline);
++		dso_symbol__exit(&pinned);
++	}
++
++	if (dsos__shrink(&ti->machine->dsos) == 0) {
++		pr_debug("dsos__shrink did not reclaim unreferenced DSO symbols!\n");
++		free(args.second_name);
++		return TEST_FAIL;
++	}
++
++	if (create_map(ti, filename, map_p) != TEST_OK) {
++		free(args.second_name);
++		return TEST_FAIL;
++	}
++	map = *map_p;
++	dso = map__dso(map);
++	syms = dso__symbols(dso);
++	if (!dso__hit(dso) || syms->cnt != 0 || dso__loaded(dso) ||
++	    inlines__tree_find(dso__inlined_nodes(dso), args.first_start) != NULL ||
++	    srcline__tree_find(dso__srclines(dso), args.first_start) != NULL) {
++		pr_debug("Unreferenced hit DSO state mismatch after dsos__shrink!\n");
++		free(args.second_name);
++		return TEST_FAIL;
++	}
++
++	/* Lookup via map__find_symbol transparently reloads the DSO. */
++	reloaded = map__find_symbol(map, args.second_start);
++	if (!reloaded || strcmp(reloaded->name, args.second_name) != 0) {
++		pr_debug("Failed to reload evicted symbol %s!\n", args.second_name);
++		free(args.second_name);
++		return TEST_FAIL;
++	}
++
++	if (syms->cnt != initial_cnt || !syms->sorted || !dso__loaded(dso)) {
++		pr_debug("Reloaded symbol table state mismatch (cnt=%u vs %u, sorted=%d, loaded=%d)!\n",
++			 syms->cnt, initial_cnt, syms->sorted, dso__loaded(dso));
++		free(args.second_name);
++		return TEST_FAIL;
++	}
++	for (unsigned int i = 1; i < syms->cnt; i++) {
++		if (syms->symbols[i - 1]->start > syms->symbols[i]->start) {
++			pr_debug("Reloaded symbols out of order at %u!\n", i);
++			free(args.second_name);
++			return TEST_FAIL;
++		}
++	}
++
++	free(args.second_name);
++	return TEST_OK;
++}
++
+ static int test_file(struct test_info *ti, char *filename)
  {
- 	struct machine *machine = pt->machine;
- 	struct map *map;
--	struct symbol *sym, *start;
--	u64 ip, switch_ip = 0;
--	const char *ptss;
-+	struct intel_pt_switch_ip_args args;
-+	u64 switch_ip = 0;
- 
- 	if (ptss_ip)
- 		*ptss_ip = 0;
-@@ -3006,36 +3030,28 @@ static u64 intel_pt_switch_ip(struct intel_pt *pt, u64 *ptss_ip)
- 	if (map__load(map))
- 		return 0;
- 
--	start = dso__first_symbol(map__dso(map));
--
--	for (sym = start; sym; sym = dso__next_symbol(sym)) {
--		if (symbol__binding(sym) == STB_GLOBAL &&
--		    !strcmp(sym->name, "__switch_to")) {
--			ip = map__unmap_ip(map, sym->start);
--			if (ip >= map__start(map) && ip < map__end(map)) {
--				switch_ip = ip;
--				break;
--			}
--		}
--	}
-+	args = (struct intel_pt_switch_ip_args) {
-+		.map = map,
-+		.name = "__switch_to",
-+		.check_global = true,
-+		.ip = 0,
-+	};
-+	map__for_each_symbol(map, intel_pt_switch_ip_cb, &args);
-+	switch_ip = args.ip;
- 
- 	if (!switch_ip || !ptss_ip)
- 		return 0;
- 
--	if (pt->have_sched_switch == 1)
--		ptss = "perf_trace_sched_switch";
--	else
--		ptss = "__perf_event_task_sched_out";
--
--	for (sym = start; sym; sym = dso__next_symbol(sym)) {
--		if (!strcmp(sym->name, ptss)) {
--			ip = map__unmap_ip(map, sym->start);
--			if (ip >= map__start(map) && ip < map__end(map)) {
--				*ptss_ip = ip;
--				break;
--			}
--		}
--	}
-+	args = (struct intel_pt_switch_ip_args) {
-+		.map = map,
-+		.name = pt->have_sched_switch == 1 ?
-+			"perf_trace_sched_switch" :
-+			"__perf_event_task_sched_out",
-+		.check_global = false,
-+		.ip = 0,
-+	};
-+	map__for_each_symbol(map, intel_pt_switch_ip_cb, &args);
-+	*ptss_ip = args.ip;
- 
- 	return switch_ip;
- }
-diff --git a/tools/perf/util/libbfd.c b/tools/perf/util/libbfd.c
-index 58cadc93e8b5..c78865690ebb 100644
---- a/tools/perf/util/libbfd.c
-+++ b/tools/perf/util/libbfd.c
-@@ -453,7 +453,8 @@ int dso__load_bfd_symbols(struct dso *dso, const char *debugfile)
- 		if (!symbol)
- 			goto out_free;
- 
--		symbols__insert(dso__symbols(dso), symbol);
-+		if (symbols__insert(dso__symbols(dso), symbol))
-+			goto out_free;
- 	}
- #ifdef bfd_get_section
- #undef bfd_asymbol_section
-diff --git a/tools/perf/util/machine.c b/tools/perf/util/machine.c
-index 5b4550e97172..e8a3d8095346 100644
---- a/tools/perf/util/machine.c
-+++ b/tools/perf/util/machine.c
-@@ -818,7 +818,7 @@ static int machine__process_ksymbol_register(struct machine *machine,
- 		err = -ENOMEM;
- 		goto out;
- 	}
--	dso__insert_symbol(dso, sym);
-+	err = dso__insert_symbol(dso, sym);
- out:
+ 	struct map *map = NULL;
+@@ -213,18 +707,271 @@ static int test_file(struct test_info *ti, char *filename)
+ 	/* Module dso is split into many dsos by section */
+ 	if (ret == TEST_OK && dso__kernel(dso) != DSO_SPACE__USER)
+ 		ret = process_subdivided_dso(ti->machine, dso);
++
++	if (ret == TEST_OK) {
++		int shrink_ret = test_dso_shrink_and_reload(ti, filename, &map);
++
++		if (shrink_ret != TEST_SKIP)
++			ret = shrink_ret;
++	}
+ out_put:
  	map__put(map);
- 	dso__put(dso);
-@@ -1121,29 +1121,35 @@ int machine__create_extra_kernel_map(struct machine *machine,
- 	return err;
- }
  
--static u64 find_entry_trampoline(struct dso *dso)
-+static int find_entry_trampoline_cb(struct symbol *sym, void *data)
- {
- 	/* Duplicates are removed so lookup all aliases */
--	const char *syms[] = {
-+	static const char * const syms[] = {
- 		"_entry_trampoline",
- 		"__entry_trampoline_start",
- 		"entry_SYSCALL_64_trampoline",
- 	};
--	struct symbol *sym = dso__first_symbol(dso);
--	unsigned int i;
-+	u64 *addr = data;
- 
--	for (; sym; sym = dso__next_symbol(sym)) {
--		if (symbol__binding(sym) != STB_GLOBAL)
--			continue;
--		for (i = 0; i < ARRAY_SIZE(syms); i++) {
--			if (!strcmp(sym->name, syms[i]))
--				return sym->start;
-+	if (symbol__binding(sym) != STB_GLOBAL)
-+		return 0;
-+	for (unsigned int i = 0; i < ARRAY_SIZE(syms); i++) {
-+		if (!strcmp(sym->name, syms[i])) {
-+			*addr = sym->start;
-+			return 1;
- 		}
- 	}
--
- 	return 0;
- }
- 
-+static u64 find_entry_trampoline(struct dso *dso)
-+{
-+	u64 addr = 0;
-+
-+	dso__for_each_symbol(dso, find_entry_trampoline_cb, &addr);
-+	return addr;
-+}
-+
- /*
-  * These values can be used for kernels that do not have symbols for the entry
-  * trampolines in kallsyms.
-diff --git a/tools/perf/util/map.c b/tools/perf/util/map.c
-index d5319ffa88a7..5c75741e4cb7 100644
---- a/tools/perf/util/map.c
-+++ b/tools/perf/util/map.c
-@@ -314,27 +314,35 @@ void map__put(struct map *map)
- 
- void map__fixup_start(struct map *map)
- {
--	struct dso *dso = map__dso(map);
--	struct rb_root_cached *symbols = dso__symbols(dso);
--	struct rb_node *nd = rb_first_cached(symbols);
--
--	if (nd != NULL) {
--		struct symbol *sym = rb_entry(nd, struct symbol, rb_node);
-+	struct symbols *symbols = dso__symbols(map__dso(map));
- 
--		map__set_start(map, sym->start);
--	}
-+	symbols__sort_read_lock(symbols);
-+	if (symbols->cnt > 0)
-+		map__set_start(map, symbols->symbols[0]->start);
-+	up_read(&symbols->lock);
- }
- 
- void map__fixup_end(struct map *map)
- {
--	struct dso *dso = map__dso(map);
--	struct rb_root_cached *symbols = dso__symbols(dso);
--	struct rb_node *nd = rb_last(&symbols->rb_root);
-+	struct symbols *symbols = dso__symbols(map__dso(map));
- 
--	if (nd != NULL) {
--		struct symbol *sym = rb_entry(nd, struct symbol, rb_node);
--		map__set_end(map, sym->end);
-+	symbols__sort_read_lock(symbols);
-+	if (symbols->cnt > 0) {
-+		u64 last_start = symbols->symbols[symbols->cnt - 1]->start;
-+		u64 end = symbols->symbols[symbols->cnt - 1]->end;
-+
-+		for (unsigned int i = symbols->cnt - 1; i > 0; i--) {
-+			u64 sym_end;
-+
-+			if (symbols->symbols[i - 1]->start != last_start)
-+				break;
-+			sym_end = symbols->symbols[i - 1]->end;
-+			if (sym_end > end)
-+				end = sym_end;
-+		}
-+		map__set_end(map, end);
- 	}
-+	up_read(&symbols->lock);
- }
- 
- #define DSO__DELETED "(deleted)"
-diff --git a/tools/perf/util/map.h b/tools/perf/util/map.h
-index c2e31be232c8..32f1fd9a7404 100644
---- a/tools/perf/util/map.h
-+++ b/tools/perf/util/map.h
-@@ -146,12 +146,12 @@ struct thread;
- /* map__for_each_symbol - iterate over the symbols in the given map
-  *
-  * @map: the 'struct map *' in which symbols are iterated
-- * @pos: the 'struct symbol *' to use as a loop cursor
-- * @n: the 'struct rb_node *' to use as a temporary storage
-+ * @cb: callback function invoked for each symbol
-+ * @data: opaque data pointer passed to @cb
-  * Note: caller must ensure map->dso is not NULL (map is loaded).
-  */
--#define map__for_each_symbol(map, pos, n)	\
--	dso__for_each_symbol(map__dso(map), pos, n)
-+#define map__for_each_symbol(map, cb, data)	\
-+	dso__for_each_symbol(map__dso(map), cb, data)
- 
- /* map__for_each_symbol_with_name - iterate over the symbols in the given map
-  *                                  that have the given name
-diff --git a/tools/perf/util/probe-event.c b/tools/perf/util/probe-event.c
-index 1534280c0c1d..e3f8e3cd68c0 100644
---- a/tools/perf/util/probe-event.c
-+++ b/tools/perf/util/probe-event.c
-@@ -3047,49 +3047,63 @@ static int __add_probe_trace_events(struct perf_probe_event *pev,
  	return ret;
  }
  
--static int find_probe_functions(struct map *map, char *name,
--				struct symbol **syms)
-+struct find_probe_functions_args {
-+	const char *name;
-+	struct symbol **syms;
-+	int found;
-+	bool cut_version;
-+};
-+
-+static int find_probe_functions_cb(struct symbol *sym, void *data)
- {
--	int found = 0;
--	struct symbol *sym;
--	struct rb_node *tmp;
-+	struct find_probe_functions_args *args = data;
- 	const char *norm, *ver;
- 	char *buf = NULL;
--	bool cut_version = true;
- 
--	if (map__load(map) < 0)
--		return -EACCES;	/* Possible permission error to load symbols */
--
--	/* If user gives a version, don't cut off the version from symbols */
--	if (strchr(name, '@'))
--		cut_version = false;
--
--	map__for_each_symbol(map, sym, tmp) {
--		norm = arch__normalize_symbol_name(sym->name);
--		if (!norm)
--			continue;
-+	norm = arch__normalize_symbol_name(sym->name);
-+	if (!norm)
-+		return 0;
- 
--		if (cut_version) {
--			/* We don't care about default symbol or not */
--			ver = strchr(norm, '@');
--			if (ver) {
--				buf = strndup(norm, ver - norm);
--				if (!buf)
--					return -ENOMEM;
--				norm = buf;
--			}
-+	if (args->cut_version) {
-+		/* We don't care about default symbol or not */
-+		ver = strchr(norm, '@');
-+		if (ver) {
-+			buf = strndup(norm, ver - norm);
-+			if (!buf)
-+				return -ENOMEM;
-+			norm = buf;
- 		}
-+	}
- 
--		if (strglobmatch(norm, name)) {
--			found++;
--			if (syms && found < probe_conf.max_probes)
--				syms[found - 1] = sym;
--		}
--		if (buf)
--			zfree(&buf);
-+	if (strglobmatch(norm, args->name)) {
-+		args->found++;
-+		if (args->syms && args->found < probe_conf.max_probes)
-+			args->syms[args->found - 1] = sym;
- 	}
-+	free(buf);
-+	return 0;
-+}
- 
--	return found;
-+static int find_probe_functions(struct map *map, char *name,
-+				struct symbol **syms)
++static int test_symbols_sorted_insert(void)
 +{
-+	struct find_probe_functions_args args = {
-+		.name = name,
-+		.syms = syms,
-+		/* If user gives a version, don't cut off the version from symbols */
-+		.cut_version = strchr(name, '@') == NULL,
-+		.found = 0,
-+	};
-+	int ret;
++	struct dso *dso = dso__new("/tmp/perf_test_sorted_insert");
++	struct symbols *symbols;
++	int ret = TEST_FAIL;
 +
-+	if (map__load(map) < 0)
-+		return -EACCES;	/* Possible permission error to load symbols */
++	if (!dso)
++		return TEST_FAIL;
 +
-+	ret = map__for_each_symbol(map, find_probe_functions_cb, &args);
-+	if (ret < 0)
++	symbols = dso__symbols(dso);
++
++	/*
++	 * Insert 100 odd-indexed symbols in ascending order via
++	 * symbols__insert(), then insert 5 even-indexed symbols out of order via
++	 * dso__insert_symbol() and verify symbols->sorted remains true.
++	 */
++	for (unsigned int i = 0; i < 100; i++) {
++		char name[32];
++		u64 addr = (u64)(i * 2 + 1) * 0x100;
++		struct symbol *sym;
++
++		snprintf(name, sizeof(name), "sym_%u", i * 2 + 1);
++		sym = symbol__new(addr, 0x40, STB_GLOBAL, STT_FUNC, name);
++		if (!sym || symbols__insert(symbols, sym))
++			goto out;
++	}
++	if (!symbols->sorted || symbols->cnt != 100) {
++		pr_debug("Expected sorted=true, cnt=100 after ordered inserts\n");
++		goto out;
++	}
++
++	for (unsigned int i = 0; i < 5; i++) {
++		char name[32];
++		u64 addr = (u64)(i * 20) * 0x100;
++		struct symbol *sym;
++
++		snprintf(name, sizeof(name), "ins_%u", i * 20);
++		sym = symbol__new(addr, 0x40, STB_GLOBAL, STT_FUNC, name);
++		if (!sym || dso__insert_symbol(dso, sym))
++			goto out;
++		if (!symbols->sorted) {
++			pr_debug("dso__insert_symbol did not preserve sorted invariant!\n");
++			goto out;
++		}
++	}
++
++	/*
++	 * Now append 95 remaining even-indexed symbols in descending order via
++	 * symbols__insert() to exercise the unsorted append + sort-on-lookup path.
++	 */
++	for (unsigned int i = 99; i > 0; i--) {
++		char name[32];
++		u64 addr;
++		struct symbol *sym;
++
++		if ((i * 2) % 20 == 0 && (i * 2) < 100)
++			continue;
++		addr = (u64)(i * 2) * 0x100;
++		snprintf(name, sizeof(name), "ins_%u", i * 2);
++		sym = symbol__new(addr, 0x40, STB_GLOBAL, STT_FUNC, name);
++		if (!sym || symbols__insert(symbols, sym))
++			goto out;
++	}
++	if (symbols->sorted || symbols->cnt != 200) {
++		pr_debug("Unexpected sorted=%d cnt=%u before lookup\n",
++			 symbols->sorted, symbols->cnt);
++		goto out;
++	}
++
++	for (unsigned int i = 0; i < 200; i++) {
++		u64 addr = (u64)i * 0x100 + 0x10;
++		struct symbol *sym = dso__find_symbol(dso, addr);
++
++		if (!sym || sym->start != (u64)i * 0x100) {
++			pr_debug("Lookup failed at idx %u (addr=%#" PRIx64 ")\n", i, addr);
++			goto out;
++		}
++	}
++
++	/*
++	 * Insert dynamic symbols into the unmerged sorted tail and verify
++	 * lookups match merged-array semantics in all prefix/tail overlap and
++	 * equal-start cases:
++	 * - [0x0, 0x40) in prefix + [0x20, 0x30) in tail: 0x24 -> inner,
++	 *   0x34 -> NULL (closer tail start shadows outer prefix symbol).
++	 * - [0x100, 0x140) in prefix + [0x80, 0x180) in tail: 0x150 -> NULL
++	 *   (closer prefix start shadows outer tail symbol).
++	 * - [0x200, 0x240) in prefix + [0x200, 0x260) in tail: 0x250 -> alias
++	 *   (equal-start group spans prefix and tail).
++	 */
++	{
++		struct symbol *inner = symbol__new(0x20, 0x10, STB_GLOBAL, STT_FUNC,
++						   "inner_tail_sym");
++		struct symbol *outer = symbol__new(0x80, 0x100, STB_GLOBAL, STT_FUNC,
++						   "outer_tail_sym");
++		struct symbol *alias = symbol__new(0x200, 0x60, STB_GLOBAL, STT_FUNC,
++						   "longer_tail_alias");
++
++		if (!inner || dso__insert_symbol(dso, inner)) {
++			symbol__delete(outer);
++			symbol__delete(alias);
++			goto out;
++		}
++		if (!outer || dso__insert_symbol(dso, outer)) {
++			symbol__delete(alias);
++			goto out;
++		}
++		if (!alias || dso__insert_symbol(dso, alias))
++			goto out;
++		if (symbols->sorted_cnt >= symbols->cnt) {
++			pr_debug("Expected unmerged sorted tail!\n");
++			goto out;
++		}
++		if (dso__find_symbol(dso, 0x24) != inner ||
++		    dso__find_symbol(dso, 0x34) != NULL ||
++		    dso__find_symbol(dso, 0x150) != NULL ||
++		    dso__find_symbol(dso, 0x250) != alias) {
++			pr_debug("Unmerged tail lookup mismatch!\n");
++			goto out;
++		}
++		symbols__sort_read_lock(symbols);
++		up_read(&symbols->lock);
++		if (dso__find_symbol(dso, 0x24) != inner ||
++		    dso__find_symbol(dso, 0x34) != NULL ||
++		    dso__find_symbol(dso, 0x150) != NULL ||
++		    dso__find_symbol(dso, 0x250) != alias) {
++			pr_debug("Merged lookup mismatch!\n");
++			goto out;
++		}
++	}
++
++	ret = TEST_OK;
++out:
++	dso__put(dso);
++	return ret;
++}
++
++static int test_symbols_equal_start_aliases(void)
++{
++	struct dso *dso = dso__new("/tmp/perf_test_equal_start_aliases");
++	struct map *map = NULL;
++	struct symbols *symbols;
++	struct symbol *sized_sym, *zero_alias, *last_sized, *last_short, *found;
++	int ret = TEST_FAIL;
++
++	if (!dso)
++		return TEST_FAIL;
++
++	map = map__new2(0, dso);
++	if (!map)
++		goto out;
++
++	symbols = dso__symbols(dso);
++	sized_sym = symbol__new(0x1000, 0x40, STB_GLOBAL, STT_FUNC, "sized_sym");
++	zero_alias = symbol__new(0x1000, 0, STB_GLOBAL, STT_FUNC, "zero_alias");
++	last_sized = symbol__new(0x2000, 0x80, STB_GLOBAL, STT_FUNC, "last_sized");
++	if (!sized_sym || !zero_alias || !last_sized) {
++		symbol__delete(sized_sym);
++		symbol__delete(zero_alias);
++		symbol__delete(last_sized);
++		goto out;
++	}
++
++	if (symbols__insert(symbols, sized_sym)) {
++		symbol__delete(zero_alias);
++		symbol__delete(last_sized);
++		goto out;
++	}
++	if (symbols__insert(symbols, zero_alias)) {
++		symbol__delete(last_sized);
++		goto out;
++	}
++	if (symbols__insert(symbols, last_sized))
++		goto out;
++
++	/*
++	 * With 3 entries [0x1000..0x1040, 0x1000..0x1000, 0x2000..0x2080], a
++	 * lookup at 0x1020 must rewind past the trailing zero-length alias at
++	 * 0x1000 and find sized_sym.
++	 */
++	found = dso__find_symbol(dso, 0x1020);
++	if (found != sized_sym) {
++		pr_debug("Expected sized_sym at 0x1020, got %s\n",
++			 found ? found->name : "NULL");
++		goto out;
++	}
++
++	/*
++	 * symbols__fixup_end() must not inflate zero_alias to 0x2000 when
++	 * sized_sym already provides a non-zero size at 0x1000.
++	 */
++	symbols__fixup_end(symbols, /*is_kallsyms=*/false);
++	if (zero_alias->end != 0x1000) {
++		pr_debug("zero_alias inflated to %#" PRIx64 "\n", zero_alias->end);
++		goto out;
++	}
++	symbols__fixup_duplicate(symbols);
++	found = dso__find_symbol(dso, 0x1020);
++	if (found != sized_sym || found->end != 0x1040) {
++		pr_debug("After dedup expected sized_sym [0x1000, 0x1040), got %s\n",
++			 found ? found->name : "NULL");
++		goto out;
++	}
++
++	/*
++	 * Append a shorter alias at the final start address 0x2000 (as when
++	 * symbol_conf.allow_aliases is set) and verify map__fixup_end() uses
++	 * the maximum end across the equal-start group.
++	 */
++	last_short = symbol__new(0x2000, 0x10, STB_WEAK, STT_FUNC, "last_short");
++	if (!last_short || symbols__insert(symbols, last_short))
++		goto out;
++
++	map__fixup_end(map);
++	if (map__end(map) != 0x2080) {
++		pr_debug("Expected map end 0x2080, got %#" PRIx64 "\n", map__end(map));
++		goto out;
++	}
++
++	ret = TEST_OK;
++out:
++	map__put(map);
++	dso__put(dso);
++	return ret;
++}
++
+ static int test__symbols(struct test_suite *test __maybe_unused, int subtest __maybe_unused)
+ {
+ 	char filename[PATH_MAX];
+ 	struct test_info ti;
+ 	int ret;
+ 
++	ret = test_symbols_sorted_insert();
++	if (ret != TEST_OK)
 +		return ret;
 +
-+	return args.found;
- }
- 
- void __weak arch__fix_tev_from_maps(struct perf_probe_event *pev __maybe_unused,
-@@ -3774,6 +3788,15 @@ void cleanup_perf_probe_events(struct perf_probe_event *pevs, int npevs)
- 	}
- }
- 
-+static int show_available_funcs_cb(struct symbol *pos, void *data)
-+{
-+	struct strfilter *_filter = data;
++	ret = test_symbols_equal_start_aliases();
++	if (ret != TEST_OK)
++		return ret;
 +
-+	if (strfilter__compare(_filter, pos->name))
-+		printf("%s\n", pos->name);
-+	return 0;
-+}
++	ret = test_symbols_shrink();
++	if (ret != TEST_OK)
++		return ret;
 +
- int show_available_funcs(const char *target, struct nsinfo *nsi,
- 			 struct strfilter *_filter, bool user)
- {
-@@ -3810,12 +3833,7 @@ int show_available_funcs(const char *target, struct nsinfo *nsi,
- 	/* Show all (filtered) symbols */
- 	setup_pager();
- 
--	for (size_t i = 0; i < dso__symbol_names_len(dso); i++) {
--		struct symbol *pos = dso__symbol_names(dso)[i];
--
--		if (strfilter__compare(_filter, pos->name))
--			printf("%s\n", pos->name);
--	}
-+	dso__for_each_symbol_by_name(dso, show_available_funcs_cb, _filter);
- end:
- 	map__put(map);
- 	exit_probe_symbol_maps();
-diff --git a/tools/perf/util/symbol-elf.c b/tools/perf/util/symbol-elf.c
-index 2b7f9e30916d..bda0b92ada24 100644
---- a/tools/perf/util/symbol-elf.c
-+++ b/tools/perf/util/symbol-elf.c
-@@ -698,7 +698,8 @@ static int dso__synthesize_plt_got_symbols(struct dso *dso, Elf *elf,
- 		sym = symbol__new(shdr.sh_offset + i, shdr.sh_entsize, STB_GLOBAL, STT_FUNC, buf);
- 		if (!sym)
- 			goto out;
--		symbols__insert(dso__symbols(dso), sym);
-+		if (symbols__insert(dso__symbols(dso), sym))
-+			goto out;
- 	}
- 	err = 0;
- out:
-@@ -752,7 +753,8 @@ int dso__synthesize_plt_symbols(struct dso *dso, struct symsrc *ss)
- 	plt_sym = symbol__new(shdr_plt.sh_offset, plt_header_size, STB_GLOBAL, STT_FUNC, ".plt");
- 	if (!plt_sym)
- 		goto out_elf_end;
--	symbols__insert(dso__symbols(dso), plt_sym);
-+	if (symbols__insert(dso__symbols(dso), plt_sym))
-+		goto out_elf_end;
- 
- 	/* Only x86 has .plt.got */
- 	if (machine_is_x86(ehdr.e_machine) &&
-@@ -874,7 +876,8 @@ int dso__synthesize_plt_symbols(struct dso *dso, struct symsrc *ss)
- 			goto out_elf_end;
- 
- 		plt_offset += plt_entry_size;
--		symbols__insert(dso__symbols(dso), f);
-+		if (symbols__insert(dso__symbols(dso), f))
-+			goto out_elf_end;
- 		++nr;
- 	}
- 
-@@ -1938,7 +1941,8 @@ dso__load_sym_internal(struct dso *dso, struct map *map, struct symsrc *syms_ss,
- 
- 		arch__sym_update(f, &sym);
- 
--		__symbols__insert(dso__symbols(curr_dso), f);
-+		if (symbols__insert(dso__symbols(curr_dso), f))
-+			goto out_elf_end;
- 		nr++;
- 	}
- 	dso__put(curr_dso);
-diff --git a/tools/perf/util/symbol.c b/tools/perf/util/symbol.c
-index a1ac1cd1d2e7..f1e3d7af714c 100644
---- a/tools/perf/util/symbol.c
-+++ b/tools/perf/util/symbol.c
-@@ -213,57 +213,167 @@ static int choose_best_symbol(struct symbol *syma, struct symbol *symb)
- 	return arch__choose_best_symbol(syma, symb);
- }
- 
--void symbols__fixup_duplicate(struct rb_root_cached *symbols)
-+void symbols__init(struct symbols *symbols)
- {
--	struct rb_node *nd;
--	struct symbol *curr, *next;
-+	init_rwsem(&symbols->lock);
-+	symbols->symbols = NULL;
-+	symbols->symbols_by_name = NULL;
-+	symbols->cnt = 0;
-+	symbols->allocated = 0;
-+	symbols->num_by_name = 0;
-+	symbols->sorted = true;
-+	symbols->sorted_by_name = false;
-+}
++	ret = test_dsos_shrink();
++	if (ret != TEST_OK)
++		return ret;
 +
-+static void symbols__delete_locked(struct symbols *symbols)
-+{
-+	for (unsigned int i = 0; i < symbols->cnt; i++)
-+		symbol__delete(symbols->symbols[i]);
++	ret = test_session_alloc_shrink();
++	if (ret != TEST_OK)
++		return ret;
 +
-+	zfree(&symbols->symbols);
-+	zfree(&symbols->symbols_by_name);
-+	symbols->cnt = 0;
-+	symbols->allocated = 0;
-+	symbols->num_by_name = 0;
-+	symbols->sorted = true;
-+	symbols->sorted_by_name = false;
-+}
-+
-+void symbols__delete(struct symbols *symbols)
-+{
-+	down_write(&symbols->lock);
-+	symbols__delete_locked(symbols);
-+	up_write(&symbols->lock);
-+}
-+
-+void symbols__exit(struct symbols *symbols)
-+{
-+	symbols__delete(symbols);
-+	exit_rwsem(&symbols->lock);
-+}
-+
-+/*
-+ * Order symbols by start address only, preserving insertion order among
-+ * symbols sharing the same start address (matching the previous rbtree
-+ * __symbols__insert() behavior so alias deduplication and IFUNC resolution
-+ * remain unchanged).
-+ */
-+static inline bool symbol__less_or_equal(const struct symbol *a, const struct symbol *b)
-+{
-+	return a->start <= b->start;
-+}
-+
-+static int symbols__sort_cmp(const void *vlhs, const void *vrhs)
-+{
-+	const struct symbol *lhs = *((const struct symbol **)vlhs);
-+	const struct symbol *rhs = *((const struct symbol **)vrhs);
-+
-+	if (lhs->start != rhs->start)
-+		return lhs->start < rhs->start ? -1 : 1;
-+	return 0;
-+}
-+
-+static void symbols__sort_locked(struct symbols *symbols)
-+{
-+	if (symbols->sorted)
-+		return;
-+
-+	if (symbols->cnt > 1) {
-+		qsort(symbols->symbols, symbols->cnt, sizeof(struct symbol *),
-+		      symbols__sort_cmp);
-+	}
-+	symbols->sorted = true;
-+}
-+
-+/*
-+ * Acquire @symbols->lock for reading after ensuring @symbols->symbols is
-+ * sorted.
-+ */
-+void symbols__sort_read_lock(struct symbols *symbols)
-+	NO_THREAD_SAFETY_ANALYSIS
-+{
-+	down_read(&symbols->lock);
-+	while (!symbols->sorted) {
-+		up_read(&symbols->lock);
-+		down_write(&symbols->lock);
-+		symbols__sort_locked(symbols);
-+		up_write(&symbols->lock);
-+		down_read(&symbols->lock);
-+	}
-+}
-+
-+/*
-+ * Deduplicate symbols sharing the same start address by sorting @symbols and
-+ * compacting the array in place, keeping the best symbol at each address as
-+ * chosen by choose_best_symbol().
-+ */
-+void symbols__fixup_duplicate(struct symbols *symbols)
-+{
-+	unsigned int write_idx = 0;
- 
- 	if (symbol_conf.allow_aliases)
- 		return;
- 
--	nd = rb_first_cached(symbols);
-+	down_write(&symbols->lock);
-+	symbols__sort_locked(symbols);
-+	if (symbols->cnt <= 1) {
-+		up_write(&symbols->lock);
-+		return;
-+	}
- 
--	while (nd) {
--		curr = rb_entry(nd, struct symbol, rb_node);
--again:
--		nd = rb_next(&curr->rb_node);
--		if (!nd)
--			break;
-+	for (unsigned int read_idx = 1; read_idx < symbols->cnt; read_idx++) {
-+		struct symbol *curr = symbols->symbols[write_idx];
-+		struct symbol *next = symbols->symbols[read_idx];
- 
--		next = rb_entry(nd, struct symbol, rb_node);
--		if (curr->start != next->start)
-+		if (curr->start != next->start) {
-+			symbols->symbols[++write_idx] = next;
- 			continue;
-+		}
- 
- 		if (choose_best_symbol(curr, next) == SYMBOL_A) {
- 			if (symbol__type(next) == STT_GNU_IFUNC)
- 				symbol__set_ifunc_alias(curr, true);
--			rb_erase_cached(&next->rb_node, symbols);
- 			symbol__delete(next);
--			goto again;
- 		} else {
- 			if (symbol__type(curr) == STT_GNU_IFUNC)
- 				symbol__set_ifunc_alias(next, true);
--			nd = rb_next(&curr->rb_node);
--			rb_erase_cached(&curr->rb_node, symbols);
- 			symbol__delete(curr);
-+			symbols->symbols[write_idx] = next;
- 		}
- 	}
-+	symbols->cnt = write_idx + 1;
-+	zfree(&symbols->symbols_by_name);
-+	symbols->num_by_name = 0;
-+	symbols->sorted_by_name = false;
-+	up_write(&symbols->lock);
- }
- 
- /* Update zero-sized symbols using the address of the next symbol */
--void symbols__fixup_end(struct rb_root_cached *symbols, bool is_kallsyms)
-+void symbols__fixup_end(struct symbols *symbols, bool is_kallsyms)
- {
--	struct rb_node *nd, *prevnd = rb_first_cached(symbols);
- 	struct symbol *curr, *prev;
-+	bool addr_has_sized;
-+
-+	down_write(&symbols->lock);
-+	symbols__sort_locked(symbols);
- 
--	if (prevnd == NULL)
-+	if (symbols->cnt == 0) {
-+		up_write(&symbols->lock);
- 		return;
-+	}
- 
--	curr = rb_entry(prevnd, struct symbol, rb_node);
-+	curr = symbols->symbols[0];
-+	addr_has_sized = curr->end > curr->start;
- 
--	for (nd = rb_next(prevnd); nd; nd = rb_next(nd)) {
-+	for (unsigned int i = 1; i < symbols->cnt; i++) {
- 		prev = curr;
--		curr = rb_entry(nd, struct symbol, rb_node);
-+		curr = symbols->symbols[i];
-+
-+		if (curr->start == prev->start) {
-+			if (curr->end > curr->start)
-+				addr_has_sized = true;
-+			continue;
-+		}
- 
- 		/*
- 		 * On some architecture kernel text segment start is located at
-@@ -281,39 +391,42 @@ void symbols__fixup_end(struct rb_root_cached *symbols, bool is_kallsyms)
- 		 * like in:
- 		 *   ffffffffc1937000 T hdmi_driver_init  [snd_hda_codec_hdmi]
- 		 */
--		if (prev->end == prev->start) {
-+		if (!addr_has_sized && prev->end == prev->start) {
- 			const char *prev_mod;
- 			const char *curr_mod;
- 
- 			if (!is_kallsyms) {
- 				prev->end = curr->start;
--				continue;
--			}
--
--			prev_mod = strchr(prev->name, '[');
--			curr_mod = strchr(curr->name, '[');
--
--			/* Last kernel/module symbol mapped to end of page */
--			if (!prev_mod != !curr_mod)
--				prev->end = roundup(prev->end + 4096, 4096);
--			/* Last symbol in the previous module */
--			else if (prev_mod && strcmp(prev_mod, curr_mod))
--				prev->end = roundup(prev->end + 4096, 4096);
--			else
--				prev->end = curr->start;
-+			} else {
-+				prev_mod = strchr(prev->name, '[');
-+				curr_mod = strchr(curr->name, '[');
-+
-+				/* Last kernel/module symbol mapped to end of page */
-+				if (!prev_mod != !curr_mod) {
-+					prev->end = roundup(prev->end + 4096, 4096);
-+				/* Last symbol in the previous module */
-+				} else if (prev_mod && strcmp(prev_mod, curr_mod)) {
-+					prev->end = roundup(prev->end + 4096, 4096);
-+				} else {
-+					prev->end = curr->start;
-+				}
- 
--			/* The next module can start within that page */
--			if (prev->end > curr->start)
--				prev->end = curr->start;
-+				/* The next module can start within that page */
-+				if (prev->end > curr->start)
-+					prev->end = curr->start;
- 
--			pr_debug4("%s sym:%s end:%#" PRIx64 "\n",
--				  __func__, prev->name, prev->end);
-+				pr_debug4("%s sym:%s end:%#" PRIx64 "\n",
-+					  __func__, prev->name, prev->end);
-+			}
- 		}
-+		addr_has_sized = curr->end > curr->start;
- 	}
- 
- 	/* Last entry */
--	if (curr->end == curr->start)
-+	if (!addr_has_sized && curr->end == curr->start)
- 		curr->end = roundup(curr->start, 4096) + 4096;
-+
-+	up_write(&symbols->lock);
- }
- 
- struct symbol *symbol__new(u64 start, u64 len, u8 binding, u8 type, const char *name)
-@@ -388,97 +501,116 @@ static void symbol__set_idle(struct symbol *sym, bool idle)
- 		new_flags |= (idle_val << SYMBOL_FLAG_IDLE_SHIFT);
- 	} while (!atomic_compare_exchange_weak(&sym->flags, &old_flags, new_flags));
- }
--void symbols__delete(struct rb_root_cached *symbols)
--{
--	struct symbol *pos;
--	struct rb_node *next = rb_first_cached(symbols);
- 
--	while (next) {
--		pos = rb_entry(next, struct symbol, rb_node);
--		next = rb_next(&pos->rb_node);
--		rb_erase_cached(&pos->rb_node, symbols);
--		symbol__delete(pos);
--	}
--}
--
--void __symbols__insert(struct rb_root_cached *symbols, struct symbol *sym)
-+static int __symbols__insert(struct symbols *symbols, struct symbol *sym)
- {
--	struct rb_node **p = &symbols->rb_root.rb_node;
--	struct rb_node *parent = NULL;
--	const u64 ip = sym->start;
--	struct symbol *s;
--	bool leftmost = true;
-+	if (symbols->cnt == symbols->allocated) {
-+		unsigned int to_allocate = symbols->allocated ? symbols->allocated * 2 : 32;
-+		struct symbol **temp = realloc(symbols->symbols,
-+					       sizeof(struct symbol *) * to_allocate);
- 
--	while (*p != NULL) {
--		parent = *p;
--		s = rb_entry(parent, struct symbol, rb_node);
--		if (ip < s->start)
--			p = &(*p)->rb_left;
--		else {
--			p = &(*p)->rb_right;
--			leftmost = false;
-+		if (!temp) {
-+			symbol__delete(sym);
-+			return -ENOMEM;
- 		}
-+		symbols->symbols = temp;
-+		symbols->allocated = to_allocate;
- 	}
--	rb_link_node(&sym->rb_node, parent, p);
--	rb_insert_color_cached(&sym->rb_node, symbols, leftmost);
-+
-+	if (symbols->sorted && symbols->cnt > 0 &&
-+	    !symbol__less_or_equal(symbols->symbols[symbols->cnt - 1], sym))
-+		symbols->sorted = false;
-+
-+	symbols->symbols[symbols->cnt++] = sym;
-+	zfree(&symbols->symbols_by_name);
-+	symbols->num_by_name = 0;
-+	symbols->sorted_by_name = false;
-+	return 0;
- }
- 
--void symbols__insert(struct rb_root_cached *symbols, struct symbol *sym)
-+int symbols__insert(struct symbols *symbols, struct symbol *sym)
- {
--	__symbols__insert(symbols, sym);
-+	int ret;
-+
-+	down_write(&symbols->lock);
-+	ret = __symbols__insert(symbols, sym);
-+	up_write(&symbols->lock);
-+	return ret;
- }
- 
--static struct symbol *symbols__find(struct rb_root_cached *symbols, u64 ip)
-+static inline bool symbol__covers(const struct symbol *s, u64 ip)
- {
--	struct rb_node *n;
-+	u64 start = s->start;
-+	u64 end = s->end;
- 
--	if (symbols == NULL)
--		return NULL;
-+	return ip >= start && (ip < end || (ip == end && ip == start));
-+}
- 
--	n = symbols->rb_root.rb_node;
-+static struct symbol *symbols__find_range(struct symbol **arr, unsigned int cnt, u64 ip)
-+{
-+	unsigned int low = 0, high = cnt, idx;
-+	u64 start;
- 
--	while (n) {
--		struct symbol *s = rb_entry(n, struct symbol, rb_node);
-+	while (low < high) {
-+		unsigned int mid = low + (high - low) / 2;
- 
--		if (ip < s->start)
--			n = n->rb_left;
--		else if (ip > s->end || (ip == s->end && ip != s->start))
--			n = n->rb_right;
-+		if (arr[mid]->start <= ip)
-+			low = mid + 1;
- 		else
--			return s;
-+			high = mid;
- 	}
-+	if (low == 0)
-+		return NULL;
- 
-+	/*
-+	 * Rewind across any equal-start group so a trailing zero-length or
-+	 * shorter alias at the same start address cannot mask an earlier
-+	 * covering symbol.
-+	 */
-+	idx = low - 1;
-+	start = arr[idx]->start;
-+	while (idx > 0 && arr[idx - 1]->start == start)
-+		idx--;
-+	for (; idx < low; idx++) {
-+		if (symbol__covers(arr[idx], ip))
-+			return arr[idx];
-+	}
- 	return NULL;
- }
- 
--static struct symbol *symbols__first(struct rb_root_cached *symbols)
-+/*
-+ * Binary search @symbols->symbols for a symbol covering @ip. Lazily sorts
-+ * @symbols under @symbols->lock if unsorted.
-+ */
-+static struct symbol *symbols__find(struct symbols *symbols, u64 ip)
- {
--	struct rb_node *n = rb_first_cached(symbols);
--
--	if (n)
--		return rb_entry(n, struct symbol, rb_node);
--
--	return NULL;
--}
-+	struct symbol *res;
- 
--static struct symbol *symbols__last(struct rb_root_cached *symbols)
--{
--	struct rb_node *n = rb_last(&symbols->rb_root);
-+	if (symbols == NULL)
-+		return NULL;
- 
--	if (n)
--		return rb_entry(n, struct symbol, rb_node);
-+	symbols__sort_read_lock(symbols);
-+	res = symbols__find_range(symbols->symbols, symbols->cnt, ip);
-+	up_read(&symbols->lock);
- 
--	return NULL;
-+	return res;
- }
- 
--static struct symbol *symbols__next(struct symbol *sym)
-+int symbols__for_each_entry(struct symbols *symbols,
-+			    int (*cb)(struct symbol *sym, void *data),
-+			    void *data)
- {
--	struct rb_node *n = rb_next(&sym->rb_node);
-+	int err = 0;
- 
--	if (n)
--		return rb_entry(n, struct symbol, rb_node);
-+	symbols__sort_read_lock(symbols);
-+	for (unsigned int i = 0; i < symbols->cnt; i++) {
-+		err = cb(symbols->symbols[i], data);
-+		if (err)
-+			break;
-+	}
-+	up_read(&symbols->lock);
- 
--	return NULL;
-+	return err;
- }
- 
- static int symbols__sort_name_cmp(const void *vlhs, const void *vrhs)
-@@ -489,27 +621,50 @@ static int symbols__sort_name_cmp(const void *vlhs, const void *vrhs)
- 	return strcmp(lhs->name, rhs->name);
- }
- 
--static struct symbol **symbols__sort_by_name(struct rb_root_cached *source, size_t *len)
-+static int symbols__sort_by_name_locked(struct symbols *symbols)
- {
--	struct rb_node *nd;
- 	struct symbol **result;
--	size_t i = 0, size = 0;
-+	unsigned int size = symbols->cnt;
-+
-+	if (symbols->sorted_by_name)
-+		return 0;
- 
--	for (nd = rb_first_cached(source); nd; nd = rb_next(nd))
--		size++;
-+	zfree(&symbols->symbols_by_name);
-+	symbols->num_by_name = 0;
-+
-+	if (size == 0) {
-+		symbols->sorted_by_name = true;
-+		return 0;
-+	}
- 
- 	result = malloc(sizeof(*result) * size);
- 	if (!result)
--		return NULL;
-+		return -ENOMEM;
- 
--	for (nd = rb_first_cached(source); nd; nd = rb_next(nd)) {
--		struct symbol *pos = rb_entry(nd, struct symbol, rb_node);
-+	memcpy(result, symbols->symbols, sizeof(*result) * size);
-+	qsort(result, size, sizeof(*result), symbols__sort_name_cmp);
-+	symbols->symbols_by_name = result;
-+	symbols->num_by_name = size;
-+	symbols->sorted_by_name = true;
-+	return 0;
-+}
-+
-+static int symbols__sort_by_name_read_lock(struct symbols *symbols)
-+	SHARED_LOCK_FUNCTION(symbols->lock)
-+{
-+	int err = 0;
- 
--		result[i++] = pos;
-+	down_read(&symbols->lock);
-+	while (!symbols->sorted_by_name) {
-+		up_read(&symbols->lock);
-+		down_write(&symbols->lock);
-+		err = symbols__sort_by_name_locked(symbols);
-+		up_write(&symbols->lock);
-+		down_read(&symbols->lock);
-+		if (err)
-+			break;
- 	}
--	qsort(result, size, sizeof(*result), symbols__sort_name_cmp);
--	*len = size;
--	return result;
-+	return symbols->sorted_by_name ? 0 : err;
- }
- 
- int symbol__match_symbol_name(const char *name, const char *str,
-@@ -578,39 +733,34 @@ static struct symbol *symbols__find_by_name(struct symbol *symbols[],
- 	return s;
- }
- 
--void dso__reset_find_symbol_cache(struct dso *dso)
-+int dso__insert_symbol(struct dso *dso, struct symbol *sym)
- {
--	dso__set_last_find_result_addr(dso, 0);
--	dso__set_last_find_result_symbol(dso, NULL);
--}
--
--void dso__insert_symbol(struct dso *dso, struct symbol *sym)
--{
--	__symbols__insert(dso__symbols(dso), sym);
--
--	/* update the symbol cache if necessary */
--	if (dso__last_find_result_addr(dso) >= sym->start &&
--	    (dso__last_find_result_addr(dso) < sym->end ||
--	    sym->start == sym->end)) {
--		dso__set_last_find_result_symbol(dso, sym);
--	}
-+	return symbols__insert(dso__symbols(dso), sym);
- }
- 
- void dso__delete_symbol(struct dso *dso, struct symbol *sym)
- {
--	rb_erase_cached(&sym->rb_node, dso__symbols(dso));
--	symbol__delete(sym);
--	dso__reset_find_symbol_cache(dso);
-+	struct symbols *symbols = dso__symbols(dso);
-+
-+	down_write(&symbols->lock);
-+	for (unsigned int i = 0; i < symbols->cnt; i++) {
-+		if (symbols->symbols[i] == sym) {
-+			memmove(&symbols->symbols[i], &symbols->symbols[i + 1],
-+				(symbols->cnt - i - 1) * sizeof(struct symbol *));
-+			symbols->cnt--;
-+			zfree(&symbols->symbols_by_name);
-+			symbols->num_by_name = 0;
-+			symbols->sorted_by_name = false;
-+			symbol__delete(sym);
-+			break;
-+		}
-+	}
-+	up_write(&symbols->lock);
- }
- 
- struct symbol *dso__find_symbol(struct dso *dso, u64 addr)
- {
--	if (dso__last_find_result_addr(dso) != addr || dso__last_find_result_symbol(dso) == NULL) {
--		dso__set_last_find_result_addr(dso, addr);
--		dso__set_last_find_result_symbol(dso, symbols__find(dso__symbols(dso), addr));
--	}
--
--	return dso__last_find_result_symbol(dso);
-+	return symbols__find(dso__symbols(dso), addr);
- }
- 
- struct symbol *dso__find_symbol_nocache(struct dso *dso, u64 addr)
-@@ -618,28 +768,23 @@ struct symbol *dso__find_symbol_nocache(struct dso *dso, u64 addr)
- 	return symbols__find(dso__symbols(dso), addr);
- }
- 
--struct symbol *dso__first_symbol(struct dso *dso)
--{
--	return symbols__first(dso__symbols(dso));
--}
--
--struct symbol *dso__last_symbol(struct dso *dso)
--{
--	return symbols__last(dso__symbols(dso));
--}
--
--struct symbol *dso__next_symbol(struct symbol *sym)
--{
--	return symbols__next(sym);
--}
--
- struct symbol *dso__next_symbol_by_name(struct dso *dso, size_t *idx)
- {
--	if (*idx + 1 >= dso__symbol_names_len(dso))
-+	struct symbols *symbols;
-+	struct symbol *res = NULL;
-+
-+	if (!dso)
- 		return NULL;
- 
--	++*idx;
--	return dso__symbol_names(dso)[*idx];
-+	symbols = dso__symbols(dso);
-+	if (!symbols__sort_by_name_read_lock(symbols) &&
-+	    *idx + 1 < symbols->num_by_name) {
-+		++*idx;
-+		res = symbols->symbols_by_name[*idx];
-+	}
-+	up_read(&symbols->lock);
-+
-+	return res;
- }
- 
-  /*
-@@ -647,29 +792,58 @@ struct symbol *dso__next_symbol_by_name(struct dso *dso, size_t *idx)
-   */
- struct symbol *dso__find_symbol_by_name(struct dso *dso, const char *name, size_t *idx)
- {
--	struct symbol *s = symbols__find_by_name(dso__symbol_names(dso),
--						 dso__symbol_names_len(dso),
--						 name, SYMBOL_TAG_INCLUDE__NONE, idx);
--	if (!s) {
--		s = symbols__find_by_name(dso__symbol_names(dso), dso__symbol_names_len(dso),
--					  name, SYMBOL_TAG_INCLUDE__DEFAULT_ONLY, idx);
-+	struct symbols *symbols;
-+	struct symbol *s = NULL;
-+
-+	if (idx)
-+		*idx = SIZE_MAX;
-+	if (!dso)
-+		return NULL;
-+	symbols = dso__symbols(dso);
-+	if (!symbols__sort_by_name_read_lock(symbols)) {
-+		s = symbols__find_by_name(symbols->symbols_by_name,
-+					  symbols->num_by_name,
-+					  name, SYMBOL_TAG_INCLUDE__NONE, idx);
-+		if (!s) {
-+			s = symbols__find_by_name(symbols->symbols_by_name, symbols->num_by_name,
-+						  name, SYMBOL_TAG_INCLUDE__DEFAULT_ONLY, idx);
-+		}
- 	}
-+	up_read(&symbols->lock);
- 	return s;
- }
- 
- void dso__sort_by_name(struct dso *dso)
- {
--	mutex_lock(dso__lock(dso));
--	if (!dso__sorted_by_name(dso)) {
--		size_t len = 0;
-+	struct symbols *symbols = dso__symbols(dso);
-+
-+	down_read(&symbols->lock);
-+	if (!symbols->sorted_by_name) {
-+		up_read(&symbols->lock);
-+		down_write(&symbols->lock);
-+		symbols__sort_by_name_locked(symbols);
-+		up_write(&symbols->lock);
-+		return;
-+	}
-+	up_read(&symbols->lock);
-+}
- 
--		dso__set_symbol_names(dso, symbols__sort_by_name(dso__symbols(dso), &len));
--		if (dso__symbol_names(dso)) {
--			dso__set_symbol_names_len(dso, len);
--			dso__set_sorted_by_name(dso);
-+int symbols__visit_by_name(struct symbols *symbols,
-+			   int (*cb)(struct symbol *sym, void *data),
-+			   void *data)
-+{
-+	int err = symbols__sort_by_name_read_lock(symbols);
-+
-+	if (!err) {
-+		for (size_t i = 0; i < symbols->num_by_name; i++) {
-+			err = cb(symbols->symbols_by_name[i], data);
-+			if (err)
-+				break;
- 		}
- 	}
--	mutex_unlock(dso__lock(dso));
-+	up_read(&symbols->lock);
-+
-+	return err;
- }
- 
- /*
-@@ -869,7 +1043,7 @@ static int map__process_kallsym_symbol(void *arg, const char *name,
- {
- 	struct symbol *sym;
- 	struct dso *dso = arg;
--	struct rb_root_cached *root = dso__symbols(dso);
-+	struct symbols *root = dso__symbols(dso);
- 
- 	if (!symbol_type__filter(type))
- 		return 0;
-@@ -890,9 +1064,7 @@ static int map__process_kallsym_symbol(void *arg, const char *name,
- 	 * We will pass the symbols to the filter later, in
- 	 * map__split_kallsyms, when we have split the maps per module
- 	 */
--	__symbols__insert(root, sym);
--
--	return 0;
-+	return symbols__insert(root, sym);
- }
- 
- /*
-@@ -909,25 +1081,32 @@ static int maps__split_kallsyms_for_kcore(struct maps *kmaps, struct dso *dso)
- {
- 	struct symbol *pos;
- 	int count = 0;
--	struct rb_root_cached *root = dso__symbols(dso);
--	struct rb_root_cached old_root = *root;
--	struct rb_node *next = rb_first_cached(root);
-+	struct symbols *root = dso__symbols(dso);
-+	struct symbol **old_symbols;
-+	unsigned int old_cnt;
- 
- 	if (!kmaps)
- 		return -1;
- 
--	*root = RB_ROOT_CACHED;
--
--	while (next) {
-+	down_write(&root->lock);
-+	symbols__sort_locked(root);
-+	old_symbols = root->symbols;
-+	old_cnt = root->cnt;
-+	root->symbols = NULL;
-+	root->cnt = 0;
-+	root->allocated = 0;
-+	root->sorted = true;
-+	zfree(&root->symbols_by_name);
-+	root->num_by_name = 0;
-+	root->sorted_by_name = false;
-+	up_write(&root->lock);
-+
-+	for (unsigned int i = 0; i < old_cnt; i++) {
- 		struct map *curr_map;
- 		struct dso *curr_map_dso;
- 		char *module;
- 
--		pos = rb_entry(next, struct symbol, rb_node);
--		next = rb_next(&pos->rb_node);
--
--		rb_erase_cached(&pos->rb_node, &old_root);
--		RB_CLEAR_NODE(&pos->rb_node);
-+		pos = old_symbols[i];
- 		module = strchr(pos->name, '\t');
- 		if (module)
- 			*module = '\0';
-@@ -944,11 +1123,13 @@ static int maps__split_kallsyms_for_kcore(struct maps *kmaps, struct dso *dso)
- 			pos->end = map__end(curr_map);
- 		if (pos->end)
- 			pos->end -= map__start(curr_map) - map__pgoff(curr_map);
--		symbols__insert(dso__symbols(curr_map_dso), pos);
--		++count;
-+		if (symbols__insert(dso__symbols(curr_map_dso), pos) == 0)
-+			++count;
- 		map__put(curr_map);
- 	}
- 
-+	free(old_symbols);
-+
- 	/* Symbols have been adjusted */
- 	dso__set_adjust_symbols(dso, true);
- 
-@@ -967,8 +1148,10 @@ static int maps__split_kallsyms(struct maps *kmaps, struct dso *dso, u64 delta,
- 	struct map *curr_map = map__get(initial_map);
- 	struct symbol *pos;
- 	int count = 0, moved = 0;
--	struct rb_root_cached *root = dso__symbols(dso);
--	struct rb_node *next = rb_first_cached(root);
-+	struct symbols *root = dso__symbols(dso);
-+	struct symbol **old_symbols;
-+	unsigned int old_cnt, old_allocated;
-+	unsigned int i, write_idx = 0;
- 	int kernel_range = 0;
- 	uint16_t e_machine = EM_NONE;
- 
-@@ -978,11 +1161,24 @@ static int maps__split_kallsyms(struct maps *kmaps, struct dso *dso, u64 delta,
- 	machine = maps__machine(kmaps);
- 	e_machine = perf_env__e_machine(machine->env, /*e_flags=*/NULL);
- 
--	while (next) {
-+	down_write(&root->lock);
-+	symbols__sort_locked(root);
-+	old_symbols = root->symbols;
-+	old_cnt = root->cnt;
-+	old_allocated = root->allocated;
-+	root->symbols = NULL;
-+	root->cnt = 0;
-+	root->allocated = 0;
-+	root->sorted = true;
-+	zfree(&root->symbols_by_name);
-+	root->num_by_name = 0;
-+	root->sorted_by_name = false;
-+	up_write(&root->lock);
-+
-+	for (i = 0; i < old_cnt; i++) {
- 		char *module;
- 
--		pos = rb_entry(next, struct symbol, rb_node);
--		next = rb_next(&pos->rb_node);
-+		pos = old_symbols[i];
- 
- 		module = strchr(pos->name, '\t');
- 		if (module) {
-@@ -1067,7 +1263,7 @@ static int maps__split_kallsyms(struct maps *kmaps, struct dso *dso, u64 delta,
- 			ndso = dso__new(dso_name);
- 			map__zput(curr_map);
- 			if (ndso == NULL)
--				return -1;
-+				goto out_err;
- 
- 			dso__set_kernel(ndso, dso__kernel(dso));
- 			if (dso__kernel(dso) == DSO_SPACE__KERNEL_GUEST) {
-@@ -1082,14 +1278,14 @@ static int maps__split_kallsyms(struct maps *kmaps, struct dso *dso, u64 delta,
- 			curr_map = map__new2(pos->start, ndso);
- 			if (curr_map == NULL) {
- 				dso__put(ndso);
--				return -1;
-+				goto out_err;
- 			}
- 
- 			map__set_mapping_type(curr_map, MAPPING_TYPE__IDENTITY);
- 			if (maps__insert(kmaps, curr_map)) {
- 				map__zput(curr_map);
- 				dso__put(ndso);
--				return -1;
-+				goto out_err;
- 			}
- 			dso__put(ndso);
- 			++kernel_range;
-@@ -1102,18 +1298,35 @@ static int maps__split_kallsyms(struct maps *kmaps, struct dso *dso, u64 delta,
- 		if (!RC_CHK_EQUAL(curr_map, initial_map)) {
- 			struct dso *curr_map_dso = map__dso(curr_map);
- 
--			rb_erase_cached(&pos->rb_node, root);
--			symbols__insert(dso__symbols(curr_map_dso), pos);
--			++moved;
--		} else
-+			if (symbols__insert(dso__symbols(curr_map_dso), pos) == 0)
-+				++moved;
-+		} else {
-+			old_symbols[write_idx++] = pos;
- 			++count;
-+		}
- 
- 		continue;
- discard_symbol:
--		rb_erase_cached(&pos->rb_node, root);
- 		symbol__delete(pos);
- 	}
- 
-+	down_write(&root->lock);
-+	if (root->cnt == 0) {
-+		root->symbols = old_symbols;
-+		root->cnt = write_idx;
-+		root->allocated = old_allocated;
-+		root->sorted = true;
-+		old_symbols = NULL;
-+	} else {
-+		for (unsigned int j = 0; j < write_idx; j++)
-+			__symbols__insert(root, old_symbols[j]);
-+	}
-+	zfree(&root->symbols_by_name);
-+	root->num_by_name = 0;
-+	root->sorted_by_name = false;
-+	up_write(&root->lock);
-+	free(old_symbols);
-+
- 	if (!RC_CHK_EQUAL(curr_map, initial_map) &&
- 	    dso__kernel(dso) == DSO_SPACE__KERNEL_GUEST &&
- 	    machine__is_default_guest(maps__machine(kmaps))) {
-@@ -1121,6 +1334,29 @@ static int maps__split_kallsyms(struct maps *kmaps, struct dso *dso, u64 delta,
- 	}
- 	map__put(curr_map);
- 	return count + moved;
-+
-+out_err:
-+	memmove(&old_symbols[write_idx], &old_symbols[i],
-+		(old_cnt - i) * sizeof(struct symbol *));
-+	write_idx += old_cnt - i;
-+	down_write(&root->lock);
-+	if (root->cnt == 0) {
-+		root->symbols = old_symbols;
-+		root->cnt = write_idx;
-+		root->allocated = old_allocated;
-+		root->sorted = (delta == 0);
-+		old_symbols = NULL;
-+	} else {
-+		for (unsigned int j = 0; j < write_idx; j++)
-+			__symbols__insert(root, old_symbols[j]);
-+		root->sorted = false;
-+	}
-+	zfree(&root->symbols_by_name);
-+	root->num_by_name = 0;
-+	root->sorted_by_name = false;
-+	up_write(&root->lock);
-+	free(old_symbols);
-+	return -1;
- }
- 
- bool symbol__restricted_filename(const char *filename,
-@@ -1681,7 +1917,8 @@ static int dso__load_perf_map(const char *map_path, struct dso *dso)
- 		if (sym == NULL)
- 			goto out_delete_line;
- 
--		symbols__insert(dso__symbols(dso), sym);
-+		if (symbols__insert(dso__symbols(dso), sym))
-+			goto out_delete_line;
- 		nr_syms++;
- 	}
- 
-diff --git a/tools/perf/util/symbol.h b/tools/perf/util/symbol.h
-index a6a2ab200f98..adfb1a3a89be 100644
---- a/tools/perf/util/symbol.h
-+++ b/tools/perf/util/symbol.h
-@@ -15,6 +15,7 @@
- #include <errno.h>
- #include "addr_location.h"
- #include "path.h"
-+#include "rwsem.h"
- #include "symbol_conf.h"
- #include "spark.h"
- #include "util.h"
-@@ -82,7 +83,6 @@ enum symbol_idle_kind {
-  * A symtab entry.
-  */
- struct symbol {
--	struct rb_node	rb_node;
- 	/** Range of symbol [start, end). */
- 	u64		start;
- 	u64		end;
-@@ -95,8 +95,42 @@ struct symbol {
- 	char		name[];
+ 	ret = init_test_info(&ti);
+ 	if (ret != TEST_OK)
+ 		return ret;
+@@ -240,24 +987,28 @@ static int test__symbols(struct test_suite *test __maybe_unused, int subtest __m
+ 
+ struct kallsyms_sym {
+ 	u64 start;
++	u8 binding;
+ 	const char *name;
  };
  
-+/**
-+ * struct symbols - A locked collection of symbols stored in a sorted array.
-+ */
-+struct symbols {
-+	/** @lock: Read/write semaphore synchronizing access to the arrays. */
-+	struct rw_semaphore lock;
-+	/**
-+	 * @symbols: Dynamically allocated array of symbol pointers, sorted by
-+	 * address range [start, end) when @sorted is true.
-+	 */
-+	struct symbol **symbols;
-+	/**
-+	 * @symbols_by_name: Optional dynamically allocated array of symbol
-+	 * pointers sorted lexicographically by sym->name.
-+	 */
-+	struct symbol **symbols_by_name;
-+	/** @cnt: Number of valid entries in @symbols. */
-+	unsigned int cnt;
-+	/** @allocated: Capacity (in entries) of the @symbols allocation. */
-+	unsigned int allocated;
-+	/** @num_by_name: Number of valid entries in @symbols_by_name. */
-+	unsigned int num_by_name;
-+	/** @sorted: True when @symbols is sorted by address range. */
-+	bool sorted;
-+	/**
-+	 * @sorted_by_name: True when @symbols_by_name is populated and sorted
-+	 * by name.
-+	 */
-+	bool sorted_by_name;
-+};
-+
- void symbol__delete(struct symbol *sym);
--void symbols__delete(struct rb_root_cached *symbols);
-+void symbols__init(struct symbols *symbols);
-+void symbols__exit(struct symbols *symbols);
-+void symbols__delete(struct symbols *symbols);
-+void symbols__sort_read_lock(struct symbols *symbols) SHARED_LOCK_FUNCTION(symbols->lock);
- 
- static inline u8 symbol__type(const struct symbol *sym)
- {
-@@ -141,16 +175,19 @@ void symbol__set_annotate2(struct symbol *sym, bool annotate2);
- void symbol__set_inlined(struct symbol *sym, bool inlined);
- void symbol__set_ifunc_alias(struct symbol *sym, bool ifunc_alias);
- 
--/* symbols__for_each_entry - iterate over symbols (rb_root)
-+/*
-+ * symbols__for_each_entry - iterate over symbols calling @cb for each entry
-  *
-- * @symbols: the rb_root of symbols
-- * @pos: the 'struct symbol *' to use as a loop cursor
-- * @nd: the 'struct rb_node *' to use as a temporary storage
-+ * @symbols: the 'struct symbols *' of symbols
-+ * @cb: callback function invoked under @symbols->lock
-+ * @data: opaque data pointer passed to @cb
+ /*
+  * kallsyms from an x86 host where nf_tables was loaded in the page right
+  * after the last symbol of dca, plus a kernel symbol followed closely by a
+- * module and a module far away from the others.
++ * module, a weak/global alias pair at the same address, and a module far
++ * away from the others.
   */
--#define symbols__for_each_entry(symbols, pos, nd)			\
--	for (nd = rb_first_cached(symbols);					\
--	     nd && (pos = rb_entry(nd, struct symbol, rb_node));	\
--	     nd = rb_next(nd))
-+int symbols__for_each_entry(struct symbols *symbols,
-+			    int (*cb)(struct symbol *sym, void *data),
-+			    void *data);
-+int symbols__visit_by_name(struct symbols *symbols,
-+			   int (*cb)(struct symbol *sym, void *data),
-+			   void *data);
+ static const struct kallsyms_sym kallsyms_syms[] = {
+-	{ 0xffffffff81000000, "_stext" },
+-	{ 0xffffffff81000ff0, "last_kernel_symbol" },
+-	{ 0xffffffff81001000, "near_module_symbol\t[near]" },
+-	{ 0xffffffffc0c4aa40, "dca_exit\t[dca]" },
+-	{ 0xffffffffc0c4aa50, "dca_sysfs_exit\t[dca]" },
+-	{ 0xffffffffc0c4b000, "__nft_trace_packet\t[nf_tables]" },
+-	{ 0xffffffffc0c4b0b0, "nft_do_chain\t[nf_tables]" },
+-	{ 0xffffffffc0c4b4e0, "nf_tables_core_module_exit\t[nf_tables]" },
+-	{ 0xffffffffc2000000, "far_module_symbol\t[far]" },
++	{ 0xffffffff81000000, STB_GLOBAL, "_stext" },
++	{ 0xffffffff81000500, STB_WEAK, "weak_alias_symbol" },
++	{ 0xffffffff81000500, STB_GLOBAL, "global_target_symbol" },
++	{ 0xffffffff81000ff0, STB_GLOBAL, "last_kernel_symbol" },
++	{ 0xffffffff81001000, STB_GLOBAL, "near_module_symbol\t[near]" },
++	{ 0xffffffffc0c4aa40, STB_GLOBAL, "dca_exit\t[dca]" },
++	{ 0xffffffffc0c4aa50, STB_GLOBAL, "dca_sysfs_exit\t[dca]" },
++	{ 0xffffffffc0c4b000, STB_GLOBAL, "__nft_trace_packet\t[nf_tables]" },
++	{ 0xffffffffc0c4b0b0, STB_GLOBAL, "nft_do_chain\t[nf_tables]" },
++	{ 0xffffffffc0c4b4e0, STB_GLOBAL, "nf_tables_core_module_exit\t[nf_tables]" },
++	{ 0xffffffffc2000000, STB_GLOBAL, "far_module_symbol\t[far]" },
+ };
  
- static inline size_t symbol__size(const struct symbol *sym)
- {
-@@ -187,8 +224,8 @@ int __dso__load_kallsyms(struct dso *dso, const char *filename, struct map *map,
- 			 bool no_kcore);
- int dso__load_kallsyms(struct dso *dso, const char *filename, struct map *map);
+ static int check_symbol(struct dso *dso, u64 addr, const char *name, u64 end)
+@@ -287,7 +1038,8 @@ static int test__kallsyms_fixup_end(struct test_suite *test __maybe_unused,
+ 		return TEST_FAIL;
  
--void dso__insert_symbol(struct dso *dso,
--			struct symbol *sym);
-+int dso__insert_symbol(struct dso *dso,
-+		       struct symbol *sym);
- void dso__delete_symbol(struct dso *dso,
- 			struct symbol *sym);
+ 	for (unsigned int i = 0; i < ARRAY_SIZE(kallsyms_syms); i++) {
+-		struct symbol *sym = symbol__new(kallsyms_syms[i].start, 0, 0, 0,
++		struct symbol *sym = symbol__new(kallsyms_syms[i].start, 0,
++						 kallsyms_syms[i].binding, STT_FUNC,
+ 						 kallsyms_syms[i].name);
  
-@@ -198,10 +235,6 @@ struct symbol *dso__find_symbol_nocache(struct dso *dso, u64 addr);
- struct symbol *dso__next_symbol_by_name(struct dso *dso, size_t *idx);
- struct symbol *dso__find_symbol_by_name(struct dso *dso, const char *name, size_t *idx);
+ 		if (!sym)
+@@ -296,8 +1048,13 @@ static int test__kallsyms_fixup_end(struct test_suite *test __maybe_unused,
+ 	}
  
--struct symbol *dso__first_symbol(struct dso *dso);
--struct symbol *dso__last_symbol(struct dso *dso);
--struct symbol *dso__next_symbol(struct symbol *sym);
--
- enum dso_type dso__type_fd(int fd);
+ 	symbols__fixup_end(dso__symbols(dso), true);
++	symbols__fixup_duplicate(dso__symbols(dso));
  
- int filename__read_build_id(const char *filename, struct build_id *id);
-@@ -252,10 +285,9 @@ int dso__synthesize_plt_symbols(struct dso *dso, struct symsrc *ss);
- 
- char *dso__demangle_sym(struct dso *dso, int kmodule, const char *elf_name);
- 
--void __symbols__insert(struct rb_root_cached *symbols, struct symbol *sym);
--void symbols__insert(struct rb_root_cached *symbols, struct symbol *sym);
--void symbols__fixup_duplicate(struct rb_root_cached *symbols);
--void symbols__fixup_end(struct rb_root_cached *symbols, bool is_kallsyms);
-+int symbols__insert(struct symbols *symbols, struct symbol *sym);
-+void symbols__fixup_duplicate(struct symbols *symbols);
-+void symbols__fixup_end(struct symbols *symbols, bool is_kallsyms);
- 
- typedef int (*mapfn_t)(u64 start, u64 len, u64 pgoff, void *data);
- int file__read_maps(int fd, bool exe, mapfn_t mapfn, void *data,
-diff --git a/tools/perf/util/symbol_fprintf.c b/tools/perf/util/symbol_fprintf.c
-index 4dc8d5761f52..f818e7ad1519 100644
---- a/tools/perf/util/symbol_fprintf.c
-+++ b/tools/perf/util/symbol_fprintf.c
-@@ -59,15 +59,26 @@ size_t symbol__fprintf_symname(const struct symbol *sym, FILE *fp)
- 	return __symbol__fprintf_symname_offs(sym, NULL, false, false, fp);
- }
- 
-+struct fprintf_symbols_by_name_args {
-+	FILE *fp;
-+	size_t ret;
-+};
-+
-+static int fprintf_symbols_by_name_cb(struct symbol *pos, void *data)
-+{
-+	struct fprintf_symbols_by_name_args *args = data;
-+
-+	args->ret += fprintf(args->fp, "%s\n", pos->name);
-+	return 0;
-+}
-+
- size_t dso__fprintf_symbols_by_name(struct dso *dso,
- 				    FILE *fp)
- {
--	size_t ret = 0;
--
--	for (size_t i = 0; i < dso__symbol_names_len(dso); i++) {
--		struct symbol *pos = dso__symbol_names(dso)[i];
-+	struct fprintf_symbols_by_name_args args = {
-+		.fp = fp,
-+	};
- 
--		ret += fprintf(fp, "%s\n", pos->name);
--	}
--	return ret;
-+	dso__for_each_symbol_by_name(dso, fprintf_symbols_by_name_cb, &args);
-+	return args.ret;
- }
+ 	ret = TEST_OK;
++	/* Same-address weak/global alias pair resolves to global_target_symbol. */
++	if (check_symbol(dso, 0xffffffff81000510, "global_target_symbol",
++			 0xffffffff81000ff0))
++		ret = TEST_FAIL;
+ 	/* The next symbol is too close for the end of the page. */
+ 	if (check_symbol(dso, 0xffffffff81000ff8, "last_kernel_symbol",
+ 			 0xffffffff81001000))
 -- 
 2.56.1.703.gf848ed807c-goog
 
