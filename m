@@ -1,99 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794937709;
-	b=Q+ttRe/W4ZW1fgqm8qqQtEOrlIhUwyWhjJqXJqipT0mRe0LovKbdrcwUjVNGDNocVlZ0
-	 G3t19Sdzdqir+1KpG49XvKXFPywzeN8UW5YvVl/psm0bB14+u0bUi0XvEMnHMva2DZTR1
-	 8iHAljf68MtTbGy3ilxJprbbsghz3EeNL0tM82f0mr9fY3MGVOIritW2WzZaZiNebros1
-	 1UDC9TXTwSqHRy4HB8co5qLV6gTNR0sHg7oJLY0HOafRnGX+3N1VVHxfFbOrYcQ+nb3P9
-	 XaIeL9cQNMxFVHPHy+7e6aCUlLpZVOiGRmgEpqBF4N6NvkH8Y5zSsczcxzYirOjZHBA==
+	t=1794937707;
+	b=TABJudZhyHFaBDNr8/wDduJXGfD9OvH4v5p8NzSeaxdSIRZBHOFLaVNHvnlavFrxmAxG
+	 qAhliTZPTfaye4b3LpR+7CED3oVx6/z/xfB40zc3d3qdebOhKxDv+55K5TPL3fClMeIt2
+	 gx7eEJiNwF1SqqGnB1How0ZIX64ElFDLaolLG9vEkqX1vO96p/DhAU0QaxAGvrw2PEXib
+	 ykrEFZThPJDlz1Ggc6B2056GhJtFfj6l2d502VcwgExaSN2ltzPO0Dm83E96gY069/1XM
+	 pM+LFZUJUctIh5yAqsvKfyhwmh+slnuXjPd3/TohLKk2XdUwoG7r0ScQH4pjspoCwNw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794937709;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Vgnwr2P9uJ+QpfiPOUlt8DPsw41jue0qV/UrisGiK9Q=;
-	b=OJGDrTOHF53HqFfLmrGcAY31mWgcD++NzLMBRwa6BMYRwHuVuPvkHpBYwFQZf3Q/DKvr
-	 /XDBKAYIXViEnfTQeqIbUBkrjtEQb7ZNFBG7948BQJorB9aPzSj1bNJmHVSoW6kOBA8Tf
-	 tIK/dkMmz3KdbmaHqC8fXe227cNJkS3t58AO8S41+CzYwEDqmc1yNW252hvyVHnE9KfDG
-	 1+abul/+nGToXpKoPd4qqSYwEGtRWx1yrdCt79ngLO9lkjbxOU0j+0M6DFfAqzp7TLYiP
-	 mw61escSnE0shjjAljkq3z58D1VxVMDO9r2NZ1EddS/DU9iV66dROQuier6fpRO+xRw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794937707;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=xZPkTs2PciItdtjhjdoxtbfKcAnAHUD0fc5OCQIMaKQ=;
+	b=R+ir8HGn49sgfpktQ4LGWzRJyc7bAzF6NtAZnN2QiMExrqO24FFwc2wOpDCDcWE8kD33
+	 H3oWZByQz99jPOFzkRPnxoitGCe6kjoY6gu9fPXK0pfZfaynn7ENXK4XDUW/XdrAJEXX7
+	 Ny+kHg0ST/14Rlk/c2NrFMHzSEtb0nFmjhcpqIdw7l6lMp836Ii/0Tc2Jznb7pSYW0oUs
+	 5C90WBRfTYYdiUyJ7uUlKFIh+PhV/avDGkGU20i0okUAg8SMEr975lQky97daE4uVvuSD
+	 qFETHDXkyhC6/puiBfh7MyhM37hepZjsEKEBZkCzPZ9zuOIrDhK2NmIPX9HzhqojZcQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="rqhDE/nL";
-	arc=none smtp.remote-ip=209.85.221.42
-Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 355F9606A331
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:48:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 355F9606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="A5z/wg6V";
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 3BA4D606A332;
+	Tue, 17 Nov 2026 17:48:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3BA4D606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rqhDE/nL
-Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-49465892f7bso27836f8f.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 09:48:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794937707; x=1795542507; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Vgnwr2P9uJ+QpfiPOUlt8DPsw41jue0qV/UrisGiK9Q=;
-        b=rqhDE/nL59qzysxrZBMp9N0c8t9CwG3HJ17ynNInH6IzvB7CllhOIxIzhnNEhwyQ9M
-         La+lVAWJhd49w76wt8b3GP1Gf+pg1A5PekCQYPlQRLEobpSxBbVPzL9HUFuJYyb0mK8A
-         80xaPFc5ypkeyKnMlpVwE6N2+jqJJlj97weqzjO1dxSlKLnQnnFVkn1yQSKsySk3IUKi
-         i1bURKp7Xyq3e/tELhQ1WVQV6P0wldRc5pqsuQgg4v3yKD3AzmIVXVYLf65Xa7xBiHhM
-         zGNHNKZRq1lWnEEEOUsHgUVljsK5VxdW5fsswg893xoat0wj5uamijKM9ovaCAN1o3/9
-         yRuA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794937707; x=1795542507;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Vgnwr2P9uJ+QpfiPOUlt8DPsw41jue0qV/UrisGiK9Q=;
-        b=PeklbOeHg6SrKIq7MLeTkGQWw5i2JH34tN3785dD5I7GjzK3pTTkthjlNvsRrQBe9X
-         RqkG6SbjABZP21SqQ5WxtsU6P/vMLGDGEZs49AmC7BHHwx0PVyedpdt7142teGR79Dnv
-         hx/as7JgdXL8XFpF+zi5XoDWryDSEJ4n1zXYJZUhJl+TSyZXgVp3sXsVHaT8H6Ut90MQ
-         YYDLvGiDB+NaEDVppHv+ikShOYeNKZdQHl7cZLSnSAYXCGbXV6lsJyslmlpn7+XVygX1
-         Lpwfgten5bnsZqi32QNMxXwa6q8RHsi7EMDroVicHgtXpaYRLgJmkaO+0TsqPbZ1IlzT
-         Z5xQ==
-X-Forwarded-Encrypted: i=1; AL+hErGS8R4SjjyrovOlqDrgYwmu4p+tpYLjq7gSXuikhaz3luDTcESajunhN3jFhN5hOYWbi9xSzUH2hs4kmgM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/iCH7D/wkEtBHIpMzs0EIBMyR0pmgsf9Lb8Rsq2qOP79R6+7AI
-	ZRi2tbWaZ4ytIeWY46Gyan4RLuVSieAa/h47M0rvMSjYI65hz550sFUXjhR29TGXdzUzn3Gr
-X-Gm-Gg: AYBFou3Kezb5Td3vvr2oJhm7lReFe/vEJt+H9tv9m7i+AOMh/ISePtQY2lbthreqYRb
-	V8JcRy15nP+aAc6aM+lVqf6RLWAuCaI2/n0MSOoe8hk4wC7cYfpMwJ4ogVbfN0PvlvQaey05Jt2
-	D/LrIFUysX9JXf6FzOIRV1oe9jp+714+yuAOzESUyL4l/l0ao2atL3UuWR1d/gT/M13FzTw+nB3
-	w5bFNqOaeAf/a3t83TtAoNiM4vjGYxR6quD0GbUIImZAuhbNLqL/ZQuMy2KCoqMorKb+CRSfC0V
-	dtDPl+LsadPhOQGdEa9BTb7J4jTf4yVn6Y4DVBYb564ibtfWuo9ZtMeiwdrzXEfzbzu3MGDco1Y
-	BV0m3n7kQAynP2Fjg4UnMBi8LuimRcN2XGb0Uer2kpL8IBlrdcgk4BLekTS8NLpkKSLDGnZ1ptM
-	bemtENbijB8RsLws1ZjM+QrNWjL9EcRe2JtZrXIbNbL0q12kwAi9ApAxIss7SNX18vZ5Ca4SWQm
-	nX1SgWqaQHJbCP5Z3SZgzFGmSKdnPb6HC9rZFeLyEM4irl9wVTGB6dmoweUiO+A2bwZWYdtF9pQ
-	6K/CHaWbVhDpkHBctJXfcT9ewZsjMnxpyEcIBVqebUfBKeA=
-X-Received: by 2002:a05:600c:8483:b0:4bb:605d:8e92 with SMTP id 5b1f17b1804b1-4bb605d90f1mr250423555e9.32.1794937707327;
-        Tue, 17 Nov 2026 09:48:27 -0800 (PST)
-Received: from Kyiv.home.arpa ([2a0e:1d47:4093:b600:11a1:dc8c:1ed6:51c5])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7d287f92sm413055e9.0.2026.11.17.09.48.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 09:48:26 -0800 (PST)
-From: Volodymyr Chapman <volodymyrchapman@gmail.com>
-To: mlevif@gmail.com
-Cc: andy@kernel.org,
-	gregkh@linuxfoundation.org,
-	hansg@kernel.org,
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=A5z/wg6V
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A2B0B1A32;
+	Tue, 17 Nov 2026 09:48:23 -0800 (PST)
+Received: from e137867.cambridge.arm.com (unknown [10.2.213.11])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id AF0A63F632;
+	Tue, 17 Nov 2026 09:48:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1794937706; bh=7PIC3PDMqrlBZ0mHhY/p6avIINTftQj7nZ6BHmw1YMs=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=A5z/wg6VFmntekH8636Oc4TE84/Y8Jv5WuG6Fyb5jBXWj+UqOtF54C7YxWEQ95b/z
+	 XFlGlRQugLx+s6POr6ZH4RlrSGJPl7qHPd2uDnd+mxIwVOwJRcV43RUyB/GIwH1JT/
+	 YnqJbWg35N+aNfNU5GZnPAQG1vszfzuty7urBIn4=
+From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Cc: Vladimir Murzin <vladimir.murzin@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Kiryl Shutsemau <kas@kernel.org>,
+	Breno Leitao <leitao@debian.org>,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Doug Anderson <dianders@chromium.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Huth <thuth@redhat.com>,
+	Dawei Li <dawei.li@linux.dev>,
+	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+	kernel-team@meta.com,
 	linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	linux-staging@lists.linux.dev,
-	mchehab@kernel.org,
-	sakari.ailus@linux.intel.com
-Subject: Re: [PATCH] media: atomisp: csi2-bridge: Only change the PMC clock rate when needed
-Date: Tue, 17 Nov 2026 17:47:35 +0000
-Message-ID: <20261117174735.10182-1-volodymyrchapman@gmail.com>
+	Ada Couprie Diaz <ada.coupriediaz@arm.com>,
+	stable@vger.kernel.org
+Subject: [PATCH 1/3] arm64: entry: sdei: always set VBAR_EL1 on SDEI entry
+Date: Tue, 17 Nov 2026 17:48:12 +0000
+Message-ID: <20261117174814.95936-2-ada.coupriediaz@arm.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261112-atomisp-pmc-clk-rate-v1-1-d6b3ef392ccf@gmail.com>
-References: <20261112-atomisp-pmc-clk-rate-v1-1-d6b3ef392ccf@gmail.com>
+In-Reply-To: <20261117174814.95936-1-ada.coupriediaz@arm.com>
+References: <20261117174814.95936-1-ada.coupriediaz@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,41 +79,67 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Hi Manuel,
+SDEI can interrupt at any time, so we cannot guarantee that VBAR_EL1
+points to the kernel vectors.
+Unconditionally set VBAR_EL1 to the kernel vectors on SDEI entry so
+the SDEI handler always runs on the correct vectors.
 
-On Thu, Nov 12, 2026 at 03:39:29PM +0000, Manuel Levi wrote:
-> atomisp_csi2_set_pmc_clk_freq() enables and then disables the sensor's
-> PMC platform clock before setting its rate to 19.2 MHz, which leaves the
-> clock forced off in hardware.
-[...]
-> The enable/disable sequence is only needed to change the rate, which can
-> default to 25 MHz on Bay Trail. On Cherry Trail the clocks already run at
-> 19.2 MHz. Skip the sequence when the clock already has the right rate,
-> so that the bridge leaves the clock state to ACPI.
-[...]
-> +	if (clk_get_rate(clk) == PMC_CLK_RATE_19_2MHZ) {
-> +		clk_put(clk);
-> +		return 0;
-> +	}
+Commit 9bf6ee7952c7 ("arm64: sdei: Run the event handler on the kernel
+vectors") sets VBAR_EL1 to the kernel vectors when KPTI is on
+and it still points to the trampoline vectors.
 
-I ran into the same problem independently on a Lenovo ThinkPad 10
-(20C3, Bay Trail, Atom Z3795) with an IMX175 rear sensor (INTCF1A,
-driver pending on linux-media) and an OV2722 front sensor, and sent the
-same change, which I have now dropped in favour of yours.
+This is only covers the KPTI case, as any other VBAR_EL1 value would
+not be changed, while pointing to the wrong exception vectors.
+KVM in VHE mode would be such a case as, in VHE, VBAR_EL1 is an alias for
+VBAR_EL2, which KVM uses for the hypervisor vectors when running guests.
 
-I tested this patch as posted, with the atomisp driver built out of tree
-against a 7.2.15 kernel, over 10 boots (7 reboots and 3 power-offs).
-Both sensors were registered on every boot, with no chip ID read errors.
+Fixes: 79e9aa59dc29 ("arm64: sdei: Add trampoline code for remapping the kernel")
+Cc: stable@vger.kernel.org
+Cc: Kiryl Shutsemau (Meta) <kas@kernel.org>
+Cc: Breno Leitao <leitao@debian.org>
+Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+---
+ arch/arm64/kernel/entry-common.c | 25 ++++++++++++++-----------
+ 1 file changed, 14 insertions(+), 11 deletions(-)
 
-On this Bay Trail machine the clocks used by the sensors are already at
-19.2 MHz after boot: the DSDT lists CLK0 in the IMX175's _PR0 and CLK1
-in the OV2722's _PR0. pmc_plt_clk_0 and pmc_plt_clk_1 report 19.2
-MHz, while the unused pmc_plt_clk_2, 4 and 5 report 25 MHz. I read these
-after the bridge had run, so they don't show on their own that the
-skip path was taken. Together with your clock trace results, it
-looks consistent.
+diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+index beb56891fc4f..cb122163a68d 100644
+--- a/arch/arm64/kernel/entry-common.c
++++ b/arch/arm64/kernel/entry-common.c
+@@ -1079,19 +1079,22 @@ __sdei_handler(struct pt_regs *regs, struct sdei_registered_event *arg)
+ 	far = read_sysreg(far_el1);
+ 
+ 	/*
+-	 * With KPTI, VBAR_EL1 holds the trampoline vectors from the return to
+-	 * EL0 until the next exception from EL0 maps the kernel. They only
+-	 * handle exceptions from EL0: an exception taken here would run their
+-	 * empty current-EL half and never come back. Switch to the kernel
+-	 * vectors. The IRQ-like resume keeps using the interrupted VBAR, so it
+-	 * still goes through the trampoline.
++	 * As an SDEI event can take over at any point, VBAR_EL1 might not allow
++	 * us to take an exception safely :
++	 * - With KPTI, VBAR_EL1 holds the trampoline vectors from the return to
++	 *   EL0 until the next exception from EL0 maps the kernel. They only
++	 *   handle exceptions from EL0: an exception taken here would run their
++	 *   empty current-EL half and never come back ;
++	 * - With VHE, the kernel runs at EL2 and VBAR_EL1 accesses VBAR_EL2.
++	 *   KVM might be running a guest and switched VBAR_EL2 to the
++	 *   hypervisor vectors.
++	 *
++	 * Switch to the kernel vectors unconditionally and restore
++	 * the interrupted VBAR_EL1 before returning.
+ 	 */
+ 	vbar = read_sysreg(vbar_el1);
+-	if (arm64_kernel_unmapped_at_el0() &&
+-	    vbar == (unsigned long)raw_cpu_read(this_cpu_vector)) {
+-		write_sysreg((unsigned long)vectors, vbar_el1);
+-		isb();
+-	}
++	write_sysreg((unsigned long)vectors, vbar_el1);
++	isb();
+ 
+ 	state = irqentry_nmi_enter(regs);
+ 	ret = do_sdei_event(regs, arg, vbar);
+-- 
+2.43.0
 
-Tested-by: Volodymyr Chapman <volodymyrchapman@gmail.com> # Lenovo ThinkPad 10 (20C3)
-
-Thanks,
-Volodymyr
