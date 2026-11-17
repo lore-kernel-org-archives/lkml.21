@@ -1,62 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794944612;
-	b=TdpuW9tD7miYy70uQIj7NHFg0iAJqLI6lNfhi8DcFll/BcIw9qsebs3lDBkNj80VGbzB
-	 t6EpmWbT880TNk1bDe2m/j/4PqPdSW8hovYddvTzsFUnA8zdZyh10wuzju8XK138eXjPb
-	 /QFm2uhqBGhFPgdjobzsXHzB69Nn6F17PShZoeWwglLvy/DL6jKPvu80iMCh6yWwfzrrc
-	 ZXCnnT68ksEsg9YQqtVpN4RS3CN1bGkJw0HrCK5cVQWhzpUHf8VZJMhMySNeYKS1LyLWq
-	 T1OQOUadyHU1v5uCXD2YEi+Jbio3xQG2751OYwTzKzEH4M/77oR/AWKJ8IaqMDcY1bw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794944612;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=22X6MMF33QpWPGoxzbN5VyAvk07V42cvGCYrX8i0f4I=;
-	b=K/ltCAHri0idex/+gcc1F7Rj84gIFlKeYZpwCWZ07wjSjHN1XOHoEg/RMJsRhG3fZk1F
-	 Rp9Muw9EUAoP6dekVfECopKg3PbmiQ6mOSZHQZOlwZlLS6KSquwT3li09Uwbth0/nm0XJ
-	 cQ14xTr9gd9OB9VRHCag3bylxqMxJTcKsF4FjAzOhqgY11xF+635l6/c7wSbQE12SyZJ8
-	 pqnP2mGyvffpR7kRyFeO9lq7bYQLUTiQD5p0S5NC+OBs5q/9dgQIEow5zdpfkgZIjPjqu
-	 bQL/9O5hCsgvznt5fPeIspJzDU3ZT3ed5UGJd7uMOq6dgH4rQ7EKjzEKCMKahj6B/rw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cjxqLx2E;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.34
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794944628;
+	b=YTEKxTLmNoGH5c4xdo5Hq7Qr5s4r1xjaey41hQnBtBRuFVQ28VgbUWgXleRJP8X4aTs3
+	 dg/uCvSRQwuYfMc06r9nADJPnpMrbNn4FBQQtEp+L666jxAW6HC3/eowNUtS9CZ+In4x+
+	 NXsn7s/6DVk9YOaIG1arjFKrHvizJTXeGWDtN2AFlMzXobFNcXVjTn6m2UCmi0Rd0YTRM
+	 xe4weY/cFOBQLhwycMNmD23GbwMTKfavDHS+5Qon8qZLsCLeF3r/gQJ5uIKjJPG6i5V0P
+	 ohG94I/tVZj4kFEbC8vD0NUpc9q6hVMnZ631Iaety3gpHyhFr/lBETsN8GljKczg7ig==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794944628;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=K9xb7ZQ0srMLZ4Jhzai5UUxAzKZWHrQldEuGT+UIljc=;
+	b=RtgssEoiFDgmaciPicROFKFejemRe5alIBeHFtSbyc/Nnqzr7NQJbfMtIswpTHKvQAm7
+	 bF74IXpQ5YLNmIZawCgi0OztUMsJHN9AmozGwGXv/I96NZ/puNrnpy7BqmJKE+QuOBkHl
+	 /A4rK4l5dcWB+isV5h2kYponZx2YV097jqSp2pAZZCc6RQzoBtbLJtnpwhLR4zdRPQHKd
+	 DlMfcjfywKU7qZRrY0R2S0Sv/b4MiO6AeWl5BlQfmIBjf4lpN8dsIPp0hS3yVqyYe0/mO
+	 cn1nNUJq0owKF/JZ4fmE4wcSa9C7dLYiJTUdLnZLJnHpCSTnenul60Tztu669q9uP0w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=HkJWO89N;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.34
+Received: from DB3PR0202CU003.outbound.protection.outlook.com (mail-northeuropeazon11010034.outbound.protection.outlook.com [52.101.84.34])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB3D7606A881;
-	Tue, 17 Nov 2026 19:43:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31E23606A32F;
+	Tue, 17 Nov 2026 19:43:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 31E23606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cjxqLx2E
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2DBD1F000C7;
-	Tue, 17 Nov 2026 19:43:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794944611;
-	bh=22X6MMF33QpWPGoxzbN5VyAvk07V42cvGCYrX8i0f4I=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=cjxqLx2EYP6oDGVzBn2oeLEDsHvJoXjkuMHRgiPSM3WKjTkK4tR3CA/AsPFn+RE0L
-	 NBpjEub88nkMzdY5EnTNZ2BvMKh89u1KABSKEc81D21VVFfHUps4LQLmFySIEue2vB
-	 rHvDisZyaWh+eQL7YYJp5Eir5+rgQdRB9O+jr4iGEFWX7hJpCnXKM9716VPQ330XQy
-	 NeNjvV1NjChaqi0CN+qFbJ4zBKdS7Xh/cG5g8skd1GdyKGa1U19nAprku6yS2mR56i
-	 jbUw3ukn7aXPQ+nxI73xPQHjlKn/CVVeIoERKhk3MyLTWN+GDPh4Fm+W6p7W+CvZGO
-	 gxSZcSqhOjr2w==
-Subject:
- Re: [PATCH net-next v6 2/2] net: macb: distribute evenly Tx SRAM segments
-From: netdev-bot+sashiko@kernel.org
-To: theo.lebrun@bootlin.com
-Cc: conor.dooley@microchip.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux@armlinux.org.uk, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- nb@tipi-net.de, pvalerio@redhat.com, vladimir.kondratiev@mobileye.com,
- gregory.clement@bootlin.com, benoit.monin@bootlin.com,
- tawfik.bayouk@mobileye.com, thomas.petazzoni@bootlin.com
-Date: Tue, 17 Nov 2026 19:43:30 +0000
-Message-ID: <179494461057.3136.14140856412630551606@kernel.org>
-In-Reply-To: <20261113-macb-set-channels-v6-2-5de59d9e7f02@bootlin.com>
-References: <20261113-macb-set-channels-v6-2-5de59d9e7f02@bootlin.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=HkJWO89N
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GPDRSGpW0mZXm+TnyTqcIrcdRvgWijgXDoEZ8FhEe5ME458N500IH8LG/6o9jjcSmi6Q5RD6h7OPhNqofuFFW9CMoNNqiJPtMrZtjeZ2/5zJYvBs73BLtB9orYGgbB9CjCXIqjT2YCkc+UwKEtnzAoaXuXqXblV49PYBUyQ2m9xjCHoiivLVK7Eqwd0yNRC0npJBeO6ycUSdGj87LYkRjPicYPRKRDD4zUbjQYz30Blp9Vx6iHO+g16csFZIBvnLOG1WIwNBTFbyu/9dHdEmN6RGJoHL/VPMgPw+cDbd6M7Wl5C8xPFG0WQzUKBlxz+S+JNIcRYpvnsQzN512CuklA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=K9xb7ZQ0srMLZ4Jhzai5UUxAzKZWHrQldEuGT+UIljc=;
+ b=m9HCga7+d4O3Ldb1ugJM0o0hNWb8c9s8u8ZGk0zM/lnL4sRwEJs1xk93j2af3r/Ul9fqI2wDIiL+8+exQZuhBdSnI4kOZ47bz+daR6w2uKMthw6QaPoT8vZI+eDly9MOmMXCSHo5oRP5+79xbXbvqPsRmcVxQ/uMpHFF651kRO4Ezpz3T3Kpx+9o4Ierf4emoNJxU9zV5oDjo9RkzwDx4jcgNKwK0vJIte++wnZqmWY/TITHExBtP++eIFbUeHKHYRadihjtJWeUw40izv9upTpNgMygxrQi+XVGRu+ZNO5KRicjvY2HS21PlcDEgQuP0AMu1Wibi1JSEnkSqyfUUA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=K9xb7ZQ0srMLZ4Jhzai5UUxAzKZWHrQldEuGT+UIljc=;
+ b=HkJWO89NeSWEXMdu+972gNQNSXjyEOnatDww51ofYmrnuSqaB55Ex9rbMZNToqaOxnWVqZzXrtWhTw+jV7Q4QoszLSUrpJHLmm+edpSdLxf7zClgDuUUlKHy3zeBukXdmE2bfzy8afd7bcd2C6n+rzahEk2WVqk+4x9o4gKAv+a2Kc+cmSUO2GfffQ0+03vA8AGCATxjxjnInaF9j61R1P7JDT3LzNlsP4nYTNc+iOLxV0nxVIRmIB+0mQ22GHv7fSwM5L7jfalwXa9/SvD5OUeNGxXKq0Ktx1YjkH7xT6SfD91lUQFtITFENIgQRtZNyn/jPuUBqQsdFO+ZqdEW3A==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by GV2PR04MB12191.eurprd04.prod.outlook.com (2603:10a6:150:33a::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 17 Nov
+ 2026 19:43:45 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0615.013; Tue, 17 Nov 2026
+ 19:43:44 +0000
+Date: Tue, 17 Nov 2026 14:43:37 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Lee Jones <lee@kernel.org>
+Cc: Xianwei Zhao <xianwei.zhao@amlogic.com>, Vinod Koul <vkoul@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>, linux-amlogic@lists.infradead.org,
+	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2 06/11] dmaengine: amlogic: Destroy free_wq after
+ devres DMA device unregistration
+Message-ID: <avyuaSzbqYrloiNp@lizhi-Precision-Tower-5810>
+References: <20261117163809.622249-1-lee@kernel.org>
+ <20261117163809.622249-7-lee@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117163809.622249-7-lee@kernel.org>
+X-ClientProxiedBy: PH0PR07CA0098.namprd07.prod.outlook.com
+ (2603:10b6:510:4::13) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,141 +99,109 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|GV2PR04MB12191:EE_
+X-MS-Office365-Filtering-Correlation-Id: 723d0de8-7354-4a72-7b6b-08df44e31745
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|23010399003|19092799006|376014|1800799024|22082099003|18002099003|261009223027099003|56012099006|11063799006|10067099003|4143699003|261102123227099003|261021123027099003|261028144727099003|261022075727099003|261026140227099003|261026121527099003|261021121427099003|261022105027099003;
+X-Microsoft-Antispam-Message-Info:
+	tgXVdAgAvJcnMMrNV+TjoZozD0PYwkPtasGlzP3G8W6XjNjXwbgI9YVpTurPkJ1HDPQBWoYy0TP9aiyhZZS7T3Z50Pz7MVksoIdAjCYgqcJPoMgxLZ2nOjXY4TvQOnMPrMBikkjhDmAQ+wJ4Vhw1Rrp60F1MqwECPvG8kVUH+NlDyk3Pok/G3l6e8CRNx0WjpNKRu+iZLVP3+S8rBynZPz8BQstQdFAjW7hBeqPXtEunJdhURRySiw8inHD6o/myOfTnQR9gBQAnIlvC7XRWjgxXZmZqGteH9UrwgigpMsQK2quiMgBifqfYVbUa4XYg0dj409Bvoq9LWjhzuQuay8hagwDywewi+ITfGgElzzD+X7fyBRzgcC8iuxlZa+1eXLgwCQn8YLKjmAts/ME0/2T3J9Gn/tZAvQrZDwj5Vt/tQFmNe33CSVwcDagzsFGG1SqI9xVlJIJF9vRKNRHbMpPVkHERZ7sv+BXVhmQdYb8Ey92jPFYd/nmw/Rzgft//u1jB7CTyVxKNBVATDTo+3IVtwZOfod7UiORXRfUFoybhAJcVFDbnBV/l8n2y4KroFna1aop27wN3gx3savrNqFnq1PcGLIc1igHcWO5slNA=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(19092799006)(376014)(1800799024)(22082099003)(18002099003)(261009223027099003)(56012099006)(11063799006)(10067099003)(4143699003)(261102123227099003)(261021123027099003)(261028144727099003)(261022075727099003)(261026140227099003)(261026121527099003)(261021121427099003)(261022105027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?/kcihJ7x5lEr+qMqjpCsywTzovXcg6rBnOkyyI/Dz8exd6LqRsmVfg7brlKN?=
+ =?us-ascii?Q?8Dp6h3FTvtgITJrWJ+qhaatMp33BFGznOmi4d62yl0epZFUWt3YWKFY4Y0mj?=
+ =?us-ascii?Q?K45c+lqZZkddlibBavyA/2y2fBPPkD+TZEmvN3eDE7PZyIj8zIriHKaFY41/?=
+ =?us-ascii?Q?yw600gBYldQgcHZNNo890ZCZ56+31ZSTyVNsnt4u2Ft8dy+hF+pH/M1iiXCv?=
+ =?us-ascii?Q?avHH1wTx4t32hFT5Z4xQtVHjA7C/6HRisTgvkZgtCK+PB37XwLSXwextDINh?=
+ =?us-ascii?Q?DtDO/RJ/f9SX+FjWN0h9t4xjqXWXR6eG7jP2sEKDS53GSRdpA8hpJe0LIrPF?=
+ =?us-ascii?Q?z25o7OiFg9F8lC7/30vX4Fvbn9MD1LDl7wSUeYKn1UBUbL86WMQW5M2frDxn?=
+ =?us-ascii?Q?Xk/Cu0+C6G1aA951JYkA+QuAjEROxa0RjT7bonoFmFFNYkLwfg3XFd4m/+Rs?=
+ =?us-ascii?Q?IRLVmOjaDtLe6Ub6U4mTuNC4cw8idmvOfzjMjb7kyKAGUcRLREmrgCdOIYFA?=
+ =?us-ascii?Q?KC+M8VIq0g7lYOKAJdMYfZ1dgl+XhG1J9ZuEmfXzmsMGkfgldy63YE0ZJ8jm?=
+ =?us-ascii?Q?2mjGodvT/LNKM4Ug0jKO0aVn2CPO/H6mxF/pewwThuT6yILv4SOMrJ0CDonc?=
+ =?us-ascii?Q?JSXcDPS6RY77EUHmjrGdG+V2kWVj6DkbZt7pHpRV/jMqzhJ82RWmaI1KJQcZ?=
+ =?us-ascii?Q?iDRYCOEWClspopVa7RCpIPCzctMZbcnzcGs0PmNofAiK3KRcJIVUncvrelDj?=
+ =?us-ascii?Q?72f2MMfNHpjFcnSAO+bomxr/s3iumL0hinfcrsCQ+shJVUPTL+/7dLwunyCs?=
+ =?us-ascii?Q?jLaJytLZfmNLfsyMqEiMUgDMQUu+uNX2mCbSfVLSTI2Ck7SKLizZCdNEMEKo?=
+ =?us-ascii?Q?SPfQO9OqbUwNJQYjXmo3aV/I4JHChFTJqeUKF2GgNoLmEtcAvm0DsOVOF1d/?=
+ =?us-ascii?Q?FQq6udo36R7h2AQK4PD/xhUccYlStfHUKeCVtRRuP2MocBQCo/Ye6YAsPww/?=
+ =?us-ascii?Q?DvxiRivfQdVf7KJCdJSlWsqSmx2u1d3yqr5EXnm2dhWk06wYyHG3oOvCjv9T?=
+ =?us-ascii?Q?lrS2Lc90Z5qzxphT0BvDJ/UojtV62qkZkcGqauZMvfuxe/RIvrTAZF+6LU2T?=
+ =?us-ascii?Q?jqs7DDgJl/8cfe/zhQUKjZCzEr4wU26Hh1m+9+/jdoKew6rfW4Fgk5IdVmgb?=
+ =?us-ascii?Q?kBKGJ+ugV8GUIM4IpvJzTw7cuPcD6THazfE5jY+hxZITlb7BPwAXGlbh/sqV?=
+ =?us-ascii?Q?GgyMTadN0pIs/K16RPLMoFJ+5amcus+cQy1fZP85Vxn7jDYizaH5R0Jr/hZ4?=
+ =?us-ascii?Q?Si0xJ2b2SEHJBo2clNVylEWOe2Q8GFLZ/EcFVvRi9ptY3EDEQfgY4FhYIgw+?=
+ =?us-ascii?Q?blRseQ7HhHUknkg9BRl9pwfZ+d0EbUEiuGzTOEZ7on0jVrIF6G7U917yYHlp?=
+ =?us-ascii?Q?93XfVTZbtLAOL9wfRtFSF7pVL70pPI5jbKUy8w2NQq0lBkiBt/hpuzOPPZBf?=
+ =?us-ascii?Q?jS7WdRFvVsfgNhZMVmmABj8L3JM/V62pcTyU7eu8PhscWQFXEC5gM8pvbsG4?=
+ =?us-ascii?Q?dy61W5T4Bw4fZ68pCRQfJVz8XAcS0EzxxMtAVwT4vDlKkfej6GhILEwpzOsQ?=
+ =?us-ascii?Q?YPzHr0Tyf2rzm4bWP0yE9iATOacknwuaKH1xdZ5dMutHPAUYwnJOhXNjjavV?=
+ =?us-ascii?Q?hpUZLtEZRDkmMN7Ox5TELMtMVum7Zy9eN0C+X7UtNBDq2Z0ytrKXXAlkY9xz?=
+ =?us-ascii?Q?zCT45lRF9ODLpzHoKB7kuHReEFC1L/b+l6I8GyvQZqV2daJIJ08u?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 723d0de8-7354-4a72-7b6b-08df44e31745
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 19:43:44.9159
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XTIqKg8EU/raKAU3ijEjUC1lsHxAjq55aHaFKiloAzQAhujo4SZ2UKGKtbuz+l93VvhM8GeiTLsEVaTDwB/++Ubjv46W94dk+YxiS5LNhX0UKWRjv//lnfZANfs9mecH
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB12191
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+On Tue, Nov 17, 2026 at 04:37:07PM +0000, Lee Jones wrote:
+> aml_dma_probe() registers the DMA device with
+> dmaenginem_async_device_register(), so dma_async_device_unregister() is
+> deferred until devres release after aml_dma_remove() returns.  However,
+> aml_dma_remove() destroys aml_dma->free_wq directly, causing
+> aml_dma_free_desc() to queue work onto a destroyed workqueue when
+> channels and descriptors are released during devres teardown, and early
+> error returns in aml_dma_probe() also leak aml_dma->free_wq.
+>
+> Allocate aml_dma->free_wq with devm_alloc_ordered_workqueue() so it is
+> destroyed on probe failure and after dmaenginem_async_device_register()
+> unwinds on removal.
+>
+> Fixes: b84b5197e344 ("dmaengine: amlogic: Add general DMA driver for A9")
+> Closes: https://sashiko.dev/#/bug/linux-c216084a-f89a-48d5-bdea-584522d1bdda
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Lee Jones <lee@kernel.org>
+> ---
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 0
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] The commit message says TXQSEGALLOC must be re-applied "if/when
-  number of active queues is modified", but the patch only programs it…
-- [Medium] gem_sram_distribute_segments() can build a TXQSEGALLOC value
-  whose total segment count is larger than the num_segments that…
-
---
-
-net: macb: distribute evenly Tx SRAM segments
-
-This patch programs the GEM TXQSEGALLOC register from macb_init_hw(). It
-spreads the Tx SRAM segments advertised in DCFG6 across the active
-queues, with each queue's share encoded as a power of two. The new
-MACB_CAPS_TXQSEGALLOC capability is enabled for ZynqMP, Versal and EyeQ5.
-
-> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-> index e7325af4b399c..dc1624815f71e 100644
-> --- a/drivers/net/ethernet/cadence/macb_main.c
-> +++ b/drivers/net/ethernet/cadence/macb_main.c
-> @@ -3432,6 +3432,63 @@ static void macb_context_swap_end(struct macb *bp,
-
-[ ... ]
-
-> +static u32 gem_sram_distribute_segments(unsigned int num_queues,
-> +					unsigned int num_segments)
-> +{
-
-[ ... ]
-
-> +	/* pow=0 for all queues. ilog2(0) is dangerous. */
-> +	if (num_queues >= num_segments)
-> +		return 0;
-
-[ ... ]
-
-> +	for (i = 0; i < num_advantaged_queues; i++)
-> +		val |= field_prep(GEM_TXQSEGALLOC_MASK(i), pow + 1);
-> +	for (i = num_advantaged_queues; i < num_queues; i++)
-> +		val |= field_prep(GEM_TXQSEGALLOC_MASK(i), pow);
-> +
-> +	return val;
-> +}
-
-[Severity: Medium]
-Can the value built by gem_sram_distribute_segments() add up to more
-segments than the num_segments read from DCFG6?
-
-A field value of 0 still means 2^0 = 1 segment. There seem to be two ways
-to over-allocate.
-
-First, when num_queues > num_segments, the early return gives every
-active queue 1 segment. The comment above uses num_queues=4 and
-num_segments=2 as an example, which claims 4 segments out of 2.
-
-Second, the loops only fill fields for i < num_queues. macb_init_hw()
-passes bp->ctx->num_queues, not the hardware queue count. The fields for
-hardware queues from ctx->num_queues up to bp->max_num_queues stay at 0.
-Each of those still claims 1 segment, on top of an active split that
-already uses every segment. With 4 hardware queues and 16 segments:
-
-  num_queues=2: 8 + 8 + 1 + 1 = 18
-  num_queues=3: 8 + 4 + 4 + 1 = 17
-
-On Versal and EyeQ5 (MACB_CAPS_QUEUE_DISABLE), this happens after
-ethtool -L while the interface is down, followed by an open. The reset
-value is an even split over all hardware queues, so it adds up to the
-available segments.
-
-If the GEM requires the total to stay within the DCFG6 count, could this
-give queues overlapping or out-of-range Tx SRAM regions?
-
-> @@ -3465,6 +3522,20 @@ static void macb_init_hw(struct macb *bp)
->  	if (bp->caps & MACB_CAPS_JUMBO)
->  		bp->rx_frm_len_mask = MACB_RX_JFRMLEN_MASK;
->  
-> +	/* Distribute Tx SRAM segments evenly based on active number of queues.
-> +	 * TXQSEGALLOC is only documented for some GEM integrations.
-> +	 */
-> +	if (bp->caps & MACB_CAPS_TXQSEGALLOC) {
-> +		unsigned int num_segments;
-> +		u32 val;
-> +
-> +		num_segments = 1U << GEM_BFEXT(SEGMENTS_BIT_SIZE,
-> +					       gem_readl(bp, DCFG6));
-> +		val = gem_sram_distribute_segments(bp->ctx->num_queues,
-> +						   num_segments);
-> +		gem_writel(bp, TXQSEGALLOC_LOWER, val);
-> +	}
-
-[Severity: High]
-The commit message says the distribution needs care "if/when number of
-active queues is modified". Is that case covered when the queue count
-changes on a running interface?
-
-Only macb_open() and the resume path call macb_init_hw(). Running
-ethtool -L ethX combined N while the interface is up goes through:
-
-macb_set_channels()
-  macb_context_swap_start()
-  macb_context_swap_end(bp, new_ctx)
-    macb_init_buffers()
-    macb_configure_dma()
-
-macb_context_swap_end() installs a context with the new num_queues and
-turns RE/TE back on. Nothing on this path rewrites GEM_TXQSEGALLOC_LOWER.
-The Tx SRAM split stays sized for the old queue count until the next
-down/up or suspend/resume.
-
-Two examples:
-
-Open with 1 queue. q0 gets 8 segments and the other fields stay at 0
-(1 segment each). If the interface then grows to N queues while up, each
-new queue runs with a single segment while TXPBMS is set in DMACFG.
-
-Going from 2 queues to 1 while up leaves half of the SRAM assigned to
-the disabled queue.
-
-Versal and EyeQ5 set both MACB_CAPS_QUEUE_DISABLE and
-MACB_CAPS_TXQSEGALLOC, so this path is reachable there.
-
-Could the write be moved into a helper and also called from
-macb_context_swap_end() under bp->lock, next to macb_configure_dma()?
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261113-macb-set-channels-v6-0-5de59d9e7f02%40bootlin.com
+>
+> v1 => v2: No changes
+>
+>  drivers/dma/amlogic-dma.c | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
+>
+> diff --git a/drivers/dma/amlogic-dma.c b/drivers/dma/amlogic-dma.c
+> index 684121d13fca..791bd82743d3 100644
+> --- a/drivers/dma/amlogic-dma.c
+> +++ b/drivers/dma/amlogic-dma.c
+> @@ -620,7 +620,7 @@ static int aml_dma_probe(struct platform_device *pdev)
+>  	if (!aml_dma)
+>  		return -ENOMEM;
+>
+> -	aml_dma->free_wq = alloc_ordered_workqueue("aml_dma_free", 0);
+> +	aml_dma->free_wq = devm_alloc_ordered_workqueue(&pdev->dev, "aml_dma_free", 0);
+>  	if (!aml_dma->free_wq)
+>  		return -ENOMEM;
+>
+> @@ -712,7 +712,6 @@ static void aml_dma_remove(struct platform_device *pdev)
+>  		if (aml_chan)
+>  			tasklet_kill(&aml_chan->vchan.task);
+>  	}
+> -	destroy_workqueue(aml_dma->free_wq);
+>  }
+>
+>  static const struct of_device_id aml_dma_ids[] = {
+> --
+> 2.56.0.679.gc527c65306-goog
+>
