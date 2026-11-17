@@ -1,73 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794952926;
-	b=YQXyxGNLyR0teHqmHqoT/jrI7qsJdHtkH5W3+JmLLszHUxF3GWTP9XnMUYsHi6ZpsdUQ
-	 0kBc18l/7/8yEusjjeRPqPNmIH+ztITLUA7yjqXTvYN/tftBpRkhB01UXgNdS7la71htN
-	 mVoMNtaFVSFS7T8uUIU4vEuA/tfykteg98WKIgAqfCuWITLbmFdYDGeeYuy7aCDQhuZzC
-	 H2jwG/G2hKdSJ/3ngxE9qHh+MNJ7x4j8tKCwlc0N2ruSi1p5KHDoBPl6xZMCz6i3X3STt
-	 LlT72AMOuMJBYPTpw74e9JbDixl0Z0FOsTHa6POkxWqxhnbZ6y6IiuPSRDVxIhAN7EQ==
+	t=1794952957;
+	b=x/eGbMvLwcZXzzHzS+ZehupXJA6AgGFGxlg2o3Xo2i7FFy+luXWd/rNf88BKgrKeobUD
+	 xc7J1q0XpEGHcPexh07jqDmmFk9N0mTbwr1UFsnlUEVHljpgCaj/HZXA5j+WCOpvhgV3g
+	 yOdYoR9P/o9uAQMoJVWdO1jD/quF+vsCTcfWekSX5zG76Rkn8+5n/yuv+Skn/4nNRXPH2
+	 0RYyybEGL/b+syVn6YSsoGy1g/Jpk0H2QBhuZun02MsybUlYqvNtNimK+7CmXIt/RvUJd
+	 gVCORS0bFoz9UKKw/HEJ2a1I474cXfKzNMRUWzwqjSePanEKljLvg4IT5d3zDLd17Fg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794952926;
-	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
-	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=EsQiVnWdklcglRbIqoscQFF5X7p4jGIU+Y0OOx+78ps=;
-	b=amQ4qJy7Ut3+5UTlUWQ0nAbXeY3Gm7Tzvo/yNlMSEMDnHke5BkxL1sKFutrshOsR922P
-	 7o9yEd+BjYgtyRtEvlX5gjrMuzVlymcrk4F/hkMSCeuya/kc2k3hH0FXhgY1vMqiqkVjS
-	 CSD00fYnA1N/FQsdZB1eLAvlEQ9cdRqOdqcK2t2GhGWs1sgM1AKO9WCZTSZCmetVyst+T
-	 FnatyXfO62baFMNXE8wP/kWURu0ZsLsjRFZjdWH/jagWypQJo5OgJiV0hsvsdW5bfYxmy
-	 ySrQ8uhadrnF3MXuohX+Zs/r35JhYQr52DTXM+5Kyx9UBwNHWIT6yC3+B4Nll1bGOgA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794952957;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
+	 User-Agent:MIME-Version;
+	bh=cVJny626PSXTYXD7vVP1KvMetvjh73uNkOjbJXvYqI8=;
+	b=WdgardtOfiO5AoPjdhtatgho+5ZenJ6HzxUUHnDzoBFnCLumh8UVvgS4n7NCBRR6WQ2h
+	 8xRoYoBPFZc4+OEcrXMdlX0uVzXcK81EBDEGLOXh1zQL1aEzsZ7mdsSHlkdURGOOzQI97
+	 JAU0jhd9cD6yjTeQVGKF0lDQUoYvxgnJX98ZyckY4kCYSgDcmrrFJ142CKONg9O+OmYP0
+	 dexBR5ykqlWAVoQiK7qO+oeBGt2fUR6qmFBl/2UvVKaz3PY9qV3B6nwekhtWIEPUKbNei
+	 26tribumdUqo0IwDaMs8GSwTrSFEfmaBTIop7F8VamM7aIf/epHbFDIdVoFNG63DbRQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eRKKuDOC;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=gHk8C3ZF;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74427606A32C;
-	Tue, 17 Nov 2026 22:02:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2241B606A32A;
+	Tue, 17 Nov 2026 22:02:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2241B606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eRKKuDOC
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E4FA1F000CE;
-	Tue, 17 Nov 2026 22:02:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794952926;
-	bh=EsQiVnWdklcglRbIqoscQFF5X7p4jGIU+Y0OOx+78ps=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=eRKKuDOCG4lZI0ZtmAAIpexh5saMlRjXYGgquqnGJHw5xx0hKiSTtEpRMTU0UnEZx
-	 IcVAie3qbTbLtwat8lgNDCP6zhB7QCTVdVvmIBlqP9fuJUX+csyhPtr5Pct2KMF+dr
-	 sKEIWoHciSIaSRbPXtRwsvShsS664//k6GK3BjshzeV1onoC5SB/aS7wLmCyLKJ9K8
-	 m5LAARW1i0RM6erGJTXwnJLIbMj19kpQzxaJV5KdnARcC1GmD4YHak/fh/wBY2ukPa
-	 yhfRyDN1zjqulKDzMqoKKSTFXathlkGd8lIzu3DnyeBMJBeCEbjKT0GFxDySnJK8UV
-	 YAtD4XE3Ry5Ag==
-Received: from phl-compute-10.internal (phl-compute-10.internal [10.202.2.50])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 50504F40066;
-	Tue, 17 Nov 2026 17:02:04 -0500 (EST)
-Received: from phl-imap-15 ([10.202.2.104])
-  by phl-compute-10.internal (MEProxy); Tue, 17 Nov 2026 17:02:04 -0500
-X-ME-Sender: <xms:3M78aq1jfwU6kkpHJYfkamLb7k26diePkGr8HYaND-ZrMBjnohMrzQ>
-    <xme:3M78an6y1Y_GR0u1TwtOXDhTJSDOYemr1m9Hmyh5XEDGdsDAx71bEoAOEShnFinjM
-    69EF-AeO1bjSPJvAvqEXXhgqHUGSfFOCO013H2g38lm6F7OfmUkmU4v>
-X-ME-Proxy-Cause: dmFkZTEFWk4jFRq2Ypvh/OGGpN3RYf9yAIcrjwoio2l5SxvidVJI3djILaxgpL7LyuOL7E
-    lli1okH5QEaMWzCUMyMt49RTjdtkb7p5j8SnJ7vko/DXCHPESNoXMFqc8eAYVU7BGtrfNE
-    O8Wkt/X+eQscT/cb/kG8LbWg6SuLpK+A11UAMB+QAdy5UWJZaV2trmsj/oQjP/6lPcVVP0
-    p+nLQemqrSyF8f9utiFf/d15PjZvnAYnKe5plmCnfbGuYaAIvR4RuHbeaDv3ZwgaqwEoTc
-    O56V45wyKdQUyvAqx58jhwnrJqlfVvWKvX0EJKReKmJux7PwleYyLgjD7P44v937Li49Qw
-    3PfPZt4Tz5Ch4ICbtemCoWAFkhd9LpRHHoQMM6xH+uQv2Cf4FlSCV6BNrPskaFpbE2Gt1a
-    ss+P7AhsTRHraYWbE5wed0xL9iCm70tSnIKB//n/ZBAuWR+D7Nfc9NMkA+fe4C2g5UFBLM
-    HmApoPfgE08+h48RscbkJ1zXPfd8wMImQd71BRZR8wJOu7FYt+A09ttWsoXwQ9M7voSEdh
-    iRB9mHPKZYTCf5j5tYY9XJfVHu4mQQzGd7r79LEO7RpJ1QmejEfUCnIUQqmekcp8PP/D1n
-    CB+FZEcYdo/YsJxNiNswgtVIPlyCf6Ab0g19TFApN5j+o5xqL9Y5EgaGlC7g
-X-ME-Proxy: <xmx:3M78anU0MJ35zJ3NF5t0f4ScxkcsT3P7nBy3grYqehD-Bs0aT3fDkg>
-    <xmx:3M78ai64XGO4B10f_mx5toxFs_hI5crqdE1ZqJkyW4lQCVpizqa6Sw>
-    <xmx:3M78avOt7UDMa5ZXcad-yrMZ1xx7rDvSS6ajIf1O1pvu-h3fvDtK-Q>
-    <xmx:3M78algMt1NSKEj31TOL76bmFCAw6QHR4dwEMMeuS0i8PnqzpbVH4Q>
-    <xmx:3M78alib9v_mERwNSmE9KLKWOVL58rpYH24tW96EQor0v_frdN4CGY3f>
-Feedback-ID: ifa6e4810:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 219C2780077; Tue, 17 Nov 2026 17:02:04 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=gHk8C3ZF
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1794952955;
+	bh=rbe9bWmMLVa+J0dSsVuk7Oqfry0Nb3c6LzUf0izNtPY=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=gHk8C3ZFZGup291nOPsGvEuiekJqfUu0OA+z+BbbXpV5y7nQdwDjPxQ0st/JjbOFz
+	 su9hsBAAvcXqBDACNNz17Q++iagWrr05wkdlz0DHZweYFXE1pmUeJQedwDauSA1qSR
+	 4zhz++F2+NViVNhXaKjdYa5ZXcWO5p1s2xb+8KaOWh9e4SRkn1pWDps1Bp1N7aAvmp
+	 6jVeIURtQichWCwEdNZP1g3OfQlAkGI/Y9h8K9pLtv4xW7Qf7T9CMieCvJ03jx4FA1
+	 FPMtFe/pQuR+VwlAmr1inrphLuYpabTUZq8Y9dW/kl3dZ3JsHvGEd2FvKgwIvPEIOF
+	 GoCh+ftCOK2Tw==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 721FA17E02F2;
+	Tue, 17 Nov 2026 23:02:33 +0100 (CET)
+Message-ID: <77bea5a89914df70f38b7eb0d171ea116c1beb02.camel@collabora.com>
+Subject: Re: [PATCH 14/14] arm64: dts: imx8mp: add VC8000E encoder node
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Paul Kocialkowski <paulk@sys-base.io>, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+  Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,  Pengutronix Kernel Team	
+ <kernel@pengutronix.de>, Benjamin Gaignard
+ <benjamin.gaignard@collabora.com>,  Philipp Zabel <p.zabel@pengutronix.de>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Hans Verkuil	
+ <hverkuil@kernel.org>, Marco Felsch <m.felsch@pengutronix.de>, Michael
+ Tretter	 <m.tretter@pengutronix.de>
+Date: Tue, 17 Nov 2026 17:02:32 -0500
+In-Reply-To: <20260522101653.2565125-15-paulk@sys-base.io>
+References: <20260522101653.2565125-1-paulk@sys-base.io>
+	 <20260522101653.2565125-15-paulk@sys-base.io>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-DrpxW1Rx3aNbkGs+KQT7"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,91 +94,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: AgKvhXN-CN1w
-Date: Tue, 17 Nov 2026 17:01:43 -0500
-From: "Chuck Lever" <cel@kernel.org>
-To: koraynilay <koray.fra@gmail.com>, "David Sterba" <dsterba@suse.com>,
- "Namjae Jeon" <linkinjeon@kernel.org>,
- "Sungjong Seo" <sj1557.seo@samsung.com>,
- "Alexander Viro" <viro@zeniv.linux.org.uk>,
- "Christian Brauner" <brauner@kernel.org>,
- "Trond Myklebust" <trondmy@kernel.org>, "Anna Schumaker" <anna@kernel.org>,
- "Jeff Layton" <jlayton@kernel.org>,
- "Konstantin Komarov" <almaz.alexandrovich@paragon-software.com>,
- "Paulo Alcantara" <pc@manguebit.org>
-Cc: "Chris Mason" <mason@kernel.org>, "Yuezhang Mo" <yuezhang.mo@sony.com>,
- "Jan Kara" <jack@suse.cz>, NeilBrown <neil@brown.name>,
- "Olga Kornievskaia" <okorniev@redhat.com>, "Dai Ngo" <Dai.Ngo@oracle.com>,
- "Tom Talpey" <tom@talpey.com>, "Ronnie Sahlberg" <ronniesahlberg@gmail.com>,
- "Shyam Prasad N" <sprasad@microsoft.com>,
- "Bharath SM" <bharathsm@microsoft.com>,
- "Sergey Senozhatsky" <senozhatsky@chromium.org>,
- ChenXiaoSong <chenxiaosong@chenxiaosong.com>,
- "Darrick J. Wong" <djwong@kernel.org>,
- "Sean Smith" <defendthedisabled@gmail.com>,
- "Andrey Albershteyn" <aalbersh@kernel.org>,
- "Pedro Falcato" <pfalcato@suse.de>, "Amir Goldstein" <amir73il@gmail.com>,
- =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, linux-btrfs@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
- exfat@lists.linux.dev, ntfs3@lists.linux.dev, linux-cifs@vger.kernel.org,
- linux-nfs@vger.kernel.org, linux-api@vger.kernel.org
-Message-Id: <f297d9ea-ebd7-47f4-ab7b-de5c45980000@app.fastmail.com>
-In-Reply-To: <20261115180343.576773-8-koray.fra@gmail.com>
-References: <20261115180343.576773-1-koray.fra@gmail.com>
- <20261115180343.576773-8-koray.fra@gmail.com>
-Subject: Re: [RFC PATCH v4 07/10] nfsd: add provenance time (ptime) via
- FATTR4_TIME_CREATE
-Content-Type: text/plain
+
+--=-DrpxW1Rx3aNbkGs+KQT7
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Le vendredi 22 mai 2026 =C3=A0 12:16 +0200, Paul Kocialkowski a =C3=A9crit=
+=C2=A0:
+> From: Marco Felsch <m.felsch@pengutronix.de>
+>=20
+> Add support for the Versilicon VC8000E multi-codec stateless encoder.
+> The IP integrated on the i.MX8MP supports H.264 and H.265 encoding.
+>=20
+> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+> ---
+>  arch/arm64/boot/dts/freescale/imx8mp.dtsi | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
+>=20
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/=
+dts/freescale/imx8mp.dtsi
+> index a3de6604e29f..4e63c2b16c1a 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> @@ -2290,6 +2290,17 @@ vpu_g2: video-codec@38310000 {
+>  =09=09=09power-domains =3D <&vpumix_blk_ctrl IMX8MP_VPUBLK_PD_G2>;
+>  =09=09};
+> =20
+> +=09=09vpu_vc8000e: video-codec@38320000 {
+> +=09=09=09compatible =3D "nxp,imx8mp-vpu-vc8000e";
+
+Not in any binding.
+
+Nicolas
+
+> +=09=09=09reg =3D <0x38320000 0x10000>;
+> +=09=09=09interrupts =3D <GIC_SPI 30 IRQ_TYPE_LEVEL_HIGH>;
+> +=09=09=09clocks =3D <&clk IMX8MP_CLK_VPU_VC8KE_ROOT>;
+> +=09=09=09assigned-clocks =3D <&clk IMX8MP_CLK_VPU_VC8000E>;
+> +=09=09=09assigned-clock-parents =3D <&clk IMX8MP_SYS_PLL1_800M>;
+> +=09=09=09assigned-clock-rates =3D <400000000>;
+> +=09=09=09power-domains =3D <&vpumix_blk_ctrl IMX8MP_VPUBLK_PD_VC8000E>;
+> +=09=09};
+> +
+>  =09=09vpumix_blk_ctrl: blk-ctrl@38330000 {
+>  =09=09=09compatible =3D "fsl,imx8mp-vpu-blk-ctrl", "syscon";
+>  =09=09=09reg =3D <0x38330000 0x100>;
+
+--=-DrpxW1Rx3aNbkGs+KQT7
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
 Content-Transfer-Encoding: 7bit
 
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCavzO+AAKCRDZQZRRKWBy
+9JhuAQD0AfYjjgquoc8zWyxBBVWmufqqLsFrTzXcJNVEMypxtAD/cLq6GfuURHlt
+do1wPhM9bKt6UrNP9Pvk2GYJtRFjEgY=
+=L6LT
+-----END PGP SIGNATURE-----
 
-On Sun, Nov 15, 2026, at 1:03 PM, koraynilay wrote:
-> Implement provenance time (ptime) in NFSD, as introduced in a
-> previous commit ("vfs: add provenance time (ptime)").
->
-> Map ptime to FATTR4_TIME_CREATE, allowing clients to set it across
-> CREATE, OPEN and SETATTR compounds.
->
-> If the underlying filesystem supports it, use __vfs_fileattr_set_locked()
-> to set it, returning -EOPNOTSUPP in case it's not supported (i.e. when
-> __vfs_fileattr_set_locked() returns -ENOIOCTLCMD).
->
-> When querying FATTR4_TIME_CREATE, request both STATX_PTIME and
-> STATX_BTIME, preferring ptime over btime if available, and advertise
-> FATTR4_TIME_CREATE support if either ptime or btime is available.
->
-> Assisted-by: Gemini:3.8-flash-high antigravity-cli-1.5.7
-> Signed-off-by: koraynilay <koray.fra@gmail.com>
-
-> @@ -3646,7 +3649,14 @@ static __be32 
-> nfsd4_encode_fattr4_time_access(struct xdr_stream *xdr,
->  static __be32 nfsd4_encode_fattr4_time_create(struct xdr_stream *xdr,
->  					      const struct nfsd4_fattr_args *args)
->  {
-> -	return nfsd4_encode_nfstime4(xdr, &args->stat.btime);
-> +	const struct timespec64 *ts;
-> +
-> +	if (args->stat.result_mask & STATX_PTIME)
-> +		ts = &args->stat.ptime;
-> +	else
-> +		ts = &args->stat.btime;
-> +
-> +	return nfsd4_encode_nfstime4(xdr, ts);
->  }
-
-I have trouble with this approach.
-
-We've already established that, for the Linux in-kernel NFS server
-implementation, FATTR4_TIME_CREATE reports a file's birth time and
-does not permit NFS clients to modify that.
-
-After this patch is applied, the server reports the ptime instead
-of the btime on some filesystems but not others.
-
-Essentially this changes the semantics of existing files that have
-a btime set -- technically that's a regression.
-
-
--- 
-Chuck Lever (Come to NFS bake-a-thon! https://nfsv4bat.org)
+--=-DrpxW1Rx3aNbkGs+KQT7--
