@@ -1,80 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794951813;
-	b=VrIahKWBZatcjjZl2YEo28f/vGykwWMZvL2PmKXiFzpZfQWgWxwT1+RWde6JJHu4C/gE
-	 LkBwoFdadpl9fsyOLDll5E3ZTOcOxnfhnw8NKife/ZGtJh9J/CeRz3wzGULFp+jzUf/SV
-	 /JAu8Qiq6OfwyQwhoVes9DXdRkGtx4ZOYpwAxA4fJcaqmjRt3iWMxBYVbX9C8mDnnGE5y
-	 k5Goju3EREBtkWKGncAPm/NdSb/4S1/V+W1YWGCAnlkxI8fLHMau2IR0Df7epDeFuTwoE
-	 qrI8hKMTvBEBG3MKWfHUB3dZqjHiAgyjYt/jsUUoPgsDeRhc36InOaRto9BT1D5jQEg==
+	t=1794951863;
+	b=ztR+xNTnL2L4slJ1AZm2iHi356rX66QYSGb6Gi0LXjJuDZ3EC92dyZgR7jlAEchrNjLz
+	 Dt9Os9zNeJH3lFK8h+mMlmhqVBUX3ZGdLiWZeFrLm7NaEt5Bx1/l0d2QbTEugCZsd+csk
+	 XDlvewgFlg9jk3Y9xvjoVcR5vSVE/zHPJNJnOFIpbNVTCR3tSoBb8bTidlouVElIgkmyS
+	 TUyj5AO5n/p2ZCU4nIS1hzoziNyce3baq6tPvKhpOR9S3nEC5bL9I2r5mB7YtvS25AhG5
+	 Xq+8ABEkWsMCc5Y5iDy41GYSCN//Un9hpykCKT6GZefsZe0TlZgFIdgBT42lWMefIsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794951813;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	a=rsa-sha256; c=relaxed/relaxed; t=1794951863;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=kDVcn8uLG74ma32d8wtmy7ktrF0XJBSPshTOfgs6Qj8=;
-	b=cjTN7ii2MhBc2YR48rgaNItYEURXSBBby9rOZaK4R2w0jETpLv7HUL6tUL0N4D1keVDb
-	 vy0OS8o8JYPJn1AcpzZFB3EcubHAqqRGEzYePbp5wpUs1w689ycO2IQKRXQjW2lCO6EMD
-	 8+hNKhemI5Ql3azbO8Nu1ih/2MOw7sM+jOZrqY9RW7vZNLRKIRhetMe/xYRUvMX3S8kUN
-	 0Iq9P276Q/YGHeIG/V1ITVtF8Kq18pK0uARDM/kLrXnIki+dx0rSrKYs0wX425Jhr6jXC
-	 /5Mi0ssKYBz2TtlqX+nY62lLa5RNSgs9LiXMEkldgfJqtH2E72xV7JK3g9R5pWOQAig==
+	bh=qJvVhGm7m/yddOVh7TzhHkOYiZu5bDfmIBnbwu2rovg=;
+	b=KAXwlvE2nH+o6EDe1WSWvXV4wbjVVWx+AZUMm0QjinAVb930hrrrT4huCyyOf4cvO7BV
+	 JEsGIS7twcRQSWxqmGbt3RsXCa6JhqWTgQ69XCS+/NsQlBCO6lRCwwwwPOQJAM74ey26A
+	 QjtZPXJYyrhFeGhVsen6rHyvhcVhcX8Rpo9BAD5DwVgaqJp6WBbmDb/oh4iEe1HhLTQgb
+	 UlGMJ9BwHRcD84AxV5EYTGPIpmQdEXglvMNYCeTfUj/8+JGkJq9nzmGERa72HbgdhFzyk
+	 7fwEEPa55OxIGhctbFBgEtNgWINM102n79u8TACvfN2z5yyPVwkMpjxtriWhJ/3sKOA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=sung-woo.kim;
+	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	arc=none smtp.remote-ip=74.125.82.173
-Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com [74.125.82.173])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CchlIyUI;
+	arc=none smtp.remote-ip=209.85.128.51
+Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E80F606A32C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:43:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E80F606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=sung-woo.kim
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49B3A606A330
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:44:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49B3A606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Received: by mail-dy1-f173.google.com with SMTP id 5a478bee46e88-36e99cf7bb3so507121eec.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 13:43:32 -0800 (PST)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CchlIyUI
+Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4bb666304fdso11321885e9.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 13:44:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794951862; x=1795556662; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=qJvVhGm7m/yddOVh7TzhHkOYiZu5bDfmIBnbwu2rovg=;
+        b=CchlIyUIiFLzWp0NWiPX7iDKjuoDPYIt7BX8oLQ62POofLVyCmG8kBcycWbB1WHSAF
+         S5mRQ5bjCp7Uav4uPQnhOmW+6YW1ECy0VB9X2XYQhOSMCnatHr6297cQH68vpUac4Nop
+         YTev8UHFzfBdEagjN5dtPew+VcLuht/CiZf9PgbAI3xZk1Kct/2Z6Go16wun7l1in+Fr
+         7XPItg5mDEJ4i6u9CG+aE6FyyFBP4EnYN+8T9LLGNw+bhXQwc9E26BIESra7CpX13IV/
+         3HUtqIAaxzyf7bK7e4c8z60KAuQvhO4pjYti9xR41308BrH++XjrxIkIygA5qC6r026C
+         2FZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794951811; x=1795556611;
+        d=1e100.net; s=20260707; t=1794951862; x=1795556662;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=kDVcn8uLG74ma32d8wtmy7ktrF0XJBSPshTOfgs6Qj8=;
-        b=l1u9DgoKZBhwAejcTn0qLcDTRZUtt6yl92txMcfY4BRIGVa6r7x2wcv+Y6f4VgCe/f
-         trm0z/9borXa5X9xMjhNPUedcKAY3fA1WlAKIYsL5mfaqPYau6sXVTT+tMZaVcTh+FEo
-         x+WHdJk1j1ecZk/pvO+JMUmWVOlzNG9NzGzm56uPz1E2iUnG9zgXNS16ip3HXZCVP2US
-         NASEglJLpIII7XAjpDJiZhU2wimpqr7j9/2F15eZp+oK7HdbftC0Acbdq7qsoEFWLsHo
-         udiwhbkPm8wm6V7SIVri6qgKwssI21JMngLAqYMtTNkvyW06XaCE7er792Lcnv0EikAs
-         bM5g==
-X-Forwarded-Encrypted: i=1; AL+hErFNW0nIHsCn/0HHMZYqi3YjYxUUw06KPJDA6CzaEks8NbycljZw2lmPjuUOsXTSiJOCoKE8L4HvD0kc4NQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+QUz5l6ZVrObO/+cCJwp2XRnizOmeK0AROcfEfBTxnK85IDelc
-	B/p2VgA93d5lAwFLTCOKsPMbqMivaHFU/Q/qjZ38M91py/OTHFIvvgL8
-X-Gm-Gg: AZFdTZePjxOXYR+bp9ohmhgKPB+s2FcMkJpPGA/1/3mnCFmP20m6/gAXzYFT5ai90Kq
-	LUxV9njnMiBjhkv0QybwQ5mAXK+pE378Nn0hpcR7BaEq4Y5ctNonasS+E6NWbtVBubM1NXyKomO
-	+vKTXYrT6wpsqsuzC3fM//OWiO2UMB/ttWadaNOXpKawCbOyQfybHENo+lkxD/kjs2mcxIuamxA
-	+LnWAWOGq1QschOeObTOLxVG4hhSJWUZFNbdQXLSAf+tMnirb85p939KQhgsC+7tEGxCsvVowys
-	18W6HAz9qe2ckEfkeCW+0+0OT5AuEbFhD9XJnQQnPGb5WULWB1IHYCZ6HSuKe6cctDTHoUMr1fe
-	ME5o3v0nU/B9UnoETVKqY2SMjDcc2W3XyAd9EjmskCeXcz3r2/YkB1n+wzXCiyMemVB8wJCAgFL
-	9VnL6C1gQqdC+UsWjbmmgz0EcDJw8yHErAwF+STMHJqd/iOX+yFzVDbAkaH4PX84yE2K3U2qUWm
-	8muwaV2ExvP/JY7YUUsTh4EI52rFhDjHYc68kWDA06VvTYajCbrzliwS2lxqfFZ1RoG8L0J9Bs3
-	nIbCmeKYF8cSQ7vyXVogJAb9Hq4f9nvCBbBKPmpNzA8xHo6Xj0IIRbNS5SFbiR3D2OkKwdiQbu7
-	rV2vMU7xv3o2XPMg=
-X-Received: by 2002:a05:7300:6a90:b0:369:ef63:ea95 with SMTP id 5a478bee46e88-3828101fb2emr560648eec.6.1794951811344;
-        Tue, 17 Nov 2026 13:43:31 -0800 (PST)
-Received: from tofu.taila6b446.ts.net ([128.210.0.165])
-        by smtp.googlemail.com with ESMTPSA id 5a478bee46e88-382a45260a8sm1303828eec.3.2026.11.17.13.43.29
+        bh=qJvVhGm7m/yddOVh7TzhHkOYiZu5bDfmIBnbwu2rovg=;
+        b=Jo0UwWyfe86jFq4SPMfPrET/4J8Oc26pnIXotDjbBgCOmRP6nYCaEH+GABZ2vfrzhm
+         ieQYs4zih6WPDneT5OpS+y+dSXHLgnsdhMpiuWFV9WDHHdeZJSTuXRbfZuI7NLoGEXPP
+         iRVXE6QYqWANSoBIdEWcOWvIRY9uWazEKq5EqYKEEFpUiluIbj/p5jML1GUoOKq9wBBA
+         GE+GMgSqZXoFdxBKmB65nkzeFVi4jszGRGtwIlooDayKmZN/CW6ZHq7y8a748Q4gi5fn
+         nmoM9mxvunbPa8pbr2i2g88gpaqEL9iXHFfqV2CGWqdYMdStiq+sofyiaTRZ3f9PwNs2
+         sF3g==
+X-Gm-Message-State: APuU4Z/s/Ps+MCGU3yXtOPeU6x2B92/73Kzv2/5t2Ojs0bQZppawQ9An
+	nVoOrUjLo/2yhswb+dTDG55Ff+25WRANQkHirEQvQdtVLlL13Kr+jD3yS3z0CxGU1pY=
+X-Gm-Gg: AYBFou1GyI2ELgIhAkcUvqUYdUiFvPgY9WderNlwHQ1tifIKJYOHdYP/iwOyxevZOM1
+	qkxExY+euV+HrlRaSICKXpv1DPqKel8AKeN3hB64QhfS/AiR6eYQKNnaMhHVFSxbqgi6BEvZhS6
+	B2jWT3bo7XcKZovfhJeKygpinumOAWtgHXXKZa6+uL19iZf0yhJFKbyHNSePSAO2i9++PaFcO2L
+	yB4slhne0+gG+pdd5h++26CTrCamXvyI0J1nfP/WrVKxplqFaYi5qbgbmDBlUAChKAot38xaPCW
+	SiWEeVKkpQTlx0ZvomD4H4jS02UEgtOpTCmdLWppDh0bT/kITCxF3uHpdDq7jlKu3pVD9caatKF
+	xNSZAakF2QzhnMaogwPKYCo2GeOOQuBSrnPsGspDixamr6jYaJZsa8yaTOBwMCEgOO7u4CAT9lu
+	xpZs+c4GphXsXBWhxY47DRGgM53bten/ETUiCKSuAPNeMvLHqU04rk7r9v9ClDpXE7KO8NIZlME
+	WUNLFA885AEjKQI54R4SdkcmypevR+9so6/GjU2LYhDPNJ5KQdnmbsn1p/x9G8ynR7IYtjfjsZo
+	apRLF5GiysQmNgqt0t9g3abof+PWDTIBr37CXP7tHYrD1ZBvoT1lmnyTnAPyNw==
+X-Received: by 2002:a05:600c:6090:b0:4a2:1960:6fa with SMTP id 5b1f17b1804b1-4bb7da0c872mr9124615e9.4.1794951861506;
+        Tue, 17 Nov 2026 13:44:21 -0800 (PST)
+Received: from fedora ([94.200.248.157])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb784231basm95069675e9.11.2026.11.17.13.44.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 13:43:30 -0800 (PST)
-From: Sungwoo Kim <iam@sung-woo.kim>
-To: Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>
-Cc: Dave Tian <daveti@purdue.edu>,
-	Sungwoo Kim <iam@sung-woo.kim>,
-	Takashi Iwai <tiwai@suse.de>,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] ALSA: hda: remove unused chain_id entries from fixups
-Date: Tue, 17 Nov 2026 16:41:57 -0500
-Message-ID: <20261117214157.2815179-2-iam@sung-woo.kim>
-X-Mailer: git-send-email 2.47.3
+        Tue, 17 Nov 2026 13:44:20 -0800 (PST)
+From: Mohamed Ahmed <mohamedahmedegypt2001@gmail.com>
+To: linux-kernel@vger.kernel.org
+Cc: dri-devel@lists.freedesktop.org,
+	Lyude Paul <lyude@redhat.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Mary Guillemard <mary@mary.zone>,
+	nouveau@lists.freedesktop.org,
+	Mohamed Ahmed <mohamedahmedegypt2001@gmail.com>
+Subject: [PATCH 0/3] drm/nouveau: fix instmem io_mapping faults and slowdowns
+Date: Wed, 18 Nov 2026 01:43:49 +0400
+Message-ID: <20261117214352.337961-1-mohamedahmedegypt2001@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,95 +103,49 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Several HDA fixups specify a chain_id without setting the chained
-flag, so the chained fixups are never executed.
+After the instmem io_mapping commit, some people noticed that some VK CTS
+tests became much, much slower, while others started running into apps
+MMU faulting. This was because of two issues that combine together.
 
-Remove these unused chain_id entries.
+A synchronous VM_BIND waits for its job with an interruptible wait and
+ignores the result. On a signal, the ioctl returns 0 before the page
+tables are written. Userspace can then use the new mappings, and the
+channel takes an MMU fault. This was an old pre-existing bug.
 
-Suggested-by: Takashi Iwai <tiwai@suse.de>
-Signed-off-by: Sungwoo Kim <iam@sung-woo.kim>
----
-v1: https://lore.kernel.org/linux-sound/20261115132215.4084031-2-iam@sung-woo.kim/
-v1->v2:
-- Remove chain_id instead of setting chained true
+On the GSP path, the BAR code keeps an ioremap() of the first page of
+BAR2 to flush BAR2 writes with a read while flushFBZero is not mapped.
+The instmem io_mapping covers all of BAR2 and overlaps it. However, PAT
+gives the new mapping the type of the older mapping it overlaps,
+uncached-minus, so instmem was now uncached without write-combining and
+bind jobs became much slower. This is what caused the slowdowns, and the
+slowdowns in turn made it easier to hit the pre-existing VM_BIND bug.
 
-The unused chain_id entries were introduced by:
-- f1ec5be17b9a ("ALSA: hda/realtek: Add alc269/alc662 pin-tables for Loongson-3 laptops")
-- f83bb2592482 ("ALSA: hda/conexant: Add quirk for LENOVO 20149 Notebook model")
+Patch 1 fixes the faults. A synchronous VM_BIND now waits uninterruptibly
+for its job.
 
- sound/hda/codecs/conexant.c       | 1 -
- sound/hda/codecs/realtek/alc269.c | 5 -----
- sound/hda/codecs/realtek/alc662.c | 1 -
- 3 files changed, 7 deletions(-)
+Patch 2 takes the flush pointer from the io_mapping which allows us to
+skip the ioremap entirely. Nothing maps BAR2 before instmem does, so the
+io_mapping is write-combined again.
 
-diff --git a/sound/hda/codecs/conexant.c b/sound/hda/codecs/conexant.c
-index 5f2b0b55ab6e..5b5250043a50 100644
---- a/sound/hda/codecs/conexant.c
-+++ b/sound/hda/codecs/conexant.c
-@@ -974,7 +974,6 @@ static const struct hda_fixup cxt_fixups[] = {
- 			{ 0x1a, 0x05d71030 },
- 			{ }
- 		},
--		.chain_id = CXT_FIXUP_STEREO_DMIC,
- 	},
- 	[CXT_FIXUP_INC_MIC_BOOST] = {
- 		.type = HDA_FIXUP_FUNC,
-diff --git a/sound/hda/codecs/realtek/alc269.c b/sound/hda/codecs/realtek/alc269.c
-index 96fa8c2782bb..96b691926570 100644
---- a/sound/hda/codecs/realtek/alc269.c
-+++ b/sound/hda/codecs/realtek/alc269.c
-@@ -6431,7 +6431,6 @@ static const struct hda_fixup alc269_fixups[] = {
- 			{ 0x1e, 0x411111f0 },
- 			{ }
- 		},
--		.chain_id = ALC269_FIXUP_DMIC,
- 	},
- 	[ALC269_FIXUP_CZC_TMI] = {
- 		.type = HDA_FIXUP_PINS,
-@@ -6449,7 +6448,6 @@ static const struct hda_fixup alc269_fixups[] = {
- 			{ 0x20, 0x8000ffff },
- 			{ }
- 		},
--		.chain_id = ALC269_FIXUP_DMIC,
- 	},
- 	[ALC269_FIXUP_CZC_L101] = {
- 		.type = HDA_FIXUP_PINS,
-@@ -6467,7 +6465,6 @@ static const struct hda_fixup alc269_fixups[] = {
- 			{ 0x1e, 0x411111f0 },
- 			{ }
- 		},
--		.chain_id = ALC269_FIXUP_DMIC,
- 	},
- 	[ALC269_FIXUP_LEMOTE_A1802] = {
- 		.type = HDA_FIXUP_PINS,
-@@ -6485,7 +6482,6 @@ static const struct hda_fixup alc269_fixups[] = {
- 			{ 0x21, 0x03214020 },
- 			{ }
- 		},
--		.chain_id = ALC269_FIXUP_DMIC,
- 	},
- 	[ALC269_FIXUP_LEMOTE_A190X] = {
- 		.type = HDA_FIXUP_PINS,
-@@ -6497,7 +6493,6 @@ static const struct hda_fixup alc269_fixups[] = {
- 			{ 0x1b, 0x0201401f }, /* front lineout */
- 			{ }
- 		},
--		.chain_id = ALC269_FIXUP_DMIC,
- 	},
- 	[ALC256_FIXUP_INTEL_NUC8_RUGGED] = {
- 		.type = HDA_FIXUP_PINS,
-diff --git a/sound/hda/codecs/realtek/alc662.c b/sound/hda/codecs/realtek/alc662.c
-index a0efd4596c88..6a65ec772e9b 100644
---- a/sound/hda/codecs/realtek/alc662.c
-+++ b/sound/hda/codecs/realtek/alc662.c
-@@ -629,7 +629,6 @@ static const struct hda_fixup alc662_fixups[] = {
- 	[ALC668_FIXUP_ASUS_Nx51_HEADSET_MODE] = {
- 		.type = HDA_FIXUP_FUNC,
- 		.v.func = alc_fixup_headset_mode_alc668,
--		.chain_id = ALC662_FIXUP_BASS_CHMAP
- 	},
- 	[ALC668_FIXUP_ASUS_Nx51] = {
- 		.type = HDA_FIXUP_PINS,
+Patch 3 sizes the io_mapping to the part of BAR2 that the driver uses.
+This is technically not required, but this matches OpenRM and makes more
+sense. It also guarantees that a similar issue can't happen again if
+something changes in the upper half.
+
+Mohamed Ahmed (3):
+  drm/nouveau: do not return early from a synchronous VM_BIND
+  drm/nouveau/bar: take the GSP-RM flush pointer from the BAR2
+    io_mapping
+  drm/nouveau/instmem: map only the part of BAR2 that is used
+
+ drivers/gpu/drm/nouveau/nouveau_sched.c       |  6 +++-
+ .../gpu/drm/nouveau/nvkm/subdev/bar/gf100.c   |  6 ++++
+ .../gpu/drm/nouveau/nvkm/subdev/bar/priv.h    |  1 +
+ .../drm/nouveau/nvkm/subdev/gsp/rm/r535/bar.c | 32 ++++++++++++++-----
+ .../drm/nouveau/nvkm/subdev/instmem/nv50.c    | 19 ++++++++---
+ .../drm/nouveau/nvkm/subdev/instmem/priv.h    |  3 ++
+ 6 files changed, 53 insertions(+), 14 deletions(-)
+
 -- 
-2.47.3
+2.56.1
 
