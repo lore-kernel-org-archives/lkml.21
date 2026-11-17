@@ -1,75 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794948340;
-	b=F0B1fuT3hAZYyanWu4yp/W21b7w31Q6BeEuzVfvxLcnL7goaMntAs/vJue2JIQAIRZxW
-	 7b+UpW+3MQRum+aLFDnPjz1eA4CRwDKoGLrs2YcEUkJs9PKVIlXiVyrglhP3u/SKdA+nB
-	 QXbKnxWoed1uR7xbwU3kIfCVf7B/rhaRWR1d/lqMkFOq4JwlcGXQ2GeUt2vE08Xpm4Wr4
-	 aH6tZV9CX0PCiOfaWFOHS6UrHfi6Adwx37ISEE2ww/nDsVFq3eW5hPPYNs2SwQUCbeIpy
-	 dSMoznywQMVhCqEM0mnJzmTaru6ksrU1n5nMjsRrMrSBU2TbtVzAbNb8x1zF9xx38nA==
+	t=1794948338;
+	b=e62Y/y516ad5uigO7MdBBErZeigcEKlWicHnPcQKupzpAGWiNmjNRAMLkAidMu6+Ddc/
+	 KNgkMZve9APBu46se7jdQE4+e/5bNMpXXB3CxtbS6jEq14tX+EP5xjWNUt84HSngmxf6H
+	 EzMUVVusvRTD6VIb4B2Y2aLo7gH1d2jEfgZyWguQj+aFQ1apzjdIza+LY0C/eT8iIPLpG
+	 Jux+bAmiuzy2vgeB/zvLvAchsiPXsU2IGoG0ly24oXv+8bM8Xe9Y07kqiWTZqN64z5bjC
+	 MgcSYmQxcpjRLLjGuUF9d2g9sBFKPEdh3B8zjvO/UHAniTb1LLeWeLCXdDOupVojFzA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794948340;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794948338;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=H5HOKL2EhRK71scz5F39xMdCNEmAUE6COZwQwhC/mXs=;
-	b=bmg4fhN4KCVkeuLIpAmdAjXssYZcnyJmdhE/4Zx4GQ3pql0Lh5RbdGgXdPzliq3iqO+G
-	 /qAoyjtxJtfrJRh7rQdjsry9+MHk7A2KqTEyaIFZWLkD74NN58BZmr0LIjXQerp3DPojS
-	 tAJioEJqdGp7nWUaRLDNa8cfzm/VQPAR4aCdpGFLGItlNTuBBomiuct2qS3uACnnL5oX3
-	 rJEd/TRtMZZrFQi2J8P56Zma3YMMl3FHnGmxJ5wLop6QmMw2w8ngeTkyYG0EmOuF4KRia
-	 wpGysX4oQL1cLcUWo1lO4N+UMYYsK3jdjyUhUEsGvplCh65Wd8q3RRBPF6n6ERnXgLg==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=b6mleucbMdhj8MjjlIVwGs8yhAGAA7tst/tBmXQB1UY=;
+	b=zqUEB6gNpQ7KBAkfcGhXoAWwe6oDK6tojHXmq8exq5ecomKIWoiqUeX4W8jSb2kGLOHJ
+	 bNSm74qVItlmkb1Evp0fC6jE6WEvHfAFNHf8XAPJkg2YpVW7RyZuAiAUETQoJpJG5ZdoO
+	 eqhjLJUeSxC7HJ2NXA07WwSX9wTxfW3bSCjnaJWfEYx82G1s3xb3rriTPApZGdEInUDwZ
+	 Lj3v+ugkJxQxKX+gsCvGzcc/hCYkQm/xx/1X4+iGLx41l2O82DdxITj8yRQrzO1AHH8O7
+	 TWoFY6OSResU8n64kn+xWBSTaQYNHvalLk4a0q0aOgWEBBK6YakolorQlstvvQ7iqaQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--coltonlewis.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=TIwGkQTM;
-	arc=none smtp.remote-ip=209.85.167.197
-Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com [209.85.167.197])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=aPeV3cXj;
+	arc=none smtp.remote-ip=209.85.167.198
+Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com [209.85.167.198])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2A24606A887
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:45:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2A24606A887
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D087F606A32C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:45:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D087F606A32C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--coltonlewis.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=TIwGkQTM
-Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-4b37620eb73so209406b6e.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 12:45:39 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=aPeV3cXj
+Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-4ab4f652f9bso131834b6e.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 12:45:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794948339; x=1795553139; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=H5HOKL2EhRK71scz5F39xMdCNEmAUE6COZwQwhC/mXs=;
-        b=TIwGkQTMtlYihyV/DkdX8kDo2dmzT7E52E/RZ1arFd0jsVKlRoCDkgw2Jm86Wm7kDP
-         E3QrLEKpR+T1MRb8kknGNEisvOEjQSzG6pO6McK7D5R+265b/8+zNMvK/PNdYXmmmxjq
-         uK/1X7Odj7XOhoFrqfoVlJ6WA0aw/K5wGjmRUCUbUD5K2qUH4NHY0kEs4jIpk/eMPiU9
-         S9JpY6/ihBHu+E4bRSAYLahEtPnuDGk8eEv4m2cOlMRPtyJUmjFrWAczHEJaQ9axkNYZ
-         KdsFXsp7lyPJeG4sWhE7BFUqFz/06UPnwCzqFI2nlF1uXhtEq6isHxy9eXWu0Z8KnS7b
-         Gbpg==
+        d=google.com; s=20260707; t=1794948337; x=1795553137; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=b6mleucbMdhj8MjjlIVwGs8yhAGAA7tst/tBmXQB1UY=;
+        b=aPeV3cXjFGitT+FOJiUVFoAoNlXls/aeflQhDC0JgOwjtiDak8NO0WeizwzFkjQz3O
+         bspwRDJySpsRIY0dG4SR9EO/7jEWdVHpH5GXBigT5l+nvyvDg8tVgQW8Eu+pRLxDRqdi
+         1bwNKZziQdfySYBTIH83/C2ocBAzeP1Mc86oXeUge5uiX24EtGqzz1BRUjAoWhZMMpik
+         pW53kLksvVjKF6d35pL1vMwzg4r3q77xAjWdJuqGqw6QER+Fc8YBswMyifnxkwgmE6JT
+         EmXn/PVIQISb0+FXsf36ltXqbcyzNPUDRr35lX7XN83SnvnHKyAI2LjlW7iKDnEqnuTo
+         a/hg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794948339; x=1795553139;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=H5HOKL2EhRK71scz5F39xMdCNEmAUE6COZwQwhC/mXs=;
-        b=RgcR1lkzwxBXrlZPbEgcSF4Sd6TG89mQK14DxVKJZmRVSp7u5ib+TjqL+/Sn8YrDw2
-         8QyZ+f6EGIN3IER1uHnqQhueQcUX9/oR5l9xtm9DI5/7JA4pHlEcah/yDa8/QwxzcSOL
-         m3V6pW/FNDoT9bFc7LlPX0h32AzttzKUjtb1rgazRGtwbY7oG2p2+tRNtNennc8gyN2m
-         653CUHyNxVW4C61fMVnRx+tjihUuC2CttklHArCNGrHhjQjo+JIiCeY2foRRREZnp8At
-         hwOrqyRKLDYt9n46qhBONTm495pYJKpHGxy1tDROQeFW5u7J8Zzq9un8Kk5ZmS9+9Zx/
-         8B3w==
-X-Forwarded-Encrypted: i=1; AL+hErEsV0CrEwaR/YjSscl1FbVrLxMJkCnWP/MiTY5vYAZ8Xa/vBxcn96UZhWKWjmJXurFIG1YRtYXMTUX2UWw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8pv8ctk5BvzH7jFyPFDPjVdd5T2OX1YYHnMpXSwT6eLCWfj2hP
-	TBLQwUhwsgjzQ49myZQeCvUx1Nghginz7Wa78PBKUh+Ecljaeh36I8RmSpvNHEoh+dKk+uo/RKn
-	uxLqUchSDoeokDoUxzNiyDMtvbg==
-X-Received: from iobmp24-n1.prod.google.com ([2002:a05:6602:a2d8:10b0:9c7:7f8f:934f])
+        d=1e100.net; s=20260707; t=1794948337; x=1795553137;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=b6mleucbMdhj8MjjlIVwGs8yhAGAA7tst/tBmXQB1UY=;
+        b=a8BbEvMCU6AdKwqw8u3qvdKy+LoJkUvU9oPQFPrbxiOwKdaSSUJVRxSY5i27m5qtTz
+         k169BnudUiV3GFUU82Ts7BElpVPEGi/zoKrHp4id5axkMggJSJw2+45295wykPKzVtc+
+         e8fU99bONXIfby+dxoDJCnCdE/MKuxXP3mygFYgEibUGmDPk9dkSl+zFp3+Vok8eIBiq
+         eGqpp+RZ78V7D3rBZ83jA1IEpo2id6/SXIhZYJ+w4Z84NNSv7D7GYVvkmMLFyRos8Ebx
+         yzG2dbL8l27XR/+2GgnI3PiSc4sMoXUE6kgOc7ZVJfcwxxaUp2HzPONj21dcqvvhUeFa
+         sXfA==
+X-Forwarded-Encrypted: i=1; AL+hErFRWTg0yvevI8nw6NCvZ/jTlmF7RiLfDVe0lZGZA+u/VL8k3cVbhri7nImgwDNBveEXjG7UR17wqAGX6HM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ulEnsXWZrRTPzERBEg8JyLen1rfRELrVdByR7M8QzjcaB8jok
+	1sH0PnYPTszwySbH4ahmKd88kgUE/C/OGmkT4EwK4IrjXWfhRU/SSamuwSP3ctLbeIIIWSbqJ3V
+	SuRfQ6l5t2R7CXX9A6JVSX5YKwQ==
+X-Received: from jajg7.prod.google.com ([2002:a02:c547:0:b0:61f:ecf1:1cac])
  (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:3096:b0:4e5:a74e:d6c0 with SMTP id 5614622812f47-57743d4c1e9mr1010823b6e.64.1794948338500;
- Tue, 17 Nov 2026 12:45:38 -0800 (PST)
-Date: Tue, 17 Nov 2026 20:45:35 +0000
-In-Reply-To: <20261117204535.4036191-1-coltonlewis@google.com>
+ 2002:a05:6808:1387:b0:4c3:e93e:e331 with SMTP id 5614622812f47-5774113234amr977571b6e.30.1794948336458;
+ Tue, 17 Nov 2026 12:45:36 -0800 (PST)
+Date: Tue, 17 Nov 2026 20:45:33 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,11 +76,9 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
-References: <20261117204535.4036191-1-coltonlewis@google.com>
 X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261117204535.4036191-3-coltonlewis@google.com>
-Subject: [PATCH v2 2/2] KVM: arm64: selftests: Verify HCR_EL2.NV1 is RES0 when
- E2H0 is NI_NV1
+Message-ID: <20261117204535.4036191-1-coltonlewis@google.com>
+Subject: [PATCH v2 0/2] KVM: arm64: Fix inverted E2H0 check for HCR_EL2.NV1
 From: Colton Lewis <coltonlewis@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>
 Cc: Leonardo Bras <leo.bras@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
@@ -93,45 +88,42 @@ Cc: Leonardo Bras <leo.bras@arm.com>, Joey Gouly <joey.gouly@arm.com>,
 	linux-kernel@vger.kernel.org, Colton Lewis <coltonlewis@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-In a VHE-only EL2 guest (KVM_ARM_VCPU_HAS_EL2 without
-KVM_ARM_VCPU_HAS_EL2_E2H0), KVM advertises ID_AA64MMFR4_EL1.E2H0 as
-NI_NV1, making HCR_EL2.E2H RES1 and HCR_EL2.NV1 RES0.
+When commit b2a324ff01fe ("KVM: arm64: Use HCR_EL2 feature map to drive
+fixed-value bits") migrated HCR_EL2 fixed-bit masking to hcr_feat_map,
+feat_nv2_e2h0_ni() was written as !kvm_has_feat(kvm, FEAT_E2H0). Because
+ID_AA64MMFR4_EL1.E2H0 is a signed 4-bit field where IMP is 0, NI is -1,
+and NI_NV1 is -2, !kvm_has_feat(kvm, FEAT_E2H0) tests E2H0 < 0 and
+returns true for NI_NV1 (-2), leaving HCR_EL2.NV1 writable instead of
+RES0 for VHE-only nested guests (and conversely treating HCR_EL2.NV1 as
+RES0 when E2H0 is IMP).
 
-Extend hello_el2 to attempt clearing HCR_EL2.E2H and setting HCR_EL2.NV1
-from userspace via KVM_SET_ONE_REG, verifying that HCR_EL2.E2H remains
-RES1 and HCR_EL2.NV1 is masked to RES0.
+Patch 1 restores the check to kvm_has_feat(kvm, ID_AA64MMFR4_EL1, E2H0,
+NI) (E2H0 >= -1) so that HCR_EL2.NV1 is implemented for IMP and NI and
+forced to RES0 for NI_NV1, and renames the helper from
+feat_nv2_e2h0_ni() to feat_nv2_nv1_not_res0().
+Patch 2 extends the arm64 hello_el2 selftest to verify via
+KVM_SET_ONE_REG and KVM_GET_ONE_REG that HCR_EL2.E2H remains RES1 and
+HCR_EL2.NV1 remains RES0 when E2H0 is NI_NV1.
 
-Signed-off-by: Colton Lewis <coltonlewis@google.com>
----
+Changes in v2:
+- Rename feat_nv2_e2h0_ni() to feat_nv2_nv1_not_res0() to match the
+  condition it checks (Leonardo).
+- Drop the guest EL2 MSR/MRS HCR_EL2 check in hello_el2, as RESx
+  read-back from the guest is not architecturally guaranteed to return
+  the effective value and ID_AA64MMFR4_EL1 reads do not necessarily
+  trap without FEAT_FGT (Marc).
+- Link to v1: https://lore.kernel.org/r/20261116200418.3535619-1-coltonlewis@google.com
+
+Colton Lewis (2):
+  KVM: arm64: Fix inverted E2H0 check for HCR_EL2.NV1
+  KVM: arm64: selftests: Verify HCR_EL2.NV1 is RES0 when E2H0 is NI_NV1
+
+ arch/arm64/kvm/config.c                       | 7 ++++---
  tools/testing/selftests/kvm/arm64/hello_el2.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ 2 files changed, 12 insertions(+), 3 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/arm64/hello_el2.c b/tools/testing/selftests/kvm/arm64/hello_el2.c
-index bbe6862c6ab16..5910497f8fbe4 100644
---- a/tools/testing/selftests/kvm/arm64/hello_el2.c
-+++ b/tools/testing/selftests/kvm/arm64/hello_el2.c
-@@ -45,6 +45,7 @@ int main(void)
- 	struct kvm_vcpu *vcpu;
- 	struct kvm_vm *vm;
- 	struct ucall uc;
-+	u64 hcr;
- 
- 	TEST_REQUIRE(kvm_check_cap(KVM_CAP_ARM_EL2));
- 
-@@ -66,6 +67,13 @@ int main(void)
- 		TEST_FAIL("Unhandled ucall: %ld\n", uc.cmd);
- 	}
- 
-+	hcr = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2));
-+	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2),
-+		     (hcr & ~HCR_EL2_E2H) | HCR_EL2_NV1);
-+	hcr = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2));
-+	TEST_ASSERT(hcr & HCR_EL2_E2H, "HCR_EL2.E2H should be RES1");
-+	TEST_ASSERT(!(hcr & HCR_EL2_NV1), "HCR_EL2.NV1 should be RES0");
-+
- 	kvm_vm_free(vm);
- 	return 0;
- }
+
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
 -- 
 2.56.1.750.gf70dc682cf-goog
 
