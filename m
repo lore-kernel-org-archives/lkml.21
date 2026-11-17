@@ -1,63 +1,67 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794957532;
-	b=vdb3ZC+uoFG8eBWBTojqZVCWsuk7ZtZTUGi5PO6HH1PUEubpK3gPMZMd0RBlICxbAwyh
-	 0t8BWu/h4C0WeX952OKUWxpgMovZaPU7VyiM2Oqb9w4Q1wG/W2xvpGyAmCdjX6/XIC7lX
-	 ODaZVtTjIL+oVi1f0EWA/3sx6osd+9rTWT9bwmJXYJRwETT1jxDH/onKUSGDkogAqBPHd
-	 uKXzsDqF+4dncBVr2GlXLyXCLRjDz8W/UiDayZEDGHr52dVdlXnt3MUueIe9BmMgip9Rw
-	 rQiFOPdhQjmn0XrnB7wvtIoMKLLQFj2k7JTp5HsN8U73u+pqGKyPzReu/YsNhkzzRMA==
+	t=1794957537;
+	b=FlgN6BbtXPxttFqUimVwNlENY5hD+rwEkydjJBvHxuewJ1IybP2OziqHiyU/PtrJbGhi
+	 +yMk9+Q6WUnO0fsFHe3dI8LYvDebmx+rjFz9vPsufO8YZPjclxjzcwflRja5vZHTlUVgm
+	 tNke6Zj6TOtQIG/tSv2bbBI+FSr3Uhnf1TBilaVSxm41BpYIYjs5gxXnXICvk6aSNL8vy
+	 fbAQNsEcTogySPMSz7GlVYSrp5ExXruWZ4hf6NB2lWSMF7rUKUYQmebh2f7wGmOZioHf7
+	 euocwONhGrbBRdrISUtHNP5jfszIF59rsNmQ0hrD93mvb0s6mJa91gTBgR5HtrTknkA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794957532;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794957537;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
 	 X-Originating-IP:X-CM-SenderInfo;
-	bh=qfG8+HNjWNjgKY/1LVDEwnEFGbVLXME85VZs5AOT4/s=;
-	b=pQj33VndV5W43qnV7QRVo+loJeGP6g673YLY2VlCchtbX8iGrwXXx0E2ayg48UZWnY72
-	 Tuoafn8mQQn07+vpzugk+oFQaRIKAZVSVt9dnS2LgWcA+3/W1+KToH+HDNd/fRaDiyI8a
-	 tNdQYI1hcZhFrG5dhi44ovI5TCpNPLLbchqvOaKKBu+p4u40pB/87KijYfyyftA/YOcTH
-	 E93LQnvCA0k9M//ggeI/V3DXjRjeFCzJes7w6Vi/aoFkWdbjCILGFQgC+El01QZJU59/m
-	 /xTJ0GSQ/nAEW1sqBqi22aEAIlD88G2rzoYx54SkvjB4iTpz/IMIPXZYWHrgEKZeFmA==
+	bh=OFZbREjsf49enuS/73KTBKoLcystcrUdilFE3iKgq+A=;
+	b=wrctU0+y3La45Q21iqfbyyQmJVwf22cTFDUPJH2Z5uX/9y4LdkdJwtE3+W8RSwr123I1
+	 TCAJ+MQn5KyxfYXyRW/vfQpOFJJD7yaL8wUaTYIQnTsH1SnME2Txd8B7ZzB5AbYJs2Y3t
+	 BfNZNSl1ARr8AUmE4XH10ZAMJHZAwyiO5H8ADGxrxw+ong4RgktVgRiNv20PsCK16wWLl
+	 W5laxMaYmH5x1Q1M0Mf/uvzWc3uotB7d/qzSuJmiOzuQKdZRdBIkfVSGcIGYcL5zElm0s
+	 R/CFW5EkBhDEwHWX5E7PPHHfAGTmVuG/E0Cs3ov3J5Je1k/DFZVtsOcEL04xW+ZWDDA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=163.com;
 	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=D+3yX0wV;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=Nu++3NeI;
 	arc=none smtp.remote-ip=220.197.31.4
 Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8D98606A32A;
-	Tue, 17 Nov 2026 23:18:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8D98606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89136606A32A
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:18:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 89136606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=D+3yX0wV
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=Nu++3NeI
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=qf
-	G8+HNjWNjgKY/1LVDEwnEFGbVLXME85VZs5AOT4/s=; b=D+3yX0wVYBhvGBXf88
-	nxmOrOsC0UVwZ95uwemG5wZI/zzHFewQ6NxwPgKFi5fMQ83yHImsxbk6km0ePDOh
-	DcovJ3SWSzeaftSd5VAHUWNjzpMfqvIX7qEpTKmVUY9XW6ewAQKmw+t9U51CjxaC
-	GKeSSFY8OqLDU1d08BXXIJmHg=
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=OF
+	ZbREjsf49enuS/73KTBKoLcystcrUdilFE3iKgq+A=; b=Nu++3NeI1PVbPdurBW
+	WEtwwZw69UEXY4csT3e9BSE0/sh+pFE+WT8iAyYiNZ74LIudSI7rIYAeFi+Nqdn+
+	FjqiXl/FrjwyJiNn8Sm/05ySW9xelpjxUBgJLyz73BvVaupopga+NGlMoFiUz0fo
+	ntbc7ehklf3h+k3h8Q68fRdIk=
 Received: from SYPC (unknown [])
-	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wDXt8a_4PxqUebhIw--.17204S2;
-	Wed, 18 Nov 2026 07:18:24 +0800 (CST)
+	by gzsmtp2 (Coremail) with SMTP id PSgvCgCXyQiu4Pxq15exGA--.55935S3;
+	Wed, 18 Nov 2026 07:18:08 +0800 (CST)
 From: Yang Siyuan <hsyysy@163.com>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
+To: Chen-Yu Tsai <wens@kernel.org>
+Cc: Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Simona Vetter <simona@ffwll.ch>,
 	Samuel Holland <samuel@sholland.org>,
-	linux-gpio@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v4] pinctrl: sunxi: request the per-bank supply optionally
-Date: Wed, 18 Nov 2026 07:18:07 +0800
-Message-ID: <20261117231807.264348-1-hsyysy@163.com>
+Subject: [PATCH v2 1/2] drm/sun4i: mixer: report coverage blending for alpha-capable planes
+Date: Wed, 18 Nov 2026 07:17:50 +0800
+Message-ID: <20261117231751.264258-2-hsyysy@163.com>
 X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261117091944.12082-1-hsyysy@163.com>
-References: <20261117091944.12082-1-hsyysy@163.com>
+In-Reply-To: <20261117231751.264258-1-hsyysy@163.com>
+References: <20261117091932.12063-1-hsyysy@163.com>
+ <20261117231751.264258-1-hsyysy@163.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,101 +72,77 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wDXt8a_4PxqUebhIw--.17204S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxCFW7AF4rAFWrur45Zr4kCrg_yoW5try8pr
-	sxXFsIkr4rAFyxKwsxuw12yr1S9an7J343CFykK34rAFn8JF4fXw12kr4YkFs5Gr4kJr4Y
-	vrWUZa4xGan8X3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07Ul_MfUUUUU=
-X-CM-SenderInfo: 5kv152r16rljoofrz/xtbC7QBCdmr84MADPgAA3S
+X-CM-TRANSID:PSgvCgCXyQiu4Pxq15exGA--.55935S3
+X-Coremail-Antispam: 1Uf129KBjvJXoWxWryktrWkCFy8CrW3JFWkWFg_yoW5Jw45pF
+	4rGFy5K34UGrWYva43Ary8ZF13Wa10gFy8Kry7J3sxXr1qqF9Ik3s8K3ya9ryUArWxCr42
+	gw4UGF4q9FsFkw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jcsqJUUUUU=
+X-CM-SenderInfo: 5kv152r16rljoofrz/xtbC7hA+cmr84LADwwAA30
 
-The per-bank "vcc-pX" supplies are optional in the device tree: the
-binding documents them, but notes that many boards do not describe them.
-sunxi_pmx_request() uses regulator_get() anyway, so the regulator core
-falls back to a dummy regulator and warns for every bank that has no
-supply:
+Linux 7.3 added validate_blend_mode_for_alpha_formats(), which warns once
+per plane that exposes a pixel format with an alpha channel but has no
+blend mode property:
 
-  sun50i-h616-r-pinctrl 7022000.pinctrl: supply vcc-pl not found, using
-  dummy regulator
+  sun4i-drm display-engine: [drm] [PLANE:35:plane-0] pixel format with
+  alpha exposed but blend mode not setup. Please fix.
 
-The H616 R_PIO is such a controller, and its PL0/PL1 pins drive the
-R_I2C bus, so every H616 board hits the warning during boot.
+The mixer blends a layer using its own alpha channel: ALPHA_MODE is set
+to PIXEL when plane alpha is opaque and to COMBINED otherwise, while
+BLEND_PREMULTIPLY keeps its reset value.  That is straight alpha, i.e. the
+DRM "coverage" blending equation.
 
-Use of_regulator_get_optional() instead.  A bank supply that is described
-in the device tree is still acquired and enabled, as it powers the
-physical VCC-Px rail, but one that is absent is skipped without a
-warning.
+Advertise exactly DRM_MODE_BLEND_COVERAGE on every mixer layer that can
+expose an alpha format (UI always, VI on DE3 and later).  This matches the
+existing register programming, keeps userspace behaviour unchanged and
+satisfies the validation.  Premultiplied blending would require driving
+BLEND_PREMULTIPLY and is left as a follow-up.
 
-The OF-only lookup matters here: regulator_get_optional() also falls back
-to a global regulator-name lookup, which could bind a regulator that
-merely shares the name with an absent bank supply and is not the supply
-of this bank.
-
-Skip the free path for a bank that never obtained a supply, so the
-refcount is only decremented when it was incremented.
+The DE1 backend planes are handled by the next patch.
 
 Signed-off-by: Yang Siyuan <hsyysy@163.com>
 ---
-Changes in v4:
-- Drop the supply_absent flag and the early return that tested it.  The
-  result of the OF lookup cannot change at runtime, so repeating it for
-  every pin request is harmless and caching it only complicated the code.
-  Suggested by Jernej Skrabec.
-- Link to v3: https://lore.kernel.org/linux-gpio/20261117091944.12082-1-hsyysy@163.com/
+ drivers/gpu/drm/sun4i/sun8i_ui_layer.c | 7 +++++++
+ drivers/gpu/drm/sun4i/sun8i_vi_layer.c | 9 +++++++++
+ 2 files changed, 16 insertions(+)
 
- drivers/pinctrl/sunxi/pinctrl-sunxi.c | 21 +++++++++++++++++++--
- 1 file changed, 19 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-index 31cd142..1fcab0d 100644
---- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-+++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-@@ -912,6 +912,7 @@ static int sunxi_pmx_request(struct pinctrl_dev *pctldev, unsigned offset)
- 	unsigned short bank_offset = bank - pctl->desc->pin_base /
- 					    PINS_PER_BANK;
- 	struct sunxi_pinctrl_regulator *s_reg = &pctl->regulators[bank_offset];
-+	struct device_node *np = dev_of_node(pctl->dev);
- 	struct regulator *reg = s_reg->regulator;
- 	char supply[16];
- 	int ret;
-@@ -924,12 +925,24 @@ static int sunxi_pmx_request(struct pinctrl_dev *pctldev, unsigned offset)
- 		return 0;
+diff --git a/drivers/gpu/drm/sun4i/sun8i_ui_layer.c b/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
+index 00756ab..57bc603 100644
+--- a/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
++++ b/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
+@@ -283,6 +283,13 @@ struct sun8i_layer *sun8i_ui_layer_init_one(struct drm_device *drm,
+ 		return ERR_PTR(ret);
  	}
  
-+	if (!np)
-+		return 0;
-+
- 	snprintf(supply, sizeof(supply), "vcc-p%c", 'a' + bank);
--	reg = regulator_get(pctl->dev, supply);
--	if (IS_ERR(reg))
-+	/*
-+	 * Use the OF-only lookup: regulator_get_optional() also falls back to
-+	 * a global regulator-name lookup and could bind a same-named
-+	 * regulator that is not the supply of this bank.
-+	 */
-+	reg = of_regulator_get_optional(pctl->dev, np, supply);
-+	if (IS_ERR(reg)) {
-+		if (PTR_ERR(reg) == -ENODEV)
-+			return 0;
-+
- 		return dev_err_probe(pctl->dev, PTR_ERR(reg),
- 				     "Couldn't get bank P%c regulator\n",
- 				     'A' + bank);
++	ret = drm_plane_create_blend_mode_property(&layer->plane,
++						   BIT(DRM_MODE_BLEND_COVERAGE));
++	if (ret) {
++		dev_err(drm->dev, "Couldn't add blend mode property\n");
++		return ERR_PTR(ret);
 +	}
- 
- 	ret = regulator_enable(reg);
- 	if (ret) {
-@@ -959,6 +972,10 @@ static int sunxi_pmx_free(struct pinctrl_dev *pctldev, unsigned offset)
- 					    PINS_PER_BANK;
- 	struct sunxi_pinctrl_regulator *s_reg = &pctl->regulators[bank_offset];
- 
-+	/* The per-bank supply is optional, so this bank may not have one. */
-+	if (!s_reg->regulator)
-+		return 0;
 +
- 	if (!refcount_dec_and_test(&s_reg->refcount))
- 		return 0;
+ 	ret = drm_plane_create_zpos_property(&layer->plane, index,
+ 					     0, plane_cnt - 1);
+ 	if (ret) {
+diff --git a/drivers/gpu/drm/sun4i/sun8i_vi_layer.c b/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
+index 09f668c..ab95c55 100644
+--- a/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
++++ b/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
+@@ -436,6 +436,15 @@ struct sun8i_layer *sun8i_vi_layer_init_one(struct drm_device *drm,
+ 		}
+ 	}
  
-base-commit: 091b06388b117fefdcb63336ac09956a4914b961
++	if (layer->cfg->de_type >= SUN8I_MIXER_DE3) {
++		ret = drm_plane_create_blend_mode_property(&layer->plane,
++							   BIT(DRM_MODE_BLEND_COVERAGE));
++		if (ret) {
++			dev_err(drm->dev, "Couldn't add blend mode property\n");
++			return ERR_PTR(ret);
++		}
++	}
++
+ 	ret = drm_plane_create_zpos_property(&layer->plane, index,
+ 					     0, plane_cnt - 1);
+ 	if (ret) {
 -- 
 2.56.1
 
