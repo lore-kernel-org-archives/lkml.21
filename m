@@ -1,55 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794946048;
-	b=K5YnNZlPr4iV9JO1maaRfAPzBnUmNPj5iXBXeVrSgIlWJx3vHwOf5M/uXkdCtpm4uLaa
-	 3ORK1KPy1PHr0HZx8YVJ0eLsHA3RZxSnLvx/bevahOerYhRlasWDbWY8emmMErH/DJFqo
-	 1YgH2W4eM/RgUG5EvtagqfHDvg+BBYM5dTsWe0rmLqWcBUKLUbUyVJydjovZL1uHQU1vh
-	 lIS6fwo0ygJK/NtKS9IbUw4cJzCf6AqyOThs6Enkrikbh3XLoo3vEMQmZ5wP0f6v4p6bP
-	 AkAmJTFZb/fMvc5VSh2O9AQ7EOlIrz84NE6mvs01mfEfH2jWOygP6PtP4t7vbzRxz2Q==
+	t=1794946168;
+	b=VaOBvPiowyP3I5XLOY3+H+lsKJv2Mza8MwjoioXT+OeYPselh61TjP9CJ5WRK1xtChhG
+	 bPzHXqNAWrxupFea1egmQKJ+J9WVGmDd+7x7/u/ZPhlXw4O7LgWWyKSuugzajafqCwqEI
+	 hPDIrppY5i7RPojbk1fswbsW6DnKqTbN3PEfMM0unXODU/jJ9VjDxrOfM2YUhbHDJfyAA
+	 fGQnlpxma6g85tsOhkDb0rYbLocJCLeaxhYUy6v78uGHyQBiEWu22dtdnSx5Vdmb2cfNN
+	 UNWoufJjf9cPxLsbpAATmLF0Jg1sfBxwpedPxJRCsHia72hvMLcs0Et6+XWHNm2JRIA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794946048;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=+l2nFOsAmq1gZHsAi6Z4cxsNprGDpMXtJF+9rJZ8MBo=;
-	b=x+OZB0okzO08UTRnRmGTIGHb5BlLl32KckCXcIbuxDaQPpwA4a2WsisP2UZrA5j9BSvL
-	 mpncx/rYAhKClYxZXsyLIMxQOhnMvhUtuSVvDclSsq9B576q96y+5uF0GPSEW5NOATW6f
-	 uphOBitLSNO2lw0I210bYP3r0lnjd9nSqZ4E1FNGjlM/1HoO88rwXPCk5fabiVXgil1Q7
-	 QGC6leQ3JBLdym7s3NOkOhd0pXpcyq+X/fdMZOoUajIdhMT8KktIgQGaX1mwTCvi9H26k
-	 QAi7B82yRN2ItrophJZ0VK0cW9JpDiRojz4xl54M4bMH2FWdo9N0pFZnEOhP/a07RMA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794946168;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=xobMW25f3cW1ukQgv8cksSp77nAYWp/OwUuvqXxfDTc=;
+	b=P+B4AvBNYlhgrQxWERrk2dQWXKTx44/DfMp97Zsq7iBMofFxAR2DXm3gJmgEBHSsNpqI
+	 VaiVmsFKA6KYI4hHBs2bMr1at/Xu6ZAtYGfShi4xWiuL2UljWrWaGAzEXSR3FRTLXPTd/
+	 juZMyTzpKxrILcKglP1yGTTkn1O4ZCKPF0yjifwmWKLUnTuTFMJ5o8HVMP+OILchhJrKE
+	 /j18W3tSUL6oy4Gepl+HPy/127+809Rygm57WAjcHiwlKUaQwFv1W6e8Gu2Hc/Djegr7z
+	 PnJ0y9lxc6uyWWS2IpWqdPt4206QJpAqS8Qki73vFlZrr3PqBw/fC457wqLOgmjkhvw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NU2x4urY;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PJDczKlw;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B0EF606A883;
-	Tue, 17 Nov 2026 20:07:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 898C7606A32A
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:09:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NU2x4urY
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D59D1F000C9;
-	Tue, 17 Nov 2026 20:07:27 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PJDczKlw
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67C9A1F000C7
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:09:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794946047;
-	bh=+l2nFOsAmq1gZHsAi6Z4cxsNprGDpMXtJF+9rJZ8MBo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=NU2x4urYrebqPQD8z1Dk6eNi478RL6tiDyFGlMgru2sxSgo6R1QCJDb16vRj5PhBe
-	 E1EfgeCk/zf0jYHNKISzJ/OVAurf2vH+Dx4JrlBiGJN+3MOJHX6ueMDUlG7+FhEEla
-	 L3P4yZ4KNiXcGgYLHfwrnvjpe5z0XhMcrXWIpEAJLautOFGalCATiN9qoMIf3BtkrN
-	 TYMTkqS8KAZi2RerKNoZ094BLfCIrOuGvkQGPb2oCuMC8pUee/TNJxnJ8k1p828ZH8
-	 i83fxNTkWrFYp0WBidZNdwtSCMVJYjjF68LJiCFHMFkRBHbHCsBBZVyhVR9ZO4Jo6Q
-	 4L80UtJUenHEQ==
-From: Sasha Levin <sashal@kernel.org>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	Sean Christopherson <seanjc@google.com>
-Subject: Re: [PATCH] KVM: SEV: never retry after #NPF on paging structures
-Date: Tue, 17 Nov 2026 15:07:26 -0500
-Message-ID: <20261117200726.2421132-1-sashal@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261117185922.466255-1-pbonzini@redhat.com>
-References: <20261117185922.466255-1-pbonzini@redhat.com>
+	s=k20260515; t=1794946168;
+	bh=xobMW25f3cW1ukQgv8cksSp77nAYWp/OwUuvqXxfDTc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=PJDczKlwWOTgyFoe9HctTF20r91TmGIrn4VKrAzgxxkkfgQonKExrtLzcvJJDXSdX
+	 MYzF2NDEivE37UC9XU9ftrtVGWR3KHObITvOZjndePi1fYOgE2lrjQA5K7ByF5k8pF
+	 D8SqAYnTxpWIb79IZken6oEG6Ft9cy1do+ng8MvSEF3f6lwQ1t2MR1h9NCgT/pbAl5
+	 qhfgTIeDhiMj2acc9jgVOKihkQRiEHNoXb9solO95xCyBtDjILcUg59GadPQyvvFWe
+	 VhJT41hKXVxQgqPvAiR20EOlacBCKIlnZ6sBQRpKXI6TSiEh0By8s2dLMzVH3j5J4e
+	 jtYWAJB3IoCXQ==
+Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-3ad5529ae64so2481141fa.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 12:09:28 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHELv4v1KAcqGbk2MHqlWwQfuyovebhbqf0HtfyCeq3F1U0A7WDPNUFkg+vcNFE9C4uIoijj0qeazY6V1I=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8kju9/LJ+rddkrkLCjlEnL1OnhiXF8asXyUDhxmB4OIqsfhp5+
+	/ZkYPMsYmNAdPMB92z9Fa6fbTr0Izx+5sH7WMOTpMt7MlfKlRl04PcpLWI9m/uPqCWG5BOmnpRr
+	Jrm9KdLzqpixPQERIAmxnYKV/aGc+wSA=
+X-Received: by 2002:a05:651c:b27:b0:3ac:9a09:b1b7 with SMTP id
+ 38308e7fff4ca-3ae670b31e0mr740631fa.12.1794946166809; Tue, 17 Nov 2026
+ 12:09:26 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,24 +59,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261110144436.1529000-2-ca@modelmiser.com> <CAJZ5v0jTHbr2KD3PXMdcOCs+QUrGrjGGuxOH7cbOe4kEF77d-A@mail.gmail.com>
+ <20261116200935.2464922-2-ca@modelmiser.com>
+In-Reply-To: <20261116200935.2464922-2-ca@modelmiser.com>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Tue, 17 Nov 2026 21:09:12 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0gQgAAHWwS1ftxaTKHSeq1ADH7-Z6sm77d=_vWBrrkgTA@mail.gmail.com>
+X-Gm-Features: AclHuK-CqX3dtTSoLW1P2lxrGKci-oQX1R_DqmMxIHKY2EAauwDBHTfATkyG-EI
+Message-ID: <CAJZ5v0gQgAAHWwS1ftxaTKHSeq1ADH7-Z6sm77d=_vWBrrkgTA@mail.gmail.com>
+Subject: Re: [PATCH v2] ACPI: pfr_telemetry: keep the state until the last
+ file is closed
+To: Chad Aldreda <ca@modelmiser.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, Chen Yu <yu.c.chen@intel.com>, 
+	Shuangpeng Bai <shuangpeng.kernel@gmail.com>, linux-acpi@vger.kernel.org, 
+	stable@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Tue, Nov 17, 2026 at 07:59:22PM +0100, Paolo Bonzini wrote:
-> +	error_code = svm->vmcb->control.exit_info_1;
-> +	if (error_code & PFERR_GUEST_PAGE_MASK)
-> +		goto resume_guest;
+On Mon, Nov 16, 2026 at 9:09=E2=80=AFPM Chad Aldreda <ca@modelmiser.com> wr=
+ote:
+>
+> On Fri, 13 Nov 2026, Rafael J. Wysocki wrote:
+> > Applied as 7.5 material, thanks!
+>
+> Thanks. Two small things in the applied commits, in case they are
+> still easy to change:
+>
+> 1. Shuangpeng Bai reported the pfr_telemetry use-after-free in June. I
+>    posted the tags on v1, but v2 did not carry them, so e788ea48810f
+>    has none:
+>
+> Reported-by: Shuangpeng Bai <shuangpeng.kernel@gmail.com>
+> Closes: https://lore.kernel.org/all/178144969601.60470.350897430189995721=
+2@gmail.com/
+>
+> 2. The message of dacb7cef6f32 ("ACPI: pfr_update: keep the state until
+>    the last file is closed") also contains my notes from below the ---
+>    line and the diffstat. Two sentences there no longer match the
+>    commit: "kzalloc() rather than kzalloc_obj() ... for the stable
+>    trees" (the code uses kzalloc_obj()), and "No lock is added. A call
+>    that passed the removed check can run during the unbind ..." (fixed
+>    by c0ab3714e87a). Deleting everything after your second [ rjw: ]
+>    line up to the patch.msgid.link Link: tag would drop them.
 
-The subject says "never retry", but resume_guest returns
-X86EMUL_RETRY_INSTR, so this does retry: the guest is resumed and the
-instruction runs again.
+I'm not really sure what happened here.
 
-In your reply to my patch you had X86EMUL_UNHANDLEABLE here instead:
+> If neither is worth a rebase, no problem.
 
-  https://lore.kernel.org/r/7b4beea2-2bc9-44d8-be6a-ecfe678091dc@redhat.com
-
-Which one did you mean? If it's the retry, the subject probably wants to
-say "never emulate".
-
--- 
-Thanks,
-Sasha
+I've fixed up the above, thanks for the notice!
