@@ -1,80 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.10
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794942387;
-	b=arvYb0Bc2K0EsjsbSseLL9q3GWIW8hQVwRof9X/I3Mr3K9I0ZLO6uhfmF8oIIJOwnGZM
-	 lYdhw9zf/0prf2RwJe2WyedpqjJW7nyCDfkoV3jTjpiVbmsLwtMtH+OUZUIGp07SWb5ms
-	 yoYzerw6cLErH11pYgH0DIZHtby8m2MQmM+p9RBSvmMWNRDWk8cgux/mmdrs6TUEHILB4
-	 4qB/1Um0FQRPqzX4gWcyiH/K+wk6iBCOvxfguPvQh9wg2MCAiMQLH9z5tVtolqsZ9Tq0V
-	 otsFcng0j0P1+yT3mmqQ+CVY5peB9z0ipC1qLQpvsU+2oOiRGMu+YO2Lu1DynysCR+w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794942387;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=ONV8yidisx/RIQoXMY9+iP5IXiVVLo6SvS4RZj3FJfk=;
-	b=boCDHir35SaUENiDKb/xRDEGSUYOxtHxiHcwN9wisyLARybUEB0Pv+VRcS5VyYNjtgTW
-	 c0TBOEzVmHONBbWcNYdKnGLkWLkoroBvTYlYDo8ajeOr7HWM6ew/9BqHJwO/vPY/wvU7y
-	 KLwunu1tS9HhAq6EoejH9vSgYKNFzA0eUOKajpUvn5Erxrd06M1DDp61EeFEKviOUZTit
-	 VDFWpmczBbMu7WCzEvWSTY2RzjshpMeQS55pJcFlB6MQVOvd68PM7wdGTM6tHW/E4F22u
-	 eU/hZqT9ocrNnd46UZ0aVgf3VZrXkTx4GSNh+OvTMzJT8wmJMn+QllemOhA/ettY0kg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=YBdSkgGP;
-	arc=none smtp.remote-ip=198.175.65.10
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.10])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.50
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794942478;
+	b=ucO2kwslPvUjziRzjnBvBXCkHw91ASbalXQDIpCWZnZN5ZcZsjdKHrT2TWl2ftrgNkk9
+	 8gt6LP4PwCnapsmZtYZow13Xo9GKNxuU116ruRYMjMAjDLBm1dQEDbWE2SJqpNklUq3Se
+	 uuFraPqEJ8O49lGakT8xlvov23oCCkqgT/f/0OtZCceNbrjUiHNg/uut8FNfy0WrirsgS
+	 B6ZkmhQgGplc4eUyKKBHQyX12DRKnLx4SIIjDq0SB19Whb0VQgqen8gzMURjAZmR8UKFx
+	 Ijb0dAKHMLMy+gflcPQC4c3XnOhzc9sZZR6NTCCt/mV+0q2kSFTvGQSQVsNDSbDmC6w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794942478;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=d4mLDd/uQdN7bY/YPYFedZvFpypXkiop92AccgpkyLI=;
+	b=xjEn97B2l4zLHJtMyjTDRkMaegRAbJuDiJekJeDTsXgr4oicB48WDykmVvO+ECXfCZpK
+	 FdjtIbE12VBYgjf5WMcAKiZc3L1Gt6x7exYX7Za2hVWsYFGE04qEmAipZ3HK7SIYzPFwU
+	 z6Fkmj1Tz+0n6Dro+AP/Lo+jqsUFRtmx/JmAfzr4M9WTJs4vPNBpf30KdzY+gPsaWWEPv
+	 lVlY9LuMRXREk/I5jiDqxAhEMdrnWH4+SLqQRny78GZG8JR/yOZGhPCmpEMB8phuEdOnd
+	 WncBFjOv6tU/CMb4pLk7GKRKkkC856LWOPQEXumoesu+L0U6e0DrxSEHVhV2c61nEww==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=CWEDb1yh;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.50
+Received: from mail-ed1-f50.google.com (mail-ed1-f50.google.com [209.85.208.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92622606A31C;
-	Tue, 17 Nov 2026 19:06:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 92622606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25A75606A32F
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:07:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25A75606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=YBdSkgGP
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1794942386; x=1826478386;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Lpi+TTbxwx568hEuDzt3sLnsrTMp++AYoozCyuX0ehc=;
-  b=YBdSkgGPltLUKshcORYrtFLdMpOqLzEc9ScSaMfLx3G7uCS4Bh73a8LE
-   JbjMEQVgRIF0agbq4jtJwTRCyazAsEqnAYbtYVDna2D3csSZdxYND85gS
-   S0E+aK1Nga7v73n6fnMlX6kaW6kEabKqCm7VetzUtfL2gNVjo7DKAt3+i
-   /Us51oI9DjOINh//jvPRmL5jP1TKJCYrsXgBw67EV2eFvJnIrL13d9aqz
-   FsqkQ3dEDGes1rnssPrv2NZpDobUMI6pWQ5JMJACx3RRYHj4mlYhlp4ZL
-   hNfvI/DIZpyg8mLS2KfLTdVGPvRV4PXRnAfj4PKKauKVJ80BFn0sgbUGw
-   A==;
-X-CSE-ConnectionGUID: NHs2o3yDQOOLHywGB6mj2Q==
-X-CSE-MsgGUID: zxuiPNOVRHefUmvFdw8Z/Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3650906"
-X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
-   d="scan'208";a="3650906"
-Received: from fmviesa013.fm.intel.com ([10.60.135.153])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 11:06:26 -0800
-X-CSE-ConnectionGUID: KEH076GzQMuK8nmGl3WZww==
-X-CSE-MsgGUID: MVdfJmBvSU+PA7xzAc0CNw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
-   d="scan'208";a="11846763"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.254])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 11:06:23 -0800
-Date: Tue, 17 Nov 2026 21:06:21 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: raffaele.tranfaglia@gmail.com
-Cc: Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Michael Hennerich <Michael.Hennerich@analog.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Andy Shevchenko <andy@kernel.org>, linux@analog.com,
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] iio: light: adux1020: return early on unsupported
- channel types
-Message-ID: <avylrU1cexaQp1mM@ashevche-desk.local>
-References: <20261117-adux1020-guard-v2-0-89707fa070c9@gmail.com>
- <20261117-adux1020-guard-v2-2-89707fa070c9@gmail.com>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=CWEDb1yh
+Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-6b8815693e2so296411a12.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:07:57 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794942476; cv=none;
+        d=google.com; s=arc-20260327;
+        b=pgezKRnhzU0KH2tkYuS/YFetp363SYX2L7XCR/lRjL/g9jX/2giCunCrB9isoIlt4Z
+         dB2HYu6yGTUZybUdfKXEZj+acyiwcVuXG8pyvSx/x4Rq0ESJ5xyELohcUUYaBcQl0W6V
+         fDB/FEo0Vs1pSzExcXqY2TZKv3Shl8hVRNBiem2tXmZPVD4JTCI8tvbB+DPVUJPzX0D9
+         yjnr5dJkAgIrB/9W6ckKv8MX52qaX0CifkbhalXqQTpQvTj5ywj2qls9iq8s/pyx3Msh
+         AFSYua7bvCOIyosxgeGDOr22o7R7zx6RWZ9VQQHJENvpV81SdN/DExTKbgg58Qzg1/tV
+         wMnA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=d4mLDd/uQdN7bY/YPYFedZvFpypXkiop92AccgpkyLI=;
+        fh=+PgWuhgciNnfAX/vfRyB2/IXZXgS2e+hbYTH41O7kaI=;
+        b=X7uJVLiUgI4Ticf2RxUSYt5LthHOXDScrUv0DhgVy6Z2TUjfdiIJ+UZfWLrAFmgx7Z
+         +UOe4CeR1McAnaMB2pqJtjtIuQlihC/FQIyOJab++DBUB9juFqsQvvEe38OvE502AYkv
+         kGl56iGJjYRpVKDstLyXqmCvhjjBBUvrKYX+ZFnyPD1MUtlkOjnVPzMgPCO5OUXQaRlg
+         3Om2RXSTxHPBQbe6Pmhsut6lWXmwJzeGC/rP5N6UXrgiMenF4Lrl4Rxbq3vi6x6+pYkz
+         1Dp7NJZGoTn4Jl2nCdLTLVGWRgxjWdnAAux5xpk1dyzIt63OcFhSL8C/hXHGpLukrvNP
+         FSpA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1794942476; x=1795547276; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=d4mLDd/uQdN7bY/YPYFedZvFpypXkiop92AccgpkyLI=;
+        b=CWEDb1yhsbiFDT5/IZ7/+ZOPrREOd7QYymfn4mn6Q3O4M/XOPJQqPTJGnqB58RMoTK
+         d51OjAwbUOQEm/An9tEkboKSQwfKtTb8W+xK6KBYiwTpDVtsT1Fn+G8BinE+hThL6m8s
+         tLj33Jhkm01QTnfdykjmupghPb+SK9MpqJefbIjMr+4rGizgja6sZXviI8I3ITtFJzhw
+         rL3zqAoAwzgrDWNi/SI5ETV2c0I4Z8dFBV/4wDWA3foDkVfxfPgNHHfYUqQgP3e1xJKf
+         diZXa1wC79ggb6lRGQq65T2e2E0DuixcvtCunKoSzhLcGv4GlAB1MlHlX3Uao4m1tb0D
+         2GOw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794942476; x=1795547276;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=d4mLDd/uQdN7bY/YPYFedZvFpypXkiop92AccgpkyLI=;
+        b=Jxkglf6+qKRXtvoETMB3fBytn0jzGUOYhaxhtKr85TxUooiHd8BWyN1bKV+M4O+FII
+         u55KzkaUpfrAxsD6s83BqanenC24I9cwbUW6lHK4Or8OwDeaE94HkQpUSLx+nS9kmknJ
+         jeDalYA2ZgP2ni3jJIlCbiN99srjqD/YyN5Q2mpNo+Qe5BrXGodFJ8ZKIM6MNBTvPGdg
+         hLq2Kxhu5isv6+FlDip4Gl66gVebbL8v74OEty5ZXddOocxoo+qIkXzM5i8vCD70zDRQ
+         6kl8+OSZys1e5rhCmqb+hbnqIyX/Rw1MIhCR8Tl88nm5A469xf4Zxk4Ss+zyUCWCtk2Z
+         p41w==
+X-Forwarded-Encrypted: i=1; AL+hErGWQtxnWqI5cMZxm7JW9shXqe7afKmT0EEFP30n6f3zR5CeHqPZYL3WopKaIWNbhipoRqO3HqUSSwt82Wk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+q+OATar8PjpDW49e9m9T0kud86K0+GfWve+gy2JVZB5iwuMF/
+	PyK5YfKI7ZTF3+kSUFoHiPs1JV3L+1Wlnk+CHAsYebGeYnsnhqJcbhZjWyQa4jqex769X0A2BDu
+	eegd0//WPin8Qfri5e9/zu/BzLD2QhHyoo6I/TLGxvlgl9hoYOHLR2oMy
+X-Gm-Gg: AYBFou1aPWGHWXosc2Bm+hHfpwaPtDOEVt6P2TZFi/Jbn2hAZDldn2zLfk/WfBPwV7T
+	D6msKN2IV4xDhu0vu8xsxuj+y/p3ObkjjSgucHEdbIADNv4p2NNo8Dctan8CIDNcDKhIRv+pOpH
+	k/uqWCwb1XziFdQwPjKY5oJPYDv094B2C2PswVVkR+QYrsY/t2jhT2Gvtu/1p6WSKTb3NPWL2q1
+	8RwBMgdYNm386d8wMC7QbhOmsN5vlBUkqO7nJNgkeSaArGT+iJXyuhh54TypRNdxtSgnB6/I31B
+	WlklM5ZAGSQ4LaGcYtuYpMjnyzozz7Syk7LX42qGQxbvIqqyziRaDup5hzNxqCTPUdFhW/XAKT9
+	hQM4VrTXHZRZf7dgkAdDHhH/n7plYydz6pxS0hU5yEj6jCT70d3cjrf1K2fB5jRiJOjE=
+X-Received: by 2002:a17:907:2d13:b0:c40:b477:dfa0 with SMTP id
+ a640c23a62f3a-c510e1e90f1mr20057266b.18.1794942475932; Tue, 17 Nov 2026
+ 11:07:55 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,216 +103,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117-adux1020-guard-v2-2-89707fa070c9@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+References: <20261112-blk-plug-fix-v1-1-7fa2a6215b8d@mediatek.com>
+In-Reply-To: <20261112-blk-plug-fix-v1-1-7fa2a6215b8d@mediatek.com>
+From: Sandeep Dhavale <dhavale@google.com>
+Date: Tue, 17 Nov 2026 11:07:44 -0800
+X-Gm-Features: AclHuK8_K-iJgh8nbeVlichavK0zIZlG8B8U4MkOUyaGlS8RKuiq1rZzu30675Q
+Message-ID: <CAB=BE-S68WquuwZ506RriJctggHCebbNnhX+EYMWjxZxMqRDMg@mail.gmail.com>
+Subject: Re: [PATCH] block: fix PF_BLOCK_TS/current->plug ordering in blk_finish_plug()
+To: Zi-Hao Huang <zi-hao.huang@mediatek.com>
+Cc: Jens Axboe <axboe@kernel.dk>, linux-block@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+	Chao Yu <chao@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 
-On Tue, Nov 17, 2026 at 07:11:02AM +0000, Raffaele Tranfaglia via B4 Relay wrote:
-> 
-> Now that adux1020_read_raw() and adux1020_write_raw() can return
-> directly, check the channel type with an inverted condition and return
-> -EINVAL early instead of nesting the work in an inner switch or if
-> block. This removes one level of indentation and makes the two
-> functions consistent with each other.
-> 
-> While at it, drop the stray semicolon after the closing brace of
-> adux1020_read_raw().
-> 
-> No functional change intended.
+Cc: +Chao Yu <chao@kernel.org>
 
-...
+> Fixes: 06b23f92af87 ("block: update cached timestamp post schedule/preemption")
+> Cc: stable@vger.kernel.org # v6.9+
+> Signed-off-by: Zi-Hao Huang <zi-hao.huang@mediatek.com>
 
-> static int adux1020_read_raw(struct iio_dev *indio_dev,
+Note that Chao independently hit and posted a fix for the same panic a
+few days later [1], placing barrier() at the end of __blk_flush_plug()
+instead. Placing barrier() here in blk_finish_plug() looks slightly
+cleaner since blk_finish_plug() is the only caller of __blk_flush_plug()
+that clears current->plug.
 
-	struct regmap *map = data->regmap;
+One correction on the Fixes/stable tags (which Chao's patch got right):
+06b23f92af87 checked `if (plug)` in blk_plug_invalidate_ts() and only ran
+from sched_update_worker(), so this preemption race and NULL dereference
+was introduced by
+fad156c2af22 ("block: invalidate cached plug timestamp after task switch"),
+similar to
+691b052139c9 ("block: fix race in blk_time_get_ns() returning 0").
 
->  	switch (mask) {
->  	case IIO_CHAN_INFO_RAW:
-> -		switch (chan->type) {
-> -		case IIO_PROXIMITY:
-> -			ret = adux1020_set_mode(data, ADUX1020_MODE_PROX_I);
-> -			if (ret < 0)
-> -				return ret;
-> -
-> -			ret = adux1020_measure(data, ADUX1020_MODE_PROX_I, buf);
-> -			if (ret < 0)
-> -				return ret;
-> -
-> -			*val = buf[0];
-> -			return IIO_VAL_INT;
-> -		default:
-> +		if (chan->type != IIO_PROXIMITY)
->  			return -EINVAL;
-> -		}
-> -	case IIO_CHAN_INFO_PROCESSED:
-> -		switch (chan->type) {
-> -		case IIO_CURRENT:
-> -			ret = regmap_read(data->regmap,
-> -					  ADUX1020_REG_LED_CURRENT, &regval);
-> -			if (ret < 0)
-> -				return ret;
->  
-> -			regval = regval & ADUX1020_LED_CURRENT_MASK;
-> +		ret = adux1020_set_mode(data, ADUX1020_MODE_PROX_I);
-> +		if (ret < 0)
-> +			return ret;
-> +
-> +		ret = adux1020_measure(data, ADUX1020_MODE_PROX_I, buf);
-> +		if (ret < 0)
-> +			return ret;
->  
-> -			*val = adux1020_led_currents[regval][0];
-> -			*val2 = adux1020_led_currents[regval][1];
-> +		*val = buf[0];
->  
-> -			return IIO_VAL_INT_PLUS_MICRO;
-> -		default:
-> +		return IIO_VAL_INT;
-> +	case IIO_CHAN_INFO_PROCESSED:
-> +		if (chan->type != IIO_CURRENT)
->  			return -EINVAL;
-> -		}
-> +
-> +		ret = regmap_read(data->regmap, ADUX1020_REG_LED_CURRENT,
-> +				  &regval);
+So the tags should be:
 
-		ret = regmap_read(map, ADUX1020_REG_LED_CURRENT, &regval);
+Fixes: fad156c2af22 ("block: invalidate cached plug timestamp after
+task switch")
+Cc: stable@vger.kernel.org
 
-> +		if (ret < 0)
+With the updated Fixes/stable tags:
 
-While at it, drop ' < 0' parts for regmap error codes.
+Reviewed-by: Sandeep Dhavale <dhavale@google.com>
 
-> +			return ret;
-> +
-> +		regval = regval & ADUX1020_LED_CURRENT_MASK;
-> +
-> +		*val = adux1020_led_currents[regval][0];
-> +		*val2 = adux1020_led_currents[regval][1];
-> +
-> +		return IIO_VAL_INT_PLUS_MICRO;
->  	case IIO_CHAN_INFO_SAMP_FREQ:
-> -		switch (chan->type) {
-> -		case IIO_PROXIMITY:
-> -			ret = regmap_read(data->regmap, ADUX1020_REG_FREQUENCY,
-> -					  &regval);
-> -			if (ret < 0)
-> -				return ret;
-> -
-> -			regval = FIELD_GET(ADUX1020_PROX_FREQ_MASK, regval);
-> -			if (regval >= ARRAY_SIZE(adux1020_rates))
-> -				return -EINVAL;
-> -
-> -			*val = adux1020_rates[regval][0];
-> -			*val2 = adux1020_rates[regval][1];
-> -
-> -			return IIO_VAL_INT_PLUS_MICRO;
-> -		default:
-> +		if (chan->type != IIO_PROXIMITY)
->  			return -EINVAL;
-> -		}
+- Sandeep.
 
-> +		ret = regmap_read(data->regmap, ADUX1020_REG_FREQUENCY,
-> +				  &regval);
-> +		if (ret < 0)
-> +			return ret;
-
-Ditto.
-
-> +		regval = FIELD_GET(ADUX1020_PROX_FREQ_MASK, regval);
-> +		if (regval >= ARRAY_SIZE(adux1020_rates))
-> +			return -EINVAL;
-> +
-> +		*val = adux1020_rates[regval][0];
-> +		*val2 = adux1020_rates[regval][1];
-> +
-> +		return IIO_VAL_INT_PLUS_MICRO;
->  	default:
->  		return -EINVAL;
->  	}
-
-> -};
-> +}
-
-Strictly speaking this doesn't belong to the patch, but since it's intrusive
-enough and the change is in the same (touched) function I don't mind it be
-here.
-
-...
-
-> static int adux1020_write_raw(struct iio_dev *indio_dev,
-
->  	switch (mask) {
->  	case IIO_CHAN_INFO_SAMP_FREQ:
-> -		if (chan->type == IIO_PROXIMITY) {
-> -			i = adux1020_find_index(adux1020_rates,
-> -						ARRAY_SIZE(adux1020_rates),
-> -						val, val2);
-> -			if (i < 0)
-> -				return i;
-> -
-> -			return regmap_update_bits(data->regmap,
-> -						  ADUX1020_REG_FREQUENCY,
-> -						  ADUX1020_PROX_FREQ_MASK,
-> -						  ADUX1020_PROX_FREQ(i));
-> -		}
-> -		break;
-> +		if (chan->type != IIO_PROXIMITY)
-> +			return -EINVAL;
-> +
-> +		i = adux1020_find_index(adux1020_rates,
-> +					ARRAY_SIZE(adux1020_rates), val, val2);
-
-Split logically.
-
-		i = adux1020_find_index(adux1020_rates,
-					ARRAY_SIZE(adux1020_rates),
-					val, val2);
-
-or make the first line longer
-
-		i = adux1020_find_index(adux1020_rates, ARRAY_SIZE(adux1020_rates),
-					val, val2);
-
-> +		if (i < 0)
-> +			return i;
-> +
-> +		return regmap_update_bits(data->regmap, ADUX1020_REG_FREQUENCY,
-> +					  ADUX1020_PROX_FREQ_MASK,
-> +					  ADUX1020_PROX_FREQ(i));
->  	case IIO_CHAN_INFO_PROCESSED:
-> -		if (chan->type == IIO_CURRENT) {
-> -			i = adux1020_find_index(adux1020_led_currents,
-> +		if (chan->type != IIO_CURRENT)
-> +			return -EINVAL;
-> +
-> +		i = adux1020_find_index(adux1020_led_currents,
->  					ARRAY_SIZE(adux1020_led_currents),
->  					val, val2);
-> -			if (i < 0)
-> -				return i;
-> +		if (i < 0)
-> +			return i;
->  
-> -			return regmap_update_bits(data->regmap,
-> -						  ADUX1020_REG_LED_CURRENT,
-> -						  ADUX1020_LED_CURRENT_MASK, i);
-> -		}
-> -		break;
-> +		return regmap_update_bits(data->regmap,
-> +					  ADUX1020_REG_LED_CURRENT,
-> +					  ADUX1020_LED_CURRENT_MASK, i);
->  	default:
-> -		break;
-> +		return -EINVAL;
->  	}
-> -
-> -	return -EINVAL;
->  }
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+[1] https://lore.kernel.org/all/20261116000723.934826-1-chao@kernel.org/
