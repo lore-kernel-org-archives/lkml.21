@@ -1,114 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.59
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794943462;
-	b=aDO9cDs5cietOhQAkeU6op7QRbfUNqTN5ZZnB+1H27zkixXtbgiG+Xown/YCfY6VyXa7
-	 EZqnCYdCcozrDHbRXw5273rk37bmPR0wC2zD+rj5WtdODhDgg49eSciiqFonTx+AUJbOi
-	 /vUSugSGgMehdcpZS5JGzerWeuiOxge/r2w6uAvvdddDMPk/E9OzFBS9NKUtzoIEE3L3+
-	 5EI8rjxLVFrWz4asSNOTMBB4TU9H86PAMaA/uMRu/PI/Mpv1ha1/wCvHPs8kcTUZWiwbt
-	 jwrOEY8iz1lZJzT27uCSAXYruE3nMhnqqBwGZ8k6EFaFGqBaF4KXKufDgawHtTbQ1uA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794943462;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
-	 Content-Type:X-NV-OnPremToCloud:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=xtv5O2XoN+Qu2tZIzrmwB1Qj5vfAuqYe1ZkBfBagBe4=;
-	b=SxjmPO7hufmrF7bbxmJ4NqZQ1TswmP01gbspc8HynqrflEPUlx9X2vCNB0lkT5tD2b5h
-	 OMNuM32nTTQnChJV75dTMalcQjzZGdspy1uGWMQaEO9AuEEu3A/rN3goCqPb+GZzyW1am
-	 +9b8CW0ru9riZm/TPXdmkg6A3fFWIk3HmXT31FUIS3AawF7Uv+lu61mONxX/s7uk49X6j
-	 bau8N9jibmARP7TyuXd8I5NQN2lXJ/Iv2nU5vhvs88swvtiwxiv14Wbz2VqEgEVu3TE3h
-	 ZMwGz0czX7lqNAEnOEOEl6oEzecHC1ZK4Yx4TKr0oqm6rsHi61mStyOts819fz5X0uQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b="kAE9/4RP";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.59
-Received: from BYAPR05CU005.outbound.protection.outlook.com (mail-westusazon11010059.outbound.protection.outlook.com [52.101.85.59])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794943522;
+	b=GNO/Tx6ogegjj7wgus3NLB+Pje3lndkOGiWY6ZQ3QLD0QmAfW+9qzE8aQYtFs3Aam8QZ
+	 GuTQ+YUV3oB7n6p/VYRc65FAYQsY2Slralieff5jO0LFE483KXt/g/p+7FgX9WxD6TJM2
+	 l6zY8RblDZbdLjJ6m40/Q77SXm/Ow6ArcgK0wBT6guwD8JMHVz1Jz1dtzL9RCWH60rZSs
+	 vjfaeVNlDUfs9X9xSp5mqG0s1plpgqU1rX/ViXEHKSJUy2TJO/lDxre4H9F7n6llJU9ti
+	 75TP1LpxFZOH6yxMYtT7azzOXWa8pRKPhw8sjPBbicL5LaCpfWDxINmrmC3G5V6sTRQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794943522;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Sender:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type;
+	bh=B8MjyhYguiwLesyCEY4OhpKHbfRfW8qAAwEpxRAKXd0=;
+	b=XoKOYnnmYg4Vst0kwNskjbTmjS0Q0C4kQGQ9tH/FZVFzDQ+Pxvrj0Dfn3/eoBqeHDsf6
+	 FATfi93aewE75N8MbPvO1y0FqqDvy6buFFTtlfzbrEhY8tfOjDxbqIdBwt9GgZHBcU5yx
+	 uX+VxO+SYYVBaLeu6pm5Hgj6beeo6JhUS/vICOIYLI/BKXP3pkKPFBpCU1TLAYN0jLwXm
+	 ot9hVTyXalyP5Og+iLxoqqZsU+rmumh0jNkPoxhikmmuCVEBjrjZlHiPfouKYDfXyogy5
+	 Rpj80cttz33dpncEeiIzeQCB8tmmSviB4BW7NU9BYQFxbd4cvEe3nAlojJm+g2Hu6oA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bkDKKmQE;
+	arc=none smtp.remote-ip=209.85.128.50
+Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E5FE606A31C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:24:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E5FE606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DECE4606A31C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:25:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DECE4606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=kAE9/4RP
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tJLVCrw4f8DCiNeqyzpjasle8qaWDszsqnUhMWZtHgFRK4H3SZCvaIG49dSXsj1u/b6tMUNX1bvOOmVOA9FXmVFtQRwf4EH133SA/ODoTOu0FCVsAhfSUg2EYJmiS5Mn/zqTvpxbWFNmW5jCYvd7Fm/xqxB3gdS8whkkxWTzr1xFfnSFWKvG/ZGyHFEzGgm2axM03ux/9B768ML3w6cs5l/sIp02ONuWLkSCKLiZW2A9tCf0UuOcYW6Zy9uzUA5zdqV5b11GewBGMubgMe8n44hvXAep1h5JvstL5ZTF4D6rCgBTXDMX/DSZVO8SEyO5bbTkx8mQA+5/0Sl8DlitvA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xtv5O2XoN+Qu2tZIzrmwB1Qj5vfAuqYe1ZkBfBagBe4=;
- b=jBZ1BkITo8BEsI/aeD65ZMTBOAT+mov4nKGSZmUl1lGQQsvTKY9I9ybAkDhpL0femnaG7rPvsbX3TquPxAZgXfE2rmVqV6YV95L9vCn1VbDoOEqDYjUqBjgepBCtI7HiHtJm0iaTmbxajliEZu7SugpU/Xp2gNh962TOqk1BWe9azEwjn5vnYzezrXCHsGQAXUlT2rWINfETiy2Z5vXr2VSmvoqBZL14dPiXbmWjzXZ815TafMqPkpCoDID1AMRI1XqoVMxwBibZkI6TgL7Twz0lizuP7P3wEi7MDtOy806Xcj8Yp8Xmy8JPeSsmN2/mIuX5piAuNO8cqVTrFY77+Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xtv5O2XoN+Qu2tZIzrmwB1Qj5vfAuqYe1ZkBfBagBe4=;
- b=kAE9/4RP9ROn2lfAla1iWoAZzmDCLCxnvRAuujv+BC/dtcCyp7yUww1zgslKpUxgvgysYlrB4lP9nGe7LCjBWQlPRHa422qWLpuS8ywwoGyczOTFrDi3S66vpZFmTX5wJR50ij/T5+rZ+3GDFjC8amWmBOjwyulpa6WLdMoHMk0rRl9MKFFabZrDUAM57T8avS4yqVesZ5UK77Xx4g/FkYhp/+mx4TjaNgYddXRkKx7ZdC/2k+rgCnQ6q9keS1zV2RspX3f+wwOWUUxpN2++e1WoWdtDYZXy138qf2+lmgMBlo9OFAsbJwx4/v+ybqurkWdkyaGVyXUCG+1e7BHJXg==
-Received: from BL1PR13CA0155.namprd13.prod.outlook.com (2603:10b6:208:2bd::10)
- by IA1PR12MB6212.namprd12.prod.outlook.com (2603:10b6:208:3e4::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 17 Nov
- 2026 19:22:06 +0000
-Received: from BN2PEPF0000A990.namprd04.prod.outlook.com
- (2603:10b6:208:2bd:cafe::64) by BL1PR13CA0155.outlook.office365.com
- (2603:10b6:208:2bd::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.4 via Frontend Transport; Tue, 17
- Nov 2026 19:22:06 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.118.233) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- BN2PEPF0000A990.mail.protection.outlook.com (10.167.248.137) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Tue, 17 Nov 2026 19:22:06 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 17 Nov
- 2026 11:21:40 -0800
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Tue, 17 Nov 2026 11:21:40 -0800
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.13) by mail.nvidia.com
- (10.126.190.181) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Tue, 17 Nov 2026 11:21:39 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <will@kernel.org>, <jgg@nvidia.com>
-CC: <robin.murphy@arm.com>, <joro@8bytes.org>, <praan@google.com>,
-	<kevin.tian@intel.com>, <smostafa@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <jamien@nvidia.com>, <kas@kernel.org>,
-	Cristian Prundeanu <cpru@amazon.com>, Breno Leitao <leitao@kernel.org>,
-	<xueshuai@linux.alibaba.com>, <john.garry@arm.com>
-Subject: [PATCH v13 05/12] iommu/arm-smmu-v3: Add ARM_SMMU_FEAT_EVTQ for the event queue
-Date: Tue, 17 Nov 2026 11:21:22 -0800
-Message-ID: <c36250ad3e2b339ba623170939dcaeecb1dcb0ad.1794942324.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1794942324.git.nicolinc@nvidia.com>
-References: <cover.1794942324.git.nicolinc@nvidia.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bkDKKmQE
+Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4a1b07c3c5fso2203175e9.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:25:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794943520; x=1795548320; darn=vger.kernel.org;
+        h=content-type:in-reply-to:from:content-language:references:cc:to
+         :subject:user-agent:mime-version:date:message-id:sender:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=B8MjyhYguiwLesyCEY4OhpKHbfRfW8qAAwEpxRAKXd0=;
+        b=bkDKKmQErNzaF6smeftQWBOpWfgtjVM5vGBkntiPqeIhKc4VhM+KvNPs0pA0sgqXwt
+         VimIqchx3dU0UBKYCYuJvXdRTBDbSUbjYoVurn2OnxsofUYJXXovQgNJ02XbR/2I1iRz
+         yQY5tOLcoY0VtUg6HQJ2zMgyrpnM21Ygbz+BrUWj0jgdwCzx2RGvdybIxlDU2dYvU9tj
+         xTZNk/2tXq85So1kTNLLOZm1bkiu7JM8gElovAUhHyyAsR8i7iDjbbPE3tKvmnXx9XcJ
+         STuTEDgGKm3r8clrf2XCGF6J+JGGGFI3F6LWZxudUeh2hhoXB3CcUpxrSXkFABEecj0O
+         oBjQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794943520; x=1795548320;
+        h=content-type:in-reply-to:from:content-language:references:cc:to
+         :subject:user-agent:mime-version:date:message-id:sender:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=B8MjyhYguiwLesyCEY4OhpKHbfRfW8qAAwEpxRAKXd0=;
+        b=g342xKSVLvXfSISP4jBlHDLo/HRfQfz/A8D/veFxOZUy21xPcvh4PJl8O7SU3g35v7
+         ZwJyB4O3fr1bLTTgD52XafQLDjHH2exC+BBpWTo/MinUhFIrLFkucjpmhEzgR9L3UStC
+         kBnDkGUk4p9tChyuJvfTLIPwEPZVH0hK/Hj5KBEnTPfS9O7cioMpxo0VD0gvHH2JxnFv
+         tGUa0K6w2xM+1lR8wb8dVf91l44gTPWL/wKyPZo53QOH5hJv/WKyC+qxBnV/GDb8elAZ
+         eT89sMQ3h7CXxW4BO5w0pnnNUN7eDyOWCaA06NRsX9cK/uvimx/CiwvvoMF81u3kYyzp
+         i7wQ==
+X-Forwarded-Encrypted: i=1; AL+hErHbSj4LhDcyI7lNNfBOM5s5htOsY4BIXu3njqYi7CGlsfqX8ABQM/dToNbR5Oy7Ya3rR+5l5YFM+lLFpNs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/rrQ9W99O+Ip50zN/x6GSWi7CwsUPDRrOv6zHPozRg3fvqmw8a
+	QUE1n8Woy8dgDzCt2hhBKDT1OVOsRhu3ndILBr9v4XTWZzEPYb+kjKoO
+X-Gm-Gg: AYBFou20ZGe46sxJz6kGeeSkRynSavtca06MNYAOD1s7Tm8n+/zbx6E/6iXjV0f83pb
+	PwGamMwVD4W3gWR3nXHLsYDLXvIZBbUuJr9OzhHdGaoT+nyu2qEKh+YUDBk8ayyiBjXWBhY1e1t
+	oFL075dQxY3+PDcUwjIzhfJLyGvTSdSSPSz6nIE5qVHRJ39wvXyQluZYPFA70A24nsmI5XG8tIL
+	PsMNtm0tSTTNBXxYNOK85doG+o/jYPUxy4PqYMGsk4JKBmbtd3bIi4m0vkkU8MBMlwPB24EGmZ1
+	j7sdM+5dE6jdyrnBbWVoYoqs+wTa98KQtNWeFlzZZHL6Ms+W4i48kE/D+mutDUUDhIivpcNJ4WQ
+	jn+oyoHYYM9T5lDluCnMjSAubF5Qkrr01NIsbdBfDLEnkmPUl+fA8ptceomnTMx8tkJ2ElPGY2F
+	CNeHVzY6M5t1aixbnrTCXfGymPn56O4lQZcUeAkiyCKN+6DRuohrcrTAzGcwcGoukEprxQQ9f6c
+	rmGHb1bJf4oWxzd9lhqDEPNNgNUkHcBxG5i1YQAqlYUdobhlGeEJyxiHR6mFkpQfLKI13Ggilo8
+	XTez4MpC3ZWTWYs8bhr2gSUEbHjAMtVplE671zy4omDkVQzKxQvIIe8+h+eHMNp1dc+ehZHNERS
+	T0CyKgUaOa6KzBU02OCC9IA==
+X-Received: by 2002:a05:600c:1c03:b0:4a3:5aea:21e5 with SMTP id 5b1f17b1804b1-4bb7da1392emr3582515e9.9.1794943520032;
+        Tue, 17 Nov 2026 11:25:20 -0800 (PST)
+Received: from [10.128.10.232] (195-23-151-163.net.novis.pt. [195.23.151.163])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7d256f64sm6615065e9.1.2026.11.17.11.25.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Nov 2026 11:25:19 -0800 (PST)
+Sender: Julian Braha <julian.braha@gmail.com>
+Message-ID: <26f53b63-2f75-4fa4-bf6f-d3495e4e5cb0@gmail.com>
+Date: Tue, 17 Nov 2026 19:25:17 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -118,224 +92,230 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF0000A990:EE_|IA1PR12MB6212:EE_
-X-MS-Office365-Filtering-Correlation-Id: a7d1c4f3-a4b5-4c99-fd50-08df44e01163
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|82310400026|36860700016|376014|7416014|23010399003|18002099003|22082099003|6133799003|5023799004|11063799006|56012099006|261026140227099003|10067099003|261022075727099003|261022105027099003|261028144727099003|261021135927099003|261021121427099003|261009223027099003|261102123227099003|261021123027099003;
-X-Microsoft-Antispam-Message-Info:
-	e8PeRwv2lE0UI6IrCpOyIz+IiosxDedlw4MQGGNCCeAnUuvSgh+rasa8M9fccD/sVrToQ14exRmTrJ5fFSMAYxzZsvemrvWukrS2L/ZZ99br3TkAPNoszIfmZUgxAfnAhno7WA99C+8opYJ6dDR2jmvwBsAYrF/8/e169nU/iUQpX8vAZp+S8mwS01/rbcsyag8PUFK7fqUJrCfT0KCNYdIIuXx74ZPYrrJrW2QtmpdylNcvCCwSZHam9DHbHFPdztg7FosG0eluym51Jcatp5xXTwv+FVyJqWp2MnN6dyhskfCgQJwYSxlsKEIXK2hJeLONpb857quFf11MXRihRkCTiYNi3X7hX/SYDW5s/HU9OSmG1sra+iegVWhoWD3cKEPVLRl/vBaOnCjOawP7/a+A4DoAx15xkYqXDZB40dtsS/5HDiCaWLXNCvIPtxuFX1ZA/oF1l8Zn5qZZY/irdYEtg2gw3C8zkFvtO2L92/AGuuqc01+RuaQXuwtqIDcHQWneB6Qa49iKc2rZRApFr0DJO1Ve8nnhm41Q4mi1Op7uGUL1a6MuW8gU/2omGBquguPv52Y0fXsuY/7TzPN/XDOUEUtI8NsacSFH1unghO7xtmWlNiFnnLp+co2uyb4ywl1Gf3beg7OmW+r1nf4RFolYye4JhINqHyF877GZDBh1PmZ/eQw0+9eviD4zuyi31JVFvBoiGyBhsDHnXXonZw==
-X-Forefront-Antispam-Report:
-	CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(376014)(7416014)(23010399003)(18002099003)(22082099003)(6133799003)(5023799004)(11063799006)(56012099006)(261026140227099003)(10067099003)(261022075727099003)(261022105027099003)(261028144727099003)(261021135927099003)(261021121427099003)(261009223027099003)(261102123227099003)(261021123027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	ZvzpWj4qqGAGVobTBXm3Q7M09kKtBXvp0xW+DYq3nMQyONVy+F9PmMPH5vMrniT9C0oaK6t+UGK0yx1wcjyDSqc4JCyXld+jjfzbEJsGJm5raPJRYx3VleTk8HbhbwOFiscOIJl7gHIXiNf3x5mLF9sIRZGKy/p3RaRrwtGMJI+WLWRzv1Os0SykbfBtimWa23/uSgTe7ln+D2uhBCtoF2feI7jI536LH8Y3ufa2wyC0rVFRCihQLuJuvKiHDwRqPaqQms1V2CYs6YNOrjZmugE4/XtFcGiRVqOTbKHvZVH/lhLE0gRzJxtykAIUPYYNQGuYJhTMeH+PIDdmzJICCgiy5On5lxQ/XKOrSgC50Qw54f4BQ4fCdnPGoIAIJlaTKHANsWQT1+5OsBJ9QycKhad0uQb9uTt2zaUKwUfHcigHDY/DXn2XSrrEHANwmv5S
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 19:22:06.3171
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a7d1c4f3-a4b5-4c99-fd50-08df44e01163
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	BN2PEPF0000A990.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6212
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8] scripts/config: honor $KBUILD_OUTPUT by default
+To: Dmitry Voytik <voytikd@gmail.com>, Nathan Chancellor <nathan@kernel.org>,
+ Nicolas Schier <nsc@kernel.org>
+Cc: Nicolas Schier <n.schier@fritz.com>, linux-kernel@vger.kernel.org,
+ linux-kbuild@vger.kernel.org
+References: <20261117132513.52725-1-voytikd@gmail.com>
+Content-Language: en-US
+From: Julian Braha <julianbraha@gmail.com>
+In-Reply-To: <20261117132513.52725-1-voytikd@gmail.com>
+Content-Type: multipart/signed; micalg=pgp-sha256;
+ protocol="application/pgp-signature";
+ boundary="------------h9NH4JQ2nsmywqa2RPKACNQG"
 
-The driver programs and enables the event queue unconditionally, while the
-PRI queue has an ARM_SMMU_FEAT_PRI gating each of its touch points. Yet a
-kdump kernel wants to leave both of the queues alone, which would take an
-is_kdump_kernel() test at every one of those places.
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--------------h9NH4JQ2nsmywqa2RPKACNQG
+Content-Type: multipart/mixed; boundary="------------1ksFLSAbDFp3BUVtXrT4MIm0";
+ protected-headers="v1"; hp="clear"
+Message-ID: <26f53b63-2f75-4fa4-bf6f-d3495e4e5cb0@gmail.com>
+Date: Tue, 17 Nov 2026 19:25:17 +0000
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8] scripts/config: honor $KBUILD_OUTPUT by default
+To: Dmitry Voytik <voytikd@gmail.com>, Nathan Chancellor <nathan@kernel.org>,
+ Nicolas Schier <nsc@kernel.org>
+Cc: Nicolas Schier <n.schier@fritz.com>, linux-kernel@vger.kernel.org,
+ linux-kbuild@vger.kernel.org
+References: <20261117132513.52725-1-voytikd@gmail.com>
+Content-Language: en-US
+From: Julian Braha <julianbraha@gmail.com>
+In-Reply-To: <20261117132513.52725-1-voytikd@gmail.com>
 
-Add an ARM_SMMU_FEAT_EVTQ that the probe always sets, as the event queue is
-architecturally mandatory, and gate the queue's allocation, its interrupt,
-its MSI vector, and its CR0 and IRQ_CTRL enables on it. A subsequent change
-will turn the queue off in a single place.
+--------------1ksFLSAbDFp3BUVtXrT4MIm0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 
-No functional change intended.
+Hi Dmitry,
 
-Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-Suggested-by: Robin Murphy <robin.murphy@arm.com>
-Acked-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-Reviewed-by: Mostafa Saleh <smostafa@google.com>
-Reviewed-by: John Garry <john.garry@arm.com>
-Tested-by: Breno Leitao <leitao@kernel.org>
-Tested-by: Cristian Prundeanu <cpru@amazon.com>
-Tested-by: Shuai Xue <xueshuai@linux.alibaba.com>
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  1 +
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 82 +++++++++++++--------
- 2 files changed, 54 insertions(+), 29 deletions(-)
+On 11/17/26 13:25, Dmitry Voytik wrote:
+> If $KBUILD_OUTPUT is set, use it by default if --file is not passed.
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index f6892dd0e5080..74fc4a05c23f1 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -979,6 +979,7 @@ struct arm_smmu_device {
- #define ARM_SMMU_FEAT_BBML2		(1 << 24)
- #define ARM_SMMU_FEAT_HAFT		(1 << 25)
- #define ARM_SMMU_FEAT_DS		(1 << 26)
-+#define ARM_SMMU_FEAT_EVTQ		(1 << 27)
- 	u32				features;
- 
- #define ARM_SMMU_OPT_SKIP_PREFETCH	(1 << 0)
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 36ca05418f728..4347e3e3b4a52 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -2375,7 +2375,8 @@ static irqreturn_t arm_smmu_combined_irq_thread(int irq, void *dev)
- {
- 	struct arm_smmu_device *smmu = dev;
- 
--	arm_smmu_evtq_thread(irq, dev);
-+	if (smmu->features & ARM_SMMU_FEAT_EVTQ)
-+		arm_smmu_evtq_thread(irq, dev);
- 	if (smmu->features & ARM_SMMU_FEAT_PRI)
- 		arm_smmu_priq_thread(irq, dev);
- 
-@@ -2384,7 +2385,12 @@ static irqreturn_t arm_smmu_combined_irq_thread(int irq, void *dev)
- 
- static irqreturn_t arm_smmu_combined_irq_handler(int irq, void *dev)
- {
--	arm_smmu_gerror_handler(irq, dev);
-+	struct arm_smmu_device *smmu = dev;
-+	irqreturn_t ret = arm_smmu_gerror_handler(irq, dev);
-+
-+	/* Without either queue, the thread would have nothing to drain */
-+	if (!(smmu->features & (ARM_SMMU_FEAT_EVTQ | ARM_SMMU_FEAT_PRI)))
-+		return ret;
- 	return IRQ_WAKE_THREAD;
- }
- 
-@@ -4757,11 +4763,14 @@ static int arm_smmu_init_queues(struct arm_smmu_device *smmu)
- 		return ret;
- 
- 	/* evtq */
--	ret = arm_smmu_init_one_queue(smmu, &smmu->evtq.q, smmu->page1,
--				      ARM_SMMU_EVTQ_PROD, ARM_SMMU_EVTQ_CONS,
--				      EVTQ_ENT_DWORDS, "evtq");
--	if (ret)
--		return ret;
-+	if (smmu->features & ARM_SMMU_FEAT_EVTQ) {
-+		ret = arm_smmu_init_one_queue(smmu, &smmu->evtq.q, smmu->page1,
-+					      ARM_SMMU_EVTQ_PROD,
-+					      ARM_SMMU_EVTQ_CONS,
-+					      EVTQ_ENT_DWORDS, "evtq");
-+		if (ret)
-+			return ret;
-+	}
- 
- 	if ((smmu->features & ARM_SMMU_FEAT_SVA) &&
- 	    (smmu->features & ARM_SMMU_FEAT_STALLS)) {
-@@ -4955,7 +4964,8 @@ static void arm_smmu_setup_msis(struct arm_smmu_device *smmu)
- 	unsigned int nvec = 0, i;
- 	int ret;
- 
--	arm_smmu_setup_msi_vector(smmu, vec, &nvec, EVTQ_MSI_INDEX);
-+	if (smmu->features & ARM_SMMU_FEAT_EVTQ)
-+		arm_smmu_setup_msi_vector(smmu, vec, &nvec, EVTQ_MSI_INDEX);
- 	arm_smmu_setup_msi_vector(smmu, vec, &nvec, GERROR_MSI_INDEX);
- 	if (smmu->features & ARM_SMMU_FEAT_PRI)
- 		arm_smmu_setup_msi_vector(smmu, vec, &nvec, PRIQ_MSI_INDEX);
-@@ -4996,16 +5006,20 @@ static void arm_smmu_setup_unique_irqs(struct arm_smmu_device *smmu)
- 	arm_smmu_setup_msis(smmu);
- 
- 	/* Request interrupt lines */
--	irq = smmu->evtq.q.irq;
--	if (irq) {
--		ret = devm_request_threaded_irq(smmu->dev, irq, NULL,
--						arm_smmu_evtq_thread,
--						IRQF_ONESHOT,
--						"arm-smmu-v3-evtq", smmu);
--		if (ret < 0)
--			dev_warn(smmu->dev, "failed to enable evtq irq\n");
--	} else {
--		dev_warn(smmu->dev, "no evtq irq - events will not be reported!\n");
-+	if (smmu->features & ARM_SMMU_FEAT_EVTQ) {
-+		irq = smmu->evtq.q.irq;
-+		if (irq) {
-+			ret = devm_request_threaded_irq(smmu->dev, irq, NULL,
-+							arm_smmu_evtq_thread,
-+							IRQF_ONESHOT,
-+							"arm-smmu-v3-evtq", smmu);
-+			if (ret < 0)
-+				dev_warn(smmu->dev,
-+					 "failed to enable evtq irq\n");
-+		} else {
-+			dev_warn(smmu->dev,
-+				 "no evtq irq - events will not be reported!\n");
-+		}
- 	}
- 
- 	irq = smmu->gerr_irq;
-@@ -5038,7 +5052,7 @@ static void arm_smmu_setup_unique_irqs(struct arm_smmu_device *smmu)
- static int arm_smmu_setup_irqs(struct arm_smmu_device *smmu)
- {
- 	int ret, irq;
--	u32 irqen_flags = IRQ_CTRL_EVTQ_IRQEN | IRQ_CTRL_GERROR_IRQEN;
-+	u32 irqen_flags = IRQ_CTRL_GERROR_IRQEN;
- 
- 	/* Disable IRQs first */
- 	ret = arm_smmu_write_reg_sync(smmu, 0, ARM_SMMU_IRQ_CTRL,
-@@ -5064,6 +5078,8 @@ static int arm_smmu_setup_irqs(struct arm_smmu_device *smmu)
- 	} else
- 		arm_smmu_setup_unique_irqs(smmu);
- 
-+	if (smmu->features & ARM_SMMU_FEAT_EVTQ)
-+		irqen_flags |= IRQ_CTRL_EVTQ_IRQEN;
- 	if (smmu->features & ARM_SMMU_FEAT_PRI)
- 		irqen_flags |= IRQ_CTRL_PRIQ_IRQEN;
- 
-@@ -5182,16 +5198,21 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
- 		smmu, arm_smmu_make_cmd_op(CMDQ_OP_TLBI_NSNH_ALL));
- 
- 	/* Event queue */
--	writeq_relaxed(smmu->evtq.q.q_base, smmu->base + ARM_SMMU_EVTQ_BASE);
--	writel_relaxed(smmu->evtq.q.llq.prod, smmu->page1 + ARM_SMMU_EVTQ_PROD);
--	writel_relaxed(smmu->evtq.q.llq.cons, smmu->page1 + ARM_SMMU_EVTQ_CONS);
--
--	enables |= CR0_EVTQEN;
--	ret = arm_smmu_write_reg_sync(smmu, enables, ARM_SMMU_CR0,
--				      ARM_SMMU_CR0ACK);
--	if (ret) {
--		dev_err(smmu->dev, "failed to enable event queue\n");
--		return ret;
-+	if (smmu->features & ARM_SMMU_FEAT_EVTQ) {
-+		writeq_relaxed(smmu->evtq.q.q_base,
-+			       smmu->base + ARM_SMMU_EVTQ_BASE);
-+		writel_relaxed(smmu->evtq.q.llq.prod,
-+			       smmu->page1 + ARM_SMMU_EVTQ_PROD);
-+		writel_relaxed(smmu->evtq.q.llq.cons,
-+			       smmu->page1 + ARM_SMMU_EVTQ_CONS);
-+
-+		enables |= CR0_EVTQEN;
-+		ret = arm_smmu_write_reg_sync(smmu, enables, ARM_SMMU_CR0,
-+					      ARM_SMMU_CR0ACK);
-+		if (ret) {
-+			dev_err(smmu->dev, "failed to enable event queue\n");
-+			return ret;
-+		}
- 	}
- 
- 	/* PRI queue */
-@@ -5339,6 +5360,9 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
- 	u32 reg;
- 	bool coherent = smmu->features & ARM_SMMU_FEAT_COHERENCY;
- 
-+	/* The event queue is architecturally mandatory */
-+	smmu->features |= ARM_SMMU_FEAT_EVTQ;
-+
- 	/* IDR0 */
- 	reg = readl_relaxed(smmu->base + ARM_SMMU_IDR0);
- 
--- 
-2.43.0
+I guess this isn't inaccurate, but it should perhaps mention for
+completeness that 'scripts/config' will also now default to using
+'$KBUILD_OUTPUT' if passing '.config' with '--file'.
 
+>=20
+> Fix the issue when the script silently updates a stale .config in
+> the root directory, while the user expects ${KBUILD_OUTPUT}/.config
+> to be updated.
+> Handle properly if the config file is a relative path.
+>=20
+> The problem can be worked around with --file, but this is easy to miss,=
+
+> and is inconsistent with how the Makefile and other tools work
+> (e.g., scripts/diffconfig).
+>=20
+> How to reproduce the issue:
+> 	make mrproper
+> 	export KBUILD_OUTPUT=3D.out
+> 	make defconfig
+> 	./scripts/config \
+> 	       -e CONFIG_UBSAN
+> Error reported:
+> 	grep: .config: No such file or directory
+>=20
+> Signed-off-by: Dmitry Voytik <voytikd@gmail.com>
+> Suggested-by: Nathan Chancellor <nathan@kernel.org>
+> ---
+> How the patch was tested:
+> 	make mrproper
+> 	export KBUILD_OUTPUT=3D.out
+> 	make defconfig
+> 	grep "CONFIG_UBSAN=3Dy" $KBUILD_OUTPUT/.config || echo "OK"
+>=20
+> Test the basic usage:
+> 	./scripts/config -e CONFIG_UBSAN
+> 	grep "CONFIG_UBSAN=3Dy" $KBUILD_OUTPUT/.config && echo "OK"
+>=20
+> Test --refresh picks up correct config file by using $KBUILD_OUTPUT:
+> 	./scripts/config -d CONFIG_UBSAN
+> 	grep "CONFIG_UBSAN=3Dy" $KBUILD_OUTPUT/.config && echo "FAIL"
+> 	./scripts/config --refresh -e CONFIG_UBSAN
+> 	grep "CONFIG_UBSAN=3Dy" $KBUILD_OUTPUT/.config && echo "OK"
+>=20
+> Test --file takes precedence over $KBUILD_OUTPUT and a relative
+> path is handled properly:
+> 	./scripts/config -d CONFIG_UBSAN
+> 	mkdir .out2
+> 	cp .out/.config .out2/.my_config
+> 	grep "CONFIG_UBSAN=3Dy" .out2/.my_config  && echo "FAIL"
+> 	./scripts/config --file .out2/.my_config --refresh \
+> 	       -e CONFIG_UBSAN
+> 	grep "CONFIG_UBSAN=3Dy" .out2/.my_config && echo "OK"
+> 	ls .out/.out2 && echo "FAIL"
+> 	ls .out/.out && echo "FAIL"
+>=20
+> Test --file can accept files with hyphen:
+> 	./scripts/config -d CONFIG_UBSAN
+> 	cp .out/.config -- -my_config
+> 	grep "CONFIG_UBSAN=3Dy" -- -my_config && echo "FAIL"
+> 	./scripts/config  --refresh \
+> 	       -e CONFIG_UBSAN --file -my_config
+> 	grep "CONFIG_UBSAN=3Dy" -- -my_config && echo "OK"
+> ---
+> v8:
+>  * Nathan Chancellor ironed out the patch to the acceptable state
+> v7:
+>  * Adressed https://sashiko.dev/#/patchset/20261006142337.821859-1-voyt=
+ikd%40gmail.com
+> v6:
+>  * Per Nathan Chancellor's suggestions, simplified
+>  * https://lore.kernel.org/
+> lkml/179121581235.2275809.12565811683284940522.b4-review@b4/
+> v5:
+>  * Per Nathan Chancellor's suggestion, improved handling $FN path by
+>    realpath
+>  * https://lore.kernel.org/
+> lkml/179097210878.309835.10523307262544578337.b4-review@b4/
+>  * Documented the new test scenario in the git commit message
+> v4:
+>  * Addressed Nicolas Schier's comments - dropped the change how '--refr=
+esh'
+>    is handled
+>  * Implemented conversion of $FN to the absolute path which helps with
+>    '--refresh' and relative paths
+>  * Documented testing steps in the commit message
+> v3:
+>  * Added an example in the commit message how to reproduce the issue
+> v2:
+>  * Addressed comments by sashiko:
+>    * https://sashiko.dev/#/patchset/20260920064350.17999-1-voytikd%40gm=
+ail.com
+>    * use basename when --refresh is used
+>    * remove echo which can be misleading when --file is passed
+> v1:
+>  * https://lore.kernel.org/all/20260920064350.17999-1-voytikd@gmail.com=
+/
+> ---
+>  scripts/config | 22 +++++++++++++++++++---
+>  1 file changed, 19 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/scripts/config b/scripts/config
+> index 32428ea909c2..13b87b7f316a 100755
+> --- a/scripts/config
+> +++ b/scripts/config
+> @@ -144,6 +144,22 @@ while [[ $# -gt 0 ]]; do
+>  	fi
+>  done
+> =20
+> +# If no '--file' was specified, use KBUILD_OUTPUT as the base if it ex=
+ists
+> +if [[ "$FN" =3D ".config" && -n "$KBUILD_OUTPUT" ]]; then
+
+Right so this will give different results with:
+    '--file .config'
+and:
+    '--file ./.config'
+
+but maybe that was intentional -- i.e. we're assuming a user passing
+'.config' intends it to be '$KBUILD_OUTPUT/.config' while a user passing
+'./.config' would intend CWD/.config?
+
+> +	if [[ ! -d "$KBUILD_OUTPUT" ]]; then
+> +		echo "KBUILD_OUTPUT is set ('$KBUILD_OUTPUT') but does not exist or =
+is not a directory." >&2
+> +		echo "Create it before running $myname or use '--file' to specify co=
+nfiguration file." >&2
+> +		exit 1
+> +	fi
+> +	FN=3D"$KBUILD_OUTPUT/$FN"
+> +fi
+> +# Turn FN into an absolute path if it is relative so that '--refresh' =
+works on
+> +# the correct file. This does not use realpath, as $FN may not exist y=
+et.
+> +case "$FN" in
+> +	/*) ;;
+> +	*) FN=3D"$PWD/$FN" ;;
+> +esac
+> +
+>  set -- "${CMDS[@]}"
+>  if [ "$1" =3D "" ] ; then
+>  	usage
+> @@ -200,10 +216,10 @@ while [ "$1" !=3D "" ] ; do
+>  		;;
+> =20
+>  	--state|-s)
+> -		if grep -q "# ${CONFIG_}$ARG is not set" $FN ; then
+> +		if grep -q "# ${CONFIG_}$ARG is not set" "$FN" ; then
+>  			echo n
+>  		else
+> -			V=3D"$(grep "^${CONFIG_}$ARG=3D" $FN)"
+> +			V=3D"$(grep "^${CONFIG_}$ARG=3D" "$FN")"
+>  			if [ $? !=3D 0 ] ; then
+>  				echo undef
+>  			else
+> @@ -229,7 +245,7 @@ while [ "$1" !=3D "" ] ; do
+>  		;;
+> =20
+>  	--refresh)
+> -		yes "" | make oldconfig KCONFIG_CONFIG=3D$FN
+> +		yes "" | make oldconfig KCONFIG_CONFIG=3D"$FN"
+>  		;;
+> =20
+>  	*)
+> -- 2.56.1
+>=20
+
+Tested-by: Julian Braha <julianbraha@gmail.com>
+Reviewed-by: Julian Braha <julianbraha@gmail.com>
+
+--------------1ksFLSAbDFp3BUVtXrT4MIm0--
+
+--------------h9NH4JQ2nsmywqa2RPKACNQG
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+wnsEABYIACMWIQT6qjll++tIFxF8TUPElYPCBXNxIAUCavyqHQUDAAAAAAAKCRDElYPCBXNxIKGe
+AP4pDmqqFsz3r95g9aqPdO3jTxBzN/dky9iQK/BePfsGgAEAoNorCzArcpVk28VeKaS+ISJBOQdx
+Im02pG67wW/PBQA=
+=ybVr
+-----END PGP SIGNATURE-----
+
+--------------h9NH4JQ2nsmywqa2RPKACNQG--
