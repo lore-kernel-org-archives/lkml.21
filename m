@@ -1,90 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794955750;
-	b=s6a0Pu1SqMVlwEcbrmM57S0xJFIvwzhLL2NTeakMPhlEK4P8+IO073rS0bTKA2YqmDso
-	 sOHXVc/A7cRxZsMRVDzLZxXM9S2zUsM85NGHawkgO+8urVBlywEw6XsLjOENdYZJYazlJ
-	 Suc+NAMF4Hrh0ZkR8srqzPpqJY7a6vi2mhMVUL8/nNJwVc5qQIV/WLZJpCYQS4htkwOHS
-	 gyeB1zrLKwrP9giDG5DFKR9eEIktJJpYYw3gpzS5KwSqjcP83YKAa5DbeNZ+Gt26SWheC
-	 T0dkQIM0XRtVFQeKD1rxl5z/e7rUESyly7SNeo3H0Z4f/4zraA4QorysBmzilhtlS8A==
+	t=1794955752;
+	b=MbLrSQEcLuGq5UObaCf8dHdGD803dCKg4Z+lBiYsI/yeg6iWqFSpS3KSwXmDPaxzSf8o
+	 +b6ypwSa4R/AB52SxKEzagRVPOgxxYfy86NCi4qef9GZWVBKwqNgnktzopcttZqm6HVkP
+	 JzLQT27Dr602pka5c+DrlJDyommi3dLnDhPGDg4j/1u+j3P3RyXWFUfyX5nditS2nfdYv
+	 An9V66AgXjsK0cDs5ok3pU1oPIKhXvgBsU7xc+MuaAGQG9gfx3gqLYJbiPNkoHukxrPoW
+	 okriwwM6mblChn4zqCkbk6xt+yZoJHR5Vb40RP141x3JWziZGx2lxbdlnydEor/gjCA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794955750;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794955752;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=zxc17WVo0gYUnTOtZw1pyN8QC3Vommte57dKv0ZbhgA=;
-	b=TOh69BMbe+KCtxN0MRLfznBQmMwGtYWoWJ3TZe93mLdjxJL5igolWumNdWDp6JAXHvtS
-	 TdjDXGoMXus9aN4tXALspCkMi6Iic4d+itgTalh7zi3Luuoc48TXR+7XScMkkkaFYW07v
-	 0g5LxjZM9HBqmPqEa6KMnibVReUCy2UEYEmHwg2PKU+wHoAZzOHM/Pa2nm+PFjrINmfZn
-	 V7M3ECzk8LyvnDfpZ41YC0wUqujVxdiO8fY77/xnRzAOI5k5kos7JskiJ7jNhVzGs74LD
-	 PRDU+lYTqeCsEWN8bVmcmkO22UlEVEHxCplK45jKZOvwcaQDYXt7Cng27cLL/+SODjA==
+	bh=k4Qm7XpfJ4IaAnPaVRdhRvip1Jdg3xw+SpQe4yTzGGQ=;
+	b=MywCyUv3JO/cbWoLdy2zkf4rnNdAK0BlOdOyXZFvsvK36ksDwKFq7jxZnFMaFSEuDeRR
+	 U9azBcHsRaM1n18QYtfE0/UWyuPUxFD75HPywXv1skBLDq4recB9lhJNCQEwuZ9IcepmQ
+	 40T1riK64OPHZp24DQqCWyfsowa6/7nYhDOQ8fr/vUtXaVghaVnqI8LVXUfdvwjcpY3Wy
+	 PAhzWJMPz6BisSSAJcp44J4uGnOTWkQEW4z8n8EsQJQP+xi14Ou3qZ4CLb/wVMumVtaBb
+	 zb9rr2o/0o8V/2jnP15lMgzu7mcnJu0G+KhaPqZjmj4REAlFFHpklAeBTfUimkoVYnw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="tCok0Ar/";
-	arc=none smtp.remote-ip=209.85.161.41
-Received: from mail-oo1-f41.google.com (mail-oo1-f41.google.com [209.85.161.41])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PcwrOPy3;
+	arc=none smtp.remote-ip=209.85.160.53
+Received: from mail-oa1-f53.google.com (mail-oa1-f53.google.com [209.85.160.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 864EF60A261B
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:49:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 864EF60A261B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04340606A8AC
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:49:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 04340606A8AC
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tCok0Ar/
-Received: by mail-oo1-f41.google.com with SMTP id 006d021491bc7-6aa9606ddadso257747eaf.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 14:49:09 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PcwrOPy3
+Received: by mail-oa1-f53.google.com with SMTP id 586e51a60fabf-4877837890fso179200fac.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 14:49:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794955749; x=1795560549; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794955751; x=1795560551; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=zxc17WVo0gYUnTOtZw1pyN8QC3Vommte57dKv0ZbhgA=;
-        b=tCok0Ar/JeKM2kOPQ/6MQ9xT0UiZ5MgjXtMfKNPMMawSO2jl/jdaEBKRcchyPk435x
-         w/JMWw7I+PxT6Py8cy0uhMaBI4xe4/Bk2su3tZC0a7h3Q8foasppdZOrLkq2UsA6qgbk
-         W8a62ol9q6gSVmHxcYWEA1Mvsw0HRNibTJmrGg65+4jcvImB8I13iCDmAt8atape8/LQ
-         YmnQh/1JzJvL9yrGA9kPAr+Lau5zz4dsclfevCazeZCYq1yG+qSVBWgsWjqKmY3M7L99
-         //P4Km2IoaF6Be37pzEfNhKG3iTm94aGpxX7ecqQFPpS+sydvmYeMkpgjCey/g+4EvnS
-         0P5A==
+        bh=k4Qm7XpfJ4IaAnPaVRdhRvip1Jdg3xw+SpQe4yTzGGQ=;
+        b=PcwrOPy3tfi3YBg8v5BHLPacqa4Td08uSUMN6sTMXCUIRMVBFU0iUEooEMj2SWEqLZ
+         zXlwALAmDbfl86YT3JmsMoeUpVm2mCP+trIJhMj8bvOQjrGYGtgP2z+G43mSEWRN9teR
+         JhMPLX+NEdQv4vbBfnEVSh7rUZlShSX/6NR4yFEuWXTL0eX+/+u14h8hHqBL/SlEM28c
+         P9km1wHqaeOSrIpkNIoiX3N3TPYTq99ghrE0V2/OZDo7CA/+S7MwKVMnM3OINxV9XdKX
+         nAD2227a7/DYkwBSGKsGxWZQP79S+NhVi0P7S5Z8G0smZSgYa35O/rJx0/w+yMbJe8lY
+         CYYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794955749; x=1795560549;
+        d=1e100.net; s=20260707; t=1794955751; x=1795560551;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=zxc17WVo0gYUnTOtZw1pyN8QC3Vommte57dKv0ZbhgA=;
-        b=n1mTtyhbtP2xt3o7MRhTINDOXR4WZ7mwbDPQMhMdHTHLII+W83UM5fKRl53BW/n3po
-         LiYswSfVGPAXb0VA8FV4tbsyM6vr+kMPQl32nJN1HFIhvoASmxHscUYMJVNOCV4aY9yj
-         YCrLs2T4UwM0tUPalpBZiQCCAbQA5H97RAePxHP3G0ge014aCRL0gINEnFgiKc004wtL
-         YLtQVlJfQrX9v3j8yf5iIXmZSkRewh0JrnK2UMAj5onJiKz+jUA470M0zy6mZrJWYDzQ
-         pUjVF7qFN+RuknrKiBuMY8RuHlV7h60lqMNl0C9KFC4X6Ou87zEIG3/gKmlLJIbcnfBN
-         YSjQ==
-X-Forwarded-Encrypted: i=1; AL+hErEtZAS7twcslu0WjWPxRJ14tBH4MzRFLj8ZFzADG/vf5B9+rHD2eD4i5IRaf8dL/FNj/1RKT2QJDH9LFOE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+j3xXh9IyLkPfnaTiYcoZBg0G5iWfWnIO8INhYn3F3KWP7bv82
-	18WjRb4dowUxdE9R78Hz8aKlb6NMWcB6dAJopKaiAYeqeC5IjUYEWYwc
-X-Gm-Gg: AYBFou0v6beD136G7hhU1aNknmy8UDFSgwal8vRKoRzylt9byHe+r2ccYQJ+Pxx9PHG
-	tiS8+zIHhNGHQRVdzqMJSke9O6ASAKh6ImOVA2R75vs0sXjn2mN7XZEkSMoQP0az57ceqLaroDs
-	LgzhZIG+DPmSP6iUa4V0Xal+pLISfVJcP6k4C33buo5V3OamMn8xumSoC/Sz139Jdn02+r0qWCC
-	dpLbpDTsvWoSUv7ueSzYqky54/iNZKuXSerfIl0OOvmlWOQkb426vcnHPVVgjBig5XvEiYMH5zY
-	WFXKJx48l1ECT1Za2ilM/T4P+XJPogymz5RWpQI0pLaqOihPUHpz2M/cmOjPpLlMFyAbKNh2v8Q
-	LMJncVDexXGTLjxOAxeutj752i4PUy79EBzpDscfcNlmicCfrPQmO6riEEvWWHSIxaD3xro4HL8
-	iooN1I45115AtDIhdJ+HPqc0WLmo+q3GXIsfvbHVlT7PjV67Vd3yttjspct6az9uPtTRWZz0Vld
-	ub/P45U5AAw9oGvDtMkhUmq5C8OGmxxY+Ad2ubzZoCKNFgnfQxhwUWVmlz/cRITCTpVpydmD01m
-	cR+ggCcT1A0WU6yND6BdAlXia9WLX4LBnqVKyBzlTaKhtvR4ycT0uf3LyH20gxJ+PBS/df/RM70
-	CILD3CuGg2ixxR9g2OWf5f32WACO4+gQ1v8INfk3Ix5bJr34wCeIeShLJ2SpPGdmnmFceUGAcf1
-	Wu67dHRWb6Fr/PDt8x7OKYI/Wi5O++Pla6O9p66Q3lKQesCvUCM2c=
-X-Received: by 2002:a05:6808:c133:b0:568:3866:d1c8 with SMTP id 5614622812f47-5774122a39emr1396230b6e.42.1794955748915;
-        Tue, 17 Nov 2026 14:49:08 -0800 (PST)
+        bh=k4Qm7XpfJ4IaAnPaVRdhRvip1Jdg3xw+SpQe4yTzGGQ=;
+        b=Mhl68ledCdf7LiiN/OoP7aCa9AtB3V1rNErTO9PNMOTam9flBCGcqUFC77OOP2nzZm
+         GvRcCMfrtvDCuUfMcnT9Mh3e10VG8VZgVwEzkCCgdt14hm0Mtv166TIoW1uPYUg1+LKd
+         gVcn6WV+O4r6jxN6S+aDaOB0J+791yfKgYopkh5T/fQ3nUr3G0UeZ2K7McLLqurElxTm
+         yT0xyIkV1z2yDHfsoB6m4wkfE6+9bD+emsIF2X2wVenaVv11kFjI24tFKVJW2+xCrA+q
+         D48fU63/j1eVSxekuPewEOLawrWLOMDGc5WlwRu/MgWQOCWAVVWQ6jiCEkbVtlMNSB9l
+         2vqQ==
+X-Forwarded-Encrypted: i=1; AL+hErEcWFusUqzP/CVREyVQNo7zyY4y/ViPzrx4mpxHqMis2E+AhX623AkW4Kr0KgYPSHSn+M16/wEu6zP8DoY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+hMrOnnvychbVH3gY5YNAYv0urRxHdqkVL9+osPd4ppjkaHlYh
+	uOe3j5E3dqkzow6iyaBjYOOJSPNLaulH+5grMbYxIxkPaYGkKuHaXp19
+X-Gm-Gg: AYBFou1KESUwowRB9yUZJYA4tN2VAdFCCBD6iuCjDyX5/C33fpAQthhqCduzSJKk764
+	T3TGYhrps+Q7VHl3sUohKnYILCfC01YashtyBERBh210EOlTWk8jzV5J4v3B+SHgXYPezCh5PUz
+	41OoOT6wJ0aVMfKCKfwExxnYcX2cOwFm+Df7wOgXeUC4KBMobPLEXxZK5lu09YOvtfaM4Pr//QL
+	xYBeiEKEQRI/ub67zE+bqKog9VY8j6OKgLTP3TY7rslejZ11zm5bFAzXOMrQJ9lcXNR2dsBXxAc
+	e0MCO1CbPw2Q3kQrTQNTvX0ZNqSxBUfi4xA9XGIL/yHmvYgWjogvW3db41ZC1CZwDAZdeY9vyJ2
+	qNUWio74Lp1dBbh8xbRnRH1qXgbNdpywB3c2wtkCAyy76mXWgVQlNazvk8Oy/qxqtBHkCVRBwbi
+	XGnikVeJ3LZnsLFaCunKJ1fyWVZxWFeZY0XFZsWPlCcB0r8KZQcAKksseD3GCu3ZtVhrsnmxRgk
+	UL1sqelfg/76955lKCg7FSD18XeR9F+0yQegXLRByVBhnIbF0F2oSsZ5L54jKIUUOrO+9Almkh5
+	nA8bqexZlE7rm27ypS4/PDlXUIUg7lsutjG6t1M59yXyOXMyyL8VFIOY/Gm9qCCqospUuAmRV68
+	qyO52mTqpWNFHJzrgPMpO+Ii9jb0qTCSsCqAi5nmjbYvUHsIDkdQNL7zf3wjf2MRIyuUv9k0B1Y
+	DelVwcgLmsed2FlZJ//Bf6Vby3EP3mkz4C1veQAfj6QEzPWM4gCWE=
+X-Received: by 2002:a05:6870:17a7:b0:4a8:ffd4:9a6c with SMTP id 586e51a60fabf-4b75d850d84mr521682fac.45.1794955750772;
+        Tue, 17 Nov 2026 14:49:10 -0800 (PST)
 Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4b74560af5fsm583066fac.16.2026.11.17.14.49.07
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4b74560af5fsm583066fac.16.2026.11.17.14.49.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 14:49:07 -0800 (PST)
+        Tue, 17 Nov 2026 14:49:09 -0800 (PST)
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Tue, 17 Nov 2026 15:48:40 -0700
-Subject: [PATCH v9 5/6] dmaengine: dw: calculate residue in the status
- getter
+Date: Tue, 17 Nov 2026 15:48:41 -0700
+Subject: [PATCH v9 6/6] dmaengine: dw: report residue for queued transfers
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,7 +95,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261117-submit-dw-dma-synchronize-v1-v9-5-7dc066ed0bcf@gmail.com>
+Message-Id: <20261117-submit-dw-dma-synchronize-v1-v9-6-7dc066ed0bcf@gmail.com>
 References: <20261117-submit-dw-dma-synchronize-v1-v9-0-7dc066ed0bcf@gmail.com>
 In-Reply-To: <20261117-submit-dw-dma-synchronize-v1-v9-0-7dc066ed0bcf@gmail.com>
 To: Viresh Kumar <vireshk@kernel.org>, 
@@ -113,121 +112,47 @@ Cc: Serge Semin <fancer.lancer@gmail.com>,
  James Hilliard <james.hilliard1@gmail.com>, stable@vger.kernel.org
 X-Mailer: b4 0.17-dev
 
-From: Serge Semin <fancer.lancer@gmail.com>
+A submitted transfer may still be queued behind the active transaction.
+dwc_find_desc() only checks the active descriptor, so a status query
+reports zero residue for a queued cookie even though none of its data has
+been transferred.
 
-Calculate hardware-LLP residue while looking up the requested cookie under
-the channel lock. The descriptor scanner updates cached residue only when
-no transfer-complete event is pending. If a status query completes the
-current transaction and starts the next one, that new transaction's cached
-residue has not been initialized and a query for its cookie reports zero.
+Search the issued and submitted queues as well. vchan_find_desc() covers
+issued descriptors; submitted descriptors need a separate lookup. The
+status getter already reports total_len for a descriptor that is not the
+active transaction, giving queued transfers their full remaining length.
 
-Have dwc_get_hard_llp_desc_residue() return a local residue value from a
-fresh LLP snapshot. Keep the persistent residue field for software-LLP
-block accounting, subtracting the current block's progress when reporting
-status. The descriptor scanner continues to advance software-LLP blocks
-and complete cookies from RAW.XFER, including for polled transfers.
-
-Fixes: 4702d5244ca9 ("dw_dmac: return proper residue value")
+Fixes: b68fd0976286 ("dmaengine: dw: move residue to a descriptor")
 Cc: stable@vger.kernel.org
-Signed-off-by: Serge Semin <fancer.lancer@gmail.com>
-[james: retain polled completion and software-LLP progress]
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
- drivers/dma/dw/core.c | 49 +++++++++++++++++++++----------------------------
- 1 file changed, 21 insertions(+), 28 deletions(-)
+ drivers/dma/dw/core.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
 diff --git a/drivers/dma/dw/core.c b/drivers/dma/dw/core.c
-index 504b6ddeccd4..c138008d7cb0 100644
+index c138008d7cb0..1786dbe2e850 100644
 --- a/drivers/dma/dw/core.c
 +++ b/drivers/dma/dw/core.c
-@@ -214,41 +214,41 @@ static inline u32 dwc_get_sent(struct dw_dma_chan *dwc)
- 	return dw->block2bytes(dwc, ctlhi, ctllo >> 4 & 7);
- }
+@@ -867,9 +867,19 @@ static void dwc_synchronize(struct dma_chan *chan)
  
--static void dwc_get_hard_llp_desc_residue(struct dw_dma_chan *dwc,
--					  struct dw_desc *desc, dma_addr_t llp)
-+static u32 dwc_get_hard_llp_desc_residue(struct dw_dma_chan *dwc, struct dw_desc *desc)
+ static struct dw_desc *dwc_find_desc(struct dw_dma_chan *dwc, dma_cookie_t c)
  {
-+	u32 residue = desc->total_len;
- 	struct dw_desc *child;
-+	dma_addr_t llp;
++	struct virt_dma_desc *vd;
 +
-+	llp = channel_readl(dwc, LLP);
+ 	if (dwc->desc && dwc->desc->vd.tx.cookie == c)
+ 		return dwc->desc;
  
--	desc->residue = desc->total_len;
-+	/* The first descriptor may still be waiting to be fetched. */
- 	if (desc->vd.tx.phys == DWC_LLP_LOC(llp))
--		return;
-+		return residue;
- 
--	if (lli_read(desc, llp) == llp) {
--		desc->residue -= dwc_get_sent(dwc);
--		return;
--	}
-+	if (lli_read(desc, llp) == llp)
-+		return residue - dwc_get_sent(dwc);
- 
--	desc->residue -= desc->len;
-+	residue -= desc->len;
- 	list_for_each_entry(child, &desc->tx_list, vd.node) {
--		if (lli_read(child, llp) == llp) {
--			desc->residue -= dwc_get_sent(dwc);
--			return;
--		}
--		desc->residue -= child->len;
-+		if (lli_read(child, llp) == llp)
-+			return residue - dwc_get_sent(dwc);
++	vd = vchan_find_desc(&dwc->vc, c);
++	if (vd)
++		return vd_to_dw_desc(vd);
 +
-+		residue -= child->len;
- 	}
++	list_for_each_entry(vd, &dwc->vc.desc_submitted, node)
++		if (vd->tx.cookie == c)
++			return vd_to_dw_desc(vd);
 +
-+	return residue;
+ 	return NULL;
  }
  
- static void dwc_scan_descriptors(struct dw_dma *dw, struct dw_dma_chan *dwc)
- {
- 	struct dw_desc *desc;
- 	struct dw_desc *child;
--	dma_addr_t llp;
- 
- 	lockdep_assert_held(&dwc->vc.lock);
- 
--	llp = channel_readl(dwc, LLP);
- 	if (!(dma_readl(dw, RAW.XFER) & dwc->mask))
--		goto residue;
-+		return;
- 
- 	dma_writel(dw, CLEAR.XFER, dwc->mask);
- 	if (!dwc->desc)
-@@ -287,14 +287,6 @@ static void dwc_scan_descriptors(struct dw_dma *dw, struct dw_dma_chan *dwc)
- 	dwc->desc = NULL;
- 	vchan_cookie_complete(&desc->vd);
- 	dwc_dostart_first_queued(dwc);
--	return;
--
--residue:
--	desc = dwc->desc;
--	if (!desc || test_bit(DW_DMA_IS_SOFT_LLP, &dwc->flags))
--		return;
--
--	dwc_get_hard_llp_desc_residue(dwc, desc, llp);
- }
- 
- static inline void dwc_dump_lli(struct dw_dma_chan *dwc, struct dw_desc *desc)
-@@ -892,9 +884,10 @@ static u32 dwc_get_residue_and_status(struct dw_dma_chan *dwc, dma_cookie_t cook
- 	desc = dwc_find_desc(dwc, cookie);
- 	if (desc) {
- 		if (desc == dwc->desc) {
--			residue = desc->residue;
--			if (test_bit(DW_DMA_IS_SOFT_LLP, &dwc->flags) && residue)
--				residue -= dwc_get_sent(dwc);
-+			if (test_bit(DW_DMA_IS_SOFT_LLP, &dwc->flags))
-+				residue = desc->residue - dwc_get_sent(dwc);
-+			else
-+				residue = dwc_get_hard_llp_desc_residue(dwc, desc);
- 			if (test_bit(DW_DMA_IS_PAUSED, &dwc->flags))
- 				*status = DMA_PAUSED;
- 		} else {
 
 -- 
 2.53.0
