@@ -1,111 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.147
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794954826;
-	b=b5aCxWJLNBfAhLgbI4TSSbKtwxViVmbivR7YM9+x1vK5SWAZTJ213ZRxtBE0zAzxyP3f
-	 sf6ejOJUoUm2ljee0YdAohAnV+2YBuoh6xN6ToDKmfyqtyvQ7VVUMOouB6MWL3EU13aL1
-	 2YxHnitWDDF92OO0h4od+uL+X1jrRD6rNOVGBBKkL7CJqHmKpa/K7QOzDI8vl5h2IkO8P
-	 Wm8/O67k9dEirUBII47iero/yS1M3aGuNrfT8E18Apy7igtsr6SLGbJc7DfH7c10LNGzd
-	 G6g9rDTSDzFvqF4glzYEUP8P7jsA88z/rKVFo7osH/RBk+iyAncMwA6/G758J6+FBNA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794954826;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=eEh+NFvf3dfHmWpSq1NVWb1dZK08XL1af+slj7PMhJk=;
-	b=DFiZlveES/Nl19cQz02BZ0wzBUOH3RJpDDTSZM+v8NPK1PkbgpI/iQ4NLQlJ4zKUwW6o
-	 2YdkhJ0cWRShfzoWeVpacYT/9paViB7nn8o7RdMKKHB8wjsj8Ri2rIxf3J/zri0xliy+5
-	 x0Jlnxgx67qNigefkBkCS2A4Wu/zCgdKHfpvbzkFybHgFpicoeLMu3pm+gNPuhf2MlhsO
-	 wG33dRGwbKg8moTp3HeVIy6g6E1lZboufGL66pCAUCu95oX6paR1j3a4x0fURJUy/SETG
-	 6JAEwRI5VrwRZR2vPf6zJfUNkrSDZ4A4cCugsc1rOjbHi/TcXT9XbOn8OjSdkUc+BVA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=squebb.ca;
-	spf=pass smtp.mailfrom=squebb.ca;
-	dkim=pass header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b="ld/vC5oR";
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=WqODdRhL;
-	arc=none smtp.remote-ip=103.168.172.147
-Received: from fout-a4-smtp.messagingengine.com (fout-a4-smtp.messagingengine.com [103.168.172.147])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.208.27
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794954827;
+	b=pAXTJihSq5WSGRxTqz/sSZt8q+T94gF0p0+bhhGwfWvOdPnxRF6GuQrEvbsXscXP6YbA
+	 r5zV0oVS0EBOpZ1jCtxyoHZhx46N1qe/GYzoHnI0ZYVL0st90PVLsGn789s9L3fZgdP9V
+	 OJTuNnGhFzXdzlHgjqU1tgAt7CQ281owIsRL68nACznBGqfpXwjyE+3ZsFFPFButTu7Gy
+	 f+WKbjwF8B/EJgvXAlEtbiQmoZ03zcObkHmHeyX+VFNS6EnDCL8jvNixcaCem72ei/X7X
+	 +eT0nnm0YGAghTiPEeMPDeipqTbUyEPpm7KqNvU70CoAQ6oRUcDb8AxsTBspkfSK18g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794954827;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=yAds9vKoPlwNAQLPVlq02CPdwJ6doQXrxNZP+ur/dko=;
+	b=ScgAsNdHz3vjNFO6+BPK4rsfgmLzLm+K0fhEnjnkp6Cyb4dRN2AOPR08StavBpqhuJ48
+	 x4b3fO1FSntrVlkbpQnZcd2ucGQpDI1A+U8z6rgrFzLBs1MLoT2sOuAyqHkrO6Fyb0bOT
+	 3ONomChu5PLv+o6t57n8HixKtQ+BJVW4n516hUik1DtBen+6WnYQbq+Ufa7MsrN+3gMVx
+	 7l2FFZNoSB45Txl44GRcdz841hapMBbAstZvHaLn8/jof3UZuUFI0lRD3Zufj8bobUg1Y
+	 jFE0DLLS02Ya8WnhRDNvWXlgkKQqDyII/WDuHQLMlfkOj1S+IYkEdvrzVWsI/URMfTw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=M5rPfZVa;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.208.27
+Received: from PH0PR06CU001.outbound.protection.outlook.com (mail-westus3azon11011027.outbound.protection.outlook.com [40.107.208.27])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07858606A339
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:33:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07858606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=squebb.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=squebb.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A7A1606A31C;
+	Tue, 17 Nov 2026 22:33:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A7A1606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b=ld/vC5oR;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=WqODdRhL
-Received: from stl-compute-04.internal (stl-compute-04.internal [10.204.2.64])
-	by mailfout.phl.internal (Postfix) with ESMTP id 09A43EC08F7
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:33:45 -0500 (EST)
-Received: from stl-imap-02 ([10.204.2.93])
-  by stl-compute-04.internal (MEProxy); Tue, 17 Nov 2026 17:33:45 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=squebb.ca; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1794954823;
-	 x=1795041223; bh=eEh+NFvf3dfHmWpSq1NVWb1dZK08XL1af+slj7PMhJk=; b=
-	ld/vC5oR/vrIgATY+OVj/qc+Hho5ywu6/tj8+b0Sd+dh8+/TTjOopCad0qpjn9cU
-	difKR3oFUWkm9MDhrkcsAVWBaSAAdfVJVhO2P9RZOJXdA3IYaMxeQ4LE5jEjtj9z
-	wIokBt+3FJajscUELfSblV++bfxDmymVgKrC9LqcWWXYzJoiKFuPLXQ8rIICTbVq
-	ehCwiYEIzINzF+1aHaetbmGGVSFJXmqTevM3G+2ecWuFMh1gkLPlZ7lhAlzNgTS3
-	K8FrmLctRNaJpf528I88QvEiAv/cPfsUJdz2wLS2BpXsSPeivqDqM4hpbfj2wrOI
-	1aL1cgVEUNzdC8OctvdZnQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1794954823; x=
-	1795041223; bh=eEh+NFvf3dfHmWpSq1NVWb1dZK08XL1af+slj7PMhJk=; b=W
-	qODdRhL6M3J/WFuI9+GZLkc9CdY3cWlSWVuAd/6HIvXY8NSGC1+WuFVP37esZ9OP
-	i5XlW8akJR8hfbW4x17JqBwOcLy79sp/ZnupH88ZJzosim5c29wJ4jl2WypRM0Gw
-	9I5hDMcOWuqFtO5OQd0DqmjCYRYHfxLvEbusp9hBn3YV8y5L5CLGRodCkjrHJAGF
-	vYjVxyiutqApKs66rDz+xWFfc7M5cy6ERCLVY1M0XPbuuPoiJLncZZZv8SCpwzEG
-	ih1vblNTID0hWu50ay72FiMg//0cXChI9brU+h8SiX4SqVnLI9k3+pUQ59u5hTIl
-	eoNx/wkBLX0aWsxQOHuyA==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=squebb.ca a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1794954823; d=squebb.ca;
-	mf=PG1wZWFyc29uLWxlbm92b0BzcXVlYmIuY2E+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm1:rsa-sha256:K4rHlXTnFsSjDL2F8RHRP9sSlUOcbSQYzpKXDQAHv31my4O
-	MlYqU4+5708PTRF//yDLf0IYQBUUHI4JUv4tA26H+16XVFJwL6qsigOpT6q5Evji
-	uNw0qEDOzHAJLM3xeMYvx5SXnoor4eBozPv4PMi4yUm4iE259+G1zZqTRIwQ5iQE
-	XnTKIujVRcZs+aGXjTIthzxhd9L16jd6ihKsjPqtL2r/Klm/FPm1/l5Z3SWN3I7k
-	HasFQfcEYRGBVXULWMxxT+9WDwgsKiURDwsmRJ8IPgU0ea6+dCToTjhTkIB31yxj
-	xzljrsD9Gt5IjkSuHgUQrztp+Yc6CJN7t5s+tsw==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:/29E0rMkG6QwwJB0Vo96j/CR2HEK+fR97AUEyxTSEwc=:Q8wyGNlXH66pl9Z5IrPyKgTgBPJnp2vG20gMvyhrZzU=;
-X-ME-Sender: <xms:Rtb8arsZt_0gMfygLeM2KJHqkSL1acjfPYDmH9mofJXmuP1YQY6m-Q>
-    <xme:Rtb8anTKBkaQbI52Qjzdqtfck-Tw63oHD8EmgPiiVMXBW5sVEjRlq7tD5sjeV0vYe
-    O17bImMTQf2oBddMGZ621WigfkyYutGMETiqWB7rhET75-fbTvhtomu>
-X-ME-Proxy-Cause: dmFkZTE/yjuYLIFSQFeRg1BnSUnw8LIJEaMzScgnhP/RSNnRjGPYPdeDiiZFiDCSHCzjXy
-    BsodOHwxFxYmGw/DuEfxbFJs2h75U5KRZQtbSGPEoEypYar5BRoJy6MY4Ir98sSD8q1dBR
-    7ywSDlTEdYU+xe4GW7KN3i2Cw58lKBBbWZwgFLNWoWtsaqvyErmtC3U6PS0KJgdcNd55Fy
-    HcKySEcds8r+jIbdPlO8BILImOHdqvXJmZpquS/V3mboWk0zJTsJSORh45On/ns/D47Dpf
-    q1FJVIJ6r1lIDHcgsI1kBqGvRI83o8/vlIFNLNVKAzcw0roEGYY055MPFgTURqbjyODqfU
-    l5j/2cwCLwOf7ymZMtwNQclUipiagyp9lolCjecibymIKezmjBWbOomWiSXU+4EDF11qHZ
-    JJZQndJZkhb32j8qTc7FQLgWrdeQaK0mcnA43mT5aRYRyKmtAm+5nUQwJoUEh2vtxnzoi1
-    KLA7X1TbxeRgcvzzYST8EjCqO1U3ToXmwdIDg2lkboCUFlMGYtVbcC1D2UJ7QzwI0w8sv1
-    1oNUMIjWBjritgDy57fRS1lXyjAXipBU4kwSHZ2yZUNv+HIbBRM2HL0i6m8BftcHrwUuaV
-    X5r1xI9SCSy5pI+YL4/HK2i/hKSv9cKsexQmCHHaZ44n2K3mI49dMel+ZY8w
-X-ME-Proxy: <xmx:Rtb8aqS9vTp5QO_5m9fOSyefaO5l0w-YUK2kj0qqpAiLwPrU-BtqAw>
-    <xmx:Rtb8an8nzUj5y-cGyndhfEM-U4walkrBbz9L9a6D-zHYzjZrFZJmnA>
-    <xmx:Rtb8ajatZGWXetH72qEd4UujcNjEIPB7HC6l0_5PCnun7px1oSGqYA>
-    <xmx:Rtb8agrKvINc-IIPmvqKNeEhU_J-S-Jj9ZnF9CCHGn3D4p3s-u1-4A>
-    <xmx:R9b8as5hMG8vihJsErFQLcUyb5BFJMJ6Tzhj50FRYtgMbE5tUju-SdQm>
-Feedback-ID: ibe194615:Fastmail
-Received: by mailuser.stl.internal (Postfix, from userid 501)
-	id A79F92C00085; Tue, 17 Nov 2026 17:33:42 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=M5rPfZVa
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Gux+fDrmZNfgzmvPLEsg1BdbdTri2kmjyXTQPqQm22Maw60rxA3HE2xS2GHgsguzcftpxRK/k3rVHK3oq6kGqRrzHMCAvEeXS31gFFQUQKEuEpKqxT0iT6+dm5sA2pCzF6qGvAQybS1fdFCU1vOUeBy4M2tW5tj5HRNqBaT/WcZLFIgBSdq7g8X1iftq3lpMuIICqBPQdtnP7DN5GYByQNxj7oRKeokpgpiV4Y/B6/BHhE1lo1W5ztMUMCtwfaBtYz+UEBVMqCCyxH5+kzTFx6PfPjboHWjTXn/+Ql/gBmvutsJiWhoGYzCWR2UCBSsFjAmD6B2kwjvqisUNv2J+wA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yAds9vKoPlwNAQLPVlq02CPdwJ6doQXrxNZP+ur/dko=;
+ b=QeO4vv8qLguXuCQLVIugMXoqQgricXzGfBFInCQmH8bILJt5ryYgXXFQxAktJbMFgaoeTIy5vFEzwMTOVELdYhtwfrahY73Lpz9I2G8Vv8qyN2zv9KePWcEE6lpF5xaRHNsyePOrvA0Je2WOYC1/ZJgOXFIVaLk7N/LZRYuUaYO/gOGoRvz+QcQ9lja1EWL6XZRNBK/z93La96NAPLvbWy9xIbSMoTRniWWMmZup333i9BulnFuuD/q1Nnoq4bYMeWYQVthTf6jep1LS8X92SkKxWPMB3ILwM5k4WgiIEG+SVADS9DTxWppcx8DSYqDDvbeXpjtEJoNSlJWsZCtjGg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=google.com smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yAds9vKoPlwNAQLPVlq02CPdwJ6doQXrxNZP+ur/dko=;
+ b=M5rPfZVaUbtJ4J3x8gthiITMTn+tg710EOiJWwT4fzMpxzY/1qIJFJkay19JSMGLNUe9P61BdLZcrJz3ICOAzm+/U3+eQm/NbAMm/en2uUTG2JC4QKovdxYf9VUgZw3CCpHOszwFK2kMShiS4l1qcfUal34HZaSvzOolSoIH3RA=
+Received: from PH7P220CA0060.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:32b::29)
+ by SA3PR12MB9199.namprd12.prod.outlook.com (2603:10b6:806:398::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 17 Nov
+ 2026 22:33:42 +0000
+Received: from PH5PEPF0000002D.namprd04.prod.outlook.com
+ (2603:10b6:510:32b:cafe::a8) by PH7P220CA0060.outlook.office365.com
+ (2603:10b6:510:32b::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.13 via Frontend Transport; Tue,
+ 17 Nov 2026 22:33:42 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ PH5PEPF0000002D.mail.protection.outlook.com (10.167.243.7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Tue, 17 Nov 2026 22:33:41 +0000
+Received: from dryer.amd.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 17 Nov
+ 2026 16:33:40 -0600
+From: Kim Phillips <kim.phillips@amd.com>
+To: Sean Christopherson <seanjc@google.com>, Paolo Bonzini
+	<pbonzini@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, "Nikunj A
+ Dadhania" <nikunj@amd.com>, Tom Lendacky <thomas.lendacky@amd.com>, "Michael
+ Roth" <michael.roth@amd.com>, Borislav Petkov <borislav.petkov@amd.com>,
+	Borislav Petkov <bp@alien8.de>, Naveen Rao <naveen.rao@amd.com>, Dave Hansen
+	<dave.hansen@linux.intel.com>, <tglx@kernel.org>, <mingo@redhat.com>,
+	<ardb@kernel.org>, <hpa@zytor.com>
+CC: <linux-kernel@vger.kernel.org>, <x86@kernel.org>, <kvm@vger.kernel.org>,
+	Kim Phillips <kim.phillips@amd.com>, Nathan Fontenot
+	<nathan.fontenot@amd.com>
+Subject: [PATCH 3/3] x86/sev: Distinguish CC-blob failures from generic SNP-unsupported
+Date: Tue, 17 Nov 2026 16:32:57 -0600
+Message-ID: <20261117223257.748178-4-kim.phillips@amd.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261117223257.748178-1-kim.phillips@amd.com>
+References: <20261117223257.748178-1-kim.phillips@amd.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,356 +113,94 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: AZf8LQYQVgsF
-Date: Tue, 17 Nov 2026 17:33:22 -0500
-From: "Mark Pearson" <mpearson-lenovo@squebb.ca>
-To: "Rong Zhang" <i@rong.moe>, "Derek J . Clark" <derekjohn.clark@gmail.com>,
- "Hans de Goede" <hansg@kernel.org>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- "Gergo Koteles" <soyer@irl.hu>, "Ike Panhc" <ikepanhc@gmail.com>,
- "Andrew Kallmeyer" <kallmeyeras@gmail.com>
-Cc: 
- "platform-driver-x86@vger.kernel.org" <platform-driver-x86@vger.kernel.org>,
- linux-kernel@vger.kernel.org, "Mahir Faisal" <mahirfaisalantiq33@gmail.com>
-Message-Id: <e6d2efbc-7ea0-4115-bfb7-c2731dabb62d@app.fastmail.com>
-In-Reply-To: <55377800b9338b153d776ab8728a557f682a234a.camel@rong.moe>
-References: <20261116-ymc-82yl-v1-0-fac1a2b01a84@rong.moe>
- <20261116-ymc-82yl-v1-4-fac1a2b01a84@rong.moe>
- <e39bd69c-9953-4154-8938-313e6fb0b26a@app.fastmail.com>
- <55377800b9338b153d776ab8728a557f682a234a.camel@rong.moe>
-Subject: Re: [PATCH 4/7] platform/x86: lenovo-ymc: Modernize WMI driver and factor out
- events
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
+ (10.181.42.216)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH5PEPF0000002D:EE_|SA3PR12MB9199:EE_
+X-MS-Office365-Filtering-Correlation-Id: 160168f9-5c6c-4baa-e213-08df44fad505
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|36860700016|82310400026|7416014|1800799024|376014|23010399003|22082099003|18002099003|261009223027099003|3023799007|261022115727099003|261022105027099003|261021123027099003|261021121427099003|921020|261026121527099003|261026140227099003|261028144727099003|56012099006|11063799006|10067099003|261102123227099003;
+X-Microsoft-Antispam-Message-Info:
+	0b0ENkExFpOF1s/pvz8dxTTUi973iZP5nT6A+wgsUDsdcJ0si1qQ+AK84lAIvSPvywHei/7j8QXNL9PfmoNgDBSdM7udD38V6xAwLrVJK6Oq3kfOgbPjzStsU/tFZw3TwH77SOEr2FgbGNXw9l3ojU1rS8qcJbVLraBAVhFQ8HdPDSgpGS7HMu9ZqVstSEuq3oM8cB9B/GsU6bnnFO8e0vV9hdD50bWGJswFypjnjhzHERE6xW+Z03MPpJ135ZFqGySyZ3hrtWdV3HNWhg/b4b6ZAurL7oGs75SgqVwhug0mHjFNojOGeBSJ87JeXFoSWOdtso7BvVeBt/fWwr1LkYqMSj0N1+2lmzJ0V0BfQkP3lvAF92ZmAQ/Y6Fl06Q6Br3ZohQglKoBA9VGn6AXnnpxwC+HUUbJt09wnOtoPq47nAuT9rD09D95gyTDmkJYsJt9Z3mc8AG/txcIo+C64iqN7DK4vfYJSqljjWIDGxroIP9FhBuBwDC5VWDEhUv32EU0+UIC0S/pimZLgKtYpmj3v8otsGnJy6QDa+4lxDLQgjBc9vkg0NfJUEJBYDGlV3hPpLLcgSbB7HA3lEVuDAeJolv+dr9yJamMcLftOTA2Sk3BljeK0aDMxn1rIZOATzmQaeicvN5gqQ2FtizvnG/l+TbQN7mhKxrCHTSjrZfOFkdYnLv02nAZUaj9Ct4UrDNaJq7MkeXDfeuaCXRxYm1P5HKW/IgZ8GhepFNv6jmmBTV91xFwpaKFxMm/6Se5v
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(7416014)(1800799024)(376014)(23010399003)(22082099003)(18002099003)(261009223027099003)(3023799007)(261022115727099003)(261022105027099003)(261021123027099003)(261021121427099003)(921020)(261026121527099003)(261026140227099003)(261028144727099003)(56012099006)(11063799006)(10067099003)(261102123227099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	Q621hHh1ItIPSK6AfjbS/R+UfdZ/H5rEtQSqM9NDuq3w6MCGEeICU48lHxj/Mjh7arSVa77C4hBTI4dGaC6ZbMfEyTkeMpfa4v4pJb55uX/3JhLMvawlBmejW2HXTHbx8eqeaklgM8CC/oI+ZqOD/XloTANVugZLgpZq4wf07bBZow0JJQE4G/5S/WuSHheKIpLSBYJco15O0mrJkc7YiR1+r30bpozhhkER3oDsupo6SjljKwKqJu6G9yo+tB35QVke+c86NQ1jEQ3xXKESaHp7B2Tg5MZLXY3q6/FipuUk8ERBxdSLTivk7zgB+CCvm052NBYH7anYu8TAs3zC+MNMeiddZVHGC9Ti1qcIJmtBkTnMkstY7DP9E38qkNDoqtybRtNalWX1MkeVR311gb0hhSYzNMIcRZl+dR4jhMHsPABArLjpBiTT3hutdukV
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 22:33:41.5562
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 160168f9-5c6c-4baa-e213-08df44fad505
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	PH5PEPF0000002D.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB9199
 
+Both find_cc_blob() implementations terminate with GHCB_SNP_UNSUPPORTED
+when the Confidential Computing blob they located has a bad header magic.
+That reason code is otherwise used for a hypervisor that genuinely does
+not support SNP, so a corrupt or misplaced blob - a firmware or bootloader
+bug in the guest's own boot chain - is indistinguishable from an
+unsupported host.
 
+Add a GHCB_TERM_CC_BLOB Linux-specific reason code and use it for the two
+invalid-blob-magic checks. The sites that truly represent an
+unsupported-SNP hypervisor, including the CC-blob/SNP-enablement
+discrepancy check in sme_enable(), are left on GHCB_SNP_UNSUPPORTED.
 
-On Mon, Nov 16, 2026, at 11:51 AM, Rong Zhang wrote:
-> Hi Mark,
->
-> On Sun, 2026-11-15 at 17:39 -0500, Mark Pearson wrote:
->>=20
->> On Sun, Nov 15, 2026, at 2:27 PM, Rong Zhang wrote:
->> > The lenovo-ymc driver is a legacy WMI driver. It binds to the events
->> > GUID as a WMI driver but calls the query GUID with the deprecated G=
-UID-
->> > based interface.
->> >=20
->> > Handle YMC events in lenovo-wmi-event, and coordinate relevant driv=
-ers
->> > with notifier chains:
->> >=20
->> >                 +---LWMI_EVENT_THERMAL_MODE---> wmi-gamezone
->> >                 |
->> >   wmi-events ---+
->> >                 |
->> >                 +---LWMI_EVENT_YMC---> ymc=20
->> > ---IDEAPAD_LAPTOP_YMC_EVENT---> ideapad-laptop
->> >=20
->> > Modernize the lenovo-ymc driver by adopting lwmi_dev_evaluate_int()=
- from
->> > lenovo-wmi-helpers, which has adopted the modern WMI core interface=
-s and
->> > taken care of buffer's lifecycle. This should hopefully improve
->> > robustness on various firmware as it aligns with the Windows behavi=
-or
->> > that ACPI object type doesn't matter but the size does.
->> >=20
->> > Note that the WMI core does not verify min_event_size for the legacy
->> > notify() callback (it only ensures the event has data). By factorin=
-g out
->> > YMC events to lenovo-wmi-events with the new notify_new() callback,=
- now
->> > the WMI core can finally verify the size of event data:
->> >=20
->> >   [WmiDataId(1), read, Description("Lenovo Yoga Mode Change Event")=
-]=20
->> > uint32 ModeDataVal;
->> >=20
->> > With these changes, the lenovo-ymc driver become a no_singleton
->> > asynchronous-probe driver that only binds to the query GUID. It also
->> > retrieve event data as a fallback data source when the query method
->>=20
->> Minor typo: retrieves?
->
-> Will fix it, thanks.
->
->>=20
->> > fails, so that the EC is always triggered on valid events (i.e., pa=
-ssing
->> > the min_event_size check). On probe it's always triggered, too, as =
-we
->> > want the EC to initialize the state of keyboard and touchpad on boo=
-t.
->> >=20
->> > The input device's phys string also adopts the query GUID rather th=
-an
->> > the events one. It shouldn't break anything, as nothing actually ma=
-tches
->> > the previous phys string.
->> >=20
->> > The DMI quirk tables are left untouched, as the contained devices s=
-hould
->> > have both GUIDs.
->> >=20
->> > Signed-off-by: Rong Zhang <i@rong.moe>
->> > ---
->> >  drivers/platform/x86/lenovo/Kconfig      |  2 +
->> >  drivers/platform/x86/lenovo/wmi-events.c |  7 +++
->> >  drivers/platform/x86/lenovo/wmi-events.h |  1 +
->> >  drivers/platform/x86/lenovo/ymc.c        | 85 ++++++++++++++++++--=
-------------
->> >  4 files changed, 58 insertions(+), 37 deletions(-)
->> >=20
->> > diff --git a/drivers/platform/x86/lenovo/Kconfig=20
->> > b/drivers/platform/x86/lenovo/Kconfig
->> > index 516594993073..f16b09bab082 100644
->> > --- a/drivers/platform/x86/lenovo/Kconfig
->> > +++ b/drivers/platform/x86/lenovo/Kconfig
->> > @@ -63,6 +63,8 @@ config LENOVO_YMC
->> >  	depends on INPUT
->> >  	depends on IDEAPAD_LAPTOP
->> >  	select INPUT_SPARSEKMAP
->> > +	select LENOVO_WMI_EVENTS
->> > +	select LENOVO_WMI_HELPERS
->> >  	help
->> >  	  This driver maps the Tablet Mode Control switch to SW_TABLET_MO=
-DE=20
->> > input
->> >  	  events for Lenovo Yoga notebooks.
->> > diff --git a/drivers/platform/x86/lenovo/wmi-events.c=20
->> > b/drivers/platform/x86/lenovo/wmi-events.c
->> > index 01ad5bcf0437..a0ddea01213f 100644
->> > --- a/drivers/platform/x86/lenovo/wmi-events.c
->> > +++ b/drivers/platform/x86/lenovo/wmi-events.c
->> > @@ -21,6 +21,7 @@
->> >  #include "wmi-helpers.h"
->> >=20
->> >  #define THERMAL_MODE_EVENT_GUID "D320289E-8FEA-41E0-86F9-911D83151=
-B5F"
->> > +#define YOGA_MODE_CHANGE_EVENT_GUID "06129D99-6083-4164-81AD-F092F=
-9D773A6"
->> >=20
->> >  #define LWMI_EVENT_DEVICE(guid, type)                        \
->> >  	.guid_string =3D (guid), .context =3D &(enum lwmi_events_type) \
->> > @@ -123,6 +124,7 @@ static void lwmi_events_notify(struct wmi_devic=
-e=20
->> > *wdev, const struct wmi_buffer
->> >  	struct lwmi_events_priv *priv =3D dev_get_drvdata(&wdev->dev);
->> >  	void *notif_data =3D NULL;
->> >  	int sel_prof;
->> > +	u32 ymc_mode;
->> >  	int ret;
->> >=20
->> >  	switch (priv->type) {
->> > @@ -143,6 +145,10 @@ static void lwmi_events_notify(struct wmi_devi=
-ce=20
->> > *wdev, const struct wmi_buffer
->> >  			return;
->> >  		}
->> >  		break;
->> > +	case LWMI_EVENT_YOGA_MODE_CHANGE:
->> > +		ymc_mode =3D le32_to_cpup(buf->data);
->> > +		notif_data =3D &ymc_mode;
->> > +		break;
->> >  	default:
->> >  		return;
->> >  	}
->> > @@ -175,6 +181,7 @@ static int lwmi_events_probe(struct wmi_device=20
->> > *wdev, const void *context)
->> >=20
->> >  static const struct wmi_device_id lwmi_events_id_table[] =3D {
->> >  	{ LWMI_EVENT_DEVICE(THERMAL_MODE_EVENT_GUID, LWMI_EVENT_THERMAL_M=
-ODE)=20
->> > },
->> > +	{ LWMI_EVENT_DEVICE(YOGA_MODE_CHANGE_EVENT_GUID,=20
->> > LWMI_EVENT_YOGA_MODE_CHANGE) },
->> >  	{}
->> >  };
->> >=20
->> > diff --git a/drivers/platform/x86/lenovo/wmi-events.h=20
->> > b/drivers/platform/x86/lenovo/wmi-events.h
->> > index cd34e886912c..592da08ff2a3 100644
->> > --- a/drivers/platform/x86/lenovo/wmi-events.h
->> > +++ b/drivers/platform/x86/lenovo/wmi-events.h
->> > @@ -10,6 +10,7 @@ struct notifier_block;
->> >=20
->> >  enum lwmi_events_type {
->> >  	LWMI_EVENT_THERMAL_MODE =3D 1,
->> > +	LWMI_EVENT_YOGA_MODE_CHANGE =3D 2,
->> >  };
->> >=20
->> >  int lwmi_events_register_notifier(struct notifier_block *nb);
->> > diff --git a/drivers/platform/x86/lenovo/ymc.c=20
->> > b/drivers/platform/x86/lenovo/ymc.c
->> > index eba22600161e..cb3ae49dfd9e 100644
->> > --- a/drivers/platform/x86/lenovo/ymc.c
->> > +++ b/drivers/platform/x86/lenovo/ymc.c
->> > @@ -3,22 +3,25 @@
->> >   * lenovo-ymc.c - Lenovo Yoga Mode Control driver
->> >   *
->> >   * Copyright =C2=A9 2022 Gergo Koteles <soyer@irl.hu>
->> > + * Copyright =C2=A9 2026 Rong Zhang <i@rong.moe>
->> >   */
->> >=20
->> >  #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
->> >=20
->> > -#include <linux/acpi.h>
->> >  #include <linux/bitfield.h>
->> >  #include <linux/bits.h>
->> >  #include <linux/cleanup.h>
->> > +#include <linux/container_of.h>
->> >  #include <linux/dmi.h>
->> >  #include <linux/input.h>
->> >  #include <linux/input/sparse-keymap.h>
->> >  #include <linux/mutex.h>
->> > +#include <linux/notifier.h>
->> >  #include <linux/wmi.h>
->> >  #include "ideapad-laptop.h"
->> > +#include "wmi-events.h"
->> > +#include "wmi-helpers.h"
->> >=20
->> > -#define LENOVO_YMC_EVENT_GUID	"06129D99-6083-4164-81AD-F092F9D773A=
-6"
->> >  #define LENOVO_YMC_QUERY_GUID	"09B0EE6E-C3FD-4243-8DA1-7911FF80BB8=
-C"
->> >=20
->> >  #define LENOVO_YMC_QUERY_INSTANCE 0
->> > @@ -61,8 +64,10 @@ static const struct dmi_system_id=20
->> > allowed_chasis_types_dmi_table[] =3D {
->> >  };
->> >=20
->> >  struct lenovo_ymc_private {
->> > +	struct wmi_device *wdev;
->> >  	struct input_dev *input_dev;
->> >  	struct mutex mutex; /* Protects event handling. */
->> > +	struct notifier_block nb;
->> >  };
->> >=20
->> >  static const struct key_entry lenovo_ymc_keymap[] =3D {
->> > @@ -75,49 +80,44 @@ static const struct key_entry lenovo_ymc_keymap=
-[] =3D {
->> >  	{ KE_END },
->> >  };
->> >=20
->> > -static void lenovo_ymc_notify(struct wmi_device *wdev, union acpi_=
-object *data)
->> > +static void lenovo_ymc_refresh(struct lenovo_ymc_private *priv, u3=
-2 code)
->> >  {
->> > -	struct lenovo_ymc_private *priv =3D dev_get_drvdata(&wdev->dev);
->> > -	u32 input_val =3D 0;
->> > -	struct acpi_buffer input =3D { sizeof(input_val), &input_val };
->> > -	struct acpi_buffer output =3D { ACPI_ALLOCATE_BUFFER, NULL };
->> > -	union acpi_object *obj;
->> > -	acpi_status status;
->> > -	int code;
->> > +	struct wmi_device *wdev =3D priv->wdev;
->> > +	u32 input =3D 0, output;
->> > +	int ret;
->> >=20
->> >  	guard(mutex)(&priv->mutex);
->> >=20
->> > -	status =3D wmi_evaluate_method(LENOVO_YMC_QUERY_GUID,
->> > -				LENOVO_YMC_QUERY_INSTANCE,
->> > -				LENOVO_YMC_QUERY_METHOD,
->> > -				&input, &output);
->> > -
->> > -	if (ACPI_FAILURE(status)) {
->> > -		dev_warn(&wdev->dev,
->> > -			"Failed to evaluate query method: %s\n",
->> > -			acpi_format_exception(status));
->> > -		return;
->> > -	}
->> > -
->> > -	obj =3D output.pointer;
->> > -
->> > -	if (obj->type !=3D ACPI_TYPE_INTEGER) {
->> > -		dev_warn(&wdev->dev,
->> > -			"WMI event data is not an integer\n");
->> > -		goto free_obj;
->> > -	}
->> > +	ret =3D lwmi_dev_evaluate_int(wdev, LENOVO_YMC_QUERY_INSTANCE,=20
->> > LENOVO_YMC_QUERY_METHOD,
->> > +				    (unsigned char *)&input, sizeof(input), &output);
->> > +	if (ret)
->> > +		dev_warn(&wdev->dev, "Failed to invoke query method: %d\n", ret);
->>=20
->> Should it not bomb out here? Otherwise the chances are high it's repo=
-rting an incorrect status isn't it?
->
-> It's intentional to fall back to the `code' passed by the argument:
->
-> - On probe, fall back to YMC_POSTURE_UNKNOWN
->   - sparse_keymap_report_event() becomes a no-op
->   - trigger the EC to ensure the keyboard and touchpad are enabled=C2=A0
->     (PATCH=C2=A06), or else the user may be unable to input anything
-> - On resume (PATCH 5), same as above
-> - On event, fall back to the event data
->   - the event carries data as per the MOF (see below)
->   - the WMI core has verified that the event has 4-byte-or-more data
->   - if the event data is correct, everything is fine
->   - if the event data is bogus, it's probably either YMC_POSTURE_UNKNO=
-WN
->     (0) or an undefined value (>4). In either case, trigger the EC to
->     ensure the keyboard and touchpad are enabled for the same reason
->
-> The MOF of the relevant WMI devices:
->
->    [WMI, Dynamic, Provider("WmiProv"), Locale("MS\\0x409"),=20
-> Description("Lenovo Yoga Mode Change Event"),=20
-> guid("{06129D99-6083-4164-81AD-F092F9D773A6}")]
->    class LENOVO_GSENSOR_EVENT : WMIEvent {
->      [key, read] String InstanceName;
->      [read] Boolean Active;
->      [WmiDataId(1), read, Description("Lenovo Yoga Mode Change Event")=
-]=20
-> uint32 ModeDataVal;
->    };
->  =20
->    [WMI, Dynamic, Provider("WmiProv"), Locale("MS\\0x409"),=20
-> Description("LENOVO_GSENSOR_DATA class"),=20
-> guid("{09B0EE6E-C3FD-4243-8DA1-7911FF80BB8C}")]
->    class LENOVO_GSENSOR_DATA {
->      [key, read] String InstanceName;
->      [read] Boolean Active;
->  =20
->      [WmiMethodId(1), Implemented, Description("Mode Data")] void=20
-> GetUsageMode([out, Description("Mode Data")] uint32 Data);
->      [WmiMethodId(2..7), DON'T CARE, USUALLY UNIMPLEMENTED]
->    };
->
-> If I were the original author of lenovo-ymc, I would not call
-> GetUsageMode() on events, but would solely rely on the event data
-> (ModeDataVal).
->
-> I believe the driver was implemented in the opposite way (i.e., calling
-> GetUsageMode() in events and ignore event data) simply because this was
-> how https://github.com/lukas-w/yoga-usage-mode was implemented. It was
-> more like a preference of the original author rather than a technical
-> issue.
->
-> I preserved the call to GetUsageMode() simply because I didn't want to=
- be
-> too radical here. Prioritizing GetUsageMode() results and falling back=
- to
-> event data on failure seems safe anyway.
->
-> Does this make sense to you now? Maybe I should've elaborated more in =
-the
-> commit message...
->
-> OTOH, if you don't like the fallback, I can ignore event data (again) =
-and
-> pass YMC_POSTURE_UNKNOWN to ideapad-laptop on error (IMO we need to
-> trigger the EC anyway to enable keyboard and touchpad anyway if we can=
-'t
-> trust event data).
->
-Thanks for the explainer - all good.
+Signed-off-by: Kim Phillips <kim.phillips@amd.com>
+---
+ arch/x86/boot/compressed/sev.c      | 2 +-
+ arch/x86/boot/startup/sev-startup.c | 2 +-
+ arch/x86/include/asm/sev-common.h   | 1 +
+ 3 files changed, 3 insertions(+), 2 deletions(-)
 
-With that:
-Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
-
-Mark
+diff --git a/arch/x86/boot/compressed/sev.c b/arch/x86/boot/compressed/sev.c
+index c6512f2ea31e..2deaf8bfaaa7 100644
+--- a/arch/x86/boot/compressed/sev.c
++++ b/arch/x86/boot/compressed/sev.c
+@@ -274,7 +274,7 @@ static struct cc_blob_sev_info *find_cc_blob(struct boot_params *bp)
+ 
+ found_cc_info:
+ 	if (cc_info->magic != CC_BLOB_SEV_HDR_MAGIC)
+-		sev_es_terminate(SEV_TERM_SET_GEN, GHCB_SNP_UNSUPPORTED);
++		sev_es_terminate(SEV_TERM_SET_LINUX, GHCB_TERM_CC_BLOB);
+ 
+ 	return cc_info;
+ }
+diff --git a/arch/x86/boot/startup/sev-startup.c b/arch/x86/boot/startup/sev-startup.c
+index 789e99d38d17..75b40aefb856 100644
+--- a/arch/x86/boot/startup/sev-startup.c
++++ b/arch/x86/boot/startup/sev-startup.c
+@@ -145,7 +145,7 @@ static struct cc_blob_sev_info *__init find_cc_blob(struct boot_params *bp)
+ 
+ found_cc_info:
+ 	if (cc_info->magic != CC_BLOB_SEV_HDR_MAGIC)
+-		sev_es_terminate(SEV_TERM_SET_GEN, GHCB_SNP_UNSUPPORTED);
++		sev_es_terminate(SEV_TERM_SET_LINUX, GHCB_TERM_CC_BLOB);
+ 
+ 	return cc_info;
+ }
+diff --git a/arch/x86/include/asm/sev-common.h b/arch/x86/include/asm/sev-common.h
+index 3717796c4673..ee251fa5e266 100644
+--- a/arch/x86/include/asm/sev-common.h
++++ b/arch/x86/include/asm/sev-common.h
+@@ -212,6 +212,7 @@ struct snp_psc_desc {
+ #define GHCB_TERM_VC_FAIL		13	/* #VC exception handling failure */
+ #define GHCB_TERM_GHCB_SETUP		14	/* GHCB setup/mapping failure */
+ #define GHCB_TERM_NEGOTIATE		15	/* HV GHCB protocol negotiation failure */
++#define GHCB_TERM_CC_BLOB		16	/* CC blob header magic is invalid */
+ 
+ #define GHCB_RESP_CODE(v)		((v) & GHCB_MSR_INFO_MASK)
+ 
+-- 
+2.43.0
 
