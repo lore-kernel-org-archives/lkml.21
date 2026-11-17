@@ -1,66 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=199.89.1.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.77
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794943654;
-	b=rnqct8QrJ8hWp7t5J9dTH//Lb9ZlZoRrGhsAzYAN9gMhl32cy+egwhxZGDlocqqHkeI9
-	 Tkd9fp3Ia9BKAU/mX9qGcM51VOSsHEeOEEBtZaflZQEXP2gxpQX1Wzr+VNjN0jkledbyt
-	 4BxP9oxQRXvpbGXiBTmP7obGThVw36p10kztzm+ZgAsKmSy9OnLmhD0NiP9P2otc+qqUR
-	 /9OHGfSL3n/o/A3il+WildE9UBE/J2wU6oJhCuGP6FKcS1f2wW0e9R2lAnRV8C4nufuhq
-	 UaS2PC3TAX3T6rOsFCro9gfOSpQmGbzUENtKtShnWrUIE9chI7TUcIW6plsOCdAStZQ==
+	t=1794943671;
+	b=MfSkC4o/+xnKQUMOgfCVm9amSPuG7H2DuuIECj0x6vcIYKKpXAsNg68O7O74WhFpO4R9
+	 bfSYIuTF9HGzHFE/n0Qpz1e3LeCFp99aOXDy0b0IxmV8RNpl9MEOMNgvLNSzqELO3SHP9
+	 UohXV7b+93gjU+xYBH8SLOfHome+yiNIoxuJXNmY+QlslHg3YrViiJxS8RSpQ2uQf00vC
+	 JGP/V/3H3qtzJkkOSImAqxNCuah8ZN6YvUxtkgcrezoPLtdnOQIeh7QTDnTHTNsvkeLba
+	 Vrt87xlPzYqkn9IJb1an66KFLQyL5LuKo+xWe+CarVuhudY7EgZNTBsGT5pnRYIhKKg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794943654;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Virus-Scanned:Received:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=6trCVgkmKXfRuSPpaGIP8afSVy9u9K8tf2EWi/xEbiA=;
-	b=KatmDoeebc7c8UwH3foKFNwn5+e72nVpm2bcphvqV/g3E5zFstiwVCYSJub6WMjug6dj
-	 Gj9czlnjIYbXVYwFNFDOjt1rVpeloLV7xMW1RjXzAJipf0rAeCmQ/eviEe/zP9S1ZAVtU
-	 H57XpPraBfnYc2dXCriADRGzPh3yJhCb/Asc+OIgBud3VPURlS1FV1CkeNlYgY/hYrKen
-	 EK47sdPRJoC14VMX6haeQUmtP8M1vESdUuix7Y3dQQuZrtGb6IrjSOCBwYtXPQdWkdoN5
-	 TchvkUr2+6e1dQMz9gTJkhxOMbetCAtYgm500k3FVzCLcrCR1Ll6+QWotbsHcAR0e9Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794943671;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type;
+	bh=+DQj5Rd8zqu4HARCi8rW0yj9HPFCT3iadFhwoSDGLHw=;
+	b=F7T3US9UrVCdrSCdTobbhudFCApBYC78LH3hA1xaciXAvlSYcIa1X0BOTfxPtdpfUlUy
+	 PSfymQOoBDiwJi0ldFePrNkyOjyxOjM85LFVGw1KcYXb4AT9yVoKtX8cBQsRU5FNPs/zz
+	 kL1VJ6JQMf1N6AVHqSucw7rKh4JwkvyisDHv2UqXbNeT3VQycka1N1A0VnCNRH0nNqXyq
+	 JH1lEZXJNDPnU4b6UJyvhwBIcSNiiDT2mLSJ+XRcY6OQB0cVoeH7+253gF9zdhQGH0n/H
+	 oRB8VJT/AT7mnOcJqG6LhF/aDX5lyMNJ65Fkw0ypQzErO6Gh7s6kEEU2lJ3B5YL3GUg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=acm.org;
-	spf=pass smtp.mailfrom=acm.org;
-	dkim=pass header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=NrjShZss;
-	arc=none smtp.remote-ip=199.89.1.16
-Received: from 013.lax.mailroute.net (013.lax.mailroute.net [199.89.1.16])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=wUCKssxR;
+	arc=none smtp.remote-ip=95.215.58.77
+Received: from mta1.migadu.com (out-77.mta1.migadu.com [95.215.58.77])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B811606A31C;
-	Tue, 17 Nov 2026 19:27:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B811606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=acm.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=acm.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BA2E606A337
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:27:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3BA2E606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=NrjShZss
-Received: from localhost (localhost [127.0.0.1])
-	by 013.lax.mailroute.net (Postfix) with ESMTP id 4jTZW96mzNzlfftY;
-	Tue, 17 Nov 2026 19:27:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
-	content-transfer-encoding:content-type:content-type:in-reply-to
-	:from:from:content-language:references:subject:subject
-	:user-agent:mime-version:date:date:message-id:received:received;
-	 s=mr01; t=1794943651; x=1797535652; bh=6trCVgkmKXfRuSPpaGIP8afS
-	Vy9u9K8tf2EWi/xEbiA=; b=NrjShZssthusAPqjbF+zgd9xVzOdGuidMqcmbZfv
-	9OA62J7p7sOZtTzGnbG5vFXwiXYrg1d8+fjN1sGUPJRF3ABU8+UnPzmakTwm+E1J
-	+HnQwqWpQ/AKCO6uRlLljZ9OMOFfm0iU6Q6/qC+enouOaIgh/VZYGZkWQaYWKMkr
-	OW5oN/EgH+rtWAgC6nJB9IeTbA5mdCor0VyqrSRX/m5ivbcJrGg86zQ76llicgti
-	P0Ax6fszq7ek8ldrVQICACCuqrMmf/3UjAnzwvWbqHzkl7vtzH8HMI/IH2kGvgBF
-	ZW/11RTiMRwyhCoZXh8qQoJR/m3YzqL7VgmhBEEiq1eP3A==
-X-Virus-Scanned: by MailRoute
-Received: from 013.lax.mailroute.net ([127.0.0.1])
- by localhost (013.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
- id SSrE75kslNOC; Tue, 17 Nov 2026 19:27:31 +0000 (UTC)
-Received: from [IPV6:2a00:79e0:2ed2:d:643b:ca6:3ef5:e98] (unknown [104.135.182.40])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: bvanassche@acm.org)
-	by 013.lax.mailroute.net (Postfix) with ESMTPSA id 4jTZW70dlrzlfclv;
-	Tue, 17 Nov 2026 19:27:31 +0000 (UTC)
-Message-ID: <350d2c49-1a12-47e2-8720-8deb8e322531@acm.org>
-Date: Tue, 17 Nov 2026 11:27:30 -0800
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=wUCKssxR
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=dKmJYX/63y+iQ1pYCnW01HTy/TWczwm2xVh0zs98/fA=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794943669; v=1; x=1795548469;
+ b=wUCKssxRB0M8jY8OUxjL4GHT7RTqPYP2zmQtzJUlNo9kz+Ltm/cInhzD8M+BC1l1+ehNeukz
+ vvXrgFM8Mj3uWlI/jHBPGEHTdQqxqaiLQCOAQusBbW0GXqYKIeaVfRcb3KCtZAev+1THxlBJee9
+ 02FntqQRKlazMWK+vgSL/mzI=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 74585e219372958a;
+	Tue, 17 Nov 2026 19:27:49 +0000
+X-Mizu-Trace-ID: 74585e219372958a
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5c14bc5a743so1132e87.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:27:45 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErEZeNP7QShRjcjvBG7TVhEY4BBrqWQeY7lomnoxCB7QaiCqyC7zolMxJDrtrnsb9INvaVO0y69chhrO2xE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9N0uItPUV7qpYtHXWEeOo59n0WKcWhW7Z4PNXe4Mxn9nEGzpB4
+	yVe4tA3+iMcSePKeGDqcTb6WgNRxxOp4yepWd0G4vrRgPqFAQ6BQ9qQ2CLeH6m5sDLNEYcGpGC3
+	neZOM3rIn3FXe/fIXFXPbgXc2iAMIk2bDXSimBnrg
+X-Received: by 2002:a05:6512:304d:b0:5bf:f81a:f24e with SMTP id
+ 2adb3069b0e04-5c1a98e431bmr17685e87.10.1794943664222; Tue, 17 Nov 2026
+ 11:27:44 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,65 +66,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] scsi: pm8001: Offset hardware queue index for MSI-X
- pre-vector
-To: TJ Adams <tadamsjr@google.com>, Jack Wang <jinpu.wang@cloud.ionos.com>,
- "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
- "Martin K . Petersen" <mkp@kernel.org>
-Cc: John Garry <john.garry@linux.dev>, linux-scsi@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261117175558.4146151-1-tadamsjr@google.com>
-Content-Language: en-US
-From: Bart Van Assche <bvanassche@acm.org>
-In-Reply-To: <20261117175558.4146151-1-tadamsjr@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20261109083205.806619-1-fuad.tabba@linux.dev> <20261109083205.806619-8-fuad.tabba@linux.dev>
+ <avyZH2g3rrIVm-Fl@kernel.org>
+In-Reply-To: <avyZH2g3rrIVm-Fl@kernel.org>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Tue, 17 Nov 2026 19:27:07 +0000
+X-Gmail-Original-Message-ID: <CA+EHjTxsZFOwT5O5FfMf3wcTWrydR+x1TYVRDaCEF_FQX8giFw@mail.gmail.com>
+X-Gm-Features: AclHuK_6wbUaiI-auzUUbuozU8SjWYXkCa76KeN8iu8Ffe01iC2J030eQ3Qa2QI
+Message-ID: <CA+EHjTxsZFOwT5O5FfMf3wcTWrydR+x1TYVRDaCEF_FQX8giFw@mail.gmail.com>
+Subject: Re: [PATCH 07/16] KVM: arm64: Compute a protected vCPU's fine-grained
+ traps at EL2
+To: Oliver Upton <oupton@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Vincent Donnefort <vdonnefort@google.com>, kvm@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On 11/17/26 9:55 AM, TJ Adams wrote:
- > diff --git a/drivers/scsi/pm8001/pm8001_defs.h 
-b/drivers/scsi/pm8001/pm8001_defs.h
- > index a9605ca317f3..ef7b6257cc8b 100644
- > --- a/drivers/scsi/pm8001/pm8001_defs.h
- > +++ b/drivers/scsi/pm8001/pm8001_defs.h
- > @@ -178,6 +178,7 @@ enum port_type {
- >  #define	PM8001_MAX_INB_NUM	 64
- >  #define	PM8001_MAX_OUTB_NUM	 64
- >  #define	PM8001_CAN_QUEUE	 508	/* SCSI Queue depth */
- > +#define PM8001_PRE_VECTORS	 1	/* non-affinitized housekeeping vector */
+Hi Oliver,
 
-The surrounding definitions have a tab between "#define" and the
-macro name, while this one has a space. Is this intentional?
+On Tue, 17 Nov 2026 18:12:47 +0000, Oliver Upton <oupton@kernel.org> wrote:
+[...]
+> > +#ifndef __KVM_NVHE_HYPERVISOR__
+> >  static void __init check_feat_map(const struct reg_bits_to_feat_map *map,
+> >                    int map_size, u64 resx, const char *str)
+> >  {
+[...]
+> > +#endif
+>
+> We already have too much ifdeffery... It isn't mentioned in the
+> changelog but I take it you're doing this to avoid the printk() in
+> check_feat_map()?
+>
+> If yes then just upgrade that thing to a WARN() and carry on, it only
+> ever runs at init.
 
- > -static u32 pm80xx_chip_get_q_index(struct sas_task *task)
- > +static u32 pm80xx_chip_get_q_index(struct pm8001_hba_info *pm8001_ha,
- > +				   struct sas_task *task)
- >  {
- >  	struct request *rq = sas_task_find_rq(task);
- >
- >  	if (!rq)
- >  		return 0;
- >
- > -	return blk_mq_unique_tag_to_hwq(blk_mq_unique_tag(rq));
- > +	if (pm8001_ha->number_of_intr > PM8001_PRE_VECTORS)
- > +		return blk_mq_unique_tag_to_hwq(blk_mq_unique_tag(rq)) +
- > +		       PM8001_PRE_VECTORS;
- > +
- > +	return 0;
- >  }
+Yes, it's because of the kvm_err(), as printk() isn't available in the
+hyp object. WARN() calls __warn_printk(), which isn't available there
+either. WARN_ON() works, so I'll use that in v2 and drop the ifdef.
+The warning won't have the register's name or the bits, though.
 
-A side effect of this change: completions for the highest hardware
-queue now go to outbound queue max_q_num - 1. pm80xx_chip_init()
-programs that vector as the fatal error interrupt. process_oq() reads
-MSGU_SCRATCH_PAD_1 for every interrupt on that vector, and also
-MSGU_SCRATCH_PAD_RSVD_0 if no fatal error is reported. Without this
-patch, no I/O completions go to that queue, so those MMIO reads only
-happen for fatal error interrupts. The code is still correct, and the
-driver used that queue for I/O before commit 42f22fe36d51 too, but it
-might be worth mentioning in the patch description. Alternatively, a
-follow-up patch could move the fatal error interrupt to the
-housekeeping vector.
+I'll wait until next week before respinning, in case you or others
+have more feedback.
 
-Anyway:
-
-Reviewed-by: Bart Van Assche <bvanassche@acm.org>
+Cheers,
+/fuad
