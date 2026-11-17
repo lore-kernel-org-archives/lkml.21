@@ -1,97 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.29
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794937756;
-	b=ayeVix2j4eCAYsXmS+qG/xnYPPeOGia/7wFpwDXBkLU/MxLOfUNLyfviPXrnykxB24Je
-	 PbwEH2uJB3pTEz+lHZqYZKiELCvWvFHBOyl+Po13hPK2tt1LLuKypENnAlCkO89R0ebE6
-	 valNNH5n/Q+Yg/rGJA5oYJTpH0WDfGpBEk6KvD9lNEAJU6SwV8QxydGq2otUzq9bR348O
-	 3bajQIvcWxmPql3i7sDfUa4PdIPS7L8gTOqeQqwUOX/5Fqe5eWALhd0WA5gqS/Uc4+6kH
-	 dpBaWshQPqOpdDAigRon3RUiAKZ+AhRYh2dijZk3ZdoXPDrvYvc0OTZP19BvSQWsvbA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794937756;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=yFql7xVRXVY5VFRAUnlwdjlFrMmJkn+QmME14Vkjq60=;
-	b=pUukeSTGQDRYIcatuwB9vraDK3xkEZ2Lq++502U/AJlwuF5JFd3EpkevnM6YkzrC3Y6b
-	 8O/s7UiZS1A5a/t9mVwBLemHDSZN5IQt17B3Em5bR5mWsPBPje6j/x7FkKCZJ3rGlpakz
-	 g2wSJQp+Qg2oa7AiJIpo7vl76b31Mx/EhFeNtvkZevGD9LRR8JI3lL3icjXp3AcawjLwr
-	 ANgL6+FhhYLwkVzgRWx/4b6Iv3MO7EVdwzPFKkowq8ZiVkOdRIacx1fHAjUZOFaHMC0Fr
-	 mVmckWPMZXrRk2GMMBKnCQpRKJgKIqY6jOhPPka5BPmtzjN11qk9MWzqRBkzRjEH/eQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=KUiVftwt;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.29
-Received: from BN8PR05CU002.outbound.protection.outlook.com (mail-eastus2azon11011029.outbound.protection.outlook.com [52.101.57.29])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.247
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794937776;
+	b=xTrTrNcx7ee/bRzSYxkpXsw9x1jp67yWzQBUG2HLJzOcNESd2iJH0DZ6Jh44hiG15jsT
+	 NEr0qErTcieyHZ4zf41E2O6iD+gA9GqmUV9P3beIpnMFGyslXhyW6MMtnX6KJJDJS+VEI
+	 VRTfyhMF5MKHFAxdkwoLqNuERleWSRozrz+C791eU4L/Ua69n1hCY1M7XFeYfSjQ2d4eW
+	 j/cVOMAPM2G53s7nhGH8bU2TFT0nc0QjwiDWIEBN7gy9NTJ7VsjtKGW5g/EQkLi9Rm+cL
+	 GTbmpcUu1wU9NfIwjjuTBuhThQKkHHbQuyMCIpRLeeTaceFaE4AGLbGfdmTHNb6wEgg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794937776;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Content-Type:Content-Transfer-Encoding:
+	 From:Mime-Version:Subject:Date:Message-Id:References:Cc:In-Reply-To:
+	 To:X-Mailer;
+	bh=USqC8s22nHYoDzDQF9uFHHFGZ31h3DAy1gNTvMcr9dU=;
+	b=CGaxBHpi51x4JAgkTSXeZIKaC099e2L9IZY7eWpjT26ZKdod+7owWoePoA20GjGiX8NO
+	 wKJt16tXcZnj98hy28xBqpCI+rzqQ0qhTkzRVj1KkclkfqfK/0urbZ3vBqo66JQNV6/ZB
+	 AshRdHV2cyodtMUGTNrtNNQyaFIGHiP5RA+KTY+Imbfwt9cQh8qagkXY5M1PjhYNU7wPg
+	 9FmPua5EBvUh4DoKNcXWQ2TqgeVKfCyttyvadh//hfnZ6SfKCPcYOYQ722vpCRhWcbgpK
+	 FWK9RfqBrNFIoORYCVNcXz6V0imaOXSZDJGffU3YdTiagZsnbblunhh4h9rGidbUyNw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=YfIRHYZI;
+	arc=none smtp.remote-ip=95.215.58.247
+Received: from mta1.migadu.com (out-247.mta1.migadu.com [95.215.58.247])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6ACD7606A332;
-	Tue, 17 Nov 2026 17:49:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6ACD7606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81C54606A32F
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:49:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81C54606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=KUiVftwt
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=X5rn6LBmNhehx4WjozUrmZqy7C+LWeDieFhJuFk18uhLl/B8bUIrrCU9SZnBw9M0sNO5tkmLEj34Sy2mZwmeUGCHISpGr50Z4i5GgSHgEqBtxP39lRJszMz+Wya8GRRdugyZG73ds1MUriIOmW4ulQewxD+fwmbZPtlP6CATcnWv+B92JGyoUV5f0fOSmuNlDtlfMVbi2VI9banPYFs0dDBuy+blpZn7lpV17PXRjZFsbqG0UonDwnfaBJvU2LMhfm+qnH3BPRaI++wmw72VG8ScejlUqcgDfqL6iyRCzWY7HkJCHd4qvfpl4klHxpNlBhakcnxvXU5FfvfqSpLFeg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yFql7xVRXVY5VFRAUnlwdjlFrMmJkn+QmME14Vkjq60=;
- b=nw4R/8X9WSt27DwYeIHBRnis3QjHm85Ah+6HThspOy5znclF910qlpnlaOTDmjahsfJxE0vLCQVQQTsic64s3z6tGYNJmfH70nx2G8YEnIYIx4sRp/QF15byRmj3lCFt2ntx74XC4UtuhzjFScVkEs9QtddGKeOBGXOrNa9BOnO6UTe+/e7Pj4ZZWnf2gUwu0r0OrCGr7+zHT3mIkcmo0lLkhuV2Jav1p69Y8sGE1M0Kw2WMyojmeSpgz+o8EjSME73rlnQTduGprkqzYxfgKhJJa2CSnZbWx0XqrxpLb/drdrKXf87ve3DItMW+GrKet/HwHFUkboVkc2lNWzpriA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yFql7xVRXVY5VFRAUnlwdjlFrMmJkn+QmME14Vkjq60=;
- b=KUiVftwtP8tzY6Sddd19EsjJC7inztxUjRN/FzvOPPLswqRcqHXpluL1A3dtTBYTbIpITOxrRTQd0iKwJ619DD98WzpBY1mq67cTNdpyl+kff8uy79XXaFm78I7n5AeyYNTbyK5JJjC+/tniRNmgfIDLzTJwEmUFGshGroQ4WvRTk3MUt00tgKSea/kLQty/hD/96bzYqClQjDXuPXG30iXcTMwKEG+xYCxDW+LqrlYkoMjSCVn67v0VQdNMWwUCo4xGFAHHw+vAgYwHzFB7Snxd4rOACVvPJ33qjVlckGsOALya95xvPAeRkdEu95ptM8U0jmEQ38g48Mcj1HgQlg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9407.namprd12.prod.outlook.com (2603:10b6:408:1f9::13)
- by IA1PR12MB9064.namprd12.prod.outlook.com (2603:10b6:208:3a8::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 17 Nov
- 2026 17:49:10 +0000
-Received: from LV8PR12MB9407.namprd12.prod.outlook.com
- ([fe80::208b:424e:47e9:8a96]) by LV8PR12MB9407.namprd12.prod.outlook.com
- ([fe80::208b:424e:47e9:8a96%4]) with mapi id 15.21.0615.009; Tue, 17 Nov 2026
- 17:49:10 +0000
-Date: Tue, 17 Nov 2026 19:48:59 +0200
-From: Ido Schimmel <idosch@nvidia.com>
-To: Hengyu Liang <hengyul@cs.unc.edu>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	David Ahern <dsahern@kernel.org>, Simon Horman <horms@kernel.org>,
-	Sabrina Dubroca <sd@queasysnail.net>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] neighbour: do not update an existing proxy entry on
- SIOCSARP
-Message-ID: <20261117174859.GA943423@shredder>
-References: <20261113193355.3820232-1-hengyul@cs.unc.edu>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261113193355.3820232-1-hengyul@cs.unc.edu>
-X-ClientProxiedBy: TL2P290CA0003.ISRP290.PROD.OUTLOOK.COM
- (2603:1096:950:2::20) To LV8PR12MB9407.namprd12.prod.outlook.com
- (2603:10b6:408:1f9::13)
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=YfIRHYZI
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=4nUZbHSGDeC5EzVQv/op9L9Mno790WzQ1pC5Hx0vt5Q=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794937773; v=1; x=1795542573;
+ b=YfIRHYZI1UkGKEdWhq1EsKsV9sJ5TYB/Zor6pnppHWXMR+Tfw/P0oJtiSJ90IDue4AnhNKo3
+ PTSTnowS2ll+bQhIUgVIX0Z0CEMV8bc+3svVjImk9HUApeCyBM10uA5XI/AVJ3L2ZgtHwzuMnPV
+ uukKNDjFQs7JjM74a0TimTCc=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta12.migadu.com with ESMTPS id 4b46ce5bd6d34d3e;
+	Tue, 17 Nov 2026 17:49:33 +0000
+X-Mizu-Trace-ID: 4b46ce5bd6d34d3e
+X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+From: Aditya Garg <aditya.garg@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,109 +58,101 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9407:EE_|IA1PR12MB9064:EE_
-X-MS-Office365-Filtering-Correlation-Id: e5e95ca1-616c-4743-de78-08df44d3155a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|366016|1800799024|7416014|376014|22082099003|18002099003|261009223027099003|3023799007|11063799006|56012099006|261028144727099003|261022105027099003|261026140227099003|261022075727099003|261026121527099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	g3zeKt4RRru8hx9G+O9KWrZZtJBdu97Sg93XzJrM0ndIEhFxRXvhZYmPzxrll6w3mSiA4F4E5RqNkZmQDCpF0GbuChaYXxhUxdb0+6lhgF8GLE/s8rCecy2J61NhpCziq5CLOY0sBjeIRyMD3pt8Le6uaAPd46unvM8OQQD/SCb8dLGRQqr0kMsdaR466I2nlKsGDuWz8v8ToAuuatZwi//ItqF0jK7exh8oeJTrVJ8nXrvXnErrzBH7kKtm6qebYIyzhMQlbbtY2UGIWGzUbJmrrdA4tVE7XcN2Osd3zYtHJm70/SjpDC/zNjgdEJNf0WadfLW04AgaluTomgzrTcYSMLGVczcDSoKgovQluyJuktEbgFBjlY+haIi+LPPISvZfKJF5gZkKJ0cHxVr1wUOplItBiHxISblVaBFCdaBGJswAEyoQlYCmgf5SsXE58HdJp7l8ldNY+W7R+Ss6ptL7SiybxLzA1Xg3QFj4JfdY15/c+8PuQ0WtULRZbjx0VmVuEde725m+WjlBcUuvJYtrMxFGE7UQnoF0/D3AfrXXsQ5+P5EQjblcvLZBqkH5S/vB2CviqSRXyV3sCoiIh8C6xa7Zt4FCN3fVrs4JpvFxEvf4tv96U5cUAT2wBX0Uzav2o+qUuIlS3AjW3o+299CfIg8n2vZH8Q134IeHeCk=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9407.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(7416014)(376014)(22082099003)(18002099003)(261009223027099003)(3023799007)(11063799006)(56012099006)(261028144727099003)(261022105027099003)(261026140227099003)(261022075727099003)(261026121527099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?0wDZ9ZkYs2wdTJnIq/5LvraLnIpgVbiGRSFLoCNohmfGRdfBdcf2uQaexYBd?=
- =?us-ascii?Q?3n3RcBT367+BNYWa+yMNjlspEn42V0GppXbngyNnDRkgN3ioDigivcy4UdY+?=
- =?us-ascii?Q?2K+S4B4LMOsejMSEgQMshx50oCYA36EFCw+RyK+yaCeS4wEscm6HqCzbXmn9?=
- =?us-ascii?Q?syOuqlH6Ld4tosXpGy3qG+7FgUWRriga5OSSbFos4vhOE6VOv5ncJT+2GTtE?=
- =?us-ascii?Q?P/IQQyIHvNG4xaEfvB5WWNhrXjWJTYFZu1jr9L+Jyl5s5Oz4mBrp6VGl8L5+?=
- =?us-ascii?Q?K7YbNWi9Z/3HMIzf1O+l6lcMJEqQ70UB4iyv+LGMA4KfpUajnPEXInmUt7ff?=
- =?us-ascii?Q?gSHoFiySEfXiVC1AzuUQ3agG8RgMQRV311SIAwQU5cZj8uFnX+jRXqQucICJ?=
- =?us-ascii?Q?SIF93m4ANFxhH+M6JtT4kIpVIfk1RVaGZ8dpJKHvjP/JwnQPxUWmWCQlxJBB?=
- =?us-ascii?Q?E7nApDNYmYSP6zVgBY/yrfyJ16IE648IbM5E5PwLfheWuiNpob/d4AxAVcqi?=
- =?us-ascii?Q?xzFcvICOgplqFGzfxpCExNs1CJ1TDxcZun1RulrOFsPLOYDnxHcJZJJHCXNw?=
- =?us-ascii?Q?ug9jhecwyMJBkRCrgbrxQ7FI5WrGVvpAmKK4vmqrJ170bJKHHiIZxi7WE+WX?=
- =?us-ascii?Q?8gnRvjbfc5a3cv1GYloT2P3zY95yBuwzbjYk93nViIEbybZbvC71+kXoBdVc?=
- =?us-ascii?Q?g5jDF1jbFeAGqnWOkdKc3BWhTu1mwY5gL3Nnk67ySovCQ3W9q70aI9g4d71L?=
- =?us-ascii?Q?vcaNLs77Uaakhg8wXC8B0jRrb/N+U6nyGE+DfJKx8DFHYpkg6rdnqjfx258d?=
- =?us-ascii?Q?eEYiBRamHkgEMORjUYhrwZVRGzctB65tfuemFWT+oEkGSzXEr+byHLbz00pI?=
- =?us-ascii?Q?BtsUYo3ehKMf6tOX8Eh3Mtlh/lNY5FmxJVAFhdFS9mpZQtYDN+DXtwkNGy7K?=
- =?us-ascii?Q?v0THY/kw1KtYpFNPBF30i7rzSbv7iuHFD1HrtdAadwEF23iQ28DhooZ9qo4T?=
- =?us-ascii?Q?/E2azeFsGQ00lVPMkC8jVYnNVhL5dxQ1UJD5Btpl06oRzZILivpLGdcGfmm0?=
- =?us-ascii?Q?BmrA3tuqrf6w9W2BpxiRKaXCWF0RXzz+Pl84NGSsiqbt5SmjDxc4jrlGAH2m?=
- =?us-ascii?Q?c0odICQMV8dcRrn/SNwwSNiUKNPC69V6hq1jFRn4gr+Zwhtt8kTj1FQjQuGV?=
- =?us-ascii?Q?rD/e+s/S/Vc1zHs6+tYzuBFcNGp1rYBoODX3tjQ+il4vEPRuPaH8bl5iL1bf?=
- =?us-ascii?Q?1LrTVGaPLfyF9hW+/PX6yrWxvrW737t939DQn9kpY05KOFJ9oIzUA+uyc5g8?=
- =?us-ascii?Q?swY6i4rgQE+YJoVPsXXf9frtxORPS/3dVnuN6w6JmAC25Du6eihJIPdBOxFa?=
- =?us-ascii?Q?WuNst7an0au+6n18CbdlBrV4EbnZrG5YwQ4hTVQjxv4DohpbDIWrGN4RT58U?=
- =?us-ascii?Q?I+BebEeGgt3vPQm7lFRVsRuk8dusn3emYe80nympFE7Mj92Ke3ztNxzx1WHn?=
- =?us-ascii?Q?e2aBLgxgDMkBQE+xytoZNIWSrVI/jli61bdX4iDdbrQMpsjRGr8sHoxKj9ZW?=
- =?us-ascii?Q?xpdUDT9uGTHN3l9SLnH1KvoA8jK7JY3o+vDmyC28vuwUW3Nb7cmjfaDw9K4u?=
- =?us-ascii?Q?WcnDnpM9LZjkxhSmIgySUFMieJDd6SLBRHL0rVHwKkrzDxI7A7dhxn2fBS+T?=
- =?us-ascii?Q?C51uJR6Jxm7pAI/wdDbRD9oDTws97y5kmLhlFKHZJ2LVguG4?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e5e95ca1-616c-4743-de78-08df44d3155a
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9407.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 17:49:09.9594
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: rmKhYsj9XtFRzs3WNxO9ASgsSVWIXrUEL1Uej06E7HgDHqZ0G7L/cn+latR2wb8IJy16wfZnWUdXZMGr9AUlew==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB9064
+Mime-Version: 1.0 (1.0)
+Subject: Re: [PATCH] wifi: brcmfmac: leave the AP 4-way handshake to the host on Apple chips
+Date: Tue, 17 Nov 2026 23:19:18 +0530
+Message-Id: <BF5FB50E-063E-4EAA-A06D-ADC3670DEAE9@linux.dev>
+References: <20261116203719.281605-3-arend.vanspriel@broadcom.com>
+Cc: Andre Eikmeyer <dev@deq.rocks>, arend.vanspriel@broadcom.com,
+ linux-wireless@vger.kernel.org, brcm80211@lists.linux.dev,
+ brcm80211-dev-list.pdl@broadcom.com, linux-kernel@vger.kernel.org,
+ Yossef Osman <Yossef.Osman@proton.me>
+In-Reply-To: <20261116203719.281605-3-arend.vanspriel@broadcom.com>
+To: Arend van Spriel <arend.vanspriel@broadcom.com>
+X-Mailer: iPad Mail (24B119)
 
-On Fri, Nov 13, 2026 at 02:33:55PM -0500, Hengyu Liang wrote:
-> Commit dc2a27e524ac ("neighbour: Update pneigh_entry in
-> pneigh_create().") moved the update of flags, protocol and permanent
-> from neigh_add() into pneigh_create().
-> 
-> However, arp_req_set_public() also calls pneigh_create(), with all
-> three set to zero. As of now, SIOCSARP on an address that already has a
-> proxy entry clears the flags of the entry and makes it non-permanent.
-> The entry is then removed when the carrier goes down, and the host no
-> longer answers ARP requests for the address.
-> 
-> A similar issue happened before with the protocol. It was fixed by
-> commit cbada1048847 ("neighbour: restore protocol != 0 check in pneigh
-> update"). Perhaps flags and permanent need a fix as well.
-> 
-> The issue can be reproduced with:
-> 
->     ip link add d0 type veth peer name d1
->     ip link set d0 up
->     ip link set d1 up
->     ip neigh add proxy 10.9.9.9 dev d0
->     arp -i d0 -Ds 10.9.9.9 d0 pub
->     ip link set d1 down
->     sleep 1
->     ip neigh show proxy
-> 
-> Before commit dc2a27e524ac ("neighbour: Update pneigh_entry in
-> pneigh_create()."), the result is:
-> 
->     10.9.9.9 dev d0 proxy
-> 
-> After that commit, the result is empty.
-> 
-> This patch will add an update argument to pneigh_create(). Only
-> neigh_add() sets it, so SIOCSARP leaves an existing entry alone again.
 
-For future submissions:
 
-Use imperative mood:
+> On 17 Nov 2026, at 2:07=E2=80=AFAM, Arend van Spriel <arend.vanspriel@broa=
+dcom.com> wrote:
+>=20
+> =EF=BB=BFOn Wed, 4 Nov 2026 16:16:29 +0100, Andre Eikmeyer <dev@deq.rocks>=
+ wrote:
+>> The Apple firmware for the BCM4364 and BCM4377 lists "idauth" in its
+>> capabilities, so brcmfmac enables BRCMF_FEAT_FWAUTH and advertises
+>> NL80211_EXT_FEATURE_4WAY_HANDSHAKE_AP_PSK. hostapd and wpa_supplicant
+>> then pass the PSK to the driver and leave the AP side of the 4-way
+>> handshake to the firmware. On the BCM4364 that handshake never
+>> completes.
+>>=20
+>> [...]
+>>=20
+>> Clear BRCMF_FEAT_FWAUTH on the chips in Apple's T2 Macs, so the host
+>> runs the handshake.
+>=20
+> [...]
+>=20
+>> ---
+>> .../wireless/broadcom/brcm80211/brcmfmac/feature.c | 14 ++++++++++++++
+>> 1 file changed, 14 insertions(+)
+>=20
+>> @@ -318,6 +318,20 @@ void brcmf_feat_attach(struct brcmf_pub *drvr)
+>>                    BIT(BRCMF_FEAT_WOWL_GTK);
+>>        }
+>>    }
+>> +    /* The Apple firmware for these chips lists "idauth", but in AP mode=
 
-https://docs.kernel.org/next/process/submitting-patches.html#describe-your-changes
+>> +     * its authenticator never completes the 4-way handshake and the
+>> +     * station is dropped after about 8 s. Leave the handshake to the ho=
+st.
+>> +     */
+>> +    switch (drvr->bus_if->chip) {
+>> +    case BRCM_CC_4355_CHIP_ID:
+>> +    case BRCM_CC_4364_CHIP_ID:
+>> +    case BRCM_CC_4377_CHIP_ID:
+>> +        ifp->drvr->feat_flags &=3D ~BIT(BRCMF_FEAT_FWAUTH);
+>> +        break;
+>> +    default:
+>> +        break;
+>> +    }
+>> +
+>>    /* MBSS does not work for all chips */
+>>    switch (drvr->bus_if->chip) {
+>=20
+> The commit message and the test report only cover BCM4364 and BCM4377,
+> but the code also clears FWAUTH for BCM4355. Where does that come from?
+> Was it tested, and is BCM4355 found in T2 Macs? If not, please drop it
+> or justify it.
 
-And include the necessary info in the commit message:
+4355 is also a Mac specific chip found in MacBookAir8,1 and 8,2. I'm actuall=
+y surprised you forgot about that especially when there was a whole issue wh=
+en Cypress named their chip firmware wrongly as 4355.
 
-https://docs.kernel.org/next/process/maintainer-netdev.html#bug-fixes
+>=20
+> The chip ID check has the same problem as in the ARP/ND offload patch [1]:=
 
-> 
-> Fixes: dc2a27e524ac ("neighbour: Update pneigh_entry in pneigh_create().")
-> Signed-off-by: Hengyu Liang <hengyul@cs.unc.edu>
-
-Reviewed-by: Ido Schimmel <idosch@nvidia.com>
+> the issue is described as specific to the Apple firmware, but the quirk
+> applies to every BCM4355, BCM4364 and BCM4377, and those users would lose
+> offloaded AP PSK. Please restrict it as suggested there.
+>=20
+> Note that BRCMF_FEAT_FWAUTH is required for NL80211_EXT_FEATURE_SAE_OFFLOA=
+D_AP
+> in brcmf_setup_wiphy(). Please mention in the commit message whether
+> that is affected on these chips (i.e. whether the firmware offers "sae"
+> at all) or confirm it is intentionally dropped too.
+>=20
+> Have you looked at the actual root cause (e.g. missing/incorrect
+> "idauth" related iovars such as setting the PMK or wsec_info for AP on
+> this firmware)? If the offload is never usable on these firmwares, say
+> so in the commit message with reference to the firmware version(s)
+> checked.
+>=20
+> [...]
+>=20
+> Minor: please add the target tree to the subject (wifibot series_format
+> warning).
+>=20
+> [1] https://lore.kernel.org/all/20261104151620.70671-1-dev@deq.rocks/
+>=20
+> Regards,
+> Arend
