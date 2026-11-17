@@ -1,120 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.225
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=46.30.211.244
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794958344;
-	b=vbnmVbugNvWitVbMdT39h9dqKhQ/3/3FAPW8CfE1jrqSpV7t0eglmJQYBtqcuCMLvvsV
-	 SLQR6Q8zbNqs7qKfFte2teWKMYgzNyr1lUqR4WKhPebc4W2pYCNkHcyC3mU8MS4WyVl9m
-	 kRabSp0GpJ6VDzFatSF5TxA8YXTDCcyNPv96Jq7VpMj/irkQLVj2a39/fy4d54ggvDjIZ
-	 1IyBvlrUuIenc6r5mD9ja/ywnXNKwOovcMtTfzWnlz2VkNt8UIq+ttzl5unwhal7Hrjzw
-	 FPWNoZAcAMe/+E9s1ZGP/qD/wyAomfTIQ+ASU8ppTmrMzZpPQUnqtObHKSCBGoJj3Uw==
+	t=1794958345;
+	b=OXrj695YZ9dXdbcGmyimh8b6PNBsqqmF/mw2AeYXd/Iaaq4MPaK0R5ZZVt/k8ExXF2pQ
+	 biT1VN6RHOSZJuNBwFk091+sJAaaZiK2ziXSHX+MWZbRD6MoYrLNOPvvjMag3oJpe6FLR
+	 pN9achJFVq5NGLzVANqyMePs7qZZ238gghv9Lm+C7qhYmb29a+VNiplvG8MMoxtJ/UQiR
+	 CD6XPepbXPlP2wrhDoc+ijJGXELPVyq1LES2ljqxwxK2PQeostLbf7Y4dU22RQ9ooRdYD
+	 XGkhiY844qkDikOIkqZnVGczRJKhw6fi3nfIxX8GgOREIwEylgs+m6xVwLxjJ0BDUcg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794958344;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
-	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-Id:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-DetectorID-Processed;
-	bh=MUef634+Hi/Fgg3bEDigIW+3XODyCYJ/zUjM8ZRF2oI=;
-	b=ozmqyCs8qL2FiZ8afKz0e/3ebmrT7Wsp7U3eIYAnh9JbHyP4P2kzCrFlRCMmiLoqCBG1
-	 Wb6wgk4Zxjp2vQGlKb49sjsjLOLDjI79WOfGovr9+9E3LD4SPl2grrawwSMIBMxLcrCDY
-	 e4EMehVwHUgFuY4aq3JBlOlsOG1VC2BH5s6dy3rvfKZA83HUB/+/6IXaA1KNjK+7NmkC4
-	 jcyc6gt22M4adyvTKOhh/bbiwNA/7rrh8w8P53lmVGTCObue/7Q089Xnk3/uOncL6lsHl
-	 0rhH6cwUvpR6aScLJNFSCz4KKrFj5TM8MCc8+SCCvfFoSbSEtoHMLlSM4U5AOLbohog==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794958345;
+	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:X-HalOne-ID:Received:From:
+	 To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=CVK3gfdAVTQvEZy1bbvtoLOfN8qA9o6BEbEAHYrhFsI=;
+	b=1TPsFSYjyyoWX87CWxSb5B7mgWfuVNpXPbJX8Vh/vAODPn+M3RjXhM3MabGduOysvTZz
+	 CwuRqVnuje894F+w7DN2X2EVq/RyWgKJPadAkT65aA2N/naT+dn65L7VLlzP5JRSt/WoT
+	 lWx6JXfMeD7h4fODrD9inY9j1UXrMZNwHXs7TmGfH5YR4t6XbmaJys3jfEd5aEuPOagLk
+	 0Lp3CxQse3W6+By4aHcfX13iMKTUOBxIoptsuXCcWsHSc+zQvJfBNwxoOY2wB1g/OCoth
+	 cDDWdtqd/OPgE2Qbnubb9Y+tf92D5UwBDUt0Rhn1PyFg5ZAtf65C6RkFUqkDsC8Ci6w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=hxa0y2jA;
-	arc=none smtp.remote-ip=209.85.215.225
-Received: from mail-pg1-f225.google.com (mail-pg1-f225.google.com [209.85.215.225])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=konsulko.se;
+	spf=none smtp.mailfrom=konsulko.se;
+	dkim=pass header.d=konsulko.se header.i=@konsulko.se header.a=rsa-sha256 header.s=rsa2 header.b=yzcQO23C;
+	dkim=pass header.d=konsulko.se header.i=@konsulko.se header.a=ed25519-sha256 header.s=ed2 header.b=SUgGnHKf;
+	arc=none smtp.remote-ip=46.30.211.244
+Received: from mailrelay-egress5.pub.mailoutpod3-cph3.one.com (mailrelay-egress5.pub.mailoutpod3-cph3.one.com [46.30.211.244])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B621606A331
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:32:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4B621606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30E21606A882
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:32:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 30E21606A882
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=konsulko.se
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=konsulko.se
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=hxa0y2jA
-Received: by mail-pg1-f225.google.com with SMTP id 41be03b00d2f7-cdb628232d2so242508a12.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 15:32:24 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794958344; x=1795563144;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=MUef634+Hi/Fgg3bEDigIW+3XODyCYJ/zUjM8ZRF2oI=;
-        b=nSjdKB9KetV84BaLElf0StgKlEOvObKO6KMg548DJ+5Y5d6cvnNTSRVSX22QKDwBeW
-         z5evBrU/WgUnRkA2ynSNGu3F3+URYLS3NqypjHFWpquIxf7t8Zsq+Yp93pjRS/cz+6AG
-         7LInU8HAornN6xAdVpOL6VH0dxDv6EKmXvfcj9KjZ6UuT/3HvZvRfCPfuTnaQa63x191
-         nH9NqFfNknP2elEX6AX9iSFeLw7FfovbIJSrHEvnUsGDTysorR19+uEecl+YnFgSFSd/
-         5nhqlM7ih4jzLnqqlmLdyQWgNaq1F0/i9mxcCukHfN0NUGk51AJ/3lYENXJ5xzIWwX8A
-         YdJA==
-X-Forwarded-Encrypted: i=1; AL+hErGsY//0oAdc3DJDRn+1YXXAu8hLDyCnaK0e2KL5behG1JxxdOwe7ebHjLfPhfeZqbkQKlJ3M681frszHp0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+tDV2tD8OQ45GyGIEnIb6BwCp8psYu6Na0yb2YNYh0NMfHGDLU
-	aZzOBbvnSzkcFDF6FCK0YcvzpNVpi/vqKwikHt4hnZ3hUV4/hnpruDcwriJyX6V4Vz1efg0/vIA
-	7/rWj96K7zhnjbloyTw/RvKHmha7Gl5Ei0D+ZYkNLeEKGz4tsavTJ4uIyK97bUqJyx8nZEy4msS
-	UisECpXIiLsUrDWq+5Gq5J0YVSugrpI8IOjKdHBN2PU51xbHivTFVma4CVpuX3P3X5NWjAm7n9+
-	jC2vuWtE3aOWeKBglsewMYg
-X-Gm-Gg: AZFdTZdyb39axvfHYZWxrYQXf8c2fvR7wtEI8voXQ44/uzLEeaihigEXh7KFVlOUVdP
-	L6yQrzqy0ZusJQT1uQsiQZk9Gc4bogS4wIbGQucsme7PmtFZjtFZD1NHLZGwJAuKUCCOMrDXCaZ
-	j++W+CItth4Q68lWjuPTdoJ4aYl4zIJGgokRRYNIySTnBOg45LJif2NC0SaPLhiL/lom8UZ3XJ5
-	/kejLqef52fuUs9KXPQpf02R5396Ddfk559H9RgoN78uqsva7udpmh+4p0/uPO1FhrpkGiX8znI
-	Y4Htc+1KL74a7RU+OPfJOB3tENpyzNkQJW3WG/yxWhhv15sR2OMfbV9cNrazrjME7RNdgQ6kwVz
-	XhJtowbGM+eCXUNl0a/yzFC8giaTF9t2tQ6cTGccqhLEcw/cnYcIiNI2bA2Id6koyx/mNIxEEGN
-	nAwSttHDx0MhKtn/lJmpo4krUibw==
-X-Received: by 2002:a17:90b:1e4f:b0:3a0:ca1d:b40d with SMTP id 98e67ed59e1d1-3b3d07e0fc3mr984253a91.55.1794958343638;
-        Tue, 17 Nov 2026 15:32:23 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b3d0987ac9sm650859a91.0.2026.11.17.15.32.23
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 17 Nov 2026 15:32:23 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-370230d93efso1484339eec.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 15:32:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1794958342; x=1795563142; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=MUef634+Hi/Fgg3bEDigIW+3XODyCYJ/zUjM8ZRF2oI=;
-        b=hxa0y2jAh4TJ64ZhERp6igPkgTN2Skl7jPtgcTZBL3wWCHANTkU/CSBNCIB65GmVRA
-         yZRWEx6B5re1RHGc8lMT+CybBI2v48UsR+Gntk7iDtgAOeB2ethANzi4cyZ7MDFjIX9Q
-         fZdas2kz6I90xEXWAgyNpG6rTd7/GtmiIoLI4=
-X-Forwarded-Encrypted: i=1; AL+hErExH6DJ/muogaXUfCFeX85N3Pt+5onPVzoSIguZMEJo37d1JN2GsLUH/8ryAPLtJfkchWdW3otx0NiVqCw=@vger.kernel.org
-X-Received: by 2002:a05:7022:7f02:b0:18c:e014:6f1d with SMTP id a92af1059eb24-1b543c38731mr1072363c88.1.1794958341957;
-        Tue, 17 Nov 2026 15:32:21 -0800 (PST)
-X-Received: by 2002:a05:7022:7f02:b0:18c:e014:6f1d with SMTP id a92af1059eb24-1b543c38731mr1072340c88.1.1794958341271;
-        Tue, 17 Nov 2026 15:32:21 -0800 (PST)
-Received: from stbirv-lnx-1.igp.broadcom.net ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447c1193sm1389095c88.7.2026.11.17.15.32.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 15:32:20 -0800 (PST)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: netdev@vger.kernel.org
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Nicolai Buchwitz <nb@tipi-net.de>,
-	Carlos Soto <carlos.soto@broadcom.com>,
-	Doug Berger <opendmb@gmail.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-kernel@vger.kernel.org (open list),
-	Mlody12 mlody12 <kudzo51@gmail.com>
-Subject: [PATCH net-next v3 3/4] net: mdio: mdio-bcm-unimac: Poll for completion at 1us granularity
-Date: Tue, 17 Nov 2026 15:31:48 -0800
-Message-Id: <20261117233149.1693881-4-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261117233149.1693881-1-florian.fainelli@broadcom.com>
-References: <20261117233149.1693881-1-florian.fainelli@broadcom.com>
+	dkim=pass (2048-bit key, unprotected) header.d=konsulko.se header.i=@konsulko.se header.a=rsa-sha256 header.s=rsa2 header.b=yzcQO23C;
+	dkim=pass header.d=konsulko.se header.i=@konsulko.se header.a=ed25519-sha256 header.s=ed2 header.b=SUgGnHKf
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1794958335; x=1795563135;
+	d=konsulko.se; s=rsa2;
+	h=content-transfer-encoding:mime-version:message-id:date:subject:cc:to:from:
+	 from;
+	bh=CVK3gfdAVTQvEZy1bbvtoLOfN8qA9o6BEbEAHYrhFsI=;
+	b=yzcQO23ChU7yvmqYbuQ6D0jbqMP1WbG9IbcPWDjLRV/NYlrlZo6M1Z8vSaEXIQT5nNA7BIe73BFsL
+	 Fr6LwtG1iOz90omYQHpJwDRzOVi3vfuykDyIifyZlvnfQnLjhO9zrIIJYhk1Ab3CfI/6qBbGG/58ss
+	 iotGJscWEBjvNvn1F/Ez90Huj/uWdpPGyyHtrlgsVXY0IyvvxxzxtlVyZbS7Ne6PrX5vbUVjRp2bQI
+	 vu1kiDJD8g41SnjPP2mC7tvKARH87wQ36opA1XIg22HPMs+FHQWHjH5BMAxJbqUPcfUnRHK8sWGOoR
+	 QiTM9jzTIYn0DjEvKM0yUXLbHQW7r5g==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1794958335; x=1795563135;
+	d=konsulko.se; s=ed2;
+	h=content-transfer-encoding:mime-version:message-id:date:subject:cc:to:from:
+	 from;
+	bh=CVK3gfdAVTQvEZy1bbvtoLOfN8qA9o6BEbEAHYrhFsI=;
+	b=SUgGnHKfQwurNL4LuAU22YrgMLE6sgHZ1v7IabgIk2MwXJrMjFGAkE9VJ0CKfYKL8ndhjB0eWguWy
+	 tpIFBsRCA==
+X-HalOne-ID: 1e020ffd-e2df-11f1-928b-49de817b90c1
+Received: from slottsdator.home (unknown [2a02:1406:27d:15:2438:a644:c11e:a5ef])
+	by mailrelay6.pub.mailoutpod2-cph3.one.com (Halon) with ESMTPSA
+	id 1e020ffd-e2df-11f1-928b-49de817b90c1;
+	Tue, 17 Nov 2026 23:32:14 +0000 (UTC)
+From: Vitaly Wool <vitaly.wool@konsulko.se>
+To: Andreas Hindborg <a.hindborg@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>
+Cc: Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?= <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	=?UTF-8?q?Onur=20=C3=96zkan?= <work@onurozkan.dev>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R . Howlett" <liam@infradead.org>,
+	linux-block@vger.kernel.org,
+	rust-for-linux@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	Vitaly Wool <vitaly.wool@konsulko.se>
+Subject: [PATCH 0/3] rust: block: add rbrd, a RAM backed block driver
+Date: Wed, 18 Nov 2026 00:32:08 +0100
+Message-Id: <20261117233211.3137168-1-vitaly.wool@konsulko.se>
+X-Mailer: git-send-email 2.39.5
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -125,84 +93,77 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-The current polling code unconditionally waits 30us, which was sized for
-a ~25us Clause 22 transaction, and then polls MDIO_CMD with a sleep of up
-to 2ms between samples.
+This series adds rbrd, a RAM backed block driver written in Rust that
+works like brd, together with the Rust abstractions it needs:
 
-Adding Clause 45 support means that every access becomes two back to back
-transactions (an ADDR cycle followed by a READ/WRITE cycle), so a fixed
-delay sized for a single C22 transaction is no longer meaningful, and a
-sleep of up to 2ms between samples can add significant latency to each
-access when the transaction has not completed at the first sample.
+1. bio segment iteration and request accessors for blk-mq drivers;
+2. reference counting, raw pointer conversions and a bit spinlock in
+   `page->private` for `Page`;
+3. the driver itself, configured through configfs like rnull. Its pages
+   are kept in a flat array of atomic page pointers, so finding, adding
+   or removing a page takes no lock.
 
-Instead, poll the MDIO_START_BUSY bit every microsecond so that the
-completion is noticed as soon as it happens, regardless of the type of
-transaction. This turns the wait into a busy wait, which is bounded by a
-timeout reduced from 100ms to 1ms: a 64 bit MDIO frame takes about 33us at
-the lowest MDIO clock the driver can program from a 250MHz reference clock,
-so even a two frame C45 access completes well within that.
+Unlike brd, rbrd never lets a read and a write copy the same page at
+the same time: each copy holds the page's bit spinlock. brd allows
+this race, so a read that overlaps a write can return a torn mix of
+old and new data. In Rust the race would also be undefined behaviour.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
-Co-developed-by: Carlos Soto <carlos.soto@broadcom.com>
-Signed-off-by: Carlos Soto <carlos.soto@broadcom.com>
-Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
----
- drivers/net/mdio/mdio-bcm-unimac.c | 23 +++++++++++++++--------
- 1 file changed, 15 insertions(+), 8 deletions(-)
+This guarantee has a cost. rbrd is slower than brd, mostly for writes
+(4k random O_DIRECT I/O, 8 vCPU guest, mean of 9 runs, kIOPS):
 
-diff --git a/drivers/net/mdio/mdio-bcm-unimac.c b/drivers/net/mdio/mdio-bcm-unimac.c
-index 5f79f31220f2..df267bb82696 100644
---- a/drivers/net/mdio/mdio-bcm-unimac.c
-+++ b/drivers/net/mdio/mdio-bcm-unimac.c
-@@ -6,8 +6,8 @@
-  */
- 
- #include <linux/clk.h>
--#include <linux/delay.h>
- #include <linux/io.h>
-+#include <linux/iopoll.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/of.h>
-@@ -36,6 +36,13 @@
- #define  MDIO_CLK_DIV_MASK	0x3F
- #define  MDIO_SUPP_PREAMBLE	(1 << 12)
- 
-+/* A 64 bit MDIO frame takes ~25us at 2.5MHz and ~33us at the lowest MDIO
-+ * clock the driver can program from a 250MHz reference clock. A C45 access is
-+ * two frames, so a 1ms timeout leaves a wide margin.
-+ */
-+#define MDIO_POLL_DELAY_US	1
-+#define MDIO_POLL_TIMEOUT_US	1000
-+
- struct unimac_mdio_priv {
- 	struct mii_bus		*mii_bus;
- 	void __iomem		*base;
-@@ -79,14 +86,14 @@ static int unimac_mdio_poll(void *wait_func_data)
- 	struct unimac_mdio_priv *priv = wait_func_data;
- 	u32 val;
- 
--	/*
--	 * C22 transactions should take ~25 usec, will need to adjust
--	 * if C45 support is added.
-+	/* C22 transactions should take ~25 usec, C45 transactions take about
-+	 * twice as long since they need an address and a data cycle.
- 	 */
--	udelay(30);
--
--	return read_poll_timeout(unimac_mdio_readl, val, !(val & MDIO_START_BUSY),
--				 2000, 100000, false, priv, MDIO_CMD);
-+	return read_poll_timeout_atomic(unimac_mdio_readl, val,
-+					!(val & MDIO_START_BUSY),
-+					MDIO_POLL_DELAY_US,
-+					MDIO_POLL_TIMEOUT_US, false, priv,
-+					MDIO_CMD);
- }
- 
- static int unimac_mdio_read(struct mii_bus *bus, int phy_id, int reg)
+  test                  brd    rbrd   change
+  read,  8 threads     2048    2012     -2%
+  read,  1 thread       512     463    -10%
+  write, 1 thread       583     470    -19%
+  write, 4 threads     1693    1472    -13%
+  write, 8 threads     2004    1563    -22%
+
+We think this is a small price for page integrity: a RAM disk is still
+far faster than any real device, and a block device should never
+return data that was never written. The gap has not been profiled
+yet, so not all of it is necessarily due to the lock. With a single
+lock for the whole device instead of one per page, 8-thread reads were
+20-28% slower than brd.
+
+The series is based on rust-next (v7.4-rc3). Patches 2 and 3 were
+written with the Claude Code AI coding assistant, which also did the
+testing.
+
+Igor B (2):
+  rust: block: add bio segment iteration and request accessors
+  rust: page: add reference counting, raw pointers and a private bit
+    lock
+
+Vitaly Wool (1):
+  rust: block: add rbrd, a RAM backed block driver
+
+ MAINTAINERS                      |   1 +
+ drivers/block/Kconfig            |   1 +
+ drivers/block/Makefile           |   1 +
+ drivers/block/rbrd/Kconfig       |  17 ++
+ drivers/block/rbrd/Makefile      |   2 +
+ drivers/block/rbrd/configfs.rs   | 188 ++++++++++++++
+ drivers/block/rbrd/rbrd.rs       | 420 +++++++++++++++++++++++++++++++
+ rust/bindings/bindings_helper.h  |   1 +
+ rust/helpers/bit_spinlock.c      |  13 +
+ rust/helpers/blk.c               |  14 ++
+ rust/helpers/helpers.c           |   1 +
+ rust/helpers/page.c              |  10 +
+ rust/kernel/block.rs             |   1 +
+ rust/kernel/block/bio.rs         | 253 +++++++++++++++++++
+ rust/kernel/block/mq.rs          |   5 +-
+ rust/kernel/block/mq/gen_disk.rs |  25 ++
+ rust/kernel/block/mq/request.rs  |  81 +++++-
+ rust/kernel/page.rs              | 160 ++++++++++++
+ 18 files changed, 1192 insertions(+), 2 deletions(-)
+ create mode 100644 drivers/block/rbrd/Kconfig
+ create mode 100644 drivers/block/rbrd/Makefile
+ create mode 100644 drivers/block/rbrd/configfs.rs
+ create mode 100644 drivers/block/rbrd/rbrd.rs
+ create mode 100644 rust/helpers/bit_spinlock.c
+ create mode 100644 rust/kernel/block/bio.rs
+
 -- 
-2.34.1
+2.39.5
 
