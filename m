@@ -1,97 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794954412;
-	b=J1XI/Qqnk0giMWHdSCj1s0Kq3Ltyl3fczpKKTjxjpriHOXlz50yAjkAT+ADHtB+UxusY
-	 BjdDJcdTssAem8wulexeRFcrhe0+NsJP6JAJfobEM+EEWltybeg078RxrPtJ+UtamVdnT
-	 D1feVyBCkiDxBw6noCIS1Vv7W+qkD6M5kLi1I7rvSGhAQFIaMytK2V92hhYxGGuOOLu2R
-	 vDCh1nfXd2oPGiXLNFz9TKYKivEItEYGYYuYVjnjp3zFQo2vLCzUJrNvWx5WG1tS0WxcN
-	 4IBStNTv3VUdVZ3taGwTrpX+eX1+15l0FTdiqp0kGWqYVEwsDUqQJn2Kd+AutRap+Mg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794954412;
-	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=/31bCM2ovlpu2K4bSt5f7VHuu+LiqSKydvIPGk5RvOQ=;
-	b=fsWJzLkew7Y5a9hHFuxig9bgJ2yspB5I2Flm0FZ5sp44Y2crvT1iElXU7MalQGVy3wB3
-	 HyGuOeIPbtV46nBGqw5cfwNG2jX6YWssF3o3g1771/wcgZ/Hdh3neOI3XKC0VGI9IUarv
-	 mUPDw2zkjeL5Qjfz2XZoSVqrxxcd4kV81vhYpcwF4FWGgdHyXcv0yGyzaDNYt+HvCapBc
-	 9iN30wki1Vtp8IWi5RyORUm0uV7sEwRWsRj0tdVoU4L02YlkEaMqtUyYs1aBnSugf9WRC
-	 RxFWM1yO023RlssVEPNrh0aCMXm/AERCDFuJ8YsWjUveQXBHeqs4RaBEdf4+4QhxSmQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pengutronix.de;
-	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=RmRboVBj;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794954409;
+	b=CbFWbkPTFkFrhBI5eCViqCZ7bVrjJg5jNE9fDaHf43B4o1uLHIV+rOdfZcwmhqI6U7vq
+	 pQKiT/ElwrJMnIgYK3ZjJQ1KhIUavt5aPym5FEZt1Uy5RjL20os57BSxfwu7Fr3vz4+zt
+	 xHxe5RYLtn4Q/6+wvfiDZ7QHk7jofQDDN/By5e18Rngj3pblhJbJE3xtJrOJl9iknNff9
+	 MJ6w6rml7NqXRybw982hfMOYNkKbcH1vkjpDL3YMvcxbzIs12LZUp3CvwGBv7aT/mn1dA
+	 g9aa6QwzK1pvF0ihUxdtcgNcn7Kad68h/4dhLmDthtaW8P2KbJeCJzoYyAvmkWmjUaA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794954409;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=4s3mRwUX6ILMJnNwIdnhxtjyTyFSrX3O/LnhuPICPo8=;
+	b=duB30OjKznI9Lt/NnxaoQJVyXvBaNSiIAvehd4SU8vvIoLU1fwzXGmVvgpA4KkpSjIND
+	 tOUJjA/Sle8rB5XVMSHo+Wyn3a27Dq9ziStupy/M5IkScGqtATRv2rlXVCSL9zdhf1sRF
+	 Q5MATH1TYpOAajcGQ0lu98CzD5BhXfFWC5zRUAUCaL1sczqRwCkxOdPSBtg/mXD2WGKrZ
+	 NqCLroCcGpAHAhWjDTDxO+2+rY0KIeIZmsqPgTLZv9wWxBoUYw5CcyKmoMAVrwbZeO1Fn
+	 V4xCKDrHuQPFTl10LyhhFMZqNeKp4Eb1nDt8SLXkgRjD1lD65arHnHCD0Wm28X6nUVA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nbPCRoQE;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95183606A32F;
-	Tue, 17 Nov 2026 22:26:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 95183606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E728F606A31C;
+	Tue, 17 Nov 2026 22:26:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=RmRboVBj
-Received: from pengutronix.de (ptz.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::77])
-	(Authenticated sender: mkl@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 04A67200668;
-	Tue, 17 Nov 2026 23:26:45 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1794954405;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/31bCM2ovlpu2K4bSt5f7VHuu+LiqSKydvIPGk5RvOQ=;
-	b=RmRboVBj1cinEoHlfIjH3pAYV/+mOZ/4ZXDMSnvrK1cygQd5bbUC9mRAj0H+KzE9TRPiIw
-	UbitB/gQ+Sc5t5NucY6rdRIzI8BnMr093lO/WYltokH8fBdfgWK1zTqiqw1DG2VQ+gB8J0
-	q/aCfKLYSYH3gKoHlVHnrNwK/ylBikfBmNX8DhNo+4+bRcacQXUF8DIpQhZaLfZ8u5iays
-	2r6VqnYFwFwi9kF4uR2e5OLmnh4tPuuB4LZQOsZpbs/MtRN6UQ03WXltWUW/7vJfaSZnis
-	ZztQZB+LipQItCgxgOvumlRy8D6EXNTyG9LTMWD9pz2khdBHHw6EkZiV8w3MZA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1794954405;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/31bCM2ovlpu2K4bSt5f7VHuu+LiqSKydvIPGk5RvOQ=;
-	b=QifEOcgbuJMqe+ZgyUXsQQ2tfBzqunZv6fB4sigQl24qGtMOsXj1uHsu4fwicXVqz+pRys
-	h6S0h81e4qC+01ibeea5O8QvfFKxi9+I3Rrhv5VRbEk01vYZf2Dr8WwCEHn0CxNKC+EUuD
-	Tf4SXR2kilPK1miSS8yxdDJcOThl/Sbf9FaNh/t/hBql2vdboI/fdhP3sMOqboPkOQd7jP
-	A75NRHoCNJM/WR9oO8ZLzWPFDgay8hdzF4TLgV0iJXhWFX5jy/RpHFbUbu8exklhAFFsMZ
-	IfG21VjXd3Qv1tUi1zw8m2ooyDKAvezpWp1C54fP3kndGl3dHVcqrG3z27enYw==
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1794954405; a=rsa-sha256;
-	cv=none;
-	b=D398tp43DV4i9gHd449DjbQeI0zVvVKQxeD/I1YeuSiWR9NPybg+0BsEfG2eqVzc9hDPOj
-	WgA9/6DZx9lu5Cmuw6RJfWCrhFrE6/yD8tiIe1YyWw4RHyZF/i1MY7NmahXO6RiSomOsJm
-	jZx2VbGn3/yJ/3grCQNa7J/S9sF2Svw/TjsBWG0aAdYYm72N4iSS3Qz0GEdf+vlnffv4gV
-	mE+AUdj5zLknAisWJjJaXsQ/GdIUhVkCt3lkeP907kSNmjNOvpo/xW33W1IKsgFF/zH1om
-	PXZa0ORiPcqQH9YZxqg5Fcne7IcnAFxHjPoI6Zp1u5IU8QH9zcu2AICDDvT9gQ==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=mkl@pengutronix.de smtp.mailfrom=mkl@pengutronix.de
-Date: Tue, 17 Nov 2026 23:26:44 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Ian Rogers <irogers@google.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@linutronix.de>, 
-	Stefan Kerkmann <s.kerkmann@pengutronix.de>, 
-	"James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>, Helge Deller <deller@gmx.de>, Andy Lutomirski <luto@kernel.org>, 
-	Vincenzo Frascino <vincenzo.frascino@arm.com>, Arnaldo Carvalho de Melo <acme@redhat.com>, 
-	linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org, Eric Biggers <ebiggers@google.com>, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
-	"Jason A . Donenfeld" <Jason@zx2c4.com>
-Subject: Re: [Regression] [PATCH v5 2/4] vdso: Switch get/put unaligned from
- packed struct to memcpy
-Message-ID: <20261117-slick-limpet-of-sympathy-854a75-mkl@pengutronix.de>
-References: <20261006-dynamic-succinct-woodpecker-a36c7f-mkl@pengutronix.de>
- <2f6094ff-f585-4b8b-8c25-20c11d1bfc7d@app.fastmail.com>
- <CAP-5=fVt81pYz_EXj+QNG+hFGomb-xcpm-6=ZNzNm+c2sbP6UA@mail.gmail.com>
- <b2a50293-d6f7-41eb-854c-c43bc9874ffa@app.fastmail.com>
- <CAP-5=fW25k8uOeamGRhwbFUUZ8D0D1n5YK-NFF7_2JMJcGOsiw@mail.gmail.com>
- <20261019-rapid-loutish-porpoise-ac4efb-mkl@pengutronix.de>
- <20261117-refreshing-convivial-chupacabra-60bcc1-mkl@pengutronix.de>
- <CAP-5=fWKo4QwAc2Ozp4ScvDdF4eKj_J3Ba06Sd2af=TwyHJO4A@mail.gmail.com>
- <20261117-spry-slug-of-completion-0e6548-mkl@pengutronix.de>
- <CAP-5=fUKf7631fhmRLjVJXgKG1mm79vC5xSE3ZHm0XZMXo4=4g@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nbPCRoQE
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFC151F000C4;
+	Tue, 17 Nov 2026 22:26:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794954408;
+	bh=4s3mRwUX6ILMJnNwIdnhxtjyTyFSrX3O/LnhuPICPo8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=nbPCRoQE3o89KlLREqLTWYyUtsNPEovbGEBCvg9Bs5W+CQn+EDoSd4kW6CqQ6noPn
+	 fij8XDQ78Aiz1EQNF/Hnm/KK6k1ivKx51Rs40LhTRyKdis/NA0QALWgxa1jEn7XRrO
+	 WqI2TGo5r17KymhUe132c+/rkmGIwK7In96jrBpnei3XIdW2MCH3wwmhw63UR7WLv2
+	 yVsOlDs+YPNQvWkY+UMnWYyMYjKrrDoAr11HslTU11tjeKxn6U3EieqogoqSJvWMXD
+	 N84lCTVVRl/84g9ywTc6nzbFoO5ebOnayr+Ug7EKMg8ituJcg7A6tTW+g5Zi7FTqZK
+	 GrJXO1eClwF3Q==
+Message-ID: <44bb9bd5-42f5-46d2-8dca-dd220aa221cb@kernel.org>
+Date: Tue, 17 Nov 2026 23:26:38 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,58 +51,60 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ezspz7rpbzcunzbd"
-Content-Disposition: inline
-In-Reply-To: <CAP-5=fUKf7631fhmRLjVJXgKG1mm79vC5xSE3ZHm0XZMXo4=4g@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 3/6] soc: fsl: guts: add the RCW override of the pad
+ muxes
+To: Vladimir Oltean <vladimir.oltean@nxp.com>, vjardin@free.fr
+Cc: Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>,
+ Frank Li <Frank.Li@nxp.com>, Jacky Bai <ping.bai@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ NXP S32 Linux Team <s32@nxp.com>, Linus Walleij <linusw@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+ imx@lists.linux.dev, Ioana Ciornei <ioana.ciornei@nxp.com>
+References: <20261117-for-upstream-lx2160a-rcw-pinmux-v1-v7-0-5d7201970629@free.fr>
+ <20261117-for-upstream-lx2160a-rcw-pinmux-v1-v7-0-5d7201970629@free.fr>
+ <20261117-for-upstream-lx2160a-rcw-pinmux-v1-v7-3-5d7201970629@free.fr>
+ <20261117-for-upstream-lx2160a-rcw-pinmux-v1-v7-3-5d7201970629@free.fr>
+ <avzCrmvlOQh0RVjT@lxl00025.wbi.nxp.com>
+Content-Language: fr-FR
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+In-Reply-To: <avzCrmvlOQh0RVjT@lxl00025.wbi.nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
 
---ezspz7rpbzcunzbd
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [Regression] [PATCH v5 2/4] vdso: Switch get/put unaligned from
- packed struct to memcpy
-MIME-Version: 1.0
 
-On 17.11.2026 14:15:06, Ian Rogers wrote:
-> On Tue, Nov 17, 2026 at 12:27=E2=80=AFPM Marc Kleine-Budde <mkl@pengutron=
-ix.de> wrote:
-> >
-> > On 17.11.2026 09:46:55, Ian Rogers wrote:
-> > > > There was discussion and I learned a lot about the nitty gritty det=
-ails
-> > > > of compilers, optimization and UB. But the problem is still in the
-> > > > mainline tree. What can we do about it? Is reverting an option?
-> > >
-> > > I see the config option was picked up here:
-> > > https://lore.kernel.org/lkml/179423891136.2093942.1312967870962265529=
-0.tip-bot2@tip-bot2/
-> >
-> > Doh! Thanks for the pointer.
->
-> No worries, sorry for the regression. Have bugs been filed against GCC
-> and LLVM regarding this?
+Le 17/11/2026 à 22:10, Vladimir Oltean a écrit :
+> On Tue, Nov 17, 2026 at 03:53:13PM +0100, Vincent Jardin via B4 Relay wrote:
+>> From: Vincent Jardin <vjardin@free.fr>
+>>
+>> fsl_guts_rcw_rmw() only serves the SerDes lane modes. Export it for
+>> the pad-mux fields of the RCW, and for them only:
+>>   - fsl_guts_pmux_read() reads the pad-mux fields of a status register
+>>   - fsl_guts_pmux_override() changes pad-mux fields of one under
+>>     rcwcr_lock and waits for the status register to follow
+>>   - fsl_guts_pmux_override_supported() tells whether the SoC has pad-mux
+>>     fields and whether the DCSR view of DCFG, which holds the override
+>>     registers, is mapped
+>>
+>> Each SoC lists in its fsl_soc_data the fields that can be overridden,
+>> per RCWSR: a register or a field outside of this list is refused, so
+>> the SerDes protocols stay with fsl_guts_lane_set_mode(). The LX2160A
+>> lists the pad muxes of RCWSR12 to RCWSR14 and of RCWSR27.
+>>
+>> Suggested-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+>> Acked-by: Frank Li <Frank.li@nxp.com>
+>> Signed-off-by: Vincent Jardin <vjardin@free.fr>
+>> ---
+> 
+> Looks good, thanks.
+> 
+> Reviewed-by: Vladimir Oltean <vladimir.oltean@nxp.com>
 
-Not from our side.
+Acked-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
 
-Marc
 
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---ezspz7rpbzcunzbd
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHQEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCavzUoQAKCRDMOmT6rpmt
-0hMOAQDfpkg1+zcIV1FijzuP8ZYH3oW+VKc0WORBedv2aYjY/QD2KiW7KmJ2oRsD
-MJOxZoIZJRHV6awEtm/g5IfBWuKNAQ==
-=39gN
------END PGP SIGNATURE-----
-
---ezspz7rpbzcunzbd--
