@@ -1,109 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.173
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1794943950;
-	b=BOe8Hl+Hq3zwafCOLkTUYN1NRKzm1GOWfC+9Lm4pMQGLUk+MCHJlqk7wRWVvIZMBoESU
-	 mBwpNS3ImEhONVGlzV7chGuQyii7Qr2USZ73eYRumbEg+bkzVf0obqur2pnzLD6fC9WbW
-	 AHYHT+1IDwkcSenPlgHDfLYc0aXaUsmmJga55bKpA1OOd0gJlTVpT9KMPau3T2QeYuGY/
-	 5atJHSui/JbrPdoXLRRagExwkVoIAO61T9K1vcxvIH3CdDKtXUqmDgC9WAx/9XdnBVYH5
-	 6FiSicwcgzeLdpyf21KT3vciXKyjIvFlBOcOmrjxHO0uThqdrdiX6pQhA3M359dRs0w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	b=KI/b3C/9rl1K7ga3T9v2NQC6SStyJlFEy6+Gwf5lFLJNhK3LY7IHepg/j1jxeV7vYkRM
+	 dXLS2bZcjuZBUzYhuJsF1KpHCeHplsU/hN7nGvySBQSYdBI6fsPvAabGMnIMIk485bMgT
+	 7dUE05fKAcX91nHmscYYLiDPlsnhUx+h6Y7nxADxWNb39vlWft7E1UtZKWyNOaVJop9pG
+	 kIoSLjT6sFygo2RkesQu5dv1lFpbSzKwud6B1AalETzy1w9IRNl8HU7TgbVS8XZj8gwgH
+	 XK8wsHorjBlfGA6SnNnNheEuUdbzpgucCfU/7UrKFL7uoy45UYavLeEOtntkQ8JtQHg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1794943950;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Fq7eVjoo8xJhvVi6unc9XNet04qh3ukyVn0blU6xcQE=;
-	b=G9IUIK9Ec6zLYMU+DwifF3WA2cgatiKP5NpF7f/BPpXfqHdzy9TX2acdF/A+xtd9wX3b
-	 qmcfAlqkigDZMDQyXuHYOTJRRD88Klq3VGDGkheyyNWzNEH+i9tFKtXoqf21Yc+9q1Eor
-	 JUrQvCKQTKd41D9JLXUUmchW1+BI5q94ySE736tZ+iS8j0PFGHoT0N781zIxD8/guyXCL
-	 0hvymeDXikEUX4Dy0JINtUxrxqlV/2jn486Fb37IRnr7tg7MHNdF7XDnFaO1RgFp/Ea31
-	 u9V8oy9tj9s/vWFZvgecKwFk2GzBd1CStKDcLyEdqMB3gEw6FnvT3Urg1e/XCb+vdSA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=l7rU9mx9;
-	arc=none smtp.remote-ip=74.125.82.173
-Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com [74.125.82.173])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=1uOJYUkeTceYDTlatxwLRj1jcM58HxwnlPEOaQ6WvXc=;
+	b=0BdVfogp4nf/mvkCzCcp4QVg60w5+TKmIrtbX4J2dhLUX5xO8YeaissqskJTPuTKX2kB
+	 +/iLv3F/dh1eG9tU8942dIvZSCzVpVHzgvpZ66uqUTyXHbTGZyynZwn8zB/pCIKkxqcdT
+	 TYNzy++2D7ntC9/8fE6PLZz5vAsmDR0HwlrECjvFVo7MrflGrFXEybug4FuKnWT+RbQwp
+	 MyGEOtH6XC008pbN20Fnu4Z1zQHXgOazB/A3EgL3LTAlpflBlNMyY1+Yg6hdfR3BG0aAO
+	 7g323/B1SCOZ9rCXRp0o3RBMoAEKFhpg/B7CBqWHf6fxwfPvhJn6zQFE7H4a6IrVxfA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WmtfRbHh;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A305606A88A
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:32:30 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WmtfRbHh
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1794943950;
+	b=d7yHcWOU8HASSIN/e8GI4gYACbYrUovxVeMtm8kQrvG3QlAI7UNSd22OAfnf/aZpQH4Y
+	 4oZVpzk0fIY9npKkMWuw2rq5Pm1bC1qNf8TzvNw4dG19OzwD7V1fXtudCtGewdFJ8zhx1
+	 3NrHT+p+l4IEmzLtYKN+UWxTPQGenpZyjscThBoLAPFN5JkQFy2HuajO3xKk2T0IFevK2
+	 RLAHOEqcge6XRdP41kGF1YKRI+si88+qN+fnfKhgDJL4K0whAorambWg2mSbmyjZEqBJW
+	 YA+Xy3tkhpsruPI8fwFWDZDIPSBbj4M3DrksW3LqbsRvJJzmcDY7XwnMPOKxXnYwT/w==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1794943950;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=1uOJYUkeTceYDTlatxwLRj1jcM58HxwnlPEOaQ6WvXc=;
+	b=gZwmtiykk9MNcgPM/EDD16j1Ha//DnBWppmpzC/LfZJyHUzAUVWRBqmRJf4kkdXUb7Wr
+	 ftGHqU71TMMwt4+XjeJO1LNwFcrFGL6sDJzybzHnak/NwLVwAKWe7oCPkgmvTVc46pC4c
+	 Mb1WKkIp+sTualPy4FcxfGXdkw5D7wH77bUzYQr684UTBoziUYkeiZkQ6DLJfCYsNGUJv
+	 hVko2ikhA2GbxKAL0ph7LLReF0fllGXOZtyIffreUHFUh73WH0tqGDA9JEYCIAQNH72qZ
+	 uvmRQ4GBffqelAJ80Dvvd35CuO3daFwVYwesQegnJW4tXQgrUGMCEWJvWhKR8B7vAtQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 965CF606A33D
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:32:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 965CF606A33D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=l7rU9mx9
-Received: by mail-dy1-f173.google.com with SMTP id 5a478bee46e88-37071c0f42aso451364eec.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:32:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794943949; x=1795548749; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Fq7eVjoo8xJhvVi6unc9XNet04qh3ukyVn0blU6xcQE=;
-        b=l7rU9mx9esX/eI1IaDJbA5n/H7+jLp3L/sXmkp3A/y4wj3ouiDun6uGM83b/7CMfi0
-         wrlTCn4p/0BK33O7WVg7wug8WXBOd95fWGOMupWRnJGiFnh8JuJjbdO2gRo281Pzwb2K
-         a7iKbFxRWnA1D5CxP0lEZnt/aZrNnxQ4WWlWRHe20qlKAjfX2kPQwoVxAhS+Xr4lxygr
-         y836kjL+4ZLL+sxTtvYdJMIVQdj3EdSNd+ungXdbas8FNzmJn4ZDsJji+CouuMvVmlRa
-         D9030Uy+YNJcKTP0/JZ3XrDVCKOvJAqUoH8tq5mpbJcdK5OuNSyTgv/TVCIdA7VRTSt7
-         Em6A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794943949; x=1795548749;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Fq7eVjoo8xJhvVi6unc9XNet04qh3ukyVn0blU6xcQE=;
-        b=ubFTHyKZ95jrQfSPVTE/YaGwb7uvg+CjwY6Ti+4NkxppLAD9wR+I1lc7SGKSCRcyGc
-         f+uRYS4+gAaDkZsf6vMIDNukWmKJbXVmQORQaAzW7KrmQArODRW0OMfWnPRojPX34gFj
-         PgmBMtlUuukVmMHcQSIZ5XCavx0Hfi+DNk+O6DFtzZoTI4RpNNM8x1hgTh1vPdeet6Ys
-         HfVMCGzG9AQWkLUH19X/MNXQmjqG3FBPlKAe7SL0RH/6AR77iRCPeAhEcQWws9QkLguz
-         g+R3UIjisTJHt0DfLh6CSfJMMmagMoQAroN+8NNHoN4tOwdCbXzB8a9PYsWKKnvSYxOD
-         odnw==
-X-Forwarded-Encrypted: i=1; AL+hErFyzppmXNDAn4vTDm7S8OGs1G0kWMeCcaQTQNU++Ek4FHZEqFmTjIhgVOzJPX7KirKKrXI8f5C70WMwZTI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+3Z6m+XnmwGw5If8LdlCpSicehf1YnJoQpMQqzgBLjYZvEpf/9
-	Uzy9m+x+C9/9IoDwRQ33TGbZ+Fj0hi1zHAvSwFj4P9acuqDf6kGJiDrP
-X-Gm-Gg: AZFdTZdcw3qJYiSS3RCxaiDSL16j4RawKn28VDHlXrVV74Nok4m/nBgt6iMt/MKTcjZ
-	+x6EOwLUUvMFar5jk79Mf2PsOlcxFemKn+f869S7n4cG7AgsNctQcQxamdMDruDdHPoQwGxeZnl
-	TzrReHxi14Z2l+xx1UitscehYb7LOF2uK1C165NB4Ln8nuoAFDzNnfc8px6sFFdJ68tKfnUPBnD
-	N7khOq+bOR8mT1+RmGX6t1qBd/vSMoANHVvU76Tem55hFnatDEa2dGfEshu4RiBbGrCRztzUGcW
-	ivnFfFqM9IObR0sURgk4pTujgM91JUxiK6gIXf6GERig7SSzq5o1nScWepRN63oN3DWrMR5PzW9
-	ROysz4/lG5ow9r7QGAAZZXtGGN2j26uOoOWGhT0yWNuGynC0mJSx1hJlg2ynba2+DI06pTc5X/C
-	6VfJwInIx4nvUgntxqrhgCaXB1bxZFGRsrJpE0I1vXMHDF14dBAnMTPMGAaFgKte1Ll96FPuBdK
-	AzWqFhcWeCQNoZ/bhzr6YvCmzi8A/ZrvBh7VV2FdmToc52/h0UeMULQCEFAkgJcQ/yC2u67Qie1
-	tQWPZ/RLu6cRim2K93IeVC5CpqOtiw==
-X-Received: by 2002:a05:7300:f408:b0:369:f035:661 with SMTP id 5a478bee46e88-38280a3c1f8mr420676eec.15.1794943948629;
-        Tue, 17 Nov 2026 11:32:28 -0800 (PST)
-Received: from eldorado ([2600:8802:b00:1f88::287])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a63059e3sm173376eec.5.2026.11.17.11.32.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 11:32:28 -0800 (PST)
-From: Florian Fainelli <f.fainelli@gmail.com>
-To: netdev@vger.kernel.org
-Cc: Florian Fainelli <f.fainelli@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Jijie Shao <shaojijie@huawei.com>,
-	Simon Horman <horms@kernel.org>,
-	Runyu Xiao <runyu.xiao@seu.edu.cn>,
-	David Yang <mmyangfl@gmail.com>,
-	Herbert Valerio Riedel <hvr@gnu.org>,
-	Danny Kukawka <danny.kukawka@bisect.de>,
-	Mugunthan V N <mugunthanvnm@ti.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	linux-kernel@vger.kernel.org (open list),
-	Manuel Lauss <manuel.lauss@gmail.com>
-Subject: [PATCH net v3 01/10] net: au1000: recycle RX descriptors on allocation failure
-Date: Tue, 17 Nov 2026 11:32:14 -0800
-Message-ID: <20261117193223.2795612-2-f.fainelli@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261117193223.2795612-1-f.fainelli@gmail.com>
-References: <20261117193223.2795612-1-f.fainelli@gmail.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id 1FC771F000C4;
+	Tue, 17 Nov 2026 19:32:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794943950;
+	bh=1uOJYUkeTceYDTlatxwLRj1jcM58HxwnlPEOaQ6WvXc=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=WmtfRbHhICDEN59TbmhoraiQc7RHSWgdlvSWT3spNDvm6Fiyi1xZH+SEbCGWMgpiA
+	 xZNeFwAIcIwL6JVKOkbFs+Py3wKILWOAfobT9qL51jhUvMQxl8JX1qKsYTnh0IteWx
+	 tR7f34uVJnFGRrtx85gSxYZGMtCTbMICBz61RMCBhN7nxFdrlITsnb6/m9YkfP6xn0
+	 sCdY+mxlIWmW/d4grHkq2XAf3tO4h6X2egYZ66Rk7NYLqp3k0OFAYmpzBNsZUuWUTY
+	 x4vBHGAz+go4ZvkkLFqPBbfhk1eP484vtl2dJOhz3gUzklhMdQ1WUWUinjptAo3hru
+	 mqq9ELfwGLt6A==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 8E90D4AA65;
+	Tue, 17 Nov 2026 19:32:27 +0000 (UTC)
+From: Samridh via B4 Relay <devnull+samridh.modal.com@kernel.org>
+Date: Tue, 17 Nov 2026 19:32:26 +0000
+Subject: [PATCH] mm/shmem: avoid zeroing new folios twice with
+ init_on_alloc=1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,39 +83,130 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261117-samridh-shmem-send-v1-1-1b897ff562d9@modal.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/yXMQQrCQAxG4auUrA2YEWz1KuKiNn87EWaUiYpQe
+ nfHdvkt3pvJUQxO52amgo+5PXKF7BoaYp8nsGk1hX04ikjL3qdiGtljQmJHVj6NGrQLB0EHquG
+ zYLTvOr1cN/v7dsfw+p9oWX7APPb8dgAAAA==
+X-Change-ID: 20261117-samridh-shmem-send-9fd2d8231e8e
+To: Hugh Dickins <hughd@google.com>, David Hildenbrand <david@kernel.org>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+ Samridh <samridh@modal.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794943947; l=3830;
+ i=samridh@modal.com; s=20261117; h=from:subject:message-id;
+ bh=a7F7GTEWjxL9C0nNEosbwVj6fkOjYCgTqLb1jXjkir0=;
+ b=SGNqaUKOMECCXRZi1l9o3gcwAg9U87xEHWyCYMLVkCloKUFF9Ay+mQBIt7txWMP42l2ju4br2
+ 9H91UYwZTVYDSc8S3KqW5lzYfQHrgUjv3lPtjx9KAtzYUioODSdQRll
+X-Developer-Key: i=samridh@modal.com; a=ed25519;
+ pk=+V5ZaIpEMOLG1b2MsSHY0Nm20lIADx5ia//FZeuqVgk=
+X-Endpoint-Received: by B4 Relay for samridh@modal.com/20261117 with
+ auth_id=1554
+X-Original-From: Samridh <samridh@modal.com>
+Reply-To: samridh@modal.com
+Content-Transfer-Encoding: 7bit
 
-An skb allocation failure retries the same completed descriptor forever
-in hard IRQ context. Return the buffer to DMA and advance the ring even
-when the packet must be dropped.
+From: Samridh <samridh@modal.com>
 
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Signed-off-by: Florian Fainelli <f.fainelli@gmail.com>
+shmem_get_folio_gfp() clears a new folio before marking it uptodate.
+With init_on_alloc=1 the page allocator has already zeroed it, so the
+folio ends up being zeroed twice.
+
+For SGP_CACHE, the only mode that clears a new folio, ask the page
+allocator for a zeroed folio with __GFP_ZERO. Folios that are already in
+the page cache but not uptodate, such as those left by fallocate(), are
+still cleared. With init_on_alloc=0 the zeroing moves into the
+allocator, so a folio is zeroed for nothing when the memcg charge, the
+page cache insert or the block accounting fails.
+
+Time to write one byte to each page of a new 4 GiB memfd mapping, with
+shmem_enabled=always and init_on_alloc=1 (median of 24 runs on 6.18.55,
+x86_64 VMs):
+
+                  before   after
+  Xeon 6975P-C    0.620s   0.416s
+  EPYC 9R14       0.216s   0.158s
+
+With 4K folios, or with init_on_alloc=0, the times change by 3% or
+less. We found this while running gVisor, which keeps sandbox memory in
+a memfd.
+
+I wrote this patch with help from an AI coding assistant (Claude Code),
+then reviewed and tested it.
+
+Signed-off-by: Samridh <samridh@modal.com>
 ---
- drivers/net/ethernet/amd/au1000_eth.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Tested on 6.18.55 with this change backported, on Intel and AMD x86_64
+VMs, and build-tested on mm/core for-next. I also wrote a simple test.
+It fills memory with data, frees it, and then checks that new memfd
+pages read as zero. It covers MADV_HUGEPAGE and MADV_NOHUGEPAGE on the
+fault and fallocate paths. It passes on both machines with
+init_on_alloc/init_on_free at 1/0, 0/0 and 1/1.
 
-diff --git a/drivers/net/ethernet/amd/au1000_eth.c b/drivers/net/ethernet/amd/au1000_eth.c
-index 8682323d693f..cd25248f4e3a 100644
---- a/drivers/net/ethernet/amd/au1000_eth.c
-+++ b/drivers/net/ethernet/amd/au1000_eth.c
-@@ -788,7 +788,7 @@ static int au1000_rx(struct net_device *dev)
- 			skb = netdev_alloc_skb(dev, frmlen + 2);
- 			if (!skb) {
- 				dev->stats.rx_dropped++;
--				continue;
-+				goto next;
- 			}
- 			skb_reserve(skb, 2);	/* 16 byte IP header align */
- 			skb_copy_to_linear_data(skb,
-@@ -820,6 +820,7 @@ static int au1000_rx(struct net_device *dev)
- 				pr_cont("\n");
- 			}
- 		}
-+next:
- 		prxd->buff_stat = lower_32_bits(pDB->dma_addr) | RX_DMA_ENABLE;
- 		aup->rx_head = (aup->rx_head + 1) & (NUM_RX_DMA - 1);
- 		wmb(); /* drain writebuffer */
--- 
-2.53.0
+The idea came from David's comment on the __GFP_PREZEROED RFC [1].
+One thing I'm not sure about is whether flush_dcache_folio() after the
+allocator has zeroed the folio is enough on architectures with cache
+aliasing, so a second look there would be welcome.
+
+[1] https://lore.kernel.org/all/b258160c-5287-43dd-b56e-268c403b85ea@kernel.org/
+---
+ mm/shmem.c | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
+
+diff --git a/mm/shmem.c b/mm/shmem.c
+index 5cb628cc9c6b..d2c6781e86a5 100644
+--- a/mm/shmem.c
++++ b/mm/shmem.c
+@@ -2692,6 +2692,7 @@ static int shmem_get_folio_gfp(struct inode *inode, pgoff_t index,
+ 	int error;
+ 	bool alloced;
+ 	unsigned long orders = 0;
++	gfp_t zero_gfp = sgp == SGP_CACHE ? __GFP_ZERO : 0;
+ 
+ 	if (WARN_ON_ONCE(!shmem_mapping(inode->i_mapping)))
+ 		return -EINVAL;
+@@ -2770,7 +2771,7 @@ static int shmem_get_folio_gfp(struct inode *inode, pgoff_t index,
+ 
+ 		huge_gfp = vma_thp_gfp_mask(vma);
+ 		huge_gfp = thp_shmem_limit_gfp_mask(huge_gfp, gfp);
+-		folio = shmem_alloc_and_add_folio(vmf, huge_gfp,
++		folio = shmem_alloc_and_add_folio(vmf, huge_gfp | zero_gfp,
+ 				inode, index, fault_mm, orders);
+ 		if (!IS_ERR(folio)) {
+ 			if (folio_test_pmd_mappable(folio))
+@@ -2782,7 +2783,8 @@ static int shmem_get_folio_gfp(struct inode *inode, pgoff_t index,
+ 			goto repeat;
+ 	}
+ 
+-	folio = shmem_alloc_and_add_folio(vmf, gfp, inode, index, fault_mm, 0);
++	folio = shmem_alloc_and_add_folio(vmf, gfp | zero_gfp, inode, index,
++					  fault_mm, 0);
+ 	if (IS_ERR(folio)) {
+ 		error = PTR_ERR(folio);
+ 		if (error == -EEXIST)
+@@ -2810,8 +2812,11 @@ static int shmem_get_folio_gfp(struct inode *inode, pgoff_t index,
+ 	if (sgp != SGP_WRITE && !folio_test_uptodate(folio)) {
+ 		long i, n = folio_nr_pages(folio);
+ 
+-		for (i = 0; i < n; i++)
+-			clear_highpage(folio_page(folio, i));
++		/* A folio allocated with __GFP_ZERO is already zeroed. */
++		if (!alloced || !zero_gfp) {
++			for (i = 0; i < n; i++)
++				clear_highpage(folio_page(folio, i));
++		}
+ 		flush_dcache_folio(folio);
+ 		folio_mark_uptodate(folio);
+ 	}
+
+---
+base-commit: 0c524518413094607a6178c53a65815762bc9c45
+change-id: 20261117-samridh-shmem-send-9fd2d8231e8e
+
+Best regards,
+--  
+Samridh <samridh@modal.com>
+
 
