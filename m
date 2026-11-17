@@ -1,91 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794937447;
-	b=4oAZSEuLFtA79IFWckgZhXecx9dWTsHELNKMJrf4yc3Vt1JITDituPY7K7jh/Y8xg4z7
-	 +lXfi/D1YjiMJ8H0a9h+QOopSoZ/+W9OfC/xPyB7poHeNrXmei8Cp1WBRSFgPlPGb4OX4
-	 Hkcb1KjHRUFmuGg0dsFCUBJHD2h9I1Xy7AbRvvCnf6SPMyP73rX2tJoRCbX5W7vVK5tMX
-	 Gq5IwP36T9KbLifhL6xDkaBQrphy0QY8P4PyR05DV8DwHyWZzBhn7NxBpDtTEcUpYkmvv
-	 B09OLlWMUTW/F9I3VDOHhV/OTCx/8RIhmrufu0+1Q5Bx+UfNa1qbzxi9uY94cMKsCtA==
+	t=1794937448;
+	b=dQzfAhJ0VnW2L4YQMSz9gw7Wtm+mDJHtSjaUlrk+YZqQNpjkEdBh8a3ZSTLPITwk1Gk2
+	 kTEXFCGR1omt/Mg22uGe+jqvKx8LOVMKmZ6iFk5dbriIlrnrBtMAYySFgXQ/U3lR7o80r
+	 YMZL11MXxy1oPaSXabvxIr7865dWja2ny7YDP1rRxB5VfKkO2fHUu8vBoKJodSKPCooZF
+	 D/ZcIWx3Ti6x7FaW2UBebUHW4n+H9vyNiOHWYCZQ28g1/GrOto9pWHBJsoJ3u1zBtVXPR
+	 ulCdIpForvuDtj6MhM1TaZZ+qe7Q0kBVSWqT8+dnnrzxWmUZhUeVFfUyRGC82bLaGHQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794937447;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794937448;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key;
-	bh=uKVN3cMMqKcQp/QJBvqNbe2qemW+gMKwHZ5x6CAtQXY=;
-	b=k5uNbog+Qs6L0jGJ+LV6WCPqRfQiOc5VKpnIMUUwYq9zFe7E8ofeq/Pn6XmUQiwHDlt6
-	 Fu75kmNQTLH5ymtE9xQiEGXlMwWu3r/w6LVFNRtLGK/MT/zFaTO9q94rFQ8S8YOkVxu3I
-	 PjXPXpu2/7JslF8f+uwBEiA8A7E9NvWmWPxdOu7pbxZd1rPzM1ecISvOC469VcH6b5jd9
-	 H9QoutNfZI+I0hMcHPkSZv9J5/khRenmiJ7VcN9kWf6YPOuuHY4LkYodfCBavRMXTQVKj
-	 pmYnrZEN81JqCF6QWLHNh3sIzKdEMUhk8mdLiL+EVQe/beq5Uw0CNpCbib8V32EdsfA==
+	bh=EMofIhkXpaZ8+oSY685djaeZJDUF5sw2CncgWG8cpWg=;
+	b=fw2Edv8p1w4IvdOkTYGmOsQaWF07Hjc8q4fZXxcQeOFsi7LL3ldFl8i9OgtR86RglgK8
+	 WlUbXZHH1fXdzeqnMeVtOJ2dYXMUcLQfLGt56d22Pxn6ad2gGVdvLO4SMT7oI7VmkMXcE
+	 /aDt0ndEgD2kUXOLyUVKxp2hTLMgZFJDavKXylZ9MvfychAmd9wopkkrk7YEjdINv7Feo
+	 FBYeZqtfNGjNT6ds0is9qyRRfDAQPsc2TrlsKHwV0EPu1B6uZCeUZDEI0eofKfQWrQTsM
+	 THzFxgX8KvLMkDrOkZtciOTTzL4IqpYobfEznp+evJA2ee/NZlVAAULHm6FVAPgw8Dw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ighFqIIr;
-	arc=none smtp.remote-ip=74.125.224.51
-Received: from mail-yx1-f51.google.com (mail-yx1-f51.google.com [74.125.224.51])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="guB//sRj";
+	arc=none smtp.remote-ip=209.85.128.174
+Received: from mail-yw1-f174.google.com (mail-yw1-f174.google.com [209.85.128.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB13B606A339
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:44:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EB13B606A339
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D8FB606A88B
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:44:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D8FB606A88B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ighFqIIr
-Received: by mail-yx1-f51.google.com with SMTP id 956f58d0204a3-67db89857abso3344757d50.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 09:44:06 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=guB//sRj
+Received: by mail-yw1-f174.google.com with SMTP id 00721157ae682-8b4e2fcc300so23081477b3.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 09:44:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794937446; x=1795542246; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794937447; x=1795542247; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=uKVN3cMMqKcQp/QJBvqNbe2qemW+gMKwHZ5x6CAtQXY=;
-        b=ighFqIIrqj8XgweqF+jcqTIipSiZQ1m5nuY32ut8uJCeuV5oKtiot4TR1GhQmkGZyL
-         hM49wGPbrADnFOkwkjqKcmHsnLyMUX6qW6fVPCdkHk9W7BpXUSm/j5pO0PZb7c6gk2PJ
-         qJj43RAYAQQMCTNuY2n2UlcuE+FzpbhFhjS3EHQm+zudzDsuZHSVBAkDIA94gbWOyxZI
-         5PH33LStQkNsnVRW2lgPOxTqw/IomyPXdHgMI/GMq8vuZwigNT4bi24yRLJ9xx1glm8V
-         jVSlm+XumCOW2XsVglP5w6c7u4yKkvXn4UTI/hbS58yqqw3hCWSvmaCngsStEadYJBIX
-         uAJw==
+        bh=EMofIhkXpaZ8+oSY685djaeZJDUF5sw2CncgWG8cpWg=;
+        b=guB//sRjt70QIbjGzWxaOsU/kRL2jjxWF8eZOmmRUaXg80EghYUblSszMmddhgFX+3
+         ODmgzjlSuUr/XRdSXxPCkS7IsSOGhYJsbPyquNPQ0UG+7ak++tgXuo6eWCbEzxph4Mnp
+         AXh0kHwiGJUeGwEM4PaXTTHmKBvR+WXsSLXA5BKjBTFwM44ApXg6Qggxf9yAMceT5Uix
+         sPnM+Y6h+bfDoWbUGgjZ7SuSsXLw5/nRCY9H5uXWgRBuXoCSRdAlm646Qk0VM42x8YHJ
+         WH1nRXIXu8M5DID+iM7qNl/RL++4z3W0pDz1pTJvJW8a4QXZMEUoDbEjXIGL2gepD5a9
+         f3FA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794937446; x=1795542246;
+        d=1e100.net; s=20260707; t=1794937447; x=1795542247;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=uKVN3cMMqKcQp/QJBvqNbe2qemW+gMKwHZ5x6CAtQXY=;
-        b=yFjaXFyQQpmODRzSh/RoO2dPH0VaunQ4eqiixPWkseyCTf/6mJmn0MO85QT5eBws3h
-         HGvdldo+lBVfPa4oSNd3c24u34eXnXejYMF7jG//gAeqK3HAEBVqm9WB7u1hEj97ZIQe
-         Z6GFr9iM62eRjt6KSTkyUtxQwglUxQE1RKLUz2AEeWHpz8v28BT/0G5UQRWGKIvof312
-         gz8DTdEZPolrkk1em+RDGAVzGnRS2JkSib0sgzrE3Gfw40LKcfvfij0KLoG1+lgHHLeJ
-         cRYxxUn8ckqUlRddxFPteYhtdVjxNcmrWPgDyhnKKfG/wbobjP+506Ywej4H5YofSgpQ
-         a4rg==
-X-Forwarded-Encrypted: i=1; AL+hErGzV2CxHdmuWj94VQTsvcpJy+vOVcQFZkSstNYm0MITg0MyI12sDsvRphLklVP7GP6y0MUWJYCxLc55tCY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+DQzJtwfv/Olvw01WeeRy73DqzeRQmSoCs5Eu9FyP2ybmnMeJ1
-	/hXwrQaKDSL4f5rt7S8dpdRQN+em/+3O6bBRIkzKKdNa80aeEi6Gs0Wg7E3R65KeT+4=
-X-Gm-Gg: AZFdTZdYzIfYPDUnFTE0w8XEG3pSZ9IJ8VyZv2usiuKgrW6C7eNkkViFaa3j15bdTF3
-	pg218sTixdxfwoxTJoyqIafDJpnx9V8oQ/RGtGMupcipFSCXFKutLh7HapX3XO+Jai7fFRP7DOs
-	xpJvl6Tr9DAkx8gkHZTTp3oZDf329Jx1T9Q2tlK0ijr8aTtegyFuoZeguW+SmrVmhMTOob1J8Bx
-	fWosjh1VpyUkJFKN1EWgoYYP+MfRLtnx/kAOZiI8SOr5yYOu3QcyIrWHPVgERM7Fj9fQhP66BtO
-	SFfa6tF5nGaDsM0BISnv7WiZhP5G+bFYfcOpMQTkYD2nAiPZ4/tnmt52jWe13ZTwWY6VnQYiOX9
-	BWgKO4Z0ezLs/Ilx6WFBttLyaJNU9Vgd2PiAHzMDOTBKU6cFjtJlRBRvFQtkHfwkpuRI5+vQusb
-	6sfEpc0JYI8fIq45WaCtLA3p+nhzAERv9PmRmRapfH6A4wmMPkREqdLvvdrpSjzyIlBTSDiBM3d
-	Aw/VYOzs1NezShVn9lb4K+o4SFlOLyv8E/ls05TaoW/e5TfVoNO1oNNo/cGC50XzM9H3d5eNvQE
-	5Yq/epL1SuqfXSoYej7LjZ1tUTlbzWsd7WYbAXCn3mkxQIWyYISjwD6vLQwNy0Qv4sFeJuTLurV
-	B4Y4OT34oxvuZpBuOcj+vbVMBDy28n3sFWYbqwi5CSKSdZEvtSJ6N9tm7HmFlKlLxNZ96DA08bS
-	NVxcO9r0f2HApsMXUTXA==
-X-Received: by 2002:a05:690e:151b:b0:67d:c37d:331e with SMTP id 956f58d0204a3-67dd3fe9f53mr89877d50.119.1794937445825;
-        Tue, 17 Nov 2026 09:44:05 -0800 (PST)
+        bh=EMofIhkXpaZ8+oSY685djaeZJDUF5sw2CncgWG8cpWg=;
+        b=bg2liA8SEwJlc/4sTNUcl+MxYRMg6ocabqEeeCbX3M15tGfYqXISm7+KmgH9f8CLx/
+         VtN7qjjx7yxw6arMEiZeqQTtIleAxXZKiazQ71Ym2BC4fIRbC9zPCPFroYYXEo1RUF5e
+         0apq3cKFxsKgsCNrieGJAQ5qGE73Dk9/v9uUv91dtbfKxH3FWttCTEYXNghCVNSQlkDp
+         NcphAPfun5/pbIUswpGsWNa9UFcP7WgcwQ9MpLAloqbkx8TlBE06VbFwBTlv9T7tJ9Su
+         8ddAVL4i2mwO5Bc1z2s0ea6FBUpjbO2fAzPHVdWdSBZl4IvYDcRL8bcc+R3bH6fV56Dw
+         uAIQ==
+X-Forwarded-Encrypted: i=1; AL+hErG1xcFmddnF950t+W7Zj4S4IcR/wpYQeOBj7nSRMRiCmMXs+62m9dRmws+hWcUUs9SquNc22LPfn1oRxiw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ydmgia3k4fkP9z50QJpXnbVFSCfU7SHE0OIVt1HAyBaWV7okh
+	MRovpWMP+jh9AIaS8DCm26z3K8kLY2ZadNrZJC0CfuJYMVTWEjVXxDjaOS1GzjUspZ0=
+X-Gm-Gg: AZFdTZfPAAkBbQmR9lj5Aq8l32rDO6LizfMUn6H+u+hM+7jk432NW5SxGJNU8FmF9jw
+	/4Xa3Y6QOXsUzKlZ+XVjKhTUjFEvX45xSutv/ytKgy1qr48TrSuOPBQFIY8hDkXRFD3706P3Los
+	PLvIDaOsJGNVfR05oQIl4YnPHmrUGIFvKl1mO3iNN4UyTHyxOaaJCOTKl/75OVrKgmlnPC++Pez
+	f/LZrffVxEzzPwMA94AUDa9ZlUCd2HLVUE5ALM4B0q53+2iBtgijvCHpIfXO8Pj7DPEnjQqYL4l
+	jl1qTtNO5kCusSSfbXolw0scckfIo3X5QZh0dL0g4zAg+lLbU653xrRI92A257NSJ2GZpC5GK5U
+	c6JTwWClJ//VMWQTo53fMwxdVh/d8m05SQSSaWCQDuVxCISicv4RHeLno0614v2Wb7O1+iQY83F
+	OiAUtxmpv/Q+bF3AnDZ5CxQa5+bK1Yh7lykb615NJrnqwnvAnJ+nzesdUJ53hkbZm/YuhsAHL6C
+	6CRL8Bu0nguH2Ti3EtsyCnI4eO5pddUSuRI2lxGBwCrLFYGY5zXGjH5xZWblz17HxOGOwh/WEQm
+	JPbDqmeCrMwSVn74smw4vJXufH6ZnrzM2/axkDDNOxqF02ktRGutVlpqiV6IgpB/JZvkToYAWuC
+	/xHPx0lbxP8NFX4FNLDJHIoJKeCFAT22Q3rmecF2RRNsDNZbAxZRBBjnVbTyDBIxkiaQQU+Weiz
+	84krc2zbA2X0xFWt2pUA==
+X-Received: by 2002:a05:690c:30a:b0:8b4:e3f7:9edb with SMTP id 00721157ae682-8b4e3f7a668mr28160497b3.97.1794937447362;
+        Tue, 17 Nov 2026 09:44:07 -0800 (PST)
 Received: from localhost (107-220-129-194.lightspeed.chrlnc.sbcglobal.net. [107.220.129.194])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67dd3fed5e0sm205158d50.5.2026.11.17.09.44.04
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b4fe07408esm2161937b3.22.2026.11.17.09.44.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 09:44:04 -0800 (PST)
+        Tue, 17 Nov 2026 09:44:06 -0800 (PST)
 From: Matt Turner <mattst88@gmail.com>
-Date: Tue, 17 Nov 2026 12:43:57 -0500
-Subject: [PATCH v2 6/8] powerpc/perf: mpc7450: Export the event format in
- sysfs
+Date: Tue, 17 Nov 2026 12:43:58 -0500
+Subject: [PATCH v2 7/8] powerpc/perf: Use SIAR for sample addresses on
+ 32-bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,7 +97,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261117-ppc32-perf-v2-6-2072e9b90009@gmail.com>
+Message-Id: <20261117-ppc32-perf-v2-7-2072e9b90009@gmail.com>
 References: <20261117-ppc32-perf-v2-0-2072e9b90009@gmail.com>
 In-Reply-To: <20261117-ppc32-perf-v2-0-2072e9b90009@gmail.com>
 To: Madhavan Srinivasan <maddy@linux.ibm.com>, 
@@ -106,77 +106,95 @@ To: Madhavan Srinivasan <maddy@linux.ibm.com>,
  "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, 
  Shrikanth Hegde <sshegde@linux.ibm.com>, Paul Mackerras <paulus@ozlabs.org>
 Cc: linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- Matt Turner <mattst88@gmail.com>, Tanushree Shah <tshah@linux.ibm.com>
+ Matt Turner <mattst88@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1965; i=mattst88@gmail.com;
- h=from:subject:message-id; bh=+lEsdbEQj8rALkNtLr6OeVNtXuxnotW+z/AE7BFI7fU=;
- b=owGbwMvMwCW25rVmCc8sv+mMp9WSGLL+TIow3N16UvC5FRNL39GZdtxmbzjET2xz5U3g8q1fM
- vXtt2fTOz6yMIhxMcwUU2SJW6/IMqttx1Kf09K/YOawMoEMkRZpYAACFga+3MS8UiMdIz1TbUM9
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3533; i=mattst88@gmail.com;
+ h=from:subject:message-id; bh=sQH/oeX/+nbUx0BbEEHc52r/vsgK7BzhKRKCWM0N8VA=;
+ b=owGbwMvMwCW25rVmCc8sv+mMp9WSGLL+TIo0NGUxEJC7tOo634SlwSv/KV89fO+6YNCBVxly+
+ Wt7+Gy8Oz6yMIhxMcwUU2SJW6/IMqttx1Kf09K/YOawMoEMkRZpYAACFga+3MS8UiMdIz1TbUM9
  QyBDxygeIqfHoJFZXFyaWqSbVlDkkJdfkliSmZ9XrJdfkJpXkF6gl5aZVpKRkV9UnAo0Qi8vtcT
- U1dHNyNDAxNLRwszJwtHUxNnZydDJzdHR2dXJyNLcxMDZ0tHE1dKcgYtTAOaahdEM/wtPtj3MO6
- Blxm/SKP0vU1B9+WuWyutW2drcW/dcW3fu+3yGv8JaW57+nbfc+vWxTPfwR66vOawkHCq456rPZ
- L0dvU69nw0A
+ U1dHNyNDAxNLRwszJwtHUxNnZydDJzdHR2dXJyNLcxMDZ0tHE1dKcgYtTAOaaSEeG/zE930sb7r
+ vyP2d/pfxslRGv58b6oycvLvTXOvbmkwiPTD3D/5CrHFGFs0QXmy2zyFE/+O5B6iem/ScONDO/4
+ 7rlIr/2BAMA
 X-Developer-Key: i=mattst88@gmail.com; a=openpgp;
  fpr=3BB639E56F861FA2E86505690FDD682D974CA72A
 
-The MPC7450 PMU has no format/ directory, so perf can take its events
-only as raw codes, and cannot set the threshold by name.
+On 32-bit, perf_read_regs() sets regs->result to 0, so regs_use_siar()
+is always false and every sample is attributed to the interrupted PC.
 
-Describe the fields of the event code: the PMC select (bits 0-6), the
-PMC (bits 8-10), the threshold (bits 12-17) and the threshold multiplier
-(bit 18).  A threshold event can then be written as, e.g.,
-cpu/event=0x12b,thresh=20/.
+The MPC7450 family's SIAR holds the address of the last instruction to
+complete before the performance monitor exception is generated
+(MPC7450UM Rev. 5, section 11.3.7). The exception can be generated
+with MSR[EE] = 0 and is taken once EE is set again (section 11.2), so
+when interrupts are disabled the interrupted PC is wherever they are
+re-enabled, while SIAR still points into the disabled region.
 
-Reviewed-by: Tanushree Shah <tshah@linux.ibm.com>
+On a 7448, sampling cycles system-wide with --intr-regs=nip during dd,
+perf bench sched pipe and find, 46% of the kernel samples have SIAR and
+the interrupted PC in different functions. 13270 samples have their PC
+on the instruction after the mtmsr that restores interrupts in
+ata_scsi_queuecmd(), and 11661 of those have SIAR in udelay().
+
+With interrupts enabled SIAR helps less. Sampling a 32-instruction
+loop with one store and one branch with -c 10007, 99.8% of the samples
+land at:
+
+  event             interrupted PC   SIAR
+  r122 (branches)   br + 13          br + 9
+  r014 (stores)     stw + 21         stw + 17
+
+Because the exception is held off, it can also be taken on the other
+side of a user/kernel transition from the instruction in SIAR, e.g.
+just after the rfi at the end of a system call. SIAR also holds a real
+address while translation is off, such as 0xc00 in the system call
+vector. Recording a loop that alternates user work with getppid() with
+perf record -g -c 1000000, 3022 of 16953 samples had SIAR in a
+different mode from the interrupted PC. The callchain is walked from
+regs, so taking its first entry from SIAR there starts a user
+callchain with a kernel address, or reports a kernel sample as a user
+sample at 0xc00.
+
+siar_valid() already returns true on 32-bit. Use SIAR for PMU
+exceptions when it is in the same mode as the interrupted context, and
+the interrupted PC otherwise. With that, the same test has no samples
+with mixed modes.
+
 Signed-off-by: Matt Turner <mattst88@gmail.com>
 ---
- arch/powerpc/perf/mpc7450-pmu.c | 26 ++++++++++++++++++++++++++
- 1 file changed, 26 insertions(+)
+ arch/powerpc/perf/core-book3s.c | 18 +++++++++++++++++-
+ 1 file changed, 17 insertions(+), 1 deletion(-)
 
-diff --git a/arch/powerpc/perf/mpc7450-pmu.c b/arch/powerpc/perf/mpc7450-pmu.c
-index b2fe977cea16..9bed5c238f45 100644
---- a/arch/powerpc/perf/mpc7450-pmu.c
-+++ b/arch/powerpc/perf/mpc7450-pmu.c
-@@ -398,6 +398,31 @@ static u64 mpc7450_cache_events[C(MAX)][C(OP_MAX)][C(RESULT_MAX)] = {
- 	},
- };
+diff --git a/arch/powerpc/perf/core-book3s.c b/arch/powerpc/perf/core-book3s.c
+index 10ded865583c..4c9c9ff1073e 100644
+--- a/arch/powerpc/perf/core-book3s.c
++++ b/arch/powerpc/perf/core-book3s.c
+@@ -112,9 +112,25 @@ static inline u32 perf_get_misc_flags(struct pt_regs *regs)
+ {
+ 	return 0;
+ }
++
++/*
++ * The MPC7450 family's SIAR holds the address of the last instruction to
++ * complete before the performance monitor exception was generated, so for
++ * a PMU exception it is closer to the event than the interrupted PC.
++ *
++ * The exception is held off while MSR[EE] is clear, so it can be taken on
++ * the other side of a user/kernel transition from the instruction in SIAR,
++ * e.g. just after the rfi at the end of a system call. SIAR also holds a
++ * real address for code running with translation off, such as the start
++ * of an exception vector. Use SIAR only when it is in the same mode as
++ * the interrupted context, so the sample's mode and the callchain built
++ * from regs stay consistent with it.
++ */
+ static inline void perf_read_regs(struct pt_regs *regs)
+ {
+-	regs->result = 0;
++	unsigned long siar = mfspr(SPRN_SIAR);
++
++	regs->result = siar && is_kernel_addr(siar) == !user_mode(regs);
+ }
  
-+PMU_FORMAT_ATTR(event,		"config:0-18");
-+PMU_FORMAT_ATTR(pmcsel,		"config:0-6");
-+PMU_FORMAT_ATTR(pmc,		"config:8-10");
-+PMU_FORMAT_ATTR(thresh,		"config:12-17");
-+PMU_FORMAT_ATTR(thresh_mult,	"config:18");
-+
-+static struct attribute *mpc7450_pmu_format_attr[] = {
-+	&format_attr_event.attr,
-+	&format_attr_pmcsel.attr,
-+	&format_attr_pmc.attr,
-+	&format_attr_thresh.attr,
-+	&format_attr_thresh_mult.attr,
-+	NULL,
-+};
-+
-+static const struct attribute_group mpc7450_pmu_format_group = {
-+	.name = "format",
-+	.attrs = mpc7450_pmu_format_attr,
-+};
-+
-+static const struct attribute_group *mpc7450_pmu_attr_groups[] = {
-+	&mpc7450_pmu_format_group,
-+	NULL,
-+};
-+
- struct power_pmu mpc7450_pmu = {
- 	.name			= "MPC7450 family",
- 	.n_counter		= N_COUNTER,
-@@ -411,6 +436,7 @@ struct power_pmu mpc7450_pmu = {
- 	.n_generic		= ARRAY_SIZE(mpc7450_generic_events),
- 	.generic_events		= mpc7450_generic_events,
- 	.cache_events		= &mpc7450_cache_events,
-+	.attr_groups		= mpc7450_pmu_attr_groups,
- };
- 
- static int __init init_mpc7450_pmu(void)
+ static inline int siar_valid(struct pt_regs *regs)
 
 -- 
 2.56.1
