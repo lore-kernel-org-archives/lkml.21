@@ -1,91 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794937439;
-	b=Hooci9FpuaYOacWFvbkjlydf0MoZwTmFURqOBDYizFebZVcYs7rCzsAczKdJKmulE2AS
-	 aeIcQYA+Of23oWWnhqCIhuf8ug7MtCqkXBamSHhYDIBY6m+d3eRIIwNS8vGfND82J4oti
-	 a9tT1G6FKRiiMrE5B90sBeMJzDFkH/ENQr8BWAs5U2rpwGtQ2yNJ/51l7Ux/5uCh5evJZ
-	 +iEhsDmu8R9/6meg8D31zxzvyloEd+nOFmT2iH/TePzoC0N/AABB/fqMNryHoRgbAwEom
-	 1NMQCvHi/9YqMkg0+5FlcIrpI5XnU0O+tCrn/VLzktC8vwKi99SYqkzjYe76SQ6dVYQ==
+	t=1794937440;
+	b=0DH1jXaB+W8hAlixWigl2fp2sTpHLrL/80OxUtT12EZ5LLaRuN5kYV3GMb9YM3rdxYxK
+	 oY8J+JXtVxN1lzIy6/r/iVFVOTT5UPNvWnVk+lgIj6UfY+sPVUkLcAHTWpVNyDLsPXX3n
+	 L4AEtknK/jpsNkEkIKqzmRfmCVRoV7ZYdb+Tol9B3t/dE/8KC3X5pD1qEd6C9E0Da9SUM
+	 aXU1iZXFQUjfKSyomO5SydjjbvUhm34TZMfnI4BFvUXh4sApnR99nno8ElVf4VSfNW4dD
+	 RAQgm+e5jYdXc9QLSIS2CoHvLBXrN6zC3lRVVnJrdhhhMjlBMvKHoFDMa1l7ZDCBRyA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794937439;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794937440;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key;
-	bh=/eNHuGNPRSSMiJpVC8xJULC+1p4MqcbiqGuhs79KBVQ=;
-	b=IVyRvxmniPjvWFYwVAFLNdgoIVstfSodL2MQIiE1a1r91MHmX/yZMzERDx5okQXwdd8W
-	 TA0n8MRa5pzykAPzX+7RmLtXabZiXXL9ETYdeV0voAg4Tbff6pmiTg6UTdQmUVj+xLiqa
-	 BR/A5H9rmjvDKVnKFoPIKSNa1Uim4JPv1D6vpj+4SUepfXE5IPSVQx+KpJFas3Ff9OBFQ
-	 qjakoSuzEWfjhC7xHjaMLBlLesXax56LzH9PjcA3T1vZ8/MHGNcG6CieTJCgmHDr3sd69
-	 0TVmJBQOL6S4skA6V6ddrSWAuKIrZbKhlqBvFMUSP/nmY6zWbFx5v3p/ksKp1Gxu8hw==
+	bh=3Q050ARbfSsfp/DpsjpaNEHeBUmHeSTY5lbv5E8BhzU=;
+	b=iRt2x1sw5PgndW7QILhb6bT3BxdCzZ/KQ0c1O4R5Xiqe+UGDftFaveqL6PXAcjuwgdGL
+	 L/DIhv24x9d8890BnpwBELMUjrM+x9VezAKW7RzpdFi+12Y8dG0mSSLYuPqAIbKmIHxxm
+	 bET9chP0mPbFHwEJ+Ux/fyinvMN4k7SwXhtdXOGZmJH2LySqtffk9Ph06DvqFQ+vNwm0I
+	 vGbCkK5P+MltD5puy1YKkBUv8C/1CTKrKia1PNRuSKj2wFs2fZ1jl2G68qsJmx5l0MlJ+
+	 GV+Ns7axtJ5w41vGKznL+mDiMZM8gB0hbmEhQwr21A7iUSr3ieBCD/XKLQMrmNeL4pA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HQqBf5CN;
-	arc=none smtp.remote-ip=209.85.128.172
-Received: from mail-yw1-f172.google.com (mail-yw1-f172.google.com [209.85.128.172])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="n/CwXBKS";
+	arc=none smtp.remote-ip=74.125.224.47
+Received: from mail-yx1-f47.google.com (mail-yx1-f47.google.com [74.125.224.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D27D5606A333
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:43:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D27D5606A333
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5BA51606A335
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:44:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5BA51606A335
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HQqBf5CN
-Received: by mail-yw1-f172.google.com with SMTP id 00721157ae682-8b0dba37a7fso48389007b3.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 09:43:58 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=n/CwXBKS
+Received: by mail-yx1-f47.google.com with SMTP id 956f58d0204a3-67bee1f693bso4310568d50.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 09:44:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794937438; x=1795542238; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794937439; x=1795542239; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=/eNHuGNPRSSMiJpVC8xJULC+1p4MqcbiqGuhs79KBVQ=;
-        b=HQqBf5CNZ7PvNGV7u3ey5MX4tb/NMHzTaIpLUe2B8nsEOhZY/qQjtJhjnZJs4jDP9w
-         wYw+sO0hFuqqrvh1j5xbb6ul6WLKWKie1YtJM5zDoBUgNm2BQkTH2ewv4fvNcYS5sI8Q
-         xfJbgIf699/H8C2EEzCGPLMOGMjjGNMljwkidh+L7Uvf6aem5ZzcW3Y7Yw063e9Kevs/
-         oLYYd4JAfAKAM+j0CCgHwY7hC38NVA2Y1FbdEp9paCArwkq6XM9ajA0u4pIbBJ8NGmnh
-         p4xt4/ZcDvqWaAyF7Br6PMirbUb9kRyhvVBN9Xb+n/XN3qEObJNS1dGs81/844j5eF3y
-         8EZw==
+        bh=3Q050ARbfSsfp/DpsjpaNEHeBUmHeSTY5lbv5E8BhzU=;
+        b=n/CwXBKSCZqpIA04JJ5NbKvxCnwgL3G9BAUIXC5FYK01pENP9r7wwlSDBQrw4GX67m
+         g674QBB+ys/XPm110VWTGNMwCQCYxP9NJtevhduC9l8a8gjvaRaDtBnVXanlzbVa8SRi
+         NY2If2122Z6CLQnImtswFcAwcHYOHdf/gdJf65PQiAijfNAPNhSb4z7enQvwcptooZXB
+         IrfhlGEKMcsPSwTxtYycsBNzwoKYLuW5vU6BC8VApJHx49czybuQIsfIedeKPpnJx4gJ
+         rG3kS/rBLMX8Bhoan4eCO47Es34q6Nf4moZSrGaglVr4we9mb3d4TiaYsR4ax16w7Iiu
+         MAfA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794937438; x=1795542238;
+        d=1e100.net; s=20260707; t=1794937439; x=1795542239;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=/eNHuGNPRSSMiJpVC8xJULC+1p4MqcbiqGuhs79KBVQ=;
-        b=ZAZu3cE6TF9LdwoG4fvsAwZA/AhmnzqIrrGNJuraviP2TZF38G+EMTSF7zAZa5Hru1
-         vwghNDrIfsRmi9g/0SNQaYhID2RZfoIFG/BVu0BnYJz0vvKCAUei+ZF0VKYmhosO3TVh
-         piXSdOIWklnnhA0x3sIVwcgHPB87cXWkcOuxVf+BILggdn0+3bywqRYLL1hfYn6pq9xH
-         dv8qzuVmpJsVKaGs6uDnxKJKNLkXIqwNsYJCsoPA9eG4zxiObhsDOvUptRgg4lfvOx7t
-         1hi09Mrrg8z92OTue8kgtD6aBdOVBEAzaxcaTmGm8A6+5hFCUW5XaGe3FykHio5M81hl
-         mfwQ==
-X-Forwarded-Encrypted: i=1; AL+hErGJnchbAMtsw5A5RWmzE70kaVEKBfXm+Sro6r8IYIqw+edlgBAoFNU0L06NzAB1G2OIobzkWGqGFiaG1ss=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9SHeCPfDacYpsc/B8MbcfwMImm0wD+xH83+2hJnJWNkb0l2Ewu
-	KNEDnoGh77QAKQ1K02eUkDG4U0ovbsCTx+79lPB5W6lHrGd9PFVwD97rPPoQTcvN9Sc=
-X-Gm-Gg: AZFdTZfEoQY45IoQzTUafCfjLdjIA55kvFF7rkUFCD5ltTpGnNe2rXFCE6JpMJgOhld
-	Wv/HEVEkwFnQ7JcOkHx6bSwWCdWLhKhXWmNDRoYND37gyD9YkQ2y/6Gczf+FIFzWSWZBYBiWqrs
-	Z16STmZ5dUzmetHWrIrXv2kbmnO5WdC0en88RNRx7UBwx/aLDKqKpQnrSsb/Tu5P2jDLIPVla3j
-	Rqnq7j9lZmQlTPMCrSa8CutI7spqBI+XjlWIKruAb8676O4FT/8JGO+1gwcipMBU6X9XE528okV
-	CmQgtydKke1DNNNEBIsnRtf/e5+Jzbt5WowZYI4DV/AU4UaP5C9p7Xh6cBFedyVvivuhJKjZa/s
-	jvMFx1kF4dLnsy4rSZD9lqaGMKH675rnDrhTxbSIShJCwbzsxJz3XAfJPiT1qnYoo93CoqUsbUk
-	Tx6yznT8v9Pi/UiNUzZmRPxVmVmxJjiAeZXs/+iMnXXuxlksF+V9LU/plLqnMTE9qLn5ThGth4y
-	pAeMI6gve4/YiPu6xme2saCu0thOQxDb+chRuFyViWI6NSl1Xp/9IsL8ahpLpeFDWr4qxbaZnfR
-	0u682mtmrPtzuT0xOumYKogQ1paA8qnwV95Y4k0+ueNDKazul/oR3QI7TBzmcwm0CpaYhNEYHJ+
-	y5/y1AtKkc6xeUD1EKxiaNG3EzJRQliQkGPDLSSNtyNpEt8ejlYWApBmGVbrNpHFS8beziBLrH1
-	qfrnyG4el80vhpM7z2ug==
-X-Received: by 2002:a05:690c:295:b0:8b0:a252:77c6 with SMTP id 00721157ae682-8b4fecfa355mr1877b3.19.1794937437826;
-        Tue, 17 Nov 2026 09:43:57 -0800 (PST)
+        bh=3Q050ARbfSsfp/DpsjpaNEHeBUmHeSTY5lbv5E8BhzU=;
+        b=1EUDFo2i85f4adqEowYFvbA05ZMosrELXVkbMXuGF9iXA11F40Xj3w/bgC+3eWZdm5
+         SpT7Rqz3080sl0ayBXYYGjKbRD6QJffUbgopd9tWRf5Vtf3sNGFk3zBsKqpRiTl/pL26
+         sI7VAxXCLiUmf6Wkvx/U++sv/XJ8H+Wdj6Of7eYTH56JWIU9PSvpTLP1WAbxratbo8dj
+         4Xmf4hbQaTRoic3tCoEPMq+ONMjKjFuEAhj05+1TAJIzeqzyGdQudL+i47ikdJPelkoE
+         eaYNzFeooab8i73hmrNiDowFCNrqtgsaK891xc2FhcZOEjSboFTVM6gMmteVWUdR7wUW
+         i/rg==
+X-Forwarded-Encrypted: i=1; AL+hErHCgi5uz9DzgVX7NSwWEY/DuwWI3Sh/FD2s9/d/EmKxaGMAV0ioqwjSrOQ/KzKQb0LrMcHqA2p5qHOtH8M=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9TwttfYn5YXpmXc52bzNUkTzM12/IFgmqeqbnLtbCwoyWRx0ED
+	wzUS2a/KqXzhxV6hDYTy5TVDziMadzb82Imj04DpQkdmKvKr73EL01m+nLO7y3/Vk7k=
+X-Gm-Gg: AZFdTZeivRTxXpfU/+hTXORVKnreAU17L8Uuoe56JrFLImYhA2W9rerwvW/MjGmnhc6
+	tEG+itYa63y+R5O0Hfe5KWjRxf5Yqwlw09+U086MxfcKi63h1BAZL5maQO5L149ZuHjMQilrypN
+	lWMFKQFOwSZw8A+/wnBsZWBmIBEmuI19F50U9DoOMWVnoJ83mrhgGn7dDp30Vo52FwJmYDaJoqc
+	XZ3yGTNLhvhu7m1Wc+Onx2nM/1w/I0x6/o6EXtuhwvvFAVIYgBSTke03dOAeI6xX3oI+BfLmhiL
+	VEvFvr4e9xEDbqFgx8KqXd7bK6FWelfAQLEBzH6goatIWlYSUdlVpxtArOUQ4LBUHp97Sto4Afv
+	qH3qOT2B5ew0QpRu+8qTILfZrAHQPjvk+Bz6+CEA+TzVgutAM4rsZVc+JHHb0zKnScbQi7LNvzB
+	slWHbJg5sqQZn2PdmLbmUYRg8caxdJ9udZb5CZJmT9NYl/p0yIdFNAfa3R6tTjxQdVFY13syL6n
+	XawSZZ+W0UXw8Am5hQjf6+qjsrukol37koa02cAUvmuRekG9EVApgpfxi/MvU+aUZT8jXveNw15
+	U9ujG4xNyn9+PMUW7AEbS13UTCUMHIFeB/wBiMZXiV/x1/gGBqqoFw5RGWM5cmIGgzwl6+pmok7
+	hu7p8CQ3u/MSBd+fCO3QLVejCxfUXae2ZbylOXYm/52Kc0b1R6DRKfZtBna+FnBz8PHFfZlmlNX
+	mqy1fk0jc1kxgx3tIy2w==
+X-Received: by 2002:a05:690e:4388:b0:67c:23f2:20b5 with SMTP id 956f58d0204a3-67dd3fb6e24mr106276d50.80.1794937439420;
+        Tue, 17 Nov 2026 09:43:59 -0800 (PST)
 Received: from localhost (107-220-129-194.lightspeed.chrlnc.sbcglobal.net. [107.220.129.194])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b4fe057c1esm2157217b3.20.2026.11.17.09.43.57
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67dd4014325sm203579d50.10.2026.11.17.09.43.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 09:43:57 -0800 (PST)
+        Tue, 17 Nov 2026 09:43:58 -0800 (PST)
 From: Matt Turner <mattst88@gmail.com>
-Date: Tue, 17 Nov 2026 12:43:53 -0500
-Subject: [PATCH v2 2/8] powerpc/perf: mpc7450: Event 0x634 counts L2
- prefetches, not L1I
+Date: Tue, 17 Nov 2026 12:43:54 -0500
+Subject: [PATCH v2 3/8] powerpc/perf: mpc7450: Remove the snoop retry
+ alternatives
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,7 +97,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261117-ppc32-perf-v2-2-2072e9b90009@gmail.com>
+Message-Id: <20261117-ppc32-perf-v2-3-2072e9b90009@gmail.com>
 References: <20261117-ppc32-perf-v2-0-2072e9b90009@gmail.com>
 In-Reply-To: <20261117-ppc32-perf-v2-0-2072e9b90009@gmail.com>
 To: Madhavan Srinivasan <maddy@linux.ibm.com>, 
@@ -108,59 +108,56 @@ To: Madhavan Srinivasan <maddy@linux.ibm.com>,
 Cc: linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
  Matt Turner <mattst88@gmail.com>, Tanushree Shah <tshah@linux.ibm.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1900; i=mattst88@gmail.com;
- h=from:subject:message-id; bh=l6MRbbKx2CqbfCj9gw3r5hMtF8fjZGAlB1GPrKQZrPo=;
- b=owGbwMvMwCW25rVmCc8sv+mMp9WSGLL+TIrwfPO8fI97e7CIyVz9Vh3BNQeMNx3tXc+VHZyWe
- OlT0Wn7jo8sDGJcDDPFFFni1iuyzGrbsdTntPQvmDmsTCBDpEUaGICAhYEvNzGv1EjHSM9U21DP
- EMjQMYqHyOkxaGQWF5emFummFRQ55OWXJJZk5ucV6+UXpOYVpBfopWWmlWRk5BcVpwKN0MtLLTF
- 1dXQzMjQwsXS0MHOycDQ1cXZ2MnRyc3R0dnUysjQ3MXC2dDRxtTRn4OIUgLkm/DLD/zSOC5+WCn
- u+OH/GSMktU87d4vdHByXfd6lHJI8WpjZLBjH8D50r8Jh9StvFAjOLIpaZNvxdcYGrlfhDfE7kK
- W1aNW0WFwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1628; i=mattst88@gmail.com;
+ h=from:subject:message-id; bh=NvUKFAnJYvy3hOkaAuE7MQC868qaMwIEUUCzFRI0sLA=;
+ b=owGbwMvMwCW25rVmCc8sv+mMp9WSGLL+TIoQ0e9ON3pcLOb7VES0uou7TuCJFbeX3cStB64ff
+ ldjdmh/x0cWBjEuhpliiixx6xVZZrXtWOpzWvoXzBxWJpAh0iINDEDAwsCXm5hXaqRjpGeqbahn
+ CGToGMVD5PQYNDKLi0tTi3TTCooc8vJLEksy8/OK9fILUvMK0gv00jLTSjIy8ouKU4FG6OWllpi
+ 6OroZGRqYWDpamDlZOJqaODs7GTq5OTo6uzoZWZqbGDhbOpq4WpozcHEKwFzz6z0jwyuXVV2bkz
+ RnrligaK7KXcjjULaTY8eDBa9ixTXkF/Tu+M/I8EEm98C0c1eNHDx26N19Obkq1Ob7j+kFLMtKe
+ ++veildzAoA
 X-Developer-Key: i=mattst88@gmail.com; a=openpgp;
  fpr=3BB639E56F861FA2E86505690FDD682D974CA72A
 
-The cache event table maps L1-icache-prefetches to 0x634, PMC6 select
-52.  The manual (MPC7450UM Rev. 5, Table 11-14) calls that event
-"Prefetch engine request" and says it "counts new prefetches allocated
-in the prefetch unit".  It is the first of six events about the L2
-prefetch engine (selects 52-57), and the MPC7450 has no instruction
-cache prefetch event.
+The alternatives table treats 0x418, 0x50f and 0x60f as one event, but
+the manual (MPC7450UM Rev. 5, Tables 11-12 to 11-14) describes three
+different events that share the name "snoop retries":
 
-On a 7448, a pointer chase over 64-byte nodes counts r634 at 0.00 per
-load when the working set fits in the 1 MB L2, and at 1.00 per load,
-one per L2 demand miss, at 4 MB.
+  0x418  load/store snoops retried by the load/store unit
+  0x50f  internal requests that are internally retried
+  0x60f  snoop responses of "retry" to any access
 
-The engine starts a prefetch only when an access misses in every cache,
-fetches from the bus, and also fills the L3 if there is one (section
-3.6.3.2), so it is a last-level prefetch with or without an L3.  Report
-it as LL-prefetches, and L1-icache-prefetches as not supported.
+On a 7448, over the same workload, counting r418, r50f and r60f
+together, and then r418 in a group with r41c:
+
+  r418                 1793
+  r50f              1546267
+  r60f              2266850
+  r418 in {r41c,r418}  670562
+
+r418 and r41c both need PMC4, so in the group the scheduler moves r418
+to PMC5 or PMC6, which count other events, and reports 374 times the
+real count.  Remove the row.
 
 Fixes: 7325927e5a20 ("perf_counter: powerpc: Add processor back-end for MPC7450 family")
 Reviewed-by: Tanushree Shah <tshah@linux.ibm.com>
 Signed-off-by: Matt Turner <mattst88@gmail.com>
 ---
- arch/powerpc/perf/mpc7450-pmu.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/powerpc/perf/mpc7450-pmu.c | 1 -
+ 1 file changed, 1 deletion(-)
 
 diff --git a/arch/powerpc/perf/mpc7450-pmu.c b/arch/powerpc/perf/mpc7450-pmu.c
-index 564f6dac3a00..5a882d934645 100644
+index 5a882d934645..9890c87c58ef 100644
 --- a/arch/powerpc/perf/mpc7450-pmu.c
 +++ b/arch/powerpc/perf/mpc7450-pmu.c
-@@ -370,12 +370,12 @@ static u64 mpc7450_cache_events[C(MAX)][C(OP_MAX)][C(RESULT_MAX)] = {
- 	[C(L1I)] = {		/* 	RESULT_ACCESS	RESULT_MISS */
- 		[C(OP_READ)] = {	0x129,		0x115	},
- 		[C(OP_WRITE)] = {	-1,		-1	},
--		[C(OP_PREFETCH)] = {	0x634,		0	},
-+		[C(OP_PREFETCH)] = {	0,		0	},
- 	},
- 	[C(LL)] = {		/* 	RESULT_ACCESS	RESULT_MISS */
- 		[C(OP_READ)] = {	0,		0	},
- 		[C(OP_WRITE)] = {	0,		0	},
--		[C(OP_PREFETCH)] = {	0,		0	},
-+		[C(OP_PREFETCH)] = {	0x634,		0	},
- 	},
- 	[C(DTLB)] = {		/* 	RESULT_ACCESS	RESULT_MISS */
- 		[C(OP_READ)] = {	0,		0x312	},
+@@ -184,7 +184,6 @@ static int mpc7450_get_constraint(u64 event, unsigned long *maskp,
+ 
+ static const unsigned int event_alternatives[][MAX_ALT] = {
+ 	{ 0x217, 0x317 },		/* PM_L1_DCACHE_MISS */
+-	{ 0x418, 0x50f, 0x60f },	/* PM_SNOOP_RETRY */
+ 	{ 0x502, 0x602 },		/* PM_L2_HIT */
+ 	{ 0x503, 0x603 },		/* PM_L3_HIT */
+ 	{ 0x504, 0x604 },		/* PM_L2_ICACHE_MISS */
 
 -- 
 2.56.1
