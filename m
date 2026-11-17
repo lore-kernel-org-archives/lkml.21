@@ -1,71 +1,128 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.144
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794953131;
-	b=iWjHrEUMewDrmSEz5JLT2MWwHaasxwyZGUk9nyFB3j0KcchNRM0Pl1y4IsCx3wWx6oMN
-	 jjZMQbdjMpiZ1WEffXwHdBuPSHHrXdh/Xljk3xnGpM2Qm903mBe767aVxWJ/OwT0YJwas
-	 VV/9Xl/3f8DhhVjTFkjSMsRkt7JUCFU/Ol9cKOJld+b3aVYnu0nyU2Bh/xoBbGd6RL15O
-	 UHM48noka2PsI2HRZolPHuXMo7R/FlCQtYNbY7JEvqo3in5D/k0o6mVY748LmUxvttsAX
-	 02kdRkyLO8pDzSgOQ5QMsXVxWXT7eoTlaOFQm/TQAhqU0v84kJzPeienszAhNGP40+w==
+	t=1794953188;
+	b=fQJrB8qWWFzdeKSubkc0AL31UT6YuEwBb1L9q6hi2knbDgmAHqJJ+AfKKnWnHi/qe8PU
+	 jlm3phR6oPzxX1Wh0LBPM+ElH3+t31a4G+0Iizprw9N4h6ANvXsjuAgD+TGdr67o6/yWm
+	 tSUwbOKKRG7L+07Xtum7g5UAsPcyjj1r3mfhmuJcrXeCzQXyrbTpm2OyAVT6bCLVMs7ew
+	 4s0AqO7DeU440ytSwQsFME+lCjwdoBfhUX8bx7sOLXmAkph2m1hlQQg67EH2qbi3GSw17
+	 9Edy9xh40kb/fAyXIVU8K3m83UTMNo11f8YN/gzHrbcIX+hcBpfTIf3VT2vGv1jmnmw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794953131;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Received:Date:Mime-Version:X-Mailer:Message-ID:
-	 Subject:From:To:Cc:Content-Type;
-	bh=utFLlXnDor/9ZjvOPLwEKKvNEyzS6b8hVZG1kGb3ngo=;
-	b=O+h9HhC+hwq/u77vYxnHEbu4zGwl2wCg++0rOFoTLBNS1U21H7ogOo3Lvqj1WKPbjxcZ
-	 obpsRqvF8mNBz5/auTs9sMpCanU3d2qOWdvO+Kj+LoKwtn9Oxzvtf9i3R7vmOdobFELxF
-	 Hw8ru2muhRkDeKRj2jGA2XsaLJp20ujDhmlSXxmcYDxbpZQPzamCZpC2amH6E2uI/nTsl
-	 A3K8Ay1b3kyvqcnLRBeCpuq3SYKm6ZU4tl65K6DO7m5fseyO1H9z2754BfP5NxzTMhjhe
-	 kOJNZ1U92gSBaZM/gS1zeMOEdbE7m2j9o5kvx85KJ+9ojrNHCYYoOmDgD71SmSZelrw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794953188;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:Message-Id:To:Cc:Subject:From:In-Reply-To:References:
+	 Mime-Version:Content-Type:Content-Transfer-Encoding;
+	bh=ygy/EyAf0W1UdMvHNYbKmsjNOyLB/rxm+C1CVbXru9s=;
+	b=B6fZJhde2LMRWm9q/smilDRj6egThu81eKWHUZXeelUNpAPNURS9DrhtGCK52FW0MAbQ
+	 FdiyJ2ApuIjA4CEutObWcQTy0yvAg1RWaOtjO/sNlLu4mtSqAJPUp2nC9yEkv8ECGkmkY
+	 ctX+ZZEtEvLN+m/8S3avjd/Kp59uRF9E6DeHGTUVQRdaOI6IS9B7BBKeRJ2gU37TZcTAU
+	 gAe1/NDvKKSYzekIYMSxyBEYr+akmlEALc5ScYzuoEV8+USEQQ4pu6gWmIF97fGTUthJL
+	 C9BBcPnSao9cywHKGn8oiiMiD7n3Jzlo2M3jGufvI+IE0pOBgx82Te6+awsbs/Dkvaw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--elsk.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=b4u4WrEt;
-	arc=none smtp.remote-ip=209.85.214.199
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=flapping.org;
+	spf=pass smtp.mailfrom=flapping.org;
+	dkim=pass header.d=flapping.org header.i=@flapping.org header.a=rsa-sha256 header.s=fm2 header.b=G121a1Y8;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=txFulTox;
+	arc=none smtp.remote-ip=202.12.124.144
+Received: from fout-b1-smtp.messagingengine.com (fout-b1-smtp.messagingengine.com [202.12.124.144])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95152606A31C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:05:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 95152606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--elsk.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F657606A32F
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:06:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F657606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=flapping.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flapping.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=b4u4WrEt
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2e95f8543c9so3384905ad.3
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 14:05:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794953130; x=1795557930; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=utFLlXnDor/9ZjvOPLwEKKvNEyzS6b8hVZG1kGb3ngo=;
-        b=b4u4WrEtUBpSL/IS2Hq3/v3UuiPOSEaswzlSd7OqS8Nncpy50xTZ8NZEuLNwGQs5I7
-         N/+NUN+1wsC6LKFFMNzJSqjB72njO/wLNoN+0ldgfoJj6GbQZazglAI7lEJ4bxZjc4Ga
-         vPA7h7HuNYdALdnDJDlYsZMYG4HMVUb8k263cx9Wxd8mIqHzIiEtOvqjL5t9TwQCdp3g
-         oglQI3lLIGpgtXP+BzsvaJuPW4/wQ6EeKvYVh7sTWCWwsgXJMJZVcQd2fOuB3w5gWdZK
-         T4C5q9me3cTNe2WlhQd2IhdTWdkooFoMJBSmRRRRmq7yfz9EVWqJe8KvUFPkRxj1vg0T
-         QZ9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794953130; x=1795557930;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=utFLlXnDor/9ZjvOPLwEKKvNEyzS6b8hVZG1kGb3ngo=;
-        b=qRjTGZhGZieNmC10GaUmEu5p5AjrioHlQGbTIFpSKEfVVfU9fhG7C3MnnCeTe70ycH
-         t+N+z0mb7hz4BCWgPDY3aGEAV/4FXhEWn40poL5yMSoFoNJ61HxAyaBe+OpPnzrrrvLc
-         C1n8tPGM2dkREKbF8TWInMxVzQr0RtG/l3ltNHJAqEbEte9tjIq04sxUA3VvrjkOrXQQ
-         qa8PCwyWWBu3uJdUk6unmA8q/EfnoPyZG/yECaAd3zYx+da7ZYUw0sVD/ZxvFtyYUNXc
-         9zbt5zBGu9mcFednQ87olRGfvJaD42sZEhAkNC3M7JCJXc0UUvjPHQTnPnHU1qku7eDi
-         kQmA==
-X-Gm-Message-State: APuU4Z/P3sgUlNq9K5ILGMBfhtgFWYg0jy1xeWicFhHGw4L3saGhb3/0
-	67Qn1URccS1CgA6y9pSY/b3wfnnSG6aq4B++E2XrfC+EJ4299zCDhwyCZihnFdjtjJT7sLTTRw=
-	=
-X-Received: from plbju12.prod.google.com ([2002:a17:903:428c:b0:2e8:44b9:5c18])
- (user=elsk job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:f650:b0:2ef:e500:3a86
- with SMTP id d9443c01a7336-2eff7402b18mr5808525ad.25.1794953129694; Tue, 17
- Nov 2026 14:05:29 -0800 (PST)
-Date: Tue, 17 Nov 2026 22:05:20 +0000
+	dkim=pass (2048-bit key, unprotected) header.d=flapping.org header.i=@flapping.org header.a=rsa-sha256 header.s=fm2 header.b=G121a1Y8;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=txFulTox
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfout.stl.internal (Postfix) with ESMTP id 1305D1D0028A
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:06:26 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-02.internal (MEProxy); Tue, 17 Nov 2026 17:06:26 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flapping.org; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1794953183;
+	 x=1795039583; bh=ygy/EyAf0W1UdMvHNYbKmsjNOyLB/rxm+C1CVbXru9s=; b=
+	G121a1Y8/0uM3w0nEs29wkoTvNSuBQjZFUcJtTed1QGRd6HfUczndaSd2v6CN36y
+	r3EyXPB4QUtN2Hhji0V8u0U2vzZ29c52jPL5Q2pHopgVerUjIlMyl3fRMmnwSRH3
+	vBZ4No2gqcqfeJiLq5yxP0BwQt0gXVBNwfjbCC47Itz6Exafv4h8FwiztDIcgMzY
+	ldPpCWbnlbh73c8mXGsuULhN56fnS2kLyFmfgYCk/dD0Y6s4S17TZ688vmZC9bWr
+	OSY6wNoGaIzUsh2xNZoQ0n9y10+6OQFpT9IHMNDXtyz1l+7CSS6mGKhckALMO2TG
+	oYQMOAahKUH2H4kltfBLWQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1794953183; x=
+	1795039583; bh=ygy/EyAf0W1UdMvHNYbKmsjNOyLB/rxm+C1CVbXru9s=; b=t
+	xFulToxWD8Kyjcwpp2qtvywA+dmST6mYl+62/TNKbnJZkPa9foilulG3G1nTYiHA
+	xOoywPO2XcTHZony7D4f0w57CnAG3kAhuetgSKENGNn+oq0q0WTbsPKCQuXqqRhG
+	5ccsx8kHwztr33mXHHGrOo7MeJ3LLwO7unAE1lnRqgCTkie2K6f0te+OdvVHwNx0
+	TcGMBXam+CZ6QbgStQif0LFf58xPNSH6kYAqDArte7PIqqqJWEcpKZ/WwMfBazp8
+	854MF7CDdyyCwUffmRe/nkCMnmW1my54cJNR/TUSpAcEn0Lo2fKiqVKf5hANKu2A
+	Zmw+1YkVFIHAnPo06TfdA==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=flapping.org a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1794953183; d=flapping.org;
+	mf=PHRvbW9AZmxhcHBpbmcub3JnPg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:ryRAFFfUAuvQUqNB3iHYv0grq64abWtTlBT/sixd2wGyjaC
+	fyN1LrFwKeezUbkehIy99PIjDAztzK4PmSPJYFsyk6c0+tf3K2sDTZYj4oPPhHqT
+	IXVHS0Xfn0348O0SPJxToCNuqvSsAx8GdZZSew7w7tQuDMEvoK13fcWwEgunjzZ9
+	P/QmHCEDYycRtbu41T7UyapqNFVzsAar2SYHiIdYuvfpKAhMvOYSwXtCtXyMaB2t
+	CFanXxSwnfDVS+cVC8Y4c4wAmo3xHxi5FZrkIsN2EWEqH9i07kXdPCGGgb9H2vXZ
+	0r7nBrN0gp5Lv/FEEm/iYmi4kOY4fV7MIaxJKog==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:2Tb1pSwErTgeSPF9fdAxkhBNeg7qsCKbQa3UnyjpHKE=:eqdSGfVVdOx4CGbTW//ANSk5CtWV6ls4JphNeLvrvl4=;
+X-ME-Sender: <xms:3s_8avSPw4kVrxefZqI73KKLCAUCnprZI8yaYSrCUBI6roGxjaliTw>
+    <xme:3s_8avJs_PvmH7okHRR7s90KGeT8K0vCXQgzsUn3FKeUIMKBzir19KFk5CjbAC0-X
+    QoHlmfj7VXNa4V4LMBEqg07EN-bcmf0lZAu5RY83-7eev_LUMuZlFhQ>
+X-ME-Received: <xmr:3s_8ag2I39oK6Ojn7zQQq5iK_65xk59WibG1oURCiVzSyXYtPbBERhEEGN9ARdFOC3FpFR-QgLogQP3dX5LEo3FX>
+X-ME-Proxy-Cause: dmFkZTFL5mZp+mTX6WVoBC0YPiYwbLINyUT1n441b0vqnathugDg1rVMsVsRRzhLkJP+57
+    Ot0TXwORG1TM2AEh2E44VOxlhrRYLZXrkB1XYc+Mx91FeQUaaLUlbgggrAAKe2QWdw1m/9
+    sasBo/8b5PW3pVQYk9Oaljvf+ZOEwy9gqQW5V1jVhk+YhV2a4GFTWaMjWPyZsyYb6XoqMr
+    U+6jWvK6G4YiY3q/1oY8qVkRj7F5b1ddWNdG6qJylKGDhEbNkvFdZx5VFKeJ90dCes2Djk
+    ZPg5LOD9aZU2ECwndj9YfIYwYk98iuha5s8ftVBnsftMMFpZ2BIqmVuPjf+95Pr5/U4xa/
+    k7Uv6lLFs/U3yo9FA5h2bQCMznOuwfF0kSsH7Tb+ddw7sqkMSr+dFqsA6oYLIL0U/oXGkr
+    piCfhH6m4SloU7DQGh/8Rc/mUeT36cA86i6coKhMpM+1lDMc6bw0uA9QNz0GTE/lg+Se9M
+    y+lurogFT6UmutAM41KCA9EbqbgUNsh2QNfOLLPpoV/UU+ImPaMehzfSdUeXC8rHUgFbOm
+    xd2leKeNTCSx/fXOx0FG/oj3WtlUwcOPrS9vy7W2n71+0SfHun0UnMXTVT9snogQxX2Ltx
+    Iylcek7f/qD0lM7rR5CjCdBSni9twAnWZix1mUt/r7h2NRa5w1VHcIiY5EhA
+X-ME-Proxy: <xmx:3s_8aiIywHfO8dC8l-y-wVbQR_gjeAnQA2k_wasoBWNobT47y7K8iQ>
+    <xmx:3s_8agkGAmcApoAgI7meOymGBgPscuVnANnW7xjRYQgOoE1EAau_qg>
+    <xmx:3s_8agNco9Uk2JKLvb_6L-8bvGGBqUJlviW7uwOTAeGtUbqepT1DPQ>
+    <xmx:3s_8avzstqYeGf1ts7YS-V3TcBeFbVeErUaChASrsyk8-mqijUG-iw>
+    <xmx:38_8aoKbPAOphh5MlNYeJ9W0zmO1Q-BuxsGlZxL-SH3Fb2-fE2Y9ssSb>
+Feedback-ID: i51fe4b43:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 17 Nov 2026 17:06:18 -0500 (EST)
+Date: Wed, 18 Nov 2026 07:06:13 +0900 (JST)
+Message-Id: <20261118.070613.2130514405871522599.tomo@flapping.org>
+To: aliceryhl@google.com
+Cc: dakr@kernel.org, boqun@kernel.org, gary@garyguo.net, lyude@redhat.com,
+ daniel.almeida@collabora.com, work@onurozkan.dev, ojeda@kernel.org,
+ bjorn3_gh@protonmail.com, lossin@kernel.org, a.hindborg@kernel.org,
+ tmgross@umich.edu, tamird@kernel.org, acourbot@nvidia.com,
+ viro@zeniv.linux.org.uk, brauner@kernel.org, jack@suse.cz,
+ linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org
+Subject: Re: [PATCH v3 4/5] rust: sync: condvar: use
+ task::schedule_timeout()
+From: FUJITA Tomonori <tomo@flapping.org>
+In-Reply-To: <20261117141652.2992350-1-aliceryhl@google.com>
+References: <20261117001507.1611984-1-dakr@kernel.org>
+	<20261117001507.1611984-5-dakr@kernel.org>
+	<20261117141652.2992350-1-aliceryhl@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,64 +132,31 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
-Message-ID: <20261117220522.904290-1-elsk@google.com>
-Subject: [PATCH] checkpatch: recognize FIXTURE_DATA() and FIXTURE_VARIANT() as types
-From: HONG Yifan <elsk@google.com>
-To: Andy Whitcroft <apw@canonical.com>, Joe Perches <joe@perches.com>, 
-	Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-kernel@vger.kernel.org, HONG Yifan <elsk@google.com>, kernel-team@android.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: Text/Plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
 
-tools/testing/selftests/kselftest_harness.h defines FIXTURE_DATA() and
-FIXTURE_VARIANT() to expand to struct type specifiers
-("struct _test_data_##datatype_name" and
-"struct _fixture_variant_##fixture_name").
+On Tue, 17 Nov 2026 14:16:52 +0000
+Alice Ryhl <aliceryhl@google.com> wrote:
 
-Because checkpatch.pl does not recognize these function-like macros in
-$NonptrType or $NonptrTypeWithAttr, annotate_values() parses them as
-function calls and tags a following '*' as a binary multiplication
-operator instead of a pointer declarator.  This triggers false-positive
-errors across kselftests whenever helper functions take pointers to
-fixture data or variants (over 150 sites in tools/testing/selftests/),
-for example on commit d2b82fa39fda ("selftests/mm: add a GUP selftest"):
+> On Tue, Nov 17, 2026 at 01:14:45AM +0100, Danilo Krummrich wrote:
+>> @@ -122,7 +121,11 @@ fn wait_internal<T: ?Sized, B: Backend>(
+>>      /// [`CondVar::notify_one`] or [`CondVar::notify_all`]. Note that it may also wake up
+>>      /// spuriously.
+>>      pub fn wait<T: ?Sized, B: Backend>(&self, guard: &mut Guard<'_, T, B>) {
+>> -        self.wait_internal(TASK_UNINTERRUPTIBLE, guard, MAX_SCHEDULE_TIMEOUT);
+>> +        self.wait_internal(
+>> +            TASK_UNINTERRUPTIBLE,
+>> +            guard,
+>> +            Delta::from_jiffies(task::MAX_SCHEDULE_TIMEOUT),
+>> +        );
+>>      }
+> 
+> Now that `CondVar` uses `task::schedule_timeout()`, all remaining uses of
+> `task::MAX_SCHEDULE_TIMEOUT` wrap it in `Delta::from_jiffies(...)`, so we
+> could also change `MAX_SCHEDULE_TIMEOUT` itself to `Delta<Jiffy>` (either
+> if you spin a v4 or as a follow-up). Either way:
+> 
+> Reviewed-by: Alice Ryhl <aliceryhl@google.com>
 
-  ERROR:SPACING: need consistent spacing around '*' (ctx:WxV)
-  #319: FILE: tools/testing/selftests/mm/gup.c:191:
-  +		FIXTURE_DATA(gup_test) *self,
-
-Add FIXTURE_DATA(...) and FIXTURE_VARIANT(...) to $NonptrType and
-$NonptrTypeWithAttr in build_types(), alongside typeof() and
-__typeof__().  Valid pointer declarations and casts no longer emit false
-SPACING errors, while malformed pointer placement (such as
-"FIXTURE_DATA(foo)* p" or "(FIXTURE_DATA(foo)*)p") is flagged by
-POINTER_LOCATION.
-
-Signed-off-by: HONG Yifan <elsk@google.com>
----
- scripts/checkpatch.pl | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/scripts/checkpatch.pl b/scripts/checkpatch.pl
-index b8b64f720191..f1695f20a7d2 100755
---- a/scripts/checkpatch.pl
-+++ b/scripts/checkpatch.pl
-@@ -1067,6 +1067,7 @@ sub build_types {
- 			(?:$Modifier\s+|const\s+)*
- 			(?:
- 				(?:typeof|__typeof__)\s*\([^\)]*\)|
-+				(?:FIXTURE_DATA|FIXTURE_VARIANT)\s*\([^\)]*\)|
- 				(?:$typeTypedefs\b)|
- 				(?:${all}\b)
- 			)
-@@ -1083,6 +1084,7 @@ sub build_types {
- 			(?:$Modifier\s+|const\s+)*
- 			(?:
- 				(?:typeof|__typeof__)\s*\([^\)]*\)|
-+				(?:FIXTURE_DATA|FIXTURE_VARIANT)\s*\([^\)]*\)|
- 				(?:$typeTypedefs\b)|
- 				(?:${allWithAttr}\b)
- 			)
--- 
-2.56.1.703.gf848ed807c-goog
-
+serdev users need this value too. I was going to add
+Delta::<Jiffy>::MAX for it, but this looks better.
