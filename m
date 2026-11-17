@@ -1,101 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.54
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794946275;
-	b=aHK/lCYstgWfRmVySh/h0LT4UlFWyO+eTMPXmNxiJNBpXoJb699WThEj3+4y6jvyz01e
-	 M/btCLV8Uhrf3UjUXE2gdQztWxWmwcTDrmQcReBbDxPMEUMU1/C0hl+XwNZFJD/snPnPN
-	 M8bZF/aUgulWS2C1Ub43rf4p6MZgIWZAUdyVGEgucURUyhAYShTrvhRjVZuTBjYJooxo1
-	 BQUyXtccuCjqeoMV4o8wZ8hP8KLANSqGGfkGoWWRMPncqLhBxIQL47k0QxzbrVU3iOUTt
-	 Ojvf4q330gAyo1FgkPFNOwfvRfZGWGMjoIX06nQNkrIY286q+WorF3ZCScnuCJsmIBw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794946275;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=TLCtbRBV1PGHwelDPw3GRpng9bhYRh7QH8AhnaQQo6Q=;
-	b=Hn3CH88X6QeHR4P2hHqtd7zG3kuW9ppArOGzZRw/Hbbw1KwaFbDjbYm14a9m7CJ9nlBs
-	 1wgR5CachTSLq4eqrfmRC6ZL6p9GqUHgYc+vbRSTQ9QtZzqmDHLOsu4AAzczvTrbhE88B
-	 nFRreck4lUvJTNjUtwcgGIZ3355T2LK7nc+rkLACCGWjZu4luavMEmN7RiHqABlbDNr/3
-	 BztXs7V8yotLXnzcYYb+3L+mOOjb3H679Q4hKbxTGi5uhuHPwPVaP/nFE7x0RYWOuIfi8
-	 16xB3Jy5RMVzNDcmQp0hKw7WIhcmW5T+/Xtcr72OP0KrqMH86C0GKcGh8BlqWEIb6Xw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="qUYi/5Le";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.54
-Received: from mail-ed1-f54.google.com (mail-ed1-f54.google.com [209.85.208.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794946318;
+	b=x1Jp7TdjT1MyaP1VOEYis2XUtArF67/QWHsCk8ZBuAul9fY1WvG6XgvAFy8X5GlcRJsP
+	 sT8inVroDRwDaPX7SgtSDV3XHLQwvGGBzMKlLNh3v84eStHfKEzvQFeTwgtXZeZ53KaAO
+	 O2ujdoi2JiYE0jASXGE6AQScUaexTYzvxwUuDh34uMUN8iM8tNdmc3AOqFgkWA9G2l3LN
+	 eiCxfbHBaV+doqmOW7fZYUUMWV41NxiDlnigno5V3OPglgs6py1WszB1bHJig9XP7yWky
+	 Pf3k16oI8iE0Xt5nSGEiOqAE8Tksv3kk9AxYtDkJ5NaJ4e2sEn+NBiQXRbH9ugb38Ag==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794946318;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=0Xw7sicO49xx1e53p8DOzr3TxFtSjf8C10oK/0OkufU=;
+	b=u4MJ1OW97AOikRw6Zeb5QaEbzWrhHD4ZZHALNJb70fCcRtGElPbmoGgirt5HS5U7TfYT
+	 Ilj35G2CDzEtjpT124w0RNSASOjGG+cdjf1CqEc8KZh6kpVf/zxM5F1dZ5ZLdke77LoRC
+	 iYesNH6Dtc0bIjxChmo0z5qZnNWzKlWdRZcXd9OnSaVm38iLvkSEhFKDiI1q6+RIq6hG6
+	 GuFSrwrVUNiLyvo/mDNUR71GvwNsslSu+H5IaUDL1G8KMcAk4c+6Bg25tNWTtWVdbGl8w
+	 dCy/M5pazhQhUbyg7TUwCfpTVmuzS/OwPaY3rFYdc7+Y0woOkSRpJDQCl+K3hkNXa9Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=leN1kErd;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 067DA606A32F
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:11:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 067DA606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F016606A32A;
+	Tue, 17 Nov 2026 20:11:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qUYi/5Le
-Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-6ae305e3bd9so491222a12.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 12:11:14 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794946273; cv=none;
-        d=google.com; s=arc-20260327;
-        b=aJ7YHMKu23G2YO/OZMAKrDJVGDOwln+pn6vtofbbg1TEC/x8nRzAl/qSfAHglA9VOd
-         n4JH/8GVJI2O6gRpKrPzpmYMtUkljd1s4KoigOjLnrHbB8Z++djzp2CTMt/5qnLxIC7y
-         pPO2wbEtMzhoQgJGZ6nkGMyt4vFAch3REOhEyO2ntjBsF4ESv6kyJzFhmQs9o9Dt9pXf
-         pBUvrEKzDTFMbSyoUNAWht9j7/FRGb/oIPgYhITQ8L4q/PfJ4D/TrUcNhDwLk7izDQmA
-         mTS9JL6zmDuDZNmwgRQ5/LR7nJYSp/JvKU3FS7U9fzZ7owoycGQ0rbUmxLRzKihoqUWx
-         fiKA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=TLCtbRBV1PGHwelDPw3GRpng9bhYRh7QH8AhnaQQo6Q=;
-        fh=DAaWMAuPSkDVRKFnok8/3qwr+Tyb8Av5gkcHsriARos=;
-        b=R0TsFqBDi2Rszk5VIhUyo7jnf6h+QLVslmsoTTg7DbT48xr+w/H2g79hP9KW9AKUeY
-         KmOf+IpUZK55DusgNYSr5Omk+7Mul7Ql19esm0puNkLKuw7X5NOksUBgL94X62W2MI2p
-         cq0qGbF6f4Y37bZWurohKcdtS5omrw67ZLBXUPG6V2DjpsJ7Tdv3PhlAD2gZD8Fwo0Dn
-         aSBAJrOnGVi+R2PEMxWH3oDCBAiGgRdeZg/S5YZNBEumsUqT/RWeZUXR742tYirhK+fT
-         gYkQLMbT1SyfNqXcqPc58cpCn7SbhcDzeFKVj8PTsIBr42ZEqsalZR6XIpGAazEza3kl
-         An4Q==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794946273; x=1795551073; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=TLCtbRBV1PGHwelDPw3GRpng9bhYRh7QH8AhnaQQo6Q=;
-        b=qUYi/5LegcyQhwlyDIHJSec0Wq3K+2MDjMtllRf2GD5+J5Uig/9eXAdGiQqKo8/rkQ
-         UZY0yqFZJmXO5C+fY26YLqJTbicpoAFPaJne0z8tdr73jeA/O2peN0eoZQcjhpUXqVvW
-         tAguCwDvHD48dKuWDUvRTubsfVcr5EjJrOWnWZ/j5/NTQVb87KZo5z9P8J1rVPZL7Y1c
-         HhM6ygFFx0bpOQOkzjfHIHOd/Wp8IxoLnVzNadw9xrLc0YiACFGTCSdIxM2ydYHCOQ0A
-         4Ikl7srSRBUzfzX30kFmwKpbgGeBSk4v5zhjeQwEF8VcqpIO+zaYvtltHJ2V41XuVmtM
-         Xj0g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794946273; x=1795551073;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TLCtbRBV1PGHwelDPw3GRpng9bhYRh7QH8AhnaQQo6Q=;
-        b=MG2Gdss6v+6ofQTxBeeAi3luOGjQKi1exJpjgI8SNZMeZWegyMKm0Hr+SLcxm5tqzC
-         /LvGN8zD8RFFYVEOn/QOyCen1fK39m+sdDrvQGQM84dBoPDKusskzf1Z1NA4y/LpRyet
-         SAKaBgmCiZpTPZv4foDdvcyDU1F0EQQiWW35vHmh2fMfyHxqHVp2gxKhpfxorMmoS3mG
-         sddqI3ZpWgto18eLTAiT/8bAMh5pu2MOw19EvrwGlWdb5Jv0QQceic8I287Owg5B0dfN
-         aZbhZPXKNd/1qzkVOe/ubAgBvCjnDnnX3MRVHSpUp9xZX4aPhRcj7eAeKwsZQNswARBo
-         8JLQ==
-X-Forwarded-Encrypted: i=1; AL+hErEgHVcs2BdMyqnZpu21AdlDzqZQA5VlS1BAPyjwRwB0nF2IXHHJrRdviTSNQaASIDACG2XLby+d+YYSgx8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Za3tYk2+mOgAnG0zkYwlDIPw6Exd+Lxlg2aoo3fvTHcYheCAL
-	22iIfcMN+t2r3ZyE1HN1LUTITKxERt0/QM+XYr2C54jizR5ie0rdQZrXdaCY7ieVWJASQrC2d1W
-	vkFbN+0TY1URNCjmIyr2ortSfZJDws+4=
-X-Gm-Gg: AYBFou2adBVAOyveRdCcE6WHZ7gptNKFrT5xa8H87d9Yc+k5X98iN9VcBxNRBH5FrV9
-	/hgHLy2xmnEW+odW+oK+y2QGt2BCJvgd2z20oZnnVjoDnRrMnHP0SV3A9wjuqMH72XUEY3tT1rq
-	+DNHr1fKZ0iVqD+kLc8C+EJYG0W0siDP1yOTgo+FO7OVdnYGbflZ/HbR2g9p3zUxkWhl3AF/FfE
-	A3bsN4+skp3QIgmmQCoaj58MDYjR8WDrcEAvN0ZVyQ9RN6gmBDWB+a4wMRJmAoG/wmcD+Ha81GH
-	Pohvg7+oOPNJAVxJtYklHYjhLlKRGqy1RJj5IaoPOF3WK3tqEWEL1kc2lN0ofWzJcw6YlP+2dSi
-	gBaZvAmsceE9pVHRvIgUVSp1G5ihZfxj4DaERsOp1aUCrYLL2XSucx9CXOfJN8Jjaq8BWzSHjm8
-	7iCpCpF3Swx6WNgWttyKZXezNb
-X-Received: by 2002:a05:6402:1598:b0:6b7:164a:7228 with SMTP id
- 4fb4d7f45d1cf-6b888111f83mr296086a12.41.1794946273014; Tue, 17 Nov 2026
- 12:11:13 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=leN1kErd
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C9E51F000C5;
+	Tue, 17 Nov 2026 20:11:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794946318;
+	bh=0Xw7sicO49xx1e53p8DOzr3TxFtSjf8C10oK/0OkufU=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=leN1kErd7AFeG7YXpOD96U2cg+fIBtINU274Mx04HZ/geophLs7lCkc8WQ9WrxJUc
+	 mODjQO/CCsESD4IxLhuD0SKgg7dWVxKkKkzpzKkXdmbhFpIVmYDoQFgaLkh5EutAr/
+	 2J0B3RsuLDlrGOYoWiiEbJ0mw8yik8wpToAaZBR3kRoLh7oTiOeyaBU1TrPEUbivIi
+	 bKfAFVTYJ+0vL6ccyZHNOmcRbcKV6qvDzZUQ6mdwZd2Rieg12IivDycdbeZjcPhJPB
+	 xRC4j8FCj/FLQhIAuJWH5qmOqQd9JcJxLgI2FrgwFEykKP8QYVMMmCUTPuKBlpLH9i
+	 /CA4uPtvuwI9A==
+Subject:
+ Re: [PATCH net] gve: fix checksum state and gso_segs of HW-GRO packets
+From: netdev-bot+sashiko@kernel.org
+To: joshwash@google.com
+Cc: netdev@vger.kernel.org, hramamurthy@google.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ jordanrhee@google.com, nktgrg@google.com, thostet@google.com,
+ willemb@google.com, linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+ pkaligineedi@google.com
+Date: Tue, 17 Nov 2026 20:11:56 +0000
+Message-ID: <179494631679.3136.4477194401214815440@kernel.org>
+In-Reply-To: <20261113195553.2220562-1-joshwash@google.com>
+References: <20261113195553.2220562-1-joshwash@google.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,137 +65,176 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117-marvel-env-v3-0-0edc370fdca9@gmail.com> <20261117-marvel-env-v3-1-0edc370fdca9@gmail.com>
-In-Reply-To: <20261117-marvel-env-v3-1-0edc370fdca9@gmail.com>
-From: Magnus Lindholm <linmag7@gmail.com>
-Date: Tue, 17 Nov 2026 21:11:01 +0100
-X-Gm-Features: AclHuK_Xa5-PlkYMr0Ybe8c0xscp1fzE_6udpNRIkvpkKayBgek5aLFyZAumq5Y
-Message-ID: <CA+=Fv5SFdf9Gr0zTGXJSW0GVB0eFoyp4a6PCWQ4PY2q3LGZTcw@mail.gmail.com>
-Subject: Re: [PATCH v3 1/7] alpha: marvel: fix the environmental subpacket layout
-To: Matt Turner <mattst88@gmail.com>
-Cc: Richard Henderson <richard.henderson@linaro.org>, Guenter Roeck <linux@roeck-us.net>, 
-	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-hwmon@vger.kernel.org, linux-doc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-Hi Matt,
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-On Tue, Nov 17, 2026 at 7:13=E2=80=AFPM Matt Turner <mattst88@gmail.com> wr=
-ote:
->
-> struct ev7_pal_environmental_subpacket does not match what the MBM and
-> CMM firmware (V2.7) put in system event frames, which is:
->
->   +0   cabinet
->   +2   drawer
->   +8   PE (the power and environment node holding the sensor)
->   +10  sensor index
->   +14  state: 0 ok, 1 warning, 2 fault, 0xfffe unknown, 0xffff removed
->
-> So the byte printed as "Condition" was half of the sensor index, and the
-> state was never printed. Use the firmware's layout and print the state
-> along with the sensor's key. This matches the frames in the error log of
-> an ES47.
->
-> Signed-off-by: Matt Turner <mattst88@gmail.com>
-> ---
->  arch/alpha/include/asm/err_ev7.h | 16 ++++++++++++----
->  arch/alpha/kernel/err_marvel.c   | 30 +++++++++++++++++++-----------
->  2 files changed, 31 insertions(+), 15 deletions(-)
->
-> diff --git a/arch/alpha/include/asm/err_ev7.h b/arch/alpha/include/asm/er=
-r_ev7.h
-> index ab17e6333764..5d30af0221fb 100644
-> --- a/arch/alpha/include/asm/err_ev7.h
-> +++ b/arch/alpha/include/asm/err_ev7.h
-> @@ -147,17 +147,25 @@ struct ev7_pal_io_subpacket {
->   *        class PAL (14), type POWER_SUPPLY (14)
->   *        class PAL (14), type LAN (15)
->   *        class PAL (14), type HOT_PLUG (16)
-> + *
-> + * Cabinet, drawer, PE and sensor are the keys of the sensor's GCT packe=
-t.
->   */
->  struct ev7_pal_environmental_subpacket {
->         u16 cabinet;
->         u16 drawer;
->         u16 reserved1[2];
-> -       u8 module_type;
-> -       u8 unit_id;             /* unit reporting condition */
-> -       u8 reserved2;
-> -       u8 condition;           /* condition reported       */
-> +       u16 pe;
-> +       u16 sensor;
-> +       u16 reserved2;
-> +       u16 state;              /* EV7_ENV_STATE_* */
->  };
->
-> +#define EV7_ENV_STATE_OK       0
-> +#define EV7_ENV_STATE_WARNING  1
-> +#define EV7_ENV_STATE_FAULT    2
-> +#define EV7_ENV_STATE_UNKNOWN  0xfffe
-> +#define EV7_ENV_STATE_REMOVED  0xffff
+Critical: 0 · High: 1 · Medium: 1 · Low: 0
+
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [High] Regression: HW-GRO packets in VLAN-tagged TCP flows are now
+  dropped.
+- [Medium] For IPv6, gve_rx_complete_rsc() assumes TCP always starts
+  right after the fixed 40-byte header: `thoff = nhoff + sizeof(struct…
+
+--
+
+gve: fix checksum state and gso_segs of HW-GRO packets
+
+The patch makes gve_rx_complete_rsc() set the network and transport
+headers for HW-GRO packets. For packets the device verified, it also seeds
+th->check with the pseudo-header checksum and calls tcp_gro_complete() so
+the skb becomes CHECKSUM_PARTIAL. It also tells IPv4 from IPv6 by the
+EtherType instead of the device packet type, and computes gso_segs from
+the TCP payload length.
+
+> diff --git a/drivers/net/ethernet/google/gve/gve_rx_dqo.c b/drivers/net/ethernet/google/gve/gve_rx_dqo.c
+> index 82ed5e48b00ab..58696d26c6986 100644
+> --- a/drivers/net/ethernet/google/gve/gve_rx_dqo.c
+> +++ b/drivers/net/ethernet/google/gve/gve_rx_dqo.c
+
+[ ... ]
+
+> @@ -1017,20 +1039,11 @@ static int gve_rx_complete_rsc(struct sk_buff *skb,
+>  	if (!rsc_seg_len)
+>  		return 0;
+>  
+> -	switch (ptype.l3_type) {
+> -	case GVE_L3_TYPE_IPV4:
+> -		shinfo->gso_type = SKB_GSO_TCPV4;
+> -		break;
+> -	case GVE_L3_TYPE_IPV6:
+> -		shinfo->gso_type = SKB_GSO_TCPV6;
+> -		break;
+> -	default:
+> -		return -EINVAL;
+> -	}
+> -
+
+[ ... ]
+
+> @@ -1049,10 +1061,35 @@ static int gve_rx_complete_rsc(struct sk_buff *skb,
+>  		skb_frag_off_add(frag, hdr_len);
+>  		skb->data_len -= hdr_len;
+>  		skb->tail += hdr_len;
+> +		/* napi_gro_frags() pulls the Ethernet header later. */
+> +		nhoff = ETH_HLEN;
+>  	}
 > +
->  /*
->   * Convert environmental type to index
->   */
-> diff --git a/arch/alpha/kernel/err_marvel.c b/arch/alpha/kernel/err_marve=
-l.c
-> index c0c0ccefc467..9304ae74877d 100644
-> --- a/arch/alpha/kernel/err_marvel.c
-> +++ b/arch/alpha/kernel/err_marvel.c
-> @@ -21,6 +21,21 @@
->  #include "err_impl.h"
->  #include "proto.h"
->
-> +#ifdef CONFIG_VERBOSE_MCHECK
-> +static const char *
-> +marvel_env_state(u16 state)
-> +{
-> +       switch (state) {
-> +       case EV7_ENV_STATE_OK:          return "ok";
-> +       case EV7_ENV_STATE_WARNING:     return "warning";
-> +       case EV7_ENV_STATE_FAULT:       return "fault";
-> +       case EV7_ENV_STATE_UNKNOWN:     return "unknown";
-> +       case EV7_ENV_STATE_REMOVED:     return "removed";
-> +       default:                        return "unrecognized";
-> +       }
-> +}
-> +#endif /* CONFIG_VERBOSE_MCHECK */
+> +	skb_set_network_header(skb, nhoff);
+> +	proto = nhoff ? ((struct ethhdr *)skb->data)->h_proto : skb->protocol;
+> +	switch (proto) {
+> +	case htons(ETH_P_IP):
+> +		shinfo->gso_type = SKB_GSO_TCPV4;
+> +		thoff = nhoff + ip_hdrlen(skb);
+> +		break;
+> +	case htons(ETH_P_IPV6):
+> +		shinfo->gso_type = SKB_GSO_TCPV6;
+> +		thoff = nhoff + sizeof(struct ipv6hdr);
+> +		break;
+> +	default:
+> +		return -EINVAL;
+> +	}
+
+[Severity: High]
+Could this cause HW-GRO packets from VLAN-tagged TCP flows to be dropped?
+
+gve sets no NETIF_F_HW_VLAN_* features, and struct
+gve_rx_compl_desc_dqo has no VLAN tag field. A tagged frame therefore
+arrives here with h_proto (or the skb->protocol set by eth_type_trans())
+equal to ETH_P_8021Q or ETH_P_8021AD. That value hits the default case and
+returns -EINVAL. The error then ends up as a silent drop:
+
+gve_rx_poll_dqo()
+  gve_rx_complete_skb()
+    gve_rx_complete_rsc()
+      return -EINVAL;
+  gve_rx_free_skb(napi, rx);
+  rx->rx_desc_err_dropped_pkt++;
+
+Before this patch, gso_type came from ptype.l3_type, which does not depend
+on the L2 layout. These packets then went on to napi_gro_frags() or
+napi_gro_receive() and were delivered.
+
+The fixed nhoff of 0 or ETH_HLEN also assumes there is no tag. Adding the
+VLAN EtherTypes to this switch alone would leave the network and transport
+headers pointing at the tag instead of the IP and TCP headers.
+
+The commit message says:
+
+  "tell IPv4 from IPv6 by the EtherType, as qede and bnx2x do"
+
+Both of those drivers strip VLAN tags in hardware. For example, qede sets
+NETIF_F_HW_VLAN_CTAG_RX. Also, on an unknown protocol qede_gro_receive()
+only logs an error and still delivers the skb.
+
+Would it be better to keep using ptype.l3_type here? Or, for an
+unrecognized EtherType, deliver the skb without the fixup instead of
+returning -EINVAL? The patch is also tagged for stable, and the commit
+message does not mention this behavior change.
+
+> +	skb_set_transport_header(skb, thoff);
 > +
->  static void
->  marvel_print_680_frame(struct ev7_lf_subpackets *lf_subpackets)
->  {
-> @@ -50,17 +65,10 @@ marvel_print_680_frame(struct ev7_lf_subpackets *lf_s=
-ubpackets)
->                 if (!env)
->                         continue;
->
-> -               printk("%s**%s event (cabinet %d, drawer %d)\n",
-> -                      err_print_prefix,
-> -                      ev_packets[i].name,
-> -                      env->cabinet,
-> -                      env->drawer);
-> -               printk("%s   Module Type: 0x%x - Unit ID 0x%x - "
-> -                      "Condition 0x%x\n",
-> -                      err_print_prefix,
-> -                      env->module_type,
-> -                      env->unit_id,
-> -                      env->condition);
-> +               printk("%s**%s %s (cabinet %u, drawer %u, PE %u, sensor %=
-u, state %#x)\n",
-> +                      err_print_prefix, ev_packets[i].name,
-> +                      marvel_env_state(env->state), env->cabinet,
-> +                      env->drawer, env->pe, env->sensor, env->state);
->         }
->  #endif /* CONFIG_VERBOSE_MCHECK */
->  }
->
-> --
-> 2.56.1
->
+>  	shinfo->gso_size = rsc_seg_len;
+> -	shinfo->gso_segs = rsc_segments;
+> +	shinfo->gso_segs = DIV_ROUND_UP(skb->len - thoff - tcp_hdrlen(skb),
+> +					rsc_seg_len);
+> +
+> +	if (!IS_ENABLED(CONFIG_INET) ||
+> +	    unlikely(skb->ip_summed != CHECKSUM_UNNECESSARY))
+> +		return 0;
+>  
+> +	gve_rx_fixup_gro_checksum(skb);
 
-Thanks, this builds on its own now with VERBOSE_MCHECK=3Dn.
+[Severity: Medium]
+For IPv6, is it safe to assume TCP always starts right after the fixed
+40-byte header?
 
-Reviewed-by: Magnus Lindholm <linmag7@gmail.com>
+	case htons(ETH_P_IPV6):
+		shinfo->gso_type = SKB_GSO_TCPV6;
+		thoff = nhoff + sizeof(struct ipv6hdr);
+
+Nothing checks that ipv6_hdr(skb)->nexthdr == IPPROTO_TCP, and
+desc->ipv6_ex_add is not checked here.
+
+gve_rx_skb_csum() withholds CHECKSUM_UNNECESSARY only when ipv6_ex_add is
+set:
+
+	} else if (ptype.l3_type == GVE_L3_TYPE_IPV6) {
+		/* Checksum should be skipped if this flag is set. */
+		if (unlikely(desc->ipv6_ex_add))
+			return;
+	}
+
+According to gve_desc_dqo.h, that bit only covers Destination Options and
+Routing headers. Suppose the device coalesces a TCP flow that carries, for
+example, a Hop-by-Hop header. The transport header would then land on the
+extension header, and tcp_hdrlen() would read a bogus doff, so gso_segs
+would be wrong.
+
+gve_rx_fixup_gro_checksum() would then write the pseudo-header seed at
+thoff + 16. With an 8-byte Hop-by-Hop header, that offset is the upper
+half of the real ack_seq:
+
+	th->check = ~tcp_v6_check(len, &ipv6_hdr(skb)->saddr,
+				  &ipv6_hdr(skb)->daddr, 0);
+
+tcp_gro_complete() would also set csum_start and csum_offset from the same
+wrong offset.
+
+When ipv6_ex_add is set, the checksum write is skipped. The transport
+header and gso_segs are still set from the assumed offset, though. Before
+this patch, the RSC path did not read or write the TCP header.
+
+The driver doesn't show whether the device's RSC engine ever coalesces
+IPv6 packets with extension headers. qede and bnx2x make the same
+fixed-offset assumption. If the device can do this, should the code check
+nexthdr, or skip the fixup when nexthdr is not IPPROTO_TCP?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261113195553.2220562-1-joshwash%40google.com
