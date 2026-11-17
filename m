@@ -1,81 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794940302;
-	b=nTj20e+gq4up58RWWQze3a9dOvrdFdKS4SKsH5CC/zgSWdMB+UUPx3vI6eWLRi6VAZvu
-	 epSXwFfZayWfKqhk6dByRPK70cvpXOpsl6f1hmaQS2a5DeNfs1q7uwQr+AmoaxJ4YNP0l
-	 V2C3FaEX8wL/7IDaQtYH76MQyyCWzEjaJaZ81lxqlx4qIgEkAUfrmR65BMZC9+kmJwiuB
-	 RGsquPVHhChBxU/6Y7wtOhsOrEKuNfPuvKnuT18QYyiGt8iBvB3HXihXUTLpD7TZNNaXi
-	 DprRv23GuDB1EtFuT63kegG66zszh2FOhGmvSh2K4SbJJlExeEUW//3cs9kHRL4CaCQ==
+	t=1794940306;
+	b=5EgqkLzuCnS0drn+PL2CezjoUaRdrkCre5lHJU1gkw0NHUHQHllGfTrGpNLgYXSw2hes
+	 pfYXv8npOSjWNf2+UkqMl05Kle2ACn31FRi8r/UfdtOWXp9o8ohw9HOcU4fmXpBmD36CT
+	 +ce1QrFS4AXoN9o5I9aEdJKmhnqj2ZG6CSN3oQeYCXNeFV2aIdgcH8gSF6Ity1Swk3HZl
+	 el8FVGsHtj7Ow/ll+iDmQGERhpLzy8qPXfPv+TBNWbv2codvPpXtG/nFKKAV5PYXmc5kI
+	 9+yLVW1jQI8tW8W9rQHwyyUhi7F+SmU3mpbuAKSL/SPyPHBleRZez/fupsOAU3NoAGg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794940302;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=XnunHmyL4XwE0qte7Kz3QftqMo1KZMNwCZzNmhB3cME=;
-	b=0M3GU0thz8B8jSlduoHBZbq5mSL/gl9VEM/u534I0kGpbZLrM5VhzN14JymBLvPvVX5s
-	 lHHuhXQ3mmrNP4AjvISZYTUlcVyeTXeQuVIRfohJ5HCVjS88wCyxdMBH28lkD/O+jZ2h0
-	 ED91o3qPHZHzEB56xPn0SVukMfgyFJHKQptWFgFCNCBT7l+G4EXEAFX7n5XPCjOZhyobB
-	 lKnsqH5zq+VYbe5T26s70AtBeWIDYAReVRbZPvV2tdiKar/vHtJdS70o8lSMt5X//HzBS
-	 4YKv3EwZnzlSpezVZBoF97Gz7gsoDdKyN2OQFERf98ACL9tfCZNOlW1adcwMI4M/uuQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794940306;
+	h=Received:DKIM-Signature:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=MF6sJUYsF2XNf12BApOVZGbhsY2g7WBXuedDspoOUkQ=;
+	b=kGMYtyRXLqTCwx03k/D3SBaKu4uHcrhTlXLxRZuWyUaj++feNbIJQTv46SzsUvgpNLnk
+	 ceh9WiR9dgxFV7G2OSBxvTMt6eO/WJ14sKFHbJkBViKjb+L3PZV6pqhCiwBtcvP25wLSB
+	 leSPpIjOH90lB1s3+2Gr1WU6N71bPmGkrVPTRLd+K/3HjNaQDhJ2KH5rio7IIiTsfcs0j
+	 Q203hRPoXIdXJwcnzwXag3IvqtVZr1duIdDzLXjUXOSSA5Zr/M0H+eC83tEW8l873dwDg
+	 +s2dv55osu45VePejBSi/fE8nd39y/8GdpnNDyzDzCPCZlvkOk+IT2dBqZ7brv+42eQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ejcx1rex;
-	arc=none smtp.remote-ip=198.175.65.12
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K7Iq8gA5;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C1D7606A334;
-	Tue, 17 Nov 2026 18:31:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4C1D7606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31F24606A338;
+	Tue, 17 Nov 2026 18:31:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ejcx1rex
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1794940302; x=1826476302;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=jnB1m4ZcgktA+fwwhU+v+6g5xXw9pF45HqzuiTGDj9I=;
-  b=ejcx1rexFm7IfEnbTpScOx1ZK1iMt0tRtDGohDxT0AQOOhisYZWjQUPM
-   WijXlP6j+6rWx8aesqZmsGfCT3ebh4xBV9646NwSwyLovO2hkPOXOgagJ
-   ekcNEg8DI9Dls0P6JxvAvINfydosA1cwBcGlhzMggND1T51ETpHFvRtQ2
-   +RDxXvXAfuC2+/5gOInps8vevHO/9jpljtSlZdDwf761hxQz3siFv98yc
-   OQkpXLmG7H6+iIc0Af+qFfUmAo+qNDtanO0Rswm5LE+LSQegv2pxo1jc0
-   LTEouEG4NqWugiQRMNWXVCeE8epRO57s9OKpGw3oR6Nm+reNL6FF0ce6j
-   g==;
-X-CSE-ConnectionGUID: pfBmmJbtQ7mw5gJNmWW5VQ==
-X-CSE-MsgGUID: RLbwZOkeR5qEYFNPJCWIew==
-X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3607200"
-X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
-   d="scan'208";a="3607200"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 10:30:43 -0800
-X-CSE-ConnectionGUID: jAyTKsJNSmqvBWmNjnkaOA==
-X-CSE-MsgGUID: rV3j1AAjTcudb1pSTKQllQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
-   d="scan'208";a="9774998"
-Received: from chang-linux-3.sc.intel.com (HELO chang-linux-3) ([172.25.66.174])
-  by orviesa003.jf.intel.com with ESMTP; 17 Nov 2026 10:30:43 -0800
-From: "Chang S. Bae" <chang.seok.bae@intel.com>
-To: seanjc@google.com,
-	jmattson@google.com
-Cc: pbonzini@redhat.com,
-	kvm@vger.kernel.org,
-	x86@kernel.org,
-	linux-kernel@vger.kernel.org,
-	zhao1.liu@intel.com,
-	chang.seok.bae@intel.com
-Subject: [PATCH v9 03/20] KVM: x86: Support EGPRs on VCPU RESET/INIT events
-Date: Tue, 17 Nov 2026 18:02:53 +0000
-Message-ID: <20261117180310.921701-4-chang.seok.bae@intel.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261117180310.921701-1-chang.seok.bae@intel.com>
-References: <20261117180310.921701-1-chang.seok.bae@intel.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K7Iq8gA5
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D07881F000C8;
+	Tue, 17 Nov 2026 18:31:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794940306;
+	bh=MF6sJUYsF2XNf12BApOVZGbhsY2g7WBXuedDspoOUkQ=;
+	h=From:Subject:Date:To:Cc;
+	b=K7Iq8gA5YcR1AChHEEa+rSjHfNrQ0i3b83shOSO1uvX4Eq2j6Rp0mY//V81RcJwMn
+	 nXy/0zTo9ZrBFWx225OJLv3Qu114JHzW4k6/yuVFAYgqJLZ/7PbyVRCE+o/ohtPI6Z
+	 GI71KOnULKeLlar6gzhz2C491/4Vpe3IlQqVBQqKEvnWymr5Ghnbc8a7OqZqd1jda1
+	 r/160s/TwY7IWxVxnlOdC0rVFm5H8NDQp4kTVUMHBm1ge6UHPInxvxKK6Q8w2QBtrw
+	 dmEUVhUBo0LA85UvMMubGim4uWgoE6dNcaNKDtwhBvsWNLocsllzBe+LBybeAvmFhP
+	 c6zePBpd+gQxg==
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Subject: [PATCH v2 0/4] mm: fix races between huge and non-huge faults in
+ PFN mappings
+Date: Tue, 17 Nov 2026 18:31:31 +0000
+Message-Id: <20261117-huge-pfnmap-fault-races-v2-0-276007e73bcb@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,81 +54,127 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WNQQ6DIBREr2L+ujSCQpOueg/jguJHaS2aj5o2h
+ rsX7AG6fJOZeTsEJIcBrsUOhJsLbvIJxKkAM2jfI3NdYhClUJxzyYY1ZbP1Lz0zq9dxYaQNBia
+ rGpVQHUpjIK1nQuvex3PT/jis9weaJd/lxuDCMtHnUG889/5bNs7KpLqoUqq6ssrenkgex/NEP
+ bQxxi8B5Xu20QAAAA==
+X-Change-ID: 20261115-huge-pfnmap-fault-races-534e626de5cc
+To: Andrew Morton <akpm@linux-foundation.org>, 
+ David Hildenbrand <david@kernel.org>, 
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+ Michal Hocko <mhocko@suse.com>, Alex Williamson <alex@shazbot.org>, 
+ Peter Xu <peterx@redhat.com>, Zi Yan <ziy@nvidia.com>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, 
+ Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
+ Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
+ Kiryl Shutsemau <kas@kernel.org>, Wei Liu <wei.liu@kernel.org>, 
+ Roman Kisel <romank@linux.microsoft.com>, 
+ Saurabh Sengar <ssengar@linux.microsoft.com>, 
+ Naman Jain <namjain@linux.microsoft.com>, 
+ Michael Kelley <mhklinux@outlook.com>
+Cc: ljs@kernel.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, Eliav Farber <farbere@amazon.com>, 
+ "Jose A. Perez de Azpillaga" <azpijr@gmail.com>, 
+ "Gregory Price (Meta)" <gourry@gourry.net>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3913; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=00OYcEgp48TVHPBBwzIuZPpKjP+lTWun/5wvtt7xAnY=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLL+zG1jWLbC2FfasYZLbtX/ALfsiUrmuy+HSRT+fr/9b
+ W1457a3HaUsDGJcDLJiiizPv4jvDxIJm9d5wd8NZg4rE9gQLk4BmEj4Joa/kqEf1TTV2Xpk5L3/
+ Nr/Xqt/w9PxCNV6Ow6a/BFkPZ8vHMTK05ViFeHk8klJey3jxiI+Z2VLn6WtEJl9wL/76Pjbo3k4
+ mAA==
+X-Developer-Key: i=ljs@kernel.org; a=openpgp;
+ fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 
-EGPRs are not zeroed on CPU INIT. Handle each register based on index to
-support this EGPR behavior while preserving the existing behavior for
-legacy GPRs.
+A driver that implements both ->fault and ->huge_fault must anticipate
+concurrent use of both.
 
-Refactor the rest of GPR handling together as the reset comment mentions it.
+This can happen, for example, if a user calls prctl(PR_SET_THP_DISABLE)
+concurrent with faulting, as that only holds the mmap write lock and thus
+does not exclude faulting threads stabilised by VMA lock.
 
-Signed-off-by: Chang S. Bae <chang.seok.bae@intel.com>
+A number of places in the code that implements huge PFN support fail to
+take this into account correctly, which this series aims to address.
+
+Generally the shape of the issue is that faulting the same empty page table
+entry can result in the ->fault and ->huge_fault handlers racing and the
+loser finding something they didn't expect.
+
+The fault code must tolerate this, but fails to in 3 places:
+
+1. walk_to_pmd() asserts, without the PMD lock, that the PMD entry is not
+   huge, so a VM_BUG_ON() triggers. [ vfio-pci, nvgrace-gpu ]
+
+2. insert_pfn() treats a failure to map the PTE table as an allocation
+   failure and reports OOM, causing kernel accesses to the range to
+   spuriously fail with -EFAULT. [ vfio-pci, nvgrace-gpu ]
+
+3. insert_pmd() and insert_pud() assume a populated entry is huge and
+   compare its PFN on write fault, warning when that of a page table does
+   not match. [ mshv_vtl, drm_gem_shmem, panthor ]
+
+This was originally reported and fixed by Eliav Farber in [0], this series
+reworks patches 1-3 of that one.
+
+Patch 4 of that series (x86 PAT encoding of huge PFN mappings) is dropped -
+it is unrelated to the above, no in-tree driver is affected by it, and it
+needs a different approach which is better pursued separately with the x86
+maintainers.
+
+All three issues were reproduced on x86-64 under QEMU using vfio-pci in
+no-IOMMU mode on an ivshmem BAR, with 6 threads faulting the same address
+in each PMD or PUD aligned range of the mapping while another toggles
+PR_SET_THP_DISABLE (note that vfio-pci had to be modified to pass the write
+flag to reproduce the third issue).
+
+Without this series the BUG is hit immediately, with only patches 1 and 2
+applied tens of thousands of -EFAULTs are observed within seconds, and with
+patches 1-3 (and the vfio-pci modification) both warnings fire immediately.
+
+With the series applied 30 second runs at each of PMD and PUD size complete
+with none of the above, with or without the vfio-pci modification.
+
+[0]: https://lore.kernel.org/all/20261112051440.16140-1-farbere@amazon.com/
+
 ---
-V8 -> V9: New patch (Jim Mattson)
----
- arch/x86/kvm/x86.c | 40 ++++++++++++++++++++++++++--------------
- 1 file changed, 26 insertions(+), 14 deletions(-)
+v2:
+* Added 1/4 to have walk_to_pmd() return an error code. This is marked for
+  stable as it is a prerequisite of 3/4.
+* Updated 3/4 (was 2/3) to add __get_locked_pte(), which differentiates a
+  failed page table allocation from racing a huge entry, and to use it in
+  both insert_pfn() and insert_page(), as per David.
+* Updated 3/4 (was 2/3) to have walk_to_pmd() return -EFAULT if it
+  encounters a huge PUD entry, as per David.
+* Updated 3/4 (was 2/3) to be authored by me as it is substantially
+  reworked, retaining Eliav as reporter.
+* Updated 4/4 (was 3/3) to use [pmd, pud]_leaf() rather than
+  [pmd, pud]_trans_huge(), as per David.
+* Propagated tags, other than to 3/4 (was 2/3) as changed significantly.
 
-diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-index 2cd9ee316aad..73bb1d25931c 100644
---- a/arch/x86/kvm/x86.c
-+++ b/arch/x86/kvm/x86.c
-@@ -9601,9 +9601,33 @@ static void kvm_xstate_reset(struct kvm_vcpu *vcpu, bool init_event)
- 		kvm_load_guest_fpu(vcpu);
- }
- 
--void kvm_vcpu_reset(struct kvm_vcpu *vcpu, bool init_event)
-+static void kvm_vcpu_regs_reset(struct kvm_vcpu *vcpu, bool init_event)
- {
- 	struct kvm_cpuid_entry2 *cpuid_0x1;
-+	int idx;
-+
-+	/*
-+	 * All legacy GPRs except RDX (handled below) are zeroed on RESET/INIT.
-+	 * EGPRs (R16-R31), however, retain their values on INIT.
-+	 */
-+	for (idx = VCPU_REGS_RAX; idx < NR_VCPU_GENERAL_PURPOSE_REGS; idx++)
-+		vcpu->arch.regs[idx] = idx > 15 && init_event ? vcpu->arch.regs[idx] : 0;
-+
-+	kvm_register_mark_dirty(vcpu, VCPU_REGS_RSP);
-+
-+	/*
-+	 * Fall back to KVM's default Family/Model/Stepping of 0x600 (P6/Athlon)
-+	 * if no CPUID match is found.  Note, it's impossible to get a match at
-+	 * RESET since KVM emulates RESET before exposing the vCPU to userspace,
-+	 * i.e. it's impossible for kvm_find_cpuid_entry() to find a valid entry
-+	 * on RESET.  But, go through the motions in case that's ever remedied.
-+	 */
-+	cpuid_0x1 = kvm_find_cpuid_entry(vcpu, 1);
-+	kvm_edx_write(vcpu, cpuid_0x1 ? cpuid_0x1->eax : 0x600);
-+}
-+
-+void kvm_vcpu_reset(struct kvm_vcpu *vcpu, bool init_event)
-+{
- 	unsigned long old_cr0 = kvm_read_cr0(vcpu);
- 	unsigned long new_cr0;
- 
-@@ -9673,19 +9697,7 @@ void kvm_vcpu_reset(struct kvm_vcpu *vcpu, bool init_event)
- 		kvm_msr_write(vcpu, MSR_IA32_XSS, 0);
- 	}
- 
--	/* All GPRs except RDX (handled below) are zeroed on RESET/INIT. */
--	memset(vcpu->arch.regs, 0, sizeof(vcpu->arch.regs));
--	kvm_register_mark_dirty(vcpu, VCPU_REGS_RSP);
--
--	/*
--	 * Fall back to KVM's default Family/Model/Stepping of 0x600 (P6/Athlon)
--	 * if no CPUID match is found.  Note, it's impossible to get a match at
--	 * RESET since KVM emulates RESET before exposing the vCPU to userspace,
--	 * i.e. it's impossible for kvm_find_cpuid_entry() to find a valid entry
--	 * on RESET.  But, go through the motions in case that's ever remedied.
--	 */
--	cpuid_0x1 = kvm_find_cpuid_entry(vcpu, 1);
--	kvm_edx_write(vcpu, cpuid_0x1 ? cpuid_0x1->eax : 0x600);
-+	kvm_vcpu_regs_reset(vcpu, init_event);
- 
- 	kvm_x86_call(vcpu_reset)(vcpu, init_event);
- 
+v1:
+https://patch.msgid.link/20261115-huge-pfnmap-fault-races-v1-0-537605643f6f@kernel.org
+
+---
+Eliav Farber (1):
+      mm/memory: remove racy huge PMD assertion from walk_to_pmd()
+
+Lorenzo Stoakes (ARM) (3):
+      mm: update walk_to_pmd() to explicitly return an error
+      mm/memory: do not report OOM if insert_pfn() races a huge fault
+      mm/huge_memory: only compare PFNs of huge entries on huge fault insert
+
+ mm/huge_memory.c |  8 +++++++
+ mm/memory.c      | 68 ++++++++++++++++++++++++++++++++++++++++----------------
+ 2 files changed, 57 insertions(+), 19 deletions(-)
+---
+base-commit: 5b99c3309de70337f38bd6e6998ab8335c2758e4
+change-id: 20261115-huge-pfnmap-fault-races-534e626de5cc
+
+Cheers,
 -- 
-2.53.0
+Lorenzo Stoakes (ARM) <ljs@kernel.org>
 
