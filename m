@@ -1,78 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794938206;
-	b=hE7is1A4/k6yajQskH7ePFwnIYVGdu3sBMTcu2YGGOnKyIaIUigPN+KVoCWiHVj8Ahek
-	 aMLx/VIOY2GOH8XJRRmOwsPXtgLPBkA8HTdYZ05TRn/b4gHUdry134U3GUT66GeHELbEM
-	 uSMizh8hFbbVLR4Qti5/wb8/mupbQMHCPPse0b8c5k8OqjYmjpGWNeWUCbwdiC4eJLIV9
-	 F1MpKJ/sn1vXYPqtFSCUveApTX6uBAFfoDHTlYZzXTbaE+fFvp2Blb9K5vLTJW5vocND7
-	 0zdzdFFqtTPgYEEszzfR7BT3I6Tv0Sl3qiJP0i9djLedk1t6JPjvR69DkRb0/SJBchQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794938206;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=hYihUWQYpNaOwvzyXWFSsLsKCvn9Evlo2JmwSxf7NpI=;
-	b=FAluL+qxLiD5E8+Hvz8a/RNp0trthA3mv1QQOsjLH4+xsx81j27LihF/xn+mwBrGMPZc
-	 LZNb9imPpcntkvQpW42ygZKa66KzjRKhagewzj77Nb52KHxl9Z0hSSuHyJoLKLmIO4pdY
-	 wTFuklKn0SjTumOo8YJA+KseGNoLBhpyrySiYL1YpPD5Cly3Z0npEbj33EukxgLIXXCZM
-	 NgAQ616zHqidvMWozuZIwiOlucFlGH1KJ/DhbIPZdu4Gp0LHvKJ/4RxZ1LLvS8uf2r3Sc
-	 4GKX/Pfm7FXp0Ao52M86Q7olAchI3VnkJHZH5XKRogy3oX1++bBRyFCSKlDUBFCDxQw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cEwziJdB;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8233D606A336;
-	Tue, 17 Nov 2026 17:56:46 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cEwziJdB
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794938206;
-	b=r3ufT+Cj823yyjtxw+k+rpraU1d9SM+zsWzMkTC7RgMQEtG2Dky/Ffq1jI5XdTKrgqsa
-	 mGjoLUHpaRjfEpgXa3FGK+n2DHmlNQIAr4bV8WTC0dRf8saI3aSAbar2C/vB3YguySBLt
-	 XDC1aEJN96jgAKApvjRVRIjTtTRE+f3PyevVguBB/9alnaRQ8jnIfMo2EvNSb3zv2c36K
-	 NlJApBVupUHC75LN040XtbrqAgVpqctTaYh3pksRmMGY82vxEEupcRId9xaE0HX5wSoBu
-	 dnuxK0v5pGT66PMlJZ5gOWh542FmCj+Y7Ha4GvbLbBZLRYtq8+mwo1h7zncjDCDWjUA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794938206;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=hYihUWQYpNaOwvzyXWFSsLsKCvn9Evlo2JmwSxf7NpI=;
-	b=lr7/dCXUeoD/c7LTIQ2LioCOHDZH75YMnyUqwkn7rVnHWx6TzbcVp4QzjmzT/9Cef/Ex
-	 S1G9ILzSke8k1DHZBozO4Qo09lSnAvl+geVoetFc8btMyyaU8dLojwyYMzDFWsqB2JQgm
-	 Wo8QLo6wh/6y9ORGGyRnOxW3OewWZhF3x/SBif6tDRv91UOAHzIlxR/QjgsJ86HRNTtx/
-	 7z2vjUmCH4HxzuYl33wbiw4Xhgrput6tKxbUYX8XE1tLpfr6lK3qEAyFEZTmORRikcJlC
-	 B7qqJk0ydIjDR68HOVRE3mpxUS8pM2zejsQK1m4Kt00c1kTl22wbA34qERPUaD/flag==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794938207;
+	b=kf0NSoC577vqGXnk7ZBeqZ4/Zx1Mw2e07P9BO4kqrKg9cDTyB5sZQEl2FB7has0B+kfD
+	 YMCcE9KhzrM0rbdS4Osw4Alu/c1UvhHnndpsV/XbYLofMsrGCfx7MwcMo7NEKgZTTA/94
+	 huR31ooUrRjZKsF4jGr67oworV3ZU/LNddne6IyfU9bBiJiPEbK041fHFu9czAC5qSN4W
+	 e+kOEEdoylBoirmxU8YVllvzaCazl6+yJ9pVn9HWQf0+ZXeGL4PlAXrmv8D4eqcLQirCB
+	 hqxgr0bgfTdn3GyHCWoXsPZyES8IYsflM+Dek8r04/GMKoI5eOChiYIEkZqinUFrR4A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794938207;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=pD8vNDgtYkqY5yb1vjvicd9DBKj0i2pqXmdMkGJ2JPs=;
+	b=H6o+xHU6blnFdoJ42A7kYaiG0YUoJRakOTXbMeAAh0YlPZIbFuF9aZWGoeBPXpyzpCHj
+	 XVcFGj8UP6FkZEIhweXHfpantKnPd+J49ST10z3j0cA4/5Hv6PMeibiukacZHfoykqOiS
+	 pIYOPkyj871od0x/i5T9c6t7QcibdSpDNrq+9AIRZTTm6sQY9HHDcqouFkn6JfQTauafY
+	 SAyAq1kk84FC0+P4Ad7JjDQ2YIiC1uKq3q46UWvWfAyZ7AeFzRdYST8ilK7XKNompXlZB
+	 mXoEOXoynbgCbi1u6qPwBIuzaqLpyOWjoNe8PC6TPahFfyz/8dv1Om9gIAyBfoq/RSg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="iU/sirU+";
+	arc=none smtp.remote-ip=209.85.128.42
+Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 887B31F000C4;
-	Tue, 17 Nov 2026 17:56:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794938206;
-	bh=hYihUWQYpNaOwvzyXWFSsLsKCvn9Evlo2JmwSxf7NpI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=cEwziJdBJ1+7C1uauASeBgCYNgIU+FmCfmXO2JUA9dzWd9gaDsBtr61/36+nJyLhb
-	 0hHEBt41RuqJUix9r4aw43vJW8phjixb3EZygMdPvEd5FRFztqdlE93WRUfYwPSiYY
-	 1zXjtIrFisipqnueCmc/ZdGCnOziFdRoXS1uo94JJRU/lvWvh3/3j2EV4qvgWe4N0f
-	 T2b9+m6xR7NRmbLNz7jCxqB13c9904HeyUKxjlCqtAhGn9W97cfj3yHoSEi1WI2gZD
-	 vmZ3pHaustN+ZeJKxI/IPz3ThIgAUPa6SYv0yZSjjWzdMjSuY+P0pN7qs/2M2H+KZu
-	 My6kzdC9AIesg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 0A71C4AA30;
-	Tue, 17 Nov 2026 17:56:45 +0000 (UTC)
-From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Date: Tue, 17 Nov 2026 19:56:34 +0200
-Subject: [PATCH v2 3/3] iio: adc: mt6359-auxadc: fix scale calculation
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73456606A332
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:56:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 73456606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iU/sirU+
+Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-49d05d51553so1056105e9.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 09:56:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794938206; x=1795543006; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=pD8vNDgtYkqY5yb1vjvicd9DBKj0i2pqXmdMkGJ2JPs=;
+        b=iU/sirU+F0zi2E3I7tubksI3ZnG+s1ky371W+kT4xc5sPQdCBLussGOH1HjbBjS8ng
+         pDIHHQktP4m4tUiIiarGkzoaBU50QCthCYedutBM4Fajmf61YCNwkIY5LMM3Ds+WiCwJ
+         wT36xAr+PLyUmdEIs33GRNFcnK+CXGyNK9QqRUUZm76pmunhUS/wGSgPl+IjxKqi4UWj
+         c10sGmJo1V7Jhagn7LgBH/j3hxAiEybMJt4MwUKxFpoLIH9dWms5ZlQKilNWcg7Md7fX
+         G2BRKOVQo0OOHMVX1FWrtGtngNgqfSFdtCw+fHv3g7DvLF1HfWM+0Xp/i9l+iVZBiz/f
+         bHwA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794938206; x=1795543006;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=pD8vNDgtYkqY5yb1vjvicd9DBKj0i2pqXmdMkGJ2JPs=;
+        b=rH5x3a7An9YlgBi2jBaqeXEFHhiLkS1v+LvMPx5kmzE+JF6GtMgtoGiVvs00WIet+x
+         jPf+UyqoQcjiK/jE5c8YfnA/+lGj/bZO7j4Ir7MncR+ZBYd09XWPDil5+aRx2M0dqXuW
+         nrCvCB5+m/vlGw65wFD/eLA3uGKxXRjo2Bxte3cClii8ok5aGxv12sLlLCHASiwrnwRc
+         2+HOe5kPMdf+gXjx2f17gQKjqvz27DxlcOVRucXXiKiXXElO2IYWfKAbtFFv50TZcXa/
+         GsfpTdC7m5uqSl/WTCSBxYMT/46QW/OPKFhwwewRl5zQniOOm2GKCg7egks7SaWqvSNj
+         bj8g==
+X-Forwarded-Encrypted: i=1; AL+hErG7hPcPfcDiSkCdjkJrmEjtbgk0qyUc37wj/ZOtsAj+G3o3fekm1M7xtYwDr9MYy1bOcWHDZ6cXZvjDjRw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8j2TmFMX3QFklExzq9qEF2Od+jR7oH4ZRY1Bdnulr7gXUOx9uv
+	HiJDBO8NQ6wo8YBTfb6r6101Z1s6gsk3slEMOzEQhe9vrUKIkLXN3IfQ
+X-Gm-Gg: AYBFou0/kwzrlwcWufMn6VuCPB0Tb+Hgox7GUHaQGZi7ydcy+gMO5mw4Exmr3/hZ+W4
+	TeXhGhJgHh8vYRRT2Rqt0qat256OTqJ9F4tE4Tf3TnjgXnVGa91flNt0YJb10wRbyctkmjZA9wp
+	6cyIMREQGo+71rYzM7s37yM95qf5X5+ZEQCDhJOFnld+wHwKPqUrz+CCX3Sr2wtpHaZWSSBlw8r
+	3sQr6lVDtGQijmGm8ULlImbByeXOyib3u7fA+A9H49TxObWmQIFjJarZ/uzdyoD/x7/B6cRSZtG
+	Ef0HiAJiKlw7z2uWkhykdkpcxz5scr/bF/20IlkgZg82XrORftczA2Cv9gyBdW0DXLWZ9jGRpTP
+	7I3wvuRvOdGDKVj5XWoTS+lO+cxOZ3pV3bd3lnHng3DXhijhUzkYHMM9K4MBieoPH/UhedqtDop
+	Dp+TM4j00SyR9kh7r0gxPwjQSEo849KAw7WzLkPJEe0fLZL8wYtp4M0ZkriYr9C3r2oIgVrqboi
+	+FdMNSlTUjBknP1bfwfIw+AyBDzR8cL4t8a58bsM254OQBWoHfpYU4HPIH5eg6iMld6fbXy/z/J
+	09FeRsMDa9DYeqGtm+IbWKQ/0NCNAMXxjGVmdS6divonfA==
+X-Received: by 2002:a05:600c:8b57:b0:4bb:6118:4f57 with SMTP id 5b1f17b1804b1-4bb6118533emr268214555e9.18.1794938205744;
+        Tue, 17 Nov 2026 09:56:45 -0800 (PST)
+Received: from Kyiv.home.arpa ([2a0e:1d47:4093:b600:11a1:dc8c:1ed6:51c5])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7d2b74d6sm1292895e9.9.2026.11.17.09.56.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 09:56:45 -0800 (PST)
+From: Volodymyr Chapman <volodymyrchapman@gmail.com>
+To: andriy.shevchenko@intel.com
+Cc: hansg@kernel.org,
+	mchehab@kernel.org,
+	sakari.ailus@linux.intel.com,
+	andy@kernel.org,
+	gregkh@linuxfoundation.org,
+	linux-media@vger.kernel.org,
+	linux-staging@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] media: atomisp: Don't enumerate frame sizes the preview pipe can't output
+Date: Tue, 17 Nov 2026 17:56:35 +0000
+Message-ID: <20261117175635.11790-1-volodymyrchapman@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <avwtA3b3XMkGXPfZ@ashevche-desk.local>
+References: <20261116175750.21905-1-volodymyrchapman@gmail.com> <20261116175750.21905-2-volodymyrchapman@gmail.com> <avwtA3b3XMkGXPfZ@ashevche-desk.local>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,71 +103,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261117-6768-6358-fixes-v2-3-1ffc3c2f3c80@protonmail.com>
-References: <20261117-6768-6358-fixes-v2-0-1ffc3c2f3c80@protonmail.com>
-In-Reply-To: <20261117-6768-6358-fixes-v2-0-1ffc3c2f3c80@protonmail.com>
-To: Jonathan Cameron <jic23@kernel.org>, 
- David Lechner <dlechner@baylibre.com>, 
- =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
- Andy Shevchenko <andy@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-Cc: Chen-Yu Tsai <wenst@chromium.org>, linux-iio@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, Roman Vivchar <rva333@protonmail.com>, 
- Jonathan Cameron <jic23@kernel.org>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794938202; l=1136;
- i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
- bh=dlPuJsQ30iilHCX3ky5K9VEurCW9bPVUqM4NO+pOFjs=;
- b=7iq2aIFVabqKvHpVhkrNE98UvRvNwtTEYyuql4FJ3kV8llZcoCW+TWWlKf0e2TurMkmRjRfqY
- XVTflMRCLfKApjBsZNIt3Vz8qdovb99QqUy2mSf641TdmB1ZK7qeZJ/
-X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
- pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
-X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
- auth_id=777
-X-Original-From: Roman Vivchar <rva333@protonmail.com>
-Reply-To: rva333@protonmail.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-From: Roman Vivchar <rva333@protonmail.com>
+Hi Andy,
 
-IIO_CHAN_INFO_SCALE currently returns value without dividing by
-2^realbits, overflowing the integer to an invalid value.
+On Tue, Nov 17, 2026 at 12:31:31PM +0200, Andy Shevchenko wrote:
+> So, what makes us stop implementing the crop support there?
 
-Fix this by using IIO_VAL_FRACTIONAL and setting val2 to the ADC
-resolution.
+atomisp only uses its crop path for sensors whose driver supports the
+NATIVE_SIZE, CROP_DEFAULT and CROP selection targets
+(atomisp_init_sensor()). The IMX175 driver does not yet: in his review of
+it, Dave Stevenson suggested that binning, and possibly cropping, should
+wait for the Common Raw Sensor Model. Once the sensor supports cropping,
+atomisp takes the atomisp_enum_framesizes_crop() path and this code
+is not used for it.
 
-Fixes: 3587914bf61d ("iio: adc: Add support for MediaTek MT6357/8/9 Auxiliary ADC")
-Signed-off-by: Roman Vivchar <rva333@protonmail.com>
----
- drivers/iio/adc/mt6359-auxadc.c | 8 ++------
- 1 file changed, 2 insertions(+), 6 deletions(-)
+Even with crop support, preview mode would list nothing larger than
+1920x1440: that is the largest entry in the frame_sizes table of
+atomisp_enum_framesizes_crop_inner(). This patch applies the same limit
+to the non-crop path.
 
-diff --git a/drivers/iio/adc/mt6359-auxadc.c b/drivers/iio/adc/mt6359-auxadc.c
-index 09432d0974cf..3a969c30f633 100644
---- a/drivers/iio/adc/mt6359-auxadc.c
-+++ b/drivers/iio/adc/mt6359-auxadc.c
-@@ -770,13 +770,9 @@ static int mt6359_auxadc_read_raw(struct iio_dev *indio_dev,
- 
- 	if (mask == IIO_CHAN_INFO_SCALE) {
- 		*val = desc->r_ratio.numerator * cinfo->vref_mV;
-+		*val2 = desc->r_ratio.denominator << chan->scan_type.realbits;
- 
--		if (desc->r_ratio.denominator > 1) {
--			*val2 = desc->r_ratio.denominator;
--			return IIO_VAL_FRACTIONAL;
--		}
--
--		return IIO_VAL_INT;
-+		return IIO_VAL_FRACTIONAL;
- 	}
- 
- 	scoped_guard(mutex, &adc_dev->lock) {
+> No need to repeat these two paragraphs, make sure they are in the cover letter.
 
--- 
-2.56.1
+Of course. I will keep them in the cover letter only in v2.
 
+> TBH, this feels like a hack, but I'm not v4l2/media reviewer/maintainer,
+> so I don't know if this approach is legit.
 
+The intent is to make VIDIOC_ENUM_FRAMESIZES match what
+atomisp_try_fmt() returns, which already clamps the size to 1920x1440 in
+preview mode. Without this patch the IMX175 lists 3264x2448 and
+1624x1216, and TRY_FMT for 3264x2448 returns 1624x1216. With it, the
+IMX175 lists only 1624x1216 and the OV2722 lists 1916x1076, 1616x1076
+and 1436x1076. Every listed size is returned unchanged by TRY_FMT, and
+for the other sizes I tried (640x480 up to 3264x2448) TRY_FMT
+returned only listed sizes.
+
+Hans, Sakari, would you prefer this, or a different approach for the
+non-crop path?
+
+Thanks,
+Volodymyr
