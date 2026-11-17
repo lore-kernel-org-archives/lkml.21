@@ -1,72 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.89.44.35
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794957353;
-	b=1Uf3BEx0SkjIWMMozF2kfmaCNnFIoYXhtHTghWnbBOlp2fu0/B07ATNhEzwXNvtyRRp3
-	 V1Ul671Zb03c72pQHTxsZApxZlz/d9YaQ9185b8e9Laz/AuKTiGvpnSRmzzeICVS3DTzY
-	 LaOJOkgARR9HLSbsD9ayFZxpJO53IF3vLZ64nID/GEvyx/tDcRScaGcK96qelDjdIQaO+
-	 aN1lTw+o5H+WSlraqiBrzXZ11ZSNPNueno+txai6WDHdSZQjujva4qA8ChpyliZ7eOSpa
-	 L8mxaIYsAIiwImWey86mXHTsIY3C9p6e3FIMRqCFxQDylW4yrf+tzni7i0ubL5npTVA==
+	t=1794957362;
+	b=KP+hcVSlt+LHHW7jpguwW5oN0sfLBPfAd597rTjiI+Alm+OCsHXkUFbSugPF1x50QWCv
+	 2L2VCl0BqJcQZr/mEP6j6uKlzyqRjBn771QAeWc8MP90/KVppiC+lgUIJg5fDjcTPmx3D
+	 71G6iU5G7ViLhXhfjW+4G6Ja7Cvj1eOcVY1XCkfvJPKAbup0qV+vuiM/XsR8h9B5b44Au
+	 0u5TJ252Ou/4wMZsh7kHvXpqFtrjsKDt4lSbALgB5cemsHiRt5SPJ9CxCw/TbAWsKskr9
+	 cMjp0MIix4g0xPaHnUnH3zD1H3rKVVlVk2nmkPOyKZB69CMuaqHw0mvxjPSZgcMo7xQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794957353;
-	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:Content-Language:From:Autocrypt:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
-	 X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:X-Source-L:X-Exim-ID:
-	 X-Source:X-Source-Args:X-Source-Dir:X-Source-Sender:X-Source-Auth:
-	 X-Email-Count:X-Org:X-Source-Cap:X-Local-Domain:X-CMAE-Envelope;
-	bh=oY619yblDRhCmnd7au8TRgm5E8ci+SQVJHuFazTpM8o=;
-	b=0xHz9sLmIXLbmTvNvXtZjlK5xb9wtu3bs4XNsQajLvdX0OWOShb/ihGzFONRfkGoA6TV
-	 kBZiJC/sbhRa+157i6lVEiqDSL5XZLPGBTicB8wUrL7Aw9k3E3eejhyAe7PyRyBbsute7
-	 r9HMhbBi/8mMM/+8FEUYL050iqRIK/ifkHOY46RYwarlvYGIuhfwFIWg6eX+QoqXJRmDi
-	 YrC2+q80df+hQkqGxxoM1ZJtNPVSUCBOPvWd4/TnCBpt1Dc6/75Rl2OSMLzcFZQuI8Th2
-	 UeulBwEnrs19uGXCuWWE3ccPYAwMU7yKzUCUpYmNbJSJiyT9tWBI+s55uCD+8u/lZ7Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794957362;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=TRMivUc7hqRTQvc/18oEojYCHTXC58DX0V1KO98MI2M=;
+	b=CtVnPnk6lCmnT/1nqbG3IX8KzANPtOieWwgeQSVF263WPqzyfLg9v7xpZI1t29XXt0jb
+	 O/1aqqqsdRZHhHygqsgjkkDWoIdcNG9cgFYe7ORA1mxjFAKBj6tXhLIGizDvQ2rxTN7Fk
+	 zshKehAA7rlwKMlK4VLccHcCMX/GVe+N0MTryoprgMvvdI6fzqHXoNe/URdU1lIjMPBwC
+	 K729hl/XK7MEGwsMtLV5RlFr9XdCUKDT7CxbdxAS198HV6QvkPuT5643ckmtL0YroHjbW
+	 Cuk/0NFEpPe+/3y5GfAkuG3iOvu6sg3HFzGDuNWMIA6gtRq7CeVJCE9KSpbRWpQ/omQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=roeck-us.net;
-	spf=fail smtp.mailfrom=roeck-us.net;
-	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b="JhiC9w/3";
-	arc=none smtp.remote-ip=35.89.44.35
-Received: from omta36.uswest2.a.cloudfilter.net (omta36.uswest2.a.cloudfilter.net [35.89.44.35])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HDtAapon;
+	arc=none smtp.remote-ip=209.85.221.46
+Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25641606A32A
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:15:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25641606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85267606A32A
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:16:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85267606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=JhiC9w/3
-Received: from eig-obgw-5003b.ext.cloudfilter.net ([10.0.29.155])
-	by cmsmtp with ESMTPS
-	id TQ9TxU7xyRiNxTSP2xd1KE; Tue, 17 Nov 2026 23:15:52 +0000
-Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
-	by cmsmtp with ESMTPS
-	id TSP1xH9SXSgq1TSP2xYFOy; Tue, 17 Nov 2026 23:15:52 +0000
-X-Authority-Analysis: v=2.4 cv=c8KrQQ9l c=1 sm=1 tr=0 ts=6afce028
- a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=pGLkceISAAAA:8
- a=U0mH4uuqLQvGvUsGOvIA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=KPbNTLLc3YvdawN95zVk:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=roeck-us.net; s=default; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:
-	List-Archive; bh=oY619yblDRhCmnd7au8TRgm5E8ci+SQVJHuFazTpM8o=; b=JhiC9w/3fZB4
-	Clxtkew31I1J8Ll+INY7D8jtijCYSMzK4Jmh2j0GXbFWuw6VsdfXmd9lo/y2aLQgJX/KPPqFHC3FB
-	hAGJ+I8szuUwIG214/EbBWs4NkG7p9yPWM6pHVs5MyY7JQxvQqmAY2YF4a0crGMfskdAbkpPjY8fK
-	eTmvhJMClL7vd4CThbVX8fkhdtLSTlWJj0g+yVqUq00x5PY/83yU4KbN2E3YJ+i4PdbJn4TH83nWB
-	PL07bMYWjpaQr6lNAIlgrW/vaLKGooKHG+taa86tO8iVw//GYYFERI7nF5ilBaOYhpiQTc4yphS4r
-	dKDAB4jLQ+3+rZCp1PtMoA==;
-Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:58570)
-	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <linux@roeck-us.net>)
-	id 1xTSP1-00000001vPE-2iVe;
-	Wed, 18 Nov 2026 04:45:51 +0530
-Message-ID: <6fcf276b-8e06-45aa-a780-f91bcf478d8f@roeck-us.net>
-Date: Tue, 17 Nov 2026 15:15:50 -0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HDtAapon
+Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-490c3ae81d3so180241f8f.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 15:16:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794957361; x=1795562161; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=TRMivUc7hqRTQvc/18oEojYCHTXC58DX0V1KO98MI2M=;
+        b=HDtAaponU8iuheZxm0TK7UlnWpKKIanDuRpm0K8iUXODXFC8oB08VgdY389dtRDVty
+         svj7S8QmFk5Elu1RhzPifKl9nKShjuDPiISTs4ZHt0h+esp/uvImwBOSz1kw2rCYVh0w
+         /STHo0/fUPsbrGLgiBUVb0uiH1SIbymyr3RmRfWtBKEfxLgy9dCElp/JZ9oiL6PHrOVk
+         sDJXXDHF9wV1+ZRIQA/CW9D6iNRj0QUQKa3Enon2qqaT8/RqWJhk6PnpronAxv6Yupl9
+         nWtq/RDCEoiqyGmWL/AZP4PSijS9sxBNAkwnO78faFg57Ra8vnieP4pY+GH44uR3aaDl
+         XD4g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794957361; x=1795562161;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=TRMivUc7hqRTQvc/18oEojYCHTXC58DX0V1KO98MI2M=;
+        b=vtJ9UVbMtlfJxKvko0C32tX+P14HweNNmaw1TNRgVlpIwYKdt24NQi7Zb8rWS1oE5e
+         V4QROYArRaWqjmkixQuURb5pzzO/BtBbtB8Kml6BAtIQUip9n45ANzRroDiqkQjCRdVp
+         0Y+oQRqePI4TXOh90+071ABSxpJlDkD1q3rGAe6Q/uA7Qr4cyT0MKi+cGakyhcgkoYjr
+         ZDukEBFitzmLbcNe2v35Vbvo6nfhDuQWpkIPIhhBliv/X8WfmFS5587l8yqG/7Z/xN+y
+         73OWfSWhrs2UVaTRYpLxUc75ZZemubJmBot1KsodtOk4UUrb6SAJHFzUXsY5L88+MSE3
+         P0LQ==
+X-Forwarded-Encrypted: i=1; AL+hErE0QM0to1Xm9TMpVT0aMKHnn/JtspojwjLZGz743CnMMRpssf0k5QBTBYxUetfEq+RIUCORBNINQHUX6i0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8ogmkstOR4qsL9YcuwI/49nCDJGwPQDLF3QQ7nsfPwmKUog/Tk
+	4XR4IZq0Q+Vx4N8hnJLsTMNCm8jhbsq61Vh7y7RboSLJxgr2vm/twM9a
+X-Gm-Gg: AYBFou3RvIMeJyYSK7uWRZO6RNeJIQNPr3qXig3Qk7AVSiwfYmLL0lsV6lZf8shR+QC
+	/2qT9xwf0kkDtRNWNz58eyCBz2r+MQSeddpn4xh/xjUxfICVo5RsaPSpSr7Y2OD+TYjEXf1lS+L
+	0PqeEzalowFqlYo/1zhCg07uOUJRO+y7CXy/npiM/PPBpxLKJa3GDcBsvIIoOeckuc4I7ptKXsQ
+	6jti21+1d1reOppsJJVzguGXLqsRY79PsVQLcwEwTHqBB/Sy3yJwJ5UEQKuSkcxfszpUF3u4ot1
+	m3sm94swSQ8ZKL+z4zQFVcPh/hfaufRzm3XbuKXzDrORjYtF3QUpSeANjLBqJP8NWdFQ9CzaH3L
+	fuscgffgcZO1xCzxM5Lz+8ysGxoPZhmkWFuXSBU+Q1c3PvOH8r2lsZ071wWtV06hrVLoo9SARng
+	EDT+9YzSPBBRfLjKBvO9CwPXHZ01kDJHOtStSA0aja2WoUfbmy15hlcPpFQAKR+cyzfcm+scozX
+	yTyVcxZjLltzzWjVwiaQJdXIGfBI58fzfS0eDN6mJJFelAy8lBrBBiTf7EqgkoAUy/KiLLy8X1F
+	4m/OdghwbtViA9zduNnq/2iTNCC0FpiwI6U=
+X-Received: by 2002:a05:600c:1f84:b0:4af:c210:5b3f with SMTP id 5b1f17b1804b1-4bb7da236c3mr12822715e9.24.1794957360715;
+        Tue, 17 Nov 2026 15:16:00 -0800 (PST)
+Received: from deb05.proceq.com ([213.160.61.66])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7d4f5b87sm11533105e9.2.2026.11.17.15.15.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 15:16:00 -0800 (PST)
+From: Mehmet Fide <mehmet.fide@gmail.com>
+To: Ping-Ke Shih <pkshih@realtek.com>
+Cc: Luka Gejak <luka.gejak@linux.dev>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Zong-Zhe Yang <kevin_yang@realtek.com>,
+	Tzu-En Huang <tehuang@realtek.com>,
+	Yan-Hsuan Chuang <yhchuang@realtek.com>,
+	Kalle Valo <kvalo@kernel.org>,
+	Stanislaw Gruszka <sgruszka@redhat.com>,
+	Brian Norris <briannorris@chromium.org>,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	mehmet.fide@screeningeagle.com
+Subject: Re: [PATCH rtw-next v3 5/5] wifi: rtw88: clear the restart flag when the device is stopped
+Date: Wed, 18 Nov 2026 00:15:58 +0100
+Message-ID: <20261117231558.1952531-1-mehmet.fide@gmail.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261117171003.1840491-6-mehmet.fide@gmail.com>
+References: 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,117 +106,12 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] hwmon: (ads7871) Add error handle from spi_setup()
-To: =?UTF-8?Q?V=C3=ADtor_Hugo_Silva?= <vitorhg20080@gmail.com>
-Cc: linux-hwmon@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261117205132.141964-1-vitorhg20080@gmail.com>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <20261117205132.141964-1-vitorhg20080@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
-X-AntiAbuse: Original Domain - vger.kernel.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - roeck-us.net
-X-BWhitelist: no
-X-Source-IP: 108.223.40.66
-X-Source-L: No
-X-Exim-ID: 1xTSP1-00000001vPE-2iVe
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net [108.223.40.66]:58570
-X-Source-Auth: guenter@roeck-us.net
-X-Email-Count: 1
-X-Org: HG=direseller_whb_net_legacy;ORG=directi;
-X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfGfdempbn3a0sqkO8n8h26Snw4/vjqKuROetR7RMHLlrCu+HqQfpGdywfSHwgvuBivPjPSMwXF1rvYJcAoAX+T02t8hGVd2BKDVE+Xt+LuYXwoWxa7X+
- SDfEdkX/0nn6gnCPmgKi8nQ8QPt4BhIhmToZoDyKjsaALiSKI1ytcW6HIjfI4f+ashJQ2PtmhLjBSQ6ssbf2uNK7yPBJi61VgnKLkwP407kvNP1Yjl0AsTuq
 
-On 11/17/26 12:51, Vítor Hugo Silva wrote:
-> The ads7871 probe() ignores the spi_setup() error return value
-> and it attempts to write on registers even if spi_setup() fails or not
-> 
-or not what ?
+Hi Ping-Ke,
 
-> This patch returns the setup error before accessing any registers.
-> 
-s/This patch returns/Return/
+Commit 3f2238709f5d ("wifi: rtw88: clear RTW_FLAG_RESTARTING on stop
+and start failure") in rtw-next fixes the same case, so please drop
+this one. Patches 1-4 apply to rtw-next as they are.
 
-(imperative mood, see Documentation/process/submitting-patches.rst)
-
-Thanks,
-Guenter
-
-> AI was used for peer-review the patch.
-> 
-> Fixes: e0c70b8078629 ("hwmon: add TI ads7871 a/d converter driver")
-> 
-> Signed-off-by: Vítor Hugo Silva <vitorhg20080@gmail.com>
-> ---
->   drivers/hwmon/ads7871.c | 4 +++-
->   1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/hwmon/ads7871.c b/drivers/hwmon/ads7871.c
-> index 36297bc6d047..a1ffc35d9272 100644
-> --- a/drivers/hwmon/ads7871.c
-> +++ b/drivers/hwmon/ads7871.c
-> @@ -187,7 +187,9 @@ static int ads7871_probe(struct spi_device *spi)
->   	/* Configure the SPI bus */
->   	spi->mode = (SPI_MODE_0);
->   	spi->bits_per_word = 8;
-> -	spi_setup(spi);
-> +	ret = spi_setup(spi);
-> +	if (ret)
-> +		return ret;
->   
->   	pdata = devm_kzalloc_obj(dev, *pdata);
->   	if (!pdata)
-
+Mehmet
