@@ -1,49 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794941417;
-	b=mdn7nxDdi5Ko3Lv1ELv2fq/YuZS6W645jrUP6XyayycjBw61iEp1da+6p95uk6njGcx/
-	 +is3/gifrAwmYF6c1OGSmGnJADVdnNJ5rdxF15twrLgwEzrPEZCscFSeDlW0znyrWgAdN
-	 pQrgRizEqc0YPCrer3rEObDgEAEKeLIzGOhGiBZaWfU46S7ksH0qs9+HTyl0kaXnVjq0d
-	 7F0Xd1oLdwR8Pi0qlkeawLFXiwp93QMUv7IoSW8EfymwIHAr+tRZXV467Io/3bMvw9fvS
-	 wKFCep6WuoJv8sijcseZ7vg1/a1ikJ5F6yHfubJRcf8OXy9fg7QwGOlidbr0x4Waq9w==
+	t=1794941424;
+	b=jzlxHvb/tYl9N9XjAzhLEK7nH7P4qcmbSKtwitejWdm0XuuNwGwRoQDzxgoAVqYdW2ku
+	 bpfakzi7LVYpfR5fmNa8uD1VgP7MIJI3+ehDAi8RFxBq0Yqdv8rsaUiCpm6OYjR9/TU0+
+	 naC1Xg/z2JAoO1ea8679aLGQDdTWLzs9KNuq4ikiNwu8zyOuvZ+sAu8jr1H3ubpG7xvlz
+	 EF9jqOANq8KT351rwz5GI5b+MQOxMIhqS1To0McZR6pA4zmOUcw/sVuJ7ynSYYOOAGAoh
+	 XHG/FxjS2CK46p/GUx8dFI0VISuS5zyMqmeOWOX1jbLG3f3JR3hUvuCBbQJS1e8aSUg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794941417;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=OkWyP084xXHurVdXkk1MJ8rSrvnivQSXD/jJYphm4sE=;
-	b=3glT/qFNgLKD3YLEgfu5Isa2F5yFSg0S7NCmFd6+qleJgyS7bMBvsTS52el4w8GM0OnV
-	 93bkQEM/gVjYHjsbk7MefaHrjFZ2oS25cdr2uRQoRznqsuTuo0o3trzgoXmMynXGl+zzs
-	 U303KRLoS/gIk7GRToxKardIvd44dLm/RWLE7ab5XWHOGt1+oirBvfPpo6HMWdEBLfP9q
-	 jiwDvbUw7DtHXWwKUyhPUo3Q4edvUTvzt2brCXdJ6+XiNryCbzJnShNj0H+jjHUE/Rhzg
-	 GucmJzNIS1lMjcjsddRsir0+/aWWsQDfdTw7lEnIkGbcXIRr0x8VDzw2I8HlFHrblZw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794941424;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:From:Content-Language:Autocrypt:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Scanned-By;
+	bh=zoawJywOaTBm+laOZNDVSRXudIOW0/uAu16qaS2MLiA=;
+	b=YU9bS5L+ap61VFeOM+/4xJ+VOy8ZFN1Hjzsc8XNvU4nxL1nzrB+dCRQsN4oPivPrwyOg
+	 8+jn7OVqq8Zi8ksBAfgpNN536ADnDCBnPMwGQjE8dv7wWGvDRgFKPyODE3UteGHqugZbe
+	 gN41BRReJkHMmD784T7G9HmLCmc4SNbQqYTmEp/HNTueNlkQsiaOUiaJQjafCnDtpkuXd
+	 1mDiQFJlie96RxDs9Scxj/EY8HiCQKRu3Hlabt6nq1HveA2yKo+kBrI6xYjRMXLiFlPo4
+	 Ho/2HAZIi1kziGTyhkvK/YCU+MCrz0D9zdNgqRHodzV8eqhM0AWr+fhGoGxbvt8BkLg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZVgwao2E;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=XIoHJnMO;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 192BE606A8BF;
-	Tue, 17 Nov 2026 18:50:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0207606A8B2
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:50:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0207606A8B2
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZVgwao2E
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCA051F000CC;
-	Tue, 17 Nov 2026 18:50:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794941416;
-	bh=OkWyP084xXHurVdXkk1MJ8rSrvnivQSXD/jJYphm4sE=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=ZVgwao2Eygfn0iMsUBXrGmzO9+AmM0I14sbBuIWPmiOlkIm/2rtQZT4EaDjM6IdbR
-	 F2pIyKVDkzOGNxmMDCyG2kzuCLXhX6eUffXsumHILlvJ8dOwlhiXbi5Lzk+hpRwgiz
-	 n5HEeIT3oONz0+4c5h9Q/4/avtybt3RTNHNF/M+XGdLH0R8juuIK4WG69HraEpnUtI
-	 y7FAemyaMo5WPqnHLc7SwaIMdelMKlotmuqi1orKgLkBMEHj3OPuil+ZJhSAsxsWwl
-	 TfUAcK02LHcVeV/g9z49/qy31pwZgqQaz4yUnTLKxI7hlsCUBjx3lLJdAxZZQA+7eJ
-	 wHtQmkpDIJt2A==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B4417392B1C5;
-	Tue, 17 Nov 2026 18:50:16 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=XIoHJnMO
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1794941422;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=zoawJywOaTBm+laOZNDVSRXudIOW0/uAu16qaS2MLiA=;
+	b=XIoHJnMOijLOOwb+Q1oKOHFOYYVZxdfQiOCx3ibkgvN6iayok1lCE+AzboQQ0VG58fUdW/
+	VlMiYVA6zDroxD8X3dFu9Y+ZYIj2bXjy1jtNGBzijJx6yWaw84Gczy+QsSTNByYgRohAFB
+	gAPhfNGFU778176/5Jq2xfpm4vRNlss=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-299-u_Mb5VU4OweZy85LRGw_kA-1; Tue,
+ 17 Nov 2026 13:50:18 -0500
+X-MC-Unique: u_Mb5VU4OweZy85LRGw_kA-1
+X-Mimecast-MFC-AGG-ID: u_Mb5VU4OweZy85LRGw_kA_1794941417
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0AE73195604D;
+	Tue, 17 Nov 2026 18:50:17 +0000 (UTC)
+Received: from [100.90.222.41] (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 7774C195B3C2;
+	Tue, 17 Nov 2026 18:50:15 +0000 (UTC)
+Message-ID: <7b4beea2-2bc9-44d8-be6a-ecfe678091dc@redhat.com>
+Date: Tue, 17 Nov 2026 19:50:13 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,43 +71,155 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v2] Bluetooth: hci_mrvl: Leave the serdev port lifetime to
- hci_serdev
-From: patchwork-bot+bluetooth@kernel.org
-Message-Id: 
- <179494141527.761488.11110930230675526211.git-patchwork-notify@kernel.org>
-Date: Tue, 17 Nov 2026 18:50:15 +0000
-References: 
- <179484691454.54083.14464729860702732145.marvell-serdev-v2@michaelmcallister.org>
-In-Reply-To: 
- <179484691454.54083.14464729860702732145.marvell-serdev-v2@michaelmcallister.org>
-To: Michael McAllister <me@michaelmcallister.org>
-Cc: markus.probst@posteo.de, luiz.dentz@gmail.com, marcel@holtmann.org,
- linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] KVM: x86: Don't reuse the GPA of a fault on the guest's
+ page tables
+To: Sasha Levin <sashal@kernel.org>, Sean Christopherson <seanjc@google.com>
+Cc: Tom Lendacky <thomas.lendacky@amd.com>, Kyle Zeng <kylebot@openai.com>,
+ kvm@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261027191914.2341911-1-sashal@kernel.org>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Content-Language: en-US
+Autocrypt: addr=pbonzini@redhat.com; keydata=
+ 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
+In-Reply-To: <20261027191914.2341911-1-sashal@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
 
-Hello:
-
-This patch was applied to bluetooth/bluetooth-next.git (master)
-by Luiz Augusto von Dentz <luiz.von.dentz@intel.com>:
-
-On Mon, 16 Nov 2026 16:35:14 +0000 you wrote:
-> hci_uart_register_device_priv() opens the port before calling mrvl_open(),
-> so Marvell opens it twice. Likewise, mrvl_close() closes it before the
-> transport closes it again during unregister or registration error cleanup.
+On 10/27/26 20:19, Sasha Levin wrote:
+> DecodeAssist provides the instruction bytes, the read of 0xc0000000 has
+> the same page offset as 0x180000, and the emulator turns it into an MMIO
+> read of 0x180000:
 > 
-> Remove the extra calls and let hci_serdev own the port lifetime. This also
-> avoids failing probe when serdev rejects a second open with -EALREADY.
+>    ==== Test Assertion Failure ====
+>      set_memory_region_test.c:83: run->mmio.phys_addr == MEM_REGION_GPA
+>      ...
+>      Unexpected exit mmio address = 0x180000
 > 
-> [...]
+> If the vCPU is at the next instruction instead, the #NPF happens on the
+> code fetch, DecodeAssist provides no bytes, KVM fails to fetch the
+> instruction itself and injects a #PF, and the guest shuts down as the
+> test expects.  KernelCI sees the failure in about half of the runs on a
+> DL345 Gen11 (EPYC).
+> 
+> The CPU walks the guest's page tables with write accesses, so such faults
+> also set EMULTYPE_PF_WRITE, and a write would be redirected the same way.
+> 
+> Tell the emulator when the fault occurred on the guest's page tables and
+> don't use the GPA for the access then, so that the access is translated
+> through the guest's page tables.  KVM can't walk the encrypted page tables
+                                     ^^^^^^^^^
 
-Here is the summary with links:
-  - [v2] Bluetooth: hci_mrvl: Leave the serdev port lifetime to hci_serdev
-    https://git.kernel.org/bluetooth/bluetooth-next/c/c9eb955c4fe2
+This is a separate bug; something like "Also, KVM can't walk..." would be
+better - but actually a separate patch would be even better.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+The non-SEV part looks good.  I'll wait for Sean to shout that it isn't,
+or otherwise apply it and send out the SEV patch below.
+> +	/*
+> +	 * Don't emulate if the #NPF occurred while walking the guest's page
+> +	 * tables.  The GPA is that of a guest paging structure, not of the
+> +	 * access, and KVM can't walk the guest's encrypted page tables to
+> +	 * translate the access itself.  Resume the guest, see below.
+> +	 */
+> +	if (emul_type & EMULTYPE_PF_GUEST_PAGE)
+> +		goto resume_guest;
 
+Here I would return X86EMUL_UNHANDLEABLE, which causes an internal-error
+exit or #UD.  Also, even though it's mostly aesthetic, SEV only gets
+emulation for #PF and the code is already consulting exit_info_1.  In
+fact it is already checking PFERR_GUEST_PAGE_MASK but in the wrong order.
+Something like this will do:
+
+diff --git a/arch/x86/kvm/svm/svm.c b/arch/x86/kvm/svm/svm.c
+index af0deb198a84..4e0f5a8c8275 100644
+--- a/arch/x86/kvm/svm/svm.c
++++ b/arch/x86/kvm/svm/svm.c
+@@ -5513,19 +5513,29 @@ static int svm_check_emulate_instruction(
+  	}
+  
+  	/*
+-	 * Emulate for SEV guests if the insn buffer is not empty.  The buffer
+-	 * will be empty if the DecodeAssist microcode cannot fetch bytes for
+-	 * the faulting instruction because the code fetch itself faulted, e.g.
+-	 * the guest attempted to fetch from emulated MMIO or a guest page
+-	 * table used to translate CS:RIP resides in emulated MMIO.
++	 * Under SEV, page tables are encrypted and cannot be read by the
++	 * hypervisor, so there is no way to resolve a fault on page tables.
+  	 */
++	error_code = svm->vmcb->control.exit_info_1;
++	if (error_code & PFERR_GUEST_PAGE_MASK)
++		return X86EMUL_UNHANDLEABLE;
++
+  	if (likely(insn_len))
+  		return X86EMUL_CONTINUE;
+  
+  	/*
+-	 * Detect and workaround Errata 1096 Fam_17h_00_0Fh.
++	 * The insn buffer was empty; the DecodeAssist microcode could not fetch
++	 * bytes for the faulting instruction because the code fetch itself faulted,
++	 * e.g. the guest attempted to fetch from emulated MMIO or a guest page
++	 * table used to translate CS:RIP resides in emulated MMIO.  Just retry.
++	 */
++	if (error_code & PFERR_FETCH_MASK)
++		goto resume_guest;
++
++	/*
++	 * A data fault could actually be Errata 1096 Fam_17h_00_0Fh.
++	 * Detect it to apply a workaround.
+  	 *
+-	 * Errata:
+  	 * When CPU raises #NPF on guest data access and vCPU CR4.SMAP=1, it is
+  	 * possible that CPU microcode implementing DecodeAssist will fail to
+  	 * read guest memory at CS:RIP and vmcb.GuestIntrBytes will incorrectly
+@@ -5552,12 +5562,8 @@ static int svm_check_emulate_instruction(
+  	 *       retrieve the instruction bytes is legitimate (see abvoe).
+  	 *
+  	 * In addition, don't apply the erratum workaround if the #NPF occurred
+-	 * while translating guest page tables (see below).
++	 * while translating guest page tables (see above).
+  	 */
+-	error_code = svm->vmcb->control.exit_info_1;
+-	if (error_code & (PFERR_GUEST_PAGE_MASK | PFERR_FETCH_MASK))
+-		goto resume_guest;
+-
+  	smep = kvm_is_cr4_bit_set(vcpu, X86_CR4_SMEP);
+  	smap = kvm_is_cr4_bit_set(vcpu, X86_CR4_SMAP);
+  	is_user = svm_get_cpl(vcpu) == 3;
+
+
+Paolo
 
