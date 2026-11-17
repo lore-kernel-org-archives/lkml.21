@@ -1,90 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794951256;
-	b=r9SWAlMFNlauLvdOHwzbgUMuvBSDVbiv2P2smi9/nJOIr0R3BtPtR9r20LhAcLw+zLDN
-	 kPIpd6Amn73PKNBWOmeUlD3cX1IUbGS/w/L6+MsRfHWrTJHi3z405FlsfA1N5u6HQbgSz
-	 sWJ8bJonGBVOsGk2nFxGDQ92lBuLBSmJ2vWfR/6pr0vtvpiNcpcsjnEvhOGXFDcurPKB0
-	 NRDIr/AuXVXqwqrIyHKinm1xiTRWjuJ+QR0ZW8mRkLRyp9LfAtb1+04vlY8YlIXXkWs+o
-	 j8vjeOll5XTmLJjVDZysOZbF75aZCB13l6LlJBt0+/bZQbgtuBf4id7CTuSoIYsvTdQ==
+	t=1794951316;
+	b=k4baqN0zZ/KDo6FXFhI2rTxw3v+CiJbxQAT+eQ3EhYvaEX7OnUHnPrYmjtt9eVbqD/B2
+	 Quldp3om9Y7jk5idfQ6jSZKurCGbh/0WnGYMTJTPcnCyShf+mk2lJBLh/n1yoaGDrmmOA
+	 lQSA59gOIlh/cEPKWfMqb/vWHHductTFeZv7yAg9RCVS8do+qzV7YSjM51bVbl1/xcIla
+	 Q2z3Lp5BCShF5nstSFNXbLtKzj6/9z85GUNeXpnQ00oQbyEk8UDc5uqmJBoO8IdP2VzCf
+	 8nNc8mjaslB47mBp4k0nRv2ZQRrYkWB7fR9WoaD5wKR60noIwTGSiGwsegbYIk4f5jg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794951256;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
-	 User-Agent:MIME-Version;
-	bh=WHqfKSkp6wNUtO6H4jmQz6WHiqtvVsP+iPjkHYTZ39s=;
-	b=MHBeomVU97EvVXNNRalLCi8pX/900yrqsPARMCXCuY8fAUGXTlvXO0LHIU2kGC8ybs7u
-	 5U71+1D21Kf3K0+b0bqMG7pEDSIOVdxwaPBADV75GnkeLuP6P+3IplEEHXXk9ESA6oFLH
-	 mwJSJUd+gQXSN9nh0FQ56TjTHlM6welXkZXc7+PAFXa9/jGt+IekWZMEpA6dpxb8/9QZS
-	 lR/ePjK7EiKhQf/yA2SnNvHQLmEVBRPHk5yHfpYnCIZlThkQbCIW3wPyeyBywHzaVgYZO
-	 huFR42mQc1RsWBO8bhf46uvbV/UaLWKNc0ypAJiDC0BNQ0O9+/pD9KOdwg7EB4/6dcQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794951316;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=Anks4TzdC4CpR+AsePZScfQOH9LZg4KMnD77+CM5Nlo=;
+	b=cazz+LknqiiBBO92NYU53ZB+Sqf5mLQYd7rNuyQG7gjnajyJZIxqwueok42nnoNwa/MI
+	 ODpRdqksSMaSFcmtBV6v3J4WDD7ptO/m78f2BVKCB8rhwTu2QEkZvDbgKfI0hIRP1YEyS
+	 oGRgzFo1Xlsy4ps0UDBRxORG8OPrYYeUceMhdX0PqsWsn+1MF8mkSLVMKm0Q1byV717yg
+	 mwiLhMvLcXwrTjX/BKIB3gbZHb5moHFLdrtX0mb44dLVNtKWaUHlUrb9Q7SnR9PC/kIBO
+	 HB9vXKh+kmk7rFen9gR6MKpxkFMe57/bhQKIEQa+0bXTF98UvBww0lz73VM0xM2bVpw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=SxIYDHOk;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FHDhu7tN;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 225DF606A32A;
-	Tue, 17 Nov 2026 21:34:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 225DF606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 891A7606A31C;
+	Tue, 17 Nov 2026 21:35:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=SxIYDHOk
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1794951254;
-	bh=WHqfKSkp6wNUtO6H4jmQz6WHiqtvVsP+iPjkHYTZ39s=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=SxIYDHOkHhWEVdkJQno0c032wgCnau7T7WoU/qyfshGkKb3qpPwe0uOSEkxRqA2ey
-	 tLmnSEKb9AJPZzAJ1CCFuezmUX9Ezus8bsvQagE8FWrIQ5zuKkrws94sgyylMxLMgh
-	 V3O+kAtHc/lfYg8y3TisaGPNQq9CaJ5NsjWouhJqBeLv4oWDfS6hN0Km7GM65VucL8
-	 hlQMvy0oIX4pJQ4Kl5CFGVcFS1pG2xxerH+isMmIEK8+ek3QJan5qdVoTg7iLfFcYh
-	 Kt5pm4LRuDLcsYboYpIig0eYlDg4ERv7SvQXzMKzafz0fe694YWO+XdRhmNTl+gg4K
-	 K0ayRxgYPEL8Q==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 376B417E0060;
-	Tue, 17 Nov 2026 22:34:12 +0100 (CET)
-Message-ID: <f2c679df52985a79ae065942f52020aec5951ea3.camel@collabora.com>
-Subject: Re: [PATCH 03/14] media: h264: Add SPS video definitions
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Paul Kocialkowski <paulk@sys-base.io>, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-  Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,  Pengutronix Kernel Team	
- <kernel@pengutronix.de>, Benjamin Gaignard
- <benjamin.gaignard@collabora.com>,  Philipp Zabel <p.zabel@pengutronix.de>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Hans Verkuil	
- <hverkuil@kernel.org>, Marco Felsch <m.felsch@pengutronix.de>, Michael
- Tretter	 <m.tretter@pengutronix.de>
-Date: Tue, 17 Nov 2026 16:34:11 -0500
-In-Reply-To: <20260522101653.2565125-4-paulk@sys-base.io>
-References: <20260522101653.2565125-1-paulk@sys-base.io>
-	 <20260522101653.2565125-4-paulk@sys-base.io>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-OS69ecpzncDB5QYJzY0O"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FHDhu7tN
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42F0A1F000C4;
+	Tue, 17 Nov 2026 21:35:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794951316;
+	bh=Anks4TzdC4CpR+AsePZScfQOH9LZg4KMnD77+CM5Nlo=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=FHDhu7tNqCDK89se1H/cvw7m/Op6cV5/teGP+OweZ54P/dr3CKVgFjhpZmzt5xdZ0
+	 WgalhNtq8RvF+2fCSjb1SW/DEfqQxXCi3jknzizsVUbtGXntkobZzQCaohnxbCoX9m
+	 J7Jr9FmUG2riyzekBAWJRUR22joCJdZqddLPcRlokcvixh7XLMgTEE6rnoFM+MJs2N
+	 YNfvxL2CeYGOzbItvtNnA77MKOUhYh7FARWjcE6ZdZuPJ5gVlNtFAas+VO7eKiJEoM
+	 f4PSx3TxwYh23tEu5hfRJ5HsIm9MSPnwsoSR73B3QrkXxpCMLPiCiDRAwPTb96PrX3
+	 Q7C6KqbfbsjOg==
+From: David Hildenbrand <david@kernel.org>
+To: Hugh Dickins <hughd@google.com>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ Gregory Price <gourry@gourry.net>, Zi Yan <ziy@nvidia.com>, 
+ Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>, 
+ Ying Huang <ying.huang@linux.alibaba.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>, 
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+ Michal Hocko <mhocko@suse.com>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>, 
+ "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+ linux-doc@vger.kernel.org
+In-Reply-To: <20261113-mempolicy_limit-v1-0-16688b2644dc@kernel.org>
+References: <20261113-mempolicy_limit-v1-0-16688b2644dc@kernel.org>
+Subject: Re: [PATCH 0/2] mm/mempolicy: shared policy limits for
+ tmpfs/shmem/guest_memfd
+Message-Id: <179495131088.5050.4198726430362880380.b4-ty@b4>
+Date: Tue, 17 Nov 2026 22:35:10 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,37 +70,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-
---=-OS69ecpzncDB5QYJzY0O
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-Hi,
-
-Le vendredi 22 mai 2026 =C3=A0 12:16 +0200, Paul Kocialkowski a =C3=A9crit=
-=C2=A0:
-> +=09u32 frame_crop_left_offset;
-> +=09u32 frame_crop_right_offset;
-> +=09u32 frame_crop_top_offset;
-> +=09u32 frame_crop_bottom_offset;
-
-We may or may not prefer using SELECTION API? Similar generalization is use=
-d in
-Vulkan when I compare.
-
-Nicolas
-
---=-OS69ecpzncDB5QYJzY0O
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16.0
 
------BEGIN PGP SIGNATURE-----
+On Fri, 13 Nov 2026 22:36:11 +0100, David Hildenbrand (Arm) wrote:
+> For some reason we thought it would be a good idea to let users create
+> as many shared policy ranges for shmem/tmpfs as they want. And
+> guest_memfd inherited that handling.
+> 
+> Fortunately, at least for guest_memfd we know that we shouldn't really
+> have more than one shared policy right now in practice.
+> 
+> [...]
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCavzIUwAKCRDZQZRRKWBy
-9KRXAQCIwaVBW4yRzTOVa3oNy11vsVlDoNqA6Gn9Rm2TK2NJFAEAiof90F0QCybi
-Kqv+NMU5yF4/x55xlKMMSmi3SsNIDAc=
-=YJWK
------END PGP SIGNATURE-----
+Applied, thanks!
 
---=-OS69ecpzncDB5QYJzY0O--
+tree: mm/core.git
+branch: mempolicy-7.5.shared_policy_limit
+
+Applied patches will appear soon in mm-next, followed by linux-next.
+
+Please report any outstanding bugs that were missed during review, so we
+can either drop the patch series or decide how to fix it up.
+
+It is encouraged to provide Acked-bys, Reviewed-bys, and Tested-bys even
+though the patches have already been applied. If possible, patch trailers
+will be updated.
+
+Note that commit hashes shown below are subject to change due to rebase,
+trailer updates or similar. Further, this is not a guarantee that the
+patches will go upstream. If in doubt, please check the listed branch.
+
+[1/2] mm/mempolicy: merge adjacent shared policy ranges
+      https://git.kernel.org/mm/core/c/ca9e4df0
+[2/2] mm/mempolicy: limit shared policy ranges per inode
+      https://git.kernel.org/mm/core/c/8d93a9af
+
+-- 
+Cheers,
+
+David
+
