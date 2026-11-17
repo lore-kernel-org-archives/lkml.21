@@ -1,109 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794943956;
-	b=c8/jTk+rFXhlf0pcDFUHJZIjluL79RDC2qaW/5ukPy4WumeOo3o6HZZWxAznhcM/KJkc
-	 ZULbhxgOMP22BidRrrNt/UH0iZlNv9OsLS2hbbkaHogF8keVL2FLMwgLGn1g89tURA5De
-	 ru3q8gE9aNUXsqmFdUUEstL5E9b45ParqKNnBirBUctmGISoKdLR0Cy2u3OmhHeQFfdta
-	 GAvFrE2VPWL68PlBKNNzzVf5MURH9bK/0xuZ/aTm5ZoKyIQjKPZj+hkuCHklwNKMgSOCQ
-	 XxV5jxqwdKuy8TEs5ekcaxtxQHWn+zRUTRFIHbnxzu19ixI3HgIk1vnEpaIfFGCfytA==
+	t=1794943958;
+	b=USX7So/Dqo3GrCeLhzf/Hwsgcy793f7dS2/tmse1nNG3FRGNQc1YWgm0fWwRJ0pv7hRP
+	 SVy/vrxwldrXCYlM8/SDf3HmsNWm3NMkMndmIWbI2BjQUNlkHWOaCVTeugFORK9ywJRV+
+	 jFXlzJI6rmnG1hJRx8oJCyOaXcER0rZF0xWunajONsQizOt+I2oXaetW4Fh2s2eUOqCP+
+	 hgmH7Y7f9gnnHDQS/EfNqW93t31LRXjaIP1KMkkEI8nfyngT4he0JUXeeE1GOfpAwfV2q
+	 g3izRFBf/wQm7C9hJk3QR1NDHa00yj+A3e1YHchR0Z4nGpIx5Ee90okxLFzgToFnd5Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794943956;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794943958;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=xdvLbnh0OriBfinAwo6R8BZo+O30RlXB5vQE8tXi+Jg=;
-	b=UBnO0sxfpiWpIyh5trru4HQOyImKnS1Z+r+ELLJzAxuNEmAqF7ieGpamWlC9WOedqqzI
-	 7VT0WfbOBL3J/o9q73Y+HNFeN4X0bjve00s3viDOE7/b1fqGX7SqWI9A/wfugHWVxqkns
-	 DK5UFIP4BPCXkpqkuHaYZCqVNqQneaoe3df7eMivMb6LI1DRySLjNAXQLMNnAnmLedgsR
-	 ribkc5l6pO1+a0AlWLaihHAKAGaSEyanfJWOzwzSKRhCLz/gSEnL/vfNLzLdPp+IEy5/q
-	 makTXxM8sixeuMlxLudJG83Z9e8GFvJagsIkDg02xpQV0FGhl8ZWgBkp1zyEAWkZNyQ==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Developer-Key:X-Developer-Signature:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=+0+txM7MPeyJRwa0Sn9PNj0P/voFCRRCRvjyl+hjpB4=;
+	b=Ax3+K4o5HYVq8Ae3pSHNX+rXPIebN1CRGz4+QmKXRRteF31q+5uQEljpwPPty4sbJ7GW
+	 e6xUr0LjH+aLoTB9jizZ/w0ocWtLhcuHc4vQh0srx5OC3GmzWp8Spx9SSAgl+6GSAGXXY
+	 WPNhdQ6waKL49/t/ItNJNGP9DBx5Ic9nMZk6Locynenhfa4nRCZdm0lWQfNJX0Dy99XgJ
+	 9Az20BiN9eyQ9OBmz3LQKKli6xCPGkK2GLPxOVYRbBHywBKzq2DmiAQpGMqqKl0QpyFqF
+	 PhlyoQR6z5EX1iwU1/G0Dmn77W6/tu41eNSlGFNiWbLpB8qiJCNmasXPVHCiCwz4xLA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="glIv/3D5";
-	arc=none smtp.remote-ip=74.125.82.172
-Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="ouk+s3U/";
+	arc=none smtp.remote-ip=209.85.221.70
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com [209.85.221.70])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8DA3560A2620
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:32:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8DA3560A2620
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3E5F60A263E
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:32:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3E5F60A263E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=glIv/3D5
-Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-380b40319bdso433831eec.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:32:36 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ouk+s3U/
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-49d70f45b22so96406f8f.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:32:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794943956; x=1795548756; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=xdvLbnh0OriBfinAwo6R8BZo+O30RlXB5vQE8tXi+Jg=;
-        b=glIv/3D5/xVwqM++NZBLjPHlif/bKnuLBbYJR/ipw4huxhXQZUWkP4Qt/vcV5fkgYu
-         Q+2Eti697jYa4ZXw5YFXx/C4qCJZ6dOTQqAFsBT6cmvrJwj/fFdxzmLO7//Pzb6HVwBJ
-         s65B4aQnrCYODREMVZjS288AFeaUI58YN3u46TAR50StA1+4VzQI12Yp8rRHyq1oNZIz
-         gYtWxsdF/jxwsx8+9fQVbQxp1RifMZfOBACJ5z6E3+WVz/QDOI8G7RBIkvwR/xE9rZMp
-         SWoWG/4JutRdv7+yMRRBWWx5uOvDM4fCTg0RQ11MUrfiEIcsuL/RPFizAw8Neuo5j0py
-         4R0g==
+        d=google.com; s=20260707; t=1794943956; x=1795548756; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+0+txM7MPeyJRwa0Sn9PNj0P/voFCRRCRvjyl+hjpB4=;
+        b=ouk+s3U/cPUMl5YYG9bfqgivs6ZmlkfkAFuyZnJVTXuly+H1q4mQTQFxfqdkXiT9/w
+         9+TJvMayC75X4YPONvjwpvac6H9gIV7vKiwK4ZoA56aY3MdLrBFVY6KDrlu/Xtymqu43
+         HCaISoxA21xeIDV1iK+gj9R1lqz3Z3cb6rQd513/pYvz2Tn4ZWIUwM23eBqFcpG+1e48
+         7nNkZxIlbrMQVcih1tA0kL+x93O/3/q+RlVMOF6nlwY0vawGCpGpY6XnKlb9dVUCGcao
+         jO18l7RUkxSYEyqwxBFXNjLhkkYoZ1o/cVBtDdGPvI2p5ritq1dHYEjaFembsXCTmYbn
+         aEVw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1794943956; x=1795548756;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xdvLbnh0OriBfinAwo6R8BZo+O30RlXB5vQE8tXi+Jg=;
-        b=sCQDgBIt+rmbimuwJc9jngu5neDQAOWnLGNmYQRGNq32OfRXxRm7Qkq5ndkRJpUwLk
-         n35u+kO7wiOC2CGGKgOLdt+p9YiTSZel4uFp1YOpebdmP75Jgu9vuRNAS9S42JnV0LuN
-         KG5+ITaR5xpkFGJyAMia3h7SlwtLhpDmDmGoozJo/976t5Ygc71gQE7INsgddmPJIfk9
-         uER2HTHUM+plSdqeuqJ/sq8xUkbFwOXWiZuLO7ys6D8BffS1uWSraygGtxDcVxeRyX4S
-         +1hQFHRA3VTL0xyRF4v7WUTpPuCOdaWpYa+6veuSgN5+lUNq494DRks0q9IJF3PqugFG
-         XnNA==
-X-Forwarded-Encrypted: i=1; AL+hErHMCQ8Y3jKqlWH5itYof81/EU8qWuY9xxFcqWpPbbs1tA/W2MJoT0k3FRxqQ2+bNSJxLkskkHhjgqdwqBk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+VVtN7PqtyUhLePXmPgEauEwX9TY2zoCUhJYkpOcbJzg+xaMOG
-	0+RC03IB4eZ5HKJL6yDuMdqEUSyDT30GK0u4TPtJtaoS9+vW5QgVEV04
-X-Gm-Gg: AZFdTZchSyVQALFyLrh9LVtjBxOl2yj5anj1PM4BKxsFO0zMSzNRC1LVK6H5KGpT0GK
-	3cVJsTIqn1w4yE4/yj9lLL6GRCHIv9xW5+4HP7OdwNZHgdIvyQGm/2q1obgMEIENEw4BtocrxrE
-	CPbSNqak8d+gCNb7nbZq78TRtVegcjLi2xkHCJU4seQBi+N00dyqRaFeJ5Jk//cByVxup5GNQcz
-	xUWbnoL3ks83ff5v+mUrJsxwG/IE/JgoEvOJYhqL6VvJS7qLAsG6NX1cC6bUItkFOmN/uXUU7Us
-	9YiBuFdxHv57N+02v3GiKiulRsUL28WZqN8oeSONODVhFa5mFbepts5ruoK0oaiuJnBX4g/ImDc
-	6/Sh4A2nFpkbRciD/8fvMzdmYE2zhLAThyDx6wfv3rNGwpaVj/fk+0KLUqgxuIRr2QiZrw6DXBX
-	OPrlD0vNUbh2TRZ4fezuchu4UsQ5IYjSdCPliEulbIBI2uVgjb1DMH54uecBAE1InF/n6ovE2Ij
-	wD9xTwUzBhWZ4B4IaLFycXICTbN2URr13wCnBD3JRvNbEWnNx3KUP92SusJ5HcRm03cZsyoqlVX
-	WP1WClr6
-X-Received: by 2002:a05:7301:c14:b0:376:a62b:ae09 with SMTP id 5a478bee46e88-3827ff7aea7mr364158eec.16.1794943955744;
-        Tue, 17 Nov 2026 11:32:35 -0800 (PST)
-Received: from eldorado ([2600:8802:b00:1f88::287])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a63059e3sm173376eec.5.2026.11.17.11.32.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 11:32:34 -0800 (PST)
-From: Florian Fainelli <f.fainelli@gmail.com>
-To: netdev@vger.kernel.org
-Cc: Florian Fainelli <f.fainelli@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Jijie Shao <shaojijie@huawei.com>,
-	Simon Horman <horms@kernel.org>,
-	Runyu Xiao <runyu.xiao@seu.edu.cn>,
-	David Yang <mmyangfl@gmail.com>,
-	Herbert Valerio Riedel <hvr@gnu.org>,
-	Danny Kukawka <danny.kukawka@bisect.de>,
-	Mugunthan V N <mugunthanvnm@ti.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	linux-kernel@vger.kernel.org (open list),
-	Manuel Lauss <manuel.lauss@gmail.com>
-Subject: [PATCH net v3 05/10] net: au1000: serialize TX completion with packet submission
-Date: Tue, 17 Nov 2026 11:32:18 -0800
-Message-ID: <20261117193223.2795612-6-f.fainelli@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261117193223.2795612-1-f.fainelli@gmail.com>
-References: <20261117193223.2795612-1-f.fainelli@gmail.com>
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=+0+txM7MPeyJRwa0Sn9PNj0P/voFCRRCRvjyl+hjpB4=;
+        b=rESjcVX4UQUSMA0Z+HAm23fMbff9Yzm46JAlc5PhjBHSCk4EWhu9MUNlnKEKUpfq/C
+         bsWMxcoQ5VZWW01v8bMXghLsIWivup/jju4/v2XJPBznx1KemQz595DhPSm9+iWQfoRl
+         eh7zTSwYjuxmhRaoqMssRAGfc64w7HyD6fKRlJ/57THSLbsyTNVg0rVJ9NimCo0U15ro
+         yeV0vS1KNOi16bFiOHcnhpxL2YekCxv8Nf8yecuavyu3ZxCBCoYK8esGepLNO7LkR/H2
+         mN07tjM0m5Fo4wbEWq2Ll37tRpI+EJi6lTBfktR1dTL9kdIbzIsR2QymmpGU7ZUTjaFp
+         yS+g==
+X-Forwarded-Encrypted: i=1; AL+hErHNBIljlCZvy3mmO4hW3QwUFhX4Y5r9pb5bSul249C4p+tlqrY0Ztq4/CEfgtZw6t4/5gLwkvu9JrQ6ffo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/8NNG2fnCO9sKRjTywPCE/e7nO7KMwDYKHgB+oRVizuNBvmrMf
+	BHMmbELynrB4buHUDYMEmQDuTsZi/RxYufYAH5ezx2e3PhLECJrDLmaVVZhKcCjrQVrWqlv9u6d
+	zDfMdNaXgXoV/RO5ujg==
+X-Received: from wrnb4.prod.google.com ([2002:adf:e644:0:b0:4a4:9fcb:c0d2])
+ (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6000:983:b0:492:820d:107e with SMTP id ffacd0b85a97d-4a63cd0eb78mr804149f8f.47.1794943955847;
+ Tue, 17 Nov 2026 11:32:35 -0800 (PST)
+Date: Tue, 17 Nov 2026 19:32:18 +0000
+In-Reply-To: <20261117-tyr-remap-2mb-v1-0-2a8efd4c8180@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,87 +78,73 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+References: <20261117-tyr-remap-2mb-v1-0-2a8efd4c8180@google.com>
+X-Developer-Key: i=aliceryhl@google.com; a=openpgp; fpr=49F6C1FAA74960F43A5B86A1EE7A392FDE96209F
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1205; i=aliceryhl@google.com;
+ h=from:subject:message-id; bh=qullzfbasZ1PBAiwmelJR8Wu/8Cq09DzJ4AhkY0NXXE=;
+ b=owEBbQKS/ZANAwAKAQRYvu5YxjlGAcsmYgBq/KvQhhfo/i3hpH5lFbOyDEwYbHCYaKQPRqu7h
+ BvCnbobi0mJAjMEAAEKAB0WIQSDkqKUTWQHCvFIvbIEWL7uWMY5RgUCavyr0AAKCRAEWL7uWMY5
+ RojaD/92+hR/vatJndmWWwF1FE/2fpo442zd/mWkRgzBkO4VFIAIzF35Ckwt+5scDlitsJkhc4o
+ 7T+bS69Ze3KLWfegrGht24waHlj7oB6wbMYYWLuZPB4utAyG5ljJC0mvJ1qATyBmphbuTCBLuFi
+ 5wHzxgysG3H0vwDgykoqSpqhIhuDKyYQFHTOa+gQZhI/xcR0TLOEx0Dfw6zILOQX17t8WJz345G
+ KDFh2xc0uqfU3sV8o9EcmfTo6F1641JtsXVIZY+Oc8yCAv826HzwsxKkFFYyfjlic3zEblEubUV
+ xhxRwbdq76B9Xmq0i9Y1COm6pHZb9KUaT+yeeYxGUEamZwGS/M5a1palNLRGlKuWT8AOfxIiWcx
+ x/w6kfDtP2nKNMYdbIFzkDF78wkZAsanc9VJOAca1Zotbxsz7w0NKQNoYgUV6WrYcbUQ/PVupF/
+ g+6zuUAwfP1uey0kc0/sMvH3qwmkT0hHalKomEES5QimHuMCP738vgMWnft4jczbjNevxCtr7CT
+ 6vrskXM6peY7eqcGV+YNA7uCIc8fRk5XD+IXrNInmibFCEIe8m7qUPHjcOL28p7WLdh42VO/4Cq
+ vXfm9Xij3ONUlRy/h4Vdizgeo4bpmukCIFSSZnsdGDujDlDMIDbMcpZ1cibReJ/j390RfadZalx zRc6pYOXWN28N3w==
+X-Mailer: b4 0.14.3
+Message-ID: <20261117-tyr-remap-2mb-v1-1-2a8efd4c8180@google.com>
+Subject: [PATCH 1/4] rust: drm/gpuvm: add GpuVa::data_ref accessor
+From: Alice Ryhl <aliceryhl@google.com>
+To: Daniel Almeida <daniel.almeida@collabora.com>, 
+	Deborah Brouwer <deborah.brouwer@collabora.com>, Sami Tolvanen <samitolvanen@google.com>
+Cc: Danilo Krummrich <dakr@kernel.org>, Matthew Brost <matthew.brost@intel.com>, 
+	"=?utf-8?q?Thomas_Hellstr=C3=B6m?=" <thomas.hellstrom@linux.intel.com>, Miguel Ojeda <ojeda@kernel.org>, 
+	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+	"=?utf-8?q?Bj=C3=B6rn_Roy_Baron?=" <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>, 
+	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
+	"=?utf-8?q?Onur_=C3=96zkan?=" <work@onurozkan.dev>, "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Boris Brezillon <boris.brezillon@collabora.com>, 
+	dri-devel@lists.freedesktop.org, rust-for-linux@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
+	Alice Ryhl <aliceryhl@google.com>
+Content-Type: text/plain; charset="utf-8"
 
-TX completion runs in hard IRQ context while ndo_start_xmit updates the
-same descriptors and ring state without locking. An interrupt between
-netif_stop_queue() and setting tx_full can miss the wakeup and leave the
-queue stopped until the watchdog runs. Use the existing IRQ-safe device
-lock in both paths to serialize reclamation and queue state changes.
+From: Sami Tolvanen <samitolvanen@google.com>
 
-When submission reclaims a completed descriptor at tx_head, advance
-tx_tail before reusing it so the interrupt handler does not wait on the
-new packet while older completions remain pending. Consume the copied
-skb after releasing the lock with dev_consume_skb_any(), which also
-handles netpoll entry with hardware interrupts disabled.
+Tyr's VM_BIND remap path rebuilds page-table mappings for the fragments
+that survive a split, and those fragments must keep the protection flags
+of the original mapping. Add GpuVa::data_ref() so the remap step can
+read the VaData of an existing mapping.
 
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Signed-off-by: Florian Fainelli <f.fainelli@gmail.com>
+Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
+[aliceryhl: split into separate gpuvm and iommu commits]
+Signed-off-by: Alice Ryhl <aliceryhl@google.com>
 ---
- drivers/net/ethernet/amd/au1000_eth.c | 11 ++++++++++-
- 1 file changed, 10 insertions(+), 1 deletion(-)
+ rust/kernel/drm/gpuvm/va.rs | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/net/ethernet/amd/au1000_eth.c b/drivers/net/ethernet/amd/au1000_eth.c
-index 1935b1d4b173..805aabc6721b 100644
---- a/drivers/net/ethernet/amd/au1000_eth.c
-+++ b/drivers/net/ethernet/amd/au1000_eth.c
-@@ -872,7 +872,9 @@ static void au1000_tx_ack(struct net_device *dev)
- {
- 	struct au1000_private *aup = netdev_priv(dev);
- 	struct tx_dma *ptxd;
-+	unsigned long flags;
+diff --git a/rust/kernel/drm/gpuvm/va.rs b/rust/kernel/drm/gpuvm/va.rs
+index 46493f0ec5a6..f81302faba61 100644
+--- a/rust/kernel/drm/gpuvm/va.rs
++++ b/rust/kernel/drm/gpuvm/va.rs
+@@ -87,6 +87,12 @@ pub fn obj(&self) -> &T::Object {
+         unsafe { <T::Object as IntoGEMObject>::from_raw((*self.as_raw()).gem.obj) }
+     }
  
-+	spin_lock_irqsave(&aup->lock, flags);
- 	ptxd = aup->tx_dma_ring[aup->tx_tail];
- 
- 	while (ptxd->buff_stat & TX_T_DONE) {
-@@ -889,6 +891,8 @@ static void au1000_tx_ack(struct net_device *dev)
- 			netif_wake_queue(dev);
- 		}
- 	}
++    /// Access the driver-private [`VaData`](DriverGpuVm::VaData) associated with this mapping.
++    #[inline]
++    pub fn data_ref(&self) -> &T::VaData {
++        &self.data
++    }
 +
-+	spin_unlock_irqrestore(&aup->lock, flags);
- }
- 
- /*
-@@ -972,21 +976,25 @@ static netdev_tx_t au1000_tx(struct sk_buff *skb, struct net_device *dev)
- 	u32 buff_stat;
- 	struct db_dest *pDB;
- 	int i;
-+	unsigned long flags;
- 
- 	netif_dbg(aup, tx_queued, dev, "tx: aup %x len=%d, data=%p, head %d\n",
- 				(unsigned)aup, skb->len,
- 				skb->data, aup->tx_head);
- 
-+	spin_lock_irqsave(&aup->lock, flags);
- 	ptxd = aup->tx_dma_ring[aup->tx_head];
- 	buff_stat = ptxd->buff_stat;
- 	if (buff_stat & TX_DMA_ENABLE) {
- 		/* We've wrapped around and the transmitter is still busy */
- 		netif_stop_queue(dev);
- 		aup->tx_full = 1;
-+		spin_unlock_irqrestore(&aup->lock, flags);
- 		return NETDEV_TX_BUSY;
- 	} else if (buff_stat & TX_T_DONE) {
- 		au1000_update_tx_stats(dev, ptxd->status);
- 		ptxd->len = 0;
-+		aup->tx_tail = (aup->tx_tail + 1) & (NUM_TX_DMA - 1);
- 	}
- 
- 	if (aup->tx_full) {
-@@ -1009,8 +1017,9 @@ static netdev_tx_t au1000_tx(struct sk_buff *skb, struct net_device *dev)
- 
- 	ptxd->buff_stat = lower_32_bits(pDB->dma_addr) | TX_DMA_ENABLE;
- 	wmb(); /* drain writebuffer */
--	dev_kfree_skb(skb);
- 	aup->tx_head = (aup->tx_head + 1) & (NUM_TX_DMA - 1);
-+	spin_unlock_irqrestore(&aup->lock, flags);
-+	dev_consume_skb_any(skb);
- 	return NETDEV_TX_OK;
- }
- 
+     /// Returns the underlying [`GpuVmBo`] object that backs this [`GpuVa`].
+     #[inline]
+     pub fn vm_bo(&self) -> &GpuVmBo<T> {
+
 -- 
-2.53.0
+2.56.1.703.gf848ed807c-goog
 
