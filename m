@@ -1,100 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.171
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794947299;
-	b=4o+OWrs9m1Fl57VGVzqeLInfinDha0ZsU2w46SDaxwJo0us12mj2YuQ78OCXFtVVuoqP
-	 Np74DbsRQjbJvw6Mp+9mO7xLuqrAu0p3/67JxgUIn3oTzcNTc09sr11jAGKOyBWm3xmCA
-	 fkATbWbBHNdS/BOuaFx5FbOyXP/7MiU+IlEIPJt574dOmxU1tn6Iz1hUJqylJk63gNZSm
-	 hpB37F35+94QtWJr3FnryQWQD8Gmi+pyCGs42KtkwufNLOFBmAqFvpWwF85a5N6jjXQpk
-	 bPhcn9pMsxZSKU7WHaE648cfvvOI/+0Cf3b69JzNSo9ShHAcbTZUAg11+rNPNzYnBiQ==
+	t=1794947366;
+	b=5eTKV6IdLR2YWMIyqUcnqFoFLckoZEDHmOyZCUN3DVM2f/Gi2oLF9aoISzO2ZOKq08jP
+	 V3cbeTlwgFVtPjHAaRjy8PU6t6sRDOQR1Asu6AgKV34QY33S3MfkoQ0hjHtO0BRdYWz4t
+	 0R5eWBfU3h87/XqPS5mRx2k4b+WtmElDARBpV8A5fiKGP8R6sweUphB1qEmDH2dFkgXIz
+	 2AF/U4fFA4L5Lry5ZMFe8xINrtYa7i4RrIQeX6tH241Rjjuse+IHvzW1xDkxDjKT8cOf9
+	 OmDlODZC8A89NN/anjNtejRHdXV0u6/xIaeBmn1bvAbIMrkojlkiTeAfjBs2/+koDiA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794947299;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=jVQoF4RBBvw/4PYTHk8rllYWT3NYnQtky5aIjcCOwqM=;
-	b=xdXbiQdeEPxDNUu/QmhQXQLamwYs4RbLjiXINp/uipIjW/OYePkjZdWuaPJqAbPzWaTJ
-	 JQSV8veBmQ4JriGjYyblUIZM1q50IbR2BoadF2gExfyWSvUMiQJK1AxyHpbsCbSDMXLge
-	 uLnJd38/9YxrlhFBmdpdbKHu+bMBRrLqbtRCQYflwEXb+6zWuV8mNcUZIRNtap/ky12Gi
-	 D4gR37H0RBJeRq+49R9ePIfdFCsRS0NTQOyLlpJxEjvMt03/Qza7/LUz8ngtkNRJ9WBXM
-	 8+keFMtEDeSiD//tM/RGseE9d+TyfZ15FsTHvVHYHVscwjxr8U5ykXIX6m2JW3o8COQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794947366;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=l9S+/fGt6QMtr7orblw6BxaiAisH7gLZIShPMzXT7qI=;
+	b=30vqp9mdUe85RnVRSZvfRq+SQH6ZQsTddgq1wnbkNxO4XnX/3j0Sqw2oak4z6RFWomPk
+	 bDLobn15w+xBqFiQYDTHZVcESEE1asI1L8w398GhhDJwxmzLbeoBwAhDGiLXAcieocVue
+	 TcPDWcdBgpGTssA9PMa8/27vihOoxlPWUC+XKEJNzBVaFmOiIfJjGVucglraxyr9BU0em
+	 3O1SRLQEGJcPkwzU+fJW/0KARyow4JkpaqHvP/scpDFBFTQoTHgOXFdVVtsPuu6RceLDO
+	 6t4JGn0bs2vjBrssVdYFN/syuchykCw37/C8/jw2Ph/JiD2Zqf87UklQrgb7j81vTQg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=LyBhKerR;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.171
-Received: from mail-qt1-f171.google.com (mail-qt1-f171.google.com [209.85.160.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NpVymrhF;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B1A4606A33A;
+	Tue, 17 Nov 2026 20:29:26 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NpVymrhF
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1794947366;
+	b=YB0yZtia/QWuK4S0crq/zRVInF6yg+xMG0p85CbLZLKvoSpdHWYeVp4ALSc6CAIrme6q
+	 o8OrupnBmM5pPZr4loyEq2tEDPmATlBOg8yxxjtw4KHx2xyalo4hM+q9mdZDnTILWwhOC
+	 K8H3WoVGirS44GnJlVPibCa2O80nfMoVlGyB/Ywdfo/lAVKTkH/NbsiZdEkgICsDrDU7G
+	 QpLJ6r2Svpkqh8HFvvnXhyJ1iXku34vUNkfCFEYGTwpoDyAjsT98eYwVf2R98vo8G68IY
+	 /88NzUMc6I9EMtH9ZsnJU2oMhjNV32TG0Sped/2qEng+Bf7sLZDHxFHGrEKKBgJEblw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1794947366;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=l9S+/fGt6QMtr7orblw6BxaiAisH7gLZIShPMzXT7qI=;
+	b=zIDLFsb3hznDh/FHZTG+qSvcN88y6Fxya+zqT3GGcRtwiavwVwxf7BmV4egdPyf+VBRP
+	 AojkbSc+hdsgR/CS1EP+krrIYLEXF8gMsWbSPfBz6pm7y768eHuzFCwEANovl+ZXhN8Tb
+	 A/+SVecXkFVMC8zb6Gg6BOE5vUWtu8xwpFjFuoYTjfBeqjLzv+Io+M+T+66da+ipASbwE
+	 E5vzsVAeiHK7cyocjNCOqHsAaIChgL+qIVHssjm953C2cyAiD5MCqtg7aQ/ZJ70U96TP+
+	 WyaUbiqMtE5gZG8oXHzUXvTVyeiyRhesBrKFF4jAa7G4/lkcwNcjzli9/YFYy0mLjUw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 954FC606A32A
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:28:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 954FC606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=LyBhKerR
-Received: by mail-qt1-f171.google.com with SMTP id d75a77b69052e-54492d8a988so52971cf.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 12:28:18 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794947297; cv=none;
-        d=google.com; s=arc-20260327;
-        b=sOKl32Tgxxhm4O83PR1KPVBO5+LQRRR1MgqGdxRTFLmMBUOzFj+JMx5GnHHVujwBMb
-         UwtkKnA0GY4jRIhlGV75WXhAbHC0RcAI2J+hMsrV5VRcRj8VuWz2vh+oD0zARKcZ71L8
-         tpl2sRWjXE2cY/gc8CHz0OHK2LE2Drcp/VGi46eWYJjAXlDgHkTXV1U2VGx+uq8GXHrX
-         iKS2n2WMY4myrvbpsbwze90bcOOnlNr7TnK6FCz9MSFMXEU+/4E+mlV9X+VxfsokNMRO
-         rcxMOK8rZHJyhVGtO+2cEie3B9W7YDWU8A8pC0GdExsmc32myZeuWVwQ51zOt7UGGlhl
-         PTgQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=jVQoF4RBBvw/4PYTHk8rllYWT3NYnQtky5aIjcCOwqM=;
-        fh=HBZUNQl7K10naiiWET+9/xjzrrvJs9jgC6xzOb9l3gI=;
-        b=IkKK5muM48Y9Z9HGXUSGXgAD6VX8SG3oT6FDUMsTav67bQY/wiQvOW2/I94gjZ7aae
-         GfRy+pXMsdxeBlkkQih/oQFbtLYW0d7gLtQQuIUiaO7iMjoL9C7zWMYw4Yp4dS8q32Jb
-         jUIROlqLNeFU8aWld5ro1gxCwXgW1hxNEJ2ISbGWvIhVvGPXcQO3u1DoFhumL9QN8Uqz
-         DLwQn3ZwLGg6JKMzz6LmddCKqx4mXitSLIZRF0hry5TOs7j+leRCltaqwZLcl6956r1g
-         WvCn3rtaebIWyoAS41dawwYBaICMB9Oji+5xxUR5NuhuDYyTupRUe+SrxqFbrwCwBR8/
-         a9qA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794947297; x=1795552097; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=jVQoF4RBBvw/4PYTHk8rllYWT3NYnQtky5aIjcCOwqM=;
-        b=LyBhKerRYtuPj3BcqDX6+hcymxHUISw6M9iRDIFKDhl0hzuI7VDwIoryzaWbVmStwk
-         55VkApnp+qQsX4X0JKiLJzofoqFfE2OaBypLNlghoHCv9jyGHreheBvOCmCcLILqPhOE
-         MLLw9ictrMiqFroCF3sqwCzV5X/IJFXCc48Dpkuu3nkRkPdHltOHWhfKpaE48loayk0w
-         au46gMa60MncIuY09Ngnfuv5e6FASlWZmx39RFRO991zQXVnsGbckNz7P1iOTKxzhWQq
-         tL+H5JUGu1suqwqhTnIcEeKq3noF3pi32PjdCwJIy9WoJ+D/6vggHiLhJYvZYCmSLEK7
-         pn6w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794947297; x=1795552097;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jVQoF4RBBvw/4PYTHk8rllYWT3NYnQtky5aIjcCOwqM=;
-        b=b7jAHkmqsl2C7Y0R4DjVuUB22PdaKjvBsVQTI0kqLM4uDUEBLGeHQNoQJvLIq/Gyc4
-         9K/uTjj4N0jIGIE4b3osVpx7mH3meUIUt7WyIJyAnXJfYx1RFOfGVKmhkIVpPjMkI4hY
-         n/yoqZgdzISeFP3IF/WxZP00wOyuwlZTQZFm4xQ1mxoHrAtrORLQwN7dhMrgqVj1DeBy
-         q94FC6s7u36yuv1ASPZwsXfTP/NuRSSR8+l5k99ETsfaYLdjQ3NNTQEaYkag4QIt1cvO
-         Zrm4mM4OgS1PqpsClbr4837kN5X+C6lj7zOannWCCoxjMbEnV38nIflpzHecoXfk2OdQ
-         YuXg==
-X-Forwarded-Encrypted: i=1; AL+hErEj8dEBvSlZn6umX/EIhx9IGq15M2XxDJFdf2sAZ8kNlHMDwrlORtlQVtycEZOyc4Bt9de0bOLZ9OKlvfI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z88k1rYuqB6uMf2Bc79YkASF6k/q+6Ldu2PHxM+DB1fwTkOnz/W
-	UcQsyhcAluoZt7DEL5izfIyeyxKA2DAH9HvZGF8CvhqWwdqMsMhgNP8pWiPeWoWpGzvBbqEeXp+
-	nvz05InEkzaQmAJuUFUgAeWR4PCRY6lKtdmNPR+zl
-X-Gm-Gg: AYBFou2gel+xvGkgEfGdsd0nowzh2sipoPUXkepEsdd+z3Rzn1X544seHQyNq9aaANd
-	qOvooKVfsez9uLWAY7hqwGWSX7+5uSKWMVAkRgDCtvODXdXgPjCAyAkxuu1AUoxUziEWZoioiHc
-	7zLfheTXS5IR7hYDe2whknXwzQA8LIAD5RFFwNo8CpAgQPrkvtwrAbbqTUIqe04uGHhsO8ci4rS
-	S5/Dg1pboKU6Vr8jg7pk9CMgp9BKPp/oQrWrtqICTIa0HOPULPqzZ+42ziOlUdTRVNawpywzwdz
-	Z+J0vPE5UxmV1RcM5bmARB5HxDb+tmFZSMhVKX7Sunqrvm9aKq5L1RJ1RJR46F1c+0UQv8CS4vG
-	pDAuQ9qSq86HxXZHHW+4mOpAsjcjwHGA4HI/bQBkpum5wM4FABgNNkkQ3EYXyqnjYIw==
-X-Received: by 2002:a05:622a:4c14:b0:535:ce3:ee07 with SMTP id
- d75a77b69052e-55d5c2cee39mr65141cf.13.1794947296716; Tue, 17 Nov 2026
- 12:28:16 -0800 (PST)
+	by smtp.kernel.org (Postfix) with ESMTPS id 546D11F000C6;
+	Tue, 17 Nov 2026 20:29:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794947366;
+	bh=l9S+/fGt6QMtr7orblw6BxaiAisH7gLZIShPMzXT7qI=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=NpVymrhFZ4TVyUtYiRcoTIy+Eg86NC3I5eWXFn8Ktp10UI0phxb2WxQ4mnPDAM0ev
+	 kwptKW4xQ8myQczmWu3K+3FO8WZ7hSksDEgV7PuGFom+SL6qSit672R3Fur5jUb8Ej
+	 Q7zg/dlJEHJo/qSdttim2WySHjQFMJBsKetKNUSyUSvi0O6AiH/5IpK9/OhzDAXBeY
+	 xGZXeFvPrFKbBgX/gocCLSFMZMqEdMW4vWiXEYqxtJXsMsb9OQOi9uv1tUAspmKD32
+	 F4rytBbGVoI8pq0XqKVsFIw3c2tPlLk0fc8/OQYnPXsA3joCsI6xxEyPpjTaAVdAmm
+	 SF+fy485zIXoA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id D86304AAD6;
+	Tue, 17 Nov 2026 20:29:23 +0000 (UTC)
+From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
+Date: Tue, 17 Nov 2026 23:29:24 +0300
+Subject: [PATCH v4 2/2] irqchip: Add Cortina Systems CS75xx peripheral
+ interrupt controller
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,67 +83,186 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261108223913.3624571-1-irogers@google.com> <20261108223913.3624571-4-irogers@google.com>
-In-Reply-To: <20261108223913.3624571-4-irogers@google.com>
-From: Ian Rogers <irogers@google.com>
-Date: Tue, 17 Nov 2026 12:28:05 -0800
-X-Gm-Features: Aa3M54pKTQsa-oflH9hUV5D2o7s2OGZET_t0xpfakeOUoS7f9VMMcgCU6TwJrv8
-Message-ID: <CAP-5=fUUatDonEFfc4bFAPKgOokjn8vEOPUNEKV185-g16U-8g@mail.gmail.com>
-Subject: Re: [PATCH v3 3/9] sh: sq: Add missing kobject release callback to ktype_percpu_entry
-To: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Rich Felker <dalias@libc.org>, 
-	Yoshinori Sato <ysato@users.sourceforge.jp>
-Cc: Danilo Krummrich <dakr@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	linux-sh@vger.kernel.org, driver-core@lists.linux.dev, 
-	LKML <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261117-cs75xx-intc-v4-2-0a678f35e5f3@gmail.com>
+References: <20261117-cs75xx-intc-v4-0-0a678f35e5f3@gmail.com>
+In-Reply-To: <20261117-cs75xx-intc-v4-0-0a678f35e5f3@gmail.com>
+To: Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Fil Dunsky <filipp.dunsky@gmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794947362; l=5096;
+ i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
+ bh=/TDDrsDXswx4rj1Q6oUXRwk17epz9dhPBPrG6KgLxTU=;
+ b=ejtm9LmgvsXGWtXcUH+DBww2L0dLTC7iLcg7hwYWNdOK6fmX8CnNkHveV42QYqqEvLPukM5j2
+ l3yTAe0NU60ASH/rvpslPwVDWj2V7OEU1cGE/nho1xhg5ih+NKVfMwt
+X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
+ pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
+X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
+ auth_id=1085
+X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
+Reply-To: filipp.dunsky@gmail.com
+Content-Transfer-Encoding: 7bit
 
-On Sun, Nov 8, 2026 at 2:39=E2=80=AFPM Ian Rogers <irogers@google.com> wrot=
-e:
->
-> In sq_dev_add(), sq_kobject[cpu] is dynamically allocated with
-> kzalloc_obj() and initialized with ktype_percpu_entry. When
-> sq_dev_remove() calls kobject_put(kobj), the kobject is never freed
-> because ktype_percpu_entry lacks a .release callback.
->
-> Provide a sq_kobj_release() callback that calls kfree(kobj).
->
-> Fixes: d7c30c682a27 ("sh: Store Queue API rework.")
-> Signed-off-by: Ian Rogers <irogers@google.com>
+From: Fil Dunsky <filipp.dunsky@gmail.com>
 
-Gentle ping on this patch (moving SuperH maintainers to To: in case
-this got buried in Cc:).
+The timers, GPIO banks, I2C, MDIO, SPI and a few other low speed
+peripherals of the Cortina Systems CS75xx SoCs share a single GIC
+interrupt. A status register shows the level of the 15 sources and an
+enable register masks them; there is nothing to acknowledge, each source
+is cleared in its peripheral.
 
-Danilo offered to take the full 9-patch kobj_type::release __must_init
-series through the driver-core tree with subsystem ACKs, and this is
-one of the last two patches awaiting an Acked-by. Does this look okay
-to go via driver-core?
+Add a chained driver using a generic chip on a linear domain.
 
-Thanks,
-Ian
+Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
+---
+ drivers/irqchip/Kconfig      |  12 ++++++
+ drivers/irqchip/Makefile     |   1 +
+ drivers/irqchip/irq-cs75xx.c | 100 +++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 113 insertions(+)
 
-> ---
->  arch/sh/kernel/cpu/sh4/sq.c | 6 ++++++
->  1 file changed, 6 insertions(+)
->
-> diff --git a/arch/sh/kernel/cpu/sh4/sq.c b/arch/sh/kernel/cpu/sh4/sq.c
-> index 908a8e09113b..f33864958487 100644
-> --- a/arch/sh/kernel/cpu/sh4/sq.c
-> +++ b/arch/sh/kernel/cpu/sh4/sq.c
-> @@ -331,7 +331,13 @@ static const struct sysfs_ops sq_sysfs_ops =3D {
->         .store  =3D sq_sysfs_store,
->  };
->
-> +static void sq_kobj_release(struct kobject *kobj)
-> +{
-> +       kfree(kobj);
-> +}
-> +
->  static struct kobj_type ktype_percpu_entry =3D {
-> +       .release        =3D sq_kobj_release,
->         .sysfs_ops      =3D &sq_sysfs_ops,
->         .default_groups =3D sq_sysfs_groups,
->  };
-> --
-> 2.56.0.455.g6c5a503b38-goog
->
+diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+index 136bab41f..db5edd4ec 100644
+--- a/drivers/irqchip/Kconfig
++++ b/drivers/irqchip/Kconfig
+@@ -187,6 +187,18 @@ config BRCMSTB_L2_IRQ
+ 	select GENERIC_IRQ_CHIP
+ 	select IRQ_DOMAIN
+ 
++config CS75XX_INTC
++	bool "Cortina Systems CS75xx peripheral interrupt controller"
++	depends on ARCH_CORTINA_ACCESS || COMPILE_TEST
++	default ARCH_CORTINA_ACCESS
++	select GENERIC_IRQ_CHIP
++	select IRQ_DOMAIN
++	help
++	  Support for the interrupt controller of the Cortina Systems
++	  CS75xx SoCs that combines the interrupts of the low speed
++	  peripherals (timers, GPIO banks, I2C, MDIO, SPI) into a single
++	  GIC interrupt. Say Y if you have a board with such an SoC.
++
+ config DAVINCI_CP_INTC
+ 	bool
+ 	select GENERIC_IRQ_CHIP
+diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
+index 16a5fd126..7ed8f8b33 100644
+--- a/drivers/irqchip/Makefile
++++ b/drivers/irqchip/Makefile
+@@ -136,3 +136,4 @@ obj-$(CONFIG_MCHP_EIC)			+= irq-mchp-eic.o
+ obj-$(CONFIG_SOPHGO_SG2042_MSI)		+= irq-sg2042-msi.o
+ obj-$(CONFIG_SUNPLUS_SP7021_INTC)	+= irq-sp7021-intc.o
+ obj-$(CONFIG_IRQCHIP_XILINX_SMMU_CSR)	+= irq-xilinx-smmu-csr.o
++obj-$(CONFIG_CS75XX_INTC)		+= irq-cs75xx.o
+diff --git a/drivers/irqchip/irq-cs75xx.c b/drivers/irqchip/irq-cs75xx.c
+new file mode 100644
+index 000000000..f3d71b06c
+--- /dev/null
++++ b/drivers/irqchip/irq-cs75xx.c
+@@ -0,0 +1,100 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Cortina Systems CS75xx peripheral interrupt controller
++ *
++ * The low speed peripherals on the register bus (timers, GPIO banks, I2C,
++ * MDIO, SPI, ...) share a single GIC interrupt. A status register shows
++ * the level of the 15 sources and an enable register masks them; there is
++ * nothing to acknowledge, the sources are cleared in the peripherals.
++ */
++
++#include <linux/bitops.h>
++#include <linux/io.h>
++#include <linux/irq.h>
++#include <linux/irqchip.h>
++#include <linux/irqchip/chained_irq.h>
++#include <linux/irqdomain.h>
++#include <linux/of.h>
++#include <linux/of_address.h>
++#include <linux/of_irq.h>
++
++#define CS75XX_INTC_STATUS	0x00
++#define CS75XX_INTC_ENABLE	0x04
++
++#define CS75XX_INTC_NR_IRQS	15
++
++static void cs75xx_intc_handler(struct irq_desc *desc)
++{
++	struct irq_domain *domain = irq_desc_get_handler_data(desc);
++	struct irq_chip *chip = irq_desc_get_chip(desc);
++	struct irq_chip_generic *gc;
++	unsigned long pending;
++	unsigned int hwirq;
++
++	gc = irq_get_domain_generic_chip(domain, 0);
++	chained_irq_enter(chip, desc);
++
++	pending = readl(gc->reg_base + CS75XX_INTC_STATUS) & gc->mask_cache;
++	for_each_set_bit(hwirq, &pending, CS75XX_INTC_NR_IRQS)
++		generic_handle_domain_irq(domain, hwirq);
++
++	chained_irq_exit(chip, desc);
++}
++
++static int __init cs75xx_intc_init(struct device_node *np, struct device_node *parent)
++{
++	struct irq_chip_generic *gc;
++	struct irq_domain *domain;
++	void __iomem *base;
++	int parent_irq;
++	int ret;
++
++	base = of_io_request_and_map(np, 0, of_node_full_name(np));
++	if (IS_ERR(base)) {
++		pr_err("%pOF: unable to map registers\n", np);
++		return PTR_ERR(base);
++	}
++
++	/* Mask everything before the chained handler is installed */
++	writel(0, base + CS75XX_INTC_ENABLE);
++
++	parent_irq = irq_of_parse_and_map(np, 0);
++	if (!parent_irq) {
++		pr_err("%pOF: unable to map parent interrupt\n", np);
++		ret = -EINVAL;
++		goto err_unmap;
++	}
++
++	domain = irq_domain_create_linear(of_fwnode_handle(np), CS75XX_INTC_NR_IRQS,
++					  &irq_generic_chip_ops, NULL);
++	if (!domain) {
++		ret = -ENOMEM;
++		goto err_dispose;
++	}
++
++	ret = irq_alloc_domain_generic_chips(domain, CS75XX_INTC_NR_IRQS, 1, "cs75xx-intc",
++					     handle_level_irq, IRQ_NOREQUEST | IRQ_NOPROBE, 0,
++					     IRQ_GC_INIT_MASK_CACHE);
++	if (ret)
++		goto err_domain;
++
++	gc = irq_get_domain_generic_chip(domain, 0);
++	gc->reg_base = base;
++	gc->chip_types[0].regs.mask = CS75XX_INTC_ENABLE;
++	gc->chip_types[0].chip.irq_mask = irq_gc_mask_clr_bit;
++	gc->chip_types[0].chip.irq_unmask = irq_gc_mask_set_bit;
++
++	irq_set_chained_handler_and_data(parent_irq, cs75xx_intc_handler, domain);
++
++	return 0;
++
++err_domain:
++	irq_domain_remove(domain);
++err_dispose:
++	irq_dispose_mapping(parent_irq);
++err_unmap:
++	iounmap(base);
++	return ret;
++}
++
++IRQCHIP_DECLARE(cs7542_intc, "cortina,cs7542-intc", cs75xx_intc_init);
+
+-- 
+2.53.0
+
+
