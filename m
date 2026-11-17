@@ -1,101 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.225
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=89.253.219.113
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794944807;
-	b=uB9lmjE3AaU0cTSZL1i/cmrKdskcrMYdj8bZtn8ueSZEk5RBihdUKeU58pdihN3MhsKa
-	 6CHxIYPtQ4IPi5UDRm6oky5JpPcw0ggcV46j7zteMdfpE9yDWCjf4wT1p6C25dRiNWGU6
-	 9NyY+JIzhC+4N5fzjPkT8SibKgSXzKzIuxWU9mao/pr0xhef2T4CKzb73RQahezWZA7wu
-	 qtzbuWm6LYk68JqV2hXYpvoteDfUN8ajYiZ/RFXLiM+F/BYZsPNa3XPyLXigYy2jJWrP0
-	 mtt315xDn+yQ3/JzuR8LE0l3GRiWNJ1fEEAnjCZ6s3A+RCFk8Md0E4eBDVCgbkTzMiQ==
+	t=1794944804;
+	b=Ezfkkc/fHekAJ74x3FT+eYO2mojv5DMw3bzC2Nn1DS9A2y/fRuB/+9u+DSpRwG+E2hYs
+	 arNYGkYrHmZTt57UYJUevf38Soq/IfNZYONf9t1JCz03b/DRohzTivm57c5jcx+vH4IMr
+	 VBAOMSLsTNOau4B1ZWdsVzMi9vK5gqdBVg05mdkVDt4Q+lBKQOqOWWJKLEzngBZP61EI8
+	 wxmgKUKDfNWAUCZmI5ouIziP3Jf8TWNRIUw05Vk6VtucP44U62qoKSl/kk9EW80lBX8O0
+	 x4eEtBQOR+Fz5yL5iYQhvomFRH+0Xqf8doNoMHB7LvmQuAFXXupgjZ+C9+gD2L7cJbg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794944807;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
-	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Received:X-Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-DetectorID-Processed;
-	bh=aFd/RP58uuymd6sBgw7qEUvIDPwjlsp1rmxiXiW1mtY=;
-	b=cn1AIoQg3bW6byKrnNQXh//ZbGOpdPtiYzGXIotIMZZhdjg2kIQ9Ks3K9WcxK/if2gvz
-	 9ulkZIVarIS3pgh7VOrZDJR1KezsYwhgA24Wmlomo8VjbZlBgBSQPNIHRiUJDgZZfsieS
-	 5W2apNtmxk2x1Y20Wy7v79hXilr70GFNAqYX/UCsyYV2UAyfd0Ggy9vlMxa6mqV/0Dm3q
-	 3LPlQWQlsinVMn3hOicPx+F2qQgvXu+oYofddnRUsXUtvVkGhjtjZ91T0P3TH3SsDBMmX
-	 9wINwaGftNq/WwUvNEv7cPTuXoTQ7reaeIb20tn++UXc6ka9WAiriiUz1M4OpBm0ATw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794944804;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=NxgPi/4E3AcEKHdmo8E8PRy1/RpHfiuP1uL62W8a8EA=;
+	b=409du9uug4tcuY2nhXw1RJUJdV6YUBAetOt0UE+ag0H6hshFdPKNX6he0W9N4q5YUAuR
+	 OUMbqEBCPKtJmGmPZzGEFgzr34xUCFKLNsysd5Sgr6uz36b/X9tk61W+dK+FQ/K5n4BKO
+	 EPO2evqfte0AcKE1z+ZWrrPhw+JeFvjIKIlhLsy86oR3EhmfbhTMO/r2n+gEWqDhaIiOn
+	 sB4/ykKxQlTX3nQvkVz0gtZ1Li7zpMxkemiu7CkBv+tF7Cdn2oZ8IKWZBhSaP6lWyTZfe
+	 VrVxl8QnqU9l13hluhJFhZe7KlaWQpU84aGDKR2YyPlkVPUFslyvtX5gCLlgprEUGwg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=CrJioLXS;
-	arc=none smtp.remote-ip=209.85.222.225
-Received: from mail-qk1-f225.google.com (mail-qk1-f225.google.com [209.85.222.225])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=pavel.bz;
+	spf=pass smtp.mailfrom=pavel.bz;
+	dkim=pass header.d=pavel.bz header.i=@pavel.bz header.a=rsa-sha256 header.s=primary header.b=oNGFPtvg;
+	arc=none smtp.remote-ip=89.253.219.113
+Received: from mail.pavel.bz (mail.pavel.bz [89.253.219.113])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C684E606A33B
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:46:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C684E606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB579606A32A;
+	Tue, 17 Nov 2026 19:46:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB579606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=pavel.bz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pavel.bz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=CrJioLXS
-Received: by mail-qk1-f225.google.com with SMTP id af79cd13be357-94961b68685so19317385a.3
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:46:46 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794944806; x=1795549606;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=aFd/RP58uuymd6sBgw7qEUvIDPwjlsp1rmxiXiW1mtY=;
-        b=KgW3AexjjDR1T0s6K/9Hb0QtN4yMQkYhqW5yZH+eGq1kX9UwdmJ6m8sCcUNopOVAE3
-         U1fDiVcebAWb1ApcuReEYfObDt9fOoD2Be8Mqwe0q6Q+gaZ9synVzOkjPOswf5/eJgyo
-         XB+UlqCbTVpAzXT00BELJzNT5DJu23wzMf1Vi1gYeqQ914CwiMxI1dj1q1HnZacOvrOi
-         YGgfzCdLqRerdkDhUCrucwffHn7/KQJrlFXFmhjg61Ef1xa3qsUtirOHNSbx4IDJvzpv
-         JMQHkP/vTYNuSfdIgo5fz6IwkJgiQWaRcfUDBfVqqCDqhFcvfe2LM4S9Rkpddy3Qr4I9
-         TUmQ==
-X-Forwarded-Encrypted: i=1; AL+hErHHmIGgAu4ba2yXNHkbHdHxUH9p0G7blwf9hXvgkA+aDscap/CNxeCTRPrfK2/B0LCaPgxjTuJ0vb9qj+g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9qzCgWzKbf5KVoR3VSLLsay2DtCKusj2Lp3Ae1c9gCaSleNDL3
-	8f4I7fcHC/JlR71LIPQpX/IlQfXPlyjIlDDLMhdQcLwJf4W9Sq6zsXG6Ei2elxLdLOVLrE7q9p2
-	ikE/qfyL+a4NRqIYHIjOKp+wCmTo1ZiO6ZWzhn8KWxlW+6h+YLEVMbufb9Wlm6epAfMZ37hDdTP
-	CQqTqMB1FVYwlsvp5z2VZJXvRzui7qBqaywuhYCsCtMLk4oDwdvjPMgBR7QO/kezhKiRA1uwtmf
-	0RdIgeCeXAELZl7/RZDPlXcGA==
-X-Gm-Gg: AYBFou3bBlvYRkD7dq57uEvWcdps2ymPBPHnIHcF9iEUD02oLJzmcp7iVGB7m3gQttx
-	MFicWrmgZkRsIwwgRdLjQeDI2KDRjfGPmDqKDJ5TZ1TQ7o3A15P0iridEEEYzIhYC5ztr85nSDY
-	uRbcx7/qdlo4oca0f7a23vsd6LgfETR7yCHKM5TAiRxppym/mw5wQsszeEgqduZK5vCI4dW6Q4J
-	BhD5pE3/ylgxDuwUJr/DmEDXTnz5B8QpLm7lMc2FQ2Z0lSMWeeNKGvKMxizJglPlX/Qpm7jB7IS
-	MQRdFZYbzwAEEdSFKxVWMVWj2NNPfcPwRsW093142DGLG0kIMiepOfI1ltHjHomWQpK5fLKhAXn
-	477tRfPQDuTog0d3r+FBl2RlM3HgMCZXn0jebE3dNkHfTiOUHWNjRQg0msHQCm4S4gK9eOFoyV3
-	gxG+1cVRVGj3qAHOnDHNiY6ejKPEhIOOQTIvLW8iY=
-X-Received: by 2002:a05:620a:4506:b0:939:fde0:a71b with SMTP id af79cd13be357-94999351ba0mr143242385a.0.1794944805470;
-        Tue, 17 Nov 2026 11:46:45 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-26.dlp.protect.broadcom.com. [144.49.247.26])
-        by smtp-relay.gmail.com with ESMTPS id 6a1803df08f44-92114e505c7sm27466d6.35.2026.11.17.11.46.44
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 17 Nov 2026 11:46:45 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-ej1-f70.google.com with SMTP id a640c23a62f3a-c50713860c0so6250666b.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:46:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1794944803; x=1795549603; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=aFd/RP58uuymd6sBgw7qEUvIDPwjlsp1rmxiXiW1mtY=;
-        b=CrJioLXSrQrzjyCedrcFdZXOQlHTUrIFqi9+BjfX8Z7VPZaPMfbRajtr0NN9SPy3x5
-         fHxPu9u37H07G/qmq6Mlf0d7L4RE+mSsZxssONsmMC2HsB9Blwv2vLl7qANzSdEpnJrS
-         rvrGrGNaFTr7LHCSLh822aPcX9FkB/E3jtsak=
-X-Forwarded-Encrypted: i=1; AL+hErF7/GdoDBuN8DD7Vx8J5Vs+W+bElFfaFzfowxk/w/BtFbx0LyCl7QGcm71OD6glGe3fcAVvavZNljhL7Hs=@vger.kernel.org
-X-Received: by 2002:a17:907:728a:b0:c50:48b8:22bf with SMTP id a640c23a62f3a-c510e4fcb61mr21124866b.36.1794944803150;
-        Tue, 17 Nov 2026 11:46:43 -0800 (PST)
-X-Received: by 2002:a17:907:728a:b0:c50:48b8:22bf with SMTP id a640c23a62f3a-c510e4fcb61mr21123566b.36.1794944802720;
-        Tue, 17 Nov 2026 11:46:42 -0800 (PST)
-Received: from [192.168.178.26] (f215227.upc-f.chello.nl. [80.56.215.227])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c510ca09c82sm16249666b.21.2026.11.17.11.46.42
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Nov 2026 11:46:42 -0800 (PST)
-Message-ID: <716869b3-adaf-4155-88bf-638952dd358f@broadcom.com>
-Date: Tue, 17 Nov 2026 20:46:42 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=pavel.bz header.i=@pavel.bz header.a=rsa-sha256 header.s=primary header.b=oNGFPtvg
+Received: from p-745-g5.pavel.bz (unknown [182.52.139.49])
+	by mail.pavel.bz (Postfix) with ESMTPSA id B1815609E0;
+	Tue, 17 Nov 2026 19:46:38 +0000 (UTC)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.pavel.bz B1815609E0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pavel.bz; s=primary;
+	t=1794944799; bh=NxgPi/4E3AcEKHdmo8E8PRy1/RpHfiuP1uL62W8a8EA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=oNGFPtvg7/9DTAc7efWYAImSaR+1CBon/d4xUPlHW/eULvMo6nB+vUE6PJ6MDTKkx
+	 3IcCaUO6+ZLIN85xG5+kHlSTlCnbXiKNK13fE0YCNg1G8ShRQaQRs6vvxnNlZwfWqG
+	 jmc/9kAnVqIi+D5i0KW0zscXEItXsxd458N8oR4R8trvSr02Z6uWaN3d/GGgT3xYQY
+	 YMMvHB5h5A6C2+7LIyWe95Cd6VAKyH5aLShLuHejb8Mlws3SmvoHNOBauluku3nnwg
+	 v5hv0mlSARECc3diuCXj3Ox+uHRFadcfktAUKQWZJZKx/oN4cfluxDbg2sKOOlXhRy
+	 ELKmwnKQ0hWAQ==
+From: Pavel Artemev <a@pavel.bz>
+To: Takashi Iwai <tiwai@suse.com>
+Cc: Jaroslav Kysela <perex@perex.cz>,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [RFC PATCH v7 0/2] ALSA: usb-audio: working hardware volume for XiiSound headsets (040b:0897)
+Date: Wed, 18 Nov 2026 02:46:28 +0700
+Message-ID: <20261117194630.155912-1-a@pavel.bz>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,80 +63,177 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] wifi: brcmfmac: disable TX beamforming on BCM4364
-To: Aditya Garg <aditya.garg@linux.dev>
-Cc: Andre Eikmeyer <dev@deq.rocks>, linux-wireless@vger.kernel.org,
- brcm80211@lists.linux.dev, brcm80211-dev-list.pdl@broadcom.com,
- linux-kernel@vger.kernel.org, Yossef Osman <Yossef.Osman@proton.me>
-References: <20261116203719.281605-2-arend.vanspriel@broadcom.com>
- <2FBC4AA9-16FE-4710-B43D-9004B0B17DFA@linux.dev>
-Content-Language: en-US
-From: Arend van Spriel <arend.vanspriel@broadcom.com>
-In-Reply-To: <2FBC4AA9-16FE-4710-B43D-9004B0B17DFA@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-On 17/11/2026 18:50, Aditya Garg wrote:
-> 
-> 
->> On 17 Nov 2026, at 2:07 AM, Arend van Spriel <arend.vanspriel@broadcom.com> wrote:
->>
->> ﻿On Wed, 4 Nov 2026 16:16:23 +0100, Andre Eikmeyer <dev@deq.rocks> wrote:
->>> With "txbf" enabled, the BCM4364 firmware (9.30.514.0.32.5.94, as shipped
->>> by Apple for the MacBookPro15,1) transmits a single beamformed spatial
->>> stream (nrate VHT MCS9 NSS1 TXBF) towards a two stream AP. With "txbf"
->>> cleared it picks two streams (VHT MCS9 NSS2) on its own. The firmware
->>> enables "txbf" by default, so the driver has to clear it.
->>>
->>> [...]
->>>
->>> Tested-by: Yossef Osman <Yossef.Osman@proton.me>
->>> Tested-by: Aditya Garg <aditya.garg@linux.dev>
->>> Signed-off-by: Andre Eikmeyer <dev@deq.rocks>
->>
->> [...]
->>
->>> @@ -450,8 +451,12 @@ int brcmf_c_preinit_dcmds(struct brcmf_if *ifp)
->>>         goto done;
->>>     }
->>>
->>> -    /* Enable tx beamforming, errors can be ignored (not supported) */
->>> -    (void)brcmf_fil_iovar_int_set(ifp, "txbf", 1);
->>> +    /* Enable tx beamforming, errors can be ignored (not supported).
->>> +     * BCM4364 firmware enables it by default and then transmits a single
->>> +     * beamformed stream instead of two, halving its uplink throughput.
->>> +     */
->>> +    (void)brcmf_fil_iovar_int_set(ifp, "txbf",
->>> +                      drvr->bus_if->chip != BRCM_CC_4364_CHIP_ID);
->>> done:
->>>     return err;
->>> }
->>
->> The chip ID check has the same problem as in the ARP/ND offload patch [1]:
->> the issue is described as specific to the firmware shipped by Apple
->> (9.30.514.0.32.5.94), but the quirk applies to every BCM4364. Please
->> restrict it as suggested there.
->>
->> Also, the comment says "Enable tx beamforming" while the code now
->> conditionally disables it. Please make the code self-explanatory, e.g. a
->> local variable or an explicit if (chip == BRCM_CC_4364_CHIP_ID) with the
->> txbf value spelled out, instead of passing a bool expression as the
->> iovar value.
->>
->> Minor: typo "refression" in the commit message, and the subject lacks
->> the target tree (wireless-next) which wifibot flagged.
->>
->> Since this is a throughput quirk (not a fix) I would also like to know
->> whether TX beamforming is functional at all on the BCM4364 or just
->> mis-selected by rate control, so the commit message can state the actual
->> root cause.
-> 
-> Unrelated but Airdrop conversation seems to have been stalled :(.
+During a two-week campaign to make a Temple (XiiSound/Weltrend
+040b:0897) wireless dongle audible I captured the complete control
+traffic of the device on both Linux (usbmon) and the vendor's own
+Windows 10 stack (USBPcap).  This cover letter summarizes what the
+wire says about this chipset, because it differs from the device model
+encoded in the recently merged workaround, commit ba9bccdf711a
+("ALSA: usb-audio: Skip broken playback feature unit on XiiSound
+chips"), which is queued for 7.5.
 
-Indeed unrelated so let me respond to your earlier email that was more 
-on the subject.
+To be clear up front: that commit fixes the user-visible bug (the
+dongle coming up silent or one-eared), nothing here is a regression
+report against it, and this RFC is not asking for its immediate
+removal.  It proposes the alternative I ended up running locally -
+keep the playback feature unit exposed and make its hardware volume
+work - and offers the captures as evidence, both for this design
+discussion and for whoever debugs these devices next.
 
-Regards,
-Arend
+What the wire shows
+===================
+
+1. The playback feature unit is a working hardware volume.  Per-
+   channel SET_CUR writes apply deterministically and independently
+   (a fast pair CN1<-50 + CN2<-100 applies exactly; a lone channel
+   write does not disturb its sibling), the master gates both ears
+   symmetrically, and intermediate values are audible and graded.
+   The vendor's Windows driver drives this exact unit on every slider
+   and hardware-button step, mapped linearly from its slider percent
+   (10% -> raw 9, 50% -> raw 49), and every intermediate value is
+   audible there too.
+
+2. The "any volume below the maximum mutes one or both channels"
+   behaviour that motivated the skip is host-side, in three stacked
+   layers:
+
+   - the unit advertises a bogus 0.00..0.39 dB range, under which
+      every user-space volume at or below 0 dB - the whole normal
+      PipeWire range, 100% included - resolves to the raw minimum,
+      which does silence the channel;
+   - the stereo control's GET_CUR returns a constant value, so the
+      sticky-GET sanity check classifies it broken and the probe
+      writes the minimum to both channels at every mixer build;
+   - user space applies one logical volume change as fragmented
+      writes (one per channel, the first carrying the stale sibling
+      value), and the device silently drops control writes in the
+      first seconds after enumeration (measured: the window closes
+      6.5-9 s after enumeration, with a ragged tail), so a stale
+      channel can survive until some later write happens to refresh
+      it.  The per-ear asymmetry users report is exactly this stale
+      state, not a channel-mapping property: under wire-verified
+      canonical writes the attenuation is symmetric (12/12 steps).
+
+3. The Windows driver never reads back (GET_CUR is broken, so it
+   cannot), and does not need to: it keeps the whole channel picture
+   at a single source of truth, writes every channel of a control in
+   one short burst - master first - and re-pushes the complete state
+   at every device open.  That every-open re-push is what repairs
+   whatever the enumeration window swallowed.
+
+One consequence worth recording: the create-time pin writes of the
+merged quirk sit inside the loss window and are dropped along with
+every other early write.  The dongle still comes up audible because
+it powers up with every volume channel at the maximum - which is what
+the pin intended to enforce anyway - and the resume re-pin added in
+its v3 is the part that does real work.  So the merged fix is sound
+in effect; only its description of the hardware is not.
+
+The RFC
+=======
+
+Patch 1 replaces the skip-and-pin with three quirk flags for
+040b:0897: the new QUIRK_FLAG_MIXER_INIT_VOLUME_MAX (initialize the
+channels of volume controls to the maximum instead of the minimum,
+exactly where the broken-GET minimum writes happen) plus the existing
+PLAYBACK/CAPTURE LINEAR_VOL flags (linear scale instead of the bogus
+dB range).  Hardware volume then behaves like on Windows.
+
+Patch 2 adds QUIRK_FLAG_MIXER_STATE_REPUSH, which replicates the
+vendor's write discipline for write-lossy devices: volume and mute
+puts only record values, one deferred flush writes each touched
+feature unit in a single canonical burst (master first, derived from
+the loudest channel), and every PCM stream open and resume re-push
+the full cached state - the every-open repair the Windows stack
+relies on.  This is new mechanism territory (I found no prior
+proposal for write batching or re-push in the archives), hence RFC.
+
+Both ran as locally built DKMS modules - first against a 7.2 tree over
+the wire-verified campaign, then successive revisions against 7.3.4 -
+and in daily use; details in the commit messages.
+
+Known limitations, stated for the record:
+
+  - Through the linear scale PipeWire applies its cubic, so the
+    mid-slider feel is quieter than on Windows (50% -> raw ~12).
+    Users who want the vendor loudness feel can set
+    api.alsa.soft-mixer = true - which is effectively what the merged
+    skip approach gives everyone.  The value of this RFC is that the
+    choice stays with the user and the hardware volume keeps working
+    for stacks that do drive it.
+  - After a replug the device sits at its power-up state (maximum)
+    until the first write lands past the loss window; with patch 2 a
+    stream open re-pushes and heals, provided streams actually open
+    and close (a wedged PipeWire session that holds the device open
+    indefinitely defers the heal to the first user volume gesture).
+  - Hardware buttons keep stepping an internal device state that the
+    host cannot observe (no readback); neither approach - skip or
+    drive - syncs with the buttons.
+
+
+I am happy to rework or drop either patch; the capture evidence is
+offered independently of the design preference.
+
+Changes in v7
+=============
+
+Thanks to the sashiko AI review for the v6 pass; both findings are
+addressed, and both sit in the ownership-transfer hunk it reviewed:
+
+  - A volume-channel write request that re-claims master derivation
+    now also checks the master it takes over against the channels.
+    v6 handed ownership over but armed nothing: after an explicit
+    master put had flushed, a no-op channel write left the hardware
+    master at the explicit value - potentially gating both ears at
+    the wrong level - until the next changed write, stream open or
+    resume happened to re-derive it.  The transfer now requests a
+    re-push when the master it takes over disagrees with the derived
+    channel maximum, so the next flush delivers the derive on its
+    own.
+
+  - The transfer no longer drops the cache entry of a master the
+    device did receive.  v6 cleared it unconditionally, which both
+    forced a device readback (a GET_CUR, or -ENXIO where GET is
+    broken) for master reads until the next flush re-cached, and
+    defeated the raw-maximum re-assert skip for every flush that
+    followed a channel write: re-sending an unchanged raw-max master
+    makes these devices emit their in-headset limit notification, so
+    balance steps or stream opens while the louder channel sat at
+    the maximum beeped with no user arrival.  Only two kinds of
+    entries are dropped now: never-written ones (an explicit value
+    superseded before its flush - kept from v6, so the skip can
+    never be poisoned by a value the hardware never saw) and
+    diverged ones (the case above); a consistent master keeps its
+    cache and stays quiet.
+
+  - The local pre-send review run (5 finder shards + 6 fresh-context
+    falsifiers, same public prompts) surfaced no new code defects in
+    the v7 changes; its three Low items are folded here: both
+    master-put record paths no longer set the derivation-ownership
+    flag on mute masters (a dead store - every reader filters on the
+    volume selector), the flag documentation states the explicit-
+    master ownership rule, and the testing statement now carves out
+    the one documented exception to "notifications only on user
+    arrivals".  The prior-feedback shard re-verified both v6 findings
+    as fixed in code and the v5-era regressions as not reopened; the
+    concurrency lens fully fenced the one speculative teardown
+    question (the resume-time re-arm runs under the USB device lock
+    every route to mixer teardown takes first).
+
+Wire-verified on the device against 7.3.4: the v6 verification set
+still holds (baseline burst discipline, the superseded-explicit
+derived burst at the raw maximum, raw-max skip, runtime-PM paths);
+the v7 changes likewise: a no-op volume-channel write following a
+flushed explicit master that disagrees with the channels triggers
+the re-push itself - no stream open needed - with the derived master
+write leading the burst; the cache entry survives consistent
+transfers, so a balance step at the parked raw maximum writes only
+the changed channel (no re-sent raw-max master, no endpoint
+notification) and a stream-open re-push after a no-op write keeps
+the master absent; and a master read after the transfer is served
+from the cache with no device readback.
+
+-- 
+2.56.1
