@@ -1,78 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794944018;
-	b=XGtmHrSTUHIO/19bS81/HhHzLQrC1lqJfchBlTPVWdBHs6bBZLv1tdmszZOfy4CLJQb8
-	 cNSglXRt4SNDukO5DL0Wr4qsp5RDBEoiucpms1qoTdDwPkqobCnxx+S5tLDXwqCM+Z1m/
-	 lpIWTNRdZjQnlV2QjztCEWHxDZymd69iw2j/k0QhPk7RjfGge0B6K4PTZUMvtwUssQDTs
-	 0o4gyU0bBATDNv1NpksTwX2BocShN3WlQ83eJFGBLni7zXs94ZjALf4mJmIwfg689biqB
-	 R/sNigDgewU6rXtRQr8y5QISn1g5602ncMHPbfvmDWqKcngJWfBM32XchcA29NoocJQ==
+	t=1794944015;
+	b=O6zHDnEsa1ot2uuKIfxjicQDOZlaH/Fzjy+/6EZLZgLb+e19k58Pz+Nvu/XBLcKtkbq/
+	 cOV2/nnqTYU1r8/INMWcYpTS5mEFxSJ9KaP8u5fk3hohc1AcjtF5iVARhuwOOpeIacFoy
+	 kVmMXcNyB6yIn2EC2U+0ZFJ+1HqrcrSNbkkYqYd3ibQrBfKYg19OzzHe8PeCv3cdI+EPm
+	 6XBZccmAQ1cElTrSqbHSdrKMFLJGrphjmx+4jUQbrUahTwJh6AGo/WWzMNYJ4vFreeiyO
+	 tEWCDqk/+PkcCaNT8W6zGzibB6h0bbHVl9f4T68A/LHWpDFmB0dZYPCZ7+GPDdViwZg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794944018;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794944015;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=9E6Qh+eh9ez8UJ6KwETDodX7jVSD9hs5GmnEiLKTVaE=;
-	b=l0XRjt5PVtjWcfBKzOmrBRL3OeDhf2SKSEGX1qstqmA+VGqUVHFOFwWjyrhM4FmxamPQ
-	 oMOWi/vIWR+JfTpKcDitmb9DQ/ZB1kigGLWp68H2a7JNPKEMh7hZXwHE8Tb7PDSKlHNIa
-	 w9YUJkKA9KNYW8GVOHk45Rk2nbi9Rm/fqPx05hTsHFWIv5zIk0lCglzaZkkfvyuC27i1F
-	 vNidYI4lNQJ7MEPnd9Kr9r6Qt2F7FFgtNANGs3Jihi01Ti0UtnfnDBzOHDhS/Kv3gheuv
-	 2HkBMOKbVYrQMnqUie71NWgLutXQ1imim9k8Q+GPj+TmexhfRETgpVPlZ9Qbqnqd0Pg==
+	bh=pi02oACzfdxXr2T3FmhOigKXGph09mYpGwByVOMN+iA=;
+	b=MZLwt9gfsRjd2KF498L4EN8NQ/OZtHC6Ct2OpBaNGynHFL7uO5YcZThwrC+eSSbDBo6p
+	 WQzItcaRV5Cc1BNtexVe4QmzQPXwRryY9YMu1UkpDLzuSPQvuen9n+6oBmsG1PR0DTo76
+	 DRuwXW0xT+cATFi3bqChVpGu20eeJOE8UJFeyQ7f+4HBPyR+BV0Gfue0VHOzAZsiCR/sZ
+	 nxMqj6L31yX5RPk9oGIfk1EoxLOFRSfXD8eNkXegxp+np6ygtVv5mx8vuQljK6N38ZyJa
+	 zUb/7Q+MNu3hGzW8/qx+AXOPFQfzCIot6oYlIDlv6EauFxdJymqdKwEg8d3ua7R1SOw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IP591cyF;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="EuE/NPpm";
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4426A60A382D;
-	Tue, 17 Nov 2026 19:33:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61576606A8B0;
+	Tue, 17 Nov 2026 19:33:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IP591cyF
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EuE/NPpm
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794944018;
-	b=1DMj3gD7H+EyeI0gIQiBYTvj9sE+9WVwfBaFa36Z0OJriT9691m05hbXF08NCUedbyVl
-	 wlZOqqzhyIlXUWcJck9ARX+A8p/mkS4nQwWaWrbkSGW5bmpc4D4Lzz9QvGcnk0N0HXkOB
-	 xx795CS/4aw93wQjPslEmTGFO/uiLrv62g51dQgErI2mNG3K3kQyiHgEs4nJpgjQTnOaO
-	 ArxVxH98dO7FQfPh/635IBGs6JjTYJBAtYgkpTn6zZudI5KxV3wVEfVkprZvm1hF1aRbA
-	 9aTs0X+OhicAtIIc9khh+5xD8TPI4pUSwJ9sDT4soAV45iDeAkV1R4EfPGI4z8/ssdA==
+	t=1794944015;
+	b=vY8WuBodXDcU+B42H6RWJWY3svgZ/F8F1qn3bqbQ8lMv4HaavagL2riskuKa8k7FBVHF
+	 FBIE4idypg44ZSeQSzAf8k+3LO5eyaS4Bh4PxlxYKc4RehXdlZ/PYsgyZuKbO9Nk82Lfa
+	 1Np8cQYc1JKO7mu0Ik2nY6cRg53H3zZMjZf09ktPbU3TY8+yPQAizyD9tORktiH84Nfbr
+	 5264w7q8SbGnnwjHJFe87tuH/Q6d9M9fyoBKDkiBH9yww431koyWJALvO1MYsVMRjOynA
+	 EcZLz5tprafJP7JiNzEYrP63Pm2LLj14wScziXTyG6QoF/+sijzqi16D36JJXn5k2MQ==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794944018;
+	c=relaxed/relaxed; t=1794944015;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=9E6Qh+eh9ez8UJ6KwETDodX7jVSD9hs5GmnEiLKTVaE=;
-	b=Jkyfn/5u+fspK9B+Ue3zptJx9bnD9Jqt0wd7V0kUqLV9e68DJITA9T6wOWOTJ4p+5EC0
-	 FhPHMrsTcTRqwjU1jP14/W5V2Hyru0WWDGjifsKsN/wXHAuQUpQTnHIOrAQ5SMkRZ7zQ9
-	 DJA5hbbRrmmk1As0ckC3la2akh5BYmCtkqXSPYdj+8DRd+1rJPyeNdCYwWe2Ib5XItAww
-	 o75dWt2nPTbAKMQlt3jdLRVNs0TlBfgxwXxOIeFD2Q3yKEVyJyc/w+nWnFwHMEaugdz7S
-	 T9A6pUbg+FAYSj23N2+i0+z1wWSo/GQ77tWtL7o/vy8sjNBvxFNn2/P2z0s/3e9m/pg==
+	bh=pi02oACzfdxXr2T3FmhOigKXGph09mYpGwByVOMN+iA=;
+	b=pNN1YMvPW0xCdAoMXIPvf8B4s0hMFNxOTKqABF2WR5ZgwodBZzC0CLZo20Sflbv2S85l
+	 rpfRssT4qE6xXqi/DPYo83RMAuj/UXt6L6LV41FkkewyJ7dGbz8FBASR3BmQYvyIEglYq
+	 LwxrteJI14b37zWe8t4aQs50o23dzhJKuOa42iu1pIBlllAo3SnjS/3cNOCRtDN9dsYar
+	 X1CIRGgIF42GSfvzSpA1XfkecxgQ+Vg4J+w6woEo1FlNATw/so93DGyCKke/07uNtrIIv
+	 wKHwIMwv4CZs31A/tkh2ohXCRC8fupIEPVFjBbfIaZfbYEF5GvKPIez5CjGks5Aj2xw==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 1C06F1F000D3;
-	Tue, 17 Nov 2026 19:33:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794944018;
-	bh=9E6Qh+eh9ez8UJ6KwETDodX7jVSD9hs5GmnEiLKTVaE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=IP591cyFUOQWwe+8F5rnEZ2lQ3/iJiiChSD5UGrKzMujkgoIr3IASqMIUNZZI7Uab
-	 Ub32gSq8nhnsPE99JkSp9e4xvyGtzvm2i3/xSdwW1yrGmeTIbD9AMtOkuOcX7t7bhz
-	 dxP7gnORozSiwrX7nqSqgbQWB5lTq6ZuDvZ62WrxJBRKkzcOde9T2BcMClcwW44Fqd
-	 mnqgajpmnhbN5L7STgh3/ehiFOSR+m4dDAYN4Q3Grl+d1u34Xz4bhBoal9VtN3OBq/
-	 fyF2qmnBDsekXiojrXhJ6EbTg5b5EE4iusiw8JXcmGCtCXZ+AE9I3u4DFM1LqPprsk
-	 sWoDvsxmJn8bA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id B7A574AA9A;
+	by smtp.kernel.org (Postfix) with ESMTPS id 52F2B1F000C5;
 	Tue, 17 Nov 2026 19:33:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794944014;
+	bh=pi02oACzfdxXr2T3FmhOigKXGph09mYpGwByVOMN+iA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=EuE/NPpm0JbsCfiQB4W8YZN/Zqr6e+/6FKO1NgP/WspzEc/M6pBDiVitgnJE5grc5
+	 lhiBvf/W0GbvfeRQZpKDPcQZ7Fglnzy32VCDHxRVE+DGhx1QFJ+FjPbP7ggMOXXdZV
+	 y+Eu1c0I7BFK92bFFWnjjBHxaNJC7WSw0IImVtaTXlJ8nd8sE8KTnD9Q5Ml277RqRc
+	 CFHckku0k+qFaWKDM5NTG525UEYt/ugQY2hJBshSPtwc0BoU+tCP4hv3e4iTxjUNvS
+	 //HuefQ2wevv0Q1Skw2uQ7vX6kQTS4yWxXRn7Pc3KxP5lmzcJR7XvAw+cdlLQHKA6h
+	 TgkRZ0BZEYRAg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id CE16C4AA76;
+	Tue, 17 Nov 2026 19:33:33 +0000 (UTC)
 From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
-Date: Tue, 17 Nov 2026 20:33:15 +0100
-Subject: [PATCH 10/10] arm64: dts: amlogic: Add HDMI TX PHY node for GXL
+Date: Tue, 17 Nov 2026 20:33:06 +0100
+Subject: [PATCH 01/10] dt-bindings: soc: amlogic: meson-gx-hhi-sysctrl: Fix
+ compatible matching in conditionals
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261117-meson-drm-create-hdmitx-phy-v1-10-9e0ac931381c@aliel.fr>
+Message-Id: <20261117-meson-drm-create-hdmitx-phy-v1-1-9e0ac931381c@aliel.fr>
 References: <20261117-meson-drm-create-hdmitx-phy-v1-0-9e0ac931381c@aliel.fr>
 In-Reply-To: <20261117-meson-drm-create-hdmitx-phy-v1-0-9e0ac931381c@aliel.fr>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -100,13 +101,13 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-phy@lists.infradead.org, dri-devel@lists.freedesktop.org, 
  Ronald Claveau <linux-kernel-dev@aliel.fr>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1114;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3283;
  i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
- bh=9hTxeugOjhcX9M0v6UHrUWRPvC2sPx1GRYk5SnrhvPE=;
- b=owGbwMvMwCWm1SvKXP3cUInxtFoSQ9afNVxMTVGy8uvFMiu3blw+ZQvr6YK0yecT9v839H3z7
- NquBzesO0pZGMS4GGTFFFn651qeeHf56Jmve9RTYOawMoEMYeDiFICJBPszMjz6Vh5u2WH1piNs
- lrqOSkf6xGtBHJ4VGzbyM1b8Kw3fcJ+RYdsHZtHggOyjWbIG5vsna3ma1R+Z3R7y9Z/bqT/BWVL
- tLAA=
+ bh=x0gAaIsGyNXcvLzc+ccXQ6Xun/9RxOJpIfK6iHxxYkw=;
+ b=owGbwMvMwCWm1SvKXP3cUInxtFoSQ9af1X+FP0QstiwV5zUz3THZc8LbKLuUecJZs17bBPDtt
+ jdNOP69o5SFQYyLQVZMkaV/ruWJd5ePnvm6Rz0FZg4rE8gQBi5OAZiIzztGhnk3lXjfneNo9WAt
+ 0BE5uk7sseMrM85F8bL2agZvXRocfBgZ/hvdlCzYsenNohvTX6/3Z3ZXvKYwYYqhdDLr4T/zer8
+ dYwIA
 X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
  fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
 X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
@@ -117,40 +118,105 @@ Content-Transfer-Encoding: 7bit
 
 From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 
-Describe the HDMI TX PHY as a child of the HHI system controller, with
-the amlogic,meson-gxl-hdmi-tx-phy compatible and reference
-it from the HDMI TX node through "phys" and "phy-names".
+The conditional schemas select on "compatible" with a bare enum. On a
+list such as:
+
+  compatible = "amlogic,meson-gx-hhi-sysctrl", "syscon", "simple-mfd";
+
+an enum applied to the whole array only matches single-entry lists, so
+the if: blocks never match as intended and the per-variant constraints
+are not applied reliably.
+
+Wrap the enums in "contains" so that the conditions match on any entry
+of the compatible list.
+
+Doing so exposes the "phy" child node of "amlogic,meson-gx-hhi-sysctrl":
+it was forbidden (phy: false), but some DT legitimately describe an
+"amlogic,g12a-mipi-dphy-analog" PHY node under this system controller,
+which resulted in dtbs_check warnings such as:
+
+  system-controller@0 (amlogic,meson-gx-hhi-sysctrl): False schema does
+  not allow {'compatible': ['amlogic,g12a-mipi-dphy-analog'],
+  '#phy-cells': 0, ...}
+
+Allow the phy child node for amlogic,meson-gx-hhi-sysctrl by referencing
+the amlogic,g12a-mipi-dphy-analog binding instead of rejecting it.
 
 Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
 ---
- arch/arm64/boot/dts/amlogic/meson-gxl.dtsi | 7 +++++++
- 1 file changed, 7 insertions(+)
+ .../soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml  | 32 +++++++++++++---------
+ 1 file changed, 19 insertions(+), 13 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/amlogic/meson-gxl.dtsi b/arch/arm64/boot/dts/amlogic/meson-gxl.dtsi
-index f257fe3860f7..77d4e6b5b850 100644
---- a/arch/arm64/boot/dts/amlogic/meson-gxl.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-gxl.dtsi
-@@ -328,6 +328,8 @@ &hdmi_tx {
- 		 <&clkc CLKID_GCLK_VENCI_INT0>;
- 	clock-names = "isfr", "iahb", "venci";
- 	power-domains = <&pwrc PWRC_GXBB_VPU_ID>;
-+	phys = <&hdmi_tx_phy>;
-+	phy-names = "hdmi";
+diff --git a/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml b/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml
+index f3a85c67ce8a..285edac4c082 100644
+--- a/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml
++++ b/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml
+@@ -40,8 +40,9 @@ allOf:
+   - if:
+       properties:
+         compatible:
+-          enum:
+-            - amlogic,meson-hhi-sysctrl
++          contains:
++            enum:
++              - amlogic,meson-hhi-sysctrl
+     then:
+       properties:
+         clock-controller:
+@@ -53,9 +54,10 @@ allOf:
+   - if:
+       properties:
+         compatible:
+-          enum:
+-            - amlogic,meson-gx-hhi-sysctrl
+-            - amlogic,meson-axg-hhi-sysctrl
++          contains:
++            enum:
++              - amlogic,meson-gx-hhi-sysctrl
++              - amlogic,meson-axg-hhi-sysctrl
+     then:
+       properties:
+         clock-controller:
+@@ -67,9 +69,10 @@ allOf:
+   - if:
+       properties:
+         compatible:
+-          enum:
+-            - amlogic,meson-gx-ao-sysctrl
+-            - amlogic,meson-axg-ao-sysctrl
++          contains:
++            enum:
++              - amlogic,meson-gx-ao-sysctrl
++              - amlogic,meson-axg-ao-sysctrl
+     then:
+       properties:
+         clock-controller:
+@@ -81,17 +84,20 @@ allOf:
+   - if:
+       properties:
+         compatible:
+-          enum:
+-            - amlogic,meson-gx-hhi-sysctrl
++          contains:
++            enum:
++              - amlogic,meson-gx-hhi-sysctrl
+     then:
+       properties:
+-        phy: false
++        phy:
++          $ref: /schemas/phy/amlogic,g12a-mipi-dphy-analog.yaml
  
- 	assigned-clocks = <&clkc CLKID_HDMI_SEL>,
- 			  <&clkc CLKID_HDMI>;
-@@ -342,6 +344,11 @@ clkc: clock-controller {
- 		clocks = <&xtal>;
- 		clock-names = "xtal";
- 	};
-+
-+	hdmi_tx_phy: hdmi-phy {
-+		compatible = "amlogic,meson-gxl-hdmi-tx-phy";
-+		#phy-cells = <0>;
-+	};
- };
- 
- &hwrng {
+   - if:
+       properties:
+         compatible:
+-          enum:
+-            - amlogic,meson-axg-hhi-sysctrl
++          contains:
++            enum:
++              - amlogic,meson-axg-hhi-sysctrl
+     then:
+       properties:
+         phy:
 
 -- 
 2.43.0
