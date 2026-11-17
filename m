@@ -1,115 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.158
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794952046;
-	b=F+hSrvq7224dJ7daMQfDnanqgDURoxcOjeuQ7lw4j67eGHw/TiKmznwXk6lLn6MMLflX
-	 mvldtu5qjnMrpGM7i/aPg9SIsQrBKwdeVxC/T5COwmVomDFU8YyX66UOuO5v4E0DCrQll
-	 6AzgJuSN/5xkdWP4nud3QHngSCqr3zLO3WHTPSzfq6FlhL216Vi3EAwd5bLOEukQTecSz
-	 THneE0fkePKTPhTDdWovlm6EhDEOhMfT7+O7dojf2Xvrh4/uJ04sGdzNdP0n7koa3/Mch
-	 uIY7YhxV6UNtgR12Mx80VwSx/9qzLM/XdKcb67cBriiU3UMW5lOhMbcEqbRd3ru7iAg==
+	t=1794952088;
+	b=0Z7Jz+ePHkwFuNIXEfFO9Zdm8VDIfjvVhqGPOjLo0jOjglvkCTbzQxfv+Ov1sfalXJOO
+	 IBXM/Ommf1gZEnqOxqXNiG6JGBu1/bg4bfSn4r6voczksGBkGv8109bkcsZRneGVC4nKZ
+	 bfs/iHT8LBOggCkNJY+E+TzDBIYio58MF2c0sR4Rd/ng3iXJuHLB9C30oz5AeXBukVcpu
+	 vFlyZWRYhC2sxL7UWpJrTjFqV7YYzSe9MkPPstW9x7EysQ6ue9IK4+7IGPyAy/SOH1pco
+	 Nv9ugY0yWk2btig/ka2UxtxdX1XEOZHokAniUCoBsZyVbGdK2SVGwGeD3vDreVnItLQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794952046;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:From:Content-Language:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=3yhBkhMN26vnloZoWn5dl5+ivW+PJjpitXBcGq1NB/c=;
-	b=BYAx5raqTnL1lkpHeh4Twxa60CEYKv7qdrGMaS2LErjUXE1651lmYp3+q/Q2RO6PIWMD
-	 TicRZU6y6ELKsHCCs5ENT4LiqyNt/3jYCPQ3MojYlhS3bH9ParkifdTfDRMBZdxSDBSJQ
-	 P9c3x9nf4Gk+VzEy6SsjIeYEuFkdCzz29RcLYjKdwtPi+5D//YUi/fni8zL8bnEcmXoU9
-	 s/S0HPoEPkWiS/s6mI/6SG6MKUMeoT3g8cjwX7SJ8swJSktaw4KNq1hSwnbTQEB7ZuB2v
-	 L9wHj3Oxm/GL9AKsUFDsGP1HqaYbF0qp6T98wI6T2y2a2oZKAfT6harsAGfo3Bf+pVw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794952088;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:Message-ID:From:To:Cc:Subject:In-Reply-To:References:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=gWhTP+MsEZH11Xk/IKOvm1ABoNQtFuyWT71ie9/W1Ho=;
+	b=Nz24nNJ5eYJlWEG+LVtcKjvTub9FqMl98ktnA2K6xghfuZ9YAjwlVWz7WOfzvxA2ZkJz
+	 jk3F/GUadrxICkFZ61lUE07QPvIlTdJFfvYFzOlwD3TATWB7ZgG925KRjaip6tVAXqhf+
+	 id/QLLgka7KESVBTyCzaFDWtTFu2fqREla0LADNVuvxuKuIlA0vmjRSBgM+SA1bYhxm7y
+	 4/OBP1L156txeddB+eP97gEBEjYP6FxteIa+0OQdHMghUqNMgU9C+1/HZcEZMWcP5FHIN
+	 4ZhS51q4dzQNQaEHnU5wZEwLq5RaVJyEMdrHTl3XzABzJ0wDTQMda81sdyE4yuthX5w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bsbernd.com;
-	spf=pass smtp.mailfrom=bsbernd.com;
-	dkim=pass header.d=bsbernd.com header.i=@bsbernd.com header.a=rsa-sha256 header.s=fm2 header.b=B+wgJLpp;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=Kb9GNFir;
-	arc=none smtp.remote-ip=202.12.124.158
-Received: from fhigh-b7-smtp.messagingengine.com (fhigh-b7-smtp.messagingengine.com [202.12.124.158])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=e24jyoO5;
+	arc=none smtp.remote-ip=209.85.128.182
+Received: from mail-yw1-f182.google.com (mail-yw1-f182.google.com [209.85.128.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 332D1606A338
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:47:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 332D1606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=bsbernd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bsbernd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFA28606A32A
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:48:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CFA28606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=bsbernd.com header.i=@bsbernd.com header.a=rsa-sha256 header.s=fm2 header.b=B+wgJLpp;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=Kb9GNFir
-Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 62B407A0258
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 16:47:25 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-02.internal (MEProxy); Tue, 17 Nov 2026 16:47:25 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bsbernd.com; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1794952044;
-	 x=1795038444; bh=3yhBkhMN26vnloZoWn5dl5+ivW+PJjpitXBcGq1NB/c=; b=
-	B+wgJLpph/ZiX12qdjSkFpmEqaTF+ks7B7uuzccHBhWKvsIg4SswA2ah0VZxGtfV
-	hUsPIgrUdiIAifX3dqswsNGdo2NMOIS6+Zan8luwkZoZiFGaQJ8aboAMKSdot6fR
-	zP8NrX0/IDKQJHzHhDD0PzdKZdF/U7EwRyg5X/BkvrCEnBDsGyEa1ZBWAu7iXxIP
-	3oAjNneIqnegEIbmSxqSwW3XILpGvhRoEmM+0+GhDW+cFX9MbRP5kB/Z8CYQ5Ck5
-	JX7BfIqEj3RHi1nKOAU8des+PyTxQ09TAde5ooHIQ1M9WUQQTAlBo168VGwepLUl
-	W7mNK3eeGx1c/Hm2awv4lw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1794952044; x=
-	1795038444; bh=3yhBkhMN26vnloZoWn5dl5+ivW+PJjpitXBcGq1NB/c=; b=K
-	b9GNFir1+Hy9IUKYFpHArVmYZBL1H7M4FJucCwW5JexT7Ou5qWxJTnFpD3Sp1Q9v
-	jmhQKUfop97z5wyL+Z+ESDKLKoJNP7VLSQpcPFzzKko9Eanel0swfMuxTaUEtzvb
-	eY/7dZh3MmUSVzwA1oF9DBNvIkMzz6waiPionOmsHg/QKaNqA6IYzfAzFgs7gnD/
-	3VMrweKvkGFpP24XA5F72dJ5+gMLR0+aXAXyENS83hvHwbNkhZeRta8g/IwyY7vq
-	bkoAj1BqG06Knzrl+nvVpQ8Q2W/IczCZSZQ/z9gVEuU7jpriB38PE2Peh5snDHov
-	wsZPQt/JlKiwUHsxA+QRQ==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=bsbernd.com a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1794952044; d=bsbernd.com;
-	mf=PGJlcm5kQGJzYmVybmQuY29tPg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:HEn6F4Kb/3IImc5DmTo1He4zjDYs/kqJTspYj1QHE5Bl93Z
-	xqEaDvrFiK9UzYCnXtMxahdse3+5/6dhSb6F1kqLaOEYfXIH37VxUaohvVEQmxTN
-	NQJP4rDi/PN17uIQf7k9br8LkJ+BtsuJk29vbYxOiqgowTwOnD/XYCC47R7yJBjX
-	/gwxoeIWysajny/9T+008/v6wG2wkOac/s6eC9IMGJtuENGGnHVRVSTIUk17oQXM
-	JNN3kpECFFwkSgInIfqgdMmCXsR/VunpNwid/Lu9rKfkeB5jyfyIHc2PQnNk+YIP
-	0cK0w5IILR6piJGR/QJS4hJxF7fNikgekJva7dw==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=14;
-	hn=cc,content-language,content-transfer-encoding,content-type,
-	date,feedback-id,from,in-reply-to,message-id,mime-version,
-	references,subject,to,user-agent;
-Message-Instance: m=1; h=sha256:l/xewH31JcsHKZ/rtP4n+RLtgwszb6PhEbx7llNpivI=:viLTBmPNSyOHS70EIiWYcahgvhcIMUxFSOZ9D1rELM0=;
-X-ME-Sender: <xms:bMv8akz9W8zZZ11yYAUYEuKaufBO5pgjJwvmU5j5DQWJ8FhHakT5_A>
-    <xme:bMv8apxLbpifr0nU_ZZwjSK7Gv3I2x2bFu8KR-y24Ix8QpkJYaCJbp8PVzknj0Ls3
-    jDIBr8rV6IkZAduK0J-p08WM1JXRMt_bapry8ZtbGpvN7e2p6ua3g>
-X-ME-Received: <xmr:bMv8amYWyi-zWxDPmsT24wzD2j5bstxQ_RrxmZt2d1wScV0WlwJSRZr9ywowk7m-ty4wPM_wg2nkpjvzyphrOQJB72HtzLyIUvte_0lkgrcFyvkCkw>
-X-ME-Proxy-Cause: dmFkZTE9Z/V8qt9NuPrQY/pJHtbJkEFd7tmFyocFF9Jep6ai76hrzxx4iG3kg7wGmLLv34
-    zpuDSYSTPCafu9x1cVknf3C6Awr/VRkqfueR3ixaY8/EUfNsm9QYjfHCpsKsxpamLCgZ5H
-    EpT/EeO0wTbjH6NQiNv+dN7mn7h2OteUlX1mVikmh4/x2KXtoi4q8haIxUFgsg85nQUrxr
-    fO9Ru57tqPNMdj4VswJUc7HjN9ujkRGUho2hoaYb81A6yMyxqOJSizBAkU7u6Em1nb/hnc
-    /cfyg4IZ5NbUuiwvbP55rpm0egxJNsIRfeLNmPngkY+IdyEDfGKDLSHwgVWf5wYSkZDWE5
-    x26clLvCKcsXzrWoD74O0G8ErZz7YX5mwCl0kCGcDU44v89avDHhHWjt9Iz/geGpivbx0Y
-    VjEpgMV4Pr0kQFg+bxbDzu/D7tO5URWQSzG+ZgvDOEoSsQbp32dyKiJ9p3xhV0zO6wl/G/
-    kYf4Hw/mlee8rCIAMSPEHs9ctfnIHfUcF7NehXB+L7+NgJ/H9wBGt5J4vuLUdj8TeQMoWW
-    u76hVlgUYmvx+IuVzOFtnBDnZOqEW5wxbx5VgYK8GaxfNGXy/bVsQn9bEoPG30cph7QLCy
-    Eoa7UDJs7pnX1gj7Pkz+v+E8waCHL52L3pcAZmoH2TYwgqedT0YVahRHKRTg
-X-ME-Proxy: <xmx:bMv8aiWHLwfN97E0VDEcoxKlTOrtd6uHRIuND3xZgmWclgambRPyow>
-    <xmx:bMv8asgQ_cStPlx3iM0LPHhYxx1AHTqIGV94RrMat49ymWT5moZ28A>
-    <xmx:bMv8aosWpRwddrZjIcj3koGT-0kX6e0ewWbGKqYrr9l3OrZF6XC6Og>
-    <xmx:bMv8at7Vch_uho0KxbNy_VN0QgZzY4rVDFg2U2dU4VLpO3CJnZFfuA>
-    <xmx:bMv8ap_Ew6ptVfLdUEI08DPnUyBzRook4F-qQvgNTzhM8PSLS4MS9ASl>
-Feedback-ID: i5c2e48a5:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 17 Nov 2026 16:47:23 -0500 (EST)
-Message-ID: <7bb720d9-30ef-4d3f-8ab8-81c5fe2e0fe1@bsbernd.com>
-Date: Tue, 17 Nov 2026 22:47:21 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=e24jyoO5
+Received: by mail-yw1-f182.google.com with SMTP id 00721157ae682-8b4dd5cb4f6so1806437b3.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 13:48:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794952087; x=1795556887; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:content-type:references
+         :in-reply-to:subject:cc:to:from:message-id:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=gWhTP+MsEZH11Xk/IKOvm1ABoNQtFuyWT71ie9/W1Ho=;
+        b=e24jyoO53YopgaSfOE/Fbsm5STwcDYn92WEUT2SbYFXEfZbdebuB9Uz4CNO+wMG10Y
+         Gv6TLPmp31f0I04qRwADQYTEIymhSy+cER/u+FlolWhft22RQe5c0V9BxS3hE7/b/Cez
+         W1CArqkceyzuR9xgeX22jpGyAAuOd0N1aMUX3XYYuv2GJFAcSdgJH68gkZyqVhs9awsS
+         mVPFopBZA29M6jIZHeAqYRw+H4g+/zFHUhsbWEuq9eryl/muCInH27hprXKW+8XbARw4
+         FmimRJiAEuJmofIyBp87dTHKXUyDm2XD0AGimHObRlVtMOhJB0FdT10oIecAelJM22UJ
+         U91w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794952087; x=1795556887;
+        h=mime-version:content-transfer-encoding:content-type:references
+         :in-reply-to:subject:cc:to:from:message-id:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=gWhTP+MsEZH11Xk/IKOvm1ABoNQtFuyWT71ie9/W1Ho=;
+        b=N7EFowiaxyrB4KQNbdwyUa+l1RKMFJpkGUCjp+ZAzIhBF0pPBgdlHsZYbF7LIeGXUd
+         IL2kbDf3yRJe47n/+cn3+nOS4XIRYwBwosWg+FWzgsFd/+kRZstZaqc2pvmPfpI10wai
+         bSOehOdd58qv5mP6U+J1eCZ/mQa/W4x4n3HUjkEUftJVWi6M0bub5qw9rS6ZM0lRv4jt
+         JqM6k3+ez6Uc9zXsjIngVHA9dL+ax7BctiGBBhzx0xF+/Jd5qdnxb9ZZHa21QcyD2aWu
+         9mvABI9NVB0L9MZNiviISrrWGEHqvewbpE/P7DwUaBhV7oUI9rqpNmd/qWyNCSUqf7fp
+         BfNA==
+X-Forwarded-Encrypted: i=1; AL+hErHAhjNg+zePYA7o7p2dkUzWS8PBu13BMYdrDLM5abdxHj2jH0xaOXjhytsQnZDYmyzCfKx9wO8GgAGFmpw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9i5q91NLAhGDQ7PM3dNiYXz4aCH6N6jQwmF0G3SxXeVk2mAmb5
+	6eRgQvQPYjWAA9bK5BpeXZlGBHUIEo7xFDvgQddjk0yWSQRbY7x0PpU3
+X-Gm-Gg: AZFdTZdV448C/TFoIAmfW9kYZsECQMnMB34nzxmfS6+P1zNZr4geKpZCuR2ML3cCLbm
+	uxTR1uUoT9KFO0CcKb8SNy1tfwpXV95RhFVzT8kZW+BEGzQtLlFmZzQs6cDcacLe2O8md7K5/aq
+	ff/HT/SLjSmv+eoYtTq7U86BIGgmGePNEPe4IQAuG4SN8t4VwMZ15mhV6mEJVIzk8Frw1j4wLbG
+	EGQcQa9mfU0HHXhuOzh3Krs04FXc0aC8LuqrA+IXGHVZmPRPNiFZ9G/u0O85c9/Tz+hVdegIm51
+	+G/VHUXuYCCbQ1ACBFNNlo22AdafN60OJuxvxS9cYryG/eE7dt/9++e1NNT1MPpGyb4t2dowZ5j
+	Hhb9PkCJtM5YondG4HiC9mZ8VNxX1AJOVgrB2e5kKBCeeugW81KuIQyfJTkO+u7aEgpcJfEzwU6
+	mK8tUXGEWQG+qmIfG0SjjoD9envem9C6GAPUKqXEtFl27bEd99LVTwmCgFSwiy4zOl5qJgijJlr
+	3cRUylacEMQLrX4ZWj6ESPs02u+8LkV7JROabZq/uJnwndX/UdHLq5DouTeMBQo5dZFbuXBFy78
+	6XadwZxNh7H2JzS5570BnkID
+X-Received: by 2002:a05:690c:6502:b0:8b4:e2dc:3f2e with SMTP id 00721157ae682-8b4febccf0fmr3038007b3.8.1794952086607;
+        Tue, 17 Nov 2026 13:48:06 -0800 (PST)
+Received: from localhost ([120.244.9.31])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b4fe030a65sm7195267b3.15.2026.11.17.13.48.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 13:48:06 -0800 (PST)
+Date: Tue, 17 Nov 2026 16:48:02 -0500
+Message-ID: <19ceb44df3141049a955c2c30fe64766.docular.xu@gmail.com>
+From: Guodong Xu <docular.xu@gmail.com>
+To: Icenowy Zheng <uwu@icenowy.me>
+Cc: Cody Kang <codykang.hk@gmail.com>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
+ Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Haylen Chu <heylenay@4d2.org>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Yao Zi <me@ziyao.cc>,
+ Uwe =?utf-8?q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ dri-devel@lists.freedesktop.org,
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH v2 07/17] drm/spacemit: add Saturn DPU register model
+In-Reply-To: <edd7ae1b38ebc687d0b2bfb2509c40fb8a45e625.camel@icenowy.me>
+References: <20260809-k3-display-v2-0-327d7910bf71@gmail.com>
+ <20260809-k3-display-v2-7-327d7910bf71@gmail.com>
+ <edd7ae1b38ebc687d0b2bfb2509c40fb8a45e625.camel@icenowy.me>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,70 +116,29 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] fuse: don't wait for a sync-init mount in
- fuse_uring_cmd()
-To: Yun Wang <arsenova@a7snv.com>, Miklos Szeredi <miklos@szeredi.hu>
-Cc: Joanne Koong <joannelkoong@gmail.com>, fuse-devel@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20261117075632.59959.p12-0-arsenova@a7snv.com>
- <20261116235814.60702-1-arsenova@a7snv.com>
-From: Bernd Schubert <bernd@bsbernd.com>
-Content-Language: fr, en-US, de-DE, ru-RU
-In-Reply-To: <20261116235814.60702-1-arsenova@a7snv.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 
+Hi Icenowy,
 
+On Thu, 03 Sep 2026 20:08:10 +0800, Icenowy Zheng wrote:
+> 在 2026-08-09日的 21:14 +0800，Cody Kang via B4 Relay写道：
+> >  drivers/gpu/drm/spacemit/dpu/saturn_regs/dpu_int.h |  25 ++
+>
+> Is the slightly different K1 Saturn DPU registers considered?
 
-On 11/17/26 00:58, Yun Wang wrote:
-> fuse_uring_cmd() gets the device with fuse_get_dev(), which waits for
-> the mount of a device in sync-init mode.  io_uring normally issues the
-> command from the task that called io_uring_enter(2), so an
-> IORING_OP_URING_CMD on such a device before the mount puts that task
-> to sleep until the mount or a signal.  This happens before the
-> enable_uring check, so also when fuse-over-io-uring is disabled.
-> 
-> Until FUSE_INIT has completed, fuse_uring_cmd() returns -EAGAIN anyway
-> and the server has to send the command again later.  Return -EAGAIN
-> at once when the device is not mounted yet either, using
-> fuse_get_dev_nowait() from the previous patch, and don't log "No fuse
-> device found" for it.
+I compared them with the K1 BSP you mentioned offline [1]. Judging by
+the block, field and interrupt macro names, I agree with you that the
+K1 and the K3 use similar IP. But there are also important
+differences between the K1 and K3 registers, which is why I would not
+propose reusing these tables.
 
-And what is if io-uring is enabled? Userspace busy loop until the device
-is available? I don't think that is nice.
+For example, the blocks sit at different addresses, and most fields
+are at a different word or bit. In dpu_int.h, CFG_RDY_CLR is bit 4 on
+the K1 and bit 5 on the K3, and the underrun bit is 9 and 8.
 
+IMHO a K1 port should add its own compatible, its own field header
+and its own backend file next to the K3 ones. What do you think?
+Hopefully you agree with me.
 
-Thanks,
-Bernd
+[1] https://github.com/spacemit-com/linux-6.6/tree/k1-bl-v2.2.y/drivers/gpu/drm/spacemit/dpu/saturn_regs
 
-> 
-> Fixes: dfb84c330794 ("fuse: allow synchronous FUSE_INIT")
-> Signed-off-by: Yun Wang <arsenova@a7snv.com>
-> ---
->  fs/fuse/dev_uring.c | 10 ++++++++--
->  1 file changed, 8 insertions(+), 2 deletions(-)
-> 
-> diff --git a/fs/fuse/dev_uring.c b/fs/fuse/dev_uring.c
-> index 460776cd69..0f725172ae 100644
-> --- a/fs/fuse/dev_uring.c
-> +++ b/fs/fuse/dev_uring.c
-> @@ -1664,9 +1664,15 @@ int fuse_uring_cmd(struct io_uring_cmd *cmd, unsigned int issue_flags)
->  	if (!(issue_flags & IO_URING_F_SQE128))
->  		return -EINVAL;
->  
-> -	fud = fuse_get_dev(cmd->file);
-> +	/*
-> +	 * Don't wait for the mount of a sync-init device: this may run in
-> +	 * the task that called io_uring_enter(), and the ring can't be
-> +	 * registered before FUSE_INIT anyway, see the -EAGAIN below.
-> +	 */
-> +	fud = fuse_get_dev_nowait(cmd->file);
->  	if (IS_ERR(fud)) {
-> -		pr_info_ratelimited("No fuse device found\n");
-> +		if (PTR_ERR(fud) != -EAGAIN)
-> +			pr_info_ratelimited("No fuse device found\n");
->  		return PTR_ERR(fud);
->  	}
->  	fch = fud->chan;
-
+Guodong
