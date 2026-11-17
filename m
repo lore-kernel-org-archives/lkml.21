@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794957540;
-	b=e/f9KUkVwQ8DADXWXWVBuZnB4cJKNcGWhDGMDHGszkhEGOfaZDQIZDQJxzFF5jCE0XUv
-	 72ryNoL6e2ZetRFyqsM088FwGCMV99H8r8Pj/EJJ73IxaQ7Diq19oZZ0t7sPxU7ogA940
-	 SdTKg3q/dkzyi2J3Q8AaVZCJY4gH90r3hpoKdgFEZxwZ3UpvuP5VxGXIIaES+yqNkewRI
-	 Q+n0XxgFA6x7wywdppix1+11oBhOuq+i+qoJ0IPYqVI252rroHDr46PqPdIv/d7wEJpjD
-	 NI8bbB7riYROSKiqmz3sXCSo5tpX2AMHvDiAJyUZJ04msk4ayp5qB9zi4ZMqSRDWehQ==
+	t=1794957538;
+	b=5Mm6ye+tzNJWW9G0xwS5WHG8Vu0sdcLLYVVFsgXegDz/otEnj6ZzWt6Ks6xUZJViTQzH
+	 tZfOBFUI/o1sAQN/UOyiLrJzh7CKTMo6cMEac3ev83zSTmJhO1arHcAAetIiw4rLZwlgy
+	 B9qiYL/onxxEzQMEP9V5q6U4SGS2qFGS4BbuikTxBuLMxambWNXym6z1gmHqNKa/kwY57
+	 kJHhnKeZWTkPT9W0tXlY1+f9m6aOe0OTm0B5BBPqOD9iEc/jW0wjH+ha5y+1Rwjkw/MG6
+	 lK63fRuz8GjgAU9Aigr0i4Iz6X/QY3LTUt31nz94QP+rfWU0AKGxg8sniX+dctW2y4g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794957540;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794957538;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
 	 X-Originating-IP:X-CM-SenderInfo;
-	bh=2XiawxssXXv44CNWTaqQT2qKQdjrgp5aUYtmWBVrWtk=;
-	b=AaQ5tvlXYn8c9Y3CB/7saq/OYZIAAnMTPzmQugw4Z6KbqYQkjQ6zRPp/gO0pXgc4qRAJ
-	 y0RI0BjvHQEDaFe+6xquYBiBS3D0FClppuSKE3wq9SCLxMkjy/ZcyUMwgbySOjB5dBhCK
-	 MssJFk6lqKiMofm+rxkEBnuYKaiZ6P95/QcvTtK7dn4zdVkRoLx+Ekfuq5FSEhaOOaIuU
-	 AGvR6eVH+rm/fChcvr93DFVeGPuS/Gf7F+wo8Vwi2Y53kesBmVjsjPna5dKnWERtHkao0
-	 N2Cdy5w9H+qIM5Y+pVQP2eh9O214EO7QGK6A4eKDQwGZPQxsYW0L6az6fmTrSYdjpIg==
+	bh=iIGCznXhTjwwAbtISLd9zxt6KkpRGg6tsCKG2gaFg90=;
+	b=jUPwE25nU3lwb3oGpok5vlBdBxw/Dzq40NwU1BlS7juSzs26s0y0KIZXjmrnzSE/wIdy
+	 AUcYQbX8li/YusSG46065/hdV2Zm3CtfUZA26kA5VkRY1SMs5e74MNABc+LjvaXFVCFKu
+	 3ATVacNed8ZWaJPzNPJJXQEzCoaFCCBO2PViRGlBXfVT9S7H/rtMsh31gJ5dHAFMWaLqP
+	 IaUakOfZotMKGCogtRolP4JME/Dk2aKfODy6uqolm1+Omg3UxQs5rHNO3eVaSWWld964j
+	 qm7CW7NuSQxlIGNMLacZ+5ePCG82E7CjbsGy3jiaSLHPcxmvV0V+dpI+KQA2b0S3qUw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=163.com;
 	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b="OYt6b6/D";
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=SvLsGhkT;
 	arc=none smtp.remote-ip=117.135.210.5
 Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF036606A334
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:18:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DF036606A334
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA5FD606A32C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:18:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA5FD606A32C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=OYt6b6/D
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=SvLsGhkT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=2X
-	iawxssXXv44CNWTaqQT2qKQdjrgp5aUYtmWBVrWtk=; b=OYt6b6/DZuxN9m65Wz
-	xbjsou0Q3LqRlvdSX5wGjdw1+9zP57hawgwifC6iUat0xlRH+0ThedclIchtfhrt
-	4zV5/HG6GTid5BjPlVPcCRFMrIHEtZxmdFlElvpOJfouw1rGLU3N52r1JgYG89Sm
-	LXxmbSyqWwRrL3F1T1qKklOj4=
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=iI
+	GCznXhTjwwAbtISLd9zxt6KkpRGg6tsCKG2gaFg90=; b=SvLsGhkTDPXzAfq3BR
+	9/l8k4//D8k9qjpqRh6nqSAT52sbBOOoDZV1S38pDyyER2j/AgTIWZL6jMwOD1sH
+	CwstOyXCpV9EwQiVgZB+gbA4YVlyD4r5+KrkJ6Q1pyEtVD/eY55ea0C9I4CINX0I
+	7b4hH93gFoHRAHeRsNjYh5mww=
 Received: from SYPC (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id PSgvCgCXyQiu4Pxq15exGA--.55935S4;
-	Wed, 18 Nov 2026 07:18:09 +0800 (CST)
+	by gzsmtp2 (Coremail) with SMTP id PSgvCgCXyQiu4Pxq15exGA--.55935S2;
+	Wed, 18 Nov 2026 07:18:07 +0800 (CST)
 From: Yang Siyuan <hsyysy@163.com>
 To: Chen-Yu Tsai <wens@kernel.org>
 Cc: Jernej Skrabec <jernej.skrabec@gmail.com>,
@@ -55,13 +55,12 @@ Cc: Jernej Skrabec <jernej.skrabec@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/2] drm/sun4i: backend: report coverage blending for alpha-capable planes
-Date: Wed, 18 Nov 2026 07:17:51 +0800
-Message-ID: <20261117231751.264258-3-hsyysy@163.com>
+Subject: [PATCH v2 0/2] drm/sun4i: report coverage blending for alpha-capable planes
+Date: Wed, 18 Nov 2026 07:17:49 +0800
+Message-ID: <20261117231751.264258-1-hsyysy@163.com>
 X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261117231751.264258-1-hsyysy@163.com>
+In-Reply-To: <20261117091932.12063-1-hsyysy@163.com>
 References: <20261117091932.12063-1-hsyysy@163.com>
- <20261117231751.264258-1-hsyysy@163.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,48 +71,40 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:PSgvCgCXyQiu4Pxq15exGA--.55935S4
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Aw4DWFyrGF1xuFWrKr1Utrb_yoW8GrykpF
-	4kGayUK3W8Crs0qayxAa4UZr13Wa1rGFyIgF9xX3s3Xwn0qFnxC3s8G3Wa9FyUJrs7Cr4U
-	tw15WFZF9FnrC3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j4_M3UUUUU=
-X-CM-SenderInfo: 5kv152r16rljoofrz/xtbC7hE+cmr84LED1AAA3j
+X-CM-TRANSID:PSgvCgCXyQiu4Pxq15exGA--.55935S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7KrW8ZFy3Zw1rAw15ZFWUJwb_yoW8Jw18pF
+	WrG3Z8G34kGr4av3WfJa47XFy3ua1fGFWrWrnxJ3Z3Aw1DAFy5Gryjk3Wa9FWDJr4Ikw47
+	tws8ur9IkFyDC3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j0GQDUUUUU=
+X-CM-SenderInfo: 5kv152r16rljoofrz/xtbC7RA+cmr84LABfwAA3J
 
-The DE1 backend planes expose ARGB8888, ARGB4444 and ARGB1555, but the
-driver does not create a blend mode property for them, so the new
-validate_blend_mode_for_alpha_formats() also warns on A10, A20, A31 and
-A33:
+Linux 7.3 added validate_blend_mode_for_alpha_formats(), which warns once
+per plane that exposes a pixel format with an alpha channel but has no
+blend mode property.  Neither the DE2+ mixer planes nor the DE1 backend
+planes create one.
 
-  sun4i-drm display-engine: [drm] [PLANE:31:plane-0] pixel format with
-  alpha exposed but blend mode not setup. Please fix.
+Both engines blend a layer with its own alpha channel and do not
+premultiply, which is the DRM "coverage" equation, so advertise exactly
+DRM_MODE_BLEND_COVERAGE and leave the register programming unchanged.
 
-The backend blends a layer onto the pipe below with the layer's own alpha
-channel and has no premultiply control, which is the DRM "coverage"
-equation.  Advertise DRM_MODE_BLEND_COVERAGE for these planes as well.
+Changes in v2:
+- Drop the Fixes: tag.  860e748bddcc only added the generic check; it did
+  not change this driver.
+- Drop the code comments; they only restated the commit message.
+- Handle the DE1 backend planes too, in a separate patch, since they
+  expose alpha formats as well and still warned on A10/A20/A31/A33.
+- Link to v1: https://lore.kernel.org/dri-devel/20261117091932.12063-1-hsyysy@163.com/
 
-Signed-off-by: Yang Siyuan <hsyysy@163.com>
----
- drivers/gpu/drm/sun4i/sun4i_layer.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+Yang Siyuan (2):
+  drm/sun4i: mixer: report coverage blending for alpha-capable planes
+  drm/sun4i: backend: report coverage blending for alpha-capable planes
 
-diff --git a/drivers/gpu/drm/sun4i/sun4i_layer.c b/drivers/gpu/drm/sun4i/sun4i_layer.c
-index d65587d..0e6e0d1 100644
---- a/drivers/gpu/drm/sun4i/sun4i_layer.c
-+++ b/drivers/gpu/drm/sun4i/sun4i_layer.c
-@@ -228,6 +228,13 @@ static struct sun4i_layer *sun4i_layer_init_one(struct drm_device *drm,
- 	drm_plane_create_zpos_property(&layer->plane, layer->id,
- 				       0, SUN4I_BACKEND_NUM_LAYERS - 1);
- 
-+	ret = drm_plane_create_blend_mode_property(&layer->plane,
-+						   BIT(DRM_MODE_BLEND_COVERAGE));
-+	if (ret) {
-+		dev_err(drm->dev, "Couldn't add blend mode property\n");
-+		return ERR_PTR(ret);
-+	}
-+
- 	return layer;
- }
- 
+ drivers/gpu/drm/sun4i/sun4i_layer.c    | 7 +++++++
+ drivers/gpu/drm/sun4i/sun8i_ui_layer.c | 7 +++++++
+ drivers/gpu/drm/sun4i/sun8i_vi_layer.c | 9 +++++++++
+ 3 files changed, 23 insertions(+)
+
+base-commit: 091b06388b117fefdcb63336ac09956a4914b961
 -- 
 2.56.1
 
