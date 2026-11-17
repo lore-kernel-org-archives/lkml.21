@@ -1,64 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794959266;
-	b=YalJ4/RkOrQeGj5wxLo5UQQ7R9jr/R/61NibJRBHHi5VELDxCcCF3HdxynsjMJ8+Xze7
-	 VCB1M+m2Z2JikseqPNyF/Y0OSmn3ZlJitFrbRXfvRm5Uxoj4OlyH5acOnADY+Ao5Nu75r
-	 C2R6G1YY3Ebei0IdDvTzLshDEjdSeg1hHjy6fhJQTLxEGJTcQ9GRMJKGHSxlPxUEQtOuH
-	 TjS1ynnSi0/hu0iJ2XCWVumIpdQBBoUeVQb36cJU0rHlCmJcfFkOUXLjaiG7rSwoPcyfv
-	 XE5rLl4F5tJwhBw8twa94BEdD5+9QvfJKozFQindUiuzOCS79X6rLz/7DZ1AG/WV6Yw==
+	t=1794959315;
+	b=wi7MJnnq3DSWgjY3y1CeK3PiFcC98Mf1eIPlLSXOOJZFgat3GDUJpoM1oBhDN4y9KztQ
+	 abK770f8pOHVlHQGFOo9MwJQkF2yx9SuUwoth83C3zmXRQGvTlBg3ufBtzmzKtn75gwgd
+	 VjBf7+vO+QEpjDifaOGs1N7EN5h9pcmzRHBR3vpKZ/1Gk1IzG6lQ2g+1GoPanbl9zQVGv
+	 fLntaR9/wn6Dh93D2SQHXtD4Da0dF1jIytH6bHsszlGs/3iS+89WZr9LY4JjJZVCNzP2h
+	 ppoJ2VSA5JqVaaGToX+KXa1Aw2t+fAppy/nC3gR8RJ/ZcOn3Ce+mtV5IwrOzVIfb2jw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794959266;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794959315;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
+	 MIME-Version:X-Developer-Signature:X-Developer-Key:
 	 Content-Transfer-Encoding;
-	bh=clyVU1pMhAE22NFzfWb5IrI08JmIOkEfpu4rJ6NQt6k=;
-	b=IB08brbXwbT9FpQsqfKxT4HDfEIQ+AZFF9MAorgQbMnzPBEQvzG2AYbyKJ9lFSZmSv7q
-	 iamOvcR1QG30tBBrMWUe6pPTBy+7KNHud2fY/LGU3qzzG928AsRhSq6ewbKNz4SxOxcaj
-	 EqBaobv4sQnb/qpQRX/Pc8PUBBucR53gmJ4Ew/jMscSPIUm28LF7ylk2OAJIfRRnsRc3s
-	 geTHhl7wc4tayctvdBQNVjQoXBTq/0+ceXsXN1B4cuuA9l2AeGueNiTERMxTMLSQPm+zQ
-	 wVDGR0MmPCmF+uKvaXygS8+zcHZS8EVE+FfwdCn521G014xA0tsS6F88x0Yd8FC4JWg==
+	bh=lJt+imu7OnUM9KOjR6UO8Rb2IM2m81Jt2K/dC613st4=;
+	b=j0NOXDEdAf6AljcBJI8ECrNGvOZXWOn5eZ23gM2EjNRh8wO9Yt+GZ8zVEyH+mmTAGCi0
+	 09AtgSUz0Z8HEGZlLj10xqFjiOWFR39ONGhBENT9gfnJjjchV9Fdf11F1T3WSP02njWw5
+	 pQUQXjhLtq4hI1McMs0ows/s2U9bl0dEQs2he0IMFIbpkK3az9XAZWDH1eN8uTbzsRWtp
+	 DQgw7bVgXGRQMxsYye7Vi02cR7zafSzPYd/tSXxe7gReTeLWJU4fT/1xlGzhu4nB+5pOR
+	 Pr4owSNmvm1+jk83AdioaL+zKLYk3Dj8LrEWSu1iOkrK/Rr0bBockUtn9tqILGkVY/Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SfOihrId;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XPwTL2cw;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C5D7606A32C;
-	Tue, 17 Nov 2026 23:47:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1D78606A32A
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:48:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SfOihrId
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD4821F000C5;
-	Tue, 17 Nov 2026 23:47:43 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XPwTL2cw
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CF0F1F000C4;
+	Tue, 17 Nov 2026 23:48:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794959266;
-	bh=clyVU1pMhAE22NFzfWb5IrI08JmIOkEfpu4rJ6NQt6k=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=SfOihrId0GRPuKiiehrSbXc8kTD81uHZ8r0pgtOO6qF6NeuAfAwkD9yejoFIfXb79
-	 BnWghAwQ2iixy01tdbMLXiUXD3s7o11ihBdyyGchXf6RN4UlPQfFdPz68S+a6n45C2
-	 TM2L6fU8WnuuaDkSo+nsEOEJ8+JqReJhPLTKl31/g3aMt2oW17OVL9uNqZ+496Nx7Y
-	 dbxpJEimYD7SgfZ1axHvLDEdtlnFAda0uarJ/fGD4+CFe6MmjHFQDSuajw6cl2jXch
-	 KQc4Gl9QKKxHFZNxGPqRDaKjb6kxviMBCcBblzwPHFdW4xWSs/gUNrg2BfY3BVUgOW
-	 w7lhBDCP6H78A==
-From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-To: Masami Hiramatsu <mhiramat@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Christian Brauner <brauner@kernel.org>
-Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
-	Jan Kara <jack@suse.cz>,
+	s=k20260515; t=1794959315;
+	bh=lJt+imu7OnUM9KOjR6UO8Rb2IM2m81Jt2K/dC613st4=;
+	h=From:To:Cc:Subject:Date;
+	b=XPwTL2cwdFetwWkGa9lJMZoSYXpZUf4Owpq4vZaBsa2UMyWEAv3b5AHQa/YkI9sMY
+	 tW9xZtYnW8530pPV46hKFPjtcGQHp77oHOuz8PC8oRtJofB3j4CzAq8lJDnZTVE7JN
+	 YEs3tDNQEF0MBic1p8nqQgb00hWkUohcsvVafhabVU6iBUfz7216NzMg/KPeyWoYFP
+	 kMCMmKQYtJYBmRIMdT/zkoWyPIXusr+m+RNEazLbxU5CQArTMTh8IK4Bgz1CMFVC1m
+	 7Qk6VbfZWaiKl3gRhpll8U7RBeAwW8YrUOREmZuIHhGErQX3FYUeYnXVGCKH0h2OKt
+	 waTcbMGnqBwTQ==
+From: Thorsten Blum <blum@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
+	Thorsten Blum <blum@kernel.org>,
+	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+	Christian Brauner <brauner@kernel.org>,
 	Breno Leitao <leitao@debian.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	linux-kernel@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org
-Subject: [PATCH 2/2] bootconfig: Free the initrd memory used by bootconfig
-Date: Wed, 18 Nov 2026 08:47:40 +0900
-Message-ID: <179495926058.237695.12800083196053168375.stgit@devnote2>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <179495924003.237695.10973676765152260584.stgit@devnote2>
-References: <179495924003.237695.10973676765152260584.stgit@devnote2>
-User-Agent: StGit/0.19
+	Ryan Roberts <ryan.roberts@arm.com>
+Cc: Sang-Heon Jeon <ekffu200098@gmail.com>,
+	Wilson Felipe Pereira <wfelipe@google.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] init: Use scnprintf() to simplify setup_command_line()
+Date: Wed, 18 Nov 2026 00:48:04 +0100
+Message-ID: <20261117234805.551734-2-blum@kernel.org>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,92 +64,106 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3756; i=blum@kernel.org; h=from:subject; bh=bRbu3Mlk7JzEpODupzT5I2g0MWIU0m5HTYeGpcgvzGA=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDFl/nm+VD1yso3huZt3eLuHNk8qjLW927riqZxV0y2SaX 3tHnpFVRykLgxgXg6yYIsuDWT9m+JbWVG4yidgJM4eVCWQIAxenAEwklYOR4dDNKbw345r9+tzW Vd5X86wQW7jbQ70llfuk6cpXFfvPPGVk2HFuDzfH11fM5wTz1G+8uuMROiOv6F/fMteWT0UBCuu OMQMA
+X-Developer-Key: i=blum@kernel.org; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
 Content-Transfer-Encoding: 8bit
 
-From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+strcpy() has been deprecated [1] because it performs no bounds checking
+on the destination buffer, which can lead to buffer overflows.
 
-get_boot_config_from_initrd() removes the bootconfig from the initrd by
-decrementing initrd_end in place. However, the whole initrd including
-the bootconfig is reserved, e.g. reserve_initrd_mem() reserves
-[initrd_start, PAGE_ALIGN(original initrd_end)), and do_populate_rootfs()
-frees it with free_initrd_mem(initrd_start, initrd_end). Thus the full
-pages in [PAGE_ALIGN(new initrd_end), PAGE_ALIGN(original initrd_end))
-are never freed. This leaks up to 8 pages for a 32KB bootconfig.
+Use scnprintf() to format the saved and static command lines while
+taking their buffer sizes into account. Use scnprintf()'s return value
+to keep track of saved_command_line_len and avoid extra strlen() calls.
 
-Save the original initrd_end in initrd_mem_end when trimming the
-bootconfig, and restore initrd_end before freeing the initrd memory.
-The bootconfig data has already been copied by xbc_init() at that point.
-The trimmed initrd_end is kept when the initrd is retained, so that
-/sys/firmware/initrd does not expose the bootconfig.
+No functional change.
 
-Fixes: de462e5f1071 ("bootconfig: Fix to remove bootconfig data from initrd while boot")
-Cc: stable@vger.kernel.org
-Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+Link: https://www.kernel.org/doc/html/latest/process/deprecated.html#strcpy [1]
+Signed-off-by: Thorsten Blum <blum@kernel.org>
 ---
- include/linux/initrd.h |    2 ++
- init/initramfs.c       |   10 ++++++++++
- init/main.c            |    8 +++++++-
- 3 files changed, 19 insertions(+), 1 deletion(-)
+ init/main.c | 54 +++++++++++++++++++++++------------------------------
+ 1 file changed, 23 insertions(+), 31 deletions(-)
 
-diff --git a/include/linux/initrd.h b/include/linux/initrd.h
-index 7e5d26c8136f..3086a462da76 100644
---- a/include/linux/initrd.h
-+++ b/include/linux/initrd.h
-@@ -17,6 +17,8 @@ extern unsigned long initrd_start, initrd_end;
- extern void free_initrd_mem(unsigned long, unsigned long);
- 
- #ifdef CONFIG_BLK_DEV_INITRD
-+/* initrd_end before trailing data (e.g. bootconfig) was trimmed off */
-+extern unsigned long initrd_mem_end;
- extern void __init reserve_initrd_mem(void);
- extern void wait_for_initramfs(void);
- #else
-diff --git a/init/initramfs.c b/init/initramfs.c
-index ebddde9c8f0d..11030cc1f35d 100644
---- a/init/initramfs.c
-+++ b/init/initramfs.c
-@@ -582,6 +582,7 @@ char * __init unpack_to_rootfs(char *buf, unsigned long len)
- }
- 
- static int __initdata do_retain_initrd;
-+unsigned long initrd_mem_end __initdata;
- 
- static int __init retain_initrd_param(char *str)
- {
-@@ -750,6 +751,15 @@ static void __init do_populate_rootfs(void *unused, async_cookie_t cookie)
- 		security_initramfs_populated();
- 	}
- 
-+	/*
-+	 * The bootconfig loader trims the bootconfig off initrd_end. Restore
-+	 * it to free the memory used by the bootconfig too, unless the initrd
-+	 * is retained (which must not expose the bootconfig).
-+	 */
-+	if (!do_retain_initrd && initrd_start && initrd_end < initrd_mem_end)
-+		initrd_end = initrd_mem_end;
-+	initrd_mem_end = 0;
-+
- 	/*
- 	 * If the initrd region is overlapped with crashkernel reserved region,
- 	 * free only memory that is not part of crashkernel region.
 diff --git a/init/main.c b/init/main.c
-index 9471ece3d7d5..f14780345051 100644
+index 8a6c3b4f1d5e..0c3bc7efe0f4 100644
 --- a/init/main.c
 +++ b/init/main.c
-@@ -323,7 +323,13 @@ static void * __init get_boot_config_from_initrd(size_t *_size)
- 		return NULL;
+@@ -669,36 +669,31 @@ static inline void smp_prepare_cpus(unsigned int maxcpus) { }
+  */
+ static void __init setup_command_line(char *command_line)
+ {
+-	size_t len, xlen = 0, ilen = 0;
++	size_t xlen = 0, ilen = 0;
++	size_t saved_cmdline_size;
++	size_t static_cmdline_size;
+ 
+ 	if (extra_command_line)
+ 		xlen = strlen(extra_command_line);
+ 	if (extra_init_args) {
+-		extra_init_args = strim(extra_init_args); /* remove trailing space */
+-		ilen = strlen(extra_init_args) + 4; /* for " -- " */
++		extra_init_args = strim(extra_init_args);
++		ilen = strlen(extra_init_args) + strlen(" -- ");
  	}
  
--	/* Remove bootconfig from initramfs/initrd */
-+	/*
-+	 * Remove bootconfig from initramfs/initrd. Since the initrd memory
-+	 * (including the bootconfig) is freed with initrd_end, save the
-+	 * original end to free the whole region later.
-+	 */
-+	if (!initrd_mem_end)
-+		initrd_mem_end = initrd_end;
- 	initrd_end = (unsigned long)data;
- 	if (_size)
- 		*_size = size;
-
+-	len = xlen + strlen(boot_command_line) + ilen + 1;
++	/* Keep bootconfig kernel parameters before any "--" separator. */
++	saved_cmdline_size = xlen + strlen(boot_command_line) + ilen + 1;
++	saved_command_line = memblock_alloc_or_panic(saved_cmdline_size, SMP_CACHE_BYTES);
++	saved_command_line_len = scnprintf(saved_command_line, saved_cmdline_size, "%s%s",
++					   extra_command_line ?: "", boot_command_line);
+ 
+-	saved_command_line = memblock_alloc_or_panic(len, SMP_CACHE_BYTES);
+-
+-	len = xlen + strlen(command_line) + 1;
+-
+-	static_command_line = memblock_alloc_or_panic(len, SMP_CACHE_BYTES);
+-
+-	if (xlen) {
+-		/*
+-		 * We have to put extra_command_line before boot command
+-		 * lines because there could be dashes (separator of init
+-		 * command line) in the command lines.
+-		 */
+-		strcpy(saved_command_line, extra_command_line);
+-		strcpy(static_command_line, extra_command_line);
+-	}
+-	strcpy(saved_command_line + xlen, boot_command_line);
+-	strcpy(static_command_line + xlen, command_line);
++	static_cmdline_size = xlen + strlen(command_line) + 1;
++	static_command_line = memblock_alloc_or_panic(static_cmdline_size, SMP_CACHE_BYTES);
++	scnprintf(static_command_line, static_cmdline_size, "%s%s",
++		  extra_command_line ?: "", command_line);
+ 
+ 	if (ilen) {
++		size_t len;
++
+ 		/*
+ 		 * Append supplemental init boot args to saved_command_line
+ 		 * so that user can check what command line options passed
+@@ -708,19 +703,16 @@ static void __init setup_command_line(char *command_line)
+ 		 */
+ 		if (initargs_offs) {
+ 			len = xlen + initargs_offs;
+-			strcpy(saved_command_line + len, extra_init_args);
+-			len += ilen - 4;	/* strlen(extra_init_args) */
+-			strcpy(saved_command_line + len,
+-				boot_command_line + initargs_offs - 1);
++			len += scnprintf(saved_command_line + len, saved_cmdline_size - len, "%s%s",
++					 extra_init_args, boot_command_line + initargs_offs - 1);
+ 		} else {
+-			len = strlen(saved_command_line);
+-			strcpy(saved_command_line + len, " -- ");
+-			len += 4;
+-			strcpy(saved_command_line + len, extra_init_args);
++			len = saved_command_line_len;
++			len += scnprintf(saved_command_line + len, saved_cmdline_size - len,
++					 " -- %s", extra_init_args);
+ 		}
+-	}
+ 
+-	saved_command_line_len = strlen(saved_command_line);
++		saved_command_line_len = len;
++	}
+ }
+ 
+ /*
