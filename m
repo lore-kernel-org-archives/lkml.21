@@ -1,63 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=34.202.193.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.23
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794955295;
-	b=CNLrw9+62GcuyXAigiNz6fcmiWAdRfSdppZ01Bya166oE562LgQKALxeXM6y6MABODbE
-	 0Ipqtom7s2DfXBgmDpcGRfQOQUM6xsBmCIYjFQNr1CiNUdBnFxF1AO9JMj6CSz/3rTGpl
-	 SN1xoHVV3EtL4y3iToWmfPkYkrSrguLll8QVTiC0tAf0sR+gDHg/lO7SrviPNDccQO0Gi
-	 qwhb99+NRXGk0JgSPoKwAIzZGlb1OoWpcFK6zMOP7JPs1BOKhy7cwZrDiiEzVc0au8kmp
-	 S/SxOjZtFSK7wbEwqFRivbGQcJep0Wguo8TyrUUJK1Hi50iIpqquMNIS9hpJ+eu+g3w==
+	t=1794955465;
+	b=m0XLD/mgL/dy6CrGHK2lxH5Ym5/jMMbzzl+XKyV6d9prxNNCi67D1pOHTMTWwGiOTxAz
+	 Q7MvMEOkZkpoEsnwK9Q4YpWUsF1omfg61l+ygVp0ijGet/SJ6S6VVjcPwaQIB8WRJkJjw
+	 STvs59QMu8KW8UFWhdAjCtxs0xKfKKwuV4v5WniVduvwPEdCeVlFEoibWxDXl0/5ZdXfT
+	 H9cmHd6c3Dz9YmSSu+WAFVhBZSU8xXrzLQPbRfAGxxUljv4hdG7bo92tBUYtbfri/zNqX
+	 +RNQkmI4ZS7l5mMmdC/GpWmOKG+50EwbhbO3L3sb9Q6QZYGzVg3H6oKPw9pmmlQQERQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794955295;
-	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:Feedback-ID:
-	 X-Pm-Original-To:Received:Message-ID:Subject:From:To:Cc:Date:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
-	 User-Agent:MIME-Version;
-	bh=k8zF43mIns+8zEDRRffV7DY3yvSKsxnAizK8HjEE27Q=;
-	b=07KM9KSdV0pW42VlWopASfc2ghEl7Zbmplav5D5ZkKJvPZ4pmJ/hrfvmZWOzriWBcBcL
-	 OmE4ooyqjA2KXwqpYFg0GF1LwRrlCVF/XbLbwcxEdIiVSVcGfg4EjIkAjBIqKE3cnu0yd
-	 QmUq6/4f0ceeydvSZWNvnPyHdnr3HVyYaZQhktsfpFzf723F00CmBay1F5wnDWY/ivdXH
-	 CoL1WPfgHpOOM+aqVfVIeuSz8SqJ054q9iVFNEyHJvsDgNimiYXUgqypOR3wLXxteUXFk
-	 suN4Z35itfuzj84mg10E/UIlleQCOuqV2bAYtdptMgzvYsHyp7fhgCKKIRuTJ3qgM+g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794955465;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=MyFJieF3r5eDFjYYTkQgbnCX4mRrQ5XxDjaoExpEcCs=;
+	b=PAMsLeHLYsiLdJg7RnAT21miT2eimzJoMw8MhN5AEEBwRcAcDwZ2CTCT/VnegVlhVPR9
+	 BxLFE1GNYa4lq/obPm1VedLURVqwxH/3GoLcX0FgADCt2kGlhpMrf8DvkjsQk0TzenrNW
+	 k/QutzDLANFNpj51PCu5SuSQROxYinMQsDOyPncnkks8HG7x1GmqCeon97o8NRSNksrFE
+	 /2nX5kyL9cMBfheMF+pQahi8N/jy5RHSb55PBZnBusmlp2cu4eX98rqdgza01uiNkWzx6
+	 807nmSovzR415uTKFANNZYSFg0dmpbUlnOgBGY53Qsv3e0XSwomfmV9WqHC25h8ujdA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=sverdlin.org;
-	spf=pass smtp.mailfrom=sverdlin.org;
-	dkim=pass header.d=sverdlin.org header.i=@sverdlin.org header.a=rsa-sha256 header.s=purelymail1 header.b=rCJOHU7l;
-	dkim=pass header.d=purelymail.com header.i=@purelymail.com header.a=rsa-sha256 header.s=purelymail1 header.b=Mqkqmao+;
-	arc=none smtp.remote-ip=34.202.193.197
-Received: from sendmail.purelymail.com (sendmail.purelymail.com [34.202.193.197])
+	dmarc=pass header.from=logarcheon.com;
+	spf=pass smtp.mailfrom=logarcheon.com;
+	dkim=pass header.d=logarcheon.com header.i=@logarcheon.com header.a=rsa-sha256 header.s=protonmail3 header.b=GByO10jn;
+	arc=none smtp.remote-ip=185.70.43.23
+Received: from mail-4323.protonmail.ch (mail-4323.protonmail.ch [185.70.43.23])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD1CB606A31C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:41:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD1CB606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=sverdlin.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sverdlin.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D7D5606A31C;
+	Tue, 17 Nov 2026 22:44:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D7D5606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=logarcheon.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=logarcheon.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=sverdlin.org header.i=@sverdlin.org header.a=rsa-sha256 header.s=purelymail1 header.b=rCJOHU7l;
-	dkim=pass (2048-bit key, unprotected) header.d=purelymail.com header.i=@purelymail.com header.a=rsa-sha256 header.s=purelymail1 header.b=Mqkqmao+
-DKIM-Signature: a=rsa-sha256; b=rCJOHU7lbbHLruFIsMUQa8wjDMxuF/FoTcJzOOvjskDc7W8cg2OEzOMvcfXInGpfxRfnjbTmciON0ZQLRqVGweVLoIn9NwPoVTusytvLD3bjiyNW3fMgxfRcQZEGjdIT+Cys9Jj2xp0G9KgxXtIZXiN/1tKfisU23G/9ZIbKZqNTkg2MOo3FYhktxBwOu4rYq4y/EXzeAMf+ax4DeQaRrcJjk3nXBxetlTvROEcqEXs+JyCpyRSZpdGAmGI+3um9IshpuiTz3zpyPLbObmi+9sh2J2Js8YyL1VQWJKrsS8of2UitJztbF/VjOXKBejmkAw2eUIEqvBxarWW1v/D4Vg==; s=purelymail1; d=sverdlin.org; v=1; bh=k8zF43mIns+8zEDRRffV7DY3yvSKsxnAizK8HjEE27Q=; h=Received:Message-ID:Subject:From:To:Date;
-DKIM-Signature: a=rsa-sha256; b=Mqkqmao+KKtBnHFFrr50faPe+FAxgu37V08wpEDeAbMO5xi5oLs5HjOwuqMwwysTRywY38/qqZ8dM932q/FmHanM20DyaVHgqjz78xZlgRFsH4i6u0MI1THUmMdQwDPngEmO2h230ij2JNDtabCd8KlgcChTJp2FMpse/1Zu2pu3lpx4fMo1oQntm6fdZvFmnV2eIUXdUoBhwYxT5smC3k5fhpiAdQqaPN5ICk28dwWEnGECdEWOHcAVYvjT2t+dj3WqYWspgWGh6755qnyAUJlIP31DXXC3YiDevTZB/c8BT5vfUL63+Hps0VHsEtojabSwCr2SQRGssEIeQ25kQg==; s=purelymail1; d=purelymail.com; v=1; bh=k8zF43mIns+8zEDRRffV7DY3yvSKsxnAizK8HjEE27Q=; h=Feedback-ID:Received:Message-ID:Subject:From:To:Date;
-Feedback-ID: 815097:39668:null:purelymail
-X-Pm-Original-To: linux-kernel@vger.kernel.org
-Authentication-Results: purelymail.com; auth=pass
-Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id -294462679;
-          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Tue, 17 Nov 2026 22:41:24 +0000 (UTC)
-Message-ID: <a11b490c84234b7c37d314e3cfa93434566e221e.camel@sverdlin.org>
-Subject: Re: [PATCH 1/6] dt-bindings: opp: h6: Add A133 operating points
-From: Alexander Sverdlin <alex@sverdlin.org>
-To: rajanyadav0307@gmail.com
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Cody Eksal <masterr3c0rd@epochal.quest>
-Date: Tue, 17 Nov 2026 23:41:12 +0100
-In-Reply-To: <20261104-a133-series-v1-1-58217cb33a87@gmail.com>
-References: <20261104-a133-series-v1-0-58217cb33a87@gmail.com>
-	 <20261104-a133-series-v1-1-58217cb33a87@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.62.1 
+	dkim=pass (2048-bit key, unprotected) header.d=logarcheon.com header.i=@logarcheon.com header.a=rsa-sha256 header.s=protonmail3 header.b=GByO10jn
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=logarcheon.com;
+	s=protonmail3; t=1794955462; x=1795214662;
+	bh=MyFJieF3r5eDFjYYTkQgbnCX4mRrQ5XxDjaoExpEcCs=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=GByO10jnaDgJi2csMx2yUkLB0bp6ka8l/BmU9Pax7uAg8aMJ0JPes+3dL1Mhr5dY5
+	 gxtJhwAs+X06bLDlHs+dGUFVUtRNp64QEzOSdFyuMOUWUd/2U43WsfXw5mGbBfkQne
+	 I5wjwE+AfOcZTgx8GZeAp1cly8zJk5+TfQsaS4sDaALKFpluWvBJ3oS4tvj59ZfU+Q
+	 IurMrpT5KBWPH4mPsUDBmb52qosaLjN/creuLL+Et/KK39DP1UiVABoRF192d9cfaX
+	 ll04YzFZQZifPCDzaLoTr7yyrFamacgJUwPMPjDNp+EDJeyuJjI/2nu1CKTjTCL7td
+	 wCquaqpu2wPCA==
+Date: Tue, 17 Nov 2026 22:44:17 +0000
+To: Jarkko Sakkinen <jarkko@kernel.org>
+From: William Chuang <founder@logarcheon.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, David Howells <dhowells@redhat.com>, keyrings@vger.kernel.org, kunit-dev@googlegroups.com, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH] lib/asn1_decoder: add KUnit test suite
+Message-ID: <20261117224411.7043-1-founder@logarcheon.com>
+In-Reply-To: <avvI1PuQUtBlfZWP@kernel.org>
+References: <20261117001711.47722-1-founder@logarcheon.com> <avuumVbCS2YQi4cv@kernel.org> <wzMUBnLl6Z2s-eoaXFHCl92wV6voRbr7imPSy9hdJzHqoxg3869_lCqHtMa3G5N3H0G9XfrGCW9Nzw0Vm0HCJhvNKkTUtUFDXuM7S821AIU=@logarcheon.com> <avvFgRqiYnBo9Q7c@kernel.org> <avvI1PuQUtBlfZWP@kernel.org>
+Feedback-ID: 145408520:user:proton
+X-Pm-Message-ID: 330b178547f6828f252dfb2afb09629a35cfddbd
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,51 +64,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-Hi Rajan!
+On Tue, Nov 17, 2026 at 05:24:04AM +0200, Jarkko Sakkinen wrote:
+> Within past 17 years the total number of commits is 22. This includes
+> all the possible. Of these total six carry a Fixes tag.
+>
+> That makes about 0.35 bug fixes annually. How do you explain this
 
-On Wed, 2026-11-04 at 22:40 -0600, Rajan Yadav via B4 Relay wrote:
-> From: Rajan Yadav <rajanyadav0307@gmail.com>
->=20
-> The vendor BSP for the A100/A133 family (sun50iw10) selects the CPU
-> speed grade from four efuse fields and the die revision: the speed bin
-> (SID offset 0x1c, which also holds the ICPU current), the chip marking
-> ID (0x00), a value programmed at production that the BSP calls PCPU
-> (0x20) and a bin extension bit (0x28). It knows 11 grades, a0-a6 and
-> b0-b3. The A100 operating points describe only three speed bins, taken
-> from 0x1c.
->=20
-> Add allwinner,sun50i-a133-operating-points for this. In its tables the
-> N of opp-microvolt-speedN is the vendor grade: 0-5 are a0-a5 (a6 has
-> the same OPPs and voltages as a5) and 6-9 are b0-b3. The four cells are
-> named, with the speed bin first. The meaning of the PCPU field is not
-> documented; the name follows the vendor BSP.
->=20
-> Indices 0-2 are the vendor grades a0-a2, which have the voltages of the
-> three A100 speed bins. So allwinner,sun50i-a100-operating-points is a
-> valid fallback: software that knows only the A100 compatible reads the
-> first cell, selects one of speed0-2 with the A100 rule and gets the
-> OPPs and voltages of the A100 table today, with 1008 instead of
-> 1080 MHz. That is the A100 selection, not the vendor's; the new
-> compatible adds the vendor's. The binding requires indices 0-2 to stay
-> usable this way.
->=20
-> The new compatible is SoC specific, like the root compatible
-> allwinner,sun50i-a133; the A100 compatible stays as it is for existing
-> DTBs. The schema now also limits the other compatibles to the single
-> unnamed cell that all in-tree users have.
->=20
-> Claude Code (Anthropic) drafted this change and its message from the
-> vendor BSP sources (field layout and numbers only, no code copied); I
-> reviewed it and checked it with dt_binding_check and dtbs_check.
->=20
-> Signed-off-by: Rajan Yadav <rajanyadav0307@gmail.com>
+That is a fair measure.  With a change to the decoder every nine
+months or so, a regression suite has little to catch, and its upkeep
+would fall on you and the other maintainers.  I'm withdrawing this
+RFC.
 
-Ran dtbs_check on it,
+> Your previous kunit supports this point of view given that it is
+> a possible "LLM remix" of a patch (kunit for assoc_array) that I
+> sent a month ago but we discarded the idea in favor of a better
+> solution.
 
-Tested-by: Alexander Sverdlin <alex@sverdlin.org>
+I had not seen your October patch when I sent mine.  I should have
+searched lore first, and I will before sending anything further.
 
-> ---
-> =C2=A0.../opp/allwinner,sun50i-h6-operating-points.yaml=C2=A0 | 94 ++++++=
-++++++++++++++--
-> =C2=A01 file changed, 86 insertions(+), 8 deletions(-)
+> Stop doing this.
+
+Understood: no more test-only patches for this code from me.  Sorry
+as well for the badly formatted reply earlier.
+
+Thanks,
+William
+
