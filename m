@@ -1,98 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.99
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794958906;
-	b=nuSHjF6SZ4xm83DBIZzRpvf2NimHPzv44YrSgV5J3Y8NiWczq1AghbhQV2tf9QugRlFB
-	 AoFMxdUi0UH23LaQ4/wmS6YQxmlPGp7ovicvZbkLkA7UFHXtGIG3tPymFCqtgAWpouTgq
-	 mYIdAR+YcsboTzrdWn8ghmpWCyO9HqlPPOvvF4HVPiAYmBlZ06mkj9nQJHFeaLy4ZOICB
-	 8KSZyVdW62v807U2p9lQYyPOMo1iruIT1+fBxady+fiWL+g0NNDe88h6OBaS/mxwCn9EM
-	 NG3nFRqnpM3/tKaGxvpBdBKlijL/xF0RdY6VGQsXXb263zIb8ophWYg7P7a2J51ZoFQ==
+	t=1794959044;
+	b=NfE7OntnT/WmFsa9rNRgjhaCmc4Tszl6B8xQH2NOOaV3Kp/R8VnkxN1HJ3BsqT4A9zkL
+	 8LfBDBqGOwYqXMG3WEV8yuqErjxQ0T/JUr0w0UVNxpCpIDStGVkluDjLd0HSJfRKKVvkc
+	 +piJvce3ZNCmJM7B/3MUB2GW+iYKNn/Zh78VLFxu3C4Xc/Jnv4XqNVXCIQD0MUWnoiaBv
+	 /61Dl95MeGuBquuoQwqKhyiW7P5u2+ga4+AbIwP6PdZ2VMippT5CeKuP0VbZkzEj4PF9s
+	 T6gKjsaMremDxC0lzc/eCr7wZQWAZi+wg455JDXgqyHMORFeRXhieXfRvaODJgxQ55Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794958906;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=m1Cjer+iNpU1iImlMMK+vYAvWTpXzGaSEtw1yB5pZVQ=;
-	b=3pyqxI2RwKC8Hu0tEGQ+hc8ZXWWNEeu1A/psDvR/ZH+MD+lRxyBZQG4o0lKiZCQagCtf
-	 u4HX9WACP+MziQcC9Smy3iB0jrYedf3rt9zCmYqBkUXWikq5RnHKsWre5PZnGE1eiJ+FN
-	 etwfiKCdC2G9FCydsjQOLtiANXfrOVaiJXJPwKv4+50w9vWEZlw4VpJp124ZOrIMUs4DT
-	 i1VfWpKQmlIzDU8/J8KQO4eoC/Nfa1qYJqxsudvJE8WDwVyDZpqNuPVkDV2aFnt3dVecb
-	 p0XRbaPC532jc8T5C8w0YjFb4sCod4Tzhgn0KdNw0L8XqlDXSJexEyObBnz1hP0h5fA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794959044;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
+	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Received:X-Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-DetectorID-Processed;
+	bh=chWuGj4JSfuHqV8d6iYVixzJTNnCSogSzx0lpANcwLI=;
+	b=fn/UdZI3nwVHHDhA1EmzxrFV7BKGG2/+CSDzJ6l0pNxSLMAmaMg3yPj+GjcrLLRkWERQ
+	 h/YAWWE1/PrStsR3RR3F9O/jFdhFYNfzjFJ9h+IYg+5DZyY7lfnUPXlQ6RkwuO5aCsK3K
+	 2Cdjiugbngx/Hx79edv2Rf6maID47+m8wSbY/Kln+bArm+lbJQhixpSXQ4ysUr+NeajJl
+	 ijje00tHjg0u6qMerLSbGOBoc7hx9eWUtjOwZ7/NerTdGBk1MOZCJXsP+7o54ekfiZB8K
+	 vqZNJmpyU6haTd3Dj7nR14XMmYHR/lfnYDDxBQjYRx1FdO122LLusrw6HNKCkR/Jf/A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XFNU0gti;
-	arc=none smtp.remote-ip=74.125.82.50
-Received: from mail-dl1-f50.google.com (mail-dl1-f50.google.com [74.125.82.50])
+	dmarc=pass header.from=broadcom.com;
+	spf=fail smtp.mailfrom=broadcom.com;
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=fx5C73B5;
+	arc=none smtp.remote-ip=209.85.216.99
+Received: from mail-pj1-f99.google.com (mail-pj1-f99.google.com [209.85.216.99])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8991606A31C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:41:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8991606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85F7C606A32F
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:44:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85F7C606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XFNU0gti
-Received: by mail-dl1-f50.google.com with SMTP id a92af1059eb24-1b546061d58so17054c88.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 15:41:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794958905; x=1795563705; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=m1Cjer+iNpU1iImlMMK+vYAvWTpXzGaSEtw1yB5pZVQ=;
-        b=XFNU0gtidEIMh4GIS3UkejbeGeuxgN0Ra3P0s8eSUt2GYpligihcdcY1aZRpdyd8hA
-         3SMQm6mUZNwK/tkg54ppZMb3Z5oT3bPpSiS6HYmDnV/aNikM0ZGNK6fnvb445ix5tVn5
-         86B91ksI4z7RjCZRk4/uth98szKa0/0JuZv5pyncmLV9ah3ynfgLrlwM/FWV+qnN3kwr
-         8tO8v2Vr1BbgGWXZgZT++DWHH7aoCIPDcbFuKnyBnMUq6gfPbxvtCsXPRZJVW7jNjiuv
-         0NE0yKF08/iVFpPxR2U5kyw5f44Et/tPtSzemMvrOxXi1Ez9Ea+L0TdienEpoYxgJjgZ
-         xE4g==
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=fx5C73B5
+Received: by mail-pj1-f99.google.com with SMTP id 98e67ed59e1d1-3b16896b8ceso148141a91.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 15:44:03 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794958905; x=1795563705;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=m1Cjer+iNpU1iImlMMK+vYAvWTpXzGaSEtw1yB5pZVQ=;
-        b=SnfazVGNTSSONtNW8ovawLmXRBNKln1UJylHg6QwkxP5k0b8MK8fKae+9IqQzaohiU
-         HU4jM8LUttEfdFUKuyhFNId3i2huGBZvtaUBDOLy9emacqQ2qzGrNtnDkbbfsG11pvIc
-         slIiCeXLN/jf+9oPifjOcn4fFn5CsML4FEL/5rGTD4L2ISnm/CuJkY3EL+IhL7nVqIGW
-         xSKLhWpy8Mt6S30n6Nz14IYtZGy8ZWFY3Q3EFvbWukSMSm9l4PLCsm957tV9+jkktSr3
-         7FKtUW+wnLP436ZqjXjydAgPaJWUiwyfzTm9EHDTi/3MsE4D5mbHdLjDmm+cbIesgEaz
-         r81A==
-X-Forwarded-Encrypted: i=1; AL+hErEREIlcuDxUC2cuBY53bt2/WDfeouhPUFbf9W+jYAGD+rZi3Zm3HCKLnb9NpKRW+5Bs9ifID8AWubf5LJA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+eXLGrqGPHFRvCWWGd7h4o3QOqCNlyVCleoSAA52BfLhy7aF7r
-	V4flIfjibHVSDzdzJ+/Q1flgorO8W+1RcCkne/6c+bVwsCUSVlKCQKIu
-X-Gm-Gg: AYBFou02KxhYD7mDTAEcLoOH5H/o/FK0UxZLNVAALcz70D5+b+DDFRpPKHE9Jy6rh8O
-	bNA/18fhFTIwEvunxae8tOKQuRQGYaCm4KBav+cPVsaIRbB5f9mgO6uDPFWX6fcREo9TMprLdAD
-	/4stHxN+jaCjCs4BmImuUa2JTiRDJNF9qv5nv7WwZwhsYTRLYPAyJ8uMU8cjthrerg5YC5QGpL3
-	Tw48JdzipI8Fi4jn7twYyRYcyn1uGelFT9mtp7KrgNO11sPw/f6OzqujJ4h0xBJwyEWX+LqaLct
-	fJu7tAQrEL4b5fMztuzjCrquEuCbQIJ7ykQBCM4KSkOZUdj5TrdxvXQFTX6+GfOue4IbYfdYjPC
-	1Oy+1BYsqaHmdiX3mGDEPBE5LMuwOotvGhdqspJR3SV+ZcuDs9lYwqwBv3h77SejUNCuJO2Btr8
-	X3invk2nL3wP2l58yxFeNnoALKgY27f0cfdl4NBvyk2WKJeeCCQcGOGX6JfX/U16Lnb5YsIxLp1
-	gZAHdq+TtNL3swRkKTQYdoFKOFYpiYHnlWf5m13CBzr21U96LmsJBlH/uCai2r6SNN2E1NWeGwj
-	inBSEY8oZBG2dcN8igwQhdVGeSMGkNldTLbZa3ray3mUx1gemG+1Jm2CoBetl290M/rxAJY=
-X-Received: by 2002:a05:7022:7e83:b0:1b5:23c0:4f15 with SMTP id a92af1059eb24-1b543c3fd9amr1080809c88.39.1794958904954;
-        Tue, 17 Nov 2026 15:41:44 -0800 (PST)
-Received: from localhost.localdomain ([136.126.251.209])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447dc5e9sm2095199c88.11.2026.11.17.15.41.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 15:41:44 -0800 (PST)
-From: Henry Zhang <henryzhang62@gmail.com>
-To: mripard@kernel.org,
-	dave.stevenson@raspberrypi.com,
-	mcanal@igalia.com
-Cc: kernel-list@raspberrypi.com,
-	maarten.lankhorst@linux.intel.com,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	henryzhang62@gmail.com
-Subject: [PATCH] drm/vc4: dsi: Register the PHY clock provider with devm
-Date: Tue, 17 Nov 2026 15:41:07 -0800
-Message-ID: <20261117234107.1298575-1-henryzhang62@gmail.com>
-X-Mailer: git-send-email 2.47.3
+        d=1e100.net; s=20260707; t=1794959043; x=1795563843;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=chWuGj4JSfuHqV8d6iYVixzJTNnCSogSzx0lpANcwLI=;
+        b=c0NtGcEEg+TJ14xPNcoZ3d1w17Z1UI4IloobB9CX0UwpVSzRQ/bF/fnRcUZlMf8/cz
+         tHkLiCLzszUpBt9RAhlH5yzFEHaL4jTRUDbjA0hA+PUmI9O2c/UR9f0HZU/YdA1TsXD+
+         Wwrsp87n73J0dep6W8Ww0oFuo5HeG5iYb+pPoYQKabzWbLDi+ck4h5D5/HhIgC15d3RG
+         ebjM65kejQslAY4JKklAtWLx2axrM9HE+SEQ6XZmzvKRtuOaqQiQ9Nspq9+mr1i0WfH1
+         6WrekF1bf0jKNLCWowMQ6W8zOaWwrKI3hOSZnHMwhzcT+ZknTuNWpAjvSym6V2Log4WD
+         F2bw==
+X-Forwarded-Encrypted: i=1; AL+hErHjfctuynMq+OiOmGXREKXl4CYZarbUOj9y9D0Ms+ufkzpFwVeiF/GbA5fqDw2DYOYBXvDcVaSIns5e55o=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+abUs7qP41DeRL8mAQ9jLGbQoKCbFWRmhb3m+HLsMMXh+jzWns
+	iFvvUgMD8XPT/SL9oBMr75p+U03/4z+CVw0h/67X8H6WRK+kPsB9xvvTAjTAqY84FVWunrmfTcW
+	/NiJUdsyEZ29wo6dvrVe9d3flLZZqzUNlRKd0e04gLqhB+CQ1PtWsDABFdISXxWijDu/XZopkYD
+	xBW4KLNZt/2UC5D4U/YmXplufZXR+/1z+uqm/k5bIzp4fRjZf9cgA1FBeu0DU/mDs5zbmsprK2B
+	fKbmlWR4Me67cBFs22LXuWI
+X-Gm-Gg: AZFdTZdlTwN2ngDN7Rp1V0qu948+LuL2q84AGwOk7eH+mbv5nwPHAs1UmwgnnfKSD5o
+	ysq07wFp3t1ZQzQJBE9oHtEzIWzniN0GoQgJ3I3CU5ngxos6rTKSnO30kj+zJIASEjLXhHiR0fQ
+	FCS52EDScs6IBneLc7GRz1yI8quNYpFqKYazNkSzbgVt1X/vVE2QLi7uIdWoLXaPkdCOCNsMU2D
+	jyH31kYJSlfRRHrBBxtgdJc32GIr8h/+uFBQe3hd5uBDgFZnZMCXsSxVIJmUyVnm53qTPQF3aBp
+	4CMpJWif4Rm7BoEsl9l45LTMMakS7nDopMCuE58FUWfzH3AXb001KQb10gjjt9oGa3956MElOS2
+	zLyAKvoPdQFFF+dfzrAhEWsbpsKQNdA5pAkTlYII/mQrPoump/VtTuAUVoDxwVPyFCVDFf3LZJb
+	DB0aHOqlH2vrH09QxucTSHacmQOfSN7UBeUmcKKOCKDc8=
+X-Received: by 2002:a17:90b:3c04:b0:3ac:adce:60ad with SMTP id 98e67ed59e1d1-3b3d079ffb7mr728130a91.22.1794959042551;
+        Tue, 17 Nov 2026 15:44:02 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-123.dlp.protect.broadcom.com. [144.49.247.123])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b3d1d8dc62sm274332a91.1.2026.11.17.15.44.02
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 17 Nov 2026 15:44:02 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-93f2005ce21so72798885a.3
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 15:44:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1794959041; x=1795563841; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=chWuGj4JSfuHqV8d6iYVixzJTNnCSogSzx0lpANcwLI=;
+        b=fx5C73B50D5pL98mnf/EuUK1aU3XaQQEwC/yr/QKs3NcOr5bllWST48sJUQJd5690z
+         3FiAl4iBOYGHkbFpY9pJly+GpsphIndhMkWphfVzVM459bAK+LlV4+KxmIV7q7cZaAuA
+         iUZF3BvUrWZfPuwk0tUzGcwrxNm99GPtei+wc=
+X-Forwarded-Encrypted: i=1; AL+hErF4c7Bxcyoe7JWk7q6hRf0k4STJLAu4JZjhv9TBIk1zfLb0ntlY63ieTajywraybAYCf6taMk0pYtHUhiQ=@vger.kernel.org
+X-Received: by 2002:a05:620a:3710:b0:93f:633b:ee13 with SMTP id af79cd13be357-94999572c59mr220413685a.28.1794959040882;
+        Tue, 17 Nov 2026 15:44:00 -0800 (PST)
+X-Received: by 2002:a05:620a:3710:b0:93f:633b:ee13 with SMTP id af79cd13be357-94999572c59mr220408585a.28.1794959040114;
+        Tue, 17 Nov 2026 15:44:00 -0800 (PST)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-9499b7ccf2fsm43121785a.36.2026.11.17.15.43.56
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Nov 2026 15:43:59 -0800 (PST)
+Message-ID: <5cc0d365-3821-4dab-8015-22cbc94be1e0@broadcom.com>
+Date: Tue, 17 Nov 2026 15:43:55 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,75 +106,244 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 1/9] net: ethernet: bgmac: validate RX length
+ against the DMA packet capacity
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, rafal@milecki.pl,
+ bcm-kernel-feedback-list@broadcom.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ horms@kernel.org, corbet@lwn.net, jonas.gorski@gmail.com, olteanv@gmail.com,
+ pablo@netfilter.org, fw@strlen.de, phil@nwl.cc, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ netfilter-devel@vger.kernel.org, coreteam@netfilter.org
+References: <20261116222519.1416501-2-florian.fainelli@broadcom.com>
+ <179495815587.3136.10288920701294421777@kernel.org>
+Content-Language: en-US, fr-FR
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <179495815587.3136.10288920701294421777@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-vc4_dsi_init_phy_clocks() is called from the component bind. It
-allocates the clock data with devm_kzalloc() and registers the clocks
-with devm_clk_hw_register(), so both are released with the devres group
-that the component framework opens for the bind, when the bind fails
-later or the component is unbound. The OF clock provider that points at
-that data is added with of_clk_add_hw_provider() and never removed:
-after an unbind it stays registered with the freed data, and each new
-bind adds another provider for the same node. A later lookup of one of
-these clocks, such as <&dsi1 0>, would call of_clk_hw_onecell_get() on
-freed memory.
+On 11/17/26 15:29, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 0 (1) · Medium: 1 · Low: 1
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] In bgmac_dma_rx_read()
+>    (drivers/net/ethernet/broadcom/bgmac.c:463), the patch now treats…
+> - [Low] The commit message is accurate but leaves out the user-visible
+>    impact of the bugs this patch fixes in bgmac_dma_rx_read().
+> 
+> Pre-existing issues:
+> - [High] This problem wasn't introduced by this patch, but it is High
+>    severity, and the new check does not close it.
+> 
+> --
+> 
+> net: ethernet: bgmac: validate RX length against the DMA packet capacity
+> 
+> This patch changes the upper bound of the RX length check in
+> bgmac_dma_rx_read() from BGMAC_RX_ALLOC_SIZE to BGMAC_RX_MAX_FRAME_SIZE.
+> It also rejects lengths shorter than ETH_FCS_LEN. Invalid lengths are
+> reported through a rate-limited netdev_err() and counted in rx_length_errors
+> and rx_errors.
+> 
+>> BGMAC_RX_ALLOC_SIZE includes skb_shared_info and alignment space beyond
+>> the DMA receive buffer. An invalid completion length can pass that check
+>> and reach skb_put() with more data than the skb tailroom permits.
+>>
+>> Limit received frames to BGMAC_RX_MAX_FRAME_SIZE and reject lengths too
+>> short for the FCS subtraction.
+> 
+> [Severity: Low]
+> This isn't a bug, but could the commit message state the user-visible
+> impact of what is being fixed?
+> 
+> For len < ETH_FCS_LEN, the u16 subtraction "len -= ETH_FCS_LEN" wraps to
+> 65532..65535. The skb_put() that follows then ends in skb_over_panic() and
+> BUG().
+> 
+> Lengths between the skb tailroom limit (about 1602 bytes with
+> NET_SKB_PAD=64) and BGMAC_RX_ALLOC_SIZE also reach skb_over_panic().
+> 
+> Lengths from 1537 up to that tailroom limit got through skb_put(). They
+> delivered bytes past the 1536-byte DMA-mapped frame area. Those bytes come
+> from the non-zeroed netdev_alloc_frag() buffer, and the device never wrote
+> them.
+> 
+> The message names the tailroom and FCS cases. It does not say that they
+> end in a kernel BUG(), and it does not mention the stale data delivery.
+> 
+>> diff --git a/drivers/net/ethernet/broadcom/bgmac.c b/drivers/net/ethernet/broadcom/bgmac.c
+>> index 9ef239bc487d7..1c502bd64d7df 100644
+>> --- a/drivers/net/ethernet/broadcom/bgmac.c
+>> +++ b/drivers/net/ethernet/broadcom/bgmac.c
+>> @@ -457,10 +457,14 @@ static int bgmac_dma_rx_read(struct bgmac *bgmac, struct bgmac_dma_ring *ring,
+>>   				break;
+>>   			}
+>>   
+>> -			if (len > BGMAC_RX_ALLOC_SIZE) {
+>> +			/* The allocation also contains headroom and skb_shared_info;
+>> +			 * only the mapped packet area may be supplied by the DMA.
+>> +			 */
+>> +			if (unlikely(len > BGMAC_RX_MAX_FRAME_SIZE || len < ETH_FCS_LEN)) {
+>>   				if (net_ratelimit())
+>> -					netdev_err(bgmac->net_dev, "Found oversized packet at slot %d, DMA issue!\n",
+>> -						   ring->start);
+>> +					netdev_err(bgmac->net_dev,
+>> +						   "Invalid RX length %u at slot %d (flags %#x)\n",
+>> +						   len, ring->start, flags);
+> 
+> [Severity: Medium]
+> Does this new bound drop frames that the driver itself tells the MAC to
+> accept, and whose MTU it advertises?
+> 
+> bgmac_chip_init() sets the MAC max frame length to 1550:
+> 
+> 	bgmac_umac_write(bgmac, UMAC_MAX_FRAME_LEN, 32 + ETHER_MAX_LEN);
+> 
+> bgmac_change_mtu() sets it to 32 + mtu, which can be as large as 1564:
+> 
+> 	bgmac_umac_write(bgmac, UMAC_MAX_FRAME_LEN, 32 + mtu);
+> 
+> bgmac_enet_probe() sets max_mtu without subtracting ETH_HLEN or VLAN_HLEN:
+> 
+> 	net_dev->max_mtu = BGMAC_RX_MAX_FRAME_SIZE - ETH_FCS_LEN;
+> 
+> The driver accepts any MTU from 1519 to 1532. At those MTUs a full-sized
+> frame can be up to 14 + 1532 + 4 = 1550 bytes. Such a frame is now always
+> dropped, logged as an invalid RX length, and counted in rx_length_errors.
+> 
+> Before this patch these frames were delivered with stale tail bytes, so
+> dropping them is safer. However, the new comment and the commit message
+> assume that len > BGMAC_RX_MAX_FRAME_SIZE can only come from a DMA error.
+> 
+> Should max_mtu and/or UMAC_MAX_FRAME_LEN also be clamped to the
+> per-descriptor capacity? One option for max_mtu is
+> BGMAC_RX_MAX_FRAME_SIZE - ETH_HLEN - ETH_FCS_LEN, possibly minus VLAN_HLEN.
+> Could the commit message also mention that these frames are now dropped?
+> 
+> [Severity: High]
+> This is a pre-existing issue, and the new check does not appear to close
+> it. Can a remote sender get stale buffer contents delivered as a received
+> frame through an overflow-continue slot?
+> 
+> bgmac_dma_rx_ring_enable() turns on overflow-continue:
+> 
+> 	ctl |= BGMAC_DMA_RX_OVERFLOW_CONT;
+> 
+> Each descriptor holds only BGMAC_RX_BUF_SIZE, which is 30 + 1536 bytes.
+> The MAC accepts frames up to 1550 bytes by default, and up to 1564 bytes
+> after an MTU change.
+> 
+> With overflow-continue, the DMA64 engine writes the rest of an oversized
+> frame as raw data at offset 0 of the next descriptor's buffer. That buffer
+> has no RX status header. brcmsmac's dma_rx() drives the same engine with
+> the same 0x400 bit, and it handles these continuation buffers explicitly:
+> 
+> 	resid = len - (di->rxbufsize - di->rxoffset);
+> 	...
+> 	while ((resid > 0) && (p = _dma_getnextrxp(di, false))) {
+> 		pkt_len = min_t(uint, resid, di->rxbufsize);
+> 
+> bgmac_dma_rx_read() treats every slot as an independent frame. The new
+> check drops the first slot when len > 1536. The next slot is then parsed
+> as a fresh frame:
+> 
+> 	len = le16_to_cpu(rx->len);
+> 	flags = le16_to_cpu(rx->flags);
+> 
+> In that slot, rx->len and rx->flags are frame bytes 1536..1539, which the
+> sender controls. A value in [4, 1536] passes both the poison check and the
+> new bound. build_skb() and skb_put() then deliver up to about 1532 bytes
+> starting at buffer offset 30.
+> 
+> DMA wrote only the first (frame_len - 1536) bytes of that buffer in this
+> round, which is at most 28 bytes. The rest is stale netdev_alloc_frag()
+> memory, because bgmac_dma_rx_skb_for_slot() only writes the poison header.
+> The resulting skb goes to eth_type_trans() and napi_gro_receive(). From
+> there it can be processed locally, bridged, or forwarded.
+> 
+> The old BGMAC_RX_ALLOC_SIZE check let through an even wider range of
+> lengths. This patch narrows that range but does not remove it.
+> 
+> Could multi-descriptor frames be tracked so the continuation slots are
+> dropped too? Alternatively, could UMAC_MAX_FRAME_LEN and max_mtu be capped
+> at the single-buffer capacity?
+> 
+>>   				put_page(virt_to_head_page(buf));
+>>   				bgmac->net_dev->stats.rx_length_errors++;
+>>   				bgmac->net_dev->stats.rx_errors++;
+> 
 
-Use devm_of_clk_add_hw_provider(), so that the provider is removed with
-the same devres group, before the clocks and their data.
+[Medium] RX bound vs. MAC max frame length / max_mtu
 
-The analysis, this change and this description were prepared with the
-help of an AI coding assistant (Claude Code).
+Valid. The driver programmed UMAC_MAX_FRAME_LEN to 32 + ETHER_MAX_LEN 
+(or 32 + mtu), and max_mtu ignored ETH_HLEN, so the MAC could accept 
+frames larger than one RX descriptor can hold, which the new check then
+drops. In v2, UMAC_MAX_FRAME_LEN is clamped to BGMAC_RX_MAX_FRAME_SIZE 
+and max_mtu becomes BGMAC_RX_MAX_FRAME_SIZE - ETH_HLEN - VLAN_HLEN -
+ETH_FCS_LEN (1514). MTUs 1515..1532 are no longer accepted; frames of
+that size were already delivered with stale tail bytes. The commit
+message now says so.
 
-Fixes: 4078f5757144 ("drm/vc4: Add DSI driver")
-Signed-off-by: Henry Zhang <henryzhang62@gmail.com>
----
-Found by the Sashiko review of
-<20261117205902.1293962-1-henryzhang62@gmail.com>; independent of that
-patch.
+[High, pre-existing] overflow-continue continuation slots
 
-Testing:
+The analysis is right: with BGMAC_DMA_RX_OVERFLOW_CONT, the tail of an
+oversized frame lands at offset 0 of the next descriptor, which has no 
+RX header, and was previously parsed as a new frame. Rather than 
+tracking multi-descriptor frames, v2 caps the MAC maximum frame length 
+at the single-buffer capacity (the clamp above), so oversized frames are 
+dropped by the MAC and never spill into a following descriptor.
 
-- On this base (drm-misc-next 467ac0b56aeb): arm64, DRM_VC4=m, W=1, no
-  new warnings.
+[Low] commit message
 
-- On a Raspberry Pi 4 with a downstream 6.18.34 kernel and an
-  out-of-tree modular DSI panel driver, with kprobes on the provider
-  functions, reloading the panel driver (which unbinds and binds vc4):
-  - without the change, each bind adds a provider for the DSI node and
-    nothing removes it;
-  - with the change, each unbind removes it (from devres_release_group()
-    in component_unbind()), each bind adds one, and the DSI PHY clocks
-    are back after each bind;
-  - a bind that fails after the provider is added (with the old DRM
-    device held open, on a kernel that also has a backport of "drm/vc4:
-    dsi: Allocate the encoder per DRM device", where the bind fails in
-    drm_bridge_attach()) removes it again (devres_release_group() in
-    component_bind_all()), and binding again after the old DRM device is
-    closed works.
-  No warnings. In these tests no clock lookup went to the DSI node, so a
-  lookup on a stale provider was not reproduced.
+Fixed in v2: it now describes the skb_over_panic()/BUG() cases (len <
+ETH_FCS_LEN and len above the tailroom) and the delivery of
+uninitialized netdev_alloc_frag() bytes.
 
- drivers/gpu/drm/vc4/vc4_dsi.c | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/gpu/drm/vc4/vc4_dsi.c b/drivers/gpu/drm/vc4/vc4_dsi.c
-index ec008f766..ed99cec9f 100644
---- a/drivers/gpu/drm/vc4/vc4_dsi.c
-+++ b/drivers/gpu/drm/vc4/vc4_dsi.c
-@@ -1592,9 +1592,8 @@ vc4_dsi_init_phy_clocks(struct vc4_dsi *dsi)
- 		dsi->clk_onecell->hws[i] = &fix->hw;
- 	}
- 
--	return of_clk_add_hw_provider(dev->of_node,
--				      of_clk_hw_onecell_get,
--				      dsi->clk_onecell);
-+	return devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get,
-+					   dsi->clk_onecell);
- }
- 
- static void vc4_dsi_dma_mem_release(void *ptr)
-
-base-commit: 467ac0b56aebc804360f276feffbc9032c265a6e
+pw-bot: cr
 -- 
-2.47.3
-
+Florian
