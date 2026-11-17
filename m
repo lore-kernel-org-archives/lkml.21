@@ -1,62 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=89.253.219.113
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.225
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794944804;
-	b=fSc8fBjBkNBBzhL93e07mKmJ8O0NEj86qukryjQYWFikEwbpjMjzOm3nWW208ZH56/G8
-	 I7mdvp5Nms8xoC7uCO245zLwZzZ7Q2p1Pz09xCJHjkozSqQB/ibdYTSyow5OfWY7Ko7CV
-	 YcfwnIkvmPTS7KWZdyqBuh9bW8owc8PExEADe7wSQpOW1mj81xBJPe5A3mcUJhTT5+UkV
-	 LiXsCfhv8yNKvSO3NC3xMctCilmaihL8lZ7jwbnE/gtFgTWIssnUginUS5E0c/LNztxif
-	 QcPzqQbKqVI1xwy1WQ7a5znTlU1+njiEvIkIlXUEAv9QnYp30moCw6+pR5ba3ppBXCw==
+	t=1794944807;
+	b=uB9lmjE3AaU0cTSZL1i/cmrKdskcrMYdj8bZtn8ueSZEk5RBihdUKeU58pdihN3MhsKa
+	 6CHxIYPtQ4IPi5UDRm6oky5JpPcw0ggcV46j7zteMdfpE9yDWCjf4wT1p6C25dRiNWGU6
+	 9NyY+JIzhC+4N5fzjPkT8SibKgSXzKzIuxWU9mao/pr0xhef2T4CKzb73RQahezWZA7wu
+	 qtzbuWm6LYk68JqV2hXYpvoteDfUN8ajYiZ/RFXLiM+F/BYZsPNa3XPyLXigYy2jJWrP0
+	 mtt315xDn+yQ3/JzuR8LE0l3GRiWNJ1fEEAnjCZ6s3A+RCFk8Md0E4eBDVCgbkTzMiQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794944804;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=W64GNUcMHGlrNAK2SZEItbf2GTZEHldj6UB2jOU9t94=;
-	b=CCMXwLnrY6fTdUhAg+nkKjrFPkPniOyIfWnhUvwfNteNvjZXIgmPuhEsIFMj/SDw5PVi
-	 jFzg2dL3LB/OXgSex8A6trZP1b7Y1IATYsN7+bkv5QV8KVklEL6ABrXH45hYTOjRD5uLG
-	 ly0vRVWfLVBMd8FQ9+vAttVWyd72Gtg/BU6uxBetFXXGI7GmWEWlzVVZLZ3z+Mb/oaFqQ
-	 xCXDFOZRBGht2QFN4hABSW3VEyfwHE2FK77a6RIwYKMitMCmN1dRaqlp9dgwy7tqDASRm
-	 h8FbOVOayYG0rL8uCiMRzpIsLh92xxR/SSlU8xiTE83hJrsl56Xz7Mn15HFOHqERNDQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794944807;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
+	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Received:X-Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-DetectorID-Processed;
+	bh=aFd/RP58uuymd6sBgw7qEUvIDPwjlsp1rmxiXiW1mtY=;
+	b=cn1AIoQg3bW6byKrnNQXh//ZbGOpdPtiYzGXIotIMZZhdjg2kIQ9Ks3K9WcxK/if2gvz
+	 9ulkZIVarIS3pgh7VOrZDJR1KezsYwhgA24Wmlomo8VjbZlBgBSQPNIHRiUJDgZZfsieS
+	 5W2apNtmxk2x1Y20Wy7v79hXilr70GFNAqYX/UCsyYV2UAyfd0Ggy9vlMxa6mqV/0Dm3q
+	 3LPlQWQlsinVMn3hOicPx+F2qQgvXu+oYofddnRUsXUtvVkGhjtjZ91T0P3TH3SsDBMmX
+	 9wINwaGftNq/WwUvNEv7cPTuXoTQ7reaeIb20tn++UXc6ka9WAiriiUz1M4OpBm0ATw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=pavel.bz;
-	spf=pass smtp.mailfrom=pavel.bz;
-	dkim=pass header.d=pavel.bz header.i=@pavel.bz header.a=rsa-sha256 header.s=primary header.b=pyUTeIdS;
-	arc=none smtp.remote-ip=89.253.219.113
-Received: from mail.pavel.bz (mail.pavel.bz [89.253.219.113])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=broadcom.com;
+	spf=fail smtp.mailfrom=broadcom.com;
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=CrJioLXS;
+	arc=none smtp.remote-ip=209.85.222.225
+Received: from mail-qk1-f225.google.com (mail-qk1-f225.google.com [209.85.222.225])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0117E606A31C;
-	Tue, 17 Nov 2026 19:46:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0117E606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=pavel.bz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pavel.bz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C684E606A33B
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:46:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C684E606A33B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pavel.bz header.i=@pavel.bz header.a=rsa-sha256 header.s=primary header.b=pyUTeIdS
-Received: from p-745-g5.pavel.bz (unknown [182.52.139.49])
-	by mail.pavel.bz (Postfix) with ESMTPSA id 66D0C616D0;
-	Tue, 17 Nov 2026 19:46:40 +0000 (UTC)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.pavel.bz 66D0C616D0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pavel.bz; s=primary;
-	t=1794944801; bh=W64GNUcMHGlrNAK2SZEItbf2GTZEHldj6UB2jOU9t94=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pyUTeIdSuNJhfQ9ycog8YzPSPGiFHeJEHpCliEDoz3WFRDCo4vukXEruCzQGDJ4Lb
-	 vzALmWMN7qkmRZu0frUE0yD6+lEX643UihcDUVgChjxtuZMNXdbiXtSEKl9FRnfLKE
-	 wibrFt7OinDZ/8GuDC2K8qNnYEG2ga2/iHI1OtualcFio4mFou3e+PyWAey3XDSu9Y
-	 WF0qVs+SV/8Gnq/0jsNRGRJt++3Pz0LWHCXY8K8/Nc7pJLwcLtCx5nYVcOh692YrOl
-	 UqCzVhRtHbJjkFb+XWvQWApZrwmZtuM9W2Nya9K6bbCQ/eZHIihYlaD4Xc2EEfBSCt
-	 JMbJ/9WiZin3A==
-From: Pavel Artemev <a@pavel.bz>
-To: Takashi Iwai <tiwai@suse.com>
-Cc: Jaroslav Kysela <perex@perex.cz>,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/2] ALSA: usb-audio: drive XiiSound playback volume instead of skipping it
-Date: Wed, 18 Nov 2026 02:46:29 +0700
-Message-ID: <20261117194630.155912-2-a@pavel.bz>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261117194630.155912-1-a@pavel.bz>
-References: <20261117194630.155912-1-a@pavel.bz>
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=CrJioLXS
+Received: by mail-qk1-f225.google.com with SMTP id af79cd13be357-94961b68685so19317385a.3
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:46:46 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794944806; x=1795549606;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=aFd/RP58uuymd6sBgw7qEUvIDPwjlsp1rmxiXiW1mtY=;
+        b=KgW3AexjjDR1T0s6K/9Hb0QtN4yMQkYhqW5yZH+eGq1kX9UwdmJ6m8sCcUNopOVAE3
+         U1fDiVcebAWb1ApcuReEYfObDt9fOoD2Be8Mqwe0q6Q+gaZ9synVzOkjPOswf5/eJgyo
+         XB+UlqCbTVpAzXT00BELJzNT5DJu23wzMf1Vi1gYeqQ914CwiMxI1dj1q1HnZacOvrOi
+         YGgfzCdLqRerdkDhUCrucwffHn7/KQJrlFXFmhjg61Ef1xa3qsUtirOHNSbx4IDJvzpv
+         JMQHkP/vTYNuSfdIgo5fz6IwkJgiQWaRcfUDBfVqqCDqhFcvfe2LM4S9Rkpddy3Qr4I9
+         TUmQ==
+X-Forwarded-Encrypted: i=1; AL+hErHHmIGgAu4ba2yXNHkbHdHxUH9p0G7blwf9hXvgkA+aDscap/CNxeCTRPrfK2/B0LCaPgxjTuJ0vb9qj+g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9qzCgWzKbf5KVoR3VSLLsay2DtCKusj2Lp3Ae1c9gCaSleNDL3
+	8f4I7fcHC/JlR71LIPQpX/IlQfXPlyjIlDDLMhdQcLwJf4W9Sq6zsXG6Ei2elxLdLOVLrE7q9p2
+	ikE/qfyL+a4NRqIYHIjOKp+wCmTo1ZiO6ZWzhn8KWxlW+6h+YLEVMbufb9Wlm6epAfMZ37hDdTP
+	CQqTqMB1FVYwlsvp5z2VZJXvRzui7qBqaywuhYCsCtMLk4oDwdvjPMgBR7QO/kezhKiRA1uwtmf
+	0RdIgeCeXAELZl7/RZDPlXcGA==
+X-Gm-Gg: AYBFou3bBlvYRkD7dq57uEvWcdps2ymPBPHnIHcF9iEUD02oLJzmcp7iVGB7m3gQttx
+	MFicWrmgZkRsIwwgRdLjQeDI2KDRjfGPmDqKDJ5TZ1TQ7o3A15P0iridEEEYzIhYC5ztr85nSDY
+	uRbcx7/qdlo4oca0f7a23vsd6LgfETR7yCHKM5TAiRxppym/mw5wQsszeEgqduZK5vCI4dW6Q4J
+	BhD5pE3/ylgxDuwUJr/DmEDXTnz5B8QpLm7lMc2FQ2Z0lSMWeeNKGvKMxizJglPlX/Qpm7jB7IS
+	MQRdFZYbzwAEEdSFKxVWMVWj2NNPfcPwRsW093142DGLG0kIMiepOfI1ltHjHomWQpK5fLKhAXn
+	477tRfPQDuTog0d3r+FBl2RlM3HgMCZXn0jebE3dNkHfTiOUHWNjRQg0msHQCm4S4gK9eOFoyV3
+	gxG+1cVRVGj3qAHOnDHNiY6ejKPEhIOOQTIvLW8iY=
+X-Received: by 2002:a05:620a:4506:b0:939:fde0:a71b with SMTP id af79cd13be357-94999351ba0mr143242385a.0.1794944805470;
+        Tue, 17 Nov 2026 11:46:45 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-26.dlp.protect.broadcom.com. [144.49.247.26])
+        by smtp-relay.gmail.com with ESMTPS id 6a1803df08f44-92114e505c7sm27466d6.35.2026.11.17.11.46.44
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 17 Nov 2026 11:46:45 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-ej1-f70.google.com with SMTP id a640c23a62f3a-c50713860c0so6250666b.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:46:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1794944803; x=1795549603; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=aFd/RP58uuymd6sBgw7qEUvIDPwjlsp1rmxiXiW1mtY=;
+        b=CrJioLXSrQrzjyCedrcFdZXOQlHTUrIFqi9+BjfX8Z7VPZaPMfbRajtr0NN9SPy3x5
+         fHxPu9u37H07G/qmq6Mlf0d7L4RE+mSsZxssONsmMC2HsB9Blwv2vLl7qANzSdEpnJrS
+         rvrGrGNaFTr7LHCSLh822aPcX9FkB/E3jtsak=
+X-Forwarded-Encrypted: i=1; AL+hErF7/GdoDBuN8DD7Vx8J5Vs+W+bElFfaFzfowxk/w/BtFbx0LyCl7QGcm71OD6glGe3fcAVvavZNljhL7Hs=@vger.kernel.org
+X-Received: by 2002:a17:907:728a:b0:c50:48b8:22bf with SMTP id a640c23a62f3a-c510e4fcb61mr21124866b.36.1794944803150;
+        Tue, 17 Nov 2026 11:46:43 -0800 (PST)
+X-Received: by 2002:a17:907:728a:b0:c50:48b8:22bf with SMTP id a640c23a62f3a-c510e4fcb61mr21123566b.36.1794944802720;
+        Tue, 17 Nov 2026 11:46:42 -0800 (PST)
+Received: from [192.168.178.26] (f215227.upc-f.chello.nl. [80.56.215.227])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c510ca09c82sm16249666b.21.2026.11.17.11.46.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Nov 2026 11:46:42 -0800 (PST)
+Message-ID: <716869b3-adaf-4155-88bf-638952dd358f@broadcom.com>
+Date: Tue, 17 Nov 2026 20:46:42 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,312 +105,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] wifi: brcmfmac: disable TX beamforming on BCM4364
+To: Aditya Garg <aditya.garg@linux.dev>
+Cc: Andre Eikmeyer <dev@deq.rocks>, linux-wireless@vger.kernel.org,
+ brcm80211@lists.linux.dev, brcm80211-dev-list.pdl@broadcom.com,
+ linux-kernel@vger.kernel.org, Yossef Osman <Yossef.Osman@proton.me>
+References: <20261116203719.281605-2-arend.vanspriel@broadcom.com>
+ <2FBC4AA9-16FE-4710-B43D-9004B0B17DFA@linux.dev>
+Content-Language: en-US
+From: Arend van Spriel <arend.vanspriel@broadcom.com>
+In-Reply-To: <2FBC4AA9-16FE-4710-B43D-9004B0B17DFA@linux.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-Replace the XiiSound (040b:0897) playback feature unit workaround from
-commit ba9bccdf711a ("ALSA: usb-audio: Skip broken playback feature unit
-on XiiSound chips") with quirk flags that keep the unit exposed and make
-its hardware volume work.
+On 17/11/2026 18:50, Aditya Garg wrote:
+> 
+> 
+>> On 17 Nov 2026, at 2:07 AM, Arend van Spriel <arend.vanspriel@broadcom.com> wrote:
+>>
+>> ﻿On Wed, 4 Nov 2026 16:16:23 +0100, Andre Eikmeyer <dev@deq.rocks> wrote:
+>>> With "txbf" enabled, the BCM4364 firmware (9.30.514.0.32.5.94, as shipped
+>>> by Apple for the MacBookPro15,1) transmits a single beamformed spatial
+>>> stream (nrate VHT MCS9 NSS1 TXBF) towards a two stream AP. With "txbf"
+>>> cleared it picks two streams (VHT MCS9 NSS2) on its own. The firmware
+>>> enables "txbf" by default, so the driver has to clear it.
+>>>
+>>> [...]
+>>>
+>>> Tested-by: Yossef Osman <Yossef.Osman@proton.me>
+>>> Tested-by: Aditya Garg <aditya.garg@linux.dev>
+>>> Signed-off-by: Andre Eikmeyer <dev@deq.rocks>
+>>
+>> [...]
+>>
+>>> @@ -450,8 +451,12 @@ int brcmf_c_preinit_dcmds(struct brcmf_if *ifp)
+>>>         goto done;
+>>>     }
+>>>
+>>> -    /* Enable tx beamforming, errors can be ignored (not supported) */
+>>> -    (void)brcmf_fil_iovar_int_set(ifp, "txbf", 1);
+>>> +    /* Enable tx beamforming, errors can be ignored (not supported).
+>>> +     * BCM4364 firmware enables it by default and then transmits a single
+>>> +     * beamformed stream instead of two, halving its uplink throughput.
+>>> +     */
+>>> +    (void)brcmf_fil_iovar_int_set(ifp, "txbf",
+>>> +                      drvr->bus_if->chip != BRCM_CC_4364_CHIP_ID);
+>>> done:
+>>>     return err;
+>>> }
+>>
+>> The chip ID check has the same problem as in the ARP/ND offload patch [1]:
+>> the issue is described as specific to the firmware shipped by Apple
+>> (9.30.514.0.32.5.94), but the quirk applies to every BCM4364. Please
+>> restrict it as suggested there.
+>>
+>> Also, the comment says "Enable tx beamforming" while the code now
+>> conditionally disables it. Please make the code self-explanatory, e.g. a
+>> local variable or an explicit if (chip == BRCM_CC_4364_CHIP_ID) with the
+>> txbf value spelled out, instead of passing a bool expression as the
+>> iovar value.
+>>
+>> Minor: typo "refression" in the commit message, and the subject lacks
+>> the target tree (wireless-next) which wifibot flagged.
+>>
+>> Since this is a throughput quirk (not a fix) I would also like to know
+>> whether TX beamforming is functional at all on the BCM4364 or just
+>> mis-selected by rate control, so the commit message can state the actual
+>> root cause.
+> 
+> Unrelated but Airdrop conversation seems to have been stalled :(.
 
-Wire-level captures (usbmon on Linux, USBPcap on the vendor's own
-Windows 10 stack) show the playback feature unit is functional as a
-hardware volume: per-channel SET_CUR writes apply deterministically and
-independently (a fast pair CN1<-50 + CN2<-100 applies exactly; a lone
-channel write does not disturb its sibling), the master channel gates
-both ears symmetrically, and intermediate values are audible and graded.
-The vendor's Windows driver drives exactly this unit on every slider and
-hardware-button step, writing all three channels with plain 0..100 raw
-values mapped linearly from its slider.
+Indeed unrelated so let me respond to your earlier email that was more 
+on the subject.
 
-The "any volume below the maximum mutes one or both channels" behaviour
-that motivated the skip is host-side, not firmware:
-
-  * the unit advertises a bogus 0.00..0.39 dB range, under which every
-    user-space volume at or below 0 dB - the whole normal PipeWire
-    range, 100% included - resolves to the raw minimum, which silences
-    the channel;
-  * the stereo volume control's GET_CUR returns a constant value, so
-    the sanity check classifies it as broken and init_cur_mix_raw()
-    writes the minimum to both channels at every mixer build;
-  * user space applies one logical volume change as fragmented writes
-    (one per channel, the first carrying the stale sibling value), and
-    these devices silently drop control writes in the first seconds
-    after enumeration, so a channel can be left behind at a stale
-    value that no later write corrects.
-
-Enable three quirk flags for 040b:0897.  The new
-QUIRK_FLAG_MIXER_INIT_VOLUME_MAX makes init_cur_mix_raw() initialize the
-channels of volume controls to the maximum instead of the minimum: it
-runs exactly where the broken-GET minimum writes would, supersedes them
-(also when range discovery is deferred with -EAGAIN and initialization
-repeats later from mixer_ctl_feature_info()), and touches nothing else -
-controls whose GET_CUR works are read, not written, and switches keep
-the safe unmuted minimum.  Mixer unit controls are excluded via
-num_outputs: their control selector field stores a 1-based input pin
-number, which aliases UAC_FU_VOLUME and would max-initialize an input
-pin >= 2 on a flagged device.  Processing-unit selector controls
-sharing the UAC_FU_VOLUME value (0x02: UAC_3D_SPACE,
-UAC_REVERB_LEVEL, UAC_CHORUS_LEVEL, UAC_DCR_RATE,
-UAC_DP_MODE_SELECT) are not excluded by the guard; none exist on
-040b:0897, and a device combining the flag with such a control would
-initialize it to its maximum on a failing GET.  The existing
-MIXER_PLAYBACK_LINEAR_VOL and MIXER_CAPTURE_LINEAR_VOL replace the
-bogus dB scale with a linear one,
-so user-space volumes map onto the full raw range.  The controls stay
-writable; hardware volume then behaves like on Windows.
-
-The create-time pin writes of the previous quirk sit inside that
-post-enumeration write-loss window and are dropped along with every
-other early write; the device comes up audible after a plug only
-because it powers up with every volume channel at the maximum, which
-the explicit init reproduces if a write ever does land.  No separate
-resume re-pin is needed: with the controls created, the standard mixer
-resume path restores the cached values.
-
-Testing: the same flag combination ran on the device as a locally
-built DKMS module against a 7.2 tree through a wire-level verification
-campaign: the initialization writes were observed on the bus at every
-mixer build, the full raw range became reachable from PipeWire (route
-volumes 0/13/100 for 0.0/0.5/1.00), and mute and balance track.  This
-exact tree also ran on the device as a DKMS module against 7.3.4: the
-broken-GET stereo control is initialized to the maximum in place of
-the minimum, the other controls are read but not written, and the
-linear raw mapping holds (route volume restores landed as 13/100/35
-on the bus for 0.5/1.0/0.7).
-
-Closes: https://github.com/alsa-project/alsa-ucm-conf/issues/760
-Closes: https://github.com/linuxmint/linuxmint/issues/822
-Link: https://bugzilla.kernel.org/show_bug.cgi?id=221401
-Link: https://lore.kernel.org/linux-sound/20261117180728.117915-2-a@pavel.bz
-Assisted-by: LLM
-Signed-off-by: Pavel Artemev <a@pavel.bz>
----
- Documentation/sound/alsa-configuration.rst |  4 ++
- sound/usb/mixer.c                          | 13 ++++-
- sound/usb/mixer_maps.c                     | 19 -------
- sound/usb/mixer_quirks.c                   | 59 ----------------------
- sound/usb/quirks.c                         |  5 ++
- sound/usb/usbaudio.h                       | 11 ++++
- 6 files changed, 32 insertions(+), 79 deletions(-)
-
-diff --git a/Documentation/sound/alsa-configuration.rst b/Documentation/sound/alsa-configuration.rst
-index 689eccf6a..ea7f5aa31 100644
---- a/Documentation/sound/alsa-configuration.rst
-+++ b/Documentation/sound/alsa-configuration.rst
-@@ -2413,6 +2413,10 @@ quirk_flags
-           versa (same for 88200 <-> 96000 and 176400 <-> 192000).  The driver
-           sends the partner rate in SET_CUR so the device ends up running at the
-           requested one.
-+        * bit 34: ``mixer_init_volume_max``
-+          Initialize the volume control channels to the maximum value instead
-+          of the minimum at mixer creation.  For devices that silence their
-+          audio path while a volume channel sits at the minimum value.
- 
- This module supports multiple devices, autoprobe and hotplugging.
- 
-diff --git a/sound/usb/mixer.c b/sound/usb/mixer.c
-index 95209ec00..ad96371ad 100644
---- a/sound/usb/mixer.c
-+++ b/sound/usb/mixer.c
-@@ -1310,7 +1310,18 @@ static void init_cur_mix_raw(struct usb_mixer_elem_info *cval, int ch, int idx)
- 			       "%d:%d: failed to get current value for ch %d (%d)\n",
- 			       cval->head.id, mixer_ctrl_intf(cval->head.mixer),
- 			       ch, err);
--	snd_usb_set_cur_mix_value(cval, ch, idx, cval->min);
-+	/*
-+	 * QUIRK_FLAG_MIXER_INIT_VOLUME_MAX: some devices silence an audio
-+	 * path while a volume channel sits at the minimum value, so
-+	 * initialize those to the maximum instead.  Only volume controls:
-+	 * for switches the minimum is the safe (unmuted) value.
-+	 */
-+	if ((cval->head.mixer->chip->quirk_flags &
-+	     QUIRK_FLAG_MIXER_INIT_VOLUME_MAX) &&
-+	    cval->control == UAC_FU_VOLUME && !cval->num_outputs)
-+		snd_usb_set_cur_mix_value(cval, ch, idx, cval->max);
-+	else
-+		snd_usb_set_cur_mix_value(cval, ch, idx, cval->min);
- }
- 
- /*
-diff --git a/sound/usb/mixer_maps.c b/sound/usb/mixer_maps.c
-index 9218ca631..98b414621 100644
---- a/sound/usb/mixer_maps.c
-+++ b/sound/usb/mixer_maps.c
-@@ -374,20 +374,6 @@ static const struct usbmix_name_map dell_alc4020_map[] = {
- 	{ 0 }
- };
- 
--/*
-- * Weltrend XiiSound chips (040b:0897, e.g. Redragon H878):
-- * the playback feature unit is broken; its volume controls act like
-- * mute switches below the maximum value and the channel mapping is
-- * unreliable, so any hardware volume change mutes one or both
-- * channels.  Skip the unit entirely and let userspace fall back to
-- * software volume; the unit is pinned to maximum/unmuted by the
-- * mixer quirk in mixer_quirks.c.
-- */
--static const struct usbmix_name_map xiisound_map[] = {
--	{ 5, NULL },	/* playback feature unit */
--	{ 0 }
--};
--
- /*
-  * Corsair Virtuoso calls everything "Headset" without this, leading to
-  * applications moving the sidetone control instead of the main one.
-@@ -804,11 +790,6 @@ static const struct usbmix_ctl_map usbmix_ctl_maps[] = {
- 		.id = USB_ID(0x1395, 0x0025),
- 		.map = sennheiser_pc8_map,
- 	},
--	{
--		/* Weltrend XiiSound (Redragon H878) */
--		.id = USB_ID(0x040b, 0x0897),
--		.map = xiisound_map,
--	},
- 	{
- 		/* Microsoft USB Link headset */
- 		.id = USB_ID(0x045e, 0x083c),
-diff --git a/sound/usb/mixer_quirks.c b/sound/usb/mixer_quirks.c
-index 4c7d68311..583971944 100644
---- a/sound/usb/mixer_quirks.c
-+++ b/sound/usb/mixer_quirks.c
-@@ -4603,59 +4603,6 @@ static int snd_audiofuse_controls_create(struct usb_mixer_interface *mixer)
- 	return err;
- }
- 
--/*
-- * Weltrend XiiSound chips (040b:0897, e.g. Redragon H878):
-- * the playback feature unit (id 5) is broken; its volume controls act like
-- * mute switches below the maximum value and the channel mapping is
-- * unreliable, so the unit is hidden from userspace entirely (see the
-- * quirk in mixer_maps.c) and userspace falls back to software volume.
-- * Pin the unit's master and channel volumes to the reported maximum
-- * and unmute them, so the audio path stays fully open.
-- */
--static int snd_xiisound_init_fu_pins(struct usb_mixer_interface *mixer)
--{
--	struct snd_usb_audio *chip = mixer->chip;
--	unsigned char buf[2];
--	int ifnum, ch, err;
--
--	if (mixer->protocol != UAC_VERSION_1)
--		return 0;
--
--	ifnum = snd_usb_ctrl_intf(chip->ctrl_intf);
--
--	/* unit 5 is the playback feature unit on these chips */
--	for (ch = 0; ch <= 2; ch++) {
--		err = snd_usb_ctl_msg(chip->dev, usb_rcvctrlpipe(chip->dev, 0),
--				      UAC_GET_MAX,
--				      USB_DIR_IN | USB_TYPE_CLASS |
--				      USB_RECIP_INTERFACE,
--				      (UAC_FU_VOLUME << 8) | ch,
--				      (5 << 8) | ifnum, buf, 2);
--		if (err < 2)
--			return 0; /* no such unit/channels, nothing to pin */
--
--		err = snd_usb_ctl_msg(chip->dev, usb_sndctrlpipe(chip->dev, 0),
--				      UAC_SET_CUR,
--				      USB_DIR_OUT | USB_TYPE_CLASS |
--				      USB_RECIP_INTERFACE,
--				      (UAC_FU_VOLUME << 8) | ch,
--				      (5 << 8) | ifnum, buf, 2);
--		if (err < 0)
--			return err;
--
--		buf[0] = 0; /* unmute */
--		err = snd_usb_ctl_msg(chip->dev, usb_sndctrlpipe(chip->dev, 0),
--				      UAC_SET_CUR,
--				      USB_DIR_OUT | USB_TYPE_CLASS |
--				      USB_RECIP_INTERFACE,
--				      (UAC_FU_MUTE << 8) | ch,
--				      (5 << 8) | ifnum, buf, 1);
--		if (err < 0)
--			return err;
--	}
--	return 0;
--}
--
- int snd_usb_mixer_apply_create_quirk(struct usb_mixer_interface *mixer)
- {
- 	int err = 0;
-@@ -4669,9 +4616,6 @@ int snd_usb_mixer_apply_create_quirk(struct usb_mixer_interface *mixer)
- 	case USB_ID(0x0644, 0x8047):
- 		err = snd_us16x08_controls_create(mixer);
- 		break;
--	case USB_ID(0x040b, 0x0897):
--		err = snd_xiisound_init_fu_pins(mixer);
--		break;
- 	case USB_ID(0x041e, 0x3020):
- 	case USB_ID(0x041e, 0x3040):
- 	case USB_ID(0x041e, 0x3042):
-@@ -4863,9 +4807,6 @@ void snd_usb_mixer_resume_quirk(struct usb_mixer_interface *mixer)
- 	case USB_ID(0x0bda, 0x4014): /* Dell WD15 dock */
- 		dell_dock_mixer_init(mixer);
- 		break;
--	case USB_ID(0x040b, 0x0897): /* Weltrend XiiSound (Redragon H878) */
--		snd_xiisound_init_fu_pins(mixer);
--		break;
- 	}
- }
- 
-diff --git a/sound/usb/quirks.c b/sound/usb/quirks.c
-index a4eb0d0cd..6ef6d4410 100644
---- a/sound/usb/quirks.c
-+++ b/sound/usb/quirks.c
-@@ -2502,6 +2502,10 @@ static const struct usb_audio_quirk_flags_table quirk_flags_table[] = {
- 		   QUIRK_FLAG_FIXED_RATE),
- 	DEVICE_FLG(0x03f0, 0x654a, /* HP 320 FHD Webcam */
- 		   QUIRK_FLAG_GET_SAMPLE_RATE | QUIRK_FLAG_MIC_RES_16),
-+	DEVICE_FLG(0x040b, 0x0897, /* XiiSound/Weltrend Temple and rebranded headsets */
-+		   QUIRK_FLAG_MIXER_INIT_VOLUME_MAX |
-+		   QUIRK_FLAG_MIXER_PLAYBACK_LINEAR_VOL |
-+		   QUIRK_FLAG_MIXER_CAPTURE_LINEAR_VOL),
- 	DEVICE_FLG(0x041e, 0x3000, /* Creative SB Extigy */
- 		   QUIRK_FLAG_IGNORE_CTL_ERROR),
- 	DEVICE_FLG(0x041e, 0x324d, /* Creative Sound Blaster Play! 3 */
-@@ -2979,6 +2983,7 @@ static const char *const snd_usb_audio_quirk_flag_names[] = {
- 	QUIRK_STRING_ENTRY(PLAYBACK_URB_FIXUP),
- 	QUIRK_STRING_ENTRY(ALWAYS_SET_RATE),
- 	QUIRK_STRING_ENTRY(SWAP_RATES),
-+	QUIRK_STRING_ENTRY(MIXER_INIT_VOLUME_MAX),
- 	NULL
- };
- 
-diff --git a/sound/usb/usbaudio.h b/sound/usb/usbaudio.h
-index c6d59218d..61794fdc4 100644
---- a/sound/usb/usbaudio.h
-+++ b/sound/usb/usbaudio.h
-@@ -262,6 +262,15 @@ extern bool snd_usb_skip_validation;
-  *  The device applies a requested sample rate to the other base-rate family
-  *  (44100 <-> 48000, 88200 <-> 96000, 176400 <-> 192000).  Send the partner
-  *  rate in SET_CUR so that the device runs at the requested rate.
-+ * QUIRK_FLAG_MIXER_INIT_VOLUME_MAX
-+ *  A Feature Unit volume channel left at the minimum value silences its
-+ *  audio path on some devices; user space that does not write all
-+ *  channels of such a control would leave the device silent.  Where
-+ *  GET_CUR is broken the kernel additionally discards the test values
-+ *  and initializes the channels to the minimum at every mixer build.
-+ *  Initialize the volume control channels to the maximum instead of
-+ *  the minimum; the controls remain writable and the hardware volume
-+ *  operates normally afterwards.
-  */
- 
- enum {
-@@ -299,6 +308,7 @@ enum {
- 	QUIRK_TYPE_PLAYBACK_URB_FIXUP		= 31,
- 	QUIRK_TYPE_ALWAYS_SET_RATE		= 32,
- 	QUIRK_TYPE_SWAP_RATES			= 33,
-+	QUIRK_TYPE_MIXER_INIT_VOLUME_MAX	= 34,
- /* Please also edit snd_usb_audio_quirk_flag_names and alsa-configuration.rst */
- };
- 
-@@ -338,5 +348,6 @@ enum {
- #define QUIRK_FLAG_PLAYBACK_URB_FIXUP		QUIRK_FLAG(PLAYBACK_URB_FIXUP)
- #define QUIRK_FLAG_ALWAYS_SET_RATE		QUIRK_FLAG(ALWAYS_SET_RATE)
- #define QUIRK_FLAG_SWAP_RATES			QUIRK_FLAG(SWAP_RATES)
-+#define QUIRK_FLAG_MIXER_INIT_VOLUME_MAX	QUIRK_FLAG(MIXER_INIT_VOLUME_MAX)
- 
- #endif /* __USBAUDIO_H */
--- 
-2.56.1
-
+Regards,
+Arend
