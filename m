@@ -1,50 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.89.141.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794940306;
-	b=5EgqkLzuCnS0drn+PL2CezjoUaRdrkCre5lHJU1gkw0NHUHQHllGfTrGpNLgYXSw2hes
-	 pfYXv8npOSjWNf2+UkqMl05Kle2ACn31FRi8r/UfdtOWXp9o8ohw9HOcU4fmXpBmD36CT
-	 +ce1QrFS4AXoN9o5I9aEdJKmhnqj2ZG6CSN3oQeYCXNeFV2aIdgcH8gSF6Ity1Swk3HZl
-	 el8FVGsHtj7Ow/ll+iDmQGERhpLzy8qPXfPv+TBNWbv2codvPpXtG/nFKKAV5PYXmc5kI
-	 9+yLVW1jQI8tW8W9rQHwyyUhi7F+SmU3mpbuAKSL/SPyPHBleRZez/fupsOAU3NoAGg==
+	t=1794940308;
+	b=sRzOi9MCHueqMjYvnJ50wjfd3NUFtiH0gRyTBi02uByy09fmz2YE4NvEZ0+ZJHj38itV
+	 4svhvdV39xn5quGkko5mdRAkdfH25lClNmtEaLLQ0K8cZ6+b1FVmoqSwGttmzL4Ypx4rO
+	 iwsoqRcIjTV3abgGB8u3MZsIwECMsJYan79A6uYejY17gHAfyP5/hcETvJnAzuSmTWRMf
+	 Nm/7FL8vd9yl+ByRG4kbodju6wrJ5ac5hzLoS0bxN+uYUZvaEE/7u2WPapsLNSBOnxxT6
+	 diYFE6GiuJZ2uESyXwTX5YCnRwK2URF4+U5vzbd+pZfE3h83ufpe2NV+Wm6lPz1uiGA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794940306;
-	h=Received:DKIM-Signature:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=MF6sJUYsF2XNf12BApOVZGbhsY2g7WBXuedDspoOUkQ=;
-	b=kGMYtyRXLqTCwx03k/D3SBaKu4uHcrhTlXLxRZuWyUaj++feNbIJQTv46SzsUvgpNLnk
-	 ceh9WiR9dgxFV7G2OSBxvTMt6eO/WJ14sKFHbJkBViKjb+L3PZV6pqhCiwBtcvP25wLSB
-	 leSPpIjOH90lB1s3+2Gr1WU6N71bPmGkrVPTRLd+K/3HjNaQDhJ2KH5rio7IIiTsfcs0j
-	 Q203hRPoXIdXJwcnzwXag3IvqtVZr1duIdDzLXjUXOSSA5Zr/M0H+eC83tEW8l873dwDg
-	 +s2dv55osu45VePejBSi/fE8nd39y/8GdpnNDyzDzCPCZlvkOk+IT2dBqZ7brv+42eQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794940308;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:Sender;
+	bh=tMKIL4Tw6+P8nxVMgy3ZxNBt370rRgm0QxvRZlxxhD0=;
+	b=EClkbosfKAeJf6HCAeKJoO17u1/4G2wsuTm2saFNIgbt9QwRPG30uFhEMFmcDubN+TgA
+	 uxFTZmDW8EQjPkHJk4ZfsrzkLhk6wApLINr0kTJxe2dBockrPONqsJy11dnNmYPR057MA
+	 rumi48mj2G5fIWRHdCrqjea5FlJs8buaQXIcIjt7QThVSF5zmC4y+NLbKmApYKVQoLr71
+	 r3AGzNbXKA6N2lpz7V1qPnqLC0dDpPiKhNNkH2Nlf+zlgS8msCCa6Vloz+Vme4q6qEdf+
+	 CLmVw5C2b3qd99KioHX+na6IrcN52Ew/coMz6OtMKATryctc7YQ/AS/Dxv5Y98e0ZyQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K7Iq8gA5;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=zeniv.linux.org.uk;
+	spf=none smtp.mailfrom=ftp.linux.org.uk;
+	dkim=pass header.d=linux.org.uk header.i=@linux.org.uk header.a=rsa-sha256 header.s=zeniv-20220401 header.b=TDuWQEHo;
+	arc=none smtp.remote-ip=62.89.141.173
+Received: from zeniv.linux.org.uk (zeniv.linux.org.uk [62.89.141.173])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31F24606A338;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F302606A336;
 	Tue, 17 Nov 2026 18:31:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F302606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=zeniv.linux.org.uk
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=ftp.linux.org.uk
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K7Iq8gA5
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D07881F000C8;
-	Tue, 17 Nov 2026 18:31:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794940306;
-	bh=MF6sJUYsF2XNf12BApOVZGbhsY2g7WBXuedDspoOUkQ=;
-	h=From:Subject:Date:To:Cc;
-	b=K7Iq8gA5YcR1AChHEEa+rSjHfNrQ0i3b83shOSO1uvX4Eq2j6Rp0mY//V81RcJwMn
-	 nXy/0zTo9ZrBFWx225OJLv3Qu114JHzW4k6/yuVFAYgqJLZ/7PbyVRCE+o/ohtPI6Z
-	 GI71KOnULKeLlar6gzhz2C491/4Vpe3IlQqVBQqKEvnWymr5Ghnbc8a7OqZqd1jda1
-	 r/160s/TwY7IWxVxnlOdC0rVFm5H8NDQp4kTVUMHBm1ge6UHPInxvxKK6Q8w2QBtrw
-	 dmEUVhUBo0LA85UvMMubGim4uWgoE6dNcaNKDtwhBvsWNLocsllzBe+LBybeAvmFhP
-	 c6zePBpd+gQxg==
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Subject: [PATCH v2 0/4] mm: fix races between huge and non-huge faults in
- PFN mappings
-Date: Tue, 17 Nov 2026 18:31:31 +0000
-Message-Id: <20261117-huge-pfnmap-fault-races-v2-0-276007e73bcb@kernel.org>
+	dkim=pass (2048-bit key) header.d=linux.org.uk header.i=@linux.org.uk header.a=rsa-sha256 header.s=zeniv-20220401 header.b=TDuWQEHo
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=linux.org.uk; s=zeniv-20220401; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=tMKIL4Tw6+P8nxVMgy3ZxNBt370rRgm0QxvRZlxxhD0=; b=TDuWQEHovmiau7VCBkXgVGRkK3
+	qNI48Oggv+Q9HlViFP5Rd1pkrId3BRYTeyBJkobYwVJZE7XOYZzoqC602DkJXl7YWtyNs8fQ4bQ1L
+	M6cPQgYfkx0upaukkTT3E34ETIPOyT4fFspAnBM5n9bcLPULu0wWsA834gK6NUjfnXpbq3TAM82xS
+	uV7aZps0RQ5OTIfQqNdoCCC7QUluccfpo2tdFmSFByN7VFcTvuonxWf4PQHfxLS9lo3t3ghaFn1DA
+	JcC+4RHlrKT/uuMSV2ANjxnXiR7J0vGVyq2V03OYSPpBUGVE9s0IewlWxIKgY9gMLtnLB721HnM7Q
+	+Sab7DYQ==;
+Received: from viro by zeniv.linux.org.uk with local (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xTNxL-00000002J6d-49Dd;
+	Tue, 17 Nov 2026 18:31:00 +0000
+Date: Tue, 17 Nov 2026 18:30:59 +0000
+From: Al Viro <viro@zeniv.linux.org.uk>
+To: Cai Xinchen <caixinchen1@huawei.com>
+Cc: mic@digikod.net, gnoack@google.com, paul@paul-moore.com,
+	brauner@kernel.org, jack@suse.cz, amir73il@gmail.com,
+	andrii@kernel.org, apparmor@lists.ubuntu.com, ast@kernel.org,
+	axboe@kernel.dk, bpf@vger.kernel.org, casey@schaufler-ca.com,
+	cel@kernel.org, cem@kernel.org, chenxiaosong@chenxiaosong.com,
+	code@tyhicks.com, corbet@lwn.net, Dai.Ngo@oracle.com,
+	dakr@kernel.org, daniel@iogearbox.net, dhowells@redhat.com,
+	dlemoal@kernel.org, dmitry.kasatkin@gmail.com,
+	driver-core@lists.linux.dev, dsterba@suse.com,
+	ecryptfs@vger.kernel.org, eddyz87@gmail.com, emil@etsalapatis.com,
+	eric.snowberg@oracle.com, exfat@lists.linux.dev,
+	georgia.garcia@canonical.com, gregkh@linuxfoundation.org,
+	hch@lst.de, hirofumi@mail.parknet.co.jp, hyc.lee@gmail.com,
+	ihor.solodrai@linux.dev, jlayton@kernel.org, jmorris@namei.org,
+	johan@kernel.org, john.fastabend@gmail.com,
+	john.johansen@canonical.com, jolsa@kernel.org, kpsingh@kernel.org,
+	linkinjeon@kernel.org, linux-api@vger.kernel.org,
+	linux-block@vger.kernel.org, linux-btrfs@vger.kernel.org,
+	linux-cifs@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org, linux-integrity@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-nfs@vger.kernel.org, linux-security-module@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, linux-unionfs@vger.kernel.org,
+	linux-xfs@vger.kernel.org, liubaolin12138@163.com,
+	martin.lau@linux.dev, mason@kernel.org,
+	mathieu.desnoyers@efficios.com, matt@bobrowski.net,
+	memxor@gmail.com, mhiramat@kernel.org, miklos@szeredi.hu,
+	neil@brown.name, netfs@lists.linux.dev, ntfs@lists.linux.dev,
+	okorniev@redhat.com, omosnacek@gmail.com,
+	penguin-kernel@i-love.sakura.ne.jp, rafael@kernel.org,
+	rdunlap@infradead.org, roberto.sassu@huawei.com,
+	rostedt@goodmis.org, selinux@vger.kernel.org,
+	senozhatsky@chromium.org, serge@hallyn.com, sj1557.seo@samsung.com,
+	skhan@linuxfoundation.org, song@kernel.org,
+	stephen.smalley.work@gmail.com, takedakn@nttdata.co.jp,
+	tom@talpey.com, yonghong.song@linux.dev, yuezhang.mo@sony.com,
+	zohar@linux.ibm.com, utilityemal77@gmail.com, lujialin4@huawei.com
+Subject: Re: [PATCH -next -v4 01/17] fs: pass struct path to notify_change()
+Message-ID: <20261117183059.GP989762@ZenIV>
+References: <20261117150542.1169451-1-caixinchen1@huawei.com>
+ <20261117150542.1169451-2-caixinchen1@huawei.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,127 +99,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WNQQ6DIBREr2L+ujSCQpOueg/jguJHaS2aj5o2h
- rsX7AG6fJOZeTsEJIcBrsUOhJsLbvIJxKkAM2jfI3NdYhClUJxzyYY1ZbP1Lz0zq9dxYaQNBia
- rGpVQHUpjIK1nQuvex3PT/jis9weaJd/lxuDCMtHnUG889/5bNs7KpLqoUqq6ssrenkgex/NEP
- bQxxi8B5Xu20QAAAA==
-X-Change-ID: 20261115-huge-pfnmap-fault-races-534e626de5cc
-To: Andrew Morton <akpm@linux-foundation.org>, 
- David Hildenbrand <david@kernel.org>, 
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
- Michal Hocko <mhocko@suse.com>, Alex Williamson <alex@shazbot.org>, 
- Peter Xu <peterx@redhat.com>, Zi Yan <ziy@nvidia.com>, 
- Baolin Wang <baolin.wang@linux.alibaba.com>, 
- Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, 
- Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
- Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
- Kiryl Shutsemau <kas@kernel.org>, Wei Liu <wei.liu@kernel.org>, 
- Roman Kisel <romank@linux.microsoft.com>, 
- Saurabh Sengar <ssengar@linux.microsoft.com>, 
- Naman Jain <namjain@linux.microsoft.com>, 
- Michael Kelley <mhklinux@outlook.com>
-Cc: ljs@kernel.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, Eliav Farber <farbere@amazon.com>, 
- "Jose A. Perez de Azpillaga" <azpijr@gmail.com>, 
- "Gregory Price (Meta)" <gourry@gourry.net>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3913; i=ljs@kernel.org;
- h=from:subject:message-id; bh=00OYcEgp48TVHPBBwzIuZPpKjP+lTWun/5wvtt7xAnY=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLL+zG1jWLbC2FfasYZLbtX/ALfsiUrmuy+HSRT+fr/9b
- W1457a3HaUsDGJcDLJiiizPv4jvDxIJm9d5wd8NZg4rE9gQLk4BmEj4Joa/kqEf1TTV2Xpk5L3/
- Nr/Xqt/w9PxCNV6Ow6a/BFkPZ8vHMTK05ViFeHk8klJey3jxiI+Z2VLn6WtEJl9wL/76Pjbo3k4
- mAA==
-X-Developer-Key: i=ljs@kernel.org; a=openpgp;
- fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117150542.1169451-2-caixinchen1@huawei.com>
+Sender: Al Viro <viro@ftp.linux.org.uk>
 
-A driver that implements both ->fault and ->huge_fault must anticipate
-concurrent use of both.
+On Tue, Nov 17, 2026 at 11:05:26PM +0800, Cai Xinchen wrote:
 
-This can happen, for example, if a user calls prctl(PR_SET_THP_DISABLE)
-concurrent with faulting, as that only holds the mmap write lock and thus
-does not exclude faulting threads stabilised by VMA lock.
+> +notify_change() and do_truncate() now take a const struct path * instead
+> +of a struct dentry *.  They use path->dentry, so callers that only have a
+> +dentry must provide a struct path.  struct iattr has a new ia_path member,
+> +which notify_change() sets for the duration of the call; it must not be
+> +stored beyond that.  Filesystems that forward a change to another inode
+> +can use notify_change_target() to update the target dentry while keeping
+> +the caller-supplied path in ia_path.
 
-A number of places in the code that implements huge PFN support fail to
-take this into account correctly, which this series aims to address.
+That needs a bit along the lines of "path MUST be consistent - don't combine
+a dentry from one filesystem with mount of another".  All in-kernel callers
+might have appropriate struct mount references on hand, but for out-of-tree
+code that might be not true and we'd better be upfront about the headache
+we are inflicting.
 
-Generally the shape of the issue is that faulting the same empty page table
-entry can result in the ->fault and ->huge_fault handlers racing and the
-loser finding something they didn't expect.
+I'm not sure we really want to provide those mount references, TBH - it does
+add a constraint not just on out-of-tree callers, but upon the future uses
+in the kernel.  If NTFS is the only reason... ugh.
 
-The fault code must tolerate this, but fails to in 3 places:
+> diff --git a/drivers/base/devtmpfs.c b/drivers/base/devtmpfs.c
+> index 11c70888f38b..410906a66ee9 100644
+> --- a/drivers/base/devtmpfs.c
+> +++ b/drivers/base/devtmpfs.c
+> @@ -284,13 +284,14 @@ static int handle_create(const char *nodename, umode_t mode, kuid_t uid,
+>  			dev->devt, NULL);
+>  	if (!err) {
+>  		struct iattr newattrs;
+> +		struct path attr_path = { .mnt = path.mnt, .dentry = dentry };
+>  
+>  		newattrs.ia_mode = mode;
+>  		newattrs.ia_uid = uid;
+>  		newattrs.ia_gid = gid;
+>  		newattrs.ia_valid = ATTR_MODE|ATTR_UID|ATTR_GID;
+>  		inode_lock(d_inode(dentry));
+> -		notify_change(&nop_mnt_idmap, dentry, &newattrs, NULL);
+> +		notify_change(&nop_mnt_idmap, &attr_path, &newattrs, NULL);
 
-1. walk_to_pmd() asserts, without the PMD lock, that the PMD entry is not
-   huge, so a VM_BUG_ON() triggers. [ vfio-pci, nvgrace-gpu ]
+BTW, why not something like
 
-2. insert_pfn() treats a failure to map the PTE table as an allocation
-   failure and reports OOM, causing kernel accesses to the range to
-   spuriously fail with -EFAULT. [ vfio-pci, nvgrace-gpu ]
+		notify_change(&nop_mnt_idmap,
+			      &(struct path){.mnt = path.mnt, .dentry = dentry},
+			      &newattrs, NULL);
+instead of that named local?  Same question for other places like that...
 
-3. insert_pmd() and insert_pud() assume a populated entry is huge and
-   compare its PFN on write fault, warning when that of a page table does
-   not match. [ mshv_vtl, drm_gem_shmem, panthor ]
-
-This was originally reported and fixed by Eliav Farber in [0], this series
-reworks patches 1-3 of that one.
-
-Patch 4 of that series (x86 PAT encoding of huge PFN mappings) is dropped -
-it is unrelated to the above, no in-tree driver is affected by it, and it
-needs a different approach which is better pursued separately with the x86
-maintainers.
-
-All three issues were reproduced on x86-64 under QEMU using vfio-pci in
-no-IOMMU mode on an ivshmem BAR, with 6 threads faulting the same address
-in each PMD or PUD aligned range of the mapping while another toggles
-PR_SET_THP_DISABLE (note that vfio-pci had to be modified to pass the write
-flag to reproduce the third issue).
-
-Without this series the BUG is hit immediately, with only patches 1 and 2
-applied tens of thousands of -EFAULTs are observed within seconds, and with
-patches 1-3 (and the vfio-pci modification) both warnings fire immediately.
-
-With the series applied 30 second runs at each of PMD and PUD size complete
-with none of the above, with or without the vfio-pci modification.
-
-[0]: https://lore.kernel.org/all/20261112051440.16140-1-farbere@amazon.com/
-
----
-v2:
-* Added 1/4 to have walk_to_pmd() return an error code. This is marked for
-  stable as it is a prerequisite of 3/4.
-* Updated 3/4 (was 2/3) to add __get_locked_pte(), which differentiates a
-  failed page table allocation from racing a huge entry, and to use it in
-  both insert_pfn() and insert_page(), as per David.
-* Updated 3/4 (was 2/3) to have walk_to_pmd() return -EFAULT if it
-  encounters a huge PUD entry, as per David.
-* Updated 3/4 (was 2/3) to be authored by me as it is substantially
-  reworked, retaining Eliav as reporter.
-* Updated 4/4 (was 3/3) to use [pmd, pud]_leaf() rather than
-  [pmd, pud]_trans_huge(), as per David.
-* Propagated tags, other than to 3/4 (was 2/3) as changed significantly.
-
-v1:
-https://patch.msgid.link/20261115-huge-pfnmap-fault-races-v1-0-537605643f6f@kernel.org
-
----
-Eliav Farber (1):
-      mm/memory: remove racy huge PMD assertion from walk_to_pmd()
-
-Lorenzo Stoakes (ARM) (3):
-      mm: update walk_to_pmd() to explicitly return an error
-      mm/memory: do not report OOM if insert_pfn() races a huge fault
-      mm/huge_memory: only compare PFNs of huge entries on huge fault insert
-
- mm/huge_memory.c |  8 +++++++
- mm/memory.c      | 68 ++++++++++++++++++++++++++++++++++++++++----------------
- 2 files changed, 57 insertions(+), 19 deletions(-)
----
-base-commit: 5b99c3309de70337f38bd6e6998ab8335c2758e4
-change-id: 20261115-huge-pfnmap-fault-races-534e626de5cc
-
-Cheers,
--- 
-Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> +int notify_change_target(const struct mnt_idmap *idmap,
+> +			 const struct path *path, struct dentry *target,
+> +			 struct iattr *attr,
+> +			 struct delegated_inode *delegated_inode)
+> +{
+> +	if (WARN_ON_ONCE(!target))
+> +		return -EINVAL;
+> +	return do_notify_change(path, idmap, target, attr, delegated_inode);
+> +}
 
