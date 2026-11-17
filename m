@@ -1,89 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.54
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794944326;
-	b=CQnDC19AAiqSOtZu+Zuz52Ms1p79/CHEvwoVb3/FA4atL7VGeHM//aFudISJB7TizGHr
-	 B1WnHYliF+vCR2IevLKyPspyUXOomhP+TE1k3X7I1hozsyCABE9Wql4xyiSFJtNaH66OD
-	 skJX4rIpSF0hi4KA1PhjLvAA89YOFOjlXt382Sejpf01+wLlYDy1l6oqejxaTSwNDcrrg
-	 xCUdSmwIuQiysADwMvrCJQRW9dV9V22f3an6FNIY2LXi/8RIzFYtjuTd2SY6NWHj70GM1
-	 t6zPb+Qsb2A31zNtv79dpxbmZQxy7YtcEY60/N+sK8X3uAQZPzpMFOteEP+nAcKb9VQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794944326;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=MUImTTPP6H69Xlh8bMMdx+YlFGd8gVKneBJhC+vmpSc=;
-	b=QzWOy6CGFulQ3upkCE57LcRS1U8xXarnCo2sL5aXIPBnzztMiFYLkknD/EKnWOThDjKH
-	 2k+z5KitVHgAxQFKg0QvZkrYQ6nL6ZSS7QLAAZ+I3prIwxv1b7SAxzV1kmU93Qki4LBas
-	 WEFc1w0cw1BubbaV07CMPf40ZQfyz7PQ8LM4XX9r6Tmr/UBhMYW82ubHggfdgJo2bPvrD
-	 4FZ4LdNOejSi0+4Hp0ndG4Pc5hthMPEVk0ZrsD4Mbeta5BGaJ8VbhE7hFH01/NrEmw3UT
-	 Ueu0xqPtLR3x9E+wgg7Q4dJfMpch1Lf2zoEazHv7wPHu7vsFQ6e4Mt6G8srx+pMMUuQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZPl6BZfq;
-	arc=none smtp.remote-ip=209.85.161.54
-Received: from mail-oo1-f54.google.com (mail-oo1-f54.google.com [209.85.161.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.49
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794944329;
+	b=Izt+b+pftciVdXB8A1px1LedsLnqJlLx1YIoyQ9faQzD31erCybCXBzsI/02He2neBE1
+	 BE2HeJcQrtaYEGTBfCkPszsBQGTzq2d1IrAvRtE9KND+LEVDTBvMWcf46vKXsj9Woxvnr
+	 +i7+52VXD9b1HF809TBjz0FxwNc61N6hOh+FGgXLxz+Bb07Rt+9m8HisE26GoTOMUc9pe
+	 ky9tsWdrDGS6Wll+2ep0xBq4H8vVJ1soEGo0D19mWA6ILAbtaRNYzbnJs+pAbU976VbFi
+	 r/XkAdE/1EM9330n1DRWLr8bHP8yMVuCSzsrdqRhWOpw6YqpT9a9BG9/vBXiH0UUO1g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794944329;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=XUHGCjUuuWAd31zJ0SXd2PKRfMGyoMnH/QJzCJPkpQo=;
+	b=3Rh6QSLfvhkzSXXXp5yw8rPwxHGPNaWaBM2WB2sNFysejpWuGqLFw+ZjGc4HwGRyUvKD
+	 di5FRZz7gLy79sdUWQCRUl+rnV9ps7rcxUpXMuqcpxieN14REcuDkALR61RKueCZPmrAp
+	 Uz1mKQIxgVWph01Ui7T4sRKEvr0YY8ZcASEykWPk4Wacpev6DgvwAgbo2QKn2XtHxAqV4
+	 bMdOJdsVyoCpfz3/FLjNof5UIhzngKC6uNGUBNJ6Es5Yd/fMp2sWUVT0GDHj7p9/ka2bA
+	 dFF151npA/07XxTtEJnwWvhxM6L0ak4hWu62MmL85w+MZbexv3HftAxMk+Er3O/COgg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=ph8amRDB;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.49
+Received: from AM0PR83CU005.outbound.protection.outlook.com (mail-westeuropeazon11010049.outbound.protection.outlook.com [52.101.69.49])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A17960A2608
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:38:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4A17960A2608
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 669BA606A888;
+	Tue, 17 Nov 2026 19:38:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 669BA606A888
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZPl6BZfq
-Received: by mail-oo1-f54.google.com with SMTP id 006d021491bc7-70059e4dab6so119314eaf.3
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:38:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794944325; x=1795549125; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=MUImTTPP6H69Xlh8bMMdx+YlFGd8gVKneBJhC+vmpSc=;
-        b=ZPl6BZfqm10BD6vhr1ndcU/U0e1Pt3Hts1W927q7DVBnyFL1D01+YNc5SNVOu4PQyY
-         s0xcQnYU6Skv2IjpEp6lyhQ0xBhT3St80maQmkaWlqGicMYERd9oiHOpTisS89vaAd6k
-         l64WzQcecAZfLz5rQslPMFuYJ5LQjdB9eUnRtQW5ccxB9LcN+DbB73KXZXYEylqfzkEj
-         64NAqgKhSTCi7KM3ZS5p0DjMd8OOunqZT3uYLrl5Jq0Q7kppg97C+RjgttafJ3YECfDX
-         X/B0Asdi9UpmcBqutQVt9F0D0Nwvj4B5zQWwgLAV92Vjwp8z2AdSlk10ThR0W2vC2hE/
-         8Blg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794944325; x=1795549125;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=MUImTTPP6H69Xlh8bMMdx+YlFGd8gVKneBJhC+vmpSc=;
-        b=vEnSM5XxgOLCXKngwUk5uOeBeAgo8N0M5M6emCSAX3YMNTmxRGHKdQ0N8JFUJq0Zvi
-         evM5hQGNbpVwZIR9Cn/sFIKTN2C3cxtJdyMs0O9J9B48/BmhQsXFO3Sbkyv+zWDt4ws2
-         amDNDGcc5TdtUOZI3eDSCp8vcdXlMEAThNq6u9EKVmFFvZ6UDCa1XENUfUrH9lBQvxu1
-         tei1iCfec20cJS2YwaACos/jL0OiV0qRyOzgDYhpq6gM/e/LU3eKjIbDzdvFffQ9f16V
-         6n0LcKTaIaSKzel4DLcOt1tcGnVM+gg1ylc8o8h+Q4YEN2j8aGFEJ4PgIrxp3SwZi8yN
-         kDRw==
-X-Forwarded-Encrypted: i=1; AL+hErHoDxA1q76yck5ezZUHzUEQIQFxT5DjlB3BrqjgUVUsujcQoE31DEZt9AKP9oU/dS4hiE8h+vsNMlhi7Bg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+DwOZBtR1I4RFn9L+16JQzs/yKs/rtbjV3zhktH7xXf7qMVbt5
-	rR9xj0S1je/7bPE+K6g77WtXWde2VsueXNC1OQPgZa7h8S0y0UZbsF+m
-X-Gm-Gg: AYBFou2VFqtP+9JD8c6pawspTHSSMpb5medGB93g++d8tQlJiAJtQLBx1r7wuih1M/b
-	TYnY5V6fsWLRfKjnwLA0jcP/oy1Y/HVz50K36Jnjax2Jn8sU8v1DeACvWQlRfH0mbZIBnDYXfjY
-	g5CE2Z4xbNKTTq9GX8m1PSyXm6a8y8jM57K//A1lQ99B4q6ycKjl/Q8bGaYzaC69sOqLc8WeOZW
-	kzVpgWOoQGhounxSPg2dXYQ6xc/WYu7hmIP/RSIPQMVA7+qi/YJBf2a/WXcp+nFvsuS92rMoNih
-	g9XktBWPIbr2mz7c5pDvaEwoBwnUZXbgfTaCbK1FB23BIXOegjgt00V+6SpxraIZDRzgeeHVFBc
-	bVXhT4Nx9JJNco3XKAP72GKBU93wogEbLi3dBLHDnWQxlP7M46Wu6R4P4U/QYf7SfuHcW5GbaLV
-	6rVdI73gTb6j2tensgltymWdQ5pN4x0Lc9iJV8DHgRETmH9pOYpPd1teSx0QKtCHbUGVk3HIF2j
-	QBgGFhAaohveilouJACNpSy+aAE41pXkzsZKK+5v0qxmjxOxU0kW68dBZTzPjGdCJGWvygU6ub3
-	9hH2XVarHZK8/Ri0hFrtxE7YKq3W50CNyUmtLqSh0wbsst7PImwiuYvBBth7SmAXOzhDjSs3Lng
-	3aD9vpIqhRwxnwEDZmf7m2RLM665hf8A4H+Jd1ERngKNy4aWB+XgmbxI6OgJEWD8DgmxKuxWaGU
-	ahZUMTDb7TOmkprcHkuGHpjbq1BTipNYz34KZzGpkqXUGdwD1pXjw=
-X-Received: by 2002:a05:6820:a298:20b0:71a:f794:49c7 with SMTP id 006d021491bc7-71b185bdbcfmr221200eaf.66.1794944325182;
-        Tue, 17 Nov 2026 11:38:45 -0800 (PST)
-Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b192272ffsm146281eaf.2.2026.11.17.11.38.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 11:38:42 -0800 (PST)
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Tue, 17 Nov 2026 12:38:15 -0700
-Subject: [PATCH 08/11] nvmem: disconnect cells before removing their layout
+	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=ph8amRDB
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=M1KzzwImzQyapcD7v8szETnWNfW2XiOzstF0UqQImi5bKZicziDcs+Pbz58c0N95NjAAuf8DEh9ucIB/FUCV5OSWwW4WwtsyWohKwu8HuVYQXR8AQmWDtQsuXCDV+Tamx6rG2IeZrPnhmpyiExysqqmN5OwmCuAVxFABc9Yq2WskO02WePPdMzVQKbTvpL1dIickcZ434cb9T1mbXzDIvwm8RrLkRNGOgomTQxC7QBcks3Dr00ZX/bshVQ4nYsh+ncFdB+sPiqMwByAXrvrxmICUjVh/SqMCVCKySTPn+3Rz0yOZmUuwrEiKTzAAho4VQw8VzmcwDiDDIq4xBy898g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XUHGCjUuuWAd31zJ0SXd2PKRfMGyoMnH/QJzCJPkpQo=;
+ b=m5DSbJMYYo3VSE8BUnCljg6yn7jE8WbylMqzdRjTvaL0fvfy+HyTfi0H63Lr79kubYuKQ+pf+zhQffayuFpTiDRodKkmSUwRLKNO0uc/VOcWrr+jZnpznueWIir0Hbl5/hkDTX9rWm4zVGMJ+INfuN0+z5couPQS8jVMkHCtwnitxGDo718fye7LgJGsiU9oZ9fniqCOllFgfW8kgYUM8uAcOI5uNQVwmRhd4gndGQAxUz2YaJ+dqD9VcbofQ9LKwlXy68S7oluTp+nCAoOWjPSw0yGG78/lQuR8QO8NtFK81qjD9xYcVi2ua8QdjBz3r7Z/e1v+fepWiekV5D7kag==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XUHGCjUuuWAd31zJ0SXd2PKRfMGyoMnH/QJzCJPkpQo=;
+ b=ph8amRDBhbBwpaBaXyZO0D8aKWtXEvRpBUXKwiK9ox0oAu6nt94Vf6v9YwDRgr8DnR3l5y/v3yaFGdLopxNtsrrkGjETJVdhldQAAkkfUgtJpny+87CHm90sF4+qVoEPFe+xDX3X8cTNnEOIp/9MaM9fZVzCgLDMuHLAr/8aLnv3F26ac/ALz1bk+XKDJvakgTHN2xxdQGUNmhqSnYlu03MINRcDzTfWGQ8jnp8FFjk2cUGLbW27Gkyg0+2d0AQpXFYv0kotfgyVFCKdICh2rMcwS0XpxpU7oQ+Gs8iF6IzwEBOBjxA3VeMF7x4fcFEjBNmfxMK6FZ7bUbet8bNapA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by PAXPR04MB8989.eurprd04.prod.outlook.com (2603:10a6:102:20c::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.9; Tue, 17 Nov
+ 2026 19:38:45 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0615.013; Tue, 17 Nov 2026
+ 19:38:45 +0000
+Date: Tue, 17 Nov 2026 14:38:37 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Lee Jones <lee@kernel.org>
+Cc: Basavaraj Natikar <Basavaraj.Natikar@amd.com>,
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Raju Rangoju <Raju.Rangoju@amd.com>,
+	Philipp Stanner <pstanner@redhat.com>, dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2 02/11] dmaengine: ae4dma: Let the pending work exit
+ before cancelling it
+Message-ID: <avytPWyL3aH-cJhZ@lizhi-Precision-Tower-5810>
+References: <20261117163809.622249-1-lee@kernel.org>
+ <20261117163809.622249-3-lee@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117163809.622249-3-lee@kernel.org>
+X-ClientProxiedBy: PH8PR07CA0022.namprd07.prod.outlook.com
+ (2603:10b6:510:2cd::21) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,239 +100,128 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261117-submit-nvmem-provider-lifetime-v1-v1-8-3cfbd48812b5@gmail.com>
-References: <20261117-submit-nvmem-provider-lifetime-v1-v1-0-3cfbd48812b5@gmail.com>
-In-Reply-To: <20261117-submit-nvmem-provider-lifetime-v1-v1-0-3cfbd48812b5@gmail.com>
-To: Srinivas Kandagatla <srini@kernel.org>, 
- Mathieu Dubois-Briand <mathieu.dubois-briand@bootlin.com>, 
- Michael Walle <mwalle@kernel.org>, 
- =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Miquel Raynal <miquel.raynal@bootlin.com>, 
- Paul Cercueil <paul@crapouillou.net>, linux-kernel@vger.kernel.org, 
- linux-mtd@lists.infradead.org, James Hilliard <james.hilliard1@gmail.com>
-X-Mailer: b4 0.17-dev
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|PAXPR04MB8989:EE_
+X-MS-Office365-Filtering-Correlation-Id: fee63405-9cd4-4004-1f64-08df44e264c7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|19092799006|23010399003|376014|366016|10067099003|18002099003|22082099003|261026121527099003|261028144727099003|261009221227099003|4143699003|261021123027099003|261022105027099003|261009223327099003|261021121427099003|56012099006|261009220027099003|261009223027099003|261102123227099003|261009221727099003|261026140227099003|11063799006;
+X-Microsoft-Antispam-Message-Info:
+	2kbBw/kOxQGCagcOaBqfyW+yg8xNpM8vrpuZWUX2y7cN5E45W+DEST0AIP0Q01c79v29lknUaS8Shm7IzPwyoaRRCeLbR3if3gTwFdnup1di//UO1blgZmdiRNbgHJ07kZOAg6jdndh4IQNCMVKzMC4MoB8ZJwolWxPk3iqX8c7OmIMl7QNeQJ2fKu+y57+yBtEVG6P8eLIWOP6LVGRImDHmFBheV4FCFUJNhjeztgGZzPAJwBbwmpofSyDzIHlV2mdxrBysNOI9lfBwIRgmwEWOg1IlJXLTLO6NUvHqr/NC5C4kvG9FieumLSK5pcPObQYOE2zRktHHWEsfsw5muT0lVyute9rwoUFRm322NkkwLE/NfVGu7UXPDmiOAGnM+AAg2YUyFhB37XUyv3sCB3K9xkwh23gCIDgV5lQViFmx4SFtdNd1g42x0m27VzNaHi7VTcWleYS+jXBvNFxvyVMdC4yTzYLb3HsOu/WdUyHze9pBSUBwcw19VGCVem9BDlPVwzStlpIyfiq37SYDAfhHPTCX+ojZvy1Ga0DdHnk3wqsL/Hx4QX78DsI2oB4TsA1KZm+dXATiH27LreswWwRqG+OXTLqFRQrCebECUWwopBwlBFwM49g37JD2Cp5MtsUmsKQSrVobFSHLGyjXSUq4te+Limk2iFvUatq6yg4=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(23010399003)(376014)(366016)(10067099003)(18002099003)(22082099003)(261026121527099003)(261028144727099003)(261009221227099003)(4143699003)(261021123027099003)(261022105027099003)(261009223327099003)(261021121427099003)(56012099006)(261009220027099003)(261009223027099003)(261102123227099003)(261009221727099003)(261026140227099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?aJ2Tyw/dwtLBciJReqsuthhm5S7m0JLNo62/edtTBTnmPP81uqERH+uMmvea?=
+ =?us-ascii?Q?US/7d6VjeQFmYvdF+WTdxp2NieoR8CHekAXtLgcGGqIVFxfUCRYiGQRc9/Lu?=
+ =?us-ascii?Q?mwg+4JbahoRwpiLvsunmslWvpJug+1MEiiirz10jpINHTU04EsrOXLdbMs1A?=
+ =?us-ascii?Q?UA/489w4/7gZj1pplzXsykb+uA+ZiLkpYojO+Kzgy10BMl9CBGto9ljYVryP?=
+ =?us-ascii?Q?lzzSDQmo/cMR8EddWr07JFfQ0HYLXi1zDds0qBwIuk7tpkqI2VEPSDCkyyNJ?=
+ =?us-ascii?Q?oZh6X8N67X/P9MY1pPKVRnL+xpBnX/oLO9CwmD7q0W+jPVdburfueVtJLKLi?=
+ =?us-ascii?Q?vnuu8KRdfBmTHhUj9rUo3B9reJsb4uxZNmQi7Rh9660hMOIMqOoIqtRrKO87?=
+ =?us-ascii?Q?1J0koQbi7OuC9UFLYPXO00xESrLxD5w8WPDD2RK8VNH3CPSFEsNyOjWUTbgt?=
+ =?us-ascii?Q?Ax9l2twxTV8rMaGlGfbKoCXqozt8XZz1ztG5DhBUrstj6M7gfVqGSAAgL8Zp?=
+ =?us-ascii?Q?e5U7wMql7mANOYl4vMg2c+n9OdQiGtzb6LcGYkKwJ81FMRxYa8A5pUDlRnxz?=
+ =?us-ascii?Q?B6Spk9KMvZ6tMLOW9Qn3u/9n1uZRxynKAo4eh05w7SCKv1EW5T/R4Xdnv2af?=
+ =?us-ascii?Q?ncYYzclzhPcUw6AEcucp0+pjoYqRBjij2sSk6zQIZ2x39j7fk0/MOjPaOC3q?=
+ =?us-ascii?Q?wpEs+hiOdn4KlCqsosbAFRtcKbjQ6tjRaZJ8SkPTHbdAzhJd8biy5pod1ON1?=
+ =?us-ascii?Q?aR2RQHQEq8PkXTwro6ljM9KXIrscJD/i28WtDyafKOnmpoJ6Q0iYemI6JVAb?=
+ =?us-ascii?Q?oafokfyDS6HLLPKLiqAt/0D+++MaBlP5NsglKUON/vF47cK5+wtPHb6Orx7P?=
+ =?us-ascii?Q?m7xcFskSwXSKvFSgGgHxEfnRma4R20JSZELFldZr6/TIJ5WkbBEZ6HwmmHbE?=
+ =?us-ascii?Q?E+6YqNT05zATQJ3ddd7DpjaWBxL6vp5PkKiKN2GWFiqU5WLym06iz0veMmFF?=
+ =?us-ascii?Q?lokRRdXlx545F2dIWI21hgILkeYUQsJ76Hggno1BsVjkLpOElX6hXxxuCvfW?=
+ =?us-ascii?Q?bmTGNNJGuZgki1Ija9Qs3xRI0g6tgIEN9RYy1pbdGLMG298olUwUZNywxnps?=
+ =?us-ascii?Q?dBbn+H6mQ9qyFzu2DvL5s8aCWT8NFxf2tni/z0JLxrFeAM8goj0Dg0UngZIw?=
+ =?us-ascii?Q?pxKbXgnH6fRiHxZcnB72QIF8f2nwquxYaMaCeGjd3MoeukhMq3NbH92m18rb?=
+ =?us-ascii?Q?wWrLWSZKK5yLFsGqR4UM8hQcDu9GQC8dklEe9aOTDG//48jh25pkDIWoPSU+?=
+ =?us-ascii?Q?GhoffayeRlOvC4yRn5rxpNSO4hmc31oRe417OFX9p0pD7w+5fjm0PONDBd9R?=
+ =?us-ascii?Q?iWWeLKfWedOEa63m827n3XBlzb6GI4hY0Ea81hOqw0/fK3hcyH7PYBrN4yac?=
+ =?us-ascii?Q?/iSRQxuWsZJsb15sIm+u1pbnFUmqj/H0vLuV6HAJN/jujQSzRiWf9KRkdll7?=
+ =?us-ascii?Q?3lB5OiRcsl4AbYnkxSC50mPs2UEiNsC37q7IWkusVrrw3sG1j0tB4obeJCdK?=
+ =?us-ascii?Q?Iod8Rlp4uwoRyDptpJ3fSvMm8JwLceR9uIcNHXZfmIMqxYtcBEZBBLkGLlP5?=
+ =?us-ascii?Q?tCMYhS3d1+9+749+Qx5rccLzQHHX7MG9VmztZn2FIQeTvSf4rkC2bFsoU5V5?=
+ =?us-ascii?Q?VUuypr4Rdshz/KHMIjVLAMMbNwcE5YR9koQiSVh5jDDRhLs2StcAyYPsgU9d?=
+ =?us-ascii?Q?hAUWLSxf79wh0EcFFUVhn3BrX1Rz7kCX3nKAgrrPx8VZ+QdK/40b?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fee63405-9cd4-4004-1f64-08df44e264c7
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 19:38:45.4558
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Bje7KdNxVBAYJmglrgoz8PGdezvJLjiK9Gjo2nIZRuVzB3AiSxO3hqGJ5bHO/lmnZ/ul2vL+sGtiYznz4Gyk+pZd04OGysh79pT5vgdvjiFfL6hLdUi1fbqctYBuk2oW
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8989
 
-A layout can be unbound while NVMEM consumers retain its cells. Keeping
-the layout module loaded does not retain its binding or private data,
-and looking up the module again at cell put can access a removed layout.
+On Tue, Nov 17, 2026 at 04:37:03PM +0000, Lee Jones wrote:
+> ae4_pending_work() loops forever waiting for interrupts, so it never
+> returns once it has started running, which it does 100us after probe.
+> ae4_destroy_work() calls cancel_delayed_work_sync() on it, which waits
+> for the running work to finish and therefore blocks indefinitely,
+> hanging device removal and, once the work has started, the probe error
+> path in ae4_core_init().
+>
+> Add a per-queue stop flag that ae4_destroy_work() sets, then wake the
+> queue's wait queue so that the work leaves its loop before it is
+> cancelled and its workqueue destroyed.
+>
+> Fixes: 90a30e268d9b ("dmaengine: ae4dma: Add AMD ae4dma controller driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Lee Jones <lee@kernel.org>
+> ---
 
-A failed add_cells callback can also leave cells registered even though
-the layout never bound. The sysfs failure path instead removes every
-cell, including cells supplied by the provider.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Remove the layout-owned cells from lookup and mark them disconnected.
-Drain their sysfs attributes and SRCU-protected accesses before returning
-to the layout driver. Old handles retain only cell metadata and reject
-I/O; a later layout probe creates new cells. Use the same cleanup when
-cell registration or sysfs population fails.
-
-Replace the layout module get/put paths with this drain. Leave provider
-cells registered and rebuild their attributes after layout removal.
-Clear the provider-to-layout link when the layout device is unregistered.
-
-Fixes: fc29fd821d9a ("nvmem: core: Rework layouts to become regular devices")
-Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
----
- drivers/nvmem/core.c    | 84 +++++++++++++++++++++++++++----------------------
- drivers/nvmem/layouts.c |  2 ++
- 2 files changed, 49 insertions(+), 37 deletions(-)
-
-diff --git a/drivers/nvmem/core.c b/drivers/nvmem/core.c
-index 57c1da5ab547..f1a254a0a5cb 100644
---- a/drivers/nvmem/core.c
-+++ b/drivers/nvmem/core.c
-@@ -29,6 +29,7 @@
- #define FLAG_COMPAT		BIT(0)
- struct nvmem_cell_entry {
- 	struct kref		refcnt;
-+	bool			disconnected;
- 	struct nvmem_layout	*layout;
- 	const char		*name;
- 	int			offset;
-@@ -671,6 +672,7 @@ static int nvmem_cell_info_to_nvmem_cell_entry_nodup(struct nvmem_device *nvmem,
- 						     struct nvmem_cell_entry *cell)
- {
- 	cell->nvmem = nvmem;
-+	cell->disconnected = false;
- 	cell->offset = info->offset;
- 	cell->raw_len = info->raw_len ?: info->bytes;
- 	cell->bytes = info->bytes;
-@@ -991,23 +993,50 @@ int nvmem_layout_register(struct nvmem_layout *layout)
- 		ret = layout->add_cells(layout);
- 	}
- 	if (ret)
--		return ret;
-+		goto err_unregister;
- 
- #ifdef CONFIG_NVMEM_SYSFS
- 	ret = nvmem_populate_sysfs_cells(layout->nvmem);
--	if (ret) {
--		nvmem_device_remove_all_cells(layout->nvmem);
--		return ret;
--	}
-+	if (ret)
-+		goto err_unregister;
- #endif
- 
- 	return 0;
-+
-+err_unregister:
-+	nvmem_layout_unregister(layout);
-+	return ret;
- }
- EXPORT_SYMBOL_GPL(nvmem_layout_register);
- 
- void nvmem_layout_unregister(struct nvmem_layout *layout)
- {
--	/* Keep the API even with an empty stub in case we need it later */
-+	struct nvmem_device *nvmem = layout->nvmem;
-+	struct nvmem_cell_entry *cell, *next;
-+	LIST_HEAD(cells);
-+
-+	scoped_guard(mutex, &nvmem_mutex) {
-+		list_for_each_entry_safe(cell, next, &nvmem->cells, node) {
-+			if (cell->layout != layout)
-+				continue;
-+			WRITE_ONCE(cell->disconnected, true);
-+			list_move_tail(&cell->node, &cells);
-+		}
-+	}
-+
-+	nvmem_sysfs_remove_cells(nvmem);
-+
-+	/* Old cell handles retain data, never a departing layout's callbacks. */
-+	synchronize_srcu(&nvmem->srcu);
-+	list_for_each_entry_safe(cell, next, &cells, node) {
-+		blocking_notifier_call_chain(&nvmem_notifier, NVMEM_CELL_REMOVE, cell);
-+		list_del(&cell->node);
-+		nvmem_cell_entry_put(cell);
-+	}
-+#ifdef CONFIG_NVMEM_SYSFS
-+	if (rcu_access_pointer(nvmem->ops) && nvmem_populate_sysfs_cells(nvmem))
-+		dev_warn(&nvmem->dev, "Failed to restore provider cell attributes\n");
-+#endif
- }
- EXPORT_SYMBOL_GPL(nvmem_layout_unregister);
- 
-@@ -1521,12 +1550,6 @@ nvmem_cell_get_from_lookup(struct device *dev, const char *con_id)
- 	return cell;
- }
- 
--static void nvmem_layout_module_put(struct nvmem_device *nvmem)
--{
--	if (nvmem->layout && nvmem->layout->dev.driver)
--		module_put(nvmem->layout->dev.driver->owner);
--}
--
- #if IS_ENABLED(CONFIG_OF)
- static struct nvmem_cell_entry *
- nvmem_find_cell_entry_by_node(struct nvmem_device *nvmem, struct device_node *np)
-@@ -1545,18 +1568,6 @@ nvmem_find_cell_entry_by_node(struct nvmem_device *nvmem, struct device_node *np
- 	return NULL;
- }
- 
--static int nvmem_layout_module_get_optional(struct nvmem_device *nvmem)
--{
--	if (!nvmem->layout)
--		return 0;
--
--	if (!nvmem->layout->dev.driver ||
--	    !try_module_get(nvmem->layout->dev.driver->owner))
--		return -EPROBE_DEFER;
--
--	return 0;
--}
--
- /**
-  * of_nvmem_cell_get() - Get a nvmem cell from given device node and cell id
-  *
-@@ -1619,25 +1630,16 @@ struct nvmem_cell *of_nvmem_cell_get(struct device_node *np, const char *id)
- 		return ERR_CAST(nvmem);
- 	}
- 
--	ret = nvmem_layout_module_get_optional(nvmem);
--	if (ret) {
--		of_node_put(cell_np);
--		nvmem_device_put(nvmem);
--		return ERR_PTR(ret);
--	}
--
- 	cell_entry = nvmem_find_cell_entry_by_node(nvmem, cell_np);
- 	of_node_put(cell_np);
- 	if (!cell_entry) {
--		nvmem_layout_module_put(nvmem);
--		ret = nvmem->layout ? -EPROBE_DEFER : -ENOENT;
-+		ret = READ_ONCE(nvmem->layout) ? -EPROBE_DEFER : -ENOENT;
- 		nvmem_device_put(nvmem);
- 		return ERR_PTR(ret);
- 	}
- 
- 	cell = nvmem_create_cell(cell_entry, id, cell_index);
- 	if (IS_ERR(cell)) {
--		nvmem_layout_module_put(nvmem);
- 		nvmem_cell_entry_put(cell_entry);
- 		nvmem_device_put(nvmem);
- 	}
-@@ -1754,7 +1756,6 @@ void nvmem_cell_put(struct nvmem_cell *cell)
- 
- 	nvmem_cell_entry_put(cell->entry);
- 	kfree(cell);
--	nvmem_layout_module_put(nvmem);
- 	nvmem_device_put(nvmem);
- }
- EXPORT_SYMBOL_GPL(nvmem_cell_put);
-@@ -1809,7 +1810,8 @@ static int __nvmem_cell_read(struct nvmem_device *nvmem,
- 	int rc;
- 
- 	guard(srcu)(&nvmem->srcu);
--	if (!srcu_dereference(nvmem->ops, &nvmem->srcu))
-+	if (!srcu_dereference(nvmem->ops, &nvmem->srcu) ||
-+	    READ_ONCE(cell->disconnected))
- 		return -ENODEV;
- 
- 	rc = nvmem_reg_read(nvmem, cell->offset, buf, cell->raw_len);
-@@ -1926,7 +1928,15 @@ static int __nvmem_cell_entry_write(struct nvmem_cell_entry *cell, void *buf, si
- 	struct nvmem_device *nvmem = cell->nvmem;
- 	int rc;
- 
--	if (!nvmem || nvmem->read_only ||
-+	if (!nvmem)
-+		return -EINVAL;
-+
-+	guard(srcu)(&nvmem->srcu);
-+	if (!srcu_dereference(nvmem->ops, &nvmem->srcu) ||
-+	    READ_ONCE(cell->disconnected))
-+		return -ENODEV;
-+
-+	if (nvmem->read_only ||
- 	    (cell->bit_offset == 0 && len != cell->bytes))
- 		return -EINVAL;
- 
-diff --git a/drivers/nvmem/layouts.c b/drivers/nvmem/layouts.c
-index 409909e3244f..442947873591 100644
---- a/drivers/nvmem/layouts.c
-+++ b/drivers/nvmem/layouts.c
-@@ -118,6 +118,7 @@ static int nvmem_layout_create_device(struct nvmem_device *nvmem,
- 
- 	ret = device_add(dev);
- 	if (ret) {
-+		nvmem->layout = NULL;
- 		put_device(dev);
- 		return ret;
- 	}
-@@ -203,6 +204,7 @@ void nvmem_destroy_layout(struct nvmem_device *nvmem)
- 	dev = &nvmem->layout->dev;
- 	of_node_clear_flag(dev->of_node, OF_POPULATED_BUS);
- 	device_unregister(dev);
-+	WRITE_ONCE(nvmem->layout, NULL);
- }
- 
- int nvmem_layout_bus_register(void)
-
--- 
-2.53.0
-
+>
+> v1 => v2: New patch, so that ae4_destroy_work() can no longer hang
+>
+>  drivers/dma/amd/ae4dma/ae4dma-dev.c | 8 ++++++++
+>  drivers/dma/amd/ae4dma/ae4dma.h     | 1 +
+>  2 files changed, 9 insertions(+)
+>
+> diff --git a/drivers/dma/amd/ae4dma/ae4dma-dev.c b/drivers/dma/amd/ae4dma/ae4dma-dev.c
+> index 8de3bef41b58..be86188da16c 100644
+> --- a/drivers/dma/amd/ae4dma/ae4dma-dev.c
+> +++ b/drivers/dma/amd/ae4dma/ae4dma-dev.c
+> @@ -23,9 +23,13 @@ static void ae4_pending_work(struct work_struct *work)
+>
+>  	for (;;) {
+>  		wait_event_interruptible(ae4cmd_q->q_w,
+> +					 READ_ONCE(ae4cmd_q->stop) ||
+>  					 ((atomic64_read(&ae4cmd_q->done_cnt)) <
+>  					   atomic64_read(&ae4cmd_q->intr_cnt)));
+>
+> +		if (READ_ONCE(ae4cmd_q->stop))
+> +			break;
+> +
+>  		atomic64_inc(&ae4cmd_q->done_cnt);
+>
+>  		mutex_lock(&ae4cmd_q->cmd_lock);
+> @@ -81,6 +85,10 @@ void ae4_destroy_work(struct ae4_device *ae4)
+>  		if (!ae4cmd_q->pws)
+>  			break;
+>
+> +		/* Make ae4_pending_work() leave its loop so that it can be cancelled */
+> +		WRITE_ONCE(ae4cmd_q->stop, true);
+> +		wake_up(&ae4cmd_q->q_w);
+> +
+>  		cancel_delayed_work_sync(&ae4cmd_q->p_work);
+>  		destroy_workqueue(ae4cmd_q->pws);
+>  	}
+> diff --git a/drivers/dma/amd/ae4dma/ae4dma.h b/drivers/dma/amd/ae4dma/ae4dma.h
+> index 57f6048726bb..affb1d7d9d7d 100644
+> --- a/drivers/dma/amd/ae4dma/ae4dma.h
+> +++ b/drivers/dma/amd/ae4dma/ae4dma.h
+> @@ -60,6 +60,7 @@ struct ae4_cmd_queue {
+>  	u32 dridx;
+>  	u32 tail_wi;
+>  	u32 id;
+> +	bool stop;
+>  };
+>
+>  union dwou {
+> --
+> 2.56.0.679.gc527c65306-goog
+>
