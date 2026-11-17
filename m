@@ -1,100 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.214.171
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.177
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794953522;
-	b=DMwmj380V4sCHSPMbvVA2JqHQB8ExmMAg+3a8UHuL+JlwgUQMeApiYJpKCG8/QkCb2N4
-	 c3O8AZBWJwQwaJNBUjJrekZIYYWrxn7RSTdYgRp90E9+harsqKZoBq3XyEY1nWldf+cXK
-	 SMfCPeSKfO7pQu/Cd8Jg2/8xkJKUPq4XoU4+GclmQL3vyR54b+lyvT6Jor4zPIWZftKEy
-	 giwtwGZZXrjF23YYKgJ5qOYGkpGYSpKbxlWF7s07QGF641aceIugysIXQIMhzfvRhcsrA
-	 uiYWaz9IY4Ut6lwZT4nBZ9fjgb2vfPXuF9l/oXBuH1fRlLVLUs3d9rjlBQ5h3PF3ChA==
+	t=1794953649;
+	b=FhUHHvlhi/KQA50isP6OzhxbjobsV4f7ijOHVLdztuOc5ntrGM81YhqgjllJKSDPHLMg
+	 2JeLjtXtMzAiQah8cQw7Vy5yfGJPsbS87DPwrCjbU4hhKBg7pmb0xuivnGWT3rhs9gv/f
+	 8p3/tu9WRn65ReSsddlRi9n3W4WXr0mEt4Bq1UpFpvp7xZyXqx5UH5Gge7y1FQs3E+7AV
+	 rpr+CmcSx2UU34uqAPUmemNPMMTH1YnOwdxMDSpCFJk4oJ1bNPCEAswEqe7mFMnDMzM5G
+	 +f0PKaz0pcqJBKzWqSe/mtZZ/hJFD4webwWv+hCy9Hibqb/xZRI2dZRTYXVjvDCELAQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794953522;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794953649;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
 	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
 	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=316xTB1Ic4KiZ/XptBkOoy8eoZa1ZVNxxinG6uDd+dc=;
-	b=w+aDIpxFCjJgJpPk5Q7TT0eJtmKg/ctVVfw4FxJJYsfqMh9boDPdEoKrH/U/ddIliLTd
-	 oFpxs8ZelwaBhiDeM+0jEhsKwSHf0FcGSi2gr4r+fKt5Adi8AZ0+8t8wY0Ai0yqSr5Jqd
-	 M4aalOGZRkY8A83my2TtiD/TnLwUe4f88rX19IU2wrh6xIUZq77oNLvrUzm4D0GPVn7ij
-	 +GS17YhNqCySp/89qViAmcnC8R22ROiILbdf+Xf66s8nfWIrD6zfVppTPyHs3yxYXmo5/
-	 gAqiNOlY8/S0Qm8evl3a0u7AU5WTOS5XEptHwLapyrDNCGzCp/SoVxGdGTzySX+JkjA==
+	bh=kpd7hhfRhWWBKoEgTCNhAfk8GLYDUaewjNnHM0/FSkA=;
+	b=svO3JkyGajhS3bnelDaVt90ruRVjr3IU4lReENK7OQ1u9/unW68JJVkATRCKS7VvxEez
+	 4WNq7n4Vb65hQRNYDXf8JynQKRaF5FdAIO7pNXSyUDVP+n4a47rfataGCxdLBjHcoLfS3
+	 RHSfwfiOdvrHEmybM05iwPGhYp2fq6+IuiCaeT5IydT3czOLiMuZi/Cg2laTrETsW7o+O
+	 HlWd14sn4EZp7hAGlxLGIPGRXaGbmY6GAz5sawWgX9TIXifxdMwb1G6jrLSP48K7/zHvE
+	 og7rrO8UhkR8DkPBx4qc5zVZiHBx4qcqMuvybRDNMJfENsoNi4Ob2kiiwFX/IFD+06A==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AvRDoa3l;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.214.171
-Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com [209.85.214.171])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=OkK7Oync;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.177
+Received: from mail-oi1-f177.google.com (mail-oi1-f177.google.com [209.85.167.177])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C858B606A32A
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:12:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C858B606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61D54606A32C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:14:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 61D54606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AvRDoa3l
-Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2eff29ca765so1212185ad.3
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 14:12:01 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794953521; cv=none;
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=OkK7Oync
+Received: by mail-oi1-f177.google.com with SMTP id 5614622812f47-571c36e48d4so66405b6e.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 14:14:08 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794953648; cv=none;
         d=google.com; s=arc-20260327;
-        b=VTfnk7fVR3DZrmYxGaSMU7tDmF0i6Uo12vtDj8KhaKJf90V/MXfJF5wLtq1/ruFfa3
-         ieWtd0KvzmtfusohfW+zLJqOxwXHxRMZkZ+BjiODldUqR8aGnt7DlQ741lzl1ObQseeB
-         DPlcEVjE2fnGBTwgXPxaV8twfex+lUb6c0wViqZ4MkwPlRpcFWc1HkmIdEMuWf8J4yXU
-         /mcMYHtlmVmVhEtWmXk8POkX5FPYOeHcXt9Ba/RUQZdfs+DHCKYCY13TfkmFhW9j8V4s
-         JSv/MiHBeeDIuQFMtgwgRoB9B7WcfxaFIQ/PNpos6EFM6pSRCTe89ffD1i9xXAtHtDqx
-         DxNA==
+        b=UfIAfeSw5b/vYc8mEp1y5eivXjmjWBnBwPpRE2XDqcnM7thKbrk3frjROXrOprIpX1
+         98pI5pO061wHjhVpGD7wOilz8NETv+z+YMhBvHCVBgfJnl4GBCXfBoha/+qc8ww/j7iF
+         I9m5mSPjfoBmdd6ODSfxBWvpvbbhscbWiWMHh1JSYEz66eFxc98UiEN+BAMVsIe5Rqv9
+         nF/ANLG7NVM3fd3Xdop0vPpfvkKKCLU88BHRawoPB9tA4mZZKxgAxtlcVWSNJM16xzJs
+         rb5NNeyd9OUo/lJ3Oud1fEIFk09lNhY2YyWmtRIwGlQIJIfT8olkKhG2KQjJOFGTN9wT
+         FhAw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=316xTB1Ic4KiZ/XptBkOoy8eoZa1ZVNxxinG6uDd+dc=;
-        fh=NsV6s2+V3kTYYzgA4xAZ34ygDmYRlKzzEEEAetyd2TM=;
-        b=rjCUB5QAX/JxuS47ClZTQo0rBLnJgbTEUg8Xz1z22F4z3inq+GijrK2eAQWoC2afVY
-         lLUKvdVipynbCDteNjyPGLUngISg0bAYVpCA6p0eFIFUu44H9UzHv4Xv+D78AYb3Mn3+
-         3eEsPZnMxQwFma/aJNM0v3jJCjnpjXuFHb9BVb2QTfyBxir1H6qbxA5XJNpfQXsjhvs9
-         dno2yGQC4AbtboR58MQpKYMW5RDjPVLGA6BxgHPSVM+aDSN0bjqYvod+zVNYajSPRY5g
-         CunCt2INhDzxw5no9PApH4gJaEGmjPVc6qwKJ4jRcJJx/KC0oREY0vZ6KP/4xeoVdrOl
-         p+aw==;
+        bh=kpd7hhfRhWWBKoEgTCNhAfk8GLYDUaewjNnHM0/FSkA=;
+        fh=pXkvS9H6S1WoherHWX5vXI1SkQ8Qmz9fyNfc+Wnf6Fg=;
+        b=GRSLO7h6JBTe60plq+RurA5MngthT8nQejDvOrDQJBjuVTqOKbH0IxU9+Ve3zCzlSe
+         rKakZP7jKkAkSrJyFdI3gV9Ql3QKVZwI1sF1psQhEWB7SUCb3iyYtn6UjAlMhrKJ0VER
+         ftA7Yc47vG0k3radxmD+DULgh2VHSe11ysnRVcC1jZ5LK/qVl360vP+abwQinYGKdz0C
+         eplHpT7hQpcohp09Y8+K1gBi5uJYMgDm/+SofCaDBO8E01BdNa8ZeWn3g98O20+LPq2C
+         I2JMbnxzcTBjw8OzNRMkFJ7avFs2kJtuvJU0pc1Ou2ZT+YP8XVXtTliBa1/I0MZwxBvU
+         VG2A==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794953521; x=1795558321; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1794953648; x=1795558448; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=316xTB1Ic4KiZ/XptBkOoy8eoZa1ZVNxxinG6uDd+dc=;
-        b=AvRDoa3linTuYDs2EcoTayv5BoM56vrZ1mz7hlTIZTm/ynV8a1JS8jfqmAkMVWvUga
-         2+25C17agOrZrMMkvWnNqG90bcdOhrjlCb8jTLkSzbUkwxtBXhySJ5f82XmGVl2jQIIJ
-         Kl4s9ltk7ob7AdNrA7ARbpXlzf6562pyuI9w+i1w0u1F/KYjIHZB0yZ7dX46m7nNjyN9
-         JOyqIdUCjPbMuP8Or3MrfSmWBItU+Xl7rDGr2cC0g4V03OSI/cbfS7WzJlvzq1XaJSMb
-         K0Lvn3FfwNll6drAgJjESPDG6VoLy+j1+ufaue6N5Rc2MVJi0H3B2yXJVcmgZl0Yq6hX
-         Zaig==
+        bh=kpd7hhfRhWWBKoEgTCNhAfk8GLYDUaewjNnHM0/FSkA=;
+        b=OkK7Oync/0FMR4WGnKttZfm6jO4gY2WpTAuxMTPGGdgi9bYq6J7iIKBa8VpjHUZyO5
+         usHhSBmnLWPAXbr7C6Vs10jTLGe6cLQb/ULbjlEAznvTd3S2iUX0UJGNeMWMRtYpl/h+
+         +UKeSOLB1H37XnEWzPOp8L5VoUrnAYZz7NqroLlKzaTsWgueA4mg4DEkCra+oakCnwc0
+         6hh6uNVuy6hTVxPJNh14dfbCGZxnBU4W8QoTST6MBNSaIvKmXb4ZjqGqzStDARn1ahUj
+         6qzHVNjAWI8eUgCJkrSPt7USJefKcGjAegppKzl2HvuzY61fEW4j06rjTP+69RcQFWLF
+         yZJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794953521; x=1795558321;
+        d=1e100.net; s=20260707; t=1794953648; x=1795558448;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=316xTB1Ic4KiZ/XptBkOoy8eoZa1ZVNxxinG6uDd+dc=;
-        b=15kkkRHqGndRaOY75U4Kp2iU4XKO5l+GcryA79mVrxx+Fdu0VbDLu9rG/IUwc0oBrJ
-         PhfPAOZXIfQimfTrT9S/EjWWz8ERjCyW08fgO2oFEgtxmmsi1Tx7eDUWpEZahHxUfbte
-         UKvIf1dAMjgtOrVcCqS303NKmHfjo/peLNON3Ya7+TAhyB6ePIbQFvoKTk5HzGlHZCze
-         LLPUBIuch/nOMmOvof35yrO0jk+Pg/Q30aJ+uQ1EdCueStAZlEL1bGnfXE//NCeTQGVb
-         xOBjoEnq3xkGyrQzOiqRLS0hPzf8FkbUQYWMMrc6cpGSTa7fo5XNhY8byASKyMwUSYc7
-         2LiA==
-X-Forwarded-Encrypted: i=1; AL+hErFr09NYW+JiTjmQnNt+4n4n47FYqwNBQa9CKQcZu0RFvut99lFkwVRSO0PUYX+iHJdn04Ns/3Q5OUN3BDg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9hbbFfgyziIcHHnarwkDNG+T6y+4I94VT0S4UCy44LzhJmamsm
-	hQj0C06iv6XQ5HTBuI/A5Ahel4iLEBn9sSKHuudZZ28j74Q3HRkfYRr4UMY0Lire+72e1umoCnD
-	q1qhgB1TK2Qve1h7aGEWHkB9djRGM/wE=
-X-Gm-Gg: AZFdTZcIaO3B11c957FWdkSpZ6bcWBIXIuN39xJ2RiYukJq5EjKwsP+sx55FE19FBw+
-	Fj3Zp2E5G92/LLVW7DwRAMXr+f9btsRn7dFiyajp5h3GnXeCplgHAcZ0KTGIsF4u1POTz8/r+jV
-	4fUHhD4DF4gvQwDbOEG/R1z9Hh8YjaKlKiuVOBlEiOH1mdbWxQlMygXjrAlgmuqy+1GV2WJDrdC
-	05U7dQFJ9MKQTFCbA0+NS3thFom7Ecx1d24xvw5sF8YEqAID9WdR7qi2mwy36p7wIOPGb92VxBr
-	grcMNmfbYsxO6R1Bzf1ulIccxiIKmYCZyk9YvYyJVxt4z1jRf4bprlYuhuecgeJnKN3nhGf/Wyw
-	/cf3ZGfWnbnl/su3ArT9L50cUq0gUdl5RhqaNx7WCli5Vg1ZDdcVwhiHztFe7mJEon+F4zA==
-X-Received: by 2002:a17:902:fd8d:b0:2ef:e20f:3edf with SMTP id
- d9443c01a7336-2eff7529705mr5827385ad.13.1794953520979; Tue, 17 Nov 2026
- 14:12:00 -0800 (PST)
+        bh=kpd7hhfRhWWBKoEgTCNhAfk8GLYDUaewjNnHM0/FSkA=;
+        b=gYLBLmQBlbQGZrqQxjq5d0vrA8fs4c7r8fGtn6Eo10FZSouJ63Y09ka+ct6nq28b4H
+         rU/ExsGyH7YOt0uQtdMa5WofU4d4KMHpeOUBAKTRrHFMjK0IX1mtfEfrTJSEJA6pfAyh
+         RZzEXI5dS/k6nyrBstNPJKSzn3mmPbnU9P6CA+F4ZAxze9UAH3BE7LlzPhAutAEKTy4e
+         aYYCHnoUaL0pwWXYlgaQS4tlKIQ4XSUWAYelO8bd52L8D7n6VV85xqBukzjFaDysTtYR
+         Eejsxa+ShuOfd7ijcsUAq3E8bAmGXMq+jHFth/FSiHg8scz4zRcyVzxroS+neX9iSan4
+         8VMA==
+X-Forwarded-Encrypted: i=1; AL+hErHU5o8O9cY4By4ASuZvC5Pclj4NA8lpuID09eE0V2TIGoJM8h0C8yvzmR4kv2fPJVgHuJhT1BspW0du3Do=@vger.kernel.org
+X-Gm-Message-State: APuU4Z81lzc7BEkpd2g546DqmR0UI4mRihmsoFx0+nGJggZrKNTiPGlT
+	WGeLaN01Qvh7vZCwfpX/7e5MzPNvVjwHcbZUjhS3vQQkvmIXZUPNdLgRgiJTI71QV7hCnOPsHHA
+	UQfk2iN7MNTXB5S8yQswXgQIyGuqCYnSDato0leC6
+X-Gm-Gg: AYBFou07BnrAXUg+snyOQrCgkP+AlQEChuH7lAt/gQt40I5fuFZn/EIsb4Kiow+IAXB
+	RBJfiRNgCqFOLzk3olZtmZ2e4LDfy1j7yIjvV+sGqr9AdhzsBEPACH8fDrCnlRdTEE3lJHJ3wni
+	McZG4H65cOOE0AdDSdq0RNfgEsO25q+C7Wqjgo5tGgWOSxuck95ui7AfGIilmqRyLGdb+zWUruV
+	grgmay9WOqU+ZgqL24F72MCIDuCGfjUgvb4GniADyFq9Y43RerUYqNqSZ3VJBjVURCZPMW1kibg
+	bIa/NmMbyzotDKwfSHdje2tVfecu+NiEsja5gKTQQtnYRuReQeHrGotdYzufe7GYUleRYFqFCXg
+	m2/2aIDkGhVX120YQjRbORzXq7EnbXRFRNdzYanhlRhJ+PYyELHDssPhdXN9uCWiFkag=
+X-Received: by 2002:a05:6808:30a9:b0:4b9:a88b:888b with SMTP id
+ 5614622812f47-5774162054dmr1516905b6e.33.1794953647357; Tue, 17 Nov 2026
+ 14:14:07 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,78 +104,90 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261112050816.2795512-1-ragulbaby@gmail.com> <20261117125204.3992696-1-arend.vanspriel@broadcom.com>
-In-Reply-To: <20261117125204.3992696-1-arend.vanspriel@broadcom.com>
-From: Ragul Balaji <ragulbaby@gmail.com>
-Date: Tue, 17 Nov 2026 16:11:49 -0600
-X-Gm-Features: AclHuK8fNwCXBJ6WwVXG2oDZIXOmCX9RXf9oRWA0fqinCW731GZtpgkb8AVaLd8
-Message-ID: <CAJnRr=qQMOsqh0Y3yXwdFfHtztJAhCVbPKO+kLzCSgRjOrcytg@mail.gmail.com>
-Subject: Re: [PATCH] wifi: brcm80211: move the USB bootloader definitions to a
- shared header
-To: Arend van Spriel <arend.vanspriel@broadcom.com>
-Cc: Ho Jie Feng <hjf3108@gmail.com>, linux-wireless@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, brcm80211@lists.linux.dev, 
-	brcm80211-dev-list.pdl@broadcom.com
+References: <20261112031629.396819-1-mrungta@google.com> <20261112031629.396819-2-mrungta@google.com>
+ <sashiko-outbox-210280@kernel.org>
+In-Reply-To: <sashiko-outbox-210280@kernel.org>
+From: Mayank Rungta <mrungta@google.com>
+Date: Tue, 17 Nov 2026 14:13:55 -0800
+X-Gm-Features: AclHuK-gfyGRgfHP6b95c4djqnr6JWB02JWcunq_dlapBgDtO9GdRA_nY1E9eCw
+Message-ID: <CABz7rdC2Q1qtUdhiXDpEydbhCnSaNSuS5jzcUK+cZFdNZmULgw@mail.gmail.com>
+Subject: Re: [PATCH v4 1/7] genirq: Synchronize in-flight handlers during NMI teardown
+To: sashiko-reviews@lists.linux.dev, Wim Van Sebroeck <wim@linux-watchdog.org>, 
+	Guenter Roeck <linux@roeck-us.net>, Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>
+Cc: linux-watchdog@vger.kernel.org, Marc Zyngier <maz@kernel.org>, 
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, "Kirill A . Shutemov" <kas@kernel.org>, 
+	Douglas Anderson <dianders@chromium.org>, Mayank Rungta <mrungta@google.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Nov 17, 2026 at 6:52=E2=80=AFAM Arend van Spriel
-<arend.vanspriel@broadcom.com> wrote:
->
-> On Thu, 12 Nov 2026 13:08:15 +0800, Ragul Balaji wrote:
-> > The Broadcom USB bootloader downloads firmware the same way for other
-> > USB chips than the FullMAC ones of brcmfmac.  Move its commands, states=
-,
-> > firmware header and response layouts from brcmfmac's usb.c to a header
-> > in the shared include directory, so that other drivers can use them.
-> >
-> > Signed-off-by: Ragul Balaji <ragulbaby@gmail.com>
-> > Signed-off-by: Ho Jie Feng <hjf3108@gmail.com>
-> > ---
-> >  .../net/wireless/broadcom/brcm80211/brcmfmac/usb.c | 68 +-------------=
---
-> >  .../broadcom/brcm80211/include/brcm_usb_rdl.h      | 78 ++++++++++++++=
-++++++++
-> >  2 files changed, 79 insertions(+), 67 deletions(-)
->
-> [...]
->
-> > +#ifndef      _BRCM_USB_RDL_H_
-> > +#define      _BRCM_USB_RDL_H_
-> > +
-> > +#include <linux/types.h>
-> > +
-> > +#define BRCMF_POSTBOOT_ID            0xA123  /* ID to detect if dongle
-> > +                                                has boot up */
-> > +
-> > +#define TRX_MAGIC            0x30524448      /* "HDR0" */
->
-> [...]
->
-> The move itself looks fine. Like the series "Move brcmsmac code into
-> brcmutil in preparation for brcmbmac" (posted a few minutes later), it is
-> part of the reorganization that has to go in before the brcmbmac driver
-> is sent again, and nothing else in the tree uses this header yet. Keeping
-> the brcmfmac and the brcmsmac parts as separate patches is fine, but
-> please send them as one series with a common cover letter, so the shared
-> pieces are reviewed together. Since the series then touches more than
-> brcmsmac, rename it to something like "Reorganize brcm80211 code into
+Sashiko has found one potential issue:
 
-Thanks for the review and suggestions. I'll combine the brcmfmac and
-brcmsmac changes into a single patch series with a common cover
-letter, and update the series title as suggested.
-
-> shared directories in preparation for brcmbmac". Can you clarify the
-> additional sign-off from Ho Jie Feng? Did he co-author the patch or did
-> you use his (earlier) work?
-
-Regarding Ho Jie Feng's sign-off, this is my first time working on
-this kind of contribution, and Jie Feng has been guiding me through
-the process. We've worked on this together, including the
-implementation, hardware setup, and review. His contributions have
-been significant throughout the process, which is why I've included
-his sign-off.
-
+> [Severity: Medium]
+> Can __synchronize_nmi() return while handle_fasteoi_nmi() is still runnin=
+g
+> on another CPU because it checks desc->nmi_active before querying
+> IRQCHIP_STATE_ACTIVE?
 >
-> Regards,
-> Arend
+> Unlike regular IRQ flow handlers, which acquire desc->lock before setting
+> IRQD_IRQ_INPROGRESS and calling chip->irq_eoi(), handle_fasteoi_nmi() run=
+s
+> without desc->lock.  On the NMI CPU, hardware acknowledge sets
+> IRQCHIP_STATE_ACTIVE first, then handle_fasteoi_nmi() increments
+> desc->nmi_active, then chip->irq_eoi() clears IRQCHIP_STATE_ACTIVE, and
+> finally desc->nmi_active is decremented:
+>
+> CPU0 (NMI)                        CPU1
+> <NMI acknowledged in hw>
+>   (IRQCHIP_STATE_ACTIVE =3D true)
+>                                   __synchronize_nmi()
+>                                     inprogress =3D
+>                                       atomic_read_acquire(&desc->nmi_acti=
+ve);
+>                                       -> 0
+>   handle_fasteoi_nmi()
+>     atomic_inc(&desc->nmi_active)
+>     action->handler(...)
+>     chip->irq_eoi()
+>       (IRQCHIP_STATE_ACTIVE =3D false)
+>                                     __irq_get_irqchip_state(...,
+>                                       IRQCHIP_STATE_ACTIVE, &inprogress);
+>                                       -> false
+>                                   /* __synchronize_nmi() returns */
+>                                   __cleanup_nmi()
+>                                     irq_nmi_teardown()
+>     atomic_dec(&desc->nmi_active)  <-- NMI handler still in flight
+>
+> Querying IRQCHIP_STATE_ACTIVE before reading desc->nmi_active (or
+> re-checking desc->nmi_active after observing IRQCHIP_STATE_ACTIVE is
+> false) would prevent missing the handover between hardware-active and
+> software-active states.
+>
+> --
+> Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20261112031629.39=
+6819-1-mrungta@google.com?part=3D1
+
+The observation is valid in theory, though practically benign for
+disable_nmi() and free_nmi():
+
+In that window, IRQD_IRQ_DISABLED is already set by __irq_disable() or
+irq_shutdown() before __synchronize_nmi() is called. If
+__synchronize_nmi() reads desc->nmi_active =3D=3D 0 after
+smp_mb__after_spinlock(), then the NMI CPU's
+atomic_inc(&desc->nmi_active) occurred after IRQD_IRQ_DISABLED was
+set, so handle_fasteoi_nmi() is guaranteed to observe
+irqd_irq_disabled() =3D=3D true and skip action->handler().
+
+By the time __synchronize_nmi() reads IRQCHIP_STATE_ACTIVE as false,
+chip->irq_eoi() has also completed, leaving only
+atomic_dec(&desc->nmi_active) in handle_fasteoi_nmi(). The IRQ mapping
+is not torn down in disable_nmi() or free_nmi(), and even if it were
+torn down immediately after free_nmi(), free_desc() frees struct
+irq_desc via call_rcu(&desc->rcu, delayed_free_desc), which cannot
+complete until the NMI CPU exits NMI context (nmi_enter() /
+ct_nmi_enter()), so no use-after-free can occur.
+
+Human review feedback on v4 as-is would still be very much
+appreciated. I plan to hold off on spinning a v5 just for this and
+will swap the check order in __synchronize_nmi() alongside any
+maintainer feedback.
