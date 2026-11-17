@@ -1,50 +1,61 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794959183;
-	b=bKyYy9l5+EHnY1gmvRD7fgTDv8lXM227UcmsgtJAg7GZiEq5ENfXszmJ9qhDQJWIavaA
-	 2auxRtxpersxK/mqKbLn9xTJY33YdEKBMKOHzgN0LcO4hmOoijY/VAlJ5O6R9YyFGV3tT
-	 8lSW114OKds7vrzir20Xr3psFztdHx120gv9dutsSCkShWrK/YFn+dlCt1U05CPbjHjDx
-	 9SskO2h70Xiq+67mGVqtv6UJRUcHSgn1eHkuTTm3lJxA/ro802OkJMcUxuOCS2+SnhxAA
-	 78HNcrWzSq1eGoWG64yNG8+ziOrm5PkuPuAcjM35SHjYZ7mqWWtrnpxPvAPK03W5MkQ==
+	t=1794959246;
+	b=bl8nZB+KIbkrbvpw2vF7fhz85PiOzv0WKA+fp/IqIuAjeuuTeZHwebW9S3R2oCuRa2yl
+	 chqms/3tm8nDXDTBZPEGP7cnii30FvA//75wPnOXlxdYW/5jc5Oiz9JNHaERRJ7qcN940
+	 EjbCKjABIcpttBHpyry5DLB6Vs4IlJQ2uQfGqhr/UlNXx26Vtt8tgvtbjQa7kpvsoQMfH
+	 0FB7dcMHjn7NXkH3ny9oE4iDgN08Lf0PMK0cCQut32V9mCW8n4t/ZX9d0owSQZDzGuhUQ
+	 +Rza+dU9hvJGy/UxVtsh+va7OtAENXO5GzqcHPedJISCIcOqXcvUIb8jJUmhnQTxP0g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794959183;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition;
-	bh=1on2HmPE7BPmM3SJfRQgKYqdlw18X4/r5fVaJpdOL7g=;
-	b=CyonWZCnKrqda4Pj+aHnOAOSv0vqypJ6vgd8togBPI3yn14BzE2xpBiuXSYDPmNyf96i
-	 37RRx3t11Z7Yk7+6Pwie7ZZg8PY6BxZwESNMHdwcqZfFtx9X8xP0bOhY65h5OEEOdoM/n
-	 Wv4kFcQJKuzkbgXewEmY9fIqdE+mDMs7BQSwLOIfPNCkWA+W5EP2PQuz2w210DjJPGnvC
-	 nhNCWTCpUz6oH1A/2OqXoQFl0+XNe9eDKzv+4D04cemCtdJ5Hgilmpx+mEUVjcysmSXNI
-	 u2PoGMTGM0YCMHOOM0QT+SyVTrVTSS82dA9Mlq2pBqzKTKYW0QhDmxxiD9Prhqd9nkw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794959246;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 User-Agent:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=Zbd+bvhenqAq4yISduEhcsN/8GpjIXQqW0OFaXgv7t0=;
+	b=ctn8YnATv55mRjhkjo3Maxa30J4OMnP9q3038eR+mcKl6KnIL/OGlwM9LQkGCH0uwUZ5
+	 U57VAGsAgtF4Eshb0fC3gXuZNpS4gRHGqLhvYR1RsDuzP8iPuk2CnoEIXtwCwXSF9nO0m
+	 tWwfA2ngHv+9qZvXdqJCmLlIwP1dbR7d4Bybvo02E5NB6euErtiO7o/GeZNfJWwW9jx4u
+	 ZYNIpNM6PrYD2jzr50K2MdnPAq5RKDlAhClgwDmhh/6oEaXuL6NP2FfFho4z3yFvxM4Pd
+	 MghP6rWfGWYkEywt/idYhcOdtRaWp8TXab3ACXnbcCRC+/Nc8hGRGiRf44+MVQhCfFQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="B3BAvo/9";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CYFfr35O;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B675606A32F;
-	Tue, 17 Nov 2026 23:46:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3CA7A606A31C;
+	Tue, 17 Nov 2026 23:47:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B3BAvo/9
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F00351F000C4;
-	Tue, 17 Nov 2026 23:46:21 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CYFfr35O
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 838CB1F000C4;
+	Tue, 17 Nov 2026 23:47:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794959182;
-	bh=1on2HmPE7BPmM3SJfRQgKYqdlw18X4/r5fVaJpdOL7g=;
-	h=Date:From:To:Cc:Subject;
-	b=B3BAvo/98WMksaUT/wJt/bqw7J6tNAez5W4VxHebjo1kz9N8LeOn0x0DCAStuqGfC
-	 o0dLi+Kko69GDNzRhUD/2YOR04kdfqUbXEVJb/54RoR99JooPQqMqGuTT9p5RsXXKU
-	 hyn5iwKzhr8dXolct/c07pvN8UqeOyWuAPPAUk1Fhd0wRxdVf8/PrSQFNjTji1NX7H
-	 Y7F2aHlwJYdmuhkAC8R0zGPXmlrLH6AKHN+E64YYf2oBVyM8TBMgnpiWtauFsFW30M
-	 ImDeWTurciAM5z62lDPI/jQl7nf1cyV06HikyDhbF8vKM3l1wHe1JA3ap1n38oJL+k
-	 qs/C91EdtIycw==
-Date: Tue, 17 Nov 2026 23:46:19 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Linux Next Mailing List <linux-next@vger.kernel.org>
-Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Subject: linux-next: Tree for Nov 17
-Message-ID: <avznS8QYfxJ4uRN-@sirena.org.uk>
+	s=k20260515; t=1794959245;
+	bh=Zbd+bvhenqAq4yISduEhcsN/8GpjIXQqW0OFaXgv7t0=;
+	h=From:To:Cc:Subject:Date;
+	b=CYFfr35OL+cl2rk8t5QwxK8yk5h6Opez0g8WK+eNWGVVU7VT8bMQWXSB3zuyp874J
+	 E/DcCxA2ACBG5JuHR8rUd6WBDKl4obUzM7uyaFU4Bia4raCW/ngmzTzy/jWaHRgC6F
+	 ohtvTbzkRSlxiHKZYUABL5qQdSM0XHPcAaoF6awrf4dzTBu6qlC4FHlu9eFqArl+Ot
+	 nuofREFLFQ+O1FHrtDhfFHmf/bHd/Whn5NP9sgrFIS0F+/nZDoyO/ucJ9Y4wEcJARR
+	 kLuTY/vx2+VSiwpGX7rBjOyyzm5s4ygQa2TmFTtASUxSOdG6qpg3uiNL02OMee+FVd
+	 nKXMAHWNTF9Dg==
+From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+To: Masami Hiramatsu <mhiramat@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Christian Brauner <brauner@kernel.org>
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
+	Jan Kara <jack@suse.cz>,
+	Breno Leitao <leitao@debian.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	linux-kernel@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org
+Subject: [PATCH 0/2] bootconfig: Fix max size padding and initrd memory leak
+Date: Wed, 18 Nov 2026 08:47:20 +0900
+Message-ID: <179495924003.237695.10973676765152260584.stgit@devnote2>
+X-Mailer: git-send-email 2.43.0
+User-Agent: StGit/0.19
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,92 +65,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ERyDawtLxbRCd1XO"
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Hi,
+
+Here are 2 patches to fix pre-existing bootconfig issues around the
+bootconfig attached to the initrd image.
+
+[1/2] fixes the bootconfig loader in both the kernel and the bootconfig
+tool to exclude the 4-byte alignment padding from the maximum bootconfig
+size check. When attaching a bootconfig to an initrd image, the tool
+appends 0-3 null padding bytes and includes them in the footer size
+field. Although the documentation states that the maximum size (32767
+bytes including the terminal null) does not include these padding null
+bytes, both the kernel and the tool checked the raw footer size directly
+against XBC_DATA_MAX, rejecting a maximum-size bootconfig depending on
+the initrd size. This allows up to 3 trailing null padding bytes in the
+footer size and strips them before checking XBC_DATA_MAX and parsing.
+
+[2/2] fixes a memory leak of the initrd pages used by the bootconfig.
+get_boot_config_from_initrd() trims the bootconfig by decrementing
+initrd_end, but the initrd memory is freed with the trimmed initrd_end
+while the whole initrd including the bootconfig has been reserved.
+Thus the full pages used only by the bootconfig are never freed (up to
+8 pages for a 32KB bootconfig). This saves the original initrd_end and
+restores it before freeing the initrd memory. If the initrd is retained,
+the trimmed initrd_end is kept so that /sys/firmware/initrd does not
+expose the bootconfig.
+
+Thank you,
+
+---
+base-commit: 381b391bfaa3f10d52da4740529804b0b6b8160d
+
+Masami Hiramatsu (Google) (2):
+      bootconfig: Exclude alignment padding from bootconfig max size
+      bootconfig: Free the initrd memory used by bootconfig
 
 
---ERyDawtLxbRCd1XO
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+ include/linux/bootconfig.h          |   24 ++++++++++++++++++++++++
+ include/linux/initrd.h              |    2 ++
+ init/initramfs.c                    |   10 ++++++++++
+ init/main.c                         |   31 ++++++++++++++++++++++---------
+ tools/bootconfig/main.c             |   14 ++++++++++----
+ tools/bootconfig/test-bootconfig.sh |   17 +++++++++++++++--
+ 6 files changed, 83 insertions(+), 15 deletions(-)
 
-Hi all,
-
-Changes since 20261116:
-
-The hexagon and blum trees were added.
-
-The gfs2 tree acquired a conflict with the origin tree.
-
-The xfs tree acquired a conflict with the origin tree.
-
-The vfs-brauner tree acquired a conflict with the origin tree.
-
-The vfs-brauner tree acquired a conflict with the exfat tree.
-
-The mm-fixes tree acquired a conflict with the origin tree.
-
-The drm-misc tree acquired a conflict with the origin tree.
-
-The vfs-brauner tree acquired a conflict with the mm-nonmm-unstable tree.
-
-The bpf-next tree acquired multiple conflicts with the bpf tree.
-
-The battery tree lost it's build failure.
-
-The paulmck tree acquired a conflict with the rcu tree.
-
-The scsi-mkp tree acquired a conflict with the vfs-brauner tree.
-
-The pagemap-headers tree acquired a conflict with the vfs-brauner tree.
-
-Non-merge commits (relative to Linus' tree): 7474
-
-
-----------------------------------------------------------------------------
-
-I have created today's linux-next tree at
-https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
-(patches at https://www.kernel.org/pub/linux/kernel/next/ ).  If you
-are tracking the linux-next tree using git, you should not use "git pull"
-to do so as that will try to merge the new linux-next release with the
-old one.  You should use "git fetch" and checkout or reset to the new
-master.
-
-You can see which trees have been included by looking in the Next/Trees
-file in the source.  There is also the merge.log file in the Next
-directory.  Between each merge, the tree was built with a defconfig
-for arm64, an allmodconfig for x86_64, a multi_v7_defconfig for arm,
-an arm64 build of various kselftests, a KUnit build and run on arm64,
-and a native build of tools/perf.  After the final fixups (if any), I do
-an x86_64 modules_install followed by builds for x86_64 allnoconfig,
-arm64 allyesconfig, powerpc allnoconfig (32 and 64 bit),
-ppc44x_defconfig and pseries_le_defconfig and i386, s390, sparc and
-sparc64 defconfig and htmldocs.
-
-Below is a summary of the state of the merge.
-
-I am currently merging 438 trees (counting Linus' and 135 trees of bug
-fix patches pending for the current release).
-
-Stats about the size of the tree over time can be seen at
-http://neuling.org/linux-next-size.html .
-
-Thanks to Paul Gortmaker for triage and bug fixes.
-
---ERyDawtLxbRCd1XO
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmr850oACgkQJNaLcl1U
-h9CwcAf+PyQQVJWUs+lY9/1BjLzaU2k72FG7T37iJXwKJGrKjJBJgVC1l6tXz587
-zO1R/kwvCMW4yTAlWT2bMLY2Cjz1dF/sqBgqgonMbBDzbUilDndsB5h9XKLf1Buk
-MNpHDEm1MGff8UNIlpwkPNXLlNF9Q6uNnNqWMClaYInFgBF4dakJ7UsN1WteTugb
-AdLothLzDJNR9/FZBpXGIcJrTMhZfZf3ZzSbhh9KkPh9leqSofBrTNUBw/nkzksk
-3+z+5T+zqJzUl46W/42JHhJdge/DRkssE1fiSSaXoZ1e0rAh4TgMXLA9Rm5e1aXD
-RZiY7kF9GaZcecuNQm4al3+iXR4rRQ==
-=Ew57
------END PGP SIGNATURE-----
-
---ERyDawtLxbRCd1XO--
+--
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
