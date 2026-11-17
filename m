@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794941411;
-	b=BomvjK/E+2rjbYrpUXXEbRvyl6Iw8Q/Eju6QHSgAkuSAfcfn+ehoa4t5A1cd7J0U2+4S
-	 4kklvWTI2tHtJzfNmGYL94uASU94Tyc1J74LOo3GjG8A4IGbBk0K4kf+/rmT95jSQWpSz
-	 x871qK7i6QzJHyxD5IAoj/AcluzMZbrWQd5ZVBDX5jesey0EF4QCr1wMcAMO40ybuRh0k
-	 iqab3ik3vliYPkRmnOAxKhv1BQ3PlfOwEoGf9EtcUzEgvOE1eLxGprQTLHwPzag9v98PZ
-	 fkQxFcDuLORJtjNZiVVHlyVwPyf4GbyRWvBDSXPX/YVuRI85cfNXP4Bqc5ihosqK1CQ==
+	t=1794941414;
+	b=suA05oXadIPQpWde6gpJDeGAMnP+tcbqnxYDxt2btimg1Nrb4DV9Yk31AuTXUjZvm526
+	 vvfJJkH9weew02BzX40iRjCov+g6UJR+YVdn1D5fQ6BH0CBqZaG3Uq9MkOIKvrWA7Yx5v
+	 NNz1Do3wsvemiDRRDE8J7vwdWlk3mPwIC58pM83vD9+CE0V1k+V2cqBw3slIKnPOh787s
+	 5rRI/+GD/6tD668S6NKDrS31l1RxllINCBUUVB3MfnQpyuEII/0mApMLkwCYR0GzJ/FJb
+	 aHskgGFbAmWz7yyRvexxuq8puDU/aGv3rI9j66BoPYfo6EShX6btz09ymVPdh/dk81Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794941411;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794941414;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=Xk0Pm4Tj2KBztL9HGxcmrP906utGSWcnvTRhKs+doiI=;
-	b=gH4OTRjnaDe19sTWhDzURybUIbD+uOIxN0OCOgkBRXEEH57MQKIFvINrjAtowO3hAd+G
-	 caw7ZeX4M+6C8s4QXSa+Fx4LNItsGr5DJb/ePTUl9xvEO5Jq5SmC3pen8gt/c4fPP0JEv
-	 UYhfAQnBdIgMiG4RQJQ+U6qrHESXj1V/MOzdhMQjVhg0tZrn6zfrTJDwP50yYeuU064Nr
-	 WgErc9VAX9SyxsQxdYehIV/e9SJTVXFBaXPdxL6GCms3FCwD/akzH5caPDixzLtKgZVIk
-	 8i9haGTbjXZTXGUVCerG+1m2vXTDEeuX8mEdCXKv6pApe0JTCwMpfZJFVWm4fkalVnA==
+	bh=QxzREoDXRU8UXLM18HXJinaU3FjQibYCOqYsQMrJezo=;
+	b=S/cZLaUhiDDOQjJ7UXpWakLYI+xMZXu8g3Isf6SP5elRfWSxKeGdNusaGlSWEOddEiRZ
+	 E4bExkuypGqhrHzux/Ki+TcRp3KZBdzThFOycRlAGTq/PsigVqEAyBZI5T1BGizpNMEZ/
+	 4hJewF3FNUUVxb40eEhnVo2ee2M3tbcqNKVT0fa4d9M2/6MuSlrZZAuXG53goQ2hdXn5P
+	 cGTBZ+rC6BHjoJYL4NQLT6JSFlOXFFUpPYvHFTgqAW7Di62IWfDjwW75Tzkqsw65K0l+E
+	 L77Z2Abd38+vOcwvGhdLIBhMi4qAR80Ch+KkrwxxdnY2CclY6iixhEkNVzBxHZzxncA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PhY1PUqD;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RlRzSe7g;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2381606A32C;
-	Tue, 17 Nov 2026 18:50:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1737606A33A;
+	Tue, 17 Nov 2026 18:50:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PhY1PUqD
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF9281F000C4;
-	Tue, 17 Nov 2026 18:50:10 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RlRzSe7g
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF00C1F000CB;
+	Tue, 17 Nov 2026 18:50:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794941410;
-	bh=Xk0Pm4Tj2KBztL9HGxcmrP906utGSWcnvTRhKs+doiI=;
+	s=k20260515; t=1794941413;
+	bh=QxzREoDXRU8UXLM18HXJinaU3FjQibYCOqYsQMrJezo=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=PhY1PUqDRitgaooPpYpmdTdIWjFkDhURD1D/PdiRpT2vaIlt+FtFiRgWhKD095wds
-	 9RwUQdUOEdgXclv1mRfCx3neJqZZfMnF0GTVZSZoQn7ssRCEGr5EXO5aYqmogLNgPk
-	 l1PGwRaH1dksTPqgE2KeBfxs57HVPZCpHwo8W25LEIuAWKrQ8rRIpsZY94a1ZTH7Wx
-	 +z7frJwo27D5CeqQL0ErDB/M+78++gLNt+wRpNqS3OQoBauxFH1fCs2qF9LL75Aqc4
-	 iGHsJMNo63+yXV/D6rtTv+orlfI3+Qb5nTB7CiakaxNEP2Enwkwhimudi3zLcTY4gn
-	 W/yXKwPJ52P3w==
+	b=RlRzSe7geL9EIXsMFSV4unw8ZCDToRTUU1aWDw6SbUZgNVjSoMQvOuYMo21t5tjjg
+	 V/0peS1kKw40LUbB5ZtHdPwegOAXmmfS7k+nLUeSX4a52kYEvS8+XipzjkSb7k3ogK
+	 qA+LX/AqyXkot+U/lTwb2O6ksvrocDHpfUaz1jrCZ8XXcLlYb9RjDNA0mzdWYl/Xmm
+	 wFmkeqEQvjr/ZuZmzHTplxf38DseAnEiz9oJdCLKApdeo+2PUkAObdSr5XfgDyqMYk
+	 00cTdrgzWu1kyNz1iqJmL4W5zloEhhUnMebpXuDJwMgSaaI4+v92DOTX+OrSIhtPJ8
+	 sU9wKFGmsB6iA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B452F392B1C5;
-	Tue, 17 Nov 2026 18:50:10 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B45BB392B1C5;
+	Tue, 17 Nov 2026 18:50:13 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -54,44 +54,39 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v2 0/3] Bluetooth: Fix work queued while
- hci_dev_close_sync()
- drains
+Subject: Re: [PATCH] Bluetooth: btintel: Don't log unsupported debug features
+ as
+ an error
 From: patchwork-bot+bluetooth@kernel.org
 Message-Id: 
- <179494140953.761488.11446208316377511134.git-patchwork-notify@kernel.org>
-Date: Tue, 17 Nov 2026 18:50:09 +0000
-References: <20261117023344.278269-1-deaner92@yahoo.com>
-In-Reply-To: <20261117023344.278269-1-deaner92@yahoo.com>
-To: Jeremy Dean Clifton <deaner92@yahoo.com>
-Cc: marcel@holtmann.org, luiz.dentz@gmail.com,
- linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
- william.xuanziyang@huawei.com, johan.hedberg@intel.com, hdanton@sina.com
+ <179494141227.761488.17080097216959438759.git-patchwork-notify@kernel.org>
+Date: Tue, 17 Nov 2026 18:50:12 +0000
+References: <20261113222024.1123279-1-hex@freenixos.com>
+In-Reply-To: <20261113222024.1123279-1-hex@freenixos.com>
+To: Hex Lindqvist <hex@freenixos.com>
+Cc: marcel@holtmann.org, luiz.dentz@gmail.com, pmenzel@molgen.mpg.de,
+ abhishekpandit@chromium.org, linux-bluetooth@vger.kernel.org,
+ linux-kernel@vger.kernel.org
 
 Hello:
 
-This series was applied to bluetooth/bluetooth-next.git (master)
+This patch was applied to bluetooth/bluetooth-next.git (master)
 by Luiz Augusto von Dentz <luiz.von.dentz@intel.com>:
 
-On Tue, 17 Nov 2026 02:33:41 +0000 you wrote:
-> syzbot reports "workqueue: cannot queue hci_conn_timeout on wq hci0"
-> from hci_conn_drop() while hci_dev_close_sync() runs drain_workqueue().
+On Fri, 13 Nov 2026 14:20:24 -0800 you wrote:
+> Since commit af395330abed ("Bluetooth: btintel: Add Intel devcoredump
+> support"), setup sends Read Supported Features (0xfca6) to decide
+> whether to register devcoredump. Older controllers such as the 8260
+> and 8265 reject it with Command Disallowed, so every probe logs:
 > 
-> v1 made hci_conn_drop() skip queueing disc_work while
-> HCI_CMD_DRAIN_WORKQUEUE is set. Sashiko pointed out that this misses
-> two cases: a connection delayed work whose timer was armed before close
-> can still fire during the drain, and a connection created after
-> hci_conn_hash_flush() is never deleted.
+>   Bluetooth: hci0: Reading supported features failed (-16)
+>   Bluetooth: hci0: Error reading debug features
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2,1/3] Bluetooth: hci_conn: Free the unset handle when adding a connection fails
-    https://git.kernel.org/bluetooth/bluetooth-next/c/1f150a0bb8a1
-  - [v2,2/3] Bluetooth: hci_conn: Refuse new connections once HCI_UP is cleared
-    https://git.kernel.org/bluetooth/bluetooth-next/c/56abe5c17b4d
-  - [v2,3/3] Bluetooth: hci_sync: Disable connection works before draining
-    https://git.kernel.org/bluetooth/bluetooth-next/c/1ea7a0946b9e
+  - Bluetooth: btintel: Don't log unsupported debug features as an error
+    https://git.kernel.org/bluetooth/bluetooth-next/c/b05fb50e255a
 
 You are awesome, thank you!
 -- 
