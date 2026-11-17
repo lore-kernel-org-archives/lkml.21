@@ -1,90 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794944332;
-	b=Tk3130kRycUUNSl6a0dqNvu1T/QKaUga9aMtrFOlF2IUcNdRotwlt1kcCXjvb547iCcJ
-	 KPRzLjo4TSdxt8zcj/MFWycC0IF/3HSN+GnVABl0ERAXclLWVXcDwtgMFu/XSwwwu0nI5
-	 IdlFRp3KEvtkbVR7avet9YgUBZFsHrIIpEeYsjmLGTTYswC05yi0Omnwe9NWysaAkTNux
-	 979wJjZ3BA2OGuPDBNy2uiS5uXQRnlViAJoWZH5/nLQQaLT+ohrjnDnJvb52QDJy6xmMM
-	 EHqONiSyybR6y3VUHJgGiK8L1n5xx+93gqXDUPPyE2BFwi2L3TgTWcmZOXsAE1w8j/Q==
+	t=1794944341;
+	b=jj7mRy/RDk5zjr8jo7mHekSpLe7Shlmq819tKel4Y9GDbglsWXZ9920T+O67WT//BqPN
+	 JhVINFS2rzPQ9IEuqenDIVZKYXn86/bQLbATvyxxFihaKL1BICrFbhUHpLni8LXBrTwQ2
+	 ms3WZGbkdKw0n3Ik4psv3EoXVGaj1HksglA1w9886ZfQ5hdJcs6DWhc9q/SO9a/kkxIqs
+	 jBRXDv1T0vsown2aJ83FuYdEulN0CDuFfVIFYy/VK31F8J3igEsAUxcS9fnXxgHjyjCJy
+	 iKiqYHFtMyXtSXnUnallrU3MoaRU4GeMD3DDHIodE5KE6GI2qd0NH2ucU3E52DA0p+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794944332;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794944341;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=1jqnv5GeXVKy3+PA2J2dSMUWrWP8qlh5fFKvFo9JWLY=;
-	b=1Aj8aw/L5N6zsfL113X3AHrw+UR8J9+RWXW+PsfJH+AEpUExUwlYN8vB1513w9LAT3BD
-	 GUmpgFXBV6qNnjvPuN0oEb7w/vbsWofSOhwIUrHVmF2HoHoncl+d28u9HfRHZ2YVGmy3x
-	 s8vvPI1qzyPvZZt4RGpqmJumy0u3iW6MpszMH8fUcdvHxeucCpV4adJ+3/UVKCfQrw1x5
-	 LVG7i/Q23+1L3vfSeObIhb+M7RnXv8cdrDWh7lmGqDO1V2icnaLAkY20Edjh2wQONA+J0
-	 gfbUIyXXuPYFjegYcx7BAxRqh3FbUfMtvUnyX34uydudLZnlVo3oPilYy2rNmejD/sw==
+	 From:To:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=mCdB6Y2b1KlIUU0/RI1kPyC4zaNgqRo05w312NX8tBo=;
+	b=jH2KSGXSp5HSWXUKphFtIoXKJhe/qdQozAhFzNaM5IWir1fX16nOQ+r2E4fThK7cHbsT
+	 X6C+2A14c1AcrYRRS/gvIjnL3urI9ctIBp/wCs9FpdMCVxnT8rTeGHXewduKmNpTfE7Jp
+	 CWm4gXT56fktq47pVg1lJIbW5aNU9yJ8YFUJKxNpyTk+W568zWE3zTdAfmuk9eUnRFX8K
+	 ZSybaaXpb6qH1HG/ZLewOcvp4Jq/zW5Th/Oh/8lGP2fTI8IPnSnrIWjNtn5pXxHKROEv7
+	 +xVNWTTdBb8M70YJrOKzsjlEfN95eH+H3THFfNQ/SZrUUWJ4i5thUfkBPnoVFxOxzZQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=H3X84ivY;
-	arc=none smtp.remote-ip=209.85.161.44
-Received: from mail-oo1-f44.google.com (mail-oo1-f44.google.com [209.85.161.44])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QubTfkMQ;
+	arc=none smtp.remote-ip=209.85.221.41
+Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com [209.85.221.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F6E6606A888
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:38:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F6E6606A888
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CA5A606A336
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:39:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9CA5A606A336
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=H3X84ivY
-Received: by mail-oo1-f44.google.com with SMTP id 006d021491bc7-7190d9bdb2cso152097eaf.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:38:52 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QubTfkMQ
+Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-4a42b34e930so105581f8f.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:39:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794944331; x=1795549131; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=1jqnv5GeXVKy3+PA2J2dSMUWrWP8qlh5fFKvFo9JWLY=;
-        b=H3X84ivY37WOR3gR/T2VIty9gfAqCn+UZwUtuymtRkgRMO7h/y3RuS8X5Eg2DisuwC
-         XQvfFt/gzU9dCEnFdrvUIGZoTdXF9uCo4gfdcNnENuZwhgoi0keMKKhOZLM/SAZKUW09
-         c02LkxVjEMAlLb79gaWJhsyP9M+E4Pq42DW+Nl7/jsI5lv6+HwxTxBsH6w65Acz6Bjzk
-         9Taf10LiyoCra2CgwgzH/uXS9+yN7CJemDz5XD700Ye3PteNSG2E4JG2TKg9BCBnRsQE
-         SPVZMN4nNchKMcG1nls/IOSuI87Sutu0C92mYUaQpG5Bsmbwq4em7lfzSAFCMop7SESm
-         rB4Q==
+        d=gmail.com; s=20260707; t=1794944339; x=1795549139; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=mCdB6Y2b1KlIUU0/RI1kPyC4zaNgqRo05w312NX8tBo=;
+        b=QubTfkMQH+Ts0n7PGqp1tfezAFVn35HsdibP1yHdaShIti+vssRzeb7X3pVYVF3py+
+         N+TBbj+V55oqnTdry0GwJJn81ooSWONI1H4OqaGzjbVRKQNvVwNadF2Kw8BFNYXjyjkg
+         7A2OOy7g1wgh0ZIrLn/xljY8N126J8qBVJCgfw07L4yyljs2F80Jx0nA/+EXU22hUPvz
+         0MPB4eTkinZFKUyAnwCQn5TG1P5udaz5AeQEDvub8iZYc+Yj1e9RfOoDnFe2+RoOGw2z
+         kBySSvkQpUjLY+W/mH1PHjfnoTnXTNFZjTtcA7spK/+oGHCJU9JuT5UKcPWosDYI/uct
+         2VFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794944331; x=1795549131;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1jqnv5GeXVKy3+PA2J2dSMUWrWP8qlh5fFKvFo9JWLY=;
-        b=idk5Zs9nmG5sMx+e6ycYnC7hUbql088nB89+/r32/iuCn3qAgicVJQGzM7Cp0xt5iQ
-         yv2pH2ZCr8SYVtkoQFyZe+bYuyYA0lK+2ORWcQZpoOp5sixWpynfn2X7IQjkYen4d7gN
-         KoIGI8QW8dOv14gssD1DEvGojJQTlWjHE7f5AC4wb2f6cJMObofXTaOzHWoT/iaG+Vrn
-         rdnYqxZHu0cwBnTdIwWrafLXewqWE9lXJnl5eScb2LCOmFGYaW0PuAcjPsWpfRroguwL
-         GY0I+E2UJTw2/B+gUbLvm3+I75eoM3GefoMz2AHhOsDcbvbEbu324c1pz/blXnYXzv3E
-         gfow==
-X-Forwarded-Encrypted: i=1; AL+hErEdQoSgRNFmNg7yZK89600s0ytrlXVukC68CNhepKpmbIgGXIxesc+h2UdSTXmoaZP3fW2/h2vTKxStRIk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9iC8qjHZXk86w+iJ8pn8jUb29ulRrl8Bwr/UuHfFpRNAbEodxq
-	dnyiFZBbdEG0meNbEFgS8UoikOdGOGeRainffI7OnVUr+TaU5uruGiQz
-X-Gm-Gg: AYBFou0hXKQyR+h88WsY2A2H80yHhiD9NTnzjbwoHDuweeT/gJCZlAWLJgXbBMkXJ7g
-	/uLP+J4O/leyjE/wwAyDPDH48sqi5concW+LglBmTDj3u7CtncY+2AlUdc5hfkFFxOY3BkNCKhX
-	flDLQkiLak8EhtkXhsqYu6St8cbX1TkXJtmHjzbTX/e1sF125sCfwPtvFjbnyhBhpupbMV+nb+k
-	jTQH41IRUs0fWOZ1AdLn4p+moHtgQ3lVvckx/NZf1TIa5E/AJjFiu1ekT70Osts+MroS1IOHRgS
-	DCf1sb8BTqrQKhngBOEcsxMiRTt2/UXssWEOSmTjn4DNRx0oI6602At3yrJVLAYA7zv/+38Bf7E
-	0bmci7/oSbhlO3V45X6SPWteVrCpoei8UWrTjyH1oHsnbFJS0D/B3S0kgHugEweI5Jou08GdwCm
-	IEqzA4LnW9jJiKFRqYY/O1b5lgPijBjusRrF1XTodiQQ6VquMuXiARJ0NT+yKQeYzyZzZSsHPK6
-	tTB2VAaIdsnHC6uYY9XY313iHcb6E1oRxo53p2iX+BJrwPZoCcGP5mWT/ARTmuWgGFFLDARrGna
-	FUexd4QPQyqs4RICLg8fTitrtoLlZYcIIzd5DMEsqsN1kV+LCFwBDhesAdQsiaavNsyl5aNiZ7+
-	FDbzrVwLgig4ekPbX5xmDzpbg9BP+aq1v8hjd4Xl+nOcNniPQhcfaCOhEkBQVGOyjH8LHPuWs0L
-	VcedaHSNr7xMEmXZRKO6IXSceM6w4O+Z87WvtVOYnjmm47oSNpg8tzM5wbZYj9LFO1fMx7Cd49
-X-Received: by 2002:a05:6820:1627:b0:71a:df0d:ea2b with SMTP id 006d021491bc7-71b1883e80amr279612eaf.83.1794944331147;
-        Tue, 17 Nov 2026 11:38:51 -0800 (PST)
-Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b192272ffsm146281eaf.2.2026.11.17.11.38.45
+        d=1e100.net; s=20260707; t=1794944339; x=1795549139;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=mCdB6Y2b1KlIUU0/RI1kPyC4zaNgqRo05w312NX8tBo=;
+        b=LBa9fKv0EUA4EqfyiKoEhVWwtqoUHJv+SmfNJoEFVjY6tWRdEM2LY0+cfSOwxhtPpm
+         KS4Wsv/JJAsfXcI/QvNGB0Q1U1pqBj7ZXfHe4L8LglSadjTBhVZcgvsnugvXW2Vga6Pv
+         NAyR413iSel/uCea4TbOq2GqyTpryVagEu2APhgvO6D/IFgeVQ19suVMRLtlQmW6i4M0
+         6dtgzWA3xPSbq//yO7T7yvjs3N90TpUtXJtRgaseDZAchTr0hrYwJmczSpbNlTE0PG1x
+         vSi20F1aa0aSfXnkHU7i3EWdMggKEFAsbdybLgSw6mwyxSzbPo1pTlL+60hcvQqvWcVQ
+         pLAA==
+X-Forwarded-Encrypted: i=1; AL+hErFHoec+SgQjq6od4UijDajg58dsanTOJGXvjbWtg7ONhsn91e5rY/sUB6YkcCnvMPIQMSCQPLjRH5ClQ50=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Etv+Gx4g0Nw/xwBM5zOzCW6g5iRZB9IhDvEzT5ceF6ZH68ciS
+	j9mDhgdKDFw9vMjsXeaW/deAObqFHtx/EMa4kF61l2Vkoz3REMjs4HC/vIjpNw==
+X-Gm-Gg: AZFdTZcbKD9YP9/OhO1mQ0h+gpuwf1x81hkilnriqZLE53Yi98U1iCo0saENB/NiP60
+	I5titCaq9dN1JgyFDxjZMnxn/ocnPeilYTAJNVfGAud4/OXEU7OHHd+FxTTnkoPb3Bh3CUCS3KE
+	Vxcam8RoXgRLZYpLJL+SMIYDA19HLWgW+zDLryhHDRSxRs4ewGsG6sh2RMnqN17pLiuKXJfEc57
+	HEVO6+Ci5QZoYNH8G6OjOIu31NH/kKR5Q2xMqE2w5BdFNWt4DLTXogGrmiAZgJkiNftOsl380EF
+	QEM3kX4Q88fm7I4hyTweypwFbwvFzGOww296xFdTR/4Nzl66eRY7BRNCcKIs4q00XBK7amSOdIJ
+	91jdIBYEuSzPZR0hjHK3C3EXgknjvb5FGPFQOY88ehoHeMfzy+Ke8oVhlYwfcC7hCVPi42ivrs0
+	x9ZEOMW9LySlBM66wZuUblHKGT1kbnF+8JV3Kdc3D0yLrwj/uJWqdDef8jOs/KhO1DIFUBz3P+K
+	ri8oiB9so2V3iaBIF2YPkNdDLcPnYonZVW7TzZINn+Zg3ysnfwJRwD8gdLnGfoOvIu0Zsjy73Az
+	RRF168RutA/GYfrH6vw4MgBe+mzJIf6Nr7GAYPbgynGtHfyr+Gog7hma6622iIHYdjpXtNRkzCp
+	KZ4SxbtDs6kynHZKX6YyzYm0dRsbV1TedTw==
+X-Received: by 2002:a05:6000:178c:b0:490:9fe2:6a39 with SMTP id ffacd0b85a97d-4a6394756a8mr1002586f8f.20.1794944338756;
+        Tue, 17 Nov 2026 11:38:58 -0800 (PST)
+Received: from Ansuel-XPS24.localdomain (93-34-92-103.ip49.fastwebnet.it. [93.34.92.103])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-4a64b60940csm509521f8f.0.2026.11.17.11.38.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 11:38:46 -0800 (PST)
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Tue, 17 Nov 2026 12:38:16 -0700
-Subject: [PATCH 09/11] nvmem: disconnect published devices before
- registration rollback
+        Tue, 17 Nov 2026 11:38:57 -0800 (PST)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-sound@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v6 0/2] ASoC: Add support for AN7581 PCM driver
+Date: Tue, 17 Nov 2026 20:38:46 +0100
+Message-ID: <20261117193851.235272-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,120 +104,74 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261117-submit-nvmem-provider-lifetime-v1-v1-9-3cfbd48812b5@gmail.com>
-References: <20261117-submit-nvmem-provider-lifetime-v1-v1-0-3cfbd48812b5@gmail.com>
-In-Reply-To: <20261117-submit-nvmem-provider-lifetime-v1-v1-0-3cfbd48812b5@gmail.com>
-To: Srinivas Kandagatla <srini@kernel.org>, 
- Mathieu Dubois-Briand <mathieu.dubois-briand@bootlin.com>, 
- Michael Walle <mwalle@kernel.org>, 
- =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Miquel Raynal <miquel.raynal@bootlin.com>, 
- Paul Cercueil <paul@crapouillou.net>, linux-kernel@vger.kernel.org, 
- linux-mtd@lists.infradead.org, James Hilliard <james.hilliard1@gmail.com>
-X-Mailer: b4 0.17-dev
+Content-Transfer-Encoding: 8bit
 
-Registration can fail after the NVMEM device is visible and a layout has
-published cells. Disconnect the provider before destroying that layout
-and deleting the device, just as for normal unregister. This prevents
-layout removal from rebuilding attributes while rollback removes them.
+The Airoha AN7581 SoC provides a PCM interface for VoIP applications,
+supporting playback and capture at sample rates of 8 kHz and 16 kHz.
+The driver configures the PCM bit clock to 2.048 MHz and supports
+8-bit and 16-bit samples, with up to 32 channels.
 
-Reuse nvmem_unregister() for failures after device_add(). Track whether
-the registration notification was emitted so an unsuccessful registration
-does not generate an unmatched removal notification.
+Add YAML and driver. This has been verified with loopback
+and confirmed by Airoha with ZSI voice chip.
 
-Document when providers may release their callback state.
+Changes v6:
+- Better handle IRQ with IRQ_NONE
+- Drop wrong DPCM values
+- Add comments about CHBF_OFFSET
+- Add comments for HW pointer reset
+- Validate that slot fit in the BCLK
+- Add INFO_BATCH
+- Fix wrong define name for 2048KHz
+- Drop unused header
+- Select CONFIG_REGMAP_MMIO
 
-Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
----
- drivers/nvmem/core.c           | 22 ++++++++++++----------
- include/linux/nvmem-provider.h |  3 +++
- 2 files changed, 15 insertions(+), 10 deletions(-)
+Changes v5:
+- Use local reset variable
+- Fix validation for channel and bit mask
+- Drop use of threaded IRQ
+- Return if snd_pcm_hw_constraint_integer errors out
 
-diff --git a/drivers/nvmem/core.c b/drivers/nvmem/core.c
-index f1a254a0a5cb..619d33a59697 100644
---- a/drivers/nvmem/core.c
-+++ b/drivers/nvmem/core.c
-@@ -27,6 +27,7 @@
- #define to_nvmem_device(d) container_of(d, struct nvmem_device, dev)
- 
- #define FLAG_COMPAT		BIT(0)
-+#define FLAG_REGISTERED		BIT(1)
- struct nvmem_cell_entry {
- 	struct kref		refcnt;
- 	bool			disconnected;
-@@ -1202,7 +1203,7 @@ struct nvmem_device *nvmem_register(const struct nvmem_config *config)
- 
- 	rval = nvmem_populate_layout(nvmem);
- 	if (rval)
--		goto err_remove_dev;
-+		goto err_unregister;
- 
- 	/* If the device has WP GPIO, default to read-only */
- 	if (nvmem->wp_gpio)
-@@ -1211,20 +1212,17 @@ struct nvmem_device *nvmem_register(const struct nvmem_config *config)
- #ifdef CONFIG_NVMEM_SYSFS
- 	rval = nvmem_populate_sysfs_cells(nvmem);
- 	if (rval)
--		goto err_destroy_layout;
-+		goto err_unregister;
- #endif
- 
-+	nvmem->flags |= FLAG_REGISTERED;
- 	blocking_notifier_call_chain(&nvmem_notifier, NVMEM_ADD, nvmem);
- 
- 	return nvmem;
- 
--#ifdef CONFIG_NVMEM_SYSFS
--err_destroy_layout:
--	nvmem_destroy_layout(nvmem);
--#endif
--err_remove_dev:
--	nvmem_sysfs_remove_cells(nvmem);
--	device_del(&nvmem->dev);
-+err_unregister:
-+	nvmem_unregister(nvmem);
-+	return ERR_PTR(rval);
- err_remove_compat:
- 	nvmem_sysfs_remove_compat(nvmem);
- err_put_device:
-@@ -1239,13 +1237,17 @@ EXPORT_SYMBOL_GPL(nvmem_register);
-  * nvmem_unregister() - Unregister previously registered nvmem device
-  *
-  * @nvmem: Pointer to previously registered nvmem device.
-+ *
-+ * Stop and drain provider callbacks before returning. Existing consumers keep
-+ * their core-owned metadata, but further access returns -ENODEV.
-  */
- void nvmem_unregister(struct nvmem_device *nvmem)
- {
- 	if (!nvmem)
- 		return;
- 
--	blocking_notifier_call_chain(&nvmem_notifier, NVMEM_REMOVE, nvmem);
-+	if (nvmem->flags & FLAG_REGISTERED)
-+		blocking_notifier_call_chain(&nvmem_notifier, NVMEM_REMOVE, nvmem);
- 
- 	nvmem_disconnect(nvmem);
- 
-diff --git a/include/linux/nvmem-provider.h b/include/linux/nvmem-provider.h
-index e0638bd50d1f..ba11c807593b 100644
---- a/include/linux/nvmem-provider.h
-+++ b/include/linux/nvmem-provider.h
-@@ -107,6 +107,9 @@ struct nvmem_cell_info {
-  *
-  * Note: Specifying name and setting id to -1 implies a unique device
-  * whose name is provided as-is (kept unaltered).
-+ *
-+ * Provider callbacks and @priv must remain valid until nvmem_unregister()
-+ * returns, or until a failed nvmem_register() returns.
-  */
- struct nvmem_config {
- 	struct device		*dev;
+Changes v4:
+- Add review by tag for DT patch
+- Address shashiko bot comments
+- Better protext tx pos
+- Set DMA mask for coherent DMA
+- Use more managed resource
+- Increase users in startup
+
+Changes v3:
+- Out of RFC
+- Add Documentation patch
+- Drop SLIC testing code
+- Add MAINTAINERS entry
+- Follow normal pattern for commit title
+- Improve commit description
+
+Changes v2:
+- Rentirely rework IRQ handling
+- Fix problem for timeslow configuration
+- Better support duplex mode
+- Better handle descriptor tracking
+- Move to Soc directory
+- General code fixup and cleanup
+
+Christian Marangi (2):
+  ASoC: dt-bindings: airoha: Add AN7581 PCM controller
+  ASoC: airoha: Add support for AN7581 PCM driver
+
+ .../bindings/sound/airoha,an7581-pcm.yaml     |  52 +
+ MAINTAINERS                                   |   7 +
+ sound/soc/Kconfig                             |   1 +
+ sound/soc/Makefile                            |   1 +
+ sound/soc/airoha/Kconfig                      |  11 +
+ sound/soc/airoha/Makefile                     |   3 +
+ sound/soc/airoha/an7581-pcm.c                 | 931 ++++++++++++++++++
+ 7 files changed, 1006 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/sound/airoha,an7581-pcm.yaml
+ create mode 100644 sound/soc/airoha/Kconfig
+ create mode 100644 sound/soc/airoha/Makefile
+ create mode 100644 sound/soc/airoha/an7581-pcm.c
 
 -- 
-2.53.0
+2.55.0
 
