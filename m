@@ -1,85 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.109.113.108
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794945315;
-	b=5sjTeNR7A5CXBJtz1ALhMSZZg5r5VTskwUA6QwMxL4E37xqsbUz8ut8sANUK+ErJ2n+e
-	 at/BVoxPnlNeirg6owDmQHilNm1Yc+OGI7yk55GfkBN8fzC7g7L/Mzfc94wuY8umgqQLK
-	 ABzQ5rz1cnxF1IcfYbmU94HcoX680wSGm8Jmv/8rglafCtwm5I6clf0XW3D9KcxR5hP14
-	 Utmn9l/p4ikBiafHaWv0vo3YZdHNx8RRXzvFSZI1MeI1H8GieQaA68TFFsslIzcasayjs
-	 xNzHlPSiUGk62lLb3W1oD04YF2l9Ytzlp2ZGmw9SZU5/KKDSL1GJjfKS5eBxS6dzezg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794945315;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=FiuczpS642z4tqeB5kPt0ZbvVVemzyyGPEF/bdILDlk=;
-	b=Pb1+fFh23rZRvvrat9BYFG3c6t1LWOHnrWv5fT8NUW4JGkb0PD8mkDC2prX3jmnTbads
-	 RL3Djschgd4h/fqk9L/xsCrHAVsih+yVV3sVjeY0RPeapOVPS/PUloJryHwCUeqkjIthQ
-	 YtukYw1IcV/VIzemYnlrfL8h96YNdNrMpFChccg+IzVFnY4m+d/th7dEBKM3uO01fJ87Y
-	 qIOhWLIio1pz9QAk9MEJXDlGYOFLDu0ca/yohA176FMLiml7mXLO/hpyuyuUXQt+NBJcA
-	 l3SQ2ugqfN+oua8Kf9RU0kPaNhYVjIdrVeSqIJM2xuPJMdnQ/9LpkbpHQoidz0ZN2kQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=alien8.de;
-	spf=pass smtp.mailfrom=alien8.de;
-	dkim=pass header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=Qn1NESUu;
-	arc=none smtp.remote-ip=65.109.113.108
-Received: from mail.alien8.de (mail.alien8.de [65.109.113.108])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794945345;
+	b=qY4zdm59VJaPACbkZNdgj+UzXycZciTRtPcs6J393YJHClMgxvYzBoiwnMHzHIZ6s5W6
+	 DyhVQJdh+3qrQvrl+YS8V98L4Al2FImd3FTqkhOOQEd4ZRsBPA0wl1E7nNQReq41T/WCg
+	 KLe95sS/Z+ugbyuekS7D9uLGMjoZY9DIrGlXxGoeQ0It+d7SjMDoOnTZhKcqLAomHBUBN
+	 gBFJRnCo7SHOC39m63k25381xpL46f7Ztk3YiCnCl8MASB1leta1G9OiP/MhEIF7jmI+m
+	 KuXn9DBPCskHVBdfIg/wUFvVcA5O3o85WpV+gc8DEhp2pyP1+s9ysrsA1ac8eAoQRuw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794945345;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=hUhYh4Z/PDezI8cONEqRZjSHAQnYq8Uu/Su5P7ciz7g=;
+	b=OVxVZ1GYPshpTGcdm74nWCka3dUz2CdzQZrCGuA0T8uKraStpg7anLF56DMNDJzQMZTc
+	 Ma5vNX/H3ORlJg5X4vMXbOx3YUCAel0nHJfR9VSQ5wbD0Oxusc/nICwYhj6b2XHjX3lui
+	 cjelIM+tFzgFo8uxJtPtkyJY/e2Sb0GWmD9rSm0dyzRqNat6xlfT+ImOz3yZVpKmfARqd
+	 GdGKMI4LTRP/zcp5gPbik1enfVo79y5vv0e1DgvOOO5P2WZiTirvuq1XYskjmLMCoWy4Z
+	 9P6EIBINvhsImKA6bp4uEJYoCLeRfe5nfw5G508stb2ddiNyp8l4jFACBk+RzwZAbgA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I5iLUPhu;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DB85606A333;
+	Tue, 17 Nov 2026 19:55:45 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I5iLUPhu
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1794945345;
+	b=XWwp0Vn3gnGhipSiOd2S5q3R6I0qULDTWJD8m/lqg65YtqZrwMjlMGcfUpFr9b1wySrP
+	 kctIRKXEJ4kUmlJAzCeRAD2hxZv0XC18aSkVPJC68truXoJ58mJvjciLmI0Coq6RVP9ld
+	 2/YWiW6KdtOde8GMHCKQOoXsysYKUYVMIITxTKKprjIgP0xScrMGxVXne0IPNdsT1JUqs
+	 V8OX0VfN4nXMppqy8RyaYGcUZCpeJ7ZZWLYL/cO6PAnwH0wz5DAS3/mcKpJTp3HYrXvK/
+	 4zMXXVy7Zsu2tNs4FvSWJq2q/cJ8D+GwF24Tx6yVz0iIdAeLBo1fkzunmYiQI5JJjyg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1794945345;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=hUhYh4Z/PDezI8cONEqRZjSHAQnYq8Uu/Su5P7ciz7g=;
+	b=xFstLGEsLNHUWX1fcZYWPf+UXw+9REwFkRKAvoHBJY8WTb/gEOk8XcbU+GbQ7nLsl7d1
+	 ePw0FRpjfCWKXYTBo+oyBvF9O/qSM7UCBNrGntJHKeZ3tGgVOqVD2E4RmMiDxesFyb8FQ
+	 IfLolasZdNVGW0ZSALiXrzO0tSxhOwUSbMMBqEecjhA8uQVpSZmY86vJHE4W9EwNv5fRo
+	 Vg2S4C8soTu2+Q9uiHg/bZ9IKpSs6+pElEvqq4WAIvkW8Nij6RSeGHhC/ITD4yxYqm8QW
+	 iGu0xPIRGr8Trcni+aFej+ip+v0lYWyqeV2M2YIMW0g6mEPz7f31RKxtCCeX51KlI8g==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1370606A332;
-	Tue, 17 Nov 2026 19:55:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E1370606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=alien8.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=alien8.de
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key) header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=Qn1NESUu
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 945C040E01E1;
-	Tue, 17 Nov 2026 19:55:12 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
-	header.d=alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id 3Ggrgw5ylJyw; Tue, 17 Nov 2026 19:55:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1794945308; bh=FiuczpS642z4tqeB5kPt0ZbvVVemzyyGPEF/bdILDlk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Qn1NESUu6sPmE0eD6d0UCNF8hJwm73CiYLKgqAT6B9WnmfbVy6r72xM6Q8ww72zRr
-	 QVeQy7gY8toTEYlFdDIYqhkxaIqNke6ayI9p53/vYCUPCcXD4JNEf7H9vEDmQMDZRY
-	 VpZruo9R5Zu61fGvjxJ3oCRN3h+AP3VLK15nRVvg1WjNIguzmUWX3DTEtGcjfoZzAX
-	 6+Aqnlmh2TJjqo6cRR/S3gEYPRZpM/qi10Bv+7kxJmRt64sAiCKWA5qsks6uvt34Uh
-	 zzm6cno7YqzOSkFH+xeZnh1fQbu/ADIxx1Dv68NCSK0AvJlh9xuESGRSqjMwlzWbJK
-	 PnOAG9RJbxUTY7bgzQ+A45pidpNDKsGGTvsE3k2kkur7LHWEJOY5F2IOfEqx50QEIC
-	 9tiJQtO5FfxRIDpCdyXhff+NGol8Hr5Jq0Q7QzMzVomWn1hvTx4BW2YSNSa/Z05ujO
-	 NAVJNIln/2QbGwMbzNg3NJI/+LxaZLOXJfq/jOT6LclDdkoAvah9I5mOhHiHOKgZy2
-	 bJ3kTDgH0/jh1WZdYNBvmNSmt/pqRAn0Wz7eg9wH1ZzMzOiJ5xCkN+Jzb8U3xH2I+w
-	 SUttGPZZ0LEI090+Llzuxil1isv2q0JxSFE03XdNVSlB4Ba3+7DT8OKyCnXC5PVUYQ
-	 MXFLH6qiuqo7TTo++nY2wWTA=
-Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::43])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id D1D1A40E00DC;
-	Tue, 17 Nov 2026 19:54:58 +0000 (UTC)
-Date: Tue, 17 Nov 2026 11:54:55 -0800
-From: Borislav Petkov <bp@alien8.de>
-To: "Luck, Tony" <tony.luck@intel.com>
-Cc: Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	"linux-edac@vger.kernel.org" <linux-edac@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 06/13] i82875p_edac: Convert to
- pci_assign_unassigned_bus_resources()
-Message-ID: <20261117195455.GEavyxDycsQbYSctQr@fat_crate.local>
-References: <20261116152403.2672-1-ilpo.jarvinen@linux.intel.com>
- <20261116152403.2672-7-ilpo.jarvinen@linux.intel.com>
- <20261116154005.GAavsj1a11BRgBVtSd@fat_crate.local>
- <CH8PR11MB403433B2B6C13E8AA2A31130FAFC7C2@CH8PR11MB403433.namprd11.prod.outlook.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id 9486E1F000C7;
+	Tue, 17 Nov 2026 19:55:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794945345;
+	bh=hUhYh4Z/PDezI8cONEqRZjSHAQnYq8Uu/Su5P7ciz7g=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=I5iLUPhu3NwUjaP7SwP77r4Rd5x4pRXQ3IQvfDNQTF/MNameMZJIMnxPMPqL8q8aj
+	 OPAp9S9moOydHlPxixy0zKbFMX2gtwCnTq9Q2Xm7SNgTRYEraySHJXOpKNRvBLgUkG
+	 vpYxIzz8VZEMCCvL1fM5hTjWE33tDhxm5htC2l7/nx/FORXER1n4s7+3yweBdBXooF
+	 oWyQemsz3oswrlqGojTwwhfG8uAWf8/bGAbx/4jgtKtF20XIHBbcI4idktFHiM3THu
+	 5uq6QdEdg8RcXQoU3isv+tSVf8a8RUHQKQTAC6+i3bjSTUy5s7FFAyO4aj03bf87AN
+	 Slv+TmtKWzWKQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 1D5224AAAE;
+	Tue, 17 Nov 2026 19:55:44 +0000 (UTC)
+From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
+Date: Wed, 18 Nov 2026 03:55:32 +0800
+Subject: [PATCH 2/2] riscv: dts: eswin: Add Milk-V Megrez board
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,116 +82,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <CH8PR11MB403433B2B6C13E8AA2A31130FAFC7C2@CH8PR11MB403433.namprd11.prod.outlook.com>
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261118-eic7700-megrez-v1-2-af8334b88336@iscas.ac.cn>
+References: <20261118-eic7700-megrez-v1-0-af8334b88336@iscas.ac.cn>
+In-Reply-To: <20261118-eic7700-megrez-v1-0-af8334b88336@iscas.ac.cn>
+To: Min Lin <linmin@eswincomputing.com>, 
+ Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>, 
+ Pritesh Patel <pritesh.patel@einfochips.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: Han Gao <rabenda.cn@gmail.com>, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Han Gao <gaohan@iscas.ac.cn>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794945342; l=1608;
+ i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
+ bh=5UoIVWI3E0hRT2YTxV7p/RQ7wPueg9djF6ac68d/O7I=;
+ b=eOiA75gawpPq6IKE0fE092dhk/5ohmTbM2e6yYWxs8B5o12sKpTdTytekzbghUGprexUcXV2/
+ kYp9Q3p8HGUCjJyWfM4grO9eA14GhpgsbMN+/u0c2ajp2Fc+MspDRCW
+X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
+ pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
+X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
+ auth_id=1262
+X-Original-From: Han Gao <gaohan@iscas.ac.cn>
+Reply-To: gaohan@iscas.ac.cn
+Content-Transfer-Encoding: 7bit
 
-On Mon, Nov 16, 2026 at 05:11:09PM +0000, Luck, Tony wrote:
-> > In addition to this, Tony, should we orphan this one too?
-> >
-> > It is a P4-something-chipset...
-> 
-> Looks like it was release in 2003 or so. Only supports 4GB of memory.
-> Even if someone still has one powered up, unlikely that they would run
-> an upstream kernel on it.
-> 
-> I'm OK with marking it as orphaned.
+From: Han Gao <gaohan@iscas.ac.cn>
 
-Ok, here's what I have in mind:
+The Milk-V Megrez is a Mini-ITX board based on the ESWIN EIC7700X SoC.
 
-From: "Borislav Petkov (AMD)" <bp@alien8.de>
-Date: Tue, 17 Nov 2026 11:49:09 -0800
-Subject: [PATCH] MAINTAINERS: Add a common entry for orphaned EDAC drivers
+Add a minimal device tree that enables UART0, which is connected to the
+USB-C debug port through a CH340 USB-to-UART bridge, and use it as the
+serial console.
 
-This removes a bunch of lines in the MAINTAINERS file while having the
-same result: unify orphaned EDAC drivers which are not going to receive
-any more fixes due to lack of hardware, age of the hardware supported
-and general lack of use.
-
-This is also adding drivers/edac/i82875p_edac.c to the lineup which is
-a 32-bit only chipset for Pentium 4 from 2003 or so.
-
-The code is not going away - if there are users who are willing to test,
-we can easily resurrect them.
-
-Signed-off-by: Borislav Petkov (AMD) <bp@alien8.de>
+Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 ---
- MAINTAINERS | 29 +++++++++--------------------
- 1 file changed, 9 insertions(+), 20 deletions(-)
+ arch/riscv/boot/dts/eswin/Makefile                 |  1 +
+ arch/riscv/boot/dts/eswin/eic7700-milkv-megrez.dts | 25 ++++++++++++++++++++++
+ 2 files changed, 26 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 31c06c57de93..f1a83cea9798 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -9386,11 +9386,6 @@ L:	linux-mips@vger.kernel.org
- S:	Maintained
- F:	drivers/edac/octeon_edac*
- 
--EDAC-CAVIUM THUNDERX
--L:	linux-edac@vger.kernel.org
--S:	Orphan
--F:	drivers/edac/thunderx_edac*
--
- EDAC-CORE
- M:	Borislav Petkov <bp@alien8.de>
- M:	Tony Luck <tony.luck@intel.com>
-@@ -9414,11 +9409,6 @@ L:	linux-edac@vger.kernel.org
- S:	Supported
- F:	drivers/edac/dmc520_edac.c
- 
--EDAC-E752X
--L:	linux-edac@vger.kernel.org
--S:	Orphan
--F:	drivers/edac/e752x_edac.c
--
- EDAC-E7XXX
- L:	linux-edac@vger.kernel.org
- S:	Maintained
-@@ -9443,11 +9433,6 @@ L:	linux-edac@vger.kernel.org
- S:	Maintained
- F:	drivers/edac/i10nm_base.c
- 
--EDAC-I3000
--L:	linux-edac@vger.kernel.org
--S:	Orphan
--F:	drivers/edac/i3000_edac.c
--
- EDAC-I5000
- R:	Andrew Luebke <andrew.luebke@gmail.com>
- L:	linux-edac@vger.kernel.org
-@@ -9491,11 +9476,6 @@ L:	linux-edac@vger.kernel.org
- S:	Maintained
- F:	drivers/edac/igen6_edac.c
- 
--EDAC-MPC85XX
--L:	linux-edac@vger.kernel.org
--S:	Orphan
--F:	drivers/edac/mpc85xx_edac.[ch]
--
- EDAC-NPCM
- M:	Marvin Lin <kflin@nuvoton.com>
- M:	Stanley Chu <yschu@nuvoton.com>
-@@ -9542,6 +9522,15 @@ L:	linux-edac@vger.kernel.org
- S:	Odd Fixes
- F:	drivers/edac/ti_edac.c
- 
-+EDAC ORPHANED DRIVERS
-+L:	linux-edac@vger.kernel.org
-+S:	Orphan
-+F:	drivers/edac/e752x_edac.c
-+F:	drivers/edac/i3000_edac.c
-+F:	drivers/edac/i82875p_edac.c
-+F:	drivers/edac/mpc85xx_edac.[ch]
-+F:	drivers/edac/thunderx_edac*
+diff --git a/arch/riscv/boot/dts/eswin/Makefile b/arch/riscv/boot/dts/eswin/Makefile
+index 224101ae471e8d89996f7cbfc616425f704af37e..5daade822e15eda43eee111cbf89bc386bb06f32 100644
+--- a/arch/riscv/boot/dts/eswin/Makefile
++++ b/arch/riscv/boot/dts/eswin/Makefile
+@@ -1,2 +1,3 @@
+ # SPDX-License-Identifier: GPL-2.0
+ dtb-$(CONFIG_ARCH_ESWIN) += eic7700-hifive-premier-p550.dtb
++dtb-$(CONFIG_ARCH_ESWIN) += eic7700-milkv-megrez.dtb
+diff --git a/arch/riscv/boot/dts/eswin/eic7700-milkv-megrez.dts b/arch/riscv/boot/dts/eswin/eic7700-milkv-megrez.dts
+new file mode 100644
+index 0000000000000000000000000000000000000000..2ca6d36c5edca271381b677ab14e9a459fdaafce
+--- /dev/null
++++ b/arch/riscv/boot/dts/eswin/eic7700-milkv-megrez.dts
+@@ -0,0 +1,25 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Copyright (c) 2026 Han Gao
++ */
 +
- EDIROL UA-101/UA-1000 DRIVER
- M:	Clemens Ladisch <clemens@ladisch.de>
- L:	linux-sound@vger.kernel.org
--- 
-2.53.0
++/dts-v1/;
++
++#include "eic7700.dtsi"
++
++/ {
++	compatible = "milkv,megrez", "eswin,eic7700";
++	model = "Milk-V Megrez";
++
++	aliases {
++		serial0 = &uart0;
++	};
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++};
++
++&uart0 {
++	status = "okay";
++};
 
 -- 
-Regards/Gruss,
-    Boris.
+2.47.3
 
-https://people.kernel.org/tglx/notes-about-netiquette
+
