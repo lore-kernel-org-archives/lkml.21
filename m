@@ -1,91 +1,119 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=46.30.211.244
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.228
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794958350;
-	b=hhjePXQ78P1g8d3IVRHESc+dKo9PUx2tritgU+tKlYCN56TNiW5hKP/m3ZLsy3kR7c16
-	 LrAzlCkeoU5CkHkOa3/wTtX32WdPlUs9e4nLVtl+1ZFeBJcdGmbg3aJObWsebn2lo0zUc
-	 SfIFW/5bUuT0aAzF7NOYIvlefM01AXrhOuaOTwFT5c2gfUSXDfnEpOn0dpAa1hxR4dL1l
-	 bmgB7TT5UOMDNhTytV3cR+v4LAQ5oUAL/ozxinL7jkRs08nsUx5Yr6bD044xp1KTp1Q1h
-	 /LG6aH1UJf5Ax44hgIKugClnHyuaFYeRAxlMJrC5amIOzIPckix0WKZrVVkskK1HeYw==
+	t=1794958343;
+	b=hmAGE8SLxumUa9qy8sCxPak2mIKgenBAwukArBixKrhrViBiPJWUVf1G0pnyLO7fEBpO
+	 cYMy9HlFbnfC/lYIxHO11j+DtB3gqEi/WWpvCkw66dOnJfTP7qMsmVxfLynWzNEX+kdCZ
+	 zA32iFTKOEspTx5A5J9o0+PFNrqeExX+sPrnpakNLbuWLPMXUmWhoSKtbeh3w6kbTunmM
+	 qD0D2n2DpCU2h7CY3357SLHb5ezZYBFNXOthEfGBTZmrl+WzbpdRZn4jEyZPMpuHfFmnc
+	 gcMUeW73cb/BAengPX981BGx0q7DfcztZoYt+Z+dVsZdo9EcRq1+BGXe//Pk8t15Oqg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794958350;
-	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:X-HalOne-ID:Received:From:
-	 To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=bFKN+snfKCKIRA92xdfrL/fXj8QHSvi1QUir+8b99eo=;
-	b=qeYdeWTgbvNsdnQNUSuWnKjUsztuM+vvm58apge7rl2fdgoUPnsbcFbnpR9khF4rZxdk
-	 KyRt7MXtOA7z9VHBzSpWBVPR8gwYa9lIpdiQ4zZnxj+xJ7QeyafJPZ43zcXXnHpS5EEtw
-	 SodcKZfSnDh49YWAaPupdFcRdJXz2LCqA49ZsV3k+umvUtbAsNuisJ/Pwk7qCa3Lh/csc
-	 yziLT7HSSxYT9AZO7PLBb7HU9WK7+PJnSQDyp+z7TKLWj2wrPkQQpQrdfC5iGQI4pcUXN
-	 5dRaAh1LrhG0RoN1w1Wm29CQRHM64lgGc4aqAhZYn2G03Nn+AeUdOMIFZJfCVrSXkkA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794958343;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
+	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-Id:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-DetectorID-Processed;
+	bh=cKpRja5KzmuFV6Ut12Ip5OUUMuzPvD7GprkqoloD8t0=;
+	b=lFM60dRTMlg7u3Xi9JCo/kg0GDC2sp6M31cOintYyIDVLXDNzWhLE7nmYr6fci5m+clP
+	 7e8OAhY0yeZrG4M/TwUN9JZfzjcOV1oHlqh6uqscDFcIezQ1UhQ36o8+2ATCO0et1j1eu
+	 T3JQnN1hbg1yDz0GunBVrCLFDAZv4tHGVPDuXeyXMNmBnx+d+GLokH0aQOMH1gq/4YXtk
+	 n/PUvDfN+5qrD+dcr/E/8NZFPdepWJBXgDLTebsrkurtXMxKPcZLSEutquGrxRzATcHGe
+	 3x+ZfKq1A47qj4AcHmeW9Et7i4RAgu6EbY3zt7iOgCcNHwGXSqtWOm3MWSxHxuhUTjg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=konsulko.se;
-	spf=none smtp.mailfrom=konsulko.se;
-	dkim=pass header.d=konsulko.se header.i=@konsulko.se header.a=rsa-sha256 header.s=rsa2 header.b=GAK1P0nC;
-	dkim=pass header.d=konsulko.se header.i=@konsulko.se header.a=ed25519-sha256 header.s=ed2 header.b=dRATJSc2;
-	arc=none smtp.remote-ip=46.30.211.244
-Received: from mailrelay-egress5.pub.mailoutpod3-cph3.one.com (mailrelay-egress5.pub.mailoutpod3-cph3.one.com [46.30.211.244])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=broadcom.com;
+	spf=fail smtp.mailfrom=broadcom.com;
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=E8RPwI6J;
+	arc=none smtp.remote-ip=209.85.215.228
+Received: from mail-pg1-f228.google.com (mail-pg1-f228.google.com [209.85.215.228])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB12060A260D
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:32:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB12060A260D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=konsulko.se
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=konsulko.se
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3CB49606A33F
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:32:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3CB49606A33F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=konsulko.se header.i=@konsulko.se header.a=rsa-sha256 header.s=rsa2 header.b=GAK1P0nC;
-	dkim=pass header.d=konsulko.se header.i=@konsulko.se header.a=ed25519-sha256 header.s=ed2 header.b=dRATJSc2
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1794958347; x=1795563147;
-	d=konsulko.se; s=rsa2;
-	h=content-transfer-encoding:mime-version:references:in-reply-to:message-id:date:
-	 subject:cc:to:from:from;
-	bh=bFKN+snfKCKIRA92xdfrL/fXj8QHSvi1QUir+8b99eo=;
-	b=GAK1P0nC5usdvu+dVAv04dijiDbfDVj0X4BtzX3igl5KuZqY8XKfgm2OEy4k0E64wc3pkxh+L5ft5
-	 mCs62QiNQeqjgvno1Ew0RcvPFfc33ptDjvPxVXMrw5uUMK9BWi+3JlM0CZ2NWigM7qrmdPybo4R8xG
-	 gFbyuYpCe6aOIfyoulZKtCtQtO3cDD7WQHV1x4IU9h0Z8QFhoUyMxzybbARHTV8J9v9nuH/zzMpGnN
-	 5r3sgwBCDajeKUsu07oWtrnkHLrGmjozH00/TFMrzfO/Ao9H+rya70TXM3jtrNckcPAiHYZAE4TEDG
-	 f7owC4qUEUam3bzHeLG0Jmf7GCVN6zQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1794958347; x=1795563147;
-	d=konsulko.se; s=ed2;
-	h=content-transfer-encoding:mime-version:references:in-reply-to:message-id:date:
-	 subject:cc:to:from:from;
-	bh=bFKN+snfKCKIRA92xdfrL/fXj8QHSvi1QUir+8b99eo=;
-	b=dRATJSc2iuwoJgMXn3zonAqFyQTwr0q2amA49/AAg5EVxkXk/qAW91ioXzn+4IG+NtkuPzCpfEimx
-	 4Jf1eGgCQ==
-X-HalOne-ID: 2484e663-e2df-11f1-92b6-49de817b90c1
-Received: from slottsdator.home (unknown [2a02:1406:27d:15:2438:a644:c11e:a5ef])
-	by mailrelay6.pub.mailoutpod2-cph3.one.com (Halon) with ESMTPSA
-	id 2484e663-e2df-11f1-92b6-49de817b90c1;
-	Tue, 17 Nov 2026 23:32:25 +0000 (UTC)
-From: Vitaly Wool <vitaly.wool@konsulko.se>
-To: Andreas Hindborg <a.hindborg@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>
-Cc: Boqun Feng <boqun@kernel.org>,
-	Gary Guo <gary@garyguo.net>,
-	=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?= <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Tamir Duberstein <tamird@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	=?UTF-8?q?Onur=20=C3=96zkan?= <work@onurozkan.dev>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R . Howlett" <liam@infradead.org>,
-	linux-block@vger.kernel.org,
-	rust-for-linux@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	Igor B <igor.b@beldev.am>,
-	Vitaly Wool <vitaly.wool@konsulko.se>
-Subject: [PATCH 2/3] rust: page: add reference counting, raw pointers and a private bit lock
-Date: Wed, 18 Nov 2026 00:32:10 +0100
-Message-Id: <20261117233211.3137168-3-vitaly.wool@konsulko.se>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20261117233211.3137168-1-vitaly.wool@konsulko.se>
-References: <20261117233211.3137168-1-vitaly.wool@konsulko.se>
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=E8RPwI6J
+Received: by mail-pg1-f228.google.com with SMTP id 41be03b00d2f7-cc758830601so302201a12.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 15:32:23 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794958343; x=1795563143;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=cKpRja5KzmuFV6Ut12Ip5OUUMuzPvD7GprkqoloD8t0=;
+        b=Jy9NktbvBxWgJ93PrpdcanCtksL7VqAX/pZc4MEWyIBfJNBmdlBFxMieTayQdfB2zN
+         aC5pdqbkp+9HioNeyzC3hNKe1GdNBHgtI4H6jTJlsIi9LfqnJ6DomAv1Q0rdYLg13uf/
+         iMrbDTVZGzacWKUst/Dj4Z+dhbuPGfUknCbnDci4aIIiZCa0Q9mgnKDVErilHbVUlEk0
+         eqCMgo5Q9PZ1Rti2aGNCKf2tJvCo/tXWLoNAKu0XCzFLulNc77wGhunC8yDR4eqYdSCs
+         D5VWmftMfHyvQh22+igcQ/EQWlGBr67vsHG1VLe81L/Zzw8bajXUg5StIvCmCNoRArZ4
+         knHg==
+X-Forwarded-Encrypted: i=1; AL+hErGlEavmiucu+UwbOLKzdqxd66U8sOjqdy5wzErsveo4QPez1+ovjhE1xb2RqMVpZegHxHTEopWfram3FgM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/CU5ovt+vAIiZxbmfRUH9mJumXsLA8hpUh7/nPPCNixPYVnMik
+	HOYJ2sSMp+FCsECZxkIbyqJs3obzM4pHh2RBeINUBeoBmehaRJJTv8x1SE5A96X5jTo1jirfoEy
+	ATY0NJ878+i55BoFETt1b9dWYq3tWPzCZ5h7CjSsWBWuxyDxVJkhDq3Oeh2y5ak+GD9qH/d6XTJ
+	I6H54Wf9Efibksv0qO6cTUkuIrKNG2QnhnWZEoBSjRm6Pz0xhDQb+uKuXmuqs3CoQJ7fGdlrIN6
+	bgUcCbwNhEdO6NXsrQGyjGx
+X-Gm-Gg: AZFdTZf89rw2zyqT9mMHxz9ucb4ZULZhNPAhyA/2vH/RpkBVxwUiO933mDu1vSac71I
+	iXBA5JWPbr5xBJkgUSm7dBO8OY9laF9W/iUSNMi5ZFBU+7nkLfA6t753v9x92p0Pl4knJc1EyEq
+	B5y4+FQxyqDL7q8btaTsnjiHsW4lEfy3LmEzPEtfENt0sUCtfuN8l1G3YJQjNQcDeDKemygthv+
+	+zajCGoDbM6TQKQfZpwVW5Ut47bAUrWh6CBSVI2aaSymz+Xo4GvlnS5um1Gxcae3zXADGAaqTSJ
+	IcsDZq0OT2odnyp/+oD6pFgBlP67f6qoYSDD9mc154h0ZmuVKzVGaS/IQa0xMBinc11qLNwIB01
+	9bXzjn08YTnuveRyxgxy0QSEkB6vjZlS9AqxgcbD7bA+x9qIZlQhy63sFjMGpQt3dlrb1KSii88
+	62o6MAf/D1fc3cuJF+hpynYqtXMhe1oGbMJAHFFEy5
+X-Received: by 2002:a17:90b:1847:b0:3b0:9deb:d991 with SMTP id 98e67ed59e1d1-3b3d07bfcc8mr820461a91.35.1794958342583;
+        Tue, 17 Nov 2026 15:32:22 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b3abb84fe8sm2888183a91.2.2026.11.17.15.32.21
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 17 Nov 2026 15:32:22 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-dl1-f69.google.com with SMTP id a92af1059eb24-154e9d2d94fso730860c88.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 15:32:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1794958340; x=1795563140; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=cKpRja5KzmuFV6Ut12Ip5OUUMuzPvD7GprkqoloD8t0=;
+        b=E8RPwI6JUlQoJPX5Bmn5WiA/1nsGDi2nEkalKJTIPqBsxqADMkTwaPIc2eA3ifNAvG
+         NskD2gspWn2I6NxVSGgl/T3EQHYqmx/ODeWudb62Kh9E9TJG/Djfare4/M0lYrFqON6B
+         e8DJ9IiGwsAdwmZXtFt5qjQaqG3Ll4vq5lULQ=
+X-Forwarded-Encrypted: i=1; AL+hErFbgwl1E0zio70tAT7UPLGpzMnywTOR7wig9PzTmMK/TVZ5OxS8/c/d6xmkJHOWSmjLhmu9n1Zv7um1QCQ=@vger.kernel.org
+X-Received: by 2002:a05:701a:ccde:20b0:1a5:9abb:fdd7 with SMTP id a92af1059eb24-1b543ce5e34mr966102c88.9.1794958339616;
+        Tue, 17 Nov 2026 15:32:19 -0800 (PST)
+X-Received: by 2002:a05:701a:ccde:20b0:1a5:9abb:fdd7 with SMTP id a92af1059eb24-1b543ce5e34mr966079c88.9.1794958338991;
+        Tue, 17 Nov 2026 15:32:18 -0800 (PST)
+Received: from stbirv-lnx-1.igp.broadcom.net ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447c1193sm1389095c88.7.2026.11.17.15.32.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 15:32:17 -0800 (PST)
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+To: netdev@vger.kernel.org
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Nicolai Buchwitz <nb@tipi-net.de>,
+	Doug Berger <opendmb@gmail.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	linux-kernel@vger.kernel.org (open list),
+	Mlody12 mlody12 <kudzo51@gmail.com>
+Subject: [PATCH net-next v3 2/4] net: mdio: mdio-bcm-unimac: Define MDIO_OP_SHIFT
+Date: Tue, 17 Nov 2026 15:31:47 -0800
+Message-Id: <20261117233149.1693881-3-florian.fainelli@broadcom.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261117233149.1693881-1-florian.fainelli@broadcom.com>
+References: <20261117233149.1693881-1-florian.fainelli@broadcom.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,272 +124,60 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-From: Igor B <igor.b@beldev.am>
+The MDIO_CMD operation code field starts at bit 26. Define
+MDIO_OP_SHIFT for it and use it to build the opcodes instead of open
+coding the shift.
 
-A `Page` always owns its page exclusively, with no way to take another
-reference or keep it as a raw pointer. Add:
+While at it, rename MDIO_RD and MDIO_WR to MDIO_RD_C22 and MDIO_WR_C22 to
+make it clear that these are the Clause 22 opcodes, in preparation for
+adding the Clause 45 ones.
 
-- `Page::get()`, which takes another reference with `get_page()`;
-- `Page::into_raw()` and `Page::from_raw()`, to convert a `Page` to and
-  from the `struct page` pointer it holds a reference to;
-- `Page::try_get_raw()`, which takes a reference from a possibly stale
-  pointer with `get_page_unless_zero()`, for lock-free lookups like
-  brd_lookup_page(). This is sound because a `struct page` is never
-  freed, even once its memory is;
-- `Page::lock_private_bit()`, which takes a bit spinlock in the page's
-  `private` field and returns a guard that releases it. This gives a
-  page used as plain memory a lock of its own at no memory cost.
+No functional change.
 
-Add Rust helpers for `get_page()`, `get_page_unless_zero()`,
-`bit_spin_lock()` and `bit_spin_unlock()`.
-
-This patch was tested with the help of  Claude Code AI coding assistant.
-
-Signed-off-by: Igor Belousov <igor.b@beldev.am>
-Signed-off-by: Vitaly Wool <vitaly.wool@konsulko.se>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
+Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
 ---
- rust/helpers/bit_spinlock.c |  13 +++
- rust/helpers/helpers.c      |   1 +
- rust/helpers/page.c         |  10 +++
- rust/kernel/page.rs         | 160 ++++++++++++++++++++++++++++++++++++
- 4 files changed, 184 insertions(+)
- create mode 100644 rust/helpers/bit_spinlock.c
+ drivers/net/mdio/mdio-bcm-unimac.c | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
 
-diff --git a/rust/helpers/bit_spinlock.c b/rust/helpers/bit_spinlock.c
-new file mode 100644
-index 000000000000..5c59632bd171
---- /dev/null
-+++ b/rust/helpers/bit_spinlock.c
-@@ -0,0 +1,13 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+#include <linux/bit_spinlock.h>
-+
-+__rust_helper void rust_helper_bit_spin_lock(int bitnum, unsigned long *addr)
-+{
-+	bit_spin_lock(bitnum, addr);
-+}
-+
-+__rust_helper void rust_helper_bit_spin_unlock(int bitnum, unsigned long *addr)
-+{
-+	bit_spin_unlock(bitnum, addr);
-+}
-diff --git a/rust/helpers/helpers.c b/rust/helpers/helpers.c
-index d62c7be1ca7b..e955a33e3535 100644
---- a/rust/helpers/helpers.c
-+++ b/rust/helpers/helpers.c
-@@ -44,6 +44,7 @@
- #include "barrier.c"
- #include "binder.c"
- #include "bitmap.c"
-+#include "bit_spinlock.c"
- #include "bitops.c"
- #include "blk.c"
- #include "bug.c"
-diff --git a/rust/helpers/page.c b/rust/helpers/page.c
-index f8463fbed2a2..9c287bfcc371 100644
---- a/rust/helpers/page.c
-+++ b/rust/helpers/page.c
-@@ -26,3 +26,13 @@ __rust_helper int rust_helper_page_to_nid(const struct page *page)
- 	return page_to_nid(page);
- }
- #endif
-+
-+__rust_helper void rust_helper_get_page(struct page *page)
-+{
-+	get_page(page);
-+}
-+
-+__rust_helper bool rust_helper_get_page_unless_zero(struct page *page)
-+{
-+	return get_page_unless_zero(page);
-+}
-diff --git a/rust/kernel/page.rs b/rust/kernel/page.rs
-index 1c0796ea229f..e75d9efbcce6 100644
---- a/rust/kernel/page.rs
-+++ b/rust/kernel/page.rs
-@@ -12,6 +12,11 @@
-         code::*,
-         Result, //
-     },
-+    ffi::{
-+        c_int,
-+        c_ulong, //
-+    },
-+    types::NotThreadSafe,
-     uaccess::UserSliceReader, //
- };
- use core::{
-@@ -200,6 +205,139 @@ pub fn as_ptr(&self) -> *mut bindings::page {
-         self.page.as_ptr()
-     }
+diff --git a/drivers/net/mdio/mdio-bcm-unimac.c b/drivers/net/mdio/mdio-bcm-unimac.c
+index 80fb3b5b52ab..5f79f31220f2 100644
+--- a/drivers/net/mdio/mdio-bcm-unimac.c
++++ b/drivers/net/mdio/mdio-bcm-unimac.c
+@@ -21,8 +21,9 @@
+ #define MDIO_CMD		0x00
+ #define  MDIO_START_BUSY	(1 << 29)
+ #define  MDIO_READ_FAIL		(1 << 28)
+-#define  MDIO_RD		(2 << 26)
+-#define  MDIO_WR		(1 << 26)
++#define  MDIO_OP_SHIFT		26
++#define  MDIO_RD_C22		(2 << MDIO_OP_SHIFT)
++#define  MDIO_WR_C22		(1 << MDIO_OP_SHIFT)
+ #define  MDIO_PMD_SHIFT		21
+ #define  MDIO_PMD_MASK		0x1F
+ #define  MDIO_REG_SHIFT		16
+@@ -99,7 +100,8 @@ static int unimac_mdio_read(struct mii_bus *bus, int phy_id, int reg)
+ 		return ret;
  
-+    /// Takes an additional reference on this page.
-+    ///
-+    /// The returned [`Page`] independently owns one reference to the same page as `self`. The
-+    /// page is only actually freed once every such [`Page`], including `self`, has been dropped.
-+    ///
-+    /// # Examples
-+    ///
-+    /// ```
-+    /// use kernel::page::Page;
-+    ///
-+    /// let page = Page::alloc_page(GFP_KERNEL)?;
-+    /// let page2 = page.get();
-+    ///
-+    /// drop(page);
-+    /// // `page2` still keeps the page alive.
-+    /// drop(page2);
-+    /// # Ok::<(), kernel::alloc::AllocError>(())
-+    /// ```
-+    #[inline]
-+    pub fn get(&self) -> Self {
-+        // SAFETY: `self.page` is valid by the type invariant, and calling `get_page` on a page
-+        // that is kept alive by `self` is always safe.
-+        unsafe { bindings::get_page(self.page.as_ptr()) };
-+        // INVARIANT: We just took a new reference to the page pointed to by `self.page`, so the
-+        // new `Page` has ownership over that reference.
-+        Self { page: self.page }
-+    }
-+
-+    /// Consumes the [`Page`], returning the raw pointer to its `struct page`.
-+    ///
-+    /// The reference owned by `self` is not dropped: the caller becomes responsible for it, and
-+    /// releases it by turning the pointer back into a [`Page`] with [`from_raw`](Self::from_raw).
-+    #[inline]
-+    pub fn into_raw(self) -> NonNull<bindings::page> {
-+        ManuallyDrop::new(self).page
-+    }
-+
-+    /// Takes back ownership of a page from a pointer returned by [`into_raw`](Self::into_raw).
-+    ///
-+    /// # Safety
-+    ///
-+    /// `ptr` must have been returned by [`Page::into_raw`], and the reference it stands for must
-+    /// not have been taken back already, by an earlier call to this function.
-+    #[inline]
-+    pub unsafe fn from_raw(ptr: NonNull<bindings::page>) -> Self {
-+        // INVARIANT: By the safety requirements of this function, `ptr` stands for a reference to a
-+        // valid page that nobody else owns.
-+        Self { page: ptr }
-+    }
-+
-+    /// Attempts to take ownership of a page from a raw, possibly stale pointer.
-+    ///
-+    /// On success, returns a new [`Page`] that owns one reference to the page. On failure
-+    /// (meaning the page's reference count had already reached zero, i.e. its last owner had
-+    /// already released it), returns `None` without otherwise touching the page.
-+    ///
-+    /// This is the kernel's usual way of giving a lock-free, concurrent lookup (such as one
-+    /// protected by the RCU read lock; see [`kernel::sync::rcu`](crate::sync::rcu)) a safe way to
-+    /// turn a pointer it found into an owned reference, without taking any lock: unlike
-+    /// [`get`](Self::get), this does not assume `ptr` is already known to be alive.
-+    ///
-+    /// # Safety
-+    ///
-+    /// `ptr` must point at a valid `struct page`. Note that, unlike most kernel objects, a
-+    /// `struct page` is never freed or reused for a different purpose for as long as the system
-+    /// is running: only the memory it describes is freed and may be reused once its reference
-+    /// count drops to zero. It is therefore always safe to inspect and modify the reference count
-+    /// through a `struct page` pointer that was, at some point, validly obtained, even if the
-+    /// page has since been fully released by its last owner, as long as the pointer has not since
-+    /// been reused to mean something other than a `struct page` pointer (which can only happen if
-+    /// the caller itself reinterprets it as something else).
-+    #[inline]
-+    pub unsafe fn try_get_raw(ptr: NonNull<bindings::page>) -> Option<Self> {
-+        // SAFETY: By the safety requirements of this function, `ptr` points at a valid
-+        // `struct page`.
-+        //
-+        // INVARIANT: If this call returns `true`, then it has just incremented the reference
-+        // count of the page pointed to by `ptr`, and we have ownership over that new reference.
-+        if unsafe { bindings::get_page_unless_zero(ptr.as_ptr()) } {
-+            Some(Self { page: ptr })
-+        } else {
-+            None
-+        }
-+    }
-+
-+    /// Returns a pointer to the `private` field of this page.
-+    #[inline]
-+    fn private_ptr(&self) -> *mut c_ulong {
-+        // SAFETY: `self.page` points to a valid `struct page` by the type invariant. Taking the
-+        // address of a field neither reads nor writes it.
-+        unsafe { &raw mut (*self.as_ptr()).__bindgen_anon_1.__bindgen_anon_1.private }
-+    }
-+
-+    /// Acquires bit `BIT` of the page's `private` field as a bit spinlock.
-+    ///
-+    /// Spins until the bit is clear, then sets it. The lock is released when the returned guard
-+    /// is dropped. As with any spinlock, preemption is disabled while it is held. Bit spinlocks
-+    /// are not tracked by lockdep.
-+    ///
-+    /// This gives a page that is used as plain memory, such as a page holding the contents of a
-+    /// RAM disk, a lock of its own without growing any other structure.
-+    ///
-+    /// # Safety
-+    ///
-+    /// The caller must own the page's `private` field, and must only access it through this
-+    /// function while the page is shared. This is the case for a page allocated with
-+    /// [`Page::alloc_page`], which has `private` zeroed, as long as the page is never handed to
-+    /// another user of `private`, such as the page cache.
-+    ///
-+    /// # Examples
-+    ///
-+    /// ```
-+    /// use kernel::page::Page;
-+    ///
-+    /// let page = Page::alloc_page(GFP_KERNEL)?;
-+    /// // SAFETY: `page` was just allocated, and its `private` field is only used here.
-+    /// let guard = unsafe { page.lock_private_bit::<0>() };
-+    /// drop(guard);
-+    /// # Ok::<(), kernel::alloc::AllocError>(())
-+    /// ```
-+    #[inline]
-+    pub unsafe fn lock_private_bit<const BIT: u32>(&self) -> PagePrivateBitGuard<'_, BIT> {
-+        const { assert!(BIT < c_ulong::BITS) };
-+        // SAFETY: `private_ptr()` returns a valid pointer, and the caller guarantees that the
-+        // field is only accessed by bit spinlock operations.
-+        unsafe { bindings::bit_spin_lock(BIT as c_int, self.private_ptr()) };
-+        // INVARIANT: The lock was just acquired.
-+        PagePrivateBitGuard {
-+            page: self,
-+            _not_send: NotThreadSafe,
-+        }
-+    }
-+
-     /// Get the node id containing this page.
-     #[inline]
-     pub fn nid(&self) -> i32 {
-@@ -373,6 +511,28 @@ pub unsafe fn copy_from_user_slice_raw(
-     }
- }
+ 	/* Prepare the read operation */
+-	cmd = MDIO_RD | (phy_id << MDIO_PMD_SHIFT) | (reg << MDIO_REG_SHIFT);
++	cmd = MDIO_RD_C22 | (phy_id << MDIO_PMD_SHIFT) |
++		(reg << MDIO_REG_SHIFT);
+ 	unimac_mdio_writel(priv, cmd, MDIO_CMD);
  
-+/// A bit spinlock held in the `private` field of a [`Page`].
-+///
-+/// Created by [`Page::lock_private_bit`]. The lock is released when the guard is dropped.
-+///
-+/// # Invariants
-+///
-+/// The guard holds bit `BIT` of the `private` field of `page` locked.
-+#[must_use = "the lock is released immediately when the guard is unused"]
-+pub struct PagePrivateBitGuard<'a, const BIT: u32> {
-+    page: &'a Page,
-+    _not_send: NotThreadSafe,
-+}
-+
-+impl<const BIT: u32> Drop for PagePrivateBitGuard<'_, BIT> {
-+    #[inline]
-+    fn drop(&mut self) {
-+        // SAFETY: `private_ptr()` returns a valid pointer, and the lock is held by the type
-+        // invariant.
-+        unsafe { bindings::bit_spin_unlock(BIT as c_int, self.page.private_ptr()) };
-+    }
-+}
-+
- impl Drop for Page {
-     #[inline]
-     fn drop(&mut self) {
+ 	/* Start MDIO transaction */
+@@ -139,7 +141,7 @@ static int unimac_mdio_write(struct mii_bus *bus, int phy_id,
+ 		return ret;
+ 
+ 	/* Prepare the write operation */
+-	cmd = MDIO_WR | (phy_id << MDIO_PMD_SHIFT) |
++	cmd = MDIO_WR_C22 | (phy_id << MDIO_PMD_SHIFT) |
+ 		(reg << MDIO_REG_SHIFT) | (0xffff & val);
+ 	unimac_mdio_writel(priv, cmd, MDIO_CMD);
+ 
 -- 
-2.39.5
+2.34.1
 
