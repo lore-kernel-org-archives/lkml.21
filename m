@@ -1,84 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=44.202.169.35
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=157.90.84.7
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794941075;
-	b=hp/w323Cx7nIBHNwtxZ7VMzMv76WXrThs3C+b/UHAKDKKUAMrxTO9zzl8wTWw2ddxY+C
-	 rXVGNestjTwWwspNZRkktPNuU4gT5oOqto6o53QW85TAyr3XUxEMjTUnmmOEVpyelVYwk
-	 PGFJWaoxCFPxUaTW5owmRcG/X6b9Z8dhdT1+uEhGHKR477GwjL8tESYddncOmFnK2NeEU
-	 lksO0jl04NDqhSxJMDka/culEcM+zRD4iT2CUkfGPIAn5ymqJg8XAOmQmxNR1PZngTsrU
-	 h5rtrKzljl5AqLOBdtNMKORg77t6FbcMia91pQRGgO+f5E/Olnpwm4KmGj+76rxn6TA==
+	t=1794941079;
+	b=ZvYXY9gSEUWHLMg7ferkZ6ueyBalgOjRnmbHDQjQ1efZP4EWIoiWF/u44QDMkO0oi6TK
+	 yItdhxpP/RcnOM2v7FJ4twjy8nUi/90KVSIXyfpj3cqXvAoUZzBicR986UkbG/QsHi02V
+	 +4x89tNbH82xCrqVfewCPrTkFgbafUPUglUHOhmmJMiyhuEh9ErQR6jmOeBurvWyUkfQ+
+	 JgLH9OJBSnr5Iw3LFbp8mqUzvcuVJ14uYbHCuwwMmrjYq8EbPEXSns/XpkqTsfuKH+lL7
+	 8V8HFf8F8MCiFhdpuXuWRrfIm2u04X9Jh9HFr37UsxzEKZ9KmURpmZMZAUNijMI8wiw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794941075;
-	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To:X-AntiAbuse:X-AntiAbuse:
-	 X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:
-	 X-Source-L:X-Exim-ID:X-Source:X-Source-Args:X-Source-Dir:
-	 X-Source-Sender:X-Source-Auth:X-Email-Count:X-Org:X-Source-Cap:
-	 X-Local-Domain:X-CMAE-Envelope;
-	bh=9hjzhVbXqs8Uligd/Lom1QmoZlXUoRLSbbHcDr54RoE=;
-	b=TxTS7C+qi+QRvh5SvpZtFFxlDcFIb4/0IDL8UYz/2nCIWrPUlZDeX122fBZlW2z78ZlZ
-	 GzboVYbE4zKWIVO6gFAa+dXEuo+wz0WfWVZURB+eknR5qgwr/fZBC2j5pEHPnq3wPJtQg
-	 jsg0Z7pvb8SHbaKje8q/I/DkzZd+exY5oVKRfgOAGZ78+dJudlJq0pgjx8C/zwy7adEfY
-	 vHg9AFPHHelSw6yWS8q0YneVs7ewfKQln/DMgr7Vghby/+wmYxAxXyCbZatTxairwegiu
-	 lVh7aBNJY8fBd7cnbwfT+bSEmi5f/yFXsogf2BxvEQPsUjC6TJ7rl8nNKpP/K0Z/N2A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794941079;
+	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=0jfqNSE5RORxN5ztSGlpnPPnLjFKbnPWKsd97ROo7v0=;
+	b=HkWkzyR3+AAagdfdBZBiLfzYyVRGhgocOSNC0GJmFVZwPzANUJSQrIqkNPhmsqN3ZaYh
+	 beMJa+M9iFqpacsZhSoTtRyo9yqDeQDCwmLS2g/VnOYhDxsMKtEpkA0vWmQTKPN4zsoj9
+	 D6KZ5KJWQqGG86QrDRh+TndB1MkkAU+cgDRaK86NWwvPryiIlqIGv8KGjkFqIbDjCsuGg
+	 UROqaJi/Xm6qNCt4RViTAaQCdXB92yODJqI7rNZrh/ggYg4Yb0SLYm9UUAvFhlrtTAZNN
+	 +MPHZJE05tvnsKDHP6UIxCycMsnfOQfV+qWm3zFjqpaV9oCIgaLaJEBRJL+J3imuZhA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=roeck-us.net;
-	spf=fail smtp.mailfrom=roeck-us.net;
-	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b="tAIgs0d/";
-	arc=none smtp.remote-ip=44.202.169.35
-Received: from omta036.useast.a.cloudfilter.net (omta036.useast.a.cloudfilter.net [44.202.169.35])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=tuxedocomputers.com;
+	spf=pass smtp.mailfrom=tuxedocomputers.com;
+	dkim=pass header.d=tuxedocomputers.com header.i=@tuxedocomputers.com header.a=rsa-sha256 header.s=default header.b=NAUiZ5bK;
+	arc=none smtp.remote-ip=157.90.84.7
+Received: from mail.tuxedocomputers.com (mail.tuxedocomputers.com [157.90.84.7])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69FEB606A332
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:44:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69FEB606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BD72606A330;
+	Tue, 17 Nov 2026 18:44:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2BD72606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=tuxedocomputers.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tuxedocomputers.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=tAIgs0d/
-Received: from eig-obgw-5002b.ext.cloudfilter.net ([10.0.29.226])
-	by cmsmtp with ESMTPS
-	id TNzTxUNnD4vCDTOAUxOjIJ; Tue, 17 Nov 2026 18:44:34 +0000
-Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
-	by cmsmtp with ESMTPS
-	id TOAUxywYxb2qJTOAUxiFQz; Tue, 17 Nov 2026 18:44:34 +0000
-X-Authority-Analysis: v=2.4 cv=A7tsP7WG c=1 sm=1 tr=0 ts=6afca092
- a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=gAnH3GRIAAAA:8
- a=H4YqvLFtAOgaTzI6erAA:9 a=CjuIK1q_8ugA:10 a=KPbNTLLc3YvdawN95zVk:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=roeck-us.net; s=default; h=In-Reply-To:Content-Type:MIME-Version:References
-	:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
-	:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=9hjzhVbXqs8Uligd/Lom1QmoZlXUoRLSbbHcDr54RoE=; b=tAIgs0d/6IPVjT5P1PwWJ8v437
-	FBXxaZGypmC5KM59zYPKFZNcdM4F5Nbhfvp59Dx4JjUJhua0e1M89ZJIrkVjawZgqMeq6sBcKlHRG
-	g/YkByGwGtdE9RqIacl8neED9BoWBA1yXpbBTqxDQIJ6ugigS1zNwy1c86jDZEnsc2lJPmsF9rR0m
-	kgrn1veQEygHbC5E38I6rZFMiosdWXIcrnG2dfpHwZTKcFQmgkJeQpwiJBXVH//l1wR/vees5vxwK
-	OGJ3BZGZzwh331DcVLK9uQwm7dI5p268WeUDyPDVXuGiNhgv+3om/UFktI0AdC2/FGh1AoUUn1rVN
-	N1rHDG8g==;
-Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:32940 helo=server.roeck-us.net)
-	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <linux@roeck-us.net>)
-	id 1xTOAT-0000000090N-0AAL;
-	Wed, 18 Nov 2026 00:14:33 +0530
-Date: Tue, 17 Nov 2026 10:44:32 -0800
-From: Guenter Roeck <linux@roeck-us.net>
-To: Christopher de Guzman <christopher.deguzman@analog.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>, linux-hwmon@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v2 4/4] hwmon: ltc2978: Remove LT7170 and LT7171 from
- curr1 iin documentation
-Message-ID: <548a8b85-e12f-457d-93ed-86475ac7938d@roeck-us.net>
-References: <20261110-upstream-lt7175-lt7176p-v2-0-dd60d28383bf@analog.com>
- <20261110-upstream-lt7175-lt7176p-v2-4-dd60d28383bf@analog.com>
+	dkim=pass (1024-bit key, unprotected) header.d=tuxedocomputers.com header.i=@tuxedocomputers.com header.a=rsa-sha256 header.s=default header.b=NAUiZ5bK
+Received: from [10.10.12.8] (business-024-134-105-141.24.134.pools.vodafone-ip.de [24.134.105.141])
+	(Authenticated sender: wse@tuxedocomputers.com)
+	by mail.tuxedocomputers.com (Postfix) with ESMTPSA id B2CEE2FC0057;
+	Tue, 17 Nov 2026 19:44:31 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tuxedocomputers.com;
+	s=default; t=1794941075;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0jfqNSE5RORxN5ztSGlpnPPnLjFKbnPWKsd97ROo7v0=;
+	b=NAUiZ5bK4QZ+3axZHETZI+uOyTJKGxPUnGjdDN/RMd1cBUO/XwlOsOmxCvEBgeQZUIdhRP
+	Jc+GSZXRw+EsJFw/gp5MS1s3c9z/9u0OGlQhb8+sP6wxLE2K+auG+AC2QR0q2zEOEXVwC8
+	HI4V3IQBP2uBdhp/Sotec0JLMk1Kk3Y=
+Authentication-Results: mail.tuxedocomputers.com;
+	auth=pass smtp.auth=wse@tuxedocomputers.com smtp.mailfrom=wse@tuxedocomputers.com
+Message-ID: <c6e794c9-bb12-43b5-a289-1b191f9f5a41@tuxedocomputers.com>
+Date: Tue, 17 Nov 2026 19:44:31 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,38 +60,148 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261110-upstream-lt7175-lt7176p-v2-4-dd60d28383bf@analog.com>
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
-X-AntiAbuse: Original Domain - vger.kernel.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - roeck-us.net
-X-BWhitelist: no
-X-Source-IP: 108.223.40.66
-X-Source-L: No
-X-Exim-ID: 1xTOAT-0000000090N-0AAL
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:32940
-X-Source-Auth: guenter@roeck-us.net
-X-Email-Count: 38
-X-Org: HG=direseller_whb_net_legacy;ORG=directi;
-X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfEq2jzKTev/clImfhlyB2DN4cMiRzujTsOnl86Fu3Y1WdxIdFK4gHzK2MVxXCw8VOwTGT4cSywlcJT54xJd0Ymt9wP9eJhbQNUpCniNXQEtZeimv+3ww
- jOYWv8wYwMfBW1Yz1e1Am3Onl+ve3+7wg10QgvFFLLpKlvdikgEn2w937JS4aEv7SmsGmEtWgU8CDbfKpftqw7aD+u9UKgEU2JyBVVsXYTxZW8MmLrqIpkkA
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFT] Change E820 memory map handling
+To: "Mario Limonciello (AMD)" <superm1@kernel.org>,
+ mario.limonciello@amd.com, Florent DELAHAYE <kernelorg@undead.fr>,
+ Michel-Ekimia <contact@ekimia.fr>, Konrad J Hambrick <kjhambrick@gmail.com>,
+ =?UTF-8?Q?Benoit_Gr=C3=A9goire?= <benoitg@coeus.ca>,
+ mumblingdrunkard <mumblingdrunkard@protonmail.com>,
+ Matt Hansen <2lprbe78@duck.com>, Tilman Vaeth <tilman-vaeth@web.de>,
+ Christian Homberg <Christianhomberg@gmail.com>,
+ mccricardo <mcc.ricardo@gmail.com>, bnewell <bnewell@fullaware.com>,
+ =?UTF-8?Q?Bernhard_=C3=9Cbelacker?= <bernhardu@mailbox.org>,
+ Ton Gur <kvantorrr@mail.ru>, Alessandro <sandro.it@gmail.com>,
+ Pedro Rodrigues <pedro.pfxr@gmail.com>, Amaury TC <amaurytc@gmail.com>,
+ crysman <crysman@seznam.cz>, Moataz <Moataz.zakaria@gmail.com>,
+ wilk <j.cubizolles@free.fr>, =?UTF-8?Q?Ilpo_J=C3=A4rvinen?=
+ <ilpo.jarvinen@linux.intel.com>, Bradley Morgan <brads@mainlining.org>,
+ Nikolas Joshua Britton <nbritton@exabit.io>,
+ Doug Calobrisi <doug@calobrisi.com>, Helge Deller <deller@gmx.de>,
+ Rodrigo Vivi <rodrigo.vivi@intel.com>,
+ Alexey Fomenko <alexey.fomenko@intel.com>, Eric Auger
+ <eric.auger@redhat.com>, Maciej Grochowski <Maciej.Grochowski@sony.com>
+Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-efi@vger.kernel.org
+References: <20261110-superm1-genoa-mess-v1-0-bdcb3a6f2463@kernel.org>
+Content-Language: en-US
+From: Werner Sembach <wse@tuxedocomputers.com>
+In-Reply-To: <20261110-superm1-genoa-mess-v1-0-bdcb3a6f2463@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 10, 2026 at 06:00:43PM +0800, Christopher de Guzman wrote:
-> LT7170 and LT7171 do not set PMBUS_HAVE_IIN, so curr1 reports the
-> output current ("iout1") rather than the input current. Remove them
-> from the list of chips with an "iin" curr1_label.
-> 
-> Signed-off-by: Christopher de Guzman <christopher.deguzman@analog.com>
+Hi,
 
-Applied.
+Am 10.11.26 um 19:50 schrieb Mario Limonciello (AMD):
+> Commit 07eab0901ede ("efi/x86: Remove EfiMemoryMappedIO from E820 map")
+> removes every EFI MMIO descriptor of at least 256KB from E820.  This
+> makes host bridge space covered by those descriptors available for PCI
+> BAR allocation and avoids maintaining quirks for every affected system.
+>
+> This helped a number of systems, but caused a regression on AMD Genoa
+> which has a hole that is intentionally in this list and shouldn't be
+> reassigned.
+>
+> Ilpo has produced a patch series[1] that changes the policy for reservations
+> that may actually help this issue.  To validate whether it works we need
+> to test removing the E820 reservation, which has a risk at causing problems
+> with systems.
+>
+> On this RFT I've CCed everyone that I could find a public address for that
+> commented on the original issue that lead to commit 07eab0901ede ("efi/x86:
+> Remove EfiMemoryMappedIO from E820 map").
+>
+> I would like to ask that this branch be tested.
+>
+> https://git.kernel.org/pub/scm/linux/kernel/git/superm1/linux.git/log/?h=superm1/genoa-mess
+>
+> Here is the flow I would like to see:
+>   1. Test 7.4-rc2 (vanilla - no changes please)
+>   2. Test this branch (superm1/genoa-mess)
+>   3. If this branch fails, please revert this commit from the branch and test again.
+>      commit 35c9c60ea8c1c ("Revert "x86/PCI: Add E820 quirks for Clevo NL4XLU and Lenovo Yoga C940"")
+>
+> In all cases please check whether your original issue exists and comment if it does.
+>
+> I would like to know BOTH positive and negative testing with this series so we can have an idea
+> if this approach is viable.
 
-Thanks,
-Guenter
+I noticed that you only removed the quirk from 2 devices: 
+https://git.kernel.org/pub/scm/linux/kernel/git/superm1/linux.git/commit/?h=superm1/genoa-mess&id=35c9c60ea8c1c05631837f4094a09c51f00bec4b
+
+Do you only want these 2 devices tested or for example also the X170KM-G?
+
+Best regards,
+
+Werner
+
+>
+> Link: https://lore.kernel.org/linux-pci/20261106134341.39493-1-ilpo.jarvinen@linux.intel.com/ [1]
+> Cc: Florent DELAHAYE <kernelorg@undead.fr> # Clevo NL4XLU
+> Cc: Michel-Ekimia <contact@ekimia.fr> # Clevo NL51CU2 (not currently quirked)
+> Cc: Konrad J Hambrick <kjhambrick@gmail.com> # Clevo X170KM-G
+> Cc: Werner Sembach <wse@tuxedocomputers.com> # Clevo X170KM-G
+> Cc: Benoit Grégoire <benoitg@coeus.ca> # Lenovo Yoga C940-14IIL
+> Cc: mumblingdrunkard <mumblingdrunkard@protonmail.com> # Lenovo Yoga C940-14IIL
+> Cc: Matt Hansen <2lprbe78@duck.com> # Lenovo IdeaPad 3 15IIL05
+> Cc: Tilman Vaeth <tilman-vaeth@web.de> # Lenovo IdeaPad 5 14IIL05
+> Cc: Christian Homberg <Christianhomberg@gmail.com> # Lenovo IdeaPad 5 14IIL05 (81YH)
+> Cc: mccricardo <mcc.ricardo@gmail.com> # Lenovo IdeaPad 5 14IIL05
+> Cc: bnewell <bnewell@fullaware.com> # Lenovo IdeaPad Slim 7 14IIL05 (82A4)
+> Cc: Bernhard Übelacker <bernhardu@mailbox.org> # Lenovo V15-IIL (82C500JUGE)
+> Cc: Ton Gur <kvantorrr@mail.ru> # Lenovo IdeaPad 3 15IIL05
+> Cc: Alessandro <sandro.it@gmail.com> # Lenovo IdeaPad 3 (exact model not posted)
+> Cc: Pedro Rodrigues <pedro.pfxr@gmail.com> # Lenovo IdeaPad (exact model not posted)
+> Cc: Amaury TC <amaurytc@gmail.com> # Lenovo BS145-15IIL (82HB)
+> Cc: crysman <crysman@seznam.cz> # Acer Spin 5 SP513-54N
+> Cc: Moataz <Moataz.zakaria@gmail.com> # Acer Spin 5 SP513-54N
+> Cc: wilk <j.cubizolles@free.fr> # Acer Spin 5 SP513-54N
+>
+> These are the patches to be tested by checking that branch.
+> ---
+> Ilpo Järvinen (14):
+>        resource: Mark free space assigned
+>        parisc/PCI: Clean up resource debug print & use dynamic debug
+>        PCI: Don't size or assign disabled BARs
+>        PCI: Use __ffs64() for resource_size_t typed align
+>        PCI: Prevent zero align from reaching __ffs64()
+>        linux/log2.h: Add 64-bit roundup/down_pow_of_two_u64() variants
+>        PCI: Derive aligns[] array size in a define
+>        PCI: Honor alignment overrides
+>        PCI: Place resources to either edge of the window
+>        PCI: Separate align/raw size calculation from pbus_size_mem()
+>        PCI: Calculate bridge window with optional sizes from scratch
+>        PCI: Move size/align calculation fully into __pbus_size_mem()
+>        PCI: Fix composite resource sizing
+>        PCI: Add debug printing to window sizing
+>
+> Mario Limonciello (3):
+>        x86/PCI: Add E820 quirks for Clevo NL4XLU and Lenovo Yoga C940
+>        Revert "efi/x86: Remove EfiMemoryMappedIO from E820 map"
+>        Revert "x86/PCI: Add E820 quirks for Clevo NL4XLU and Lenovo Yoga C940"
+>
+>   arch/alpha/kernel/pci.c          |   3 +-
+>   arch/arm/kernel/bios32.c         |   5 +-
+>   arch/m68k/kernel/pcibios.c       |   4 +-
+>   arch/mips/pci/pci-generic.c      |   5 +-
+>   arch/mips/pci/pci-legacy.c       |   5 +-
+>   arch/parisc/kernel/pci.c         |  20 +--
+>   arch/powerpc/kernel/pci-common.c |   5 +-
+>   arch/sh/drivers/pci/pci.c        |   5 +-
+>   arch/x86/pci/i386.c              |   5 +-
+>   arch/x86/platform/efi/efi.c      |  45 -------
+>   arch/xtensa/kernel/pci.c         |   5 +-
+>   drivers/char/agp/intel-gtt.c     |   5 +-
+>   drivers/gpu/drm/i915/i915_gmch.c |   5 +-
+>   drivers/pci/pci.c                |   4 +-
+>   drivers/pci/pci.h                |   6 +
+>   drivers/pci/setup-bus.c          | 263 +++++++++++++++++++++++++--------------
+>   drivers/pci/setup-res.c          | 246 ++++++++++++++++++++++++++++++++----
+>   include/linux/log2.h             |  52 ++++++++
+>   include/linux/pci.h              |  15 ++-
+>   kernel/resource.c                |   3 +-
+>   20 files changed, 510 insertions(+), 196 deletions(-)
+> ---
+> base-commit: 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
+> change-id: 20261110-superm1-genoa-mess-2195512e39e7
+>
