@@ -1,96 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.5
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794939977;
-	b=SzGztSKoNGVDc+Sy6G+KS3N8rJBeT7yyvJ0s6/UOHMfhn6/3l4qTRiJyQxnZXeom83zN
-	 1gRvdR2FViWVLgu1VPTGvIsb1Oz0wqyZU4GimR/s8ABiDCjypWrZ8SA4wInSVFt0K30fL
-	 C22Qo4e6LkHidi8fgiVs4l1kGkUAxqnwEMqElCXS7Ho0yS/G8aiTHTs619f4rYJBcgt29
-	 Or8QkRq1q8l3YgG+kP9iLhBSyX7UUwTzAUcskVYRf8dldN+8ajeRYm/algd2oNyEPimQ7
-	 TNy2lh8l3OuubIGxcvPbXHKnHsEkYNpmHF+cpTty7k5YZHnbDsiwvfMIjITvGdNn5/Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794939977;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=Ul8avXQobHMQCgtgHYaeZ3hLQKdlpeIZoIBnaJtF8Qg=;
-	b=BgKaMXXHBl3ueUv5HRd6taL80tv5RRDgqWiMDWP772N2mgOtOUvd0dekNSbS6lhR3L6j
-	 BuGRRuAiiHVWsfAf1d0JJ6ho6xYAHgxzvxfjO+E3VaJ+pGAdBot3ck0a2XbIn6NC3msm6
-	 rQ9SPLnP08zX6dBIV51lrRrmmAb8a/9HHhB5Ke3FRxB+epAFyQM9l9n2inv3w6kUU4mjg
-	 tdJJmW9E4YQkjiG4rz77u1C/DHR++Ke5+rcBbn++bqiAjXX+wWyFj4ZJzO50e3pDi9WY0
-	 Y2TPcCCelv9p60qFXi/dZrdzlm/uytShTj+SnQRFqqKjiZ3YcVZaRQAIZipxw3inAOw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AdFNjqyC;
-	arc=none smtp.remote-ip=74.125.229.5
-Received: from mail-dy2-f5.google.com (mail-dy2-f5.google.com [74.125.229.5])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794940020;
+	b=E56vdQUxbpGI8O3Sfe08IAS06/0+xw1fuFZpICHXAHgRFL7kBSTlCRNV+gE9QUYo96Mg
+	 cBLsePLw21sABQ4zwcaLyT+62jOo9uFOIiaLdn4TucQpYrCEMxHF3ZGepMJn0mpOyNiGx
+	 xqLx73dKf4LmB3Y8ryzo8cmRLC7Jtbj2nE/pzohaHDp7j6hf1E0bdcRa3Jtq4t7nTv9Qq
+	 26Rn7slAsXKbzkRDSwmXnIoQO8/tAZ1CjynR7O0f3DjjsIGsgoM2koFW6ayxxhBp+a2KX
+	 9QzwXUTmwjswpe038AfLGfb7KCcQVbC71+3tLfSiGBoDGxfPqJ6NW96cLTu95ZTgV7g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794940020;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=LYF4CVJ8Ghw+qIezDl/HP0zE+7oi4oU+1Q0nPJmIKVI=;
+	b=bAWEqaOwQrdkH616HQft79FYbRgKT7ON5a95mD5DzZeon8J7UfZ4028+MzZ0mKw6QGsQ
+	 /PcaA9NgeHSz6RydCQzzZy7dK+OWndvLdwAH4mwgjpW5w2AnBgrAB/9VcSCjZkRoKSvEh
+	 O9xl7B0SIa0osRZ+sUls9dULJWQjKjtMBklAFM3gMsRN3QMLBiQfYu1jOPH6L+QqlY7R2
+	 E5LkiKBYzsn4xnWQUhCt1+iy59tCLrOYLls3EtEbJTthyoSHHWJlWHhLaRoPWY972ZhM7
+	 okOH1GUvEnLQEgskJ0eWsPEvF6aCJUDivuyeiaP3ETDUdmxbHsQq+KG+r2NSSutz9ug==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g7HJbh0k;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FFCB606A32C;
+	Tue, 17 Nov 2026 18:27:00 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g7HJbh0k
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1794940019;
+	b=eG+oD5KYzurahi/cOjG0ZlUuBQsUDEqGr1mvthB+bEMSSWXicrUnM/o/kBMuvDyyVdWo
+	 vySkJz+5FHPQv3QZ6obbH+8N81nUeRIjk7g0+9bq2IM1+e5oOV8tkZYbTIWElCKMaRcp4
+	 RFZasi0UKh6PKBfKnLvkARsOpIZxVzLHdFrNBG+HuAueVb61aNJtNtXMUnhUFiaNRWaSM
+	 bMQUPqgPNIX+fXi3qKKIhTTG1S5Nvv5u/pGWDqNHK7AiOBK87VE6GaX2Nv9lPlL+Z8P1F
+	 TC8Z2QbRm1AcadOp6NHfzC0exfK+Zuxh9h13ysVd5kxDfkkvNsfMBVCm/gkUgroRdDA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1794940019;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=LYF4CVJ8Ghw+qIezDl/HP0zE+7oi4oU+1Q0nPJmIKVI=;
+	b=lBfaYejngNCGQGxwwXtjHGqfXvmmRm5JHV0VYrq1/P7O9eRWo+csStf4PysMl4CP74wj
+	 89MECEJpYqVFOCAUKdXqtIAU8YTIVrBXUR9cC/kpG+6GQEht8K6YN1b9G5cCWKLfR47oK
+	 1A5vKamUP3HLTGHmh3ar7fvcjc0WUSuHdWpdJD7DE602VqsvtGfeVK5MT19+fpGYvwD46
+	 jgKtXmJUk5GOjzd3wsKM+3t5Mq6TwG4ZHfhGxRnQOErDAgWDLonq9z8YCQnRzw7SfvQrJ
+	 mqZIShvQke3epArtgdwlbXLgegBe0bm8wgbALpViuI+B3mwIKsHvpl6pjSa8U6/XtVQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 446CB606A32A
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:26:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 446CB606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AdFNjqyC
-Received: by mail-dy2-f5.google.com with SMTP id 5a478bee46e88-36d73027aedso36909eec.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 10:26:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794939976; x=1795544776; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Ul8avXQobHMQCgtgHYaeZ3hLQKdlpeIZoIBnaJtF8Qg=;
-        b=AdFNjqyCThVdzees9+8ELX2UN7gZFx/WwLfYt0iXhQe+cXq8QeN/mULX8SM6CLzfZ1
-         6I8DyV5goFqZiPhc0VYqP2OA8td6xK4R+3a/U4n+M3HAF4FhOeR881smLcNQbUOYp4ep
-         n2YLiSVoJcap5RVfcz9KI1JoDCsrBxwe/H7rhXcVvPLLEj5lRyyWuxkD9L8JFtFyvjFJ
-         1XfHd2uwnX28Y+TA5PqEURm42ayTMnI6sFFG6MRqrr4t3FYj+a0B2/wPNsz1/NMBBSwt
-         eSl65BfDw76YK0mQF9z7eku29ZWdyD/6Hdy6KuiRBjFQrHnGpoXtEO51HthOgGtY2Umx
-         C0Aw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794939976; x=1795544776;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Ul8avXQobHMQCgtgHYaeZ3hLQKdlpeIZoIBnaJtF8Qg=;
-        b=Ft28xBMdTB4ZZNdjWafPa6OfToBGuIY6oFpanHm12cMGOEE2fBE8qXWd/82nVOAltg
-         G/tH3ilh9Lluw+wonwp+0FYCwbsFYb7ZTxsBOOkqCTGoPM10yGk63xShaUOEi/g42AAH
-         vBA+u2wLoD0NPF3amIj0xFJKsAfpazz52waLN7vLZQQ2/kB475diwD89a/ejEy1DcliA
-         SvIU64TTuN0brwhXxwog5XhxpowQtJbyB83xyTjKFVdnHBW6HncIbHCk7lbWQdCE0gj6
-         R6YOMlv8ACJSunlOBg+iMAAGQkUXDLdTxpHjHXGpdtQWOtv+b2EYQwBLuC0Fujh4Uvv8
-         4ooQ==
-X-Forwarded-Encrypted: i=1; AL+hErHTRrI2AXBkhMBQdqmXE3B8MqB/0UuxmSxu+l3bXfkhe5ykYe7dm9YSwr3J0TKmEa2oK+YwCcphbpo3uXs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+CQqERAGI+mtbBSqDFeuQC7CpBqAJzvKf0+bfkb2Pk+l+eCncN
-	5BmNfmNnHvsYPsRvrphNbrmyEW06Ay4IgzUItIOf+LOen5cMQaGEgKCt
-X-Gm-Gg: AZFdTZdU9XjVIrOVm1t6QCDDBHykioE7q0Kl6BfPThZEmSKHriki3hSjKpb4Y21onDO
-	v5289YZoK6ccNfSxDLf8CVwRI0xgpf3z2fwSCGuWGWeq9FlvlcZgPEnhPh8z1Big2p7o/OSi6FD
-	RjYW7pzHpUYp6qdo17HJOTivVOOOLSeEaid/opnYsstKqR9F8TcRqlaHltFD5pHNYQHvZFtikt/
-	suAZm6Vwx4VqtsgGW5DZbM53ZLvMVlf49uMkdddg6eMbsOUi3dXvM/UBiUXeB7f21fRPilVQ+B4
-	afYRaPu1bD1nrHtromBZ2nQF0n/w+i786CEHIA+L++uC8C47b83tnzsY9Xma1Atj3x/qqXnN/em
-	uC3l5f0EL/KYlFELDv1Rd0DFR1WwWJrDSFrQAFd/zDrAqYZ0HtQB58pluxBP1peA8nsQZ4R827X
-	Ax+V+w8oVZEOHSxRxqNZkmLojoonjF1xW2Fi4qF785Dz6rT6Tkg5rZYBgf2e3PUuuI1Gdv++LzD
-	zI+N0zTUOtxsp50+5U42cJIuL6uH/dLPVLlMwzDE3cevHfDlK6Ap2QLuPsQpF26cHMlLmvLLypw
-	YpFl8H2ebSN//d/dlhkwGi4O3DqWSPMs0r0ZsscLJ00a0E0ulrmkbvCRD2g=
-X-Received: by 2002:a05:7300:4307:b0:376:c352:2fcb with SMTP id 5a478bee46e88-38281020584mr279305eec.9.1794939976302;
-        Tue, 17 Nov 2026 10:26:16 -0800 (PST)
-Received: from server.lan ([168.138.199.194])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3795378d73dsm45641488eec.2.2026.11.17.10.26.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 10:26:15 -0800 (PST)
-From: Coia Prant <coiaprant@gmail.com>
-To: Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	Heiko Stuebner <heiko@sntech.de>,
-	netdev@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Coia Prant <coiaprant@gmail.com>
-Subject: [PATCH net-next] net: stmmac: dwmac-rk: split gmac_clk_enable into enable/disable
-Date: Wed, 18 Nov 2026 02:25:03 +0800
-Message-ID: <20261117182502.3045841-2-coiaprant@gmail.com>
-X-Mailer: git-send-email 2.47.3
+	by smtp.kernel.org (Postfix) with ESMTPS id 612B31F000C6;
+	Tue, 17 Nov 2026 18:26:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794940019;
+	bh=LYF4CVJ8Ghw+qIezDl/HP0zE+7oi4oU+1Q0nPJmIKVI=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=g7HJbh0kJ1bbXjsJNG3sCw7etceijrEgdVZSC2Kq8xlw/FtXk3zQNSy/zxmDYL90Q
+	 D+9RzEyl5/Fzh6uWWGg6u6zwCFFdTpBcw+XjAdwiQveWTja17FrxniyAapUMFX1+71
+	 oL0m2J3TvSOk3biEEFmhjujOxe0k7F5a9AdxJTkUAe+yBG+mK+WMm4fIOnZEivNvp1
+	 PYUNCIihea0jJg2FUrWDYqn0TPL0exmmMlJkescJdD55TNZTSw12U6VFrM0SPMyfyb
+	 F515IaYXaQowewNmWb6m4zfpx1kK0JuscXRGs2mZQAxrBjzGZdytRK/CrNnrH80tio
+	 uyqZlQb/2ZY+w==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id BAF8B4AA16;
+	Tue, 17 Nov 2026 18:26:58 +0000 (UTC)
+From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
+Date: Tue, 17 Nov 2026 20:26:26 +0200
+Subject: [PATCH v2] drm/mediatek: mtk_dsi: do not enable HS clock in
+ pre-enable for LPM panels
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,144 +83,98 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261117-6768-dsi-fix-v2-1-6654a072884e@protonmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WNwQ6CMBBEf4Xs2TW0ShFO/ofh0JZF1gglLRIN6
+ b9b8OzxTWberBDIMwWosxU8LRzYjQnkIQPb6/FOyG1ikLlUIhcVqlJdsA2MHb+x6nIrrZZGVx2
+ kyeQpxbvu1vw4vMyD7Lw5tkbPYXb+s/8tYuv9US8CBZ6oUEKZc6FVeZ28m904aH4erRugiTF+A
+ cIkbcS/AAAA
+X-Change-ID: 20261019-6768-dsi-fix-9f0c2ca2ba9f
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ CK Hu <ck.hu@mediatek.com>, Gary Bisson <bisson.gary@gmail.com>
+Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ stable@vger.kernel.org, Roman Vivchar <rva333@protonmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794940017; l=2543;
+ i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
+ bh=Lmo+5kbfdhXSBeVl18KCMC7yQm1ZpbbeRqyQNhndmfM=;
+ b=4cctPZqiPYOTFYm5f9KbX1qIbmrwgUMDZn5C/SCuCPWiGSIZMBOn7/6+BS55Ty8Nx2qdytxty
+ JuVKDlt1HbEC3rtQF+GQg2mYKfyvj0w8F68zYms8tni4BT2lDZtX7Hz
+X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
+ pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
+X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
+ auth_id=777
+X-Original-From: Roman Vivchar <rva333@protonmail.com>
+Reply-To: rva333@protonmail.com
+Content-Transfer-Encoding: 7bit
 
-As the great Linus Torvalds once said in
-Documentation/process/coding-style.rst:
+From: Roman Vivchar <rva333@protonmail.com>
 
-  "If you need more than 3 levels of indentation, you're screwed anyway,
-   and should fix your program."
+Commit 76255024cadb ("drm/mediatek: mtk_dsi: enable hs clock during
+pre-enable") moved HS clock enablement from mtk_output_dsi_enable()
+to mtk_dsi_poweron(). Later, the commit 3e191eddbdcb ("drm/mediatek:
+mtk_dsi: Enable HS clock only at pre-enable") moved the call to the
+mtk_dsi_bridge_atomic_pre_enable().
 
-The gmac_clk_enable() function previously used a 'bool enable' parameter
-to handle both clock enabling and disabling. This resulted in deeply
-nested if/else blocks, which made the error handling and rollback paths
-cumbersome and prone to bugs.
+However, mtk_dsi_lane_ready() explicitly sets mtk_dsi_clk_hs_mode(dsi, 0)
+so that DSI panels with MIPI_DSI_MODE_LPM can transmit initialization
+commands in Low-Power mode during their prepare() callback. Enabling the
+HS clock unconditionally in mtk_dsi_bridge_atomic_pre_enable() overrides
+this before panel prepare() runs, causing command transmission to fail.
 
-This complexity has led to bugs, such as the bulk clock leak fixed by
-commit 8db67bb6a1ff ("net: ethernet: stmmac: dwmac-rk: fix bulk clock leak when the PHY clock fails").
+Only enable the HS clock in mtk_dsi_bridge_atomic_pre_enable(), when
+MIPI_DSI_MODE_LPM is not set, and restore mtk_dsi_clk_hs_mode(dsi, 1) in
+mtk_output_dsi_enable(). This is a no-op for non-LPM bridges.
 
-Split the function into two distinct helpers: gmac_clk_enable() and
-gmac_clk_disable(). This flattens the code, removes the boolean flag,
-makes the caller's intent much clearer, and simplifies the error
-unwinding logic.
-
-Additionally, this refactoring aids compiler inlining and CPU branch
-prediction (trust me). The reason is simple: no branch, no prediction.
-While the compiler might optimize it, there's no guarantee it will :P
-
-Signed-off-by: Coia Prant <coiaprant@gmail.com>
+Fixes: 76255024cadb ("drm/mediatek: mtk_dsi: enable hs clock during pre-enable")
+Fixes: 3e191eddbdcb ("drm/mediatek: mtk_dsi: Enable HS clock only at pre-enable")
+Cc: stable@vger.kernel.org
+Signed-off-by: Roman Vivchar <rva333@protonmail.com>
 ---
- .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 67 ++++++++++---------
- 1 file changed, 36 insertions(+), 31 deletions(-)
+This fix was tested with the Tianma NT36672A panel on the mt6768 platform.
+---
+Changes in v2:
+- Call mtk_dsi_clk_hs_mode in mtk_output_dsi_enable only for LPM bridges (CK Hu)
+- Minor commit message grammar fixes
+- Link to v1: https://patch.msgid.link/20261019-6768-dsi-fix-v1-1-3e5616b45a67@protonmail.com
+---
+ drivers/gpu/drm/mediatek/mtk_dsi.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-index a37df5767d84..78bc8c71ad10 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-@@ -1178,43 +1178,48 @@ static int rk_gmac_clk_init(struct plat_stmmacenet_data *plat)
- 	return 0;
+diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
+index 7961139333ad..2108b2eeadd0 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dsi.c
++++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
+@@ -794,6 +794,8 @@ static void mtk_output_dsi_enable(struct mtk_dsi *dsi)
+ 		return;
+ 
+ 	mtk_dsi_set_mode(dsi);
++	if (dsi->mode_flags & MIPI_DSI_MODE_LPM)
++		mtk_dsi_clk_hs_mode(dsi, 1);
+ 	mtk_dsi_start(dsi);
+ 
+ 	dsi->enabled = true;
+@@ -858,7 +860,8 @@ static void mtk_dsi_bridge_atomic_pre_enable(struct drm_bridge *bridge,
+ 		drm_err(drm, "failed to power on dsi\n");
+ 
+ 	mtk_dsi_lane_ready(dsi);
+-	mtk_dsi_clk_hs_mode(dsi, 1);
++	if (!(dsi->mode_flags & MIPI_DSI_MODE_LPM))
++		mtk_dsi_clk_hs_mode(dsi, 1);
  }
  
--static int gmac_clk_enable(struct rk_priv_data *bsp_priv, bool enable)
-+static int gmac_clk_enable(struct rk_priv_data *bsp_priv)
- {
- 	int ret;
- 
--	if (enable) {
--		if (!bsp_priv->clk_enabled) {
--			ret = clk_bulk_prepare_enable(bsp_priv->num_clks,
--						      bsp_priv->clks);
--			if (ret)
--				return ret;
--
--			ret = clk_prepare_enable(bsp_priv->clk_phy);
--			if (ret) {
--				clk_bulk_disable_unprepare(bsp_priv->num_clks,
--							   bsp_priv->clks);
--				return ret;
--			}
-+	if (bsp_priv->clk_enabled)
-+		return 0;
- 
--			rk_configure_io_clksel(bsp_priv);
--			rk_ungate_rmii_clock(bsp_priv);
-+	ret = clk_bulk_prepare_enable(bsp_priv->num_clks,
-+				      bsp_priv->clks);
-+	if (ret)
-+		return ret;
- 
--			mdelay(5);
--			bsp_priv->clk_enabled = true;
--		}
--	} else {
--		if (bsp_priv->clk_enabled) {
--			rk_gate_rmii_clock(bsp_priv);
-+	ret = clk_prepare_enable(bsp_priv->clk_phy);
-+	if (ret)
-+		goto err_clk_phy;
- 
--			clk_bulk_disable_unprepare(bsp_priv->num_clks,
--						   bsp_priv->clks);
--			clk_disable_unprepare(bsp_priv->clk_phy);
-+	rk_configure_io_clksel(bsp_priv);
-+	rk_ungate_rmii_clock(bsp_priv);
- 
--			bsp_priv->clk_enabled = false;
--		}
--	}
-+	mdelay(5);
-+	bsp_priv->clk_enabled = true;
- 
- 	return 0;
-+
-+err_clk_phy:
-+	clk_bulk_disable_unprepare(bsp_priv->num_clks,
-+				   bsp_priv->clks);
-+	return ret;
-+}
-+
-+static void gmac_clk_disable(struct rk_priv_data *bsp_priv)
-+{
-+	if (!bsp_priv->clk_enabled)
-+		return;
-+
-+	rk_gate_rmii_clock(bsp_priv);
-+
-+	clk_bulk_disable_unprepare(bsp_priv->num_clks,
-+				   bsp_priv->clks);
-+	clk_disable_unprepare(bsp_priv->clk_phy);
-+
-+	bsp_priv->clk_enabled = false;
- }
- 
- static int rk_phy_powerup(struct rk_priv_data *bsp_priv)
-@@ -1453,7 +1458,7 @@ static int rk_gmac_powerup(struct rk_priv_data *bsp_priv)
- 	if (ret)
- 		return ret;
- 
--	ret = gmac_clk_enable(bsp_priv, true);
-+	ret = gmac_clk_enable(bsp_priv);
- 	if (ret)
- 		return ret;
- 
-@@ -1544,7 +1549,7 @@ static int rk_gmac_powerup(struct rk_priv_data *bsp_priv)
- 	return 0;
- 
- clk_disable:
--	gmac_clk_enable(bsp_priv, false);
-+	gmac_clk_disable(bsp_priv);
- 	return ret;
- }
- 
-@@ -1556,7 +1561,7 @@ static void rk_gmac_powerdown(struct rk_priv_data *gmac)
- 	pm_runtime_put_sync(gmac->dev);
- 
- 	rk_phy_powerdown(gmac);
--	gmac_clk_enable(gmac, false);
-+	gmac_clk_disable(gmac);
- }
- 
- static void rk_get_interfaces(struct stmmac_priv *priv, void *bsp_priv,
--- 
-2.47.3
+ static void mtk_dsi_bridge_atomic_post_disable(struct drm_bridge *bridge,
+
+---
+base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
+change-id: 20261019-6768-dsi-fix-9f0c2ca2ba9f
+
+Best regards,
+--  
+rva3 <rva333@protonmail.com>
+
 
