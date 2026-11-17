@@ -1,55 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794946970;
-	b=rlfR6J359hb2+xrt+O4u+McAarx9jLzSe4ggn1vPmKp/IEwaq7O6xpFqto9njESW6Zhf
-	 C8Exvjw06G2SdXFD1fBBJDTeFT0weWOO6uaWJH7Z3TmrObeRuQMyZdiqmsXIVVgkTztyv
-	 a9dserHkT3BUFB/lxcMRDWThjfUuWFXKz7EFMc+7ggTbIQFu9qqfmOfKbpluCMZaNqhxc
-	 2lBzVFq8F6JO/cBF/bHhMwXrJIk5cUuyvz/MD8j+bj+jcMXLI5x4Ty9o1PKvx0iYiHg9i
-	 OoH1BGe9APMNL8E3PxUJ7xLSbQ7sLvzeSHRYSzrdKiRcGbhdLt1NqmIv+SFXepsHe4g==
+	t=1794947018;
+	b=WAsc8IMATQd7Ssdn2Y4jNe/8UIUa0g7DOads0u3HuFBEOMDbnX2/MC3TAN2w+5+qIjIf
+	 Ym/Z2BbW3zJlh2DllPPGcRZYh517wr8dUvF+EleLfIBSU0ACDdmwZcjz+88QJQ4/ZZ4U5
+	 7JjBt6Zo+OK0HJYxcLFBr1wBeNzXAk4dMjdLqReSiHmICpF28CtSY6/k3v/QXhFHUy4rL
+	 MvHEguJFh6Ivezi121kI6lkJHkKNGfmisjKy2m2yK39p28hlvf8MNTw7oNIstuiDFYeYW
+	 opsRiqx+czVxKaLVPImlh7MAVkYjnIyusJ8f/Op4MCY7prOoY7qCi+rrZmkHok1/eew==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794946970;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=ZtQeR/ddy21JbXrMZ+LXpeOqWubRGUzX5o5Gn48azrs=;
-	b=1FzQWqrcdFAji6g19TZvpgjGMxGhTzAuo9+NJnFWoEWtKtdsZF/BvYPaUqv0+VjtuadS
-	 PDR9x+xHBS48Ieqb69mrejaI9JUHMlBH2vkEVGjI+3rZo9dpyiwEI9nu2sT1iiDvd3Hjr
-	 sEQaKm+oYwMrD0OjLsrDVUnRQzIbR2OgmRFAkchfqDm32qGOafa2lI2CONrJ29X38/xmW
-	 UfDFe9ocP/vPsLE4Gp0na8d6PxewnTDKpVJvppNNqRBCPzKo8V5QhOvArVvYHld9qc8D4
-	 rhWQ7UL84kfniEcSHFJLDAq6I6EqLDurYFBlKfO1VuIpttkxInnEobOURbdR9ewDCzQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794947018;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=+wrl1M/b0W1Lw5nefg+G5DrghWCaF5PMvxCyu48WSo8=;
+	b=lb6WnLye0M10p4a8w5+fIj+a32EgMr0+G2kGMTN5H/MRLEsCKmFX6nCgS5bQhvLym89T
+	 /3/c+LEdjEyWl1h2qsw9HjtMGlAADVdw2EjqQ8oZM2KY0Xv3uWlVdRJuG9FEJeZ6Tw5Be
+	 sXNnWn4jqzXo5i2dFfVIxjB7eISTG8gM5FrEv6TvsiEKDYij6/kxwWSKEQOeLIEk7oMzj
+	 tZJ3N9vOwSVjWCI0zOEgnFkVy+oV5D8GLe2+R4oPPYSlEPkMO65FPs6tNoCHxHP2K1upj
+	 TNSjviJLwjnvQk2R4w6KIFaat75uL+XtMj89wXQE3tqlRAJfs8B7MgF3VllyEOmvUbw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="FG4I/h8l";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5245606A31C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:22:50 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="n/FLe2lg";
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 427A1606A31C;
+	Tue, 17 Nov 2026 20:23:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 427A1606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FG4I/h8l
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B0AA1F000C9
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:22:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794946970;
-	bh=ZtQeR/ddy21JbXrMZ+LXpeOqWubRGUzX5o5Gn48azrs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=FG4I/h8ljRamYVPM7NsX+kdiQFbGzR7sN38whq50p+nPWuDu4Bqo+zDGqjemxLt4f
-	 s8srbgyrZXTHeA7LCHCYt7TfmQF2A+LVZL2BnKbBe93f8wiqMbw0ib46ReZHdw6OvT
-	 aTPykAkJ6EU7ZLVoTEYZnxaOLYdJzDGqosSzDSvwObTvSViReIIxMNl3JTR3MJiLlo
-	 QOv5rIcgg2cBdecPh3A4Qz3Wuco5PAMPuRtXeerYPOxJkTkXB4LWpopeQY6VeTfH4j
-	 xKSW4rQjykZPyB5W+lS1ufJ9BbyzvHf1kYzFIvXxiXLuZav6xfY4IWC3pqvjmQciUg
-	 xsCanBYATnnbg==
-Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5c126f80426so153011e87.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 12:22:50 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErEwS6Lpl8mXBjtzCXnXUFmPh3egtSuDXp7ILXWvFah8mTmVCaJHdKQd0eLkh0b26zJIYIDdJBqeNBmN9Zo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8SkiiUSxSDex9Rjeg3onEP0RPEyg63klznP5zKaMiUW1CJUMeF
-	uL1rxpxql6PuOTXQ/cgnU3eiA3aNZehTJK6eKXneZ84V5n5qNvtTz+ftdORFyAodgClYtRAGCqX
-	U6AQYjXDibLkUljSMr+MFxZIZWAhQqng=
-X-Received: by 2002:a05:6512:308c:b0:5c1:4e66:7bbe with SMTP id
- 2adb3069b0e04-5c1a9c25e4cmr84934e87.29.1794946968890; Tue, 17 Nov 2026
- 12:22:48 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=n/FLe2lg
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4190C339;
+	Tue, 17 Nov 2026 12:23:33 -0800 (PST)
+Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 89E0C3F632;
+	Tue, 17 Nov 2026 12:23:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1794947016; bh=pvkFaWZYQ10//zppwuCukKaIMWK7ZxkW4IommctNevs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=n/FLe2lgmJ4q16F6SbvRRo1Yv3qp7wRG5pgoXT+A4Y7SqbZTUiLZuoZqXy9Q6af5l
+	 S/QJ8e87IU8aun4elbhPRl5LSCbX5dW6Dioqhpj/JGWkII5n0cbjmhv4KO4i6etjXz
+	 G24Hx3nv1HrAvDg2ySgCrMwU5Vbtuzu7inDMg70A=
+Date: Tue, 17 Nov 2026 20:23:32 +0000
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Siddharth Chintamaneni <sidchintamaneni@gmail.com>
+Cc: Peter Huewe <peterhuewe@gmx.de>, Jarkko Sakkinen <jarkko@kernel.org>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Stuart Yoder <stuart.yoder@arm.com>, apais@microsoft.com,
+	rachelmenge@linux.microsoft.com, hargar@linux.microsoft.com,
+	linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/4] tpm: Cache TPM2 start method
+Message-ID: <avy3xBltfKeCs85x@e129823.arm.com>
+References: <20261115013456.212141-1-sidchintamaneni@gmail.com>
+ <20261115013456.212141-2-sidchintamaneni@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,108 +66,93 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261024223501.1420953-1-daniel.lezcano@oss.qualcomm.com>
- <20261024223501.1420953-2-daniel.lezcano@oss.qualcomm.com>
- <CAMuHMdXJOpcC3a6wMXF_m=uNjuqSO1Z3kyM7Az1uP_2GBurOvA@mail.gmail.com>
- <0de1444a-a0ba-4e16-a480-74a39c865ab6@oss.qualcomm.com> <CAMuHMdWfH+_4ijxko=LS_P6b1Y76WWDc8m4xL6qW1H+qKRQ98A@mail.gmail.com>
- <CAB9z6xC4c=o1DwVARBek7ozDxaCON9rpwTmJ810sDGyP0XYQDA@mail.gmail.com>
-In-Reply-To: <CAB9z6xC4c=o1DwVARBek7ozDxaCON9rpwTmJ810sDGyP0XYQDA@mail.gmail.com>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Tue, 17 Nov 2026 21:22:37 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0jg61_W6hgtMzKdMa+f27ApaNunnpkzM0MoYxN+aV-xog@mail.gmail.com>
-X-Gm-Features: AclHuK_c_NJ9owiTS0vj6s42B-axpqzhO3Kp4-jOW_Jw2rhEoqZi8QT4VogQuuA
-Message-ID: <CAJZ5v0jg61_W6hgtMzKdMa+f27ApaNunnpkzM0MoYxN+aV-xog@mail.gmail.com>
-Subject: Re: [PATCH v3 1/4] platform profile: Extract the core from ACPI
-To: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>, "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Randy Dunlap <rdunlap@infradead.org>, Viresh Kumar <viresh.kumar@linaro.org>, 
-	Hans de Goede <hansg@kernel.org>, =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
-	Maximilian Luz <luzmaximilian@gmail.com>, Shyam Sundar S K <Shyam-sundar.S-k@amd.com>, 
-	Mark Pearson <mpearson-lenovo@squebb.ca>, "Derek J. Clark" <derekjohn.clark@gmail.com>, 
-	Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
-	Lukasz Luba <lukasz.luba@arm.com>, Armin Wolf <W_Armin@gmx.de>, 
-	Jai Luthra <jai.luthra@ideasonboard.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jack Wu <jackbb_wu@compal.com>, 
-	"Mario Limonciello (AMD)" <superm1@kernel.org>, linux-acpi@vger.kernel.org, 
-	"open list:CLOCKSOURCE, CLOCKEVENT DRIVERS" <linux-kernel@vger.kernel.org>, linux-doc@vger.kernel.org, 
-	Linux PM mailing list <linux-pm@vger.kernel.org>, PDx86 <platform-driver-x86@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261115013456.212141-2-sidchintamaneni@gmail.com>
 
-On Tue, Nov 17, 2026 at 7:27=E2=80=AFPM Daniel Lezcano
-<daniel.lezcano@oss.qualcomm.com> wrote:
->
->
->
-> Le mar. 17 nov. 2026, 17:39, Geert Uytterhoeven <geert@linux-m68k.org> a =
-=C3=A9crit :
->>
->> Hi Daniel,
->>
->> On Tue, 17 Nov 2026 at 17:03, Daniel Lezcano
->> <daniel.lezcano@oss.qualcomm.com> wrote:
->> > On 11/17/26 12:48, Geert Uytterhoeven wrote:
->> > > On Sun, 25 Oct 2026 at 00:56, Daniel Lezcano
->> > > <daniel.lezcano@oss.qualcomm.com> wrote:
->> > >> Platform profile providers already use device-based callbacks and d=
-o not
->> > >> need ACPI types. The core is nevertheless confined to the ACPI buil=
-d and
->> > >> refuses to initialize when ACPI is disabled.
->> > >>
->> > >> Move the implementation to drivers/platform/profile and introduce t=
-he
->> > >> firmware-independent PLATFORM_PROFILE symbol. Update all provider
->> > >> selectors. Keep provider-specific ACPI dependencies and the
->> > >> platform_profile module name.
->> > >>
->> > >> Isolate access to the legacy ACPI kobject in an optional compatibil=
-ity
->> > >> object linked into the same module. Retain the legacy ABI on active=
- ACPI
->> > >> systems, and initialize the class even when ACPI is absent or disab=
-led.
->> > >>
->> > >> Use subsys_initcall_sync so the class is ready before built-in ther=
-mal
->> > >> and CPUFreq providers, but after ACPI has initialized its compatibi=
-lity
->> > >> kobject.
->> > >>
->> > >> Signed-off-by: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
->> > >
->> > > Thanks for your patch, which is now commit 699041135f75b13a
->> > > ("platform profile: Extract the core from ACPI") in pm/linux-next/
->> > >
->> > >> --- a/drivers/platform/Kconfig
->> > >> +++ b/drivers/platform/Kconfig
->> > >> @@ -1,4 +1,20 @@
->> > >>   # SPDX-License-Identifier: GPL-2.0-only
->> > >> +config PLATFORM_PROFILE
->> > >> +       tristate "Platform profile support"
->> > >
->> > > I guess this can be invisible (perhaps "... if COMPILE_TEST"?), as
->> > > you have updated all provider selectors?
->> > >
->> > > If not, I guess this needs a "depend on X86 || COMPILE_TEST", so peo=
-ple
->> > > configuring kernels for different architectures do not see this opti=
-on?
->> >
->> > The goal of this series is to make the platform profile firmware
->> > agnostic so it is available for all architectures
->>
->> Sure... Are there any users of it on these architectures?
->
->
-> ARM64 is about to (patches are cooked)
+LGTM.
 
-Geert has a point though.  There are arches that don't need to see this at =
-all.
+Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
 
-You can add ARM64 to the list while adding support for this to it.
+On Sun, Nov 15, 2026 at 01:34:53AM +0000, Siddharth Chintamaneni wrote:
+> From: Jarkko Sakkinen <jarkko@kernel.org>
+> 
+> Both tpm_tis and tpm_crb retrieve the start method from the ACPI TPM2
+> table during device probe, and tpm_crb_ffa also needs it before chip
+> allocation.
+> 
+> Cache the start method in tpm2_acpi_start_method during tpm_init(), log
+> it when a TPM2 ACPI table is present, and export it for the leaf
+> drivers, defaulting to ACPI_TPM2_NOT_ALLOWED when the table is absent or
+> invalid.
+> 
+> Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
+> Co-developed-by: Siddharth Chintamaneni <sidchintamaneni@gmail.com>
+> Signed-off-by: Siddharth Chintamaneni <sidchintamaneni@gmail.com>
+> ---
+>  drivers/char/tpm/tpm-interface.c | 21 +++++++++++++++++++++
+>  drivers/char/tpm/tpm.h           |  1 +
+>  2 files changed, 22 insertions(+)
+> 
+> diff --git a/drivers/char/tpm/tpm-interface.c b/drivers/char/tpm/tpm-interface.c
+> index e0385b16616b..c18b060d7da2 100644
+> --- a/drivers/char/tpm/tpm-interface.c
+> +++ b/drivers/char/tpm/tpm-interface.c
+> @@ -534,8 +534,17 @@ int tpm_get_random(struct tpm_chip *chip, u8 *out, size_t max)
+>  }
+>  EXPORT_SYMBOL_GPL(tpm_get_random);
+>  
+> +#ifdef CONFIG_ACPI
+> +u32 tpm2_acpi_start_method = ACPI_TPM2_NOT_ALLOWED;
+> +EXPORT_SYMBOL_GPL(tpm2_acpi_start_method);
+> +#endif
+> +
+>  static int __init tpm_init(void)
+>  {
+> +#ifdef CONFIG_ACPI
+> +	struct acpi_table_tpm2 *tbl;
+> +	acpi_status status;
+> +#endif
+>  	int rc;
+>  
+>  	rc = class_register(&tpm_class);
+> @@ -562,6 +571,18 @@ static int __init tpm_init(void)
+>  		goto out_unreg_chrdev;
+>  	}
+>  
+> +#ifdef CONFIG_ACPI
+> +	if (!acpi_disabled) {
+> +		status = acpi_get_table(ACPI_SIG_TPM2, 1, (typeof(tbl->header) **)&tbl);
+> +		if (ACPI_SUCCESS(status)) {
+> +			if (tbl->header.length >= sizeof(*tbl))
+> +				tpm2_acpi_start_method = tbl->start_method;
+> +			acpi_put_table((struct acpi_table_header *)tbl);
+> +			pr_info("tpm: TPM2 ACPI start method: 0x%02x\n", tpm2_acpi_start_method);
+> +		}
+> +	}
+> +#endif
+> +
+>  	return 0;
+>  
+>  out_unreg_chrdev:
+> diff --git a/drivers/char/tpm/tpm.h b/drivers/char/tpm/tpm.h
+> index fa554c5ad80b..212ca2410c93 100644
+> --- a/drivers/char/tpm/tpm.h
+> +++ b/drivers/char/tpm/tpm.h
+> @@ -100,6 +100,7 @@ void tpm_sysfs_add_device(struct tpm_chip *chip);
+>  
+>  
+>  #ifdef CONFIG_ACPI
+> +extern u32 tpm2_acpi_start_method;
+>  extern void tpm_add_ppi(struct tpm_chip *chip);
+>  #else
+>  static inline void tpm_add_ppi(struct tpm_chip *chip)
+> 
+> base-commit: 7e52fc165aa50e70e8df3c879d04fc0ff1673d4a
+> -- 
+> 2.45.4
+> 
 
-> Others IDK
-
-Well, exactly.
+-- 
+Sincerely,
+Yeoreum Yun
