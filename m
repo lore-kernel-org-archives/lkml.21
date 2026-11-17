@@ -1,101 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=89.253.219.113
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794944778;
-	b=BJpnO9YNjrm/Owqta0jM1yh7mE7sVv78uDATh+ZtDIuNOcIO+FXrzFRnIOzdCNNKGvUL
-	 DzlKye9KgwgZg1Np+BPy/Wi1h9xYvXCi4GGzZWaxF/n9QTR9U3ftrI3xScX9m79/gAt2n
-	 fEmfaGWrN/s2bzpZ3JJPJccFLTKboGHFVvAhYEPrA/bDtOsVflWq/ZEBD3jfyTD3GDgDC
-	 pIg42XkqovEN/6f+yI3jRyr8ZXuXKQVBPyIdzGR6xQawc4uLLBWRysKNVaWw3G/XnbDT9
-	 Sp3HBsab4v7PS5mQgZD9Ebl784szFJVrDsx2DBjzKW33nj5DDLVuORP9prYozw7sjTA==
+	t=1794944804;
+	b=fSc8fBjBkNBBzhL93e07mKmJ8O0NEj86qukryjQYWFikEwbpjMjzOm3nWW208ZH56/G8
+	 I7mdvp5Nms8xoC7uCO245zLwZzZ7Q2p1Pz09xCJHjkozSqQB/ibdYTSyow5OfWY7Ko7CV
+	 YcfwnIkvmPTS7KWZdyqBuh9bW8owc8PExEADe7wSQpOW1mj81xBJPe5A3mcUJhTT5+UkV
+	 LiXsCfhv8yNKvSO3NC3xMctCilmaihL8lZ7jwbnE/gtFgTWIssnUginUS5E0c/LNztxif
+	 QcPzqQbKqVI1xwy1WQ7a5znTlU1+njiEvIkIlXUEAv9QnYp30moCw6+pR5ba3ppBXCw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794944778;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:X-Patch-Reply:MIME-Version:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1794944804;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=ExUxqEZt6CeU083ngWOHRCSyuGGcbWbRoHP3g8HyKtM=;
-	b=aj0Xad4Bl6OL+UYi77Ihuydr9BRB17zDic86nbjunxuQoKruUCe/1wht8BL9rdAtQJw+
-	 NlZYVFIJVElMWlmSign8yFMMGoPRp90qL+Lvbb99+u7eyZFEAPZiWY7aUSDKnMR63NIO6
-	 KCYNP/PHQTDBLjwlmHfqPTsZpLTGbOn5k8LmMbXeqqgQ5S6iPUvGUtiITvFgR+QddXCuo
-	 mZKvpj8jrhKt1GyJTVBsEl5hI8+V6D//wJ4chKmK+2tleuMDrAfkvseR+w/rQAAoS3iNb
-	 rHkvxQoK7Ydd6rpnOH2x/CRqIiPswyK7dACT9FAaN0G2SBi211Tj3woPOxMqDnjqBxQ==
+	bh=W64GNUcMHGlrNAK2SZEItbf2GTZEHldj6UB2jOU9t94=;
+	b=CCMXwLnrY6fTdUhAg+nkKjrFPkPniOyIfWnhUvwfNteNvjZXIgmPuhEsIFMj/SDw5PVi
+	 jFzg2dL3LB/OXgSex8A6trZP1b7Y1IATYsN7+bkv5QV8KVklEL6ABrXH45hYTOjRD5uLG
+	 ly0vRVWfLVBMd8FQ9+vAttVWyd72Gtg/BU6uxBetFXXGI7GmWEWlzVVZLZ3z+Mb/oaFqQ
+	 xCXDFOZRBGht2QFN4hABSW3VEyfwHE2FK77a6RIwYKMitMCmN1dRaqlp9dgwy7tqDASRm
+	 h8FbOVOayYG0rL8uCiMRzpIsLh92xxR/SSlU8xiTE83hJrsl56Xz7Mn15HFOHqERNDQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LmM2Fw9g;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=pavel.bz;
+	spf=pass smtp.mailfrom=pavel.bz;
+	dkim=pass header.d=pavel.bz header.i=@pavel.bz header.a=rsa-sha256 header.s=primary header.b=pyUTeIdS;
+	arc=none smtp.remote-ip=89.253.219.113
+Received: from mail.pavel.bz (mail.pavel.bz [89.253.219.113])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3EAC7606A31C;
-	Tue, 17 Nov 2026 19:46:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0117E606A31C;
+	Tue, 17 Nov 2026 19:46:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0117E606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=pavel.bz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pavel.bz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LmM2Fw9g
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD2031F000C4;
-	Tue, 17 Nov 2026 19:46:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794944778;
-	bh=ExUxqEZt6CeU083ngWOHRCSyuGGcbWbRoHP3g8HyKtM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=LmM2Fw9gfbDi+AVGhDZOn7ni51zlC4OkduYjfN3OBYRvdmfWDKkYPZ/YqivYYyoVB
-	 CPf2z2Kj/kRf6q3kLA8XGFBtr9+0qUQ7N6QBOKcni0jUtLOTVjlnax82oAHDwjWu4Y
-	 Wb/G/WW/jrS4grELIH7dPPX8KpI4RSnenwJ2u0vE1UMJbXLlfbrq3lsTTF8/u/aQaP
-	 py54S1IeA7dJ9DDvZVOHfdEFotBHUh3P15g7p+6QfaC8hZOljl4qxGzF3SnwRoxEAw
-	 a3WHCXcVXjBDOwKAyeOJdMeQpeaFQxF+dvYI0bItFrVlWpjOm3fNdphqpArg4MrbaF
-	 sFIqZRxnLbXMw==
-From: Danilo Krummrich <dakr@kernel.org>
-To: Simon Song <xinmengs@nvidia.com>
-Cc: dakr@kernel.org,
-	acourbot@nvidia.com,
-	kvm@vger.kernel.org,
-	rust-for-linux@vger.kernel.org,
-	nova-gpu@lists.linux.dev,
-	linux-pci@vger.kernel.org,
-	alex@shazbot.org,
-	jgg@nvidia.com,
-	yishaih@nvidia.com,
-	skolothumtho@nvidia.com,
-	kevin.tian@intel.com,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	ojeda@kernel.org,
-	alex.gaynor@gmail.com,
-	boqun.feng@gmail.com,
-	gary@garyguo.net,
-	bjorn3_gh@protonmail.com,
-	lossin@kernel.org,
-	a.hindborg@kernel.org,
-	aliceryhl@google.com,
-	tmgross@umich.edu,
-	markus.probst@posteo.de,
-	jhubbard@nvidia.com,
-	apopple@nvidia.com,
-	joelagnelf@nvidia.com,
-	ecourtney@nvidia.com,
-	cjia@nvidia.com,
-	smitra@nvidia.com,
-	kjaju@nvidia.com,
-	alkumar@nvidia.com,
-	ankita@nvidia.com,
-	aniketa@nvidia.com,
-	kwankhede@nvidia.com,
-	targupta@nvidia.com,
-	linux-kernel@vger.kernel.org,
-	zhiwang@kernel.org,
-	zhiw@nvidia.com,
-	boqun@kernel.org,
-	daniel.almeida@collabora.com,
-	tamird@kernel.org,
-	work@onurozkan.dev,
-	jgg@ziepe.ca,
-	bhelgaas@google.com,
-	kwilczynski@kernel.org,
-	dri-devel@lists.freedesktop.org,
-	peter@colberg.org
-Subject: Re: (subset) [PATCH v6 00/11] Add Rust PCI SR-IOV support
-Date: Tue, 17 Nov 2026 20:46:06 +0100
-Message-ID: <20261117194606.1892840-1-dakr@kernel.org>
+	dkim=pass (2048-bit key) header.d=pavel.bz header.i=@pavel.bz header.a=rsa-sha256 header.s=primary header.b=pyUTeIdS
+Received: from p-745-g5.pavel.bz (unknown [182.52.139.49])
+	by mail.pavel.bz (Postfix) with ESMTPSA id 66D0C616D0;
+	Tue, 17 Nov 2026 19:46:40 +0000 (UTC)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.pavel.bz 66D0C616D0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pavel.bz; s=primary;
+	t=1794944801; bh=W64GNUcMHGlrNAK2SZEItbf2GTZEHldj6UB2jOU9t94=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=pyUTeIdSuNJhfQ9ycog8YzPSPGiFHeJEHpCliEDoz3WFRDCo4vukXEruCzQGDJ4Lb
+	 vzALmWMN7qkmRZu0frUE0yD6+lEX643UihcDUVgChjxtuZMNXdbiXtSEKl9FRnfLKE
+	 wibrFt7OinDZ/8GuDC2K8qNnYEG2ga2/iHI1OtualcFio4mFou3e+PyWAey3XDSu9Y
+	 WF0qVs+SV/8Gnq/0jsNRGRJt++3Pz0LWHCXY8K8/Nc7pJLwcLtCx5nYVcOh692YrOl
+	 UqCzVhRtHbJjkFb+XWvQWApZrwmZtuM9W2Nya9K6bbCQ/eZHIihYlaD4Xc2EEfBSCt
+	 JMbJ/9WiZin3A==
+From: Pavel Artemev <a@pavel.bz>
+To: Takashi Iwai <tiwai@suse.com>
+Cc: Jaroslav Kysela <perex@perex.cz>,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/2] ALSA: usb-audio: drive XiiSound playback volume instead of skipping it
+Date: Wed, 18 Nov 2026 02:46:29 +0700
+Message-ID: <20261117194630.155912-2-a@pavel.bz>
 X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261111223337.508989-1-xinmengs@nvidia.com>
-References: <20261111223337.508989-1-xinmengs@nvidia.com>
-X-Patch-Reply: applied
+In-Reply-To: <20261117194630.155912-1-a@pavel.bz>
+References: <20261117194630.155912-1-a@pavel.bz>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,22 +66,312 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-On Wed, 11 Nov 2026 14:33:25 -0800, Simon Song wrote:
-> [PATCH v6 00/11] Add Rust PCI SR-IOV support
+Replace the XiiSound (040b:0897) playback feature unit workaround from
+commit ba9bccdf711a ("ALSA: usb-audio: Skip broken playback feature unit
+on XiiSound chips") with quirk flags that keep the unit exposed and make
+its hardware volume work.
 
-Applied, thanks!
+Wire-level captures (usbmon on Linux, USBPcap on the vendor's own
+Windows 10 stack) show the playback feature unit is functional as a
+hardware volume: per-channel SET_CUR writes apply deterministically and
+independently (a fast pair CN1<-50 + CN2<-100 applies exactly; a lone
+channel write does not disturb its sibling), the master channel gates
+both ears symmetrically, and intermediate values are audible and graded.
+The vendor's Windows driver drives exactly this unit on every slider and
+hardware-button step, writing all three channels with plain 0..100 raw
+values mapped linearly from its slider.
 
-  Branch: driver-core-testing
-  Tree:   git://git.kernel.org/pub/scm/linux/kernel/git/driver-core/driver-core.git
+The "any volume below the maximum mutes one or both channels" behaviour
+that motivated the skip is host-side, not firmware:
 
-[5/11] rust: device: clarify the drvdata_borrow() safety requirement
-      commit: d66d8bbb0316
+  * the unit advertises a bogus 0.00..0.39 dB range, under which every
+    user-space volume at or below 0 dB - the whole normal PipeWire
+    range, 100% included - resolves to the raw minimum, which silences
+    the channel;
+  * the stereo volume control's GET_CUR returns a constant value, so
+    the sanity check classifies it as broken and init_cur_mix_raw()
+    writes the minimum to both channels at every mixer build;
+  * user space applies one logical volume change as fragmented writes
+    (one per channel, the first carrying the stale sibling value), and
+    these devices silently drop control writes in the first seconds
+    after enumeration, so a channel can be left behind at a stale
+    value that no later write corrects.
 
-The patch will appear in the next linux-next integration (typically within 24
-hours on weekdays).
+Enable three quirk flags for 040b:0897.  The new
+QUIRK_FLAG_MIXER_INIT_VOLUME_MAX makes init_cur_mix_raw() initialize the
+channels of volume controls to the maximum instead of the minimum: it
+runs exactly where the broken-GET minimum writes would, supersedes them
+(also when range discovery is deferred with -EAGAIN and initialization
+repeats later from mixer_ctl_feature_info()), and touches nothing else -
+controls whose GET_CUR works are read, not written, and switches keep
+the safe unmuted minimum.  Mixer unit controls are excluded via
+num_outputs: their control selector field stores a 1-based input pin
+number, which aliases UAC_FU_VOLUME and would max-initialize an input
+pin >= 2 on a flagged device.  Processing-unit selector controls
+sharing the UAC_FU_VOLUME value (0x02: UAC_3D_SPACE,
+UAC_REVERB_LEVEL, UAC_CHORUS_LEVEL, UAC_DCR_RATE,
+UAC_DP_MODE_SELECT) are not excluded by the guard; none exist on
+040b:0897, and a device combining the flag with such a control would
+initialize it to its maximum on a failing GET.  The existing
+MIXER_PLAYBACK_LINEAR_VOL and MIXER_CAPTURE_LINEAR_VOL replace the
+bogus dB scale with a linear one,
+so user-space volumes map onto the full raw range.  The controls stay
+writable; hardware volume then behaves like on Windows.
 
-The patch is in the driver-core-testing branch and will be promoted to
-driver-core-next after validation.
+The create-time pin writes of the previous quirk sit inside that
+post-enumeration write-loss window and are dropped along with every
+other early write; the device comes up audible after a plug only
+because it powers up with every volume channel at the maximum, which
+the explicit init reproduces if a write ever does land.  No separate
+resume re-pin is needed: with the controls created, the standard mixer
+resume path restores the cached values.
+
+Testing: the same flag combination ran on the device as a locally
+built DKMS module against a 7.2 tree through a wire-level verification
+campaign: the initialization writes were observed on the bus at every
+mixer build, the full raw range became reachable from PipeWire (route
+volumes 0/13/100 for 0.0/0.5/1.00), and mute and balance track.  This
+exact tree also ran on the device as a DKMS module against 7.3.4: the
+broken-GET stereo control is initialized to the maximum in place of
+the minimum, the other controls are read but not written, and the
+linear raw mapping holds (route volume restores landed as 13/100/35
+on the bus for 0.5/1.0/0.7).
+
+Closes: https://github.com/alsa-project/alsa-ucm-conf/issues/760
+Closes: https://github.com/linuxmint/linuxmint/issues/822
+Link: https://bugzilla.kernel.org/show_bug.cgi?id=221401
+Link: https://lore.kernel.org/linux-sound/20261117180728.117915-2-a@pavel.bz
+Assisted-by: LLM
+Signed-off-by: Pavel Artemev <a@pavel.bz>
+---
+ Documentation/sound/alsa-configuration.rst |  4 ++
+ sound/usb/mixer.c                          | 13 ++++-
+ sound/usb/mixer_maps.c                     | 19 -------
+ sound/usb/mixer_quirks.c                   | 59 ----------------------
+ sound/usb/quirks.c                         |  5 ++
+ sound/usb/usbaudio.h                       | 11 ++++
+ 6 files changed, 32 insertions(+), 79 deletions(-)
+
+diff --git a/Documentation/sound/alsa-configuration.rst b/Documentation/sound/alsa-configuration.rst
+index 689eccf6a..ea7f5aa31 100644
+--- a/Documentation/sound/alsa-configuration.rst
++++ b/Documentation/sound/alsa-configuration.rst
+@@ -2413,6 +2413,10 @@ quirk_flags
+           versa (same for 88200 <-> 96000 and 176400 <-> 192000).  The driver
+           sends the partner rate in SET_CUR so the device ends up running at the
+           requested one.
++        * bit 34: ``mixer_init_volume_max``
++          Initialize the volume control channels to the maximum value instead
++          of the minimum at mixer creation.  For devices that silence their
++          audio path while a volume channel sits at the minimum value.
+ 
+ This module supports multiple devices, autoprobe and hotplugging.
+ 
+diff --git a/sound/usb/mixer.c b/sound/usb/mixer.c
+index 95209ec00..ad96371ad 100644
+--- a/sound/usb/mixer.c
++++ b/sound/usb/mixer.c
+@@ -1310,7 +1310,18 @@ static void init_cur_mix_raw(struct usb_mixer_elem_info *cval, int ch, int idx)
+ 			       "%d:%d: failed to get current value for ch %d (%d)\n",
+ 			       cval->head.id, mixer_ctrl_intf(cval->head.mixer),
+ 			       ch, err);
+-	snd_usb_set_cur_mix_value(cval, ch, idx, cval->min);
++	/*
++	 * QUIRK_FLAG_MIXER_INIT_VOLUME_MAX: some devices silence an audio
++	 * path while a volume channel sits at the minimum value, so
++	 * initialize those to the maximum instead.  Only volume controls:
++	 * for switches the minimum is the safe (unmuted) value.
++	 */
++	if ((cval->head.mixer->chip->quirk_flags &
++	     QUIRK_FLAG_MIXER_INIT_VOLUME_MAX) &&
++	    cval->control == UAC_FU_VOLUME && !cval->num_outputs)
++		snd_usb_set_cur_mix_value(cval, ch, idx, cval->max);
++	else
++		snd_usb_set_cur_mix_value(cval, ch, idx, cval->min);
+ }
+ 
+ /*
+diff --git a/sound/usb/mixer_maps.c b/sound/usb/mixer_maps.c
+index 9218ca631..98b414621 100644
+--- a/sound/usb/mixer_maps.c
++++ b/sound/usb/mixer_maps.c
+@@ -374,20 +374,6 @@ static const struct usbmix_name_map dell_alc4020_map[] = {
+ 	{ 0 }
+ };
+ 
+-/*
+- * Weltrend XiiSound chips (040b:0897, e.g. Redragon H878):
+- * the playback feature unit is broken; its volume controls act like
+- * mute switches below the maximum value and the channel mapping is
+- * unreliable, so any hardware volume change mutes one or both
+- * channels.  Skip the unit entirely and let userspace fall back to
+- * software volume; the unit is pinned to maximum/unmuted by the
+- * mixer quirk in mixer_quirks.c.
+- */
+-static const struct usbmix_name_map xiisound_map[] = {
+-	{ 5, NULL },	/* playback feature unit */
+-	{ 0 }
+-};
+-
+ /*
+  * Corsair Virtuoso calls everything "Headset" without this, leading to
+  * applications moving the sidetone control instead of the main one.
+@@ -804,11 +790,6 @@ static const struct usbmix_ctl_map usbmix_ctl_maps[] = {
+ 		.id = USB_ID(0x1395, 0x0025),
+ 		.map = sennheiser_pc8_map,
+ 	},
+-	{
+-		/* Weltrend XiiSound (Redragon H878) */
+-		.id = USB_ID(0x040b, 0x0897),
+-		.map = xiisound_map,
+-	},
+ 	{
+ 		/* Microsoft USB Link headset */
+ 		.id = USB_ID(0x045e, 0x083c),
+diff --git a/sound/usb/mixer_quirks.c b/sound/usb/mixer_quirks.c
+index 4c7d68311..583971944 100644
+--- a/sound/usb/mixer_quirks.c
++++ b/sound/usb/mixer_quirks.c
+@@ -4603,59 +4603,6 @@ static int snd_audiofuse_controls_create(struct usb_mixer_interface *mixer)
+ 	return err;
+ }
+ 
+-/*
+- * Weltrend XiiSound chips (040b:0897, e.g. Redragon H878):
+- * the playback feature unit (id 5) is broken; its volume controls act like
+- * mute switches below the maximum value and the channel mapping is
+- * unreliable, so the unit is hidden from userspace entirely (see the
+- * quirk in mixer_maps.c) and userspace falls back to software volume.
+- * Pin the unit's master and channel volumes to the reported maximum
+- * and unmute them, so the audio path stays fully open.
+- */
+-static int snd_xiisound_init_fu_pins(struct usb_mixer_interface *mixer)
+-{
+-	struct snd_usb_audio *chip = mixer->chip;
+-	unsigned char buf[2];
+-	int ifnum, ch, err;
+-
+-	if (mixer->protocol != UAC_VERSION_1)
+-		return 0;
+-
+-	ifnum = snd_usb_ctrl_intf(chip->ctrl_intf);
+-
+-	/* unit 5 is the playback feature unit on these chips */
+-	for (ch = 0; ch <= 2; ch++) {
+-		err = snd_usb_ctl_msg(chip->dev, usb_rcvctrlpipe(chip->dev, 0),
+-				      UAC_GET_MAX,
+-				      USB_DIR_IN | USB_TYPE_CLASS |
+-				      USB_RECIP_INTERFACE,
+-				      (UAC_FU_VOLUME << 8) | ch,
+-				      (5 << 8) | ifnum, buf, 2);
+-		if (err < 2)
+-			return 0; /* no such unit/channels, nothing to pin */
+-
+-		err = snd_usb_ctl_msg(chip->dev, usb_sndctrlpipe(chip->dev, 0),
+-				      UAC_SET_CUR,
+-				      USB_DIR_OUT | USB_TYPE_CLASS |
+-				      USB_RECIP_INTERFACE,
+-				      (UAC_FU_VOLUME << 8) | ch,
+-				      (5 << 8) | ifnum, buf, 2);
+-		if (err < 0)
+-			return err;
+-
+-		buf[0] = 0; /* unmute */
+-		err = snd_usb_ctl_msg(chip->dev, usb_sndctrlpipe(chip->dev, 0),
+-				      UAC_SET_CUR,
+-				      USB_DIR_OUT | USB_TYPE_CLASS |
+-				      USB_RECIP_INTERFACE,
+-				      (UAC_FU_MUTE << 8) | ch,
+-				      (5 << 8) | ifnum, buf, 1);
+-		if (err < 0)
+-			return err;
+-	}
+-	return 0;
+-}
+-
+ int snd_usb_mixer_apply_create_quirk(struct usb_mixer_interface *mixer)
+ {
+ 	int err = 0;
+@@ -4669,9 +4616,6 @@ int snd_usb_mixer_apply_create_quirk(struct usb_mixer_interface *mixer)
+ 	case USB_ID(0x0644, 0x8047):
+ 		err = snd_us16x08_controls_create(mixer);
+ 		break;
+-	case USB_ID(0x040b, 0x0897):
+-		err = snd_xiisound_init_fu_pins(mixer);
+-		break;
+ 	case USB_ID(0x041e, 0x3020):
+ 	case USB_ID(0x041e, 0x3040):
+ 	case USB_ID(0x041e, 0x3042):
+@@ -4863,9 +4807,6 @@ void snd_usb_mixer_resume_quirk(struct usb_mixer_interface *mixer)
+ 	case USB_ID(0x0bda, 0x4014): /* Dell WD15 dock */
+ 		dell_dock_mixer_init(mixer);
+ 		break;
+-	case USB_ID(0x040b, 0x0897): /* Weltrend XiiSound (Redragon H878) */
+-		snd_xiisound_init_fu_pins(mixer);
+-		break;
+ 	}
+ }
+ 
+diff --git a/sound/usb/quirks.c b/sound/usb/quirks.c
+index a4eb0d0cd..6ef6d4410 100644
+--- a/sound/usb/quirks.c
++++ b/sound/usb/quirks.c
+@@ -2502,6 +2502,10 @@ static const struct usb_audio_quirk_flags_table quirk_flags_table[] = {
+ 		   QUIRK_FLAG_FIXED_RATE),
+ 	DEVICE_FLG(0x03f0, 0x654a, /* HP 320 FHD Webcam */
+ 		   QUIRK_FLAG_GET_SAMPLE_RATE | QUIRK_FLAG_MIC_RES_16),
++	DEVICE_FLG(0x040b, 0x0897, /* XiiSound/Weltrend Temple and rebranded headsets */
++		   QUIRK_FLAG_MIXER_INIT_VOLUME_MAX |
++		   QUIRK_FLAG_MIXER_PLAYBACK_LINEAR_VOL |
++		   QUIRK_FLAG_MIXER_CAPTURE_LINEAR_VOL),
+ 	DEVICE_FLG(0x041e, 0x3000, /* Creative SB Extigy */
+ 		   QUIRK_FLAG_IGNORE_CTL_ERROR),
+ 	DEVICE_FLG(0x041e, 0x324d, /* Creative Sound Blaster Play! 3 */
+@@ -2979,6 +2983,7 @@ static const char *const snd_usb_audio_quirk_flag_names[] = {
+ 	QUIRK_STRING_ENTRY(PLAYBACK_URB_FIXUP),
+ 	QUIRK_STRING_ENTRY(ALWAYS_SET_RATE),
+ 	QUIRK_STRING_ENTRY(SWAP_RATES),
++	QUIRK_STRING_ENTRY(MIXER_INIT_VOLUME_MAX),
+ 	NULL
+ };
+ 
+diff --git a/sound/usb/usbaudio.h b/sound/usb/usbaudio.h
+index c6d59218d..61794fdc4 100644
+--- a/sound/usb/usbaudio.h
++++ b/sound/usb/usbaudio.h
+@@ -262,6 +262,15 @@ extern bool snd_usb_skip_validation;
+  *  The device applies a requested sample rate to the other base-rate family
+  *  (44100 <-> 48000, 88200 <-> 96000, 176400 <-> 192000).  Send the partner
+  *  rate in SET_CUR so that the device runs at the requested rate.
++ * QUIRK_FLAG_MIXER_INIT_VOLUME_MAX
++ *  A Feature Unit volume channel left at the minimum value silences its
++ *  audio path on some devices; user space that does not write all
++ *  channels of such a control would leave the device silent.  Where
++ *  GET_CUR is broken the kernel additionally discards the test values
++ *  and initializes the channels to the minimum at every mixer build.
++ *  Initialize the volume control channels to the maximum instead of
++ *  the minimum; the controls remain writable and the hardware volume
++ *  operates normally afterwards.
+  */
+ 
+ enum {
+@@ -299,6 +308,7 @@ enum {
+ 	QUIRK_TYPE_PLAYBACK_URB_FIXUP		= 31,
+ 	QUIRK_TYPE_ALWAYS_SET_RATE		= 32,
+ 	QUIRK_TYPE_SWAP_RATES			= 33,
++	QUIRK_TYPE_MIXER_INIT_VOLUME_MAX	= 34,
+ /* Please also edit snd_usb_audio_quirk_flag_names and alsa-configuration.rst */
+ };
+ 
+@@ -338,5 +348,6 @@ enum {
+ #define QUIRK_FLAG_PLAYBACK_URB_FIXUP		QUIRK_FLAG(PLAYBACK_URB_FIXUP)
+ #define QUIRK_FLAG_ALWAYS_SET_RATE		QUIRK_FLAG(ALWAYS_SET_RATE)
+ #define QUIRK_FLAG_SWAP_RATES			QUIRK_FLAG(SWAP_RATES)
++#define QUIRK_FLAG_MIXER_INIT_VOLUME_MAX	QUIRK_FLAG(MIXER_INIT_VOLUME_MAX)
+ 
+ #endif /* __USBAUDIO_H */
+-- 
+2.56.1
+
