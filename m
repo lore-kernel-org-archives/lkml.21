@@ -1,91 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794936954;
-	b=SB+RfXxtN5CWLrAoT/fOzfCyCpduKPk41toXjVbap3QU314VvfLUaCKDjfI7uusB+n5j
-	 FK2OB+r4Kx/y+KAxLAv79TReiuUsZTltNVMq1JLCJJRkp+bBUEqPvEPt+rilz4q5GZj3B
-	 tDIaiTteYYU5Mt95NPGOxsarUYYsxl9i9bEfryT1vi2sWxoIn2+2vZenpokpvPTH2jLKg
-	 1c4Onc/td5cuOIT6AX/KVAJoUAQrhViBMeRW5+CWB9d85HrDgLzphKgvz+i7Dh6R2cD1t
-	 YCfz8Od0/yU+5tm48Sqm6QWNp8zkXGoNiCiJk4gW8sIAfVgmlL78A1XpyEiCKceTdrA==
+	t=1794936961;
+	b=Vq7qlrofbOk0oP7leMsCEydXSu0825OIRzPFFI63TE6mDZRq8/MmowgGD1CL6MdLVUFB
+	 e02DnHMx5X8Z121K59A6LdsGvkBkvaBO7sGAmvHy1cqFvwaepdqEYtM5sO/Ir51CAyo1r
+	 a3hfDmULjqGMV3cg0VA82jiDOT6v3x1vprpprGNA7LhdPlptvx/EvleOOYtZqErizSTsI
+	 AsAHfnblGB/TC5++hB9HchPo26CIavvCNdUCs592kvYpSCI0oO4sSEkOnil9H7EXbkO/s
+	 dA80ppjI7R3hsxsjJizLgLz9BsEup87xAW3n9i2Hk6aPyluD3TUyjw1cD7gHOCAPgUg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794936954;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794936961;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:X-Forwarded-Encrypted:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=Op8k0rbkFHjlj5Xpq160zqvss+WGLpfkmyU9f5oGVbI=;
-	b=1gUJduyjpa4ORyPRcArxqDprhgdAVjHgpPngqVOrDSVLJPZkaW6KDPNmHD5TGR6y8NnU
-	 S13NBTlEowbOj9hWucrbfW5mWc0m8vgDeNbcTq04BiFePhi2mw+jcDno4EjILZcphe4cx
-	 /sVcrGdG4jDlkyLfGgBoZ/FM452TjZmCtptnDbPnhGnsP0LOmBeiHuHhSSsGgd8NlPRgM
-	 pnVA9zZc88dVe3i8JewhyMw5+1U2bBR8xyUj09RBnyMt9C2XEUI5Vqcy4UQrByzkPy+al
-	 2Ps/xD09BM3Ky7EscQZ7MHaeESHz1/yHKEdoPP36V+mfywxAJZAaq9cJNxe07nb2I1g==
+	 From:To:Cc:Subject:In-Reply-To:Date:Message-ID:References:
+	 MIME-version:Content-type:Content-Transfer-Encoding;
+	bh=DiwDSqqY3noD1OsmVqWHD0ic/HvrhuFYXysk4k3SnZc=;
+	b=YML4rED5mRezFINnyHY/DLHWihEzS6kWd2f5roAx2Byzb/XZmgabymK3Tli1TSO7i6zk
+	 pO2v5OAX+DrHlGteZWbfg68RriXDqEloi7TEvehif7TKuj3vl80a2z6CDNaPAjASYrPVl
+	 9fOXU4NjjkTuAAV53ukvLGtyBzEuvJhWm9xAtOD0SMy2oYGg2JLrw3+E2RI3xcqgvkaRi
+	 tHYJXPzUl6NL9gV7U+awG95JO5rDbKtKTnWw0S5NV4ZkizbVUNYagN/F0qT4WViD2QX2m
+	 6jG0XuTOfh1TD45arsFsm82lK7NZwaLwd30xZ+k7N22su6xyBtTvf1VOuUqIjRNHPgw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=linux-foundation.org;
-	spf=pass smtp.mailfrom=linuxfoundation.org;
-	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=KW2PcXFe;
-	arc=none smtp.remote-ip=209.85.218.44
-Received: from mail-ej1-f44.google.com (mail-ej1-f44.google.com [209.85.218.44])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=W0KzhbPl;
+	arc=none smtp.remote-ip=74.125.82.42
+Received: from mail-dl1-f42.google.com (mail-dl1-f42.google.com [74.125.82.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8E23606A332
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:35:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8E23606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C234606A32C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:36:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0C234606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=KW2PcXFe
-Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-c247f6687dcso865653266b.2
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 09:35:53 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=W0KzhbPl
+Received: by mail-dl1-f42.google.com with SMTP id a92af1059eb24-1a2af4c8d00so189542c88.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 09:36:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1794936952; x=1795541752; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+        d=gmail.com; s=20260707; t=1794936960; x=1795541760; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :message-id:date:in-reply-to:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=Op8k0rbkFHjlj5Xpq160zqvss+WGLpfkmyU9f5oGVbI=;
-        b=KW2PcXFeCjuxMsZtD0FkUR/nt92huuyMTWju3iKTw5Nimm2U8e4IMb5OdyW3texQQz
-         fkqeDZGNclwtWfzAbBLUiT615BZ2RTvv/8B7stcVi1GPkeQakvfWrCabtxyWZ6FJHTb2
-         4uzROt6Fu/BQOi5wddMP+fkMw0uqJTQWzIyns=
+        bh=DiwDSqqY3noD1OsmVqWHD0ic/HvrhuFYXysk4k3SnZc=;
+        b=W0KzhbPlCbSkBolXiCmD6b7y4XivdRe0ATUXhJnCwm/FUiIUCGCaVmBlrdoJ0MiToT
+         hPn9mZhGwzKdCWgWwRy36z5YG0t+Psv1iQeRIG9/dMaqLn7ghaec4omgT2n+sZOebDu1
+         H9CYY6sUfd9rj+lI/2BdulykAt7O39JnGP5RCoPqzSVpvBZDoJlDFCKCWd2RWrKepP+q
+         mnEBTeKW5beqXu1kTwE1FK1KsuDK51HLy/QCynmZxce4uJ/vq9yrAMa8/HeM/C8sGSze
+         RXkVUZLHqf3ZosazcJDiqOEIV5rtJiuInK9OUeQv4F71bhSXPubgShcGmTkC4Ra5pxx3
+         c7nw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794936952; x=1795541752;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1794936960; x=1795541760;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :message-id:date:in-reply-to:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Op8k0rbkFHjlj5Xpq160zqvss+WGLpfkmyU9f5oGVbI=;
-        b=gHshF7J0D0oGd1jG3FH9cOJa96aR9RUfo3ENE/JO8VI83lMPfx0DcDYhyhPGF6QMXD
-         NTIZlt6inX7X848N/EvYx3sLSfm/uG0wAsJkxzXT7bDA8uw3VxsmH8M410LUzvoWMKQW
-         YH8VuTorDwrln+K7Pw1ieuOtuQoB56uCKOrDMmhuWwPWVdJGtW42jR5RtMjKSZ2FdNWF
-         yE455z7b21Mfj3HqEcWqMRH1SXcA/0dNFKVizAAcfncNwSRRDuUYysdLLbrymkfXYtJR
-         3EmkZpiNTBUEOmO8Dt7EBISFTLXgsVujFIEGJnZQMo7Aynt5ZBDpj8RxGvx1aO/ufzx4
-         ctGg==
-X-Forwarded-Encrypted: i=1; AL+hErHhIUIJ3GYhRZUfMjACO+IBv3MSazD8Ae6zfC4vUQKoIDznoSbIeRWmKL6gFp6YY9qPGhj+AZu5h9R2GLY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9IsWD2F0aTnvxdrtE+vNaPW6Arnx6Qcr+VbWe10vN8JZf/i4PH
-	OW7kbxtU/b7RdOEDnoOPsLPuElRUV8xGah0G7DOvQa6Q4rYg7g9HVb+TnPksneXDVfo3seWISLm
-	5EGsjAg1EiA==
-X-Gm-Gg: AYBFou3uc1Cs92eca1806rep1wImkxceXGRa7nBWGKa5JhKj/DVA/6vnhKxCyTQAXIL
-	RtvW2MA4DuxBFeIbwRlL0fW9pVJj/77AqOff+tL4FgcddwXrVm527mzEatEyLpyJuePbTSg0vN8
-	hRyj/MNSfclrQ2pp6cx0tfHUmz0CZM3K7hw+eJeVU2JSBG7yIcVqiwC5Gok8vKsrb8eElDsLcBq
-	ZF/3O/eBswjuGcud9tTW9rSIB35dexSB4zfLA6rce+VwuDxJ30xfIc3P00/d76ygL+k3EWs6NO7
-	LTePDU6A0lBGLbmMHNJBVvkVqGvsqLnl7q0hsABmLdFERSWmNkci1IEVEJTZ05BQj5k1UtGPuN+
-	BBxiPEk0At6VFtywBpYB6upCs7NpZHkvKPFlCcUOq4XWtIcGqm9BeBNVqXlWOPXfVHxT/VAP9/K
-	7JiaokmCfMz5vRN/tLCLiNQuRHLPoF50Slu0I9YXCYk0U9FMuZPTjEtZCNe85dpuxbfYZi/OV6+
-	e/mMLjst0mMOjlE4g19tUR+jUqQKLHUrl+makFsvhYl5zw5xDP4j5Zm5uVIeGy9y8yI1Mneig10
-	NNg0i29h64gyLV9NplNRIL6KLnzV56WBJ+TTzuwClcy7BhYrpIICc0sEdtgsJveGL9FE29JQLLh
-	TUYMX3/e5NAXaCZV7qEVu90a6
-X-Received: by 2002:a17:907:802:b0:c46:b9b0:8e8f with SMTP id a640c23a62f3a-c5096440320mr1263053966b.41.1794936952260;
-        Tue, 17 Nov 2026 09:35:52 -0800 (PST)
-Received: from mail-ej1-f54.google.com (mail-ej1-f54.google.com. [209.85.218.54])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c510cb33a73sm6343066b.74.2026.11.17.09.35.51
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Nov 2026 09:35:51 -0800 (PST)
-Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-c40f29667e6so873491466b.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 09:35:51 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHdKbUy9PhqTUmATfpjhnoUwH3Hj81J8d7Ya7G8vZfKPwDq1caZOcBFoeASjdHL+AoXCRLJC7VtBqCTPo8=@vger.kernel.org
-X-Received: by 2002:a17:906:5642:b0:c50:d92b:6f40 with SMTP id
- a640c23a62f3a-c50d92b78d9mr526182466b.20.1794936951190; Tue, 17 Nov 2026
- 09:35:51 -0800 (PST)
+        bh=DiwDSqqY3noD1OsmVqWHD0ic/HvrhuFYXysk4k3SnZc=;
+        b=TfCblqIIWCqskYJZdcPzpm3p3ckN5QUMwz4PoTYpxQ9fNybW50HWATaRwS0kFv3ocJ
+         Osrxbl/eLoM1qO4yE/MquJMjIIYx4PPayyeOf16Y3JDcW5ELQfG1rjTvwdAd/SwnDyke
+         eMWQ3j0ePxWerssUO1+EsGByEfJriKdyrtLMQncF4ibAYPuvhbAbIS5tFg4aF0GNjtA1
+         QZ52P6iircWraBgFRgc301TTe5FAxI6O7SN1OGHX7kA3hZoja9KhLw7AhqzXKGVLSEb9
+         2fEMKblnYzLS9NybYkWCK9hl7/is8UL2nVF+zXWlqN1HJijwbr3QvqJnvXBw2XHvZc3g
+         VEYA==
+X-Forwarded-Encrypted: i=1; AL+hErET+rCUiQVmO4XkkDEHa4n58riDohsjojJq/8IzpFyYv/qOjwjB5CjuyE6pNBGaEweaumaQ1xh48SE6sgY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z94dAKm2+bxJ9jd/5NvqTJBrfyOc/D5gEk8A2sde6mWau9NXPDG
+	9EeYfpYr4m+Q/DVibN0/+xD8SQVMz8gnt4aqqs6AauGJlLLtBNTDO7Ky
+X-Gm-Gg: AYBFou1og3Od5Hao3yLv6Xx7KE+VlCTTRIkkB2HCrmAkKSK47WCiuVGvSc1uuRFSxnr
+	guT/nw69b8sqUeKyC/T/i9GuJEv1gX+B1O8f7mQ8V+8MtOy/NQ0pPwRSU5o56kg0Ai0U1CyQT68
+	OCLKsZAqVm7xMxmXTZnXlCEk5tFCLUxnHq54Pp8B6ibD5iqDzL5GqE8+vEv14YnwO1D9Tk/iL8c
+	I9j/fF4UP3ga5YI1pNtbL6t2zbwuxlE9JQvPd1jErQiQoB+Hg6m6ooW/KZFMVHIEbMAZNbFJJcC
+	0iofb44tWOZNmx+GCdienISGC5gzJdYAFVgVO7ItpegXLI29J8lD5wX4tw+7hub1pf4LDofdWJQ
+	yAg87b/gET6oAUclgeEY+nuziwl9yRWXTwe4grdJr8jvjkwcYJY8j7dCIfddCI4+LX48tGkfucD
+	RYBO6IbIb0cb9SHjOx7/SPZ+wPcW3CJxGlhyHzoIas8Mb6fYtRHDBuRKFStocYX22e7WIVOEqwz
+	Ros0h3f7nMSlNNRljr7u/ubx1ybFckrakpntRuX/Sm+cjrqn6Wakq5D6VfNYMQdKAbJZPGEDSlL
+	f97us/Vp/hMrV0tqEz7boStJI6R/
+X-Received: by 2002:a05:701b:2058:20b0:1b5:3878:aa29 with SMTP id a92af1059eb24-1b543d355fbmr247604c88.38.1794936960214;
+        Tue, 17 Nov 2026 09:36:00 -0800 (PST)
+Received: from pve-server ([49.205.216.49])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5031918c7sm61333595c88.9.2026.11.17.09.35.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 09:35:59 -0800 (PST)
+From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+To: Mike Rapoport <rppt@kernel.org>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+Cc: linuxppc-dev@lists.ozlabs.org, Madhavan Srinivasan <maddy@linux.ibm.com>, Venkat Rao Bagalkote <venkat88@linux.ibm.com>, linux-kernel@vger.kernel.org, Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Shrikanth Hegde <sshegde@linux.ibm.com>, Hari Bathini <hbathini@linux.ibm.com>
+Subject: Re: [PATCHv2 2/3] powerpc/execmem: Allocate kprobes insn pages from the modules area on book3s/32
+In-Reply-To: <avxhmaXa7lsQ86EA@kernel.org>
+Date: Tue, 17 Nov 2026 23:03:41 +0530
+Message-ID: <tslf747e.ritesh.list@gmail.com>
+References: <cover.1794572365.git.ritesh.list@gmail.com> <82c4973addebd82923c460cb44221f5b76146afe.1794572365.git.ritesh.list@gmail.com> <avltdwzlh07VZSFC@kernel.org> <f7834f3e-6c43-4b58-806d-fe4c07a93457@kernel.org> <avsn7Kn4a8wbB2QH@kernel.org> <zev77i3i.ritesh.list@gmail.com> <eb634d1f-cb08-44a8-88c9-e3b559c399a3@kernel.org> <avxhmaXa7lsQ86EA@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,58 +95,92 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <20261111-pipe-epollexclusive-wakeup-v1-1-0af6283e9fda@columbia.edu>
- <avxWKI795DthE8Sb@redhat.com> <CAHk-=wjOq+G=6gte4vX_YxOD_VfE1uZh7=+KHs8N0wU75xyHEg@mail.gmail.com>
- <avyODoFhZ_M7YDU5@redhat.com>
-In-Reply-To: <avyODoFhZ_M7YDU5@redhat.com>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Tue, 17 Nov 2026 09:35:34 -0800
-X-Gmail-Original-Message-ID: <CAHk-=wgcBSBtHE+3ceKGjq1jyF64OyoEqf5JPpixowAa80GqNQ@mail.gmail.com>
-X-Gm-Features: AclHuK_5gKon9D6gpxIEpwE3Nt5zs6NVA-jEDB-muz-aO1jPRcXkbqK0yG36EEs
-Message-ID: <CAHk-=wgcBSBtHE+3ceKGjq1jyF64OyoEqf5JPpixowAa80GqNQ@mail.gmail.com>
-Subject: Re: [PATCH] pipe: keep per-write wakeups for EPOLLEXCLUSIVE consumers
-To: Oleg Nesterov <oleg@redhat.com>
-Cc: Mani Tofigh via B4 Relay <devnull+mt4022.columbia.edu@kernel.org>, 
-	Breno Leitao <leitao@debian.org>, Christian Brauner <brauner@kernel.org>, 
-	Mateusz Guzik <mjguzik@gmail.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	tz2294@columbia.edu, stable@vger.kernel.org, 
-	Mani Tofigh <mt4022@columbia.edu>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+MIME-version: 1.0
+Content-type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
 
-On Tue, 17 Nov 2026 at 09:25, Oleg Nesterov <oleg@redhat.com> wrote:
+Mike Rapoport <rppt@kernel.org> writes:
+
+> On Tue, Nov 17, 2026 at 03:04:49PM +0100, Christophe Leroy (CS GROUP) wrote:
+>> Le 17/11/2026 à 13:33, Ritesh Harjani a écrit :
+>> > Mike Rapoport <rppt@kernel.org> writes:
+>> > 
+>> > > > > > Hence, use the modules area for EXECMEM_KPROBES on book3s/32.
+>> > > > > Right, I missed that on book3s/32 does vmalloc is not executable and its
+>> > > > > protection can't be changed.
+>> > > > > 
+>> > > > > Could it be that 8xx also need a special treatment for kprobes?
+>> > > > 
+>> > > > Yes indeed, not for the same reasons but because 8xx ITLB-miss handler
+>> > > > doesn't expect any instruction TLB miss on kernel addresses other than the
+>> > > > ones from the module area:
+>> > > > 
+>> > > > Commit 4afb0be7ccda ("powerpc/8xx: Avoid testing for kernel space in ITLB
+>> > > > Miss.")
+>> > > > Commit 16a71c045186 ("powerpc/8xx: Preallocate execmem page tables")
+>> > > > Commit 33c527522f39 ("powerpc/8xx: Inconditionally use task PGDIR in ITLB
+>> > > > misses")
+>> > 
+>> > Right. I looked at the above series which added all of this support [1].
+>> > So looks like 603 might also have this related problem (other than the
+>> > per segment N bit issue), since it's iTLB miss handler only walks the
+>> > task's PGDIR, unlike it's dTLB handler which falls back to reloading the
+>> > missing kernel PGD entry from swapper_pg_dir. So what I meant to say is
+>> > that, similar to 8xx, a new PGD entry created in the kernel's vmalloc
+>> > area for an insn page does not get copied over after the task is
+>> > created (/PGDIR allocated), on 603 as well.
+>> > But since MODLUES_VADDR is defined for both BOOK3S/32 and 8xx, so I guess it
+>> > gets covered by the same change anyways.
+>> > 
+>> > > > So at the end as MODULES_VADDR/MODULES_END only exist on book3s/32 and 8xx I
+>> > > > think when they exist they should be used as follows:
+>> > > > 
+>> > > > diff --git a/arch/powerpc/mm/mem.c b/arch/powerpc/mm/mem.c
+>> > > > index b617b69452cd..856f4609c488 100644
+>> > > > --- a/arch/powerpc/mm/mem.c
+>> > > > +++ b/arch/powerpc/mm/mem.c
+>> > > > @@ -428,8 +428,13 @@ struct execmem_info __init *execmem_arch_setup(void)
+>> > > >   				.fallback_end	= fallback_end,
+>> > > >   			},
+>> > > >   			[EXECMEM_KPROBES] = {
+>> > > > +#ifdef MODULES_VADDR
+>> > > > +				.start	= MODULES_VADDR,
+>> > > > +				.end	= MODULES_END,
+>> > > > +#else
+>> > > >   				.start	= VMALLOC_START,
+>> > > >   				.end	= VMALLOC_END,
+>> > > > +#endif
+>> > > 
+>> > > We already have #ifdef MODULES_VADDR a few lines above, I think the
+>> > > assignment of kprobes_start and kprobes_end could go there instead of if
+>> > > (IS_ENABLED(CONFIG_PPC_BOOK3S_32)).
+>> > > 
+>> > 
+>> > Right. So let me use the following diff then?
+>> > 
+>> > Please let me know if this diff looks good to you? If yes, then I can
+>> > send a v3.
+>> 
+>> My preference would go to something similar to 'start' and 'end', no init at
+>> declaration, kprobes_start and kprobes_end set to VMALLOC_START/VMALLOC_END
+>> inside the #else
+
+Sure.
+
 >
-> So. Do you agree that we can "ignore" this report from Mani for now?
+> I agree, it's more consistent this way.
+>  
 
-I think we can ignore it, but I also have a cunning plan.
+Ok, then will go with the other approach.
 
-Normally, exclusive wait events always go at the tail of the wait
-queue. We do that mainly because we want to wake all non-exclusive
-ones first, and because it's fair.
+>> > Also - it will be good to know if patch-1 and patch-3 looks ok too,
+>> > before I spin a next revision?
+>
+> Both make sense to me, feel free to add my
+>
+> Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+>
 
-But pipes don't *have* non-exclusive waiters (ignoring the splice
-case, which waits for space, and if there are readers or writes that
-would take the space we don't care).
+Thanks Mike and Christophe. Will make the changes in v3 as discussed.
 
-So what we could do is to just make the pipe code open-code its own
-wait event logic, and add its waiters at the head.
-
-Voil=C3=A0 - we never even care about epoll braindamage.
-
-Yes, that makes pipes unfair in that new readers get preference over
-old readers, and maybe that's not great. It might affect things like
-the make jobserver. I'd expect it would probably improve throughput -
-new waiters are hot waiters - but it's most definitely worth
-mentioning.
-
-It won't fix the "EPOLL edge triggered braindamage", where old
-applications asked for edge triggered things and actually wanted level
-triggers. But it should solve *this* issue.
-
-Hmm?
-
-Let me stew on this a bit.
-
-           Linus
+-ritesh
