@@ -1,49 +1,114 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.149
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794945431;
-	b=wGhAJel64EPgW/1jgu4rJuXO9ANgN85XGROgP86sN1NzKWbKPcxh2x/OJ2gd9WVtaIaQ
-	 YeZcJNhaf1TepddiDzrijTxil8O6ircuZ8EQZZlM/isx35eVChbjCkbrE1aC1NxnDu5MV
-	 HB0SaaZyMcNTDmYcxZKc8A+wUrTSamiHW2TUr+lpjAwuO8QN9OHxGr+b2J/3GIAcEXwNK
-	 zm+de3mNT/6Qdn5OqTkmNqeZMlHBa2hyUYxLG1380iR7h2FL0FgEFWVJ5apVyeckgWw49
-	 tbAwDM3QKWILNundSvnadJgg5M4Pgf1K1LKv1KGrz6A0tE0oaoQJ1xWRHvzNnaStI/g==
+	t=1794945468;
+	b=A9RLXxIaR/eevpC9/5xtEoKCuNoaA7K9XyTRUbpX5dFwLBEOwrHLdYcnVWHBdnuJFWV6
+	 UrXUt30mjJoQId7s38aMCtdUe1ruA3/ScF2oAQilrMijtaaBYChTKT4XoJUBwWWxetfUW
+	 ugyW54mRrYDs7VUaXQ6U6H/auSIZG3av4PCmiBfOXI1khe8TtezFXLdKT6daAu6yXer/e
+	 obZMbbWm7ChB2C+NR92ISSjFPuR6ReZVMcCbMiBOdAxAohCFDZWyt26FEnjmQK7gNbKWO
+	 j3GZatC4jgJMmrPJNzG9nbBmku7xIZiFCOIrduMoBw0FDXbReCa7QLy7+s9HzLSe56g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794945431;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:Content-Language:To:Cc:References:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Spam-Status:
-	 X-Spam-Checker-Version;
-	bh=mS6U6LNFb4xUzBlWKPMaUzCqy2fRWteDoRLNvJCa/aE=;
-	b=bzBSJqzFwepQLca18Ih1tw0QV/0Ybc8+D5txqufm40ci6U6mXAfWkAxWm4w26j9xGBO4
-	 axs8JG8tyCVPa+J0sxTkXKAyNOH6zkmu7y4uaBvLDNMQRnauJVm/lLRm4yJ6uIaovkhXJ
-	 rLdg3pDd/mVWFNZAuQl0w8OXGBM8k6t/USQp8P7vLljA9GI0HPLMCJQVamQ8IeKEPVJr4
-	 q9Pn3jIHPVUgs9YXYARNbbvjkD2aThUkH2BuXN/MtMVISyzr1z3kFuApN+iVSUJ15RBCX
-	 Qrsq4vd0ZNl//P8pTAodojnMNVQHgpY+jMcnufxuvcglZUXCSbXE3aCQRttFpv3l2iw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794945468;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Content-Type:Content-Transfer-Encoding:MIME-Version:From:To:
+	 Cc:Subject:In-reply-to:References:Date:Message-id:Reply-To;
+	bh=8FM6zV2jcG/nODchlaxjXPlgpgpsE6ltpToIZCja9Pw=;
+	b=Nkm3XAjcia583q+Mg5Pc7TPKFAmd9lpMk5dFLuWzSWS5PEPbJS/v7YjjBHr9gm3PkGbm
+	 idJdJ1mh8p19MpswMtZguUw73bjfgp0tESxL2rLaTifDZm293hHApm60mLxM7/wbtNE/k
+	 47bi0hRGIXrEGrfPYe9UoLPbfy0sg7+hZpRYGbQ3r963GQMYqWcVQpZEydzQrEKPNOt0j
+	 ocsw+vmq54nJ797Zitp2ogTxP5R5nMQM9Nx82clthf5BKeIyNKCM7/d2Xp53rXMcdYFb8
+	 NTTDM7dhqs9ptF+w0I1upqUHgt/ybSK53qSiDOJeexfUTlqZAizWEv+gaMljOEgm7dA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.microsoft.com;
-	spf=pass smtp.mailfrom=linux.microsoft.com;
-	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b="kSXbK6/f";
-	arc=none smtp.remote-ip=13.77.154.182
-Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id C6938606A32C;
-	Tue, 17 Nov 2026 19:57:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6938606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
+	dmarc=pass header.from=ownmail.net;
+	spf=pass smtp.mailfrom=ownmail.net;
+	dkim=pass header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=ImTKhk4d;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=zXB+Z4HG;
+	arc=none smtp.remote-ip=202.12.124.149
+Received: from fout-b6-smtp.messagingengine.com (fout-b6-smtp.messagingengine.com [202.12.124.149])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 297C0606A32C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:57:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 297C0606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ownmail.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ownmail.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=kSXbK6/f
-Received: from [192.168.0.88] (192-184-212-33.fiber.dynamic.sonic.net [192.184.212.33])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 18F6C20B7169;
-	Tue, 17 Nov 2026 11:57:09 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 18F6C20B7169
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1794945429;
-	bh=mS6U6LNFb4xUzBlWKPMaUzCqy2fRWteDoRLNvJCa/aE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kSXbK6/fN2QDV23Qjqbs8/OUmmbD3O4z81UUHQrMLbQY+AdMTueM0/0y9dfc2WXnS
-	 h5jlSN0sD6tl/ZiG4Kxqf8TVubjAuyodGw2O5Th2GH+ehC6i1XZF2mJ7+gDp13a7A0
-	 DWVDFNiwpLGYD6N4SZP+LZ/yqlx+3JZx4TJ8QjQU=
-Message-ID: <d7d4ba44-5c7f-9526-37dd-76744c277069@linux.microsoft.com>
-Date: Tue, 17 Nov 2026 11:57:08 -0800
+	dkim=pass (2048-bit key, unprotected) header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=ImTKhk4d;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=zXB+Z4HG
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfout.stl.internal (Postfix) with ESMTP id 833C21D00280
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 14:57:46 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-01.internal (MEProxy); Tue, 17 Nov 2026 14:57:46 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ownmail.net; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:reply-to:subject:subject:to:to; s=fm3; t=
+	1794945466; x=1795031866; bh=8FM6zV2jcG/nODchlaxjXPlgpgpsE6ltpTo
+	IZCja9Pw=; b=ImTKhk4dSSHZqUVebBBZQVqF7ML7SQqYIGcOb/9mFA5PmmJG0iC
+	UC98oUoXzdTQoiK6LTEFeQPzWOwvQGbIqKQNEn64cWgpHnj5eJ5u/XuS98R1kw8F
+	a2wUozob043kW0z9VeKSnyQSWiMX03Whp9kc9XPONMyHPeqmjzq9vAMyPPIO7WAT
+	/+Y62VZKS2VlcNcYw5VH8Rtv+8FMZfcqLSgwVynAlr7sNj1pzu+LpqSfPo7XJQdm
+	YVccgyq9B2xrxe643TVf9K6OkcVq9qxW8uK+kkOpA+gWR2ohB6GmscWvUc+RskLg
+	mUA1O1IF8QXEA0uylMuoyxchQFQ99wxi87w==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1794945466; x=
+	1795031866; bh=8FM6zV2jcG/nODchlaxjXPlgpgpsE6ltpToIZCja9Pw=; b=z
+	XB+Z4HGJTZFaTA3stJ9s1eE+RgdYvjHOLIHqFy4I/df9XCC6qLSGTyudFR7rw0jq
+	RC7gzof2XVINqMpCDxIkzKllACCH/I2nKlxvOSvCBojPtJ+9g42UdYzgYXNE5PKk
+	DPGvT9YG3Ju5UuG+UkZyNRjOIsse9s+WzLQoc80p4w0qS6FZ27zyqyYbq4ZjdkkH
+	ciuGrB08XCqw2rwle/70NqGdiQ9k8jfEARkCTN1fM9KpN/19UJ3YsSLySJk7SFF7
+	ZwMkzTIguj+00zI7hzAcTC7bA5qKgMFqVwC4gZg4jzgp4klh5cQE1u5F4iMEDrHg
+	TanE+bjfSx0ZrjBOKQQPw==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=ownmail.net a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1794945466; d=ownmail.net;
+	mf=PG5laWxiQG93bm1haWwubmV0Pg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm3:rsa-sha256:y42FNhva8KUSMKOtJ3DKMs0o85ORM5XgsDh7rSIKBDSH1FD
+	q/BPZlN/Lhohy8V8/2xy1teKDYFChH72bfyTO4FoO83xdnmuueZSQqbIjIISPgOt
+	SCEaZk/WeWKvy/pj4xYWpRhxxa88PsOoZ09xiy/e4NbB0AGKGFM5rBdh0a7wSRVh
+	+rYIaQUwag1avfy8VTMsngWNdpivEaJAi6jhwTshLGH/pT2NoFPylevKAF/WIqrY
+	7wSW9fA1rlZ9h4DEJ1YLkiBDcjKP9UZkYhaqwt0EYjkYkAoyV0cG/gCMbTA2tjK8
+	HN2SNoqZkrJRLEfhBR1cBBWi1YUcWlQ4ld/z3zQ==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=13;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,reply-to,
+	subject,to;
+Message-Instance: m=1; h=sha256:llVildKPAcODEVh9NY6eyVP73Aj3h94g0wIzgQ+onlI=:Is/waql9zhclRn95l3RXd2eFbNWAsv/RG06E+Px8hvA=;
+X-ME-Sender: <xms:uLH8ajpqtCAj8Xai1CW_vbZQMrjLF3Caq7kNDOF2hsXBhnKkRP3kSw>
+    <xme:uLH8avOTZ3AwEYoZjvivJWAI0nLNBh2zOrgD1ap75JIzrfkJkn596g32QeRzO0WaE
+    1xz0QOD6Pva3tjTDFxRSNojmqqyNAm94PK_KX_mciEKP7rIn0U>
+X-ME-Received: <xmr:uLH8avfmlE9rZ5lo6AFhVQq8vqjdPAc51eABxi9j8_HYndWobOlvMC8PH_qUSyb0li5BjKd8Cc10W2s9M3F0mAPw01CGfVo>
+X-ME-Proxy-Cause: dmFkZTEA1d/neZFqRb6e2cyZEut2KcqiYo2pL+wPjidRd/YMAjSsR4HZtJxmOtFhJbjPS5
+    YtplEZNpoPys0VHwAO3xDpYuDMR13nwdU9u2gH2CC2I0m6TP9AsKnB/rSvhMORZUP/Rspi
+    +4u8XREyoVeS/CAvmaboLdhNJw323ED1m3wbYHChkKYwN5TSx38LqrZ9Yi7P//oZogIocj
+    sea3ZD4CvaNUrRxstKTAtSetUrKZw2p6UdyKdb1j0sMJsHBB+gtCUci+6PKuvVORz/f51e
+    cYDS5liNxuASxgwvWOf6UGFk0Q/hGWmJwySGP9LX+oi/M2wZI3HaLguomp09E66HVg+KdV
+    jyKS2bKHvdwcE5+TeVVv4/S5URrOgiVUi40d992v6IokBOx1hpfGWk87DPhUN0DEVLlK+n
+    +ZqIeTmwVVicI95ov+oTMCh8wDLBIrKPP8DwQit6W/+ngGFLurALi2pVv60A0vyyGuYAmN
+    gyvHYpSCYWr9bq34/caI2jkcVvuTM2VF8ksM2NyzzvRsI1ighVEyvKP/EGR0kzvcsP7Tku
+    5oUMDB6bg26hSGsJqx6Y6V7HbqVBAknfy7OOaXi5uDCH6GiK11b8/Awaym9RlQ1h6IFmGL
+    PaN77CNS4QeW7WBs2FqYuL1tdCKI3DXt9DgY3qQ5NOYFZQvmAP8ruCHkcANQ
+X-ME-Proxy: <xmx:uLH8atUSm_KlpEO5vL1jHSvwsq5mg504m9K6PhC4uc3S8B5DRfzwug>
+    <xmx:ubH8aoBw53ptZTqM5kA8LfjLCZDD6CKCYtreAzyJSWnj0JIK3vSmBw>
+    <xmx:ubH8ag5lCEyBbFsN9qWnhmw08pBM1teFZ1JvOCY6mt4ovGm36fLyUg>
+    <xmx:ubH8an28NbRNe3jn8u2QvjTfIvsR-AFWpbbTMppAys6gRFIB4UA2nw>
+    <xmx:urH8atfj23_7_x5zK9Cc5D31klRw4g4v9qL2pJAvVZQp-V9KryTFmtkc>
+Feedback-ID: i9d664b8f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 17 Nov 2026 14:57:41 -0500 (EST)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,175 +118,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.13.1
-Subject: Re: [PATCH v6 4/6] Drivers: hv: Mark shared memory as decrypted for
- CCA Realms
-Content-Language: en-US
-To: Kameron Carr <kameroncarr@linux.microsoft.com>
-Cc: Michael Kelley <mhklinux@outlook.com>,
- "decui@microsoft.com" <decui@microsoft.com>,
- "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
- "wei.liu@kernel.org" <wei.liu@kernel.org>, "arnd@arndb.de" <arnd@arndb.de>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
- "mark.rutland@arm.com" <mark.rutland@arm.com>,
- "sudeep.holla@kernel.org" <sudeep.holla@kernel.org>,
- "thuth@redhat.com" <thuth@redhat.com>, "will@kernel.org" <will@kernel.org>
-References: <20261031001412.4150488-1-kameroncarr@linux.microsoft.com>
- <20261031001412.4150488-5-kameroncarr@linux.microsoft.com>
- <MN2PR02MB6863AA6357C8E0D4881F5FEAD4712@MN2PR02MB6863.namprd02.prod.outlook.com>
- <c6b7f583-878d-1f1e-60cc-e602e277d075@linux.microsoft.com>
- <af057438-a684-4840-815c-581b866678c1@linux.microsoft.com>
- <f74db23c-ee1d-e0b1-c463-55dad00f9c61@linux.microsoft.com>
- <7ebf7187-bf42-fc11-e89b-b1aba96539d2@linux.microsoft.com>
- <5fddb57c-8805-4fbd-9e27-1c8654f29436@linux.microsoft.com>
-From: Mukesh R <mrathor@linux.microsoft.com>
-In-Reply-To: <5fddb57c-8805-4fbd-9e27-1c8654f29436@linux.microsoft.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+From: NeilBrown <neilb@ownmail.net>
+To: "Xiubo Li" <xiubli@kernel.org>
+Cc: "Ilya Dryomov" <idryomov@gmail.com>, "Alex Markuze" <amarkuze@redhat.com>,
+ "Viacheslav Dubeyko" <slava@dubeyko.com>,
+ "Alexander Viro" <viro@zeniv.linux.org.uk>,
+ "Christian Brauner" <brauner@kernel.org>, "Jeff Layton" <jlayton@kernel.org>,
+ "Jan Kara" <jack@suse.cz>, linux-fsdevel@vger.kernel.org,
+ ceph-devel@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/2] cephfs: prepare for changes to VFS locking
+In-reply-to:
+ <CAOuZWzxQEsqSS84ERExczbLBeyoh8RR=8L6sYMUw-nPj=sS9cw@mail.gmail.com>
+References: <20261109202339.1380828-1-neilb@ownmail.net>
+  <CAOuZWzxQEsqSS84ERExczbLBeyoh8RR=8L6sYMUw-nPj=sS9cw@mail.gmail.com>
+Date: Wed, 18 Nov 2026 06:57:39 +1100
+Message-id: <179494545935.1728055.18315721225187340860@noble.neil.brown.name>
+Reply-To: NeilBrown <neil@brown.name>
 
-On 11/16/26 11:53, Kameron Carr wrote:
-> On 11/13/2026 6:59 PM, Mukesh R wrote:
->> On 11/12/26 16:46, Mukesh R wrote:
->>> On 11/12/26 09:49, Kameron Carr wrote:
->>>> On 11/11/2026 6:43 PM, Mukesh R wrote:
->>>>> On 11/11/26 10:01, Michael Kelley wrote:
->>>>>> From: Kameron Carr <kameroncarr@linux.microsoft.com> Sent: Friday, October 30, 2026 5:14 PM
->>>>>>>
->>>>>>> In hv_common_cpu_init(), the per-CPU hypercall input/output pages need
->>>>>>> to be marked as decrypted (shared) for confidential VM isolation types.
->>>>>>> This is already done for SNP and TDX isolation; extend the same handling
->>>>>>> to Arm CCA Realm guests so that the host hypervisor can access the
->>>>>>> shared hypercall buffers.
->>>>>>>
->>>>>>> is_realm_world() is declared in include/linux/arm-rsi-cmds.h which only
->>>>>>> builds on arm64 (it includes <asm/memory.h>), so using it directly in
->>>>>>> the arch-neutral drivers/hv/hv_common.c would break the x86 build.
->>>>>>> Introduce a Hyper-V-specific helper following the established
->>>>>>> hv_isolation_type_snp() / hv_isolation_type_tdx() pattern.
->>>>>>>
->>>>>>> On architectures other than arm64 the weak default keeps the existing
->>>>>>> behaviour.
->>>>>>>
->>>>>>> Reviewed-by: Michael Kelley <mhklinux@outlook.com>
->>>>>>> Signed-off-by: Kameron Carr <kameroncarr@linux.microsoft.com>
->>>>>>> ---
->>>>>>>     arch/arm64/hyperv/mshyperv.c   |  5 +++++
->>>>>>>     drivers/hv/hv_common.c         | 17 +++++++++++++----
->>>>>>>     include/asm-generic/mshyperv.h |  1 +
->>>>>>>     3 files changed, 19 insertions(+), 4 deletions(-)
->>>>>>>
->>>>>>> diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
->>>>>>> index 46ab2da..da6c3aa0 100644
->>>>>>> --- a/arch/arm64/hyperv/mshyperv.c
->>>>>>> +++ b/arch/arm64/hyperv/mshyperv.c
->>>>>>> @@ -182,3 +182,8 @@ bool hv_is_hyperv_initialized(void)
->>>>>>>         return hyperv_initialized;
->>>>>>>     }
->>>>>>>     EXPORT_SYMBOL_GPL(hv_is_hyperv_initialized);
->>>>>>> +
->>>>>>> +bool hv_isolation_type_cca(void)
->>>>>>> +{
->>>>>>> +    return is_realm_world();
->>>>>>> +}
->>>>>>> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
->>>>>>> index 31256cb..a60c92c 100644
->>>>>>> --- a/drivers/hv/hv_common.c
->>>>>>> +++ b/drivers/hv/hv_common.c
->>>>>>> @@ -476,6 +476,7 @@ int hv_common_cpu_init(unsigned int cpu)
->>>>>>>         u64 msr_vp_index;
->>>>>>>         gfp_t flags;
->>>>>>>         const int pgcount = hv_output_page_exists() ? 2 : 1;
->>>>>>> +    const size_t alloc_size = ALIGN((size_t)pgcount * HV_HYP_PAGE_SIZE, PAGE_SIZE);
->>>>>>>         void *mem;
->>>>>>>         int ret = 0;
->>>>>>>
->>>>>>> @@ -489,7 +490,7 @@ int hv_common_cpu_init(unsigned int cpu)
->>>>>>>          * online and then taken offline
->>>>>>>          */
->>>>>>>         if (!*inputarg) {
->>>>>>> -        mem = kmalloc_array(pgcount, HV_HYP_PAGE_SIZE, flags);
->>>>>>> +        mem = kmalloc(alloc_size, flags);
->>>>>>>             if (!mem)
->>>>>>>                 return -ENOMEM;
->>>>>>>
->>>>>>> @@ -499,14 +500,16 @@ int hv_common_cpu_init(unsigned int cpu)
->>>>>>>             }
->>>>>>>
->>>>>>>             if (!ms_hyperv.paravisor_present &&
->>>>>>> -            (hv_isolation_type_snp() || hv_isolation_type_tdx())) {
->>>>>>> -            ret = set_memory_decrypted((unsigned long)mem, pgcount);
->>>>>>> +            (hv_isolation_type_snp() || hv_isolation_type_tdx() ||
->>>>>>> +             hv_isolation_type_cca())) {
->>>>>>
->>>>>> Could this big "if" statement use "hv_is_isolation_supported()" instead
->>>>>> of explicitly testing for each CoCo VM type? I ask partly because
->>>>>> Mukesh Rathor has just submitted a patch [1] that introduces a new
->>>>>> function that does something almost exactly the same as
->>>>>> hv_is_isolation_supported() and uses it here.
->>>>>
->>>>>>> +            (hv_isolation_type_snp() || hv_isolation_type_tdx() ||
->>>>>>> +             hv_isolation_type_cca())) {
->>>>>
->>>>> With my change, this will become:
->>>>>
->>>>>           (hv_isolation_hw_cvm() || hv_isolation_type_cca())) {
->>>>
->>>> Any reason you wouldn't change hv_isolation_hw_cvm() to
->>>>
->>>>     return hv_isolation_type_snp() || hv_isolation_type_tdx() ||
->>>>       hv_isolation_type_cca()
->>>>
->>>> That would seem more logical to me.
->>>>
->>>
->>> We could, I just don't know if on cca, the repeat hypercall has same
->>> behavior. I was leaving that for the arm team. Anyways, I sent question
->>> to the hyp team, if they say yes, i can update my patch to include that.
->>>
->>> Thanks,
->>> -Mukesh
->>
->>
->> Confirming, arm has same behavior and needs the fix also. So, we can def
->> expand the check to include _cca.
->>
->> I just sent V1, renaming hv_isolation_hw_cvm() to hv_isolation_type_hw().
->> If your patch goes after mine, you just need to add to your 0004*:
->>
->> diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
->> index 4fdc26ade1d7..67a16b4d2235 100644
->> --- a/arch/arm64/hyperv/mshyperv.c
->> +++ b/arch/arm64/hyperv/mshyperv.c
->> @@ -134,3 +134,8 @@ bool hv_is_hyperv_initialized(void)
->>          return hyperv_initialized;
->>   }
->>   EXPORT_SYMBOL_GPL(hv_is_hyperv_initialized);
->> +
->> +bool hv_isolation_type_hw(void)
->> +{
->> +       return is_realm_world();
->> +}
->>
->>
->> OR, you could pick mine 0001-* and make it part of your series, and I
->> can drop it from mine and make it dependent on yours. But mine is small
->> enough that it has higher chances of going in first.....
->>
-> 
-> This patch set has already been applied to hyperv-next, so maybe you can
-> rebase off that.
-> 
+On Tue, 10 Nov 2026, Xiubo Li wrote:
+> On Tue, Nov 10, 2026 at 07:20:23AM +1100, NeilBrown wrote:
+> > @@ -2230,7 +2226,7 @@ int ceph_readdir_prepopulate(struct ceph_mds_reques=
+t *req,
+> >               if (inode_state_read_once(in) & I_NEW)
+> >                       unlock_new_inode(in);
+> >
+> > -             if (d_really_is_negative(dn)) {
+> > +             if (d_in_lookup(dn) || d_really_is_negative(dn)) {
+>=20
+> Nit: An in-lookup dentry is always negative: __d_instantiate() warns on one,
+> and __d_add() ends the lookup before it sets the inode.  Here dn can only
+> be in-lookup if d_alloc_trylock() has just allocated it for us, so
+> d_really_is_negative(dn) already covers that case and the old test could
+> stay as it was.  Feel free to keep it if you prefer it spelled out.
 
-Ok, I'll rebase my patches from hyperv-fixes to hyperv-next, and
-resubmit.
+I think I would prefer to keep the d_in_lookup() test but it isn't a
+strong preference.  In my mind an in-lookup dentry is neither positive or
+negtive yet, though the d_inode is certainly NULL.
+
+>=20
+> Otherwise this looks good to me.
+>=20
+> Today ceph_readdir() runs with i_rwsem held exclusive (WRAP_DIR_ITER),
+> so the -EWOULDBLOCK branch cannot be reached yet.  To exercise it, I ran
+> a test-only build that drops the parent's shared lock in ceph_lookup()
+> and sleeps 300ms while the dentry is in-lookup, which is what the lookup
+> side will look like once d_alloc_parallel() moves above i_rwsem.  In
+> that build, readdir replies met the in-lookup dentries
+> (d_alloc_trylock() returned -EWOULDBLOCK 64 times over 4 rounds), and
+> afterwards:
+>  - the first and the second (cached) listing both showed every name,
+>  - every lookup returned the inode the other client sees,
+>  - there were no duplicate hashed dentries in the directory (checked
+>    with drgn),
+>  - the MDS cap count matched,
+>  - KASAN and lockdep stayed quiet.
+
+Thanks for this testing - I really appreciate it.
 
 Thanks,
--Mukesh
+NeilBrown
+
+
+>=20
+> Reviewed-by: Xiubo Li <xiubo.li@clyso.com>
+> Tested-by: Xiubo Li <xiubo.li@clyso.com>
+>=20
+> Thanks
+> Xiubo
+>=20
+> NeilBrown <neilb@ownmail.net> =E4=BA=8E2026=E5=B9=B411=E6=9C=889=E6=97=A5=
+=E5=91=A8=E4=B8=80 21:25=E5=86=99=E9=81=93=EF=BC=9A
+> >
+> > This v2 drops 3/3 which was deprecating d_add() - there is no rush for
+> > that so I'm not going to push it at present.
+> > It also fixes the first patch to increment "skipped" when d_alloc_trylock=
+()
+> > returns -EWOULDBLOCK.
+> >
+> > The VFS patches that this series depends on are upstream, so this can
+> > land in any tree.
+> >
+> > Thanks,
+> > NeilBrown
+> >
+> > original intro:
+> > I am working on changes to directory locking.  The medium term goal is
+> > to lift d_alloc_parallel() locking above i_rwsem, so d_alloc_paralle()
+> > can be run unlocked, and consequently cannot be called when ->i_rwsem is
+> > held.
+> >
+> > The requires:
+> >  1/ that d_alloc_parallel() not be called while i_rwsem is held and also
+> >     that d_alloc()/d_splice_alias() not be used (unless the filesystems
+> >     doesn't support creating objects).
+> >     cephfs uses d_alloc()/d_splice_alias() when priming the dcache from
+> >     the results of readdir.  A new interface d_alloc_trylock()
+> >     is now available and can be used instead.
+> >
+> >  2/ a dentry must not be d_drop()ed while an operation is ongoing, as an
+> >     unlocked d_alloc_parallel() would then be able to create a new
+> >     dentry with the same name.  cephfs calls d_drop() in couple of places
+> >     before d_splice_alias() but this is no longer needed as d_splice_alia=
+s()
+> >     handles spliced aliases now.
+> >
+> >
+> >  [PATCH v2 1/2] cephfs: Use d_alloc_trylock() in
+> >  [PATCH v2 2/2] cephfs: Don't d_drop() before d_splice_alias()
+> >
+>=20
 
