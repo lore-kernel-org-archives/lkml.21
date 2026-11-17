@@ -1,102 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794959855;
-	b=OjWo+elAF+J6jGkBTgQ9xxzUss4+W+N74fe8kn/v82xfr9Xrf0zcksN04MJuqCaOBxtG
-	 36OcCDaJrzCtM/YMBXUxRsm/062snQ9Y/76L7f62Tv/RWCW4r6zaksrdfs/RnFmsRlWx/
-	 sw12MvwwsEf0ik2xWUayylEMY8iHjUfXaT1gsQ6iPNYeWQcgo9woXHmjLvYDz7iFcG9SK
-	 /KtOGX7zq69uVEEiil4M0OqMsFa3kKAw2vJZPSa9PVlT3Wju4hQMKZEh/g9t8L5NbRRve
-	 LiR7PhA+B7V5BX0225X603cmtcNoLk8RSwIU1doQ5FkchWMMBMh4VGHRKUtiH+xgDug==
+	t=1794959930;
+	b=o4hqV3eBTCydPPCh3791JaXBz0eU8AIhN19FmGrPghRCNK8RrbKfLYqEbhcNJax1v3HG
+	 Pyw8aEIA63+HFgAyk+uEGsT4ijJvcNGGlkmxzQ014dKdDsWlzafRoEMaCc00du/zH1aqB
+	 nPgEkgmCJyncvIFeBDMVMUgdKclyhVH4DAEzmLF4Rk1r3Q0vni7kclANhFLE2XLo7F3EM
+	 JWGxizyMVMCoEHtBo15f7w0SOz8h/zCwcOXn9/0Hl1BhW3PboVYfO8yJmNjg1I5qGCBy8
+	 7nZNyC2912ZEzmKLvdag8WWnMIgUjjO6Q90tC+4sW0IrOAP9mIeuToh9ogVVUCR0jdA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794959855;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794959930;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=q3OTBwL+TyzHGc36tg10hWnQr6i2w3v45IA4aHIlkR8=;
-	b=tQxdMz/ssv/4ClGBWlIfNOqJOWY7WjXP1nlyha5NNsnGhxmiIEWQitmnvwLL+idzcofU
-	 cAFyUb16EjPrwLTAZANN/JIZFZBdteE14b/xGhgDuFRngr0oUU2QsgzgCh7WKaF/rJ/k5
-	 LF0hG9yZgKEVeWdoRjXr3L/imyMJxVEkX+ylSxxi7wMV+1ajPrp+Wim4SoyUuCrabpdy7
-	 5HVjJ0bgj2zU1X6JoBnDhRsQOZjYKAHKTSweqrT2YJMIHn8Yf8GueRIJardYoQdiYGFwl
-	 FsC9QeXraPOWfi9GWuDzPFqPhNbRIb0Zkg9YTRp5cpfQSSMH/ui8Hp5BL/sN5ycfzUQ==
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=YYOHGdo2Uum+V1fQIyTYxRpM9Fq04ij2FJz0fEEop/4=;
+	b=X5gnLtysQqUoC4tvfrY/I7B0arh/mnNBTXqDePNuV4J+G5etbttGp0zQXbWPwewWRbo6
+	 JaP42DS/3Hybl68ylRgR9b5lKS+TCvMHM2aqjB6r1Iw1iTNH5gLcpk7ZrD+xyUrTa9TgO
+	 iOWEkGOl6FQGiL7KTpdtNDrOtCZezzF6wFNY9p4sSDtF8zzsYXhxeD5N/LLLhPFmWxhQi
+	 k3RT0ZJn3BUoqxvi8o5U2MysGXsZPnYJCPumQEeBemU38RSsE3gs8w72B/BafkT1XIiM6
+	 Oub6sLxtk6ux1YJq4F41jnfYkas0EZLPAPuiFNxHsxezWp4RQNMcCOYldmC9hOZbUxA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=u7zqySAa;
-	arc=none smtp.remote-ip=209.85.161.43
-Received: from mail-oo1-f43.google.com (mail-oo1-f43.google.com [209.85.161.43])
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b="msE/50Gt";
+	arc=none smtp.remote-ip=209.85.214.177
+Received: from mail-pl1-f177.google.com (mail-pl1-f177.google.com [209.85.214.177])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0EE8606A331
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:57:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0EE8606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5CBDC606A32C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:58:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5CBDC606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=u7zqySAa
-Received: by mail-oo1-f43.google.com with SMTP id 006d021491bc7-702fd86d674so281645eaf.2
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 15:57:34 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=msE/50Gt
+Received: by mail-pl1-f177.google.com with SMTP id d9443c01a7336-2e9e53d011eso2719035ad.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 15:58:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794959853; x=1795564653; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:mail-followup-to:message-id:subject:cc:to:from:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=q3OTBwL+TyzHGc36tg10hWnQr6i2w3v45IA4aHIlkR8=;
-        b=u7zqySAaeYlhQpUqV32/X9eVu1RKlum8oNRsvTE0fE9E/aFMffn73Sjoe6uqQ+UtF6
-         kFw4KN7mtWw7vryJ8J2BaTVqAinedz5zMu6sBZJux61Y73pSxtRTi2UVibzBDM07DXut
-         zQDVi8UZ8hNSRxTub8QfrDLw6lhXILUFeJl9c/rooB1T1Z32GdUzCVlWmA9B6GzU+WLH
-         FCe5awUUR1fFU7u/bKBu+Zb0rfEqOR0Hg5KrzgwNbQ58CP4ZiBGle/c+Itb7dkxBoGEE
-         tWX1+5H46LnaqccEfkZ5MRv9NaFp9blwOAN8sSC7xlw+fTHzL491r8VuA47VelVm7Mvb
-         KYCA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794959853; x=1795564653;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:mail-followup-to:message-id:subject:cc:to:from:date
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=baylibre.com; s=google; t=1794959928; x=1795564728; darn=vger.kernel.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=q3OTBwL+TyzHGc36tg10hWnQr6i2w3v45IA4aHIlkR8=;
-        b=N9c2TF9iyL5LWKaQYdJPjb9OisWG4CJ2kCk2b6LvyHQz4HvLkIV75SM8LdI/7HSM7X
-         JcwgZzEkb1M9xaFS+HqM3JgTOTaiYnc+0zcEE9pFfHSn9OuFr8emth/dfaSISbSgWMRt
-         uumD6ZY1KWrHd9gOBHNVT4fHNlHarQnzAI1KFa5zwcYhgRX4CCfJFQD3LGqa935FCvUU
-         1HAplXUDd3YjzNLftZmsnYKr7gTwhYP/V7oxsVZiXiZngdgH9dol8SY0Y5toTs6BclWH
-         A8FLp7njZxC38Po8X+Y/oOwYSIt8h2m7yfeiZhNOvDN9ax7CTxgnWCSh7/NmI3c75n9S
-         0fgQ==
-X-Forwarded-Encrypted: i=1; AL+hErFn8t2UOGYkklLKBBaZt5DUUDBI0xnzyTZwx0CDZ77K+go/2K4X2nADck8xt0EXPOYzY5kN8vSB9rsCRQI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9YazrwlmS2a1IOaUNbCLTXsroGMx2qDPbruGPD+bxArm0Yecn5
-	KAisvgPr2ghpnuf7R9o8Og/QgAWJVGQN8R3P1WKlp8QBh5Ln2RQnV8dgRCDsiw==
-X-Gm-Gg: AYBFou0oTfSaAq9UMTM2uKKONP/QpCw2Civx0X7Pj6NSm/IYOu0BRplefdVw/FJ+qkz
-	413pWJEeyPWSsVuoqxXV8oKKCWlNhoyboMyFixkvfQJsaLyRGhd+RbO5NJPzBdZmZumYnuCVsRy
-	fQA0tzzWEQVJ/8vceZZhW2o8xdQiKNdrrRI3rXS5uoDE4hAdPwdfVMSwP1TGIBg5GLGYx7I/MxD
-	oNIq/2FTQdqLjp7n4ckl5PVqfEObYJ5VKTG1tjksZ17zbJiAhfggcmnJsmF8Uq/+MnykXE0U69d
-	c2EfHlET/5JQKs7sG+pzgEyFVhDKIzqLao2Ec9F9fEM+qp8HrLMYHTsM6gX8sFehmaiXEr23/S7
-	7jvUkPWln3vZUOCDnYpbGqEGGdbjg9plRxYWFMUr20CvvaRLtYL9WHWVofg/8gXB9KTA3lqbMlv
-	b0S+/gBtA3OO8AEFJMCYaE/gHF/H+xfBsRhtiVkFPSUvqgZKw25zMUFBGFzce/i68mBdJbWUUZP
-	CIwkoqoNqdql4BoXif5E1nx0/8NQBXHIEVzmoj9SYFb6BSTlGA8A5TIC9B7YRcTD9h+5ZoJpt/K
-	XAQLDyTVNMYX8C3YijdTHzJkcXmNhqb97YWpPY7yJty9b/LHdFZAq/0k0Enx
-X-Received: by 2002:a05:6820:1c8c:b0:71a:e1a9:4b74 with SMTP id 006d021491bc7-71b1859452cmr762291eaf.72.1794959853612;
-        Tue, 17 Nov 2026 15:57:33 -0800 (PST)
-Received: from localhost ([2a03:2880:10ff:1::])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b1945800asm648215eaf.5.2026.11.17.15.57.32
+        bh=YYOHGdo2Uum+V1fQIyTYxRpM9Fq04ij2FJz0fEEop/4=;
+        b=msE/50GtjYb/IC7w0FYYH8igFqxscZIpL+A8cUkhnYJlAt/O1UcD84PO0KxPM7s+3E
+         Ebzwewo9qBWZDySX4TYC3QGJYaU3lySxwomg9j0TjDrLcBWxZPF7nHvD6Wlf3N9/M+AW
+         /0Dwpo0/2DkUg8G/3R8sk8RWyr4Q0SEsx+cJB6BaUK4rfytp8mEsq4WRnb5F2yt69wLr
+         JeBCuI54nbY1iai2cziOjggrzuv8JmugegGMx7/Ymd1MNg3pseev8c90fBxIelp1EQXq
+         AVGd1wqBVhI8MosNHLJM7PCAB68tGUSjhSFtkMQMI4MxU8jH6R46v9hdrbrxZt/i7fXi
+         AIvg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794959928; x=1795564728;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=YYOHGdo2Uum+V1fQIyTYxRpM9Fq04ij2FJz0fEEop/4=;
+        b=G5BoPuVpMaFgDQ7lTUzUPAJS3iQw9sy1pUW8PZJkbX1FiZ0EeF4T/sTBxK8isDmeaG
+         +uuQ1UHSXFHXDtkBL+6nbyYSTqfjlL/WcAfIbglJzZR3109kfXKRZfA3sic8wQYCRA79
+         YkDZDwhT2EG3sp+XSQlIrlMS/UXZyt8J7aKgWefBcbAm5a0o3pgLxqlGhYLuEdsxaaGc
+         yNOfCDHdYwH+bUT9/bkiairla+rhf8JMLVn+23xknFYyif/DlpvpHzLWukL3v8WSry7q
+         /T2anz2y12VkwD5bM6coX01lo54iX7TajQX+J0qGsDtUDLsRbiDoaebnMz0KE5ZV7foT
+         ORyg==
+X-Forwarded-Encrypted: i=1; AL+hErEajIV5mstZav2hORE5E2Sju5VOf9fxrA3+fDTLib010tiItGzki92yJanMiw0CuSQviLtRTDUsRUGXuj0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+Q5WXlAKJKww+kshaSN1yt5B+B3GDxsSuUIeCmS3kU0AbUNMqr
+	ymIV/ECF4uVvu6YmSiaDulQcQj/OOt7Y++BcvAdjdp6oaoGF7tDJEz5OKS0yl+3Vo1U=
+X-Gm-Gg: AZFdTZfHhgyTbLPTbP7BNTm5THXRQOMSvwNm5AiULtuPu1U58g7t0UF8JqK1QxFUVVt
+	sNfh85I4M5RVX4YlPqyax4GAQkGICctsSteO2xSKBwd+iKaym9AkDw1ZBJpuL8gKH9BbH799rrt
+	0Wbo1MZYoGAE4uQzyu7WkjPBm2K5j/AbhdiK42UzHTFZ+E9G0nTeQhuTrMK15s0JzHPIeU+dz7O
+	QXoqK+6GLSrytRM+IAZxl0gc32qV4L9o3oQssJHjw6Cz4NW/AZHnM/y8BmhvzsT/aBzeTMIHnSj
+	+g89qsQ4QErjTa7xS04Vj/NRB9g43XHEUPk2TYCKebNkIKREg+8ulPzhhO0ro93hWfAawuyz8o3
+	l9VbtTAolMzAEDNrQdzEhAC+TrKJ1GP8CVX77Ss/TTOecBwv1ff2qGt1Fo6zK/+tuCATnvYBbhV
+	MDQZzvxxPsKxpXWCDtz1Go++65DthB3F9D6IMRVmCiLmEq7naGP/ofydDVHmUZzWLYZInmFxHfV
+	DI8OARGe8A1NdJfl97B4MTHtcC8jXHc+8aLbH9v42Vk6G9gJSmy5TOfDiNLAqQsBkH/Fnz4Eth+
+	6Q9NSsp2aRYGjOghedMmvxKq
+X-Received: by 2002:a17:903:94b:b0:2ed:56ee:af8f with SMTP id d9443c01a7336-2eff720def1mr8355735ad.2.1794959927638;
+        Tue, 17 Nov 2026 15:58:47 -0800 (PST)
+Received: from localhost ([97.126.173.69])
+        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-2eff627f421sm3482425ad.57.2026.11.17.15.58.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 15:57:33 -0800 (PST)
-Date: Tue, 17 Nov 2026 15:57:31 -0800
-From: Joshua Hahn <joshua.hahnjy@gmail.com>
-To: Hui Zhu <hui.zhu@linux.dev>
-Cc: Johannes Weiner <hannes@cmpxchg.org>, Michal Hocko <mhocko@kernel.org>, 
-	Roman Gushchin <roman.gushchin@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, 
-	Muchun Song <muchun.song@linux.dev>, Andrew Morton <akpm@linux-foundation.org>, 
-	Chris Down <chris@chrisdown.name>, cgroups@vger.kernel.org, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, Hui Zhu <zhuhui@kylinos.cn>, stable@vger.kernel.org
-Subject: Re: [PATCH 1/2] mm: memcg: fix zero throttle delay on 32-bit kernels
-Message-ID: <avznwfoMxq9s2NwC@devbig011.atn3.facebook.com>
-Mail-Followup-To: Hui Zhu <hui.zhu@linux.dev>, 
-	Johannes Weiner <hannes@cmpxchg.org>, Michal Hocko <mhocko@kernel.org>, 
-	Roman Gushchin <roman.gushchin@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, 
-	Muchun Song <muchun.song@linux.dev>, Andrew Morton <akpm@linux-foundation.org>, 
-	Chris Down <chris@chrisdown.name>, cgroups@vger.kernel.org, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, Hui Zhu <zhuhui@kylinos.cn>, stable@vger.kernel.org
-References: <cover.1794902513.git.zhuhui@kylinos.cn>
- <6931674296b98139f5e02821d66ad1855eba36c9.1794902513.git.zhuhui@kylinos.cn>
+        Tue, 17 Nov 2026 15:58:47 -0800 (PST)
+From: "Kevin Hilman (TI)" <khilman@baylibre.com>
+Date: Tue, 17 Nov 2026 15:58:39 -0800
+Subject: [PATCH v2] cpuidle: psci: Allow domain idle states in s2idle for
+ all CPU idle states
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,83 +92,160 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <6931674296b98139f5e02821d66ad1855eba36c9.1794902513.git.zhuhui@kylinos.cn>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261117-topic-lpm-psci-domain-callbacks-v2-1-744884105846@baylibre.com>
+X-B4-Tracking: v=1; b=H4sIAC7q/GoC/42OQW7CMBBFrxLNuoPiEBrCintULMbjCQxN4mCbq
+ Ajl7jWhB+jyS+//958QJahEOBRPCDJrVD/mUH0UwBcaz4LqcoaqrD7L/dZg8pMy9tOAU2RF5wf
+ SEZn63hJ/R6Q9dSW7xnXbHeSVKUinP6vh6/TO8W6vwuk1+0cEud2zOr0xsBQF2Q+DpkMxN5saA
+ xt4tS8akw+P9e5sVvjfz2aDBmuqG9fuuOWmPVp69GqDbLILTsuy/AIKK0S/DwEAAA==
+X-Change-ID: 20260831-topic-lpm-psci-domain-callbacks-a8af0cd7df35
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ Sudeep Holla <sudeep.holla@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Christian Loehle <christian.loehle@arm.com>, 
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+ Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>
+Cc: Scaria Kochidanadu <s-kochidanadu@ti.com>, 
+ Maulik Shah <maulik.shah@oss.qualcomm.com>, linux-pm@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-rt-devel@lists.linux.dev
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5783; i=khilman@baylibre.com;
+ h=from:subject:message-id; bh=guTL8dYKPlJDgX26UnFRsZQN38nxU1WkErfhyeEPhdM=;
+ b=owEBbQKS/ZANAwAIAVk3GJrT+8ZlAcsmYgBq/Oo2kY6Xp4ijMAORZ44kIfExylSsinOdQLrlr
+ I1XRTaDEm2JAjMEAAEIAB0WIQR7h0YOFpJ/qfW/8QxZNxia0/vGZQUCavzqNgAKCRBZNxia0/vG
+ ZZ5uEACN+j6ErUSQKd6/XHskcSMq5MnnSxTmTrPatCH4tYKEUJNPOrG5zWSTcTLTAZdPgn5VgDf
+ Ig0T8XJpi7ayBiooduqu9FnhalqW2uP7kXccZNkMf5UOLYrL5y9TutrJdBRdFmPWwRYr8A0zfSS
+ qCI5xiNbiBU7ZJSAIQXVq9mCrbk3TOC552QMPGk5DmXllVNDN4pICYbPeA8QhyhKQH9Df0KaebV
+ E0g7ZZMiCOVGKloVt0xqOfGUviNq9vg71x1gnXfRqXK8XvXwQmSsPnxc4hw5F09rUqPps2BrOqz
+ rgJxV1C5V43JTTIkm4ki2UzxUzedu3bemeyPPGY0Tr+cSdiv6o79/pFzsQku+t6kStelDqJJmwN
+ QstYw3eXWJXKgPqQtTBTyK/cfm4kfXxi7gJKjBvG6BNsBc01u15bq6/KrKufKmS/4POGxsuSjJC
+ t+d8LRaZ6cVa4BEAfIAsUCxyoLvEekEcgdfC3eMx2CoWcQO3VmGflHZ/bO9Q5IX2pe6/aw1tO40
+ jNPUMuEzXSoJn9WfrHQUz7VzVypheFW/0+amYr2zsUyWU2NWRzsM80ZVSrl+eQJNidczBpVYHNP
+ tHd2wXP7x3DzyQ73TI3JPOjZWWB/AiyLlHXPMpl5enJd+en/cwBY2SoCTWKE/BzbdtNZwshBFFh
+ oyKgJP1Zhj/tRig==
+X-Developer-Key: i=khilman@baylibre.com; a=openpgp;
+ fpr=7B87460E16927FA9F5BFF10C5937189AD3FBC665
 
-On Tue, Nov 17, 2026 at 04:04:20PM +0800, Hui Zhu wrote:
-> From: Hui Zhu <zhuhui@kylinos.cn>
+Currently, only the deepest CPU idle state has its ->enter_s2idle()
+callback set to the domain-aware psci_enter_s2idle_domain_idle_state().
+The other CPU idle states use psci_enter_idle_state(), which bypasses
+the PM domain entirely.
 
-Hello, thanks for the patch.
+During s2idle, the CPU idle state is selected by find_deepest_state(),
+constrained by the CPU wakeup latency QoS limit. If that limit excludes
+the deepest CPU idle state, a shallower state is selected, and the CPU
+PM domain hierarchy is never powered off. As a result, no domain idle
+state can be entered, even if some of them are within the QoS limit.
 
-> calculate_high_delay() stores max_overage * max_overage * HZ, computed as
-> u64, into an unsigned long before shifting it right by 34 bits in total.
-> On 32-bit kernels the store truncates the value first, so the shift always
-> yields zero. Tasks over memory.high or memory.swap.high are then never
-> throttled, and the reclaim retry loop in __mem_cgroup_handle_over_high()
-> is skipped as well.
-> 
-> Keep the intermediate in u64 so the shifts see the full width, and clamp
-> to MEMCG_MAX_HIGH_DELAY_JIFFIES before narrowing to the unsigned long
-> return value: a truncated result would escape the caller's own min().
-> Nothing changes on 64-bit kernels, where clamping each term is equivalent
-> to clamping their sum, which the caller already does.
-> 
-> Fixes: e26733e0d0ec ("mm, memcg: throttle allocators based on ancestral memory.high")
+Fix this by assigning the domain-aware ->enter_s2idle() callback to all
+CPU idle states, except WFI. This is safe for s2idle because:
 
-Is this the right fixes tag? That one doesn't introduce the division by
-MEMCG_CHARGE_BATCH.
+ - The genpd governor selects the domain idle state in
+   cpu_system_power_down_ok(), using the same CPU wakeup latency QoS
+   limit that constrains the CPU idle state selection, or a stricter
+   one if a device in the domain has a system-wide resume latency
+   constraint.
 
-> Cc: stable@vger.kernel.org
-> 
-> Signed-off-by: Hui Zhu <zhuhui@kylinos.cn>
-> ---
->  mm/memcontrol.c | 10 ++++++++--
->  1 file changed, 8 insertions(+), 2 deletions(-)
-> 
-> diff --git a/mm/memcontrol.c b/mm/memcontrol.c
-> index 84f4a8fd4d16..1ba42724ed1e 100644
-> --- a/mm/memcontrol.c
-> +++ b/mm/memcontrol.c
-> @@ -2576,7 +2576,7 @@ static u64 swap_find_max_overage(struct mem_cgroup *memcg)
->  static unsigned long calculate_high_delay(unsigned int nr_pages,
->  					  u64 max_overage)
->  {
-> -	unsigned long penalty_jiffies;
-> +	u64 penalty_jiffies;
->  
->  	if (!max_overage)
->  		return 0;
-> @@ -2601,7 +2601,13 @@ static unsigned long calculate_high_delay(unsigned int nr_pages,
->  	 * MEMCG_CHARGE_BATCH pages is nominal, so work out how much smaller or
->  	 * larger the current charge patch is than that.
->  	 */
-> -	return penalty_jiffies * nr_pages / MEMCG_CHARGE_BATCH;
-> +	penalty_jiffies = penalty_jiffies * nr_pages / MEMCG_CHARGE_BATCH;
-> +
-> +	/*
-> +	 * Clamp before narrowing to unsigned long: a truncated return value
-> +	 * would escape the caller's min() and look like a small delay.
-> +	 */
+ - There is no idle duration prediction involved in s2idle. Both the
+   CPU idle state and the domain idle state are simply the deepest ones
+   allowed by the QoS limit, so the genpd governor can't override a
+   decision made by the cpuidle governor.
 
+The domain idle state's arm,psci-suspend-param is a composite state that
+overrides the CPU idle state, so the exit latency of the domain idle
+state must account for the complete composite state.
 
-I think this is a bit verbose for what is happening here.
-Why not:
+The regular idle path is left unchanged, so only the deepest CPU idle
+state can trigger the selection of a domain idle state, as the domain
+idle states are assumed to be deeper than the deepest CPU idle state.
+Extending this to the shallower CPU idle states isn't safe. The cpuidle
+governor may select a shallower CPU idle state, based on its predicted
+idle duration. The genpd governor isn't aware of that, as it only
+considers the next timer event, so it could select a domain idle state
+that overrides the shallower CPU idle state with a deeper composite
+state.
 
-return min_t(u64, penalty_jiffies * nr_pages / MEMCG_CHARGE_BATCH,
-	     MEMCG_MAX_HIGH_DELAY_JIFFIES);
+Suggested-by: Scaria Kochidanadu <s-kochidanadu@ti.com>
+Signed-off-by: Kevin Hilman (TI) <khilman@baylibre.com>
+---
+v1 assigned the domain-aware callbacks to all CPU idle states, for both
+the regular idle path and s2idle. As pointed out by Ulf, that breaks
+the current contract with genpd for the regular idle path, since the
+genpd governor isn't aware of the CPU idle state selected by the
+cpuidle governor.
 
-Or just dropping the comment block seems fine. I think folks should be
-familiar enough with values wrapping around.
+As discussed with Ulf at LPC, this v2 takes an initial step by limiting
+the change to s2idle, where both the CPU idle state and the domain idle
+state are selected based only on the CPU wakeup latency QoS limit.
 
-Thanks, have a great day!
-Joshua
+This pairs well with Maulik's series [1] adding support for domain idle
+states that are only allowed during system suspend (system-state). Along
+with this patch, platforms can describe several s2idle-only domain idle
+states, and select between them via the CPU wakeup latency QoS limit,
+even when that limit excludes the deepest CPU idle state. There is no
+build or runtime dependency between the two series though.
 
-> +	return min_t(u64, penalty_jiffies, MEMCG_MAX_HIGH_DELAY_JIFFIES);
->  }
->  
->  /*
-> -- 
-> 2.53.0
-> 
-> 
+[1] https://lore.kernel.org/r/20261005-s2idle_state-v1-0-3c402c66f388@oss.qualcomm.com
+---
+Changes in v2:
+- Limit the change to s2idle; keep the regular idle path using the
+  domain-aware callback only for the deepest CPU idle state (Ulf)
+- Reword commit message, fix incorrect claim that no other CPU idle
+  state has ->enter_s2idle() set
+- Link to v1: https://patch.msgid.link/20260831-topic-lpm-psci-domain-callbacks-v1-1-4a47d95c9c79@baylibre.com
+---
+ drivers/cpuidle/cpuidle-psci.c | 21 ++++++++++++++++-----
+ 1 file changed, 16 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/cpuidle/cpuidle-psci.c b/drivers/cpuidle/cpuidle-psci.c
+index 0187d6a9096a..01a571479e5c 100644
+--- a/drivers/cpuidle/cpuidle-psci.c
++++ b/drivers/cpuidle/cpuidle-psci.c
+@@ -250,6 +250,8 @@ static int psci_dt_cpu_init_topology(struct cpuidle_driver *drv,
+ 				     struct psci_cpuidle_data *data,
+ 				     unsigned int state_count, int cpu)
+ {
++	int i;
++
+ 	/* Currently limit the hierarchical topology to be used in OSI mode. */
+ 	if (!psci_has_osi_support())
+ 		return 0;
+@@ -261,12 +263,21 @@ static int psci_dt_cpu_init_topology(struct cpuidle_driver *drv,
+ 	psci_cpuidle_use_syscore = true;
+ 
+ 	/*
+-	 * Using the deepest state for the CPU to trigger a potential selection
+-	 * of a shared state for the domain, assumes the domain states are all
+-	 * deeper states. On PREEMPT_RT the hierarchical topology is limited to
+-	 * s2ram and s2idle.
++	 * For s2idle, use the domain-aware callback for all CPU idle states
++	 * except WFI. The CPU idle state is selected by find_deepest_state()
++	 * and the domain idle state by the genpd governor, both constrained
++	 * by the same CPU wakeup latency QoS limit. Hence, if the deepest CPU
++	 * idle state is excluded by the QoS limit, the domain may still enter
++	 * a domain idle state that fits the limit.
++	 *
++	 * For the regular idle path, only use the deepest CPU idle state to
++	 * trigger a potential selection of a shared state for the domain, as
++	 * the domain states are assumed to be deeper states. On PREEMPT_RT
++	 * the hierarchical topology is limited to s2ram and s2idle.
+ 	 */
+-	drv->states[state_count - 1].enter_s2idle = psci_enter_s2idle_domain_idle_state;
++	for (i = 1; i < state_count; i++)
++		drv->states[i].enter_s2idle = psci_enter_s2idle_domain_idle_state;
++
+ 	if (!IS_ENABLED(CONFIG_PREEMPT_RT))
+ 		drv->states[state_count - 1].enter = psci_enter_domain_idle_state;
+ 
+
+---
+base-commit: bc71431221f5ba8bb33918399552636e059c2c45
+change-id: 20260831-topic-lpm-psci-domain-callbacks-a8af0cd7df35
+
+Best regards,
+--  
+Kevin Hilman (TI) <khilman@baylibre.com>
+
