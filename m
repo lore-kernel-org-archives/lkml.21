@@ -1,91 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794939218;
-	b=cD1hsPRK9RnThzU2jLYORXEwD3Ttsr2v+1CKhb6M+9WrXPNydbj6LemjG6qRpqGloHYg
-	 YxRJQAeGYLI6aGEATZtAUVP0Z/9y7oYS4uh7YOrwZ+YDwFRGYG1rmV6AlztoiZeMWuOZF
-	 CiGxrBpJiByRrgJnd8Ymv0eCbjE1ge9s2Iwmb36m4gfgNrz6nBJpLE4Y0p5p+OS7PlG0Y
-	 fS7OPUBO+KW4ievI4PkOjzOrOA5t0TA6PFcA4I+VmoXvYm65OPV1dSK74p9H+obMnIg4h
-	 9r2y0W3A+WXMU0qq9g4m+j4W+goZrHC/736zGavSGihkG4Arm4Fo4TATjyvvfvcZ8IQ==
+	t=1794939222;
+	b=vTRAi6qExrSKI7PXhy9NAipIhtiFmlzCSO532+ZT9i/ctjPa4ROcAKFkf5NC9WyBMyu7
+	 9E5a0n+vKoAIKXuL/xy4D8rZ/vUHlA9tTMOSDKKyEd5s/rtJin2GdgEaH5UdVY7Uxr6+l
+	 LRDHrsdcjHzNfBzysksIM4CIhRuL6wQgLiOO0lutxv58iZWddjR16/e68Xy9CIVtrZhoB
+	 VGwjDAJ4KNzjxbi0U0mmTLi85lim0vOvmSd9bRxihrqvBXeRMZUsaYqY8Bl/caAWq2bfx
+	 tDolUMKUAWNaFNeDfiDvklFZs3GPHP2JDwL9htunQvS6aoHeotEqMIwtxfTf1nx1/nA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794939218;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794939222;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key;
-	bh=+xhdYEq/htKw2ZyZOGp/5p/opQTruhVjGkyUNfRkNJc=;
-	b=rwYzwxqdtcMS19bpcnYGubCIyOVVR/51Jb3Vudm6pN79lHhZ9nYxhMLQZyEY+fTyumn9
-	 kw6g6nYkDaoJ75hlQ7VI56m+Ou0mfuqY9pf6tTrc5f9SDciV9C+TKlhGB0Ihdh8BlvxBG
-	 BYBW/7dbhLddv53pPUaLGjwlAUKYEiVyO1AKvIoslgofKSwo7s05u4e4iaDOjPuTgfK3h
-	 A0hY3UMaEsv0pAWcAMG3oHaFKwNO+lx9A+c9AUt6N9g3WuBPxDjnXhGER8Yc6C9cOsMp8
-	 s3tczN7hEes8FTu5unXx41ELeVdf3kwDLEwjBN6Y5OlGhNBdYp8M1K4LcV0F5/vN89Q==
+	bh=VmJwPAKmkjpaPlFxmcST3cwAQG1JNPaGXGhzymmNX0E=;
+	b=dw9wH++b3W7VtDOezIqzdsKTwPGCJG1mVWdE2nIHwUa5ldhxO1wjTsBftGZuRRJqf9uS
+	 2gAEFbNL29OPrGk9JaT5vRYgl7/oCXUd82veIwB0ZGhIU336RFW+fQ865kCpm85LvgKTW
+	 TYX+4aU+/+BlAzrviG+YxSqC1qtWlgzD8oDNv9MmDymB8WQQLQ3YCU07nLRInXOX0uPAK
+	 Xvwe41A4NrCN9OvtagCpxJYeVMHEFPwzqBwAP20PEBMmthVfdD0NfbW0C8SmusVgFbkLL
+	 gR2ueXURpJZlLxpqHkqB5FbK7qyj4aopMxcN7MppE5bkfn7UGuq3J+6SHmu1hcPe81Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lj3g+lpI;
-	arc=none smtp.remote-ip=74.125.224.41
-Received: from mail-yx1-f41.google.com (mail-yx1-f41.google.com [74.125.224.41])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=O+eNLKGi;
+	arc=none smtp.remote-ip=74.125.224.44
+Received: from mail-yx1-f44.google.com (mail-yx1-f44.google.com [74.125.224.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84FFF606A8B7
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:13:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84FFF606A8B7
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2AF9606A33B
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:13:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2AF9606A33B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lj3g+lpI
-Received: by mail-yx1-f41.google.com with SMTP id 956f58d0204a3-67db5e13b0cso2663309d50.3
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 10:13:38 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=O+eNLKGi
+Received: by mail-yx1-f44.google.com with SMTP id 956f58d0204a3-67583c777abso1694675d50.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 10:13:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794939217; x=1795544017; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794939221; x=1795544021; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=+xhdYEq/htKw2ZyZOGp/5p/opQTruhVjGkyUNfRkNJc=;
-        b=lj3g+lpI3XZgyTxM3a07+qNDOsJmd5zJMS8J9z2wJXQVN1jLnF88rzs+xlZtrMTnSc
-         M80oyrbZA0G6QfnpxQLD1XejXdWSUBuudNOuSFfPK44B9aodC6JrwaDKtT3OC8Tf3N2K
-         OuwfumpnZcnLUYkNr2hdZrYNBoDHqdWnQZmu8Y62hXQb8nfhjVNWiD1pTK26MPQtdbmX
-         ZW1S6vd8JuFNEY2Gzm0s3ZuxcrQKHWUNIIilr9t+NUEuFezGB7rBqAUY940yojF01ZEO
-         /jj5eonCfuTLR5PdRQKnCIJuRfQ4mf1V0XDE/LbVP4/t9Xe6OF6ZWyEobvvLSNV7RYYT
-         2vsg==
+        bh=VmJwPAKmkjpaPlFxmcST3cwAQG1JNPaGXGhzymmNX0E=;
+        b=O+eNLKGizaKvCjcBFEPklrUdI6prwcylupkEF35VptnltgWqNEux7MOuHb+SDkx5jB
+         O2YBkx70K56s4/CYCkiUSvGtyup8Lsx6SgYv0nnjy/nYnX15phR4QjgUy+4HIpn192gF
+         kJ/5qnLgAvCPteGUvEgMXDzynLfgCneUUtyhyqT9ItC5tbMECcJW5nViiMWWqg5htRsK
+         RdPzqrR+FATHhPikVmvkp08iBo2mqzvqGqqnkDbzguZ9r3QlGPxRnttdluSffAKHHH0u
+         uvOVPqUyQmHk1gGbq9ONEY4DjkvDKZytgBIF7ddU81D5WDv3kwYq3MVRRANuE4pFuWOG
+         FVAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794939217; x=1795544017;
+        d=1e100.net; s=20260707; t=1794939221; x=1795544021;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=+xhdYEq/htKw2ZyZOGp/5p/opQTruhVjGkyUNfRkNJc=;
-        b=dOqSHp0z8mZTETiLu0/A7ELvoNq0t30/Zv5U2ttFXN9s+ElFKPf3bjFxzcyEImCHeW
-         33Q41mJVoIf1BYbVwgNZ/KhJC2ujvPPrSsyJ6gI3DevjO2B3TvoBKTEIeqJHOtbYQyvd
-         M7wwJnwdSYcj0K61R7lu4tsv2o1tKkqp89WYX85C+G2OMhXQCgsvSBo6diFgEJSH1Xat
-         AUdMKhH01Qs2jQKm7Oy5fByKJtqypPxJqEJ8wVPwAn14clyz5JKHTrHw6ysQvi6MYvdD
-         pZFhPA8xh+V3ODYaWUEQQ56Hw+laEU9dKD1XbBuCrTIiMY2D1BOBH9aJYNALZiRjhlig
-         1few==
-X-Forwarded-Encrypted: i=1; AL+hErHDR87688N9ffepKpPAhyFpUR4Li0efJ5vtRJVrcYFT73sPw9f5Izffbg478ULf58CPPFhaF8L/9aF/7fc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9MvOijxnniia8m1YZ1R2D8jZYNO4nhq6D/ABmYzIy/91IQnBZ8
-	MeDRuOCiVr64F51BkE48xzuYgpA0XPeyiYDvMSz0DHG3mrQOOvEBKhCdO7KIci8LAUY=
-X-Gm-Gg: AZFdTZeAuCFY6FiGrBKT/yTLB0ZZ6o2YG2jxwxwrGJxyBFTrOteJprVIh45aOVhwkiK
-	0fi7uxOs2afKoFjJJaln6mZVUFC9NgNbvbbexSARF/vj/PAWxQ7mJtyCFIq8sSkM4FkCLXZ850U
-	RAcwASRWKNWy8WaeN873gVS6VANa6MHPUW0SNkKz8VqT2U+3pZkMdNSUT0GbXzp8DikDLMQtVRM
-	Kby1RCn0Zv8YO2N0iIqQ0AmSumfNITiuUpVyxjKZutcmKB3H519aaCeDBdoERwYGWpa+kw1iRUu
-	f/xEbwxNIG2jQtnwEaGujyAYXl23Mvcoy5EopSbHM8mHaDwX3bcNmHyLEt1uCzS1KvLqasVYMGz
-	mpLu1MUprNa81PyHu6vSnFMogty6opbu2GzjVJXXjGg36+ISkiU8oMnpGmuPmVH5aJaqaLRrr/h
-	CFkwXnONOaOuMr+3DVWevgJ5VzsnzpMCRRTwy8Ih+u19Am6ec0p2A7W7PbHDuogkq6Q2Sv+JTRZ
-	EnzB0ckIepRFu7aKQixEpU2quwVlrDq/Byq9OKv2HSzES3f7hcaCfwnEeT911OKqvucbQ6QauBM
-	ysXYeDg6Q9JcceQAsawVVMKd4XOEEqjtZqoWLOou2WGU1iTqB39u46z9S6nReRn1yNffnZ/at4G
-	pWUqgNjy41q2qYV8EirFBu5ZZbH/CcSzekrZD9qtbSBhpLlxo4RRUfpQk0DU1nFHXBJpfas5omt
-	NvXZn7f9+km64ZLja8dw==
-X-Received: by 2002:a05:690c:607:b0:8b4:d44a:c4ce with SMTP id 00721157ae682-8b4fed802b0mr344847b3.82.1794939217274;
-        Tue, 17 Nov 2026 10:13:37 -0800 (PST)
+        bh=VmJwPAKmkjpaPlFxmcST3cwAQG1JNPaGXGhzymmNX0E=;
+        b=t/V0ACftJFgqqMDEqsF3fj+ulVS5MJYPE1lH5w1K5yoKJAeS9mmEIzXbyHnfe3torY
+         ZYoHJAw8kzG7EyyNYfyTzTiYieLtKARYcpGLxNp+CsNf7gUodLxkf45lHizlyF3j5dYa
+         mgXFqAuhjEp43hg0O23iOc+HmbmZw46GCI84MPWB3ZF4wx0SWvyR8YkBN6zjnOLvfpcU
+         aCKsbEJqz/a77ygsd414YGlHtYqRU/8SuSxAgajaXB3/7HS2iQHP5tMLK+D0wPc+Aead
+         D1YK2wlGX4og0gDYGDvQeMbX29bafefpYqpxQBpuBjQXS9EVdq2hcTZunodGJ6U0EP0j
+         pleg==
+X-Forwarded-Encrypted: i=1; AL+hErGcopFmXMFkIxCxlHROn5x2B1AYa4LIOkXZNBkRgjGhk3KyY5+J/nZWIvvA/dTMlQgM3yy0o/46AZ/oUKo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8SKF9ez2ncfXzcbujyAWR/cnLUVJ8rYOVLVQ5nPY6oGi7IiioI
+	nOy3uQD2/f9y0YafkRtOEOzRtkxLIw9cd/ly7IHeUqUSVR5Q4Q8kLLFB
+X-Gm-Gg: AZFdTZccW++FdX3IzfpweKWZKT8If9j+nOT7Coq951XXtvFcInjLuv4pM++utW9f39m
+	IOC/WGnd3v2SYun9rmH4lbOiVZA6xnhN3etf54EpeJJ2B+VwWGjubBQiqcUl6VmkoOyu8s5omaF
+	EIZWsmloXbGZTjgsCt3j9kw+N+U2nzDmXeNGYBhYuQKB5MRVi4aL7PU1TX9gkdvbzghU5kURvr8
+	f4eX6rfVXzYc1vXbZ4LPYPMeG9ZVIfgq9hL3K/vuoszADWP6YqW+6DUMJwwVZN7Tt+ygFe8rViM
+	ZBX9qvpDPb1TaC+IMyK1U92VX3/108jpWFOczOKMTydlGKD9BIaf6xHmoHLSD8na1aETB4XSBFu
+	EqpGI1RaQJmGT/4LhJ6+88l6RpeTHTwr+YTli8vfxh7XY/2CwLfwh/VZfk3hXxtB2qP4CXlfGa/
+	n3suClLrxt8+uGHE97iz+LDb8VceB90+4GsskY5N7YQe5LUXsocjnC0E2Q4vByQtWkNELs1rJOd
+	8hAr2qJnwnnncfMb/nCJwmhhqL+6jAq7l9pFKthGkOXNxVigVS5dJ43QkB6tSlQWLLiHM6mULxM
+	vQa5ZTKvUpd432MLhmoC1FCk1miHjDr7zNAwP3OvTV2amZAPAbBOb9COBdJiQsXHHcUoKTjDGl3
+	n8vPWxP8pkPajcxa7ibUapBt3lFFvihsJgmgynk6uIFusP9SnBTVNmbwbCwwE+xvBFeCnaFcQie
+	pehfvcHCmTcIS2HvvDTbfX7mBWNGRvlD/ql8eEego=
+X-Received: by 2002:a05:690e:4894:10b0:677:c90f:46bf with SMTP id 956f58d0204a3-67dc7869e78mr1202178d50.17.1794939220704;
+        Tue, 17 Nov 2026 10:13:40 -0800 (PST)
 Received: from localhost (107-220-129-194.lightspeed.chrlnc.sbcglobal.net. [107.220.129.194])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b4fe030c3fsm2865527b3.14.2026.11.17.10.13.34
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67dd3f284bdsm291489d50.3.2026.11.17.10.13.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 10:13:34 -0800 (PST)
+        Tue, 17 Nov 2026 10:13:39 -0800 (PST)
 From: Matt Turner <mattst88@gmail.com>
-Date: Tue, 17 Nov 2026 13:13:30 -0500
-Subject: [PATCH v3 3/7] alpha: marvel: refresh environmental readings
- through the console
+Date: Tue, 17 Nov 2026 13:13:32 -0500
+Subject: [PATCH v3 5/7] alpha: marvel: register a platform device for the
+ environmental sensors
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,7 +97,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261117-marvel-env-v3-3-0edc370fdca9@gmail.com>
+Message-Id: <20261117-marvel-env-v3-5-0edc370fdca9@gmail.com>
 References: <20261117-marvel-env-v3-0-0edc370fdca9@gmail.com>
 In-Reply-To: <20261117-marvel-env-v3-0-0edc370fdca9@gmail.com>
 To: Richard Henderson <richard.henderson@linaro.org>, 
@@ -106,195 +106,52 @@ Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-hwmon@vger.kernel.org, linux-doc@vger.kernel.org, 
  Matt Turner <mattst88@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6707; i=mattst88@gmail.com;
- h=from:subject:message-id; bh=TNbC0S5edY9PJbiq1Kli6iS6/msJo3xMW+Ba13WeM6s=;
- b=owGbwMvMwCW25rVmCc8sv+mMp9WSGLL+zPSYFn1K5fLzryoXNmY9NS5+9GDel/xF/07t4Zvoq
- PG8xf+pfcdHFgYxLoaZYooscesVWWa17Vjqc1r6F8wcViaQIdIiDQxAwMLAl5uYV2qkY6Rnqm2o
- Zwhk6BjFQ+T0GDQyi4tLU4t00wqKHPLySxJLMvPzivXyC1LzCtIL9NIy00oyMvKLilOBRujlpZa
- Yujq6GRkamFg6Wpg5WTiamjg7Oxk6uTk6Ors6GVmamxg4WzqauFqaM3BxCsBc88aB4Z/S/U3OXz
- g2Ryn6XzHqOBHSNvlaU4WbSHDqTPfl9+y6CwUY/gf8CZr1KXjP5xcvbrdON70+/YRsj3/TovY3m
- 23FNvr9yWACAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1146; i=mattst88@gmail.com;
+ h=from:subject:message-id; bh=eCxTz6/wFgOEYqUhWdz1P8hGqwqPQw6s+J+8BeCiWlI=;
+ b=owGbwMvMwCW25rVmCc8sv+mMp9WSGLL+zPTY//i0pq3747akHGmzgvRFG/gWHTaQnx15YdojP
+ tlTJjL/Oz6yMIhxMcwUU2SJW6/IMqttx1Kf09K/YOawMoEMkRZpYAACFga+3MS8UiMdIz1TbUM9
+ QyBDxygeIqfHoJFZXFyaWqSbVlDkkJdfkliSmZ9XrJdfkJpXkF6gl5aZVpKRkV9UnAo0Qi8vtcT
+ U1dHNyNDAxNLRwszJwtHUxNnZydDJzdHR2dXJyNLcxMDZ0tHE1dKcgYtTAOaaQGGGv9Iqi2oDCr
+ /0brrgzSkd4LnS+st1+S2qf2cssukOjV95lI3hn9bcpUq5DX4xr3g3SE4tuD9z+bQP/CHXdu4uT
+ itTuZdVywAA
 X-Developer-Key: i=mattst88@gmail.com; a=openpgp;
  fpr=3BB639E56F861FA2E86505690FDD682D974CA72A
 
-The SRM console keeps the readings of the temperature, fan, voltage and
-power supply sensors in the power and environment (P&E) nodes of the
-config tree (GCT), and refreshes those of one node when asked through
-config tree callback 0x28, function 0x1f. The Alpha Architecture
-Reference Manual reserves every callback code it does not list, so this
-is a Marvel console extension; its code and function number come from
-Tru64 UNIX. Define CCB_CFGTREE in asm/console.h, and add the callback
-and marvel_cfgtree_partial_update() for a sensor driver to use,
-retrying, as Tru64 UNIX does, while the console reports busy.
+Register a "marvel_env" platform device on Marvel systems booted from
+SRM, for the hwmon driver to bind to.
 
-On an ES47 the callback takes 13 to 300 ms per node with interrupts
-disabled. The console callbacks are not reentrant: a refresh on one CPU
-while another printed to the SRM console killed the second CPU, and the
-service processor reset the partition. So export the srmcons callback
-lock and hold it around the call. The lock is declared even when SRM
-support is not built; there alpha_using_srm is the constant 0, and the
-call is compiled out.
-
-Tru64 UNIX makes this and its other runtime config tree callbacks only on
-the master CPU, and the Marvel PAL TOY calls are already known to work
-only on the boot CPU, so make the call there as well.
-
+Reviewed-by: Magnus Lindholm <linmag7@gmail.com>
 Signed-off-by: Matt Turner <mattst88@gmail.com>
 ---
- arch/alpha/include/asm/console.h    |  5 ++++
- arch/alpha/include/asm/marvel_env.h | 12 ++++++++++
- arch/alpha/kernel/core_marvel.c     | 48 +++++++++++++++++++++++++++++++++++++
- arch/alpha/kernel/proto.h           |  1 +
- arch/alpha/kernel/srmcons.c         |  3 ++-
- arch/alpha/lib/callback_srm.S       |  1 +
- 6 files changed, 69 insertions(+), 1 deletion(-)
+ arch/alpha/kernel/core_marvel.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/arch/alpha/include/asm/console.h b/arch/alpha/include/asm/console.h
-index 1cabdb6064bb..4f5cf589aff7 100644
---- a/arch/alpha/include/asm/console.h
-+++ b/arch/alpha/include/asm/console.h
-@@ -4,6 +4,9 @@
- 
- #include <uapi/asm/console.h>
- 
-+/* Not architected: a Marvel console extension, as used by Tru64 UNIX. */
-+#define CCB_CFGTREE		0x28
-+
- #ifndef __ASSEMBLER__
- extern long callback_puts(long unit, const char *s, long length);
- extern long callback_getc(long unit);
-@@ -15,6 +18,8 @@ extern long callback_read(long channel, long count, const char *buf, long lbn);
- extern long callback_getenv(long id, const char *buf, unsigned long buf_size);
- extern long callback_setenv(long id, const char *buf, unsigned long buf_size);
- extern long callback_save_env(void);
-+extern long callback_cfgtree(long func, unsigned long arg1, unsigned long arg2,
-+			     unsigned long arg3, unsigned long arg4);
- 
- extern int srm_fixup(unsigned long new_callback_addr,
- 		     unsigned long new_hwrpb_addr);
-diff --git a/arch/alpha/include/asm/marvel_env.h b/arch/alpha/include/asm/marvel_env.h
-new file mode 100644
-index 000000000000..16ccd2002a11
---- /dev/null
-+++ b/arch/alpha/include/asm/marvel_env.h
-@@ -0,0 +1,12 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __ALPHA_MARVEL_ENV_H
-+#define __ALPHA_MARVEL_ENV_H
-+
-+/*
-+ * Ask the console to refresh the environmental readings of the GCT node at
-+ * @offset from the start of the GCT. Returns the console status, which is 1
-+ * or -0x4a on success.
-+ */
-+long marvel_cfgtree_partial_update(unsigned long offset);
-+
-+#endif /* __ALPHA_MARVEL_ENV_H */
 diff --git a/arch/alpha/kernel/core_marvel.c b/arch/alpha/kernel/core_marvel.c
-index 92e3312e786e..bd918028b410 100644
+index bd918028b410..d2e1e45cdf1e 100644
 --- a/arch/alpha/kernel/core_marvel.c
 +++ b/arch/alpha/kernel/core_marvel.c
-@@ -20,10 +20,13 @@
- #include <linux/string.h>
+@@ -21,6 +21,7 @@
  #include <linux/module.h>
  #include <linux/memblock.h>
-+#include <linux/workqueue.h>
+ #include <linux/workqueue.h>
++#include <linux/platform_device.h>
  
  #include <asm/ptrace.h>
  #include <asm/smp.h>
- #include <asm/gct.h>
-+#include <asm/console.h>
-+#include <asm/marvel_env.h>
- #include <asm/tlbflush.h>
- #include <asm/vga.h>
- 
-@@ -1094,3 +1097,48 @@ marvel_agp_info(void)
- 
- 	return agp;
+@@ -1142,3 +1143,13 @@ long marvel_cfgtree_partial_update(unsigned long offset)
+ 	return status;
  }
+ EXPORT_SYMBOL_GPL(marvel_cfgtree_partial_update);
 +
-+/*
-+ * The console refreshes the environmental packets of a GCT node through
-+ * config tree callback function 0x1f, returning -26 while it is busy. The
-+ * callback runs for up to 300 ms with interrupts disabled. Hold the console
-+ * callback lock: a concurrent callback from another CPU, such as SRM console
-+ * output, kills that CPU. Make the call on the boot CPU, as Tru64 UNIX does
-+ * for its config tree callbacks; the PAL TOY calls also work only there.
-+ */
-+#define CFGTREE_PARTIAL_UPDATE	0x1f
-+#define CFGTREE_BUSY		(-26)
-+
-+static long marvel_cfgtree_partial_update_local(void *arg)
++static int __init marvel_env_init(void)
 +{
-+	unsigned long flags;
-+	long status;
++	if (alpha_mv.init_arch != marvel_init_arch || !alpha_using_srm)
++		return 0;
 +
-+	spin_lock_irqsave(&srmcons_callback_lock, flags);
-+	status = callback_cfgtree(CFGTREE_PARTIAL_UPDATE, (unsigned long)arg,
-+				  0, 0, 0);
-+	spin_unlock_irqrestore(&srmcons_callback_lock, flags);
-+
-+	return status;
++	return PTR_ERR_OR_ZERO(platform_device_register_simple("marvel_env",
++							       -1, NULL, 0));
 +}
-+
-+long marvel_cfgtree_partial_update(unsigned long offset)
-+{
-+	long status;
-+	int tries;
-+
-+	if (!alpha_using_srm)
-+		return -ENODEV;
-+
-+	for (tries = 0; tries < 100; tries++) {
-+		status = work_on_cpu(boot_cpuid,
-+				     marvel_cfgtree_partial_update_local,
-+				     (void *)offset);
-+		if (status != CFGTREE_BUSY)
-+			break;
-+		usleep_range(10000, 20000);
-+	}
-+
-+	return status;
-+}
-+EXPORT_SYMBOL_GPL(marvel_cfgtree_partial_update);
-diff --git a/arch/alpha/kernel/proto.h b/arch/alpha/kernel/proto.h
-index c418333d0b89..dc4ae0e0ed05 100644
---- a/arch/alpha/kernel/proto.h
-+++ b/arch/alpha/kernel/proto.h
-@@ -111,6 +111,7 @@ extern void * __init move_initrd(unsigned long);
- extern struct screen_info vgacon_screen_info;
- 
- /* srmcons.c */
-+extern spinlock_t srmcons_callback_lock;
- #if defined(CONFIG_ALPHA_GENERIC) || defined(CONFIG_ALPHA_SRM)
- extern void register_srm_console(void);
- extern void unregister_srm_console(void);
-diff --git a/arch/alpha/kernel/srmcons.c b/arch/alpha/kernel/srmcons.c
-index d19e51ec711d..45a10d539f19 100644
---- a/arch/alpha/kernel/srmcons.c
-+++ b/arch/alpha/kernel/srmcons.c
-@@ -24,7 +24,8 @@
- #include "proto.h"
- 
- 
--static DEFINE_SPINLOCK(srmcons_callback_lock);
-+/* The console callbacks are not reentrant. */
-+DEFINE_SPINLOCK(srmcons_callback_lock);
- static int srm_is_registered_console = 0;
- 
- /* 
-diff --git a/arch/alpha/lib/callback_srm.S b/arch/alpha/lib/callback_srm.S
-index 36b63f295170..6d3c9ce6b815 100644
---- a/arch/alpha/lib/callback_srm.S
-+++ b/arch/alpha/lib/callback_srm.S
-@@ -94,6 +94,7 @@ CALLBACK(reset_env, CCB_RESET_ENV, 4)
- CALLBACK(save_env, CCB_SAVE_ENV, 1)
- CALLBACK(pswitch, CCB_PSWITCH, 3)
- CALLBACK(bios_emul, CCB_BIOS_EMUL, 5)
-+CALLBACK(cfgtree, CCB_CFGTREE, 6)
- 
- EXPORT_SYMBOL(callback_getenv)
- EXPORT_SYMBOL(callback_setenv)
++device_initcall(marvel_env_init);
 
 -- 
 2.56.1
