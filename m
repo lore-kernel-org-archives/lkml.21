@@ -1,76 +1,73 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794949780;
-	b=ZH+ZTwwSgPgssV3NPsl4Y62+5+bUoPZBJOxWt4pAN0Kv7+wzmGWEOmd2TRaEqfxsMsQV
-	 5BrcH9sDESeQT7oBx4GD16Y/zASL8RxBrta7cuLBDGJBueoLosh6bEEMpWplPgi2RjB5x
-	 JptckeCFU9sQofAFYL2Smx9Mx0Z0qXquqq0npYWrNmQ88yRPgYlD30Cq+yZqvQZwroFAj
-	 yC8G4LS8UEM/pDltnWguqgZVIhuLUX/U4w9YdwqUKgrbFypV7hqe34Bg2/bzxluqtLnYn
-	 NBfOaMPVL1p0/HdFxLCmv2p2tDlCoaQ0CajrN2eph5lKFUeZyBY+Bf9noVRDzp5INrQ==
+	t=1794949776;
+	b=u8r4NXoEWRrUpIDMHEpF9n35XXG1XRtN6/o0kxlQns1pK+T3+/wvwuM5wMXeM9uQ3A2z
+	 rWZIpg7BtS7NnSNpinXC28SAcNwXAPJrJAeUpG74p1X6hiAdPpWySBWJSsmxNBDkt1nTh
+	 KZpeza6xuRigjCIYyrO05ccpbARyvP63N5u+WtNUdCPWeGkr39PwrQhO3LJTw7smFe4ih
+	 1ZxrOTx9YpM2Uj6xfl6dKRuWSWjWUpjh5x9Nw7SzB2MFsfXjCClk4jq7Nokwj4Nm3O40q
+	 NeHCAKfwwVLK6uFoHa92+CouSSOJuj6pLYqJji/5zUJoQdmGb3HdDO3t95RAU6Z02/g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794949780;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794949776;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Reply-To:Date:
-	 In-Reply-To:Mime-Version:References:X-Mailer:Message-ID:Subject:From:
-	 To:Cc:Content-Type;
-	bh=TSeocec32IBSh6fCdKd/4qfk40BLitMNmtwIN48RAJc=;
-	b=FI5NrfF58BCH/jXLOVpEPmf2dgMo+JYBkyT4AGwTxrLeTF0acnFAmCPq0YOFXDkWI+Wl
-	 ms3BqoNLB7MQGyGnOQuEvJEBX5Lb6OG8k7eMX36nBHZyRznsnTpgxy2W99iwWFTHFnehJ
-	 MGZHvLP4D7RRaEw+O1JWodIFKidsRbkm9UMzc8sJ3ACXzC7OST5KV4RGtf0EhR5JF6EGI
-	 bMfsj6jPOZWGDZRUxpO7AOlcrb3BogPyTZwMJOAM0y5EH0ymAFT8NgZ5NVH9hKeNFG1/x
-	 Ck3HMYcvJ+PL9NIIJ8+Wuj4IcgEIU5iVA8a10Hwm4rQ8vntZg9Z10dzH7c1d1yvPlXw==
+	 Mime-Version:X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=NfgX3ez0+K7WIb7CbF9QdYQKCoaZza8TfZUj5MCSww4=;
+	b=kwjz4Lyc8iZ7tkFdb2Dnl3SipEv7Akxz6mTPV7EWvegIqY70xhqBJuBuDm4Eg1tH3BwW
+	 tV5If3dnZjCo2IA7z7UXjZL33fg9t8DGJ56c9sGFEk2eI0cpME2vgSfE3uHFoPQr354Qp
+	 FEH8X+ekXIG2e8cAPjU5KJ652Ng83g4cX2fTtSLGL7h+dauW3TpUzIS61CP5eDcdYCuZs
+	 H9SA/024dMzvaHW8G40EbFcah7eUZiEMZ2QkZ6OHufWDjh9FV6VH+t56yX9iiZS0PsR82
+	 tq/zhUgNFnLJqq05ZVmE84EkKX5bId1yK+M6+DEW4wPMwBa+EpEYUWSvCdaylPTFSOg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--seanjc.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ctbi+PIJ;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZvrkAmW8;
 	arc=none smtp.remote-ip=209.85.214.197
 Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 171FA606A88E
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:09:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 171FA606A88E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56D90606A31C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:09:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56D90606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--seanjc.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ctbi+PIJ
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2ed1fbae872so2260555ad.2
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 13:09:39 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZvrkAmW8
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2efda2c6605so1276765ad.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 13:09:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794949779; x=1795554579; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:reply-to:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=TSeocec32IBSh6fCdKd/4qfk40BLitMNmtwIN48RAJc=;
-        b=ctbi+PIJcRKB3cJKB6GcS/EwyffItQUhR3Y7U4AkBKM/mW+aO493iwZtg/VZs8Esnj
-         WhNwiiYKUSm1iddyFOesEyMC/Eyi4Jb/CcN/rPcd3DPE/2JyYS7LMyWHQ0DMT1lbF964
-         V4mj9q4hlwjShrcRKagwpfuPCYckLoNYXrj6TLU6K42DAaTDoJhKJKcl3BSZjQGg6IoF
-         143EKL7UBfJpKijwjY22s2Rnyy1GrkQP3OxGPkHe7jDax2l5LPhSlQXba79wSO7EN+q4
-         85lY5Y0MS4X4q6+YwLtG/PSQChvgXrULOh/SYhY4kpyq4r8w0E1ZVdQFJicSykJ3kUX4
-         C/yA==
+        d=google.com; s=20260707; t=1794949776; x=1795554576; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :reply-to:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=NfgX3ez0+K7WIb7CbF9QdYQKCoaZza8TfZUj5MCSww4=;
+        b=ZvrkAmW8Ge1S6JrShehC1MbPF8qF5KGRppNvJo/7VcgQYrj2ptCM/96T1QwOjF8luu
+         Oma0oB1BwvZ2y/s2ityCYt3bUj35Hxj9G38U3+XBPBcFebJ/9hmAUSFiaP1gLk4+R93+
+         DKeNIHgdiId+43ui+eFzC/kg6Zz8tHpkoufQsj28VqST8I/wFFYTpihQURdKQgXhJras
+         qeflHmKfiQaP1voI12CNVToNWlNKLDxYoDaCmosc59evz1Jvb0wXuhB722XXjMCdSyFC
+         EiOI0eIEij/3sj88Ci8ifDjA+j09Yb7vIvdSEPse570Wkz7IHuZBwB8P0WmgIqszrrz9
+         AYVA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794949779; x=1795554579;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:reply-to:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=TSeocec32IBSh6fCdKd/4qfk40BLitMNmtwIN48RAJc=;
-        b=KqbL9k6kygaL3ICOVtcEv0AV+fmPqTctV+mT78LSNZKbxrQqUbzkg17ofnyAIJIO3W
-         IpNQcXIGU5+SMQ/dVRMBGg79XyAf0Sl8jWKTmhvjnTdu5LDXa1QNEe1A3Gbj+hBuHWcY
-         JStadfNOlmXhmm3rIqByBoGEDYIRdvIKfgc6hLekHTMtjWqWc+xYc7xKA/zmy0JuoxJO
-         gC5fC/LUpXnh8tEHO+CQGkevG+GL3ujIQxgGqFEoWVHqZk5KAd6zjKfm6NLgccyf9QQ6
-         o26tyP5x1cke31ZPtEQoSbnkH5vszZRkPV/JXyieJdJru+gIeQhDncqWGfflzLAgxrXv
-         E3vw==
-X-Forwarded-Encrypted: i=1; AL+hErH+1lqJJauaujpd7Ppr8r9fzw/QN9pcAGneix6+xa/c31B5o9rOPZm013pAprZBI6YKuXe4V4x3BahXmAE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/g9NQq96RdqF0iPCBUJ0LuIgEVq2vDXaZ9WAZnOY0qomir+hxc
-	B6bxyHGOHGQuUJchM8Y7KXL9Q+Yxg+l9USiMchurKvXZKfNl/CAFBmnK11BIWZ2ScBz6wqET5NF
-	B4gS8CA==
-X-Received: from plbnb14.prod.google.com ([2002:a17:903:15ce:b0:2e9:5442:b91a])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:c949:b0:2e9:5507:b532
- with SMTP id d9443c01a7336-2eff7529710mr4540185ad.43.1794949779247; Tue, 17
- Nov 2026 13:09:39 -0800 (PST)
+        d=1e100.net; s=20260707; t=1794949776; x=1795554576;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=NfgX3ez0+K7WIb7CbF9QdYQKCoaZza8TfZUj5MCSww4=;
+        b=pdgSTcJdvgpLo64FdTYU3ftyZGA1whaq5jjsojo0FFQEvftd7Xka3JKbuQLJuwDYbc
+         9gi5N0zFgx622ntI8iw3sfhuoUMyiSKoSFdOB8DV8TnO8iYt7sniN4otTtxi7BXOLwaI
+         94gEL371cMdSWRvxv6XLhH+f7GeFcFWMzp/eCmp62KHlzcOAng9krRxNt/7tGdaxDyxx
+         JDoW02upshMFnbnvXE/suuUWNt4bH5TFZL0flUwwX4r07927y3iRJ2TbbJUJ1/q0N1uY
+         jMnQRFOdIGkpbLjhQZHr/uy5/HFsekIqQvrjMPUNYWkr6roJwNduNHKM8jP5xyBikL6s
+         I41A==
+X-Forwarded-Encrypted: i=1; AL+hErFTqWNrvxaFMZ85wrG/DSpKUnkPTa77rkJo6g9rlnAoorCWhgDcArTaTgu7oDIBEV+yZYA6fKKmD2LVupc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+nkYczXT4GQ8G2IddM976KXU3KNMhO2saIU00dfon9YdFwHtb7
+	OnfKHfmgyqpZOoem480Byetd87wLW5spwIkmzcXZm1yJN2Mmpv1lulK5bzdrwUR49WNGVh72X6z
+	djvgtqg==
+X-Received: from pluq7.prod.google.com ([2002:a17:903:4b47:b0:2e8:5201:ef23])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:3585:b0:2e8:c331:fc30
+ with SMTP id d9443c01a7336-2eff756d586mr4357585ad.69.1794949775564; Tue, 17
+ Nov 2026 13:09:35 -0800 (PST)
 Reply-To: Sean Christopherson <seanjc@google.com>
-Date: Tue, 17 Nov 2026 13:09:32 -0800
-In-Reply-To: <20261117210934.7765-1-seanjc@google.com>
+Date: Tue, 17 Nov 2026 13:09:29 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,11 +77,9 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
-References: <20261117210934.7765-1-seanjc@google.com>
 X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
-Message-ID: <20261117210934.7765-4-seanjc@google.com>
-Subject: [PATCH v2 3/5] KVM: nSVM: Mark CR3 as dirty when loading CR3 on
- nested transitions
+Message-ID: <20261117210934.7765-1-seanjc@google.com>
+Subject: [PATCH v2 0/5] KVM: x86: Fix nested CR3 load bugs
 From: Sean Christopherson <seanjc@google.com>
 To: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>
 Cc: kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
@@ -92,36 +87,49 @@ Cc: kvm@vger.kernel.org, linux-kernel@vger.kernel.org,
 	syzbot@syzkaller.appspotmail.com, Chris Mason <mason@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 
-Mark CR3 as dirty when loading CR3 on nested VMRUN and nested #VMEXIT, even
-though svm_load_mmu_pgd() unconditionally updates vmcb.save.CR3, i.e. never
-consumes the dirty bit.  This will allow deduplicating nearly-identical
-code between nVMX and nSVM with respect to loading CR3.
+Fix a variety of bugs related to KVM's handling of CR3 loads during nested
+transitions.  I originally tried to fix a svm_set_nested_state() bug by
+forcing the vCPU back into L1 if a late CR3 load fails, but Sashiko rightly
+hated on that patch because forcing the vCPU from L2=>L1 would still leave
+vCPU state in a half-baked state.
 
-Note, VMX consumes the dirty flag in kvm_mmu_new_pgd(), i.e. having nVMX
-mark CR3 after the fact isn't a viable option.  Marking CR3 dirty in nVMX
-code before invoking the to-be-common helper also isn't safe in general, as
-it's theoretically possible KVM could observe+consume the dirty flag before
-vcpu->arch.cr3 is updated (even though that's extremely unlikely to ever be
-the case).
+I finally realized that Paolo's patch to always check CR3 validity is the way
+to go, svm_set_nested_state() just needs to also pre-check the current CR3
+(because userspace could theoretically stuff a then-legal CR3 and then swizzle
+CPUID to make CR3 illegal).
 
-Cc: stable@vger.kernel.org
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- arch/x86/kvm/svm/nested.c | 1 +
- 1 file changed, 1 insertion(+)
+Patch 5 fixes another related flaw where KVM doesn't initialize the MMU if
+loading PDPTRs on nested VM-Exit fails.  Patches 3-4 are cleanups and prep
+work to dedup the nSVM vs. nVMX code to avoid copy+paste and confusing code
+for the final fix.
 
-diff --git a/arch/x86/kvm/svm/nested.c b/arch/x86/kvm/svm/nested.c
-index a743179b172a..32f95c9d72be 100644
---- a/arch/x86/kvm/svm/nested.c
-+++ b/arch/x86/kvm/svm/nested.c
-@@ -725,6 +725,7 @@ static int nested_svm_load_cr3(struct kvm_vcpu *vcpu, unsigned long cr3,
- 	}
- 
- 	vcpu->arch.cr3 = cr3;
-+	kvm_register_mark_dirty(vcpu, VCPU_REG_CR3);
- 
- 	/* Re-initialize the MMU, e.g. to pick up CR4 MMU role changes. */
- 	kvm_init_mmu(vcpu);
+v2:
+ - Pre-check the current CR3 in svm_set_nested_state(). [Sashiko]
+ - Pull in Paolo's fix. [Sashiko]
+ - Add patches 3-5.
+
+v1: https://lore.kernel.org/all/20261113170405.473841-1-seanjc@google.com
+
+Paolo Bonzini (1):
+  KVM: nVMX/nSVM: check unconditionally whether CR3 is valid
+
+Sean Christopherson (4):
+  KVM: nSVM: Pre-check current (L2's) CR3 during KVM_SET_NESTED_STATE
+  KVM: nSVM: Mark CR3 as dirty when loading CR3 on nested transitions
+  KVM: x86: Consolidate nVMX vs. nSVM logic for loading CR3 on nested
+    xfer
+  KVM: x86: Initialize MMU+PGD before loading PDPTRs on nested
+    transitions
+
+ arch/x86/kvm/mmu/mmu.c    |  2 --
+ arch/x86/kvm/regs.c       | 30 ++++++++++++++++++++++++++++++
+ arch/x86/kvm/regs.h       |  2 ++
+ arch/x86/kvm/svm/nested.c | 36 ++++++++++--------------------------
+ arch/x86/kvm/vmx/nested.c | 31 ++++---------------------------
+ 5 files changed, 46 insertions(+), 55 deletions(-)
+
+
+base-commit: d21eef2084a9af87ac2a783bc7c2b175ba114e4e
 -- 
 2.56.1.703.gf848ed807c-goog
 
