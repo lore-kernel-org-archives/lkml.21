@@ -1,99 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794938207;
-	b=kf0NSoC577vqGXnk7ZBeqZ4/Zx1Mw2e07P9BO4kqrKg9cDTyB5sZQEl2FB7has0B+kfD
-	 YMCcE9KhzrM0rbdS4Osw4Alu/c1UvhHnndpsV/XbYLofMsrGCfx7MwcMo7NEKgZTTA/94
-	 huR31ooUrRjZKsF4jGr67oworV3ZU/LNddne6IyfU9bBiJiPEbK041fHFu9czAC5qSN4W
-	 e+kOEEdoylBoirmxU8YVllvzaCazl6+yJ9pVn9HWQf0+ZXeGL4PlAXrmv8D4eqcLQirCB
-	 hqxgr0bgfTdn3GyHCWoXsPZyES8IYsflM+Dek8r04/GMKoI5eOChiYIEkZqinUFrR4A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794938207;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=pD8vNDgtYkqY5yb1vjvicd9DBKj0i2pqXmdMkGJ2JPs=;
-	b=H6o+xHU6blnFdoJ42A7kYaiG0YUoJRakOTXbMeAAh0YlPZIbFuF9aZWGoeBPXpyzpCHj
-	 XVcFGj8UP6FkZEIhweXHfpantKnPd+J49ST10z3j0cA4/5Hv6PMeibiukacZHfoykqOiS
-	 pIYOPkyj871od0x/i5T9c6t7QcibdSpDNrq+9AIRZTTm6sQY9HHDcqouFkn6JfQTauafY
-	 SAyAq1kk84FC0+P4Ad7JjDQ2YIiC1uKq3q46UWvWfAyZ7AeFzRdYST8ilK7XKNompXlZB
-	 mXoEOXoynbgCbi1u6qPwBIuzaqLpyOWjoNe8PC6TPahFfyz/8dv1Om9gIAyBfoq/RSg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="iU/sirU+";
-	arc=none smtp.remote-ip=209.85.128.42
-Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794938206;
+	b=Sr7YpMDZ5k1cGqyeduwzzYUmNAxRNcdpUVn3rEHunoH6OkTmqdzVQ0iqBf1nsH2JonzA
+	 R7742UPRN/OndYffarVmebsJQbSNtrE41vH2QjtkY5RdgVfTTrW6KmMYHaEE7sRyBSkAr
+	 psuFGL8dg85dw488Yx+bqlvtHJtn3unSOIEuO8ACee1uraJb3jhfhEMoBuIS0WuyvqZI5
+	 BfcAcOqJhiMRGWQbBYggXpGe4tf1BlB3PV5Cp8lhiJkEXptY4n1ay6vbHxj7bTcn3ShJr
+	 OAkeC7ijxBJS7NHz6MTGcq5niMSC/uNy2KeNU91gDLhqEDcTimgxDYjL+9dUAv1T84w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794938206;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=w7dFDkqDW/rIFGxkStx87/r7LXJ3QjdIRNRvmQ7tuZU=;
+	b=KpR0WX8c3Yb22XDi2CO7VYYRrgK1Bd0o8XIHfinBLzTa/Nr7nke5xBeq/O41NdvPb/U0
+	 zHwCHN9/N+Ss8XuLtzTzVMyIIsfbEEOcoMU43g/pdVoBSnZXElq9/DRNjDiFvY4J2osGV
+	 QmN3/2VPAoTCs1jyLBpVKVxMg58DBFABgxo8usqX8H3R0OtpeFv2HlbB3lshFpyh2avNN
+	 42P8lmoynCarP4MRcz0/ad5u6KFVyrAC1JFt0NrFm9hOeFUOvzcef3o21Ucoogw/egdNv
+	 CpWngEpO4nUfp/Nm/3JjyeP5dG5mUTfcF/tApmk+uue0QCSS4CGmC4UkTLu9K7PK+eQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=E0R2D1cv;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 485F6606A331;
+	Tue, 17 Nov 2026 17:56:46 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=E0R2D1cv
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1794938206;
+	b=dntNh03HL9LtJdN2t4erm/9qPmLQF09TrDZrq9G30qiMz3rQl/8WU+LN35B0wPx3zfea
+	 gKP5byWF4+gkdPQbqWJAA0d2uWVBe5wMWsv085h3m4MtB/E7+/FGzAvn4CP5a/b1TaGzq
+	 +qe3byrDjwTTUhHCtEtFeRLGo4Pm0VvpJie9oTabPsqPbVHxrUTkz5O2OzGmtaBEKiKQZ
+	 l2Xk2Cg6t3xB6rLiZUMtFB7+ZRCa8GLw6ZJNEISQRJNxFpH8uXPSrjTjY+3kuexxSMu8n
+	 cpEkFL+OmSSkiHy7ZJ5j+OvbQxTXY+VfUWqlq905aGjYxclGHVUGhf6GOPwIZXTMlzg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1794938206;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=w7dFDkqDW/rIFGxkStx87/r7LXJ3QjdIRNRvmQ7tuZU=;
+	b=dRIXIhiz3xK9QKdRhcmenvOueLGFx6Nlgx4WRdBLY7py6VwiI0iQfpLTBJCsn4OSGrtY
+	 46Tz9Q/2JlMUzap8H9YkmdOdvz4Lgkyg+z6wjlFnwvaWBKXw/kxxCI3M6KdR+0CTbSbJZ
+	 walS4v/CnE5U6DTEFUG+HXnD90TLHrt29OPOD/H5Jo6zwZ91E2nXbsDHXZHnIORX1E2nJ
+	 Ez5H9jLjnbIYKyQ4+4Sx1u/QHzCiVJ2Y1+k5qguOfUuPuvyd+2r41pD4fH5L9+3z+BOYB
+	 vtISoQ+uK2ej7RTJUuH4pDphw30XI2djIuP0RmfEH8v0uM3AJ5SA7yE0p79pbsYU82w==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73456606A332
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:56:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 73456606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iU/sirU+
-Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-49d05d51553so1056105e9.2
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 09:56:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794938206; x=1795543006; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=pD8vNDgtYkqY5yb1vjvicd9DBKj0i2pqXmdMkGJ2JPs=;
-        b=iU/sirU+F0zi2E3I7tubksI3ZnG+s1ky371W+kT4xc5sPQdCBLussGOH1HjbBjS8ng
-         pDIHHQktP4m4tUiIiarGkzoaBU50QCthCYedutBM4Fajmf61YCNwkIY5LMM3Ds+WiCwJ
-         wT36xAr+PLyUmdEIs33GRNFcnK+CXGyNK9QqRUUZm76pmunhUS/wGSgPl+IjxKqi4UWj
-         c10sGmJo1V7Jhagn7LgBH/j3hxAiEybMJt4MwUKxFpoLIH9dWms5ZlQKilNWcg7Md7fX
-         G2BRKOVQo0OOHMVX1FWrtGtngNgqfSFdtCw+fHv3g7DvLF1HfWM+0Xp/i9l+iVZBiz/f
-         bHwA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794938206; x=1795543006;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=pD8vNDgtYkqY5yb1vjvicd9DBKj0i2pqXmdMkGJ2JPs=;
-        b=rH5x3a7An9YlgBi2jBaqeXEFHhiLkS1v+LvMPx5kmzE+JF6GtMgtoGiVvs00WIet+x
-         jPf+UyqoQcjiK/jE5c8YfnA/+lGj/bZO7j4Ir7MncR+ZBYd09XWPDil5+aRx2M0dqXuW
-         nrCvCB5+m/vlGw65wFD/eLA3uGKxXRjo2Bxte3cClii8ok5aGxv12sLlLCHASiwrnwRc
-         2+HOe5kPMdf+gXjx2f17gQKjqvz27DxlcOVRucXXiKiXXElO2IYWfKAbtFFv50TZcXa/
-         GsfpTdC7m5uqSl/WTCSBxYMT/46QW/OPKFhwwewRl5zQniOOm2GKCg7egks7SaWqvSNj
-         bj8g==
-X-Forwarded-Encrypted: i=1; AL+hErG7hPcPfcDiSkCdjkJrmEjtbgk0qyUc37wj/ZOtsAj+G3o3fekm1M7xtYwDr9MYy1bOcWHDZ6cXZvjDjRw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8j2TmFMX3QFklExzq9qEF2Od+jR7oH4ZRY1Bdnulr7gXUOx9uv
-	HiJDBO8NQ6wo8YBTfb6r6101Z1s6gsk3slEMOzEQhe9vrUKIkLXN3IfQ
-X-Gm-Gg: AYBFou0/kwzrlwcWufMn6VuCPB0Tb+Hgox7GUHaQGZi7ydcy+gMO5mw4Exmr3/hZ+W4
-	TeXhGhJgHh8vYRRT2Rqt0qat256OTqJ9F4tE4Tf3TnjgXnVGa91flNt0YJb10wRbyctkmjZA9wp
-	6cyIMREQGo+71rYzM7s37yM95qf5X5+ZEQCDhJOFnld+wHwKPqUrz+CCX3Sr2wtpHaZWSSBlw8r
-	3sQr6lVDtGQijmGm8ULlImbByeXOyib3u7fA+A9H49TxObWmQIFjJarZ/uzdyoD/x7/B6cRSZtG
-	Ef0HiAJiKlw7z2uWkhykdkpcxz5scr/bF/20IlkgZg82XrORftczA2Cv9gyBdW0DXLWZ9jGRpTP
-	7I3wvuRvOdGDKVj5XWoTS+lO+cxOZ3pV3bd3lnHng3DXhijhUzkYHMM9K4MBieoPH/UhedqtDop
-	Dp+TM4j00SyR9kh7r0gxPwjQSEo849KAw7WzLkPJEe0fLZL8wYtp4M0ZkriYr9C3r2oIgVrqboi
-	+FdMNSlTUjBknP1bfwfIw+AyBDzR8cL4t8a58bsM254OQBWoHfpYU4HPIH5eg6iMld6fbXy/z/J
-	09FeRsMDa9DYeqGtm+IbWKQ/0NCNAMXxjGVmdS6divonfA==
-X-Received: by 2002:a05:600c:8b57:b0:4bb:6118:4f57 with SMTP id 5b1f17b1804b1-4bb6118533emr268214555e9.18.1794938205744;
-        Tue, 17 Nov 2026 09:56:45 -0800 (PST)
-Received: from Kyiv.home.arpa ([2a0e:1d47:4093:b600:11a1:dc8c:1ed6:51c5])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7d2b74d6sm1292895e9.9.2026.11.17.09.56.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 09:56:45 -0800 (PST)
-From: Volodymyr Chapman <volodymyrchapman@gmail.com>
-To: andriy.shevchenko@intel.com
-Cc: hansg@kernel.org,
-	mchehab@kernel.org,
-	sakari.ailus@linux.intel.com,
-	andy@kernel.org,
-	gregkh@linuxfoundation.org,
-	linux-media@vger.kernel.org,
-	linux-staging@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] media: atomisp: Don't enumerate frame sizes the preview pipe can't output
-Date: Tue, 17 Nov 2026 17:56:35 +0000
-Message-ID: <20261117175635.11790-1-volodymyrchapman@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <avwtA3b3XMkGXPfZ@ashevche-desk.local>
-References: <20261116175750.21905-1-volodymyrchapman@gmail.com> <20261116175750.21905-2-volodymyrchapman@gmail.com> <avwtA3b3XMkGXPfZ@ashevche-desk.local>
+	by smtp.kernel.org (Postfix) with ESMTPS id 47B8F1F000C8;
+	Tue, 17 Nov 2026 17:56:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794938206;
+	bh=w7dFDkqDW/rIFGxkStx87/r7LXJ3QjdIRNRvmQ7tuZU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=E0R2D1cvShTyhYIhtf9KYGtg0tJriuM9nJqUAcY/CjG0oxROHAP5hYV0Keag2naOg
+	 Cd5QsYmaW2NzuNkByx7MEsOg8uOlgINu4iqApMeHpCa15R6YXEtHHqkPfaAJW67yFO
+	 sE7ugFlnS3sT0nfvVJTgv2c8rkt0Ogvrf1I0kDRgVZ09V9qYwDOYrikUIdzS+I8hml
+	 IrH+Lksr8SbUW9+Flrp+s9sxLXeYAplvEcS6IMmZdDvxByhl/kyGG04NVAZSQxFiN8
+	 v6m2skqHF9mCYVkpYcX9RA64RPsQXViXD2JTU2hZIm7IzD0LsdLlDErCdrSEgQzJhY
+	 wmm6KbN3nt8Xw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id B98A74AA22;
+	Tue, 17 Nov 2026 17:56:44 +0000 (UTC)
+From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
+Date: Tue, 17 Nov 2026 19:56:32 +0200
+Subject: [PATCH v2 1/3] iio: adc: mt6359-auxadc: correct channel types to
+ IIO_VOLTAGE
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,44 +83,171 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261117-6768-6358-fixes-v2-1-1ffc3c2f3c80@protonmail.com>
+References: <20261117-6768-6358-fixes-v2-0-1ffc3c2f3c80@protonmail.com>
+In-Reply-To: <20261117-6768-6358-fixes-v2-0-1ffc3c2f3c80@protonmail.com>
+To: Jonathan Cameron <jic23@kernel.org>, 
+ David Lechner <dlechner@baylibre.com>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Andy Shevchenko <andy@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+Cc: Chen-Yu Tsai <wenst@chromium.org>, linux-iio@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, Roman Vivchar <rva333@protonmail.com>, 
+ Jonathan Cameron <jic23@kernel.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794938202; l=7888;
+ i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
+ bh=KZggTfnE6JmUpUfl7f5ZEwmXhpX3uI69FyQirUUycUE=;
+ b=IhpWQjYn+laG4mBWsmKF5XV4bpV+NQ29y985B9QFDw1+1TZpwL6a5frdjbHEcYjSc3mNwPb0D
+ 0KRB40tlJWKCwsPybdQScU6fwUuFAkDjnCz8nmRXU1K0q/RuEcvyL2v
+X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
+ pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
+X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
+ auth_id=777
+X-Original-From: Roman Vivchar <rva333@protonmail.com>
+Reply-To: rva333@protonmail.com
+Content-Transfer-Encoding: 7bit
 
-Hi Andy,
+From: Roman Vivchar <rva333@protonmail.com>
 
-On Tue, Nov 17, 2026 at 12:31:31PM +0200, Andy Shevchenko wrote:
-> So, what makes us stop implementing the crop support there?
+All mt6357, mt6358, mt6359 and mt6363 declare their channel types as
+voltage, resistance and temperature. This is wrong, since the PMIC
+doesn't include any built-in conversion block. It simply measures
+voltage, while consumers are supposed to convert these readings to
+the actual temperature or resistance using efuse calibration.
 
-atomisp only uses its crop path for sensors whose driver supports the
-NATIVE_SIZE, CROP_DEFAULT and CROP selection targets
-(atomisp_init_sensor()). The IMX175 driver does not yet: in his review of
-it, Dave Stevenson suggested that binning, and possibly cropping, should
-wait for the Common Raw Sensor Model. Once the sensor supports cropping,
-atomisp takes the atomisp_enum_framesizes_crop() path and this code
-is not used for it.
+Correct all channel types to IIO_VOLTAGE.
 
-Even with crop support, preview mode would list nothing larger than
-1920x1440: that is the largest entry in the frame_sizes table of
-atomisp_enum_framesizes_crop_inner(). This patch applies the same limit
-to the non-crop path.
+Fixes: 3587914bf61d ("iio: adc: Add support for MediaTek MT6357/8/9 Auxiliary ADC")
+Fixes: d6f49313272b ("iio: adc: mt6359: Add support for MediaTek MT6363 PMIC AUXADC")
+Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+---
+ drivers/iio/adc/mt6359-auxadc.c | 78 ++++++++++++++++++++---------------------
+ 1 file changed, 39 insertions(+), 39 deletions(-)
 
-> No need to repeat these two paragraphs, make sure they are in the cover letter.
+diff --git a/drivers/iio/adc/mt6359-auxadc.c b/drivers/iio/adc/mt6359-auxadc.c
+index 88b0e26309e5..951d236f972b 100644
+--- a/drivers/iio/adc/mt6359-auxadc.c
++++ b/drivers/iio/adc/mt6359-auxadc.c
+@@ -205,18 +205,18 @@ struct mtk_pmic_auxadc_info {
+ }
+ 
+ static const struct iio_chan_spec mt6357_auxadc_channels[] = {
+-	MTK_PMIC_IIO_CHAN(MT6357, bat_adc, BATADC, 0, 15, IIO_RESISTANCE),
+-	MTK_PMIC_IIO_CHAN(MT6357, isense, ISENSE, 1, 12, IIO_CURRENT),
+-	MTK_PMIC_IIO_CHAN(MT6357, cdt_v, VCDT, 2, 12, IIO_TEMP),
+-	MTK_PMIC_IIO_CHAN(MT6357, batt_temp, BAT_TEMP, 3, 12, IIO_TEMP),
+-	MTK_PMIC_IIO_CHAN(MT6357, chip_temp, CHIP_TEMP, 4, 12, IIO_TEMP),
+-	MTK_PMIC_IIO_CHAN(MT6357, acc_det, ACCDET, 5, 12, IIO_RESISTANCE),
++	MTK_PMIC_IIO_CHAN(MT6357, bat_adc, BATADC, 0, 15, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6357, isense, ISENSE, 1, 12, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6357, cdt_v, VCDT, 2, 12, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6357, batt_temp, BAT_TEMP, 3, 12, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6357, chip_temp, CHIP_TEMP, 4, 12, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6357, acc_det, ACCDET, 5, 12, IIO_VOLTAGE),
+ 	MTK_PMIC_IIO_CHAN(MT6357, dcxo_v, VDCXO, 6, 12, IIO_VOLTAGE),
+-	MTK_PMIC_IIO_CHAN(MT6357, tsx_temp, TSX_TEMP, 7, 15, IIO_TEMP),
+-	MTK_PMIC_IIO_CHAN(MT6357, hp_ofs_cal, HPOFS_CAL, 9, 15, IIO_RESISTANCE),
+-	MTK_PMIC_IIO_CHAN(MT6357, dcxo_temp, DCXO_TEMP, 36, 15, IIO_TEMP),
+-	MTK_PMIC_IIO_CHAN(MT6357, vcore_temp, VCORE_TEMP, 40, 12, IIO_TEMP),
+-	MTK_PMIC_IIO_CHAN(MT6357, vproc_temp, VPROC_TEMP, 41, 12, IIO_TEMP),
++	MTK_PMIC_IIO_CHAN(MT6357, tsx_temp, TSX_TEMP, 7, 15, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6357, hp_ofs_cal, HPOFS_CAL, 9, 15, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6357, dcxo_temp, DCXO_TEMP, 36, 15, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6357, vcore_temp, VCORE_TEMP, 40, 12, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6357, vproc_temp, VPROC_TEMP, 41, 12, IIO_VOLTAGE),
+ 
+ 	/* Battery impedance channels */
+ 	MTK_PMIC_IIO_CHAN(MT6357, batt_v, VBAT, 0, 15, IIO_VOLTAGE),
+@@ -251,19 +251,19 @@ static const u16 mt6357_auxadc_regs[] = {
+ };
+ 
+ static const struct iio_chan_spec mt6358_auxadc_channels[] = {
+-	MTK_PMIC_IIO_CHAN(MT6358, bat_adc, BATADC, 0, 15, IIO_RESISTANCE),
+-	MTK_PMIC_IIO_CHAN(MT6358, cdt_v, VCDT, 2, 12, IIO_TEMP),
+-	MTK_PMIC_IIO_CHAN(MT6358, batt_temp, BAT_TEMP, 3, 12, IIO_TEMP),
+-	MTK_PMIC_IIO_CHAN(MT6358, chip_temp, CHIP_TEMP, 4, 12, IIO_TEMP),
+-	MTK_PMIC_IIO_CHAN(MT6358, acc_det, ACCDET, 5, 12, IIO_RESISTANCE),
++	MTK_PMIC_IIO_CHAN(MT6358, bat_adc, BATADC, 0, 15, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6358, cdt_v, VCDT, 2, 12, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6358, batt_temp, BAT_TEMP, 3, 12, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6358, chip_temp, CHIP_TEMP, 4, 12, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6358, acc_det, ACCDET, 5, 12, IIO_VOLTAGE),
+ 	MTK_PMIC_IIO_CHAN(MT6358, dcxo_v, VDCXO, 6, 12, IIO_VOLTAGE),
+-	MTK_PMIC_IIO_CHAN(MT6358, tsx_temp, TSX_TEMP, 7, 15, IIO_TEMP),
+-	MTK_PMIC_IIO_CHAN(MT6358, hp_ofs_cal, HPOFS_CAL, 9, 15, IIO_RESISTANCE),
+-	MTK_PMIC_IIO_CHAN(MT6358, dcxo_temp, DCXO_TEMP, 10, 15, IIO_TEMP),
++	MTK_PMIC_IIO_CHAN(MT6358, tsx_temp, TSX_TEMP, 7, 15, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6358, hp_ofs_cal, HPOFS_CAL, 9, 15, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6358, dcxo_temp, DCXO_TEMP, 10, 15, IIO_VOLTAGE),
+ 	MTK_PMIC_IIO_CHAN(MT6358, bif_v, VBIF, 11, 12, IIO_VOLTAGE),
+-	MTK_PMIC_IIO_CHAN(MT6358, vcore_temp, VCORE_TEMP, 38, 12, IIO_TEMP),
+-	MTK_PMIC_IIO_CHAN(MT6358, vproc_temp, VPROC_TEMP, 39, 12, IIO_TEMP),
+-	MTK_PMIC_IIO_CHAN(MT6358, vgpu_temp, VGPU_TEMP, 40, 12, IIO_TEMP),
++	MTK_PMIC_IIO_CHAN(MT6358, vcore_temp, VCORE_TEMP, 38, 12, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6358, vproc_temp, VPROC_TEMP, 39, 12, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6358, vgpu_temp, VGPU_TEMP, 40, 12, IIO_VOLTAGE),
+ 
+ 	/* Battery impedance channels */
+ 	MTK_PMIC_IIO_CHAN(MT6358, batt_v, VBAT, 0, 15, IIO_VOLTAGE),
+@@ -299,18 +299,18 @@ static const u16 mt6358_auxadc_regs[] = {
+ };
+ 
+ static const struct iio_chan_spec mt6359_auxadc_channels[] = {
+-	MTK_PMIC_IIO_CHAN(MT6359, bat_adc, BATADC, 0, 15, IIO_RESISTANCE),
+-	MTK_PMIC_IIO_CHAN(MT6359, batt_temp, BAT_TEMP, 3, 12, IIO_TEMP),
+-	MTK_PMIC_IIO_CHAN(MT6359, chip_temp, CHIP_TEMP, 4, 12, IIO_TEMP),
+-	MTK_PMIC_IIO_CHAN(MT6359, acc_det, ACCDET, 5, 12, IIO_RESISTANCE),
++	MTK_PMIC_IIO_CHAN(MT6359, bat_adc, BATADC, 0, 15, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6359, batt_temp, BAT_TEMP, 3, 12, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6359, chip_temp, CHIP_TEMP, 4, 12, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6359, acc_det, ACCDET, 5, 12, IIO_VOLTAGE),
+ 	MTK_PMIC_IIO_CHAN(MT6359, dcxo_v, VDCXO, 6, 12, IIO_VOLTAGE),
+-	MTK_PMIC_IIO_CHAN(MT6359, tsx_temp, TSX_TEMP, 7, 15, IIO_TEMP),
+-	MTK_PMIC_IIO_CHAN(MT6359, hp_ofs_cal, HPOFS_CAL, 9, 15, IIO_RESISTANCE),
+-	MTK_PMIC_IIO_CHAN(MT6359, dcxo_temp, DCXO_TEMP, 10, 15, IIO_TEMP),
++	MTK_PMIC_IIO_CHAN(MT6359, tsx_temp, TSX_TEMP, 7, 15, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6359, hp_ofs_cal, HPOFS_CAL, 9, 15, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6359, dcxo_temp, DCXO_TEMP, 10, 15, IIO_VOLTAGE),
+ 	MTK_PMIC_IIO_CHAN(MT6359, bif_v, VBIF, 11, 12, IIO_VOLTAGE),
+-	MTK_PMIC_IIO_CHAN(MT6359, vcore_temp, VCORE_TEMP, 30, 12, IIO_TEMP),
+-	MTK_PMIC_IIO_CHAN(MT6359, vproc_temp, VPROC_TEMP, 31, 12, IIO_TEMP),
+-	MTK_PMIC_IIO_CHAN(MT6359, vgpu_temp, VGPU_TEMP, 32, 12, IIO_TEMP),
++	MTK_PMIC_IIO_CHAN(MT6359, vcore_temp, VCORE_TEMP, 30, 12, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6359, vproc_temp, VPROC_TEMP, 31, 12, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6359, vgpu_temp, VGPU_TEMP, 32, 12, IIO_VOLTAGE),
+ 
+ 	/* Battery impedance channels */
+ 	MTK_PMIC_IIO_CHAN(MT6359, batt_v, VBAT, 0, 15, IIO_VOLTAGE),
+@@ -349,15 +349,15 @@ static const u16 mt6359_auxadc_regs[] = {
+ };
+ 
+ static const struct iio_chan_spec mt6363_auxadc_channels[] = {
+-	MTK_PMIC_IIO_CHAN(MT6363, bat_adc, BATADC, 0, 15, IIO_RESISTANCE),
+-	MTK_PMIC_IIO_CHAN(MT6363, cdt_v, VCDT, 2, 12, IIO_TEMP),
+-	MTK_PMIC_IIO_CHAN(MT6363, batt_temp, BAT_TEMP, 3, 12, IIO_TEMP),
+-	MTK_PMIC_IIO_CHAN(MT6363, chip_temp, CHIP_TEMP, 4, 12, IIO_TEMP),
++	MTK_PMIC_IIO_CHAN(MT6363, bat_adc, BATADC, 0, 15, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6363, cdt_v, VCDT, 2, 12, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6363, batt_temp, BAT_TEMP, 3, 12, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6363, chip_temp, CHIP_TEMP, 4, 12, IIO_VOLTAGE),
+ 	MTK_PMIC_IIO_CHAN(MT6363, sys_sns_v, VSYSSNS, 6, 15, IIO_VOLTAGE),
+ 	MTK_PMIC_IIO_CHAN(MT6363, tref_v, VTREF, 11, 12, IIO_VOLTAGE),
+-	MTK_PMIC_IIO_CHAN(MT6363, vcore_temp, VCORE_TEMP, 38, 12, IIO_TEMP),
+-	MTK_PMIC_IIO_CHAN(MT6363, vproc_temp, VPROC_TEMP, 39, 12, IIO_TEMP),
+-	MTK_PMIC_IIO_CHAN(MT6363, vgpu_temp, VGPU_TEMP, 40, 12, IIO_TEMP),
++	MTK_PMIC_IIO_CHAN(MT6363, vcore_temp, VCORE_TEMP, 38, 12, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6363, vproc_temp, VPROC_TEMP, 39, 12, IIO_VOLTAGE),
++	MTK_PMIC_IIO_CHAN(MT6363, vgpu_temp, VGPU_TEMP, 40, 12, IIO_VOLTAGE),
+ 
+ 	/* For VIN, ADC12 holds the result depending on which GPIO was activated */
+ 	MTK_PMIC_IIO_CHAN(MT6363, in1_v, VIN1, 45, 15, IIO_VOLTAGE),
 
-Of course. I will keep them in the cover letter only in v2.
+-- 
+2.56.1
 
-> TBH, this feels like a hack, but I'm not v4l2/media reviewer/maintainer,
-> so I don't know if this approach is legit.
 
-The intent is to make VIDIOC_ENUM_FRAMESIZES match what
-atomisp_try_fmt() returns, which already clamps the size to 1920x1440 in
-preview mode. Without this patch the IMX175 lists 3264x2448 and
-1624x1216, and TRY_FMT for 3264x2448 returns 1624x1216. With it, the
-IMX175 lists only 1624x1216 and the OV2722 lists 1916x1076, 1616x1076
-and 1436x1076. Every listed size is returned unchanged by TRY_FMT, and
-for the other sizes I tried (640x480 up to 3264x2448) TRY_FMT
-returned only listed sizes.
-
-Hans, Sakari, would you prefer this, or a different approach for the
-non-crop path?
-
-Thanks,
-Volodymyr
