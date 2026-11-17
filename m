@@ -1,112 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794953654;
-	b=4+tmBkFJdY0Q4phZN1uuq6avKIyqesrtjJc8NFK6feXMolTITbazJnzmB7D6p5fK1npk
-	 RcY5tFVnVJO1mjOZP66IhcqYL0UfkWRHxVbAs0Yfu+S1xg8bv5/4O7yJz5MkYnEsk0Qel
-	 gdPNLiVf1W9znl7szn4ePD+aIYqUKeyCYDdrI2phFzglu8NrrlLctk47uZxZCBTAHccG1
-	 1KxE6AW9LokCn6U8/oCs2JBdXTC6VRcIYVpv2rXVd7Oe12njRA3SMw2UqxthkFq2k7So/
-	 WOBWqOlXxmah0KfajC67OU9hVbDl15AlaIe4rthptDUuFBmEZNy4+gynUBZDemlZt0A==
+	t=1794953702;
+	b=xvAuOQew6UNJukdu3+SBppxQWWx9zlsRuEHoQWI9i2JZpf4QaIs6J8ArY7bebplYmNPA
+	 tW9R5avjZSzNGaeLvlLkftRjuw29MYKR9dYkQY8cGFKkmBjmY/02Py+jO1wxg6YP6qvzK
+	 9Mn5a353WVSmKZYHbSPvC2fQjlDBUaIvi+CJpJPGLPV1Bj+e1AKurLZ9nUeemhDZUg9IX
+	 WbFQxdJZWzC2l6uN6MP3GKQyNONoqma8+9ZQuWJ9yDWCeaMHT6MEWyq3yIGXLaW2BATZX
+	 PwNs58zxkavXUBh2pcowMojN8XdjNZsQLyoW8lUi/KbS6kGlz1zbpQ+xnSgLC0PP7uA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794953654;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-GUID:X-Authority-Analysis:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=5Sx6E2eGRV5SxQp5i7sVIsOeukXm/V4zepzrSLP5HDw=;
-	b=ql7g98eqisEaf15aEhTNpoGTcOoE/JWg00GeprVpVDdXQ1tWUMGCvrGB3jE7NFKdBklH
-	 1NMAXrs8CHHjqIOfhD5sEvvaj3CyouLg8eY+hdHzIfirLSo+4H/1klguEFty5t2zHTeDc
-	 OrMOoC18xA446YLZDh32N08+uqC0TMQZ28B5FrdWNvgcSvWRvQq9z4QojFy0uP9+8wfcZ
-	 d+yPBC0QapflY3y2Kr8uuP8hkorFXFe4S9vzPdeklTMxAO59RlbH38SR4Pb8cKyG8Z/sd
-	 lLiKXvOGkeK34gjpy6FR2lQwq9Mg5WN7nP+b1AQVrQGICfZ13bUskdy1VIlzSG3XW0w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794953702;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=AAv7hl5MrgB1vpOHPo0LiyBaHE4YcZ7pafpcrpMVxdk=;
+	b=Eg/ebZGCos18HsviVbeuzeP9WoR7MPcyW6aNidWZ1R9n9yDCrh5Z19j2d3iZEQ/ovJS/
+	 b5VYljYG6dcYpKdO3BY/cDyvfR529U84tTkq+7uXBzhh6GEYRDX+m/GPG2QxkWz7SuC3P
+	 DOM4Vhn78xqiiSvC7oAKIrTD4nLADWvge2NYLbiyZ8qnyVbqmuhSLj7goPdDksg0PRjsg
+	 N1pbJN4dH2b+5HEo6ow5Z8DOSQdoJe1/sWYW6fZVmWreLJM8Hc9ls5LyIc4R8m2Lv2v7j
+	 CN/5DgNBaKKcwtxWMPfcExPXPSqDrNuro2yFwCyO2fI/foAtELbvNWb+ZTnJWiux65g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=iWmW4Vqc;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=gx3DMGuH;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ptOjFYU6;
+	arc=none smtp.remote-ip=209.85.161.49
+Received: from mail-oo1-f49.google.com (mail-oo1-f49.google.com [209.85.161.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D91A606A32C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:14:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D91A606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E893606A31C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:15:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E893606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=iWmW4Vqc;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=gx3DMGuH
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AHKfI2W2368841
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:14:12 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	5Sx6E2eGRV5SxQp5i7sVIsOeukXm/V4zepzrSLP5HDw=; b=iWmW4VqczE3QyEmb
-	Swbt8vC3VUy+iyYxwzkQml92CjoJCXL0YeWGLkWxyro296gRj7V9rvvdRkurgB1P
-	yUcEbN1auMsw1st8lbi8CoNldZy3Jk6JxdT1pS630Ji6dFjleNFQYFkyuSKouRvp
-	0KGv5u0emOa0MY0DiNgZ4L77UQTkYBxabwuyWlrDoyQSVx4uT8LKSpfB7+dEO+8M
-	Lw2UDd/pA9vF6xSU7pmYyTSlJK8tfe2xnsKhrwT4zkwbPUZhbQINvbXHwhjyg0u6
-	phN5s5aryd91ARI4g/hk97PaCFJjUM4EV7OrbiPVQTTREgOHO3wKcY8HaAUO1KpL
-	qEa/9Q==
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0kccbamq-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:14:11 +0000 (GMT)
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-37549877380so344652eec.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 14:14:11 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ptOjFYU6
+Received: by mail-oo1-f49.google.com with SMTP id 006d021491bc7-6d68de53053so253249eaf.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 14:15:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1794953651; x=1795558451; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=5Sx6E2eGRV5SxQp5i7sVIsOeukXm/V4zepzrSLP5HDw=;
-        b=gx3DMGuHpXqs2lDmqIvNAXqohkHNDifNlB1ZnYFjfcVkqz/bOyyx/HPL6tlYDu/QcR
-         PM4wDidIbpW73OcU9ZemxiYDyQ+t8cecj165oY3eN/2BpTENKWc7Sg3ls2ZsdKYZA4JY
-         NdVmJqIVA+0sElyylKtzeNPcG15dPwkMrmhlAWHB0dEJ/MtVaQIpsAbpoUJhs75KoouB
-         i0Kl3De18PCayaDPxgUXzUALo4fwviehNAmJP34lG5J1dbxF4PDyZzhqsWJIzhr9K1vb
-         sjq+yHKo9l2ho8+sGeFuWmbcZ2QLp6MuNZPA/HUhvwtUz1StwvZXRoxghWrBhzwioAWA
-         nAKw==
+        d=gmail.com; s=20260707; t=1794953700; x=1795558500; darn=vger.kernel.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=AAv7hl5MrgB1vpOHPo0LiyBaHE4YcZ7pafpcrpMVxdk=;
+        b=ptOjFYU6l9FDcqT0zN8EWl/bUXX6gCNlEGOUzVDF7Fg6lk0a6kY3Eq4Ix6obStoBaz
+         ZoZ8SOJ66lrCzYI3zgDnpa7gBY8cpoSfp8K8qoL9JamFnCrv8qQmEpOf6AsuAv/kx03g
+         1a9YigG9SFPSTIfmTsxn7xReA1G4Bg/NmGmms3LYwXqZlo/y6QKQavr/HIf3gCn8D4Nx
+         a/zFFxW6uksKuXS8pbOwhpAvXnvLwmWSq7g/VPBR2MOns9JlZ2IVKCpWsW7SyiXibRU6
+         CM4HOky+YXR3yjYohk47p/+lqnXkrjU6b1OrsUzeCFA24VuoIC06+EIUYSmvw02vD9qY
+         +6Vg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794953651; x=1795558451;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=5Sx6E2eGRV5SxQp5i7sVIsOeukXm/V4zepzrSLP5HDw=;
-        b=GVF1+bXJCY/dwtst2hXgeWR/O0p1/sV2w/l24CSEOh4dgoPMMfSFu0czsDduXU6n8s
-         G1cx04XdUcAyP2oNHqAZwcq7wEwE2MUEijDTuofEc9yjZCDK88CTWCsIkJ3X8S5hZaxm
-         clFZgHF7u3x4UegqCWdmua4lz1oRcyVakV9hiNn8gD8XaA8MPzufEznQuDv6CFcm1xTL
-         QJ9zozmY+A92NMUyWTxwNf5WSNUqsx8SjE1EJIZXQ+9s8Z+/wsnPJFbFIln1Ax2hoxmT
-         /r7HxHUIksnWzLeqIWqQ/JcNsDg7TxzN1fBwqPwC70eXjCemW6U/dVF4Rr8j4UHvrQZe
-         jVEg==
-X-Forwarded-Encrypted: i=1; AL+hErF54fvyvJ1Ol6M+f7eAl50zcqrjKJYJPpL355Xkewa3ESGe9f8WpymERMKSal17tf9Sw4I1VouEeFmDVUA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/VT5votvk2jYG2Et2igvqFAhTkc7yD8gafSh7dvdjI27zRSxYR
-	ly+JXPZuHRjGw6GXCXe9s36sBJr8M+lYNBEpNUEaFxF+Rz2ibTSO2IBrb0esHdJzjQAZa7FZbk2
-	bzuin/yJJiVAZX2OCDIGBmrbunT47HP1oz2V02FlrCZ/QAgufnsE2Tl6iBBN6F2DpvOU=
-X-Gm-Gg: AZFdTZdlUPmyaIFvWyzs56r2SzM1pSOYpdaaWngj9uQEa7MhUiRu+PUbvymOGno/MPO
-	kn5TSVujST5uVUUCBX76zXGHBAMT78I4MM5F2iGU9hBlE2QVGyJ2Q0ktYE7E6WbfYlRcdsTFAJ1
-	3P5abEDsLKWSAMMJizV4r5F7PbtvEga5wiyuPR40gdU5zp4v4LKqGlKmEW4AZ9PFZJHgsVZBFVP
-	o2mR/sc2E6rzZdbhd4mcvYF4i+H1lT/4uVpO8WIgNkZxGPBcjeoBDEolUnE3mHM89OO9U4/FD6j
-	0bzX/7ugnlBpovohu5yzQjcqk5723r1xRx2GaET/yvB8hdcaRIvY+V+hb0KiNeKGKhIddWrHoG7
-	0cDAd5Ah4YgGcMkzf6T5gmfV8ypauzlrFgBHA0EE7C1fabzWwMXCrEdT6Y3l4xDjsfDvITlHLlw
-	==
-X-Received: by 2002:a05:7300:d117:b0:36d:394d:e690 with SMTP id 5a478bee46e88-38282cb705amr578489eec.40.1794953650674;
-        Tue, 17 Nov 2026 14:14:10 -0800 (PST)
-X-Received: by 2002:a05:7300:d117:b0:36d:394d:e690 with SMTP id 5a478bee46e88-38282cb705amr578453eec.40.1794953649982;
-        Tue, 17 Nov 2026 14:14:09 -0800 (PST)
-Received: from [192.168.1.12] ([106.222.233.152])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a72eb2f3sm1066399eec.18.2026.11.17.14.14.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Nov 2026 14:14:09 -0800 (PST)
-Message-ID: <079a8518-bca9-4f2a-89b5-eb2d17a910a8@oss.qualcomm.com>
-Date: Wed, 18 Nov 2026 03:44:01 +0530
+        d=1e100.net; s=20260707; t=1794953700; x=1795558500;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=AAv7hl5MrgB1vpOHPo0LiyBaHE4YcZ7pafpcrpMVxdk=;
+        b=AOLw2YeZxSrWmTH6mkufN3/cIUgvzIBs6qjmB+Hjd9ctg7T259DvfikwGJEc5artD+
+         x7dojja2Jq3O4/qeVquFKPIfL7lDJwmiydZK6exhm81YfH1Mjh7nNsZNDHFaqaXD5mw1
+         l+n3m9XViKipdUolLTRSg32Vna5BZGJiRc8AgUSFwHNhNkuoLm6FtGR9EFe/AstxHU/f
+         n8EJObdRkLce5RZSuxHcvaFj4Ut0lU+sKDchNVfNLJcJ6SOKj5kTfjfZelMmZDfEEQFn
+         NJ0jL4ZRuD0pOzvuvLxJna7d848R+oE0ebmJ8FI+Iw1o2/PzGzac31hKoqGSXqWWcagK
+         zurA==
+X-Gm-Message-State: APuU4Z8R5ybMLSHdMzmbRUI1qK/G5Nh4wFzDfef6JiZ/ePLYQyegaSyB
+	bvYhEF5M3y5KgSvi32UlpxKlFCsqUrR258lhIxLJOg86vox5IFpVtJJj
+X-Gm-Gg: AYBFou3EWR54B+E9vOjZZswrBuKBtkkFrWwTYfMHh2nAZPlC055YewtkYhLXEQKAsah
+	n7g4IUnvGgd4w+oxm7JIOxAAXznxUd0wRZ7St2iq9+86nrXFVadHFzhvcFoQsCQuO+iDpaNZzA0
+	Mf+//t0Zeip6dzI9S7bMVN6Rx1Y5aOcE+z/ER2tUJ2yNmHESle7W/CaJk2I3drFINzZSGNtmvu6
+	HLNRCJ8nJCfJX0ewboKI0H1Ok58Ro6mxmznPUAzbucbjAfHZMqOB60uEbjHaRRbZWUlSbVbjbni
+	OkfOspKdAcMQChBmmvZeCUcOK8+GWFkq2CPAaGlo/UeH31QQEvy7qHci2n0UJnmSxPrAy9dA7BO
+	dKJzKqOqDmNgU86TgReFqmo0oKUGWRiDNXyS0In9i2Lye8KPuDT+bBcgOu339KBmhhUlJEFmZU8
+	QQwxzCQqEPqdzBeW/qBqL0IezqtEHmgOntBLQkGIwnf2dPStGwVL8SuGkJYLIMmeQZIUxh5u9mK
+	qCdeXFCiyPbtSYGXekDZ9hC2PM7QkI7OckQLsEbFIs27Y+5XgPi2bIGBTOhZRsju5fNGjx1NJtX
+	8foH87Z7/Kw+WH61MQivFR3ZZ2Ewe++1aDmoPE7SI0FuEGScxI3fA7Gg4vYIUVU2bJQa+8zIkdQ
+	2skCrYUyXhZTfP6ilZUgyFkfEWERtVf8ys+IhuAaLps9Kk6DI/E9TokN+/PrrynKXdTG5Dhnz+M
+	3V7mtzLFABloUossPvnPbNZrWvnTOJ43+abtFZ6LtIrQwYDPxbhS46
+X-Received: by 2002:a05:6820:858e:20b0:6f9:59ee:cf9a with SMTP id 006d021491bc7-71b1827bdd0mr450903eaf.7.1794953700241;
+        Tue, 17 Nov 2026 14:15:00 -0800 (PST)
+Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b19450af7sm459727eaf.4.2026.11.17.14.14.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 14:14:57 -0800 (PST)
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Tue, 17 Nov 2026 15:14:46 -0700
+Subject: [PATCH] nvmem: core: validate DT cell bits before allocating the
+ name
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,120 +92,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/5] arm64: dts: qcom: nord: Add GPU cooling
-To: Shawn Guo <shengchao.guo@oss.qualcomm.com>
-Cc: Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Abel Vesa <abelvesa@kernel.org>, linux-arm-msm@vger.kernel.org,
-        dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        Aastha Pandey <aastha.pandey@oss.qualcomm.com>
-References: <20261009-nord-gpu1-v1-0-a06a6c57bde7@oss.qualcomm.com>
- <20261009-nord-gpu1-v1-4-a06a6c57bde7@oss.qualcomm.com>
- <assC2v74wpr3AzI6@QCOM-aGQu4IUr3Y>
-Content-Language: en-US
-From: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-In-Reply-To: <assC2v74wpr3AzI6@QCOM-aGQu4IUr3Y>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDA4OCBTYWx0ZWRfX23y6py1Uf+cu
- dH1b/f/2xU2XpCD/vhuUfHpsK+9TRwlrfftCw0z9WaxicfCzj/bfyCjwFA9QX7QgIDtvbLL4/QQ
- f167LagSlISmzy5numRqbO23dZJw+g0=
-X-Proofpoint-ORIG-GUID: xJ_9fmL3SJGeEfARIcuf6roSiIOLnz66
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDA4OCBTYWx0ZWRfXzCUsODQPhVTv
- qqGEuaJGCnqlgmdYlWUhqUTVOmMCsI0y27stEK3gpgGWiUjGLah5v5D6H0rQivXSqoxrSzT0GKR
- ohFfESouwQtbb1p5lF7VU+0EoDjqwPq/CGKhNT3QMnIy5nlg+VZEk+4kc8kStlWdM0geENvzFOl
- 8aGk3XaYc9vVoPysxeUDbQU1ywfp2hnfJgfj+gL+JXL6WEz6nwcQ6zDb9mq7+BQQXr3753U4ElX
- 5KY181sPW83gfElGyA/l11LNEkkrvUfiPY6EI6K2wh38WMnG+QpcTiWFR7NZH8Pg3xq7VFc7Fvz
- dlhsu+pw4w6m9Lrbv4J6wSKzHSVKNZY2rDdDAKH+othhV/Fi9YCFXIQ7kS1wSW4roHVHBQYqZVZ
- 23oC7AfHLyERRELbcxKQ5dYh9jN4ZHbXYZSLCCwYXwPQO6BXls6XrKdmntiA27+j8W2nV1x1c+n
- ulSx+s/9TK5vB/8ioIQ==
-X-Proofpoint-GUID: xJ_9fmL3SJGeEfARIcuf6roSiIOLnz66
-X-Authority-Analysis: v=2.4 cv=ZP1CCn7b c=1 sm=1 tr=0 ts=6afcd1b3 cx=c_pps
- a=Uww141gWH0fZj/3QKPojxA==:117 a=Q9FbUFTPKQUszr4Og8UIjA==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=EUspDBNiAAAA:8 a=CYWSrXY8TNIhK36ftfwA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=PxkB5W3o20Ba91AHUih5:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-17_04,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 lowpriorityscore=0 impostorscore=0 spamscore=0 bulkscore=0
- adultscore=0 malwarescore=0 clxscore=1015 phishscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611170088
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261117-submit-nvmem-dt-cell-name-v1-v1-1-491cee782e6e@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/y2OQQ6DMAwEv4JyrkmDWpD4SsUBEgNuSaBOQEiIv
+ zdAjyPP7noTHpnQizLZBONCnkYXQd0SofvadQhkIovsnuVKqQL83FgK4BaLFkwAjcMArrYIiwJ
+ 8KqPaPC8exohYMTG2tJ71r+rimH+jDkfn32D8znE3XJpoao8QGLFM+hAmX0rZUUg/yA6HdOROT
+ nMjvbZyIDev8jocjvRMjuT5Who5aUeGa7/a9x9XvjXn6wAAAA==
+X-Change-ID: 20261117-submit-nvmem-dt-cell-name-v1-e51d1f6674dd
+To: Srinivas Kandagatla <srini@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Markus Schneider-Pargmann <msp@baylibre.com>
+Cc: linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+ James Hilliard <james.hilliard1@gmail.com>
+X-Mailer: b4 0.17-dev
 
+An invalid bits property makes nvmem_add_cells_from_dt() return before
+it frees the cell name. Allocate the name after validating the property,
+and fail before invoking the provider fixup if allocation fails.
 
+Fixes: def3173d4f17 ("nvmem: core: Print error on wrong bits DT property")
+Cc: stable@vger.kernel.org
+Link: https://lore.kernel.org/r/sashiko-outbox-219531@kernel.org/
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+---
+ drivers/nvmem/core.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-On 10/11/2026 9:00 AM, Shawn Guo wrote:
-> On Fri, Oct 09, 2026 at 02:36:38AM +0530, Akhil P Oommen wrote:
->> From: Aastha Pandey <aastha.pandey@oss.qualcomm.com>
->>
->> Unlike the CPU, the GPU does not throttle its speed automatically when
->> it reaches high temperatures.
->>
->> Set up GPU cooling on Nord by throttling the Adreno 753 GPU when it
->> reaches 105°C. Label the GPU thermal zones and their passive trip
->> points, map them to the GPU as a cooling device, and add a passive
->> polling delay so the thermal framework can monitor the zones while
->> throttling.
->>
->> Signed-off-by: Aastha Pandey <aastha.pandey@oss.qualcomm.com>
->> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
->> ---
->>  arch/arm64/boot/dts/qcom/nord-embedded.dtsi | 177 ++++++++++++++++++++++++++++
->>  arch/arm64/boot/dts/qcom/nord.dtsi          |  80 ++++++-------
->>  2 files changed, 217 insertions(+), 40 deletions(-)
->>
->> diff --git a/arch/arm64/boot/dts/qcom/nord-embedded.dtsi b/arch/arm64/boot/dts/qcom/nord-embedded.dtsi
->> index 4379092b7bf8..23370007c974 100644
->> --- a/arch/arm64/boot/dts/qcom/nord-embedded.dtsi
->> +++ b/arch/arm64/boot/dts/qcom/nord-embedded.dtsi
->> @@ -17,6 +17,7 @@
->>  #include <dt-bindings/interconnect/qcom,nord-rpmh.h>
->>  #include <dt-bindings/power/qcom,rpmhpd.h>
->>  #include <dt-bindings/soc/qcom,rpmh-rsc.h>
->> +#include <dt-bindings/thermal/thermal.h>
->>  
->>  #include "nord.dtsi"
->>  
->> @@ -2042,3 +2043,179 @@ opp-403000000 {
->>  		};
->>  	};
->>  };
->> +
->> +&gpu_0_0_0_thermal {
->> +	polling-delay-passive = <10>;
->> +
->> +	cooling-maps {
->> +		map0 {
->> +			trip = <&gpu_0_0_0_alert0>;
->> +			cooling-device = <&gpu_0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
->> +		};
->> +	};
->> +};
-> 
-> I'm not sure why this is Embedded variant specific. Can we not just
-> update nord.dtsi as needed? Would that break GearVM variant in any way?
+diff --git a/drivers/nvmem/core.c b/drivers/nvmem/core.c
+index 7d4cce8e2742..56e04c030c7f 100644
+--- a/drivers/nvmem/core.c
++++ b/drivers/nvmem/core.c
+@@ -819,7 +819,6 @@ int nvmem_add_cells_from_dt(struct nvmem_device *nvmem, struct device_node *np)
+ 
+ 		info.offset = be32_to_cpup(addr++);
+ 		info.bytes = be32_to_cpup(addr);
+-		info.name = kasprintf(GFP_KERNEL, "%pOFn", child);
+ 
+ 		addr = of_get_property(child, "bits", &len);
+ 		if (addr && len == (2 * sizeof(u32))) {
+@@ -833,6 +832,9 @@ int nvmem_add_cells_from_dt(struct nvmem_device *nvmem, struct device_node *np)
+ 			}
+ 		}
+ 
++		info.name = kasprintf(GFP_KERNEL, "%pOFn", child);
++		if (!info.name)
++			return -ENOMEM;
+ 		info.np = of_node_get(child);
+ 
+ 		if (nvmem->fixup_dt_cell_info)
 
-Only Embedded variant support dvfs scaling. So passive thermal mitigations
-should be limited to that?
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+base-tree: https://git.kernel.org/pub/scm/linux/kernel/git/srini/nvmem.git for-fixes
+change-id: 20261117-submit-nvmem-dt-cell-name-v1-e51d1f6674dd
 
--Akhil.
-
-> 
-> Shawn
+Best regards,
+--  
+James Hilliard <james.hilliard1@gmail.com>
 
