@@ -1,101 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.41
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794956262;
-	b=zyeDZTvmTwFrQ4lvQiQw28YUoBvzRNDZg2YzXFzA3LP47ZGN6g7ZxLCA3WCWImXVg0EY
-	 U+orw+marZ1TZEKAIv1zr7dgdIWdB8rfqLR8oVu7oFys+G2aO5MblKKWCHs59LKBcdsdX
-	 160Egq/5Z9zEGwdHMnxaWPEyH3W8k0um2XQt7APWUhqOjYGm7vEXMXN2e+9iKDgs9KHMB
-	 SpxbFQCT+mq++Ck8w8uCIhHAyGcxr85dCxtVOiIKB56KXn5Nm0Jk4mFzDgeC+FZ2rNR/K
-	 +VStvKMuXKQBlX1mdLDuu7TotaujVwXs3+sthZpYCuP8C8AlmBIHJcohajk/48f9VXw==
+	t=1794956426;
+	b=VTqwS7M2TMATz/e02QuAfy6rks4jtwrM5Aa9nTapD/K5i4NTvCj+iqmYgMPjUfh7Q8Oh
+	 4uFan3/Dc5JcNgCJloukYMErHyXXsEQTGBQBIFZ6Dar3ejSGmgRM5Vc8d+y3ffgaDanok
+	 hj8Rk/oTiPSUZRX7IFySiqUXh0ghPPaMAxiiSnu6yfQwZrBfSHjE0ldaWpwu1aujvbg4w
+	 kgDr30aSC1ajWpGhRuyw6Vie/aLLgUsaYGTYE1GrE6wtMGicV6ECFH4tgidq/nBv40daJ
+	 5itKF20RvcR39oUF7l3s48Lim9kUu7WdCJMxt+P0THfxXiuoA/+YGtHEmviB/tr1Leg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794956262;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=FsqJbwkV/uU/DSRZoNtapIdLtn+SA2yH6t5SZIf1Yv4=;
-	b=WOWATIZC1CHS+L//87ZndVMSjlUSoP6JIU4gwZm84SHa1qJfkbV+wes3EwE8iYUAXGiv
-	 FtAKjDaOstrW132RyTpPhc6+EiVXAr/XC4hDsIZPODVtxvuN+2Atl5ZWVhGjWCTJb6y7x
-	 9g+5arQBFfDqQkbGFpBV3e4lVlHRDpzf3zFnYaaZ4XgxJVpajAofOfnO7fbkoS4PTW+AI
-	 t4tj5yJHvWGEksSY6wrU/CrpayjOjO2vqjrABwIYVzaGKYvDrEx7hh0tB/YB19FBbK6SS
-	 ZuO6ynM6/iJYxfS0g8YguCsO0raLMvjrx42CTEyGjq288L7u8hyrAJY5VrEemtg5p+g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794956426;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=yR+0jW95Z0CWoC3ggQ1II8lfkYqcV8Kwm0XIFAvC0V4=;
+	b=p5uLcqsKF9Nj0lVGgyTchEpRg7TczLdmrKmz99FcbnBo9954sUBE4bChXN5hAAfkmWVW
+	 SzO3+Z3qKUhov4oBtgVL3D7U0NWmsL5CtbWRa92aQde0VtrxXLvr6itWciQx2FIjcXYKD
+	 YI+ur1eZWd8w3bU7Mtsp4OCYZWso1cqfdEPTmL7DQWYXgXuwaTE76Op7raeoBWjqwYnG5
+	 9mxgH4iMy1SMn7jehY07jZHgnWflCsMmXOuc02VTlSkNRIo+1K74vZQwsPRTOhJlOWtLt
+	 gG462dP39QbTq7fd+DRm/eYaZvwwpbDsIHIKcHSfyIO2oifpbE1RxzxYIUyEQr8frfg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Z727BfMb;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.41
-Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=F+pO8dW9;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.18
+Received: from CY7PR03CU001.outbound.protection.outlook.com (mail-westcentralusazon11010018.outbound.protection.outlook.com [40.93.198.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D965A606A32A
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:57:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D965A606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00DBD606A31C;
+	Tue, 17 Nov 2026 23:00:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 00DBD606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Z727BfMb
-Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4b467581b98so4633215e9.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 14:57:41 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794956260; cv=none;
-        d=google.com; s=arc-20260327;
-        b=f5/DiApYIhQcpMetOf6c9venjDjzgN7v5DieZhHBpzZ0JOLkIdSwXSyQ5Ug1tewdQu
-         ib4gFOFpRmLd3f5nt4ekPYy+xzq216u6iPl01/yH5DPRR8S33cAKTSwoUvz6XXY/rhsD
-         5jj/a8QIKYA2gxOBgROyxFewmwdMJGi7k2v4VCG5yeCOHeN8GuZsHQBe5y7zZMNd1VdF
-         Fpiw1RX8PPPwsSpFV1wHEA2/MuF4wECTOSpbvnvWm2743NXcZ5eCjqo4iptMMpEzQNQu
-         bgmvdhsxyzd7U40PVYo3msAGPaviDyHto2ZYiDvTgWepRCvoiYlXz3X/NVvjgiGks9nz
-         wolA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=FsqJbwkV/uU/DSRZoNtapIdLtn+SA2yH6t5SZIf1Yv4=;
-        fh=1BZ3xzMrg1zmDvO3vTjz08HGkS9pJaJpNPwqA53EQOY=;
-        b=G2yuksTpFPbJe/xoIWkjGUBp8PNCBN+27oFUUMtFySLPZBfpCiU2qWjgtoaprV+S9e
-         0iipbbZz+ynDHxsrSr45YTkznRFTkHYVg1HZ0WrFMoqyTGZLs4l/4z6XLQUR50YXQzqX
-         whkkHPtoi+g0NzdDzlT1VD9jQhziM6W3wHgijZ/EvESBoKo362bAmFebED9LmbVSl3ls
-         H3V+danMcZYcKezqWlRw61H0qfuuGxtL37GrUjxCk6YDyCDXMtvcz01TvkxhndtawU+R
-         Nhi0l7OiMXoM8iCLxLCbV7UJUjAppaTAwJDKVlB3982kzqwzNTOtcBpT+rAAZSpnypQk
-         aOiQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794956260; x=1795561060; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=FsqJbwkV/uU/DSRZoNtapIdLtn+SA2yH6t5SZIf1Yv4=;
-        b=Z727BfMbH5q2nf+Kkim4q85WEKbR7887da4hCSXSULc0A7ZPMl6gBZ1oaNynswqKYR
-         xhTZIUWSVK+b+pmzo8QV7z4dxNMwutFHK24B1LCPDTP0rxqZKTrBqnzZ+P4F/IDXdiYq
-         css0vDCgIzzxw9E/L7ZZP23xJsEYrkjtS9D3g+RYU5NEHY6bJyNJrELN7d1WjR9wup8S
-         OKHKxu5J9NwVi5rkL9sat8b9L7I4dzLurQgsgf3kPGKz2VDw2bloQsWKqjL99za+z9sC
-         orhxTwWuxTYjBRyPpxhWHpz5tjeoVd80IqG7N+RCA/CPwLLvDdy4H1dPxLKkH8mXGAuZ
-         MtCg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794956260; x=1795561060;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=FsqJbwkV/uU/DSRZoNtapIdLtn+SA2yH6t5SZIf1Yv4=;
-        b=Vy01tZQsfeOT6LIO3oOmL9i/EVxCGPibabMbbbi3aGJf8cW5ByQniwsg7TKu60cTzX
-         wZXLrFuwZZUysKpwGpKbatgTXSRe+vcESUos3YHLULrp6YtyaWonmKuDh6csz2i90LfH
-         ssy8s2WtFes2e8CSz16I9jUw74WTDIXiktww/AiatIRRppVlJ0gvQb64ZDHU95GUsARi
-         8V04MDl/1vGQVSLtVU3ncLZi8BuH1nIyK6XWEM/5kFcfColsH0k2J/MYt8Np82MFh/sS
-         bgp1jRfVQd6zl9bVIQBzkV5eCozxWkiqTrAUeoN/BedPthiDAjyRS2hJTePps/HCip0s
-         Y75g==
-X-Forwarded-Encrypted: i=1; AL+hErENR7qDtOfKJHZLUKemTQClFbGaug26DKC2wUf3U3Kj+HZnmd6/JmmzrX2L+8Fw8ROj5RDGa1S3r9aHQMo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z98SKSd79Aa+g+oV8XeaT7sz6P0k6et4VVz+3IWmRV9feLg4I6l
-	TVAXHXmBiDeX9X/oyhiT3bSevBVqV3yuln0RXkYGAu71OUltxRc8Lqny6uHPasMGzT6/Zi6LP55
-	a9foeZv5qwYt3asWoE3q2AdAS5xcf2ew=
-X-Gm-Gg: AYBFou2J1Zovqk3YVd52J5RZNA2O5FksujacaELsQfHWrD9RNZFs1ktZTtgR92t5ZmK
-	xj41RiAnIWCDg+9TpRKJjzAWvFTv40ZyEj8g1IZAoh7tYfmwOri89QMp6H2Mhe+8K8lW3LbQiQO
-	AP5m7Ek+7EZ75iLcAp+u8tunHD4rzNLzP9agne5y92K4WZyhzTVkUIjZJQ7w1LXUpTZq7T2Iv/L
-	/iXxqzVgxpCti2RCxt/l2cmJeteZOQ5spw5s8SD4nlREDORD2fcGCzuwf3mSPgXRGwh2GGvDWci
-	YBUvb3/pneJwQObzsIIOF39717f2mn3RE1pwKytI3T2bPNa8+toCCFE7CJEG1WZjpndgjX+RRA/
-	tSuL1kw7ZYhRdGz8imW8szF9OvSkZeuozpoB15XGgNKmGc2ebusJm54sbIgqC84vwJ7K9jN8KgV
-	2sMcJEcn8ZwjZ2vIGjS86aX4oTN2bNrYPMymY7zdcRCggSLKxYrad7kIGz+lp7HowwmCB3FQ==
-X-Received: by 2002:a05:600c:1d06:b0:4bb:6a5a:783d with SMTP id
- 5b1f17b1804b1-4bb7da25158mr12547015e9.18.1794956260090; Tue, 17 Nov 2026
- 14:57:40 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=F+pO8dW9
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Z5SfKHM59JHgj1YKGGaauZ1RBwg8rBL0sP8qcSKzXrXyHgNGzJQ0EnX20QKzVxMn+m1wTh7R/c1Mgv0ydgd/01s1055A0HvEMxxDg2eT+iLjc++9DPbRnFlPCjvKs3wcDZM/ACtK/LjgJ24Ab4HJVu5Iark/TfFle292WzMOEcQPyYr7anGe3Rb2MrcLenF44plP/Rzc/g7jTMjH7KhDAQkJIMLLihLWzoPjf5SDJqhl1Kk2E9LO5A9xmsouF8/Qj9OYupQ0s11WonmBRNu2SFjEePYIDno+U4n6FroEFw7P9JNDD5DYKhNxr66OTLoI/lpGUmc3cPAteP7UU+K3yg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yR+0jW95Z0CWoC3ggQ1II8lfkYqcV8Kwm0XIFAvC0V4=;
+ b=qY0Jngumic30t/lVxZi/gP+lma4hG7ZhypAU+jSVYiL3KAmuz6p4u/7wIOXdrou5IDV1B7/J8Np+bPE6Aobrf79VRaRfYuOK+DM4Ey+/AiLgrxrDuUTOJkr5cdIrWuPB8eZN8n09a7zaJxHxWsFGPMdMM1n4wrdqPv69sOif34YacbjYoZA09a1BMtegd03zdHlp/tLaCqfKvOjP7s+Sic4960XV8b8kMXu3sbqM06QSkPZD7wJe/bhnEOcRsViDPtWHhnJLtMgPdPZK9oL5ZRlpB9afbCIzIQf4xNkOa3835etmfkIR5rJ9MxsuHc1bRpmceOEvxewUVPAsPEfYyg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yR+0jW95Z0CWoC3ggQ1II8lfkYqcV8Kwm0XIFAvC0V4=;
+ b=F+pO8dW9AKXa9GSmQzHo7FgQHLwi0Ze9wK8PQg02PamJrIuyMBy97Zq2FeEqvidlBQQiTMmTaqbNeURNBIHoHxj8t9LttVZIq6C+NEL+8nXyAK8unAmNu3CoIamkBwo461E/SHKli24Bd6d6MhF3liMcqJwQYuSfge6qgepzrBE=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CHAPR12MB999249.namprd12.prod.outlook.com
+ (2603:10b6:610:300::24) by DM6PR12MB4419.namprd12.prod.outlook.com
+ (2603:10b6:5:2aa::20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 17 Nov
+ 2026 23:00:20 +0000
+Received: from CHAPR12MB999249.namprd12.prod.outlook.com
+ ([fe80::1cfd:535b:cec6:5077]) by CHAPR12MB999249.namprd12.prod.outlook.com
+ ([fe80::1cfd:535b:cec6:5077%4]) with mapi id 15.21.0615.013; Tue, 17 Nov 2026
+ 23:00:20 +0000
+Message-ID: <5d125299-468b-4aaf-b8e7-304fbed26ca0@amd.com>
+Date: Tue, 17 Nov 2026 17:00:16 -0600
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 19/25] dmaengine: sdxi: Encode context start, stop,
+ update, and sync descriptors
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, David Rientjes <rientjes@google.com>,
+ John.Kariuki@amd.com, Jonathan Cameron <jic23@kernel.org>,
+ Kinsey Ho <kinseyho@google.com>,
+ Mario Limonciello <mario.limonciello@amd.com>,
+ PradeepVineshReddy.Kodamati@amd.com, Shivank Garg <shivankg@amd.com>,
+ Stephen Bates <Stephen.Bates@amd.com>, Tycho Andersen <tycho@kernel.org>,
+ Wei Huang <wei.huang2@amd.com>, Wei Xu <weixugc@google.com>,
+ dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-pci@vger.kernel.org
+References: <20261103-sdxi-base-v4-0-3668ccc7aab8@amd.com>
+ <20261103-sdxi-base-v4-19-3668ccc7aab8@amd.com>
+ <avdGL_FiPYeBOW6Q@lizhi-Precision-Tower-5810>
+Content-Language: en-US
+From: "Lynch, Nathan" <nathan.lynch@amd.com>
+In-Reply-To: <avdGL_FiPYeBOW6Q@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SA9PR11CA0011.namprd11.prod.outlook.com
+ (2603:10b6:806:6e::16) To CHAPR12MB999249.namprd12.prod.outlook.com
+ (2603:10b6:610:300::24)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,91 +107,102 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <CAKEwX=M64ZmMLBRiAQ6FiiP8f=jkA4m=HM8rgQo-cir2SENPnw@mail.gmail.com>
- <20261117161028.475891-1-nakixii@gmail.com>
-In-Reply-To: <20261117161028.475891-1-nakixii@gmail.com>
-From: Nhat Pham <nphamcs@gmail.com>
-Date: Tue, 17 Nov 2026 14:57:28 -0800
-X-Gm-Features: Aa3M54rLZoi7B6oMnsab_DhD6F5mz6P2afScumNTEptyJQeY10XdZ8aO4kmMqJY
-Message-ID: <CAKEwX=O3qkG0pt3qVsRTDDfP9sC2AuG2c-t3Xaudquw0xKwa4g@mail.gmail.com>
-Subject: Re: [RFC PATCH 00/16] mm: add in-memory compression of reclaimed pages
-To: nakixii <nakixii@gmail.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, cgroups@vger.kernel.org, 
-	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
-	Johannes Weiner <hannes@cmpxchg.org>, Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>, 
-	Yosry Ahmed <yosry@kernel.org>, Minchan Kim <minchan@kernel.org>, 
-	Sergey Senozhatsky <senozhatsky@chromium.org>, Barry Song <baohua@kernel.org>, 
-	Hugh Dickins <hughd@google.com>, Michal Hocko <mhocko@kernel.org>, 
-	Roman Gushchin <roman.gushchin@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, 
-	Mike Rapoport <rppt@kernel.org>, Peter Xu <peterx@redhat.com>, 
-	Suren Baghdasaryan <surenb@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHAPR12MB999249:EE_|DM6PR12MB4419:EE_
+X-MS-Office365-Filtering-Correlation-Id: c56b435f-7c65-4bc0-0b1e-08df44fe8e19
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|376014|7416014|23010399003|366016|1800799024|4143699003|11063799006|56012099006|10067099003|261021121427099003|261102123227099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	ln9ayHvfonowcp05KuA16ukgxS6pKTzYtbI6oTO87aqJ9WxdAu1eZC9uucX6srZIQ8oyzpPKD7Ll1F1N7ppyYx5Pqu3jaW3LXqEyavQC0gtXICAyTQiNH4MgMPHO3SK/U++TtporpspC6zC6HXLXfb4yfHOk5ywiVrrBRTgaVJDo8HMr9Ze5torAAqt1CFKBT5j3Y25eke8iq6MI0QszhI4xH0kWt0WS8MZuhkBf85Ez+NcLLt5ggFG1HJivP7XywLcN99OOXUVwhLkBgQHviBZ04Tlet+m9TNV0vfRozb9MrRKyuV0v1T710KY6wwJkofwm+xhE+g9iDXD8IJy0lnxx/d64nf6FGJgxybwDcgmI98bqGAyiJseHYhxmnqsO968ptWhQuxdq8VdpaUrG3cneKs/d9Zw3aVw6mlWCsHHzU8DY2o640ChJtaJeUQOabAbLDBsRLilVtWERE3sfiTWlRJjEp/2Lvur4wymhTq70TPK9Z5n/uwf/8fdQddzZyyglcO2fmxdNSHHqEGSLBYzGWtaRGBx4BcDv711S6BlhTkkIIfRsoIszxP7vR+/49GJjVi6u8cXSDMkGSUmCouQdTb5MD/JWlTjQkW/GGGPy7o1nTdwBSYnurZH0Xwz0GSqsq6dVdy9tSD7GMZLfVhPYkNxF7pRa7/SEvbVuCEk=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHAPR12MB999249.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(366016)(1800799024)(4143699003)(11063799006)(56012099006)(10067099003)(261021121427099003)(261102123227099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?cmJsM0xkaWdzQmJkbkh3ZzFvc0xOb3VMMGhCQjdhaG1zb0hPNE5nN1BOUHF6?=
+ =?utf-8?B?Q00xanYrbU5ZdStrYmdpcWorR3BHOHplNmVmdUZURHMzRThXMWF5V2lPOVFz?=
+ =?utf-8?B?eG81bTVhelFxMnBMOFFzeVlVbkhsdWFHUmtMUVlFTDVCVkhPbjU2bWozTzln?=
+ =?utf-8?B?d2ZXQmphSFFvNHBVbTh4NTJqSE5HUkt3ejZOS2pOTTl3QnR5SXl6ZllwUTdJ?=
+ =?utf-8?B?MElGbFhmaURBV0w3dDBKNWNqY3NTeTNOU2VBRlhlaC9SY0hnQWZVVm5tTTV3?=
+ =?utf-8?B?NGtKNGowc3FHODdDZFVnZUU1cHpWWXA5aUdKREhoMUlMWmRwaVdPUGhZUHZh?=
+ =?utf-8?B?ZzdkNHhPdTJmNkVjN3ZJOGpWZExlWnlnZXRrdUdiUFEyS1haZ3BmaUFabm4v?=
+ =?utf-8?B?SmlCdzBscXJaR3RlR0JvYzg5OFJFbUZyaXVBa3pYRFk5dUVlYVptaFh5dXVz?=
+ =?utf-8?B?eXNFWWdjYWRxNXJNQlgzeEhOdDRENGNBeGxQQVpPYVJuR21IVEVqKzdZaG81?=
+ =?utf-8?B?bnVjYTdQYUtaNytGdktBY29KOUxpMk1CbDNwV3YxMEM3T2VEaWV1NUNkR0la?=
+ =?utf-8?B?V0dMaytLMWZKSWJsY1gvOTdZeHowU0FLVjVYMzFRSDFncy9zLzE5bUpMM1gz?=
+ =?utf-8?B?S2dSUmhNOGovTUVRNzdSelVjY2Z1blg5WHpsL2dyVmFvc3NJNzRhNEdlbkFS?=
+ =?utf-8?B?c1NaMm1sK0UrK283TEx3blBLTGdnZFBaTDRKSVlrY3BpM2IvMkdmeGlxRm04?=
+ =?utf-8?B?cEdQUzZDUWVqZW8ra0JzV0ZDcVZIWGR0Z1lWdHFoVFNxM3ZIbHF0Vy8xclIz?=
+ =?utf-8?B?Tys3VjhkQWY2dWh6UzFwY2hGdUNYRVczbVdCNWFocXVxb3ljY3NtVWtlaVdN?=
+ =?utf-8?B?cFpLUDJUZDJCTFhML2FrMTNQaDVBMHhsZE5wUDJadk9IL09lVEtHRVZxOTFT?=
+ =?utf-8?B?Njh0dCs2clRxSit6Y3ZjSEpUejZIOXNTMHcyTTVQOHpmSUtSOGprNnNJdFRH?=
+ =?utf-8?B?R1E3RENBbjFUWHl5Rm44Rm44U3NVWjc4V1cxeEhhM0xEdzFDa1lEalA1NUhx?=
+ =?utf-8?B?emUzZGhVY2dMOTZoVFFsdFZscnM1eXgyRFd3VzVSQXIwMk5kMjJ0eExmUnh5?=
+ =?utf-8?B?V1B3NHJFTGtTN05paVdFM0FjQ0xzUGlMSkFMRVlhcFVCWXoxMTIrYmVrdmtp?=
+ =?utf-8?B?Mmg3cGNNYzdZNkp5MUVYeDh2VGlLc1VHU0IwZjFkTzlxeFBWWTR4NDBGcVdx?=
+ =?utf-8?B?aDZZM2FnbHhoZmRBbCsxYWIrb1ZEK1pLcVRVTWlzMWdsNUR6ZHhPVWxVZWxJ?=
+ =?utf-8?B?bHU1TVppWEM5U0JSY3JyR0trNTNmZSsrOHkwRzhXcmMybG5zODRCVm5TMktp?=
+ =?utf-8?B?Z3RvTFd1NjhBNnQ5ZkRab0pLQTlBcmNrL3R1bmhjMkJucWltQTBVcGNxcnVQ?=
+ =?utf-8?B?U0F1RGJ2Q1diaVhuVkVYbjVzQk9vbEFWMFM2WXBqQ0M2NGMxSzdHZloxRnJQ?=
+ =?utf-8?B?WFlzTURMTE9TK2pkSmpPYTZPMUZZVWRiV1RYVDV0SUFDUDFyQzY3ckFOcXpQ?=
+ =?utf-8?B?Nno3cjUrSFA5cTdmenJRSVBpOXlOeTBiOFVrcEd5Lzg1dFdjOGVWS0hwZU10?=
+ =?utf-8?B?WDJ0ZWlCbytCRGNUUkdCbnliMXNxWWFjVlIza2hQRCtEQ1pidDQ4OEN1cWNG?=
+ =?utf-8?B?cXRrRkJwS21GYUVsamVjQURySlZqZFR0am5kb2JRTUo1V3doY1NTeGpUaDhZ?=
+ =?utf-8?B?aU9VdWRrSGN0YlVCdTRhblNVUjlIRlJVU3ZqNjU1S3Jzcm52UFVUNURROEZJ?=
+ =?utf-8?B?R09CSFIzR21XZDJIM3pFTkJhblpCQlJRVEU3d1hLRS9sQ1hwRlNaeGR2TzBF?=
+ =?utf-8?B?NU9ETnExMm5keGhJQlM5TFdIbmdqWHpoQnFSb2hoWFB1ZXA5UkIyL2xBNWto?=
+ =?utf-8?B?V0wzNVd1VlR5VkFHVUE3VFJvRXMyVTd4djlaQUg1cjJYeElrWWZxdGpneGNr?=
+ =?utf-8?B?SGRUeVd2UVJ4UnM5NHV1WVRQR3poUkZ3engxRngrQ3BIdDk0SFFyUlkwZjRw?=
+ =?utf-8?B?djV2eXlFeGZmNVVQZUY0ZnNESTgzc3N6YVJReTEydCs1QU55RnlvUm9hSDh1?=
+ =?utf-8?B?a05kWG1mcHB3RFBTaDhPR3lsTndmRUdtSGVkbzZUMFVlZVpqcUFBKzRoUjNT?=
+ =?utf-8?B?eWxJc2dCemRwVjNObzNjRGltZFRqK3M0aERzSUtvbjYvM0JHQ2lCbTMxZFp2?=
+ =?utf-8?B?S0FyMmZhVmNVaCtISkh0djJXV1FabUVOSm9yeURMdFI2NGZjblhSOC9xb0pL?=
+ =?utf-8?B?ZnRwM3oxSFRVWnNweFVwWUxHS0ZNMHpPUEZ6c3hpN3FSM0ZobFROQT09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c56b435f-7c65-4bc0-0b1e-08df44fe8e19
+X-MS-Exchange-CrossTenant-AuthSource: CHAPR12MB999249.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 23:00:20.7859
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: uSXbt2zGynPKPGMyYSRXc+J/oD/7XptIguEx8C7hJBCJqnkG8rqoyo+/k9ya+fVpAzpnEQQKXfBJmLk8B0nBqQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4419
 
-On Tue, Nov 17, 2026 at 8:12=E2=80=AFAM nakixii <nakixii@gmail.com> wrote:
->
-> On Mon, Nov 16, 2026 at 06:13:46AM -0800, Nhat Pham wrote:
-> > What's the motivation of this line of work?
->
-> It started as an attempt to get something like the Darwin memory
-> compressor on Linux: keep reclaimed pages compressed in RAM, fault
-> them back directly, and push cold data to disk only when needed.
+On 11/13/2026 11:17 AM, Frank Li wrote:
+> On Tue, Nov 03, 2026 at 08:50:00PM -0600, Nathan Lynch wrote:
+>> diff --git a/drivers/dma/sdxi/hw.h b/drivers/dma/sdxi/hw.h
+>> index edc43190148c..51b2bcbeca90 100644
+>> --- a/drivers/dma/sdxi/hw.h
+>> +++ b/drivers/dma/sdxi/hw.h
+>> @@ -142,12 +142,89 @@ struct sdxi_desc {
+>>  #define SDXI_DSC_SE  BIT(1)
+>>  #define SDXI_DSC_FE  BIT(2)
+>>  #define SDXI_DSC_CSR BIT(4)
+>> +#define SDXI_DSC_SUBTYPE GENMASK(15, 8)
+>> +#define SDXI_DSC_TYPE    GENMASK(26, 16)
+>>
+>>  /* For csb_ptr field */
+>> +#define SDXI_DSC_NP BIT_ULL(0)
+>>  #define SDXI_DSC_CSB_PTR GENMASK_ULL(63, 5)
+>>
+>> +#define define_sdxi_dsc(tag_, name_, op_body_)				\
+>> +	struct tag_ {							\
+>> +		__le32 opcode;						\
+>> +		op_body_						\
+>> +		__le64 csb_ptr;						\
+>> +	} __packed __aligned(64) name_;					\
+>> +	static_assert(sizeof(struct tag_) ==				\
+>> +		      sizeof(struct sdxi_dsc_generic));			\
+>> +	static_assert(offsetof(struct tag_, csb_ptr) ==			\
+>> +		      offsetof(struct sdxi_dsc_generic, csb_ptr))
+>> +
+>> +		/* SDXI 1.0 Table 6-14: DSC_CXT_START Descriptor Format */
+>> +		define_sdxi_dsc(sdxi_dsc_cxt_start, cxt_start,
+> 
+> Is indent wrong? suppose define_sdxi_dsc() use previous
+> #define define_sdxi_dsc(tag_, name_, op_body_)
+I'm not sure what I was going for here; I can make these parts align better.
 
-Ohhh I see.
-
->
-> Honestly, your virtual swap series already covers the core of that
-> (zswap without a backing swapfile, no PTE walks when moving between
-> backends), so I don't think a separate subsystem is justified.
->
-> The parts I still think are worth looking at are restoring directly
-> from the pool without going through the swap cache, and packing
-> several compressed objects into one swap slot on writeback. Do you
-> think the latter would fit as another backend type in vswap, or should
-> it stay inside zswap writeback?
-
-Ah interesting! In the future you should include the motivation in the
-cover letter - either new use case your work will enable, or
-performance improvements, or overhead reduction etc.
-
-And yes, compressed writeback would be a good thing to explore! I was
-thinking about compressed writeback sometimes ago, and I came up with
-a slot-packing mechanism that is very similar to what you are
-proposing here (IIUC). It gives you both LRU-ish ordering and good
-storage density. Something along this line:
-
-1. An in-memory staging area of "buffer(s)", where we pack slots to be
-written-back (by LRU order).
-
-2. Once the buffer is full, we can writeback the entire buffer.
-
-3. Refault of any written-back buffer brings it back to the staging
-area. We can use the same mechanism for defrag, compaction, etc.
-
-(I'm not 100% sure how close this is to your idea - yours might be
-vastly smarter. I'd need to spend time reading yours...)
-
-But the challenge is the synchronization mechanism. Right now we rely
-on the swap cache + folio lock as synchronization. We can't use that
-here, as the whole point is we want to avoid decompression. We'd have
-to add a backend lock *somewhere*.
-
-Ideally I want this to be decoupled from zswap, i.e as a vswap
-backend) We'd have to re-introduce a bit lock (almost similar to
-SWAP_HAS_CACHE) - I don't know if it's ideal (Kairui, what do you
-think?). Or maybe we can add a backend-specific lock, which pagefault
-can block on at swap_read_folio() time...
-
-The other option is we can re-use zsmalloc's internal synchronization.
-We already move slots around for internal and external compaction. But
-that would blow up zsmalloc - you'd have to implement the stuff above
-inside of zsmalloc. And we might have to go for the pool_lock, which
-is effectively a global lock...
-
->
-> The numbers in the cover letter are from 6.12 and don't compare
-> against vswap, so they don't say much about this yet. I'll redo them
-> on a current tree first.
-
-Yeah let's focus on compressed writeback. It's a concrete problem to solve =
-:)
