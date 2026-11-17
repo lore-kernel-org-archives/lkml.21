@@ -1,131 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794939648;
-	b=rb5V69YilDLn817epkaJHZuOTUII+x7ngfU49pf1Lu9pIOKQtuDytOhvceSGhVNhdr1p
-	 o2VS+dXpkiWWwyJw4slCw6KPWIeKLhGXxTAdExIHdtRDgJKA/SdOsLZi5CtviDng0WDul
-	 r5TSaq2qHRaoF4h4EO4huyHxA/2M0cXTQztw5A7B6rUB/756qFN20w/tRrWy0D5btPt6S
-	 ayJu5Zq0i3zPL5AfhG4W1iXRMcjzjidaanP6KQC8CeRD/XifgdABo4kL/a52RtdWVftdq
-	 RzdtroEtFFwi16JE4CO+qya/rsIoe4bhfS5fYxnJW/EM5zs8NxI89l5Ij7+6JPnXOow==
+	t=1794939892;
+	b=4Do+BHjVC1+q/c4oHJVb9znC/LGAePOEtW006wynGHiRRF9DDpExhz+cyMmNUgohQyig
+	 gSzV+4YG3Lg4Vc7JqDeTmMbEHpoH7eKNdHPB36fHEOBEgsWfk4gQklfrACN39Z7hn/VHO
+	 dnMSoMBMQEpgKOaODOQjxCTZboyFyKFfk5GxBckM3HAbtajLutuJKF3KyjFPC/3EWzSmM
+	 VgQb1oDu1jqOTlWqwRoAXDoclyHva/+TZktG2yemuO7e8HIK1qcfKr/L/iiwX9D1B93Jm
+	 pw+ijSgpDfudHGN4a9JiKhecFp7I6Y2m3cs9aiToRPaAfn2mWmIBvkEk3zFcPoeytPg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794939648;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794939892;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:Autocrypt:
-	 Content-Type:Content-Transfer-Encoding:User-Agent:MIME-Version;
-	bh=gEpnTVL6/f36zmbCQlhINdIlM5qtOZv7QnnpCH/wsH4=;
-	b=uuytwLUIATGu1FLYNa6turlYpiRvkEQx/4AWe0UjYn/MzQlGNq7FOqrhRb1jflBJGrAt
-	 OaybA1T/e/Ymcpp4sL+V985bzGZzczTS8bosQLzRnl9w7IsaUVG7YTnKdIcN2wLsHoyMq
-	 Kbb2Ju9gJFSpp2mKabhBq1SLDDC+vYoBvZe6aTD4FkUOLKsnA0mRTyQR8yQK7iSYMDFC/
-	 jAS/u6TB0cMXhqenxsYKDNjge6sDsxkO2yxkX+3YEBjlA+LsH7rLGFpsMi1Jxax7o7lhq
-	 WCX0qpvhPwcdQUNpjdlsLm7Nj1ewsMcDa4d1whz2rHpzWQfWUkXAmKOUDFpppfqH9AQ==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=uauKJulT6iX5aOegJ7RlAT7SdLqthvZsOrekYr6Uj1A=;
+	b=kabu2xaZim2g9LsRapdRbvnfmyG3fFEmwq1MwDgNue1yCwvF7AZQP/1tp4qh7fPIbV6g
+	 jrNCg/erpvmbA42WPgTc/E6aFavudB8BXnzIgXgjBQ3mIuUy5nHg6p6zRjuQqJuFYal+E
+	 UEFKlZR44WWh6DKi6GoO1o/b3gl1T0J/SJ/JAtkS3Qycuugd7iziAzqTB8Ml6CA0Lkofh
+	 SniJ13G2oTr0HJ27rMIwlN256NOiPb1YbzwryV6/FxhLBZ9WuKrhCdmuJTdVDVC/YIdv/
+	 T7L7h6l66+seg25l/gN8ugz+eJTsdR8gMK72gHWP4X6c+IuDh1mjAFC1hgEUIhG1+eA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=dubeyko.com;
-	spf=pass smtp.mailfrom=dubeyko.com;
-	dkim=pass header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=SG71CXL4;
-	arc=none smtp.remote-ip=74.125.224.42
-Received: from mail-yx1-f42.google.com (mail-yx1-f42.google.com [74.125.224.42])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=l5HW2ZWg;
+	arc=none smtp.remote-ip=209.85.221.52
+Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C6A7606A32C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:20:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0C6A7606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dubeyko.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dubeyko.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59E5A606A32A
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:24:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59E5A606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=SG71CXL4
-Received: by mail-yx1-f42.google.com with SMTP id 956f58d0204a3-67db1f6f50eso3181891d50.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 10:20:47 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=l5HW2ZWg
+Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-492f0a1b685so59151f8f.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 10:24:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dubeyko-com.20260707.gappssmtp.com; s=20260707; t=1794939647; x=1795544447; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
-         :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=gEpnTVL6/f36zmbCQlhINdIlM5qtOZv7QnnpCH/wsH4=;
-        b=SG71CXL4MMSwo18OwqecZo7oLfa4OkacsopHwxwn/L+p1kHpbBCAfZ7+xrr+fsB09S
-         OwnOQcNCziZAGA+lkUsFr8Ghnu7lCS+LgpzWO/NXdt5C81LFEeKQcDGJ01yBd/bRg+/1
-         HBqRDx+zsU1z4FZj6ptg5ap/7q/8K8KjTXLUF7sL0VqFyPeBrYWFc9BCRStQUdma5zFi
-         /19WPR4RNOAqOVTC9qeiqClrqIQC7PzBauuZDDKjaSqHrlvR6dmjqhSjBwSxJUUDqXAQ
-         Sr42ycY8w8LNMW5f2FXnlCoCcNfw2SrQUqHeBBjoEP40Fxyt4nSFb1keje9fX2kU98mQ
-         hRoQ==
+        d=gmail.com; s=20260707; t=1794939891; x=1795544691; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=uauKJulT6iX5aOegJ7RlAT7SdLqthvZsOrekYr6Uj1A=;
+        b=l5HW2ZWgz9xyPWgg0S1tlLErSqqC51e8iDSks1fsTDM6TtJ3AY04ouoT/b82UUrqcY
+         qhFwBtzg0GoL915Xzvb4eLZD0pzQKVXkBVCukTzSO7QlnAnDjm0DLKhA37Sg6QlvnAew
+         jMnTFjY9w1UkCudAocf7xPLcHZmx9J+WexCLQYhdptzuaroFwxhr5njiOdgczPwbtx9p
+         Yir7TVHCMFUadSJZboQNtP62fa55acdCfzPSMWgJJNb4bMjvCohr7yRIyyHuF3uQwWuL
+         yGjPMmxXnjtQysvqAXAtrcUkF3RBkzRLxs+JEF+PObX5L3xMZ1KleKYvo9m0+T3WUL1V
+         pV5g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794939647; x=1795544447;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=gEpnTVL6/f36zmbCQlhINdIlM5qtOZv7QnnpCH/wsH4=;
-        b=fNRSGJFdzqt+DBjrK2BK6jSSNMN1b7UDjNW99EH4F2l4qiqkfajs61+U/HZ6U02/M+
-         sIcSZTFX7n+qcZZ2cMYR5kRpi+j1j2DB5VyJRxMWZNXA8tXhQ9Db9A2EdViv/Fs8vH6y
-         sxhDnCaSLkwDFT4H45hiDphApmNOiQUBHLxb077StLYLEqgGK0LlueQUtYRi6ArbYqw1
-         FtWYKUrEvQ82kfOEVeXGHTKhweZ9jxsaineCDLp3vzoieR4AYnHuVqRLpp2SpOZfw1Sj
-         yEarQ+/Kq+qeq2W4+eVVYlZ+G03YJFUnrY8YdfNwrxTL6BmY/FhVEVb5JN+pZCVB6Z2O
-         Q2DQ==
-X-Forwarded-Encrypted: i=1; AL+hErFpSCxxxXpymlrCQgsuzAFrE4fGrnNQ0LDxEBrHvtNHiu/2qfD4zdB1EMWvBY2BNL8+o1Z1UiIJCwfzJzo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8c/6z2A0ZRUU0xFqrnrYmeY0rr38Ua16eNEYzfwQ5A23U/l7x2
-	XHYcOVSVT29rvGmW4tUT4b21qw6JKqU/Y/Ahm2aPAkXlTmG59h6T5XV9D18XFeqePCk=
-X-Gm-Gg: AZFdTZf0Zg7t4bl7ddJjoApd9S5NVQOEEAtFlqoYlVX6f8ylf3U3nCFz/JWbm2SHCrl
-	lMJsEt7R7mHc36diM6PijY5rzb5Qx03xJHBr/Z+nJA1VkWjcCb+yAz30ZxlevAn6FDEILkXDuDu
-	MrE2ebFc3L9DlakXgbor0hr83V1/ZnKtzgJ3RhV7dEQlQ0uJdn2EsVzrycJSOaWgje834AfIG7V
-	2WAAQkbtY5+OlHQAtvzWuMyszP80mTziswVgZxdvIvoIEqJKKJavRdAaFqZhrdXClTe8ju2HOvN
-	kzUtpscjmWX8kOb3iCkuT1WjS8wgto8got/+SkS5uCOQ0O4X3il6BCqTZWimZxCnjrVi5ufNCPG
-	qkqVy9MwGcoB/TF7PY+3nwuSSlpld73X/MbJmwa/8WtSgRKyf3HVtSQ44KghMrORhgeihyVq+x6
-	BdttgKRpdcv/NGywj8PEP5MtjQVMKjo8Hks6ai2uxyLG415eh2qWEETRtnflX3/lB18bwooASFQ
-	iejiDn2R1aa7DYvS9Y3dNqr96ynJFasUgwj++mXslXkHD3L0RAKcN9kNrFzo6/L1jxxpnjQY++X
-	Lqk3GTbtnDIUrV6TWi/vHDnMdbU33gMWzGOkwsRhO9OdJBv2Ir9KqgUv6Q0D6gpLT6t4ms0geQG
-	l09h6h3/brxnwXNT3CgbDlH7PCrYnyNJLEJvr3/6Jqq+FUst29Z4k7elOyCmccr+HIT9BxSzo7K
-	IZjjq3gjJXfkDRGsafKoI=
-X-Received: by 2002:a05:690e:12cd:b0:671:26c4:3ac6 with SMTP id 956f58d0204a3-67dd454764bmr145475d50.37.1794939646693;
-        Tue, 17 Nov 2026 10:20:46 -0800 (PST)
-Received: from ?IPv6:2600:1700:6476:1430:d1c7:8722:e551:bec4? ([2600:1700:6476:1430:d1c7:8722:e551:bec4])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67dd402aa48sm272431d50.14.2026.11.17.10.20.44
+        d=1e100.net; s=20260707; t=1794939891; x=1795544691;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=uauKJulT6iX5aOegJ7RlAT7SdLqthvZsOrekYr6Uj1A=;
+        b=qOWRRCT7tabhgE7TG0nvOoldhWOAbeU8rDtQSEoudMf5PRn1BBac2ts0Ck8QV+d0n6
+         jsEfrSlg3z0ddRMgWo4cLRtCrHM1lJT6VIwcgMFLuKmWmjLwD+rndwrJQZXrteH/e2gO
+         YfQxmSddjyOCwiCXSW5HUa7WYgV1PfqCskLhSguF4/AoVMmQ5CPSpZdspEJ8l3A/5xK5
+         2PzGz10pLoW2guRVYIw/6uxzKe9+mnWajBlLbyWyJPLx4Oz375x1pC50vTLWu5iFhZS4
+         83odEd/n+Mqi98l/7nA46U2FHjKMLAGBWRzt5EN4YVIYvjbC8CY1WvCLHfbWSQOWc/kR
+         w2DQ==
+X-Forwarded-Encrypted: i=1; AL+hErFi3jxhqUqVW4cPycEt4efwI1cHWP8x4ell/2xqmQu7/KE2NddBhlBnU9bmgxkgPZWpLax28FV4IU6g+Y8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8RU+K0PlovJ0wLk2HXtHF05IRKgsrsNpLzlPAVXgyEHFnzkV4C
+	c2RejrqquQtklxsGfkhXaWJV3fTG3+769qjPVDfW9uXffFEGdv7xvbyx
+X-Gm-Gg: AZFdTZdEwUE9mP/JTYq+5EI07KK0qs7qtlmNKgo5sphH5vyGvmwy/MUQxvq8g0V2XOd
+	jNWEjqrW/Jkw9YWaLCBpGIyt3piwD5yEXbRO1RrA7qLH2v9GT35jxqbHxidaS35Y/xuVOiQMlqP
+	1iKSETCPufF2Xi7ovfh8pWscUcLhLhSUPDSTmaMPM+ejavtSDRN9WqJjm8gfZXkOTjtB7OFhP17
+	N2WfIX/uasqFFRumqXgnerqpt1PvuRugs1RLuDDIM86jjJ24dvDYkmHMjpZt/8nHUmqzqSKkFIb
+	am3fL306eadZJzV4zHd/kgTF9IzDutem0rqITV1JinOpcNm87n0EkOAb49nJG3i8Db9BFTJYrsA
+	1RQ1ASUTGmF96LDjXiEWDCqkif/76wmdek3l0XJg1bR3hht4IwZ6SKgvHjh/Ako04tsCMX5TGir
+	Tb8clgMm4PcRbiJ2Z1h9U1IRvgSIW5rux1ONplhc1XY2KIw0bjae8CrQh78l8zPHsdQnHi0CRWQ
+	94qI24QR2lWNdTLZQBK5ubI6W4bZeTIW01i2qqoswh1XSMiTopmu9RLTV+TXP98tGKhbmgRRGib
+	Jx9dA43eVI+E24RGz28RfeJL8LXHMSqtYYSHjTVyL9uHFrmzui10QtQeE2K+1Y/xAapAJ5TsiUk
+	yWNfleR37+wkzHq2AQ1pWxQuT89gJftrPsQ==
+X-Received: by 2002:a05:6000:2c05:b0:48a:f36d:fb57 with SMTP id ffacd0b85a97d-4a6394761aamr659338f8f.18.1794939890592;
+        Tue, 17 Nov 2026 10:24:50 -0800 (PST)
+Received: from Ansuel-XPS24.localdomain (93-34-92-103.ip49.fastwebnet.it. [93.34.92.103])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-4a656933956sm134084f8f.44.2026.11.17.10.24.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 10:20:45 -0800 (PST)
-Message-ID: <0318886d45a4eb49aaaa2af5227a3d92f558712d.camel@dubeyko.com>
-Subject: Re: [PATCH 0/2] nilfs2: atime support
-From: Viacheslav Dubeyko <slava@dubeyko.com>
-To: Ryusuke Konishi <konishi.ryusuke@gmail.com>
-Cc: Wang Jianjian <wangjianjian0@foxmail.com>, linux-nilfs
-	 <linux-nilfs@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>
-Date: Tue, 17 Nov 2026 10:20:44 -0800
-In-Reply-To: <20261117065122.41553-1-konishi.ryusuke@gmail.com>
-References: <20261117065122.41553-1-konishi.ryusuke@gmail.com>
-Autocrypt: addr=slava@dubeyko.com; prefer-encrypt=mutual;
- keydata=mQINBGgaTLYBEADaJc/WqWTeunGetXyyGJ5Za7b23M/ozuDCWCp+yWUa2GqQKH40dxRIR
- zshgOmAue7t9RQJU9lxZ4ZHWbi1Hzz85+0omefEdAKFmxTO6+CYV0g/sapU0wPJws3sC2Pbda9/eJ
- ZcvScAX2n/PlhpTnzJKf3JkHh3nM1ACO3jzSe2/muSQJvqMLG2D71ccekr1RyUh8V+OZdrPtfkDam
- V6GOT6IvyE+d+55fzmo20nJKecvbyvdikWwZvjjCENsG9qOf3TcCJ9DDYwjyYe1To8b+mQM9nHcxp
- jUsUuH074BhISFwt99/htZdSgp4csiGeXr8f9BEotRB6+kjMBHaiJ6B7BIlDmlffyR4f3oR/5hxgy
- dvIxMocqyc03xVyM6tA4ZrshKkwDgZIFEKkx37ec22ZJczNwGywKQW2TGXUTZVbdooiG4tXbRBLxe
- ga/NTZ52ZdEkSxAUGw/l0y0InTtdDIWvfUT+WXtQcEPRBE6HHhoeFehLzWL/o7w5Hog+0hXhNjqte
- fzKpI2fWmYzoIb6ueNmE/8sP9fWXo6Av9m8B5hRvF/hVWfEysr/2LSqN+xjt9NEbg8WNRMLy/Y0MS
- p5fgf9pmGF78waFiBvgZIQNuQnHrM+0BmYOhR0JKoHjt7r5wLyNiKFc8b7xXndyCDYfniO3ljbr0j
- tXWRGxx4to6FwARAQABtCpWaWFjaGVzbGF2IER1YmV5a28gPFNsYXZhLkR1YmV5a29AaWJtLmNvbT
- 6JAlQEEwEKAD4WIQRVwwtrZ87KC0La2wQ5XNnC34RAdQUCaBpd7AIbAQUJA8JnAAULCQgHAgYVCgk
- ICwIEFgIDAQIeAQIXgAAKCRA5XNnC34RAdYjFEACiWBEybMt1xjRbEgaZ3UP5i2bSwayDwYDvgWW5
- EbRP7JcqOcZ2vkJwrK3gsqC3FKpjOPh7ecE0I4vrabH1Qobe2N8B2Y396z24mGnkTBbb16Uz3PC93
- nFN1BA0wuOjlr1/oOTy5gBY563vybhnXPfSEUcXRd28jI7z8tRyzXh2tL8ZLdv1u4vQ8E0O7lVJ55
- p9yGxbwgb5vXU4T2irqRKLxRvU80rZIXoEM7zLf5r7RaRxgwjTKdu6rYMUOfoyEQQZTD4Xg9YE/X8
- pZzcbYFs4IlscyK6cXU0pjwr2ssjearOLLDJ7ygvfOiOuCZL+6zHRunLwq2JH/RmwuLVmWWSbgosZ
- D6c5+wu6DxV15y7zZaR3NFPOR5ErpCFUorKzBO1nA4dwOAbNym9OGkhRgLAyxwpea0V0ZlStfp0kf
- VaSZYo7PXd8Bbtyjali0niBjPpEVZdgtVUpBlPr97jBYZ+L5GF3hd6WJFbEYgj+5Af7CUjbX9DHwe
- GQ/tdXWRnJHRzorxzjOS3003ddRnPtQDDN3Z/XzdAZwQAs0RqqXrTeeJrLppFUbAP+HZTyOLVJcAA
- lVQROoq8PbM3ZKIaOygjj6Yw0emJi1D9OsN2UKjoe4W185vamFWX4Ba41jmCPrYJWAWHfAMjjkInI
- Pg7RLGs8FiwxfcpkILP0YbVWHiNAabQmVmlhY2hlc2xhdiBEdWJleWtvIDxzbGF2YUBkdWJleWtvL
- mNvbT6JAlcEEwEKAEECGwEFCQPCZwAFCwkIBwIGFQoJCAsCBBYCAwECHgECF4AWIQRVwwtrZ87KC0
- La2wQ5XNnC34RAdQUCaBpeTwIZAQAKCRA5XNnC34RAdew7D/48vw8dfTLcVjp4j6qUH9rOuXp5A2b
- jCEPeI0oOwRdqkyiGzUfUprHM48owvvye5u1mUZnKp8BWDDsjX4ddmhdloY0+6ecRAG73xlWMFKVK
- 4P5XGnHU9A2JOtRhnOWQfPTgFhy69BSYyOeG3e5J+xPyUUBeHajbMVPKnD10NMCx8Ux1D2bv8OWbv
- 3DvpUNx9D46UhBmkwIfrQWBkr0OGD2AXFfPqo08c3jcJMOAEc2vBI08Fij9o1gHwP2suFaG0X6jUN
- sy6KPOKg7TVMXtMzxNsKGyFxC1pG7lv+oaEBT6TJSVs/pm71ZrOezQANRzvBeXNUixWienTdAEG8a
- x4uOf3EF5WvYUhDiY8XBJyRv2ZnKJmBxZ3jPStadSuh3Bmo4mNgRVpFXrfb7h8oJC1l1WGdJa9aWi
- xUedku0/nH+nZMTqrtWYkXoLxaMswVM5S4f3pYKd7VlHxtlZiQ95RqQd5uWYcEN6xaSvAO3Cs4Co8
- D6etTHtKPcx1+d0x6BvkBvqNJ5yCiuzPPnKE6E0ss52KKvQt3injPyfe8ffofbW4s2nlEL1s0DoBv
- JslCebuQ6+Orb/Sl6zictIsv3XMq3jGFeZcDg2hXzngOC255+b0Z/To7jINTxYQot8jCOJQOLplxc
- NFdvziOa4FgUBC4X71upsZIoZJeii2V/Jtc3B4g==
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-9 
+        Tue, 17 Nov 2026 10:24:50 -0800 (PST)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Felix Fietkau <nbd@nbd.name>,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Christian Marangi <ansuelsmth@gmail.com>
+Subject: [PATCH v13 0/5] clk: add support for Airoha AN7583 clock
+Date: Tue, 17 Nov 2026 19:24:38 +0100
+Message-ID: <20261117182444.103123-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -135,100 +104,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-On Tue, 2026-11-17 at 15:47 +0900, Ryusuke Konishi wrote:
-> Hi Viacheslav,
->=20
-> Please queue the following two patches for persistent atime support
-> in
-> nilfs2 for the next merge window.
->=20
-> This series builds upon your original patch [1], which Wang Jianjian
-> followed up on to address review comments and add compat_ro feature
-> flag
-> support [2][3].=C2=A0 I have made minor modifications to those patches,
-> including filling in missing kernel-doc comments and adjusting the
-> commit messages (such as fixing the Co-developed-by tags).
->=20
-> To use this feature, install the updated nilfs-utils from the
-> 'atime-support' branch of the development repository [4] (which will
-> be
-> merged into the master branch once this patchset is queued), and
-> either
-> format a new filesystem with the atime feature enabled:
->=20
-> =C2=A0 $ sudo mkfs -t nilfs2 -O atime /dev/<device>
->=20
-> or enable the feature flag on an existing filesystem image using
-> nilfs-tune:
->=20
-> =C2=A0 $ sudo nilfs-tune -O atime /dev/<device>
->=20
-> Once the atime feature flag is set, the filesystem can only be
-> mounted
-> read-only on currently deployed kernels that lack support for it
-> (until
-> the flag is cleared with "nilfs-tune -O ^atime /dev/<device>").=C2=A0 To
-> avoid confusing users, this feature will remain optional in
-> mkfs.nilfs2
-> for the time being, though I plan to enable it by default in a future
-> release of nilfs-utils.
->=20
-> Note that when enabling the feature on an existing filesystem, inodes
-> written by older mkfs or kernels have their on-disk atime fields
-> initialized to 0, which will expose the epoch date (1970-01-01).
-> nilfs-tune warns about this when setting the flag, and image
-> conversion
-> (such as copying mtime to atime) is not supported.
->=20
-> The series consists of two patches:
->=20
-> - Patch 1/2 introduces the read-only compat feature flag
-> =C2=A0 (NILFS_FEATURE_COMPAT_RO_ATIME) to manage on-disk format
-> compatibility
-> =C2=A0 for atime support.
-> - Patch 2/2 reads atime from on-disk inodes when the compat_ro flag
-> is
-> =C2=A0 enabled and stops unconditionally setting SB_NOATIME on the
-> superblock,
-> =C2=A0 switching VFS behavior accordingly.
->=20
-> [1]
-> https://lore.kernel.org/all/20260219204343.70117-1-slava@dubeyko.com
-> [2]
-> https://lore.kernel.org/all/tencent_E3847A19056D4E914FACD269A3C77BAF0905@=
-qq.com
-> [3]
-> https://lore.kernel.org/all/tencent_F3CAF2061A8AE294D88513588FD3DE1F4806@=
-qq.com
-> [4] https://github.com/nilfs-dev/nilfs-utils.git
->=20
-> Thanks,
-> Ryusuke Konishi
->=20
->=20
-> Viacheslav Dubeyko (1):
-> =C2=A0 nilfs2: introduce atime support
->=20
-> Wang Jianjian (1):
-> =C2=A0 nilfs2: add atime compat_ro feature
->=20
-> =C2=A0fs/nilfs2/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 2 +-
-> =C2=A0fs/nilfs2/inode.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 11 +++++++++--
-> =C2=A0fs/nilfs2/nilfs.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 4 ----
-> =C2=A0fs/nilfs2/segment.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 2 --
-> =C2=A0fs/nilfs2/super.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 11 ++++++-----
-> =C2=A0fs/nilfs2/the_nilfs.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 6 ++++++
-> =C2=A0include/uapi/linux/nilfs2_ondisk.h | 12 +++++++-----
-> =C2=A07 files changed, 29 insertions(+), 19 deletions(-)
+This small series introduce some cleanup and support for
+clock and reset of Airoha AN7583.
 
-Applied.
+The implementation is similar to EN7581 but AN7583 introduce
+new reset and more clock divisor support.
 
-Thanks,
-Slava.
+Changes v13:
+- Use guard API
+- Drop spinlock on read operation
+- Use enabled/disabled now that they don't sleep anymore
+- Rebase on top of linux-next
+
+Changes v12:
+- Fix dereference on pcie early unprepare
+
+Changes v11:
+- Move to global spinlock
+- Move pci ops to sleepable prepare/unprepare
+
+Changes v10:
+- Fix whitespace in include patch
+- Add reset and phy cell as required
+- Add additional patch for devm variant
+- Add additional patch for lock for clock and reset access
+
+Changes v9:
+- Fix compilation error for priv (again) (this time fixed)
+
+Changes v8:
+- Add ACK tag by Connor
+- Fix missing priv->base assign
+
+Changes v7:
+- Add further info for DT patch
+- Add serdes selection support
+- Rebase on top of linux-next
+  Link: https://lore.kernel.org/all/20261009070725.13196-1-ansuelsmth@gmail.com/
+
+Changes v6:
+- Address bot suggestion for DT patch
+- Add further information on chip-scu phandle
+- Add dedicated PERSTOUT reset and PCIE_HB reset
+  Link: https://lore.kernel.org/all/20260819221458.30040-1-ansuelsmth@gmail.com/
+
+Changes v5:
+- Rebase on top of linux-next
+- Drop even more patch to reduce patch delta
+- Make chip-scu specific to AN7583
+  Link: https://lore.kernel.org/all/20260528190000.9164-1-ansuelsmth@gmail.com
+
+Changes v4:
+- Add review tag for DT patch
+- Fix clock patch to use en7581-chip-scu compatible
+- Drop PCIE SCU SSR write
+
+Changes v3:
+- Drop .set_rate patch (will be proposed later)
+- Drop chip-scu binding and related patch
+  Link: https://lore.kernel.org/all/20251106195935.1767696-1-ansuelsmth@gmail.com
+
+Changes v2:
+- Add .set_rate support
+- Rework DT to EN7581 implementation (clock driver is parent)
+- Add additional cleanup patch
+- Merge binding with schema patch
+- Add chip_scu phandle
+
+Christian Marangi (5):
+  dt-bindings: clock: airoha: Document support for AN7583 clock
+  clk: en7523: use devm variant for clk_hw_register and fixed clock
+  clk: en7523: protect concurrent access to reset and PCI register
+  clk: en7523: generalize register clocks function
+  clk: en7523: add support for Airoha AN7583 clock
+
+ .../bindings/clock/airoha,en7523-scu.yaml     |  25 ++
+ drivers/clk/clk-en7523.c                      | 340 +++++++++++++++++-
+ include/dt-bindings/clock/en7523-clk.h        |   3 +
+ .../dt-bindings/reset/airoha,an7583-reset.h   |  65 ++++
+ 4 files changed, 422 insertions(+), 11 deletions(-)
+ create mode 100644 include/dt-bindings/reset/airoha,an7583-reset.h
+
+-- 
+2.55.0
+
