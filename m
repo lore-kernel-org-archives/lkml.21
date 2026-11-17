@@ -1,71 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=23.88.97.239
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794940132;
-	b=wVJyX47Ank4RG/Xj+y4/1LfnUB5V3uswvqg5z5xB8pJbuVHKVh+jbyHB74y6k58iHTJn
-	 V20hhhpMcm/jJCQ4cCJQlLA2fHnaG6zAVoKz6YjkF7KIsV9iHA4UwEAICMmWO5k6o4u6E
-	 ebhQyDFuCMGDlUa+cAxsH5+SkMh4MxGdbC4iRl/WY2rU+oSmiXJIey9GGzzK+ehzyJL9E
-	 zTzu62Ka9EKi8C2XU0sLdOYIvcYwPmXMtEvwPISU6kqTTmqGuUPs3hfyX53+oRnFBBe9O
-	 XSj3Gk4hpREAUzRFxEgTgNeQ9wLnym5XMoCEr+5SdytukHNN+pZC/r2bpKGXVQ2Ut3A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794940132;
-	h=DMARC-Filter:DKIM-Signature:Received:X-Spam-Checker-Version:
-	 X-Spam-Level:X-Spam-Status:DKIM-Signature:Received:From:Date:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
-	bh=TYCrUZgXrFp7nju9+zel/L//WHtE13MRhrVcFy3OJJs=;
-	b=iAPiDDLOH0Bu5jpA7l5ReLKeT4McyYUuF5zJ1JHpUmEFtNmbZLKIqbqm+ORWsePf6Elq
-	 jRMAPI61Su5WVwYakIR++blfvZBDkTJZIiDBbmx6V6/dbBZpJOgmyqPuN00U7eZfimXJx
-	 ucQKZ1aDODZUOl478EK37XE7ns1XNERKVwAoCZGYbNWjGMNDH7krdExJX0CgBivxiT7wg
-	 zO+iQE9ay3qUQhRQUWluEYiLGs2tNIeTvgrrpPa9HPDLczaLKkeToZ/bGFy+axkoQJLRo
-	 iH1nMEtOt2HWK5F7v8uieg2SAInaeNE0XzNcYGDCe5fJYQG1WxNvSHKoRgBV5HmvRCQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=birger-koblitz.de;
-	spf=pass smtp.mailfrom=birger-koblitz.de;
-	dkim=pass header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=vKjlA+51;
-	dkim=pass header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=ci2mQDF6;
-	arc=none smtp.remote-ip=23.88.97.239
-Received: from bkemail.birger-koblitz.de (bkemail.birger-koblitz.de [23.88.97.239])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=81.169.146.166
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794940185;
+	b=vIDk8w85Kwtfoj30Alv/nyMp6F9vu+ScdeIF7azqaESaAI//DIBIuMx4L6XKGMdY7sDp
+	 VlpO+kswWmBrFgnD/OMxWYuOwBNNkfJvDseMUmnJ7CMBVJGKCdWDT5kH9kGADRv0zPiwT
+	 kCWwmdG0Qj0No1AvgkkXqsAQN77tXgCGOgps1J/y7kAsAKAGblkoZf9jm7siEGOa34xcq
+	 gSHc07YPj4/0vzcpKogoJT6rVP1deihto/YZ6njxzdpVoOwO3VzkEkODGpfAbZQKPTGJR
+	 CGRankf9X00kGebbkJWN8a8xMII9Jg40kzFJS0nXvyXjntTwNJnvPXXKBKQ6BKK0q5w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794940185;
+	h=DMARC-Filter:X-RZG-CLASS-ID:DKIM-Signature:DKIM-Signature:X-RZG-AUTH:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:Content-Type;
+	bh=l+XFBccrYuDhtVAQlrMd+uvqRXSMqFNcK/gVZwMFJks=;
+	b=gdCrfHp2MeYpr2yUGZuQShPjHEEwZU2lsAZC1v65i65FDnGYxEp9gFR2NxHxJyJBoo5Q
+	 V08yBW6R6ANtagv+y1luV+FchRmsx/1T8e8o5XLHlfBLQEf+10C4WlI/yjAhei0/jsJwC
+	 s/p+J0Vfuk9xNgdd9/ayjeoOy2RmaMhk3e7FfbPSRnITvv+bHqIDAgdb2EYJKKWbTYExL
+	 gFf0ljZjqYfgLwZ9lJsL2QwUWX+dV1fB87R1SSbEjrCh+7ORKKAVV1vKkACZmBPTbNSWP
+	 HtGoz+j3FqHvGigANFGI1pA/FXcGJF/rsaMttgqKlhqOTFui5yulhn2iqn1twEfWWRw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=goldelico.com;
+	spf=pass smtp.mailfrom=goldelico.com;
+	dkim=pass header.d=goldelico.com header.i=@goldelico.com header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=Fg7PwePu;
+	dkim=pass header.d=goldelico.com header.i=@goldelico.com header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=Mln4Z3qp;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=81.169.146.166
+Received: from mo4-p01-ob.smtp.rzone.de (mo4-p01-ob.smtp.rzone.de [81.169.146.166])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6158B606A32C;
-	Tue, 17 Nov 2026 18:28:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6158B606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=birger-koblitz.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=birger-koblitz.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA82C606A31C;
+	Tue, 17 Nov 2026 18:29:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA82C606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=goldelico.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goldelico.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=vKjlA+51;
-	dkim=pass (2048-bit key) header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=ci2mQDF6
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=birger-koblitz.de;
-	s=default; t=1794940123;
-	bh=PC9BEm+5BWDcKunvskJlZOjZYCOKJ7jpPS6hPUydkJU=;
-	h=From:Date:Subject:To:Cc:From;
-	b=vKjlA+51It75T4/y2wKNvbSOmhUUw8RydptVs+jzo6F77NKG48zISWv5LJH8GSgnD
-	 wabrxm2cAjeZjPZlBOqVmu3O7sRvqs1tvOQXPkie4RxYfkUOrFiNUeNeO60iIkS8RU
-	 MUU/v6qexMWFV/thzNcXNKIEPMqzyMMozBsPqcI3v5on0UU5OBekczRRE3osqdwRvZ
-	 lUoMiO81PEdMSw736gtptvXgnO1edfusyv/vk7ViSAxmeWNjf/vh5bCZyMy3ThS39t
-	 ZIQpX+rnC2oZ/X25T9abkFvQOOdPI8J1eUxNU9P+Vd2Pf/L0XJ4sPkT5II1CD4P7zF
-	 CI1kmaEvnxXwA==
-Received: by bkemail.birger-koblitz.de (Postfix, from userid 109)
-	id 161DF48C78; Tue, 17 Nov 2026 18:28:43 +0000 (UTC)
-X-Spam-Level: 
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=birger-koblitz.de;
-	s=default; t=1794940122;
-	bh=PC9BEm+5BWDcKunvskJlZOjZYCOKJ7jpPS6hPUydkJU=;
-	h=From:Date:Subject:To:Cc:From;
-	b=ci2mQDF6HMx3Yc3YifPASqChiL+b3jR6C3Pt4/LygSIkxZDfI/Tx7feLsrqvlwJ0E
-	 2u7Agqh3/0rb+YL9B11J3fufJigx3rajIRGuUSaIXtaFMr67Tyrr1CpFYWYkxv2+tb
-	 1PnpN2jj8m3ZzB5JX39z0V9v19WJvnObsE+uek0ueE8zozDY6+knJsxOlUZVQj5rZU
-	 ek5hgFuNbpWhgtCjD47v5UdOnmm0x1W7UMLUjeueAOUi/fBCzheGNYgZl7LsHNuEW+
-	 4H0iXMlfxZNr8ky5ZON/9JpUWme88t6pqIxOWOxsaDXB56w+g+MWljZwkInNGCrisB
-	 /D0DrgNhNCOTg==
-Received: from AMDDesktop.lan (unknown [IPv6:2a00:6020:47a3:e800:271c:c6c5:9fde:77cb])
-	by bkemail.birger-koblitz.de (Postfix) with ESMTPSA id D8B5B48A23;
-	Tue, 17 Nov 2026 18:28:41 +0000 (UTC)
-From: Birger Koblitz <mail@birger-koblitz.de>
-Date: Tue, 17 Nov 2026 19:28:25 +0100
-Subject: [PATCH net-next] aqc111: Correct endianness handling in
- rx/tx_fixup
+	dkim=pass (2048-bit key, unprotected) header.d=goldelico.com header.i=@goldelico.com header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=Fg7PwePu;
+	dkim=pass header.d=goldelico.com header.i=@goldelico.com header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=Mln4Z3qp
+ARC-Seal: i=1; a=rsa-sha256; t=1794940173; cv=none;
+    d=strato.com; s=strato-dkim-0002;
+    b=r4/2fUO9uT4ytL/rgwwjYtBWpbHWj1KI7VTsq4N/icXsQBBJK5mncPKoac7g51XHJi
+    jT6WHNzQZVNqw28EflW+nqBVOfQ/FwsZl5d55LAKLIxlnWnrj5aKFgU8gytvl9+NCKfK
+    jUe+YoMMpKBFqMxTI3fHCWqfP6GmeuDf3txwjhJYxHowEgy0h0Tp9KKRY0KZlBZoHBAD
+    m2zSidNXd0YToxW0O7b1dVtxD8BEd0xUkjjApdj7vFlhXJgsto+KWpTi52HHjDxw9cKE
+    7izql6ACMw3SE15D6RR+b8baqlkA6xcjWrxzXxN9axtIyjfzkUDm9dVMzKo9GoPwFkHc
+    dXEA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1794940173;
+    s=strato-dkim-0002; d=strato.com;
+    h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
+    From:Subject:Sender;
+    bh=l+XFBccrYuDhtVAQlrMd+uvqRXSMqFNcK/gVZwMFJks=;
+    b=H18kM8kd88OuXMTIkJ4SQ65oHi6an+ew5o7jwOp+vHQJ1jGq3YxcVotAyCsiPCy2lA
+    /ze8wAOvm9e+AIsNG2WkXarOB2LDqXiJUg4IwENOiakrWXjetRO8qAkKL260STF5kBMo
+    e/te5VfyW6G1sGV/UDcLuFFfINSGLXFZjG5F0PwhibSUIAIYrpRObYFaRYGRdtvHHntz
+    3UgU/t/unsji4dWydhvIRI+eDjLiYmxbd3ZgwMG6BX1L64gLnaNBKIohu3lbODKQ5CnQ
+    iG0HMAVvSap1KnZ+09xiTC/h4ZykvQoQfYaZG/f4MHuAb8ku6pJ6Bh5aYdVd5mqIHYwb
+    Kktg==
+ARC-Authentication-Results: i=1; strato.com;
+    arc=none;
+    dkim=none
+X-RZG-CLASS-ID: mo01
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1794940173;
+    s=strato-dkim-0002; d=goldelico.com;
+    h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
+    From:Subject:Sender;
+    bh=l+XFBccrYuDhtVAQlrMd+uvqRXSMqFNcK/gVZwMFJks=;
+    b=Fg7PwePuBiIe8MYHGxudhFyymWA5FNdAHJovJZwQ1YZ/9KaEXDD1PAQxwHJsS21mmD
+    Q0VRDxtbwgN+WjqHm2H6/9XxjHG6WMDJ0tztYfiGakcAQcrqrjxv7GI6Xu0ai8/F1uMl
+    ASSv2rCebdvIBIAKhvU8BMMBjaPxwRdiAK+Lz6qv47JK33D1NhmilUx8OvwHDdf8Endf
+    cGFWLcEwONYipu/BpYi5yCt1DDObnwBCJ7fDSKEke61zrK19fRJuVODQvKZBK8sVecfT
+    TybaK/szqnnW4tmti7Ze4lINkMrQlB3ItrEIDz2eTfyo1b3lI4nXGt9ZV3UQTj8UE0OL
+    lvyw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1794940173;
+    s=strato-dkim-0003; d=goldelico.com;
+    h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
+    From:Subject:Sender;
+    bh=l+XFBccrYuDhtVAQlrMd+uvqRXSMqFNcK/gVZwMFJks=;
+    b=Mln4Z3qpC1X6hAChJIJyS/bk6wPPWMh7aIyVDlgrgFruRVyMIK3oSBmuECoPSEbPo4
+    t5aJ+MDS8DA7QXRQctDQ==
+X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9qVpwcQVkPW4I1HrQ3ppelMiNKoEY92nD9kO01+3QZuyyF4VcrvHZ"
+Received: from iMac.fritz.box
+    by smtp.strato.de (RZmta 55.6.3 AUTH)
+    with ESMTPSA id Qb56a22AHITXYbO
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
+	(Client did not present a certificate);
+    Tue, 17 Nov 2026 19:29:33 +0100 (CET)
+From: "H. Nikolaus Schaller" <hns@goldelico.com>
+To: Linus Walleij <linusw@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Cercueil <paul@crapouillou.net>,
+	Bartosz Golaszewski <brgl@kernel.org>
+Cc: linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	letux-kernel@openphoenux.org,
+	"H. Nikolaus Schaller" <hns@goldelico.com>
+Subject: [PATCH v2 1/7] pinctrl: ingenic: Swap ID_X1600 and ID_X1830
+Date: Tue, 17 Nov 2026 19:29:22 +0100
+Message-ID: <31af98bb343c39b76f8c59d247a9ebf45ddfb541.1794940167.git.hns@goldelico.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <cover.1794940166.git.hns@goldelico.com>
+References: <cover.1794940166.git.hns@goldelico.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,121 +111,108 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261117-aqc111-v1-1-27a54c4b54ca@birger-koblitz.de>
-X-B4-Tracking: v=1; b=H4sIAMic/GoC/x2MywqAIBAAfyX2nOBKZPQr0cHHVnuxUgkh/Pek0
- zAwzAuJIlOCuXsh0sOJz9AE+w7cYcJOgn1zUFKNiKiFuV2jsNJtg5y81qOFFl+RNi7/aIFAWQQ
- qGdZaP19lu9JiAAAA
-X-Change-ID: 20261117-aqc111-b0cf408d776b
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: linux-usb@vger.kernel.org, netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Birger Koblitz <mail@birger-koblitz.de>
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
 
-The MAC supported by the aqc111 driver is very similar
-to the AX88179A. During the development of the driver for
-the AX88179A, the following issues in endianness-handling
-were found, which are also present in the aqc111 driver:
- CHECK   drivers/net/usb/aqc111.c
-drivers/net/usb/aqc111.c:1094:34: warning: incorrect type in argument 1 (different base types)
-drivers/net/usb/aqc111.c:1094:34:    expected restricted __le64 const [usertype] *p
-drivers/net/usb/aqc111.c:1094:34:    got unsigned long long [usertype] *
-drivers/net/usb/aqc111.c:1122:45: warning: incorrect type in argument 1 (different base types)
-drivers/net/usb/aqc111.c:1122:45:    expected restricted __le64 const [usertype] *p
-drivers/net/usb/aqc111.c:1122:45:    got unsigned long long [usertype] *[assigned] pkt_desc_ptr
-drivers/net/usb/aqc111.c:1235:22: warning: incorrect type in assignment (different base types)
-drivers/net/usb/aqc111.c:1235:22:    expected unsigned long long [usertype]
-drivers/net/usb/aqc111.c:1235:22:    got restricted __le64 [usertype]
+From: Paul Cercueil <paul@crapouillou.net>
 
-Fix these problems and additionally also make sure that cloned
-skbs are always copied for expansion.
+The X1830 predates the X1600 and uses an older GPIO register layout.
 
-Signed-off-by: Birger Koblitz <mail@birger-koblitz.de>
+Swap their IDs to reflect the hardware evolution. This allows
+is_soc_or_above() to distinguish newer X1600-based GPIO features
+like X2000 (and X2600) from the X1830 register layout.
+
+Add an is_soc() helper for features specific to a single SoC
+generation and adjust the existing pin configuration checks
+accordingly.
+
+Signed-off-by: Paul Cercueil <paul@crapouillou.net>
+Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com>
 ---
-The MAC supported by the aqc111 driver is very similar
-to the AX88179A. During the development of the driver for
-the AX88179A, the following issues in endianness-handling
-were found, which are also present in the aqc111 driver:
-CHECK   drivers/net/usb/aqc111.c
-drivers/net/usb/aqc111.c:1094:34: warning: incorrect type in argument 1 (different base types)
-drivers/net/usb/aqc111.c:1094:34:    expected restricted __le64 const [usertype] *p
-drivers/net/usb/aqc111.c:1094:34:    got unsigned long long [usertype] *
-drivers/net/usb/aqc111.c:1122:45: warning: incorrect type in argument 1 (different base types)
-drivers/net/usb/aqc111.c:1122:45:    expected restricted __le64 const [usertype] *p
-drivers/net/usb/aqc111.c:1122:45:    got unsigned long long [usertype] *[assigned] pkt_desc_ptr
-drivers/net/usb/aqc111.c:1235:22: warning: incorrect type in assignment (different base types)
-drivers/net/usb/aqc111.c:1235:22:    expected unsigned long long [usertype]
-ddrivers/net/usb/aqc111.c:1235:22:    got restricted __le64 [usertype]
-    
-Fix these problems and additionally also make sure that cloned
-skbs are always copied for expansion.
----
- drivers/net/usb/aqc111.c | 13 +++++++------
- 1 file changed, 7 insertions(+), 6 deletions(-)
+ drivers/pinctrl/pinctrl-ingenic.c | 20 +++++++++++++-------
+ 1 file changed, 13 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/net/usb/aqc111.c b/drivers/net/usb/aqc111.c
-index dd53f413c38f6035c18f9922fd4e90d66a73ae53..39d8755ca8e7bff484100f82863cc2ac8582fcc9 100644
---- a/drivers/net/usb/aqc111.c
-+++ b/drivers/net/usb/aqc111.c
-@@ -1074,7 +1074,7 @@ static int aqc111_rx_fixup(struct usbnet *dev, struct sk_buff *skb)
- 	struct aqc111_data *aqc111_data = dev->driver_priv;
- 	struct sk_buff *new_skb = NULL;
- 	u32 pkt_total_offset = 0;
--	u64 *pkt_desc_ptr = NULL;
-+	__le64 *pkt_desc_ptr = NULL;
- 	u32 start_of_descs = 0;
- 	u32 desc_offset = 0; /*RX Header Offset*/
- 	u16 pkt_count = 0;
-@@ -1091,7 +1091,7 @@ static int aqc111_rx_fixup(struct usbnet *dev, struct sk_buff *skb)
+diff --git a/drivers/pinctrl/pinctrl-ingenic.c b/drivers/pinctrl/pinctrl-ingenic.c
+index 37310d9679457..88c5edeaaddcc 100644
+--- a/drivers/pinctrl/pinctrl-ingenic.c
++++ b/drivers/pinctrl/pinctrl-ingenic.c
+@@ -110,8 +110,8 @@ enum jz_version {
+ 	ID_JZ4780,
+ 	ID_X1000,
+ 	ID_X1500,
+-	ID_X1600,
+ 	ID_X1830,
++	ID_X1600,
+ 	ID_X2000,
+ 	ID_X2100,
+ };
+@@ -166,6 +166,12 @@ static const unsigned long enabled_socs =
+ 	IS_ENABLED(CONFIG_MACH_X2000) << ID_X2000 |
+ 	IS_ENABLED(CONFIG_MACH_X2100) << ID_X2100;
  
- 	/* RX Descriptor Header */
- 	skb_trim(skb, skb_len - sizeof(desc_hdr));
--	desc_hdr = le64_to_cpup((u64 *)skb_tail_pointer(skb));
-+	desc_hdr = get_unaligned_le64((__le64 *)skb_tail_pointer(skb));
++static bool
++is_soc(const struct ingenic_pinctrl *jzpc, enum jz_version version)
++{
++	return (enabled_socs & BIT(version)) && jzpc->info->version == version;
++}
++
+ static bool
+ is_soc_or_above(const struct ingenic_pinctrl *jzpc, enum jz_version version)
+ {
+@@ -4090,7 +4096,7 @@ static int ingenic_pinconf_get(struct pinctrl_dev *pctldev,
+ 				!ingenic_get_pin_config(jzpc, pin, X2000_GPIO_PEPU) &&
+ 				(jzpc->info->pull_downs[offt] & BIT(idx));
  
- 	/* Check these packets */
- 	desc_offset = (desc_hdr & AQ_RX_DH_DESC_OFFSET_MASK) >>
-@@ -1116,10 +1116,10 @@ static int aqc111_rx_fixup(struct usbnet *dev, struct sk_buff *skb)
- 		goto err;
+-	} else if (is_soc_or_above(jzpc, ID_X1830)) {
++	} else if (is_soc(jzpc, ID_X1830)) {
+ 		unsigned int half = PINS_PER_GPIO_CHIP / 2;
+ 		unsigned int idxh = (pin % half) * 2;
  
- 	/* Get the first RX packet descriptor */
--	pkt_desc_ptr = (u64 *)(skb->data + desc_offset);
-+	pkt_desc_ptr = (__le64 *)(skb->data + desc_offset);
+@@ -4142,7 +4148,7 @@ static int ingenic_pinconf_get(struct pinctrl_dev *pctldev,
+ 	case PIN_CONFIG_INPUT_SCHMITT_ENABLE:
+ 		if (is_soc_or_above(jzpc, ID_X2000))
+ 			reg = X2000_GPIO_SMT;
+-		else if (is_soc_or_above(jzpc, ID_X1830))
++		else if (is_soc(jzpc, ID_X1830))
+ 			reg = X1830_GPIO_SMT;
+ 		else
+ 			return -EINVAL;
+@@ -4153,7 +4159,7 @@ static int ingenic_pinconf_get(struct pinctrl_dev *pctldev,
+ 	case PIN_CONFIG_SLEW_RATE:
+ 		if (is_soc_or_above(jzpc, ID_X2000))
+ 			reg = X2000_GPIO_SR;
+-		else if (is_soc_or_above(jzpc, ID_X1830))
++		else if (is_soc(jzpc, ID_X1830))
+ 			reg = X1830_GPIO_SR;
+ 		else
+ 			return -EINVAL;
+@@ -4190,7 +4196,7 @@ static void ingenic_set_bias(struct ingenic_pinctrl *jzpc,
+ 			ingenic_config_pin(jzpc, pin, X2000_GPIO_PEPD, false);
+ 		}
  
- 	while (pkt_count--) {
--		u64 pkt_desc = le64_to_cpup(pkt_desc_ptr);
-+		u64 pkt_desc = get_unaligned_le64(pkt_desc_ptr);
- 		u32 pkt_len_with_padd = 0;
- 		u32 pkt_len = 0;
+-	} else if (is_soc_or_above(jzpc, ID_X1830)) {
++	} else if (is_soc(jzpc, ID_X1830)) {
+ 		unsigned int idx = pin % PINS_PER_GPIO_CHIP;
+ 		unsigned int half = PINS_PER_GPIO_CHIP / 2;
+ 		unsigned int idxh = (pin % half) * 2;
+@@ -4298,7 +4304,7 @@ static int ingenic_pinconf_set(struct pinctrl_dev *pctldev, unsigned int pin,
+ 			break;
  
-@@ -1220,7 +1220,8 @@ static struct sk_buff *aqc111_tx_fixup(struct usbnet *dev, struct sk_buff *skb,
- 	headroom = skb_headroom(skb);
- 	tailroom = skb_tailroom(skb);
+ 		case PIN_CONFIG_INPUT_SCHMITT_ENABLE:
+-			if (!is_soc_or_above(jzpc, ID_X1830))
++			if (!is_soc(jzpc, ID_X1830) && !is_soc_or_above(jzpc, ID_X2000))
+ 				return -EINVAL;
  
--	if (!(headroom >= sizeof(tx_desc) && tailroom >= padding_size)) {
-+	if (skb_cloned(skb) ||
-+	    !(headroom >= sizeof(tx_desc) && tailroom >= padding_size)) {
- 		new_skb = skb_copy_expand(skb, sizeof(tx_desc),
- 					  padding_size, flags);
- 		dev_kfree_skb_any(skb);
-@@ -1232,7 +1233,7 @@ static struct sk_buff *aqc111_tx_fixup(struct usbnet *dev, struct sk_buff *skb,
- 		skb_put_zero(skb, padding_size);
- 	/* Copy TX header */
- 	tx_desc_ptr = skb_push(skb, sizeof(tx_desc));
--	*tx_desc_ptr = cpu_to_le64(tx_desc);
-+	put_unaligned_le64(tx_desc, tx_desc_ptr);
+ 			ingenic_set_schmitt_trigger(jzpc, pin, arg);
+@@ -4314,7 +4320,7 @@ static int ingenic_pinconf_set(struct pinctrl_dev *pctldev, unsigned int pin,
+ 			break;
  
- 	usbnet_set_skb_tx_stats(skb, 1, 0);
+ 		case PIN_CONFIG_SLEW_RATE:
+-			if (!is_soc_or_above(jzpc, ID_X1830))
++			if (!is_soc(jzpc, ID_X1830) && !is_soc_or_above(jzpc, ID_X2000))
+ 				return -EINVAL;
  
-
----
-base-commit: 805185b7c7a1069e407b6f7b3bc98e44d415f484
-change-id: 20261117-aqc111-b0cf408d776b
-
-Best regards,
+ 			ingenic_set_slew_rate(jzpc, pin, arg);
 -- 
-Birger Koblitz <mail@birger-koblitz.de>
+2.56.0
 
