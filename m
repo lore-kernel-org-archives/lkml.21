@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794941412;
-	b=qNBPbfNzgXT+11A7ruZZ4zuwGMlOtUwpx32eeqscs7eEFv1ygEFSRFORCGez+85UE4OV
-	 K/L1988O7w8XBthtrnhFwAyh6t6kInXmoIT89Bb1r7xFW1XoHjVC4d+fS8lD62c4Khptu
-	 J/Uahjuc5NygaMHalyN446CitJHxs91sNn8iUEkgtqatoK/Cl6Eek7fyK+a43iWcPDzv1
-	 RHMQ2vg2fWhXXjorhmnPTbjf+fXKgqe9vaW9OxGTtUGEFIPlF8ht/dGbKqt8416At64o5
-	 u6I9L8BW4YCJCHt5n2sALszi4Ec8CJR2QYp7tTTf79KLahwKZp14wwmCZXMvl7XgSKw==
+	t=1794941418;
+	b=DqGqRwSASZuY2NRCCBJQ+/BlOYU1q5EytYK0SgtIPv49vopkmdlhvSM1++EumKS2GXR+
+	 Fw8nDfAbhrL+r5lSeTKe8/lRqXAYXahddSJyvA11b7KrRyvnqUQjoMHckqPxWgTXHf/Yl
+	 zGzjOGF0d7Y6PKuZM6+pO6Y2g3uemgdGUIYCD6DsjUoBRbzBcBOQmCZOOQr5Uu2DkcWfK
+	 /x7UIh2Dz8uvXJCIQXP8MaRdASL+fF76q+TsiiG8Q1v6fvOUELeq9tlI2aFqnY/jAvsoJ
+	 qirQ/tAHa8PAGbkizOY/9Mry7fOTLeQiPDlXGtt8FlG/cDHoMSySdX3r1mjpxjJc9Hw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794941412;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794941418;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=EHut089wnS/b4OXavmg2hTDdLbDx29zfzsq7IO+2Qpk=;
-	b=Uo3q07iZhRY8wcrLYmmAVTUKg0AC/0Rsjz4/K9UQwOuoaj3SmVlhKjNUYh4OiT7LVB9n
-	 mS5ZfGinyNafRKfqqXtZm7QB3FXXKC9xIoAcxhQuC+YKz+PNdeaVTFE8b9p/JbtkItmJT
-	 uf+SZhR/NBnyu010QlGI4MsKL2AdcTib9smyNs63BkhPWlSCwTr9tOLMOe/CPnORSjPrx
-	 HnP4BiBaRXPvDe80SwZciwIOInuWQ1LYW2mNZ3eI16jRgTqvr4+ymg42oyDtnPW8PEo5A
-	 +K95a/g992O1dFeBrcmKhYv1o6XKDgw6ks9GQiPzP91Xk0e0wjFLmjg3HceSOlG45fA==
+	bh=dhaqQFBevU5t/A5R732u5te+NgZi+LIPrNTPHDtBZ6U=;
+	b=GKEEp1O2QmBNVw2M/XCIdsYZVAeroi1MeAU955rIJehHdQRBZa8PjFn69Xv+XGRiHmuF
+	 n8br1cbattpa+MIztneBAtJUxjxLOaId4AcGmOJdhX8DFMZUgqZl1OBvTkrt/P6p4cJXZ
+	 TlxDYLbiBu+ldEuiO+eeX2aDpOjh9caIbbzkBhvTroAdH5E3GKWz73RGKMeKPXzLtYep4
+	 DmswBsUbGpGSnKL6ZGT1uS2GPV54Bbp4i+ZogfjWSZ1u6j6t0xiOECiOayikUZvuuRNTa
+	 7S/mL4aNA8w8X2v/nuCJRizaKadgCzw92xYUIuv/pvVwueqqWgn8PEhuNARztpy0eOw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xws8CPdY;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Lmz/ADXU";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69852606A887;
-	Tue, 17 Nov 2026 18:50:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7AC4B606A893;
+	Tue, 17 Nov 2026 18:50:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xws8CPdY
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43EF91F000C6;
-	Tue, 17 Nov 2026 18:50:12 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Lmz/ADXU
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 425D11F000C4;
+	Tue, 17 Nov 2026 18:50:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794941412;
-	bh=EHut089wnS/b4OXavmg2hTDdLbDx29zfzsq7IO+2Qpk=;
+	s=k20260515; t=1794941418;
+	bh=dhaqQFBevU5t/A5R732u5te+NgZi+LIPrNTPHDtBZ6U=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=Xws8CPdYhkVj0z/5HaONQfHOtEVAZt9Fheb2hv+VY4q+PLxuekPSSqrJnGxjMi3Uy
-	 bSTZjUe6QTH/o5nraauAes6ZhCk0jLKeblpEsgmtz2omct/Z0xYKoiNwu9scJ8briL
-	 ZFGkwc94Az1HmfeZdm+5HfQ/Ap6Jh3Ft09PtBrh7X3ghIOSLsuE6DUsU6AUf7u3OOU
-	 i6Cxt/0Jem0pkAfeelSlbmL92fe4NDZvXGqqi0xk5vqBy99cAUlSRIUCUEb1US09sK
-	 SlWNWDyH7D2Cstpcu8PmFMFMBeULOdB6chTq0uYzPoZ3OTOLdXS2mldULn0ZkwVd2a
-	 LVHhzsauTgi5Q==
+	b=Lmz/ADXU/rzUmcGzBZ90z5sn2FguQPnqnicvccJPFpr2PXX9MOqBWQY9J27iElPkl
+	 g8OtbadbnT9+dP6QEFNe5HcWyFvq4Wlb8vSUJs+xCLhDT8xm1WeichSzmBeR9seBoP
+	 twQGR0yUHb/8LQkR7uLaDye1f93NVri2eznzvAf5c5vOTqVtHT8xgI8FfngU17cVIS
+	 ejohexTDaSkPlMmqvOEg4fLp90Oo7Uj3My0egLY9jSUZeMivoeLutsNulDTl6vXifs
+	 BEwn4t2lQnNgVB2wFZQ3w/bySxCf7NzWiamEBtzKMbMBH9ACnndApnSKq+kbA1a4Dk
+	 oBFPY3gsvZhQg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A39E392B1C5;
-	Tue, 17 Nov 2026 18:50:12 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A3A6392B1C5;
+	Tue, 17 Nov 2026 18:50:18 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -54,38 +54,41 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v2] Bluetooth: L2CAP: return LE credits from recvmsg under
- the
- conn lock
+Subject: Re: [PATCH] Bluetooth: hci_serdev: serialize flush with transmit work
 From: patchwork-bot+bluetooth@kernel.org
 Message-Id: 
- <179494141077.761488.1132043002777278143.git-patchwork-notify@kernel.org>
-Date: Tue, 17 Nov 2026 18:50:10 +0000
-References: <20261117144938.82299-1-ngocthang2710.1999@gmail.com>
-In-Reply-To: <20261117144938.82299-1-ngocthang2710.1999@gmail.com>
-To: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
-Cc: marcel@holtmann.org, luiz.dentz@gmail.com,
- linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
- stig@hornang.me, syzbot+9dc8780713b11155dd74@syzkaller.appspotmail.com
+ <179494141677.761488.12705162409776237119.git-patchwork-notify@kernel.org>
+Date: Tue, 17 Nov 2026 18:50:16 +0000
+References: <20261116080538.66575-1-enderaoelyther@gmail.com>
+In-Reply-To: <20261116080538.66575-1-enderaoelyther@gmail.com>
+To: Zhao Li <enderaoelyther@gmail.com>
+Cc: marcel@holtmann.org, luiz.dentz@gmail.com, robh@kernel.org,
+ sre@kernel.org, pavel@ucw.cz, me@michaelmcallister.org,
+ linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org
 
 Hello:
 
 This patch was applied to bluetooth/bluetooth-next.git (master)
 by Luiz Augusto von Dentz <luiz.von.dentz@intel.com>:
 
-On Tue, 17 Nov 2026 21:49:37 +0700 you wrote:
-> l2cap_chan_le_send_credits() allocates an ident from conn->tx_ida, sends
-> L2CAP_LE_CREDITS and frees the ident right away, since the command has
-> no response. The RX path frees idents in l2cap_put_ident() under
-> conn->lock. That only works if the credits path holds conn->lock too,
-> so that no response can be processed between the allocation and the
-> free.
+On Mon, 16 Nov 2026 16:05:38 +0800 you wrote:
+> hci_uart_flush() runs on HCI close and reset and frees hu->tx_skb while
+> write_work may still be sending the same partial frame. The worker can
+> then resume with a freed skb, or both paths can free the frame.
+> 
+> The tty flush has stopped write_work before freeing the partial frame
+> since commit 1b0d946d6f08 ("Bluetooth: hci_uart: clear HCI_UART_SENDING
+> when write_work is canceled"). Do the same in the serdev flush: disable
+> and drain write_work before releasing the frame, and hold
+> HCI_UART_SENDING meanwhile so that hci_uart_tx_wakeup() only records
+> HCI_UART_TX_WAKEUP. Then re-enable the work, release SENDING and replay
+> a wakeup that arrived in between.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2] Bluetooth: L2CAP: return LE credits from recvmsg under the conn lock
-    https://git.kernel.org/bluetooth/bluetooth-next/c/5beb86f98c3d
+  - Bluetooth: hci_serdev: serialize flush with transmit work
+    https://git.kernel.org/bluetooth/bluetooth-next/c/ee43bade37c4
 
 You are awesome, thank you!
 -- 
