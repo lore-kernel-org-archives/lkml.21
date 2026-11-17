@@ -1,97 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.78
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794945210;
-	b=zxwN45ACLb0PxNuAMC3tRMUg/JcHXBwNfBKVYLnmDKuKqGgH4HVU5eUpbvUO/oVspdWm
-	 zWighgICYXA4xMQo2uJ1dOV1pi2vb/iLFrZMtYWxtV/C45iWuAwYeIqTibOPSnoNtt8e5
-	 Xp6gBGOgTJXhZMOleVvZkhXJSHkRqDus53evkbY+89MjZGGyE2Hbwr4Yxs24egjwPwT7Y
-	 YxK2+jJ9JhR/ymz9z++yOU9EGyEANX4Py285aoAZyq04YLZvGLofpW1TagWdWlL94tYyE
-	 U8wL1ggX66WInQYXC66M2nugJRXyuCptxygKvLqeBbK83vzoGOm8wiNrZiNEF/Aha9Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794945210;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=o4HnvXNAO8rcgAAQADzudVeRhjYc0RMLtxle1YVqL+A=;
-	b=I7kgg2sdbFtCRI1jNbYMlzkKCHHIRuywBNSzSt3yh12HQQsIs5ZsgqHhkA8p+EGeXFOI
-	 /yQQs1w4rzC0i8t7ANQgs7jjqTq2GPLcgsXl7AyBRbT5N9X5C5c+U1f5xf0svRs7QLNOS
-	 v0Y3zq1aYsxUrAM6psu1rGh+zlCbMraeErqj8F6yvn28gXjLexkBv04IJrHA1r5PAqWvf
-	 CMHh26yVRRZAavsXTYvVax3KP8K2TT0IE0rOBndb1Hj+qnvAxpJW00nQ+EcEWlPX8J2hH
-	 Tf7fQBQ2FZGxhNMaDyeL8pclhshssbH3YFzu4HWS35vN/guTt3KFMXkUMbX89LUQNvg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=virtuozzo.com;
-	spf=pass smtp.mailfrom=virtuozzo.com;
-	dkim=pass header.d=virtuozzo.com header.i=@virtuozzo.com header.a=rsa-sha256 header.s=selector2 header.b=cYckwFN6;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.78
-Received: from AS8PR04CU009.outbound.protection.outlook.com (mail-westeuropeazon11021078.outbound.protection.outlook.com [52.101.70.78])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.180
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794945284;
+	b=sonuahKoPYN58SLtTAtqDDQyqjVEF6G+KiqZX8xgktxN6mSFyidQm664RfUCPIwuz/j9
+	 9IzKgD/qV/JjDcXu7QuJpBUviiR0FSlshn+2GNC/FubP2igYjHuMt7+m9kYokCsFwEpbb
+	 YJvZu1FH+398Z7hhQOEigjZ+4zp28XvBmyhZPnab1hyRxhHmwXUJcrEgyodQyPj0RPonl
+	 2ZQ99lSKC/0U83lXh2Ye00Iby5HEuelejBTsozuLKomzfkihZabUrKyyyy0XPAWHPUUJD
+	 3tv+5hB41e/KSGPMPW1xx24jajQpYfMnQLvyUHwgGYC7hi5r1o8OVP4ktA1wYoVgA9Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794945284;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=dasiy9jZCIRFl0UFRsOu4Cf4hy2TGdEpzRiCfDH1aQU=;
+	b=H0GbNi1VtsUPukAVsL/wnOE+17pU5Qx3FpmCnDXxyGPVSS0riDBZyCqwHPuPRQLnJ1Bx
+	 O4rETliqnaQyyvJ01xq+UFO47u/foaI/+kdqCTLsyN9F/FK2d9koCKSeC11y4Uk3zTUF6
+	 a7hR0ubfRe/5xJ5e6obh17AFppkt9dlr04xZFIUtoq2+6KuNXpM6U2HzrsQ4v+nuDYGEx
+	 9TH5ACiwuuH+4AatK5+z1gdnF1/vSso1Z876mFtW9Gpopi+mXeHQUlYa0T0JynJAdUHR6
+	 41aSerDEMkRvFAayCtU1MJHe0SPIv6zy3BIT5keB74LaRoTqwa3Bm4uxNKqEF5/V30g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=toxicpanda.com;
+	spf=pass smtp.mailfrom=toxicpanda.com;
+	dkim=pass header.d=toxicpanda.com header.i=@toxicpanda.com header.a=rsa-sha256 header.s=google header.b=PANLY+yf;
+	arc=none smtp.remote-ip=209.85.160.180
+Received: from mail-qt1-f180.google.com (mail-qt1-f180.google.com [209.85.160.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C9D1606A331;
-	Tue, 17 Nov 2026 19:53:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0C9D1606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=virtuozzo.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=virtuozzo.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AC72606A330
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:54:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4AC72606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=toxicpanda.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=toxicpanda.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=virtuozzo.com header.i=@virtuozzo.com header.a=rsa-sha256 header.s=selector2 header.b=cYckwFN6
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UpInQs2rWJiUhflCc4CumC6fQH+BoV+9JT3fCb+h9xocyMhLO2ISfRCFQICVViZUFj9SH3Hp+koHxuJCm0iv9uTTqr44vLKbh5gt5ILesB5O2pCM+583A6HuyhxgKvn5/Ukjkf2DGtKfjg9XsqSQHnLUZZTMKgUEM1NXJNQFbupTiKRzWARcxRsDJnol5EMg2i+gzUurFB+8EguRsYh8/vqgAdQlYxJcFcJwbsJAHcFIuC0zFkVKopxkzi96IzTmiBTc6rQBFmtQ2GwJ6ARBZiXqf/hncJTZBHveO64gbuVCpCTlI4QvGJVOsXhIxaSmWqBxbrZiwO3VDGn8grtQLw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=o4HnvXNAO8rcgAAQADzudVeRhjYc0RMLtxle1YVqL+A=;
- b=IKX6zpDgpXPbXUjqIXYPG+jgXFBtpduJK/2L207BXHFEwAJwVBRVs9qNBLqTKHRW9j0W2KxTJPomtJvbvBgqsDqjMz+EsCB1gjmeTyXbqTXpPnxdUHdsZu0f4FCtqvygtpU7ve3ubflCS5sCJgeCQrMSMLtEFrCZpV4fETz9RCw54YcjTv5wbS5Ycseh1aYmKhg27L1/biEHMUIZODP963ba4IzCJm77w/wLXFcnu43V2BSx8KUCHUccqxgpptPqLfkUJmRNFhivzHzYBxa5cMl9Fzq3qTDB7hq3jGlb+iwQYmaI0S+0eIml/MCJn/eJW8gXHRcoWq9VVJF2adqjBQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=virtuozzo.com; dmarc=pass action=none
- header.from=virtuozzo.com; dkim=pass header.d=virtuozzo.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=virtuozzo.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=o4HnvXNAO8rcgAAQADzudVeRhjYc0RMLtxle1YVqL+A=;
- b=cYckwFN6KDbmZCmlMwweEWDbzzQp1rd9k8AAYNt8A3m+yu/69rmU+sPnJfcigJAPunukLHqtFRnBp/BTI7Su1YkanUOjI3U2V+1dC2dc++4s1gRFwhpKNAkOWfKzbdlHpoCg1Pc9sye26of2ibsgT26oaRpTYS6LSsxBXg3oieru7KcWLTzreMoEL7q/jGv3eAgv50cbqRLCAO8KMgWmB4WJ34i4qiZwSXMAFtiriefe8nvJfUx68dNjtWhVWvnXBAGN8W72wYmCJGFOxzLrwS8PbBO1ZgRVZeksmCn5j4Exff80VpU78doyOF8j1IjkWiXnyNfQ6r3Cxv/27+CmrA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=virtuozzo.com;
-Received: from AM9PR08MB5892.eurprd08.prod.outlook.com (2603:10a6:20b:2dd::16)
- by ZR6PR08MB497186.eurprd08.prod.outlook.com (2603:10a6:910:dd::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 17 Nov
- 2026 19:53:27 +0000
-Received: from AM9PR08MB5892.eurprd08.prod.outlook.com
- ([fe80::94bb:633f:1f55:4bbd]) by AM9PR08MB5892.eurprd08.prod.outlook.com
- ([fe80::94bb:633f:1f55:4bbd%5]) with mapi id 15.21.0615.013; Tue, 17 Nov 2026
- 19:53:27 +0000
-Message-ID: <62df7b70-4efc-4a3f-a3d4-e4ad19875c1c@virtuozzo.com>
-Date: Tue, 17 Nov 2026 20:53:26 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] KVM: x86: Fix lost EOI when unmasking a pending level
- IOAPIC pin
-To: "Denis V. Lunev" <den@openvz.org>, Sean Christopherson
- <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>
-Cc: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H . Peter Anvin" <hpa@zytor.com>, kvm@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261029-kvm-ioapic-eoi-v1-den@openvz.org>
-Content-Language: en-US
-From: "Denis V. Lunev" <den@virtuozzo.com>
-In-Reply-To: <20261029-kvm-ioapic-eoi-v1-den@openvz.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: VI5PEPF0000090C.AUTP296.PROD.OUTLOOK.COM
- (2603:10a6:808:1::92b) To AM9PR08MB5892.eurprd08.prod.outlook.com
- (2603:10a6:20b:2dd::16)
+	dkim=pass (2048-bit key) header.d=toxicpanda.com header.i=@toxicpanda.com header.a=rsa-sha256 header.s=google header.b=PANLY+yf
+Received: by mail-qt1-f180.google.com with SMTP id d75a77b69052e-55c48582654so2074811cf.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:54:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=toxicpanda.com; s=google; t=1794945281; x=1795550081; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=dasiy9jZCIRFl0UFRsOu4Cf4hy2TGdEpzRiCfDH1aQU=;
+        b=PANLY+yfmO9pzRM2VvmyqOQREUtkbuz0bAZn4eCAl27+xQiSA1nLAdtYXgVKX4v5YG
+         ZDawClxjuLuBOpyayJeO1jdAJlNRi456YfxrbTcuMoNxrGzvWn+9Gs5gWhMdRe4CnwGY
+         8pN2WI6Hr/8LrRfQl5qi6c/fTQXR4RQAG1+RDsdL0Fv2DlyIGkjnBhkXdvFLd1UklOSp
+         7hq8piBekXnpbA8L7z1anH5j2kp+LyDY6+pKiRIzD70o/zdpI6gA63CfrCISV8aNxBlt
+         Xss+cxExlbvgRtKQLurD5UeTn9pPQr3WuH4GyHPz/EZ3r/rPn+TK/e8b+bJ4K10Cd7q+
+         a17Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794945281; x=1795550081;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=dasiy9jZCIRFl0UFRsOu4Cf4hy2TGdEpzRiCfDH1aQU=;
+        b=0QrLCIKvVnmpDJwfSw+FKy7jksww2riygfkJVVdl16uTP5EeRUWieFMS7vUKJAKZTU
+         +caZmGVhcssjQ9ju48KnYPW25mxcASzE+qAmrt/rIHC//QJJ9/t2fjktY4R7AqAUXGwc
+         37xF4f1wW619wON2hRV2310bNN8pds9I19Bh+mZYCWbziKDOX24TNChj8fT3sZ5FCmhe
+         GtIc+WLMB1X00hZR+SlaqQoujsur0cUksd2W5kd3NQOSzcggua2NLKcuAxVxJrNP7h8c
+         EdrTzyGZ8zimX5Qxk5FPTvVPSV59UHgJl89pZMzNyPnOBsj18ta+q+xHy2mcCo53aMlQ
+         D48A==
+X-Forwarded-Encrypted: i=1; AL+hErH8s1GGTMWs9MfLvdfAKqZ0FOqvhbNxoPndeutdsTvQPeV3k2KagUH3imYdNl01V+C+j+sPOEfinT49rmw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/8T1Loq6deHHj+ayayCZbTTkFqpad5rMAyRYMzL8VRKOD+yt02
+	WqywH59cnQQjMc+FBbRMfGM6LpBOir10ml9sWT+ROyxenNOliJ+ZqAWhSooxSW/n6pcIO8EswSH
+	XTtJgE0k=
+X-Gm-Gg: AYBFou2xSwdMpVZgSTOtgPX8YpQtO0BGfEeEB5bcuDb5Qfe9YHYNwucjNWCEjCAc6NA
+	QuWe9Y13wny7euoG5aUUj8EwcNrI3Rz//7N0airmZtpTvLdLzs4T3fC+lbZna9Q/cVJMokq5j/t
+	VUKeD713Pj7H/sr9C2yJ83DvKqYE5gL6OCeHSCUAaI2i98zeh6YdKhl2yId0V9/qb9FpoJ+huWL
+	/w1pXLwYHuTY436fDxUQ2awFEHIa3M2vQnsyEOJMzwxXtKnMNOsXKs8qjYZsKuPgeEICz1dfZRw
+	cc0hI8pPneYkI0cRI+MUx2/ur8UH3j96cEDTA+9Gg0Qn/GEzOrFLa8uK7yhL2d2CAuE2xAz54Ll
+	k+F3lbwIUyJHBSohpHI6tJtarTqOV9KsGFy3EHkA4tcYJuyfikW75k8FDtZ3UiUmehjOW9bJKQz
+	NLAA8iBlJvhoLVVzMBvgc01l5JK0BISMebMxdaQ3Gv0BsIIqYOcql8qc9VeG0nKZeKCGExtqgLh
+	F/HGY12vEKueXtA+7LVbqF90uEG3GUFLQRjj1mCNI9y72pUvCndI/1m3YDCC9JGEKHDINvlm5SW
+	uiNCZWE3Fa6IkFfoLinEudQRZskOEERb9+fulj2QP+AcOn+6TYOYqV7dn/Jl4yImVQI=
+X-Received: by 2002:a05:622a:4084:b0:55b:f621:e7d2 with SMTP id d75a77b69052e-55d5a553982mr6173311cf.15.1794945280764;
+        Tue, 17 Nov 2026 11:54:40 -0800 (PST)
+Received: from toxicpanda.com ([153.61.196.243])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d590360fasm4709981cf.14.2026.11.17.11.54.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 11:54:39 -0800 (PST)
+From: Josef Bacik <josef@toxicpanda.com>
+Subject: [PATCH v11 0/3] capabilities: close the ways around the
+ CAP_SETFCAP rule for uid 0
+Date: Tue, 17 Nov 2026 19:54:23 +0000
+Message-Id: <20261117-b4-setfcap-userns-v11-0-2be11a2c32f4@toxicpanda.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,200 +94,299 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR08MB5892:EE_|ZR6PR08MB497186:EE_
-X-MS-Office365-Filtering-Correlation-Id: 26ed55fd-ef4c-43c1-3b4f-08df44e472ad
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|10070799003|1800799024|7416014|376014|23010399003|366016|18002099003|6133799003|22082099003|261009223027099003|56012099006|261102123227099003|261028144727099003|261026121527099003|261026140227099003|261021121427099003|261022075727099003|261022105027099003|261021123027099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	IetSW14zU0017EMDSUhCpcHn5FNCoG7BDEN0aKTCRIuseqT5uwFtIBZCuTq6//bQK8tSu2VK4BNlSuWWGj+Auc+ZujjiHvzVs91Q/23FGcEQFe995+mSKqqKfF74kUR8JNlAboIDzbUeDdgMXqfP1zZvuqlI+k2AzWIYnsVIpK5VEYeHfsf/knwhleV86M2dqDykJLnNIKhggGl/fAoOlt4I+a9F9BdYpLO1V3sk07tzyX5NBor10/STtwjnMCKEwIo8nVEFNDlvqFCXcJCiTL16LuSKBcp+UxEsOfaGo9ZWzP8K33rXtjGRlMBcptFNfoH9IUDAnyoFe7aKAAQBiEtVI0offXEZ0wiOAYrQPbyAsOb+Oy7QFyHF00NBCSIawuDJpqyhLQqz1j6zme/jQ12eKTP0yVMNI8x5EnH2bfjXbYBB3xXVTm31TgOfeBeajidG1UUZx+gLeaJqGRaQsBK16vkOmY4z6QTcz7pDLCqVJseEb9iDY3uOfDxdGMz2F2i0V1qK16HLSgWhX0bvnaGt4zUmW4guCZeEImlsMN3aASKbq9o2UR8B2ky3yaoXayob7HI9IQRg+knN4kAuzSs6yfVLELRWcFMO5Nsd5kL4SH97DfQ4nydv3z4zgx+uEJuil3C3s3ntENl1z1wrDjSbPYO9R6SX7qTXjrJYgxQ=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR08MB5892.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(1800799024)(7416014)(376014)(23010399003)(366016)(18002099003)(6133799003)(22082099003)(261009223027099003)(56012099006)(261102123227099003)(261028144727099003)(261026121527099003)(261026140227099003)(261021121427099003)(261022075727099003)(261022105027099003)(261021123027099003)(10067099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?Z2xhSVZaQ25WZmhQQVgrZVJvYWxmYVcyUFVKZ3NSK1FManJQc01BMVY2Wmhv?=
- =?utf-8?B?THNsQWJac0dyeEh6T0VmbXlRZ2R6czZ3S2kwTFFwa0xpeCtHbVY1Z3EzbnI2?=
- =?utf-8?B?cmdpbXNOcC9CdS94ZFJUTTR1MmNRNlFmcGowbE04VkZmcjVpa2dXNzhQbEpT?=
- =?utf-8?B?di9ySWZZZDRtQnpGb3NSRkpCZ2N3TTFQMGMzdWtJWkNzR0hqUTdPcnZiWmNP?=
- =?utf-8?B?czI5VklhYXVzTFIzbnpqRzlGckpjLzA4NjBOeUc2NitKSjVwd3hlOHhiZHVi?=
- =?utf-8?B?V2kzVFRBMFpuTkhFNHhpOFQvQ25rZDVHYVpnSTh3NXM3Z2F5R1hKakMrVzBJ?=
- =?utf-8?B?N0VPWHo0ejVnd0dTRElxR1JFd3FsK0VNb0hGUXRsaUtwaGxHR0l0QVRLSEEx?=
- =?utf-8?B?a1NFL1JHUUlRS01HNjY4c24wZ0Q3OGRCMmJVUndoL1JVeitaSm9uOE1OZXhq?=
- =?utf-8?B?Wmg0aSsrRTU0Yk56OStXUzRDQy9EYTVmRC9VV1V4MHd5Tk5sdDY5UFYrU2RP?=
- =?utf-8?B?UStVeVhYUkhJVGV3UUFQS2JYbEcxL3dXTThmT2w2Tzl1bmFBdy91aSs5Smwv?=
- =?utf-8?B?eERNcVBHcGRKVlVNRlE3ZFBFOU92Y09kK0ZDTVYzOSt2ZlRBT1VtcFUyMHh0?=
- =?utf-8?B?bHlvTEt3c0doVmsrVHQ0RkV6K0Q1YmtHZ1dKMUdPaHQ4Z0xYRzZFTnY1Q0sz?=
- =?utf-8?B?R1pZcElqdkR2bS9rRFdLNHpSSHpCejEzTGRGREZLbVNWZmRBTGZacEgyY2Rr?=
- =?utf-8?B?eGN3Umd0QnAvTzRPQzk3Z2VXaGR5K25rZ2lqL2o2UVR4SllYZ3ByZUVvUVBJ?=
- =?utf-8?B?Q0FXUnMxVUMwMUQ4VWlRcUJTZHhDcWtGdWxxdThvZ2QrcUQxdmIwMndWNHlI?=
- =?utf-8?B?KzdZUVd4VFRTSWdkd3RjZ3hLWHZLY0ZDUW5vcWlZc1FHVGJ1VjFYWC8zd3Vx?=
- =?utf-8?B?M1Zqb1JzK2h5WnUxeksrbDZNUCtBaS9ibDR1bVdyTTlSMFBXN0VHVm5Sbk1z?=
- =?utf-8?B?T2hmKzcxcW1wQlk3ZFpLbTQwZ090WDUyNTJMd1NodWJpWkUzTENQYVlUOXAv?=
- =?utf-8?B?c3lXb0VVQ1UxRi92NXhqdytnaHR1eDcyWUJEN3Z0STN5eXBZbm9wbi9nY3Vz?=
- =?utf-8?B?Zlh1N1JXVUtvNmVoNkwrb3dCZGR2WkRZcTZuM1dNR1lQUzFWd0U3alBseGtJ?=
- =?utf-8?B?WHR1T1lzN2Q1bzBxQ3VsSW1yN25QSWJlYytWY2ozanJ2ZHB4bHpGS1NEVEQ4?=
- =?utf-8?B?dHZMV2g0L0p6NW9XbFJjOUEzVnBPRkxpVnJRR2V2Q3lxMlFqelZJZTlxeTRv?=
- =?utf-8?B?WFNOa3NyNU5mK1J6eUVJNy85cENrNjNiRWVybEw2MWZsdWJXcVBtTE9jelBY?=
- =?utf-8?B?ZGRLWnpheTZqZ3lRckJWdEQzU2FPa3JLTUVuTGhGTVg4SC83RGtqNDNTc1Bv?=
- =?utf-8?B?bXhMa3M2aWppMDlTWWI3eE9nQUE3R1BaQ2RrbzNFQ2ZDc2NHQjNFZUQzK3VK?=
- =?utf-8?B?Q3Z1czFTRFIvdXRGdGR0UkpKYTR4aWlsaWk2aDdncERqNUxpaVJUY2lTbjZR?=
- =?utf-8?B?QTUvRXhTU3BvSG1ZcGFQT3dtL01NYmZJellGbGZ5YnFGdUIzcjFZOUVLNTFa?=
- =?utf-8?B?NGNiNm9nRXo2aElva3lnTnBoUDVjTFNPTkpUSEVVWCtuSU9DZDdDVUxrNWg2?=
- =?utf-8?B?TWdHM1ZBOVlacnVUMU5MdWx1cDFLOXZBWG1GSS9BSGY1SVNEajBMMDlETDRP?=
- =?utf-8?B?c05XMzdnb1FIbktxM1BDUFE3V3ZpUlJZeDdvZStCYllLUVZ6bnBpNHY5M3Fs?=
- =?utf-8?B?U2dIR1VwMk5XajczU2lRZDNTL2MwM1ZuUEdENjN4ZGtFRHlmd3BwSFNKaGww?=
- =?utf-8?B?ZGl4Zm0xTVI3ei9xUHBTRHZwMzQzelp5am9xNDVsWUl0M1c1Qnl5NXpIa2lZ?=
- =?utf-8?B?QUt6aE13U3Uva0p0c293ZG5oU21BTkh5QTNVUzNscXF4eU8wUGtGOGg2aThG?=
- =?utf-8?B?cWQwSHZIRE9vQ3c4NXpoRkl3K1prT09FQTFNa240QkRUMVYwWThTZGFNT0xE?=
- =?utf-8?B?SFozNEg1d0NQY3lveGdjaEQyR2YxSE1nZEk0bkZ6UmZweVNZbWxOQTg2ZjJz?=
- =?utf-8?B?eEtEaUxhbzhlUmliY1ZUYWp1bGpwOXdWNUVCcXZEbzJSb3FNdEc1Z1ZUTVJW?=
- =?utf-8?B?bm9zNE5WbUEvS2VxM0VXTWF3aTU5OUNsdmV4RkVYZ3kyby9FTjJWVDA5a3FS?=
- =?utf-8?B?V1Awa0lkdEw4ZnpqemhRS1NoVjdxTnJqd0M0Vk5UbXdGcU9uVHd0SEp1TUk0?=
- =?utf-8?B?T0x3WWtJeFNlQy9NdjZTNkwvL29uc0V3aWNEOTNMQnk0c3RjNFBadGh3cUxl?=
- =?utf-8?Q?PC4PxwGl3vX0H6Zt4ktnH29qvGNQCBwgK7/0/?=
-X-OriginatorOrg: virtuozzo.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 26ed55fd-ef4c-43c1-3b4f-08df44e472ad
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR08MB5892.eurprd08.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 19:53:27.8049
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0bc7f26d-0264-416e-a6fc-8352af79c58f
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +wQZtwr1QQ/3lSPGIut4XWBSkmtKsAId7r8N/sjdpjgTekbp8oKDKT22quzJuIGsnd4sjsLin0IgzmvcCG8P1w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZR6PR08MB497186
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAO+w/GoC/4XSS07DMBAG4KtUWWPqsR0/WHEPxMKPMQ2CJIrTq
+ qjq3bHLgiBGsInk0fjT75lcuoLLgKV72F26BU9DGaaxHgDudl08+PEF2ZBqoRNcaOBcs6BYwTV
+ HP7NjvTwWlrQE23sJEWVX780L5uF8Q5+ev87lGF4xrg1qHcEXZGHxYzy00tu8D2p/K/6kW+9hK
+ Ou0fNwSnqCZf2U5AeMsK4MGk9bciMd1Og9x9mPy93F671qgk9gwoChGNMZHlcAJC8mQjNwwAih
+ GVsaZWMMoVBKBZNSWERSjKmOt9zzn+rGZZPotIymmrwzXtUPIgK6n0+gtQ45YV0b0GXgw0StHz
+ 8b8y5jKhGx9b3Q2onckY7eMoRjb0mijfIpaZhlJxn0zwB3FuDabJDPnzuiI9H8DfOMAuSrgbVc
+ q1zfVXTkuf0HX6/UT9uhXj3cDAAA=
+X-Change-ID: 20261006-b4-setfcap-userns-d63185a31ce3
+To: Serge Hallyn <serge@hallyn.com>, Paul Moore <paul@paul-moore.com>, 
+ Christian Brauner <brauner@kernel.org>
+Cc: James Morris <jmorris@namei.org>, David Howells <dhowells@redhat.com>, 
+ Jarkko Sakkinen <jarkko@kernel.org>, "Andrew G. Morgan" <morgan@kernel.org>, 
+ Serge Hallyn <sergeh@kernel.org>, linux-security-module@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, keyrings@vger.kernel.org, 
+ linux-fsdevel@vger.kernel.org, Shuah Khan <shuah@kernel.org>, 
+ linux-kselftest@vger.kernel.org, Bradley Morgan <brads@mainlining.org>, 
+ Josef Bacik <josef@toxicpanda.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openssh-sha256; t=1794945277; l=13703;
+ i=josef@toxicpanda.com; h=from:subject:message-id;
+ bh=ZQCf2hYxdpb7My2Rl42a57sI5qXecMNXQi0UUXmzXb0=;
+ b=U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgUBr36M/n0nWN0DNbnxwzIiCZez6MG
+ JiruuNaSCI/zXsAAAAGcGF0YXR0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5AAAA
+ QNTMY/cObzuXJgmu32TBaDgUmwAtZohF0qMwzKQtcHtQOeigZk52i/0LBPz1FnPptYQuCYuhA78
+ ZwwurrvOedw4=
+X-Developer-Key: i=josef@toxicpanda.com; a=openssh;
+ fpr=SHA256:C8kOX2QUJCMqnCX+KEeoqRAjLo9L+ELOSH2NSAJHqGA
 
-On 10/29/26 21:02, Denis V. Lunev wrote:
-> This email originated from an IP that might not be authorized by the domain it was sent from.
-> Do not click links or open attachments unless it is an email you expected to receive.
-> When the guest unmasks a level-triggered redirection entry whose line is
-> already asserted, ioapic_write_indirect() injects the pending interrupt
-> first and only then asks the destination vCPUs to rescan their
-> ioapic_handled_vectors and EOI exit bitmaps. If the same write also set
-> the vector or the trigger mode, a destination vCPU can take the interrupt
-> and EOI it before the rescan. A posted interrupt reaches a running vCPU
-> without a VM exit, and the EOI is then either virtualized without an exit
-> or dropped by kvm_ioapic_send_eoi() because the vector is not in
-> ioapic_handled_vectors yet. Remote IRR stays set and the pin delivers no
-> more interrupts until the guest reprograms it.
->
-> Linux programs the entry masked and unmasks it with a separate write, so
-> the vector is scanned before anything can be injected. Windows writes
-> the vector, the trigger mode and the mask bit in one go. A virtio balloon
-> on INTx whose line is already up when the driver connects its interrupt
-> then stops receiving interrupts for the rest of the boot, and the guest
-> ignores every later balloon target.
->
-> Make the scan request before servicing the pending IRR. The request
-> waits for the destination vCPUs to leave guest mode, and each of them
-> rescans the routes and reloads its EOI exit bitmap before it can enter
-> the guest and take the interrupt.
->
-> Fixes: c7c9c56ca26f ("x86, apicv: add virtual interrupt delivery support")
-> Fixes: 3bb345f387dd ("KVM: x86: store IOAPIC-handled vectors in each VCPU")
-> Signed-off-by: Denis V. Lunev <den@openvz.org>
-> ---
-> Reproducer: "[kvm-unit-tests PATCH] x86: add ioapic_eoi_race test for
-> unmasking a pending level pin", posted separately. On a nested Intel
-> host with APICv and a 7.2.13 kernel it loses about 95% of the EOIs in
-> the single-write case. With this patch it loses none, the masked-write
-> case never loses any, kernel_irqchip=split is unaffected, and
-> x86/ioapic.flat passes.
->
-> The symptom in the field is a Windows guest whose virtio balloon is on
-> INTx: the balloon raises its line before the driver connects the
-> interrupt, Windows programs the pin and unmasks it in one write, and the
-> balloon gets no further interrupt until the next boot.
->
->  arch/x86/kvm/ioapic.c | 66 +++++++++++++++++++++----------------------
->  1 file changed, 33 insertions(+), 33 deletions(-)
->
-> diff --git a/arch/x86/kvm/ioapic.c b/arch/x86/kvm/ioapic.c
-> index 0d59b9c758c2..8cca333cdc9d 100644
-> --- a/arch/x86/kvm/ioapic.c
-> +++ b/arch/x86/kvm/ioapic.c
-> @@ -384,39 +384,6 @@ static void ioapic_write_indirect(struct kvm_ioapic *ioapic, u32 val)
->  		mask_after = e->fields.mask;
->  		if (mask_before != mask_after)
->  			kvm_fire_mask_notifiers(ioapic->kvm, KVM_IRQCHIP_IOAPIC, index, mask_after);
-> -		if (e->fields.trig_mode == IOAPIC_LEVEL_TRIG &&
-> -		    ioapic->irr & (1 << index) && !e->fields.mask && !e->fields.remote_irr) {
-> -			/*
-> -			 * Pending status in irr may be outdated: the IRQ line may have
-> -			 * already been deasserted by a device while the IRQ was masked.
-> -			 * This occurs, for instance, if the interrupt is handled in a
-> -			 * Linux guest as a oneshot interrupt (IRQF_ONESHOT). In this
-> -			 * case the guest acknowledges the interrupt to the device in
-> -			 * its threaded irq handler, i.e. after the EOI but before
-> -			 * unmasking, so at the time of unmasking the IRQ line is
-> -			 * already down but our pending irr bit is still set. In such
-> -			 * cases, injecting this pending interrupt to the guest is
-> -			 * buggy: the guest will receive an extra unwanted interrupt.
-> -			 *
-> -			 * So we need to check here if the IRQ is actually still pending.
-> -			 * As we are generally not able to probe the IRQ line status
-> -			 * directly, we do it through irqfd resampler. Namely, we clear
-> -			 * the pending status and notify the resampler that this interrupt
-> -			 * is done, without actually injecting it into the guest. If the
-> -			 * IRQ line is actually already deasserted, we are done. If it is
-> -			 * still asserted, a new interrupt will be shortly triggered
-> -			 * through irqfd and injected into the guest.
-> -			 *
-> -			 * If, however, it's not possible to resample (no irqfd resampler
-> -			 * registered for this irq), then unconditionally inject this
-> -			 * pending interrupt into the guest, so the guest will not miss
-> -			 * an interrupt, although may get an extra unwanted interrupt.
-> -			 */
-> -			if (kvm_notify_irqfd_resampler(ioapic->kvm, KVM_IRQCHIP_IOAPIC, index))
-> -				ioapic->irr &= ~(1 << index);
-> -			else
-> -				ioapic_service(ioapic, index, false);
-> -		}
->  		if (e->fields.delivery_mode == APIC_DM_FIXED) {
->  			struct kvm_lapic_irq irq;
->  
-> @@ -451,6 +418,39 @@ static void ioapic_write_indirect(struct kvm_ioapic *ioapic, u32 val)
->  		} else {
->  			kvm_make_scan_ioapic_request(ioapic->kvm);
->  		}
-> +		if (e->fields.trig_mode == IOAPIC_LEVEL_TRIG &&
-> +		    ioapic->irr & (1 << index) && !e->fields.mask && !e->fields.remote_irr) {
-> +			/*
-> +			 * Pending status in irr may be outdated: the IRQ line may have
-> +			 * already been deasserted by a device while the IRQ was masked.
-> +			 * This occurs, for instance, if the interrupt is handled in a
-> +			 * Linux guest as a oneshot interrupt (IRQF_ONESHOT). In this
-> +			 * case the guest acknowledges the interrupt to the device in
-> +			 * its threaded irq handler, i.e. after the EOI but before
-> +			 * unmasking, so at the time of unmasking the IRQ line is
-> +			 * already down but our pending irr bit is still set. In such
-> +			 * cases, injecting this pending interrupt to the guest is
-> +			 * buggy: the guest will receive an extra unwanted interrupt.
-> +			 *
-> +			 * So we need to check here if the IRQ is actually still pending.
-> +			 * As we are generally not able to probe the IRQ line status
-> +			 * directly, we do it through irqfd resampler. Namely, we clear
-> +			 * the pending status and notify the resampler that this interrupt
-> +			 * is done, without actually injecting it into the guest. If the
-> +			 * IRQ line is actually already deasserted, we are done. If it is
-> +			 * still asserted, a new interrupt will be shortly triggered
-> +			 * through irqfd and injected into the guest.
-> +			 *
-> +			 * If, however, it's not possible to resample (no irqfd resampler
-> +			 * registered for this irq), then unconditionally inject this
-> +			 * pending interrupt into the guest, so the guest will not miss
-> +			 * an interrupt, although may get an extra unwanted interrupt.
-> +			 */
-> +			if (kvm_notify_irqfd_resampler(ioapic->kvm, KVM_IRQCHIP_IOAPIC, index))
-> +				ioapic->irr &= ~(1 << index);
-> +			else
-> +				ioapic_service(ioapic, index, false);
-> +		}
->  		break;
->  	}
->  }
->
-> base-commit: 5b0764a53235d3c77e1ed674e836e1b3fe1a4b1f
-ping
+v1: https://lore.kernel.org/all/20261006-b4-setfcap-userns-v1-0-f47e7ed66072@toxicpanda.com/
+v2: https://lore.kernel.org/all/20261014-b4-setfcap-userns-v2-0-fac4d19281d7@toxicpanda.com/
+v3: https://lore.kernel.org/all/20261021-b4-setfcap-userns-v3-0-97c7ed4e43e1@toxicpanda.com/
+v4: https://lore.kernel.org/all/20261022-b4-setfcap-userns-v4-0-88aa0ffaa08f@toxicpanda.com/
+v5: https://lore.kernel.org/all/20261023-b4-setfcap-userns-v5-0-0620223be951@toxicpanda.com/
+v6: https://lore.kernel.org/all/20261026-b4-setfcap-userns-v6-0-25f10b7ca497@toxicpanda.com/
+v7: https://lore.kernel.org/all/20261026-b4-setfcap-userns-v7-0-bf8a576f7259@toxicpanda.com/
+v8: https://lore.kernel.org/all/20261027-b4-setfcap-userns-v8-0-2674adc63f3c@toxicpanda.com/
+v9: https://lore.kernel.org/all/20261109-b4-setfcap-userns-v9-0-0d3f00976ce2@toxicpanda.com/
+v10: https://lore.kernel.org/all/20261112-b4-setfcap-userns-v10-0-84f6f7faa903@toxicpanda.com/
+
+v10->v11:
+- 1/3: a namespace without a uid_map counts whenever its parent maps the
+  joiner's root user, not only when that root user owns it: a writer in
+  the parent can still map it.  That check is a helper of its own, the
+  joiner's root user is checked with uid_valid(), and the variables have
+  names that say what they hold (Serge).
+- 3/3: the case for a namespace created by another user now expects
+  setns() to be refused.
+
+v9->v10:
+- 1/3: a namespace with no uid_map yet only counts if its owner is the
+  joiner's root user, the only one who could map it from inside, so
+  tasks that can't map it aren't refused.  The changelog says who gets refused now and
+  what the check leaves to whoever sets up a map or an idmapped mount.
+- 2/3: the ptrace check no longer looks at the target's capabilities.
+  A target that gave up CAP_SETFCAP can still get it back from its
+  inheritable set on execve(), take it from another task of its
+  namespace if it kept CAP_SYS_PTRACE, or write "0 0 1" to its
+  namespace's uid_map while there is none yet.  A tracer without
+  CAP_SETFCAP and CAP_SYS_PTRACE can't attach to a task in a namespace
+  that setns() keeps it out of (Sashiko).  CAP_SYS_PTRACE no longer
+  stands in for CAP_SETFCAP, here or in 1/3: whether it lets a task take
+  CAP_SETFCAP from a neighbour depends on LSMs such as Yama.  The
+  changelog names the read-only users of PTRACE_MODE_ATTACH that are
+  refused too.
+- 3/3: cases for those three, the idmapped mount goes under /tmp
+  instead of creating /mnt on the host, a failure to set it up is an
+  error rather than a skip, and the binary is in .gitignore (Sashiko).
+  Also cases for ptrace at a non-zero uid and one level down, and one
+  that writes the file capabilities and runs them; the test skips when
+  it can't run rather than failing, and setup errors are caught
+  everywhere.
+
+v8->v9:
+- Dropped the setfcap_level patch and the checks on the uid_map opener
+  and writer and on file capabilities (old 1/6, 3/6 and 4/6).  They only
+  stopped a task that gave up CAP_SETFCAP from using a namespace, a map
+  fd or a map that a task with CAP_SETFCAP set up for it, and that task
+  could have done it all on its own (Serge).
+- setns() and ptrace compare kuids instead of levels: a task without
+  CAP_SETFCAP can't join a namespace whose tasks can write file
+  capabilities for the root user of its own namespace, and can't attach
+  to a task with CAP_SETFCAP in one unless it has CAP_SYS_PTRACE
+  (Serge).  The check doesn't go by the task's uids, which it can move
+  away from 0 while keeping its other capabilities.
+- The selftest drops the cases of the dropped patches and adds
+  PTRACE_TRACEME, a joiner that moved its euid, a target with
+  CAP_SETFCAP only in its bounding set, and a namespace without a
+  uid_map under one that maps host uid 0 at uid 5, 39 cases now.
+
+v7->v8:
+- 6/6 only, 1-5 are unchanged.  A case whose setup failed in a child
+  waited for the harness timeout, because the parent kept its own copy
+  of the pipe end it read from.  The cases where a privileged task maps
+  for one that gave up CAP_SETFCAP now share one helper that talks to
+  it over a socket pair, and the others close the ends they don't use,
+  so a failed step ends the case with a setup error at once (Sashiko).
+
+v6->v7:
+- 6/6 only, 1-5 are unchanged.  Every case now reaches the step it is
+  named for, and a setup step that fails is an error rather than a
+  refusal.  Cases that stopped at setns() are setns() cases now: a task
+  that joins has CAP_SETFCAP wherever the creator had it, so nothing
+  after setns() checks it.  In the v3 rootid, nesting after dropping
+  CAP_SETFCAP and reverse idmapped mount cases a privileged task maps a
+  namespace created without CAP_SETFCAP, so the xattr gets written.
+  pidfd_getfd() is a ptrace case of its own.  The session keyring case
+  joins a keyring of its own first, so it works under su, and skips
+  without keyrings (Sashiko).
+
+v5->v6:
+- New 6/6: a kselftest with every case the series has been through,
+  48 of them.  Without the series 22 fail, with v5 the 4 below fail.
+- 3/5: a task inside the namespace that is being mapped also has to
+  hold CAP_SETFCAP there to open or write a uid_map that maps an
+  ancestor's root user.  Before, a task that gave up CAP_SETFCAP could
+  write "0 0 1" and get it back from execve() (Sashiko).
+- 4/5: a v2 xattr on a filesystem whose namespace has no uid 0 is
+  refused with -EINVAL instead of stored unconverted, where it was
+  honoured nowhere.  Falling through to the conversion would not do:
+  for a writer outside that namespace it names the writer's root user
+  instead (Sashiko).
+
+v4->v5:
+- 3/5: the uid_map check only looked for an extent at the parent's uid
+  0.  The root user of an ancestor can sit at any uid in the parent, so
+  a task without CAP_SETFCAP could map "0 1000 1" under a "1000 0 1"
+  and get host uid 0 as its uid 0 unchecked.  It now finds every
+  ancestor root user the map contains.  4/5 already refused the file
+  capabilities after such a map, so this is the map rule itself
+  (Sashiko).  Dropped Bradley's Reviewed-by on 3/5, which changed.
+
+v3->v4:
+- 4/5: a v2 security.capability xattr skipped the new checks, it was
+  written as is whenever the writer had CAP_SETFCAP over the
+  filesystem's namespace.  It now only does that when the filesystem's
+  root user is within reach, and goes through the v3 conversion and its
+  checks otherwise (Sashiko).
+
+v2->v3:
+- The setns() check in 2/5 and the ptrace check in 5/5 only apply to
+  namespaces that map the root user of an ancestor within the creator's
+  CAP_SETFCAP, or that have no uid_map yet.  Root users stored through
+  an idmapped mount are left to whoever sets up the mount, so a root
+  task without CAP_SETFCAP can join an ordinary "0 100000" container
+  again (Serge, Christian).
+- 2/5 adds cred_may_setfcap_userns() for those two checks and
+  cred_setfcap_reaches() for the uid_map check; nothing outside
+  create_user_ns() calls cap_setfcap_level() directly (Serge).
+- Fixed the cap_setfcap_level() kernel-doc, @ns doesn't have to be the
+  cred's namespace or below; cap_capable() is compared with != 0
+  (Serge).
+- Picked up Bradley's Reviewed-by on 1/5 and 3/5, not on 2/5, which
+  changed.
+- Rebased onto current vfs.all.
+
+v1->v2:
+- The state lives on the user namespace now: ns->setfcap_level replaces
+  ns->parent_could_setfcap, and cred->setfcap_level is gone (Serge,
+  Christian).
+- New 2/5: setns() refuses a task whose CAP_SETFCAP doesn't reach as far
+  up as the namespace's setfcap_level.  It applies to every user
+  namespace, not only to those that map the parent's uid 0, because of
+  idmapped mounts (Serge, Christian).
+- 5/5 asks a tracer for what setns() asks for, also when the namespace
+  doesn't map an ancestor's root user, again because of idmapped mounts.
+- Dropped "userns: don't let setns() lend the right to map uid 0", the
+  setns() check covers it.  Its nested case moved into 3/5, which checks
+  the opener and the writer.
+- set_cred_user_ns() isn't touched anymore, so the put-before-use in
+  userns_install() is gone (Sashiko).
+- Rebased onto current vfs.all.
+
+What it does now:
+
+Since db2e718a4798 a root task that gave up CAP_SETFCAP can't map its
+root user into a user namespace it creates.  It can still join a
+namespace that another root task created, or attach to a task in one,
+and get CAP_SETFCAP over its root user that way.  Patch 1 refuses
+setns() when the namespace maps that root user, at any uid, or has no
+uid_map yet and it can still be mapped.  Patch 2 refuses ptrace
+attach to a task in such a namespace.  Containers that don't map host
+uid 0, unprivileged users and anything with CAP_SETFCAP aren't
+affected.
+
+Testing: 3/3 runs 46 cases on their own as root in private mount
+namespaces.  On vfs.all without the series the 20 setns() and ptrace
+cases that must be refused fail; with the series all pass.  The pidfd,
+namespaces, mount_setattr and ptrace selftests give identical results
+with and without.
+
+--- Original email (v1) ---
+
+Hello,
+
+Commit db2e718a4798 ("capabilities: require CAP_SETFCAP to map uid 0")
+stops a root task that has given up CAP_SETFCAP from creating a user
+namespace that maps uid 0 and then writing file capabilities in it that
+the initial namespace honours.  The check only looks at the task that
+creates the namespace, so if somebody who did have CAP_SETFCAP created
+one, there are still several ways around it:
+
+- setns() into their namespace and write uid_map from inside (patch 2)
+- write "0 0 1" through a uid_map fd that they opened (patch 3)
+- setns() into a namespace of theirs that already maps uid 0 and set
+  security.capability there, no map write needed (patch 4)
+- ptrace one of their tasks and have it do any of the above (patch 5)
+
+On an unmodified kernel we took a uid 0 task with CAP_SETFCAP dropped
+from its permitted, effective and bounding sets and, through each of
+these, ended up with a file that a uid 1000 user execs with
+CAP_SYS_ADMIN in its effective set.
+
+Patch 1 adds cred->setfcap_level, which records how far up the
+namespace tree a task's CAP_SETFCAP reached when it entered its
+namespace, and patches 2-5 check it.  Patch 4 is the check that closes
+the class, the map patches make the uid 0 map rule mean what
+db2e718a4798 meant it to, and patch 5 keeps ptrace from borrowing what
+the target is entitled to.
+
+This does change behaviour.  Everything new is -EPERM:
+
+- a task that entered a namespace without CAP_SETFCAP outside can't map
+  uid 0 of the outside or write fscaps for that root user anymore
+- a uid_map fd opened by a task with CAP_SETFCAP can't be used by a
+  task without it to map uid 0
+- if a privileged task maps "0 0 1" from the parent for a namespace
+  created by a task without CAP_SETFCAP, that namespace can no longer
+  write fscaps honoured outside
+- PTRACE_ATTACH and PTRACE_TRACEME fail when the tracer gave up
+  CAP_SETFCAP and CAP_SYS_PTRACE, the target didn't, and they share a
+  root user
+
+Rootless containers, privileged runtimes writing the map from the
+parent, nested unprivileged namespaces and containers that don't map
+host uid 0 aren't affected.  The ptrace check is one compare for
+targets in the initial namespace and in namespaces entered without
+the capability.
+
+Testing: a set of flows run on the base and patched kernels, every
+bypass route above gets -EPERM with the series and the 16 legitimate
+flows behave the same.  The capabilities, namespaces, ptrace, pidfd and
+proc selftests give the same results before and after. Thanks,
+
+Josef
+
+---
+Changes in v11:
+- Link to v10: https://patch.msgid.link/20261112-b4-setfcap-userns-v10-0-84f6f7faa903@toxicpanda.com
+
+Changes in v10:
+- Link to v9: https://patch.msgid.link/20261109-b4-setfcap-userns-v9-0-0d3f00976ce2@toxicpanda.com
+
+Changes in v9:
+- Link to v8: https://patch.msgid.link/20261027-b4-setfcap-userns-v8-0-2674adc63f3c@toxicpanda.com
+
+Changes in v8:
+- Link to v7: https://patch.msgid.link/20261026-b4-setfcap-userns-v7-0-bf8a576f7259@toxicpanda.com
+
+Changes in v7:
+- Link to v6: https://patch.msgid.link/20261026-b4-setfcap-userns-v6-0-25f10b7ca497@toxicpanda.com
+
+Changes in v6:
+- Link to v5: https://patch.msgid.link/20261023-b4-setfcap-userns-v5-0-0620223be951@toxicpanda.com
+
+Changes in v5:
+- Link to v4: https://patch.msgid.link/20261022-b4-setfcap-userns-v4-0-88aa0ffaa08f@toxicpanda.com
+
+Changes in v4:
+- Link to v3: https://patch.msgid.link/20261021-b4-setfcap-userns-v3-0-97c7ed4e43e1@toxicpanda.com
+
+Changes in v3:
+- Link to v2: https://patch.msgid.link/20261014-b4-setfcap-userns-v2-0-fac4d19281d7@toxicpanda.com
+
+Changes in v2:
+- Link to v1: https://patch.msgid.link/20261006-b4-setfcap-userns-v1-0-f47e7ed66072@toxicpanda.com
+
+---
+Josef Bacik (3):
+      userns: don't let setns() lend CAP_SETFCAP
+      capabilities: don't let ptrace borrow CAP_SETFCAP
+      selftests/namespaces: test the CAP_SETFCAP rule for user namespaces
+
+ include/linux/capability.h                        |    3 +
+ kernel/user_namespace.c                           |    4 +
+ security/commoncap.c                              |   83 +-
+ tools/testing/selftests/namespaces/.gitignore     |    1 +
+ tools/testing/selftests/namespaces/Makefile       |    3 +-
+ tools/testing/selftests/namespaces/config         |    2 +
+ tools/testing/selftests/namespaces/setfcap_test.c | 1509 +++++++++++++++++++++
+ 7 files changed, 1600 insertions(+), 5 deletions(-)
+---
+base-commit: 2c3ba1f1cb416b81d617b92a24a4bcaa48d574e3
+change-id: 20261006-b4-setfcap-userns-d63185a31ce3
+
