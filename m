@@ -1,96 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794947732;
-	b=SvIls6v6BWhKKa/F7V6FY02YFZ/42E8lNiDNFfnL0EVXuK3yXMZ/z1pxWCgxh6t/hwV7
-	 u1qvJyT0IO2RFAKvTzdZfMA0r33ettrvnCDXCpuiDh/Gb/9+7Py45GCHzuGn0Ls9PT3z2
-	 VfNV2UNr+qDaoA3C6Z5JepUJcnYz/cJLecIOyEwxsPKb5i1ukiiS+SC1XWrxXsS3ZeGng
-	 1pYFtZWAUI7ElVwRlVB4Sg3jIIPUpoNoQj/ToKtQxc67fwTj6F1R7zHib02Qevn3jj0Yu
-	 lEVrne7QY95JSZbsRtvt50b2nbzwUynf4ERiHuID8h2ZLJaw+xVxJ6aLrW0QhICMf8Q==
+	t=1794947811;
+	b=xHjEJAkqVf/VpUyUbiVhiWOjvxUjlDNqTq9cXG7L+JP3Lm0WOba500llROfpsvlUfE78
+	 BHnnFnm3d9KDUT2S8VOf5oc09K8TDtcukIPra6XwQ7BUFM2zjpBGPRVwDN1ZoefBIbLtH
+	 zWSpgVtaWnqVS7AaInR76rtf4nlREBNbPSSB174cgrtCxIvcci+3GTWM0pIXr+80bQoaQ
+	 oKRzZpAQGO0Dx6liG2uvWFqQyDpGNB5nL241PNF+LSGzQFeZOpQrvHEjeBQizxonwp75l
+	 kyv4cioCOP8vo3BB4/cEcBTlgtHyxTOYCZneXp2GCgwru2yFR1uN+oZT3MEQ5xs6/OQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794947732;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=TzMM5bA4AAtZ9jPcoRbrwj8417a0tkHya/xigSdckEM=;
-	b=xqXHjFlkgib3LRj0kKBcvRrHiWWVGF84GRbhtXgHZY7zQUGtk8EqvjWzhk41BQRmjB1s
-	 kunRfjxQb56+XZFdiuLEPTG0Ljz/Q3WPjUu/8/I+OfmOqKVKsiyIZmTC+qAKovjfcDqJw
-	 qLyLgJZS6EW1/P0UQ+zrYubylJnKl5wA5Co2By8ibmiJowbMgxRTvaqvjs0kMuWCnKQiC
-	 //b8bPHcT/frt9BT9s2oiCZDqiEzK2m6P5rWYEn0GnTDpBKm6DcDtvq+gu+gk0m1zAbFi
-	 R7M1GdrDSq4K4HBr2N7RhlcGJLaDODOIZbl2T6f4C4IuPiCf3IA/96GevCxeOvNr3Pg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794947811;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=MjqKu63EhuXlUYh8LB06tgo8mBsbsVVaUxCBaQO/J5w=;
+	b=5LCGI9z1VPvSqo/aZfesxrqnT43k45Sx2HMn+elbHUHl5CXCnbtDf1xFRL91lDEg6Wt3
+	 bXyO6v/NzFcUSIWsjxF4tXPHpiPBcA4Eg1cOKtV/BSmY9mLKwVnjvSKe4D8gIiHvKKvDU
+	 o6tVpAPmzwIaRYNXIMUkKhRsxgHIhtjHCTykvuB82pB6wfx4w7i0JMfsafHhYV7j98t0Z
+	 uwT5vwpOzLCW5JE8YE2e0+9YAd3dv+fbtSNM3ZDe9AeqgJ3X2nxcIkBoKRjZb8c5fK6qB
+	 ltxmjhP0VxDg63N9E1+1x0eF4TtCnBfsEmd8TlqrFCRukirjiBsZye0ZyGvlV730GgQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rowland.harvard.edu;
-	spf=fail smtp.mailfrom=g.harvard.edu;
-	dkim=pass header.d=rowland.harvard.edu header.i=@rowland.harvard.edu header.a=rsa-sha256 header.s=google header.b=ZJmoAzpF;
-	arc=none smtp.remote-ip=209.85.160.174
-Received: from mail-qt1-f174.google.com (mail-qt1-f174.google.com [209.85.160.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C7fArxqa;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB51E606A32A
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:35:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB51E606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rowland.harvard.edu
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=g.harvard.edu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8325606A32A
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:36:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=rowland.harvard.edu header.i=@rowland.harvard.edu header.a=rsa-sha256 header.s=google header.b=ZJmoAzpF
-Received: by mail-qt1-f174.google.com with SMTP id d75a77b69052e-55bd96affd2so15525491cf.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 12:35:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rowland.harvard.edu; s=google; t=1794947731; x=1795552531; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=TzMM5bA4AAtZ9jPcoRbrwj8417a0tkHya/xigSdckEM=;
-        b=ZJmoAzpFjZwIBxesqfkMU8pE9gdzg7f5MXBRTGOG6sZCb747LGbO6UQ+4E7ujS7aso
-         A9hU0ZeEvo6yoifT1LrHx2ztyu88+m54SdljwFtz0N2ygvRAd9kmDInVQZ7AxGN57yyK
-         tsrHQHoLqZnt5zBGCvjUoQDaZCI3HXSp1dC0QbxI9Dswaco+JKbnd5jXV5AhawF24Ll6
-         Uwq4hNopG1JqNbpINowUV2zL335IFqfz0egFNtsVwRsDoqzJ4qXdJrbFIomlFb5fpvn/
-         3w1e5VcHt0bpyV9RTOliqY3ekha/U3+SSXS7JqsEzn31dgDwdz4orSHsRANB61WTsb3F
-         6Ecw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794947731; x=1795552531;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TzMM5bA4AAtZ9jPcoRbrwj8417a0tkHya/xigSdckEM=;
-        b=0f6xZauapZYDnB7NuXhIvyMDuDMohOlGI2y8vIT3nKdEbufLNO84MA+dm9MFwSWODO
-         wZUQUztGrD2LP/0nTDqHfy/0Z2SK2zYlCDW/VeBTYCqTtw4cJW5WVDcm6dKGXMQ134U4
-         sl8S0bCFeYbtm3X4Rl6nPMIOcp0EgNzoeRhP3pHyqlWy7sd6gVr8Xjq8yqjom72rg5Wo
-         bbxepYg/Ic51z6mp7hy9PlRkARTkJPqdQXkGuqWMzxfXVSCQkQh3AcicHDnyOMs7k+1F
-         1pX4rg23A/iw9bfNEj2hjzi2ShBF+biS8EWiLynFrqc0bZNKaxKruIoJD4mbnrUMkJ+M
-         Syew==
-X-Forwarded-Encrypted: i=1; AL+hErFrsczT+2MEPIgHgOnY1tgfsi2qLjAd1aFW+Q7zPzGW9Ni1c6O4BKPgP8eUrlE/Q4ug17+OFma/+Bdcpts=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+CEv+7dwUcZgarrRotTyazjaYWmT2XE/TO3YbEf3x5fophoL5j
-	sySpX0xz3Yzq6S9josysVgy0EmZIOGKsbiLGaVjZjf1SBnTCYUQjMzACQ6s6pfFHOA==
-X-Gm-Gg: AYBFou1oT1srfimoO65exf806b4DiznZrZoSEc1MxKCui59Chh+EEHzSLx+x6+35BhO
-	mOLuLcrImyyDFnFMZEUIQythRvYovbKVLJI+RlmyVYI2AInG0B9fVxsikv02dcs2jmM1nGUznT2
-	LpgkpxV8LzzjPq5u4pNB/YI1Yh9VlYEvHOGGo2UhJGe0n+0Hb5UDFz+I1pEv/pbqYH9Pm3YdHBC
-	xX88bVNhVUhDeSKQZmzZ7I5OtJCEW55EG4stsU8VO9Zwbw0TKadfM3jiyPziyFSV7FoMPaN4xEA
-	XVNd7Sr/3JUx0c8pwNSMDIYtUuYAPaNFRn/7jzqWyobzhM7XqfTGH4lGnu8UY9aPwnvb8n8a3sA
-	Z5BHLqJhMQyMfwXAb2/EkPA71Q++ZK7qIoWBVTFB1sN9X9jGedqRrQLP+5ggkofABEtH6taxwMZ
-	+nPNoxCYphervYWhNWfgjuM/2oyloGBzs1MtDRAw+wiPDedSdNSAsdNaptJ4XvCokgg67G4d7iN
-	S26YypdcQllM/zAGl8RgTwPKso+8yq5f6uYnfrG62+mJEI8hJuQ65LAoKgshZIsgUbONmoOStvi
-	bMvyi0BX1zqCmCsG2+vAQkn1QgdXoQ==
-X-Received: by 2002:ac8:598f:0:b0:535:16c4:7304 with SMTP id d75a77b69052e-55d5a5483f1mr6952961cf.12.1794947730584;
-        Tue, 17 Nov 2026 12:35:30 -0800 (PST)
-Received: from rowland.harvard.edu ([2601:19b:d00:161a::d398])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d590c524esm5414651cf.26.2026.11.17.12.35.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 12:35:30 -0800 (PST)
-Date: Tue, 17 Nov 2026 15:35:28 -0500
-From: Alan Stern <stern@rowland.harvard.edu>
-To: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-usb@vger.kernel.org, usb-storage@lists.one-eyed-alien.net,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
-	Bin Yu <byu@xidian.edu.cn>, Cheng Wen <wencheng@xidian.edu.cn>
-Subject: Re: [usb-storage] [PATCH v2] usb: storage: shuttle_usbat: set the
- ATA sector size at device init
-Message-ID: <ad26ac08-7a23-4b31-8fd1-30b0dfa48aa9@rowland.harvard.edu>
-References: <20261116093452.15286-1-25031212351@stu.xidian.edu.cn>
- <20261117012707.5858-1-25031212351@stu.xidian.edu.cn>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C7fArxqa
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 854811F000C4
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:36:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794947811;
+	bh=MjqKu63EhuXlUYh8LB06tgo8mBsbsVVaUxCBaQO/J5w=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=C7fArxqab1A+kFeEYCRrWWEdFMcafrJ0ZtE5leXLcL9w3bVGvyD4Ex8GYiSqKjZvJ
+	 OGtOTyXmNgvFQ7ih9XnSdIM+mH67+1chLKpjS6tHevfQK+0nL8cSBUzi9K1xfwVGve
+	 4gH9aI8B9nj5U30E7duMPXEXrY5smww6CsIvOalDvsnnNqjm6F9n6zb2qUP6zDyktt
+	 D0FoetB7qPJe+N/WNo1UVe0XqVljBYYChSRBakCTUfS1AOfrbntGoXzH0r2vvAILeQ
+	 4W3VocL1Lw3iQt2kHKZ1O8/alLj0CtNxW4jg3HjvMF+EAiymqjpyZ1SyE03Qt3eD5I
+	 YAPZmk9UXEqQg==
+Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5c17a1775fcso149739e87.3
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 12:36:51 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErH3lTM8ZO9a845SdEHsVLPrJFOUBZSQg63zBST00C+ouKd+0xtAk5fq7rkeHuMgCmIJr3fy8I0HDouXM7U=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8fcbzPdBIrNj1aqe3h6B2dQBA6q5c2YQhPH2TBU5YI1CV8VaWu
+	wl3vA9hBaU/SSicYXqzPLuzgAQCBEgB3fBfxFb6yJa2OUpiX/xs3hFKK1jgHUTo/Jmb/vdNsYGm
+	owSUtX95sFF+fXlusj87QvwOHRDXdR0g=
+X-Received: by 2002:a05:6512:1046:b0:5bf:c3e2:be3a with SMTP id
+ 2adb3069b0e04-5c1a9f27cccmr86339e87.37.1794947809944; Tue, 17 Nov 2026
+ 12:36:49 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,74 +59,103 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117012707.5858-1-25031212351@stu.xidian.edu.cn>
+References: <4789427.LvFx2qVVIh@rafael.j.wysocki> <aveybY5Z9OWQYkRS@google.com>
+ <CAJZ5v0h3Q3ySm0BmHG80QAQReV-6mbj2A0J5cSG1Pwc_ziGyDw@mail.gmail.com> <avuNxXw7YZ4ZeO-1@google.com>
+In-Reply-To: <avuNxXw7YZ4ZeO-1@google.com>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Tue, 17 Nov 2026 21:36:37 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0hLADFoZQWRariyUYq+s8FhWv2B2JndGp1u=D=9vn5bnA@mail.gmail.com>
+X-Gm-Features: AclHuK-E1jVhE1_vxeyjUgci-XT6TTk354gpltVNrXs68b-GKFjvPZI6DM3eUjk
+Message-ID: <CAJZ5v0hLADFoZQWRariyUYq+s8FhWv2B2JndGp1u=D=9vn5bnA@mail.gmail.com>
+Subject: Re: [PATCH v1] PM: runtime: Update last_busy before calling
+ rpm_suspend() in rpm_idle()
+To: Brian Norris <briannorris@chromium.org>
+Cc: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>, Linux PM <linux-pm@vger.kernel.org>, 
+	LKML <linux-kernel@vger.kernel.org>, Alan Stern <stern@rowland.harvard.edu>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Tue, Nov 17, 2026 at 09:27:07AM +0800, 'YuanZhe Liu' via USB Mass Storage on Linux wrote:
-> usbat_flash_read_data() and usbat_flash_write_data() divide the transfer
-> length by info->ssize to turn it into an ATA sector count.  info->ssize is
-> only assigned in the READ CAPACITY handler, so it is still zero when a
-> read request arrives earlier.
-> 
-> Such a request is sent during device scan: sd_probe() starts with
-> media_present set and usb-storage sets read_before_ms for every device, so
-> sd_revalidate_disk() calls sd_read_block_zero() right after
-> sd_read_capacity(), even when READ CAPACITY failed, because
-> read_capacity_error() deliberately keeps media_present set for drives that
-> fail it with media loaded.  A CompactFlash reader that does not complete
-> the READ CAPACITY sequence, for example because a register access is
-> stalled, therefore reaches usbat_flash_read_data() with info->ssize == 0:
-> 
->   Oops: divide error
->   RIP: 0010:usbat_flash_read_data+0x2a4/0x5c0
-> 
-> The ATA sector size of these readers is fixed at 512 bytes, so record it
-> when the USBAT flash transport is selected, instead of waiting for a READ
-> CAPACITY command to succeed.  The datafab and jumpshot drivers, which
-> share this code, already set it during device identification for the same
-> reason.
-> 
-> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-> Cc: stable@vger.kernel.org
-> Co-developed-by: Bin Yu <byu@xidian.edu.cn>
-> Signed-off-by: Bin Yu <byu@xidian.edu.cn>
-> Co-developed-by: Cheng Wen <wencheng@xidian.edu.cn>
-> Signed-off-by: Cheng Wen <wencheng@xidian.edu.cn>
-> Signed-off-by: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
-> ---
-> Changes in v2:
->  - Set info->ssize when the flash transport is selected, as suggested by
->    Alan Stern, so the value is always available.
->  - Drop the assignment from the READ CAPACITY handler, now redundant.
-> ---
+On Tue, Nov 17, 2026 at 12:12=E2=80=AFAM Brian Norris <briannorris@chromium=
+.org> wrote:
+>
+> On Sun, Nov 15, 2026 at 06:35:04PM +0100, Rafael J. Wysocki (Intel) wrote=
+:
+> > On Sat, Nov 14, 2026 at 1:59=E2=80=AFAM Brian Norris <briannorris@chrom=
+ium.org> wrote:
+> > > Is it worthwhile to note (or at least hint at) how many other things
+> > > change along with this? e.g., how pm_runtime_allow() (and therefore
+> > > auto > control/power), all non-autosuspend pm_runtime_put() variants,
+> > > etc, also extend the autosuspend timer? I think we agreed these are
+> > > acceptable effects, and likely even desireable, but I'd say these are
+> > > fairly major changes.
+> >
+> > Fair enough, I'll add the following to the changelog when applying the =
+patch:
+> >
+> > "This potentially changes observable behavior in all situations in
+> > which pm_runtime_put(), pm_runtime_put_sync(), pm_runtime_idle(), or
+> > pm_request() idle is used on a device with an autosuspend delay.  That
+>
+> nit: you split "pm_request_idle()" oddly
 
-Acked-by: Alan Stern <stern@rowland.harvard.edu>
+I noticed that too and fixed it up.  Not sure what happened here.
 
->  drivers/usb/storage/shuttle_usbat.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/usb/storage/shuttle_usbat.c b/drivers/usb/storage/shuttle_usbat.c
-> index 7e5424268c73..267c82381465 100644
-> --- a/drivers/usb/storage/shuttle_usbat.c
-> +++ b/drivers/usb/storage/shuttle_usbat.c
-> @@ -1038,6 +1038,8 @@ static int usbat_set_transport(struct us_data *us,
->  		break;
->  
->  	case USBAT_DEV_FLASH:
-> +		/* The ATA sector size of these readers is fixed at 512 bytes */
-> +		info->ssize = 0x200;
->  		us->transport = usbat_flash_transport;
->  		break;
->  	}
-> @@ -1703,8 +1705,6 @@ static int usbat_flash_transport(struct scsi_cmnd * srb, struct us_data *us)
->  		if (rc != USB_STOR_TRANSPORT_GOOD)
->  			return rc;
->  
-> -		/* hard coded 512 byte sectors as per ATA spec */
-> -		info->ssize = 0x200;
->  		usb_stor_dbg(us, "READ_CAPACITY: %ld sectors, %ld bytes per sector\n",
->  			     info->sectors, info->ssize);
->  
-> -- 
-> 2.34.1
+> > includes changing a device's "power/control" sysfs attribute value
+> > from "on" to "auto" (if there are no other active runtime PM
+> > references to the given device), accessing PCI configuration space
+> > from user space etc.  Namely, in all of those cases, the runtime
+> > suspend of the device following the runtime PM helper call (if it
+> > causes a runtime suspend to occur) will be deferred by the full
+> > autosuspend delay, which arguably is more consistent and predictable
+> > than deferring the runtime suspend in question by a more-or-less
+> > unknown (and basically random) time depending on when the most recent
+> > update of the device's last_busy timestamp has occurred.
+> >
+> > It will also cause the majority of the direct
+> > pm_runtime_mark_last_busy() calls to become redundant, and they will
+> > be taken care of later."
+>
+> Seems good, thanks! Who knows if anybody will actually read the
+> changelogs, but at least it leaves a paper trail for future cleanups
+> that will likely reference this change.
+>
+> > > In any case, the change looks good to me:
+> > >
+> > > Reviewed-by: Brian Norris <briannorris@chromium.org>
+> >
+> > Thank you!
+> >
+> > > I meant to make time to test this out a bit more, but ran out; maybe
+> > > next week.
+> >
+> > That will be much appreciated.
+>
+> OK, I made some time:
+>
+> Tested-by: Brian Norris <briannorris@chromium.org>
+>
+> It tests out well (passing) with:
+>
+> (a) the KUnit tests that try to imitate the stm32-adc parent/child
+>     structure from commit c537d3457542 [1]
+>
+> (b) my original KUnit test [2]. I've appended a slightly-updated v3, in
+>     case you want to merge it
+>
+> (c) some targeted PCIe tests on Pixel phones. Specifically, I see that
+>     the portdrv.c 100ms autosuspend delay is now consistently applied
+>     after both lspci (this used to work OK, simply because rpm_resume()
+>     would also update last_busy) and after endpoint suspend (this
+>     previously did not apply the autosuspend delay, as the endpoint
+>     tended to stay active for a long time)
+>
+> [1] https://lore.kernel.org/all/auzlLwlleGLPsLcw@google.com/
+>     This test is inherently timing sensitive and therefore flaky. It
+>     just serves as an example, not something to commit.
+>
+> [2] [PATCH v2 4/5] PM: runtime: Add tests for last_busy propagation
+>     https://lore.kernel.org/all/20261103141442.v2.4.I8ab8b7f662fe1921c708=
+4a47d554535597cc2702@changeid/
+
+Thank you!
