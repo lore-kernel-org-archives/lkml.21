@@ -1,106 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.154.119.183
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794951711;
-	b=b6iz3rSC5eg94YKH8wKa3+yZ0PxNcO3JcoNrbNxRrvN+U0p0oLqSlpIa12TbQOOkZKrv
-	 VwQ00xjSaoKnx9E6Ol57JLXiEQYlnzGDbfxf5aFZat2Ouc05YavzgZ6bBOoiYqjxx1MUU
-	 AyYaKjSlsdm8Hr4x3G0y2uUbqg97bDm7CKYlj4ipCvuhXcINU8KUIfkDtLbFzWZMLCIzz
-	 fArsXV71s59zFvyoeDovHnGUtPBjPiKpV9hvotKhkHPQQpZPH0hIll6gg7kfZXxRr+xE5
-	 4g6DY0HHXMmX5aNJEnoDynSJBx6EeASNSZFovIm9y0xuPDmNnWV23eXix9DQJPTK+DQ==
+	t=1794951735;
+	b=IDBwixCVhV1HU+rYSQyc75vi3dOz22unD/yPiA6jikhthlD3Ehp1lqWF4qJ04wgfAtFX
+	 5I0UIyr9mCQrtsH+7D3cP5NIjVLMm4BQG0XCRZwgI6Hisa3F+UY9D5nqCn+e6hvJO3r/D
+	 049wGJ3/iGhgzSWsOttkN7ciih966y2fXCz853uJQ59Xlz5xYydopBiNAF8nKRpEecEYj
+	 3yovf3Y0Z93VcQJ+Z+pQQH001vtnE32jDDkaT/XQmqp4h0DmALsO1cIrBYzrHEA6ireG7
+	 /sMD5XfpAjIQxqWEp+kHINaW25ewflDz+r2aW2WGKe6ibgZ2fhoH/ccND9QYLcvTl0g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794951711;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=FSOzTuildzOc1Vsgs2eOA/FCbZ+NSuERw0qAipq6Ry0=;
-	b=OEhL6PKukFGmgO0J6+M7tP1rNydV2eXJRRQ+E2DArLJ00v5SGXW6zv95wWT1AHAP3xLk
-	 n1kK/MC9nKwdXd4YZa7QWJ2QEZPFJ0k8AEEbo/pNJHkJUvAgTrblgrRV4wk6+jQDanKtp
-	 8M9EUHPP8jg7H0iKkCoKdc4Gv9s94YAtcCBbc9dnEow6oOuPojljmQ5x8PaziDPJxOLLl
-	 rPS1bLcofINw+98zsmguzWaxIXaKdM0nWy0tGmTryENMk9G/XrhUAqsdGV7egMO2GIE25
-	 9zsd8u7LLld50oLzqeCYu6KjIahw6r/GlVLHxrUthEGwcnHK1dhfitVrADudz0bPZMg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794951735;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:Mail-Followup-To:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:User-Agent;
+	bh=PrHvuwIuDErJm7EM/POsxG5qv1/2voyuislLca5+9uA=;
+	b=SK1n4tAee7fiqQi5qV4aS2+XWUKfvvy2wnZOywSGj2+xx0AJ9D4MHHdrapDuolDySRow
+	 xq6Y18kPClxWeojQ9kHPiu4vSwBN4gF2IYBS13Q9Lm4P32+Xyg120o4Q6w5sI2OpxeDhW
+	 6mIzCnuKADodDfLElg7GUFCmqcuhgpuYkRZiri0WgLwDlW21O4y2wbyLdSsIR8go8vK8D
+	 /sYbRd4pAmVOrgbsQ9ZiBcHIa+xt0j59b9QUEOPle++LSLQKqWCIO4ja1CVyBZo+jjR9l
+	 BeHkX/dIMjByMVsTaCNp71R21vACszjmS+awiQUCLeqdT3Gd3MnmL3dh7d85rRp793A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ClPu4vBR;
-	arc=none smtp.remote-ip=209.85.221.48
-Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=aurel32.net;
+	spf=pass smtp.mailfrom=aurel32.net;
+	dkim=pass header.d=aurel32.net header.i=@aurel32.net header.a=rsa-sha256 header.s=202004.hall header.b="idd9LGL/";
+	arc=none smtp.remote-ip=195.154.119.183
+Received: from hall.aurel32.net (hall.aurel32.net [195.154.119.183])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B33C3606A335
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:41:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B33C3606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADB68606A31C;
+	Tue, 17 Nov 2026 21:42:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ADB68606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=aurel32.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=aurel32.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ClPu4vBR
-Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-49d64a88222so904943f8f.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 13:41:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794951709; x=1795556509; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=FSOzTuildzOc1Vsgs2eOA/FCbZ+NSuERw0qAipq6Ry0=;
-        b=ClPu4vBRUY1hKH+8netbBQN2tGVRTiQB/KriMcBkv+gYXyO2f4LvcWw5+AyiNrZXW+
-         /AeXw/c/ygFQV+b3+txeb9WibsEWoAD9Dq92E57B5hY9fZQXS4tcLSJ2WvMMywxTMieo
-         yLN3yT6MBo3LLR5J17mFQawN9p47rwRvz5ss/3f3mGAh1LXzpJJw7pKtNYb3zNtJ8mye
-         Dm4tw3jud6tRZ7DsUMDe+vbdS70OGk3iRaEBiZfCtiyjKT3XYb8YsHAN2whrN3nJ/wqi
-         BuLyznW2pp/iiih4aYC70oXurunrmBsiPyE8pu3rphBQN+m0vbyMGZ3TgWseFV75xYAv
-         YKJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794951709; x=1795556509;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=FSOzTuildzOc1Vsgs2eOA/FCbZ+NSuERw0qAipq6Ry0=;
-        b=cA6AN93Z7olILJIiJwVftlTiZHxwCLE4dFyFv9prHJJwODFrkqAuNLTA+KfdXig/E6
-         9kOYaZRbzy4UG44wfqFgL60mCvKMkFHOpOpO/OWEsUozfw7n30IOUJCHSTvqbpDaIiIw
-         pVcP1KxWP20GGa981905LQi1Sq9BW5adgkB/nv6gial8Okw4VyjCwWkbMgs2ZcTJlBc/
-         MoJKIwnvScbWYOVIHMSQZm8zYl5O+XyBJezDFsS+8b4mb7ajJ5WcGC63qNDRgtherMVb
-         HIReChY/zXbrzrMQX+Ui5saFqAU2YnE9xSQfH+474Sf8Zua1c7FwNpgNALmSiNT2onw6
-         egqw==
-X-Forwarded-Encrypted: i=1; AL+hErGGeJFxju+mR6xZgMskN7fgctnZasCnSUqH+TVqk4tcMPTzpRul5SC6IAuAKuQwL5gooQ3VBpbVhE9CH10=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+tXutD/nMBHj0Thb417gjKTUqdvMD7lsLIhkU7YzipB3hWJToE
-	VT5zZxPShkyurNHKWd6FHvfxHZMmtgBZLBPu/m4vf8f91rZ6+WBe6n4l
-X-Gm-Gg: AZFdTZf5FQSDIkDADpCylEKiurYPlZTfpdiNHxsVJj8B7YgKGQd+flIfluwbh7UEkUV
-	9BauoPXL/mnT8FGOo+DkRV7zmtK81trSqp3peqxbeEaR9GLygPtbcBk0HGgtUHm/cTcYFxJo8jj
-	B7UEappPWjhSy8cV0L/hyAfuIHIo+L51hEGr5VKvx4cBWmg53odhsj3voBob3GewGbxHTCIIKRs
-	vsCJ39cnvH1evSeM6h/bF5gWtsMxofk1OMEBZJ4B6UIVszYsmsHT/T6FdNRXG5h0H0/Co43NSZ/
-	EbwAMc9WFy42xBjO6P1kTFYP2MwanaGvDqMC9+JvfWgG1jAkpehEJzAnxiEi3dVOIdIVU01U63r
-	pPPEAeRqunOapC2LsnK8yRUwYeczVKPPB+Yr7lNeWQkGCsamMhmWpJCjzzDFb8N88kHaqu+Q2Pj
-	sFjz4nB++2YxLLUpEFlrpv67tFd9qorbC2QE2pr4C9YaDU5zzrC1/UXdXOXZAzjnplCBNV5M8gE
-	rrPqDFAyK9/my+/jTc94JaBUOJlvTbhkpEp3UsZJ/RNkIjt4B7LBLBOvxm6YWKW7W4aE6VZDys8
-	3BjKNyYJfUurbcRfsIa0X0FRIietA0eq6I8IvWTrC3UGCWsn7BATDP9LlM8Gxk7mwl9WPnAIt9o
-	9e1325cBFX6GK/cotz6lGB6qs5QICyRZbGO0/+fHEE2DLIvQ=
-X-Received: by 2002:a05:6000:4705:b0:48e:d7c:4bc3 with SMTP id ffacd0b85a97d-4a3771eeb83mr9286381f8f.21.1794951709112;
-        Tue, 17 Nov 2026 13:41:49 -0800 (PST)
-Received: from center.jhjvjihww5qejoy14qwv1cc4td.frax.internal.cloudapp.net ([131.189.143.225])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65560b5f1sm978391f8f.21.2026.11.17.13.41.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 13:41:48 -0800 (PST)
-From: Orgad Shaneh <orgads@gmail.com>
-To: miquel.raynal@bootlin.com,
-	richard@nod.at,
-	vigneshr@ti.com,
-	tsbogend@alpha.franken.de
-Cc: linux-mtd@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linusw@kernel.org,
-	kaloz@kernel.org,
-	ulli.kroll@googlemail.com,
-	john@phrozen.org,
-	nico@fluxnic.net,
-	dwmw2@infradead.org,
-	corbet@lwn.net,
-	linux-doc@vger.kernel.org
-Subject: [PATCH v4 3/4] MIPS: Octeon: flash: allocate the map per device
-Date: Tue, 17 Nov 2026 21:41:40 +0000
-Message-ID: <20261117214141.3826637-4-orgads@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261117214141.3826637-1-orgads@gmail.com>
-References: <20261117214141.3826637-1-orgads@gmail.com>
+	dkim=pass (2048-bit key) header.d=aurel32.net header.i=@aurel32.net header.a=rsa-sha256 header.s=202004.hall header.b=idd9LGL/
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=PrHvuwIuDErJm7EM/POsxG5qv1/2voyuislLca5+9uA=; b=idd9LGL/Vro7c0VHbgDwR/u6Iv
+	E7k9Y/K/GK26hxy30CBDTzvylJ/VfXJ/vH8j3FJdIXNmiTa+MqwNYYCqVi6gnmhyGAQf9/pj4DFpB
+	sgacsAUHnnGo3SsF15tqr2RXuhtyaRJAKtTJQlNB2v0cNZNFshDIo4pyqrjazGs3ltNON3VFgRCIz
+	P0ZN6YdewWKbahdbNOTwZDl4PZK1StyHPpL/zf6qanH61ZhmxLPs+gKZw6FqJlklV0xuy/3LFjMPs
+	ZvBdbbAQwTFg1JKQ/MhB3+ikHjl5ks21pP5zzypPqCHSgQX4AsTYDSrJBRtEoG6qV1siOgOl8SL1x
+	qwebwdCQ==;
+Received: from authenticated user
+	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1xTQwM-0000000GaSU-2Nd8;
+	Tue, 17 Nov 2026 22:42:10 +0100
+Date: Tue, 17 Nov 2026 22:42:08 +0100
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: =?utf-8?B?RnLDqWTDqXJpYyBNYWjDqQ==?= <frederic.mahe@cirad.fr>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>, Rob Herring <robh@kernel.org>,
+	Yixun Lan <dlan@kernel.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Alex Elder <elder@riscstar.com>,
+	Encrow Thorne <encrow.thorne@linux.spacemit.com>,
+	linux-pci@vger.kernel.org, spacemit@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] PCI: spacemit-k1: Request the Gen2 speed change once the
+ link is up
+Message-ID: <avzKMAtDqeqHIivr@aurel32.net>
+Mail-Followup-To: =?utf-8?B?RnLDqWTDqXJpYyBNYWjDqQ==?= <frederic.mahe@cirad.fr>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>, Rob Herring <robh@kernel.org>,
+	Yixun Lan <dlan@kernel.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Alex Elder <elder@riscstar.com>,
+	Encrow Thorne <encrow.thorne@linux.spacemit.com>,
+	linux-pci@vger.kernel.org, spacemit@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20261117085508.83388-1-frederic.mahe@cirad.fr>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,123 +86,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20261117085508.83388-1-frederic.mahe@cirad.fr>
+User-Agent: Mutt/2.4.1 (2026-07-04)
 
-octeon_flash_probe() fills in one static map_info for every "cfi-flash"
-node it binds to, so a second chip select overwrites the phys, virt,
-size and bank width of the first while that MTD device still uses the
-map. A probe whose do_map_probe() finds no chip also keeps its
-ioremap() mapping and still returns success.
+Hi Fr=C3=A9d=C3=A9ric,
 
-Allocate the map with devm_kzalloc(), map it with devm_ioremap() and
-fail the probe when no chip is found or the partitions cannot be
-registered, so the mapping goes away with the device. mymtd was never
-read; drop it.
+On 2026-11-17 09:55, Fr=C3=A9d=C3=A9ric Mah=C3=A9 wrote:
+> On a Banana Pi BPI-F3, an NVMe SSD in the M.2 slot (pcie1) always comes
+> up at 2.5 GT/s, although the root port and the drive both support
+> 5 GT/s. The Directed Speed Change that dw_pcie_setup_rc() requests
+> before the LTSSM is enabled has no effect on K1. Setting Retrain Link
+> in the root port's Link Control from userspace brings the link to
+> 5 GT/s, so the link itself is fine.
+>=20
+> Once the link is up, request the speed change again, wait for the
+> controller to clear SPEED_CHANGE (as pci-imx6 does), then briefly for
+> Link Status to report the new speed. A port with nothing behind it is
+> skipped after 100 ms.
+>=20
+> With an SK hynix BC511, the link now trains at 5 GT/s x2 and fio
+> sequential read goes from 397 to 575-640 MB/s. Data verified with fio
+> crc32c. The empty pcie2 port behaves as before.
+>=20
+> This change was developed with the help of Claude (Anthropic); I
+> reviewed and tested it on hardware.
+>=20
+> Signed-off-by: Fr=C3=A9d=C3=A9ric Mah=C3=A9 <frederic.mahe@cirad.fr>
+> ---
+> The K1 PCIe cover letter says all ports run at 5 GT/s, so maybe this
+> depends on the drive or the firmware; on this board the link always came
+> up at 2.5 GT/s before this patch. Tested on top of v7.4-rc1 with "PCI:
+> spacemit: Ignore PERST# input in RC mode on K1" (applies cleanly without
+> it too).
+>=20
+>  drivers/pci/controller/dwc/pcie-spacemit-k1.c | 48 +++++++++++++++++++
+>  1 file changed, 48 insertions(+)
 
-The driver has no remove(), and the mapping is now device-managed: a
-sysfs unbind would unmap the flash while its MTD device stays
-registered. Set suppress_bind_attrs to rule that out.
+Thanks, I confirming this works well and greatly improves the NVMe=20
+performance. I have just tested it for a few hours, and I'll mail back=20
+if I encountered any stability issue on the long term. In the meantime:
 
-Signed-off-by: Orgad Shaneh <orgads@gmail.com>
----
-v4: new. sashiko flagged the shared static flash_map against v2 and
-    v3 of the next patch; v3 left it as it is in mainline, this fixes
-    it first.
+Tested-by: Aurelien Jarno <aurelien@aurel32.net>
 
- arch/mips/cavium-octeon/flash_setup.c | 49 ++++++++++++++++-----------
- 1 file changed, 30 insertions(+), 19 deletions(-)
-
-diff --git a/arch/mips/cavium-octeon/flash_setup.c b/arch/mips/cavium-octeon/flash_setup.c
-index 66d173b..0e5652f 100644
---- a/arch/mips/cavium-octeon/flash_setup.c
-+++ b/arch/mips/cavium-octeon/flash_setup.c
-@@ -18,8 +18,6 @@
- 
- #include <asm/octeon/octeon.h>
- 
--static struct map_info flash_map;
--static struct mtd_info *mymtd;
- static const char *part_probe_types[] = {
- 	"cmdlinepart",
- #if IS_ENABLED(CONFIG_MTD_REDBOOT_PARTS)
-@@ -71,6 +69,8 @@ static void octeon_flash_map_copy_to(struct map_info *map, unsigned long to,
- static int octeon_flash_probe(struct platform_device *pdev)
- {
- 	union cvmx_mio_boot_reg_cfgx region_cfg;
-+	struct map_info *map;
-+	struct mtd_info *mtd;
- 	u32 cs;
- 	int r;
- 	struct device_node *np = pdev->dev.of_node;
-@@ -85,6 +85,9 @@ static int octeon_flash_probe(struct platform_device *pdev)
- 	 */
- 	region_cfg.u64 = cvmx_read_csr(CVMX_MIO_BOOT_REG_CFGX(cs));
- 	if (region_cfg.s.en) {
-+		map = devm_kzalloc(&pdev->dev, sizeof(*map), GFP_KERNEL);
-+		if (!map)
-+			return -ENOMEM;
- 		/*
- 		 * The bootloader always takes the flash and sets its
- 		 * address so the entire flash fits below
-@@ -94,26 +97,32 @@ static int octeon_flash_probe(struct platform_device *pdev)
- 		 * access 4MB.
- 		 */
- 		/* Use this name so old part lines work */
--		flash_map.name = "phys_mapped_flash";
--		flash_map.phys = region_cfg.s.base << 16;
--		flash_map.size = 0x1fc00000 - flash_map.phys;
-+		map->name = "phys_mapped_flash";
-+		map->phys = region_cfg.s.base << 16;
-+		map->size = 0x1fc00000 - map->phys;
- 		/* 8-bit bus (0 + 1) or 16-bit bus (1 + 1) */
--		flash_map.bankwidth = region_cfg.s.width + 1;
--		flash_map.virt = ioremap(flash_map.phys, flash_map.size);
-+		map->bankwidth = region_cfg.s.width + 1;
-+		map->virt = devm_ioremap(&pdev->dev, map->phys, map->size);
-+		if (!map->virt)
-+			return -ENOMEM;
- 		pr_notice("Bootbus flash: Setting flash for %luMB flash at "
--			  "0x%08llx\n", flash_map.size >> 20, flash_map.phys);
--		WARN_ON(!map_bankwidth_supported(flash_map.bankwidth));
--		flash_map.read = octeon_flash_map_read;
--		flash_map.write = octeon_flash_map_write;
--		flash_map.copy_from = octeon_flash_map_copy_from;
--		flash_map.copy_to = octeon_flash_map_copy_to;
--		mymtd = do_map_probe("cfi_probe", &flash_map);
--		if (mymtd) {
--			mymtd->owner = THIS_MODULE;
--			mtd_device_parse_register(mymtd, part_probe_types,
--						  NULL, NULL, 0);
--		} else {
-+			  "0x%08llx\n", map->size >> 20, map->phys);
-+		WARN_ON(!map_bankwidth_supported(map->bankwidth));
-+		map->read = octeon_flash_map_read;
-+		map->write = octeon_flash_map_write;
-+		map->copy_from = octeon_flash_map_copy_from;
-+		map->copy_to = octeon_flash_map_copy_to;
-+		mtd = do_map_probe("cfi_probe", map);
-+		if (!mtd) {
- 			pr_err("Failed to register MTD device for flash\n");
-+			return -ENXIO;
-+		}
-+		mtd->owner = THIS_MODULE;
-+		r = mtd_device_parse_register(mtd, part_probe_types,
-+					      NULL, NULL, 0);
-+		if (r) {
-+			map_destroy(mtd);
-+			return r;
- 		}
- 	}
- 	return 0;
-@@ -131,6 +140,8 @@ static struct platform_driver of_flash_driver = {
- 	.driver = {
- 		.name = "octeon-of-flash",
- 		.of_match_table = of_flash_match,
-+		/* No remove(): the map and the MTD device stay registered */
-+		.suppress_bind_attrs = true,
- 	},
- 	.probe		= octeon_flash_probe,
- };
--- 
-2.53.0
-
+--=20
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                     http://aurel32.net
