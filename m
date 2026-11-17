@@ -1,73 +1,114 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.209
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794943334;
-	b=cIXn8WNd9guDQTRAafKmP8Nvv1+SU6GugzM+sJREnRr0IbMUeVyW2w2+zKgfxZ9xrNOS
-	 NlCNvTKiSjqAnyeb23uAXx2w3wSw80VGttzeXUO2modhBHixAyhhVWYPK683Be5wTYc11
-	 KiMCwsdjT8jX0+ol58VRBFR3jjcJbyTrKlZy0HgtTGEvxhu90nrW9L++ThNtdCjgdo1o3
-	 mKVPOiUuMJBzT2wz0fV5cRO3N09Lbh1Pnv+1Ethb/4YlybHSxkhv4Goq1CuJA1ix2XoNk
-	 gnHhEx/PLOhrBfZphCf+f3FEIZeCyIdamayQtDz++T5NheejeePlQauLE6T6aaQ4rfw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794943334;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=Lz1w0EbtXOaAAdwJrE+Xz3/OXCsOt9qjYg0cSN3P5K8=;
-	b=3eZ/wS9YZxwdOR+z4sOUyOhXom1XKXzeMbiTZEoNIEgLH5hVNthj1u8gHkCcBJwfiAh+
-	 4mAeq5/yE+j4M4n5oCFuSagsYH4A9UQ/nRFIwUNUXXs2kGjIjw2CZbPl/NuW3E2JZ/jL9
-	 BO2gD8HfyqnNEo4QdPzjlfZzfJPA2LA9dSfNlhguNBiEAjsziwFm+Xq4MurTrHtrLmUgi
-	 CvEGRLFildXbqNeWyUrrOS0ivAmRJf4neSySEAf8gWZUIfXtj2Y6FJaS3C3UeCo8Dnw+r
-	 eRdlYAqVHnrJWWvtM4b6KnvsG/yDhfOukbqGGKWNZdriw3UBKqzSC9cbw63es5s/WjQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=fEvIX6VT;
-	arc=none smtp.remote-ip=91.218.175.209
-Received: from mta0.migadu.com (out-209.mta0.migadu.com [91.218.175.209])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.200.41
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794943335;
+	b=wA/LE+1AseuOcsEKRBIs0mwSEEf/ucQJAbEARSyg/sHfQF1TX7u4M9pGw+ap3tY70Zbw
+	 PNKCLwjs9HpdzrUsBg+g7D/RbgeirnzqiYHRucEUDuvVNdV1YvqVMTwOm4Chd4bMcH9BL
+	 rv9K4bWZQk6GHf3F5hK9qrkNkpursiBvMQCp2pBigK3xA5M5TXuuhMAgZAnXoQjyaBdVv
+	 E3iGgwO3HTu+M4kgZaOAh/DZmuehzgHY3+NJp3Fb3+Yl29MHUx6laVvnYv8yACLLaFYAT
+	 hksm8T/O0/MMKYPB++Cf//6hPCUfi3HrgTKMCw11cwfHii8/s1DJfnvPMMfn56NFcwQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794943335;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
+	 Content-Type:X-NV-OnPremToCloud:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=H8xvxPNWx8K7zQClODxVjwXVekLlgsGZmhyp+PZSiWs=;
+	b=k/+WSIg5gSUhxArnqjGw87PCg0k500y5RhonmLfNDdoXDulpFzA5R2QSt4fGNyfPufxy
+	 Ut4BN/m3eVrUsxidtodA/WbIORjR70yHxFt3GXPFnINRRgiQvfrlc4VQbzH/NxzCYokF6
+	 LsT1vu2GBAlkWwRn4st4CRXI5E2r4td1BXVlSA0gVGIqi+5J2aNlZ7Mwjmk8wFX6yU4/D
+	 EGqQRb6FTFl1IrrppG5C2uTWlJsZUQFkNSmXMg8IwZFfblIJcOn+mrtWL0og9eSZX5OZ4
+	 xzwZD7d3KOokVX+KyCfQ/Ci+CimRZFphmDh3eF4e+A1MX9V1buD25kAb1tjLoof5jgg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=KeIZJWkb;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.200.41
+Received: from CH5PR02CU005.outbound.protection.outlook.com (mail-northcentralusazon11012041.outbound.protection.outlook.com [40.107.200.41])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5EC16606A337
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 869B0606A894
 	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:22:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5EC16606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 869B0606A894
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=fEvIX6VT
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=DSL0/flEAkrpeSSX6CykC8WxfpOVs7TOq2uMFy4Bz7M=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1794943331; v=1; x=1795548131;
- b=fEvIX6VT6t4ve60rxgftCsJqlyQx+Ort20YWK1nKBxLd1QsXbdnW0al7C44Mbr6NW2CdvLbP
- WH8+5JwQDFwJnlxZnjUF2aMrV8FRyazQa0pWTxumA2EVKhVF5JtBKWsv6WUzCz3QVtZ0SEaJJeA
- ltgRCeiCGCHylomx5SogMEag=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta10.migadu.com with ESMTPS id c15985febec1e1e2;
-	Tue, 17 Nov 2026 19:22:10 +0000
-X-Mizu-Trace-ID: c15985febec1e1e2
-X-Migadu-Flow: FLOW_OUT
-From: Ihor Solodrai <ihor.solodrai@linux.dev>
-To: Alexei Starovoitov <ast@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Cc: Alan Maguire <alan.maguire@oracle.com>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Song Liu <song@kernel.org>,
-	Tejun Heo <tj@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	sched-ext@lists.linux.dev
-Subject: [PATCH bpf-next v1 2/4] selftests/bpf: Test kfunc flavor resolution
-Date: Tue, 17 Nov 2026 12:21:51 -0700
-Message-ID: <20261117192153.3384031-3-ihor.solodrai@linux.dev>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261117192153.3384031-1-ihor.solodrai@linux.dev>
-References: <20261117192153.3384031-1-ihor.solodrai@linux.dev>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=KeIZJWkb
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=limpiJ9HoET7TEsfjjjN+NHgFitRdTcMXsaHfJSeLJwXWvDYMnNoDif/F9LBhNTQgOqdjgtAO21p6b/A267/MFlGEHL5wghHbmMMfGBDuUZpRDEUa2NG11UqXNaBrvBG+u1tUcPzvHxu05CN+QDI/Y8DMt6YOziYCFlweSPHO1gNX1lTgoQT9zPULs/B/+l6nm7F+NrROFNb7gy7jn3oiZaZCdJ3jV0OAOSqduKPPRwKFUUxfGdIS/VFOB6Zaq8M/f5eMlRq+AfHh2abAu21rNXWOJhjiNUW+WArUvX3T9O4kMfpC8k/Go9C9f2NCynNjjXVNQ9FsRCHhX+yyoaj6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=H8xvxPNWx8K7zQClODxVjwXVekLlgsGZmhyp+PZSiWs=;
+ b=geAYcw8ojAO6Yyea62ILDGXEFjhTrnT1hIDhBZlRyDyI3rVIrFPUdCHqurqy4PUFFQHaxRdwLPPMs8mocYqIf269SgJOoyaM/QwlVahF+ZcaEi3v+Sy6vCOGSXV+tmvT6SFHrM8SGOhGFAs4jh1XVGRd5xcUzCmU+NDxFOqIAb7GKuMPicpAO8Es4jATgbM4Z0MOdF1iLb5/Nw3QNyDXg0NpwS7sTjuGSuSspTnXHIvRL7fhJmjwqENZs/BTumd1+7hOndbony2PA6ZtO4Mxcg6E2McQXJyePNt0JY2up0Iv91H2c/tkbnrrkMXbbeuNMz+6YowgmJBdBLW53lTc4A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=H8xvxPNWx8K7zQClODxVjwXVekLlgsGZmhyp+PZSiWs=;
+ b=KeIZJWkbAENxaFCPo8SgKYWlqG8LEbUWczysVsk9a4RWPzO9Z4Qsu0DpWgUhgER50Ozn54G2RHRf7kp3dHMyzYKnXGilozL0EVPD1bpfPgXwjYYPs8/mr3W4PREEQkj+Orj0e/IMc/xbxTlVdYjBSoxN6AZfuG1bWD97gO4UK/BrA9/GAl0P0SSQ+ty73QvGIyaml2qNHLYa5JfTg7yssyRXMHofuL5fqtTryOep+Iu94zFpOEnTlvunk1QKRY9qKD4POzz0e/X5jxk1XPEZCrqUrRbGhqx8WH+JyVQifKSxBR7dC977nyXaeC2kOL0kEQmHFImwdFeD4z4f7TnTjg==
+Received: from MN0P220CA0024.NAMP220.PROD.OUTLOOK.COM (2603:10b6:208:52e::18)
+ by IA1PR12MB6020.namprd12.prod.outlook.com (2603:10b6:208:3d4::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.13; Tue, 17 Nov
+ 2026 19:22:03 +0000
+Received: from BN7PEPF00000096.namprd03.prod.outlook.com
+ (2603:10b6:208:52e:cafe::3a) by MN0P220CA0024.outlook.office365.com
+ (2603:10b6:208:52e::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.14 via Frontend Transport; Tue,
+ 17 Nov 2026 19:22:03 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.118.232) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ BN7PEPF00000096.mail.protection.outlook.com (10.167.245.74) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.4 via Frontend Transport; Tue, 17 Nov 2026 19:22:03 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 17 Nov
+ 2026 11:21:39 -0800
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Tue, 17 Nov 2026 11:21:39 -0800
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.13) by mail.nvidia.com
+ (10.126.190.181) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
+ Transport; Tue, 17 Nov 2026 11:21:38 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <will@kernel.org>, <jgg@nvidia.com>
+CC: <robin.murphy@arm.com>, <joro@8bytes.org>, <praan@google.com>,
+	<kevin.tian@intel.com>, <smostafa@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <jamien@nvidia.com>, <kas@kernel.org>,
+	Cristian Prundeanu <cpru@amazon.com>, Breno Leitao <leitao@kernel.org>,
+	<xueshuai@linux.alibaba.com>, <john.garry@arm.com>
+Subject: [PATCH v13 04/12] iommu/arm-smmu-v3: Pack the MSI vectors of the used sources
+Date: Tue, 17 Nov 2026 11:21:21 -0800
+Message-ID: <40570c344d7fce94c4e80316503a9162bb31cb62.1794942324.git.nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1794942324.git.nicolinc@nvidia.com>
+References: <cover.1794942324.git.nicolinc@nvidia.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,165 +119,169 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN7PEPF00000096:EE_|IA1PR12MB6020:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5aea77e6-c3d9-472c-15c5-08df44e00fd3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|376014|7416014|1800799024|36860700016|82310400026|10067099003|11063799006|56012099006|261026121527099003|261021121427099003|261022075727099003|261021123027099003|261021135927099003|261102123227099003|261009223027099003|22082099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	qUvxJW9fwS2uwC7lle9m8K178rEvRBsz/0mNYBuyQx0oWnFoSoFmGf6uYKmml/T07wpgOYi7os3BDeilfyj8lHCbiaDBFeGW4R7eLteSIxIBEgEiET4zBaCtgKR3n47ynUMePn7DTBS81tTDZ6KUCCcMHwneedxmEoIbAsjFkwqX2vLSpskYiTD3lbbQ+aBMwYBMTbBlN/WUXU98bhgr7iuKMszXFKmUsNvnGLOw50Mb5g37V06COyph5Ka6wghBgUzhln29+XQNVrpYRIygAlHRe7NIx/AE+6dA5kdMy/vyqlqj+CKtuIZi0Lq07Alwa9CPsWfuu+xjTgjYXZhT7DUWCEEpOAfR+HtQXcMeM+DGlvj8x7a/FEXDkx6xYUodh9Vf+LSIUPLCrOosu0KZ2+pph7NiIr/thfAAW8g1ynw2ltIY6BFQoujsa/XchaWCOOkVHMPrFVjsiOERzpoynHZC/z4yOqvep5C7vEILlsBQrsCxJy+zNWcXnkNX9iZUt3TBlP6plHqfl8waxg0YIttI514crGf2fRDAnRrUB4+A4VHlmhqtymT7jgb2sCKC60dpHVVfif9Rv4rbFOTEQz5wIHsaqjbMFw448mjc4dsmUEkQ7BrVAsohI0EPjcfASRgdVtDQWcbh/G+r4SPuU8Qu48ZDaLU1qRcsyhLQyEZ4dZNkOGngRk8wtPGpbICb10J9Kqgar54c6y7+6GkLiw==
+X-Forefront-Antispam-Report:
+	CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(1800799024)(36860700016)(82310400026)(10067099003)(11063799006)(56012099006)(261026121527099003)(261021121427099003)(261022075727099003)(261021123027099003)(261021135927099003)(261102123227099003)(261009223027099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	QRtJ+Wg811LT+7CihFK/9YF/plgnCfXieo82HyQIKxVRzAJy2CAdbLg4Fdgv5+4WrMpm8y44wJDFQG7fFlrPCcFh6yimG9C7Z2kbid4Fl3OyK+k7we/Mrq3gpvSaWhsBGXfCP5zfd8TQEqE2EuUAPaIY16K3yC2yPFWmKgfsDNhwFnnVy94g49LfCIz4i7rSQvCJHFWigJ7tzfqISyXk+klIga5ZnGL6n3hzARv1BWv9VqADocLXtz7uWf3BOU0O3okrBp9W+Gl+pqCFguNxF2DvRcJyCyKuMBimSY3KmVoxjt4KkusBIzNS+3Jg5laIwA//fao+EnhA2Tdjghllyds5K5p+ZsPK4LTgNB0MNZn5HDjNd/f4Etlh66/6uhqIq1oVZBBKg/BvaPs0u49sCMg/ptBcAFq3x1kvOay19W28et95i4RuU+0z4ndGRf1z
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 19:22:03.6915
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5aea77e6-c3d9-472c-15c5-08df44e00fd3
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	BN7PEPF00000096.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6020
 
-Add a kfunc family to bpf_testmod: bpf_kfunc_flavor() with the current
-prototype, bpf_kfunc_flavor___v1() with an older one that takes one
-fewer parameter, and bpf_kfunc_flavor___v2(), an alias with the exact
-prototype of bpf_kfunc_flavor().
+arm_smmu_setup_msis() skips the PRIQ vector by decreasing nvec, which only
+works since PRIQ_MSI_INDEX is the last index. A subsequent change will make
+the EVTQ optional for kdump, whose index is 0, so that trick won't work.
 
-Check that libbpf binds:
-- bpf_kfunc_flavor to the kfunc itself rather than to its alias ___v2;
-- the old prototype to ___v1, both under a local flavor and under the
-  kernel name, as a header generated from BTF spells it;
-- the kernel name with a local flavor on top to ___v1;
-- a __weak kfunc that matches no member to nothing.
+Pack the vectors of the used sources instead, and record the source of each
+vector in a new msi_map, for arm_smmu_write_msi_msg() to find the register
+set, regardless of the sources in use.
 
-Signed-off-by: Ihor Solodrai <ihor.solodrai@linux.dev>
+No functional change intended.
+
+Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 ---
- .../selftests/bpf/prog_tests/verifier.c       |  3 +
- .../selftests/bpf/progs/kfunc_flavors.c       | 55 +++++++++++++++++++
- .../selftests/bpf/test_kmods/bpf_testmod.c    | 24 ++++++++
- .../bpf/test_kmods/bpf_testmod_kfunc.h        |  4 ++
- 4 files changed, 86 insertions(+)
- create mode 100644 tools/testing/selftests/bpf/progs/kfunc_flavors.c
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  9 ++++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 46 ++++++++++++---------
+ 2 files changed, 36 insertions(+), 19 deletions(-)
 
-diff --git a/tools/testing/selftests/bpf/prog_tests/verifier.c b/tools/testing/selftests/bpf/prog_tests/verifier.c
-index 57ff2578a991..351e53744e37 100644
---- a/tools/testing/selftests/bpf/prog_tests/verifier.c
-+++ b/tools/testing/selftests/bpf/prog_tests/verifier.c
-@@ -8,6 +8,7 @@
- #include "cap_helpers.h"
- #include "sysctl_helpers.h"
- #include "cb_refs.skel.h"
-+#include "kfunc_flavors.skel.h"
- #include "verifier_aggregate_arg.skel.h"
- #include "verifier_aggregate_ret.skel.h"
- #include "verifier_alu_range.skel.h"
-@@ -220,6 +221,8 @@ void test_arena_kfunc_jit(void)               { RUN_TESTS(arena_kfunc_jit); }
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index 8f2c0b1cc4a8d..f6892dd0e5080 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -936,6 +936,13 @@ struct arm_smmu_impl_ops {
+ 			  const struct iommu_user_data *user_data);
+ };
  
- void test_cb_refs(void)                       { RUN_TESTS(cb_refs); }
++enum arm_smmu_msi_index {
++	EVTQ_MSI_INDEX,
++	GERROR_MSI_INDEX,
++	PRIQ_MSI_INDEX,
++	ARM_SMMU_MAX_MSIS
++};
++
+ /* An SMMUv3 instance */
+ struct arm_smmu_device {
+ 	struct device			*dev;
+@@ -993,6 +1000,8 @@ struct arm_smmu_device {
  
-+void test_kfunc_flavors(void)                 { RUN_TESTS(kfunc_flavors); }
-+
- void test_verifier_aggregate_arg(void)        { RUN_TESTS(verifier_aggregate_arg); }
- void test_verifier_aggregate_ret(void)        { RUN_TESTS(verifier_aggregate_ret); }
- void test_verifier_alu_range(void)            { RUN(verifier_alu_range); }
-diff --git a/tools/testing/selftests/bpf/progs/kfunc_flavors.c b/tools/testing/selftests/bpf/progs/kfunc_flavors.c
-new file mode 100644
-index 000000000000..6b06cb8d8447
---- /dev/null
-+++ b/tools/testing/selftests/bpf/progs/kfunc_flavors.c
-@@ -0,0 +1,55 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/* Copyright (c) 2026 Meta Platforms, Inc. and affiliates. */
-+
-+#include <vmlinux.h>
-+#include <bpf/bpf_helpers.h>
-+#include "bpf_misc.h"
-+#include "../test_kmods/bpf_testmod_kfunc.h"
-+
-+/* the old prototype of bpf_kfunc_flavor(), under local flavors */
-+extern int bpf_kfunc_flavor___old(int a) __ksym;
-+extern int bpf_kfunc_flavor___v1___local(int a) __ksym;
-+/* a prototype that no member of the family has */
-+extern int bpf_kfunc_flavor___none(void) __weak __ksym;
-+
-+char _license[] SEC("license") = "GPL";
-+
-+/* bpf_kfunc_flavor binds itself, though its alias ___v2 matches too */
-+SEC("syscall")
-+__retval(3)
-+int exact_name(void *ctx)
-+{
-+	return bpf_kfunc_flavor(1, 2);
-+}
-+
-+/* the old prototype under a local flavor binds ___v1 */
-+SEC("syscall")
-+__retval(1)
-+int local_flavor(void *ctx)
-+{
-+	return bpf_kfunc_flavor___old(1);
-+}
-+
-+/* so does the kernel name, which strips to bpf_kfunc_flavor */
-+SEC("syscall")
-+__retval(1)
-+int kernel_flavor(void *ctx)
-+{
-+	return bpf_kfunc_flavor___v1(1);
-+}
-+
-+/* a local flavor on top of the kernel name binds ___v1 by name */
-+SEC("syscall")
-+__retval(1)
-+int stacked_flavor(void *ctx)
-+{
-+	return bpf_kfunc_flavor___v1___local(1);
-+}
-+
-+/* a __weak kfunc that matches no member stays unresolved */
-+SEC("syscall")
-+__retval(0)
-+int no_match(void *ctx)
-+{
-+	return bpf_ksym_exists(bpf_kfunc_flavor___none);
-+}
-diff --git a/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c b/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c
-index 1f8bc0c99a71..e16559607270 100644
---- a/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c
-+++ b/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c
-@@ -1926,6 +1926,27 @@ __bpf_kfunc void bpf_kfunc_trigger_ctx_check(void)
- 	irq_work_queue(&ctx_check_irq);
+ 	int				gerr_irq;
+ 	int				combined_irq;
++	/* Indexed by MSI vector */
++	enum arm_smmu_msi_index		msi_map[ARM_SMMU_MAX_MSIS];
+ 
+ 	unsigned long			oas; /* PA */
+ 	unsigned long			pgsize_bitmap;
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index d5938c624c68f..36ca05418f728 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -56,13 +56,6 @@ static struct iommu_dirty_ops arm_smmu_dirty_ops;
+  */
+ static DEFINE_STATIC_KEY_FALSE(arm_smmu_erratum_repeat_tlbi_cfgi_key);
+ 
+-enum arm_smmu_msi_index {
+-	EVTQ_MSI_INDEX,
+-	GERROR_MSI_INDEX,
+-	PRIQ_MSI_INDEX,
+-	ARM_SMMU_MAX_MSIS,
+-};
+-
+ #define NUM_ENTRY_QWORDS 8
+ static_assert(sizeof(struct arm_smmu_ste) == NUM_ENTRY_QWORDS * sizeof(u64));
+ static_assert(sizeof(struct arm_smmu_cd) == NUM_ENTRY_QWORDS * sizeof(u64));
+@@ -4934,7 +4927,7 @@ static void arm_smmu_write_msi_msg(struct msi_desc *desc, struct msi_msg *msg)
+ 	phys_addr_t doorbell;
+ 	struct device *dev = msi_desc_to_dev(desc);
+ 	struct arm_smmu_device *smmu = dev_get_drvdata(dev);
+-	phys_addr_t *cfg = arm_smmu_msi_cfg[desc->msi_index];
++	phys_addr_t *cfg = arm_smmu_msi_cfg[smmu->msi_map[desc->msi_index]];
+ 
+ 	doorbell = (((u64)msg->address_hi) << 32) | msg->address_lo;
+ 	doorbell &= MSI_CFG0_ADDR_MASK;
+@@ -4944,19 +4937,28 @@ static void arm_smmu_write_msi_msg(struct msi_desc *desc, struct msi_msg *msg)
+ 	writel_relaxed(ARM_SMMU_MEMATTR_DEVICE_nGnRE, smmu->base + cfg[2]);
  }
  
-+/*
-+ * A kfunc family for the kfunc_flavors test: bpf_kfunc_flavor() has the
-+ * current prototype, ___v1 an older one, and ___v2 is an alias with its exact
-+ * prototype. ___v2 negates the result, so that the test can tell which of the
-+ * two it called.
-+ */
-+__bpf_kfunc int bpf_kfunc_flavor(int a, int b)
++static void arm_smmu_setup_msi_vector(struct arm_smmu_device *smmu,
++				      unsigned int *vec, unsigned int *nvec,
++				      enum arm_smmu_msi_index msi_index)
 +{
-+	return a + b;
++	writeq_relaxed(0, smmu->base + arm_smmu_msi_cfg[msi_index][0]);
++	vec[msi_index] = (*nvec)++;
 +}
 +
-+__bpf_kfunc int bpf_kfunc_flavor___v1(int a)
-+{
-+	return bpf_kfunc_flavor(a, 0);
-+}
-+
-+__bpf_kfunc int bpf_kfunc_flavor___v2(int a, int b)
-+{
-+	return -bpf_kfunc_flavor(a, b);
-+}
-+
- BTF_KFUNCS_START(bpf_testmod_check_kfunc_ids)
- BTF_ID_FLAGS(func, bpf_testmod_test_mod_kfunc, KF_SPINLOCK_SAFE)
- BTF_ID_FLAGS(func, bpf_kfunc_call_test1)
-@@ -2017,6 +2038,9 @@ BTF_ID_FLAGS(func, bpf_kfunc_implicit_arg, KF_IMPLICIT_ARGS)
- BTF_ID_FLAGS(func, bpf_kfunc_implicit_arg_legacy, KF_IMPLICIT_ARGS)
- BTF_ID_FLAGS(func, bpf_kfunc_implicit_arg_legacy_impl)
- BTF_ID_FLAGS(func, bpf_kfunc_trigger_ctx_check)
-+BTF_ID_FLAGS(func, bpf_kfunc_flavor)
-+BTF_ID_FLAGS(func, bpf_kfunc_flavor___v1)
-+BTF_ID_FLAGS(func, bpf_kfunc_flavor___v2)
- BTF_KFUNCS_END(bpf_testmod_check_kfunc_ids)
+ static void arm_smmu_setup_msis(struct arm_smmu_device *smmu)
+ {
+-	int ret, nvec = ARM_SMMU_MAX_MSIS;
++	unsigned int vec[ARM_SMMU_MAX_MSIS] = {
++		/* An unused source maps to a vector past nvec */
++		[0 ... ARM_SMMU_MAX_MSIS - 1] = ARM_SMMU_MAX_MSIS,
++	};
+ 	struct device *dev = smmu->dev;
++	unsigned int nvec = 0, i;
++	int ret;
  
- static int bpf_testmod_ops_init(struct btf *btf)
-diff --git a/tools/testing/selftests/bpf/test_kmods/bpf_testmod_kfunc.h b/tools/testing/selftests/bpf/test_kmods/bpf_testmod_kfunc.h
-index 0a7df1798603..2c6126e4f0d0 100644
---- a/tools/testing/selftests/bpf/test_kmods/bpf_testmod_kfunc.h
-+++ b/tools/testing/selftests/bpf/test_kmods/bpf_testmod_kfunc.h
-@@ -381,4 +381,8 @@ void bpf_testmod_test_hardirq_fn(void);
- void bpf_testmod_test_softirq_fn(void);
- void bpf_kfunc_trigger_ctx_check(void) __ksym;
+-	/* Clear the MSI address regs */
+-	writeq_relaxed(0, smmu->base + ARM_SMMU_GERROR_IRQ_CFG0);
+-	writeq_relaxed(0, smmu->base + ARM_SMMU_EVTQ_IRQ_CFG0);
+-
++	arm_smmu_setup_msi_vector(smmu, vec, &nvec, EVTQ_MSI_INDEX);
++	arm_smmu_setup_msi_vector(smmu, vec, &nvec, GERROR_MSI_INDEX);
+ 	if (smmu->features & ARM_SMMU_FEAT_PRI)
+-		writeq_relaxed(0, smmu->base + ARM_SMMU_PRIQ_IRQ_CFG0);
+-	else
+-		nvec--;
++		arm_smmu_setup_msi_vector(smmu, vec, &nvec, PRIQ_MSI_INDEX);
  
-+int bpf_kfunc_flavor(int a, int b) __ksym;
-+int bpf_kfunc_flavor___v1(int a) __ksym;
-+int bpf_kfunc_flavor___v2(int a, int b) __ksym;
+ 	if (!(smmu->features & ARM_SMMU_FEAT_MSI))
+ 		return;
+@@ -4966,6 +4968,11 @@ static void arm_smmu_setup_msis(struct arm_smmu_device *smmu)
+ 		return;
+ 	}
+ 
++	/* Map each vector back to its source for arm_smmu_write_msi_msg() */
++	for (i = 0; i < ARM_SMMU_MAX_MSIS; i++)
++		if (vec[i] < nvec)
++			smmu->msi_map[vec[i]] = i;
 +
- #endif /* _BPF_TESTMOD_KFUNC_H */
+ 	/* Allocate MSIs for evtq, gerror and priq. Ignore cmdq */
+ 	ret = platform_device_msi_init_and_alloc_irqs(dev, nvec, arm_smmu_write_msi_msg);
+ 	if (ret) {
+@@ -4973,9 +4980,10 @@ static void arm_smmu_setup_msis(struct arm_smmu_device *smmu)
+ 		return;
+ 	}
+ 
+-	smmu->evtq.q.irq = msi_get_virq(dev, EVTQ_MSI_INDEX);
+-	smmu->gerr_irq = msi_get_virq(dev, GERROR_MSI_INDEX);
+-	smmu->priq.q.irq = msi_get_virq(dev, PRIQ_MSI_INDEX);
++	/* msi_get_virq() returns 0 for an unused source that has no vector */
++	smmu->evtq.q.irq = msi_get_virq(dev, vec[EVTQ_MSI_INDEX]);
++	smmu->gerr_irq = msi_get_virq(dev, vec[GERROR_MSI_INDEX]);
++	smmu->priq.q.irq = msi_get_virq(dev, vec[PRIQ_MSI_INDEX]);
+ 
+ 	/* Add callback to free MSIs on teardown */
+ 	devm_add_action_or_reset(dev, arm_smmu_free_msis, dev);
 -- 
-2.56.1
+2.43.0
 
