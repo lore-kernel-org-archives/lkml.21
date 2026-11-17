@@ -1,88 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794943522;
-	b=GNO/Tx6ogegjj7wgus3NLB+Pje3lndkOGiWY6ZQ3QLD0QmAfW+9qzE8aQYtFs3Aam8QZ
-	 GuTQ+YUV3oB7n6p/VYRc65FAYQsY2Slralieff5jO0LFE483KXt/g/p+7FgX9WxD6TJM2
-	 l6zY8RblDZbdLjJ6m40/Q77SXm/Ow6ArcgK0wBT6guwD8JMHVz1Jz1dtzL9RCWH60rZSs
-	 vjfaeVNlDUfs9X9xSp5mqG0s1plpgqU1rX/ViXEHKSJUy2TJO/lDxre4H9F7n6llJU9ti
-	 75TP1LpxFZOH6yxMYtT7azzOXWa8pRKPhw8sjPBbicL5LaCpfWDxINmrmC3G5V6sTRQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794943522;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Sender:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:Content-Language:From:In-Reply-To:Content-Type;
-	bh=B8MjyhYguiwLesyCEY4OhpKHbfRfW8qAAwEpxRAKXd0=;
-	b=XoKOYnnmYg4Vst0kwNskjbTmjS0Q0C4kQGQ9tH/FZVFzDQ+Pxvrj0Dfn3/eoBqeHDsf6
-	 FATfi93aewE75N8MbPvO1y0FqqDvy6buFFTtlfzbrEhY8tfOjDxbqIdBwt9GgZHBcU5yx
-	 uX+VxO+SYYVBaLeu6pm5Hgj6beeo6JhUS/vICOIYLI/BKXP3pkKPFBpCU1TLAYN0jLwXm
-	 ot9hVTyXalyP5Og+iLxoqqZsU+rmumh0jNkPoxhikmmuCVEBjrjZlHiPfouKYDfXyogy5
-	 Rpj80cttz33dpncEeiIzeQCB8tmmSviB4BW7NU9BYQFxbd4cvEe3nAlojJm+g2Hu6oA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bkDKKmQE;
-	arc=none smtp.remote-ip=209.85.128.50
-Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.62
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794943558;
+	b=3Hadh/w3hascGgS2tn8U9rFy76HMH8SEZKyZUamcGwmXr1e+AeTq/lliJxgBCrRlYF6U
+	 pHUjwxLixvMPqnLwIrMMldQcXTh9WbQMJ3sqpyY7ty3vsUyzBU893qA547DKOY1ujNfvL
+	 AhYbBi1VC8oYzScsRNqNeCqxjz01AYz/pX74pFTYgmsbv+LthsEhsXs0mNrvWQfTf9Uf3
+	 7LcqJSNGWqAcKKhwCKhi0rq+r+ia02kcXZpQXXVjIe/e/OVv5dyVpUPk94E9uiWwhQFHC
+	 cOPOQWzaFhxyBDOHqcpBFibWxCoSIWaFdQc2anYKOvZZ4iXL9LxQM4GeOLMp87BJH7Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794943558;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=oEiACTb3Tt8j2UJ7hb7AMg9dk08244tc7ii64TuKb9M=;
+	b=UtGeLXlybplz/TwS7womH1GbpLBYagW3SvUdml21hVYKwhFvMGiTgssFI9llyn25WzSa
+	 kQ8T4VdosTBhLwkKyX27Mw+rbLxVJ4jqXZu3HhEm0FWG2aNdbSqnC0tGWWih2Zxwb9Moe
+	 0a0yK4q0rEWWBWRUC1phjI+gC4Nc+cMVIbXF002Y5ItyqcbMprMzNFvquVCBmIi/LSQhQ
+	 CethLNMWOjg7L6RriyjVFCH7li6bobSg3XjaHR4XmjGRTXJWmQ/caoHWNE/wmacehEsDl
+	 88AtCDTpmDNE8gVVuezgaFmbAZlur1eNznKmOraLb+bbxcX2Ws4kOS8NAn7XS3xIwBg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=uFqKAL4e;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.62
+Received: from MRWPR03CU001.outbound.protection.outlook.com (mail-francesouthazon11011062.outbound.protection.outlook.com [40.107.130.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DECE4606A31C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:25:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DECE4606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3D79606A31C;
+	Tue, 17 Nov 2026 19:25:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3D79606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bkDKKmQE
-Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4a1b07c3c5fso2203175e9.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:25:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794943520; x=1795548320; darn=vger.kernel.org;
-        h=content-type:in-reply-to:from:content-language:references:cc:to
-         :subject:user-agent:mime-version:date:message-id:sender:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=B8MjyhYguiwLesyCEY4OhpKHbfRfW8qAAwEpxRAKXd0=;
-        b=bkDKKmQErNzaF6smeftQWBOpWfgtjVM5vGBkntiPqeIhKc4VhM+KvNPs0pA0sgqXwt
-         VimIqchx3dU0UBKYCYuJvXdRTBDbSUbjYoVurn2OnxsofUYJXXovQgNJ02XbR/2I1iRz
-         yQY5tOLcoY0VtUg6HQJ2zMgyrpnM21Ygbz+BrUWj0jgdwCzx2RGvdybIxlDU2dYvU9tj
-         xTZNk/2tXq85So1kTNLLOZm1bkiu7JM8gElovAUhHyyAsR8i7iDjbbPE3tKvmnXx9XcJ
-         STuTEDgGKm3r8clrf2XCGF6J+JGGGFI3F6LWZxudUeh2hhoXB3CcUpxrSXkFABEecj0O
-         oBjQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794943520; x=1795548320;
-        h=content-type:in-reply-to:from:content-language:references:cc:to
-         :subject:user-agent:mime-version:date:message-id:sender:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=B8MjyhYguiwLesyCEY4OhpKHbfRfW8qAAwEpxRAKXd0=;
-        b=g342xKSVLvXfSISP4jBlHDLo/HRfQfz/A8D/veFxOZUy21xPcvh4PJl8O7SU3g35v7
-         ZwJyB4O3fr1bLTTgD52XafQLDjHH2exC+BBpWTo/MinUhFIrLFkucjpmhEzgR9L3UStC
-         kBnDkGUk4p9tChyuJvfTLIPwEPZVH0hK/Hj5KBEnTPfS9O7cioMpxo0VD0gvHH2JxnFv
-         tGUa0K6w2xM+1lR8wb8dVf91l44gTPWL/wKyPZo53QOH5hJv/WKyC+qxBnV/GDb8elAZ
-         eT89sMQ3h7CXxW4BO5w0pnnNUN7eDyOWCaA06NRsX9cK/uvimx/CiwvvoMF81u3kYyzp
-         i7wQ==
-X-Forwarded-Encrypted: i=1; AL+hErHbSj4LhDcyI7lNNfBOM5s5htOsY4BIXu3njqYi7CGlsfqX8ABQM/dToNbR5Oy7Ya3rR+5l5YFM+lLFpNs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/rrQ9W99O+Ip50zN/x6GSWi7CwsUPDRrOv6zHPozRg3fvqmw8a
-	QUE1n8Woy8dgDzCt2hhBKDT1OVOsRhu3ndILBr9v4XTWZzEPYb+kjKoO
-X-Gm-Gg: AYBFou20ZGe46sxJz6kGeeSkRynSavtca06MNYAOD1s7Tm8n+/zbx6E/6iXjV0f83pb
-	PwGamMwVD4W3gWR3nXHLsYDLXvIZBbUuJr9OzhHdGaoT+nyu2qEKh+YUDBk8ayyiBjXWBhY1e1t
-	oFL075dQxY3+PDcUwjIzhfJLyGvTSdSSPSz6nIE5qVHRJ39wvXyQluZYPFA70A24nsmI5XG8tIL
-	PsMNtm0tSTTNBXxYNOK85doG+o/jYPUxy4PqYMGsk4JKBmbtd3bIi4m0vkkU8MBMlwPB24EGmZ1
-	j7sdM+5dE6jdyrnBbWVoYoqs+wTa98KQtNWeFlzZZHL6Ms+W4i48kE/D+mutDUUDhIivpcNJ4WQ
-	jn+oyoHYYM9T5lDluCnMjSAubF5Qkrr01NIsbdBfDLEnkmPUl+fA8ptceomnTMx8tkJ2ElPGY2F
-	CNeHVzY6M5t1aixbnrTCXfGymPn56O4lQZcUeAkiyCKN+6DRuohrcrTAzGcwcGoukEprxQQ9f6c
-	rmGHb1bJf4oWxzd9lhqDEPNNgNUkHcBxG5i1YQAqlYUdobhlGeEJyxiHR6mFkpQfLKI13Ggilo8
-	XTez4MpC3ZWTWYs8bhr2gSUEbHjAMtVplE671zy4omDkVQzKxQvIIe8+h+eHMNp1dc+ehZHNERS
-	T0CyKgUaOa6KzBU02OCC9IA==
-X-Received: by 2002:a05:600c:1c03:b0:4a3:5aea:21e5 with SMTP id 5b1f17b1804b1-4bb7da1392emr3582515e9.9.1794943520032;
-        Tue, 17 Nov 2026 11:25:20 -0800 (PST)
-Received: from [10.128.10.232] (195-23-151-163.net.novis.pt. [195.23.151.163])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7d256f64sm6615065e9.1.2026.11.17.11.25.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Nov 2026 11:25:19 -0800 (PST)
-Sender: Julian Braha <julian.braha@gmail.com>
-Message-ID: <26f53b63-2f75-4fa4-bf6f-d3495e4e5cb0@gmail.com>
-Date: Tue, 17 Nov 2026 19:25:17 +0000
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=uFqKAL4e
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VurmxH95j4JS6my9NQV6mi2KG6VzChaDrlfs4JedHzvP1d57pMSjPBxPES/fT+bC/qDmrz4WhrGmc0ecmGgEuLO7+RsVo5k4q+KojSP0mH5sppNxLk7RlSB8W8o3G5U5lMer7UY2/pujON0aM/O7Bb5cyaxXjCLWH/ViaRnUkbs0NUIriiVXypjR+PK3MdyNHk0nCGXoWxaeMuwgLOeEw8Qn8Erzlm890n7pHUu/BXep6p3bpD7NBmSHxXshLmgqGpepv1dW//TItF09e0lO5R/4C8lROBEJU7EInYjhBGIbjxjQf992SIbWMa0Co4S+a3nEpScWBiDZ6wFhRqeh3w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=oEiACTb3Tt8j2UJ7hb7AMg9dk08244tc7ii64TuKb9M=;
+ b=k5Dtxd2pFdUbZ2jHSvDC2KOGkMYEpXBTz1+Kw42JwVBJ6+0HzyHGOS+CuSHcXf5fKKjVI8ikQxO8owywJ7brrq/9r8gTdoMq4IGNs8mbljOGCmxPXUrXvPri+6rT1MD8RTCC+8WynzcysF18RQC7SzJFGTKOKV1eHrNrYnyPe2Kosn0t72QwM88fcNYPhQ9+SyEvsrBDOBrtoJiuQiCsduh7cS57OfjNQmdXnq1+UqnnldsTa12i1JZcfMcBRlr8sWIwQ1+PWzZV/tFLqZBlOjivyLcl8nfMOEPGzEOrPgSnMCGm8fziiFJBAzDnBpBRIG3cgm4yx42qz+OlwWI/xw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=oEiACTb3Tt8j2UJ7hb7AMg9dk08244tc7ii64TuKb9M=;
+ b=uFqKAL4erHkRT4po/Kbo8xfhGtW4lNoWuRZV/6QB2gfWEqRdbPj+lTubSYx3Eg7urT/1cJTBjWNsq4b2s4crAsyL+bYNf5d6nfdQP99FusZkHQg2CsTBLtN4QSBV0tt1w1FFAkGe+IcFV+PS+GODBIfCW0K4qpW9ZqgtTvWyuA7HFWATV79TPLE/lvNhj1f+x6lawc+z7DVyWiRQkaAeDqlahjBOVhBMZnNXSoVNguxb1u6oBEucreB0jPZ8FeSizgg6Frh/EeV6HXKRfncy3l/8gwXjJteaRTP/vIcfLumKu2vxa1orf58Gg0+DMmU6FPnubilc1E84lMm8ckL7bA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by AS5PR04MB9944.eurprd04.prod.outlook.com (2603:10a6:20b:682::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 17 Nov
+ 2026 19:25:54 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0615.013; Tue, 17 Nov 2026
+ 19:25:54 +0000
+Date: Tue, 17 Nov 2026 14:25:46 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Logan Gunthorpe <logang@deltatee.com>
+Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.li@nxp.com>,
+	Sashiko <sashiko-bot@kernel.org>
+Subject: Re: [PATCH v3 4/6] dmaengine: plx_dma: add dma_rmb() after observing
+ write-back status
+Message-ID: <avyqOgwLE2B5rQW5@lizhi-Precision-Tower-5810>
+References: <20261117165135.746241-1-logang@deltatee.com>
+ <20261117165135.746241-5-logang@deltatee.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117165135.746241-5-logang@deltatee.com>
+X-ClientProxiedBy: PH7PR03CA0011.namprd03.prod.outlook.com
+ (2603:10b6:510:339::12) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,230 +98,112 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8] scripts/config: honor $KBUILD_OUTPUT by default
-To: Dmitry Voytik <voytikd@gmail.com>, Nathan Chancellor <nathan@kernel.org>,
- Nicolas Schier <nsc@kernel.org>
-Cc: Nicolas Schier <n.schier@fritz.com>, linux-kernel@vger.kernel.org,
- linux-kbuild@vger.kernel.org
-References: <20261117132513.52725-1-voytikd@gmail.com>
-Content-Language: en-US
-From: Julian Braha <julianbraha@gmail.com>
-In-Reply-To: <20261117132513.52725-1-voytikd@gmail.com>
-Content-Type: multipart/signed; micalg=pgp-sha256;
- protocol="application/pgp-signature";
- boundary="------------h9NH4JQ2nsmywqa2RPKACNQG"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|AS5PR04MB9944:EE_
+X-MS-Office365-Filtering-Correlation-Id: a16f20c3-06be-4048-528f-08df44e09901
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|376014|23010399003|366016|1800799024|19092799006|10067099003|4143699003|5023799004|56012099006|11063799006|261021121427099003|261021123027099003|261026121527099003|261022075727099003|261102123227099003|261009223027099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info:
+	nRa98X5PzQN/ttCzP6JxDTHqLjWIWaNSiWHJsHXff4Zibo/XKtmphgcn0G0d0vIyeu/6SQPzgzdaRFlX0XOlgCA/RIzvrIrDgg6OHrWUnc5MaoBA0to3b2SyE8BjpP28yMCW0AYuIxl1jlWfXBMbaFwYeKxgPQkQYN0Oqbnl7SQyyH3ck7NWhOxClHcCrh441g8xFa5PdkMmuWZoFU8HVpapHe63TyPXcg+NwsQvDHOYTrFxSNrgqOuYPElyOsJ/c2AyzTthShGDB6RaHebygDhkJo7Efuq8nElhFw+Fz+An0I1lwJtwEg+/BjbZaCzcMvFn88v1t+Vw2lZsEsrOiK+XGjj1NgpVoH6x89SEGue58NAgHdX5LgHht93NQtEXWrivSva+GtcBrbTWbF5nZZ5NJaooZS4ZrHMKk7ZoS0/z24g42lNFffptUuLFdYxs9I+yVdLZe9t0jydBbUhTQAOPq6wS5PUptiM3Z0vLj/T+VgVtToF+UMt36FALZnhreFpD/0p8ll6I35Cx/qR3p+YFH19pdYPGf9hlzHP3+f6Ww8L73gxN2Grdie4Qg4kIPT3JMh4oVDMVUR2oZImlA4S72/Uxe6excYCmrmFPHhg=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(366016)(1800799024)(19092799006)(10067099003)(4143699003)(5023799004)(56012099006)(11063799006)(261021121427099003)(261021123027099003)(261026121527099003)(261022075727099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?YV/7emN3ceNMGyqNCj3lWlhGFXvK82hBuxesGM4KmKL81z1cFgWBBcONfOz6?=
+ =?us-ascii?Q?/ZhrMD0aq6WRMcP8pBPfUf8/fY0c6M+OPWcI9K2uMIMkM1z8hyJVNijFc09/?=
+ =?us-ascii?Q?eSSR0dgxsqHX7JZdwt0XyWqX8Rz1tAH23f0pfSLrueOkS8LdNHr6MwpQLU6r?=
+ =?us-ascii?Q?8ew81bjnWzcZK8G6nd5q1tN8Xkhtjc02pYRGMEDov87YKJvbXg9XNePuWnXD?=
+ =?us-ascii?Q?wDkH4MIXvYKijVuiX0N3vk2f0skNj/eiXR1yxOBbBTfYmMVfgL6lfpSfrX3U?=
+ =?us-ascii?Q?Jdbdxa6scW4IZX2fePNSfAGCMt4FqGMaj66RmVvQJ9IGJNbK7Rxrf+JLqpLt?=
+ =?us-ascii?Q?kNja1FiPOTmV+MVFgXbMZPf9/UrA1h/4uhHPuQ/WhtJlp1eihV/KXvU3t59r?=
+ =?us-ascii?Q?W1dbhL8xHZ2Qvo4l70y01K0MFnRzoI+t03HZcHEyoYCmrbJz+tefKjq0kHz0?=
+ =?us-ascii?Q?pBlp19LkniHmwqO0CcXUzrAkPgweUz8fOFcffK8vK4dEE1Wp6ppp/JFmL4l3?=
+ =?us-ascii?Q?pvRZhgW4iCXlHkWqmREPMNETFNCjG5oMrtpfdPPMdnOSiIQZQbIz26fGGN1Q?=
+ =?us-ascii?Q?qLFIsmY7A3hSr8v0WkrQ2TJKb9a1mtGdny55I2HqbMll5Nrf5DJJt04rw/zf?=
+ =?us-ascii?Q?zLTjFYtXJTonAYreT/vhzU2xbAVSQtrp+wVpqvb5W5ZnTywulNo6X9rLCPus?=
+ =?us-ascii?Q?znOJ2qBDJ5cBDfNrlz4ZVx58SUhOyEJLEiu1sqgmI00rc45Hr9BRS4fI3I4b?=
+ =?us-ascii?Q?pp4RCRtmUsmzJoYJXOqlbL0eke9ygjuDoTgby5lUyvvYBkO/62PEuhmR8PR4?=
+ =?us-ascii?Q?tTRHleoXcFr6YX3Anu1B9XOuF42cm6GeoyKIQw4aKkzMRGiit3vE0oTnkS2O?=
+ =?us-ascii?Q?jqthFb6ag/M8EbNc9DkDP2GCVLZ5jSeUA4XFH7Fwr4kAfNzzuA6w2MPso0DY?=
+ =?us-ascii?Q?cRTO2mQ+2cGGvyvyTb3zHRfEkfbJNZLTHZdT9DoFcPn7FB6uiYHs9ZUBikre?=
+ =?us-ascii?Q?GlnhVwo1mEaGpYq33hd3PHAlt+6/KCnV0AhfrXKX97q+2d1GpHuVL+Vy0BGH?=
+ =?us-ascii?Q?yzCQ2kxUT6UfRyuNBOOSpJJpuhhek49cN+EcCafcvEkIcGP5ZF0crMmhOVtV?=
+ =?us-ascii?Q?JIKFpsLBalr2lJ7K3wTVrLwIuDbc3Sp8kVgTuz7P62CaB2xqctmskKq7Vi4O?=
+ =?us-ascii?Q?jbzAbunkP7lCM1Je5gBcKmd3XqoRVeD+Q5S6jKyXojhchLwa+a5PBTTGrd6g?=
+ =?us-ascii?Q?E1r87fy8HXxgD63UOqr4WPJMR8c3mWlJYjO7M9fAa7otplnSGgD5+sv05Xco?=
+ =?us-ascii?Q?IwXqVtQr0Rkmf/XkH+jncESd8VKL8QIELjNe6AT57ONSweuKEssEDrLSmQaJ?=
+ =?us-ascii?Q?Evjk9jibdBLjfAz9hgEej+tRQJDjkXiyDYdpWkXBULWwTv9PEuMus2t5gnS8?=
+ =?us-ascii?Q?JtuwwJNlzdQFM0sFJny2Xj4gmLZitWsk3KHnoM5+Mu4HkT5zc5PpM61ADTB8?=
+ =?us-ascii?Q?65MmhCLVj0hlh7GfrBFcLcDIeupmj9UXXCOUsmKwOHozYezhOtwRo8ICgy7l?=
+ =?us-ascii?Q?5a25iXD6qj2H4/QSx4XXDOFG1k9DXcU0dAdFXTe9/tXsBLaKcZllaN7iBhcN?=
+ =?us-ascii?Q?/GFiDuYovZ40iFgNDm2U4ac4VmPtKoe/OCsuUgSOrQAbyMF+CU5mQPuJoI3N?=
+ =?us-ascii?Q?XnJzwLSFVaWFiFXH7wpq9nzK3bWKbK+EE+1JCn59Ccns0CktusApPAcaiu/k?=
+ =?us-ascii?Q?d+3Hnpe05JOq2yzEX90Kn3M9CWCVAQn5F0NCA+L8iH4Zn+3fsZBw?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a16f20c3-06be-4048-528f-08df44e09901
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 19:25:54.1107
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Wodyk3ajCtlKvhewn/Gxb7Ndw4tEYx15Bob5SEt5O68OHjPYTyoC078uOVc7Q3Gpqj1ynzYvaOVC2WJKTko0FkGp7QxaP/ZdNmnvG5YB5N6NiuN2p/pF85DOMc0Z4S+L
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB9944
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---------------h9NH4JQ2nsmywqa2RPKACNQG
-Content-Type: multipart/mixed; boundary="------------1ksFLSAbDFp3BUVtXrT4MIm0";
- protected-headers="v1"; hp="clear"
-Message-ID: <26f53b63-2f75-4fa4-bf6f-d3495e4e5cb0@gmail.com>
-Date: Tue, 17 Nov 2026 19:25:17 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8] scripts/config: honor $KBUILD_OUTPUT by default
-To: Dmitry Voytik <voytikd@gmail.com>, Nathan Chancellor <nathan@kernel.org>,
- Nicolas Schier <nsc@kernel.org>
-Cc: Nicolas Schier <n.schier@fritz.com>, linux-kernel@vger.kernel.org,
- linux-kbuild@vger.kernel.org
-References: <20261117132513.52725-1-voytikd@gmail.com>
-Content-Language: en-US
-From: Julian Braha <julianbraha@gmail.com>
-In-Reply-To: <20261117132513.52725-1-voytikd@gmail.com>
-
---------------1ksFLSAbDFp3BUVtXrT4MIm0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-
-Hi Dmitry,
-
-On 11/17/26 13:25, Dmitry Voytik wrote:
-> If $KBUILD_OUTPUT is set, use it by default if --file is not passed.
-
-I guess this isn't inaccurate, but it should perhaps mention for
-completeness that 'scripts/config' will also now default to using
-'$KBUILD_OUTPUT' if passing '.config' with '--file'.
-
->=20
-> Fix the issue when the script silently updates a stale .config in
-> the root directory, while the user expects ${KBUILD_OUTPUT}/.config
-> to be updated.
-> Handle properly if the config file is a relative path.
->=20
-> The problem can be worked around with --file, but this is easy to miss,=
-
-> and is inconsistent with how the Makefile and other tools work
-> (e.g., scripts/diffconfig).
->=20
-> How to reproduce the issue:
-> 	make mrproper
-> 	export KBUILD_OUTPUT=3D.out
-> 	make defconfig
-> 	./scripts/config \
-> 	       -e CONFIG_UBSAN
-> Error reported:
-> 	grep: .config: No such file or directory
->=20
-> Signed-off-by: Dmitry Voytik <voytikd@gmail.com>
-> Suggested-by: Nathan Chancellor <nathan@kernel.org>
+On Tue, Nov 17, 2026 at 10:51:33AM -0600, Logan Gunthorpe wrote:
+> Completing a descriptor involves two loads that must be ordered:
+>
+> 1. Reading desc->hw->flags_and_size and checking that VALID is clear.
+> 2. Reading the destination buffer, which may happen in:
+>    a. dma_unmap_page() via dmaengine_unmap(), when a bounce buffer
+>       is in use.
+>    b. The client's callback, or its processing after polling with
+>       tx_status().
+>
+> On a weakly ordered CPU like arm64, nothing forces load 2 to happen
+> after load 1, even though load 2 is only reached when load 1 says the
+> transfer is done. The CPU can predict that the VALID check won't
+> break out of the loop and issue load 2 early. If the device hadn't
+> finished writing at that moment, load 2 returns stale data, and when
+> load 1 then confirms the prediction nothing is redone, so the stale
+> data is used. This is the load-load control dependency case described
+> in Documentation/memory-barriers.txt.
+>
+> Add a dma_rmb() after the status check so loads after it can't be
+> satisfied before the status read.
+>
+> Fixes: 4d3df16840a2 ("dmaengine: plx-dma: Implement descriptor submission")
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Link: https://lore.kernel.org/dmaengine/20260717223217.B6FBF1F000E9@smtp.kernel.org
+> Signed-off-by: Logan Gunthorpe <logang@deltatee.com>
 > ---
-> How the patch was tested:
-> 	make mrproper
-> 	export KBUILD_OUTPUT=3D.out
-> 	make defconfig
-> 	grep "CONFIG_UBSAN=3Dy" $KBUILD_OUTPUT/.config || echo "OK"
->=20
-> Test the basic usage:
-> 	./scripts/config -e CONFIG_UBSAN
-> 	grep "CONFIG_UBSAN=3Dy" $KBUILD_OUTPUT/.config && echo "OK"
->=20
-> Test --refresh picks up correct config file by using $KBUILD_OUTPUT:
-> 	./scripts/config -d CONFIG_UBSAN
-> 	grep "CONFIG_UBSAN=3Dy" $KBUILD_OUTPUT/.config && echo "FAIL"
-> 	./scripts/config --refresh -e CONFIG_UBSAN
-> 	grep "CONFIG_UBSAN=3Dy" $KBUILD_OUTPUT/.config && echo "OK"
->=20
-> Test --file takes precedence over $KBUILD_OUTPUT and a relative
-> path is handled properly:
-> 	./scripts/config -d CONFIG_UBSAN
-> 	mkdir .out2
-> 	cp .out/.config .out2/.my_config
-> 	grep "CONFIG_UBSAN=3Dy" .out2/.my_config  && echo "FAIL"
-> 	./scripts/config --file .out2/.my_config --refresh \
-> 	       -e CONFIG_UBSAN
-> 	grep "CONFIG_UBSAN=3Dy" .out2/.my_config && echo "OK"
-> 	ls .out/.out2 && echo "FAIL"
-> 	ls .out/.out && echo "FAIL"
->=20
-> Test --file can accept files with hyphen:
-> 	./scripts/config -d CONFIG_UBSAN
-> 	cp .out/.config -- -my_config
-> 	grep "CONFIG_UBSAN=3Dy" -- -my_config && echo "FAIL"
-> 	./scripts/config  --refresh \
-> 	       -e CONFIG_UBSAN --file -my_config
-> 	grep "CONFIG_UBSAN=3Dy" -- -my_config && echo "OK"
-> ---
-> v8:
->  * Nathan Chancellor ironed out the patch to the acceptable state
-> v7:
->  * Adressed https://sashiko.dev/#/patchset/20261006142337.821859-1-voyt=
-ikd%40gmail.com
-> v6:
->  * Per Nathan Chancellor's suggestions, simplified
->  * https://lore.kernel.org/
-> lkml/179121581235.2275809.12565811683284940522.b4-review@b4/
-> v5:
->  * Per Nathan Chancellor's suggestion, improved handling $FN path by
->    realpath
->  * https://lore.kernel.org/
-> lkml/179097210878.309835.10523307262544578337.b4-review@b4/
->  * Documented the new test scenario in the git commit message
-> v4:
->  * Addressed Nicolas Schier's comments - dropped the change how '--refr=
-esh'
->    is handled
->  * Implemented conversion of $FN to the absolute path which helps with
->    '--refresh' and relative paths
->  * Documented testing steps in the commit message
-> v3:
->  * Added an example in the commit message how to reproduce the issue
-> v2:
->  * Addressed comments by sashiko:
->    * https://sashiko.dev/#/patchset/20260920064350.17999-1-voytikd%40gm=
-ail.com
->    * use basename when --refresh is used
->    * remove echo which can be misleading when --file is passed
-> v1:
->  * https://lore.kernel.org/all/20260920064350.17999-1-voytikd@gmail.com=
-/
-> ---
->  scripts/config | 22 +++++++++++++++++++---
->  1 file changed, 19 insertions(+), 3 deletions(-)
->=20
-> diff --git a/scripts/config b/scripts/config
-> index 32428ea909c2..13b87b7f316a 100755
-> --- a/scripts/config
-> +++ b/scripts/config
-> @@ -144,6 +144,22 @@ while [[ $# -gt 0 ]]; do
->  	fi
->  done
-> =20
-> +# If no '--file' was specified, use KBUILD_OUTPUT as the base if it ex=
-ists
-> +if [[ "$FN" =3D ".config" && -n "$KBUILD_OUTPUT" ]]; then
 
-Right so this will give different results with:
-    '--file .config'
-and:
-    '--file ./.config'
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-but maybe that was intentional -- i.e. we're assuming a user passing
-'.config' intends it to be '$KBUILD_OUTPUT/.config' while a user passing
-'./.config' would intend CWD/.config?
-
-> +	if [[ ! -d "$KBUILD_OUTPUT" ]]; then
-> +		echo "KBUILD_OUTPUT is set ('$KBUILD_OUTPUT') but does not exist or =
-is not a directory." >&2
-> +		echo "Create it before running $myname or use '--file' to specify co=
-nfiguration file." >&2
-> +		exit 1
-> +	fi
-> +	FN=3D"$KBUILD_OUTPUT/$FN"
-> +fi
-> +# Turn FN into an absolute path if it is relative so that '--refresh' =
-works on
-> +# the correct file. This does not use realpath, as $FN may not exist y=
-et.
-> +case "$FN" in
-> +	/*) ;;
-> +	*) FN=3D"$PWD/$FN" ;;
-> +esac
+>  drivers/dma/plx_dma.c | 7 +++++++
+>  1 file changed, 7 insertions(+)
+>
+> diff --git a/drivers/dma/plx_dma.c b/drivers/dma/plx_dma.c
+> index d3b814933989..7af29b901bd5 100644
+> --- a/drivers/dma/plx_dma.c
+> +++ b/drivers/dma/plx_dma.c
+> @@ -148,6 +148,13 @@ static void plx_dma_process_desc(struct plx_dma_dev *plxdev)
+>  		if (flags & PLX_DESC_FLAG_VALID)
+>  			break;
+>
+> +		/*
+> +		 * Don't allow any read of the data the device wrote to be
+> +		 * performed before the status read above shows the
+> +		 * descriptor is complete.
+> +		 */
+> +		dma_rmb();
 > +
->  set -- "${CMDS[@]}"
->  if [ "$1" =3D "" ] ; then
->  	usage
-> @@ -200,10 +216,10 @@ while [ "$1" !=3D "" ] ; do
->  		;;
-> =20
->  	--state|-s)
-> -		if grep -q "# ${CONFIG_}$ARG is not set" $FN ; then
-> +		if grep -q "# ${CONFIG_}$ARG is not set" "$FN" ; then
->  			echo n
->  		else
-> -			V=3D"$(grep "^${CONFIG_}$ARG=3D" $FN)"
-> +			V=3D"$(grep "^${CONFIG_}$ARG=3D" "$FN")"
->  			if [ $? !=3D 0 ] ; then
->  				echo undef
->  			else
-> @@ -229,7 +245,7 @@ while [ "$1" !=3D "" ] ; do
->  		;;
-> =20
->  	--refresh)
-> -		yes "" | make oldconfig KCONFIG_CONFIG=3D$FN
-> +		yes "" | make oldconfig KCONFIG_CONFIG=3D"$FN"
->  		;;
-> =20
->  	*)
-> -- 2.56.1
->=20
-
-Tested-by: Julian Braha <julianbraha@gmail.com>
-Reviewed-by: Julian Braha <julianbraha@gmail.com>
-
---------------1ksFLSAbDFp3BUVtXrT4MIm0--
-
---------------h9NH4JQ2nsmywqa2RPKACNQG
-Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="OpenPGP_signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-wnsEABYIACMWIQT6qjll++tIFxF8TUPElYPCBXNxIAUCavyqHQUDAAAAAAAKCRDElYPCBXNxIKGe
-AP4pDmqqFsz3r95g9aqPdO3jTxBzN/dky9iQK/BePfsGgAEAoNorCzArcpVk28VeKaS+ISJBOQdx
-Im02pG67wW/PBQA=
-=ybVr
------END PGP SIGNATURE-----
-
---------------h9NH4JQ2nsmywqa2RPKACNQG--
+>  		res.residue = desc->orig_size - (flags & PLX_DESC_SIZE_MASK);
+>
+>  		if (flags & PLX_DESC_WB_SUCCESS)
+> --
+> 2.47.3
+>
