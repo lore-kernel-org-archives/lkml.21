@@ -1,82 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.154.119.183
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794951735;
-	b=IDBwixCVhV1HU+rYSQyc75vi3dOz22unD/yPiA6jikhthlD3Ehp1lqWF4qJ04wgfAtFX
-	 5I0UIyr9mCQrtsH+7D3cP5NIjVLMm4BQG0XCRZwgI6Hisa3F+UY9D5nqCn+e6hvJO3r/D
-	 049wGJ3/iGhgzSWsOttkN7ciih966y2fXCz853uJQ59Xlz5xYydopBiNAF8nKRpEecEYj
-	 3yovf3Y0Z93VcQJ+Z+pQQH001vtnE32jDDkaT/XQmqp4h0DmALsO1cIrBYzrHEA6ireG7
-	 /sMD5XfpAjIQxqWEp+kHINaW25ewflDz+r2aW2WGKe6ibgZ2fhoH/ccND9QYLcvTl0g==
+	t=1794951747;
+	b=1nA2/bpjZGtKD4ezsUhpsqdz7TRTcoNujq0rG5KUI0rkfUJ5TvAvXIbK2N9U6mQmMcEp
+	 4G+8HSLHGBM8PB+LR86HrBmgdiHYn9iwzg3ARBYGye0VYM6lFlY9TacNzud6YrvorNJWK
+	 lzb2EnVGopptwLsCY+OLXvjhsZz3qZnWDH//F7mzHi2ERC8ec41a3LzrySOFqC7FPS37H
+	 Lt91sTBUkQ1hjEtev0TjMPxHZxCn4r5iYpHtLAOpJghnrL+HRPPsnMXgi5BACBKLzM6LQ
+	 6AnCC6zUjm4rI9j/coVJURsluDWwjfGZnq0rY8JDJk2BFgavk1w5Df8PHVhyewi+Hew==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794951735;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:Mail-Followup-To:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:User-Agent;
-	bh=PrHvuwIuDErJm7EM/POsxG5qv1/2voyuislLca5+9uA=;
-	b=SK1n4tAee7fiqQi5qV4aS2+XWUKfvvy2wnZOywSGj2+xx0AJ9D4MHHdrapDuolDySRow
-	 xq6Y18kPClxWeojQ9kHPiu4vSwBN4gF2IYBS13Q9Lm4P32+Xyg120o4Q6w5sI2OpxeDhW
-	 6mIzCnuKADodDfLElg7GUFCmqcuhgpuYkRZiri0WgLwDlW21O4y2wbyLdSsIR8go8vK8D
-	 /sYbRd4pAmVOrgbsQ9ZiBcHIa+xt0j59b9QUEOPle++LSLQKqWCIO4ja1CVyBZo+jjR9l
-	 BeHkX/dIMjByMVsTaCNp71R21vACszjmS+awiQUCLeqdT3Gd3MnmL3dh7d85rRp793A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794951747;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=jrcUl658g76wxGBnlY4HNlVgi/sQ8Xeo/9AIM2wsHJM=;
+	b=U8KuzKiRgTmPWOkl45pYqv0Eg1NIh9R5Z5WEorsxSc0BjkeU44OlAkZB/nwOG4ESEsX7
+	 gkrhSsVBsqo14ZCh4i+PNwE2OWyaVvt/68YBYAICGR5i0+OYpE71Wx1DeQ/B8VTYV7v4V
+	 v3eChJsLCXFX2vh47xtuyq56Fc+w99KEiFWfkiuE1/ouE8uWzyyI2MQX/wK44zLIW+14w
+	 yfk5pjrWfsxuEJb83innejQQnWMnFaw3yChzo7KafO2s3+CUsCKDQw5QgO2mLsXutFaTO
+	 L53jorTKeOCo7LC0RqgirLXfba/nr/uVtNWw5cuqaRdOj4SEKsZViI150vWjVUCnp1Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=aurel32.net;
-	spf=pass smtp.mailfrom=aurel32.net;
-	dkim=pass header.d=aurel32.net header.i=@aurel32.net header.a=rsa-sha256 header.s=202004.hall header.b="idd9LGL/";
-	arc=none smtp.remote-ip=195.154.119.183
-Received: from hall.aurel32.net (hall.aurel32.net [195.154.119.183])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y7p61y13;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADB68606A31C;
-	Tue, 17 Nov 2026 21:42:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ADB68606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=aurel32.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=aurel32.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 836BD606A31C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:42:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=aurel32.net header.i=@aurel32.net header.a=rsa-sha256 header.s=202004.hall header.b=idd9LGL/
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:Reply-To:
-	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=PrHvuwIuDErJm7EM/POsxG5qv1/2voyuislLca5+9uA=; b=idd9LGL/Vro7c0VHbgDwR/u6Iv
-	E7k9Y/K/GK26hxy30CBDTzvylJ/VfXJ/vH8j3FJdIXNmiTa+MqwNYYCqVi6gnmhyGAQf9/pj4DFpB
-	sgacsAUHnnGo3SsF15tqr2RXuhtyaRJAKtTJQlNB2v0cNZNFshDIo4pyqrjazGs3ltNON3VFgRCIz
-	P0ZN6YdewWKbahdbNOTwZDl4PZK1StyHPpL/zf6qanH61ZhmxLPs+gKZw6FqJlklV0xuy/3LFjMPs
-	ZvBdbbAQwTFg1JKQ/MhB3+ikHjl5ks21pP5zzypPqCHSgQX4AsTYDSrJBRtEoG6qV1siOgOl8SL1x
-	qwebwdCQ==;
-Received: from authenticated user
-	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1xTQwM-0000000GaSU-2Nd8;
-	Tue, 17 Nov 2026 22:42:10 +0100
-Date: Tue, 17 Nov 2026 22:42:08 +0100
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: =?utf-8?B?RnLDqWTDqXJpYyBNYWjDqQ==?= <frederic.mahe@cirad.fr>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>, Rob Herring <robh@kernel.org>,
-	Yixun Lan <dlan@kernel.org>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Alex Elder <elder@riscstar.com>,
-	Encrow Thorne <encrow.thorne@linux.spacemit.com>,
-	linux-pci@vger.kernel.org, spacemit@lists.linux.dev,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] PCI: spacemit-k1: Request the Gen2 speed change once the
- link is up
-Message-ID: <avzKMAtDqeqHIivr@aurel32.net>
-Mail-Followup-To: =?utf-8?B?RnLDqWTDqXJpYyBNYWjDqQ==?= <frederic.mahe@cirad.fr>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>, Rob Herring <robh@kernel.org>,
-	Yixun Lan <dlan@kernel.org>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Alex Elder <elder@riscstar.com>,
-	Encrow Thorne <encrow.thorne@linux.spacemit.com>,
-	linux-pci@vger.kernel.org, spacemit@lists.linux.dev,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261117085508.83388-1-frederic.mahe@cirad.fr>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y7p61y13
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73B461F000C4;
+	Tue, 17 Nov 2026 21:42:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794951747;
+	bh=jrcUl658g76wxGBnlY4HNlVgi/sQ8Xeo/9AIM2wsHJM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Y7p61y13BfWYuoxnnoMCURUYRODS1qlCl4Dr+pzsmMAThjcbDqJLu8Bhgfj/Zawaz
+	 seJgjEv1NEpqfVdf2vBmYzELK64d9BZCyjnPP++cdRoXSIkGwiEQrUwClzT4vL0D8B
+	 QiK2CRA3xjXyfzwRhWJDrsDs0NtmazTTVxqhgsb6QR8chN7c/uv7UTNMTxUhroMueG
+	 AN1z8Kn0kuL7zLrsfk7scHdsYDtbpZYuU86z1/KAiJ0M5hUys6dKXyMTbN04B/NGHE
+	 aqgSrqTYtx85vlCmgyOOkL4oRK6WI2O457aOjmKtEoC9vm2G3zQ/FXBgjR2sFldl/d
+	 8kHKyOOlBSBBA==
+Message-ID: <2c6d4e24-8ad3-4190-98a3-d3f889d03890@kernel.org>
+Date: Tue, 17 Nov 2026 22:42:19 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,51 +51,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20261117085508.83388-1-frederic.mahe@cirad.fr>
-User-Agent: Mutt/2.4.1 (2026-07-04)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] mm/highmem: refuse to copy hwpoisoned folios in the
+ !copy_mc fallbacks
+To: Yuanhe Shu <xiangzao@linux.alibaba.com>, akpm@linux-foundation.org
+Cc: "Huang, Ying" <ying.huang@linux.alibaba.com>,
+ Kaitao Cheng <kaitao.cheng@linux.dev>, "Garg, Shivank" <shivankg@amd.com>,
+ vbabka@kernel.org, ljs@kernel.org, liam@infradead.org, rppt@kernel.org,
+ surenb@google.com, mhocko@suse.com, linmiaohe@huawei.com,
+ nao.horiguchi@gmail.com, ziy@nvidia.com, wangkefeng.wang@huawei.com,
+ tujinjiang@huawei.com, mgorman@techsingularity.net, chengkaitao@kylinos.cn,
+ muchun.song@linux.dev, linux-mm@kvack.org, linux-kernel@vger.kernel.org
+References: <20261110112641.1196786-1-xiangzao@linux.alibaba.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20261110112641.1196786-1-xiangzao@linux.alibaba.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Hi Fr=C3=A9d=C3=A9ric,
-
-On 2026-11-17 09:55, Fr=C3=A9d=C3=A9ric Mah=C3=A9 wrote:
-> On a Banana Pi BPI-F3, an NVMe SSD in the M.2 slot (pcie1) always comes
-> up at 2.5 GT/s, although the root port and the drive both support
-> 5 GT/s. The Directed Speed Change that dw_pcie_setup_rc() requests
-> before the LTSSM is enabled has no effect on K1. Setting Retrain Link
-> in the root port's Link Control from userspace brings the link to
-> 5 GT/s, so the link itself is fine.
->=20
-> Once the link is up, request the speed change again, wait for the
-> controller to clear SPEED_CHANGE (as pci-imx6 does), then briefly for
-> Link Status to report the new speed. A port with nothing behind it is
-> skipped after 100 ms.
->=20
-> With an SK hynix BC511, the link now trains at 5 GT/s x2 and fio
-> sequential read goes from 397 to 575-640 MB/s. Data verified with fio
-> crc32c. The empty pcie2 port behaves as before.
->=20
-> This change was developed with the help of Claude (Anthropic); I
-> reviewed and tested it on hardware.
->=20
-> Signed-off-by: Fr=C3=A9d=C3=A9ric Mah=C3=A9 <frederic.mahe@cirad.fr>
+On 11/10/26 12:26, Yuanhe Shu wrote:
+> The !copy_mc fallbacks of copy_mc_user_highpage() and
+> copy_mc_highpage() return 0 after a plain copy.  With PG_hwpoison
+> set while the data stays readable, there is no fault to recover
+> from: the copy completes, the destination folio carries no poison
+> marker, and the poison is consumed silently.
+> 
+> Check the source page with is_page_hwpoison() in both fallbacks,
+> before the copy, and return PAGE_SIZE, the not-copied-bytes
+> convention of the real copy_mc paths, so the callers take their
+> existing error paths.  On archs with copy_mc this code does not
+> compile.
+> 
+> Measured on arm64, where the fallback code compiles: a
+> kernel-space microbenchmark measures 90.00 ns per copy before the
+> patch and 90.71 ns after, 0.8% of the copy itself.
+> 
+> Suggested-by: "Huang, Ying" <ying.huang@linux.alibaba.com>
+> Suggested-by: Kaitao Cheng <kaitao.cheng@linux.dev>
+> Assisted-by: LLM
+> Signed-off-by: Yuanhe Shu <xiangzao@linux.alibaba.com>
+> Link: https://lore.kernel.org/r/877bjowf9i.fsf@DESKTOP-5N7EMDA/
 > ---
-> The K1 PCIe cover letter says all ports run at 5 GT/s, so maybe this
-> depends on the drive or the firmware; on this board the link always came
-> up at 2.5 GT/s before this patch. Tested on top of v7.4-rc1 with "PCI:
-> spacemit: Ignore PERST# input in RC mode on K1" (applies cleanly without
-> it too).
->=20
->  drivers/pci/controller/dwc/pcie-spacemit-k1.c | 48 +++++++++++++++++++
->  1 file changed, 48 insertions(+)
 
-Thanks, I confirming this works well and greatly improves the NVMe=20
-performance. I have just tested it for a few hours, and I'll mail back=20
-if I encountered any stability issue on the long term. In the meantime:
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
-Tested-by: Aurelien Jarno <aurelien@aurel32.net>
+Queueing this, hoping for even more review :)
 
---=20
-Aurelien Jarno                          GPG: 4096R/1DDD8C9B
-aurelien@aurel32.net                     http://aurel32.net
+-- 
+Cheers,
+
+David
