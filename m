@@ -1,97 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.195.52
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.0
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1794952488;
-	b=SU3SJZuHc9eXS/uyxaFoNA89szo0TpSPRDaim1Iygj94od6W7WyXBiT/yONPsfr+NzFU
-	 mb94fZTD/49AGyaukokC/TSLvNW7GKowvgfkupYwqshxVKxKxefe8fngRh2/JNj5Bwd3U
-	 fOuq144I5MjY5Bcuvo3msaAC5/K20F0YUz2dTP4GClzpOYt9juShdXVIp018IoFnk7meA
-	 1JmWbVOipqYkt30Xj96MYSL6Ab9hnMnFAbIogRNZ5DhpvBXz+hFX/XajCEE9PsuqPJTk2
-	 ul5fDbdaOLsJYLEW280zJqjido8b4XkFCcleDYoNKa3kgRUMOve2tLtTuFSrjnaifGQ==
+	b=eCZiNXgVeELU39LPAJzSDtlPWI4mxXC+dOTwn86yw/inz29TMyUbJyRkxdLc9eKWzsPs
+	 ICXDShjRpaVzVcPM5l2DrKuLcFcXauceNTTeLG817RkQn/m43k7TKd3HQWrMoZU2ewGqC
+	 6syz4Al3/FS8P8RnqskqDuYcLibgx16iaS+mUgg/8rwFklei79zGK5UBFInoFt9I0VM4r
+	 2b+/z4zewhp635OZbofnFuuLQP6BzGZmANIGeQBB3oCsJdhbDT1Dmciff3mTlyg2HD2ga
+	 gxGFKE7rjcRvG9NP815rZjJJBL41+dgwa4oZal6h//vCPNWeXvGZjFgQaL2l9w54+tA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1794952488;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:CC:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:X-Mailer:Message-ID:In-Reply-To:References:Content-Type:
+	 X-MS-Reactions:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
 	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
 	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
 	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=JSB96axw2nia3omU8A4btCyY/rz+zGPdNKIVns9aoyE=;
-	b=HN7mKni55zmtSwh3zkMHjHyHGTghVdJXHbu+mIJlEPGlQ0VjixvdcXqM/Mugoxq3qKIP
-	 ZX+6bmWOKRvYD2oVcNwIROuOJb8KMOZ+BqC1NzCME9Ly6rVDAF5DxW+WUl3mroDGa9dx0
-	 vqrm0N8VKrkiZE1lyYM0QZlzXbL7XgCj/DtUACdCGn15Ji4aFQzjPsMZH6FTOGppGKECC
-	 41dZpRsrUlBE1I4Xnp7Il7PItgLbkSSm610/Q4FTzui0mZBPI2UToJRPjIl25HPqmeJ9V
-	 /bCN7dObVwVKS+KvX/zVDa2TQhb/wWzi0aK24UYVi57FedxRiV4n4d4BgQ8mO4+7QFQ==
+	bh=wHU5zrrEwXt6w3PW1dDVDuO0Oi2GraxME73dYzFWQo4=;
+	b=P0/B7GkwCAwT69Zi0VgznAZTm0xBlq72BT/GWEda1SnwiJdecDPcUids+h+wwM6LqQOR
+	 bnyUz2GrfzCcaBYrRffZ2u+4HQgk7T6PDZy4eoGsx1D+rpkIns4PlS97iceyJd2qmMt1d
+	 HgCHJ+2lnJnvj63OV+g88rfM9MIifeBBqit87dIjGg1ko5Z7tpUAzmrrT+Gpg6YjdoVTO
+	 L5FO1YHRGGn4cd5GEgoQLHtaZUpweZUO6+IiYBAYjArzqb91NuAl4Q1hgvMd1IEHadVNi
+	 qdhzKnMM5kAFwZzOrvYZatYmDGPPEc/nxCIU7gVnuU11lFYd8mfYK43sRLINzLZZydQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=wS6RBO1l;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.195.52
-Received: from SN4PR2101CU001.outbound.protection.outlook.com (mail-southcentralusazon11012052.outbound.protection.outlook.com [40.93.195.52])
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ZuLvIZx5;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.0
+Received: from CY3PR05CU001.outbound.protection.outlook.com (mail-westcentralusazon11013000.outbound.protection.outlook.com [40.93.201.0])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0E6B606A31C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:54:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B0E6B606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F310C606A32A;
+	Tue, 17 Nov 2026 21:54:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F310C606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=wS6RBO1l
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ZuLvIZx5
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TOPkivaCmEkUjm+0WuNK3RkbuHWGSasSrv1bm9YZq4n3Z9CsYFRYc+YLJ5c8wN7or0YZzNRUgVcsgkNxGEFWUVtXU9Vp117gHqdoOKgumG+qYk1dv2nPAEWWmxQbk3efhbXImmfF/oWObtULfktYD4JisuBEflz2jkSyRydqpR09zRFHMz+mfj1rArchyDvy4algR4SIxxLH0KsRnS1OUakHux772p5KEHx6jCOr6tPFc9Y5mqVfA8pC84eyKn4+mpZCpIuYQHhizXXWqrGqJtIUKjWCrcUR7pMkVSSt/jb8uT+Ne9s7PQnJQyUZCjYBeHkmemrVGdlfqgbzZOQY1Q==
+ b=xD11Qvpo9QTDNKPPavqaOUs2G9pZosecRNpfm0Vg0vNeUa35GjQylVlx8syHonCHTVGZ/wr+4W6Qf+CflAV4kGBoQ5T/1bb6ZqxSXWCsm2ewP/y9CD1m4//pKGNoPcKj7ACceSmnWY6QAIrGLyiZRL4LPwMKbag+WtDsbj8+gXpIHL7mUzv26NhKYIjE6k2OMO18RA+yR5htIxzuj31rqpWnAOYv0d4HKc2LCWDtT1CqvTCVjAt5fImACW6VtY41LHKyvXVFSnNSl8Z8mU1kjDBGLshG0NjSLKvkci0VqeWrR5JClQ+JHZtcaBfYW0yeeDP/45QcLnbDHXWbMpkhUw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JSB96axw2nia3omU8A4btCyY/rz+zGPdNKIVns9aoyE=;
- b=QP2HB+ow/L4W+ovy4znopRX/iG4y76MrIQ+JQ4yTt6aMxdeaQUqrpiCbE78pjVs5S+uq1O5jO3t1C6buKhOeuShAoN21RFZ5rt9OnJ88UhdA3bKe0LNBDH3RX0MIJVYvP6ujx/gxv2td+zP8Mq4TlrVIMaTGHNcQHnQ18GnWbKKWPyFFHcwUE7iyG3/blM+EhUG/3LSSpcafn3s3Uy3RXKgdBIfJ3JDFIS1Sl4VPC4XC1Osze4XeKQ1+OdWkigJUktti27xChs8iDZSY2S7nh/b528tG5AzCr/tLA+F/oQUyvByfc+LI1sGLVvUOPzMeTm5EvTsBBoCtqMsfYcWtfg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ bh=wHU5zrrEwXt6w3PW1dDVDuO0Oi2GraxME73dYzFWQo4=;
+ b=eDP4km14U9D1yb8UNsVG4agvhd0BR7ig8KexYbmOafXlYTg22KxQ/Xu/rXsZkOM4WcYeIBp8cjsAHchBvCcCLzpginkg13MT5Pkc57xKCTkZ19DjQhsqsgm04to6okL5ly1lUIPSgZUde9vDNJIUmF5/yh/yXKP+S3zoQqWaiVCFWLC8vYxECXKxCLx2e31R+BfAIEtJMe/9zN28Jncy7K6A8d4lsiPAa80430Iiw+JxbxXFE3ccrALSmtOsLCDs7Kcca4EWFGdbulNpDoaurlIGxYbNt7hjxB47jCbeo2pHUh7CSNjw0GRMQj3gwzHlUyetgBavaSMBnCfcFN9zCQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JSB96axw2nia3omU8A4btCyY/rz+zGPdNKIVns9aoyE=;
- b=wS6RBO1lpogg3svjwjcthtt9PeUtckH1NDwSy9RvPshgY5j7qWRJ19AGe8Web1ooHR0Iv9WQdRQwNXNgf7qkCd4czTuMDQ2lv+0LNm9PzgzdOuoXpx0l7yY+3cdvSQSfhE//X9gs3g1N2KdiX9G3KwwcU+3/MxCTHdP5pUHqrCQ=
-Received: from CH2PR14CA0055.namprd14.prod.outlook.com (2603:10b6:610:56::35)
- by PH7PR12MB5687.namprd12.prod.outlook.com (2603:10b6:510:13e::11) with
+ bh=wHU5zrrEwXt6w3PW1dDVDuO0Oi2GraxME73dYzFWQo4=;
+ b=ZuLvIZx5oLw1cF4Q+vmUGjI+N60683Ddavx5fEm/Txmpuc7qDMfHzIhv5Us+g6KWcPu/phFA0CMWaGRIDDPoFSaqsJpUqQftsVQ/gcLQ7h0CAmvr1o6EGU39AcsH2661i8irslYJ54Ds2GETvsv8zkwu+0J9ib8lOBCDc3mU5+mT6tsJMIMC17khVx/jPLIfcTBttaV2nHX8dhwYSbaj0hoDVVwn0er91o+mg8wdrGloGQBCgcCXY62xkqNvtOTP05jZaCqn6AUoksK35LBSrZqCHewDY4Koae855Tkht3XOvbHeI5XTcUzeaJTVaz2kQ9fBwa0ZOE9QFpr3DbZ/Lg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from IA0PR12MB8374.namprd12.prod.outlook.com (2603:10b6:208:40e::7)
+ by SA0PR12MB7089.namprd12.prod.outlook.com (2603:10b6:806:2d5::18) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 17 Nov
- 2026 21:54:33 +0000
-Received: from CH01EPF000BE940.namprd02.prod.outlook.com
- (2603:10b6:610:56:cafe::39) by CH2PR14CA0055.outlook.office365.com
- (2603:10b6:610:56::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.13 via Frontend Transport; Tue,
- 17 Nov 2026 21:54:33 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- CH01EPF000BE940.mail.protection.outlook.com (10.167.244.132) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Tue, 17 Nov 2026 21:54:33 +0000
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 17 Nov
- 2026 15:54:32 -0600
-Received: from [172.19.68.164] (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Tue, 17 Nov 2026 15:54:31 -0600
-Message-ID: <093a14fc-48c9-43e4-8618-c6ec6f00f5cd@amd.com>
-Date: Tue, 17 Nov 2026 13:54:26 -0800
+ 2026 21:54:43 +0000
+Received: from IA0PR12MB8374.namprd12.prod.outlook.com
+ ([fe80::d85f:4c87:ae84:3f16]) by IA0PR12MB8374.namprd12.prod.outlook.com
+ ([fe80::d85f:4c87:ae84:3f16%6]) with mapi id 15.21.0615.009; Tue, 17 Nov 2026
+ 21:54:43 +0000
+From: Zi Yan <ziy@nvidia.com>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
+ Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Alex Williamson <alex@shazbot.org>, Peter Xu <peterx@redhat.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>,
+ Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>,
+ Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>,
+ Kiryl Shutsemau <kas@kernel.org>, Wei Liu <wei.liu@kernel.org>,
+ Roman Kisel <romank@linux.microsoft.com>,
+ Saurabh Sengar <ssengar@linux.microsoft.com>,
+ Naman Jain <namjain@linux.microsoft.com>,
+ Michael Kelley <mhklinux@outlook.com>, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, Eliav Farber <farbere@amazon.com>,
+ stable@vger.kernel.org, "Jose A. Perez de Azpillaga" <azpijr@gmail.com>,
+ "Gregory Price (Meta)" <gourry@gourry.net>
+Subject: Re: [PATCH v2 4/4] mm/huge_memory: only compare PFNs of huge entries
+ on huge fault insert
+Date: Tue, 17 Nov 2026 16:54:42 -0500
+X-Mailer: MailMate (3.0r7038)
+Message-ID: <95493B29-E928-4AE4-B051-F0A9651561FB@nvidia.com>
+In-Reply-To: <20261117-huge-pfnmap-fault-races-v2-4-276007e73bcb@kernel.org>
+References: <20261117-huge-pfnmap-fault-races-v2-0-276007e73bcb@kernel.org>
+ <20261117-huge-pfnmap-fault-races-v2-4-276007e73bcb@kernel.org>
+Content-Type: text/plain
+X-MS-Reactions: disallow
+X-ClientProxiedBy: MN0P220CA0013.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:208:52e::28) To IA0PR12MB8374.namprd12.prod.outlook.com
+ (2603:10b6:208:40e::7)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,126 +113,112 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V2 1/2] accel/amdxdna: Detect a driver command without
- firmware response
-To: Lizhi Hou <lizhi.hou@amd.com>, <ogabbay@kernel.org>,
-	<quic_jhugo@quicinc.com>, <dri-devel@lists.freedesktop.org>,
-	<mario.limonciello@amd.com>, <karol.wachowski@linux.intel.com>
-CC: <linux-kernel@vger.kernel.org>, <sonal.santan@amd.com>
-References: <20261117212733.172074-1-lizhi.hou@amd.com>
-Content-Language: en-US
-From: Max Zhen <max.zhen@amd.com>
-In-Reply-To: <20261117212733.172074-1-lizhi.hou@amd.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH01EPF000BE940:EE_|PH7PR12MB5687:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2f983657-9f98-4df6-0ab0-08df44f55d2b
+X-MS-TrafficTypeDiagnostic: IA0PR12MB8374:EE_|SA0PR12MB7089:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9ee5bb42-5eb3-489d-52b7-08df44f5637d
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|23010399003|1800799024|36860700016|82310400026|11063799006|56012099006|261026140227099003|261028144727099003|10067099003|261021123027099003|261022075727099003|261021121427099003|261022105027099003|261102123227099003|261009223027099003|22082099003|18002099003;
+	BCL:0;ARA:13230040|376014|7416014|23010399003|366016|1800799024|5023799004|4143699003|11063799006|56012099006|261026121527099003|261026140227099003|261028144727099003|10067099003|261022075727099003|261021121427099003|261022105027099003|261102123227099003|22082099003|18002099003;
 X-Microsoft-Antispam-Message-Info:
-	ZQ0pW/k1y5a3ZkKh0/Ae+hENtpIXDo80e+keybAuBwqfAOCE7JzlxTYv0adouBolmDpcXNJ4uj7epVjjITMUamke1oqjarRrCAa10TxMoctqNcPKjRuuM8fxEJF6H3wN1fsY161bq/ulzjqEL8kc5nbzr2afpXq3WqhUEaKCoOFZvZnXSGenFTaXN82UN3WhIiWmxH9n7BAILWGnlzmOxRgMPGR8cya2+Sssd7bEbesP8fOtQR9pIZjRUzmtJDdNAnCXVabgngnSSn9v72pMTqbRhLdFShcyvutXdyGGxVdhvCSWh0p6+NSQiDki1+rFNY8z8sN40n03JrNX5um13tYeKNtGm6UiU4Pgn/3Awv4jydgE3N5nU3V0OqlEKyZ0W2qlUQ/AKyL57weH+PB5Hra9QM1krEIa4BsmpzyQAc5s9jrMED/vMJK5bOcj9qdrLlr8CZMS53gEY+sAkVqd4mdwQv0XUIQW0nBg5K1cWKwKUTk31GS0bboH7whH+x7oxl9Ye8guhlYSLfT91pVApJ1Bx9IINMgj25ZK9AABfZwt0N2rlrRrdF1szmJHzwxGsJJxbl5I++wOgadTrcx4+scJrq5MjHhMK++HRyTRBNcvMSViNc77udHc3A+HaNb74mt8vEsxpXLTJDCpyJ79xGRgYMoXQlbJONTiz7yricFsm/UI5qI+5B39OqBTb1egkSpW99wz5HxsSGRt3/0L7Q==
+	tFY16f+DTF9O8uU+xFJzrxdh0aJh2OOgDgKyGzOWs0aRAuVORME3qa2kdyHF4EFeshZofYK25YZ1SkuLpmjfgyJrS2bHqYA709hteUooD5aUfKFQuPHTdEFbja+RDRQR8rWQWuCoeYeKofZlFhH0sVfSi0kYpyr9NphneLLEPaMdUPqyTjRMM+YaTVZm+BbLadRZ2wHL5KoqjlC1jJE79doDMDyCQzgJImLXk6XvPFO3rwU6uwBUHSsQKvJU/eVcQSy7hWNxrj9HD1pcP5T93lv+gjJE+o6dsJ5RBmVYDzuyrg7L5PI9lBenxICcfFh9FLyrDMVq9AIcP5mOq+uaaOXlhCcwAPTKaMDhJ9sosKc6kHxIkpC8/fQ5ebcPNpGIBgG3rRyudl11K6krqAKv+g73U7XRb5KQurngWjjQdJEuV49wvonEFaiWSuKJomH+vJAgogJRxPH/O3JWGn46L7j8dVyWak95E/OsolDu9arcrx2McG0hz/HFnqzqk54mtsuuA8akNR2UHasrUegthijjM/giDvaALImhwsoVKlT5hkY3jZh6h8Co+WI7gxsootnaoyu+fzTnNRX5X5+5ToMsX1twSWoPtH5TbMCQtCITSP4OlmKl99vOdPT+hsrjjztjvulWFIKlJt5o63RKPH4uIbqZrzPgzSw9Ksk1J0s=
 X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(23010399003)(1800799024)(36860700016)(82310400026)(11063799006)(56012099006)(261026140227099003)(261028144727099003)(10067099003)(261021123027099003)(261022075727099003)(261021121427099003)(261022105027099003)(261102123227099003)(261009223027099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA0PR12MB8374.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(366016)(1800799024)(5023799004)(4143699003)(11063799006)(56012099006)(261026121527099003)(261026140227099003)(261028144727099003)(10067099003)(261022075727099003)(261021121427099003)(261022105027099003)(261102123227099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	RfiHpSnPWsIoKU5CMc35oOO67fnbOPPp20ziYCAfWit0mueYB/bXkZ3it4GcGEQVX6j8fLkZgY6Moj2bTleUi9vdGTz6pUFKGPI2lIKBjDlaWwqORk9hlv7hdn5FcAdzW90on6wpNjJYJc7eWzhCKxu4fmzmFoTA+105W9l9H0SE7SVbub85ibgB7NM6ffy3V36nqC/UO91v4qusgAJu8THHwQZAUbTu35aEjlbKrFzAVJsmuDmWLfA/N7apXIqyNsXekQjJx6JaCmds3Y0miDbN/JSjQUXjs32EftlEH8rNb1chvmL/1MxfiKWINstY6eCu0R4IZsK1c5Bop2/lZrhuQBgqYGH73sHdFfCaD3tGQCKEbmQb24ed2OHSN0E0CtpXgdUdHXS6V74OMB1z+g5WCbmyrjLBJI4EdCZRh+lXHsD11vwD89/HDFkr8CKy
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 21:54:33.0023
+	=?us-ascii?Q?3a6J/aUgs/on+2Bwu51rZ86ZoYDkDAj+8gIiBukrIWNr1TNj2yFpcJa5GfVQ?=
+ =?us-ascii?Q?7OPNUpwmFohgGFfmA0D3Bh4p1xMkvJgw0BxlCCKHH+ZYRILviNbPkr9zeCxc?=
+ =?us-ascii?Q?13Imf00ytI+BK4nQ+DHy4rIKr/3TONRBaM/0Us+ZbEwIdE4MSJnpTJNlSEsg?=
+ =?us-ascii?Q?/sanyelKTqAGE01GdL3jCRWyLj/7hkynH5tTjXeyrgLMZ86vAAvqqoRwVER1?=
+ =?us-ascii?Q?jThXB9JTOxeM6Hh8AG/2rEo0Dw1tBqnANr9UWwafz9KxNbOvrPm5XTnVyqDE?=
+ =?us-ascii?Q?7oVDxzhLvXLuxFPUdYabaBzmbFcgGy83y2VjN9IIZoX2fgXN+zUKdZy3hd8V?=
+ =?us-ascii?Q?PZCY98jcVCmPioCCYYPSNY/C9nQWeRX1xPMXw5Jss+P/iVy65z69Z2nqNXrS?=
+ =?us-ascii?Q?Rguhnvfhj6EkFDyFfqfypdpjyYwnULeJNIM6gdN9/BtE79LyLQoMqRiOGS/V?=
+ =?us-ascii?Q?Gjjt5InQTvy4qX5cKvLFYonrZEtuyfdMYkR9J68vkQwlrk7FEhJn+yvykyy2?=
+ =?us-ascii?Q?BcQVIlKwAjrnL0f1H3cg9v1B/gbGthIVpjfaypaSzzK5gupdstdtGd6sORlA?=
+ =?us-ascii?Q?TpVsLU6mLlpwAz0R80WQI6dzxW0fkMP994D60e7r8vwh0f9uDlnoFRIWVxyl?=
+ =?us-ascii?Q?Z/n8kbRLjtxYhLQA9CDAOuZ4HFMTYT/rZSUanGaPxqqctOYCp5oTtqzJWmYC?=
+ =?us-ascii?Q?U+DVOIhHEJfhNsAsPxWJ+5TWD7Pr3oAyBofg2lVGYAoNTzff+rCeYYbVKZTJ?=
+ =?us-ascii?Q?AD+74DYiCBG89HpFEuJ42zqew27/N4iopsbL5dT3RplrCTU+64Z4MmBbQbb6?=
+ =?us-ascii?Q?K6DIq6yCdZ6FaSgmqA7w0hlrlTzl4zgW/V2CCFjtKCess5WvRj79oN+XPkur?=
+ =?us-ascii?Q?VvJ5Dk3LFVEVVbJS1TFZzxuiPpsc08av8egY1tb/0E9IA/P5dR4JYoH833u7?=
+ =?us-ascii?Q?vguoVSljOHx569MG4zGKuUaOP76A7oFu5viAlPwKSGUH+RRdxdRPSOmaiAaf?=
+ =?us-ascii?Q?CaXTGpRFr3KqAgyLP8dUqpKg+cCpjcv0FHx2Koly1mY8Xpb/Zn6PmIWzRrQk?=
+ =?us-ascii?Q?Ch2KUpi/nZPu6YCkq1NWhfoLC7rqYTlvyBjEOa+e+rXHjldpTt6R6I1c+0U2?=
+ =?us-ascii?Q?+UxRbYhiKrsXgCLfNkgu7KjLkM9B1Hj79ECMsIeFAqt0+dG7NR9aGz/LwnZn?=
+ =?us-ascii?Q?/4QT9NO3ebsjiNITdawyGKdSZSVXnaJPlSWTGa0Gaaegj9jVLJPIN4CXURcU?=
+ =?us-ascii?Q?p0FvhGifWj0DhZTV9KPdd49uxHb3eP65JXPSAhYafcpqzPgLb8yD6wnWkceB?=
+ =?us-ascii?Q?AzG4nngk3Swqxp9yW9wU8SHvcvedeFUAxUSpe/to1Cts1gl1fEMKnBTeFLhr?=
+ =?us-ascii?Q?w3nipZcH1Grsz6Nb3g6+QrGm09VtuExayoVPoxlKHVZm06zsW4FirHHCxkxW?=
+ =?us-ascii?Q?xIsH2QdQbElhR9Af4Ul8NLkYLXze2e9Wb6iUV4EqDyqeU6l3LZZ89d3nOh47?=
+ =?us-ascii?Q?SIbZHOIMRr+nr/BbpM/Z6HHihV9EjsHe0rln9JJZaG68lh7FQBnYzBxqwnvb?=
+ =?us-ascii?Q?ohZDxjx6T9waNqDSpEAa7xYErUuj+vqhd25h5RjFwnRlBnEC0GhY6aFM/TuM?=
+ =?us-ascii?Q?ATobuR0WwTlfoXXJxFHSykWmB3J+8rY67nHxXSGCKce4VjGE1ACwOeaRrFjM?=
+ =?us-ascii?Q?JkhSLJ0naDD1CekEDC5ujI9+B3bpd1ExAN5w/aCVQiDDCc25xagpINXDjR+g?=
+ =?us-ascii?Q?1JJfe0Rp3g=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9ee5bb42-5eb3-489d-52b7-08df44f5637d
+X-MS-Exchange-CrossTenant-AuthSource: IA0PR12MB8374.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 21:54:43.7622
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2f983657-9f98-4df6-0ab0-08df44f55d2b
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	CH01EPF000BE940.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5687
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: L2Y23DeZaveSvdgGEWzhDZ5LqQKZpJhRC6IDymNeHdR3tBX+/9ZthUaRH8oYHO47
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR12MB7089
 
+On 17 Nov 2026, at 13:31, Lorenzo Stoakes (ARM) wrote:
 
-
-On 11/17/2026 Tue 13:27, Lizhi Hou wrote:
-> aie2_hwctx_cfg_debug_bo() and aie2_hwctx_sync_debug_bo() decide success
-> solely from cmd->result.
-> 
-> cmd->result is only written by aie2_sched_drvcmd_resp_handler(), which
-> runs when firmware responds. If the job fails before it reaches
-> firmware, for example aie2_sync_bo() or aie2_config_debug_bo() fail to
-> send the mailbox message, no response handler runs. cmd is zero
-> allocated, so cmd->result stays 0 and the caller treats the failed
-> command as successful. aie2_hwctx_cfg_debug_bo() then goes on to update
-> abo->assigned_hwctx, leaving it out of sync with firmware.
-> 
-> Set cmd->result to U32_MAX before submitting, so a command which gets
-> no response is reported as a failure.
-> 
-> Fixes: 7ea046838021 ("accel/amdxdna: Support firmware debug buffer")
-> Signed-off-by: Lizhi Hou <lizhi.hou@amd.com>
-Reviewed-by: Max Zhen <max.zhen@amd.com>
+> A driver that implements both ->fault and ->huge_fault must anticipate
+> concurrent use of both.
+>
+> This can happen, for example, if a user calls prctl(PR_SET_THP_DISABLE)
+> concurrent with faulting, as that only holds the mmap write lock and thus
+> does not exclude faulting threads stabilised by VMA lock.
+>
+> insert_pmd() and insert_pud() have issues with this as they both assume
+> that, if the page table entry being populated is not empty, it must be a
+> present huge entry.
+>
+> This is problematic as if it is a write fault, it compares its PFN against
+> the one being inserted, warning if they differ, on the assumption that the
+> entry is a huge leaf.
+>
+> Since the entry may be a page table, this is invalid and can result in
+> spurious warnings.
+>
+> Equally, the entry might be non-present. Nothing can install such an entry
+> in the VMAs that reach this code today, but there is no reason to rely upon
+> that.
+>
+> Therefore only examine the PFN if the entry is both present and huge, and
+> otherwise simply return VM_FAULT_NOPAGE so the fault is retried and handled
+> at the appropriate level.
+>
+> This is what already happens for a read fault, for which the existing entry
+> is not examined at all.
+>
+> Target the commit which introduced the first driver which both mixes fault
+> orders and passes the write flag for the fix (since this commit, both
+> drm_gem_shmem and panthor are prey to this issue).
+>
+> Reported-by: Eliav Farber <farbere@amazon.com>
+> Closes: https://lore.kernel.org/all/20261112051440.16140-4-farbere@amazon.com/
+> Fixes: 7bfe3b8ea6e3 ("Drivers: hv: Introduce mshv_vtl driver")
+> Cc: stable@vger.kernel.org
+> Reviewed-by: Jose A. Perez de Azpillaga <azpijr@gmail.com>
+> Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+> Tested-by: Gregory Price (Meta) <gourry@gourry.net>
+> Reviewed-by: Gregory Price (Meta) <gourry@gourry.net>
+> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 > ---
-> V2:
->     Use a simplier fix to address sashiko comment.
-> 
->   drivers/accel/amdxdna/aie2_ctx.c    | 12 +++++++++---
->   drivers/accel/amdxdna/amdxdna_ctx.h |  5 +++++
->   2 files changed, 14 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/accel/amdxdna/aie2_ctx.c b/drivers/accel/amdxdna/aie2_ctx.c
-> index 11f5421e497aa..32458d05635f9 100644
-> --- a/drivers/accel/amdxdna/aie2_ctx.c
-> +++ b/drivers/accel/amdxdna/aie2_ctx.c
-> @@ -989,10 +989,14 @@ static void aie2_cmd_wait(struct amdxdna_hwctx *hwctx, u64 seq)
->   	struct dma_fence *out_fence = aie2_cmd_get_out_fence(hwctx, seq);
->   	struct amdxdna_dev *xdna = hwctx->client->xdna;
->   
-> -	if (!out_fence) {
-> -		XDNA_ERR(xdna, "Failed to get fence");
-> +	/*
-> +	 * No fence to wait for. Either seq has already signaled and a later
-> +	 * point pruned it out of the timeline chain, or the syncobj was
-> +	 * reset. Neither means the command failed, so leave the verdict to
-> +	 * the caller, which inspects cmd->result.
-> +	 */
-> +	if (!out_fence)
->   		return;
-> -	}
->   
->   	mutex_unlock(&xdna->dev_lock);
->   	dma_fence_wait_timeout(out_fence, false, MAX_SCHEDULE_TIMEOUT);
-> @@ -1022,6 +1026,7 @@ static int aie2_hwctx_cfg_debug_bo(struct amdxdna_hwctx *hwctx, u32 bo_hdl,
->   		goto put_obj;
->   	}
->   	kref_init(&cmd->refcnt);
-> +	cmd->result = U32_MAX;
->   
->   	if (attach) {
->   		if (abo->assigned_hwctx != AMDXDNA_INVALID_CTX_HANDLE) {
-> @@ -1095,6 +1100,7 @@ int aie2_hwctx_sync_debug_bo(struct amdxdna_hwctx *hwctx, u32 debug_bo_hdl)
->   	if (!cmd)
->   		return -ENOMEM;
->   	kref_init(&cmd->refcnt);
-> +	cmd->result = U32_MAX;
->   
->   	cmd->opcode = SYNC_DEBUG_BO;
->   	ret = amdxdna_cmd_submit(client, cmd, AMDXDNA_INVALID_BO_HANDLE,
-> diff --git a/drivers/accel/amdxdna/amdxdna_ctx.h b/drivers/accel/amdxdna/amdxdna_ctx.h
-> index 2e6b300d652f8..bf248d3f16ed1 100644
-> --- a/drivers/accel/amdxdna/amdxdna_ctx.h
-> +++ b/drivers/accel/amdxdna/amdxdna_ctx.h
-> @@ -145,6 +145,11 @@ enum amdxdna_job_opcode {
->   
->   struct amdxdna_drv_cmd {
->   	enum amdxdna_job_opcode	opcode;
-> +	/*
-> +	 * Written by the firmware response handler only. Set it to U32_MAX
-> +	 * before submitting, so a job which never reaches firmware, and thus
-> +	 * gets no response, is not mistaken for a successful command.
-> +	 */
->   	u32			result;
->   	struct kref		refcnt;
->   };
+>  mm/huge_memory.c | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+>
+My rb to v1 might be too late for you to pick it up.
 
+Reviewed-by: Zi Yan <ziy@nvidia.com>
+
+Best Regards,
+Yan, Zi
