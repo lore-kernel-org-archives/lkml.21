@@ -1,114 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.149
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794945468;
-	b=A9RLXxIaR/eevpC9/5xtEoKCuNoaA7K9XyTRUbpX5dFwLBEOwrHLdYcnVWHBdnuJFWV6
-	 UrXUt30mjJoQId7s38aMCtdUe1ruA3/ScF2oAQilrMijtaaBYChTKT4XoJUBwWWxetfUW
-	 ugyW54mRrYDs7VUaXQ6U6H/auSIZG3av4PCmiBfOXI1khe8TtezFXLdKT6daAu6yXer/e
-	 obZMbbWm7ChB2C+NR92ISSjFPuR6ReZVMcCbMiBOdAxAohCFDZWyt26FEnjmQK7gNbKWO
-	 j3GZatC4jgJMmrPJNzG9nbBmku7xIZiFCOIrduMoBw0FDXbReCa7QLy7+s9HzLSe56g==
+	t=1794945477;
+	b=eEX8KWYmzkwU5/AaxoCeypMrjA5o/llF6EQWHohUF9pbOr0WzUYEKsYXKVDoQRoGMz9j
+	 OGY3KUa48EGxWzRTjsszaQ18MMEUmFYNPZ2HbCjeajzVq197sJtflBt2i1cBAslhSXJfi
+	 h+obGq8S7IxyWSu1vbOULGvORvAR86Bjz2tVBLpXtJ7avhAR0vh4RQtJveph/3w9idYua
+	 CQbwI8R4cxWvVVni8cGTK2S7uXJ17RnykpsQlwLpXXHlfQMp8HMV2jg8fr5SkyK6qGjUp
+	 cAByUXs7s251xPbd0egVKXu2ej2VRKrkm56WzKwl849khK/edokGWcjrMspcsiOT5XQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794945468;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Content-Type:Content-Transfer-Encoding:MIME-Version:From:To:
-	 Cc:Subject:In-reply-to:References:Date:Message-id:Reply-To;
-	bh=8FM6zV2jcG/nODchlaxjXPlgpgpsE6ltpToIZCja9Pw=;
-	b=Nkm3XAjcia583q+Mg5Pc7TPKFAmd9lpMk5dFLuWzSWS5PEPbJS/v7YjjBHr9gm3PkGbm
-	 idJdJ1mh8p19MpswMtZguUw73bjfgp0tESxL2rLaTifDZm293hHApm60mLxM7/wbtNE/k
-	 47bi0hRGIXrEGrfPYe9UoLPbfy0sg7+hZpRYGbQ3r963GQMYqWcVQpZEydzQrEKPNOt0j
-	 ocsw+vmq54nJ797Zitp2ogTxP5R5nMQM9Nx82clthf5BKeIyNKCM7/d2Xp53rXMcdYFb8
-	 NTTDM7dhqs9ptF+w0I1upqUHgt/ybSK53qSiDOJeexfUTlqZAizWEv+gaMljOEgm7dA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794945477;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Ps3dmenyy5Kz+Ld8FFyPnRbKN1BblcpmGxOsdgzLlkg=;
+	b=OeMq+tCatYSlGNqfCdy34juBgJ5Qk1vc0sSnKeQXr1C+qPe5HoxnLqgeo6N/aQZcI33M
+	 aFtf4dynoECyPmpRMI2YtVjnqm5A/5KbNXQQZb+289DiopNi4WjXCI9cLlz9P+HpDI5PB
+	 4sxkvO+rkp/M2ux4qFANKq6UzdFHd0MMULuVfxEjDsETrFhGQnHri5hqJJkhHEhLFKKk1
+	 oxkpklEwD1lcRf0fXWhRqTJi7s/rXO3loPOvt5gitjFw3JzweFzWCic+sBR6Kw3gWTays
+	 WnlUf3xmg/zIHfGFWpHIadBheiRZBmIqz2mJD8EY45gpuzcZROFBhTuds8G4lVhlmXg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ownmail.net;
-	spf=pass smtp.mailfrom=ownmail.net;
-	dkim=pass header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=ImTKhk4d;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=zXB+Z4HG;
-	arc=none smtp.remote-ip=202.12.124.149
-Received: from fout-b6-smtp.messagingengine.com (fout-b6-smtp.messagingengine.com [202.12.124.149])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qmm0tUOQ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 297C0606A32C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:57:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 297C0606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ownmail.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ownmail.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DC84606A31C;
+	Tue, 17 Nov 2026 19:57:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=ImTKhk4d;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=zXB+Z4HG
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfout.stl.internal (Postfix) with ESMTP id 833C21D00280
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 14:57:46 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-01.internal (MEProxy); Tue, 17 Nov 2026 14:57:46 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ownmail.net; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:reply-to:subject:subject:to:to; s=fm3; t=
-	1794945466; x=1795031866; bh=8FM6zV2jcG/nODchlaxjXPlgpgpsE6ltpTo
-	IZCja9Pw=; b=ImTKhk4dSSHZqUVebBBZQVqF7ML7SQqYIGcOb/9mFA5PmmJG0iC
-	UC98oUoXzdTQoiK6LTEFeQPzWOwvQGbIqKQNEn64cWgpHnj5eJ5u/XuS98R1kw8F
-	a2wUozob043kW0z9VeKSnyQSWiMX03Whp9kc9XPONMyHPeqmjzq9vAMyPPIO7WAT
-	/+Y62VZKS2VlcNcYw5VH8Rtv+8FMZfcqLSgwVynAlr7sNj1pzu+LpqSfPo7XJQdm
-	YVccgyq9B2xrxe643TVf9K6OkcVq9qxW8uK+kkOpA+gWR2ohB6GmscWvUc+RskLg
-	mUA1O1IF8QXEA0uylMuoyxchQFQ99wxi87w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1794945466; x=
-	1795031866; bh=8FM6zV2jcG/nODchlaxjXPlgpgpsE6ltpToIZCja9Pw=; b=z
-	XB+Z4HGJTZFaTA3stJ9s1eE+RgdYvjHOLIHqFy4I/df9XCC6qLSGTyudFR7rw0jq
-	RC7gzof2XVINqMpCDxIkzKllACCH/I2nKlxvOSvCBojPtJ+9g42UdYzgYXNE5PKk
-	DPGvT9YG3Ju5UuG+UkZyNRjOIsse9s+WzLQoc80p4w0qS6FZ27zyqyYbq4ZjdkkH
-	ciuGrB08XCqw2rwle/70NqGdiQ9k8jfEARkCTN1fM9KpN/19UJ3YsSLySJk7SFF7
-	ZwMkzTIguj+00zI7hzAcTC7bA5qKgMFqVwC4gZg4jzgp4klh5cQE1u5F4iMEDrHg
-	TanE+bjfSx0ZrjBOKQQPw==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=ownmail.net a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1794945466; d=ownmail.net;
-	mf=PG5laWxiQG93bm1haWwubmV0Pg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:y42FNhva8KUSMKOtJ3DKMs0o85ORM5XgsDh7rSIKBDSH1FD
-	q/BPZlN/Lhohy8V8/2xy1teKDYFChH72bfyTO4FoO83xdnmuueZSQqbIjIISPgOt
-	SCEaZk/WeWKvy/pj4xYWpRhxxa88PsOoZ09xiy/e4NbB0AGKGFM5rBdh0a7wSRVh
-	+rYIaQUwag1avfy8VTMsngWNdpivEaJAi6jhwTshLGH/pT2NoFPylevKAF/WIqrY
-	7wSW9fA1rlZ9h4DEJ1YLkiBDcjKP9UZkYhaqwt0EYjkYkAoyV0cG/gCMbTA2tjK8
-	HN2SNoqZkrJRLEfhBR1cBBWi1YUcWlQ4ld/z3zQ==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=13;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,reply-to,
-	subject,to;
-Message-Instance: m=1; h=sha256:llVildKPAcODEVh9NY6eyVP73Aj3h94g0wIzgQ+onlI=:Is/waql9zhclRn95l3RXd2eFbNWAsv/RG06E+Px8hvA=;
-X-ME-Sender: <xms:uLH8ajpqtCAj8Xai1CW_vbZQMrjLF3Caq7kNDOF2hsXBhnKkRP3kSw>
-    <xme:uLH8avOTZ3AwEYoZjvivJWAI0nLNBh2zOrgD1ap75JIzrfkJkn596g32QeRzO0WaE
-    1xz0QOD6Pva3tjTDFxRSNojmqqyNAm94PK_KX_mciEKP7rIn0U>
-X-ME-Received: <xmr:uLH8avfmlE9rZ5lo6AFhVQq8vqjdPAc51eABxi9j8_HYndWobOlvMC8PH_qUSyb0li5BjKd8Cc10W2s9M3F0mAPw01CGfVo>
-X-ME-Proxy-Cause: dmFkZTEA1d/neZFqRb6e2cyZEut2KcqiYo2pL+wPjidRd/YMAjSsR4HZtJxmOtFhJbjPS5
-    YtplEZNpoPys0VHwAO3xDpYuDMR13nwdU9u2gH2CC2I0m6TP9AsKnB/rSvhMORZUP/Rspi
-    +4u8XREyoVeS/CAvmaboLdhNJw323ED1m3wbYHChkKYwN5TSx38LqrZ9Yi7P//oZogIocj
-    sea3ZD4CvaNUrRxstKTAtSetUrKZw2p6UdyKdb1j0sMJsHBB+gtCUci+6PKuvVORz/f51e
-    cYDS5liNxuASxgwvWOf6UGFk0Q/hGWmJwySGP9LX+oi/M2wZI3HaLguomp09E66HVg+KdV
-    jyKS2bKHvdwcE5+TeVVv4/S5URrOgiVUi40d992v6IokBOx1hpfGWk87DPhUN0DEVLlK+n
-    +ZqIeTmwVVicI95ov+oTMCh8wDLBIrKPP8DwQit6W/+ngGFLurALi2pVv60A0vyyGuYAmN
-    gyvHYpSCYWr9bq34/caI2jkcVvuTM2VF8ksM2NyzzvRsI1ighVEyvKP/EGR0kzvcsP7Tku
-    5oUMDB6bg26hSGsJqx6Y6V7HbqVBAknfy7OOaXi5uDCH6GiK11b8/Awaym9RlQ1h6IFmGL
-    PaN77CNS4QeW7WBs2FqYuL1tdCKI3DXt9DgY3qQ5NOYFZQvmAP8ruCHkcANQ
-X-ME-Proxy: <xmx:uLH8atUSm_KlpEO5vL1jHSvwsq5mg504m9K6PhC4uc3S8B5DRfzwug>
-    <xmx:ubH8aoBw53ptZTqM5kA8LfjLCZDD6CKCYtreAzyJSWnj0JIK3vSmBw>
-    <xmx:ubH8ag5lCEyBbFsN9qWnhmw08pBM1teFZ1JvOCY6mt4ovGm36fLyUg>
-    <xmx:ubH8an28NbRNe3jn8u2QvjTfIvsR-AFWpbbTMppAys6gRFIB4UA2nw>
-    <xmx:urH8atfj23_7_x5zK9Cc5D31klRw4g4v9qL2pJAvVZQp-V9KryTFmtkc>
-Feedback-ID: i9d664b8f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 17 Nov 2026 14:57:41 -0500 (EST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qmm0tUOQ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11FFC1F000C5;
+	Tue, 17 Nov 2026 19:57:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794945477;
+	bh=Ps3dmenyy5Kz+Ld8FFyPnRbKN1BblcpmGxOsdgzLlkg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=Qmm0tUOQix9orHJ+M60SsL7S5ClUt1Y20NqzT0jXys6ZNK0ItwdDqfKTGEkCBdNUK
+	 haEgqrt9ZTqGNc2OfXrezk4FKLR8uXM99OiduuV53V95i8z6OjPnxN7rBPTUx41faS
+	 VshZaGnMf4o6wrDlADqtp9GeqqeUkNHd0GIPP10uUyQgiBoBfK0avQ29Uz7XiFVplU
+	 8eF9t6m4O9HFD0FgJgZpKiJfb1jJomLMZcPjvdzu1eUzSV6p84AdB5AGKWhRKTMriG
+	 RTlU/NCaNqi9b6OMb+YRWBQ0bP7v7Lq7EUCyvUUaE7EKGuTY79QKtsAgDi6LuQQERs
+	 jvzXEVvAK1QKQ==
+From: netdev-bot+sinfo@kernel.org
+To: Sandeep Haemoon <sandeeph@loljews.com>
+Cc: netdev@vger.kernel.org, Felix Fietkau <nbd@nbd.name>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Russell King <linux@armlinux.org.uk>, Daniel Golle <daniel@makrotopia.org>,
+ Mason Chang <mason-cw.chang@mediatek.com>,
+ Frank Wunderlich <frank-w@public-files.de>,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v7 0/3] net: ethernet: mtk_eth_soc: 9K jumbo
+ frame support
+Date: Tue, 17 Nov 2026 19:57:55 +0000
+Message-ID: <179494547560.3291.4586654587079488988@kernel.org>
+In-Reply-To: <patch-7d2c457e68de6b53b7348d1bdbeadcec@loljews.com>
+References: <patch-7d2c457e68de6b53b7348d1bdbeadcec@loljews.com>
+Auto-Submitted: auto-generated
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -118,113 +71,22 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: NeilBrown <neilb@ownmail.net>
-To: "Xiubo Li" <xiubli@kernel.org>
-Cc: "Ilya Dryomov" <idryomov@gmail.com>, "Alex Markuze" <amarkuze@redhat.com>,
- "Viacheslav Dubeyko" <slava@dubeyko.com>,
- "Alexander Viro" <viro@zeniv.linux.org.uk>,
- "Christian Brauner" <brauner@kernel.org>, "Jeff Layton" <jlayton@kernel.org>,
- "Jan Kara" <jack@suse.cz>, linux-fsdevel@vger.kernel.org,
- ceph-devel@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/2] cephfs: prepare for changes to VFS locking
-In-reply-to:
- <CAOuZWzxQEsqSS84ERExczbLBeyoh8RR=8L6sYMUw-nPj=sS9cw@mail.gmail.com>
-References: <20261109202339.1380828-1-neilb@ownmail.net>
-  <CAOuZWzxQEsqSS84ERExczbLBeyoh8RR=8L6sYMUw-nPj=sS9cw@mail.gmail.com>
-Date: Wed, 18 Nov 2026 06:57:39 +1100
-Message-id: <179494545935.1728055.18315721225187340860@noble.neil.brown.name>
-Reply-To: NeilBrown <neil@brown.name>
 
-On Tue, 10 Nov 2026, Xiubo Li wrote:
-> On Tue, Nov 10, 2026 at 07:20:23AM +1100, NeilBrown wrote:
-> > @@ -2230,7 +2226,7 @@ int ceph_readdir_prepopulate(struct ceph_mds_reques=
-t *req,
-> >               if (inode_state_read_once(in) & I_NEW)
-> >                       unlock_new_inode(in);
-> >
-> > -             if (d_really_is_negative(dn)) {
-> > +             if (d_in_lookup(dn) || d_really_is_negative(dn)) {
->=20
-> Nit: An in-lookup dentry is always negative: __d_instantiate() warns on one,
-> and __d_add() ends the lookup before it sets the inode.  Here dn can only
-> be in-lookup if d_alloc_trylock() has just allocated it for us, so
-> d_really_is_negative(dn) already covers that case and the old test could
-> stay as it was.  Feel free to keep it if you prefer it spelled out.
+Hi!
 
-I think I would prefer to keep the d_in_lookup() test but it isn't a
-strong preference.  In my mind an in-lookup dentry is neither positive or
-negtive yet, though the d_inode is certainly NULL.
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
->=20
-> Otherwise this looks good to me.
->=20
-> Today ceph_readdir() runs with i_rwsem held exclusive (WRAP_DIR_ITER),
-> so the -EWOULDBLOCK branch cannot be reached yet.  To exercise it, I ran
-> a test-only build that drops the parent's shared lock in ceph_lookup()
-> and sleeps 300ms while the dentry is in-lookup, which is what the lookup
-> side will look like once d_alloc_parallel() moves above i_rwsem.  In
-> that build, readdir replies met the in-lookup dentries
-> (d_alloc_trylock() returned -EWOULDBLOCK 64 times over 4 rounds), and
-> afterwards:
->  - the first and the second (cached) listing both showed every name,
->  - every lookup returned the inode the other client sees,
->  - there were no duplicate hashed dentries in the directory (checked
->    with drgn),
->  - the MDS cap count matched,
->  - KASAN and lockdep stayed quiet.
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
 
-Thanks for this testing - I really appreciate it.
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
 
-Thanks,
-NeilBrown
-
-
->=20
-> Reviewed-by: Xiubo Li <xiubo.li@clyso.com>
-> Tested-by: Xiubo Li <xiubo.li@clyso.com>
->=20
-> Thanks
-> Xiubo
->=20
-> NeilBrown <neilb@ownmail.net> =E4=BA=8E2026=E5=B9=B411=E6=9C=889=E6=97=A5=
-=E5=91=A8=E4=B8=80 21:25=E5=86=99=E9=81=93=EF=BC=9A
-> >
-> > This v2 drops 3/3 which was deprecating d_add() - there is no rush for
-> > that so I'm not going to push it at present.
-> > It also fixes the first patch to increment "skipped" when d_alloc_trylock=
-()
-> > returns -EWOULDBLOCK.
-> >
-> > The VFS patches that this series depends on are upstream, so this can
-> > land in any tree.
-> >
-> > Thanks,
-> > NeilBrown
-> >
-> > original intro:
-> > I am working on changes to directory locking.  The medium term goal is
-> > to lift d_alloc_parallel() locking above i_rwsem, so d_alloc_paralle()
-> > can be run unlocked, and consequently cannot be called when ->i_rwsem is
-> > held.
-> >
-> > The requires:
-> >  1/ that d_alloc_parallel() not be called while i_rwsem is held and also
-> >     that d_alloc()/d_splice_alias() not be used (unless the filesystems
-> >     doesn't support creating objects).
-> >     cephfs uses d_alloc()/d_splice_alias() when priming the dcache from
-> >     the results of readdir.  A new interface d_alloc_trylock()
-> >     is now available and can be used instead.
-> >
-> >  2/ a dentry must not be d_drop()ed while an operation is ongoing, as an
-> >     unlocked d_alloc_parallel() would then be able to create a new
-> >     dentry with the same name.  cephfs calls d_drop() in couple of places
-> >     before d_splice_alias() but this is no longer needed as d_splice_alia=
-s()
-> >     handles spliced aliases now.
-> >
-> >
-> >  [PATCH v2 1/2] cephfs: Use d_alloc_trylock() in
-> >  [PATCH v2 2/2] cephfs: Don't d_drop() before d_splice_alias()
-> >
->=20
-
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
+-- 
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
