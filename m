@@ -1,63 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=57.103.86.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794943891;
-	b=WPZmfBonbAsPU+Glc3C2boefIFZ73vt3c4ib7qMhqs0BTS/7QGALYbbEC06VxKkuVI2E
-	 WkQlxpsxSSbvzTz9n8edxwrGkO5Ne+JVJrUw9zsDsAQjb3dYWOt7Snf7odRD41TeUXpfd
-	 +EHM+ErUVGjSzj4z2YZ4wZl1qt6cGhuK5SEwM66MKit6ytwbGP1T8wuRtl2mk3vjh11tK
-	 Zbrt0JXR0I1fNpsSSs9z72c46l13En+eEVsaBVoDJcgGoUQY1NDH8QNZJyHIBinRwt660
-	 g48/czs+ZXvviaJHG2xT2xMnRhOChRKD927YmcBa/I7R7o6EoZ3biSeCT/9gQMtDmaA==
+	t=1794943914;
+	b=PIny0yLniwBvCEUrdVluxPF7g9teASF/pVXh+7qZgXMJUVZ6tk3M4z6eCtz13M6c63p7
+	 Hy2dMlHFjfnzI0aQ9m0t3z7XAUhyJPG8VHAfHcLuPd981Y6dfJb6cArS2B5KD0HNIQ2a3
+	 g/S6T0LY39ifRuj1+HXEyFfjbBK+I9I1gjDOHT+vMZvq2SFfOqFI6g84SUX3TsB1bmUyd
+	 rf52bdH78vmaN1ODyEWBsp6REt+veXWLtCRrIWRnj304tmNMjMirAUhm1Sm77TKW5f0El
+	 n1/IesN/0pbx+jbaIKMw5oeA28tpWoungouus8AYaZ++aZKS8ZqH6HoYX/D93QPAZzA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794943891;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=nCo75ty0Aujy0KouEOqop0m/uhiJYaP585U75o493OY=;
-	b=cCgMJJaQSIVbZu/5iw4Kfj0zYXJw7+cLPx1DeT/qiSLbEg+0r2IREtyzj/QBH2Lt4mPB
-	 pY+dwtZvjKlDb0KHo/BhljTR3CRwog25lMpKdG2ifcDmpX+KbBZleOzEOU++tziq4X68Q
-	 cwfvJ5haNRb0XUhBgRQ8Qp7WfwhWX3tII1EvVivOXmXKsysZ0l9cr36ShqXSreerLBRp7
-	 X87fVPRXxpqt1Y01hRUrquxQBTJfU4YAWpaSb+qW6ZO+fqk5k8gdNPUAhkwgXY72pBrsW
-	 qIKX2XEoCTbeN6EP/ODc6K6WNHTckgiHHH4dop1SPrYOX/GTkqXwCpJT/ipk4uq8BDQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794943914;
+	h=DMARC-Filter:Received:X-ICL-RepId:Dkim-Signature:
+	 mail-alias-created-date:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-Authority-Info-Out:
+	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-JNJ;
+	bh=tupyPMS6Ppn0golo5XSyKLtR6YNSo+CWY3qgLUPBzKE=;
+	b=NFmE9WIm9tBvm1swkvxTv/3IBAntvOomKebZPh5ONmEibjHmpi6Egi7trwJ+wFl14PM1
+	 +HGn9tYiG60dL12stvGgUV52l4MW0V8KkAqJWYWmAVHptUOeyW2TRK5hf4Qm4DgIfZgXP
+	 pwWdDCEVMXsuVM8YiayeR4+zpo3zD5CyHU7HOtb/LC2Hv9Kqr4GcxPdztuaP8DvEj/0tD
+	 9kVhlyMYUhv+J9Fy6YW2csrGYLipBm726q8+ORFUBEVCkpc8gv4X6s5FqxGytadU4ph3H
+	 W8MET5z8QD1mqotjXKuj6bClTSe3H0y6dGaYL5GGvM2OC00h0hnMYiQ/6Bn7EJJYY8g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d1vONByq;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=verdict.gg;
+	spf=pass smtp.mailfrom=verdict.gg;
+	dkim=pass header.d=verdict.gg header.i=@verdict.gg header.a=rsa-sha256 header.s=sig1 header.b=Ih2ttrqP;
+	arc=none smtp.remote-ip=57.103.86.178
+Received: from outbound.qs.icloud.com (qs-2005e-snip4-7.eps.apple.com [57.103.86.178])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33B1D606A31C;
-	Tue, 17 Nov 2026 19:31:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE23B606A32C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:31:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE23B606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=verdict.gg
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=verdict.gg
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d1vONByq
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 038431F000C4;
-	Tue, 17 Nov 2026 19:31:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794943891;
-	bh=nCo75ty0Aujy0KouEOqop0m/uhiJYaP585U75o493OY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=d1vONByq+DDyy6hoJWEKC68lOH75ploQoY1NLx+0O5oC94nqHsUDXPalbkANcNki6
-	 ++gQfJgcvQNpWgizWI1PgBa+fCWPvowl9hqQr6QanrmNsEUacbVHokluhHkK+XJPlb
-	 Sr7iAfbN684agAd4VT2T/gQv95c2KbCwBgq0WAeovaHc5SNxGdHxXDUlet8x5Lgx2r
-	 fZ5U7rruCNi1DEt0M0d8Gb82ZTOBYeLYUO9X7KcFh1feo/sW7kZ/VHTRbPLlYvDxeE
-	 gdWkQcIvOHAE3/GUJNQ+QVtVpvwuVAblhZglWCkd+vkKd3kO/kcAAFgwTI3MkWFWyl
-	 QdSFrLqWqfj9w==
-Date: Tue, 17 Nov 2026 21:31:23 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Jan Kara <jack@suse.cz>,
-	Jingyi Sun <1045704958@qq.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	Matthew Wilcox <willy@infradead.org>,
-	Michal Hocko <mhocko@suse.com>,
-	Muhammad Usama Anjum <usama.anjum@arm.com>,
-	Peter Xu <peterx@redhat.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Vlastimil Babka <vbabka@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, nvdimm@lists.linux.dev
-Subject: Re: [PATCH 0/3] mm/memory: fix handling of PTE markers in
- insert_page_into_pte_locked()
-Message-ID: <avyri3PoPUriTmxN@kernel.org>
-References: <20261117-uffd-dax-async-wp-fix-v1-0-c9a30f27f452@kernel.org>
- <7ae17206-829d-4fdb-afd0-cc14c5411b74@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=verdict.gg header.i=@verdict.gg header.a=rsa-sha256 header.s=sig1 header.b=Ih2ttrqP
+Received: from outbound.qs.icloud.com (unknown [127.0.0.2])
+	by p00-icloudmta-asmtp-us-east-2d-10-percent-2 (Postfix) with ESMTPS id 9641F3000142;
+	Tue, 17 Nov 2026 19:31:50 +0000 (UTC)
+X-ICL-RepId: 01a1eafe-8209-79a5-981c-e4fdfb0e56a6
+Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=verdict.gg; s=sig1; t=1794943911; x=1826479911; bh=tupyPMS6Ppn0golo5XSyKLtR6YNSo+CWY3qgLUPBzKE=; h=From:To:Subject:Date:Message-ID:MIME-Version:x-icloud-hme; b=Ih2ttrqPnDmpiBxn+/eAIutck6i6j7u7rZqgPk9BKxQiQBVwiMavdAh2ecAnfXh4CBxa4xFNH+QIHapSdpPbmKWB3IOI7KJ1bNScKgXpRtLJL7iBM3GzGICy/1bHvdBycZIDlSS8I7njhLfZ5KnhvC63XIVMzWJ7hZkTXqR8z1o7f3pfTdwPO3ciYL3yjVfKHgVRNG0YFOp2dQHXwQnf7IyvW1w7Als9xrz1dqNEFCRqyatznmEKIpsi3/EFH0m5PAnlA2I+2rCuw0jFlERl7oN5VWKGUKglCCqHJHq7zLyAoCMLXpVgbXJOUIaizL7kcXuwwpwOAPz6UzJqpniV8w==
+mail-alias-created-date: 1621344842221
+Received: from DelNac.mail.msk (unknown [17.57.155.37])
+	by p00-icloudmta-asmtp-us-east-2d-10-percent-2 (Postfix) with ESMTPSA id 1DBAF300019B;
+	Tue, 17 Nov 2026 19:31:47 +0000 (UTC)
+From: Vladimir Vdovin <deliran@verdict.gg>
+To: David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Shuah Khan <shuah@kernel.org>
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Vladimir Vdovin <deliran@verdict.gg>
+Subject: [PATCH net-next v4 0/3] ipv4/ipv6: Cache pmtu on all paths of a multipath route
+Date: Tue, 17 Nov 2026 22:31:38 +0300
+Message-ID: <20261117193141.27004-1-deliran@verdict.gg>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,60 +70,103 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <7ae17206-829d-4fdb-afd0-cc14c5411b74@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-Authority-Info-Out: v=2.4 cv=YOsKWhGx c=1 sm=1 tr=0 ts=6afcaba7
+ cx=c_apl:c_pps:t_out a=bsP7O+dXZ5uKcj+dsLqiMw==:117
+ a=bsP7O+dXZ5uKcj+dsLqiMw==:17 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=HxOO8S7qDNDRVQTpMkN7:22 a=6uOZW5gG_GFTgJ11RZm6:22 a=VwQbUJbxAAAA:8
+ a=bKHCur5yDY6pmIDHOTwA:9
+X-Proofpoint-GUID: bFUYGdxpfn2VICFhM3OglcjlmOYcU8Dd
+X-Proofpoint-ORIG-GUID: bFUYGdxpfn2VICFhM3OglcjlmOYcU8Dd
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDA3NyBTYWx0ZWRfX9GsAPuHikMFn
+ YPexFgrmmH6KHO3Hi7cWq8G760J1OV0kmNfApr3/qGU5Io9Z+mGTNw+RL33ifkbCu1v6T5MvTnq
+ Ivh3G6xbZfe/tRgXBYMxPRw3vtWQ8v0=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDA3NyBTYWx0ZWRfX5Cx0vPZc+YHN
+ /d1cO1Cw/O+hOxdJJU9zKFrDjD8mLxrQ50kq1VWRp6Qj0UkdEL1rIS58fNjIaQfoQjr7iVxs68W
+ n6gHJTf/UQn5Kj9GWGM/BcFaAjOKQG059AdxpuwksQzF1GAOw1gVxHBvvo1zZeBhAUWEGu7E8Pw
+ OpHYN59tqr4cOzbS2GvGFKstSQ2vGQfW4HhNZ+qNEd6tDw9OHMHmQoI6COo1so+drYVCvHjFUsw
+ BcEXnBLgsrW7SEQQy7yDFDcAZBrmofL2/4CMbcs54+OUGeJ7/HnfOqbA7rALkpGuZQOfL1XDLX2
+ 6NGMayTbZUwIdI7IRJscbfBOVPhifYagW0Le0Qi93qZe87sWRfdW9v6euUlBDA=
+X-JNJ: AAAAAAABz/8voPgWdjHqiZOUkCs0T0TaIHLK2vUfivmCMGiu7Yp8/zK08BW1y0aOlLEl09
+ xU/pjrCngwRrSnvQuUpQKJyCHbEKgEaf9+Pls9KSex9ijHM1K28H44wvgnLL74+Hmt5LCI
+ RzaNZnd4RkGprGZMeA6JszYvLUfEdi5zsBYDM9Re83v6tHyHWivaVNmysKLUX7sOwX6vVl
+ 2QrMnDpcLiOsXV0+WtOun+K1U2DzhuihPrw5DRs5tKQ+dbVOoyjfGZVwP6YJDzjCEsXf+h
+ 3PnyRsJi+j0d4h6biD22Bh0swb8CgF/z0URxnNrVOcHKhA/GY3dU772FRb3YSFNvHXb6lb
+ fBFaL9WIvcmQuTHSwOeku1P/ifIi5ismbfwH3y8cLwlntUJh37761iTQbV7OfKzisIM8JF
+ +UcXQaq8tewdCyS/46AkhD1vkhjIs8o7pwaUEgs5geZWaqQjw0tc3Qp+56OgRxAnC8v6vJ
+ OvoUb4JNYxZhLlz2wbQaZtegY2e6sQ8dIiSgBRX3sLYWn6LQLF32jbPjETY8PzLlLIaYDa
+ 0q98swTJKz3XjdTQo0p8TG4atLxVYfs8fvcr0zojCR38xqR0hnrgluGK9UUmvdj+kQJWLR
+ FWTK2dkk9ZnBhR5+wJnWbZB03+qKWyNzCgmaKPSkotOnYM7cc7s0nyarMcv0oev9UKfQGh
+ bGKKCGW8ScUkHF000NGUx2aZTKwTaAYEZjV8vbVOVC0G5wCT1sE+2fSwE9oNRxXRxoYaj2
+ d4XBapdpJoehO+2zOU+wSYa7UTpv66zeb6ExTJsmmHC/Dljt5efLE7zfMQKFFKNQFtPMIc
+ mRRF+wgBqKBYytD/O0hzxtfCVzv8yRgVfDd8q3PTyVsD2SKl20d48x5Ou8DaberbCNb1tz
+ vQNrYuwNPptfaorqxDUcWBdL+l7zq/eUVLHqtqcPijw35gHZTSsWQiSreoD7bklybG35zp
+ W1vbR2XCQXGqUEcQiR3B1aXUX0emp9Ly4uCJCz355A9CmzEXnDQ0AfHKQyMvCm7Mp0WSPV
+ /KY2MM0bVHhH/QcVSbQyL2PFIBgIIMD3amPvAl10ZFRLVDWsEYsqFSvlUg1hZVcKH+hJu5
+ +bb55TdoQSOoSf9rQFC0dzpOZF+EAnnF2e5V7gPDCMzuYqv4+aFg4fU28ZZ2vNY6eCSwhN
+ Y1vmAIxpLX77VQoWN8Er7iXU3rwDqu0gEd2S7KAkcJoUVz7nuw1p8Jyb2hxth/0wcHevwL
+ v+s+pY5y4fEF1M+q0w3QsBd/JiZ8mRW/xCjValhf2bm2AbzY9dZFDlErBuI44Tndwa+aCg
+ 8qeWnKR9M2r6Bdf5/pyFO1qH/LEqK2
 
-On Tue, Nov 17, 2026 at 05:22:09PM +0100, David Hildenbrand (Arm) wrote:
-> On 11/17/26 16:58, Mike Rapoport (Microsoft) wrote:
-> > Jingyi reported that a uffd-wp marker in a DAX mapping causes endless
-> > refaults on reads and SIGBUS on writes [1].
-> > 
-> > The root cause is that insert_page_into_pte_locked() treats every PTE that
-> > is not none as a present mapping. Besides uffd-wp markers, this also
-> > affects guard markers that MADV_GUARD_INSTALL can put into a DAX mapping
-> > concurrently with a write fault.
-> > 
-> > The first patch restructures insert_page_into_pte_locked() to make room
-> > for the fixes, the second patch fixes the reported issue and the third
-> > makes write faults back off on non-present PTEs.
-> > 
-> > Both issues were reproduced on ext4 with dax=always on emulated pmem, and
-> > the fixes were verified with these reproducers.
-> > selftests.
-> > 
-> > [1] https://lore.kernel.org/all/tencent_1874C71D4177A1624528043E008DB1A5EF05@qq.com
-> > 
-> > ---
-> > Mike Rapoport (Microsoft) (3):
-> >       mm/memory: install new PTEs first in insert_page_into_pte_locked()
-> >       mm/memory: replace uffd-wp markers in insert_page_into_pte_locked()
-> >       mm/memory: don't upgrade non-present PTEs in insert_page_into_pte_locked()
-> > 
-> >  mm/memory.c | 68 +++++++++++++++++++++++++++++++------------------------------
-> >  1 file changed, 35 insertions(+), 33 deletions(-)
-> > ---
-> > base-commit: 93d7a816a2df3e907e2719bd12b0073f1285fc5c
-> > change-id: 20261117-uffd-dax-async-wp-fix-867acc8dc78f
-> > 
-> > --
-> > Sincerely yours,
-> > Mike.
-> 
-> 
-> I have here a fix to disallow uffd on DAX entirely. It's completely broken.
-> 
-> I was staging it to send with others, but I can send it out separately.
- 
-Nah, no need.
+IPv6 counterpart of commit 7d3f3b4367f3 ("net: ipv4: Cache pmtu for
+all packet paths if multipath enabled"), deferred back then [1].
 
-But patch 3/3 here is for MADV_GUARD_INSTALL on DAX unrelated to uffd.
+Patch 1 checks the mtu of a Fragmentation Needed against each path of
+the IPv4 fan-out, not against the looked-up one, patch 2 does the IPv6
+side, patch 3 adds the tests:
+the IPv6 variant of the pmtu.sh multipath test and, for both families,
+a multipath test with paths of different MTU. The IPv4 asymmetric
+test fails without patch 1, the IPv6 tests without patch 2.
 
-> -- 
-> Cheers,
-> 
-> David
+v4, after the Sashiko review of v3:
+- ipv4: each path checks the mtu for itself, the early returns on the
+  dst are skipped when it was looked up for the Fragmentation Needed;
+  a locked mtu goes no higher than what a path uses, a path with a
+  locked pmtu is left alone
+- ipv6: walk the paths only from ip6_update_pmtu(), where dst comes
+  from a lookup; sockets and tunnels update their own dst as before,
+  a tunnel mtu no longer lands on the other paths of the inner route
+- ipv6: skip a blackhole nexthop and siblings not in the tree
+- tests: ping with ICMP sockets, a raw socket handles a Packet Too Big
+  a second time and could pass the IPv6 tests without the fix
+- tests: the IPv6 addresses on lo are added with nodad, the pings
+  through R2 are 1280 bytes to stay below the 1350 link
+v3: https://lore.kernel.org/netdev/20261113122237.88990-1-deliran@verdict.gg/
 
+v3, after the Sashiko review of v2:
+- compare the mtu with what each path uses now, not once with the
+  looked-up dst, so no path gets a pmtu above what it can carry
+- ipv6: keep updating a cached dst itself, the walk may not find it
+- ipv4: Fixes: tag, Fragmentation Needed wording
+- tests: MTU 1350 on the link to R2, so a Packet Too Big from R1 must
+  not be cached on the path via R2
+- tests: return routes on R1 and R2, hex flow labels, skip when
+  "ip route get" has no flowlabel
+v2: https://lore.kernel.org/netdev/20261110095903.84813-1-deliran@verdict.gg/
+
+v2, after the Sashiko review of v1:
+- update an existing exception in place, on every Packet Too Big
+- don't walk the siblings of a fib6_info no longer in the tree
+- commit message: the lookup in ip6_update_pmtu() hashes without
+  protocol and ports
+- new ipv4 patch, tests with paths of different MTU
+v1: https://lore.kernel.org/netdev/20261017210508.71849-1-deliran@verdict.gg/
+
+[1] https://lore.kernel.org/netdev/ad29493c-9e48-4a94-b327-e47af3a9d137@kernel.org/
+
+Vladimir Vdovin (3):
+  ipv4: Check a Fragmentation Needed against each path of a multipath
+    route
+  ipv6: Cache pmtu for all paths of a multipath route
+  selftests: net: pmtu: Add IPv6 and asymmetric multipath tests
+
+ net/ipv4/route.c                    |  90 ++++++---
+ net/ipv6/route.c                    | 138 +++++++++----
+ tools/testing/selftests/net/pmtu.sh | 290 ++++++++++++++++++++++++----
+ 3 files changed, 418 insertions(+), 100 deletions(-)
+
+
+base-commit: d26955e57475434b59d43ba372b2a50d33d5e0ed
 -- 
-Sincerely yours,
-Mike.
+2.56.0
+
