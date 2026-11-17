@@ -1,101 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.227
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794944663;
-	b=fucF+M013uaGuAfnQX5PEPPcDO9uMZADm9EdGOVAMqg52bv8mYmE3Ct4w/W+NghMvron
-	 gbJR1S1xEMs+zQtmWGHjxsbkJpuDv6ICO+30GRiFTqwzmGtLaTE4Itp5nCEqNZWetZkYK
-	 xDKHs9KAqO2VfRyA4jKN0+oEEzHpDqGvspN8LmnQmQk362Oyh7tbyjatey+AUaCsD9okE
-	 hugz6Zi3hKDQhNrqwR9VJEzy9sKRkQIc568hX3EzhxaOyLoZYDBFXDog3U3iqn8E4a+Gq
-	 099AvLzq1VHSIRgmKzzZj7IQC4p4aahxDdl7kY8ksLjoX7w2qy7HUoMDx80Y2lhx2dw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794944663;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
-	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Received:X-Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-DetectorID-Processed;
-	bh=Vm768rj95XSqhVFyKaRCqQbLbjDKoGVyyfyto0z4Upw=;
-	b=124pWzmcWR8GhwqQRkUVXBusP7+J2DlGwELYLYS9PCNidrIhJRuHYSnjpr+DH9qK0KYB
-	 cj7cGa18WeuYUn8AlRuxgEhFNt0RQubAEa6vnI/V8Xqk9M1tpy4nWDO4E2NvJdLQ4qdTS
-	 ss7Z37NEL0P95bxtalCVZEV6ZAhEFXCHytaT9IFjC89NHhEK/aBTQMxIswpsRzj0XQRoh
-	 wY+bjD1tDEkkNaETwqUN6gq+/kzYtksvyt8lK8WvH768k2grc58TeiYrq8myLdAXI4C+M
-	 54V0v0tmVyXfXIwi7dlYFltVKd2ic8VKrGTA35D7ZPqAtMbDB6gyApSnWXkE1oqeX7g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=e1frChzq;
-	arc=none smtp.remote-ip=209.85.214.227
-Received: from mail-pl1-f227.google.com (mail-pl1-f227.google.com [209.85.214.227])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.64
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794944671;
+	b=ThQwo+JxlF02MnVaqgpwboB2tUNeoQo1In+ob132mv4EY1jnyjPZqO4yt3kG9IcdcF2t
+	 nHQBGooMOf6XnFiV5cLoDHKV0q1w4ueesguMjXmPw07FRFXPGCKFz6j9cDJggMgaXnAD7
+	 FDsjpHjiscaWOoNs6ZqxeawcTbMWfxekI7kLKnxGO2lKedZXnw5iTM6ebqyjd8/sniNNG
+	 AFY2Jq9jKHZVbbVWM3en6T6R+2L3CKbCyefokwDzhA8bejn/q2xj/qgSjtUkq9NsFOktW
+	 WK+k+l0E4DFfYnmLjk458sJKKTch/6F/s5J3W/+8tXotv8l5RTNX0+VQz2P0/no6SkA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794944671;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=DsOITSqXSaWxHI1MQaXYRQqFjZ+WLHeLS3WqaQ+u1bc=;
+	b=zhrpiePAW3J+EfUtnZVDwP6Foc60aSeKFHqGMB6AXJGN5WvIHx8DS5xv4pY8H4p7jfE4
+	 6spgzr4xJE4cm0MGSAWVOli1h4CD5DHyzFLjJ8VLXHATT5O1drRjQxK0bDYsf7kfKedV4
+	 TBeE7UHa/XrvXUr+osbrKTm9DVWblDEP5sfTRmCCwhu1DRMAbStf92WU91iyH/WwmO7Fj
+	 j0X7VOCxjJBxB/r57+zFjEEqEbSbqwgXVIJgyUafI7CF5E7dM/omU38K6uYTTMADsrRrU
+	 DzhJHFmojeXhzj6j+LLDIWJp/ewLDGwP6erMS2xnTRa+I++Ajcak4R92s0vmdfl0FDQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=Gp9oW07w;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.64
+Received: from AM0PR83CU005.outbound.protection.outlook.com (mail-westeuropeazon11010064.outbound.protection.outlook.com [52.101.69.64])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50543606A880
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:44:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 50543606A880
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B14D606A330;
+	Tue, 17 Nov 2026 19:44:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B14D606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=e1frChzq
-Received: by mail-pl1-f227.google.com with SMTP id d9443c01a7336-2ed11653a91so758175ad.2
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:44:22 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794944662; x=1795549462;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=Vm768rj95XSqhVFyKaRCqQbLbjDKoGVyyfyto0z4Upw=;
-        b=E34kW3ec6+ic+RZcOkxJbNX9IEZ4Jio+yILdeNB1PuTx//T+vmdnFj3aH5W0tU/V6U
-         +vCO7d+qY4Vg+bGkkhRYfzTdHALjrqE78LvLnae+FgBSkM6nI2esh5B0Y0d7nkWv97ei
-         sMlLnFUwAzQCQcz+42Ku829xX8/ajZERYup70p4yX8eDILO8JMSDUuc00pw1+epZk2S0
-         kAVdQkZKMABfh9RYlvEpYr8oKJI8gHR2k6bxQ55uHV+V9d7/K+zda3d3qfGhM+LNJdqH
-         XBgvA4fftHrQ3/I50aUQXE48spd6o4LKcsZd+BIMCqOxI7J016gRgFCQqEsnptSJRRnK
-         rpRQ==
-X-Forwarded-Encrypted: i=1; AL+hErHSoj8yzcHU03qKEPysbqJ7MQyQLcBLQ4jfy8+2A60lKa6khN2+MW+LhfahwFVICmCGuHIpCHn5clna4qU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/lLa7MxeDg/GiLiXTBuMRSiUGOVz3wP/qlRSXrG435ZuHiNAhC
-	F8NRg2ilv9/5w/twKg8Jzp3Lh3I0eENX40B6VtSgkzk2+p3/MCEHP47+WTBA5UsuWCR+NoXro18
-	dfQNOozADjcgh6draZgVzosvGQGGEVjd8Nq17JwE/tqZRvN9tzE8qa6rJbcVn4U/X5JTIVIN0z0
-	8f3fsVndtOPphqlAZ2vz2I+dO/jGUwf3lVZMFyHIIJ8RZA+vvDz4Hd5HoYDd654LpX+8WEXTcOe
-	e0GzoRxImjmlLFB+q7VpaE4BA==
-X-Gm-Gg: AZFdTZdSQ2fRmCKYbfw8lUb/oHaMpBAheZZTiP2pH6xpJII6RrRaLHBHjYqqj9d21nx
-	XI9R8h+TGElTONDKHj6DLE/umW7O1EHD9VgQiPOpiFNnQWVe+vg6LkhEk9HyPjTKYjFx+YYgtAC
-	W8JfvYREb3FMzNliiA4qyvNpv1ztMmDpkrWIghHCaTZjXZ/lsgCcJaA0GSRG5DKKIgwZDhJF8XX
-	/aOhMwiQSOeZDmF4j7a3kimfZJXamTRSLMDUZUy9vmT8mWt/OM8XjQu88XTiSyOMbXxHKLGlYi9
-	l9R8uH0zPdjxJorsvw2mWqvymCbfnaLsxv6g+Asv5s0liKxad4cs8tQptbzefcPX4RDpJBLldkh
-	DFa1GaNLCtIbPp7wL7Da6j0XMGsaCtEwprqEZQtsTS6uFa+FZP8uCQ0AkC56lIqQDQxlelMWWT2
-	wd/huGmBm7bEvZIaRogiOvCHf66PuI6yFVAfwSIuQ=
-X-Received: by 2002:a17:902:d4c1:b0:2e9:5829:9b41 with SMTP id d9443c01a7336-2eff7537da1mr3425315ad.37.1794944661574;
-        Tue, 17 Nov 2026 11:44:21 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
-        by smtp-relay.gmail.com with ESMTPS id d9443c01a7336-2eff62c2f72sm144695ad.56.2026.11.17.11.44.21
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 17 Nov 2026 11:44:21 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-ed1-f70.google.com with SMTP id 4fb4d7f45d1cf-6b6fb975053so200487a12.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:44:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1794944659; x=1795549459; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Vm768rj95XSqhVFyKaRCqQbLbjDKoGVyyfyto0z4Upw=;
-        b=e1frChzqTMz18PJyDJgNMGYe0iujmsPgXMjke5c5qFLcK7NqhbWU/47zeMRICMJemW
-         gs/fFGGcm7F9S728xChjDTIzRk71wXNeBJTFiZo7kDPeBqqU4If5DRwcJZhKLTGr33aS
-         eOQtoQQGPhx7dmhWVdk9nFzJFfl9g13jooxQM=
-X-Forwarded-Encrypted: i=1; AL+hErF/V7HcAN4BfamZlYu/ILG/+Zqrd5MLFwzWczRosn1H5GgtT5BRcrW/dA3QJSWhYWALnZIN0NetidLGHVk=@vger.kernel.org
-X-Received: by 2002:a17:907:d407:b0:c50:4a71:cb5 with SMTP id a640c23a62f3a-c510e15c00cmr29023766b.15.1794944659442;
-        Tue, 17 Nov 2026 11:44:19 -0800 (PST)
-X-Received: by 2002:a17:907:d407:b0:c50:4a71:cb5 with SMTP id a640c23a62f3a-c510e15c00cmr29020766b.15.1794944659038;
-        Tue, 17 Nov 2026 11:44:19 -0800 (PST)
-Received: from [192.168.178.26] (f215227.upc-f.chello.nl. [80.56.215.227])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c510ca0d085sm15771766b.13.2026.11.17.11.44.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Nov 2026 11:44:18 -0800 (PST)
-Message-ID: <7d5eabc5-5876-4ee7-8a82-0bd3a47c733a@broadcom.com>
-Date: Tue, 17 Nov 2026 20:44:18 +0100
+	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=Gp9oW07w
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=D3hXkMB27l7B9iYyersfTaU2YNFnpPnNC48rhZyxCMrn0p5GYPW1XmLLb5MVDxeE5XW9UmsbvCAzznpoWsPeMrTGqI6qN3KxCobjlQ6S4HjOaaV7MNc9qnkLJQjYId/JYUtbve+nLrfdtEm7/IReA5u2B72rKCpAAG5pWb4e9unWL1nrcDkIeK5qaylMmDvZqSe0ZA7RPsa+ho9u8GPR5UFn+DmZdMoce1TpnfYKaVQ27C4QktnyS8bKV02skOjFBIUfhK4s5ZxYlArm6xEc831Kb/ZD52CaVHVjNHnm0xck3KL1FAMdVAwitWhaCzNaSW3MjK+WJUpJKGDjl8D9mg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DsOITSqXSaWxHI1MQaXYRQqFjZ+WLHeLS3WqaQ+u1bc=;
+ b=Ud1TraGsVZRBkVK8jZMXtKOjJa7Qp25XkqO7MaXA9X99r6TZCjdj7Hzkqy6F4YMqdRfktof4kRKARSmH5kYn5+o26K77L6kLJyIjfEelDvQWBsh4EhHJgb+uphzsE9BH+rt1AYdW1QTPwVo23BbTu8+hXJYwNtuyXbM3/uZdoGEI35r+2GHLOCCMSVtnEvJDiTk54GviHQovhDuvaMDLcE+TCP7KLUlH9jRGb6y0u+L1jh6F4ysFem5EZ2OsQVYxqJpAixE7aXzvc4I+41w1z/FcjFmTM9w4BKAf+Aqsz+hVMRJPQjjYgS2+7g4MqPh4dp+ZJoEZygSyDpQocLUbWQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DsOITSqXSaWxHI1MQaXYRQqFjZ+WLHeLS3WqaQ+u1bc=;
+ b=Gp9oW07wr3lNb6hPbjImGJVlItdQNTmDUjr9mgAO4/KHKRkkP7glXPI8tjLlkxP5KAe91cuqk6qbqNgBgn+CH3q0QhbkxB0VHLZ7k+Tsu1tOwx+fo1E/Zd3RY8biZMrTQvhRhTc3z5WpsSlq/Soeq87cr5HZc6eFnH2b4MPIA+JJ2+vG2iyUNXb30+eMgXbWLLUM15zpq3u8rLxedJ/qZJtB3Oi0DgJ3gosxFuKBxxpzHD6nb0h/wY5cU4/ZnukjTM6HVRACA2pD8K5e+R7cwSUcTIlxu3/EB27e4OivzYrJAwQw+RRGJoVsv61R4vWlyyv5RWOZ2pTKs9AjGeqkHQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by GV2PR04MB12191.eurprd04.prod.outlook.com (2603:10a6:150:33a::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 17 Nov
+ 2026 19:44:27 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0615.013; Tue, 17 Nov 2026
+ 19:44:27 +0000
+Date: Tue, 17 Nov 2026 14:44:19 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Lee Jones <lee@kernel.org>
+Cc: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>,
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	linux-arm-kernel@lists.infradead.org, dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2 07/11] dmaengine: arm-dma350: Query
+ dma_cookie_status() under vc.lock in d350_tx_status()
+Message-ID: <avyukzFVegUHvgtL@lizhi-Precision-Tower-5810>
+References: <20261117163809.622249-1-lee@kernel.org>
+ <20261117163809.622249-8-lee@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117163809.622249-8-lee@kernel.org>
+X-ClientProxiedBy: PH0PR07CA0084.namprd07.prod.outlook.com
+ (2603:10b6:510:f::29) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,79 +100,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] wifi: brcmfmac: leave the AP 4-way handshake to the host
- on Apple chips
-To: Aditya Garg <aditya.garg@linux.dev>
-Cc: Andre Eikmeyer <dev@deq.rocks>, linux-wireless@vger.kernel.org,
- brcm80211@lists.linux.dev, brcm80211-dev-list.pdl@broadcom.com,
- linux-kernel@vger.kernel.org, Yossef Osman <Yossef.Osman@proton.me>
-References: <20261116203719.281605-3-arend.vanspriel@broadcom.com>
- <BF5FB50E-063E-4EAA-A06D-ADC3670DEAE9@linux.dev>
-Content-Language: en-US
-From: Arend van Spriel <arend.vanspriel@broadcom.com>
-In-Reply-To: <BF5FB50E-063E-4EAA-A06D-ADC3670DEAE9@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|GV2PR04MB12191:EE_
+X-MS-Office365-Filtering-Correlation-Id: 81376a2c-c1d1-4c68-1026-08df44e330a0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|23010399003|19092799006|7416014|376014|1800799024|22082099003|18002099003|261009223027099003|56012099006|11063799006|10067099003|4143699003|261102123227099003|261021123027099003|261022075727099003|261021121427099003;
+X-Microsoft-Antispam-Message-Info:
+	eaRHDukYltKkezxOGabq5PRDybsAifhAHxhCZAcDpqWtKOyYPDui1HM4Ck2XMfIaX9CVvrhzDErq6huZxlO/sVlSdpAvBk1wRxgdkM08jTizwakRMPDrfzY1lLmdBgoMbI/WqrXvzbB92AmuIO4W3rp8GjQEwRaOiJef82drrkuI+yLuAWQLVnK49+OTWXmrDQRJLaApCPdfHUzTMVtV1hAtRzeMG8ljYldE+H5O9zTsoi4nRbzk5w+QAnVo4vb6mq75de6pGuZ9fXqMjUrambL/F6fy/tiQPPbGizsaveY+lfud6wIVw7vRLlgdup7BLLU7SHQeY4ik7pUs93m20Egdat9qyGplXlDmfxW5hp+ZP5XEv+9jqi0MgjAXqsXSxYdtJH5/IMD2vOjmAl2xHE7Ce05E+ZVAIqiKtZASCQgekoEeyPirt0i9v2ul1dFSuXhJ74VYEqVQzOSKk7lI/uYlVqMOiSu/g92VhfFIBjGx8jQ0PelTzak7VsHi9k3Y0cxmg2/2H2zM67RgF/4GMWtoWY6p3WVPBn8E7x1pbyW1fM9pmS4FeXGdJP3QfNLw8nFIYlJq0mnenfzu3SDTiMMhrmj+mNx2X3p6I2zB70k=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(19092799006)(7416014)(376014)(1800799024)(22082099003)(18002099003)(261009223027099003)(56012099006)(11063799006)(10067099003)(4143699003)(261102123227099003)(261021123027099003)(261022075727099003)(261021121427099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?m6/1ZR5zdHgA5so0b1APtk80gU0E2rov1E1lfFZ//MyEDCj9EeG0pMQ7L6GQ?=
+ =?us-ascii?Q?ZXoUwSdokIsHA0okUPRpMsW1OdE9Swj44DLx1EESFPrM3OLxEiW0IIraTgAZ?=
+ =?us-ascii?Q?HcX4XZwAwhc4bH+HzmuQjTDwIUutz/egpP+TFrrAnU1BDVsgoclcpij3wDqh?=
+ =?us-ascii?Q?8NyxAU0C7InHv/ElkcRUMZFyt/rxfziQUuvPgnxnA6pMkcLvvvvJmjBRLhVQ?=
+ =?us-ascii?Q?JPH3fDdrPg5Ls30+/6uR3RrtIhOOQHfWTd2Gp3+BsSm0VSPHlS0PupopOPSk?=
+ =?us-ascii?Q?eL3AZBZXa2MLVXEFK7uXyrJkwyF3pcAvMcnvW8XU0cxD2WJqrS2KobfGW25N?=
+ =?us-ascii?Q?rkOYvX0O+d05cbjtd5hM5ACjD9uVF+MqqexbIVNMRAf4VfRWpxMaRNWuMpSN?=
+ =?us-ascii?Q?qBByaRS6QszMpI0Xt4bFGf2JRFMChHmOJPDwbhOBGPfANQNxkmPigIH740NV?=
+ =?us-ascii?Q?Bb/tXHj/CGQq61071goBSueHXIlStvxc39okwArKSS6yQZGijwCzonVEiwl2?=
+ =?us-ascii?Q?ElEHEOJnBgtHm9cy/+OQ6L89sYSfFMTbvcg+Xv7NLj2lMbiplEWka8APDjK/?=
+ =?us-ascii?Q?AAWHIkPELxnOASbE5EJknaBFwQGcddNdGI7SBvIO9zvejBy2KXcEljXQRiRs?=
+ =?us-ascii?Q?XGak4Rs+KY5Ko3+wEKmIC9qwsEgxCr/p8wbkxsKJ8/MnVJO78f0PRUK8h38F?=
+ =?us-ascii?Q?8Oo7gDHMKiwZWR7qOaBRxYjhXIUN+RQ1b0AzU5478GgUqjSWb6AtVvG0l6ic?=
+ =?us-ascii?Q?BcE2dxrQCksjJXpb9N7UVySV6Re8WJaZxgwBTTmq40bOuixAjJ88Pi9YCL/p?=
+ =?us-ascii?Q?3IbvCOpbbHNEYX3amoT7UeEYhSwTcGDkPe57e1gMVx2l66HcAtdDnsf2fyKe?=
+ =?us-ascii?Q?3JM/4EWvcPfUkEjirBKubAyVE8+rxfHmdw2Udz4bYmO2O+RNjK5xuOYyRgV+?=
+ =?us-ascii?Q?B4Vw/zJayKIEKvKYhKRG/5aNz9ZMM3Ryrnp1K2QP1lDPk1ARMJ11pFzT4zz6?=
+ =?us-ascii?Q?lLZQvonfu2ajdmOq4lcYCHmDF/iSl5hURgnMOVWQio3HwtrQKOrQHIAt6fSI?=
+ =?us-ascii?Q?ThpYPncXMaVaKvX465bA5JxSV4b+APbMRbLjGoLKoFoAMtK3Qny5bIi8hNNn?=
+ =?us-ascii?Q?HDi4OOgrlvuN7LJ5wrOBzVAIoXKR9LSGlFm3z8t9JmGctC0vY1qtlEi+z089?=
+ =?us-ascii?Q?oFWOOZDKYR/F45CxX/aCxgXBCMZTd1YL+7/tElDAdYKEXl5ZkmR8jyT24k4P?=
+ =?us-ascii?Q?P432K9M3EEpnHebnOMgB2D1OCoHnQeC1zmukcPKKqUYdoAB8obRIaiftxdw1?=
+ =?us-ascii?Q?3He+3KSjjdIdcNr+lU7aHtrkB/qaA4wH0xEeGHTnhgctjzkuprPMX04gOZ50?=
+ =?us-ascii?Q?/IVD1JwgnIDGcahuPULso8NTfm0GiFO3rcU1rl8NwJnehK3+z7F1EQhxp12N?=
+ =?us-ascii?Q?pn4VsIQUuSqK17QII4BOUYybz8InXcz8P7tXMRbTp14FHVi9qJeQJVQ8niJq?=
+ =?us-ascii?Q?QcjNvmX7bfy2nD5T1o9edoXwpJpw3FG0o5ehnmXGTC3MIMeHabXRXoRlviZr?=
+ =?us-ascii?Q?V6FU4yDFHM5Ku9fRbYU2poR72Z8++r9JTlSFh0r9fpOuUCmqnyeKn+YoSOR9?=
+ =?us-ascii?Q?Mkk3/hizcVwU5fi23BHOSVAILY+roHvlQZrFWI9ooNcgrQBtG8OZFhe37UCQ?=
+ =?us-ascii?Q?xEPDOkGxMbG6F1ySW6GUGkIGftuUTofU5CMsAVVwR48RfS5abF7EogVyJd2e?=
+ =?us-ascii?Q?j2bmjY+uci5+i6FkzhWP4BGPW8N5K/kFha/D2uA4YngVBuFXTEJ4?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 81376a2c-c1d1-4c68-1026-08df44e330a0
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 19:44:27.4594
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: NyVxeH4IVL5yD6WwFAPwdhHy1jNvcXd7JiiFlyW2vxIaMOIVHxkCKhV5USEGYZom32eOjYIDJZFOolfl932q4lnWtt+wV7ch74aOzX29NzTviNmTP9dScYzcyMGfv/4c
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB12191
 
-On 17/11/2026 18:49, Aditya Garg wrote:
-> 
-> 
->> On 17 Nov 2026, at 2:07 AM, Arend van Spriel <arend.vanspriel@broadcom.com> wrote:
->>
->> ﻿On Wed, 4 Nov 2026 16:16:29 +0100, Andre Eikmeyer <dev@deq.rocks> wrote:
->>> The Apple firmware for the BCM4364 and BCM4377 lists "idauth" in its
->>> capabilities, so brcmfmac enables BRCMF_FEAT_FWAUTH and advertises
->>> NL80211_EXT_FEATURE_4WAY_HANDSHAKE_AP_PSK. hostapd and wpa_supplicant
->>> then pass the PSK to the driver and leave the AP side of the 4-way
->>> handshake to the firmware. On the BCM4364 that handshake never
->>> completes.
->>>
->>> [...]
->>>
->>> Clear BRCMF_FEAT_FWAUTH on the chips in Apple's T2 Macs, so the host
->>> runs the handshake.
->>
->> [...]
->>
->>> ---
->>> .../wireless/broadcom/brcm80211/brcmfmac/feature.c | 14 ++++++++++++++
->>> 1 file changed, 14 insertions(+)
->>
->>> @@ -318,6 +318,20 @@ void brcmf_feat_attach(struct brcmf_pub *drvr)
->>>                     BIT(BRCMF_FEAT_WOWL_GTK);
->>>         }
->>>     }
->>> +    /* The Apple firmware for these chips lists "idauth", but in AP mode
->>> +     * its authenticator never completes the 4-way handshake and the
->>> +     * station is dropped after about 8 s. Leave the handshake to the host.
->>> +     */
->>> +    switch (drvr->bus_if->chip) {
->>> +    case BRCM_CC_4355_CHIP_ID:
->>> +    case BRCM_CC_4364_CHIP_ID:
->>> +    case BRCM_CC_4377_CHIP_ID:
->>> +        ifp->drvr->feat_flags &= ~BIT(BRCMF_FEAT_FWAUTH);
->>> +        break;
->>> +    default:
->>> +        break;
->>> +    }
->>> +
->>>     /* MBSS does not work for all chips */
->>>     switch (drvr->bus_if->chip) {
->>
->> The commit message and the test report only cover BCM4364 and BCM4377,
->> but the code also clears FWAUTH for BCM4355. Where does that come from?
->> Was it tested, and is BCM4355 found in T2 Macs? If not, please drop it
->> or justify it.
-> 
-> 4355 is also a Mac specific chip found in MacBookAir8,1 and 8,2. I'm actually surprised you forgot about that especially when there was a whole issue when Cypress named their chip firmware wrongly as 4355.
+On Tue, Nov 17, 2026 at 04:37:08PM +0000, Lee Jones wrote:
+> Calling dma_cookie_status() before acquiring dch->vc.lock in
+> d350_tx_status() races with d350_irq() completing the active descriptor
+> and starting the next queued transfer, causing d350_tx_status() to
+> observe a stale DMA_IN_PROGRESS status and falsely return DMA_ERROR.
+>
+> Move the dma_cookie_status() call inside the dch->vc.lock critical
+> section.
+>
+> Fixes: 5d099706449d ("dmaengine: Add Arm DMA-350 driver")
+> Closes: https://sashiko.dev/#/bug/linux-524816d7-ed1c-4f2b-b4c3-65a7e8bb45a3
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Lee Jones <lee@kernel.org>
+> ---
 
-Getting older and a bit senile I guess :-p Still it pops up here in the 
-patch without mentioning it in the commit message so my question still 
-stands. Also are there any logs made while debugging this issue? Having 
-firmware console logging enabled might be useful to get a clue what is 
-holding the firmware from completing the handshake.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Regards,
-Arend
+>
+> v1 => v2: No changes
+>
+>  drivers/dma/arm-dma350.c | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
+>
+> diff --git a/drivers/dma/arm-dma350.c b/drivers/dma/arm-dma350.c
+> index 52f5242ea332..8c1725588f1d 100644
+> --- a/drivers/dma/arm-dma350.c
+> +++ b/drivers/dma/arm-dma350.c
+> @@ -381,9 +381,8 @@ static enum dma_status d350_tx_status(struct dma_chan *chan, dma_cookie_t cookie
+>  	unsigned long flags;
+>  	u32 residue = 0;
+>
+> +	spin_lock_irqsave(&dch->vc.lock, flags);
+>  	status = dma_cookie_status(chan, cookie, state);
+> -
+> -	spin_lock_irqsave(&dch->vc.lock, flags);
+>  	if (cookie == dch->cookie) {
+>  		status = dch->status;
+>  		if (status == DMA_IN_PROGRESS || status == DMA_PAUSED)
+> --
+> 2.56.0.679.gc527c65306-goog
+>
