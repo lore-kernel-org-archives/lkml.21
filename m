@@ -1,79 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794944017;
-	b=aekqZQ9d0kNrjdTYtWI918KcS6/5Kr+1Y+Ko2ney3x/DzIG9GxCeMg4ikGbvMgOHiZev
-	 0lk5gh0vHk8MVJinM05xeIf0rT51k60EtjRvNuZblLYkwrPA/xh/WwObFMmo3Eh+bv6v+
-	 HS4/TSAvRdlGBTWGpXJNNtoRE919NOWdYJwef+edZ5XMXx5AVM2e4g9tcifvehFTS+j9J
-	 s4mLpDRdihFptTIHbB4b55xIhopXEbe5ho1SfyASn7IZhvs/7Z0u+eTVcV0Ha9/jKUj7S
-	 DJ0rkugrBocnEtKElfY+TZXSxHY1wDT4sa0cCAMPdJ5OFFJ1VbGbI6CDq5WaMYd2Qcg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794944017;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=KUlAREIsaDpRd9AokYp9Tz4cZ6wB53FKL7N7FlReAuE=;
-	b=DZmDiMYOFonJ6F9FX6q4U+kVntjHruYxL8htbtgThQAdiUAAPKdxLMsgWa12vFJBUQZl
-	 iwU8J4Qb2sxra+U4IVkhOgNTGBpuy/EIfTGovV8UCmBUcD7I1apE9Ip9BMFjFO8WiieGP
-	 ZXSrB0Zjm3yBdQPWtcQ8MdOEpRuMlfMsF7iqrRBHM8wPv2ZHimroxePhIdfp6I0Y+uuSH
-	 OknCSXydQ9pO6+T5VHx7qdVgzPJ8U0RhGjUTy6bJ3tPL5W39Y6w5BQsEKX91T3vDU1ChL
-	 xS70nZAq90bmArBRLZsx63I2ZnaNRNwpmj033iUzK+teZCVpswiiZtAMHzO0XJuwDVQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lN4JKX8N;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5189760A380E;
-	Tue, 17 Nov 2026 19:33:37 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lN4JKX8N
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794944017;
-	b=vyQW0jrwTYpfk9/Ex0ftMHi5u6AuWcANpqQkCksfEmgkZFbRvlYooQn+C7ObWcLsyeMJ
-	 ZQtcUyBQmYONtyTZ/qRES0/Iq8Icesuprs77C5bRf9UqbLciVkuSweCmTE7NwOrelPfBL
-	 oJy7Yv4oi48sAXwgwUaVHyKL6dg+i2jxaQp5EQySK8NB3zYfg8O03O3oG3EXB+o4sakiX
-	 jPhreMVO/FkGFnSoxIP18mXci7dSlViHLH5jMqwogdd8ERKe0V5ZCL4jPmqSKwY62+j+A
-	 31vBYwV0h26WfzAnDnje1JAAvlERGcO8IQqbSMbJk0SpLXInVY/asp9OF58IpIcTXrA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794944017;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=KUlAREIsaDpRd9AokYp9Tz4cZ6wB53FKL7N7FlReAuE=;
-	b=Gf6wOaq3R6mslOzZfaECePvT72dhZaqWNtf525dBaHY34AqCiZV3y8D4wLoEBHGgd2Kc
-	 5tlmP6lv8dlCX3nDzyzMQVh4VJt2Jp2iYSgN7vkP2+GJNOnw9Bwngm7zqo5f7JMK+eeBn
-	 3Uu2qizcpIzkdkD3eGCCoULph07NzlcruXfib/zVwNM8SuhEVBmkluOT4MA9Q9iw8ovkH
-	 diIXIpu8K5/yfYUSKDMTxLhkQ8G5U7lKHKECMOpMATd7zVcl0ePv9ClU3wyO+VasUv1qW
-	 s9wuALbMhIgzBsKaJpqXM9xucXUNevqVjh6dcFManTnzVQZ0PJ4bqUHoZvUWmKYLvxg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.176
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794944123;
+	b=ySuPQQIt6751KgU/L10a/2JZAkiYClZ5dGb6y3uMPphKDutyThtvGZvTTo3fFWJGLYgy
+	 plZX63Y7HL7XHjRshqOpK1sfjlAqj876j1rgjuBI/nJ8OiMpXt7JjKrvJytQ7Q4zH06lr
+	 mXgRmZq9txqYtZg1VUYm84KG0REkTwqQwbW9BTN1b6ZwzY1Ae3d620qeoCG859r+mPPGm
+	 eTB2RCASoWPnQhvWnyGNSv7kg+tkfqL8j0wBhhIypBUr2ZxJOWPYsSyDSK+TCvm3Jvhgc
+	 Eg1bFFMQWMxmFGwyWwBIfSZ22DsN3FHEC/vVVcgiVtKG9IxnuhmKTFhT+OSPRYTC5lQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794944123;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Received:
+	 X-Forwarded-Encrypted:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type;
+	bh=zZ7VovX7jN4uYMkhQWyK3ov4JdFyFshspRex+aWFMm0=;
+	b=1iyfcxNISQzwqreH5h2hDN1yMXP8PJbc26CaKDSBj4DLnfzzYUUHhtKD+7UtiYd7Km6c
+	 nv3Led1QY7cI5YO6mTK47Jx4wL0qupjqQ5f5ccOo63GMoQWX5WC4lTlf036cLm5mibJFv
+	 7XJYip9QHMKRD1wGAVSWtzyxEMaxHaUBTy4H3Uhq58hp5bczTOPpGSuEOxLqywBDk1PEa
+	 84Swog1DWZmLoz6AH1kG0UCxZeIf5RMd0JcIfubLAp5/gLatg9dPavct5HmjaL7zCl9rC
+	 BU4UqCvevuZsMH9YvtTbK4JF2ldsvgA0FMvJGpl7Nrz/zaL6wkd6AawMuZukfISjCaA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=telaak.dev;
+	spf=pass smtp.mailfrom=gmail.com;
+	arc=none smtp.remote-ip=209.85.210.176
+Received: from mail-pf1-f176.google.com (mail-pf1-f176.google.com [209.85.210.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 75BDD1F000CC;
-	Tue, 17 Nov 2026 19:33:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794944017;
-	bh=KUlAREIsaDpRd9AokYp9Tz4cZ6wB53FKL7N7FlReAuE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=lN4JKX8NFAbKV0ESp7t6poQvvDk0h74OYg4lsqpNGAHrE/YnmMkmXXR/kRmI3BSYs
-	 ybdE9p3t7qN0msVVoLW2NAy1JQwNEYlV1lIrtb/ktj13L/3rkBj9b3Q9OVwrD+nAG1
-	 AGUYnX1PUM7vJxgm/gBGj62wGsfn5US2NMPLu3npXqoFYoeKdVfNjO/8LX7de0fpps
-	 pM4sK9DG2saiiERJB87E70e60xLxPOTDKewP1Bksyzcsf1xLq29apjLz+V75IKfD8p
-	 IXwGr0JpobqoY2Uv9W5n9O92LLT3kUoddSOfxe1s2/im5F47/jQ8vnaRMCno002qK2
-	 Cy36Csj9a3pUQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 545174AA8A;
-	Tue, 17 Nov 2026 19:33:34 +0000 (UTC)
-From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
-Date: Tue, 17 Nov 2026 20:33:11 +0100
-Subject: [PATCH 06/10] drm/meson: dw-hdmi: Drop manual HHI clock and memory
- PD setup
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70621606A32A
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:35:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70621606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=telaak.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Received: by mail-pf1-f176.google.com with SMTP id d2e1a72fcca58-8b32bc605d9so105123b3a.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:35:23 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794944123; x=1795548923;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=zZ7VovX7jN4uYMkhQWyK3ov4JdFyFshspRex+aWFMm0=;
+        b=r8LDVpPZL8NmmxjQC030sWtCXljBReq5+cebyqzMI06mT+e3PWBY6pZk0AaPockZ6M
+         KddZqUczlx88ACSby6wp//xAgkMgbciZEtFNj6zjxSxUQ5eH7pl7VxgVcFWxrPYB1hfn
+         8fkgZKXAi6zmf8takhhTtsA79KuuvbeEqzQrJ9auNQOnsSdmPS+Ym1lnrMZJiwRpr4nl
+         vKO+NJXnObJzFJZPEWmKuZlfminGyHMs7/vgIX0qhy/jYqCi+4mXyiYN9l8XsQJZZXbV
+         by18dPvA6EHu/3FL2E1VXryT5OrTCjkx5EyNeP+B3OUmVJefSrMtK9LtP2MHOWa6+TGV
+         RHKA==
+X-Forwarded-Encrypted: i=1; AL+hErE3GlrfFAiDxvBP0BF2Ombbi9FdKuRkEIZant53wAg26hOyGiUegjRnRYK0Te02I/HfVqrikFz6meImp+Y=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/l6r/vYdRkSwcQrcHdTtrk4K9QbOvvp/uD0zJTKKKyEVjr4M1M
+	9a7OaZwTcf41Bg8eePknqKekpNDwIoVPtoMNNS/Co+hTqjd1aYgMXeFX800hLK99
+X-Gm-Gg: AYBFou0bgOgK1ZuHdqiT/71f4d4P6Xr8u9rA19DipKfj4Lk127cJd5QJ0I7A0pbv1co
+	ioXle1BxCTRyXw+MryYEgEnQx2050+mkzqIrSAfrO9aIv8NNdK/MVOrdKh/69hubDUGWwcPvn0c
+	FHV+3OdCkIk0mj/MbSYg6ItJPThLhtFQqFm+v3QGDD6+8X9dZqljhdDqAB5bqRkB/Zn6JYpzPxQ
+	LuSweFTu2xDHfECysqpiqALOc0Y4kJQ2wYhlkucqh5gn8aXKKkv4/NpxpGHAEax1T2mdKABMjgR
+	xloBB4k9qJLCftmJYqA9H4jyXh+vbjTpLVl9nSvjJXGZvV+VcQRRI1c5TUP4JY2PHfBuQHpbQlb
+	xyytMK7H1QRr0q4DoPDAG6BY+fACY/FDbdUpjCE9MZ269OZroqKd/JeUHweaSbcdaEoPl2e3Bf/
+	RhPFJ2dC6gUQvpfWsfQyxAy7iLn7CbCZ1AT+UBjXu0a3FuvIJp5dL6ntO+hJCIbs0q0OFmTH3vV
+	L56B4bqr/ucAA3yYB0jYCOCaOo+/1F3LpIHLCNV0833mLbJ+zdQbnGqIGyioJtVqlXU2aQQ3wd+
+	zSA1xqsl7hzAr+qRxfUInQoAYHVNNHGKWnWPRdzwNjyA7XI3oqZeCbcRbO7xWCO5kJ5+/X5fJwu
+	a0/ku6ZRwA/nlTrXhIziWkkqFDkqw/aZKLwPs/QwI6VDpC6OKCFYgcF9GjkLYkw==
+X-Received: by 2002:a05:6a21:7794:b0:3e2:3392:541e with SMTP id adf61e73a8af0-3fe970fb304mr282751637.22.1794944122789;
+        Tue, 17 Nov 2026 11:35:22 -0800 (PST)
+Received: from mail-dl1-f49.google.com (mail-dl1-f49.google.com. [74.125.82.49])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5cac8ffe6sm80487b3a.23.2026.11.17.11.35.21
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Nov 2026 11:35:21 -0800 (PST)
+Received: by mail-dl1-f49.google.com with SMTP id a92af1059eb24-1b3acec6677so327090c88.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:35:21 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErGan4gyozmZAUAeNftPd2EeadVYJQ2WaMqBrfgDLjP51RTB0VICyoq0GL+cLFSAgWFkvXfad87TGcnuNDs=@vger.kernel.org
+X-Received: by 2002:a05:693c:42c9:b0:381:4b4b:f96c with SMTP id
+ 5a478bee46e88-382827a7dfcmr296117eec.34.1794944120695; Tue, 17 Nov 2026
+ 11:35:20 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,129 +81,28 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261117-meson-drm-create-hdmitx-phy-v1-6-9e0ac931381c@aliel.fr>
-References: <20261117-meson-drm-create-hdmitx-phy-v1-0-9e0ac931381c@aliel.fr>
-In-Reply-To: <20261117-meson-drm-create-hdmitx-phy-v1-0-9e0ac931381c@aliel.fr>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-phy@lists.infradead.org, dri-devel@lists.freedesktop.org, 
- Ronald Claveau <linux-kernel-dev@aliel.fr>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2969;
- i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
- bh=ztajGisJP2ywVUrLgoTSbxwE6I6bJ9vcioLG/C+HU6E=;
- b=owGbwMvMwCWm1SvKXP3cUInxtFoSQ9afNSxTGyZey5N+skvjVchLhoclS78EvG0Js9d8/evP3
- 95XujdYOkpZGMS4GGTFFFn651qeeHf56Jmve9RTYOawMoEMYeDiFICJZN1hZDjqanJid/Yh/sef
- //UvdXZv/vnThO1NygElzpwWC2vmiXUM/7Re9ZuWhJyXSo9vq768UMxaNXoWw6cJExPPavx5dqT
- oIScA
-X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
- fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
-X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
- auth_id=744
-X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-Reply-To: linux-kernel-dev@aliel.fr
-Content-Transfer-Encoding: 7bit
+References: <20261116-iio-ad5246-v1-0-ef6b7c06d4b0@telaak.dev>
+ <20261116-iio-ad5246-v1-2-ef6b7c06d4b0@telaak.dev> <avwMpV3sCvMQNA0b@ashevche-desk.local>
+In-Reply-To: <avwMpV3sCvMQNA0b@ashevche-desk.local>
+From: Joseph Telaak <joseph@telaak.dev>
+Date: Tue, 17 Nov 2026 14:35:09 -0500
+X-Gmail-Original-Message-ID: <CAPY4CJ7d4uZepoBqEJVcSb466fP=ZuRs=zREAcb3DzjvDA8Bjw@mail.gmail.com>
+X-Gm-Features: Aa3M54pMmKLdjA0jFJLnsDDkzCIUJ6YpdPFI8j8vMI3OjOODp7f3IahMKvJGlo8
+Message-ID: <CAPY4CJ7d4uZepoBqEJVcSb466fP=ZuRs=zREAcb3DzjvDA8Bjw@mail.gmail.com>
+Subject: Re: [PATCH 2/5] iio: potentiometer: mcp4018: Report the available
+ wiper positions
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
+	=?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
+	Andy Shevchenko <andy@kernel.org>, Peter Rosin <peda@lysator.liu.se>, 
+	Michael Hennerich <Michael.Hennerich@analog.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-iio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux@analog.com, devicetree@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+On Tue, Nov 17, 2026, Andy Shevchenko wrote:
+> Take a chance to add missing headers at the same time, id est
+> + array_size.h // ARRAY_SIZE()
+> + bits.h // BIT()
 
-meson_dw_hdmi_init() programs two HHI registers by hand: the HDMI clock
-mux/divider/gate (HHI_HDMI_CLK_CNTL) and the HDMITX memory power-down
-bits (HHI_MEM_PD_REG0). Both are already covered by resources described
-in the DT:
-
- - the HDMI clock is selected and rated through assigned-clocks
-   (CLKID_HDMI_SEL parented to xtal, CLKID_HDMI at 24 MHz), and gated
-   through the "isfr" clock, which the driver already enables at bind
-   time;
- - the memory power-down bits are handled by the VPU power domain
-   referenced by "power-domains".
-
-Remove the open-coded register writes. Take an explicit runtime PM
-reference in probe and release it on removal, so that the domain is
-guaranteed to be on for the lifetime of the device.
-
-Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
----
- drivers/gpu/drm/meson/meson_dw_hdmi.c | 31 ++++++++++++++++++++++---------
- 1 file changed, 22 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/gpu/drm/meson/meson_dw_hdmi.c b/drivers/gpu/drm/meson/meson_dw_hdmi.c
-index eb33c70f29c3..20a821936b3a 100644
---- a/drivers/gpu/drm/meson/meson_dw_hdmi.c
-+++ b/drivers/gpu/drm/meson/meson_dw_hdmi.c
-@@ -12,6 +12,7 @@
- #include <linux/of.h>
- #include <linux/of_graph.h>
- #include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
- #include <linux/regulator/consumer.h>
- #include <linux/reset.h>
- 
-@@ -102,8 +103,6 @@
- #define HDMITX_DWC_CTRL_REG	0x18
- 
- /* HHI Registers */
--#define HHI_MEM_PD_REG0		0x100 /* 0x40 */
--#define HHI_HDMI_CLK_CNTL	0x1cc /* 0x73 */
- #define HHI_HDMI_PHY_CNTL0	0x3a0 /* 0xe8 */
- #define HHI_HDMI_PHY_CNTL1	0x3a4 /* 0xe9 */
- #define  PHY_CNTL1_INIT		0x03900000
-@@ -599,12 +598,6 @@ static void meson_dw_hdmi_init(struct meson_dw_hdmi *meson_dw_hdmi)
- {
- 	struct meson_drm *priv = meson_dw_hdmi->priv;
- 
--	/* Enable clocks */
--	regmap_update_bits(priv->hhi, HHI_HDMI_CLK_CNTL, 0xffff, 0x100);
--
--	/* Bring HDMITX MEM output of power down */
--	regmap_update_bits(priv->hhi, HHI_MEM_PD_REG0, 0xff << 8, 0);
--
- 	/* Reset HDMITX APB & TX & PHY */
- 	reset_control_reset(meson_dw_hdmi->hdmitx_apb);
- 	reset_control_reset(meson_dw_hdmi->hdmitx_ctrl);
-@@ -829,9 +822,29 @@ static int __maybe_unused meson_dw_hdmi_pm_resume(struct device *dev)
- 	return 0;
- }
- 
-+static void meson_dw_hdmi_pm_put(void *dev)
-+{
-+	pm_runtime_put_sync(dev);
-+}
-+
- static int meson_dw_hdmi_probe(struct platform_device *pdev)
- {
--	return component_add(&pdev->dev, &meson_dw_hdmi_ops);
-+	struct device *dev = &pdev->dev;
-+	int ret;
-+
-+	ret = devm_pm_runtime_enable(dev);
-+	if (ret)
-+		return ret;
-+
-+	ret = pm_runtime_resume_and_get(dev);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to power on HDMI TX\n");
-+
-+	ret = devm_add_action_or_reset(dev, meson_dw_hdmi_pm_put, dev);
-+	if (ret)
-+		return ret;
-+
-+	return component_add(dev, &meson_dw_hdmi_ops);
- }
- 
- static void meson_dw_hdmi_remove(struct platform_device *pdev)
-
--- 
-2.43.0
-
-
+Will do in v2.
