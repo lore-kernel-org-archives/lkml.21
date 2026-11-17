@@ -1,66 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.2
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794957538;
-	b=5Mm6ye+tzNJWW9G0xwS5WHG8Vu0sdcLLYVVFsgXegDz/otEnj6ZzWt6Ks6xUZJViTQzH
-	 tZfOBFUI/o1sAQN/UOyiLrJzh7CKTMo6cMEac3ev83zSTmJhO1arHcAAetIiw4rLZwlgy
-	 B9qiYL/onxxEzQMEP9V5q6U4SGS2qFGS4BbuikTxBuLMxambWNXym6z1gmHqNKa/kwY57
-	 kJHhnKeZWTkPT9W0tXlY1+f9m6aOe0OTm0B5BBPqOD9iEc/jW0wjH+ha5y+1Rwjkw/MG6
-	 lK63fRuz8GjgAU9Aigr0i4Iz6X/QY3LTUt31nz94QP+rfWU0AKGxg8sniX+dctW2y4g==
+	t=1794957549;
+	b=be0pWX7JlbncXmsB3iz0wpXIlRw+o7whHI7KA25yZhaQ/cWl5+uDk6raUc7aRD/FMI0b
+	 a0fgXpKYrje9HYE5PrqqGyDDfGHXJNS/QHI/mw5mwn4kW9dMkqd6elKRazIrtcLApNMn3
+	 1P6Yj9GDmLHbDbEAaYzJziqYb1fI8Oiry9U2ZZ7EYMfKnt8i1rqT4Q3bTlRCMm+kuWSEu
+	 eewFTXCdJBmKvLhMy9sexxsSLiiyhNtXP4T8caaT61YEFVOyahlSDZDTzj2JeaZqII+O4
+	 XYMAmRXguw7X9j9RFY1cihSM3l7lsJVZxohRE2BFM5roS0FnpjOwXSOctn5gdtRiEfg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794957538;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794957549;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
 	 X-Originating-IP:X-CM-SenderInfo;
-	bh=iIGCznXhTjwwAbtISLd9zxt6KkpRGg6tsCKG2gaFg90=;
-	b=jUPwE25nU3lwb3oGpok5vlBdBxw/Dzq40NwU1BlS7juSzs26s0y0KIZXjmrnzSE/wIdy
-	 AUcYQbX8li/YusSG46065/hdV2Zm3CtfUZA26kA5VkRY1SMs5e74MNABc+LjvaXFVCFKu
-	 3ATVacNed8ZWaJPzNPJJXQEzCoaFCCBO2PViRGlBXfVT9S7H/rtMsh31gJ5dHAFMWaLqP
-	 IaUakOfZotMKGCogtRolP4JME/Dk2aKfODy6uqolm1+Omg3UxQs5rHNO3eVaSWWld964j
-	 qm7CW7NuSQxlIGNMLacZ+5ePCG82E7CjbsGy3jiaSLHPcxmvV0V+dpI+KQA2b0S3qUw==
+	bh=taHVdrxL2EsPRjmw6qawffXd/pZALm22RNDv0mO72y4=;
+	b=L687yKWyUe98xNutijJ09sAOQKtWHL3awJkpo3StfAqh3IbzYWhQEcOvPuHopU6ztQFG
+	 Ys3hvUhN5sq7f1dcHG48+3C6aYNBgTqy2UZ77nJ001ay0+8lpxk3wOg09zs6FhMYk4Ad7
+	 2JshRlZpmPaf+5KCeWj0scaWxG22KUpFBNguDK69RGSNDDMt8XUyFX5NVboimAiIogIQY
+	 lyvaDajmezSDSovXSRoTWjyCpjeAmFbSEXZcv9f2kuB71VIvtm/hlFDJ2VWPcTLeylB8e
+	 RQ1z4dGjuHSjhPqMGKsvtcSL6kZt97CGctzOdV14hcGnDxxPlggLoliXQ+ejtG6d9cw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=163.com;
 	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=SvLsGhkT;
-	arc=none smtp.remote-ip=117.135.210.5
-Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.5])
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b="H4/lTNlP";
+	arc=none smtp.remote-ip=220.197.31.2
+Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA5FD606A32C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:18:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA5FD606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B574606A32A;
+	Tue, 17 Nov 2026 23:19:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B574606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=SvLsGhkT
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=H4/lTNlP
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=iI
-	GCznXhTjwwAbtISLd9zxt6KkpRGg6tsCKG2gaFg90=; b=SvLsGhkTDPXzAfq3BR
-	9/l8k4//D8k9qjpqRh6nqSAT52sbBOOoDZV1S38pDyyER2j/AgTIWZL6jMwOD1sH
-	CwstOyXCpV9EwQiVgZB+gbA4YVlyD4r5+KrkJ6Q1pyEtVD/eY55ea0C9I4CINX0I
-	7b4hH93gFoHRAHeRsNjYh5mww=
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=ta
+	HVdrxL2EsPRjmw6qawffXd/pZALm22RNDv0mO72y4=; b=H4/lTNlPJkqWGJAb8H
+	JUjTZyrheqOowE8EJNYMsGNJIw67TO7fe8WTJWsjSJEJ7DMkLf7Ys/jS0mih1uBK
+	ht4JKHIpZH/UpVQeYawMgEud/Gw115AqeGxJH4aC4IcaZPsnzwhtuQzt8c27R8hP
+	RUWPwtZH2LCKHcjkHBldYa7l4=
 Received: from SYPC (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id PSgvCgCXyQiu4Pxq15exGA--.55935S2;
-	Wed, 18 Nov 2026 07:18:07 +0800 (CST)
+	by gzsmtp3 (Coremail) with SMTP id PigvCgCHdTzL4PxqjZGTGg--.50564S2;
+	Wed, 18 Nov 2026 07:18:35 +0800 (CST)
 From: Yang Siyuan <hsyysy@163.com>
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Simona Vetter <simona@ffwll.ch>,
-	Samuel Holland <samuel@sholland.org>,
-	dri-devel@lists.freedesktop.org,
+To: Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>
+Cc: linux-watchdog@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 0/2] drm/sun4i: report coverage blending for alpha-capable planes
-Date: Wed, 18 Nov 2026 07:17:49 +0800
-Message-ID: <20261117231751.264258-1-hsyysy@163.com>
+Subject: [PATCH v3] watchdog: sunxi_wdt: stop the watchdog across system suspend
+Date: Wed, 18 Nov 2026 07:18:19 +0800
+Message-ID: <20261117231819.264381-1-hsyysy@163.com>
 X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261117091932.12063-1-hsyysy@163.com>
-References: <20261117091932.12063-1-hsyysy@163.com>
+In-Reply-To: <202611172344.RbQl66xu-lkp@intel.com>
+References: <202611172344.RbQl66xu-lkp@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,40 +66,110 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:PSgvCgCXyQiu4Pxq15exGA--.55935S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7KrW8ZFy3Zw1rAw15ZFWUJwb_yoW8Jw18pF
-	WrG3Z8G34kGr4av3WfJa47XFy3ua1fGFWrWrnxJ3Z3Aw1DAFy5Gryjk3Wa9FWDJr4Ikw47
-	tws8ur9IkFyDC3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j0GQDUUUUU=
-X-CM-SenderInfo: 5kv152r16rljoofrz/xtbC7RA+cmr84LABfwAA3J
+X-CM-TRANSID:PigvCgCHdTzL4PxqjZGTGg--.50564S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxCr1rury5ZF1ktF1UWw13CFg_yoWrJrW3pF
+	45Aa4Y9rW0qr4avr4aywnrAFn5CwnYg34UAryxG34rX3Z8Gr1rGF1Iqryjy39xGrWrGF1r
+	CF1Ut3yfGayq9a7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jso7tUUUUU=
+X-CM-SenderInfo: 5kv152r16rljoofrz/xtbC7gxFeWr84MwGWwAA35
 
-Linux 7.3 added validate_blend_mode_for_alpha_formats(), which warns once
-per plane that exposes a pixel format with an alpha channel but has no
-blend mode property.  Neither the DE2+ mixer planes nor the DE1 backend
-planes create one.
+The H616 watchdog has a maximum timeout of 16 seconds.  systemd keeps
+/dev/watchdog0 open with RuntimeWatchdogSec=16s, but during system
+suspend all userspace is frozen and the watchdog core does not stop the
+hardware.  A suspend longer than the timeout therefore resets the board
+before it can resume.
 
-Both engines blend a layer with its own alpha channel and do not
-premultiply, which is the DRM "coverage" equation, so advertise exactly
-DRM_MODE_BLEND_COVERAGE and leave the register programming unchanged.
+Add system sleep PM ops to stop the watchdog before suspend and restart
+it after resume if it was running.  The driver did not store its private
+data in the platform device, so add platform_set_drvdata() for the PM
+callbacks.
+
+Use DEFINE_SIMPLE_DEV_PM_OPS() and pm_sleep_ptr(), and use
+watchdog_hw_running() instead of a private flag to decide whether the
+hardware needs to be stopped and restarted.
+
+Tested on an Anbernic RG35XX-SP: a 30-second s2idle suspend resumes
+without the 16-second watchdog reset, and /dev/watchdog0 keeps working
+afterwards.
+
+Signed-off-by: Yang Siyuan <hsyysy@163.com>
+---
+Changes in v3:
+- Mark the PM callbacks __maybe_unused.  With CONFIG_PM_SLEEP=n the
+  pm_sleep_ptr() references expand to NULL, so both callbacks were unused
+  and a W=1 build warned about them.  Reported by the kernel test robot:
+  https://lore.kernel.org/oe-kbuild-all/202611172344.RbQl66xu-lkp@intel.com/
+- Reword the v2 changelog entry: pm_sleep_ptr() alone does not keep the
+  callbacks referenced when CONFIG_PM_SLEEP is disabled.
 
 Changes in v2:
-- Drop the Fixes: tag.  860e748bddcc only added the generic check; it did
-  not change this driver.
-- Drop the code comments; they only restated the commit message.
-- Handle the DE1 backend planes too, in a separate patch, since they
-  expose alpha formats as well and still warned on A10/A20/A31/A33.
-- Link to v1: https://lore.kernel.org/dri-devel/20261117091932.12063-1-hsyysy@163.com/
+- Use DEFINE_SIMPLE_DEV_PM_OPS()/pm_sleep_ptr() to avoid unused-function
+  warnings with CONFIG_PM_SLEEP=n.
+- Use watchdog_hw_running() instead of tracking running_at_suspend.
+- Drop the inaccurate ping-worker reference from the comment.
 
-Yang Siyuan (2):
-  drm/sun4i: mixer: report coverage blending for alpha-capable planes
-  drm/sun4i: backend: report coverage blending for alpha-capable planes
+ drivers/watchdog/sunxi_wdt.c | 32 ++++++++++++++++++++++++++++++++
+ 1 file changed, 32 insertions(+)
 
- drivers/gpu/drm/sun4i/sun4i_layer.c    | 7 +++++++
- drivers/gpu/drm/sun4i/sun8i_ui_layer.c | 7 +++++++
- drivers/gpu/drm/sun4i/sun8i_vi_layer.c | 9 +++++++++
- 3 files changed, 23 insertions(+)
+diff --git a/drivers/watchdog/sunxi_wdt.c b/drivers/watchdog/sunxi_wdt.c
+index a6500eb..3fdc7bf 100644
+--- a/drivers/watchdog/sunxi_wdt.c
++++ b/drivers/watchdog/sunxi_wdt.c
+@@ -225,6 +225,35 @@ static int sunxi_wdt_start(struct watchdog_device *wdt_dev)
+ 	return 0;
+ }
+ 
++/*
++ * The hardware watchdog has a maximum timeout of 16 seconds.  A system
++ * suspend easily lasts longer than that, and the watchdog core does not
++ * stop the hardware during system sleep.  Stop the watchdog explicitly
++ * while suspended and re-arm it on resume if it was running.
++ */
++static int __maybe_unused sunxi_wdt_suspend(struct device *dev)
++{
++	struct sunxi_wdt_dev *sunxi_wdt = dev_get_drvdata(dev);
++
++	if (watchdog_hw_running(&sunxi_wdt->wdt_dev))
++		sunxi_wdt_stop(&sunxi_wdt->wdt_dev);
++
++	return 0;
++}
++
++static int __maybe_unused sunxi_wdt_resume(struct device *dev)
++{
++	struct sunxi_wdt_dev *sunxi_wdt = dev_get_drvdata(dev);
++
++	if (watchdog_hw_running(&sunxi_wdt->wdt_dev))
++		sunxi_wdt_start(&sunxi_wdt->wdt_dev);
++
++	return 0;
++}
++
++static DEFINE_SIMPLE_DEV_PM_OPS(sunxi_wdt_pm_ops,
++				sunxi_wdt_suspend, sunxi_wdt_resume);
++
+ static const struct watchdog_info sunxi_wdt_info = {
+ 	.identity	= DRV_NAME,
+ 	.options	= WDIOF_SETTIMEOUT |
+@@ -307,6 +336,8 @@ static int sunxi_wdt_probe(struct platform_device *pdev)
+ 	if (IS_ERR(sunxi_wdt->wdt_base))
+ 		return PTR_ERR(sunxi_wdt->wdt_base);
+ 
++	platform_set_drvdata(pdev, sunxi_wdt);
++
+ 	sunxi_wdt->wdt_dev.info = &sunxi_wdt_info;
+ 	sunxi_wdt->wdt_dev.ops = &sunxi_wdt_ops;
+ 	sunxi_wdt->wdt_dev.timeout = WDT_MAX_TIMEOUT;
+@@ -348,6 +379,7 @@ static struct platform_driver sunxi_wdt_driver = {
+ 	.driver		= {
+ 		.name		= DRV_NAME,
+ 		.of_match_table	= sunxi_wdt_dt_ids,
++		.pm		= pm_sleep_ptr(&sunxi_wdt_pm_ops),
+ 	},
+ };
+ 
 
-base-commit: 091b06388b117fefdcb63336ac09956a4914b961
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
 -- 
 2.56.1
 
