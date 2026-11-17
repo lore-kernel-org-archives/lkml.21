@@ -1,88 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794942580;
-	b=M7IN8JD9LqfmBJnIpo9aha74ur5gbraNgrGkAi4YaAm0HxC27JIaWSG5Ch5BsQNtzJKX
-	 XE65NBh2OCCE3/WbXfdzLZrvZaZfxrbTooP9kdO+l5J4A4TTr/xwv4hvQ8Jyw90DUggld
-	 ou0H99KLYX1aZmDxWBCfbQbjs/j4NMqo9F6H64lDCCQHrC36xqnq5u9UPBfFs+GRfYBFY
-	 Ywz3sYXD3AphNma/UAA1m/PSQ9M5u3YzAC6B2P7IXlt+YCgCupTvmZiHlqAIhDfGF/J28
-	 yNs5YteLLTcPd+7hNXxN147cPTQjHeKqlNYdtoTutkBZ5ruPDqvgyDLtRyodaDe9vxg==
+	t=1794942587;
+	b=WzRGw4ayUYj6uKAgwygjmFgGqcd3/SnHIhyFN3O/QYTM/OWqMmgU9j61IeogTYGr0go9
+	 stkbXyAJcMmw+cSuSVSmUErTLYR1Dokddke30hJ0cbOgYseNcCTwuR5ZZTsKeAINwoscn
+	 MYZI5I1AbaY12lKZROg+d1rVp/D+ADnuiRYBv9d8VAm8Nlbd+MOhyMn5OtxP4mzP5lGEj
+	 hwYqXMuZyvyxmO5ovi4vwZzAQCWZqIUZo08rF+mpx1hqghZP6/s6SCUjbhKvyQfF/cunG
+	 1HBOhc3yo8Xhm0ijQoAL4VD+Mc/vpmV2NE9jr3xsjVy+q7IuPPM9+ehe/mbqPwlLYjQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794942580;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=+aYf8g41eVpT0waLNALL3a30OTIwyYVnd0XINX9JXbw=;
-	b=F3RHRxPm7oLy3ogHIV1MtB76qT2ATltwsvNaFmhgXXtjjNvVvlmi06vdQ1swi2lMf8Xf
-	 ZNKWVGpBI9yhLJDQ5e+UmBHIOb98L8UoQMXqVTYGbBtPi7mrvnFAa8LtVYR/+SJ0iDmRw
-	 qneVKmk2QV29l5igxD2BpVKg4mN0v7cHqEktHhbQ9GhzCYiXP9eNUsP6+82mrHumu2aIX
-	 DL/uLtKUG/I1sKowWIuWs5zVBuMh78sfWXsk4IY0VF3bkv7Wkvi2pcLHa039kiATnKjYs
-	 Mjg6NrLAPDwy6Hk8YEXDSafn4MEHuAD9JB/o4YFGhVQy6rgKILFMDXMTs9HLVNe6r9Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794942587;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=99djJjetdd6bvswpVzAEPR34uNCEOMwFtcP9/EutTY8=;
+	b=FZrB/YbAsO2USi5lcEjocTTDORq2ooRf3paqpmQOz7dVt5Pi69Xl1j2lsgRjndgYTmym
+	 m+ZD2JyJ9ROxCEMfsImoZo9+kZpF2KGjSOyAt9eUE9c3Qe5g/+WrN9RV4zp3wnowbdMtd
+	 W2EUNyODIqtWuDpuYBqtntcfeo0SlXHSuIZBCewbYyAI8HD/kWnM2c6Ul/0lRkjKZrWWI
+	 fzA734ygYZiOP3sTCNssnm1s60Fl0MOdUK1JpEwnegeD5/Ps5eJPUH9jemNkTKgV19GtQ
+	 XU8cCu1AUIUEeEm+akurXIBjTp5TSG3OUElfOPs4kFWDQotY8ICewqv/h2qzfu5Cikg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LTrFGvh2;
-	arc=none smtp.remote-ip=209.85.215.170
-Received: from mail-pg1-f170.google.com (mail-pg1-f170.google.com [209.85.215.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=RveA28T1;
+	arc=none smtp.remote-ip=198.175.65.20
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3CA55606A32C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:09:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3CA55606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38F79606A337;
+	Tue, 17 Nov 2026 19:09:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 38F79606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LTrFGvh2
-Received: by mail-pg1-f170.google.com with SMTP id 41be03b00d2f7-cd61cef87f1so174680a12.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:09:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794942579; x=1795547379; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+aYf8g41eVpT0waLNALL3a30OTIwyYVnd0XINX9JXbw=;
-        b=LTrFGvh2up8kjBogLk1ZtofYatncwr6QZ2sdT8/epET8mDeNGmKTb219caMjagOQ/R
-         HqyRirJeJR1PjcUZDv0WZwz8DggWHkRljVrdRmNrb9YNTa1e9wUtlueBx/wQHStV5cXJ
-         Lz6SfZzFF0XEF0bJt6sWWm+y2HO7w/sZwJr63eMgnPhFWMIl7VhhBQKxoOuy5AWrk7/V
-         QS2tcp0a9MgB1Itek+FxYHoDJPV1QWg9IRPFx3X7VV0Z88EXxe7yMQYPD4vzVK+fD2GA
-         VqNjnZKz9HSwvBEH84jktD7qXuUgxt0+soidstQT81bfcSVk8PCOyG/fHsAwGH3y1OKM
-         /Ovg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794942579; x=1795547379;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+aYf8g41eVpT0waLNALL3a30OTIwyYVnd0XINX9JXbw=;
-        b=w46+IZ+/cC+zITTYQsRyrpjv5xEdV6st91omMBt/uBDOcRjDb8aSrNgdhCnfs+m/Hc
-         OFE3LB/7eiAg6MpD/jhFtEatgvx8pjOe9awG4s0v7XCFEh+0lmE3GNN3aBuuLQRnvATm
-         IBtSliy2bTqrFNDeppkg105+177bgOr4RlPb6w/+QfhYCIbk20QxCdbjwTPjYAr3yhe0
-         t1ooNWokZ8mlBAjm9248kkg1NrloJZOGO501l0Mw215yyD4vzga1GPboLyghmI0+ecBO
-         KLoyEPuqG0yvng1dxcitPnu1Pr9+OpvLF68sNiCKbpPErIADxDFaY1smp9OM7jEFHz6W
-         Tn7A==
-X-Forwarded-Encrypted: i=1; AL+hErGP1ChnCHUEAVHWLWeoVN/2/12/88b3JmcP0M2VrTNBfYBG6qgj0aBjLqHl+IWDlt7TM7UMKkZX/Sq428I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z82sfgKyJ1FOydtpe4WG9CTrBUljJMun1O2KnYyFjno3lznWSEG
-	TV0f91DYI+XywbF0G4+9bEpDGBm2QuklS2MRIBvighvUzwk0Lvpofpzu
-X-Gm-Gg: AZFdTZc5Atv6jV54xilcZrgq8cbm6ZQ/VGx8rZPighylMl1MVKFWlS3kzjDDgfiUss3
-	h7EFxzxopL6O8sZZYDUei736gI4Cx7T6FI5ur+vS1zxZt1NCewaXHmlfkoyIzCSImNGKX4nQcmu
-	sqkuM2IJlX7SVkqIfd0VdwhtWnApJS6Km9jmAWNXweCO1CO4ysOHBJbgh0CSEqgB1yoof/lOLxO
-	iLclaufYrs141EdbTJT4tmAPliu2XaoS0sJ9VP58fPPlgYik9YRO8sVKMa8munUPMwY+LxBc50y
-	A+pUIydJHr5Mm4iN0oo055dYYwzs1bHkMHOv5/sPmy473aAjFe1bVqJ7aSiyaBTI1rXsegayUaT
-	Qf4EV5P8zBF5p4mQbPV/rZf/hhQDF5HWTDreeX+t7QegS/myAZKhqYbNWsinEqOm+/pio4MqeCy
-	Ob0Spw0AaTV0Uvswoch79ErI1JM6AEe0URvzndQpNiS/MiFOt3+LWhtDPU8CgDg5dQG/iB5+HdS
-	SlofeDJ7E6fwA+2Ohzoo4QTnR8ZhUOqnXEptZSl8tqwuQ0Au9t3w52eO6+sFBMvRE0bB9xSheMV
-	p/Xe9sERud6RCLFae/sPn682MPGQKW1IhR9Hz6wg7gop+kX89mqMX3Fb
-X-Received: by 2002:a17:90a:d445:b0:3a7:ef4:164b with SMTP id 98e67ed59e1d1-3b3d06873d0mr304059a91.2.1794942579422;
-        Tue, 17 Nov 2026 11:09:39 -0800 (PST)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3ac70ea45sm5191801a91.17.2026.11.17.11.09.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Nov 2026 11:09:36 -0800 (PST)
-Message-ID: <09116c63-4c6b-440d-914a-e75902dc36ae@gmail.com>
-Date: Tue, 17 Nov 2026 11:09:33 -0800
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=RveA28T1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1794942587; x=1826478587;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=z2PIup23YXnOUw4dzxNjrnUotlSB4rZdT/oJ3YjauOw=;
+  b=RveA28T1K/EfOuPlOYxOYU9iau8TnFPJ+ZvkwDB9dTiDm93RMnpAVa2q
+   efez/MbPBQ2r7XVJOWJxdFdT8Ho7iObmjjc/syJHIT/VqXsTWaZKamGCR
+   i2O1E0zCXBo0869q6r70jT+QANo+ySVMVosTMHl7vlarzWHb9Z0zr+B5O
+   TY09O42AclhUJwaD5rR4t3p5BsnYB1O/oM0DsUd/SGRgNn3SCCNoFgeyI
+   9emd3AyX1IF5imHaMNKfxffn6wGiKcw8llp5JUMvu5ZpuQkcUDF1Ev7Mf
+   yQ5FmitLN9WjN7YaKrwVmATqtSPcUaeYD3QNI9j7bmB/2hC8KyIxYdVKI
+   Q==;
+X-CSE-ConnectionGUID: ItUlNBloTpaeK7xl1IjHSg==
+X-CSE-MsgGUID: NkMMt9CTTSqZi1IfOGFKuw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3770638"
+X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
+   d="scan'208";a="3770638"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 11:09:47 -0800
+X-CSE-ConnectionGUID: MhT5wEcpRM6fzHLAa4Nh1g==
+X-CSE-MsgGUID: IUcAWrNOT8+L9w9XlzjjxA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
+   d="scan'208";a="9808164"
+Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.254])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 11:09:44 -0800
+Date: Tue, 17 Nov 2026 21:09:42 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Arnav Kapoor <kapoorarnav43@gmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Gwendal Grignou <gwendal@chromium.org>,
+	Stephen Boyd <swboyd@chromium.org>, linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/6] iio: proximity: sx9324: reject negative hysteresis
+ values
+Message-ID: <avymdpJluGiOnZEC@ashevche-desk.local>
+References: <20261116205320.26070-1-kapoorarnav43@gmail.com>
+ <20261116205320.26070-4-kapoorarnav43@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,91 +85,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2 04/12] net: au1000: report MDIO transaction
- timeouts
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- hkallweit1@gmail.com, linux@armlinux.org.uk, shaojijie@huawei.com,
- horms@kernel.org, runyu.xiao@seu.edu.cn, mmyangfl@gmail.com, hvr@gnu.org,
- jeff@garzik.org, danny.kukawka@bisect.de, mugunthanvnm@ti.com,
- sebastian.hesselbarth@gmail.com, linux-kernel@vger.kernel.org,
- manuel.lauss@gmail.com
-References: <20261112045301.3669532-5-f.fainelli@gmail.com>
- <179483704272.3136.4869685253432664524@kernel.org>
-Content-Language: en-US, fr-FR
-From: Florian Fainelli <f.fainelli@gmail.com>
-In-Reply-To: <179483704272.3136.4869685253432664524@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261116205320.26070-4-kapoorarnav43@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On 11/16/26 05:50, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found more severe
-> issue(s) in other patches of this series. This mail is only an FYI, in case
-> you want to address the nit picks below when you respin.
-> 
-> Low priority / nit picks for your consideration:
-> 
-> - [Low] The patch adds a second timeout exit to au1000_mdio_write()
->    (drivers/net/ethernet/amd/au1000_eth.c), and both exits log the same…
-> 
-> --
-> 
-> net: au1000: report MDIO transaction timeouts
-> 
-> This commit makes au1000_mdio_write() return -ETIMEDOUT instead of
-> reporting success when the MII controller stays busy. It also adds a
-> readl_poll_timeout() check after the write so that a failed final
-> transaction is reported to phylib. The read path now returns -ETIMEDOUT
-> instead of -1.
-> 
->> diff --git a/drivers/net/ethernet/amd/au1000_eth.c b/drivers/net/ethernet/amd/au1000_eth.c
->> index 7063f9e5bc7c0..6b2e216a83618 100644
->> --- a/drivers/net/ethernet/amd/au1000_eth.c
->> +++ b/drivers/net/ethernet/amd/au1000_eth.c
-> 
-> [ ... ]
-> 
->> @@ -292,26 +293,27 @@ static int au1000_mdio_read(struct net_device *dev, int phy_addr, int reg)
-> 
-> [ ... ]
-> 
->>   	while (readl(mii_control_reg) & MAC_MII_BUSY) {
->>   		mdelay(1);
->>   		if (--timedout == 0) {
->>   			netdev_err(dev, "mdio_write busy timeout!!\n");
->> -			return;
->> +			return -ETIMEDOUT;
->>   		}
->>   	}
->>   
->> @@ -320,6 +322,13 @@ static void au1000_mdio_write(struct net_device *dev, int phy_addr,
->>   
->>   	writel(value, mii_data_reg);
->>   	writel(mii_control, mii_control_reg);
->> +
->> +	ret = readl_poll_timeout(mii_control_reg, mii_control,
->> +				 !(mii_control & MAC_MII_BUSY), 20, 20000);
->> +	if (ret)
->> +		netdev_err(dev, "mdio_write busy timeout!!\n");
-> 
-> [Severity: Low]
-> This isn't a bug, but could this message use different wording from the
-> one in the busy wait loop above?
-> 
-> Both timeout paths in au1000_mdio_write() now print "mdio_write busy
-> timeout!!". The first one fires before anything is written to the
-> registers. The new one fires after writel() has already started the
-> transaction, so the PHY register may or may not have been changed. From
-> dmesg there is no way to tell which of the two happened.
-> 
-> au1000_mdio_read() already uses two separate messages ("read_MII busy
-> timeout!!" and "mdio_read busy timeout!!"). Something like "mdio_write
-> completion timeout" here would separate the two write cases the same way.
+On Tue, Nov 17, 2026 at 02:23:11AM +0530, Arnav Kapoor wrote:
+> sx9324_write_hysteresis() copies the value into an unsigned int before
+> comparing it with the threshold, so a negative value becomes a large
+> one, passes the "val >= pthresh >> 2" check and sets the largest
+> hysteresis instead of being rejected. Return -EINVAL for negative
+> values.
 
-Sure, that can be improved to be clearer.
+As noticed earlier not all cases might have this issue, please elaborate if
+this is for 32- and 64-bit cases or only for the former.
 
-pw-bot: cr
+...
+
+>  	unsigned int hyst, val = _val;
+>  	int ret, pthresh;
+>  
+> +	if (_val < 0)
+> +		return -EINVAL;
+
+Same (semantic) issue, you are checking variable after its use.
+
+...
+
+
+
 -- 
-Florian
+With Best Regards,
+Andy Shevchenko
+
+
