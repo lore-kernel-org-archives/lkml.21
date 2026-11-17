@@ -1,56 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794955473;
-	b=gG6o6N3hWdNObyPl84yMp37eNkh1jI7AaeHHOF6Gv7qA8ucKFPQwWce0Bfk/y8E9aFap
-	 isZPwUach8QTtUAKARMtyVfHlxcK9aZ822yetNA4WtJpfRlsro3+EG5Hw4AaN04UAeC3G
-	 VY3ugOuotpRk0dmGBi8rT2a2CSXch0NPs4KajFe0KAtiU32qcFQmOcbUxxTW5muowfKdR
-	 xff1rZSmUJcavYqExCppl8XvwWyGcvv0mN7G4kp0Z19DqxA7m1DLRY25wI0enKGo76WFs
-	 ZNOcp1i4Rzdb6xlrqXmIFUah42rUdxr3SSfw5eDc2fVfb4IjmlX+4Pxk1HajfJPW3lA==
+	t=1794955567;
+	b=dVY733/T2ZultusBVW84H9F6grDhBXGUTTsUiqEfgLU+31z2qePpH/thLVRbzo8HCmWy
+	 ET6DmDKcc890/H0WpEph5lIl3WjqrvUzrXMr1LIhBtMu2tkRiKVJzwu7iDgPKJvRqsDfc
+	 pSqPcV6WLe8DZ48xY03t5XGSU4NL3x5rJhpKHVaRKUghegx80UGqU+D1BpeTwunnkpd/5
+	 RE8C6TvwzvfblqCwzBtb++TjOrQY746V+gcJ/ToDhjb4MJLtvlC6JMkgoZNsmHzu4Lo73
+	 NY/iWkRdIMf3Pk1xDdt/ZXcUCny5mFYtDqVmWhfBG05+7HZdkTqlPTdT+1BS+B+YVMQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794955473;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition;
-	bh=KPn6RbDbf0BjcbjfkEST8d4VOms5lu6bkJ4JXi5PvL8=;
-	b=iq+FSvw8AmgW8BwBH1R9ZtDVeM+wgjEOvweNjdbTX8v7nUoTkV4g6FT1tYUID5qMmQ5j
-	 tj+WOsAzSr4oplrfijnOKjkzx2dxy4KqeWBNUE2S3g1glTKFRc6j5nRCi/WXlu6B+6bFj
-	 bC/9nUemS86rq2wv6aE14K6zuq92R6LT0QxzvY0ci3CHTDrcjGnGEiw8DKZsyOvRX1X+i
-	 IBOFHD4hFWZlTs5BCp/jZzQsjQRf2slD8MQcLxlF9wNRudHR4ZmG2v7JwIKze/XMzeKYz
-	 f/57eVdMYo2e1zlJNqNRu31RLsDExD8otiLK+b8P/4GXagRTzqdRi4eJ0OCsii9EqfQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794955567;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:MIME-Version:Content-Type:Content-Disposition;
+	bh=/qBJIF/fG008hkLQDdrwJijKEDazNa27+pO/aXF7gs8=;
+	b=h5rz58i/OrPaLbn2I29wtyWbTmmA/I0HIIYMEI03Hmcicc/nl8ET3deQ1Fr5ZJoN2qzi
+	 l6/xqvzZtaGHV1p4mDGQTTMpHYn00K4T0F0BDX8D2G0DH6orYM15pAs+S1SzVchSfDyjr
+	 5Ww2NhgcTzVW1u4J472ipiEESyzNHpZN6okUqM8hBg3vikzZOXsKp+5AnxWwpBY4Ym8xP
+	 /xaVvW5eXXxf4UlUU5nfGGoxkPIG8ws2sE+OVPJM3sSvtCEPc45qnnnMLToFAygZmoFH1
+	 o4guT/EecoR7K2S+3CnpObQJmfuZTjqf9RqndWs4XFqEG7aAE1PYy693ihqhfzOCWUw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LJUFJ9Dr;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=multikernel.io;
+	spf=pass smtp.mailfrom=multikernel.io;
+	dkim=pass header.d=multikernel-io.20260707.gappssmtp.com header.i=@multikernel-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=JyQ9V6sP;
+	arc=none smtp.remote-ip=209.85.210.171
+Received: from mail-pf1-f171.google.com (mail-pf1-f171.google.com [209.85.210.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1113606A31C;
-	Tue, 17 Nov 2026 22:44:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9645D606A32A
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:46:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9645D606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=multikernel.io
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=multikernel.io
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LJUFJ9Dr
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75B1D1F000C4;
-	Tue, 17 Nov 2026 22:44:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794955473;
-	bh=KPn6RbDbf0BjcbjfkEST8d4VOms5lu6bkJ4JXi5PvL8=;
-	h=Date:From:To:Cc:Subject;
-	b=LJUFJ9Drq/in6fCvVIjPLcpJZVrhX7ESoBj1uEM86Iw5gJtURgXivwXjyyi8gDds/
-	 EBRIgkvnziBXbwaxet+/ZBe29ENav4zvFb0WLJiKjzufcYZRAUBfbmBrAcxn9x3oZQ
-	 kbYwDjKU9wnZjEJU+bqK4GjFxJWB/UOvCG73QBuT4vhrVvntyesKCyRENNWgMomB7S
-	 3Djxe6Wqj/HYWBeUyocbU5VOUCz5/189ExuUNbjWx1LdJZO8oNTtYxmbR+wr2LMNZp
-	 hCz2oQc8uwaJNvgQnDikvGxntCHYkXuWzuJTLMoH29qO6MezkKQQSP1LVWaR1sq8Xj
-	 R51yAFSZhGmqw==
-Date: Tue, 17 Nov 2026 22:44:28 +0000
-From: Mark Brown <broonie@kernel.org>
-To: "Paul E. McKenney" <paulmck@kernel.org>
-Cc: Boqun Feng <boqun.feng@gmail.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Joel Fernandes <jfern@kernel.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Uladzislau Rezki <urezki@gmail.com>
-Subject: linux-next: manual merge of the paulmck tree with the rcu tree
-Message-ID: <avzYzJYQGafi4gGL@sirena.org.uk>
+	dkim=pass (2048-bit key) header.d=multikernel-io.20260707.gappssmtp.com header.i=@multikernel-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=JyQ9V6sP
+Received: by mail-pf1-f171.google.com with SMTP id d2e1a72fcca58-8b9c51097e2so145634b3a.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 14:46:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=multikernel-io.20260707.gappssmtp.com; s=20260707; t=1794955566; x=1795560366; darn=vger.kernel.org;
+        h=content-disposition:content-type:mime-version:message-id:subject:cc
+         :to:from:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/qBJIF/fG008hkLQDdrwJijKEDazNa27+pO/aXF7gs8=;
+        b=JyQ9V6sPlvT4t1D+XHiPAoUrfKzAGBQ84uffmMFRN/LcmxQKAydenrxSB+uNVpgF94
+         NuRha+qy6WBihYuxIXEzpKjeVX9KVoVGGipoCW+x6D1iJnzHy+jZQmPfDpQp3FGZPhPs
+         UTRY3j+FvhW4ZbjSes6t/9Bl4B74mxUGHv54btb1sLFUR0qDl3oo+F6cWIVpS2BW2+XZ
+         lhbAKM5JouBmSpprPYDdwd+oaUFmcdd1BgS6j69PtgXaXWI9Ub3GI3u2ORz5kvaTgSBh
+         t1ImcWDb+6Dh4DbhSWAjmRI3MAN7Z0LWbKtTypjm+GTyEdqvSDiH04MwZcCeZbJ7kqbi
+         DQPA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794955566; x=1795560366;
+        h=content-disposition:content-type:mime-version:message-id:subject:cc
+         :to:from:date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=/qBJIF/fG008hkLQDdrwJijKEDazNa27+pO/aXF7gs8=;
+        b=buZVNqKf7+CP2GVA+4sH88ci9cptm0O2X5dxFubo5s7YoZHvreq5JImgnElAOubtH4
+         4g8o2LlnNGdZBEHJdcVrltngfxFOLRKLSo2AUJ1rAqsTKRZsp9j+MOGh5XUCNJzlL0Mk
+         P2qg5SMU34klSWsKIJ1UNTdNMJ67suQTXaHPnsl7UsHBVOyJ4dQmLocj2X3iQA77AEGd
+         Hh+6KqiQkTpYU803zwcRylxhBLD4ftiy9jbpeiwg8GZ8NqfYVTqCMVxxm6izbyG/26hu
+         BXb6IKjKVroCeX43ylnm0E1OqNoODLtqXIQ4EGhxlUZJ8rcHCHPj5oQcnhgoRrxlCqHd
+         tKSQ==
+X-Gm-Message-State: APuU4Z/LfNhzZ8FDLQMQD5cDyC+xtHckvv5YGcJxFM/Sr7ih0PsFL4uc
+	kptg65ab/SyLwuaZPCDpFiySOtD1D2QfH31zlrNWeB70LSDh5X9cJF7OMseLZvu7PJboL7kW9/V
+	uUSouSPk=
+X-Gm-Gg: AYBFou27loeCYOykk99u4Is9f5VlZIpKWr8ir1ydgCQ/pK4EWnJ1KXY/QdPr72uiY+R
+	Lg7xVNHxH+DTcq0CeSe/oiXiohz4ALB7LYp2VA0wG2+nYZLcaNhYz6+7WpbDsUUwWcb1nHKE1jc
+	AFHtm5lMys1jOc1ucR6rv1Kg9xEwFn/tgmNaLPcxvEwIoSXofSTT+YTTXPZxELsDQ6BcFsZZ6Nw
+	nxG8a/4hkq7iy2RqIJFsRP0M5pHRvNthNVoiG4IfT4nyUF5yW68nONTe67Vamczb07ZmtqMbiqG
+	y4FLN3AsKmVfV8iXrzhk27jaaXLxfdO6aUVMjD5tbnB9Dhcnjqn/WlLd2bg5E49nFT/1A4xmAil
+	8/NLwd9locojRi5bLKbZg35vo2b3GaklBHxf0neocna+ALOuAozSlwSaJIZM3wgn7zsRa6TDPSm
+	zddbJGN2CGPGDGP06Pp0bPQw5tPTZASZqzJivZtjSLzvac7Lr+YDqrpRRGTjJRlhLcnl1vFJaPe
+	3lFUEAmhNl5KzcD3u0ha6mg6eO9DudpByx9HBLAkiEoWIcAH0oAYBlViKay+UimPF5h/iVGq/tk
+	GQQkXPmEYy8JsnRqFrq17kqMnaFYFh0c5tDGtSgmbfErEq0Bllpjs6viIcON1vA=
+X-Received: by 2002:a05:6a20:3d19:b0:3fb:5183:5e27 with SMTP id adf61e73a8af0-3fe86bdb958mr889308637.9.1794955566341;
+        Tue, 17 Nov 2026 14:46:06 -0800 (PST)
+Received: from localhost ([2601:647:4084:777d:a912:5690:58ab:9eb1])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde3c7b3105sm119772a12.30.2026.11.17.14.46.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 14:46:05 -0800 (PST)
+Date: Tue, 17 Nov 2026 14:46:04 -0800
+From: Cong Wang <cwang@multikernel.io>
+To: linux-kernel@vger.kernel.org
+Cc: multikernel@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: [ANNOUNCE] mklinux v7.0-mk5: multikernel Linux, now on arm64
+Message-ID: <avzZLLKSZIlqAjag@pop-os.localdomain>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,172 +92,109 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="c04WuSgqULRMduVx"
-Content-Disposition: inline
-
-
---c04WuSgqULRMduVx
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
 Hi all,
 
-Today's linux-next merge of the paulmck tree got a conflict in:
+mklinux v7.0-mk5 is out. mklinux is an out-of-tree branch of Linux that
+lets one machine run several Linux kernels side by side without a
+hypervisor. A host kernel sets aside a pool of CPUs, memory and PCI
+devices, loads another kernel into it with kexec_file_load() and starts
+it on those CPUs. Each kernel then runs natively on its own share of the
+machine. The kernels talk over shared-memory rings and IPIs, which carry
+a console, AF_VSOCK and PCI config space access, and a kernel can take
+the whole machine over from its host, which is what kernel upgrade and
+crash recovery are built on.
 
-  tools/testing/selftests/rcutorture/bin/torture.sh
+This release is 114 patches on top of v7.0-mk4, and the tree is 330
+patches on top of v7.0.
 
-between commit:
+What is new
+===========
 
-  7ada0a57267ab ("torture: Use ${:+} to save a few lines in torture.sh's to=
-rture_one()")
+arm64
+  Multikernel now runs on arm64 as well as x86_64. CPUs are started,
+  confirmed off and released through PSCI. An Image is loaded with
+  kexec_file_load() and boots from a device tree the host builds for
+  it. A spawned kernel is a tenant of the GICv3: it leaves the
+  distributor and LPI setup to the host and initialises only the
+  redistributors and CPU interfaces of its own CPUs. It gets PCI
+  devices only, with MSIs routed through whichever host ITS serves the
+  device. A kernel is forced down through SDEI event 0 where firmware
+  has it, which reaches a CPU that has every exception masked, and
+  with the stop IPI otherwise. arm64 memory hot-remove learned to
+  split or refuse a partial removal of a linear map leaf and to free
+  the page tables and vmemmap it empties.
 
-=66rom the rcu tree and commit:
+Device leases and DMA confinement
+  A PCI function lent to another kernel is held on the host by a stub
+  driver, as vfio-pci and xen-pciback do, and everything the host sets
+  up for it hangs off one lease. Its DMA is confined through the IOMMU
+  to the memory of the kernel that drives it, on arm64 (SMMUv3) and on
+  x86 (VT-d), and follows that kernel's memory as it grows and
+  shrinks. The function is reset while still confined when the lease
+  ends.
 
-  436f3c6b27de8 ("torture.sh: Add hazptr torturing")
+VT-d
+  The host leaves alone the units another kernel drives, lends each
+  spawned kernel a block of interrupt remapping entries and checks
+  every entry written into it. A kernel that took the machine over can
+  claim the units of its fenced host without turning translation off.
 
-=66rom the paulmck tree.  AFAICT the change in the hazptr commit is adding
-quoting that is also covered by the other commit and should have been
-redundant anyway but you really want to double check here.
+Chained takeover
+  A kernel that took over from its host becomes instance 0, can online
+  the memory it adopts as kernel memory, and can arm and hand over to
+  a successor of its own, any number of times. On x86 parked CPUs no
+  longer wait on slots owned by one kernel: there is one park table
+  for the machine with a cell per CPU, so any kernel can find and wake
+  a parked CPU, as PSCI allows on arm64.
 
-I fixed it up (see below) and can carry the fix as necessary. This
-is now fixed as far as linux-next is concerned, but any non trivial
-conflicts should be mentioned to your upstream maintainer when your tree
-is submitted for merging.  You may also want to consider cooperating
-with the maintainer of the conflicting tree to minimise any particularly
-complex conflicts.
+Messaging
+  Each parent/child pair has its own rings, so a kernel that dies in
+  the middle of a send can only wedge its own link.
 
-diff --combined tools/testing/selftests/rcutorture/bin/torture.sh
-index 1b7ad2c15e1ed,90b5e113a0b03..0000000000000
---- a/tools/testing/selftests/rcutorture/bin/torture.sh
-+++ b/tools/testing/selftests/rcutorture/bin/torture.sh
-@@@ -43,10 -43,11 +43,11 @@@ f
-  configs_rcutorture=3D
-  configs_locktorture=3D
-  configs_scftorture=3D
-+ configs_hazptr=3D
-  kcsan_kmake_args=3D
- =20
-  # Default compression, duration, and apportionment.
- -compress_concurrency=3D"`identify_qemu_vcpus`"
- +compress_concurrency=3D"${TORTURE_ALLOTED_CPUS}"
-  duration_base=3D10
-  duration_rcutorture_frac=3D7
-  duration_locktorture_frac=3D1
-@@@ -70,6 -71,7 +71,7 @@@ do_rcutasksflavors=3D"${ifnotaarch64}" #=20
-  do_srcu_lockdep=3Dyes
-  do_atomic_srcu=3Dyes
-  do_rcu_rust=3Dno
-+ do_hazptr=3Dyes
- =20
-  # doyesno - Helper function for yes/no arguments
-  function doyesno () {
-@@@ -90,6 -92,7 +92,7 @@@ usage ()=20
-  	echo "       --do-all"
-  	echo "       --do-allmodconfig / --do-no-allmodconfig / --no-allmodconfi=
-g"
-  	echo "       --do-clocksourcewd / --do-no-clocksourcewd / --no-clocksour=
-cewd"
-+ 	echo "       --do-hazptr / --do-no-hazptr / --no-hazptr"
-  	echo "       --do-kasan / --do-no-kasan / --no-kasan"
-  	echo "       --do-kcsan / --do-no-kcsan / --no-kcsan"
-  	echo "       --do-kvfree / --do-no-kvfree / --no-kvfree"
-@@@ -119,6 -122,11 +122,11 @@@ d
-  		compress_concurrency=3D$2
-  		shift
-  		;;
-+ 	--config-hazptr|--configs-hazptr)
-+ 		checkarg --configs-hazptr "(list of config files)" "$#" "$2" '^[^/]\+$'=
- '^--'
-+ 		configs_hazptr=3D"$configs_hazptr $2"
-+ 		shift
-+ 		;;
-  	--config-rcutorture|--configs-rcutorture)
-  		checkarg --configs-rcutorture "(list of config files)" "$#" "$2" '^[^/]=
-\+$' '^--'
-  		configs_rcutorture=3D"$configs_rcutorture $2"
-@@@ -149,6 -157,7 +157,7 @@@
-  		do_kasan=3Dyes
-  		do_kcsan=3Dyes
-  		do_clocksourcewd=3D"${ifnotaarch64}"
-+ 		do_hazptr=3Dyes
-  		do_srcu_lockdep=3Dyes
-  		do_atomic_srcu=3Dyes
-  		;;
-@@@ -158,6 -167,9 +167,9 @@@
-  	--do-clocksourcewd|--do-no-clocksourcewd|--no-clocksourcewd)
-  		do_clocksourcewd=3D`doyesno "$1" --do-clocksourcewd`
-  		;;
-+ 	--do-hazptr|--do-no-hazptr|--no-hazptr)
-+ 		do_hazptr=3D`doyesno "$1" --do-hazptr`
-+ 		;;
-  	--do-kasan|--do-no-kasan|--no-kasan)
-  		do_kasan=3D`doyesno "$1" --do-kasan`
-  		;;
-@@@ -185,6 -197,7 +197,7 @@@
-  		do_kasan=3Dno
-  		do_kcsan=3Dno
-  		do_clocksourcewd=3Dno
-+ 		do_hazptr=3Dno
-  		do_srcu_lockdep=3Dno
-  		do_atomic_srcu=3Dno
-  		;;
-@@@ -341,8 -354,16 +354,8 @@@ touch $T/successe
-  # Note that quoting is problematic.  So on the command line, pass multiple
-  # values with multiple kvm.sh argument instances.
-  function torture_one {
- -	local cur_bootargs=3D
- -	local boottag=3D
- -
-  	echo " --- $curflavor:" Start `date` | tee -a $T/log
- -	if test -n "$torture_bootargs"
- -	then
- -		boottag=3D"--bootargs"
- -		cur_bootargs=3D"$torture_bootargs"
- -	fi
- -	"$@" "${boottag}" "$cur_bootargs" --datestamp "$ds/results-$curflavor" >=
- $T/$curflavor.out 2>&1
- +	"$@" ${torture_bootargs:+--bootargs "$torture_bootargs"} --datestamp "$d=
-s/results-$curflavor" > $T/$curflavor.out 2>&1
-  	retcode=3D$?
-  	resdir=3D"`grep '^Results directory: ' $T/$curflavor.out | tail -1 | sed=
- -e 's/^Results directory: //'`"
-  	if test -z "$resdir"
-@@@ -720,6 -741,17 +733,17 @@@ the
-  	fi
-  fi
- =20
-+ # Calculate hazptr defaults and apportion time
-+ if test -z "$configs_hazptr"
-+ then
-+ 	configs_hazptr=3DCFLIST
-+ fi
-+ if test "$do_hazptr" =3D "yes"
-+ then
-+ 	torture_bootargs=3D""
-+ 	torture_set "hazptr" tools/testing/selftests/rcutorture/bin/kvm.sh --tor=
-ture hazptr --allcpus --duration "$duration_rcutorture" --configs "$configs=
-_hazptr" --trust-make
-+ fi
-+=20
-  echo " --- " $scriptname $args
-  echo " --- " Done `date` | tee -a $T/log
-  ret=3D0
+Console
+  A spawned kernel can be handed the host's screen as a
+  simple-framebuffer, for machines reached only through a BMC's remote
+  KVM.
 
---c04WuSgqULRMduVx
-Content-Type: application/pgp-signature; name="signature.asc"
+ABI change
+==========
 
------BEGIN PGP SIGNATURE-----
+The multikernel flag and the instance id moved to the upper half of the
+kexec_file_load() flags, as KEXEC_FILE_MULTIKERNEL (0x80000000) and
+KEXEC_FILE_MK_ID_MASK (0x7fff0000). The old values collided with
+KEXEC_FILE_NO_CMA and KEXEC_FILE_FORCE_DTB. A loader built against
+v7.0-mk4 or earlier has to be rebuilt; kerf 0.5.0, the user-space tool,
+uses the new layout.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmr82MsACgkQJNaLcl1U
-h9Ckagf/buYeQjYmSE6CRQ2+gpbYKJKv1+Igp5TCuKI7i0EA6ar8vokZjm00C15B
-LgFVFX6McaUqxXnsRXLNe1GMBswjVup1OutmD+n2TWskKbtvtz5avaiZlIT+AmuG
-vTclDe0QtRV6bEREYBcIqGrxE8rsaPBQGhoC29ePTuS7UovdTk8/9qHELkXG0KsT
-7gyhdMd5Hg0nkppbdy+sFMgNU+VtaBdvqOAqTeZLB4MEo38NlFb06SwfnA09mCQd
-Lop7ptSXNiGd79UPezuZ9zXbbvXB513rWwr+tagyTEySyVZbminFrYhQSKHDpYe3
-u9ZBf9M+UyuCuVf+jPngmLd5yQKNhQ==
-=M4Kr
------END PGP SIGNATURE-----
+Getting it
+==========
 
---c04WuSgqULRMduVx--
+  git:      https://github.com/multikernel/linux.git, tag v7.0-mk5
+  release:  https://github.com/multikernel/linux/releases/tag/v7.0-mk5
+  kerf:     https://github.com/multikernel/kerf/releases/tag/v0.5.0
+  docs:     Documentation/multikernel/ in the tree
+
+The release page has the full change list and deb and rpm packages for
+x86_64 and arm64, built with the Ubuntu 26.04 generic config plus
+CONFIG_MULTIKERNEL=y.
+
+Known limitations
+=================
+
+- An arm64 instance gets PCI devices only, no platform devices, since
+  every SPI goes through the one GIC distributor, which stays with the
+  host.
+- An arm64 spawn has to boot with pseudo-NMIs
+  (irqchip.gicv3_pseudo_nmi=1) so that the host can stop it when SDEI
+  is not available.
+- The prebuilt packages have no debug info, hence no BTF, and are not
+  Secure Boot signed.
+
+Testing, bug reports and review are all welcome, on the list or in the
+issue tracker at https://github.com/multikernel/linux/issues.
+
+Thanks,
+Cong
