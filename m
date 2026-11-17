@@ -1,82 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794943026;
-	b=cPnd0l4dkBmBGWcTHYwQdIqD+kuA/cU/kWuNLW+GHzaeFbDEd09f+n7H8zJYMITa++33
-	 HJrzEnBnGh8x47vPiOVMP79TWseVUpSTlTWREe2Fli2DDbYleFneXFJnxrc7hRVeIoxs8
-	 AsS0KxQ2IQD+a6orrRkSE1zDUhn9SnOe2sq4fpCp+Ex/f/dmXri0mi5e47Sdzq+YGjpe7
-	 +NsQ39TjGMaARQIDp2Bb5oqkO7Q71dVamqS4Kw9saadfbwQGQISztdEQLRT2HfgtXJcJd
-	 clN5jG6jhavlJ7LnhTyTn1Ihwt+wnLoINyWzDDShH8wfbAO2wN8Ql2WgF/Wb7jNHGjg==
+	t=1794943103;
+	b=wWgdKYvG+kxlnjKoVQssPhrtMVsJBnFYArRh4+6S6PGSh1BuQpl17cyhtv9kCbCZLObH
+	 BDOlONaloV1TraxgSYMOEmgA2xprIUqCYWRY7O2uiX0xdJnBRIctFft12+APog/Sq+jEF
+	 2S+WdmEbn0rLsbPskBkWRKG7c8V7UcVCpNbbAC/pConlaSZGwVHmLKENHl1L9XiDnzzO/
+	 56ROtmOarvLU3+Xr/J+sCjtVl5ABmQQBJGBAla5PRUyZcHGN3nxRyfdRx6XAUszMI+fbJ
+	 tLcuFH/DZFasQnazcC9f03EmSsuyBu7ObHxQpRXtcM3d1X7C1L4W0Cpj6NojdIIxh2g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794943026;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=FYJEgbgWj1001DFbh2xaEfMnqumhuslKfSmLo2I8NaQ=;
-	b=YyiqJIKGl/HeDGX/yr/QHvcNLO5W9Rz5VUTV6DxQB4ijEkwmLGDLTHYY8jjpqneZGw6Q
-	 SYmYC/GMgbY4/9BoygB/F6KCFVa2zfzswguSck6ua5UyMav6nHR+q7r/GP/aDRNjKTPoe
-	 D/aA55oe0WdCi7pqTmiMzsbIpf3iS7ldI0tIJABZnnZWGUmNtBeBGeR8mKvZJG8xfvHSV
-	 0wZ7dxiJ2DZRfdPDOJyX7aab7tlBAfjV6xNyP+rMaH/2NueqzGCFS82w5UswwGGVoEC2s
-	 RA5fk/IVRtCLmqCa3LP4il0g+6wmJRChKEPigF8WH3UjZS2XjKSypSJJWSQPNSggT/w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794943103;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=1Edwp1EcAjO2ABx/cNirsINggYhI4Q4uIjqMsRIaK2c=;
+	b=ZG/HoBF2RbVLHBlEfwqzZV/QFy0OtCJKPqje2xguBgPgTSfWQc+hR3B+n5XpPhGYb4/I
+	 PjgOQuArhRRWy6pownpkKtUQNxoLyLV3fpC2qVS9XgYrsG4Mshmq1bpMzDVdQ43IRb5d5
+	 maUMApjcqkYYJ8pJ0fVMFCky+8hHxpHdZecpE9Sq/Ik/CaUv/eTlxeDX/JTijjp1SMVht
+	 1Tw7QKUg+U33qtvi85UP1lr6mM1vGb1zEUsIG62ck+qGSczIpcfG7hBvovQdFFNVAaGTu
+	 r6CtgCSiYGEjVfg0OXPfvEoiiUmWFFyssjXrRqSlJDN8QqKPF27rvWPRaJAGGS5yy3Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=SjYhkCMJ;
-	arc=none smtp.remote-ip=192.198.163.16
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.16])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0R2MqpIx;
+	arc=none smtp.remote-ip=209.85.219.44
+Received: from mail-qv1-f44.google.com (mail-qv1-f44.google.com [209.85.219.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58395606A32A;
-	Tue, 17 Nov 2026 19:17:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 58395606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16DF6606A31C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:18:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16DF6606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=SjYhkCMJ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1794943026; x=1826479026;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=KOV0DBczU4q1DkAermQBydrpIkEwz8s9NSQiCDYutP4=;
-  b=SjYhkCMJkGcW+iCNpMAr1fB5C0I/gqPu2xDcMNS3AjZzvpwmBpLmIuJk
-   E2xVrsK7s/FswZbLdB/L0B8UPNJRug8vNpJKd3NCgeB2/QqZcHPUGFAUx
-   FmfiG9zZLlbBeMOuUoZxWtzuUq8y5ZjkfS+ar98SbkjX1hn1pXZl6R/9D
-   dGks0GqubFZ/N8EBzhEQLh4D88gZ4bGTbHeI/+APMgLV5hwLiFxwRxYia
-   nYs7MKOyLaksSkyPeTJBs23ZdKuTQwRmPEIyrJununj83KUZd1zXmKfH7
-   X6zQIW/mGwtfT/bBsqI40epr3tLS5SpjQCvui79eSLSUt1IlckV5iUs0W
-   Q==;
-X-CSE-ConnectionGUID: vQh0G24QSlKh6UVhn8JZPg==
-X-CSE-MsgGUID: 5LyqOzCtTCKe0Y3ToHgmqQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3763280"
-X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
-   d="scan'208";a="3763280"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 11:17:06 -0800
-X-CSE-ConnectionGUID: w7GccVdkREq1mQzn5e0yFg==
-X-CSE-MsgGUID: 1bMSIU5TT3Cly5I4i3vbsg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
-   d="scan'208";a="9887442"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.254])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 11:17:03 -0800
-Date: Tue, 17 Nov 2026 21:17:00 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Arnav Kapoor <kapoorarnav43@gmail.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	Gwendal Grignou <gwendal@chromium.org>,
-	Daniel Campello <campello@chromium.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/2] Semtech SX9xxx: add a reviewer entry and binding
- maintainer
-Message-ID: <avyoLGkkCkxu11TA@ashevche-desk.local>
-References: <20261117172612.25535-1-kapoorarnav43@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0R2MqpIx
+Received: by mail-qv1-f44.google.com with SMTP id 6a1803df08f44-91f11161831so257526d6.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:18:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794943102; x=1795547902; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=1Edwp1EcAjO2ABx/cNirsINggYhI4Q4uIjqMsRIaK2c=;
+        b=0R2MqpIxgKWqnVxLLFLn7f6a2ORR8Dlv9evj2spHbYLhN3X7ypfC7lit78GwvNKuKV
+         Z7JZXNqmgi47OuXI4o7OQyKFepcm17OwfCiHpagjtQqlvHXZLN2+qpsklhAP40svnczE
+         Wj4a50d5bPswncfHYVt2Qv/FHhoWt6aZCt+a7PRKA2nOiPlT1kjfnuBJhzuHKQ1GEB4Y
+         YtcgYMEgM2wGHw+lYgajxFRNNgoZrsbhB9pXLZbybKdR6l4/p2Kb8o4UWo6CCBdMqUjV
+         iIok+k+oUjzZyN7AhxqphHIdt/Lxlv+SqvXRCb3XCNSkkejRyQoqkByLu8O8xczC57IY
+         G9Eg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794943102; x=1795547902;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=1Edwp1EcAjO2ABx/cNirsINggYhI4Q4uIjqMsRIaK2c=;
+        b=1Ai2W9xf3RMlwa4Lx7OAhnbf7u4vEM/FCKFsP99MhgOQ8uYHitObbOTpjrKBWhraQa
+         6xJOhzSnSavNM/o4Ny1kMd7V3zQTg8hx1CHUYlOHKrhckIlhGSS8OZVczdXq0XFryD7D
+         7QKocYnkuwnItp4K/JM9AIgVSQpjaoHU1ieLmEieejg8Rk04TZlQkBl81iPk2A6BHM5q
+         v2kSb256FYXb6o6hAJxydreSxb08o3DBFFymSaQCYUWzJFwBrNYROVzIh0Ypi+zA+z66
+         xQZCWyYhF6uorDSYNiBuNiSxOTrQiIrYqGMLzavBAUsEza8JPEbYNTjB2Rblf7raS/nW
+         MBYw==
+X-Forwarded-Encrypted: i=1; AL+hErEHPJXwpRN9Et5f3P2pm3vcVMPXvn66+wUX3kr34dYXEhnqjy6ln+Gq1XaFO8+Vp7b16R32ZJG/8b9ynk4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/uPdU1donNQWPoWxbX1f0IXcxBLjgSBMT5+zp4sFPpE3kCGdAA
+	ujazW94LDlW6O0dnGIR2uVHr0b9of+47RpIbUm4XuMowXrUHOpu2NzI/CEx6mA==
+X-Gm-Gg: AZFdTZfhgVgHSpM1MvwYXHXwkU5z8b1504jtmL79IMragB2gHRLXBFHXBSWUqeR8p4N
+	X/gpFajztk6Rvb0Vam1hWt+7Mh6QGxnqiJQCXPuExH0BrrO+QcJEUxL3oAno22uCod84FuaBE7B
+	EFEs35LtUpC1vf6UoAiog64dsbPtzMGzTRrZ+hkMHhKYMPIq3QMTYDpKb0jKeI2ahAEdnKirxQ5
+	HaUm/adHMJPtgLLiDI4+Iy8/WxH7+j9Q4RoKzPsBDlK9LicBu1ic3mPZDowfujbGb/btxfDhTD7
+	Snk2bPm+kDPolFCNidvJrdPmvUZjhqHz6mZdCTc6K4M+pfVwx0J0WW/PkZLb1BWNdjg+Rk+6Q4z
+	ZBAmjbcNozpPfkUZ8Y+vEwvpafYQhb64v6/biJ4vfrudQfSJNLvLOqdGVTS8Km7EYg2AuE6+y4T
+	X1/Pz6Me9OOGsGRnrswcS6UTMBbBbPQ/d3cidO826FB/fwEB5h1c81uPrZmkOHoFJCHaPhOpvOS
+	aqvb+QC34KtiPGrpphPvQ5mK2oYRLNWI8330nMjbm+4lU5oreo6u3fV5rCbJBpzUeM42SFF5bzh
+	D1ck+0D8F/1riWmSSP6M4Iz8jJRfK54/TnrsqTTMxNBIt1seyFBEeWHKDQ==
+X-Received: by 2002:a05:6214:1bc8:b0:91b:9536:21af with SMTP id 6a1803df08f44-92114eabcfcmr2276646d6.46.1794943101894;
+        Tue, 17 Nov 2026 11:18:21 -0800 (PST)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92114d537bcsm1263596d6.24.2026.11.17.11.18.14
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Nov 2026 11:18:17 -0800 (PST)
+Message-ID: <ddf29c30-de9f-486e-b6f1-42f06200eb55@gmail.com>
+Date: Tue, 17 Nov 2026 11:18:13 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,39 +92,144 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117172612.25535-1-kapoorarnav43@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v2 11/12] net: au1000: keep the MAC stopped until the
+ PHY link is ready
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ hkallweit1@gmail.com, linux@armlinux.org.uk, shaojijie@huawei.com,
+ horms@kernel.org, runyu.xiao@seu.edu.cn, mmyangfl@gmail.com, hvr@gnu.org,
+ jeff@garzik.org, danny.kukawka@bisect.de, mugunthanvnm@ti.com,
+ sebastian.hesselbarth@gmail.com, linux-kernel@vger.kernel.org,
+ manuel.lauss@gmail.com
+References: <20261112045301.3669532-12-f.fainelli@gmail.com>
+ <179483704995.3136.5707920157509018990@kernel.org>
+Content-Language: en-US, fr-FR
+From: Florian Fainelli <f.fainelli@gmail.com>
+In-Reply-To: <179483704995.3136.5707920157509018990@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 17, 2026 at 10:56:07PM +0530, Arnav Kapoor wrote:
-> Add a MAINTAINERS reviewer entry for the Semtech SX9310, SX9324, SX9360
-> and SX9500 proximity drivers, and add myself to the maintainers of their
-> DT bindings.
+On 11/16/26 05:50, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found more severe
+> issue(s) in other patches of this series. This mail is only an FYI, in case
+> you want to address the nit picks below when you respin.
 > 
-> Jonathan agreed to a reviewer-only entry here:
-> https://lore.kernel.org/all/20261117031830.69ac22f5@jic23-hlaptop/
+> Low priority / nit picks for your consideration:
 > 
-> Changes in v3:
-> - Patch 2: replace the Link: tag and the reference to it with a
->   Suggested-by: tag (Andy)
-> - Patch 2: drop the L: line, the IIO subsystem entry already provides
->   linux-iio for these files (Andy)
+> - [Low] The commit message and comments in this patch don't match the
+>    code.
+> 
+> --
+> 
+> net: au1000: keep the MAC stopped until the PHY link is ready
+> 
+> This patch stops the MAC when the PHY reports link-down. On open, it now
+> calls phy_resume() before au1000_init(). It also keeps MAC RX/TX disabled
+> in au1000_init() until au1000_adjust_link() has seen a link-up.
+> 
+>> diff --git a/drivers/net/ethernet/amd/au1000_eth.c b/drivers/net/ethernet/amd/au1000_eth.c
+>> index 8b7a88ceb3c5e..d60430a3795ed 100644
+>> --- a/drivers/net/ethernet/amd/au1000_eth.c
+>> +++ b/drivers/net/ethernet/amd/au1000_eth.c
+> 
+> [ ... ]
+> 
+>> @@ -691,8 +692,8 @@ static u32 au1000_rx_mode(struct net_device *dev, u32 reg);
+>>    * When the device powers up, the clocks are disabled and the
+>>    * mac is in reset state.  When the interface is closed, we
+>>    * do the same -- reset the device and disable the clocks to
+>> - * conserve power. Thus, whenever au1000_init() is called,
+>> - * the device should already be in reset state.
+>> + * conserve power. The device must be stopped before au1000_init() is
+>> + * called, but may be out of reset for MDIO accesses while resuming the PHY.
+>>    */
+>>   static int au1000_init(struct net_device *dev)
+>>   {
+> 
+> [ ... ]
+> 
+>> @@ -928,11 +934,25 @@ static int au1000_open(struct net_device *dev)
+>>   		return retval;
+>>   	}
+>>   
+> 
+> [ ... ]
+> 
+>> +	/* Restore the MII clocks without starting the PHY state machine. */
+>> +	if (dev->phydev) {
+>> +		retval = phy_resume(dev->phydev);
+>> +		if (retval)
+>> +			goto err_reset;
+>> +	}
+>> +
+>>   	retval = au1000_init(dev);
+>>   	if (retval) {
+>>   		netdev_err(dev, "error in au1000_init\n");
+>> -		free_irq(dev->irq, dev);
+>> -		return retval;
+>> +		if (dev->phydev)
+>> +			phy_suspend(dev->phydev);
+>> +		goto err_reset;
+>>   	}
+> 
+> [Severity: Low]
+> 
+> Can this error branch in au1000_open() ever run? au1000_init() has only
+> one return statement:
+> 
+> drivers/net/ethernet/amd/au1000_eth.c:au1000_init() {
+> 	...
+> 	spin_unlock_irqrestore(&aup->lock, flags);
+> 	netif_addr_unlock_bh(dev);
+> 	return 0;
+> }
+> 
+> au1000_enable_mac() returns void, so nothing in au1000_init() can fail.
+> That makes the new phy_suspend() rollback look like dead code, even
+> though the commit message describes it as:
+> 
+>      if initialization fails, suspend the PHY again before cleanup.
+> 
+> The commit message also says:
+> 
+>      Initialize the MAC before phy_start() so the PHY worker cannot access
+>      MDIO or enable traffic during setup.
+> 
+> Didn't au1000_open() already call au1000_init() before phy_start() before
+> this patch? The diff shows that order as unchanged context.
+> 
+> The actual changes seem to be the new phy_resume() call before
+> au1000_init(), and making RX/TX depend on aup->old_link. Could the commit
+> message describe those changes instead?
+> 
+> Separately, the au1000_init() header comment now says the device "may be
+> out of reset for MDIO accesses while resuming the PHY". The comment in
+> au1000_probe() was not changed and still says:
+> 
+> 	/*
+> 	 * The boot code uses the ethernet controller, so reset it to start
+> 	 * fresh.  au1000_init() expects that the device is in reset state.
+> 	 */
+> 
+> Should these two comments be reconciled? They now give conflicting
+> preconditions for au1000_init(). Neither is strictly accurate, because
+> au1000_init() always forces a reset itself through
+> au1000_enable_mac(dev, 1).
 
-> - Patch 2: drop the DT binding F: lines, patch 1 already lists me in
->   the maintainers: field of the bindings (Andy)
+Agreed on all three points. In the respin I have:
 
-I was expressing my opinion, it was not an AR, it was rather the start for
-the discussion. I'm not DT maintainer, I don't know what the rules for the
-maintainer records there, OTOH I don't know if DT parts belong to the
-MAINTAINERS records that have only R: lines (and no M:).
+• Removed the unreachable initialization-error branch, including the new 
+phy_suspend() rollback, since au1000_init() always returns zero.
 
-You need to clarify all this before blindly doing something.
-Also even for this patches, wait 24h hours before a respin.
+• Updated the commit message to describe the new synchronous 
+phy_resume() before MAC initialization, while preserving the existing 
+initialization-before-phy_start() ordering.
 
+• Reconciled the comments to explain that au1000_init() forces a reset 
+itself and that preceding MDIO accesses may already have enabled the MAC.
+
+pw-bot: cr
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+Florian
