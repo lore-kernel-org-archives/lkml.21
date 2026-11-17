@@ -1,73 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.154.119.183
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794949776;
-	b=u8r4NXoEWRrUpIDMHEpF9n35XXG1XRtN6/o0kxlQns1pK+T3+/wvwuM5wMXeM9uQ3A2z
-	 rWZIpg7BtS7NnSNpinXC28SAcNwXAPJrJAeUpG74p1X6hiAdPpWySBWJSsmxNBDkt1nTh
-	 KZpeza6xuRigjCIYyrO05ccpbARyvP63N5u+WtNUdCPWeGkr39PwrQhO3LJTw7smFe4ih
-	 1ZxrOTx9YpM2Uj6xfl6dKRuWSWjWUpjh5x9Nw7SzB2MFsfXjCClk4jq7Nokwj4Nm3O40q
-	 NeHCAKfwwVLK6uFoHa92+CouSSOJuj6pLYqJji/5zUJoQdmGb3HdDO3t95RAU6Z02/g==
+	t=1794949795;
+	b=Vf7T0DW0+5+u+bjdrclbrl+YYngAaxjvMbAGBiyO5kNn90QlIpQRwfTAlNxHRgSHdyrz
+	 Pj7XDGRU09z+2ETsNL2FDBU6PNAf7zStc8L+7jgWIV4P0dIzbGUh6/VamufZMdyJWSIgd
+	 06uJMfnfAVRo85271fWhVwk1IIHdbWv4pf8x9mwjhoaDHqqf+b2iC1+TMCpCckaroMxtD
+	 9bD+nQTYSBJLZUOLpT6GZTHyZGI7PTmT7xULiVUZkaGuucxSpCosDv+Ftj7Bfcoo0QNwk
+	 BlWq5YMRVm/Rx7jUrav6yQOv7q7v++wHl/bOGlnMVbqbSaaZ9CVsLYjyAa3Y4u1045Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794949776;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Reply-To:Date:
-	 Mime-Version:X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=NfgX3ez0+K7WIb7CbF9QdYQKCoaZza8TfZUj5MCSww4=;
-	b=kwjz4Lyc8iZ7tkFdb2Dnl3SipEv7Akxz6mTPV7EWvegIqY70xhqBJuBuDm4Eg1tH3BwW
-	 tV5If3dnZjCo2IA7z7UXjZL33fg9t8DGJ56c9sGFEk2eI0cpME2vgSfE3uHFoPQr354Qp
-	 FEH8X+ekXIG2e8cAPjU5KJ652Ng83g4cX2fTtSLGL7h+dauW3TpUzIS61CP5eDcdYCuZs
-	 H9SA/024dMzvaHW8G40EbFcah7eUZiEMZ2QkZ6OHufWDjh9FV6VH+t56yX9iiZS0PsR82
-	 tq/zhUgNFnLJqq05ZVmE84EkKX5bId1yK+M6+DEW4wPMwBa+EpEYUWSvCdaylPTFSOg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794949795;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:Mail-Followup-To:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:User-Agent;
+	bh=EtVhHyW7aHGIibxC4T0ib9PS9njKICVdDDhJxL38oGw=;
+	b=zCiZ7kHyJ1acVLs9sbYGVKNxS/k0Is6wQ3OF66JCmBsTVG+odHCLctz/4yiiFgOq0oEk
+	 fmsp2U5gKtn/ZJiZR81fEMs6QImYPgA0BuVpBvJhonLgYh6fH3iIp73Uqa/gVd4WZsCwH
+	 MLWeaWca+Jah0w+ionDb595TbszRor1AMhjcXItdmhaKSyh6YZkuwOlYspRCTms58OKb3
+	 oVt3ij7dn3wYLhkGJQByHr+3FvRlsb2aG40zaweLEM2e6WzZWtN2hAsEfLya/qqmkpYzy
+	 uhj9b1W5pvc5gy2wyV67AO7oD0UbiJ2s+kKrltxmg3eA49iMbjr7CnoX4SI9Vq6VwGw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--seanjc.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZvrkAmW8;
-	arc=none smtp.remote-ip=209.85.214.197
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=aurel32.net;
+	spf=pass smtp.mailfrom=aurel32.net;
+	dkim=pass header.d=aurel32.net header.i=@aurel32.net header.a=rsa-sha256 header.s=202004.hall header.b=Vlnj07HE;
+	arc=none smtp.remote-ip=195.154.119.183
+Received: from hall.aurel32.net (hall.aurel32.net [195.154.119.183])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56D90606A31C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:09:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56D90606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--seanjc.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ABEED606A31C;
+	Tue, 17 Nov 2026 21:09:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ABEED606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=aurel32.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=aurel32.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZvrkAmW8
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2efda2c6605so1276765ad.2
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 13:09:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794949776; x=1795554576; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :reply-to:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=NfgX3ez0+K7WIb7CbF9QdYQKCoaZza8TfZUj5MCSww4=;
-        b=ZvrkAmW8Ge1S6JrShehC1MbPF8qF5KGRppNvJo/7VcgQYrj2ptCM/96T1QwOjF8luu
-         Oma0oB1BwvZ2y/s2ityCYt3bUj35Hxj9G38U3+XBPBcFebJ/9hmAUSFiaP1gLk4+R93+
-         DKeNIHgdiId+43ui+eFzC/kg6Zz8tHpkoufQsj28VqST8I/wFFYTpihQURdKQgXhJras
-         qeflHmKfiQaP1voI12CNVToNWlNKLDxYoDaCmosc59evz1Jvb0wXuhB722XXjMCdSyFC
-         EiOI0eIEij/3sj88Ci8ifDjA+j09Yb7vIvdSEPse570Wkz7IHuZBwB8P0WmgIqszrrz9
-         AYVA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794949776; x=1795554576;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=NfgX3ez0+K7WIb7CbF9QdYQKCoaZza8TfZUj5MCSww4=;
-        b=pdgSTcJdvgpLo64FdTYU3ftyZGA1whaq5jjsojo0FFQEvftd7Xka3JKbuQLJuwDYbc
-         9gi5N0zFgx622ntI8iw3sfhuoUMyiSKoSFdOB8DV8TnO8iYt7sniN4otTtxi7BXOLwaI
-         94gEL371cMdSWRvxv6XLhH+f7GeFcFWMzp/eCmp62KHlzcOAng9krRxNt/7tGdaxDyxx
-         JDoW02upshMFnbnvXE/suuUWNt4bH5TFZL0flUwwX4r07927y3iRJ2TbbJUJ1/q0N1uY
-         jMnQRFOdIGkpbLjhQZHr/uy5/HFsekIqQvrjMPUNYWkr6roJwNduNHKM8jP5xyBikL6s
-         I41A==
-X-Forwarded-Encrypted: i=1; AL+hErFTqWNrvxaFMZ85wrG/DSpKUnkPTa77rkJo6g9rlnAoorCWhgDcArTaTgu7oDIBEV+yZYA6fKKmD2LVupc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+nkYczXT4GQ8G2IddM976KXU3KNMhO2saIU00dfon9YdFwHtb7
-	OnfKHfmgyqpZOoem480Byetd87wLW5spwIkmzcXZm1yJN2Mmpv1lulK5bzdrwUR49WNGVh72X6z
-	djvgtqg==
-X-Received: from pluq7.prod.google.com ([2002:a17:903:4b47:b0:2e8:5201:ef23])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:3585:b0:2e8:c331:fc30
- with SMTP id d9443c01a7336-2eff756d586mr4357585ad.69.1794949775564; Tue, 17
- Nov 2026 13:09:35 -0800 (PST)
-Reply-To: Sean Christopherson <seanjc@google.com>
-Date: Tue, 17 Nov 2026 13:09:29 -0800
+	dkim=pass (2048-bit key, unprotected) header.d=aurel32.net header.i=@aurel32.net header.a=rsa-sha256 header.s=202004.hall header.b=Vlnj07HE
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
+	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+	bh=EtVhHyW7aHGIibxC4T0ib9PS9njKICVdDDhJxL38oGw=; b=Vlnj07HEQZhfE7IRgLQCX9skMn
+	aJo6gXGLWOXucwKVPXL+859PoLGmk3foGjFfxnO8DOsJwUwibVcHvztSN8qlaLX+FpcxO5D6b/2r1
+	lLmGmArVKunrLHuTyPyWMRe4h4Bg3L1llAajMlW189OED1+K7IZxsZ3NqnjDW1mXfg8eeOVtwPj7z
+	0T8S1UCkvWiix5HCGozpHyQr2GgmGHbkJhieCNuv5wA2bCZdfFNUCuUwO+8SyrU4esccjciDyGrsS
+	geSAbwPnRIFdSiXnOD+f5PwYrKmV2o/w4EqZ3621bXuUK1FWVYWBTSL5s4kAtNz1no4482vu+ybVd
+	n9WnZ2YQ==;
+Received: from authenticated user
+	by hall.aurel32.net with esmtpsa  (TLS1.3)  tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <aurelien@aurel32.net>)
+	id 1xTQQz-0000000GYFB-3DTt;
+	Tue, 17 Nov 2026 22:09:45 +0100
+Date: Tue, 17 Nov 2026 22:09:45 +0100
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: Jiayu Du <duge1256@gmail.com>
+Cc: srini@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, dlan@kernel.org,
+	troy.mitchell@linux.spacemit.com, me@ziyao.cc, pjw@kernel.org,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	p.zabel@pengutronix.de, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/3] nvmem: Add read-only SpacemiT K3 eFuse support
+Message-ID: <avzCmVhf8tl6hi_B@aurel32.net>
+Mail-Followup-To: Jiayu Du <duge1256@gmail.com>, srini@kernel.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	dlan@kernel.org, troy.mitchell@linux.spacemit.com, me@ziyao.cc,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, p.zabel@pengutronix.de, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+References: <20261116075423.1519438-1-duge1256@gmail.com>
+ <20261116075423.1519438-3-duge1256@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,60 +78,58 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
-Message-ID: <20261117210934.7765-1-seanjc@google.com>
-Subject: [PATCH v2 0/5] KVM: x86: Fix nested CR3 load bugs
-From: Sean Christopherson <seanjc@google.com>
-To: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>
-Cc: kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Stefan Teodorescu <fane@google.com>, Sashiko Bot <sashiko-bot@kernel.org>, 
-	syzbot@syzkaller.appspotmail.com, Chris Mason <mason@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261116075423.1519438-3-duge1256@gmail.com>
+User-Agent: Mutt/2.4.1 (2026-07-04)
 
-Fix a variety of bugs related to KVM's handling of CR3 loads during nested
-transitions.  I originally tried to fix a svm_set_nested_state() bug by
-forcing the vCPU back into L1 if a late CR3 load fails, but Sashiko rightly
-hated on that patch because forcing the vCPU from L2=>L1 would still leave
-vCPU state in a half-baked state.
+Hi,
 
-I finally realized that Paolo's patch to always check CR3 validity is the way
-to go, svm_set_nested_state() just needs to also pre-check the current CR3
-(because userspace could theoretically stuff a then-legal CR3 and then swizzle
-CPUID to make CR3 illegal).
+On 2026-11-16 15:54, Jiayu Du wrote:
+> Add read-only NVMEM access to bank 0 and bank 7 of the SpacemiT K3 eFuse
+> controller. These banks contain temperature calibration parameters and
+> other configuration data.
+> 
+> Keep the root key and SSK registers outside the exposed bank ranges.
+> 
+> FUSE_READY reports completion of a software-triggered reload. Trigger a
+> reload through GEU_CONFIG bit 22 with a 1 us reset pulse, then poll
+> FUSE_READY at a 1 us interval with a 10 ms timeout before taking the
+> snapshot. Fail probe if the reload times out.
+> 
+> Snapshot the shadow registers with aligned 32-bit reads and expose the
+> data in little-endian order at controller-relative offsets. Serve reads
+> from the snapshot and use keepouts for the remaining register ranges.
+> 
+> Enable the AES_WTM clock only while accessing the hardware. Leave its
+> shared reset deasserted on teardown because WTM_RST resets the entire GEU.
+> 
+> Signed-off-by: Jiayu Du <duge1256@gmail.com>
+> ---
+>  MAINTAINERS                       |   1 +
+>  drivers/nvmem/Kconfig             |  11 ++
+>  drivers/nvmem/Makefile            |   1 +
+>  drivers/nvmem/spacemit-k3-efuse.c | 199 ++++++++++++++++++++++++++++++
+>  4 files changed, 212 insertions(+)
+>  create mode 100644 drivers/nvmem/spacemit-k3-efuse.c
 
-Patch 5 fixes another related flaw where KVM doesn't initialize the MMU if
-loading PDPTRs on nested VM-Exit fails.  Patches 3-4 are cleanups and prep
-work to dedup the nSVM vs. nVMX code to avoid copy+paste and confusing code
-for the final fix.
+I have been looking at the code with more details. Is there any reason 
+to "expose" the whole 1024-byte efuse address space in the nvmem layout 
+(of course with some masking) as opposed to the 16 banks x 32 bytes = 
+4096 bits only (still with masking)?
 
-v2:
- - Pre-check the current CR3 in svm_set_nested_state(). [Sashiko]
- - Pull in Paolo's fix. [Sashiko]
- - Add patches 3-5.
+I find strange that user space has to know the address of bank 0 or bank 
+7 instead of just looking respectively at addresses 0x000 and 0x0e0.
 
-v1: https://lore.kernel.org/all/20261113170405.473841-1-seanjc@google.com
+As the layout exposed to user space also includes status or control 
+registers (although masked), this might makes difficult to support a 
+newer version of the efuse controller which have a similar data layout, 
+but slightly different registers colliding with the bank data.
 
-Paolo Bonzini (1):
-  KVM: nVMX/nSVM: check unconditionally whether CR3 is valid
+Regards
+Aurelien
 
-Sean Christopherson (4):
-  KVM: nSVM: Pre-check current (L2's) CR3 during KVM_SET_NESTED_STATE
-  KVM: nSVM: Mark CR3 as dirty when loading CR3 on nested transitions
-  KVM: x86: Consolidate nVMX vs. nSVM logic for loading CR3 on nested
-    xfer
-  KVM: x86: Initialize MMU+PGD before loading PDPTRs on nested
-    transitions
-
- arch/x86/kvm/mmu/mmu.c    |  2 --
- arch/x86/kvm/regs.c       | 30 ++++++++++++++++++++++++++++++
- arch/x86/kvm/regs.h       |  2 ++
- arch/x86/kvm/svm/nested.c | 36 ++++++++++--------------------------
- arch/x86/kvm/vmx/nested.c | 31 ++++---------------------------
- 5 files changed, 46 insertions(+), 55 deletions(-)
-
-
-base-commit: d21eef2084a9af87ac2a783bc7c2b175ba114e4e
 -- 
-2.56.1.703.gf848ed807c-goog
-
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                     http://aurel32.net
