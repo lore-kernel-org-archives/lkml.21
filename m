@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.69
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794941363;
-	b=xaxRUB8YLy+TwvNFk+oJbIMLrkKAfZ5fd6V5rZldJ9/wBKIofnF3oDPLs/EsPbRiOnRj
-	 GDhLs+1PnXWkTOIEL1GKRrWUEg+LkTOVSTopY6uHKUQ27x43I1Nu6LMZ9KcoBJhtz49m8
-	 4RdO9GhwU+zDAPCUVSmqVa+b++BBuIE0BVshZ4qKWbpwo/t5TREuUqAlytWAPQZ8o9WUu
-	 joJGc7n/BkQILeB/QPXcjW0NZciRdYAVkwTDapI8vNOBJYdPeaIPtrOD7HWoAFVVFBm/h
-	 5nC252vjJOlBQXN9pW0ExciZDXzEFyPMeKd2AVFiELmL3tz4JF6T2RCr8YwvTaNY3cw==
+	t=1794941371;
+	b=Lcw59ppV+8Hqbjv6/nSfa5+iME8KBTfPVcA6c4Xy/nWGzQMoUCqonZVQCaW5347aTz2Q
+	 NEhnOi4/HE1wvewoILVm3c+anbgnkbcAFDU6C/qeWmNMWIbMwhrp/8vq1dbytzQEj05ir
+	 PqPlDrHPl+BrifmXWiunKiRKS9pb0DkMJBrMBQp2aQVk1jcX3SD9OWLTeAdtMdL2mslrr
+	 Rr9cZ78t/+JZFgtnUZOdTXIlMpjPdGjXKpg04yth2byBNk1YnJgGcFO//9q4E3HCachyx
+	 sh6eql4eEhB1y1Fs8Eb2iXyukL7kOkrWBOwhg3Au6rfg3d6bc4AUn2xt4E2gLkV71Ig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794941363;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794941371;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=hgRklfDHPH2ZDGZe1scZDClSfV3P8wPVDqeqp2cvAD0=;
-	b=u3JUKZSfbi0P/RPK9i4oW8dqaY0XtxC1v79Q3iAMdRTYQBF4zxrNyU+/m5/Vt2xJfrNl
-	 YR0C3lKZHTP5ohnl131st/3Y2dzyryMfjUU8NLVkxtsQ+GRKy17XXoj42To8gIEKe45F3
-	 NrDacwB4eli+FMbo58iyA2GeH2LxhDsCHReqHuluPNex9Uq4jeRlLE7JTMABu/0zOW+8+
-	 94nSagQU2fCoHkaM/IGY5qrpQyUuDlmhIZ5LjPJ1WXYc7wtNHDWYHqoK1hE5qrzwJKoGF
-	 YM3CZkuKEUT9EACbkTcBxLtBunzHYxG+BbOvH0IymnubI62G+9p96iUZJKsCwIFPpag==
+	bh=DNRVhU0fY8REp6mWqw1ufC/qGVxasW3xTXkil1uOiMI=;
+	b=jKK1ziHOMWGabNYknvkeqvKhJNL02CWZHuptyDH6wfF+QLTTQySXNWDpJU1h6JA5PBL0
+	 IvXh97cIlwQzF9oCUygTea/xgi8hWlGDzhxRnjW0O8fpdmzGYC7v8BFHxHEWFhdazWIQu
+	 Iig7DQUWZXWFWJ1iYR8fXm/Blbk2s1RUot81NeCul5Igi36/Qzt6jIXD1rflAHjjADzQs
+	 4/jWafeMgytkxSgaslrfk9Qv2IjvkIrMpNm6HSWYiKaN/SKXEZaYofpmzXl8pA4I81tv0
+	 biZV8/ea73M7OQYbWSwKmav1/OttAkkeomDz7M+pfNg45DlAEhNOaXz42DkIU6qdPag==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=jWxCBsxW;
-	arc=none smtp.remote-ip=74.125.82.69
-Received: from mail-dl1-f69.google.com (mail-dl1-f69.google.com [74.125.82.69])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=pbVeeakN;
+	arc=none smtp.remote-ip=74.125.82.199
+Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1927606A883
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:49:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1927606A883
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 303B0606A88A
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:49:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 303B0606A88A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=jWxCBsxW
-Received: by mail-dl1-f69.google.com with SMTP id a92af1059eb24-1b238436265so110376c88.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 10:49:22 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=pbVeeakN
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-36f26e6abe9so235064eec.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 10:49:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794941362; x=1795546162; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1794941370; x=1795546170; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=hgRklfDHPH2ZDGZe1scZDClSfV3P8wPVDqeqp2cvAD0=;
-        b=jWxCBsxW5cpAbT1f0mCzC54OO1Tl64IDoCKE2J/fKRBY1bO7+fYHevS7LJWVxOLEE2
-         Ar64p6u6EwALiSF4CfgZsr7GtgtXqMT8b8OmxGC820WlaZ4YLQbWSKq7xxbxKipwXcwK
-         Cs8rmK+MxOAwEM9/fpgyxiCKD+LBg4BfJeXFd7JReNOtojONFeIUp/g9FVEkIJha8YTw
-         qEMWYJp2XabReC88LP/z0/bYIhsgaVNUCAE3BqmaaTwIFibLg9s+TisHi4wu+H34u3Ha
-         NSMAGWS07OxpA2BUAiwcNNy0nusGzMhTPLVHfVuq6h/fW3lCLVf04POiK6lNJQ0dSgVI
-         MatA==
+        bh=DNRVhU0fY8REp6mWqw1ufC/qGVxasW3xTXkil1uOiMI=;
+        b=pbVeeakN0a3AmZvxkStpQRa3DBr9ZgkKs+9nnYY3/0xVzlKbxHRE780hwmubN2FKEk
+         zbI918RugL03AQMJVKRp+V3r7sV93kt7/j7JUYdCYrkWPLNBvB309tvi10sl3cObOQOS
+         jv9aw8SLCxZalI8jR67vqLhiPHW6QPR0FN3hUSfBRR69Ssx3OheVEzajewxusfSM1MSN
+         dLGu6FxW/YifQ9W4V7GmmQps52J+Q70Bb5CIdJ/WvbhmUuAJjmJmt+Zc6ofGu0J7rynJ
+         M4CIj3axOLUbjlupa0F2aqjaiQU1FUUF9Ay64UDMp/DWD3Cazwe0FJdaCvUKvC/vTd4d
+         ydzg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794941362; x=1795546162;
+        d=1e100.net; s=20260707; t=1794941370; x=1795546170;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=hgRklfDHPH2ZDGZe1scZDClSfV3P8wPVDqeqp2cvAD0=;
-        b=oDfumgLrQqlAjKzZfLumOcrnpaQCPhzWE0lN9/4pkHuN7pXRfQXfEMljs6gjDWeo9/
-         y8/JSL3l8QVTLD+9oiPXckcLLnAoO4UVB+nn7qVGWUejPf/XOzaCkpp/Fri+SKPPREB7
-         vfvg8SYQY5UcsQ1+euIBhfyKkig979YGTgVeICk7u1hzmBTratp2QOSLkmpS4lp5oVja
-         EfzFzMrYtM7fXVcl33uLVJVdYoz9HUbAaZ3flpPj0xmhg4A5DGH7DJEIBgnacNSw0P4k
-         PTVPRtMWV/BlOyTzYADOnc41N/6ftVZ4sNe4EbPVujh1xX5ZzbSMq/2rZKwY2qaUs3rb
-         bvDw==
-X-Forwarded-Encrypted: i=1; AL+hErFazHNZVBAZSvxNmCjN72OAtn9YqGCmIJ9rwwySphBj+DxtN3kOMvHziot5VL6fTQkUlhmPAu4W00q8cfg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8xGyVo3615fpWDNKDxG3Gds6MrbYKiqc4ijHMHJx4KL/wWVfiK
-	kZdAJr2dlH2YAULfDD4vxxnKYBGAv9myHOGdJ+vued3NfWTvz2X3/EUmrjWdRZ6cx4tHrC7rqzY
-	T6c7KEWUknQ==
-X-Received: from dlar5.prod.google.com ([2002:a05:701b:21c5:b0:195:d59a:94bc])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:ea46:20b0:15e:9126:c60f
- with SMTP id a92af1059eb24-1b543cf2943mr399741c88.29.1794941361787; Tue, 17
- Nov 2026 10:49:21 -0800 (PST)
-Date: Tue, 17 Nov 2026 10:48:30 -0800
+        bh=DNRVhU0fY8REp6mWqw1ufC/qGVxasW3xTXkil1uOiMI=;
+        b=2DFLcNtHAuKRqmO1JpAh547yfR4edNmxo58+t9Sg1nJlrhJa4ittoaLWR9M44VSKPE
+         WnS8MyGOUT47IzsIyGeDxtixQAngMVRaAXhSikDj/L/8QPJK2h+TdN7/6UbNVRfxVQyW
+         7rEkSJFMavyBWKOgMZHLdjh1l2llgk8ARUd8UDGKmO5GgHz7wAiUNsERXr4rb2jc0XHg
+         evx0FIYkonmXE4STiQ/ohZ6ddhcC2fdLZ+Yxq2GjNq3Hd7wALiNfoMd80tZSkY+maCuk
+         YB8z45zHw2BV9mco4qsPToKoNdqXY8qHcHuSOrxJLPPIFQ4ZAYWs40ftiXUXv1Podzsm
+         G9ug==
+X-Forwarded-Encrypted: i=1; AL+hErFuezYgwkhcdUUrbDPCGMD95cJRdfckYRC01O4/54pHXVPMBqTCgw5QZDX56jjPiEpj+nrLv7wwmjT+ClQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+wD9IDelBqEpZXNw5fAPGBfA2Tauxg54kJ+dRoTezIxGNvTj51
+	kBO4WzHi6eBorDBghDcD3Ndo/pvWjDvaRwvSQgawPH32ZAOIYNQTT3zeLub2rn1tAu1/VadKnEE
+	wz1dx1aMmww==
+X-Received: from dycrt13.prod.google.com ([2002:a05:693c:2d8d:b0:36a:e67:fbc2])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:1610:b0:351:7e5d:2de9
+ with SMTP id 5a478bee46e88-3827d52c432mr279379eec.1.1794941369871; Tue, 17
+ Nov 2026 10:49:29 -0800 (PST)
+Date: Tue, 17 Nov 2026 10:48:34 -0800
 In-Reply-To: <20261117184844.99889-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,9 +81,8 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261117184844.99889-1-irogers@google.com>
 X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
-Message-ID: <20261117184844.99889-10-irogers@google.com>
-Subject: [PATCH v14 09/23] perf dsos: Ensure DSOs in auxtrace, machine, and
- symbol are in dsos
+Message-ID: <20261117184844.99889-14-irogers@google.com>
+Subject: [PATCH v14 13/23] perf dso: Expand context analysis annotations
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Marco Elver <elver@google.com>
@@ -94,118 +93,194 @@ Cc: Bart Van Assche <bvanassche@acm.org>, Jiri Olsa <jolsa@kernel.org>,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-Place the DSOs created in addr_filter__resolve_syms(),
-machine__process_ksymbol_register(), and maps__split_kallsyms() into a
-dsos collection so that all DSOs that may have data fds opened or be
-referenced by maps belong to a dsos collection.
+Annotate struct dsos fields with __guarded_by(&lock), annotate
+dso__data_open and fd_limit in util/dso.c with
+__guarded_by(&dso__data_open_lock), and tighten __dsos__findnew_id() and
+__dsos__addnew_id() from shared to exclusive lock requirements.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/util/auxtrace.c | 16 +++++++++++++---
- tools/perf/util/machine.c  |  4 ++++
- tools/perf/util/symbol.c   |  4 ++++
- 3 files changed, 21 insertions(+), 3 deletions(-)
+ tools/perf/tests/dso-data.c |  4 ++++
+ tools/perf/util/dso.c       | 14 +++++++++-----
+ tools/perf/util/dsos.c      |  9 +++++++--
+ tools/perf/util/dsos.h      | 10 +++++-----
+ tools/perf/util/vdso.c      |  1 +
+ 5 files changed, 26 insertions(+), 12 deletions(-)
 
-diff --git a/tools/perf/util/auxtrace.c b/tools/perf/util/auxtrace.c
-index 8bb491d389a2..1451de019df0 100644
---- a/tools/perf/util/auxtrace.c
-+++ b/tools/perf/util/auxtrace.c
-@@ -29,6 +29,7 @@
- #include "config.h"
- #include "evlist.h"
- #include "dso.h"
-+#include "dsos.h"
- #include "map.h"
- #include "pmu.h"
- #include "evsel.h"
-@@ -2684,7 +2685,7 @@ static int addr_filter__resolve_kernel_syms(struct addr_filter *filt)
- 	return 0;
+diff --git a/tools/perf/tests/dso-data.c b/tools/perf/tests/dso-data.c
+index 18b7052a2dc5..6ef59929e6c0 100644
+--- a/tools/perf/tests/dso-data.c
++++ b/tools/perf/tests/dso-data.c
+@@ -116,12 +116,14 @@ static int dso__data_fd(struct dso *dso, struct machine *machine)
+ 
+ static void dsos__delete(struct dsos *dsos)
+ {
++	down_write(&dsos->lock);
+ 	for (unsigned int i = 0; i < dsos->cnt; i++) {
+ 		struct dso *dso = dsos->dsos[i];
+ 
+ 		dso__data_close(dso);
+ 		unlink(dso__name(dso));
+ 	}
++	up_write(&dsos->lock);
+ 	dsos__exit(dsos);
  }
  
--static struct dso *load_dso(const char *name)
-+static struct dso *load_dso(const char *name, struct dsos *dsos)
- {
- 	struct map *map;
- 	struct dso *dso;
-@@ -2693,6 +2694,11 @@ static struct dso *load_dso(const char *name)
- 	if (!map)
- 		return NULL;
- 
-+	if (dsos__add(dsos, map__dso(map))) {
-+		map__put(map);
-+		return NULL;
-+	}
-+
- 	if (map__load(map) < 0)
- 		pr_err("File '%s' not found or has no symbols.\n", name);
- 
-@@ -2794,6 +2800,7 @@ static int addr_filter__resolve_syms(struct addr_filter *filt)
- {
- 	u64 start, size;
- 	struct dso *dso;
-+	struct dsos dsos;
- 	int err = 0;
- 
- 	if (!filt->sym_from && !filt->sym_to)
-@@ -2802,9 +2809,11 @@ static int addr_filter__resolve_syms(struct addr_filter *filt)
- 	if (!filt->filename)
- 		return addr_filter__resolve_kernel_syms(filt);
- 
--	dso = load_dso(filt->filename);
-+	dsos__init(&dsos);
-+	dso = load_dso(filt->filename, &dsos);
- 	if (!dso) {
- 		pr_err("Failed to load symbols from: %s\n", filt->filename);
-+		dsos__exit(&dsos);
- 		return -EINVAL;
- 	}
- 
-@@ -2831,13 +2840,14 @@ static int addr_filter__resolve_syms(struct addr_filter *filt)
- 
- 		err = check_end_after_start(filt, start, size);
- 		if (err)
--			return err;
-+			goto put_dso;
- 
- 		filt->size = start + size - filt->addr;
- 	}
- 
- put_dso:
- 	dso__put(dso);
-+	dsos__exit(&dsos);
- 
- 	return err;
+@@ -254,6 +256,7 @@ static int set_fd_limit(int n)
  }
-diff --git a/tools/perf/util/machine.c b/tools/perf/util/machine.c
-index 4a3461d79593..02711995f0b6 100644
---- a/tools/perf/util/machine.c
-+++ b/tools/perf/util/machine.c
-@@ -797,6 +797,10 @@ static int machine__process_ksymbol_register(struct machine *machine,
- 			dso__set_long_name(dso, "", false);
+ 
+ static int test__dso_data_cache(struct test_suite *test __maybe_unused, int subtest __maybe_unused)
++	__context_unsafe(/* single-threaded test */)
+ {
+ 	struct machine machine;
+ 	long nr_end, nr = open_files_cnt();
+@@ -324,6 +327,7 @@ static long new_limit(int count)
+ }
+ 
+ static int test__dso_data_reopen(struct test_suite *test __maybe_unused, int subtest __maybe_unused)
++	__context_unsafe(/* single-threaded test */)
+ {
+ 	struct machine machine;
+ 	long nr_end, nr = open_files_cnt(), lim = new_limit(3);
+diff --git a/tools/perf/util/dso.c b/tools/perf/util/dso.c
+index 1c938d1b11e9..49813424e4ee 100644
+--- a/tools/perf/util/dso.c
++++ b/tools/perf/util/dso.c
+@@ -525,7 +525,8 @@ void dso__set_module_info(struct dso *dso, struct kmod_path *m,
+  * Global list of open DSOs and the counter.
+  */
+ DEFINE_MUTEX(dso__data_open_lock);
+-static LIST_HEAD(dso__data_open);
++static struct list_head dso__data_open __guarded_by(&dso__data_open_lock) =
++	LIST_HEAD_INIT(dso__data_open);
+ static long dso__data_open_cnt __guarded_by(&dso__data_open_lock);
+ 
+ static void dso__list_add(struct dso *dso) __must_hold(&dso__data_open_lock)
+@@ -757,7 +758,7 @@ static rlim_t get_fd_limit(void)
+ 	return limit;
+ }
+ 
+-static rlim_t fd_limit;
++static rlim_t fd_limit __guarded_by(&dso__data_open_lock);
+ 
+ /*
+  * Used only by tests/dso-data.c to reset the environment
+@@ -766,7 +767,8 @@ static rlim_t fd_limit;
+  */
+ void reset_fd_limit(void)
+ {
+-	fd_limit = 0;
++	/* Only called by single-threaded test setup. */
++	context_unsafe(fd_limit = 0);
+ }
+ 
+ static bool may_cache_fd(void) __must_hold(&dso__data_open_lock)
+@@ -1726,8 +1728,10 @@ void __dso__improve_id(struct dso *dso, const struct dso_id *id)
+ 			changed = true;
  		}
+ 	}
+-	if (changed && dsos)
+-		dsos->sorted = false;
++	if (changed && dsos) {
++		/* dsos write lock held by caller. */
++		context_unsafe(dsos->sorted = false);
++	}
+ }
  
-+		err = dsos__add(&machine->dsos, dso);
-+		if (err)
-+			goto out;
-+
- 		map__set_start(map, event->ksymbol.addr);
- 		map__set_end(map, map__start(map) + event->ksymbol.len);
- 		err = maps__fixup_overlap_and_insert(machine__kernel_maps(machine), map);
-diff --git a/tools/perf/util/symbol.c b/tools/perf/util/symbol.c
-index dc70bbe8514f..a7079381fae1 100644
---- a/tools/perf/util/symbol.c
-+++ b/tools/perf/util/symbol.c
-@@ -1090,6 +1090,10 @@ static int maps__split_kallsyms(struct maps *kmaps, struct dso *dso, u64 delta,
- 				dso__set_symtab_type(ndso, DSO_BINARY_TYPE__KALLSYMS);
- 			}
- 			dso__set_loaded(ndso);
-+			if (dsos__add(&machine->dsos, ndso)) {
-+				dso__put(ndso);
-+				return -1;
-+			}
+ int dso_id__cmp(const struct dso_id *a, const struct dso_id *b)
+diff --git a/tools/perf/util/dsos.c b/tools/perf/util/dsos.c
+index 4ff38cb5e2cb..7a56577f4ec8 100644
+--- a/tools/perf/util/dsos.c
++++ b/tools/perf/util/dsos.c
+@@ -12,6 +12,7 @@
+ #include <unistd.h>
  
- 			curr_map = map__new2(pos->start, ndso);
- 			if (curr_map == NULL) {
+ void dsos__init(struct dsos *dsos)
++	__context_unsafe(/* initialization */)
+ {
+ 	init_rwsem(&dsos->lock);
+ 
+@@ -50,6 +51,7 @@ void dsos__exit(struct dsos *dsos)
+ static int __dsos__for_each_dso(struct dsos *dsos,
+ 				int (*cb)(struct dso *dso, void *data),
+ 				void *data)
++	__must_hold_shared(&dsos->lock)
+ {
+ 	for (unsigned int i = 0; i < dsos->cnt; i++) {
+ 		struct dso *dso = dsos->dsos[i];
+@@ -182,7 +184,8 @@ static struct dso *__dsos__find_by_longname_id(struct dsos *dsos,
+ 		}
+ 		qsort(dsos->dsos, dsos->cnt, sizeof(struct dso *),
+ 		      dsos__cmp_long_name_id_short_name);
+-		dsos->sorted = true;
++		/* write_locked is true, so dsos->lock is held exclusively. */
++		context_unsafe(dsos->sorted = true);
+ 	}
+ 
+ 	res = bsearch(&key, dsos->dsos, dsos->cnt, sizeof(struct dso *),
+@@ -194,6 +197,7 @@ static struct dso *__dsos__find_by_longname_id(struct dsos *dsos,
+ }
+ 
+ int __dsos__add(struct dsos *dsos, struct dso *dso)
++	__must_hold(&dsos->lock)
+ {
+ 	if (!dso)
+ 		return -EINVAL;
+@@ -320,6 +324,7 @@ static void dso__set_basename(struct dso *dso)
+ }
+ 
+ static struct dso *__dsos__addnew_id(struct dsos *dsos, const char *name, const struct dso_id *id)
++	__must_hold(&dsos->lock)
+ {
+ 	struct dso *dso = dso__new_id(name, id);
+ 
+@@ -336,7 +341,7 @@ static struct dso *__dsos__addnew_id(struct dsos *dsos, const char *name, const
+ }
+ 
+ static struct dso *__dsos__findnew_id(struct dsos *dsos, const char *name, const struct dso_id *id)
+-	__must_hold_shared(&dsos->lock)
++	__must_hold(&dsos->lock)
+ {
+ 	struct dso *dso = __dsos__find_id(dsos, name, id, false, /*write_locked=*/true);
+ 
+diff --git a/tools/perf/util/dsos.h b/tools/perf/util/dsos.h
+index dbd06f420753..cc7e3a42f9cb 100644
+--- a/tools/perf/util/dsos.h
++++ b/tools/perf/util/dsos.h
+@@ -19,16 +19,16 @@ struct machine;
+  */
+ struct dsos {
+ 	struct rw_semaphore lock;
+-	struct dso **dsos;
+-	unsigned int cnt;
+-	unsigned int allocated;
+-	bool sorted;
++	struct dso **dsos __pt_guarded_by(&lock) __guarded_by(&lock);
++	unsigned int cnt __guarded_by(&lock);
++	unsigned int allocated __guarded_by(&lock);
++	bool sorted __guarded_by(&lock);
+ };
+ 
+ void dsos__init(struct dsos *dsos);
+ void dsos__exit(struct dsos *dsos);
+ 
+-int __dsos__add(struct dsos *dsos, struct dso *dso);
++int __dsos__add(struct dsos *dsos, struct dso *dso) __must_hold(&dsos->lock);
+ int dsos__add(struct dsos *dsos, struct dso *dso);
+ struct dso *__dsos__find(struct dsos *dsos, const char *name, bool cmp_short, bool write_locked)
+ 	__must_hold_shared(&dsos->lock);
+diff --git a/tools/perf/util/vdso.c b/tools/perf/util/vdso.c
+index 8bf81e2c9e78..fe28e346dc2f 100644
+--- a/tools/perf/util/vdso.c
++++ b/tools/perf/util/vdso.c
+@@ -126,6 +126,7 @@ void machine__exit_vdso(struct machine *machine)
+ 
+ static struct dso *__machine__addnew_vdso(struct machine *machine, const char *short_name,
+ 					  const char *long_name)
++	__must_hold(&machine->dsos.lock)
+ {
+ 	struct dso *dso;
+ 
 -- 
 2.56.1.703.gf848ed807c-goog
 
