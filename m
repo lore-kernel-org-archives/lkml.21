@@ -1,99 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794958273;
-	b=3dh0TqW0rV2hz9yCnRPKG2bOxBZ0prl4FuTh9S0Xs6P1pHBdUICaMk+09q3Frj16Y/kb
-	 5Sf1U0Emf/Zuir2IHsXA2qbeNzf6aHTl92j9P//upKWbmopvkcaPuMp/gwKuYbSYVzFiT
-	 YbNSn19BioKIXPv5E+BayHUgj5Kc+tMdgBe9HgxYMo6/SZVeTEu2mGfuuwNAO23uqPxiA
-	 jYsCXq3p+dNwChNKp3nlRINcAaEiTJkpkUNGGcA+7ZO3NYDhuJhq4ohnQoHkPIu1Kdg4u
-	 DbDy+TqmOYdTyl9bNpUu8HgtOsYnpIB5ks0iYJEtwkzrArPAsApQYTVKsgiW4qkUhXg==
+	t=1794958336;
+	b=dXebyFcV9SjPGAZwWMUg6DSzCZXcTTy2/6LDQXS5wvgjWAepsTisxrD5wveXvOfgcKv4
+	 qOHJ3YIr/YV7IGInQ7cDnjKdETJuX/YyS9fR0z3WsN6WpnHmkMFyzsUouESUz7Zori+PN
+	 eicm5Uadb8G7OVJw5SmfpXuMZBNdarfEV88dKZP1lZKLWylM5HOy1eOU2Qn7KCV7Da+SZ
+	 FlOwVkdgo9OecHGOGaYVFsReqaEfNEB9EPyoKSggjQWoLOreevZEKHaba7l0c6C1Eofbx
+	 F7Z1GAzjglRRGxRnzy2goqR/cjaMWnI3RJn66gkIIsaM1LK0wUs9iEMltEISjoEmYHg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794958273;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794958336;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=U+gaTE2rxn1GavMY3VnMCM5lJuO+puyH/nRlKYyd314=;
-	b=lbp4ZgJEvAnN7p9ZTwjd5067f0jbhbRAfpRdWQS9B1Ap/DplBBYB01Fliwi6Iui7uxAr
-	 J/8cGLuKjotcoPed3+g3ZPh2UXcTqBrNh/BvNX63q8w4ZGGS9/7tSyY68Zbc5O1m1VBlx
-	 EB5coqR+IYUHihm3NXCCVuM6WtrFRKxmsSZvZwx0OqBDk5iotM3o4m/wxetVUrog1eZ7X
-	 shXI4acwx85ryoxRFhrfONNbAxUySJM23ep7XxXkF6Y4fI2d2JbVrOewvor5ZTSHRJTnq
-	 uXn21xnpUKRjGUAXfzDOLQ4+oMdanyHGP6YaPkfJrAmMOTROgkJFaPKTHk2CjXz1AmQ==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=9IwyFV8Hw/ru2qtr97qIXUT1MpN5o8lRiFBBmhPx1J4=;
+	b=44No49iGB2CEC152pG539uQtDwu+q85JjrgS+VcE/JlODeN0pigss5UjxvTEDzPuPuib
+	 43hRB0Bm4SYwNvRYV0f2kH4/X24EEM6jeaJxUd6YFllnowGgccVx6bh3leSYZJD5j72Pe
+	 OfddDu4kuo5jptkovYc3fTLTBqeJZmz06Yspfxmqk/RXnVwsN1HHk83n6X9zPXvoyAOGj
+	 NPZ1/PcNsRHVRNd1BWF88WGhvjhrHF7Mo1/TWXNHOsOms+mJRJmRdvgcRCgEz+nm4jx8L
+	 3uDZP7u4cw1ZEEJGu9WNcemfLAkFfLnW7Aotm4uhw8hvb610AGlT/fmBdG8Zx9mUkJg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=V6jBQUi3;
-	arc=none smtp.remote-ip=209.85.214.170
-Received: from mail-pl1-f170.google.com (mail-pl1-f170.google.com [209.85.214.170])
+	spf=pass smtp.mailfrom=flex--dhavale.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=TUo6PzlP;
+	arc=none smtp.remote-ip=74.125.82.200
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32996606A32A
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:31:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32996606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A268B606A31C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:32:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A268B606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--dhavale.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=V6jBQUi3
-Received: by mail-pl1-f170.google.com with SMTP id d9443c01a7336-2ee254f6eefso28685ad.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 15:31:13 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=TUo6PzlP
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-36de26cb4b3so359606eec.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 15:32:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794958272; x=1795563072; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=U+gaTE2rxn1GavMY3VnMCM5lJuO+puyH/nRlKYyd314=;
-        b=V6jBQUi3q6m1fugKTg8i7lQ8YDvbRwD84RiZEIDWlYbSi4jmx0O8pDk4TcWjUIoq2Z
-         gSlmayGUYvbM38basu2SKO51QKrDucxN/t9XcIBZVCnrubwuwJMauuOP8Mb9HOTMtvyJ
-         LXgTh/Z1zeODT20b0JPvKIWGItpbuT3dcTIFML5bwiUjxAE0ThCDfG72VkGLc5mdKA9n
-         kXUzRcqWRx2W66sm+0xf0rpa0PCEUmT6iLs6R5AYw/3GnzlZHsUdBbBFXkhe7y9bECxf
-         Rz1bS8cDPMArbZZ9L11+LBukFRCW3fGEehtJQLVAfF7FWZHWpRSx3RiaBHZcMMkYoeUJ
-         KeTg==
+        d=google.com; s=20260707; t=1794958335; x=1795563135; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=9IwyFV8Hw/ru2qtr97qIXUT1MpN5o8lRiFBBmhPx1J4=;
+        b=TUo6PzlP5dL8VHJ9DgzpoZViMJDHHEPNybIHHFYBOgad610mKaA8Rj7f51hafkpoC6
+         rHPh/OBeghn/8Hxs4kO/Tx9enk8Cy5lJUJDC4MgRoUJklYtTsX5aTV75zMZlX2WSvJNC
+         Cm8Zugb0y1MTOHa/ceqlkL5FNv3kuiWOPX74nMEf5eu80ZQlUnYexoyH6t/ju39o5DVo
+         GDCi1kNGqC24pvH4KxQPJ0Xh5IFJs65crMCjTYaz/4ixsEH+Qu3wLuTPXeTC9b4WzZdw
+         OyarLpRAa3XKZb+R+TAor6A61olaeZh2UXVhy0xSj6vFuSd4XCzHtXmyAusPiEU7oomY
+         oH3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794958272; x=1795563072;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1794958335; x=1795563135;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=U+gaTE2rxn1GavMY3VnMCM5lJuO+puyH/nRlKYyd314=;
-        b=Wo4lbH+TkUyG2j56786cVYqBzgzuHPr47nLFECDijgmsVsLny7ZwZDPYjnOArLk+D6
-         I1MwYL1OsdOX9myjpTr1kf6tzjwlXMUdx3WWmZkZFboOP4dHAwZXXcxmeO6POAWlxADD
-         fIm8oTlYQPBhphO+3J+TfGsB2Ls0EuZJDISre/w7YXPBGXtnVvhiSMe10gHGxRmtDjEL
-         ZI/L2zUkAnF0eY1z/nvq/713qOujbFHnQUS2Fe181UzFWSl/61wkOsGeRMkr7QEg73Gg
-         v+BQa0PJpBW7D0n58NtycQe9nAf9mCc+Er1ABP0Tfrl1jKfz0N8pTPgZnjxEAqKgxjXk
-         KKbQ==
-X-Forwarded-Encrypted: i=1; AL+hErGgP7AuhyJMBnnpCucHGHpNrDRHpadGQowpyXXWib7S9zWrSgno4TA638Nuzz+dH4lG+WU+WE3hkd0Aq0k=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/2tMSurt/l5GPTDbhafLy1tbaT0gm+CVunb7MACFv3OUYQRy45
-	sUKhOshey81jqktmHaA2oqjDi1rA5zQOE9xxWkyzkHVUOQg/e144skRXIFDjsm24Hw==
-X-Gm-Gg: AZFdTZcnCNeavfd8DFzwS3HI5ExyJnq/aRzkHHLPTQOx3ABdpiPBIBY+MYS4Def0uZf
-	7zrHTeTJLPL00/+zGp0FrFkgGtnP62gJgct24yCF9XjEidr/OESWm3e3B+TcS+uoQCmUAWFP/Aa
-	g8T8qIh/aP6bH4WxJs24GwBgJUl7d6FwGvuvu8QmTSG1tD+TRYa5f2g09Udmc148PUpsmfKzZ8J
-	8ypCYKxQJVZtN6iA5VD/+iMsKmXwMDXGVBvbdiImqPvstI2TPed5w+Gx6EibeWs09uXc8svC8L3
-	UuF2jEKCdYYkJqROXjHFSTLC/aRVm/ZSIOgb780zZeDkAWo1Plcv0RUpzIepaqWL4Mc7YPaWu7i
-	x4GuzXL6dnsP4bznU7xCCq7n1NpzNQw1JFWK8uBwy581Yh84D697zvYUYesK3lgww6x38ZzrMKv
-	0biRiSCUtm97mi/GiiBc64AyyrGtUCmErGTFwVXbMbNm5chfjPSembTXGaaPaJ20Y3/qpbiesDN
-	CLoX5HUxANjht8xmsriHVURWzn1iuxb8d9tbFIo2J9KqVkg4qCyWHJDefjmPGPuOorHIvW8LHap
-	3EDizPeA/VsTqye4KTAUyH1W3CNmlZ4sVti2hlIQK03roq7+XqKjGwHpq+86Cu9dKXrbLpgm52e
-	09YbQy0pv0yj/uJ0nar1edA==
-X-Received: by 2002:a17:903:2cf:b0:2ef:d87f:8a20 with SMTP id d9443c01a7336-2eff9910e43mr1188255ad.12.1794958271877;
-        Tue, 17 Nov 2026 15:31:11 -0800 (PST)
-Received: from google.com (25.75.145.34.bc.googleusercontent.com. [34.145.75.25])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff5ed0998sm3827275ad.4.2026.11.17.15.31.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 15:31:10 -0800 (PST)
-Date: Tue, 17 Nov 2026 23:31:08 +0000
-From: Samiullah Khawaja <skhawaja@google.com>
-To: Vipin Sharma <vipinsh@google.com>
-Cc: Alex Williamson <alex.williamson@nvidia.com>, 
-	kvm <kvm@vger.kernel.org>, Alex Williamson <alex@shazbot.org>, 
-	Jason Gunthorpe <jgg@ziepe.ca>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Kevin Tian <kevin.tian@intel.com>, linux-kernel <linux-kernel@vger.kernel.org>, 
-	linux-pci <linux-pci@vger.kernel.org>, praan@google.com
-Subject: Re: [RFC PATCH 0/5] PCI/vfio-pci: Guard resets against active SR-IOV
- VFs
-Message-ID: <avzfBjBZiOnJUH4W@google.com>
-References: <20260812045325.2733631-1-alex.williamson@nvidia.com>
- <an0BOyexLcOjFJw9@google.com>
- <20261117225559.GB2250529.vipinsh@google.com>
+        bh=9IwyFV8Hw/ru2qtr97qIXUT1MpN5o8lRiFBBmhPx1J4=;
+        b=FGMkGX1dcPK5Joq8APMCiyfY66/5lTA9gOowLwDBjabLrV9r3qr+ITIit8LXhsfjtA
+         SuShdrf3xz7Q15H4BztPpN62DNKyJM6svfvxKfinoNKf+gz3uQ/tpGGb2IGv/qLvWAY2
+         Y+p9gAayHj2Q1gnUetW2ly94fb4HE/juV4siegqegG3PUxK3UG+QytrQT2Rvpl/t/F65
+         W5PZooE8PIs5ypRo24AvF06mTbdEisGHOx0ymYb9DPuE5WR46gBQdIvNMrlSTwOBL0EO
+         bL0YzkxJcONSl8BZz3Qza5epfosEevGeBhQOGX7jblowyMsMv/j6vTigvcZrF6UBa32Z
+         9a3w==
+X-Forwarded-Encrypted: i=1; AL+hErFkWmfIcGZfr4cRojN0+l+/iSEvRScbLalzLje8QsQ+XkcEL6Jiw6VRYpqEGGSQAhd9LTssDTZrvqzgDVI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+5Ef6J+otmQEFy60FxIalqpze8LUNEgqQY8og1ul9Liiz2iTpG
+	TkYNV16nDddWqGPTJyespXQLQnjWCIC8rZEz0flNTnMZQwzsZp1wGya2TMPwReMQgFb7CA1qvI5
+	DUL5IUnt/qg==
+X-Received: from dybtv21.prod.google.com ([2002:a05:7300:f495:b0:381:935d:2548])
+ (user=dhavale job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:42d0:b0:381:fe77:7d31
+ with SMTP id 5a478bee46e88-38281020598mr858985eec.12.1794958334280; Tue, 17
+ Nov 2026 15:32:14 -0800 (PST)
+Date: Tue, 17 Nov 2026 15:32:06 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,54 +75,100 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii; format=flowed
-Content-Disposition: inline
-In-Reply-To: <20261117225559.GB2250529.vipinsh@google.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
+Message-ID: <20261117233208.72628-1-dhavale@google.com>
+Subject: [PATCH v2] ext4: fix race between inline dir conversion and folio read
+From: Sandeep Dhavale <dhavale@google.com>
+To: "Theodore Ts'o" <tytso@mit.edu>
+Cc: kernel-team@android.com, liuderong2022@gmail.com, 
+	Sandeep Dhavale <dhavale@google.com>, stable@vger.kernel.org, Jan Kara <jack@suse.cz>, 
+	liuderong <liuderong@xiaomi.com>, Andreas Dilger <adilger.kernel@dilger.ca>, 
+	Baokun Li <libaokun@linux.alibaba.com>, Ojaswin Mujoo <ojaswin@linux.ibm.com>, 
+	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, Zhang Yi <yi.zhang@huawei.com>, linux-ext4@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On Tue, Nov 17, 2026 at 03:02:00PM -0800, Vipin Sharma wrote:
->On Thu, Aug 13, 2026 at 10:30:45PM +0000, Samiullah Khawaja wrote:
->> On Tue, Aug 11, 2026 at 10:53:18PM -0600, Alex Williamson wrote:
->> > It's recently been found[1] that vfio-pci doesn't restrict resets on PFs
->> > while SR-IOV is enabled.  This can not only result in an uncoordinated
->> > disruption of the use of the associated VFs, but the ongoing use of and
->> > access to the VF has the potential to result in machine checks.
->> >
->> > This series proposes that this gap is largely an oversight of
->> > pci_reset_function() to recognize that a PF reset affecting SR-IOV VFs
->> > violates the scope boundary of the pci_reset_function() API.
->>
->> Hi Alex,
->>
->> Thanks for sending out the RFC to fix this issue. I cherry-picked it
->> into my environment to verify that whether it fixes the issue I was
->> experiencing and it does fix it. I will continue to do more testing, but
->> when you send this as a formal v1, you can add:
->>
->> Tested-by: Samiullah Khawaja <skhawaja@google.com>
->> Reported-by: Samiullah Khawaja <skhawaja@google.com>
->>
->
->Hi Alex,
->
->Is this series still on your radar for formal v1?
->
->If this is the direction we are going in I can use it for liveupdate work
->  https://lore.kernel.org/all/auzftbPFO_6XBYVw%40google.com/
->
->Thanks
->Vipin
+Commit 90f097b1403f ("ext4: refactor the inline directory conversion and
+new directory codepaths") moved directory block initialization in
+ext4_convert_inline_data_nolock() into ext4_init_dirblock(), unlocking
+data_bh before setting BH_Uptodate.
 
-Hi Vipin,
+When block size is smaller than PAGE_SIZE, multiple buffer heads share a
+single block device folio. If a concurrent read on that folio runs via
+block_read_full_folio() while data_bh is unlocked and not uptodate, it
+locks data_bh and submits a disk read for the uninitialized block.
 
-Alex asked me whether I or someone on our team could pick up this
-series. Pranjal is working on it and will send out a new version. There
-is some extra work needed on the IOMMU side to make sure that the device
-is moved to a blocking domain when the reset is skipped.
+Because ext4_init_dirblock() initializes bh->b_data without holding the
+buffer lock, the disk read races with and overwrites the initialized
+directory entries and checksum tail, corrupting the directory block:
 
-But I think the patch you need is fairly independent and can be sent out
-separately from this series:
-https://lore.kernel.org/kvm/20260812045325.2733631-6-alex.williamson@nvidia.com/
+  EXT4-fs warning: ext4_dirblock_csum_verify:375: inode #...:
+    No space for directory leaf checksum. Please run e2fsck -D.
+  EXT4-fs error: __ext4_find_entry:1626: inode #...:
+    checksumming directory block 0
 
-Thanks,
-Sami
+This issue was reported by an Android partner encountering kernel panics
+in ext4_dirblock_csum_verify() ("No space for directory leaf checksum")
+on 16KB page size kernels mounting a 4KB block size ext4 filesystem.
+
+To fix this, mark data_bh uptodate before unlocking it in
+ext4_convert_inline_data_nolock(), just like the regular file path
+does. Additionally, hold lock_buffer(bh) in ext4_init_dirblock() while
+populating the directory entries and checksum tail so any buffer
+modifications are properly serialized.
+
+Fixes: 90f097b1403f ("ext4: refactor the inline directory conversion and new directory codepaths")
+Cc: stable@vger.kernel.org
+Assisted-by: Antigravity:gemini-3.8-flash
+Signed-off-by: Sandeep Dhavale <dhavale@google.com>
+Reviewed-by: Jan Kara <jack@suse.cz>
+Tested-by: liuderong <liuderong@xiaomi.com>
+---
+Changes in v2:
+- Rebased onto ext4-tree/dev (7.4-rc2).
+- Moved the real-world impact paragraph into the commit message per Jan's
+  review comment.
+- Collected Reviewed-by from Jan Kara and Tested-by from liuderong.
+
+Link to v1: https://lore.kernel.org/all/20260918025416.604297-1-dhavale@google.com/
+
+ fs/ext4/inline.c | 1 +
+ fs/ext4/namei.c  | 2 ++
+ 2 files changed, 3 insertions(+)
+
+diff --git a/fs/ext4/inline.c b/fs/ext4/inline.c
+index ceee69a66482..0aa14cee3310 100644
+--- a/fs/ext4/inline.c
++++ b/fs/ext4/inline.c
+@@ -1167,6 +1167,7 @@ static int ext4_convert_inline_data_nolock(handle_t *handle,
+ 		error = ext4_handle_dirty_metadata(handle,
+ 						   inode, data_bh);
+ 	} else {
++		set_buffer_uptodate(data_bh);
+ 		unlock_buffer(data_bh);
+ 		inode->i_size = inode->i_sb->s_blocksize;
+ 		i_size_write(inode, inode->i_sb->s_blocksize);
+diff --git a/fs/ext4/namei.c b/fs/ext4/namei.c
+index 354fc2d22df1..69580e54455f 100644
+--- a/fs/ext4/namei.c
++++ b/fs/ext4/namei.c
+@@ -2933,6 +2933,7 @@ int ext4_init_dirblock(handle_t *handle, struct inode *inode,
+ 	if (ext4_has_feature_metadata_csum(inode->i_sb))
+ 		csum_size = sizeof(struct ext4_dir_entry_tail);
+ 
++	lock_buffer(bh);
+ 	de->inode = cpu_to_le32(inode->i_ino);
+ 	de->name_len = 1;
+ 	de->rec_len = ext4_rec_len_to_disk(ext4_dir_rec_len(de->name_len, NULL),
+@@ -2965,6 +2966,7 @@ int ext4_init_dirblock(handle_t *handle, struct inode *inode,
+ 	BUFFER_TRACE(dir_block, "call ext4_handle_dirty_metadata");
+ 	set_buffer_uptodate(bh);
+ 	set_buffer_verified(bh);
++	unlock_buffer(bh);
+ 	return ext4_handle_dirty_dirblock(handle, inode, bh);
+ }
+ 
+-- 
+2.56.1.703.gf848ed807c-goog
+
