@@ -1,88 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.48
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794942723;
-	b=dKg84X3ySLHtgIF5i+FJOSCwrfvu0+4CDM+3Slsv0P69Jb116TkJkp734zydBb7ScxFP
-	 c2w5UEmGVNddTNfj+4EuKj6QfhrOXReDq5TFr0Q415RZaw4PM1uG9jkzQCRpaoVqAGrJ1
-	 uEr6zvV8m2qd/HZPXq6n2+lPrASno4bE2TfKczeC59i8qrOviglm6fR0wTQkLbYsWeZRg
-	 tqp67eScp/eiml7KuynclWqOv5QUbwbyf9+vc4awI5a8P1ioE2cRZpZ7vipURtqBl15Ww
-	 4sDABsmvvHUIf2mc7D4ivXLSU8+a0q/PaeM6yN5BCrBT6oFMvhAxzSq+GkbULtGjhjw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794942723;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.45
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794942724;
+	b=qdLcHuP2Qp0ovERbaqL1ZNR/q+N/RqbZHZfa66UL6ghh2yGeQHHoG1+cIsbwD0nQbYfZ
+	 X+OFYVoN3MzQtKhLGtdJFdLicYBsyMvVys2Po0+oVUY2Is6Lqzy1Ey3LNRxxNUBB8DGTr
+	 iWnOttTPiWI1HDVIElMj6ZxDVJZX5Fcu7GJlvHpFykAG7DjxwTNPDqVhC7iJdkZzXruHg
+	 pYAiYPsmRup8n+gQaMGvmw+PrJq1hBS71ZJfkAE4DORM8v3bvjU45ql3m0sveg/R8WAf+
+	 vd4qvK7SvuNSfYPdM6PBLPc+FYr8w+QUrvH5WhUrQ4o0u5NPL4WTRowHkboUVyGci8w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794942724;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=bT39nq+rkIX6hcx56sUqmxgqdg9Payqc0fsUYc8anSk=;
-	b=VnLX2vtU64Hrdh6ccVWVLershFwwxk4sdb/MNa/2R3DC0KOD+zFUoo9wXRzkWwOiaCQR
-	 ErFKkWWwFOnKsUF1FSUZBNdNICUEGiL4j/vEueUo6Q0/mK7BfarXqyduZGChaQxEeavGb
-	 1M/bRC1YRvRbkrK6+MLoFo9ykQ532IdNLQ0890g0oFnsTj+1gZA7v13bXP4OVdZtUhEx6
-	 dc+siYj9laVnxHCZrdbQuBYVWk8EZIeYzIYOJqpq0O8ja+FqfPh1nq/whJYy06tCYkvl8
-	 sMIE1baC2hRy5n/n5oYFpf5mqLAvBLyzBovHSAil/4Zf/WudH9PyBRehRPWE73fsC9w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=vOL/Nw17lyMhYB+phC9VVdqxP1Km2LT+SN3+8ZuNcpE=;
+	b=pMd5nTlcsaoC/ijjnmdo0MGqfq9in5i7M9j07FBHmPzxr1jp3r3cvQ+8LeCpdt/zqh35
+	 cpDVt5qiXTUY62pe8OvuWXjGf/NRpi569/C5xwR7+rU7GPuF8CVQY59If1F00rsUhtpoU
+	 22p5RbxGXyCCYVzD+7KWKNcXA3nkzlzjoiGNSmqGHMgFxyPZg1hvE0GzsTeNykIqdj2DP
+	 E03GEiWvy0kBZ3Gl1nU/oG+ntukVJfDeZwvqzORMww9DeOr5lnY28TMBaSiZwZmZzpHpx
+	 zkgwey6LBG97+0gi9dgicjQAWDpFDf1XoA35odwKFod+aZmc8oqAWzOSDbgyr+Sh2Mw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lYkknru+;
-	arc=none smtp.remote-ip=209.85.216.48
-Received: from mail-pj1-f48.google.com (mail-pj1-f48.google.com [209.85.216.48])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eTxJVUPY;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.45
+Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com [209.85.208.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5EDC1606A32C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:12:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5EDC1606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5BA1F606A332
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:12:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5BA1F606A332
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lYkknru+
-Received: by mail-pj1-f48.google.com with SMTP id 98e67ed59e1d1-3adac5c10e3so36278a91.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:12:03 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eTxJVUPY
+Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-6b8627e0eb2so292964a12.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:12:04 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794942723; cv=none;
+        d=google.com; s=arc-20260327;
+        b=VMpCjUDWuNaXerUGIqq/xOPpB9G/zOgKN18MfA5n7ajZpiaPt3XBzUeSzbcPV3ubmF
+         y06GjjLDEX2BFaW4cD6/Q/7dSPa2LLI1/7sL4k2zIaSDnYywEyW0273oadZAEzxYJAPm
+         i4oGYPTjJxi/2Sinrt6pUbmjc6+S8ytJ7rEa+mS7Tcmx4RruJCCp0Zp0DcIwiL/FYHTy
+         fb9tVzc6fyBUnEEMG0P6+JTxSzKszmodu3xyEr6Io0D3GU4dq7oIPOT/nvn9oao7PBt4
+         WG+l3a5iRaNKlBWpACXeSxhzTmz2MXjqqoCG+TBsGWLc8oO9cuogiw0YG0h8aH0K5ERu
+         3Nkw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=vOL/Nw17lyMhYB+phC9VVdqxP1Km2LT+SN3+8ZuNcpE=;
+        fh=QMCLDjgjn0K30e6LDYZHds/7le/UqtO8hIUdsJpSvAk=;
+        b=p2Ri5i1r8L+IRs/YImSMa1MIEncOqUN8PEVr3rAIRwVn9LL1c6RdymH2fFu/GS0Wyi
+         jxq/Nhnr1+6CQaAPI9pUsmwsMnXzmG5/hwT+Lo7oiJO5X7qzDHWblmjVflmVTstCNfL+
+         CcTXwqdSlYT7ZKqAYQ1fYNCrdi8TUPGsj9vISHYLYPHNz7/4Smac9Wn7+fMLYSAVLFh8
+         l5W0GSOeblaCMz8l1S2nVNa7OZR6OOovTc8NrpWYFDO7Ax8egwihroDls1cXnPE5QCvp
+         3orGju9t5LQZ/h9TvIJIgwqEAN43DM9J1sjVeADmJOP+C66fOLgnySZBo6IRrcxzyeXm
+         yTiA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20260707; t=1794942723; x=1795547523; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=bT39nq+rkIX6hcx56sUqmxgqdg9Payqc0fsUYc8anSk=;
-        b=lYkknru+81p/+aoxpQJlfSE32fNy1p5tv+2ndWpsgBDwv7JlC1GbCRDEW+jD9yYASJ
-         QlGeIGRn42P7sWsTepbKEU27k1VYkS+ap+qINxLXKoROS+quoR2WRwNXa42fxpO1j5uj
-         I2dsObFGtJTRiHmmNX4J2q6rNX4D+uUzunj5kn1W6s8UJuawcsFN7eB1sC3Pr3gm9DMi
-         7xz/Q6XrrJYJGj0DWQH5UJgNJZR8C8IpxPFrF9v0V2r+JXE1SZf0orc7MXqO6fk8+EnN
-         0ht2KDONgU1gIc4t6YdCwtBdr6kCueAX+qpdlULF9VmLyaAbwVll/prLWCMrm4cOJM9q
-         NIEA==
+        bh=vOL/Nw17lyMhYB+phC9VVdqxP1Km2LT+SN3+8ZuNcpE=;
+        b=eTxJVUPYQeNVqYvPNfQ/zIVr91hEoyVYtGXi47xK5LJlVK2HmqlU0pTukuNssTl9wQ
+         Wzc6U4MrBTPIvjXrct3384he7nd9RNucOc+BbzW49GIztEguygjsUjuGvli3rZ5MBFN0
+         CXI4h5J3BS8TvpASfKs7+j2yUdBmoVf4H+/zk6Nxn2kx541JD9GUVglZW7kT//OC3EvW
+         Z0gIN7aXEg9YDS6J8K1fgvCIGZBAk1X+i/FJSij5oHoJsww58itTGvnbFcPqxKm3zNbp
+         cN6uKiy6XgnpUIvaxJnK3yUzdjDNMUwXq1mvN6zw/qvnt1vXxSbCZrFe7rEic+SU3qXl
+         s2kg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1794942723; x=1795547523;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=bT39nq+rkIX6hcx56sUqmxgqdg9Payqc0fsUYc8anSk=;
-        b=aj2f22LKXXUkx6JjGCJjCgma4UzkBKwXdnGgQwJJ7MJoIPl5Y8sdc4lKJPLV75gMY2
-         XS2QYPusuRdjZGjKtMKWdwpMR6a7ZlRfwbF0l6b8sboiYr8td8CyBnjjp4r58YxNW5OW
-         2HDzn4IV5hZu006spD0y4q3oPWcripfwU8vN/6THIteRmUXNUgoRO11QVquDvxV6EXG0
-         ZBnrePl6K7lJ9hGiHeAPXBb61bGGVu95RpSWzpGd+H19+j6wpKlpdCqnNuxZjIS5UL4Y
-         VcBjeaO32qjXCMhqdjWmOx6ILkTMZMjM5GkSD3XhnFmXOX35REgilkAmBTgUGI16Dfek
-         V0TQ==
-X-Forwarded-Encrypted: i=1; AL+hErF5fEOjd+BQ/10+/X/fYqk9eGpEGd7/4wCAI5LKE5aD+wAC0laJFn2PdRdtQu069lFGA44lP34P2IPSiWI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z85Vt85oxJJ9F8Y2vQMTzeQP0GcuhRrAjIdTS3I81BHyLpxtzQb
-	pw/dvD+ywgHOKKwXdAW4ikoOLMxHHovprrw7DC5Y6J6kDe7OLaf5nPpf
-X-Gm-Gg: AZFdTZfLrVdOUcKE28F0sp1idj19jbjzoXJ7wKiB30Vd8x66ovYVMod1HeChcJhpFwS
-	ZMHMrAjS455WORSrKK/KvEsfMHGgGu05qXuD/8RPxf7gkaF8ql5jcJzjJQ3LRHaVtKsGqXe8+FU
-	pOOO3hj/+X1UVs6DTmaivC4pSwwHPj0yl+p9w7wqfYwqbOdOZwa6/xR4TCM7Dh/sVwjpESgZuI/
-	gUXsPCZ7gkUYYrP13m1BHovQhChvse4Af/VNRawoX/t1Wf7QnkJXjrMpLfYoZv6uU4EipqrZIo9
-	AsAws/D8v0U4m4ZW6voXs5ubBH70+ibOSf8QhzC/xH+1hTm7n41dWbLZvblQWzwst+GGXK7wsSu
-	j72g4Jr01MFuI3ZCT6feLzDW90P4mypE3KYcNm09IaaCuV54bnmT/t/CBHqj46kvq7KMGKLXWnl
-	40cFmvmnG/oAFQP9ILHTzokezjnHy1VX3cAbBlCbwEriFvGEuO7D7BwyE65swQj0WWsT39eb8rF
-	SVcF4SiO169lWhmoly1jvtXTfOfGKujb1/egD1ItiWnfAfIy/zzD0RcylC/nDsyvbr2oL69LPiV
-	xCYVtajQ8XVJF5/KbWa3EweSuXcREkT1KQmQkWZHvOLQHjZGMg8AcTQ3
-X-Received: by 2002:a17:90b:3f4d:b0:3b3:8094:3228 with SMTP id 98e67ed59e1d1-3b3d07597b4mr329507a91.14.1794942722670;
-        Tue, 17 Nov 2026 11:12:02 -0800 (PST)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3ac2b5ec6sm5413030a91.10.2026.11.17.11.11.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Nov 2026 11:11:57 -0800 (PST)
-Message-ID: <d6c9b502-abc1-40c5-a3e6-9bebdcdd3933@gmail.com>
-Date: Tue, 17 Nov 2026 11:11:54 -0800
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=vOL/Nw17lyMhYB+phC9VVdqxP1Km2LT+SN3+8ZuNcpE=;
+        b=tsULN7Ys27Nk0ezs9Hrs+iqNqgSG6jyok7H+Zxl0SycvYkMZp3vjWgLPMXzEHLcppI
+         tn2j1OIJIyd3tcjzvZmD1iBUaewMLBCwr696ReYoTxK4k5UYF4TiboJhR+pIMwJ9+E1L
+         gI/vDHKymsnHE4lyEq61UqtrBItvvJtsBVWw4gOvX6+zqTJd4dq+PtJvrG1jH6F8UmCX
+         0Qc5LsabjUhAF7582aP1tkWBJ91IM1aGlEn8zM94dK0BzaVpY37QwmV6A+rrZE65hmbM
+         Og62SIuMCZAC7U1wnXHgMgfCyutAEhzIF+xXyhczhB56zHNpq2x3ekcYgmZYeVBR5R9E
+         Vd+Q==
+X-Forwarded-Encrypted: i=1; AL+hErHt220wHEhdzK95Po3P4pEJ3nqkDScKGPG/0rriRL/aj5KwmpE1ltwwsJyIM1PFcn86a00kqlDl3RrL7I0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/I/1vbVaAL3QVLwEpymcMkr5E1tNSNY7hv96fO4gtbU4vPtkXO
+	XEAmZAub3vMYjM3BRShHC7vYM0WmZOgJ59d7ZjQWV8MirQZEBfFjLWTprA3ngZThAtZibUjWhFC
+	qrj/NxS04EkW9WkQTnoQFxpNZoGqUSBg=
+X-Gm-Gg: AYBFou27kfcjDoWm/DhA/q2ZPEIz/YX7xW260eLC2qx6AsNdZdSuNKeJg8fwqoslM2s
+	IgneCfeSwinHqpIuKCxVlb82SgKRB58ytdgbWhEZOXbYhQc2TSqUoQ3pqlIEcOlNTXu3tWZLeQs
+	bM+k0AUDYG3b4iZBT+2nEStk9rjWjXTq8IGwNrW7Jz+hbkcq6+k6RD8lCJXwMSwDuoONxdz/3lh
+	Y9r3Z5JM3FC3tLawP5cyuW3zsmbkYacVltRRzwHazubVfUzNZSQ2LejvI8vXatDBwuNSgaia56P
+	iSg24bBCGvvgzR3UVLtYS6vk0FIHcl4wLLXwXnvVthcEYUNyD/DPIf3qR+8MJfEvjHTFx04U9Rg
+	aXKmd8CzOUErHGNhmLc+M6x36/vWlUhWlt3Y=
+X-Received: by 2002:a05:6402:2805:b0:6b8:7775:515b with SMTP id
+ 4fb4d7f45d1cf-6b887e52cc5mr201512a12.8.1794942722510; Tue, 17 Nov 2026
+ 11:12:02 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,83 +103,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2 06/12] net: au1000: assign a valid MAC address
- without platform data
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- hkallweit1@gmail.com, linux@armlinux.org.uk, shaojijie@huawei.com,
- horms@kernel.org, runyu.xiao@seu.edu.cn, mmyangfl@gmail.com, hvr@gnu.org,
- jeff@garzik.org, danny.kukawka@bisect.de, mugunthanvnm@ti.com,
- sebastian.hesselbarth@gmail.com, linux-kernel@vger.kernel.org,
- manuel.lauss@gmail.com
-References: <20261112045301.3669532-7-f.fainelli@gmail.com>
- <179483704445.3136.5178913144882531268@kernel.org>
-Content-Language: en-US, fr-FR
-From: Florian Fainelli <f.fainelli@gmail.com>
-In-Reply-To: <179483704445.3136.5178913144882531268@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20260921113914.779393-1-l.scorcia@gmail.com> <20260921113914.779393-2-l.scorcia@gmail.com>
+ <3701981f-cdda-46a7-8079-de5479ae9c27@kernel.org> <CAORyz2+wF=VDTFkRFU7jBu-zNTW7T8mnPrJZAj8ZVD-Yyr2b6A@mail.gmail.com>
+ <53298044-3595-4231-a498-d78052799727@kernel.org>
+In-Reply-To: <53298044-3595-4231-a498-d78052799727@kernel.org>
+From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Date: Tue, 17 Nov 2026 20:11:50 +0100
+X-Gm-Features: AclHuK_tAaAmV8XPp2n_nIuVB_4g8FKHhKrmOBsZ4DZheY4_R5_9zza4TO_AcK8
+Message-ID: <CAORyz2J9HrKr5JU1rigB7apEUpHg-P_ke=STWz-_sn64afqQgA@mail.gmail.com>
+Subject: Re: [PATCH v2 1/4] dt-bindings: display: mediatek: dpi: Add
+ compatible for mt8167
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-mediatek@lists.infradead.org, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, CK Hu <ck.hu@mediatek.com>, 
+	Jitao shi <jitao.shi@mediatek.com>, dri-devel@lists.freedesktop.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 
-On 11/16/26 05:50, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found more severe
-> issue(s) in other patches of this series. This mail is only an FYI, in case
-> you want to address the nit picks below when you respin.
-> 
-> Low priority / nit picks for your consideration:
-> 
-> - [Low] The commit message overstates how far the bug reaches, and it
->    carries a Fixes: tag.
-> 
-> --
-> 
-> net: au1000: assign a valid MAC address without platform data
-> 
-> When no platform data is passed, au1000_probe() now calls
-> eth_hw_addr_random(). Before this, the device kept an all-zero dev_addr,
-> and eth_validate_addr() rejected it at open time.
-> 
->> The supported no-platform-data path leaves dev_addr as all zeroes. The
->> device can register but eth_validate_addr() prevents it from opening.
-> 
-> [Severity: Low]
-> Can any in-tree configuration actually reach this path?
-> 
-> The only in-tree au1000-eth platform devices are au1xxx_eth0_device and
-> au1xxx_eth1_device in arch/mips/alchemy/common/platform.c. Both always set
-> platform_data:
-> 
->      .platform_data          = &au1xxx_eth0_platform_data,
-> 
-> au1xxx_override_eth_cfg() is the board override path, used by
-> board-mtx1.c. It copies into the same static structures, so the pointer
-> stays non-NULL:
-> 
-> 	if (port == 0)
-> 		memcpy(&au1xxx_eth0_platform_data, eth_data,
-> 			sizeof(struct au1000_eth_platform_data));
-> 
-> au1000_eth_driver has no of_match_table or id_table. It can only bind by
-> name to the platform devices above.
-> 
-> So dev_get_platdata() never seems to return NULL for an in-tree user. The
-> failure described could only happen with out-of-tree board code that
-> registers the device without platform data.
-> 
-> The code change itself looks correct. It restores what the !pd branch did
-> before 7718f2c27dbd, which only added eth_hw_addr_random() to the
-> invalid-MAC branch.
-> 
->> Fixes: 7718f2c27dbd ("au1000_eth: use eth_hw_addr_random() instead of random_ether_addr()")
-> 
-> Could the commit message say that only out-of-tree platform code can hit
-> this, or describe the change as hardening? As written, the Fixes: tag may
-> lead to a stable backport for a failure no mainline configuration can hit.
-> 
+> bindings and DTS should be complete
 
-Yes this is more of a defensive change, I will drop it from this series.
+Thank you for your patience, I understand now.
 
-pw-bot: not applicable
--- 
-Florian
+According to the current mediatek-drm code, aliases are not really
+required unless there's multiple instances of the same block type [1].
+On mt8167 this only happens for the dpi1 block and the rdma1 block. It
+should be possible to introduce main display support without the
+aliases with a couple of changes:
+
+- rdma1 drives the secondary display pipeline; it can be omitted from
+the DTS while still having the primary display pipeline work;
+- dpi1 is used to drive HDMI output (not upstreamed yet). I can omit
+it from the DTS for now, adding only the dpi0 node.
+
+With this approach the DPI bindings would remain as submitted. Once an
+appropriate mechanism to describe the blocks' indexing is in place
+those two nodes can be reintroduced without having to change any other
+component.
+I have done a quick test on my devices and the approach seems to work.
+
+Please let me know if you can see any issue with this idea, meanwhile
+I'll run more rigorous device and DT tests.
+Thank you for your help
+--
+Luca
+
+[1] https://github.com/torvalds/linux/blob/666539eecdf4db623f5e3c3e55cf9f2dfad24aa4/drivers/gpu/drm/mediatek/mtk_ddp_comp.c#L566
