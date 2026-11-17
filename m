@@ -1,74 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.205
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.193
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794937142;
-	b=gfgMYldFsg0bcElLFAz4QM7wszAfK6VFFAi8JoC9lt+P+B69n60AhjgfCiw4RS8lbwmv
-	 blG19Yl+/F8AxpECQxig1M/V1pjMQt8wRqidNgQKILJxqruBTgN2Hhik0kTV7AAyHzLDm
-	 A50MvrmiSo3wxTBDeIoYtuLpMuuI5HKLzEA0tD+oYDGOXxuy+f7KHl6+kbPIEXy68sx8j
-	 nlJFshgVEpomOyCYXIJhrvrAM1X1FpNxFr/sU9Q5JoNOfJmgkDM39N7ZkntYtjuZD5MDs
-	 mMx8KjjnMz+pCWCm8t6c/i0H9M2lM5PdTHE1/FilvMbz6jppZczKqE6POiqOzz19kUQ==
+	t=1794937149;
+	b=VzwkpkZPtUpqefEZtpRgd/RqDCtpnNI2h0h3s157VXhJ4arzV1yWgXTr089d/lo2Mww1
+	 MiHM/OFKRo9RZ2tbyOqFw+Z7fF2hKm096UWf1I7hdHqBgccxsRtKijtN7OMWPISho/Ccp
+	 gWFdKF1r3sG/outPReuyOyVx7Hj9gX0oi37nNolLo42EFgSdqtTqSdO720q6xh3DWOB3Q
+	 H7dOSkIxEcBw3fRXaW8I0nomEKVfF0Y2JyCDl4psCWTUjJuvz/Juh6g77nH3NX9j/2rnY
+	 2Tl7Ar/cgBLQ6RiEIjR/4deSIDTPElLTaJWwLcs5GlCBf4Vxxvv5MF3oheOM81BIZPw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794937142;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=r4Gwx2fPtf078oRE/xnMSrJHc96t9lMNVuFVBI5quw8=;
-	b=tKMvavkq5Tp7Eayv2XzcY+dfVUdEkmpcqqCMp2bvmUxY5Z7PeW2Pu0ZxQDPW77oZuT0M
-	 ROyofS6axMf2pSd4MwgUbab2atpSTKhbtocd412za0IvUQvQHK88cWxze5i3qjaEuLXHl
-	 Wq+DjuGKW7W65XcOI2gBQWwhk/ovMjVTO9YjPtxYZNx1+yfWMtOPPaJvPVYmjoDB/9x2J
-	 Icxt079RAYeSopAJth7HBrbkhP9snufVeTIz5KVKXbKhMCsbMIN5I+b8D0cBO8diztYQw
-	 GPwrxj3Ee+oa4NEcudgUHJP7cfgYs4/TdouxYNthaT2jaey05br9fekU0OEOMqVAxeA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794937149;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=6M57yKhoY3Idsde7aIN+UT8pB+NIBM6sX908TuhLKcI=;
+	b=zk6pF04zgd/Tfg3XWdcIG69M2pxFloRys3d+qVE7bYJ708Wi4LWS/tKz5AV1eooi8pi5
+	 TntnZlXdx0QvBizv+GwnrulAHsJUxIu9QkObQ0scMNrpcsi3DNcSvoFCOAxR6kN9a4+TC
+	 keYG92WfHMREVVUHNnnDui/wQJoVlycp4E4hFS7Iuw1A2IhpTICsB7S5iBaHNOMpOv0fv
+	 2PpH2Bl1o7BT5o50cuCWLN+LY6hJWq5zyarzYI8oPU2Y58rQZ3A8YGKVvb8+c8lLmursV
+	 IbvBzaazmC9hQvaEEOGMTbPVmUsp5Exi4Y9rfz38lG1niQWiTTCBLOX36kRP/YspCjA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=poFOFwvQ;
-	arc=none smtp.remote-ip=203.205.221.205
-Received: from out203-205-221-205.mail.qq.com (out203-205-221-205.mail.qq.com [203.205.221.205])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=unSSAAxE;
+	arc=none smtp.remote-ip=74.125.231.193
+Received: from mail-oi2-f1.google.com (mail-oi2-f1.google.com [74.125.231.193])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1089606A31C;
-	Tue, 17 Nov 2026 17:38:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D1089606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2591F606A895
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:39:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2591F606A895
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=poFOFwvQ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1794937131; bh=r4Gwx2fPtf078oRE/xnMSrJHc96t9lMNVuFVBI5quw8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=poFOFwvQH6CvHK6WNoPFcswXNMR32QRI4gmao4+JWmlawmGIbQfpnTYzjDz2NmEPR
-	 UtTzgoxV+051xzpBeBy2GrWvjoEKYDu3YZnZYaTL6pnKncgKAhUThrJMRnCm/NAQRV
-	 /DmwGJlcEpZLsU5QQjZutDPAzn3h97Sr1tRQt9RY=
-Received: from [172.18.4.77] ([202.113.185.209])
-	by newxmesmtplogicsvrsza73-0.qq.com (NewEsmtp) with SMTP
-	id 9B1B66A4; Wed, 18 Nov 2026 01:38:49 +0800
-X-QQ-mid: xmsmtpt1794937129t478vdfid
-Message-ID: <tencent_8D37DE888453A72965D4A60F43144E2AE206@qq.com>
-X-QQ-XMAILINFO: OATpkVjS499uHhPXDSMy8nIfORQN18OSkXQgzu93+2Uv7nIgXk1JchmgZxjgw/
-	 5aFxdOq/EYW8TLWLVL4JGrKNNTesuaEuVqXo2wbQjkMhN6VHs0dRCRA83gibjA5bwwkQ83KBhTgs
-	 ul0F8t09AbHRo7waJgtq2itR+cJDCFmKWe/Nr4TrjeKo5VALb9guXajq1Nw9N6nD2BoxLEwBGZK5
-	 Cfy2vRO96Z1DxKUIHETzp1mrySO0gcLmV7MnDre7MiZXb7SMFaptla8P4W+NSyVwEqaLUQhyP6Fq
-	 FqkG3H0f4iNIadFzroh/35L9z7nlitDr3IH0xMIeB11Pl2i34lYOCvs6s/FOL6Ge3y3A1/D2ayM2
-	 pO0kb9guCgMznnbFoRop+6eF01RsbWmq+otWHBAhW/i1o891tCldioVG0Lmx26OGlre/lxLSjeNR
-	 xny057Ebf12unuDF2C5Ty7XnbZ8xx5Uq9JnXeqpKVFQMiboLbytXt3BGBf8S9B/fi3Ek5hsjljRT
-	 1gn8BnTTE3sdf8r0sOvhwf31ggHY8kzjy8dfpx5E9tSyb+QN/4q3gLufAwLwkWQHWq3Bu9QKQ+ek
-	 i0eb0nIMFEv3YqpBtKm+TLkv7MJYWCi2+7C+uY0kHgBuLGTUE9CFuLTOeDbB/CdHaNh7JvQ9BTuo
-	 AdYM62/ENL8xfN3C5G6dAPSaO6nTgmLz/WCmBZ5w/h3SPxIFAV+4/PPUUvzM9Vv0pdUa8EpOjTrq
-	 B67oP0LLh0aCiZg53CF+mKTFTFhIyZAlAtVz5w+k708bdvS1t3n0mjA6kjwjZfxcacZUzylHN8Sp
-	 Wy+6xQ8ji12Aas7RcomvSFkvGu6LxF4+fJQgqePNY1Ba2wregY5wKds0wfk5FDJ2uvQEGJwXq8pd
-	 PycCJfY53hCi6NvN59yyqjkaFMkiMImeIhU1XiltdTeqIuNkyrg1zbUg+ywqqbbhjeOdJC4hTDyW
-	 g1UIxpy6YXB7GIX66OZtH5iaXfwZ/Bwez06oC3uVGoSWxmv6h8UfDjWGEyZDcyHl29bT/EPwb3+y
-	 y5k8bSSrbkgxapOM4zNmE9jnyK6Pu1uFFd5HsDl4+nMBb08erR
-X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
-From: Guikun Yang <yangguikun19@qq.com>
-To: Christian Brauner <brauner@kernel.org>
-Cc: linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: [PATCH v2] fs/qnx6: validate di_filelevels against the pointer width
-Date: Wed, 18 Nov 2026 02:00:00 +0800
-X-OQ-MSGID: <patch-qnx6-filelevels-v2-20261118@qq.com>
-In-Reply-To: <20261117-anheben-kauen-botschaft-efbcb6e18d72@brauner>
-References: <c4-qnx6-filelevels-ubsan-20261031@qq.com>
- <20261117-anheben-kauen-botschaft-efbcb6e18d72@brauner>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=unSSAAxE
+Received: by mail-oi2-f1.google.com with SMTP id 5614622812f47-539d2baa897so1662682b6e.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 09:39:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794937143; x=1795541943; darn=vger.kernel.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=6M57yKhoY3Idsde7aIN+UT8pB+NIBM6sX908TuhLKcI=;
+        b=unSSAAxERqfoOoboKgBEzpLaA16dBomXkSiCBJp51rj/PSK4U/eOOkYNc30RL2fMXB
+         iu2KACeCcmc6p3hhGZaNZgB4/qF9qr5HwmZRm+FegnELhi2KWCCklKM091uGM2bnCn3W
+         h3nkteQqs2eSr8LgAmJWEiK1TnuDOnlY3VDnzxBQzUMlUkeZtM6v3faSK2b2hVlNU+pg
+         Q3Nu9W1nYYmPk2TIizqmevmE2vnY+aW1wCo4EwwHobeHXM7ELX7zyI8nPP7gTLzvZLnd
+         Bm447+caDdOwHF7MX6iHXSIOWYrJdBsImYOajDQh5TkfflDbC6fgcpIPw2G1TVHQGL6d
+         amtg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794937143; x=1795541943;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=6M57yKhoY3Idsde7aIN+UT8pB+NIBM6sX908TuhLKcI=;
+        b=AkVWGrO6dLshZGQP5cxMcBJCVLarALidyUFoa5jDtRpY3P+mzFTzXHTNdX8bLEWEil
+         ZsBg0qzTKj9tpkHHOmWRUbryQTbGyIG6rTGG177oy9g3teZtgN3Bl10QCLN4RfzfQlCj
+         ONvALzFqV9ZSw5OuzEMOaItx7I+yRDx0V7Vsu0Ac1352IJ9r2Bc7oQhnfQ3cYKUy7JeJ
+         rWdeZ+82YEL16ATEQ59eM/lreK30vp+juBN0/4eJsRPwPsbigVaZRdd0SP9L2mYOPNiS
+         lfUlga3rpE9hpl0Trf7QQe44PksaeaOtL7dJS4CYaJv3PqPc0gy6PVVrRSg0Ftg+KLlS
+         SSFA==
+X-Forwarded-Encrypted: i=1; AL+hErFb4fmDD69kvv4kLhlkIRqVFoh6Nl3wIxWIBZFm8z/IeM5lBof1SbUWCHtrIuiZByiVF3qUMCgC7a2WCUE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9AZgeZGEG79EBhxZ83hZtdgPFZOnh9uJTf6qQjhZy7ldUQ81K/
+	yWqf9GTfw73K0c57EIAWPoLQSzv7mknS116PLU8fQoXJsPDlr8B73zle
+X-Gm-Gg: AYBFou10zSOlrj3JUEjRH+UB9IA7u9zNrcCV/vJ6SFnucxLYSw+sDWylWSoybkbgDp8
+	o8KqltUTBHu+jMmV71AF6jNQD/RFwQAM0pmuDVpGHJhdcvP4oahAGrakApNOOcgtS0iGbog+ZkO
+	BnQu4G/P+T+JJDJ8UBsFZZxvNuroTvfSMZ6Pyg4btfIT5zBbgg0i+aLmxr9066U9rv5bRd6T+NB
+	JZAYk5vzirlkC39X3zRpgARIKBCCCSzhvvEqJLzE5somAW1FTP8NZlPEiww0nBAmsPU7St8J5qd
+	95W32BcRMNn8uH6xZWw1A9U+2r5QDZZVyL23lqQS4GiM03OAfcxw3GrPOEepbtBPwgTdb/FVba0
+	VvilVjNVgtLWsE/zaZACd22wkWIo8Ue4+0c86t5wjpG2MTmnmVojcT1N+463wnfb+zaQv7iQP9a
+	K03rAk1Ir3SFo5sReNr2LwAutLrpBtj+UahQi4qEAS1jxMSKIg8Iut4GWDQDpjdcZNHqIfDtNgP
+	BEKl295PuD09H6IakizQUjtFSuvGUl5Gk6Qjx/1ZmQ2EPf5/K0t7qvpANO5+CSHrK3Md6rjDFWm
+	pksuYJTEwvh4REihgKgrS19D
+X-Received: by 2002:a05:6808:14c1:b0:571:3ee4:9a63 with SMTP id 5614622812f47-5773d82f896mr452946b6e.52.1794937142940;
+        Tue, 17 Nov 2026 09:39:02 -0800 (PST)
+Received: from [192.168.18.164] ([2600:8804:5716:d800::d500])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-572e87c152bsm8185329b6e.2.2026.11.17.09.38.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 09:39:01 -0800 (PST)
+From: Ryan Brue <ryanbrue.dev@gmail.com>
+Date: Tue, 17 Nov 2026 11:38:55 -0600
+Subject: [PATCH v2] drm/imagination: Wait for the firmware's interrupts
+ before stopping it
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,110 +93,185 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261117-rbrue-suez-upstreaming-pvr-fw-irq-handshake-v2-1-780e31f25220@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/5XNSw6CMBAA0Ks0s2ZMi4jIynsYFoUOMFE+TqF+C
+ Hc34gncvs1bwJMwecjVAkKBPQ895CqOFFSt7RtCdpAriHWcGq0TlFJmQj/TG+fRT0K2477BMQj
+ WD2S5Y2t751t7JSwzfTrsqTzppIRIwShU83PbLkWkoGU/DfLa8mC++nuM0X89waDBLDvGaZY6k
+ zh9bjrLt101dFCs6/oBQXWM4eYAAAA=
+X-Change-ID: 20261004-rbrue-suez-upstreaming-pvr-fw-irq-handshake-b80953eb904b
+To: Alessio Belle <alessio.belle@imgtec.com>, 
+ Luigi Santivetti <luigi.santivetti@imgtec.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Sarah Walker <sarah.walker@imgtec.com>
+Cc: imagination@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+ Ryan Brue <ryanbrue.dev@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794937139; l=6678;
+ i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
+ bh=0tFJSc1IT+Of15L5cMPlnjMt1GWB/FzbloTs+FUqArI=;
+ b=gbRkDO0IzdEtHQdqSrOtbMROgheVI7IodWc11ZSxjoBrIip6/C4MGaVGjXEi1r1GB9gsQBhPU
+ nmVodgMLVdYAlyyhxlQomwcEgx33Jne+1q9d4Kg4Ii9jh1SncHN9xiv
+X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
+ pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
 
-Hi Christian,
+Once the firmware has acknowledged the POW_OFF request, a runtime suspend
+disables the IRQ and stops the firmware straight away, even if the
+firmware has raised an interrupt the host has not taken yet. On an
+MT8173 (GX6250, META firmware), the SIDEKICK_IDLE.GARTEN poll at the end
+of pvr_fw_stop() can then time out. The suspend fails with -ETIMEDOUT,
+runtime PM latches the error, and every later pvr_power_get() returns
+-EINVAL. The recovery reset that follows can fail the same way and lose
+the device.
 
-You were right -- the v1 diff was hand-written and did not apply. This
-v2 was generated with git format-patch from a tree I actually built the
-change in; both fs/qnx6/inode.c and fs/ufs/super.c compile cleanly and
-the patch applies with `git apply --check`.
+The firmware counts the interrupts it raises in its OS data. Sample that
+count every time the host clears the firmware interrupt, and before
+disabling the IRQ for a runtime suspend, wait until the host has seen
+every interrupt the firmware counted, as Imagination's DDK does.
+Sampling in pvr_fw_irq_clear() rather than in the IRQ thread also
+covers the clears at probe and in a reset, whose interrupts never reach
+the thread, and picks up the zeroed counts after a hard reset.
 
-Changes from v1:
-- real index lines, hunk headers and context from git diff
-- Fixes:/Signed-off-by: placed in the commit message above the diff
-- function signatures match the current tree (new mount API)
-
-
-
+Fixes: cc1aeedb98ad ("drm/imagination: Implement firmware infrastructure and META FW support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
 ---
-di_filelevels comes straight from the on-disk inode and is used as
-the depth of the block tree walk in qnx6_get_block():
+Found on an Amazon Fire HD 10 (2017), an MT8173 tablet that's not upstream
+yet. Its GX6250 (4.40.2.51) is not on the driver's list and runs with
+exp_hw_support. With a compositor running, about one desktop start in five
+hit this before the patch. A debug build that logs timed-out register polls
+named the poll, SIDEKICK_IDLE read 0x7a, GARTEN not idle.
 
-	bitdelta = ptrbits * depth;
-	levelptr = no >> bitdelta;
+Only META firmware on this one GPU was tested. Each failing suspend in the
+instrumented runs was off by exactly one interrupt (for example firmware
+14320, host 14319). Why the META core then can't go idle is inferred from
+the DDK, which waits at this point; a fixed 1s delay in the same place
+also stopped the failures here.
 
-With a crafted di_filelevels the multiplication overflows the int
-and the shift becomes negative, which UBSAN flags as
-shift-out-of-bounds.  The superblock path already limits
-Inode.levels/Longfile.levels to QNX6_PTR_MAX_LEVELS, but that
-constant is too generous when the block size is small: the product
-ptrbits * levels can still exceed 31.
+The reset paths were tested with a debug build that triggers a soft
+reset and can drop one count before the reset's clear. With v1's
+sampling, the next runtime suspend then waited the full second and
+warned, twice out of two; with v2 it didn't. A hard reset of this GPU
+times out and loses it, so the hard-reset path is still untested at
+runtime.
 
-Compute maxlevels = min(QNX6_PTR_MAX_LEVELS, 31 / s_ptrbits) with
-s_ptrbits initialized before the checks, and reject superblocks
-whose levels exceed it.  Apply the same bound to per-inode
-di_filelevels in qnx6_iget() and fail with -EIO.
+It reproduces within a minute with vkcube --present_mode 1 on the
+compositor's display and the GPU's power/autosuspend_delay_ms set to 1.
 ---
- fs/qnx6/inode.c | 28 ++++++++++++++++++++--------
- 1 file changed, 20 insertions(+), 8 deletions(-)
+This patch was developed with the help of an LLM. I know there's a Mesa
+policy against LLM use for the powervr driver there, so if there's a policy
+for drm/imagination too, let me know.
+---
+Changes in v2:
+- Sample the firmware's interrupt counts in pvr_fw_irq_clear() rather
+  than in the IRQ thread, so that the clears at probe and in
+  pvr_power_reset() update the host's copy too (Sashiko). This replaces
+  the zeroing in fw_osdata_init(): after a hard reset, the reset path's
+  clear samples the zeroed counts.
+- Fixes: cc1aeedb98ad, which put pvr_fw_stop() into the runtime suspend
+  path; at 727538a4bbff it only gated the clocks (Sashiko).
+- Rebased on drm-misc-next.
+- Link to v1: https://lore.kernel.org/r/20261110-rbrue-suez-upstreaming-pvr-fw-irq-handshake-v1-1-8872686d14d0@gmail.com
+---
+With continuous rendering and a 1 ms autosuspend delay, a suspend failed
+this way within 22 seconds in 7 of 7 unpatched runs. Three of them were
+instrumented: between them they made 2711 suspends, and the three that
+failed were the only ones with an interrupt still outstanding after
+disable_irq(). With this patch, 8 of 8 runs lasted 60 seconds without a
+failure, and in a further run the wait was needed in 15 of 6925
+suspends, for at most 6.1 ms.
+---
+ drivers/gpu/drm/imagination/pvr_device.h | 15 +++++++++++++++
+ drivers/gpu/drm/imagination/pvr_power.c  | 27 +++++++++++++++++++++++++++
+ 2 files changed, 42 insertions(+)
 
-diff --git a/fs/qnx6/inode.c b/fs/qnx6/inode.c
-index 6de49333a..558a2c2a3 100644
---- a/fs/qnx6/inode.c
-+++ b/fs/qnx6/inode.c
-@@ -298,6 +298,7 @@ static int qnx6_fill_super(struct super_block *s, struct fs_context *fc)
- 	const char *errmsg;
- 	struct qnx6_sb_info *qs;
- 	int ret = -EINVAL;
-+	int maxlevels;
- 	u64 offset;
- 	int bootblock_offset = QNX6_BOOTBLOCK_SIZE;
- 	int silent = fc->sb_flags & SB_SILENT;
-@@ -405,27 +406,31 @@ static int qnx6_fill_super(struct super_block *s, struct fs_context *fc)
- 		brelse(bh1);
- 		pr_info("superblock #2 active\n");
- 	}
-+	/* ease the later tree level calculations */
-+	sbi = QNX6_SB(s);
-+	sbi->s_ptrbits = ilog2(s->s_blocksize / 4);
-+
-+	/* limit levels so that ptrbits * levels stays below int width */
-+	maxlevels = min_t(int, QNX6_PTR_MAX_LEVELS, 31 / sbi->s_ptrbits);
-+
- mmi_success:
- 	/* sanity check - limit maximum indirect pointer levels */
--	if (sb1->Inode.levels > QNX6_PTR_MAX_LEVELS) {
-+	if (sb1->Inode.levels > maxlevels) {
- 		pr_err("too many inode levels (max %i, sb %i)\n",
--		       QNX6_PTR_MAX_LEVELS, sb1->Inode.levels);
-+		       maxlevels, sb1->Inode.levels);
- 		goto out;
- 	}
--	if (sb1->Longfile.levels > QNX6_PTR_MAX_LEVELS) {
-+	if (sb1->Longfile.levels > maxlevels) {
- 		pr_err("too many longfilename levels (max %i, sb %i)\n",
--		       QNX6_PTR_MAX_LEVELS, sb1->Longfile.levels);
-+		       maxlevels, sb1->Longfile.levels);
- 		goto out;
- 	}
- 	s->s_op = &qnx6_sops;
- 	s->s_magic = QNX6_SUPER_MAGIC;
--	s->s_flags |= SB_RDONLY;        /* Yup, read-only yet */
-+	s->s_flags |= SB_RDONLY;	/* Yup, read-only yet */
- 	s->s_time_min = 0;
- 	s->s_time_max = U32_MAX;
+diff --git a/drivers/gpu/drm/imagination/pvr_device.h b/drivers/gpu/drm/imagination/pvr_device.h
+index c246122b4caf..9d46c41140b7 100644
+--- a/drivers/gpu/drm/imagination/pvr_device.h
++++ b/drivers/gpu/drm/imagination/pvr_device.h
+@@ -176,6 +176,12 @@ struct pvr_device {
+ 	/** @irq: IRQ number. */
+ 	int irq;
  
--	/* ease the later tree level calculations */
--	sbi = QNX6_SB(s);
--	sbi->s_ptrbits = ilog2(s->s_blocksize / 4);
- 	sbi->inodes = qnx6_private_inode(s, &sb1->Inode);
- 	if (!sbi->inodes)
- 		goto out;
-@@ -560,6 +565,13 @@ struct inode *qnx6_iget(struct super_block *sb, unsigned ino)
- 	memcpy(&ei->di_block_ptr, &raw_inode->di_block_ptr,
- 				sizeof(raw_inode->di_block_ptr));
- 	ei->di_filelevels = raw_inode->di_filelevels;
-+	if (ei->di_filelevels > 31 / sbi->s_ptrbits) {
-+		pr_err("inode %u on dev %s: too many file levels (%u > %d)\n",
-+		       ino, sb->s_id, ei->di_filelevels, 31 / sbi->s_ptrbits);
-+		folio_release_kmap(folio, raw_inode);
-+		iget_failed(inode);
-+		return ERR_PTR(-EIO);
++	/**
++	 * @fw_irq_count: Firmware interrupt counts, as last sampled after
++	 *                clearing the interrupt.
++	 */
++	u32 fw_irq_count[MAX_THREAD_NUM];
++
+ 	/** @fwccb: Firmware CCB. */
+ 	struct pvr_ccb fwccb;
+ 
+@@ -813,6 +819,15 @@ static __always_inline void
+ pvr_fw_irq_clear(struct pvr_device *pvr_dev)
+ {
+ 	pvr_dev->fw_dev.defs->irq_clear(pvr_dev);
++
++	/* A cleared interrupt counts as taken, whoever cleared it. */
++	if (READ_ONCE(pvr_dev->fw_dev.initialised)) {
++		struct rogue_fwif_osdata *osdata = pvr_dev->fw_dev.fwif_osdata;
++
++		for (u32 i = 0; i < MAX_THREAD_NUM; i++)
++			WRITE_ONCE(pvr_dev->fw_irq_count[i],
++				   READ_ONCE(osdata->interrupt_count[i]));
 +	}
+ }
  
- 	if (S_ISREG(inode->i_mode)) {
- 		inode->i_fop = &generic_ro_fops;
+ #endif /* PVR_DEVICE_H */
+diff --git a/drivers/gpu/drm/imagination/pvr_power.c b/drivers/gpu/drm/imagination/pvr_power.c
+index eb4b6ecdf4f4..2d0fbcf457f6 100644
+--- a/drivers/gpu/drm/imagination/pvr_power.c
++++ b/drivers/gpu/drm/imagination/pvr_power.c
+@@ -89,6 +89,26 @@ pvr_power_request_pwr_off(struct pvr_device *pvr_dev)
+ 	return pvr_power_send_command(pvr_dev, &pow_cmd);
+ }
+ 
++static bool
++pvr_power_fw_irqs_taken(struct pvr_device *pvr_dev, u32 thread)
++{
++	return READ_ONCE(pvr_dev->fw_dev.fwif_osdata->interrupt_count[thread]) ==
++	       READ_ONCE(pvr_dev->fw_irq_count[thread]);
++}
++
++static void
++pvr_power_wait_for_fw_irqs(struct pvr_device *pvr_dev)
++{
++	bool taken;
++
++	for (u32 i = 0; i < MAX_THREAD_NUM; i++) {
++		if (read_poll_timeout(pvr_power_fw_irqs_taken, taken, taken, 100,
++				      POWER_SYNC_TIMEOUT_US, false, pvr_dev, i))
++			drm_warn(from_pvr_device(pvr_dev),
++				 "FW thread %u has IRQs the host has not taken\n", i);
++	}
++}
++
+ static int
+ pvr_power_fw_disable(struct pvr_device *pvr_dev, bool hard_reset, bool rpm_suspend)
+ {
+@@ -107,6 +127,13 @@ pvr_power_fw_disable(struct pvr_device *pvr_dev, bool hard_reset, bool rpm_suspe
+ 	}
+ 
+ 	if (rpm_suspend) {
++		/*
++		 * Let the IRQ thread take every interrupt the firmware has raised
++		 * before stopping it, as the vendor driver does. Without this, the
++		 * META firmware processor can fail to go idle in pvr_fw_stop().
++		 */
++		pvr_power_wait_for_fw_irqs(pvr_dev);
++
+ 		/* This also waits for late processing of GPU or firmware IRQs in other cores */
+ 		disable_irq(pvr_dev->irq);
+ 	}
+
+---
+base-commit: 41b5458595c60143d0ebaa1e032c9cda5d764dff
+change-id: 20261004-rbrue-suez-upstreaming-pvr-fw-irq-handshake-b80953eb904b
+
+Best regards,
 -- 
-2.53.0.windows.1
+Ryan Brue <ryanbrue.dev@gmail.com>
 
