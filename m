@@ -1,66 +1,66 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794940333;
-	b=Wt9UmmSz6gRmeuXOXE8yvL8KZ7JLrzDtZVpSs4SHCqeBzs6dmZwGRsQUI69wvgbMO+l9
-	 DbAv9x9rNU7tFsYtgqcD2QTD2jwjb5OHKETfg3aKeiC8JzBR6BlHThkxlMpU21B3gCslD
-	 37S/9mslKwvg2aNyW9tZlDTcG6SKjHgVjT4qMqm4BmDUhDGlbbzQJ3fI7zBJSgWckIfmI
-	 gkK92Pl7YkUy/XJY0PmtEbiv/hR8wukwOMRqpKbly0xev1cIeymBjdW3Tls05HDtk2UVh
-	 YuHLxeSbv0BONuEtwBI4lIxpOKjVZ/EOfWvGTCbnGOZnbjLbvtZH+fvB0xnjRZsEOjA==
+	t=1794940335;
+	b=nfZHsCIKNmeit8uBNSAb0zuSH+DBuNaiHsN6LH8/oi338ioGbkRQA+r9mIp9Vz367XP6
+	 qj4R7nN6jfqBkgwGSYjPQjQ7P75Z8SkvBSZwt9uBs9m1XTTsgrbF4OehtQQi12gg1fvFU
+	 UnFT1HQDvq18Spr2fxCe+FpiG5i/s0tKY+JPShYaHTgs+j5Qe94zMRykPcO6sSUjd4A6Y
+	 OxCszDSwn8jl1qQwdwPhTneB/tUz3XlQHaKiLZK+NlYMEh3ei/HxgJmqOIisF6EwWk/Pu
+	 rowOgy/rzQkSumzH+0Vt22vngYvs0uKEo4J+F1YrIF7CnP0MwKZBYhDGpg2LrGmsPPw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794940333;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794940335;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=Ib/Dca1Ao5cQ+ZzvLRS7nCxtfQXod6ecGM6Wuyt4ZD0=;
-	b=FOsZOBmrDrdKeolZrqoOnOersN9Qi3iMhEAMJ2wQCrhgyYBjz+fqXmLozovsYfz7cWwI
-	 QDC+c7+HP3R2GrzFn2MM+tq6saU8lT98I+cf0DXqMXtoGN+T4VwRgvh9pTJzPOuY+XXI4
-	 xo/3Tf60O2S/0h/2FG5znhDGKYXC1djfzEVCVoWJLmSUwFvCpqXJNaZ8bMff0Nhp/jlDB
-	 6jEyemDYwiI9T/shSg5FFqOT3Wd/8DcHap396RJCnS32/3H/VzEFJus0A3DAeX4TKr7un
-	 KFQoJqBtEnwwB1kDeA4sd5wyFbdCxgqtqe5bxuAXXKFuceAikUB9y/FXDM349+l298w==
+	bh=ef0+SQXs/90m3ZE5j6sH0rGSgTNxSlxiGQ7SXd69Cms=;
+	b=AuK/er11xUby5178CWH8lZ4w6L8KjMWiPp+ycARL5T+lWYEfCEy2aS9DIlyCGjNVo1Zo
+	 pHpoDm6msiXwqiZ9iEk7etc1awqemoojuZmUtfLjQPPNrEV2SnwTmmpF3RsGY05/+Pgx6
+	 o1D4eq7D6ML51RvSVOv0oFIHr6aTLPxxmwUgo4tq58kJk4iTH4LsgYBgTYPQnqGjcbvzw
+	 1p4ex+6y4Gu0qgdYxYIiql4L7jPjsNuVSD9IEtbUZpe3tdasA+QamaZQnH5KFUx5UuTT9
+	 6qftdAycgEGmSPAcOj5+KaURaoYMebOHTIaFdeWWXr016u62z6PaI94iTeAY9o+/akQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=intel.com;
 	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=DdeHID47;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=MhdTwCyB;
 	arc=none smtp.remote-ip=198.175.65.12
 Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFEB4606A8A5;
-	Tue, 17 Nov 2026 18:32:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CFEB4606A8A5
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60F9560A261F;
+	Tue, 17 Nov 2026 18:32:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 60F9560A261F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=DdeHID47
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=MhdTwCyB
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1794940333; x=1826476333;
+  t=1794940335; x=1826476335;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=LdTplT7BiYD4oTjCQifHUzds6u3fh0CLodbjtaTz+40=;
-  b=DdeHID47CeMXglbrxbX2vYxrsFnJgCpR1iwmGXxGGHxP2adQBLDjJt61
-   m+6eFvVFKxzEiqm6R2ihyock47VsvrUsSYymzc+w3GkMU30pU03bpWZSm
-   HUoTRt9JUtYcF3OHmgbbEKEXGPtdCExRK47SoWYO1Pxw9M7QMNSzW1AmZ
-   UdiDXqHsr978qHAVb7MvwLXMt3o2caI9/QICKgrQEtNS0SMyrjhVhXs1E
-   47Qxyh61kHhm/76qejzakMHoy93qTiRxQCRcHG3J5NRrr/SYFdWzPJhlA
-   WbAdmhSG5ImYHwktJnfSxl6llBr7hLQKz1lMLMpcpS8t/fNWmYj38Heg+
-   Q==;
-X-CSE-ConnectionGUID: E/WxUD3JR6idTSi3LI3LJw==
-X-CSE-MsgGUID: nXogrM2MT1OaZzbjc9rnrw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3607315"
+  bh=J3CghxgIvgD/bieSRMf1sj9DrIKWNwNj5YvlSHwXNzc=;
+  b=MhdTwCyBi99LwG9HHaX3nkD0dc6qMEfO72XXv4ONPpdCOPa+e+Dfn50d
+   7fWOgtQeAexyA7v+htdP0buP6na/R57t/2UKA5gkzQjdA9u9F3NmIyeZb
+   eQs+kngroFYzEsD8Q3XoOtGyIWix7ngyZcitoPoJCkxCBl2x6/z4cV8Y+
+   OzFWiVHJFuaQiAOSUZR+XMA/IU5mSZQ+uKnTbYxFbyQ9eRbxolt0nGhJ7
+   l6NBj1rOh1ARZPSpmxJdHCh6nhswiYcwkKEZHlpUYWS5tlM2C6M1BwrB5
+   djLpQt9vtAD8XZQ4XqcOgQDb+AV37gY/u5LINc06u1R90LoDsH2U8KMaV
+   A==;
+X-CSE-ConnectionGUID: TAJFQuq5SlOJeQoNiZwAAA==
+X-CSE-MsgGUID: V4W1pTt/QR+4ZNer8WLMeQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3607337"
 X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
-   d="scan'208";a="3607315"
+   d="scan'208";a="3607337"
 Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 10:30:55 -0800
-X-CSE-ConnectionGUID: WD4Ry2SIRDmICW75e7/NbA==
-X-CSE-MsgGUID: CEryC7qnRuqCPWUwCdTjsg==
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 10:30:59 -0800
+X-CSE-ConnectionGUID: 1ynJ1tBQTpaQQwFquDkTuQ==
+X-CSE-MsgGUID: wXyi32xASjCCtYPXmvaw+g==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
-   d="scan'208";a="9775061"
+   d="scan'208";a="9775077"
 Received: from chang-linux-3.sc.intel.com (HELO chang-linux-3) ([172.25.66.174])
-  by orviesa003.jf.intel.com with ESMTP; 17 Nov 2026 10:30:56 -0800
+  by orviesa003.jf.intel.com with ESMTP; 17 Nov 2026 10:31:00 -0800
 From: "Chang S. Bae" <chang.seok.bae@intel.com>
 To: seanjc@google.com,
 	jmattson@google.com
@@ -70,9 +70,9 @@ Cc: pbonzini@redhat.com,
 	linux-kernel@vger.kernel.org,
 	zhao1.liu@intel.com,
 	chang.seok.bae@intel.com
-Subject: [PATCH v9 11/20] KVM: x86: Support EGPR accessing and tracking for emulator
-Date: Tue, 17 Nov 2026 18:03:01 +0000
-Message-ID: <20261117180310.921701-12-chang.seok.bae@intel.com>
+Subject: [PATCH v9 14/20] KVM: x86: Document EVEX-prefix not implemented
+Date: Tue, 17 Nov 2026 18:03:04 +0000
+Message-ID: <20261117180310.921701-15-chang.seok.bae@intel.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261117180310.921701-1-chang.seok.bae@intel.com>
 References: <20261117180310.921701-1-chang.seok.bae@intel.com>
@@ -87,86 +87,29 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Extend the emulator context and GPR accessors to handle EGPRs before
-adding support for REX2-prefixed instructions. Like VCPU cache, the
-emulator can uniformly cache and track all GPRs.
+The opcode is already marked as not implemented. Add a comment for clarity.
 
-Also replace `1 << reg` with `BIT(reg)` in reg_read()/reg_write(). The
-former performs a signed 32-bit shift, which becomes undefined for R31.
-BIT() instead shifts an unsigned value that is suitable for all indices.
-
-Tested-by: Zhao Liu <zhao1.liu@intel.com>
 Signed-off-by: Chang S. Bae <chang.seok.bae@intel.com>
-Reviewed-by: Jim Mattson <jmattson@google.com>
 ---
- arch/x86/kvm/kvm_emulate.h | 20 +++++++++++---------
- 1 file changed, 11 insertions(+), 9 deletions(-)
+V8 -> V9: Drop code change (Jim Mattson)
+---
+ arch/x86/kvm/emulate.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/x86/kvm/kvm_emulate.h b/arch/x86/kvm/kvm_emulate.h
-index 10886bea82c9..52f0aaa38c4c 100644
---- a/arch/x86/kvm/kvm_emulate.h
-+++ b/arch/x86/kvm/kvm_emulate.h
-@@ -109,13 +109,13 @@ struct x86_instruction_info {
- struct x86_emulate_ops {
- 	void (*vm_bugged)(struct x86_emulate_ctxt *ctxt);
- 	/*
--	 * read_gpr: read a general purpose register (rax - r15)
-+	 * read_gpr: read a general purpose register (rax - r31)
- 	 *
- 	 * @reg: gpr number.
- 	 */
- 	ulong (*read_gpr)(struct x86_emulate_ctxt *ctxt, unsigned reg);
- 	/*
--	 * write_gpr: write a general purpose register (rax - r15)
-+	 * write_gpr: write a general purpose register (rax - r31)
- 	 *
- 	 * @reg: gpr number.
- 	 * @val: value to write.
-@@ -321,7 +321,9 @@ typedef void (*fastop_t)(struct fastop *);
-  * also uses _eip, RIP cannot be a register operand nor can it be an operand in
-  * a ModRM or SIB byte.
-  */
--#ifdef CONFIG_X86_64
-+#if defined(CONFIG_KVM_APX)
-+#define NR_EMULATOR_GPRS	32
-+#elif defined(CONFIG_X86_64)
- #define NR_EMULATOR_GPRS	16
- #else
- #define NR_EMULATOR_GPRS	8
-@@ -381,9 +383,9 @@ struct x86_emulate_ctxt {
- 	u8 lock_prefix;
- 	u8 rep_prefix;
- 	/* bitmaps of registers in _regs[] that can be read */
--	u16 regs_valid;
-+	u32 regs_valid;
- 	/* bitmaps of registers in _regs[] that have been written */
--	u16 regs_dirty;
-+	u32 regs_dirty;
- 	/* modrm */
- 	u8 modrm;
- 	u8 modrm_mod;
-@@ -547,8 +549,8 @@ static inline ulong reg_read(struct x86_emulate_ctxt *ctxt, unsigned nr)
- 	if (KVM_EMULATOR_BUG_ON(nr >= NR_EMULATOR_GPRS, ctxt))
- 		nr &= NR_EMULATOR_GPRS - 1;
- 
--	if (!(ctxt->regs_valid & (1 << nr))) {
--		ctxt->regs_valid |= 1 << nr;
-+	if (!(ctxt->regs_valid & BIT(nr))) {
-+		ctxt->regs_valid |= BIT(nr);
- 		ctxt->_regs[nr] = ctxt->ops->read_gpr(ctxt, nr);
- 	}
- 	return ctxt->_regs[nr];
-@@ -562,8 +564,8 @@ static inline ulong *reg_write(struct x86_emulate_ctxt *ctxt, unsigned nr)
- 	BUILD_BUG_ON(sizeof(ctxt->regs_dirty) * BITS_PER_BYTE < NR_EMULATOR_GPRS);
- 	BUILD_BUG_ON(sizeof(ctxt->regs_valid) * BITS_PER_BYTE < NR_EMULATOR_GPRS);
- 
--	ctxt->regs_valid |= 1 << nr;
--	ctxt->regs_dirty |= 1 << nr;
-+	ctxt->regs_valid |= BIT(nr);
-+	ctxt->regs_dirty |= BIT(nr);
- 	return &ctxt->_regs[nr];
- }
- 
+diff --git a/arch/x86/kvm/emulate.c b/arch/x86/kvm/emulate.c
+index 3a587e553f9a..808a604c3f5d 100644
+--- a/arch/x86/kvm/emulate.c
++++ b/arch/x86/kvm/emulate.c
+@@ -4280,7 +4280,8 @@ static const struct opcode opcode_table[256] = {
+ 	/* 0x60 - 0x67 */
+ 	I(ImplicitOps | Stack | No64, em_pusha),
+ 	I(ImplicitOps | Stack | No64, em_popa),
+-	N, MD(ModRM, &mode_dual_63),
++	N, /* This effectively represents EVEX-prefixed instructions are not implemented */
++	MD(ModRM, &mode_dual_63),
+ 	N, N, N, N,
+ 	/* 0x68 - 0x6F */
+ 	I(SrcImm | Mov | Stack, em_push),
 -- 
 2.53.0
 
