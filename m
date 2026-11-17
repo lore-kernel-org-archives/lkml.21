@@ -1,91 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794937437;
-	b=GlvD+iLotyaAuYlm2TwYu9ZlHS5EttJZRlgxABPA7MafOtP4yZvA9mfdx8RRHDQ6yIvM
-	 ex4Eud4k7VS6hyb6UMRt9+KdVANU8zPuKdTrQpuefrYqJm/4zP+7WnOMp4J4oNh5T0nId
-	 WFdDp7iCQJx8Oi+EGqh8Vw8Q1h/tpEaPX8REYLZzt1pEZcLz12cQQ0YUq00hFH4uh3M9u
-	 1MSTYW9bbmmieBQYr7x+ouMuXPl06sXN49+NSq3ToYq9LTUJ16Ref3d/I8UNGDiu9bi2k
-	 1SfN84VlW0svxbb+7EqpU/I5EGKRafMNVnG/um/EKYMYOik4C5MFT+wXOtRoWo65qQA==
+	t=1794937439;
+	b=Hooci9FpuaYOacWFvbkjlydf0MoZwTmFURqOBDYizFebZVcYs7rCzsAczKdJKmulE2AS
+	 aeIcQYA+Of23oWWnhqCIhuf8ug7MtCqkXBamSHhYDIBY6m+d3eRIIwNS8vGfND82J4oti
+	 a9tT1G6FKRiiMrE5B90sBeMJzDFkH/ENQr8BWAs5U2rpwGtQ2yNJ/51l7Ux/5uCh5evJZ
+	 +iEhsDmu8R9/6meg8D31zxzvyloEd+nOFmT2iH/TePzoC0N/AABB/fqMNryHoRgbAwEom
+	 1NMQCvHi/9YqMkg0+5FlcIrpI5XnU0O+tCrn/VLzktC8vwKi99SYqkzjYe76SQ6dVYQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794937437;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794937439;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key;
-	bh=4i2zokTFO59EM5OtymCggaFGZxyWZfmPQA4ZgdZWwkg=;
-	b=RaDMwh/8pxT/h4ipePXgkmj3mQ7PNXihwEHpcuklwKRRYfLEwOE6A0QRJshFQhIWlLMQ
-	 nZ/VWP7YmO+2L90iDnZPTu5uWlNMhoGsERbDydd2tjT9xqbv3/xP2VNJoXbc1bwc6yACT
-	 +B74TSbd8W4RBXjgOW22JVeyOFbgNxgzfKYoDDR9Fu59kR3mQPr2ZqdWhj0/Cr8Mgpq6Y
-	 g+Rwlx9arEYkJ8M19PT3k0M3l7adAanRMsifkWXQlQjPTzpqZkEjfVrGuIFatpXwViAsR
-	 Ak3aXw78AxYt+SwIvd568z7W5TteA8NeYAmOtBecf3S4qFL3aVMAUpECn9Gu3MnCRmw==
+	bh=/eNHuGNPRSSMiJpVC8xJULC+1p4MqcbiqGuhs79KBVQ=;
+	b=IVyRvxmniPjvWFYwVAFLNdgoIVstfSodL2MQIiE1a1r91MHmX/yZMzERDx5okQXwdd8W
+	 TA0n8MRa5pzykAPzX+7RmLtXabZiXXL9ETYdeV0voAg4Tbff6pmiTg6UTdQmUVj+xLiqa
+	 BR/A5H9rmjvDKVnKFoPIKSNa1Uim4JPv1D6vpj+4SUepfXE5IPSVQx+KpJFas3Ff9OBFQ
+	 qjakoSuzEWfjhC7xHjaMLBlLesXax56LzH9PjcA3T1vZ8/MHGNcG6CieTJCgmHDr3sd69
+	 0TVmJBQOL6S4skA6V6ddrSWAuKIrZbKhlqBvFMUSP/nmY6zWbFx5v3p/ksKp1Gxu8hw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZJ9lHt1s;
-	arc=none smtp.remote-ip=209.85.128.175
-Received: from mail-yw1-f175.google.com (mail-yw1-f175.google.com [209.85.128.175])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HQqBf5CN;
+	arc=none smtp.remote-ip=209.85.128.172
+Received: from mail-yw1-f172.google.com (mail-yw1-f172.google.com [209.85.128.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E50F606A337
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:43:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8E50F606A337
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D27D5606A333
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:43:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D27D5606A333
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZJ9lHt1s
-Received: by mail-yw1-f175.google.com with SMTP id 00721157ae682-8b4eab91bcaso13019817b3.2
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 09:43:57 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HQqBf5CN
+Received: by mail-yw1-f172.google.com with SMTP id 00721157ae682-8b0dba37a7fso48389007b3.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 09:43:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794937436; x=1795542236; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794937438; x=1795542238; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=4i2zokTFO59EM5OtymCggaFGZxyWZfmPQA4ZgdZWwkg=;
-        b=ZJ9lHt1sKEsDdlecfU83rmKFBwzcpbjhmf+8rUFRs/z/pL7brGBRVU7NmOSKxPcDyA
-         65oN4Pi3uHns0RGGtT8cOd44sGIgte52tuS7L3pY4giYwOfOAdmL9La0eqgmJB1J7Hv2
-         5FPoAzOL3zg+1dhMN7edyBOYc2KrJ4OBEDAPe0aaZ4OwPAMXtr4v3PXsmtmZztKANYXs
-         wBT2Lrns/zzd9l9GfvFVWeKiIajJGEVTyHARjkAqWLrRX+MRbk4va7Apg3JxAZN00atL
-         sPa01FZ3HD0+U+QySDDfYWXCOZV5f13d1HcWrFtq/VkP+FMdoeRJTL+jszxQvNHd0F5x
-         0NdQ==
+        bh=/eNHuGNPRSSMiJpVC8xJULC+1p4MqcbiqGuhs79KBVQ=;
+        b=HQqBf5CNZ7PvNGV7u3ey5MX4tb/NMHzTaIpLUe2B8nsEOhZY/qQjtJhjnZJs4jDP9w
+         wYw+sO0hFuqqrvh1j5xbb6ul6WLKWKie1YtJM5zDoBUgNm2BQkTH2ewv4fvNcYS5sI8Q
+         xfJbgIf699/H8C2EEzCGPLMOGMjjGNMljwkidh+L7Uvf6aem5ZzcW3Y7Yw063e9Kevs/
+         oLYYd4JAfAKAM+j0CCgHwY7hC38NVA2Y1FbdEp9paCArwkq6XM9ajA0u4pIbBJ8NGmnh
+         p4xt4/ZcDvqWaAyF7Br6PMirbUb9kRyhvVBN9Xb+n/XN3qEObJNS1dGs81/844j5eF3y
+         8EZw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794937436; x=1795542236;
+        d=1e100.net; s=20260707; t=1794937438; x=1795542238;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=4i2zokTFO59EM5OtymCggaFGZxyWZfmPQA4ZgdZWwkg=;
-        b=ckFKSx+CFAr525n7FuipHecSDpqIk5ksqilxKLKWWfU8AsqkJFumhvjg8DSDVD1Xop
-         8T00YaKGu5p0GbIPtEFDcGVgqheexxVV5s6aqfaNEFRlAt2xMeqbtpRzCFDkQdK1iGaX
-         Sb3IkccOZ2QyDei+rypTTnkLMk5Zv6uuz5faiYRx4MblDIXraVNQEgsOjCCE7ZHinStQ
-         BbyGMjIdeNV0j2a+tQkr1SbehhzwDw5I/REGUBtVatuz4xoHUpTEwz9JqzChyUQ1VMRg
-         phairgQ0Thj2qTcwF0dprVFkQVACM68GGzZjzsm5S2fUzrChth+o+FwoJunMomzfFCbU
-         hGig==
-X-Forwarded-Encrypted: i=1; AL+hErFy7hGpHbypwdp7f+6Qc1l8F+gTo+26cOm/z0MxWuveW0ZUM99ehi1LR0+mAHxjTJZ/CEWbmDnCMmm5voU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+++S7P3Sxl991V7cbHPUXLDm1QzjT0VlAcRKjpc8ouiaEPZr4n
-	EphBQZVar/uxMp1zwl0sc5aWpZ6deiztnosajrjmiic42mVwJo1bYnV5lthUEKNrRHs=
-X-Gm-Gg: AZFdTZcwK50zrqXidLm/7gcpxOKhpyl+QYHxlU92iNd2LnxzGxQLtjzI36D/0SLhM2q
-	orNKuqKd05LpUTNxbwhHzC2KS4tYIvE/RcDyLyD3btbPD6RQyjotfCABpuYLoWQqhg3b/Gy/wOP
-	LV35Io9ShrNlQCqGAtCFcwWuAR1IvHC+nh/3cACQ2ZCb/lCEvGxfOQZnALqqX75RYV2qZ7NBKGo
-	1PbfOv9BLaFM4um9swV/CTF50+24N+pC7jXHIWeCFIQhUICcmCi2trre5py0igBfLY8y/tlB7ZD
-	n0Feng1wELsBb/NUn1Z53o9/QWHxbUlZJiOIbCEMTyPmiqFCovSu/b6hd/zqpL2XpCaFzb2jApc
-	LezY1oioNBLlU8Y92QyBkucc//znXhvJiTWxta3k7o6fMOElTLIlggdsbDI8q3A+3BDjfFAZ3/7
-	u0pEdbRAO4l+ht99z83lv9wJoN1oeBrxQv5BrMl1KUHSZ+gJ2vOK35Ro+N+L3ix7kR018I6r0gh
-	4ex+zgcV2wIhPCywUn8QrVjJ73J0dzJiYgVWKWs/8mLMQIRyU/EhojTYddV9g0G4uVCk3gx7to6
-	gqznwaahzCI+Rbu6b224hwM2s/4bffc89HR/OK2ABNlWXmc5wRd+bEqOjHDnjF8x5SVCiNy3y83
-	46tUYk9BO7hctOV9Q7frtg2I+aBWNrNAbiSo4nEDupntUfNOONMc039gPijpHIRuc2M0LWgF0sM
-	4SCS69c0CCPzD2vVOq6w==
-X-Received: by 2002:a05:690c:d8c:b0:8b2:e86a:8f0f with SMTP id 00721157ae682-8b4aa2e4bc7mr87789057b3.28.1794937436463;
-        Tue, 17 Nov 2026 09:43:56 -0800 (PST)
+        bh=/eNHuGNPRSSMiJpVC8xJULC+1p4MqcbiqGuhs79KBVQ=;
+        b=ZAZu3cE6TF9LdwoG4fvsAwZA/AhmnzqIrrGNJuraviP2TZF38G+EMTSF7zAZa5Hru1
+         vwghNDrIfsRmi9g/0SNQaYhID2RZfoIFG/BVu0BnYJz0vvKCAUei+ZF0VKYmhosO3TVh
+         piXSdOIWklnnhA0x3sIVwcgHPB87cXWkcOuxVf+BILggdn0+3bywqRYLL1hfYn6pq9xH
+         dv8qzuVmpJsVKaGs6uDnxKJKNLkXIqwNsYJCsoPA9eG4zxiObhsDOvUptRgg4lfvOx7t
+         1hi09Mrrg8z92OTue8kgtD6aBdOVBEAzaxcaTmGm8A6+5hFCUW5XaGe3FykHio5M81hl
+         mfwQ==
+X-Forwarded-Encrypted: i=1; AL+hErGJnchbAMtsw5A5RWmzE70kaVEKBfXm+Sro6r8IYIqw+edlgBAoFNU0L06NzAB1G2OIobzkWGqGFiaG1ss=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9SHeCPfDacYpsc/B8MbcfwMImm0wD+xH83+2hJnJWNkb0l2Ewu
+	KNEDnoGh77QAKQ1K02eUkDG4U0ovbsCTx+79lPB5W6lHrGd9PFVwD97rPPoQTcvN9Sc=
+X-Gm-Gg: AZFdTZfEoQY45IoQzTUafCfjLdjIA55kvFF7rkUFCD5ltTpGnNe2rXFCE6JpMJgOhld
+	Wv/HEVEkwFnQ7JcOkHx6bSwWCdWLhKhXWmNDRoYND37gyD9YkQ2y/6Gczf+FIFzWSWZBYBiWqrs
+	Z16STmZ5dUzmetHWrIrXv2kbmnO5WdC0en88RNRx7UBwx/aLDKqKpQnrSsb/Tu5P2jDLIPVla3j
+	Rqnq7j9lZmQlTPMCrSa8CutI7spqBI+XjlWIKruAb8676O4FT/8JGO+1gwcipMBU6X9XE528okV
+	CmQgtydKke1DNNNEBIsnRtf/e5+Jzbt5WowZYI4DV/AU4UaP5C9p7Xh6cBFedyVvivuhJKjZa/s
+	jvMFx1kF4dLnsy4rSZD9lqaGMKH675rnDrhTxbSIShJCwbzsxJz3XAfJPiT1qnYoo93CoqUsbUk
+	Tx6yznT8v9Pi/UiNUzZmRPxVmVmxJjiAeZXs/+iMnXXuxlksF+V9LU/plLqnMTE9qLn5ThGth4y
+	pAeMI6gve4/YiPu6xme2saCu0thOQxDb+chRuFyViWI6NSl1Xp/9IsL8ahpLpeFDWr4qxbaZnfR
+	0u682mtmrPtzuT0xOumYKogQ1paA8qnwV95Y4k0+ueNDKazul/oR3QI7TBzmcwm0CpaYhNEYHJ+
+	y5/y1AtKkc6xeUD1EKxiaNG3EzJRQliQkGPDLSSNtyNpEt8ejlYWApBmGVbrNpHFS8beziBLrH1
+	qfrnyG4el80vhpM7z2ug==
+X-Received: by 2002:a05:690c:295:b0:8b0:a252:77c6 with SMTP id 00721157ae682-8b4fecfa355mr1877b3.19.1794937437826;
+        Tue, 17 Nov 2026 09:43:57 -0800 (PST)
 Received: from localhost (107-220-129-194.lightspeed.chrlnc.sbcglobal.net. [107.220.129.194])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b4fe115a43sm2013517b3.42.2026.11.17.09.43.55
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b4fe057c1esm2157217b3.20.2026.11.17.09.43.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 09:43:55 -0800 (PST)
+        Tue, 17 Nov 2026 09:43:57 -0800 (PST)
 From: Matt Turner <mattst88@gmail.com>
-Date: Tue, 17 Nov 2026 12:43:52 -0500
-Subject: [PATCH v2 1/8] powerpc/perf: mpc7450: Event 0x30d does not use the
- threshold
+Date: Tue, 17 Nov 2026 12:43:53 -0500
+Subject: [PATCH v2 2/8] powerpc/perf: mpc7450: Event 0x634 counts L2
+ prefetches, not L1I
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,7 +97,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261117-ppc32-perf-v2-1-2072e9b90009@gmail.com>
+Message-Id: <20261117-ppc32-perf-v2-2-2072e9b90009@gmail.com>
 References: <20261117-ppc32-perf-v2-0-2072e9b90009@gmail.com>
 In-Reply-To: <20261117-ppc32-perf-v2-0-2072e9b90009@gmail.com>
 To: Madhavan Srinivasan <maddy@linux.ibm.com>, 
@@ -108,55 +108,59 @@ To: Madhavan Srinivasan <maddy@linux.ibm.com>,
 Cc: linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
  Matt Turner <mattst88@gmail.com>, Tanushree Shah <tshah@linux.ibm.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1520; i=mattst88@gmail.com;
- h=from:subject:message-id; bh=TtTDFi7v6z+KDY4gBi2LmgBe9ld12hzvxesJ8HRVaAk=;
- b=owGbwMvMwCW25rVmCc8sv+mMp9WSGLL+TIpY/6Km0tREfoa9Ke8ib6HbNoJRR6bnnG929nFSu
- 6qbsSu84yMLgxgXw0wxRZa49Yoss9p2LPU5Lf0LZg4rE8gQaZEGBiBgYeDLTcwrNdIx0jPVNtQz
- BDJ0jOIhcnoMGpnFxaWpRbppBUUOefkliSWZ+XnFevkFqXkF6QV6aZlpJRkZ+UXFqUAj9PJSS0x
- dHd2MDA1MLB0tzJwsHE1NnJ2dDJ3cHB2dXZ2MLM1NDJwtHU1cLc0ZuDgFYK65+pvhv1P/MZ4fEh
- 7C/2etuG1ZmJh/dErzuociMj+N0uJrN9TtqGNkWH08Usn1h8nmgzvqGh6Ed354+09o9f4yva+5B
- cv6M8zecgMA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1900; i=mattst88@gmail.com;
+ h=from:subject:message-id; bh=l6MRbbKx2CqbfCj9gw3r5hMtF8fjZGAlB1GPrKQZrPo=;
+ b=owGbwMvMwCW25rVmCc8sv+mMp9WSGLL+TIrwfPO8fI97e7CIyVz9Vh3BNQeMNx3tXc+VHZyWe
+ OlT0Wn7jo8sDGJcDDPFFFni1iuyzGrbsdTntPQvmDmsTCBDpEUaGICAhYEvNzGv1EjHSM9U21DP
+ EMjQMYqHyOkxaGQWF5emFummFRQ55OWXJJZk5ucV6+UXpOYVpBfopWWmlWRk5BcVpwKN0MtLLTF
+ 1dXQzMjQwsXS0MHOycDQ1cXZ2MnRyc3R0dnUysjQ3MXC2dDRxtTRn4OIUgLkm/DLD/zSOC5+WCn
+ u+OH/GSMktU87d4vdHByXfd6lHJI8WpjZLBjH8D50r8Jh9StvFAjOLIpaZNvxdcYGrlfhDfE7kK
+ W1aNW0WFwA=
 X-Developer-Key: i=mattst88@gmail.com; a=openpgp;
  fpr=3BB639E56F861FA2E86505690FDD682D974CA72A
 
-mpc7450_threshold_use() reports event 0x30d (PMC3 select 13, FPR issue
-queue entries) as using MMCR0[THRESHOLD], and the comment above it marks
-the event with a question mark.  The manual (MPC7450UM Rev. 5, Table
-11-11) says the event counts the valid FPR issue queue entries each
-cycle, with no threshold.  PMC3 select 12, the GPR rename buffer event
-next to it, is the one that uses the threshold.
+The cache event table maps L1-icache-prefetches to 0x634, PMC6 select
+52.  The manual (MPC7450UM Rev. 5, Table 11-14) calls that event
+"Prefetch engine request" and says it "counts new prefetches allocated
+in the prefetch unit".  It is the first of six events about the L2
+prefetch engine (selects 52-57), and the MPC7450 has no instruction
+cache prefetch event.
 
-The only effect is that r30d cannot be counted together with a threshold
-event that uses a different threshold.  Drop it from the list.
+On a 7448, a pointer chase over 64-byte nodes counts r634 at 0.00 per
+load when the working set fits in the 1 MB L2, and at 1.00 per load,
+one per L2 demand miss, at 4 MB.
+
+The engine starts a prefetch only when an access misses in every cache,
+fetches from the bus, and also fills the L3 if there is one (section
+3.6.3.2), so it is a last-level prefetch with or without an L3.  Report
+it as LL-prefetches, and L1-icache-prefetches as not supported.
 
 Fixes: 7325927e5a20 ("perf_counter: powerpc: Add processor back-end for MPC7450 family")
 Reviewed-by: Tanushree Shah <tshah@linux.ibm.com>
 Signed-off-by: Matt Turner <mattst88@gmail.com>
 ---
- arch/powerpc/perf/mpc7450-pmu.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ arch/powerpc/perf/mpc7450-pmu.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/arch/powerpc/perf/mpc7450-pmu.c b/arch/powerpc/perf/mpc7450-pmu.c
-index db451b9aac35..564f6dac3a00 100644
+index 564f6dac3a00..5a882d934645 100644
 --- a/arch/powerpc/perf/mpc7450-pmu.c
 +++ b/arch/powerpc/perf/mpc7450-pmu.c
-@@ -65,7 +65,6 @@ static int mpc7450_classify_event(u32 event)
-  *	12b	Y	PM_LD_MISS_EXCEED_L1_CYC
-  *	220	N	PM_CQ_EXCEED_CYC
-  *	30c	N	PM_GPR_RB_EXCEED_CYC
-- *	30d	?	PM_FPR_IQ_EXCEED_CYC ?
-  *	311	Y	PM_ITLB_SEARCH_EXCEED
-  *	410	N	PM_GPR_IQ_EXCEED_CYC
-  */
-@@ -92,7 +91,7 @@ static int mpc7450_threshold_use(u32 event)
- 			return 1;
- 		break;
- 	case 3:
--		if (sel == 0xc || sel == 0xd)
-+		if (sel == 0xc)
- 			return 1;
- 		if (sel == 0x11)
- 			return 2;
+@@ -370,12 +370,12 @@ static u64 mpc7450_cache_events[C(MAX)][C(OP_MAX)][C(RESULT_MAX)] = {
+ 	[C(L1I)] = {		/* 	RESULT_ACCESS	RESULT_MISS */
+ 		[C(OP_READ)] = {	0x129,		0x115	},
+ 		[C(OP_WRITE)] = {	-1,		-1	},
+-		[C(OP_PREFETCH)] = {	0x634,		0	},
++		[C(OP_PREFETCH)] = {	0,		0	},
+ 	},
+ 	[C(LL)] = {		/* 	RESULT_ACCESS	RESULT_MISS */
+ 		[C(OP_READ)] = {	0,		0	},
+ 		[C(OP_WRITE)] = {	0,		0	},
+-		[C(OP_PREFETCH)] = {	0,		0	},
++		[C(OP_PREFETCH)] = {	0x634,		0	},
+ 	},
+ 	[C(DTLB)] = {		/* 	RESULT_ACCESS	RESULT_MISS */
+ 		[C(OP_READ)] = {	0,		0x312	},
 
 -- 
 2.56.1
