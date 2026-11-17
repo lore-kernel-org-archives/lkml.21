@@ -1,95 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.89.141.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794940308;
-	b=sRzOi9MCHueqMjYvnJ50wjfd3NUFtiH0gRyTBi02uByy09fmz2YE4NvEZ0+ZJHj38itV
-	 4svhvdV39xn5quGkko5mdRAkdfH25lClNmtEaLLQ0K8cZ6+b1FVmoqSwGttmzL4Ypx4rO
-	 iwsoqRcIjTV3abgGB8u3MZsIwECMsJYan79A6uYejY17gHAfyP5/hcETvJnAzuSmTWRMf
-	 Nm/7FL8vd9yl+ByRG4kbodju6wrJ5ac5hzLoS0bxN+uYUZvaEE/7u2WPapsLNSBOnxxT6
-	 diYFE6GiuJZ2uESyXwTX5YCnRwK2URF4+U5vzbd+pZfE3h83ufpe2NV+Wm6lPz1uiGA==
+	t=1794940307;
+	b=1WFKCoY5NqrrHAx4P0HLzkz0jukHb5IoWvGbRXm7W1rs10HErIzAlbgnsA6aWt1427Ks
+	 fzIuaCXrJOsMxieDs6f9wgW5Q12LBKYXiTDVGL7OvcGg8GAAQwB4EYHx1zDmXQZnkxh2C
+	 ipqQinPrTqWnTeZkNZrA7K6cG/sGElPFKdeZaes/MgqXFlmM/LHfO2qaeTNnEudoMbLWh
+	 f26wXYd+uy0gO7YXzkRC+B8cfXWwp0dl73OZfUzBUakWfpNixYH1tN6SqJzCs3Thd2Svj
+	 BgYQ8zj7mBskUsgt7fVprfOpbHkbVz7CenZoapYHmlTfo4JLVqZQ4taSNvr/qa06CEQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794940308;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:Sender;
-	bh=tMKIL4Tw6+P8nxVMgy3ZxNBt370rRgm0QxvRZlxxhD0=;
-	b=EClkbosfKAeJf6HCAeKJoO17u1/4G2wsuTm2saFNIgbt9QwRPG30uFhEMFmcDubN+TgA
-	 uxFTZmDW8EQjPkHJk4ZfsrzkLhk6wApLINr0kTJxe2dBockrPONqsJy11dnNmYPR057MA
-	 rumi48mj2G5fIWRHdCrqjea5FlJs8buaQXIcIjt7QThVSF5zmC4y+NLbKmApYKVQoLr71
-	 r3AGzNbXKA6N2lpz7V1qPnqLC0dDpPiKhNNkH2Nlf+zlgS8msCCa6Vloz+Vme4q6qEdf+
-	 CLmVw5C2b3qd99KioHX+na6IrcN52Ew/coMz6OtMKATryctc7YQ/AS/Dxv5Y98e0ZyQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794940307;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=SLCYJJJZxNdFY23BSUyytPreDqQ3AKsuql7VgyliaLk=;
+	b=juJrnYmxHIUKt59La4h66l6mAcc0m8z406gt1b/XSiZQ3SbVmvwDu52+Q/YV0S8xm804
+	 /CV+wWVfxfg0rXidMDz/0+/m04N81TEPO0eJfhd3bU8LAvjc6bhS144ptjQOiBaLvSTOW
+	 P3SHhfJCbhsIBfy4Q5a5PY7CE71g22F+/+Vkkzy/pPiJ76XP+nSWI6LAdjREL4a1yRm5s
+	 ta+xHkFbyOb/QeduqxOPtPUY8b06hOKidhuAYcgk2Ocv/mIFkvQCKJCaGPx+uZuElZ8HX
+	 SoH3FIKLdlm5kNypavNKB5Qev7gGuJTWzaAdHqLfeuCYL/jutdahMTHIZtmVUxoJzDA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=zeniv.linux.org.uk;
-	spf=none smtp.mailfrom=ftp.linux.org.uk;
-	dkim=pass header.d=linux.org.uk header.i=@linux.org.uk header.a=rsa-sha256 header.s=zeniv-20220401 header.b=TDuWQEHo;
-	arc=none smtp.remote-ip=62.89.141.173
-Received: from zeniv.linux.org.uk (zeniv.linux.org.uk [62.89.141.173])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=AXwW9ecP;
+	arc=none smtp.remote-ip=198.175.65.12
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F302606A336;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69C03606A88D;
 	Tue, 17 Nov 2026 18:31:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F302606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=zeniv.linux.org.uk
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=ftp.linux.org.uk
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69C03606A88D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linux.org.uk header.i=@linux.org.uk header.a=rsa-sha256 header.s=zeniv-20220401 header.b=TDuWQEHo
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=linux.org.uk; s=zeniv-20220401; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=tMKIL4Tw6+P8nxVMgy3ZxNBt370rRgm0QxvRZlxxhD0=; b=TDuWQEHovmiau7VCBkXgVGRkK3
-	qNI48Oggv+Q9HlViFP5Rd1pkrId3BRYTeyBJkobYwVJZE7XOYZzoqC602DkJXl7YWtyNs8fQ4bQ1L
-	M6cPQgYfkx0upaukkTT3E34ETIPOyT4fFspAnBM5n9bcLPULu0wWsA834gK6NUjfnXpbq3TAM82xS
-	uV7aZps0RQ5OTIfQqNdoCCC7QUluccfpo2tdFmSFByN7VFcTvuonxWf4PQHfxLS9lo3t3ghaFn1DA
-	JcC+4RHlrKT/uuMSV2ANjxnXiR7J0vGVyq2V03OYSPpBUGVE9s0IewlWxIKgY9gMLtnLB721HnM7Q
-	+Sab7DYQ==;
-Received: from viro by zeniv.linux.org.uk with local (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTNxL-00000002J6d-49Dd;
-	Tue, 17 Nov 2026 18:31:00 +0000
-Date: Tue, 17 Nov 2026 18:30:59 +0000
-From: Al Viro <viro@zeniv.linux.org.uk>
-To: Cai Xinchen <caixinchen1@huawei.com>
-Cc: mic@digikod.net, gnoack@google.com, paul@paul-moore.com,
-	brauner@kernel.org, jack@suse.cz, amir73il@gmail.com,
-	andrii@kernel.org, apparmor@lists.ubuntu.com, ast@kernel.org,
-	axboe@kernel.dk, bpf@vger.kernel.org, casey@schaufler-ca.com,
-	cel@kernel.org, cem@kernel.org, chenxiaosong@chenxiaosong.com,
-	code@tyhicks.com, corbet@lwn.net, Dai.Ngo@oracle.com,
-	dakr@kernel.org, daniel@iogearbox.net, dhowells@redhat.com,
-	dlemoal@kernel.org, dmitry.kasatkin@gmail.com,
-	driver-core@lists.linux.dev, dsterba@suse.com,
-	ecryptfs@vger.kernel.org, eddyz87@gmail.com, emil@etsalapatis.com,
-	eric.snowberg@oracle.com, exfat@lists.linux.dev,
-	georgia.garcia@canonical.com, gregkh@linuxfoundation.org,
-	hch@lst.de, hirofumi@mail.parknet.co.jp, hyc.lee@gmail.com,
-	ihor.solodrai@linux.dev, jlayton@kernel.org, jmorris@namei.org,
-	johan@kernel.org, john.fastabend@gmail.com,
-	john.johansen@canonical.com, jolsa@kernel.org, kpsingh@kernel.org,
-	linkinjeon@kernel.org, linux-api@vger.kernel.org,
-	linux-block@vger.kernel.org, linux-btrfs@vger.kernel.org,
-	linux-cifs@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org, linux-integrity@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-nfs@vger.kernel.org, linux-security-module@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, linux-unionfs@vger.kernel.org,
-	linux-xfs@vger.kernel.org, liubaolin12138@163.com,
-	martin.lau@linux.dev, mason@kernel.org,
-	mathieu.desnoyers@efficios.com, matt@bobrowski.net,
-	memxor@gmail.com, mhiramat@kernel.org, miklos@szeredi.hu,
-	neil@brown.name, netfs@lists.linux.dev, ntfs@lists.linux.dev,
-	okorniev@redhat.com, omosnacek@gmail.com,
-	penguin-kernel@i-love.sakura.ne.jp, rafael@kernel.org,
-	rdunlap@infradead.org, roberto.sassu@huawei.com,
-	rostedt@goodmis.org, selinux@vger.kernel.org,
-	senozhatsky@chromium.org, serge@hallyn.com, sj1557.seo@samsung.com,
-	skhan@linuxfoundation.org, song@kernel.org,
-	stephen.smalley.work@gmail.com, takedakn@nttdata.co.jp,
-	tom@talpey.com, yonghong.song@linux.dev, yuezhang.mo@sony.com,
-	zohar@linux.ibm.com, utilityemal77@gmail.com, lujialin4@huawei.com
-Subject: Re: [PATCH -next -v4 01/17] fs: pass struct path to notify_change()
-Message-ID: <20261117183059.GP989762@ZenIV>
-References: <20261117150542.1169451-1-caixinchen1@huawei.com>
- <20261117150542.1169451-2-caixinchen1@huawei.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=AXwW9ecP
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1794940307; x=1826476307;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=au057zZNUXUwwVx17AOJxoL/BOhmwtbE4AWvH7sViFE=;
+  b=AXwW9ecPfvr7U2kKpnxbVl+R1T0DJNr+rcmiIYwa48tF9Sc/b1M6Hu3L
+   VGQ1+1NzpZWrCFM/5jXrlEXBHOfw3MUCmQ6tL+8v5/anmJY+7491EqzrE
+   cZ61Mi+rnclzYCZ1R1q6bT/d/FAoLEgNKOQyjDAiG8fe5nYpn3dHDx17g
+   n8/Zj+QSI7XEamu/fXA5hJf+jHZ1FGwKSm5/3i3UKva/5xuaQWsbTDroR
+   lozpaGjjnudHJtJbGX55eb2HvqZauq854Tm3p+zF1Iohr+vujZBP2m2X+
+   eiYVClVybAmRKKHBrs7hXESpoGhibXovaeUEqAiS+WH33TQphfjWpjsh6
+   g==;
+X-CSE-ConnectionGUID: dZhWxHPcR5+phXOhZupvZw==
+X-CSE-MsgGUID: HDDdRx9NRTWlOpYl2XwuWw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3607222"
+X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
+   d="scan'208";a="3607222"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 10:30:44 -0800
+X-CSE-ConnectionGUID: 6pXtmftGQZiAnCsO6gxtbw==
+X-CSE-MsgGUID: zVidgbi+R+OLciB16yoQOw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
+   d="scan'208";a="9775008"
+Received: from chang-linux-3.sc.intel.com (HELO chang-linux-3) ([172.25.66.174])
+  by orviesa003.jf.intel.com with ESMTP; 17 Nov 2026 10:30:45 -0800
+From: "Chang S. Bae" <chang.seok.bae@intel.com>
+To: seanjc@google.com,
+	jmattson@google.com
+Cc: pbonzini@redhat.com,
+	kvm@vger.kernel.org,
+	x86@kernel.org,
+	linux-kernel@vger.kernel.org,
+	zhao1.liu@intel.com,
+	chang.seok.bae@intel.com
+Subject: [PATCH v9 04/20] KVM: x86: Support APX state for XSAVE ABI
+Date: Tue, 17 Nov 2026 18:02:54 +0000
+Message-ID: <20261117180310.921701-5-chang.seok.bae@intel.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261117180310.921701-1-chang.seok.bae@intel.com>
+References: <20261117180310.921701-1-chang.seok.bae@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,63 +85,182 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117150542.1169451-2-caixinchen1@huawei.com>
-Sender: Al Viro <viro@ftp.linux.org.uk>
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 17, 2026 at 11:05:26PM +0800, Cai Xinchen wrote:
+Introduce a facility to copy APX state between the VCPU cache and the
+userspace buffer as the VCPU cache is the single source of truth.
 
-> +notify_change() and do_truncate() now take a const struct path * instead
-> +of a struct dentry *.  They use path->dentry, so callers that only have a
-> +dentry must provide a struct path.  struct iattr has a new ia_path member,
-> +which notify_change() sets for the duration of the call; it must not be
-> +stored beyond that.  Filesystems that forward a change to another inode
-> +can use notify_change_target() to update the target dentry while keeping
-> +the caller-supplied path in ia_path.
+The existing fpstate copy functions historically sync all XSTATEs in
+between userspace and kernel buffers [1]. In this regard, any additional
+state handling logic should be consistent with them -- i.e. validation of
+XSTATE_BV against the supported XCR0 mask.
 
-That needs a bit along the lines of "path MUST be consistent - don't combine
-a dentry from one filesystem with mount of another".  All in-kernel callers
-might have appropriate struct mount references on hand, but for out-of-tree
-code that might be not true and we'd better be upfront about the headache
-we are inflicting.
+Now the two copy paths requires to take care of these facts:
 
-I'm not sure we really want to provide those mount references, TBH - it does
-add a constraint not just on out-of-tree callers, but upon the future uses
-in the kernel.  If NTFS is the only reason... ugh.
+  * When exporting to userspace, copy fpstate first, since it zeros the
+    area of any component that is absent or inactive. Then copy the APX
+    state from the VCPU cache.
 
-> diff --git a/drivers/base/devtmpfs.c b/drivers/base/devtmpfs.c
-> index 11c70888f38b..410906a66ee9 100644
-> --- a/drivers/base/devtmpfs.c
-> +++ b/drivers/base/devtmpfs.c
-> @@ -284,13 +284,14 @@ static int handle_create(const char *nodename, umode_t mode, kuid_t uid,
->  			dev->devt, NULL);
->  	if (!err) {
->  		struct iattr newattrs;
-> +		struct path attr_path = { .mnt = path.mnt, .dentry = dentry };
->  
->  		newattrs.ia_mode = mode;
->  		newattrs.ia_uid = uid;
->  		newattrs.ia_gid = gid;
->  		newattrs.ia_valid = ATTR_MODE|ATTR_UID|ATTR_GID;
->  		inode_lock(d_inode(dentry));
-> -		notify_change(&nop_mnt_idmap, dentry, &newattrs, NULL);
-> +		notify_change(&nop_mnt_idmap, &attr_path, &newattrs, NULL);
+  * When importing from userspace, the APX state is copied to both
+    fpstate and the VCPU cache. Avoiding the duplicate copy would need
+    special care in the common code or in XSTATE_BV/XCR0 which isn't
+    worth that much for a slow path, so keep it simple.
 
-BTW, why not something like
+[1] Except for PKRU state, as stored in struct thread_struct.
 
-		notify_change(&nop_mnt_idmap,
-			      &(struct path){.mnt = path.mnt, .dentry = dentry},
-			      &newattrs, NULL);
-instead of that named local?  Same question for other places like that...
+Tested-by: Zhao Liu <zhao1.liu@intel.com>
+Signed-off-by: Chang S. Bae <chang.seok.bae@intel.com>
+---
+V8 -> V9:
+ * Fix XSTATE_BV[APX]=0 behavior (Jim Mattson)
+ * On the way to the kernel buffer, switch the copy ordering (Jim Mattson)
+---
+ arch/x86/kvm/cpuid.c | 10 ++++++
+ arch/x86/kvm/cpuid.h |  2 ++
+ arch/x86/kvm/x86.c   | 73 +++++++++++++++++++++++++++++++++++++++++---
+ 3 files changed, 81 insertions(+), 4 deletions(-)
 
-> +int notify_change_target(const struct mnt_idmap *idmap,
-> +			 const struct path *path, struct dentry *target,
-> +			 struct iattr *attr,
-> +			 struct delegated_inode *delegated_inode)
-> +{
-> +	if (WARN_ON_ONCE(!target))
-> +		return -EINVAL;
-> +	return do_notify_change(path, idmap, target, attr, delegated_inode);
-> +}
+diff --git a/arch/x86/kvm/cpuid.c b/arch/x86/kvm/cpuid.c
+index adafd6fa2c54..7c6825000928 100644
+--- a/arch/x86/kvm/cpuid.c
++++ b/arch/x86/kvm/cpuid.c
+@@ -61,6 +61,16 @@ void __init kvm_init_xstate_sizes(void)
+ 	}
+ }
+ 
++u32 xstate_size(unsigned int xfeature)
++{
++	return xstate_sizes[xfeature].eax;
++}
++
++u32 xstate_offset(unsigned int xfeature)
++{
++	return xstate_sizes[xfeature].ebx;
++}
++
+ u32 xstate_required_size(u64 xstate_bv, bool compacted)
+ {
+ 	u32 ret = XSAVE_HDR_SIZE + XSAVE_HDR_OFFSET;
+diff --git a/arch/x86/kvm/cpuid.h b/arch/x86/kvm/cpuid.h
+index 46bfe8699e67..444faaf33307 100644
+--- a/arch/x86/kvm/cpuid.h
++++ b/arch/x86/kvm/cpuid.h
+@@ -66,6 +66,8 @@ bool kvm_cpuid(struct kvm_vcpu *vcpu, u32 *eax, u32 *ebx,
+ 
+ void __init kvm_init_xstate_sizes(void);
+ u32 xstate_required_size(u64 xstate_bv, bool compacted);
++u32 xstate_size(unsigned int xfeature);
++u32 xstate_offset(unsigned int xfeature);
+ 
+ int cpuid_query_maxphyaddr(struct kvm_vcpu *vcpu);
+ u64 kvm_vcpu_reserved_gpa_bits_raw(struct kvm_vcpu *vcpu);
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index 73bb1d25931c..f251631a63de 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -3165,6 +3165,53 @@ static int kvm_vcpu_ioctl_x86_set_vcpu_events(struct kvm_vcpu *vcpu,
+ 	return 0;
+ }
+ 
++#ifdef CONFIG_KVM_APX
++static void kvm_copy_vcpu_regs_to_uabi(struct kvm_vcpu *vcpu, void *buf, u64 supported_xcr0)
++{
++	union fpregs_state *xstate = (union fpregs_state *)buf;
++
++	BUILD_BUG_ON(NR_VCPU_GENERAL_PURPOSE_REGS <= VCPU_REGS_R31);
++
++	if (!(supported_xcr0 & XFEATURE_MASK_APX))
++		return;
++
++	memcpy(buf + xstate_offset(XFEATURE_APX),
++	       &vcpu->arch.regs[VCPU_REGS_R16],
++	       xstate_size(XFEATURE_APX));
++
++	xstate->xsave.header.xfeatures |= XFEATURE_MASK_APX;
++}
++
++static int kvm_copy_uabi_to_vcpu_regs(struct kvm_vcpu *vcpu, void *buf, u64 supported_xcr0)
++{
++	union fpregs_state *xstate = (union fpregs_state *)buf;
++
++	BUILD_BUG_ON(NR_VCPU_GENERAL_PURPOSE_REGS <= VCPU_REGS_R31);
++
++	/* If XSTATE_BV[APX] is unset, the state should be initialized: */
++	if (!(xstate->xsave.header.xfeatures & XFEATURE_MASK_APX)) {
++		if (supported_xcr0 & XFEATURE_MASK_APX)
++			memset(&vcpu->arch.regs[VCPU_REGS_R16], 0, xstate_size(XFEATURE_APX));
++		return 0;
++	}
++
++	if (!(supported_xcr0 & XFEATURE_MASK_APX))
++		return -EINVAL;
++
++	memcpy(&vcpu->arch.regs[VCPU_REGS_R16],
++	       buf + xstate_offset(XFEATURE_APX),
++	       xstate_size(XFEATURE_APX));
++
++	return 0;
++}
++#else
++static void kvm_copy_vcpu_regs_to_uabi(struct kvm_vcpu *vcpu, void *buf, u64 supported_xcr0) { }
++static int kvm_copy_uabi_to_vcpu_regs(struct kvm_vcpu *vcpu, void *buf, u64 supported_xcr0)
++{
++	return 0;
++}
++#endif
++
+ static int kvm_vcpu_ioctl_x86_get_xsave2(struct kvm_vcpu *vcpu,
+ 					 u8 *state, unsigned int size)
+ {
+@@ -3186,8 +3233,15 @@ static int kvm_vcpu_ioctl_x86_get_xsave2(struct kvm_vcpu *vcpu,
+ 	if (fpstate_is_confidential(&vcpu->arch.guest_fpu))
+ 		return vcpu->kvm->arch.has_protected_state ? -EINVAL : 0;
+ 
++	/*
++	 * This copy function zeros out userspace memory for any gap from the
++	 * guest fpstate. So invoke before copying any other state, i.e. APX,
++	 * that is not saved in fpstate.
++	 */
+ 	fpu_copy_guest_fpstate_to_uabi(&vcpu->arch.guest_fpu, state, size,
+ 				       supported_xcr0, vcpu->arch.pkru);
++	kvm_copy_vcpu_regs_to_uabi(vcpu, state, supported_xcr0);
++
+ 	return 0;
+ }
+ 
+@@ -3202,6 +3256,7 @@ static int kvm_vcpu_ioctl_x86_set_xsave(struct kvm_vcpu *vcpu,
+ 					struct kvm_xsave *guest_xsave)
+ {
+ 	union fpregs_state *xstate = (union fpregs_state *)guest_xsave->region;
++	int err;
+ 
+ 	if (fpstate_is_confidential(&vcpu->arch.guest_fpu))
+ 		return vcpu->kvm->arch.has_protected_state ? -EINVAL : 0;
+@@ -3213,10 +3268,20 @@ static int kvm_vcpu_ioctl_x86_set_xsave(struct kvm_vcpu *vcpu,
+ 	 */
+ 	xstate->xsave.header.xfeatures &= ~vcpu->arch.guest_fpu.fpstate->xfd;
+ 
+-	return fpu_copy_uabi_to_guest_fpstate(&vcpu->arch.guest_fpu,
+-					      guest_xsave->region,
+-					      kvm_caps.supported_xcr0,
+-					      &vcpu->arch.pkru);
++	err = fpu_copy_uabi_to_guest_fpstate(&vcpu->arch.guest_fpu,
++					     guest_xsave->region,
++					     kvm_caps.supported_xcr0,
++					     &vcpu->arch.pkru);
++	if (err)
++		return err;
++
++	/*
++	 * The APX state was also copied into fpstate above, but the VCPU cache
++	 * is the single source of truth. Skipping the redundant copy tends to
++	 * introduce special-case handling. Since this lies in a slow path, keep
++	 * the implementation simple.
++	 */
++	return kvm_copy_uabi_to_vcpu_regs(vcpu, guest_xsave->region, kvm_caps.supported_xcr0);
+ }
+ 
+ static int kvm_vcpu_ioctl_x86_get_xcrs(struct kvm_vcpu *vcpu,
+-- 
+2.53.0
 
