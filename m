@@ -1,57 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.109.113.108
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794945311;
-	b=bVqHeDkXrFjiglRc9JvdDHxnV8asf5NP+UErlJ1M3fPU7U6qRXYzlOuGDobErfLcC//M
-	 G3KWkg92j/YKvTjMjW4nwMJXgWJPrtNw3BdC+Y/GQ2IgtV/IMgHe92tZzvS95CY37yhUI
-	 RxmP5Xtaqf271vaCyN7NZYGDzA7+FMBRVi6/bAC1XYz/++QI1tB58UAJyIXiDxXRisrPK
-	 0KHsMqmUX9IqtVo4/XzZD4LwBIUFJLD2Ji80Qh58Bhlo45qzCc7GeMzAbcqWNnxkon96M
-	 3PE3TP5dsoxsbjcCSJpQp8GFaY2wrB8PEP0KLNwi75ai2GpZDh+9jI/H1aHoYRqhrLg==
+	t=1794945315;
+	b=5sjTeNR7A5CXBJtz1ALhMSZZg5r5VTskwUA6QwMxL4E37xqsbUz8ut8sANUK+ErJ2n+e
+	 at/BVoxPnlNeirg6owDmQHilNm1Yc+OGI7yk55GfkBN8fzC7g7L/Mzfc94wuY8umgqQLK
+	 ABzQ5rz1cnxF1IcfYbmU94HcoX680wSGm8Jmv/8rglafCtwm5I6clf0XW3D9KcxR5hP14
+	 Utmn9l/p4ikBiafHaWv0vo3YZdHNx8RRXzvFSZI1MeI1H8GieQaA68TFFsslIzcasayjs
+	 xNzHlPSiUGk62lLb3W1oD04YF2l9Ytzlp2ZGmw9SZU5/KKDSL1GJjfKS5eBxS6dzezg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794945311;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=/vrMmPGS0jN0gWIbF7eSFNDqKj+MG1/hhq+12WsX3L4=;
-	b=NEaVdVHDK78zyDakFaXbvPZKq4q52Jrf6oyrLzsXzZXJcQM/z+lzdkZuNwvUQNtsIG1E
-	 wbIXhxLsjmt592UpaRgEs/N2/FfYa+Hd3Mf/N+o5hQDRLBYee4icAk01MkjqbPbU44zLV
-	 tAMFjV59U9peTbWkG9lJR7RM5eEvRQbSJZ7B/40FN8xo/Ti2Tb68YlNgv7YTBfikGQkAq
-	 WveNQ9OpWq/n5Hq28K5E92iJmiAD9U/gGDfK5mWX8Hke4uThMfiweaLFBQHrJfXGksohR
-	 EfnFEtsMC3Rl6M3/SE/6gczuZ3CxLA/BDyoxApvnmWvOKRHJkZjrqwRlA6cOUdlRkWg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794945315;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=FiuczpS642z4tqeB5kPt0ZbvVVemzyyGPEF/bdILDlk=;
+	b=Pb1+fFh23rZRvvrat9BYFG3c6t1LWOHnrWv5fT8NUW4JGkb0PD8mkDC2prX3jmnTbads
+	 RL3Djschgd4h/fqk9L/xsCrHAVsih+yVV3sVjeY0RPeapOVPS/PUloJryHwCUeqkjIthQ
+	 YtukYw1IcV/VIzemYnlrfL8h96YNdNrMpFChccg+IzVFnY4m+d/th7dEBKM3uO01fJ87Y
+	 qIOhWLIio1pz9QAk9MEJXDlGYOFLDu0ca/yohA176FMLiml7mXLO/hpyuyuUXQt+NBJcA
+	 l3SQ2ugqfN+oua8Kf9RU0kPaNhYVjIdrVeSqIJM2xuPJMdnQ/9LpkbpHQoidz0ZN2kQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hbq3DKAB;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=alien8.de;
+	spf=pass smtp.mailfrom=alien8.de;
+	dkim=pass header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=Qn1NESUu;
+	arc=none smtp.remote-ip=65.109.113.108
+Received: from mail.alien8.de (mail.alien8.de [65.109.113.108])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8642606A31C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:55:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1370606A332;
+	Tue, 17 Nov 2026 19:55:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E1370606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=alien8.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=alien8.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hbq3DKAB
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6380E1F000C9;
-	Tue, 17 Nov 2026 19:55:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794945311;
-	bh=/vrMmPGS0jN0gWIbF7eSFNDqKj+MG1/hhq+12WsX3L4=;
-	h=From:To:Cc:Subject:Date;
-	b=hbq3DKABzFki9RvEGs2NXNeXzOFUsWQuj4tfLW/UeU/kBYcCuSXxGVlojJF3RsDPn
-	 hHDlQn4yGj8mygUMSCWhdHMAQP7Tjln1mRIvpZAdOs/hkEqPUrVt7e7ixVEj+iRDEi
-	 p+ogqtZuotuPJfcxWa7RPMI1f9MVtS9BBxqzQeK/FFUpoNtM4TkJZT2gGwTM8Rz/Hk
-	 cUKTieiWuyonkiF7fQu6uLF4U0vtv9o4q5uTeGoBm0xNFG48R8fL1/ll2zdr6MmRaX
-	 MujORX7Be4uPJdwHsC9DJZd3BKE1IhS66IJ5q1iA5+PKePW3kf0YVG1DufPT0NluKy
-	 kffF+kgcKBhKg==
-From: Jiri Olsa <jolsa@kernel.org>
-To: Peter Zijlstra <peterz@infradead.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>
-Cc: Jason Baron <jbaron@akamai.com>,
-	Alice Ryhl <aliceryhl@google.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	x86@kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCHv2] jump_label/x86: Avoid decoding instructions for jump entry size
-Date: Tue, 17 Nov 2026 20:55:06 +0100
-Message-ID: <20261117195506.23759-1-jolsa@kernel.org>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (4096-bit key) header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=Qn1NESUu
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 945C040E01E1;
+	Tue, 17 Nov 2026 19:55:12 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
+Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
+	header.d=alien8.de
+Received: from mail.alien8.de ([127.0.0.1])
+	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id 3Ggrgw5ylJyw; Tue, 17 Nov 2026 19:55:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
+	t=1794945308; bh=FiuczpS642z4tqeB5kPt0ZbvVVemzyyGPEF/bdILDlk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Qn1NESUu6sPmE0eD6d0UCNF8hJwm73CiYLKgqAT6B9WnmfbVy6r72xM6Q8ww72zRr
+	 QVeQy7gY8toTEYlFdDIYqhkxaIqNke6ayI9p53/vYCUPCcXD4JNEf7H9vEDmQMDZRY
+	 VpZruo9R5Zu61fGvjxJ3oCRN3h+AP3VLK15nRVvg1WjNIguzmUWX3DTEtGcjfoZzAX
+	 6+Aqnlmh2TJjqo6cRR/S3gEYPRZpM/qi10Bv+7kxJmRt64sAiCKWA5qsks6uvt34Uh
+	 zzm6cno7YqzOSkFH+xeZnh1fQbu/ADIxx1Dv68NCSK0AvJlh9xuESGRSqjMwlzWbJK
+	 PnOAG9RJbxUTY7bgzQ+A45pidpNDKsGGTvsE3k2kkur7LHWEJOY5F2IOfEqx50QEIC
+	 9tiJQtO5FfxRIDpCdyXhff+NGol8Hr5Jq0Q7QzMzVomWn1hvTx4BW2YSNSa/Z05ujO
+	 NAVJNIln/2QbGwMbzNg3NJI/+LxaZLOXJfq/jOT6LclDdkoAvah9I5mOhHiHOKgZy2
+	 bJ3kTDgH0/jh1WZdYNBvmNSmt/pqRAn0Wz7eg9wH1ZzMzOiJ5xCkN+Jzb8U3xH2I+w
+	 SUttGPZZ0LEI090+Llzuxil1isv2q0JxSFE03XdNVSlB4Ba3+7DT8OKyCnXC5PVUYQ
+	 MXFLH6qiuqo7TTo++nY2wWTA=
+Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::43])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
+	(No client certificate requested)
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id D1D1A40E00DC;
+	Tue, 17 Nov 2026 19:54:58 +0000 (UTC)
+Date: Tue, 17 Nov 2026 11:54:55 -0800
+From: Borislav Petkov <bp@alien8.de>
+To: "Luck, Tony" <tony.luck@intel.com>
+Cc: Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	"linux-edac@vger.kernel.org" <linux-edac@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 06/13] i82875p_edac: Convert to
+ pci_assign_unassigned_bus_resources()
+Message-ID: <20261117195455.GEavyxDycsQbYSctQr@fat_crate.local>
+References: <20261116152403.2672-1-ilpo.jarvinen@linux.intel.com>
+ <20261116152403.2672-7-ilpo.jarvinen@linux.intel.com>
+ <20261116154005.GAavsj1a11BRgBVtSd@fat_crate.local>
+ <CH8PR11MB403433B2B6C13E8AA2A31130FAFC7C2@CH8PR11MB403433.namprd11.prod.outlook.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,87 +89,116 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <CH8PR11MB403433B2B6C13E8AA2A31130FAFC7C2@CH8PR11MB403433.namprd11.prod.outlook.com>
 
-arch_jump_entry_size() runs the full instruction decoder just to find
-out whether a jump entry is 2 or 5 bytes long. A jump label site can
-only ever hold a JMP8, a JMP32 or the matching 2/5 byte NOP, so the
-size can be determined directly from the opcode byte or by comparing
-against the x86_nops[] encodings.
+On Mon, Nov 16, 2026 at 05:11:09PM +0000, Luck, Tony wrote:
+> > In addition to this, Tony, should we orphan this one too?
+> >
+> > It is a P4-something-chipset...
+> 
+> Looks like it was release in 2003 or so. Only supports 4GB of memory.
+> Even if someone still has one powered up, unlikely that they would run
+> an upstream kernel on it.
+> 
+> I'm OK with marking it as orphaned.
 
-This matters for kprobe registration, where the address safety check
-calls jump_label_text_reserved(), which walks the jump entries and
-calls arch_jump_entry_size() for each of them. When registering many
-kprobes the instruction decoding dominates the registration time.
+Ok, here's what I have in mind:
 
-Signed-off-by: Jiri Olsa <jolsa@kernel.org>
+From: "Borislav Petkov (AMD)" <bp@alien8.de>
+Date: Tue, 17 Nov 2026 11:49:09 -0800
+Subject: [PATCH] MAINTAINERS: Add a common entry for orphaned EDAC drivers
+
+This removes a bunch of lines in the MAINTAINERS file while having the
+same result: unify orphaned EDAC drivers which are not going to receive
+any more fixes due to lack of hardware, age of the hardware supported
+and general lack of use.
+
+This is also adding drivers/edac/i82875p_edac.c to the lineup which is
+a 32-bit only chipset for Pentium 4 from 2003 or so.
+
+The code is not going away - if there are users who are willing to test,
+we can easily resurrect them.
+
+Signed-off-by: Borislav Petkov (AMD) <bp@alien8.de>
 ---
-v2 changes:
-- sending just this single change from v1 post [1], rest will come later
-- check code[0] against both JMP8 and JMP32 opcodes first and only then
-  fall back to the memcmp() nop comparisons, instead of relying on the
-  compiler to reorder the combined conditions [Peter]
-- I measured the change with a test module that registers kprobes with
-  register_kprobes() on 20000 generated functions (24 bytes each, probe
-  placed at offset 8 in each function). The module is for testing only
-  and is part of v1 [1].
+ MAINTAINERS | 29 +++++++++--------------------
+ 1 file changed, 9 insertions(+), 20 deletions(-)
 
-    # perf stat -e cycles:k,instructions:k \
-      insmod ./samples/kprobes/kprobe_many_example.ko nr_functions=20000
-
-    before:
-      51,498,815,127      cycles:k
-      53,955,643,792      instructions:k
-
-        10.133113175 seconds time elapsed
-
-    after:
-      23,945,896,734      cycles:k
-      18,710,375,445      instructions:k
-
-         4.695635577 seconds time elapsed
-
-   That's ~54% less time and ~65% fewer instructions.
-
-[1] https://lore.kernel.org/bpf/20261109194916.1089703-4-jolsa@kernel.org/
-
- arch/x86/kernel/jump_label.c | 18 +++++++++++++-----
- 1 file changed, 13 insertions(+), 5 deletions(-)
-
-diff --git a/arch/x86/kernel/jump_label.c b/arch/x86/kernel/jump_label.c
-index a7949a54a0ff..cf2df807e4c2 100644
---- a/arch/x86/kernel/jump_label.c
-+++ b/arch/x86/kernel/jump_label.c
-@@ -15,16 +15,24 @@
- #include <asm/kprobes.h>
- #include <asm/alternative.h>
- #include <asm/text-patching.h>
--#include <asm/insn.h>
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 31c06c57de93..f1a83cea9798 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -9386,11 +9386,6 @@ L:	linux-mips@vger.kernel.org
+ S:	Maintained
+ F:	drivers/edac/octeon_edac*
  
- int arch_jump_entry_size(struct jump_entry *entry)
- {
--	struct insn insn = {};
-+	const u8 *code = (void *)jump_entry_code(entry);
+-EDAC-CAVIUM THUNDERX
+-L:	linux-edac@vger.kernel.org
+-S:	Orphan
+-F:	drivers/edac/thunderx_edac*
+-
+ EDAC-CORE
+ M:	Borislav Petkov <bp@alien8.de>
+ M:	Tony Luck <tony.luck@intel.com>
+@@ -9414,11 +9409,6 @@ L:	linux-edac@vger.kernel.org
+ S:	Supported
+ F:	drivers/edac/dmc520_edac.c
  
--	insn_decode_kernel(&insn, (void *)jump_entry_code(entry));
--	BUG_ON(insn.length != 2 && insn.length != 5);
-+	if (code[0] == JMP8_INSN_OPCODE)
-+		return JMP8_INSN_SIZE;
+-EDAC-E752X
+-L:	linux-edac@vger.kernel.org
+-S:	Orphan
+-F:	drivers/edac/e752x_edac.c
+-
+ EDAC-E7XXX
+ L:	linux-edac@vger.kernel.org
+ S:	Maintained
+@@ -9443,11 +9433,6 @@ L:	linux-edac@vger.kernel.org
+ S:	Maintained
+ F:	drivers/edac/i10nm_base.c
  
--	return insn.length;
-+	if (code[0] == JMP32_INSN_OPCODE)
-+		return JMP32_INSN_SIZE;
+-EDAC-I3000
+-L:	linux-edac@vger.kernel.org
+-S:	Orphan
+-F:	drivers/edac/i3000_edac.c
+-
+ EDAC-I5000
+ R:	Andrew Luebke <andrew.luebke@gmail.com>
+ L:	linux-edac@vger.kernel.org
+@@ -9491,11 +9476,6 @@ L:	linux-edac@vger.kernel.org
+ S:	Maintained
+ F:	drivers/edac/igen6_edac.c
+ 
+-EDAC-MPC85XX
+-L:	linux-edac@vger.kernel.org
+-S:	Orphan
+-F:	drivers/edac/mpc85xx_edac.[ch]
+-
+ EDAC-NPCM
+ M:	Marvin Lin <kflin@nuvoton.com>
+ M:	Stanley Chu <yschu@nuvoton.com>
+@@ -9542,6 +9522,15 @@ L:	linux-edac@vger.kernel.org
+ S:	Odd Fixes
+ F:	drivers/edac/ti_edac.c
+ 
++EDAC ORPHANED DRIVERS
++L:	linux-edac@vger.kernel.org
++S:	Orphan
++F:	drivers/edac/e752x_edac.c
++F:	drivers/edac/i3000_edac.c
++F:	drivers/edac/i82875p_edac.c
++F:	drivers/edac/mpc85xx_edac.[ch]
++F:	drivers/edac/thunderx_edac*
 +
-+	if (!memcmp(code, x86_nops[JMP8_INSN_SIZE], JMP8_INSN_SIZE))
-+		return JMP8_INSN_SIZE;
-+
-+	if (!memcmp(code, x86_nops[JMP32_INSN_SIZE], JMP32_INSN_SIZE))
-+		return JMP32_INSN_SIZE;
-+
-+	BUG();
- }
- 
- struct jump_label_patch {
+ EDIROL UA-101/UA-1000 DRIVER
+ M:	Clemens Ladisch <clemens@ladisch.de>
+ L:	linux-sound@vger.kernel.org
 -- 
-2.56.1
+2.53.0
 
+-- 
+Regards/Gruss,
+    Boris.
+
+https://people.kernel.org/tglx/notes-about-netiquette
