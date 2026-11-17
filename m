@@ -1,63 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.238.236.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=44.202.169.35
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794940850;
-	b=UKaw8KUTHU4RTINikQ+j0TF1sIKhTnjxsaSn/uTtC1dh7sRqq6UOASKgCzB171r8oVeI
-	 sx3Ca9mAeXS8AO+Ix/ediIiyqHpJKk6uIxW6i/E7T9vUhzlZ3BkjHqHVuCnZPWgTnQR5x
-	 r14JbDgLdjtgsyVBohswMBzxisSPHolmqO7jrDVsd7mgqgkXSCOnLZzZfUmUc/A1lDtab
-	 pxIep5IGn4sbqwKaq/2gZfQPfJ1RcePo63Wp+bs1n2clWjGVUeWr6Xhqn03qWQadvxojt
-	 E02eW6qKC5r3zw2SdZgiSwpPYMbxHwLRbsjNNKZW69pYVJ+1IG3P5qzXmelVrGoDCXg==
+	t=1794940873;
+	b=RNpMC/A8AVzTpmAMstsNlnRwScIyEAXpsyUYIkK6ee3LrW/1WhamdiGiUg2P0xa5ItP8
+	 EXKBKaKOmDoUiy3+/x9F0qh93z3Hrpu2okgMuzPNRZIhHJvSz9JWIbBCv3HQCb4+mD5ay
+	 x31wUmE3kBByDBbqdx54T6xBUkxmzNfxbh9p7rxkSSFXux1CmTCNCpA8R8xRVHSZ6ncD+
+	 Wv5wfMBOBZU/qIGkNIO/6woxJABaEr9p5yn1sFiPYuFQVB1wN8031G+cHI563tDQ2QeIg
+	 eWaH5TmorJCm1wT3+kYpbE37cfNH3ElUNctn8yYhTolKqonXLKE0Co2y4h7pMbOM9Rg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794940850;
-	h=DMARC-Filter:DKIM-Signature:From:To:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=I51Cm6Ck9h4Ru+oeZIaLxqVx575L3vwgMDr+fkw6O44=;
-	b=NWbEZ6InOt3GCz7xUctpzd7RQFjPqArO2A1laYxdiv+EPAtnD1s7S8rdAE3Au+L52vHG
-	 l3Td/t0bDk8GijKfPStCTSyTVTaXDmZlRA6TKSkNVu8yF8c6aRjg+eVxDnqYZrqyx3g6P
-	 65AlhJh+hOh90ded52v0Jlz+Du6oLmV2wzVfEDYWWLR9F4drmayL7GxbPi0++ZZdExKqY
-	 nODCpfLelN1+KXwfo4w7lNBIUrUuhQrVRgeqmB0T5jj0qQKUjnn5djJUzH/tHbbzF6j6F
-	 oThTnvAsdJhsYj0FRzzkc9/JzD0rcJofHqy+Z28J3R+4VEYMq3M/lsr/bN1w5QfU3kA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794940873;
+	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:
+	 X-Source-L:X-Exim-ID:X-Source:X-Source-Args:X-Source-Dir:
+	 X-Source-Sender:X-Source-Auth:X-Email-Count:X-Org:X-Source-Cap:
+	 X-Local-Domain:X-CMAE-Envelope;
+	bh=uzgMGuJH7y9PpdqDVrfWe+YpxihFKk8NBF5FqP0/B48=;
+	b=PlURJu9ZiRlKS8ACHAOc4LOBAcmCb8AjZAVJ0p2nTCSzWP/aC4WtWOsoTHyCBpTl0dLr
+	 kG617inV3tMcUjxdA8k8zpG88sX3RyWgPO/2c8wlljoq/nILv9Je7paXwf/QGFwPNOAo5
+	 /nYwuxuOrbkBiw9HqmC2bNPptCNgc1c5JY+l8JiiHyy7L7VP5fHX0PnJuAnLnL9e8MhvD
+	 wfwcRAfaZi2zaMF37mgHKzIiYRj4pPH6JPjD8EKMWkvZVdcrXEnu1G5flRO5fkqPswddJ
+	 WlR3asR9152D3WZiEjBUzj+Vtx8f+tnxvYnBrwx35Hhq7xa62PBw52dW7QndL8e+pFQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=kemnade.info;
-	spf=pass smtp.mailfrom=kemnade.info;
-	dkim=pass header.d=kemnade.info header.i=@kemnade.info header.a=rsa-sha256 header.s=20220719 header.b="Q5Q/Al6F";
-	arc=none smtp.remote-ip=178.238.236.174
-Received: from mail.andi.de1.cc (mail.andi.de1.cc [178.238.236.174])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=roeck-us.net;
+	spf=fail smtp.mailfrom=roeck-us.net;
+	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=YFDmMSQ6;
+	arc=none smtp.remote-ip=44.202.169.35
+Received: from omta036.useast.a.cloudfilter.net (omta036.useast.a.cloudfilter.net [44.202.169.35])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6CF6606A31C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:40:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E6CF6606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=kemnade.info
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kemnade.info
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3817606A336
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:41:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F3817606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kemnade.info header.i=@kemnade.info header.a=rsa-sha256 header.s=20220719 header.b=Q5Q/Al6F
+	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=YFDmMSQ6
+Received: from eig-obgw-5004b.ext.cloudfilter.net ([10.0.29.208])
+	by cmsmtp with ESMTPS
+	id TNLBxUBS34vCDTO7ExOhQz; Tue, 17 Nov 2026 18:41:12 +0000
+Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
+	by cmsmtp with ESMTPS
+	id TO7Cx7scOuJrPTO7DxgSRC; Tue, 17 Nov 2026 18:41:11 +0000
+X-Authority-Analysis: v=2.4 cv=WLZ/XmsR c=1 sm=1 tr=0 ts=6afc9fc8
+ a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=gAnH3GRIAAAA:8
+ a=EUspDBNiAAAA:8 a=3OfnbWqpRXkE7MXKp-4A:9 a=CjuIK1q_8ugA:10
+ a=KPbNTLLc3YvdawN95zVk:22
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=kemnade.info; s=20220719; h=Subject:To:From:Reply-To:Cc:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=I51Cm6Ck9h4Ru+oeZIaLxqVx575L3vwgMDr+fkw6O44=; t=1794940849; x=1796150449; 
-	b=Q5Q/Al6Fk/4LhJuCk87SDAWHbAfd/lwTYmCzN3NttqSitYYwjgKhMLCMBgx9wHL1Q235TZX5DAn
-	YIt7iPmGkHKyBWbDKCRJeN/DH/PMe4eOfvoZNcKfWcrgZfgudfVOrg8Fv0b5uEk3l0IkVAVhB1REP
-	mD98t98NYazAcBBJHpJaE/0OgDPLWuMN11bmUvEjL7MMnGEIdW3URjA1aIT5tNQiPCUL6E5IfK//2
-	r62sQamr6gDHYDRVrsAk9gFmg6F82E/9DWsciV1YsfqP5xxe4Y0C6Mi9vyrfz4TyHrg4bHQ/FcOtZ
-	rFOqUYHmBqx44+MowinUrOnSPvN1OiOqJpKA==;
-From: Andreas Kemnade <andreas@kemnade.info>
-To: tomi.valkeinen@ideasonboard.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	luca.ceresoli@bootlin.com,
-	andreas@kemnade.info,
-	louis.chauvet@bootlin.com,
-	aesteve@redhat.com,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] drm/omap: dss: simplify omapdss_device_init_output
-Date: Tue, 17 Nov 2026 19:40:19 +0100
-Message-ID: <20261117184019.430513-1-andreas@kemnade.info>
-X-Mailer: git-send-email 2.47.3
+	d=roeck-us.net; s=default; h=In-Reply-To:Content-Type:MIME-Version:References
+	:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
+	:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=uzgMGuJH7y9PpdqDVrfWe+YpxihFKk8NBF5FqP0/B48=; b=YFDmMSQ6njJ7g3TGwyqyWG6HbD
+	VSUs5xReDgoBDPjfuNVzXMpkDWlDX/66hznqmy1hiwlGvrhHVLfoIqNb9Ba7058Fj6B3Q3Caud8S/
+	RW4Y2jcPocH/FzHoCD50S6gLiVL8jpsaYxgL5l4OQ1Q5cOVPJ0DFG/WWDTvYQFb1AXOYJgsiFNtwm
+	irFQAVbPn8u3m8Nr4ILti1/hOWXmj/wc+qwyZYYxG6QAHRK80Bz2d9EgvK8t+nqCigZhOSMU5dwck
+	hdNbtLBqmKlatziwPdDFz8+mwwxOXQ0TELj9ZWxiKMzSOemDfCMfTvTmSh7mK4LAV+uRtCpespuTU
+	OD6atnNA==;
+Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:45336 helo=server.roeck-us.net)
+	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <linux@roeck-us.net>)
+	id 1xTO7B-000000006da-1bIQ;
+	Wed, 18 Nov 2026 00:11:09 +0530
+Date: Tue, 17 Nov 2026 10:41:08 -0800
+From: Guenter Roeck <linux@roeck-us.net>
+To: Christopher de Guzman <christopher.deguzman@analog.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>, linux-hwmon@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v2 1/4] dt-bindings: hwmon: ltc2978: Add support for
+ LT7175 and LT7176P
+Message-ID: <ea14de95-c079-4302-8a65-86c4c65a8e12@roeck-us.net>
+References: <20261110-upstream-lt7175-lt7176p-v2-0-dd60d28383bf@analog.com>
+ <20261110-upstream-lt7175-lt7176p-v2-1-dd60d28383bf@analog.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,53 +89,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261110-upstream-lt7175-lt7176p-v2-1-dd60d28383bf@analog.com>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - roeck-us.net
+X-BWhitelist: no
+X-Source-IP: 108.223.40.66
+X-Source-L: No
+X-Exim-ID: 1xTO7B-000000006da-1bIQ
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:45336
+X-Source-Auth: guenter@roeck-us.net
+X-Email-Count: 2
+X-Org: HG=direseller_whb_net_legacy;ORG=directi;
+X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfFXrPRIVHRdOLROOcgJeI9LKWZiQEyPiWoCoXNtqu065vYVUKa7nHZlTwuf917O2YLWBvS840UwpZS1FtpuDblGhq8XSC6N90G4iBSxXseys1nALdAXY
+ aM9FqEMrPreQkdJmSfj+bJn7RbUryeUSiGlMKBxzpyN/ke8ME5f3uS8/JsGiFyp6EvbGouiwAq/dGINZwFAXYY6KNp2QQLAzU/79LppNBBlwjCf/4nP/Ww4M
 
-During reviewing of a regression fix is that function, questionable
-possibly unbalanced drm_bridge_put/get came to light. Sashiko
-review pointed out that of_drm_get_bridge_by_endpoint() does not return
-NULL, so the questionable code is simply unreachable and therefore does
-at least not harm. Remove the dead code.
+On Tue, Nov 10, 2026 at 06:00:40PM +0800, Christopher de Guzman wrote:
+> Document the compatible strings for the LT7175 and LT7176P PMBus buck
+> regulators supported by the ltc2978 driver.
+> 
+> Signed-off-by: Christopher de Guzman <christopher.deguzman@analog.com>
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Suggested-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Signed-off-by: Andreas Kemnade <andreas@kemnade.info>
----
- drivers/gpu/drm/omapdrm/dss/output.c | 10 ----------
- 1 file changed, 10 deletions(-)
+Applied.
 
-diff --git a/drivers/gpu/drm/omapdrm/dss/output.c b/drivers/gpu/drm/omapdrm/dss/output.c
-index b5cef5093a883..cbb9b2f1a2133 100644
---- a/drivers/gpu/drm/omapdrm/dss/output.c
-+++ b/drivers/gpu/drm/omapdrm/dss/output.c
-@@ -20,7 +20,6 @@ int omapdss_device_init_output(struct omap_dss_device *out,
- 			       struct drm_bridge *local_bridge)
- {
- 	struct drm_bridge *bridge;
--	int ret;
- 
- 	bridge = of_drm_get_bridge_by_endpoint(out->dev->of_node, out->of_port, 0);
- 	if (IS_ERR(bridge)) {
-@@ -34,20 +33,11 @@ int omapdss_device_init_output(struct omap_dss_device *out,
- 	out->bridge = bridge;
- 
- 	if (local_bridge) {
--		if (!out->bridge) {
--			ret = -EPROBE_DEFER;
--			goto error;
--		}
--
- 		out->next_bridge = out->bridge;
- 		out->bridge = drm_bridge_get(local_bridge);
- 	}
- 
- 	return 0;
--
--error:
--	omapdss_device_cleanup_output(out);
--	return ret;
- }
- 
- void omapdss_device_cleanup_output(struct omap_dss_device *out)
--- 
-2.47.3
-
+Thanks,
+Guenter
