@@ -1,47 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.219
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794937231;
-	b=EyQcXh26BEhYKIBFygerWHtg6Q6KrTsYtI5iAnu2oTmIcVuB5wDaHIfozbIuYBDkjNYT
-	 jL+E0TnpXH4HEgvb+OQ610lCKsViPO3jgR280fpelkPsFXUojHessgjNnzDwoaSWN8q9g
-	 V1VdXAyf9NrJ2LoAfPbKFOsz8tV7miCv3Tzo4R2Vpk+UcHf9hc04ASZj3ZrawGntr1jcY
-	 79UYqRbLpPYP+QAgtpLNdw6/BqUVn5Y1HHUU25P7g40K/bPhu7Y2Tm8k8FDQhRBs+1263
-	 DCUJSAQPEyBRZpUBQqexDit79JF0iSsSPvFVuKVqkATCPmpuLSLqutg5JeuzB3noCmw==
+	t=1794937239;
+	b=cEVnuA6efoxB+JkxrNTpjdE8zim4VvxLmLoTj9EBqtdeu1b3ppEzgmkRv8kJC1kRxTqp
+	 s0xUA2+NWHIPh9Gi/KLHk5m/ZroAZOyzK8mEmJvOOBhFxcObjW96O14oA0wa5+bm2BUNk
+	 sS9RBa043zwmd1hVgad15Javt8DT68OYl9zWSBAjFECYK+2R85+yucZ3Uhk8yz3/9aS9I
+	 HdsgLCQ2WHOGdl/xoHRgYK8JZ7q/+8e6YTcqyq9PV7t+kJX5hd/gb22FJHDD4TqU2bSdN
+	 7mZL3LOowSARBWxtbS3E9oJV6rDImB3M2sJSABM8kHEAWY3irLxJ0Om8TGNlPn056LQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794937231;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794937239;
 	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=NfnXEPcZubGYIvAuu0emS2kkZCekEVtpp7Kmyvr+j48=;
-	b=a/jv3er4Qeb4Wxyt26dFrkJjU9hy77aJwwINDRtCxeTM+Es8zbrl4j070JlCeaXSIvzy
-	 s9YuNyrRa6/QiHql6StZdO9Xx+QIwWP7FTX1Q4irc954E1y2/LgC7M/+efQ+2XhyTVXy1
-	 PKvs2EWr97mVdN2otfxbg6c4J5PeH6HRHoBaB9i+HW+OkRQGZie01tXhVOrjWUo2mNMq7
-	 XZlOBrsypBGqaRW53Z42Yg+hVi93H89/oiI2EG5TUBbr1vdwvr1v8gui5wetptsZNVpbH
-	 XDLuEQ2OMmvJOAhYDQlVgkcHbSBoEs3Y82eLMc5HZqVCA+gxO2Ooa+EuRfSsxG8Qk5g==
+	bh=Pqdb1CZmw00+aWMEKUmzfViHJG+GiKGhJXCKYqajwNg=;
+	b=wx8ufiiGHRS53QKEJW2mGnF+lWOFcIu+V2A9EUB20MaAVBXooXrq7sRdiNyy8drZUrDa
+	 0SA485laapkQlidF7iLmvBeW7q8buINijzVKBMd/Gd7d/lknbDy/EohpkpOGAW9b7whPD
+	 x0466rHyAkfu/gvefPrfONqTKWDnnDjMG1yblnyyXLWkKXKP4/Wc6iCfjVyuDj7bptobd
+	 aE1KRgnyzuNU5uIQkVDtc3U5wjV0yCixp5PjynwIkehSrzuydG7mSorfD1yAMhWIHvWNY
+	 QqfJQbMrvOiRIgg/o2yVTQtjj8yBdzgwQYJbfMRELlpAzSlH+IKPb+rPZSTko3zxZaw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=xiaopeng.com;
 	spf=pass smtp.mailfrom=xiaopeng.com;
-	dkim=pass header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=Pw+yyWHv;
-	arc=none smtp.remote-ip=115.124.28.219
-Received: from out28-219.mail.aliyun.com (out28-219.mail.aliyun.com [115.124.28.219])
+	dkim=pass header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=bqqO2wx1;
+	arc=none smtp.remote-ip=115.124.28.195
+Received: from out28-195.mail.aliyun.com (out28-195.mail.aliyun.com [115.124.28.195])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05F9E606A31C;
-	Tue, 17 Nov 2026 17:40:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 05F9E606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 613DE606A33B;
+	Tue, 17 Nov 2026 17:40:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 613DE606A33B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=xiaopeng.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xiaopeng.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=Pw+yyWHv
+	dkim=pass (1024-bit key) header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=bqqO2wx1
 DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=xiaopeng.com; s=default;
-	t=1794937221; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=NfnXEPcZubGYIvAuu0emS2kkZCekEVtpp7Kmyvr+j48=;
-	b=Pw+yyWHvhW7avJpMHYmnES9fKDVVdWdnAg/3X3sCk1ifTNIm12LpGR5tzyS9ScIaSYXyz0uabrS+x2sw0F9cQQ3oUmk8DAigKs6PJrMYMyxrsng2vAap0X0XHWveuJG3HhVX6LBzuFjnz6SqD6vLE89LIGqqnvBpiWpCuRQbs1g=
-X-Alimail-AntiSpam:AC=CONTINUE;BC=0.04475058|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.0078416-0.000222638-0.991936;FP=12416432432656457696|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033045099153;MF=fangxy@xiaopeng.com;NM=1;PH=DS;RN=12;RT=12;SR=0;TI=SMTPD_---.k4BATDp_1794937219;
-Received: from localhost.localdomain(mailfrom:fangxy@xiaopeng.com fp:SMTPD_---.k4BATDp_1794937219 cluster:ay29)
+	t=1794937236; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=Pqdb1CZmw00+aWMEKUmzfViHJG+GiKGhJXCKYqajwNg=;
+	b=bqqO2wx1x7qX5jCgILaQicooZaAywUUVVnk/WMQMeumIrwFnKCiVwaqTA1i8n2YLVu8vvg0ORGuF1pfd75w5eLY7OXNQ0vEpvO41YEeYwdpqllvF00y6S95x+KZ9MA0fRPqmCXjCGWMd+ggyeWPS8dZVwJo/m72a6m6DWBPo3dw=
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.04436263|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.00745487-0.000394108-0.992151;FP=16019490987614699539|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033032065030;MF=fangxy@xiaopeng.com;NM=1;PH=DS;RN=14;RT=14;SR=0;TI=SMTPD_---.k4BATO6_1794937233;
+Received: from localhost.localdomain(mailfrom:fangxy@xiaopeng.com fp:SMTPD_---.k4BATO6_1794937233 cluster:ay29)
           by smtp.aliyun-inc.com;
-          Wed, 18 Nov 2026 01:40:20 +0800
+          Wed, 18 Nov 2026 01:40:35 +0800
 From: Fang Xieyan <fangxy@xiaopeng.com>
 To: Loic Poulain <loic.poulain@oss.qualcomm.com>,
 	Sergey Ryazanov <ryazanov.s.a@gmail.com>,
@@ -54,11 +54,15 @@ Cc: "David S . Miller" <davem@davemloft.net>,
 	Simon Horman <horms@kernel.org>,
 	Johannes Berg <johannes@sipsolutions.net>,
 	Maoyi Xie <maoyixie.tju@gmail.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v2 0/5] net: wwan: iosm: validate MUX DL lengths and offsets
-Date: Wed, 18 Nov 2026 01:39:35 +0800
-Message-ID: <20261117173940.34970-1-fangxy@xiaopeng.com>
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Guanglei Zhu <zhugl3@xiaopeng.com>
+Subject: [PATCH net v2 4/5] net: wwan: iosm: pass the DL command parameter by pointer
+Date: Wed, 18 Nov 2026 01:39:39 +0800
+Message-ID: <20261117173940.34970-5-fangxy@xiaopeng.com>
 X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20261117173940.34970-1-fangxy@xiaopeng.com>
+References: <20261117173940.34970-1-fangxy@xiaopeng.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,86 +74,118 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The MUX downlink decoders trust several modem supplied lengths and
-offsets without bounding them against what actually arrived: the block
-size from the transfer descriptor, the ADGH datagram length, the ACBH
-block length, the command chain offsets and the declared parameter
-length. A truncated or enlarged DL block makes the driver read past the
-received data, hand the network stack an undeclared payload, or walk a
-command chain that loops or redecodes the same bytes. The aggregated
-datagram block path is already covered by commit 526b8ef54668 ("net:
-wwan: iosm: bound device offsets in the MUX downlink decoder") and is
-not touched here.
+ipc_mux_dl_cmdresps_decode_process() takes the twelve byte union
+mux_cmd_param by value, so every received command copies the whole
+union out of the skb even when its type only needs one member,
+reading past what arrived for a truncated response. The driver also
+builds its link status response inside the received block.
 
-This series adds those bounds. No command type, response or protocol
-semantics change, so a conforming modem behaves exactly as before. A
-parameter too short for the member its command type reads is dropped
-with -EMSGSIZE, which also ends an aggregated block at that command.
-Patch 4 is the prep change for patch 5; both carry Cc: stable, as patch
-5 cannot be backported without patch 4.
+Take the parameter as a const pointer and keep the lite path response
+in a local variable; the aggregated path sends no response parameter.
+The session response path still copies the full parameter union here.
+The next patch adds the received parameter length check and restricts
+each response copy to its own member. This change is a prerequisite
+for that fix and is tagged for stable alongside it.
 
-cmd_len is not a parameter bound in either path. In an aggregated block
-the boundary is next_cmd_index, or the end of the received block for the
-last command. In MUX Lite there is one command per skb, so the received
-length is already everything that command owns; the flow control decoder
-treats a mismatching cmd_len as a legacy device, so the field is a
-compatibility flag, not a length bound.
+Fixes: 9413491e20e1 ("net: iosm: encode or decode datagram")
+Cc: stable@vger.kernel.org
+Reviewed-by: Guanglei Zhu <zhugl3@xiaopeng.com>
+Signed-off-by: Fang Xieyan <fangxy@xiaopeng.com>
+---
+ drivers/net/wwan/iosm/iosm_ipc_mux_codec.c | 29 ++++++++++------------
+ 1 file changed, 13 insertions(+), 16 deletions(-)
 
-Patch 3 bounds the ACBH command chain by the received length rather
-than block_length. Although the structure describes block_length as
-the length of the aggregated command block, the uplink encoder
-initializes it to the ACBH header size and does not update it as
-commands are appended, so it cannot delimit the received command
-chain. The field is sanity checked, while first_cmd_index and
-next_cmd_index are bounded against skb->len. The walk's
-array_index_nospec() call is removed: it bounded a byte offset by
-sizeof(struct mux_cmdh), zeroing every legal offset past that size.
-The offset indexes no array; array_index_nospec() is kept only for
-if_id, an actual array index.
-
-Patch 2 relies on the ADGH header check from patch 1, patch 5 on the
-ACBH validation from patch 3 and the parameter pointer from patch 4.
-Every commit applies and builds individually, W=1 drivers/net/wwan/iosm/
-is clean. Found by reviewing the DL decode path against the MUX protocol
-structures, not reproduced on a live modem: reaching it needs a device
-that truncates or enlarges its own downlink blocks. The series is based
-on the net tree at 145480b28ca8.
-
-Changes in v2, all three points from the Sashiko AI review of v1:
-
-- Patch 5 bounds the MUX Lite parameter by the received length alone,
-  not by cmd_len: v1 dropped legacy FLOW_CTL (cmd_len 16..19) and
-  OPEN_SESSION_RESP (16..27) even when the parameter bytes had arrived,
-  defeating the backward compatibility branch in
-  ipc_mux_dl_cmds_decode_process() that exists for exactly these (the
-  protocol minimum for cmd_len is 0x10).
-
-- Patch 2 rejects adgh_len == packet_offset too: the zero length clone
-  reached ipc_wwan_receive(), which reads skb->data[0] without checking
-  skb->len. mux_dl_process_dg() already rejects the same case for the
-  aggregated path with dl_head_pad_len >= dg_len.
-
-- Patch 4 gains Fixes: 9413491e20e1 and Cc: stable@vger.kernel.org: its
-  by-value signature copied all twelve union bytes even for a four byte
-  response, and patch 5 bounds the session responses, so the two are
-  needed together. A prerequisite itself marked for stable and present
-  in the series need not be listed, per stable-kernel-rules.rst.
-
-Patch 1 is unchanged. Patch 3 changes only its changelog and comments.
-
-v1:
-https://lore.kernel.org/netdev/20261112125201.1019-1-fangxy@xiaopeng.com/
-
-Fang Xieyan (5):
-  net: wwan: iosm: validate the MUX DL block length
-  net: wwan: iosm: validate the ADGH datagram length
-  net: wwan: iosm: bound the ACBH command chain walk
-  net: wwan: iosm: pass the DL command parameter by pointer
-  net: wwan: iosm: validate the command parameter length
-
- drivers/net/wwan/iosm/iosm_ipc_mux_codec.c | 187 ++++++++++++++++-----
- 1 file changed, 141 insertions(+), 46 deletions(-)
-
+diff --git a/drivers/net/wwan/iosm/iosm_ipc_mux_codec.c b/drivers/net/wwan/iosm/iosm_ipc_mux_codec.c
+index a8448e273c02..3f93d7293785 100644
+--- a/drivers/net/wwan/iosm/iosm_ipc_mux_codec.c
++++ b/drivers/net/wwan/iosm/iosm_ipc_mux_codec.c
+@@ -184,7 +184,7 @@ void ipc_mux_netif_tx_flowctrl(struct mux_session *session, int idx, bool on)
+ }
+ 
+ static int ipc_mux_dl_cmdresps_decode_process(struct iosm_mux *ipc_mux,
+-					      union mux_cmd_param param,
++					      const union mux_cmd_param *param,
+ 					      __le32 command_type, u8 if_id,
+ 					      __le32 transaction_id)
+ {
+@@ -194,7 +194,7 @@ static int ipc_mux_dl_cmdresps_decode_process(struct iosm_mux *ipc_mux,
+ 	case MUX_CMD_OPEN_SESSION_RESP:
+ 	case MUX_CMD_CLOSE_SESSION_RESP:
+ 		/* Resume the control application. */
+-		acb->got_param = param;
++		acb->got_param = *param;
+ 		break;
+ 
+ 	case MUX_LITE_CMD_FLOW_CTL_ACK:
+@@ -318,7 +318,7 @@ static void ipc_mux_dl_cmd_decode(struct iosm_mux *ipc_mux, struct sk_buff *skb)
+ 	__le32 trans_id = cmdh->transaction_id;
+ 	int size;
+ 
+-	if (ipc_mux_dl_cmdresps_decode_process(ipc_mux, cmdh->param,
++	if (ipc_mux_dl_cmdresps_decode_process(ipc_mux, &cmdh->param,
+ 					       cmdh->command_type, cmdh->if_id,
+ 					       cmdh->transaction_id)) {
+ 		/* Unable to decode command response indicates the cmd_type
+@@ -333,14 +333,15 @@ static void ipc_mux_dl_cmd_decode(struct iosm_mux *ipc_mux, struct sk_buff *skb)
+ 			/* Decoded command may need a response. Give the
+ 			 * response according to the command type.
+ 			 */
++			union mux_cmd_param response = {};
+ 			union mux_cmd_param *mux_cmd = NULL;
+ 			size_t size = 0;
+ 			u32 cmd = MUX_LITE_CMD_LINK_STATUS_REPORT_RESP;
+ 
+ 			if (cmdh->command_type ==
+ 			    cpu_to_le32(MUX_LITE_CMD_LINK_STATUS_REPORT)) {
+-				mux_cmd = &cmdh->param;
+-				mux_cmd->link_status_resp.response =
++				mux_cmd = &response;
++				response.link_status_resp.response =
+ 					cpu_to_le32(MUX_CMD_RESP_SUCCESS);
+ 				/* response field is u32 */
+ 				size = sizeof(u32);
+@@ -500,26 +501,22 @@ static void ipc_mux_dl_acbcmd_decode(struct iosm_mux *ipc_mux,
+ 	u32 fctl_dis = IOSM_AGGR_MUX_CMD_FLOW_CTL_DISABLE;
+ 	u32 fctl_ena = IOSM_AGGR_MUX_CMD_FLOW_CTL_ENABLE;
+ 	u32 fctl_ack = IOSM_AGGR_MUX_CMD_FLOW_CTL_ACK;
+-	union mux_cmd_param *cmd_p = NULL;
+ 	u32 cmd = link_st;
+ 	u32 trans_id;
+ 
+ 	if (!ipc_mux_dl_cmds_decode_process(ipc_mux, &cmdh->param,
+ 					    cmdh->command_type, cmdh->if_id,
+ 					    cmdh->cmd_len, size)) {
+-		size = 0;
+-		if (cmdh->command_type == cpu_to_le32(link_st)) {
+-			cmd_p = &cmdh->param;
+-			cmd_p->link_status_resp.response = MUX_CMD_RESP_SUCCESS;
+-		} else if ((cmdh->command_type == cpu_to_le32(fctl_ena)) ||
+-				(cmdh->command_type == cpu_to_le32(fctl_dis))) {
++		if (cmdh->command_type == cpu_to_le32(fctl_ena) ||
++		    cmdh->command_type == cpu_to_le32(fctl_dis))
+ 			cmd = fctl_ack;
+-		} else {
++		else if (cmdh->command_type != cpu_to_le32(link_st))
+ 			return;
+-			}
++
+ 		trans_id = le32_to_cpu(cmdh->transaction_id);
++		/* No response parameter is sent in the aggregated protocol. */
+ 		ipc_mux_dl_acb_send_cmds(ipc_mux, cmd, cmdh->if_id,
+-					 trans_id, cmd_p, size, false, true);
++					 trans_id, NULL, 0, false, true);
+ 	}
+ }
+ 
+@@ -571,7 +568,7 @@ static void ipc_mux_dl_acb_decode(struct iosm_mux *ipc_mux, struct sk_buff *skb)
+ 		     skb->len - next_cmd_index < hdr_len))
+ 			break;
+ 
+-		if (ipc_mux_dl_cmdresps_decode_process(ipc_mux, cmdh->param,
++		if (ipc_mux_dl_cmdresps_decode_process(ipc_mux, &cmdh->param,
+ 						       cmdh->command_type,
+ 						       cmdh->if_id,
+ 						       cmdh->transaction_id)) {
 -- 
 2.50.1
 
