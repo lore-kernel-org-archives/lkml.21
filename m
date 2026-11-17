@@ -1,82 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.8
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794941953;
-	b=ra+tTKFof5XIiUl4lMvaNH8Gz8a+DHSZ1aOdHn0Zo0/6umUMa76PIdkVC+Ra+z6tACd1
-	 qSHjo8jDIFCFZMbYjOkAtSKEpPkNAyMVxTN03rEEhBrdrOHM9wYPH8c2Vht2XxFVGiB6U
-	 zQYLiDTNlmz2RTJkxjrK5cUdAwJN5sWMqL34zj/1ILc7otQuBU1BU5PHnz9SQqsueYZY0
-	 cwMWrq2bbZ1Cbhh2FD3AmE2zh4VLmULYnDa+DPbfsLz89BJTwZMHXjbVnyW50i966OzHC
-	 iBysndO91eqsOG75XbDkr4OkzJJ4WmZMPmwxnEOOUY2uVIhNKjf006ee2nMvYQtSf0A==
+	t=1794941973;
+	b=v+AINtrX70nnMQDTQTkMxV2x6olthp9LhBVB1AFswi2prEBI/xikX2g7v3b2L+hYgpOp
+	 2SXv55lBzERUWYep3kkzcCr1DjfORkkTQaVb2KmP/WIQWK4YpNhzwJ4lYaRlPadtZa1j3
+	 MSYqgmyCDBZdJ6fTBXc+wIf9FzED7SZzIqbZaL1c2y8pUSAgud0Gr0LtCP+JPv64MQuDV
+	 nb8ckIbqvawv8a0UMYzRdE6XHUDrJhIbnDFyPKan1020fH+tRPWUaM2WSO/9CD5KXOdQb
+	 ERZ14LbIdJl9KkYKNVB7C1kvha92gjpbKCwamDD424Dqf8i0ao1tfOvJUdVIjGBctGA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794941953;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
-	 Organization;
-	bh=7hJxtqXBPfqark14BY8bw5v3+/Teimr8R1AXsM1mMRI=;
-	b=c9nWdcocak0XpNcla5zekbD5dWy/8KOB9eKfjxGC3fr+/HIqWsq/znC9hK5OarjDvOlC
-	 WDO/nEN2pkGGIFR53v2kXdaIEqOcqzEGBwJbvjasOapRtxOBLDtqLqM2HZ5Bjm40/Eyfm
-	 Ek5hIif2FH7+cLhCN9VqJ+NaDIh8OfohbzDf1x97yvAPtZpnOWLeU/yT3LR4Wj6o2/tBg
-	 NbNIOp6SEz3qIqOnirEYb68I+AnhMAKnAN9TFEzV/oC1UpblsDJHYdLIwpEbPk+lb93N8
-	 RgUnFlWjrcoe4oOk6bG6VXZ5xZDPYy9BMqO3KTfHAiVeiwMZFxx3r00o01cjVNy6Ykw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794941973;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:MIME-Version:Content-Transfer-Encoding:X-Scanned-By;
+	bh=kUIRrOyVQBuEg1TQbMeXEdWhbbHNohGKlJQkYvjkyFc=;
+	b=pczXXQU7OPjvSdEnUg4AzLWMWkStWykRovggmI2xzRlXXj7/tRKxyhmYTd9zby24juQl
+	 Tk4Qh3ESljafyRDKMR851/AljsnL7YOnV+SD92pNuFU+q9pD1GtS/pQPQ9EXfJtfTnh9Z
+	 L5CZXr0pPIP3gNhSLkiDMUqYye8eYho7H6cr4Qm4V3siO5lhYphh7wGvxWT0RQvPiAgB+
+	 qChPz5spOwZyC5knAlDVidbunqh2+pNalA33EBpFVClrLIDSRPX81nJFNKyfOi3pS+hZ8
+	 XqgWDTFE03Dtg/m07RKIiF0hy4VAmoeExQggu5FD8D2Xa1XLsTLNveezH1iT02CN1xA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hWBmnMLa;
-	arc=none smtp.remote-ip=192.198.163.8
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.8])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="P9u/J/iO";
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5447E606A32A;
-	Tue, 17 Nov 2026 18:59:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5447E606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2E86606A331
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:59:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2E86606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hWBmnMLa
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1794941953; x=1826477953;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=vkhc7EfR0Bckp6Ddz+uAhm9P/S4T58+7MYjBoqJB++c=;
-  b=hWBmnMLaguV2VdP19SYGbFwXAFCY39HMrqo+SL3Qk+L7j+sYckIc3+cA
-   WAYq3RSspB7BT++hsce3TiXfx0zquNc/32TRRl60J416EBdhrqWU/Iwu8
-   OVazX9Us0vFRr5lrtno7GVzEaJ7uHg5Wn4+bGYigad1QYIkVBiQQGaQEd
-   leN+4U1upKP/5LJyFlGRl+yOiDYnp9n3WoSglGG/kPDMnx5VfungT24/r
-   mpdxWvLho3b2RrhF5xflt/5YSq4N6b6X0g6tPlIKoQWZ7K7yKYMY7Vxg8
-   /9oPO+MT2XQC7DbKv0TGdVr39LLlOCYrcrzVa5v2M1FvA9HeJflC8SRgj
-   w==;
-X-CSE-ConnectionGUID: TqTRbcJFSbyQexm1IQBeNQ==
-X-CSE-MsgGUID: m/rp8wG7RvqJ8B2bR85RLQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3622458"
-X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
-   d="scan'208";a="3622458"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 10:59:12 -0800
-X-CSE-ConnectionGUID: p0WP9NnaTJCTHj6/n3Z58Q==
-X-CSE-MsgGUID: qtspzAJ3SliWgSU7v9IE7g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
-   d="scan'208";a="9907548"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.254])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 10:59:09 -0800
-Date: Tue, 17 Nov 2026 20:59:06 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Arnav Kapoor <kapoorarnav43@gmail.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Gwendal Grignou <gwendal@chromium.org>,
-	Stephen Boyd <swboyd@chromium.org>, linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/6] iio: proximity: sx9324: fix proximity threshold
- writes
-Message-ID: <avyj-lOGvj04A_Ak@ashevche-desk.local>
-References: <20261116205320.26070-1-kapoorarnav43@gmail.com>
- <20261116205320.26070-3-kapoorarnav43@gmail.com>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=P9u/J/iO
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1794941971;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=kUIRrOyVQBuEg1TQbMeXEdWhbbHNohGKlJQkYvjkyFc=;
+	b=P9u/J/iOrCYgt6slWJ6w+tJP8jAuUcPkR52gTaZmEcpU4xTvvEsUfiPUVP0BD3lgvKLb9q
+	ymJnKRlcLXNkPM7ziK5htq9nz7HMupT5wv4uUOn6ZDgI4gBlkktAgqYNmanrD+auhaQUn5
+	4Oda1BczQ+rYLfXaMC7Uy+bGaGQp8EE=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-587-ZxyyJxPwOGm3PRZUR8-wzw-1; Tue,
+ 17 Nov 2026 13:59:26 -0500
+X-MC-Unique: ZxyyJxPwOGm3PRZUR8-wzw-1
+X-Mimecast-MFC-AGG-ID: ZxyyJxPwOGm3PRZUR8-wzw_1794941965
+Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4E05C195604C;
+	Tue, 17 Nov 2026 18:59:25 +0000 (UTC)
+Received: from pbonzini-thinkpadx1carbon6th.rmtit.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id D6DA6589;
+	Tue, 17 Nov 2026 18:59:23 +0000 (UTC)
+From: Paolo Bonzini <pbonzini@redhat.com>
+To: linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org
+Cc: seanjc@google.com,
+	Sasha Levin <sashal@kernel.org>
+Subject: [PATCH] KVM: SEV: never retry after #NPF on paging structures
+Date: Tue, 17 Nov 2026 19:59:22 +0100
+Message-ID: <20261117185922.466255-1-pbonzini@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,110 +75,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261116205320.26070-3-kapoorarnav43@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
 
-On Tue, Nov 17, 2026 at 02:23:10AM +0530, Arnav Kapoor wrote:
-> sx9324_read_thresh() reports a PROX_THRESH code r as r for r <= 1 and as
-> r * r / 2 otherwise, but sx9324_write_thresh() converts back with
-> int_sqrt(2 * val).
+KVM cannot walk the encrypted page tables of SEV guests, so there is
+no point in emulating the instruction if the #NPF fault was caused by
+either data or code.  In the latter case the instruction buffer is going
+to be empty, so emulation was avoided by resuming the guest, but in the
+data case KVM attempted emulation which is pointless.
 
-> For odd r the read value is (r * r - 1) / 2,
+Apply the existing check for PFERR_GUEST_PAGE_MASK even if the instruction
+buffer was filled.
 
-No, it's r²/2 but in integer arithmetics. That's why for odd number squares
-it gives 1/2 that becomes 0.
+Reported-by: Sasha Levin <sashal@kernel.org>
+Signed-off-by: Paolo Bonzini <pbonzini@redhat.com>
+---
+ arch/x86/kvm/svm/svm.c | 30 ++++++++++++++++++------------
+ 1 file changed, 18 insertions(+), 12 deletions(-)
 
-> so writing back the value that was just read programs r - 1: setting the
-> threshold to the value it already has lowers it, for 127 of the 256
-> codes (3, 5, 7, ...).
-> 
-> The int to unsigned int conversion also lets some negative values
-> through: 2 * val wraps, so e.g. INT_MIN is written as 0 and values just
-> above INT_MIN as small thresholds instead of being rejected.
-> 
-> Reject negative values and use int_sqrt(2 * val + 1), which picks the
-> largest code whose reported threshold does not exceed the requested
-> value and makes read_thresh() and write_thresh() inverses of each
-> other for all 256 codes.
-
-So, for the read part
-
-	reg		value
-	0		0
-	1		1
-	2		2
-	3		4
-	4		8
-	5		12
-	6		18
-	7		24
-	....
-
-For the write part (the negative is problematic only on 32-bit case IIUC)
-
-	value		reg
-	-INT_MIN	0
-	-INT_MIN + 1	1
-	-INT_MIN + 2	2
-	-INT_MIN + 3	2
-	...
-	0		0
-	1		1
-	2		2
-	3		2
-	4		2	// has to be 3
-	5		3
-	6		3
-	7		3
-	8		4
-	9		4
-	...
-	12		4	// has to be 5
-	13		5
-	...
-	18		6
-	...
-	24		6	// has to be 7
-	...
-
-Yep, what we see is off-by-one for full squares. This is because division
-by 2 in integer arithmetics makes it floor number. So, what you want
-to have is a correction for all odd numbers.
-
-...
-
-> static int sx9324_write_thresh(struct sx_common_data *data,
-
->  	reg = SX9324_REG_PROX_CTRL6 + chan->channel / 2;
-
-This one is not used in the conditionals, so the new check may well be done
-before it.
-
-> +	if (_val < 0)
-
-Checking _val after assigning val to it is confusing.
-
-> +		return -EINVAL;
-> +
-> +	/* Inverse of read_thresh(), so that writing back a read value is a no-op */
->  	if (val >= 1)
-
-First of all, I would drop the '=' here.
-
-> -		val = int_sqrt(2 * val);
-> +		val = int_sqrt(2 * val + 1);
-
-And here I would rather use (val % 2) instead of 1. See above why.
-
->  	if (val > 0xff)
->  		return -EINVAL;
-
+diff --git a/arch/x86/kvm/svm/svm.c b/arch/x86/kvm/svm/svm.c
+index af0deb198a84..4f42da3642b6 100644
+--- a/arch/x86/kvm/svm/svm.c
++++ b/arch/x86/kvm/svm/svm.c
+@@ -5513,19 +5513,29 @@ static int svm_check_emulate_instruction(struct kvm_vcpu *vcpu, int emul_type,
+ 	}
+ 
+ 	/*
+-	 * Emulate for SEV guests if the insn buffer is not empty.  The buffer
+-	 * will be empty if the DecodeAssist microcode cannot fetch bytes for
+-	 * the faulting instruction because the code fetch itself faulted, e.g.
+-	 * the guest attempted to fetch from emulated MMIO or a guest page
+-	 * table used to translate CS:RIP resides in emulated MMIO.
++	 * Under SEV, page tables are encrypted and cannot be read by the
++	 * hypervisor, so there is no way to resolve a fault on page tables.
+ 	 */
++	error_code = svm->vmcb->control.exit_info_1;
++	if (error_code & PFERR_GUEST_PAGE_MASK)
++		goto resume_guest;
++
+ 	if (likely(insn_len))
+ 		return X86EMUL_CONTINUE;
+ 
+ 	/*
+-	 * Detect and workaround Errata 1096 Fam_17h_00_0Fh.
++	 * The insn buffer was empty; the DecodeAssist microcode could not fetch
++	 * bytes for the faulting instruction because the code fetch itself faulted,
++	 * e.g. the guest attempted to fetch from emulated MMIO or a guest page
++	 * table used to translate CS:RIP resides in emulated MMIO.
+ 	 *
+-	 * Errata:
++	 * A data fault instead could be Errata 1096 Fam_17h_00_0Fh, so only
++	 * retry for a fetch fault and otherwise try to workaround it.
++	 */
++	if (error_code & PFERR_FETCH_MASK)
++		goto resume_guest;
++
++	/*
+ 	 * When CPU raises #NPF on guest data access and vCPU CR4.SMAP=1, it is
+ 	 * possible that CPU microcode implementing DecodeAssist will fail to
+ 	 * read guest memory at CS:RIP and vmcb.GuestIntrBytes will incorrectly
+@@ -5552,12 +5562,8 @@ static int svm_check_emulate_instruction(struct kvm_vcpu *vcpu, int emul_type,
+ 	 *       retrieve the instruction bytes is legitimate (see abvoe).
+ 	 *
+ 	 * In addition, don't apply the erratum workaround if the #NPF occurred
+-	 * while translating guest page tables (see below).
++	 * while translating guest page tables (see above).
+ 	 */
+-	error_code = svm->vmcb->control.exit_info_1;
+-	if (error_code & (PFERR_GUEST_PAGE_MASK | PFERR_FETCH_MASK))
+-		goto resume_guest;
+-
+ 	smep = kvm_is_cr4_bit_set(vcpu, X86_CR4_SMEP);
+ 	smap = kvm_is_cr4_bit_set(vcpu, X86_CR4_SMAP);
+ 	is_user = svm_get_cpl(vcpu) == 3;
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.56.0
 
