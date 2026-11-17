@@ -1,96 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794943261;
-	b=f9KV8euPfDrj7joiRRN1Gdfhaac1pHNSEY+MiqRoIghYmttvQijLfmfI+HkrG5Yg41PQ
-	 dtnlj+qqybJRajvD3Ndmr2Wf7keD0wb4xRr7kWAiK8KowTBsXkWi051XLxG3KqoxnMuUE
-	 fMWQt6M6ctQEcouMkqw2F8LcdeB9op+xddYlnKaHb8EgRyJs49dSf+fJDGrM3KS3lNmGA
-	 TeAJrmhvEAHQGEj9Kxy1ezclT39dlKE0YWpMnhTNOsk0V2AXddUyKAN54pKurv06dF3TW
-	 rwTTGRhEORPpOW+bKlxOuGnpdj/r8lstlGlLhw9raXlZL1xv9NjPxdgOIW45jBWG7mw==
+	t=1794943325;
+	b=EH32Y+CiflxBeG3A9UBSO9Np7v0T5Bybzoe37y7FJyzKem8wzpuCZ1RFhGx44RLzakRH
+	 I4nvUNvdp1B1wc3nK+4F/gZp2iI5e3Po2LtuknlpE3GrtUmRpFV+dcqb/I9k8LiiKN9+I
+	 Y9sFsjFBw1p29WXXIOTOsSeZSnqMgtPLlnHxlibgtD8G1yIYQaaupYIgNBUkaHz6h3TI4
+	 X4k//T2pWFDIeecpRjQi1sVTK09dASIOT8UgJDXz99U0FoiOwokOaAfaUlHzymWyPyza/
+	 Eoe/mm3922xoq0bSerPTA4ZUPLVfyOtEPmflQytHGc0W5c9mbwKShCkiTwm+3y49CXA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794943261;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=w1pP5hK5c0Kpgq7UYf5wVXth8KsJQzGv3dmC2VFyJ6c=;
-	b=rB6IO9J3A618tpJFU8xfBsI+NIyWXrTZCBgjg78iOcLMDe5/PMeE5X1cP0ob/LsPEGH+
-	 UN/mzWlnqPbZXukNmKMVSiq4sKif6WHQcxUSPLjna6tdFOJBRkJClZMlt3qXCofJbxPlC
-	 Jw/vJrj+R1SONDxGHshV554gpN98l0RL8hu2QGuha2GSMhzdc1OrWW2W3ZsPZvfF0TD0n
-	 c6CLxcj7Zk2LguzstKUabVSwi6NZ/ttyqEPStlfStv3F6bZ4mPR9gC6+lcuPbtnIVP2qF
-	 y22ViNjZDBSBCvydr8NjKniFoOVkAXEFKadxqiwaMAKpGNBxUprJxpC0G9GEUeiQxtw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794943325;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=9J7aBELj60r07PeTpxglJaszz6bHKixvkUGAvEmKE1w=;
+	b=412VuNweHNqdbXRkFYl7VaBnIO2qpz8NZP444jITRRDOg+WhKnaJ+VDo03UOxyK0Ii24
+	 lFGsv2VW41ymmZetKyOvnXvnFay4ZGmmtTNM/E546jhP6PE29E9NskSzDxx38CMvfHQF0
+	 SQFamaKvuB+vTtNMg6sx72bkRCY8AScTbsnmEICoojXAd39ea/6dO8h/XX4H98YQfYwgg
+	 GYGy4kehHnYSK8XLqXVHoYm7Yc7eWqyGXKMPizV8r7e/lhsCuaTcmpp3avqkMQEzkiJvr
+	 wIg01xCAerTf7BsAqfLrh9HxtkFfoaVWvQqHu2cCnawiaZuVWAecq4V8ZL4JRGvMSfQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kMTqJQT+;
-	arc=none smtp.remote-ip=74.125.82.50
-Received: from mail-dl1-f50.google.com (mail-dl1-f50.google.com [74.125.82.50])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sDfwqaoU;
+	arc=none smtp.remote-ip=91.218.175.197
+Received: from mta0.migadu.com (out-197.mta0.migadu.com [91.218.175.197])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 173D6606A881
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:20:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 173D6606A881
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E26F2606A32A
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:22:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E26F2606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kMTqJQT+
-Received: by mail-dl1-f50.google.com with SMTP id a92af1059eb24-1a2761c69fbso389383c88.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:20:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794943259; x=1795548059; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=w1pP5hK5c0Kpgq7UYf5wVXth8KsJQzGv3dmC2VFyJ6c=;
-        b=kMTqJQT+LoSRtjZi2k0tEqiRHH8NJI1aVjqctpGPa0j/PYVQfJMRQcXASvEocIcOf5
-         QZEllLtBbQ/VBz8TTJYYn/smBoi9Cu6kgi2YqfRFOdChbPJa/tO08pmOKCirwnAt5pV0
-         +SySbaQQZZiX6e9vFDGhI/9biiojgoxSZlqDirOkHjLmRcl5s9BjOSsTPcmS5WaKOq5O
-         E+d3nsyVlhG5v/ZTOse8+n9Th7LadsLGgwTW5ctoI4uHzlJqqEvTDCa8fX4c0BUJNrVM
-         sb32AgTVsKbxes8TGSpYjBC/VWEcFPHzs4iy6ZHsdJqbsA3QgyJhs6jZrB1u/dQQPh5X
-         KAzg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794943259; x=1795548059;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=w1pP5hK5c0Kpgq7UYf5wVXth8KsJQzGv3dmC2VFyJ6c=;
-        b=OIMBfKFRL7I6pnJI0VvhbTNOQr7oiLcscoZu0N79cTHbdxi2rzh4uY5Iv/p3yTc8x1
-         G6TjF3LA3I8Zmt6NRGU9wzAJBLYvfTjvpOamEu+TNThEwMibe+7R2etKfTYb83xqh4KB
-         IeqTIflTwfUbl50xmRMkQX8nzyI7hmNqZ6D/wwF5YyeVFj8p9gubpXdFBh45+rfRtJ3j
-         gjsS94wtcg0m+AvhZixc0hBSgi+rU54D7kq6yM/w2F06lvFDOhi3+ngpZEFZnTURBSQu
-         IL9ByeSb3/q7m9MWTOBKzqHaDaXfskLc2trqnT7YleUvPRo5Hnuq+SvkzDKpj9Zpf8l1
-         uNMw==
-X-Forwarded-Encrypted: i=1; AL+hErEdiKGPtgYvEXN6tqyU2kbJ2xyruyzjk1/fHjWVgW8e5qCEzEhJ1Y3fcQbJEcujkmFWtAtuI+W5cwIUwQ4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/rNyUmz3HbRliBKCU8hh9EN2VfA5P7OXzJO1UtpYJvrks2BMyc
-	KCaebc31pEba9yjiWD+KFts1yigXMWtB3BGzPChRqcPeRb/0H/CZfd12
-X-Gm-Gg: AYBFou0fOmovQ3ptUCO7+7xGy9FOmdIPdbR3flyZ7GJHs90r20DPdbQkiVUtCVMt6Ug
-	SE3AO6LHImvUh1E2SWJL7zDr4yU/LQ50XcD4cJP7q8O253K3++HvqKb4jKsXfw/v3nLJd7N5Jnt
-	iOccMW3BDPAbNXVGE8z2Moch1k4jKSiPV1uvCWMRttYYt5F09bRKVvNiRSWKj0zovCFEIqsOIOX
-	rxRZJk9HgCKyd0Sa4X9WQelcjGUPWgf7sKt1S5XOaGY/ONjJjoHRAJkffaT1VjWWqGEFm3oJs+m
-	T1JeQqWUX66ZJi12Vp0skPHFkZep5bkLB2JwzSq33pFEYwkJN4cLyNiAxrUp5ds4fPK1DxKgzyH
-	2535scZji7F9BauTq53crObPQhfhYXWNNdMfHSjajZRNSXwYNdbQ0CBJXZwQboP9Ar395eOCHNA
-	QlF3dQEGgHnIILpTKhTDaYHo9MJwzeeSO+G1GJKdh9ote+6Ltc94ljCHz9x/Ic6SVec1vGOCiZ3
-	joMv3UEMmzP/mccOkTi5YR1lq9/LZPYnHrgihTTCXskRhc32U+qe57EW0DZ01XSPYeQdBtGi2j1
-	syJQGWX5sxzyOmWyi6mlNvnuwzcGDJvvy/EXkIz0AXtfnxo=
-X-Received: by 2002:a05:701a:cca2:20b0:1b5:31db:cc3e with SMTP id a92af1059eb24-1b543be92bcmr520505c88.11.1794943259060;
-        Tue, 17 Nov 2026 11:20:59 -0800 (PST)
-Received: from naki-PC.localdomain ([203.175.14.54])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447dc5e9sm368230c88.11.2026.11.17.11.20.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 11:20:58 -0800 (PST)
-From: nakixii <nakixii@gmail.com>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Mike Rapoport <rppt@kernel.org>,
-	Peter Xu <peterx@redhat.com>,
-	David Hildenbrand <david@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Lokesh Gidra <lokeshgidra@google.com>,
-	Kairui Song <kasong@tencent.com>,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] mm/userfaultfd: check exclusivity of the page being moved
-Date: Wed, 18 Nov 2026 03:18:53 +0800
-Message-ID: <20261117191853.1314834-1-nakixii@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sDfwqaoU
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=pq/onNLVdm06BkPABGrLiWH2w6igbMq4jJsu4mQ3hxE=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794943321; v=1; x=1795548121;
+ b=sDfwqaoUTtb9rTR8UTP7dLI25qhzqdS70UMe/TY70Sq3EJRKkJ9zxYba3G8dqKlaQEwcf/n8
+ dWK2tZ4/aa0sBxXLEq49rtA0C8zL7soaeWEsicnYYxfwKUBpLUjSZ4gBiyX0YwGrQJPgffBc1Eh
+ mXA+tSBWxJe6fuE7O57IsHLw=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta10.migadu.com with ESMTPS id a62ad20f2c5ecfb0;
+	Tue, 17 Nov 2026 19:22:01 +0000
+X-Mizu-Trace-ID: a62ad20f2c5ecfb0
+X-Migadu-Flow: FLOW_OUT
+From: Ihor Solodrai <ihor.solodrai@linux.dev>
+To: Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Cc: Alan Maguire <alan.maguire@oracle.com>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Song Liu <song@kernel.org>,
+	Tejun Heo <tj@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	sched-ext@lists.linux.dev
+Subject: [PATCH bpf-next v1 0/4] libbpf: Support kernel-side kfunc flavors
+Date: Tue, 17 Nov 2026 12:21:49 -0700
+Message-ID: <20261117192153.3384031-1-ihor.solodrai@linux.dev>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,86 +76,70 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-move_pages_ptes() gets the folio of a present source PTE and then checks
-PageAnonExclusive() on the first page of that folio.  PG_anon_exclusive
-is per page, so for a PTE-mapped large folio this can give the wrong
-answer for the page that is actually being moved.
+An incompatible change to a kfunc's prototype, such as an added
+parameter, breaks BPF programs built against the old one. libbpf
+ignores the ___<flavor> suffix of a kfunc declared in a BPF program,
+but makes an exact name look up on the kernel side, so the kernel
+can't keep the old prototype available under the kfunc's name.
 
-This happens after fork().  fork() clears the flag on every page of the
-folio.  Once the child exits, a write fault in the parent can reuse the
-large folio, and do_wp_page() sets the flag again only on the faulting
-page.  Reclaim can leave the same state behind when try_to_unmap()
-replaces the earlier pages with swap entries and then fails on a later
-one.
+sched_ext ran into this. cded46d97159 ("sched_ext: Make
+scx_bpf_dsq_insert*() return bool") kept the old prototype as
+scx_bpf_dsq_insert___compat, expecting libbpf to bind old binaries to
+it, and broke them. 2dbbdeda77a6 ("sched_ext: Fix scx_bpf_dsq_insert()
+backward binary compatibility") reversed the naming. A ___v2 kfunc
+declared as vmlinux.h spells it doesn't bind: 56bbc91219c0
+("sched_ext: Fix scx_bpf_dsq_move_to_local___v2 compat detection")
+fixed a compat macro that silently dropped enq_flags because of this.
 
-Moving that page with UFFDIO_MOVE then fails with -EBUSY, even though
-the folio could be split and the page moved.  Callers that fall back to
-UFFDIO_COPY on -EBUSY end up copying instead.
+With this series, if the kernel's bpf_foo kfunc is missing or its
+prototype is incompatible with the declaration, libbpf binds the
+bpf_foo___<flavor> that has a compatible prototype. So a changed kfunc
+can keep its name, and the old prototype stays available as foo___v1.
 
-Check the flag on the page mapped by the source PTE and get the folio
-from that page.  Locking, refcounting and the split-and-retry path stay
-the same.  The batched path only handles small folios and the PMD path
-already checks the page the PMD maps, so they don't need this.
+resolve_btfids fails the build if two of bpf_foo and its flavors have
+compatible prototypes, unless both have foo's exact prototype
+(aliases), so the fallback finds at most one match.  This ensures at
+kernel / module build time that no ambigous kfunc flavors exist.
+Documentation/bpf/kfuncs.rst describes the rules.
 
-Tested in an x86_64 KVM guest on mm-unstable with only 64K anonymous
-mTHP enabled: map a 64K-aligned region backed by one large folio, fork,
-let the child exit, write to the sixth page and move it.  Without this
-patch all 20 moves failed with -EBUSY.  With it all 20 worked and the
-data was correct.  Moving the first page right after fork() still fails
-with -EBUSY, as it should.  The move tests in uffd-unit-tests pass with
-and without the patch (the two swap tests were skipped, there is no
-swap in the guest).  I didn't reproduce the reclaim case and didn't
-test arm64.
+Compatibility is determined by bpf_core_types_are_compat(), the check
+libbpf already applies to kfuncs. Of the 70 same-name kfunc prototype
+changes between v6.6 and bpf-next, it finds 8 incompatible (arity,
+return kind, callback prototype). The other 62 (const, typedefs,
+parameter names, integer widths, pointee struct names, annotation
+suffixes) were made in place without breaking old callers.
 
-I found this with Claude Code while debugging an out-of-tree swap
-backend, and it wrote the first version of the fix.  This version, the
-changelog and the reproducer were also done with AI help.  I've reviewed
-all of it.
+The flavors feature is backwards compatible: declarations that resolve
+today bind the same kernel function. The exact name lookup is
+attempted first. Declarations rejected today for an incompatible
+prototype, or left unresolved if __weak, may now bind to a flavor, for
+example scx_bpf_dsq_insert___v2 as vmlinux.h declares it. Older libbpf
+and light skeletons don't get the fallback.
 
-Fixes: adef440691ba ("userfaultfd: UFFDIO_MOVE uABI")
-Link: https://lore.kernel.org/all/20261116110122.309748-1-nakixii@gmail.com/
-Signed-off-by: nakixii <nakixii@gmail.com>
 ---
 
-Notes:
-    Split out of the RFC linked above, as Kairui suggested, and rebased
-    onto mm-unstable (81188836663676f8).  The code is the same as in the
-    RFC; I rewrote the comment and the changelog.
+Ihor Solodrai (4):
+  libbpf: Fall back to kernel ___ flavors when resolving kfuncs
+  selftests/bpf: Test kfunc flavor resolution
+  resolve_btfids: Reject kfunc families that libbpf can't disambiguate
+  docs/bpf: Describe how to change a kfunc's prototype
 
- mm/userfaultfd.c | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
+ Documentation/bpf/kfuncs.rst                  |  83 +++++++++++
+ tools/bpf/resolve_btfids/btf_colors.c         |  11 ++
+ tools/bpf/resolve_btfids/btf_colors.h         |   3 +
+ tools/bpf/resolve_btfids/main.c               | 134 +++++++++++++++++
+ tools/lib/bpf/btf.c                           |  26 ++++
+ tools/lib/bpf/libbpf.c                        | 140 +++++++++++++++++-
+ tools/lib/bpf/libbpf_internal.h               |   1 +
+ .../selftests/bpf/prog_tests/verifier.c       |   3 +
+ .../selftests/bpf/progs/kfunc_flavors.c       |  55 +++++++
+ .../selftests/bpf/test_kmods/bpf_testmod.c    |  24 +++
+ .../bpf/test_kmods/bpf_testmod_kfunc.h        |   4 +
+ 11 files changed, 482 insertions(+), 2 deletions(-)
+ create mode 100644 tools/testing/selftests/bpf/progs/kfunc_flavors.c
 
-diff --git a/mm/userfaultfd.c b/mm/userfaultfd.c
-index d65184d9a..ae9ee210b 100644
---- a/mm/userfaultfd.c
-+++ b/mm/userfaultfd.c
-@@ -1557,6 +1557,7 @@ static long move_pages_ptes(struct mm_struct *mm, pmd_t *dst_pmd, pmd_t *src_pmd
- 		 */
- 		if (!src_folio) {
- 			struct folio *folio;
-+			struct page *page;
- 			bool locked;
- 
- 			/*
-@@ -1570,8 +1571,14 @@ static long move_pages_ptes(struct mm_struct *mm, pmd_t *dst_pmd, pmd_t *src_pmd
- 				goto out;
- 			}
- 
--			folio = vm_normal_folio(src_vma, src_addr, orig_src_pte);
--			if (!folio || !PageAnonExclusive(&folio->page)) {
-+			/*
-+			 * PG_anon_exclusive is per page. The first page of a
-+			 * large folio can be shared while the page mapped here
-+			 * is still exclusive, so check the page being moved.
-+			 */
-+			page = vm_normal_page(src_vma, src_addr, orig_src_pte);
-+			folio = page ? page_folio(page) : NULL;
-+			if (!folio || !PageAnonExclusive(page)) {
- 				spin_unlock(src_ptl);
- 				ret = -EBUSY;
- 				goto out;
 
-base-commit: 81188836663676f8503f3603cfe56e88264c4d50
+base-commit: 32b66b94c86f009b49668de7340f2ed65aad2dc5
 -- 
-2.43.0
+2.56.1
 
