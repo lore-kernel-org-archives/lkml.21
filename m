@@ -1,60 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794944232;
-	b=20Xg0BvYVKDjQR8Jk2j13/b4TqpHKMXoInmweML2jVaas6S9pctCyxQJGv9sYqn8D0G6
-	 HVmSkSs+T9ScMiSNXVDeT0hx4RIHbZ506SDoFrzN487o+Zi5ZXLHJuQL3WUjInNYE2h17
-	 3jf/8Y+by9rKetrxkzHtKlWzykTEKOejaARggkh6w9pcEs15wZ4MVni9keNXSjYALTo7K
-	 Ov3L+94iKh0FMkAIfpVW34x83o51NrT4OWaHOlFAWtQrn5QFesiNK9beZJVHyAuarNEKa
-	 EGzfn1BfibryUGkFWArOFFfwxl6v7FncFt3H6LBBEMuI6uAr1zCKP7uKTZTc/ZqeY2g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794944232;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=gW8KOdqoLUAXafTFi4cisifg0ee0u5sy8ei2MLsFIzc=;
-	b=nb+tWUtYUjSdZdKEhQM3S8QgDLmu/ItNCI3MKIZs8RgeyZMMN3k5oZYrsTjARm3Yvpbu
-	 RTvJBJzouC76VNiR5PKRmztejZVdeg23zovw8sFrY4yEbH+lwB6zsBz4BLz/TyKnTrOt8
-	 IiK8OF91hp0gHtxTh94kdDUkUvBno0GcHbnINtF+DbTfS0rOMEXH9H5Nj9PRVBYHOwTHo
-	 4OAQ22mOvmAeI7xgamQVhe4oJ+18ChuXkDhKBW413ZYsGeZGy7d7QWgxy349odVkQtPzX
-	 Pn/boTCk6xun6KXeOH9xkclGxEhLiqKSATq/Ar1t8MIXOUVvnAs+rvR3rXpnDTWNMmA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MfB1WL1x;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.0
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794944233;
+	b=Pyl4V8y9/gQfc2XPFdm4/vm7bqNH9jW2A4dx1N9ZGVeD+B+jyXAPDWZvjbgOtZXL5jUW
+	 bto/9HV2VjRMTZmHhbB8HV+45pT38Ar0H+DAcH/TIyOnxHxhPYGgyQhWSSeIBW2nG7uOQ
+	 5i5z1qDBOHT8540lmssZJYIiyoaGVy9cYx/fU9HIyv8lXvye3ig3WyE1BNb9sJY7R37Jz
+	 aGAWBqLvo1TKFnqL1+HX5IlWLKNI6geGMIvGRbU3ItVZ0mT4uBgq4XKltzcpdiQUNxqiB
+	 OOxQPIon54S4CLspA6P2C6K70bRW/CBrgbck4eSaHwYxWkuN0WFPsevlseMz8yClrSw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794944233;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=nqpSIeC9Mow3Pk9uNxyHB/ScbHAUOjCVWGNSgRDoDQU=;
+	b=Myrs2giBUAxY9V5yTyQceVSIJOzxiA4xckk2RLKqofr9byXxX2k2zeg3aTWUCbTuOrk+
+	 gXibxMKRMw1zWGRux8eyboX1f8phyuFviL+sw2+xcWiuYGV214SriCZuhOFARtqeRd+iW
+	 WPyMaHA7u2SUlQJ1x6IHKhBs7G+KF4kAl7RWrUmR7qe8egD1YWKpD4L4jhdHgBPvQuXAn
+	 x9lyZdceX+Q7GPfWvBrK+oAhLDRuCxYFZgH9C0fZ5GgMZ2l7iSw+cPm99cgNB13hAUsy1
+	 TjbFENcZzlt3gZu6D8Cxasf9GwhrZlRHdNfaaYgkwd0X7X4k62pj3JmrJsTzsHzHcWw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=DeruKW+x;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.0
+Received: from PA4PR04CU001.outbound.protection.outlook.com (mail-francecentralazon11013000.outbound.protection.outlook.com [40.107.162.0])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5370E606A31C;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 447D5606A339;
 	Tue, 17 Nov 2026 19:37:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 447D5606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MfB1WL1x
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D84C1F000C4;
-	Tue, 17 Nov 2026 19:37:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794944232;
-	bh=gW8KOdqoLUAXafTFi4cisifg0ee0u5sy8ei2MLsFIzc=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=MfB1WL1x56Og0KxVuXiqnMMezgCVVSuE6TgkHCv/BAb90fkXaZtMNyKsigowfexIh
-	 MgKYeyCNWzcXOFoWGC0SJd69lnK2SO17jdqJcECsDQEuQG02p6VjHZGh/fufpzCSCQ
-	 QWH7kbIZIlFbeyDTvDBp7xA3b9oqWa0gpYi/CWAYed86xi7NRyrXGhdvbTG1l9R4aB
-	 a2MneUxIDOQttjFd6eeBOtYJjSSanQV4JMpNPFOCDQ0zGXKNrmBI0Fvk5w8eUWP3OB
-	 QeRn6xQltvZtNR/LaRW+Mn/u5GsPMvWMCKvBQEgrYiT7H8DZV0G4ZmYwnIE7RAP/Nr
-	 iRiBApDOPBf2A==
-Subject:
- Re: [PATCH net] tls: fix send() returning success after the TCP send failed
-From: netdev-bot+sashiko@kernel.org
-To: hengyul@cs.unc.edu
-Cc: john.fastabend@gmail.com, kuba@kernel.org, sd@queasysnail.net,
- davem@davemloft.net, edumazet@kernel.org, pabeni@redhat.com, horms@kernel.org,
- bcodding@hammerspace.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Tue, 17 Nov 2026 19:37:11 +0000
-Message-ID: <179494423118.3136.8585648119443457824@kernel.org>
-In-Reply-To: <20261113193649.3822306-1-hengyul@cs.unc.edu>
-References: <20261113193649.3822306-1-hengyul@cs.unc.edu>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=DeruKW+x
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=D9uXwBrcYC0LbAPP4I/+M8fQSKgh7KKPY2TCzeMVIH1gk/suzWh3mm4gexrVXGkTqvhUF3c0gshvPau0FG0IrZ/uRbjLOYdHiCGW5SeUzpF/bGTqPmJDu2DsjkILu1nx2Sy63VFAssROMrtV+SObpq+clVmL0F0xcLuKjnWCLvOzTdIrtXViIGvxNzlx1gCGWE1NyrdjGFEL7cQyrCy7lHbDmPzbsDlqvM43U0WvDM80rd7wHQ0S/Qptzy3nnTImjQLMSmH3BfKrlKMz9N2rDhfpb1hzSIcOg4Dosl2LsIYgTmTFkAPJK2Xbrl7FGVjdxyYt/oJY7nRJzh+Kys5OTw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nqpSIeC9Mow3Pk9uNxyHB/ScbHAUOjCVWGNSgRDoDQU=;
+ b=Lt6XEV+GyX0YGSBNzeYMTC80/DsXLv1SDUmvfCX10cWOi1LDsNZjneu8Lpm1RV/XQJX4SxT1DW2DkfBAby1b44LfZR3+D/QYx/ERmcKdXg6HQMSIsrzjUggKQ2B3hAg2yYWKPTb7YReGJ6w7YxE/C5Y+ew0D6XSVCL6YB/d195a6rGvo6XnhBLwifPdYY4Gt8sTHvjezjz+GZ7UT51kxPp5WxvkI8javiT9WQsVkvdxetU17CCFEJD+HmcY7abWanvVZwqImq5HgZ6+ggUacep2MaMIHt2t5gX6GGLv6/R8/XsOJ4bXPbc7knJCPzAM8Yv6Zo9aDDm/iNDi8kwWh3w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nqpSIeC9Mow3Pk9uNxyHB/ScbHAUOjCVWGNSgRDoDQU=;
+ b=DeruKW+xf/qNfD80JnmOYAupqwCmeENEz4ObSxLpd0Bvi4Bu8b3cxGImLcRSzJgtc5enZJisYFQofJLmJyw90MOJKPE3qHoRgH8W5hsJGsy629Wc4FkkPsp/hWfkt0CXVWfPr95ciNQFG95lZYWsNPf4lW2QLdRi0dkZG9qhsPl+jM9s+QnAfj9QvyhQOjHCIVgwGzTpz9cb0BbxXljBz9zMXKXsqdqrz3MY3tFClXWgLBtBJyLnKFFXya8FKj4JQylA8uhAGQF+/kxVPRmj3wBdgWfa150ue0dCgzxe6TQaVd/+SamLDA4C6Vp5MqdR9bBRVe9umJKBdoNMoxv4RQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by PAXPR04MB8288.eurprd04.prod.outlook.com (2603:10a6:102:1bc::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 17 Nov
+ 2026 19:37:10 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0615.013; Tue, 17 Nov 2026
+ 19:37:10 +0000
+Date: Tue, 17 Nov 2026 14:37:02 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Lee Jones <lee@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Peter Pearse <peter.pearse@arm.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Joachim Eastwood <manabian@gmail.com>, dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2 01/11] dmaengine: pl08x: Defer OF DMA controller
+ registration until slave setup
+Message-ID: <avys3pO6oWcGwNN3@lizhi-Precision-Tower-5810>
+References: <20261117163809.622249-1-lee@kernel.org>
+ <20261117163809.622249-2-lee@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117163809.622249-2-lee@kernel.org>
+X-ClientProxiedBy: PH8P221CA0028.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:2d8::28) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,223 +100,144 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|PAXPR04MB8288:EE_
+X-MS-Office365-Filtering-Correlation-Id: af1356ce-caa5-40d9-ec70-08df44e22bee
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|19092799006|366016|1800799024|376014|18002099003|22082099003|261009223027099003|4143699003|11063799006|56012099006|261028144727099003|261102123227099003|261021133027099003|261026135527099003|261022105027099003|261026130827099003|261026140227099003|261021130227099003|261026121527099003|261022075727099003|261021123027099003|261021121427099003|261021135927099003|261022115727099003|261022113327099003|261102124527099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	JO8SHcGyKmDxcOm6HRCj0eMAg/eYY13ZxvLAdARmaTzma8oCL1BnvA53vbAtSfpvuo26FQXoaDjG33iAtjTPbKzQ/1yGnijPH81bnEAgpYFa9fcD82OevV+YgdhNUAl+hW1izs/i64GVwKEaeKIQ0x/gXvpopE/eJfIoN8VxuUZ3p6t/MvTCH5dx/m8z8xQYdn1G5G57XzvRxK1T/htZ5HR6mv78wOW7vwflAQA90q4ka0OisMlKaA5PPGiiuSXS80NAY11aVHRSKeZeBQp//bvFCxc3ekKYguyF//xfv252mVD3MYgu8zsb/hcztO30YSiSxGJ6lfzT0z/R+225bNj20PDpNg3g8WsEqjKV7/hLRrMspif22X1CNspJia4XGVGt/xzE/EBFCAMjdHnT6d5KNkwFURbS5oAz9ekXfBkOcIJryD8QVGi+ExXLb8VLuv8zMl20QJe4Z3/48CrzOGhoUP4knG2ly44RUgP1VegrSiOubtLlaa8of2zRag5CXyjEo7DVJqYFD295u4XDJfq7KXR9cXKL2j+GZUtHfu3XuBCn5kHg54BCYKrFEqQV7ViXSuZL2QRaWm6TrJFuXBlBy7eFMFEbPObXNWGWpGg=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(366016)(1800799024)(376014)(18002099003)(22082099003)(261009223027099003)(4143699003)(11063799006)(56012099006)(261028144727099003)(261102123227099003)(261021133027099003)(261026135527099003)(261022105027099003)(261026130827099003)(261026140227099003)(261021130227099003)(261026121527099003)(261022075727099003)(261021123027099003)(261021121427099003)(261021135927099003)(261022115727099003)(261022113327099003)(261102124527099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?kyE7Z/d7yBrMNOxwnOZi4vr+JJ3qnCgPi4sGJNodyYXMBPmVdxOL8bWqM/W3?=
+ =?us-ascii?Q?BbZyvOgd65xo4qfHVtCCQuZtaPi8ZF6+P3JljBqLkWpqDtJVtZsovr99IgnF?=
+ =?us-ascii?Q?6OmVp1t9D/GGdrG7CiwJ/ewiKmEdVK06dBQr9tNHU3BX2fXZJtfsVQ2DgeiB?=
+ =?us-ascii?Q?gzT80p8wlW9Le0/1A6o13hzOLu5Y3iB0EzUa6Yzbb12amsuEf85TDYsnweKi?=
+ =?us-ascii?Q?VsWipRSFZxGRm95KEP/6lQMeYtT5jVjog4fOWgrOkNdF2oEHSQ0tLJVwIItw?=
+ =?us-ascii?Q?ZZCX+LcP+K2QRaAbZ958Ecx024wQAzvW3xHz+7bfwcz7KtbITd1DLjo29qhC?=
+ =?us-ascii?Q?hMfIm95AaZx/qv2U71oePTWvgX7z76J5eKUlMCOMleFRwpv2jYVwb/XXLDeF?=
+ =?us-ascii?Q?WKwGBsIRa9E2c4RdjC8jEsrx5K0Z7DNcNmHsaNMhB1CJKjpMWD7olGO+pTO1?=
+ =?us-ascii?Q?WpMlgV93qYAx0BAnBg3zIMCtNOBruOaQN1QSwb9RuXXC0AZuAlOVWttTK2Ot?=
+ =?us-ascii?Q?f449pu1/LZqGQxzYoSFzaGjw4escSN4rliWlogrENH50rXezHso9uz2IhG4D?=
+ =?us-ascii?Q?FflGuzvDWvhF0uIxES6xU/hbGWbRBKgNx0bNn3o922m2KuVIHZ4/SGRUH3lS?=
+ =?us-ascii?Q?AvhJ+MQN4jgDnILFvkdYgqQSzSTMiFG5xK0wytL6cqAPNmjrKlTyjKQ/g1mz?=
+ =?us-ascii?Q?3vibbMbKWZ20t5jMtyF8cnoqwIbSQBfmSre48tT4D1dgzR/nj6BnCGAlwsPZ?=
+ =?us-ascii?Q?zIou4O3Qg/rWApwvx05iu+dJHk+oWsvCF4vvc4FjWTk2tsEEI0iq5BRdwjnm?=
+ =?us-ascii?Q?XmVkmHIjewg1GettzeavQb45ogixMUevkrQXKnCUAe4WJYVw8Ht/YiEmhqOb?=
+ =?us-ascii?Q?dBWOwUORW3udK6LFfRWVfSuKw5l2W2cGySSahd4hFlOW7GdSvS3t5ynKv/1v?=
+ =?us-ascii?Q?CbpwcPJ795ndmlvil2V2awwkOCC99ylgc0n4VmgkoClB4pGzD13IviKH0GIy?=
+ =?us-ascii?Q?r0iREvDalMevXUSriHLyeCUwe4wK8twOt3LHD63qi/zmEp4ywfa9lq1GTyNj?=
+ =?us-ascii?Q?NKSefB0mweI9+7CFscLKwLhqhxE+CKK7K8b5RtPS2XYBYwQzxhtZJLplD9wQ?=
+ =?us-ascii?Q?+WtYtn66lp1qv7RpxWrpLvV9oWGhi0EESYaxqYDk0fcnZ0hSzNAmnrdIL2iw?=
+ =?us-ascii?Q?M0PIsypr0itucIU8+yT6RXpbWpwnkKd26DwFbmE1xy7cD2rTZcSVyT1HAO2U?=
+ =?us-ascii?Q?tJklsZIkUNORRe5txHC+ETZPp5+X8uP3mPN6lTGX7caIsAW8h7TtBSCZjGMt?=
+ =?us-ascii?Q?ry3Cglyjs2nFaLPUxxeTuOOGQHUkPb6Vbgqf4SSBWLroGDzdCm/fYnulFX0C?=
+ =?us-ascii?Q?0S/n06pDucSQr81HaEAXC+CmpUElDtbqjbqXnhry+JpNQg8c6D6nEaZSLByu?=
+ =?us-ascii?Q?AnOO9ZawEo8u3llVNWeTt7jPM1dRsxz4cdMvnnxW4ZrugcDH29K7anQ2w25P?=
+ =?us-ascii?Q?5aL+XJ5rM8DY7BauQ+g+xgH3Cu/XPUrRYjqgfloz2IJ12ACmtoZTouIgi+sf?=
+ =?us-ascii?Q?YG2anD9rroNwk8rk52sCYYSy6x+GzyA9VsWz32WJULFaKNKGUp+SD9Zc+5gm?=
+ =?us-ascii?Q?VgoMxc41nRmxaL3/e9ZwJ0DcmQmN47mD/6m+0lUZdP/KskM3sjW1Mr+aMKnm?=
+ =?us-ascii?Q?V7vdgbJE25Gq0/LQM69Fwv97llvfREy1Znd76UIRuhuwz9LmWNvqcq7dFFlC?=
+ =?us-ascii?Q?gEyvLPZI9Juj+mYqYJWfXgzOaxeQWk4qbV/wXq7TPgU0jwPyWm19?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: af1356ce-caa5-40d9-ec70-08df44e22bee
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 19:37:10.0971
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: P36wtIZJs8WQ0U/DQGVF66T67Fky3yrwJEeDBz4Zvy6H+Wrw63YH0iqSPOQDdhb0sTOLnXWHyzgCwjkOxu+gHeHG388ZaAb8CbPyxY5fxiRiFrVjLJFe/5+EEHbBRHGH
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8288
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
+On Tue, Nov 17, 2026 at 04:37:02PM +0000, Lee Jones wrote:
+> pl08x_of_probe() registers the controller with
+> of_dma_controller_register() before pl08x_dma_init_virtual_channels()
+> initialises the slave channels list and before
+> dma_async_device_register() registers the slave DMA device, and
+> pl08x_probe() does not unregister the OF DMA controller if subsequent
+> initialisation fails.
+>
+> Move of_dma_controller_register() after dma_async_device_register() for
+> the slave device and unwind slave device registration if OF controller
+> registration fails.
+>
+> Fixes: aa4734da6674 ("dmaengine: pl08x: support dt channel assignment")
+> Closes: https://sashiko.dev/#/bug/linux-4e233fb9-3b0c-4442-b601-c6706c9f5aba
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Lee Jones <lee@kernel.org>
+> ---
+>
+> v1 => v2: No changes
+>
+>  drivers/dma/amba-pl08x.c | 23 +++++++++++++++++++++++
+>  1 file changed, 23 insertions(+)
+>
+> diff --git a/drivers/dma/amba-pl08x.c b/drivers/dma/amba-pl08x.c
+> index 543c2eb8cfa8..d8441e338502 100644
+> --- a/drivers/dma/amba-pl08x.c
+> +++ b/drivers/dma/amba-pl08x.c
+> @@ -2678,6 +2678,12 @@ static int pl08x_of_probe(struct amba_device *adev,
+>
+>  	pl08x->pd = pd;
+>
+> +	return 0;
+> +}
+> +
+> +static int pl08x_of_register(struct amba_device *adev,
+> +			     struct pl08x_driver_data *pl08x)
+> +{
+>  	return of_dma_controller_register(adev->dev.of_node, pl08x_of_xlate,
+>  					  pl08x);
+>  }
+> @@ -2688,6 +2694,12 @@ static inline int pl08x_of_probe(struct amba_device *adev,
+>  {
+>  	return -EINVAL;
+>  }
+> +
+> +static inline int pl08x_of_register(struct amba_device *adev,
+> +				    struct pl08x_driver_data *pl08x)
+> +{
+> +	return 0;
+> +}
+>  #endif
+>
+>  static int pl08x_probe(struct amba_device *adev, const struct amba_id *id)
+> @@ -2944,6 +2956,15 @@ static int pl08x_probe(struct amba_device *adev, const struct amba_id *id)
+>  			__func__, ret);
+>  			goto out_no_slave_reg;
+>  		}
+> +		if (np) {
+> +			ret = pl08x_of_register(adev, pl08x);
+> +			if (ret) {
+> +				dev_warn(&pl08x->adev->dev,
+> +					 "%s failed to register OF DMA controller - %d\n",
+> +					 __func__, ret);
+> +				goto out_no_of_dma;
+> +			}
+> +		}
+>  	}
+>
+>  	amba_set_drvdata(adev, pl08x);
+> @@ -2954,6 +2975,8 @@ static int pl08x_probe(struct amba_device *adev, const struct amba_id *id)
+>
+>  	return 0;
+>
+> +out_no_of_dma:
+> +	dma_async_device_unregister(&pl08x->slave);
+>  out_no_slave_reg:
+>  	dma_async_device_unregister(&pl08x->memcpy);
 
-Critical: 0 · High: 1 · Medium: 3 · Low: 0
+It'd better switch to dmaenginem_async_device_register()
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-- [High] The fix only works for the first send().
-- [Medium] The broadened condition in bpf_exec_tx_verdict()
-  (net/tls/tls_sw.c:714-717) now runs the 'record was not sent' cleanup…
-- [Medium] bpf_exec_tx_verdict() reads sk->sk_err twice with plain loads
-  (net/tls/tls_sw.c:714 and :717), and the free operations run between…
-- [Medium] To decide whether the record failed, the fix checks the shared
-  sk->sk_err field instead of the error that tls_push_record() returned.
-
---
-
-tls: fix send() returning success after the TCP send failed
-
-This patch changes bpf_exec_tx_verdict() so that any non-zero sk_err
-after a failed tls_push_record() means the record was not sent. Before,
-only EBADMSG meant that. The goal is to make send() on a kTLS socket
-return an error again once the TCP side can no longer send. That stopped
-working after commit b341ca51d267 ("tls: Fix tls_sw_sendmsg error
-handling").
-
-> diff --git a/net/tls/tls_sw.c b/net/tls/tls_sw.c
-> index 226e0f176fdc8..f3e496fa47ae6 100644
-> --- a/net/tls/tls_sw.c
-> +++ b/net/tls/tls_sw.c
-> @@ -711,7 +711,7 @@ static int bpf_exec_tx_verdict(struct sk_msg *msg, struct sock *sk,
->  	int err;
->  
->  	err = tls_push_record(sk, flags, record_type);
-> -	if (err && err != -EINPROGRESS && sk->sk_err == EBADMSG) {
-> +	if (err && err != -EINPROGRESS && sk->sk_err) {
-
-[Severity: High]
-Does this fix still hold after the first send()? The EPIPE that
-tls_err_abort() records seems to get consumed on the way out of
-tls_sw_sendmsg_locked():
-
-tls_sw_sendmsg_locked()
-  bpf_exec_tx_verdict()
-    tls_push_record()
-      tls_tx_records()
-        tls_err_abort(sk, -EPIPE)    /* sk->sk_err = EPIPE */
-    returns -EPIPE
-  ...
-end:
-  ret = sk_stream_error(sk, msg->msg_flags, ret);
-
-net/core/stream.c:sk_stream_error() {
-	if (err == -EPIPE)
-		err = sock_error(sk) ? : -EPIPE;
-	...
-}
-
-sock_error() does xchg(&sk->sk_err, 0). After that, the only thing that
-refuses new data is the check at the top of the send loop. tls_sw has no
-SEND_SHUTDOWN check:
-
-	while (msg_data_left(msg)) {
-		if (sk->sk_err) {
-			ret = -sk->sk_err;
-			goto send_end;
-		}
-
-So once sk_err has been cleared, two things seem possible.
-
-First, a later send() with MSG_MORE, or one that doesn't fill a record,
-copies data into a new open_rec. It never pushes the record and returns
-the byte count as success. Before b341ca51d267 the EBADMSG survived
-sk_stream_error(), so this send failed at the loop check.
-
-Second, a later send() without MSG_MORE allocates a new tls_rec in
-tls_get_rec() with kzalloc(mem_size, sk->sk_allocation).
-tls_do_encryption() encrypts it and adds it to tx_list. tls_tx_records()
-then fails again on the stuck partially_sent_record at the head of
-tx_list. bpf_exec_tx_verdict() frees only msg_plaintext, so the record and
-its ciphertext stay queued until tls_sw_release_resources_tx() at close.
-
-sk_stream_memory_free() never stops this, because sk_wmem_queued and
-write_seq don't change. The tls_rec is about 2 KB and is charged to
-neither tcp_mem nor memcg. Only about 30 bytes of ciphertext per record
-go through sk_wmem_schedule().
-
-Could an unprivileged process that loops on send(MSG_NOSIGNAL) on its own
-shut-down kTLS socket grow unaccounted kernel memory without bound?
-
-The note below the --- line mentions that records keep getting queued.
-Since sk_err is consumed on every EPIPE return, would the abort state need
-to be latched some other way? For example, a TLS-private abort flag, or a
-check of SEND_SHUTDOWN or the partially sent/abort state at the top of the
-loop.
-
-[Severity: Medium]
-Is the shared sk->sk_err a reliable way to tell whether this particular
-record failed?
-
-tls_tx_records() calls tls_err_abort() and then returns the same rc.
-tls_err_abort() calls sk_error_report(), which wakes poll/epoll waiters
-with EPOLLERR:
-
-tls_tx_records() {
-    ...
-tx_err:
-	if (rc < 0 && rc != -EAGAIN && rc != -EINTR && rc != -ERESTARTSYS)
-		tls_err_abort(sk, rc);
-
-	return rc;
-}
-
-A woken thread will often call getsockopt(SO_ERROR), and
-sk_getsockopt()->sock_error() clears sk_err without taking lock_sock. If
-that happens before the check here, the condition is false and the record
-stays counted in *copied.
-
-tls_sw_sendmsg_locked() then goes to send_end with ret = -EPIPE. Since
-copied > 0, send() returns the full byte count for data that never reaches
-the peer.
-
-That looks like the same symptom the commit message describes. The error
-is already in err, so could the decision use the returned error instead?
-
-The signal also isn't tied to the current call. With async crypto,
-tls_encrypt_done() can set sk_err for an earlier record without taking
-lock_sock:
-
-	if (err || sk->sk_err) {
-		...
-			tls_err_abort(sk, err);
-
-With the broader test, wouldn't a -EAGAIN, -EINTR or -ERESTARTSYS for the
-current record then be treated as not sent?
-
->  		*copied -= sk_msg_free(sk, msg);
->  		tls_free_open_rec(sk);
-
-[Severity: Medium]
-Is this cleanup correct when the failure comes from tls_tx_records()
-rather than from encryption?
-
-At that point tls_do_encryption() has already added the record to tx_list
-and set ctx->open_rec = NULL. tls_push_sg() has also saved it:
-
-	ctx->partially_sent_offset = offset;
-	ctx->partially_sent_record = (void *)sg;
-
-So tls_free_open_rec() does nothing and sk_msg_free() frees only
-msg_plaintext. *copied drops by the whole plaintext size, but the
-ciphertext stays queued.
-
-That record can still be sent later. sk_err can be cleared by SO_ERROR or
-by sock_error() in the recv path, and once TCP can send again the record
-goes out through one of:
-
-  tls_sw_sendmsg_locked()->tls_tx_records() on the next send
-  tx_work_handler()
-  tls_sw_release_resources_tx()->tls_tx_records(sk, -1) at close
-
-Some non-terminal errors reach this path:
-
-  IP_RECVERR, which an unprivileged user can set. If an ICMP error
-  arrives while tcp_sendmsg_locked() sleeps in sk_stream_wait_memory(),
-  it sets sk_err, and tcp_sendmsg_locked() returns something like
-  -EHOSTUNREACH on a connection that is still alive.
-
-  TCP_REPAIR with TCP_NO_QUEUE, which returns -EINVAL. This one needs
-  CAP_NET_ADMIN.
-
-tls_push_sg() may also have put part of the record on the wire before it
-failed. If userspace is told the bytes weren't sent and sends them again,
-can the peer receive the data twice?
-
-This cleanup fits the encryption-failure path. There, tls_do_encryption()
-list_del()s the record and it is still ctx->open_rec. Before this patch,
-these other errors left the record counted, which matched its later
-delivery. The pre-b341ca51d267 EBADMSG behaviour that this patch brings
-back had the same mismatch.
-
->  		err = -sk->sk_err;
-
-[Severity: Medium]
-Can sk->sk_err change between the check above and this read?
-
-Both are plain loads, with the frees in between.
-getsockopt(SO_ERROR) reaches sk_getsockopt()->sock_error() without taking
-lock_sock, so it can run while sendmsg holds the socket lock:
-
-CPU1 (sendmsg, lock_sock held)       CPU2
-bpf_exec_tx_verdict()
-  sees sk->sk_err != 0
-  *copied -= sk_msg_free(sk, msg);
-  tls_free_open_rec(sk);
-                                     getsockopt(SO_ERROR)
-                                       sock_error()
-                                         xchg(&sk->sk_err, 0)
-  err = -sk->sk_err;   /* 0 */
-
-tls_sw_sendmsg_locked() treats a 0 return as success and skips all error
-handling. If this was the last chunk, send() returns
-copied > 0 ? copied : ret instead of -EPIPE. That value can be 0, or a
-count that silently leaves out the dropped record.
-
-The same double read existed with the old EBADMSG test. This patch,
-though, rewrites these lines and applies them to every TCP send failure.
-
-Would it help to take a single READ_ONCE() snapshot, as the recvmsg path
-in this file does, or to use the returned err? The plain reads also race
-with the WRITE_ONCE() in tls_err_abort() and the xchg() in sock_error(),
-which KCSAN would report.
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261113193649.3822306-1-hengyul%40cs.unc.edu
+>  out_no_memcpy_reg:
+> --
+> 2.56.0.679.gc527c65306-goog
+>
