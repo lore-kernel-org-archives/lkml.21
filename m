@@ -1,100 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.53
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.39
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795024825;
-	b=bzA3YN/8bCffvK6i0y5gHRD3qmfenX4yA6SR38VYGxdzDqaMfK6COLIIeQYZXbns8npO
-	 /lVBs26gOyOnTO07GCYun6+Df8b2eZXeLm48SxF6WHgnbTEarGVkFktagLjSxHbLCWpZL
-	 vI+XgU37FMYC3GrUnOhWrznn0Ha0x7E8CEhpZ6cl2E9lFg+H1YWvvYuRTWuaQjZhycdFq
-	 /3agrI3vIsTyIPGcskX3qZ0IuxxFLs5oqtDondocSDBPCPAkG/TWdXFDPEzmtWR1ZS/Aa
-	 Lgs6Xp0rDYEA3hQ03AtJ+qFSONFuSKzszjf338g4Wd330k47qDj2NAJQJN7Opre3cAg==
+	t=1795024850;
+	b=OqQ3Y+sGhWt2owFX7Fh2YKhUWhk7h415LuG2zPg6Nt6ueV0s96WIWnnO+fPdQO9LEzRz
+	 4wWv1Exzcrp3TrwgRoAnunjEw1ImlT4z2kEFTgCC5sF+WzlQcYBobHxIdIeLyVmpH23C2
+	 kmwmNxZwOu2PH6aT1csuMLDsOPQaRRpn0fT9RfdrlHttE1j5ljjzMcLJL06nDOxrw5o8m
+	 FwEdxpuwb52P7kTyW0NWFsbHZO9mY0OFU6i6AbKm1QjSVXBA95O2V8a6WMahXpuAE8cZP
+	 iAE/9CofnDQlJ8JkQOzkEME8wfQmIJR/ba0oZkXW1HB+tb+CTqneLSB38LJ35NGH2Kw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795024825;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=u4qdZCxQUja0NlcjEdDck3V1blA80itO4i7W2ltfseg=;
-	b=n6SYOdEUtk8h12pFz7ciwj0JfOJUVsQ1unN05vvxwdbCx3QaKuUpTuj0IoVR1sI0q5K7
-	 LoSiSSw5M8vd2NSNNO+G86u7hfiZRvNYZ5XxU8lOYVkmlN6mIkW19Y3X3gBdRd9rG9jSN
-	 loks1zUWULIkLTAV/eE4xSeAbFPcvjeT/COmmunjyHG2ARQkZAylZ9sjOU4t/me+PvcHz
-	 qoQ0C9z2NbmXfPOv3H19/5X5FH2J+C4pSyR+i4MamHNBYWDTzvaQDVs5Wmscu3Plc7Nc9
-	 9r62vr+K1IsMyJbPnM82pgDFFkudiz3Cl36N2EQNQEtLL9kDKIKlLO6KeyyqrD0rbqA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795024850;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:In-Reply-To:
+	 References:Subject:Message-Id:Date:Content-Type:
+	 Content-Transfer-Encoding:X-Mailer:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=LNSGaS4McdNEfGGzvOaZtRi1rGW1+x18PfAnxEn4SBw=;
+	b=Xtznad3M7Wi7asFGzZiy62EefrFUdEGlyFgU06Py3HAilRC/jv2XkkglorCwWy9OMu/i
+	 9P3YcmbQhl9GXrgYIlPRpoAFDFH+591OY8prTKSYm7MHpAa4oNyFz6B+D47M1ELCQnceH
+	 sppYXN1RI7LVWW2uG+NaDOxzYCwSzXbd/j52+vcKfmopX0ZoaUFIqwU4aU+/w638wFMAG
+	 Vaacedad7s6ndmGRnUADb44ZNL1N5DpE0WbYWl+0NgXWRdAXLwR57kiU8wCQ1Usa3ORcN
+	 KzAVwePHwZAdjO8NOJiD+0Ax9Q1uTtesSlzzy9X5bdJBlUReraLJsRKPUw5dXXVgttg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=K+Mjuum7;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.53
-Received: from mail-ed1-f53.google.com (mail-ed1-f53.google.com [209.85.208.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=GVh+mAm9;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.39
+Received: from SN4PR0501CU005.outbound.protection.outlook.com (mail-southcentralusazon11011039.outbound.protection.outlook.com [40.93.194.39])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5EF3A606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:00:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5EF3A606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 856E6606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:00:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 856E6606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=K+Mjuum7
-Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-6b4bd3d98bfso1781257a12.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:00:24 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795024823; cv=none;
-        d=google.com; s=arc-20260327;
-        b=B4OXb2AkDyos1LliArlXTnzWxSnuCfMo5D0pcU8AOT7DEroh50z9/AEFzXkB450bWd
-         uDHYc79GABPI9/M8W7rvii/7emociRT5f5eCSyLSLRHB92xHw8UDonhLO6jh8fuNnxDl
-         620Yyl4OwxoLekGl06ZAcaQRtxsF7XlDCMSdhLs34oX2MG7yEKk12YKDABO/59Yhg0gC
-         tzlZmVX/QmMFIrHzjiUHiLrrlulNr/gRpuDMXjAvfP41Y9vO/DLmg5bx7hV8ULYt0a1t
-         /VfGx8M6zpn8Zb5b5kzzvTHqyfO/AJMi6j5TtHjOPOJPxE/HPiPVuVAo+w3770YnnxoH
-         YPvQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=u4qdZCxQUja0NlcjEdDck3V1blA80itO4i7W2ltfseg=;
-        fh=6dlz8ibtbHq4gI32vlbKDbvRKu11UK+VC594t/RTCmI=;
-        b=RbrSGI5TfCm8Z1Nw+3+PiIcqKfBIwqNr9KR//+QwQLS0YUwnAxgNZDd03D7Bpw5FE4
-         oYly49A6VPWltAV0t0FS/ZU+0K7hm+dlGqtvWN6W2zLxT/FWJ5XiyN/qzQKbqZH21GK9
-         8kAs59Yyx4ekfjLWGImPQjVHypH09Y1xOibI8rq5ICkEYS/NoXTSnUu+UWFu/0AW2AA/
-         VU6dnBTkwDDvYsopM11GuNksnURU3dAUkj6FiFI1NLD0J10ZsxyGUSVgsB+HW8+Kwnb5
-         SMl5CCWpoOm2hpnLWvltRZb22ItBo/7ZXEHrPUyWrwSq7C65PBOCgT2yBIbhlpNZEzja
-         A3hA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795024823; x=1795629623; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=u4qdZCxQUja0NlcjEdDck3V1blA80itO4i7W2ltfseg=;
-        b=K+Mjuum7DZlbzQhj44dxy5A6maxZYAyZ29Ulwd8z8W13r5opinN8nQyga6gKKUTIn3
-         irv8hTc3j4/gaqyiAXmOT+UTNk6HC+MY7Uf7a9b6WNEm5JkkOxWWEAKop9rvi+cr5sej
-         mDDYfE32YCXVoQGoWcdnmed36eW/gsmlzt59+Dy3/XgVziXonW9SrTYu/k8rkGTUf3LD
-         8YkjfAu0RpO36JcNXYdFoZwXhxqjZj12t2gRgljQWUSsmQJ05Bx1gGIw0cTe2lfCYBki
-         DxIOJYRPP+azMglgRqXMkXmo+hGpR6ZcpcRAi7arTWNZ3zrHbx/75jBgltZUXBNNLpuB
-         QlWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795024823; x=1795629623;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=u4qdZCxQUja0NlcjEdDck3V1blA80itO4i7W2ltfseg=;
-        b=JI7gpOdtZxqW3CsQep9raGmZnmKBipDIQVIZycAKrlh7ymT+OyJiAZu9rYh9P6O8SK
-         xyrikJniTG0dKrk1LoBaaFCRNn/8jK0ygjTNK/uDRP/kzuZVWcFn7V3V5Nw7Y/bF1V5I
-         2u8cIHWxwQuezDvGLycYmrZ9E/2fbPa2v5qOuHJlCP5q3g+t9szFRwVyKixCk+i0OHxs
-         +8ai2wFbVT7bjOI1fndoB06vQ2K0W3aqiPruL4nLqn3YknalONuMnxFRVqVTZYR/iYDL
-         BA6ybNBJqqReG2GeUiTiQ+CRuzHF74eXCubdIy6O6XY1lK4AGOrVTQE/YeXccnUa4lyT
-         xfQg==
-X-Forwarded-Encrypted: i=1; AL+hErF/a1Q/K9B1X/FtoPaPHZXFZLgjEHjmSHcEFfjrQzpdHgh461FC7QQpVRS2kmGi8gN8fT7nqJH3epPrvGE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+T+xCEfgxWJzmHOuj7nuYRqT65fGPsev3KSvI2LvZQd8I9G7K+
-	0mTxBb1c2DHCw4Fgj4cWGiYacnFUNdM8a1fUL8Pu1+3Jt7ewhhaw4GukW33stc5HkncnKIK0273
-	DQfbZyDhwDgo0K7jfuP8W95u4wC3OiPCYrqSboIQ=
-X-Gm-Gg: AYBFou0HXQYipoKnjk+K7ZHh/A7VV2kJ9TgWzmruwf2Up3NDuml37UVUek/zkFOSyqa
-	uuAhASCKBxq1OxyG+Ih/GJRSlUDo/zrk+S8/N0yHcVB0nJFF3ckiy0qoau9a6jdaGpc/XlyrOX8
-	p8AEcPYnxKP/ngNyLBaEgXCt3MM0bGWNEP5F9G0qr3M5AI9l0LdpzER/OI0iZno4QsW4KpZAgvY
-	c8zoWxC8pjlQAhojRJ5lWnJhQzgkIcjryI8wRDc0b2sBmk/thR5I8kTthUd4f1qt3zXy4NbAwk6
-	HZe/GqJcZOxneEGaZUoCdNZJ7cl3vN39htCBYc1NH6aydZ6vmoDdEwHqLFXGDG441JtDxq74o3p
-	8N60T5hmHy5ETIb++cukHA5DjCEFqaJ0+RxVSTiuyrXsPbmzjhTa2UAAsN3HhPT4j1DolSbc=
-X-Received: by 2002:a05:6402:1607:b0:6b6:4dcd:967e with SMTP id
- 4fb4d7f45d1cf-6b887ebebb8mr2374799a12.20.1795024822234; Wed, 18 Nov 2026
- 10:00:22 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=GVh+mAm9
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fYtm9D6JG3OneTZ9PVNvwBY9PQj/jnbsmVLqbZ4sJOH1YPNOV//itgq7jqtVRYqwjyDf45UAaOv8d13oSgeX11OJQOvqR4OnvKAPRYx7A9FY7pSShkg9EbzRmHPxTwBdKSObzrsMh0hVswnJpvq7vEqJZ8m2AMgE4/Tm2Ncys1e+/1jfVBxKNJxERzsG13ir9I/Rz/C3Eth3Z3D2w42fn6wEDBqbWAR0Q6Xvk15cHN+iUyCLhbaCUbIJ9G3F1VqKYC+wNDe7O8RzIpaZ/6e6/r3jYc5CMmtLdqbeyP6073Sze/so19C2rXT2EiIKyN90/ltyMDEadqR2mRzmN2ds2w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LNSGaS4McdNEfGGzvOaZtRi1rGW1+x18PfAnxEn4SBw=;
+ b=NzQhB1wqhBZmpBKX/FYmhMC7prkYnRlW2RxfH2+SZC69EJHCLn3wrvc6k86B2GYgDQWhMyagmJBvJuEZAru+F3boE8l4LwTidRn5p9ynea84vRAXNUneVphQL7IDsvixUCxqGJezLDQk8QETrfLd93gLktAcGDf5Xwsdc0FB6MFW+bObs1youLcSuiASxzNYNhzb8+OOF+izc/DXF91MlsbnNl4BafAZswr0c/8Sks74hAaMMLbIhoraR1fnNr5DhYCBMdCOpF/udgduVa+N49SRAR9PLXa+bRQNnDz/Nw2d4gK23g03X88NKuHsD8JwHWFTDJzGgyvMVu+oEh4iXA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LNSGaS4McdNEfGGzvOaZtRi1rGW1+x18PfAnxEn4SBw=;
+ b=GVh+mAm90/ECBSLPrZHklRxpc4Q6tigrR0cynPQIG71gH3ZA4KmmuBF/gCCfuyD6VYeYHodJmZfxqXDAfayTfL89ZU5z4aZZPBljAyEVWT0qnGrpoaCLH6nas0X9hlpcMJ22wQo6qdbITGe/fD5MhLdR8WgclJBt6gqiaYLemzg231k+3lT0f7K6HJcIFbKfCts8wakKkTyaSC5wfJLOeYuBPFkPPlE568BYCJzAshjn9LG76wvauzAJC6fkMLoAXCjiCqSCJ0wwuhtslh+gvw88cf+TswafhbkIM+nDlxCC+I6rOkGqGrU5IRSr+N9Tq3v1vOiv5crD4DzH+bURyg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12) by LV8PR12MB9230.namprd12.prod.outlook.com
+ (2603:10b6:408:186::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 18:00:42 +0000
+Received: from CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
+ ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
+ 18:00:41 +0000
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Brett Creeley <brett.creeley@amd.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
+ Avi Weiss <thnkslprpt@gmail.com>
+Cc: Dave Jiang <dave.jiang@intel.com>, Saeed Mahameed <saeedm@nvidia.com>, 
+ Zhi Wang <zhiw@nvidia.com>, Jonathan Cameron <jic23@kernel.org>, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261028125531.978325-2-thnkslprpt@gmail.com>
+References: <20261028125531.978325-2-thnkslprpt@gmail.com>
+Subject: Re: [PATCH] fwctl: pds: report device information length
+Message-Id: <179487534098.2591066.17925593774283877174.b4-ty@b4>
+Date: Mon, 16 Nov 2026 20:29:00 -0400
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-ClientProxiedBy: CH5P223CA0009.NAMP223.PROD.OUTLOOK.COM
+ (2603:10b6:610:1f3::7) To CHBPR12MB731189.namprd12.prod.outlook.com
+ (2603:10b6:610:33d::12)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,113 +98,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118-b4-ovl-containerized-sync-v7-0-54f45743fe55@toxicpanda.com>
- <20261118-b4-ovl-containerized-sync-v7-2-54f45743fe55@toxicpanda.com>
-In-Reply-To: <20261118-b4-ovl-containerized-sync-v7-2-54f45743fe55@toxicpanda.com>
-From: Amir Goldstein <amir73il@gmail.com>
-Date: Wed, 18 Nov 2026 19:00:09 +0100
-X-Gm-Features: AclHuK_YmUY-cyrn8sPqESOYVBMGy_5scGhTZjCC06dq4P7IzI17kYjTkaWbeHw
-Message-ID: <CAOQ4uxhp73OkM9-OUKXeO6Hrq2sV2oYYJ7CCzD=-mXHtRjBxDw@mail.gmail.com>
-Subject: Re: [PATCH v7 2/7] ovl: no fsync=relaxed without data integrity
-To: Josef Bacik <josef@toxicpanda.com>
-Cc: Miklos Szeredi <miklos@szeredi.hu>, Christian Brauner <brauner@kernel.org>, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>, 
-	Christoph Hellwig <hch@infradead.org>, Chris Mason <mason@kernel.org>, 
-	Chengguang Xu <cgxu519@mykernel.net>, linux-unionfs@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|LV8PR12MB9230:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0536f8d9-82b8-494d-71e5-08df459ddbf7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|1800799024|376014|23010399003|22082099003|18002099003|261009223027099003|11063799006|56012099006|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	s4IWt5pIiWpSjw8srRZsRh4SVBdSLJm2Z8Qq0EmDBN2xfnSnJvCooW+ZuQJa5wMeN0RQniQC0GbZpSseUvtrdimGrSzAfdWPGbp4V+dFZxOVnUTu80CAnqcJ1OuRj06eX4iwO4gQQcMcn5WZaeVzE1FJ7SmPPLETvBIAt4PVuZPDBlXW64DOrZ2sksAESWcS6Jh4EaKMbYv4sf/AjPqxPl+6Xy7kkd8fAcjQmCFZCIW87ULNNty/Y45sGVUO17gtop/oZmP9oL1I9zLeSKhrvSe+Py+UOkYLBI+3zkMiY6aGBN3WPe8l87UcGk158kselzx/bDEqIn3adOK3rEpjrsRwDiHkPbwcZ8wCB6zfqJkwqM+pm+yDXafF+yiHIYgQZqJO5KOABir/kQxxup1XjM7MPq2AoMMm5HKgZ17uCa1c9Ij4hmZh3mTtogJcLCVC9ok2mgT9rDzEfliYOadGl8McHdp1K8TwkTW1Yk+7iiVNdo7wPg8/kZTs7k9lan26iWtN6Dk7x4DqTnsw5AM+FxhUPP6rS/mq/mNhavqapJlV0KH6xy8VmPnV5HlUXEUyDcvPQHb0+jmbad5zAxvnfJhIA/WooCjK/BvmBXzUcsGwLtbdRfKl+Ma5Qx+gTkMEvUDTOtr9qjjGGEKCa3AHz21kt+VaErDDgomi5416YKo=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(23010399003)(22082099003)(18002099003)(261009223027099003)(11063799006)(56012099006)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?UHoyUHBnbDBmc0VodkpzaWd1c0RYRGkzQVQzWkFLVUNWTmV0amJUNnp3U3lj?=
+ =?utf-8?B?Zko4UDA3VjlXOGkyUUcxRUNLTjRCRCsydEJleFlVVVQydk8zMWRjNVVvZE9D?=
+ =?utf-8?B?UXFRVDU1WnRYdlNOckJQZFl0WmNTUGwwaWNWR1JtY1ZWWmxlRnN4SHp3a1ph?=
+ =?utf-8?B?QXJzUFd3MnpWZ25RYUs5eVBWdDZUQ0VJcUdKUDByaDdCcUZ0ZDROclcraVNN?=
+ =?utf-8?B?aHpYbE12U2NyOFZyRDJCWnBMNlAwanhsM2JtL3QwYWQyL0UrTDdIbzJmTHAx?=
+ =?utf-8?B?cnAxSmozYkJjSGppTUlzVHhSTDJ0UlNrVDZ2bUgrcDRsb1ZNMmJlOGtZTFhH?=
+ =?utf-8?B?VlhNeFo5RVk0V1pGRU5KMFZvUkpwamJOSzlhL3lhMzRUM3E2QjVlT2tGbElT?=
+ =?utf-8?B?b3pkak9YSHVEWFphd3dnbmNVaERNK2lqMmx1Q2UzTHd5MEtzS2FhNVZpRVd6?=
+ =?utf-8?B?ejN3Qm9MbVp6NW5aU2ttM1dDMlFHSG1jRll0OCtCcSt1YWZTNVp1QXExSWNZ?=
+ =?utf-8?B?bEh5R1NFNjN6RkxpNGVzVkorenFmeTlHL3JmOG9iZGxmQzJCdE94NGM4Wmp5?=
+ =?utf-8?B?cnBBejd1NzFWNzRmeEtvL1lYNWd3L2JGa2NuZ3JRaUUyNENyazNNN2M2U1Q3?=
+ =?utf-8?B?SEg4MmNFVjNKbkZMdDlVd3BGcnhITFN5a2hrd0lLQmJ1bGlvaEtvM2lLRVhH?=
+ =?utf-8?B?cUwvOVlOdUs2MWlZTVoxamJjS0kxS1I3dlY0N3BjQlJ1OHMxR09STVc4c1dl?=
+ =?utf-8?B?SlFuS3lubzN2aVJRZWlXd2hNM2tiVkJEMkdTcXRqbW0yRFdzK3lEc1RsUkU3?=
+ =?utf-8?B?OFVpUnkrYTFwbVhnbGpjUjFaM1d4eHMzbHB0Z3JwYWtncmlWYWhuMDZEU3VI?=
+ =?utf-8?B?RWpHc0dEdlF2UlFzVUgyUnIwM3ZQRS9SbElrcUxVWnV0SE51TzErVkJXZGtU?=
+ =?utf-8?B?Sld1WDJ3TWFxVmlIdFoyOTBBTlkvTVVDUWxwYmprNkNBaC9ubDV3aHpoSXhO?=
+ =?utf-8?B?UlFKQmFSZU44VzV2azNjNDR5Y05YcStkOGUzZDFaM2RvY3IydHUrcEMvdXZv?=
+ =?utf-8?B?RC9VeEdqUWRHYlNESTFHRVBNTGhITHVpQURXd1VncTI2M2R2YzgxV0lwOWl3?=
+ =?utf-8?B?OC85cWo0RVB6UUxtMWd0TEVjQmU1LzBQMFNhQ0k0TnFqdDVrVVFDeWlHd0tv?=
+ =?utf-8?B?UTBzOGpFdUgwb0YzWTVFN21kbTdBVzZUU2g5TFM2MmlCWWc0QkFNY0RobHh6?=
+ =?utf-8?B?SEljMnR2YTNBYXN5WjBvSmIzNWlDOGNzTFZXZllObGtLb1VBeWdVOXQvUUhX?=
+ =?utf-8?B?b1E0eUxXbWszY1p3WmRvU1JHb1BtbUpyK2FjOHAwMVZ4WW1LMHFBYTdLa1Bj?=
+ =?utf-8?B?TC9nZkI2OWtLYWcvMlhzYkRDbnE1UUJDTkQwbzR0MWpES0k4Z3FHMDB6Tjhj?=
+ =?utf-8?B?c25JYjZSNllBaSt3Q1ZITjZxNVBjNXFtV05wNysrZkJRaGQ1L1NoSGV6bWxJ?=
+ =?utf-8?B?N0xpV3VxTmc3eURkaVpKZXR3UlZEakxPQ3pmbDJsbHBsV1ZpZDdGZTRNR3No?=
+ =?utf-8?B?eGxpN2paWDNRKzVWL3NPa2NJNmRXNU85TWk2Mzg0akN0cEhESkd2RWZhblJa?=
+ =?utf-8?B?TzAvVFFKVmlPaUpnNy9yMWtNd3M3SFk2SU5sNDkwN2RtbWRzbFh1bU9UVWZz?=
+ =?utf-8?B?UUhyTkxWYklIT0pIVVgyRDJGWS9yUC9QSmVYbHFVaWtWbXR0UXdmQWZBNkdX?=
+ =?utf-8?B?K3lCbHR3K25YUWJlL1VnZ3FJaU1ublF3Y1d3R0VQalhBclJMcWwrTXUrTW44?=
+ =?utf-8?B?RndsRjJPMk5mMkNjMlY0cnBrQWJhVzJGKy9jS00vamdTckNvM2NnRkZZbE5V?=
+ =?utf-8?B?Z0JUbjJmWDJUVzBtdFR6UXNiUVNCUUhEakRWNU8wb21ZZWdFWmN3alhHWi96?=
+ =?utf-8?B?UklDTkZuZUdhaEM4dzVHMER6cmoyVkRPSDRFbnV6RWVvMG8wT3drVUUxTHhL?=
+ =?utf-8?B?VzcxUVRSOERxRnREelhzK3lsSUVxd2Q2WjJNeUlDTEUyemdpc1BFM2pGa1lJ?=
+ =?utf-8?B?UW1pSmUrYTJtQmJQS3A5UndFa1FNUTM5WW1oNmlNMjlKS1dWQmdENU9vVXR5?=
+ =?utf-8?B?K09pa1RYN25kV3cxWXhVTjhsOGF0Sjh1THRObDhONlR3Mi9xV3BWQmp6ZUNX?=
+ =?utf-8?B?YUt3YnFaZDNaVWtJUVpEOFZLTy9vajdlcG00TjJjRjR2YjhLU0NFdDlpbXNn?=
+ =?utf-8?B?L0orVVByUG5lSFovK3g5MTRUQzI1SFFrVW9CcWdUcTk3QmRBV2d1TU9BZWF6?=
+ =?utf-8?Q?UCiMtvqvG4j+rkTh7b?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0536f8d9-82b8-494d-71e5-08df459ddbf7
+X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 18:00:41.6588
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: A0EAxEVurqbQybUeqslR9EeWCH+NJPa4sTOyjZC7Z50MzjB/QUmnmFDN2ywXHcFE
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR12MB9230
 
-On Wed, Nov 18, 2026 at 6:03=E2=80=AFPM Josef Bacik <josef@toxicpanda.com> =
-wrote:
->
-> A sync does not wait for a filesystem with SB_I_NO_DATA_INTEGRITY, which =
-is
-> fuse, so that a server that does not answer cannot block it.
->
-> With fsync=3Drelaxed, syncfs() and unmount of the overlay are going to wr=
-ite
-> the upper inodes one by one and wait for each.  fuse_write_inode() waits
-> for the server whatever the sync mode is, so they would wait for the
-> server once for every inode.
->
-> Do not resolve fsync=3Dauto to fsync=3Drelaxed on such an upper filesyste=
-m, and
-> fall back to fsync=3Don if fsync=3Drelaxed was asked for.
->
-> Signed-off-by: Josef Bacik <josef@toxicpanda.com>
 
-Ha I very much didn't want to include FUSE in this exclusive club
-This was an oversight on my part.
+On Wed, 28 Oct 2026 14:55:32 +0200, Avi Weiss wrote:
+> fwctl: pds: report device information length
 
-Reviewed-by: Amir Goldstein <amir73il@gmail.com>
+Applied, thanks!
 
-> ---
->  Documentation/filesystems/overlayfs.rst |  4 ++++
->  fs/overlayfs/super.c                    | 13 ++++++++++++-
->  2 files changed, 16 insertions(+), 1 deletion(-)
->
-> diff --git a/Documentation/filesystems/overlayfs.rst b/Documentation/file=
-systems/overlayfs.rst
-> index 1a59500834a1..8a007fbc5257 100644
-> --- a/Documentation/filesystems/overlayfs.rst
-> +++ b/Documentation/filesystems/overlayfs.rst
-> @@ -870,6 +870,10 @@ The default is "fsync=3Don" instead of "fsync=3Dauto=
-" with the module option
->  "fsync_auto=3DN" or with the kernel config option
->  CONFIG_OVERLAY_FS_FSYNC_AUTO=3Dn.
->
-> +An upper filesystem that cannot guarantee data persistence on sync (fuse=
-)
-> +does not get "fsync=3Drelaxed".  "fsync=3Dauto" means "fsync=3Don" there=
-, and
-> +"fsync=3Drelaxed" falls back to it.
-> +
->  If the upper filesystem has no writeback (e.g. tmpfs), a non-default mod=
-e
->  falls back to "fsync=3Doff".
->
-> diff --git a/fs/overlayfs/super.c b/fs/overlayfs/super.c
-> index 5960974c5af2..31a58e28968c 100644
-> --- a/fs/overlayfs/super.c
-> +++ b/fs/overlayfs/super.c
-> @@ -765,7 +765,8 @@ static int ovl_make_workdir(struct super_block *sb, s=
-truct ovl_fs *ofs,
->
->         /* fsync=3Dauto that is not resolved to fsync=3Drelaxed means fsy=
-nc=3Don */
->         if (ofs->config.fsync_mode =3D=3D OVL_FSYNC_AUTO && rename_whiteo=
-ut &&
-> -           mnt->mnt_sb->s_bdi !=3D &noop_backing_dev_info)
-> +           mnt->mnt_sb->s_bdi !=3D &noop_backing_dev_info &&
-> +           !(mnt->mnt_sb->s_iflags & SB_I_NO_DATA_INTEGRITY))
->                 ofs->config.fsync_mode =3D OVL_FSYNC_RELAXED;
->
->         /*
-> @@ -1499,6 +1500,16 @@ static int ovl_fill_super_creds(struct fs_context =
-*fc, struct super_block *sb)
->                         ofs->config.fsync_mode =3D OVL_FSYNC_OFF;
->                 }
->
-> +               /*
-> +                * A sync does not wait for such an upper fs, whose serve=
-r may
-> +                * not answer.  A relaxed overlay waits for each upper in=
-ode.
-> +                */
-> +               if ((upper_sb->s_iflags & SB_I_NO_DATA_INTEGRITY) &&
-> +                   ofs->config.fsync_mode =3D=3D OVL_FSYNC_RELAXED) {
-> +                       pr_warn("upper fs does not guarantee data integri=
-ty, falling back to fsync=3Don.\n");
-> +                       ofs->config.fsync_mode =3D OVL_FSYNC_ON;
-> +               }
-> +
->                 if (!ovl_should_sync(ofs)) {
->                         ofs->errseq =3D errseq_sample(&upper_sb->s_wb_err=
-);
->                         if (errseq_check(&upper_sb->s_wb_err, ofs->errseq=
-)) {
->
-> --
-> 2.55.0
->
+[1/1] fwctl: pds: report device information length
+      https://git.kernel.org/pub/scm/linux/kernel/git/fwctl/fwctl.git/commit/?id=3ed98027846bf3fdb2053c626d70cde8e33ae9dd
+
+Best regards,
+-- 
+Jason
+
