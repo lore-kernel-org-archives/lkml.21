@@ -1,96 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794957989;
-	b=MUuGnoPfNa4ioFcAOwYcmxBIi80pstqwCnBUO2eTsPsFuozCbXn5/p1gQOYjMP9IPrWe
-	 Jqyej3H2KaOpMNrkvWc/KAakL8E61OHVZlYLGaXB+Q4z7a8YcRMeN/JeYw3GgquU/lAM9
-	 w2e74oJidr7EJWKL2SsnqYycfDFvyNsTThaaakB6fMTD+6dUE0Z7sSAfpRNq/DiTe0Y43
-	 XlncbvPC+nNbMo8VmBOc+XG/87DGLBM2dcff5AM+8nIafCuEoJjzt9I99z1R0zIqdI68m
-	 Yijt3RaYzPVK/wKB7lB0FCmW00BWslUuvZhnuAmVm+JWOozt995JRM0z3rd1xRmnD6A==
+	t=1794958158;
+	b=YcA0GcuqlIkLsoDI4QAHX4++msBZijDHpmTx10ldUlXhtsFLVxyLIQmOIgnMbfjltUNV
+	 PhCyYtz1521cfw8w+2iABpj/wezrJSxtB06uq0abCuUbjIFPkol5slmvlpsWkdIYS/6f7
+	 2qNoBGFfJ4521d0SF/IQFemh0ImtfRqLmkbdvrDnCw8zAiZ4hVJHXKP6ZRCAGYfKQUdLi
+	 mM/zy6rIE/BA+Fj0jkrT2v5RNYVO0gbjb7pEdssLLhv5EKmvG6hUj3m43R9UflOLyU0Kr
+	 OJoyy0KvNlC5NSJahtqmv/t70YbZdvOGpdNpVIXL0p10g58re8vGZ11edovZdtyTXsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794957989;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Qf/XXvlSe6pIoovN1W4PqCb9IYAyTrZrsA1isV+LsdE=;
-	b=XPd9brd+sxXMXm/A4R9/+bb55VmwUSXzI3wPpHqbfTYE+TkJPZaapsQLK8tLtcv+nW1J
-	 LXr3Lvs5g5afyG9RmcTg7LZhWTQmsdr5eiqpB8uYqtfxJL9wnChWa+DU3QgAA6jwOALR3
-	 GUQz8XE8Nrm2LpvO6kx1ZUwTz4vch3yvsEBe5dU1sMAUZ3te4/iiMhzNL4Ge2rp0l3Zp/
-	 zdXGum+Rcqhun1JopaZjWfA7KyvJaf7dGtxiklHc9GBXD7xyqocucQ8/dRa7U01fxsPMP
-	 LtC6bfnQXWX951dV0jYTh+ZsbGarZXZWpeMj2KAqvHklYqT4yqAySdqA+Zm1J8a60aQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794958158;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=2b458MopEXa7uB2O3RLfHV+wzOt6YVuNArYwPbFLSA4=;
+	b=WA6Xu47SkvH08o2/1cvi+CpPLIY26Z3yoY+1m8A0J7d8DUdpIN8vO3S0y7TkOgs8QK2n
+	 xZle65ePCkVsMJ9K/xLlCDtk2Rqs2OhiUFSqTPorBoPAO+5um3uwcPWVbX9Ux53Iyb6dg
+	 6ZoaHqNxmCmXHTiPfo4CVUqmpHFriBd2x8FNPh4I5aeoU1hrXMl2yN3X0sADeX4D5nMuk
+	 wHB4bIS0D8ljfhtbppYb2594gd5qQlUU58GEJmNVW0H9dlg+aagYgjHochsbudeEx/7Tc
+	 Ko9vaxFNsCF9ZD1JP03vt/FicC8yQLwd/POAmZfJTO2IdUsmvAo4XQc5QBXBgoSWnmg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="tT/h3uA5";
-	arc=none smtp.remote-ip=209.85.128.41
-Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WcZqd4vr;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B358F606A330
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:26:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B358F606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D9DF606A31C;
+	Tue, 17 Nov 2026 23:29:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tT/h3uA5
-Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4bb6c7b6dbdso6375875e9.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 15:26:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794957987; x=1795562787; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Qf/XXvlSe6pIoovN1W4PqCb9IYAyTrZrsA1isV+LsdE=;
-        b=tT/h3uA5Iy4e2QyqTe+NwuaRzLu3VNoD2C+LhX4SeIqlM7NxVhC3qfcwXoiDntFQMb
-         gHGa9nM3XAjMmBjjGl/G/b8UwJSjbWIbLMMD8CnFdI8vDVyV8LuZHhCBaycDBChy9dWX
-         NHQT33FwQTppWGOihzJ12mNFXZApVe6/6wb3/4gDxNguu8v9LLMoCwtBVEoXzdpONDiG
-         irC5KjvpFVJ8dx5ZNY+cdSJNX9FjdXrz3OElOq0bGv0W6wG9y03neFpWqUgIRElGDwx6
-         nx9il3GkbGYLmyWblVL7JjsIomdenqk8qQEoZ9N6aipr0D9Go3JTL12GiHqxGzz02BPU
-         g3Bw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794957987; x=1795562787;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Qf/XXvlSe6pIoovN1W4PqCb9IYAyTrZrsA1isV+LsdE=;
-        b=jZIewgLJboCkCCNbtHwzqJH2uRSyR7TCB3MKoQIQpOxNkiGWGiu2VkP6yIYbnkYnBi
-         BLwywRZ5iSPHk4zeQ5aNxO2Z5vjsXZ0kkJ0K1oMGwwO9/NpJFklhzHWqzNB18P/ah3Sb
-         30B5G5ni1ODr8XxyDZt2p6lpJVlsG58yFEK7i9fXVXrZUHFBLGeOPloiRXqQTbkux04K
-         HlMK5T25xTKIJw3PcN7ovpCaLXuhYmbqO4J+Qjf1yQdrpYyZkmesmsYhn3cbZuRvc21I
-         v0MWrGB8Oq77JpQgidZZrIbHo9LnRQdYpfNBWptOUWqfmDCSiQJVY9QMtkifZu/LL4ys
-         7kaw==
-X-Forwarded-Encrypted: i=1; AL+hErHjo+szVZRYTrI3GLD33Hbzb9OsrcRs13rrFsWIG0CqC0wkNqGc3xDy3vtirlGAZ+vKGYdggKRUoUj3be0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/3L3Zgj/yW8waF+C94u22/PttXEhkKDBVxcPIwbgxlZusTr8Fw
-	d470E3muePEVwalBkEkBpU0fiEZbCqdn1cTWO8ch938JeRuakrvO0FE9
-X-Gm-Gg: AYBFou03OCutzz9fhPECOZPt8ssVBz/6D32sT0J2QhLDuPlLDUeRnQapaTUavC+1xG9
-	1Y9LbS+2n4SSrm9lDINBqKQjkVps9RGEHYtBoAB/+NEJA/vHuIpN+lurF67yRkXY3vRVYvRRipE
-	Ej7IAw7aU8af7dxTHJNC6H6CrN4257Cg99nRqZOmbb3EA1h/UKwiuX/jxkWpcqevJV6y8hmBxxq
-	bkeYE/S6waixx+fm0QlfzATVVe4PEK5pOPVhaETnuz1yBbj7YUqgbOgLRwpEgyVIaewTzOplJij
-	QdrygZwAfGNKmMOzaU8UE3U65L+SMTWsDZE3KlMxhlcSv1/Tn5cM8Q8b4gtF289N7u++kBd9fkn
-	PNfFxjnO+SRL8adFbKytUTSN37SpjAA0jv3FcbfkSXwAFBjJXKIN2kbo1SMOzGwATaiVBSHM3zq
-	AQFvXvTJhL3w1b8XwcywVev6mVulYdq/+2hGpwDjrlMV5IHyiUDDEfoGqKNP9awutoGRe4qJ2U9
-	gjTj6tHYh6P2FF/ADl2QCKLO/hH2mpMY9TEOBCoz0q7571UUbOimrK8mrlRaZDSPBbrOLhxgoTO
-	LX6JzlGodjRen86Sh2CA1iQSaIgXDTiWh+0=
-X-Received: by 2002:a05:600c:6092:b0:4bb:685e:cc41 with SMTP id 5b1f17b1804b1-4bb7da229bbmr13417935e9.8.1794957987047;
-        Tue, 17 Nov 2026 15:26:27 -0800 (PST)
-Received: from deb05.proceq.com ([213.160.61.66])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7d2b979bsm20013915e9.11.2026.11.17.15.26.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 15:26:26 -0800 (PST)
-From: Mehmet Fide <mehmet.fide@gmail.com>
-To: Ping-Ke Shih <pkshih@realtek.com>
-Cc: Luka Gejak <luka.gejak@linux.dev>,
-	Bitterblue Smith <rtl8821cerfe2@gmail.com>,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	mehmet.fide@screeningeagle.com
-Subject: [PATCH rtw-next v12 1/3] wifi: rtw88: download the beacon the reserved page was built with
-Date: Wed, 18 Nov 2026 00:26:22 +0100
-Message-ID: <20261117232624.1956815-2-mehmet.fide@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261117232624.1956815-1-mehmet.fide@gmail.com>
-References: <20261117232624.1956815-1-mehmet.fide@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WcZqd4vr
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B3891F000C5;
+	Tue, 17 Nov 2026 23:29:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794958157;
+	bh=2b458MopEXa7uB2O3RLfHV+wzOt6YVuNArYwPbFLSA4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=WcZqd4vr7CaaogZNmgRfWRKTwEKa+bpOUUxlWfd6laABE9Yy3P52bl4jiVZ/YVqyE
+	 k5Iuf97WZlNhaNkrSZAF6oVj9nb9sYpgvLrP91kVpqUrklYeKv0Vxt94AQOb3VDjhY
+	 T8nZNH5hyr8VKgJLanjOxNXUGiEtHKiB2sDl1iYC9phKDaEKK24x5dV/kH79nJEdFx
+	 hxLhxvPLrP3Lld0F4EMIjai1gXyq1USdkc2A4ruvKvbcsE+tXZHwE+DRgeRhRcACvW
+	 BQYNX6ZJlm4NSWzCOD3rH6h6+zLRlZR4cERmF0Ek0hAdMZR2wQzTvgExYZNTKuSCt+
+	 /XD5tsp2OGPAQ==
+Subject: Re: [PATCH net-next 1/9] net: ethernet: bgmac: validate RX length
+ against the DMA packet capacity
+From: netdev-bot+sashiko@kernel.org
+To: florian.fainelli@broadcom.com
+Cc: netdev@vger.kernel.org, rafal@milecki.pl,
+ bcm-kernel-feedback-list@broadcom.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, horms@kernel.org,
+ corbet@lwn.net, jonas.gorski@gmail.com, olteanv@gmail.com,
+ pablo@netfilter.org, fw@strlen.de, phil@nwl.cc, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ netfilter-devel@vger.kernel.org, coreteam@netfilter.org
+Date: Tue, 17 Nov 2026 23:29:15 +0000
+Message-ID: <179495815587.3136.10288920701294421777@kernel.org>
+In-Reply-To: <20261116222519.1416501-2-florian.fainelli@broadcom.com>
+References: <20261116222519.1416501-2-florian.fainelli@broadcom.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,180 +68,163 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-From: Mehmet Fide <mehmet.fide@screeningeagle.com>
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-rtw_fw_download_rsvd_page() downloads the beacon twice: once as part of
-the reserved page and once more on its own, so that the firmware ends up
-with a TX descriptor that describes the beacon rather than the whole
-page. The second download fetched a new beacon from mac80211 instead of
-downloading the one the page already holds.
+Critical: 0 · High: 0 (1) · Medium: 1 · Low: 1
 
-Besides the extra work, every beacon fetch advances the DTIM count and,
-while a channel switch is announced, the CSA countdown; doing it twice
-per update steps a countdown that starts at 2 past 1, which mac80211
-reports as "beacon TX faster than countdown". Hand the beacon skb out of
-the page build and download that. The hw scan, which downloads the
-beacon without a page build, keeps fetching its own.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Without a channel switch nothing on the air depends on it: the hardware
-writes the DTIM count of an AP beacon itself (BIT_TCR_UPDATE_TIMIE), so
-this is not marked as a fix.
+- [Medium] In bgmac_dma_rx_read()
+  (drivers/net/ethernet/broadcom/bgmac.c:463), the patch now treats…
+- [Low] The commit message is accurate but leaves out the user-visible
+  impact of the bugs this patch fixes in bgmac_dma_rx_read().
 
-Signed-off-by: Mehmet Fide <mehmet.fide@screeningeagle.com>
-Reviewed-by: Luka Gejak <luka.gejak@linux.dev>
-Acked-by: Ping-Ke Shih <pkshih@realtek.com>
----
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but it is High
+  severity, and the new check does not close it.
 
-Notes:
-    Changes in v12:
-    - the commit message says why this is not marked as a fix and what
-      mac80211 reports for the double fetch (Sashiko); no code change, the
-      tags are kept
-    - rebased on patches 1-4 of the rtw88 firmware recovery fixes v3
-    
-    Changes in v11:
-    - none, rebased on rtw-next
-    
-    Changes in v10:
-    - none, rebased on rtw-next
-    
-    Changes in v9:
-    - none
-    
-    Changes in v8:
-    - none
-    
-    Changes in v7:
-    - none, rebased on rtw-next
-    
-    Changes in v6:
-    - none
-    
-    Changes in v5:
-    - none
-    
-    Changes in v4:
-    - none, rebased on rtw-next
-    
-    Changes in v3:
-    - the beacon out-pointer is initialised in the caller
+--
 
- drivers/net/wireless/realtek/rtw88/fw.c | 34 +++++++++++++++----------
- 1 file changed, 21 insertions(+), 13 deletions(-)
+net: ethernet: bgmac: validate RX length against the DMA packet capacity
 
-diff --git a/drivers/net/wireless/realtek/rtw88/fw.c b/drivers/net/wireless/realtek/rtw88/fw.c
-index aa2daf2d1820..e0f3e1adb13f 100644
---- a/drivers/net/wireless/realtek/rtw88/fw.c
-+++ b/drivers/net/wireless/realtek/rtw88/fw.c
-@@ -1625,7 +1625,8 @@ static int  __rtw_build_rsvd_page_from_vifs(struct rtw_dev *rtwdev)
- 	return 0;
- }
- 
--static u8 *rtw_build_rsvd_page(struct rtw_dev *rtwdev, u32 *size)
-+static u8 *rtw_build_rsvd_page(struct rtw_dev *rtwdev, u32 *size,
-+			       struct sk_buff **beacon)
- {
- 	const struct rtw_chip_info *chip = rtwdev->chip;
- 	struct ieee80211_hw *hw = rtwdev->hw;
-@@ -1705,13 +1706,15 @@ static u8 *rtw_build_rsvd_page(struct rtw_dev *rtwdev, u32 *size)
- 	list_for_each_entry(rsvd_pkt, &rtwdev->rsvd_page_list, build_list) {
- 		rtw_rsvd_page_list_to_buf(rtwdev, page_size, page_margin,
- 					  page, buf, rsvd_pkt);
--		if (page == 0)
-+		if (page == 0) {
- 			page += rtw_len_to_page(rsvd_pkt->skb->len +
- 						tx_desc_sz, page_size);
--		else
-+			/* the caller downloads it once more on its own */
-+			*beacon = rsvd_pkt->skb;
-+		} else {
- 			page += rtw_len_to_page(rsvd_pkt->skb->len, page_size);
--
--		kfree_skb(rsvd_pkt->skb);
-+			kfree_skb(rsvd_pkt->skb);
-+		}
- 		rsvd_pkt->skb = NULL;
- 	}
- 
-@@ -1726,11 +1729,12 @@ static u8 *rtw_build_rsvd_page(struct rtw_dev *rtwdev, u32 *size)
- 	return NULL;
- }
- 
--static int rtw_download_beacon(struct rtw_dev *rtwdev)
-+/* the beacon the page was built with, or a fresh one for the hw scan */
-+static int rtw_download_beacon(struct rtw_dev *rtwdev, struct sk_buff *beacon)
- {
- 	struct ieee80211_hw *hw = rtwdev->hw;
- 	struct rtw_rsvd_page *rsvd_pkt;
--	struct sk_buff *skb;
-+	struct sk_buff *skb = beacon;
- 	int ret = 0;
- 
- 	rsvd_pkt = list_first_entry_or_null(&rtwdev->rsvd_page_list,
-@@ -1747,7 +1751,8 @@ static int rtw_download_beacon(struct rtw_dev *rtwdev)
- 		return -EINVAL;
- 	}
- 
--	skb = rtw_get_rsvd_page_skb(hw, rsvd_pkt);
-+	if (!skb)
-+		skb = rtw_get_rsvd_page_skb(hw, rsvd_pkt);
- 	if (!skb) {
- 		rtw_err(rtwdev, "failed to get beacon skb\n");
- 		return -ENOMEM;
-@@ -1757,21 +1762,23 @@ static int rtw_download_beacon(struct rtw_dev *rtwdev)
- 	if (ret)
- 		rtw_err(rtwdev, "failed to download drv rsvd page\n");
- 
--	dev_kfree_skb(skb);
-+	if (!beacon)
-+		dev_kfree_skb(skb);
- 
- 	return ret;
- }
- 
- int rtw_fw_download_rsvd_page(struct rtw_dev *rtwdev)
- {
--	u8 *buf;
-+	struct sk_buff *beacon = NULL;
- 	u32 size;
-+	u8 *buf;
- 	int ret;
- 
- 	if (bitmap_empty(rtwdev->hw_port, RTW_PORT_NUM))
- 		return 0;
- 
--	buf = rtw_build_rsvd_page(rtwdev, &size);
-+	buf = rtw_build_rsvd_page(rtwdev, &size, &beacon);
- 	if (!buf) {
- 		rtw_err(rtwdev, "failed to build rsvd page pkt\n");
- 		return -ENOMEM;
-@@ -1788,13 +1795,14 @@ int rtw_fw_download_rsvd_page(struct rtw_dev *rtwdev)
- 	 * the beacon again to replace the TX desc header, and we will get
- 	 * a correct tx_desc for the beacon in the rsvd page.
- 	 */
--	ret = rtw_download_beacon(rtwdev);
-+	ret = rtw_download_beacon(rtwdev, beacon);
- 	if (ret) {
- 		rtw_err(rtwdev, "failed to download beacon\n");
- 		goto free;
- 	}
- 
- free:
-+	dev_kfree_skb(beacon);
- 	kfree(buf);
- 
- 	return ret;
-@@ -2352,7 +2360,7 @@ int rtw_hw_scan_offload(struct rtw_dev *rtwdev, struct ieee80211_vif *vif,
- 	rtw_fw_set_scan_offload(rtwdev, &cs_option, rtwvif, &chan_list);
- out:
- 	if (rtwdev->ap_active) {
--		ret = rtw_download_beacon(rtwdev);
-+		ret = rtw_download_beacon(rtwdev, NULL);
- 		if (ret)
- 			rtw_err(rtwdev, "HW scan download beacon failed\n");
- 	}
+This patch changes the upper bound of the RX length check in
+bgmac_dma_rx_read() from BGMAC_RX_ALLOC_SIZE to BGMAC_RX_MAX_FRAME_SIZE.
+It also rejects lengths shorter than ETH_FCS_LEN. Invalid lengths are
+reported through a rate-limited netdev_err() and counted in rx_length_errors
+and rx_errors.
+
+> BGMAC_RX_ALLOC_SIZE includes skb_shared_info and alignment space beyond
+> the DMA receive buffer. An invalid completion length can pass that check
+> and reach skb_put() with more data than the skb tailroom permits.
+>
+> Limit received frames to BGMAC_RX_MAX_FRAME_SIZE and reject lengths too
+> short for the FCS subtraction.
+
+[Severity: Low]
+This isn't a bug, but could the commit message state the user-visible
+impact of what is being fixed?
+
+For len < ETH_FCS_LEN, the u16 subtraction "len -= ETH_FCS_LEN" wraps to
+65532..65535. The skb_put() that follows then ends in skb_over_panic() and
+BUG().
+
+Lengths between the skb tailroom limit (about 1602 bytes with
+NET_SKB_PAD=64) and BGMAC_RX_ALLOC_SIZE also reach skb_over_panic().
+
+Lengths from 1537 up to that tailroom limit got through skb_put(). They
+delivered bytes past the 1536-byte DMA-mapped frame area. Those bytes come
+from the non-zeroed netdev_alloc_frag() buffer, and the device never wrote
+them.
+
+The message names the tailroom and FCS cases. It does not say that they
+end in a kernel BUG(), and it does not mention the stale data delivery.
+
+> diff --git a/drivers/net/ethernet/broadcom/bgmac.c b/drivers/net/ethernet/broadcom/bgmac.c
+> index 9ef239bc487d7..1c502bd64d7df 100644
+> --- a/drivers/net/ethernet/broadcom/bgmac.c
+> +++ b/drivers/net/ethernet/broadcom/bgmac.c
+> @@ -457,10 +457,14 @@ static int bgmac_dma_rx_read(struct bgmac *bgmac, struct bgmac_dma_ring *ring,
+>  				break;
+>  			}
+>  
+> -			if (len > BGMAC_RX_ALLOC_SIZE) {
+> +			/* The allocation also contains headroom and skb_shared_info;
+> +			 * only the mapped packet area may be supplied by the DMA.
+> +			 */
+> +			if (unlikely(len > BGMAC_RX_MAX_FRAME_SIZE || len < ETH_FCS_LEN)) {
+>  				if (net_ratelimit())
+> -					netdev_err(bgmac->net_dev, "Found oversized packet at slot %d, DMA issue!\n",
+> -						   ring->start);
+> +					netdev_err(bgmac->net_dev,
+> +						   "Invalid RX length %u at slot %d (flags %#x)\n",
+> +						   len, ring->start, flags);
+
+[Severity: Medium]
+Does this new bound drop frames that the driver itself tells the MAC to
+accept, and whose MTU it advertises?
+
+bgmac_chip_init() sets the MAC max frame length to 1550:
+
+	bgmac_umac_write(bgmac, UMAC_MAX_FRAME_LEN, 32 + ETHER_MAX_LEN);
+
+bgmac_change_mtu() sets it to 32 + mtu, which can be as large as 1564:
+
+	bgmac_umac_write(bgmac, UMAC_MAX_FRAME_LEN, 32 + mtu);
+
+bgmac_enet_probe() sets max_mtu without subtracting ETH_HLEN or VLAN_HLEN:
+
+	net_dev->max_mtu = BGMAC_RX_MAX_FRAME_SIZE - ETH_FCS_LEN;
+
+The driver accepts any MTU from 1519 to 1532. At those MTUs a full-sized
+frame can be up to 14 + 1532 + 4 = 1550 bytes. Such a frame is now always
+dropped, logged as an invalid RX length, and counted in rx_length_errors.
+
+Before this patch these frames were delivered with stale tail bytes, so
+dropping them is safer. However, the new comment and the commit message
+assume that len > BGMAC_RX_MAX_FRAME_SIZE can only come from a DMA error.
+
+Should max_mtu and/or UMAC_MAX_FRAME_LEN also be clamped to the
+per-descriptor capacity? One option for max_mtu is
+BGMAC_RX_MAX_FRAME_SIZE - ETH_HLEN - ETH_FCS_LEN, possibly minus VLAN_HLEN.
+Could the commit message also mention that these frames are now dropped?
+
+[Severity: High]
+This is a pre-existing issue, and the new check does not appear to close
+it. Can a remote sender get stale buffer contents delivered as a received
+frame through an overflow-continue slot?
+
+bgmac_dma_rx_ring_enable() turns on overflow-continue:
+
+	ctl |= BGMAC_DMA_RX_OVERFLOW_CONT;
+
+Each descriptor holds only BGMAC_RX_BUF_SIZE, which is 30 + 1536 bytes.
+The MAC accepts frames up to 1550 bytes by default, and up to 1564 bytes
+after an MTU change.
+
+With overflow-continue, the DMA64 engine writes the rest of an oversized
+frame as raw data at offset 0 of the next descriptor's buffer. That buffer
+has no RX status header. brcmsmac's dma_rx() drives the same engine with
+the same 0x400 bit, and it handles these continuation buffers explicitly:
+
+	resid = len - (di->rxbufsize - di->rxoffset);
+	...
+	while ((resid > 0) && (p = _dma_getnextrxp(di, false))) {
+		pkt_len = min_t(uint, resid, di->rxbufsize);
+
+bgmac_dma_rx_read() treats every slot as an independent frame. The new
+check drops the first slot when len > 1536. The next slot is then parsed
+as a fresh frame:
+
+	len = le16_to_cpu(rx->len);
+	flags = le16_to_cpu(rx->flags);
+
+In that slot, rx->len and rx->flags are frame bytes 1536..1539, which the
+sender controls. A value in [4, 1536] passes both the poison check and the
+new bound. build_skb() and skb_put() then deliver up to about 1532 bytes
+starting at buffer offset 30.
+
+DMA wrote only the first (frame_len - 1536) bytes of that buffer in this
+round, which is at most 28 bytes. The rest is stale netdev_alloc_frag()
+memory, because bgmac_dma_rx_skb_for_slot() only writes the poison header.
+The resulting skb goes to eth_type_trans() and napi_gro_receive(). From
+there it can be processed locally, bridged, or forwarded.
+
+The old BGMAC_RX_ALLOC_SIZE check let through an even wider range of
+lengths. This patch narrows that range but does not remove it.
+
+Could multi-descriptor frames be tracked so the continuation slots are
+dropped too? Alternatively, could UMAC_MAX_FRAME_LEN and max_mtu be capped
+at the single-buffer capacity?
+
+>  				put_page(virt_to_head_page(buf));
+>  				bgmac->net_dev->stats.rx_length_errors++;
+>  				bgmac->net_dev->stats.rx_errors++;
+
 -- 
-2.56.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116222519.1416501-1-florian.fainelli%40broadcom.com
