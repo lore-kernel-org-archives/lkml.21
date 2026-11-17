@@ -1,101 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.174
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794937384;
-	b=TyAEFW41xz/d2fcDSR/gb78r66VY0JK6WaZE6WtoTSZlmSjZMbTRZXh2eEaClpBbLCpt
-	 IYJLoNPIXC45Ltpy4Sa5fgZ4FY8jlzncGw2+m84iWP70Hmz/S3XMlULO0IjXcFWUlGqrK
-	 1Hit5KHxYn1HJKI6zuYLtxfsrVhjJuVHhhtAf2kfdOdBP/vRi7CsjJfYjC0vpJ+wKQk+z
-	 JOhZ6tpuUxyxQ1HfdzBBe4mCKG6Pe9D4RaOPUW8gapGqNGoPWNuWtIjVoPvE/hafqu0y9
-	 bm3ulbSnxjaOmWa/vDipn0p/uSAsVUp/NqxPi/M+dibrdHsVshdHIoanyn9PDojEnZw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794937384;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.175
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794937437;
+	b=GlvD+iLotyaAuYlm2TwYu9ZlHS5EttJZRlgxABPA7MafOtP4yZvA9mfdx8RRHDQ6yIvM
+	 ex4Eud4k7VS6hyb6UMRt9+KdVANU8zPuKdTrQpuefrYqJm/4zP+7WnOMp4J4oNh5T0nId
+	 WFdDp7iCQJx8Oi+EGqh8Vw8Q1h/tpEaPX8REYLZzt1pEZcLz12cQQ0YUq00hFH4uh3M9u
+	 1MSTYW9bbmmieBQYr7x+ouMuXPl06sXN49+NSq3ToYq9LTUJ16Ref3d/I8UNGDiu9bi2k
+	 1SfN84VlW0svxbb+7EqpU/I5EGKRafMNVnG/um/EKYMYOik4C5MFT+wXOtRoWo65qQA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794937437;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=nvzZs1q5voEwvj1dbc4nqY6RN+HlKTD/o3FysXVRy+g=;
-	b=3qCfgRUQ//3LnPB87k/XFXn5eex7HnMnXz0KBtuevmGUQkl+sW6dr0k46iTcLJ2IAol3
-	 GJ3XIw1e+Sk9coSoH40SAWLATVPEMxvTPnsVMOMoMxUTPan6lin39ZtVHcV+13RFegJ8C
-	 FIZHiG0dQEnpShkYcrsJf+EZPjNbZQk92DHlLU/BnjRlryKHKMH86ZcO1Q6/gIUI33qGH
-	 mTmnKZpq55V1VT/oDpBuHZ+AnyUaoWJXHdunZp3jHdCBpKKMoKEW2a6wx4shlLDppmKQz
-	 ++slryv/10KZhoQDgNTUN7QlobFROz2BJ9QVWqqsPuheCki9I6zglfJxoYdI4DZvxFw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=4i2zokTFO59EM5OtymCggaFGZxyWZfmPQA4ZgdZWwkg=;
+	b=RaDMwh/8pxT/h4ipePXgkmj3mQ7PNXihwEHpcuklwKRRYfLEwOE6A0QRJshFQhIWlLMQ
+	 nZ/VWP7YmO+2L90iDnZPTu5uWlNMhoGsERbDydd2tjT9xqbv3/xP2VNJoXbc1bwc6yACT
+	 +B74TSbd8W4RBXjgOW22JVeyOFbgNxgzfKYoDDR9Fu59kR3mQPr2ZqdWhj0/Cr8Mgpq6Y
+	 g+Rwlx9arEYkJ8M19PT3k0M3l7adAanRMsifkWXQlQjPTzpqZkEjfVrGuIFatpXwViAsR
+	 Ak3aXw78AxYt+SwIvd568z7W5TteA8NeYAmOtBecf3S4qFL3aVMAUpECn9Gu3MnCRmw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pJK78JQH;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.174
-Received: from mail-lj1-f174.google.com (mail-lj1-f174.google.com [209.85.208.174])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZJ9lHt1s;
+	arc=none smtp.remote-ip=209.85.128.175
+Received: from mail-yw1-f175.google.com (mail-yw1-f175.google.com [209.85.128.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52D59606A32C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:43:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 52D59606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E50F606A337
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:43:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8E50F606A337
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pJK78JQH
-Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-3ae3a5d440aso1376121fa.2
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 09:43:04 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794937382; cv=none;
-        d=google.com; s=arc-20260327;
-        b=PVdyTa73RrrpjlyA2pJdMUZt4rPZg5+WanMb8uzt0QU9OeRmbxYsEYr5otXb2b5hUJ
-         fZTt1QR47kX9mOysdbs/od6b4QqSL45WFo8xNcvebKiEPcugji3M+qEqLadXI06BPT/8
-         3cx+tr7nYDL/0k2j+Cz5J3sbjBKzIQUp4ADF9RzlDXgiO47NK8KTADiCfWPfE6sTj1EV
-         RXjGs5/Au40er+2nxp8gqtMFVU8n0oI1znFHrAPd2C8LIQmSx8CazidTYHmzq0J76Gv2
-         zBFBKnNCmDFr8TZXI7BubuywHJThAuMQFyX8jwZEKuD3m803ETz8c9RNNduFkZXRH6lm
-         +78Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=nvzZs1q5voEwvj1dbc4nqY6RN+HlKTD/o3FysXVRy+g=;
-        fh=vDS4+X4JjF431JCcL3M4YgHHl3pleuShQ9UUhwThbsQ=;
-        b=Q+eH/WW72UvUr0t5UsFXp1Hiql/L8Vrhedm3jWUFxWDPaHpnUVz72bD4Q8PTmayGsZ
-         bv0Om5ImkaaOKZe6YYBrh6R88wc5+Rb9dYNRZHsR/dPUkLPRF6gRgylzpAbEH8QZ2rdJ
-         sfwPN9vkLaH7O3EjDbRTAEvxnDjZx6fvLcEDw4iYuHe04qX3zmq0MTTmgwK59of2HfdO
-         O8EnA+dE7JO8VlRAySrg830InqGm1gkvvyFuNGUYz/y8OsGFT8SiLke8ov8HVlBEB8qF
-         B+Eunx6oYSUwSMe0seA+6GliahCbHtHxbpelI88TYSR9SWH9jzEDrY0gk/UcGv7H8ceu
-         bSOQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZJ9lHt1s
+Received: by mail-yw1-f175.google.com with SMTP id 00721157ae682-8b4eab91bcaso13019817b3.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 09:43:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794937382; x=1795542182; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=nvzZs1q5voEwvj1dbc4nqY6RN+HlKTD/o3FysXVRy+g=;
-        b=pJK78JQHngzfVAOhh+bAZ18z9qClPx7EUlb+eUYv+l6UG0HetMaBj6Pa/X7B8I2XIZ
-         eVFyqpPP45jn2eNemdddEz/STarrtyPopzZiezq3r0a/yWjyPZh8Yp5TbEpjakfM8Fk3
-         iZVVaQREyoLyK0sBtNOIkecIuHoZq0492+2u3bOkVceYcFZbZAnRTmoL+R3C8UyTJfOP
-         E1CWzxQVvrVLQ8D+t7iN4CsrrKAGo6knnTL8s3pxr7hviMpMGHKyVqr6mGwMCXUU2ldc
-         JXLpSXUaL4rKva469YAlP6h7rOy3ciH0nHwsb0OnCFuOOfONesAGNh4PTDkrYAqKzZLg
-         8MiA==
+        d=gmail.com; s=20260707; t=1794937436; x=1795542236; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=4i2zokTFO59EM5OtymCggaFGZxyWZfmPQA4ZgdZWwkg=;
+        b=ZJ9lHt1sKEsDdlecfU83rmKFBwzcpbjhmf+8rUFRs/z/pL7brGBRVU7NmOSKxPcDyA
+         65oN4Pi3uHns0RGGtT8cOd44sGIgte52tuS7L3pY4giYwOfOAdmL9La0eqgmJB1J7Hv2
+         5FPoAzOL3zg+1dhMN7edyBOYc2KrJ4OBEDAPe0aaZ4OwPAMXtr4v3PXsmtmZztKANYXs
+         wBT2Lrns/zzd9l9GfvFVWeKiIajJGEVTyHARjkAqWLrRX+MRbk4va7Apg3JxAZN00atL
+         sPa01FZ3HD0+U+QySDDfYWXCOZV5f13d1HcWrFtq/VkP+FMdoeRJTL+jszxQvNHd0F5x
+         0NdQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794937382; x=1795542182;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1794937436; x=1795542236;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=nvzZs1q5voEwvj1dbc4nqY6RN+HlKTD/o3FysXVRy+g=;
-        b=xMVEt445pT6nk0Si2prfpxJTo4bXAikyQVrkKJyYAl66Br1rDvvoslgBCtQ+LMAMgq
-         /MVbBAJSm1HKMH7ybnak2dCICqVYMo2vJAhnhSThAAP8XQV1nANe9uqtgoGwEAmyEVB7
-         +6tfVWKUZFAxYSbyvs4JEEbWhhyN+/B7nZUtV/Pcv3lZ7NHLmfWjDGdIkTomNsodUn5p
-         MHZWxK8gzG5ayMhLwIcb0pjhyDhsb3qVqXdFob6mFGvizaK4OKPPSXD07HPf1heEYQ9J
-         mT4dg/DM7JY9U/tSu1DBvGGHjxr8uTsxbN5aLtFRLaY726Tz+XEP8pp1iDrv8tyx7MrO
-         SxzQ==
-X-Forwarded-Encrypted: i=1; AL+hErF9Y2ncP7qt5djXh+6onLA/p4mpi0mNs4Ga9z3uhi2dXC++4ZTASAOF9I4Hli0PXBE+EMTVPcPFDGhYPH4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8X0sYOTW7ND8v0Qk+0ICd4zG6qRLoWSDynMmqcqtXkm9K0nE+w
-	YbdXKIX+CU/95sGUwsMEI51zKogr5rVmURh9e+9qIl0lRMVNOAxpjInvHHqLkoi5Hzk1fUmpolG
-	fzGiTwMp/zFOn8EBT9EmuffPI/VfD0Ck=
-X-Gm-Gg: AYBFou0HEH5m8Zzc0PcKm9gAPTouHsFYxdfHfKLG8fsAagvZ5eqbg2n05M3sdN3WeR/
-	I5/LoVGuAOmBSZsGje4uyb5eWZ+5lpmONkVhLHRx04rTW8Vm32hAdOaRn0+I/zv3Z3DNcH+TOfK
-	pxBxJO7ybyuHztRHEl2j0Am7X1lt4UDethPVV9TaqpFoYO0/kfFpQmCdVzvDCm5tsQ7deQzpUVU
-	fJc0O2Y3cmVAoLaB7YgKtTASqLLgZ5iT2AVp5IbZKseUE67GFup4uFBfkBzg/LW8CLF0wl/QzA+
-	N7lC8k7WR1vkkCnb78020IQ/ptD7JEl1NtyHCN7oNp3D5vnrSCoiUYE6llZODgDu1/l8F/HwAiB
-	NKFqBClcUwAnRezybVGvl8eyEZwYpVNKzmlDzSiRkdAe3DyCGqTD1X7WfbCpUx3lqNBj6wFGcLA
-	zXHmrnuKwnei5aAxWeDrHJh9XoCWljuS4aI0s0lGU9tbjKa8gp+/4UdMr3XW1QBBowoEBO
-X-Received: by 2002:a05:651c:a171:b0:3a6:5ec0:7977 with SMTP id
- 38308e7fff4ca-3ae2b52e925mr48966131fa.22.1794937382329; Tue, 17 Nov 2026
- 09:43:02 -0800 (PST)
+        bh=4i2zokTFO59EM5OtymCggaFGZxyWZfmPQA4ZgdZWwkg=;
+        b=ckFKSx+CFAr525n7FuipHecSDpqIk5ksqilxKLKWWfU8AsqkJFumhvjg8DSDVD1Xop
+         8T00YaKGu5p0GbIPtEFDcGVgqheexxVV5s6aqfaNEFRlAt2xMeqbtpRzCFDkQdK1iGaX
+         Sb3IkccOZ2QyDei+rypTTnkLMk5Zv6uuz5faiYRx4MblDIXraVNQEgsOjCCE7ZHinStQ
+         BbyGMjIdeNV0j2a+tQkr1SbehhzwDw5I/REGUBtVatuz4xoHUpTEwz9JqzChyUQ1VMRg
+         phairgQ0Thj2qTcwF0dprVFkQVACM68GGzZjzsm5S2fUzrChth+o+FwoJunMomzfFCbU
+         hGig==
+X-Forwarded-Encrypted: i=1; AL+hErFy7hGpHbypwdp7f+6Qc1l8F+gTo+26cOm/z0MxWuveW0ZUM99ehi1LR0+mAHxjTJZ/CEWbmDnCMmm5voU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+++S7P3Sxl991V7cbHPUXLDm1QzjT0VlAcRKjpc8ouiaEPZr4n
+	EphBQZVar/uxMp1zwl0sc5aWpZ6deiztnosajrjmiic42mVwJo1bYnV5lthUEKNrRHs=
+X-Gm-Gg: AZFdTZcwK50zrqXidLm/7gcpxOKhpyl+QYHxlU92iNd2LnxzGxQLtjzI36D/0SLhM2q
+	orNKuqKd05LpUTNxbwhHzC2KS4tYIvE/RcDyLyD3btbPD6RQyjotfCABpuYLoWQqhg3b/Gy/wOP
+	LV35Io9ShrNlQCqGAtCFcwWuAR1IvHC+nh/3cACQ2ZCb/lCEvGxfOQZnALqqX75RYV2qZ7NBKGo
+	1PbfOv9BLaFM4um9swV/CTF50+24N+pC7jXHIWeCFIQhUICcmCi2trre5py0igBfLY8y/tlB7ZD
+	n0Feng1wELsBb/NUn1Z53o9/QWHxbUlZJiOIbCEMTyPmiqFCovSu/b6hd/zqpL2XpCaFzb2jApc
+	LezY1oioNBLlU8Y92QyBkucc//znXhvJiTWxta3k7o6fMOElTLIlggdsbDI8q3A+3BDjfFAZ3/7
+	u0pEdbRAO4l+ht99z83lv9wJoN1oeBrxQv5BrMl1KUHSZ+gJ2vOK35Ro+N+L3ix7kR018I6r0gh
+	4ex+zgcV2wIhPCywUn8QrVjJ73J0dzJiYgVWKWs/8mLMQIRyU/EhojTYddV9g0G4uVCk3gx7to6
+	gqznwaahzCI+Rbu6b224hwM2s/4bffc89HR/OK2ABNlWXmc5wRd+bEqOjHDnjF8x5SVCiNy3y83
+	46tUYk9BO7hctOV9Q7frtg2I+aBWNrNAbiSo4nEDupntUfNOONMc039gPijpHIRuc2M0LWgF0sM
+	4SCS69c0CCPzD2vVOq6w==
+X-Received: by 2002:a05:690c:d8c:b0:8b2:e86a:8f0f with SMTP id 00721157ae682-8b4aa2e4bc7mr87789057b3.28.1794937436463;
+        Tue, 17 Nov 2026 09:43:56 -0800 (PST)
+Received: from localhost (107-220-129-194.lightspeed.chrlnc.sbcglobal.net. [107.220.129.194])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b4fe115a43sm2013517b3.42.2026.11.17.09.43.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 09:43:55 -0800 (PST)
+From: Matt Turner <mattst88@gmail.com>
+Date: Tue, 17 Nov 2026 12:43:52 -0500
+Subject: [PATCH v2 1/8] powerpc/perf: mpc7450: Event 0x30d does not use the
+ threshold
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,70 +95,69 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261109-ppc32-perf-v1-0-a6e8a55b3b48@gmail.com>
- <20261109-ppc32-perf-v1-7-a6e8a55b3b48@gmail.com> <3950cc84-93bf-4830-8a37-57f9739a84b0@linux.ibm.com>
-In-Reply-To: <3950cc84-93bf-4830-8a37-57f9739a84b0@linux.ibm.com>
-From: Matt Turner <mattst88@gmail.com>
-Date: Tue, 17 Nov 2026 12:42:50 -0500
-X-Gm-Features: AclHuK9QUI3yDbyT2B0UUj_KZN-ImAYjLn5ew9el98OjTN6HFOxuPodteoFnxMI
-Message-ID: <CAEdQ38Hr-pdXs2XYyFr0ryFsdeQ4xC5W9yG_xfDBhN068cDtBg@mail.gmail.com>
-Subject: Re: [PATCH 7/8] powerpc/perf: Use SIAR for sample addresses on 32-bit
-To: Tanushree Shah <tshah@linux.ibm.com>
-Cc: Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, Shrikanth Hegde <sshegde@linux.ibm.com>, 
-	Paul Mackerras <paulus@ozlabs.org>, linuxppc-dev@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261117-ppc32-perf-v2-1-2072e9b90009@gmail.com>
+References: <20261117-ppc32-perf-v2-0-2072e9b90009@gmail.com>
+In-Reply-To: <20261117-ppc32-perf-v2-0-2072e9b90009@gmail.com>
+To: Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, 
+ Shrikanth Hegde <sshegde@linux.ibm.com>, Paul Mackerras <paulus@ozlabs.org>
+Cc: linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ Matt Turner <mattst88@gmail.com>, Tanushree Shah <tshah@linux.ibm.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1520; i=mattst88@gmail.com;
+ h=from:subject:message-id; bh=TtTDFi7v6z+KDY4gBi2LmgBe9ld12hzvxesJ8HRVaAk=;
+ b=owGbwMvMwCW25rVmCc8sv+mMp9WSGLL+TIpY/6Km0tREfoa9Ke8ib6HbNoJRR6bnnG929nFSu
+ 6qbsSu84yMLgxgXw0wxRZa49Yoss9p2LPU5Lf0LZg4rE8gQaZEGBiBgYeDLTcwrNdIx0jPVNtQz
+ BDJ0jOIhcnoMGpnFxaWpRbppBUUOefkliSWZ+XnFevkFqXkF6QV6aZlpJRkZ+UXFqUAj9PJSS0x
+ dHd2MDA1MLB0tzJwsHE1NnJ2dDJ3cHB2dXZ2MLM1NDJwtHU1cLc0ZuDgFYK65+pvhv1P/MZ4fEh
+ 7C/2etuG1ZmJh/dErzuociMj+N0uJrN9TtqGNkWH08Usn1h8nmgzvqGh6Ed354+09o9f4yva+5B
+ cv6M8zecgMA
+X-Developer-Key: i=mattst88@gmail.com; a=openpgp;
+ fpr=3BB639E56F861FA2E86505690FDD682D974CA72A
 
-On Tue, Nov 17, 2026 at 11:11=E2=80=AFAM Tanushree Shah <tshah@linux.ibm.co=
-m>
-wrote:> One question: the callchain still walks from regs (gpr[1],
-link), but
-> its first entry now comes from SIAR. Can SIAR and the interrupted PC
-> end up on opposite sides of user/kernel? If so, would the callchain
-> be affected? Something like perf record -g on a workload that switches
-> between user and kernel often might show it.
+mpc7450_threshold_use() reports event 0x30d (PMC3 select 13, FPR issue
+queue entries) as using MMCR0[THRESHOLD], and the comment above it marks
+the event with a question mark.  The manual (MPC7450UM Rev. 5, Table
+11-11) says the event counts the valid FPR issue queue entries each
+cycle, with no threshold.  PMC3 select 12, the GPR rename buffer event
+next to it, is the one that uses the threshold.
 
-Yes, it happens. I ran perf record -g -e cycles -c 1000000 on a loop
-that does a little work in user space and then calls getppid(). Of
-16953 samples, 3022 had SIAR and the interrupted PC in different
-modes.
+The only effect is that r30d cannot be counted together with a threshold
+event that uses a different threshold.  Drop it from the list.
 
-2193 had SIAR in the syscall exit path (__kuep_unlock,
-ret_from_syscall, syscall_exit_finish, syscall_exit_prepare) and the
-interrupted PC in user space. The exception is held off while MSR[EE]
-is clear, so it's taken just after the rfi. The sample is marked as a
-kernel sample, but the callchain is a user callchain that starts with
-a kernel address, so perf can't resolve that entry, and the actual
-user PC (in libc's syscall()) is missing.
+Fixes: 7325927e5a20 ("perf_counter: powerpc: Add processor back-end for MPC7450 family")
+Reviewed-by: Tanushree Shah <tshah@linux.ibm.com>
+Signed-off-by: Matt Turner <mattst88@gmail.com>
+---
+ arch/powerpc/perf/mpc7450-pmu.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-801 had SIAR in the system call vector at 0xc00. That code runs with
-translation off, so SIAR holds a real address. The interrupted PC was
-in the kernel, but these were marked as user samples at a bogus
-address.
+diff --git a/arch/powerpc/perf/mpc7450-pmu.c b/arch/powerpc/perf/mpc7450-pmu.c
+index db451b9aac35..564f6dac3a00 100644
+--- a/arch/powerpc/perf/mpc7450-pmu.c
++++ b/arch/powerpc/perf/mpc7450-pmu.c
+@@ -65,7 +65,6 @@ static int mpc7450_classify_event(u32 event)
+  *	12b	Y	PM_LD_MISS_EXCEED_L1_CYC
+  *	220	N	PM_CQ_EXCEED_CYC
+  *	30c	N	PM_GPR_RB_EXCEED_CYC
+- *	30d	?	PM_FPR_IQ_EXCEED_CYC ?
+  *	311	Y	PM_ITLB_SEARCH_EXCEED
+  *	410	N	PM_GPR_IQ_EXCEED_CYC
+  */
+@@ -92,7 +91,7 @@ static int mpc7450_threshold_use(u32 event)
+ 			return 1;
+ 		break;
+ 	case 3:
+-		if (sel == 0xc || sel == 0xd)
++		if (sel == 0xc)
+ 			return 1;
+ 		if (sel == 0x11)
+ 			return 2;
 
-The other 28 had SIAR in user space and the interrupted PC in the
-kernel.
+-- 
+2.56.1
 
-In v2 I'll use SIAR only when it's in the same mode as the
-interrupted context and fall back to regs->nip otherwise, which is
-what the code did before this patch:
-
-static inline void perf_read_regs(struct pt_regs *regs)
-{
-        unsigned long siar =3D mfspr(SPRN_SIAR);
-
-        regs->result =3D siar && is_kernel_addr(siar) =3D=3D !user_mode(reg=
-s);
-}
-
-A real-mode vector address isn't a kernel address, so this covers the
-0xc00 case too, and perf_get_misc_flags() no longer needs to look at
-SIAR. With that change the same test had no mismatched samples out
-of 18069. The share of samples in the kernel went from 44% to 46%
-(perf stat puts it at 57% of cycles), so falling back to regs->nip
-near the transitions doesn't lose anything.
-
-Good catch, thanks.
