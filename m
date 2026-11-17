@@ -1,61 +1,134 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.145
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794958360;
-	b=uT39qBCXzpsvat9z/mjGANZHR6o+i59R9PbKsvMJXHRXvj8mqrUR70z6/M7IqRe+o4RI
-	 dhRVbVKn6SzClYlAXQl4pyOsfQN/VKrWZLuiSmoFTJ6hQyMHJjKVqJSl5FuGR/i/FDgOH
-	 J2RF+F1GGEeg3yb+GmbmqeHcgtcg8QQxcr7jILIYY/NbiMZWjef7jevrGqPhJFP3nSUCn
-	 K+PC9ZDvNextCa8yNCW71cwofMR64bbW3d69miCpnNXUy8Bcf6ZqVyaKxWwbRdEkPMrNk
-	 cQdZE9+GHNDUXrNamtl0XHfAh/gvJj6Ef1lnGyuWP57Kk0jwu4PHgEXZIQEaOBTZMTg==
+	t=1794958402;
+	b=Ry7TlFbTfNAHEIDQQxrQfvC7BFqc237+DX7tI4g+LvEHOTN3DG7M/dexPiWmk6Qx8vhF
+	 EL6FiM6/E1HPWPnha0+PX+ngE/gSQ5ReRToGHWSnjPsCrpjBF/+QE3Y+Nwt5m/2+SZVXT
+	 qjK4TeGiHA5q8rI0GEqLs+Q2X0EmQgcED8AMd5YYuSoSxqyYNZ4jd6ueNmBTuyOL7tf6B
+	 mH5fzA47ZrCyuoHz0dVOBp8SGI1JIuWlYqmlxGJkfqKYBwQEVfEplswrjP6yvTSH43UCP
+	 iRb+8ng1f4EZvrJKEfuDssy1y8lLtUqAiHSxBIq2+pIl2ZxoMwC2aTxMKTLYqyMOAYQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794958360;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=WiVbIaTi7dNlw1LohPd/8u8xB8/i9d/jmzm4Z28McPg=;
-	b=Um91oQnqTSRGnj/wkj9z+G9/QuwSmQ+9f9VDMXPUIHH3G+lK17ledkfiaVzP/z8s972U
-	 ZKtW3HZXRkRF+lUvUM9cTdyXBv1DOmPncUJdUw2JZTZHzkL18d3vzliAMqr9XXUKXPWRS
-	 QNVHEAwyUinE7n4JzmD3p8Qm5emseslHy0E+1EuoodUihWLxMuwUMF8wAlLwX+o9ixx17
-	 iV0cbw8sSoSug6L4UgeZQKWv2dgTx9YQJqm71k+wW7/Rusjl+SDZ3Kh4FnEl/2p9yjPRX
-	 7lNlf03UqoW6pq1FNpLH96xvZaPjuv64pC4LiXPZZ/Y75sRlnlipno2hkQm3trRIWLQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794958402;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:
+	 X-Mailer:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=VVypS2BH7BTIDP8XvJg3P0/Wb4ccvreAy4viuz45dWY=;
+	b=O4JmyK9BPplvEx+4622R4QgPMQP24lQx4cRZmGFsKJYGK6Dk8yEfP3YfZiMxglegORD2
+	 cZvhFGKH75B9lWcO8syR7wotfLtDKJYQjDvfSep3UAwtKWguNmH2wdEYzD3m55EKddrpx
+	 B6/X01J5bcaZV3lwANN1tyTcepkDxRxQxSQob8tt3sVm4J5b6fm4DQeSxUVGnWlVjTbfI
+	 T2GigQ39j8HJdc9H9cWAb7coPs1c97yjhsKpAPKiP7eopAAY1ypwDDQBmNKYIJ//5PI0f
+	 S26gkuZm8K6MV6Qxqzfrf0UIaUteYdD8+w9ia8WMOh0WBudB2ALDtz9/5+Bqq+xc8CQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X7imiGXE;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=shazbot.org;
+	spf=pass smtp.mailfrom=shazbot.org;
+	dkim=pass header.d=shazbot.org header.i=@shazbot.org header.a=rsa-sha256 header.s=fm2 header.b="O/nAIQ7K";
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=wsdD1Jy0;
+	arc=none smtp.remote-ip=103.168.172.145
+Received: from fout-a2-smtp.messagingengine.com (fout-a2-smtp.messagingengine.com [103.168.172.145])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4D9C606A32A;
-	Tue, 17 Nov 2026 23:32:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AED4D606A339
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:33:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AED4D606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=shazbot.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=shazbot.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X7imiGXE
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D2971F000C4;
-	Tue, 17 Nov 2026 23:32:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794958360;
-	bh=WiVbIaTi7dNlw1LohPd/8u8xB8/i9d/jmzm4Z28McPg=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=X7imiGXE04bl+5J2D1ZvA2f8N3woFr8c2H2fMrDINAdSEPFAlk49xrc+PA8eKxsZ1
-	 pkK/8K4UKFWZDBQgqwlycK7M4Zf9n6AZEQrC83ja7qu0TSlHdysxDtYu0RLQIu1dB6
-	 lClCZey5y50Y4KcMKU2uHo7dKvFMXxQg8fomqAXPeGR9aoDH7EaC1Q504/PjhukKSW
-	 zlHw9QGvshfMeuz8+iGq0zE8i9wxHYt9cSqaad1omXEjfBDEHJBBbZxmPdRw2IWw3v
-	 yiHZKr2m1FKbL7UhytmZ4YM8RhIXDlFZaQvxxmwr9urj3ESKRY4bFE8UazXVN8MVY3
-	 7TbIsNFuP4fMg==
-Subject:
- Re: [PATCH net v2] gve: fix checksum state and gso_segs of HW-GRO packets
-From: netdev-bot+sashiko@kernel.org
-To: joshwash@google.com
-Cc: netdev@vger.kernel.org, hramamurthy@google.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- jordanrhee@google.com, nktgrg@google.com, thostet@google.com,
- willemb@google.com, linux-kernel@vger.kernel.org, stable@vger.kernel.org,
- pkaligineedi@google.com
-Date: Tue, 17 Nov 2026 23:32:39 +0000
-Message-ID: <179495835918.3136.2006086240050992361@kernel.org>
-In-Reply-To: <20261116224308.986555-1-joshwash@google.com>
-References: <20261116224308.986555-1-joshwash@google.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=shazbot.org header.i=@shazbot.org header.a=rsa-sha256 header.s=fm2 header.b=O/nAIQ7K;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=wsdD1Jy0
+Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
+	by mailfout.phl.internal (Postfix) with ESMTP id C8C06EC090C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:33:17 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-03.internal (MEProxy); Tue, 17 Nov 2026 18:33:17 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shazbot.org; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1794958397;
+	 x=1795044797; bh=VVypS2BH7BTIDP8XvJg3P0/Wb4ccvreAy4viuz45dWY=; b=
+	O/nAIQ7KIz9miCX8OUQv0exfIWDQo6GU4ZnGJjkSH5NHfhU0Vu2iqezwq1Tw5iwO
+	qgbLYGQ6OGMLLJgVYcoB0mG/GpNpaNRR31l/vgRmIXqEU4zrDeqdbs5KOlMYdfKW
+	OpLa/KYF8nhviereQVFZE0gdQ3s73d4iCq14zGRS5Qplir7FovxBb9D3CBNa6aRf
+	gCGrQJ88auWUxJ+H8Wv9vS+890bwngIH1beLu5uKJMERw4v/aji3xpXCiGLmQqB5
+	kEMzDNecRk1OeZZfQTF7zmHr6LuiP5zi2i+iaO7acETL4+H2omj4ugIc+QPaJZtI
+	BvBIfYwC7asH/6k94hTtqg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1794958397; x=
+	1795044797; bh=VVypS2BH7BTIDP8XvJg3P0/Wb4ccvreAy4viuz45dWY=; b=w
+	sdD1Jy039J3NtkZibDurMKuGngpWJ1hYQY5vV4YjfjIBNTbCLguD9broxlEUZbaR
+	2izOMSi5IBzFXBPmHso1PSpjYvmH6+K7XexGqiHCxojQhmvNgvQG/fVewthpBS8S
+	wkT1nVPWdmVmxjxaS3tMppAfdGggY0fdKwAVo56D+JPge6u/nNTfnxRnWlzihOs5
+	cfA6U0TuFIgsnEgx1RjMzuiz+CQX/mV0QsRhr+J1rjLPnJhze2f/vCEPc8cXKQHx
+	+HMD3KuoN9iMTv5Bm2S7vSd7c6PlHL7qWJK4TySMLftqE/F0nM8H+pO8lmQVj781
+	aDIJMYARTQP8WabajZDwA==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=shazbot.org a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1794958397; d=shazbot.org;
+	mf=PGFsZXhAc2hhemJvdC5vcmc+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:hSt75SUcBTEQ3ZTyLopVCCx9sSVZrCPSatdXvxmakCsGbRM
+	tVVq+k7IAbUyaIBAQFs783NqAreYcQ2oA+wFsCSefaYzunB+2wGFLOxjGlq114X2
+	YdklNSsl4khmSoqzxFbF2LeddSaTj2yKVrFM/l2eKv6extOtsF6CmrkFDcXgeSsM
+	x9uaElZrYpHZgw/J1XeQWNhN8AktPSMwCG0hR5H8ZU+4+mEx6OyAMBYckFWiaGzV
+	1NqBYnN+yuwuB+/6v7jvd96p9KyqA5nCx8tax8/ZOBGbRiL9YU35gU9jM/JfpsFE
+	BdeFul4fb/WPjo8fX1aPNa4mfWdNC4C+w0Nyq8g==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:27q+KKo7XnsStduA99iu8sekMRO96NPbttKWHrolhyQ=:G/nOOdXrvsS0XmMnQ6K7L6R8U7MrOUPnWlNPXGT9/WE=;
+X-ME-Sender: <xms:POT8aoQqA35B6qL_87dZHdopUrCwbFiYGMLmDlRhohAM_6jXOpohXg>
+    <xme:POT8ana5BD-CqIq4YCJ_VxbZH0f_RrLxPI5pYLproLh_6aS1a4uDFrGJ6LNxMEG1u
+    W72883v_U5jPM3AwBCkWTov6M-3pGhlcherrFijxKBC_PhF1FSHeprY>
+X-ME-Received: <xmr:POT8ap7gLMc5gBNgElZtmUlkErVQgRxoljrCdyGXwofOstBdGxe-RJmjuxDbMw>
+X-ME-Proxy-Cause: dmFkZTEkeKvcm2WWrV2Nam7Bf9ttXaRNcoFtwJYSfKOnyZQAU7CIanTw/rB2zVFRxoJI7h
+    IeudW+EeYwM49qZ6JZju/1GP0nP1Yv+kKkk/D4K930wUxQFcV0XlueXiz+7hjD5kmfaxRz
+    bBO3bIRzJoak1QL4Cfa4ASNcv2DAa/M8Z/hOx/jaweCnB2/0DIYpjZW1n8hrKjwCE7vNrU
+    P6wpF2p6xUeHF/dxlX9rqKdWZnj4adKNhvBP0hSS6o2uLn/cbVB7VrGdYl3wKD8Sodunof
+    tZdMmG/A6owkaSnJITXQLPNles7P2CY/46fhuo0jkSJ251dn9SMZ/Ol2LQy+TNqCcgU7Vm
+    lm1NNi1iesVxRVZxXbmKOE3n/CdMBi183kA973NWbfyZ0pnChEb3ChV7mp4YXeuqfpwxY4
+    Jqltnk4FZ6BiJAdvWafESXPMn9a7Fx26bsfnNsNFwkTO7zelG2w0PlXuQ5fzdgBMbt/sl9
+    fjaZOJinNB0XupczM3md3crznTNbVq0htZl8rExZOtos0XXkNm88ky94vlSQyxt3jRm5HS
+    2j2MH+LtkUeyPFu5ZHApXldAXs0ySexEJVl76LobcwpHdyBpfE+Ra/iVY9x6zdHO5XG1WO
+    Dky123hcOfWBFLokWvfQgqvXTUAkUdbwwKwhHUBC3Ajc2gyrbR5AkJZ2iKxQ
+X-ME-Proxy: <xmx:POT8aic-o_s9k0Y30RnqhRd18SaRIZ9tHLj3dSsdN4TuAEF6_5-QnA>
+    <xmx:POT8agcdR7quKdAGTgD1yur1yrBabZ_ij82eVJH_AtuIrQUVbEGU9w>
+    <xmx:POT8anGZIAvYlwHPBLRFCh1vJiRMyOgyn0nbg8n2MW3f1X754NtGDg>
+    <xmx:POT8avHrFNE4YwcuGc2gLce7BCcooJkx91dGrWJL_egKNT5HJLLXIg>
+    <xmx:PeT8aoxvctf3KU46eZg9ZJgxx_Q0Im4OHEmS79puSaSmXa8HwuH-7O-U>
+Feedback-ID: i03f14258:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 17 Nov 2026 18:33:14 -0500 (EST)
+Date: Tue, 17 Nov 2026 15:33:12 -0800
+From: Alex Williamson <alex@shazbot.org>
+To: Matt Evans <matt@ozlabs.org>
+Cc: Alex Mastro <amastro@fb.com>, Leon Romanovsky <leon@kernel.org>, Jason
+ Gunthorpe <jgg@nvidia.com>, Christian =?UTF-8?B?S8O2bmln?=
+ <christian.koenig@amd.com>, Kevin Tian <kevin.tian@intel.com>, Pranjal
+ Shrivastava <praan@google.com>, Longfang Liu <liulongfang@huawei.com>,
+ Mahmoud Adam <mngyadam@amazon.de>, David Matlack <dmatlack@google.com>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Sumit Semwal
+ <sumit.semwal@linaro.org>, Ankit Agrawal <ankita@nvidia.com>, Alistair
+ Popple <apopple@nvidia.com>, Vivek Kasireddy <vivek.kasireddy@intel.com>,
+ linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
+ kvm@vger.kernel.org, linux-pci@vger.kernel.org, alex@shazbot.org
+Subject: Re: [PATCH v8 8/9] vfio/pci: Support mmap() of a VFIO DMABUF
+Message-ID: <20261117153312.781fd839@shazbot.org>
+In-Reply-To: <df301c78-2745-4c64-a331-c830efb74660@ozlabs.org>
+References: <20261006193643.76330-1-matt@ozlabs.org>
+	<20261006193643.76330-9-matt@ozlabs.org>
+	<20261013171347.54e856c7@shazbot.org>
+	<0bd00c26-4f53-4387-86be-99f0c37fa47c@ozlabs.org>
+	<df301c78-2745-4c64-a331-c830efb74660@ozlabs.org>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,134 +138,149 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+On Wed, 11 Nov 2026 10:48:47 +0000
+Matt Evans <matt@ozlabs.org> wrote:
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+> Hi Alex,
+>=20
+> On 14/10/2026 21:38, Matt Evans wrote:
+> > Hi Alexes,
+> >=20
+> > On 14/10/2026 00:13, Alex Williamson wrote: =20
+> >> On Tue,=C2=A0 6 Oct 2026 20:36:36 +0100
+> >> Matt Evans <matt@ozlabs.org> wrote:
+> >> =20
+> >>> A VFIO DMABUF can export a subset of a BAR to userspace by fd; add
+> >>> support for mmap() of this fd.=C2=A0 This provides another route for a
+> >>> process to map BARs, in which the process can only map a specific
+> >>> subset of a BAR represented by the exported DMABUF.
+> >>>
+> >>> mmap() support enables userspace drivers to safely delegate BAR
+> >>> sub-ranges to other processes by sharing a DMABUF fd, without having
+> >>> to share the (omnipotent) VFIO device fd with them.
+> >>>
+> >>> Since the main VFIO BAR mmap() is now DMABUF-aware, the new mmap()=20
+> >>> reuses
+> >>> the existing vm_ops.
+> >>>
+> >>> The lifecycle of an exported DMABUF remains decoupled from that of the
+> >>> device fd it came from, i.e. the device fd could be closed with DMABUF
+> >>> VMAs present, meaning a fault on a VMA could happen concurrently with
+> >>> vfio_pci_dma_buf_cleanup().
+> >>>
+> >>> To deal with this scenario, the fault handler now temporarily takes a
+> >>> VFIO device registration to ensure the vdev remains valid, and then
+> >>> vdev locks can be taken. =20
+> >>
+> >> This sounds like potentially measurable overhead if something is
+> >> slamming the fault handler where huge-fault is not supported or active.
+> >> Have you considered a fast path for the internal dmabuf where the
+> >> lifecycle is constrained? =20
+> > [snip]
+> >=20
+> > Hmm.=C2=A0 I'll hack up a test to try to measure the relative overhead =
+of VMA=20
+> > faults before/after (modulo access to meaningful HW). =20
+>=20
+> Alex Mastro and I have put together some tests, and measured this=20
+> overhead on the v8 series.
+>=20
+> https://github.com/evansm7/vfio-playground/tree/master/vfio-barmap-perf
+>=20
+> Alex also generated a similar test with a slightly different method:
+>   https://github.com/opsound/vfio-tools/blob/main/vfio_bar_bench.c
+>=20
+>=20
+> Test method:
+>=20
+> Time accesses to a VFIO mmap'd BAR immediately after the mmap, to=20
+> measure the 'cold' initial fault time.  Re-time a second pass for which=20
+> the pagetable should now be populated, and subtract.  This should=20
+> isolate the cost of the fault (uarch exception, generic pagefault=20
+> plumbing, VFIO fault handler) from common costs (the MMIO access itself,=
+=20
+> TLB misses, the loop iterating across the BAR).  Maximise the number of=20
+> faults by disabling hugepages (per concern above).
+>=20
+> This is done both for a single-threaded case which just iterates across=20
+> a new BAR mapping, and a multi-threaded contended case.  Rather than=20
+> just pthreads, this test fork()s to try to avoid seeing contention on=20
+> per-mm locks (e.g. mmap_lock) and to focus on the VMA/VFIO locking.
+>=20
+> The default test mmaps before forking, meaning there's one shared=20
+> mapping/DMABUF accessed from both processes.  The fault handler should=20
+> then contend on dmabuf->resv, vdev->memory_lock, and vdev->dmabuf_lock.
+>=20
+> For comparison/curiosity, the --mt-map-late option mmaps _after_=20
+> forking; this leads to a mapping/DMABUF in each process so I expect no=20
+> contention on dmabuf->resv (but still on memory_lock/dmabuf_lock).
+>=20
+> Alex's test instead runs threads in-process, and goes further with=20
+> supporting a larger number of threads (though with the caveat that they=20
+> may also be fighting over intra-process mm locks).  It also supports a=20
+> mode where threads can access per-thread VMAs (which is comparable to=20
+> the 'mt-map-late' option of my test).  Both are interesting approaches IM=
+O.
+>=20
+>=20
+> Findings:
+>=20
+> On the dusty AMD Ryzen 3950X under my desk (targeting a 256MB BAR) I=20
+> found the following averaged over 200 runs:
+>=20
+>   - A single-threaded/uncontended fault became 5.8% slower
+>   - A two-process contended case became 8.7% slower
+>    - 0.5% of this is the "early mmap" dmabuf->resv contention, i.e. using
+>      mt-map-late (a mapping in each process) reduces by 0.5%.
+>=20
+> Alex's runs on fancier EPYC 9334 machines show a similar (slightly=20
+> lower) overhead in the 1-2 case, and go on to show fairly high overhead=20
+> when many threads are involved (baseline times in ns, relative series v8=
+=20
+> behaviour in percentage change):
+>=20
+>    Threads    One shared mapping   Mapping per thread
+>               7.3     v8            7.3     v8
+>    --------------------------------------------
+>       1       761   +4.5%           777   +2.7%
+>       2       869   +6.6%           840   +5.6%
+>       8      1465    +78%          1363    +47%
+>      16      4152    +97%          4258    +19%
+>      32      9927    +92%         10158    +12%
+>=20
+>=20
+> Now.  The absolute timings of these sub-microsecond faults indicate a=20
+> realistic application won't see a human-visible change.  Small BARs=20
+> mapped with 4k pages are still fast to map;  it is reasonable to ask=20
+> that applications map huge (GBs/TBs) BARs using huge (MB/GB) pages!  Of=20
+> course, this is just a one-time cost of warming up the VMA, not ongoing.
+>=20
+>=20
+> Alex, my preference is not to complicate the fault handler with a fast=20
+> path just yet.  It's easy to think of a contrived scenario where this=20
+> matters but in middle-of-the-road application behaviour it would be=20
+> surprising if this was noticeable.  What are your thoughts?
+>=20
+> (In the previous mail I suggested keying off priv->vfile (or a flag=20
+> thereof), and it seems ~straightforward to skip the extra=20
+> synchronisation.  If you feel strongly that the fault handler doesn't=20
+> have enough if() statements yet and needs more paths then we could bring=
+=20
+> this into v9, but would prefer to follow up later. :)  A fastpath diff=20
+> appears small but the reasoning overhead is bigger.)
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+I tend to agree.  IIUC, in the worst case concurrency (that we likely
+don't experience), if we assume huge pages, we're looking at low
+single digit millisecond total overhead to fault in an entire BAR
+(~256 max faults).  Further, if our configuration doesn't force type1 to
+fault in the entire BAR for DMA mapping, that overhead is amortized
+across every user/guest access.
 
-- [Medium] gve_rx_complete_rsc()
-  (drivers/net/ethernet/google/gve/gve_rx_dqo.c) works out where the TCP…
+So yes, it's probably not worth having two different locking semantics,
+but we should note that as an intentional decision in the commit log,
+potentially even as a comment in the fault handler.  Thanks,
 
---
-
-gve: fix checksum state and gso_segs of HW-GRO packets
-
-This patch makes gve_rx_complete_rsc() set the network and transport
-headers on HW-GRO packets. For device-verified packets it also seeds
-th->check with the TCP pseudo-header checksum and calls tcp_gro_complete(),
-so forwarded HW-GRO skbs can be resegmented correctly. IPv4 and IPv6 are
-now told apart by EtherType, and gso_segs is computed from the TCP payload
-length.
-
-> diff --git a/drivers/net/ethernet/google/gve/gve_rx_dqo.c b/drivers/net/ethernet/google/gve/gve_rx_dqo.c
-> index 82ed5e48b00ab..b4dbfb1ba39b0 100644
-> --- a/drivers/net/ethernet/google/gve/gve_rx_dqo.c
-> +++ b/drivers/net/ethernet/google/gve/gve_rx_dqo.c
-
-[ ... ]
-
-> @@ -1049,10 +1061,50 @@ static int gve_rx_complete_rsc(struct sk_buff *skb,
->  		skb_frag_off_add(frag, hdr_len);
->  		skb->data_len -= hdr_len;
->  		skb->tail += hdr_len;
-> +		/* napi_gro_frags() pulls the Ethernet header later. */
-> +		nhoff = ETH_HLEN;
-> +	}
-> +
-> +	/* The header lengths come from the packet, so make sure the headers are
-> +	 * in the linear part before reading them and writing th->check.
-> +	 */
-> +	if (unlikely(skb_headlen(skb) < nhoff + sizeof(struct iphdr)))
-> +		return -EINVAL;
-> +
-> +	skb_set_network_header(skb, nhoff);
-> +	proto = nhoff ? ((struct ethhdr *)skb->data)->h_proto : skb->protocol;
-> +	switch (proto) {
-> +	case htons(ETH_P_IP):
-> +		gso_type = SKB_GSO_TCPV4;
-> +		thoff = nhoff + ip_hdrlen(skb);
-> +		break;
-> +	case htons(ETH_P_IPV6):
-> +		gso_type = SKB_GSO_TCPV6;
-> +		thoff = nhoff + sizeof(struct ipv6hdr);
-
-[Severity: Medium]
-Is it safe to assume the TCP header comes right after the fixed IPv6
-header here?
-
-Nothing checks ipv6_hdr(skb)->nexthdr == IPPROTO_TCP or desc->ipv6_ex_add.
-The IPv4 case above also uses ip_hdrlen() without checking
-ip_hdr(skb)->protocol == IPPROTO_TCP. The only sign that L4 is TCP is the
-ptype.l4_type check at the top of gve_rx_complete_rsc().
-
-The descriptor suggests the device does parse IPv6 extension headers:
-
-gve_desc_dqo.h:
-	/* Set when IPv6 packet contains a destination options header or routing
-	 * header.
-	 */
-	u8 ipv6_ex_add: 1;
-
-gve_rx_skb_csum() only holds back CHECKSUM_UNNECESSARY when that bit is
-set:
-
-	} else if (ptype.l3_type == GVE_L3_TYPE_IPV6) {
-		/* Checksum should be skipped if this flag is set. */
-		if (unlikely(desc->ipv6_ex_add))
-			return;
-	}
-
-So an IPv6/TCP packet with a hop-by-hop header and a device-verified
-checksum would still be CHECKSUM_UNNECESSARY when it gets here.
-
-Suppose the device coalesces such a packet, or a tunnelled packet whose
-ptype reports the inner L4 as TCP. Then thoff would point into the
-extension or tunnel header, and tcp_hdrlen() would read doff from the
-wrong bytes.
-
-gve_rx_fixup_gro_checksum() would then write the pseudo-header seed at
-that offset:
-
-	th->check = ~tcp_v6_check(len, &ipv6_hdr(skb)->saddr,
-				  &ipv6_hdr(skb)->daddr, 0);
-
-tcp_gro_complete() would also set csum_start, csum_offset and
-CHECKSUM_PARTIAL at that offset.
-
-Wouldn't a forwarded packet then leave through TSO/GSO with a bad
-checksum? That is the same blackholing this patch sets out to fix.
-
-The destination-options and routing cases are CHECKSUM_NONE, but they
-still hit the wrong doff. That could drop a valid packet with -EINVAL or
-give it a wrong gso_segs. It could also take the new early return:
-
-	payload = skb->len - thoff - tcp_hdrlen(skb);
-	if (payload <= rsc_seg_len)
-		return 0;
-
-and deliver a multi-segment coalesced packet without gso_size.
-
-Before this patch the RSC path never read or wrote the TCP header, so
-this assumption is new. The changelog gives the VLAN guarantee ("The
-device does not coalesce VLAN tagged frames"), but says nothing about
-IPv6 extension headers or encapsulation.
-
-For comparison, bnx2x_set_gro_params() documents the matching hardware
-guarantee ("TPA aggregation won't have either IP options or TCP options
-other than timestamp or IPv6 extension headers"). The mlx5 SHAMPO path
-checks ipv6->nexthdr == IPPROTO_TCP.
-
-Could the device guarantee be documented in the changelog and in a
-comment? Alternatively, could this check ip_hdr(skb)->protocol and
-ipv6_hdr(skb)->nexthdr against IPPROTO_TCP (and ihl >= 5), and skip the
-GSO and checksum fixup otherwise?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116224308.986555-1-joshwash%40google.com
+Alex
