@@ -1,102 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794951884;
-	b=PWzUgoMX30dfDQNVF3q8SnjuhLDkf/veBfK0tcHOl94ztdNh8t7xbOZjtY5y+lSJ3bdc
-	 +nawv1SDrKgj1oAWQnDznzvTvxIl5e2i1iddI+B6Pavgz429okGYYdlhEdGcaogM3ohan
-	 99QTKszHNvptOeklrh8jUqbVqE6u9DdCPGdRZ16VoP00Dw5ogV1f1vCnN0CSC1KgfAPaH
-	 qU+EOsgU/JMzvjFlU3R71lRwi4SEAkrsqjd/r3xs5JWlJ1VLs4+RWLpwWEtJgtI3ZxYuO
-	 T90MyHQiIa109Q5Pp8srWda67K28j6qS7Yj3wJnbSn9/+z3gESQceimD74wJqwrqHzQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794951884;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.47
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794951887;
+	b=e8p7xLQmof3cZVJ6ge1pKoEXV4dRO+hVSooAFD3/QLRkNI5zBTB2ptFvaUP0jfQPF3OU
+	 ecrzfoZjb8CMT1n0Xw/ESD0NsujUeJsJiXSRn974i5MBu5E9m8dDzfGGM0DUcTChqP3VX
+	 zNlciN07oXsFqJ8Shgl3SAgEsGyymHdL+R/Bd3mNmRy0T4rkalCcHbiShvvN8bobeXNQQ
+	 uo2KTWX77Zx/liwicCN4gR5oPuPwKpC92TEsBrdabLDQTRbkM++OpqEPGNbZ/ewkY5p7J
+	 NjO62ZzzrrSWgI/0a1z9NzNgjl1WZWP+6mjtI502C6fBeg0bX136/GyZHnN0eQJO+8Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794951887;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=DOc7qs5gpmxDny1UvV4waZXrE2n/TMggor9dB+wdMFA=;
-	b=3LHMK1QKochdc1Uqb42E//7ehiaYAJQDbkT78BC8ZrlGL/TvrvTA58TWnmdCQiGhuq62
-	 DacITXgI9TB04r+8JA1sf1Jq9aTHWhfM3jFCcj6orzjR6wtGxtFqpCBl/4yxwvcSso8eh
-	 ZLlMCgLMQbV3Wj5553Zt+67/5aBxtXaLaST4B7sv0S74mqgjUCV8hfjfT6FxUSdKpeINK
-	 3bWYwKBAB6p8Y2XzOA83ILPCr+P55XnWhfonH2OLOQAiFfmngYabGaz6QieTXS3BMi4VO
-	 QNrBU+T6X6tOO+zLusA3Tmx5CqBeMfRYGf+3ER8pP57aOFReBiRvqG8WBrq+VF6iZYA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=QCHf0rhDeEETaZD4vNh0xBLfMvMYAYCFBm3oqRl3Mdw=;
+	b=NntpacYCyetevUuDrYLG/0cNlVGvw8D8dhxsY+5udVKjtXSOUHeh7ghXcjUmHD534tZ0
+	 ScIa6UGvk4xnNhcmdNm8ExT7l3aIQeYC6dK67Uswaa7T+GKvwbPc6rHg4jiz1LlzY4OE+
+	 HW2cHqWrLp0XF1vkq5tasEEXIYuzv32YX10+5WEGfp9AeAwep7OmjprXACMYajX0nj4xU
+	 4brIRAV5P30J9X3Mq/BEEbJZ8YAMUvtD7fVOBbwbuyUaumDgWY+e87zkx9rcQ29eLjegz
+	 GrSb8RyXO8BZTIEGOkTZeRoGMmxiKeR0rqUjupXd2k22kEzriw8JAHF+4tAh7jEtzqw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rYqInaYh;
-	arc=none smtp.remote-ip=209.85.128.42
-Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Q4akuTuj;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.47
+Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4517F606A32C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:44:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4517F606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C3DA606A335
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:44:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C3DA606A335
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rYqInaYh
-Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4ba013938d7so3192265e9.2
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 13:44:44 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Q4akuTuj
+Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-492690dd5daso186651f8f.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 13:44:47 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794951886; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Pgu/YOh8CeV/Efo+I/6qO+jxjjZm+WOBQ0uI4iVrAD5MlEt0dEJJZI+QQ0kJCgVSeP
+         Pc/ft86k9DglK+XBQgyoiOcH+vNfgoRIopUUKrVwQENRD36DmaoS6YLwezmyGJ+9PZ41
+         iVDaAIT9zSMTjXE7LqCMg/ieRL1aWoUDMDP/tVGRCdFCm86JJVlHeLuUYlqBqxtwXkje
+         oyPAmDjhIup3H78uU4nFNCPh3n6y4bBrtQLwHUzoMsgUhjhCJFDD+IH1T2N/bMhpoQl0
+         7d5qC7DzWq7Hsby7TpW3stOaiY3D3PWPdHIzNZQoqBXV1fsdWFypGzs9SbKrlQGlNL0G
+         3qxg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=QCHf0rhDeEETaZD4vNh0xBLfMvMYAYCFBm3oqRl3Mdw=;
+        fh=jDd6XuRiuO2EoPlCPDH4mdFAyXypEOyOFbDCWvSfNWs=;
+        b=C3maF5DLCXWo2m+imrxjfhK+An3+VKkJuXnNmxRTy1hbrHfbBTFodFvDLjZTrCOHyW
+         +Cs+Troe3QaRKHz8dxGDwN25EUEHKDCy5DaAqx9C9AJufPL60/cBdCjTmYIWmWkf2keH
+         8w2XRyuS5x4j6ow6koImIZ17ujBqUzDH1QAmeDGmdCl4KRtZw0ZESws8ldTbiEJfwQfC
+         OKfP/mv0oxiD0ut/6ebJcy9jDuWdejaqeAE+Fk5Sx/VP2F2AKf+QfhL2tzdN51txrhr2
+         FBGSAdDA6wekKhVKch+xcKohS1uxw3F4JCNC3SB88r78lGYP3JQw5B1EMXCaiR6Clblz
+         q5RA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794951883; x=1795556683; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=DOc7qs5gpmxDny1UvV4waZXrE2n/TMggor9dB+wdMFA=;
-        b=rYqInaYh157XQGoJzNdoqprlh9FXQeZK7/G4UMECGtxj2yS3cjPs3n8niMgyRVZBSR
-         PYDxRcJ1vTiGAGzIwW+SV5lEpjlhzbU8a6JckZz4ezyrgIGqVK+ABSRixPZAsuFlpfGl
-         2Tw1z9zw0wZbNPUo9bVVL5UBznLZoHgu50Pp3RrN2LdqYhiZXVBwa0QuTPMoqPVtMM6m
-         5ZR+XTXU+bd0cB1ON4SrbORAHxz/ncmUjAsyhTRIj5Ezh74td/0N0J/h73axsJ/2iTWt
-         VYi3AlKQ00mJKosKg7hquXpRT4rz36y7LP7P3Mnw6jJbq/Qo5uIhi6rm655CLnl8uKHo
-         D/7g==
+        d=gmail.com; s=20260707; t=1794951886; x=1795556686; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=QCHf0rhDeEETaZD4vNh0xBLfMvMYAYCFBm3oqRl3Mdw=;
+        b=Q4akuTujr5pbvaLa0lhDO0YCADGQAgjj8c2bG0N995NS/8kAVFkkoWtJjNIQKLY5fT
+         4ickiyj2FfqJOk8tH16u9eywWyjjuOmFE2Z76cJqYpJth3IvCSP6L/HCPzEW3Ho9Hm9R
+         tVV8fupVGdTK9lKvreeZp+la3khqvF/seI5TtqQYoDGbT3AdKpvkVfS4+/OLrjJtWqFm
+         UtMTRjJm6oOzhtgyNQyGNCyQanScn66u9qQY/VN7Qc05wwVkkDuuToTv5Je99B09RCnZ
+         qaWDLTWuUDigZ0f0SuJLY+eUXdEfA0Fv2meq2PbnYvGEcToaK1tcPcGI2VgejyWZ0b6Q
+         Li5Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794951883; x=1795556683;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=DOc7qs5gpmxDny1UvV4waZXrE2n/TMggor9dB+wdMFA=;
-        b=IY6Bvfflq1wV8Cb5N3G6bS18Zkvn0PaG+d3JSDfjJEcshIFenxf4oducJhIIIB+g0I
-         3j/xqJc7jWhYR12KO1SeFYgKQWZud5uSs4SmzSk384RCk0Q2xREYosZTAA+LUgz8G+yu
-         8jRRKZFf4bwJyrF4gX8v+4qDoqm+GfInw72wAtFMvUdsZRpXlWodCLa8/jJ8W8P3u59I
-         v6Hglh6LTOP+jO60pzvAIcdy238Jap9F6Uf+USbIvzjqGRI0/pwwpoxgMLUg5gBZn43b
-         KdEttLYG5AdtbJ2iJK77aC2fAkJ3gOUak3e+GXGXRUXwOmYH8UoPpH/VZzqnh8+pvJJP
-         /S4g==
-X-Gm-Message-State: APuU4Z8Kd0VguMPUd6Qmhej3sw4IxyxR3cumFl+cW77wRFkQZF5CLHqE
-	X500HllvMCIZjAs3EHqXjkxJK7r9upgz5BY+RUAQjoAhR2mARKyQAR54+uO4u66/2pA=
-X-Gm-Gg: AYBFou3LbEd0aiTTt6DZbJL9nFuBYJilFJj72gIpJb8Mmx4yG5BEDuZtXletKVyvNbc
-	2y62KJkWubkgeNdKwL56iYrMnkKMyah5opz8hYcJekjd2cytkDg0iEnLgRSYvok11jEXaViUdEv
-	QAt4y8cI7OLpJqIUztyADDB9qqRVfWHJb+XdjvI8e8ThPnKquu0chPSilLYwDA8T6exNqhzy3S4
-	+Oha9B/CaqJtCAriOVog5AnpG129uvIKr1MclgHrLAqK0ddpw5YeDGY/1lp29dtSJxR8tgDW6Op
-	JQJlOFvLsDsmV6z1i85XZaBti7A7ODKzUzA5F8XN3FUWu/dDXgGXTxnQKiO3BsZAR3cE57w/tes
-	xmL5r37SSQy+VBuip719De1KNMas312THDvax7tSw1cQEXvEaAksh3gjQYyZyjucEmFrAUdrfP3
-	wjJJ5iea6/0yS0bSpHuZSzdMsFiltxMoUVbAnl2bNI3KtIYCX5zzQI0A2qrMkB2MQWNu7GlF3vP
-	Eh92ZiymHDOYXu6ik+phn55pHsDDdSu+q1EGlAT6Qbvo8iylls1hIze4p11xu97OEFBay2OO2QE
-	p8GSLNSNh7LRTwQMSjZ1j0J6j6R1r39uJZ1+h0c/1Re6TABBgI/xy1PNXgnciw==
-X-Received: by 2002:a05:600c:608c:b0:4b6:267a:dd6e with SMTP id 5b1f17b1804b1-4bb7da44047mr9350665e9.28.1794951882663;
-        Tue, 17 Nov 2026 13:44:42 -0800 (PST)
-Received: from fedora ([94.200.248.157])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb784231basm95069675e9.11.2026.11.17.13.44.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 13:44:41 -0800 (PST)
-From: Mohamed Ahmed <mohamedahmedegypt2001@gmail.com>
-To: linux-kernel@vger.kernel.org
-Cc: dri-devel@lists.freedesktop.org,
-	Lyude Paul <lyude@redhat.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Mary Guillemard <mary@mary.zone>,
-	nouveau@lists.freedesktop.org,
-	Mohamed Ahmed <mohamedahmedegypt2001@gmail.com>,
-	Thomas Andersen <phomes@gmail.com>
-Subject: [PATCH 3/3] drm/nouveau/instmem: map only the part of BAR2 that is used
-Date: Wed, 18 Nov 2026 01:43:52 +0400
-Message-ID: <20261117214352.337961-4-mohamedahmedegypt2001@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261117214352.337961-1-mohamedahmedegypt2001@gmail.com>
-References: <20261117214352.337961-1-mohamedahmedegypt2001@gmail.com>
+        d=1e100.net; s=20260707; t=1794951886; x=1795556686;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=QCHf0rhDeEETaZD4vNh0xBLfMvMYAYCFBm3oqRl3Mdw=;
+        b=uup0gFkXRDA+zxoOTPLnEN5O7cs6mJiAMaDlZKzJNrbltsJHwg9bxYOiD6AZSnnzcR
+         rNq4p1HTSVGcBuGAy7OhOSFSwVkkMEp8+3nuR/sJ8KTofZV2DdU6YW1HWAr1JntcBsI0
+         of47ZxvwvmqyuKlGva4xOgJ56dxTk4Mo9u105fUm9tpDpAUDjB+UIlCk1xSUCx/GjcIf
+         zIDVjT4/l4X4O78Hvg4CrKw51eoA1m7EfrRjLmy/DOxKyugj1aYO4+rgPoTUT/wbYmLO
+         T2m+oI2lQJ9pMRU0XMoRbvhigPvc4L8Yw0sGpC/AP9X6yiYxD8EuHmmb8igk7g7KCeES
+         94Ew==
+X-Forwarded-Encrypted: i=1; AL+hErHcFVZnWH1x1Zw5i0RPHsaAuJnlSciVCcNGFJEFPW6ieVyiW/Ha+MEm+SENCM0AbA54rR4FHCkx3pHSFlM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+WMspG2he4tjgD671wDS58UTBY9moLyRGepUZhPHclrefMJ6eZ
+	qGbIvrv2fW8KEahk0x1wHCajbBUPDFxMD53RM+vGsIosrQZyXyEJPLnnAi03lpcY9Pat6HI0ITj
+	eg9l3phhqgXJntLbI+he0he+JTsIYZqg=
+X-Gm-Gg: AZFdTZcny6p+CSBb/y5OXcSIVdYN6lxaSSWg/GevFJXSPHQXxBn2ht0Q93aTlqQ1ahy
+	gxIg1LUxTy/AAHxOlCR+q70DfSX8vBMLJATXI+91qlGI/oVcjAv6G9NgTpSt0ZvnfrBs/Ham7P6
+	bu8pbwr2pFFPQDoGCRY0EMLaspy0i26/RdbETIwtrj5v6gQ2t56mTeL9DLUGcN2kQtI5mRhBtlm
+	yVr+m/aQQ6PyGsuOjXWRMTwqko7miuw74l3xNAl2pGO2NqBiURJzFnZfHkikukx7NcObWqMRKSz
+	WU/5yqRGA00p75HqGK1FtF/Tx8EZ+JtI0LGt2AW/KS2oiW9fc78A/Hi2NWh/Fs3+GZ5PHzhF5V1
+	ih/6BtkR6gkEEWtON1x6TzAFEuivGbLCfkEVUK1dO4l2j5ZJFr6MDsbbf2JxqKM7D912pugbQfM
+	h7Ogia7Knc0jh3z/hdykO98VoYPuIgUlZxF304w6dUo6tZYU2ymSl+8J8=
+X-Received: by 2002:a5d:5f05:0:b0:48f:cb37:3ec3 with SMTP id
+ ffacd0b85a97d-4a63b22de8emr1573091f8f.41.1794951885727; Tue, 17 Nov 2026
+ 13:44:45 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,61 +105,148 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <d85ece6e-27f9-4d9f-83af-4101bc76fef6@app.fastmail.com>
+ <356db94e-f5d6-4fb2-839a-b97aef72256b@app.fastmail.com> <CAHC9VhR9sjunJRnM9gy-BkBZkapQTrr8a8FtmaK7JkAmUqTrLA@mail.gmail.com>
+ <CAEf4BzZKmn6g0SK8OddjKFj_vAmZFvpZv32Hs_S+GHgT7VNfrg@mail.gmail.com>
+ <9d6bdc31-e57c-4187-be78-29d82471f710@app.fastmail.com> <CAEf4Bzb+oYDqO20v4YbJ45wdtcGgJT3xVse822P+=oA7fpFAOA@mail.gmail.com>
+ <CAHC9VhRcT3rmdpeadwi2avhwvr7aEZYStZ3bbEEx1hm=wtBGhQ@mail.gmail.com>
+ <CAEf4BzZ120age2-M-a_TJ07xohb7-s=xn3e1W_-V0kopnATq6A@mail.gmail.com> <CAHC9VhThV9xiXr8j5_+W__CBKn0JqUiZ-RGZpF4Nz-i_RZprAQ@mail.gmail.com>
+In-Reply-To: <CAHC9VhThV9xiXr8j5_+W__CBKn0JqUiZ-RGZpF4Nz-i_RZprAQ@mail.gmail.com>
+From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Date: Tue, 17 Nov 2026 13:44:33 -0800
+X-Gm-Features: Aa3M54qGP8nd7yA_gOyJhY4In2fLuAhhx8Joode7Q3Ty5mdfX54Ucq86pk3FqTg
+Message-ID: <CAEf4Bzb5Y5TUbN3kLBJNPn5Ae+_nbc7YhJice_wUzqdvpjFr_A@mail.gmail.com>
+Subject: Re: [BUG] bpf, lsm: new first argument in 7.4 inode hooks silently
+ breaks BPF LSMs
+To: Paul Moore <paul@paul-moore.com>
+Cc: roblabla <linux@roblab.la>, Daan De Meyer <daan@amutable.com>, bpf@vger.kernel.org, 
+	linux-security-module@vger.kernel.org, paul.mabileau@harfanglab.fr, 
+	linux-kernel@vger.kernel.org, Andrii Nakryiko <andrii@kernel.org>, 
+	Christian Brauner <brauner@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-The io_mapping covers the whole BAR2 resource. With GSP-RM and with
-NvBar2Halve the BAR2 address space covers only its lower half. The
-driver maps nothing in the upper half, and a mapping that already
-exists there would give the io_mapping its type.
+On Tue, Nov 17, 2026 at 11:30=E2=80=AFAM Paul Moore <paul@paul-moore.com> w=
+rote:
+>
+> On Tue, Nov 17, 2026 at 11:51=E2=80=AFAM Andrii Nakryiko
+> <andrii.nakryiko@gmail.com> wrote:
+> > On Thu, Nov 12, 2026 at 6:41=E2=80=AFPM Paul Moore <paul@paul-moore.com=
+> wrote:
+> > > On Thu, Nov 12, 2026 at 6:00=E2=80=AFPM Andrii Nakryiko
+> > > <andrii.nakryiko@gmail.com> wrote:
+> > > > On Mon, Nov 9, 2026 at 7:08=E2=80=AFAM roblabla <linux@roblab.la> w=
+rote:
+> > > > >
+> > > > > Hi,
+> > > > >
+> > > > > Thanks for the replies!
+> > > > >
+> > > > > > LSMs that need to provide a stable API must provide an abstract=
+ion
+> > > > > > layer between the LSM hook callbacks and their stable API.  The=
+ LSM
+> > > > > > framework is not responsible for the stability of individual LS=
+M APIs.
+> > > > >
+> > > > > Understood, that lines up with my expectations. I think the bigge=
+st
+> > > > > thing here would not necessarily be stability guarantees, but rat=
+her to
+> > > > > make sure that the eBPFs fail to load when the compatibility is b=
+roken.
+> > > > > But that's probably a problem for the eBPF side, and not LSM, I a=
+ssume.
+> > > > >
+> > > > > > So, in short, would it be possible to send a follow up to Daan'=
+s
+> > > > > > commit and move `struct mnt_idmap *idmap` to the end of LSM arg=
+ument
+> > > > > > list?
+> > > > >
+> > > > > If this is possible, that'd be nice so that we avoid this breakag=
+e in
+> > > > > the short term, since the change isn't in a released kernel yet.
+> > > >
+> > > > can you please send a patch proposing that and we can continue
+> > > > discussion there? please cc me so I can follow along
+> > >
+> > > Considering the original patch was submitted, reviewed, and merged
+> > > with the BPF LSM being the only user (none of the existing in-tree
+> > > LSMs use the idmap parameter at present), I'm a little surprised this
+> > > wasn't brought up earlier.
+> >
+> > Yeah, unfortunately this was missed. Not sure it's surprising that it
+> > wasn't detected immediately, though, because unlikely someone tested
+> > an unreleased kernel in production. Luckily, this was still detected
+> > early enough before the final release and this gives us a chance to
+> > fix a mistake.
+>
+> I've been surprised lately by apparently how little the BPF LSM
+> program interface is tested with real BPF programs before landing in
+> Linus' tree.  I know the BPF folks have a pretty good set of CI tests,
+> bots, etc. but there do seem to be gaps relating to real world usage.
 
-Size the io_mapping to the BAR2 address space. The range does not
-change where BAR2 is not halved.
+I think it's a hard problem, yes. BPF selftests test latest kernel, so
+this issue we are discussing here just won't come up there. Then,
+e.g., for Meta, we do have internal tests that validate existing BPF
+LSM programs across different kernel versions, but unless our internal
+BPF LSM programs utilize specific LSMs, this won't be caught either.
 
-Fixes: 34e27b90552a ("nouveau/instmem: use iomapping interface for instmem handling")
-Signed-off-by: Mohamed Ahmed <mohamedahmedegypt2001@gmail.com>
-Tested-by: Thomas Andersen <phomes@gmail.com>
----
- drivers/gpu/drm/nouveau/nvkm/subdev/instmem/nv50.c | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
+>
+> > > Beyond that, from a style perspective, I think I prefer the idmap at
+> > > the front of the parameter list in most (all?) of the hooks where it
+> > > was added.  I'm not interested in moving it at this point in time.
+> >
+> > So on one hand we have a real user pain which is easily fixable
+> > without burdening kernel and LSM subsystem in particular, right?
+>
+> Arguably changes that negatively impact code style and readability do
+> affect developers and maintainers.
 
-diff --git a/drivers/gpu/drm/nouveau/nvkm/subdev/instmem/nv50.c b/drivers/gpu/drm/nouveau/nvkm/subdev/instmem/nv50.c
-index 1b4be4b1f0bb..1e7d439c2d59 100644
---- a/drivers/gpu/drm/nouveau/nvkm/subdev/instmem/nv50.c
-+++ b/drivers/gpu/drm/nouveau/nvkm/subdev/instmem/nv50.c
-@@ -191,16 +191,17 @@ nv50_instobj_map(struct nvkm_memory *memory, u64 offset, struct nvkm_vmm *vmm,
- }
- 
- static bool
--check_io_mapping(struct nv50_instmem *imem)
-+check_io_mapping(struct nv50_instmem *imem, struct nvkm_vmm *vmm)
- {
- 	struct nvkm_device *device = imem->base.subdev.device;
- 
- 	if (imem->iomap.size)
- 		return true;
- 
-+	/* Map the part of BAR2 that its address space covers. */
- 	return io_mapping_init_wc(&imem->iomap,
- 				  device->func->resource_addr(device, NVKM_BAR2_INST),
--				  device->func->resource_size(device, NVKM_BAR2_INST)) != NULL;
-+				  vmm->limit - vmm->start) != NULL;
- }
- 
- static void
-@@ -293,10 +294,10 @@ nv50_instobj_boot(struct nvkm_memory *memory, struct nvkm_vmm *vmm)
- 	}
- 
- 	/*
--	 * boot is only called on BAR2, if we can't remap the complete
--	 * BAR it's unlikely things are functioning well.
-+	 * boot is only called on BAR2. If we can't map it, it's unlikely
-+	 * things are functioning well.
- 	 */
--	if (check_io_mapping(iobj->imem))
-+	if (check_io_mapping(iobj->imem, vmm))
- 		nv50_instobj_kmap(iobj, vmm);
- 	nvkm_instmem_boot(imem);
- 	mutex_unlock(&imem->mutex);
--- 
-2.56.1
+I agree, but argument order is not that big of an issue
 
+>
+> > On
+> > the other hand there is a minor issue of argument ordering with
+> > mnt_idmap preferably as a first argument. I get the preference, but I
+> > think fixing an unnecessary (but easily fixable!) user pain should
+> > come first, don't you agree?
+> >
+> > Can you please reconsider?
+>
+> The user pain exists because there is no abstraction layer between the
+> LSM hook callbacks and what the BPF LSM makes available to BPF
+> programs.  That's a choice made by the BPF LSM devs, and while it's a
+> valid choice, it does have drawbacks like we are seeing here.  Changes
+> to the callback arguments and/or the semantic behavior of the LSM
+> hooks are going to continue to happen regardless of what we do here.
+
+Yes, just like it will for tracepoints, kprobes, etc. Sometimes it's
+inevitable and BPF ecosystem does have tools to deal with. It's still
+a friction and pain and burden to do this, so if it's avoidable at low
+cost to the kernel, we should try to minimize unnecessary pain.
+
+That's really what I'm asking about here. We did do that with
+scheduling tracepoints, I think it's reasonable to do this here as
+well.
+
+> It's better if the BPF LSM figures out how to deal with problems like
+> these rather than relying on a set of bandaids at the LSM framework
+> layer.  If the decision is to push the pain up to the user to keep the
+> BPF program interface thin and flexible, that is their choice.
+
+Yes, thin (and thus performant) and flexible is the design choice and
+I think it's fine. That's not really the crux of the problem here. As
+I mentioned, users have tools to work around changing unstable kernel
+interfaces that BPF programs rely on.
+
+But in this case we are discussing reordering a few arguments *before
+they even get into final release* just to avoid unnecessary pain and
+workaround. *Unnecessary* is the key here.
+
+I really don't think that's too much to ask in this situation.
+
+>
+> --
+> paul-moore.com
