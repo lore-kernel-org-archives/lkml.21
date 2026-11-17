@@ -1,85 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794953704;
-	b=Q4nu9QP7htUROkuaXBUlXPwBjFFqckb0APiX+im+Ja0U2AD9zPo1wrXVq0HEV1z/5oTe
-	 U7d8Hp7TZflxl2Jzucev8zWFC7jMDa/G64rie0xFlFokbQgig3ZSt5BA5CtstrQGtC4l2
-	 eigOL1ctWqGZnqwqXFz6PwAg8oXe2iM41httQOb0iEIBt2SE8y/OPeje15y+9txoldwgN
-	 0tniC+vaPUlH12JXYCd5ouq+vlaSjGyhJoxttBQaFDUKR7JSmQlmEQBnxEJjMug2oBnak
-	 tLEDurS4b2ErZpE37vt6P81a+XQdH4e5SNr9na39oyf0ALtsBCZgsCOZeCUDl+09WYA==
+	t=1794953710;
+	b=IrDWsiQQqn9N9AgS6MpFTaQ0S2MAHOVsiFN8JwZnRM/Z9/IZAONg6VAFiMs+MnObCVCz
+	 V1BqluzhBsr7NRcHJN2fJyKezCsgRx6Nng93lAa60kTLKA7ti4qRFubWV44A+Bw33UTOh
+	 WuFtFKvXT7euHR3QS0xgD4LM5w6n9pCqTVKZ294J74158ylsYwIMa7Fo9pNSRHeD1uD4C
+	 +atwI9uLUDCHBdzmWM5ZzwsZnxlmLEawxyiuWrorVCJ8xtD19clbUEeXaadI3Xvk3enKh
+	 A4TmYMziWnzfVNRWydBY/ye7zSmOhGKqa/TO2Fcnpl006n4DBox7wlibgHxr0JsA5lw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794953704;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
-	 User-Agent:MIME-Version;
-	bh=0ZGenTYhhhmk9ojD2HrCoiIy9IDBRXToYlx91iW/n0c=;
-	b=na8BPoK12kETPOV2Gil/Iscjn+vzWggvonHO43Y+y1hLPKGBtmT54AEaLliSPiPyx4j0
-	 bUQPBt2yMwBr0ttFBWKnbc3jzPfyHG6LN5BYRAWRA8DBcUs2d0c7bUzFQJF0F9dSs+qO+
-	 NZ/mtb6a5I5qZzLLqlcJmPYhTKp26r+1rPS7RVXkLoF5WM35kIIXINbxuXQ3O29ylaWBV
-	 apey41rEvK+tTFJco4OkCphUMFxBC2a+dGlPwK4iEPvNFE98zBpKbIHL1oC8y4yN30sjz
-	 PaUaQ5oui1Fr23B3/XnRh8AKgmnwXSG3J8LQf7JEkNW5H4mSF7YzP7SV8l/ZV70TqWA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794953710;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
+	bh=8igbL3DrmgjB8f+3uFsYWHUjBeZpK0nAdLK0B3NxyZE=;
+	b=2D/xTCKJ1oC/bc67pM7pJ23pJRZuKNc2IYqgh6p5KVNA5tqo58JL3XSMRtSrUvqAbONu
+	 CQbzAJWA3Ys5khvbf5Hnm4sTmI6um1mgxhIuA3sFpLH5plw6AeTXykpNH9bNj4S0Wfp25
+	 DNuFLm0ruMMXOmznPTwqCy8wqDRbnCQDRyf1AutY+m16XwlqvWRrz8xfF/rRB0VPJdeus
+	 JkiLxw9L/h9Mtn4FjIzFsb3VxSzlgO9ByZmVOBW7MdOKxzJjErVav0nbLAqAKHKPrMR3o
+	 4EXBfmvzRjb1wr3O3NkjOqodn6P1ZD8QA1n1chpXJ/YjQFcfAV/Rlj//zbpztWFdm8w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=Fqbr4M5D;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Omz6m5sE;
+	arc=none smtp.remote-ip=209.85.219.43
+Received: from mail-qv1-f43.google.com (mail-qv1-f43.google.com [209.85.219.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53010606A330;
-	Tue, 17 Nov 2026 22:15:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53010606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55421606A32A
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:15:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55421606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=Fqbr4M5D
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1794953701;
-	bh=Jp6lTkAnzzbNf+/NdEgoToYgR1t2Gdsu0x5UIbUA/nE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=Fqbr4M5DcLUN5+ufNdjiUZjOBhaCCSlEQZ+Yf1cO8RIaW7C2nJPIRh4JFBfd+gAAw
-	 dtUFSkJizDUyevdQ4gcppeM1HxCO/3WqUrLHt2hqAQTP1ia6KzleUf4qfOYaVs68Ll
-	 d33ffm9Cyn098dBSEcH9xP9+lHt6CEwe1i0ksISb4XDPTB3GDUBipskl9nu8a+pguE
-	 TMc2+5k52qz+cxDOXwV+dKVAH1ClvuQfGfEsogQMVWYbP7KB/S5yJtqhp0mz6spqmu
-	 xJp2sq6x5VpGJtRy7UxD856oN3OeQAQrYB1Turb3zZzrfifuhp4s71sfXlcEPrBi51
-	 duA6lrsvg9edA==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5F32717E0406;
-	Tue, 17 Nov 2026 23:15:00 +0100 (CET)
-Message-ID: <4e5f5669174657fdf3ae3298cc4eaecb5176bd30.camel@collabora.com>
-Subject: Re: [PATCH v3 0/5] media: Add fdinfo support for v4l2 drivers
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Detlev Casanova <detlev.casanova@collabora.com>, Mauro Carvalho Chehab	
- <mchehab@kernel.org>, Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Ezequiel Garcia
- <ezequiel@vanguardiasur.com.ar>, Heiko Stuebner	 <heiko@sntech.de>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, kernel@collabora.com, 
-	linux-arm-kernel@lists.infradead.org, Christopher Healy <healych@amazon.com>
-Date: Tue, 17 Nov 2026 17:14:59 -0500
-In-Reply-To: <20260706-v4l2-add-fdinfo-v3-0-d556568cf38e@collabora.com>
-References: <20260706-v4l2-add-fdinfo-v3-0-d556568cf38e@collabora.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-SbHR3Iz8Jecq/hEvoD/N"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Omz6m5sE
+Received: by mail-qv1-f43.google.com with SMTP id 6a1803df08f44-91eb449364cso2008706d6.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 14:15:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794953709; x=1795558509; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=8igbL3DrmgjB8f+3uFsYWHUjBeZpK0nAdLK0B3NxyZE=;
+        b=Omz6m5sEdcCo6i+rZhY1yYYjJkJ14J3/ehViGl2tfjKF8iKEXM6zW6OcK01d0pvglQ
+         /FyWYDd3s9dTK874m371PT9CPkHc8iiyhftD6T3ezaFb/DKKKdfmKq8+1bbBRWF2f59r
+         pPx0POo1MPsFAIzd4H2wfPc3JPhFi1cneOymArj+Nb7qd6SedaCUb+I0aF3LIjuWBWiC
+         0hhANseDZJJQl3514kujAp1eUbsyHKXvuoKsCflx/Akjgi0B/tlwc5X5HqqoixQSbJQe
+         qatcOfCVlvQrT6KKtTYaiM1cyk0aObDlkWtUfL4ACKut8n/uzQdXMiEHSkUPiEYiqVTv
+         sYjg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794953709; x=1795558509;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=8igbL3DrmgjB8f+3uFsYWHUjBeZpK0nAdLK0B3NxyZE=;
+        b=sn89bVo3lZ3n3z1N302lBYvt1e/NYVgHR0WolN5nQlQpwXYNVj856i/Kcvz6va6Mhc
+         munuHyx4OXXkXYqYJ9euNDAReqkYhoQWwiRsxNdo4guZiddADyENaTY6jZhGAXhST3T4
+         11ULAJmMMz7vuV3iFXyrDmL5v1bBUtBsvmMHTPu+WEA89eDEpa25nDgUgNap3BGxx+23
+         DaVoojkI89DfvEVzGma+Zu1byb8rMBzLQaABbC37EbATc2kS5j7C8vK743qEMOtJtA5E
+         uf+bm0tB37guCPHZjgCzpRWsRFnYtVEb8VFtmLHz4jAvq8Sn3ZGwEZ3MXdMnhBgalZD0
+         BcdA==
+X-Forwarded-Encrypted: i=1; AL+hErFqcxdXsP0conSN3vjFbNxxMOpEgeU106dmPFNUIvFGTJn2jV0pDp1b+c453pH3ciTMN7a6l0OtZt/sw+s=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/sESrpEsaag4FbcMGOggxObKCsjnBOg5HNALrZPyG3R+4KZc8z
+	2z79j/7ipHkZEidbH7vjr997kPLyFzMVht/oB6v6OEfZls/S3yNll170
+X-Gm-Gg: AYBFou3nB5hGl8KOsTUi/MBFB0ocsI9p+OGuN6lVJyhmJ7UEjCl8Xv0F17AtnlIZUSU
+	aliiUzlAN+kNZC5JNIys6jmEipBhuwum8upu7kH7ktr6H+73DMJbv0uRgGZwIDtjSDiXJFN8oIA
+	7166djNqnfmtwBokseTH8IeTA4mGHytln5ALKiFEmd4SI5b8AD/Fp+snOqzNKKF65F2pMRwdrV1
+	1E+nvBdgb/Gp/QkCG/3IGcjVHe9DwB0tnG4prU4XUhbLOOnbYDuHCjJX64FkTDAA33doERkO1R3
+	ZoKCodhj7qC9D/O3C6xRJrjZDFxUDfm12yzctBXDYpFDBX8yMUeMc2Ixqrt5SduBchNTHspxWG6
+	GIISvS3xNkcTzT1AR/9ZL0RGLlO+E+C/d1jpTp/K6KRnBK3G3ryX1Y1uDbadTOPyXmu4WQeQdQ7
+	/STzYxRbJVTChOgCvdSQyxw7wcsV5UEyagUvIa6PrezHsKzoL33Sm9C6bz1gNoAcp+Xddic5aKh
+	xeoUi20nx3r6E9U1HmRUZF/Mpf519xFKU9C7neHAK8/32Y+q/KulIoNxdMHyOgZFEQgw9lPRTM9
+	wIUCheK2/ujzEeXmm3sGs6/wpP8FXOWYBg==
+X-Received: by 2002:a05:622a:307:b0:55d:1db7:3ef4 with SMTP id d75a77b69052e-55d5a5b77b2mr12272421cf.41.1794953708820;
+        Tue, 17 Nov 2026 14:15:08 -0800 (PST)
+Received: from localhost ([2600:4040:9399:4000:e553:72e5:7d37:c7ef])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92114d53b7fsm4789176d6.26.2026.11.17.14.15.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Nov 2026 14:15:08 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,133 +87,104 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-
---=-SbHR3Iz8Jecq/hEvoD/N
-Content-Type: text/plain; charset="UTF-8"
+Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 17 Nov 2026 17:15:07 -0500
+Message-Id: <DMXTZHJA6OGI.3RFGSK5SE9RUF@gmail.com>
+Cc: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "David
+ Decotigny" <decot@google.com>, "Madhu Chittim" <madhu.chittim@intel.com>,
+ "Emil Tantilov" <emil.s.tantilov@intel.com>, "Sridhar Samudrala"
+ <sridhar.samudrala@intel.com>, "Brian Vazquez" <brianvv@google.com>, "Li
+ Li" <boolli@google.com>, "Alexander Lobakin"
+ <aleksander.lobakin@intel.com>, "Daniel Zahka" <daniel.zahka@gmail.com>,
+ "Willem de Bruijn" <willemdebruijn.kernel@gmail.com>, "Kees Cook"
+ <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ <linux-hardening@vger.kernel.org>
+Subject: Re: [PATCH iwl-next 09/15] idpf: psp: add support for psp key
+ rotation
+From: "Daniel Zahka" <daniel.zahka@gmail.com>
+To: "Stan Iliev" <stani@google.com>, "Tony Nguyen"
+ <anthony.l.nguyen@intel.com>, "Przemek Kitszel"
+ <przemyslaw.kitszel@intel.com>, "David S. Miller" <davem@davemloft.net>,
+ "Eric Dumazet" <edumazet@kernel.org>, "Jakub Kicinski" <kuba@kernel.org>,
+ "Paolo Abeni" <pabeni@redhat.com>, "Andrew Lunn" <andrew+netdev@lunn.ch>,
+ <intel-wired-lan@lists.osuosl.org>
+X-Mailer: aerc 0.21.0-threadmapfix
+References: <20261117145522.1910636-1-stani@google.com>
+ <20261117145522.1910636-10-stani@google.com>
+In-Reply-To: <20261117145522.1910636-10-stani@google.com>
 
-Le lundi 06 juillet 2026 =C3=A0 09:42 -0400, Detlev Casanova a =C3=A9crit=
-=C2=A0:
-> fdinfo is useful to poll information from the driver.
-> Unlike the ftrace interface, it lets userspace tools get a snapshot of
-> the state of the driver at their own pace, instead of getting events for
-> each driver status change.
->=20
-> This works better to get information like HW usage time or clock
-> frequencies, as well as memory usage.
-> This patch set focuses on mem2mem drivers that are per-frame based and
-> an implementation is proposed for the Verisilicon Hantro and Rockchip
-> rkvdec drivers, limited to main clock frequency and HW usage time, as
-> well as HW cycles counting in Hantro.
->=20
-> Even though it is not used yet, per core fields are appended with=20
-> `-<core_id>` to support multi-core drivers.
->=20
-> To ease support in drivers, a v4l2_metrics struct is added.
-> It stores metrics information and provides helper functions to write
-> the fdinfo file in a standard way.
->=20
-> An example of usage of this from userspace is implemented in v4l2top:
->=20
-> https://github.com/cazou/v4l2top (Check the upstream branch)
->=20
-> checkpatch.pl warning: The 2 arguments in the show_fdinfo callback
-> definition are kept unnamed to match with the rest of the struct
-> definition.
-
-Please rebase and address the CI issues please. Would be nice to have other
-people comment.
-
-https://gitlab.freedesktop.org/linux-media/users/patchwork/-/pipelines/1700=
-504/
-
-Nicolas
-
->=20
-> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+On Tue Nov 17, 2026 at 9:55 AM EST, Stan Iliev wrote:
+> Add support for PSP master key rotation:
+> - Introduce VIRTCHNL2_OP_PSP_ROTATE_KEYGEN_REQUEST (563),
+>   struct virtchnl2_psp_rotate_keygen_request/_response,
+>   VIRTCHNL2_EVENT_PSP_ROTATE_KEY (4) and
+>   struct virtchnl2_psp_rotation_event/_data.
+> - Implement the key_rotate PSP device op with
+>   idpf_psp_rotation_request(), which fails with -EOPNOTSUPP if
+>   VIRTCHNL2_CAP_PSP_REQUEST_ROTATION was not granted. The PSP core
+>   increments the PSP device generation before calling the op and
+>   doesn't restore it if the op fails: the op restores it then.
+> - Track the master key of the allocated RX SPIs, to report their
+>   generation on receive in a later patch: bit 31 of an SPI selects one
+>   of the two master keys of the CP, and the CP master key generation
+>   of the allocation tells when a master key was replaced. The packets
+>   of a master key get the PSP device generation that was current when
+>   its first SPI was allocated, which is the generation of the
+>   associations using it. Associations then survive one rotation, as the
+>   PSP core expects.
+> - Handle VIRTCHNL2_EVENT_PSP_ROTATE_KEY in idpf_recv_event_msg() with
+>   idpf_psp_rotation_event(), which logs the new master key generation.
+>   The PSP core can't be told about rotations it didn't request, like
+>   in mlx5: document the limitation and a possible solution.
+>
+> Signed-off-by: Stan Iliev <stani@google.com>
 > ---
-> Changes in v3:
-> - Rename the fdinfo key prefix from "media-" to "v4l2-", and "stats" to
->   "metrics"
-> - Restructure the documentation to have mandatory and optional keys
-> - Add core ID to fields
-> - Add HW cycles count support
-> - Add ABI documentation
-> - Link to v2: https://patch.msgid.link/20260617-v4l2-add-fdinfo-v2-0-d298=
-e98ce06a@collabora.com
->=20
-> Changes in v2:
-> - Simplify key/value pairs by removing repeated <eng> suffix
-> - Add media type support
-> - Add v4l2_stats helpers
-> - Add support in rkvdec too
-> - Link to v1: https://patch.msgid.link/20260612-v4l2-add-fdinfo-v1-0-7232=
-11abc861@collabora.com
->=20
-> To: Mauro Carvalho Chehab <mchehab@kernel.org>
-> To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-> To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-> To: Philipp Zabel <p.zabel@pengutronix.de>
-> To: Detlev Casanova <detlev.casanova@collabora.com>
-> To: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
-> To: Heiko Stuebner <heiko@sntech.de>
-> Cc: kernel@collabora.com
-> Cc: linux-media@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-rockchip@lists.infradead.org
-> Cc: linux-arm-kernel@lists.infradead.org
->=20
-> ---
-> Christopher Healy (2):
->       docs: media: add documentation for V4L2 driver usage metrics
->       media: hantro: Add per-context fdinfo usage metrics
->=20
-> Detlev Casanova (3):
->       media: v4l2: Add callback for show_fdinfo
->       media: v4l2-core: Add v4l2-metrics interface
->       media: rkvdec: Add per-context fdinfo usage metrics
->=20
->  Documentation/ABI/testing/procfs-fdinfo-v4l2       | 129 +++++++++++++++=
-++++
->  .../userspace-api/media/drivers/index.rst          |   1 +
->  .../media/drivers/v4l2-usage-metrics.rst           | 137 +++++++++++++++=
-++++++
->  drivers/media/platform/rockchip/rkvdec/rkvdec.c    |  19 +++
->  drivers/media/platform/rockchip/rkvdec/rkvdec.h    |   1 +
->  drivers/media/platform/verisilicon/hantro.h        |   3 +
->  drivers/media/platform/verisilicon/hantro_drv.c    |  19 +++
->  drivers/media/platform/verisilicon/hantro_hw.h     |   1 +
->  .../platform/verisilicon/rockchip_vpu981_regs.h    |   1 +
->  .../media/platform/verisilicon/rockchip_vpu_hw.c   |   6 +
->  drivers/media/v4l2-core/Makefile                   |   2 +-
->  drivers/media/v4l2-core/v4l2-dev.c                 |  12 ++
->  drivers/media/v4l2-core/v4l2-fh.c                  |   3 +
->  drivers/media/v4l2-core/v4l2-metrics.c             |  78 ++++++++++++
->  include/media/v4l2-dev.h                           |   1 +
->  include/media/v4l2-fh.h                            |   2 +
->  include/media/v4l2-metrics.h                       |  47 +++++++
->  17 files changed, 461 insertions(+), 1 deletion(-)
-> ---
-> base-commit: 3c587e0b08bd3c4853a22792b9166b7457870165
-> change-id: 20260610-v4l2-add-fdinfo-a790fceab329
->=20
-> Best regards,
-> -- =20
-> Detlev Casanova <detlev.casanova@collabora.com>
->=20
 
---=-SbHR3Iz8Jecq/hEvoD/N
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+[...]
 
------BEGIN PGP SIGNATURE-----
+> +/**
+> + * idpf_psp_rx_gen_update - Track the master key of an allocated SPI
+> + * @adapter: private data struct
+> + * @psd: PSP device, locked
+> + * @spi: SPI allocated by the CP
+> + * @cp_gen: CP master key generation of @spi
+> + *
+> + * Bit 31 of an SPI selects one of the two master keys of the CP, a rota=
+tion
+> + * replaces the older one. The HW doesn't tell which master key decrypte=
+d a
+> + * packet: report the PSP device generation that was current when the fi=
+rst
+> + * SPI of the master key was allocated, which is the generation of the
+> + * associations using it, see idpf_psp_rx_process_skb(). The CP master k=
+ey
+> + * generation tells when a master key was replaced, including by a rotat=
+ion
+> + * the PSP core didn't request, see idpf_psp_rotation_event().
+> + */
+> +static void idpf_psp_rx_gen_update(struct idpf_adapter *adapter,
+> +				   struct psp_dev *psd, __be32 spi, u32 cp_gen)
+> +{
+> +	struct idpf_psp_rx_gen *rx_gen;
+> +
+> +	lockdep_assert_held(&psd->lock);
+> +
+> +	rx_gen =3D &adapter->psp.rx_gen[be32_to_cpu(spi) >> 31];
+> +	if (rx_gen->gen !=3D IDPF_PSP_GEN_UNKNOWN && rx_gen->cp_gen =3D=3D cp_g=
+en)
+> +		return;
+> +
+> +	rx_gen->cp_gen =3D cp_gen;
+> +	WRITE_ONCE(rx_gen->gen, psd->generation);
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCavzR4wAKCRDZQZRRKWBy
-9C/0AP9RF0H01sdRh/eJRCsUAy8Q/aqr1DKXqin2GOcLmr/uzAEA9ouvtdSlhzQq
-TSAuxOdPvh6OjRqo481dsz54XVxmIQc=
-=aX0G
------END PGP SIGNATURE-----
+WRITE_ONCE isn't paired here. I'm guessing the Rx code in series 2 will
+copy rx_gen->gen into the psp skb extension, but that would likely not
+be correct. The generation field in the extension should be copied from
+Rx completion metadata. If such a descriptor field doesn't exist, then
+the key_rotate() implementation might as well pin psd->generation =3D 0
+like mlx5 does.
 
---=-SbHR3Iz8Jecq/hEvoD/N--
+> +}
+> +
