@@ -1,100 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.177
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794953649;
-	b=FhUHHvlhi/KQA50isP6OzhxbjobsV4f7ijOHVLdztuOc5ntrGM81YhqgjllJKSDPHLMg
-	 2JeLjtXtMzAiQah8cQw7Vy5yfGJPsbS87DPwrCjbU4hhKBg7pmb0xuivnGWT3rhs9gv/f
-	 8p3/tu9WRn65ReSsddlRi9n3W4WXr0mEt4Bq1UpFpvp7xZyXqx5UH5Gge7y1FQs3E+7AV
-	 rpr+CmcSx2UU34uqAPUmemNPMMTH1YnOwdxMDSpCFJk4oJ1bNPCEAswEqe7mFMnDMzM5G
-	 +f0PKaz0pcqJBKzWqSe/mtZZ/hJFD4webwWv+hCy9Hibqb/xZRI2dZRTYXVjvDCELAQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794953649;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=kpd7hhfRhWWBKoEgTCNhAfk8GLYDUaewjNnHM0/FSkA=;
-	b=svO3JkyGajhS3bnelDaVt90ruRVjr3IU4lReENK7OQ1u9/unW68JJVkATRCKS7VvxEez
-	 4WNq7n4Vb65hQRNYDXf8JynQKRaF5FdAIO7pNXSyUDVP+n4a47rfataGCxdLBjHcoLfS3
-	 RHSfwfiOdvrHEmybM05iwPGhYp2fq6+IuiCaeT5IydT3czOLiMuZi/Cg2laTrETsW7o+O
-	 HlWd14sn4EZp7hAGlxLGIPGRXaGbmY6GAz5sawWgX9TIXifxdMwb1G6jrLSP48K7/zHvE
-	 og7rrO8UhkR8DkPBx4qc5zVZiHBx4qcqMuvybRDNMJfENsoNi4Ob2kiiwFX/IFD+06A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=OkK7Oync;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.177
-Received: from mail-oi1-f177.google.com (mail-oi1-f177.google.com [209.85.167.177])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794953654;
+	b=4+tmBkFJdY0Q4phZN1uuq6avKIyqesrtjJc8NFK6feXMolTITbazJnzmB7D6p5fK1npk
+	 RcY5tFVnVJO1mjOZP66IhcqYL0UfkWRHxVbAs0Yfu+S1xg8bv5/4O7yJz5MkYnEsk0Qel
+	 gdPNLiVf1W9znl7szn4ePD+aIYqUKeyCYDdrI2phFzglu8NrrlLctk47uZxZCBTAHccG1
+	 1KxE6AW9LokCn6U8/oCs2JBdXTC6VRcIYVpv2rXVd7Oe12njRA3SMw2UqxthkFq2k7So/
+	 WOBWqOlXxmah0KfajC67OU9hVbDl15AlaIe4rthptDUuFBmEZNy4+gynUBZDemlZt0A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794953654;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-GUID:X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=5Sx6E2eGRV5SxQp5i7sVIsOeukXm/V4zepzrSLP5HDw=;
+	b=ql7g98eqisEaf15aEhTNpoGTcOoE/JWg00GeprVpVDdXQ1tWUMGCvrGB3jE7NFKdBklH
+	 1NMAXrs8CHHjqIOfhD5sEvvaj3CyouLg8eY+hdHzIfirLSo+4H/1klguEFty5t2zHTeDc
+	 OrMOoC18xA446YLZDh32N08+uqC0TMQZ28B5FrdWNvgcSvWRvQq9z4QojFy0uP9+8wfcZ
+	 d+yPBC0QapflY3y2Kr8uuP8hkorFXFe4S9vzPdeklTMxAO59RlbH38SR4Pb8cKyG8Z/sd
+	 lLiKXvOGkeK34gjpy6FR2lQwq9Mg5WN7nP+b1AQVrQGICfZ13bUskdy1VIlzSG3XW0w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=iWmW4Vqc;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=gx3DMGuH;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61D54606A32C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:14:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 61D54606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D91A606A32C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:14:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D91A606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=OkK7Oync
-Received: by mail-oi1-f177.google.com with SMTP id 5614622812f47-571c36e48d4so66405b6e.2
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 14:14:08 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794953648; cv=none;
-        d=google.com; s=arc-20260327;
-        b=UfIAfeSw5b/vYc8mEp1y5eivXjmjWBnBwPpRE2XDqcnM7thKbrk3frjROXrOprIpX1
-         98pI5pO061wHjhVpGD7wOilz8NETv+z+YMhBvHCVBgfJnl4GBCXfBoha/+qc8ww/j7iF
-         I9m5mSPjfoBmdd6ODSfxBWvpvbbhscbWiWMHh1JSYEz66eFxc98UiEN+BAMVsIe5Rqv9
-         nF/ANLG7NVM3fd3Xdop0vPpfvkKKCLU88BHRawoPB9tA4mZZKxgAxtlcVWSNJM16xzJs
-         rb5NNeyd9OUo/lJ3Oud1fEIFk09lNhY2YyWmtRIwGlQIJIfT8olkKhG2KQjJOFGTN9wT
-         FhAw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=kpd7hhfRhWWBKoEgTCNhAfk8GLYDUaewjNnHM0/FSkA=;
-        fh=pXkvS9H6S1WoherHWX5vXI1SkQ8Qmz9fyNfc+Wnf6Fg=;
-        b=GRSLO7h6JBTe60plq+RurA5MngthT8nQejDvOrDQJBjuVTqOKbH0IxU9+Ve3zCzlSe
-         rKakZP7jKkAkSrJyFdI3gV9Ql3QKVZwI1sF1psQhEWB7SUCb3iyYtn6UjAlMhrKJ0VER
-         ftA7Yc47vG0k3radxmD+DULgh2VHSe11ysnRVcC1jZ5LK/qVl360vP+abwQinYGKdz0C
-         eplHpT7hQpcohp09Y8+K1gBi5uJYMgDm/+SofCaDBO8E01BdNa8ZeWn3g98O20+LPq2C
-         I2JMbnxzcTBjw8OzNRMkFJ7avFs2kJtuvJU0pc1Ou2ZT+YP8XVXtTliBa1/I0MZwxBvU
-         VG2A==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=iWmW4Vqc;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=gx3DMGuH
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AHKfI2W2368841
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:14:12 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	5Sx6E2eGRV5SxQp5i7sVIsOeukXm/V4zepzrSLP5HDw=; b=iWmW4VqczE3QyEmb
+	Swbt8vC3VUy+iyYxwzkQml92CjoJCXL0YeWGLkWxyro296gRj7V9rvvdRkurgB1P
+	yUcEbN1auMsw1st8lbi8CoNldZy3Jk6JxdT1pS630Ji6dFjleNFQYFkyuSKouRvp
+	0KGv5u0emOa0MY0DiNgZ4L77UQTkYBxabwuyWlrDoyQSVx4uT8LKSpfB7+dEO+8M
+	Lw2UDd/pA9vF6xSU7pmYyTSlJK8tfe2xnsKhrwT4zkwbPUZhbQINvbXHwhjyg0u6
+	phN5s5aryd91ARI4g/hk97PaCFJjUM4EV7OrbiPVQTTREgOHO3wKcY8HaAUO1KpL
+	qEa/9Q==
+Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0kccbamq-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:14:11 +0000 (GMT)
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-37549877380so344652eec.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 14:14:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794953648; x=1795558448; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=kpd7hhfRhWWBKoEgTCNhAfk8GLYDUaewjNnHM0/FSkA=;
-        b=OkK7Oync/0FMR4WGnKttZfm6jO4gY2WpTAuxMTPGGdgi9bYq6J7iIKBa8VpjHUZyO5
-         usHhSBmnLWPAXbr7C6Vs10jTLGe6cLQb/ULbjlEAznvTd3S2iUX0UJGNeMWMRtYpl/h+
-         +UKeSOLB1H37XnEWzPOp8L5VoUrnAYZz7NqroLlKzaTsWgueA4mg4DEkCra+oakCnwc0
-         6hh6uNVuy6hTVxPJNh14dfbCGZxnBU4W8QoTST6MBNSaIvKmXb4ZjqGqzStDARn1ahUj
-         6qzHVNjAWI8eUgCJkrSPt7USJefKcGjAegppKzl2HvuzY61fEW4j06rjTP+69RcQFWLF
-         yZJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794953648; x=1795558448;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=oss.qualcomm.com; s=google; t=1794953651; x=1795558451; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=kpd7hhfRhWWBKoEgTCNhAfk8GLYDUaewjNnHM0/FSkA=;
-        b=gYLBLmQBlbQGZrqQxjq5d0vrA8fs4c7r8fGtn6Eo10FZSouJ63Y09ka+ct6nq28b4H
-         rU/ExsGyH7YOt0uQtdMa5WofU4d4KMHpeOUBAKTRrHFMjK0IX1mtfEfrTJSEJA6pfAyh
-         RZzEXI5dS/k6nyrBstNPJKSzn3mmPbnU9P6CA+F4ZAxze9UAH3BE7LlzPhAutAEKTy4e
-         aYYCHnoUaL0pwWXYlgaQS4tlKIQ4XSUWAYelO8bd52L8D7n6VV85xqBukzjFaDysTtYR
-         Eejsxa+ShuOfd7ijcsUAq3E8bAmGXMq+jHFth/FSiHg8scz4zRcyVzxroS+neX9iSan4
-         8VMA==
-X-Forwarded-Encrypted: i=1; AL+hErHU5o8O9cY4By4ASuZvC5Pclj4NA8lpuID09eE0V2TIGoJM8h0C8yvzmR4kv2fPJVgHuJhT1BspW0du3Do=@vger.kernel.org
-X-Gm-Message-State: APuU4Z81lzc7BEkpd2g546DqmR0UI4mRihmsoFx0+nGJggZrKNTiPGlT
-	WGeLaN01Qvh7vZCwfpX/7e5MzPNvVjwHcbZUjhS3vQQkvmIXZUPNdLgRgiJTI71QV7hCnOPsHHA
-	UQfk2iN7MNTXB5S8yQswXgQIyGuqCYnSDato0leC6
-X-Gm-Gg: AYBFou07BnrAXUg+snyOQrCgkP+AlQEChuH7lAt/gQt40I5fuFZn/EIsb4Kiow+IAXB
-	RBJfiRNgCqFOLzk3olZtmZ2e4LDfy1j7yIjvV+sGqr9AdhzsBEPACH8fDrCnlRdTEE3lJHJ3wni
-	McZG4H65cOOE0AdDSdq0RNfgEsO25q+C7Wqjgo5tGgWOSxuck95ui7AfGIilmqRyLGdb+zWUruV
-	grgmay9WOqU+ZgqL24F72MCIDuCGfjUgvb4GniADyFq9Y43RerUYqNqSZ3VJBjVURCZPMW1kibg
-	bIa/NmMbyzotDKwfSHdje2tVfecu+NiEsja5gKTQQtnYRuReQeHrGotdYzufe7GYUleRYFqFCXg
-	m2/2aIDkGhVX120YQjRbORzXq7EnbXRFRNdzYanhlRhJ+PYyELHDssPhdXN9uCWiFkag=
-X-Received: by 2002:a05:6808:30a9:b0:4b9:a88b:888b with SMTP id
- 5614622812f47-5774162054dmr1516905b6e.33.1794953647357; Tue, 17 Nov 2026
- 14:14:07 -0800 (PST)
+        bh=5Sx6E2eGRV5SxQp5i7sVIsOeukXm/V4zepzrSLP5HDw=;
+        b=gx3DMGuHpXqs2lDmqIvNAXqohkHNDifNlB1ZnYFjfcVkqz/bOyyx/HPL6tlYDu/QcR
+         PM4wDidIbpW73OcU9ZemxiYDyQ+t8cecj165oY3eN/2BpTENKWc7Sg3ls2ZsdKYZA4JY
+         NdVmJqIVA+0sElyylKtzeNPcG15dPwkMrmhlAWHB0dEJ/MtVaQIpsAbpoUJhs75KoouB
+         i0Kl3De18PCayaDPxgUXzUALo4fwviehNAmJP34lG5J1dbxF4PDyZzhqsWJIzhr9K1vb
+         sjq+yHKo9l2ho8+sGeFuWmbcZ2QLp6MuNZPA/HUhvwtUz1StwvZXRoxghWrBhzwioAWA
+         nAKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794953651; x=1795558451;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5Sx6E2eGRV5SxQp5i7sVIsOeukXm/V4zepzrSLP5HDw=;
+        b=GVF1+bXJCY/dwtst2hXgeWR/O0p1/sV2w/l24CSEOh4dgoPMMfSFu0czsDduXU6n8s
+         G1cx04XdUcAyP2oNHqAZwcq7wEwE2MUEijDTuofEc9yjZCDK88CTWCsIkJ3X8S5hZaxm
+         clFZgHF7u3x4UegqCWdmua4lz1oRcyVakV9hiNn8gD8XaA8MPzufEznQuDv6CFcm1xTL
+         QJ9zozmY+A92NMUyWTxwNf5WSNUqsx8SjE1EJIZXQ+9s8Z+/wsnPJFbFIln1Ax2hoxmT
+         /r7HxHUIksnWzLeqIWqQ/JcNsDg7TxzN1fBwqPwC70eXjCemW6U/dVF4Rr8j4UHvrQZe
+         jVEg==
+X-Forwarded-Encrypted: i=1; AL+hErF54fvyvJ1Ol6M+f7eAl50zcqrjKJYJPpL355Xkewa3ESGe9f8WpymERMKSal17tf9Sw4I1VouEeFmDVUA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/VT5votvk2jYG2Et2igvqFAhTkc7yD8gafSh7dvdjI27zRSxYR
+	ly+JXPZuHRjGw6GXCXe9s36sBJr8M+lYNBEpNUEaFxF+Rz2ibTSO2IBrb0esHdJzjQAZa7FZbk2
+	bzuin/yJJiVAZX2OCDIGBmrbunT47HP1oz2V02FlrCZ/QAgufnsE2Tl6iBBN6F2DpvOU=
+X-Gm-Gg: AZFdTZdlUPmyaIFvWyzs56r2SzM1pSOYpdaaWngj9uQEa7MhUiRu+PUbvymOGno/MPO
+	kn5TSVujST5uVUUCBX76zXGHBAMT78I4MM5F2iGU9hBlE2QVGyJ2Q0ktYE7E6WbfYlRcdsTFAJ1
+	3P5abEDsLKWSAMMJizV4r5F7PbtvEga5wiyuPR40gdU5zp4v4LKqGlKmEW4AZ9PFZJHgsVZBFVP
+	o2mR/sc2E6rzZdbhd4mcvYF4i+H1lT/4uVpO8WIgNkZxGPBcjeoBDEolUnE3mHM89OO9U4/FD6j
+	0bzX/7ugnlBpovohu5yzQjcqk5723r1xRx2GaET/yvB8hdcaRIvY+V+hb0KiNeKGKhIddWrHoG7
+	0cDAd5Ah4YgGcMkzf6T5gmfV8ypauzlrFgBHA0EE7C1fabzWwMXCrEdT6Y3l4xDjsfDvITlHLlw
+	==
+X-Received: by 2002:a05:7300:d117:b0:36d:394d:e690 with SMTP id 5a478bee46e88-38282cb705amr578489eec.40.1794953650674;
+        Tue, 17 Nov 2026 14:14:10 -0800 (PST)
+X-Received: by 2002:a05:7300:d117:b0:36d:394d:e690 with SMTP id 5a478bee46e88-38282cb705amr578453eec.40.1794953649982;
+        Tue, 17 Nov 2026 14:14:09 -0800 (PST)
+Received: from [192.168.1.12] ([106.222.233.152])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a72eb2f3sm1066399eec.18.2026.11.17.14.14.02
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Nov 2026 14:14:09 -0800 (PST)
+Message-ID: <079a8518-bca9-4f2a-89b5-eb2d17a910a8@oss.qualcomm.com>
+Date: Wed, 18 Nov 2026 03:44:01 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,90 +116,120 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261112031629.396819-1-mrungta@google.com> <20261112031629.396819-2-mrungta@google.com>
- <sashiko-outbox-210280@kernel.org>
-In-Reply-To: <sashiko-outbox-210280@kernel.org>
-From: Mayank Rungta <mrungta@google.com>
-Date: Tue, 17 Nov 2026 14:13:55 -0800
-X-Gm-Features: AclHuK-gfyGRgfHP6b95c4djqnr6JWB02JWcunq_dlapBgDtO9GdRA_nY1E9eCw
-Message-ID: <CABz7rdC2Q1qtUdhiXDpEydbhCnSaNSuS5jzcUK+cZFdNZmULgw@mail.gmail.com>
-Subject: Re: [PATCH v4 1/7] genirq: Synchronize in-flight handlers during NMI teardown
-To: sashiko-reviews@lists.linux.dev, Wim Van Sebroeck <wim@linux-watchdog.org>, 
-	Guenter Roeck <linux@roeck-us.net>, Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>
-Cc: linux-watchdog@vger.kernel.org, Marc Zyngier <maz@kernel.org>, 
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, "Kirill A . Shutemov" <kas@kernel.org>, 
-	Douglas Anderson <dianders@chromium.org>, Mayank Rungta <mrungta@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/5] arm64: dts: qcom: nord: Add GPU cooling
+To: Shawn Guo <shengchao.guo@oss.qualcomm.com>
+Cc: Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>, linux-arm-msm@vger.kernel.org,
+        dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
+        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+        Aastha Pandey <aastha.pandey@oss.qualcomm.com>
+References: <20261009-nord-gpu1-v1-0-a06a6c57bde7@oss.qualcomm.com>
+ <20261009-nord-gpu1-v1-4-a06a6c57bde7@oss.qualcomm.com>
+ <assC2v74wpr3AzI6@QCOM-aGQu4IUr3Y>
+Content-Language: en-US
+From: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+In-Reply-To: <assC2v74wpr3AzI6@QCOM-aGQu4IUr3Y>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDA4OCBTYWx0ZWRfX23y6py1Uf+cu
+ dH1b/f/2xU2XpCD/vhuUfHpsK+9TRwlrfftCw0z9WaxicfCzj/bfyCjwFA9QX7QgIDtvbLL4/QQ
+ f167LagSlISmzy5numRqbO23dZJw+g0=
+X-Proofpoint-ORIG-GUID: xJ_9fmL3SJGeEfARIcuf6roSiIOLnz66
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDA4OCBTYWx0ZWRfXzCUsODQPhVTv
+ qqGEuaJGCnqlgmdYlWUhqUTVOmMCsI0y27stEK3gpgGWiUjGLah5v5D6H0rQivXSqoxrSzT0GKR
+ ohFfESouwQtbb1p5lF7VU+0EoDjqwPq/CGKhNT3QMnIy5nlg+VZEk+4kc8kStlWdM0geENvzFOl
+ 8aGk3XaYc9vVoPysxeUDbQU1ywfp2hnfJgfj+gL+JXL6WEz6nwcQ6zDb9mq7+BQQXr3753U4ElX
+ 5KY181sPW83gfElGyA/l11LNEkkrvUfiPY6EI6K2wh38WMnG+QpcTiWFR7NZH8Pg3xq7VFc7Fvz
+ dlhsu+pw4w6m9Lrbv4J6wSKzHSVKNZY2rDdDAKH+othhV/Fi9YCFXIQ7kS1wSW4roHVHBQYqZVZ
+ 23oC7AfHLyERRELbcxKQ5dYh9jN4ZHbXYZSLCCwYXwPQO6BXls6XrKdmntiA27+j8W2nV1x1c+n
+ ulSx+s/9TK5vB/8ioIQ==
+X-Proofpoint-GUID: xJ_9fmL3SJGeEfARIcuf6roSiIOLnz66
+X-Authority-Analysis: v=2.4 cv=ZP1CCn7b c=1 sm=1 tr=0 ts=6afcd1b3 cx=c_pps
+ a=Uww141gWH0fZj/3QKPojxA==:117 a=Q9FbUFTPKQUszr4Og8UIjA==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=EUspDBNiAAAA:8 a=CYWSrXY8TNIhK36ftfwA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=PxkB5W3o20Ba91AHUih5:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-17_04,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 lowpriorityscore=0 impostorscore=0 spamscore=0 bulkscore=0
+ adultscore=0 malwarescore=0 clxscore=1015 phishscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611170088
 
-Sashiko has found one potential issue:
 
-> [Severity: Medium]
-> Can __synchronize_nmi() return while handle_fasteoi_nmi() is still runnin=
-g
-> on another CPU because it checks desc->nmi_active before querying
-> IRQCHIP_STATE_ACTIVE?
->
-> Unlike regular IRQ flow handlers, which acquire desc->lock before setting
-> IRQD_IRQ_INPROGRESS and calling chip->irq_eoi(), handle_fasteoi_nmi() run=
-s
-> without desc->lock.  On the NMI CPU, hardware acknowledge sets
-> IRQCHIP_STATE_ACTIVE first, then handle_fasteoi_nmi() increments
-> desc->nmi_active, then chip->irq_eoi() clears IRQCHIP_STATE_ACTIVE, and
-> finally desc->nmi_active is decremented:
->
-> CPU0 (NMI)                        CPU1
-> <NMI acknowledged in hw>
->   (IRQCHIP_STATE_ACTIVE =3D true)
->                                   __synchronize_nmi()
->                                     inprogress =3D
->                                       atomic_read_acquire(&desc->nmi_acti=
-ve);
->                                       -> 0
->   handle_fasteoi_nmi()
->     atomic_inc(&desc->nmi_active)
->     action->handler(...)
->     chip->irq_eoi()
->       (IRQCHIP_STATE_ACTIVE =3D false)
->                                     __irq_get_irqchip_state(...,
->                                       IRQCHIP_STATE_ACTIVE, &inprogress);
->                                       -> false
->                                   /* __synchronize_nmi() returns */
->                                   __cleanup_nmi()
->                                     irq_nmi_teardown()
->     atomic_dec(&desc->nmi_active)  <-- NMI handler still in flight
->
-> Querying IRQCHIP_STATE_ACTIVE before reading desc->nmi_active (or
-> re-checking desc->nmi_active after observing IRQCHIP_STATE_ACTIVE is
-> false) would prevent missing the handover between hardware-active and
-> software-active states.
->
-> --
-> Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20261112031629.39=
-6819-1-mrungta@google.com?part=3D1
 
-The observation is valid in theory, though practically benign for
-disable_nmi() and free_nmi():
+On 10/11/2026 9:00 AM, Shawn Guo wrote:
+> On Fri, Oct 09, 2026 at 02:36:38AM +0530, Akhil P Oommen wrote:
+>> From: Aastha Pandey <aastha.pandey@oss.qualcomm.com>
+>>
+>> Unlike the CPU, the GPU does not throttle its speed automatically when
+>> it reaches high temperatures.
+>>
+>> Set up GPU cooling on Nord by throttling the Adreno 753 GPU when it
+>> reaches 105°C. Label the GPU thermal zones and their passive trip
+>> points, map them to the GPU as a cooling device, and add a passive
+>> polling delay so the thermal framework can monitor the zones while
+>> throttling.
+>>
+>> Signed-off-by: Aastha Pandey <aastha.pandey@oss.qualcomm.com>
+>> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+>> ---
+>>  arch/arm64/boot/dts/qcom/nord-embedded.dtsi | 177 ++++++++++++++++++++++++++++
+>>  arch/arm64/boot/dts/qcom/nord.dtsi          |  80 ++++++-------
+>>  2 files changed, 217 insertions(+), 40 deletions(-)
+>>
+>> diff --git a/arch/arm64/boot/dts/qcom/nord-embedded.dtsi b/arch/arm64/boot/dts/qcom/nord-embedded.dtsi
+>> index 4379092b7bf8..23370007c974 100644
+>> --- a/arch/arm64/boot/dts/qcom/nord-embedded.dtsi
+>> +++ b/arch/arm64/boot/dts/qcom/nord-embedded.dtsi
+>> @@ -17,6 +17,7 @@
+>>  #include <dt-bindings/interconnect/qcom,nord-rpmh.h>
+>>  #include <dt-bindings/power/qcom,rpmhpd.h>
+>>  #include <dt-bindings/soc/qcom,rpmh-rsc.h>
+>> +#include <dt-bindings/thermal/thermal.h>
+>>  
+>>  #include "nord.dtsi"
+>>  
+>> @@ -2042,3 +2043,179 @@ opp-403000000 {
+>>  		};
+>>  	};
+>>  };
+>> +
+>> +&gpu_0_0_0_thermal {
+>> +	polling-delay-passive = <10>;
+>> +
+>> +	cooling-maps {
+>> +		map0 {
+>> +			trip = <&gpu_0_0_0_alert0>;
+>> +			cooling-device = <&gpu_0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
+>> +		};
+>> +	};
+>> +};
+> 
+> I'm not sure why this is Embedded variant specific. Can we not just
+> update nord.dtsi as needed? Would that break GearVM variant in any way?
 
-In that window, IRQD_IRQ_DISABLED is already set by __irq_disable() or
-irq_shutdown() before __synchronize_nmi() is called. If
-__synchronize_nmi() reads desc->nmi_active =3D=3D 0 after
-smp_mb__after_spinlock(), then the NMI CPU's
-atomic_inc(&desc->nmi_active) occurred after IRQD_IRQ_DISABLED was
-set, so handle_fasteoi_nmi() is guaranteed to observe
-irqd_irq_disabled() =3D=3D true and skip action->handler().
+Only Embedded variant support dvfs scaling. So passive thermal mitigations
+should be limited to that?
 
-By the time __synchronize_nmi() reads IRQCHIP_STATE_ACTIVE as false,
-chip->irq_eoi() has also completed, leaving only
-atomic_dec(&desc->nmi_active) in handle_fasteoi_nmi(). The IRQ mapping
-is not torn down in disable_nmi() or free_nmi(), and even if it were
-torn down immediately after free_nmi(), free_desc() frees struct
-irq_desc via call_rcu(&desc->rcu, delayed_free_desc), which cannot
-complete until the NMI CPU exits NMI context (nmi_enter() /
-ct_nmi_enter()), so no use-after-free can occur.
+-Akhil.
 
-Human review feedback on v4 as-is would still be very much
-appreciated. I plan to hold off on spinning a v5 just for this and
-will swap the check order in __synchronize_nmi() alongside any
-maintainer feedback.
+> 
+> Shawn
+
