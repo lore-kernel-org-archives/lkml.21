@@ -1,85 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=199.89.1.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794945818;
-	b=gOWJEERc7FwKnWm6s+Qbkup6BLQQSezyJlSSEQOcz3ivPKpXI0xsCICYkrdAmSX6EcPX
-	 JI098OIfleCpY9lzmiC84uMwolsyHuF+WB8pSiEv+AZtTYYukP3XqKzBFaBL9eC/DWczu
-	 E3oDF0TaTdGjN9a8dVXDQYIdcGamIuwNhNFSzZY5gfAvWtDZf0DwPFQy/8y7KSaiWKOGO
-	 W0EQ6bNLrZAnGGrqDfmuYhK1UauMFzZ/uxMUi4NR+DcwUboMqeS42RoHpNIciQTMQu385
-	 GkAK4/YHMt7N2HJBGqDTHVcvYjyzEQL1f5/cvPCkZTbCe5B0zgM/ej8KpY4wfKFJzcg==
+	t=1794945838;
+	b=DCw/fuP5V8ocVDHKMX9RNx+rqOYaGwzMCFIuY4eQd1sadYYK4mf2QTmx9HfTfXPZlf3J
+	 KVJFD/9tYO9wGPRntgkeCsJQKR+5VM/GUI0ozuF1haqvf+VCBA28I/dh/vS1fjIQSGmv5
+	 eEnmYD113bISfILASWjnr3/q4J02ntaO1Fkq1yvZcmFZUNrhL4nnUYMpBzH/IJ8Rg0Zpp
+	 d7QoNcMSMnga+7pOwaSV2+jQdDBHT5BSzVdx/AKFtnmr34RyR7wu7j5yTEbttW59spXB8
+	 Bi1yhnp5RKdNYHHYXzwNsNAPrl6T7XpLSOTnfX//mvqYlCZSVNLoPBBRuXQWk5rYlHQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794945818;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=A7F9vGUwuGm89Sq7Z6BKmbqulj1taVMbbgDwWzUX518=;
-	b=E52aRgDAxEXCxwlDBwlfahW7WG6fJCs0Q/8p8RT/CtFDrJzw/0wI0ts6kgtsGhCP7cVL
-	 Isf1+6h/WR4xvEuW4FRXa55F6Nnjq0JhsHXza59CnEzzrLG/+IwYEVt8w1lcrOYUsWACs
-	 tYIpjtdLrblSeDc2p8pjBgB5KYf9jxhz6gj82EqMsgcOBK4oh5McckytWuSCbtIB6R5Y9
-	 pg7H73OhR6NsKD7o57ZPhPvzK3XXCUJbc2ALtWN07C8MDpmeA7auML5wC9+OIvTEMQVas
-	 m6AYFE7BU+l4r2bwna8arCcFrOLdVWqys5pJYvHj/RLB2Cfcj8XJmO+0cToVvJdAb1A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794945838;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Virus-Scanned:Received:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=U48/tzyhcDGP8mqsWTE+4aQHbfO78xx+pHhWWBO5sGs=;
+	b=cJAVWQSPOrwFUfh2VMxRjg9HZv6HVJ635H3uGi4jH4Ecs5dgyQe1c5QiTdp6SUdTK0/K
+	 bcNgVzFewKBaQNlGkjgWzNKB+fF/ZdjjHt2dyX59Lwu3EGCVRzaSbbwdiH5QZ4PuJqJVz
+	 g7u9C4DEgkz6kbspUfKPLW8z/08M2FujgnU6vSaC6OOTOmHC1JQabjSbVXQOUInK7Qlu/
+	 PJnwxj8OaxemCiQnKNKcPCwBnyuaFCQW/Ww6wcxSeyZCyUKpaRWyhrHSBcTuS3vFqxzoX
+	 CWcxrI4xUI2NdOpvHXQAW5sqArCbhaNyxgEScal7tyAkSEJ1wXgpYb7j3v6gQMDfaNg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GgZV8Wvz;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=acm.org;
+	spf=pass smtp.mailfrom=acm.org;
+	dkim=pass header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=raZdQe8K;
+	arc=none smtp.remote-ip=199.89.1.14
+Received: from 011.lax.mailroute.net (011.lax.mailroute.net [199.89.1.14])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 22C55606A32A;
-	Tue, 17 Nov 2026 20:03:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B522606A31C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:03:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B522606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=acm.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=acm.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GgZV8Wvz
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 453F21F000C4;
-	Tue, 17 Nov 2026 20:03:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794945818;
-	bh=A7F9vGUwuGm89Sq7Z6BKmbqulj1taVMbbgDwWzUX518=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GgZV8WvzcdepSUadf6SySKEgnAJgIRXVt6j0ej7g1R4olLseL6+Kzp1GDlNhnKddU
-	 si3ENXKDzBgoKGmWrIX3uc1Sac5ouCqJQSgNT3cFQm4mHP3Op6nnesr9x6wuTbSNwC
-	 opviFh71CCcLK/BQ4wakf+n49QvI41MbVWUMeEiOrXYmzsI1zneVe9ACOd+n8fYxZl
-	 JRTGLazZCNCNDGqYr1YZJS6Mvt6nuNW5zYSK6SBBhT7qvnpO+92T7nRH12ryNYsJrg
-	 VL3JfrdW6rXtfQM5Cptxm/f7P0nTVIk+gGrufpzNmsw1p2eOUUX/0WwilkUXBWliZS
-	 VwFOOPHxJc4LQ==
-Date: Tue, 17 Nov 2026 22:03:34 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Andy Lutomirski <luto@amacapital.net>
-Cc: linux-fsdevel@vger.kernel.org, linux-api@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
-	linux-security-module@vger.kernel.org,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Ben Segall <bsegall@google.com>,
-	Christian Brauner <brauner@kernel.org>,
-	David Hildenbrand <david@kernel.org>,
-	David Howells <dhowells@redhat.com>,
-	Davidlohr Bueso <dave@stgolabs.net>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Ingo Molnar <mingo@redhat.com>, Jan Kara <jack@suse.cz>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Juri Lelli <juri.lelli@redhat.com>, Kees Cook <kees@kernel.org>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	Manfred Spraul <manfred@colorfullife.com>,
-	Mel Gorman <mgorman@suse.de>, Michal Hocko <mhocko@suse.com>,
-	Mike Rapoport <rppt@kernel.org>, Neal Gompa <neal@gompa.dev>,
-	Paul Moore <paul@paul-moore.com>,
-	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Serge Hallyn <sergeh@kernel.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Valentin Schneider <vschneid@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Vlastimil Babka <vbabka@kernel.org>
-Subject: Re: [RFC PATCH 07/13] rootns: Add rootns_enter() system call
-Message-ID: <avyzFnKQrNOid25y@kernel.org>
-References: <20261117050841.3289652-1-jarkko@kernel.org>
- <20261117050841.3289652-8-jarkko@kernel.org>
- <CALCETrWtbUFQGDOCHkxAN9O4i29ixfL5KKF1Cqw2-CjxKwC6gQ@mail.gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=raZdQe8K
+Received: from localhost (localhost [127.0.0.1])
+	by 011.lax.mailroute.net (Postfix) with ESMTP id 4jTbK96Jmyz1XM6Hx;
+	Tue, 17 Nov 2026 20:03:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
+	content-transfer-encoding:content-type:content-type:in-reply-to
+	:from:from:content-language:references:subject:subject
+	:user-agent:mime-version:date:date:message-id:received:received;
+	 s=mr01; t=1794945834; x=1797537835; bh=U48/tzyhcDGP8mqsWTE+4aQH
+	bfO78xx+pHhWWBO5sGs=; b=raZdQe8Kx4vKOp/HQgE81Mrf5tIq0skEzLSpjvk7
+	lW6UbnwyWVv+u7iqi1ujLah/IZqnHIFrEF0y4cK7a7KcIIh2BnhxxXUYIWxGciZy
+	2csXI1VWF+u7PUn71ed8BIHanfm6gBgApbRvbF6xJPHWaHMSMHImFZK0/3Ssqnms
+	s2BHH+qtXxV/ckg4WYNccUH0wyQFKpf1qWAyBgPlONbGz+C/i3CBrupGZZT9QmnY
+	zgb6pOOKeiMEqs21CGkYEI7ZhGBNsAJkuXnxJdBCYlMxjUH4mK5juQHOt90mFKsP
+	4pDfnsQ/Mu1UGci+GmhWGuAnePA6A/lLQtXpVSxOwrt9AA==
+X-Virus-Scanned: by MailRoute
+Received: from 011.lax.mailroute.net ([127.0.0.1])
+ by localhost (011.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
+ id UdAbBwXI9_1B; Tue, 17 Nov 2026 20:03:54 +0000 (UTC)
+Received: from [100.80.227.185] (unknown [104.135.182.41])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bvanassche@acm.org)
+	by 011.lax.mailroute.net (Postfix) with ESMTPSA id 4jTbK54d0Kz1XM6Ht;
+	Tue, 17 Nov 2026 20:03:53 +0000 (UTC)
+Message-ID: <a02a6dde-5baf-4223-a583-5270f39b00d2@acm.org>
+Date: Tue, 17 Nov 2026 12:03:52 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,57 +70,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CALCETrWtbUFQGDOCHkxAN9O4i29ixfL5KKF1Cqw2-CjxKwC6gQ@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/3] srcu: Remove check from srcu_dereference_check()
+To: paulmck@kernel.org
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Will Deacon <will@kernel.org>, Boqun Feng <boqun@kernel.org>,
+ Waiman Long <longman@redhat.com>, linux-kernel@vger.kernel.org,
+ Marco Elver <elver@google.com>, Lai Jiangshan <jiangshanlai@gmail.com>,
+ Josh Triplett <josh@joshtriplett.org>, =?UTF-8?Q?Onur_=C3=96zkan?=
+ <work@onurozkan.dev>, Nathan Chancellor <nathan@kernel.org>
+References: <cover.1794869902.git.bvanassche@acm.org>
+ <8114def6bdc259f670f3d84f3ae0dad6809cd6c6.1794869902.git.bvanassche@acm.org>
+ <723856b0-e1c9-41c7-a6d3-32a45ef1f88a@paulmck-laptop>
+ <c935da68-bd05-46b1-b837-e62cda95c0ea@acm.org>
+ <2d072123-0315-4432-9f5d-74d6071adb8e@paulmck-laptop>
+ <d345bdcd-d3ef-42b6-b2d0-a75f1830f1c5@acm.org>
+ <6f9e7e5c-eeba-4a8b-b944-b45bbe591cdb@paulmck-laptop>
+Content-Language: en-US
+From: Bart Van Assche <bvanassche@acm.org>
+In-Reply-To: <6f9e7e5c-eeba-4a8b-b944-b45bbe591cdb@paulmck-laptop>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Tue, Nov 17, 2026 at 09:42:26AM -0800, Andy Lutomirski wrote:
-> On Mon, Nov 16, 2026 at 9:09 PM Jarkko Sakkinen <jarkko@kernel.org> wrote:
-> >
-> > Multithreaded userspace daemons cannot call setns(CLONE_NEWUSER) or
-> > safely mutate process-wide filesystem state in place before spawning a
-> > child into a target namespace set.
-> >
-> > Add the rootns_enter() system call to fork a child process directly into
-> > a rootns whose root mount has been installed. Transition the rootns from
-> > ROOTNS_READY through ROOTNS_FORKING to ROOTNS_RUNNING for the first
-> > process so it becomes PID 1, serialize concurrent entrants on waitq
-> > until bootstrap resolves, and admit subsequent callers into the running
-> > PID namespace until teardown begins.
-> >
-> > Require CAP_SYS_ADMIN in the target user namespace, forbid credential or
-> > PR_SET_NO_NEW_PRIVS privilege escalation
-> 
-> Why are you disallowing this if no_new_privs?
+On 11/17/26 10:44 AM, Paul E. McKenney wrote:
+ > Right you are!  Maybe __is_constexpr() would be better?
 
-For no any good reason at all apparently: no_new_privs is inherited by
-the child and only restricts privilege gain across execve(), whereas
-user_namespace transitions are allowed under it.
+Hi Paul,
 
-So yeah, it's a spurious check, and thus I'll drop it.
+Yes, it is. __is_constexpr() is a sizeof() trick, so its result is
+always an integer constant expression that the compiler front end
+computes. That's the result the Clang context analysis needs.
+Unlike __builtin_constant_p(), nothing is left for the optimizer to
+decide. This removes the limitation I described: if 'c' is a plain
+variable, function argument or structure member, the check is now
+skipped, as it should be.
 
-> This isn't necessarily a showstopper, but fork() is really quite slow
-> in many cases.  It would be nice to have a more spawn-like API
-> available.  I assume it's possible to open a file in the target's
-> mountns by some sane API even without entering that mountns, as a side
-> effect of how the fsopen / move_mount mechanism works.
+include/linux/compiler.h already has a helper built on top of it:
 
+	#define const_true(x) \
+		__builtin_choose_expr(__is_constexpr(x), x, false)
 
-If the caller retains the O_PATH fd returned by fsmount() for "/", it is
-able to open files inside the target mount tree via openat2(...,
-RESOLVE_IN_ROOT) w/o entering the mount namespace, and pass the
-resulting fd to execveat().
+so I plan to write this as follows:
 
-For avoiding full fork(), there are (at least) two options:
+	if (const_true(!(c)))
+		__srcu_read_lock_must_hold(ssp);
 
-1. A rootns flag in clone3() (e.g., CLONE_INTO_ROOTNS) and a rootns fd
-   in struct clone_args (disallowing incompatible CLONE_NEW*, CLONE_FS,
-   CLONE_THREAD, ...), and callers can pair it with CLONE_VM | CLONE_VFORK.
-2. A flags parameter in rootns_enter() (e.g., ROOTNS_ENTER_VFORK), which
-   would map directly to CLONE_VM | CLONE_VFORK.
+Writing '__is_constexpr(c) && !(c)' instead gives the same results.
 
-> 
-> --Andy
+Results with clang -Wthread-safety, at -O0 and -O2:
 
-Br, Jarkko
+	c == 0 or false                    -> checked
+	c == 1                             -> not checked
+	c == lockdep_is_held(&m)           -> not checked
+	c == ({ (void)(&m); 1; })          -> not checked
+	     (lockdep_is_held() with CONFIG_LOCKDEP=n)
+	c == v, foo->flag, function arg    -> not checked (with
+	                                      __builtin_constant_p()
+	                                      these were false positives)
+	c == lockdep_is_held(&m) || !v     -> not checked
+
+GCC builds it without warnings. GCC doesn't run the context
+analysis, and __srcu_read_lock_must_hold() is an empty inline
+function, so the generated code doesn't change.
+
+I will make this change in v4, together with the other changes I
+listed earlier.
+
+Thanks,
+
+Bart.
