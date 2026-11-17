@@ -1,98 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.72.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794938388;
-	b=yBDkjVdjPM527xSPUtupFgLVzBUpcZz6P2NWBf0FGLSHaMzuEUkInALFHWGwDDG/h6W2
-	 n8UEcoYWAZh8Qlj3MBeiqxTxwV8m2Hgu9axOz80LVrg0HUkTuuufcqD+XtylwVKJsXDgy
-	 VOJPhaq/8BKzrB8cEd1+Ryrhaepy0HvXG2YAp4HjCk58AnYa5AWlWG635Kn08j7Qdh3fP
-	 jiSw0AQIYHXokDZ4Ikma5tA2jRIWzY1eqWVYGu9o2Hd6/CppAVkbshg3y5pJRSPtFRgD6
-	 tSAo+uGKqHruWmbwkk0hycmyMNU+YZb4yFB7m01ZrCl0Et2KaZw67rhiExgqHJTLffA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794938388;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=B2T5SEmhoR7nNnYCSXkt4w3vpbti48DzRL0exdU3ihE=;
-	b=ZwIYLiuTLkEHlh6Y/5DNDWhhw2guuTa4Ug/osUv3xmsXHb/zMpjoaMePGB1Ss3p9JA7y
-	 DEFNOiQAX1asSZc7UVJUae++f+mAB23LzZDOdL28RNCuMuuE24+I1DuW8VjM+7pl7iDuq
-	 hNTEnGPa6KuOCzqfC5zefWGXQZTgHu41P4JfDqBwrYHTuu6Hl/2lcKzAOq5bhPy9F/xVp
-	 +FYN8ZAxBg3a05YI3WMf29pTToEdQ19w/M83GZ1IGcYnqkWA4kTWcGSao6q9tosElLD6+
-	 gxMX4KpN3yjkx0GqP9sLmnn5UxLEr+N/723ciLlYDYRTLg9pgTTOXJ0bPO5hU/oQzzw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=dJIRysDw;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.72.18
-Received: from AM0PR02CU008.outbound.protection.outlook.com (mail-westeuropeazon11013018.outbound.protection.outlook.com [52.101.72.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.179
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794938423;
+	b=AIzsesLdOWzG37eVG+9T6uh9enXS3wJoPt5pFhQgP9sG1wqKAvCFLL5FHJNYhMsGNCxh
+	 QwszO8rRzF0D2a/cTHfH7lCovKEkduatLdd/DotU7NIwXPD2Blkx0AXpqB7WTNv1bjEie
+	 ffXMWbBBKbOl8Anc2QTGBPvBfg9SeyXT/IMAc7KdDT+6tb3BbOo5hDlOd8qmh8hwbD5xI
+	 0iZxlCKvJMncB/VNKTLPhJk4qFA6LCUW85a9Itedy8tXMo/9KZ7S+R8cSqbc38QIBwgqP
+	 CCPcMjd/cRtmPRbYfH8Kl7zE0Nf63La6iGhL1OoTE26y1jfSl9RA5BFL/bTRt7l5/GQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794938423;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=jeLpAGkjUmgjyXxw2yEEozxedkII8BrSx+c1KwTE3W0=;
+	b=xz1qI/l8i3ME6W5lN/BAHMTK4EYY7SXKWgF4rvj3LJ1IlJn6VLEN+tBg7yKn43STkpEs
+	 k4Yy/uc2SfhaUMsdTuXYnyuLX6kGPm1SIoub2ao7RJXezzO/u7m3l0ZTYnv62rxYZwFO5
+	 CU5yGWQYsg4ZOQqP6gl+mHulG91AmPjCad2aXNwqU2V61+0UmWy3kgf6SqQpwmm9+MBOC
+	 edm9hiIC3HMF+grbpBpe8Y6vikkTybJGaLOXnp3i5P8J61+tFvOVrOpnVPl2pW9xCvGeV
+	 dSiK8In9DLyuKYNE0dKyP+iYflOxaUA3IINd6jGEOwv1DK7YAthuGgGPp94s9AH1qdA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=iiitd.ac.in;
+	spf=pass smtp.mailfrom=iiitd.ac.in;
+	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=B7V9UVxW;
+	arc=none smtp.remote-ip=209.85.214.179
+Received: from mail-pl1-f179.google.com (mail-pl1-f179.google.com [209.85.214.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91EC3606A31C;
-	Tue, 17 Nov 2026 17:59:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91EC3606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D86A606A32A
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:00:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7D86A606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=dJIRysDw
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cxfVNelie/ovzvAmZU/dGtJIVQUTQCJ3XxsmcSY70eJj1q5wZfL2EMjV1dzOciTpYBabrIbSQuYCj1yNN2+w0GGDPW3TC7NDTzKV86GeQvZ/ZDJ5hCVQwaArCXK3QWJs/O6UjGDnkc+4q0k6MFdJfunAZq5/anzQZ9D0sdLcTns4YKEHWTGZBrHy8w5HtWMMLP8bwC9d7htsmwABTbQgEkizB7wqIBH10y68ySc1Hy5C6gy9YNgc8efnt9dQRqpbMqwSMs+VMajrJjgGBAxGsPY2QMITnByEByuR2LvqKnDurMMTrWRaV6VcJ39H80KZyPvoAgZ7Ahg9NsPtuUUsrg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=B2T5SEmhoR7nNnYCSXkt4w3vpbti48DzRL0exdU3ihE=;
- b=RXml1ilYr5iTy90tf4L7CbRUtytEq1fvGxUxJHvYP+y+fC5hyuoxiBJx4jz6UGZxXJUeUZR/3GSkDYPBdX1jHChKbpFcTTgA94X+lRs+DqXKDqNn+ARx47SlMQnulH3CSfJN4DVm9ZP9yqWQMLW/S7HYSdo2yf9jR8kwdC5pn/86cxSPwRblWnMen04XiqJXkL+gDnxKui5bdLdon1Fnle8h8JSOUjMb6g5dhq6UsxLEOwbh0HV7QK5zJkzKSU3QgXhv8Q1dShpomsam8Z47pYRfN0x5N9EjUOjIbJQbsSPhtfq4LRv90n43mgD+YXphk7BKiwQ07vKTq7O4GcBvfw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=B2T5SEmhoR7nNnYCSXkt4w3vpbti48DzRL0exdU3ihE=;
- b=dJIRysDwy6Dvc7lbDxiII6BRql+e0jwmvyMEJVQiX6DHRHzkBePBY2Thz3YnQARjD/zVl3oX14y6cIkQZ9B2uSMC4pUbdf3z9fKVWie0kdlNd8HrimiYDsyMUFLSzFgZBGOO50v1pQMakgGVdJAntMZnyLciQGZTU3MuB2I4CQyZ6nrz64vTFIg/CI0Lzg/WhEgZAY1FbyLSvSrem/kK1u+YPN/Ms2y2XJQKLaPEq0LPMr/w3mBOhHMV0tEVrOu2XObW2j5okzZlIWOnHjXaYCA7NWbAcDgtjGdjByEMg+KG2Tk6Yg26qXi0iKdQVZrHQuLkeLUm3DRakFpWSbnFnA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by BR0PR04MB608003.eurprd04.prod.outlook.com (2603:10a6:2c8:49::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 17 Nov
- 2026 17:59:44 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0615.013; Tue, 17 Nov 2026
- 17:59:44 +0000
-Date: Tue, 17 Nov 2026 12:59:36 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Logan Gunthorpe <logang@deltatee.com>
-Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.li@nxp.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
-	Dave Jiang <dave.jiang@intel.com>,
-	Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>,
-	Kelvin Cao <kelvin.cao@microchip.com>
-Subject: Re: [PATCH v4 1/4] dmaengine: add per-channel sysfs attribute groups
- via chan_groups
-Message-ID: <avyWCL7TzS9JX4Ys@lizhi-Precision-Tower-5810>
-References: <20261110173137.623764-1-logang@deltatee.com>
- <20261110173137.623764-2-logang@deltatee.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261110173137.623764-2-logang@deltatee.com>
-X-ClientProxiedBy: PH0P220CA0004.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:d3::22) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	dkim=pass (1024-bit key, unprotected) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=B7V9UVxW
+Received: by mail-pl1-f179.google.com with SMTP id d9443c01a7336-2efe8f50697so202025ad.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 10:00:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=iiitd.ac.in; s=google; t=1794938421; x=1795543221; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=jeLpAGkjUmgjyXxw2yEEozxedkII8BrSx+c1KwTE3W0=;
+        b=B7V9UVxWTVS+HGI3zKBubiY3nTnLBrFUmnxkZE0WByRcNYisE2EBXk4joloCo2h2CY
+         koFpb+yxnDv2TiHvQA39BlMQ99EMsG29Cg/q7Ex39ZsjMCkmdDuREOpIEEkS4FHq3+7U
+         aBLstqowtkFkeQbNtqnS7SbcmUxaBRGa8GDhA=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794938421; x=1795543221;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=jeLpAGkjUmgjyXxw2yEEozxedkII8BrSx+c1KwTE3W0=;
+        b=2mM132LE6ctivWm57RuBe0mieYVwNi4X7QL6oXawAD46KlMLsMTcmYsBqM8+i1UYD1
+         O1/OZYCBUAJGM/jqVV02STLB7zp5Hx7MrdH27gwCXnKrE+kFHjyq5SS8hbEI326LEV8L
+         SIKNTCFeQOdnc2jmm4e0YV2SXqPdZldr1myMP9ZvEY4Aql1CH+gIwnm14MvPoW1q3VXJ
+         BzH0cCHXoQW/TORnwr5AQWDSN7aZIYKgYZ9XgroqngRPnul8wTrdMMozTHksNV1e7Yc4
+         myNFwKzk1Cd6JCDERrTQicc9Il0HE+MOhwGlnAZkt3xCPFZ9vBvFF1YSivtO5VTAN3iH
+         uCsQ==
+X-Forwarded-Encrypted: i=1; AL+hErEW71CeE1xhWHk2OfN8HA8K4/m82yV5DSNpYx1b8dX0ThHhlyPfQhGGXOEN7t7Ow3nh1u77RPWJssiiI38=@vger.kernel.org
+X-Gm-Message-State: APuU4Z87Sr4HF02zdLwyo1AHPv6rZpCBW7IXBIm2yZjj/rNicm8rM/4k
+	0IqqNK+U7j7bZe4a4TJQqAyLYl4ljSQvCKFx2sH4H02+n65JEw1OZYcs7Q1Q3x7I2ow=
+X-Gm-Gg: AZFdTZdO93F/Id9dJNK5jeEa4lucwkRbCwrDcVrf775olwZfSVcdF/ps/DyINW95taw
+	g3+h5eiubuuzbujXMDtZyC4uM59DGO779La2GdM+6I8T2UJqM3gJUsX+KQnoPNo/RGltphFbITr
+	ZiEJm8mlfn2aXnCHvbx2KCIGqDuWAPSdFknzbmX+k5zfBDlz6V7Ej5r4Mq+JM2doYpwpRDRUEgd
+	Wj4b6AnxGKtD9+tSrs6Y03D1BUkU6AaZ1NCieqNyxci0/oZh4xTZIgXNejTOIchvfC1SWNzv756
+	4B430PAB58IKm7PR5dhJo7s4tImc06fFaC8yWvqOR4VMKCrTjWvmtWtzzy+OqNlI6kmgUedS35a
+	OnyQ08m4zusCVOPcYGWkMulOLHKvi1PYnjKFTBC3ve6RXUcIHIoNxRQ2BhnMrB2DhxKaSXaY7F7
+	AY+h59XwjRdLvXuk+uTXvMiLEMswxX9tgo8D8RFHXWd+OPbl8k81Gs21H9UIKQzY+kS5deTvPnM
+	krImaGFU1Mx65a7uhBzaxhxun82qDspbT27ZMnqfNxtnUGT7btOB6VitYMBkq8llZ99FCyYsZI2
+	4je04wm1Nw8iiqnSvPXlOpCVsdOS4AiyaasamruCV0D/poO97NPM9PjqH5+k9rrn3EikJryjRmE
+	qppUbM9XqDG4JKBc3oKr2rYjEJGSz2ooDxcU1T7a0eh27BbUD5KfEniM79na4mUXD8B1I4FyKxL
+	UTCeAmWBYPHQ==
+X-Received: by 2002:a17:902:f652:b0:2ed:218:6043 with SMTP id d9443c01a7336-2eff754502fmr581835ad.59.1794938420590;
+        Tue, 17 Nov 2026 10:00:20 -0800 (PST)
+Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff62833b1sm1068085ad.59.2026.11.17.10.00.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 10:00:19 -0800 (PST)
+From: Piyus Kedia <piyus@iiitd.ac.in>
+To: piyus@iiitd.ac.in
+Cc: davem@davemloft.net,
+	edumazet@kernel.org,
+	horms@kernel.org,
+	jhs@mojatatu.com,
+	jiri@resnulli.us,
+	kapil@presceralabs.ai,
+	kuba@kernel.org,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com
+Subject: Re: [PATCH net] net/sched: act_csum: bound the IPv6 jumbo payload length
+Date: Tue, 17 Nov 2026 23:30:12 +0530
+Message-Id: <20261117180012.353227-1-piyus@iiitd.ac.in>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261112075159.3552470-1-piyus@iiitd.ac.in>
+References: <20261112075159.3552470-1-piyus@iiitd.ac.in>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,207 +104,148 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|BR0PR04MB608003:EE_
-X-MS-Office365-Filtering-Correlation-Id: d35d0f40-6e23-43d9-ed27-08df44d48fb9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|19092799006|376014|23010399003|366016|18002099003|6133799003|22082099003|261009223027099003|11063799006|56012099006|4143699003|261026135527099003|261102123227099003|261102130727099003|261028144727099003|10067099003|261026140227099003|261026121527099003|261021121427099003|261022075727099003|261026130827099003|261022105027099003|261022113327099003|261021123027099003|261022115727099003|261021130227099003|261021133027099003|261021135927099003|5023799004;
-X-Microsoft-Antispam-Message-Info:
-	RPzNHdUmQ+wvosJsh+CFmBHmiKqh5QOMpFe99E0N3H63GQeTgXf4psR7i8LC97HqF6zrOKTV7rqcE1V9PqqI0TL+vezAKFN/DKSerFAo33c+ei33Kn5bpwfgNiTi2DZiEffVEtijELq2dR5DeOdM2unrtIqIMeXw/K11oY5W2giHCGQ+7Ppt8mgRdMYTcNLp0DJ89xIiqSwBPy8gQEi5DVdPbsJq/dvhhNIoSDUhQEDT95natDghxZYuN8sOuv+TCSQiGJN8LeV3JMyGncWASjHIYOz0pqDKVfeqBT9PqNNE+341Z8P9gfKzPhcOLd+G7r3oOP8tgBL2+2CqkOoZUwLdleRPYuUEQDJaDz8X8pSJs3VBzIEIDnf9YHL46hjhpOwhWX3JPi/KC2WXXR6tMTCxbMWGk2UhSU0BMzwxMxOBmyEL9JWTbGFwcB+loiXtXCMOn62IPCNIu+vPQiWtx8ofgeIv0qpC4HwWtL7lD0GWeUVJbQvmEUHi2RLWMt0CwziGoiP1Va/1bbBRrSM+AHVztYyFdoKbhWKU952DBZmeKkZD5gt5/AF18ABQ9/IE56oSYjqRYADrixFoZcHEmer5nxiun9DFFPLRVGje4Nv5esGC6xoEdhBZrEcNclFrcGDeneXn0Kv5XWTxp/w/UQZNBmiRnaJA8s57hs3q8Xc=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(376014)(23010399003)(366016)(18002099003)(6133799003)(22082099003)(261009223027099003)(11063799006)(56012099006)(4143699003)(261026135527099003)(261102123227099003)(261102130727099003)(261028144727099003)(10067099003)(261026140227099003)(261026121527099003)(261021121427099003)(261022075727099003)(261026130827099003)(261022105027099003)(261022113327099003)(261021123027099003)(261022115727099003)(261021130227099003)(261021133027099003)(261021135927099003)(5023799004);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?oB2dtexN9YQbh3X8PRTmSb8WX5HJ77ecqHYYyHg2K6HYOXsMvI3siMVGOLNL?=
- =?us-ascii?Q?gfhuqb+Ks+dhJ9Um5sRHLOPcdYLI3W/EErD/5YFLrXn2D7YrJ3DbP/bkFDAj?=
- =?us-ascii?Q?tYxSqRI88Yn9WUZ1g8hhxyy2rBB1KTyCYBPd0RwKw7Ktl7Sh/Neue6xKtPSV?=
- =?us-ascii?Q?i3dPYD+Q+Z4WJRjxtAdPGPg1GGZJl/wnZS6eToiHhc4Wv4Ufi+QbmmkfKOLl?=
- =?us-ascii?Q?CLP7qP6OBq2KPZiG8L8d+RVj4Io2fnl6ADgWmYCl8qyyhEuK6wWHSabhMDPX?=
- =?us-ascii?Q?L7GtJ2SL+KOjtx+6I9hSa4L/NWXVmTxeCfsSipfAn1kglLle/HZwMRaYabL6?=
- =?us-ascii?Q?0RZGegBKiqDm3OutiKNMO1B8RDukEnHN2hytTWcQSNcZI5+ealn5Ek3Nskfc?=
- =?us-ascii?Q?K4IWe+P7oEMIX9yf/pMgZbjYi1LEFkv1F5f1NakQ9nLbT/0dDu69Ep7GJDxq?=
- =?us-ascii?Q?6gLG8zxmJ8TrqOJFsD2tVQo8HLD/IHOjqrFpwLsAo+DQbOQ0DBVlDvCm9hYz?=
- =?us-ascii?Q?MK3c4y2UXyxrp+5Vc+oBiDaOW5YZBpj6Gn4RbkAQjYFmbh+6M3VWFw6Lnu5v?=
- =?us-ascii?Q?YWL//s/9UoVgPyi8xoRDfrlGX3HdroRDxmA8MC1uA1hZMJytcKgnxm2McXPc?=
- =?us-ascii?Q?9aoeWqot/YCykP1GDeYbvqKeH2KuMMFfkgTvR9+ZL7IdRbm7k4mJZzll774F?=
- =?us-ascii?Q?+x5gFD69lOnyGcDCU9JiL4Qzz0CmEsTL9Fry1fMlivJFVLuV9JNg0YRSugav?=
- =?us-ascii?Q?QC/Zi8UiyGIULmtrL5ZdQ7tgWcGuYv8RWRQykPhkatWZgBPadgi+Xg/7J01m?=
- =?us-ascii?Q?VmJ2IHYtYxMkFdF7X5sJe4ZDVmz2PoOfaIwSAqSAPQXZ/EUEa91cBxQ8MQ8t?=
- =?us-ascii?Q?ZG61SpO8KmcL54Mz44HQCtg5xjPIDFAxCt+UJK8eZM5NG/jhYbXeUGGsOGcH?=
- =?us-ascii?Q?Njg4Pfe0lUBNA1EBNJ49spFl4xRBxiGi/BaHMo8Ow06RHB0HT54r6XbyH4q7?=
- =?us-ascii?Q?IFv5eWiOewO5fvYdYZSiKyVsOQGlCA2Xrjk6Rit2rxnM/cg6DjHV4Bw/6/3x?=
- =?us-ascii?Q?Zk9HzbGRyJSRoBye/q6jzsJM+UYTcmT3kh3BriBCCeT5eXOK3jRicmtadiRl?=
- =?us-ascii?Q?yL/nKC75cNxsqt95CMPu3Vj5/O9+7ODeN/+yM9K9PiGyF+VwftToB8NTmcuZ?=
- =?us-ascii?Q?r//3JLbT50qJ3xn+HFYfN+myIJpT2h1hYjzjcnv4eDQlqv6GXXV9hLswQ9YK?=
- =?us-ascii?Q?XZxy0BMUj4UcqXVF597WE/MrVHfcuQKEzTv0sKq8qAKG1w8s9bv3y7OVi3eP?=
- =?us-ascii?Q?eZKSjGmWWClvHv8ZNL6ZDxluqO77lirrgXSiwSce+k2cR4tLwNnTv6hjzo7C?=
- =?us-ascii?Q?1+iGbcUEwCuzl0fHBeDAhjqZ8e0CV6+wuK+n6HFwQlZgW21oTuFdrrL1RRHQ?=
- =?us-ascii?Q?7AYpGJI9sOK44g5tFB6Iyi2i5yIQUTETw30FTCMJxY4i/LJysirOsooybkvi?=
- =?us-ascii?Q?QXBeuIiZrT11QvlxGTiIJtNLWAzuMmsVR1ECcnme1yYSEmBrSUxLBcelTlqD?=
- =?us-ascii?Q?5RCOEvbQaWUSApFrmYJns+qGOxEeSZAcouF9sDq4rzC5JNNIV5RmfhTFrsOJ?=
- =?us-ascii?Q?npKw05eIC/YZa6R0BtBriWJ/yJciP+Tqy0wlJlyQp+xIqNuht5m+LeonlxYV?=
- =?us-ascii?Q?84SGQ/Ix5XjstYpDvKMQ3T6SRngEONkzG8PJ8ELLjMfHrJdbMQf+ewxv8OTi?=
- =?us-ascii?Q?2ysCvjW+r2nfNksen801Z+p3dnQjCBa+yVKL43awVRWtVwupYeLk?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d35d0f40-6e23-43d9-ed27-08df44d48fb9
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 17:59:44.5909
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pStjKBdzGDfyq1UkwtJGmP7jngjhy3GVus1XgyCTNM3zJLjmjEQ/5xOb1su9G/SagNB6lY64uuB3p+D96f66GOrnp0gSXVgYMFFuOhySQt/GgKciNWBT7AgDROdPu5Nf
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BR0PR04MB608003
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 10, 2026 at 11:31:33AM -0600, Logan Gunthorpe wrote:
-> Each channel already gets its own struct device (dma_chan_dev),
-> registered with device_register()/device_unregister() and torn down
-> correctly by chan_dev_release(). Let drivers add their own sysfs
-> attributes to that device directly, via a new dma_device.chan_groups
-> field.
->
-> This avoids drivers needing a second, separately-managed kobject to
-> expose driver-specific attributes. That's a use-after-free issue:
-> kobject_put() can invoke the ktype's release() and free the structure
-> embedding dma_chan while the core (or the driver) still expects to
-> reference it afterward, so avoiding it requires careful ordering and
-> bookkeeping that's easy to get wrong. The channel's struct device
-> already has the correct lifetime, and sysfs_create_group() supports
-> the same named-subdirectory layout (attribute_group.name) that a bare
-> kobject would provide.
->
-> To let show()/store() callbacks safely recover the struct dma_chan from
-> the struct device they're attached to without exposing dma_list_mutex
-> itself to drivers, add a small dmaengine_chan_from_dev_lock() /
-> dmaengine_chan_from_dev_unlock() pair that take / release the lock, and
-> wrap them in a dmaengine_chan_from_dev CLASS so callers can write:
->
-> 	CLASS(dmaengine_chan_from_dev, c)(dev);
-> 	if (!c)
-> 		return -ENODEV;
->
-> Signed-off-by: Logan Gunthorpe <logang@deltatee.com>
-> ---
->  drivers/dma/dmaengine.c   | 27 +++++++++++++++++++++++++++
->  drivers/dma/dmaengine.h   | 19 +++++++++++++++++++
->  include/linux/dmaengine.h |  4 ++++
->  3 files changed, 50 insertions(+)
->
-> diff --git a/drivers/dma/dmaengine.c b/drivers/dma/dmaengine.c
-> index 34be53487a21..38f601bf41e1 100644
-> --- a/drivers/dma/dmaengine.c
-> +++ b/drivers/dma/dmaengine.c
-> @@ -161,6 +161,32 @@ static struct dma_chan *dev_to_dma_chan(struct device *dev)
->  	return chan_dev->chan;
->  }
->
-> +/**
-> + * dmaengine_chan_from_dev_lock - take dma_list_mutex and convert a channel's
-> + *	struct device to its dma_chan
-> + * @dev: the channel's struct device, embedded in struct dma_chan_dev
-> + *
-> + * Returns NULL if the channel has already been unregistered. Pairs with
-> + * dmaengine_chan_from_dev_unlock(); see the dmaengine_chan_from_dev CLASS in
-> + * drivers/dma/dmaengine.h.
-> + */
-> +struct dma_chan *dmaengine_chan_from_dev_lock(struct device *dev)
-> +{
-> +	mutex_lock(&dma_list_mutex);
-> +	return dev_to_dma_chan(dev);
-> +}
-> +EXPORT_SYMBOL_GPL(dmaengine_chan_from_dev_lock);
-> +
-> +/**
-> + * dmaengine_chan_from_dev_unlock - release the channel lookup lock
-> + * @chan: unused; matches the value produced by dmaengine_chan_from_dev_lock()
-> + */
-> +void dmaengine_chan_from_dev_unlock(struct dma_chan *chan)
-> +{
-> +	mutex_unlock(&dma_list_mutex);
-> +}
-> +EXPORT_SYMBOL_GPL(dmaengine_chan_from_dev_unlock);
-> +
->  static ssize_t memcpy_count_show(struct device *dev,
->  				 struct device_attribute *attr, char *buf)
->  {
-> @@ -1117,6 +1143,7 @@ static int __dma_async_device_channel_register(struct dma_device *device,
->
->  	dmaengine_chan_dev(chan)->class = &dma_devclass;
->  	dmaengine_chan_dev(chan)->parent = device->dev;
-> +	dmaengine_chan_dev(chan)->groups = device->chan_groups;
+Hello,
 
-if echo channel have same groups, why need copy it to dma_chan?
+# Revised Impact Assessment: A Kernel Memory Read Primitive
 
->  	chan->chan_dev->chan = chan;
->  	chan->chan_dev->dev_id = device->dev_id;
->  	spin_lock_init(&chan->lock);
-> diff --git a/drivers/dma/dmaengine.h b/drivers/dma/dmaengine.h
-> index 42a3cfa7e597..f03248a091df 100644
-> --- a/drivers/dma/dmaengine.h
-> +++ b/drivers/dma/dmaengine.h
-> @@ -214,6 +214,25 @@ int dma_async_device_channel_register(struct dma_device *device,
->  void dma_async_device_channel_unregister(struct dma_device *device,
->  					 struct dma_chan *chan);
->
-> +/*
-> + * dmaengine_chan_from_dev_lock() / dmaengine_chan_from_dev_unlock() bracket
-> + * a critical section across which a channel's struct device can be safely
-> + * converted back to its struct dma_chan: dmaengine_chan_from_dev_lock()
-> + * returns NULL if the channel has already been unregistered, and the lock
+We need to correct our earlier assessment of this vulnerability. Our
+first report classified it as an availability issue; the second
+described it as a 16-bit oracle. Both understated its impact. We have
+now demonstrated a working, byte-exact kernel memory read primitive. A
+single packet can disclose 14 contiguous bytes of out-of-bounds kernel
+memory at an attacker-selected offset. The mechanism and its limitations
+are described below.
 
-where return NULL when already been unregistered
+## 1. The root cause: An unchecked IPv6 Jumbo Payload length
 
-static struct dma_chan *dev_to_dma_chan(struct device *dev)
-{
-        struct dma_chan_dev *chan_dev;
+IPv6 normally uses a 16-bit payload length field, which supports
+payloads up to 65,535 bytes. For larger packets, RFC 2675 defines a
+Jumbo Payload option in the hop-by-hop header. In this case, the 16-bit
+field is set to zero and the actual length is specified in a 32-bit
+field.
 
-        chan_dev = container_of(dev, typeof(*chan_dev), device);
-        return chan_dev->chan;
-}
+Our packet exploits this mechanism by declaring a payload length of
+4,294,967,250 bytes, despite carrying only 56 bytes (70 bytes including
+Ethernet). The packet is structurally valid, but its declared length is
+inconsistent with its actual size.
 
-Frank
-> + * it takes must be held for as long as the returned channel (or anything
-> + * derived from it) is accessed.
-> + *
-> + * Use these through the dmaengine_chan_from_dev CLASS below rather than calling
-> + * them directly.
-> + */
-> +struct dma_chan *dmaengine_chan_from_dev_lock(struct device *dev);
-> +void dmaengine_chan_from_dev_unlock(struct dma_chan *chan);
-> +
-> +DEFINE_CLASS(dmaengine_chan_from_dev, struct dma_chan *,
-> +	     dmaengine_chan_from_dev_unlock(_T),
-> +	     dmaengine_chan_from_dev_lock(dev),
-> +	     struct device *dev)
-> +
->  #ifdef CONFIG_DEBUG_FS
->  #include <linux/debugfs.h>
->
-> diff --git a/include/linux/dmaengine.h b/include/linux/dmaengine.h
-> index 805668fbe437..944c8b0f5848 100644
-> --- a/include/linux/dmaengine.h
-> +++ b/include/linux/dmaengine.h
-> @@ -839,6 +839,9 @@ struct dma_filter {
->   * @dev: struct device reference for dma mapping api
->   * @owner: owner module (automatically set based on the provided dev)
->   * @chan_ida: unique channel ID
-> + * @chan_groups: optional NULL-terminated array of sysfs attribute groups
-> + *	added to each channel's struct device, for driver-specific per-channel
-> + *	attributes
->   * @src_addr_widths: bit mask of src addr widths the device supports
->   *	Width is specified in bytes, e.g. for a device supporting
->   *	a width of 4 the mask should have BIT(4) set.
-> @@ -923,6 +926,7 @@ struct dma_device {
->  	struct device *dev;
->  	struct module *owner;
->  	struct ida chan_ida;
-> +	const struct attribute_group **chan_groups;
->
->  	u32 src_addr_widths;
->  	u32 dst_addr_widths;
-> --
-> 2.47.3
->
+In `act_csum`, `tcf_csum_ipv6()` reads the Jumbo Payload option and uses
+its value as the IPv6 payload length. This value is then passed to the
+UDP-Lite checksum handler without validating it against the actual
+packet size. This is the root cause: **a packet-controlled length is
+trusted without being checked against the available packet data.**
+
+## 2. Why the existing checks fail
+
+Three checks are intended to protect the checksum operation, but none of
+the checks catches this condition.
+
+- **Packet bounds check:** `pskb_may_pull()` receives a length
+  calculation that overflows a 32-bit integer. Instead of checking for
+  more than four billion bytes, it effectively checks for just 8 bytes.
+- **Header length check:** The declared length is larger than the header
+  length, so this check passes.
+- **Checksum coverage check:** The UDP-Lite coverage is compared against
+  the inflated payload length and is therefore accepted.
+
+Consequently, `csum_partial()` is asked to read 200 bytes starting at
+the UDP header, even though the packet is only 70 bytes long. This
+results in an out-of-bounds read beyond the 704-byte `skbuff_small_head`
+object. Importantly, a large UDP-Lite coverage value alone is not
+sufficient to trigger the issue. The oversized Jumbo Payload declaration
+is what bypasses the bounds checks.
+
+## 3. Turning the checksum into a memory read
+
+A checksum by itself does not reveal memory contents. `csum_partial()`
+returns a 16-bit sum, which provides very limited information about the
+bytes it processes. However, the Internet checksum is linear. By
+obtaining two checksums with coverage lengths differing by two bytes, we
+can subtract the results and recover the intervening 16-bit word.
+Repeating this process allows individual words to be recovered.
+
+We verified the arithmetic against known memory contents, recovering all
+131 test words without error.
+
+## 4. Why the read requires a single packet
+
+Our earlier attempts used two separate packets to obtain the two
+checksums. This did not work reliably because each packet gets a new
+socket buffer allocation, and the memory contents change between
+allocations. The solution is to obtain both checksums during a single
+`tc` filter execution, using multiple actions on the same packet:
+
+- Compute the checksum.
+- Mirror the packet to capture the result.
+- Adjust the UDP-Lite coverage.
+- Compute the next checksum and mirror it again.
+
+This allows multiple checksum observations of the same memory region
+without allocating a new packet buffer between observations. The
+kernel's action limit restricts how many observations can be collected.
+We reliably obtained eight checksums, allowing us to recover seven
+consecutive 16-bit words, or 14 bytes, from one packet.
+
+## 5. What we have demonstrated
+
+The following results were obtained using an unprivileged user (UID
+1000) inside a user namespace with `CAP_NET_ADMIN`. The kernel heap
+itself is not namespaced.
+
+| Test | Result |
+|---|---|
+| Recovery against known memory | 131/131 words correct |
+| Consecutive words from one packet | 7/7 words recovered exactly |
+| Out-of-bounds reads at coverage 1024, 4096 and 16384 | Non-zero, varying memory contents |
+| KASAN validation | Confirmed slab out-of-bounds read in `csum_partial()` |
+
+The demonstrated capability is:
+
+**An unprivileged, repeatable, byte-exact read of 14 contiguous bytes of
+kernel memory per packet, at an attacker-selected offset within the 64
+KB reachable region beyond a 704-byte slab object.**
+
+## 6. Limitations: Can multiple reads be combined?
+
+We have not demonstrated that reads from separate packets can be
+combined into a larger, contiguous memory image. Our experiments showed
+that successive packets did not reliably access the same memory
+locations. Even overlapping read windows produced no matching words in
+the tested configuration. This is significant because it means we cannot
+claim that sending approximately 4,682 packets would recover 64 KB of
+kernel memory.
+
+However, these experiments were conducted on a debug kernel configured
+with KASAN, KFENCE, SLUB_DEBUG and memory initialization options. These
+features alter allocator behaviour and can significantly affect memory
+reuse. We have not yet repeated the experiments on a production-
+configured kernel. Therefore, the inability to combine reads should be
+treated as an unverified limitation, not a demonstrated property of the
+vulnerability.
+
+## 7. Conclusion and disclosure status
+
+The impact assessment should be based on what we have demonstrated,
+rather than what we suspect may be possible.
+
+We have established a repeatable, byte-exact kernel memory disclosure
+primitive that works without root privileges, within the stated user-
+namespace configuration.
+
+We have not established whether successive reads can be combined to
+reconstruct larger regions of kernel memory.
+
+We are holding back the detailed reproduction procedure and programs
+until the fix is merged. The patch has already been submitted upstream:
+
+- **v1:** https://lore.kernel.org/all/20261112075445.3555341-1-piyus@iiitd.ac.in/
+- **v2:** https://lore.kernel.org/all/20261116182108.2581258-2-piyus@iiitd.ac.in/
+
+Version 2 contains the same patch as version 1, with an expanded
+changelog.
+
+Thanks and regards,
+Kapil Vaswani
+Piyus Kedia
