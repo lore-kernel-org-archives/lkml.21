@@ -1,63 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=34.202.193.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794955996;
-	b=22o+MjKf+qzZVvGljhNIa8hqjOlYwH+bUixbvDERHixl/n7lTiaU5ejcCibLtmGgwO7J
-	 2CxfzYOokultObMxhQSXWQplKfYpHsiiUeU0UD4mMl0Rmx8s0oWwZakQY/JnzL4YSwNCF
-	 QI9rvwiFMXfjhxLesVtlso9aNk2UIZ9Jlh9BKlI/HG+fmnvVaOD9a/6lwgmJGsg+PhL3O
-	 2NmDlQH66G4uYjaLyKFQKeVsq5FlFsFY+3qFBTpIIjHyUPUx/aS6mQ2cn8zb0KNML16LI
-	 r6/9a2WUU6TgIWiSjJU5AxA6wahl3TwJEONjCliqNj/cl5FB1An23V/sAt8VexFFHJg==
+	t=1794956091;
+	b=NYbvM4FrqIMNYffFe4/zf4R7QRH+HFQ0ZHRbM/0ReEX7yuNHgf5HWbCmn8ckPR5L6ZdG
+	 Pg1bd2cfNSER27VXFTQox86AcQKimYO70LfLV5CEMNRJJlT/fXtbD7Ucpjf7RUkyEqOlt
+	 FoYUc2VDYqMMUgUsblvI6dnUm8tiUPaGZGZn42kQ9XX4M394Qdyrjvbi5Bzr6QeGexEBE
+	 RloEw1EUJOrrG4qrwrk7x3cE7VOe5I94dw+5Pg3K8Z91t7FkRwH8FP9A090vfLn51tNI4
+	 44RgkzMFlffEa5zqw2vhHEL8pxrE3M/YoT1Fnyzc4uZ1tRnGqAKAJjT3wgKoRTeD2+w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794955996;
-	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:Feedback-ID:
-	 X-Pm-Original-To:Received:Message-ID:Subject:From:To:Cc:Date:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
-	 User-Agent:MIME-Version;
-	bh=utpAkiwFHBjBDfI84DKHsLpQh91ULE12v2wjMHOYcls=;
-	b=kvAVOcih2uJzNsQcJpJGizkAkqh0cdwzERmIiBweZsjvGbdVMf8pVTIS82mBQNlAsGHr
-	 uoMgSq10hbGMBcdCp+RIFkYfjBpjnYkaqRFU/56p7Jl7qpVZLIS8mY4W1m/8Qk9Xu+xf5
-	 yeC0oDyoTqknNtPMcv1ZvKlK7tAVFBjvQ4A2H3n5EzhLZxekceC14FrV9GKHY10NP8ook
-	 KOM+xwW50G/Q2HpPD++bt7IIUo18JJuStPbc6Ht7w9oKfmJQ+OrmOybhexMaIEWPkH7bc
-	 N1Fpu9Ec11IJAZhPVdUPwq/4uzhVFAqgUWgRNunabO9RJ9DOxYUilc3Ai/zZd5aUHlA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794956091;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer:From:To:Cc:Subject:References:In-Reply-To;
+	bh=k7/QLUvYDzH8xZxy3OOm+8SYpFBmpzd+eC/ISXSLxiA=;
+	b=B07xx27UwRhsru7ANv7+MXcYdwAbGMKg/tGomLU95BE9aHIcQJ3LLgf6ETadJzQKa4II
+	 +wguocY9iS5GnfA5Snh4tWp8LzadnMK/1vHtLGtjYgqHuKdGJmw3pIOAA6HT0Hb+0wyis
+	 52PNCJwPKyjdmewHejC3capNiRPBUtcM9guGLgnOTOoHYjXXdf8hcW6stVdai60CBlPPK
+	 feK/zw8X3ZcobmJfIa5F6/4ChivYHyjUGhfoQLcILIuO8jxf0vAaSs/MIeOnBbRZAJSjm
+	 IxLrGOlxkXA4LHcMYi0Cu1fbVVe5PsxQa1i0DFJaKTdS3046t8j/KTyY+WLm2OCS/Rg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=sverdlin.org;
-	spf=pass smtp.mailfrom=sverdlin.org;
-	dkim=pass header.d=sverdlin.org header.i=@sverdlin.org header.a=rsa-sha256 header.s=purelymail1 header.b=VpISasGt;
-	dkim=pass header.d=purelymail.com header.i=@purelymail.com header.a=rsa-sha256 header.s=purelymail1 header.b=WPQqpMNw;
-	arc=none smtp.remote-ip=34.202.193.197
-Received: from sendmail.purelymail.com (sendmail.purelymail.com [34.202.193.197])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=paul-moore.com;
+	spf=pass smtp.mailfrom=paul-moore.com;
+	dkim=pass header.d=paul-moore.com header.i=@paul-moore.com header.a=rsa-sha256 header.s=google header.b=DIOqvTtw;
+	arc=none smtp.remote-ip=209.85.219.52
+Received: from mail-qv1-f52.google.com (mail-qv1-f52.google.com [209.85.219.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8620D606A31C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:53:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8620D606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=sverdlin.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sverdlin.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D247606A31C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:54:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D247606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=paul-moore.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=paul-moore.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=sverdlin.org header.i=@sverdlin.org header.a=rsa-sha256 header.s=purelymail1 header.b=VpISasGt;
-	dkim=pass (2048-bit key, unprotected) header.d=purelymail.com header.i=@purelymail.com header.a=rsa-sha256 header.s=purelymail1 header.b=WPQqpMNw
-DKIM-Signature: a=rsa-sha256; b=VpISasGt6hFOUpKJTSi8dBra3gbAk0b9ucNeEEkvSqEDrMQnNovWvDWBhHWiWmB45EPYqReyCK7Sn6X/U0djwvify9yCIB43hDeIbXKLHM5QYUUSRGJUzUid3yOjmEyDLYzhjxt1IXUfFaBOROF5X9yxvrvqn6DfiUsb4gpUlQoARK8KLCElCUCDYdQk8eGi96Bo9QQKXDi39+dxnydUF5ql3qVR/IuXM4iZI6ioJFs4l7aFD0rmLu/0RtbJMt1tsuA8PHouvRhjf9ZQFvzcssgv1IzBPrE9U/TMQ09b0Tu5iZkhLHc1P7LScvCpfmMt5NOde73baMDHiAKN/k9png==; s=purelymail1; d=sverdlin.org; v=1; bh=utpAkiwFHBjBDfI84DKHsLpQh91ULE12v2wjMHOYcls=; h=Received:Message-ID:Subject:From:To:Date;
-DKIM-Signature: a=rsa-sha256; b=WPQqpMNw/2XWir5D2XHi3oGT4BNQ0Vp9yoeFLqxVPB+h019xYU004bkv1X/PlsK67Dkdy0Hpo5UvS3N+yw9L6WJZ6iF+DP23jHF3CvXu8rvhhzBWA8YdUrpM482YqXQ0ZXQqbukhRsY/CtzdI3yjQ9dkV9eLUzPhdOJJT8LxHZkbRS/U4XovujIi3W6Lw5Fik9BatQ6tO+mRUeD+AGetIJ9lkmtcGhua93XPiJYItjVwwsGy58yR1mBIVCc1MqeOpGuJcvN/Dnr9dAAM22CR2snE5SGZh95gT6gUZfzjDsCU5y9XdoUck1nhVyt73hHcUoda3qWDI6XEJtvZ18DbhA==; s=purelymail1; d=purelymail.com; v=1; bh=utpAkiwFHBjBDfI84DKHsLpQh91ULE12v2wjMHOYcls=; h=Feedback-ID:Received:Message-ID:Subject:From:To:Date;
-Feedback-ID: 815097:39668:null:purelymail
-X-Pm-Original-To: linux-kernel@vger.kernel.org
-Authentication-Results: purelymail.com; auth=pass
-Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 150623937;
-          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Tue, 17 Nov 2026 22:53:04 +0000 (UTC)
-Message-ID: <f7752d1d155491876ae5d4bc1694c01c8d86b789.camel@sverdlin.org>
-Subject: Re: [PATCH 5/6] arm64: dts: allwinner: a133: Add CPU OPP table
-From: Alexander Sverdlin <alex@sverdlin.org>
-To: rajanyadav0307@gmail.com
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Cody Eksal <masterr3c0rd@epochal.quest>
-Date: Tue, 17 Nov 2026 23:52:52 +0100
-In-Reply-To: <20261104-a133-series-v1-5-58217cb33a87@gmail.com>
-References: <20261104-a133-series-v1-0-58217cb33a87@gmail.com>
-	 <20261104-a133-series-v1-5-58217cb33a87@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.62.1 
+	dkim=pass (2048-bit key) header.d=paul-moore.com header.i=@paul-moore.com header.a=rsa-sha256 header.s=google header.b=DIOqvTtw
+Received: by mail-qv1-f52.google.com with SMTP id 6a1803df08f44-91f23ddf32fso1749146d6.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 14:54:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=paul-moore.com; s=google; t=1794956089; x=1795560889; darn=vger.kernel.org;
+        h=in-reply-to:references:subject:cc:to:from:content-transfer-encoding
+         :content-type:mime-version:message-id:date:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=k7/QLUvYDzH8xZxy3OOm+8SYpFBmpzd+eC/ISXSLxiA=;
+        b=DIOqvTtwgZ5ItvYEoe2KZqcsY3ZGLQ+HaihmoLRuvlSTEm54jSBGFp7446G3/I8rQV
+         jdaaePJOPptbJB/iycrO1+C9CK7f1Lzi0/ZtjLgb3g74xLYezSMe33/lJcnXDXHCH2QR
+         nPspoy5WRs3Kr/RdCST5lRUxeJijzn91kv7ip8tpuZvGiqXVwaGEyqsdCZ4UzGopcOig
+         odhAaVLPfkteT28BObGagg1mfMyZi1OKOhsJXcZRCsolfwMYJPBhlTEF26Wy/fGeH2g/
+         6GB9fJ+t+azZKqhhqQ/sH3UiAz8tKQMSv7Y+PqcaopnbJ1qBu03DBRydnqkMiL70S4pM
+         2u+A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794956089; x=1795560889;
+        h=in-reply-to:references:subject:cc:to:from:content-transfer-encoding
+         :content-type:mime-version:message-id:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=k7/QLUvYDzH8xZxy3OOm+8SYpFBmpzd+eC/ISXSLxiA=;
+        b=a0D6PcSfUW/uHiiEqk0o7lxiKxOjHdOxg/Pzauc+TWngI8ZLVdJVy/QLvCKMUZIJAg
+         4mW84WSi44z2qf+IiitCG/hkE0VdAQBm7teqFjz5n+H553koHeOBPjuWx/xinmASO5T+
+         PDWLSfh4D1+rEGs6C4kKjpDvjbrfnEuxfrql4AGkGWTo3smCgjYy0ibAVK2unFW4B8Zq
+         w/AGK4JWpp64gxvHqSZXv/UM3RXS6YcpQQijU40aMv4SNbuEz6eSAV3jNOvWdIOi/KnH
+         00yzs0B9Lf1CvLhyZnf/xbU4lw2+rVlCRRZ4hOGHljunvXbTDGfyjuqN6Ig03YLRM11I
+         G/AA==
+X-Forwarded-Encrypted: i=1; AL+hErHjo9of/H/7vtBJTtoumhMaUuLKDwLhsjbgj+eZW1+DKZlpXfT4htR/jqJhEI7777CXFywVALokFU3zpwc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+5VVkwRWUSDNSzBsBjo15O/m+0kV9p/Ap9Bv0YsTvdKFTckGCB
+	j9r17UkddGl8YaWV6U5M3k3qiJnERwaoaQjySWiTuor3kJZjRqVy1k9580ixeAOLQA==
+X-Gm-Gg: AZFdTZfBLkfQzzlgJEXoGcmnallVjG9G2lvPQF9Q/wX8SpkuSiyLDveIrQaqvWRLcWk
+	pW8YZm5TJISHZPUk3DFoZx3pM4N6CdgDVluchreNtT99250E2YrxVRHo7XOr+eUbfknfFrr7isv
+	ILsE2hBUBt1/a+n0JzcHpTlkhGB9trIVY1DQw6Wf9vJxm0GNfw1D5rVmEOOCv0MidhFLEJl53L8
+	WMbkKdnwr+U3qSm28fQcvExd5Cq19CPtg5MfvGPqEmSyDiJLgN0k/2e/eMqjlyjj6w1f5rEIRUs
+	9oa866gez3RErN6j6dOJOeQTe8LJQpcmECYEmvtO89VCyjcVhGQvZhMljezUuMThnMiQWdh2bYX
+	IZIikGeVbZE6g/498wNdKa47ve9b1lLqa4qHUt5CB1DyJUkffGgRUNDPKxLDfEvN1JyfzCPJPE+
+	xQAmj3XUpw5GMbxsebdnDIJwv5+hNYSAblDHCqHMfhAjXPezcvyyy/zkUByiVvceXBNaBzGQu9f
+	164MulmnYwo3NM3U8ll3Pb19+0QblfIk82rfFTKJYp7AwazRZSlfNRZ4tzw1WPlegeQbfvISf0H
+	dCQfndzUg9FBpwNCyq1s5g2lFwAM+4+vfL4PqxVrZ2g3G8O6+BNkWch0NaAPQVuf112YbtW5jOg
+	skwn2RqAcb6NNEMITZTBlYLeky0kBuA==
+X-Received: by 2002:a05:6214:4981:b0:921:9ed:ee6 with SMTP id 6a1803df08f44-92114dd0d06mr10225486d6.20.1794956088668;
+        Tue, 17 Nov 2026 14:54:48 -0800 (PST)
+Received: from localhost (pool-71-126-255-178.bstnma.fios.verizon.net. [71.126.255.178])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92114d53b7fsm5495766d6.26.2026.11.17.14.54.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 14:54:48 -0800 (PST)
+Date: Tue, 17 Nov 2026 17:54:47 -0500
+Message-ID: <4356992ac4fb7876fb5759189ba4b492@paul-moore.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,53 +90,145 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
+MIME-Version: 1.0 
+Content-Type: text/plain; charset=UTF-8 
+Content-Transfer-Encoding: 8bit 
+X-Mailer: pstg-pwork:20261117_1552/pstg-lib:20261117_1552/pstg-pwork:20261117_1552
+From: Paul Moore <paul@paul-moore.com>
+To: Albert Esteve <aesteve@redhat.com>, Tejun Heo <tj@kernel.org>, 
+	Johannes Weiner <hannes@cmpxchg.org>, =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+	Sumit Semwal <sumit.semwal@linaro.org>, =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+	Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>, 
+	Shakeel Butt <shakeel.butt@linux.dev>, Muchun Song <muchun.song@linux.dev>, 
+	Andrew Morton <akpm@linux-foundation.org>, 
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
+	John Stultz <jstultz@google.com>, "T.J. Mercier" <tjmercier@google.com>, 
+	Christian Brauner <brauner@kernel.org>, James Morris <jmorris@namei.org>, 
+	"Serge E. Hallyn" <serge@hallyn.com>, Stephen Smalley <stephen.smalley.work@gmail.com>, 
+	Shuah Khan <shuah@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, 
+	=?UTF-8?B?T25kcmVqIE1vc27DocSNZWs=?= <omosnacek@gmail.com>, 
+	Jens Wiklander <jenswi@kernel.org>, Sumit Garg <sumit.garg@kernel.org>, 
+	Philipp Stanner <phasta@kernel.org>
+Cc: airlied@gmail.com, cgroups@vger.kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, linux-mm@kvack.org, linux-security-module@vger.kernel.org, selinux@vger.kernel.org, linux-kselftest@vger.kernel.org, op-tee@lists.trustedfirmware.org, Albert Esteve <aesteve@redhat.com>, echanude@redhat.com, mripard@kernel.org
+Subject: Re: [PATCH v5 0/8] memcg: dma-buf cgroup accounting and charge
+ transfer
+References: <20261117-v2_20230123_tjmercier_google_com-v5-0-1ce975f2a9ad@redhat.com>
+In-Reply-To: <20261117-v2_20230123_tjmercier_google_com-v5-0-1ce975f2a9ad@redhat.com>
 
-Hi Rajan!
+On Nov 17, 2026 Albert Esteve <aesteve@redhat.com> wrote:
+> 
+> Shared-memory allocator services (e.g., Android's gralloc)
+> allocate dma-bufs on behalf of client processes in different
+> cgroups. Today those allocations are charged to the allocator's
+> own cgroup, leaving client cgroups with no visibility into their
+> actual memory consumption and defeating resource limits.
+> 
+> This series adds memory cgroup accounting for dma-buf allocations,
+> building on T.J. Mercier's earlier series [1] and incorporating
+> feedback from previous versions and LPC discussions [2].
+> 
+> Patch 1 introduces the MEMCG_DMABUF stat and the
+> obj_cgroup_reserve_dmabuf()/obj_cgroup_cancel_dmabuf() and
+> mem_cgroup_commit_dmabuf()/mem_cgroup_uncharge_dmabuf() helpers
+> in mm/memcontrol.c
+> 
+> Patch 2 wires up the charging policy: dma_buf_export() stores
+> exp_info.objcg and updates the stat, a new charge_fd field in
+> DMA_HEAP_IOCTL_ALLOC accepts a pidfd or cgroupfd to identify
+> the target cgroup, and __GFP_ACCOUNT is removed from system-heap
+> allocations to avoid double counting.
+> 
+> Patch 3 adds DMA_BUF_IOCTL_XFER_CHARGE, a general ioctl on any
+> dma-buf fd to transfer charges post-allocation. This covers the
+> double-hop allocator case (SurfaceFlinger -> gralloc -> kernel)
+> and works for buffers from any exporter that opts in. Charging
+> is gated by dmabuf->objcg being set at export time, ensuring that
+> transfer is only applied for buffers backed by system memory where
+> size reflects actual bytes. If the receiving cgroup lacks capacity
+> for the charge, the ioctl returns -ENOMEM and the original charge
+> is preserved.
+> 
+> Patches 4-7 add access control for cross-cgroup charging. Letting
+> userspace decide who to charge needs to be a privileged operation
+> because it has material impact on OOM decision and resource limits.
+> Charging outside the caller's own memcg subtree requires
+> CAP_SYS_RESOURCE. On top of that, LSM hooks gate the two charge_fd
+> flavours: security_memcg_charge_task() gates the pidfd path (target
+> identified by task credentials) and security_memcg_charge_cgroup()
+> gates the cgroupfd path (target identified by cgroup directory label),
+> with SELinux implementations using process2:charge_to and
+> cgroup:charge_to permissions.
 
-On Wed, 2026-11-04 at 22:41 -0600, Rajan Yadav via B4 Relay wrote:
-> From: Rajan Yadav <rajanyadav0307@gmail.com>
->=20
-> Add the A133 CPU OPPs from the vendor BSP (sun50iw10p1.dtsi). There
-> are ten voltage sets, speed0-5 for the a0-a5/a6 grades and speed6-9
-> for the "high speed" b0-b3 grades. opp-supported-hw selects the
-> frequencies of each grade:
->=20
-> - 1464 MHz only for the a grades
-> - 1416 and 1512 MHz only for the b grades
-> - 408-1320 MHz for all
->=20
-> The highest voltage is 1.18 V, inside the 0.81-1.2 V recommended
-> operating range of VDD_CPU in the A133 datasheet (V1.5, table 5-2).
->=20
-> The BSP uses 1008 MHz where the A100 table uses 1080 MHz, at the same
-> voltages for a0-a2. U-Boot starts the CPU at 1008 MHz, which mainline
-> now reports as an unlisted initial frequency. This table follows the
-> BSP. The BSP table stops at 1512 MHz, so there is no 1608 MHz OPP,
-> although some datasheet versions list 1.6 GHz for the A133. A newer
-> factory kernel adds 1608 MHz for b0 and b1 only; that is left for a
-> follow-up.
->=20
-> The table has the A100 compatible as a fallback and the speed bin cell
-> first, so a kernel without A133 support selects speed0-2 from the speed
-> bin and gets the voltages of the A100 table, with 1008 instead of
-> 1080 MHz. It needs the efuse cells added to sun50i-a100.dtsi in the
-> previous patch.
->=20
-> A script compared every voltage and the frequency set of every grade
-> with the BSP file and found no difference.
->=20
-> Claude Code (Anthropic) drafted this table and its message from the
-> vendor BSP device tree (numbers only) and wrote the comparison script;
-> I reviewed it and tested it on a KickPi K5C.
->=20
-> Suggested-by: Andre Przywara <andre.przywara@arm.com>
-> Signed-off-by: Rajan Yadav <rajanyadav0307@gmail.com>
+I'm probably misunderstanding the description here, but in both cases
+(the pidfd or cgroupfd case), ultimately the cgroup is charged, yes?  In
+the cgroupfd case it is more direct, but in the pidfd case it is still
+the cgroup associated with the process identified by pidfd, yes?
 
-Reviewed-by: Alexander Sverdlin <alex@sverdlin.org>
-Tested-by: Alexander Sverdlin <alex@sverdlin.org>
+If that's the case - and it very well may not be (!) - it probably makes
+more sense to combine the two SELinux access controls into one.  Yes, the
+LSM hooks and callbacks would likely need to be different due to the
+mechanics of it, but the permission check "cgroup/charge" could be the
+same.
 
-> ---
-> =C2=A0.../boot/dts/allwinner/sun50i-a133-cpu-opp.dtsi=C2=A0=C2=A0=C2=A0 |=
- 172 +++++++++++++++++++++
-> =C2=A01 file changed, 172 insertions(+)
+> Patch 8 adds selftests. The tests and vmtest script were mostly
+> written by an LLM, closely following the style of the surrounding
+> tests and the virtme-ng setup. All code has been reviewed and tested.
+
+I think we need to have selinux-testsuite tests to go along with
+this, especially as this would be the first patchset to add cgroup
+controls.  Historically I've pushed back on piecemeal cgroup additions,
+pushing for some basic design of how to manage access controls for
+resource management first, but since evidently no one wants to do that,
+we really do need tests.
+
+https://github.com/SELinuxProject/selinux-testsuite
+
+> Known limitations:
+> 
+> - Single-owner model: a dma-buf carries one memcg charge regardless
+>   of how many processes share it.
+
+Once again, I'm sure I'm misunderstanding things, but are you saying
+that multiple cgroups can end up sharing the same dma-buf despite
+only one of the cgroups taking the accounting hit?
+
+Hopefully the charged cgroup is deterministic?
+
+> - Only memcg accounting. CMA heaps would additionally need dmem
+>   controller integration.
+
+Do you have a rough idea of how that would work?  I ask only because I'm
+interested in seeing if that would require an additional LSM hook or if
+there is some way we could leverage the same hook(s) used here.
+
+> - If a transfer of an uncharged buffer fails, the buffer remains
+>   charged to the original cgroup. The allocator (userspace) is
+>   expected to handle this (retry, free, ...).
+> - The LSM hooks are intentionally narrow. Broader cgroup access controls
+>   (e.g. for the memfd/kexec handover case [2]) could be a separate effort
+>   reusing the same pattern.
+> - Only system heap sets exp_info.objcg today. Other exporters
+>   (DRM, V4L2, etc.) can opt in by setting it, but are not
+>   covered by this series.
+> - Related to the above: lazy backing-store allocation is not supported.
+>   This can be extended later, e.g., by adding a flag on the dma-buf
+>   struct for explicitly marking when memory is committed.
+
+Similar to the CMA case, any rough ideas on what this would look like?
+
+> Note on TTM/GPU accounting [3]: that effort charges system memory
+> allocated for GPU buffers per page, with its own stats (gpu_active
+> and gpu_reclaim). This series charges at the dma-buf level, for
+> memory with no memory.stat category of its own; exporters whose
+> memory is already charged by their allocator must not opt in, so
+> the two do not overlap.
+> 
+> [1] https://lore.kernel.org/cgroups/20230109213809.418135-1-tjmercier@google.com/
+> [2] https://lpc.events/event/20/contributions/2416/
+> [3] https://lore.kernel.org/all/20260706052330.1110909-1-airlied@gmail.com/
+> 
+> Signed-off-by: Albert Esteve <aesteve@redhat.com>
+
+--
+paul-moore.com
