@@ -1,100 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.181
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794937497;
-	b=ddAU1S6FMNXIrwt4WHTHFbQzWTPmjnpF7lJcgxqvWGw2jGgCroy4c7Yd0ZH+mWq1qgpX
-	 SASV1B2mhRQwC8bF5T+egU1tuXe6peoRKg1bF4bwnAnlFC/sKXGjEmDX9emB7eHbZVL2g
-	 rUqjIe4aKxk23iIvbPQZ3HDhp1JM+9JJ9X5pyULRK4zDNgbW8OB2IVg/SkVIAfObU3TJd
-	 KlYls9GclOZIyi19gvhH0nHEko+tK5Ua3SiU+FjGu66sysmfMKaJc+kCjD+is3RvcJbTp
-	 yHfrNzBKJNxZpZCYl/TEu2fyMqbqvxp5K11kn+yvvp81fOouKA2ukdrwwuLEjBDAcAQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794937497;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.43
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794937517;
+	b=d+MBrioNSNFRxUu/LFe1tOpO5BA18Pexkoq4tMpnf3YmIVT7frb0t2XrbqjNRLS51Vko
+	 ZBAZIidzmscTPTx2uMkXOvkXfJ1Wux5LEUKSJ3KQxVvzu6+/lC8PHpNibhKuZGzBn2iBP
+	 b8bD6VuNMQtlBwviJO7IMiNdaa2UOZ+uenBBXTuCD8eDt1WCnkKzldjvd4uwyi5wiPQLR
+	 j9qz/g8r089lYkyGX+9qQErEj9xjO6ezvJC/hKZZy/tQKSci+kfRpzVwSRh9SZs8zxSXK
+	 n0cOxJcnnffH8tJWOGNPxEbmaeMAOg4we/n2jr12hdAvqZtO4hzae6FJJ0Rx9thxwNQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794937517;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=eNNOnQUc8HQHxzszI7I5Z5MCWmY2JGLCloKQuWJY2Z0=;
-	b=U6gKpdk14+1gDqE4Cp/5geTsUGRVU0DLxbSi7C0y8FDNuflSihphPVX8xg/HYLGx3FtJ
-	 eUyQNzkmz4LG1DZJnZKP22ZNIa0R/zG6kHlE/NVdknst6Nshi+dfev9hUuI0I8Z5YC1Pd
-	 8VYXLyC2II03A9fCDZS14lH2y9uROAwIWul/gxk5qohYKeYQjn0r7psFe/x/FIucti1V8
-	 dkPB36oetAtE+ZiXRgILcX5hmZal6E/64gxng+cC0LSHtm64lhsKbLNgNmkHqzX2gk90g
-	 8iEKHEZQkNSHNN/KpfHIa3l0oyV67UuesUMjL7T/rrT3y/8uawbyMEm2WUsroFoGpzg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=amacapital.net;
-	spf=pass smtp.mailfrom=amacapital.net;
-	dkim=pass header.d=amacapital-net.20260707.gappssmtp.com header.i=@amacapital-net.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=oAFIhfOA;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.181
-Received: from mail-lj1-f181.google.com (mail-lj1-f181.google.com [209.85.208.181])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=yKaMzWXUwfQ9LI7TbUbNbChNZvqrpOopz9IXAJacmMA=;
+	b=gQB7XWBVDSiz0NCdfolEgvgnLuO7kI06pWW42K5v51MiRpRZPEQQOaw5bmu2G5saMrpc
+	 RsQMQCD3J1WSunGuGRjlzfp0S92GRKDRMCUOAvJGB4cCUYDsMxmhGfRtjLaTRqzi6S56H
+	 8LjLwaKVa5YOFkybcIcls0qgFUn3DDDuWxxRjUdcqFYldVB1CGVjuDRrigKs5o3wm88jN
+	 qpfa4NmFzljoxn8DS+2DfnhiEyJpSltxBSdeHnI6wgSzjYZPB0D5kvlsn1ADntEJDOOtD
+	 w5onxuSe//XlMK+vg69uh6tJbDRNtMG7gCIPgjrxaGRTsDWfYfiM3Xb7+oCYyeLYkoA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=chromium.org;
+	spf=pass smtp.mailfrom=chromium.org;
+	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=f3Xcnf2M;
+	arc=none smtp.remote-ip=74.125.82.43
+Received: from mail-dl1-f43.google.com (mail-dl1-f43.google.com [74.125.82.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E441606A32A
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:44:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E441606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=amacapital.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amacapital.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 655FD606A32F
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:45:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 655FD606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=amacapital-net.20260707.gappssmtp.com header.i=@amacapital-net.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=oAFIhfOA
-Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-3ab3b29a298so1603821fa.3
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 09:44:57 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794937495; cv=none;
-        d=google.com; s=arc-20260327;
-        b=cZT0alu5JRmtZKafYKRCGl519iwRhxE82LlC7/FVDow4D9JW+lswldZzGbaHx2Ouwq
-         O3DsUfbBsuC0M33DbC5rtUutQ7hkxydNAXbgUHEdgxSvCq034u/JxV6q3y2NMimpTb5t
-         NMOaYIeDlGW3PYrCSyKknA8iYVlG1z9BplksoHPhQdtSx/QE0/KDpqyhGkiZlOReIrl2
-         Rp3528+R0F/qTXulM/QVGdtOr5fptHRGdHWymtkA2u9LAH5KTKdTyX9WKpX2PvY97Xbu
-         nb49BmLj0+3bU5DWynGDdfuplS+PdO+oD2wA860GdENxYbPvgfJHmheq76eGlPrg3Vz5
-         OZ0w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=eNNOnQUc8HQHxzszI7I5Z5MCWmY2JGLCloKQuWJY2Z0=;
-        fh=iOkPeC9PG0z0a/gd7ma+gFEQjadbYSwbEzGfI85Bbvk=;
-        b=J2MbyxQeBU69WCjJmg1ZWBOKvQQDccPkz2+Il+gM68Ruyb0ZylNDRH9LPv7gnFDQff
-         QJNGAZsX5VLbODCaxVuYVOYYp/PBNHBWDCw2TPXZBRD1i3cZ0ioeoPwHPnFHimsreoTJ
-         wta5/wmEGDI+23IytAoozyYSHKGo+sT7thCs367mEIdnKC1VvZiXN7JU5Hxfe2XeCgF3
-         21F+MBS8aDdN+njCUX/JMXQ0ZOOWdjLXLYvgKrfX9KoOHGgGJoobq/19ItNYlYULYyi7
-         Jryf+nHhc0Lfv6gCbUah/h/WaTYYLAbRlEyzeE7gq9UwcE2DgX+rh3+95oTyNs6OWR6J
-         pA2w==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=f3Xcnf2M
+Received: by mail-dl1-f43.google.com with SMTP id a92af1059eb24-1b3acec6677so117087c88.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 09:45:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amacapital-net.20260707.gappssmtp.com; s=20260707; t=1794937495; x=1795542295; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+        d=chromium.org; s=google; t=1794937516; x=1795542316; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=eNNOnQUc8HQHxzszI7I5Z5MCWmY2JGLCloKQuWJY2Z0=;
-        b=oAFIhfOAkcB0Dg4mKVfkuis2uNtcfHHW1ME1slyaFUO4AI5iAHAmrY1Nw3LuN2VQnC
-         6IGXyvAYklXrHuXDFIJP+OpIvCKpQXcsR6yhi7y7UMeoYZWd0Rkq8srCeIQr3Ut6yHo9
-         s3QMrLw8d+7yQo0fv8lDR6N1UWY7BgFBjya/tZ7WAbd98chUjwhGKhZVz4B8CNKS2JVt
-         s01yrFYXNsMtBbhpU0mHCjFVPEb/8RNf03yXDk0jC6t71dtVUAnUQlSNlv3yrv5kFy/Z
-         7TcwXV5Nfa08sHn/NIrA4+u1dyH1Y1UL/1CiJgo3Ncba+UeXkhzzSc1rUH+9TFU6YyuR
-         ZiXQ==
+        bh=yKaMzWXUwfQ9LI7TbUbNbChNZvqrpOopz9IXAJacmMA=;
+        b=f3Xcnf2MvPzC7mGFrA2/x+siBtJv3kdjLI9oPMWZg5WpGdoXYKIhlnwwYE1EqRarX9
+         ojz3PQYDxE8RG97NKJf22aBzjVRUCwouSwDuyn9szPZTIzs2HLfPhmutHrhJiFqRJ7uB
+         hund8sU1v9zOz8m40T0BeB9RXAU73L4WDfLXw=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794937495; x=1795542295;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1794937516; x=1795542316;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=eNNOnQUc8HQHxzszI7I5Z5MCWmY2JGLCloKQuWJY2Z0=;
-        b=yzzMgEd00EbSApp6W3SPYVqjhLOaK2EGIUQy4tDhG3w2vjggqGyhRJFAlHJnJVVG0h
-         wgPHNymZBlAzWBHDAR2GxRm/d03fF2p6ee9FE0JlGPnXz5qglhlHgbiIRYwH939IES+m
-         sGLIIpiwFjMeS62lAvNOu5dfiimW+sTr1P/mkH1rCdaBrrM7ARfEPuoyWMFS5ycC5lUH
-         YiVhfEn9lttWqoz0S2eQ3iN4aVvOYRWLRf43c9jt4X6V/jpCklqhb3moOVynPQs1MXna
-         lgkXyjwQNpakqamQaGn+s4QGeGnQgYutzo2HsOwt/R6eb4Ine/vqrco1lHnjsjZDvw/i
-         1UFw==
-X-Forwarded-Encrypted: i=1; AL+hErEl6WX70KnV06Rg+gSwr6//IdfiyNF6Z8NHLG3XKnzV5RKBppYygj9UTUmlQAWTiXpTllaLs9U6HrrrD94=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+eyfrNOJIsO6MHjQ1sAiV05sPUzLgEUqaU/5GTiiGr0rLu9uK1
-	ltmovJHvtjCgOLa1qR5+DAUQoT33TOpd1FaOTvLteEqTEtOvPMq6naAeKqJF9/7MfnTBkcMsno9
-	hcQYh/kpl5wF8g75uCu5Xfe25bvsGKBgR2QU0TOY1
-X-Gm-Gg: AYBFou0qjmJYdSCp6K7+oOeS24hH3LbMmXgo//5bwDry5Yl4vMGQ1J9vQ8fEWzk2aEK
-	KhKyzjPeihDNL2beNAy12o5/dSV8pw5f+xpFxjGXHCwtke2g6QFUaanp+h3NpMubl96R+A02lUa
-	lG2hcbMXY+wWz7Jnt9MwaDnRB38wzriJYcOWxFcRN5ZJORUNclQyaLtPwB4ZtsDcmjPSCNyIhtb
-	Wuu7hetHIERhYxOhlwA48zuY1LSwgSsIpydNewuuDvbunIdS+MmN+IeSvtDe7v5I0sD+/m2MvIY
-	UrmyTe/Gk6kzfvpTtfA5CA64T3h7BARbDMYPMDOryZS+5LUp905dk/UkEPTeTxXt4H23cr7OHfU
-	HCSbBlU+1D3f/pktQLyyKiP+Bi44+OrtyGHJe85WlZWOZTCYTQBSgSfk=
-X-Received: by 2002:ac2:51c6:0:b0:5bf:b945:4334 with SMTP id
- 2adb3069b0e04-5c170a15b78mr6210350e87.67.1794937495491; Tue, 17 Nov 2026
- 09:44:55 -0800 (PST)
+        bh=yKaMzWXUwfQ9LI7TbUbNbChNZvqrpOopz9IXAJacmMA=;
+        b=1FNKWJEgu1LttHjsptnhXMAB1skirJEXpffbpNGe95ucTvVJepXJGJ/RGB9FS7xnfu
+         1AuBrzUQsmwvggHahgyiRLcUPe7gaIUDKt57zorYXQtfpGpq5asKTKO3mczWUXOZxrah
+         qXDsveF1k7HKio0Lk/WbZWsXs5ZbzbXQVftw8FJ5LkmxB2e0VjQULmXIeTdWCKhN17+q
+         JZwG16BgnmXizKVwBUqjTl66dnUQkYsgHMFhNqMaQlqCuXWKIsTAcn8udKMo9MqasQsE
+         BzitNimpdY4ueUz5zkB5t+LJYDS4U+EA3Pk8fbRXbmnCN170joRYHnzh76+MqSI0gcEr
+         2jTQ==
+X-Forwarded-Encrypted: i=1; AL+hErEuNgIJ6m4CciBPalebQ8SZnkbsBjxFO4z1CiaFrQIV1RHR2FjenRcOHwJYWuKUen/M3qCitcB4PnPemL8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/hq5OKgxuKaxT/aYSkocI65AmbUVPsa/VeS42QK6nc6V5IiQL/
+	g9YzHUmVAaogbG8fG7EWUo/Tqoj1RYXfcQtRqw6aopvdvSLSMvPKa4c0eKld6AJSGD3qgUgpUH7
+	O6nk=
+X-Gm-Gg: AYBFou1Av0SxEYFEyyJXJR8FaYVEkmgqMZgk4FOIz1oS+1iH0UqMUc4RSmnD3zwZJzP
+	TRDMY4/YU0/akgxcO7smcpGNSVV1IPZymBr+b2g/S731UvplezjnPVlf5f8a24C8tNyNVLWL9Bc
+	D6XBjriAGdhd6XUoEPEFLtK+w9w0+amxeClndba6WFMefccWDayDSUSuxDOLvKIrxrUC3cjhEh3
+	cgSJA1oWDwiBPC3aT/Ww1np3+B2Y0i9fVPP1pPTdf+68rd0X7NEr+orCwsbiMql5E7dsfcj5EgW
+	js32lyflfPnEHc+UOJE2qiw3COu3s+jHKxG7vAZdqLQuOunDsnaBBnHB6mia5y+E4e+IwTxeDd7
+	s7BO3q3nJh1394mLyMfrKXqG9bCeFq2yMXenF806p9R2TEbmvg9NnqCab4y0zZu+OXoFbyX8ORq
+	mJxLdqRMDp16LuOjSXNnmXxYONRdj1ZHeoF+MlkvpRzRRXxEaxHikeHOjAuMb7Nq3X/4Y2WVSrL
+	8Ux34oXeDGe68ZY5fS8GKAZ9N983fW7xNP/ZLHnR/KGxGWAfSpZMpcpny+SFkEp9u7HrbeBP+LX
+	4ZPOZLyLvjV9WPxuJOAhIwczgBdE7M9EX7tiVGfB029QBnmzrZHLLQLkltt60cz+3e6y/gYtQd6
+	LDC4cgC5D2hfteA==
+X-Received: by 2002:a05:7022:f106:b0:1aa:47e7:97e3 with SMTP id a92af1059eb24-1b543d09a91mr189552c88.15.1794937516309;
+        Tue, 17 Nov 2026 09:45:16 -0800 (PST)
+Received: from localhost ([2a00:79e0:2e7c:8:d92d:531b:8d97:bf51])
+        by smtp.gmail.com with UTF8SMTPSA id a92af1059eb24-1b524049e0asm22060282c88.4.2026.11.17.09.45.14
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Nov 2026 09:45:15 -0800 (PST)
+Date: Tue, 17 Nov 2026 09:45:13 -0800
+From: Brian Norris <briannorris@chromium.org>
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Subject: Re: [PATCH] tracing: 'select' GENERIC_TRACER, not 'depends'
+Message-ID: <avySqRwpInSfLIgK@google.com>
+References: <20261116144652.1.Iecb63200dd245f62032a3b1f60ae78cc48868094@changeid>
+ <20261117085317.4ae87046@gandalf.local.home>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,106 +97,27 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117050841.3289652-1-jarkko@kernel.org>
-In-Reply-To: <20261117050841.3289652-1-jarkko@kernel.org>
-From: Andy Lutomirski <luto@amacapital.net>
-Date: Tue, 17 Nov 2026 09:44:43 -0800
-X-Gm-Features: Aa3M54pzaE332pTi53D1YpA5VO7WahNUrZvzEHccu8lFNhASVJD5SKW-Zdzq05g
-Message-ID: <CALCETrUBUnJVhiMkft6hTZZMe8nTpMBRTGY2v=9x5ETBSvmPZQ@mail.gmail.com>
-Subject: Re: [RFC PATCH 00/13] Namespace for namespace roots
-To: Jarkko Sakkinen <jarkko@kernel.org>
-Cc: linux-fsdevel@vger.kernel.org, linux-api@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, linux-mm@kvack.org, 
-	linux-security-module@vger.kernel.org, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Andrew Morton <akpm@linux-foundation.org>, 
-	Ben Segall <bsegall@google.com>, Christian Brauner <brauner@kernel.org>, 
-	David Hildenbrand <david@kernel.org>, David Howells <dhowells@redhat.com>, 
-	Davidlohr Bueso <dave@stgolabs.net>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
-	Ingo Molnar <mingo@redhat.com>, Jan Kara <jack@suse.cz>, Jonathan Corbet <corbet@lwn.net>, 
-	Juri Lelli <juri.lelli@redhat.com>, Kees Cook <kees@kernel.org>, 
-	K Prateek Nayak <kprateek.nayak@amd.com>, "Liam R. Howlett" <liam@infradead.org>, 
-	Lorenzo Stoakes <ljs@kernel.org>, Manfred Spraul <manfred@colorfullife.com>, Mel Gorman <mgorman@suse.de>, 
-	Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>, Neal Gompa <neal@gompa.dev>, 
-	Paul Moore <paul@paul-moore.com>, Pavel Tikhomirov <ptikhomirov@virtuozzo.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Randy Dunlap <rdunlap@infradead.org>, 
-	Serge Hallyn <sergeh@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Steven Rostedt <rostedt@goodmis.org>, Suren Baghdasaryan <surenb@google.com>, 
-	Valentin Schneider <vschneid@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
-	Vlastimil Babka <vbabka@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117085317.4ae87046@gandalf.local.home>
 
-On Mon, Nov 16, 2026 at 9:08=E2=80=AFPM Jarkko Sakkinen <jarkko@kernel.org>=
- wrote:
->
-> OVERVIEW
-> =3D=3D=3D=3D=3D=3D=3D=3D
->
-> The problem that root namespaces try to resolve is starting a container
-> from a root mount tree that is pre-populated before any process is allowe=
-d
-> to run, without inheriting any host mount-tree ancestors.
->
-> Work on this feature started originally in 2025 from David Howells'
-> container object patch set [1], but I turned container objects into a
-> namespace of namespace roots and built a new implementation around this
-> premise.
->
-> In early 2026, the patch set was left to gather dust in my kernel tree
-> [2]. Then, the other day I saw [3] as was shocked by its over the top
-> complexity and thus, here we are.
->
-> Not doubling the number of container frameworks inside Linux kernel is at
-> least a benefit over container object based solutions. Parallel plumbing =
-is
-> an inherent flaw of container objects, and it directly affects on
-> development and maintenance cost of container runtimes.
->
-> Also, thanks to better scoped implementation surface, verifying rootns
-> correctness is factors easier than with container objects, and even my
-> early kselftest is meaningful. We know what and where we are testing,
-> which is always great.
->
-> Finally, it is more compatible with pre-existing container tooling
-> whereas container objects would have much higher cost.
->
-> [1] https://lore.kernel.org/all/155059610368.17079.2220554006494174417.st=
-git@warthog.procyon.org.uk/
-> [2] https://git.kernel.org/pub/scm/linux/kernel/git/jarkko/linux-tpmdd.gi=
-t/log/?h=3Drootns
-> [3] https://lore.kernel.org/linux-fsdevel/20261105-b4-cells-v3-0-bc909593=
-7a84@toxicpanda.com/
->
-> IMPLEMENTATION
-> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
->
-> rootns_create() allocates a rootns object backed by a pollable anonymous
-> inode fd, pinning dedicated empty mount (CLONE_EMPTY_MNTNS) and PID
-> namespaces along with any optional namespaces selected in flags.
->
-> Before entry, a manager prepares the mount tree through the control fd:
-> FSCONFIG_SET_ROOTNS binds a newly opened fs_context to the target rootns,
-> and move_mount(..., MOVE_MOUNT_T_ROOTNS_ROOT) installs "/" onto the nullf=
-s
-> root once and attaches relative submounts beneath it.
->
-> rootns_enter() forks a child directly into the rootns credentials,
-> nsproxy, and root path without mutating the caller in place. The first
-> entrant becomes PID 1; once it exits and zap_pid_ns_processes() reaps all
-> members, poll() reports EPOLLHUP and rootns_wait() returns init's status
-> and rusage. rootns_kill() walks pid_ns->idr under RCU to signal member
-> thread groups.
+On Tue, Nov 17, 2026 at 08:53:17AM -0500, Steven Rostedt wrote:
+> On Mon, 16 Nov 2026 14:46:53 -0800
+> Brian Norris <briannorris@chromium.org> wrote:
+> 
+> > GENERIC_TRACER is not a user-selectable symbol, so it's impossible to
+> > enable FTRACE_STARTUP_TEST unless one also enables some other symbol
+> > that 'selects' GENERIC_TRACER for us.
+> 
+> I believe that was the way it was intended. The selftests are to test the
+> things that select GENERIC_TRACER. Why would we enable tests for something
+> that isn't enabled?
 
-Can you clarify what this new API actually does?  I've read this three
-times, and the best understanding I've come up with is that you've
-designed a way to create a group of namespaces identified by an fd and
-you're adding an API to configure and enter them cleanly.  Which
-sounds very sensible.  But I'm completely confused as to why a
-namespace needs to be owned by a "rootns" or why that ownership
-affects even newly created sub-namespaces.
+You may have discovered in your other reply, but these tests are
+applicable to code used by EVENT_TRACING, which can be enabled without
+GENERIC_TRACER.
 
---Andy
---=20
-Andy Lutomirski
-AMA Capital Management, LLC
+But I do see how this still might not be exactly the right choice,
+especially given some of sashiko's comments.
+
+Brian
