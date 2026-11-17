@@ -1,54 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794957039;
-	b=uiQ3FqgSQ3aw10Yq8yvBTliynDXSok69FkfDpUVngqeuINpUWaPkjXUsh7KEqfEenn9G
-	 hhYpIBjdrYKtHuyij8hGvf9UvueA+Z/jZVRXgnUWaVVK8fDjYs0uTkGzybwUf63rrJTJY
-	 yYjKcb2kf020hacxJ5DirntnHLINFEdo7FB6hY6bGJcijbKwaT5LFokDeS0LCP79iMGYs
-	 X+t94K/MZ/aIEaGroEYSXgWlvRA+xdoVsxZGOj93qTf9ZCUbjgRfjb/GKPtytSxwhZgNv
-	 ZW42EtFto4wt9q3C0Qbw0/3l4urOvs+54w3C5lJdH2LGTPpXBZP9DJMZ4obLh53lEHA==
+	t=1794957250;
+	b=qX6msZnlFXVaykS8LeC/2onM33AA9fTSvihB7B4/hED16qBclTuZUV61osF5yWJ7NxWg
+	 y9YyLrwU5M67WHtB3ZeUrxK/PDqiN02eRLNXChWy63emVtmLgExoXx5hoNPYwWf5u7vEw
+	 EarofQ6FvvlpIALaAXN4WcD/LuD40zxGgJ234w4ka8944wpOiwQM/weuEBxyV8fSvi++T
+	 Rr87oY3i0IIxIt5nupOWpLcK6n87quRNjJxKgRJZZDpnnpcAPlor9N+tu3ZdysiKZj4Nm
+	 lY3UpADj1LuMwJavx0aYPqe4bbweHRcO/7MqjDtoCWMy81sP+CnhK2THfU2x7vDD8KQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794957039;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type:Content-Transfer-Encoding;
-	bh=+wBAluwliayr72IP0v4lzu4cOma3Jxi3Zj2huXDAK58=;
-	b=AExgU1rQeqbK+NXbNvtmlKeJF6rwOw7YpqqkDcLZJVdjrtNL7yQaJbV8AV7zW7Oe4tbw
-	 rgSjJPsHFNSUjJFfUr3tmU/UHPRwGrlmWXLrPbtv73IvjlTHD2+klNUsklf0c1SXT1i/q
-	 glhVZT3MAekf6G7EmrBZ63oZ3jDfJeYu8+beNzdeesiHkzlJKn+fjHDIIbRgPoao4gXXk
-	 ggppSdAEIZSOdgcf64W+JgG3ud75sZMG/y0F6m7lCGS+jiJpVnYgde6mPFpq/RvcejQIP
-	 Nx2bV1/tZVDjFX+mD5Ngq6jzC87OgTqULhc1ueU8ha3aEPQH7FmGv+jgC+vyE2TI/kw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794957250;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=yp6+Hwad/NBoam++rgWwhCOLZpBfJyHe1i278jtj9/A=;
+	b=DJKXaSQgPkenXcjOF3/NvB0L9OKWXlUVRjKYs2cZVoXxnpZGEs+iP1xwSWwJq3Cuuz5l
+	 NDHt7x+U4q4Fypzm7HPhQkvXWhjx30gyLIDJ0IVrMu9H8G4ej880AjIER2wmn7HXv8yl2
+	 8HzmCJNzGBnqB7d4TWAFkfu2ZmJTUCoXyDTyVUHhXvercPpCMmy5kMqzaZmzbAeGsOpDM
+	 WUSQDhPBC8s78Q/Bvr7LL32pVKkbGS0WVAPRa/Hr/VOlhrD9k6n67lunMxQLorrXSqPIm
+	 /HWWu/p+ZaQz+UKQIjUh+lnBY2LOh5G2kVtnHRn/8CdaUBOqfSLjTegoqsxspVBQaSw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.198
-Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com [209.85.167.198])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gxf3CeZg;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE4F2606A32A
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:10:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE4F2606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-5384e381fbbso238642b6e.2
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 15:10:38 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794957038; x=1795561838;
-        h=content-transfer-encoding:content-type:to:from:subject:message-id
-         :date:mime-version:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+wBAluwliayr72IP0v4lzu4cOma3Jxi3Zj2huXDAK58=;
-        b=uacvsWwxT9daoMCaKiAJFk4u89tQ1dbf6Etlz4Yh0f3I+gomMng4IQOoTibcwFW3Sd
-         +ewt1l1ETuvDRWAyWme3cTlCUUdH8uYEJSV+ycGgdl5fobOHcI1dN2YHhrntf6fggwo/
-         vLmNbPTrfmKhO7zI0rRI3VSBzn4p3xiyQjW9tLBwEuiiCtyXQYu9ZmkmQ5C2uZjxztGB
-         iVAQNj3m8jUxZmoKnOyPInVV7H9lxSb7aHUKnRjwhLcNVZ+9A/b3gSD6qAgqi8E1ypH4
-         Gc+7xBus4Us9IZ9x5n8WaFKrMOw9ZW2gxGJwL0cvlppFS9dm9un4Vw51qr+f/hSLRO7d
-         T+7g==
-X-Forwarded-Encrypted: i=1; AL+hErG7J/YvR3NUI/g9DsrcssBNAgj/aC4PNvZIUqi3xibt1PzaESHeQRDS9vgy0kvcJSv1IANvX91M0vr0WRI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+mzpKPULbi/U3ktse/gv7cMJuqhLV62l3xP1w2GurM0KQdQciR
-	zFmr04LbatiZqKsa8uQcITevR1IcKgHld8FD7xaToUVDyJ7GeZp811nPWMeLhvRYbvrGFkAUGEt
-	RjZrP5WJjnzg/5N7aE2f8Wb7nijU3nxpY4/X6sqryMU/P85r2YlizxLpIRTg=
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id D7B39606A31C;
+	Tue, 17 Nov 2026 23:14:10 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gxf3CeZg
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 00C0C1F000C4;
+	Tue, 17 Nov 2026 23:14:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794957250;
+	bh=yp6+Hwad/NBoam++rgWwhCOLZpBfJyHe1i278jtj9/A=;
+	h=From:To:Cc:Subject:Date;
+	b=gxf3CeZgQiYInmwTCsJEpC9Q9rV3XfEnkpMfqYKKQLHrsz2tF88DlZadPUvGDmLHY
+	 JhDrjDv6JsOFbRcfejD3ARsnyggY8gv6rSAqj9Q/EE5lOo0/KtkapgPsJVCDvxTDjZ
+	 Anec1m6erHqQ5vTQWyAgScKHqeo8H0BnCCaOL8NwC2wWLw+8F11lo4zoqyA0J3IaRc
+	 eUB4bdzBxQwPCE0m7ywlRNS0Xaej4i0kGTBNg2IdenE0LzY51zebpn9mmrsrWLuBWF
+	 paBGkkIYjNP9b5XMebOD4pW6qK1i/Q/FyCDqA7vser6WO1NxHFV+ecP7etOYBgybdw
+	 4E2nhRf97F6Eg==
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: linux-fsdevel@vger.kernel.org
+Cc: Jarkko Sakkinen <jarkko@kernel.org>,
+	linux-api@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-security-module@vger.kernel.org,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@amacapital.net>,
+	Ben Segall <bsegall@google.com>,
+	Christian Brauner <brauner@kernel.org>,
+	David Hildenbrand <david@kernel.org>,
+	David Howells <dhowells@redhat.com>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	Jan Kara <jack@suse.cz>,
+	Jonathan Corbet <corbet@lwn.net>,
+	John Johansen <john.johansen@canonical.com>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Kees Cook <kees@kernel.org>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Manfred Spraul <manfred@colorfullife.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Michal Hocko <mhocko@suse.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Neal Gompa <neal@gompa.dev>,
+	Paul Moore <paul@paul-moore.com>,
+	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Serge Hallyn <sergeh@kernel.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Valentin Schneider <vschneid@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
+Subject: [RFC PATCH v2 00/13] Namespace for namespace roots
+Date: Wed, 18 Nov 2026 01:13:39 +0200
+Message-ID: <20261117231352.3816603-1-jarkko@kernel.org>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,383 +96,201 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:5088:b0:4a4:744:a4ff with SMTP id
- 5614622812f47-5773db24bc2mr1479483b6e.4.1794957037943; Tue, 17 Nov 2026
- 15:10:37 -0800 (PST)
-Date: Tue, 17 Nov 2026 15:10:37 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6afcdeed.8f566acc.2517be.000e.GAE@google.com>
-Subject: [syzbot] [perf?] [arm?] BUG: workqueue lockup in wg_ratelimiter_gc_entries
-From: syzbot <syzbot+4610f17b25e845477657@syzkaller.appspotmail.com>
-To: acme@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
-	mingo@redhat.com, namhyung@kernel.org, peterz@infradead.org, 
-	syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Hello,
+OVERVIEW
+========
 
-syzbot found the following issue on:
+A root namespace (rootns) is a kernel object backed by a file descriptor
+that binds together:
 
-HEAD commit:    518e5b794c06 Merge tag 'for-7.3-rc3-tag' of git://git.kern.=
-.
-git tree:       upstream
-console output: https://syzkaller.appspot.com/x/log.txt?x=3D15dffff9580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=3Dc3be6e434b07ebb=
-6
-dashboard link: https://syzkaller.appspot.com/bug?extid=3D4610f17b25e845477=
-657
-compiler:       Debian clang version 22.1.8 (++20260613092233+e80beda6e255-=
-1~exp1~20260613092250.77), Debian LLD 22.1.8
+1. A full or partial set of detached namespaces.
+2. A dedicated PID namespace for spawning processes into, signaling
+   members, and polling or waiting on PID 1 exit.
+3. An initially empty mount namespace (CLONE_EMPTY_MNTNS) that must be
+   populated before going live, without inheriting host mount-tree
+   ancestors.
 
-Unfortunately, I don't have any reproducer for this issue yet.
+Work on this feature started in 2025 from David Howells' container object
+patch set [1], which I turned into a namespace for namespace roots and
+rebuilt around that premise.
 
-Downloadable assets:
-disk image: https://storage.googleapis.com/syzbot-assets/8646adfc1052/disk-=
-518e5b79.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/b37f45f956ef/vmlinux-=
-518e5b79.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/20143fe230d6/bzI=
-mage-518e5b79.xz
+While the patch set is manually written, the original motivation came
+from isolating LLM agents. Running untrusted agent workloads made it
+clear that OCI runtimes need to minimize their live configuration
+surface.
 
-IMPORTANT: if you fix the issue, please add the following tag to the commit=
-:
-Reported-by: syzbot+4610f17b25e845477657@syzkaller.appspotmail.com
+Assembling mounts, credentials, and namespaces inside helper processes
+with a half-configured container is what I see as the main challenge,
+and the existential debate around namespaces and container objects is an
+unfocused discussion topic.
 
-sched: DL replenish lagged too much
-BUG: workqueue lockup - pool cpus=3D1 node=3D0 flags=3D0x0 nice=3D0 stuck f=
-or 156s!
-Showing busy workqueues and worker pools:
-workqueue events: flags=3D0x100
-  pwq 2: cpus=3D0 node=3D0 flags=3D0x0 nice=3D0 active=3D10 refcnt=3D11
-    in-flight: 5700:request_firmware_work_func for 156s
-    pending: nsim_dev_hwstats_traffic_work, vmstat_shepherd, psi_avgs_work,=
- 4*ovs_dp_masks_rebalance, nsim_fib_event_work, delayed_vfree_work
-  pwq 6: cpus=3D1 node=3D0 flags=3D0x0 nice=3D0 active=3D13 refcnt=3D14
-    in-flight: 5692:reg_todo for 157s
-    pending: 4*nsim_dev_hwstats_traffic_work, 3*psi_avgs_work, 2*ovs_dp_mas=
-ks_rebalance, 2*psi_avgs_work, xfrm_state_gc_task
-workqueue events_unbound: flags=3D0x2
-  pwq 8: cpus=3D0-1 flags=3D0x6 nice=3D0 active=3D21 refcnt=3D22
-    in-flight: 146:cfg80211_wiphy_work for 155s cfg80211_wiphy_work ,12:cfg=
-80211_wiphy_work for 156s cfg80211_wiphy_work
-    pending: nsim_dev_trap_report_work, flush_memcg_stats_dwork, cfg80211_w=
-iphy_work, 4*nsim_dev_trap_report_work, 7*macvlan_process_broadcast, toggle=
-_allocation_gate, crng_reseed, macvlan_process_broadcast
-  pwq 8: cpus=3D0-1 flags=3D0x6 nice=3D0 active=3D12 refcnt=3D13
-    in-flight: 1123:cfg80211_wiphy_work for 147s ,160:cfg80211_wiphy_work f=
-or 156s cfg80211_wiphy_work ,59:cfg80211_wiphy_work for 153s ,1116:cfg80211=
-_wiphy_work for 153s ,13:cfg80211_wiphy_work for 147s ,50:cfg80211_wiphy_wo=
-rk for 147s
-    pending: 5*cfg80211_wiphy_work
-workqueue events_freezable: flags=3D0x104
-  pwq 2: cpus=3D0 node=3D0 flags=3D0x0 nice=3D0 active=3D1 refcnt=3D2
-    pending: update_balloon_stats_func
-workqueue events_power_efficient: flags=3D0x180
-  pwq 2: cpus=3D0 node=3D0 flags=3D0x0 nice=3D0 active=3D3 refcnt=3D4
-    pending: do_cache_clean, 2*check_lifetime
-  pwq 6: cpus=3D1 node=3D0 flags=3D0x0 nice=3D0 active=3D12 refcnt=3D13
-    in-flight: 5730:wg_ratelimiter_gc_entries for 156s
-    pending: neigh_managed_work, neigh_periodic_work, hash_ipmac4_gc, neigh=
-_managed_work, gc_worker, neigh_periodic_work, reg_check_chans_work, 4*chec=
-k_lifetime
-workqueue events_dfl_long: flags=3D0x2
-  pwq 8: cpus=3D0-1 flags=3D0x6 nice=3D0 active=3D8 refcnt=3D9
-    pending: 8*defense_work_handler
-workqueue kvfree_rcu_reclaim: flags=3D0xa
-  pwq 8: cpus=3D0-1 flags=3D0x6 nice=3D0 active=3D2 refcnt=3D4 MAYDAY
-    pending: 2*kfree_rcu_monitor
-workqueue netns: flags=3D0x6000a
-  pwq 8: cpus=3D0-1 flags=3D0x6 nice=3D0 active=3D1 refcnt=3D4
-    in-flight: 139:cleanup_net for 159s
-workqueue mm_percpu_wq: flags=3D0x108
-  pwq 2: cpus=3D0 node=3D0 flags=3D0x0 nice=3D0 active=3D1 refcnt=3D2
-    pending: vmstat_update
-  pwq 6: cpus=3D1 node=3D0 flags=3D0x0 nice=3D0 active=3D1 refcnt=3D2
-    pending: vmstat_update
-workqueue writeback: flags=3D0x4a
-  pwq 8: cpus=3D0-1 flags=3D0x6 nice=3D0 active=3D1 refcnt=3D3 MAYDAY
-    pending: wb_workfn
-  pwq 8: cpus=3D0-1 flags=3D0x6 nice=3D0 active=3D1 refcnt=3D3 MAYDAY
-    pending: wb_update_bandwidth_workfn
-workqueue kblockd: flags=3D0x118
-  pwq 3: cpus=3D0 node=3D0 flags=3D0x0 nice=3D-20 active=3D1 refcnt=3D2
-    pending: blk_mq_timeout_work
-workqueue usb_hub_wq: flags=3D0x104
-  pwq 2: cpus=3D0 node=3D0 flags=3D0x0 nice=3D0 active=3D2 refcnt=3D3
-    in-flight: 5699:hub_event for 157s hub_event
-workqueue ksmbd-conn-release: flags=3D0xa
-  pwq 8: cpus=3D0-1 flags=3D0x6 nice=3D0 active=3D1 refcnt=3D3 MAYDAY
-    pending: ksmbd_session_expiration_worker
-workqueue ipv6_addrconf: flags=3D0x6000a
-  pwq 8: cpus=3D0-1 flags=3D0x6 nice=3D0 active=3D1 refcnt=3D11 MAYDAY
-    in-flight: 3195(RESCUER):addrconf_verify_work for 147s
-    pending: mayday_cursor_func
-    inactive: 5*addrconf_verify_work
-workqueue krxrpcd: flags=3D0x2001a
-  pwq 9: cpus=3D0-1 node=3D0 flags=3D0x4 nice=3D-20 active=3D1 refcnt=3D4
-    pending: rxrpc_peer_keepalive_worker
-workqueue bat_events: flags=3D0x6000a
-  pwq 8: cpus=3D0-1 flags=3D0x6 nice=3D0 active=3D1 refcnt=3D40 MAYDAY
-    in-flight: 3226(RESCUER):batadv_dat_purge for 2s
-    pending: mayday_cursor_func
-    inactive: batadv_bla_periodic_work, 5*batadv_mcast_mla_update, 4*batadv=
-_iv_send_outstanding_bat_ogm_packet, 3*batadv_purge_orig, 4*batadv_iv_send_=
-outstanding_bat_ogm_packet, batadv_purge_orig, batadv_iv_send_outstanding_b=
-at_ogm_packet, batadv_purge_orig, 3*batadv_iv_send_outstanding_bat_ogm_pack=
-et, 5*batadv_tt_purge, batadv_dat_purge, 2*batadv_bla_periodic_work, batadv=
-_dat_purge, batadv_bla_periodic_work, batadv_dat_purge
-workqueue wg-crypt-wg0: flags=3D0x128
-  pwq 2: cpus=3D0 node=3D0 flags=3D0x0 nice=3D0 active=3D1 refcnt=3D2
-    pending: wg_packet_encrypt_worker
-  pwq 6: cpus=3D1 node=3D0 flags=3D0x0 nice=3D0 active=3D2 refcnt=3D3
-    pending: wg_packet_tx_worker, wg_packet_encrypt_worker
-workqueue wg-crypt-wg1: flags=3D0x128
-  pwq 2: cpus=3D0 node=3D0 flags=3D0x0 nice=3D0 active=3D1 refcnt=3D2
-    pending: wg_packet_encrypt_worker
-  pwq 6: cpus=3D1 node=3D0 flags=3D0x0 nice=3D0 active=3D2 refcnt=3D3
-    pending: wg_packet_encrypt_worker, wg_packet_tx_worker
-workqueue wg-crypt-wg2: flags=3D0x128
-  pwq 2: cpus=3D0 node=3D0 flags=3D0x0 nice=3D0 active=3D1 refcnt=3D2
-    pending: wg_packet_encrypt_worker
-  pwq 6: cpus=3D1 node=3D0 flags=3D0x0 nice=3D0 active=3D2 refcnt=3D3
-    pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
-workqueue wg-crypt-wg0: flags=3D0x128
-  pwq 2: cpus=3D0 node=3D0 flags=3D0x0 nice=3D0 active=3D1 refcnt=3D2
-    pending: wg_packet_encrypt_worker
-  pwq 6: cpus=3D1 node=3D0 flags=3D0x0 nice=3D0 active=3D2 refcnt=3D3
-    pending: wg_packet_tx_worker, wg_packet_encrypt_worker
-workqueue wg-crypt-wg0: flags=3D0x128
-  pwq 2: cpus=3D0 node=3D0 flags=3D0x0 nice=3D0 active=3D1 refcnt=3D2
-    pending: wg_packet_encrypt_worker
-  pwq 6: cpus=3D1 node=3D0 flags=3D0x0 nice=3D0 active=3D2 refcnt=3D3
-    pending: wg_packet_tx_worker, wg_packet_encrypt_worker
-workqueue wg-kex-wg1: flags=3D0x6
-  pwq 8: cpus=3D0-1 flags=3D0x6 nice=3D0 active=3D1 refcnt=3D2
-    pending: wg_packet_handshake_send_worker
-workqueue wg-crypt-wg1: flags=3D0x128
-  pwq 2: cpus=3D0 node=3D0 flags=3D0x0 nice=3D0 active=3D1 refcnt=3D2
-    pending: wg_packet_encrypt_worker
-  pwq 6: cpus=3D1 node=3D0 flags=3D0x0 nice=3D0 active=3D2 refcnt=3D3
-    pending: wg_packet_encrypt_worker, wg_packet_tx_worker
-workqueue wg-kex-wg1: flags=3D0x6
-  pwq 8: cpus=3D0-1 flags=3D0x6 nice=3D0 active=3D1 refcnt=3D2
-    pending: wg_packet_handshake_send_worker
-workqueue wg-crypt-wg1: flags=3D0x128
-  pwq 6: cpus=3D1 node=3D0 flags=3D0x0 nice=3D0 active=3D1 refcnt=3D2
-    pending: wg_packet_tx_worker
-workqueue wg-crypt-wg2: flags=3D0x128
-  pwq 2: cpus=3D0 node=3D0 flags=3D0x0 nice=3D0 active=3D1 refcnt=3D2
-    pending: wg_packet_encrypt_worker
-  pwq 6: cpus=3D1 node=3D0 flags=3D0x0 nice=3D0 active=3D2 refcnt=3D3
-    pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
-workqueue wg-kex-wg2: flags=3D0x6
-  pwq 8: cpus=3D0-1 flags=3D0x6 nice=3D0 active=3D1 refcnt=3D2
-    pending: wg_packet_handshake_send_worker
-workqueue wg-crypt-wg2: flags=3D0x128
-  pwq 6: cpus=3D1 node=3D0 flags=3D0x0 nice=3D0 active=3D1 refcnt=3D2
-    pending: wg_packet_encrypt_worker
-workqueue wg-kex-wg0: flags=3D0x6
-  pwq 8: cpus=3D0-1 flags=3D0x6 nice=3D0 active=3D2 refcnt=3D3
-    pending: 2*wg_packet_handshake_send_worker
-workqueue wg-kex-wg1: flags=3D0x6
-  pwq 8: cpus=3D0-1 flags=3D0x6 nice=3D0 active=3D2 refcnt=3D3
-    pending: 2*wg_packet_handshake_send_worker
-workqueue wg-kex-wg2: flags=3D0x6
-  pwq 8: cpus=3D0-1 flags=3D0x6 nice=3D0 active=3D2 refcnt=3D3
-    pending: 2*wg_packet_handshake_send_worker
-workqueue krds_cp_wq#0/0: flags=3D0x20002
-  pwq 8: cpus=3D0-1 flags=3D0x6 nice=3D0 active=3D1 refcnt=3D5
-    in-flight: 37:rds_shutdown_worker for 85s
-    inactive: rds_shutdown_worker
-pool 2: cpus=3D0 node=3D0 flags=3D0x0 nice=3D0 hung=3D147s workers=3D9 idle=
-: 5664 1558 5701 9 5739 5749 10
-pool 6: cpus=3D1 node=3D0 flags=3D0x0 nice=3D0 hung=3D156s workers=3D9 idle=
-: 989 5672 25 5349 5671 5679 44
-pool 8: cpus=3D0-1 flags=3D0x6 nice=3D0 hung=3D2s workers=3D11 manager: 156
-Showing backtraces of busy workers in stalled worker pools:
-pool 6:
-task:kworker/1:8     state:R  running task     stack:25288 pid:5730  tgid:5=
-730  ppid:2      task_flags:0x4208060 flags:0x00080000
-Workqueue: events_power_efficient wg_ratelimiter_gc_entries
-Call Trace:
- <TASK>
- context_switch kernel/sched/core.c:5526 [inline]
- __schedule+0x17db/0x58f0 kernel/sched/core.c:7277
- preempt_schedule_irq+0x4b/0x90 kernel/sched/core.c:7599
- irqentry_exit_to_kernel_mode include/linux/irq-entry-common.h:539 [inline]
- irqentry_exit+0x14f/0x910 kernel/entry/common.c:167
- asm_sysvec_apic_timer_interrupt+0x1a/0x20 arch/x86/include/asm/idtentry.h:=
-674
-RIP: 0010:lock_is_held_type+0x106/0x150 kernel/locking/lockdep.c:6021
-Code: 1b 00 00 b8 ff ff ff ff 65 0f c1 05 dc 9c af 07 83 f8 01 75 25 9c 58 =
-a9 00 02 00 00 75 39 41 f7 c4 00 02 00 00 74 01 fb 89 d8 <5b> 41 5c 41 5d 4=
-1 5e 41 5f 5d e9 5b 01 03 00 cc 90 0f 0b 90 48 c7
-RSP: 0018:ffffc90004ccf9f8 EFLAGS: 00000206
-RAX: 0000000000000000 RBX: 0000000000000000 RCX: 0000000000000046
-RDX: 0000000000000000 RSI: ffffffff8e69d180 RDI: ffffffff8c6da780
-RBP: 00000000ffffffff R08: ffffffff8f9962e3 R09: 1ffffffff1f32c5c
-R10: dffffc0000000000 R11: fffffbfff1f32c5d R12: 0000000000000246
-R13: ffff8880328b0000 R14: ffffffff8ed5c940 R15: 0000000000000002
- lock_is_held include/linux/lockdep.h:249 [inline]
- __might_resched+0x37/0x4c0 kernel/sched/core.c:9219
- wg_ratelimiter_gc_entries+0x3a4/0x450 drivers/net/wireguard/ratelimiter.c:=
-78
- process_one_work kernel/workqueue.c:3396 [inline]
- process_scheduled_works+0xc3d/0x1630 kernel/workqueue.c:3479
- worker_thread+0xa47/0xfb0 kernel/workqueue.c:3560
- kthread+0x38b/0x480 kernel/kthread.c:436
- ret_from_fork+0x514/0xb70 arch/x86/kernel/process.c:158
- ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
- </TASK>
-rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
-rcu: 	Tasks blocked on level-0 rcu_node (CPUs 0-1): P6242/1:b..l
-rcu: 	(detected by 0, t=3D10621 jiffies, g=3D21385, q=3D996 ncpus=3D2)
-task:syz.2.155       state:R  running task     stack:24928 pid:6242  tgid:6=
-241  ppid:5626   task_flags:0x40054c flags:0x00080002
-Call Trace:
- <TASK>
- context_switch kernel/sched/core.c:5526 [inline]
- __schedule+0x17db/0x58f0 kernel/sched/core.c:7277
- preempt_schedule_common+0x7f/0xd0 kernel/sched/core.c:7456
- preempt_schedule_thunk+0x16/0x40 arch/x86/entry/thunk.S:12
- __raw_spin_unlock include/linux/spinlock_api_smp.h:201 [inline]
- _raw_spin_unlock+0x41/0x50 kernel/locking/spinlock.c:213
- spin_unlock include/linux/spinlock.h:401 [inline]
- zap_pte_range mm/memory.c:2095 [inline]
- zap_pmd_range mm/memory.c:2151 [inline]
- zap_pud_range mm/memory.c:2179 [inline]
- zap_p4d_range mm/memory.c:2200 [inline]
- __zap_vma_range+0x40e1/0x4f80 mm/memory.c:2240
- unmap_vmas+0x390/0x550 mm/memory.c:2309
- exit_mmap+0x293/0x9f0 mm/mmap.c:1315
- __mmput+0x118/0x420 kernel/fork.c:1193
- exit_mm+0x221/0x2d0 kernel/exit.c:617
- do_exit+0x6cd/0x2360 kernel/exit.c:999
- do_group_exit+0x22d/0x2f0 kernel/exit.c:1154
- get_signal+0x121b/0x12c0 kernel/signal.c:3051
- arch_do_signal_or_restart+0xbb/0x860 arch/x86/kernel/signal.c:337
- __exit_to_user_mode_loop kernel/entry/common.c:66 [inline]
- exit_to_user_mode_loop+0x10e/0x770 kernel/entry/common.c:101
- __exit_to_user_mode_prepare include/linux/irq-entry-common.h:207 [inline]
- syscall_exit_to_user_mode_prepare include/linux/irq-entry-common.h:230 [in=
-line]
- syscall_exit_to_user_mode include/linux/entry-common.h:343 [inline]
- do_syscall_64+0x328/0x520 arch/x86/entry/syscall_64.c:89
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-RIP: 0033:0x7f07d6f9e159
-RSP: 002b:00007f07d7f530e8 EFLAGS: 00000246 ORIG_RAX: 00000000000000ca
-RAX: fffffffffffffe00 RBX: 00007f07d7225fa8 RCX: 00007f07d6f9e159
-RDX: 0000000000000000 RSI: 0000000000000080 RDI: 00007f07d7225fa8
-RBP: 00007f07d7225fa0 R08: 0000000000000000 R09: 0000000000000000
-R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
-R13: 00007f07d7226038 R14: 00007f07d734f960 R15: 00007f07d734fa48
- </TASK>
-rcu: rcu_preempt kthread starved for 3099 jiffies! g21385 f0x0 RCU_GP_WAIT_=
-FQS(5) ->state=3DR ->cpu=3D0
-rcu: 	Unless rcu_preempt kthread gets sufficient CPU time, OOM is now expec=
-ted behavior.
-rcu: RCU grace-period kthread stack dump:
-task:rcu_preempt     state:R  running task     stack:27496 pid:17    tgid:1=
-7    ppid:2      task_flags:0x208040 flags:0x00080000
-Call Trace:
- <TASK>
- context_switch kernel/sched/core.c:5526 [inline]
- __schedule+0x17db/0x58f0 kernel/sched/core.c:7277
- __schedule_loop kernel/sched/core.c:7354 [inline]
- schedule+0x164/0x2b0 kernel/sched/core.c:7369
- schedule_timeout+0x152/0x2c0 kernel/time/sleep_timeout.c:99
- rcu_gp_fqs_loop+0x30c/0x11f0 kernel/rcu/tree.c:2122
- rcu_gp_kthread+0x9e/0x2b0 kernel/rcu/tree.c:2330
- kthread+0x38b/0x480 kernel/kthread.c:436
- ret_from_fork+0x514/0xb70 arch/x86/kernel/process.c:158
- ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
- </TASK>
-rcu: Stack dump where RCU GP kthread last ran:
-CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Tainted: G             L      syzkalle=
-r #0 PREEMPT(full)=20
-Tainted: [L]=3DSOFTLOCKUP
-Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Goo=
-gle 07/24/2026
-RIP: 0010:pv_native_safe_halt+0xf/0x20 arch/x86/kernel/paravirt.c:64
-Code: bc 88 02 c3 cc cc cc cc cc cc cc 90 90 90 90 90 90 90 90 90 90 90 90 =
-90 90 90 90 f3 0f 1e fa 66 90 0f 00 2d b3 c1 23 00 fb f4 <e9> 8c 08 03 00 c=
-c cc cc cc cc cc cc cc cc cc cc cc 90 90 90 90 90
-RSP: 0018:ffffffff8ea07ca0 EFLAGS: 00000242
-RAX: 00000000001b75e9 RBX: ffffffff819bb25c RCX: 8000000000000001
-RDX: 0000000000000001 RSI: ffffffff8e414979 RDI: ffffffff8c6da780
-RBP: ffffffff8ea07d78 R08: ffff8880b8633a1b R09: 1ffff110170c6743
-R10: dffffc0000000000 R11: ffffed10170c6744 R12: 0000000000000000
-R13: 1ffffffff1d51e00 R14: 1ffffffff1d40f9c R15: dffffc0000000000
-FS:  0000000000000000(0000) GS:ffff888124cce000(0000) knlGS:000000000000000=
-0
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 000020000020f030 CR3: 000000007f564000 CR4: 00000000003526f0
-Call Trace:
- <TASK>
- arch_safe_halt arch/x86/kernel/process.c:767 [inline]
- default_idle+0x9/0x20 arch/x86/kernel/process.c:768
- default_idle_call+0x72/0xb0 kernel/sched/idle.c:122
- cpuidle_idle_call kernel/sched/idle.c:199 [inline]
- do_idle+0x1cc/0x540 kernel/sched/idle.c:355
- cpu_startup_entry+0x43/0x60 kernel/sched/idle.c:454
- rest_init+0x378/0x3a0 init/main.c:732
- start_kernel+0x392/0x3e0 init/main.c:1190
- x86_64_start_reservations+0x24/0x30 arch/x86/kernel/head64.c:310
- x86_64_start_kernel+0x137/0x1b0 arch/x86/kernel/head64.c:291
- common_startup_64+0x13e/0x157
- </TASK>
-----------------
-Code disassembly (best guess):
-   0:	1b 00                	sbb    (%rax),%eax
-   2:	00 b8 ff ff ff ff    	add    %bh,-0x1(%rax)
-   8:	65 0f c1 05 dc 9c af 	xadd   %eax,%gs:0x7af9cdc(%rip)        # 0x7af9=
-cec
-   f:	07
-  10:	83 f8 01             	cmp    $0x1,%eax
-  13:	75 25                	jne    0x3a
-  15:	9c                   	pushf
-  16:	58                   	pop    %rax
-  17:	a9 00 02 00 00       	test   $0x200,%eax
-  1c:	75 39                	jne    0x57
-  1e:	41 f7 c4 00 02 00 00 	test   $0x200,%r12d
-  25:	74 01                	je     0x28
-  27:	fb                   	sti
-  28:	89 d8                	mov    %ebx,%eax
-* 2a:	5b                   	pop    %rbx <-- trapping instruction
-  2b:	41 5c                	pop    %r12
-  2d:	41 5d                	pop    %r13
-  2f:	41 5e                	pop    %r14
-  31:	41 5f                	pop    %r15
-  33:	5d                   	pop    %rbp
-  34:	e9 5b 01 03 00       	jmp    0x30194
-  39:	cc                   	int3
-  3a:	90                   	nop
-  3b:	0f 0b                	ud2
-  3d:	90                   	nop
-  3e:	48                   	rex.W
-  3f:	c7                   	.byte 0xc7
+[1] https://lore.kernel.org/all/155059610368.17079.2220554006494174417.stgit@warthog.procyon.org.uk/
 
+IMPLEMENTATION
+==============
 
----
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
+rootns_create() allocates a rootns instance backed by a pollable
+anonymous inode fd, pinning dedicated empty mount (CLONE_EMPTY_MNTNS) and
+PID namespaces along with any optional namespaces selected in flags.
 
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+Before entry, userspace populates the mount tree through the control fd:
+FSCONFIG_SET_ROOTNS binds a newly opened fs_context to the target rootns,
+and move_mount(..., MOVE_MOUNT_T_ROOTNS_ROOT) installs "/" onto the
+nullfs root once (transitioning the rootns to ROOTNS_READY) and attaches
+relative submounts beneath it.
 
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
+Processes are spawned into a ready rootns via clone3() with
+CLONE_INTO_ROOTNS and struct clone_args.rootns, without mutating the
+caller in place. Pairing CLONE_INTO_ROOTNS with CLONE_VM | CLONE_VFORK
+and opening the target binary via openat2(..., RESOLVE_IN_ROOT) on the
+retained "/" mount fd allows spawning with execveat() without copying
+page tables.
 
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
+The first entrant becomes PID 1; once it exits and
+zap_pid_ns_processes() reaps all members, poll() reports EPOLLHUP and
+rootns_wait() returns init's exit status and rusage. rootns_kill() walks
+pid_ns->idr under RCU to signal member thread groups.
 
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
+CHANGES
+=======
 
-If you want to undo deduplication, reply with:
-#syz undup
+v2:
+- Drop rootns provenance tracking (rootns_id and rootns_may_setns()) and
+  rely on user_namespace ownership for setns() isolation (Andy
+  Lutomirski).
+- Replace the rootns_enter() system call with clone3(CLONE_INTO_ROOTNS)
+  and struct clone_args.rootns (CLONE_ARGS_SIZE_VER3), allowing
+  CLONE_VM | CLONE_VFORK and compatible per-child clone3() flags (Andy
+  Lutomirski).
+- Drop the spurious task_no_new_privs() check in may_enter_rootns_creds()
+  (Andy Lutomirski).
+- Update documentation, Kconfig, syscall tables, and kselftests for
+  CLONE_INTO_ROOTNS.
+
+VERSIONS
+========
+
+v1: https://lore.kernel.org/linux-fsdevel/20261117050841.3289652-1-jarkko@kernel.org/
+
+Cc: linux-api@vger.kernel.org
+Cc: linux-doc@vger.kernel.org
+Cc: linux-fsdevel@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-kselftest@vger.kernel.org
+Cc: linux-mm@kvack.org
+Cc: linux-security-module@vger.kernel.org
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Andy Lutomirski <luto@amacapital.net>
+Cc: Ben Segall <bsegall@google.com>
+Cc: Christian Brauner <brauner@kernel.org>
+Cc: David Hildenbrand <david@kernel.org>
+Cc: David Howells <dhowells@redhat.com>
+Cc: Davidlohr Bueso <dave@stgolabs.net>
+Cc: Dietmar Eggemann <dietmar.eggemann@arm.com>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Jan Kara <jack@suse.cz>
+Cc: Jarkko Sakkinen <jarkko@kernel.org>
+Cc: Jonathan Corbet <corbet@lwn.net>
+Cc: John Johansen <john.johansen@canonical.com>
+Cc: Juri Lelli <juri.lelli@redhat.com>
+Cc: Kees Cook <kees@kernel.org>
+Cc: K Prateek Nayak <kprateek.nayak@amd.com>
+Cc: "Liam R. Howlett" <liam@infradead.org>
+Cc: Lorenzo Stoakes <ljs@kernel.org>
+Cc: Manfred Spraul <manfred@colorfullife.com>
+Cc: Mel Gorman <mgorman@suse.de>
+Cc: Michal Hocko <mhocko@suse.com>
+Cc: Mike Rapoport <rppt@kernel.org>
+Cc: Neal Gompa <neal@gompa.dev>
+Cc: Paul Moore <paul@paul-moore.com>
+Cc: Pavel Tikhomirov <ptikhomirov@virtuozzo.com>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Randy Dunlap <rdunlap@infradead.org>
+Cc: Serge Hallyn <sergeh@kernel.org>
+Cc: Shuah Khan <skhan@linuxfoundation.org>
+Cc: Steven Rostedt <rostedt@goodmis.org>
+Cc: Suren Baghdasaryan <surenb@google.com>
+Cc: Valentin Schneider <vschneid@redhat.com>
+Cc: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: Vlastimil Babka <vbabka@kernel.org>
+Cc: Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
+
+Jarkko Sakkinen (13):
+  nsproxy: Pass nsproxy to create_new_namespaces()
+  rootns: Add core infrastructure for root namespaces
+  rootns: Track init lifecycle via copy_process() and pid_namespace
+  rootns: Add rootns_create() system call
+  rootns: Add rootns_wait() system call
+  rootns: Add rootns_kill() system call
+  fork: Support CLONE_INTO_ROOTNS in clone3()
+  fs: Support FSCONFIG_SET_ROOTNS in fsconfig()
+  fs: Support installing rootns mount trees via move_mount()
+  arch: Wire up rootns system calls
+  docs: Document root namespace uAPI
+  selftests/rootns: Add root namespace test suite
+  MAINTAINERS: Add entry for ROOT NAMESPACE
+
+ Documentation/userspace-api/index.rst       |    1 +
+ Documentation/userspace-api/rootns.rst      |   40 +
+ MAINTAINERS                                 |   11 +
+ arch/alpha/kernel/syscalls/syscall.tbl      |    3 +
+ arch/arm/tools/syscall.tbl                  |    3 +
+ arch/arm64/tools/syscall_32.tbl             |    3 +
+ arch/m68k/kernel/syscalls/syscall.tbl       |    3 +
+ arch/microblaze/kernel/syscalls/syscall.tbl |    3 +
+ arch/mips/kernel/syscalls/syscall_n32.tbl   |    3 +
+ arch/mips/kernel/syscalls/syscall_n64.tbl   |    3 +
+ arch/mips/kernel/syscalls/syscall_o32.tbl   |    3 +
+ arch/parisc/kernel/syscalls/syscall.tbl     |    3 +
+ arch/powerpc/kernel/syscalls/syscall.tbl    |    3 +
+ arch/s390/kernel/syscalls/syscall.tbl       |    3 +
+ arch/sh/kernel/syscalls/syscall.tbl         |    3 +
+ arch/sparc/kernel/syscalls/syscall.tbl      |    3 +
+ arch/x86/entry/syscalls/syscall_32.tbl      |    3 +
+ arch/x86/entry/syscalls/syscall_64.tbl      |    3 +
+ arch/xtensa/kernel/syscalls/syscall.tbl     |    3 +
+ fs/fsopen.c                                 |   76 +-
+ fs/namespace.c                              |  178 ++-
+ fs/proc/root.c                              |   13 +
+ include/linux/compat.h                      |    4 +
+ include/linux/cred.h                        |    4 +-
+ include/linux/fs_context.h                  |    3 +
+ include/linux/nsproxy.h                     |    9 +-
+ include/linux/pid_namespace.h               |    4 +
+ include/linux/rootns.h                      |   92 ++
+ include/linux/sched/task.h                  |    8 +
+ include/linux/syscalls.h                    |    4 +
+ include/uapi/asm-generic/unistd.h           |   10 +-
+ include/uapi/linux/mount.h                  |    4 +-
+ include/uapi/linux/rootns.h                 |   38 +
+ include/uapi/linux/sched.h                  |    5 +
+ init/Kconfig                                |    9 +
+ ipc/mqueue.c                                |   12 +
+ kernel/Makefile                             |    2 +
+ kernel/cred.c                               |   70 +-
+ kernel/fork.c                               |   67 +-
+ kernel/nsproxy.c                            |   41 +-
+ kernel/pid_namespace.c                      |    2 +
+ kernel/rootns.c                             |  593 ++++++++
+ kernel/sys_ni.c                             |    6 +
+ scripts/syscall.tbl                         |    3 +
+ tools/testing/selftests/Makefile            |    1 +
+ tools/testing/selftests/rootns/.gitignore   |    2 +
+ tools/testing/selftests/rootns/Makefile     |    5 +
+ tools/testing/selftests/rootns/config       |    9 +
+ tools/testing/selftests/rootns/smoke.c      | 1381 +++++++++++++++++++
+ 49 files changed, 2680 insertions(+), 75 deletions(-)
+ create mode 100644 Documentation/userspace-api/rootns.rst
+ create mode 100644 include/linux/rootns.h
+ create mode 100644 include/uapi/linux/rootns.h
+ create mode 100644 kernel/rootns.c
+ create mode 100644 tools/testing/selftests/rootns/.gitignore
+ create mode 100644 tools/testing/selftests/rootns/Makefile
+ create mode 100644 tools/testing/selftests/rootns/config
+ create mode 100644 tools/testing/selftests/rootns/smoke.c
+
+--
+2.47.3
+
