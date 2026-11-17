@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794941369;
-	b=DBbMAd7w7/aqHWW7scLldIj0PgTGbrwvmA5XaFEQME4o22+Br5rRciZumh+K3GyUH2Gk
-	 MGQ1VGazLbY6rxQ80tN1Pxl8O7ACY64ppErJmHQHBBvK03oGSSkRsgQQwstIv2zGX05s5
-	 75HS3SIELri2t28UFHG5qD3Z9mfwPUzAawM0GYvyLJ6Wp5FBzLbxDczxW1dtaxSyc2MTM
-	 DlBVKU10H0Fx+8jkVP1dC7v7YOgTU7WUq33Sj7eDF/RA04ULKdI5FSplqhoyNFCxKfIvW
-	 Hn0NrOuneW9ZffsNATLVN0oDbA6h9fUpv3V9UrdE34bmWyG+Bf6PoPKKaDpqRWAzPuw==
+	t=1794941375;
+	b=HPHSebTwGW711fJQSFjQ6jFckLzZt6mna4htDwAxmjsbg/aq9My1mnNQZJ7dq+4WHaaM
+	 Sb8lhMjTQPIqi+oeFtuAa6qQlu5dXlB+ThQvfn8d8Dbn9LZ8rHCp8LHMYslzre0amc1l2
+	 XjZhUjV4jjSIcZ6KCHcuN3QoVhgy3PNOtO8XoRV7uoMCH0JNM6zRs0XZunIE31py3zYZ0
+	 VWH3L2ALuK869VCWARd99txnzkftZrTV8zwmNhmeyI6O0Z7Xl8fE7HkZaFixCjgzC3bEZ
+	 jW7gOS+jBXS2xjLKmYIT8FOSeBuAv1+YJcYNqndGZ7JGGeJRKp47W8NUlUIkCezatmA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794941369;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794941375;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=hG1u1rwgLbGB3LPp4aSvH6eD6mJFKquRJ00BiqMbKNQ=;
-	b=Yc5Ip70XG0RgtlQTS7I2HWc5uh3wunoDTsk2JEfeyUlJVTwN3gBlsVuhubE8Zca/E211
-	 8cGgpJ0PWK0mW+PDGimtn+ZNJ77JAUdHWhHbK5TquL6Y0gRB1UBOYyL1MFTnWd/JT3wa+
-	 XFCbkCcrcEorI8py9ooJtVP8zpv2KHtvplweKxiHmA3GScuTYrHwVICcK/JSb2g+y9SaO
-	 TX2pgTcBJHTDePS7gu7idH3qk3ngGxMDxxXf9wQrg/B+4yLSCn0gT0wRgOEhE7kKr7WJD
-	 0A+MLJy3lqlegrg63MOoupSSKAxyanHvS2UeK77zVcvh/CD/ERgd3owYKvR4wp1Li8Q==
+	bh=jt8Ge1YfesjoyrcwC04dL6qB9pTBfIeSCbHLf5znjY8=;
+	b=f3NYcNWz18SB2Z15eYKTFVI6fDh8ureSR9amZ1S8kkQQPGnOBGgRWr6Xb0PzN/A47xu6
+	 BKKBfQcSxnqqVMZJDpX2klXd5+cT+0OrCM6CcV5d5YwDLGkX83ejDmj5lkboRc42Zqra7
+	 U3IKOdhD78jQVQAJ1FH+FPHobQHTMz6ViPnIaUU2ToDHx3hK4KvEq1BSCoqzhL/CL/F2V
+	 A97ueI7Z+PGGCUU6Eqcc/Je5SHWrjQVwd1uEe21vFSzXrMgVA6sX6NudoHEevJAcp2dX8
+	 eeBWe25HOGZzRz3ynPi+jp+98KdCGtt4nf43SU7ekoBCdVQRFyHGRZxFMVr1gWWm17w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=AiOQxD9P;
-	arc=none smtp.remote-ip=74.125.82.71
-Received: from mail-dl1-f71.google.com (mail-dl1-f71.google.com [74.125.82.71])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=hrN7yDtV;
+	arc=none smtp.remote-ip=74.125.82.198
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5EB84606A885
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:49:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5EB84606A885
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CEEC3606A890
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:49:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CEEC3606A890
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=AiOQxD9P
-Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-1383723dfddso82092c88.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 10:49:29 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=hrN7yDtV
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-36a3451ea93so185783eec.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 10:49:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794941368; x=1795546168; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1794941374; x=1795546174; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=hG1u1rwgLbGB3LPp4aSvH6eD6mJFKquRJ00BiqMbKNQ=;
-        b=AiOQxD9PGkfmzM5FEkoFLnVJHlR7N01vc1BJf8J/N9KvrrgeHJMuKRSqBECPU5FuVJ
-         3RFIm64M3lgmGG53mBrXEw//mzRV7OLEJdQW1lAvZzbnJY6EVO6Q6ZzlwN3j7dZg7EdQ
-         1fdqWnkoczzyCYxCAj3sFHu7qJw/o1TSd/E19YqeFaEoPMQIIoqmWKjvkZDq6d46//M4
-         1IiUKUxj9uQbGKTMOpifl5M8Y1HCnKyQfIPWGaMETru5VRQNsKX+XMtfnHbu/AbZy75h
-         XdF3ujiUV2HA+XLaute1/BF87+Av0gz3UH11F5aXomOtndLhs+zexUDUKjJauhUBzEKs
-         S5pg==
+        bh=jt8Ge1YfesjoyrcwC04dL6qB9pTBfIeSCbHLf5znjY8=;
+        b=hrN7yDtVLnf+5B91hYtdxX4ogB1CZj8ykCOXG8E+XhHk750aF5w0V/2kJgszavv2UM
+         rC1n0ArLCcmFKJ4Ik8i3nMxdIJjCe44d/gf2P2QkkRrzyi2jKb2+mtGY2VtrmIDVld/o
+         2vVjTZpCRsLI4o35d03hvTxdc0vZtDwiXzBGTsHfCxUbDXSo1yeXN9v9stYZE046IfUT
+         jI6Mg1WaZpykCUaZFiv1XqtM7Uf8VY1qEn7ZXtvMb1KxMKtkKfCin4septnqdGdqE2nQ
+         RZIrW81ac+Gp+R/fBkFrmzO4Df90QlwvS/D9fwmGLla/HorraLPJDrgy+Tj70VbUm66E
+         DHPg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794941368; x=1795546168;
+        d=1e100.net; s=20260707; t=1794941374; x=1795546174;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=hG1u1rwgLbGB3LPp4aSvH6eD6mJFKquRJ00BiqMbKNQ=;
-        b=gARzjyKAkbvJsDmafX8qW6gPk/b2kxzKZlteTs+mRAshumX4JsW0ujZO20vuSVbWwu
-         sIAESgQ7FQMHcRXL8xx+/+pgZQ7/kS+SSCScYiPRW+s6vAk4xvVJrnEL2Vinj50SD37w
-         vkBOH4f55JmQTk+Zt7gsmASYmHrOGaFD4pBGcHXCVVYJqUSutfuWi2//uml4/PwYDKgb
-         we8hhjxxMUdVcF9lwzQjiS2Z/Yepb7tAVUvT2jYv26su07jauovQ5EIPuE1egfj6rdl2
-         zNrkpbMeP25ycZ5H/Rbb57KKTVQRYw0K/lkKUgSZ3rpjYlhTIyKnd0MV01wgjOYlkmri
-         CzXQ==
-X-Forwarded-Encrypted: i=1; AL+hErH4mrYOFF9LrBwlHNSAoH+wU1+ybj0yuES21hLtxSS2R24DUIuURSdg4LnqDZjhFyummZdXS+0TDo2R7tE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9ISVhtiC6xlMVrqHenjAF75P5gcIlEhM+LYkE8ZZjq6uGbMnDP
-	JGW7Xyvk4nnuneUDi4u5JcfC07npIa2uVIB/GDXdR/R9vDBs6WUH/KyQR2ow4x6H8Q2C9jTbRp7
-	iRRrbF2wC4g==
-X-Received: from dlbov3.prod.google.com ([2002:a05:7022:1183:b0:1b2:cb3a:f87c])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:ef12:b0:1b5:17c5:9f61
- with SMTP id a92af1059eb24-1b543b3301amr536495c88.0.1794941367867; Tue, 17
- Nov 2026 10:49:27 -0800 (PST)
-Date: Tue, 17 Nov 2026 10:48:33 -0800
+        bh=jt8Ge1YfesjoyrcwC04dL6qB9pTBfIeSCbHLf5znjY8=;
+        b=diZD9dkQbIBZo//elm+kDjn3dyL3gzG4fKIQIeGEc+7YQWbbwc+XAH2bM4Z+m5fpmZ
+         dls8dpu36WcY/Egv2WirxBk3C0hMdqszY8Pv+/7S5BCtUivf+e28IbIqseBkc0FzgL4l
+         b7v/wtkAxgHMz1Us4qjL2oNUGtbUIKmEp8mHYnFUdnGjjF8nmFIpauF3TducXTshKYww
+         9aXiK/iApFb+ydSm69rBRlGTg5gm+QzaepoJZZYBqAhOecLeX1DWdj9pS2rKPKMfXTjF
+         CvR5acqYpQqMEzihLauA/f8GJ96tdVCNH72Rs537IXz2QnopH0PdPsu8knLjEiS+EQ24
+         RNyA==
+X-Forwarded-Encrypted: i=1; AL+hErEFw/yOpE+xQZOJKiDbtjMh8F8bgsT5gujDSEIvYo74wNJ5fPIdGUSFLwgjSuYU1cngqaPNwRZqxjo7Y+Q=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/Q7A4jGd7E1369psCSbM2hkz0UlyIpVBxJ7sEzltGpGJci+hCi
+	vw0s1+G3VX58jaAlFUA009QfxDUy0Plx3HdJtQAb8BAouUrjvNZfH78RI9CFMLyJfJlWIsNGZHk
+	CCfFIi5maUQ==
+X-Received: from dybpt11.prod.google.com ([2002:a05:7301:408b:b0:381:1cbb:c2b5])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:42d0:b0:381:c15:1b6f
+ with SMTP id 5a478bee46e88-3827f98c04fmr273545eec.6.1794941373542; Tue, 17
+ Nov 2026 10:49:33 -0800 (PST)
+Date: Tue, 17 Nov 2026 10:48:36 -0800
 In-Reply-To: <20261117184844.99889-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,8 +81,9 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261117184844.99889-1-irogers@google.com>
 X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
-Message-ID: <20261117184844.99889-13-irogers@google.com>
-Subject: [PATCH v14 12/23] perf dsos: Use read lock fast path in dsos__findnew_id()
+Message-ID: <20261117184844.99889-16-irogers@google.com>
+Subject: [PATCH v14 15/23] perf intel-tpebs: Fix race in tpebs_stop() and
+ tpebs_cmd.out fd handling
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Marco Elver <elver@google.com>
@@ -93,126 +94,486 @@ Cc: Bart Van Assche <bvanassche@acm.org>, Jiri Olsa <jolsa@kernel.org>,
 	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-In dsos__findnew_id(), try finding the DSO under the read lock first and
-only acquire the write lock when a new DSO must be inserted or an
-existing DSO needs its ID updated (checked via dso__needs_improve_id()).
-Prioritize build IDs over inode fields in dso__needs_improve_id() and
-__dso__improve_id() so an existing DSO with a defined build ID is not
-updated with inode metadata.
+intel-tpebs has two lifecycle bugs around the background 'perf record'
+process and sample reader thread:
+1. tpebs_cmd.out is read without tpebs_mtx and closed by both
+   perf_session__delete() in __sample_reader() and tpebs_stop() (or
+   leaked if perf_session__new() fails).
+2. tpebs_stop() reads tpebs_reader_thread after unlocking tpebs_mtx, and
+   tpebs_send_record_cmd() drops tpebs_mtx while writing undelimited
+   control strings and polling ack_fd, allowing concurrent open/close
+   calls to coalesce commands or race to close pipes, join the reader
+   thread, and reap tpebs_cmd twice.
 
+Fix (1) by initializing tpebs_cmd.out = -1, passing it to
+__sample_reader(), and resetting tpebs_cmd.out = -1 once ownership is
+transferred (and on start_command() failure). Fix (2) by preparing
+events under tpebs_mtx, reading tpebs_reader_thread under tpebs_mtx,
+newline-terminating control commands, serializing open,
+tpebs_send_record_cmd(), and teardown via a condition variable and
+generation counter, and ignoring late samples while stopping. Add
+explicit header includes used by the file.
+
+Fixes: 8db5cabcf1b6 ("perf stat: Fork and launch 'perf record' when 'perf stat' needs to get retire latency value for a metric.")
+Fixes: bded0398ac19 ("perf tpebs: Fix concurrent stop races and PID reuse hazards in tpebs_stop")
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/util/dso.c  | 45 +++++++++++++++++++++++++++++-------------
- tools/perf/util/dso.h  |  1 +
- tools/perf/util/dsos.c | 10 ++++++++++
- 3 files changed, 42 insertions(+), 14 deletions(-)
+ tools/perf/util/intel-tpebs.c | 243 +++++++++++++++++++++++++---------
+ 1 file changed, 184 insertions(+), 59 deletions(-)
 
-diff --git a/tools/perf/util/dso.c b/tools/perf/util/dso.c
-index 5be5d224b246..1c938d1b11e9 100644
---- a/tools/perf/util/dso.c
-+++ b/tools/perf/util/dso.c
-@@ -1685,6 +1685,20 @@ const struct dso_id dso_id_empty = {
- 	}
- };
+diff --git a/tools/perf/util/intel-tpebs.c b/tools/perf/util/intel-tpebs.c
+index 7c0b8b15bd10..23d1e8bb678c 100644
+--- a/tools/perf/util/intel-tpebs.c
++++ b/tools/perf/util/intel-tpebs.c
+@@ -27,6 +27,12 @@
+ #include <errno.h>
+ #include <poll.h>
+ #include <math.h>
++#include <pthread.h>
++#include <signal.h>
++#include <stdint.h>
++#include <stdlib.h>
++#include <string.h>
++#include <unistd.h>
  
-+bool dso__needs_improve_id(const struct dso *dso, const struct dso_id *id)
-+{
-+	const struct dso_id *dso_id = dso__id_const(dso);
-+
-+	if (!id || build_id__is_defined(&dso_id->build_id))
-+		return false;
-+
-+	if (build_id__is_defined(&id->build_id))
-+		return true;
-+
-+	return (id->mmap2_valid && !dso_id->mmap2_valid) ||
-+	       (id->mmap2_ino_generation_valid && !dso_id->mmap2_ino_generation_valid);
-+}
-+
- void __dso__improve_id(struct dso *dso, const struct dso_id *id)
- {
- 	struct dsos *dsos = dso__dsos(dso);
-@@ -1692,22 +1706,25 @@ void __dso__improve_id(struct dso *dso, const struct dso_id *id)
- 	bool changed = false;
+ #define PERF_DATA		"-"
  
- 	/* dsos write lock held by caller. */
-+	if (!id || build_id__is_defined(&dso_id->build_id))
-+		return;
+@@ -34,10 +40,17 @@ bool tpebs_recording;
+ enum tpebs_mode tpebs_mode;
+ static LIST_HEAD(tpebs_results);
+ static pthread_t tpebs_reader_thread;
+-static struct child_process tpebs_cmd;
++static struct child_process tpebs_cmd = {
++	.out = -1,
++};
+ static int control_fd[2], ack_fd[2];
+ static struct mutex tpebs_mtx;
++static struct cond tpebs_cmd_cond = { .cond = PTHREAD_COND_INITIALIZER };
+ static bool tpebs_stopping;
++static bool tpebs_starting;
++static bool tpebs_enabled;
++static bool tpebs_cmd_in_flight;
++static uint64_t tpebs_gen;
  
--	if (id->mmap2_valid && !dso_id->mmap2_valid) {
--		dso_id->maj = id->maj;
--		dso_id->min = id->min;
--		dso_id->ino = id->ino;
--		dso_id->mmap2_valid = true;
--		changed = true;
--	}
--	if (id->mmap2_ino_generation_valid && !dso_id->mmap2_ino_generation_valid) {
--		dso_id->ino_generation = id->ino_generation;
--		dso_id->mmap2_ino_generation_valid = true;
--		changed = true;
--	}
--	if (build_id__is_defined(&id->build_id) && !build_id__is_defined(&dso_id->build_id)) {
-+	if (build_id__is_defined(&id->build_id)) {
- 		dso_id->build_id = id->build_id;
- 		changed = true;
-+	} else {
-+		if (id->mmap2_valid && !dso_id->mmap2_valid) {
-+			dso_id->maj = id->maj;
-+			dso_id->min = id->min;
-+			dso_id->ino = id->ino;
-+			dso_id->mmap2_valid = true;
-+			changed = true;
-+		}
-+		if (id->mmap2_ino_generation_valid && !dso_id->mmap2_ino_generation_valid) {
-+			dso_id->ino_generation = id->ino_generation;
-+			dso_id->mmap2_ino_generation_valid = true;
-+			changed = true;
-+		}
- 	}
- 	if (changed && dsos)
- 		dsos->sorted = false;
-@@ -1715,7 +1732,7 @@ void __dso__improve_id(struct dso *dso, const struct dso_id *id)
+ struct tpebs_retire_lat {
+ 	struct list_head nd;
+@@ -120,10 +133,15 @@ static int evsel__tpebs_start_perf_record(struct evsel *evsel)
+ 	tpebs_cmd.out = -1;
+ 	ret = start_command(&tpebs_cmd);
+ 	zfree(&tpebs_cmd.argv);
++	if (ret) {
++		tpebs_cmd.pid = 0;
++		tpebs_cmd.out = -1;
++		return ret;
++	}
+ 	list_for_each_entry(t, &tpebs_results, nd)
+ 		t->started = true;
  
- int dso_id__cmp(const struct dso_id *a, const struct dso_id *b)
- {
--	if (a == &dso_id_empty || b == &dso_id_empty) {
-+	if (!a || !b || a == &dso_id_empty || b == &dso_id_empty) {
- 		/* There is no valid data to compare so the comparison always returns identical. */
+-	return ret;
++	return 0;
+ }
+ 
+ static bool is_child_pid(pid_t parent, pid_t child)
+@@ -195,8 +213,8 @@ static int process_sample_event(const struct perf_tool *tool __maybe_unused,
+ 	struct tpebs_retire_lat *t;
+ 
+ 	mutex_lock(tpebs_mtx_get());
+-	if (tpebs_cmd.pid == 0) {
+-		/* Record has terminated. */
++	if (tpebs_stopping || tpebs_cmd.pid == 0) {
++		/* Record is stopping or has terminated. */
+ 		mutex_unlock(tpebs_mtx_get());
  		return 0;
  	}
-diff --git a/tools/perf/util/dso.h b/tools/perf/util/dso.h
-index e8cd13c101a6..bb887d10a9ee 100644
---- a/tools/perf/util/dso.h
-+++ b/tools/perf/util/dso.h
-@@ -802,6 +802,7 @@ void dso__delete(struct dso *dso);
- int dso__cmp_id(struct dso *a, struct dso *b);
- void dso__set_short_name(struct dso *dso, const char *name, bool name_allocated);
- void dso__set_long_name(struct dso *dso, const char *name, bool name_allocated);
-+bool dso__needs_improve_id(const struct dso *dso, const struct dso_id *id);
- void __dso__improve_id(struct dso *dso, const struct dso_id *id);
+@@ -220,13 +238,13 @@ static int process_sample_event(const struct perf_tool *tool __maybe_unused,
+ 	return 0;
+ }
  
- int dso__name_len(const struct dso *dso);
-diff --git a/tools/perf/util/dsos.c b/tools/perf/util/dsos.c
-index a7f6a98acbaf..4ff38cb5e2cb 100644
---- a/tools/perf/util/dsos.c
-+++ b/tools/perf/util/dsos.c
-@@ -349,6 +349,16 @@ static struct dso *__dsos__findnew_id(struct dsos *dsos, const char *name, const
- struct dso *dsos__findnew_id(struct dsos *dsos, const char *name, const struct dso_id *id)
+-static void *__sample_reader(void *arg __maybe_unused)
++static void *__sample_reader(void *arg)
  {
- 	struct dso *dso;
-+
-+	down_read(&dsos->lock);
-+	dso = __dsos__find_id(dsos, name, id, false, /*write_locked=*/false);
-+	if (dso && !dso__needs_improve_id(dso, id)) {
-+		up_read(&dsos->lock);
-+		return dso;
+ 	struct perf_session *session;
+ 	struct perf_data data = {
+ 		.mode = PERF_DATA_MODE_READ,
+ 		.path = PERF_DATA,
+-		.file.fd = tpebs_cmd.out,
++		.file.fd = (int)(intptr_t)arg,
+ 	};
+ 	struct perf_tool tool;
+ 
+@@ -236,8 +254,10 @@ static void *__sample_reader(void *arg __maybe_unused)
+ 	tool.attr = perf_event__process_attr;
+ 
+ 	session = perf_session__new(&data, &tool);
+-	if (IS_ERR(session))
++	if (IS_ERR(session)) {
++		close(data.file.fd);
+ 		return NULL;
 +	}
-+	up_read(&dsos->lock);
-+	dso__put(dso);
+ 	perf_session__process_events(session);
+ 	perf_session__delete(session);
+ 
+@@ -247,35 +267,49 @@ static void *__sample_reader(void *arg __maybe_unused)
+ static int tpebs_send_record_cmd(const char *msg) __must_hold(tpebs_mtx_get())
+ {
+ 	struct pollfd pollfd = { .events = POLLIN, };
+-	int ret, len, retries = 0;
++	bool is_stop = !strcmp(msg, EVLIST_CTL_CMD_STOP_TAG);
++	int ret, len, retries = 0, ctrl_fd, resp_fd;
++	char cmd_buf[EVLIST_CTL_CMD_MAX_LEN];
+ 	char ack_buf[8];
+ 
++	while (tpebs_cmd_in_flight) {
++		if (!is_stop && tpebs_stopping)
++			return -EBUSY;
++		cond_wait(&tpebs_cmd_cond, tpebs_mtx_get());
++	}
++	if (!is_stop && tpebs_stopping)
++		return -EBUSY;
 +
- 	down_write(&dsos->lock);
- 	dso = __dsos__findnew_id(dsos, name, id);
- 	up_write(&dsos->lock);
+ 	/* Check if the command exited before the send, done with the lock held. */
+ 	if (tpebs_cmd.pid == 0)
+ 		return 0;
+ 
++	ctrl_fd = control_fd[1];
++	resp_fd = ack_fd[0];
++	tpebs_cmd_in_flight = true;
++
+ 	/*
+ 	 * Let go of the lock while sending/receiving as blocking can starve the
+ 	 * sample reading thread.
+ 	 */
+ 	mutex_unlock(tpebs_mtx_get());
+ 
+-	/* Send perf record command.*/
+-	len = strlen(msg);
+-	ret = write(control_fd[1], msg, len);
++	/* Send perf record command. */
++	len = scnprintf(cmd_buf, sizeof(cmd_buf), "%s\n", msg);
++	ret = write(ctrl_fd, cmd_buf, len);
+ 	if (ret != len) {
+ 		pr_err("perf record control write control message '%s' failed\n", msg);
+ 		ret = -EPIPE;
+ 		goto out;
+ 	}
+ 
+-	if (!strcmp(msg, EVLIST_CTL_CMD_STOP_TAG)) {
++	if (is_stop) {
+ 		ret = 0;
+ 		goto out;
+ 	}
+ 
+ 	/* Wait for an ack. */
+-	pollfd.fd = ack_fd[0];
++	pollfd.fd = resp_fd;
+ 
+ 	/*
+ 	 * We need this poll to ensure the ack_fd PIPE will not hang
+@@ -284,7 +318,17 @@ static int tpebs_send_record_cmd(const char *msg) __must_hold(tpebs_mtx_get())
+ 	 */
+ again:
+ 	if (!poll(&pollfd, 1, 500)) {
+-		if (check_if_command_finished(&tpebs_cmd)) {
++		bool stopping, finished;
++
++		mutex_lock(tpebs_mtx_get());
++		stopping = tpebs_stopping;
++		finished = !stopping && check_if_command_finished(&tpebs_cmd);
++		mutex_unlock(tpebs_mtx_get());
++		if (stopping) {
++			ret = -EBUSY;
++			goto out;
++		}
++		if (finished) {
+ 			ret = 0;
+ 			goto out;
+ 		}
+@@ -297,7 +341,17 @@ static int tpebs_send_record_cmd(const char *msg) __must_hold(tpebs_mtx_get())
+ 	}
+ 
+ 	if (!(pollfd.revents & POLLIN)) {
+-		if (check_if_command_finished(&tpebs_cmd)) {
++		bool stopping, finished;
++
++		mutex_lock(tpebs_mtx_get());
++		stopping = tpebs_stopping;
++		finished = !stopping && check_if_command_finished(&tpebs_cmd);
++		mutex_unlock(tpebs_mtx_get());
++		if (stopping) {
++			ret = -EBUSY;
++			goto out;
++		}
++		if (finished) {
+ 			ret = 0;
+ 			goto out;
+ 		}
+@@ -307,7 +361,7 @@ static int tpebs_send_record_cmd(const char *msg) __must_hold(tpebs_mtx_get())
+ 		goto out;
+ 	}
+ 
+-	ret = read(ack_fd[0], ack_buf, sizeof(ack_buf));
++	ret = read(resp_fd, ack_buf, sizeof(ack_buf));
+ 	if (ret > 0)
+ 		ret = strcmp(ack_buf, EVLIST_CTL_CMD_ACK_TAG);
+ 	else
+@@ -315,6 +369,8 @@ static int tpebs_send_record_cmd(const char *msg) __must_hold(tpebs_mtx_get())
+ out:
+ 	/* Re-take lock as expected by caller. */
+ 	mutex_lock(tpebs_mtx_get());
++	tpebs_cmd_in_flight = false;
++	cond_broadcast(&tpebs_cmd_cond);
+ 	return ret;
+ }
+ 
+@@ -331,12 +387,25 @@ static int tpebs_stop(void) __must_hold(tpebs_mtx_get())
+ 	/* Like tpebs_start, we should only run tpebs_end once. */
+ 	if (tpebs_cmd.pid != 0) {
+ 		pid_t actual_pid = tpebs_cmd.pid;
++		bool enabled = tpebs_enabled;
++		pthread_t reader_thread;
+ 
+ 		tpebs_stopping = true;
+-		tpebs_send_record_cmd(EVLIST_CTL_CMD_STOP_TAG);
++		tpebs_starting = false;
++		tpebs_enabled = false;
++		tpebs_gen++;
++		cond_broadcast(&tpebs_cmd_cond);
++		if ((tpebs_send_record_cmd(EVLIST_CTL_CMD_STOP_TAG) || !enabled) &&
++		    !tpebs_cmd.finished)
++			kill(actual_pid, SIGTERM);
++		/*
++		 * tpebs_results is empty when stopping; clear pid before
++		 * releasing tpebs_mtx to join the reader thread.
++		 */
+ 		tpebs_cmd.pid = 0;
++		reader_thread = tpebs_reader_thread;
+ 		mutex_unlock(tpebs_mtx_get());
+-		pthread_join(tpebs_reader_thread, NULL);
++		pthread_join(reader_thread, NULL);
+ 		mutex_lock(tpebs_mtx_get());
+ 		if (control_fd[0] >= 0) {
+ 			close(control_fd[0]);
+@@ -464,41 +533,53 @@ static struct tpebs_retire_lat *tpebs_retire_lat__find(struct evsel *evsel)
+ 	return NULL;
+ }
+ 
+-/**
+- * evsel__tpebs_prepare - create tpebs data structures ready for opening.
+- * @evsel: retire_latency evsel, all evsels on its list will be prepared.
+- */
+-static int evsel__tpebs_prepare(struct evsel *evsel)
++static void tpebs_results__delete(void) __must_hold(tpebs_mtx_get())
++{
++	struct tpebs_retire_lat *t, *tmp;
++
++	list_for_each_entry_safe(t, tmp, &tpebs_results, nd) {
++		list_del_init(&t->nd);
++		tpebs_retire_lat__delete(t);
++	}
++}
++
++static int evsel__tpebs_prepare_one(struct evsel *evsel) __must_hold(tpebs_mtx_get())
+ {
+-	struct evsel *pos;
+ 	struct tpebs_retire_lat *tpebs_event;
+ 
+-	mutex_lock(tpebs_mtx_get());
+-	tpebs_event = tpebs_retire_lat__find(evsel);
+-	if (tpebs_event) {
+-		/* evsel, or an identically named one, was already prepared. */
+-		mutex_unlock(tpebs_mtx_get());
++	if (tpebs_retire_lat__find(evsel))
+ 		return 0;
+-	}
++
+ 	tpebs_event = tpebs_retire_lat__new(evsel);
+-	if (!tpebs_event) {
+-		mutex_unlock(tpebs_mtx_get());
++	if (!tpebs_event)
+ 		return -ENOMEM;
+-	}
++
+ 	list_add_tail(&tpebs_event->nd, &tpebs_results);
+-	mutex_unlock(tpebs_mtx_get());
++	return 0;
++}
++
++/**
++ * evsel__tpebs_prepare - create tpebs data structures ready for opening.
++ * @evsel: retire_latency evsel, all evsels on its list will be prepared.
++ */
++static int evsel__tpebs_prepare(struct evsel *evsel) __must_hold(tpebs_mtx_get())
++{
++	struct evsel *pos;
++	int ret;
++
++	ret = evsel__tpebs_prepare_one(evsel);
++	if (ret)
++		return ret;
+ 
+ 	/*
+ 	 * Eagerly prepare all other evsels on the list to try to ensure that by
+ 	 * open they are all known.
+ 	 */
+ 	evlist__for_each_entry(evsel->evlist, pos) {
+-		int ret;
+-
+ 		if (pos == evsel || !pos->retire_lat)
+ 			continue;
+ 
+-		ret = evsel__tpebs_prepare(pos);
++		ret = evsel__tpebs_prepare_one(pos);
+ 		if (ret)
+ 			return ret;
+ 	}
+@@ -515,12 +596,26 @@ int evsel__tpebs_open(struct evsel *evsel)
+ 	int ret;
+ 	bool tpebs_empty;
+ 	bool started_process = false;
++	bool started_thread = false;
++	uint64_t open_gen = 0;
+ 
+ 	/* We should only run tpebs_start when tpebs_recording is enabled. */
+ 	if (!tpebs_recording)
+ 		return 0;
+ 
+ 	mutex_lock(tpebs_mtx_get());
++	if (tpebs_starting) {
++		uint64_t wait_gen = tpebs_gen;
++
++		while (tpebs_starting && tpebs_gen == wait_gen)
++			cond_wait(&tpebs_cmd_cond, tpebs_mtx_get());
++
++		if (tpebs_gen != wait_gen) {
++			mutex_unlock(tpebs_mtx_get());
++			return -EBUSY;
++		}
++	}
++
+ 	if (tpebs_stopping) {
+ 		mutex_unlock(tpebs_mtx_get());
+ 		return -EBUSY;
+@@ -531,25 +626,24 @@ int evsel__tpebs_open(struct evsel *evsel)
+ 		bool valid;
+ 
+ 		t = tpebs_retire_lat__find(evsel);
+-		valid = t && t->started;
++		valid = t && t->started && tpebs_enabled;
+ 		mutex_unlock(tpebs_mtx_get());
+ 		/* May fail as the event wasn't started. */
+ 		return valid ? 0 : -EBUSY;
+ 	}
+-	mutex_unlock(tpebs_mtx_get());
+ 
+ 	ret = evsel__tpebs_prepare(evsel);
+-	if (ret)
++	if (ret) {
++		tpebs_results__delete();
++		mutex_unlock(tpebs_mtx_get());
+ 		return ret;
+-
+-	mutex_lock(tpebs_mtx_get());
+-	if (tpebs_stopping || tpebs_cmd.pid != 0) {
+-		ret = -EBUSY;
+-		goto out;
+ 	}
++
+ 	tpebs_empty = list_empty(&tpebs_results);
+ 	if (!tpebs_empty) {
+ 		started_process = true;
++		tpebs_enabled = false;
++		open_gen = ++tpebs_gen;
+ 		/*Create control and ack fd for --control*/
+ 		if (pipe(control_fd) < 0) {
+ 			pr_err("tpebs: Failed to create control fifo");
+@@ -567,28 +661,50 @@ int evsel__tpebs_open(struct evsel *evsel)
+ 			goto out;
+ 
+ 		if (pthread_create(&tpebs_reader_thread, /*attr=*/NULL, __sample_reader,
+-				   /*arg=*/NULL)) {
+-			kill(tpebs_cmd.pid, SIGTERM);
++				   (void *)(intptr_t)tpebs_cmd.out)) {
+ 			pr_err("Could not create thread to process sample data.\n");
+ 			ret = -1;
+ 			goto out;
+ 		}
++		/* __sample_reader now owns and closes the output fd. */
++		tpebs_cmd.out = -1;
++		started_thread = true;
++		tpebs_starting = true;
+ 		ret = tpebs_send_record_cmd(EVLIST_CTL_CMD_ENABLE_TAG);
++		if (!ret) {
++			if (tpebs_gen != open_gen) {
++				ret = -EBUSY;
++			} else {
++				tpebs_enabled = true;
++				if (!tpebs_retire_lat__find(evsel))
++					ret = -EBUSY;
++			}
++		}
+ 	}
+ out:
+-	if (ret) {
+-		struct tpebs_retire_lat *t = tpebs_retire_lat__find(evsel);
+-
+-		if (t) {
+-			list_del_init(&t->nd);
+-			tpebs_retire_lat__delete(t);
+-		}
+-
+-		if (started_process) {
+-			if (tpebs_cmd.pid > 0) {
+-				kill(tpebs_cmd.pid, SIGTERM);
+-				finish_command(&tpebs_cmd);
++	if (started_process && tpebs_gen == open_gen) {
++		tpebs_starting = false;
++		if (ret) {
++			pid_t actual_pid = tpebs_cmd.pid;
++
++			tpebs_stopping = true;
++			tpebs_enabled = false;
++			tpebs_gen++;
++			tpebs_results__delete();
++			cond_broadcast(&tpebs_cmd_cond);
++			if (actual_pid > 0) {
++				if (!tpebs_cmd.finished)
++					kill(actual_pid, SIGTERM);
++				while (tpebs_cmd_in_flight)
++					cond_wait(&tpebs_cmd_cond, tpebs_mtx_get());
+ 				tpebs_cmd.pid = 0;
++				if (started_thread) {
++					pthread_t reader_thread = tpebs_reader_thread;
++
++					mutex_unlock(tpebs_mtx_get());
++					pthread_join(reader_thread, NULL);
++					mutex_lock(tpebs_mtx_get());
++				}
+ 			}
+ 			if (tpebs_cmd.out >= 0) {
+ 				close(tpebs_cmd.out);
+@@ -610,6 +726,14 @@ int evsel__tpebs_open(struct evsel *evsel)
+ 				close(ack_fd[1]);
+ 				ack_fd[1] = -1;
+ 			}
++			if (actual_pid > 0) {
++				tpebs_cmd.pid = actual_pid;
++				finish_command(&tpebs_cmd);
++				tpebs_cmd.pid = 0;
++			}
++			tpebs_stopping = false;
++		} else {
++			cond_broadcast(&tpebs_cmd_cond);
+ 		}
+ 	}
+ 	mutex_unlock(tpebs_mtx_get());
+@@ -645,6 +769,7 @@ int evsel__tpebs_read(struct evsel *evsel, int cpu_map_idx, int thread)
+ 		if (ret)
+ 			return ret;
+ 		mutex_lock(tpebs_mtx_get());
++		t = tpebs_retire_lat__find(evsel);
+ 	}
+ 	if (t == NULL || t->stats.n == 0) {
+ 		/* No sample data, use default. */
 -- 
 2.56.1.703.gf848ed807c-goog
 
