@@ -1,61 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794951512;
-	b=2K+nfdhcO11+Rm80t/bDyKQ9e5Z9eexLjzIDrwebI8PBGcGDW/OVokqxeGGfH+LhM8HJ
-	 it+wRxBzoUcSYdmIxvltbK+8XRvtPptWEKYpR0rssc6lDBhJv7hUNZtPJbmKJYuxouyhi
-	 B/Zymt2oPlrN+3BGhMsjOgx23T88GbK6cuOgyDJQfvW3zgjbV7NB/IU79MFkMx/4guwW0
-	 XTBMJ014bwmmtDAF/7w7ejFHp4gzy/f0iKnxhZVIUVcLpM/cezGYITVkpw0c14JtrsFhQ
-	 FIEl+YFcnI7sXmHR1lpebgJU35JoUVcL9ZwbBmz0i6H6LEOC3Oxvcc8YhqryyWW4BmA==
+	t=1794951567;
+	b=cx6F8JhFgKYYJWFOtaWBlS+dqjLOxX/INl8ZwzNMwCWxJNxQ+dcsFf+DgB8+kLZxzdKV
+	 TtPRoeKWpXVEHRPi1EknR5BOs93H/RKqKz/aTJlzgrsIXFKCJYP+RZ7ProkqhmNSDMVJM
+	 xolc31j7/ne7cP1oCjZUHB0iFME3iJnYPGNn3HCXmkD1aIkCw70ufP9AfVpKtjYqwVobO
+	 q6m9xFiVM2iGiGL4aNiSMVn6C1S8He3A+VBMa9HU5oJyTiOI84NElLzVQdiVHn8HhMpNm
+	 RiDr9FTwf0HYiDAn3ZfYTn9WCCGd4ui3jdUv8bgJqdErQiQ3mlc5UXnovvIHQYvFqaQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794951512;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=iXopMQoBtcGz358w9N9nrAJff3scf+1pEvqdTdRCoP0=;
-	b=O3ZkxpuOv3FSRS/zicoXVCHEzVMGU0VndCHL2e5+Q10cgpSRHlSoeyCEIzFw/iPHlweZ
-	 +5+4HtiAXFuhVS1NTAwTfd/0TuPe2N9AxlF/a7K5B5G16g7h6ntvJbEIdU6eSIjRw28vd
-	 muxQTUajYzthFImj0EFMd6/Kz5BkoBXKtVHElW8azRbnIWpY5wv7igeOOGT78sUVWpb37
-	 J3vKSZSg//tXdZfxVHua21BDYvJSxZ8j+R1+yFypTFBjPrfiSXpEZsDCTVBO3X3Hd928Z
-	 HXLwhw2/xpj6dfZL36f8X59e6ZqV6EGXx+DTz2YawTdc3zS4eklu/GdSpbFaAJxL/Mw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794951567;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition;
+	bh=oScinXla8iFhsV7Z44c+jwWiVoqHGFAC1o8kLT6Z9DQ=;
+	b=ssltPbeU091a+O9QfKy4sWYjV2J286YpWAqpQ1J/XDcSMn90AoAF/Uw7pgh0TRisFga9
+	 RJuISefhrPbAPBlS/ajrCRzhUh/HHADkUTEYQXZYCeQeeFHSvwV+KJyUMZtQ1DL63DAtg
+	 xZSzp/al8U5IAHuPanGDmmSXKDEC/rdWb8aN7gPkAZ9DUHJbfxU3ieMayqLtsYOqhPnag
+	 gt8CYlNZqfSEuz4/qA3HlNMPI7e7Ix/eelct2w+B2JL6Ta1CSYKj8wId1ibgKifXKgArn
+	 5FxEGC+eKsllVY0sglc58ufENhpV/y3DreqPxaUR5F1J7A4ts9DdI0bTedVHq3ZYmMg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TU0WQ2xQ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hJRHO5RE;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97FD5606A31C;
-	Tue, 17 Nov 2026 21:38:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 995DF606A31C;
+	Tue, 17 Nov 2026 21:39:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TU0WQ2xQ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF2FF1F000C4;
-	Tue, 17 Nov 2026 21:38:28 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hJRHO5RE
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D09D1F000C4;
+	Tue, 17 Nov 2026 21:39:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794951512;
-	bh=iXopMQoBtcGz358w9N9nrAJff3scf+1pEvqdTdRCoP0=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=TU0WQ2xQUMV6milbx0O6Ta2jGZgdBz6gPeO6FBMhhUIo744+53WpaV7L/CgZSomN2
-	 zIUWBItGYo/1F1AmPBP18Kf8nJAmdVZATpzBzzIjc67Xg60UcYy0/61iZA9f7LKP81
-	 slEGik5OnWmzZnNjy//vaY5sX7JyLqLfV6wdKLD5glHpHwEirtxBPW9YWWw24IToRD
-	 ZoW6cMzpW8srAp5BKcQJ5PIn1RWPdajuoIZg3y18bBeWDJslA+mC+7eDwJ++ABLvmX
-	 zsYoqBgKAioTA5mWnschkaCzUMJ0wrFa56Z8OV1MA+KteqA6rhZJIv8/bzYozu3M0e
-	 4kLOnmHVHvkYQ==
-From: David Hildenbrand <david@kernel.org>
-To: Lorenzo Stoakes <ljs@kernel.org>, 
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
- Michal Hocko <mhocko@suse.com>, Andrew Morton <akpm@linux-foundation.org>, 
- Nico Pache <nico.pache@linux.dev>, Lance Yang <lance.yang@linux.dev>, 
- "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, Chris Mason <mason@kernel.org>, 
- Daniel Wade <danjwade95@gmail.com>
-In-Reply-To: <20261117-khugepaged_mthp_dirty-v1-1-024e4a12c2fa@kernel.org>
-References: <20261117-khugepaged_mthp_dirty-v1-1-024e4a12c2fa@kernel.org>
-Subject: Re: [PATCH] mm/khugepaged: mark ptes dirty and soft-dirty on mTHP
- collapse
-Message-Id: <179495150847.5194.3491297223521480619.b4-ty@b4>
-Date: Tue, 17 Nov 2026 22:38:28 +0100
+	s=k20260515; t=1794951567;
+	bh=oScinXla8iFhsV7Z44c+jwWiVoqHGFAC1o8kLT6Z9DQ=;
+	h=Date:From:To:Cc:Subject;
+	b=hJRHO5REEBASSbi2j2HIfhVqEMtI55YM9h6JuU4VcBBJYvZ/KsQei5uDiR+tkdrSG
+	 EWNRvw1gnOcKAkk05qNAGSCODBo8EVK1NVKWM+YgxR8WIhsqnSiKYp+B7DqotoemHe
+	 nQvHZ9iIepFsSquSirZGTk1XooLe0K6ypIEfXUrWZ7MNUerX6O9cmnBwTwHpvAgaCa
+	 5/tcMM7tiQyljOuRJMKa5PYXVKvuHNTl+/wywGxnDIzzGIpjcmbqUPgLaATcB1VjGY
+	 kX+XyYGonvEHwG0tYJleeDod1MrJgM8/fiqHYuITnjVld/JZegsbFfyMphh2v4UGgv
+	 sgz1Lbelkz3BQ==
+Date: Tue, 17 Nov 2026 21:39:22 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>, bpf <bpf@vger.kernel.org>,
+	Networking <netdev@vger.kernel.org>
+Cc: Breno Leitao <leitao@debian.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Linux Next Mailing List <linux-next@vger.kernel.org>
+Subject: linux-next: manual merge of the bpf-next tree with the bpf tree
+Message-ID: <avzJivvibrEmtax3@sirena.org.uk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,46 +61,81 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="xWHNQ/XToCorKOAZ"
+Content-Disposition: inline
 
-On Tue, 17 Nov 2026 10:28:18 +0100, David Hildenbrand (Arm) wrote:
-> An mTHP collapse can lose soft-dirty PTE bits if pages were written and
-> the VMA was then made read-only, and not setting the PTE dirty in
-> VMAs without VM_WRITE can interact with a later MADV_FREE on a COW-shared
-> page such that all processes lose the data even though a single process
-> MADV_FREE'ed it.
-> 
-> Collapse does not preserve the soft-dirty bits of the old PTEs, so the
-> new entries must be marked soft-dirty. map_anon_folio_pte_nopf() relies
-> on pte_mkdirty() to do that, but only calls it if the VMA has VM_WRITE.
-> 
-> [...]
 
-Applied, thanks!
+--xWHNQ/XToCorKOAZ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-tree: mm/core.git
-branch: for-next-fixes
+Hi all,
 
-Applied patches will appear soon in mm-next, followed by linux-next.
+Today's linux-next merge of the bpf-next tree got a conflict in:
 
-Please report any outstanding bugs that were missed during review, so we
-can either drop the patch series or decide how to fix it up.
+  kernel/bpf/verifier.c
 
-It is encouraged to provide Acked-bys, Reviewed-bys, and Tested-bys even
-though the patches have already been applied. If possible, patch trailers
-will be updated.
+between commit:
 
-Note that commit hashes shown below are subject to change due to rebase,
-trailer updates or similar. Further, this is not a guarantee that the
-patches will go upstream. If in doubt, please check the listed branch.
+  7f1e33230b7c7 ("bpf: Report RCU-tasks quiescent states in do_check()")
 
-[1/1] mm/khugepaged: mark ptes dirty and soft-dirty on mTHP collapse
-      https://git.kernel.org/mm/core/c/5e600d79
+=66rom the bpf tree and commit:
 
--- 
-Cheers,
+  8fd58560b71e9 ("bpf: Verify static subprogs on their own")
 
-David
+and it appears some other commit that removes the reset of current
+history that I didn't spot from the bpf-next tree.
 
+I fixed it up (see below) and can carry the fix as necessary. This
+is now fixed as far as linux-next is concerned, but any non trivial
+conflicts should be mentioned to your upstream maintainer when your tree
+is submitted for merging.  You may also want to consider cooperating
+with the maintainer of the conflicting tree to minimise any particularly
+complex conflicts.
+
+diff --cc kernel/bpf/verifier.c
+index 9b228ffbe3fe9,1a8e5a108a681..0000000000000
+--- a/kernel/bpf/verifier.c
++++ b/kernel/bpf/verifier.c
+@@@ -20626,13 -21560,14 +21562,16 @@@ static int do_check_block(struct bpf_=
+ve
+  		struct bpf_insn_aux_data *insn_aux;
+  		int err;
+ =20
+- 		if (signal_pending(current))
+- 			return -EAGAIN;
++ 		if (bpf_must_abort())
++ 			return -EINTR;
+ =20
+ +		cond_resched_tasks_rcu_qs();
+ +
+- 		/* reset current history entry on each new instruction */
+- 		env->cur_hist_ent =3D NULL;
++ 		/* no insn makes as many ids as there are from here to BPF_INHERITED_ID=
+ */
++ 		if (env->id_gen >=3D BPF_MAX_ID) {
++ 			verbose(env, "too many ids\n");
++ 			return -E2BIG;
++ 		}
+ =20
+  		env->prev_insn_idx =3D prev_insn_idx;
+  		if (env->insn_idx >=3D insn_cnt) {
+
+--xWHNQ/XToCorKOAZ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmr8yYkACgkQJNaLcl1U
+h9BeXwf+KWfYD7XbfMeu1qZsmE2dJOavMRKPtgoztl6WC1kVloG57PWaLojmVVm4
+RQCZZ+/Q/UEadYCy6UJiJJBXgEn6NLCZPeiX7JdCZclFEHkGXKvRO630iS0Q2dRg
+LvnjHXblTQilduMgEGvUePNAu8nfOLXR0MKU1Cns7HOw+9W4Jkjrpnv5t9D7xIXr
+K8ckvau4YztGxSeCTKgs40vdY9xyAaMa4/zNyLY0yb5kx5InQmsGyF0pijJ6K11m
+/OPuYV5QHO0NGGefsJ0bTL1jKtBoCg9zzRQaGtBkHJhbmSFCX7OmqjXMC5Ls9dGy
+OX6tpVnJ0Ll/7YCA8u8ZLhM6Crp6KA==
+=S2f+
+-----END PGP SIGNATURE-----
+
+--xWHNQ/XToCorKOAZ--
