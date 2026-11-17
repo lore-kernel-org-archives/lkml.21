@@ -1,74 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794956965;
-	b=446/Ta5ILhhqXRest0ELYtoQ8khT+wq9iU99lh9tjI2bLmHlTRLftx1f1roqRGdIIjr1
-	 GkCq34dJM2ULncluFR6BtyFj+CeTv0gMxSqc7XR/tZh4CZ6srwAyE/rqjVqF2gDZlaxdS
-	 sPB5CkbmZ1rzTk4rhJDsvNXDNwnh+LcjTrHvRzKv+uwJkaIp39L4DTgoLyz+8XPVcwQFz
-	 5eNxv5LOfKl7zyp7T8gWkCJKrycULnVBksMtbxfQ1U8DGKf2SqDt9Qu51UOD8ICFqc8Hu
-	 A0MCoQoY1uyxT2kGqidGfq5mGrarNetokSZ+rf1br8hkczo3Gz72GVYKNNXjQlcoxpg==
+	t=1794956979;
+	b=VvKaM6t5K6aIlf0u/PZnKIiMViCTGH/m83RWhZNgmBckmioohlu7u/UcEOljbAtIuXfE
+	 81NreGLrT5pvWGkYTHkPcjyPqzW+VGh2IK285SLuOa4Q/3jkxotwIWzJx8c4XEhZUZG6W
+	 ktWr2t9NLi/QWFY99HqTCyDMPi2h5vTXWTb2IRcNLosvV7KGDogWa2aB1ndd94xmgOxjW
+	 FOeBGdJ65czPSwfmZQLRL7kLmnubToq+IEfNMbePbINY67XNR2xo+xVx7e8he8ozsxHhx
+	 s7Oy2hTfIBqKZgRxgwXZtTs96EflGxZCRe3ECjjjLyO3tpituQ5r9lX95mpvA3Zi6zQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794956965;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
-	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
-	bh=dFkPeqI1YsZpwMuujURc1wVh0W1MRwBf/9b3hgnBI8M=;
-	b=BfGhRseVTSo7A5Y28ZcXHNm6j87FJjb4EmEMmy6aTF7+UwqTHyScEpQPdkUzG1Lj94IS
-	 SngSCDtxnMz8A1aV3kcEEuYGETPJjRdDYg8pmBD6BI/Gvy9QpqazbHGsKXRLAlwXEHV53
-	 /7hgV/9FTGpok0QntpU42I3rDfcX3pOjQz3Rimldbe5kfXkeekA2gFlGWujQnBkMknLIC
-	 Nxc0iVD9ABmfe60qWh7KjrD7oJJwZtnthdBjHsxLc1URv2zq5QuaIQDI7gSNMLgcfOY7i
-	 QRNiIq7qISO9FDmn/qSuwPF7ioNe9Ftstj9G0NSpekPOJ69oxsXL8W4Jz+brP2/HRmg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794956979;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:Content-Language:To:Cc:References:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Spam-Status:
+	 X-Spam-Checker-Version;
+	bh=KmW5WBJWmVnFMziNJgQZ039kaABRRBYmSmOfckGsXpE=;
+	b=aZdWZ49TwoFthoNzsVvZBt4rOhGjqQnCLEebpTO+ZYoBvEGhTG5Uld89tVC1iBsfYi8o
+	 Dohn7rgSv+Bp+a8yl92DeqqTCahFWx1DvlrtY4I++wbjx6DZwF8R/KdSo01K7aZ79wd1S
+	 X0U0lHUVEtWMu3lbiEx7jTHoaebsmZ4zmjoFnKnHxax6Hnc1umvTPKSaPxPsIhqWA59nw
+	 3RZYyv3bpDEEtyN68jLhZHeSBHKGRXkiHM7R4kI0MZDAyR/qtyoQA4AraK3L2MUlGDcT3
+	 g5UplrXerCTKLxCx/f7mVDTQ5b12UuK/Ql9e38O7bp6ct6ca6yyetP2+Do6YpbscTZw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=U0V3eQPb;
-	arc=none smtp.remote-ip=198.175.65.12
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F4161606A31C;
-	Tue, 17 Nov 2026 23:09:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F4161606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	dmarc=pass header.from=linux.microsoft.com;
+	spf=pass smtp.mailfrom=linux.microsoft.com;
+	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=cslWmA0f;
+	arc=none smtp.remote-ip=13.77.154.182
+Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 93CDC606A31C;
+	Tue, 17 Nov 2026 23:09:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93CDC606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=U0V3eQPb
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1794956965; x=1826492965;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=ibKdoUuCga2+n4HXehZ/zu9gXI8pFOg/f+UavUylCEk=;
-  b=U0V3eQPbZngUyWZz7DjYfxeE7cMhPJw9cC3CZLdjtUKzTm2XTOLxB1A0
-   GmbDH9XxyiXjxMp9mZk2GpyQLB3HtKR37KtMEdqYFJ/laxm06wFmUoLjt
-   yyf4Y7Lks2C/J1d3dizyDV5HwWbW+dua8NZvNcR8/Po/cvGLHG80d8wEj
-   rQz2VZdBgAHaXDCNd3RAA0K950muUW7GUaXlKlKqHs8JBrEZulawrOkk6
-   q9ztQbLWiETUGpS+I1hSYNnIkWHoinslmw3iZB6Zw8Re5K2Igy+QWcH7G
-   gOZCfqnLiqRAAHl4NgQaWQEdvwqQeLoM28zPIpnniF7uFnfdFFVYLTgVf
-   Q==;
-X-CSE-ConnectionGUID: 0vLjLevnRpSau51iC5GOZQ==
-X-CSE-MsgGUID: Zdc3Tc5ZRmGe7XWHfQUvng==
-X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3633081"
-X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
-   d="scan'208";a="3633081"
-Received: from fmviesa011.fm.intel.com ([10.60.135.151])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 15:09:23 -0800
-X-CSE-ConnectionGUID: oo2SD/NsTM6za1MGSbWH6Q==
-X-CSE-MsgGUID: pDsslFIHTye8x2DeCOgHyg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
-   d="scan'208";a="11780726"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.79])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 15:09:20 -0800
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Wed, 18 Nov 2026 01:09:17 +0200 (EET)
-To: Armin Wolf <W_Armin@gmx.de>
-cc: Hans de Goede <hansg@kernel.org>, platform-driver-x86@vger.kernel.org, 
-    LKML <linux-kernel@vger.kernel.org>, teolyub@gmail.com
-Subject: Re: [PATCH 1/2] platform/x86: dell: Add new dell-wmi-pega driver
-In-Reply-To: <848ebb18-b9bf-4747-9403-fa8da4fba2ad@gmx.de>
-Message-ID: <25490090-1d6e-725b-04e1-659faec01db2@linux.intel.com>
-References: <20261117214604.397131-1-W_Armin@gmx.de> <f71860dd-cf85-ddd9-8e47-7279205f46ab@linux.intel.com> <848ebb18-b9bf-4747-9403-fa8da4fba2ad@gmx.de>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=cslWmA0f
+Received: from [192.168.0.88] (192-184-212-33.fiber.dynamic.sonic.net [192.184.212.33])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 8DE0420B7169;
+	Tue, 17 Nov 2026 15:09:36 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 8DE0420B7169
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1794956976;
+	bh=KmW5WBJWmVnFMziNJgQZ039kaABRRBYmSmOfckGsXpE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=cslWmA0fpIL5uuhTxjjaXdDqtdWFQzTwEFOgzoMolq7A59xMALVF+Ca2JSX5KYmRm
+	 o7svpnQwbNjcExg32+g75tQeYBujD0MUhrEQl3bxLngq28EIeQwKaU75MC0mLNGTtS
+	 A7oGxRFD/A9UjGBEdFbRT8Uf4JqVeSoXnoOYM/Q4=
+Message-ID: <bb569c87-1a60-c498-98e4-db519e4d7d24@linux.microsoft.com>
+Date: Tue, 17 Nov 2026 15:09:36 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,380 +53,397 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="8323328-122444894-1794956957=:1563"
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.13.1
+Subject: Re: [PATCH V1 2/2] Drivers: hv: Fix bugs and issues around repeat
+ hypercall
+Content-Language: en-US
+To: Michael Kelley <mhklinux@outlook.com>,
+ "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Vitaly Kuznetsov <vkuznets@redhat.com>
+Cc: "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
+ "wei.liu@kernel.org" <wei.liu@kernel.org>,
+ "decui@microsoft.com" <decui@microsoft.com>,
+ "kameroncarr@linux.microsoft.com" <kameroncarr@linux.microsoft.com>
+References: <20261114025313.1257042-1-mrathor@linux.microsoft.com>
+ <20261114025313.1257042-3-mrathor@linux.microsoft.com>
+ <MN2PR02MB6863E6C4F59864B7833681FCD47D2@MN2PR02MB6863.namprd02.prod.outlook.com>
+ <fd130973-25d6-e706-6822-793f12ba2015@linux.microsoft.com>
+ <MN2PR02MB68639EE1AC00187FDA3D5A42D47B2@MN2PR02MB6863.namprd02.prod.outlook.com>
+From: Mukesh R <mrathor@linux.microsoft.com>
+In-Reply-To: <MN2PR02MB68639EE1AC00187FDA3D5A42D47B2@MN2PR02MB6863.namprd02.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+On 11/17/26 09:41, Michael Kelley wrote:
+> From: Mukesh R <mrathor@linux.microsoft.com> Sent: Monday, November 16, 2026 6:29 PM
+>>
+>> On 11/15/26 15:48, Michael Kelley wrote:
+>>> From: Mukesh R <mrathor@linux.microsoft.com> Sent: Friday, November 13, 2026 6:53 PM
+>>>>
+>>>> There are few issues/bugs around repeat hypercall:
+>>>>    o If the hypercall fails, it could still have processed some entries.
+>>>>      Fix places where it assumes none of the entries were processed and will
+>>>>      try to undo entries already processed or print incorrect completions.
+>>>>
+>>>>    o Hypercall returns back with timeouts only for HW confidential VMs. In
+>>>>      that case it should be retried instead of returning back. Returning back
+>>>>      results in error conditions and take down of VMs in most cases.
+>>>>
+>>>>    o For non confidential VMs, the hypercall could be streamlined as it will
+>>>>      never return back with timeouts.
+>>>>
+>>>>    o Rename HV_STATUS_TIME_OUT to HV_STATUS_TIMEOUT to match hypervisor
+>>>>      public header file. There is no reason for it to be different.
+>>>>
+>>>>    o Minor formatting fix for checkpatch. Error printing missing in couple
+>>>>      places when rep hypercall fails.
+> 
+> In my view, the changes to the call sites of hv_do_rep_hypercall() should
+> be in a separate patch. These are just bugs in how the undo is handled
+> in case of an error, and the fixes presumably want to backported.
+> 
+> Handling a TIMEOUT return should also be a separate patch. This is
+> also a bug and the fix should be backported. The TIMEOUT is
+> generated under a specific set of circumstances -- it's not a generic
+> error. The patch should describe how and why those circumstances arise
+> in the overall context of hypercall continuation. There's not any such
+> documentation elsewhere, so the info should be captured in the
+> patch commit message or code comments for future reference.
+> 
+> Finally, if the looping behavior in a normal VM is to be removed,
+> that would be a third patch. Given that this changes long-standing
+> behavior, some explanation of "why" is needed in the commit
+> message. I don't think this change should be backported.
 
---8323328-122444894-1794956957=:1563
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: QUOTED-PRINTABLE
+The looping behavior is tied to timeout, so I think it could be two
+instead of 3 splits...
 
-On Tue, 17 Nov 2026, Armin Wolf wrote:
+>>>>
+>>>> Signed-off-by: Mukesh R <mrathor@linux.microsoft.com>
+>>>
+>>> [snip]
+>>>
+>>>> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
+>>>> index 396bcb3db0bc..87c784b9daa6 100644
+>>>> --- a/include/asm-generic/mshyperv.h
+>>>> +++ b/include/asm-generic/mshyperv.h
+>>>> @@ -28,6 +28,9 @@
+>>>>
+>>>>    #define VTPM_BASE_ADDRESS 0xfed40000
+>>>>
+>>>> +#define HV_REP_COUNT_MAX	\
+>>>> +	(HV_HYPERCALL_REP_COMP_MASK >> HV_HYPERCALL_REP_COMP_OFFSET)
+>>>
+>>> Sashiko noted that this new #define is never used anywhere.
+>>>
+>>>> +
+>>>>    enum hv_partition_type {
+>>>>    	HV_PARTITION_TYPE_GUEST,
+>>>>    	HV_PARTITION_TYPE_ROOT,
+>>>> @@ -128,6 +131,11 @@ static inline bool hv_result_success(u64 status)
+>>>>    	return hv_result(status) == HV_STATUS_SUCCESS;
+>>>>    }
+>>>>
+>>>> +static inline bool hv_result_timeout(u64 status)
+>>>> +{
+>>>> +	return hv_result(status) == HV_STATUS_TIMEOUT;
+>>>> +}
+>>>> +
+>>>>    static inline unsigned int hv_repcomp(u64 status)
+>>>>    {
+>>>>    	/* Bits [43:32] of status have 'Reps completed' data. */
+>>>> @@ -135,45 +143,63 @@ static inline unsigned int hv_repcomp(u64 status)
+>>>>    			 HV_HYPERCALL_REP_COMP_OFFSET;
+>>>>    }
+>>>>
+>>>> -/*
+>>>> - * Rep hypercalls. Callers of this functions are supposed to ensure that
+>>>> - * rep_count, varhead_size, and rep_start comply with Hyper-V hypercall
+>>>> - * definition.
+>>>> - */
+>>>> -static inline u64 hv_do_rep_hypercall_ex(u16 code, u16 rep_count,
+>>>> -					 u16 varhead_size, u16 rep_start,
+>>>> -					 void *input, void *output)
+>>>> +static inline u64 hv_do_rep_hypercall_reg(u16 code, u16 rep_count,
+>>>> +					  u16 varhead_size, u16 rep_start,
+>>>> +					  void *input, void *output)
+>>>>    {
+>>>>    	u64 control = code;
+>>>> -	u64 status;
+>>>> -	u16 rep_comp;
+>>>>
+>>>>    	control |= (u64)varhead_size << HV_HYPERCALL_VARHEAD_OFFSET;
+>>>>    	control |= (u64)rep_count << HV_HYPERCALL_REP_COMP_OFFSET;
+>>>>    	control |= (u64)rep_start << HV_HYPERCALL_REP_START_OFFSET;
+>>>>
+>>>> -	do {
+>>>
+>>> Dropped the looping behavior here may be much more significant
+>>> than just "streamlining" as described in the commit message. The looping
+>>> behavior was included when rep hypercalls were originally added in
+>>> commit 806c89273bab in kernel 4.14, long before any SNP/TDX/CCA
+>>> functionality was added. So it was present for "normal" VMs doing
+>>> hypercalls on x86/x64 the normal way. The looping ensured that
+>>> rep hypercalls could not return with no errors but with the completed
+>>> rep count less than the requested rep count.
+>>>
+>>> However, in my mind it *is* debatable whether that scenario could
+>>> ever occur. The Hyper-V TLFS describes "Hypercall Continuation" [1]
+>>> as essentially transparent to the caller. If a rep hypercall stops
+>>> processing reps because of hitting the 50 microsecond time limit,
+>>> it should restart and continue with the next set of reps without
+>>> the caller having to loop. Commit 806c89273bab mentions
+>>> hypercall continuation, but does not describe why the explicit
+>>> looping was added or how that aligns with the TLFS statements.
+>>> Vitaly -- it was a long time ago, but do you have any recollection?
+>>>
+>>> Have you gotten an explicit assurance from the Hyper-V team
+>>> that the transparent hypercall continuation really does work,
+>>> and the explicit looping has all along been unnecessary? This
+>>
+>> Correct, hence the patch. Waiting on confirmation that it is
+>> same behavior all the way back to server 2016.
 
-> Am 17.11.26 um 23:17 schrieb Ilpo J=C3=A4rvinen:
-> > On Tue, 17 Nov 2026, Armin Wolf wrote:
-> >=20
-> > > A user has reported that the WMI hotkey events on Dell All-In-One
-> > > machines need to be manually enabled on some models thru a separate
-> > > WMI device. This WMI device seems to be present on many other models
-> > > but has no effect on them.
-> >=20
-> > Can you rephrase this to not textually depend on "user" or "user's
-> > report", just state what the problem is, not how you became aware of it=
-=2E
-> >=20
-> > > Add a small driver for enabling support for this WMI device. This
-> > > enables the HDMI Input key on the Dell OptiPlex 7400 All-in-One
-> > > machine.
-> > >=20
-> > > Reported-by: Teodora <teolyub@gmail.com>
-> > > Closes:
-> > > https://lore.kernel.org/platform-driver-x86/0TZENT.54P2IBFQRED22@gmai=
-l.com
-> > > Tested-by: Teodora <teolyub@gmail.com>
-> > > Signed-off-by: Armin Wolf <W_Armin@gmx.de>
-> > > ---
-> > >   Documentation/wmi/devices/dell-wmi-pega.rst | 82 ++++++++++++++++++
-> > >   MAINTAINERS                                 |  6 ++
-> > >   drivers/platform/x86/dell/Kconfig           | 13 +++
-> > >   drivers/platform/x86/dell/Makefile          |  1 +
-> > >   drivers/platform/x86/dell/dell-wmi-pega.c   | 93 ++++++++++++++++++=
-+++
-> > >   5 files changed, 195 insertions(+)
-> > >   create mode 100644 Documentation/wmi/devices/dell-wmi-pega.rst
-> > >   create mode 100644 drivers/platform/x86/dell/dell-wmi-pega.c
-> > >=20
-> > > diff --git a/Documentation/wmi/devices/dell-wmi-pega.rst
-> > > b/Documentation/wmi/devices/dell-wmi-pega.rst
-> > > new file mode 100644
-> > > index 000000000000..935c8511594b
-> > > --- /dev/null
-> > > +++ b/Documentation/wmi/devices/dell-wmi-pega.rst
-> > > @@ -0,0 +1,82 @@
-> > > +.. SPDX-License-Identifier: GPL-2.0-or-later
-> > > +
-> > > +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> > > +Dell All-In-One Series Platform Integration (dell-wmi-pega)
-> > > +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> > > +
-> > > +Introduction
-> > > +------------
-> > > +
-> > > +Many Dell All-In-One devices contain a WMI device for notifying the
-> > > underlying platform
-> > > +of various OS-specific events like power up, shutdown and backlight
-> > > brightness control.
-> > > +
-> > > +Not implementing support for this WMI device might prevent hotkeys
-> > > exposed over WMI from
-> > > +working on some models.
-> > > +
-> > > +WMI interface description
-> > > +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D
-> > > +
-> > > +The WMI interface description can be decoded from the embedded binar=
-y MOF
-> > > (bmof)
-> > > +data using the `bmfdec <https://github.com/pali/bmfdec>`_ utility:
-> > > +
-> > > +::
-> > > +
-> > > + [WMI, Dynamic, Provider("WmiProv"), Locale("MS\\0x409"),
-> > > +  Description("Class used to operate method - WMBC"),
-> > > +  guid("{2D703EE8-36AC-4F88-BDB5-7556CE6B2946}") : ToInstance]
-> > > + class AcpiOSD_WMBC_method : WMIMethod {
-> > > +
-> > > +   [key, read]
-> > > +   string InstanceName;
-> > > +
-> > > +   [read]
-> > > +   boolean Active;
-> > > +
-> > > +   [WmiMethodId(1), Implemented, read, write,
-> > > +    Description("Invoked by AP when system up.")]
-> > > +   void PegaOemNotificationStartUp([out, Description("Return Value")=
-]
-> > > uint32 RetVal);
-> > > +
-> > > +   [WmiMethodId(2), Implemented, read, write,
-> > > +    Description("Invoked by AP when system is going to off state.")]
-> > > +   void PegaOemNotificationStop([out, Description("Return Value")] u=
-int32
-> > > RetVal);
-> > > +
-> > > +   [WmiMethodId(3), Implemented, read, write,
-> > > +    Description("Invoked by Application to tune up brightness.")]
-> > > +   void PegaOemNotificationBrightnessUP([out, Description("Return
-> > > Value")] uint32 RetVal);
-> > > +
-> > > +   [WmiMethodId(4), Implemented, read, write,
-> > > +    Description("Invoked by Application to tune down brightness.")]
-> > > +   void PegaOemNotificationBrightnessDown([out, Description("Return
-> > > Value")] uint32 RetVal);
-> > > +
-> > > +   [WmiMethodId(5), Implemented, read, write, Description("Reserved.=
-")]
-> > > +   void PegaOemNotificationRSVD1([out, Description("Return Value")]
-> > > uint32 RetVal);
-> > > +
-> > > +   [WmiMethodId(6), Implemented, read, write, Description("Reserved.=
-")]
-> > > +   void PegaOemNotificationRSVD2([out, Description("Return Value")]
-> > > uint32 RetVal);
-> > > + };
-> > > +
-> > > +The return value of each WMI method should be equal to the WMI metho=
-d ID.
-> > > +
-> > > +WMI method PegaOemNotificationStartUp()
-> > > +---------------------------------------
-> > > +
-> > > +Notifies the platform that the OS is operational. On some models thi=
-s WMI
-> > > method also enables
-> > > +reporting of hotkey events over WMI.
-> > > +
-> > > +WMI method PegaOemNotificationStop()
-> > > +------------------------------------
-> > > +
-> > > +Notifies the platform that the OS is shutting down.
-> > > +
-> > > +WMI method PegaOemNotificationBrightnessUP()
-> > > +--------------------------------------------
-> > > +
-> > > +Notifies the platform that the user wants to increase the backlight
-> > > brightness. This WMI method
-> > > +usually only forwards this request to the acpi-video driver, so the
-> > > dell-wmi-pega driver does
-> > > +not use it.
-> >=20
-> > Could these paragraphs be reflowed to 80 chars as long textual lines ar=
-e
-> > harder to read (eye movement required).
->=20
-> Sure, will do.
->=20
-> > > +WMI method PegaOemNotificationBrightnessDown()
-> > > +----------------------------------------------
-> > > +
-> > > +Notifies the platform that the user wants to decrease the backlight
-> > > brightness. See
-> > > +``PegaOemNotificationBrightnessUP()`` for details.
-> > > diff --git a/MAINTAINERS b/MAINTAINERS
-> > > index bd31e734669e..fb9a80f96900 100644
-> > > --- a/MAINTAINERS
-> > > +++ b/MAINTAINERS
-> > > @@ -7534,6 +7534,12 @@ M:=09Pali Roh=C3=A1r <pali@kernel.org>
-> > >   S:=09Maintained
-> > >   F:=09drivers/platform/x86/dell/dell-wmi-base.c
-> > >   +DELL WMI PEGA DRIVER
-> > > +M:=09Armin Wolf <W_Armin@gmx.de>
-> > > +S:=09Odd Fixes
-> > > +F:=09Documentation/wmi/devices/dell-wmi-pega.rst
-> > > +F:=09drivers/platform/x86/dell/dell-wmi-pega.c
-> > > +
-> > >   DELL WMI SYSMAN DRIVER
-> > >   M:=09Prasanth Ksr <prasanth.ksr@dell.com>
-> > >   L:=09Dell.Client.Kernel@dell.com
-> > > diff --git a/drivers/platform/x86/dell/Kconfig
-> > > b/drivers/platform/x86/dell/Kconfig
-> > > index 9f0016056d7e..289379383ccb 100644
-> > > --- a/drivers/platform/x86/dell/Kconfig
-> > > +++ b/drivers/platform/x86/dell/Kconfig
-> > > @@ -228,6 +228,7 @@ config DELL_WMI_AIO
-> > >   =09depends on ACPI_WMI
-> > >   =09depends on INPUT
-> > >   =09select INPUT_SPARSEKMAP
-> > > +=09imply DELL_WMI_PEGA
-> > >   =09help
-> > >   =09  Say Y here if you want to support WMI-based hotkeys on Dell
-> > >   =09  All-In-One machines.
-> > > @@ -262,6 +263,18 @@ config DELL_WMI_LED
-> > >   =09  This adds support for the Latitude 2100 and similar
-> > >   =09  notebooks that have an external LED.
-> > >   +config DELL_WMI_PEGA
-> > > +=09tristate "Dell WMI AIO Platform Support"
-> > > +=09default m
-> > > +=09depends on ACPI_WMI
-> > > +=09help
-> > > +=09  This option adds support for WMI-based platform integration on =
-Dell
-> > > All-In-One machines.
-> > > +=09  This driver is necessary for enabling the delivery of hotkey ev=
-ents
-> > > to the dell-wmi-aio
-> > > +=09  driver on some machines.
-> > > +
-> > > +=09  To compile this drivers as a module, choose M here: the module =
-will
-> > > be called
-> > > +=09  dell-wmi-pega.
-> > > +
-> > >   config DELL_WMI_SYSMAN
-> > >   =09tristate "Dell WMI-based Systems management driver"
-> > >   =09default m
-> > > diff --git a/drivers/platform/x86/dell/Makefile
-> > > b/drivers/platform/x86/dell/Makefile
-> > > index 470874c6e6e6..46c91c240a2c 100644
-> > > --- a/drivers/platform/x86/dell/Makefile
-> > > +++ b/drivers/platform/x86/dell/Makefile
-> > > @@ -27,5 +27,6 @@ obj-$(CONFIG_DELL_WMI_AIO)=09=09=09+=3D
-> > > dell-wmi-aio.o
-> > >   obj-$(CONFIG_DELL_WMI_DESCRIPTOR)=09=09+=3D dell-wmi-descriptor.o
-> > >   obj-$(CONFIG_DELL_WMI_DDV)=09=09=09+=3D dell-wmi-ddv.o
-> > >   obj-$(CONFIG_DELL_WMI_LED)=09=09=09+=3D dell-wmi-led.o
-> > > +obj-$(CONFIG_DELL_WMI_PEGA)=09=09=09+=3D dell-wmi-pega.o
-> > >   obj-$(CONFIG_DELL_WMI_SYSMAN)=09=09=09+=3D dell-wmi-sysman/
-> > >   obj-$(CONFIG_DELL_DW5826E_RESET)=09=09+=3D dell-dw5826e-reset.o
-> > > diff --git a/drivers/platform/x86/dell/dell-wmi-pega.c
-> > > b/drivers/platform/x86/dell/dell-wmi-pega.c
-> > > new file mode 100644
-> > > index 000000000000..ddb1b6cc6b1c
-> > > --- /dev/null
-> > > +++ b/drivers/platform/x86/dell/dell-wmi-pega.c
-> > > @@ -0,0 +1,93 @@
-> > > +// SPDX-License-Identifier: GPL-2.0-or-later
-> > > +/*
-> > > + * WMI platform integration for Dell All-In-One series.
-> > > + *
-> > > + * Copyright (C) 2026 Armin Wolf <W_Armin@gmx.de>
-> > > + *
-> > > + * Based on earlier work by Teodora <teolyub@gmail.com>.
-> > > + */
-> > > +
-> > > +#define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
-> > > +
-> > > +#include <linux/cleanup.h>
-> > > +#include <linux/device.h>
-> > > +#include <linux/device/driver.h>
-> > > +#include <linux/dev_printk.h>
-> > > +#include <linux/kernel.h>
-> >=20
-> > What for is this?
-> >=20
-> > I suspect direct device.h include isn't necessary either (and it's
-> > anyway guaranteed to come through wmi.h).
->=20
-> Good question, i copied it from one of the other WMI drivers.
+Confirming, that it is same behavior all the way back to 2016.
 
-Thanks how they usually end up everywhere. kernel.h is very rarely=20
-needed these days.
+> Sounds good. FWIW, old TLFS version 2.0A, which is specifically
+> titled to cover Windows Server 2008 R2, has the paragraph
+> about hypercall continuation. So that functionality was evidently
+> present very early on. It is still curious that Vitaly found it
+> necessary to include the looping behavior in the Linux guest
+> code.
+  
+Maybe Vitaly was running into a genuine bug, not sure.
 
-> I will remove both includes in the next revision.
->=20
-> >=20
-> > > +#include <linux/module.h>
-> > > +#include <linux/slab.h>
-> > > +#include <linux/types.h>
-> > > +#include <linux/wmi.h>
-> > > +
-> > > +#define PEGA_GUID=09"2D703EE8-36AC-4F88-BDB5-7556CE6B2946"
-> > > +
-> > > +enum dell_pega_method {
-> > > +=09DELL_PEGA_NOTIFICATION_STARTUP=09=09=3D 0x01,
-> > > +=09DELL_PEGA_NOTIFICATION_STOP=09=09=3D 0x02,
-> > > +=09DELL_PEGA_NOTIFICATION_BRIGHTNESS_UP=09=3D 0x03,
-> > > +=09DELL_PEGA_NOTIFICATION_BRIGHTNESS_DOWN=09=3D 0x04,
-> > > +=09DELL_PEGA_NOTIFICATION_RESERVED_1=09=3D 0x05,
-> > > +=09DELL_PEGA_NOTIFICATION_RESERVED_2=09=3D 0x06,
-> > > +};
-> > > +
-> > > +static int dell_wmi_pega_invoke(struct wmi_device *wdev, enum
-> > > dell_pega_method method)
-> > > +{
-> > > +=09struct wmi_buffer input =3D { };
-> > > +=09struct wmi_buffer output;
-> > > +=09int ret;
-> > > +
-> > > +=09ret =3D wmidev_invoke_method(wdev, 0x0, method, &input, &output,
-> > > sizeof(__le32));
-> > > +=09if (ret < 0)
-> > > +=09=09return ret;
-> > > +
-> > > +=09__le32 *result __free(kfree) =3D output.data;
-> > > +=09/* The return value should always be equal to the WMI method ID *=
-/
-> > > +=09if (le32_to_cpu(*result) !=3D method)
-> >=20
-> > Include for le32_to_cpu()
->=20
-> What would be the correct include for this?
+>>
+>> Basically, the hypervisor will just adjust the RIP back to the
+>> vmcall upon internal timeouts, and reschedule the vcpu. But for
+>> hw confidential vms, ie, tdx/snp/cca, it cannot adjust the RIP,
+>> hence return back to the guest with TIMEOUT, so cvm has to do in
+>> a loop.
+>>
+>> Now, for paravisor support, I was just told by a paravisor team
+>> dev, that it will never return with TIMEOUTs. My view on that set
+>> aside, I guess for paravisor we'll just call the _reg function
+>> then.  Thanks for bringing attention to that...
+> 
+> Yes, that would be what I expected.
+> 
+>>
+>>> assurance would be needed back to and including Windows
+>>> Server 2016, which is now the oldest Hyper-V version supported
+>>> by Linux. Also note that the rep hypercall code is architecture
+>>> independent, so the transparent hypercall continuation would
+>>> also need to work on arm64 when the hypercall is invoked via
+>>> the standard path of using the HVC instruction (the TLFS doesn't
+>>> cover arm64, so this is unclear).
+>>
+>> Both x86 and arm are same for this issue.
+> 
+> OK, good.
+> 
+>>
+>>> If you have such assurance, then I'm good with the removal of
+>>> the looping. But please make the removal a separate patch, with
+>>> sufficient discussion in the commit message to justify why it's OK
+>>> to do the removal (including that evidently the original commit
+>>> misinterpreted how continuation worked). And instead of looping,
+>>> perhaps do a sanity check that the completed rep count matches
+>>> the requested rep count.
+>>
+>> Not sure if it's worth the overhead of sanity check, looks like
+>> callers are checking completed and loop anyways... But I would
+>> be OK with BUG(), since it would be a bug for that to happen. FWIW,
+>> it's been running internally with couple months, and haven't seen
+>> any issues.
+>>
+>>
+>>> Without such assurance, I think the looping needs to stay. Callers
+>>> are not prepared for a rep hypercall to return with no errors, but
+>>> with the completed rep count less than the requested rep count.
+>>>
+>>> [1] https://learn.microsoft.com/en-us/virtualization/hyper-v-on-
+>> windows/tlfs/hypercall-interface#hypercall-continuation
+>>>
+>>>> +	return hv_do_hypercall(control, input, output);
+>>>> +}
+>>>> +
+>>>> +static inline u64 hv_do_rep_hypercall_cvm(u16 code, u16 rep_count,
+>>>> +					  u16 varhead_size, u16 rep_start,
+>>>> +					  void *input, void *output)
+>>>> +{
+>>>> +	u64 status, control = code;
+>>>> +	u16 rep_comp = 0;
+>>>> +
+>>>> +	control |= (u64)varhead_size << HV_HYPERCALL_VARHEAD_OFFSET;
+>>>> +	control |= (u64)rep_count << HV_HYPERCALL_REP_COMP_OFFSET;
+>>>> +	control |= (u64)rep_start << HV_HYPERCALL_REP_START_OFFSET;
+>>>> +
+>>>> +	for (;;) {
+>>>>    		status = hv_do_hypercall(control, input, output);
+>>>> -		if (!hv_result_success(status))
+>>>> +
+>>>> +		if (!hv_result_timeout(status))
+>>>>    			return status;
+>>>>
+>>>>    		rep_comp = hv_repcomp(status);
+>>>> -
+>>>>    		control &= ~HV_HYPERCALL_REP_START_MASK;
+>>>>    		control |= (u64)rep_comp << HV_HYPERCALL_REP_START_OFFSET;
+>>>>
+>>>>    		touch_nmi_watchdog();
+>>>> -	} while (rep_comp < rep_count);
+>>>> +	}
+>>>>
+>>>>    	return status;
+>>>
+>>> And Sashiko noted that this "return status" is dead code. The only
+>>> way to exit this function is via the "return status" up in the loop.
+>>>
+>>>>    }
+>>>>
+>>>> -/* For the typical case where rep_start is 0 */
+>>>> +/*
+>>>> + * Rep hypercalls for HW confidential VMs return back when timeouts occur,
+>>>> + * whereas for regular VMs they return only on success or failure. In case
+>>>> + * of successful completion, entire rep_count is done. But a hypercall could
+>>>> + * fail with partial completions, hence callers must always check that
+>>>> + * in case of failure. Lastly, a rep_count value of 0 is allowed for some
+>>>> + * hypercalls.
+>>>> + */
+>>>>    static inline u64 hv_do_rep_hypercall(u16 code, u16 rep_count, u16 varhead_size,
+>>>>    				      void *input, void *output)
+>>>>    {
+>>>> -	return hv_do_rep_hypercall_ex(code, rep_count, varhead_size, 0,
+>>>> -				      input, output);
+>>>> +	if (hv_isolation_type_hw())
+>>>
+>>> I don't think this is the right test, so let me explain. You don't describe the
+>>> context for when HV_STATUS_TIMEOUT may be returned, and there's no
+>>> TLFS documentation of this status, but I'm assuming the context is hypercall
+>>> continuation. This isn't the typical "something isn't responding" timeout. I
+>>> suspect it means the hypervisor hit the 50 us limit, and returned to the guest
+>>> VM with some reps still to be done. In a normal VM when a hypercall is
+>>> initiated by the hypercall page on x86/x64 or the HVC instruction on arm64,
+>>> the transparent hypercall continuation mechanism makes a TIMEOUT status
+>>> unnecessary. But with SNP, TDX, and CCA, hypercall invocation may be
+>>> piggybacked on other transports, and transparent continuation isn't available.
+>>> So Hyper-V returns HV_STATUS_TIMEOUT with the expectation that the
+>>> invoking code will loop to do the remaining reps.
+>>>
+>>> The key factor is whether the hypercall is piggybacked on other transports.
+>>> The tests in hv_isolation_type_hw() don't capture that. For example, if
+>>> a paravisor is present, hv_isolation_type_snp() will return "true" even
+>>> though hypercalls are invoked via the standard x86/x64 hypercall page.
+>>> The hypercalls trap to the paravisor. If the paravisor is functioning properly,
+>>> it should do transparent hypercall continuation just like the hypervisor would.
+>>> But this is something to be confirmed with the hypervisor and paravisor teams.
+>>>
+>>> Piggybacking is done only when no paravisor is present, so the
+>>> hv_do_rep_hypercall_cvm() path should be taken only in that circumstance.
+>>> Your current code works, but it goes down the more expensive
+>>> hv_do_rep_hypercall_cvm() path when it doesn't need to. (I'm not completely
+>>> clear on how arm64 works with and without a paravisor, so my statement
+>>> applies only to SNP and TDX. Need to sort out the CCA case with Kameron.)
+>>>
+>>> Given the non-trivial complexity in sorting all this out, I wonder if
+>>> distinguishing the _cvm and _reg cases is really worth it. The current
+>>> code for the _reg case is admittedly inefficient because it does work for
+>>> the looping case before likely deciding that no looping is needed. But
+>>> that could easily be fixed. When no looping is necessary, which is the
+>>> vast majority of cases, the looping code could end up being only a
+>>> couple of instructions slower than a separately coded non-looping
+>>> version (I did some builds and looked at the generated code). Since
+>>> there's overhead in deciding which to use, there may not be any
+>>> performance win from having both versions.
+>>
+>> Well, to me it's correctness issue also. If the ABI says that it will
+>> not return with TIMEOUTs for non-cvms, then adding loop just masks it
+>> instead of opening a bug report against the hypervisor.
+> 
+> I see your point, but would not call it a "correctness issue".  A "correctness
+> issue" is a case where the result is wrong, and there's no wrong result
+> here. I've definitely fixed edge-case issues that might never occur in
+> practice just in the interest of overall "correctness", but that's not this case.
 
-linux/byteorder/generic.h
+Well, imo, abi says it will not timeout. if it does, it is an
+"incorrect behavior". But anyways, not worth nit picking about :).
 
---=20
- i.
 
-> > > +=09=09return -EIO;
-> > > +
-> > > +=09return 0;
-> > > +}
-> > > +
-> > > +static int dell_wmi_pega_probe(struct wmi_device *wdev, const void
-> > > *context)
-> > > +{
-> > > +=09int ret;
-> > > +
-> > > +=09ret =3D dell_wmi_pega_invoke(wdev, DELL_PEGA_NOTIFICATION_STARTUP=
-);
-> > > +=09if (ret < 0)
-> > > +=09=09dev_err(&wdev->dev,
-> > > +=09=09=09"Failed to notify platform of startup, some hotkeys
-> > > might not work\n");
-> >=20
-> > braces for multiline constructs.
-> >=20
-> > > +
-> > > +=09return ret;
-> > > +}
-> > > +
-> > > +static void dell_wmi_pega_shutdown(struct wmi_device *wdev)
-> > > +{
-> > > +=09int ret;
-> > > +
-> > > +=09ret =3D dell_wmi_pega_invoke(wdev, DELL_PEGA_NOTIFICATION_STOP);
-> > > +=09if (ret < 0)
-> > > +=09=09dev_warn(&wdev->dev, "Failed to notify platform of
-> > > shutdown\n");
-> > > +}
-> > > +
-> > > +static const struct wmi_device_id dell_wmi_pega_id_table[] =3D {
-> > > +=09{ PEGA_GUID, NULL },
-> > > +=09{ }
-> > > +};
-> > > +MODULE_DEVICE_TABLE(wmi, dell_wmi_pega_id_table);
-> > > +
-> > > +static struct wmi_driver dell_wmi_pega_driver =3D {
-> > > +=09.driver =3D {
-> > > +=09=09.name =3D "dell-wmi-pega",
-> > > +=09=09.probe_type =3D PROBE_PREFER_ASYNCHRONOUS,
-> > > +=09},
-> > > +=09.id_table =3D dell_wmi_pega_id_table,
-> > > +=09.probe =3D dell_wmi_pega_probe,
-> > > +=09.remove =3D dell_wmi_pega_shutdown,
-> > > +=09.shutdown =3D dell_wmi_pega_shutdown,
-> > > +=09.no_singleton =3D true,
-> > > +};
-> > > +module_wmi_driver(dell_wmi_pega_driver);
-> > > +
-> > > +MODULE_AUTHOR("Armin Wolf <W_Armin@gmx.de>");
-> > > +MODULE_DESCRIPTION("Dell All-In-One series platform integration");
-> > > +MODULE_LICENSE("GPL");
-> >=20
-> > Just the mandatory nitpicking :-), seems fine otherwise.
->=20
-> Thanks,
->=20
-> i will wait with sending a v2 until Teodora has tested the second patch.
->=20
-> Thanks,
-> Armin Wolf
->=20
+> Your point opens a different can-of-worms. The threat model for Linux
+> guests on Hyper-V has historically been that the guest trusts the Hyper-V
+> host to do the right thing. A buggy or malicious host can arbitrarily read
+> or write guest memory, so there's really not much choice but for the
+> guest to trust the host (of course, in a CoCo VM the threat model is
+> different). As such, Linux code has never tried to fully validate what it
+> gets back from Hyper-V. Various ad hoc validations have been added
+> when it seemed helpful to do so, but it's not a priority or a directive.
+> Doing such a validation here is not objectionable, but I wouldn't add
+> a significant complexity to do so.
 
---8323328-122444894-1794956957=:1563--
+Ok, I'm ok with adding a WARN() to catch incorrect behaviors...
+
+> FWIW, here's pseudo-code for an alternate approach that doesn't
+> require splitting into separate _reg and _cvm versions:
+> 
+> static inline u64 hv_do_rep_hypercall_ex(u16 code, u16 rep_count,
+>                                            u16 varhead_size, u16 rep_start,
+>                                            void *input, void *output)
+> {
+>          u64 status, control = code;
+>          u16 rep_comp = 0;
+> 
+>          control |= (u64)varhead_size << HV_HYPERCALL_VARHEAD_OFFSET;
+>          control |= (u64)rep_count << HV_HYPERCALL_REP_COMP_OFFSET;
+>          control |= (u64)rep_start << HV_HYPERCALL_REP_START_OFFSET;
+> 
+>          for (;;) {
+>                  status = hv_do_hypercall(control, input, output);
+> 
+>                  if (!hv_result_timeout(status))
+>                          /* If result is success, could validate
+>                             completed reps == rep_count - rep_start */
+>                          return status;
+> 
+>                  if (! <hypercall is over alt transport> ) {
+>                          /* Should not get TIMEOUT with normal calling seq */
+>                          WARN();
+>                          return HV_STATUS_INVALID_PARAMETER; /* or some such */
+>                  }
+> 
+>                  rep_comp = hv_repcomp(status);
+>                  control &= ~HV_HYPERCALL_REP_START_MASK;
+>                  control |= (u64)rep_comp << HV_HYPERCALL_REP_START_OFFSET;
+>          }
+> }
+> 
+> In almost all cases, the result is not TIMEOUT, so the code returns
+> immediately with no extra overhead except to check for TIMEOUT.
+> If it *is* TIMEOUT, then go to the trouble to figure out whether
+> TIMEOUT is valid. If the VM is using the normal hypercall invocation
+> mechanism, flag that as a hypervisor bug and don't loop.
+
+Well, the end result is almost the same, but I like different
+function (will not be _cvm anymore) because it tells the reader
+upfront of different behaviors of the repeat hypercalls. I'll
+experiment with both, and send the one that I like...
+
+Thanks,
+-Mukesh
+
+
+>>
+>> Hope that makes sense.
+>>
+>> On a side note, to solicit your thoughts, i am not sure i like the
+>> touch_nmi_watchdog()... it appears the the WD is triggered in seconds,
+>> and if a hypercall is that long, schedule() really should be done in
+>> between. IOW, remove the touch, instead any very long running hypercalls
+>> should call schedule(). Of course, that would be a different patch.
+> 
+> I agree. I would be fine with removing the touch_nmi_watchdog().
+> 
+> Michael
+
