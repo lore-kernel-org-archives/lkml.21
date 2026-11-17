@@ -1,114 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.200.41
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794943335;
-	b=wA/LE+1AseuOcsEKRBIs0mwSEEf/ucQJAbEARSyg/sHfQF1TX7u4M9pGw+ap3tY70Zbw
-	 PNKCLwjs9HpdzrUsBg+g7D/RbgeirnzqiYHRucEUDuvVNdV1YvqVMTwOm4Chd4bMcH9BL
-	 rv9K4bWZQk6GHf3F5hK9qrkNkpursiBvMQCp2pBigK3xA5M5TXuuhMAgZAnXoQjyaBdVv
-	 E3iGgwO3HTu+M4kgZaOAh/DZmuehzgHY3+NJp3Fb3+Yl29MHUx6laVvnYv8yACLLaFYAT
-	 hksm8T/O0/MMKYPB++Cf//6hPCUfi3HrgTKMCw11cwfHii8/s1DJfnvPMMfn56NFcwQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794943335;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
-	 Content-Type:X-NV-OnPremToCloud:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=H8xvxPNWx8K7zQClODxVjwXVekLlgsGZmhyp+PZSiWs=;
-	b=k/+WSIg5gSUhxArnqjGw87PCg0k500y5RhonmLfNDdoXDulpFzA5R2QSt4fGNyfPufxy
-	 Ut4BN/m3eVrUsxidtodA/WbIORjR70yHxFt3GXPFnINRRgiQvfrlc4VQbzH/NxzCYokF6
-	 LsT1vu2GBAlkWwRn4st4CRXI5E2r4td1BXVlSA0gVGIqi+5J2aNlZ7Mwjmk8wFX6yU4/D
-	 EGqQRb6FTFl1IrrppG5C2uTWlJsZUQFkNSmXMg8IwZFfblIJcOn+mrtWL0og9eSZX5OZ4
-	 xzwZD7d3KOokVX+KyCfQ/Ci+CimRZFphmDh3eF4e+A1MX9V1buD25kAb1tjLoof5jgg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=KeIZJWkb;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.200.41
-Received: from CH5PR02CU005.outbound.protection.outlook.com (mail-northcentralusazon11012041.outbound.protection.outlook.com [40.107.200.41])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.214
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794943337;
+	b=o+PJBwxNoKp2V5JGGqcejlejTRpbZA5YBDEzut1+ZIyvTQ+idqdHXFHP5cbf7lfj2qn0
+	 z2zIAnnCxJOAiIwDlKLahxk5q26gK90D5CFGpQf6ZODKlE+onx3YTy2HDi/9JwuzAZoTw
+	 WZQbwoZ5qJyiVYwD/s8EsNxscWknavMF3DbNxgCacI5HI/8skjbjR3Y6SSY2kPaH9yl31
+	 lvuUqUl8CmP0nXmJB91YFgna+pqQ9A6e8uvnraa36S31EPOVWRiifXmz2LfeuoGctVh/o
+	 Pn1kRmumV0FazKo41VSMJIAC1q70JA19iepZdOw9NZ7TAFXqF/c4YD5xBw7AmOFgzCg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794943337;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=P20KLm1KaAoRirf0+sIxhB53NJdW1nHuVs2F2zAtf30=;
+	b=DRXTjoteEo7r61lF3ifDkRwDjRV4gnWiamhBLe4Q9VOlIfhxmNBrFc5F43RVLcqK459Y
+	 VGrQsOTEojsoHuBuyA52Tth+pcSSpmkhP83kyZ4DVxz028yBK/aCa3+8oOPZZjnbJ2GC7
+	 c6n6hsa8q0BfK/E/3baW8WIcvOPsGp9cWmxLVlDmf+GLIqDcCrMvS0/0rv/yW8p/gKKnd
+	 sm/Qn1ddkoQgmxj2vRtbu+Gox9FLDx3qLVnp9+7sGvCSHLgj/UFqvDeToh55LrhegO9DY
+	 07cMqz3vwJg62nnop/XN6EFZoHmRfivg0YQvTIVe2zVkme6RXMitCylYz3hkUn4HsXw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=oNSSj1KO;
+	arc=none smtp.remote-ip=91.218.175.214
+Received: from mta0.migadu.com (out-214.mta0.migadu.com [91.218.175.214])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 869B0606A894
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:22:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 869B0606A894
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 184E6606A897
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:22:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 184E6606A897
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=KeIZJWkb
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=limpiJ9HoET7TEsfjjjN+NHgFitRdTcMXsaHfJSeLJwXWvDYMnNoDif/F9LBhNTQgOqdjgtAO21p6b/A267/MFlGEHL5wghHbmMMfGBDuUZpRDEUa2NG11UqXNaBrvBG+u1tUcPzvHxu05CN+QDI/Y8DMt6YOziYCFlweSPHO1gNX1lTgoQT9zPULs/B/+l6nm7F+NrROFNb7gy7jn3oiZaZCdJ3jV0OAOSqduKPPRwKFUUxfGdIS/VFOB6Zaq8M/f5eMlRq+AfHh2abAu21rNXWOJhjiNUW+WArUvX3T9O4kMfpC8k/Go9C9f2NCynNjjXVNQ9FsRCHhX+yyoaj6A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=H8xvxPNWx8K7zQClODxVjwXVekLlgsGZmhyp+PZSiWs=;
- b=geAYcw8ojAO6Yyea62ILDGXEFjhTrnT1hIDhBZlRyDyI3rVIrFPUdCHqurqy4PUFFQHaxRdwLPPMs8mocYqIf269SgJOoyaM/QwlVahF+ZcaEi3v+Sy6vCOGSXV+tmvT6SFHrM8SGOhGFAs4jh1XVGRd5xcUzCmU+NDxFOqIAb7GKuMPicpAO8Es4jATgbM4Z0MOdF1iLb5/Nw3QNyDXg0NpwS7sTjuGSuSspTnXHIvRL7fhJmjwqENZs/BTumd1+7hOndbony2PA6ZtO4Mxcg6E2McQXJyePNt0JY2up0Iv91H2c/tkbnrrkMXbbeuNMz+6YowgmJBdBLW53lTc4A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=H8xvxPNWx8K7zQClODxVjwXVekLlgsGZmhyp+PZSiWs=;
- b=KeIZJWkbAENxaFCPo8SgKYWlqG8LEbUWczysVsk9a4RWPzO9Z4Qsu0DpWgUhgER50Ozn54G2RHRf7kp3dHMyzYKnXGilozL0EVPD1bpfPgXwjYYPs8/mr3W4PREEQkj+Orj0e/IMc/xbxTlVdYjBSoxN6AZfuG1bWD97gO4UK/BrA9/GAl0P0SSQ+ty73QvGIyaml2qNHLYa5JfTg7yssyRXMHofuL5fqtTryOep+Iu94zFpOEnTlvunk1QKRY9qKD4POzz0e/X5jxk1XPEZCrqUrRbGhqx8WH+JyVQifKSxBR7dC977nyXaeC2kOL0kEQmHFImwdFeD4z4f7TnTjg==
-Received: from MN0P220CA0024.NAMP220.PROD.OUTLOOK.COM (2603:10b6:208:52e::18)
- by IA1PR12MB6020.namprd12.prod.outlook.com (2603:10b6:208:3d4::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.13; Tue, 17 Nov
- 2026 19:22:03 +0000
-Received: from BN7PEPF00000096.namprd03.prod.outlook.com
- (2603:10b6:208:52e:cafe::3a) by MN0P220CA0024.outlook.office365.com
- (2603:10b6:208:52e::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.14 via Frontend Transport; Tue,
- 17 Nov 2026 19:22:03 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.118.232) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- BN7PEPF00000096.mail.protection.outlook.com (10.167.245.74) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Tue, 17 Nov 2026 19:22:03 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 17 Nov
- 2026 11:21:39 -0800
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Tue, 17 Nov 2026 11:21:39 -0800
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.13) by mail.nvidia.com
- (10.126.190.181) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Tue, 17 Nov 2026 11:21:38 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <will@kernel.org>, <jgg@nvidia.com>
-CC: <robin.murphy@arm.com>, <joro@8bytes.org>, <praan@google.com>,
-	<kevin.tian@intel.com>, <smostafa@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <jamien@nvidia.com>, <kas@kernel.org>,
-	Cristian Prundeanu <cpru@amazon.com>, Breno Leitao <leitao@kernel.org>,
-	<xueshuai@linux.alibaba.com>, <john.garry@arm.com>
-Subject: [PATCH v13 04/12] iommu/arm-smmu-v3: Pack the MSI vectors of the used sources
-Date: Tue, 17 Nov 2026 11:21:21 -0800
-Message-ID: <40570c344d7fce94c4e80316503a9162bb31cb62.1794942324.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1794942324.git.nicolinc@nvidia.com>
-References: <cover.1794942324.git.nicolinc@nvidia.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=oNSSj1KO
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=OA4+dCE46Da+A4UU0PXz2FR0qLAbovLtsrkB8nmKYUk=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794943335; v=1; x=1795548135;
+ b=oNSSj1KOWmT8uVyki+Px3KIzSVITbU8R6cGRYXoXR2j2h32vaaJxhJothKemNDp5X/tth+S/
+ mNRW9xIg7NQUh2n4lyW+4W8nKdtpvyGCzw8IXtEuFdIAFhjF2b2EYh3NcjPeHCSj/N//Qwi+4Np
+ w7pkyNBUUGba13RLjZtw+8zQ=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta10.migadu.com with ESMTPS id b415f571b790c17b;
+	Tue, 17 Nov 2026 19:22:15 +0000
+X-Mizu-Trace-ID: b415f571b790c17b
+X-Migadu-Flow: FLOW_OUT
+From: Ihor Solodrai <ihor.solodrai@linux.dev>
+To: Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Cc: Alan Maguire <alan.maguire@oracle.com>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Song Liu <song@kernel.org>,
+	Tejun Heo <tj@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	sched-ext@lists.linux.dev
+Subject: [PATCH bpf-next v1 3/4] resolve_btfids: Reject kfunc families that libbpf can't disambiguate
+Date: Tue, 17 Nov 2026 12:21:52 -0700
+Message-ID: <20261117192153.3384031-4-ihor.solodrai@linux.dev>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261117192153.3384031-1-ihor.solodrai@linux.dev>
+References: <20261117192153.3384031-1-ihor.solodrai@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,169 +78,227 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN7PEPF00000096:EE_|IA1PR12MB6020:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5aea77e6-c3d9-472c-15c5-08df44e00fd3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|376014|7416014|1800799024|36860700016|82310400026|10067099003|11063799006|56012099006|261026121527099003|261021121427099003|261022075727099003|261021123027099003|261021135927099003|261102123227099003|261009223027099003|22082099003|18002099003|6133799003;
-X-Microsoft-Antispam-Message-Info:
-	qUvxJW9fwS2uwC7lle9m8K178rEvRBsz/0mNYBuyQx0oWnFoSoFmGf6uYKmml/T07wpgOYi7os3BDeilfyj8lHCbiaDBFeGW4R7eLteSIxIBEgEiET4zBaCtgKR3n47ynUMePn7DTBS81tTDZ6KUCCcMHwneedxmEoIbAsjFkwqX2vLSpskYiTD3lbbQ+aBMwYBMTbBlN/WUXU98bhgr7iuKMszXFKmUsNvnGLOw50Mb5g37V06COyph5Ka6wghBgUzhln29+XQNVrpYRIygAlHRe7NIx/AE+6dA5kdMy/vyqlqj+CKtuIZi0Lq07Alwa9CPsWfuu+xjTgjYXZhT7DUWCEEpOAfR+HtQXcMeM+DGlvj8x7a/FEXDkx6xYUodh9Vf+LSIUPLCrOosu0KZ2+pph7NiIr/thfAAW8g1ynw2ltIY6BFQoujsa/XchaWCOOkVHMPrFVjsiOERzpoynHZC/z4yOqvep5C7vEILlsBQrsCxJy+zNWcXnkNX9iZUt3TBlP6plHqfl8waxg0YIttI514crGf2fRDAnRrUB4+A4VHlmhqtymT7jgb2sCKC60dpHVVfif9Rv4rbFOTEQz5wIHsaqjbMFw448mjc4dsmUEkQ7BrVAsohI0EPjcfASRgdVtDQWcbh/G+r4SPuU8Qu48ZDaLU1qRcsyhLQyEZ4dZNkOGngRk8wtPGpbICb10J9Kqgar54c6y7+6GkLiw==
-X-Forefront-Antispam-Report:
-	CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(1800799024)(36860700016)(82310400026)(10067099003)(11063799006)(56012099006)(261026121527099003)(261021121427099003)(261022075727099003)(261021123027099003)(261021135927099003)(261102123227099003)(261009223027099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	QRtJ+Wg811LT+7CihFK/9YF/plgnCfXieo82HyQIKxVRzAJy2CAdbLg4Fdgv5+4WrMpm8y44wJDFQG7fFlrPCcFh6yimG9C7Z2kbid4Fl3OyK+k7we/Mrq3gpvSaWhsBGXfCP5zfd8TQEqE2EuUAPaIY16K3yC2yPFWmKgfsDNhwFnnVy94g49LfCIz4i7rSQvCJHFWigJ7tzfqISyXk+klIga5ZnGL6n3hzARv1BWv9VqADocLXtz7uWf3BOU0O3okrBp9W+Gl+pqCFguNxF2DvRcJyCyKuMBimSY3KmVoxjt4KkusBIzNS+3Jg5laIwA//fao+EnhA2Tdjghllyds5K5p+ZsPK4LTgNB0MNZn5HDjNd/f4Etlh66/6uhqIq1oVZBBKg/BvaPs0u49sCMg/ptBcAFq3x1kvOay19W28et95i4RuU+0z4ndGRf1z
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 19:22:03.6915
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5aea77e6-c3d9-472c-15c5-08df44e00fd3
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	BN7PEPF00000096.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6020
 
-arm_smmu_setup_msis() skips the PRIQ vector by decreasing nvec, which only
-works since PRIQ_MSI_INDEX is the last index. A subsequent change will make
-the EVTQ optional for kdump, whose index is 0, so that trick won't work.
+Kfuncs sharing an essential name, foo and foo___<flavor>, form a family.
+When resolving a kfunc foo, libbpf binds the kernel's foo if the
+prototypes are compatible, and otherwise the only family member whose
+prototype passes bpf_core_types_are_compat() against the declaration.
+That is only safe if no declaration can be compatible with two members
+at once.
 
-Pack the vectors of the used sources instead, and record the source of each
-vector in a new msi_map, for arm_smmu_write_msi_msg() to find the register
-set, regardless of the sources in use.
+bpf_core_types_are_compat() compares prototypes kind by kind, so it
+acts as an equivalence and a pairwise check is enough. Run it on every
+pair of family members after dedup, using libbpf's own function, and
+fail the build if any pair is compatible. A foo___<flavor> with the
+same deduplicated FUNC_PROTO as foo is an alias and is allowed: libbpf
+binds foo first, so the alias is never picked in its place. There is
+only one foo: btf_check_kfunc_name() refuses to register a module kfunc
+named like a function in vmlinux or in another module. Dedup compares
+parameter names too, so an alias has to copy the signature verbatim.
 
-No functional change intended.
+Recognize family members by their bpf_kfunc decl tags rather than by
+the BTF ID sets. The tags are what libbpf filters candidates on, and for
+a module they also cover the vmlinux kfuncs in base BTF, so module
+kfuncs get checked against vmlinux kfuncs of the same family.
 
-Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+The bpf_kfunc_flavor family in bpf_testmod passes: ___v1 differs in
+arity and ___v2 is an alias.
+
+Signed-off-by: Ihor Solodrai <ihor.solodrai@linux.dev>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  9 ++++
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 46 ++++++++++++---------
- 2 files changed, 36 insertions(+), 19 deletions(-)
+ tools/bpf/resolve_btfids/btf_colors.c |  11 +++
+ tools/bpf/resolve_btfids/btf_colors.h |   3 +
+ tools/bpf/resolve_btfids/main.c       | 134 ++++++++++++++++++++++++++
+ 3 files changed, 148 insertions(+)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index 8f2c0b1cc4a8d..f6892dd0e5080 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -936,6 +936,13 @@ struct arm_smmu_impl_ops {
- 			  const struct iommu_user_data *user_data);
- };
- 
-+enum arm_smmu_msi_index {
-+	EVTQ_MSI_INDEX,
-+	GERROR_MSI_INDEX,
-+	PRIQ_MSI_INDEX,
-+	ARM_SMMU_MAX_MSIS
-+};
-+
- /* An SMMUv3 instance */
- struct arm_smmu_device {
- 	struct device			*dev;
-@@ -993,6 +1000,8 @@ struct arm_smmu_device {
- 
- 	int				gerr_irq;
- 	int				combined_irq;
-+	/* Indexed by MSI vector */
-+	enum arm_smmu_msi_index		msi_map[ARM_SMMU_MAX_MSIS];
- 
- 	unsigned long			oas; /* PA */
- 	unsigned long			pgsize_bitmap;
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index d5938c624c68f..36ca05418f728 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -56,13 +56,6 @@ static struct iommu_dirty_ops arm_smmu_dirty_ops;
-  */
- static DEFINE_STATIC_KEY_FALSE(arm_smmu_erratum_repeat_tlbi_cfgi_key);
- 
--enum arm_smmu_msi_index {
--	EVTQ_MSI_INDEX,
--	GERROR_MSI_INDEX,
--	PRIQ_MSI_INDEX,
--	ARM_SMMU_MAX_MSIS,
--};
--
- #define NUM_ENTRY_QWORDS 8
- static_assert(sizeof(struct arm_smmu_ste) == NUM_ENTRY_QWORDS * sizeof(u64));
- static_assert(sizeof(struct arm_smmu_cd) == NUM_ENTRY_QWORDS * sizeof(u64));
-@@ -4934,7 +4927,7 @@ static void arm_smmu_write_msi_msg(struct msi_desc *desc, struct msi_msg *msg)
- 	phys_addr_t doorbell;
- 	struct device *dev = msi_desc_to_dev(desc);
- 	struct arm_smmu_device *smmu = dev_get_drvdata(dev);
--	phys_addr_t *cfg = arm_smmu_msi_cfg[desc->msi_index];
-+	phys_addr_t *cfg = arm_smmu_msi_cfg[smmu->msi_map[desc->msi_index]];
- 
- 	doorbell = (((u64)msg->address_hi) << 32) | msg->address_lo;
- 	doorbell &= MSI_CFG0_ADDR_MASK;
-@@ -4944,19 +4937,28 @@ static void arm_smmu_write_msi_msg(struct msi_desc *desc, struct msi_msg *msg)
- 	writel_relaxed(ARM_SMMU_MEMATTR_DEVICE_nGnRE, smmu->base + cfg[2]);
+diff --git a/tools/bpf/resolve_btfids/btf_colors.c b/tools/bpf/resolve_btfids/btf_colors.c
+index 5d307d70e7f2..91c10106319e 100644
+--- a/tools/bpf/resolve_btfids/btf_colors.c
++++ b/tools/bpf/resolve_btfids/btf_colors.c
+@@ -13,6 +13,17 @@ void btf_sha256(const void *data, size_t len,
+ 	libbpf_sha256(data, len, out);
  }
  
-+static void arm_smmu_setup_msi_vector(struct arm_smmu_device *smmu,
-+				      unsigned int *vec, unsigned int *nvec,
-+				      enum arm_smmu_msi_index msi_index)
++size_t btf_essential_name_len(const char *name)
 +{
-+	writeq_relaxed(0, smmu->base + arm_smmu_msi_cfg[msi_index][0]);
-+	vec[msi_index] = (*nvec)++;
++	return bpf_core_essential_name_len(name);
 +}
 +
- static void arm_smmu_setup_msis(struct arm_smmu_device *smmu)
- {
--	int ret, nvec = ARM_SMMU_MAX_MSIS;
-+	unsigned int vec[ARM_SMMU_MAX_MSIS] = {
-+		/* An unused source maps to a vector past nvec */
-+		[0 ... ARM_SMMU_MAX_MSIS - 1] = ARM_SMMU_MAX_MSIS,
-+	};
- 	struct device *dev = smmu->dev;
-+	unsigned int nvec = 0, i;
-+	int ret;
- 
--	/* Clear the MSI address regs */
--	writeq_relaxed(0, smmu->base + ARM_SMMU_GERROR_IRQ_CFG0);
--	writeq_relaxed(0, smmu->base + ARM_SMMU_EVTQ_IRQ_CFG0);
--
-+	arm_smmu_setup_msi_vector(smmu, vec, &nvec, EVTQ_MSI_INDEX);
-+	arm_smmu_setup_msi_vector(smmu, vec, &nvec, GERROR_MSI_INDEX);
- 	if (smmu->features & ARM_SMMU_FEAT_PRI)
--		writeq_relaxed(0, smmu->base + ARM_SMMU_PRIQ_IRQ_CFG0);
--	else
--		nvec--;
-+		arm_smmu_setup_msi_vector(smmu, vec, &nvec, PRIQ_MSI_INDEX);
- 
- 	if (!(smmu->features & ARM_SMMU_FEAT_MSI))
- 		return;
-@@ -4966,6 +4968,11 @@ static void arm_smmu_setup_msis(struct arm_smmu_device *smmu)
- 		return;
- 	}
- 
-+	/* Map each vector back to its source for arm_smmu_write_msi_msg() */
-+	for (i = 0; i < ARM_SMMU_MAX_MSIS; i++)
-+		if (vec[i] < nvec)
-+			smmu->msi_map[vec[i]] = i;
++int btf_types_are_compat(const struct btf *btf1, __u32 id1,
++			 const struct btf *btf2, __u32 id2)
++{
++	return bpf_core_types_are_compat(btf1, id1, btf2, id2);
++}
 +
- 	/* Allocate MSIs for evtq, gerror and priq. Ignore cmdq */
- 	ret = platform_device_msi_init_and_alloc_irqs(dev, nvec, arm_smmu_write_msi_msg);
- 	if (ret) {
-@@ -4973,9 +4980,10 @@ static void arm_smmu_setup_msis(struct arm_smmu_device *smmu)
- 		return;
+ /*
+  * Marks `root_id` and local types reachable from it with `color`.
+  * `colors` is indexed by source ID; worklist has room for every local type.
+diff --git a/tools/bpf/resolve_btfids/btf_colors.h b/tools/bpf/resolve_btfids/btf_colors.h
+index 56a85a242d6b..3d48194e73b6 100644
+--- a/tools/bpf/resolve_btfids/btf_colors.h
++++ b/tools/bpf/resolve_btfids/btf_colors.h
+@@ -15,6 +15,9 @@ enum btf_color {
+ 
+ void btf_sha256(const void *data, size_t len,
+ 		__u8 out[BTF_SHA256_DIGEST_LENGTH]);
++size_t btf_essential_name_len(const char *name);
++int btf_types_are_compat(const struct btf *btf1, __u32 id1,
++			 const struct btf *btf2, __u32 id2);
+ void btf_mark_reachable(struct btf *btf, __u32 root, enum btf_color color,
+ 			__u8 *colors, __u32 *worklist);
+ 
+diff --git a/tools/bpf/resolve_btfids/main.c b/tools/bpf/resolve_btfids/main.c
+index 0ac895222a14..68a5519cf8b6 100644
+--- a/tools/bpf/resolve_btfids/main.c
++++ b/tools/bpf/resolve_btfids/main.c
+@@ -1917,6 +1917,136 @@ static int sort_btf_by_name(struct btf *btf)
+ 	return err;
+ }
+ 
++static const char *func_name(const struct btf *btf, u32 id)
++{
++	return btf__name_by_offset(btf, btf__type_by_id(btf, id)->name_off);
++}
++
++static int cmp_essential_names(const void *a, const void *b, void *priv)
++{
++	const char *na = func_name(priv, *(u32 *)a);
++	const char *nb = func_name(priv, *(u32 *)b);
++	size_t la = btf_essential_name_len(na);
++	size_t lb = btf_essential_name_len(nb);
++	int r = strncmp(na, nb, min(la, lb));
++
++	if (r != 0)
++		return r;
++	if (la == lb)
++		return 0;
++	return la < lb ? -1 : 1;
++}
++
++/*
++ * Returns 1 if libbpf can't tell kfuncs a and b of one family apart, 0 if it
++ * can, or a negative error.
++ */
++static int kfuncs_are_ambiguous(const struct btf *btf, u32 a, u32 b, u32 unsuffixed_proto)
++{
++	const char *na = func_name(btf, a), *nb = func_name(btf, b);
++	u32 pa = btf__type_by_id(btf, a)->type;
++	u32 pb = btf__type_by_id(btf, b)->type;
++	int ret;
++
++	if (pa == pb && pa == unsuffixed_proto) {
++		pr_debug("kfuncs %s and %s: alias\n", na, nb);
++		return 0;
++	}
++	ret = btf_types_are_compat(btf, pa, btf, pb);
++	if (ret < 0) {
++		pr_err("ERROR: resolve_btfids: failed to compare kfuncs %s and %s: %d\n",
++		       na, nb, ret);
++		return ret;
++	}
++	if (ret == 0)
++		pr_debug("kfuncs %s and %s: distinct\n", na, nb);
++	return ret;
++}
++
++static int check_kfunc_family(const struct btf *btf, const u32 *ids, u32 cnt, u32 start_id)
++{
++	size_t len = btf_essential_name_len(func_name(btf, ids[0]));
++	u32 unsuffixed_proto = 0;
++	int err, bad = 0;
++
++	for (u32 i = 0; i < cnt; i++) {
++		const char *name = func_name(btf, ids[i]);
++
++		if (name[len] == '\0')
++			unsuffixed_proto = btf__type_by_id(btf, ids[i])->type;
++	}
++
++	for (u32 i = 0; i < cnt; i++) {
++		for (u32 j = i + 1; j < cnt; j++) {
++			/* base BTF pairs were checked when building vmlinux */
++			if (ids[i] < start_id && ids[j] < start_id)
++				continue;
++			err = kfuncs_are_ambiguous(btf, ids[i], ids[j], unsuffixed_proto);
++			if (err < 0)
++				return err;
++			if (err == 0)
++				continue;
++			pr_err("ERROR: resolve_btfids: kfuncs %s and %s have compatible prototypes, libbpf cannot tell them apart\n",
++			       func_name(btf, ids[i]), func_name(btf, ids[j]));
++			bad++;
++		}
++	}
++
++	return bad ? -EINVAL : 0;
++}
++
++/*
++ * Fail if libbpf can't tell apart two kfuncs sharing an essential name, i.e.
++ * if bpf_core_types_are_compat() finds their prototypes compatible. An alias
++ * of the unsuffixed kfunc, which has its type id after dedup, is allowed:
++ * libbpf binds the unsuffixed kfunc first.
++ *
++ * Kfuncs are recognized by their bpf_kfunc decl tags: these are what libbpf
++ * looks at, and for a module they also cover the vmlinux kfuncs in base BTF.
++ */
++static int check_kfunc_families(struct btf *btf)
++{
++	const struct btf *base = btf__base_btf(btf);
++	u32 start_id = base ? btf__type_cnt(base) : 1;
++	u32 type_cnt = btf__type_cnt(btf);
++	u32 *ids = NULL, nr_ids = 0, cap = 0;
++	int ret, err = 0;
++
++	for (u32 id = 1; id < type_cnt; id++) {
++		const struct btf_type *t = btf__type_by_id(btf, id);
++		const char *tag_name;
++
++		if (!btf_is_decl_tag(t))
++			continue;
++		if (btf_decl_tag(t)->component_idx != -1)
++			continue;
++		tag_name = btf__name_by_offset(btf, t->name_off);
++		if (strcmp(tag_name, DECL_TAG_KFUNC) != 0)
++			continue;
++		err = ensure_mem(&ids, &cap, nr_ids + 1);
++		if (err)
++			goto out;
++		ids[nr_ids++] = t->type;
++	}
++
++	qsort_r(ids, nr_ids, sizeof(*ids), cmp_essential_names, btf);
++
++	for (u32 i = 0, j; i < nr_ids; i = j) {
++		for (j = i + 1; j < nr_ids; j++) {
++			if (cmp_essential_names(&ids[i], &ids[j], btf) != 0)
++				break;
++		}
++		if (j - i < 2)
++			continue;
++		ret = check_kfunc_family(btf, ids + i, j - i, start_id);
++		if (ret)
++			err = ret;
++	}
++out:
++	free(ids);
++	return err;
++}
++
+ static int finalize_btf(struct object *obj)
+ {
+ 	struct btf *base_btf = obj->base_btf, *btf = obj->btf;
+@@ -1928,6 +2058,10 @@ static int finalize_btf(struct object *obj)
+ 		return err;
  	}
  
--	smmu->evtq.q.irq = msi_get_virq(dev, EVTQ_MSI_INDEX);
--	smmu->gerr_irq = msi_get_virq(dev, GERROR_MSI_INDEX);
--	smmu->priq.q.irq = msi_get_virq(dev, PRIQ_MSI_INDEX);
-+	/* msi_get_virq() returns 0 for an unused source that has no vector */
-+	smmu->evtq.q.irq = msi_get_virq(dev, vec[EVTQ_MSI_INDEX]);
-+	smmu->gerr_irq = msi_get_virq(dev, vec[GERROR_MSI_INDEX]);
-+	smmu->priq.q.irq = msi_get_virq(dev, vec[PRIQ_MSI_INDEX]);
- 
- 	/* Add callback to free MSIs on teardown */
- 	devm_add_action_or_reset(dev, arm_smmu_free_msis, dev);
++	err = check_kfunc_families(obj->btf);
++	if (err)
++		return err;
++
+ 	if (obj->base_btf && obj->distill_base) {
+ 		err = btf__distill_base(obj->btf, &base_btf, &btf);
+ 		if (err) {
 -- 
-2.43.0
+2.56.1
 
