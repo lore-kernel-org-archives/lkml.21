@@ -1,75 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.241.56.151
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794937636;
-	b=VLTeR5AnGLcNwacKEnnLw6oFmuGsYQKl8j5hjk2BTfibP5md0zWmL3OhnuztHnBtF9pI
-	 eQZfskQivwUamDYZsQZ4XWDy9jmlvY9SR1d/ap6jXwTK4ulihVBrAGNMGDwzEvCoF6qdw
-	 OxlZFy7VyyDeFtIU6IEY8bzhRTSlmSfXS4i9yCd/PdV4CVCK3JpTq54ZulxYle9kHZeHX
-	 Q6WzABPKGKYOudhHx7m5gTlFz+k8yeArLnsPFuBXVJEIv2RS/En2sVZpjKUR9adtxawWW
-	 dPOJ38ddj5tT9LqDjQhtAL+ZDftdZlIHNyNDQsNsVDLliWjT3M+mXInXkDDHplmRQqQ==
+	t=1794937661;
+	b=yY3ib0C+zHiPjxJ8/uaThAZKUdv1dSrSyqT2EZobdzQaBtJ4HyCP1EF3Qg0bMM/deejB
+	 EUHeFxpcBCyfGL/hc3zNNkJjuvk58f5jiezJ6hJF5oTSYrMq72rBZNxpNEbdv6VDvq9qS
+	 au/WJtARCNXElmKbQghlYB+xdaPVe708Av7gAnTTloAUfVf4wCjdAL2weyEFXvyGs38MQ
+	 ahNrGnzW9dI2G8NlbWwc6m37Q9q7Kln6jsuBLbf+IL4GNxFO7qlCBDngTm3erB9y7libq
+	 3MdRF/wXKlZ4d790n1qxDLptUL6BDpXcSxUvb/0SqbJMiSLL/QE0T/BWNLEVMNAzgCg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794937636;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Subject:From:
-	 Reply-To:To:Cc:Date:In-Reply-To:References:Content-Type:
-	 Content-Transfer-Encoding:User-Agent:MIME-Version:X-MBO-RS-ID:
-	 X-MBO-RS-META;
-	bh=/lX51Mfz1mJ4y/S3UG7mwW4k5DzJAY1kWSKMs4mbXKg=;
-	b=Y5Lb9Tw7CHGK15CEPqg5jNG6qJbpgDagi2sDa46ikUE2yX8zMCBiI2OiLhWHppqKOv9r
-	 DVY60gMfQ5EW5Df1C7rYFOxV3R3JyBVWc1ArASEEDi4Pif/I7yfC2bT8HWjRuL96+Q3CH
-	 27wIxX13p/H41voiFQFPBsFzBi4BpLOgaeyJj6gXaiKLA3JVQtumc4y16KecHbYJ2kXhC
-	 Z+iBJwkGT5r2m1YmCY35jVbR1lKy2uQJaa4XAHr4s37NBk5nfRMA/LfoHcXVdlreSnjfh
-	 vjCqyGaHIrWDfge8G7nc+xq1GroscdybPsEaEKnFNMr+5BHOYqv/XiiAAKBzmN5Jkng==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794937661;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=cR2AOpEGYiKzlikyUl8O8YBDqVn1oEriwrxHwFqrRDc=;
+	b=oSCo3jrwxXU9UR+EQIf/NiznVD62nk8i4ChKWWt+asbij0UtbDxjPSPX5Ebv7JqJddoQ
+	 gmkCsEg742bycPFRAxX76RpPFcglpMXCN4hL2K2qv5Jyq6wyOO/yuJ8v0ktkd+m6qbI1x
+	 /MnLMt68d9+EVTPKWM4+Dgh6/6iH+kjozQ8ONGbVjTxhDogkgLCnzoTWSJt3Jq/YxM7fL
+	 RWiQ+3mFArUU4KOerTVdVH7hpWRT2ylNgh3IK35vJswVa7lS1RLLyr68nfSehYrSXa3wf
+	 EoDQ5c5hZs7p0iuKxCIPDp34OyaGMNs/UlTOkrrUTksSsA4BlbO4TcckSt2ToOCvpNw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mailbox.org;
-	spf=pass smtp.mailfrom=mailbox.org;
-	dkim=pass header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=RYTOeDst;
-	arc=none smtp.remote-ip=80.241.56.151
-Received: from mout-p-101.mailbox.org (mout-p-101.mailbox.org [80.241.56.151])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZEmtPG3s;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67995606A330;
-	Tue, 17 Nov 2026 17:47:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67995606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=mailbox.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mailbox.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0EFEE606A31C;
+	Tue, 17 Nov 2026 17:47:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=RYTOeDst
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4jTXHL4Pwcz8v5T;
-	Tue, 17 Nov 2026 18:47:10 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1794937630; h=from:from:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/lX51Mfz1mJ4y/S3UG7mwW4k5DzJAY1kWSKMs4mbXKg=;
-	b=RYTOeDstKKPOhsZfw9LnuApiBQ0YwHDBumHIFGRDBY1WybOVpRVW4hgychjVPHh/UKowN7
-	X4flyauLehyoqxmP1gIB+N5QX+s/lTn5WTNQR3S/P1am1iCxZk/Wo+VbmMlaiTlkMw4c4r
-	re+Z/B1DR2mzn+GYWbPnfgPMhLJDf3A6d49/FNQIfz2VngzfL8++OTAFZEh9wqqYEoSjGi
-	/sRxZzEhFLobgp/+moiCkLBQuyj8rsSF/fh1eFmUFwcL21WoYr8fBkhsrjOBIavBiYWKoH
-	EzMlxnG8EX3BtgpgYCrhbD1IrLE8+ISllrHU1c/dMSwwrs384zMb15+vIuK5RQ==
-Message-ID: <3005c4692d538785e225f9372e4a261dc457edb2.camel@mailbox.org>
-Subject: Re: [PATCH] dma-buf/dma-fence: Prevent misordering for error checks
-From: Philipp Stanner <phasta@mailbox.org>
-Reply-To: phasta@kernel.org
-To: Christian =?ISO-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>, Philipp
- Stanner <phasta@kernel.org>, Sumit Semwal <sumit.semwal@linaro.org>, Simona
- Vetter	 <simona.vetter@ffwll.ch>, Chris Wilson <chris@chris-wilson.co.uk>,
- Danilo Krummrich <dakr@kernel.org>, Gary Guo <gary@garyguo.net>, Alice Ryhl
- <aliceryhl@google.com>, Daniel Almeida <daniel.almeida@collabora.com>
-Cc: linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Date: Tue, 17 Nov 2026 18:47:08 +0100
-In-Reply-To: <efce5fe0-6e7d-417c-93a3-35247b431448@amd.com>
-References: <20261117090144.581909-2-phasta@kernel.org>
-	 <efce5fe0-6e7d-417c-93a3-35247b431448@amd.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZEmtPG3s
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E5B21F000C4;
+	Tue, 17 Nov 2026 17:47:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794937660;
+	bh=cR2AOpEGYiKzlikyUl8O8YBDqVn1oEriwrxHwFqrRDc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ZEmtPG3s6pzK3McY+POU0Zq2TtX9e07Rj1YqBffwbPVGP8TkDyQJCNbdPeg2omzxW
+	 faO2+XQKzaVmTsVMjy4bEJ9cWc0xGyqjv92fhd0DO2LTt3egZtGCtK7DzJMeS501eq
+	 mOzVO6yAQHf8dxcm57tesdPrPpt1U1REoMWk//2mNIlHiAmixSEY1FCMGteYEB+Tpk
+	 XBEEneUOaZCy5JVsvirYZWR/hreA139SsdaICnhvMAExt0Ey4XACSXIYgDooRh+qjd
+	 exUltOpX4iTIn8XI04WZwuCbRjG50FeYqJ5lv4u2+v5YgoGDyo/TrfO/aNiWXGugaq
+	 UGOcPA2xwfI0w==
+Date: Tue, 17 Nov 2026 17:47:35 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Mina Chou <minachou@andestech.com>
+Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, jic23@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, geert+renesas@glider.be,
+	magnus.damm@gmail.com, prabhakar.mahadev-lad.rj@bp.renesas.com,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	randolph@andestech.com, cyyang772@andestech.com,
+	tim609@andestech.com, az70021@gmail.com
+Subject: Re: [PATCH v2 19/19] dt-bindings: riscv: add Andes A27L2 CPU
+ compatible
+Message-ID: <20261117-yippee-blissful-76204cadd922@spud>
+References: <20261116003937.1776888-1-minachou@andestech.com>
+ <20261116-dreamless-matador-3163d4abbf0b@spud>
+ <avvH6t8NHrya+hz6@atcsi01.andestech.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,48 +65,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MBO-RS-ID: ecb0f878edf8740d1a6
-X-MBO-RS-META: hx6d7wgupk6yr6hyqbay1awpyj4e9j6c
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="yL4HbPHY7ZmtVyGZ"
+Content-Disposition: inline
+In-Reply-To: <avvH6t8NHrya+hz6@atcsi01.andestech.com>
 
-On Tue, 2026-11-17 at 15:55 +0100, Christian K=C3=B6nig wrote:
-> On 11/17/26 10:01, Philipp Stanner wrote:
-> > Many users of dma_fence do things like:
-> >=20
-> > // Thread A
-> > dma_fence_set_error(f, -EINVAL);
-> > dma_fence_signal(f); // <- Takes lock, which orders against the above.
-> >=20
-> > // Thread B
-> > if (dma_fence_is_signaled(f)) // <- Does test_bit(), no ordering.
-> > 	pr_info("err: %i\n", f->error); // <- Can be loaded first.
+--yL4HbPHY7ZmtVyGZ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-[=E2=80=A6]
-
-> > +	//=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 test_and_set_bit() should do the tri=
-ck.
+On Tue, Nov 17, 2026 at 11:20:10AM +0800, Mina Chou wrote:
+> On Mon, Nov 16, 2026 at 06:26:33PM +0000, Conor Dooley wrote:
+> > [EXTERNAL MAIL]
 >=20
-> That should probably be a C comment, e.g. /* ... */.
+> > Date: Mon, 16 Nov 2026 18:26:33 +0000
+> > From: Conor Dooley <conor@kernel.org>
+> > To: Mina Hui-Min Chou <minachou@andestech.com>
+> > Cc: pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+> >  alex@ghiti.fr, jic23@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+> >  conor+dt@kernel.org, geert+renesas@glider.be, magnus.damm@gmail.com,
+> >  prabhakar.mahadev-lad.rj@bp.renesas.com, linux-riscv@lists.infradead.o=
+rg,
+> >  devicetree@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+> >  linux-kernel@vger.kernel.org, randolph@andestech.com,
+> >  cyyang772@andestech.com, tim609@andestech.com, az70021@gmail.com
+> > Subject: Re: [PATCH v2 19/19] dt-bindings: riscv: add Andes A27L2 CPU
+> >  compatible
+> >=20
+> > On Mon, Nov 16, 2026 at 08:39:37AM +0800, Mina Hui-Min Chou wrote:
+> > > Add the compatible string for the Andes A27L2 CPU core, which is used
+> > > in the Allwinner V821 sun300i SoC. The V821 devicetree will be submit=
+ted
+> > > separately by Allwinner.
+> >=20
+> > I'm going to apply this, on the basis that it will be used elsewhere.
+> > Ordinarily, it should come with the allwinner series.
+> >=20
+>=20
+> Hi Conor,
+>=20
+> Got it, thanks for applying it~
 
-huh, how did that happen=E2=80=A6
--ETOOMUCHRUST
+Just to note, because this patch was separated, sashiko did not review the
+driver changes. They looked fine at a quick glance, but I would like to
+see another revision (with this patch excluded obviously and the things
+that have been commented on so far solved) so that it can take a look.
 
-I provide a v2
+Thanks,
+Conor.
 
-> Apart from that really good catch.
+--yL4HbPHY7ZmtVyGZ
+Content-Type: application/pgp-signature; name=signature.asc
 
-Found without any LLM 8-)
+-----BEGIN PGP SIGNATURE-----
 
-I saw it while reworking Rust-fence to force users to always evaluate a
-fence's error code, i.e., you can only check whether a fence is
-signaled when you also check for the error.
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCavyTNwAKCRB4tDGHoIJi
+0nDfAPwKHrmXEY408835g7LwKKUsD3y2VAZE1B3oMkjVyjOigQD+NM5PZ2WItqP6
+lGZX8OLP+0WQqR6FozKNWS1q0T38KAg=
+=oYqq
+-----END PGP SIGNATURE-----
 
-dma_fence_is_signaled() incentivizes wrong behavior.
-
-But btw. we really want to carefully rethink our beloved signaled-bit
-and its semantics. Mind all our past discussions about it.
-
-This patch is more like a temporary hotfix. Much of our API is quite
-fragile.
-
-Regards
-Philipp
+--yL4HbPHY7ZmtVyGZ--
