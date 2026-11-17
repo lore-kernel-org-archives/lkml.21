@@ -1,90 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794944347;
-	b=bDfFUUyherDdvyVTkjk0DoOEALuvAmCZ/b4GsC3Vcd19PErtx6UURCVdgot8/5QgmueP
-	 /CTrANW6Jh4OfmCRPbHfSXYlKS49Vo57EWN51KaNA2FmGPIgCl8bthynyVZlg/jOwIs3A
-	 N+SXuYqG8ppGTNxfx6+A750yPM7PxvOQFfYuXR6+2WtTN3HXCzq3/Xv28TntalhPxfltn
-	 Ub7vHn7r5mekBkKx8AVOfCD2W46s62MptyAYA2jSrVM2ck6hJIqatZnNMabt7i5W9mYZU
-	 Mhotjjz0QaPNiq/kGVYqR9cdGDxo0D6if70kWjqfFqVV/LseFvvMC52CuW7ez29BIHA==
+	t=1794944367;
+	b=WfO2XUac1TJ1Qa7ZIp5jCKcvgnG6rMJs2DwnBV69WIPo1E39PhO2q+ODsE9oQdYxhkeY
+	 FrirCRnZe6BlvW3zqqTRGtfBA/i3j/SeY26LV4maIuJiDnYu1JkrUcFrI0LvlwSSgaDsQ
+	 xj/WvmAJvxBY4MxDARR9Qq2yLbyrMf95UMwgo8C6aXZETdb6SOXjJkqGgBs00sCP7jRL0
+	 XqVdiY5VmHPR+UW7WlKERidNBPlGlINlHCGvVNkeIVcwi6wDJ5OH5pQh4JeX5EPe83Efm
+	 yNjFy3dye621rrUguSpgFrD06bQUSfmSj7KOVNfUPkXH0o18K6nvWpMfJqzVVdlkDhw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794944347;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794944367;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=2Kp/vW2rYbu146OE4ja3gtScPJUsYh5ODUd1IOAYRU0=;
-	b=O9Q5UQmHsyylY8oBMgZ2ojziMgWyJOC2GsYwSXelhuMLYl47FQiFz2/4gM1sVLE9ufz4
-	 7GEKgLyuKh9qHBYfP9eoZ111nHQirYQvxR7IFpzIzsB67zKF4iCCzP5/B2XLuJ4jxTUJD
-	 KDoifPfO0ZF0uCapBWJe+pATP29C9DYUfhwWTkCEM00D09faLUydXwpuN+WVxe/+HjPO2
-	 YavsCf+IUf4FoV69piYifSS0zwJsQdGtRIpqW69UcpRNwcufKkWE3yf4N8CebCYRxj2kU
-	 Z5J1upnJIEdkBYW11jKWEE1YkyoEwaA9wqGQnayLL6UCRmMfuQ1V1jmX9uqpt3HIVmg==
+	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=X24LLs2RrK+lA3rnWmeXdxswGXkvA2QXv3w3PC5997A=;
+	b=sDPofTp1sM9xfXdW68FZ8LA1pSKuB2Idgbk4b/JbOeqfKsph5pjMUnIAfh+X7bVgRlKI
+	 2g1oGiWJMIc4oE91LicKXXhXF6kt47o28S42mVtC8XPdxjoXGQ7shcRluk6qYBGq6afvb
+	 DsG3wBHIjFHB2SkvAvD+iCvDTHyt+1IHs3dOn9WHSPggQXF6bOVIyAhTlm89pxz9Bz3We
+	 /b4M+PqZ2GH3Yt1OwNRsBJQC6OPhaf33v7I3JDLFgNHKeTyUOWaFylTqFfLVeIzUxc0vS
+	 vNpLizVkM+Zfi/sQ1TWIR1GqXCPHRkmnFZQMgLFEeIWd415xGd+T1W2SmwyVk0sDB0w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=R5EfHuco;
-	arc=none smtp.remote-ip=209.85.161.45
-Received: from mail-oo1-f45.google.com (mail-oo1-f45.google.com [209.85.161.45])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="buqZ4+/B";
+	arc=none smtp.remote-ip=209.85.221.49
+Received: from mail-wr1-f49.google.com (mail-wr1-f49.google.com [209.85.221.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A75DF606A8A6
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:39:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A75DF606A8A6
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48205606A339
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:39:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48205606A339
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=R5EfHuco
-Received: by mail-oo1-f45.google.com with SMTP id 006d021491bc7-71acdd32a53so87591eaf.3
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:39:06 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=buqZ4+/B
+Received: by mail-wr1-f49.google.com with SMTP id ffacd0b85a97d-49412eb1474so72434f8f.3
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:39:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794944345; x=1795549145; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=2Kp/vW2rYbu146OE4ja3gtScPJUsYh5ODUd1IOAYRU0=;
-        b=R5EfHucohNaUVdoxKMVG9ybtcRpFm7GdJSZ0iydHnmPnnRH+Rxq+sgboILuMpjDDfN
-         1jK7YMR+vsXS/91cUuNHC7trZ260s/uGuCMZs1C1z27izOMaEhMiYSFUvmJmsQPUfE66
-         UPABYhUteOZ/MuGrYejhdCsAho8t6Nw/KlRiYb1jF0ltEaPiMf3L6Sb+acj8tGV+G/kN
-         kHdXw27uWP8JPVwb9EVwfkRMXf4D1d3s8aumuPDq2+8A1OdrrYC4U6wHZcb/E4/hPRFe
-         tQakelpHRgfqVtOtuBNCrDbFs8hZDzORPyiX3qQldetSFrgOZZEu2AVQBm8I/0rQNe9W
-         Ys6Q==
+        d=gmail.com; s=20260707; t=1794944365; x=1795549165; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=X24LLs2RrK+lA3rnWmeXdxswGXkvA2QXv3w3PC5997A=;
+        b=buqZ4+/Bo9e+N24UUPYC17NFKAdU3HfgJsD6u3noM8uJiz3iiLUQLrQBL+vSAdZ/Ra
+         WfwGpt1XKwdl5lYtJsKqbbK5BmFxy75q3DltcusAgIVFGfLOkyDgk8d74cha8JP30ISD
+         BMGD7+qjDyXsPM1hS6JILeVssoE1Ff5GR46SCwdyMIPpXR1uES33HO64Dm4vnBC2ECVp
+         up4jkuUIywG2HoR3dVY+Gmq2TINJ7632YJ7jQ2EijqYnIQihOG9GQhXHiIjk6wcwnuIF
+         ny691NFOEJ0w072ZWJjLPFA176HpyPJp0C9HxKvn0htH4bFJ/G9P/PXHNYb621/z98dj
+         f7Jw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794944345; x=1795549145;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1794944365; x=1795549165;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=2Kp/vW2rYbu146OE4ja3gtScPJUsYh5ODUd1IOAYRU0=;
-        b=IwCujFoZhdi3JJCE/d110mxM6aCbRelGjQgz54hjZbVmqaoxrenUmqCZ2lXZXkkz2G
-         s1baFreDL5M6HQoUL5pforeoUs1oNosNpFx9hfqdVPOJvf8+06TZJTuY5YsELEh8Kj3X
-         R7h8pUzxPmEQfnkAa4lYm+ls1OQHVpzTzKSmLlQpV2J4ZBinUND5eY+54iWHJqeJq7uI
-         Scd2FFl6JaRBAfaoIC37MR+hBsmKeOGstJ8c+9ZAkGsXVqWKcHc7OX8UemE1oBWQsXbN
-         M/TEB/nO+6khfgvrH2ANqGimkdYzaSCu4OQs75iIjQ0CPNGTmg2Hbq0zQJAlT3SQmCHX
-         gf1A==
-X-Forwarded-Encrypted: i=1; AL+hErGGh9NSyPjUpIj8zRFxiZC364OAqPEA4JhoC3TLuuMly18UG0lrFGLE7ut1Jso0J5vY65vb7ndAoO0Hm1Q=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/WQSisVesq9K8TkoewKURzAWNgiHpVfOOKrRHm09gEon4uIs1G
-	3pm48oEqkwXnKREs5CQGVzWfRdnMj4LUdCxHW+6/CzyLwyG+o5fZ5B3b
-X-Gm-Gg: AYBFou1oYX40rd44i3VmP/EJ2uloPfHQ6ZBG/DsQhAFRUxYCFdIAKUYtp9OvMNnZQ+K
-	wA7of3OwPZkCLtirzQlK9508RSWn6tbyoJzcAzvzcrdC8xRhFLZvBeHpVH8alaageneGjgdM3wI
-	P5tD1a3Nho2PNOCbCo1nn5jUxJdAhDggPXR8anTYkT+gyjx19OZ4dCaaGBBZkDJilvDs+rrshQq
-	2ZW3y5YcV1uGo4FlxQkP3gLrj5QA82rntaPu4z6Tpn1ARJCRgzatod0+CNbb+k24GleKbIahAGT
-	vnoCLBHlOTPY1fUsW3MTTtL0PfDve/GQpkb//CmNdV193iMNIrvsloXyMKFGqVqXa0Q0IeS+u+6
-	OG794FDLPNXBYSp9zpa7c6hc62YCB8M4eu25MNnC/NwH3TXssENvC8VxCFJTaq6U0BpP3TzUG0d
-	L+WJUY8x5JRn0gCMJrO0xoWJ0iKt5jTTa1uk9jeFBmUcXLRB3/npHRzL5n7tifVXe+1vSvHsXy5
-	0mI6nRV6KRJuTvKW23/CMmS2yS0DTP+IFYcEyBBmX0ojg+D//jBiuNeQGnEowiy3gUoByPgRgOs
-	Qv2gK4mkoMBcV7SwOk44RxaiahwUmXUmmOXpreYozU5ekcEbkAqB4/E9l8eL2mM6eq3LQ6JNamU
-	gRAVK9T8ckjv5dII0WgRZPq5jJY+kZYigRON4dKul1WkFjIIPPzJpANZdOYGakun0PkpUSzN85u
-	13jfV0THqyWY2lHoGQw4Le2hHvYP8lK1gyPcAC6TI79eKXdF/DXH8=
-X-Received: by 2002:a05:6820:2387:b0:71a:f754:a236 with SMTP id 006d021491bc7-71b1865dca2mr216966eaf.83.1794944345608;
-        Tue, 17 Nov 2026 11:39:05 -0800 (PST)
-Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b192272ffsm146281eaf.2.2026.11.17.11.39.03
+        bh=X24LLs2RrK+lA3rnWmeXdxswGXkvA2QXv3w3PC5997A=;
+        b=yNg5HX3TlY9kGVuBckJBACxKj6b9FER2AZhgetqjQGOjU0oWHkkb55TRxXOwqSPOsK
+         tjGqg3Ejr0ND4eRQO31O36nfpMcIdcLXz2zR6rq0NG2suRs8dLY7tRsbWGB0Cd6/Z1c8
+         w5JPTyJuZWHtZA1DQxQNqxV1hJDpkdROWBydkzssS86zseqHOByRAv+OAEN7VlaQcOZ+
+         cnowis8AZ8Ln3bAFFI9GHefRf3izqhejSiGxwmIa1ai0ahzYdYriubT8neNxkFNCcuSf
+         aCtQbT8WANoDpmztOMctuTzz/cv7un1Y/aQ2I42Nj7RCAZL4n2ULY1lefjd609vvacqN
+         Blxw==
+X-Forwarded-Encrypted: i=1; AL+hErHZepV4wkDXy+T7QV3nKs6c3+kDcF/hD8gM9Een1/FdS/ZwBE/TYRspXOTL9EPsCVhKkc2OWi6C/33317k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/8hxej34UyYDJ4RbK72MrzPf/CrxY5ZgkpZYBbJx4A6aaayN6O
+	j1tUfOeiIJtX8rX/Zk7dVnQgfLBKSOLeuhhNR4CKXfIXncmVnzyjvcrNB0c82zjS
+X-Gm-Gg: AZFdTZcKWu2t635967vG6KdOrvKFQRDll0R28mr+4hPY6PS4KAM6UvVdKmOh0u0ZCwX
+	FTZFbnrtEEgx0/vUiQijxXOh4cIlyOQkx3q6pYutDCtxDrF2En77YVMgDl8ikUAAzZ2OUp3yzzY
+	s37qcwkM3xz3is4OiBEA4pmNqH21f9lbGf0SLo0vOhhBLNwiFAdSSbsWH9fnhxO8tHFwpY3kkzT
+	hJ6xtY1iSTn6y58yB5f/HKmUDptzK22gfKae1FTB+7MgncRhRdukQzyyxIr0zcyinmh+0YNOWeg
+	jiixwCDq02UW+KnpoFs51f9TpfBtsULQ0Y7e4jCETfNSwDxzi8MO9S9Fl9qoGrMHqf2qVtsMv+n
+	jMdTerMQgJprPSq7I8iTf3jTFJBZ/lTkKZ02aU9VrrQakBpk7tlyboE5cTqRA91TmpMleUO/YIy
+	v5Pkwwjfus3ksYKcBHD/KsxEEbWuHrDwg81zY58+IUrUjQIibas/I4uVqAY6y6b3ink3G9PZQS7
+	mmiKObfhmj95q8x9bqdpkrA+FuVOolADIF5Ioxqnr5PJ4E2nJBYJqvHfFdF839yDgClYt5rvJTo
+	W9zKhrGYI2OnNREIu622jj+vd6ASCba6yYCgtJNpq3GkY9bZ2DlInRcNVVVV/xm2GQ==
+X-Received: by 2002:a05:6000:200c:b0:48e:bf0:352 with SMTP id ffacd0b85a97d-4a6346da7e2mr1023911f8f.5.1794944365440;
+        Tue, 17 Nov 2026 11:39:25 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a656c1145esm424374f8f.52.2026.11.17.11.39.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 11:39:04 -0800 (PST)
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Tue, 17 Nov 2026 12:38:18 -0700
-Subject: [PATCH 11/11] nvmem: allow providers to specify an explicit NULL
- owner
+        Tue, 17 Nov 2026 11:39:25 -0800 (PST)
+Date: Tue, 17 Nov 2026 19:39:23 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Al Viro <viro@zeniv.linux.org.uk>
+Cc: Theodore Tso <tytso@mit.edu>, Gabriel Krisman Bertazi <krisman@suse.de>,
+ Sarthak Kukreti <sarthakkukreti@google.com>, Jaegeuk Kim
+ <jaegeuk@kernel.org>, Chao Yu <chao@kernel.org>, Christian Brauner
+ <brauner@kernel.org>, Gabriel Krisman Bertazi <krisman@collabora.co.uk>,
+ Eric Biggers <ebiggers@google.com>, Dmitry Torokhov <dtor@google.com>,
+ linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org,
+ linux-f2fs-devel@lists.sourceforge.net, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/3] libfs: reject casefolded names that fold to ".",
+ "..", or empty
+Message-ID: <20261117193923.795e6129@pumpkin>
+In-Reply-To: <20261117175917.GO989762@ZenIV>
+References: <20261113065332.929085-1-sarthakkukreti@google.com>
+	<20261113065332.929085-2-sarthakkukreti@google.com>
+	<878q2swoxp.fsf@cartola>
+	<avu0X5E298dHRBHY@mit.edu>
+	<20261117084727.0cfa196a@pumpkin>
+	<avxe5v6r1C7ZG7E2@mit.edu>
+	<20261117175917.GO989762@ZenIV>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,72 +110,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261117-submit-nvmem-provider-lifetime-v1-v1-11-3cfbd48812b5@gmail.com>
-References: <20261117-submit-nvmem-provider-lifetime-v1-v1-0-3cfbd48812b5@gmail.com>
-In-Reply-To: <20261117-submit-nvmem-provider-lifetime-v1-v1-0-3cfbd48812b5@gmail.com>
-To: Srinivas Kandagatla <srini@kernel.org>, 
- Mathieu Dubois-Briand <mathieu.dubois-briand@bootlin.com>, 
- Michael Walle <mwalle@kernel.org>, 
- =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Miquel Raynal <miquel.raynal@bootlin.com>, 
- Paul Cercueil <paul@crapouillou.net>, linux-kernel@vger.kernel.org, 
- linux-mtd@lists.infradead.org, James Hilliard <james.hilliard1@gmail.com>
-X-Mailer: b4 0.17-dev
 
-The owner fallback treats NULL as an unspecified module. A provider whose
-operations belong to built-in subsystem code therefore cannot distinguish
-its deliberate NULL owner from a request to use the parent driver module.
+On Tue, 17 Nov 2026 17:59:17 +0000
+Al Viro <viro@zeniv.linux.org.uk> wrote:
 
-Add owner_is_explicit so such providers can select their actual callback
-owner. Leave existing callers on the parent-module fallback. Unregister
-still disconnects and drains callbacks before the provider releases its
-state.
+> On Tue, Nov 17, 2026 at 09:54:32AM -0500, Theodore Tso wrote:
+> > On Tue, Nov 17, 2026 at 08:47:27AM -0500, David Laight wrote:  
+> > > > Sigh... I really think these characters are *evil*.  I wonder if we
+> > > > should simply drop those code points unconditionally when they are fed
+> > > > to the kernel --- not only folding to themselves, but *not* preserving
+> > > > them when a misguided application tries to create a file with one of
+> > > > these misbegotten Unicode charactesr.  
+> > > 
+> > > Doesn't that assume that filenames are UTF8 rather than just sequences
+> > > of bytes with everything except '\0' and '/' being valid.
+> > > Casefolding is itself so evil/impossible it shouldn't have been allowed.  
+> > 
+> > We would only do this if casefolding is enabled.  
+> 
+> Which is to say, on any distro kernel.  Besides, it's not just a matter of
+> filtering that dreck out on getname() and friends (syscall boundary won't
+> do at all due to the things like binfmt_misc opening files, etc.) - you'd
+> need to scan what you get upon ->get_link() as well.
 
-Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
----
- drivers/nvmem/core.c           | 2 +-
- include/linux/nvmem-provider.h | 3 +++
- 2 files changed, 4 insertions(+), 1 deletion(-)
+I also hope it is a mount option?
+So you could cross mountpoints several times (in both directions) to and from
+fs with utf8 casefold un/supported while processing a single pathname.
 
-diff --git a/drivers/nvmem/core.c b/drivers/nvmem/core.c
-index 619d33a59697..ce2a35cb6670 100644
---- a/drivers/nvmem/core.c
-+++ b/drivers/nvmem/core.c
-@@ -1132,7 +1132,7 @@ struct nvmem_device *nvmem_register(const struct nvmem_config *config)
- 	ops->reg_write = config->reg_write;
- 
- 	nvmem->owner = config->owner;
--	if (!nvmem->owner && config->dev->driver)
-+	if (!nvmem->owner && !config->owner_is_explicit && config->dev->driver)
- 		nvmem->owner = config->dev->driver->owner;
- 	nvmem->stride = config->stride ?: 1;
- 	nvmem->word_size = config->word_size ?: 1;
-diff --git a/include/linux/nvmem-provider.h b/include/linux/nvmem-provider.h
-index ba11c807593b..019fdf04cafb 100644
---- a/include/linux/nvmem-provider.h
-+++ b/include/linux/nvmem-provider.h
-@@ -81,6 +81,8 @@ struct nvmem_cell_info {
-  * @name:	Optional name.
-  * @id:		Optional device ID used in full name. Ignored if name is NULL.
-  * @owner:	Pointer to exporter module. Used for refcounting.
-+ * @owner_is_explicit: Use @owner even when NULL, without defaulting to the
-+ *		parent driver's module.
-  * @cells:	Optional array of pre-defined NVMEM cells.
-  * @ncells:	Number of elements in cells.
-  * @add_legacy_fixed_of_cells:	Read fixed NVMEM cells from old OF syntax.
-@@ -116,6 +118,7 @@ struct nvmem_config {
- 	const char		*name;
- 	int			id;
- 	struct module		*owner;
-+	bool			owner_is_explicit;
- 	const struct nvmem_cell_info	*cells;
- 	int			ncells;
- 	bool			add_legacy_fixed_of_cells;
+> > For better or for
+> > worse, it's better than what it replaced which was this terrible
+> > wrapfs hack that was a trivial to trigger deadlocks using fsstress ---
+> > which was even more evil.
+> > 
+> > The other way we can deal with this is that if case folding is
+> > enabled, we change the VFS to call the case-folding for incoming
+> > filename *before* it does its special case checking for '.' and '..'
+> > if casefolding is enabled.  
+> 
+> That would penalize every pathname resolution, whether that misfeature is
+> stepped into or not; hash_name() is fairly hot.
+> 
+> '.' and '..' should be recognized only as literal octet sequences 0x2e
+> and 0x2e 0x2e; if some misguided filesystem decides to treat something
+> else as equivalent to those, it bloody well ought to recognize and reject
+> that something else in its ->lookup() (or ->d_hash(), for that matter).
 
--- 
-2.53.0
+I remember when "." and ".." weren't actually special.
+You could have great 'fun' using the 'link' system call to make them
+refer to unexpected places.
+
+David
+
 
