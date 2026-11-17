@@ -1,72 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794948338;
-	b=e62Y/y516ad5uigO7MdBBErZeigcEKlWicHnPcQKupzpAGWiNmjNRAMLkAidMu6+Ddc/
-	 KNgkMZve9APBu46se7jdQE4+e/5bNMpXXB3CxtbS6jEq14tX+EP5xjWNUt84HSngmxf6H
-	 EzMUVVusvRTD6VIb4B2Y2aLo7gH1d2jEfgZyWguQj+aFQ1apzjdIza+LY0C/eT8iIPLpG
-	 Jux+bAmiuzy2vgeB/zvLvAchsiPXsU2IGoG0ly24oXv+8bM8Xe9Y07kqiWTZqN64z5bjC
-	 MgcSYmQxcpjRLLjGuUF9d2g9sBFKPEdh3B8zjvO/UHAniTb1LLeWeLCXdDOupVojFzA==
+	t=1794948583;
+	b=bxilC4SfBRUOl4f3OuHpqI3k5R2DwWmte86biBG40wYdtlz6s9a0u1VoDAMGvv0yFZ6d
+	 7TOesngBmGk9hbU20jpHWd5I8PfzOTQUojZoO29//K8wFWqHV0+s0vTSsijLwuk3MWSVs
+	 r18umAHCpeeD4RxhwHlCUfa7i7qFJHAm+DwgriWgEWZAjddfUKoWbHDafuBBmXF1FngMJ
+	 bzqIh5yfy6e6eVqrSVZb0zSzlqmf9Zcov+nHR3VntjaqOVa6YKL6fVwrLjnUAoV7ghIlD
+	 dmff/4kdO350LFZWiGFRsy9RWdZq8TdSZyQK+S8bxd3g6Xj3tfYFpIuhZzAKRF7lA1A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794948338;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=b6mleucbMdhj8MjjlIVwGs8yhAGAA7tst/tBmXQB1UY=;
-	b=zqUEB6gNpQ7KBAkfcGhXoAWwe6oDK6tojHXmq8exq5ecomKIWoiqUeX4W8jSb2kGLOHJ
-	 bNSm74qVItlmkb1Evp0fC6jE6WEvHfAFNHf8XAPJkg2YpVW7RyZuAiAUETQoJpJG5ZdoO
-	 eqhjLJUeSxC7HJ2NXA07WwSX9wTxfW3bSCjnaJWfEYx82G1s3xb3rriTPApZGdEInUDwZ
-	 Lj3v+ugkJxQxKX+gsCvGzcc/hCYkQm/xx/1X4+iGLx41l2O82DdxITj8yRQrzO1AHH8O7
-	 TWoFY6OSResU8n64kn+xWBSTaQYNHvalLk4a0q0aOgWEBBK6YakolorQlstvvQ7iqaQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794948583;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=NUlEEEDBCi1bmyvHfQ+uHqyviSTkLqSCmjkjTwlp/4E=;
+	b=uFHlToUlZtN2MidU5X2ze28iMbFXovh8CeyO+4rjm0gxY93joRBCQB/bV1k2WZ6L4qCk
+	 o5L15iembnIwH4J79kkdlCUzvSQz9mtr8Mps8S+im1tMlnRtNcGhXwAczgoPeKB7lrV7z
+	 uAve8lfJQ9sj+qTum08GO15bixKcf65X7dSoBJ4wbyHLaGA7YLg2I3f/CSelt+IKFnovI
+	 fF76+L1cM5J5sW0rKuCtJC0dtd5BeVAMjZwXSDKpkK/TLgiwqLgcXrIzBmXDf1cSNmRTH
+	 MejuuBKB6rfhzQOi/L2w/uXMtqIdEmjEdensl5wJ8XZuQb04uKtCrdw4f067ajuRtDQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--coltonlewis.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=aPeV3cXj;
-	arc=none smtp.remote-ip=209.85.167.198
-Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com [209.85.167.198])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D087F606A32C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:45:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D087F606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--coltonlewis.bounces.google.com
+	dmarc=pass header.from=linux.microsoft.com;
+	spf=pass smtp.mailfrom=linux.microsoft.com;
+	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=CgBaa5QG;
+	arc=none smtp.remote-ip=13.77.154.182
+Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 3E3DF606A332;
+	Tue, 17 Nov 2026 20:49:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E3DF606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=aPeV3cXj
-Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-4ab4f652f9bso131834b6e.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 12:45:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794948337; x=1795553137; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=b6mleucbMdhj8MjjlIVwGs8yhAGAA7tst/tBmXQB1UY=;
-        b=aPeV3cXjFGitT+FOJiUVFoAoNlXls/aeflQhDC0JgOwjtiDak8NO0WeizwzFkjQz3O
-         bspwRDJySpsRIY0dG4SR9EO/7jEWdVHpH5GXBigT5l+nvyvDg8tVgQW8Eu+pRLxDRqdi
-         1bwNKZziQdfySYBTIH83/C2ocBAzeP1Mc86oXeUge5uiX24EtGqzz1BRUjAoWhZMMpik
-         pW53kLksvVjKF6d35pL1vMwzg4r3q77xAjWdJuqGqw6QER+Fc8YBswMyifnxkwgmE6JT
-         EmXn/PVIQISb0+FXsf36ltXqbcyzNPUDRr35lX7XN83SnvnHKyAI2LjlW7iKDnEqnuTo
-         a/hg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794948337; x=1795553137;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=b6mleucbMdhj8MjjlIVwGs8yhAGAA7tst/tBmXQB1UY=;
-        b=a8BbEvMCU6AdKwqw8u3qvdKy+LoJkUvU9oPQFPrbxiOwKdaSSUJVRxSY5i27m5qtTz
-         k169BnudUiV3GFUU82Ts7BElpVPEGi/zoKrHp4id5axkMggJSJw2+45295wykPKzVtc+
-         e8fU99bONXIfby+dxoDJCnCdE/MKuxXP3mygFYgEibUGmDPk9dkSl+zFp3+Vok8eIBiq
-         eGqpp+RZ78V7D3rBZ83jA1IEpo2id6/SXIhZYJ+w4Z84NNSv7D7GYVvkmMLFyRos8Ebx
-         yzG2dbL8l27XR/+2GgnI3PiSc4sMoXUE6kgOc7ZVJfcwxxaUp2HzPONj21dcqvvhUeFa
-         sXfA==
-X-Forwarded-Encrypted: i=1; AL+hErFRWTg0yvevI8nw6NCvZ/jTlmF7RiLfDVe0lZGZA+u/VL8k3cVbhri7nImgwDNBveEXjG7UR17wqAGX6HM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/ulEnsXWZrRTPzERBEg8JyLen1rfRELrVdByR7M8QzjcaB8jok
-	1sH0PnYPTszwySbH4ahmKd88kgUE/C/OGmkT4EwK4IrjXWfhRU/SSamuwSP3ctLbeIIIWSbqJ3V
-	SuRfQ6l5t2R7CXX9A6JVSX5YKwQ==
-X-Received: from jajg7.prod.google.com ([2002:a02:c547:0:b0:61f:ecf1:1cac])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:1387:b0:4c3:e93e:e331 with SMTP id 5614622812f47-5774113234amr977571b6e.30.1794948336458;
- Tue, 17 Nov 2026 12:45:36 -0800 (PST)
-Date: Tue, 17 Nov 2026 20:45:33 +0000
+	dkim=pass (1024-bit key) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=CgBaa5QG
+Received: by linux.microsoft.com (Postfix, from userid 1216)
+	id 6AF4420B7169; Tue, 17 Nov 2026 12:49:42 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 6AF4420B7169
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1794948582;
+	bh=NUlEEEDBCi1bmyvHfQ+uHqyviSTkLqSCmjkjTwlp/4E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CgBaa5QGQtOh/TcWsiMX82jOM3XZr32kyyK4Ir6OTclO7GpkHXDk1W7m8F+isOUiy
+	 g79hBs7fQCC6x9TtpqQqFZbm6JuEaw1QUDPZ+fY8fs+ofAqDhYF9d3POLONrHyxBs7
+	 wCCqixEn2QxJ1gVR5lYxZHd89w6zD3jY5zuK3PQM=
+Date: Tue, 17 Nov 2026 15:49:42 -0500
+From: Hamza Mahfooz <hamzamahfooz@linux.microsoft.com>
+To: Haiyang Zhang <haiyangz@linux.microsoft.com>
+Cc: linux-hyperv@vger.kernel.org, netdev@vger.kernel.org,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Wei Hu <weh@microsoft.com>,
+	Konstantin Taranov <kotaranov@microsoft.com>,
+	Simon Horman <horms@kernel.org>, Long Li <longli@microsoft.com>,
+	Erni Sri Satya Vennela <ernis@linux.microsoft.com>,
+	Aditya Garg <gargaditya@linux.microsoft.com>,
+	Dipayaan Roy <dipayanroy@linux.microsoft.com>,
+	Manish Awasthi <mawasthi@linux.microsoft.com>,
+	Breno Leitao <leitao@debian.org>, linux-kernel@vger.kernel.org,
+	linux-rdma@vger.kernel.org, paulros@microsoft.com,
+	stable@vger.kernel.org
+Subject: Re: [PATCH net] net: mana: Set 1 usec / 1 comp as default and
+ minimum interrupt moderation
+Message-ID: <avy95r1UiCvvgRjD@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+References: <20261113204427.1922848-1-haiyangz@linux.microsoft.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,55 +72,298 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261117204535.4036191-1-coltonlewis@google.com>
-Subject: [PATCH v2 0/2] KVM: arm64: Fix inverted E2H0 check for HCR_EL2.NV1
-From: Colton Lewis <coltonlewis@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>
-Cc: Leonardo Bras <leo.bras@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Fuad Tabba <fuad.tabba@linux.dev>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Colton Lewis <coltonlewis@google.com>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261113204427.1922848-1-haiyangz@linux.microsoft.com>
 
-When commit b2a324ff01fe ("KVM: arm64: Use HCR_EL2 feature map to drive
-fixed-value bits") migrated HCR_EL2 fixed-bit masking to hcr_feat_map,
-feat_nv2_e2h0_ni() was written as !kvm_has_feat(kvm, FEAT_E2H0). Because
-ID_AA64MMFR4_EL1.E2H0 is a signed 4-bit field where IMP is 0, NI is -1,
-and NI_NV1 is -2, !kvm_has_feat(kvm, FEAT_E2H0) tests E2H0 < 0 and
-returns true for NI_NV1 (-2), leaving HCR_EL2.NV1 writable instead of
-RES0 for VHE-only nested guests (and conversely treating HCR_EL2.NV1 as
-RES0 when E2H0 is IMP).
+On Fri, Nov 13, 2026 at 12:44:04PM -0800, Haiyang Zhang wrote:
+> From: Haiyang Zhang <haiyangz@microsoft.com>
+> 
+> The existing code sets interrupt moderation defaults to 0 usec and 0
+> completions, which may cause CQ starvation of our NIC HW, and TX time
+> out error like:
+> mana 7870:00:00.0 ens1: NETDEV WATCHDOG: CPU: 14: transmit queue 4 timed out 63434 ms
+> 
+> To fix, change the default and minimal rx/tx usecs and frames to 1.
+> When the HW supports interrupt moderation, reject ethtool rx/tx usecs
+> and frames below 1.
+> Also clamp the values written by mana_gd_ring_dim() to [1, max], so
+> no caller, including the DIM work, programs a zero value.
+> On the HW without interrupt moderation support, do not request CQ
+> moderation, the usecs and frames stay at 0, and cannot be modified by
+> ethtool.
+> The PF capability is queried again when the device resumes from a
+> reset or suspend, so re-initialize these settings before re-attaching
+> the vPorts.
+> 
+> Advertise this change to the PF with the new driver capability flag
+> GDMA_DRV_CAP_FLAG_1_SET_MIN_INTR_MOD_VALUE.
+> 
+> Cc: stable@vger.kernel.org
+> Fixes: 433f482add31 ("net: mana: Add Interrupt Moderation support")
+> Signed-off-by: Haiyang Zhang <haiyangz@microsoft.com>
 
-Patch 1 restores the check to kvm_has_feat(kvm, ID_AA64MMFR4_EL1, E2H0,
-NI) (E2H0 >= -1) so that HCR_EL2.NV1 is implemented for IMP and NI and
-forced to RES0 for NI_NV1, and renames the helper from
-feat_nv2_e2h0_ni() to feat_nv2_nv1_not_res0().
-Patch 2 extends the arm64 hello_el2 selftest to verify via
-KVM_SET_ONE_REG and KVM_GET_ONE_REG that HCR_EL2.E2H remains RES1 and
-HCR_EL2.NV1 remains RES0 when E2H0 is NI_NV1.
+Tested-by: Hamza Mahfooz <hamzamahfooz@linux.microsoft.com>
+Reviewed-by: Hamza Mahfooz <hamzamahfooz@linux.microsoft.com>
 
-Changes in v2:
-- Rename feat_nv2_e2h0_ni() to feat_nv2_nv1_not_res0() to match the
-  condition it checks (Leonardo).
-- Drop the guest EL2 MSR/MRS HCR_EL2 check in hello_el2, as RESx
-  read-back from the guest is not architecturally guaranteed to return
-  the effective value and ID_AA64MMFR4_EL1 reads do not necessarily
-  trap without FEAT_FGT (Marc).
-- Link to v1: https://lore.kernel.org/r/20261116200418.3535619-1-coltonlewis@google.com
-
-Colton Lewis (2):
-  KVM: arm64: Fix inverted E2H0 check for HCR_EL2.NV1
-  KVM: arm64: selftests: Verify HCR_EL2.NV1 is RES0 when E2H0 is NI_NV1
-
- arch/arm64/kvm/config.c                       | 7 ++++---
- tools/testing/selftests/kvm/arm64/hello_el2.c | 8 ++++++++
- 2 files changed, 12 insertions(+), 3 deletions(-)
-
-
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
--- 
-2.56.1.750.gf70dc682cf-goog
-
+> ---
+>  .../net/ethernet/microsoft/mana/gdma_main.c   |  5 ++
+>  drivers/net/ethernet/microsoft/mana/mana_en.c | 76 +++++++++++++------
+>  .../ethernet/microsoft/mana/mana_ethtool.c    | 26 +++++--
+>  include/net/mana/gdma.h                       |  6 +-
+>  include/net/mana/mana.h                       |  9 ++-
+>  5 files changed, 88 insertions(+), 34 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/microsoft/mana/gdma_main.c b/drivers/net/ethernet/microsoft/mana/gdma_main.c
+> index ab942d5bfe05..10be69e97ceb 100644
+> --- a/drivers/net/ethernet/microsoft/mana/gdma_main.c
+> +++ b/drivers/net/ethernet/microsoft/mana/gdma_main.c
+> @@ -646,6 +646,11 @@ void mana_gd_ring_dim(struct gdma_queue *cq, u32 mod_usec, bool mod_usec_vld,
+>  	struct gdma_context *gc = cq->gdma_dev->gdma_context;
+>  	u32 dim_val;
+>  
+> +	mod_usec = clamp_t(u32, mod_usec, MANA_INTR_MODR_USEC_MIN,
+> +			   MANA_INTR_MODR_USEC_MAX);
+> +	mod_comps = clamp_t(u32, mod_comps, MANA_INTR_MODR_COMP_MIN,
+> +			    MANA_INTR_MODR_COMP_MAX);
+> +
+>  	/* Convert the DIM values to doorbell parameters */
+>  	dim_val = FIELD_PREP(MANA_INTR_MODR_USEC_MAX, mod_usec) |
+>  		  FIELD_PREP(MANA_INTR_MODR_COMP_MASK, mod_comps);
+> diff --git a/drivers/net/ethernet/microsoft/mana/mana_en.c b/drivers/net/ethernet/microsoft/mana/mana_en.c
+> index 7e9223143fc7..95bf153c3e1a 100644
+> --- a/drivers/net/ethernet/microsoft/mana/mana_en.c
+> +++ b/drivers/net/ethernet/microsoft/mana/mana_en.c
+> @@ -2515,9 +2515,6 @@ static void mana_rx_dim_work(struct work_struct *work)
+>  	cur_moder = net_dim_get_rx_moderation(dim->mode, dim->profile_ix);
+>  	cq = container_of(dim, struct mana_cq, dim);
+>  
+> -	cur_moder.usec = min_t(u16, cur_moder.usec, MANA_INTR_MODR_USEC_MAX);
+> -	cur_moder.pkts = min_t(u16, cur_moder.pkts, MANA_INTR_MODR_COMP_MAX);
+> -
+>  	mana_gd_ring_dim(cq->gdma_cq, cur_moder.usec, true,
+>  			 cur_moder.pkts, true);
+>  
+> @@ -2533,9 +2530,6 @@ static void mana_tx_dim_work(struct work_struct *work)
+>  	cur_moder = net_dim_get_tx_moderation(dim->mode, dim->profile_ix);
+>  	cq = container_of(dim, struct mana_cq, dim);
+>  
+> -	cur_moder.usec = min_t(u16, cur_moder.usec, MANA_INTR_MODR_USEC_MAX);
+> -	cur_moder.pkts = min_t(u16, cur_moder.pkts, MANA_INTR_MODR_COMP_MAX);
+> -
+>  	mana_gd_ring_dim(cq->gdma_cq, cur_moder.usec, true,
+>  			 cur_moder.pkts, true);
+>  
+> @@ -2871,10 +2865,15 @@ static int mana_create_txq(struct mana_port_context *apc,
+>  		cq_spec.modr_ctx_id = 0;
+>  		cq_spec.attached_eq = cq->gdma_cq->cq.parent->id;
+>  
+> -		/* DIM setting can be changed at runtime */
+> -		cq_spec.req_cq_moderation = true;
+> -		cq_spec.cq_moderation_usec = apc->intr_modr_tx_usec;
+> -		cq_spec.cq_moderation_comp = apc->intr_modr_tx_comp;
+> +		/* Request CQ moderation only if HW supports it.
+> +		 * DIM setting can be changed at runtime.
+> +		 */
+> +		if (gc->pf_cap_flags1 &
+> +		    GDMA_PF_CAP_FLAG_1_DYN_INTERRUPT_MODERATION) {
+> +			cq_spec.req_cq_moderation = true;
+> +			cq_spec.cq_moderation_usec = apc->intr_modr_tx_usec;
+> +			cq_spec.cq_moderation_comp = apc->intr_modr_tx_comp;
+> +		}
+>  
+>  		err = mana_create_wq_obj(apc, apc->port_handle, GDMA_SQ,
+>  					 &wq_spec, &cq_spec,
+> @@ -3206,10 +3205,14 @@ static struct mana_rxq *mana_create_rxq(struct mana_port_context *apc,
+>  	cq_spec.modr_ctx_id = 0;
+>  	cq_spec.attached_eq = cq->gdma_cq->cq.parent->id;
+>  
+> -	/* DIM setting can be changed at runtime */
+> -	cq_spec.req_cq_moderation = true;
+> -	cq_spec.cq_moderation_usec = apc->intr_modr_rx_usec;
+> -	cq_spec.cq_moderation_comp = apc->intr_modr_rx_comp;
+> +	/* Request CQ moderation only if HW supports it.
+> +	 * DIM setting can be changed at runtime.
+> +	 */
+> +	if (gc->pf_cap_flags1 & GDMA_PF_CAP_FLAG_1_DYN_INTERRUPT_MODERATION) {
+> +		cq_spec.req_cq_moderation = true;
+> +		cq_spec.cq_moderation_usec = apc->intr_modr_rx_usec;
+> +		cq_spec.cq_moderation_comp = apc->intr_modr_rx_comp;
+> +	}
+>  
+>  	err = mana_create_wq_obj(apc, apc->port_handle, GDMA_RQ,
+>  				 &wq_spec, &cq_spec, &rxq->rxobj);
+> @@ -3894,6 +3897,40 @@ int mana_detach(struct net_device *ndev, bool from_close)
+>  	return 0;
+>  }
+>  
+> +/* Match the interrupt moderation settings to the PF capability, which is
+> + * queried again when the device resumes from a reset or suspend. Must be
+> + * called before the queues are created.
+> + */
+> +static void mana_init_intr_modr(struct mana_port_context *apc)
+> +{
+> +	struct gdma_context *gc = apc->ac->gdma_dev->gdma_context;
+> +
+> +	if (!(gc->pf_cap_flags1 &
+> +	      GDMA_PF_CAP_FLAG_1_DYN_INTERRUPT_MODERATION)) {
+> +		apc->intr_modr_rx_usec = 0;
+> +		apc->intr_modr_rx_comp = 0;
+> +		apc->intr_modr_tx_usec = 0;
+> +		apc->intr_modr_tx_comp = 0;
+> +		apc->rx_dim_enabled = false;
+> +		apc->tx_dim_enabled = false;
+> +		return;
+> +	}
+> +
+> +	/* Keep the current settings, unless they were never initialized
+> +	 * because the port was probed without the capability.
+> +	 */
+> +	if (apc->intr_modr_rx_usec && apc->intr_modr_rx_comp &&
+> +	    apc->intr_modr_tx_usec && apc->intr_modr_tx_comp)
+> +		return;
+> +
+> +	apc->intr_modr_rx_usec = MANA_INTR_MODR_USEC_DEF;
+> +	apc->intr_modr_rx_comp = MANA_INTR_MODR_COMP_DEF;
+> +	apc->intr_modr_tx_usec = MANA_INTR_MODR_USEC_DEF;
+> +	apc->intr_modr_tx_comp = MANA_INTR_MODR_COMP_DEF;
+> +	apc->rx_dim_enabled = MANA_ADAPTIVE_RX_DEF;
+> +	apc->tx_dim_enabled = MANA_ADAPTIVE_TX_DEF;
+> +}
+> +
+>  static int mana_probe_port(struct mana_context *ac, int port_idx,
+>  			   struct net_device **ndev_storage)
+>  {
+> @@ -3924,15 +3961,7 @@ static int mana_probe_port(struct mana_context *ac, int port_idx,
+>  	apc->cqe_coalescing_enable = 0;
+>  	apc->cqe8_coalescing_enable = 0;
+>  
+> -	/* Initialize interrupt moderation settings if supported by HW */
+> -	if (gc->pf_cap_flags1 & GDMA_PF_CAP_FLAG_1_DYN_INTERRUPT_MODERATION) {
+> -		apc->intr_modr_rx_usec = MANA_INTR_MODR_USEC_DEF;
+> -		apc->intr_modr_rx_comp = MANA_INTR_MODR_COMP_DEF;
+> -		apc->intr_modr_tx_usec = MANA_INTR_MODR_USEC_DEF;
+> -		apc->intr_modr_tx_comp = MANA_INTR_MODR_COMP_DEF;
+> -		apc->rx_dim_enabled = MANA_ADAPTIVE_RX_DEF;
+> -		apc->tx_dim_enabled = MANA_ADAPTIVE_TX_DEF;
+> -	}
+> +	mana_init_intr_modr(apc);
+>  
+>  	mutex_init(&apc->vport_mutex);
+>  	apc->vport_use_count = 0;
+> @@ -4256,6 +4285,7 @@ int mana_probe(struct gdma_dev *gd, bool resuming)
+>  			enable_work(&apc->queue_reset_work);
+>  			netdev_lock(ac->ports[i]);
+>  			apc->link_cfg_error = 1;
+> +			mana_init_intr_modr(apc);
+>  			netdev_unlock(ac->ports[i]);
+>  			err = mana_attach(ac->ports[i]);
+>  			rtnl_unlock();
+> diff --git a/drivers/net/ethernet/microsoft/mana/mana_ethtool.c b/drivers/net/ethernet/microsoft/mana/mana_ethtool.c
+> index 4068e08acb16..96aabf7a8f08 100644
+> --- a/drivers/net/ethernet/microsoft/mana/mana_ethtool.c
+> +++ b/drivers/net/ethernet/microsoft/mana/mana_ethtool.c
+> @@ -505,9 +505,12 @@ static int mana_set_coalesce(struct net_device *ndev,
+>  	bool dim_changed = false;
+>  	struct gdma_context *gc;
+>  	u32 max_cqe_frames;
+> +	bool modr_sup;
+>  	int err;
+>  
+>  	gc = apc->ac->gdma_dev->gdma_context;
+> +	modr_sup = gc->pf_cap_flags1 &
+> +		   GDMA_PF_CAP_FLAG_1_DYN_INTERRUPT_MODERATION;
+>  	max_cqe_frames = gc->cqe8_coalescing_sup ? MANA_CQE_COAL_PKTS_8 :
+>  						   MANA_RXCOMP_OOB_NUM_PPI;
+>  
+> @@ -517,7 +520,7 @@ static int mana_set_coalesce(struct net_device *ndev,
+>  	if ((ec->use_adaptive_rx_coalesce || ec->use_adaptive_tx_coalesce ||
+>  	     ec->rx_coalesce_usecs || ec->tx_coalesce_usecs ||
+>  	     ec->rx_max_coalesced_frames || ec->tx_max_coalesced_frames) &&
+> -	    !(gc->pf_cap_flags1 & GDMA_PF_CAP_FLAG_1_DYN_INTERRUPT_MODERATION)) {
+> +	    !modr_sup) {
+>  		NL_SET_ERR_MSG(extack,
+>  			       "Interrupt Moderation is not supported by HW");
+>  		return -EOPNOTSUPP;
+> @@ -534,18 +537,27 @@ static int mana_set_coalesce(struct net_device *ndev,
+>  		return -EINVAL;
+>  	}
+>  
+> -	if (ec->rx_coalesce_usecs > MANA_INTR_MODR_USEC_MAX ||
+> -	    ec->tx_coalesce_usecs > MANA_INTR_MODR_USEC_MAX) {
+> +	/* Without the HW capability, only zero values pass the check above */
+> +	if (modr_sup &&
+> +	    (ec->rx_coalesce_usecs < MANA_INTR_MODR_USEC_MIN ||
+> +	     ec->tx_coalesce_usecs < MANA_INTR_MODR_USEC_MIN ||
+> +	     ec->rx_coalesce_usecs > MANA_INTR_MODR_USEC_MAX ||
+> +	     ec->tx_coalesce_usecs > MANA_INTR_MODR_USEC_MAX)) {
+>  		NL_SET_ERR_MSG_FMT(extack,
+> -				   "coalesce usecs must be <= %lu",
+> +				   "coalesce usecs must be between %d and %lu",
+> +				   MANA_INTR_MODR_USEC_MIN,
+>  				   MANA_INTR_MODR_USEC_MAX);
+>  		return -EINVAL;
+>  	}
+>  
+> -	if (ec->rx_max_coalesced_frames > MANA_INTR_MODR_COMP_MAX ||
+> -	    ec->tx_max_coalesced_frames > MANA_INTR_MODR_COMP_MAX) {
+> +	if (modr_sup &&
+> +	    (ec->rx_max_coalesced_frames < MANA_INTR_MODR_COMP_MIN ||
+> +	     ec->tx_max_coalesced_frames < MANA_INTR_MODR_COMP_MIN ||
+> +	     ec->rx_max_coalesced_frames > MANA_INTR_MODR_COMP_MAX ||
+> +	     ec->tx_max_coalesced_frames > MANA_INTR_MODR_COMP_MAX)) {
+>  		NL_SET_ERR_MSG_FMT(extack,
+> -				   "coalesce frames must be <= %lu",
+> +				   "coalesce frames must be between %d and %lu",
+> +				   MANA_INTR_MODR_COMP_MIN,
+>  				   MANA_INTR_MODR_COMP_MAX);
+>  		return -EINVAL;
+>  	}
+> diff --git a/include/net/mana/gdma.h b/include/net/mana/gdma.h
+> index 29d152e18596..6191ddddc27f 100644
+> --- a/include/net/mana/gdma.h
+> +++ b/include/net/mana/gdma.h
+> @@ -776,6 +776,9 @@ enum {
+>  /* Driver supports handling throttled EQEs */
+>  #define GDMA_DRV_CAP_FLAG_1_THROTTLED_EVENT_QUEUE BIT_ULL(32)
+>  
+> +/* Enforce min 1 usec, 1 frames for Interrupt Moderation */
+> +#define GDMA_DRV_CAP_FLAG_1_SET_MIN_INTR_MOD_VALUE BIT_ULL(33)
+> +
+>  /* Capabilities in the PCI-only group below rely on dynamic MSI-X allocation
+>   * and on the servicing and reset paths reached through
+>   * mana_schedule_serv_work(). Transports that provide neither leave
+> @@ -801,7 +804,8 @@ enum {
+>  	 GDMA_DRV_CAP_FLAG_1_EQ_MSI_UNSHARE_MULTI_VPORT | \
+>  	 GDMA_DRV_CAP_FLAG_1_DYN_INTERRUPT_MODERATION | \
+>  	 GDMA_DRV_CAP_FLAG_1_NON_CONTIGUOUS_BUFFERS | \
+> -	 GDMA_DRV_CAP_FLAG_1_THROTTLED_EVENT_QUEUE)
+> +	 GDMA_DRV_CAP_FLAG_1_THROTTLED_EVENT_QUEUE | \
+> +	 GDMA_DRV_CAP_FLAG_1_SET_MIN_INTR_MOD_VALUE)
+>  
+>  #define GDMA_DRV_CAP_FLAGS2 0
+>  
+> diff --git a/include/net/mana/mana.h b/include/net/mana/mana.h
+> index 218d540bc994..84afc4199e87 100644
+> --- a/include/net/mana/mana.h
+> +++ b/include/net/mana/mana.h
+> @@ -74,9 +74,12 @@ enum mana_priv_flag_bits {
+>  /* 8-pkt mode packs up to 2 packets per PPI entry */
+>  #define MANA_CQE_COAL_PKTS_8 8
+>  
+> -/* Default/max interrupt moderation settings */
+> -#define MANA_INTR_MODR_USEC_DEF 0
+> -#define MANA_INTR_MODR_COMP_DEF 0
+> +/* Default/min interrupt moderation settings */
+> +#define MANA_INTR_MODR_USEC_DEF 1
+> +#define MANA_INTR_MODR_COMP_DEF 1
+> +
+> +#define MANA_INTR_MODR_USEC_MIN 1
+> +#define MANA_INTR_MODR_COMP_MIN 1
+>  
+>  #define MANA_ADAPTIVE_RX_DEF true
+>  #define MANA_ADAPTIVE_TX_DEF true
+> -- 
+> 2.53.0
+> 
