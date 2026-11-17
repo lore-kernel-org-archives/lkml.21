@@ -1,59 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794955792;
-	b=wIVa49YI3OXAkHpVlX+EreAhaECY8zm/27DtX5Ypcw+KFLJIxO5/PSc2spAR8Fe+Orwx
-	 +M5604RarD+SbnEVcjzjLseFZCUyOxOmgBPrIhHbSaINOQtGoGXZbFuRxbOGPiZa0y+x7
-	 XjrXeHUHmLjOwCV0kPTUEEsftH/9cOt6ybwLFi2K4CaIBbVhddX0efeXdEDz7ZFoVQbGi
-	 jarOYOdHyNxr2fazg1JCcDQCmHX9tgCsljrncAXcN0RpJJZMRxeBS572p0wSxK5RcVi3/
-	 kZbM8oHcE5qVmJub3M2tBHz2Mro35ij/MrNfQA1QoRVp9NKG8jp7Ku1FaT2uePAOWRA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794955792;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=xoLIi0+olq1ojYmB+iwbcLFbgFXr/KR/iCCHN1uHop8=;
-	b=uhq3DqZJRb/0CPS9b4p0J7q7r3Fxmyf+2xR70dDCXiFZGCJT7+XwprgNKwgRzW0KrZhJ
-	 PjhfnqVWaiSJu2HqqVauv583SQoZEbykeNrUkAeKvT8GoGBWl9DykI+uwoKS7Pzl+0xCj
-	 JRf3M+wOozvHnyYYPjdScCuFfj+/FsPHkBX5bvUuzcuIXXcCuKUtyho6yMHyfL6AHNkMD
-	 ZrLJbpvVHuX2uAUukwqeU8GHk/74GLoyA2IgOtncB1yuZrJm8yrrmMH/bvA3vYnvXzc+/
-	 dF7qhO1rFg4M5vPM1IqEvOZQHQNTg9+jlOVv5mR+z6a9hp9Cijwbv0ytbuPcpwx5MaA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VwjGYOJh;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.28
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794955809;
+	b=SkcLC3Oq7qtXTenfGKCYIZ6I8U0wz4v8oHKnW67M+sRMpXmhjpHBHuYRzi9CT+L2YbvZ
+	 /QeC99BG7JsBJiL51GHfA/L+5GulkDV1MpOKhIQNY96jxDfeO3tB3N0m38FCmDBVkph8H
+	 SGlmahqWGpQk+Iyyys+eyl4urqdlf44cWaXATzGk+zIf3ys+wVjuSj2XyPjkWgZy1hjjv
+	 C7N7oKgZPZl85bdAF0R23kyh54sDuXTyD/rqydAiD5/0MkeUqR1itejPjQWzYd0dzc8Te
+	 EZw4VOWIsl+FWTSq3xmRmGTGpgYHnCFXzFuc4bzsD2ci3O3lgbEzya5q4wrxLYXu8vA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794955809;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=WMhSUz1LlYJ3f9uHtgh7pHFOXEBdgw+5QwtVNW1sA8A=;
+	b=kb1kYSggjPLqM0tp3d8+w1Q3ZGx9VTWK7VFxFp/axFR1hflZZLPQvb3U5o6zMYGiYcIE
+	 4nhM0cULsYmiCBh755bT8+07vla5AXq5xEN4ll8PfE0IuHFstHLHoAQvOLqybayXD4AEh
+	 XPp3Io5oHGugXLztvGc6Q6ouxTDGi/waXlS/rs/fol1pnrdz3oo1znHn3zig97Ec0qdje
+	 VeNUSD0BA9byQiO/6gxvYKKFw6FTyK5ihjWy1DvKY6LVxuHEaqn7O1p6/RLW+VlXO6R2j
+	 emaSj5fXxLJ55wBd/cEAsJiMTV9wC2ANBaqL+89lR+cTb1kC9v3Af7EYoDqAYOSDskA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=Bb0IMvDX;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.28
+Received: from SN4PR0501CU005.outbound.protection.outlook.com (mail-southcentralusazon11011028.outbound.protection.outlook.com [40.93.194.28])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 436BA606A32A;
-	Tue, 17 Nov 2026 22:49:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2BA7606A31C;
+	Tue, 17 Nov 2026 22:50:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2BA7606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VwjGYOJh
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD8911F000C4;
-	Tue, 17 Nov 2026 22:49:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794955791;
-	bh=xoLIi0+olq1ojYmB+iwbcLFbgFXr/KR/iCCHN1uHop8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VwjGYOJhlAj8ZpYJeytQG47xN61sbDQutcXuSQlxtF0fWFJ2Zd5V6wzE0g7m6YzZN
-	 dHRFlOJKCqYCSL7pnYD63FHOCtfqV6aWC+WxNlOUCMaqFQshLLN2/31d3wdFhcv/ul
-	 0ZLTOAxA8YgseK6uBCIqBZTTL2EWys00vbsPoZpjg3w4autIth33cv5mzM+jyeFM17
-	 9LJwlgFPNWTIVl6UFi8GTDI83XZ3tp3yZ+jxmBwZYVUNCdR1NE7HmcktvaLkfBcZVU
-	 /Z1wOSx8jySqBZSGtegqLhYLeX2LeJ6LE03sGIBA89IoWz+T1OK8LN91pVBYId8I//
-	 7dc3Uql7OkHFw==
-Date: Tue, 17 Nov 2026 14:49:50 -0800
-From: Oliver Upton <oupton@kernel.org>
-To: Colton Lewis <coltonlewis@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Leonardo Bras <leo.bras@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Fuad Tabba <fuad.tabba@linux.dev>, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] KVM: arm64: selftests: Verify HCR_EL2.NV1 is RES0
- when E2H0 is NI_NV1
-Message-ID: <avzaDnFRQ2GTHDiN@kernel.org>
-References: <20261117204535.4036191-1-coltonlewis@google.com>
- <20261117204535.4036191-3-coltonlewis@google.com>
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=Bb0IMvDX
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jCnI8jI5oI5n8TXdnai+CuvJlhucgpTrD+gzmDwdIs1xN1LJSHCANkV6tPg4xNlJk/vxem/nR+JR0g3Qd7dt2y3EV2o8G1X9Z1PBVgqS4o1jqOruQNjx01evnTaVbtjH0/0s7Q40KUm2xxJr1jld7/ZEvchY4uIddT+tMTCMip+svGhEJvTgYOJihHgK3WNpvD5wVehyJ+2c3rCskEBYmpLHQ6kS4ierMwD0uVI9q2QYKfOs4wid7tJPOetj5rf0O7Xm6KczkuAOCJa6NaAEbryuGneFoIJ0+TcjUd2/XPNmAploqLx+6v08h05oocDl3rHFmjaxQ4DjhSqLdNppKw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WMhSUz1LlYJ3f9uHtgh7pHFOXEBdgw+5QwtVNW1sA8A=;
+ b=ZSW+PvaxDHIDWeqwNN1JeIFGjzMjxzpTcBCCPXnkm4MqgWYK+35LJU5e+M9yBpno488bdGwP08eOKRUsqKgNrEAxhKJrzTYsPMpjTnd0+Bu5kYu30H2J+LS0BTIPgP5rGK14rO5fZa24M3Lfm4ONGE3Vh5IOnDVm7tOZELmC7+eEx+LIKXVy5rBn7ZgUMYxS4n7ssBHqmjVxZOW9k4OJjEHFy4wPQBgOGj6DpKUTnTKYIndSQvk+sf6ux7sqcbQl4xum3YC5p8VV8nQy8I8Uyc2GeCtI4qHWbzGZiMJR5qtkdgfM6htFCiOp3BoHML5F7G1EDIn+AlVKQMkwbC4LEA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WMhSUz1LlYJ3f9uHtgh7pHFOXEBdgw+5QwtVNW1sA8A=;
+ b=Bb0IMvDXaTxoyw20PD3Xr9PRl/tNZzm69bVhirR4HzvCsElpbxLsoLGefiGPwARgl6LWRgMrWxnevz1g8j7pVEnKNcKU0MVXr4IoVQ7dPth90XJ3rTFM66kY81WhCT1uy6J/LgBjCCa0xVM15RfCF4Viz4LMZdpikI5WPbTVICE=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CHAPR12MB999249.namprd12.prod.outlook.com
+ (2603:10b6:610:300::24) by DS7PR12MB6333.namprd12.prod.outlook.com
+ (2603:10b6:8:96::15) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 17 Nov
+ 2026 22:50:04 +0000
+Received: from CHAPR12MB999249.namprd12.prod.outlook.com
+ ([fe80::1cfd:535b:cec6:5077]) by CHAPR12MB999249.namprd12.prod.outlook.com
+ ([fe80::1cfd:535b:cec6:5077%4]) with mapi id 15.21.0615.013; Tue, 17 Nov 2026
+ 22:50:04 +0000
+Message-ID: <241a1cde-679f-4325-8cdd-63a59c891502@amd.com>
+Date: Tue, 17 Nov 2026 16:49:59 -0600
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 18/25] dmaengine: sdxi: Add context submission helper
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, David Rientjes <rientjes@google.com>,
+ John.Kariuki@amd.com, Jonathan Cameron <jic23@kernel.org>,
+ Kinsey Ho <kinseyho@google.com>,
+ Mario Limonciello <mario.limonciello@amd.com>,
+ PradeepVineshReddy.Kodamati@amd.com, Shivank Garg <shivankg@amd.com>,
+ Stephen Bates <Stephen.Bates@amd.com>, Tycho Andersen <tycho@kernel.org>,
+ Wei Huang <wei.huang2@amd.com>, Wei Xu <weixugc@google.com>,
+ dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-pci@vger.kernel.org
+References: <20261103-sdxi-base-v4-0-3668ccc7aab8@amd.com>
+ <20261103-sdxi-base-v4-18-3668ccc7aab8@amd.com>
+ <avdE7dckg2azmum3@lizhi-Precision-Tower-5810>
+Content-Language: en-US
+From: "Lynch, Nathan" <nathan.lynch@amd.com>
+In-Reply-To: <avdE7dckg2azmum3@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SA1PR02CA0007.namprd02.prod.outlook.com
+ (2603:10b6:806:2cf::18) To CHAPR12MB999249.namprd12.prod.outlook.com
+ (2603:10b6:610:300::24)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,51 +106,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117204535.4036191-3-coltonlewis@google.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHAPR12MB999249:EE_|DS7PR12MB6333:EE_
+X-MS-Office365-Filtering-Correlation-Id: 66746215-c8c2-4ca1-8624-08df44fd1e8a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|7416014|1800799024|376014|366016|23010399003|56012099006|261021121427099003|4143699003|11063799006|10067099003|261102123227099003|18002099003|6133799003|22082099003;
+X-Microsoft-Antispam-Message-Info:
+	O65JvZXS5/bz9fLHr0J3HeZ5QEfgCwt43ZQaDUcCBNYmUciwFO7iMUhSVh6kpXj3C2y9U3uT68i20PY7rsADuo5HROUQWWh9kqvJe7lUc4TB+b3ysfK6zykWJy2ta1vltQnGHGli6Gej9S5y307wR607yMhEM44vxh/cU/Q+OtANeOM79TpUyFZdX9CMYJpJ7usBD9yPRB2UtSlIumk3rt5lDMMWf2vFJOBFUva1SECP7oefb0/flEB/iuuKAp695YKYS3WxlOvkUmc1wLFRj27/DRf7iq8YzPFUKho1/VvVRJRKjceSkyjOKmBpD7+aZ4eXkvTzk6I58ub9lTnrAHQudz5TZA2Zr1Rny3Mp7ox9mERYyEJ2XRDZupSXbCtyAnET+z/JL27Gfo0FNSWk7zaS/Rnyh3gY54WX9SB66ndk02XRIr78lp5R5d2rgrmHzZtdf7TQVCDeon9ClQq3zEswwx8zZReho8HZJHJ27/td02BtqbUvBPHK6RzVhlYuB/KmteFJw7bict83JdaotlMXjyytso/RjrUMpm2Dy39N7TBRmNe5Q2lO1TnNFHdbvEBCQF+YkL28kUaSPAhrspviNICnOLKqwl6sG9lofJf+dBsr7FZi+6XHyEFAlH3b1j9fJZ3VWv0IrCxodEgdPfubNtpSdK1TznKKB1rZYD8=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHAPR12MB999249.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(23010399003)(56012099006)(261021121427099003)(4143699003)(11063799006)(10067099003)(261102123227099003)(18002099003)(6133799003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?YzZ4Y2IxUnBETkZKUWx4Mm9RdmlMa290UFBiamVwdVFtNWdEbUl5akNGVUlw?=
+ =?utf-8?B?M1R6cVRGQUcwU2dwQVBIUktSSCtuU0wxZFZTTmlNSVcvdDJrdzNVZnNqenBJ?=
+ =?utf-8?B?SmpTM3NlUEkxOGhKdlNYTTJUa2k0N1o4QkZRa1JKMFlQemJUbm5PSlNRMVJE?=
+ =?utf-8?B?ekpLbUowMHdQa3dmU3Y1NGQ1YmpiRGhEY0p0cmJVUXhzb0ZTbnJ1Znh0S0Zh?=
+ =?utf-8?B?VWRHK0lJMUVIRGlxcHpUTm5WY1Y2SzFsVi8xYnc4c3BhQlhZV2l3K04zZHBk?=
+ =?utf-8?B?a25vejVFMDZWN1pPQjAwbGZZeGpNaUtXT3lMSnY2QnJwT2VjZ0FqMnl6RUNZ?=
+ =?utf-8?B?QUlwTHllMmpCSGZ3Q1ZKUTdRejJUS09lSUJzWUswNG9WMWVnRnNJMWVvTmhz?=
+ =?utf-8?B?SWJNRDVSQjBQLysyZDZuZm1LRjM4Y3J4WGZRZlg2NnRMR1UvbWVUMVI2cUpi?=
+ =?utf-8?B?eXY3VGJTNEpvMzlTck1nMmpuMlNUSHh5V05rb0k4WXdqcGxuYTFleXpvUHVO?=
+ =?utf-8?B?UUZ5LzhSNGpubkJ2QWY4SEhldlBNMjNjT2tBMWVoVy9EZDl1QjMxYjk3WWts?=
+ =?utf-8?B?QnNSRWtXREx2Ym10OTVrc3pNMFI2V01EWHhDNUNzNmJRNThPZU54SHhNcGN2?=
+ =?utf-8?B?UnBBdHV3WFMvQjc0SEtGdFgxVkIyRWpZTk56WVQ0L3l5T29lcGtYL3U4UUZQ?=
+ =?utf-8?B?SjNRY2JDZWRWMHlzZTAvcFg1VXFveFd0emhPSkpvaHBMaXNnODZsSERPdnlv?=
+ =?utf-8?B?QWNHTEU0a05FMXhHNlM0RFc2OTdTSHM0TC9TYlVaZ29wbk9Hd0xGUnNGc0ha?=
+ =?utf-8?B?VFlKK0x5ckhNdWUxQmJGUGZzcUJONFhxaW1CQkZ5a05GbHg5TG1Gb3B6dEc3?=
+ =?utf-8?B?L0hTaktSbWE4bDBoRGpocFcvU0lhRGxmcnFMZEFDazZtNklxR0V2NSt2NmNa?=
+ =?utf-8?B?eTEwREV3MkxLSCtlSVVvbnVWWXVIWmdrNnBhelJVR1A0cm5LaHczVDVJa3BH?=
+ =?utf-8?B?NzJmU0VITlJiS29GSDZQMGFacHc1TEttVmVHZ0IrNW1zdmJJYmZhUFpWR2VJ?=
+ =?utf-8?B?c09DU1BvamhkMFBJalhpQ3dEOHA1Q3NyR1hrbk9xVDlRMlFEMHVBTXZJS1ZV?=
+ =?utf-8?B?WmRsYzVKSG0xUkZZRGRYYTJOVFk2a0NPWmk1dGU5Qk9tb283SUNSWTMvbDdV?=
+ =?utf-8?B?TzgwMzRVQUVRQi9LUEJzb29XdWMxK2NSa3hTRTdXWGk0WnJLMG5XRWU3Y0hu?=
+ =?utf-8?B?RXdZODdTWUo5YmJLcjNjVWg1cTVHcmF6M2lMZnpYbmZjUEhBZjkvQk1ORFM4?=
+ =?utf-8?B?aVpoZXpPUk1xZlhEV3NLUXBYUUpGQ1hESHliZlNlQmlVNzJrNCtXc0ltR1pI?=
+ =?utf-8?B?TndCK0FabzkrQzFWTThaNXkvbldTU1NoakpDOGRQNDdhbGh2WW1pcTlGN1NC?=
+ =?utf-8?B?NjlQQnFBSWViNmxPemdrTUVxMGQ5WmZQTnEzeDBaZHYzQ0JtbjZqV3d4TVE0?=
+ =?utf-8?B?aVNFbGV3MzZ0YWVKUWJFVjJjWXRtZXVQQzNpNm9TWUpQVUlXa0VkcHh5RnRt?=
+ =?utf-8?B?SFh1cENHVlpSb0lEYnlYNkkwU1ZUVElGMDNtYlo0aDZmZ3FJVEpWeHVZc2Yv?=
+ =?utf-8?B?RWtwd1JLczliTTdLSEFTRTdGUlM1bXlHakxNMUFFZFNsUTd2dW9LUVZKbUtP?=
+ =?utf-8?B?UGVVS2pienQzOXJiZ2orMTYrY01mMFF4N0IvL1gxeXhDbU5aMk9EUXJrOFhi?=
+ =?utf-8?B?TXVKbUFCSVdqTkQvK1NteVBpbmdkb1hrcU95dzZCS3NBZXpqcGhCL20rYkJZ?=
+ =?utf-8?B?N05ScWw4Qlp3Q0dWVmtrdk9FMHlxNEZzTHRLSnVNMDRsTjA2ckI1aVpGS0hn?=
+ =?utf-8?B?WGtHSWJwTUt3RTVmNmREY3lDdWJ4dlNhMUYvZjY5anhjSTdTdHhrWnVIY2Rx?=
+ =?utf-8?B?b2JFY0txOE5IMjBrd0Q3ODFWN2paTzUrNldDYUdESnZpSExuMVFFbUppd0lp?=
+ =?utf-8?B?ZzZkdFlZdmpmS3pBVlFaNVY2Kzh3Y241aXgycjBYb1BDbmtXR1d5b1p6bk5O?=
+ =?utf-8?B?RWtXYTNGUGpDZTM1VnpreG0rc1RqdlNHN1gwM0tRN0ZHQ3J5b2s5ZUM0YnlW?=
+ =?utf-8?B?cmljcUNaTXBBVS96a1pPYTIvN1lLMXZtZVRJU3pJVlNXOEhIZDYvb2xvUHFr?=
+ =?utf-8?B?Y2twQ0NudENkeHZiczBZLy9CNEx4SDQzL1lpd1d1NW9Ib3BxeW82V3ZWYzl3?=
+ =?utf-8?B?Q3pXeVJDUDlhUHBoMHZWbGE5THdpM3VGSXY0NEFEWUZNUG9xVDdteS9sNDVw?=
+ =?utf-8?Q?AJbTrth//KMGi+yT0/?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 66746215-c8c2-4ca1-8624-08df44fd1e8a
+X-MS-Exchange-CrossTenant-AuthSource: CHAPR12MB999249.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 22:50:04.1052
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ediERMb0J+KRsxURzRbD9pYVpNQlOHEoHDArCyDOAaVnAnxeCrcY8b9PDa7+QOftTOicp4thpNVzQevE+1pipA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB6333
 
-On Tue, Nov 17, 2026 at 08:45:35PM +0000, Colton Lewis wrote:
-> In a VHE-only EL2 guest (KVM_ARM_VCPU_HAS_EL2 without
-> KVM_ARM_VCPU_HAS_EL2_E2H0), KVM advertises ID_AA64MMFR4_EL1.E2H0 as
-> NI_NV1, making HCR_EL2.E2H RES1 and HCR_EL2.NV1 RES0.
+On 11/13/2026 11:12 AM, Frank Li wrote:
+> On Tue, Nov 03, 2026 at 08:49:59PM -0600, Nathan Lynch wrote:
+>> +static inline void sdxi_desc_make_valid(struct sdxi_desc *desc)
+>> +{
+>> +	u32 opcode = le32_to_cpu(desc->opcode);
+>> +
+>> +	sdxi_desc_vl_expect(desc, 0);
+>> +	FIELD_MODIFY(SDXI_DSC_VL, &opcode, 1);
+>> +	/*
+>> +	 * Once vl is set, no more modifications to the descriptor
+>> +	 * payload are allowed. Ensure the vl update is ordered after
+>> +	 * all other initialization of the descriptor.
+>> +	 */
+>> +	dma_wmb();
+>> +	WRITE_ONCE(desc->opcode, cpu_to_le32(opcode));
+>> +}
+>> +
+>> +static inline void sdxi_desc_set_fence(struct sdxi_desc *desc)
+>> +{
+>> +	u32 opcode = le32_to_cpu(desc->opcode);
+>> +
+>> +	sdxi_desc_vl_expect(desc, 0);
+>> +	FIELD_MODIFY(SDXI_DSC_FE, &opcode, 1);
 > 
-> Extend hello_el2 to attempt clearing HCR_EL2.E2H and setting HCR_EL2.NV1
-> from userspace via KVM_SET_ONE_REG, verifying that HCR_EL2.E2H remains
-> RES1 and HCR_EL2.NV1 is masked to RES0.
-> 
-> Signed-off-by: Colton Lewis <coltonlewis@google.com>
-> ---
->  tools/testing/selftests/kvm/arm64/hello_el2.c | 8 ++++++++
->  1 file changed, 8 insertions(+)
-> 
-> diff --git a/tools/testing/selftests/kvm/arm64/hello_el2.c b/tools/testing/selftests/kvm/arm64/hello_el2.c
-> index bbe6862c6ab16..5910497f8fbe4 100644
-> --- a/tools/testing/selftests/kvm/arm64/hello_el2.c
-> +++ b/tools/testing/selftests/kvm/arm64/hello_el2.c
-> @@ -45,6 +45,7 @@ int main(void)
->  	struct kvm_vcpu *vcpu;
->  	struct kvm_vm *vm;
->  	struct ucall uc;
-> +	u64 hcr;
->  
->  	TEST_REQUIRE(kvm_check_cap(KVM_CAP_ARM_EL2));
->  
-> @@ -66,6 +67,13 @@ int main(void)
->  		TEST_FAIL("Unhandled ucall: %ld\n", uc.cmd);
->  	}
->  
-> +	hcr = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2));
-> +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2),
-> +		     (hcr & ~HCR_EL2_E2H) | HCR_EL2_NV1);
-> +	hcr = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2));
-> +	TEST_ASSERT(hcr & HCR_EL2_E2H, "HCR_EL2.E2H should be RES1");
-> +	TEST_ASSERT(!(hcr & HCR_EL2_NV1), "HCR_EL2.NV1 should be RES0");
-> +
+> why no dma_wmb() here?
 
-Again, comment would be helpful for why this is done from userspace,
-i.e. the RESx as seen from the guest POV is stateful but the value is
-ignored.
+Because there are no ordering considerations until a descriptor is made
+valid. All other descriptor initialization, including the fence bit's
+value, must be visible to the SDXI implementation before it sees the
+valid bit go to 1, after which software is not allowed to make any other
+changes to the descriptor.
 
-Thanks,
-Oliver
