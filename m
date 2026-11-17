@@ -1,87 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.128
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794953315;
-	b=Mkdl2jJPAyXsDyjBUKNe0AoLUEL3scPlGxF+qu72XjE/uxjb0PqxLHAWQkW9wxv4aEwh
-	 oSbifRMmkFx0gRolem/XFnv8dFQWAbz5T2OZXvtosfT0cNKOiGGvXByVXl2j/uIVeTANb
-	 XnBdSXL3n5bPBLHsPVjGhtNvVBYt5a/1I1HtgdIfl7OCObkMn116klaq1gT45tBvoVXNB
-	 l3rKJ58hWBlHZMvTYfeuzHTTlhIOAP+DT30ARYPTJKEs1qn4zYDe6ND2Mi1Ia7vCNUeCt
-	 xd4B4qpjR3s0kQQASXGs7n5SUqJVpbqL0pkPoM/mW0i8YCiMt/IT6Br162yDCZHzAjg==
+	t=1794953322;
+	b=CjWbta3sY46/8vYxHzJSR2RQv90TtVLJKksbHOn2JCewX1tqqJ1g4cIcCUffc5HUZxs8
+	 4xm6qcAbQ+cqZGSti82Oz378QiM7ly8W2SoNb+KMYrQXfR+sRHTKd2vRiux6OeHa3C1wg
+	 Xkv0hPF/hgI0qpTEXonC6AxkUnpsqG3hao6uU0hCJ8+ITipeqYxXVDxiAOSbAmq2M4yj/
+	 VeIhDBpnXx4agGXHrnClxEsWkHUdlPXsJe530/89NsaNIe19wWDaOyWfxSfGVUJbx8cCG
+	 KosY4g5yl96QBSM5lMYXHFObxOfeq/MjtV5zJeUWrp8voDz0HcnFy4x+9Aaykm4Yshg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794953315;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
-	 User-Agent:MIME-Version;
-	bh=v0pad5rhFZNVf/DcwG2P+Ojp8s+P0GwyLe5Cg7QYVCI=;
-	b=r4A87QAYw0qA47dq2hxBcFCEF4Gb0tAOppo3jEuwJIA3RDK49+bErLLCXz2K8iApYzXZ
-	 Vicd8A3FcCvbhWyWWv3X2/q9u8mVfVAR5IEN9bLRaFujzMYMVEunTOiBeCLUxR+qYoJhD
-	 5doRxxAMeLA4OVeuLfaQaOKFfGXOIZm0MRPHR+Um51kZcH2n3dq9MFbSCfmYzOmjlKKjR
-	 TNA2XeqIff4kKWKjQ9VZr0zhKJTAHh1v9+3Jc19NdXo3wjCvPS23I/RXQxpX6iPH9Xhuk
-	 LxPNkfl0WvUeRCD360zMURFuxIiejBAOioBYVmj17yjesH+pqqbWjmOAUSvqkrphDAQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794953322;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=bI8B5pGHz5h1ly//mHf7ndgFx4Rz2ltW2HmUrfyIsQA=;
+	b=DIzRkwyhs0rOD9SF067PxnsJHLBkuYiPByCjHlw1dIOI/+Ye2ojBbBAOIx5y6Vxc5BCD
+	 XwlkvqU3xFEfY0FC3ASyQtIqB1lkU0lJL80thwXhWm/ZztVQui3XYa/UQY3xtQV2LXzTr
+	 vgMEZbQrIvNw3oej1zAi65aAUl4EdPZUCfQbakqlozvRL8XewrIUOxg+Qsuwo3Up+Xdyj
+	 86Y8UGWjLKGmxKI+k0OLBQ71fO3lfFiXw7g8yWI+wSoYo7+kcyOEGWP2EQUbqX6IuVRlN
+	 ZNmGcs+qBnetiJNEiktw/SPEi7bYinXnq/iG0OweqeycrQFVMvQX65THGLnAOFxhIMA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=P17xzKtE;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=M3qujAI1;
+	arc=none smtp.remote-ip=91.218.175.128
+Received: from mta0.migadu.com (out-128.mta0.migadu.com [91.218.175.128])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9193E606A31C;
-	Tue, 17 Nov 2026 22:08:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9193E606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80597606A32C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:08:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80597606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=P17xzKtE
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1794953312;
-	bh=YKI1+orUhC7UVyTNXTw2Fvdl/90JM9tFKLlKjK3PlCM=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=P17xzKtEYoIkyovYIg//JNQKvg/4GEj5FVwp99jX0cDdTXC9lQb/W9EhSjy4qC5rs
-	 SWkD0sCZu5NTMCaxzxbsJL19dNuSkifRrI8fGB3BPCDj1XvojM2cG4QDqghRjwLaIu
-	 WTiessdUsZfL+VwYjKirmOfUXFqlqB5PGPdvMmVtjcQDYEDr5UvG6zzjlWgGO33Dvg
-	 LMPhArW19gbGU4LJpPydyQF9KKMw0CqrDVR0ciJLhS/nyPJR5GfoST5B90V96R/6IG
-	 DFRH4M2kpdKrojE9CszMkgTUQ6iEyN+G1hUOLh0K+s2tSgrKDzDD41OygH0Uq2jUjV
-	 qrnTFlt0Q+w2w==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id EF37017E00E8;
-	Tue, 17 Nov 2026 23:08:30 +0100 (CET)
-Message-ID: <fa76c2a0093bc0c75702dcdbfacbf0b2adc8ad9c.camel@collabora.com>
-Subject: Re: [PATCH v2 0/9] v4l2: Add tracing for stateless codecs
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Detlev Casanova <detlev.casanova@collabora.com>, Daniel Almeida	
- <daniel.almeida@collabora.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
-  Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu
- <mhiramat@kernel.org>, Mathieu Desnoyers	 <mathieu.desnoyers@efficios.com>,
- Benjamin Gaignard	 <benjamin.gaignard@collabora.com>, Philipp Zabel
- <p.zabel@pengutronix.de>,  Heiko Stuebner	 <heiko@sntech.de>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-trace-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, kernel@collabora.com
-Date: Tue, 17 Nov 2026 17:08:30 -0500
-In-Reply-To: <20260610-v4l2-add-ftrace-v2-0-9756edf72ac1@collabora.com>
-References: <20260610-v4l2-add-ftrace-v2-0-9756edf72ac1@collabora.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-+9L0I7/vQ9auKcdun9Ph"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=M3qujAI1
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=6n3oDTFw9gSbVu7ljl4fwt44Xt31tv6c5y9tagZDFdI=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794953318; v=1; x=1795558118;
+ b=M3qujAI1eAiVRSUeR1KRAUAEnb1jINv2xfB6M1rMuIkDL39OO8hpitN0ywH/Wdh9ZqAEhH03
+ ciCo0aG/EhCSCabtGg3pLu74jNK6ofZDj3NAY8n5s8y9Efri7hUovj4mC1emwg4EXZK0ls3/l+u
+ DI7b2an/LIHq3fDEy3QuZNxE=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 2bbf6e667b38bebf;
+	Tue, 17 Nov 2026 22:08:37 +0000
+X-Mizu-Trace-ID: 2bbf6e667b38bebf
+X-Migadu-Flow: FLOW_OUT
+From: Vineet Gupta <vineet.gupta@linux.dev>
+To: dennis@kernel.org,
+	tj@kernel.org,
+	cl@gentwo.org
+Cc: chris@chrisdown.name,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	bpf@vger.kernel.org,
+	ast@kernel.org,
+	andrii@kernel.org,
+	daniel@iogearbox.net,
+	acme@kernel.org,
+	yonghong.song@linux.dev,
+	eddyz87@gmail.com,
+	martin.lau@linux.dev,
+	nathan@kernel.org,
+	ndesaulniers@google.com,
+	morbo@google.com,
+	justinstitt@google.com,
+	llvm@lists.linux.dev,
+	Vineet Gupta <vineet.gupta@linux.dev>
+Subject: [PATCH v2] percpu: do not put btf_type_tag on per-cpu variable declarations
+Date: Tue, 17 Nov 2026 14:08:24 -0800
+Message-ID: <20261117220824.609017-1-vineet.gupta@linux.dev>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,125 +80,133 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
---=-+9L0I7/vQ9auKcdun9Ph
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+__percpu carries BTF_TYPE_TAG(percpu), which records that a pointer
+points to per-cpu memory. __PCPU_ATTRS() applies __percpu to the per-cpu
+variable itself, so DECLARE_PER_CPU() and DEFINE_PER_CPU() put the tag in
+declaration specifier position on the variable's own type.
 
-Hi,
+arch/x86/include/asm/processor.h has
 
-Le mercredi 10 juin 2026 =C3=A0 10:33 -0400, Detlev Casanova a =C3=A9crit=
-=C2=A0:
-> Hi !
->=20
-> This patchset aims to improve codec event tracing in v4l2.
->=20
-> The traces added in visl by Daniel Almeida are moved to the global trace
-> events.
-> They are adapted to trace each each field separately and not just the
-> whole struct so that userspace can filter on different fields and
-> libraries like libtracefs and libtraceevent can be used to list the
-> fields instead of parsing the trace printk's.
->=20
-> The trace event templates are also reworked to avoid long lines, but
-> quoted string splits are kept as they don't cut words.
->=20
-> To each trace event are also added a tgid and fd fields, helping
-> userspace track different decoding sessions (contexts) based on the given
-> file descriptor used by the given process id.
->=20
-> Also for better tracking, stream on and stream off events are added as
-> well as HW run and HW done events to track decoder core usage.
->=20
-> The main focus is to be able to generate perfetto traces to show VPU usag=
-e,
-> a perfetto producer using this can be found at [1] (it will be renamed to
-> match the more generic approach than hantro).
-> Other controls can be traced later as well, this patch set only focuses o=
-n
-> mem2mem type drivers.
+	DECLARE_PER_CPU_READ_MOSTLY(struct cpuinfo_x86, cpu_info);
 
-This is getting old, can you rebase and fix all the checkpatch and smatch i=
-ssue.
-There might be some build issues too?
+which an x86 defconfig preprocesses to
 
-https://gitlab.freedesktop.org/linux-media/users/patchwork/-/pipelines/1683=
-571/
+	extern __seg_gs __attribute__((btf_type_tag("percpu")))
+	__attribute__((section(".data..percpu" "..read_mostly")))
+	__typeof__(struct cpuinfo_x86) cpu_info;
 
-cheers,
-Nicolas
+and GCC warns:
 
->=20
-> [1]:
-> https://gitlab.collabora.com/detlev/hantro-perf/-/tree/hantro-improved-in=
-fo
->=20
-> Changes since v1:
-> - Don't modify the printk format
-> - Trace all fields of the structs instead of the whole struct as a buffer
-> - Remove fdinfo patches (they will come in another patch set)
-> - Fix long lines
-> - Rename v4l2_requests.h trace header to v4l2_controls.h
-> - Add basic documentation
->=20
-> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
-> ---
-> Detlev Casanova (9):
->       media: Move visl traces to v4l2-core
->       media: Map each struct field to its own trace field
->       media: Add tgid and fd fields in v4l2_fh struct
->       media: Add tgid and fd to the v4l2-requests trace fields
->       media: Add missing types to v4l2_ctrl_ptr
->       media: Trace the stateless controls when set in v4l2-ctrls-core.c
->       media: Add stream on/off traces and run them in the ioctl
->       media: Add HW run/done trace events
->       media: hantro: Add v4l2_hw run/done traces
->=20
->  drivers/media/platform/verisilicon/hantro.h        |    1 +
->  drivers/media/platform/verisilicon/hantro_drv.c    |   10 +
->  .../platform/verisilicon/rockchip_vpu981_regs.h    |    1 +
->  .../media/platform/verisilicon/rockchip_vpu_hw.c   |    4 +
->  drivers/media/test-drivers/visl/Makefile           |    2 +-
->  drivers/media/test-drivers/visl/visl-dec.c         |   76 -
->  drivers/media/test-drivers/visl/visl-trace-av1.h   |  314 ---
->  drivers/media/test-drivers/visl/visl-trace-fwht.h  |   66 -
->  drivers/media/test-drivers/visl/visl-trace-h264.h  |  349 ---
->  drivers/media/test-drivers/visl/visl-trace-hevc.h  |  464 ----
->  drivers/media/test-drivers/visl/visl-trace-mpeg2.h |   99 -
->  .../media/test-drivers/visl/visl-trace-points.c    |   11 -
->  drivers/media/test-drivers/visl/visl-trace-vp8.h   |  156 --
->  drivers/media/test-drivers/visl/visl-trace-vp9.h   |  292 ---
->  drivers/media/v4l2-core/v4l2-ctrls-api.c           |   10 +
->  drivers/media/v4l2-core/v4l2-ctrls-core.c          |  114 +
->  drivers/media/v4l2-core/v4l2-fh.c                  |    1 +
->  drivers/media/v4l2-core/v4l2-ioctl.c               |   37 +-
->  drivers/media/v4l2-core/v4l2-trace.c               |   48 +
->  include/media/v4l2-ctrls.h                         |   19 +
->  include/media/v4l2-fh.h                            |    4 +
->  include/trace/events/v4l2.h                        |   77 +
->  include/trace/events/v4l2_controls.h               | 2708 ++++++++++++++=
-++++++
->  23 files changed, 3033 insertions(+), 1830 deletions(-)
-> ---
-> base-commit: acb7500801e98639f6d8c2d796ed9f64cba83d3a
-> change-id: 20260608-v4l2-add-ftrace-aec6e7f60a6c
->=20
-> Best regards,
-> -- =20
-> Detlev Casanova <detlev.casanova@collabora.com>
->=20
+	processor.h:232:36: warning: ignoring attributes applied to
+	'struct cpuinfo_x86' after definition [-Wattributes]
 
---=-+9L0I7/vQ9auKcdun9Ph
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+which -Werror turns into a build failure.
 
------BEGIN PGP SIGNATURE-----
+The compiler is right to object to a type tag on the aggregate, and the
+issue is fundamental: every variant of an aggregate shares one DIE, so
+there is nowhere to put it. clang drops it silently and GCC warns.
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCavzQXgAKCRDZQZRRKWBy
-9O3jAQDZ8BZcn7gZDDvbPjsacktSHHnvBQ6sV6/UOIhaT59xmwD/dc0B0IzmagZI
-neZLwegym+RxxGBk7Fn60KARGmqsGgE=
-=eJc6
------END PGP SIGNATURE-----
+The tag is meant to record that a pointer points to per-cpu memory, and
+cpu_info is not a pointer.
 
---=-+9L0I7/vQ9auKcdun9Ph--
+And this gets worse: for a pointer-typed per-cpu variable GCC attaches
+the tag to the pointee, so
+
+	static DEFINE_PER_CPU(struct bpf_hrtimer *, hrtimer_running);
+
+comes out as PTR -> TYPE_TAG 'percpu' -> struct bpf_hrtimer. The truth
+is the other way round: hrtimer_running lives in per-cpu memory and
+points at ordinary memory, while that record says it is an ordinary
+pointer to per-cpu memory. clang emits no tag there at all.
+
+Add __percpu_var, which skips the btf tag (__percpu under sparse) and
+use it in __PCPU_ATTRS(). The cpu_info declaration above becomes
+
+	extern __seg_gs
+	__attribute__((section(".data..percpu" "..read_mostly")))
+	__typeof__(struct cpuinfo_x86) cpu_info;
+
+The pointer spelling, T __percpu *p, is unchanged and keeps its tag.
+
+Before this patch the tag also qualified the variable's type, so &var
+had type "T __percpu *", and a pointer does have a DIE of its own:
+pahole emitted PTR -> TYPE_TAG 'percpu' -> T for each one.
+this_cpu_ptr(&var) is that shape, and that is where the records came
+from.
+
+Those are the records an x86 defconfig built with clang loses: 280 BTF
+types, 140 TYPE_TAG and the 140 pointers carrying them, with .BTF
+shrinking by 3360 bytes. They are the derived pointers -- clang never
+recorded the declarations themselves. None of them were reachable: a
+record points at a type only if something is declared with it, and
+nothing is declared with these. The 803 places that do declare a
+"T __percpu *" keep theirs -- the 110 tagged pointers that something
+references are the same before and after. .text is byte-identical.
+
+Signed-off-by: Vineet Gupta <vineet.gupta@linux.dev>
+Reviewed-by: Chris Down <chris@chrisdown.name>
+Tested-by: Chris Down <chris@chrisdown.name>
+---
+Changes in v2:
+ - Dropped the "message is confusing" sentence: GCC's "after definition"
+   refers to the definition of struct cpuinfo_x86, not to the declaration
+   of cpu_info, so the message is accurate (Chris Down).
+ - Dropped 2/2, "local_lock: do not put btf_type_tag on the lock guard
+   type". Only the tag on the typedef generates a warning, and that
+   needs a GCC fix [1] anyway. The pointer usage "T __percpu *" is fine
+   (Chris Down).
+ - Rebased onto v7.4-rc2.
+
+RFC: https://lore.kernel.org/r/20261110012235.1024461-1-vineet.gupta@linux.dev/
+
+[1] https://inbox.sourceware.org/gcc-patches/20261112191815.884167-1-vineet.gupta@linux.dev/
+
+ include/linux/compiler_types.h | 8 ++++++++
+ include/linux/percpu-defs.h    | 2 +-
+ 2 files changed, 9 insertions(+), 1 deletion(-)
+
+diff --git a/include/linux/compiler_types.h b/include/linux/compiler_types.h
+index c5921f139007..b250d6870324 100644
+--- a/include/linux/compiler_types.h
++++ b/include/linux/compiler_types.h
+@@ -50,6 +50,7 @@
+ # define __user		__attribute__((noderef, address_space(__user)))
+ # define __iomem	__attribute__((noderef, address_space(__iomem)))
+ # define __percpu	__attribute__((noderef, address_space(__percpu)))
++# define __percpu_var	__percpu
+ # define __rcu		__attribute__((noderef, address_space(__rcu)))
+ static inline void __chk_user_ptr(const volatile void __user *ptr) { }
+ static inline void __chk_io_ptr(const volatile void __iomem *ptr) { }
+@@ -68,7 +69,14 @@ static inline void __chk_io_ptr(const volatile void __iomem *ptr) { }
+ #  define __user	BTF_TYPE_TAG(user)
+ # endif
+ # define __iomem
++/*
++ * btf_type_tag records "points to per-cpu memory", so it belongs on the
++ * pointer spelling only. Declaring the per-cpu variable itself puts the tag
++ * in declaration specifier position, where clang drops it and GCC attaches it
++ * to the wrong type, so __percpu_var leaves it out.
++ */
+ # define __percpu	__percpu_qual BTF_TYPE_TAG(percpu)
++# define __percpu_var	__percpu_qual
+ # define __rcu		BTF_TYPE_TAG(rcu)
+ 
+ # define __chk_user_ptr(x)	(void)0
+diff --git a/include/linux/percpu-defs.h b/include/linux/percpu-defs.h
+index dbe3267a0a13..f53fc430aaad 100644
+--- a/include/linux/percpu-defs.h
++++ b/include/linux/percpu-defs.h
+@@ -45,7 +45,7 @@
+  * that section.
+  */
+ #define __PCPU_ATTRS(sec)						\
+-	__percpu __attribute__((section(PER_CPU_BASE_SECTION sec)))	\
++	__percpu_var __attribute__((section(PER_CPU_BASE_SECTION sec)))	\
+ 	PER_CPU_ATTRIBUTES
+ 
+ #define __PCPU_DUMMY_ATTRS						\
+-- 
+2.53.1-Meta
+
