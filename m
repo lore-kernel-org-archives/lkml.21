@@ -1,84 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794942656;
-	b=dzHuaQuaUbL/bvXSWRr9+yzcoc7F01b6KcrCSIo6iSwN8ek5DhKkplWN4uaBZhZY5H/3
-	 UCH6QE+7cPSbowhgyFz9BOYM/ze9Di+xizhMKxPQUUHbaJhdq6SPxtjb4apc+OSzjiglS
-	 p5HfiNk2BcyGIfjujnzb4WVjydRJXL68Q1dlCRP6miBGzcXrVPJ/AYSvoj8FOpm+3SiWr
-	 LdkhgDl59JhVWDE6CH08a5KrxYPB7pCYVj4MhzKgfREAjrrLMN+MdKsPU+2lTp/zk+Gng
-	 SxoQ3pRswYNOniWNsO7vvQ2n1VpnbRsjSpvJDKwHGewFXkWF1MTnbLJoVbBEeHyBd3Q==
+	t=1794942681;
+	b=upEO7sMpM+Zvt47wCT/XbfQOoiwUOlJMpzOR/ZM2nF40fx5irqFmPaSxZ4V4dLhnMetO
+	 BiSuZ7EzRHlhA8cBtbGNgi2FV2jXUyvkL2tQYqrnbIKpJesSvsnBWptzuoQgzLOUgrgwx
+	 unniu56Xkb+3hED3mgsmlxAub3iUcIQuJ1e8uZxgD8wCWEq6w9orjzkZD4fm6C1gmwIwt
+	 0qxGkvTdUQrDdLaghCLtPH2EsxziwlpO3NcsOjibyqlBRS2d0zbEL/eGzItmA3ORCwc2D
+	 /YpIY37J9NcX0hro2oW8t22O8mc7iA3wjZ1BHbgVpkd8BKYSIdvRYTXXiCQPcbze87A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794942656;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=QNfr1N4SlD4nY5lF2k9NOu1qbIPKIuO18d/t7UojEjc=;
-	b=h0SsOLOQJSK6FqR5bJwYggTGtW/lfnar/WIVDmGXSS9TUXGfC4y5uMAF+C24f9mMQzMV
-	 AuLSSaMMgWzPY1eJjif3+Kp5GzF6hUGvnnzsLDNh5lrzM5utfmFvhcC6PpcaxP3XGHebV
-	 k0GmLDEgegwZz4QGJfCgbA92qvjhnGklrcpdWQdQjB0nsUBY+QpT4WzBRyD9FX++5OJop
-	 gjbKQkOoAz51XJi37+xjKynMmXWzF6NyvMN4x+VbQzan2gNQMB8Tz43SkAhPnkZUuMTpg
-	 tpZoV1yqGvkJMXDBbVAnaiWv1gslBtaNyVdl8pYIY4toxsTFsNEag6QJePOc6oaOryw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794942681;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=650tdgsptHAzjyRc/GlqttIJaxnXGcm/beJZm4uMOIw=;
+	b=giRQSeTVNRhord4IYot2AHG28ycJRArCuWSp3GFNKMi0BT7vlWKNFYE5SvTxy3t9rtzF
+	 OJ8a+JYVQlvolbqj4tZQvn8IW5omKboVryOYD5UPWmUbG7A9l4XxASCTYrZzR7bt2/C8k
+	 xfxRqXXtNPcWJZ6Bk+Eyv3DxHTEFlFY0rTQZsZyNxEGYYsAANPkxVzj9qjE/OOnIOXW5C
+	 Z/YYXTCRS87BXhxUKT+QTfNk6Ys3KXDXetQ72S0YJgGi7hvsX4FXjjUYLAQq+lztdiQUV
+	 CrppwWjtwHNl/CrRccIaZxDvWeZfGTQ0Cf255H7TyEBDrB6DhkoByEkyFNLND1uc2OQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TMG9hdFI;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=OrKxQvB2;
+	arc=none smtp.remote-ip=198.175.65.11
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.11])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id E624B606A31C;
-	Tue, 17 Nov 2026 19:10:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80E29606A31C;
+	Tue, 17 Nov 2026 19:11:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80E29606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TMG9hdFI
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id F13BF1F000C5;
-	Tue, 17 Nov 2026 19:10:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794942655;
-	bh=QNfr1N4SlD4nY5lF2k9NOu1qbIPKIuO18d/t7UojEjc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=TMG9hdFI1EiKm12mX2UfRyknIADhNhlisQjyVgB+nCZZIPENEdznv9MneSRYCr7Jv
-	 HMIiYw0QYp+qamQPfqOrdhty/ANjv5b9t7CPGrzmhSWmN0XeNjxDExZisM1vNvkZvB
-	 UpFB4zHnjkbCr/HfYSCFcCYHjOMWmCUI8BqO2hltxJwBEOdKZRFeWWXCvOnxV672ni
-	 hHG6+lRX18Q4qayZUEfaQ5BY2rNuiw3UDZQHStPfEkyhjUU3Pa3cZ+aY5TyWhz3hm2
-	 x85mHaTn5JdLS3Brs0i5acaJvE7jsp6MiQ19Qk5biIFf1aBXXwe2VxmXxpdXZJxtFy
-	 ROeBDjhz/LeQw==
-Date: Tue, 17 Nov 2026 21:10:52 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Andy Lutomirski <luto@amacapital.net>
-Cc: linux-fsdevel@vger.kernel.org, linux-api@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
-	linux-security-module@vger.kernel.org,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Ben Segall <bsegall@google.com>,
-	Christian Brauner <brauner@kernel.org>,
-	David Hildenbrand <david@kernel.org>,
-	David Howells <dhowells@redhat.com>,
-	Davidlohr Bueso <dave@stgolabs.net>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Ingo Molnar <mingo@redhat.com>, Jan Kara <jack@suse.cz>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Juri Lelli <juri.lelli@redhat.com>, Kees Cook <kees@kernel.org>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	Manfred Spraul <manfred@colorfullife.com>,
-	Mel Gorman <mgorman@suse.de>, Michal Hocko <mhocko@suse.com>,
-	Mike Rapoport <rppt@kernel.org>, Neal Gompa <neal@gompa.dev>,
-	Paul Moore <paul@paul-moore.com>,
-	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Serge Hallyn <sergeh@kernel.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Valentin Schneider <vschneid@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Vlastimil Babka <vbabka@kernel.org>
-Subject: Re: [RFC PATCH 00/13] Namespace for namespace roots
-Message-ID: <avymvCZGVcEp8mHu@kernel.org>
-References: <20261117050841.3289652-1-jarkko@kernel.org>
- <CALCETrUBUnJVhiMkft6hTZZMe8nTpMBRTGY2v=9x5ETBSvmPZQ@mail.gmail.com>
- <avyhl79pygUmV3hr@kernel.org>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=OrKxQvB2
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1794942682; x=1826478682;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=mj+kkoTBoY2jJTI2lPTxEm/3LuhmOKWAq9J/SWCzwsA=;
+  b=OrKxQvB2rkzjwFdvJTTcLcVYwohHxQr0javK7VH+VVyEHWvbnNcOUrXg
+   bmUcGqY+hxBlmgrZffrR9rDIzpWrQZJvnSaiqKFYbpzJ0c3+ymA+D+Bdj
+   y0Lp7fCL7GN4j+La02BW7cESNYSaLpMsj6ROu0qykNQa6ulhB8uu4P+Q0
+   rTI8naQEipvvCx9j9FSdmsmi+xPC3RbdQ1oMhApszzPZ+j6JFXaFTQwD4
+   xbkVOMxbGWp0ROfE/mzHYS3arpAOcosKHi3A8JJk1yGNT9J0Cpl91YJUs
+   MoSqetz3YviHAiKoJ5x+cf1DuSTc0sfSrWVMfWmOa2vO3k6CI6vLmKcgy
+   g==;
+X-CSE-ConnectionGUID: Fhsmn3CZQrCE/qPKK05GXA==
+X-CSE-MsgGUID: +7HeMSCbQSiAAJXeBkDKqA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3630025"
+X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
+   d="scan'208";a="3630025"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 11:11:22 -0800
+X-CSE-ConnectionGUID: Gc3c0v/JSbujtj9GOxjUMg==
+X-CSE-MsgGUID: mfnzUkDyRQ+GnD4U7mTujQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
+   d="scan'208";a="9854889"
+Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.254])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 11:11:19 -0800
+Date: Tue, 17 Nov 2026 21:11:16 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Arnav Kapoor <kapoorarnav43@gmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Gwendal Grignou <gwendal@chromium.org>,
+	Stephen Boyd <swboyd@chromium.org>, linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 5/6] iio: proximity: sx9360: fix proximity threshold
+ writes
+Message-ID: <avym1B5701JzNk9S@ashevche-desk.local>
+References: <20261116205320.26070-1-kapoorarnav43@gmail.com>
+ <20261116205320.26070-6-kapoorarnav43@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,46 +87,31 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <avyhl79pygUmV3hr@kernel.org>
+In-Reply-To: <20261116205320.26070-6-kapoorarnav43@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On Tue, Nov 17, 2026 at 08:48:59PM +0200, Jarkko Sakkinen wrote:
-> On Tue, Nov 17, 2026 at 09:44:43AM -0800, Andy Lutomirski wrote:
-> > Can you clarify what this new API actually does?  I've read this three
-> > times, and the best understanding I've come up with is that you've
-> > designed a way to create a group of namespaces identified by an fd and
-> > you're adding an API to configure and enter them cleanly.  Which
-> > sounds very sensible.  But I'm completely confused as to why a
-> > namespace needs to be owned by a "rootns" or why that ownership
-> > affects even newly created sub-namespaces.
+On Tue, Nov 17, 2026 at 02:23:13AM +0530, Arnav Kapoor wrote:
+> sx9360_read_thresh() reports a PROX_THRESH code r as r for r <= 1 and as
+> r * r / 2 otherwise, but sx9360_write_thresh() converts back with
+> int_sqrt(2 * val). For odd r the read value is (r * r - 1) / 2, so
+> writing back the value that was just read programs r - 1: setting the
+> threshold to the value it already has lowers it, for 127 of the 256
+> codes (3, 5, 7, ...).
 > 
-> I think this would postulate the patch set:
+> The int to unsigned int conversion also lets some negative values
+> through: 2 * val wraps, so e.g. INT_MIN is written as 0 and values just
+> above INT_MIN as small thresholds instead of being rejected.
 > 
-> 1. A subset of detached namespaces.
-> 2. A dedicated PID namespace for spawning into, signaling members, and
->    polling/waiting on init exit.
-> 3. Initially an empty mount mount namespace that must be populated
->    before going live.
-> 
-> I had to do some head scratching for the second question as I've worked
-> seriously on this already some time ago but I think it was as follows.
-> 
-> If recall it correctly, rootns ownership tracking was meant to stop
-> processes inside a rootns from calling setns() into host or other
-> namespaces of the other containers.
-> 
-> However, user_namespace already enforces namespace ownership for
-> setns(), and adding a separate rootns check prevents legitimately
-> entering a shared external namespace (such as a pre-created netns).
-> 
-> I will drop the rootns ownership tracking.
+> Reject negative values and use int_sqrt(2 * val + 1), which picks the
+> largest code whose reported threshold does not exceed the requested
+> value and makes read_thresh() and write_thresh() inverses of each
+> other for all 256 codes.
 
-While the patch set itself is manually coded, I got inspired by LLM
-agents back then. It was quite clear that in the near future OCI
-runtimes should try to minimize the live configuration surface.
+All the same issues with this patch as the other one with sqrt() operation.
 
-Another force was that whatever the solution ever can be it should be
-made migration friendly for OCI runtimes. This led to the conclusion
-that we need yet another namespace instead of a fully parallel
-framework.
+-- 
+With Best Regards,
+Andy Shevchenko
 
-Br, Jarkko
+
