@@ -1,59 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.17
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794959818;
-	b=y1LKwrBjP+jOuuFqESuwjGSLy2ua4hdeBRevcTW8uJCOAqWK4fBHJ6XtBgN1p1HrUvHE
-	 CFEqhRQBBvAilcDILFtOXvc6BjCykvNVPl3+D6hvutFiMSxJPYfhrE80Qp8lzNo1IznEx
-	 mmTRUSIWaIFg0kGz7zfsgVAeCeOHT62X5aYd8vmvIWRSfRYCQcJu2jUW/EWxqRoiNBNQh
-	 93eP2NMyRTPgf8WNEoahIHZWPpMJaPvEDZ2FOPmY1yni0f96XIUXM7rbMrnOlLVRjqLiE
-	 +H+Jnd6XI/d4gR3zZEuOVmeTuQRbiXs1sgnQCmbvsQSE+gQHL01y49TTSNCj/n8FPrg==
+	t=1794959827;
+	b=i7tAzsq4q+ArjjDR3fESxksbVNpG1EVofuEAoiM1xLeR9hY036UF+u/Uq/8WpQMBeUIW
+	 ALXjy/zTliDGhfVRxlYmJaHvQnDpivujxYRFQWU/AFlL6+OcOT0lMkdlGbujK5i88AJK3
+	 6CYeBVW9CBb2OyfEb3fuVLA8BxXcgSIMlAN1ELVzAY5YdkDi1SKv0JemFFf62qRTftaYy
+	 4O2ZzO4kbKBzHbGJkVHxiQgA2MSKVp4OXze5GPuHPM0HXtA8H2Fvt3FNFwuEZOec6ysh5
+	 fmOQwgQJ/qrLAPhUeuAFjXdf/pQAacfjFYJSWl7k8c3NXPdgh9KKacW6nP9/SxpQblg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794959818;
-	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Stat-Signature:X-Rspamd-Server:
-	 X-Rspamd-Queue-Id:X-Spam-Status:X-Session-Marker:X-Session-ID:
-	 DKIM-Signature:X-HE-Tag:X-HE-Meta;
-	bh=BO6rMpRO51+EmfR7Pq028wAz+MEmqHVgLskThE+WbsA=;
-	b=eU5FMZSTXJTN40y+/4G86C5Ip1AHypZinLPIX0h2UM7aiM/pKY6AiGoKAQGcRFDJwcy6
-	 fG0DmpVpK2MfZWIZFJuyFYElJneho3Omtk1K6+j8MCEF7lbSnFl1LI11b4tTtid06fVFn
-	 UxcPLGjuyqiFv0nyn2j+XnjwJFKLcqV2L5U6lKtiXKtT7GFoUo3Hmb18ou+tTe9VbyiAV
-	 h/Ulz1bJuaWI72QMjpwS5OPi1bqnwTtVkaATybpgPAzVWRHSeiru+vhZp6zGZ/Qdkjo+T
-	 S757PYbS69888CEfz8dnYpHV3HYFBF6RYolLxLcyXarwU+9toC791uVo1RGjb8CL+tg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794959827;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Type:Date:Message-Id:Subject:From:To:Cc:X-Mailer:
+	 References:In-Reply-To;
+	bh=zBKSUNIiXiILVKYT5fm/zNF8yb/snSQKW4BL97jmOFQ=;
+	b=cAfo0nG4fXdL+ScU8j8RXEVJNRVS0DdATiwTX+EnQOtVJPop88o4Sp2TNZx3qqY3G7Ox
+	 XhbQwJRFRX/IS1orvc+JHTalP0Vn/GKoJnaQ7shFL4IOi0luVGFOgyxnqTZkDyJhM8gYU
+	 n7RCizi3JbODjjTOkxleDdnftZB1LwR7fdxNA/H0feYJ0AE+5oCXULTOOjIwLS4ME9lNZ
+	 ngmd/LCGcw8aAOnz2B+29EW1jxjCyRzYAlOGNDW/jF9zG1zdCPOqIek0QdQC6McCYSieE
+	 IkivBKgJtcfRBxQo3xe5lwsf5zbiqhqT4ylhZ4KBvwp1IyOVCDhx9JAN8m4wpgIzhLQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=goodmis.org;
-	spf=pass smtp.mailfrom=goodmis.org;
-	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=aFUgu0CI;
-	arc=none smtp.remote-ip=216.40.44.17
-Received: from relay.hostedemail.com (smtprelay0017.hostedemail.com [216.40.44.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="XeX/kpqg";
+	arc=none smtp.remote-ip=209.85.128.50
+Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EEBE0606A32A;
-	Tue, 17 Nov 2026 23:56:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EEBE0606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DCEF1606A32A
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:57:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DCEF1606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=aFUgu0CI
-Received: from omf12.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay06.hostedemail.com (Postfix) with ESMTP id DE449A81F2;
-	Tue, 17 Nov 2026 23:56:49 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf12.hostedemail.com (Postfix) with ESMTPA id 8905817;
-	Tue, 17 Nov 2026 23:56:47 +0000 (UTC)
-Date: Tue, 17 Nov 2026 18:56:45 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Vineet Gupta <vineet.gupta@linux.dev>
-Cc: mhiramat@kernel.org, mark.rutland@arm.com,
- mathieu.desnoyers@efficios.com, andrii@kernel.org, peterz@infradead.org,
- linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org,
- bpf@vger.kernel.org, kernel-team@meta.com, stable@vger.kernel.org
-Subject: Re: [PATCH v4 1/2] tracing: fgraph: allocate shadow stacks inline
- with GFP_NOWAIT
-Message-ID: <20261117185645.628de864@gandalf.local.home>
-In-Reply-To: <20261021174406.2891598-2-vineet.gupta@linux.dev>
-References: <20261021174406.2891598-1-vineet.gupta@linux.dev>
-	<20261021174406.2891598-2-vineet.gupta@linux.dev>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XeX/kpqg
+Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4bb702a7548so3502065e9.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 15:57:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794959825; x=1795564625; darn=vger.kernel.org;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:mime-version:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=zBKSUNIiXiILVKYT5fm/zNF8yb/snSQKW4BL97jmOFQ=;
+        b=XeX/kpqgO/1P35ogpjLlwilnlvUFxFQSHMnnNShW2FTydkN5BOOFbOVoiZ1Tt8lCdP
+         nWleJ1xb2SgrnnY9yQ9J6liP7gVP9z1S3U51juI7aanyRwXBCVGUrHcNBONwbjovMIGA
+         ize1km3yalXg/kHQB+YLgd0Je/uGWIV6uDtEnzb6G6RYtBpDw9SqmNxyytBqPn73y2BO
+         O8Mc7OCOL9xSyFnV3BpIDzNIJYJeLqnhDNohQQ3Qqk55TRBfkEsdiw8VlNsKlb+LRcaZ
+         fHdt6yhQVuwnXlUzL/YnSKjia75t3dr5aQ/WGzE8QhPLylqcImcPLkZpnWJIGYUcACu3
+         bT7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794959825; x=1795564625;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=zBKSUNIiXiILVKYT5fm/zNF8yb/snSQKW4BL97jmOFQ=;
+        b=VrFhEgynrP0QAtcadWIytSfKXuqeB8grqsx+CJc5dlijK3SoLbVSGE4vXPF7WLdx2U
+         cSONWPkDA2iiw/0KGVte/cJwEDXEOjrK0Lns5VKtWwkCMXsKLBwJS4i96FZhfc4Yf/9/
+         iRvENM6y6CMg/+6bQeVF+BKOHxQUTEGEeBbqJM0TzuExIpqi9uACRK3fVMCRxEDLJWgj
+         Gzpdii/EVf8pi2MZ16gJoQV7D4KuucJYJlLjsg5rGeFWGywI9BUR1lbBoqzw1FGhZFvE
+         1gotP4QS6ZOCzAvTgjigCQYq7W4ys0co7ydNwHEtxYBM4sYXaWr0Dw5GvHp3Ehhdn3mt
+         T3vQ==
+X-Forwarded-Encrypted: i=1; AL+hErEMpLsdKQbip9ctqLbtOYEJexmNLJeA1BaR6+rIhmWgv5TAmcjQ0Kmd1J3+EcypyqaBmH4DhRKwf4XKEuA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ezz1YiknK8xxQ4TOMzMZebXRGQMIF/ILHNrF+56bfWFv//+Ig
+	+kE6sV/w/+RLKI73y4UYVLbVzCLSLgmMQHMpHP/t+VUe0+WbA1s2AzAY
+X-Gm-Gg: AYBFou20Hp1ZY6grm/33OKvMhPtQ7S+4XGDb8jUjIgXMkAfjfEUo3ksFSJqzXzneKWO
+	xcJ6VcZBxEjS/j9kwh7Q36L2+PjmkJKq1WBMG/7krxjPVikI6rBlySB6VThXJ7NXbpJkE1/SZ2m
+	h5fNSAShGI0+pnaXdPh2jN3cgCbiahI/yXvzvtu7NmBd3Qia7/SGnv7OKtS8HATh85HobBFA5Fm
+	CmctAcUtuoD2irVp9rKs5zoJOguo4VXKfQW3abmYxJlsgYB4zIX7QAJx/TQ2RtkSw+yCA2ysGl4
+	trmC4OFRLHkPbroUmIO2Algj6pvEikZvbWWFS7HPP+EUAkJqw8a3a8/CDKfcX3c0KT35MNeXXpA
+	F/ViLZDgnpYlN/MYvWxFlVL+qK2T9V4HWq994RbgMtulkG8WwtRBn3nfcgunEisFIsCYvODumU7
+	B4aMYBzafmfQUuWtQBtc5MkGWJn+NHJCNoIQ8Sxh7kUOvEW0QjzHp9xdl4OoSDo7BvcRKUphelT
+	tVxJVnbo+hUpJZAGEhsWiRAdvzjQOszGKr0ikRA1Dmhtz83JoxvK5fnGypmtCDHgdnA4nvnmywT
+	TRZW68EnnE9o54eHAnfluvrJ/Q==
+X-Received: by 2002:a05:600c:3485:b0:4bb:6c5e:b006 with SMTP id 5b1f17b1804b1-4bb7d6cc1fbmr14508645e9.3.1794959824991;
+        Tue, 17 Nov 2026 15:57:04 -0800 (PST)
+Received: from localhost ([2001:b07:5d26:7a6a:365a:60ff:fe0d:cfc6])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7ddd4614sm11604905e9.6.2026.11.17.15.57.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Nov 2026 15:57:03 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,55 +86,57 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Stat-Signature: ebhdtjq8bkxbp74cuzpt8cmkerspa9aq
-X-Rspamd-Server: rspamout04
-X-Rspamd-Queue-Id: 8905817
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX192K54KbB1eAfjdAUQhzeqxqYoG9GPiAkg=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=BO6rMpRO51+EmfR7Pq028wAz+MEmqHVgLskThE+WbsA=; b=aFUgu0CIJQ8O5If31cC/ZhQJJ8i0ONW7MwaiF6rfM3wEOZooM1fzqoTQftjgx2kF4k7SUzBBKSVR52E/udV71n+PcQoXLsdWQ9X6IEXwT5KZDmulNB4ukaifEN5B6QpHeyHzwMgZz1pBMa3JFaf2aOmDhb8AcS8dWqU5+jsUf+A=
-X-HE-Tag: 1794959807-230204
-X-HE-Meta: U2FsdGVkX18ldEUQ80EyGDnP2dorXsVNfpKe2/+FA6c/0BQ5DsCLw4Xi4Y6HwE9QCrJxyW0oKpY4GrZLqvwgYZDEvvGSaJwzsOUCo/D+9b4Ia00MLTllhsg3vRZ+H11RgWes3m7AvwVJsq1Kx8YQt9iNdjQTukmKRSiJ2TJaZmErffuwx0VQaNY1hE9827YON+Yc4N4IgHkerPGK6mQTcnrG55kW2UAb52jfpITUjCOk/oSKM7nsoigyZ85RRIjhtMfM6tuvCbY59S2WzQn9pv/WLyRbm99CvAOt8f/OCmle+oxBSPA9drvajxn0VuGb
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=b8e4a62509544b067db299bce93de40d8eff238bb48ab78a3f5b1b72ee7a;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Wed, 18 Nov 2026 00:56:24 +0100
+Message-Id: <DMXW51AXC5LC.WAVN6D92YIE3@gmail.com>
+Subject: Re: [PATCH] cifs: fix times assignments in cifs_posix_to_fattr()
+From: "koraynilay" <koray.fra@gmail.com>
+To: "Paulo Alcantara" <pc@manguebit.org>, "koraynilay"
+ <koray.fra@gmail.com>, "Namjae Jeon" <linkinjeon@kernel.org>
+Cc: "Tom Talpey" <tom@talpey.com>, "Ronnie Sahlberg"
+ <ronniesahlberg@gmail.com>, "Shyam Prasad N" <sprasad@microsoft.com>,
+ "Bharath SM" <bharathsm@microsoft.com>, "Aurelien Aptel" <aaptel@suse.com>,
+ <linux-cifs@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Sashiko"
+ <sashiko-bot@kernel.org>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261116154526.429315-1-koray.fra@gmail.com>
+ <f61c83e614c1afdcdb20c958474ac055@manguebit.org>
+In-Reply-To: <f61c83e614c1afdcdb20c958474ac055@manguebit.org>
 
-On Wed, 21 Oct 2026 10:44:05 -0700
-Vineet Gupta <vineet.gupta@linux.dev> wrote:
+--b8e4a62509544b067db299bce93de40d8eff238bb48ab78a3f5b1b72ee7a
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-> smp_store_release() is a drop-in replacement for the smp_wmb() and
-> plain store it replaces.
+On Tue Nov 17, 2026 at 11:18 PM CET, Paulo Alcantara wrote:
+> koraynilay <koray.fra@gmail.com> writes:
+>
+>> Currently cifs_posix_to_fattr() wrongly sets SMB's CreationTime to
+>> fattr->cf_ctime.
+>>
+>> Fix this by setting fattr->cf_createtime to SMB's CreationTime and
+>> fattr->cf_ctime to SMB's ChangeTime, matching the behaviour of
+>> __dir_info_to_fattr().
+>> ...
+>
+> Applied.
 
-This should be added with that, but I can just add it as a separate patch.
+Thanks! (also for applying the other patches)
 
--- Steve
+Best,
+koraynilay
 
-diff --git a/kernel/trace/fgraph.c b/kernel/trace/fgraph.c
-index bbf6e4e2da2d..d32160a6b835 100644
---- a/kernel/trace/fgraph.c
-+++ b/kernel/trace/fgraph.c
-@@ -568,7 +568,11 @@ ftrace_push_return_trace(unsigned long ret, unsigned long func,
- 	if (unlikely(ftrace_graph_is_dead()))
- 		return -EBUSY;
- 
--	if (!current->ret_stack)
-+	/*
-+	 * We must make sure the ret_stack is tested before we read
-+	 * anything else (See alloc_retstack_tasklist()).
-+	 */
-+	if (!smp_load_acquire(&current->ret_stack))
- 		return -EBUSY;
- 
- 	BUILD_BUG_ON(SHADOW_STACK_SIZE % sizeof(long));
-@@ -576,12 +580,6 @@ ftrace_push_return_trace(unsigned long ret, unsigned long func,
- 	/* Set val to "reserved" with the delta to the new fgraph frame */
- 	val = (FGRAPH_TYPE_RESERVED << FGRAPH_TYPE_SHIFT) | FGRAPH_FRAME_OFFSET;
- 
--	/*
--	 * We must make sure the ret_stack is tested before we read
--	 * anything else.
--	 */
--	smp_rmb();
--
- 	/*
- 	 * Check if there's room on the shadow stack to fit a fraph frame
- 	 * and a bitmap word.
+--b8e4a62509544b067db299bce93de40d8eff238bb48ab78a3f5b1b72ee7a
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSgVimKafU5DQMcjcDmj22qf5IGXAUCavzpqAAKCRDmj22qf5IG
+XPWVAP9xBbMDNG3wRaQ5otbBeAD3QJd1ciHOLK87Ks45GFkGPQD/Uc49HbHxdsrm
+fBmxh1qMDGjqe7DXxQGBQKhWo/58BQw=
+=lQhA
+-----END PGP SIGNATURE-----
+
+--b8e4a62509544b067db299bce93de40d8eff238bb48ab78a3f5b1b72ee7a--
