@@ -1,79 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.9
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794945082;
-	b=LkDLxYZEwzmMnD3iyy3xeYuIc14bCq6+KzvFo9P9mvbJKHioik68mJereV3XQ0/MP6ev
-	 A7w2c9nNQsTExaik5Te2qLk0PtV8Uh6aziOVOdSNoHIG9b/DpNzI80w9UPgMKbCoV9Nta
-	 4LnBZL4WDMYS1e9t9BlyKyV7AG7LcsY+S65sVKH6ExD+kAhD/s4QHVb0Cnh5jeRuZ8JHe
-	 OLdSnRAmo9+KdofZKa412zLYCm46o/NN+ZzQr9arxK4Yw2k47nXzUtggrlOmy98nqVb4J
-	 oWJdz4+xl7vhCq7RM/68by6zEffArDYtki4MnGJTpC0gSBEGZEcZNLsKkTEu8kWQF9w==
+	t=1794945104;
+	b=EmrMJpq/nyR+jWVc7N1Wo/3FdrreR/0cgx4czPQ5gZfsLXucjJBRZhUgtzuBhvVly/V6
+	 aQ17RqvWhvBkI7miDFUKMtYUv5lbt8a55/pqXmFtNAPqtjMAa59y/EiIGPNF/k+spkhjB
+	 UG+Sk1CX25N/LisJ/NCuk1xLHUVDFqe1tZnJccJr9cs/2r0ltErGbPxT26Wg5MKP/M9nl
+	 iPb+VKDJni6+i1OnvEyo8464cWAJT756iGkQKYyQFycU3NHOvbyBYw0RMtAAsL5bc8ppA
+	 Zx1tVluyWAbbRir5U7uVbb8RDPGQKcFnJErvFgyVnzeLLi8a3h4OKTHH5Jq07PnkfRw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794945082;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=uTjaLi5dj9XDX4pgv1s2Of5x2i3A/PnJrfra9kxBKIE=;
-	b=qj7uehRLPzCK1KV5eK6DgH5krN4Da09BSciTAb1+R8Zfv0kRug5HaYVs3zqREXvxnrnW
-	 li3ZAFpYIzb2fduRzntOi2MYbwX0j6Fs9xvN9Gc9ahypNXrVTSldRsUWB2DA4TDG2dsUM
-	 k28UlfwW+WzMHSnrdw2GJxZgKSxVJeIC5HbRPrpwTWdGpp+GwydqqNZUd9u90Rets/17I
-	 yCT8XS6yoi+THOkAl6AF2nk5gWyYqPwW/AYlpxCSvtaUxjZPI9JKesE2hrMf8dL3tdpBm
-	 4AwwW5PjLotQh9AVt1cz9s1CwX297VjiobrLOAt/eR+9hz2TY7MXurCIrgft2ZEcVJg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794945104;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=PPu/mxP7lbT4hBUu/He8e6g070SSdDLuVgBjTPXaocM=;
+	b=SRAhzSzUmtmByuWj/9hkICOxjOs0hOqPNKGtNuZGnP9j96ghKbbQQE1OCubstD1oalE2
+	 qsFe9cIDFWwxcyFaRyylwMGzkFAYWFjQNmOO5Is4b6VGtW1qPZxe95Y4vv7G9LVd/ty2W
+	 442Du9tpWFF7EMpbqb2pyQourbamvCVQzjILDe0UglodnwgyUq5n5ZTgbV6zfogKpUa/X
+	 VK1ya5eOf/8RZGwS2H7xDyP77u0fTeuVT2z9ae+Guj8r0Wp0iYeAAVme6JgD/XctPB1kL
+	 Fzk/3YrSXziwyf+e45Dl/Uq+uniCXOcpUKNmNp2YsENJqkI8DvwPtJcXkyBJ1TrP8Ww==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iS8pT7eQ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=NGBwRM1Q;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.9
+Received: from DU2PR03CU002.outbound.protection.outlook.com (mail-northeuropeazon11011009.outbound.protection.outlook.com [52.101.65.9])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9008E606A31C;
-	Tue, 17 Nov 2026 19:51:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E252606A32C;
+	Tue, 17 Nov 2026 19:51:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5E252606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iS8pT7eQ
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794945082;
-	b=XBV0ctg6YF8DlgKBsLSEpbRs0NIyTQJo4T3+fvUGkDoP+bun8t7MAKH1ec4jLqzyd21p
-	 escnFU5Zwbin4WU/K890NOp14p8//zeIAlLfI9sQgtXNpJoNl+Ae1J2nTaPELB0DqXCgS
-	 1e5bN49OnWdYjzEDrPo4bCA2PbccW5IUzj/TRxMQy/f8ozvKYGIpNQ39K9hZHFwRL7Nmi
-	 54yXzdo6B/LP6seVQW5xrxB7Bt9Ttd+37eni5/R3NbJOHLWBJnID7rB1Q03TL7PXhkEoK
-	 wj1ZErJ22dpcs2QSxADfdE3nsdYY76LNIpnu8ZX839wFmWaAvbAtVeJBCf25Bre3PFA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794945082;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=uTjaLi5dj9XDX4pgv1s2Of5x2i3A/PnJrfra9kxBKIE=;
-	b=xUJJPQkSm/l8CUnPnQriwkG7JGJjyCSz9kUclQQQSwSNffMxEJxN5fUhAFbzLNpeX/Bz
-	 MWLiq00f8iEM2uCUz6iof5BlhmbkmA6emUJ9dTSV84ZJ2GqTPwv3OI4k+6/lRSZmOjtxS
-	 SMo7ZT2TuJ+vb5SdGkTQw5E3SPVTOycH+/2938RoHnEFDTUGCH/85ENxv0LnnHeL8H0/u
-	 Oa7hDzbKGuIEJWUJtRgTuMnE/fdAl2pmwMQsFtU5ipSSoSuY++5sbbC0C7GW9z5bgH3wm
-	 vw9X9IxX7a08p7jE1JyyB+/p0rsDswFzvpyLqyGWCj6aYfylbgO88oZYkNOx7ePMGgg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 83A341F000C4;
-	Tue, 17 Nov 2026 19:51:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794945082;
-	bh=uTjaLi5dj9XDX4pgv1s2Of5x2i3A/PnJrfra9kxBKIE=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=iS8pT7eQ5DHtCbyKLzbCp8LSHZ+2+Zj5mlb6vrgqxWnhC3J+1zZMgkMArkU7MYoCu
-	 7NM4pHebSvj/MTtInaCxwKAJKj8kuO1hQSIGHMU9q+rCBcGtIIkCaRLGzU3w8VwNSs
-	 PmgydUnWgDFZ2YUzForbe9f07eI69HiCVpyqOFiawrsrj7LRAxhjqHRHtsqUl5fWgS
-	 h/Xr9Se3cqS/nVGgsp3HedAfkEN12pBV/Q0TRS7rd/FYV6Nej54TJoORXuswBnJqNp
-	 2kM0TofASVEJRJ16xxi01id/E1dQ6y9l//LL/f/RqqUykRorB6I9T8oKGLwsQEo/Ni
-	 /wwUWBVTNbdag==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id C561D4AA6A;
-	Tue, 17 Nov 2026 19:51:20 +0000 (UTC)
-From: David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
-Date: Tue, 17 Nov 2026 20:51:18 +0100
-Subject: [PATCH] remoteproc: qcom_q6v5_mss: Save the need_pas_mem_setup
- into qproc
+	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=NGBwRM1Q
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=aBEElrGJxEv/T0XKQ9Z2DeWVQlHJ5X2oqNUTQGxNOfX7GuC1ALOZkGxGAuJq20U9ybyCU1Rp45ncqBDkbobMwgywvtKaYnAL2qE3ox0EkEox17y85Mc6d7e0V7BYG/Jr+7mozeIzGCHeisYzqEr/LPAqVy3lm10Mm5pKq99B7hvkR9W4eLm8/J4eQ9EIJm5UqLF/XeR7S2vNi5bGLqj4fDHzD441wm4Iyfar6IVIGXd2/R4Q/ewTQdTR4kGuMfHPtl9D5TPJWmlHLJlHK4yn0g3Ma6xl8AREn9c3J0DqPG0OK1O/wY3yNfh/tSsho0UmRX/UB4VavKA7tRp7O1qwrg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PPu/mxP7lbT4hBUu/He8e6g070SSdDLuVgBjTPXaocM=;
+ b=DImnMyVsy8Jai2UWZTOdLfXW74rPTXRWutxIB6BprO2KJeKsVCZwaZ00JHXfJbPiiVfhKSS0k+NIrnvtVTO6v9ITpHW6jx9u/sSnaZZP0JUFJ1vp3ATEJ3167N8ya+XByza0MSnv/KzluYnr1TI0uI6H6zZbdsc6xY/YCkEqH2e66qpeh6e5l2+VyaRxsraYRuAghheWYV95cobwADv5yjVOG9Kdyg2iwruN/LxaKEj5oubBmqoTX12OjUXk7eLtISBEQ1i5TxdUpaAUMW6SnpopQAuzRh0OZpxt3vqpi+WMZSrAWeMomXUMCPOepIkY1YXZOBfCN78Bby19Gvh3kQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PPu/mxP7lbT4hBUu/He8e6g070SSdDLuVgBjTPXaocM=;
+ b=NGBwRM1Q9sxFX2GbZ+R/p1xrMQ76Eh7fxDWAt2ts3TuOQGNSpnfQzOz45bjUx2MXhajJ7fIJTAI7GoA3hlzfZTdmM+pwJVIoLXjSrW33yZP5FZvaig0o/Y1IF9iSg8pboelOjP5oSXBwHO0+BTMYTA+8XkYvwQiS89EP4gT8O/PSK8zgH+g0qOXtAqg9H4ufsUprQyJz4dlNE7bhPZuMWhn2DUnGiLyQ8aksEnUOOOWPrhUsXJNynTU/avFGBKyGw5FyXfL6f8oG0WZmx5PUOqvg5azxTPjt+7ojwjf6eD2QaKVQrE4Sra2lnBX5KO3HtV73Vakl6IeHpQWrQA6amw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by MIWPR04MB166472.eurprd04.prod.outlook.com (2603:10a6:290:d9::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 17 Nov
+ 2026 19:51:41 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0615.013; Tue, 17 Nov 2026
+ 19:51:41 +0000
+Date: Tue, 17 Nov 2026 14:51:34 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Lee Jones <lee@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Akinobu Mita <akinobu.mita@gmail.com>, dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2 11/11] dmaengine: dmatest: Avoid unsigned underflow in
+ min_odd()
+Message-ID: <avywRv126XZTrR3N@lizhi-Precision-Tower-5810>
+References: <20261117163809.622249-1-lee@kernel.org>
+ <20261117163809.622249-12-lee@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117163809.622249-12-lee@kernel.org>
+X-ClientProxiedBy: PH7P220CA0156.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:33b::12) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,90 +98,110 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261117-qcom_q6v5_mss_msm8953-v1-1-0fdaea2855ff@ixit.cz>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzNDQ0Nz3cLk/Nz4QrMy0/jc4mIgzrWwNDXWTUxKtDA0NTI2MjJOUgLqLSh
- KTcusAJsbHQvhF5cmZaUml4AMU6qtBQAZG3wJeQAAAA==
-X-Change-ID: 20261117-qcom_q6v5_mss_msm8953-aba81523223b
-To: Bjorn Andersson <andersson@kernel.org>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>, 
- =?utf-8?q?Barnab=C3=A1s_Cz=C3=A9m=C3=A1n?= <barnabas.czeman@mainlining.org>, 
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
- Bryan O'Donoghue <bod@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-remoteproc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>, 
- David Heidelberg <david@ixit.cz>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1721; i=david@ixit.cz;
- h=from:subject:message-id;
- bh=YXA0PBEQxG7y3KQPuhFsjnj3v8mXJmuKIs88QrqT56o=;
- b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBq/LA3t4wTRLmCJRD8Rbmf1F2YC+5aKN1QBaJ6W
- Vf6R+LYyPaJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCavywNwAKCRBgAj/E00kg
- cjKFEACm4UVdY1Sc6btYgmxzmBtq/95vt8znRQ2e5Uebw9/R6eOFohV3r1xnfyYTQquxU8NDuqm
- f3gAvlhpM4fw7aA2QZ73jD3CfXZR1NOP3aBJ7T17H/KKNnuHVsg/uW4iRxFc1G3MsAOYwpafMRH
- isoj0sY2qMgKKP6QWnQZRVy+aR53VmfXaSKk1HGWazqj19BF6qyXK9hF5WVvk9QkaVgymiqR8w6
- FedoyuHicdvmrM76j23H5hISpGU9OgX1/Sp7cEwXlNDHTRXxE3v6TlL2MnFXJyWu/1BGR1Z0l6T
- Nw2nPPmgheWJFQVABOXMsCugpffHN8A/Ag61BDxvMnkcB0RxUrouf+77BgLUUd3g5Cr59N2llTM
- rB5Fg4LK8t9gDAfCSZ249VeoxihlgBDd0kvElH3x+DCx9hAEWaWsP7cj4cXfrJwqzihoGfHdrR4
- e5kqvkGqiYpJsZghgiRwWAg5pqimQfAsSd8zp+oh2bokXNtRoX9jpUwW41wBrP8uRBgJ1iUg4mk
- 5jpqaOWYxzYkKKc9/3Lbjw3vq2NLkXOD8bpnF3KOu76k8NT20mdgrPnQbk1s3fM+HMfzla2jdZQ
- AjptKnUD869OLIZTNvczaQgDj4OynEQB/jgDFAc2bMIW7R1gOcZqEwk9eOI2Q7JehRNABEl4jkL
- jQnvLHzHaSteBmw==
-X-Developer-Key: i=david@ixit.cz; a=openpgp;
- fpr=D77A09CFEEDC2BBD53A7047460023FC4D3492072
-X-Endpoint-Received: by B4 Relay for david@ixit.cz/default with auth_id=355
-X-Original-From: David Heidelberg <david@ixit.cz>
-Reply-To: david@ixit.cz
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|MIWPR04MB166472:EE_
+X-MS-Office365-Filtering-Correlation-Id: b4fffef0-5d37-4264-d8c6-08df44e4332f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|23010399003|19092799006|376014|1800799024|22082099003|18002099003|261009223027099003|3023799007|56012099006|11063799006|10067099003|4143699003|261102123227099003|261022075727099003|261021121427099003;
+X-Microsoft-Antispam-Message-Info:
+	o2vIJEPiaxYLCgvQ8TlorS+GOFLTNAslvuzQqXe9tMml4tzGbTBmRoYjLg8MXfH72kxTLOaZN4ZCrO0CIEtvda9UCqIgdstWFGUdwdUnQA3XBc2RsIypntt+v71F2zcb+SyOk9V3jT/kXIARfrU4GOUm3uK1LMy8ww0YkfeZBOlw/l8HHafTicIGWWBXAk7bJyMa7QauI9Xp/2PhyNMsXtMcjYUC7f0vOC3226dZaAEk11TQAPmLW1F9FRY/KuKks6YCMmJP75GOIMsQ7cB05u4iKZBiDKOnq9/MFG7vOmvFG5b8UfU3qlbRwzAZO1RVl97GWXKD3KNOMKsdXBv/fCdbPuLGWVRSE66KoiYnnliuAp4eQ4kKQhvbBLvLcBfZ6TQFWZ8chwoJVybPh+3+5xWvuAicSkcXNZYmuWUhamLSE5caQTf2lR+B4Jt8tDGhNnuITmMcSXL5zfkmmrfUlHWZaZWFAVPjOd5IwQ8J/zxLN42dZK2w/VLuijHH2R4qqfF8j7+nZLlJuVorialT5A3ePNVKmAAG4kbfifoU7Yw7lRgfhw5YkgR5Xc35Rnjaxo2KU6b0OPENlqGuXAgaroP/fZeJ9Isj8geDPIY7NcA=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(19092799006)(376014)(1800799024)(22082099003)(18002099003)(261009223027099003)(3023799007)(56012099006)(11063799006)(10067099003)(4143699003)(261102123227099003)(261022075727099003)(261021121427099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?rv/iHVUr0h18raToo176GO6P6PfU8vCzVfNgA8k1bO24oxOtlirBPGusjhSN?=
+ =?us-ascii?Q?NDYZzJzm9YgoPgd3dpDSBuXClyiu1afXvXe515V2UACMJk6SlhMpLCDe9hHh?=
+ =?us-ascii?Q?IuHHqGTCAysGVoTajotj0ButCRYmFErQut0Tmkir+LYjcnQMkO3m+rUozjOJ?=
+ =?us-ascii?Q?g0EK0xchXHGTd+M6jbTt4N5YpH5NxEjV8URAne+HrhWZsobKe5FBQvLDmukA?=
+ =?us-ascii?Q?oCczddKYcGmVcH6R4Hecy7MaoI7y2WKY11nGsvt83af8f5CkZDWM9mrgF4Wx?=
+ =?us-ascii?Q?L+/ktxCQgmccUGGDlJr8ujvzPMkDNIAw9E+JCEoNH7GWLhiWXA/Q8LckochE?=
+ =?us-ascii?Q?tTFc/1BT7YFvfPZuVQyfspcIYJyDYKA3g68YdSYl8Fdz5lk8b5i2bJknAWae?=
+ =?us-ascii?Q?0NBDlv74suPQlFE/QXqKzOqL7Wi/gMiXr3qX061miBpVhyiTAVqQ241VLp8e?=
+ =?us-ascii?Q?h/lEvzV//f96MG9PGuVBHTyTMZZMhwJyaneUAGRWga1GMiRP0qzl4+ZbU84X?=
+ =?us-ascii?Q?U6U3KO40YKNrdDQduUk91Bi6gSI9y6mx0iyGiqEcnRamsp8fAwlExUBBe/jL?=
+ =?us-ascii?Q?QNvezMiu17xZhnlcHMgEuff5q/mOpK62I9FlTxhrx2yMIaooSBdyw+YmOdhj?=
+ =?us-ascii?Q?DV2OC3TFxWmIlE7N+c96SixhlfhuAF5PDCBcL91+fhze9iIPT2sh9GRu2q8+?=
+ =?us-ascii?Q?MxOgtOre+qLjhj14tjJvEmPErvstfi1Wyq9VBbp3B0fwB+QJK2GyKaBz5g7U?=
+ =?us-ascii?Q?PPCkNrE33/t+myIw0LaXFavIZrEoyUkUyajB0ShEBfEU/qW6MMU/cKEveE8f?=
+ =?us-ascii?Q?U8fIK2OtMkvbp8j+0OLIwO+82bWjarIcgRwSahyIauVC+2MQJ4cYe79NIugt?=
+ =?us-ascii?Q?QIRUxZEm4rQPcy1sZgoWaL8/0Yw+FLTPX+md/pl5X00RYNiniaYfqQex8C2J?=
+ =?us-ascii?Q?mIbxB712lZ53/0+GYJ9hXH6DVD8yA80lBwyx17giqIsdJyKCj2zYUSc8IJua?=
+ =?us-ascii?Q?kC5ZMhWd6uzVzw4A+4LQWMhq652w1ggHjsdm/ND/lqepQeBzQYRRsqzwwLxy?=
+ =?us-ascii?Q?GzjQOQrGEGaaIjG0hpDzzUMIKizDmZyGtArwGwHWSYSWHQf9hsKJrRKN2unc?=
+ =?us-ascii?Q?yOZ7ucdVh27tyvUKSuVZ75IJIuhxIOpcVU9PWL+TXuyCGmx8ihGf56jOVF/M?=
+ =?us-ascii?Q?0vbm0DhbAz5/Otg5xYeFqkQtdVj4Dr3wgkNgjHBBLQczb/YaxukfkCY9arNW?=
+ =?us-ascii?Q?WTx84PoRbWg13vEsJIOI5wWK0CWO7j2+ljwZePUpWkCfwrP3+a3dBcO52t05?=
+ =?us-ascii?Q?JNURwO5jj9F3Xwwcy+S+q7hNYiODaZ/0zEK0GpjdX4iy0/lmQoSI61ZfkOPD?=
+ =?us-ascii?Q?SsCZWLVWSlhJDGaHnmoBdsJOnLwWBWp1Eud1gMmIFdXiUcjtnTxbC44Z7p2M?=
+ =?us-ascii?Q?Acz739Q8TjXSUDDFFRLb9LL2Z6YSLpue9HNO3qvjWaR1j8CzLYNDjxgc7yVk?=
+ =?us-ascii?Q?ur7Z9vEuQeRZ6xRO1XFJDvSq8dqi9gFWkS0b3XRXTZO+/lXSw2fUPbD5pXxc?=
+ =?us-ascii?Q?/Qt8WvSwFEdxDL0ceV5TyUKifz+yU9LHBfc1HTNoM+8jKIuhg9OhI7fL2fzL?=
+ =?us-ascii?Q?7m6oYvsXx9HhxEhsL98wPOJDInSKB/PU9qRydG00KctApAPgqPSqqYyNuZzr?=
+ =?us-ascii?Q?0+y30cib/aw1sqrAERM7boUC1L63Pwrd/v0R7BZVso31MUgDGXSLSAZMWKGO?=
+ =?us-ascii?Q?Su43oEEXa7tq1C2iozf7qEbcMxJFrJu26CZMFgVAcLywsaomPbEE?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b4fffef0-5d37-4264-d8c6-08df44e4332f
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 19:51:41.3891
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: iWoHqfPXxL2v+6CZMEGLsPAupgW1xX2XXuVkgePtx2eXIl+WskAWwA6l4dciouijIGsQlJpa5Hodbtx6uNmEIgBZ32O+XykpuwgX7XTnf77INyU4eUNT/wVB8XYYP2Da
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MIWPR04MB166472
 
-From: David Heidelberg <david@ixit.cz>
+On Tue, Nov 17, 2026 at 04:37:12PM +0000, Lee Jones wrote:
+> When either argument to min_odd() is zero (for example when a DMA device
+> reports max_xor or max_pq as 0), val evaluates to 0 and val - 1
+> underflows to UINT_MAX.  In dmatest_func(), this sets src->cnt to
+> UINT_MAX, which wraps around the (src->cnt + dst->cnt) >= 255 check and
+> causes dmatest_alloc_test_data() to pass 0 to kcalloc() and dereference
+> ZERO_SIZE_PTR.
+>
+> Return 0 from min_odd() when the minimum value is 0, and abort
+> dmatest_func() if src->cnt is 0.
+>
+> Fixes: 8be9e32b310c ("dmatest: adjust invalid module parameters for number of source buffers")
+> Closes: https://sashiko.dev/#/bug/linux-ca967586-4fc1-47a3-8616-4a9d21fe7455
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Lee Jones <lee@kernel.org>
+> ---
 
-On hardware requiring Peripheral Authentication Service (PAS) for modem
-memory setup (e.g., SDM632), the remoteproc subsystem skips hardware memory
-authentication because q6v5_probe() fails to copy the need_pas_mem_setup
-flag to the allocated device instance.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Original commit didn't save the value into the structure thus quietly
-skipping if (qproc->need_pas_mem_setup) condition.
-
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://sashiko.dev/#/bug/linux-83fcbc28-236c-48e4-a6bd-731f4361f9ae
-Fixes: f56052f4d87c ("remoteproc: qcom_q6v5_mss: Introduce need_pas_mem_setup")
-Signed-off-by: David Heidelberg <david@ixit.cz>
----
- drivers/remoteproc/qcom_q6v5_mss.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/remoteproc/qcom_q6v5_mss.c b/drivers/remoteproc/qcom_q6v5_mss.c
-index dd052a62b8583..5d084aa2eac36 100644
---- a/drivers/remoteproc/qcom_q6v5_mss.c
-+++ b/drivers/remoteproc/qcom_q6v5_mss.c
-@@ -2189,16 +2189,17 @@ static int q6v5_probe(struct platform_device *pdev)
- 
- 	qproc->has_alt_reset = desc->has_alt_reset;
- 	ret = q6v5_init_reset(qproc);
- 	if (ret)
- 		goto detach_proxy_pds;
- 
- 	qproc->version = desc->version;
- 	qproc->need_mem_protection = desc->need_mem_protection;
-+	qproc->need_pas_mem_setup = desc->need_pas_mem_setup;
- 	qproc->has_mba_logs = desc->has_mba_logs;
- 
- 	ret = qcom_q6v5_init(&qproc->q6v5, pdev, rproc, MPSS_CRASH_REASON_SMEM, "modem",
- 			     qcom_msa_handover);
- 	if (ret)
- 		goto detach_proxy_pds;
- 
- 	qproc->mpss_perm = BIT(QCOM_SCM_VMID_HLOS);
-
----
-base-commit: aaa2f954c21b205a0bcd0961e5b2be4e82e58455
-change-id: 20261117-qcom_q6v5_mss_msm8953-aba81523223b
-
-Best regards,
---  
-David Heidelberg <david@ixit.cz>
-
-
+>
+> v1 => v2: No changes
+>
+>  drivers/dma/dmatest.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
+>
+> diff --git a/drivers/dma/dmatest.c b/drivers/dma/dmatest.c
+> index 2ae3469397f3..5f768bb9a29f 100644
+> --- a/drivers/dma/dmatest.c
+> +++ b/drivers/dma/dmatest.c
+> @@ -457,6 +457,9 @@ static unsigned int min_odd(unsigned int x, unsigned int y)
+>  {
+>  	unsigned int val = min(x, y);
+>
+> +	if (!val)
+> +		return 0;
+> +
+>  	return val % 2 ? val : val - 1;
+>  }
+>
+> @@ -650,6 +653,9 @@ static int dmatest_func(void *data)
+>  	} else
+>  		goto err_thread_type;
+>
+> +	if (!src->cnt)
+> +		goto err_free_coefs;
+> +
+>  	/* Check if buffer count fits into map count variable (u8) */
+>  	if ((src->cnt + dst->cnt) >= 255) {
+>  		pr_err("too many buffers (%d of 255 supported)\n",
+> --
+> 2.56.0.679.gc527c65306-goog
+>
