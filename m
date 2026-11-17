@@ -1,90 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794951453;
-	b=qVwudvRy6xGTPeULWjbl/oLEqFSe2IdfLTmGtcRSOWjSjPtBo9/Nbg3nsoA4DWKN1KLl
-	 Z4N2+gFZBSSme9Gf9GJMY+CskAnb9vNLrShscflzMORhx36jQ/cBFueufpJAC15EdxdAU
-	 eIr5LE6LNG9jyy3PZ/dTj6xXn29pTz4I/Czi56oor+EK+Ozfq3rSofmctc2ucPV1+cDHP
-	 IEVkkWlhmuVelBr145X6lsLxh5aSffdlEZjz3r3kRDlQU9TXWP++MMhuxM8S+WZqsXGcq
-	 CVmOLYmpnsCgMC6JPAfQquGS2Wc8Qm9g2vP4xmbCdF8jng4OLzbHIOpM8iemUUO+wtw==
+	t=1794951478;
+	b=PRblC+L28ELaLgmRBduT0SnTXxkey3wDtjT/2l6hjfFYcDsQZ2Q4Fmf632k2WAO3jpmE
+	 kT4wv9QShli/iEIMe4unVXbQxmxaRzrUWdaQgphvlmaeyYzd7i5G+/5WCCVfiMgM12UxT
+	 XjXWIVyFtTWfOrugRe2qxj21UbInoIfX6LpsOzVwF+Ugp9UGRBv+03LAu/mryWIdjhBAJ
+	 Q04/9FEMN61lwz4R0bxuSLNjMjPLLEuuQCalFCS09/h9D8dDe8FLSZhVk6lpFhkEkIQtc
+	 wm/ETsAloAG2MjCtSM1vSf4LiHwRBQvdM2IhNzyyxkHa3WqDei7E4Y47O/wtRLKhnWQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794951453;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
-	 User-Agent:MIME-Version;
-	bh=ygKYZry/mgTJ8Ux3xVDDIBzUq7PHZRHgltKgNh3f8Dk=;
-	b=akKACxVzR6YaqfixLY5KL4aEUyhMb3Z6BXG7zARdSMqnb3Jeuhwiyclvfe1u3MUmxcZ/
-	 Y5PFKSI3rsK49WQKXynXnkkEUOwc3Ax8g5Z0yIRGvEvzD35mQiAldozrv0lCUO7nktBtq
-	 axG5Pg+3qcrrMrPty1HFB2kTgpLeTPYt7/aWxAGpNWCjCpHQfuzjKS7lFKVFrVWAUEiYk
-	 kp/U77OKPMDTbrlfgSfyW61i835I1EaXI5jhGLDZLrAwAB9Qt3FiVAmLdIdeNlHCv64jw
-	 V07Bn6XL1lOEIqVyID+iJe6if7KkrRnTIo+R6ZerPVnGsOHXLJ4nNtWfarlkW4Slo/g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794951478;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=43QFFgwzukS6yZXLYhZVbDexLmF7PKGNOsnRTi6FpR0=;
+	b=Ud40KZ7wFDOgxoG0jZCEwAXoLRzoc0ZTjxkwfiA44gv4gqk2hUJtrHh/CRLQ/yMV47zo
+	 SyAxFeb08uOQXipLaLOnDXBG6mXYkhqubS2SfWYiNtYNKFXS8QhLmXMFeToqpkShWXR2d
+	 TSaHHR2O7bGjs1468rHOhBvsENcs3fnHfz0SY72mSqirv0GOaElDj2tKmHSpMinS3V+6y
+	 oSZ+ragkFbvCkg3gM7IKTIG8KQaliBFslh/vOS+A1AgjDOvfcW6E3bPfSZaE02uInWzbB
+	 A/F5BpBMAKn4Z+5j+kEPIDnWqbQ7arZqivd/CnL5G29BKlRXqkfoRjE92FXVNVZ2Jog==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=YeYL+y8S;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ciudnLAv;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B0D6606A32A;
-	Tue, 17 Nov 2026 21:37:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5B0D6606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1BA69606A32A
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:37:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=YeYL+y8S
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1794951451;
-	bh=ygKYZry/mgTJ8Ux3xVDDIBzUq7PHZRHgltKgNh3f8Dk=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=YeYL+y8SX0DkRGM6v9vLMmoWcwtW56CzTuoynO304mG8A51GWEs7VMRXqjsJfiT4A
-	 RG4cjK66UJ77m2sFCTrHJK6RX11LvOuYSpuU15CbSzXjzYFt7A+wABCLqj8vD+aJce
-	 67WftusWpAkqPM56lmKDwmAcVkL01YIfjF4sh/BP7QDyF7HP4Y0VXPuhq5FPEjZqNn
-	 DZpCyaRHVZGVlqN5DiDmq9uac6evGRTjETHaU9okAnxY2I+BEFBR/l1/o7a4dfKgM8
-	 A3hXbP0sOWGmlje0ErQV8RewM+9YVMXXiPzYPmiSS0zt7HV2YRYLIDbgn38hvDBS0f
-	 vLVjBi7O3jY6A==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 60A3917E0060;
-	Tue, 17 Nov 2026 22:37:29 +0100 (CET)
-Message-ID: <a76b1b218499f3291e7002c88543a2a5b6d80b35.camel@collabora.com>
-Subject: Re: [PATCH 04/14] media: h264: Add stateless encode core
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Paul Kocialkowski <paulk@sys-base.io>, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-  Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,  Pengutronix Kernel Team	
- <kernel@pengutronix.de>, Benjamin Gaignard
- <benjamin.gaignard@collabora.com>,  Philipp Zabel <p.zabel@pengutronix.de>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Hans Verkuil	
- <hverkuil@kernel.org>, Marco Felsch <m.felsch@pengutronix.de>, Michael
- Tretter	 <m.tretter@pengutronix.de>
-Date: Tue, 17 Nov 2026 16:37:28 -0500
-In-Reply-To: <20260522101653.2565125-5-paulk@sys-base.io>
-References: <20260522101653.2565125-1-paulk@sys-base.io>
-	 <20260522101653.2565125-5-paulk@sys-base.io>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-2P2I9QJtqzO7EfgJcWa+"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ciudnLAv
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A9111F000C4
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:37:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794951477;
+	bh=43QFFgwzukS6yZXLYhZVbDexLmF7PKGNOsnRTi6FpR0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=ciudnLAvHlTz/pkvaO3mVSNytfC2Xd/M8nBp8rOsJDKgki1AwqhOgOpe+GgeqRdmX
+	 BS4/93t6Dzt3cQvUrwMqTHI6/tKG1otW4QpgsavG2L7IZJIZ5AEHC8vHQkM5q8fF2p
+	 CppMoj0//1c/edMc3nGCfXyWIQS9jJTKqm/OOVhhm6gH3ZNY7d4BdfZ2Yrp6NVFwNw
+	 h8/mP2X5xq9MwNwT8+dXZQrevlvU7gVVPUJsrH6utRXIf5UplbLKxD6mQHA3huXFqG
+	 NXD1DK3eDiMnPw15vgIYslsIBgeWMUPgqSp2t431IWH/WgrqBLL6+Xpv3oBCco2Cfn
+	 VY3MVNQCKqLrg==
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5be47aa555cso248037e87.3
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 13:37:57 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErG70Lind4aHVgLE//AWeJ9wX+i2IxjLCgFiSd145Bf+KHzpFBLyvzvhVCq2Z92CEQp5OAwKjUUePf5tLXE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z95RPxhOwamlk8ahlKO5U9QgLZO9HnrLuNhiu5vwxMlVb2Nd37v
+	fafKoJut4uX83oM641Pc8OrD7nkmkGWwB5o2RTAaT2bNcm5ynFL/8sQ7pN9AZJ1Y/wWp7kyhq13
+	KnJOurBdpv/Vzh+lrbHVr7iUfoKC0LHI=
+X-Received: by 2002:a05:6512:2313:b0:5c1:4bcd:c316 with SMTP id
+ 2adb3069b0e04-5c1aa0705c5mr133596e87.10.1794951476413; Tue, 17 Nov 2026
+ 13:37:56 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,63 +59,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-
---=-2P2I9QJtqzO7EfgJcWa+
+References: <20261117-ksz-stp-ageing-v3-0-135de6b9f8ad@pengutronix.de> <20261117-ksz-stp-ageing-v3-2-135de6b9f8ad@pengutronix.de>
+In-Reply-To: <20261117-ksz-stp-ageing-v3-2-135de6b9f8ad@pengutronix.de>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 17 Nov 2026 22:37:44 +0100
+X-Gmail-Original-Message-ID: <CAD++jLn2szo5NY7zqwCyRAkdNJQ60DcMnQUbjf+L_w-+MkBHYA@mail.gmail.com>
+X-Gm-Features: Aa3M54o0xRQuY3uXAHxYl11MpuvPvx6L6rwTSmOyLONxxLvVQa0OV7NqUKk9kts
+Message-ID: <CAD++jLn2szo5NY7zqwCyRAkdNJQ60DcMnQUbjf+L_w-+MkBHYA@mail.gmail.com>
+Subject: Re: [PATCH net-next v3 2/3] net: dsa: ignore the old ageing time of
+ the port being changed
+To: Oleksij Rempel <o.rempel@pengutronix.de>
+Cc: Woojung Huh <woojung.huh@microchip.com>, UNGLinuxDriver@microchip.com, 
+	Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	Arun Ramadoss <arun.ramadoss@microchip.com>, Jiri Pirko <jiri@resnulli.us>, 
+	Florian Fainelli <f.fainelli@gmail.com>, Vivien Didelot <vivien.didelot@gmail.com>, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, kernel@pengutronix.de, 
+	=?UTF-8?Q?Jens_Emil_Schulz_=C3=98stergaard?= <jensemil.schulzostergaard@microchip.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Hi,
+On Tue, Nov 17, 2026 at 2:02=E2=80=AFPM Oleksij Rempel <o.rempel@pengutroni=
+x.de> wrote:
 
-Le vendredi 22 mai 2026 =C3=A0 12:16 +0200, Paul Kocialkowski a =C3=A9crit=
-=C2=A0:
-> The H.264 stateless encode core is the common implementation called by
-> drivers to coordinate stateless encoding. It provides all the relevant
-> configuration parameters to drivers, through a state mechanism.
->=20
-> States are built from controls (some of which are optional) with various
-> inter-control checks along the way. A state can be constrained by the
-> driver through a dedicated operation callback in order to disable
-> unsupported features that may have been requested by userspace.
-> The general philosophy is to adapt parameters provided by userspace to
-> reach a state that can be handled by the hardware and bail out if no
-> such accommodation can be made.
->=20
-> Adapted parameters are returned to userspace by updating the controls.
-> This is currently not attached to the inbound media request but should
-> be when support for it becomes available.
->=20
-> Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
->=20
+> Pass the port to the ageing time notifier. When
+> dsa_switch_fastest_ageing_time() takes the minimum, skip the cached
+> dp->ageing_time of that port and use the requested value instead. DSA
+> updates the cache only after the notifier.
+>
+> Without this, the minimum includes the port's old ageing time. During
+> an STP topology change, the bridge lowers the ageing time to
+> 2 x forward_delay (8 s with forward_delay 4 s). When it restores the
+> configured value, DSA programs the cached 8 s again, and the switch
+> keeps ageing at 8 s.
+>
+> An automated review of the lan9645x bridge series pointed this out [1].
+> I reproduced it on a KSZ9893 and tested the fix there.
+>
+> Fixes: 77b61365ecef ("net: dsa: remove the transactional logic from agein=
+g time notifiers")
+> Link: https://lore.kernel.org/netdev/179180428624.434549.1442562388422379=
+5761@kernel.org/ [1]
+> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+> Signed-off-by: Oleksij Rempel <o.rempel@pengutronix.de>
 
-Nice idea.
+This looks right to me, good find from Sashiko!
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-> +
-> +static void state_debug(struct v4l2_h264_enc *enc)
-> +{
-> +=09struct v4l2_h264_enc_state *state =3D &enc->state_active;
-> +=09struct v4l2_ctrl_h264_sps *sps =3D &state->sps;
-> +=09struct v4l2_ctrl_h264_pps *pps =3D &state->pps;
-> +=09struct v4l2_ctrl_h264_encode_params *encode =3D &state->encode;
-> +
-> +=09pr_debug("+ v4l2-h264-enc: state");
-
-Imagine you get two of these concurrently tracing, it will be hard to see w=
-hat
-is what, consider combining like we do for ref list.
-
-Nicolas
-
---=-2P2I9QJtqzO7EfgJcWa+
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCavzJGAAKCRDZQZRRKWBy
-9PbjAP4ttGXHg2EkS1E5U7RZSbVfuNggh9s1884q2eh4ebMppwD7BUpl0tXn5dOK
-UJls3iR5RZGcFTO9/LhVB2lmk8gWEgQ=
-=ahIs
------END PGP SIGNATURE-----
-
---=-2P2I9QJtqzO7EfgJcWa+--
+Yours,
+Linus Walleij
