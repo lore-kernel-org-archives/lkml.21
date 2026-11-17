@@ -1,67 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=44.202.169.35
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794941071;
-	b=rBBmIfy3Jasg3vOxn/kqAZwuqEPS57tDJYsjb6vbJxwK08KM+QPc7kzHcw1OJOO1LeOI
-	 PQBOgo7gbuHgK/r61Zf6H6gjFWL277/o0lLo58jpkGQjHgPrd21OhlB8SUkNKLKGu+BN/
-	 HCWMlEjUmlUdlEgTBCqs9KbP/Yj7t676g2qEm2dJ+LQL4k0YVO2X8g2jSDh5rZHmAQSME
-	 I6W93+sg2dlkxnKvhuTq0l6mgH2kyb9tX1Tv3Zxo/ptsHLtCdfOOZnVmTfLF69kRemyUN
-	 d4WoOxFpJxIDrRS476hKhGKOVTcBPz3hRtk+7VFzZeZ+Wua/N5X6QN4Kow8pQqWPIgA==
+	t=1794941075;
+	b=hp/w323Cx7nIBHNwtxZ7VMzMv76WXrThs3C+b/UHAKDKKUAMrxTO9zzl8wTWw2ddxY+C
+	 rXVGNestjTwWwspNZRkktPNuU4gT5oOqto6o53QW85TAyr3XUxEMjTUnmmOEVpyelVYwk
+	 PGFJWaoxCFPxUaTW5owmRcG/X6b9Z8dhdT1+uEhGHKR477GwjL8tESYddncOmFnK2NeEU
+	 lksO0jl04NDqhSxJMDka/culEcM+zRD4iT2CUkfGPIAn5ymqJg8XAOmQmxNR1PZngTsrU
+	 h5rtrKzljl5AqLOBdtNMKORg77t6FbcMia91pQRGgO+f5E/Olnpwm4KmGj+76rxn6TA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794941071;
-	h=Received:DKIM-Signature:Received:Date:From:To:Cc:Subject:Message-ID:
-	 Reply-To:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=9z6zKdX4wHoW3xONRbydFSpxllpbzGW0ykN6TGf05gI=;
-	b=clrro5KGbJXvLKF9jUU3qY4yk9E9aaV63y1l83XVNxUTu+1cy7tyXlq143tT7E+4igja
-	 DCg8kTvCexZQ0aJWePrxuxZMjw6KgLAV67Dq010CFikPjksTLPq2Din4ZIfON3yMWkOqm
-	 79HicTTmvxK0Dc/ADPOUN5sqNvXy8f1wEVOtiYC3Nv8ccWhjJgazGdfwgusNYe2SGOVak
-	 zqh9y2ReQzVK5H9dqUadlMKvAUOEKYcWSbDlCXLvJzqtd+G8NIh4+qPzfWlQQb9GhSFK4
-	 uLsv+PIGPaVvvVybgsauTJxqQs2m7n8G1zx6dfaah5yf9jFclwYjsftOvgL7htc7YUA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794941075;
+	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:
+	 X-Source-L:X-Exim-ID:X-Source:X-Source-Args:X-Source-Dir:
+	 X-Source-Sender:X-Source-Auth:X-Email-Count:X-Org:X-Source-Cap:
+	 X-Local-Domain:X-CMAE-Envelope;
+	bh=9hjzhVbXqs8Uligd/Lom1QmoZlXUoRLSbbHcDr54RoE=;
+	b=TxTS7C+qi+QRvh5SvpZtFFxlDcFIb4/0IDL8UYz/2nCIWrPUlZDeX122fBZlW2z78ZlZ
+	 GzboVYbE4zKWIVO6gFAa+dXEuo+wz0WfWVZURB+eknR5qgwr/fZBC2j5pEHPnq3wPJtQg
+	 jsg0Z7pvb8SHbaKje8q/I/DkzZd+exY5oVKRfgOAGZ78+dJudlJq0pgjx8C/zwy7adEfY
+	 vHg9AFPHHelSw6yWS8q0YneVs7ewfKQln/DMgr7Vghby/+wmYxAxXyCbZatTxairwegiu
+	 lVh7aBNJY8fBd7cnbwfT+bSEmi5f/yFXsogf2BxvEQPsUjC6TJ7rl8nNKpP/K0Z/N2A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=asrTOXp6;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=roeck-us.net;
+	spf=fail smtp.mailfrom=roeck-us.net;
+	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b="tAIgs0d/";
+	arc=none smtp.remote-ip=44.202.169.35
+Received: from omta036.useast.a.cloudfilter.net (omta036.useast.a.cloudfilter.net [44.202.169.35])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC385606A31C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:44:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69FEB606A332
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:44:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69FEB606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=asrTOXp6
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A64971F000C4;
-	Tue, 17 Nov 2026 18:44:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794941071;
-	bh=9z6zKdX4wHoW3xONRbydFSpxllpbzGW0ykN6TGf05gI=;
-	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To;
-	b=asrTOXp6VsSeg06uH0W4wZqfNY3g/CQ5OzO7joJlW4C27LtMYx64GoURgF4MFwLM2
-	 TBWR6hL0wpg/bjL4+Mz7/xww7Loqhl1FWn82tIBRJyyNXQJc8eepoGPoYkbaQUzT5s
-	 j8MIXbk2OmJ+iU8I9BjCU/SckBOv9lJsBCxVHG1bgaDckUdthyws9f95ne3GzcbuFR
-	 Lc4VEn6/u9JbF6nDHGqx3KWCx4yKsDLgohvWAJMI2Dbv6qhydF7wVPmiMLmV+aM2DA
-	 SKNuNJSCNgi52MPN0AFph0xoRf58V5Y5fata4I6hvqkXDmxfZtp0OE/ZEp9wfNNL7E
-	 joAREUGWF5tbg==
-Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
-	id 700E1CE08D3; Tue, 17 Nov 2026 10:44:31 -0800 (PST)
-Date: Tue, 17 Nov 2026 10:44:31 -0800
-From: "Paul E. McKenney" <paulmck@kernel.org>
-To: Bart Van Assche <bvanassche@acm.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Will Deacon <will@kernel.org>, Boqun Feng <boqun@kernel.org>,
-	Waiman Long <longman@redhat.com>, linux-kernel@vger.kernel.org,
-	Marco Elver <elver@google.com>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
-	Nathan Chancellor <nathan@kernel.org>
-Subject: Re: [PATCH v3 3/3] srcu: Remove check from srcu_dereference_check()
-Message-ID: <6f9e7e5c-eeba-4a8b-b944-b45bbe591cdb@paulmck-laptop>
-Reply-To: paulmck@kernel.org
-References: <cover.1794869902.git.bvanassche@acm.org>
- <8114def6bdc259f670f3d84f3ae0dad6809cd6c6.1794869902.git.bvanassche@acm.org>
- <723856b0-e1c9-41c7-a6d3-32a45ef1f88a@paulmck-laptop>
- <c935da68-bd05-46b1-b837-e62cda95c0ea@acm.org>
- <2d072123-0315-4432-9f5d-74d6071adb8e@paulmck-laptop>
- <d345bdcd-d3ef-42b6-b2d0-a75f1830f1c5@acm.org>
+	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=tAIgs0d/
+Received: from eig-obgw-5002b.ext.cloudfilter.net ([10.0.29.226])
+	by cmsmtp with ESMTPS
+	id TNzTxUNnD4vCDTOAUxOjIJ; Tue, 17 Nov 2026 18:44:34 +0000
+Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
+	by cmsmtp with ESMTPS
+	id TOAUxywYxb2qJTOAUxiFQz; Tue, 17 Nov 2026 18:44:34 +0000
+X-Authority-Analysis: v=2.4 cv=A7tsP7WG c=1 sm=1 tr=0 ts=6afca092
+ a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=gAnH3GRIAAAA:8
+ a=H4YqvLFtAOgaTzI6erAA:9 a=CjuIK1q_8ugA:10 a=KPbNTLLc3YvdawN95zVk:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=roeck-us.net; s=default; h=In-Reply-To:Content-Type:MIME-Version:References
+	:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
+	:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=9hjzhVbXqs8Uligd/Lom1QmoZlXUoRLSbbHcDr54RoE=; b=tAIgs0d/6IPVjT5P1PwWJ8v437
+	FBXxaZGypmC5KM59zYPKFZNcdM4F5Nbhfvp59Dx4JjUJhua0e1M89ZJIrkVjawZgqMeq6sBcKlHRG
+	g/YkByGwGtdE9RqIacl8neED9BoWBA1yXpbBTqxDQIJ6ugigS1zNwy1c86jDZEnsc2lJPmsF9rR0m
+	kgrn1veQEygHbC5E38I6rZFMiosdWXIcrnG2dfpHwZTKcFQmgkJeQpwiJBXVH//l1wR/vees5vxwK
+	OGJ3BZGZzwh331DcVLK9uQwm7dI5p268WeUDyPDVXuGiNhgv+3om/UFktI0AdC2/FGh1AoUUn1rVN
+	N1rHDG8g==;
+Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:32940 helo=server.roeck-us.net)
+	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <linux@roeck-us.net>)
+	id 1xTOAT-0000000090N-0AAL;
+	Wed, 18 Nov 2026 00:14:33 +0530
+Date: Tue, 17 Nov 2026 10:44:32 -0800
+From: Guenter Roeck <linux@roeck-us.net>
+To: Christopher de Guzman <christopher.deguzman@analog.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>, linux-hwmon@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v2 4/4] hwmon: ltc2978: Remove LT7170 and LT7171 from
+ curr1 iin documentation
+Message-ID: <548a8b85-e12f-457d-93ed-86475ac7938d@roeck-us.net>
+References: <20261110-upstream-lt7175-lt7176p-v2-0-dd60d28383bf@analog.com>
+ <20261110-upstream-lt7175-lt7176p-v2-4-dd60d28383bf@analog.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,71 +90,36 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <d345bdcd-d3ef-42b6-b2d0-a75f1830f1c5@acm.org>
+In-Reply-To: <20261110-upstream-lt7175-lt7176p-v2-4-dd60d28383bf@analog.com>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - roeck-us.net
+X-BWhitelist: no
+X-Source-IP: 108.223.40.66
+X-Source-L: No
+X-Exim-ID: 1xTOAT-0000000090N-0AAL
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:32940
+X-Source-Auth: guenter@roeck-us.net
+X-Email-Count: 38
+X-Org: HG=direseller_whb_net_legacy;ORG=directi;
+X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfEq2jzKTev/clImfhlyB2DN4cMiRzujTsOnl86Fu3Y1WdxIdFK4gHzK2MVxXCw8VOwTGT4cSywlcJT54xJd0Ymt9wP9eJhbQNUpCniNXQEtZeimv+3ww
+ jOYWv8wYwMfBW1Yz1e1Am3Onl+ve3+7wg10QgvFFLLpKlvdikgEn2w937JS4aEv7SmsGmEtWgU8CDbfKpftqw7aD+u9UKgEU2JyBVVsXYTxZW8MmLrqIpkkA
 
-On Tue, Nov 17, 2026 at 10:20:31AM -0800, Bart Van Assche wrote:
-> On 11/17/26 9:53 AM, Paul E. McKenney wrote:
-> > Would __builtin_constant_p() help here?
-> >
-> > If we don't have a build-time constant, don't check.
-> >
-> > If we do have a build-time constant, check only if that constant has
-> > the value zero, that is, there is no update-side protection.
+On Tue, Nov 10, 2026 at 06:00:43PM +0800, Christopher de Guzman wrote:
+> LT7170 and LT7171 do not set PMBUS_HAVE_IIN, so curr1 reports the
+> output current ("iout1") rather than the input current. Remove them
+> from the list of chips with an "iin" curr1_label.
 > 
-> Hi Paul,
-> 
-> Yes, that helps. I had missed this option. Something like the
-> following does what you describe:
-> 
-> 	#define srcu_dereference_check(p, ssp, c)			\
-> 	({								\
-> 		if (__builtin_constant_p(c) && !(c))			\
-> 			__srcu_read_lock_must_hold(ssp);		\
-> 		__acquire_shared_ctx_lock(RCU);				\
-> 		...
-> 
-> This also fixes the runtime problem I mentioned: the argument of
-> __builtin_constant_p() is never evaluated, and '!(c)' is only
-> evaluated if 'c' is a constant.
-> 
-> I tested this with clang -Wthread-safety at -O0 and -O2:
-> 
-> 	c == 0                            -> checked (warns without
-> 	                                     the SRCU read lock)
-> 	c == 1                            -> not checked
-> 	c == lockdep_is_held(&m)          -> not checked
-> 	c == ({ (void)(&m); 1; })         -> not checked
-> 	     (lockdep_is_held() with CONFIG_LOCKDEP=n)
-> 
-> There is one limitation. If 'c' is a plain variable, function
-> argument or structure member, e.g. srcu_dereference_check(p, ssp,
-> foo->flag), Clang does not resolve __builtin_constant_p() in the
-> front end. It leaves that to the optimizer, which may still find a
-> constant later. The context analysis then treats the call to
-> __srcu_read_lock_must_hold() as reachable and reports a false
-> positive. Clang does resolve __builtin_constant_p() to 0 when 'c'
-> contains a function call, and that covers lockdep_is_held(),
-> srcu_read_lock_held() and refcount_read(). In the current tree,
-> every srcu_dereference_check() caller passes either a constant or
-> an expression built from such calls, so this limitation doesn't
-> affect any existing caller.
+> Signed-off-by: Christopher de Guzman <christopher.deguzman@analog.com>
 
-Right you are!  Maybe __is_constexpr() would be better?
+Applied.
 
-> So in v4 I plan to:
-> - call __srcu_read_lock_must_hold() from srcu_dereference_check()
->   only if 'c' is the constant 0, as shown above;
-> - keep srcu_dereference() defined as
->   srcu_dereference_check((p), (ssp), 0), which now gets the check
->   automatically;
-> - keep the explicit __srcu_read_lock_must_hold() call in
->   srcu_dereference_notrace(), because it passes 1 for 'c';
-> - update the comment above __srcu_read_lock_must_hold() and the
->   patch description to match.
-> 
-> Does that sound good to you?
-
-Give or take potentially fixing my poor choice of macro to __is_constexpr(),
-yes, please!
-
-							Thanx, Paul
+Thanks,
+Guenter
