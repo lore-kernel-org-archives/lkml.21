@@ -1,121 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.226
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=46.30.211.244
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794958346;
-	b=yeC2ciPi8JzEUo6NwcBqPdsAGc/C+GAygQbQ0x1BV825Nv5j2xjD6RQGnVz1AEymSOKr
-	 FGM/UfifsM56A0xAM2w90/ND2LQ7vwnn5GidMc1uSKQejdrDhIJ3fL2m73PC28okOi7Zw
-	 cI4KLDCkdG+CSEelqAUfHvbod0rAd4mfTwzvqvqVXj8Y/crGz9+m6WhDf5sks9FQRXsQL
-	 b6N8ZGh3+ssJHgA7ii9RT/6r7z6pnN5QCyz47gW8T//kEpUnTk6br36Hn0rGye1KKqxSl
-	 6mEepd/pxGLaxyKvrwNBL/Mrf03UxJSBtUc/ve3ySB8EuvhJfUwgtLTHd1x7KE2DwSA==
+	t=1794958348;
+	b=2u3u0paJgQq5cPAA7h+eNjCU/XKX+N8FQwAD5ujx/2gaQuCvGBYxG3IDUIhJyKNrl3TP
+	 +Vh7E1x2McIKbR0A8U3m5OZWQgAdf7/fU3lOwOEtMrx2o2bOqrnBZKnykFj2zMFy1TrnQ
+	 1hO0bx+ntq2FyudwCO0KEhtv/bjW/BP8Z34SCgMw/QMajTp0G6Jm56K0a071OnIJVUZia
+	 /PRcfJzK4XNP8QDMr8kGyCcZtHvN02fueb4fALgjfYmegC84iZN69+6l0FjJnYpeh6PrO
+	 tg5hpvw/FMusj3yGeJEoTjPOGqtjnP1aym4sGycMqnRKShcRBcqgf3s5ZwWcO/3g79w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794958346;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
-	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-Id:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-DetectorID-Processed;
-	bh=irYW2PXjJC3vF0xtw/jmSzMUmlGyGZhEP21uDR4SBTU=;
-	b=dnDh7UMlLnjyqNbWmhP5Vvyow6t25kj6bvZY7KVUg/UMXebKpRfTnaOv1KkkkWMNRMqi
-	 GJlhm3qlEkJYTlJpJ50CVTCjVTLV1CzyOQB24rAplyuQxrxFih6UECTEGUdXAjJCkmFDu
-	 O2N9P2hz7ls1077qwxm/LLq1eHkWnOdx0mOcsOMGNmSIdeZDNDBg6hC/tFuyKcBCV6rZG
-	 gxYNZ1ryTWfg9m5WRh+PLtUmsLy52J9ktrOluwdzTEGzoDCHXBq8YwWjI6bnPILJDatUv
-	 F3gSI1alQF1gsfAMITik1l7vFwKnNvJJN9VAHBy+Nc7hrW9ohj2lgV5uodRjzBiW92w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794958348;
+	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:X-HalOne-ID:Received:From:
+	 To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=OO21c8+tFDAgc9wUSPx8nRJ+SiN0bpj0Z/0tXmBXR1M=;
+	b=Ix5Lyz5tkE7Nj/agUl26uJOAXXz8teA5kLY+ZdxcZoF0wJmMAkFs0oInOZu32h7p6rCk
+	 RL9353PTEH3ppC93p/aVzrN/ijv+nHLWnVqrCgxvYbq6jp5ybaHqK3Dqv7LK6QtO/SeUA
+	 JnK99Hi/3H9BWQVdyWWV+cBHNg0IE5N8WC69T8uLBONmXpVi3BGek8+RVtKmoM5EeCler
+	 qlmjEIN6BEBzoHRWIQQJDc/jvfawrNcG/s2QrwEO1rqEBjo4liWE/Sz0wsvy19ir78fmm
+	 c8YCMo6Kgd2yFls/aLlJOSRQiZReJ23bEk2KAd7MlssJL0ivLCqzmKm1TUAN27IClyg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=QmRlkOrh;
-	arc=none smtp.remote-ip=209.85.215.226
-Received: from mail-pg1-f226.google.com (mail-pg1-f226.google.com [209.85.215.226])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=konsulko.se;
+	spf=none smtp.mailfrom=konsulko.se;
+	dkim=pass header.d=konsulko.se header.i=@konsulko.se header.a=rsa-sha256 header.s=rsa2 header.b=SQgPFQPy;
+	dkim=pass header.d=konsulko.se header.i=@konsulko.se header.a=ed25519-sha256 header.s=ed2 header.b="30L/AY5c";
+	arc=none smtp.remote-ip=46.30.211.244
+Received: from mailrelay-egress5.pub.mailoutpod3-cph3.one.com (mailrelay-egress5.pub.mailoutpod3-cph3.one.com [46.30.211.244])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C62B606A88C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:32:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C62B606A88C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C207606A893
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:32:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C207606A893
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=konsulko.se
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=konsulko.se
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=QmRlkOrh
-Received: by mail-pg1-f226.google.com with SMTP id 41be03b00d2f7-cc751eddf25so320862a12.3
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 15:32:26 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794958346; x=1795563146;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=irYW2PXjJC3vF0xtw/jmSzMUmlGyGZhEP21uDR4SBTU=;
-        b=WlSEFOUC/PDepaDs9kOAeuSqBVtrxhUGstSgpk6pN85h7bXjfbFTruvlFDisP7aIp/
-         +Zil1w4TQSxG8r+Y93CDtwlKs2o4xpf/LPwixBLviEvSRYE8GzsxCBE/d6wSqnh6EIB5
-         /x9j000zucT51wbpDsbHEgV13OmNim7MsPuerBt1CUrcEJFk1p9i9740rCX5tsJz4dtY
-         PcWBI2wuwdPgGz+gXF792ExxK2i1yKzsepkrQmxGBrdXcj14O15RUhrCn1q8q/U+CT1O
-         6lpUJyjksTgvB0ZU46AEekllEPavTCSwbkuloDErm1DSGbFmsrCQ3dwB8AcCu1nB5zMn
-         N+1g==
-X-Forwarded-Encrypted: i=1; AL+hErEVvHdBNiflNe4wOCRGTBEbTCXipKq0W7gfAdSM97dcachwCS9HeNGo9s+PABYb7jkdhCppCdMaQR/ddOg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z997XEae+LODUD7doLtYajzC32YdsJWLBlTZ+S22Dx8TSiEy/D7
-	9KiXnu0B6mdyOIbW7EPGTZ/rzTYSKzXrtKjJkVqX3MAe3FZEQgbt3qYv5q0RlcX6zvRPxjaHigF
-	G/uAFO8dWZ8wfAMRnzg9WiuEjoCPaf8faBWiTeHnvMSyMHDbeFq0E7gAKgCTgwKKG84USZ5Et/J
-	obvlql/HdTMaxXXvU9v2+26Ig6ytnixzdDLR6Pf11hQWAvXpLAmWuTp/b60HeUbXlCpIMihZPxO
-	C8NpV3kOpQvAlDIV+R4Pz/c
-X-Gm-Gg: AZFdTZd8JZf6psFM5LnEwwDothovky9YGuWAY7NoPcrkAIRx8pVCx680BfHjDL0ESAv
-	N8CaHALRPsiU816wcuzdShOqGpyCnAgDqupaVkSlgQnzg+VltBmY1ru3jq2YzqgG1DS/X1zoEGH
-	jnsu7G9CNh+EC7NcMLsvDa1m+TjSRDLAoOzrC0iCSsC5XUmfjQMiFXX9JMLKPirSla/0HuC4KCc
-	Wysc6ODcw9oRfSFv55eTWtMlowSZmPbpbfzHRZ8tR0j2BHd27L5gxh395HbrRN64knHMhDwTTEe
-	k9hB4ZwG46QxkyH0Hm8l1b24q1+0yiNy3D0AIPHNd3k6EDCZHUPC97NbPwhZP1S+8fvg8pxE/V2
-	UL4hBIbG6xUzIwpgQtmVu2OYWyrFcX28bIZWshzGNKkbyo9hfMqjvPjIEFR65lmh65+MUbffBk1
-	CGXB+4RmyuYVZ5jQvfnQOSfOQIs+qptj5AeEh0RvOS
-X-Received: by 2002:a17:90b:5111:b0:3b0:9a2e:b494 with SMTP id 98e67ed59e1d1-3b3d07c2778mr864866a91.54.1794958345619;
-        Tue, 17 Nov 2026 15:32:25 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-26.dlp.protect.broadcom.com. [144.49.247.26])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b3d1423d6asm606709a91.4.2026.11.17.15.32.25
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 17 Nov 2026 15:32:25 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-dl1-f69.google.com with SMTP id a92af1059eb24-1b29df78132so348668c88.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 15:32:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1794958344; x=1795563144; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=irYW2PXjJC3vF0xtw/jmSzMUmlGyGZhEP21uDR4SBTU=;
-        b=QmRlkOrhg1ipkH0RXFT1hCv1w1+maaHXhlzUjb0jwivNAQate0PayzNLm+4UUAjVY+
-         p+Ca9p1v16LBkZwtZK2lyvxomfp8qvfVo6BD2fshaq3Udpeywi+XvK6/dUv9bCsLHuYY
-         eH07dF7/0B8K9O3maNHgG5mCPSAOlxEgOrR64=
-X-Forwarded-Encrypted: i=1; AL+hErFd3lJ6IbfSAkEk4iHGnAln9l0VvgHoTY1SVWnTnlv4AfGsnv/Gwndgs3deYEK++LBmXylgZ+/WxHuVVwg=@vger.kernel.org
-X-Received: by 2002:a05:7022:ea4d:b0:185:33ab:4d55 with SMTP id a92af1059eb24-1b543d0270bmr793619c88.29.1794958343773;
-        Tue, 17 Nov 2026 15:32:23 -0800 (PST)
-X-Received: by 2002:a05:7022:ea4d:b0:185:33ab:4d55 with SMTP id a92af1059eb24-1b543d0270bmr793596c88.29.1794958343048;
-        Tue, 17 Nov 2026 15:32:23 -0800 (PST)
-Received: from stbirv-lnx-1.igp.broadcom.net ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447c1193sm1389095c88.7.2026.11.17.15.32.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 15:32:22 -0800 (PST)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: netdev@vger.kernel.org
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Carlos Soto <carlos.soto@broadcom.com>,
-	Justin Chen <justin.chen@broadcom.com>,
-	Doug Berger <opendmb@gmail.com>,
-	Nicolai Buchwitz <nb@tipi-net.de>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-kernel@vger.kernel.org (open list),
-	Mlody12 mlody12 <kudzo51@gmail.com>
-Subject: [PATCH net-next v3 4/4] net: mdio: mdio-bcm-unimac: Add Clause 45 support
-Date: Tue, 17 Nov 2026 15:31:49 -0800
-Message-Id: <20261117233149.1693881-5-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261117233149.1693881-1-florian.fainelli@broadcom.com>
-References: <20261117233149.1693881-1-florian.fainelli@broadcom.com>
+	dkim=pass (2048-bit key, unprotected) header.d=konsulko.se header.i=@konsulko.se header.a=rsa-sha256 header.s=rsa2 header.b=SQgPFQPy;
+	dkim=pass header.d=konsulko.se header.i=@konsulko.se header.a=ed25519-sha256 header.s=ed2 header.b=30L/AY5c
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1794958340; x=1795563140;
+	d=konsulko.se; s=rsa2;
+	h=content-transfer-encoding:mime-version:references:in-reply-to:message-id:date:
+	 subject:cc:to:from:from;
+	bh=OO21c8+tFDAgc9wUSPx8nRJ+SiN0bpj0Z/0tXmBXR1M=;
+	b=SQgPFQPyh61GzaqbYptSS2IKL/CO3ZPQKvsjQS+2THWjeK+9VV4Nr8Telv6XSxCsadCKKWrGitHC1
+	 ZNu5VrqVuwHCrtoJSatFs/CjC88aenDkx13YqXb2wcBVKlhy1xFaGteunFMg0YfAIQSj9AFMZU2Vmy
+	 zRHWRrBsl1dIXMXFoMlAoVIhSUeJMMgkd95guhG6Hfo5tQexZ59UYq/7Tvdd4XBhnXIPfMQf9iJ8m8
+	 XmLq+4kR4GARqAYTxCiMBcqYsB1h2VMPgEdMzzj1KZQ1vQW8NiqGtJzLjoGwRVio+nbeQDlyses/Ew
+	 LiBZ7Nw5F9+cOKa90jvI39wbjqfIzVg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1794958340; x=1795563140;
+	d=konsulko.se; s=ed2;
+	h=content-transfer-encoding:mime-version:references:in-reply-to:message-id:date:
+	 subject:cc:to:from:from;
+	bh=OO21c8+tFDAgc9wUSPx8nRJ+SiN0bpj0Z/0tXmBXR1M=;
+	b=30L/AY5ch5cimpu96astI6ZHEYoD3qaMPHSkdO3BUreeJezmkmEEhcgsWiT8H7sUtetZSgQQSO8gA
+	 tRAiZY9DQ==
+X-HalOne-ID: 2061b5f6-e2df-11f1-929f-49de817b90c1
+Received: from slottsdator.home (unknown [2a02:1406:27d:15:2438:a644:c11e:a5ef])
+	by mailrelay6.pub.mailoutpod2-cph3.one.com (Halon) with ESMTPSA
+	id 2061b5f6-e2df-11f1-929f-49de817b90c1;
+	Tue, 17 Nov 2026 23:32:18 +0000 (UTC)
+From: Vitaly Wool <vitaly.wool@konsulko.se>
+To: Andreas Hindborg <a.hindborg@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>
+Cc: Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?= <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	=?UTF-8?q?Onur=20=C3=96zkan?= <work@onurozkan.dev>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R . Howlett" <liam@infradead.org>,
+	linux-block@vger.kernel.org,
+	rust-for-linux@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	Igor B <igor.b@beldev.am>,
+	Vitaly Wool <vitaly.wool@konsulko.se>
+Subject: [PATCH 1/3] rust: block: add bio segment iteration and request accessors
+Date: Wed, 18 Nov 2026 00:32:09 +0100
+Message-Id: <20261117233211.3137168-2-vitaly.wool@konsulko.se>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20261117233211.3137168-1-vitaly.wool@konsulko.se>
+References: <20261117233211.3137168-1-vitaly.wool@konsulko.se>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -126,231 +96,535 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-Add Clause 45 read/write support to the UniMAC MDIO bus controller driver
-by implementing the read_c45/write_c45 bus callbacks. Each access performs
-the two-step C45 sequence (ADDR cycle followed by a READ/WRITE cycle) under
-the bus lock and switches MDIO_CFG between C22 and C45 mode as needed;
-MDIO_CFG is only written when the mode actually changes.
+From: Igor B <igor.b@beldev.am>
 
-Also skip the BMSR workaround read in unimac_mdio_reset() for children
-compatible with "ethernet-phy-ieee802.3-c45", since such PHYs are not
-expected to respond to C22 accesses.
+The Rust blk-mq abstractions only cover what the null block driver
+needs: requests can be started and ended, but a driver cannot find out
+what a request asks for or reach its data.
 
-Note that providing read_c45/write_c45 also makes the MDIO core scan for
-C45 PHYs at registration time, on addresses that are not masked and do not
-already have a C22 device.
+For a driver that actually transfers data we need:
 
-Co-developed-by: Carlos Soto <carlos.soto@broadcom.com>
-Signed-off-by: Carlos Soto <carlos.soto@broadcom.com>
-Co-developed-by: Justin Chen <justin.chen@broadcom.com>
-Signed-off-by: Justin Chen <justin.chen@broadcom.com>
-Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+- A `bio` module with a `Bio` wrapper, an iterator over the bios of a
+  request and an iterator over the single-page segments of a bio, the
+  equivalent of rq_for_each_segment(). Segments can be copied to and
+  from a `Page` and zeroed, with bounds checks. Iteration goes through
+  two new C helpers wrapping bio_iter_iovec() and
+  bio_advance_iter_single(), so the multi-page bvec handling stays in
+  C.
+
+- `Request::command()`, `Request::sector()`, `Request::bytes()` and
+  `Request::bio_iter()`, exposing the operation, start sector, length
+  and bios of a request. REQ_OP_MASK is added as a constant helper,
+  since bindgen cannot evaluate it.
+
+- `GenDiskBuilder::max_hw_discard_sectors()` and
+  `GenDiskBuilder::discard_granularity()`, so drivers can advertise
+  discard support.
+
+These are used by the rbrd driver added in forthcoming patch.
+
+Signed-off-by: Igor Belousov <igor.b@beldev.am>
+Signed-off-by: Vitaly Wool <vitaly.wool@konsulko.se>
 ---
- drivers/net/mdio/mdio-bcm-unimac.c | 125 +++++++++++++++++++++++++++--
- 1 file changed, 117 insertions(+), 8 deletions(-)
+ rust/bindings/bindings_helper.h  |   1 +
+ rust/helpers/blk.c               |  14 ++
+ rust/kernel/block.rs             |   1 +
+ rust/kernel/block/bio.rs         | 253 +++++++++++++++++++++++++++++++
+ rust/kernel/block/mq.rs          |   5 +-
+ rust/kernel/block/mq/gen_disk.rs |  25 +++
+ rust/kernel/block/mq/request.rs  |  81 +++++++++-
+ 7 files changed, 378 insertions(+), 2 deletions(-)
+ create mode 100644 rust/kernel/block/bio.rs
 
-diff --git a/drivers/net/mdio/mdio-bcm-unimac.c b/drivers/net/mdio/mdio-bcm-unimac.c
-index df267bb82696..ec0f2e8070ee 100644
---- a/drivers/net/mdio/mdio-bcm-unimac.c
-+++ b/drivers/net/mdio/mdio-bcm-unimac.c
-@@ -24,10 +24,16 @@
- #define  MDIO_OP_SHIFT		26
- #define  MDIO_RD_C22		(2 << MDIO_OP_SHIFT)
- #define  MDIO_WR_C22		(1 << MDIO_OP_SHIFT)
-+#define  MDIO_ADDR_C45		(0 << MDIO_OP_SHIFT)
-+#define  MDIO_WR_C45		(1 << MDIO_OP_SHIFT)
-+#define  MDIO_RD_C45		(3 << MDIO_OP_SHIFT)
- #define  MDIO_PMD_SHIFT		21
- #define  MDIO_PMD_MASK		0x1F
- #define  MDIO_REG_SHIFT		16
- #define  MDIO_REG_MASK		0x1F
-+#define  MDIO_DEVAD_SHIFT	16
-+#define  MDIO_DEVAD_MASK	GENMASK(20, 16)
-+#define  MDIO_C45_REG_MASK	GENMASK(15, 0)
+diff --git a/rust/bindings/bindings_helper.h b/rust/bindings/bindings_helper.h
+index 3791af0aadc7..99b25d35b80a 100644
+--- a/rust/bindings/bindings_helper.h
++++ b/rust/bindings/bindings_helper.h
+@@ -124,6 +124,7 @@ const gfp_t RUST_CONST_HELPER___GFP_ZERO = __GFP_ZERO;
+ const gfp_t RUST_CONST_HELPER___GFP_HIGHMEM = ___GFP_HIGHMEM;
+ const gfp_t RUST_CONST_HELPER___GFP_NOWARN = ___GFP_NOWARN;
+ const blk_features_t RUST_CONST_HELPER_BLK_FEAT_ROTATIONAL = BLK_FEAT_ROTATIONAL;
++const blk_opf_t RUST_CONST_HELPER_REQ_OP_MASK = REQ_OP_MASK;
+ const fop_flags_t RUST_CONST_HELPER_FOP_UNSIGNED_OFFSET = FOP_UNSIGNED_OFFSET;
  
- #define MDIO_CFG		0x04
- #define  MDIO_C22		(1 << 0)
-@@ -96,7 +102,53 @@ static int unimac_mdio_poll(void *wait_func_data)
- 					MDIO_CMD);
- }
+ const xa_mark_t RUST_CONST_HELPER_XA_PRESENT = XA_PRESENT;
+diff --git a/rust/helpers/blk.c b/rust/helpers/blk.c
+index 20c512e46a7a..f82cdb3b0875 100644
+--- a/rust/helpers/blk.c
++++ b/rust/helpers/blk.c
+@@ -1,5 +1,6 @@
+ // SPDX-License-Identifier: GPL-2.0
  
--static int unimac_mdio_read(struct mii_bus *bus, int phy_id, int reg)
-+static u32 unimac_mdio_c45_devad(int devad)
-+{
-+	return ((u32)devad << MDIO_DEVAD_SHIFT) & MDIO_DEVAD_MASK;
-+}
-+
-+static int unimac_mdio_addr_c45(struct unimac_mdio_priv *priv,
-+				int phy_id, int devad, int reg)
-+{
-+	u32 cmd;
-+	int ret;
-+
-+	/* Prepare the addr c45 operation */
-+	cmd = MDIO_ADDR_C45 | (phy_id << MDIO_PMD_SHIFT) |
-+	      unimac_mdio_c45_devad(devad) | (reg & MDIO_C45_REG_MASK);
-+	unimac_mdio_writel(priv, cmd, MDIO_CMD);
-+
-+	/* Start MDIO transaction */
-+	unimac_mdio_start(priv);
-+
-+	ret = priv->wait_func(priv->wait_func_data);
-+	if (ret)
-+		return ret;
-+
-+	/* Some wait_func implementations (e.g.: bcmgenet_mii_wait()) return 0
-+	 * even when they timed out with the controller still busy. The data
-+	 * cycle must not be started before the ADDR cycle has completed, so
-+	 * make sure the controller is idle.
-+	 */
-+	return unimac_mdio_poll(priv);
-+}
-+
-+static void unimac_mdio_set_clause(struct unimac_mdio_priv *priv, bool is_c45)
-+{
-+	u32 cfg = unimac_mdio_readl(priv, MDIO_CFG);
-+	u32 new_cfg = cfg;
-+
-+	if (is_c45)
-+		new_cfg &= ~MDIO_C22;
-+	else
-+		new_cfg |= MDIO_C22;
-+
-+	if (new_cfg != cfg)
-+		unimac_mdio_writel(priv, new_cfg, MDIO_CFG);
-+}
-+
-+static int unimac_mdio_do_read(struct mii_bus *bus, int phy_id, int devad,
-+			       int reg, bool is_c45)
++#include <linux/bio.h>
+ #include <linux/blk-mq.h>
+ #include <linux/blkdev.h>
+ 
+@@ -12,3 +13,16 @@ __rust_helper struct request *rust_helper_blk_mq_rq_from_pdu(void *pdu)
  {
- 	struct unimac_mdio_priv *priv = bus->priv;
- 	int ret;
-@@ -107,8 +159,19 @@ static int unimac_mdio_read(struct mii_bus *bus, int phy_id, int reg)
- 		return ret;
- 
- 	/* Prepare the read operation */
--	cmd = MDIO_RD_C22 | (phy_id << MDIO_PMD_SHIFT) |
--		(reg << MDIO_REG_SHIFT);
-+	unimac_mdio_set_clause(priv, is_c45);
-+	if (is_c45) {
-+		ret = unimac_mdio_addr_c45(priv, phy_id, devad, reg);
-+		if (ret)
-+			goto out;
+ 	return blk_mq_rq_from_pdu(pdu);
+ }
 +
-+		cmd = MDIO_RD_C45 | (phy_id << MDIO_PMD_SHIFT) |
-+			unimac_mdio_c45_devad(devad) |
-+			(reg & MDIO_C45_REG_MASK);
-+	} else {
-+		cmd = MDIO_RD_C22 | (phy_id << MDIO_PMD_SHIFT) |
-+			(reg << MDIO_REG_SHIFT);
-+	}
- 	unimac_mdio_writel(priv, cmd, MDIO_CMD);
++__rust_helper struct bio_vec rust_helper_bio_iter_iovec(struct bio *bio,
++							 const struct bvec_iter *iter)
++{
++	return bio_iter_iovec(bio, *iter);
++}
++
++__rust_helper void rust_helper_bio_advance_iter_single(const struct bio *bio,
++							struct bvec_iter *iter,
++							unsigned int bytes)
++{
++	bio_advance_iter_single(bio, iter, bytes);
++}
+diff --git a/rust/kernel/block.rs b/rust/kernel/block.rs
+index 32c8d865afb6..17de727bc104 100644
+--- a/rust/kernel/block.rs
++++ b/rust/kernel/block.rs
+@@ -2,6 +2,7 @@
  
- 	/* Start MDIO transaction */
-@@ -136,8 +199,8 @@ static int unimac_mdio_read(struct mii_bus *bus, int phy_id, int reg)
- 	return ret;
+ //! Types for working with the block layer.
+ 
++pub mod bio;
+ pub mod mq;
+ 
+ /// Bit mask for masking out [`SECTOR_SIZE`].
+diff --git a/rust/kernel/block/bio.rs b/rust/kernel/block/bio.rs
+new file mode 100644
+index 000000000000..183f9ae6d48d
+--- /dev/null
++++ b/rust/kernel/block/bio.rs
+@@ -0,0 +1,253 @@
++// SPDX-License-Identifier: GPL-2.0
++
++//! Types for working with the C `struct bio`.
++//!
++//! C header: [`include/linux/bio.h`](srctree/include/linux/bio.h)
++//! C header: [`include/linux/blk_types.h`](srctree/include/linux/blk_types.h)
++
++use crate::{
++    bindings,
++    page::Page,
++    prelude::*,
++    types::Opaque, //
++};
++use core::{
++    marker::PhantomData,
++    ptr, //
++};
++
++/// A wrapper around a C [`struct bio`].
++///
++/// # Invariants
++///
++/// `self.0` is a valid `struct bio` that is part of a request owned by the
++/// driver. Neither the bio nor its data pages are released while a `&Bio` is
++/// alive.
++///
++/// [`struct bio`]: srctree/include/linux/blk_types.h
++#[repr(transparent)]
++pub struct Bio(Opaque<bindings::bio>);
++
++impl Bio {
++    /// Create a reference to a [`Bio`] from a raw pointer.
++    ///
++    /// # Safety
++    ///
++    /// `ptr` must point to a valid `struct bio` that stays valid, and is not
++    /// modified by anyone but the holder of the returned reference, for the
++    /// duration of `'a`.
++    pub(crate) unsafe fn from_raw<'a>(ptr: *mut bindings::bio) -> &'a Self {
++        // SAFETY: `Bio` is `repr(transparent)` over `bindings::bio`, and the
++        // safety requirements of this function make the reference valid.
++        unsafe { &*ptr.cast::<Self>() }
++    }
++
++    fn raw(&self) -> *mut bindings::bio {
++        self.0.get()
++    }
++
++    /// Return the start sector of the bio.
++    pub fn sector(&self) -> u64 {
++        // SAFETY: By the type invariant `self.raw()` is valid. Taking the field
++        // by value avoids creating a reference into the packed `bi_iter`.
++        let iter = unsafe { (*self.raw()).bi_iter };
++        iter.bi_sector
++    }
++
++    /// Return the remaining size of the bio in bytes.
++    pub fn size(&self) -> u32 {
++        // SAFETY: By the type invariant `self.raw()` is valid.
++        let iter = unsafe { (*self.raw()).bi_iter };
++        iter.bi_size
++    }
++
++    /// Return an iterator over the single-page segments of this bio.
++    ///
++    /// This is the equivalent of the C `bio_for_each_segment()` macro.
++    pub fn segment_iter(&self) -> SegmentIter<'_> {
++        SegmentIter {
++            bio: self,
++            // SAFETY: By the type invariant `self.raw()` is valid.
++            iter: unsafe { (*self.raw()).bi_iter },
++        }
++    }
++
++    /// Return the next bio in the chain, if any.
++    pub(crate) fn next(&self) -> Option<&Self> {
++        // SAFETY: By the type invariant `self.raw()` is valid.
++        let next = unsafe { (*self.raw()).bi_next };
++        if next.is_null() {
++            None
++        } else {
++            // SAFETY: Bios chained to a request owned by the driver are valid
++            // for as long as the request is owned by the driver, which by the
++            // type invariant outlives `&self`.
++            Some(unsafe { Self::from_raw(next) })
++        }
++    }
++}
++
++/// An iterator over the [`Bio`]s of a request.
++///
++/// Created by [`Request::bio_iter`](super::mq::Request::bio_iter).
++pub struct BioIter<'a> {
++    pub(crate) bio: Option<&'a Bio>,
++}
++
++impl<'a> Iterator for BioIter<'a> {
++    type Item = &'a Bio;
++
++    fn next(&mut self) -> Option<&'a Bio> {
++        let current = self.bio?;
++        self.bio = current.next();
++        Some(current)
++    }
++}
++
++/// An iterator over the single-page segments of a [`Bio`].
++pub struct SegmentIter<'a> {
++    bio: &'a Bio,
++    iter: bindings::bvec_iter,
++}
++
++impl<'a> Iterator for SegmentIter<'a> {
++    type Item = Segment<'a>;
++
++    fn next(&mut self) -> Option<Segment<'a>> {
++        if self.iter.bi_size == 0 {
++            return None;
++        }
++
++        let sector = self.iter.bi_sector;
++
++        // SAFETY: By the type invariant of `Bio`, `self.bio.raw()` is valid,
++        // and `self.iter` is a copy of its `bi_iter` that was only advanced
++        // through `bio_advance_iter_single`, so it is within bounds.
++        let bvec = unsafe { bindings::bio_iter_iovec(self.bio.raw(), &self.iter) };
++
++        // SAFETY: As above. `bvec.bv_len` is at most `self.iter.bi_size`.
++        unsafe { bindings::bio_advance_iter_single(self.bio.raw(), &mut self.iter, bvec.bv_len) };
++
++        // INVARIANT: `bio_iter_iovec` returns a segment that does not cross a
++        // page boundary and that lies within the data buffer of the bio.
++        Some(Segment {
++            bvec,
++            sector,
++            _p: PhantomData,
++        })
++    }
++}
++
++/// A single-page segment of the data buffer of a [`Bio`].
++///
++/// # Invariants
++///
++/// - `bvec.bv_page` is a valid page for the lifetime `'a`.
++/// - `bvec.bv_offset + bvec.bv_len <= PAGE_SIZE`.
++pub struct Segment<'a> {
++    bvec: bindings::bio_vec,
++    sector: u64,
++    _p: PhantomData<&'a Bio>,
++}
++
++impl Segment<'_> {
++    /// Return the length of the segment in bytes.
++    pub fn len(&self) -> usize {
++        self.bvec.bv_len as usize
++    }
++
++    /// Return `true` if the segment is empty.
++    pub fn is_empty(&self) -> bool {
++        self.len() == 0
++    }
++
++    /// Return the device sector this segment starts at.
++    pub fn sector(&self) -> u64 {
++        self.sector
++    }
++
++    /// Map the segment and call `f` with a pointer to byte `off` of the
++    /// segment, after checking that `off..off + len` is within the segment.
++    fn with_mapped(&self, off: usize, len: usize, f: impl FnOnce(*mut u8) -> Result) -> Result {
++        match off.checked_add(len) {
++            Some(end) if end <= self.len() => {}
++            _ => return Err(EINVAL),
++        }
++
++        // SAFETY: By the type invariant, `bv_page` is a valid page.
++        let mapped = unsafe { bindings::kmap_local_page(self.bvec.bv_page) };
++        let addr = mapped.cast::<u8>();
++
++        // SAFETY: By the type invariant and the check above,
++        // `bv_offset + off + len <= PAGE_SIZE`, so the result is within the
++        // mapped page.
++        let res = f(unsafe { addr.add(self.bvec.bv_offset as usize + off) });
++
++        // SAFETY: `mapped` was returned by the `kmap_local_page` call above,
++        // and any mapping created by `f` has already been released, so
++        // mappings are released in reverse order.
++        unsafe { bindings::kunmap_local(mapped) };
++
++        res
++    }
++
++    /// Copy `len` bytes starting at byte `off` of this segment into `dst`
++    /// starting at `dst_off`.
++    ///
++    /// Returns [`EINVAL`] if either range is out of bounds.
++    ///
++    /// # Safety
++    ///
++    /// The caller must ensure that this call does not race with a read or
++    /// write of the same range of `dst`.
++    pub unsafe fn copy_to_page(
++        &self,
++        off: usize,
++        dst: &Page,
++        dst_off: usize,
++        len: usize,
++    ) -> Result {
++        self.with_mapped(off, len, |src| {
++            // SAFETY: `src` is valid for reading `len` bytes, and the caller
++            // guarantees there is no racing access to `dst`.
++            unsafe { dst.write_raw(src, dst_off, len) }
++        })
++    }
++
++    /// Copy `len` bytes from `src` starting at `src_off` into this segment
++    /// starting at byte `off`.
++    ///
++    /// Returns [`EINVAL`] if either range is out of bounds.
++    ///
++    /// # Safety
++    ///
++    /// The caller must ensure that this call does not race with a write to the
++    /// same range of `src`.
++    pub unsafe fn copy_from_page(
++        &self,
++        off: usize,
++        src: &Page,
++        src_off: usize,
++        len: usize,
++    ) -> Result {
++        self.with_mapped(off, len, |dst| {
++            // SAFETY: `dst` is valid for writing `len` bytes. The data buffer
++            // of the bio is owned by the driver while the request is in
++            // flight. The caller guarantees there is no racing write to `src`.
++            unsafe { src.read_raw(dst, src_off, len) }
++        })
++    }
++
++    /// Fill `len` bytes starting at byte `off` of this segment with zeroes.
++    ///
++    /// Returns [`EINVAL`] if the range is out of bounds.
++    pub fn zero(&self, off: usize, len: usize) -> Result {
++        self.with_mapped(off, len, |dst| {
++            // SAFETY: `dst` is valid for writing `len` bytes. The data buffer
++            // of the bio is owned by the driver while the request is in
++            // flight.
++            unsafe { ptr::write_bytes(dst, 0, len) };
++            Ok(())
++        })
++    }
++}
+diff --git a/rust/kernel/block/mq.rs b/rust/kernel/block/mq.rs
+index 1fd0d54dd549..cb5b699630d8 100644
+--- a/rust/kernel/block/mq.rs
++++ b/rust/kernel/block/mq.rs
+@@ -99,5 +99,8 @@
+ mod tag_set;
+ 
+ pub use operations::Operations;
+-pub use request::Request;
++pub use request::{
++    Command,
++    Request, //
++};
+ pub use tag_set::TagSet;
+diff --git a/rust/kernel/block/mq/gen_disk.rs b/rust/kernel/block/mq/gen_disk.rs
+index 0fe640f3aec6..57d543165430 100644
+--- a/rust/kernel/block/mq/gen_disk.rs
++++ b/rust/kernel/block/mq/gen_disk.rs
+@@ -37,6 +37,8 @@ pub struct GenDiskBuilder {
+     logical_block_size: u32,
+     physical_block_size: u32,
+     capacity_sectors: u64,
++    max_hw_discard_sectors: u32,
++    discard_granularity: u32,
  }
  
--static int unimac_mdio_write(struct mii_bus *bus, int phy_id,
--			     int reg, u16 val)
-+static int unimac_mdio_do_write(struct mii_bus *bus, int phy_id, int devad,
-+				int reg, u16 val, bool is_c45)
- {
- 	struct unimac_mdio_priv *priv = bus->priv;
- 	u32 cmd;
-@@ -148,18 +211,50 @@ static int unimac_mdio_write(struct mii_bus *bus, int phy_id,
- 		return ret;
+ impl Default for GenDiskBuilder {
+@@ -46,6 +48,8 @@ fn default() -> Self {
+             logical_block_size: bindings::PAGE_SIZE as u32,
+             physical_block_size: bindings::PAGE_SIZE as u32,
+             capacity_sectors: 0,
++            max_hw_discard_sectors: 0,
++            discard_granularity: 0,
+         }
+     }
+ }
+@@ -106,6 +110,25 @@ pub fn capacity_sectors(mut self, capacity: u64) -> Self {
+         self
+     }
  
- 	/* Prepare the write operation */
--	cmd = MDIO_WR_C22 | (phy_id << MDIO_PMD_SHIFT) |
--		(reg << MDIO_REG_SHIFT) | (0xffff & val);
-+	unimac_mdio_set_clause(priv, is_c45);
-+	if (is_c45) {
-+		ret = unimac_mdio_addr_c45(priv, phy_id, devad, reg);
-+		if (ret)
-+			goto out;
++    /// Set the maximum number of sectors (512 bytes) the device can discard in
++    /// a single request.
++    ///
++    /// Zero, the default, means that the device does not support discard.
++    pub fn max_hw_discard_sectors(mut self, sectors: u32) -> Self {
++        self.max_hw_discard_sectors = sectors;
++        self
++    }
 +
-+		cmd = MDIO_WR_C45 | (phy_id << MDIO_PMD_SHIFT) |
-+			unimac_mdio_c45_devad(devad) | (0xffff & val);
-+	} else {
-+		cmd = MDIO_WR_C22 | (phy_id << MDIO_PMD_SHIFT) |
-+			(reg << MDIO_REG_SHIFT) | (0xffff & val);
-+	}
- 	unimac_mdio_writel(priv, cmd, MDIO_CMD);
++    /// Set the discard granularity of the device in bytes.
++    ///
++    /// This is the internal allocation unit of the device. Discards smaller
++    /// than this, or not aligned to it, may not free any storage. Zero, the
++    /// default, lets the block layer use the logical block size.
++    pub fn discard_granularity(mut self, granularity: u32) -> Self {
++        self.discard_granularity = granularity;
++        self
++    }
++
+     /// Build a new `GenDisk` and add it to the VFS.
+     pub fn build<T: Operations>(
+         self,
+@@ -123,6 +146,8 @@ pub fn build<T: Operations>(
  
- 	unimac_mdio_start(priv);
+         lim.logical_block_size = self.logical_block_size;
+         lim.physical_block_size = self.physical_block_size;
++        lim.max_hw_discard_sectors = self.max_hw_discard_sectors;
++        lim.discard_granularity = self.discard_granularity;
+         if self.rotational {
+             lim.features = bindings::BLK_FEAT_ROTATIONAL;
+         }
+diff --git a/rust/kernel/block/mq/request.rs b/rust/kernel/block/mq/request.rs
+index 6115f9aec228..aaaac88d8ae0 100644
+--- a/rust/kernel/block/mq/request.rs
++++ b/rust/kernel/block/mq/request.rs
+@@ -6,7 +6,13 @@
  
- 	ret = priv->wait_func(priv->wait_func_data);
-+out:
- 	clk_disable_unprepare(priv->clk);
+ use crate::{
+     bindings,
+-    block::mq::Operations,
++    block::{
++        bio::{
++            Bio,
++            BioIter, //
++        },
++        mq::Operations, //
++    },
+     prelude::*,
+     sync::{
+         aref::{
+@@ -165,6 +171,62 @@ pub fn complete(this: ARef<Self>) {
+         }
+     }
  
- 	return ret;
++    /// Return the operation requested by this request.
++    pub fn command(&self) -> Command {
++        // SAFETY: By type invariant, `self.0` is a valid `struct request`.
++        // `cmd_flags` is not modified while the request is owned by the driver.
++        let op = unsafe { (*self.0.get()).cmd_flags } & bindings::REQ_OP_MASK;
++
++        match op {
++            bindings::req_op_REQ_OP_READ => Command::Read,
++            bindings::req_op_REQ_OP_WRITE => Command::Write,
++            bindings::req_op_REQ_OP_FLUSH => Command::Flush,
++            bindings::req_op_REQ_OP_DISCARD => Command::Discard,
++            bindings::req_op_REQ_OP_WRITE_ZEROES => Command::WriteZeroes,
++            op => Command::Other(op),
++        }
++    }
++
++    /// Return the start sector of the request.
++    ///
++    /// This is the equivalent of the C `blk_rq_pos()` function.
++    pub fn sector(&self) -> u64 {
++        // SAFETY: By type invariant, `self.0` is a valid `struct request`.
++        // `__sector` is not modified by the block layer while the request is
++        // owned by the driver.
++        unsafe { (*self.0.get()).__sector }
++    }
++
++    /// Return the number of bytes remaining in the request.
++    ///
++    /// This is the equivalent of the C `blk_rq_bytes()` function.
++    pub fn bytes(&self) -> u32 {
++        // SAFETY: By type invariant, `self.0` is a valid `struct request`.
++        // `__data_len` is not modified by the block layer while the request is
++        // owned by the driver.
++        unsafe { (*self.0.get()).__data_len }
++    }
++
++    /// Return an iterator over the [`Bio`]s attached to the request.
++    ///
++    /// Use [`Bio::segment_iter`] on each to visit all data segments, which is
++    /// the equivalent of the C `rq_for_each_segment()` macro.
++    pub fn bio_iter(&self) -> BioIter<'_> {
++        // SAFETY: By type invariant, `self.0` is a valid `struct request`.
++        let bio = unsafe { (*self.0.get()).bio };
++
++        BioIter {
++            bio: if bio.is_null() {
++                None
++            } else {
++                // SAFETY: The existence of `&self` implies the request is
++                // owned by the driver, so its bios stay valid and are not
++                // modified by the block layer for the lifetime of `&self`.
++                Some(unsafe { Bio::from_raw(bio) })
++            },
++        }
++    }
++
+     /// Return a pointer to the [`RequestDataWrapper`] stored in the private area
+     /// of the request structure.
+     ///
+@@ -194,6 +256,23 @@ pub(crate) fn wrapper_ref(&self) -> &RequestDataWrapper {
+     }
  }
  
-+static int unimac_mdio_read(struct mii_bus *bus, int phy_id, int reg)
-+{
-+	return unimac_mdio_do_read(bus, phy_id, 0, reg, false);
++/// The operation of a [`Request`].
++#[derive(Debug, Clone, Copy, PartialEq, Eq)]
++pub enum Command {
++    /// Read sectors from the device.
++    Read,
++    /// Write sectors to the device.
++    Write,
++    /// Flush the volatile write cache.
++    Flush,
++    /// Discard sectors.
++    Discard,
++    /// Write zeroes to a range of sectors.
++    WriteZeroes,
++    /// Any other operation, carrying the raw C `enum req_op` value.
++    Other(u32),
 +}
 +
-+static int unimac_mdio_write(struct mii_bus *bus, int phy_id, int reg, u16 val)
-+{
-+	return unimac_mdio_do_write(bus, phy_id, 0, reg, val, false);
-+}
-+
-+static int unimac_mdio_read_c45(struct mii_bus *bus, int addr, int dev, int reg)
-+{
-+	return unimac_mdio_do_read(bus, addr, dev, reg, true);
-+}
-+
-+static int unimac_mdio_write_c45(struct mii_bus *bus, int addr, int dev,
-+				 int reg, u16 val)
-+{
-+	return unimac_mdio_do_write(bus, addr, dev, reg, val, true);
-+}
-+
- /* Workaround for integrated BCM7xxx Gigabit PHYs which have a problem with
-  * their internal MDIO management controller making them fail to successfully
-  * be read from or written to for the first transaction.  We insert a dummy
-@@ -190,6 +285,10 @@ static int unimac_mdio_reset(struct mii_bus *bus)
- 			if (addr < 0)
- 				continue;
- 
-+			if (of_device_is_compatible(child,
-+						    "ethernet-phy-ieee802.3-c45"))
-+				continue;
-+
- 			read_mask |= 1 << addr;
- 		}
- 	}
-@@ -301,6 +400,8 @@ static int unimac_mdio_probe(struct platform_device *pdev)
- 	bus->parent = &pdev->dev;
- 	bus->read = unimac_mdio_read;
- 	bus->write = unimac_mdio_write;
-+	bus->read_c45 = unimac_mdio_read_c45;
-+	bus->write_c45 = unimac_mdio_write_c45;
- 	bus->reset = unimac_mdio_reset;
- 	snprintf(bus->id, MII_BUS_ID_SIZE, "%s-%d", pdev->name, pdev->id);
- 
-@@ -336,8 +437,16 @@ static void unimac_mdio_remove(struct platform_device *pdev)
- static int __maybe_unused unimac_mdio_resume(struct device *d)
- {
- 	struct unimac_mdio_priv *priv = dev_get_drvdata(d);
-+	int ret;
-+
-+	/* MDIO_CFG is also modified by the MDIO accessors to switch between
-+	 * Clause 22 and Clause 45, which run under the bus lock.
-+	 */
-+	mutex_lock(&priv->mii_bus->mdio_lock);
-+	ret = unimac_mdio_clk_set(priv);
-+	mutex_unlock(&priv->mii_bus->mdio_lock);
- 
--	return unimac_mdio_clk_set(priv);
-+	return ret;
- }
- 
- static SIMPLE_DEV_PM_OPS(unimac_mdio_pm_ops,
+ /// A wrapper around data stored in the private area of the C [`struct request`].
+ ///
+ /// [`struct request`]: srctree/include/linux/blk-mq.h
 -- 
-2.34.1
+2.39.5
 
