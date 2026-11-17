@@ -1,81 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.34
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1794940317;
-	b=J1MFYMwMrzxSTYJCHnxznU0BaKJCNoP6jGdga48uNWzRIdu1YiFCmk57cszZaiysZ1l4
-	 uRCh5nPoVAu5ZUUop17M/tPUG/isCY0QL5+lksE/DsEAmYtd4d1rAmwCvIbpnSqTZu86O
-	 VcbHRfIhq7ExSmT4njGOk+xF17o75suL0udZOKdDW33hZxbOQq/KNOD2qF6xeKfeU2pni
-	 jjHXpWdSDYYOZ0yEPqPkcnLCCqbf19Ukg6g4xIvzmgC7CErzsuqITZE0RiUFC3OBrEo1s
-	 /DAwXOjymH/2m4ofLA3PsVU5ottkDemfMmXCR7F9cg7bF33Ev5G5ClMOTpM+qJJFBNg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	b=nCyypLaaEAxv53P43G984eWdXyGV0RwFSq7fbHSHzTtvHEZ0j+SYMNCpk1/sMpRy/27j
+	 0RBatDrvKD1/+1SwebXTUQDOBx8yVOOaSWJxvpFEmqQJIrQcr6vn8tkzgSu3gUNcQQRW1
+	 1bFy17HumpKmhiTDj8r5xPsXVtsh8Cnp1LZvdlV1TAkj7a2HdEF3kTvdPzCfk55WpgNtj
+	 +YOqniNaeBSRu3PguQJ+/OeJq40L9RaeN+NIyGU0TUJuzMoLaVviR2J5YC6JU5n/q7tih
+	 sMCpmTEMu+v02OO1if+Ir59BNRphesj1VflxZOZN4O91DCwjDvGkvj8orExoTJDR7pw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1794940317;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=orcSIjpY0PnZMZ6MpyZm8883qObQSJGN+r1xqdzq+4k=;
-	b=3sHutkP+BG9fwofWbIbNSRItEfNOXBX5eQFYQjPtcJU1b5Oo1gL2+pgX5m5YgEREZlTz
-	 FT3m43qiENF02euH9YntZ65qaiNK3PJFYtNCpeUhFK4n4bfeH2N7fnatq7FSK4ZQh0lx7
-	 +lrSuvxH2xY4YSmS/odbwYS7qInemj5rNJjRYdeKEQ03zZ5URli7fm52TwqjYdNKAcn4r
-	 aF+by7wXokcqzs5zme1KfQI2MBUYF4Gy2QNRigyUfUFOsynhBwmNl8H3rowmR6smYPi6Q
-	 Kh5iMiTZesauWFsjomGloBhFPHq/sJtf/aIBs2uJsLKOYpbP+zh2tisB7ddnxpAwlew==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=VK9V4Vfc;
-	arc=none smtp.remote-ip=198.175.65.12
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:Content-Type:
+	 X-Originating-IP:X-ClientProxiedBy:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=8GcMvxjU7qDJE4xqlO/DI29b4UfW+btTJUDtVbb8+4M=;
+	b=FPVBn2iwm7pdMDet5tG4M7GveryEu0Z7YxLXWfp7H0p5U8D6OiplWm7eLrChNI1uCCjG
+	 nZtS+NJRootfLnBMKWFTqzS5h4bpWtbWH3IiTd154DXWNb32yTDhX0a6lUzUoeGCS4oUO
+	 qZr3M9uHnG7ejalVdKZoBaUsSY/Bowaht+EHSmdb/C1acQTnmQYs44nLi/xnvXTka9+Is
+	 7v6J1lN5LvgSPbhvBFBsnlXO1dAr+D2iwpVWmHbBXRl2snqhvwEc0uZLcwUFFIMcFtnAK
+	 QQNvbPvd8Wf8OPDP8LUiCVr47k3IbnKpFw+DF3gzvSW7H1eBfSRXbJFa5Tc8ul4srIw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=foss.st.com;
+	spf=pass smtp.mailfrom=foss.st.com;
+	dkim=pass header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b="D/4hEkSA";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.34
+Received: from OSPPR02CU001.outbound.protection.outlook.com (mail-norwayeastazon11013034.outbound.protection.outlook.com [40.107.159.34])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D570B606A896;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24F7C606A32C;
 	Tue, 17 Nov 2026 18:31:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D570B606A896
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 24F7C606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=foss.st.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=foss.st.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=VK9V4Vfc
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1794940317; x=1826476317;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=tBeuzU2K+VxyKJUyVmrsgVO1CUjp09J1v2DpmGwwUgg=;
-  b=VK9V4VfcXrn+veMrksMMseaBk31F3//oB5jPgsVK7/ebSLoYptONdMdV
-   2VoKP3gUG7K828pADTvVF6brLyAVRxNyp6enz++HcH1s980CcPCZCxkkD
-   tEtdY4feKmn3ir49/7pZpHzcj2U7RNcXq0CqvXUy0CFKPpL6MSN52a9Bl
-   54Hj3VFgPFR81fZjcivv43twGug8rc0sNoDzTE2A76PAGKAs1yO7tJGJt
-   mrzMZe+ZKu7xNvHamL48wI5QM08lM89SnkEKPVVG6+tDBFFhpXFPFzWfW
-   vpn+4qwKMa6hUApDuEGEKR8dpGr903r3Pf1tki0RrwwQJlVqguTxmWMaz
-   w==;
-X-CSE-ConnectionGUID: CiudRN+dRdqdDsZnR8oeug==
-X-CSE-MsgGUID: 5Pk/mxmhRaemPYYZ+d4nKA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3607251"
-X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
-   d="scan'208";a="3607251"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 10:30:47 -0800
-X-CSE-ConnectionGUID: O6W8/iXgTfK2uR5C1I0n5w==
-X-CSE-MsgGUID: u8tbIgXXRFywC3GVvbGNxQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
-   d="scan'208";a="9775027"
-Received: from chang-linux-3.sc.intel.com (HELO chang-linux-3) ([172.25.66.174])
-  by orviesa003.jf.intel.com with ESMTP; 17 Nov 2026 10:30:47 -0800
-From: "Chang S. Bae" <chang.seok.bae@intel.com>
-To: seanjc@google.com,
-	jmattson@google.com
-Cc: pbonzini@redhat.com,
-	kvm@vger.kernel.org,
-	x86@kernel.org,
-	linux-kernel@vger.kernel.org,
-	zhao1.liu@intel.com,
-	chang.seok.bae@intel.com
-Subject: [PATCH v9 05/20] KVM: VMX: Refactor VMX instruction information access
-Date: Tue, 17 Nov 2026 18:02:55 +0000
-Message-ID: <20261117180310.921701-6-chang.seok.bae@intel.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261117180310.921701-1-chang.seok.bae@intel.com>
-References: <20261117180310.921701-1-chang.seok.bae@intel.com>
+	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=D/4hEkSA
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wEEyWMbAnFFK0jRnS/E72R3LjT+1Pw16jx81w5iDX6jcMVV2s/TLPfwj/SjLc2hNLmK95q7qAU8aHOwJZitlncCX03XgVcpTZeZZSjhK3nHACTSeQOcgCjIpzGNS2wWDOtbVCXwqyBjoZCLXU/aUR/lFv4b73kac8Xv9bfb87z00WTwp8//v5j8VLN4/UHwGcRJ9VvBFmm5MKfAeVkcENuu1P6aGUwhqrEXyLMqTSNemktypDQuqjUECdH+73ZYaoR+g1FLYFbtdKjAx2z/dAzDScf4DRcb6xmCNIryvOm721ys6BEpEkgEZ+HtXhwoxzjGWI64Bj6kFPlSyN4HKKA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8GcMvxjU7qDJE4xqlO/DI29b4UfW+btTJUDtVbb8+4M=;
+ b=PgryRVehj+g/4Rn8t1+jXSSzeB6YovFMlvsgo7Uh7z43HL2ymxNopgzkPpbTtIu8bT6Z6GZbV58IuMd/cqsA42+PojMhxit2yG431trHRwpVnrNGEkwnawuf2FhYjdy02qoLEC+xHaFZx8eQDyRIjxVUxewkvp0oOrTsScKxmA8RbDG6P819zaC3Vkv8DlEjFNX6jxG2tPqiclJYrQLjFOViXk131q4WuoVOy+TUDYSVig/VroSSVsUFuakmbgDbu3h/WlHGWKlvcs1KZxdDQVa/bUq15Ju+JdPB41YR5S96SVnnMSLyPWS4FgnuwHjxNRTO31kl6+CFi+Mju3dV1Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8GcMvxjU7qDJE4xqlO/DI29b4UfW+btTJUDtVbb8+4M=;
+ b=D/4hEkSA5UNQ1E4wwl+9xUbm22ipOLDwy5XNyTOyYpF4OwCfGgqtmTA4dqDYCGpWnO6ilJdPzi2Ey6DkNunsfQVTnvQbFRnSSxrpoI9DfF1O+FhmlxUEujWdL62aiDIRATcp2srNeYWejazamJDJl8eRaq2nBuFfZWKvqmRDhpGDnbkyI4BG/QgMwtu14zqDeRYbZJFC5napHfUDjYyQH9o0va8M0e9T+BfSWKJdNUpcKk5JGwfd91AkvUuZsTrB/f+VJCL+wui+YeRKnHk+iMqiJdWIUgCS7jXzZFnvqdFdM+eDIimKC/q5XTjt11UItYhDwDmtZtNSTuGgzKkj2Q==
+Received: from DUZP191CA0006.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:4f9::16)
+ by DB9PR10MB8248.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:4ca::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.7; Tue, 17 Nov
+ 2026 18:31:53 +0000
+Received: from MAD0EPF000008B6.eurprd04.prod.outlook.com
+ (2603:10a6:10:4f9:cafe::a2) by DUZP191CA0006.outlook.office365.com
+ (2603:10a6:10:4f9::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.14 via Frontend Transport; Tue,
+ 17 Nov 2026 18:31:52 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ MAD0EPF000008B6.mail.protection.outlook.com (10.167.241.138) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.4 via Frontend Transport; Tue, 17 Nov 2026 18:31:52 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Tue, 17 Nov
+ 2026 19:32:52 +0100
+Received: from localhost (10.48.87.100) by STKDAG1NODE2.st.com (10.75.128.133)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 17 Nov
+ 2026 19:31:51 +0100
+From: Patrick Delaunay <patrick.delaunay@foss.st.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
+CC: Conor Dooley <conor@kernel.org>, Mark Brown <broonie@kernel.org>, "Patrick
+ Delaunay" <patrick.delaunay@foss.st.com>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>
+Subject: [PATCH v2 1/2] arm64: dts: st: add SCMI voltage domain regulators for STM32MP211
+Date: Tue, 17 Nov 2026 19:28:45 +0100
+Message-ID: <20261117192843.v2.1.I7bc9202635a4961733bf6f80fb06d89703bce1fc@changeid>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261117183121.654286-1-patrick.delaunay@foss.st.com>
+References: <20261117183121.654286-1-patrick.delaunay@foss.st.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,210 +116,153 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MAD0EPF000008B6:EE_|DB9PR10MB8248:EE_
+X-MS-Office365-Filtering-Correlation-Id: e6262059-dc48-436f-955d-08df44d90ce2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|36860700016|82310400026|376014|1800799024|7416014|22082099003|18002099003|6133799003|261009223027099003|3023799007|261021123027099003|56012099006|11063799006|261028144727099003|261102123227099003|261026121527099003|261021121427099003|261026140227099003|261022105027099003|261021135927099003|10067099003|44046007;
+X-Microsoft-Antispam-Message-Info:
+	SRHZAjpUN2aI+Al7fM9zUVR5dkLaXYXv3OiBaj31yAHMJobCTuVYkmSm63wpf/zNlpCFazBISkRIURNYdS6scSs8rkqOaYnysbp56aS8bdz14UYUy9bHibVxRKTr7YOWGKz1Tu00BYfWkZOtDQZfM/7vIQzG39151b+ruBO2akEJQXQBMAHhPBTn3D/44iq85ptd7FRAoLvCUltCDIXMSZLOmPz2ZP3eqEWQ9W9gLlzcJRvrhFsdMUuYWVQkmrqiLux2+9pSaZ6lp9UvbZ8t6Cia76Up3pHNLUtrpbsVvsqg5CLmG1ap2mbV+BsCdJF8rE72EtWzTJafR87H6lYQL8csKlbWDV2uzNSEMlVy8Y/KgUCI1EmaNZObE1bm8oFVmOC3nIwqb54JyTWfk+RCO9Vux5UyWBPo7HGHBkC2KY3r8fFIFpN2wRggh5uO2PNvwyKnVl1qCbNQWiWNAgTj/PsvYXG6LrbF3n+0xpD37uIlASxdNK65cnY9ckOtAjj4N4LP4AHXOqDwtfBTuBaIhWBICY+pnbHSvZsbZbet8kYoJQbYzuQ+ts6dOttUeSEqfnOF8dcK8LF9WQbvwt2EdlChp1/z5PC3OtgFTgRQcyxtKsChKkQPJaej/dtEGAWG2GDopal58SPGpY542Aeyz+Cpb8VbNa9cMopuZQ+1tiiC6J3tLNxdqJd+KRzen8n6QbKVSA055FzuCuimv6kcApEb9uxuZyBf3E+cZgeD0wt5vud5UUNo9A8j3UJ6UgCM
+X-Forefront-Antispam-Report:
+	CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(376014)(1800799024)(7416014)(22082099003)(18002099003)(6133799003)(261009223027099003)(3023799007)(261021123027099003)(56012099006)(11063799006)(261028144727099003)(261102123227099003)(261026121527099003)(261021121427099003)(261026140227099003)(261022105027099003)(261021135927099003)(10067099003)(44046007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	IcrkL6jGxI0+y3rNs/X1tj9HYZFM+N89TLmuZ/HAvOFmOA8fEdUb62+pghiQKUvHWL9SdEI5J89Kv56k45Q0p7ZqbFZA58963B88TI4Kr/wJoK2qv6NpuA2fKW+3E8xQyRFI+V8zcw3U3jGcDfavgWeuWBVVO1XBu1N9YptabI8SrjtRviF1H4BwnD4zXvcDLG2GSWaCnxlMYpI7oYR9B2x0dKbHMGlMEO2tqQVmZiaUYNZnNWkb+ONB1sF7cxMyuhG5TEPo/xCejBJp6LtvDe+6sCUVD7iXNhZQm7teuHXBGl5mDcEa/LBAQdDk8denJ5QQCF7dO4HIzgv2d0bhW8j831aCkEtVf4GxfVanN5HL5jdNTlODDKnlWf935Z4I/jojVqDbtOF/MuBRUGRxtR6HD0z4ggG8ORMOueYoyhAcIavrK5tvnOra2h64PtCx
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 18:31:52.3520
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e6262059-dc48-436f-955d-08df44d90ce2
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	MAD0EPF000008B6.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR10MB8248
 
-Introduce a helper that returns the instruction information as a 64-bit
-value and adjust existing sites to prepare for a wider field.
+Add SCMI-based regulator descriptions in the STM32MP211 SoC DTS,
+covering VDDIO1, VDDIO2, VDDIO3 and VDDA18ADC voltage domains.
 
-The VMX instruction information field is currently 32 bits. Future
-extensions may expand this field to support extended register IDs,
-requiring a wider width. The change provides a single access point for
-the transition.
+These regulators are exposed through the SCMI voltage protocol
+and will be referenced by board-level DTS files.
 
-No functional change intended.
-
-Tested-by: Zhao Liu <zhao1.liu@intel.com>
-Signed-off-by: Chang S. Bae <chang.seok.bae@intel.com>
-Reviewed-by: Jim Mattson <jmattson@google.com>
+Signed-off-by: Patrick Delaunay <patrick.delaunay@foss.st.com>
 ---
-V8 -> V9: Rebased on 7.4-rc1
----
- arch/x86/kvm/vmx/nested.c | 23 ++++++++++++-----------
- arch/x86/kvm/vmx/nested.h |  2 +-
- arch/x86/kvm/vmx/vmx.c    |  6 +++---
- arch/x86/kvm/vmx/vmx.h    | 10 ++++++++--
- 4 files changed, 24 insertions(+), 17 deletions(-)
 
-diff --git a/arch/x86/kvm/vmx/nested.c b/arch/x86/kvm/vmx/nested.c
-index 1a98f28651f7..ccd7843f43c6 100644
---- a/arch/x86/kvm/vmx/nested.c
-+++ b/arch/x86/kvm/vmx/nested.c
-@@ -5218,7 +5218,7 @@ static void nested_vmx_triple_fault(struct kvm_vcpu *vcpu)
-  * #UD, #GP, or #SS.
-  */
- int get_vmx_mem_address(struct kvm_vcpu *vcpu, unsigned long exit_qualification,
--			u32 vmx_instruction_info, bool wr, int len, gva_t *ret)
-+			u64 vmx_instruction_info, bool wr, int len, gva_t *ret)
- {
- 	gva_t off;
- 	bool exn;
-@@ -5350,7 +5350,7 @@ static int nested_vmx_get_vmptr(struct kvm_vcpu *vcpu, gpa_t *vmpointer,
- 	int r;
- 
- 	if (get_vmx_mem_address(vcpu, vt_get_exit_qual(vcpu),
--				vmcs_read32(VMX_INSTRUCTION_INFO), false,
-+				vmx_get_instr_info(), false,
- 				sizeof(*vmpointer), &gva)) {
- 		*ret = 1;
- 		return -EINVAL;
-@@ -5644,7 +5644,7 @@ static int handle_vmread(struct kvm_vcpu *vcpu)
- 	struct vmcs12 *vmcs12 = is_guest_mode(vcpu) ? get_shadow_vmcs12(vcpu)
- 						    : get_vmcs12(vcpu);
- 	unsigned long exit_qualification = vt_get_exit_qual(vcpu);
--	u32 instr_info = vmcs_read32(VMX_INSTRUCTION_INFO);
-+	u64 instr_info = vmx_get_instr_info();
- 	struct vcpu_vmx *vmx = to_vmx(vcpu);
- 	struct x86_exception e;
- 	unsigned long field;
-@@ -5750,7 +5750,7 @@ static int handle_vmwrite(struct kvm_vcpu *vcpu)
- 	struct vmcs12 *vmcs12 = is_guest_mode(vcpu) ? get_shadow_vmcs12(vcpu)
- 						    : get_vmcs12(vcpu);
- 	unsigned long exit_qualification = vt_get_exit_qual(vcpu);
--	u32 instr_info = vmcs_read32(VMX_INSTRUCTION_INFO);
-+	u64 instr_info = vmx_get_instr_info();
- 	struct vcpu_vmx *vmx = to_vmx(vcpu);
- 	struct x86_exception e;
- 	unsigned long field;
-@@ -5941,7 +5941,7 @@ static int handle_vmptrld(struct kvm_vcpu *vcpu)
- static int handle_vmptrst(struct kvm_vcpu *vcpu)
- {
- 	unsigned long exit_qual = vt_get_exit_qual(vcpu);
--	u32 instr_info = vmcs_read32(VMX_INSTRUCTION_INFO);
-+	u64 instr_info = vmx_get_instr_info();
- 	gpa_t current_vmptr;
- 	struct x86_exception e;
- 	gva_t gva;
-@@ -5977,8 +5977,8 @@ static int handle_vmptrst(struct kvm_vcpu *vcpu)
- static int handle_invept(struct kvm_vcpu *vcpu)
- {
- 	struct vcpu_vmx *vmx = to_vmx(vcpu);
--	u32 vmx_instruction_info, types;
- 	unsigned long type, roots_to_free;
-+	u64 vmx_instruction_info;
- 	struct kvm_mmu *mmu;
- 	gva_t gva;
- 	struct x86_exception e;
-@@ -5986,6 +5986,7 @@ static int handle_invept(struct kvm_vcpu *vcpu)
- 		u64 eptp, gpa;
- 	} operand;
- 	int i, r, gpr_index;
-+	u32 types;
- 
- 	if (!(vmx->nested.msrs.secondary_ctls_high &
- 	      SECONDARY_EXEC_ENABLE_EPT) ||
-@@ -5997,7 +5998,7 @@ static int handle_invept(struct kvm_vcpu *vcpu)
- 	if (!nested_vmx_check_permission(vcpu))
- 		return 1;
- 
--	vmx_instruction_info = vmcs_read32(VMX_INSTRUCTION_INFO);
-+	vmx_instruction_info = vmx_get_instr_info();
- 	gpr_index = vmx_get_instr_info_reg2(vmx_instruction_info);
- 	type = kvm_register_read(vcpu, gpr_index);
- 
-@@ -6057,7 +6058,7 @@ static int handle_invept(struct kvm_vcpu *vcpu)
- static int handle_invvpid(struct kvm_vcpu *vcpu)
- {
- 	struct vcpu_vmx *vmx = to_vmx(vcpu);
--	u32 vmx_instruction_info;
-+	u64 vmx_instruction_info;
- 	unsigned long type, types;
- 	gva_t gva;
- 	struct x86_exception e;
-@@ -6078,7 +6079,7 @@ static int handle_invvpid(struct kvm_vcpu *vcpu)
- 	if (!nested_vmx_check_permission(vcpu))
- 		return 1;
- 
--	vmx_instruction_info = vmcs_read32(VMX_INSTRUCTION_INFO);
-+	vmx_instruction_info = vmx_get_instr_info();
- 	gpr_index = vmx_get_instr_info_reg2(vmx_instruction_info);
- 	type = kvm_register_read(vcpu, gpr_index);
- 
-@@ -6423,7 +6424,7 @@ static bool nested_vmx_exit_handled_encls(struct kvm_vcpu *vcpu,
- static bool nested_vmx_exit_handled_vmcs_access(struct kvm_vcpu *vcpu,
- 	struct vmcs12 *vmcs12, gpa_t bitmap)
- {
--	u32 vmx_instruction_info;
-+	u64 vmx_instruction_info;
- 	unsigned long field;
- 	u8 b;
- 
-@@ -6431,7 +6432,7 @@ static bool nested_vmx_exit_handled_vmcs_access(struct kvm_vcpu *vcpu,
- 		return true;
- 
- 	/* Decode instruction info and find the field to access */
--	vmx_instruction_info = vmcs_read32(VMX_INSTRUCTION_INFO);
-+	vmx_instruction_info = vmx_get_instr_info();
- 	field = kvm_register_read(vcpu, (((vmx_instruction_info) >> 28) & 0xf));
- 
- 	/* Out-of-range fields always cause a VM exit from L2 to L1 */
-diff --git a/arch/x86/kvm/vmx/nested.h b/arch/x86/kvm/vmx/nested.h
-index c6de848bd9ce..6bbccaa8263a 100644
---- a/arch/x86/kvm/vmx/nested.h
-+++ b/arch/x86/kvm/vmx/nested.h
-@@ -51,7 +51,7 @@ void nested_sync_vmcs12_to_shadow(struct kvm_vcpu *vcpu);
- int vmx_set_vmx_msr(struct kvm_vcpu *vcpu, u32 msr_index, u64 data);
- int vmx_get_vmx_msr(struct nested_vmx_msrs *msrs, u32 msr_index, u64 *pdata);
- int get_vmx_mem_address(struct kvm_vcpu *vcpu, unsigned long exit_qualification,
--			u32 vmx_instruction_info, bool wr, int len, gva_t *ret);
-+			u64 vmx_instruction_info, bool wr, int len, gva_t *ret);
- bool nested_vmx_check_io_bitmaps(struct kvm_vcpu *vcpu, unsigned int port,
- 				 int size);
- 
-diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-index dec480c46a1e..5d95f8138628 100644
---- a/arch/x86/kvm/vmx/vmx.c
-+++ b/arch/x86/kvm/vmx/vmx.c
-@@ -6154,7 +6154,7 @@ static int handle_monitor_trap(struct kvm_vcpu *vcpu)
- 
- static int handle_invpcid(struct kvm_vcpu *vcpu)
- {
--	u32 vmx_instruction_info;
-+	u64 vmx_instruction_info;
- 	unsigned long type;
- 	gva_t gva;
- 	struct {
-@@ -6168,7 +6168,7 @@ static int handle_invpcid(struct kvm_vcpu *vcpu)
- 		return 1;
- 	}
- 
--	vmx_instruction_info = vmcs_read32(VMX_INSTRUCTION_INFO);
-+	vmx_instruction_info = vmx_get_instr_info();
- 	gpr_index = vmx_get_instr_info_reg2(vmx_instruction_info);
- 	type = kvm_register_read(vcpu, gpr_index);
- 
-@@ -6297,7 +6297,7 @@ static int handle_notify(struct kvm_vcpu *vcpu)
- 
- static int vmx_get_msr_imm_reg(struct kvm_vcpu *vcpu)
- {
--	return vmx_get_instr_info_reg(vmcs_read32(VMX_INSTRUCTION_INFO));
-+	return vmx_get_instr_info_reg(vmx_get_instr_info());
- }
- 
- static int handle_rdmsr_imm(struct kvm_vcpu *vcpu)
-diff --git a/arch/x86/kvm/vmx/vmx.h b/arch/x86/kvm/vmx/vmx.h
-index 74cd50f29fa4..cda6e9707686 100644
---- a/arch/x86/kvm/vmx/vmx.h
-+++ b/arch/x86/kvm/vmx/vmx.h
-@@ -678,12 +678,18 @@ static inline bool vmx_guest_state_valid(struct kvm_vcpu *vcpu)
- 
- void dump_vmcs(struct kvm_vcpu *vcpu);
- 
--static inline int vmx_get_instr_info_reg(u32 vmx_instr_info)
-+/* A placeholder to smoothen 64-bit extension */
-+static inline u64 vmx_get_instr_info(void)
-+{
-+	return vmcs_read32(VMX_INSTRUCTION_INFO);
-+}
+Changes in v2:
+-  Move the SCMI ID definitions in stm32mp21-regulator.h
+   to the DTS directory; it is not a part of DT bindings
+
+ arch/arm64/boot/dts/st/stm32mp21-regulator.h | 48 ++++++++++++++++++++
+ arch/arm64/boot/dts/st/stm32mp211.dtsi       | 27 +++++++++++
+ 2 files changed, 75 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/st/stm32mp21-regulator.h
+
+diff --git a/arch/arm64/boot/dts/st/stm32mp21-regulator.h b/arch/arm64/boot/dts/st/stm32mp21-regulator.h
+new file mode 100644
+index 000000000000..bf26b7efd2ec
+--- /dev/null
++++ b/arch/arm64/boot/dts/st/stm32mp21-regulator.h
+@@ -0,0 +1,48 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause) */
++/*
++ * Copyright (C) 2026, STMicroelectronics - All Rights Reserved
++ */
 +
-+static inline int vmx_get_instr_info_reg(u64 vmx_instr_info)
- {
- 	return (vmx_instr_info >> 3) & 0xf;
- }
++#ifndef __DTS_STM32MP21_REGULATOR_H
++#define __DTS_STM32MP21_REGULATOR_H
++
++/* SCMI voltage domains identifiers */
++
++/* SOC Internal regulators */
++#define VOLTD_SCMI_VDDIO1		0
++#define VOLTD_SCMI_VDDIO2		1
++#define VOLTD_SCMI_VDDIO3		2
++#define VOLTD_SCMI_ADC			3
++#define VOLTD_SCMI_VREFBUF		4
++
++/* STPMIC regulators (STPMIC25/STM32MP2L/STPMIC1L) */
++#define VOLTD_SCMI_STPMIC_BUCK1		5
++#define VOLTD_SCMI_STPMIC_BUCK2		6
++#define VOLTD_SCMI_STPMIC_BUCK3		7
++#define VOLTD_SCMI_STPMIC_BUCK4		8
++#define VOLTD_SCMI_STPMIC_BUCK5		9
++#define VOLTD_SCMI_STPMIC_BUCK6		10
++#define VOLTD_SCMI_STPMIC_BUCK7		11
++#define VOLTD_SCMI_STPMIC_LDO1		12
++#define VOLTD_SCMI_STPMIC_LDO2		13
++#define VOLTD_SCMI_STPMIC_LDO3		14
++#define VOLTD_SCMI_STPMIC_LDO4		15
++#define VOLTD_SCMI_STPMIC_LDO5		16
++#define VOLTD_SCMI_STPMIC_LDO6		17
++#define VOLTD_SCMI_STPMIC_LDO7		18
++#define VOLTD_SCMI_STPMIC_LDO8		19
++#define VOLTD_SCMI_STPMIC_REFDDR	20
++#define VOLTD_SCMI_STPMIC_GPO1		21
++#define VOLTD_SCMI_STPMIC_GPO2		22
++#define VOLTD_SCMI_STPMIC_GPO3		23
++#define VOLTD_SCMI_STPMIC_GPO4		24
++#define VOLTD_SCMI_STPMIC_GPO5		25
++
++/* External regulators */
++#define VOLTD_SCMI_REGU0		26
++#define VOLTD_SCMI_REGU1		27
++#define VOLTD_SCMI_REGU2		28
++#define VOLTD_SCMI_REGU3		29
++#define VOLTD_SCMI_REGU4		30
++
++#endif /* __DTS_STM32MP21_REGULATOR_H */
+diff --git a/arch/arm64/boot/dts/st/stm32mp211.dtsi b/arch/arm64/boot/dts/st/stm32mp211.dtsi
+index 4bfd58b26b51..84a2b51d705f 100644
+--- a/arch/arm64/boot/dts/st/stm32mp211.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp211.dtsi
+@@ -4,6 +4,7 @@
+  * Author: Alexandre Torgue <alexandre.torgue@foss.st.com> for STMicroelectronics.
+  */
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
++#include "stm32mp21-regulator.h"
  
--static inline int vmx_get_instr_info_reg2(u32 vmx_instr_info)
-+static inline int vmx_get_instr_info_reg2(u64 vmx_instr_info)
- {
- 	return (vmx_instr_info >> 28) & 0xf;
- }
+ / {
+ 	#address-cells = <2>;
+@@ -67,6 +68,32 @@ scmi_reset: protocol@16 {
+ 				reg = <0x16>;
+ 				#reset-cells = <1>;
+ 			};
++
++			scmi_voltd: protocol@17 {
++				reg = <0x17>;
++
++				scmi_regu: regulators {
++					#address-cells = <1>;
++					#size-cells = <0>;
++
++					scmi_vddio1: regulator@0 {
++						reg = <VOLTD_SCMI_VDDIO1>;
++						regulator-name = "vddio1";
++					};
++					scmi_vddio2: regulator@1 {
++						reg = <VOLTD_SCMI_VDDIO2>;
++						regulator-name = "vddio2";
++					};
++					scmi_vddio3: regulator@2 {
++						reg = <VOLTD_SCMI_VDDIO3>;
++						regulator-name = "vddio3";
++					};
++					scmi_vdda18adc: regulator@3 {
++						reg = <VOLTD_SCMI_ADC>;
++						regulator-name = "vdda18adc";
++					};
++				};
++			};
+ 		};
+ 	};
+ 
 -- 
-2.53.0
+2.43.0
 
