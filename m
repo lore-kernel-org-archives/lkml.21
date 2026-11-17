@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794945913;
-	b=SFkIsN+8r7zFYB1L0Fo+HVnsGDsTPeySI1KvMYqo+wjxDQQIZN9OPgIk4MTgM/gjRnDI
-	 v/Uq7jg68bRBquRPlr+w4siBCLscsy5Kjyeqw+OYZoYUEhKj2uodog5KzI4O7Sva4D6MG
-	 8c95o71wu2XDNmAh/8HVjBqVkq26TWzTxKYe8Jra2A9XPheckHGfj3UxcLqgkCZIAT0ln
-	 d41rh83nM2Dhpm11ClUaA4zr2FjqIWEzh2BtsNGhLI4GPm0+a66wS6QRFgMdEy7uH6ybk
-	 xPcmH55pfMiw72u+3F85mO6UQYhTvl/T1+TucyY/6zr43C/fLoV6c+NinuykoHZBGtg==
+	t=1794945919;
+	b=1tXbNgXRnIj66/pFLf75G1P01SF4LSG3dZFLWYtlt7M4hfzLmxDsNv46hjKINq6/tMeQ
+	 AJnIm3M7mk+QsDp9KMfkv7ILFYNwaWVIhAf7XdBr7b0S9eW/y4EVjXqkhnQFvNSiMowrj
+	 I6RHjeoDj6zZL3pMs+/fmM1OISLBkhgLEYTdtFa3CAWQwRYjineWRQvDsSb7pUmiV/sXA
+	 +AnipB1J4mps2NCueUC+dhfA/eFQteAUKPAZlkQ9skm8wAlcHb5/E3cZ3r1WUR/Ks0bB6
+	 9EYoDLzu68DFrTof9dKn9V5EJzS9fdynVo5h0wLf3M8VfjVz6WtKJHrAb9zf9laRQDA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794945913;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794945919;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=TCa0RnoydsxVLT03DHyYOZOOaLc5gZ6BJdmvsECF/XY=;
-	b=D0EV4oGCDTU76hHnJi+y5EGQm1JppH1wpafnnAolh723EKG1e5JYkLLzWOA+L2nidY3z
-	 y7rnwOxibAavFbr7OFW91dlu4+dTrK86RfZ+nW26SQG5Ma+xFz9gWx3u20PPrHi+IQhhx
-	 kYoV8o48T+YEd8gncZM9RUkGUPEXdLlf56RS7nP6E2Rwsulxr0uQ7NRxpEshX+ijq94tN
-	 K6J7deHUpxtqi3FDDcZY7i4HyvcYCpIzkqMwD1DV3i7eoHP2oSKNzpI0JBi2qIEoPNvd6
-	 Nled/D5/Wu25EdMjqwGsrlNAnGJnFe7DilIudYKIDR6LHCAvXIqW+NKpIBe6X4ZcLdw==
+	bh=UPJHLmwLZlatSt25hUeelYOc++vjVu9QgMh/X2VZQWE=;
+	b=c736QlQLKRiLQNdqpD/RbZESVzbL5qEcvq2OGj2ST5hI6PzXgT6mFPnMBXri3GqJz9D3
+	 D9R76IK6OsXnC1DmKSo3aZcVRTfVNZvSLpxbHFZutitjdEWSL5st2NJrxy7DmEFT0XvTG
+	 2u1dh/2n16n4ZUAgB6/rLrd7oIXURRz2L9my75DX/pvbE2I1zGFC4oC9hmEFvAVtduxl5
+	 CBm+jUtSx58w8UywmGKGcWpYi/RAbJYlXLm0F1ujBXatCDE6Wd2RpES+GrOz/d0JIcezj
+	 HFYPdeYQZKF/VpWDn318KyVnq6qjEhzO7Rgjn7Qv1Jq4atGdT3huyUq2NNNVnTJfe3w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yqUGQQpu;
-	arc=none smtp.remote-ip=209.85.128.42
-Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MhjW25tI;
+	arc=none smtp.remote-ip=209.85.221.46
+Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 567DB60A3825
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:05:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 567DB60A3825
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BED79606BDD2
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:05:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BED79606BDD2
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yqUGQQpu
-Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4bb6ba3b244so2847745e9.3
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 12:05:12 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MhjW25tI
+Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-497614c95f0so90830f8f.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 12:05:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794945911; x=1795550711; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794945917; x=1795550717; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=TCa0RnoydsxVLT03DHyYOZOOaLc5gZ6BJdmvsECF/XY=;
-        b=yqUGQQpuFJfvOn1h42r+LKmqo0q175gJjUF3epjGfvLDK5HX26guRRThmenDneYDkC
-         9sThMksbVW4v5LHTnhemmT3QBDdgqwZIcfrAzbxN5CSp4OSD7fmvjTeY/a43YIMkfDII
-         RI9UGb6JQxo7G5y8LapHWcLjjoJLO8VQnk533f2krl1DgWNJVCRabC7hRQvvXrTLK/rI
-         sv9/S+OybdFtEWsteLjFYS97fnZHOGu/ns78MjRvAQpB7VeeInOtZBxOkyBp2yghk1gf
-         FP0Dod+NFxC4hVsgZTaC0/8aTqe4qPVfz/F88mzAWdyjzx3ltItTmMyy1tq2kgHVyIjD
-         tvTA==
+        bh=UPJHLmwLZlatSt25hUeelYOc++vjVu9QgMh/X2VZQWE=;
+        b=MhjW25tIfRYDFt6msKWXKEZvsJV6FE5BXzi3zLiQABXwwGUAb5mjJJggmlAam4lj3b
+         vhPPsArgE4/SYAa+JMmZDpvUr0om/K7XKG8DCsfpZyelmr+S485w1DRAzID/YEqZb3EY
+         X7wb4bvJ2dFOfgMqvjavHoFFFYpW0wmrtm02fCdi8AOWM98wqAdRKgVgQLdTzJDL9H/O
+         z/H3LFCPflALGVzOGNyE1TDhtcN0oOX/qVni+8nM3ne1xcUh3JxY1QDDMoWLAH6eHpIy
+         mDCS2tIKmDeeGidOh7Nb10Y3iVTXYhq2Yg5yb1m4ZCuxEWn22XO8ELQS1Undomc/aKEh
+         DOLg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794945911; x=1795550711;
+        d=1e100.net; s=20260707; t=1794945917; x=1795550717;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=TCa0RnoydsxVLT03DHyYOZOOaLc5gZ6BJdmvsECF/XY=;
-        b=zGqL4qhucpAHCrMO5CvMs14l1otNgBsziOmhv5rDkAi3SHuahr2DYHDbIuxpV4eJuL
-         YgDtBf8uaswERHM1tvKrhUe5kQnzOfFZ+6O+g7tmn8tmiFwxobcy1V6TRY9jWhWZ6LBT
-         AfDV3h42gf3ZVm+TWz56Y+V6UBaudB2np91oq+SX5FvMH+NDDlzDwv9eCQUOLeMYddWa
-         p/HKS6gpDJN/snFRjzGRGMzNQStzFsKZaQbAVKvU5Lgu4K9deqBeh6eRav0sFqitX/Lt
-         ePCMuXonGB/zemz8ZPaGtwvY9EAq1PwvwY3d0C4uAM7vZ1rEaoHKQs3LdCPS3t98BALm
-         /shQ==
-X-Forwarded-Encrypted: i=1; AL+hErE5RWIhMyCDERvonaafjkOAmzY2088arf0QuBDlvJ4Vld5BRuTkdKjDfemCqvaomEAqpkhv5G4fndwHxVw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+07yeOLue/u2UzEfZTJXjuqjqXwkiZ37IGtdUCn3/b2pvIP2V2
-	L1Hzrk1C7PRB7+t4umj/u8uf7SqTcjtCxYkINWvCZGza3JTU9t24IGrw
-X-Gm-Gg: AYBFou3FNWkohWuTVshWu05MaSLZbm4zKZVMud/P4PPRrlKdUaLGLtbxL/Zs1yDFbqF
-	AFG3lMAecV4Py/Gm9dCv1dQXhOf38CMPu2VzNDM4TqaxKDDBCL8y9AAu4GVX9H7C7jp+mJ3jqB6
-	LRDpq0wDJxQktVaccaXHRzV3kc0kx4sIUXkY6cnBDD4OoATAGBoHj3xVR2MYLncGUZb5dTnTiIv
-	1FsiRn8Z75E8dXeE6eibZjfHIbYuY8KGaevekHLxSoAB6VUlX5u5gNi4MLcbbPgSxsNhAnPyNnd
-	chlCYNVz8FVPaughhpS5GJA48exDVQ3znIYGAIkSpgBIIjXe2EOFl8Q7u+tOcTd+HQsgMPBSFBW
-	MTNdYZD/AVq18T0uTcUbbTsdQiwRp/+e9JnulSlbsj+KnOzmr22XNggFymriLPcVQG+6D4XzojS
-	4RDsP56jYqOyhRO97XNvhXdWTY/Bsh0TPtMoZf7+1uiudb66gw/sB3MUyHrkK059kHYvDaH9IHL
-	htNj1dmQ6KQdQ8Tbj2N8XbAuKKKNmVkNOxOYnjyvcf6drYx0wfJICDAQe5MSxFWN2UHWnzj7nKQ
-	sUfKn5y6DADA+eOnubAvNTtM9ssY7Hug2VFm82UvOyMX0ai3BQ==
-X-Received: by 2002:a05:600c:3107:b0:4a1:825a:56fd with SMTP id 5b1f17b1804b1-4bb7da47d19mr4644125e9.32.1794945910693;
-        Tue, 17 Nov 2026 12:05:10 -0800 (PST)
+        bh=UPJHLmwLZlatSt25hUeelYOc++vjVu9QgMh/X2VZQWE=;
+        b=mbk2KNzI6N04HtgavK7w+FsfbG4avPHkrU4E+ewZhNy358Q4TMu7djLkZwRdNID0cj
+         ag1hf1KhHFMt+OpDrN0JqHZR+Y1/jI1h2Orwe3n1ZTz6hghHQxafYLsY1o9Vou5HeTHJ
+         iuLPwZf2GNaikIZwsgSdx/gbXWNMOEaeRGMM0NZZGHE/C7KiklkcXrPRs1/HSaSqwFrU
+         aRSe8pFSOdTRR+Ytup62y4H0gL4wpe3LAZfQSPS/cB1UhfbfxQa8YOjqW2BBpyQzYM49
+         uoh2g8+ql/8mqp1Sifroa1cVtCjIOD3bkDI49G6vC5ODUuP9npphN+IWSmF7yrNPu+zH
+         T5+g==
+X-Forwarded-Encrypted: i=1; AL+hErFjkbDF/QW3Vdpsr3ovdHx33QT4N4lkiFquES8dr8zXVQjwahDZF4GlXOGvJpt+IEnnoxGypVQnn9+JGhQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/WRGWUBzzCvf7xi2JJedYxY6+cKCInel58258dZL0seGYczXZt
+	2ZJnu1XrVKEPq5lZKSAPEAOkJgBam4BChD/7MkaPJNFzf3ibmrz0Xuyo
+X-Gm-Gg: AZFdTZdZQ/cc4e/oZ9zuFPa3Ej9+LYtxtp8p05PMHieb5tiUfjF7kraWa0RRlvUrJBR
+	Ewr0XU9kcD4NN2ia4XoynsS2q+9E+gmDA08e/maCk5lMjBVVShkPKUTBGzOXezLnz6lhqy2zlxi
+	CX+NfdixNcW5ILDfjLvZUVIxB+4hIXZoJ5h+HKFpbxtFPuw5+SRFSXPZyZO/x86jGsKVGQPrmjX
+	yWsPhLVWSngmlbMT8tZ/W98flAcJC+/iUmW/kLXHP+99Gue0u/jk2Bp4V/ROJT8laS3xhjXvgMD
+	NvuETp+VbaqV+Hgs+VDy1N0tcaT4uuUvXeYXOCWFxUwC9NquJ8enQX0vFgBBMv8YN2kwRSh/rRh
+	Tl83OEcncPBpl4L9SYdgAZqZ3IPEV6VzwVdttZDhofZg+FxgORLP0NCFf5nbnXk8++6jdJeMeqC
+	hbrHFXx5TzJhWbB01jt9zOn0bwfzR2uKJvvX6vFAL6+WorA6QdTdUldHbHd5eN8GG8hVuxvhdWF
+	K+Ea3AXX+FdJfBqhpf0MrWt357KjNcuSsHGjZ2RhGdsmfh3Osu6TjCIcTwWFinpHY81xR8Rwd3M
+	A2FiCrB3aAq/Gw//k6PEZf5WLH73
+X-Received: by 2002:adf:e002:0:20b0:4a1:a2ed:bc1d with SMTP id ffacd0b85a97d-4a63b6fbe61mr885459f8f.43.1794945917177;
+        Tue, 17 Nov 2026 12:05:17 -0800 (PST)
 Received: from m2.. ([37.142.154.208])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-4a64b60940csm625528f8f.0.2026.11.17.12.05.08
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-4a64b60940csm625528f8f.0.2026.11.17.12.05.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 12:05:10 -0800 (PST)
+        Tue, 17 Nov 2026 12:05:16 -0800 (PST)
 From: Michael Zaidman <michael.zaidman@gmail.com>
 To: Jiri Kosina <jikos@kernel.org>,
 	Benjamin Tissoires <bentiss@kernel.org>
@@ -96,9 +96,9 @@ Cc: Linus Walleij <linusw@kernel.org>,
 	linux-i2c@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Michael Zaidman <michael.zaidman@gmail.com>
-Subject: [PATCH v4 04/16] HID: ft260: i2c: reduce driver module loading time
-Date: Tue, 17 Nov 2026 22:04:10 +0200
-Message-ID: <20261117200423.19561-5-michael.zaidman@gmail.com>
+Subject: [PATCH v4 07/16] HID: ft260: uart: enable flow control
+Date: Tue, 17 Nov 2026 22:04:13 +0200
+Message-ID: <20261117200423.19561-8-michael.zaidman@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261117200423.19561-1-michael.zaidman@gmail.com>
 References: <20261117200423.19561-1-michael.zaidman@gmail.com>
@@ -113,103 +113,51 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The HWMON class I2C client drivers register the address range to scan
-during the I2C master module probing. For example, the lm75 module
-registers eight bus addresses scanned during the ft260 module loading.
+The FT260 is a full-speed USB device. Interrupt transfers poll at 1 ms
+with a 64-byte max packet size, so the theoretical UART payload ceiling
+is about 60 kB/s (~600 kbaud in 8N1). The chip advertises baud rates
+above 1M and small transfers can work there, but large transfers are not
+reliable above 460800 baud without flow control.
 
-In the case of ft260, the bus is scanned by ft260_i2c_read, but due to
-an excessive read completion timeout, it took about 40 seconds for the
-ft260 driver to scan the lm75 address range before exiting the probe
-function.
+Stop forcing FT260_UART_CFG_FLOW_CTRL_NONE after termios setup. Honor
+CRTSCTS (RTS/CTS) and IXON/IXOFF (XON/XOFF) when configuring the UART.
 
-Adjust the i2c_read timeout so it depends on the amount of data to
-read, reducing the lm75 address range scan time to about 200ms.
-
-The 25 ms per-report budget was checked on a UMFT260EV1A with a 24LC512
-EEPROM by shrinking the timeout until reads began to fail: a 60-byte
-read still completes at 9 ms and times out at 7 ms, against 5.4 ms of
-wire time at 100 kHz, so the fixed USB, HID and scheduling overhead
-costs a few milliseconds. At the chip's slowest 60 kHz clock that chunk
-needs about 9 ms on the wire and a 180-byte chunk about 27 ms. Scale
-the wait by 25 ms per 60-byte HID payload so a last chunk of 61..180
-bytes gets 50..75 ms, not the single-report 25 ms budget.
+Tested at 1500000 baud both directions against an FT2232H with XON/XOFF
+and with RTS/CTS (~2.9 MB transfers, no data corruption).
 
 Signed-off-by: Michael Zaidman <michael.zaidman@gmail.com>
-
 ---
-v2:
-Fix for the issue reported by Sashiko: the timeout of the last I2C
-read chunk is computed from rd_len, so a chunk of 61..180 bytes gets
-50..75 ms, not 25 ms.
----
- drivers/hid/hid-ft260.c | 19 ++++++++++++++-----
- 1 file changed, 14 insertions(+), 5 deletions(-)
+ drivers/hid/hid-ft260.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/hid/hid-ft260.c b/drivers/hid/hid-ft260.c
-index acd92248256f..1b31b484a11b 100644
+index f722ef0ddf06..21789e97fd18 100644
 --- a/drivers/hid/hid-ft260.c
 +++ b/drivers/hid/hid-ft260.c
-@@ -17,6 +17,7 @@
- #include <linux/serial_core.h>
- #include <linux/kfifo.h>
- #include <linux/tty_flip.h>
-+#include <linux/math.h>
- #include <linux/minmax.h>
- #include <linux/unaligned.h>
- #include <linux/bits.h>
-@@ -49,14 +50,20 @@ MODULE_PARM_DESC(debug, "Toggle FT260 debugging messages");
-  * The ft260 input report format defines 62 bytes for the data payload, but
-  * when requested 62 bytes, the controller returns 60 and 2 in separate input
-  * reports. To achieve better performance with the multi-report read data
-- * transfers, we set the maximum read payload length to a multiple of 60.
-+ * transfers, we set the maximum read payload length to a multiple of
-+ * FT260_RD_ONE_REPORT_MAX.
-  * With a 100 kHz I2C clock, one 240 bytes read takes about 1/27 second,
-  * which is excessive; On the other hand, some higher layer drivers like at24
-  * or optoe limit the i2c reads to 128 bytes. To not block other drivers out
-  * of I2C for potentially troublesome amounts of time, we select the maximum
-  * read payload length to be 180 bytes.
-  */
-+#define FT260_RD_ONE_REPORT_MAX 60
- #define FT260_RD_DATA_MAX 180
-+
-+/* Time in ms to wait for a single HID input report at ONE_REPORT_MAX */
-+#define FT260_RD_ONE_REPORT_TO 25
-+
- #define FT260_WR_I2C_DATA_MAX 60
- #define FT260_WR_UART_DATA_MAX 60
- #define FT260_GPIOCHIP "ft260_gpio"
-@@ -726,8 +733,8 @@ static int ft260_i2c_read(struct ft260_device *dev, u8 addr, u8 *data,
- 			  u16 len, u8 flag)
- {
- 	u16 rd_len;
--	u16 rd_data_max = 60;
--	int timeout, ret = 0;
-+	u16 rd_data_max = FT260_RD_ONE_REPORT_MAX;
-+	int timeout, timeout_jiffies, ret = 0;
- 	struct ft260_i2c_read_request_report rep;
- 	struct hid_device *hdev = dev->hdev;
- 	unsigned long irqflags;
-@@ -752,6 +759,8 @@ static int ft260_i2c_read(struct ft260_device *dev, u8 addr, u8 *data,
- 		} else {
- 			rd_len = rd_data_max;
- 		}
-+		timeout = FT260_RD_ONE_REPORT_TO *
-+			  DIV_ROUND_UP(rd_len, FT260_RD_ONE_REPORT_MAX);
- 		rd_data_max = FT260_RD_DATA_MAX;
+@@ -1945,8 +1945,12 @@ static int ft260_uart_change_speed(struct ft260_device *port,
  
- 		rep.report = FT260_I2C_READ_REQ;
-@@ -776,8 +785,8 @@ static int ft260_i2c_read(struct ft260_device *dev, u8 addr, u8 *data,
- 			goto ft260_i2c_read_exit;
- 		}
+ 	if (termios->c_cflag & CRTSCTS)
+ 		req.flow_ctrl = FT260_UART_CFG_FLOW_CTRL_RTS_CTS;
++	else if (termios->c_iflag & (IXON | IXOFF))
++		req.flow_ctrl = FT260_UART_CFG_FLOW_CTRL_XON_XOFF;
+ 	else
+-		req.flow_ctrl = FT260_UART_CFG_FLOW_CTRL_OFF;
++		req.flow_ctrl = FT260_UART_CFG_FLOW_CTRL_NONE;
++
++	req.breaking = FT260_UART_CFG_BREAKING_NO;
  
--		timeout = msecs_to_jiffies(5000);
--		if (!wait_for_completion_timeout(&dev->wait, timeout)) {
-+		timeout_jiffies = msecs_to_jiffies(timeout);
-+		if (!wait_for_completion_timeout(&dev->wait, timeout_jiffies)) {
- 			ret = -ETIMEDOUT;
- 			ft260_i2c_reset(hdev);
- 			goto ft260_i2c_read_exit;
+ 	ft260_dbg("configured termios: flow control: %d, baudrate: %d, ",
+ 		  req.flow_ctrl, baud);
+@@ -1954,9 +1958,6 @@ static int ft260_uart_change_speed(struct ft260_device *port,
+ 		  req.data_bit, req.parity,
+ 		  req.stop_bit, req.breaking);
+ 
+-	req.flow_ctrl = FT260_UART_CFG_FLOW_CTRL_NONE;
+-	req.breaking = FT260_UART_CFG_BREAKING_NO;
+-
+ 	ret = ft260_hid_feature_report_set(hdev, (u8 *)&req, sizeof(req));
+ 	if (ret < 0)
+ 		hid_err(hdev, "failed to change termios: %d\n", ret);
 -- 
 2.43.0
 
