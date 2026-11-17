@@ -1,87 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.174
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794956093;
-	b=cAzceARcUHz3EYK5eyaqFRPiAK88VC+oltxlwf8+Pfl4Yy8jxi3jUSutlgdH/a3E/LgB
-	 2M/F+hCKJ5K8uGe23hP/xFANZG8e292osQT32th9n9lgulzh4WZU8QS+7g3pj/PKYWoOD
-	 Cn8hWZ+HIA8JGJI0QhxLMrhTIa6zJBxfDCKZv0AVIoDQXJet86rggyM7Y9sR6OtSM/CBx
-	 E7jqZ2NNXwqQU8O7wiRWa+Ilf8YtdNjJTyNLUe0ipEOYVr1fcNOjyJsxWL1SWtcjqakLn
-	 mX7IcAwEGZHp2sfeYXcbaqHUek5c951Sih2ETxlsc2cpi8tlsYBYMmCkqrm62qPKG/Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794956093;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer:From:To:Cc:Subject:References:In-Reply-To;
-	bh=x7mnzARqVOnOj+KyQYPdVsGKtz9mrESSr8dwZPCPrb4=;
-	b=TUC0+aVmTYl5R+Vt0ey3icsqN7mt3XizpRyRWNGzOfgm8AYJGbjeC708BDrzzAKZqF+A
-	 mUbNNUhwWgUrPWY6cnqrRjtdcQDzDp+WGz9QHOrsORjOhp483/odK4uNZy0117x1rQXaE
-	 VRtHnSjdtuAPn8AtVDIDabsWy0ySnCDS77OxXm0EyaedhzFtqOAZitgMTH0DiQxNqoru3
-	 L3Ic29+WiMniUNW0wE91aF+2YZHEirM9JmXgrrEcYq9ui4aCKM3JcEqoAv8p4ErlM19ri
-	 72a124n9CzkBV1C79727Ni5FxsA2XWPW2wtXu0OReyxE8hKKE43jPJE8E0RVn9CD8Eg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=paul-moore.com;
-	spf=pass smtp.mailfrom=paul-moore.com;
-	dkim=pass header.d=paul-moore.com header.i=@paul-moore.com header.a=rsa-sha256 header.s=google header.b=UtNCGZpE;
-	arc=none smtp.remote-ip=209.85.160.174
-Received: from mail-qt1-f174.google.com (mail-qt1-f174.google.com [209.85.160.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.153.30
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794956107;
+	b=zh0Ha+KZFMfUhbSppIoWsmoSgjAchCdmwBBsiBTHz0rYZS7dO39La35koBFL/itgLFU8
+	 1ZBmef93BUys4DwIc+P1pArDMdm5WeCqNH/yj2Isu1kC6s/OkTSe2x6//4Qbh08f5HKpV
+	 +94SDmrj+gi0wCBX3ksgevCbfUR8TI7xWSTgmingMpDN1mt5OMzH8lfx7queoWXH5iFcG
+	 KTl1074Sp04CKikmo0qPz+WtttRSItKOm38NzCfoWRjc1aed2+lyUX+yOm42ZVx+4zg0z
+	 EFQkz58KINTrNos8NqpNQqYMxS2Gvq8N3yJutk8qEavAkfaD/FdhGNCQWcPyrYonzYg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794956107;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 X-Google-DKIM-Signature:X-Forwarded-Encrypted:X-Gm-Message-State:
+	 X-Gm-Gg:X-Received:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
+	 X-Proofpoint-Spam-Info:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Virus-Version;
+	bh=XTWULvHY5M+9jFlLZATjLnhYmcapf/iX/XpM8N+MwzI=;
+	b=EouTdGGDl5a3mXCNUTRBgQPSwoe6jnXmFIOX8960eE3bksaPjxofQhi0xuIPyQfneoey
+	 g9OR2M0EDvvviTw1tPnEYX/HuRRd4QBTtjWCQHnjaE768lGKcM1OcmNEcENxsXZfSyle7
+	 N78MSL8ZW78biCsK2Ibahcj6PT1HxW6vFf4DVHV//rTn/+Q1el0B6/ICbzOg5gy67bd7V
+	 wJyLDSbF2fq9ZWkA/GgAIe9U1ZrHhaP7ure1OplBCdQ9tHMaUxUnvi5Qz39yXiniYog/B
+	 ulLjrFzkVB6QbeEiTJcvBr/yPDUcuwgdsiFSdvNG5kzjpyQpObHJ8e8QVN4w/lBE6mg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=meta.com;
+	spf=pass smtp.mailfrom=meta.com;
+	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=NPDWNUn6;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.153.30
+Received: from mx0b-00082601.pphosted.com (mx0b-00082601.pphosted.com [67.231.153.30])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F30E0606A883
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:54:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F30E0606A883
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=paul-moore.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=paul-moore.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53248606A334
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:55:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53248606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=paul-moore.com header.i=@paul-moore.com header.a=rsa-sha256 header.s=google header.b=UtNCGZpE
-Received: by mail-qt1-f174.google.com with SMTP id d75a77b69052e-55c38cdd5b7so4074891cf.2
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 14:54:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=paul-moore.com; s=google; t=1794956091; x=1795560891; darn=vger.kernel.org;
-        h=in-reply-to:references:subject:cc:to:from:content-transfer-encoding
-         :content-type:mime-version:message-id:date:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=x7mnzARqVOnOj+KyQYPdVsGKtz9mrESSr8dwZPCPrb4=;
-        b=UtNCGZpERg95VgV31TLB6SKqg3O5IY7S5liFSjgST8jxLuBTyzR7elX/LO4B+17kMt
-         emUhFzAJ523PtXBWTKI4rJMkk8L8iAvXpxzY9TD8MMNsDMv1FPwo0jiVBLw0TxZJzSRm
-         M5cRQRyRj7aHzh2YUb3Vb/bnEnakXFrgtav82xnixUcrNWbKQWH1k3udT/v1VIasKqLO
-         uTKsS5k+9nPtBkkZasSNBsAuQHTcOe42csFt9XQI85jVgcm952Uo/h8/s94MGZwEY4QT
-         dXQU1KnqOHAYC64PjxxQG6jfuYnQpsTsPvjaGwD16PnS2iNvHPZBi8Zn6I1XhQdylkcD
-         T2kg==
+	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=NPDWNUn6
+Received: from pps.filterd (m0528005.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AHMfYAD1270743
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 14:55:06 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pps82601-s2048-2026-q3; bh=XTWULvHY5M+
+	9jFlLZATjLnhYmcapf/iX/XpM8N+MwzI=; b=NPDWNUn628COc0atYZ/CbMaWxG+
+	0TNGfxRCGsv1WrYANoIZaC+tKoYjD5X8kNmyXR8dpBZayuNDuuUCja+hWrjMqbQc
+	XxkpdvsWiVArTT9UJfikfZbnelRb/DRpVlYgtxXFa3XtPyVF0540TWjYmvrsqO+P
+	R+hi3LRmruY6Y/3r56HGQKoFy0CaepMpMmZG4klMBviT1U+1fEaeySnvKUF8n+Z1
+	Wfi1IZWcGzocGnaz/SNYLQqLT3qgJR8XlBsQ+qKgyEYQQVpJE2NW3vnlCVKHFSdC
+	M3nFonl+TButab+DN9Vmtl2UIUTzMNzzvKDIVO34G60V2AXaydz6Pdka2IA==
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
+	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j0yu5g5n9-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 14:55:06 -0800 (PST)
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-cdaf2073b0cso184508a12.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 14:55:05 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794956105; cv=none;
+        d=google.com; s=arc-20260327;
+        b=dq+2+B+riqrvRAz6aUlxuhKYQ8iqGHVL/Q91OYLBYT8XfZnPPVaSRb1NUrQoU556B7
+         i2Gr+QECw6r/rDDWpqWN0JhglRRl5CKCbR7tjeX59MJhr+1RoqXDJ7KQOXAnWnkPZu/0
+         yleNrJ8uSqNjAPkJQx+6FI6J7pMbZLAw0vMKrYTEY+anQ5zBM/OUVFHwB1fwGiUfqXPt
+         qXVmFbQSelnAAByhTbrk2IVLCSML6GKOT3H35V0MxjztOU/Yh17cz4fWTXPT3PWUE8uD
+         axIIZotUwDFCyJ35NAhXaIB6woPNX/2yuTZUSn1QC6Fpvtfv74+SsPXZ5gx/Rla4IN8j
+         EN5Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version;
+        bh=XTWULvHY5M+9jFlLZATjLnhYmcapf/iX/XpM8N+MwzI=;
+        fh=KS2FEfF3KVat2JnW1IyM3mV5mIIBOtxHGY5VfyrM7p4=;
+        b=dQNBc9bKjDjybIRnTpR4UO5EdKtpjVzfjKDPkurxpEgaQHpnEiB/Q0NSe7sg1xwelg
+         t+yI4jonYBk8630hixPSQtA0MQXNy3b/lQUlCijM4UxHt0pO4l+saTh2WShl5tK46xYR
+         CEY3cHp7f3ZcH2LTDStUcyr41Gca4voWkE2LQX3wtwa+sghgkYZB9rfce3dfNDHWhwlq
+         yhK4JNxkpDq30LLmSv3lp217z9vikar+zOsaYZBSHGoEim0ZBs+hQ10wHoI6/UV4Pvio
+         VNKSGK6qSOZO+Ad8N6E3NBlYmMlriMnEThAY/dCIk2J4LKbo2vC6DVZNUClayJ7hlbtt
+         YAig==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794956091; x=1795560891;
-        h=in-reply-to:references:subject:cc:to:from:content-transfer-encoding
-         :content-type:mime-version:message-id:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=x7mnzARqVOnOj+KyQYPdVsGKtz9mrESSr8dwZPCPrb4=;
-        b=WCx+0uqAlWzCsJFe3+gRZRuwLCZyidwfPWVzhI4qzUU0xfA6wztsMrea9zOU+HdMG3
-         lURlW44m7MiK2CC51/jBIt0fmasDxVKhZtNpGwobbWWtOvH1DmTtcdf4MCia7mW64WsH
-         5NfEaxYZ8qI6pc5zPoEU0i28P10kdhillejmY5KhkkcIJ/t9wr4pDHpiPg47z0rfwV/8
-         nkShl5i25cEYY9tnMGqxym49hnvCysE/o4qgxcnBFbHwod2Sv+nULaAQgsiWM7pI5V2i
-         gbTVQp9VRq9cYuC0gYpkkSvbTz/wXMLE9kj/L/axaMZBuYGjK8sP46wqdzLvRNkLhlvA
-         alWA==
-X-Forwarded-Encrypted: i=1; AL+hErHMf7KFTo6QMTw79oOe8GnAvNL0Sd5vUZoWzQmyV9MhdIp1HA0Zno2xAa46ZE3qzSB/ArcmO1WMO6DCy6U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+wCrWl0tLfvjVQx10PGItOdx+E3gyY+xtAslCyIzHqk0tS/JkC
-	JOWhLQGmqoGlyO1PprNgXXt29E6LTdijQwYcwDv8/6exUv/DTPCFauuCE+vRYVTSkQ==
-X-Gm-Gg: AYBFou1ehCeMKs3DX5QA3WlQ2GGoQevA6k8ab9OTU/5V56aMw02tIABliXI1ksyErBE
-	r4s3hpE5TpAKcB8425i7XkXo36j4a+LPTcrJ9oNlJt58OagGFa9LjT2KqylGZSciMwPD4WhpyY1
-	9fYfJ2p6d55ZLBJid10qret5wNLPb++S/gZmOqLmNkGAobSKL1mEeZvA1zvquLXy6wAlozjsVw6
-	2RYX2jQxjki8EDNbdm1fyVipwZ9k7EODu+CXVVrEKjYOOkkcEAu2JWJaAUm9ZMvmLc3UvVJIqqT
-	2MIr3z1Guh6L3Z5aRikoOe9Xfl1WyH6GjJPEiSlVnXL8ezRPIoRsvS4L/cOfYpq+gLxNWdvUGjS
-	ApER3e0BZ2wYnCdrvmHFxmccC7zHpbNvY2h8NxwYE5PpUEDt0ntHLIggH+xpVur+S2ZvLkkFpK9
-	Iw4mBkIb2TroHbabXSS4z+yPIUJExwNHepwDoLgD+SsRNtCBgq+XwhMk+I0cUyaR9XotuHhUnVf
-	W7bKky4qImszZZG0u5/nVjYwy33ntyoExNOCgzHPY+kz807NbFRMADaHw2+NnOFhUixqWYnC3+u
-	BHL1UqupruR8a6kO7gJMzgntGDiImOar40A3U3FS1e0i7Hc/S1DXv9vcAlBL2sGAHX7CHOIRDM1
-	SNYhKP2ePLOpkPnPR0rC/bPIwP65q13QHszeZb62K38Pgs7gDd2Q=
-X-Received: by 2002:a05:622a:1647:b0:535:92a6:22db with SMTP id d75a77b69052e-55d5a36e150mr14373911cf.1.1794956090990;
-        Tue, 17 Nov 2026 14:54:50 -0800 (PST)
-Received: from localhost (pool-71-126-255-178.bstnma.fios.verizon.net. [71.126.255.178])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d58fea01dsm7818061cf.8.2026.11.17.14.54.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 14:54:49 -0800 (PST)
-Date: Tue, 17 Nov 2026 17:54:48 -0500
-Message-ID: <44c0c45c0e2f47ed77bc45be47ebb3fb@paul-moore.com>
+        d=1e100.net; s=20260707; t=1794956105; x=1795560905;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=XTWULvHY5M+9jFlLZATjLnhYmcapf/iX/XpM8N+MwzI=;
+        b=pTq1CwYIE7aoHTnvcDUV7IlN+td+B9MTQthjiFjTx0+s2838ajtX+T45Ng+16+F8oh
+         DA/vlFSCkxU7qnbX3iyMWwTdVuesOXSwhI5GrGHmPn67KNAzTu1hMvE4bSDtBVFgzNXz
+         2Txe/XStkwyK84a60bjEZCT92hN76HRkobJwSEn53F4OedK2PGrdWliOmdQDgGlKnyxu
+         ggoY3kU1WmLj06xjYE4GaCLZOZcFPor/cweUQaoxRbMEhXw2b4r7SgtFbJMY/EiQSgmD
+         JLjlTVBpQcD8Y+WTAOb6vXo9P7aWUeW1Bnk3MRCKi6DUSEunQr2iVfad0Pam/Q7ezSvm
+         JJuA==
+X-Forwarded-Encrypted: i=1; AL+hErGdi3K3wIYFIJmmDPUzkFBNIHpSU/Y/IldKYICVOzFeNB/IQaSH5nEsvFTweK+SMmRIGsdGOEGEJzQxSvY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/GqQuV8ai+dgd40fhZ3p3A30GK7bI5KdmL4jCDigTQ/hcyQkn1
+	83a3Nvoy2cfJrOItNaCkAG1L9Mtx/ffrF3MRBZINckTNoM142wyEdloCPaUQH0P0CNlQHEhrShZ
+	tB5hCJG/3PrbFqfc4StxcJPYDhSoVWWoFlokE3TH+veU8Dx4hTVZV9DgrUeTHBrV5Zmr74t+a4H
+	dGQhXeoYpYs88fLo+7op/yVSluqzb5hx0uLqtWuk8=
+X-Gm-Gg: AZFdTZcmRpAIIG2zvHjqal9g7FaNudE3CDw5tARsarx/JdLPVPNQKMGScKQtAtSL377
+	Yab99f/RJC7WNpz2Rw3etNia2yGEm7nGBO0RcXjGWonBgk2u01cgqiGkQH6o+M2reXq6XUSu0Nk
+	xJmi8+zms/fXup86BU0uzrRikHVVIOxipG8/iLpFcQ5uIVGZO7SEbRLsVOVfU/G5B7CJhaMuHEF
+	iS1omUbRly/tdACdElewU0EcD5H7AVRKhLTAz5tnZNIWxvRKgI=
+X-Received: by 2002:a17:90b:5390:b0:3ab:2d17:51c5 with SMTP id 98e67ed59e1d1-3b3d0640f3bmr891153a91.6.1794956105128;
+        Tue, 17 Nov 2026 14:55:05 -0800 (PST)
+X-Received: by 2002:a17:90b:5390:b0:3ab:2d17:51c5 with SMTP id
+ 98e67ed59e1d1-3b3d0640f3bmr891106a91.6.1794956104611; Tue, 17 Nov 2026
+ 14:55:04 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,111 +110,72 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 
-Content-Type: text/plain; charset=UTF-8 
-Content-Transfer-Encoding: 8bit 
-X-Mailer: pstg-pwork:20261117_1552/pstg-lib:20261117_1552/pstg-pwork:20261117_1552
-From: Paul Moore <paul@paul-moore.com>
-To: Albert Esteve <aesteve@redhat.com>, Tejun Heo <tj@kernel.org>, 
-	Johannes Weiner <hannes@cmpxchg.org>, =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Sumit Semwal <sumit.semwal@linaro.org>, =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>, 
-	Shakeel Butt <shakeel.butt@linux.dev>, Muchun Song <muchun.song@linux.dev>, 
-	Andrew Morton <akpm@linux-foundation.org>, 
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
-	John Stultz <jstultz@google.com>, "T.J. Mercier" <tjmercier@google.com>, 
-	Christian Brauner <brauner@kernel.org>, James Morris <jmorris@namei.org>, 
-	"Serge E. Hallyn" <serge@hallyn.com>, Stephen Smalley <stephen.smalley.work@gmail.com>, 
-	Shuah Khan <shuah@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, 
-	=?UTF-8?B?T25kcmVqIE1vc27DocSNZWs=?= <omosnacek@gmail.com>, 
-	Jens Wiklander <jenswi@kernel.org>, Sumit Garg <sumit.garg@kernel.org>, 
-	Philipp Stanner <phasta@kernel.org>
-Cc: airlied@gmail.com, cgroups@vger.kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, linux-mm@kvack.org, linux-security-module@vger.kernel.org, selinux@vger.kernel.org, linux-kselftest@vger.kernel.org, op-tee@lists.trustedfirmware.org, Albert Esteve <aesteve@redhat.com>, echanude@redhat.com, mripard@kernel.org
-Subject: Re: [PATCH v5 4/8] lsm: Add memcg_charge_task LSM hook
-References: <20261117-v2_20230123_tjmercier_google_com-v5-4-1ce975f2a9ad@redhat.com>
-In-Reply-To: <20261117-v2_20230123_tjmercier_google_com-v5-4-1ce975f2a9ad@redhat.com>
+MIME-Version: 1.0
+References: <20261111005533.6436-11-toddfreed@meta.com> <179471270629.2199510.9480561958902023552@kernel.org>
+In-Reply-To: <179471270629.2199510.9480561958902023552@kernel.org>
+From: Todd Bert Freed <toddfreed@meta.com>
+Date: Tue, 17 Nov 2026 14:54:52 -0800
+X-Gm-Features: Aa3M54pEdqPp10DAjnIjgsYaaHWMRisY79HeZKYFQbRbnu5DENxcJuo9y0o8SvU
+Message-ID: <CADh2yMxPrJZNtVdCgQWkHsKBk0cnAZ-0RiVaCMquQNSH8K32Mw@mail.gmail.com>
+Subject: Re: [PATCH net-next v1 10/15] net/sched: flower: add psp_spi,
+ psp_ver, and psp_dev matches
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch,
+        bjorn@kernel.org, bpf@vger.kernel.org, daniel@iogearbox.net,
+        daniel.zahka@gmail.com, donald.hunter@gmail.com, edumazet@kernel.org,
+        kuba@kernel.org, jhs@mojatatu.com, jiri@resnulli.us,
+        john.fastabend@gmail.com, linux-doc@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+        linux-rdma@vger.kernel.org, martin.lau@linux.dev, pabeni@redhat.com,
+        saeedm@nvidia.com, horms@kernel.org, tariqt@nvidia.com,
+        weiwan@google.com, willemdebruijn.kernel@gmail.com
+Content-Type: text/plain; charset="UTF-8"
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDA5MSBTYWx0ZWRfX8utgo87qmHA7
+ LA70K/bvmmIvKVAqZKjp7t8kz8PJlTE0lh3RjJiqIXcNmH+klOUwFdXWtR1d2/i0p+WqYCHBBiq
+ nn2Z100mhg4+1VXqHosNiX1+zkl32Wk=
+X-Authority-Analysis: v=2.4 cv=ePyGH3p1 c=1 sm=1 tr=0 ts=6afcdb4a cx=c_pps
+ a=rz3CxIlbcmazkYymdCej/Q==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22 a=jCddH8ec0KUNCymVuxII:22
+ a=e8l9bKk9WhIOE85pT1MA:9 a=QEXdDO2ut3YA:10 a=bFCP_H2QrGi7Okbo017w:22
+X-Proofpoint-ORIG-GUID: h3mBKdmIvMDBTzdq_6sDoGDlTJQbn6B3
+X-Proofpoint-GUID: h3mBKdmIvMDBTzdq_6sDoGDlTJQbn6B3
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDA5MSBTYWx0ZWRfX7J34Q0Tp3Q3N
+ 10Hmz2ubn7zA+d1fAVGaKsLq9wNQGjgmIZPfa3pRICpKjMofXdXhKn712wRpnq7Y/RTNey/3j7q
+ 0t2ltSkH7SWif2yIQHN+9L/zLXqviOaAL1i6vjCROJzcttPJCliGp7yIqUbpisTMf31qk0h0dXq
+ 1XZOJpynKz+/OqX+eZUwRChURv7QU+O783P4yW8K6H+rFyEWRQ8disBBp+PdgTPFsRnkFMsly/m
+ PjDEW8QZgfEiYjVqgMF3j8XlgPkbpGFomkTzqB8F7geGwRtV9vcSnXAZ/NNFDnK8SWCyAJ46Qan
+ J5r4fwmjt10b0Xal0p2P5i0wlUWLiUVih6kRDH/ev4M6nFIoDWfU/bticP9azAr4IlbrobijsdR
+ GZXWzoP7CpeAYll50Rx32Qw4Sy05EGM+qlDhuexBW4jOodOMMsijFESH8X3VCO7xp6Bw81VReQV
+ OwxGTIMeq2dDG5RJ+Fw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-17_05,2026-11-16_01,2025-10-01_01
 
-On Nov 17, 2026 Albert Esteve <aesteve@redhat.com> wrote:
-> 
-> Both DMA_HEAP_IOCTL_ALLOC and the new DMA_BUF_IOCTL_XFER_CHARGE ioctl
-> accept a charge_fd field that, when set, causes the allocation to be
-> charged to an arbitrary process's cgroup rather than the caller's.
-> 
-> Charging is currently limited to the caller's own memcg subtree unless
-> the caller holds CAP_SYS_RESOURCE. But the capability is all-or-nothing.
-> A process holding it, along with a dma-heap device node or a dma-buf
-> fd can charge unlimited memory to any other process's cgroup, potentially
-> exhausting that cgroup's limit and triggering OOM kills independent of
-> the victim's own activity or privileges.
-> 
-> Add security_memcg_charge_task(), called in get_obj_cgroup_from_fd()
-> when charge_fd refers to another process. The hook receives
-> the credentials of the allocating process (from) and the credentials
-> of the process whose cgroup will be charged (to), giving security
-> modules a controlled enforcement point for cross-cgroup objcg
-> attribution policy.
-> 
-> When CONFIG_SECURITY is not set the hook compiles to an inline
-> returning 0, adding no overhead to the fast path.
-> 
-> Signed-off-by: Albert Esteve <aesteve@redhat.com>
-> ---
->  include/linux/lsm_hook_defs.h |  1 +
->  include/linux/security.h      |  7 +++++++
->  mm/memcontrol.c               | 11 +++++++++++
->  security/security.c           | 15 +++++++++++++++
->  4 files changed, 34 insertions(+)
+> [Severity: Medium]
+> Does the commit message describe the right failure mode for rules that
+> are still installed after two key rotations?
+>
+> The commit message says:
+>
+>   Together these matches tie a rule to one association, ...
+>
+> and:
+>
+>   this means that a rule matching packets that correspond to an rx
+>   association which is stale (two rotations have passed), can still match.
+>
+> The "Socket-less associations" text that a later patch in this series
+> adds to Documentation/networking/psp.rst has the same gap. It only says
+> userspace should replace such rules before two rotations, and it repeats
+> that the matches tie a decap rule to one Rx association. No later patch
+> in the series adds a generation match or any enforcement.
+>
+> Could the commit message and the documentation say that a stale rule can
+> end up matching a different association that reused the SPI, rather
+> than the stale association itself?
 
-...
+In v2, there are no Rx associations. It will be more clear that matches tie a
+rule to a SPI not to an association. And the reliance on userspace to replace
+rules before that SPI could be re-used, will be further highlighted.
 
-> diff --git a/mm/memcontrol.c b/mm/memcontrol.c
-> index 03cd90d5e623..2e6fcbe14d43 100644
-> --- a/mm/memcontrol.c
-> +++ b/mm/memcontrol.c
-> @@ -60,6 +60,7 @@
->  #include <linux/lockdep.h>
->  #include <linux/resume_user_mode.h>
->  #include <linux/psi.h>
-> +#include <linux/security.h>
->  #include <linux/seq_buf.h>
->  #include <linux/sched/isolation.h>
->  #include <linux/kmemleak.h>
-> @@ -3198,10 +3199,12 @@ static bool mem_cgroup_may_charge(struct mem_cgroup *memcg)
->  struct obj_cgroup *get_obj_cgroup_from_fd(int fd)
->  {
->  	struct cgroup_subsys_state *css;
-> +	const struct cred *tcred;
->  	struct obj_cgroup *objcg;
->  	struct mem_cgroup *memcg;
->  	struct task_struct *task;
->  	unsigned int pidfd_flags;
-> +	int ret;
->  
->  	if (mem_cgroup_disabled())
->  		return ERR_PTR(-EOPNOTSUPP);
-> @@ -3226,6 +3229,14 @@ struct obj_cgroup *get_obj_cgroup_from_fd(int fd)
->  		if (IS_ERR(task))
->  			return ERR_CAST(task);
->  
-> +		tcred = get_task_cred(task);
-> +		ret = security_memcg_charge_task(current_cred(), tcred);
-
-Do you ever envision this "from" cred being something other than
-current_cred()?  If the answer is "no", we might want to consider changing
-the LSM hook slightly to help prevent misuse in the future:
-
-  int security_current_memcg_charge_task(const struct cred *tcred);
-
-> +		put_cred(tcred);
-> +		if (ret) {
-> +			put_task_struct(task);
-> +			return ERR_PTR(ret);
-> +		}
-> +
->  		rcu_read_lock();
->  		css = task_css(task, memory_cgrp_id);
->  		put_task_struct(task);
-
---
-paul-moore.com
+-Todd
