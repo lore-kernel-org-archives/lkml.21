@@ -1,81 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794940307;
-	b=1WFKCoY5NqrrHAx4P0HLzkz0jukHb5IoWvGbRXm7W1rs10HErIzAlbgnsA6aWt1427Ks
-	 fzIuaCXrJOsMxieDs6f9wgW5Q12LBKYXiTDVGL7OvcGg8GAAQwB4EYHx1zDmXQZnkxh2C
-	 ipqQinPrTqWnTeZkNZrA7K6cG/sGElPFKdeZaes/MgqXFlmM/LHfO2qaeTNnEudoMbLWh
-	 f26wXYd+uy0gO7YXzkRC+B8cfXWwp0dl73OZfUzBUakWfpNixYH1tN6SqJzCs3Thd2Svj
-	 BgYQ8zj7mBskUsgt7fVprfOpbHkbVz7CenZoapYHmlTfo4JLVqZQ4taSNvr/qa06CEQ==
+	t=1794940312;
+	b=jogBKpn9/ifpbJCz7Yy2rsb7NrgIbOPsIjkRREsqiel8bcxWQHXTQN3Ga3xXWnTa1TI2
+	 Om/Kn3h9RvdxoeSpWvLimS9VGL56ceV7rmXLKC4ZHynWEWLXp4+wNqeU6GcllDW1Jbyg4
+	 C5Ha4aCDzEkQaWqowVu9nPqTD1NMdV1zn84uIcPGe2fhIl1fW2a1y3jT2qozRGNzMq2b0
+	 IHf48mzpfuRyzehQ4ZHm5BkiufAkMDc+Hjaj9O6qMNf13cmUxVn+WJD43ay4+SJyPzn0z
+	 hy7G1e6mEKg7d8QgezLlW3zNPQiKZ0T+ar/2SoSfdELvpXOWuvNdMSaOgzX5VlJXFwA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794940307;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=SLCYJJJZxNdFY23BSUyytPreDqQ3AKsuql7VgyliaLk=;
-	b=juJrnYmxHIUKt59La4h66l6mAcc0m8z406gt1b/XSiZQ3SbVmvwDu52+Q/YV0S8xm804
-	 /CV+wWVfxfg0rXidMDz/0+/m04N81TEPO0eJfhd3bU8LAvjc6bhS144ptjQOiBaLvSTOW
-	 P3SHhfJCbhsIBfy4Q5a5PY7CE71g22F+/+Vkkzy/pPiJ76XP+nSWI6LAdjREL4a1yRm5s
-	 ta+xHkFbyOb/QeduqxOPtPUY8b06hOKidhuAYcgk2Ocv/mIFkvQCKJCaGPx+uZuElZ8HX
-	 SoH3FIKLdlm5kNypavNKB5Qev7gGuJTWzaAdHqLfeuCYL/jutdahMTHIZtmVUxoJzDA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794940312;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=ROYhJnwskLbtUSLFDNTgyxYJZVqH7Mi1D1ofZwYsCgE=;
+	b=iYMaYrziGOun0oWsPmvdTTYzX3MJitB7KONQXTLe0axkbxXM4rrKEqj4jjHnHhtlVS5s
+	 TZCDco5GXd6BKMMGZlwe38H17GPwgBcTW8byPsfiZOooSJvd/MpMIGINHTTMv68bfnpUf
+	 JDdj+Fd6u3CbiUlaGzQkRNW8odxR6PQlMl/DJjnZMm130E3G86VcBzWkOkkAAYgRj/Q/8
+	 YkPLfgFzm1mXiZ05FItCv2dL/Ny9RykHTDBvMwWuT7LzqLoHdBc2n6pQG0yaRQwC1602/
+	 ebAFZ5KKvQ5+O+OOh6zVbfxW5bZYzzJWZW/WscG8DQtGEJyR1CU/cV9DU8+01czQ6dw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=AXwW9ecP;
-	arc=none smtp.remote-ip=198.175.65.12
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YHIvjNVU;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69C03606A88D;
-	Tue, 17 Nov 2026 18:31:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69C03606A88D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB6BC606A32C;
+	Tue, 17 Nov 2026 18:31:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=AXwW9ecP
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1794940307; x=1826476307;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=au057zZNUXUwwVx17AOJxoL/BOhmwtbE4AWvH7sViFE=;
-  b=AXwW9ecPfvr7U2kKpnxbVl+R1T0DJNr+rcmiIYwa48tF9Sc/b1M6Hu3L
-   VGQ1+1NzpZWrCFM/5jXrlEXBHOfw3MUCmQ6tL+8v5/anmJY+7491EqzrE
-   cZ61Mi+rnclzYCZ1R1q6bT/d/FAoLEgNKOQyjDAiG8fe5nYpn3dHDx17g
-   n8/Zj+QSI7XEamu/fXA5hJf+jHZ1FGwKSm5/3i3UKva/5xuaQWsbTDroR
-   lozpaGjjnudHJtJbGX55eb2HvqZauq854Tm3p+zF1Iohr+vujZBP2m2X+
-   eiYVClVybAmRKKHBrs7hXESpoGhibXovaeUEqAiS+WH33TQphfjWpjsh6
-   g==;
-X-CSE-ConnectionGUID: dZhWxHPcR5+phXOhZupvZw==
-X-CSE-MsgGUID: HDDdRx9NRTWlOpYl2XwuWw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3607222"
-X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
-   d="scan'208";a="3607222"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 10:30:44 -0800
-X-CSE-ConnectionGUID: 6pXtmftGQZiAnCsO6gxtbw==
-X-CSE-MsgGUID: zVidgbi+R+OLciB16yoQOw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
-   d="scan'208";a="9775008"
-Received: from chang-linux-3.sc.intel.com (HELO chang-linux-3) ([172.25.66.174])
-  by orviesa003.jf.intel.com with ESMTP; 17 Nov 2026 10:30:45 -0800
-From: "Chang S. Bae" <chang.seok.bae@intel.com>
-To: seanjc@google.com,
-	jmattson@google.com
-Cc: pbonzini@redhat.com,
-	kvm@vger.kernel.org,
-	x86@kernel.org,
-	linux-kernel@vger.kernel.org,
-	zhao1.liu@intel.com,
-	chang.seok.bae@intel.com
-Subject: [PATCH v9 04/20] KVM: x86: Support APX state for XSAVE ABI
-Date: Tue, 17 Nov 2026 18:02:54 +0000
-Message-ID: <20261117180310.921701-5-chang.seok.bae@intel.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261117180310.921701-1-chang.seok.bae@intel.com>
-References: <20261117180310.921701-1-chang.seok.bae@intel.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YHIvjNVU
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 863E31F000C8;
+	Tue, 17 Nov 2026 18:31:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794940312;
+	bh=ROYhJnwskLbtUSLFDNTgyxYJZVqH7Mi1D1ofZwYsCgE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=YHIvjNVU5ROPBZy/6H9B5IyIvqiqgxp90L+jGjs/45bsODcDHwCD29V1FYs4IjhiR
+	 TLeChVrR1kvX+6ot8EtR7QKZSCRtStS+sj6qdaXp7gED+xDKYOGSRehn82Ve0aA4Q4
+	 c2rerzv6GHHeHbPa1qbFK3g7lCGC/XkAgzS5UiJ92Jh4s1jZAGF/d4mmC+GwMmTXXQ
+	 tRSEY09WEHk21sa9r+QD+O/+VzcFkgVWL8edk+ZRxDh5tUsjEkgozcnUrelqeaH+et
+	 gTsNL/88JJByMEsgfyavlaKp2gdN8DU3OX6eX1slhcsTbHZS//osSVLamEzPW2fN9u
+	 oYQo919LW8/Bw==
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Date: Tue, 17 Nov 2026 18:31:32 +0000
+Subject: [PATCH v2 1/4] mm: update walk_to_pmd() to explicitly return an
+ error
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,182 +53,120 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261117-huge-pfnmap-fault-races-v2-1-276007e73bcb@kernel.org>
+References: <20261117-huge-pfnmap-fault-races-v2-0-276007e73bcb@kernel.org>
+In-Reply-To: <20261117-huge-pfnmap-fault-races-v2-0-276007e73bcb@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>, 
+ David Hildenbrand <david@kernel.org>, 
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+ Michal Hocko <mhocko@suse.com>, Alex Williamson <alex@shazbot.org>, 
+ Peter Xu <peterx@redhat.com>, Zi Yan <ziy@nvidia.com>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, 
+ Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
+ Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
+ Kiryl Shutsemau <kas@kernel.org>, Wei Liu <wei.liu@kernel.org>, 
+ Roman Kisel <romank@linux.microsoft.com>, 
+ Saurabh Sengar <ssengar@linux.microsoft.com>, 
+ Naman Jain <namjain@linux.microsoft.com>, 
+ Michael Kelley <mhklinux@outlook.com>
+Cc: ljs@kernel.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2403; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=vNl3Zl3ZMfO6x8wWrH4TBXRKhY+lxi4UMdolsZxZ5/4=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLL+zO0ytvM4bDzj6fNHtzeuarWYVLv0yJTToU2LfiwNt
+ k4VKPna3VHKwiDGxSArpsjy/Iv4/iCRsHmdF/zdYOawMoEMYeDiFICJFNgw/A++HRST1Xxz46y7
+ 0w6GtXOJ7Xj1h7Ppe8HUmun2aZs/S61hZPi6eMVVxvQdvPmGqx4mKDYcqnL+q71tr/DLWVdvPd5
+ U480IAA==
+X-Developer-Key: i=ljs@kernel.org; a=openpgp;
+ fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 
-Introduce a facility to copy APX state between the VCPU cache and the
-userspace buffer as the VCPU cache is the single source of truth.
+Rather than callers inferring an error from a NULL pmd return, explicitly
+return error codes.
 
-The existing fpstate copy functions historically sync all XSTATEs in
-between userspace and kernel buffers [1]. In this regard, any additional
-state handling logic should be consistent with them -- i.e. validation of
-XSTATE_BV against the supported XCR0 mask.
+This allows different error codes to be returned for different failure
+conditions.
 
-Now the two copy paths requires to take care of these facts:
+No functional change intended.
 
-  * When exporting to userspace, copy fpstate first, since it zeros the
-    area of any component that is absent or inactive. Then copy the APX
-    state from the VCPU cache.
+This is a prerequisite for the fix to insert_pfn() which follows, as that
+needs to be able to tell a failure to allocate a page table apart from a
+race with a huge fault, so mark it for stable alongside that fix.
 
-  * When importing from userspace, the APX state is copied to both
-    fpstate and the VCPU cache. Avoiding the duplicate copy would need
-    special care in the common code or in XSTATE_BV/XCR0 which isn't
-    worth that much for a slow path, so keep it simple.
-
-[1] Except for PKRU state, as stored in struct thread_struct.
-
-Tested-by: Zhao Liu <zhao1.liu@intel.com>
-Signed-off-by: Chang S. Bae <chang.seok.bae@intel.com>
+Fixes: f9e54c3a2f5b ("vfio/pci: implement huge_fault support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 ---
-V8 -> V9:
- * Fix XSTATE_BV[APX]=0 behavior (Jim Mattson)
- * On the way to the kernel buffer, switch the copy ordering (Jim Mattson)
----
- arch/x86/kvm/cpuid.c | 10 ++++++
- arch/x86/kvm/cpuid.h |  2 ++
- arch/x86/kvm/x86.c   | 73 +++++++++++++++++++++++++++++++++++++++++---
- 3 files changed, 81 insertions(+), 4 deletions(-)
+ mm/memory.c | 23 +++++++++++------------
+ 1 file changed, 11 insertions(+), 12 deletions(-)
 
-diff --git a/arch/x86/kvm/cpuid.c b/arch/x86/kvm/cpuid.c
-index adafd6fa2c54..7c6825000928 100644
---- a/arch/x86/kvm/cpuid.c
-+++ b/arch/x86/kvm/cpuid.c
-@@ -61,6 +61,16 @@ void __init kvm_init_xstate_sizes(void)
- 	}
+diff --git a/mm/memory.c b/mm/memory.c
+index 3a20d64fd276..67ee25215ca5 100644
+--- a/mm/memory.c
++++ b/mm/memory.c
+@@ -2366,7 +2366,7 @@ void zap_special_vma_range(struct vm_area_struct *vma, unsigned long address,
  }
+ EXPORT_SYMBOL_GPL(zap_special_vma_range);
  
-+u32 xstate_size(unsigned int xfeature)
-+{
-+	return xstate_sizes[xfeature].eax;
-+}
-+
-+u32 xstate_offset(unsigned int xfeature)
-+{
-+	return xstate_sizes[xfeature].ebx;
-+}
-+
- u32 xstate_required_size(u64 xstate_bv, bool compacted)
+-static pmd_t *walk_to_pmd(struct mm_struct *mm, unsigned long addr)
++static int walk_to_pmd(struct mm_struct *mm, unsigned long addr, pmd_t **pmdp)
  {
- 	u32 ret = XSAVE_HDR_SIZE + XSAVE_HDR_OFFSET;
-diff --git a/arch/x86/kvm/cpuid.h b/arch/x86/kvm/cpuid.h
-index 46bfe8699e67..444faaf33307 100644
---- a/arch/x86/kvm/cpuid.h
-+++ b/arch/x86/kvm/cpuid.h
-@@ -66,6 +66,8 @@ bool kvm_cpuid(struct kvm_vcpu *vcpu, u32 *eax, u32 *ebx,
+ 	pgd_t *pgd;
+ 	p4d_t *p4d;
+@@ -2376,24 +2376,25 @@ static pmd_t *walk_to_pmd(struct mm_struct *mm, unsigned long addr)
+ 	pgd = pgd_offset(mm, addr);
+ 	p4d = p4d_alloc(mm, pgd, addr);
+ 	if (!p4d)
+-		return NULL;
++		return -ENOMEM;
+ 	pud = pud_alloc(mm, p4d, addr);
+ 	if (!pud)
+-		return NULL;
++		return -ENOMEM;
+ 	pmd = pmd_alloc(mm, pud, addr);
+ 	if (!pmd)
+-		return NULL;
++		return -ENOMEM;
  
- void __init kvm_init_xstate_sizes(void);
- u32 xstate_required_size(u64 xstate_bv, bool compacted);
-+u32 xstate_size(unsigned int xfeature);
-+u32 xstate_offset(unsigned int xfeature);
- 
- int cpuid_query_maxphyaddr(struct kvm_vcpu *vcpu);
- u64 kvm_vcpu_reserved_gpa_bits_raw(struct kvm_vcpu *vcpu);
-diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-index 73bb1d25931c..f251631a63de 100644
---- a/arch/x86/kvm/x86.c
-+++ b/arch/x86/kvm/x86.c
-@@ -3165,6 +3165,53 @@ static int kvm_vcpu_ioctl_x86_set_vcpu_events(struct kvm_vcpu *vcpu,
- 	return 0;
- }
- 
-+#ifdef CONFIG_KVM_APX
-+static void kvm_copy_vcpu_regs_to_uabi(struct kvm_vcpu *vcpu, void *buf, u64 supported_xcr0)
-+{
-+	union fpregs_state *xstate = (union fpregs_state *)buf;
-+
-+	BUILD_BUG_ON(NR_VCPU_GENERAL_PURPOSE_REGS <= VCPU_REGS_R31);
-+
-+	if (!(supported_xcr0 & XFEATURE_MASK_APX))
-+		return;
-+
-+	memcpy(buf + xstate_offset(XFEATURE_APX),
-+	       &vcpu->arch.regs[VCPU_REGS_R16],
-+	       xstate_size(XFEATURE_APX));
-+
-+	xstate->xsave.header.xfeatures |= XFEATURE_MASK_APX;
-+}
-+
-+static int kvm_copy_uabi_to_vcpu_regs(struct kvm_vcpu *vcpu, void *buf, u64 supported_xcr0)
-+{
-+	union fpregs_state *xstate = (union fpregs_state *)buf;
-+
-+	BUILD_BUG_ON(NR_VCPU_GENERAL_PURPOSE_REGS <= VCPU_REGS_R31);
-+
-+	/* If XSTATE_BV[APX] is unset, the state should be initialized: */
-+	if (!(xstate->xsave.header.xfeatures & XFEATURE_MASK_APX)) {
-+		if (supported_xcr0 & XFEATURE_MASK_APX)
-+			memset(&vcpu->arch.regs[VCPU_REGS_R16], 0, xstate_size(XFEATURE_APX));
-+		return 0;
-+	}
-+
-+	if (!(supported_xcr0 & XFEATURE_MASK_APX))
-+		return -EINVAL;
-+
-+	memcpy(&vcpu->arch.regs[VCPU_REGS_R16],
-+	       buf + xstate_offset(XFEATURE_APX),
-+	       xstate_size(XFEATURE_APX));
-+
+ 	VM_BUG_ON(pmd_trans_huge(*pmd));
+-	return pmd;
++	*pmdp = pmd;
 +	return 0;
-+}
-+#else
-+static void kvm_copy_vcpu_regs_to_uabi(struct kvm_vcpu *vcpu, void *buf, u64 supported_xcr0) { }
-+static int kvm_copy_uabi_to_vcpu_regs(struct kvm_vcpu *vcpu, void *buf, u64 supported_xcr0)
-+{
-+	return 0;
-+}
-+#endif
-+
- static int kvm_vcpu_ioctl_x86_get_xsave2(struct kvm_vcpu *vcpu,
- 					 u8 *state, unsigned int size)
- {
-@@ -3186,8 +3233,15 @@ static int kvm_vcpu_ioctl_x86_get_xsave2(struct kvm_vcpu *vcpu,
- 	if (fpstate_is_confidential(&vcpu->arch.guest_fpu))
- 		return vcpu->kvm->arch.has_protected_state ? -EINVAL : 0;
- 
-+	/*
-+	 * This copy function zeros out userspace memory for any gap from the
-+	 * guest fpstate. So invoke before copying any other state, i.e. APX,
-+	 * that is not saved in fpstate.
-+	 */
- 	fpu_copy_guest_fpstate_to_uabi(&vcpu->arch.guest_fpu, state, size,
- 				       supported_xcr0, vcpu->arch.pkru);
-+	kvm_copy_vcpu_regs_to_uabi(vcpu, state, supported_xcr0);
-+
- 	return 0;
  }
  
-@@ -3202,6 +3256,7 @@ static int kvm_vcpu_ioctl_x86_set_xsave(struct kvm_vcpu *vcpu,
- 					struct kvm_xsave *guest_xsave)
+ pte_t *get_locked_pte(struct mm_struct *mm, unsigned long addr,
+ 		      spinlock_t **ptl)
  {
- 	union fpregs_state *xstate = (union fpregs_state *)guest_xsave->region;
+-	pmd_t *pmd = walk_to_pmd(mm, addr);
++	pmd_t *pmd;
+ 
+-	if (!pmd)
++	if (walk_to_pmd(mm, addr, &pmd))
+ 		return NULL;
+ 	return pte_alloc_map_lock(mm, pmd, addr, ptl);
+ }
+@@ -2532,13 +2533,11 @@ static int insert_pages(struct vm_area_struct *vma, unsigned long addr,
+ 	unsigned long curr_page_idx = 0;
+ 	unsigned long remaining_pages_total = *num;
+ 	unsigned long pages_to_write_in_pmd;
+-	int err = 0;
 +	int err;
- 
- 	if (fpstate_is_confidential(&vcpu->arch.guest_fpu))
- 		return vcpu->kvm->arch.has_protected_state ? -EINVAL : 0;
-@@ -3213,10 +3268,20 @@ static int kvm_vcpu_ioctl_x86_set_xsave(struct kvm_vcpu *vcpu,
- 	 */
- 	xstate->xsave.header.xfeatures &= ~vcpu->arch.guest_fpu.fpstate->xfd;
- 
--	return fpu_copy_uabi_to_guest_fpstate(&vcpu->arch.guest_fpu,
--					      guest_xsave->region,
--					      kvm_caps.supported_xcr0,
--					      &vcpu->arch.pkru);
-+	err = fpu_copy_uabi_to_guest_fpstate(&vcpu->arch.guest_fpu,
-+					     guest_xsave->region,
-+					     kvm_caps.supported_xcr0,
-+					     &vcpu->arch.pkru);
+ more:
+-	pmd = walk_to_pmd(mm, addr);
+-	if (!pmd) {
+-		err = -ENOMEM;
++	err = walk_to_pmd(mm, addr, &pmd);
 +	if (err)
-+		return err;
-+
-+	/*
-+	 * The APX state was also copied into fpstate above, but the VCPU cache
-+	 * is the single source of truth. Skipping the redundant copy tends to
-+	 * introduce special-case handling. Since this lies in a slow path, keep
-+	 * the implementation simple.
-+	 */
-+	return kvm_copy_uabi_to_vcpu_regs(vcpu, guest_xsave->region, kvm_caps.supported_xcr0);
- }
+ 		goto out;
+-	}
  
- static int kvm_vcpu_ioctl_x86_get_xcrs(struct kvm_vcpu *vcpu,
+ 	pages_to_write_in_pmd = min_t(unsigned long,
+ 		remaining_pages_total, PTRS_PER_PTE - pte_index(addr));
+
 -- 
-2.53.0
+2.56.0
 
