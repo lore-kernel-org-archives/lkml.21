@@ -1,81 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1794940325;
-	b=kldCMYO7oJfkzV3pq2Jo6dyxFfU81DR1wzAdS1tSY8aTaKvZ+ohWhz4YlNvsvU8Y2oZy
-	 f0jAZ0PwTqfgF11naXPEHpQnP2XRaho6+mMXwIf3l1JRyRWy3PyQGP7/bz1RSAtB2EBBC
-	 UySvcp7j3wmojqQcAEFqs1WZo86OR5z3JcGvQbYznaWUnaDaPrir3Swdr0OQfJ+MFlpaL
-	 B8KwrKW+4vh4QqD/jz1CZTxr4/bB7MtelxlQKtlP0+l1skA/fPc6j8vHhLttTvejHkgg5
-	 kj3Hv7lfIkboY/yzF7bfPvyilWiBqK10Q8T0lS4yFgQBD2rq7vtTPGzj6H1ju1cHUxw==
+	b=IElI43n7vj+PFs6c0dk2/dB90mbC6gPRKkSiNUgJZUtqFNFVu/lJ4Fesud4qxcukVsng
+	 8ne13Nq5DjmdmNNjqOsaTcfeVX8ST7+ml8fYzQXaIM2zwMQtNj8FfE5PwJnZAjr1qxKUP
+	 TrSSshJ72kII/pBVYk8PYaroc9TQGSK6o5lOwSraUKnATivVmvQ3hdOb9g2w5QEHf2zwB
+	 cVRGaU5ory4Nq/kkqJcsmW5SI0n9hwRyaaCi2tLQv3g/et2nTXPcqubylzOsVcUSmc0Bd
+	 zwR7vZ9TrA0Vr/O0/9W2wLOeJC0iCgJgKu5J5GDDjKHPTPS/qnxfJLYbSayybcUeCCA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1794940325;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=xfNb5UM3L2NvlH69ME4RHwaknOXMZVHE/aU+WrXiHvw=;
-	b=OuZFdPQYBmYwCvbQhS6pOTRBRqFEZqElOal4L42T5tZCQySweYu5I/iJm67dRJkrPYnW
-	 IYXRiroIkbJWeLOu8Ibx7ky0Co40hEVi8laN09ZgZQueBjowz8OR5WQRsAbu5Pwt/D356
-	 anH5DEqwRZU89xmmgMcKrq4Zy45GJL4z424V0w8C6S5yh0wGL+0HJMLAZ+6keW3Jyz48y
-	 RoFJZ89QZjR7C2haAGJnglyKJwpLatvhVymy4YNcVcq3/Hlqs8OPRPC0a0+sFa99y+/CC
-	 89Pge/14FF9DMj2Xby4hIzprDa4BM1WEcYZFTPZ/jZ+za2p7xsJ9ud99pYgEf8iIlPg==
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=LmYgXS2j+OqkL61e2BRHprYvo+imW1RdtkRAOJY6dIQ=;
+	b=po9KGZ5enLps5Ji3rPhH1ofxOqq6PPcJRmZFf62wgjtk/L0Q3otrTfA4LYmvwabZuLK+
+	 68McZ6WZyWI4uyHnCbaKuaY4TVxj+zAiok61Mki4hZL6Y77iLhh+0K8Gf/+CyH2OXkFR3
+	 GHYufb0fSIUku9IdeT9vpc9+8BdRogtgYVDGUinAlIrkzrQOiv4KFSE0V7HFSpIcTSrqv
+	 czyHrl9ChcQqL0TuiKRsnSWvzrhWhNvELMigeJKDAxFR+8b/UtvQ+RTE/AHzeRGxsFSYu
+	 hgTa4Ee4Pbukc1REIHNOME1EYBbqVy0JWS3s2zrdQHz6XyHEOboIhOeqwrTicP+jaeg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=PKWlppsS;
-	arc=none smtp.remote-ip=198.175.65.12
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XTEwdev8;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C002660A2612;
-	Tue, 17 Nov 2026 18:32:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C002660A2612
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A20C7606A33F;
+	Tue, 17 Nov 2026 18:32:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=PKWlppsS
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1794940325; x=1826476325;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=hRYmbUZRafMOqS3M8J+52d+4USzQ4y+3X/r0fXjH6m8=;
-  b=PKWlppsSkjLtps4YxPicMk5PANK93QyF2ZvkPh1kKd1Qy8M1u4QV1PDO
-   DBcYCjQx7ZUt+GKflQKqAu76dD9pMxJPlQXQQ3CScLbJpYbrbeci1yyFU
-   OEXBMtEgyXZNYW0Mw1rbjst4zOiF525UIqaebTWVodBd5z0bSmpssIZnp
-   E+QUUYwdgXkknRWxqlTLH4GHfEUv5rijItZLyMPM35msbJnCqDql1ibqz
-   No1Y573DDizzuoEND3ohpvbDknFnYGWWiCs1PRy2k9G1kYgVvrk6Z7niC
-   IbxvlHg5S7vCGPUois4TrlVVzCQlJA3/Ytr7kNvEYwy+LQWHl3mkVOvQp
-   A==;
-X-CSE-ConnectionGUID: LB19/rE3RvOLOji8xZRaLg==
-X-CSE-MsgGUID: /xDAk4foRCqYXO0BuE8LJQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3607282"
-X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
-   d="scan'208";a="3607282"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 10:30:51 -0800
-X-CSE-ConnectionGUID: bM8RQdVoT++imIzQGKc5ZA==
-X-CSE-MsgGUID: 0Y05uDhPSr+0uVznMctfcA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
-   d="scan'208";a="9775047"
-Received: from chang-linux-3.sc.intel.com (HELO chang-linux-3) ([172.25.66.174])
-  by orviesa003.jf.intel.com with ESMTP; 17 Nov 2026 10:30:51 -0800
-From: "Chang S. Bae" <chang.seok.bae@intel.com>
-To: seanjc@google.com,
-	jmattson@google.com
-Cc: pbonzini@redhat.com,
-	kvm@vger.kernel.org,
-	x86@kernel.org,
-	linux-kernel@vger.kernel.org,
-	zhao1.liu@intel.com,
-	chang.seok.bae@intel.com
-Subject: [PATCH v9 08/20] KVM: VMX: Refactor register index retrieval from exit qualification
-Date: Tue, 17 Nov 2026 18:02:58 +0000
-Message-ID: <20261117180310.921701-9-chang.seok.bae@intel.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261117180310.921701-1-chang.seok.bae@intel.com>
-References: <20261117180310.921701-1-chang.seok.bae@intel.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XTEwdev8
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FF171F000CA;
+	Tue, 17 Nov 2026 18:31:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794940325;
+	bh=LmYgXS2j+OqkL61e2BRHprYvo+imW1RdtkRAOJY6dIQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=XTEwdev8zMecd1RUlqSDNXj6cLrBVe7Q8pv7AG5q6/uv2UObUSAcjfVAYFJu6sHX6
+	 xZSmgL+rE4hTBnAakpe4EQPiXvZjzYREZwIko2MYEPFRkTHU8FfOnpe1Eha++Yi3Xs
+	 Pp5V9+jiQzXlX/nStK+N3ciDtH6uUY2G4mz6hqXmwmINJeY83Q00Lm7l3Irlmg/glQ
+	 Epoen3m3u6GpT5NuK4iQGy32Bis/Vn94E+2qFVJVHmeRwbRCpc/WeLxS7+Xc7z5iZC
+	 PAjafjplhsp5njWM1Act4+W3cKZ8nPm72rAhhN4wUxBph7Ox90JbA3QHxSxEzDYvM+
+	 WURzJPwPRS/5g==
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Date: Tue, 17 Nov 2026 18:31:34 +0000
+Subject: [PATCH v2 3/4] mm/memory: do not report OOM if insert_pfn() races
+ a huge fault
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,93 +53,171 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261117-huge-pfnmap-fault-races-v2-3-276007e73bcb@kernel.org>
+References: <20261117-huge-pfnmap-fault-races-v2-0-276007e73bcb@kernel.org>
+In-Reply-To: <20261117-huge-pfnmap-fault-races-v2-0-276007e73bcb@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>, 
+ David Hildenbrand <david@kernel.org>, 
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+ Michal Hocko <mhocko@suse.com>, Alex Williamson <alex@shazbot.org>, 
+ Peter Xu <peterx@redhat.com>, Zi Yan <ziy@nvidia.com>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, 
+ Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
+ Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
+ Kiryl Shutsemau <kas@kernel.org>, Wei Liu <wei.liu@kernel.org>, 
+ Roman Kisel <romank@linux.microsoft.com>, 
+ Saurabh Sengar <ssengar@linux.microsoft.com>, 
+ Naman Jain <namjain@linux.microsoft.com>, 
+ Michael Kelley <mhklinux@outlook.com>
+Cc: ljs@kernel.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+ Eliav Farber <farbere@amazon.com>, stable@vger.kernel.org, 
+ "Jose A. Perez de Azpillaga" <azpijr@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4406; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=gqH7juwzoon3ftwWqkG3rZSx+Xcu56JBKdW0c7DDkP8=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLL+zO3esO2KcZdcQo/q8aRf385++su83HzxLd0v0+8uM
+ 928PyqhpKOUhUGMi0FWTJHl+Rfx/UEiYfM6L/i7wcxhZQIZwsDFKQATWZ7E8E9Z5gHT6yNNRRLp
+ H/6wrVc78+1eidutteHbVGLfXzdK+v2a4Z+RdDXHcuZI96odK69OK+qTYXs65aFqdupGl5YXjn9
+ S7zACAA==
+X-Developer-Key: i=ljs@kernel.org; a=openpgp;
+ fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 
-Introduce a helper to extract the register index from the VMX exit
-qualification field.
+A driver that implements both ->fault and ->huge_fault must anticipate
+concurrent use of both.
 
-In addition to the VMX instruction information field, exit qualification
-also encodes a register index. This field will expand into the previously
-reserved bit for extended register IDs. This refactoring will simplify
-the extended register handling without code duplication.
+This can happen, for example, if a user calls prctl(PR_SET_THP_DISABLE)
+concurrent with faulting, as that only holds the mmap write lock and thus
+does not exclude faulting threads stabilised by VMA lock.
 
-No functional change intended.
+This is not currently safely handled by insert_pfn(), however, which
+obtains its PTE entry via get_locked_pte(), and treats a NULL return value
+as an allocation failure, returning VM_FAULT_OOM.
 
-Tested-by: Zhao Liu <zhao1.liu@intel.com>
-Signed-off-by: Chang S. Bae <chang.seok.bae@intel.com>
-Reviewed-by: Jim Mattson <jmattson@google.com>
+The issue is that get_locked_pte() also returns NULL if the PMD entry is
+not a page table which can happen if a concurrent huge fault installs a
+huge PMD entry between __handle_mm_fault() observing the PMD entry to be
+empty and insert_pfn() being invoked.
+
+This can result in VM_FAULT_OOM being reported incorrectly.
+
+Fix this by introducing and using __get_locked_pte() which returns -ENOMEM
+if a page table allocation fails or -EFAULT if raced.
+
+This allows insert_pfn() to return VM_FAULT_OOM only when an allocation
+fails and VM_FAULT_NOPAGE otherwise so the fault is retried.
+
+The same change is applied to insert_page(), which only impacts DAX (which
+has its own locking).
+
+This means that insert_page() now propagates the returned error, so -EFAULT
+in the case of a race. It's not possible currently, but guards against that
+changing in future.
+
+Similarly, update walk_to_pmd() to return -EFAULT if it encounters a huge
+PUD leaf.
+
+Target the commit introducing the first driver able to do this.
+
+Reported-by: Eliav Farber <farbere@amazon.com>
+Closes: https://lore.kernel.org/all/20261112051440.16140-3-farbere@amazon.com/
+Fixes: f9e54c3a2f5b ("vfio/pci: implement huge_fault support")
+Cc: stable@vger.kernel.org
+Suggested-by: Jose A. Perez de Azpillaga <azpijr@gmail.com>
+Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 ---
-V8 -> V9: Rebased on 7.4-rc1
----
- arch/x86/include/asm/vmx.h | 1 -
- arch/x86/kvm/vmx/common.h  | 5 +++++
- arch/x86/kvm/vmx/nested.c  | 2 +-
- arch/x86/kvm/vmx/vmx.c     | 4 ++--
- 4 files changed, 8 insertions(+), 4 deletions(-)
+ mm/memory.c | 48 ++++++++++++++++++++++++++++++++++++++++--------
+ 1 file changed, 40 insertions(+), 8 deletions(-)
 
-diff --git a/arch/x86/include/asm/vmx.h b/arch/x86/include/asm/vmx.h
-index def6d3a6d154..3c5019da4b71 100644
---- a/arch/x86/include/asm/vmx.h
-+++ b/arch/x86/include/asm/vmx.h
-@@ -463,7 +463,6 @@ enum vmcs_field {
- #define DEBUG_REG_ACCESS_TYPE           0x10    /* 4, direction of access */
- #define TYPE_MOV_TO_DR                  (0 << 4)
- #define TYPE_MOV_FROM_DR                (1 << 4)
--#define DEBUG_REG_ACCESS_REG(eq)        (((eq) >> 8) & 0xf) /* 11:8, general purpose reg. */
+diff --git a/mm/memory.c b/mm/memory.c
+index 20b818bcdfbc..04a518d6059f 100644
+--- a/mm/memory.c
++++ b/mm/memory.c
+@@ -2383,19 +2383,48 @@ static int walk_to_pmd(struct mm_struct *mm, unsigned long addr, pmd_t **pmdp)
+ 	pmd = pmd_alloc(mm, pud, addr);
+ 	if (!pmd)
+ 		return -ENOMEM;
++	/* We may have raced a huge PUD fault. */
++	if (pud_trans_unstable(pud))
++		return -EFAULT;
  
- 
- /*
-diff --git a/arch/x86/kvm/vmx/common.h b/arch/x86/kvm/vmx/common.h
-index b2905335a2d2..30b0aa9560d5 100644
---- a/arch/x86/kvm/vmx/common.h
-+++ b/arch/x86/kvm/vmx/common.h
-@@ -110,6 +110,11 @@ static __always_inline unsigned long vt_get_exit_qual(struct kvm_vcpu *vcpu)
- 	return vt->exit_qualification;
+ 	*pmdp = pmd;
+ 	return 0;
  }
  
-+static __always_inline int vt_get_exit_qual_reg(unsigned long exit_qualification)
++/*
++ * Map and lock the PTE entry for addr, allocating page tables as necessary.
++ *
++ * Returns 0 on success, -ENOMEM if a page table could not be allocated, or
++ * -EFAULT if we raced and found something other than a page table.
++ */
++static int __get_locked_pte(struct mm_struct *mm, unsigned long addr,
++			    pte_t **ptep, spinlock_t **ptl)
 +{
-+	return (exit_qualification >> 8) & 0xf;
++	pmd_t *pmd;
++	pte_t *pte;
++	int err;
++
++	err = walk_to_pmd(mm, addr, &pmd);
++	if (err)
++		return err;
++	if (pte_alloc(mm, pmd))
++		return -ENOMEM;
++	pte = pte_offset_map_lock(mm, pmd, addr, ptl);
++	if (!pte)
++		return -EFAULT;
++
++	*ptep = pte;
++	return 0;
 +}
 +
- static __always_inline u32 vt_get_intr_info(struct kvm_vcpu *vcpu)
+ pte_t *get_locked_pte(struct mm_struct *mm, unsigned long addr,
+ 		      spinlock_t **ptl)
  {
- 	struct vcpu_vt *vt = to_vt(vcpu);
-diff --git a/arch/x86/kvm/vmx/nested.c b/arch/x86/kvm/vmx/nested.c
-index da73ed81d99c..aebdad142d67 100644
---- a/arch/x86/kvm/vmx/nested.c
-+++ b/arch/x86/kvm/vmx/nested.c
-@@ -6346,7 +6346,7 @@ static bool nested_vmx_exit_handled_cr(struct kvm_vcpu *vcpu,
+-	pmd_t *pmd;
++	pte_t *pte;
  
- 	switch ((exit_qualification >> 4) & 3) {
- 	case 0: /* mov to cr */
--		reg = (exit_qualification >> 8) & 15;
-+		reg = vt_get_exit_qual_reg(exit_qualification);
- 		val = kvm_register_read(vcpu, reg);
- 		switch (cr) {
- 		case 0:
-diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-index e6d77508dede..032c8988d50c 100644
---- a/arch/x86/kvm/vmx/vmx.c
-+++ b/arch/x86/kvm/vmx/vmx.c
-@@ -5698,7 +5698,7 @@ static int handle_cr(struct kvm_vcpu *vcpu)
+-	if (walk_to_pmd(mm, addr, &pmd))
++	if (__get_locked_pte(mm, addr, &pte, ptl))
+ 		return NULL;
+-	return pte_alloc_map_lock(mm, pmd, addr, ptl);
++	return pte;
+ }
  
- 	exit_qualification = vt_get_exit_qual(vcpu);
- 	cr = exit_qualification & 15;
--	reg = (exit_qualification >> 8) & 15;
-+	reg = vt_get_exit_qual_reg(exit_qualification);
- 	switch ((exit_qualification >> 4) & 3) {
- 	case 0: /* mov to cr */
- 		val = kvm_register_read(vcpu, reg);
-@@ -5817,7 +5817,7 @@ static int handle_dr(struct kvm_vcpu *vcpu)
- 		return 1;
- 	}
+ static bool vm_mixed_zeropage_allowed(struct vm_area_struct *vma)
+@@ -2497,9 +2526,8 @@ static int insert_page(struct vm_area_struct *vma, unsigned long addr,
+ 	retval = validate_page_before_insert(vma, page);
+ 	if (retval)
+ 		goto out;
+-	retval = -ENOMEM;
+-	pte = get_locked_pte(vma->vm_mm, addr, &ptl);
+-	if (!pte)
++	retval = __get_locked_pte(vma->vm_mm, addr, &pte, &ptl);
++	if (retval)
+ 		goto out;
+ 	retval = insert_page_into_pte_locked(vma, pte, addr, page, prot,
+ 					mkwrite);
+@@ -2865,10 +2893,14 @@ static vm_fault_t insert_pfn(struct vm_area_struct *vma, unsigned long addr,
+ 	struct mm_struct *mm = vma->vm_mm;
+ 	pte_t *pte, entry;
+ 	spinlock_t *ptl;
++	int err;
  
--	reg = DEBUG_REG_ACCESS_REG(exit_qualification);
-+	reg = vt_get_exit_qual_reg(exit_qualification);
- 	if (exit_qualification & TYPE_MOV_FROM_DR) {
- 		kvm_register_write(vcpu, reg, kvm_get_dr(vcpu, dr));
- 		err = 0;
+-	pte = get_locked_pte(mm, addr, &ptl);
+-	if (!pte)
++	err = __get_locked_pte(mm, addr, &pte, &ptl);
++	if (err == -ENOMEM)
+ 		return VM_FAULT_OOM;
++	/* We may have raced a huge fault, if so, retry the fault. */
++	if (err)
++		return VM_FAULT_NOPAGE;
+ 	entry = ptep_get(pte);
+ 	if (!pte_none(entry)) {
+ 		if (mkwrite) {
+
 -- 
-2.53.0
+2.56.0
 
