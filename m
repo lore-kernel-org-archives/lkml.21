@@ -1,90 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794942743;
-	b=5cqnLKxdR1V4WxOljE7WF060DHlV4z7Czc7S7AqAZ4Ost8wrB09BvYsetZd3Pc3669le
-	 QwTIZYMq21ikhwse5ZADhjUhyCgZuPx4lWhMpdUbbeCkYew6mU7HedgNjNCsPT0v20MDy
-	 5GqJ8IBkBPsIBAMzM9RTQ3bEPfmkYt6gp1c+PSXKCig+hG3uj1LmJL4SdS412t/8FIAMB
-	 k1LUQmoSnNLOYb9nMpEtpYe6R+aeQAG84KyrweWH4OxtohmoAmqBnv9zVfSKDJb+wOx17
-	 rbm0zbvI0r9HQvYXYKgEhAMM1FSYZ7R9lbey8hArhfKSWnSCZCZxN8NVPv6NWFCg5Gg==
+	t=1794942760;
+	b=HFnlbZxi73LbUx+tflr0LIaNhgLd+8VG6lwWa7/o9/WAujwH/MtrYITtDxzdKt3eS/Ep
+	 cDCEqnlc5k1JCEHK1E7baHScq6Q1v3EKmJke2TjoX8a4JrMLlVttptVSTHbijcX+H/Nfz
+	 BXL/jej5aVfsN+1nYzfkf3cBIRcGCqbZxbUlB7vBbuIu6jO8JFl7NqJ3Ewl7HKL6xj2Wr
+	 lUoJ8hC1D3OyBg4QAnpl2tEhspiG+WhfRUOJ19H+bG6N2TWiXVQZxnWVEoA6ovYrMv2iK
+	 uZtFRhOkP6Nr/bp7EN4Ep5fx+eaDiDNS+UW0OVYAbYH2wPIEABFFan5RD7hreUAnmGw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794942743;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:X-Forwarded-Encrypted:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=fEyRTCIvFn0qfVWEf26UkSN1N6cLWQriDiBDA0wCb/Q=;
-	b=4OaZuTpFoO5zE1SGT31tcRZ7Bzy7sDWdkHmDcEBamXE0WKrGNpPlvmfNHCb6OfNwUxHk
-	 0/0n25Zb7wzRsf8EhF7wBD3uKg2VImHskCK90kknOFop1xC73hzc27swYwL+LryO94iCt
-	 53muf58mZ2uNpV/tUysH8fcO8jLf1EOlbAjk/KTJRbl/Hk/Dcgn1xDGmUhGRkrZyBpIEJ
-	 u5974l6VNG7OWcW9jIafI8d0n2ZeHHIZ0KFo+gqOAchUixLn7KWoYaTsErtCG3/X0TFQg
-	 2dfzNGzNXwLwyo7RPhuhaSIkRZffhssYO4ZGpzAOsEzSVAV8fmJSXz2h6i1ZWzB2Lpw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794942760;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=wwK8f1ftDI3JQxElQgoHCVKxTh4XeAHbtI8cNy1B1CA=;
+	b=EEob4gskU1rXXoZK6UzbEZaXV7zhgWQJA6hMKAAA+F5fPdf5A46bFcE3qWOmr6N2SahW
+	 /GnGSKNU20R62gnWuejPRNaJCIaqObPfT+GvKfoMcRSVlSdHy4fccDQkcvk/iqH2KBOcR
+	 CDQdrbl+M/9L/ZEBQqkeLAtaj71YC/iJoP+RV7tV48Y1kDFXz2v/woOT0GnDqhc2coIEV
+	 12XoVc9LyOHXSp7PnrnhKbMVZW7fTyYTrf7GHaLZUIyWdRIzJ81TjEdtvOFbFBZQ6fQz2
+	 CShGcihIEBxsw1RDWmmTiczv16BniMjJvzyB5h+Pjq5ni3od0pGvvpJVmyhsLIfTL2Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=linux-foundation.org;
-	spf=pass smtp.mailfrom=linuxfoundation.org;
-	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b="PyIFowp/";
-	arc=none smtp.remote-ip=209.85.218.41
-Received: from mail-ej1-f41.google.com (mail-ej1-f41.google.com [209.85.218.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=CbAWBNH9;
+	arc=none smtp.remote-ip=198.175.65.9
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.9])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C5ED606A32C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:12:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C5ED606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2301606A31C;
+	Tue, 17 Nov 2026 19:12:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2301606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=PyIFowp/
-Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-c4d21051042so10809866b.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:12:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1794942741; x=1795547541; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=fEyRTCIvFn0qfVWEf26UkSN1N6cLWQriDiBDA0wCb/Q=;
-        b=PyIFowp/MC9EHblJR/FjgB+sBQONj45OomIR1TSjzp7yh8agarQzuwsas3cgGxvvGl
-         iOJ7B0po7o6og7HEn4P3FJHdRvIDddDHKwoZmtYm55ZDX6n2Ue9ZA75FKueTdk4xauNG
-         p51PruNslE5UsNVe+eoGlydvV2TDN0teZuy3w=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794942741; x=1795547541;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=fEyRTCIvFn0qfVWEf26UkSN1N6cLWQriDiBDA0wCb/Q=;
-        b=GfjVsF7Eij7QOS77rVPNXZ03juTlcTdMw+FKY3exeCKqO9b79rTf5VS6G7beKvM9kX
-         nYsdLhoHH6sVZMcqUwFl0RHtSpuZold5upkerdu8Aw0SFNnB19s7zvYB1ep4RJxFSXTF
-         CjsyUfsz8Lv0mA7LYs/Z7KNtfRGtBfAsVIe5FDcvxtoE62guG3onE7H3qMJquekd4Kwq
-         Qexvzo73ix2iaBcJLsmMYed73aEo68stOrBmgKbkuyNpR2yFckoA+RxlKcXP7rcihMrG
-         +h2xYJmUT2FUrGBHxNLONXDk5hIIRwF9I7Cl53hWirfNgZXBtO2lucd4Aqxc+6wPf/fI
-         AxZA==
-X-Forwarded-Encrypted: i=1; AL+hErGSuaCQE/HM8Xc1xk7qeRilr9FD8rnaBuhVjiUffDj4B0uDY3+tjxj0XCjw/cBOjwZqpYQ72AzA3bP1bkc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9JvFJpKMAtatqxJmybeCJUcprg49sn6DGv1CFNmXgps1oM00Cl
-	fG5ohgPQzsuPIumQQck0cApINWTxeEvwVq9IsxpS7RTQM6yi8Xnsh5CGZE8x5lFpACwag/WINc8
-	mTtnZBcbkzA==
-X-Gm-Gg: AYBFou0pnLJSuthUVepps9XiM7zp51hOBBi8a4c2rUUbQbjOzpJIu5noFkHg+NnmiJt
-	mYcIenpGfaTF3/BuRqZoSfa+mXbQLhJbfOag7RXQIc8LJH9ZOKl88o3g6ySPGW+2jkNvaKLFeDP
-	e3n8uDBMHRUbDt8Kn/1PKhXjzDz1Y/2naMcJ5lfCSsxD1FvhqktAvFCRwn/eQtRLsk2uxvEhK93
-	BphQjnGsj4rhq2BOE3SP7FQyClFkjUi4nTzRIliLcnzlWCQFS4bWq6ajyVLvn4Kttkvo4fOebOK
-	BIh7sVWhenFTdBZyQ0jo7lqVFsFIqMZjWbMFvifLimEH4CfphIhnBqhMJqP+bC6O8jB7C6pSTGB
-	+TcQRobxSXAE2c2fWojsRfcYFL+BqOYjRZ+i8ToHhUIChi9yVWS22Iu6ypgMt1rEvohUA9EWuQo
-	1ewYadSBOo/67hnRfFQZjFE3I4Y9omMWbCjeLWQ2n4n361ZMvM+ALUVRb7j3otz4eVokGo/hbYR
-	dne6V8nrdVke9mPzXHi5QjFYIi4uSAqrZ66LxeKHroQh5PYQBTYcJAINKtk6//a9FACbT2XBEAI
-	kwQzHT804p0Lx3XwnXj7NDugfeJ3hPrX0mnQtwIeVsrt+NF68XtvAtGg5qnkusIFRGTBgUHZPj5
-	3W4U=
-X-Received: by 2002:a17:907:6095:b0:c51:908:fe70 with SMTP id a640c23a62f3a-c510e4c4f7amr16889666b.43.1794942740787;
-        Tue, 17 Nov 2026 11:12:20 -0800 (PST)
-Received: from mail-ej1-f43.google.com (mail-ej1-f43.google.com. [209.85.218.43])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c510cb84136sm13078366b.87.2026.11.17.11.12.19
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Nov 2026 11:12:19 -0800 (PST)
-Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c505186727fso6336566b.3
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:12:19 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHq3BSkOgGpzUySVkEZNmTF8n3anFnF97CFCxbjv7cClPPRlFUyfBLdeSz1M/kJ1any9TkEwGhqkmzHhis=@vger.kernel.org
-X-Received: by 2002:a17:907:d409:b0:c40:3a99:3f96 with SMTP id
- a640c23a62f3a-c510e162740mr19765066b.10.1794942739071; Tue, 17 Nov 2026
- 11:12:19 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=CbAWBNH9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1794942760; x=1826478760;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Jc/NclmTD85NteXITn7QacW3p6/ESnNHfFIdkZY4kIw=;
+  b=CbAWBNH9ttlhYfsgXkWyRbn7cj+iHfTbvRGD8O5EktalpfktATz2p8t1
+   5LM++QXQxxpJeVrsqQRls3eFQHin4wurH66vfQyQ80uD2jWaLYZSlGE6w
+   DHUHrk7SzNB3iD0bZSCseI4FtqT8050XMPQkMcs1dAbkIKjrYEGZmQC7x
+   Di/16sgZEBPD2TNKXmjqodjw/LAFjyM9bOC/dVTOzh/aydo0D8aZQ8vJu
+   vf6gyjECILxXI7rXnyifnKQDn2UNnc0fPFmSo/knkc5s6kWHWy4lmRsen
+   tyWoIFsLTimltpCFyr7seASAt4jfFAg08iv44cibfJY29NgR+HG073ejr
+   Q==;
+X-CSE-ConnectionGUID: uC9ZHX64R4CayYI7VfhNqQ==
+X-CSE-MsgGUID: uxyoNpSITxKhO6x2soDAaQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3581445"
+X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
+   d="scan'208";a="3581445"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 11:12:40 -0800
+X-CSE-ConnectionGUID: 9Do1u1TBRhO0tsLUrh9WEg==
+X-CSE-MsgGUID: wcnQ2b8rR/CA7BreRp7SwQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
+   d="scan'208";a="10170484"
+Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.254])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 11:12:37 -0800
+Date: Tue, 17 Nov 2026 21:12:35 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Arnav Kapoor <kapoorarnav43@gmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Gwendal Grignou <gwendal@chromium.org>,
+	Stephen Boyd <swboyd@chromium.org>, linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 6/6] iio: proximity: sx9360: reject negative hysteresis
+ values
+Message-ID: <avynI5oa5e2K64qH@ashevche-desk.local>
+References: <20261116205320.26070-1-kapoorarnav43@gmail.com>
+ <20261116205320.26070-7-kapoorarnav43@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,42 +85,31 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261111-pipe-epollexclusive-wakeup-v1-1-0af6283e9fda@columbia.edu>
- <avxWKI795DthE8Sb@redhat.com> <CAHk-=wjOq+G=6gte4vX_YxOD_VfE1uZh7=+KHs8N0wU75xyHEg@mail.gmail.com>
- <avyODoFhZ_M7YDU5@redhat.com> <CAHk-=wgcBSBtHE+3ceKGjq1jyF64OyoEqf5JPpixowAa80GqNQ@mail.gmail.com>
- <avyVwg-5ef-pXZkG@redhat.com>
-In-Reply-To: <avyVwg-5ef-pXZkG@redhat.com>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Tue, 17 Nov 2026 11:12:02 -0800
-X-Gmail-Original-Message-ID: <CAHk-=wjJF8uZLfVbbqei9-fhs9K70i2OnVreCV-rQF9EGKAxJg@mail.gmail.com>
-X-Gm-Features: AclHuK9dpUSJoar-8-Rd_ibx448sJ7TbrjnfHX7r-45ghAgtBLw1mawjEAbP-so
-Message-ID: <CAHk-=wjJF8uZLfVbbqei9-fhs9K70i2OnVreCV-rQF9EGKAxJg@mail.gmail.com>
-Subject: Re: [PATCH] pipe: keep per-write wakeups for EPOLLEXCLUSIVE consumers
-To: Oleg Nesterov <oleg@redhat.com>
-Cc: Mani Tofigh via B4 Relay <devnull+mt4022.columbia.edu@kernel.org>, 
-	Breno Leitao <leitao@debian.org>, Christian Brauner <brauner@kernel.org>, 
-	Mateusz Guzik <mjguzik@gmail.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	tz2294@columbia.edu, stable@vger.kernel.org, 
-	Mani Tofigh <mt4022@columbia.edu>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261116205320.26070-7-kapoorarnav43@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On Tue, 17 Nov 2026 at 09:58, Oleg Nesterov <oleg@redhat.com> wrote:
->
-> On 11/17, Linus Torvalds wrote:
-> >
-> > So what we could do is to just make the pipe code open-code its own
-> > wait event logic, and add its waiters at the head.
->
-> perhaps... and we already have WQ_FLAG_PRIORITY, but we can't re-use it
-> without more changes...
+On Tue, Nov 17, 2026 at 02:23:14AM +0530, Arnav Kapoor wrote:
+> sx9360_write_hysteresis() copies the value into an unsigned int before
+> comparing it with the threshold, so a negative value becomes a large
+> one, passes the "val >= pthresh >> 2" check and sets the largest
+> hysteresis instead of being rejected. Return -EINVAL for negative
+> values.
 
-Ok, I looked at this, and it gets ugly, and I'd worry about the
-unfairness. Yes, the unfairness probably helps throughput, but every
-time we've doen that, it ends up being a starvation issue for some
-case.
+...
 
-I think "ignore it - bad epoll actors get to use both broken pieces"
-issue unless somebody comes up with something nicer.
+>  	unsigned int hyst, val = _val;
+>  	int ret, pthresh;
+>  
+> +	if (_val < 0)
+> +		return -EINVAL;
 
-             Linus
+Same issue, checked variable which value has already been used.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
