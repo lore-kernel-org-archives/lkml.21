@@ -1,103 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.172
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794956928;
-	b=Xl2/NPuwgNVMm3kFrduR+EeumpIU1RVu6N/X+8dCbjOFH+T0ApgvnH+NYTeY5FCbWYtg
-	 dSU+Nje8qGOSFyfIRQ4PJHxyhI8/t1cFQNi6I2L7coZezu0/Z63uxm1N8NcLO2sGAQSj8
-	 HOR+HEjvGTeNW1GnlJoraw+vWT0ijLtB9hLA9Z7RJyMGJXdC639KC55pIABhDwPxF72jD
-	 vV4omlzZFMuOntDA3Mci2bTaXAo0ydMSOgKNnGBgfIRkUU28+8JdgW59ZYWX7IFYD04sO
-	 raYtRaDoekedaM0V+km1pqLdaiLvgirrMJoNYifwa1kli+TbYEBG/n1UPBFhp5wZoYA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794956928;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=c5oD0tLMxNN+L1nREdH0vs+Q+g0/BB/zfqPp5PmXkHo=;
-	b=d6fR0J2JoZgMIILipJcZa7awOODak2YKIXnMWX0hd3/FQtSotOavFFErCSj3lNwx+MhZ
-	 5/ZiO/ZMyZ8iJo2thvgvlsd0S5ivSs2QlKUGJ77ybnUl6lqf4aZoy6yUZXk2A2RaDa07O
-	 S08xMj6x3HKyrBKll2oEOcO/JWS+00Fh0bNhGIOouppf5ePZW+RAo0LFt9gQl8/hiBH+q
-	 7yLMsrtxcbhyic97KrkCgZz5MIG7B2MopdIJ+bTqrY5z5Cgp92MnTQrnJQ5Ttw9FRUD5/
-	 XJiq6S6+4xtxvP+wsjgjxDKQPKnljnL2QAnUdzdAV3ww6ivlDtfRzOkt/TBQXhQ2p7w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Tv5L2OH1;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.172
-Received: from mail-qk1-f172.google.com (mail-qk1-f172.google.com [209.85.222.172])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794956965;
+	b=446/Ta5ILhhqXRest0ELYtoQ8khT+wq9iU99lh9tjI2bLmHlTRLftx1f1roqRGdIIjr1
+	 GkCq34dJM2ULncluFR6BtyFj+CeTv0gMxSqc7XR/tZh4CZ6srwAyE/rqjVqF2gDZlaxdS
+	 sPB5CkbmZ1rzTk4rhJDsvNXDNwnh+LcjTrHvRzKv+uwJkaIp39L4DTgoLyz+8XPVcwQFz
+	 5eNxv5LOfKl7zyp7T8gWkCJKrycULnVBksMtbxfQ1U8DGKf2SqDt9Qu51UOD8ICFqc8Hu
+	 A0MCoQoY1uyxT2kGqidGfq5mGrarNetokSZ+rf1br8hkczo3Gz72GVYKNNXjQlcoxpg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794956965;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
+	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
+	bh=dFkPeqI1YsZpwMuujURc1wVh0W1MRwBf/9b3hgnBI8M=;
+	b=BfGhRseVTSo7A5Y28ZcXHNm6j87FJjb4EmEMmy6aTF7+UwqTHyScEpQPdkUzG1Lj94IS
+	 SngSCDtxnMz8A1aV3kcEEuYGETPJjRdDYg8pmBD6BI/Gvy9QpqazbHGsKXRLAlwXEHV53
+	 /7hgV/9FTGpok0QntpU42I3rDfcX3pOjQz3Rimldbe5kfXkeekA2gFlGWujQnBkMknLIC
+	 Nxc0iVD9ABmfe60qWh7KjrD7oJJwZtnthdBjHsxLc1URv2zq5QuaIQDI7gSNMLgcfOY7i
+	 QRNiIq7qISO9FDmn/qSuwPF7ioNe9Ftstj9G0NSpekPOJ69oxsXL8W4Jz+brP2/HRmg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=U0V3eQPb;
+	arc=none smtp.remote-ip=198.175.65.12
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4393C606A31C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:08:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4393C606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F4161606A31C;
+	Tue, 17 Nov 2026 23:09:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F4161606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Tv5L2OH1
-Received: by mail-qk1-f172.google.com with SMTP id af79cd13be357-93f269e335eso47243585a.3
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 15:08:48 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794956927; cv=none;
-        d=google.com; s=arc-20260327;
-        b=by3eyeCwMnEPoRmCJek78Jz2GjkuBvPXSs+06Ja58n9eBLKwKj0M9Oq5gi7JftB0Nv
-         ZniAFJ28LyXF44seykF/5AAKbB2nbUvWHIord6oCu3KE84iMS8VNBHaq0BUo9hgXpDkJ
-         Bdv/yLYp5u9WCRIHABPyISk9WcEBev8wSTnMmcytnZjLJfSfP3dgucgv72BHXfiB6GYo
-         MclJBUP24vPavjFKl74j6x9UA+Sk/mPqV7IjAWVyfH69wl4ZDz4r+fNyu4nqzGgaVlA6
-         YweX5D/yKZd6Qibj2xmBO19HbwfaaTVvafsKuKK9ma5hQkt98UkDvkjXnA27Bl0n+dxt
-         ieUA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=c5oD0tLMxNN+L1nREdH0vs+Q+g0/BB/zfqPp5PmXkHo=;
-        fh=ScvgSf8pwyI5DO4HK3aja+vsq3E+FcY0f1sKXPyqr9o=;
-        b=InJk6+1Zw/xTYKCyJhcCp4N0szs0hX6rKHfeBbuxgUMKchoRa21+B3UfwQaX961PtH
-         WHylnrnPkjc3Y2YlKCeI4CLmxsRwEWtZTjwRhLGfA7efh7DhbtownAYOB3YXeHp9ohd9
-         ceO+4gzAldUaUaYSb2OApG1xl1bBfIKqiPs56N/EXbieKKbdWfD/9vFb3pHYwxqG3JF9
-         bco2DpD+ne1THRF0iipsuYB0gaPqljASJBUwdKJWliD5nj0umpjLkc+5dgg4Rlj+C3Xh
-         kuHshKTJRbWAtUAPdpWdQd3r/YKEwsttBM9n9A83ZfKUVFtOj3zJpS1NJ/gBvjzPCt2r
-         MoPA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794956927; x=1795561727; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=c5oD0tLMxNN+L1nREdH0vs+Q+g0/BB/zfqPp5PmXkHo=;
-        b=Tv5L2OH1FQpdOSFR3ZvqD+zPqDpGvd4wbf71Cu/yrag1dW1t0h4FG6jYLxaoyMi72d
-         UwvNOB78cpsZPgBd21kka2hA0sSG/6nRwSdZnGPJu7QZoBDat/c1Ve0prfridK6Knyn4
-         ckFi9dB5sEtfUGFlv2fOkkkwrUAxGd5WaO7nSfQLS/PuYhK3RWeojpHpS/W4vHq9A+1D
-         zj72iiFpbWFlt3MPfrkQvFLnONhyzEwbzKq3zINBl0ZGArn8PdZye51aw3rCON/ObgX2
-         +x98YmkqReMGOg2bNRqKPOkKuFUsi3jI2K4M3QnpRK29kcfBr6Rryi6zUUwUsP2BbCFi
-         ebZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794956927; x=1795561727;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=c5oD0tLMxNN+L1nREdH0vs+Q+g0/BB/zfqPp5PmXkHo=;
-        b=fq/QMfPmb3Ozd950tU/1Gpd0MG8jUHsHsvIo1bz9weU/WcLeHDPoGydZJpN0pi0D8E
-         A6x+cQirMEjJjGW5fipBnizvYiaOlzEMDx0+lACK7thQdGINL62Ut4FTZDzqgZ5zELnm
-         rydIee6ZHv1SvBBv0zm+Jj9E83DWiVAURBzw/MlvwxPL0vZSJmFeNdtFOrOy7xnUPxBZ
-         UOPX++RcTiDpTi/Uu7l7r06CstUWZHrGNFXNE3Yw4HaR5c9fKQA6+7Bk8cKhVc3YFj1v
-         8YEMFWDhCpOSs13PtxwJAbx8gmx2Nfq70kiwIaa6yYUXLkDTwY6HzfWygWEFbEFnzYUA
-         NLEQ==
-X-Forwarded-Encrypted: i=1; AL+hErGFcwPI38mzQGToBL0/8rTv+0vRRbaexTqdNWbooMBHJQk7DElU1oMzEQgxwVjA+gXxcZU6/wxQuQZf6Mg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/9bhxa4LVQUzzzCLajGG+bEk6tdiFMWRbkoCRSTtD+sqGZKdQh
-	9oXLM+TfociLGgizbMJgq36b9aqwRVRuQPl15sRgTVUKxmXoP3lRtJPrDkSGaD6FTa4lIaxfEhU
-	ZC9NxJsLR1D85iI9NsnlNrWe1LB4jAW0=
-X-Gm-Gg: AYBFou2wf9B3cu0qlX2zoFKqeIxzLJgtx4vSBO+7zan5R6KDnxOvtzrNXanmyGwdPDi
-	mAAAvWVw5BC7cL5JvHDA4LYglYXczZbDbmvEzIaap5YGX8z/H7wvyqNN4EZUhTla6jcJ16Kdn6n
-	7uM4UTTCTR7zg0aA6V08K0AhFV4AxJbGtbemmQPY5AxSCrGSb0DgRuZOv/ZHduv3ZWtiGS/PYLb
-	Q6VKlLtfCDS31ow0wtIpBgtzcK/UojibjbdCrW9I6kOGmmMUFzZ3melD3e0yLjliK12zNHG4uB1
-	P1RRiX75qg2awB7eQ/Up2btMN6SAxaIPlZGnZeeWxfMJRpiLmcTDmADbzf4MHh1Swh3CwJejot0
-	x7nfkzNn3MVBCiZXWJis0/pnIOhXlbbKx6xbpEJRE2JBd8PtbdoK6rZVbS8OTwZd6jK673emxTG
-	y1KX1cY9/DvaeOl3j4K7t6g0ElQhm01DbnerTmH3Ns/4j//E17ZKjoeHISwIVehMMauMOG3ZWHE
-	ucymXPpUbfF1JlV2UDnM6JBX3mCQdwUKYBh2PrV3kBW2ikFY/68CfeBUiLXqA90k2DXKD8a6XyQ
-	gRRjwzsqLmEL
-X-Received: by 2002:a05:620a:46a6:b0:949:64c2:1630 with SMTP id
- af79cd13be357-949995d909emr225332085a.47.1794956927022; Tue, 17 Nov 2026
- 15:08:47 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=U0V3eQPb
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1794956965; x=1826492965;
+  h=from:date:to:cc:subject:in-reply-to:message-id:
+   references:mime-version;
+  bh=ibKdoUuCga2+n4HXehZ/zu9gXI8pFOg/f+UavUylCEk=;
+  b=U0V3eQPbZngUyWZz7DjYfxeE7cMhPJw9cC3CZLdjtUKzTm2XTOLxB1A0
+   GmbDH9XxyiXjxMp9mZk2GpyQLB3HtKR37KtMEdqYFJ/laxm06wFmUoLjt
+   yyf4Y7Lks2C/J1d3dizyDV5HwWbW+dua8NZvNcR8/Po/cvGLHG80d8wEj
+   rQz2VZdBgAHaXDCNd3RAA0K950muUW7GUaXlKlKqHs8JBrEZulawrOkk6
+   q9ztQbLWiETUGpS+I1hSYNnIkWHoinslmw3iZB6Zw8Re5K2Igy+QWcH7G
+   gOZCfqnLiqRAAHl4NgQaWQEdvwqQeLoM28zPIpnniF7uFnfdFFVYLTgVf
+   Q==;
+X-CSE-ConnectionGUID: 0vLjLevnRpSau51iC5GOZQ==
+X-CSE-MsgGUID: Zdc3Tc5ZRmGe7XWHfQUvng==
+X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3633081"
+X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
+   d="scan'208";a="3633081"
+Received: from fmviesa011.fm.intel.com ([10.60.135.151])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 15:09:23 -0800
+X-CSE-ConnectionGUID: oo2SD/NsTM6za1MGSbWH6Q==
+X-CSE-MsgGUID: pDsslFIHTye8x2DeCOgHyg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
+   d="scan'208";a="11780726"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.79])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 15:09:20 -0800
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Date: Wed, 18 Nov 2026 01:09:17 +0200 (EET)
+To: Armin Wolf <W_Armin@gmx.de>
+cc: Hans de Goede <hansg@kernel.org>, platform-driver-x86@vger.kernel.org, 
+    LKML <linux-kernel@vger.kernel.org>, teolyub@gmail.com
+Subject: Re: [PATCH 1/2] platform/x86: dell: Add new dell-wmi-pega driver
+In-Reply-To: <848ebb18-b9bf-4747-9403-fa8da4fba2ad@gmx.de>
+Message-ID: <25490090-1d6e-725b-04e1-659faec01db2@linux.intel.com>
+References: <20261117214604.397131-1-W_Armin@gmx.de> <f71860dd-cf85-ddd9-8e47-7279205f46ab@linux.intel.com> <848ebb18-b9bf-4747-9403-fa8da4fba2ad@gmx.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,108 +78,380 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117164756.97065-1-jain.sm@gmail.com>
-In-Reply-To: <20261117164756.97065-1-jain.sm@gmail.com>
-From: shashank Jain <jain.sm@gmail.com>
-Date: Wed, 18 Nov 2026 04:38:35 +0530
-X-Gm-Features: AclHuK_stX8rGF7FB55S1t8qyAd5lXqjdL2y4CcMcGEKh7vJZTeOKIecSE-swS4
-Message-ID: <CA+FWx=nHkuDf_+Wq4Zk6BuxKcC=EwcmZsVVviyQj3WyXF5EbHA@mail.gmail.com>
-Subject: Re: [PATCH] iomap: fix offset truncation in iomap_fill_dirty_folios()
- on 32-bit
-To: Christian Brauner <brauner@kernel.org>
-Cc: "Darrick J. Wong" <djwong@kernel.org>, Matthew Wilcox <willy@infradead.org>, 
-	Brian Foster <bfoster@redhat.com>, Christoph Hellwig <hch@lst.de>, Carlos Maiolino <cem@kernel.org>, 
-	linux-xfs@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/mixed; boundary="8323328-122444894-1794956957=:1563"
 
-One correction to the note under the ---: it was Willy Tarreau on
-security@kernel.org who asked me to post this publicly, not Matthew
-Wilcox. Sorry for the noise, Matthew.
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
 
-Shashank
+--8323328-122444894-1794956957=:1563
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: QUOTED-PRINTABLE
 
-On Tue, Nov 17, 2026 at 10:18=E2=80=AFPM Shashank Mohan Jain <jain.sm@gmail=
-.com> wrote:
->
-> iomap_fill_dirty_folios() turns the page index at which the dirty
-> folio lookup ended into the file offset it returns to the caller:
->
->         *start =3D (pstart << PAGE_SHIFT);
->
-> pstart is a pgoff_t. On a 32-bit kernel the shift is done in 32 bits
-> and the upper bits are lost for every offset at or above 4 GiB.
->
-> XFS uses the returned offset in xfs_buffered_write_iomap_begin() to
-> trim an unwritten mapping to the range covered by the lookup. With the
-> truncated offset the end of that range is below its start and
-> xfs_trim_extent() leaves a mapping of zero length. iomap_iter_done()
-> warns about it,
->
->   WARNING: fs/iomap/iter.c:38 at iomap_iter+0x33c/0x36c
->   WARNING: fs/iomap/iter.c:39 at iomap_iter+0x34c/0x36c
->
-> and iomap_zero_range() does not terminate: a mapping of zero length is
-> what the iterator takes for the start of an iteration, so it asks for
-> the next mapping again and again without checking how much of the
-> range is left.
->
-> On i386 with XFS (4k blocks) this is enough to trigger it:
->
->         fd =3D open("f", O_RDWR | O_CREAT, 0644);
->         fallocate(fd, 0, 5ULL << 30, 1 << 20);
->         ftruncate(fd, (5ULL << 30) + 1000);
->
-> ftruncate() never returns. The task spins in iomap_zero_range() with
-> the inode locked and does not react to SIGKILL. A write behind an
-> unaligned EOF which is in an unwritten block above 4 GiB fails with
-> EFSCORRUPTED instead, after "XFS (vda): Access to block zero in inode
-> 132 start_block: 0 start_off: 140002 blkcnt: 0 extent-state: 0":
->
->         fallocate(fd, 0, 5ULL << 30, 1000);
->         pwrite(fd, buf, 100, (5ULL << 30) + 8192);
->
-> The same calls work below 4 GiB, and v6.19 behaves like v7.3-rc6.
->
-> Cast the page index to loff_t before the shift.
->
-> Tested with an i386 kernel in qemu and XFS on a virtio disk: the two
-> sequences above hang and fail without this change and succeed with
-> it.
->
-> Fixes: 395ed1ef0012 ("iomap: optional zero range dirty folio processing")
-> Cc: stable@vger.kernel.org
-> Assisted-by: LLM
-> Signed-off-by: Shashank Mohan Jain <jain.sm@gmail.com>
-> ---
-> Prepared with Claude Code (Anthropic), model Claude Opus 5.5
-> (claude-opus-5-5).
->
-> First sent privately to security@kernel.org on 11 October; Matthew
-> Wilcox asked for it to be posted as a normal patch. Sorry for the delay.
-> The code is unchanged in mainline, so this is the same fix, rebased on
-> 666539eecdf4.
->
->  fs/iomap/buffered-io.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/fs/iomap/buffered-io.c b/fs/iomap/buffered-io.c
-> index 6d843b1..846f87a 100644
-> --- a/fs/iomap/buffered-io.c
-> +++ b/fs/iomap/buffered-io.c
-> @@ -1735,7 +1735,7 @@ iomap_fill_dirty_folios(
->         }
->
->         count =3D filemap_get_folios_dirty(mapping, &pstart, pend, iter->=
-fbatch);
-> -       *start =3D (pstart << PAGE_SHIFT);
-> +       *start =3D (loff_t)pstart << PAGE_SHIFT;
->         *iomap_flags |=3D IOMAP_F_FOLIO_BATCH;
->         return count;
->  }
->
-> base-commit: 666539eecdf4db623f5e3c3e55cf9f2dfad24aa4
-> --
-> 2.43.0
->
+On Tue, 17 Nov 2026, Armin Wolf wrote:
+
+> Am 17.11.26 um 23:17 schrieb Ilpo J=C3=A4rvinen:
+> > On Tue, 17 Nov 2026, Armin Wolf wrote:
+> >=20
+> > > A user has reported that the WMI hotkey events on Dell All-In-One
+> > > machines need to be manually enabled on some models thru a separate
+> > > WMI device. This WMI device seems to be present on many other models
+> > > but has no effect on them.
+> >=20
+> > Can you rephrase this to not textually depend on "user" or "user's
+> > report", just state what the problem is, not how you became aware of it=
+=2E
+> >=20
+> > > Add a small driver for enabling support for this WMI device. This
+> > > enables the HDMI Input key on the Dell OptiPlex 7400 All-in-One
+> > > machine.
+> > >=20
+> > > Reported-by: Teodora <teolyub@gmail.com>
+> > > Closes:
+> > > https://lore.kernel.org/platform-driver-x86/0TZENT.54P2IBFQRED22@gmai=
+l.com
+> > > Tested-by: Teodora <teolyub@gmail.com>
+> > > Signed-off-by: Armin Wolf <W_Armin@gmx.de>
+> > > ---
+> > >   Documentation/wmi/devices/dell-wmi-pega.rst | 82 ++++++++++++++++++
+> > >   MAINTAINERS                                 |  6 ++
+> > >   drivers/platform/x86/dell/Kconfig           | 13 +++
+> > >   drivers/platform/x86/dell/Makefile          |  1 +
+> > >   drivers/platform/x86/dell/dell-wmi-pega.c   | 93 ++++++++++++++++++=
++++
+> > >   5 files changed, 195 insertions(+)
+> > >   create mode 100644 Documentation/wmi/devices/dell-wmi-pega.rst
+> > >   create mode 100644 drivers/platform/x86/dell/dell-wmi-pega.c
+> > >=20
+> > > diff --git a/Documentation/wmi/devices/dell-wmi-pega.rst
+> > > b/Documentation/wmi/devices/dell-wmi-pega.rst
+> > > new file mode 100644
+> > > index 000000000000..935c8511594b
+> > > --- /dev/null
+> > > +++ b/Documentation/wmi/devices/dell-wmi-pega.rst
+> > > @@ -0,0 +1,82 @@
+> > > +.. SPDX-License-Identifier: GPL-2.0-or-later
+> > > +
+> > > +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> > > +Dell All-In-One Series Platform Integration (dell-wmi-pega)
+> > > +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> > > +
+> > > +Introduction
+> > > +------------
+> > > +
+> > > +Many Dell All-In-One devices contain a WMI device for notifying the
+> > > underlying platform
+> > > +of various OS-specific events like power up, shutdown and backlight
+> > > brightness control.
+> > > +
+> > > +Not implementing support for this WMI device might prevent hotkeys
+> > > exposed over WMI from
+> > > +working on some models.
+> > > +
+> > > +WMI interface description
+> > > +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D
+> > > +
+> > > +The WMI interface description can be decoded from the embedded binar=
+y MOF
+> > > (bmof)
+> > > +data using the `bmfdec <https://github.com/pali/bmfdec>`_ utility:
+> > > +
+> > > +::
+> > > +
+> > > + [WMI, Dynamic, Provider("WmiProv"), Locale("MS\\0x409"),
+> > > +  Description("Class used to operate method - WMBC"),
+> > > +  guid("{2D703EE8-36AC-4F88-BDB5-7556CE6B2946}") : ToInstance]
+> > > + class AcpiOSD_WMBC_method : WMIMethod {
+> > > +
+> > > +   [key, read]
+> > > +   string InstanceName;
+> > > +
+> > > +   [read]
+> > > +   boolean Active;
+> > > +
+> > > +   [WmiMethodId(1), Implemented, read, write,
+> > > +    Description("Invoked by AP when system up.")]
+> > > +   void PegaOemNotificationStartUp([out, Description("Return Value")=
+]
+> > > uint32 RetVal);
+> > > +
+> > > +   [WmiMethodId(2), Implemented, read, write,
+> > > +    Description("Invoked by AP when system is going to off state.")]
+> > > +   void PegaOemNotificationStop([out, Description("Return Value")] u=
+int32
+> > > RetVal);
+> > > +
+> > > +   [WmiMethodId(3), Implemented, read, write,
+> > > +    Description("Invoked by Application to tune up brightness.")]
+> > > +   void PegaOemNotificationBrightnessUP([out, Description("Return
+> > > Value")] uint32 RetVal);
+> > > +
+> > > +   [WmiMethodId(4), Implemented, read, write,
+> > > +    Description("Invoked by Application to tune down brightness.")]
+> > > +   void PegaOemNotificationBrightnessDown([out, Description("Return
+> > > Value")] uint32 RetVal);
+> > > +
+> > > +   [WmiMethodId(5), Implemented, read, write, Description("Reserved.=
+")]
+> > > +   void PegaOemNotificationRSVD1([out, Description("Return Value")]
+> > > uint32 RetVal);
+> > > +
+> > > +   [WmiMethodId(6), Implemented, read, write, Description("Reserved.=
+")]
+> > > +   void PegaOemNotificationRSVD2([out, Description("Return Value")]
+> > > uint32 RetVal);
+> > > + };
+> > > +
+> > > +The return value of each WMI method should be equal to the WMI metho=
+d ID.
+> > > +
+> > > +WMI method PegaOemNotificationStartUp()
+> > > +---------------------------------------
+> > > +
+> > > +Notifies the platform that the OS is operational. On some models thi=
+s WMI
+> > > method also enables
+> > > +reporting of hotkey events over WMI.
+> > > +
+> > > +WMI method PegaOemNotificationStop()
+> > > +------------------------------------
+> > > +
+> > > +Notifies the platform that the OS is shutting down.
+> > > +
+> > > +WMI method PegaOemNotificationBrightnessUP()
+> > > +--------------------------------------------
+> > > +
+> > > +Notifies the platform that the user wants to increase the backlight
+> > > brightness. This WMI method
+> > > +usually only forwards this request to the acpi-video driver, so the
+> > > dell-wmi-pega driver does
+> > > +not use it.
+> >=20
+> > Could these paragraphs be reflowed to 80 chars as long textual lines ar=
+e
+> > harder to read (eye movement required).
+>=20
+> Sure, will do.
+>=20
+> > > +WMI method PegaOemNotificationBrightnessDown()
+> > > +----------------------------------------------
+> > > +
+> > > +Notifies the platform that the user wants to decrease the backlight
+> > > brightness. See
+> > > +``PegaOemNotificationBrightnessUP()`` for details.
+> > > diff --git a/MAINTAINERS b/MAINTAINERS
+> > > index bd31e734669e..fb9a80f96900 100644
+> > > --- a/MAINTAINERS
+> > > +++ b/MAINTAINERS
+> > > @@ -7534,6 +7534,12 @@ M:=09Pali Roh=C3=A1r <pali@kernel.org>
+> > >   S:=09Maintained
+> > >   F:=09drivers/platform/x86/dell/dell-wmi-base.c
+> > >   +DELL WMI PEGA DRIVER
+> > > +M:=09Armin Wolf <W_Armin@gmx.de>
+> > > +S:=09Odd Fixes
+> > > +F:=09Documentation/wmi/devices/dell-wmi-pega.rst
+> > > +F:=09drivers/platform/x86/dell/dell-wmi-pega.c
+> > > +
+> > >   DELL WMI SYSMAN DRIVER
+> > >   M:=09Prasanth Ksr <prasanth.ksr@dell.com>
+> > >   L:=09Dell.Client.Kernel@dell.com
+> > > diff --git a/drivers/platform/x86/dell/Kconfig
+> > > b/drivers/platform/x86/dell/Kconfig
+> > > index 9f0016056d7e..289379383ccb 100644
+> > > --- a/drivers/platform/x86/dell/Kconfig
+> > > +++ b/drivers/platform/x86/dell/Kconfig
+> > > @@ -228,6 +228,7 @@ config DELL_WMI_AIO
+> > >   =09depends on ACPI_WMI
+> > >   =09depends on INPUT
+> > >   =09select INPUT_SPARSEKMAP
+> > > +=09imply DELL_WMI_PEGA
+> > >   =09help
+> > >   =09  Say Y here if you want to support WMI-based hotkeys on Dell
+> > >   =09  All-In-One machines.
+> > > @@ -262,6 +263,18 @@ config DELL_WMI_LED
+> > >   =09  This adds support for the Latitude 2100 and similar
+> > >   =09  notebooks that have an external LED.
+> > >   +config DELL_WMI_PEGA
+> > > +=09tristate "Dell WMI AIO Platform Support"
+> > > +=09default m
+> > > +=09depends on ACPI_WMI
+> > > +=09help
+> > > +=09  This option adds support for WMI-based platform integration on =
+Dell
+> > > All-In-One machines.
+> > > +=09  This driver is necessary for enabling the delivery of hotkey ev=
+ents
+> > > to the dell-wmi-aio
+> > > +=09  driver on some machines.
+> > > +
+> > > +=09  To compile this drivers as a module, choose M here: the module =
+will
+> > > be called
+> > > +=09  dell-wmi-pega.
+> > > +
+> > >   config DELL_WMI_SYSMAN
+> > >   =09tristate "Dell WMI-based Systems management driver"
+> > >   =09default m
+> > > diff --git a/drivers/platform/x86/dell/Makefile
+> > > b/drivers/platform/x86/dell/Makefile
+> > > index 470874c6e6e6..46c91c240a2c 100644
+> > > --- a/drivers/platform/x86/dell/Makefile
+> > > +++ b/drivers/platform/x86/dell/Makefile
+> > > @@ -27,5 +27,6 @@ obj-$(CONFIG_DELL_WMI_AIO)=09=09=09+=3D
+> > > dell-wmi-aio.o
+> > >   obj-$(CONFIG_DELL_WMI_DESCRIPTOR)=09=09+=3D dell-wmi-descriptor.o
+> > >   obj-$(CONFIG_DELL_WMI_DDV)=09=09=09+=3D dell-wmi-ddv.o
+> > >   obj-$(CONFIG_DELL_WMI_LED)=09=09=09+=3D dell-wmi-led.o
+> > > +obj-$(CONFIG_DELL_WMI_PEGA)=09=09=09+=3D dell-wmi-pega.o
+> > >   obj-$(CONFIG_DELL_WMI_SYSMAN)=09=09=09+=3D dell-wmi-sysman/
+> > >   obj-$(CONFIG_DELL_DW5826E_RESET)=09=09+=3D dell-dw5826e-reset.o
+> > > diff --git a/drivers/platform/x86/dell/dell-wmi-pega.c
+> > > b/drivers/platform/x86/dell/dell-wmi-pega.c
+> > > new file mode 100644
+> > > index 000000000000..ddb1b6cc6b1c
+> > > --- /dev/null
+> > > +++ b/drivers/platform/x86/dell/dell-wmi-pega.c
+> > > @@ -0,0 +1,93 @@
+> > > +// SPDX-License-Identifier: GPL-2.0-or-later
+> > > +/*
+> > > + * WMI platform integration for Dell All-In-One series.
+> > > + *
+> > > + * Copyright (C) 2026 Armin Wolf <W_Armin@gmx.de>
+> > > + *
+> > > + * Based on earlier work by Teodora <teolyub@gmail.com>.
+> > > + */
+> > > +
+> > > +#define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
+> > > +
+> > > +#include <linux/cleanup.h>
+> > > +#include <linux/device.h>
+> > > +#include <linux/device/driver.h>
+> > > +#include <linux/dev_printk.h>
+> > > +#include <linux/kernel.h>
+> >=20
+> > What for is this?
+> >=20
+> > I suspect direct device.h include isn't necessary either (and it's
+> > anyway guaranteed to come through wmi.h).
+>=20
+> Good question, i copied it from one of the other WMI drivers.
+
+Thanks how they usually end up everywhere. kernel.h is very rarely=20
+needed these days.
+
+> I will remove both includes in the next revision.
+>=20
+> >=20
+> > > +#include <linux/module.h>
+> > > +#include <linux/slab.h>
+> > > +#include <linux/types.h>
+> > > +#include <linux/wmi.h>
+> > > +
+> > > +#define PEGA_GUID=09"2D703EE8-36AC-4F88-BDB5-7556CE6B2946"
+> > > +
+> > > +enum dell_pega_method {
+> > > +=09DELL_PEGA_NOTIFICATION_STARTUP=09=09=3D 0x01,
+> > > +=09DELL_PEGA_NOTIFICATION_STOP=09=09=3D 0x02,
+> > > +=09DELL_PEGA_NOTIFICATION_BRIGHTNESS_UP=09=3D 0x03,
+> > > +=09DELL_PEGA_NOTIFICATION_BRIGHTNESS_DOWN=09=3D 0x04,
+> > > +=09DELL_PEGA_NOTIFICATION_RESERVED_1=09=3D 0x05,
+> > > +=09DELL_PEGA_NOTIFICATION_RESERVED_2=09=3D 0x06,
+> > > +};
+> > > +
+> > > +static int dell_wmi_pega_invoke(struct wmi_device *wdev, enum
+> > > dell_pega_method method)
+> > > +{
+> > > +=09struct wmi_buffer input =3D { };
+> > > +=09struct wmi_buffer output;
+> > > +=09int ret;
+> > > +
+> > > +=09ret =3D wmidev_invoke_method(wdev, 0x0, method, &input, &output,
+> > > sizeof(__le32));
+> > > +=09if (ret < 0)
+> > > +=09=09return ret;
+> > > +
+> > > +=09__le32 *result __free(kfree) =3D output.data;
+> > > +=09/* The return value should always be equal to the WMI method ID *=
+/
+> > > +=09if (le32_to_cpu(*result) !=3D method)
+> >=20
+> > Include for le32_to_cpu()
+>=20
+> What would be the correct include for this?
+
+linux/byteorder/generic.h
+
+--=20
+ i.
+
+> > > +=09=09return -EIO;
+> > > +
+> > > +=09return 0;
+> > > +}
+> > > +
+> > > +static int dell_wmi_pega_probe(struct wmi_device *wdev, const void
+> > > *context)
+> > > +{
+> > > +=09int ret;
+> > > +
+> > > +=09ret =3D dell_wmi_pega_invoke(wdev, DELL_PEGA_NOTIFICATION_STARTUP=
+);
+> > > +=09if (ret < 0)
+> > > +=09=09dev_err(&wdev->dev,
+> > > +=09=09=09"Failed to notify platform of startup, some hotkeys
+> > > might not work\n");
+> >=20
+> > braces for multiline constructs.
+> >=20
+> > > +
+> > > +=09return ret;
+> > > +}
+> > > +
+> > > +static void dell_wmi_pega_shutdown(struct wmi_device *wdev)
+> > > +{
+> > > +=09int ret;
+> > > +
+> > > +=09ret =3D dell_wmi_pega_invoke(wdev, DELL_PEGA_NOTIFICATION_STOP);
+> > > +=09if (ret < 0)
+> > > +=09=09dev_warn(&wdev->dev, "Failed to notify platform of
+> > > shutdown\n");
+> > > +}
+> > > +
+> > > +static const struct wmi_device_id dell_wmi_pega_id_table[] =3D {
+> > > +=09{ PEGA_GUID, NULL },
+> > > +=09{ }
+> > > +};
+> > > +MODULE_DEVICE_TABLE(wmi, dell_wmi_pega_id_table);
+> > > +
+> > > +static struct wmi_driver dell_wmi_pega_driver =3D {
+> > > +=09.driver =3D {
+> > > +=09=09.name =3D "dell-wmi-pega",
+> > > +=09=09.probe_type =3D PROBE_PREFER_ASYNCHRONOUS,
+> > > +=09},
+> > > +=09.id_table =3D dell_wmi_pega_id_table,
+> > > +=09.probe =3D dell_wmi_pega_probe,
+> > > +=09.remove =3D dell_wmi_pega_shutdown,
+> > > +=09.shutdown =3D dell_wmi_pega_shutdown,
+> > > +=09.no_singleton =3D true,
+> > > +};
+> > > +module_wmi_driver(dell_wmi_pega_driver);
+> > > +
+> > > +MODULE_AUTHOR("Armin Wolf <W_Armin@gmx.de>");
+> > > +MODULE_DESCRIPTION("Dell All-In-One series platform integration");
+> > > +MODULE_LICENSE("GPL");
+> >=20
+> > Just the mandatory nitpicking :-), seems fine otherwise.
+>=20
+> Thanks,
+>=20
+> i will wait with sending a v2 until Teodora has tested the second patch.
+>=20
+> Thanks,
+> Armin Wolf
+>=20
+
+--8323328-122444894-1794956957=:1563--
