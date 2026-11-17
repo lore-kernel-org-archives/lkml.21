@@ -1,55 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794947811;
-	b=xHjEJAkqVf/VpUyUbiVhiWOjvxUjlDNqTq9cXG7L+JP3Lm0WOba500llROfpsvlUfE78
-	 BHnnFnm3d9KDUT2S8VOf5oc09K8TDtcukIPra6XwQ7BUFM2zjpBGPRVwDN1ZoefBIbLtH
-	 zWSpgVtaWnqVS7AaInR76rtf4nlREBNbPSSB174cgrtCxIvcci+3GTWM0pIXr+80bQoaQ
-	 oKRzZpAQGO0Dx6liG2uvWFqQyDpGNB5nL241PNF+LSGzQFeZOpQrvHEjeBQizxonwp75l
-	 kyv4cioCOP8vo3BB4/cEcBTlgtHyxTOYCZneXp2GCgwru2yFR1uN+oZT3MEQ5xs6/OQ==
+	t=1794947851;
+	b=4O44Qn9tuX928fWMLIH7Pd5fSgN1vRb8AXx7yZOLz3DW4xPv12V+BP9kfG+X6b+p4O7f
+	 yWL3xJlBucLnKoFMH/ixOn+HxWLpJIRGjmSr882R8MzWFNmsjXY28W1hugI+cLmnqJRHC
+	 8PE1vy8oEBvOATDiB3HP5ZrNbjxzYyvX1pWFiHQyFXjJ5ipjvf8sXU+AmQN0o0uuCxFSy
+	 fkCiEbtt4Wt/j8U0d6UhBS8d7+rNzlDOrPAn6Cp1NJt7P6AkIkHQC8DtsBC05aW4Rm5pa
+	 vGI9ZuRbzK36fsdGNXaKu+tNeYCU/aRXE59aKrObIcCLrMjZpLSaT3VBeSKEeRfosLg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794947811;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=MjqKu63EhuXlUYh8LB06tgo8mBsbsVVaUxCBaQO/J5w=;
-	b=5LCGI9z1VPvSqo/aZfesxrqnT43k45Sx2HMn+elbHUHl5CXCnbtDf1xFRL91lDEg6Wt3
-	 bXyO6v/NzFcUSIWsjxF4tXPHpiPBcA4Eg1cOKtV/BSmY9mLKwVnjvSKe4D8gIiHvKKvDU
-	 o6tVpAPmzwIaRYNXIMUkKhRsxgHIhtjHCTykvuB82pB6wfx4w7i0JMfsafHhYV7j98t0Z
-	 uwT5vwpOzLCW5JE8YE2e0+9YAd3dv+fbtSNM3ZDe9AeqgJ3X2nxcIkBoKRjZb8c5fK6qB
-	 ltxmjhP0VxDg63N9E1+1x0eF4TtCnBfsEmd8TlqrFCRukirjiBsZye0ZyGvlV730GgQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794947851;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=Z6Tpo5ap6GSFoMGBO7jW2q44NoxntZjBeE2WFv53Tfc=;
+	b=BLbkmyAEcPekOgRUnVCsKs3iM0ZwtXUWXIgfrAg5Y0dgqanArk8qt3EKiF+iUGovl35I
+	 1gcSRthwgTAcCQIzJAOtTjDkye1l4v2aSrxrZmZ7M9YdLSNCGOuiUrexZsb9xQfOYJhuG
+	 o5T+j5xU4pN5bc9zrcQyTJ2GW0TbWUzT7xKMYu0aEGLutDpZ0+xfZdH+h9eKO91cDtv1/
+	 Q0MXKT9bWRXHe3fQpjE86Toc2Q/bhtk/WbJ5SFcxxxfUdBBqiRgzFkNoMrIkOAlos1ljN
+	 fZKs74Wfg5j+fv45DV3UJ1VkAJXDBu4B7lCLrTImY20noVzc2BUZBztsjnhvrZucGTA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C7fArxqa;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=rowland.harvard.edu;
+	spf=fail smtp.mailfrom=g.harvard.edu;
+	dkim=pass header.d=rowland.harvard.edu header.i=@rowland.harvard.edu header.a=rsa-sha256 header.s=google header.b=hUcgLnaQ;
+	arc=none smtp.remote-ip=209.85.219.41
+Received: from mail-qv1-f41.google.com (mail-qv1-f41.google.com [209.85.219.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8325606A32A
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:36:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CAC1606A31C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:37:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4CAC1606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rowland.harvard.edu
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=g.harvard.edu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C7fArxqa
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 854811F000C4
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:36:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794947811;
-	bh=MjqKu63EhuXlUYh8LB06tgo8mBsbsVVaUxCBaQO/J5w=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=C7fArxqab1A+kFeEYCRrWWEdFMcafrJ0ZtE5leXLcL9w3bVGvyD4Ex8GYiSqKjZvJ
-	 OGtOTyXmNgvFQ7ih9XnSdIM+mH67+1chLKpjS6tHevfQK+0nL8cSBUzi9K1xfwVGve
-	 4gH9aI8B9nj5U30E7duMPXEXrY5smww6CsIvOalDvsnnNqjm6F9n6zb2qUP6zDyktt
-	 D0FoetB7qPJe+N/WNo1UVe0XqVljBYYChSRBakCTUfS1AOfrbntGoXzH0r2vvAILeQ
-	 4W3VocL1Lw3iQt2kHKZ1O8/alLj0CtNxW4jg3HjvMF+EAiymqjpyZ1SyE03Qt3eD5I
-	 YAPZmk9UXEqQg==
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5c17a1775fcso149739e87.3
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 12:36:51 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErH3lTM8ZO9a845SdEHsVLPrJFOUBZSQg63zBST00C+ouKd+0xtAk5fq7rkeHuMgCmIJr3fy8I0HDouXM7U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8fcbzPdBIrNj1aqe3h6B2dQBA6q5c2YQhPH2TBU5YI1CV8VaWu
-	wl3vA9hBaU/SSicYXqzPLuzgAQCBEgB3fBfxFb6yJa2OUpiX/xs3hFKK1jgHUTo/Jmb/vdNsYGm
-	owSUtX95sFF+fXlusj87QvwOHRDXdR0g=
-X-Received: by 2002:a05:6512:1046:b0:5bf:c3e2:be3a with SMTP id
- 2adb3069b0e04-5c1a9f27cccmr86339e87.37.1794947809944; Tue, 17 Nov 2026
- 12:36:49 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=rowland.harvard.edu header.i=@rowland.harvard.edu header.a=rsa-sha256 header.s=google header.b=hUcgLnaQ
+Received: by mail-qv1-f41.google.com with SMTP id 6a1803df08f44-91eb3fea2a9so976396d6.3
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 12:37:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rowland.harvard.edu; s=google; t=1794947850; x=1795552650; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Z6Tpo5ap6GSFoMGBO7jW2q44NoxntZjBeE2WFv53Tfc=;
+        b=hUcgLnaQ+SQElpouvg4p2BhtZ4Iev0t+HUWmXHy4nOG4uSaSNXppj/XNwBivKpTl/Q
+         vksHTCRR1b7dXrGp25zpOF11vyXznTG1fjS+q+ee3iu7WpX5ZUUkVyYdlGVx7sMdHLSq
+         jcptiQnGV5i+QqCFqDXZO9ET17+ecycfPG28wxftXf0E8G4gygKBoqshDqUDPqlKIAsl
+         pmdu/bHK+iuE4ycri3z55lcemOy3JNHG/quH4E1Uo4wfM/4BweKY4aO5gtNNnws/T7ue
+         K9NH1qs/7MhEWmEp6cIqh+RciztjqPv0TpkI884J7vRHrVPgQ9rSNj/NZCuqxCidybaN
+         8YgA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794947850; x=1795552650;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Z6Tpo5ap6GSFoMGBO7jW2q44NoxntZjBeE2WFv53Tfc=;
+        b=jESO8bRsJADXiYtSZVEjirzhXB/mCGCskfDyLMgeXDDhBk87HDzwgckgX3lrnoUwM6
+         tHvk0HeSGQ3uN4fbkjll8IQvuOYlNSF555iWPDsQ35ocR1VroebHwyU5fNkIxjEXTOwi
+         q6cs32RH/v1fASrYkwphzVdF3+fR5704R0csOYwtf6r2BVMeO5Y4O7sGx99cT/dqWD6+
+         v7+etXBxETOnlOhLWIcIHY3UisoLoyqNcxgBVzKvOFFuZyVMtjh1KgU4K7AmmryNw6oK
+         +rCMIVnQ2EnbymhI82VSHkrJJ/uP0ht+LVqBpBRPbK5vKBu7Juo531ZjN2PjlC35y6a0
+         AzPA==
+X-Forwarded-Encrypted: i=1; AL+hErHu0UEMtbAnIGw3+Qi6Xz2X4Qc+lmL2p6+ULHEiGf9NP1NbDfps/rKuyL6SxRHrQzIZhS/nCN9rHwjNdmo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8A9B2So/Sho2qDo2Brxnh9kD5BQf+VInQ2W/f0DEeTpFmccuOf
+	YZ5hOual+yy9boJbboLCGjT0gdTyzTeYDzqhn+GV3zTI9G76ZNgqt/lMg1TdQXZZmQ==
+X-Gm-Gg: AZFdTZe6BO9JSE1l+GjS4L9DhSgYxgAw4wNo//WMTLsGVnLxpJlSdYR/xptspA/HeQQ
+	ujNiALlSm8AfKaGRM5aVL+s6zPT4STwOA1hHfm48WDxuJf4tITsUc0hL2imMZWitpQIcsaLMNrE
+	iuYxgpwLfFja39aeS6YRqU13mNzqBdxiKAVX6SkKFTg7ysayOnW1y4xPt+0LK7jHUgLz8TBTFyL
+	2GSXb9hiiVZy0JlxupMnvRnSNoLXin06Tf60N4r59CohsLUlJzZeScJpRau55phmJhj1RB2EXGM
+	jjF7h2VcdlezLiFO48THdQKiD2ibcWxMvRdUahiSm2JqBUUfScJdjWc3Y5C2boEq/1E0rkZa2Z6
+	STR2EkS35ImFjukq324du7b0fPR84yC0A7Arm+xBjRVwnhWyXBOjHJHkW4Iker+22upTuTmLsN5
+	DEO/3i6RQQHoXV8ryQzF2FzxNwMTlwyUg7vVkO8i4AbxA1x09WrPXIuoT7FZnSbzSwMADVSwUUd
+	ohVFw/ZW7JmdcXulq3oaUNeOrHt6o4r39yMyIc8YHGU8TS0yeoNBpJzXXAfnIyw1KCd3D3LSj82
+	Z76qX1nOuptzTmirEubfPChejT8nVw==
+X-Received: by 2002:a05:6214:4521:b0:91c:52f2:b469 with SMTP id 6a1803df08f44-92114f422aemr4503286d6.15.1794947850014;
+        Tue, 17 Nov 2026 12:37:30 -0800 (PST)
+Received: from rowland.harvard.edu ([2601:19b:d00:161a::d398])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921149f894csm3423466d6.4.2026.11.17.12.37.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 12:37:29 -0800 (PST)
+Date: Tue, 17 Nov 2026 15:37:27 -0500
+From: Alan Stern <stern@rowland.harvard.edu>
+To: Cheng Yongkang <teel4res@gmail.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] usb: usbfs: reject SETINTERFACE while suspend is
+ allowed
+Message-ID: <44d9ed8f-c2c5-414e-a5cf-9dea30866574@rowland.harvard.edu>
+References: <20261115163709.226641-1-teel4res@gmail.com>
+ <36240a2c-0ecb-4b26-824d-84d782dc706e@rowland.harvard.edu>
+ <20261116060549.370140-1-teel4res@gmail.com>
+ <a7e6b6f9-9926-404a-b185-c9fcab5c9d10@rowland.harvard.edu>
+ <20261117023858.467683-1-teel4res@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,103 +101,60 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <4789427.LvFx2qVVIh@rafael.j.wysocki> <aveybY5Z9OWQYkRS@google.com>
- <CAJZ5v0h3Q3ySm0BmHG80QAQReV-6mbj2A0J5cSG1Pwc_ziGyDw@mail.gmail.com> <avuNxXw7YZ4ZeO-1@google.com>
-In-Reply-To: <avuNxXw7YZ4ZeO-1@google.com>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Tue, 17 Nov 2026 21:36:37 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0hLADFoZQWRariyUYq+s8FhWv2B2JndGp1u=D=9vn5bnA@mail.gmail.com>
-X-Gm-Features: AclHuK-E1jVhE1_vxeyjUgci-XT6TTk354gpltVNrXs68b-GKFjvPZI6DM3eUjk
-Message-ID: <CAJZ5v0hLADFoZQWRariyUYq+s8FhWv2B2JndGp1u=D=9vn5bnA@mail.gmail.com>
-Subject: Re: [PATCH v1] PM: runtime: Update last_busy before calling
- rpm_suspend() in rpm_idle()
-To: Brian Norris <briannorris@chromium.org>
-Cc: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>, Linux PM <linux-pm@vger.kernel.org>, 
-	LKML <linux-kernel@vger.kernel.org>, Alan Stern <stern@rowland.harvard.edu>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117023858.467683-1-teel4res@gmail.com>
 
-On Tue, Nov 17, 2026 at 12:12=E2=80=AFAM Brian Norris <briannorris@chromium=
-.org> wrote:
->
-> On Sun, Nov 15, 2026 at 06:35:04PM +0100, Rafael J. Wysocki (Intel) wrote=
-:
-> > On Sat, Nov 14, 2026 at 1:59=E2=80=AFAM Brian Norris <briannorris@chrom=
-ium.org> wrote:
-> > > Is it worthwhile to note (or at least hint at) how many other things
-> > > change along with this? e.g., how pm_runtime_allow() (and therefore
-> > > auto > control/power), all non-autosuspend pm_runtime_put() variants,
-> > > etc, also extend the autosuspend timer? I think we agreed these are
-> > > acceptable effects, and likely even desireable, but I'd say these are
-> > > fairly major changes.
-> >
-> > Fair enough, I'll add the following to the changelog when applying the =
-patch:
-> >
-> > "This potentially changes observable behavior in all situations in
-> > which pm_runtime_put(), pm_runtime_put_sync(), pm_runtime_idle(), or
-> > pm_request() idle is used on a device with an autosuspend delay.  That
->
-> nit: you split "pm_request_idle()" oddly
+On Mon, Nov 16, 2026 at 06:38:58PM -0800, Cheng Yongkang wrote:
+> After USBDEVFS_ALLOW_SUSPEND, a usbfs file no longer holds a runtime PM
+> reference and the device can be runtime suspended. When it is resumed
+> through reset-resume, finish_port_resume() sets USB_STATE_CONFIGURED
+> before usb_reset_and_verify_device() restores the altsettings. The
+> restore loop also runs when a driver bound to another interface calls
+> usb_reset_device() from its resume handler. The resume path does not
+> take the device lock, so a SETINTERFACE issued in that window passes
+> checkintf() and its usb_set_interface() runs concurrently with the
+> usb_set_interface() calls of the restore loop.
+> 
+> Fail SETINTERFACE with -EHOSTUNREACH while suspend is allowed. A
+> program has to call USBDEVFS_FORBID_SUSPEND or USBDEVFS_WAIT_FOR_RESUME
+> first, which resumes the device and keeps it from suspending until the
+> file allows suspend again.
+> 
+> Fixes: 7794f486ed0b ("usbfs: Add ioctls for runtime power management")
+> Suggested-by: Alan Stern <stern@rowland.harvard.edu>
+> Signed-off-by: Cheng Yongkang <teel4res@gmail.com>
+> ---
 
-I noticed that too and fixed it up.  Not sure what happened here.
+Acked-by: Alan Stern <stern@rowland.harvard.edu>
 
-> > includes changing a device's "power/control" sysfs attribute value
-> > from "on" to "auto" (if there are no other active runtime PM
-> > references to the given device), accessing PCI configuration space
-> > from user space etc.  Namely, in all of those cases, the runtime
-> > suspend of the device following the runtime PM helper call (if it
-> > causes a runtime suspend to occur) will be deferred by the full
-> > autosuspend delay, which arguably is more consistent and predictable
-> > than deferring the runtime suspend in question by a more-or-less
-> > unknown (and basically random) time depending on when the most recent
-> > update of the device's last_busy timestamp has occurred.
-> >
-> > It will also cause the majority of the direct
-> > pm_runtime_mark_last_busy() calls to become redundant, and they will
-> > be taken care of later."
->
-> Seems good, thanks! Who knows if anybody will actually read the
-> changelogs, but at least it leaves a paper trail for future cleanups
-> that will likely reference this change.
->
-> > > In any case, the change looks good to me:
-> > >
-> > > Reviewed-by: Brian Norris <briannorris@chromium.org>
-> >
-> > Thank you!
-> >
-> > > I meant to make time to test this out a bit more, but ran out; maybe
-> > > next week.
-> >
-> > That will be much appreciated.
->
-> OK, I made some time:
->
-> Tested-by: Brian Norris <briannorris@chromium.org>
->
-> It tests out well (passing) with:
->
-> (a) the KUnit tests that try to imitate the stm32-adc parent/child
->     structure from commit c537d3457542 [1]
->
-> (b) my original KUnit test [2]. I've appended a slightly-updated v3, in
->     case you want to merge it
->
-> (c) some targeted PCIe tests on Pixel phones. Specifically, I see that
->     the portdrv.c 100ms autosuspend delay is now consistently applied
->     after both lspci (this used to work OK, simply because rpm_resume()
->     would also update last_busy) and after endpoint suspend (this
->     previously did not apply the autosuspend delay, as the endpoint
->     tended to stay active for a long time)
->
-> [1] https://lore.kernel.org/all/auzlLwlleGLPsLcw@google.com/
->     This test is inherently timing sensitive and therefore flaky. It
->     just serves as an example, not something to commit.
->
-> [2] [PATCH v2 4/5] PM: runtime: Add tests for last_busy propagation
->     https://lore.kernel.org/all/20261103141442.v2.4.I8ab8b7f662fe1921c708=
-4a47d554535597cc2702@changeid/
-
-Thank you!
+> Changes in v2:
+> - Move the check before copy_from_user() and add a comment (Alan).
+> 
+> v1: https://lore.kernel.org/linux-usb/20261116060549.370140-1-teel4res@gmail.com/
+> 
+>  drivers/usb/core/devio.c | 7 +++++++
+>  1 file changed, 7 insertions(+)
+> 
+> diff --git a/drivers/usb/core/devio.c b/drivers/usb/core/devio.c
+> index 101cb9425480..8a032f4b547b 100644
+> --- a/drivers/usb/core/devio.c
+> +++ b/drivers/usb/core/devio.c
+> @@ -1531,6 +1531,13 @@ static int proc_setintf(struct usb_dev_state *ps, void __user *arg)
+>  	struct usbdevfs_setinterface setintf;
+>  	int ret;
+>  
+> +	/*
+> +	 * Avoid racing with a reset during device resume, which restores
+> +	 * the altsettings without holding the device lock. The device can
+> +	 * only be suspended while suspend is allowed.
+> +	 */
+> +	if (ps->suspend_allowed)
+> +		return -EHOSTUNREACH;
+>  	if (copy_from_user(&setintf, arg, sizeof(setintf)))
+>  		return -EFAULT;
+>  	ret = checkintf(ps, setintf.interface);
+> 
+> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+> -- 
+> 2.34.1
