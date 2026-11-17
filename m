@@ -1,79 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794959437;
-	b=YzmoqhHcdxPyClUlHkJk9I6RsoU7SrSdKqVBSSzLhx2PCYhVNVlGSfI3v6MlRpOCQsPN
-	 muAd74wqFJFeQdlJsI5/717UDVRkDqC6x0Q0wkGRGsIQTOuSHbPBFungToGFPqXT+08YR
-	 FRkHo2mgJg+wm/G+x5TVY3H3meOIBvYaCE0nHOCI5EWm9eaF4jbDWqkxZe3+SHOGXqmmV
-	 inUC/RGBPgPbjRHoadk4yE8MMulPKDfmqiw5u7fSKLL8E7W5UFYNqoRfAhllPLmoK6fHa
-	 Dk90GB6v9z9rYVCq+bfdMu+WhVwrs5EjuxQ2q4oaHHY/uBiYBmwA+XYRhaoX1uLG4JA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794959437;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=PfSPaVXedADf6rsPHU58q3NIdyMqzckShx4YfFgeiFg=;
-	b=4HfIouOGkjCymYnhT1I3cRAq4nPQCDw6Tre+AbQLOQQ6BAB75mpzmkjGfkbf2kP4Pwdz
-	 xluN3qICfk0n+fjWNSdN9IpKDcoqT84hFdrxumfm2qoF5ZV4eh0LjaoZA+XUBYvSeIg26
-	 urPLP0J7SsuRQ+P2TgWWEhtuihreUz9UVY8R+dw9Eov0/1/ns9J7DyF7imiGZMYRGyzqw
-	 B7uB7JGfe0bgyRHia5xPe3IooKheqJ+5rYL98ptT+H8gagNeDh696MYI1/Mwt9QSKksUj
-	 y9ybSsumP0nBwOgut0rZ7g+fyOmFFcaxer99uDXzIkRTxC88uc/Y6aC+iIQDWErtEsQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K8KNrnbl;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61937606A32A;
-	Tue, 17 Nov 2026 23:50:37 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K8KNrnbl
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794959437;
-	b=oTRpzlHEE9FH2F75LH/ZK4d4L+00Uq3AZnHLjwWkk76PKwjEJcxgpFNIyAKGHgTNqJd8
-	 hOz3qa1KKyEC4hZDJtYXk1b5ejwwA3Q4rkfkzRXdW4Fu4co6v1+M6cn1Co7qHdrVi7yqP
-	 XM6gC33PgHXKpDMK+5pusH4ayeHp0R73B4Bzc8eb3DhpksZkdC0eqYVsasj4G02PclhhQ
-	 tjWn1m153fIEIv88HDu/gTc/SZP7jM1hWpnRRNePFBDP+ZJqGUyU7Rc3+TtzGNVQYfnDz
-	 LfRRupbz6AKzZx+uD+8Ji6nY62MmoOYzD13/XyBywqiucpswPpGGgGx3I8VPCuopArw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794959437;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=PfSPaVXedADf6rsPHU58q3NIdyMqzckShx4YfFgeiFg=;
-	b=yb3Ba2lInP+iIdBfxL8+uizN1EOMtpLRotxW0s9N2DceNtPlVEjmQNuhu0Xqlts7nDfR
-	 c+zmR/O+Iqt0OEsASzaxWZmtoYpVsbrDz1VKFLC8EUl2efIO2g9fgGVTux40tUFrNcjY8
-	 dFsSLv4Eew87Y2UvFHgB7nT7tMR7WRCwdyw239cRxX6N25vj6WXTTTthb+6egmffzbiEx
-	 p6Onjp0PrG2fGcz0zOqVIEepwKEeQjZnp1hw8/Y3pnc398OJDkuiJh0XljaZRaPNjn0WG
-	 xg1o/0IEEn0G5DBV1z3+faUZ9zhdjMHmyx/UJHXtgPuROjyx1G3RsB92GhtY+Jpfbhg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.100
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794959481;
+	b=ZL4FbG9xHkCSC2VKqAWAQh21loDuaVHmd5eXS4uTBiw+K1Z7qjh6013j9n9laH9ZUzpB
+	 95c821RE3VQoyxFPAOeeKyAZEGnxrghlAaRfyQT5IiweMTh+c0jYxYJlzUeP2O9LRb/SI
+	 l3VnmeMn5Z5+ZgbZxKcQGzMdssqB6tt5ibh2bLrRwRi92DXDTa+5r9YvLPSGF4knczD0h
+	 UVmpHsegRvfMQ+iyXf3ETRc1JEJW4x0i49EIG1vVWta8gC4j4MeT9ZyF/lGOWf2vyDbJb
+	 z/Vvw2A3mYCXkfMWin34YMD8aTl0PEzNyGCmtMBCNQmLamNtKLvKhqhiNmXsbi0Sh5w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794959481;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
+	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Received:X-Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-DetectorID-Processed;
+	bh=WdjoIKvowHyosl1CXA8daiIeSKMARXblpVs58QxNO6E=;
+	b=Cw16F9GMYJRQ0h9JzHpWACBwz1TcD/NsHPSGGKwvcMplSIYcAUMM72VcVLFpj7GAWUzK
+	 uXV0MEpx7N4dRz7bavc5GwMX7voZ2QH7BcZ9tep3T6L+zWL3bYjRJLtYO8x5xoSHk4Ea+
+	 3v6d/yoC9JOZSuHGhsmngygM4QWX0e7aoivJbqdYqmDQJg7H6kYKFm23/xhMt+VfWKjhz
+	 rDrwe6IKu3SgTHeyZ1JNCQ7hlDzrXCluCBaDyrODGuYSdUgCK3GlSDlDNqR8La+XZnjaL
+	 ddiRdmhqjQolMYr0/EMR8PYq6Ksm+xfUewZLpmdzIoaGJUTzb4Hxc2ee6GlDvI6P5Fg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=broadcom.com;
+	spf=fail smtp.mailfrom=broadcom.com;
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=QwVoIyPA;
+	arc=none smtp.remote-ip=209.85.216.100
+Received: from mail-pj1-f100.google.com (mail-pj1-f100.google.com [209.85.216.100])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id A7E031F000C4;
-	Tue, 17 Nov 2026 23:50:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794959437;
-	bh=PfSPaVXedADf6rsPHU58q3NIdyMqzckShx4YfFgeiFg=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=K8KNrnbl8lBUWSb8VrQVomJ98n3nsSPzVj7KAEVnnEqrwmFcbdhW0nR9d81rWPSW5
-	 mNTO8O6KuJg1tEXiE6NxGwnIQmHgGtOljLx29+0naPPy1W2Ortm0tVkti456oBAG9o
-	 eWD4o7du+NRDDXd/jNYZ+1Bs1jC1FFBnDNM1YFC8VBuV341a8IGyDkY0A/lsUsuiMu
-	 qsOPr9MHtOJO+x4r6r6944wJ6EmlZqA8ssvM/qj9PckKo8+sKx6NPrumRfkNKrj42k
-	 yz1bBMq1qIyMgZnJ55xl6Mr8SyY/T26vYvEYw228EcQm99rLHpY3sorFipvSAsw/7P
-	 VdTRNdooqwc0g==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id F3FA24AB59;
-	Tue, 17 Nov 2026 23:50:35 +0000 (UTC)
-From: Maximo Manriquez Lizarraga via B4 Relay <devnull+DelaySystem.tubot.lat@kernel.org>
-Date: Tue, 17 Nov 2026 15:50:36 -0800
-Subject: [PATCH v3] media: ipu6: declare firmware files with
- MODULE_FIRMWARE
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D67B2606A31C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:51:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D67B2606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=QwVoIyPA
+Received: by mail-pj1-f100.google.com with SMTP id 98e67ed59e1d1-3b0ae87069dso140624a91.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 15:51:20 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794959480; x=1795564280;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=WdjoIKvowHyosl1CXA8daiIeSKMARXblpVs58QxNO6E=;
+        b=1ldy1SvN4KU1d2aDnjtvWbERCww7flEz6uzwKthyhKiJ3PtJwHt9oq2zajh4kzr75k
+         s5qMxv3oFgtWK/J+0/c7QCXoQ1e1AN858pIbJ2J4XfipkOVNe1niLGyOOpy07A7evDyi
+         s8CRr/UgYk8mfSYQCOgHdStnGbhYKcXWZjy63BYfrt04Bcwcigdsah8KTLZ1kvLxnJvz
+         deZANckGr52AEgdXwI6oUyRPl84OsVpFGwP4HEJM9qlO+GTB4hXx5VWytn1o4LaDu7do
+         aAQJ6V4j5FjeeYYRJNC2FCCReQospbrb2gt987B+swh69Lkr8ew6FXf4uRZKpOwN45Zh
+         YOMA==
+X-Forwarded-Encrypted: i=1; AL+hErFOrVj9Luj/v5X6xtkwatWycZ1EXiBKe4MrMQo3kuQb4ldmzJRKlpYMX01Si7+5upuIw8gXxJvCQFcmhoI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9HmjldoLoy5BG2teGc/qm7zFYV+XT2e5NjIWiNJ2smj/Ge9vLu
+	SWRhWEhxDSCT7Z/H9IgbhvvasyLbt0mnSx+QKAATYmGdvsKdRhAL1xwPOF1Cy/XC4nydfn0qIF3
+	gv4FqqWvyHZK28BfPwBTAWfll/mrMlkn0+5K/u1QxmP8y9NYdlILJ+nWVgsP4LruQQgESMitKXL
+	Dh7aOwh+7dBAV6nQ9PYMk/VK0K4lSq6S41faQ3DTg2qYePlNWUOXa/Nf72L3nM3jLU+UlI4iMxc
+	pOQ9GDAh9/xvhAsUBFGC7fl
+X-Gm-Gg: AZFdTZcvUwPwIbbFoCdPdnHKewAPkEM4/+FIhdVtpTdmHzMpqJf5RaJY7ybbjycgPGK
+	aWWyCc5Au0xbAFVGARy5siOFHk42JGWnJPLMYb+FvbOL6LDKYwDWNAC3TZhClOaEqeHr/7C2Pax
+	DL+HucpEfZjqv32msx1wAErUPvE0CCkdk1r14mSBxan3HP7nu7MUY98HTFhFFfTgdiyX1ift0XQ
+	XRNOb11uGN0zG4BPyEfGPwSwhUitBwXLsTmHGcb3IvRpoX+1vgrazdcjU3EJrHQi2n6KqP3XkAF
+	h3UqGcSPkbh5qVSG3jly9+E8iI7By2WVd0vlhI9OL70wIag7JEKLpmukj5aONA2AmMabOSfKJVG
+	kzpGBKJNM9/fNqw0yAhodDDMa+fgSvqxdNDUUUBdsY6bEAh2qsQx4J2X2iJ2+d4/Hz2tMXQyzCC
+	S99rSn6Y40DIRr2FAGyf6Nm8YztiX6fJEx1M1iw7EP
+X-Received: by 2002:a17:90b:440b:b0:3a6:f1d2:57f3 with SMTP id 98e67ed59e1d1-3b3d07e3950mr824803a91.58.1794959479919;
+        Tue, 17 Nov 2026 15:51:19 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-26.dlp.protect.broadcom.com. [144.49.247.26])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b3d1423d6asm639898a91.4.2026.11.17.15.51.19
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 17 Nov 2026 15:51:19 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-9210ad74fdeso5551526d6.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 15:51:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1794959479; x=1795564279; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=WdjoIKvowHyosl1CXA8daiIeSKMARXblpVs58QxNO6E=;
+        b=QwVoIyPA7dt1oxl1ZdWzWz6FASErNhWk22eYH4Y7egzEAkdsFdpfy4yQc1swl7nYwH
+         5psJMhjHs6g33TbgC9ByZ+mnbMlO76CCi6oJYA//GLp2NuLUqm3mSjPDGkvrUO8iO3tm
+         u2at2sQDOdGgd7gwMTf/6ckhonwgPfCKqcn34=
+X-Forwarded-Encrypted: i=1; AL+hErGRgDeEd6JLuwR7FepdnvDPwLx+yeqywvCjwdWtd3IOtaIPotPtQeeoJrALeOaZcv/4cR9EJjpd6yqRxzM=@vger.kernel.org
+X-Received: by 2002:a05:6214:4112:b0:91f:ee9:c557 with SMTP id 6a1803df08f44-92114ea4b99mr13598546d6.44.1794959478632;
+        Tue, 17 Nov 2026 15:51:18 -0800 (PST)
+X-Received: by 2002:a05:6214:4112:b0:91f:ee9:c557 with SMTP id 6a1803df08f44-92114ea4b99mr13598016d6.44.1794959477951;
+        Tue, 17 Nov 2026 15:51:17 -0800 (PST)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92114d98adbsm6389176d6.40.2026.11.17.15.51.14
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Nov 2026 15:51:17 -0800 (PST)
+Message-ID: <04a0bf1d-7807-47f1-81e7-d57a27e8599e@broadcom.com>
+Date: Tue, 17 Nov 2026 15:51:13 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,83 +106,219 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261117-batch1-s1-ipu6-fw-v3-1-fa82baa8a94e@tubot.lat>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4XNQQ7CIBAF0Ks0rMV0IKXqynsYFwMdLMbYBihqm
- t5dqBtXmln95P83MwvkHQV2qGbmKbnghnsOclMx0+P9Qtx1OTNRCwVQt1xjND3wANyNk+L2wTs
- lrEWF0uyB5d3oybrnap7OnxwmfSUTC1QavQtx8K/1aYLS++Un4Pm6RgqJ1rZaHOOkh7i9YWTFT
- +KvILJQ065RLQKSxW9hWZY3WZNtwgYBAAA=
-X-Change-ID: 20261107-batch1-s1-ipu6-fw-d62ffa6a3c91
-To: sakari.ailus@linux.intel.com
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, lsa.uz@pm.me, 
- mchehab@kernel.org, Maximo Manriquez Lizarraga <DelaySystem@tubot.lat>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2273;
- i=DelaySystem@tubot.lat; h=from:subject:message-id;
- bh=usCgb43Tza/ZYUcfTrOovdSpxv/fAJbVp5Ig2JIdzbk=;
- b=owGbwMvMwCH2SNl4+SzWXm/G02pJDFl/XngrL+upDX/WtKcq7OcNton/NJPWXpRL8ljVqCeyl
- L9LT9Klo5SFQYyDQVZMkUVMhud9/X2dOGurOSdg5rAygQxh4OIUgIkIGzIynNeRLAn+efh8eIT4
- Yam0+dsOXRGdl2bO2pgQaxdwv8ZwG8MfziOvU9NOvjyj+D4rbldERaef+C99Lf/ITeXeO9LLlnz
- mBQA=
-X-Developer-Key: i=DelaySystem@tubot.lat; a=openpgp;
- fpr=161C0CEF7FDF2C5E3B3A9CC8E22333A79A058D4B
-X-Endpoint-Received: by B4 Relay for DelaySystem@tubot.lat/default with
- auth_id=1447
-X-Original-From: Maximo Manriquez Lizarraga <DelaySystem@tubot.lat>
-Reply-To: DelaySystem@tubot.lat
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 2/9] netfilter: flowtable: reject non-host IPv4
+ packets before lookup
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, rafal@milecki.pl,
+ bcm-kernel-feedback-list@broadcom.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ horms@kernel.org, corbet@lwn.net, jonas.gorski@gmail.com, olteanv@gmail.com,
+ pablo@netfilter.org, fw@strlen.de, phil@nwl.cc, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ netfilter-devel@vger.kernel.org, coreteam@netfilter.org
+References: <20261116222519.1416501-3-florian.fainelli@broadcom.com>
+ <179495815781.3136.11457762484354834526@kernel.org>
+Content-Language: en-US, fr-FR
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <179495815781.3136.11457762484354834526@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-From: Maximo Manriquez Lizarraga <DelaySystem@tubot.lat>
+On 11/17/26 15:29, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 3 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 2 · Medium: 0 · Low: 1
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [High] The new early return in nf_flow_offload_ip_hook()
+>    (net/netfilter/nf_flow_table_ip.c:915) checks skb->pkt_type at netdev…
+> - [High] The fix only covers IPv4.
+> - [Low] The commit trailer reads 'Signed-off-by: FLorian Fainelli
+>    <florian.fainelli@broadcom.com>', but the author is 'Florian Fainelli'…
+> 
+> --
+> 
+> netfilter: flowtable: reject non-host IPv4 packets before lookup
+> 
+> This commit makes nf_flow_offload_ip_hook() return early when pkt_type is
+> not PACKET_HOST. Those packets then go to the normal IPv4 stack before the
+> flowtable lookup. The goal is to apply the same PACKET_HOST check that the
+> classic IPv4 forwarding path uses.
+> 
+>> Fixes: 97add9f0d66d ("netfilter: flow table support for IPv4")
+>>
+>> Signed-off-by: FLorian Fainelli <florian.fainelli@broadcom.com>
+> 
+> [Severity: Low]
+> This isn't a bug, but the Signed-off-by name has a typo ("FLorian") and
+> does not match the author name ("Florian Fainelli"). There is also an
+> extra blank line between the Fixes: tag and the Signed-off-by: tag.
+> 
+>> diff --git a/net/netfilter/nf_flow_table_ip.c b/net/netfilter/nf_flow_table_ip.c
+>> index 19cafae748abe..98bade1b82994 100644
+>> --- a/net/netfilter/nf_flow_table_ip.c
+>> +++ b/net/netfilter/nf_flow_table_ip.c
+>> @@ -911,6 +911,10 @@ nf_flow_offload_ip_hook(void *priv, struct sk_buff *skb,
+>>   	};
+>>   	int ret;
+>>   
+>> +	/* The ingress hook runs before IPv4 rejects non-host Ethernet frames. */
+>> +	if (unlikely(skb->pkt_type != PACKET_HOST))
+>> +		return NF_ACCEPT;
+> 
+> [Severity: High]
+> Could this turn off the software fast path for flows that pass through a
+> bridge or VLAN upper device?
+> 
+> This hook runs at netdev ingress on the lower device. At that point
+> pkt_type still holds what eth_type_trans() set by comparing h_dest with
+> the lower device's own MAC. In __netif_receive_skb_core(), nf_ingress()
+> runs before both places that reclassify the frame:
+> 
+> __netif_receive_skb_core()
+>      nf_ingress()          <- nf_flow_offload_ip_hook() runs here
+>      vlan_do_receive()
+>      rx_handler()          <- br_handle_frame()
+> 
+> net/8021q/vlan_core.c:vlan_do_receive() {
+>      ...
+> 	if (unlikely(skb->pkt_type == PACKET_OTHERHOST)) {
+> 		/* ... */
+> 		if (ether_addr_equal_64bits(eth_hdr(skb)->h_dest, vlan_dev->dev_addr))
+> 			skb->pkt_type = PACKET_HOST;
+> 	}
+>      ...
+> }
+> 
+> net/bridge/br_input.c:br_handle_frame() {
+>      ...
+> 	if (ether_addr_equal(p->br->dev->dev_addr, dest))
+> 		skb->pkt_type = PACKET_HOST;
+>      ...
+> }
+> 
+> The flowtable supports DEV_PATH_BRIDGE and DEV_PATH_VLAN paths.
+> nft_dev_path_info() puts the upper device's dev_addr in h_source, but the
+> ingress ifindex is the lower port. Hosts therefore send routed traffic to
+> the bridge or VLAN MAC.
+> 
+> Two setups hit this:
+> 
+>    - A bridge port whose MAC differs from the bridge MAC. This is common in
+>      a multi-port bridge, because the bridge takes one port's MAC.
+>    - A VLAN device with its own MAC.
+> 
+> In both cases, every packet of an offloaded flow would be PACKET_OTHERHOST
+> at this hook. It would return NF_ACCEPT before nf_flow_offload_lookup().
+> The IPv4 stack later sees PACKET_HOST and forwards these packets.
+> 
+> Given that, does the patch keep "the IPv4 input path's forwarding
+> decision", as the commit message says? Would it work better to compare
+> h_dest with the address the flow expects (for example after the tuple
+> lookup) rather than test the lower device's raw pkt_type?
+> 
+>> +
+>>   	if (!nf_flow_skb_encap_protocol(&ctx, skb))
+>>   		return NF_ACCEPT;
+>>   
+> 
+> [Severity: High]
+> Is the same bypass still open for IPv6? In the same file,
+> nf_flow_offload_ipv6_hook() has no pkt_type check. It goes straight to the
+> lookup, forward and nf_flow_queue_xmit6() steps:
+> 
+> net/netfilter/nf_flow_table_ip.c:nf_flow_offload_ipv6_hook() {
+>      ...
+> 	if (!nf_flow_skb_encap_protocol(&ctx, skb))
+> 		return NF_ACCEPT;
+> 
+> 	if (unlikely(ctx.ether_type != htons(ETH_P_IPV6)))
+> 		return NF_ACCEPT;
+> 
+> 	tuplehash = nf_flow_offload_ipv6_lookup(&ctx, flow_table, skb);
+>      ...
+> }
+> 
+> Classic IPv6 forwarding drops these frames:
+> 
+> net/ipv6/ip6_output.c:ip6_forward() {
+>      ...
+> 	if (skb->pkt_type != PACKET_HOST)
+> 		goto drop;
+>      ...
+> }
+> 
+> nf_flow_offload_inet_hook() sends ETH_P_IPV6 to the unpatched hook. With
+> this patch, an inet flowtable would reject non-host frames for IPv4. For
+> IPv6 it would still forward frames sent to an unrelated unicast,
+> broadcast or multicast MAC, as long as the 5-tuple matches an installed
+> flow.
+> 
 
-The driver requests one of eight firmware blobs at runtime depending on
-the detected SoC (IPU6, IPU6SE, IPU6EP, IPU6EPADLN, IPU6EPMTL, IPU7,
-IPU7P5 or IPU8), selected through isp->cpd_fw_name, but never declares
-them.  As a result modinfo shows no firmware: lines and initramfs
-generators cannot pick up the dependency automatically.
+[High] pkt_type breaks bridge/VLAN offload
 
-Add MODULE_FIRMWARE() for every blob the driver can request.
+Agreed. The hook runs on the lower device before vlan_do_receive() and
+br_handle_frame() reclassify skb->pkt_type, so frames sent to a bridge
+or VLAN MAC are PACKET_OTHERHOST at this point and every such flow would
+fall back to the slow path.
 
-Suggested-by: Sakari Ailus <sakari.ailus@linux.intel.com>
-Link: https://lore.kernel.org/all/apqB28RBDZV4BlDZ@kekkonen.localdomain/
-Tested-by: Sergey Lebedev <lsa.uz@pm.me> # Surface Pro 11, IPU7
-Signed-off-by: Maximo Manriquez Lizarraga <DelaySystem@tubot.lat>
----
-Changes in v3:
-- Resend under my real name (From/Signed-off-by: Maximo Manriquez Lizarraga).
-- Fold in Tested-by from Sergey Lebedev (Surface Pro 11, IPU7).
-- Link to v2: https://patch.msgid.link/20261107-batch1-s1-ipu6-fw-v2-1-0e8567a1aefa@tubot.lat
+v2 drops the early pkt_type test. After the flow lookup it compares the
+Ethernet destination with the address the peers of the flow send to,
+i.e. the source MAC recorded for the reverse direction, which is the MAC
+of the upper device for bridge and VLAN paths. If the reverse direction
+carries no MAC, or the device is not Ethernet, it falls back to
+skb->pkt_type, since the hook then runs on the routing device itself.
 
-Changes in v2:
-- Resend with corrected Cc list (v1 accidentally reached only Sakari and linux-kernel: repeated --cc flags do not accumulate in b4); no code change.
-- Adds linux-media@vger.kernel.org and Mauro Carvalho Chehab to Cc.
-- Link to v1: https://patch.msgid.link/20261107-batch1-s1-ipu6-fw-v1-1-1d5323aff7b2@tubot.lat
----
- drivers/media/pci/intel/ipu6/ipu6.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+[High] IPv6 not covered
 
-diff --git a/drivers/media/pci/intel/ipu6/ipu6.c b/drivers/media/pci/intel/ipu6/ipu6.c
-index cdf812c02960..ec2a9c2bf587 100644
---- a/drivers/media/pci/intel/ipu6/ipu6.c
-+++ b/drivers/media/pci/intel/ipu6/ipu6.c
-@@ -1028,3 +1028,11 @@ MODULE_AUTHOR("Yunliang Ding <yunliang.ding@intel.com>");
- MODULE_AUTHOR("Hongju Wang");
- MODULE_LICENSE("GPL");
- MODULE_DESCRIPTION("Intel IPU6 PCI driver");
-+MODULE_FIRMWARE(IPU6SE_FIRMWARE_NAME);
-+MODULE_FIRMWARE(IPU6EP_FIRMWARE_NAME);
-+MODULE_FIRMWARE(IPU6_FIRMWARE_NAME);
-+MODULE_FIRMWARE(IPU6EPMTL_FIRMWARE_NAME);
-+MODULE_FIRMWARE(IPU6EPADLN_FIRMWARE_NAME);
-+MODULE_FIRMWARE(IPU7_FIRMWARE_NAME);
-+MODULE_FIRMWARE(IPU7P5_FIRMWARE_NAME);
-+MODULE_FIRMWARE(IPU8_FIRMWARE_NAME);
+Agreed. v2 applies the same check in nf_flow_offload_ipv6_hook() and 
+adds a Fixes: tag for the IPv6 flowtable support.
 
----
-base-commit: fa4ad798f6f681031775266044ba1b0cf3c670bd
-change-id: 20261107-batch1-s1-ipu6-fw-d62ffa6a3c91
+[Low] Signed-off-by typo
 
-Best regards,
---  
-Maximo Manriquez Lizarraga <DelaySystem@tubot.lat>
+Will be fixed in v2.
 
-
+pw-bot: cr
+-- 
+Florian
