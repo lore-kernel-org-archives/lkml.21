@@ -1,58 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=204.191.154.188
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=23.88.97.239
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794940093;
-	b=EzqMFDi0MkpUb6nYl/11E4Qm0FkxhVN5apDMWY72CBG9Leu5M8YDA4+sMqDcr07RpHid
-	 BFWPVSX45/2UvQHGrRI+6Y1KQL6us4R/6D5rdBptrWE9kFdQnZD8uL99KYo/EfHj+ok9T
-	 zWBu6hjP8IPUNnsrCzSg2PeapaalMGA9itH41M17HrHE48qPe6CFQjgfyCGL93i9Bkwfp
-	 iAv9bGOC+dl7JGQhdu4uv6LcIe42gXJbD8nxATvXw0pgpTfvzdzRaijol3FNKZGmNMplU
-	 p2JXr+Zl0m+oBLug5B9PGj4xQB/C/G5Laq07p2xwNIRsZyhO8vnevA007LJ8MAqg+JQ==
+	t=1794940132;
+	b=wVJyX47Ank4RG/Xj+y4/1LfnUB5V3uswvqg5z5xB8pJbuVHKVh+jbyHB74y6k58iHTJn
+	 V20hhhpMcm/jJCQ4cCJQlLA2fHnaG6zAVoKz6YjkF7KIsV9iHA4UwEAICMmWO5k6o4u6E
+	 ebhQyDFuCMGDlUa+cAxsH5+SkMh4MxGdbC4iRl/WY2rU+oSmiXJIey9GGzzK+ehzyJL9E
+	 zTzu62Ka9EKi8C2XU0sLdOYIvcYwPmXMtEvwPISU6kqTTmqGuUPs3hfyX53+oRnFBBe9O
+	 XSj3Gk4hpREAUzRFxEgTgNeQ9wLnym5XMoCEr+5SdytukHNN+pZC/r2bpKGXVQ2Ut3A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794940093;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-SA-Exim-Connect-IP:
-	 X-SA-Exim-Rcpt-To:X-SA-Exim-Mail-From:X-Spam-Checker-Version:
-	 X-Spam-Level:X-Spam-Status:Subject:X-SA-Exim-Version:
-	 X-SA-Exim-Scanned;
-	bh=korbg7m2/TbtqPgo8sxH4xfzvfV/2mKsNq65LW7R+ds=;
-	b=TaRcJDwVJeuLMTbs3jutMFCgKFdEm6hfL3aG2uTp0b+eiYTl75dJHpGnkpuD4Aq6OQSC
-	 inFKq8aSKxXZJFex7B/PdvxrRjHXOTjQhoNaC8inXp7YsR/T1AF+xV+rmrcZOBZPJPbsp
-	 //LFnDuEajfCyUt/hWUw8QGzNx1H/R3p2/v8TzNl1s2dyDTrf3/ayhtRYTchCtbbIV6Ox
-	 D4/yR0Q444O55Tcdf+EAv9Kjsuiwj0ch7Vr7HI3Nd8SeKiD9mmWBv6bj4qcF1BE9nsMht
-	 x0Iuag96hrmqO8Ju6AuZu9KJ1oSwHfq4n/BX3lP7apqqTjQ4GkF1MHOVm8IgOdMQrGw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794940132;
+	h=DMARC-Filter:DKIM-Signature:Received:X-Spam-Checker-Version:
+	 X-Spam-Level:X-Spam-Status:DKIM-Signature:Received:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=TYCrUZgXrFp7nju9+zel/L//WHtE13MRhrVcFy3OJJs=;
+	b=iAPiDDLOH0Bu5jpA7l5ReLKeT4McyYUuF5zJ1JHpUmEFtNmbZLKIqbqm+ORWsePf6Elq
+	 jRMAPI61Su5WVwYakIR++blfvZBDkTJZIiDBbmx6V6/dbBZpJOgmyqPuN00U7eZfimXJx
+	 ucQKZ1aDODZUOl478EK37XE7ns1XNERKVwAoCZGYbNWjGMNDH7krdExJX0CgBivxiT7wg
+	 zO+iQE9ay3qUQhRQUWluEYiLGs2tNIeTvgrrpPa9HPDLczaLKkeToZ/bGFy+axkoQJLRo
+	 iH1nMEtOt2HWK5F7v8uieg2SAInaeNE0XzNcYGDCe5fJYQG1WxNvSHKoRgBV5HmvRCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=deltatee.com;
-	spf=pass smtp.mailfrom=deltatee.com;
-	dkim=pass header.d=deltatee.com header.i=@deltatee.com header.a=rsa-sha256 header.s=20200525 header.b=fvHxjg3y;
-	arc=none smtp.remote-ip=204.191.154.188
-Received: from ale.deltatee.com (ale.deltatee.com [204.191.154.188])
+	dmarc=none header.from=birger-koblitz.de;
+	spf=pass smtp.mailfrom=birger-koblitz.de;
+	dkim=pass header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=vKjlA+51;
+	dkim=pass header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=ci2mQDF6;
+	arc=none smtp.remote-ip=23.88.97.239
+Received: from bkemail.birger-koblitz.de (bkemail.birger-koblitz.de [23.88.97.239])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD428606A32A;
-	Tue, 17 Nov 2026 18:28:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD428606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=deltatee.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=deltatee.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6158B606A32C;
+	Tue, 17 Nov 2026 18:28:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6158B606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=birger-koblitz.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=birger-koblitz.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=deltatee.com header.i=@deltatee.com header.a=rsa-sha256 header.s=20200525 header.b=fvHxjg3y
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=deltatee.com; s=20200525; h=Subject:In-Reply-To:From:References:Cc:To:
-	MIME-Version:Date:Message-ID:content-disposition;
-	bh=korbg7m2/TbtqPgo8sxH4xfzvfV/2mKsNq65LW7R+ds=; b=fvHxjg3yc33WDFyLzOuGp62/Cg
-	g+kV0C9O/eY4uhCMslNXy3KDQEqEcNlqREPEPGSxIdS0lEpDq86Q6ib34m5kKl5VID1x6D6XHkKyp
-	OpLtRp/mn/Nee9CEEVSxL07lIb+/QHS+0e2D8mbt2NsGPpfhedD6X0Z2SAPSn3jKxAgc7BBM8Xqa8
-	Q6fqaTwkIhdB8qIf0+QwN4TNkXuHR1tQk503RYMrBVB8ih6u/G6NCgEortBh+8PlRKxpgrl3d7VPZ
-	3WfRS4KNXcCgHDwmJIHwxC/vZtR4Q4JjzxUHz8MWjhT/roSvUchSjX+0YDQhjhp839UV2KXxcYLkN
-	WU32Q/pw==;
-Received: from guinness.priv.deltatee.com ([172.16.1.162])
-	by ale.deltatee.com with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.98.2)
-	(envelope-from <logang@deltatee.com>)
-	id 1xTNuc-00000001SZK-28xu;
-	Tue, 17 Nov 2026 12:28:11 -0600
-Message-ID: <b3058fbd-151a-4cb4-b5fe-e55964d5f8a3@deltatee.com>
-Date: Tue, 17 Nov 2026 12:27:50 -0600
+	dkim=pass (2048-bit key, unprotected) header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=vKjlA+51;
+	dkim=pass (2048-bit key) header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=ci2mQDF6
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=birger-koblitz.de;
+	s=default; t=1794940123;
+	bh=PC9BEm+5BWDcKunvskJlZOjZYCOKJ7jpPS6hPUydkJU=;
+	h=From:Date:Subject:To:Cc:From;
+	b=vKjlA+51It75T4/y2wKNvbSOmhUUw8RydptVs+jzo6F77NKG48zISWv5LJH8GSgnD
+	 wabrxm2cAjeZjPZlBOqVmu3O7sRvqs1tvOQXPkie4RxYfkUOrFiNUeNeO60iIkS8RU
+	 MUU/v6qexMWFV/thzNcXNKIEPMqzyMMozBsPqcI3v5on0UU5OBekczRRE3osqdwRvZ
+	 lUoMiO81PEdMSw736gtptvXgnO1edfusyv/vk7ViSAxmeWNjf/vh5bCZyMy3ThS39t
+	 ZIQpX+rnC2oZ/X25T9abkFvQOOdPI8J1eUxNU9P+Vd2Pf/L0XJ4sPkT5II1CD4P7zF
+	 CI1kmaEvnxXwA==
+Received: by bkemail.birger-koblitz.de (Postfix, from userid 109)
+	id 161DF48C78; Tue, 17 Nov 2026 18:28:43 +0000 (UTC)
+X-Spam-Level: 
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=birger-koblitz.de;
+	s=default; t=1794940122;
+	bh=PC9BEm+5BWDcKunvskJlZOjZYCOKJ7jpPS6hPUydkJU=;
+	h=From:Date:Subject:To:Cc:From;
+	b=ci2mQDF6HMx3Yc3YifPASqChiL+b3jR6C3Pt4/LygSIkxZDfI/Tx7feLsrqvlwJ0E
+	 2u7Agqh3/0rb+YL9B11J3fufJigx3rajIRGuUSaIXtaFMr67Tyrr1CpFYWYkxv2+tb
+	 1PnpN2jj8m3ZzB5JX39z0V9v19WJvnObsE+uek0ueE8zozDY6+knJsxOlUZVQj5rZU
+	 ek5hgFuNbpWhgtCjD47v5UdOnmm0x1W7UMLUjeueAOUi/fBCzheGNYgZl7LsHNuEW+
+	 4H0iXMlfxZNr8ky5ZON/9JpUWme88t6pqIxOWOxsaDXB56w+g+MWljZwkInNGCrisB
+	 /D0DrgNhNCOTg==
+Received: from AMDDesktop.lan (unknown [IPv6:2a00:6020:47a3:e800:271c:c6c5:9fde:77cb])
+	by bkemail.birger-koblitz.de (Postfix) with ESMTPSA id D8B5B48A23;
+	Tue, 17 Nov 2026 18:28:41 +0000 (UTC)
+From: Birger Koblitz <mail@birger-koblitz.de>
+Date: Tue, 17 Nov 2026 19:28:25 +0100
+Subject: [PATCH net-next] aqc111: Correct endianness handling in
+ rx/tx_fixup
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,70 +75,121 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
- Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.li@nxp.com>,
- Christoph Hellwig <hch@infradead.org>,
- Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
- Dave Jiang <dave.jiang@intel.com>, =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?=
- <linux@weissschuh.net>, Kelvin Cao <kelvin.cao@microchip.com>
-References: <20261110173137.623764-1-logang@deltatee.com>
- <20261110173137.623764-2-logang@deltatee.com>
- <avyWCL7TzS9JX4Ys@lizhi-Precision-Tower-5810>
-Content-Language: en-CA
-From: Logan Gunthorpe <logang@deltatee.com>
-In-Reply-To: <avyWCL7TzS9JX4Ys@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 172.16.1.162
-X-SA-Exim-Rcpt-To: Frank.li@oss.nxp.com, dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, vkoul@kernel.org, Frank.li@nxp.com, hch@infradead.org, christophe.jaillet@wanadoo.fr, dave.jiang@intel.com, linux@weissschuh.net, kelvin.cao@microchip.com
-X-SA-Exim-Mail-From: logang@deltatee.com
-X-Spam-Level: 
-Subject: Re: [PATCH v4 1/4] dmaengine: add per-channel sysfs attribute groups
- via chan_groups
-X-SA-Exim-Version: 4.2.1 (built Sun, 23 Feb 2025 07:57:16 +0000)
-X-SA-Exim-Scanned: Yes (on ale.deltatee.com)
+Message-Id: <20261117-aqc111-v1-1-27a54c4b54ca@birger-koblitz.de>
+X-B4-Tracking: v=1; b=H4sIAMic/GoC/x2MywqAIBAAfyX2nOBKZPQr0cHHVnuxUgkh/Pek0
+ zAwzAuJIlOCuXsh0sOJz9AE+w7cYcJOgn1zUFKNiKiFuV2jsNJtg5y81qOFFl+RNi7/aIFAWQQ
+ qGdZaP19lu9JiAAAA
+X-Change-ID: 20261117-aqc111-b0cf408d776b
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: linux-usb@vger.kernel.org, netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Birger Koblitz <mail@birger-koblitz.de>
+X-Mailer: b4 0.14.2
 
+The MAC supported by the aqc111 driver is very similar
+to the AX88179A. During the development of the driver for
+the AX88179A, the following issues in endianness-handling
+were found, which are also present in the aqc111 driver:
+ CHECK   drivers/net/usb/aqc111.c
+drivers/net/usb/aqc111.c:1094:34: warning: incorrect type in argument 1 (different base types)
+drivers/net/usb/aqc111.c:1094:34:    expected restricted __le64 const [usertype] *p
+drivers/net/usb/aqc111.c:1094:34:    got unsigned long long [usertype] *
+drivers/net/usb/aqc111.c:1122:45: warning: incorrect type in argument 1 (different base types)
+drivers/net/usb/aqc111.c:1122:45:    expected restricted __le64 const [usertype] *p
+drivers/net/usb/aqc111.c:1122:45:    got unsigned long long [usertype] *[assigned] pkt_desc_ptr
+drivers/net/usb/aqc111.c:1235:22: warning: incorrect type in assignment (different base types)
+drivers/net/usb/aqc111.c:1235:22:    expected unsigned long long [usertype]
+drivers/net/usb/aqc111.c:1235:22:    got restricted __le64 [usertype]
 
+Fix these problems and additionally also make sure that cloned
+skbs are always copied for expansion.
 
-On 2026-11-17 11:59, Frank Li wrote:
-> On Tue, Nov 10, 2026 at 11:31:33AM -0600, Logan Gunthorpe wrote:
->>  static ssize_t memcpy_count_show(struct device *dev,
->>  				 struct device_attribute *attr, char *buf)
->>  {
->> @@ -1117,6 +1143,7 @@ static int __dma_async_device_channel_register(struct dma_device *device,
->>
->>  	dmaengine_chan_dev(chan)->class = &dma_devclass;
->>  	dmaengine_chan_dev(chan)->parent = device->dev;
->> +	dmaengine_chan_dev(chan)->groups = device->chan_groups;
-> 
-> if echo channel have same groups, why need copy it to dma_chan?
+Signed-off-by: Birger Koblitz <mail@birger-koblitz.de>
+---
+The MAC supported by the aqc111 driver is very similar
+to the AX88179A. During the development of the driver for
+the AX88179A, the following issues in endianness-handling
+were found, which are also present in the aqc111 driver:
+CHECK   drivers/net/usb/aqc111.c
+drivers/net/usb/aqc111.c:1094:34: warning: incorrect type in argument 1 (different base types)
+drivers/net/usb/aqc111.c:1094:34:    expected restricted __le64 const [usertype] *p
+drivers/net/usb/aqc111.c:1094:34:    got unsigned long long [usertype] *
+drivers/net/usb/aqc111.c:1122:45: warning: incorrect type in argument 1 (different base types)
+drivers/net/usb/aqc111.c:1122:45:    expected restricted __le64 const [usertype] *p
+drivers/net/usb/aqc111.c:1122:45:    got unsigned long long [usertype] *[assigned] pkt_desc_ptr
+drivers/net/usb/aqc111.c:1235:22: warning: incorrect type in assignment (different base types)
+drivers/net/usb/aqc111.c:1235:22:    expected unsigned long long [usertype]
+ddrivers/net/usb/aqc111.c:1235:22:    got restricted __le64 [usertype]
+    
+Fix these problems and additionally also make sure that cloned
+skbs are always copied for expansion.
+---
+ drivers/net/usb/aqc111.c | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
 
-The groups pointer belong to each channel, so each dma_chan must set its
-groups to the chan_groups pointer stored in the device. The only way to
-add these groups is to set dma_chan->groups to something and the pointer
-stored chan_groups is exactly what it is there for. I can't see any
-other way to accomplish this. It makes no sense for each channel to have
-different groups.
->> +/*
->> + * dmaengine_chan_from_dev_lock() / dmaengine_chan_from_dev_unlock() bracket
->> + * a critical section across which a channel's struct device can be safely
->> + * converted back to its struct dma_chan: dmaengine_chan_from_dev_lock()
->> + * returns NULL if the channel has already been unregistered, and the lock
-> 
-> where return NULL when already been unregistered
-> 
-> static struct dma_chan *dev_to_dma_chan(struct device *dev)
-> {
->         struct dma_chan_dev *chan_dev;
-> 
->         chan_dev = container_of(dev, typeof(*chan_dev), device);
->         return chan_dev->chan;
-> }
-__dma_async_device_channel_unregister() will set chan_dev->chan to NULL
-while holding the dma_list_mutex lock.
+diff --git a/drivers/net/usb/aqc111.c b/drivers/net/usb/aqc111.c
+index dd53f413c38f6035c18f9922fd4e90d66a73ae53..39d8755ca8e7bff484100f82863cc2ac8582fcc9 100644
+--- a/drivers/net/usb/aqc111.c
++++ b/drivers/net/usb/aqc111.c
+@@ -1074,7 +1074,7 @@ static int aqc111_rx_fixup(struct usbnet *dev, struct sk_buff *skb)
+ 	struct aqc111_data *aqc111_data = dev->driver_priv;
+ 	struct sk_buff *new_skb = NULL;
+ 	u32 pkt_total_offset = 0;
+-	u64 *pkt_desc_ptr = NULL;
++	__le64 *pkt_desc_ptr = NULL;
+ 	u32 start_of_descs = 0;
+ 	u32 desc_offset = 0; /*RX Header Offset*/
+ 	u16 pkt_count = 0;
+@@ -1091,7 +1091,7 @@ static int aqc111_rx_fixup(struct usbnet *dev, struct sk_buff *skb)
+ 
+ 	/* RX Descriptor Header */
+ 	skb_trim(skb, skb_len - sizeof(desc_hdr));
+-	desc_hdr = le64_to_cpup((u64 *)skb_tail_pointer(skb));
++	desc_hdr = get_unaligned_le64((__le64 *)skb_tail_pointer(skb));
+ 
+ 	/* Check these packets */
+ 	desc_offset = (desc_hdr & AQ_RX_DH_DESC_OFFSET_MASK) >>
+@@ -1116,10 +1116,10 @@ static int aqc111_rx_fixup(struct usbnet *dev, struct sk_buff *skb)
+ 		goto err;
+ 
+ 	/* Get the first RX packet descriptor */
+-	pkt_desc_ptr = (u64 *)(skb->data + desc_offset);
++	pkt_desc_ptr = (__le64 *)(skb->data + desc_offset);
+ 
+ 	while (pkt_count--) {
+-		u64 pkt_desc = le64_to_cpup(pkt_desc_ptr);
++		u64 pkt_desc = get_unaligned_le64(pkt_desc_ptr);
+ 		u32 pkt_len_with_padd = 0;
+ 		u32 pkt_len = 0;
+ 
+@@ -1220,7 +1220,8 @@ static struct sk_buff *aqc111_tx_fixup(struct usbnet *dev, struct sk_buff *skb,
+ 	headroom = skb_headroom(skb);
+ 	tailroom = skb_tailroom(skb);
+ 
+-	if (!(headroom >= sizeof(tx_desc) && tailroom >= padding_size)) {
++	if (skb_cloned(skb) ||
++	    !(headroom >= sizeof(tx_desc) && tailroom >= padding_size)) {
+ 		new_skb = skb_copy_expand(skb, sizeof(tx_desc),
+ 					  padding_size, flags);
+ 		dev_kfree_skb_any(skb);
+@@ -1232,7 +1233,7 @@ static struct sk_buff *aqc111_tx_fixup(struct usbnet *dev, struct sk_buff *skb,
+ 		skb_put_zero(skb, padding_size);
+ 	/* Copy TX header */
+ 	tx_desc_ptr = skb_push(skb, sizeof(tx_desc));
+-	*tx_desc_ptr = cpu_to_le64(tx_desc);
++	put_unaligned_le64(tx_desc, tx_desc_ptr);
+ 
+ 	usbnet_set_skb_tx_stats(skb, 1, 0);
+ 
 
-Thanks for reviewing this,
+---
+base-commit: 805185b7c7a1069e407b6f7b3bc98e44d415f484
+change-id: 20261117-aqc111-b0cf408d776b
 
-Logan
+Best regards,
+-- 
+Birger Koblitz <mail@birger-koblitz.de>
+
