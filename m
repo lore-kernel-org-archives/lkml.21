@@ -1,55 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794946168;
-	b=VaOBvPiowyP3I5XLOY3+H+lsKJv2Mza8MwjoioXT+OeYPselh61TjP9CJ5WRK1xtChhG
-	 bPzHXqNAWrxupFea1egmQKJ+J9WVGmDd+7x7/u/ZPhlXw4O7LgWWyKSuugzajafqCwqEI
-	 hPDIrppY5i7RPojbk1fswbsW6DnKqTbN3PEfMM0unXODU/jJ9VjDxrOfM2YUhbHDJfyAA
-	 fGQnlpxma6g85tsOhkDb0rYbLocJCLeaxhYUy6v78uGHyQBiEWu22dtdnSx5Vdmb2cfNN
-	 UNWoufJjf9cPxLsbpAATmLF0Jg1sfBxwpedPxJRCsHia72hvMLcs0Et6+XWHNm2JRIA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794946168;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=xobMW25f3cW1ukQgv8cksSp77nAYWp/OwUuvqXxfDTc=;
-	b=P+B4AvBNYlhgrQxWERrk2dQWXKTx44/DfMp97Zsq7iBMofFxAR2DXm3gJmgEBHSsNpqI
-	 VaiVmsFKA6KYI4hHBs2bMr1at/Xu6ZAtYGfShi4xWiuL2UljWrWaGAzEXSR3FRTLXPTd/
-	 juZMyTzpKxrILcKglP1yGTTkn1O4ZCKPF0yjifwmWKLUnTuTFMJ5o8HVMP+OILchhJrKE
-	 /j18W3tSUL6oy4Gepl+HPy/127+809Rygm57WAjcHiwlKUaQwFv1W6e8Gu2Hc/Djegr7z
-	 PnJ0y9lxc6uyWWS2IpWqdPt4206QJpAqS8Qki73vFlZrr3PqBw/fC457wqLOgmjkhvw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PJDczKlw;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794946204;
+	b=TgRKUom+uPNzjV5oREU6BfEmeVf1suYNj9F/9iTfizAa0qu+inzJjaTiSZ84IG4bEFpF
+	 pOKiS6zU6Aw+hkO9upTcspnXJKh1UVNIHgcboJTDVdF/Up5mblr2BCP03N/UomLOUusGw
+	 sLdRBzW/t9LEGr4ECORCr0SW0xeGx76RkeN/D3DDj59sjYEkfxxAq4JKpaC9oXoPZwvuk
+	 57Np2kRFrAFCmS7Bf9tEM7VogiIfiKSjXTVqnI4j09C+tIT/aA98FlKE9YL9Pg8HNhrqX
+	 OrTLOxuLddHMazl1nO1ErvifzRKRxT5rq36bRZsB8Io5EUGd6DttDnvadSApCtypxmA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794946204;
+	h=DMARC-Filter:DKIM-Signature:Received:Content-Type:Mime-Version:
+	 Subject:From:In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:
+	 References:To:X-Mailer:X-ZohoMailClient;
+	bh=l9gKzF4csGCLy05jMvgfB5xApHRqMpbBUWpf7823ToM=;
+	b=SRnqladhDfBP0sFUEj8i9w2WGaIdwNQJXlwdsk1V1UM0j9gNbpHaxNXm7KLWsJx3vd0O
+	 ALVAsU5cznY7c0PY8nF5DwQZSyjxjkUPo36Qk276DLEd2kIoyTk9UT51m2kpkC6rQ3yE1
+	 NM5x4VXqH5A+qiuSJQske3YJ4tgFj1Q3uBnqTCaJKgCdKAw+v26OcL32kNuRoqUGyrvdH
+	 JXXVGXb9jD8DSlUNXwhzLCmYKFADZf3CtVH5KPuSZYfVhcLZDMC2/cbVXmobNq51Flde7
+	 QLKDCNeSUiT9ZBJFsguRV3svq9j+4tb4QNyY9grIpzPAsrzx8pxuxJthX5IJSPoqjZA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=DCc13ZXw;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
+Received: from sender5-op-o11.zoho.com (sender5-op-o11.zoho.com [165.173.182.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 898C7606A32A
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:09:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8EF01606A31C;
+	Tue, 17 Nov 2026 20:10:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8EF01606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PJDczKlw
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67C9A1F000C7
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:09:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794946168;
-	bh=xobMW25f3cW1ukQgv8cksSp77nAYWp/OwUuvqXxfDTc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=PJDczKlwWOTgyFoe9HctTF20r91TmGIrn4VKrAzgxxkkfgQonKExrtLzcvJJDXSdX
-	 MYzF2NDEivE37UC9XU9ftrtVGWR3KHObITvOZjndePi1fYOgE2lrjQA5K7ByF5k8pF
-	 D8SqAYnTxpWIb79IZken6oEG6Ft9cy1do+ng8MvSEF3f6lwQ1t2MR1h9NCgT/pbAl5
-	 qhfgTIeDhiMj2acc9jgVOKihkQRiEHNoXb9solO95xCyBtDjILcUg59GadPQyvvFWe
-	 VhJT41hKXVxQgqPvAiR20EOlacBCKIlnZ6sBQRpKXI6TSiEh0By8s2dLMzVH3j5J4e
-	 jtYWAJB3IoCXQ==
-Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-3ad5529ae64so2481141fa.2
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 12:09:28 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHELv4v1KAcqGbk2MHqlWwQfuyovebhbqf0HtfyCeq3F1U0A7WDPNUFkg+vcNFE9C4uIoijj0qeazY6V1I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8kju9/LJ+rddkrkLCjlEnL1OnhiXF8asXyUDhxmB4OIqsfhp5+
-	/ZkYPMsYmNAdPMB92z9Fa6fbTr0Izx+5sH7WMOTpMt7MlfKlRl04PcpLWI9m/uPqCWG5BOmnpRr
-	Jrm9KdLzqpixPQERIAmxnYKV/aGc+wSA=
-X-Received: by 2002:a05:651c:b27:b0:3ac:9a09:b1b7 with SMTP id
- 38308e7fff4ca-3ae670b31e0mr740631fa.12.1794946166809; Tue, 17 Nov 2026
- 12:09:26 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=DCc13ZXw
+ARC-Seal: i=1; a=rsa-sha256; t=1794946172; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=me11B3I2YcRhEMyfakc6pNPNwfJvrjXm8jNgAbUbG8OA/byoFsHKL/8BYiarnYIKzRGzpqsFLuHW3/6f0doZQj1onXJfrUIXXbI1VbIkSzeiIzSaREp9ROCEK38397BMqh1fpl9tTZGa/imXC9HSHf8mdEaOc0tb1AatzsO4CtA=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1794946172; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=l9gKzF4csGCLy05jMvgfB5xApHRqMpbBUWpf7823ToM=; 
+	b=hrJBuzx4sVZWl2/1ZHOgLiEVJKTRSVJqa58ZpmQiC0ZQSPsPszX1QULo81TSUElWrK/pi1ORASwmG4LgBmDS9oHH6orIRQH1cJTBU1N3C90OMjJ1C/GI3jNZkSCTz7HyH+VjQ07D1M78dhJLmnkvOsoGnmpYk34RkQuRmDOCmn0=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=daniel.almeida@collabora.com;
+	dmarc=pass header.from=<daniel.almeida@collabora.com>
+DKIM-Signature: a=rsa-sha256; b=DCc13ZXwsJeG8n0EEwMr9TM5O3UfhaRO2ImVjMMy2z4vZu+etNesJFdJj/6LHWwxIAgNurZZI+MJDQ14DBdMie11AjJ6fbat3BIMdS4u5lAQ9brqqbL3oXeeQ7+MjPl0bKt/GmXW366C074B+Z4iAmV1kvJa36fTN6Gb3SvF00s=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=l9gKzF4csGCLy05jMvgfB5xApHRqMpbBUWpf7823ToM=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1794946170789661.6773741019286;
+	Tue, 17 Nov 2026 12:09:30 -0800 (PST)
+Content-Type: text/plain;
+	charset=us-ascii
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,52 +57,145 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <20261110144436.1529000-2-ca@modelmiser.com> <CAJZ5v0jTHbr2KD3PXMdcOCs+QUrGrjGGuxOH7cbOe4kEF77d-A@mail.gmail.com>
- <20261116200935.2464922-2-ca@modelmiser.com>
-In-Reply-To: <20261116200935.2464922-2-ca@modelmiser.com>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Tue, 17 Nov 2026 21:09:12 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0gQgAAHWwS1ftxaTKHSeq1ADH7-Z6sm77d=_vWBrrkgTA@mail.gmail.com>
-X-Gm-Features: AclHuK-CqX3dtTSoLW1P2lxrGKci-oQX1R_DqmMxIHKY2EAauwDBHTfATkyG-EI
-Message-ID: <CAJZ5v0gQgAAHWwS1ftxaTKHSeq1ADH7-Z6sm77d=_vWBrrkgTA@mail.gmail.com>
-Subject: Re: [PATCH v2] ACPI: pfr_telemetry: keep the state until the last
- file is closed
-To: Chad Aldreda <ca@modelmiser.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, Chen Yu <yu.c.chen@intel.com>, 
-	Shuangpeng Bai <shuangpeng.kernel@gmail.com>, linux-acpi@vger.kernel.org, 
-	stable@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
+Subject: Re: [PATCH 0/6] rust: iommu: add a paging domain abstraction
+From: Daniel Almeida <daniel.almeida@collabora.com>
+In-Reply-To: <20261116193821.GC2452510@ziepe.ca>
+Date: Tue, 17 Nov 2026 17:09:11 -0300
+Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>,
+ Will Deacon <will@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>,
+ Miguel Ojeda <ojeda@kernel.org>,
+ Boqun Feng <boqun@kernel.org>,
+ Gary Guo <gary@garyguo.net>,
+ =?utf-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
+ Benno Lossin <lossin@kernel.org>,
+ Andreas Hindborg <a.hindborg@kernel.org>,
+ Alice Ryhl <aliceryhl@google.com>,
+ Trevor Gross <tmgross@umich.edu>,
+ Danilo Krummrich <dakr@kernel.org>,
+ Tamir Duberstein <tamird@kernel.org>,
+ Alexandre Courbot <acourbot@nvidia.com>,
+ =?utf-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
+ Abdiel Janulgue <abdiel.janulgue@gmail.com>,
+ iommu@lists.linux.dev,
+ rust-for-linux@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ driver-core@lists.linux.dev,
+ Detlev Casanova <detlev.casanova@collabora.com>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>
 Content-Transfer-Encoding: quoted-printable
+Message-Id: <3EB4C2ED-B699-4532-A562-68B78F6E29C6@collabora.com>
+References: <20261112-b4-iommu-domain-v1-0-c29e86788dda@collabora.com>
+ <20261116193821.GC2452510@ziepe.ca>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+X-Mailer: Apple Mail (2.3901.200.71.1.16)
+X-ZohoMailClient: External
 
-On Mon, Nov 16, 2026 at 9:09=E2=80=AFPM Chad Aldreda <ca@modelmiser.com> wr=
-ote:
->
-> On Fri, 13 Nov 2026, Rafael J. Wysocki wrote:
-> > Applied as 7.5 material, thanks!
->
-> Thanks. Two small things in the applied commits, in case they are
-> still easy to change:
->
-> 1. Shuangpeng Bai reported the pfr_telemetry use-after-free in June. I
->    posted the tags on v1, but v2 did not carry them, so e788ea48810f
->    has none:
->
-> Reported-by: Shuangpeng Bai <shuangpeng.kernel@gmail.com>
-> Closes: https://lore.kernel.org/all/178144969601.60470.350897430189995721=
-2@gmail.com/
->
-> 2. The message of dacb7cef6f32 ("ACPI: pfr_update: keep the state until
->    the last file is closed") also contains my notes from below the ---
->    line and the diffstat. Two sentences there no longer match the
->    commit: "kzalloc() rather than kzalloc_obj() ... for the stable
->    trees" (the code uses kzalloc_obj()), and "No lock is added. A call
->    that passed the removed check can run during the unbind ..." (fixed
->    by c0ab3714e87a). Deleting everything after your second [ rjw: ]
->    line up to the patch.msgid.link Link: tag would drop them.
+Hi Jason,
 
-I'm not really sure what happened here.
+> On 16 Nov 2026, at 16:38, Jason Gunthorpe <jgg@ziepe.ca> wrote:
+>=20
+> On Thu, Nov 12, 2026 at 02:00:07PM -0300, Daniel Almeida wrote:
+>> This series adds a Rust abstraction for IOMMU paging domains. A =
+driver
+>> can allocate a domain, attach it to its device, map pages into it, =
+and
+>> install a handler for its faults.
+>>=20
+>> This will be used by the upcoming rkvenc driver that my colleagues
+>> Detlev Casanova, Nicolas Dufresne and I are working on. More details =
+on
+>> this driver can be found by watching Nicolas Dufresne's talk at LPC =
+2026
+>> [0].
+>>=20
+>> As part of the security model, each client will have its own IOMMU
+>> domain. This is needed as the submission model will let userspace set
+>> most of the encoder's registers directly, so the kernel cannot check
+>> every memory access that a job makes the encoder do. With a single
+>> domain, one client could make the encoder read or write the memory of
+>> another client.
+>=20
+> How do you plan to get the paging domain in the first place?
 
-> If neither is worth a rebase, no problem.
 
-I've fixed up the above, thanks for the notice!
+We plan to alloc a paging domain when a video encoder session is =
+created. Then
+we call iommu_attach_device() before a job runs, and detach back to the =
+default
+domain after it finishes so the next job can attach its own session's =
+domain.
+This is so each session is isolated from each other.
+
+>=20
+> Using paging domains directly is very complicated, I'm not excite d to
+> see DRM trying to do this at all. IMHO there are many unanswered
+> questions how it could even do this safely.
+
+In a very simplified way, this is not unlike how GPU drivers currently =
+work. In
+fact, from a cursory look, this seems to be how rocket (the NPU driver) =
+works
+too. Since we are merely porting the same ideas to video codec hardware, =
+I am a bit
+surprised by your discontentment.
+
+(Note, though, that I have never worked on IOMMU drivers, so it is =
+possible that
+I am missing some context or some history here, in which case, sorry.)
+
+In any case, we need this isolation due to the submission model used.
+Most Vulkan drivers know their hardware pretty well, so a level of =
+abstraction
+on top of it like V4L2 is unnecessary. Therefore, in order to achieve a =
+leaner
+kernel driver, userspace programs most of the encoder's registers =
+directly, so
+the kernel cannot validate every address a job makes the encoder access.
+
+Instead of validating, we rely on each session having its own address =
+space, so
+a job from session X can only reach memory that was mapped for session =
+X, and
+so misbehaving sessions cannot affect one another. You cannot read or =
+write
+buffers from another session unless the buffer is explicitly shared.
+
+Again, this is pretty similar to GPU drivers, where a VM_BIND ioctl can =
+bind
+a given buffer range to an address range in a specific address space.
+
+> It would be better to come with a user so we can try to understand
+> what you are even planning.
+
+We do have a user, it is just work in progress. We will likely post an
+RFC soon (i.e.: next few weeks I assume).
+
+>=20
+>> Patch 6 adds Domain::with_fault_handler(), which allocates a domain
+>> with a FaultHandler installed. One handler can serve several domains.
+>=20
+> You intend to use fault handler?? That's even more esoteric.
+>=20
+> Jason
+
+The fault handler is used in the same way it is used in GPU drivers: to =
+kill
+sessions if they fault. This way the driver can simply refuse further =
+work from
+a misbehaving client, for example. It is also the natural place to =
+enqueue a
+reset if the codec hardware is frozen as a result of the fault.
+
+What in this model is fundamentally incompatible with how you expect =
+paging
+domains to be used? In other words, what exactly do you mean when you =
+say:
+
+> IMHO there are many unanswered questions how it could even do this =
+safely.
+
+
+-- Daniel
+
