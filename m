@@ -1,101 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.231.202
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794943780;
-	b=l9rw3HnfAA/NkmNPZhtMfclnKn8FyZiWJ5wRQxl/CremHm3OV3VYIA81YPFpiwCpcKyd
-	 uXfZctG/uR1qxP/5EuHWE5FWw/WCVhFWYqEzcbM7pAdxNwEKJwl95FAja+bHbiWGmZhkx
-	 RzDADo79q916IjkOYtbcuqShMgkk2W3b3PfB1/TcdwIyYPcQW1NL3yKLktpIO4Lu8u1lQ
-	 3t3U8FANxtejh39W7ejgZ86pjGCKTiHs33kveGaKnw7k+xGRoEYAwgq5xIDl0xXmPG+ME
-	 sSw1cIIvBihuKKgEwk4Nq78LOweFhoZtREviQFmnTUAthtE+jlYcbigpgVWJqKiThBQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794943780;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=PGjBYsfF8c+MCFmt2RtqM8D82MXv6pCt/UIwi1wWB78=;
-	b=GD+lEulGoPcn/n92XxjuGm9Lh4bsCarM+KoBgjZ9kdju358YsKjKOo4Kch0Tzvj97bKc
-	 uaXIV4ot+3eoHTBQPcw98tndRj9OPo9tf0/uO+rs0BLljv/PVgyYKn1payF9Qoclw8bjH
-	 zqcJPRP1WWBaDij21mytUlLiGPKYPGfyqKEXbXCvhqIp+b9uMTlx+VSdiJDi0OIpAjMeI
-	 ayIXBEap+KntY6p/r9XBI5z9GIPmzTtvqHWlGlXSEtD9VMCngN/lL51/JNfkTNtje6wi3
-	 1jCLu7C4XH0oZBOvQV2/Tjas5DM+V1dMdauOqCYr+QS4u+X/lZ3QgSjBAR9ZAcO0U9Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ONtZm+tz;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.231.202
-Received: from mail-oi2-f10.google.com (mail-oi2-f10.google.com [74.125.231.202])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.153.30
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794943797;
+	b=A/QrtbYt0CPFToXF9DMpxW86iCqjHkPbWc5EJm8j3YSc8Fyn8TlMD61td4QhlgNilVp4
+	 e95gD0KgnxvN33R0lw6kXs0PBczGbs2l26OY1Xa53NA0tl++VlLCgeVgjvRPPsPZrEhOt
+	 GofvUY53UceoZlDplMHq+fr7eK2oCE+GkFaoY/48QYGk+cI8QjEVRaegXHMBogOx+kTiJ
+	 F0QQsPWfc0+sgXxmOXVr5EKlrIOm30h8ImJk0aNIZyMC1vi29DvCFdzt21przMby+i0JY
+	 6QpZxn8PBuyyQcY8y3ukofGr5JAYCyB2DT/fa8yU70fufRfttUs5xEOo1Qd8x6r3Oag==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794943797;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:From:To:CC:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Virus-Version;
+	bh=OWqH00++mg9kkwn2r1Ks4wuWW+kQ0mHIAqRr+Y1JNmY=;
+	b=B0FRA3ESD7PtsqMSCycdQBvQu1lVdfShXq3Ku+jr+dZyi70CFnHfr6PObOKq3n7ZWdJz
+	 xmXdd1O70FkxHcHCP/bQvtRgS+d/D6QJy+TpsoJ/hcpEzaxVpfgKrsl5S4GBrnncUPrkX
+	 He65qB2bhtBuxY6223D9jcxRPS98RlGVDzz5gH7AdRm8+Ls0s0z99ax27OVfj40QciKFR
+	 1zceJoGYkZTPfrexVg88wZO/nrb0bRxwcR8sQldizHiz2juDwUyBArTofL02lJYoF8YuI
+	 L5Z0pQJornuo5Peyyr8ld2KRNWOCa4EGhVMvx2ODsSrZI1f3aflll6a/wLP30t5HDMg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=meta.com;
+	spf=pass smtp.mailfrom=meta.com;
+	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=GsQd7bgO;
+	arc=none smtp.remote-ip=67.231.153.30
+Received: from mx0b-00082601.pphosted.com (mx0b-00082601.pphosted.com [67.231.153.30])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3A68606A331
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:29:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3A68606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF699606A32C;
+	Tue, 17 Nov 2026 19:29:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF699606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ONtZm+tz
-Received: by mail-oi2-f10.google.com with SMTP id 5614622812f47-4b94bb43008so10412b6e.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 11:29:39 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794943779; cv=none;
-        d=google.com; s=arc-20260327;
-        b=j1q1CenCQarZcjWcif2I2FAvtC+c3MY8TEkAMzG0MwIywPe2aKP0jrVlf77F+kD6xu
-         cGPgqo87fUtWpr5u0CkipYYkGc1NzATGdHOXSA9GgT5HBejeJlZLpMuZIHX5uJ1sstfb
-         Zip1sj10SqJyJOxLam05azp4ZkIO20+DiifKc1swArqefVO1DeLkSMrJpnHERu1q4HT/
-         x2hTNSC8JbaglKAkQ4GAkTgpzh2Um2WK0zc52JySS/WYNYy9U+3XEAu4iTmlCx+Q9qn5
-         GKd5Fq2w5+tAdHuzgDzQUjkvOmvQ08U/2O0/slgZX1KyFvVhpD5AcsJg8iN3KBIdyft9
-         +9zw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=PGjBYsfF8c+MCFmt2RtqM8D82MXv6pCt/UIwi1wWB78=;
-        fh=SUUOYa911/doAgAMK6si+d2NTsOUZQHNQwTOFCs3Es0=;
-        b=jlVMMYzeaIyZZkYzqlVPrOknIJx6NTLvd9cm3rDwjDhTweDPcVxoJkSRhHvQVYVYC/
-         BuNZm1B7vdS2y9dBJLKEvHbMWlnTmyop7V89AS/4pYC2oG6dtmpdPY1C7VdyrVPey+G1
-         VK7uFbhalBqYDtfRMpvGB7rz2Q1Fx6OyDHvtXoij0nwo5DYrxVzZDs7mrbjpfPHYg7hs
-         dqBi7CVNAthsqZL9M/tyx4BcBZ80zDeWeVeVK8kziEFZqsbKI0NYLiXcVjNDijEEQPsc
-         EQVtzaB39R1kGUiQFCMISJKbzrwHOROyB+Xjb2zoL31g/tbQGkbecFzJhG5I2Mb9CnrY
-         2ngg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794943779; x=1795548579; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=PGjBYsfF8c+MCFmt2RtqM8D82MXv6pCt/UIwi1wWB78=;
-        b=ONtZm+tzCe5AxgdvotSdykWIJIAbYxI4gQv15Oeapf/2EcbAP/6T4HAWMl/aXQBdME
-         FQoa4ZNSpSvqeR+RNwT3ryKYV496fons6L9R1ulG4QUdcnhD1Mlw23erslQCQ2n4z33p
-         K1zoPDeV+4U6j9uFL18VX0ctUmKEHTjvw0F/U6WV8PknxTFdTM4umaWazDh/AV7XoomD
-         lyENT5w1U7E8aHFFAl7DO70nIJkjj+nipnAfpLWijihnmeb6XvlxnJ8a+bzeTeosQFrW
-         +pofxMPwuuYwFhCTq/xIG5tojiOTIUXacTg3yL4pmjqaJQ7EL35D+Wn61rYnFW/mDgkO
-         Nwuw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794943779; x=1795548579;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=PGjBYsfF8c+MCFmt2RtqM8D82MXv6pCt/UIwi1wWB78=;
-        b=ZJT6wIxZGIjgCv/JiVFzA1CIo50+Vb64ZLQWZshCaVgt4E15CKbJhoCb5DAV8p56Lr
-         DFFuTHXJGxCYq2aR+wlCPUse8d15hUf7+4o3n8wig6XnSBtg90S4HQVo/Zf/Kc3GvJjx
-         Y9XxuAPKk6+EAk9aCD1gBhm4PdTpl7M3/qL2CMCnxS5Ulh5og16HHJ7QzZ6yQcV4bpEg
-         jDFZkRHIUdTW7OCIhxXtbITQeRXuhLdv8t4XiLbkT8XBwvQYc/+MlW6GVuPaDciGUdJO
-         j4eklGCna2KhwBGFwQo5EunjKwmi1LrNrQqvnn6zNIlxV2wlRHC60lEh1lekmJFOx5e0
-         ixqA==
-X-Forwarded-Encrypted: i=1; AL+hErG/RnALV7gzSlGgSwYhoXW2iMxUXYtGXp35m/KvoDHBkT/Bm52/r80Dn8Hv6RZOx+NavwTzCEw++nN3shY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/82kWZXMLYVxgDZZT0gCHZJSTh6tlN2HoblCXp4km80edopHx2
-	/3b5GIn7/kPCYWcspfzTbUKL2I/5kO9/8AQlJgYKLDgsQWdoZCCd6RfWBwUQiv5baMH58HQh3gi
-	+PvIvbpoc1pTT9pTZ/gaCWWdZBVLYC40=
-X-Gm-Gg: AYBFou07XzmY8ggXfGyqiS/QaDnDrNv3WcXBB8VSB/EzzGZuuCJqi3LlH2SMTYbc1qh
-	BGBZWXJUWczZGAS0HeSAtS1mrgB9PSyAkeXgMYkZmMPDXSzbThkmo7RoqzRjFkQH1B6+5gUgvcX
-	WOTyRePqDDHmdY5xW5DqmOxmRBOzozjb1bJWePVWdugdXYKwFU7z8JzGQtTaoNyB+BPYxLvhxs2
-	7izv7l79EHYjj4i9QSE0q8ufAsVIVvjQ1FGz86nVgnu6xwqxr9hInXCGKzH6fe7TWzpa0VGWApb
-	/7ELT8lpSOxMyX5qCjrlcPZWVQce7KTkL8tThEvHjxkoiFcJtnejlb4oR2QS8MCkNPRvNl2+lWk
-	cw3EEKGeCIoG+nMrbjAEdzggujTndxkKIkaKycEX5SNLQ3gQjuFi15o6B1hwxc7h3xmmrFPLbLM
-	19IIXlAGgD3041y8i1vwJ3stjV2mKYrtkNB6sV9hhCEjgOlE9+ZHl8
-X-Received: by 2002:a05:6808:30a9:b0:53a:e153:e8e7 with SMTP id
- 5614622812f47-57741d17630mr920531b6e.44.1794943777052; Tue, 17 Nov 2026
- 11:29:37 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=GsQd7bgO
+Received: from pps.filterd (m0109331.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AHJ9R8t1553199;
+	Tue, 17 Nov 2026 11:29:24 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	pps82601-s2048-2026-q3; bh=OWqH00++mg9kkwn2r1Ks4wuWW+kQ0mHIAqRr+
+	Y1JNmY=; b=GsQd7bgOaUnqRtITDliJAEm/ATxEV8kQ0RdD5qaD564IlAYnH+xOk
+	woFL4S2NOVdkbqdNegALdcm326GPAjlpJEnC3gaQkTXg4fn4gPF9MxF80X257kpW
+	qbMjU7AavkkUjWkMRgvJaQcr+ZkLl7RAizgRUqfKQ3ZEVSFjqz2CixuedIzxn2hx
+	J4YGFmd4iIQQ3OooCHjXcHMLr8ZIQyZoEMSD0QQh25S2uopYH3HQlLfQEM6X6Mse
+	L/hvZmUvqkJohIjhiaAP8amMz2N03cVPZ8YgMNgKCp7/A/SrrGrMyr7DwJf9Vhlx
+	OS/h6/ExR1nG75C0fl4TwQg/34uZvSheg==
+Received: from mail.thefacebook.com ([163.114.134.16])
+	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j0px5m30v-6
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Tue, 17 Nov 2026 11:29:19 -0800 (PST)
+Received: from localhost (2620:10d:c085:108::150d) by mail.thefacebook.com
+ (2620:10d:c08b:78::c78f) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Tue, 17 Nov
+ 2026 19:24:21 +0000
+From: Todd Freed <toddfreed@meta.com>
+To: <netdev@vger.kernel.org>
+CC: "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet
+	<edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni
+	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+        Daniel Zahka
+	<daniel.zahka@gmail.com>,
+        Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
+        Wei Wang <weiwan@google.com>, Jamal Hadi Salim <jhs@mojatatu.com>,
+        Jiri Pirko
+	<jiri@resnulli.us>, Alexei Starovoitov <ast@kernel.org>,
+        Daniel Borkmann
+	<daniel@iogearbox.net>,
+        Andrii Nakryiko <andrii@kernel.org>,
+        Martin KaFai Lau
+	<martin.lau@linux.dev>,
+        John Fastabend <john.fastabend@gmail.com>,
+        Stanislav
+ Fomichev <sdf@fomichev.me>,
+        Sabrina Dubroca <sd@queasysnail.net>,
+        Boris
+ Pismenny <borisp@nvidia.com>, <bpf@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>
+Subject: [PATCH net v2 1/3] net/sched: act_mirred: don't send decrypted skbs from egress to ingress
+Date: Tue, 17 Nov 2026 11:24:09 -0800
+Message-ID: <20261117192411.247117-2-toddfreed@meta.com>
+X-Mailer: git-send-email 2.53.1
+In-Reply-To: <20261117192411.247117-1-toddfreed@meta.com>
+References: <20261117192411.247117-1-toddfreed@meta.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,34 +97,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <CAJ6F8CFSfgdZqaKMndGZtbaww32Xr_KVL3gA_2Jemgv9i9vskg@mail.gmail.com>
- <CAJ6F8CFgkgksyk6YM3NdMkQNhSFWV4depC4c-mHvpDHpnjhM-Q@mail.gmail.com>
- <6ab4a114-57b2-40c7-99d4-55a4ac4c9a9c@leemhuis.info> <CAJ6F8CHzm4=ryY+j3ao6doR=-67Lq=3-w-kbhk1wdvtYDhyNeA@mail.gmail.com>
-In-Reply-To: <CAJ6F8CHzm4=ryY+j3ao6doR=-67Lq=3-w-kbhk1wdvtYDhyNeA@mail.gmail.com>
-From: Hungyu Lin <dennylin0707@gmail.com>
-Date: Tue, 17 Nov 2026 11:29:25 -0800
-X-Gm-Features: AclHuK-EvuFT3sTbDUuzVCeVohToLo20JL-jPaY9zCV6KfEdKeWy3NzN4uK5qVs
-Message-ID: <CAGEkeHdxaC2BBg5wWOCL0pj0r4Ks6mD_a3KpE7h+en9Aupb4zA@mail.gmail.com>
-Subject: Re: [REGRESSION] ntfs3: existing files/dirs with ':' in their name
- became inaccessible in 7.3 (ads on by default)
-To: =?UTF-8?Q?Cl=C3=A9ment_Smagghe?= <cle.smagghe@gmail.com>
-Cc: Thorsten Leemhuis <regressions@leemhuis.info>, almaz.alexandrovich@paragon-software.com, 
-	ntfs3@lists.linux.dev, regressions@lists.linux.dev, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDA3NyBTYWx0ZWRfX5uTgEzDd1ITt
+ n3ScVxOA0XTAwYcAHPxTse8UsSTVQy+qqcJclB4Gy2/KFH1MNQqh5D3ho6GpeTnb4Ylcjg6r/CQ
+ jz0ArvvrjNqrHA2ABc3olYY5NRuHPww=
+X-Proofpoint-GUID: 0_5-0tuWtdIcgBQ07Bp8PTztKq5mZKzu
+X-Proofpoint-ORIG-GUID: 0_5-0tuWtdIcgBQ07Bp8PTztKq5mZKzu
+X-Authority-Analysis: v=2.4 cv=adD0Dhot c=1 sm=1 tr=0 ts=6afcab12 cx=c_pps
+ a=CB4LiSf2rd0gKozIdrpkBw==:117 a=CB4LiSf2rd0gKozIdrpkBw==:17
+ a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22
+ a=wpfVPzegXHpEFt3DAXn9:22 a=VwQbUJbxAAAA:8 a=VabnemYjAAAA:8 a=A7XncKjpAAAA:8
+ a=OYNTlRyxvniuHvjL9cQA:9 a=gKebqoRLp9LExxC7YDUY:22 a=R9rPLQDAdC6-Ub70kJmZ:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDA3NyBTYWx0ZWRfX9g9zbFmNPjDD
+ q6h1tmqh7J2UcQXhe4V75zWqCfc6E/PMlkPklnWbko+dprxQVDSfkpp6E6ef7ze5ucvEFL59h4f
+ FlUWyVtHKXzvYbbzYwNyXitIDsQPCUzPFNRFgMsJB5zkzzmJSfEB4iqki4f9OMnqEbkPBEoFsqO
+ IQpKMVuxW16J0BKyx3zx2QCXPpjhotLa3qZimBN7Mf33Igb79bvi6EURaYVNOzMl78LtUmvEMDq
+ 99SElCUOkccrVw5G3bXtz1I4QCMKACw7akR/59fZVBDKL6F23sNxg4LmjPRjaz2mKOBFZWfaHU8
+ 0Ex8nIm1crtp3bdlfK3TbMq8Q0cjERgGg99H1Vs9TJx2iHjKxPYjxs6xT2Eex9JVkSD42MwRj9R
+ tTA6d0cOwixgg8i1clrFlTDzJS37syUoTNG+OVXLJTDmF3/XZTW5FlVQEo0JU3I0B7cWwSAb97n
+ Cx/rb2IXnYQiMi6PQSQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-17_04,2026-11-16_01,2025-10-01_01
 
-On Sat, Nov 14, 2026 at 7:43 AM Cl=C3=A9ment Smagghe <cle.smagghe@gmail.com=
-> wrote:
->
-> I'm happy to test patches.
+On transmit, skb->decrypted means that the device must encrypt the
+packet, e.g. a packet of a kTLS or PSP device offload socket.
 
-Hi Cl=C3=A9ment,
+On receive, skb->decrypted means that the device decrypted the packet,
+and kTLS device offload trusts it as such (tls_device_decrypted()).
 
-I sent a fix that makes 'ads' opt-in again:
-https://lore.kernel.org/all/20261115103845.56074-1-dennylin0707@gmail.com/
+A packet which mirred redirects or mirrors from egress to ingress keeps
+the bit. On ingress, it then claims to have been decrypted by the device,
+although it was never encrypted, and its payload, which was to be
+encrypted before leaving the host, could then be forwarded in cleartext.
 
-Could you reply with your Tested-by if it works for you?
+Clearing skb->decrypted would not work, because that is what indicates
+intent to encrypt the packet.
 
-Thanks,
-Hungyu
+Don't send decrypted skbs from egress to ingress: a redirected one is
+dropped, a mirrored one isn't copied.
+
+Fixes: 414776621d10 ("net/tls: prevent skb_orphan() from leaking TLS plain text with offload")
+Cc: stable@vger.kernel.org
+Signed-off-by: Todd Freed <toddfreed@meta.com>
+Reviewed-by: Jamal Hadi Salim <jhs@mojatatu.com>
+---
+ net/sched/act_mirred.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/net/sched/act_mirred.c b/net/sched/act_mirred.c
+index 1c98e4d81ebe..52c3eeab381a 100644
+--- a/net/sched/act_mirred.c
++++ b/net/sched/act_mirred.c
+@@ -285,6 +285,12 @@ static int tcf_mirred_to_dev(struct sk_buff *skb, struct tcf_mirred *m,
+ 		goto err_cant_do;
+ 	}
+ 
++	/* On transmit, decrypted asks the device to encrypt the packet. Sent
++	 * to ingress, the packet would read as decrypted by the device.
++	 */
++	if (unlikely(want_ingress && !at_ingress && skb_is_decrypted(skb)))
++		goto err_cant_do;
++
+ 	/* we could easily avoid the clone only if called by ingress and clsact;
+ 	 * since we can't easily detect the clsact caller, skip clone only for
+ 	 * ingress - that covers the TC S/W datapath.
+-- 
+2.53.1-Meta
+
