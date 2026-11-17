@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794954591;
-	b=SHyDZ6vQNmrRnxwMJy8tNT761ekL3uVbxWt+7I78/RFiWaFgtwbiUN8DGV24H4DJ/O+I
-	 L8hOio11HlfxKvW9rVTkhiPrdD1P/hj/gFkANOJqcxGg54MLbdUMOOu5rSXKtDiHbpvUC
-	 KQjUbG41jI3Znifi2e4MMNsvqvzzaEcRAsQr0VdVYbzLicyLK8K3hiQ4y9pxzDiUVCNx+
-	 q8TpXrD3N6EYz7T1fGhZkQwS3+kXfFle5noz+6x3HMhQmY19ChcjHuq5Jt5yhyM1rmoZw
-	 7OlTslH6eqlN06ZtFW/TBuOdAf8tOnMP8nLyWNHjI8+P1sM9LKQuSS1zkifbBJxNlHQ==
+	t=1794954588;
+	b=WgaGQSx30vJ1KroUmBIfizpl9x6X9mT2jGn5TJN0etiVB6k3OgCCysrNriWuep7bB76u
+	 hYBLdE//IVybYOd3dlh75OO5sBMFxwfaV0AYT+HwlnCdtRuO10XCEzxNJDwwdfeRqHxzD
+	 eCuyRp7+j/4vCxicVWfuPcefpxSl8mXsFD1+AxUuHTEmBgrGJmAafR3J0nifuh3bWUbJB
+	 YPopyJjWBwdYLElH4tTGI76zxc3KQnNrC5mCE7By+nFBSBH/8PYa6vhL2rQz+UqjjsCYj
+	 9jKSNUtuJeLS+2N0g5aZORBi8y5LL1qN/8WnQNueSFWRp6j6cpn/flbkvU5wi++MPYw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794954591;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794954588;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=heh1kZ+qgjKo/AgXK7ewjk75P489JDGfLaGMmKnq1aQ=;
-	b=l/eIHQbUHGvuxqEjmVd6lM+H1ewjA7zQfzLDwWz5QZjpb/KYaalaHxjNdwO6VhjOTE/B
-	 IBaL+JSE0+dq2mIKn3aBnC+bYXkaX8r/fHDRKNhSLo4gi9LcmJxPcrEcqYUlXyArDDluu
-	 hO6wUHGn/7tGKnt7Ws6mX7hZKvzVcBWWRTTmf9XUouqOvRnyI9qxzaerU+PFZZdggcte/
-	 64zPMJBJNTxLTklT9Q3cqFnPIh9M+2QnhU+NRepyJfIG3qe3Y5vYE+f4ZyyQAwHNMzDEv
-	 osY/LzUvpafHapkgXP6xBR2p9oolAq+zBsa6eWdsF4z6672NkY8ZGOLtkK7BA/4Hggw==
+	bh=nJ50dWwrw6eP7lM7PGnaKKuzHTxZuNFJv4CpyDCuR8k=;
+	b=BKYnd4xBE6Igjmw2+7kNRSXFP7U3D7GKolcu25qoYCMD5h9vGEY+cwDTDQzXKBv1QR2K
+	 3HPOxa9mClihXy7g7LLKI7Gta0k0S0xDqU6UDHT2qdJxgXe2BU971QTjs41NnJJCpG+A9
+	 XrCLDWaTPquiUnw6wm3HfnXYhOrG90om9IZcieZuqWAzR5ddz7jN/ZMHBy/jhHN5XsMwe
+	 7dxq/Txrim5fPm0KoDe343metrO34HAe94Ul76dWoOE+o36oVzZw+V3oFTQs8aJdc6QVD
+	 vVDI1GiZv+x1VBTLv/8UZXX7sxffW6FXdCQ3+HvtvMW3uLaLKst3pqtopbjSUATPg2A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KtHkIJpK;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NP0byFfJ;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB52C606A89D;
-	Tue, 17 Nov 2026 22:29:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67EA7606A31C;
+	Tue, 17 Nov 2026 22:29:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KtHkIJpK
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E73601F000CF;
-	Tue, 17 Nov 2026 22:29:49 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NP0byFfJ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2749D1F000C5;
+	Tue, 17 Nov 2026 22:29:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794954590;
-	bh=heh1kZ+qgjKo/AgXK7ewjk75P489JDGfLaGMmKnq1aQ=;
+	s=k20260515; t=1794954588;
+	bh=nJ50dWwrw6eP7lM7PGnaKKuzHTxZuNFJv4CpyDCuR8k=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=KtHkIJpKdbvxPV5VSpqfs60sYKIwf8OO81qJqLVZEjOcPv9TyF1UdkC/gLQ3JMdm2
-	 Hs33WbfXbDp0VLd811I6Oeo83qiFNrKmoL8VsgeM/nDLbQRzqx30p6Zyn4Mjt97jOy
-	 oAZ51/bD8DanPwUswTJLdf40xt5DOhlreYqbziGLR3Xecsem8LmYHAZTeTnZQDG9M9
-	 T4bf9mdi2J67pPLY6VccFnWzUA2Tytb0dFmNGi6vuDXkBPXYKrKtRyZ+SITNQBj2zY
-	 KmniKyytqLQW0DRp989Wjle89CpcpWsNne4csDWhFKSGHNmNSLQvh4jQEONNNGZhQ5
-	 l6/zVu2Pelztg==
-Subject: Re: [PATCH net 5/7] mptcp: push queued data on subflows falling back
- at the handshake
+	b=NP0byFfJqLTtWq80K5MV0KlEcn0WEW2Rx+QgjSnN87b+LnlHAf36CoNWloi6fuaUs
+	 q1fZ1cgA5ogofiTUNcodn4b5M4/aAMOiWNLxi8gCMqQLxfrkdlgFAwqRdHCvUHky2N
+	 Kecif7O9nGcpWldlVwnvSllXRUoj5yG6MKdv6jeWosC8+/K5HH+urfrkbuZJZek9ex
+	 fbIcriHJgHiZ8tmYiXgwmV/5fMdYzTDKeHvM0U7zjrrk0STAL0rBtrVMT0z6pXHR6E
+	 8Lyocfw8S4M9dBegu7Tby1F+9Jv5k3TBopuVfQ8SuorFgv9ElwpwTGqVp8RxpUkzPp
+	 SJyRxF3p+hHzg==
+Subject:
+ Re: [PATCH net 2/7] mptcp: push pending data after a sendmsg copy fault
 From: netdev-bot+sashiko@kernel.org
 To: matttbe@kernel.org
 Cc: martineau@kernel.org, geliang@kernel.org, davem@davemloft.net,
@@ -49,10 +49,10 @@ Cc: martineau@kernel.org, geliang@kernel.org, davem@davemloft.net,
  fw@strlen.de, dmytro@shytyi.net, netdev@vger.kernel.org,
  mptcp@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org,
  mason@kernel.org
-Date: Tue, 17 Nov 2026 22:29:49 +0000
-Message-ID: <179495458948.3136.10805605417711396515@kernel.org>
-In-Reply-To: <20261116-net-mptcp-misc-fixes-7-4-rc4-v1-5-bf7656de653e@kernel.org>
-References: <20261116-net-mptcp-misc-fixes-7-4-rc4-v1-5-bf7656de653e@kernel.org>
+Date: Tue, 17 Nov 2026 22:29:46 +0000
+Message-ID: <179495458661.3136.9219707272531758975@kernel.org>
+In-Reply-To: <20261116-net-mptcp-misc-fixes-7-4-rc4-v1-2-bf7656de653e@kernel.org>
+References: <20261116-net-mptcp-misc-fixes-7-4-rc4-v1-2-bf7656de653e@kernel.org>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -72,88 +72,49 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] check_fully_established() (net/mptcp/options.c) now pushes
-  pending MPTCP data in its fallback branch every time that branch runs,…
+- [Low] mptcp: Fixes trailer in commit message cites 69800e516e96 instead
+  of d9ca1de8c0cd
 
 --
 
-mptcp: push queued data on subflows falling back at the handshake
-
-This commit pushes pending MPTCP data from check_fully_established() when
-a subflow that is not yet fully established falls back to TCP, because
-the first established packet carries no MP_CAPABLE option. This covers
-both passive TFO subflows and clients with data held back by a small
-SYN+ACK window.
-
-> diff --git a/net/mptcp/options.c b/net/mptcp/options.c
-> index bcf3440d1901b..617358ff7f990 100644
-> --- a/net/mptcp/options.c
-> +++ b/net/mptcp/options.c
-> @@ -1035,6 +1035,10 @@ static bool check_fully_established(struct mptcp_sock *msk, struct sock *ssk,
->  			MPTCP_INC_STATS(sock_net(ssk), MPTCP_MIB_FALLBACKFAILED);
->  			goto reset;
->  		}
-> +		/* this ACK will not reach the fallback path: push from here */
-> +		mptcp_data_lock(sk);
-> +		__mptcp_check_push(sk, ssk);
-> +		mptcp_data_unlock(sk);
->  		return false;
->  	}
+> diff --git a/net/mptcp/protocol.c b/net/mptcp/protocol.c
+> --- a/net/mptcp/protocol.c
+> +++ b/net/mptcp/protocol.c
+> @@ -2130,8 +2130,10 @@ static int mptcp_sendmsg(struct sock *sk, struct msghdr *msg, size_t len)
+>  	return copied;
+>  
+>  do_error:
+> -	if (copied)
+> +	if (copied) {
+> +		__mptcp_push_pending(sk, msg->msg_flags);
+>  		goto out;
+> +	}
+>  
+>  	copied = sk_stream_error(sk, msg->msg_flags, ret);
+>  	goto out;
+>
 
 [Severity: Low]
-Can this push also run while an incoming RST is being processed?
+The Fixes tag looks off to me. Before 69800e516e96 ("mptcp: propagate
+fastclose error"), a copy fault in mptcp_sendmsg() already set
+ret = -EFAULT and jumped straight to out. The out label sat after the
+if (copied) __mptcp_push_pending() block and returned copied ? : ret.
 
-tcp_reset() calls into MPTCP before it tears the subflow down:
+So with copied > 0, the already queued dfrag was left on rtx_queue
+without a push even back then. 69800e516e96 only introduced do_error
+to pass ret through sk_stream_error() when copied == 0. It kept the
+existing if (copied) goto out; behaviour.
 
-net/ipv4/tcp_input.c:tcp_reset() {
-    ...
-	if (sk_is_mptcp(sk))
-		mptcp_incoming_options(sk, skb);
-    ...
-	tcp_done_with_error(sk, err);
-}
+As far as I can tell, skipping the push on a partial copy error goes
+back to d9ca1de8c0cd ("mptcp: move page frag allocation in
+mptcp_sendmsg()"). That commit made mptcp_sendmsg() queue everything
+first and only push after the loop.
 
-Take an active client whose mp_capable subflow has sent the third ACK but
-has not yet received a DSS DATA_ACK, so subflow->fully_established is
-still 0. Suppose an RST arrives with seq == rcv_nxt == ssn_offset + 1.
-tcp_validate_incoming() accepts it and calls tcp_reset().
+With the current tag, stable tooling would miss kernels that have
+d9ca1de8c0cd but not 69800e516e96.
 
-A plain RST from a middlebox, or an RST that only carries MP_RST, has no
-OPTIONS_MPTCP_MPC. So check_fully_established() enters this fallback
-branch, and mptcp_try_fallback() succeeds.
-
-The new code then goes through:
-
-__mptcp_check_push()
-  __mptcp_subflow_push_pending()
-    mptcp_sched_get_send()
-    __subflow_push_pending()
-      tcp_push()
-    mptcp_reset_rtx_timer()
-
-In fallback mode, mptcp_sched_get_send() only checks
-__tcp_can_send(msk->first) and sk_stream_memory_free(). The subflow is
-still TCP_ESTABLISHED at this point, so it gets picked.
-
-Right after this returns, tcp_done_with_error() purges the subflow write
-queue and closes the subflow.
-
-Usually TCP's own snd_wnd keeps the data off the wire. The work is still
-wasted, though: dfrags are copied into a queue that is purged at once,
-msk->snd_nxt moves forward, and the msk rtx timer is armed during
-teardown.
-
-What if the TCP window allows more than the msk window? For example,
-data could have been left behind by an allocation failure, or snd_wnd
-could have been updated by a segment without a DSS. Could data segments
-then go on the wire after a valid RST was accepted?
-
-The fallback block at the top of mptcp_incoming_options() already does
-this for an msk that fell back earlier. This patch makes the same thing
-reachable from the not-yet-fully-established case.
-
-The comment says "this ACK", but the packet here can be an RST. Would it
-make sense to skip the push when the skb has the RST flag set?
+Could you double check, and if you agree, point the Fixes tag at
+d9ca1de8c0cd instead?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116-net-mptcp-misc-fixes-7-4-rc4-v1-0-bf7656de653e%40kernel.org
