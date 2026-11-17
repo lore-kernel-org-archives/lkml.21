@@ -1,83 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794959827;
-	b=i7tAzsq4q+ArjjDR3fESxksbVNpG1EVofuEAoiM1xLeR9hY036UF+u/Uq/8WpQMBeUIW
-	 ALXjy/zTliDGhfVRxlYmJaHvQnDpivujxYRFQWU/AFlL6+OcOT0lMkdlGbujK5i88AJK3
-	 6CYeBVW9CBb2OyfEb3fuVLA8BxXcgSIMlAN1ELVzAY5YdkDi1SKv0JemFFf62qRTftaYy
-	 4O2ZzO4kbKBzHbGJkVHxiQgA2MSKVp4OXze5GPuHPM0HXtA8H2Fvt3FNFwuEZOec6ysh5
-	 fmOQwgQJ/qrLAPhUeuAFjXdf/pQAacfjFYJSWl7k8c3NXPdgh9KKacW6nP9/SxpQblg==
+	t=1794959842;
+	b=loVEYHCt86alu+yWusTlPgJ3qLTRPdcuvEAi/lVjQsjXNAGSts39BSa+phbXwdOSF2yD
+	 mSu8bcKpk9qS8vkbZHMM77aHngV5DJMy2lUu9uvRYoPN5XBcOE8AE1Q6JYzZIrx9b0EZo
+	 QZZ68ykvWjSig/gVHpUfyhYC2ZyW/WHOsWq92/Vd5RlLP97Eu67uGFkPr9Wq0ssLvPOjw
+	 LmbUkWKxIH8CnEtenDLT7oPPbB4FdmdEHHic69p3GLGIXJ2pj9QAMzv83FjfT0uFyJbRG
+	 4bZRCjpptlR0vesq2FMBZ70UZsCBRq2OONaTsETERL5F1ZKPw4SzVDhuR0IjLO0mSPA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794959827;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Type:Date:Message-Id:Subject:From:To:Cc:X-Mailer:
-	 References:In-Reply-To;
-	bh=zBKSUNIiXiILVKYT5fm/zNF8yb/snSQKW4BL97jmOFQ=;
-	b=cAfo0nG4fXdL+ScU8j8RXEVJNRVS0DdATiwTX+EnQOtVJPop88o4Sp2TNZx3qqY3G7Ox
-	 XhbQwJRFRX/IS1orvc+JHTalP0Vn/GKoJnaQ7shFL4IOi0luVGFOgyxnqTZkDyJhM8gYU
-	 n7RCizi3JbODjjTOkxleDdnftZB1LwR7fdxNA/H0feYJ0AE+5oCXULTOOjIwLS4ME9lNZ
-	 ngmd/LCGcw8aAOnz2B+29EW1jxjCyRzYAlOGNDW/jF9zG1zdCPOqIek0QdQC6McCYSieE
-	 IkivBKgJtcfRBxQo3xe5lwsf5zbiqhqT4ylhZ4KBvwp1IyOVCDhx9JAN8m4wpgIzhLQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794959842;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=KhAoBwf3NWu02gsp0vLrpOhmhFlMWeezHYPZ/IdY1+U=;
+	b=2FLoXqW56yF2jhVowQexTjaCjHp0fwuzHiMPUOlLDrt9Kq1GqUfD3BkztZzUUHEJLPA8
+	 8IIvsNS7QJZwGMBMgomFydv5jfNOQRCLzq3+jcXeuVM0F3K7MOqJDcDJnjSDB7enc1vuA
+	 kYr/gyl49Xr2a7ZGSe3bKUeL15h1ITXxxHx3emqZ4Rfvin3iD/eGifi0WTU9t/jzk3SNL
+	 nYDE0OoTe9ZlIMLZ2XjU6+unyAFHL22TLO4FP0oOr4U/HdCXhXDoscRCVHk3fnRSD1YPO
+	 DzQjOnjuKtDXTgEvdzOKR7wSX7lQSLDpPJrqAK+RbEk9l5CcyAxDhkzkihh7LQ0POmQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="XeX/kpqg";
-	arc=none smtp.remote-ip=209.85.128.50
-Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DCEF1606A32A
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:57:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DCEF1606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=cJ+VtMF4;
+	arc=none smtp.remote-ip=111.22.67.139
+Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id BC08B606A32A;
+	Tue, 17 Nov 2026 23:57:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC08B606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XeX/kpqg
-Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4bb702a7548so3502065e9.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 15:57:06 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=cJ+VtMF4
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794959825; x=1795564625; darn=vger.kernel.org;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-type:mime-version:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=zBKSUNIiXiILVKYT5fm/zNF8yb/snSQKW4BL97jmOFQ=;
-        b=XeX/kpqgO/1P35ogpjLlwilnlvUFxFQSHMnnNShW2FTydkN5BOOFbOVoiZ1Tt8lCdP
-         nWleJ1xb2SgrnnY9yQ9J6liP7gVP9z1S3U51juI7aanyRwXBCVGUrHcNBONwbjovMIGA
-         ize1km3yalXg/kHQB+YLgd0Je/uGWIV6uDtEnzb6G6RYtBpDw9SqmNxyytBqPn73y2BO
-         O8Mc7OCOL9xSyFnV3BpIDzNIJYJeLqnhDNohQQ3Qqk55TRBfkEsdiw8VlNsKlb+LRcaZ
-         fHdt6yhQVuwnXlUzL/YnSKjia75t3dr5aQ/WGzE8QhPLylqcImcPLkZpnWJIGYUcACu3
-         bT7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794959825; x=1795564625;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=zBKSUNIiXiILVKYT5fm/zNF8yb/snSQKW4BL97jmOFQ=;
-        b=VrFhEgynrP0QAtcadWIytSfKXuqeB8grqsx+CJc5dlijK3SoLbVSGE4vXPF7WLdx2U
-         cSONWPkDA2iiw/0KGVte/cJwEDXEOjrK0Lns5VKtWwkCMXsKLBwJS4i96FZhfc4Yf/9/
-         iRvENM6y6CMg/+6bQeVF+BKOHxQUTEGEeBbqJM0TzuExIpqi9uACRK3fVMCRxEDLJWgj
-         Gzpdii/EVf8pi2MZ16gJoQV7D4KuucJYJlLjsg5rGeFWGywI9BUR1lbBoqzw1FGhZFvE
-         1gotP4QS6ZOCzAvTgjigCQYq7W4ys0co7ydNwHEtxYBM4sYXaWr0Dw5GvHp3Ehhdn3mt
-         T3vQ==
-X-Forwarded-Encrypted: i=1; AL+hErEMpLsdKQbip9ctqLbtOYEJexmNLJeA1BaR6+rIhmWgv5TAmcjQ0Kmd1J3+EcypyqaBmH4DhRKwf4XKEuA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/ezz1YiknK8xxQ4TOMzMZebXRGQMIF/ILHNrF+56bfWFv//+Ig
-	+kE6sV/w/+RLKI73y4UYVLbVzCLSLgmMQHMpHP/t+VUe0+WbA1s2AzAY
-X-Gm-Gg: AYBFou20Hp1ZY6grm/33OKvMhPtQ7S+4XGDb8jUjIgXMkAfjfEUo3ksFSJqzXzneKWO
-	xcJ6VcZBxEjS/j9kwh7Q36L2+PjmkJKq1WBMG/7krxjPVikI6rBlySB6VThXJ7NXbpJkE1/SZ2m
-	h5fNSAShGI0+pnaXdPh2jN3cgCbiahI/yXvzvtu7NmBd3Qia7/SGnv7OKtS8HATh85HobBFA5Fm
-	CmctAcUtuoD2irVp9rKs5zoJOguo4VXKfQW3abmYxJlsgYB4zIX7QAJx/TQ2RtkSw+yCA2ysGl4
-	trmC4OFRLHkPbroUmIO2Algj6pvEikZvbWWFS7HPP+EUAkJqw8a3a8/CDKfcX3c0KT35MNeXXpA
-	F/ViLZDgnpYlN/MYvWxFlVL+qK2T9V4HWq994RbgMtulkG8WwtRBn3nfcgunEisFIsCYvODumU7
-	B4aMYBzafmfQUuWtQBtc5MkGWJn+NHJCNoIQ8Sxh7kUOvEW0QjzHp9xdl4OoSDo7BvcRKUphelT
-	tVxJVnbo+hUpJZAGEhsWiRAdvzjQOszGKr0ikRA1Dmhtz83JoxvK5fnGypmtCDHgdnA4nvnmywT
-	TRZW68EnnE9o54eHAnfluvrJ/Q==
-X-Received: by 2002:a05:600c:3485:b0:4bb:6c5e:b006 with SMTP id 5b1f17b1804b1-4bb7d6cc1fbmr14508645e9.3.1794959824991;
-        Tue, 17 Nov 2026 15:57:04 -0800 (PST)
-Received: from localhost ([2001:b07:5d26:7a6a:365a:60ff:fe0d:cfc6])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7ddd4614sm11604905e9.6.2026.11.17.15.57.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Nov 2026 15:57:03 -0800 (PST)
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=cJ+VtMF4X8JMTGsdEvij3xRcmj1mOrfv2v0dFxj6Cod/4jlr/cuNp75JKLpBVaFae8Y5PgC0tK5xl
+	 GeYZS3/Pm6XCMJxDxDaRHXce5AH0tRk3J5bzix0MBIThpKKRQ4JpvOaMNBd3YjwVTHOBt5Gxq9/ZK3
+	 sNalKw4qAzQhnrVc=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app05-12005 (RichMail) with SMTP id 2ee56afce9d8601-0a0d7;
+	Wed, 18 Nov 2026 07:57:17 +0800 (CST)
+X-RM-TRANSID:2ee56afce9d8601-0a0d7
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from FHD-W7400297 (unknown[10.55.1.70])
+	by rmsmtp-syy-appsvr08-12008 (RichMail) with SMTP id 2ee86afce9da33a-296bd;
+	Wed, 18 Nov 2026 07:57:17 +0800 (CST)
+X-RM-TRANSID:2ee86afce9da33a-296bd
+From: Aibing Chen <chenaibing@cmss.chinamobile.com>
+To: Song Liu <song@kernel.org>,
+	Yu Kuai <yukuai@fygo.io>
+Cc: Li Nan <magiclinan@didiglobal.com>,
+	Xiao Ni <xiao@kernel.org>,
+	linux-raid@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] md/raid1: reject oversized raid_disks values
+Date: Wed, 18 Nov 2026 07:57:14 +0800
+Message-ID: <20261117235714.1101-1-chenaibing@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.50.1.windows.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,57 +69,49 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=b8e4a62509544b067db299bce93de40d8eff238bb48ab78a3f5b1b72ee7a;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Wed, 18 Nov 2026 00:56:24 +0100
-Message-Id: <DMXW51AXC5LC.WAVN6D92YIE3@gmail.com>
-Subject: Re: [PATCH] cifs: fix times assignments in cifs_posix_to_fattr()
-From: "koraynilay" <koray.fra@gmail.com>
-To: "Paulo Alcantara" <pc@manguebit.org>, "koraynilay"
- <koray.fra@gmail.com>, "Namjae Jeon" <linkinjeon@kernel.org>
-Cc: "Tom Talpey" <tom@talpey.com>, "Ronnie Sahlberg"
- <ronniesahlberg@gmail.com>, "Shyam Prasad N" <sprasad@microsoft.com>,
- "Bharath SM" <bharathsm@microsoft.com>, "Aurelien Aptel" <aaptel@suse.com>,
- <linux-cifs@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Sashiko"
- <sashiko-bot@kernel.org>
-X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20261116154526.429315-1-koray.fra@gmail.com>
- <f61c83e614c1afdcdb20c958474ac055@manguebit.org>
-In-Reply-To: <f61c83e614c1afdcdb20c958474ac055@manguebit.org>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
---b8e4a62509544b067db299bce93de40d8eff238bb48ab78a3f5b1b72ee7a
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+r1buf_pool_alloc() allocates an array of struct resync_pages with
+conf->raid_disks * 2 entries.  raid_disks is set from the user through
+the SET_ARRAY_INFO ioctl and is unbounded, so a large value makes that
+allocation exceed KMALLOC_MAX_SIZE: kmalloc emits a WARN_ON_ONCE_GFP()
+splat (syzbot: WARNING in r1buf_pool_alloc) and returns NULL, after
+which the resync fails to start.
 
-On Tue Nov 17, 2026 at 11:18 PM CET, Paulo Alcantara wrote:
-> koraynilay <koray.fra@gmail.com> writes:
->
->> Currently cifs_posix_to_fattr() wrongly sets SMB's CreationTime to
->> fattr->cf_ctime.
->>
->> Fix this by setting fattr->cf_createtime to SMB's CreationTime and
->> fattr->cf_ctime to SMB's ChangeTime, matching the behaviour of
->> __dir_info_to_fattr().
->> ...
->
-> Applied.
+The same disk count is used to size the mirrors array and the r1bio
+pool during setup_conf(), so reject it in raid1_run() before any of
+those allocations happen.
 
-Thanks! (also for applying the other patches)
+Reported-by: syzbot+c0e700c08ee88f60e54d@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=c0e700c08ee88f60e54d
+Signed-off-by: Aibing Chen <chenaibing@cmss.chinamobile.com>
+---
+ drivers/md/raid1.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-Best,
-koraynilay
+diff --git a/drivers/md/raid1.c b/drivers/md/raid1.c
+index 894efb50c..875c98552 100644
+--- a/drivers/md/raid1.c
++++ b/drivers/md/raid1.c
+@@ -3169,6 +3169,18 @@ static int raid1_run(struct mddev *mddev)
+ 		return -EIO;
+ 	}
+ 
++	/*
++	 * The resync and r1bio pools are sized from raid_disks * 2.  A
++	 * raid_disks value large enough to make those allocations exceed
++	 * KMALLOC_MAX_SIZE would only trigger a kmalloc WARN_ON() when the
++	 * resync starts, see r1buf_pool_alloc(), and the resync would not
++	 * run at all.  Reject such a value before anything is allocated.
++	 */
++	if (mddev->raid_disks <= 0 ||
++	    mddev->raid_disks > KMALLOC_MAX_SIZE /
++				(2 * sizeof(struct resync_pages)))
++		return -EINVAL;
++
+ 	/*
+ 	 * copy the already verified devices into our private RAID1
+ 	 * bookkeeping area. [whatever we allocate in run(),
 
---b8e4a62509544b067db299bce93de40d8eff238bb48ab78a3f5b1b72ee7a
-Content-Type: application/pgp-signature; name="signature.asc"
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSgVimKafU5DQMcjcDmj22qf5IGXAUCavzpqAAKCRDmj22qf5IG
-XPWVAP9xBbMDNG3wRaQ5otbBeAD3QJd1ciHOLK87Ks45GFkGPQD/Uc49HbHxdsrm
-fBmxh1qMDGjqe7DXxQGBQKhWo/58BQw=
-=lQhA
------END PGP SIGNATURE-----
-
---b8e4a62509544b067db299bce93de40d8eff238bb48ab78a3f5b1b72ee7a--
