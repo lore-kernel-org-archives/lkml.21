@@ -1,100 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.180
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794947680;
-	b=seYM7zAQApSXfVCZPZ+NM+ePYqXsKZQoBTuirBWjQOZ2ozmgZYO3MQY7Y1GCMEu8BA/D
-	 kcfIXUKXkHJmdz5FMKSnFvqcPwJkR9xvpbCxYLoJJQHNIF7L8aMdbKsxve8s1/0yqYhak
-	 +z6hBj3pMVdkgOz/W3wgwr7Ff7kVRLP07FPt8Pq7gVozrs6lv1G78F6BF7QBHDwUelAi1
-	 asfFIRtB4ag4xZU1QxmI+VLuah2rzLXfBZyg0VYfNXWLLxcbt5h1XscUvRPgHcchzGjLL
-	 CSpaoTUXDYOmwOY97cnXGqCABf0hf3gUPRgysYsFa+9/uycT3bcqdIJT2BNnzu7itew==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794947680;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=InluYi4FIgRzU7cQ9UjJK2Uan4dDz26pVOyl8nUu1bc=;
-	b=yAGuyGDAAwRBkaG0h0YhdnjOybtlZn9fpkgce8w8ezpaiOrzIvsBsB/9RxrfDP7wz8Zc
-	 XTCvm/+ys3TEqTszEI2vKnJhOgbVK/f7Tp4Z7B282IOvDOeq8AcvcJo/US1s/gWR8A09k
-	 cKUwNDaLZ3ZqQ+75TrTZ9YJo+/DbhQ+PrnA4yS6Gyd1GIK9DK0Nr3G2rdmb/90YrXrk0E
-	 zu45pfylce8N8YjQBZ3yMq7xzlrPJ+f/xrWL8nkbff6fYOzr0s3XCyBP7B5aphM+fvKol
-	 qhpW/nJUJJYX6hCaViZeuo1j2o1no3EwUmXkt4NyYsVtNeY5RKg4MHXxHWzAZfBNEAA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jCDt+Ft4;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.180
-Received: from mail-lj1-f180.google.com (mail-lj1-f180.google.com [209.85.208.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794947682;
+	b=pEm2gPwn11Ol3Q++krAKdF7LrzPbYvxYp5xQGccvaSpmaqcgxf9A4FMN+bXtb2z1XsEb
+	 fPBBVx9Ne7MfgKEN+YKAn9qrRkHp4Hx1OtgxTvlC42oXBHSJEYkYFMfXyvRaLOhmbhphc
+	 mjghAZGtRqL6Rn06ceEJ2LGxhJFSMGmHDyMi17zdIdwWRxEPwj2tpWo2qBFVB3QByB6wK
+	 WizWA31ZPiKh8FoC830Db7GzT6W+no9vX1YZiTUsP6M0+Qr7DAq6maIBe3uOroUL6+D3y
+	 aMpqMcBscPwJeLoWHAsLZt9mJut8tAhmd/eYxgWYGiiBDr/AszmZhQ4xyqce7taPVdw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794947682;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
+	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Spam-Info:X-Authority-Analysis:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=mZIjSl/6dyPO7xcK3i9ocK4466rMnfHhcIzCnMUr9CM=;
+	b=IFiKyWcgYoQa8AWLUntFgN7fR729HwQu1N7GwwBwIYVCnRjlZnUSxRtHrC7QAqm1En6q
+	 a0tlhzrjwnEVn8fCwqOCMTz/sWXG+hYv4M/lzu08gvgAL4VMk4n8yQZY5aBFmY11rdSF6
+	 tJeUfhN0RDFIPrmsyIg8hX8cp5pO6Lh58F3MR5dKlEdFSWty01k1JWcetKsTZOSfszbFe
+	 it60woZsTYyORSdA2Y8Lcswvbhm1DrKHEchQkkmMB2+QGweuSnnsQcxFuhqj4rJDwGk21
+	 7jmss/9KGaE3H6UF/fjPvqlCBj16b7djDyCSDVNv8l85rZK8KbjsQLKy7RfMB2BfVPQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=oL7MWMs0;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=LYLd0NCG;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9DB5606A31C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:34:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9DB5606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1151606A33A
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:34:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D1151606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jCDt+Ft4
-Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-3ad0102edd4so3364031fa.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 12:34:39 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794947678; cv=none;
-        d=google.com; s=arc-20260327;
-        b=dpzN2fT7vjqJoSCh9ENwSlzx/ng4XyzPOnwOfDQI7ZAulCS+Low4wtGFGTtYezganu
-         ocrLIrxMRwGomE8D2T102bSGbPylpVXVoMtOLEAN4uwphEIlXhnAwRm0UqegnEklWQZ8
-         bsVOCsGQtucYN1MiuvdhXfh/57K4I6mNEaryxKCm2ya6rTzvJhmvYnp8sdb2+me6note
-         xmTuQK1/ih8q/qoSxch6RZsurSSk7ZRSp8LiAEy+GqmchMfMPuamnRdzvl9iBYMoVXVl
-         5+hk9xtBH87w0c5WkNAG2ne7zgXZ5xs1QW+uIiggKW2Q5EVRNK9m9BcKUGVaZiQ6K4Xb
-         oH+Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=InluYi4FIgRzU7cQ9UjJK2Uan4dDz26pVOyl8nUu1bc=;
-        fh=IuWhY7lUs8mn5eodWQHdP5czjrMrErk6TQ15b+TtD1w=;
-        b=CpapOrhqbO6GQTDW/PZuzYLkactWqOQ/gi2HUxCVnC4fK2Ci0oiLi7DOIAG495n8vs
-         Esmzn2rOJkTwY9c1739gw8Dk7tkpZw+sGuiooSbw5zPu67IWKq+IR2i/cqUD+yYeUmdy
-         /12OHKqHn1mhQjM1R5XS7cno0ZR0r9H7tsmyvdeguZJ+RYim5xyaf40783XN9uA00hIi
-         C02EQ4tiaLsZaEFLHhZCnAQFthQOGbXDXspHVVeqxHSbmLvKdQ5eyK17bg04Kpcz/HHH
-         KPA5DhFCGhE/G7Zc+aTp8+/fGcjuiYpILPcqi6JV981R/olE41RyqchoAdcIEf/HLT1A
-         MabQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=oL7MWMs0;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=LYLd0NCG
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AHJ5qNA1638533
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:34:41 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=mZIjSl/6dyPO7xcK3i9ocK44
+	66rMnfHhcIzCnMUr9CM=; b=oL7MWMs0eeXbE5b7oLTpoNhUZCCSK8bHHhruSaU7
+	BPBdBF8mWzMLEWzguZLAINIvYbWBRFITWRI5fh+QCUk0o4bqyCF5IgKDP0zYI9ms
+	VJLQ699LUUFVzhsDJs7aa3dNktELq3rpnqFm7DyFHPJo11cpVUffLJUorZBHdtmN
+	YrsWHuYzpit6omz3zDpmwgz+KdR7GwS7t34Vq2FJy4XV/BXkYENC0qg1LC7lIJqZ
+	rgxjNQEHunt10tg6IPmq/fTMVwbAU79+kxoA8WHmwxa7PO6dCHZ6+g0fBWUgb2a7
+	OLvRSt6xxjcjtxCgmPLG4VhLmSCwalnH3bz27Pupd3ASFA==
+Received: from mail-ua1-f71.google.com (mail-ua1-f71.google.com [209.85.222.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0s9t1dpp-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:34:40 +0000 (GMT)
+Received: by mail-ua1-f71.google.com with SMTP id a1e0cc1a2514c-99e14fa4868so58698241.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 12:34:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794947678; x=1795552478; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+        d=oss.qualcomm.com; s=google; t=1794947680; x=1795552480; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=InluYi4FIgRzU7cQ9UjJK2Uan4dDz26pVOyl8nUu1bc=;
-        b=jCDt+Ft43PYumkl0Jo43YIQ5Ovi83NneOSKEsqa3xm1cfSWkrlzVU2mThxF3NAcyo4
-         DSWZUDs3Tq+VwhXh60mX+QnpUHRVVjkdXUfibbCzMbDJRn/2qe0TKYaFKJxWiwJZ3mi8
-         95rmhX2DDLkqInFRzE2CzKyq+c+Nx2+BBnnpeA2f1cyNVuW8qGnOPuRYUGSxw2jJWN7R
-         AbOQB8SoH89D7QsvpsED8cIkBzpi7FVJ75Esb6wybzrXdccj409RV90lS4OiZ9YbIBKb
-         tRSMDEUeYKqI1v1jWMzl7Dw8VFdsJ/+J+DY54Hc4zQJzBfs9CAKLWjWDLf4qAFMaEa/R
-         16kA==
+        bh=mZIjSl/6dyPO7xcK3i9ocK4466rMnfHhcIzCnMUr9CM=;
+        b=LYLd0NCGudVyH47rHbLgly1nCYldPPPBc8XZXG0Umvsjlqmi94CECPLi7442ANQqWd
+         4LH5c3OG4uf5CImEGfv87hD9GQ7CemHMlfmICyfOu5hY6LlET98n1KcG91QalIg7j5B/
+         Hku5NUvwhJDzQxlcrnKWJKr1DT8hbctUPJHPOQT9qEwjprtsA+6QPUbbExcvMMZKLkbr
+         3AS/RZTLXg6nRMADsrBsM2p89GNgv6yb2DowVS3KJ7CUfEfr0tiRY5t2GUcy31u6YqWy
+         6mxxreyKN1/mQE3xzd2AcTzBEwnm5D39gejkJ37NbLwUabaBuinrKvhB6zMxNV9GGiX6
+         zqZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794947678; x=1795552478;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1794947680; x=1795552480;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=InluYi4FIgRzU7cQ9UjJK2Uan4dDz26pVOyl8nUu1bc=;
-        b=NAxvt2U2fvGC+zpFhRJw2jZb6RvZldehQTlG2Ri9ZZSeCFDsAXgJfZ5n+9z/GGq75d
-         nuQp2KwtJkmK45wey0f/07y4yoIzc9iWGkKMeZ+ecxRDwNbET3i51yxLoie3u1vHiA0r
-         a2Cj+Wrmm9zY34aS5DW/fT0Uw0RZcPo+TtcFBNEvL34s6xnZYTVLwdogX4qGm7tdtPKy
-         oBBG4dbkVzclftvVyqW3/D1o8mPX3d1+SzJ6Z/3JATXi18/11aM0Q04l4Stzd4T/PqhW
-         9myge+DvWMOvMU2Jscf+EZI1L7C24Xk6u4RCQDoNolTUS9EGPiUleSnzBNcJj7vJJZFY
-         RefA==
-X-Gm-Message-State: APuU4Z926U2C2gKT550lsle1C3+uBK7fbYVIh0lgpBliSQ+6BniHlRmU
-	Pnyk1Tk4IVmEs3y9BnMHHaiZ692Efq/V2RYPZnTxZ8BYNknROrYALo9jl7IzhelOKig3OoTFkC7
-	VqX5Ys8Ch9WlXEShvg1GOpdklJD3i5Uw=
-X-Gm-Gg: AYBFou3lvuuhrfHi6qyhz5/9CjKGyF0lQUk/hlwVrvoiQ/y0+QOqW9kYYw2EmPcDbHc
-	Cdz5j44OXUUp4nRy2wiqL/lV9odUGFS2AwXnnb4vmbcHeFy9ZJ54Kvhv65IEvcBWLlc0+tjKK1i
-	Cs4YNP9Vf9g0uDz+0N7u0k7o9Y8fpq6gp1zExdlSr+Q+fFpw3igKwGxD2lKOUcN+aTNiX6Z6m9o
-	Yb+UvlI+cbUhMZtHvNvNbZaJCujWKuv0+fCktrwDQ7adA6t+I1PFqtHp+G2ZR5Gm0OEUnA22PHq
-	ER9IoKmqPmMGBGaJie1ckHQYl0klOZ6Exr6/3/KRW52YIQjR+itX2a+/HKzi2tWIm5uKvcNfypu
-	H2ujSaS4BvrsZfGKmiWrr8jUzY6/fS+E6Zg+VBzntvh3PDDi31ya4b/RJy1TU43oJM/PXtG+kCh
-	izKT8vLzL21H7rPYm2mZ4N8ek=
-X-Received: by 2002:a05:651c:31d9:b0:3ae:6455:68e2 with SMTP id
- 38308e7fff4ca-3ae66ebaa22mr1343341fa.0.1794947677421; Tue, 17 Nov 2026
- 12:34:37 -0800 (PST)
+        bh=mZIjSl/6dyPO7xcK3i9ocK4466rMnfHhcIzCnMUr9CM=;
+        b=G3lOLuH50gEBEdQ6e5EVU3Dz0XfKnvDMhTTyHk7u2TN49HXxCgk7AF1B/6IhylEniz
+         9vLEeXzUyzd9D8ePGnP4L7+iVyWDUhBaU3N2ZnWq2f5vd1sSR3fYQcGs9c9f0GBMOej+
+         i2xTZ1PyRKoPS9s9sOmUOGW1K7FJrIU4fryO/njA+j+AskrJNEakTfab4ygn384ohir4
+         eyQBAGL4pyFq7qoiiil3Qb9Rvg8wbxcdFgRUyKP9+8dGPH1vs41lwslTrwhhzHFzjr46
+         o7cZUXFAzJZV1NlaAw07EZf17ABAFihscMH2xSDNoznTGIwqJ3lRWnfTr+lHQpdt4dv7
+         kFpA==
+X-Forwarded-Encrypted: i=1; AL+hErEhZaxXX+N6Bn93B8Zv60zBmgzSqe6zEPhYwcg3z2AiGieogbdVGDxZjZniqA00HTwwyC5He6h19gQRtrQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8j9Z9cG99e5vCcoDyO6kpTP/8Gbh0edxSLA9KXPGvn1uy7btxx
+	cZhsY4MjYjbcTCxFtct7jsBmxuqb2bPmwZUevsOeTMDiFICHBjacFU7DIel6z9aB4aiQ+8FEEp3
+	Xiv6BvGuizFp60Jn5jpnjzi3D81otVPBG9JR7nEicpKu+FfPlu9VvBsvopgOe08aXf7o=
+X-Gm-Gg: AYBFou11Bsg8n7rnYKQO41jCkqkb+Rk7KnzKmRLlbyHxWzEuUfXumZAh5empjSRV/cw
+	WtuMwVGd5gGiQSPwVeF8nuAe79Ra+10okSJG/ezOKehWojbQyPC+fQrj+46jNMg9cQg0b0dyVQJ
+	IWiNkFuS39fjPZ1zFOHHXEob3l+LXWGdGyx7Q91Lz43eKe+2wb+pjLoI8gU57FFZtfV3YBQuyFu
+	Ya+HtEFntK3FBS80wwCOJBiw+gisfk1/vAT5N/JMQQ7TS75/nb3HWYSRgDaGwHz3LYNGSGlWXkt
+	ejnPq09jbPNh+bfmuBtNgq5GPyXxp4Tv51GhDFqfP1/jaSz/GV9C7scVM9FwSXpKOMuO/2FJDVf
+	9gFplONdGcPLdzfxlSZtdSFL89pGe44yep0FjX9reCCjMZjitYCrVOdCsWzhnU7Q=
+X-Received: by 2002:a05:6102:1608:b0:7c3:72b7:7fc0 with SMTP id ada2fe7eead31-7d6ba3b91edmr61856137.13.1794947679635;
+        Tue, 17 Nov 2026 12:34:39 -0800 (PST)
+X-Received: by 2002:a05:6102:1608:b0:7c3:72b7:7fc0 with SMTP id ada2fe7eead31-7d6ba3b91edmr61837137.13.1794947679066;
+        Tue, 17 Nov 2026 12:34:39 -0800 (PST)
+Received: from localhost ([195.50.164.66])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7d4e670dsm10938425e9.1.2026.11.17.12.34.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 12:34:38 -0800 (PST)
+Date: Tue, 17 Nov 2026 21:34:35 +0100
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: James Hilliard <james.hilliard1@gmail.com>, netdev@vger.kernel.org,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Giuseppe CAVALLARO <peppe.cavallaro@st.com>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] net: stmmac: preserve RX checksum capability when
+ offload is disabled
+Message-ID: <avy6WxJft6Aex-oX@lore-qca>
+References: <20261115-submit-stmmac-rx-checksum-capability-v1-v1-1-ea26fa3689be@gmail.com>
+ <630b9651-3963-4686-a51b-b670beaa45bb@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,168 +127,107 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261113200904.3010578-1-daeho43@gmail.com> <avynfxEMXTEmCuP2@google.com>
-In-Reply-To: <avynfxEMXTEmCuP2@google.com>
-From: Daeho Jeong <daeho43@gmail.com>
-Date: Tue, 17 Nov 2026 12:34:24 -0800
-X-Gm-Features: AclHuK_A9Qul4ih4SdVEYaTEMucJ7OBq27Z1uR_7wL6VgbLQ3YLxUI2bYTSyrpE
-Message-ID: <CACOAw_zWvD24R77sbKSgoStuXwZQc_5FgDmSVTrF3X+OEZvcsA@mail.gmail.com>
-Subject: Re: [f2fs-dev] [PATCH] f2fs-tools: set the block size of zoned
- devices to the logical block size
-To: Jaegeuk Kim <jaegeuk@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net, 
-	kernel-team@android.com, Daeho Jeong <daehojeong@google.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="uhqeACAWVMDeZ6jG"
+Content-Disposition: inline
+In-Reply-To: <630b9651-3963-4686-a51b-b670beaa45bb@bootlin.com>
+X-Proofpoint-ORIG-GUID: UBTSQWWPcDCKz8PYLBybnXmn3-qCOPyy
+X-Proofpoint-GUID: UBTSQWWPcDCKz8PYLBybnXmn3-qCOPyy
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDA4MSBTYWx0ZWRfXz3gF7xqR+YDC
+ Ry2XIoOz8Al/zf5RayAXGop1uSeWVKVTbQ1xEWeOVmQREOZuiYAUqk/N7mqo+XEANUAGZ8SHrGp
+ 7JvJl1dvDIYSfanIj+S/rOy9eP4XC+PMLdiBIS0a2mzuiMXi0uWp5sOL48Vn61xz5kG2XgINI++
+ /NWvmZSDW1iaa2s+Juhp8pqN9GGgQo1QWXVQcIOxLZUD0ej7lkRH39gYMDjlm/hpKXBL/l8z8mT
+ gWrW1zItxIozUuD8w4m4buUlTBV4KqxdB1RPBIzA6Qkg7SmSvMcek4SH1Btu5114qfpp3o1Mtja
+ seJXaXqZ6iMvZclUJSQkYKWPO2STYSbHFX4P4NXdEL712kQkggslSOr/Jeia33YD/1luNhhatYA
+ BBdsikFy6bEgyCqgQ0pLtJIkUnp/ne0L4oXMXOME2VQXgDTxwvvNpXMUwZTn7BihUlYCZYEJpqF
+ LwVgbF66DwrTUEPGukA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDA4MSBTYWx0ZWRfX+xluE7dP/nxm
+ vYVp9EMp64S5u5OGLfGH1LExh8p4LRfnEatC5pKsq2YQNrPFTSUdJWz266DWK8LlR67OIFzF2P9
+ afro4baM42DmDKlQOXgxZ8bJeWh2uNE=
+X-Authority-Analysis: v=2.4 cv=d5xgWhjE c=1 sm=1 tr=0 ts=6afcba61 cx=c_pps
+ a=KB4UBwrhAZV1kjiGHFQexw==:117 a=Jk2/TV77q6/E6wQq2oQJxQ==:17
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22 a=9R54UkLUAAAA:8
+ a=P-IC7800AAAA:8 a=EUspDBNiAAAA:8 a=ui44w_YjaUHB-fKmfF0A:9 a=CjuIK1q_8ugA:10
+ a=dSt14DRd3il9wOMU6T0A:9 a=o1xkdb1NAhiiM49bd1HK:22 a=YTcpBFlVQWkNscrzJ_Dz:22
+ a=d3PnA9EDa4IxuAV0gXij:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-17_04,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 suspectscore=0 clxscore=1015 bulkscore=0 adultscore=0
+ phishscore=0 impostorscore=0 malwarescore=0 priorityscore=1501 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611170081
+
+--uhqeACAWVMDeZ6jG
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Nov 17, 2026 at 11:14=E2=80=AFAM Jaegeuk Kim <jaegeuk@kernel.org> w=
-rote:
->
-> Could you please fix the build error?
+> Hi James,
+>=20
+> On 11/16/26 01:49, James Hilliard wrote:
+> > The GMAC, GMAC4 and XGMAC rx_ipc callbacks return whether checksum offl=
+oad
+> > is enabled after programming the requested state. A zero return is
+> > therefore expected when hw->rx_csum is zero.
+> >=20
+> > stmmac_hw_setup() treats every zero return as a lack of hardware support
+> > and clears plat->rx_coe. Disabling RX checksum offload with ethtool and
+> > then reopening the interface loses the saved capability. Subsequent
+> > attempts to enable offload are rejected by stmmac_fix_features(), which
+> > uses plat->rx_coe to filter NETIF_F_RXCSUM.
+> >=20
+> > Only clear the capability if offload was requested but could not be
+> > enabled. Keep calling rx_ipc when offload is disabled so that the hardw=
+are
+> > is still programmed with the requested state.
+> >=20
+> > Fixes: 0f280e4d23c2 ("stmmac: fix the rx csum feature")
+>=20
+> This tag doesn't exist :
+>=20
+> https://netdev-ctrl.bots.linux.dev/logview.html?f=3D/logs/build/1212156/1=
+4986330/verify_fixes/stdout
+>=20
+> Besides that, this is legit. Tested on AgileX5, CycloneV and stm32mp1:
+>=20
+> ip l s eth0 up
+> ethtool -K eth0 rx off
+> ip l s eth0 down;
+> ip l s eth0 up
+> ethtool -K eth0 rx on
+>=20
+> Without patch:
+> ethtool -k eth0 =3D> rx-checksumming off
+>=20
+> With:
+> ethtool -k eth0 =3D> rx-checksumming on
+>=20
+> Please respin with a correct Fixes, feel free to add :
+>=20
+> Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+>=20
+> Maxime
+>=20
+> pw-bot: cr
+>=20
+>=20
 
-Hi Jaegeuk,
+Reviewed-by:Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 
-The build error is not from "f2fs-tools: set the block size of zoned
-devices to the logical block size". These calloc() calls are in dev and
-master as well, and gcc 14 or later reports them: dev-test without that
-patch fails in the same way with gcc 14 and 15, and builds with gcc 13.
 
-If you want, I can submit a fix to resolve this issue as a separate patch.
+--uhqeACAWVMDeZ6jG
+Content-Type: application/pgp-signature; name=signature.asc
 
-Thanks,
+-----BEGIN PGP SIGNATURE-----
 
->
-> make[2]: Entering directory '/home/runner/work/f2fs-tools/f2fs-tools/lib'
->   CC       libf2fs_la-libf2fs.lo
->   CC       libf2fs_la-libf2fs_io.lo
->   CC       libf2fs_la-libf2fs_zoned.lo
->   CC       libf2fs_la-nls_utf8.lo
-> libf2fs.c: In function 'utf8_to_utf16':
-> libf2fs.c:127:47: error: 'calloc' sizes specified with 'sizeof' in the ea=
-rlier argument and not in the later argument [-Werror=3Dcalloc-transposed-a=
-rgs]
->   127 |         uint16_t *volume_name =3D calloc(sizeof(uint16_t), MAX_VO=
-LUME_NAME);
->       |                                               ^~~~~~~~
-> libf2fs.c:127:47: note: earlier argument should specify number of element=
-s, later size of each element
-> libf2fs.c: In function 'utf16_to_utf8':
-> libf2fs.c:222:47: error: 'calloc' sizes specified with 'sizeof' in the ea=
-rlier argument and not in the later argument [-Werror=3Dcalloc-transposed-a=
-rgs]
->   222 |         uint16_t *volume_name =3D calloc(sizeof(uint16_t), MAX_VO=
-LUME_NAME);
->       |                                               ^~~~~~~~
-> libf2fs.c:222:47: note: earlier argument should specify number of element=
-s, later size of each element
-> cc1: all warnings being treated as errors
-> make[2]: *** [Makefile:456: libf2fs_la-libf2fs.lo] Error 1
-> make[2]: *** Waiting for unfinished jobs....
-> make[2]: Leaving directory '/home/runner/work/f2fs-tools/f2fs-tools/lib'
-> make[1]: *** [Makefile:421: all-recursive] Error 1
-> make[1]: Leaving directory '/home/runner/work/f2fs-tools/f2fs-tools'
-> make: *** [Makefile:353: all] Error 2
->
-> On 11/13, Daeho Jeong wrote:
-> > From: Daeho Jeong <daehojeong@google.com>
-> >
-> > The kernel caches a block device in units of its soft block size, which
-> > is set to the largest power of two that divides the device size, up to
-> > PAGE_SIZE. On a 16KB page kernel, it is 16KB even for a 4KB logical
-> > block device, so a buffered 4KB write is written back as a whole 16KB
-> > unit.
-> >
-> > On a host-managed zoned device, the first write in a unit then moves th=
-e
-> > write pointer of the sequential zone beyond the written data, and the
-> > next write in the same unit is rejected as an unaligned write, e.g.
-> >
-> >   Buffer I/O error on dev nvme0n1, logical block 24576, lost async page=
- write
-> >   Error: While writing the quota_blk to disk!!!
-> >
-> > Set the soft block size of zoned devices to their logical block size
-> > with BLKBSZSET, so that each write covers whole units. If it cannot be
-> > set and the current one is larger, fail right away instead of failing i=
-n
-> > the middle of the writes. Skip it for dump.f2fs and --dry-run, which do
-> > not write to the device, and when the page size is not larger than the
-> > logical block size, as the soft block size is not larger then either.
-> >
-> > Signed-off-by: Daeho Jeong <daehojeong@google.com>
-> > ---
-> >  lib/libf2fs.c | 36 ++++++++++++++++++++++++++++++++++++
-> >  1 file changed, 36 insertions(+)
-> >
-> > diff --git a/lib/libf2fs.c b/lib/libf2fs.c
-> > index 93f36ca..b0cdf09 100644
-> > --- a/lib/libf2fs.c
-> > +++ b/lib/libf2fs.c
-> > @@ -922,6 +922,14 @@ void get_kernel_uname_version(__u8 *version)
-> >  #define BLKSSZGET    _IO(0x12,104)
-> >  #endif
-> >
-> > +#if defined(__linux__) && defined(_IOR) && !defined(BLKBSZGET)
-> > +#define BLKBSZGET    _IOR(0x12,112, size_t)
-> > +#endif
-> > +
-> > +#if defined(__linux__) && defined(_IOW) && !defined(BLKBSZSET)
-> > +#define BLKBSZSET    _IOW(0x12,113, size_t)
-> > +#endif
-> > +
-> >  #if defined(__APPLE__)
-> >  #include <sys/disk.h>
-> >  #define BLKGETSIZE   DKIOCGETBLOCKCOUNT
-> > @@ -1047,6 +1055,34 @@ int get_device_info(int i)
-> >               else if (dev->sector_size < sector_size)
-> >                       dev->sector_size =3D sector_size;
-> >  #endif
-> > +#if defined(BLKBSZGET) && defined(BLKBSZSET)
-> > +             /*
-> > +              * The page cache of a block device is managed in units o=
-f its
-> > +              * soft block size, which can be as large as PAGE_SIZE. A
-> > +              * smaller write is then written back as a whole unit, wh=
-ich
-> > +              * moves the write pointer of a sequential zone beyond th=
-e
-> > +              * written data, and makes the next write in the same uni=
-t
-> > +              * fail. Use the logical block size for zoned devices, an=
-d do
-> > +              * not go on to write to the device if it cannot be set. =
-The
-> > +              * soft block size is larger than the logical block size =
-only
-> > +              * when PAGE_SIZE is, so leave it alone otherwise.
-> > +              */
-> > +             if (dev->zoned_model =3D=3D F2FS_ZONED_HM &&
-> > +                             c.func !=3D DUMP && !c.dry_run &&
-> > +                             sysconf(_SC_PAGESIZE) > (long)dev->sector=
-_size) {
-> > +                     int bsz =3D dev->sector_size;
-> > +                     int cur_bsz =3D 0;
-> > +
-> > +                     if (ioctl(fd, BLKBSZSET, &bsz) < 0 &&
-> > +                         (ioctl(fd, BLKBSZGET, &cur_bsz) < 0 ||
-> > +                          cur_bsz > bsz)) {
-> > +                             MSG(0, "\tError: Cannot set the block siz=
-e "
-> > +                                     "of %s to %d\n", dev->path, bsz);
-> > +                             free(stat_buf);
-> > +                             return -1;
-> > +                     }
-> > +             }
-> > +#endif
-> >  #ifdef BLKGETSIZE64
-> >               if (ioctl(fd, BLKGETSIZE64, &dev->total_sectors) < 0) {
-> >                       MSG(0, "\tError: Cannot get the device size\n");
-> > --
-> > 2.56.0.611.g1030f0b940-goog
-> >
-> >
-> >
-> > _______________________________________________
-> > Linux-f2fs-devel mailing list
-> > Linux-f2fs-devel@lists.sourceforge.net
-> > https://lists.sourceforge.net/lists/listinfo/linux-f2fs-devel
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCavy6WwAKCRA6cBh0uS2t
+rF/MAQC94F9flu7V6ymO/GXi8P606jehIfn/ClLwmubRWdBLwgD+NBZl2irSTcCd
+Ctt9MnmK8y9WyqY20+Ps+VFO9H9BxwU=
+=Jn6z
+-----END PGP SIGNATURE-----
+
+--uhqeACAWVMDeZ6jG--
