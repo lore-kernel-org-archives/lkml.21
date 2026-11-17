@@ -1,61 +1,64 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794945155;
-	b=b6/iqwucLjPMXxkOJgeD0s2LaGlYmz8SUkXxNW0fwCKBo0Jc8TwwK34R0emt3Almn7KI
-	 nUWOwLfKF/ty1MLdFbwj2+yKMQhS12JFEDX/cykrrz2MotRPl8+1gTBYc4ixDTLRkUVVu
-	 K9PNtgFSxc2DUbq+6yWtoykOqB2npUMJ7xn3UkrJz37HF/WmIfBU9rzzvia5jY1pr2Npr
-	 Osa4tPtOvAOqhnoPIpySRtiPGwliLh6xsDmJY0fbjDyMlelyTaWTs4bc1qWYH6HAgimcj
-	 IU74ubri4bGH83cQKKNE3MXnVlDgo9VM5y2f0GKNkLUwTPc2+xOf12YGq3cDk/YEoOA==
+	t=1794945180;
+	b=t3XQ8Twnb75h4g5RzE36CCl1UXgXZ5DAz4tqzRtlwkMUN2NzMlAPB2DsNLxJ13luvdW3
+	 0+hzlBnjaCKDRSmO9RIVZ9UoSEuBnC/wwz5RkMrl/DKgkh3oX0lByTHCcVudI3CX2AiC/
+	 yaa4BazbwzYE+ZV0JhZRHd0GQLvqZCJeJn3EimejpXDuoWzPKp0OITDekioD0/+lb8z9I
+	 jfp+akOoWTDHL/zS16OQAb8oD7PQInV5EhQ/oo2QcQ/9qM5ykTXfss/h7yUtOjlsX//wC
+	 iAOP9fzjbqKtE5Lf9ss9mfBHMY1GnQfR1KEj/sNIHF5Mox2S3zIfvT9xEoZ67Fyz9WQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794945155;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=nq24JFvtPeVmX5op9gSmyrNH0NFQEiXDbSwSG7EFOzI=;
-	b=Htfqa8Y7nZ+etmB0GraT+jvb9vL1vZZeKmJbo//Y4V9HITpHyU/3sQH+ZXkceTWSSGOa
-	 c3FF7dYX2Af9vwJl3Dmzl1lgwpYeLNuSC3F96Qe9FW/QBpgv6FdE5ZdvqUQmzHQk8T2Ek
-	 0PsKGpG+tQe9AAloasz+kk3V8BlydRYqc8n7lBrVrMJaSyjCnUu71/QjjfjauJddoY1wC
-	 zCLg6BpIPUa32EV4GdYdfek0QcDwQNJvfXLLr46u3wLruS2R2X/e+GrxUOEZ/UXlE8890
-	 aJOzBztmah5Quga2fczPI0ZP0oSOxGgx+VYUN9mWZzKd4i4IOntP252Qd1COPYCWgTg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794945180;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=I6ImuqJ1TBz34pmM904YumuDCbtIEcFDFISvSJC+gD8=;
+	b=mjlrC5kuPRLrr0q8H5JDqqLO27h3IfA9XTyc3rGClaJuTQxFeylj63F3f/Ed9yHq/VEv
+	 YYHqpDJr+d2artJI6hrTS98ANkE0frbuuNEp8Eogxc6uh/R4fWg5FAoE+RXb7cfimJ5WS
+	 Lpch4+b2pjMKmq9nnXDX16wVpV9MRcSfrV3tvez+GGkcldHgnVps5AcdtCPSZv5Usgjsy
+	 rtGoCT1wih/o18MhI/CQv+n3mMaEc1lqMdBbm/d+lnmegpXDTKaZK8kpjzhD8+i/sq4QJ
+	 g2mKI+rKJRXgvT3c6BrBj5sUwC28mpLI/MU5Npm22TzuPDbffssR0xCEGTUvyW2UzIw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P1mGiwCF;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FWZnLEpx;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC0A0606A31C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:52:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41232606A31C;
+	Tue, 17 Nov 2026 19:53:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P1mGiwCF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A97421F000C4;
-	Tue, 17 Nov 2026 19:52:32 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FWZnLEpx
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA55E1F000C4;
+	Tue, 17 Nov 2026 19:52:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794945155;
-	bh=nq24JFvtPeVmX5op9gSmyrNH0NFQEiXDbSwSG7EFOzI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=P1mGiwCFKV4d+Fw4XIhqwyyL1Q5kkP1ZUd81/LGZyhXqvECuA4m9WMGWDnjQiN5ZH
-	 czw4TxxrdYKdaE2EUxve7KTWze3y/6vyhOYk9tmRA0Wc2j+HxlsFJqEsq0IYTvXRFO
-	 Kb7D0C0H2AljIoxwufbKo2L4ZLzhmBCaHRveSO+86FggcbVnR45ZoUm5isDi3EL8kE
-	 DxfDXsJEaLpH1LZzB5RYQk8gnJ4LGZTfopSeR1E2ds+eHtVNW0IextsRV9ngORXWYd
-	 ShA/lCouuq2O9pYU3LTb5h+/CNegq/07vD65wX9RAFmjuyZN5uhpSpoWfCrcThIQNI
-	 4hXmKKcyDvRDw==
-From: Mike Rapoport <rppt@kernel.org>
-To: nakixii <nakixii@gmail.com>
-Cc: Mike Rapoport <rppt@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Peter Xu <peterx@redhat.com>,
-	David Hildenbrand <david@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Lokesh Gidra <lokeshgidra@google.com>,
-	Kairui Song <kasong@tencent.com>,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] mm/userfaultfd: check exclusivity of the page being moved
-Date: Tue, 17 Nov 2026 21:52:27 +0200
-Message-ID: <20261117195228.2675563-1-rppt@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261117191853.1314834-1-nakixii@gmail.com>
-References: <20261117191853.1314834-1-nakixii@gmail.com>
+	s=k20260515; t=1794945180;
+	bh=I6ImuqJ1TBz34pmM904YumuDCbtIEcFDFISvSJC+gD8=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=FWZnLEpxdq5xWgp0cR0ZXCwbR8AboQwvrfKlf7eNOquJlPdww/RbV4AZsVaCYJoqD
+	 XCOI+2PjsItypzRVY5Wg8GTyfN9vrVHv4EgJ3NUQAYx7gVLev0mvSd/eRQ0a8pw5NT
+	 bge20me0fDcbpfNB4X9ekN/3dUThiAcZAyFRBoYZR8NCrvw2W55y1IQmosUqG71aBP
+	 NwtMYCszF5PR2C1WDbc3+noA+6vDOw5/ALYah+ioRkc7LNBQrVOdzvBecicbqlttlU
+	 6yOEzM3Bwm5yh8MG1Q+N7e+eAeA9a02t8/46OURB3PqfCl6niC0UDtBYfLKiV2Skk+
+	 qVw4gd9VYs6Zw==
+Subject: Re: [PATCH net-next v11 03/14] net: ethernet: oa_tc6: Move oa_tc6.c
+ to its own directory
+From: netdev-bot+sashiko@kernel.org
+To: Selvamani.Rajagopal@onsemi.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, kuba@kernel.org,
+ pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ parthiban.veerasooran@microchip.com, horms@kernel.org, corbet@lwn.net,
+ skhan@linuxfoundation.org, rdunlap@infradead.org, richardcochran@gmail.com,
+ andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ edumazet@kernel.org, piergiorgio.beruto@gmail.com, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, jerry.ray@microchip.com, ciprian.regus@analog.com
+Date: Tue, 17 Nov 2026 19:52:58 +0000
+Message-ID: <179494517841.3136.8719060372434310357@kernel.org>
+In-Reply-To: <20261113-s2500-mac-phy-support-v11-3-7a186141952c@onsemi.com>
+References: <20261113-s2500-mac-phy-support-v11-3-7a186141952c@onsemi.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,82 +68,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 18, 2026 at 03:18:53AM +0800, nakixii wrote:
-> move_pages_ptes() gets the folio of a present source PTE and then checks
-> PageAnonExclusive() on the first page of that folio.  PG_anon_exclusive
-> is per page, so for a PTE-mapped large folio this can give the wrong
-> answer for the page that is actually being moved.
-> 
-> This happens after fork().  fork() clears the flag on every page of the
-> folio.  Once the child exits, a write fault in the parent can reuse the
-> large folio, and do_wp_page() sets the flag again only on the faulting
-> page.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-COW reuse of PTE-mapped large folios only appeared with commit
-1da190f4d0a6 ("mm: Copy-on-Write (COW) reuse support for PTE-mapped
-THP"), so this scenario didn't exist when UFFDIO_MOVE was added.
+Low priority / nit picks for your consideration:
 
-> Reclaim can leave the same state behind when try_to_unmap()
-> replaces the earlier pages with swap entries and then fails on a later
-> one.
+- [Low] The commit message for "net: ethernet: oa_tc6: Move oa_tc6.c to
+  its own directory" ends with: "This patch series adds two files, one…
 
-This one, and fork() with a single page of a PTE-mapped large folio
-pinned, could produce a mix of exclusive and shared pages in a folio
-before that, so the Fixes tag is right, but please make it clear in the
-changelog that the fork() + reuse case is a later addition.
+--
 
-> Moving that page with UFFDIO_MOVE then fails with -EBUSY, even though
-> the folio could be split and the page moved.  Callers that fall back to
-> UFFDIO_COPY on -EBUSY end up copying instead.
+net: ethernet: oa_tc6: Move oa_tc6.c to its own directory
 
-It also works the other way around: if the first page is exclusive and
-the page being moved is not, we needlessly split the folio before the
-retry notices the page is shared and returns -EBUSY.
+This commit moves drivers/net/ethernet/oa_tc6.c into a new
+drivers/net/ethernet/oa_tc6/ directory and renames it to oa_tc6_main.c.
+The module is still built as oa_tc6.ko. The OA_TC6 Kconfig entry moves
+into its own Kconfig file, and the Makefile and MAINTAINERS entries are
+updated to match.
 
-Worth mentioning that as well.
+> This patch series adds two files, one for hardware
+> timestamp related functions and one for PTP related APIs.
 
-...
+[Severity: Low]
+This isn't a bug, but should this paragraph be reworded?
 
-> Signed-off-by: nakixii <nakixii@gmail.com>
+This commit doesn't add either of those files. It only renames oa_tc6.c to
+oa_tc6/oa_tc6_main.c and adds the new oa_tc6/Kconfig and oa_tc6/Makefile.
 
-Please use a known identity in Signed-off-by rather than a nickname, see
-"Developer's Certificate of Origin" in
-Documentation/process/submitting-patches.rst.
+The hardware timestamp and PTP files (oa_tc6_tstamp.c and oa_tc6_ptp.c)
+come in later patches of the series, such as "net: ethernet: oa_tc6:
+Support for hardware timestamp".
 
-...
-
-> -			folio = vm_normal_folio(src_vma, src_addr, orig_src_pte);
-> -			if (!folio || !PageAnonExclusive(&folio->page)) {
-> +			/*
-> +			 * PG_anon_exclusive is per page. The first page of a
-> +			 * large folio can be shared while the page mapped here
-> +			 * is still exclusive, so check the page being moved.
-> +			 */
-> +			page = vm_normal_page(src_vma, src_addr, orig_src_pte);
-> +			folio = page ? page_folio(page) : NULL;
-> +			if (!folio || !PageAnonExclusive(page)) {
-
-This would be simpler as
-
-			page = vm_normal_page(src_vma, src_addr, orig_src_pte);
-			if (!page || !PageAnonExclusive(page)) {
-				spin_unlock(src_ptl);
-				ret = -EBUSY;
-				goto out;
-			}
-
-			folio = page_folio(page);
-
->  				spin_unlock(src_ptl);
->  				ret = -EBUSY;
->  				goto out;
-
-With that addressed
-
-Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Once this commit is in git history, "this patch series" no longer points
+to anything. Could this text go in the cover letter instead? Another
+option is a forward-looking line, for example "Subsequent patches will add
+files for hardware timestamping and PTP support."
 
 -- 
-Sincerely yours,
-Mike.
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261113-s2500-mac-phy-support-v11-0-7a186141952c%40onsemi.com
