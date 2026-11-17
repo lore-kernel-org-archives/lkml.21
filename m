@@ -1,102 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.182
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794953748;
-	b=xE3OuUp2tRKxh5q5iCjS3EyUwMY7NKhawWLXuwujaAJjLWhDXdeTY9+gKOp17UxrQfPY
-	 XLfDRVuSpZhiDSdl7mMi1MxNfDsm2JH9YEiM/sRQxMOfV0Jx1gdowa9AV4v7jlnTXaJ9C
-	 HsUqlOkrv2NTeliMPkeh/S0ec3zJzeyOaCL8+Eq8DvC9bTW43+xkNpBLSVHnsYMap9Yam
-	 +RXrzlwoALPA3ZPzXhHodriVtiJrjVYAIcygaiIvIuGa5Pv50f5umgvFCR7CcsjD9QXLM
-	 duKwyAOovcZggwLbrryWZlyRj0pTu3feLX2KOpNi4TzUXL6Mp1Twjfff1N0vy2FQv+Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794953748;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=AZHXuTpvjL8YqhWEhQ1jqpW7IzsSqJlyudmwqHrXw4E=;
-	b=Ff76pIdKLzojmWL7bUBF2OYC/hJIAmILpaqMAej5jdDAsvWpPU1geE2/wt0gC/gWE1sj
-	 0Mgs3g2sLaZGwkOX/ex6++0SJKYDIlliSAC//dl+q6xCgwLcWfFwC5Img+Vi44XWfa9lz
-	 9eBMSmZWKy0YTVaR2/JdpaJ8plKhG9Pd6hDcgy7DjMDs8uby2lbyYbwG00DyXnUvtHvTD
-	 eLVZx5cUW1LROuoZavDkBaX49nVB314umTGN1JzSNVOrLcZNtYjN0ClvSR8Q/tiMChT7x
-	 +riDjLUr6mRwd7EaXc4iSP12PiJLhHFudizca/gUkzNo/AlrDZbJcEvpgHOKFeNarFQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=networkplumber.org;
-	spf=pass smtp.mailfrom=networkplumber.org;
-	dkim=pass header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="fmv/Oo4T";
-	arc=none smtp.remote-ip=209.85.215.182
-Received: from mail-pg1-f182.google.com (mail-pg1-f182.google.com [209.85.215.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.196.48
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794953749;
+	b=hZAOnulRGxDpaQO4O2SSWyfZJUy5xVFWn8cpIHY3cHVBy7mCzKNLn3JUJKou0ihpMiSr
+	 gCKeXS/oUzAawSfzW2EGUxU7+gMgPN3LP0lfKp0lGLIb0KzQEbQkJhzjEBG9SMOMrNFOm
+	 GSwbySzuJI8Jy05XvYD7eZYimLpfpk2rAR5pvxiAMIRSKZQy+MCFSfe7tyzLVBVrSALQO
+	 H72wcHrzl0MCpGDIal2i2WB0008jTrj+NWRmtjlPTNmN0B3X2a60eSneVJ/TKBIlL86gu
+	 0Xmx93PjnUnuA8zVX1dK879N8HzY5+SNMq6vmzuPlJKdid8tgy3VvJQUKUJvUb/C/wQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794953749;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=W9CjGU2zF/0wSuV9qT/RmSGFzcWzi2STRWrahsVk4ac=;
+	b=34ngGBwhLRRd87Wkp9EnFm6R3qHjurY22yBwww/1ZRzJulY2f1hKtdt1pYzpFTlVUpQU
+	 gWhQF2cOQvEr94QjH8RIqXAz75SPn7KLK1CM228eYbDwneb2gE0jUlChYyQyAONSbG7ej
+	 Uh5SPsguu1en+PwRezLWqaJpGWKSQ5ManjOyavHSP0ExElz45UzN4JOslBqKKX6nJ4Hlm
+	 PXFcbdrWlUmAR6FxN21UasNkT2G1RZPNoajhZppJMO/r4l0EZ/+z7qoTL5tJaFDh3g3tJ
+	 TUNMrT1z0z9hQ5PowKqEIR2qu2wPD7rc7WO3faOwGo86IX1B7+oHX7MGAYvXtg639lQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=b+mQvPnA;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.196.48
+Received: from SA9PR02CU001.outbound.protection.outlook.com (mail-southcentralusazon11013048.outbound.protection.outlook.com [40.93.196.48])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0727606A89F
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:15:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0727606A89F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=networkplumber.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=networkplumber.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2184606A32C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:15:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2184606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=fmv/Oo4T
-Received: by mail-pg1-f182.google.com with SMTP id 41be03b00d2f7-cdb75699c7cso178686a12.2
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 14:15:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=networkplumber-org.20260707.gappssmtp.com; s=20260707; t=1794953747; x=1795558547; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=AZHXuTpvjL8YqhWEhQ1jqpW7IzsSqJlyudmwqHrXw4E=;
-        b=fmv/Oo4TBW/XcKoqfWKKj1J4hyvG872LMmBWyqpkKrXdnhCCxdexUFiK9409hAwxL7
-         X5HsJ3Edvf4zeYiAA+OriZEMrw5R0sQxzDl4FekSPn790JY75sRGSexKoswS5Iu/U6rg
-         a0uVnhz+Hn1iod8wGI7Yh0bOXof+8gRL7fqG93VVvVJDWvcdSKH5A50BFGbhhWnhOvqR
-         wQihR2JSkw4bbJRNRbFquFXfXCVl4yfHw7sO1/HqIRNsqsdFfsK804pt1n0OtKwP5AH8
-         FV0BFIvcYIFyX1/o6sxezi7OHUD+qXbPGWkfd+xbX1l8LTTZ3QVizN0xH+rbXDvOydAA
-         0S8A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794953747; x=1795558547;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=AZHXuTpvjL8YqhWEhQ1jqpW7IzsSqJlyudmwqHrXw4E=;
-        b=MpbUcWl1b6Tg9lmADfpCBCIo4/PYW0DaD86MMDt/O6xlwqdqh0U/fzI8odG1yXYfnA
-         sGxBRK5EySu770wfdRUrPACBjYOOetm2UP46jVY2/YYIevZPL6AT5x+IuIvYfEQUGJHb
-         Iwzzydl9FJkbbZEVwJ46OnmDRZulM2ccJCp2nugwJe2dDxpOoZnf7XjDRBa2Nn2y/zVu
-         PunDGWrrJ+3apXpMrYzUfCmDLJOsI+VYWTAvTHsGikEbVO0driTfl6RG784RcERDIYks
-         cWqAk2G0qkkC88a8cAVhMc6z26gczESV4Dxw/7RypolZuy2nqQC0TqnCttbtw9o+S5Qc
-         v1BQ==
-X-Forwarded-Encrypted: i=1; AL+hErFtWKw1NdQ7/nzNjW/hl2HXpz9g6YMUIa+JbvPyjMM3dESeJnamPUXiFujR0aAhW7vM3BjmMhyNdQIPthw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/uVIrsXGflajrZn2hnLrxI+Mv73uMd9GnvYBstfleo/kvsl43C
-	dNbUEVTeISdWk586yCV8SaGRvEdrzRYRggiQH9rSllfIqwkQWRueFJeehenmwS9v3QU=
-X-Gm-Gg: AZFdTZdZxo3bSP7SpSvQtfS7G170xkUK7BLmvSiaMWDiteyUA00HNNXxsLzIqFAnhwj
-	DiEO8+SrVUB45vzt1CrPejVMAbPRDuAjFjz7E+4vEFZk8BT4Uq3ETdSf+uV8mJ39eo0uTfm+mzt
-	tdXtKb55N6ll3Q+uIf7CK5FhGq05HUMjzWYlLx6bK4PjPtpTqG7HQOe0vMQppTNgegNF2eLGvTC
-	rma+2A2eG4Fzw5VxKhPoDVkh7SUFiRff0IfxhOF85MMjXnk33DgWVuU+K7H0vkA5h0YMZ7f+se8
-	ONrdn6SnQ80x/mSMTJ8oEqysY/q6AQmBjRo5PJMaOxw3UqjgxzXEl7VG2bw2J+pUnk+PptZ71hC
-	yezIfNc2VLbyUKALCPgMS4KiLAM6H+BzykXl9l7xlCPuCR91Z6g88U+6JTc6ETNpi0XUvt5OWAZ
-	u3UsPjbv9Z9dvQzR7o8lD0rUsLoFRTqFYNZkaQc643lh6SNeOmDjA7SGRGJus+0S/ljFF8cn8Yd
-	fGjzlFZDtIJS0zmAWm3rbZ0odmRZuhJ78gNR0e18V5kpxadALbc7El1fiGROb3fs+tocI145yAI
-	Pk9Y3cVXFMbXa7HL+HFt6qpkucS3mqxSxXNuBVEfP0up1azpLkZm7DgawzNneIzKMmjLpQ==
-X-Received: by 2002:a17:90b:4b:b0:3b0:a9de:9880 with SMTP id 98e67ed59e1d1-3b3d0764a74mr657012a91.33.1794953746778;
-        Tue, 17 Nov 2026 14:15:46 -0800 (PST)
-Received: from phoenix.lan (204-195-112-43.wavecable.com. [204.195.112.43])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d5570208sm38067a91.0.2026.11.17.14.15.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 14:15:45 -0800 (PST)
-From: Stephen Hemminger <stephen@networkplumber.org>
-To: netdev@vger.kernel.org
-Cc: dsahern@kernel.org,
-	Stephen Hemminger <stephen@networkplumber.org>,
-	Hangbin Liu <liuhangbin@kylinos.cn>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-kselftest@vger.kernel.org (open list:KERNEL SELFTEST FRAMEWORK),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH net-next v3 3/3] selftests: net: netlink-dumps: test dump of route larger than skb
-Date: Tue, 17 Nov 2026 14:13:44 -0800
-Message-ID: <20261117221538.184948-4-stephen@networkplumber.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261117221538.184948-1-stephen@networkplumber.org>
-References: <20261117221538.184948-1-stephen@networkplumber.org>
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=b+mQvPnA
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ehjps8EvxsTlsl1t1x6iFS8OFh1H9IfMRzhhS4LeCUp5fXWEC/2upLfP/i5Ekh5ubO2hkPHyLR0Mw0Qgy+XcNdgxBAnKfIUAzoW2Opv6UbyGONivmT/qNE0GwhtU814DCD5XLJMnT86zRaASxyT7DHMFg//G48GedK0n9HNGc7L9AiuMPAAgBeL5k/ueO/r+HRFSD6YDbLMZF3Xi9yvjSu2gnm4O/6T3Ng1YXgk4piXI8ki2V1AV2jOkpsyU1JyPtUXEe1ST0O+K61Uc3LtRA//1QFWWxQlJngJP04jKJvfeazbkdJq56YuAjO0NcQMzhfOHed+scuDtmnrbMef33g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=W9CjGU2zF/0wSuV9qT/RmSGFzcWzi2STRWrahsVk4ac=;
+ b=bNJ4ky3EOBOkKZSMVXuVPOn+VgH1ddEfZjqD0fsw793Zjd/0NyEcCitGKLAm5y7mAn9QwjQ/ft30EiOXBXD6tSO77kk/PPjUUGr3UDLXGHMrhMnqbuln28NuCaHd6WiyhF7AnYUhbqv+gu+jaUc6Vg0aDJcvinqPSLLGZUh3S/4U663d6zo3Zf2i5cwW3iW/cKOA1lJdmT89R2GP/e9CBF2kysSrm53LgWM5L/fLSg7IYhBRfbz3xkbTow9ObY6vNBxlGjD/PY01k9aIoG2sIYCWc57KqdpbVS07YvvE6f36DbDyTn6gTD/gRtURy5NGpUbZx3G1jybK3qzVAOYmZQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=W9CjGU2zF/0wSuV9qT/RmSGFzcWzi2STRWrahsVk4ac=;
+ b=b+mQvPnADJVk4f40H+q1Vp15FgokaP63ZQ4TJUz268obAQsSE1cIQ4cpXjcOXngRp7ozwo3i5VBquqEVWJp2H/NaPtiWWE4EF7oYwT7Zcxz9JGvjDERYEnwm9mXkDCKBAa4pxO5Ja55wtEz5urD5zf8LA9IkzUPASJuC8PWwzlU=
+Received: from PH8P223CA0021.NAMP223.PROD.OUTLOOK.COM (2603:10b6:510:2db::18)
+ by DS0PR12MB8443.namprd12.prod.outlook.com (2603:10b6:8:126::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 17 Nov
+ 2026 22:15:44 +0000
+Received: from CY7PEPF000000EF.namprd04.prod.outlook.com
+ (2603:10b6:510:2db:cafe::74) by PH8P223CA0021.outlook.office365.com
+ (2603:10b6:510:2db::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.13 via Frontend Transport; Tue,
+ 17 Nov 2026 22:15:43 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ CY7PEPF000000EF.mail.protection.outlook.com (10.167.247.171) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.4 via Frontend Transport; Tue, 17 Nov 2026 22:15:43 +0000
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 17 Nov
+ 2026 16:15:40 -0600
+Received: from xsjlizhih51.xilinx.com (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
+ Transport; Tue, 17 Nov 2026 16:15:40 -0600
+From: Max Zhen <max.zhen@amd.com>
+To: <ogabbay@kernel.org>, <quic_jhugo@quicinc.com>,
+	<dri-devel@lists.freedesktop.org>, <mario.limonciello@amd.com>,
+	<karol.wachowski@linux.intel.com>, <lizhi.hou@amd.com>
+CC: Max Zhen <max.zhen@amd.com>, <linux-kernel@vger.kernel.org>,
+	<sonal.santan@amd.com>
+Subject: [PATCH V1 4/4] accel/amdxdna: Fix SMU command execution on platforms without interrupt trigger
+Date: Tue, 17 Nov 2026 14:15:31 -0800
+Message-ID: <20261117221532.177788-1-max.zhen@amd.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,375 +109,156 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY7PEPF000000EF:EE_|DS0PR12MB8443:EE_
+X-MS-Office365-Filtering-Correlation-Id: e25fe943-89cb-4062-cc79-08df44f8529d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|82310400026|36860700016|376014|23010399003|18002099003|6133799003|261009223027099003|3023799007|261026135527099003|56012099006|11063799006|261102123227099003|261028144727099003|261026121527099003|261026140227099003|261022115727099003|261021121427099003|261022075727099003|261022105027099003|261026130827099003|261021130227099003|261021133027099003|261021123027099003|261022113327099003|261021135927099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	Z0roscVbum3ZnMxPCXfLrDesGM56kxpttXEYgV3mBO5myO0O0OgFHxNQmrFa+wVLp/mauCN9ySbTDOmBNC22e0r99KUdsEtIoB6dl6oiDQR5JsnyiUoyDVDQBAaKPDJsbdZpEU3H1KDlgA1SaotX/6JcfDqfFhOgO2oxcMmOEhOqY1nyKcSxY590rBvftOYxNNQ96K+T3sJ4D18wAzaNk3o3YPDreBP0fBayswXe9F3kCjJB2RKLz0A2iqP93b6rsUIyLD6WV14sU6BEIvPMKjHvtQhniLjwQZMuVfKjfg39esMwiEM1JuxFeR77hUTKFfMKBn63Ge2Rk7P7zoGAw7rd/K6328+DAbCQi2ZM52vd3IWRvaBaw3mpoWAw5WyIUxoolQk67ez0zhHt16r5z7IanrD0gF8cBVk5X+RvWzJfjc+6ISmi9HxA7aye4kYlOhjzYwUse1gJqxxeoYFmuVKVUtE3QDaOImEcbpaugSfO2Od/yCAsBXL72Hxu3VRRR3N784siCuiXrk3tQx+qxhuOpi6DMe0dt4W5ZGFirZisNVU9LpfzKj9Nngz9TtMqpH3PcovZOfYA9p7PKZXyF6r/6kTqruNUfXih9HYrkaY4IgtGXrOb8zdgI2mQKi5cCQZ2UdkN8AcutOZZldpf+tPaJfsyYUOIZOYEskR/T0czWtNgRF2zzh/c0esqkMRMku9mANAmlGJqAryZy7u44Q==
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(376014)(23010399003)(18002099003)(6133799003)(261009223027099003)(3023799007)(261026135527099003)(56012099006)(11063799006)(261102123227099003)(261028144727099003)(261026121527099003)(261026140227099003)(261022115727099003)(261021121427099003)(261022075727099003)(261022105027099003)(261026130827099003)(261021130227099003)(261021133027099003)(261021123027099003)(261022113327099003)(261021135927099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	Kehprs+aOJuj1oRk3ctpfjaisxv1SRdXKP3MVns51bxEFaydt6o1VWbPJpFXtEx7atafpLEy2omHGK9hN8oGm7GkQEIw9+b+whUF4YguJ8smJb6ymZqX0syTuyUDBqe53fTD34QWe8qxZ2ru4Ayhpmdi3gQC/urXaGI2GL84K8k2XlUU2IYaSLYxWrwwMS0tvfj0Tj63RpWiAJOF68/p2JdOBlswSrRyTsV/a2/UfgzGZO3kWrp8gRBP2vQYad8853fBy/IjTJketfrwgMMzsuLjQCu8ACcaP6VdP5H35THQik9Y+tfjB1ZNPusNqRtJqEkpEcBaNXbUJBJ32r1CU4OsPbKsOWNdXrPbEkZWXh3cx++cJGT2vSdJ0I9CkiXwp9YNTkowWnFeZvoKJdN3wO/aIhOKjkthgjktXbkMlivs4lA00MZ4mc1nG3nDv8o8
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 22:15:43.7692
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e25fe943-89cb-4062-cc79-08df44f8529d
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	CY7PEPF000000EF.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8443
 
-Add IPv4 and IPv6 multipath routes that do not fit in the first dump
-skb of a fresh socket. The dump must return the route or fail with
--EMSGSIZE, not end with status 0.
+SMU command execution currently unconditionally manipulates
+SMU_INTR_REG when issuing a command. This works on platforms that
+require an interrupt trigger to start command processing, but it
+causes failures on platforms where commands are executed directly
+through the command and argument registers.
 
-Each nexthop carries a gateway so the dumped route grows faster than
-the kernel side fib_info. A gateway-less IPv4 nexthop only adds 8 bytes
-to the dump, which would need enough nexthops to make fib_create_info()
-attempt a high order allocation.
+Add a per-device SMU configuration flag indicating whether the
+interrupt mechanism is required. When enabled, wait for the interrupt
+register to become idle before submitting a command and trigger
+execution by writing to SMU_INTR_REG. When disabled, skip the
+interrupt handshake and rely on the command register write to start
+execution.
 
-IPv6 nexthops cannot use lo, so create a dummy device and generalize
-lo_set_up() to if_set_up(). Add the IPv4 routing options to config.
+This allows the common SMU implementation to correctly support both
+interrupt-driven and non-interrupt-driven firmware interfaces.
 
-Signed-off-by: Stephen Hemminger <stephen@networkplumber.org>
-Tested-by: Hangbin Liu <liuhangbin@kylinos.cn>
-Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
+Signed-off-by: Max Zhen <max.zhen@amd.com>
 ---
- tools/testing/selftests/net/config          |   3 +
- tools/testing/selftests/net/netlink-dumps.c | 297 +++++++++++++++++++-
- 2 files changed, 296 insertions(+), 4 deletions(-)
+ drivers/accel/amdxdna/aie.h       |  1 +
+ drivers/accel/amdxdna/aie2_pci.c  |  1 +
+ drivers/accel/amdxdna/aie2_pci.h  |  1 +
+ drivers/accel/amdxdna/aie_smu.c   | 20 +++++++++++++++-----
+ drivers/accel/amdxdna/npu1_regs.c |  1 +
+ 5 files changed, 19 insertions(+), 5 deletions(-)
 
-diff --git a/tools/testing/selftests/net/config b/tools/testing/selftests/net/config
-index dab62cdfa27b..e1049830d34a 100644
---- a/tools/testing/selftests/net/config
-+++ b/tools/testing/selftests/net/config
-@@ -33,6 +33,8 @@ CONFIG_IP6_NF_RAW=m
- CONFIG_IP6_NF_TARGET_REJECT=m
- CONFIG_IP_MROUTE=y
- CONFIG_IP_MULTICAST=y
-+CONFIG_IP_ADVANCED_ROUTER=y
-+CONFIG_IP_MULTIPLE_TABLES=y
- CONFIG_IP_NF_FILTER=m
- CONFIG_IP_NF_IPTABLES=m
- CONFIG_IP_NF_IPTABLES_LEGACY=m
-@@ -42,6 +44,7 @@ CONFIG_IP_NF_NAT=m
- CONFIG_IP_NF_RAW=m
- CONFIG_IP_NF_TARGET_REJECT=m
- CONFIG_IP_NF_TARGET_TTL=m
-+CONFIG_IP_ROUTE_MULTIPATH=y
- CONFIG_IP_SCTP=m
- CONFIG_IPV6=y
- CONFIG_IPV6_FOU=m
-diff --git a/tools/testing/selftests/net/netlink-dumps.c b/tools/testing/selftests/net/netlink-dumps.c
-index 4a94a25167e2..391ce59fcc30 100644
---- a/tools/testing/selftests/net/netlink-dumps.c
-+++ b/tools/testing/selftests/net/netlink-dumps.c
-@@ -263,11 +263,11 @@ TEST(close_with_ref)
- 	usleep(100 * 1000);
- }
+diff --git a/drivers/accel/amdxdna/aie.h b/drivers/accel/amdxdna/aie.h
+index 13af4b9b2cf2..991e45ac7f36 100644
+--- a/drivers/accel/amdxdna/aie.h
++++ b/drivers/accel/amdxdna/aie.h
+@@ -110,6 +110,7 @@ struct aie_bar_off_pair {
  
--static int lo_set_up(int sock, bool up)
-+static int if_set_up(int sock, const char *name, bool up)
+ struct smu_config {
+ 	void __iomem    *smu_regs[SMU_MAX_REGS];
++	bool		intr_enabled;
+ };
+ 
+ struct psp_config {
+diff --git a/drivers/accel/amdxdna/aie2_pci.c b/drivers/accel/amdxdna/aie2_pci.c
+index a3866e8933e6..cc53c1fc3944 100644
+--- a/drivers/accel/amdxdna/aie2_pci.c
++++ b/drivers/accel/amdxdna/aie2_pci.c
+@@ -603,6 +603,7 @@ static int aie2_init(struct amdxdna_dev *xdna)
+ 
+ 	for (i = 0; i < SMU_MAX_REGS; i++)
+ 		smu_conf.smu_regs[i] = tbl[SMU_REG_BAR(ndev, i)] + SMU_REG_OFF(ndev, i);
++	smu_conf.intr_enabled = ndev->priv->smu_intr_enabled;
+ 	ndev->aie.smu_hdl = aiem_smu_create(&xdna->ddev, &smu_conf);
+ 	if (!ndev->aie.smu_hdl) {
+ 		XDNA_ERR(xdna, "failed to create smu");
+diff --git a/drivers/accel/amdxdna/aie2_pci.h b/drivers/accel/amdxdna/aie2_pci.h
+index 13391275df31..26e3ccdaddd5 100644
+--- a/drivers/accel/amdxdna/aie2_pci.h
++++ b/drivers/accel/amdxdna/aie2_pci.h
+@@ -190,6 +190,7 @@ struct amdxdna_dev_priv {
+ 	struct aie_bar_off_pair		sram_offs[SRAM_MAX_INDEX];
+ 	struct aie_bar_off_pair		psp_regs_off[PSP_MAX_REGS];
+ 	struct aie_bar_off_pair		smu_regs_off[SMU_MAX_REGS];
++	bool				smu_intr_enabled;
+ 	const struct aie_hw_ops		*hw_ops;
+ };
+ 
+diff --git a/drivers/accel/amdxdna/aie_smu.c b/drivers/accel/amdxdna/aie_smu.c
+index 62aea550aabc..36a5cf88aea7 100644
+--- a/drivers/accel/amdxdna/aie_smu.c
++++ b/drivers/accel/amdxdna/aie_smu.c
+@@ -26,22 +26,31 @@
+ 
+ struct smu_device {
+ 	struct drm_device	*ddev;
+-	struct smu_config	conf;
+ 	void __iomem		*smu_regs[SMU_MAX_REGS];
++	bool			intr_enabled;
+ };
+ 
+ static int aie_smu_exec(struct smu_device *smu, u32 reg_cmd, u32 reg_arg, u32 *out)
  {
- 	struct ifreq ifr = {};
+-	u32 resp;
++	u32 resp, intr;
+ 	int ret;
  
--	strcpy(ifr.ifr_name, "lo");
-+	strcpy(ifr.ifr_name, name);
- 	if (ioctl(sock, SIOCGIFFLAGS, &ifr))
- 		return -1;
- 	if (up)
-@@ -321,12 +321,12 @@ TEST(dump_with_queued_ntf)
- 		       sizeof(addr)), 0);
- 
- 	// A large read makes the kernel attempt large dump skbs
--	ASSERT_EQ(lo_set_up(inet_sock, true), 0);
-+	ASSERT_EQ(if_set_up(inet_sock, "lo", true), 0);
- 	n = recv(netlink_sock, buf, sizeof(buf), 0);
- 	ASSERT_GE(n, (ssize_t)sizeof(struct nlmsghdr));
- 
- 	// Leave one notification queued, then start the dump
--	ASSERT_EQ(lo_set_up(inet_sock, false), 0);
-+	ASSERT_EQ(if_set_up(inet_sock, "lo", false), 0);
- 	n = send(netlink_sock, &dump_links, sizeof(dump_links), 0);
- 	ASSERT_EQ(n, sizeof(dump_links));
- 
-@@ -362,4 +362,293 @@ TEST(dump_with_queued_ntf)
- 	close(inet_sock);
- }
- 
-+#define BIG_RT_TABLE	100
-+#define BIG_RT_IFINDEX	100
-+#define BIG_RT4_NH	400
-+#define BIG_RT6_NH	500
-+
-+static const struct {
-+	struct nlmsghdr nlhdr;
-+	struct ifinfomsg ifm;
-+	struct nlattr name_hdr;
-+	char name[8];
-+	struct nlattr linkinfo_hdr;
-+	struct nlattr kind_hdr;
-+	char kind[8];
-+} new_dummy = {
-+	.nlhdr = {
-+		.nlmsg_len	= sizeof(new_dummy),
-+		.nlmsg_type	= RTM_NEWLINK,
-+		.nlmsg_flags	= NLM_F_REQUEST | NLM_F_ACK | NLM_F_CREATE |
-+				  NLM_F_EXCL,
-+		.nlmsg_seq	= 1,
-+	},
-+	.ifm = {
-+		.ifi_family	= AF_UNSPEC,
-+		.ifi_index	= BIG_RT_IFINDEX,
-+	},
-+	.name_hdr = {
-+		.nla_len	= 4 + sizeof("dummy0"),
-+		.nla_type	= IFLA_IFNAME,
-+	},
-+	.name = "dummy0",
-+	.linkinfo_hdr = {
-+		.nla_len	= 4 + 4 + 8,
-+		.nla_type	= IFLA_LINKINFO,
-+	},
-+	.kind_hdr = {
-+		.nla_len	= 4 + sizeof("dummy"),
-+		.nla_type	= IFLA_INFO_KIND,
-+	},
-+	.kind = "dummy",
-+};
-+
-+struct rtnexthop4 {
-+	struct rtnexthop rtnh;
-+	struct nlattr gw_hdr;
-+	__u8 gw[4];
-+};
-+
-+static struct {
-+	struct nlmsghdr nlhdr;
-+	struct rtmsg rtm;
-+	struct nlattr dst_hdr;
-+	__u8 dst[4];
-+	struct nlattr table_hdr;
-+	__u32 table;
-+	struct nlattr mp_hdr;
-+	struct rtnexthop4 nh[BIG_RT4_NH];
-+} new_route4 = {
-+	.nlhdr = {
-+		.nlmsg_len	= sizeof(new_route4),
-+		.nlmsg_type	= RTM_NEWROUTE,
-+		.nlmsg_flags	= NLM_F_REQUEST | NLM_F_ACK | NLM_F_CREATE |
-+				  NLM_F_EXCL,
-+		.nlmsg_seq	= 1,
-+	},
-+	.rtm = {
-+		.rtm_family	= AF_INET,
-+		.rtm_dst_len	= 24,
-+		.rtm_protocol	= RTPROT_STATIC,
-+		.rtm_scope	= RT_SCOPE_UNIVERSE,
-+		.rtm_type	= RTN_UNICAST,
-+	},
-+	.dst_hdr = {
-+		.nla_len	= 4 + 4,
-+		.nla_type	= RTA_DST,
-+	},
-+	.dst = { 198, 51, 100, 0 },
-+	.table_hdr = {
-+		.nla_len	= 4 + 4,
-+		.nla_type	= RTA_TABLE,
-+	},
-+	.table = BIG_RT_TABLE,
-+	.mp_hdr = {
-+		.nla_len	= 4 + sizeof(new_route4.nh),
-+		.nla_type	= RTA_MULTIPATH,
-+	},
-+};
-+
-+struct rtnexthop6 {
-+	struct rtnexthop rtnh;
-+	struct nlattr gw_hdr;
-+	__u8 gw[16];
-+};
-+
-+static struct {
-+	struct nlmsghdr nlhdr;
-+	struct rtmsg rtm;
-+	struct nlattr dst_hdr;
-+	__u8 dst[16];
-+	struct nlattr table_hdr;
-+	__u32 table;
-+	struct nlattr mp_hdr;
-+	struct rtnexthop6 nh[BIG_RT6_NH];
-+} new_route6 = {
-+	.nlhdr = {
-+		.nlmsg_len	= sizeof(new_route6),
-+		.nlmsg_type	= RTM_NEWROUTE,
-+		.nlmsg_flags	= NLM_F_REQUEST | NLM_F_ACK | NLM_F_CREATE |
-+				  NLM_F_EXCL,
-+		.nlmsg_seq	= 1,
-+	},
-+	.rtm = {
-+		.rtm_family	= AF_INET6,
-+		.rtm_dst_len	= 64,
-+		.rtm_protocol	= RTPROT_STATIC,
-+		.rtm_scope	= RT_SCOPE_UNIVERSE,
-+		.rtm_type	= RTN_UNICAST,
-+	},
-+	.dst_hdr = {
-+		.nla_len	= 4 + 16,
-+		.nla_type	= RTA_DST,
-+	},
-+	.dst = { 0x20, 0x01, 0x0d, 0xb8 }, // 2001:db8::/64
-+	.table_hdr = {
-+		.nla_len	= 4 + 4,
-+		.nla_type	= RTA_TABLE,
-+	},
-+	.table = BIG_RT_TABLE,
-+	.mp_hdr = {
-+		.nla_len	= 4 + sizeof(new_route6.nh),
-+		.nla_type	= RTA_MULTIPATH,
-+	},
-+};
-+
-+static struct {
-+	struct nlmsghdr nlhdr;
-+	struct rtmsg rtm;
-+} dump_routes = {
-+	.nlhdr = {
-+		.nlmsg_len	= sizeof(dump_routes),
-+		.nlmsg_type	= RTM_GETROUTE,
-+		.nlmsg_flags	= NLM_F_REQUEST | NLM_F_DUMP,
-+		.nlmsg_seq	= 2,
-+	},
-+	.rtm = {
-+		.rtm_table	= BIG_RT_TABLE,
-+	},
-+};
-+
-+static int nl_request_ack(int sock, const void *req, size_t len)
-+{
-+	struct nlmsghdr *nlh;
-+	char buf[4096];
-+	ssize_t n;
-+
-+	if (send(sock, req, len, 0) != (ssize_t)len)
-+		return -errno;
-+	n = recv(sock, buf, sizeof(buf), 0);
-+	if (n < 0)
-+		return -errno;
-+	nlh = (struct nlmsghdr *)buf;
-+	if (!NLMSG_OK(nlh, n) || nlh->nlmsg_type != NLMSG_ERROR)
-+		return -EPROTO;
-+	return *(int *)NLMSG_DATA(nlh);
-+}
-+
-+// Dump table BIG_RT_TABLE on a fresh socket, so the first dump skb is
-+// small, and count routes. The table holds only one route, too large for
-+// that skb. Returns the status from NLMSG_DONE or NLMSG_ERROR.
-+static int dump_big_table(struct __test_metadata *_metadata, int family,
-+			  int *routes)
-+{
-+	int netlink_sock, i, ret = 1;
-+	char buf[32768];
-+	int one = 1;
-+	ssize_t n;
-+
-+	netlink_sock = socket(AF_NETLINK, SOCK_RAW, NETLINK_ROUTE);
-+	ASSERT_GE(netlink_sock, 0);
-+	ASSERT_EQ(setsockopt(netlink_sock, SOL_NETLINK, NETLINK_GET_STRICT_CHK,
-+			     &one, sizeof(one)), 0);
-+
-+	dump_routes.rtm.rtm_family = family;
-+	n = send(netlink_sock, &dump_routes, sizeof(dump_routes), 0);
-+	ASSERT_EQ(n, sizeof(dump_routes));
-+
-+	*routes = 0;
-+	for (i = 0; i < 100 && ret > 0; i++) {
-+		struct nlmsghdr *nlh;
-+
-+		n = recv(netlink_sock, buf, sizeof(buf), 0);
-+		ASSERT_GE(n, 0);
-+
-+		for (nlh = (struct nlmsghdr *)buf; NLMSG_OK(nlh, n);
-+		     nlh = NLMSG_NEXT(nlh, n)) {
-+			if (nlh->nlmsg_type == RTM_NEWROUTE)
-+				(*routes)++;
-+			if (nlh->nlmsg_type == NLMSG_DONE ||
-+			    nlh->nlmsg_type == NLMSG_ERROR) {
-+				ret = *(int *)NLMSG_DATA(nlh);
-+				break;
-+			}
++	if (smu->intr_enabled) {
++		ret = readx_poll_timeout(readl, SMU_REG(smu, SMU_INTR_REG), intr,
++					 !(intr & 0x2), AIE_INTERVAL, AIE_TIMEOUT);
++		if (ret) {
++			drm_err(smu->ddev, "wait for smu intr idle timed out, 0x%x", intr);
++			return ret;
 +		}
 +	}
-+	EXPECT_LE(ret, 0);
 +
-+	close(netlink_sock);
-+	return ret;
-+}
-+
-+// A route that doesn't fit in the first dump skb must either be dumped or
-+// end the dump with EMSGSIZE. It must not end the dump as if complete.
-+TEST(dump_large_route)
-+{
-+	int netlink_sock, inet_sock, i, ret, routes;
-+	int one = 1;
-+
-+	ret = unshare(CLONE_NEWNET);
-+	if (ret && errno == EPERM)
-+		SKIP(return, "Needs CAP_SYS_ADMIN for a netns");
-+	ASSERT_EQ(ret, 0);
-+
-+	inet_sock = socket(AF_INET, SOCK_DGRAM, 0);
-+	ASSERT_GE(inet_sock, 0);
-+	netlink_sock = socket(AF_NETLINK, SOCK_RAW, NETLINK_ROUTE);
-+	ASSERT_GE(netlink_sock, 0);
-+
-+	// Without this an error ACK echoes the whole request back, which
-+	// does not fit in the buffer in nl_request_ack(), hiding the errno.
-+	ASSERT_EQ(setsockopt(netlink_sock, SOL_NETLINK, NETLINK_CAP_ACK,
-+			     &one, sizeof(one)), 0);
-+
-+	ret = nl_request_ack(netlink_sock, &new_dummy, sizeof(new_dummy));
-+	if (ret == -EOPNOTSUPP)
-+		SKIP(return, "Needs CONFIG_DUMMY");
-+	ASSERT_EQ(ret, 0);
-+	ASSERT_EQ(if_set_up(inet_sock, "lo", true), 0);
-+	ASSERT_EQ(if_set_up(inet_sock, "dummy0", true), 0);
-+
-+	for (i = 0; i < BIG_RT4_NH; i++) {
-+		struct rtnexthop4 *nh = &new_route4.nh[i];
-+
-+		// Gateways make each dumped nexthop larger, so fewer
-+		// kernel side fib_nh entries are needed to overflow the
-+		// first dump skb. RTNH_F_ONLINK avoids needing a route
-+		// to reach them.
-+		nh->rtnh.rtnh_len = sizeof(*nh);
-+		nh->rtnh.rtnh_flags = RTNH_F_ONLINK;
-+		nh->rtnh.rtnh_ifindex = BIG_RT_IFINDEX;
-+		nh->gw_hdr.nla_len = sizeof(nh->gw_hdr) + sizeof(nh->gw);
-+		nh->gw_hdr.nla_type = RTA_GATEWAY;
-+		nh->gw[0] = 198; // 198.18.x.x, unique per nexthop
-+		nh->gw[1] = 18;
-+		nh->gw[2] = (i + 1) >> 8;
-+		nh->gw[3] = (i + 1) & 0xff;
-+	}
-+	ASSERT_EQ(nl_request_ack(netlink_sock, &new_route4,
-+				 sizeof(new_route4)), 0);
-+
-+	for (i = 0; i < BIG_RT6_NH; i++) {
-+		struct rtnexthop6 *nh = &new_route6.nh[i];
-+
-+		nh->rtnh.rtnh_len = sizeof(*nh);
-+		nh->rtnh.rtnh_ifindex = BIG_RT_IFINDEX;
-+		nh->gw_hdr.nla_len = sizeof(nh->gw_hdr) + sizeof(nh->gw);
-+		nh->gw_hdr.nla_type = RTA_GATEWAY;
-+		nh->gw[0] = 0xfe; // fe80::<i + 1>
-+		nh->gw[1] = 0x80;
-+		nh->gw[14] = (i + 1) >> 8;
-+		nh->gw[15] = (i + 1) & 0xff;
-+	}
-+	ASSERT_EQ(nl_request_ack(netlink_sock, &new_route6,
-+				 sizeof(new_route6)), 0);
-+
-+	// A socket remembers the largest read done on it and uses that
-+	// for later dump skbs, so dump on fresh sockets to keep the
-+	// first dump skb at NLMSG_GOODSIZE.
-+	close(netlink_sock);
-+
-+	ret = dump_big_table(_metadata, AF_INET, &routes);
-+	if (ret != -EMSGSIZE)
-+		EXPECT_EQ(routes, 1);
-+
-+	ret = dump_big_table(_metadata, AF_INET6, &routes);
-+	if (ret != -EMSGSIZE)
-+		EXPECT_EQ(routes, 1);
-+
-+	close(inet_sock);
-+}
-+
- TEST_HARNESS_MAIN
+ 	writel(0, SMU_REG(smu, SMU_RESP_REG));
+ 	writel(reg_arg, SMU_REG(smu, SMU_ARG_REG));
+ 	writel(reg_cmd, SMU_REG(smu, SMU_CMD_REG));
+ 
+-	/* Clear and set SMU_INTR_REG to kick off */
+-	writel(0, SMU_REG(smu, SMU_INTR_REG));
+-	writel(1, SMU_REG(smu, SMU_INTR_REG));
++	/* Set SMU_INTR_REG to kick off */
++	if (smu->intr_enabled)
++		writel(1, SMU_REG(smu, SMU_INTR_REG));
+ 
+ 	ret = readx_poll_timeout(readl, SMU_REG(smu, SMU_RESP_REG), resp,
+ 				 resp, AIE_INTERVAL, AIE_TIMEOUT);
+@@ -148,6 +157,7 @@ struct smu_device *aiem_smu_create(struct drm_device *ddev, struct smu_config *c
+ 
+ 	smu->ddev = ddev;
+ 	memcpy(smu->smu_regs, conf->smu_regs, sizeof(smu->smu_regs));
++	smu->intr_enabled = conf->intr_enabled;
+ 
+ 	return smu;
+ }
+diff --git a/drivers/accel/amdxdna/npu1_regs.c b/drivers/accel/amdxdna/npu1_regs.c
+index b4a0ede636f0..0b45375ea110 100644
+--- a/drivers/accel/amdxdna/npu1_regs.c
++++ b/drivers/accel/amdxdna/npu1_regs.c
+@@ -124,6 +124,7 @@ static const struct amdxdna_dev_priv npu1_dev_priv = {
+ 		DEFINE_BAR_OFFSET(SMU_RESP_REG, NPU1_SMU, MPNPU_PUB_SCRATCH6),
+ 		DEFINE_BAR_OFFSET(SMU_OUT_REG,  NPU1_SMU, MPNPU_PUB_SCRATCH7),
+ 	},
++	.smu_intr_enabled = true,
+ 	.hw_ops		= &(const struct aie_hw_ops) {
+ 		.set_dpm = npu1_set_dpm,
+ 	},
 -- 
-2.53.0
+2.34.1
 
