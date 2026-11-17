@@ -1,87 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794948104;
-	b=L7lI9OY7RVsC0W+61uEu7VBzS70wwTlFL5S80tkXEoaRJzW56+yHI2e4FWB3B+NVKJ8w
-	 qIkJv7yCr1saPiWxsTrub05c80SMsg3rrfV9TxifllukzrVmW2mhZGXxesGIIh+g/vcWi
-	 VdX/42lgqo4Qp2FxztF5MEMkZuos2G+SjxPlHWHSeQVqldyTEe+omrZJboP5cKbeFzwtz
-	 LOMyZIUnwi37Qr+s7+u6DEueSrgB/NJrIqF3KcEhPjq0F5rfpdv7c2MxDDatj8tBGYC3W
-	 KmfLAfwYDllB17KoUVRHgUec6mW0XE5CE0Tm35loNkSuIpQhH9SXbwwDogV5qg0Hy9g==
+	t=1794948226;
+	b=fORNKmHqfPjXZ5xjREdM5VRFyhm6JM+gbaK0sXCjK3my8CcCb7HdTi6a6BnFP8d7wTS4
+	 PV9gVxtfWMqP2Nitcw50xf/h2YQjr2ZmEFn7cKY/JNQ4Xsby6Khf77iNbO3Tm/l20lv78
+	 5J4GkSW8e6vu5wyk83vUs3hODuK9JrH75gZjTJXkyWYMxvVkcwKeaSoeSLytOBtvnrc51
+	 yYYHGHk51kk409ui+9rck1GatJkD6+2F819i5wRlHFChx/7ss3oWr4Xo8WKBj5zdPADOJ
+	 b41UvPq0CTdS6f7inyWDLPLOoQrYWDcC7BaNPrvdxTHHEJVaXSIwpn5NhRN72f4CczQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794948104;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Scanned-By;
-	bh=S7xqb7UvzbEnUt6XJ1+tm8jlYeEATOyg2jR5hBQlbVo=;
-	b=Z6idxf01Fgku7qjO7B7UhukRFa3Ij3vqhbsQOIe2VoCZe0ulxHtGTdSuMK9YgETELJa7
-	 XY9lWybllySq1TZYmk/FxO5oaan2GRvbClRzxJHnS4bXj3y7vFQGMGIKIlZdmbxSpHXnm
-	 KYbz20zOlulvKdOXJ7N3tnftp39AZHxWYf5LDhow5X1FDli3z9N3XgGAYyjwODbjKtqji
-	 cC/fsUmzcjwhfWjUF/8UJ6iNMZwhNVWsR3GqEgyEe+r4Gcj1IVz+z2mlAl1l6S8/Kwmom
-	 iH037aipk/vll7jyy2Y6rOV5ajKoJY9ziXkxadOLBQCV/GErcJ6t/Rs0akwViaiDLdQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794948226;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=4s7Hggd7+AEEhOvi2jMoV+jP1lHkwbJcfKFilHVKaf0=;
+	b=e6Ux39+UuHVeWqDsBN9FmxFUye+EL6bDl2TC/NAk/xUPoZjcof0PcF2YW+QbvvMNX0P7
+	 mGAlMxsIJSdO8ZrGLa2L0o0n8ZajA2eqdCopeOdnAwBpsdWt6xcHe+Y4V0e/AoFwnlJ9r
+	 IYoln4FZC3V088YhDjz5czTrRSH4dXLMoorvV8KAjBccewKBJOHVW+ydwNI6iBn6D3g8I
+	 77lLhJOucbdRMFvIKJESs8n5sWzXeIJHXRnp2A88gmap2r8ateXO+pBgkWdCPBWwe6q+3
+	 JTbMxR2zn7oKcx2z+knBmhWrOfzCnCpFlQpwvmwy8b5XpsLl8uBlq05NGpQnfhcGNTg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="h/zZuDRd";
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--coltonlewis.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=hf1FZP29;
+	arc=none smtp.remote-ip=209.85.167.199
+Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com [209.85.167.199])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9065A606A32A
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:41:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9065A606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B874606A32C
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:43:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B874606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--coltonlewis.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=h/zZuDRd
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1794948102;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=S7xqb7UvzbEnUt6XJ1+tm8jlYeEATOyg2jR5hBQlbVo=;
-	b=h/zZuDRdiYbmRKrish0Tc54TAszq1EtTFctZToyGjNri6iWevr9s5wdj5lnx1IOwSR15gV
-	gj4LuRLxyRxE8ReVpmLQbJnBajNwXMnJKJDiHqRqOE+6bx3+TC9O7WYvki/mlMh+oFXLmU
-	dXVFYWBKXZKjfh1ueP3E1iu2QV/i/F4=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-175-tH5EHz67OeyDOL9pbbFrUA-1; Tue,
- 17 Nov 2026 15:41:38 -0500
-X-MC-Unique: tH5EHz67OeyDOL9pbbFrUA-1
-X-Mimecast-MFC-AGG-ID: tH5EHz67OeyDOL9pbbFrUA_1794948095
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 7A32518004FE;
-	Tue, 17 Nov 2026 20:41:34 +0000 (UTC)
-Received: from onestero-thinkpadp1gen7.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id D0B70180056E;
-	Tue, 17 Nov 2026 20:41:30 +0000 (UTC)
-Received: by onestero-thinkpadp1gen7.tpbc.csb (nbSMTP-1.00) for uid 13628
-	oleg@redhat.com; Tue, 17 Nov 2026 21:41:34 +0100 (CET)
-Date: Tue, 17 Nov 2026 21:41:29 +0100
-From: Oleg Nesterov <oleg@redhat.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Mani Tofigh via B4 Relay <devnull+mt4022.columbia.edu@kernel.org>,
-	Breno Leitao <leitao@debian.org>,
-	Christian Brauner <brauner@kernel.org>,
-	Mateusz Guzik <mjguzik@gmail.com>,
-	Alexander Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>,
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
-	tz2294@columbia.edu, stable@vger.kernel.org,
-	Mani Tofigh <mt4022@columbia.edu>
-Subject: Re: [PATCH] pipe: keep per-write wakeups for EPOLLEXCLUSIVE consumers
-Message-ID: <avy7-XJkoRyslipt@redhat.com>
-References: <20261111-pipe-epollexclusive-wakeup-v1-1-0af6283e9fda@columbia.edu>
- <avxWKI795DthE8Sb@redhat.com>
- <CAHk-=wjOq+G=6gte4vX_YxOD_VfE1uZh7=+KHs8N0wU75xyHEg@mail.gmail.com>
- <avyODoFhZ_M7YDU5@redhat.com>
- <CAHk-=wgcBSBtHE+3ceKGjq1jyF64OyoEqf5JPpixowAa80GqNQ@mail.gmail.com>
- <avyVwg-5ef-pXZkG@redhat.com>
- <CAHk-=wjJF8uZLfVbbqei9-fhs9K70i2OnVreCV-rQF9EGKAxJg@mail.gmail.com>
- <CAHk-=wjqParwoB8wb9KfGVpbwUwvKvObpLOo=XPM0GGfkn3ibw@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=hf1FZP29
+Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-4ab8b4887d4so92990b6e.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 12:43:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1794948225; x=1795553025; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=4s7Hggd7+AEEhOvi2jMoV+jP1lHkwbJcfKFilHVKaf0=;
+        b=hf1FZP29riuJ8joZj5I8/Dp0oiP2wnkbiDC1o23rDnPmSLp/Hn43Cv5j+JMs7GJtWI
+         GY4XVk4SGzv2gD/1hGDkvfR4PyLkN1SbhbVEWOCHhVXigYfTI5IiFZ4V3outCg7fLKpA
+         vCGRxxFRna1N+qQbWgwATRt6SKNzZp6f+irfV8mLi6rf6IrGSr2eOOR53WzAC8MKHpAd
+         e43LX8V3zA2DQEZuum/94GtpwdHbMml8ijD/hPLC0cJrEgbropai5JeK5TjAsROXHMFi
+         1piRarIL5dhhrUptE+aNEJFI4Ux4AKv6Ozz7meutcWubDikRjWlSHuzw8Uin9eUVdtWP
+         vH4w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794948225; x=1795553025;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=4s7Hggd7+AEEhOvi2jMoV+jP1lHkwbJcfKFilHVKaf0=;
+        b=v2hV47sLsekMe9DH33CEeKduAycWtVm60mTd6CkpCpdRHkumuRlM5MwZaIeI8rgxCi
+         OdDSBl6J7VRmPQcEPvj01cJgfAfcsl7NR1QEp/N2/G0fs+M18ZzywkfMB/Bs9HSfugTD
+         G2DgVeNOIwoSrUFSPbkT/ToeL5pHlQKDX+RCkXod1K107mco07Muovj7tf5WMiUCkcSN
+         nnwKkm6/GYDlxxYm4HpamxyseiKYXzGizQV9ZpGIzvKuDAJjd8lkFRZAhDTvgAmVXXg4
+         pGg0sAQcHluvu7HZYegA+C8kglN3kX7/Vf1fWmMxSEmXmmPXYppzW6Vcbrc1QtoLz6+W
+         vxlg==
+X-Forwarded-Encrypted: i=1; AL+hErH009c54FrNNR8CUSMqeCt+1qZ2Ipuw+8NdHk5Bo/2BYW6jtUZUtSWhNf8+c/UhvNOKByHl3LoLFncJhUE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z817KNdwfJOmwxUx6P57SjGL3L9xXhMrklkOiu7v6tIfSeEy9mM
+	3R46Xem5d2UZ9LDa0lhFiu4hkKq0MEGSgSKGGVFUKu6Dp0jRl8GDMnHn1Ay89pqRifHES1Ej4Y/
+	sij4qT389CMXjadnI2wYWLV3FuQ==
+X-Received: from ilbej27-n2.prod.google.com ([2002:a05:6e02:4e1b:20b0:522:8039:f8b4])
+ (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6808:1c0b:b0:571:b166:3d76 with SMTP id 5614622812f47-5773c6322b9mr918759b6e.29.1794948224648;
+ Tue, 17 Nov 2026 12:43:44 -0800 (PST)
+Date: Tue, 17 Nov 2026 20:42:19 +0000
+In-Reply-To: <avyNBn24sLjxrfgR@LeoBrasDK>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,49 +78,28 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAHk-=wjqParwoB8wb9KfGVpbwUwvKvObpLOo=XPM0GGfkn3ibw@mail.gmail.com>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+Mime-Version: 1.0
+References: <20261116200418.3535619-1-coltonlewis@google.com>
+ <20261116200418.3535619-2-coltonlewis@google.com> <avyNBn24sLjxrfgR@LeoBrasDK>
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+Message-ID: <20261117204343.4017815-1-coltonlewis@google.com>
+Subject: Re: [PATCH v1 1/2] KVM: arm64: Fix inverted E2H0 check for HCR_EL2.NV1
+From: Colton Lewis <coltonlewis@google.com>
+To: Leonardo Bras <leo.bras@arm.com>
+Cc: Colton Lewis <coltonlewis@google.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Fuad Tabba <fuad.tabba@linux.dev>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On 11/17, Linus Torvalds wrote:
->
-> Side note: as part of looking at it, I did look at what it would
-> involve in our wait.h infrastructure.
->
-> That header isn't _horrible_, but some of it was uglier than needed,
-> and adding WQ_FLAG_PRIORITY would have been a huge pain because the
-> code unnecessarily special-cases WQ_FLAG_EXCLUSIVE.
->
-> So while I threw the rest of my trial patch away, this patch remained
-> as a cleanup. It *looks* sane to me, and I think the end result looks
-> better and would be more flexible.
->
-> For example, it would have allowed just adding a new user of
-> ___wait_event() that used WQ_FLAG_PRIORITY to put itself at the head
-> of the queue.
+Leonardo Bras <leo.bras@arm.com> writes:
 
-...
+> Maybe feat_nv2_e2h0_not_res0(). What do you think?
 
-> -#define ___wait_event(wq_head, condition, state, exclusive, ret, cmd)		\
-> +#define ___wait_event(wq_head, condition, state, wq_flag, ret, cmd)		\
->  ({										\
->  	__label__ __out;							\
->  	struct wait_queue_entry __wq_entry;					\
->  	long __ret = ret;	/* explicit shadow */				\
->  										\
-> -	init_wait_entry(&__wq_entry, exclusive ? WQ_FLAG_EXCLUSIVE : 0);	\
-> +	init_wait_entry(&__wq_entry, wq_flag);					\
->  	for (;;) {								\
->  		long __int = prepare_to_wait_event(&wq_head, &__wq_entry, state);\
+Agreed on renaming it. Since HCR_EL2.NV1 is the bit marked RES0 (while
+ID_AA64MMFR4_EL1.E2H0 is the signed ID field controlling it), I renamed
+the helper to feat_nv2_nv1_not_res0() in v2.
 
-
-Damn ;) I simply can't resist.
-
-I swear, I was thinking of exactly that same change during our discussion.
-So I think it is obviously good and makes sense, but I will try to re-check
-it after sleep.
-
-Oleg.
-
+-- Colton
