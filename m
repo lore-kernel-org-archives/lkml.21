@@ -1,92 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.42
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794936961;
-	b=Vq7qlrofbOk0oP7leMsCEydXSu0825OIRzPFFI63TE6mDZRq8/MmowgGD1CL6MdLVUFB
-	 e02DnHMx5X8Z121K59A6LdsGvkBkvaBO7sGAmvHy1cqFvwaepdqEYtM5sO/Ir51CAyo1r
-	 a3hfDmULjqGMV3cg0VA82jiDOT6v3x1vprpprGNA7LhdPlptvx/EvleOOYtZqErizSTsI
-	 AsAHfnblGB/TC5++hB9HchPo26CIavvCNdUCs592kvYpSCI0oO4sSEkOnil9H7EXbkO/s
-	 dA80ppjI7R3hsxsjJizLgLz9BsEup87xAW3n9i2Hk6aPyluD3TUyjw1cD7gHOCAPgUg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794936961;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:In-Reply-To:Date:Message-ID:References:
-	 MIME-version:Content-type:Content-Transfer-Encoding;
-	bh=DiwDSqqY3noD1OsmVqWHD0ic/HvrhuFYXysk4k3SnZc=;
-	b=YML4rED5mRezFINnyHY/DLHWihEzS6kWd2f5roAx2Byzb/XZmgabymK3Tli1TSO7i6zk
-	 pO2v5OAX+DrHlGteZWbfg68RriXDqEloi7TEvehif7TKuj3vl80a2z6CDNaPAjASYrPVl
-	 9fOXU4NjjkTuAAV53ukvLGtyBzEuvJhWm9xAtOD0SMy2oYGg2JLrw3+E2RI3xcqgvkaRi
-	 tHYJXPzUl6NL9gV7U+awG95JO5rDbKtKTnWw0S5NV4ZkizbVUNYagN/F0qT4WViD2QX2m
-	 6jG0XuTOfh1TD45arsFsm82lK7NZwaLwd30xZ+k7N22su6xyBtTvf1VOuUqIjRNHPgw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=W0KzhbPl;
-	arc=none smtp.remote-ip=74.125.82.42
-Received: from mail-dl1-f42.google.com (mail-dl1-f42.google.com [74.125.82.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.27
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794936972;
+	b=ubn0NX2RYfImNLDY26UPcqX6RGMp2M7eVjlykZWpbZgOZAOAHYrMOzDzLdUWpapgFYNr
+	 LsLcfSQsWvcQOUs7gMO7CIuN/1wR9y8TXYsrCk5Yddw23ieAr1hdbtY7uS/H4Pwl3f27i
+	 e/ax+Sss35SzCtaTAuA4dJT/KyCgrQGf3tB6qxikCGH1GNkd0XdX4wjhz9gFvn2eSBGvP
+	 HYVaiblQ8yIJ4hOFNMMtOmGvn7fH8OIQVtdYou2zmNIgOq0ex2b/GXNHADmionIyGN+25
+	 KmMCamnspmUyf9oEc1fnJJPd97nGqNyfuNMBbAVHssbWbEXrj4R7YBekQi1t8RObD3g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794936972;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:X-Mailer:Message-ID:In-Reply-To:References:Content-Type:
+	 X-MS-Reactions:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=acFQAvj5oowsvPYTuJm9/E4VuOuVQQXZLKjxZBQzLp8=;
+	b=qBJQMKFyVayA1AhkUYyUc1nBCuDOp/ia3JSdArA3Dfix1u/hzufcUGN46XGv7bb6U3z8
+	 KlDOaD9zMkcWfFATBwDJ+OB8kKtsyLNSnlyxdYgiQXcz0FD6T7VZTbq7zNoifDvEBO8wA
+	 xBIVvxp0FFC9IPf9r/YurIRpxex0JeiAONtUN8QavwRMN5dJO6+uHNsR1iBLgYzka5mjX
+	 015Y3y1yvRU2feuZm35KkNNtL9OH8jDPU7IEv7P8ZSnVCn7GWYdF4cjwRuCz+dghv2BVC
+	 xJBq0w1E/+6HVk+G2q/A+Ey7ksig2hfj421z0t2Y8taEhU/NSAM2KRS8BVPaTnk9Z1A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=aAOnNxxr;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.27
+Received: from MW6PR02CU001.outbound.protection.outlook.com (mail-westus2azon11012027.outbound.protection.outlook.com [52.101.48.27])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C234606A32C
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:36:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0C234606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3E47606A32A;
+	Tue, 17 Nov 2026 17:36:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3E47606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=W0KzhbPl
-Received: by mail-dl1-f42.google.com with SMTP id a92af1059eb24-1a2af4c8d00so189542c88.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 09:36:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794936960; x=1795541760; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :message-id:date:in-reply-to:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=DiwDSqqY3noD1OsmVqWHD0ic/HvrhuFYXysk4k3SnZc=;
-        b=W0KzhbPlCbSkBolXiCmD6b7y4XivdRe0ATUXhJnCwm/FUiIUCGCaVmBlrdoJ0MiToT
-         hPn9mZhGwzKdCWgWwRy36z5YG0t+Psv1iQeRIG9/dMaqLn7ghaec4omgT2n+sZOebDu1
-         H9CYY6sUfd9rj+lI/2BdulykAt7O39JnGP5RCoPqzSVpvBZDoJlDFCKCWd2RWrKepP+q
-         mnEBTeKW5beqXu1kTwE1FK1KsuDK51HLy/QCynmZxce4uJ/vq9yrAMa8/HeM/C8sGSze
-         RXkVUZLHqf3ZosazcJDiqOEIV5rtJiuInK9OUeQv4F71bhSXPubgShcGmTkC4Ra5pxx3
-         c7nw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794936960; x=1795541760;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :message-id:date:in-reply-to:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=DiwDSqqY3noD1OsmVqWHD0ic/HvrhuFYXysk4k3SnZc=;
-        b=TfCblqIIWCqskYJZdcPzpm3p3ckN5QUMwz4PoTYpxQ9fNybW50HWATaRwS0kFv3ocJ
-         Osrxbl/eLoM1qO4yE/MquJMjIIYx4PPayyeOf16Y3JDcW5ELQfG1rjTvwdAd/SwnDyke
-         eMWQ3j0ePxWerssUO1+EsGByEfJriKdyrtLMQncF4ibAYPuvhbAbIS5tFg4aF0GNjtA1
-         QZ52P6iircWraBgFRgc301TTe5FAxI6O7SN1OGHX7kA3hZoja9KhLw7AhqzXKGVLSEb9
-         2fEMKblnYzLS9NybYkWCK9hl7/is8UL2nVF+zXWlqN1HJijwbr3QvqJnvXBw2XHvZc3g
-         VEYA==
-X-Forwarded-Encrypted: i=1; AL+hErET+rCUiQVmO4XkkDEHa4n58riDohsjojJq/8IzpFyYv/qOjwjB5CjuyE6pNBGaEweaumaQ1xh48SE6sgY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z94dAKm2+bxJ9jd/5NvqTJBrfyOc/D5gEk8A2sde6mWau9NXPDG
-	9EeYfpYr4m+Q/DVibN0/+xD8SQVMz8gnt4aqqs6AauGJlLLtBNTDO7Ky
-X-Gm-Gg: AYBFou1og3Od5Hao3yLv6Xx7KE+VlCTTRIkkB2HCrmAkKSK47WCiuVGvSc1uuRFSxnr
-	guT/nw69b8sqUeKyC/T/i9GuJEv1gX+B1O8f7mQ8V+8MtOy/NQ0pPwRSU5o56kg0Ai0U1CyQT68
-	OCLKsZAqVm7xMxmXTZnXlCEk5tFCLUxnHq54Pp8B6ibD5iqDzL5GqE8+vEv14YnwO1D9Tk/iL8c
-	I9j/fF4UP3ga5YI1pNtbL6t2zbwuxlE9JQvPd1jErQiQoB+Hg6m6ooW/KZFMVHIEbMAZNbFJJcC
-	0iofb44tWOZNmx+GCdienISGC5gzJdYAFVgVO7ItpegXLI29J8lD5wX4tw+7hub1pf4LDofdWJQ
-	yAg87b/gET6oAUclgeEY+nuziwl9yRWXTwe4grdJr8jvjkwcYJY8j7dCIfddCI4+LX48tGkfucD
-	RYBO6IbIb0cb9SHjOx7/SPZ+wPcW3CJxGlhyHzoIas8Mb6fYtRHDBuRKFStocYX22e7WIVOEqwz
-	Ros0h3f7nMSlNNRljr7u/ubx1ybFckrakpntRuX/Sm+cjrqn6Wakq5D6VfNYMQdKAbJZPGEDSlL
-	f97us/Vp/hMrV0tqEz7boStJI6R/
-X-Received: by 2002:a05:701b:2058:20b0:1b5:3878:aa29 with SMTP id a92af1059eb24-1b543d355fbmr247604c88.38.1794936960214;
-        Tue, 17 Nov 2026 09:36:00 -0800 (PST)
-Received: from pve-server ([49.205.216.49])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5031918c7sm61333595c88.9.2026.11.17.09.35.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 09:35:59 -0800 (PST)
-From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-To: Mike Rapoport <rppt@kernel.org>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Cc: linuxppc-dev@lists.ozlabs.org, Madhavan Srinivasan <maddy@linux.ibm.com>, Venkat Rao Bagalkote <venkat88@linux.ibm.com>, linux-kernel@vger.kernel.org, Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Shrikanth Hegde <sshegde@linux.ibm.com>, Hari Bathini <hbathini@linux.ibm.com>
-Subject: Re: [PATCHv2 2/3] powerpc/execmem: Allocate kprobes insn pages from the modules area on book3s/32
-In-Reply-To: <avxhmaXa7lsQ86EA@kernel.org>
-Date: Tue, 17 Nov 2026 23:03:41 +0530
-Message-ID: <tslf747e.ritesh.list@gmail.com>
-References: <cover.1794572365.git.ritesh.list@gmail.com> <82c4973addebd82923c460cb44221f5b76146afe.1794572365.git.ritesh.list@gmail.com> <avltdwzlh07VZSFC@kernel.org> <f7834f3e-6c43-4b58-806d-fe4c07a93457@kernel.org> <avsn7Kn4a8wbB2QH@kernel.org> <zev77i3i.ritesh.list@gmail.com> <eb634d1f-cb08-44a8-88c9-e3b559c399a3@kernel.org> <avxhmaXa7lsQ86EA@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=aAOnNxxr
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=aI0tL9avWkoTWCkKD1qfqMEKg+rxoIyrziHA5rN+ZmZD5ozeHxU7Rg2UfsoDllSbFEoihwqR8EDn9kM0ovLjguZpMlS6Gz/6PhcbbBPvekAK+L4suk3KpxFqtp1IBSyzIYAs9OjT+c7Pa4T3qllybmZUX9zT7ouq4GOftzYJumddtYXWajoPlP9dkrIv+tZXWLn2D1tjgFDg7Mk5FL633cKDWrfgcykhfaTAghh5Muy4xxhyFybovsUZmhoXyfSMR8Ot/XB1qD9tB2yWrxvmWHvXXckS4s7pePvtfjlvSDUFzjlINR3EGcp9uWHVN92qivp6uH6LEN9+CbqXbzcx8w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=acFQAvj5oowsvPYTuJm9/E4VuOuVQQXZLKjxZBQzLp8=;
+ b=WLbgMdNFNbC3NwE0LF0yoayWtPm+jkJRQ7tCai3roVhITRO51coU5kny5MsVaeyzU70At7DiINORV27Gm9dr9GJXLfU9+BO3fJJD1QD4BnFsV1RKLC/ALW35WQZv/GlwTB7MJxa5EL6MFWi0KvDcZYw7YvfHrxsxAahtFpL2l1Jk5mRouTfGUsv6S3UOcN++/n/wnt3M6sNQYVL4aYr1TsttEbihs4OhDqaepchfPI11JxyF4Tcn/hGhS97YJdRTTAabFBDse3BDvfA3UcxCbbPDbPMKp8EyPt436c5qNbBqWnQC6djr+RqMlYXMOXuFavjLVKHu7K4VqnbYM8b+1A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=acFQAvj5oowsvPYTuJm9/E4VuOuVQQXZLKjxZBQzLp8=;
+ b=aAOnNxxrc6U0/hMpH2zD9RmKuu3QIY6Wq2xw0tuHVQeskfjhMUhO5+U1PJF5mmhvovzxDzbtsXs81N01WiemzJAazI7nPTXCjdKchwzTV1Zuac/aNoseTEHRVZgSYwQR/35SBHDxFWfwTYgxynU8NTYiJPjRIwxpWLGJEksJ0YfOwB6emOijbpFIeEwBZq/RuUogLAdoHHqw/f5jrV6xRV/rdkqM7M8vwjmK9ddGqltIJ1ZPP3PubYkxG9asXls8jMN51KX/kjUwHk2nxsmzrkhYZBXQnEZasso5bBTYZqESh35hd/6fECNmDGouRwNsZqEd7pI7GV4jTyEihNmv8A==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from IA0PR12MB8374.namprd12.prod.outlook.com (2603:10b6:208:40e::7)
+ by SAVPR12MB999121.namprd12.prod.outlook.com (2603:10b6:806:4e7::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 17 Nov
+ 2026 17:36:07 +0000
+Received: from IA0PR12MB8374.namprd12.prod.outlook.com
+ ([fe80::d85f:4c87:ae84:3f16]) by IA0PR12MB8374.namprd12.prod.outlook.com
+ ([fe80::d85f:4c87:ae84:3f16%6]) with mapi id 15.21.0615.009; Tue, 17 Nov 2026
+ 17:36:07 +0000
+From: Zi Yan <ziy@nvidia.com>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
+ Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Alex Williamson <alex@shazbot.org>, Peter Xu <peterx@redhat.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>,
+ Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>,
+ Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>,
+ Kiryl Shutsemau <kas@kernel.org>, Wei Liu <wei.liu@kernel.org>,
+ Roman Kisel <romank@linux.microsoft.com>,
+ Saurabh Sengar <ssengar@linux.microsoft.com>,
+ Naman Jain <namjain@linux.microsoft.com>,
+ Michael Kelley <mhklinux@outlook.com>, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, Eliav Farber <farbere@amazon.com>,
+ stable@vger.kernel.org
+Subject: Re: [PATCH 1/3] mm/memory: remove racy huge PMD assertion from
+ walk_to_pmd()
+Date: Tue, 17 Nov 2026 12:36:05 -0500
+X-Mailer: MailMate (3.0r7038)
+Message-ID: <BDCBFC48-EE2F-4D4F-8C0E-C28311907102@nvidia.com>
+In-Reply-To: <20261115-huge-pfnmap-fault-races-v1-1-537605643f6f@kernel.org>
+References: <20261115-huge-pfnmap-fault-races-v1-0-537605643f6f@kernel.org>
+ <20261115-huge-pfnmap-fault-races-v1-1-537605643f6f@kernel.org>
+Content-Type: text/plain
+X-MS-Reactions: disallow
+X-ClientProxiedBy: IA4P221CA0003.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:208:559::7) To IA0PR12MB8374.namprd12.prod.outlook.com
+ (2603:10b6:208:40e::7)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,92 +111,99 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-version: 1.0
-Content-type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA0PR12MB8374:EE_|SAVPR12MB999121:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5a2fe2c9-7ae3-4392-a655-08df44d14318
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|23010399003|7416014|376014|366016|18002099003|22082099003|6133799003|11063799006|4143699003|56012099006|5023799004|261102123227099003|261026121527099003|261021121427099003|261022075727099003|261021123027099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	7jPIWFmHEs17sRhmSnXIz6iZUscZC0LoDxIVcN9Cn6WXPSbj1Aw8O1UWw5qryXhKqLyR7aUBEl4KeWZbINclj+KKNI81AHE9SmPHU8VD9HNWCzUfo2atHCLmlme1lgvIUbjCNFESWLENgyYA8n20SOCrcIe4n9jZeeEyq6IhxhizfClGq4qoEL9AA9PNuAQNYkknEu3xSh7j0eM5JgtPkDJPvoQ+QAaN1XhVhXe9ADxrwsmKxow3IYXY03PF8l6w/AbPKOttuL+DUYt+78LNJniur1Zv2T5i6rP/5zVDDuqA9ghr19LuxcJZLQPmhIUbhwuQB8B/JdbTZ4Q4fq6FLGTjizkDWEj4Q5ZGBWNeSq3y51/kCLDeuAZa38LxQV2Ty9tvsKAsq+ku9XZQmzWAtZ48mI3+e76TVmRH6cjGZaaJvO0bDjsMpgenmftrwEGr8+nLTGOxUE1E/wi+kwY4dv+4d5t9dexG416XrcMLvnOs7wIma31Bw8tVL0YAXik2uNCrFsXklO4sZwULOKGL24rA6rmy4pRbFLBo5vPWzQqHW/XTbX35bF1TrSvsv8DpH4SD/SkWdguIaZLkMEbcnCyPT58WTSSELYLtQErB+xTDHOqPSJGuy4lXgRbNaKdkH7cgXREpf+9dp+LdTJJJx0BYZXxLN0ER3vUOqqpuOmg=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA0PR12MB8374.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(376014)(366016)(18002099003)(22082099003)(6133799003)(11063799006)(4143699003)(56012099006)(5023799004)(261102123227099003)(261026121527099003)(261021121427099003)(261022075727099003)(261021123027099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?rOV21GbPaMBG089fde6qJaEMBSnhOiMWIgdD1iC5lB62xQAnukxHS3wkRwO+?=
+ =?us-ascii?Q?mbL7FfYky17Hszd3G65ddhC25GtkOqO6f+qD9EvRlD8KSw+eGBDV6C/fuUZA?=
+ =?us-ascii?Q?Nb2bjeo18IUUhJ+W1ZScbgXypqVUv36Cv2Oe0m4lEg+v/RYKf9jI0+P/0tyP?=
+ =?us-ascii?Q?F5hVk6kA+UqP4hmAPno3NqDg4OxoIZiDmP/IE85CcBhyOHGKt3s7D+iTofHV?=
+ =?us-ascii?Q?7vd/+RMeT6RzSTophA3OZ7U6PzvshKPtPArElrAE+fmnulas+sjoCDpeX5Ib?=
+ =?us-ascii?Q?ZVJtwUZ9hdAjbSC3JCYPlzD1vjKAEicdOgn+vdqAA9BUURNtmbZD4SbFC5d7?=
+ =?us-ascii?Q?5VwufaS6uflC6m1w/EQhP5l/HDYWG0NlV5vpSkPNSdFkKfHnrUSUE+B5Z7QZ?=
+ =?us-ascii?Q?OLW15uA9NqnIBb+k1ZLpoiHUnGpK95IqJ6YphNdHij04IInSDrBx71aesz29?=
+ =?us-ascii?Q?qIUiDZbvf/2NkUhwK8+U44cULRUWR4ubT0UAZaeDqx2Gl8El9tRW7HgRVkqu?=
+ =?us-ascii?Q?usn1oB1zav2+TA/B20BmMGRBCTu5VO/gvST50kEUV+nPHWVhgYC6ANL8z1Cl?=
+ =?us-ascii?Q?oVHCdu/bmuJj+Lw3ZkihENthl+nrsbeVDtOqyh5ZWWFLo751Inj3hDqedNqO?=
+ =?us-ascii?Q?F9ydQUZhRIR5bpLnD+wxTOPuQDXvp0rJcN0ua+gE/zy1mAxQnB/SVlCEX6Yy?=
+ =?us-ascii?Q?5fN0MuNvXvgRQoXr3e4XJlZOizbPR0qSdnxJyiX/p2dnLDovLh8WxW3SgZDo?=
+ =?us-ascii?Q?yTHtVjHnSucMaMwwXVnEVN3LvPicwQnFhJnCJTqQDv66v2ekx++8BD9Co2Jd?=
+ =?us-ascii?Q?xJNCKqeJcmLdut+lh6Qki09wjoSq3LR2kwcMYjmvi4Sem7tddgpOOgZeM5Zj?=
+ =?us-ascii?Q?wILS6IwZdkQVZvR91FJwPLiOi+iImwYH6lmZMEKXlBE5Lds3OpumdiwOcLPD?=
+ =?us-ascii?Q?7aJkPS+jbKPEbMAiYDYp6W09komgQK2WZ6eoMwvCH5Icf0CnwYReUUDoV3XA?=
+ =?us-ascii?Q?NBuJ+Ry2UESqUYRJgY6YR1bbiXem+RQgY9cMW+9v4Oc/e/vyLS6e7KEfYRi+?=
+ =?us-ascii?Q?r2MpWx36NTLLW7PR6uvVHDDJ8nRKltQwx17vkT+jmmsnKpMfCfLi3eJ3zNgM?=
+ =?us-ascii?Q?drU4kCplRDcuEqJPmtt+L6M+kxFvGFr62CmYEHfZ+8Nuen71uofS36so7V0P?=
+ =?us-ascii?Q?uxG/COAhEBlJ5V3ym2H/FFzp+KDrJmkLRhY10Jwq9nO5mq9C3s+b782LifGm?=
+ =?us-ascii?Q?jgUEQGNMAo8fB9+MO4roGfOk395x9jUiitt2RqDR5pf/QJ5i8Nb8Fn1amPbv?=
+ =?us-ascii?Q?7uyq12DqiZoK7vDix9SHVfUFbho3DkLfRm9EMt/SdJWO27+FxwRfZ04EZuOa?=
+ =?us-ascii?Q?im5+haBlmXBR2HVESzI0kvJOi/qOoLwoUa0eFAd35DLl+OEHUpP/j2R/oB1+?=
+ =?us-ascii?Q?c/ZJNKEUa2jzzbc1JfCHuzLtJV5YgBKF9uAYsSWva6jr58t9P29REyvWXibw?=
+ =?us-ascii?Q?vkAML6t+Yh3TNYvHEYrRe4w+Y7Nv+PyMkpzSFyk6az5Gi2PjNa4WY96fcjof?=
+ =?us-ascii?Q?AGP09NGAdn/1WBepODE1j6drufxS/lOKMDO9wvMT3lxfg4utGwHn98+2ShFe?=
+ =?us-ascii?Q?HUpbDq6AyAhPA2XNfeGPMlXxxwzXs6o7b2Fd1wDBEfnbirdjj/VIl8eQTf6r?=
+ =?us-ascii?Q?dAnzO7TqAlmAdEHI7qtq35cOgKo8BJ2ybeV7Sytqu9m0H3tj?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5a2fe2c9-7ae3-4392-a655-08df44d14318
+X-MS-Exchange-CrossTenant-AuthSource: IA0PR12MB8374.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 17:36:07.5467
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: P7g7w7NgUTVGHC2Y+D1UO0ugDgnj8Tq4Xgp+u1lfFRsbHQd+t4ixdycgsZKWzncz
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SAVPR12MB999121
 
-Mike Rapoport <rppt@kernel.org> writes:
+On 15 Nov 2026, at 15:58, Lorenzo Stoakes (ARM) wrote:
 
-> On Tue, Nov 17, 2026 at 03:04:49PM +0100, Christophe Leroy (CS GROUP) wrote:
->> Le 17/11/2026 à 13:33, Ritesh Harjani a écrit :
->> > Mike Rapoport <rppt@kernel.org> writes:
->> > 
->> > > > > > Hence, use the modules area for EXECMEM_KPROBES on book3s/32.
->> > > > > Right, I missed that on book3s/32 does vmalloc is not executable and its
->> > > > > protection can't be changed.
->> > > > > 
->> > > > > Could it be that 8xx also need a special treatment for kprobes?
->> > > > 
->> > > > Yes indeed, not for the same reasons but because 8xx ITLB-miss handler
->> > > > doesn't expect any instruction TLB miss on kernel addresses other than the
->> > > > ones from the module area:
->> > > > 
->> > > > Commit 4afb0be7ccda ("powerpc/8xx: Avoid testing for kernel space in ITLB
->> > > > Miss.")
->> > > > Commit 16a71c045186 ("powerpc/8xx: Preallocate execmem page tables")
->> > > > Commit 33c527522f39 ("powerpc/8xx: Inconditionally use task PGDIR in ITLB
->> > > > misses")
->> > 
->> > Right. I looked at the above series which added all of this support [1].
->> > So looks like 603 might also have this related problem (other than the
->> > per segment N bit issue), since it's iTLB miss handler only walks the
->> > task's PGDIR, unlike it's dTLB handler which falls back to reloading the
->> > missing kernel PGD entry from swapper_pg_dir. So what I meant to say is
->> > that, similar to 8xx, a new PGD entry created in the kernel's vmalloc
->> > area for an insn page does not get copied over after the task is
->> > created (/PGDIR allocated), on 603 as well.
->> > But since MODLUES_VADDR is defined for both BOOK3S/32 and 8xx, so I guess it
->> > gets covered by the same change anyways.
->> > 
->> > > > So at the end as MODULES_VADDR/MODULES_END only exist on book3s/32 and 8xx I
->> > > > think when they exist they should be used as follows:
->> > > > 
->> > > > diff --git a/arch/powerpc/mm/mem.c b/arch/powerpc/mm/mem.c
->> > > > index b617b69452cd..856f4609c488 100644
->> > > > --- a/arch/powerpc/mm/mem.c
->> > > > +++ b/arch/powerpc/mm/mem.c
->> > > > @@ -428,8 +428,13 @@ struct execmem_info __init *execmem_arch_setup(void)
->> > > >   				.fallback_end	= fallback_end,
->> > > >   			},
->> > > >   			[EXECMEM_KPROBES] = {
->> > > > +#ifdef MODULES_VADDR
->> > > > +				.start	= MODULES_VADDR,
->> > > > +				.end	= MODULES_END,
->> > > > +#else
->> > > >   				.start	= VMALLOC_START,
->> > > >   				.end	= VMALLOC_END,
->> > > > +#endif
->> > > 
->> > > We already have #ifdef MODULES_VADDR a few lines above, I think the
->> > > assignment of kprobes_start and kprobes_end could go there instead of if
->> > > (IS_ENABLED(CONFIG_PPC_BOOK3S_32)).
->> > > 
->> > 
->> > Right. So let me use the following diff then?
->> > 
->> > Please let me know if this diff looks good to you? If yes, then I can
->> > send a v3.
->> 
->> My preference would go to something similar to 'start' and 'end', no init at
->> declaration, kprobes_start and kprobes_end set to VMALLOC_START/VMALLOC_END
->> inside the #else
-
-Sure.
-
+> From: Eliav Farber <farbere@amazon.com>
 >
-> I agree, it's more consistent this way.
->  
-
-Ok, then will go with the other approach.
-
->> > Also - it will be good to know if patch-1 and patch-3 looks ok too,
->> > before I spin a next revision?
+> walk_to_pmd() asserts that the PMD entry it returns is not huge, but does
+> so without holding the PMD lock, so the assertion is only valid if nothing
+> can concurrently install a huge PMD entry in the range.
 >
-> Both make sense to me, feel free to add my
+> This is not the case for a VMA whose driver implements both ->fault and
+> ->huge_fault and which invokes vmf_insert_pfn() from the former.
 >
-> Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> The existence of prctl(PR_SET_THP_DISABLE) is problematic here, as it only
+> takes the mmap write lock and faults taken under the VMA lock are
+> unaffected by this.
 >
+> This can result in two concurrent threads faulting the same thing
+> disagreeing as to whether to attempt a huge fault and thus ->fault and
+> ->huge_fault running at the same time and triggering this assertion.
+>
+> So just remove the assert.
+>
+> Target the commit which introduced the first driver able to do this for the
+> fix - vfio-pci. DAX also mixes fault orders within a VMA, but serialises
+> them using its own mapping entry lock.
+>
+> Link: https://lore.kernel.org/all/20261112051440.16140-2-farbere@amazon.com/
+> Fixes: f9e54c3a2f5b ("vfio/pci: implement huge_fault support")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Eliav Farber <farbere@amazon.com>
+> [ ljs: rewrote commit message ]
+> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> ---
+>  mm/memory.c | 1 -
+>  1 file changed, 1 deletion(-)
+>
+Makes sense.
 
-Thanks Mike and Christophe. Will make the changes in v3 as discussed.
+Reviewed-by: Zi Yan <ziy@nvidia.com>
 
--ritesh
+Best Regards,
+Yan, Zi
