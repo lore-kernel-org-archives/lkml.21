@@ -1,91 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794937448;
-	b=dQzfAhJ0VnW2L4YQMSz9gw7Wtm+mDJHtSjaUlrk+YZqQNpjkEdBh8a3ZSTLPITwk1Gk2
-	 kTEXFCGR1omt/Mg22uGe+jqvKx8LOVMKmZ6iFk5dbriIlrnrBtMAYySFgXQ/U3lR7o80r
-	 YMZL11MXxy1oPaSXabvxIr7865dWja2ny7YDP1rRxB5VfKkO2fHUu8vBoKJodSKPCooZF
-	 D/ZcIWx3Ti6x7FaW2UBebUHW4n+H9vyNiOHWYCZQ28g1/GrOto9pWHBJsoJ3u1zBtVXPR
-	 ulCdIpForvuDtj6MhM1TaZZ+qe7Q0kBVSWqT8+dnnrzxWmUZhUeVFfUyRGC82bLaGHQ==
+	t=1794937450;
+	b=r9BI1qWVijZBfPGeKLbQI+RQjOugeG2i2DZaicTGKZ4IqYYjDR+5r8t3qE176Nxp/jfu
+	 hjcE8TPUcECC9UeViCUIF9MVpLWLkwoPyDhwDNaQhxpFRLAH/Jq34v3zcFVmziGVl2g2k
+	 WUxw9bX9oKlBlMWraZUSUV3wMx1wXR2TCk4riiJr+0cCC+cIbAfURwQCGBgDyIexUdT6G
+	 coq8Rz6GbVRlc3yJCVVV8WFCDRDb4WF5Z389kugdr2ixXLkDcC8+CcQzweKZqtBTJhkpq
+	 jLzh3iTMEgOxqznT2F+V/H6g6Ec6QuKrWMxzMcXBV+HyyVi6B1Sw+JE1VpvFzrz/Obg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794937448;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794937450;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key;
-	bh=EMofIhkXpaZ8+oSY685djaeZJDUF5sw2CncgWG8cpWg=;
-	b=fw2Edv8p1w4IvdOkTYGmOsQaWF07Hjc8q4fZXxcQeOFsi7LL3ldFl8i9OgtR86RglgK8
-	 WlUbXZHH1fXdzeqnMeVtOJ2dYXMUcLQfLGt56d22Pxn6ad2gGVdvLO4SMT7oI7VmkMXcE
-	 /aDt0ndEgD2kUXOLyUVKxp2hTLMgZFJDavKXylZ9MvfychAmd9wopkkrk7YEjdINv7Feo
-	 FBYeZqtfNGjNT6ds0is9qyRRfDAQPsc2TrlsKHwV0EPu1B6uZCeUZDEI0eofKfQWrQTsM
-	 THzFxgX8KvLMkDrOkZtciOTTzL4IqpYobfEznp+evJA2ee/NZlVAAULHm6FVAPgw8Dw==
+	bh=UAukkJGWhtB4bDYNB6heYhfuniD4tNoKS9Q5n4s2vgk=;
+	b=CSXeCojT2qIg6LAT6r4yIxa5CPfaZj5wMLXk9lSO1vwhiphelg3drWbxSrpyYnMTZWtt
+	 4diWsih+kNXw6NvjLV/7oVQ+mr2u14DYMnuJLV9IJhUGUEjW14F/8hudCQxa/QA2tDqjC
+	 Rg4Qqn5SBn4gNOYM4AJKq7byIZ1cCAocdJIfXJl9dZUaf4q5Nn6sEN1G3Gl/NP+C3Xi1V
+	 S2Iyq5aC2rim3nMu+VqL050JG+KMTqoNVDOI9+EcYkt482kl3512vTgxwRdgjmZcTKoMT
+	 73lCog59YeJuCemfn1Nruc67BAEROnKK2DoFqD/pbFgS9iG+fKkWplfgDnbZoTHBuCw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="guB//sRj";
-	arc=none smtp.remote-ip=209.85.128.174
-Received: from mail-yw1-f174.google.com (mail-yw1-f174.google.com [209.85.128.174])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h9UgLX7R;
+	arc=none smtp.remote-ip=74.125.224.54
+Received: from mail-yx1-f54.google.com (mail-yx1-f54.google.com [74.125.224.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D8FB606A88B
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:44:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D8FB606A88B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13D62606A891
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:44:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13D62606A891
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=guB//sRj
-Received: by mail-yw1-f174.google.com with SMTP id 00721157ae682-8b4e2fcc300so23081477b3.2
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 09:44:08 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h9UgLX7R
+Received: by mail-yx1-f54.google.com with SMTP id 956f58d0204a3-67be9601f31so4998007d50.3
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 09:44:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794937447; x=1795542247; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794937449; x=1795542249; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=EMofIhkXpaZ8+oSY685djaeZJDUF5sw2CncgWG8cpWg=;
-        b=guB//sRjt70QIbjGzWxaOsU/kRL2jjxWF8eZOmmRUaXg80EghYUblSszMmddhgFX+3
-         ODmgzjlSuUr/XRdSXxPCkS7IsSOGhYJsbPyquNPQ0UG+7ak++tgXuo6eWCbEzxph4Mnp
-         AXh0kHwiGJUeGwEM4PaXTTHmKBvR+WXsSLXA5BKjBTFwM44ApXg6Qggxf9yAMceT5Uix
-         sPnM+Y6h+bfDoWbUGgjZ7SuSsXLw5/nRCY9H5uXWgRBuXoCSRdAlm646Qk0VM42x8YHJ
-         WH1nRXIXu8M5DID+iM7qNl/RL++4z3W0pDz1pTJvJW8a4QXZMEUoDbEjXIGL2gepD5a9
-         f3FA==
+        bh=UAukkJGWhtB4bDYNB6heYhfuniD4tNoKS9Q5n4s2vgk=;
+        b=h9UgLX7RXv+lXNCVsljnRt4AlziBkeA3Wo8a31cTODRaKO572yeJQatlYNeE/XxfZJ
+         1Q0nDl6a19OCHiwr29lei0Gyq/ltBnrc5n+CU+90LY5E0zrB1OKPr12p6gBGszPvHjad
+         QlQhS1nI5y6Kad/864rNxKR5o8J+v9ZuItcLw50MGlL30PNMHSJ94AzH+DhvebmumLzq
+         RiMLt6UwGyzgZIf2MP4FBCbHeqMBWWHt0NgGLeuDyxtPWtqkNc/AYATnNevnymuPKgLE
+         vKRmBvnTwC8VvzW+Gn2Q+gUeDTYixBYVKlc8xy3mMGzZoESkKpCxawamx3uq/QpBlN+f
+         rJsw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794937447; x=1795542247;
+        d=1e100.net; s=20260707; t=1794937449; x=1795542249;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=EMofIhkXpaZ8+oSY685djaeZJDUF5sw2CncgWG8cpWg=;
-        b=bg2liA8SEwJlc/4sTNUcl+MxYRMg6ocabqEeeCbX3M15tGfYqXISm7+KmgH9f8CLx/
-         VtN7qjjx7yxw6arMEiZeqQTtIleAxXZKiazQ71Ym2BC4fIRbC9zPCPFroYYXEo1RUF5e
-         0apq3cKFxsKgsCNrieGJAQ5qGE73Dk9/v9uUv91dtbfKxH3FWttCTEYXNghCVNSQlkDp
-         NcphAPfun5/pbIUswpGsWNa9UFcP7WgcwQ9MpLAloqbkx8TlBE06VbFwBTlv9T7tJ9Su
-         8ddAVL4i2mwO5Bc1z2s0ea6FBUpjbO2fAzPHVdWdSBZl4IvYDcRL8bcc+R3bH6fV56Dw
-         uAIQ==
-X-Forwarded-Encrypted: i=1; AL+hErG1xcFmddnF950t+W7Zj4S4IcR/wpYQeOBj7nSRMRiCmMXs+62m9dRmws+hWcUUs9SquNc22LPfn1oRxiw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/ydmgia3k4fkP9z50QJpXnbVFSCfU7SHE0OIVt1HAyBaWV7okh
-	MRovpWMP+jh9AIaS8DCm26z3K8kLY2ZadNrZJC0CfuJYMVTWEjVXxDjaOS1GzjUspZ0=
-X-Gm-Gg: AZFdTZfPAAkBbQmR9lj5Aq8l32rDO6LizfMUn6H+u+hM+7jk432NW5SxGJNU8FmF9jw
-	/4Xa3Y6QOXsUzKlZ+XVjKhTUjFEvX45xSutv/ytKgy1qr48TrSuOPBQFIY8hDkXRFD3706P3Los
-	PLvIDaOsJGNVfR05oQIl4YnPHmrUGIFvKl1mO3iNN4UyTHyxOaaJCOTKl/75OVrKgmlnPC++Pez
-	f/LZrffVxEzzPwMA94AUDa9ZlUCd2HLVUE5ALM4B0q53+2iBtgijvCHpIfXO8Pj7DPEnjQqYL4l
-	jl1qTtNO5kCusSSfbXolw0scckfIo3X5QZh0dL0g4zAg+lLbU653xrRI92A257NSJ2GZpC5GK5U
-	c6JTwWClJ//VMWQTo53fMwxdVh/d8m05SQSSaWCQDuVxCISicv4RHeLno0614v2Wb7O1+iQY83F
-	OiAUtxmpv/Q+bF3AnDZ5CxQa5+bK1Yh7lykb615NJrnqwnvAnJ+nzesdUJ53hkbZm/YuhsAHL6C
-	6CRL8Bu0nguH2Ti3EtsyCnI4eO5pddUSuRI2lxGBwCrLFYGY5zXGjH5xZWblz17HxOGOwh/WEQm
-	JPbDqmeCrMwSVn74smw4vJXufH6ZnrzM2/axkDDNOxqF02ktRGutVlpqiV6IgpB/JZvkToYAWuC
-	/xHPx0lbxP8NFX4FNLDJHIoJKeCFAT22Q3rmecF2RRNsDNZbAxZRBBjnVbTyDBIxkiaQQU+Weiz
-	84krc2zbA2X0xFWt2pUA==
-X-Received: by 2002:a05:690c:30a:b0:8b4:e3f7:9edb with SMTP id 00721157ae682-8b4e3f7a668mr28160497b3.97.1794937447362;
-        Tue, 17 Nov 2026 09:44:07 -0800 (PST)
+        bh=UAukkJGWhtB4bDYNB6heYhfuniD4tNoKS9Q5n4s2vgk=;
+        b=Rhuv+3uGMz9ARxdLwh9Vswngg/yMyEz+l/PKtJm82vAXg9+cVZdT3hIGsnQ2WHVTmg
+         DqRstdfLdyGl2Dkgoux3vF/xEvERDYHxLtfWJYBsyCvK6LLGj5qMNF0LIGHXCT5iIQ60
+         gyda31Lv3/tnzf/V+3G21rTdiJN6hDjjZzGWjb9NEkVc0wh7kG/lyKcp/1SpYYtzPpOK
+         a3L1EjCgJwNJp4ETiT+F4NSnLGiFR00/+kWyxYce2qSAEjH2vK0KxC9zLEZuMSi8v8fb
+         NlgFzjAxt9IRQ6pzbh+2vXdRIIbTrGpD3tIZv5Se9gT3P+wn3DO0mhFkUxK+cll4qOSg
+         MLMg==
+X-Forwarded-Encrypted: i=1; AL+hErGjUCfJM2WE0tPCKACzZqjNmH+fAjt6VvIcFntvzMC0JMBa6xD7kJzmpHURFMTd45AKaNrYjzrDXixj3ek=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9jm6gKeEVEsOG9FoJhnXhNcQ8PcS2rihZMo6Eyqv5ojKDsHqS9
+	KvCqQkzPwV68pPTy6I708d04AuUox46agLcNVXMGRTUxlVEyUAor5K31BCV9dGSaB8U=
+X-Gm-Gg: AZFdTZcBQVfkU5i8iqWJM2bQiFNQISLIn2UkHK8qegdUStxBNZ3ZhtJyShs9TAPEP7l
+	6UXNERBVz6CFH957e/rgl73hc80BA57P7N6tLkl3VA5rlUE1gZwiN5KQFbPGc3q5LS0+hvvzS6r
+	3S9w2KFJOEfwEB0OxbnF8oh76GsMEwI6MtLd2EU03iqTn4DyypUC7Oedg6JalBS8GQWgdHze3/W
+	29kmlCUi+ue6bHnxtJNzFNFRxJCZPamb0m1Tn1/jX5T3LOypWIwzKTLh1MFlBAJN9wRcoWEInHq
+	msCruC2gFn7k1MmlL34JPlYd9Ki++m13Mn70o0tqa2uNj+vOuTqSccf2rb28jeKTKNEpiT/IO+6
+	XENlfglNA+OHaaMrqYR5QPyrA0/VoRH6s5qPRZSILjdAC+qt0Jrn69SROxlkzeEmKFzMMLgkUE/
+	snt6noNGK7jLrXxS4u43/NRGB7021HUPpZuoxLu54WYdaPFMWu/Ftpm3yK2Deh8PXKce7TJ6AqX
+	I0IJ4+uo/vpDMBWiwcwXzwoilZRoyQyn3VJAGG/k3oeJqzK3vYf8MukpeQaRLn53krDLxx19dmJ
+	IQI+ZSD9XEfgUMFWSIBPeYXLKJkX4Y5wJoK8YL61SGX/2q4kVS1e7AUFpT6E4vvig83PLaxDFuX
+	gMJGWf+sVKlcTgqtE4nLOX/XgAyhXZlO+TMWF0mHtpWAv9+QwskwvWOo6KSYTCKC2CJclBnG6Ud
+	yOQ6DGQaM3MddtFsG71w==
+X-Received: by 2002:a05:690e:4002:b0:67d:a6fc:6bb0 with SMTP id 956f58d0204a3-67dd401f905mr128079d50.89.1794937448762;
+        Tue, 17 Nov 2026 09:44:08 -0800 (PST)
 Received: from localhost (107-220-129-194.lightspeed.chrlnc.sbcglobal.net. [107.220.129.194])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b4fe07408esm2161937b3.22.2026.11.17.09.44.06
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67dd40130casm203716d50.13.2026.11.17.09.44.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 09:44:06 -0800 (PST)
+        Tue, 17 Nov 2026 09:44:08 -0800 (PST)
 From: Matt Turner <mattst88@gmail.com>
-Date: Tue, 17 Nov 2026 12:43:58 -0500
-Subject: [PATCH v2 7/8] powerpc/perf: Use SIAR for sample addresses on
- 32-bit
+Date: Tue, 17 Nov 2026 12:43:59 -0500
+Subject: [PATCH v2 8/8] powerpc/perf: mpc7450: Export event names in sysfs
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,7 +96,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261117-ppc32-perf-v2-7-2072e9b90009@gmail.com>
+Message-Id: <20261117-ppc32-perf-v2-8-2072e9b90009@gmail.com>
 References: <20261117-ppc32-perf-v2-0-2072e9b90009@gmail.com>
 In-Reply-To: <20261117-ppc32-perf-v2-0-2072e9b90009@gmail.com>
 To: Madhavan Srinivasan <maddy@linux.ibm.com>, 
@@ -106,95 +105,400 @@ To: Madhavan Srinivasan <maddy@linux.ibm.com>,
  "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, 
  Shrikanth Hegde <sshegde@linux.ibm.com>, Paul Mackerras <paulus@ozlabs.org>
 Cc: linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- Matt Turner <mattst88@gmail.com>
+ Matt Turner <mattst88@gmail.com>, Tanushree Shah <tshah@linux.ibm.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3533; i=mattst88@gmail.com;
- h=from:subject:message-id; bh=sQH/oeX/+nbUx0BbEEHc52r/vsgK7BzhKRKCWM0N8VA=;
- b=owGbwMvMwCW25rVmCc8sv+mMp9WSGLL+TIo0NGUxEJC7tOo634SlwSv/KV89fO+6YNCBVxly+
- Wt7+Gy8Oz6yMIhxMcwUU2SJW6/IMqttx1Kf09K/YOawMoEMkRZpYAACFga+3MS8UiMdIz1TbUM9
- QyBDxygeIqfHoJFZXFyaWqSbVlDkkJdfkliSmZ9XrJdfkJpXkF6gl5aZVpKRkV9UnAo0Qi8vtcT
- U1dHNyNDAxNLRwszJwtHUxNnZydDJzdHR2dXJyNLcxMDZ0tHE1dKcgYtTAOaaSEeG/zE930sb7r
- vyP2d/pfxslRGv58b6oycvLvTXOvbmkwiPTD3D/5CrHFGFs0QXmy2zyFE/+O5B6iem/ScONDO/4
- 7rlIr/2BAMA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=12943; i=mattst88@gmail.com;
+ h=from:subject:message-id; bh=sLsCcHCLh+fTE6VophMP1tzd+H87oqTiU5YtIFpFnoA=;
+ b=owGbwMvMwCW25rVmCc8sv+mMp9WSGLL+TIqcaWF0uUvj1dT7DjH7fR2X1Jav7JLVcXuXKxnvH
+ r7iwBfGjo8sDGJcDDPFFFni1iuyzGrbsdTntPQvmDmsTCBDpEUaGICAhYEvNzGv1EjHSM9U21DP
+ EMjQMYqHyOkxaGQWF5emFummFRQ55OWXJJZk5ucV6+UXpOYVpBfopWWmlWRk5BcVpwKN0MtLLTF
+ 1dXQzMjQwsXS0MHOycDQ1cXZ2MnRyc3R0dnUysjQ3MXC2dDRxtTRn4OIUgLlmkxbD/8zJujXmXe
+ KPHn6uijV7enC2VzXb/7TYjmfrV4QEa26S8mdkeBBl1NEtKm30I+9DqtFxSwVTwwfMTKKOxzae9
+ j+11kSFGwA=
 X-Developer-Key: i=mattst88@gmail.com; a=openpgp;
  fpr=3BB639E56F861FA2E86505690FDD682D974CA72A
 
-On 32-bit, perf_read_regs() sets regs->result to 0, so regs_use_siar()
-is always false and every sample is attributed to the interrupted PC.
+perf list shows only the generic events for the MPC7450 family, so every
+other event has to be written as a raw code.
 
-The MPC7450 family's SIAR holds the address of the last instruction to
-complete before the performance monitor exception is generated
-(MPC7450UM Rev. 5, section 11.3.7). The exception can be generated
-with MSR[EE] = 0 and is taken once EE is set again (section 11.2), so
-when interrupts are disabled the interrupted PC is wherever they are
-re-enabled, while SIAR still points into the disabled region.
+Name the events in the manual (MPC7450UM Rev. 5, Tables 11-9 to 11-14)
+in mpc7450-events-list.h, as the POWER7 driver does.  An event that
+several PMCs implement at the same select value is listed once without
+a PMC, so the driver still picks the counter.  An event repeated at
+different select values is listed once and reached through the
+alternatives table, whose comments now use the same names.  223 names
+cover all 279 non-reserved select values.
 
-On a 7448, sampling cycles system-wide with --intr-regs=nip during dd,
-perf bench sched pipe and find, 46% of the kernel samples have SIAR and
-the interrupted PC in different functions. 13270 samples have their PC
-on the instruction after the mtmsr that restores interrupts in
-ata_scsi_queuecmd(), and 11661 of those have SIAR in udelay().
+The 7441, 7445, 7447, 7447A and 7448 have no L3, and their L3 events
+are reserved.  Hide the L3 names when CPU_FTR_L3CR is clear, which is
+on the 7447A and 7448.  The 7441, 7445 and 7447 share their PVRs with
+the 7451, 7455 and 7457 and get CPU_FTR_L3CR, so they keep them.
 
-With interrupts enabled SIAR helps less. Sampling a 32-instruction
-loop with one store and one branch with -c 10007, 99.8% of the samples
-land at:
-
-  event             interrupted PC   SIAR
-  r122 (branches)   br + 13          br + 9
-  r014 (stores)     stw + 21         stw + 17
-
-Because the exception is held off, it can also be taken on the other
-side of a user/kernel transition from the instruction in SIAR, e.g.
-just after the rfi at the end of a system call. SIAR also holds a real
-address while translation is off, such as 0xc00 in the system call
-vector. Recording a loop that alternates user work with getppid() with
-perf record -g -c 1000000, 3022 of 16953 samples had SIAR in a
-different mode from the interrupted PC. The callchain is walked from
-regs, so taking its first entry from SIAR there starts a user
-callchain with a kernel address, or reports a kernel sample as a user
-sample at 0xc00.
-
-siar_valid() already returns true on 32-bit. Use SIAR for PMU
-exceptions when it is in the same mode as the interrupted context, and
-the interrupted PC otherwise. With that, the same test has no samples
-with mixed modes.
-
+Reviewed-by: Tanushree Shah <tshah@linux.ibm.com>
 Signed-off-by: Matt Turner <mattst88@gmail.com>
 ---
- arch/powerpc/perf/core-book3s.c | 18 +++++++++++++++++-
- 1 file changed, 17 insertions(+), 1 deletion(-)
+ arch/powerpc/perf/mpc7450-events-list.h | 250 ++++++++++++++++++++++++++++++++
+ arch/powerpc/perf/mpc7450-pmu.c         |  68 ++++++++-
+ 2 files changed, 315 insertions(+), 3 deletions(-)
 
-diff --git a/arch/powerpc/perf/core-book3s.c b/arch/powerpc/perf/core-book3s.c
-index 10ded865583c..4c9c9ff1073e 100644
---- a/arch/powerpc/perf/core-book3s.c
-+++ b/arch/powerpc/perf/core-book3s.c
-@@ -112,9 +112,25 @@ static inline u32 perf_get_misc_flags(struct pt_regs *regs)
- {
- 	return 0;
- }
-+
+diff --git a/arch/powerpc/perf/mpc7450-events-list.h b/arch/powerpc/perf/mpc7450-events-list.h
+new file mode 100644
+index 000000000000..b79f2fc675bf
+--- /dev/null
++++ b/arch/powerpc/perf/mpc7450-events-list.h
+@@ -0,0 +1,250 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
 +/*
-+ * The MPC7450 family's SIAR holds the address of the last instruction to
-+ * complete before the performance monitor exception was generated, so for
-+ * a PMU exception it is closer to the event than the interrupted PC.
++ * Performance counter events for MPC7450-family processors, from the
++ * MPC7450 RISC Microprocessor Family Reference Manual, Rev. 5, tables 11-9
++ * to 11-14.
 + *
-+ * The exception is held off while MSR[EE] is clear, so it can be taken on
-+ * the other side of a user/kernel transition from the instruction in SIAR,
-+ * e.g. just after the rfi at the end of a system call. SIAR also holds a
-+ * real address for code running with translation off, such as the start
-+ * of an exception vector. Use SIAR only when it is in the same mode as
-+ * the interrupted context, so the sample's mode and the callchain built
-+ * from regs stay consistent with it.
++ * Codes below 0x100 are the events that several PMCs implement with the
++ * same select value; the driver picks the counter.  Events that exist on
++ * more than one PMC under different select values are listed once, and
++ * the others are found through the alternatives table.
++ *
++ * EVENT_L3() events count only on parts with an L3 cache interface.
 + */
- static inline void perf_read_regs(struct pt_regs *regs)
- {
--	regs->result = 0;
-+	unsigned long siar = mfspr(SPRN_SIAR);
 +
-+	regs->result = siar && is_kernel_addr(siar) == !user_mode(regs);
- }
++/* Events available on several PMCs */
++EVENT(PM_CYC,				0x001)
++EVENT(PM_INST_CMPL,			0x002)
++EVENT(PM_TBL_BIT_TRANS,			0x003)
++EVENT(PM_INST_DISP,			0x004)
++EVENT(PM_PMEXC,				0x005)
++EVENT(PM_PMON_IN,			0x007)
++EVENT(PM_VPU_CMPL,			0x008)
++EVENT(PM_VFPU_CMPL,			0x009)
++EVENT(PM_VIU1_CMPL,			0x00a)
++EVENT(PM_VIU2_CMPL,			0x00b)
++EVENT(PM_MTVSCR_CMPL,			0x00c)
++EVENT(PM_MTVRSAVE_CMPL,			0x00d)
++EVENT(PM_VPU_OPND_WAIT_CYC,		0x00e)
++EVENT(PM_VFPU_OPND_WAIT_CYC,		0x00f)
++EVENT(PM_VIU1_OPND_WAIT_CYC,		0x010)
++EVENT(PM_VIU2_OPND_WAIT_CYC,		0x011)
++EVENT(PM_MFVSCR_SYNC_CYC,		0x012)
++EVENT(PM_VSCR_SAT_SET,			0x013)
++EVENT(PM_ST_CMPL,			0x014)
++EVENT(PM_L1_ICACHE_MISS,		0x015)
++EVENT(PM_L1_DCACHE_SNOOP,		0x016)
++
++/* PMC1 */
++EVENT(PM_BR_UNRESOLVED,			0x117)
++EVENT(PM_BR_SPEC_BUF1_CYC,		0x118)
++EVENT(PM_BR_UNIT_STALL_CYC,		0x119)
++EVENT(PM_BR_TARGET_HIT,			0x11a)
++EVENT(PM_BR_LINK_STACK_PRED,		0x11b)
++EVENT(PM_GPR_IQ_DISP,			0x11c)
++EVENT(PM_DISP_3_CYC,			0x11d)
++EVENT(PM_INSTQ_EXCEED_CYC,		0x11e)
++EVENT(PM_ALTV_IQ_EXCEED_CYC,		0x11f)
++EVENT(PM_NO_CMPL_CYC,			0x120)
++EVENT(PM_IU2_CMPL,			0x121)
++EVENT(PM_BR_CMPL,			0x122)
++EVENT(PM_EIEIO_CMPL,			0x123)
++EVENT(PM_MTSPR_CMPL,			0x124)
++EVENT(PM_SC_CMPL,			0x125)
++EVENT(PM_LD_STR_MULT_CMPL,		0x126)
++EVENT(PM_ITLB_SEARCH_CYC,		0x127)
++EVENT(PM_DTLB_SEARCH_EXCEED_CYC,	0x128)
++EVENT(PM_L1_ICACHE_ACCESS,		0x129)
++EVENT(PM_IABR_MATCH,			0x12a)
++EVENT(PM_LD_MISS_EXCEED_L1_CYC,		0x12b)
++EVENT(PM_L1_DCACHE_SNOOP_HIT_MOD,	0x12c)
++EVENT(PM_LD_MISS_ALIAS,			0x12d)
++EVENT(PM_LD_MISS_ALIAS_TOUCH,		0x12e)
++EVENT(PM_TOUCH_ALIAS,			0x12f)
++EVENT(PM_L1_DCACHE_SNOOP_HIT_COQ,	0x130)
++EVENT(PM_L1_DCACHE_SNOOP_HIT_CO,	0x131)
++EVENT(PM_L1_DCACHE_SNOOP_HIT,		0x132)
++EVENT(PM_WT_ST,				0x133)
++EVENT(PM_CI_ST,				0x134)
++EVENT(PM_L1_DCACHE_LD_HIT,		0x135)
++EVENT(PM_L1_DCACHE_TOUCH_HIT,		0x136)
++EVENT(PM_L1_DCACHE_ST_HIT,		0x137)
++EVENT(PM_L1_DCACHE_HIT,			0x138)
++EVENT(PM_DST_DISP,			0x139)
++EVENT(PM_DST_REFRESH,			0x13a)
++EVENT(PM_DST_SEARCH,			0x13b)
++EVENT(PM_DSS_CMPL,			0x13c)
++EVENT(PM_DST0_FETCH,			0x13d)
++EVENT(PM_VTQ_SUSPEND,			0x13e)
++EVENT(PM_VTQ_FETCH_HIT,			0x13f)
++EVENT(PM_VEC_LD_CMPL,			0x140)
++EVENT(PM_FP_ST_CMPL,			0x141)
++EVENT(PM_FP_ST_RENORM,			0x142)
++EVENT(PM_FP_ST_DENORM,			0x143)
++EVENT(PM_FP_ST_STALL_CYC,		0x144)
++EVENT(PM_LSU_TRUE_ALIAS_STALL,		0x146)
++EVENT(PM_LSU_INDEX_ALIAS_STALL,		0x147)
++EVENT(PM_LSU_ALIAS_FSQ,			0x148)
++EVENT(PM_LSU_ALIAS_CSQ,			0x149)
++EVENT(PM_LSU_LD_HIT_ALIAS_CSQ0,		0x14a)
++EVENT(PM_LSU_LD_MISS_ALIAS_CSQ0,	0x14b)
++EVENT(PM_LSU_TOUCH_ALIAS_FSQ,		0x14c)
++EVENT(PM_LSU_TOUCH_ALIAS_CSQ,		0x14d)
++EVENT(PM_LSU_LMQ_FULL_STALL,		0x14e)
++EVENT(PM_FP_LD_CMPL,			0x14f)
++EVENT(PM_FP_LD_SINGLE_CMPL,		0x150)
++EVENT(PM_FP_LD_DOUBLE_CMPL,		0x151)
++EVENT(PM_LSU_RA_LATCH_STALL,		0x152)
++EVENT(PM_LSU_LD_ST_ALIAS_STALL,		0x153)
++EVENT(PM_LSU_LMQ_INDEX_ALIAS,		0x154)
++EVENT(PM_LSU_STQ_INDEX_ALIAS,		0x155)
++EVENT(PM_LSU_CSQ_FWD,			0x156)
++EVENT(PM_LSU_MISALIGN_LD_FIN,		0x157)
++EVENT(PM_LSU_MISALIGN_ST_CMPL,		0x158)
++EVENT(PM_LSU_MISALIGN_STALL,		0x159)
++EVENT(PM_FPSCR_RENAME_QTR_BUSY,		0x15a)
++EVENT(PM_FPSCR_RENAME_HALF_BUSY,	0x15b)
++EVENT(PM_FPSCR_RENAME_3QTR_BUSY,	0x15c)
++EVENT(PM_FPSCR_RENAME_FULL,		0x15d)
++EVENT(PM_FP_DENORM_RESULT,		0x15e)
++
++/* PMC2 */
++EVENT(PM_L1_DCACHE_MISS,		0x217)
++EVENT(PM_FPR_IQ_DISP,			0x218)
++EVENT(PM_LSU_CMPL,			0x219)
++EVENT(PM_LD_CMPL,			0x21a)
++EVENT(PM_ST_STR_MULT_CMPL,		0x21b)
++EVENT(PM_TLBIE_CMPL,			0x21c)
++EVENT(PM_LWARX_CMPL,			0x21d)
++EVENT(PM_MFSPR_CMPL,			0x21e)
++EVENT(PM_REFETCH_SERIAL,		0x21f)
++EVENT(PM_CQ_EXCEED_CYC,			0x220)
++EVENT(PM_CMPL_1_CYC,			0x221)
++EVENT(PM_DISP_2_CYC,			0x222)
++EVENT(PM_ITLB_MISS,			0x223)
++EVENT(PM_L1_ICACHE_MISS_CYC,		0x224)
++EVENT(PM_L1_DCACHE_LD_MISS,		0x225)
++EVENT(PM_L1_DCACHE_TOUCH_MISS,		0x226)
++EVENT(PM_L1_DCACHE_ST_MISS,		0x227)
++EVENT(PM_L1_DCACHE_TOUCH_MISS_CYC,	0x228)
++EVENT(PM_L1_DCACHE_BUSY_CYC,		0x229)
++EVENT(PM_DST1_FETCH,			0x22a)
++EVENT(PM_VTQ_CANCEL,			0x22b)
++EVENT(PM_VTQ_RESUME,			0x22c)
++EVENT(PM_VTQ_FETCH_MISS,		0x22d)
++EVENT(PM_VTQ_FETCH,			0x22e)
++EVENT(PM_TLBIE_SNOOP,			0x22f)
++EVENT(PM_L1_ICACHE_RELOAD,		0x230)
++EVENT(PM_L1_DCACHE_RELOAD,		0x231)
++EVENT(PM_L1_DCACHE_CASTOUT,		0x232)
++EVENT(PM_ST_MERGE,			0x233)
++EVENT(PM_ST_MERGE_32B,			0x234)
++EVENT(PM_DABR_MATCH,			0x235)
++EVENT(PM_BR_FALLTHRU,			0x236)
++EVENT(PM_BR_SPEC_BUF1_OK,		0x237)
++EVENT(PM_BR_SPEC_BUF2_CYC,		0x238)
++EVENT(PM_BR_LR_STALL_CYC,		0x239)
++EVENT(PM_BTIC_MISS,			0x23a)
++EVENT(PM_BR_LINK_STACK_OK,		0x23b)
++EVENT(PM_FPR_IQ_STALL,			0x23c)
++EVENT(PM_PR_SWITCH,			0x23d)
++EVENT(PM_FP_ST_SINGLE_CMPL,		0x23e)
++
++/* PMC3 */
++EVENT(PM_CMPL_2_CYC,			0x308)
++EVENT(PM_DISP_1_CYC,			0x309)
++EVENT(PM_VR_IQ_DISP,			0x30a)
++EVENT(PM_VR_IQ_STALL,			0x30b)
++EVENT(PM_GPR_RB_EXCEED_CYC,		0x30c)
++EVENT(PM_FPR_IQ_ENTRIES,		0x30d)
++EVENT(PM_FPU_CMPL,			0x30e)
++EVENT(PM_STWCX_CMPL,			0x30f)
++EVENT(PM_LD_STR_MULT_PIECES,		0x310)
++EVENT(PM_ITLB_SEARCH_EXCEED,		0x311)
++EVENT(PM_DTLB_MISS,			0x312)
++EVENT(PM_L1_ICACHE_MISS_CANCEL,		0x313)
++EVENT(PM_L1_DCACHE_OP_HIT,		0x314)
++EVENT(PM_L1_DCACHE_LD_MISS_CYC,		0x315)
++EVENT(PM_L1_DCACHE_PUSH,		0x316)
++EVENT(PM_VT2_FETCH,			0x318)
++EVENT(PM_BR_TAKEN,			0x319)
++EVENT(PM_BR_FLUSH,			0x31a)
++EVENT(PM_BR_SPEC_BUF2_OK,		0x31b)
++EVENT(PM_BR_SPEC_BUF3_CYC,		0x31c)
++EVENT(PM_BR_CTR_STALL_CYC,		0x31d)
++EVENT(PM_FBTIC_HIT,			0x31e)
++EVENT(PM_BR_LINK_STACK_MPRED,		0x31f)
++
++/* PMC4 */
++EVENT(PM_CMPL_3_CYC,			0x40e)
++EVENT(PM_DISP_0_CYC,			0x40f)
++EVENT(PM_GPR_IQ_EXCEED_CYC,		0x410)
++EVENT(PM_GPR_IQ_STALL_CYC,		0x411)
++EVENT(PM_IU1_CMPL,			0x412)
++EVENT(PM_DSSALL_CMPL,			0x413)
++EVENT(PM_TLBSYNC_CMPL,			0x414)
++EVENT(PM_SYNC_CMPL,			0x415)
++EVENT(PM_ST_STR_MULT_PIECES,		0x416)
++EVENT(PM_DTLB_SEARCH_CYC,		0x417)
++EVENT(PM_LSU_SNOOP_RETRY,		0x418)
++EVENT(PM_STWCX_OK,			0x419)
++EVENT(PM_DST3_FETCH,			0x41a)
++EVENT(PM_BR_SPEC_BUF3_OK,		0x41b)
++EVENT(PM_BR_MPRED,			0x41c)
++EVENT(PM_BR_FOLDED,			0x41d)
++EVENT(PM_FP_ST_DOUBLE_CMPL,		0x41e)
++
++/* PMC5 */
++EVENT(PM_L2_HIT,			0x502)
++EVENT_L3(PM_L3_HIT,			0x503)
++EVENT(PM_L2_ICACHE_MISS,		0x504)
++EVENT_L3(PM_L3_ICACHE_MISS,		0x505)
++EVENT(PM_L2_DCACHE_MISS,		0x506)
++EVENT_L3(PM_L3_DCACHE_MISS,		0x507)
++EVENT(PM_L2_LD_HIT,			0x508)
++EVENT(PM_L2_ST_HIT,			0x509)
++EVENT_L3(PM_L3_LD_HIT,			0x50a)
++EVENT_L3(PM_L3_ST_HIT,			0x50b)
++EVENT(PM_L2_TOUCH_HIT,			0x50d)
++EVENT_L3(PM_L3_TOUCH_HIT,		0x50e)
++EVENT(PM_INT_RETRY,			0x50f)
++EVENT(PM_SNOOP_MOD,			0x510)
++EVENT(PM_SNOOP_VALID,			0x511)
++EVENT(PM_INTV_LOCAL,			0x512)
++EVENT(PM_L2_MISS,			0x513)
++EVENT_L3(PM_L3_MISS,			0x514)
++
++/* PMC6 */
++EVENT(PM_L2_CASTOUT,			0x608)
++EVENT_L3(PM_L3_CASTOUT,			0x609)
++EVENT(PM_L2SQ_FULL_CYC,			0x60a)
++EVENT_L3(PM_L3SQ_FULL_CYC,		0x60b)
++EVENT(PM_SNOOP_RETRY,			0x60f)
++EVENT_L3(PM_L3_RAQ_FULL_CYC,		0x610)
++EVENT_L3(PM_L3_WAQ_FULL_CYC,		0x611)
++EVENT(PM_L1_EXT_INTV,			0x613)
++EVENT(PM_L2_EXT_INTV,			0x614)
++EVENT_L3(PM_L3_EXT_INTV,		0x615)
++EVENT(PM_EXT_INTV,			0x616)
++EVENT(PM_EXT_PUSH,			0x617)
++EVENT(PM_EXT_SNOOP_RETRY,		0x618)
++EVENT(PM_DTQ_FULL_CYC,			0x619)
++EVENT(PM_BUS_RETRY,			0x61a)
++EVENT(PM_L2_VALID_REQ,			0x61b)
++EVENT(PM_BORDQ_FULL_CYC,		0x61c)
++EVENT(PM_BUS_TA_RD,			0x62a)
++EVENT(PM_BUS_TA_WR,			0x62b)
++EVENT(PM_BUS_RD_OK,			0x62c)
++EVENT(PM_BUS_WR_OK,			0x62d)
++EVENT(PM_BUS_RDWR_OK,			0x62e)
++EVENT(PM_BUS_RETRY_L1,			0x62f)
++EVENT(PM_BUS_RETRY_ADJ,			0x630)
++EVENT(PM_BUS_RETRY_COLLISION,		0x631)
++EVENT(PM_BUS_RETRY_INTV_ORDER,		0x632)
++EVENT(PM_SNOOP_REQ,			0x633)
++EVENT(PM_L2_PREF,			0x634)
++EVENT(PM_L2_PREF_LD_COLLISION,		0x635)
++EVENT(PM_L2_PREF_ST_COLLISION,		0x636)
++EVENT(PM_L2_PREF_IFETCH_COLLISION,	0x637)
++EVENT(PM_L2_PREF_LMQ_COLLISION,		0x638)
++EVENT(PM_L2_PREF_FULL,			0x639)
+diff --git a/arch/powerpc/perf/mpc7450-pmu.c b/arch/powerpc/perf/mpc7450-pmu.c
+index 9bed5c238f45..4ee7b1a822ea 100644
+--- a/arch/powerpc/perf/mpc7450-pmu.c
++++ b/arch/powerpc/perf/mpc7450-pmu.c
+@@ -22,6 +22,18 @@
+ #define PM_PMC_MSK	7
+ #define PM_PMCSEL_MSK	0x7f
  
- static inline int siar_valid(struct pt_regs *regs)
++/*
++ * MPC7450 event codes.
++ */
++#define EVENT(_name, _code)	_name = _code,
++#define EVENT_L3(_name, _code)	_name = _code,
++
++enum {
++#include "mpc7450-events-list.h"
++};
++#undef EVENT
++#undef EVENT_L3
++
+ /*
+  * Classify events according to how specific their PMC requirements are.
+  * Result is:
+@@ -190,11 +202,11 @@ static const unsigned int event_alternatives[][MAX_ALT] = {
+ 	{ 0x505, 0x605, 0x621 },	/* PM_L3_ICACHE_MISS */
+ 	{ 0x506, 0x606 },		/* PM_L2_DCACHE_MISS */
+ 	{ 0x507, 0x607, 0x622 },	/* PM_L3_DCACHE_MISS */
+-	{ 0x50a, 0x623 },		/* PM_LD_HIT_L3 */
+-	{ 0x50b, 0x624 },		/* PM_ST_HIT_L3 */
++	{ 0x50a, 0x623 },		/* PM_L3_LD_HIT */
++	{ 0x50b, 0x624 },		/* PM_L3_ST_HIT */
+ 	{ 0x50d, 0x60d },		/* PM_L2_TOUCH_HIT */
+ 	{ 0x50e, 0x60e, 0x625 },	/* PM_L3_TOUCH_HIT */
+-	{ 0x512, 0x612 },		/* PM_INT_LOCAL */
++	{ 0x512, 0x612 },		/* PM_INTV_LOCAL */
+ 	{ 0x513, 0x61d },		/* PM_L2_MISS */
+ 	{ 0x514, 0x61e, 0x620 },	/* PM_L3_MISS */
+ };
+@@ -398,6 +410,55 @@ static u64 mpc7450_cache_events[C(MAX)][C(OP_MAX)][C(RESULT_MAX)] = {
+ 	},
+ };
+ 
++#define EVENT(_name, _code)	POWER_EVENT_ATTR(_name, _name);
++#define EVENT_L3(_name, _code)	POWER_EVENT_ATTR(_name, _name);
++#include "mpc7450-events-list.h"
++#undef EVENT
++#undef EVENT_L3
++
++#define EVENT(_name, _code)	POWER_EVENT_PTR(_name),
++#define EVENT_L3(_name, _code)	POWER_EVENT_PTR(_name),
++
++static struct attribute *mpc7450_events_attr[] = {
++#include "mpc7450-events-list.h"
++	NULL
++};
++
++#undef EVENT
++#undef EVENT_L3
++
++static bool mpc7450_is_l3_event(u64 event)
++{
++	switch (event) {
++#define EVENT(_name, _code)
++#define EVENT_L3(_name, _code)	case _code:
++#include "mpc7450-events-list.h"
++#undef EVENT
++#undef EVENT_L3
++		return true;
++	}
++	return false;
++}
++
++/* The L3 events are reserved on parts without an L3 interface. */
++static umode_t mpc7450_events_is_visible(struct kobject *kobj,
++					 struct attribute *attr, int n)
++{
++	struct perf_pmu_events_attr *pmu_attr;
++
++	pmu_attr = container_of(attr, struct perf_pmu_events_attr, attr.attr);
++	if (mpc7450_is_l3_event(pmu_attr->id) && !cpu_has_feature(CPU_FTR_L3CR))
++		return 0;
++
++	return attr->mode;
++}
++
++static const struct attribute_group mpc7450_pmu_events_group = {
++	.name = "events",
++	.attrs = mpc7450_events_attr,
++	.is_visible = mpc7450_events_is_visible,
++};
++
+ PMU_FORMAT_ATTR(event,		"config:0-18");
+ PMU_FORMAT_ATTR(pmcsel,		"config:0-6");
+ PMU_FORMAT_ATTR(pmc,		"config:8-10");
+@@ -420,6 +481,7 @@ static const struct attribute_group mpc7450_pmu_format_group = {
+ 
+ static const struct attribute_group *mpc7450_pmu_attr_groups[] = {
+ 	&mpc7450_pmu_format_group,
++	&mpc7450_pmu_events_group,
+ 	NULL,
+ };
+ 
 
 -- 
 2.56.1
