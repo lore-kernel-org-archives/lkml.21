@@ -1,75 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794949781;
-	b=ZO2B4YqtCTX15CMOXSxNjVbKGV8gyn17bdFBvz/daYypfx3Z+3L1uK+rjOt3QRPwYBEJ
-	 U/tNVLfKJF+5qq1zHnOKNzYcaBP0UW94A0camRm9P0PTVQu8F2V4/Gx53QfKoPsp5M9ga
-	 IiXiNZa/Pfo5EaJB1MgJf5rgIfnZG0+brro+1RXf6D1kr2773e7QZftHW5qJkFnYjzrZ3
-	 OkXmUbeMb3xPsKXS7dGrUdJ2leDLTlrfGBWqoGvYn5omFtfsBUGYiY0c32Pq5nQP9p+FN
-	 LHpdVdKe8+rT8MDXVkv6fuD4D6cNLnp29Olta/7TvVWO73KQ+NjM8dYd2kcscXi0EkA==
+	t=1794949783;
+	b=FDo0GC3qUebfARrB8Q/vNgIxiFhJVN15XpBI8qsY0nMjzEG29U4G5jAajB6NwkCj5JH9
+	 22L0BBLTBk7p4q2oKh9tpmWkxUM7phn7FKnVD/xc5tYLRJbyC24BGeSc3mextDybvy2oJ
+	 IsK9qIXMmUaOiWe07TDgMB/y0DVngQ5SVqmmzW1YOnQl9WSwtYqHbCYfnzPJxmshz+HWF
+	 RQNviV/7+yMm1p8boYcAfvvRv3UNCQTsgQVt1dJg7VBXLtJAVVh+T30EfI7X3PyAkl4VU
+	 SvEV/NfPKNISqs8KlOWSywIli95c4u+gO/dd8FrUuKLIn0KPPD+LgfgROyeSOtLCqZQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794949781;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794949783;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Reply-To:Date:
 	 In-Reply-To:Mime-Version:References:X-Mailer:Message-ID:Subject:From:
 	 To:Cc:Content-Type;
-	bh=rxzzjh/xIBjlB8WI2uIiiOH9MqLHJlv2/r14cpA94us=;
-	b=beLuMdwy+3LulwtNgLoY6H/HKqIo2oUmkkkd9jHGl8hNuwRwezA3U1ckRwAriVQffbrz
-	 pAQD9fv7t6PJCl8/3Fc/u8c4INrEQISr4MeJAPQW3dvIhpHXIue7n+scmjnCSW9rCr3pi
-	 Jps5NbdYxgHNGw2Bsjl9bxatwnBs74ZDw2ySgfSwF5JesiIuoUTdH1baSvl1h/zThkjnY
-	 PfonzTA7FLw58/T500NivrKFK2Apf+3TugceIauqnh+objZW6bI9RVX7Ycz5zu9HBRfuK
-	 ZWtGZ86POxNOQR51bPjywjS/9IvpAcmKwdW7tDKxVjWj5pWv70RepGMVUj99lKINvmA==
+	bh=T+072KEeIi6BYvL7fBfuUdg+p0qRxX15CFfLlb3m+bU=;
+	b=1HgxF/2aVOOif3STH5rB2bZ+RCatog1MYS3//bPcPNjvUbsFJ0N6j62wJSRNHXd8+Pfi
+	 eVOt7JHh3VoQcIIRpSciIxIgvpeaRBIM+R+fhSeuNgMeTGX7TCwbD7jikyLmUs1Kvjpor
+	 nvpmrXUFSMH8HvsS+N4OqU4IouDtepPuCqF1WSOGJeQzSOxdqSf9CS/e4IEok4BAqFOrD
+	 ePV+fRBCFAHtgr4PUMhdrlXzuOmILsvxd77HgUu9sSH0jpbKsPZM8xTDtFQEOUvfZyHsj
+	 vyF0SQfpbe+QgCK61OfYh2kZwHoNzw0hTSgxESKZQtexBH8faxHKMsJFW1o4qxk+d5A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--seanjc.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=FqDVZQ11;
-	arc=none smtp.remote-ip=209.85.214.197
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="j9Yu/+RH";
+	arc=none smtp.remote-ip=209.85.214.199
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FB06606A8A1
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:09:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3FB06606A8A1
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC47F606A330
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:09:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC47F606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--seanjc.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=FqDVZQ11
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2ee2d612733so10130585ad.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 13:09:41 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=j9Yu/+RH
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2ea0fe07201so1292775ad.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 13:09:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794949781; x=1795554581; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1794949782; x=1795554582; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:reply-to:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=rxzzjh/xIBjlB8WI2uIiiOH9MqLHJlv2/r14cpA94us=;
-        b=FqDVZQ1101sl4pVyPtw7h13H9qlO5MI+GVdLEDQYVAQKAU6WpqMA1BaOf5dzzSyO3p
-         +yNWD4QRuB6sxMBjwv6S8j3OvJsSJ7q3MLhOdPO60Lm+63HZSJ0RySNArt19uKZ+yN+E
-         XGu2+5uUGcBVJUtgJqv5mEShWY7aJwJKIwo0Qa0+7jrsGAn3mslRofHMY/iKJx7u83/O
-         MRnJ3e+Y0aEupJBAG6SD4vY8yK5oGRjn9VDkFLh+8NJugnKz/ErvQyTGQncvemBej0m0
-         X9Bzn1x9Jp91qLeHiGSFbRWgt+eK1KMPWvhsUrP5KsRyLaRR/qGhiup+vpg2SAOsb082
-         mz5w==
+        bh=T+072KEeIi6BYvL7fBfuUdg+p0qRxX15CFfLlb3m+bU=;
+        b=j9Yu/+RH+cK1i8j6kJie35+l42hOopqj38OTGChZR9jsHIfATz8WwbkwMNXLkPLjmJ
+         lpOcq7G9sQOo7pn/z1dvnGBXB+Om/YaLnTyXSSJ9owRFWqeNXunE79aowhhPmw98JEIb
+         S3wzSo+VV+/vPC0ABDY0d9A50NIuNqlHxy94ToEVMp9+PD/HqOPMwh0jPRV+eAjCoszs
+         IrOJdxOjsN72twOmmCpOxt9SCL4l1zbT4nbZUI/RdJD+16pBWp8IDnCAU7yGh6czemrO
+         ovo28vzUV1scKFB3WIfjWLM60w1Y+1ovdjFgMNuGEZCRwLwsjvQbLVkCwvUolFxnx2jK
+         8XdA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794949781; x=1795554581;
+        d=1e100.net; s=20260707; t=1794949782; x=1795554582;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:reply-to:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=rxzzjh/xIBjlB8WI2uIiiOH9MqLHJlv2/r14cpA94us=;
-        b=ylMpmueV9vqsdU+C17DkekaTwDRTOt5/fj6BQ+uc0LCB9Idjaid1CrdDJob3apTl1u
-         X9LVMKfmU8GvcTei9ARnB67IjFkaL5fEK9I4yb6TVndmKTokmh9sdXXB0ikLMxNo4lvJ
-         xPNHFRIy6E+eGt6GCw8KFrEIsgBqVpDkq714XBz8QFcWy/RVRp+62iFfXzDDNS+tmBsH
-         WeEFx/G46pPkoJrV63NlH0SYmTqeFkzhPQXUHSYab7WwDh7/Sv8wBGAtIluNJu9yhOf+
-         hBFLoQmpIoDwsLOI8fvFmR0jiOflmB8REgTeHQf9CeOqhs71KGBnG0zB+pCGOaLv9YoM
-         +8fg==
-X-Forwarded-Encrypted: i=1; AL+hErG0j4lZWyQpm7JobeoAiK4a1ej1hUJsavBmkD2CtWAf9MjaVH33tFe6mo35KOGUTYamXZVIlaJz7L6jcZo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+DfZNXa6nNTfbHVAGQBT/pfzmYIp4Lbs1uBeRVCF78JmVChET2
-	Lfjh78ajqhRQgcuUdRkpxPUemZq0HBSHHtEISigF/qb3t9fRd+J2qKpSmvrhN0Hd6W3GECdi3YQ
-	oCzQuCQ==
-X-Received: from plco15.prod.google.com ([2002:a17:902:e28f:b0:2eb:3675:626c])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:e950:b0:2e9:46a9:9b56
- with SMTP id d9443c01a7336-2efd9b75510mr31419505ad.21.1794949780536; Tue, 17
- Nov 2026 13:09:40 -0800 (PST)
+        bh=T+072KEeIi6BYvL7fBfuUdg+p0qRxX15CFfLlb3m+bU=;
+        b=GxDb2jDmI1H7egc0uO6PLjBxjC/dMagSQj9YAmqROn2wlF4xraiEh06+YmkTy84KRN
+         CtsX534iVqJSsu0px44fyFlmr6pf80MPqQcqWv/DhRV/o5zu+FhmjS0wTxJdDqI/mERX
+         koJFLbs+l2OVNAObkrnH8BRLLwEufalt2Qanp7AKk+2Ld+6we1DGTbNYcvxANSTtjoUv
+         bv0MkVjYVm2fbfUFzCdtCArqaNLe+eU8EA2ZbwTDZPHUvIl054MWxqoYp0Qk3UJbGiRv
+         ylagJWsyDkGMtJ9IH0ZLPcq+S+V73FvAzSSBEjTFmyeLM9ZiXaxWZepUPnU2SRk/o76B
+         uEVA==
+X-Forwarded-Encrypted: i=1; AL+hErGLlWAzwZX66ea4BadsCd8nV+ucQMulu+aoYxsdCmE2zOdkFR+giW/c3hiO4Gyu3j7DSHtBb5d8au+LA7w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+lWZEPt+/4aiK8g0mOeeK0U1inWYcu3jRyp9DuDpCZhW5ARAW4
+	FjrNi5z0aBgn//S/7Iiw/7EcXS8LC713X2NKrtKjPtl+FWsesUohyC62mza3O+Y3Wj1MGHZQVma
+	xxcKMnQ==
+X-Received: from plog15.prod.google.com ([2002:a17:902:868f:b0:2ea:d63d:f2c5])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:f790:b0:2e9:460e:ca57
+ with SMTP id d9443c01a7336-2eff7529757mr4886135ad.15.1794949781800; Tue, 17
+ Nov 2026 13:09:41 -0800 (PST)
 Reply-To: Sean Christopherson <seanjc@google.com>
-Date: Tue, 17 Nov 2026 13:09:33 -0800
+Date: Tue, 17 Nov 2026 13:09:34 -0800
 In-Reply-To: <20261117210934.7765-1-seanjc@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -82,9 +82,9 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261117210934.7765-1-seanjc@google.com>
 X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
-Message-ID: <20261117210934.7765-5-seanjc@google.com>
-Subject: [PATCH v2 4/5] KVM: x86: Consolidate nVMX vs. nSVM logic for loading
- CR3 on nested xfer
+Message-ID: <20261117210934.7765-6-seanjc@google.com>
+Subject: [PATCH v2 5/5] KVM: x86: Initialize MMU+PGD before loading PDPTRs on
+ nested transitions
 From: Sean Christopherson <seanjc@google.com>
 To: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>
 Cc: kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
@@ -92,66 +92,48 @@ Cc: kvm@vger.kernel.org, linux-kernel@vger.kernel.org,
 	syzbot@syzkaller.appspotmail.com, Chris Mason <mason@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 
-Dedup nested_{svm,vmx}_load_cr3() into kvm_nested_load_cr3(), and drop
-several MMU exports that existed purely to support the related vendor code.
-Except for slight differences around PDPTRs, the logic and reasoning for
-handling CR3 and PDPTRs on nested transitions is identical between Intel
-and AMD.
+Initialize the MMU and PGD (root) before loading PDPTRs when emulating a
+nested VM-Enter or VM-Exit to ensure the MMU is up-to-date even if loading
+PDPTRs fails.  If a nested VM-Exit fails to load L1's PDPTEs, and L1 ran L2
+without EPT/NP, KVM can run L1 on a freed MMU root, i.e. the CPU's page
+walk is a use-after-free, if userspace blows past the KVM_EXIT_SHUTDOWN.
 
-Add a KVM_BUG_ON() in nested_vmx_load_cr3() to ensure that the new helper
-doesn't unexpectedly fail when PDPTRs aren't being reloaded.
+                              root_mmu  vmcx01  vmcx02
+                              ========  ======  ======
+    L1 runs                   R1        R1
+    VM-Enter to L2            R2        R1      R2
+    memslot deleted, L2 runs  R3        R1      R3      R1, R2 freed
+    VM-Exit, bad PDPTEs       R3        R1
+    KVM_EXIT_SHUTDOWN         R3        R1
+    KVM_RUN enters L1         R3        R1
 
-No functional change intended (the new KVM_BUG_ON() is unreachable).
+Unconditionally initializing the MMU if KVM sets CR3 is a-ok, as the nested
+VM-Exit paths need exactly that behavior, emulation of VM-Enter generates a
+VM-Exit on both SVM and VMX (i.e. KVM is guaranteed to load L1 state and
+re-initialize the MMU), and RSM+KVM_SET_NESTED_STATE defer loading PDPTRs
+until the next entry, i.e. don't load PDPTRs and thus can't fail.
 
+Note, pre-checking the PDPTRs isn't an option because they come from guest
+memory when TDP is disabled, i.e. the PDPTEs in memory can legally change
+between the VM-Enter and VM-Exit.
+
+Fixes: 1dc35dacc16b ("KVM: nVMX: check host CR3 on vmentry and vmexit")
+Fixes: d82aaef9c88a ("KVM: nSVM: use nested_svm_load_cr3() on guest->host switch")
+Reported-by: Chris Mason <mason@kernel.org>
 Cc: stable@vger.kernel.org
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/mmu/mmu.c    |  2 --
- arch/x86/kvm/regs.c       | 24 ++++++++++++++++++++++++
- arch/x86/kvm/regs.h       |  2 ++
- arch/x86/kvm/svm/nested.c | 23 +++--------------------
- arch/x86/kvm/vmx/nested.c | 23 ++---------------------
- 5 files changed, 31 insertions(+), 43 deletions(-)
+ arch/x86/kvm/regs.c | 24 +++++++++++++++---------
+ 1 file changed, 15 insertions(+), 9 deletions(-)
 
-diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
-index f4b12d6aef55..9186e8e2ec10 100644
---- a/arch/x86/kvm/mmu/mmu.c
-+++ b/arch/x86/kvm/mmu/mmu.c
-@@ -5475,7 +5475,6 @@ void kvm_mmu_new_pgd(struct kvm_vcpu *vcpu, gpa_t new_pgd)
- 			__clear_sp_write_flooding_count(sp);
- 	}
- }
--EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_mmu_new_pgd);
- 
- static bool sync_mmio_spte(struct kvm_vcpu *vcpu, u64 *sptep, gfn_t gfn,
- 			   unsigned int access)
-@@ -6275,7 +6274,6 @@ void kvm_init_mmu(struct kvm_vcpu *vcpu)
- 			init_kvm_shadow_mmu(vcpu, cpu_role);
- 	}
- }
--EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_init_mmu);
- 
- void kvm_mmu_after_set_cpuid(struct kvm_vcpu *vcpu)
- {
 diff --git a/arch/x86/kvm/regs.c b/arch/x86/kvm/regs.c
-index 3621f1a47d37..b43ad11f061c 100644
+index b43ad11f061c..1cbc7b9f6ef4 100644
 --- a/arch/x86/kvm/regs.c
 +++ b/arch/x86/kvm/regs.c
-@@ -201,6 +201,30 @@ int load_pdptrs(struct kvm_vcpu *vcpu, unsigned long cr3)
- }
- EXPORT_SYMBOL_FOR_KVM_INTERNAL(load_pdptrs);
- 
-+int kvm_nested_load_cr3(struct kvm_vcpu *vcpu, unsigned long cr3,
-+			bool nested_tdp, bool reload_pdptrs)
-+{
-+	/*
-+	 * If TDP is enabled, then the PDPTRs either come from the VMCS (EPT)
-+	 * or are read from memory on-demand (NPT), i.e. aren't loaded here.
-+	 */
-+	if (reload_pdptrs && !nested_tdp && is_pae_paging(vcpu) &&
-+	    !load_pdptrs(vcpu, cr3))
-+		return -EINVAL;
-+
+@@ -204,23 +204,29 @@ EXPORT_SYMBOL_FOR_KVM_INTERNAL(load_pdptrs);
+ int kvm_nested_load_cr3(struct kvm_vcpu *vcpu, unsigned long cr3,
+ 			bool nested_tdp, bool reload_pdptrs)
+ {
 +	vcpu->arch.cr3 = cr3;
 +	kvm_register_mark_dirty(vcpu, VCPU_REG_CR3);
 +
@@ -161,93 +143,19 @@ index 3621f1a47d37..b43ad11f061c 100644
 +	if (!nested_tdp)
 +		kvm_mmu_new_pgd(vcpu, cr3);
 +
-+	return 0;
-+}
-+EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_nested_load_cr3);
-+
- static bool kvm_is_valid_cr0(struct kvm_vcpu *vcpu, unsigned long cr0)
- {
- #ifdef CONFIG_X86_64
-diff --git a/arch/x86/kvm/regs.h b/arch/x86/kvm/regs.h
-index 97c17b120a57..3c34ca7d8a8e 100644
---- a/arch/x86/kvm/regs.h
-+++ b/arch/x86/kvm/regs.h
-@@ -64,6 +64,8 @@ unsigned long kvm_get_dr6_fixed_1(struct kvm_vcpu *vcpu);
- unsigned long kvm_get_cr8(struct kvm_vcpu *vcpu);
- void kvm_lmsw(struct kvm_vcpu *vcpu, unsigned long msw);
- int load_pdptrs(struct kvm_vcpu *vcpu, unsigned long cr3);
-+int kvm_nested_load_cr3(struct kvm_vcpu *vcpu, unsigned long cr3,
-+			bool nested_tdp, bool reload_pdptrs);
- 
- static inline bool is_long_mode(struct kvm_vcpu *vcpu)
- {
-diff --git a/arch/x86/kvm/svm/nested.c b/arch/x86/kvm/svm/nested.c
-index 32f95c9d72be..a045cb5ba9ff 100644
---- a/arch/x86/kvm/svm/nested.c
-+++ b/arch/x86/kvm/svm/nested.c
-@@ -710,30 +710,13 @@ static void nested_svm_transition_tlb_flush(struct kvm_vcpu *vcpu)
- 	kvm_make_request(KVM_REQ_TLB_FLUSH_CURRENT, vcpu);
- }
- 
--/*
-- * Load guest's/host's cr3 on nested vmentry or vmexit. @nested_npt is true
-- * if we are emulating VM-Entry into a guest with NPT enabled.
-- */
- static int nested_svm_load_cr3(struct kvm_vcpu *vcpu, unsigned long cr3,
- 			       bool nested_npt, bool reload_pdptrs)
- {
--	if (reload_pdptrs && is_pae_paging(vcpu)) {
--		if (nested_npt)
--			kvm_register_mark_for_reload(vcpu, VCPU_REG_PDPTR);
--		else if (CC(!load_pdptrs(vcpu, cr3)))
--			return -EINVAL;
--	}
-+	if (reload_pdptrs && is_pae_paging(vcpu) && nested_npt)
-+		kvm_register_mark_for_reload(vcpu, VCPU_REG_PDPTR);
- 
--	vcpu->arch.cr3 = cr3;
--	kvm_register_mark_dirty(vcpu, VCPU_REG_CR3);
--
--	/* Re-initialize the MMU, e.g. to pick up CR4 MMU role changes. */
--	kvm_init_mmu(vcpu);
--
--	if (!nested_npt)
--		kvm_mmu_new_pgd(vcpu, cr3);
--
--	return 0;
-+	return kvm_nested_load_cr3(vcpu, cr3, nested_npt, reload_pdptrs);
- }
- 
- static void nested_vmcb02_prepare_save(struct vcpu_svm *svm)
-diff --git a/arch/x86/kvm/vmx/nested.c b/arch/x86/kvm/vmx/nested.c
-index ef4ca1906fb0..6adfd1fe7fa6 100644
---- a/arch/x86/kvm/vmx/nested.c
-+++ b/arch/x86/kvm/vmx/nested.c
-@@ -1225,35 +1225,16 @@ static bool nested_msr_store_list_has_msr(struct kvm_vcpu *vcpu, u32 msr_index)
- 	return false;
- }
- 
--/*
-- * Load guest's/host's cr3 at nested entry/exit.  @nested_ept is true if we are
-- * emulating VM-Entry into a guest with EPT enabled.  On failure, the expected
-- * Exit Qualification (for a VM-Entry consistency check VM-Exit) is assigned to
-- * @entry_failure_code.
-- */
- static int nested_vmx_load_cr3(struct kvm_vcpu *vcpu, unsigned long cr3,
- 			       bool nested_ept, bool reload_pdptrs,
- 			       enum vm_entry_failure_code *entry_failure_code)
- {
--	/*
--	 * If PAE paging and EPT are both on, CR3 is not used by the CPU and
--	 * must not be dereferenced.
--	 */
--	if (reload_pdptrs && !nested_ept && is_pae_paging(vcpu) &&
--	    CC(!load_pdptrs(vcpu, cr3))) {
-+	if (CC(kvm_nested_load_cr3(vcpu, cr3, nested_ept, reload_pdptrs))) {
-+		KVM_BUG_ON(!reload_pdptrs, vcpu->kvm);
- 		*entry_failure_code = ENTRY_FAIL_PDPTE;
+ 	/*
+ 	 * If TDP is enabled, then the PDPTRs either come from the VMCS (EPT)
+ 	 * or are read from memory on-demand (NPT), i.e. aren't loaded here.
++	 * Load PDPTRs *after* initializing the MMU and PGD, to ensure the MMU
++	 * is initialized even if the nested transition ultimately fails.  On
++	 * an emulated VM-Exit, failure will put the vCPU in a shutdown state,
++	 * but KVM still needs to keep the MMU up-to-date.  On an emulated
++	 * VM-Entry, failure will generate a nested VM-Exit, i.e. L1's state
++	 * and MMU will be explicitly loaded.
+ 	 */
+ 	if (reload_pdptrs && !nested_tdp && is_pae_paging(vcpu) &&
+ 	    !load_pdptrs(vcpu, cr3))
  		return -EINVAL;
- 	}
  
 -	vcpu->arch.cr3 = cr3;
 -	kvm_register_mark_dirty(vcpu, VCPU_REG_CR3);
@@ -255,12 +163,12 @@ index ef4ca1906fb0..6adfd1fe7fa6 100644
 -	/* Re-initialize the MMU, e.g. to pick up CR4 MMU role changes. */
 -	kvm_init_mmu(vcpu);
 -
--	if (!nested_ept)
+-	if (!nested_tdp)
 -		kvm_mmu_new_pgd(vcpu, cr3);
 -
  	return 0;
  }
- 
+ EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_nested_load_cr3);
 -- 
 2.56.1.703.gf848ed807c-goog
 
