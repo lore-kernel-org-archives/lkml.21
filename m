@@ -1,55 +1,61 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794951478;
-	b=PRblC+L28ELaLgmRBduT0SnTXxkey3wDtjT/2l6hjfFYcDsQZ2Q4Fmf632k2WAO3jpmE
-	 kT4wv9QShli/iEIMe4unVXbQxmxaRzrUWdaQgphvlmaeyYzd7i5G+/5WCCVfiMgM12UxT
-	 XjXWIVyFtTWfOrugRe2qxj21UbInoIfX6LpsOzVwF+Ugp9UGRBv+03LAu/mryWIdjhBAJ
-	 Q04/9FEMN61lwz4R0bxuSLNjMjPLLEuuQCalFCS09/h9D8dDe8FLSZhVk6lpFhkEkIQtc
-	 wm/ETsAloAG2MjCtSM1vSf4LiHwRBQvdM2IhNzyyxkHa3WqDei7E4Y47O/wtRLKhnWQ==
+	t=1794951512;
+	b=2K+nfdhcO11+Rm80t/bDyKQ9e5Z9eexLjzIDrwebI8PBGcGDW/OVokqxeGGfH+LhM8HJ
+	 it+wRxBzoUcSYdmIxvltbK+8XRvtPptWEKYpR0rssc6lDBhJv7hUNZtPJbmKJYuxouyhi
+	 B/Zymt2oPlrN+3BGhMsjOgx23T88GbK6cuOgyDJQfvW3zgjbV7NB/IU79MFkMx/4guwW0
+	 XTBMJ014bwmmtDAF/7w7ejFHp4gzy/f0iKnxhZVIUVcLpM/cezGYITVkpw0c14JtrsFhQ
+	 FIEl+YFcnI7sXmHR1lpebgJU35JoUVcL9ZwbBmz0i6H6LEOC3Oxvcc8YhqryyWW4BmA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794951478;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=43QFFgwzukS6yZXLYhZVbDexLmF7PKGNOsnRTi6FpR0=;
-	b=Ud40KZ7wFDOgxoG0jZCEwAXoLRzoc0ZTjxkwfiA44gv4gqk2hUJtrHh/CRLQ/yMV47zo
-	 SyAxFeb08uOQXipLaLOnDXBG6mXYkhqubS2SfWYiNtYNKFXS8QhLmXMFeToqpkShWXR2d
-	 TSaHHR2O7bGjs1468rHOhBvsENcs3fnHfz0SY72mSqirv0GOaElDj2tKmHSpMinS3V+6y
-	 oSZ+ragkFbvCkg3gM7IKTIG8KQaliBFslh/vOS+A1AgjDOvfcW6E3bPfSZaE02uInWzbB
-	 A/F5BpBMAKn4Z+5j+kEPIDnWqbQ7arZqivd/CnL5G29BKlRXqkfoRjE92FXVNVZ2Jog==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794951512;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=iXopMQoBtcGz358w9N9nrAJff3scf+1pEvqdTdRCoP0=;
+	b=O3ZkxpuOv3FSRS/zicoXVCHEzVMGU0VndCHL2e5+Q10cgpSRHlSoeyCEIzFw/iPHlweZ
+	 +5+4HtiAXFuhVS1NTAwTfd/0TuPe2N9AxlF/a7K5B5G16g7h6ntvJbEIdU6eSIjRw28vd
+	 muxQTUajYzthFImj0EFMd6/Kz5BkoBXKtVHElW8azRbnIWpY5wv7igeOOGT78sUVWpb37
+	 J3vKSZSg//tXdZfxVHua21BDYvJSxZ8j+R1+yFypTFBjPrfiSXpEZsDCTVBO3X3Hd928Z
+	 HXLwhw2/xpj6dfZL36f8X59e6ZqV6EGXx+DTz2YawTdc3zS4eklu/GdSpbFaAJxL/Mw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ciudnLAv;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TU0WQ2xQ;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1BA69606A32A
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:37:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97FD5606A31C;
+	Tue, 17 Nov 2026 21:38:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ciudnLAv
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A9111F000C4
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:37:57 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TU0WQ2xQ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF2FF1F000C4;
+	Tue, 17 Nov 2026 21:38:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794951477;
-	bh=43QFFgwzukS6yZXLYhZVbDexLmF7PKGNOsnRTi6FpR0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=ciudnLAvHlTz/pkvaO3mVSNytfC2Xd/M8nBp8rOsJDKgki1AwqhOgOpe+GgeqRdmX
-	 BS4/93t6Dzt3cQvUrwMqTHI6/tKG1otW4QpgsavG2L7IZJIZ5AEHC8vHQkM5q8fF2p
-	 CppMoj0//1c/edMc3nGCfXyWIQS9jJTKqm/OOVhhm6gH3ZNY7d4BdfZ2Yrp6NVFwNw
-	 h8/mP2X5xq9MwNwT8+dXZQrevlvU7gVVPUJsrH6utRXIf5UplbLKxD6mQHA3huXFqG
-	 NXD1DK3eDiMnPw15vgIYslsIBgeWMUPgqSp2t431IWH/WgrqBLL6+Xpv3oBCco2Cfn
-	 VY3MVNQCKqLrg==
-Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5be47aa555cso248037e87.3
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 13:37:57 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErG70Lind4aHVgLE//AWeJ9wX+i2IxjLCgFiSd145Bf+KHzpFBLyvzvhVCq2Z92CEQp5OAwKjUUePf5tLXE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z95RPxhOwamlk8ahlKO5U9QgLZO9HnrLuNhiu5vwxMlVb2Nd37v
-	fafKoJut4uX83oM641Pc8OrD7nkmkGWwB5o2RTAaT2bNcm5ynFL/8sQ7pN9AZJ1Y/wWp7kyhq13
-	KnJOurBdpv/Vzh+lrbHVr7iUfoKC0LHI=
-X-Received: by 2002:a05:6512:2313:b0:5c1:4bcd:c316 with SMTP id
- 2adb3069b0e04-5c1aa0705c5mr133596e87.10.1794951476413; Tue, 17 Nov 2026
- 13:37:56 -0800 (PST)
+	s=k20260515; t=1794951512;
+	bh=iXopMQoBtcGz358w9N9nrAJff3scf+1pEvqdTdRCoP0=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=TU0WQ2xQUMV6milbx0O6Ta2jGZgdBz6gPeO6FBMhhUIo744+53WpaV7L/CgZSomN2
+	 zIUWBItGYo/1F1AmPBP18Kf8nJAmdVZATpzBzzIjc67Xg60UcYy0/61iZA9f7LKP81
+	 slEGik5OnWmzZnNjy//vaY5sX7JyLqLfV6wdKLD5glHpHwEirtxBPW9YWWw24IToRD
+	 ZoW6cMzpW8srAp5BKcQJ5PIn1RWPdajuoIZg3y18bBeWDJslA+mC+7eDwJ++ABLvmX
+	 zsYoqBgKAioTA5mWnschkaCzUMJ0wrFa56Z8OV1MA+KteqA6rhZJIv8/bzYozu3M0e
+	 4kLOnmHVHvkYQ==
+From: David Hildenbrand <david@kernel.org>
+To: Lorenzo Stoakes <ljs@kernel.org>, 
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+ Michal Hocko <mhocko@suse.com>, Andrew Morton <akpm@linux-foundation.org>, 
+ Nico Pache <nico.pache@linux.dev>, Lance Yang <lance.yang@linux.dev>, 
+ "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, Chris Mason <mason@kernel.org>, 
+ Daniel Wade <danjwade95@gmail.com>
+In-Reply-To: <20261117-khugepaged_mthp_dirty-v1-1-024e4a12c2fa@kernel.org>
+References: <20261117-khugepaged_mthp_dirty-v1-1-024e4a12c2fa@kernel.org>
+Subject: Re: [PATCH] mm/khugepaged: mark ptes dirty and soft-dirty on mTHP
+ collapse
+Message-Id: <179495150847.5194.3491297223521480619.b4-ty@b4>
+Date: Tue, 17 Nov 2026 22:38:28 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,53 +65,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117-ksz-stp-ageing-v3-0-135de6b9f8ad@pengutronix.de> <20261117-ksz-stp-ageing-v3-2-135de6b9f8ad@pengutronix.de>
-In-Reply-To: <20261117-ksz-stp-ageing-v3-2-135de6b9f8ad@pengutronix.de>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 17 Nov 2026 22:37:44 +0100
-X-Gmail-Original-Message-ID: <CAD++jLn2szo5NY7zqwCyRAkdNJQ60DcMnQUbjf+L_w-+MkBHYA@mail.gmail.com>
-X-Gm-Features: Aa3M54o0xRQuY3uXAHxYl11MpuvPvx6L6rwTSmOyLONxxLvVQa0OV7NqUKk9kts
-Message-ID: <CAD++jLn2szo5NY7zqwCyRAkdNJQ60DcMnQUbjf+L_w-+MkBHYA@mail.gmail.com>
-Subject: Re: [PATCH net-next v3 2/3] net: dsa: ignore the old ageing time of
- the port being changed
-To: Oleksij Rempel <o.rempel@pengutronix.de>
-Cc: Woojung Huh <woojung.huh@microchip.com>, UNGLinuxDriver@microchip.com, 
-	Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Arun Ramadoss <arun.ramadoss@microchip.com>, Jiri Pirko <jiri@resnulli.us>, 
-	Florian Fainelli <f.fainelli@gmail.com>, Vivien Didelot <vivien.didelot@gmail.com>, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, kernel@pengutronix.de, 
-	=?UTF-8?Q?Jens_Emil_Schulz_=C3=98stergaard?= <jensemil.schulzostergaard@microchip.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16.0
 
-On Tue, Nov 17, 2026 at 2:02=E2=80=AFPM Oleksij Rempel <o.rempel@pengutroni=
-x.de> wrote:
+On Tue, 17 Nov 2026 10:28:18 +0100, David Hildenbrand (Arm) wrote:
+> An mTHP collapse can lose soft-dirty PTE bits if pages were written and
+> the VMA was then made read-only, and not setting the PTE dirty in
+> VMAs without VM_WRITE can interact with a later MADV_FREE on a COW-shared
+> page such that all processes lose the data even though a single process
+> MADV_FREE'ed it.
+> 
+> Collapse does not preserve the soft-dirty bits of the old PTEs, so the
+> new entries must be marked soft-dirty. map_anon_folio_pte_nopf() relies
+> on pte_mkdirty() to do that, but only calls it if the VMA has VM_WRITE.
+> 
+> [...]
 
-> Pass the port to the ageing time notifier. When
-> dsa_switch_fastest_ageing_time() takes the minimum, skip the cached
-> dp->ageing_time of that port and use the requested value instead. DSA
-> updates the cache only after the notifier.
->
-> Without this, the minimum includes the port's old ageing time. During
-> an STP topology change, the bridge lowers the ageing time to
-> 2 x forward_delay (8 s with forward_delay 4 s). When it restores the
-> configured value, DSA programs the cached 8 s again, and the switch
-> keeps ageing at 8 s.
->
-> An automated review of the lan9645x bridge series pointed this out [1].
-> I reproduced it on a KSZ9893 and tested the fix there.
->
-> Fixes: 77b61365ecef ("net: dsa: remove the transactional logic from agein=
-g time notifiers")
-> Link: https://lore.kernel.org/netdev/179180428624.434549.1442562388422379=
-5761@kernel.org/ [1]
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-> Signed-off-by: Oleksij Rempel <o.rempel@pengutronix.de>
+Applied, thanks!
 
-This looks right to me, good find from Sashiko!
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+tree: mm/core.git
+branch: for-next-fixes
 
-Yours,
-Linus Walleij
+Applied patches will appear soon in mm-next, followed by linux-next.
+
+Please report any outstanding bugs that were missed during review, so we
+can either drop the patch series or decide how to fix it up.
+
+It is encouraged to provide Acked-bys, Reviewed-bys, and Tested-bys even
+though the patches have already been applied. If possible, patch trailers
+will be updated.
+
+Note that commit hashes shown below are subject to change due to rebase,
+trailer updates or similar. Further, this is not a guarantee that the
+patches will go upstream. If in doubt, please check the listed branch.
+
+[1/1] mm/khugepaged: mark ptes dirty and soft-dirty on mTHP collapse
+      https://git.kernel.org/mm/core/c/5e600d79
+
+-- 
+Cheers,
+
+David
+
