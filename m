@@ -1,61 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=204.191.154.188
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794940075;
-	b=brrqgyFpcrD7pECYbsjDkSvCWKbrc03B2dP1fXJj+6odGRDpCZQZThXXcuPXOHg7aTiO
-	 ixuiN3frBc9gtr1dZPk7WPRsCRxNvyrf2U4sAgxCCuquO+NI9geZ2cCGCFVMRXgirrltt
-	 c+kwYHqK6zQVIOTc79wm0QSb9qgTMwiu56taMouAvNzeBA0D5TPTcpzz/MxxiZHE2u/81
-	 2jV41StnJxadeiGOR2g8qIlfiaTypSHdT/D7TJ89s9NbLUAvRrjcceUXT0YzPcg+qIomF
-	 nWf9r0GknEKp6ZxCYw4/4Uxic0EWJGCheWu6/yfWswqIEUIK/Z5J3ITG9DnYePcwneQ==
+	t=1794940093;
+	b=EzqMFDi0MkpUb6nYl/11E4Qm0FkxhVN5apDMWY72CBG9Leu5M8YDA4+sMqDcr07RpHid
+	 BFWPVSX45/2UvQHGrRI+6Y1KQL6us4R/6D5rdBptrWE9kFdQnZD8uL99KYo/EfHj+ok9T
+	 zWBu6hjP8IPUNnsrCzSg2PeapaalMGA9itH41M17HrHE48qPe6CFQjgfyCGL93i9Bkwfp
+	 iAv9bGOC+dl7JGQhdu4uv6LcIe42gXJbD8nxATvXw0pgpTfvzdzRaijol3FNKZGmNMplU
+	 p2JXr+Zl0m+oBLug5B9PGj4xQB/C/G5Laq07p2xwNIRsZyhO8vnevA007LJ8MAqg+JQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794940075;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=d2xN15dj3gCvbJHEB+TEBgOrVQFIeke+Q9K2cfCpikA=;
-	b=iidXHr6dMeABWU2MOsAkIufbLr8Nywdu5CJfUp0kbfrmlu+ebdOp5UGkxjxukGMLFjs0
-	 mBgjs+7Sbc1NsVyYS/vzpn43LUGxL8D8xAFlv5EHPF6vNqEm7k5BV5888osH7Vfr+T6M2
-	 xo9856FVnsivpUBSM36nhHkRXMKk+fMOC0jBPdI0TTHu1vRt6IwBrMYx46eLUEock1WVl
-	 FI8RBU6YJauz3RhF9GTxkhlB11n36QHAKFnoYTj5uuUbpddHG0bQ2zXSg6CvI2oMpmK2Z
-	 aciTHeiqnyytjz56f5u+VYU2b/v+HUKE0svCuWGtlNkGW1D8Dd+RJ5wPxOokUsORd1A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794940093;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-SA-Exim-Connect-IP:
+	 X-SA-Exim-Rcpt-To:X-SA-Exim-Mail-From:X-Spam-Checker-Version:
+	 X-Spam-Level:X-Spam-Status:Subject:X-SA-Exim-Version:
+	 X-SA-Exim-Scanned;
+	bh=korbg7m2/TbtqPgo8sxH4xfzvfV/2mKsNq65LW7R+ds=;
+	b=TaRcJDwVJeuLMTbs3jutMFCgKFdEm6hfL3aG2uTp0b+eiYTl75dJHpGnkpuD4Aq6OQSC
+	 inFKq8aSKxXZJFex7B/PdvxrRjHXOTjQhoNaC8inXp7YsR/T1AF+xV+rmrcZOBZPJPbsp
+	 //LFnDuEajfCyUt/hWUw8QGzNx1H/R3p2/v8TzNl1s2dyDTrf3/ayhtRYTchCtbbIV6Ox
+	 D4/yR0Q444O55Tcdf+EAv9Kjsuiwj0ch7Vr7HI3Nd8SeKiD9mmWBv6bj4qcF1BE9nsMht
+	 x0Iuag96hrmqO8Ju6AuZu9KJ1oSwHfq4n/BX3lP7apqqTjQ4GkF1MHOVm8IgOdMQrGw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dqULsYEt;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=deltatee.com;
+	spf=pass smtp.mailfrom=deltatee.com;
+	dkim=pass header.d=deltatee.com header.i=@deltatee.com header.a=rsa-sha256 header.s=20200525 header.b=fvHxjg3y;
+	arc=none smtp.remote-ip=204.191.154.188
+Received: from ale.deltatee.com (ale.deltatee.com [204.191.154.188])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9424B606A31C;
-	Tue, 17 Nov 2026 18:27:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD428606A32A;
+	Tue, 17 Nov 2026 18:28:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD428606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=deltatee.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=deltatee.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dqULsYEt
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 340431F000C4;
-	Tue, 17 Nov 2026 18:27:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794940075;
-	bh=d2xN15dj3gCvbJHEB+TEBgOrVQFIeke+Q9K2cfCpikA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dqULsYEtt6CVaxlO9mQ6ePjg54L1qfwjVAX9O2MIZTa/dE0PKcBqvpx05FKgSVh5+
-	 8JYLEdhpMkz5k2XlhWPYRuija2Xqm8oC/Wmg110tvZCjq2JqblBUP5aLUrY/z7J1LR
-	 i4T7gU3FFD5E7EQpxZ7b15/60fdvrPCatwaKUO7PZ1QCWW3esoGE960t8aoT2vn/Sp
-	 etj5+atmpx4h2AyUYebq5tPIl49tk4Z9pZ9os1a3dib+Uan4/Yy2jly+jjdkp5os/z
-	 wq2Pr4qCj7UcJB17/2DLrYP9+UnmHZOxg5SmSrmnYUoy4dyX7imNgrprxXTJd3TLXr
-	 8Hlx2DJdXTB9w==
-Date: Tue, 17 Nov 2026 18:27:52 +0000
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: Chengyu Liu <lui2012qwq@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, arm-scmi@vger.kernel.org,
-	philip.radford@arm.com, stable@vger.kernel.org
-Subject: Re: [PATCH 1/2] firmware: arm_scmi: Fix deadlock between reboot
- notifier and forceful work
-Message-ID: <20261117-hypersonic-beautiful-perch-bd4fcf@sudeepholla>
-References: <20261116084211.3066460-1-cristian.marussi@arm.com>
- <20261116084211.3066460-2-cristian.marussi@arm.com>
- <20261116-astonishing-urchin-from-jupiter-838cfc@sudeepholla>
- <avw5o7sTyriZ2ZiX@pluto>
- <20261117-prodigious-limpet-of-fame-3d72e6@sudeepholla>
- <CAE=Q7=4+HMtqbiK9v3jw4t31TQOYUfRXKRurZ7KcMi7GTi1v2A@mail.gmail.com>
- <avyS2OLs3XGcKXXn@pluto>
+	dkim=pass (2048-bit key) header.d=deltatee.com header.i=@deltatee.com header.a=rsa-sha256 header.s=20200525 header.b=fvHxjg3y
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=deltatee.com; s=20200525; h=Subject:In-Reply-To:From:References:Cc:To:
+	MIME-Version:Date:Message-ID:content-disposition;
+	bh=korbg7m2/TbtqPgo8sxH4xfzvfV/2mKsNq65LW7R+ds=; b=fvHxjg3yc33WDFyLzOuGp62/Cg
+	g+kV0C9O/eY4uhCMslNXy3KDQEqEcNlqREPEPGSxIdS0lEpDq86Q6ib34m5kKl5VID1x6D6XHkKyp
+	OpLtRp/mn/Nee9CEEVSxL07lIb+/QHS+0e2D8mbt2NsGPpfhedD6X0Z2SAPSn3jKxAgc7BBM8Xqa8
+	Q6fqaTwkIhdB8qIf0+QwN4TNkXuHR1tQk503RYMrBVB8ih6u/G6NCgEortBh+8PlRKxpgrl3d7VPZ
+	3WfRS4KNXcCgHDwmJIHwxC/vZtR4Q4JjzxUHz8MWjhT/roSvUchSjX+0YDQhjhp839UV2KXxcYLkN
+	WU32Q/pw==;
+Received: from guinness.priv.deltatee.com ([172.16.1.162])
+	by ale.deltatee.com with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.98.2)
+	(envelope-from <logang@deltatee.com>)
+	id 1xTNuc-00000001SZK-28xu;
+	Tue, 17 Nov 2026 12:28:11 -0600
+Message-ID: <b3058fbd-151a-4cb4-b5fe-e55964d5f8a3@deltatee.com>
+Date: Tue, 17 Nov 2026 12:27:50 -0600
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,37 +62,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <avyS2OLs3XGcKXXn@pluto>
+User-Agent: Mozilla Thunderbird
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.li@nxp.com>,
+ Christoph Hellwig <hch@infradead.org>,
+ Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
+ Dave Jiang <dave.jiang@intel.com>, =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?=
+ <linux@weissschuh.net>, Kelvin Cao <kelvin.cao@microchip.com>
+References: <20261110173137.623764-1-logang@deltatee.com>
+ <20261110173137.623764-2-logang@deltatee.com>
+ <avyWCL7TzS9JX4Ys@lizhi-Precision-Tower-5810>
+Content-Language: en-CA
+From: Logan Gunthorpe <logang@deltatee.com>
+In-Reply-To: <avyWCL7TzS9JX4Ys@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 172.16.1.162
+X-SA-Exim-Rcpt-To: Frank.li@oss.nxp.com, dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, vkoul@kernel.org, Frank.li@nxp.com, hch@infradead.org, christophe.jaillet@wanadoo.fr, dave.jiang@intel.com, linux@weissschuh.net, kelvin.cao@microchip.com
+X-SA-Exim-Mail-From: logang@deltatee.com
+X-Spam-Level: 
+Subject: Re: [PATCH v4 1/4] dmaengine: add per-channel sysfs attribute groups
+ via chan_groups
+X-SA-Exim-Version: 4.2.1 (built Sun, 23 Feb 2025 07:57:16 +0000)
+X-SA-Exim-Scanned: Yes (on ale.deltatee.com)
 
-On Tue, Nov 17, 2026 at 05:46:00PM +0000, Cristian Marussi wrote:
-> On Wed, Nov 18, 2026 at 01:35:04AM +0800, Chengyu Liu wrote:
-> > Hi,
-> > 
-> > I think the current v2 may have reintroduced the second deadlock
-> > described in my original commit message.
-> > 
-> > scmi_forceful_work_func() still calls unregister_reboot_notifier()
-> > while holding sc->state_mtx. Could you also check the potential lock
-> > inversion between state_mtx and reboot_notifier_list.rwsem?
-> > 
-> > The reboot path holds the rwsem read lock while executing the notifier
-> > callback, which then waits for state_mtx. Meanwhile, the worker holds
-> > state_mtx while trying to unregister the notifier, which requires the
-> > rwsem write lock.
+
+
+On 2026-11-17 11:59, Frank Li wrote:
+> On Tue, Nov 10, 2026 at 11:31:33AM -0600, Logan Gunthorpe wrote:
+>>  static ssize_t memcpy_count_show(struct device *dev,
+>>  				 struct device_attribute *attr, char *buf)
+>>  {
+>> @@ -1117,6 +1143,7 @@ static int __dma_async_device_channel_register(struct dma_device *device,
+>>
+>>  	dmaengine_chan_dev(chan)->class = &dma_devclass;
+>>  	dmaengine_chan_dev(chan)->parent = device->dev;
+>> +	dmaengine_chan_dev(chan)->groups = device->chan_groups;
 > 
-> Yes indeed Sashiko complains about the same and the second part of the
-> issue on the rwsem is unresolved and will need more work.
+> if echo channel have same groups, why need copy it to dma_chan?
+
+The groups pointer belong to each channel, so each dma_chan must set its
+groups to the chan_groups pointer stored in the device. The only way to
+add these groups is to set dma_chan->groups to something and the pointer
+stored chan_groups is exactly what it is there for. I can't see any
+other way to accomplish this. It makes no sense for each channel to have
+different groups.
+>> +/*
+>> + * dmaengine_chan_from_dev_lock() / dmaengine_chan_from_dev_unlock() bracket
+>> + * a critical section across which a channel's struct device can be safely
+>> + * converted back to its struct dma_chan: dmaengine_chan_from_dev_lock()
+>> + * returns NULL if the channel has already been unregistered, and the lock
 > 
+> where return NULL when already been unregistered
+> 
+> static struct dma_chan *dev_to_dma_chan(struct device *dev)
+> {
+>         struct dma_chan_dev *chan_dev;
+> 
+>         chan_dev = container_of(dev, typeof(*chan_dev), device);
+>         return chan_dev->chan;
+> }
+__dma_async_device_channel_unregister() will set chan_dev->chan to NULL
+while holding the dma_list_mutex lock.
 
-That's what I was referring when I said
-" ... re-evaluate needs_forceful again here after un-registration before
-  calling below forced transition ?"
+Thanks for reviewing this,
 
-But then your response somehow convinced me that it is not needed 😉.
-
--- 
-Regards,
-Sudeep
+Logan
