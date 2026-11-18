@@ -1,65 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795017996;
-	b=bZo1IvcZp3cDeF2yrvH3cFQOOMl4hvaNk9pfAlQgcGk15nvMs+wo9laXYndKMjB90s0O
-	 C8h5g/+qWlYXUCqb0PHgt2wZjY6bQnXvxDtZ7yiaRDWRBXUTBoWa4iaOnPVur+5oKCWo4
-	 BOcR+tRWoTMe977K59vRdqQMnw/4LTaHY5jSlXtI8koNFdnfXxriGiSEpPzAEJLoHH0O2
-	 3sBvpBS9oOy2Qfe0wh6Qwod/LqYDtWsaKatSFBpKaDxKUkTlW8DdTAkWxPLhxI6BSPXQc
-	 uKOIaqLY9GkKkqtZ37N0ab50LU8ismNVmYCbRXjDMAAR5WAVjzlnhiY9HayGu+2AF1Q==
+	t=1795018036;
+	b=bxhKZ9GXwJc0yxRO9MzHQjq8w4IF/pgwseVwjML1t+n50GZflL+itb/kCtJ8rdGiI0XY
+	 UBcooxHaV441FqUUwwUnHGa9oExl6gm5i0Auqc56Cj7CkxFK3mVbEw1A1mm260jHfflEh
+	 2dbC5iThQmK96m7e7nNTevN6QWJ8swxUKtUoXaXK8G1SHg62UZnoM0d5yPypuF4WhqfPO
+	 e+VCvxm1utpFzRKta00sonH7eBztw6+BRjCYMgXRf/Pnvd2JUwWxL4sfBN8NZN5j+bnda
+	 5sKfePjzLN+lv1VTinlmfGDSwA2EIj4P+PLd+xDULvhP5KkHvRJHLaYGuqz12oYzAoA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795017996;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=xTCU+RoK1YPlyX0Acm2jpVyoheKI6U5GNoIs3mZD/FU=;
-	b=dxXSK0aeFIYjC5RNkALy1GkXnQLryl+Y0Ke5ROvkAmGKxRfQiGWypA8pUrPpcBbfX2s9
-	 60BodRMPLWDQemlH3Ay5oF38Q6Clv13zGi6lsJJboeeVcWNWSt7JKFoKziopqBc7PnzFJ
-	 q4/XJdogpyS4jZAe1TnhVGWpk4/4xlTjLVAjlU5nU8S3STosKbw8cdJiG+94+SrhiDBLr
-	 NGfFJijqe3pz6ApD1ZDBkQuMmIwM+f3Q/Y5BxiK+iiMA3+Hv3Yvn71+CP8jAhyJCyXrfO
-	 3R6zO2LRrZVoeWmomLliVRACnkvMEOuyxksq28ove1PrfGOUQi1d3A9Hz0sq54CDRxg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795018036;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=ngBn9IgkxuA1QATjbZhn0dD+vrQfjiVM3wD6LtiJpaM=;
+	b=TNLum1jSyWtHrWgzq5gFnSb+rgXz4uWMJZ5rh4D7d2RCbUYAS4iJk8DkVD8mtVqzeiUL
+	 dEIjkJvG+FZ3jzt4TUP5Ecil0wxeHKbNRilTJ3RMFOv4x1DLcA27i6QRCwNvGBFG0M2/1
+	 R6yAkTK/fZtD20HEGFZgWrI4fG4hI2IjF/IR8GgsvGAjnjRTSpNqKtE2wDRy/laNf1IH5
+	 G2F12HWqrerbvwE4rr2EMlSwoQh8Lr+158OBxbl6VI7QsQdtp8+rf4YfOZAwrpad4KHfw
+	 W0HAoGhMFnZIhMmStBL0GxEC7dom5Yv/tozRzsBIgc+O3H2CfNpSjcNsV/apC9Kjsrg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Lps8hBf3;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 9FCE8606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:06:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9FCE8606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dKIZcolW;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09AEF606A320;
+	Wed, 18 Nov 2026 16:07:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Lps8hBf3
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E428C339;
-	Wed, 18 Nov 2026 08:06:31 -0800 (PST)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C9C3B3F673;
-	Wed, 18 Nov 2026 08:06:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795017994; bh=MP+B+gRf4KcD50ABMTgIEP0ELDxT6FWXcXxgwQFXDHI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Lps8hBf3xR3dtzY/3UFzglc9UPB0HaBODeW9ds8xMelngDfVKsey6Ae2d9lnvbuz0
-	 y5auJ8Q3w1PoXP5W3ueeIaFLOLB/+31P5TAdKEclcuV+s9axHrxBY5Iwi93zgbAiLQ
-	 Gw4dAyU0monCTipOJYTL3fw6qimV6iSa+CL6Kql8=
-Date: Wed, 18 Nov 2026 16:06:29 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
-Cc: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>,
-	Harry Yoo <harry@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Hao Li <hao.li@linux.dev>, Christoph Lameter <cl@gentwo.org>,
-	David Rientjes <rientjes@google.com>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Suren Baghdasaryan <surenb@google.com>, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	syzbot+527fed49e5b988882c9a@syzkaller.appspotmail.com,
-	Breno Leitao <leitao@debian.org>
-Subject: Re: [PATCH] mm/slub: don't let kmemleak report rcu sheaves
-Message-ID: <av3NBYxYXyYk_tjS@arm.com>
-References: <20261113151837.123795-1-ngocthang2710.1999@gmail.com>
- <0e626675-c6f9-40d7-a4ae-de069154ada2@kernel.org>
- <avzduIJralOKBgxK@arm.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dKIZcolW
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E4E81F000C4;
+	Wed, 18 Nov 2026 16:07:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795018035;
+	bh=ngBn9IgkxuA1QATjbZhn0dD+vrQfjiVM3wD6LtiJpaM=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=dKIZcolWbnuLTKqutq9BmxD9ACQlJdPkqJmQ7dOWKxPpMdvcVKulma5xuQHT0zwHf
+	 v5pqM2+EcmxkfVsmgN1TYYi0ZFoLR4hkQTg1mROqw2VQHX3at7lk8d9b/21gNCnRBz
+	 gk+madvKADNedFNMXuYlAS6UBm77p1LRimtoaPAASi75cwe8gj/NGMvNu7WTpMBhk5
+	 U9+7qdaslGzB6uFNngTzB3NmxhhP0wWAEnMFdMgFVyQTVtk6RBmer8daPM7fDLUB4C
+	 DTps3Soa12TrpMaJysTncT+Y5kn9JLWb3reuFwAGCJpA7zviedaeLHGFvTZDrFebtp
+	 1T1ZmcHGVDWAA==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,95 +49,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <avzduIJralOKBgxK@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH 2/3] media: iris: Skip redundant HFI_PROP_TIER updates
+From: bod@kernel.org
+To: Vishnu Reddy <busanna.reddy@oss.qualcomm.com>
+Cc: Vikash Garodia <vikash.garodia@oss.qualcomm.com>, 
+ Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>, 
+ Abhinav Kumar <abhinav.kumar@linux.dev>, Bryan O'Donoghue <bod@kernel.org>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Vedang Nagar <quic_vnagar@quicinc.com>, Hans Verkuil <hverkuil@kernel.org>, 
+ Stefan Schmidt <stefan.schmidt@linaro.org>, 
+ Hans Verkuil <hverkuil+cisco@kernel.org>, 
+ Deepa Guthyappa Madivalara <deepa.madivalara@oss.qualcomm.com>, 
+ linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
+ stable@vger.kernel.org
+In-Reply-To: <20261031-fix_dec_seek-v1-2-cfedf0c267ee@oss.qualcomm.com>
+References: <20261031-fix_dec_seek-v1-0-cfedf0c267ee@oss.qualcomm.com>
+ <20261031-fix_dec_seek-v1-2-cfedf0c267ee@oss.qualcomm.com>
+Date: Wed, 18 Nov 2026 16:07:10 +0000
+Message-Id: <179501803041.2846709.479596500645471046.b4-reply@b4>
+X-Mailer: b4 0.17-dev-e3fc9
+X-Developer-Signature: v=1; a=openpgp-sha256; l=941; i=bod@kernel.org;
+ h=from:subject:message-id; bh=EzW7ed+tOi0UapeX4dTOqd0hl7HzztMfnZPqsWsSQGE=;
+ b=owEBbQKS/ZANAwAKASJxO7Ohjcg6AcsmYgBq/c0uqfS6qXMMAwhT4jq2zif+9KQU3YgpLK+o2
+ EMiw79tcWCJAjMEAAEKAB0WIQTmk/sqq6Nt4Rerb7QicTuzoY3IOgUCav3NLgAKCRAicTuzoY3I
+ Oqd3D/wOzo0O3Pql77X+XK/wM4/eGgLw2WK1pm4gxuxajoZC5gpbangHaQ/mT1oN4JJ1txvojhm
+ vaWxTkK8w+v22I9BTD1j6EHLekl9pQrzXxjHL+jpjmrANFRTbWb4vTWz0W2mthjvuvtQu3/i1Dz
+ MMqkaq6q6Dk2D/joH6jsrXeUCrj1Mqoh+PZCKQuUA6Rx6pDc6OtPYBhzQVRtmsrV+KXtvntHXsp
+ t1Lhja/dLzXdDKxMKt/jxGbikKRHZtAHcOjP7BqG1cghbV+gQIRLEtjAov8NXBK87iBumVHiFfi
+ 7ouVIKFt08bH+4bHPR2opGILO8q05T0l5KkngsdD8NnnD5rooctnzH5YeXJ6rlkckMS7nsZJtP1
+ JcOPHfgUQM2Asr7yVqlPdnEr4lHrOBxhXp8lV3+P/pK3seP7+wdzT4VQ/rye4MbwmkEZGP8Kmmu
+ EMZ3b8sLjZ4JXIg+6h3qJaFi2Jvot4ZXbCSs5yxSmAyuI1O+vyUCI4Ps9mrpYWcWmvq2af9vwjx
+ phT09K347Kk/0kdGHw4RnoqGMuCQYVE9Ehf6/gKmNttosxxhcdiEg/jtahy8pcoGejsb8QOalhS
+ VdivwqQlynI1oTcydsCOqLbk8xEuD9+n18dnba0ib09VjBoottVnRDfnNtDczIhf/7mKSv5Pc3Y
+ +Zs9PEwUHda8kXA==
+X-Developer-Key: i=bod@kernel.org; a=openpgp;
+ fpr=E693FB2AABA36DE117AB6FB422713BB3A18DC83A
 
-On Tue, Nov 17, 2026 at 11:05:28PM +0000, Catalin Marinas wrote:
-> After some back and forth with claude, I think there are a couple of
-> places where kmemleak fails to track. Since commit 9aec2fb0fd5e ("slab:
-> allocate frozen pages"), kmemleak no longer scans the slab structures in
-> scan_zone_pages(). We could do something like below:
+On 2026-10-31 01:49 +0530, Vishnu Reddy wrote:
+> HFI_PROP_TIER is already programmed by iris_hfi_gen2_set_tier(), which
+> selects TIER or TIER_AV1 based on the active codec. The TIER and TIER_AV1
+> caps also define a .set callback. As a result, iris_set_properties()
+> programs HFI_PROP_TIER again through the generic cap path.
 > 
-> diff --git a/mm/kmemleak.c b/mm/kmemleak.c
-> index 20c0eb41c873..47446af5fc9f 100644
-> --- a/mm/kmemleak.c
-> +++ b/mm/kmemleak.c
-> @@ -1875,9 +1875,13 @@ static int scan_zone_pages(struct zone *zone)
->  		if (!(pfn & 63))
->  			cond_resched_tasks_rcu_qs();
->  
-> -		/* only scan in-use pages belonging to this zone */
-> +		/*
-> +		 * Only scan in-use pages belonging to this zone. Slab pages
-> +		 * are frozen (zero refcount) but struct slab holds pointers
-> +		 * such as the rcu_head of a slab pending rcu_free_slab().
-> +		 */
->  		if (page && (page_zone(page) != zone ||
-> -			     page_count(page) == 0))
-> +			     (page_count(page) == 0 && !PageSlab(page))))
->  			page = NULL;
->  
->  		if (page && first && page == last + 1 &&
-> 
-> 
-> I don't think this is specific to sheaves, SLAB_TYPESAFE_BY_RCU may have
-> a similar problem, though I don't remember to have seen such reports
-> yet. It should be covered by the above.
+> The generic property loop sets TIER first and TIER_AV1 last. For non AV1
+> codecs, the TIER_AV1 property is programmed after the correct tier value
+> and overrides it. Remove the .set callbacks from both caps. This ensures
+> HFI_PROP_TIER is programmed only once with the value for the active codec.
 
-This still leaves a hole. Scanning the slab descriptor recovers the link
-through slab->rcu_head.next, but the preceding callback can also be
-free_object_rcu() whose rcu_head is embedded in a kmemleak metadata
-object allocated from a SLAB_NOLEAKTRACE cache. This would break the
-chain.
+I think this commit log should list where and how these settings can be
+applied three times ? and what the sequence is exactly which leads to the
+invalid setting.
 
-So I think we should keep the original kmemleak_not_leak() patch at
-allocation.
+It's not enomrously obvious reading the log and then the code how that
+happens and which one is so obviously wrong.
+---
+bod
 
-> However, this only fixes the links through struct slab. The rcu list can
-> also go through a sheaf allocated with kmalloc_nolock(), which kmemleak
-> doesn't track. Any callback queued after it is missed (together with the
-> objects queued in that sheaf that may come from ordinary kfree_rcu()).
-> When kmemleak is enabled, could we simply avoid allocating sheaves with
-> kmalloc_nolock(), i.e.:
-> 
-> diff --git a/mm/slub.c b/mm/slub.c
-> index 45e077c7526c..13b8e57d6dae 100644
-> --- a/mm/slub.c
-> +++ b/mm/slub.c
-> @@ -6278,6 +6278,14 @@ bool __kfree_rcu_sheaf(struct kmem_cache *s, void *obj, unsigned int free_flags)
-> 
->  		local_unlock(&s->cpu_sheaves->lock);
-> 
-> +		/*
-> +		 * A sheaf allocated with kmalloc_nolock() is not tracked by
-> +		 * kmemleak, so neither its objects nor the rcu callback queued
-> +		 * after it would be scanned. Fall back to defer_kfree_rcu().
-> +		 */
-> +		if (IS_ENABLED(CONFIG_DEBUG_KMEMLEAK) && !allow_spin)
-> +			goto fail;
-> +
->  		/* Don't wake up kswapd, it will cause deadlock under pi_lock */
->  		empty = alloc_empty_sheaf(s, __GFP_NOWARN, alloc_flags);
->  
-
-For the objects queued in a sheaf, rather than the !allow_spin fallback
-above, it's simpler to move the kmemleak_ignore() call in
-kvfree_call_rcu() before kfree_rcu_sheaf(), so they are treated the same
-as on the non-sheaf path. kfree_rcu_nolock() currently only has a kunit
-user, freeing kmalloc_nolock() objects that kmemleak doesn't track
-anyway.
-
-So this second hunk isn't needed either.
-
-To Vlastimil's earlier point, kmemleak could follow these rcu chains
-instead of relying on kmemleak_not_leak(). However, with chain breaks at
-any _nolock or SLAB_NOLEAKTRACE object (including kmemleak's own
-metadata) and walking the rcu callback lists directly means digging
-into rcu internals. The annotation is easier to maintain.
-
-(got lost in all the slub code, it was much simpler 17 years ago when we
-merged kmemleak ;))
-
--- 
-Catalin
