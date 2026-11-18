@@ -1,88 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.154
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794995552;
-	b=zvN8Fg4cf2cOUxtpaFzqjcHPKoE9Nlbq2HU83Rh1wKBgk8+szV+QAD8iFk98OJSfT7kn
-	 Et1COjTy7rYlUHzl2wbjMVo+9/14cr95hOfOCOtCVac5RsP5GagZGueQwGQd3Qkhi+gl0
-	 02d9auic0qhjD1TbDCWvqPk6lHJBTserN5eiRgSWIdSY8HKuH2fVVFlcxl1AqeumNsws+
-	 UllDLJ6WUtBCdyH8449/5yxK+kbHXQKneHyjHn7TVjHk81u+GwPwIYdpVSl+QyLByIDAS
-	 lwFEqianeoYFU9qcC+cDXk5fCmgNO3yhimFee/HRxJRH5ev5eY7qjiIspDOCRHz5Xzw==
+	t=1794995608;
+	b=xXxxMbUivqsru4blDeQteX66VPN1LnIaEIwn5OMgLwnfhtQcDKuGEd0H1yIK3U9nFRcX
+	 hFkx+cLbr6HxXw4G80O2gm9ic0yB3ZMxM8gl+h2Q7wdG5p5Xp8KUXOs63SZXWAZsYWBWy
+	 5ZsMx81EFZZvYqYQN6VgkSU0VjAWHdpGBTcjOpqnqDAIfN/+RlZe5VAZmhDRl5dLEF0tf
+	 E5Xoio7D9iIBqB6nq8vqRBaxAn6BdRUxhQWgzlo6cyA7sVLhi/ruzEwrOHv6CDMQvAI4a
+	 GQ91a/KQgo8MIQeI2f04t6y72jM7FYgbUW6DyJMbiSmJO+xKGLQVdQEnI9v4WTkOQVw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794995552;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:X-ME-Sender:
-	 X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:Date:
-	 From:To:cc:Subject:In-Reply-To:Message-ID:References:MIME-Version:
-	 Content-Type;
-	bh=08GNxqqcutlPCHrAJDR+Yvcn0JpVtFjAgWOb3wtjwsY=;
-	b=BP7JKOo8XoaSXE15StKuhOdo1jDZB1g1ohrgpou1NX1a8VmIbEL625YoXZ8gh/swkXXy
-	 tHWIv8YLDWcqY1HCZQCrzEaOJcEDGbI8k3UHQ48GCLeZR8AQ3gclKi657exCqTZ9jvH+V
-	 QWVCcsb6cr8Fv6UxfSLTh27xTVv1FEjLV96RxNG6x4trPrLM7BOkq/rdny9US1j9HhUU2
-	 BAca+FfqAUBpAKqSQsa6MuuT/UgGsX5xGUCG+bVAsOJMlqXph9OCzgQ7nOxtNrDr0VxIx
-	 qgJ1s+GfYiM10XDHW+Or2NwT/2YwzoPzF6K0pec1mR4eReJVnpvZSLcbPF7sGojz4WA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794995608;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=1voa5gtURoefFDtWXtSo9MgtUtxO1bQT8LxoPwj5oTQ=;
+	b=sOfcyAAkZpYgRcLbuH+nXXgW5J8YnojcmBt9NbvrqbNLBBBP3rGSqMnQpIVyS3gRaZTQ
+	 wHPS5ZCulJUBJW6aOifsM2SDfaD1X6LsUFjiXYINnwK6si3DrIVlA+c6OAgMA2E/pM9Pg
+	 BlPghlR0tnOXF9cDHnNtZKAMp5S9RpW7XMD6V4WdkIFRJB1H6NLajvt51I4913zrVHgWU
+	 0RAlQXUbkduActjGIEgNmYzBH7Fg89wL0AI+TLzNWLscfIBW3MwOO4728UYEUK2JAfEYt
+	 1QtRBBTOpqGCYf/aMXDuBbaqtyzvPLFCqtZToEWwWXHFkWrQFPBwYZrhsAjPWCJhZbg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=linux-m68k.org;
-	spf=none smtp.mailfrom=linux-m68k.org;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=CZeDPVBK;
-	arc=none smtp.remote-ip=202.12.124.154
-Received: from fhigh-b3-smtp.messagingengine.com (fhigh-b3-smtp.messagingengine.com [202.12.124.154])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ETYtVlGz;
+	arc=none smtp.remote-ip=74.125.82.179
+Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C800F606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:52:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C800F606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux-m68k.org
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=linux-m68k.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16814606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:53:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16814606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=CZeDPVBK
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id F1A267A0033;
-	Wed, 18 Nov 2026 04:52:30 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-04.internal (MEProxy); Wed, 18 Nov 2026 04:52:31 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1794995550; x=1795081950; bh=08GNxqqcutlPCHrAJDR+Yvcn0JpVtFjAgWO
-	b3wtjwsY=; b=CZeDPVBKmFsYWo5rOcms9u/XhMwfGlcpOsqtkxV13VQsVqq4Ji4
-	9h7MbqERyDCtpkOe/0UgjQShFtvhyEy9gIM7+P8vxPqi68d9SjF0+FX1pmliet8g
-	/BlbNwaW0AVS6g61epOJ/6VhmyZYg0L0FZrBpDbCKpGdHFOOrssP1xf6bWuwbMd1
-	6QYPLqEv1oWTJehamUD7DdT9nEMP4CwT2n74YcBCQouIGyO05BDxYoRoWn6wZ0Zp
-	8+343rPUi+pAKow8iNMVQZWYNdRYeQxAsWoi2dbbxl/lWC1PmUGCeYSz17vmIlKG
-	fzTceHrgDHNzcyYJXXKKsZHZFo/YUMJbRmw==
-X-ME-Sender: <xms:XnX9auYEqCNMnmh0RdtfEZXFB9L111362E3bKSTAlr19L_BJxJ82hw>
-    <xme:XnX9avPHGPTKei-j1BqVhRe11J2n0umOalj_3pNhCJTxc19C20EkPz8IGU30fdR5E
-    xOUo4AzGWTa5BytbSDcSRsorcJ6HMXGtuDGkDxFr-xcnzbh519Lmx-7>
-X-ME-Received: <xmr:XnX9ajaqdu1wJ2sZU7SXzN9Xh1SgEgwN2tKSfUmZqzX9RBXqD67jvN5SYNzK>
-X-ME-Proxy-Cause: dmFkZTGR4I22bLJwTwt2FWJhq+VEuyYwDblgcFrUmwnBJBinx2IsuzNOeMg5ScpVIFQLkD
-    dCX/Htnj6gduANGrr29dLqPLoA/sqWleUgQbcBnI46vXFeeHWPbpWG/uh4lXKUPdxrw7UE
-    TonLtq6N26xm0S5drgwXeI0l7IfrVmc96dzfQHOtgijMbj+2wH5JSTKHBcnN0m1YkXn50B
-    32YY3dNmrkbpeJ1eh0IxIiXEY3+vYfo6A1eiLaxcPDm7Ui8Ago9wkjNnhnpV8o8PC88I1S
-    R/enjdUceHxvOO9AkRW91IEkvwc8NPwchpDsGkPX/bN8AITx+sGeaIkoFyeyDpAGMXIiJ3
-    Nvt6fUpmvPPc/Zj0YhfNvLkTiXgu7sGbfOvqFE6L1vNUxneQd+CFI/0CoqNSGbBALW8QnV
-    M05xJ6XaHmH2eTqz9tLKboBP0BhR5aFolGmLGrdB4oyepjtHmE/0zAoJdDd7eoa7Vv0doE
-    ZrObc8QwxRX8IFmsSbuji576pcbJBdDRMblnfFXq81Pek7FvOucrQHjj9cSSWXQNIkj7/v
-    2PAOw2+k/Fn0VfOjQw3xH6S61CSm7rU8DoaRorWL5dfAomF+M0Z0xwTqZg7tshpHQ6yebS
-    oyIgv5GNK/kWbNLhwMYOAmN9q7eGNIxaMLBoAc+Z7a+KHCs9rVlPz+DXqixg
-X-ME-Proxy: <xmx:XnX9at1K0cR6oQfDNVBz_sCyXyWQqOq_meofSWU2_ecjaoGiDOgvbw>
-    <xmx:XnX9apeBBghT4A7WyX_76md47K60Qshvre3mbve0oIBWGNnmtZJU9Q>
-    <xmx:XnX9auG9k8fR6DTS7wdX4RtSIv-iIluOlHevT_WQzOWj2aAGWd56cA>
-    <xmx:XnX9aq2R_oJJhqXf-xC2dEO4H9wKM8fBD2qMcCcFeqkhSgOAJdJE_A>
-    <xmx:XnX9arq-pAxmiND6S4avF2n4EFu4rD4F_M00XKJMd8yy1q3Y3k2SfV7G>
-Feedback-ID: i58a146ae:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 18 Nov 2026 04:52:28 -0500 (EST)
-Date: Wed, 18 Nov 2026 20:52:16 +1100 (AEDT)
-From: Finn Thain <fthain@linux-m68k.org>
-To: Graeme Harker <graeme.harker@gmail.com>
-cc: geert@linux-m68k.org, linux-m68k@lists.linux-m68k.org, 
-    linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] m68k: delay: Fix rounding of short udelay() and
- ndelay()
-In-Reply-To: <20261113143832.168233-1-graeme.harker@gmail.com>
-Message-ID: <ae768ed3-a517-3223-5c86-a1599ff6c8e5@linux-m68k.org>
-References: <20261113143832.168233-1-graeme.harker@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ETYtVlGz
+Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-38190551625so1472379eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:53:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794995607; x=1795600407; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=1voa5gtURoefFDtWXtSo9MgtUtxO1bQT8LxoPwj5oTQ=;
+        b=ETYtVlGzePDQfeOeqoTZZfuGGlZosMS8f3cM1m5HOcPoCx/mrFjSOU4DPL7rufXk+j
+         Q6qAX+2VKt98xbZNvlNmTpGvgPurqpLelXzEoDH7lPxlR057vug9C84JurPL4+LYafQr
+         /sWdL339N3CgtRWSZHd0Cd+X2gNgnzCg+DRuHwhAFSzyk8KAMlNaw3VmfLxUqgo9vszn
+         o8YNWjpsp85dcH9lq5AUsyOTa0hvDyW7XGmDhJLVoXZWaSOJO+bjnqJma3LzAmZ/nMqR
+         2hnGwLoVWQokIraWgtYI0TT97kchnE4cnXgkyNn3wkEEbJpPsOHlMvae5GOkhn36uez6
+         r3xw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794995607; x=1795600407;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=1voa5gtURoefFDtWXtSo9MgtUtxO1bQT8LxoPwj5oTQ=;
+        b=Z5IciIRKCURjz3elZTGo9d+zf2FZm1K+1oDQdgQJPF5KYV1LQNW6mHbyL5G0NUsyuB
+         kfOGP1EkzQLI0icPkJ3QE2Ox7f6TZlLxO4ZJuH6t5diFkVrcJHMnH/+1RVIzjXFWJvhO
+         QWjBI5NwyRukqOA8NfushstHk03HFoSmxjwexMv8c2F/RT1SZw3xUXePBerJwOLAFra+
+         Z2Hduy7Mh5w45yLuTnVFSAlU3CJjioeocR5wKQX3DC75MveAQdYb46UDE3DK5oWFoS3u
+         /seLQwX/bC6vRl9X+TMcT9MNh4I7OP0ZriZyRhDjyzEAKBnUCGytFOBGOL/iDde6EQFF
+         MI0g==
+X-Forwarded-Encrypted: i=1; AL+hErEwtjB+lQMAwq3H3juKy277dqT7kxHoPD9e3vNCxO/xmQgs+0SLtSJATnShqm21Ikfqu4SY0j/CVHpuls8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8uJRWZeP3JG3P68qNOg1y4U2mEWOkJ8XilCTKc7ybVf7OTBbvd
+	SlnRCKJzm5QN+B1jOgactcHNNdkbHtzc9cH0to9CL0cHYEswWaGk67Yd
+X-Gm-Gg: AZFdTZcxc4nVHjbIV9TEoEQx/grKb30nruAU2XwuQxj87WDx9EKQ1+55NliB8A0LGy9
+	KRkfmF06C/TDPNX3v3sw7k8V2IC5w2KXo70j3v8O8NShpchuzs46MgWQSQLtex/tw+tLlmQg4x0
+	h6S5vUL8nbQnmKnQoJx3WtLB2LqRpBjtSEQpqkdBGzqWDUaxwv/5ijlhNHe1MDaI4LkWtKE9aYf
+	ueORiaYt8Auqh325p65lVZ8hZpP1Mr7zKTc9Zegc3xns+mmuPMio58plPAfkuc2iFaWVk3tipzb
+	kTWQCLd5LoXN7HxZefP03mVPv0ug8j/75DIO6d0K0Z0fvyGvj8J0lw1j8uhWalKFUv75az8poiO
+	Twy5dagzJUjq11OZ+EdR8QIECmCEMmgnsv27JX9wIHQlWFQQxN31Oxr+l/ExXt6gYDwF46KatwL
+	DpohSv2R5iPw53FZb3GqjfX0T9QfL9mVn/aeJv98+Xg8xCdsvlN+wfEDUl5hwY8bNBkVC9NnnWC
+	pOklZFQuqji5b5AqcHZOs4p2H2tz/zR+NwDDCl+qfkKpjsq1S3PFNMB5fBG/3w/8V9eicTaIPa+
+	LqUtbwDx8l8o5diulFkJLwIvfRO/tQ963RK92XodrNOkH+3Ye6f2/gJqh/s+/e2VwRa6Bb9czpR
+	GueBF7sUR7/1HjJ6QUm1bi492VoA+A1Dg6EZQM/xz2EURnL5J
+X-Received: by 2002:a05:7301:fc84:b0:370:1e50:a485 with SMTP id 5a478bee46e88-3828190e7d4mr1883449eec.37.1794995606974;
+        Wed, 18 Nov 2026 01:53:26 -0800 (PST)
+Received: from localhost.localdomain ([103.107.26.154])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a79c96b2sm6800826eec.24.2026.11.18.01.53.23
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 18 Nov 2026 01:53:26 -0800 (PST)
+From: Shivani Patel <patelshivani2283@gmail.com>
+To: Hans de Goede <hansg@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	linux-media@vger.kernel.org,
+	linux-staging@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Shivani Patel <patelshivani2283@gmail.com>
+Subject: [PATCH] staging: media: atomisp: Deduplicate and reformat atomisp_find_in_fmt_conv_by_atomisp_in_fmt()
+Date: Wed, 18 Nov 2026 15:23:14 +0530
+Message-ID: <20261118095314.42769-1-patelshivani2283@gmail.com>
+X-Mailer: git-send-email 2.50.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,136 +101,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 8bit
 
+atomisp_subdev.h contains duplicate declarations of
+atomisp_find_in_fmt_conv_by_atomisp_in_fmt() under ISP2400 and ISP2401
+comments. Both declare the exact same function with broken formatting
+(lines ending with open parenthesis, leading spaces, and awkward line
+breaks).
 
-On Fri, 13 Nov 2026, Graeme Harker wrote:
+Furthermore, the definition in atomisp_subdev.c uses the same broken
+formatting with leading spaces and a line ending with an open
+parenthesis.
 
-> __xdelay() takes the high word of xloops * loops_per_jiffy and only then
-> multiplies by HZ, so the loop count is truncated to a multiple of HZ.
-> On a 16 MHz 68030 (loops_per_jiffy 17792, HZ 100) every udelay() below
-> 57 us becomes __delay(0): measured on such a machine, udelay(10),
-> udelay(20) and udelay(50) all take the same 8 us, the call overhead,
-> and udelay(100) takes 67 us.
-> 
-> Multiply by loops per second instead and keep the high word, which
-> truncates by less than one loop; __delay() runs one more loop than it
-> is given, so the delay is never short.  As on x86, a factor of 4 is
-> moved from loops per second to xloops, so that the product
-> loops_per_jiffy * HZ only overflows above 2**34 loops per second
-> (34000 BogoMIPS).
-> 
-> ndelay() works out loops per microsecond from loops_per_jiffy rounded
-> down to a multiple of 2048, which on this CPU is 1 instead of 1.78.
-> With a 64-bit multiply available, use __xdelay() as udelay() does,
-> with 5 (2**32 / 10**9 rounded up) as on x86.  The CPU_HAS_NO_MULDIV64
-> variants are unchanged.
-> 
-> Measured on the 68030 (1 s of each, timed by jiffies, interrupts on),
-> time per call before -> after:
-> 
->   udelay(10)     8.0 us ->   18.2 us
->   udelay(20)     8.0 us ->   29.0 us
->   udelay(50)     8.5 us ->   61.5 us
->   udelay(100)   67   us ->  114   us
->   udelay(1000) 1020  us -> 1070   us
->   ndelay(400)    1.8 us ->    7.9 us
-> 
-> About 8 us of each is the call and the 64-bit multiply on this CPU.
-> ndelay() now pays for that multiply too, so very short ndelay()s cost
-> more; they are no longer short when loops_per_jiffy is small.
+Remove the duplicate declaration in atomisp_subdev.h, place the return
+type on its own line, and shorten the parameter name to 'fmt' so that the
+prototype and definition adhere to the 80-character line limit and
+Linux coding style.
 
-It's hard to measure anything accurately with interrupts enabled,
-without CPU isolation, NO_HZ, HIGH_RES_TIMERS, GENERIC_CLOCKEVENTS etc.
-
-(BTW, I notice that m68k and RISCPC are the last remaining users of
-LEGACY_TIMER_TICK...)
-
-Which clocksource driver are you using for jiffies?
-
-I did some measurements with your patch on a Motorola 68040 (Mac LC 630).
-This build does not set CONFIG_CPU_HAS_NO_MULDIV64.
-
-My method was a bit different than yours (code is given below): nominal
-40ms of each call, measured with a VIA timer, with interrupts disabled.
-(The jiffies clocksource on this platform uses the same VIA clock.)
-
-Here's what I measured:
-
-udelay(10)   9.94E-06 -> 10.3E-06 seconds
-udelay(20)   19.0E-06 -> 20.1E-06 seconds
-udelay(50)   46.2E-06 -> 49.4E-06 seconds
-udelay(100)  91.6E-06 -> 98.3E-06 seconds
-udelay(1000)  972E-06 ->  978E-06 seconds
-ndelay(400)   536E-09 ->  239E-09 seconds
-
-You were right about the delays being short, and you've certainly improved
-upon that for udelay(). But ndelay() appears to have regressed in my test.
-
-There is a lot of overhead in my ndelay() measurement so I'm surprised to
-see it measure low. I would have expected the opposite. Maybe my method
-is just not accurate enough.
-
-Thanks for working on this.
-
+Signed-off-by: Shivani Patel <patelshivani2283@gmail.com>
 ---
+ drivers/staging/media/atomisp/pci/atomisp_subdev.c |  6 +++---
+ drivers/staging/media/atomisp/pci/atomisp_subdev.h | 10 ++--------
+ 2 files changed, 5 insertions(+), 11 deletions(-)
 
-diff --git a/arch/m68k/mac/config.c b/arch/m68k/mac/config.c
-index b745cf20a71f..bc1da6ee014a 100644
---- a/arch/m68k/mac/config.c
-+++ b/arch/m68k/mac/config.c
-@@ -65,6 +65,54 @@ static void __init mac_sched_init(void)
- 	via_init_clock();
+diff --git a/drivers/staging/media/atomisp/pci/atomisp_subdev.c b/drivers/staging/media/atomisp/pci/atomisp_subdev.c
+index bdd2d9b18..6af8a42a6 100644
+--- a/drivers/staging/media/atomisp/pci/atomisp_subdev.c
++++ b/drivers/staging/media/atomisp/pci/atomisp_subdev.c
+@@ -95,13 +95,13 @@ const struct atomisp_in_fmt_conv *atomisp_find_in_fmt_conv(u32 code)
+ 	return NULL;
  }
  
-+#define GET_VIA2_TIMER2() \
-+({ \
-+	u8 low, high; \
-+	do { \
-+		high = via1[vT2CH]; \
-+		low = via1[vT2CL]; \
-+	} while (via1[vT2CH] != high); \
-+	1 + low + (high << 8); \
-+})
-+
-+#define DELAY_LOOP(n, cmd) ({ \
-+	u32 i, I = n / 40; \
-+	u16 t1, t2; \
-+	int d; \
-+	t1 = GET_VIA2_TIMER2(); \
-+	for (i = 0; i < I; ++i) { \
-+		cmd; cmd; cmd; cmd; cmd; cmd; cmd; cmd; cmd; cmd; \
-+		cmd; cmd; cmd; cmd; cmd; cmd; cmd; cmd; cmd; cmd; \
-+		cmd; cmd; cmd; cmd; cmd; cmd; cmd; cmd; cmd; cmd; \
-+		cmd; cmd; cmd; cmd; cmd; cmd; cmd; cmd; cmd; cmd; \
-+	} \
-+	t2 = GET_VIA2_TIMER2(); \
-+	d = t1 - t2; \
-+	printk("%10d invocations, %20s, %10d timer2 cycles\n", I * 40 , #cmd, d); \
-+	})
-+
-+static int __init measure_delays(void)
-+{
-+	unsigned long flags;
-+
-+	via1[vACR] &= ~0x20; // free running T2 with no port B output
-+
-+	// Given eclk is 783360 Hz, the 16 bit counter can measure up to 80 ms.
-+
-+	local_irq_save(flags);
-+	DELAY_LOOP(4000,   udelay(10));
-+	DELAY_LOOP(2000,   udelay(20));
-+	DELAY_LOOP(800,    udelay(50));
-+	DELAY_LOOP(400,    udelay(100));
-+	DELAY_LOOP(40,     udelay(1000));
-+	DELAY_LOOP(100000, ndelay(400));
-+	local_irq_restore(flags);
-+
-+	return 0;
-+}
-+
-+subsys_initcall(measure_delays);
-+
- /*
-  * Parse a Macintosh-specific record in the bootinfo
-  */
+-const struct atomisp_in_fmt_conv *atomisp_find_in_fmt_conv_by_atomisp_in_fmt(
+-    enum atomisp_input_format atomisp_in_fmt)
++const struct atomisp_in_fmt_conv *
++atomisp_find_in_fmt_conv_by_atomisp_in_fmt(enum atomisp_input_format fmt)
+ {
+ 	int i;
+ 
+ 	for (i = 0; i < ARRAY_SIZE(atomisp_in_fmt_conv) - 1; i++)
+-		if (atomisp_in_fmt_conv[i].atomisp_in_fmt == atomisp_in_fmt)
++		if (atomisp_in_fmt_conv[i].atomisp_in_fmt == fmt)
+ 			return atomisp_in_fmt_conv + i;
+ 
+ 	return NULL;
+diff --git a/drivers/staging/media/atomisp/pci/atomisp_subdev.h b/drivers/staging/media/atomisp/pci/atomisp_subdev.h
+index b12bb65be..c4a3bce6f 100644
+--- a/drivers/staging/media/atomisp/pci/atomisp_subdev.h
++++ b/drivers/staging/media/atomisp/pci/atomisp_subdev.h
+@@ -300,14 +300,8 @@ u32 atomisp_subdev_uncompressed_code(u32 code);
+ bool atomisp_subdev_is_compressed(u32 code);
+ const struct atomisp_in_fmt_conv *atomisp_find_in_fmt_conv(u32 code);
+ 
+-/* ISP2400 */
+-const struct atomisp_in_fmt_conv *atomisp_find_in_fmt_conv_by_atomisp_in_fmt(
+-    enum atomisp_input_format atomisp_in_fmt);
+-
+-/* ISP2401 */
+-const struct atomisp_in_fmt_conv
+-*atomisp_find_in_fmt_conv_by_atomisp_in_fmt(enum atomisp_input_format
+-	atomisp_in_fmt);
++const struct atomisp_in_fmt_conv *
++atomisp_find_in_fmt_conv_by_atomisp_in_fmt(enum atomisp_input_format fmt);
+ 
+ const struct atomisp_in_fmt_conv *atomisp_find_in_fmt_conv_compressed(u32 code);
+ bool atomisp_subdev_format_conversion(struct atomisp_sub_device *asd);
+-- 
+2.50.1 (Apple Git-155)
+
