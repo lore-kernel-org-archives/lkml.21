@@ -1,59 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794996399;
-	b=eov+yK7KlWliURXyq9ouzVfEuCo3afM3ETlLOsNxyuPNfzBUHuI7pYPNn9oxWyN9zpq+
-	 3G7+8azY7NI8ZNvYNy/jP7q67b6Kh1LARSbtYaD2sQCCNH87wtF+RsDhknI5Jl/6JzQMZ
-	 NEq7Tplc121wWK0oS8zRL9wTFAv2/+3gOobc2lhNmeF6mw4lxCIGU/fTdc9Kv3Fe7EcTb
-	 nC339PI8tvpHAMDgkRLo1f31Ie7V4+UznLYWfMxRPriGvNmS2t/gKoyYwzzKV2FAB59OD
-	 wRyo9UdI7phVjnSZLOL0iFexoAO/GQdxV9xncG5JtOPAIThd2oiAq2n4h0kvLtdf48Q==
+	t=1794996404;
+	b=uzUxaxBGO61B5P4I9nnd5u4Ti7If1M5xheK/x7brTkJt8AfL0Esyf1LbthKFHtreClhI
+	 pJXJVbRqAOJ1RlWRHoOqRfOeoUlH+BGiuU1JAFzaEmD2cBYZlo3nA6+UrHm3WOWmCjWBk
+	 Jh17YXXQYLaTyZu1HuFoyVcgEdvVgX7hE7oYUTZdbb7dqqUiBb0gqn6KJQI3GM7G6OmhX
+	 c4kqIWB94S9hM2/zktqtXafuloHbDM0s5m+NhVmpuaHc4jCjVrUW66AZkJS4bGLLpkpJv
+	 bX1PcNw9gl8sWzU4jq8h8MO8c42n5YRv3ZMt6N+PpiQ0fVRmOMDS8Ec2cLuPpVEONDQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794996399;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Subject:
-	 Date:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key:X-Last-TLS-Session-Version;
-	bh=qCmOmJpcC2FGP3cCy+7KhCGTxbbsxggJFbMLpjMC52c=;
-	b=h7PubnK2apNohKbeZ1gPECFPA093/7Ta6XlySkyKuIsmD85wP+LJfQuw320cmxLjW0s4
-	 IVik8MIDuZate+znAl74U1YvqK5bP7DwKKualZsyXzsYjir1LnU4vA4Sd3gtlIirni5Io
-	 PVA4Er+xMcN8+dVw+C7x/1bLQiTtVCcU7jg1RHvJNG4afzR9jSSDFGxkyAY1hZcCFUyth
-	 JuMOdRTtUyWUNnzZ2K5lvatr5W5looz6qg+Hh7ujYAUE4fYE501VOuWOELvXYPwxtPsJK
-	 gA0wXBTq26OjXPPIEqOxuC7ml/e1FC+mMOMlm2HzBiYohcnX9+lkot2+SH14kNKCNEA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794996404;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Last-TLS-Session-Version;
+	bh=XjmNWA4jmCnAnTuFZeFS4TqaaPYnqaehgjY+Sg6u1jo=;
+	b=MRPnT/6Xca4hl5MiGLIrSM91jgntaF8YdY9m6OQdCwsVQPoaqo/lLZdY8MXwJ1aZ3DNT
+	 EZLZq6c/IhAfWQmS/+rajOXDPFtUXlQQh9EJYBwtE7PRhno8zXrv4Qtrzz189WcMC1wv8
+	 1LFa9eodq0dEgk7ZpPX97UcEgmeoLHHOEPw7MvAWxfqdpV7aZnnmENssCIjujhUlr0Mr5
+	 PDet4EbjO0FALy1Nt0ol4NnXG0mMhGr8xv0h18g62kFKkODHR91A3Q4JC2F0vgMQEdofK
+	 80DB/FzrmZsTUSSTGl2KDXyf86Xvpo7XuM1VvYFWcZweXH6jdBTXeZYl6W0vuHmAbgg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=RARPlkwl;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=wcIOx44x;
 	arc=none smtp.remote-ip=185.246.85.4
 Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA509606A325;
-	Wed, 18 Nov 2026 10:06:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA509606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6BA03606A335;
+	Wed, 18 Nov 2026 10:06:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6BA03606A335
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=RARPlkwl
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=wcIOx44x
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 1A6E34E4158E;
-	Wed, 18 Nov 2026 10:06:37 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 308B74E41607;
+	Wed, 18 Nov 2026 10:06:42 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D98125FE9B;
-	Wed, 18 Nov 2026 10:06:36 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DED9E11BC0D79;
-	Wed, 18 Nov 2026 11:06:30 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 064D25FE9B;
+	Wed, 18 Nov 2026 10:06:42 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AE4C511BC0E7E;
+	Wed, 18 Nov 2026 11:06:38 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1794996395; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding; bh=qCmOmJpcC2FGP3cCy+7KhCGTxbbsxggJFbMLpjMC52c=;
-	b=RARPlkwlHYcyuTl1CrJ/7/xqQQvmKVGcXSnJ2p7sgnEV3yFjfs2/YEZSKBkbt3X6eJsN4+
-	Y4wtG8SCnCJ6vjdmdcs9J4Sq5D8gicVIh7W77KSsTp4qe6mdQVux52vLtjOHieqPbv/Y5N
-	MWc1f3ADc2CmBCs/Rilutm04MGWpiiwuLOcFCy16/f8KkJWJnkAXI2cWj1bJ8zAPp08hXq
-	NAmmQ312jnq3J8PhTMzcr1ENQ3SykZfSVsgWH5bpPcf0XVR9gUO8iowKEy5N3lTxxzGkZh
-	sy5n8sSHztOZ8dqAPRBaH0qm6nJIfJM26yVgm9LAINUGsD8fWEFtKL4799ofpQ==
+	t=1794996400; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=XjmNWA4jmCnAnTuFZeFS4TqaaPYnqaehgjY+Sg6u1jo=;
+	b=wcIOx44xNTLBIKw3V62PvJfLPj/Hbq/9PEg/froRvSRYdIV27uvj5pETC1kUUIfQcWKQm2
+	lTIwJ6GE9iJKFagpjfwmWiO1moiTwqZ7/4A8jfhokj6ntSa4bLXprz5zIbm5b2F3yZBSQS
+	NkCW8sUVZvYdJiePgBx6XRPMuyd+z2Fh+MYJPQRgkaSsvmkfdK7vP6VI6Mp9cJxvjPS5Ql
+	tYr0v2/snmQ6D1WKJcDYLmAiYwN3cEF1UBLkcRsnrfwvVJ33+h91rvdxhh0rLi7L7GV2nD
+	2lB3x/kQ+k2a7g3gPvuZJpR76Js3X73C14UOGPhMhXv0vHSeTKKucuQR9Zng/g==
 From: Paul Louvel <paul.louvel@bootlin.com>
-Subject: [PATCH v8 0/3] Add Renesas RZ/N1x EDAC driver
-Date: Wed, 18 Nov 2026 11:05:56 +0100
-Message-Id: <20261118-paul-v7-3-rc1-edac-v8-0-ed791084cc19@bootlin.com>
+Date: Wed, 18 Nov 2026 11:05:58 +0100
+Subject: [PATCH v8 2/3] EDAC/cadence: Add Cadence DDR EDAC driver
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,13 +65,9 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5XQ3UoDMRAF4Fcpe21kJv/rle8hXiSTxEa0W3bbR
- Sl9d5MWZMtGoZcDc745zKmb4pjj1D1tTt0Y5zzlYVcG+7DpaOt2b5HlUOaOA9fQo2Z7d/xgs2G
- CjYQsBkcMkzR96nUiZboS3I8x5a8L+vJ6naejf490qFLd2ObpMIzfl6sz1r1/D8zIgAUQ2lpuB
- ffu2Q/D4SPvHmn4rN41zOWfYQM+CkMSHdqbcO0382UD00R4QZJSFkFggBTvalDDnlCCRo2RaN1
- ALBpw0UREQZQVaMkJ6Z24q0EN+2BBSac8Wlg3kMsGtonIgkgtdSEMOerXiPpFEEA1EVWQ8gkHC
- bn01GiiFwi2f6ELwhMGnXgyMvg1YpZI30RMQawko0kHo3p1i5zP5x8yOxFJHQMAAA==
-X-Change-ID: 20260916-paul-v7-3-rc1-edac-1f479f96fc57
+Message-Id: <20261118-paul-v7-3-rc1-edac-v8-2-ed791084cc19@bootlin.com>
+References: <20261118-paul-v7-3-rc1-edac-v8-0-ed791084cc19@bootlin.com>
+In-Reply-To: <20261118-paul-v7-3-rc1-edac-v8-0-ed791084cc19@bootlin.com>
 To: Borislav Petkov <bp@alien8.de>, Tony Luck <tony.luck@intel.com>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
@@ -85,164 +81,455 @@ Cc: linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
  "Paul Louvel (Schneider Electric)" <paul.louvel@bootlin.com>, 
  Wolfram Sang <wsa+renesas@sang-engineering.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794996390; l=5317;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794996390; l=13169;
  i=paul.louvel@bootlin.com; s=20260313; h=from:subject:message-id;
- bh=GIpYZo0Crxj1Ka1uH8kyoppsBd0qzhQ1vSLadZTSV8U=;
- b=G8gT64nEIQ9OEyliec5pq6cbKRwkBmtavblq9NAqmP9Nqv02d1OS4zC+GFtgNldCmeNghM//l
- g4kHYw0ZoNjAjX1aaXC9tXR1NjFzHy4v7gJfJgE8gYGHZ4z/4gMLkwP
+ bh=YHd4S54kS7TyrsXDYNJBe5v/cp1SmLKWLKX97RfFGcw=;
+ b=BlAjXBgVAvukUD3A5xSw7WN3z1yy2Goe2Xyi6Jbv3G3ep7yebyjJlRtMUuhflxAgOmpZJk0YC
+ KNswjQAA7IoBrFGceLJ2gbNl92S9CmHZwWDsNCFoDqgcvr0U3m3X9n7
 X-Developer-Key: i=paul.louvel@bootlin.com; a=ed25519;
  pk=eLW50NT18UAvUT5cAcYf88zNbBCZDLFXuptpyLVhVIU=
 X-Last-TLS-Session-Version: TLSv1.3
 
-The Cadence memory controller found on Renesas RZ/N1x SoCs supports ECC
-with SECDED.
+Add the Cadence EDAC driver found on Renesas RZ/N1x SoC.
+The memory controller supports ECC, software scrubbing, and SECDED.
 
-The memory controller found on the r9a06g032 supports at most a single
-DIMM of DDR2/3, up to 2GB.
-
-Add the EDAC driver for this memory controller, and the relevant
-device-tree binding. Also add the EDAC node to the existing r9a06g032
-SoC base device-tree.
-
+Tested-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
 Signed-off-by: Paul Louvel (Schneider Electric) <paul.louvel@bootlin.com>
 ---
-Changes in v8:
-- After discussion with Wolfram and Geert, the driver have no reason to
-  be disabled by default. Remove the status property in patch #3.
-- Reparent on next-20261116.
-- Link to v7: https://patch.msgid.link/20261019-paul-v7-3-rc1-edac-v7-0-84c76c6d7595@bootlin.com
+ MAINTAINERS                 |   1 +
+ drivers/edac/Kconfig        |  10 ++
+ drivers/edac/Makefile       |   1 +
+ drivers/edac/cadence_edac.c | 379 ++++++++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 391 insertions(+)
 
-Changes in v7:
-- Patch 2: fixed weird formatting of cdns_ddr_ctrl_of_match.
-- Patch 3: did not sync trailers added in v5. Added Reviewed-By of Rob Herring.
-- Link to v6: https://patch.msgid.link/20261013-paul-v7-3-rc1-edac-v6-0-2f1d6f2f74db@bootlin.com
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 5070e3e02bf2..1e8fe131b601 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -6003,6 +6003,7 @@ M:	Paul Louvel <paul.louvel@bootlin.com>
+ L:	linux-edac@vger.kernel.org
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/edac/cdns,ddr-edac.yaml
++F:	drivers/edac/cadence_edac.c
+ 
+ CADENCE MIPI-CSI2 BRIDGES
+ M:	Maxime Ripard <mripard@kernel.org>
+diff --git a/drivers/edac/Kconfig b/drivers/edac/Kconfig
+index 63f263c4263d..84a3c2ce6fe2 100644
+--- a/drivers/edac/Kconfig
++++ b/drivers/edac/Kconfig
+@@ -515,6 +515,16 @@ config EDAC_QCOM
+ 	  For debugging issues having to do with stability and overall system
+ 	  health, you should probably say 'Y' here.
+ 
++config EDAC_CADENCE
++	tristate "Cadence EDAC Controller"
++	depends on HAS_IOMEM && OF
++	depends on ARCH_RZN1 || COMPILE_TEST
++	help
++	  Support for error detection and correction on RZN1x SoCs. ECC must be
++	  configured by the bootloader.
++	  The controller supports single bit error correction, double bit error
++	  detection.
++
+ config EDAC_ASPEED
+ 	tristate "Aspeed AST BMC SoC"
+ 	depends on ARCH_ASPEED
+diff --git a/drivers/edac/Makefile b/drivers/edac/Makefile
+index 4020ea60738a..f8f02fb442e1 100644
+--- a/drivers/edac/Makefile
++++ b/drivers/edac/Makefile
+@@ -94,3 +94,4 @@ obj-$(CONFIG_EDAC_LOONGSON)		+= loongson_edac.o
+ obj-$(CONFIG_EDAC_VERSALNET)		+= versalnet_edac.o
+ obj-$(CONFIG_EDAC_CORTEX_A72)		+= a72_edac.o
+ obj-$(CONFIG_EDAC_DUMMY)		+= dummy_edac.o
++obj-$(CONFIG_EDAC_CADENCE)		+= cadence_edac.o
+diff --git a/drivers/edac/cadence_edac.c b/drivers/edac/cadence_edac.c
+new file mode 100644
+index 000000000000..a3b72116ba12
+--- /dev/null
++++ b/drivers/edac/cadence_edac.c
+@@ -0,0 +1,379 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Copyright 2015 Renesas Electronics Europe Ltd.
++ * Copyright 2026 Bootlin
++ *
++ * Based on highbank EDAC driver:
++ *
++ * Copyright 2011-2012 Calxeda, Inc.
++ */
++
++#include <linux/array_size.h>
++#include <linux/bitfield.h>
++#include <linux/bits.h>
++#include <linux/clk.h>
++#include <linux/edac.h>
++#include <linux/interrupt.h>
++#include <linux/mm.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/of_address.h>
++#include <linux/platform_device.h>
++#include <linux/spinlock.h>
++#include <linux/string.h>
++
++#include "edac_mc.h"
++#include "edac_module.h"
++
++#define DRV_NAME				"cadence_edac"
++
++#define REG_BYTE_SZ				4
++#define DDR_CTL(n)				((n) * REG_BYTE_SZ)
++
++#define CDNS_DDR_STAT				DDR_CTL(0)
++#define CDNS_DDR_STAT_DRAM_CLASS		GENMASK_U32(11, 8)
++#define CDNS_DDR_STAT_DRAM_DDR2			BIT(2)
++#define CDNS_DDR_STAT_GET_DRAM_CLASS(reg)	FIELD_GET(CDNS_DDR_STAT_DRAM_CLASS, reg)
++
++#define CDNS_ECC_STAT				DDR_CTL(36)
++#define CDNS_ECC_STAT_ENABLED			BIT(16)
++#define CDNS_ECC_STAT_IS_ENABLED(reg)		FIELD_GET(CDNS_ECC_STAT_ENABLED, reg)
++#define CDNS_ECC_STAT_FWC			BIT(24)
++
++#define CDNS_ECC_XOR				DDR_CTL(37)
++#define CDNS_ECC_XOR_CHECK_BITS			GENMASK_U32(13, 0)
++
++#define CDNS_BUS_CTRL				DDR_CTL(54)
++#define CDNS_BUS_CTRL_REDUC			BIT(1)
++
++/* DDR Controller Error Registers */
++
++#define CDNS_ECC_U_ERR_ADDR			DDR_CTL(38)
++#define CDNS_ECC_U_ERR_STAT			DDR_CTL(39)
++
++#define CDNS_ECC_C_ERR_ADDR			DDR_CTL(41)
++#define CDNS_ECC_C_ERR_STAT			DDR_CTL(42)
++
++#define CDNS_ECC_ERR_STAT_GET_SYNDROME(reg)	FIELD_GET(GENMASK(6, 0), reg)
++
++#define CDNS_PORT_CMD_ERR_ADDR			DDR_CTL(61)
++#define CDNS_PORT_CMD_ERR_TYPE			DDR_CTL(62)
++#define CDNS_PORT_CMD_ERR_TYPE_GET(reg)		FIELD_GET(GENMASK_U32(10, 8), reg)
++
++/* DDR Controller Interrupt Registers */
++
++#define CDNS_ECC_INT_STAT			DDR_CTL(56)
++#define CDNS_ECC_INT_STAT_CE			BIT(3)
++#define CDNS_ECC_INT_STAT_MULTIPLE_CE		BIT(4)
++#define CDNS_ECC_INT_STAT_UE			BIT(5)
++#define CDNS_ECC_INT_STAT_MULTIPLE_UE		BIT(6)
++#define CDNS_ECC_INT_EDAC			(CDNS_ECC_INT_STAT_CE | \
++						 CDNS_ECC_INT_STAT_MULTIPLE_CE | \
++						 CDNS_ECC_INT_STAT_UE | \
++						 CDNS_ECC_INT_STAT_MULTIPLE_UE)
++
++#define CDNS_ECC_INT_ACK			DDR_CTL(57)
++#define CDNS_ECC_INT_ACK_MASK			GENMASK_U32(21, 0)
++
++#define CDNS_ECC_INT_CTRL			DDR_CTL(58)
++#define CDNS_ECC_INT_CTRL_MASK			GENMASK_U32(21, 0)
++#define CDNS_ECC_INT_CTRL_MASK_ALL		BIT(22)
++#define CDNS_ECC_INT_CTRL_UNMASK(i)		((~(i)) & CDNS_ECC_INT_CTRL_MASK)
++
++struct mc_priv {
++	int irq;
++	void __iomem *io_base;
++	struct dentry *debugfs;
++	spinlock_t lock;
++	u16 xor_check_bits;
++};
++
++static irqreturn_t cdns_mc_err_handler(int irq, void *dev_id)
++{
++	struct mem_ctl_info *mci = dev_id;
++	struct mc_priv *priv = mci->pvt_info;
++	u32 status, err_addr, syndrome, reg;
++
++	status = readl(priv->io_base + CDNS_ECC_INT_STAT);
++	if (!status)
++		return IRQ_NONE;
++
++	/*
++	 * Hardware is not exposing how many CE / UE occurred since last ACK in
++	 * case of multiple errors. Always set the error count to 1.
++	 */
++
++	if (status & (CDNS_ECC_INT_STAT_UE | CDNS_ECC_INT_STAT_MULTIPLE_UE)) {
++		reg = readl(priv->io_base + CDNS_ECC_U_ERR_STAT);
++		syndrome = CDNS_ECC_ERR_STAT_GET_SYNDROME(reg);
++
++		err_addr = readl(priv->io_base + CDNS_ECC_U_ERR_ADDR);
++
++		edac_mc_handle_error(HW_EVENT_ERR_UNCORRECTED, mci, 1, err_addr >> PAGE_SHIFT,
++				     err_addr & ~PAGE_MASK, syndrome, 0, 0, -1, mci->ctl_name, "");
++	}
++
++	if (status & (CDNS_ECC_INT_STAT_CE | CDNS_ECC_INT_STAT_MULTIPLE_CE)) {
++		reg = readl(priv->io_base + CDNS_ECC_C_ERR_STAT);
++		syndrome = CDNS_ECC_ERR_STAT_GET_SYNDROME(reg);
++
++		err_addr = readl(priv->io_base + CDNS_ECC_C_ERR_ADDR);
++
++		edac_mc_handle_error(HW_EVENT_ERR_CORRECTED, mci, 1, err_addr >> PAGE_SHIFT,
++				     err_addr & ~PAGE_MASK, syndrome, 0, 0, -1, mci->ctl_name, "");
++	}
++
++	writel(status & CDNS_ECC_INT_ACK_MASK, priv->io_base + CDNS_ECC_INT_ACK);
++
++	return IRQ_HANDLED;
++}
++
++#ifdef CONFIG_EDAC_DEBUG
++
++static void cdns_rmw(struct mc_priv *priv, u32 reg, u32 mask, u32 val)
++{
++	u32 regval;
++
++	regval = readl(priv->io_base + reg);
++	regval &= ~mask;
++	regval |= (val << __bf_shf(mask)) & mask;
++	writel(regval, priv->io_base + reg);
++}
++
++static ssize_t cdns_force_ecc_error(struct file *file, const char __user *data, size_t count,
++				    loff_t *ppos)
++{
++	struct device *dev = file->private_data;
++	struct mem_ctl_info *mci = to_mci(dev);
++	struct mc_priv *priv = mci->pvt_info;
++
++	spin_lock(&priv->lock);
++
++	cdns_rmw(priv, CDNS_ECC_XOR, CDNS_ECC_XOR_CHECK_BITS, priv->xor_check_bits);
++	cdns_rmw(priv, CDNS_ECC_STAT, CDNS_ECC_STAT_FWC, 1);
++
++	spin_unlock(&priv->lock);
++
++	return count;
++}
++
++static const struct file_operations cdns_ecc_error_fops = {
++	.open = simple_open,
++	.write = cdns_force_ecc_error,
++	.llseek = generic_file_llseek,
++};
++
++static void cdns_setup_debugfs(struct mem_ctl_info *mci)
++{
++	struct mc_priv *priv = mci->pvt_info;
++
++	priv->debugfs = edac_debugfs_create_dir(DRV_NAME);
++	if (!priv->debugfs) {
++		dev_dbg(mci->pdev, "failed to create debugfs dir\n");
++		return;
++	}
++
++	edac_debugfs_create_x16("bits", 0644, priv->debugfs, &priv->xor_check_bits);
++	edac_debugfs_create_file("inject", 0200, priv->debugfs, &mci->dev, &cdns_ecc_error_fops);
++}
++
++static void cdns_remove_debugfs(struct mem_ctl_info *mci)
++{
++	struct mc_priv *priv = mci->pvt_info;
++
++	edac_debugfs_remove_recursive(priv->debugfs);
++}
++
++#else
++
++static void cdns_setup_debugfs(struct mem_ctl_info *mci) {}
++
++static void cdns_remove_debugfs(struct mem_ctl_info *mci) {}
++
++#endif
++
++static int cdns_setup_irq(struct platform_device *pdev, struct mem_ctl_info *mci)
++{
++	struct mc_priv *priv = mci->pvt_info;
++	int ret;
++
++	priv->irq = platform_get_irq(pdev, 0);
++	if (priv->irq < 0)
++		return dev_err_probe(&pdev->dev, priv->irq, "unable to get irq\n");
++
++	ret = devm_request_irq(&pdev->dev, priv->irq, cdns_mc_err_handler, 0, dev_name(&pdev->dev),
++			       mci);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret, "unable to request irq %d\n", priv->irq);
++
++	return 0;
++}
++
++static int cdns_setup_mc(struct platform_device *pdev, void __iomem *io_base)
++{
++	struct edac_mc_layer layers[2];
++	struct mem_ctl_info *mci;
++	resource_size_t mem_sz;
++	struct dimm_info *dimm;
++	struct device_node *np;
++	struct mc_priv *priv;
++	struct resource res;
++	int ret;
++	u32 reg;
++
++	layers[0].type = EDAC_MC_LAYER_CHIP_SELECT;
++	layers[0].size = 1;
++	layers[0].is_virt_csrow = true;
++	layers[1].type = EDAC_MC_LAYER_CHANNEL;
++	layers[1].size = 1;
++	layers[1].is_virt_csrow = false;
++
++	np = of_find_node_by_name(NULL, "memory");
++	if (!np)
++		return dev_err_probe(&pdev->dev, -ENODEV, "unable to find memory node\n");
++
++	ret = of_address_to_resource(np, 0, &res);
++
++	of_node_put(np);
++
++	if (ret)
++		return ret;
++
++	mem_sz = resource_size(&res);
++
++	mci = edac_mc_alloc(0, ARRAY_SIZE(layers), layers, sizeof(struct mc_priv));
++	if (!mci)
++		return dev_err_probe(&pdev->dev, -ENOMEM, "unable to allocate edac mc\n");
++
++	mci->pdev = &pdev->dev;
++	priv = mci->pvt_info;
++
++	priv->io_base = io_base;
++	spin_lock_init(&priv->lock);
++	priv->xor_check_bits = 0;
++	platform_set_drvdata(pdev, mci);
++
++	reg = readl(priv->io_base + CDNS_ECC_STAT);
++	if (!CDNS_ECC_STAT_IS_ENABLED(reg))
++		mci->edac_cap = EDAC_FLAG_NONE;
++	else
++		mci->edac_cap = EDAC_FLAG_SECDED;
++
++	mci->mtype_cap = MEM_FLAG_DDR2 | MEM_FLAG_DDR3;
++	mci->edac_ctl_cap = EDAC_FLAG_NONE | EDAC_FLAG_SECDED;
++	mci->mod_name = pdev->dev.driver->name;
++	mci->ctl_name = "cdns-ddr-ctrl";
++	mci->dev_name = dev_name(&pdev->dev);
++	mci->scrub_mode = SCRUB_SW_SRC;
++
++	dimm = *mci->dimms;
++	dimm->nr_pages = PFN_UP(mem_sz);
++	dimm->grain = 4;
++	dimm->edac_mode = EDAC_SECDED;
++
++	/* Check if half datapath feature of the controller is active. */
++	reg = readl(priv->io_base + CDNS_BUS_CTRL);
++	if (reg & CDNS_BUS_CTRL_REDUC)
++		dimm->dtype = DEV_X8;
++	else
++		dimm->dtype = DEV_X16;
++
++	strscpy(dimm->label, "Channel#0_DIMM#0", sizeof(dimm->label));
++
++	reg = readl(priv->io_base + CDNS_DDR_STAT);
++	if (CDNS_DDR_STAT_GET_DRAM_CLASS(reg) == CDNS_DDR_STAT_DRAM_DDR2)
++		dimm->mtype = MEM_DDR2;
++	else
++		dimm->mtype = MEM_DDR3;
++
++	ret = edac_mc_add_mc(mci);
++	if (ret) {
++		dev_err_probe(&pdev->dev, ret, "failed to add mc\n");
++		goto free_edac_mc;
++	}
++
++	ret = cdns_setup_irq(pdev, mci);
++	if (ret)
++		goto del_edac_mc;
++
++	cdns_setup_debugfs(mci);
++
++	edac_mc_chipset_printk(mci, KERN_DEBUG, DRV_NAME, "ECC %s\n",
++			       (mci->edac_cap == EDAC_FLAG_NONE) ? "disabled" : "enabled");
++
++	return 0;
++
++del_edac_mc:
++	edac_mc_del_mc(&pdev->dev);
++free_edac_mc:
++	edac_mc_free(mci);
++	return ret;
++}
++
++static int cdns_mc_probe(struct platform_device *pdev)
++{
++	void __iomem *io_base;
++	struct clk *clk;
++	int ret;
++
++	io_base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(io_base))
++		return dev_err_probe(&pdev->dev, PTR_ERR(io_base), "unable to map regs\n");
++
++	clk = devm_clk_get_enabled(&pdev->dev, "ddrc");
++	if (IS_ERR(clk))
++		return dev_err_probe(&pdev->dev, PTR_ERR(clk), "unable to get ddrc\n");
++
++	clk = devm_clk_get_enabled(&pdev->dev, "pclk");
++	if (IS_ERR(clk))
++		return dev_err_probe(&pdev->dev, PTR_ERR(clk), "unable to get pclk\n");
++
++	writel(CDNS_ECC_INT_CTRL_MASK_ALL, io_base + CDNS_ECC_INT_CTRL);
++
++	ret = cdns_setup_mc(pdev, io_base);
++	if (ret)
++		return ret;
++
++	writel(CDNS_ECC_INT_CTRL_UNMASK(CDNS_ECC_INT_EDAC),
++	       io_base + CDNS_ECC_INT_CTRL);
++
++	return 0;
++}
++
++static void cdns_mc_remove(struct platform_device *pdev)
++{
++	struct mem_ctl_info *mci = platform_get_drvdata(pdev);
++	struct mc_priv *priv = mci->pvt_info;
++
++	writel(CDNS_ECC_INT_CTRL_MASK_ALL, priv->io_base + CDNS_ECC_INT_CTRL);
++
++	/* Wait for any pending interrupt before releasing resources. */
++	devm_free_irq(&pdev->dev, priv->irq, mci);
++
++	cdns_remove_debugfs(mci);
++
++	edac_mc_del_mc(&pdev->dev);
++	edac_mc_free(mci);
++}
++
++static const struct of_device_id cdns_ddr_ctrl_of_match[] = {
++	{ .compatible = "cdns,ddr-edac" },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, cdns_ddr_ctrl_of_match);
++
++static struct platform_driver cdns_mc_edac_driver = {
++	.probe = cdns_mc_probe,
++	.remove = cdns_mc_remove,
++	.driver = {
++		.name = DRV_NAME,
++		.of_match_table = cdns_ddr_ctrl_of_match,
++	},
++};
++
++module_platform_driver(cdns_mc_edac_driver);
++
++MODULE_LICENSE("GPL");
++MODULE_AUTHOR("Renesas Electronics Europe Ltd.");
++MODULE_AUTHOR("Paul Louvel <paul.louvel@bootlin.com>");
++MODULE_DESCRIPTION("EDAC driver for Cadence DDR controller");
 
-Changes in v6:
-
-- Patch 2:
-
-  - Sorted the includes alphabetically. I have also ran a check with
-    IWYU and, after careful checking, there is no superfluous header.
-
-  - cdns_get_mem_sz() helper inlined into cnds_setup_mc().
-
-  - Debugfs helpers built unconditionally with no-op stubs if debugfs is
-    not selected.
-
-  - Port command channel error reporting removed since it does not
-    belong to an EDAC driver.
-
-  - Removed useless comments.
-
-  - Renamed macro prefix to CDNS_* instead of CDNS_DDR_*. Also indented
-    all the macros definition at the same level.
-
-  - Dropped cnds_ prefix to the private structure.
-
-  - Shortened interrupt unmasking into a single macro to shorten line
-    column length.
-
-  - OR'ing flags to detect type of errors in irq handler.
-
-- Link to v5: https://patch.msgid.link/20261005-paul-v7-3-rc1-edac-v5-0-140a0f124bc0@bootlin.com
-
-Changes in v5:
-
-- Patch 1:
-
-    - Reworded commit title.
-
-    - Dropped unused label.
-
-    - Switch to plain flow scalar for description.
-
-    Note: keeping cdns,ddr-edac compatible after Krzysztof's comment.
-
-- Patch 2:
-
-    - Setup IRQ after allocating and registering the device to EDAC
-      core.
-
-    - Explicitly free the interrupt line with devm_free_irq() to avoid
-      any UAF before releasing MC.
-
-- Link to v4: https://patch.msgid.link/20260928-paul-v7-3-rc1-edac-v4-0-4646a5b7cac9@bootlin.com
-
-Changes in v4:
-- Patch 1 and 3: drop the RZN1 family compatible, as requested by Geert.
-- Patch 2:
-
-    - Instead of using FIELD_MODIFY macro that expect a compile-time
-      constant mask, use binary operators instead. Note that the new
-      code is doing exactly what FIELD_MODIFY do, minus the error if
-      cdns_rmw() is not inlined.
-
-    - Use a spinlock instead of mutex since the locked region will be
-      really fast to execute. Only lock it once for two register rmw.
-
-    - Use edac_debugfs_* facility instead of sysfs attributes. Use a
-      separate "bits" and "inject" file instead of just a single file.
-      This is better since clients can read the previously set syndrome.
-
-    - Cleaned up the probe function in separate functions. Use a remove
-      function instead of registering custom devm action. Use a goto for
-      resources cleaning.
-
-    - Mask all interrupts before un-registering the memory controller.
-
-- Link to v3: https://patch.msgid.link/20260924-paul-v7-3-rc1-edac-v3-0-bd8054a5b180@bootlin.com
-
-Changes in v3:
-- Patch 2:
-
-    - Added trailing newline to end message.
-
-    - Forgot mutex_init() in probe...
-
-    - Registering the MC at the end of the probe.
-
-- Link to v2: https://patch.msgid.link/20260924-paul-v7-3-rc1-edac-v2-0-bc1406161ecc@bootlin.com
-
-Changes in v2:
-- Patch 2:
-
-    - FIELD_MODIFY() is always called with a compile-time constant mask
-      in this driver. I see no problem here.
-
-    - Use devm_clk_get_enabled() so the driver does not need to store
-      struct clk_bulk_data outside the stack space.
-      Clocks are not manipulated outside of probe.
-
-    - Introduced a mutex for rmw operations in inject_ctrl_store() sysfs
-      callback. Rename drv to priv in cdns_rmw().
-
-    - Return IRQ_NONE if the stat int register is empty.
-
-    - I see no reason to follow Sashiko last remark on this patch.
-      Is an unhandled interrupt a big deal in this case ?
-
-- Link to v1: https://patch.msgid.link/20260924-paul-v7-3-rc1-edac-v1-0-70be37c41a18@bootlin.com
-
----
-Paul Louvel (3):
-      dt-bindings: edac: cdns,ddr-edac: add Cadence DDR EDAC
-      EDAC/cadence: Add Cadence DDR EDAC driver
-      ARM: dts: renesas: r9a06g032: add EDAC node
-
- .../devicetree/bindings/edac/cdns,ddr-edac.yaml    |  61 ++++
- MAINTAINERS                                        |   7 +
- arch/arm/boot/dts/renesas/r9a06g032.dtsi           |   8 +
- drivers/edac/Kconfig                               |  10 +
- drivers/edac/Makefile                              |   1 +
- drivers/edac/cadence_edac.c                        | 379 +++++++++++++++++++++
- 6 files changed, 466 insertions(+)
----
-base-commit: 749a4de370409464cf8501ec5b2451df45c84eb4
-change-id: 20260916-paul-v7-3-rc1-edac-1f479f96fc57
-
-Best regards,
---  
-Paul Louvel, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+-- 
+2.56.1
 
