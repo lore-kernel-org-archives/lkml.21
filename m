@@ -1,103 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.100
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794963298;
-	b=FO3o3eiSzbjC4aTQ4YPugV3cAJbMj7aerZPvfwOe8ZOGD/+VfhYJ3N/8czQQm4CncvDP
-	 V2HURpAqjN9Q/ry7PMwAnG+QCv4yKM0dzxqtcZP1pW1z7FlT8/c4tkzCvPhKaOlqR9giW
-	 nFr67F/qp6maINl/yn6T4VmvNRS/ihOYWtVo30SsQ5IoKYcfkojIsMWITM6zgL+7Telcv
-	 0dGtRgguDlHxyP7KY9GLQ4SA38k817EtLrFtJXEBXGfbkc0pep8E86btfT5T/ut4gG8uK
-	 R1YBuHiGoz1zAQvOFlDCJRFHOgtc/pYC32YeWk/is1IgsBTQH+ADVh+0hVjwj4zJCcA==
+	t=1794963493;
+	b=TAhfhJf2GpPSyP4lJBghiLEzYSLbrrqCMM1tiYBqDBGl+GsgxDuXOsVwgzA4UJpGmKvo
+	 lnUCA3tJkepTwk86TRmgtpZ1gUAOPX78O5u6r4epC84uRuASfn6tWXHciBcqebZ9SYGb9
+	 bI5gfHjYZpu+SNajgLW6DcMBfHrtvmlZsC06tVzeRWUV4K3MI/poAOorJstwBeFAv4UAU
+	 2le1j7Obukh+kilzg1jSXJtq782fBkwqTgBlGyHkvs0SV60ROi8yTwuL6QO8TQEdL1nN8
+	 yhyGUDYeawBwjHTrn958KIew49h4lGPIgW7uJFZOJeCIwI3Qt/z0ZYbv4i3Rp3eWmcw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794963298;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 X-Relaying-Domain:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=okrriRKI5iUmexz73yDJ3a18AbZwO0cF4iXDn3kRazQ=;
-	b=Mdy+z9rq9Egy6kShQguk5zKAPs9WPEtq214InlOK4mempGliRKfghgDqmXRNf7UR7AQL
-	 5tHvJXeAxgDmuLp6FVYsAxJe3u1gPhjT7XeDJ5oxlciIPg0Wt+ABrTlj01+769o4yJRk3
-	 KMNYwelr+V6dYEO6WgSi8dqfBnRzhUOm5rsHz8k6qOmgmZhcuwEwJVJJYdSjuB9ZrNTly
-	 5wX8dwT0z1Q84wnzQ0NQYtQMNXbx3JQBu1Tf4xJzN8qMbVPAq/oqa9whh8y9unfQDY/IO
-	 bIga49aoYXHV2lC9ypnWyJtONuCzYGq3a1XD6mQjkAxiHCrY7n/0Ie4qbeE2QkSK3Jw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794963493;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=wBE8sKj+3HE3UXWmfRe8niL1RmnJmiTat6NFs2C2wPI=;
+	b=bROxoBOS+bukgoDisF9Xi/aggS4JYploKOk3D0L9/CDpJy5NdSa7XrFLTWDVuV65+IUY
+	 fFlESwGscuroCG4/14ka7xWhYEDAcLzpiA07TCBgdklDlUydD4qPOCk5+Y892ekMQMkf/
+	 RZSP9wmRx5vRMKUIopM482ZpttcrfTSuWvN8ghZ/WgWoZYJUap5j3eqmb2G1VFcJearW9
+	 pELR8nP0wZLMfoYCb87vbho+IqMTHPLDohpZKVIqDOXddHubj6ALUWFuru0wXJNDYbEDd
+	 JzfTYo/BUomnfmYyZzMA6tZswOc/MS0GxqDn8sPsJKkjgUeRjPPZuvk4ZlETcs6HSiA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=andrii.net;
-	spf=pass smtp.mailfrom=andrii.net;
-	dkim=pass header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=DnTawPg1;
-	arc=none smtp.remote-ip=209.85.216.100
-Received: from mail-pj1-f100.google.com (mail-pj1-f100.google.com [209.85.216.100])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dLVvjgRu;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85421606A899
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:54:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85421606A899
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=andrii.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=andrii.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7D3C606A32A;
+	Wed, 18 Nov 2026 00:58:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=DnTawPg1
-Received: by mail-pj1-f100.google.com with SMTP id 98e67ed59e1d1-3b3af93b85cso186485a91.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 16:54:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=andrii.net; s=gmail-2025; t=1794963297; x=1795568097; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=okrriRKI5iUmexz73yDJ3a18AbZwO0cF4iXDn3kRazQ=;
-        b=DnTawPg1ce4RaLDbeynrZu+Qnkv80eVbkdchCGnV6bFS1DQ8ngRNCAMI5B0fzv1dh6
-         C7/HHwJ9vkA2nmAghifS0SRr7MEbVixQu1MBW7LWBjC8hsv6xL20tP8uPjhBLD6VkswB
-         iSMqFCJ+jm4BKT75qD7kDaWT6WHYaE0FpUz6ZEmF/BUkPRcyWHDxdy5tKufgkIvX+9tu
-         jXw4Dfa9rz/LI2A5VQbgcmoDxgFet397kyu7S1SAE2lDAtmfn1O6VBvIlTqdGXJxYAkg
-         tYQpgygvlmk6NaUf/10RdjG1CB8axDdgRuv8H+54vCEttkzyd1ktRzElLghu0aV4WkSy
-         gHXg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794963297; x=1795568097;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=okrriRKI5iUmexz73yDJ3a18AbZwO0cF4iXDn3kRazQ=;
-        b=k/pvMriwRTFKG0Bp0HTMRFHcJKe2yxtk4GojQtyz/OYo0tdadcSTPHjMj9HmYUJVEc
-         ueeFeeKf6KdrLZgrk1WWgys4qKKySbj1mzNfVLdLGh6+EYlVN6nVl42w+XSghrWIQvk0
-         51uBngRvS21xF/edpOHjaXjCSd8S9teyJl8gY6ss323BVCCk+m8y2ut64ihsRzxpvyhW
-         8HSpQ0bahsFiqDBTuLsOt0787mIesk9thgKrqit8DTq+gMyk2/roGYb0SSfQk0Oa33k8
-         Zjya8QNk5alY+q+fKCroB9QLYv/l4NCTyJeRgnH5pJya10jgKaKpgO6A1qLUBMXyqWDK
-         7K2A==
-X-Forwarded-Encrypted: i=1; AL+hErHeeEY7offgKAIEe53Y/ImbZng4cbFloyJOZNekevjj6vzfbdmrKbn388ZnqoV85s11f8h/Wvu1FXhiwMk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8OzC/wSTH9PEfBUwdXyDd7mACOv0LjSc3fEWi9FujSmwxCGP78
-	l3b86r82QjicttdQBO2/AmzcMLCzNiJoALA7WS97BGOJq/en7i2edelTCCadmgQM7w32x1y+vPf
-	Sb1KOY5xi9aOCLtQrF0iTgY7pxYFug2Cza/XKiyFElwqHbWEo2vjT
-X-Gm-Gg: AZFdTZcVieiYCZPdOHDD4MYV3on1cVXgvmf2RRuN8u4ujSOlFO8za2OTnkbsalo3NqL
-	2L2kDWbDAPt58jPfx73KJvEniTW8YQaes2hLPeAkNH94EPPcnYRUipp4WllLBybuqkxNCSmNj/x
-	o8EY95p58XhpesJLnYwo3nfBax2A5mExQZn0dgwA1MMuYXerfz5lAAtoLMXPaPSEOoTFF5EmpUV
-	w2BAPW46YQRimV7aZo3vJ1v2UpASW3+lWfVFvs25A2WvPgXzvhXOzmBR6nRUWvaGXszJoohNf8Y
-	G1/gbHLE8EhLulDqIQfbfX+OjwW61UewNCCFD+dqmdk8s15arhufNIhIZ1a65ntfOhRX29H6GU7
-	oXSXm+3SzeNjs36RNCT3EFI5mhMc=
-X-Received: by 2002:a17:90b:39a3:b0:3ac:b3ff:b476 with SMTP id 98e67ed59e1d1-3b3d07a29camr946463a91.38.1794963296708;
-        Tue, 17 Nov 2026 16:54:56 -0800 (PST)
-Received: from andrii.ai (mac.hestia.andrii.net. [2602:f337:ed:4865:7374:6961:204d:6163])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b3d4914caasm161524a91.2.2026.11.17.16.54.55
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 17 Nov 2026 16:54:56 -0800 (PST)
-X-Relaying-Domain: andrii.net
-From: Andrii Tereshchenko <opensource@andrii.net>
-To: Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>
-Cc: Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Christian Hopps <chopps@labn.net>,
-	netdev@vger.kernel.org,
-	ipsec@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	security@kernel.org,
-	Andrii Tereshchenko <opensource@andrii.net>,
-	stable@vger.kernel.org
-Subject: [PATCH ipsec 2/2] xfrm: iptfs: hold the dst while a packet waits on the output queue
-Date: Tue, 17 Nov 2026 16:54:49 -0800
-Message-ID: <45f802a2-c639-44bd-aba0-5c81e2198c9e@mid.andrii.net>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <b56bbced-a8b0-4ae9-80b4-1958ea36684c@mid.andrii.net>
-References: <b56bbced-a8b0-4ae9-80b4-1958ea36684c@mid.andrii.net>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dLVvjgRu
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EBAF1F000C4;
+	Wed, 18 Nov 2026 00:58:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794963492;
+	bh=wBE8sKj+3HE3UXWmfRe8niL1RmnJmiTat6NFs2C2wPI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=dLVvjgRue8cIX5NmGgmRjrLscYFKCaQ/UB8YRfTkyJXMZeNNvwVPZ5Rhxd+P76iFX
+	 TQCqJFZ9NLD/Zmv9uatyMdPxzJgXdUHEgwy4G92gs+uAFpDavmJIhgsNIq2RJOMhaH
+	 wSOqkafRxz4i7ZzbblGHUDxhvbwot15Rzm1ITrjS0R+S5sEChihwoKsxymk5tMmDvp
+	 3oPKP9426WOW2mr4/4hL2fTZIhY5OIKC1P465zS0+LfHK/IM7IDM2ArzBrsIuKp/Ns
+	 s7ZwUTPLRkEN9gkhWXHb6GP7S4QB1EHNYSwUNWn+k+8HidgjhD1N+4MGXJOQ55xBC+
+	 rhN6adqpMUqoQ==
+Date: Wed, 18 Nov 2026 00:58:10 +0000
+From: Yosry Ahmed <yosry@kernel.org>
+To: Zide Chen <zide.chen@intel.com>
+Cc: Sean Christopherson <seanjc@google.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Peter Zijlstra <peterz@infradead.org>, kvm@vger.kernel.org, 
+	Jim Mattson <jmattson@google.com>, Andi Kleen <ak@linux.intel.com>, 
+	Stephane Eranian <eranian@google.com>, linux-kernel@vger.kernel.org, Mingwei Zhang <mizhang@google.com>, 
+	Das Sandipan <Sandipan.Das@amd.com>, Shukla Manali <Manali.Shukla@amd.com>, 
+	Dapeng Mi <dapeng1.mi@linux.intel.com>, Xudong Hao <xudong.hao@intel.com>
+Subject: Re: [PATCH v4 06/21] KVM: x86/pmu: Drop nr_arch_{gp,fixed}_counters
+ from kvm_pmu
+Message-ID: <avz3U-w-CBtTM0uH@google.com>
+References: <20261112203227.289379-1-zide.chen@intel.com>
+ <20261112203227.289379-7-zide.chen@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,92 +62,167 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261112203227.289379-7-zide.chen@intel.com>
 
-iptfs_output_collect() queues the skb on xtfs->queue for the delay
-timer without taking a reference on its dst. Locally generated TCP
-attaches the socket's cached route with skb_dst_set_noref(), which is
-valid only inside the RCU read-side critical section of the transmit
-path. The skb outlives that section on the queue. When TCP drops the
-cached route, as it does from the retransmit timer, RCU frees the dst
-while the skb still points to it. iptfs_output_queued() then reads the
-freed dst, first in iptfs_get_cur_pmtu() and then in xfrm_output():
+On Thu, Nov 12, 2026 at 01:32:12PM -0700, Zide Chen wrote:
+> From: Dapeng Mi <dapeng1.mi@linux.intel.com>
+> 
+> Populate and use pmc_exists directly when walking guest-visible PMCs,
+> instead of relying on pmu->nr_arch_{gp,fixed}_counters as intermediate
+> state, in preparation for switching KVM's host PMU capabilities from
+> counter counts to counter bitmaps.
+> 
+> Extend pmu->pmc_exists to a union so that the u64 alias (pmc_exists64)
+> is available for mask arithmetic operations. Introduce
+> kvm_{gp,fixed}_pmc_mask() to extract the respective counter bitmasks,
+> and provide the kvm_for_each_{gp,fixed}_counter() iterator macros to
+> replace open-coded counter index loops.
+> 
+> Consolidate PMU MSR intercept setup in VMX and SVM into single loops.
+> In SVM, this also fixes legacy counter interception by re-enabling
+> intercepts if a vCPU's counter count is narrowed.
+> 
+> Signed-off-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
+> Co-developed-by: Zide Chen <zide.chen@intel.com>
+> Signed-off-by: Zide Chen <zide.chen@intel.com>
+[..]
+> diff --git a/arch/x86/kvm/pmu.h b/arch/x86/kvm/pmu.h
+> index fbab4f5c9181..b312f80f5cda 100644
+> --- a/arch/x86/kvm/pmu.h
+> +++ b/arch/x86/kvm/pmu.h
+> @@ -88,6 +88,18 @@ static inline bool kvm_vcpu_has_mediated_pmu(struct kvm_vcpu *vcpu)
+>  	return enable_mediated_pmu && vcpu_to_pmu(vcpu)->version;
+>  }
+>  
+> +static inline u64 kvm_gp_pmc_mask(struct kvm_pmu *pmu)
+> +{
+> +	return pmu->pmc_exists64 &
+> +	       GENMASK_ULL(KVM_MAX_NR_GP_COUNTERS - 1, 0);
+> +}
+> +
+> +static inline u64 kvm_fixed_pmc_mask(struct kvm_pmu *pmu)
+> +{
+> +	return (pmu->pmc_exists64 >> KVM_FIXED_PMC_BASE_IDX) &
+> +	       GENMASK_ULL(KVM_MAX_NR_FIXED_COUNTERS - 1, 0);
 
-  BUG: KASAN: slab-use-after-free in iptfs_delay_timer+0x2ef/0x1900
-  Read of size 4 at addr ffff888100cff01c by task swapper/1/0
-  CPU: 1 UID: 0 PID: 0 Comm: swapper/1 Not tainted 7.4.0-rc3 #1
-  Call Trace:
-   <IRQ>
-   iptfs_delay_timer+0x2ef/0x1900
-   __hrtimer_run_queues+0x16d/0x340
-   hrtimer_run_softirq+0x136/0x210
-   handle_softirqs+0x162/0x420
-  Allocated by task 0:
-   dst_alloc+0x4f/0x250
-   xfrm_bundle_create+0x236/0x1010
-   xfrm_resolve_and_create_bundle+0x13c/0x1d0
-   xfrm_lookup_with_ifid+0x303/0xe20
-   xfrm_lookup_route+0x1c/0xf0
-   ip_route_output_flow+0x15b/0x170
-   inet_sk_rebuild_header+0x4c0/0xa40
-   __tcp_retransmit_skb+0xe8/0xda0
-  Freed by task 0:
-   dst_destroy+0xe8/0x140
-   rcu_core+0x3f6/0xea0
-  The buggy address belongs to the object at ffff888100cfef00
-   which belongs to the cache xfrm_dst of size 296
+Why do we need to & with the
+KVM_MAX_NR_GP_COUNTERS/KVM_MAX_NR_FIXED_COUNTERS mask here? Isn't
+pmc_exists64 already clamped?
 
-A NULL pointer dereference in xfrm_output_resume() follows the
-reports.
+> +}
+> +
+>  static inline bool kvm_is_gp_pmc_supported(struct kvm_pmu *pmu, unsigned int idx)
+>  {
+>  	return idx < KVM_MAX_NR_GP_COUNTERS &&
+[..]
+> diff --git a/arch/x86/kvm/vmx/pmu_intel.c b/arch/x86/kvm/vmx/pmu_intel.c
+> index fadc466cd600..68d23c7877a2 100644
+> --- a/arch/x86/kvm/vmx/pmu_intel.c
+> +++ b/arch/x86/kvm/vmx/pmu_intel.c
+> @@ -71,14 +71,14 @@ static void reprogram_fixed_counters(struct kvm_pmu *pmu, u64 data)
+>  
+>  	pmu->fixed_ctr_ctrl = data;
+>  	pmu->fixed_ctr_ctrl_hw = data;
+> -	for (i = 0; i < pmu->nr_arch_fixed_counters; i++) {
+> +	kvm_for_each_fixed_counter(i, pmu) {
+>  		u8 new_ctrl = fixed_ctrl_field(data, i);
+>  		u8 old_ctrl = fixed_ctrl_field(old_fixed_ctr_ctrl, i);
+>  
+>  		if (old_ctrl == new_ctrl)
+>  			continue;
+>  
+> -		pmc = get_fixed_pmc(pmu, MSR_CORE_PERF_FIXED_CTR0 + i);
+> +		pmc = &pmu->fixed_counters[i];
 
-Take the reference with skb_dst_force() in iptfs_output_collect(),
-before the skb is queued. If the dst is already being destroyed, drop
-the packet and count XfrmOutError. xfrm_output_one() takes the same
-reference before it calls the type output handler; with IP-TFS the skb
-leaves the RCU section earlier, at the queue.
+By bypassing the helper we lose the array_index_nospec(), right? Same
+applies if we directly access the array elsewhere.
 
-KASAN reported this while the panic fixed by the previous patch was
-being reproduced, on an unmodified v7.4-rc3 and without fault
-injection. In the setup described there, KASAN reported the
-use-after-free in most boots of the unpatched kernel and in no boot
-with the series. Kernel selftests were not run; none of them covers
-IP-TFS.
+>  
+>  		__set_bit(KVM_FIXED_PMC_BASE_IDX + i, pmu->pmc_in_use);
+>  		kvm_pmu_request_counter_reprogram(pmc);
+[..]
+> @@ -497,7 +501,7 @@ static void intel_pmu_enable_fixed_counter_bits(struct kvm_pmu *pmu, u64 bits)
+>  {
+>  	int i;
+>  
+> -	for (i = 0; i < pmu->nr_arch_fixed_counters; i++)
+> +	kvm_for_each_fixed_counter(i, pmu)
+>  		pmu->fixed_ctr_ctrl_rsvd &= ~intel_fixed_bits_by_idx(i, bits);
+>  }
+>  
+> @@ -505,11 +509,13 @@ static void intel_pmu_refresh(struct kvm_vcpu *vcpu)
+>  {
+>  	struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
+>  	struct lbr_desc *lbr_desc = vcpu_to_lbr_desc(vcpu);
+> +	int nr_gp_counters, nr_fixed_counters;
+>  	struct kvm_cpuid_entry2 *entry;
+>  	union cpuid10_eax eax;
+>  	union cpuid10_edx edx;
+>  	u64 perf_capabilities;
+>  	u64 counter_rsvd;
+> +	u64 fixed_mask;
+>  
+>  	if (!lbr_desc)
+>  		return;
+> @@ -535,8 +541,6 @@ static void intel_pmu_refresh(struct kvm_vcpu *vcpu)
+>  	if (!pmu->version)
+>  		return;
+>  
+> -	pmu->nr_arch_gp_counters = min_t(int, eax.split.num_counters,
+> -					 kvm_pmu_cap.num_counters_gp);
+>  	eax.split.bit_width = min_t(int, eax.split.bit_width,
+>  				    kvm_pmu_cap.bit_width_gp);
+>  	pmu->counter_bitmask[KVM_PMC_GP] = BIT_ULL(eax.split.bit_width) - 1;
+> @@ -544,6 +548,14 @@ static void intel_pmu_refresh(struct kvm_vcpu *vcpu)
+>  				      kvm_pmu_cap.events_mask_len);
+>  	pmu->available_event_types = ~entry->ebx & (BIT_ULL(eax.split.mask_length) - 1);
+>  
+> +	nr_fixed_counters = min_t(int, edx.split.num_counters_fixed,
+> +				  kvm_pmu_cap.num_counters_fixed);
+> +	fixed_mask = BIT_ULL(nr_fixed_counters) - 1;
 
-The analysis and the patch were produced with an AI coding assistant
-and reviewed by the submitter.
+Probably clearer to move these right above where fixed_mask is used.
 
-Fixes: 0e4fbf013fa5 ("xfrm: iptfs: add user packet (tunnel ingress) handling")
-Cc: stable@vger.kernel.org
-Signed-off-by: Andrii Tereshchenko <opensource@andrii.net>
----
- net/xfrm/xfrm_iptfs.c | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+> +
+> +	nr_gp_counters = min_t(int, eax.split.num_counters,
+> +			       kvm_pmu_cap.num_counters_gp);
+> +	pmu->pmc_exists64 = BIT_ULL(nr_gp_counters) - 1;
+> +
+>  	entry = kvm_find_cpuid_entry_index(vcpu, 7, 0);
+>  	if (entry &&
+>  	    (boot_cpu_has(X86_FEATURE_HLE) || boot_cpu_has(X86_FEATURE_RTM)) &&
+> @@ -565,8 +577,7 @@ static void intel_pmu_refresh(struct kvm_vcpu *vcpu)
+>  	if (pmu->version == 1)
+>  		return;
+>  
+> -	pmu->nr_arch_fixed_counters = min_t(int, edx.split.num_counters_fixed,
+> -					    kvm_pmu_cap.num_counters_fixed);
+> +	pmu->pmc_exists64 |= fixed_mask << KVM_FIXED_PMC_BASE_IDX;
+>  	edx.split.bit_width_fixed = min_t(int, edx.split.bit_width_fixed,
+>  					  kvm_pmu_cap.bit_width_fixed);
+>  	pmu->counter_bitmask[KVM_PMC_FIXED] = BIT_ULL(edx.split.bit_width_fixed) - 1;
+> @@ -575,8 +586,8 @@ static void intel_pmu_refresh(struct kvm_vcpu *vcpu)
+>  						 INTEL_FIXED_0_USER |
+>  						 INTEL_FIXED_0_ENABLE_PMI);
+>  
+> -	counter_rsvd = ~((BIT_ULL(pmu->nr_arch_gp_counters) - 1) |
+> -			 ((BIT_ULL(pmu->nr_arch_fixed_counters) - 1) << KVM_FIXED_PMC_BASE_IDX));
+> +	counter_rsvd = ~(kvm_gp_pmc_mask(pmu) |
+> +			 (kvm_fixed_pmc_mask(pmu) << KVM_FIXED_PMC_BASE_IDX));
 
-diff --git a/net/xfrm/xfrm_iptfs.c b/net/xfrm/xfrm_iptfs.c
-index 95ba73013..f5260bc51 100644
---- a/net/xfrm/xfrm_iptfs.c
-+++ b/net/xfrm/xfrm_iptfs.c
-@@ -1914,6 +1914,20 @@ static int iptfs_output_collect(struct net *net, struct sock *sk, struct sk_buff
- 			continue;
- 		}
- 
-+		/* The skb will wait on xtfs->queue until the delay timer fires,
-+		 * and iptfs_output_queued() -> xfrm_output() then dereferences
-+		 * its dst. skb_dst() can be a no-ref dst (e.g. the bundle built
-+		 * for a TCP retransmission) that RCU frees while the skb is
-+		 * queued, so pin it before queuing; if it is already being
-+		 * destroyed, drop the packet rather than queue a dangling
-+		 * pointer.
-+		 */
-+		if (unlikely(!skb_dst_force(skb))) {
-+			XFRM_INC_STATS(net, LINUX_MIB_XFRMOUTERROR);
-+			kfree_skb_reason(skb, SKB_DROP_REASON_NOT_SPECIFIED);
-+			continue;
-+		}
-+
- 		/* Enqueue to send in tunnel */
- 		ok = iptfs_enqueue(xtfs, skb);
- 		if (!ok)
--- 
-2.53.0
+Can we use pmc_exists64 here like the AMD code?
 
+>  	pmu->global_ctrl_rsvd = counter_rsvd;
+>  
+>  	pmu->global_status_rsvd = pmu->global_ctrl_rsvd
+> @@ -591,7 +602,7 @@ static void intel_pmu_refresh(struct kvm_vcpu *vcpu)
+>  			pmu->pebs_data_cfg_rsvd = ~0xff00000full;
+>  			intel_pmu_enable_fixed_counter_bits(pmu, ICL_FIXED_0_ADAPTIVE);
+>  		} else {
+> -			pmu->pebs_enable_rsvd = ~(BIT_ULL(pmu->nr_arch_gp_counters) - 1);
+> +			pmu->pebs_enable_rsvd = ~kvm_gp_pmc_mask(pmu);
+>  		}
+>  	}
+>  }
