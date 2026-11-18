@@ -1,63 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795007890;
-	b=znTWID83v/yBZegFhccOOmopq551u09yWQlGfOzqpOHshQjJ+rQkNZ2agWThSuUEnaYH
-	 KjbLP1hft1zuugdXuwpPB/pPGZukJcI47zsm+wG7Mma3+L7FZk34U7PWSTtSqvtHol2Ro
-	 Zvt5GdLkDpHjk+CqCv1kFepHZzTYPq0a3fCUZQNyNGYK2GrOk9+i5LSrFR5RaYpErFzoY
-	 OdEhnlpfo2P+WA3kK9FEipaPpJpum9gF5yAgFZBv5RoT26latdwmfwAU3rqYSZo7e6c2Q
-	 DixLN7V0WoIpYeWKG3kHHg6shEOj5P8iSqAiQeUeStE2/d/rjjUb0Iw+TEraTdrEMWA==
+	t=1795007919;
+	b=4IoW1iH4hKUxdl9odaqO6hilrDYzEPDs54nIGeZ7T/NjqicLeeIiNbepOO/1E1Ul3KDw
+	 gu3IqCD1NnNOBHmsrIFnIxWLGhbRxsxJTeijkBcopOuwyW0vu4LO4vmI4KL+Javp0wLC5
+	 Qj+I3Xmd7UM8RVQSC/bXGTnpdOACTNf0soBB7n6K1GX7Az2ZGQdlHgAFCTaly4n68Zrmj
+	 FZMSmLP5GwvUS9NFjeXADbcGdkBvnM2aTeqnq9FGlfKLz+4o9Di5PqiRmy9Bv4aF6KsW4
+	 F+M6GMQRFfsxeaY3EeA7Vvgslvf6AUnOoKALGUrFF20U/AZzfyV3qdOM9wfD+7VGwDQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795007890;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-Cookie;
-	bh=QTmEhMJbZWBnamFs/kJFQM2GShTvJcyQS/wUsxvrV+Q=;
-	b=kZwIj3IXWJzYQUHtYsfcePpsivHr8bq7CkpTMt9n1BFIOt7QqAr8iwVedlm4lEuT6jRL
-	 kEw2Px2PV9wx3uk9UCzJdzrK9E9IlrCk9U1h0w/T7oCbABIZ2kBzlpa6Z3O2ZZkxfIzYW
-	 C5KRy560sveUK7pZQvDFCgW9sTe8B/oIUeLgjxzPFtPitqt9s92PaP/2/+nXQCjK2vnk3
-	 aixnEwGxe3o8fX7Y3FqMq9O9qEER9DV0o8uc5cFkIc6LE3Ycq9MxhhSZKpGHJxOjdChOG
-	 i10NKI6nOoR1sRbOgweHQlVIVanH8ea8+0HzmczXZ4keDZ9JguZOVW5/aVg3m2LrLxg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795007919;
+	h=DMARC-Filter:X-UUID:X-CID-P-RULE:X-CID-O-INFO:X-CID-INFO:X-CID-META:
+	 X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=upd0IxCj2792Sd+Vd6lDIAbHvUW1f3kpvaia8Zd/3Ck=;
+	b=NDDcvhOHT4l+kDPJxkcl/W57TB+0EibBqXAs7hR8TnBTWpzaQgSHTg/vFuMmfB6jB2nJ
+	 EvspgaZLnoMfqCbCxkvD61XcHua4rsyzxKiqYV5WKZ1X1pOKb8xQOvChb4+XPdH+02XiS
+	 PMyKo3dNZqzigGKFPAXuTy2ASCU8OKZ6Km1UAfizWaizYIdfYa35Ld3pQ0Eo5pSn7bYuz
+	 g8f6snlf6WJh1UV8LquGti+8u81DK6wCEGCUU+9bE6YsdYtVgw08W0fDaQII6XKZZu2F8
+	 RU41mrQ4wdk0sQstNI7jvAzI7I+iZug+mKbTnL0BQ22y3lS2Ciw2tjbnuv6QzQBtWPw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XT4sNw0P;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=kylinos.cn;
+	spf=pass smtp.mailfrom=kylinos.cn;
+	arc=none smtp.remote-ip=124.126.103.232
+Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31597606A320;
-	Wed, 18 Nov 2026 13:18:10 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XT4sNw0P
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53A3F1F000C5;
-	Wed, 18 Nov 2026 13:18:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795007889;
-	bh=QTmEhMJbZWBnamFs/kJFQM2GShTvJcyQS/wUsxvrV+Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=XT4sNw0PTauSWnmjPLnGA4NWOdaDw7b9tuyLjKthbe3l3OJoP/HncLVdERDj7MnVv
-	 NV0nhQKr5xxdO+kUR21hCTTAP1QB9F989tJgbE6+jxvwpOe8/7Xo9M4U8MeV8l34Yv
-	 +q800ERAebA7Th5MPMaRloQVSS5hMbf1/3trKtyDC8E2hHZP779JCOORI9KDHo3qML
-	 Zed9oV5N/rq+PO6egb4oVii3n1oUQkBVkQUOEoFGECmq2+GsNNVmeLMIu/h5b6lW2r
-	 mBjt5fCvvFBeIxA0u+OeTqI7iJlUTMKQDybU9mVmVjT61+pKIRB39FIXHSZO/EiWK6
-	 qB1UaQnSgN2Lg==
-Date: Wed, 18 Nov 2026 13:18:04 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Zhangfei Gao <zhangfei.gao@oss.qualcomm.com>
-Cc: Srinivas Kandagatla <srini@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	shengchao.guo@oss.qualcomm.com,
-	mohammad.rafi.shaik@oss.qualcomm.com,
-	bartosz.golaszewski@oss.qualcomm.com,
-	Prasad Kumpatla <prasad.kumpatla@oss.qualcomm.com>,
-	Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>,
-	linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 resend] ASoC: qcom: audioreach: support multichannel
- PCM formats
-Message-ID: <6aeedf05-a8ae-46ac-bf1c-58ecab7ec6aa@sirena.org.uk>
-References: <20261118023201.2031211-1-zhangfei.gao@oss.qualcomm.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3EDAE606A31C;
+	Wed, 18 Nov 2026 13:18:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3EDAE606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
+X-UUID: 8c311e00e35211f19a56ed5b684f684d-20261118
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:8e9c81ca-96b8-4040-b02f-cb5bf20b073f,IP:10,
+	URL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:10
+X-CID-INFO: VERSION:1.3.19,REQID:8e9c81ca-96b8-4040-b02f-cb5bf20b073f,IP:10,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:10
+X-CID-META: VersionHash:7db8b62,CLOUDID:590b889ced8d4f83e2e07ffedd64af85,BulkI
+	D:261118093247FQF070YS,BulkQuantity:2,SF:17|19|38|64|66|78|80|81|82|83|102
+	|127|136|153|841|865|898,TC:nil,Content:0|15|16|50|99,EDM:-3|-100,IP:-2,UR
+	L:99|1,File:nil,RT:nil,Bulk:40,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1
+	,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_FAS,TF_CID_SPAM_FSD,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 8c311e00e35211f19a56ed5b684f684d-20261118
+X-User: lienze@kylinos.cn
+Received: from [192.168.3.106] [(111.193.136.161)] by mailgw.kylinos.cn
+	(envelope-from <lienze@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
+	with ESMTP id 603697062; Wed, 18 Nov 2026 21:18:30 +0800
+Message-ID: <06e16d01-328b-4267-902b-1b4821139029@kylinos.cn>
+Date: Wed, 18 Nov 2026 21:18:26 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,53 +66,92 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="LzLR4vvfYSsfj/ew"
-Content-Disposition: inline
-In-Reply-To: <20261118023201.2031211-1-zhangfei.gao@oss.qualcomm.com>
-X-Cookie: When in doubt, follow your heart.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mm/damon/paddr: avoid truncation warning in high-address
+ KUnit test
+To: Aveline Noir <jm5905938@gmail.com>, SJ Park <sj@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: damon@lists.linux.dev, David Hildenbrand <david@kernel.org>,
+ Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org,
+ Linux Memory Management List <linux-mm@kvack.org>,
+ kernel test robot <lkp@intel.com>, llvm@lists.linux.dev,
+ mm-commits@vger.kernel.org, Bill Wendling <morbo@google.com>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>, oe-kbuild-all@lists.linux.dev,
+ rdunlap@infradead.org, sashiko-bot@kernel.org,
+ sashiko-reviews@lists.linux.dev
+References: <20261118-fix-damon-paddr-sparse-20261118-v1-1-3a0e943406d5@gmail.com>
+Content-Language: en-US
+From: Enze Li <lienze@kylinos.cn>
+In-Reply-To: <20261118-fix-damon-paddr-sparse-20261118-v1-1-3a0e943406d5@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
 
---LzLR4vvfYSsfj/ew
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 18, 2026 at 10:32:01AM +0800, Zhangfei Gao wrote:
-> AudioReach currently rejects PCM streams with more than four channels in
-> the PCM and shared-memory media format paths.
->=20
-> This prevents TDM links that expose more channels, such as the 6-channel
-> playback path used on SA8797P Ride, from being configured.
->=20
-> Reuse q6dsp_map_channels() to support multichannel PCM formats and use
-> the common PCM channel limit definition.
->=20
-> Reviewed-by: Prasad Kumpatla <prasad.kumpatla@oss.qualcomm.com>
-> Reviewed-by: Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>
-> Tested-by: Shawn Guo <shengchao.guo@oss.qualcomm.com>
-> Signed-off-by: Zhangfei Gao <zhangfei.gao@oss.qualcomm.com>
+On 2026/11/18 01:04, Aveline Noir wrote:
+> Hi SJ, Andrew,
+> 
+> The kernel test robot caught this issue in my earlier addr_unit KUnit
+> patch. Feel free to fold this fix into that patch.
+> 
+> Thanks,
+> Aveline Noir
+> 
+> -- >8 --
+> When phys_addr_t is 32-bit, Sparse warns about truncating the u64 address
+> passed to damon_pa_core_addr() in damon_test_pa_addr_over_4g().  The
+> runtime kunit_skip() does not prevent Sparse from checking that
+> conversion.
+> 
+> Compile the high-address assertions only with CONFIG_PHYS_ADDR_T_64BIT,
+> and keep the test skipped otherwise.
+> 
+> Fixes: 7a983cc1b573 ("mm/damon/paddr: add KUnit tests for addr_unit conversion")
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/20261117170155.fEdeuuhm-lkp@intel.com/
+> Signed-off-by: Aveline Noir <jm5905938@gmail.com>
+
+Reviewed-by: Enze Li <lienze@kylinos.cn>
+
+Thanks,
+Enze
+
 > ---
->=20
-> v4: Rebased onto sound.git/for-next at fcfcd6db32adbd=20
+> The reported warning is gone with the original i386 config, Clang 22.1.8
+> and Sparse v0.6.5-rc1-21-g84ec0658. All executed DAMON KUnit tests passed
+> on x86_64 and i386 with and without PAE; the high-address case skips
+> without PAE.
+> ---
+>  mm/damon/tests/paddr-kunit.h | 7 ++++---
+>  1 file changed, 4 insertions(+), 3 deletions(-)
+> 
+> diff --git a/mm/damon/tests/paddr-kunit.h b/mm/damon/tests/paddr-kunit.h
+> index 9839cc233071..2b11f0e67a12 100644
+> --- a/mm/damon/tests/paddr-kunit.h
+> +++ b/mm/damon/tests/paddr-kunit.h
+> @@ -26,15 +26,16 @@ static void damon_test_pa_core_addr(struct kunit *test)
+>  
+>  static void damon_test_pa_addr_over_4g(struct kunit *test)
+>  {
+> +#ifdef CONFIG_PHYS_ADDR_T_64BIT
+>  	unsigned long addr = 0xffffffffUL;
+>  	unsigned long addr_unit = 0x1000;
+>  	u64 pa = 0xffffffff000ULL;
+>  
+> -	if (!IS_ENABLED(CONFIG_PHYS_ADDR_T_64BIT))
+> -		kunit_skip(test, "phys_addr_t is 32-bit");
+> -
+>  	KUNIT_EXPECT_EQ(test, damon_pa_phys_addr(addr, addr_unit), pa);
+>  	KUNIT_EXPECT_EQ(test, damon_pa_core_addr(pa, addr_unit), addr);
+> +#else
+> +	kunit_skip(test, "phys_addr_t is 32-bit");
+> +#endif
+>  }
+>  
+>  static struct kunit_case damon_paddr_test_cases[] = {
+> 
+> ---
+> base-commit: 7a983cc1b57309a875a9e07a934c9944bf3d088d
+> change-id: 20261118-fix-damon-paddr-sparse-20261118-fb08902768d7
 
-v4 was this rebased onto some other commit.  If you have changed what
-you are sending, including a rebase, you need to change the version
-number otherwise both people and tools are going to have a hard time.
-
---LzLR4vvfYSsfj/ew
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmr9pYwACgkQJNaLcl1U
-h9D/zwf+NAK8LzUXRiQqQXahyojdrYEMbK619q1IBHOmaq4C9GX/PGSs9Nqmi7oQ
-2LQK3LFna8Dtc5/JJEoFHFgUzsEW1wtvCTr/CaF9QPxM0o3/h7jg1mbPIB6e2iWf
-kcH0h/8csavFfurEXoncHxZFr2lH19YX7JO/qWFzHzijPl6OAtV2CpK7iMdQLtn7
-qju0yzRa4YAfZmeBULnpSRgETKA5pzNUVmCEHmQRfq1AuvIQ9qAjkukKyVnudDiY
-UFWz9X4HejYIfOy5Z9to8y1cboZ+h7ufmNGN3kMc1gedTEwbusm2fDMbptyeI3DL
-EIe4ZA3214GKknc81Ho9r8ZSca/cRA==
-=xyp9
------END PGP SIGNATURE-----
-
---LzLR4vvfYSsfj/ew--
