@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794967652;
-	b=HNCW+2s/sVzpu8eCr8vubAOQzym8gsWT48t9g7kSSx49v5E3IuvnOZDnw0enVvoU34SI
-	 W7MDurgKtJSdTauSUYrU1OMxUCmDSFSufpmroF+drm3XfKjMu2BA1BTG63Qas2UNdYLCY
-	 PPyb0d49KCB59euXPePloP+bP0YFNyQRefgQ021KPVhyw+4/WiAXPPWGILMOP5x/fqod5
-	 kRxdMxhdPBBn5B1/zKHL9mId4qIO+xAZr013pZ0+vhaRRZzG6C1ByNGCsLSHa1m4I1FjE
-	 xsH9QV/sIzNXEzER/912Jx81ZfaQnkE5Z48f+VT679OYCG/rAHEMojhSqbNG5IYg3lQ==
+	t=1794967657;
+	b=0begBQR4wJaJBOYVPG6eOfQYLMEL+OshiFl/2RP7RNFZtQb89AvqzAR84eLpei06iK+/
+	 S1KtF433MJmOduDyCrqBwA7odnRC8KLU3Iv+Hvx0o7Wrjx8HIgCsbQMgeuKWQk0MYCbYh
+	 jy8HD/cZHu3jAriyDiBK/FeeS3+jNoXYM0MPe5d6UzVfnRO2/esrEIeSJjTOEWekDvIX3
+	 t10ZMsXFdZVq+u0Lw8jkMmnWy3C1Oc+oLlzpYCbxd8VsJOcSIQG93vv7xFpgGQMF8wwDs
+	 MnVg2bi1MoZ+iygHGjBGsVZDIwk4fTTU8esbV+DSC07MbnCJAICWr3dRTav4IjdxDbw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794967652;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794967657;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=4XYNeMt6VNMRAiLe5EbRBvBhMDIpn29m4tUHZ+DRyz0=;
-	b=ySx9i2FocFgw1NOtrEWa1PCBvp75VEJgakSmmdD+kSeIjwC9Ddt7SncLsGTtwjcYsyTe
-	 xF39C0hVu3RinX3stjZrj3WHPgRgqpLfJXr5FP9TUNYICvf/pM+IBXSqqbFLPdFF0OZC9
-	 5fk7VXx9TXRC180gJ0cOQ9LJEFJSTvBpbdVNvAQeMJnhSFsxORRH5UTSCCgZD+2l2ggCK
-	 8NdHgNwuR7QUD1x/5NG+TWmk/it/SXe3IW4p97xApTLHSE9NZsgFQH/bQbuwU22DlE5v6
-	 tnBDxUlBUL21F6zVo8wERAYOHf3fLv8OS+vaNuhS61x9qhnYgCewNiu6yQVWP8cRyKQ==
+	bh=I3dICNFdr3DWOw64MCFV6kwJXPRZS9N3sYYYv1odNCg=;
+	b=BrsS6ktBVTLkZLmSMmgCJaoWAIfGYPxUyeoLcbolK+TpcEzWgYT1azC6ybkO6P7K7vLN
+	 sheb+Oyi47O44p6y5ovzlInsQsgD1Y1ArprCJgeOZiHhCBB/BHpeigM978Zex/FKEsgPp
+	 KS7fFM4g9YLF0QPjew5lP6UO0f3gL4t1FHUMm6Zc7vrN9viSmGWpLK6wWft2ao50ZaLbZ
+	 wKp8G2RPly/U/t1ttRXXc+GRt+HadmmwCRpX7fAd7VfDwx42rM7CoZxs6+SsmUeACtsbS
+	 m36HGix1bayf7+j2//CPx69X1PbHm2vWehF25vykD6cTdTKswzgZgCIc35t+wwcZQgw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tfrItGmZ;
-	arc=none smtp.remote-ip=74.125.82.180
-Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com [74.125.82.180])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="rW/FqazR";
+	arc=none smtp.remote-ip=74.125.82.170
+Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C5AC606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:07:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0C5AC606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52AA5606A32C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:07:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 52AA5606A32C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tfrItGmZ
-Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-382d85f4230so5815eec.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:07:31 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rW/FqazR
+Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-36e90071735so104164eec.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:07:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794967651; x=1795572451; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794967656; x=1795572456; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=4XYNeMt6VNMRAiLe5EbRBvBhMDIpn29m4tUHZ+DRyz0=;
-        b=tfrItGmZyurqbc7AlNCYAocIN4DcMjwq1XHmG9CUCxqlUqqTzPbwPuqUy4p8jbdZxg
-         Qg7eLGUPoU0Mq5TAfgxhb70/JJZrt1fUYhuMSEegIZiAoUrRgAZVmgT0Xha2WeAffogU
-         oyFGGQL01j7wZBfLQR4eK2E8HlWpRIkZOkoObmeL6nNFFYSIEILCc3whXwdyEoofO2fw
-         tH8iNwWoEJXL3T7vUmoJPIjf8dzzVb0nJrqKtuTYQ4ASpxpf3sCUADQB/sMlrTs1p7mx
-         X7pVMUx1Iqs3sc0BFZLsZ6EaPauyyYz1Rt2l/EgRSmkYT44Q/Wl/1+xhCd3hHoyTlWB+
-         d53A==
+        bh=I3dICNFdr3DWOw64MCFV6kwJXPRZS9N3sYYYv1odNCg=;
+        b=rW/FqazRx3zlL3YL6FOpQfwkRN6NoD6Si7NnEARLi9tli8HwtpNXr4iworsjELCS4c
+         Tar/QuTVdzq8rGRWsOhcq4FckyfGbsXpBuHPhjxPYUhExMm2EOHzr1Cv0leEbYD2EN/K
+         qiRxA+g10crwoTaRLYb8eBXFJDxNrkdUuAk27jnWFurncIXjYjW4B4vblYPFOKiu08QT
+         oWmep4qa+aOxWqoqUBd6m0KHQIpY6yidCZZZA5GCUnOPU5fE45IgVEP2vg6onqNRWN51
+         Fmll0uc1idWqc6TraC//A/EyNT8FeSsV6aA3XFrQy5alDU6dtMAvV4w92Lsgz/ytMekd
+         D5CQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794967651; x=1795572451;
+        d=1e100.net; s=20260707; t=1794967656; x=1795572456;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=4XYNeMt6VNMRAiLe5EbRBvBhMDIpn29m4tUHZ+DRyz0=;
-        b=EIwIJiZqFWVY3ktxb7dAaZMVBG3z4FZo6l4oEPG/Z/cEAcLpF6LDomhZXtp3m7Ki5r
-         q+rEC613zvHuSLDCJDmP27lTDxSs/REsM6pY/xKRiCz5Gzr6j+uR8iJbeAACu8ZPLglG
-         jtLkGnldmUBZgalGstmKD+cu0vbiCitw4FwRKewnSG9QLLQsKVPp1G9FGZJruQmU6GC0
-         A1MxL4Niijde/gmYC0LieDAFjieI+eucUVO0RgLlBuIvrfUrLI9dlkt/ma4ArHQV9qvR
-         MSSSqEiDRa/pKeWKK+QhRjkPdeytFcnBQDzZ1XpCKY+UWhEnkw7PHIQVqODe5GPwBa9J
-         lHAg==
-X-Forwarded-Encrypted: i=1; AL+hErEzUCBcoXiHRts7GCWhyc/AxNzRK7gso/GEi/vVZMicTe5WP/cUIozOhaTuvDheQ0aVxBEh8i5HquVfXXs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+lCL4g/GFW0/YTfe6DpVGP+Kdc7roqC8H2lLk66/P8Enw1Zilk
-	ZDWV6a7/agAA+AyiWbqVyOYIslzrYCs6zHXdiKx8t2kqa5GvUz/D4AJb
-X-Gm-Gg: AYBFou15a3cA53OBLIfqZI4NdjvfTltEbpqzzsHDduWb1ScfBI1KapOaJPXvdxWqMhw
-	p+fKKKYGtDvNEVsDtzNvm/1UjsE5bxWsStexr9S+i0/gUaOk5/R5hlPlzfFe+RIyY8eW6bLb5pz
-	6IOkF1vOde4nyazNq+OUknate8hf6q5zPhomcwMitlkLxjTSsvrZ3mkQIS1xGj9pYgx1H3iR1Ys
-	7DzFBfX/B1Zcz1JYyrMi68SuBSEZfc471fm5VVRkMG08SpHd2w7iFQxV1PEQz4Q+DjkXKSou0v1
-	cJyYc1DOT609Mzj+jrC/WVBdfNQBDip3DhS0ZOabL0/K0TA1N2DjE2GuznCgoIvTSVpA5agzQ+B
-	qNgDzwUZr31GeUCf/KmPRqABREm1SX7tzb9oS2T1bvc5ZAAYQg2cTQZ536OcyEkSXY3wsx3Wm0F
-	VqyEbqIa9w6rX0d18X7trAU4jz0IqnceLunGICv40sMPEpdaEGo/cwmIYjTYSo8C8VYt4m4SbGk
-	Em8OeaYSA18jRUIwUqX7AKmOsSF1DsABEjW2DRy+IiCoiydPC55nuwTTcx3IUihDgGAJzNQDXWE
-	oGFBLR1upjNLNSfnOhXkDHe7Iyp7QCKI8lUKrzVXnj/9VZ/EsCT5khXIO/5LCxL+7T1SBFx74EM
-	6bNb3ffc=
-X-Received: by 2002:a05:7022:698b:b0:1b2:5884:a039 with SMTP id a92af1059eb24-1b543a1715bmr2662340c88.0.1794967651150;
-        Tue, 17 Nov 2026 18:07:31 -0800 (PST)
+        bh=I3dICNFdr3DWOw64MCFV6kwJXPRZS9N3sYYYv1odNCg=;
+        b=qvGjuIEXWuWpMRGArGZhlaw2wTp3VrKLGgkUQDFYESZVua3wKKh74xaLYqygcH3hin
+         mTI994wk9RqoR6tP2VL35LlhH19s/YpS+c+6uNiMmLzhotUPWSAP0eOMl2Ix6pyhKde2
+         In+26rR+neAiYoyp8kb+GI03g1KGtx/LrNvDBD9JCLL2CZvYDRfWmhriniA+K3nLdw4l
+         SfR1YBeltdZc41j3Ah8eYhyQa6PMdE96JwMHWP+ZDP4L7jHWe41+/w1RmMWPPvqSP0D3
+         RxXxio0VNYHmn/VNhyzg97bspa3n+fea6e1Hj4XX1xLRsdtMneyTe7hj3ma7MjE9+Rq7
+         wTiQ==
+X-Forwarded-Encrypted: i=1; AL+hErHuqv0E1LAHlx7R44dAYZOH57obupI6jy7qzJ+MJF4NBcqFLw2YeGVoAknl4TjHmTv+EXkxB9Tlx+/jrDk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/mvUE1uBc99eV81/59M7XhlEyGAoRSkzsKeD1uQWHrj+epEefw
+	86wQgOEwOxM4/+2Z/rzPGxwPhDHpoWuO+NK/4nZlUD5LYFb1KqH8JDHuE7TRYs2z
+X-Gm-Gg: AYBFou07IZ6z4j6o3NMdJAsq6+RqB5CampI4zwPwJrgf3oZHzk5O67TrZ6D1e7F9CHt
+	HamU3G/lAauFC1N/lbpNoN84qwCC9kZ6JUWYVcbS7ePo9YaL0vm3ATDH+kNJXDEZJQwgfKotCLw
+	zyJZX4djHeW15UuDEyIfOBB98/kAhvjUwU6Z3jtlrp9xy4yAeyZipD4HODzgCY4u1Iknyoc6xcj
+	370GimJGMvK3mwht9XaU7NafVqLqOA7gVtYwU5SzNWTSG4SE8IXC4DIEC3N0FIq3WqUqXHORP3/
+	Z4qam9GY52Y+2J4ciXINw1hc7+bX8tPhxGUzECQrZ6iZQBpSWV9sUUd+7reXqrgRTprnhQ5gK6V
+	5i5iy8tu4yo3uQnVQZ/0bsVLyf3oMF5eYN0FlSzYxG0DEVmw5YrDOjq04MCg/i5/We4Ortk4n/4
+	GLWXsPUugjPSViiEWstJe2mzrTXTzPYUuyGa59bZvBE6O+Wt9lx0hCukgG+H7/zahQ85w96yT4I
+	nz/JGrgL3tBjriAlnN52Ps+YDA1UStvnmr3IEhLtJ2fwxiflqtvbXyjk5DQV35q+g/Z8vfLy52y
+	KGm5rGLL9Kop6sQLamYviMV/SWdpyceRoB2/9Ep5NwkQQsAiXR/eV5MJtjJOu8QNDUikuHK/ce0
+	LrYl9GQc=
+X-Received: by 2002:a05:701b:2706:b0:183:d275:cf76 with SMTP id a92af1059eb24-1b543b93021mr2097351c88.2.1794967656267;
+        Tue, 17 Nov 2026 18:07:36 -0800 (PST)
 Received: from DESKTOP-CJ1L666.dankook.ac.kr ([220.149.255.57])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b544784008sm2862327c88.5.2026.11.17.18.07.26
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b544784008sm2862327c88.5.2026.11.17.18.07.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 18:07:30 -0800 (PST)
+        Tue, 17 Nov 2026 18:07:35 -0800 (PST)
 From: Jiwoo Kim <arpe1618@gmail.com>
 To: Rob Clark <robin.clark@oss.qualcomm.com>,
 	Dmitry Baryshkov <lumag@kernel.org>
@@ -97,9 +97,9 @@ Cc: Akhil P Oommen <akhilpo@oss.qualcomm.com>,
 	freedreno@lists.freedesktop.org,
 	linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH v4 1/5] drm/msm: Wait for VM_BIND jobs in msm_gem_vm_close()
-Date: Wed, 18 Nov 2026 11:07:12 +0900
-Message-ID: <20261118020716.1698-2-arpe1618@gmail.com>
+Subject: [PATCH v4 2/5] drm/msm: Mark the VM unusable on out-of-order VM_BIND unmaps
+Date: Wed, 18 Nov 2026 11:07:13 +0900
+Message-ID: <20261118020716.1698-3-arpe1618@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261118020716.1698-1-arpe1618@gmail.com>
 References: <20261118020716.1698-1-arpe1618@gmail.com>
@@ -114,89 +114,397 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-msm_gem_vm_close() waits for vm->last_fence before it tears down the
-VM's scheduler and its remaining mappings, but only submits add their
-fences to it. msm_submitqueue_close() flushes the VM_BIND entities
-first, but drm_sched_entity_flush() gives up after
-MAX_WAIT_SCHED_ENTITY_Q_EMPTY when the process is exiting, or on a
-fatal signal, and a queue that was closed earlier with
-DRM_IOCTL_MSM_SUBMITQUEUE_CLOSE is not flushed at all. A VM_BIND job
-that is then still waiting for its dependencies is not waited for, so
-its pgtable updates can still be pending, and the job still queued on
-its entity, when the scheduler is torn down.
+msm_ioctl_vm_bind() updates the VMAs of the VM right away, and queues
+the matching pgtable updates on the job, but the VM_BIND jobs of
+different queues are not ordered against each other. A job can thus
+unmap a VMA before the job of another queue that maps it has run. The
+unmap then finds nothing mapped, and drops the reference that its op
+holds on the object. When the map runs after it, the pages it maps are
+neither tracked by a VMA nor kept alive by a reference once that job is
+done.
 
-Add the fences of VM_BIND jobs to vm->last_fence as well, as
-submit_attach_object_fences() does for submits, but keep the previous
-fence if dma_fence_unwrap_merge() fails. As for submits,
-msm_gem_vm_close() waits for these fences without a timeout and
-uninterruptibly, so closing the file now also waits for the
-dependencies of the queued VM_BIND jobs.
+Userspace is expected to order VM_BIND jobs that touch the same range,
+but the kernel must not end up with freed pages mapped when it does
+not. Treat an unmap that finds part of its range not mapped like a
+failed map: skip the remaining maps of the job and mark the VM
+unusable, after which SUBMIT and VM_BIND fail with -EPIPE. VM_BIND
+pgtables only use single-page granules, so such an unmap error only
+means that part of the range was not mapped.
 
-This does not cover a job that is killed, e.g. on SIGKILL while the
-process exits: the scheduler signals the fence of such a job before it
-frees the job, and the free can drop the last reference to the queue.
-That is fixed by "drm/msm: Destroy the VM_BIND entity when its queue is
-closed".
+That alone does not catch an unmap that runs while the range still
+holds the pages of an older mapping, whose own unmap is still queued on
+a third queue. So also have the VMAs that a job maps, and the unmap ops
+that undo them, refer to a small refcounted object that tells whether
+the job has applied its updates, and handle an unmap that comes before
+the map it undoes the same way. In msm_vma_job_run(), read
+vm->unusable, and set it on such an error, under mmu_lock, which also
+protects the done state, so that the result does not depend on the
+jobs of a VM being run one at a time.
 
-This was found with an AI coding assistant, which also drafted this
-patch and its changelog. It has not been reproduced, and the change
-has only been compile-tested.
+A job that fails in msm_ioctl_vm_bind() after it queued pgtable updates
+is freed without applying them, so the VM no longer matches its
+pgtables, and a later unmap of one of its VMAs would be taken for an
+out-of-order one. Mark the VM unusable in that case too.
+
+The patch and its changelog were drafted with an AI coding assistant.
+The issue has not been reproduced, and the change has only been
+compile-tested.
 
 Fixes: 2e6a8a1fe2b2 ("drm/msm: Add VM_BIND ioctl")
 Cc: stable@vger.kernel.org
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/r/sashiko-outbox-214650@kernel.org
 Suggested-by: Rob Clark <robin.clark@oss.qualcomm.com>
 Link: https://lore.kernel.org/r/CACSVV00ZppfBKwsHJ+NBYBB7a2f3g1O=6J4Gt1m_A74fudZQoQ@mail.gmail.com
 Signed-off-by: Jiwoo Kim <arpe1618@gmail.com>
 ---
-As for submits, a VM_BIND job whose in-fence does not signal now keeps
-msm_gem_vm_close() waiting, uninterruptibly.
+VMAs that the shrinker unmapped are no longer marked mapped, so no unmap
+is queued for them, and a VMA whose map has been applied is fully
+mapped, as VM_BIND pgtables only use single-page granules. So the new
+errors should not trigger for userspace that orders its VM_BIND jobs.
 
-submit_attach_object_fences() drops vm->last_fence when
-dma_fence_unwrap_merge() fails. This patch keeps the previous fence for
-VM_BIND jobs instead, and leaves the submit path as it is.
+Not addressed here: a queued unmap only holds a reference on its
+object, which does not keep the shrinker from purging or evicting the
+pages before the unmap is applied. Julius Bairaktaris' "drm/msm: Keep
+objects of queued VM_BIND unmaps busy" addresses that:
+https://lore.kernel.org/r/20261111080619.244138-1-julius@bairaktaris.de
 
- drivers/gpu/drm/msm/msm_gem_vma.c | 14 +++++++++++++-
- 1 file changed, 13 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/msm/msm_gem.h     |   7 ++
+ drivers/gpu/drm/msm/msm_gem_vma.c | 126 ++++++++++++++++++++++++++++--
+ 2 files changed, 127 insertions(+), 6 deletions(-)
 
+diff --git a/drivers/gpu/drm/msm/msm_gem.h b/drivers/gpu/drm/msm/msm_gem.h
+index d8ec696d89d7..3174460def2e 100644
+--- a/drivers/gpu/drm/msm/msm_gem.h
++++ b/drivers/gpu/drm/msm/msm_gem.h
+@@ -164,6 +164,7 @@ void msm_gem_vm_close(struct drm_gpuvm *gpuvm);
+ void msm_gem_vm_unusable(struct drm_gpuvm *gpuvm);
+ 
+ struct msm_fence_context;
++struct msm_vm_bind_done;
+ 
+ #define MSM_VMA_DUMP (DRM_GPUVA_USERBITS << 0)
+ 
+@@ -185,6 +186,12 @@ struct msm_gem_vma {
+ 
+ 	/** @mapped: Is this VMA mapped? */
+ 	bool mapped;
++
++	/**
++	 * @map_done: For a VMA created by a VM_BIND job, tells whether that
++	 * job has applied its pgtable updates.
++	 */
++	struct msm_vm_bind_done *map_done;
+ };
+ #define to_msm_vma(x) container_of(x, struct msm_gem_vma, base)
+ 
 diff --git a/drivers/gpu/drm/msm/msm_gem_vma.c b/drivers/gpu/drm/msm/msm_gem_vma.c
-index 8b702422030a..2f0698df1a9a 100644
+index 2f0698df1a9a..228c16a3d9e4 100644
 --- a/drivers/gpu/drm/msm/msm_gem_vma.c
 +++ b/drivers/gpu/drm/msm/msm_gem_vma.c
-@@ -6,6 +6,7 @@
+@@ -63,6 +63,12 @@ struct msm_vm_unmap_op {
+ 	 * a submitqueue (ie. process cleanup)
+ 	 */
+ 	int queue_id;
++
++	/**
++	 * @map_done: For an unmap queued by a VM_BIND job, tells whether the
++	 * map that it undoes has been applied.
++	 */
++	struct msm_vm_bind_done *map_done;
+ };
  
- #include "drm/drm_file.h"
- #include "drm/msm_drm.h"
-+#include "linux/dma-fence-unwrap.h"
- #include "linux/file.h"
- #include "linux/sync_file.h"
+ /**
+@@ -97,6 +103,20 @@ struct msm_vm_op {
+ 	struct drm_gem_object *obj;
+ };
  
-@@ -1443,7 +1444,7 @@ msm_ioctl_vm_bind(struct drm_device *dev, void *data, struct drm_file *file)
- 	struct msm_syncobj_post_dep *post_deps = NULL;
- 	struct drm_syncobj **syncobjs_to_reset = NULL;
- 	struct sync_file *sync_file = NULL;
--	struct dma_fence *fence;
-+	struct dma_fence *fence, *last_fence;
- 	int out_fence_fd = -1;
- 	int ret, nr_bos = 0;
- 	unsigned i;
-@@ -1586,6 +1587,17 @@ msm_ioctl_vm_bind(struct drm_device *dev, void *data, struct drm_file *file)
- 	msm_syncobj_reset(syncobjs_to_reset, args->nr_in_syncobjs);
- 	msm_syncobj_process_post_deps(post_deps, args->nr_out_syncobjs, fence);
++/**
++ * struct msm_vm_bind_done - Whether a VM_BIND job has applied its updates
++ *
++ * The VMAs that a VM_BIND job maps, and the unmap ops that undo them later,
++ * hold a reference to it, so that such an unmap can tell whether the map it
++ * undoes has been applied to the pgtables yet.
++ */
++struct msm_vm_bind_done {
++	/** @ref: reference count */
++	struct kref ref;
++	/** @done: the job has applied its updates, protected by vm->mmu_lock */
++	bool done;
++};
++
+ /**
+  * struct msm_vm_bind_job - Tracking for a VM_BIND ioctl
+  *
+@@ -119,6 +139,8 @@ struct msm_vm_bind_job {
+ 	struct msm_mmu_prealloc prealloc;
+ 	/** @vm_ops: a list of struct msm_vm_op */
+ 	struct list_head vm_ops;
++	/** @bind_done: whether the job has applied its updates to the pgtables */
++	struct msm_vm_bind_done *bind_done;
+ 	/** @bos_pinned: are the GEM objects being bound pinned? */
+ 	bool bos_pinned;
+ 	/** @nr_ops: the number of userspace requested ops */
+@@ -156,6 +178,27 @@ static inline struct msm_vm_bind_job *to_msm_vm_bind_job(struct drm_sched_job *j
+ 	return container_of(job, struct msm_vm_bind_job, base);
+ }
+ 
++static struct msm_vm_bind_done *
++vm_bind_done_get(struct msm_vm_bind_done *done)
++{
++	if (done)
++		kref_get(&done->ref);
++	return done;
++}
++
++static void
++vm_bind_done_release(struct kref *ref)
++{
++	kfree(container_of(ref, struct msm_vm_bind_done, ref));
++}
++
++static void
++vm_bind_done_put(struct msm_vm_bind_done *done)
++{
++	if (done)
++		kref_put(&done->ref, vm_bind_done_release);
++}
++
+ static void
+ msm_gem_vm_free(struct drm_gpuvm *gpuvm)
+ {
+@@ -243,7 +286,7 @@ vm_log(struct msm_gem_vm *vm, const char *op, uint64_t iova, uint64_t range, int
+ 	vm->log_idx = (vm->log_idx + 1) & ((1 << vm->log_shift) - 1);
+ }
+ 
+-static void
++static int
+ vm_unmap_op(struct msm_gem_vm *vm, const struct msm_vm_unmap_op *op)
+ {
+ 	const char *reason = op->reason;
+@@ -253,7 +296,7 @@ vm_unmap_op(struct msm_gem_vm *vm, const struct msm_vm_unmap_op *op)
+ 
+ 	vm_log(vm, reason, op->iova, op->range, op->queue_id);
+ 
+-	vm->mmu->funcs->unmap(vm->mmu, op->iova, op->range);
++	return vm->mmu->funcs->unmap(vm->mmu, op->iova, op->range);
+ }
+ 
+ static int
+@@ -361,6 +404,7 @@ void msm_gem_vma_close(struct drm_gpuva *vma)
+ 	drm_gpuva_remove(vma);
+ 	drm_gpuva_unlink(vma);
+ 
++	vm_bind_done_put(msm_vma->map_done);
+ 	kfree(vma);
+ }
+ 
+@@ -484,6 +528,9 @@ vm_op_enqueue(struct op_arg *arg, struct msm_vm_op _op)
+ 	if (op->obj)
+ 		drm_gem_object_get(op->obj);
+ 
++	if (op->op == MSM_VM_OP_UNMAP)
++		vm_bind_done_get(op->unmap.map_done);
++
+ 	return 0;
+ }
+ 
+@@ -541,6 +588,7 @@ msm_gem_vm_sm_step_map(struct drm_gpuva_op *op, void *_arg)
+ 
+ 	vma->flags = ((struct op_arg *)arg)->flags;
+ 	to_msm_vma(vma)->mapped = true;
++	to_msm_vma(vma)->map_done = vm_bind_done_get(job->bind_done);
+ 
+ 	return 0;
+ }
+@@ -554,6 +602,7 @@ msm_gem_vm_sm_step_remap(struct drm_gpuva_op *op, void *arg)
+ 	struct drm_gpuva *prev_vma = NULL, *next_vma = NULL;
+ 	struct drm_gpuvm_bo *vm_bo = orig_vma->vm_bo;
+ 	bool mapped = to_msm_vma(orig_vma)->mapped;
++	struct msm_vm_bind_done *map_done;
+ 	unsigned flags;
+ 	int ret;
+ 
+@@ -571,6 +620,7 @@ msm_gem_vm_sm_step_remap(struct drm_gpuva_op *op, void *arg)
+ 				.iova = unmap_start,
+ 				.range = unmap_range,
+ 				.queue_id = job->queue->id,
++				.map_done = to_msm_vma(orig_vma)->map_done,
+ 			},
+ 			.obj = orig_vma->gem.obj,
+ 		});
+@@ -601,25 +651,34 @@ msm_gem_vm_sm_step_remap(struct drm_gpuva_op *op, void *arg)
+ 	 */
+ 	flags = orig_vma->flags;
+ 
++	/* The pages of prev_vma and next_vma were mapped with orig_vma: */
++	map_done = vm_bind_done_get(to_msm_vma(orig_vma)->map_done);
++
+ 	msm_gem_vma_close(orig_vma);
+ 
+ 	if (op->remap.prev) {
+ 		prev_vma = vma_from_op(arg, op->remap.prev);
+-		if (WARN_ON(IS_ERR(prev_vma)))
++		if (WARN_ON(IS_ERR(prev_vma))) {
++			vm_bind_done_put(map_done);
+ 			return PTR_ERR(prev_vma);
++		}
+ 
+ 		vm_dbg("prev_vma: %p:%p: %016llx %016llx", vm, prev_vma, prev_vma->va.addr, prev_vma->va.range);
+ 		to_msm_vma(prev_vma)->mapped = mapped;
++		to_msm_vma(prev_vma)->map_done = vm_bind_done_get(map_done);
+ 		prev_vma->flags = flags;
+ 	}
+ 
+ 	if (op->remap.next) {
+ 		next_vma = vma_from_op(arg, op->remap.next);
+-		if (WARN_ON(IS_ERR(next_vma)))
++		if (WARN_ON(IS_ERR(next_vma))) {
++			vm_bind_done_put(map_done);
+ 			return PTR_ERR(next_vma);
++		}
+ 
+ 		vm_dbg("next_vma: %p:%p: %016llx %016llx", vm, next_vma, next_vma->va.addr, next_vma->va.range);
+ 		to_msm_vma(next_vma)->mapped = mapped;
++		to_msm_vma(next_vma)->map_done = vm_bind_done_get(map_done);
+ 		next_vma->flags = flags;
+ 	}
+ 
+@@ -628,6 +687,7 @@ msm_gem_vm_sm_step_remap(struct drm_gpuva_op *op, void *arg)
+ 
+ 	/* Drop the previous ref: */
+ 	drm_gpuvm_bo_put(vm_bo);
++	vm_bind_done_put(map_done);
+ 
+ 	return 0;
+ }
+@@ -678,6 +738,7 @@ msm_gem_vm_sm_step_unmap(struct drm_gpuva_op *op, void *_arg)
+ 			.iova = vma->va.addr,
+ 			.range = vma->va.range,
+ 			.queue_id = job->queue->id,
++			.map_done = msm_vma->map_done,
+ 		},
+ 		.obj = vma->gem.obj,
+ 	});
+@@ -701,6 +762,16 @@ static const struct drm_gpuvm_ops msm_gpuvm_ops = {
+ 	.sm_step_unmap = msm_gem_vm_sm_step_unmap,
+ };
+ 
++/*
++ * Whether the map that an unmap op of @job undoes has been applied.  The ops
++ * of @job itself are applied in order, so its own maps come first.
++ */
++static bool
++vm_bind_map_done(struct msm_vm_bind_job *job, struct msm_vm_bind_done *map_done)
++{
++	return !map_done || map_done == job->bind_done || map_done->done;
++}
++
+ static struct dma_fence *
+ msm_vma_job_run(struct drm_sched_job *_job)
+ {
+@@ -708,13 +779,16 @@ msm_vma_job_run(struct drm_sched_job *_job)
+ 	struct drm_device *dev = job->vm->drm;
+ 	struct msm_gem_vm *vm = to_msm_vm(job->vm);
+ 	struct drm_gem_object *obj;
+-	int ret = vm->unusable ? -EINVAL : 0;
++	int ret;
+ 
+ 	vm_dbg("");
+ 
+ 	mutex_lock(&vm->mmu_lock);
+ 	vm->mmu->prealloc = &job->prealloc;
+ 
++	/* vm->unusable is checked and set under mmu_lock, see below: */
++	ret = vm->unusable ? -EINVAL : 0;
++
+ 	while (!list_empty(&job->vm_ops)) {
+ 		struct msm_vm_op *op =
+ 			list_first_entry(&job->vm_ops, struct msm_vm_op, node);
+@@ -730,7 +804,17 @@ msm_vma_job_run(struct drm_sched_job *_job)
+ 				ret = vm_map_op(vm, &op->map);
+ 			break;
+ 		case MSM_VM_OP_UNMAP:
+-			vm_unmap_op(vm, &op->unmap);
++			/*
++			 * An unmap that finds part of its range not mapped, or
++			 * that comes before the map it undoes, means that the
++			 * jobs that touch this range were not ordered.  If the
++			 * map was applied after the unmap, nothing would track
++			 * its pages, so handle this like a failed map.
++			 */
++			if (vm_unmap_op(vm, &op->unmap) ||
++			    !vm_bind_map_done(job, op->unmap.map_done))
++				ret = ret ?: -EINVAL;
++			vm_bind_done_put(op->unmap.map_done);
+ 			break;
+ 		}
+ 		drm_gem_object_put(op->obj);
+@@ -738,6 +822,15 @@ msm_vma_job_run(struct drm_sched_job *_job)
+ 		kfree(op);
+ 	}
  
 +	/*
-+	 * Let msm_gem_vm_close() wait for the job, as it does for submits.
-+	 * The VM's resv, which protects last_fence, is still locked here.
-+	 * If the merge fails, keep waiting for the previous fence at least.
++	 * Mark the VM unusable before dropping mmu_lock, so that the maps of
++	 * a job that applies its updates after an out of order unmap are
++	 * skipped.
 +	 */
-+	last_fence = dma_fence_unwrap_merge(fence, to_msm_vm(vm)->last_fence);
-+	if (last_fence) {
-+		dma_fence_put(to_msm_vm(vm)->last_fence);
-+		to_msm_vm(vm)->last_fence = last_fence;
-+	}
++	if (ret)
++		vm->unusable = true;
++	job->bind_done->done = true;
 +
- 	dma_fence_put(fence);
+ 	vm->mmu->prealloc = NULL;
+ 	mutex_unlock(&vm->mmu_lock);
  
- out:
+@@ -783,10 +876,14 @@ msm_vma_job_free(struct drm_sched_job *_job)
+ 	while (!list_empty(&job->vm_ops)) {
+ 		struct msm_vm_op *op =
+ 			list_first_entry(&job->vm_ops, struct msm_vm_op, node);
++		if (op->op == MSM_VM_OP_UNMAP)
++			vm_bind_done_put(op->unmap.map_done);
+ 		list_del(&op->node);
+ 		kfree(op);
+ 	}
+ 
++	vm_bind_done_put(job->bind_done);
++
+ 	wake_up(&vm->prealloc_throttle.wait);
+ 
+ 	kfree(job);
+@@ -968,9 +1065,17 @@ vm_bind_job_create(struct drm_device *dev, struct drm_file *file, struct drm_gpu
+ 	if (!job)
+ 		return ERR_PTR(-ENOMEM);
+ 
++	job->bind_done = kzalloc_obj(*job->bind_done);
++	if (!job->bind_done) {
++		kfree(job);
++		return ERR_PTR(-ENOMEM);
++	}
++	kref_init(&job->bind_done->ref);
++
+ 	ret = drm_sched_job_init(&job->base, queue->entity, 1, queue,
+ 				 file->client_id);
+ 	if (ret) {
++		kfree(job->bind_done);
+ 		kfree(job);
+ 		return ERR_PTR(ret);
+ 	}
+@@ -1604,6 +1709,15 @@ msm_ioctl_vm_bind(struct drm_device *dev, void *data, struct drm_file *file)
+ 	if (ret)
+ 		vm_bind_job_unpin_objects(job);
+ 
++	/*
++	 * A job that fails after it queued pgtable updates is freed without
++	 * applying them, so the VM no longer matches its pgtables, and a
++	 * later unmap of one of its VMAs would be taken for an out of order
++	 * one.
++	 */
++	if (ret && !list_empty(&job->vm_ops))
++		msm_gem_vm_unusable(job->vm);
++
+ 	drm_exec_fini(&exec);
+ out_unlock:
+ 	mutex_unlock(&queue->lock);
 -- 
 2.43.0
 
