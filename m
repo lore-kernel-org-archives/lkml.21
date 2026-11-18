@@ -1,99 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794961323;
-	b=klbFHCM9ZZ2Mh7MuHR4r5YX/t2pgmzME62ZT/IMdMdS/l/kSjmGLsY5SpsCVUwYeDjXm
-	 ie92iuk+DQidkOTT07m1ib1dyHU8KgUeydpZMaMogwenlCUkIOSkE5qV7Mche5Fhqzl8A
-	 fXV3zhRYYWVUfZHUVtN9l930I0d6dmskcrXydQppYhzpJ5VNJNqeU9XXXGuBDAmZEpR7F
-	 MO+hEcwgU1G0UTn5iOnYAwDLz/CFmhUluQfmNHQfSjX5Ix8OYouYcBdtyqLE+92O9f6OG
-	 HKFIct6tmGXANYHMisQC0baCt39PIVjTfaKv4ulyTuOU71n29/If2gBJCtqr6aCmi8g==
+	t=1794961370;
+	b=Sqas0gzT1tMP9GIybHO+85fzpAoPX2+eSsGikyhQE+sQWzu3zejLo6cV9lsu/mk8CGQb
+	 ENrv27SxjC+8e7f84nz25SRYcz5WSeQrZyzOr9rh83k8B/eAqWWPoTigT14yDhEtB7udi
+	 iddCUmHKNZW+cGa73+h3s/Huizo42O1MsoBM7tJkD1Z3IhKemKMRM1Eu2REdqG5fIWEJb
+	 5m12fWjk0Shmv1mhIOseYBPwV4kDxA3jBRyzL7iulrZoMPf3NIFJGpcae+AhHy8zs8YHH
+	 xBtdbh0clbub9quyi2h3AzvVXc2NOvNiNB/rPTQtoBj2y2VMHajJfsmPQT7+z0aE7/g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794961323;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=3pL4qI55xeS4q74Qd8OgYkkf11qD+6PkbWN1emyH6OE=;
-	b=QRK9i1IxG7i7ZqU8wZaTYyfSy1qYZhB8CeeW27nxNx7UjvmfUnNkM4IxNjuQZWlvRhTJ
-	 h+rNEDBQmaWlZ7rWaoRedpjvyziif9CiQ28rxzSQtU4BAAgozb/BbxxQGppvWpLEZ6KXa
-	 2ZEKRblGR2J+wOX/N6mn0YSbWy7LU/PjjlNILtvBLhCUWqmkVGHWM3wEaw+Q5j9TjmGcX
-	 KMuqAjrMaF7vhBWrb7VeraD/RZHK3X1lPabZF2bD2oh2OHiEt9F1uEj6n/hRiwlkEq78t
-	 dJls75IDsMu/Le42OBMP8SXbO7Kyy2I2jG7r4rBBTsBvGL9GCsneI47cn6kzHtRodug==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794961370;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=Yyp9htXtlrZQtTO2sEMjINZ4vkcpiCK5cmehF31nALA=;
+	b=UqRvEVHRGw4zO2cztHTomYIVj0tfGmELL4uQC0yvxZnWXvJTBs8xbikMMVBjWIyyHCqr
+	 ZlIXvT5ku87L2x40u9O9SaIY9DGEcLmhVXz5l0yLv+9R26bowB05I2puqb2iw3GPFbzVN
+	 eHxJeW7rEWV8GA6+55zrU17cqP0Z0DXe8Kv/PDtr2QXviOX3/6j0mskikWoCVgU+MPGLO
+	 vb1SfsLH8srnmzL1kwSDFolW0RyAwWSHZ5yVF7oEOLG7FqF1LMSfNBMJSU54iM0tbwAkz
+	 25sClfTt/kY3L5BubUA3RMnnijFiznRR41cBE2lT0OIrBZqVkg80yUI6HwYMHmv07IA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=q3jfxspY;
-	arc=none smtp.remote-ip=74.125.82.41
-Received: from mail-dl1-f41.google.com (mail-dl1-f41.google.com [74.125.82.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cqBKZAkM;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10A79606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:22:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 10A79606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0CC9606A31C;
+	Wed, 18 Nov 2026 00:22:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=q3jfxspY
-Received: by mail-dl1-f41.google.com with SMTP id a92af1059eb24-170135e43c7so740911c88.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 16:22:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794961322; x=1795566122; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=3pL4qI55xeS4q74Qd8OgYkkf11qD+6PkbWN1emyH6OE=;
-        b=q3jfxspYnnmIioOhnT9WDmbOP6gFnX+nkFOI7kWL1h+Kp911buehA+yTYCfvblGRh9
-         ZWOHch3rQHqhIQAEPJa+Z+5kYNRUDvzeYEBOJ3nqxL/yy22hememUcsYbz3N8pV3IjiH
-         D50KILEjYQhXC/K4+xfniLhGz1AePT5EA/NeXlau5vctxZJUG69xtxJSfsA+t7GuGvmK
-         iTrtetAa/lEwdJWbVKP1+tJWNMbmqqcU0mPe4S1kLIXZjvAdzN4ZzZ9ij/ydQCcs0t8O
-         Vckp+QP5ajZG3pihMPwv190bAIvIOaZw6Fl+skcA56hsR23mHhdQX2hLjYhGQzoSDBuP
-         VXbQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794961322; x=1795566122;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=3pL4qI55xeS4q74Qd8OgYkkf11qD+6PkbWN1emyH6OE=;
-        b=QRWoZccxJMQTj5azNJeruDGBqzJiL3r70NjdyrofcCyzi8OLiMhc8Z9Urip94fNBdF
-         SDaFp7MtPYkjneA40YDVLBGZp8Xng5H9PUzeYRicC2ziyPWG07RM9fWtaNnvZfTZRJdw
-         pP2PhAV8JvNQABtthCJpC71Lt06HvXgQuJCxlfdN8H/nIzA4sGr0rIGIrSbrUvkrJ2Zr
-         lTFx9+//TCMCjCCs17o44HcFgtNB3FKzXQtaMK1z5AqWT02w7lP+MOhwrCzQe2d6D02F
-         s9G0kuRvpDblQbwRtBQbKDMq9yIhunVHlWEI+/5BRSrWR/o69BmONOK5+X571bdLeS7p
-         ftkQ==
-X-Forwarded-Encrypted: i=1; AL+hErGKpiavxQKVTMIN885XhTZeFhIjzA4Uz8NuYR743V4lefGhHmZkF55VfN3yMkNU4J+76NuZOOzs8T9RtKA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8dQmF3FeCSTBW+hgPlwR2hEx1T8Q4tC7IEnLqNy1C4EzGJXK4G
-	9FCycFPfNbhX+9mpWKDxwzu4+4d5FJTbdwAwKUnU42/SCXtV81VlgZ7R
-X-Gm-Gg: AYBFou0CTBpuCJPQXYVxWz0f5rKXJqhJLBPCj2SmI5rJeUhrbon6rwWbuDmdftwlS1E
-	3FnTi7jt4te7vVeq3qJ5Z680bQpAu3IKPMDVM5p0K4znzGXwksx+n+YgXQNKhZ8fBSLyrRauJU1
-	N5YkdacK18SX8JSZWFNRUya9EEbPUqg+UkPxRml3xsVzEHSKlgULZpO5Y7eEzjPnbOnuHb9dwR0
-	VbQ+t8HNOds+tiWlPdAm3tBjkToK0j7YPnfM94T5ImovFbH6zLUV2zDgNbhyh1gVV0sQcHcfZvO
-	hA8Sgsu+rLjlSIIBQe0VYirZyXDPgpUkiwSB72Z1yI6FIJNiRr8qo6tFDKXSsLXgC65K8L8565h
-	dKSub/ww17bLV1yw35/yOF4zRDNlLCcCqbQtcddWYfzOzF90wpxxTg1/JOitJRr2M9FKBlhJSjd
-	MU6DXHed+HUUltblaLpkvUtu5Slw5VuzEqCA1RlcHwO7fYUqorR5IOj8QgjNmIkL3cIpmmnrkwp
-	HMoCvMGKuCpLHhSziXi1W7h1G3YHNEityp2YfUKebaSdR6bsBXAgSgPKHNp//Wu2Bo5WspVIiwr
-	3XGtUdBjmSlUB/gdnrI+OeEf/WM+cjqpGJPues2zmbW2zXaFbcvNBJCe+rWubVZh1ANcBXow+2v
-	PFwU/Q/V9/mYKG/3ErwppKT3xN5A90edN+8d1i8cKNNFqtb69Fw==
-X-Received: by 2002:a05:701b:2806:b0:1a4:c892:b130 with SMTP id a92af1059eb24-1b543beb5bemr978760c88.15.1794961322120;
-        Tue, 17 Nov 2026 16:22:02 -0800 (PST)
-Received: from localhost.localdomain ([2601:646:4300:d042:b1a7:bebf:2fc7:37b1])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5446f954dsm1665354c88.2.2026.11.17.16.22.01
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 17 Nov 2026 16:22:01 -0800 (PST)
-From: ozgun kultekin <ozgunkultekin@gmail.com>
-To: Paulo Alcantara <pc@manguebit.org>,
-	linux-cifs@vger.kernel.org
-Cc: Namjae Jeon <linkinjeon@kernel.org>,
-	Ronnie Sahlberg <ronniesahlberg@gmail.com>,
-	Shyam Prasad N <sprasad@microsoft.com>,
-	Tom Talpey <tom@talpey.com>,
-	Bharath SM <bharathsm@microsoft.com>,
-	David Howells <dhowells@redhat.com>,
-	netfs@lists.linux.dev,
-	samba-technical@lists.samba.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] smb: client: do not let the server grow a write subrequest
-Date: Tue, 17 Nov 2026 16:21:59 -0800
-Message-ID: <20261118002159.20576-1-ozgunkultekin@gmail.com>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cqBKZAkM
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C73B81F000C4;
+	Wed, 18 Nov 2026 00:22:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794961370;
+	bh=Yyp9htXtlrZQtTO2sEMjINZ4vkcpiCK5cmehF31nALA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=cqBKZAkM4ZnJNd67kl1NTTRyMQr44qicC5vzQ+/sWcidrWU2DfEM8cgRRTjuWBEvh
+	 +iBIgsnCkWo74WOBoEfBbzAWNy1hzdlvyTDF1XPHDg4wTzwX8KO5xe8gtrj4Q14CzX
+	 DtnwACOnI8S8xko3HcInWVZwYmjikuKOTpDd2+blISTHsLErgMp3dYagVrhnhW09nd
+	 biDRcn7TqfCv3Utittx5ayxVRDlxab6agY1KwQHS/y3bAUUWWLauOf/vttA3RJ1vR6
+	 8ZgYzqDIt9nGVGUm7g2n1xQ1GzCi9E7/U1K7N/Tgx2c3B3fYW9R7rxPG/C0O38KIB/
+	 wp5GDc6Up8low==
+From: Sasha Levin <sashal@kernel.org>
+To: stable@vger.kernel.org
+Cc: linux-rdma@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	leon@kernel.org,
+	jgg@ziepe.ca,
+	kaishen@linux.alibaba.com,
+	Cheng Xu <chengyou@linux.alibaba.com>
+Subject: Re: [PATCH 6.6.y] RDMA/erdma: Use IRQ-safe XArray helpers for QP and CQ tables
+Date: Tue, 17 Nov 2026 19:22:48 -0500
+Message-ID: <2026-11-17-1-daily-reply-0002@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261117022839.23186-1-chengyou@linux.alibaba.com>
+References: <20261117022839.23186-1-chengyou@linux.alibaba.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,99 +63,16 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Message-ID: <20261118002248.wu4HjsFdDot26oHEK0Mwbq8yEcqH9lsR8E2s7HSq8Hc@z>
 
-smb2_writev_callback() takes the byte count from the SMB2 WRITE
-response, masks it with 0xFFFF if it is larger than the request (for
-old OS/2 servers), and then copies it into wdata->subreq.len.  A server
-can return a count that is still larger than the request after the
-mask, for example 0x8002 for a 5-byte write or 0xFFFF for a 4 KiB
-write, and the subrequest then covers data that was never sent.
+> Use IRQ-safe XArray helpers for all QP and CQ create-path updates,
+> including the GSI QP store and error paths.
 
-netfs uses the subrequest length to decide how far the write collector
-may advance.  With a grown subrequest the collector moves collected_to
-past the data that was issued: netfs_writeback_unlock_folios() walks
-folio_queue slots that were never filled, and
-rolling_buffer_delete_spent() frees folio_queue segments that later
-in-flight subrequests still use.  This is a use-after-free that a
-malicious or broken server triggers from an ordinary write:
+Queued for 6.12 and 6.6, thanks.
 
-  BUG: KASAN: slab-use-after-free in netfs_limit_iter+0xed4/0x1040
-  Read of size 1 at addr ff11000010561511 by task kworker/u8:4/63
-  Workqueue: events_unbound netfs_write_collection_worker
-   netfs_limit_iter+0xed4/0x1040
-   netfs_retry_writes+0x1410/0x1e90
-   netfs_write_collection+0x2647/0x3880
-   netfs_write_collection_worker+0x1cd/0x3e0
-  Allocated by task 141:
-   netfs_folioq_alloc+0x39a/0x470
-   rolling_buffer_init+0x29/0xc0
-   netfs_create_write_req+0x12f/0x840
-  Freed by task 42:
-   rolling_buffer_delete_spent+0xb1/0x220
-   netfs_write_collection+0x1f62/0x3880
+6.1 has the same bug and is not covered. If you want it there, please send a
+6.1.y backport.
 
-Never change the subrequest length from the response.  If the count is
-still larger than the request after the mask, fail the write with -EIO
-and record it with a new write_overlarge trace point, like the read
-path does with read_overlarge.  A short count still returns -ENOSPC as
-before.
-
-The folio_queue form of the use-after-free exists since
-commit cd0277ed0c18 ("netfs: Use new folio_queue data type and
-iterator instead of xarray iter").
-
-Fixes: 3ee1a1fc3981 ("cifs: Cut over to using netfslib")
-Cc: stable@vger.kernel.org
-Signed-off-by: ozgun kultekin <ozgunkultekin@gmail.com>
----
- fs/smb/client/smb2pdu.c | 17 +++++++++++++----
- fs/smb/client/trace.h   |  1 +
- 2 files changed, 14 insertions(+), 4 deletions(-)
-
-diff --git a/fs/smb/client/smb2pdu.c b/fs/smb/client/smb2pdu.c
-index b26bfb4bd..2f05ba613 100644
---- a/fs/smb/client/smb2pdu.c
-+++ b/fs/smb/client/smb2pdu.c
-@@ -5181,14 +5181,23 @@ smb2_writev_callback(struct TCP_Server_Info *server, struct mid_q_entry *mid)
- 		if (written > wdata->subreq.len)
- 			written &= 0xFFFF;
- 
-+		/*
-+		 * The server must not report more bytes than were sent.  netfs
-+		 * uses the subrequest length to work out which folios this
-+		 * write has finished with, so it must not be changed here.
-+		 */
-+		if (written > wdata->subreq.len) {
-+			result = smb_EIO2(smb_eio_trace_write_overlarge,
-+					  written, wdata->subreq.len);
-+			break;
-+		}
-+
- 		cifs_stats_bytes_written(tcon, written);
- 
--		if (written < wdata->subreq.len) {
-+		if (written < wdata->subreq.len)
- 			result = -ENOSPC;
--		} else if (written > 0) {
--			wdata->subreq.len = written;
-+		else if (written > 0)
- 			__set_bit(NETFS_SREQ_MADE_PROGRESS, &wdata->subreq.flags);
--		}
- 		break;
- 	case MID_REQUEST_SUBMITTED:
- 		trace_netfs_sreq(&wdata->subreq, netfs_sreq_trace_io_req_submitted);
-diff --git a/fs/smb/client/trace.h b/fs/smb/client/trace.h
-index 5331ce6dc..18760a819 100644
---- a/fs/smb/client/trace.h
-+++ b/fs/smb/client/trace.h
-@@ -153,6 +153,7 @@
- 	EM(smb_eio_trace_user_iter,			"user_iter") \
- 	EM(smb_eio_trace_write_bad_buf_type,		"write_bad_buf_type") \
- 	EM(smb_eio_trace_write_mid_state_unknown,	"write_mid_state_unknown") \
-+	EM(smb_eio_trace_write_overlarge,		"write_overlarge") \
- 	EM(smb_eio_trace_write_rsp_malformed,		"write_rsp_malformed") \
- 	E_(smb_eio_trace_write_too_far,			"write_too_far")
- 
 -- 
-2.39.5
-
+Thanks,
+Sasha
