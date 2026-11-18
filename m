@@ -1,60 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795021742;
-	b=gYbSglVSecacfh8Zj3L55meQe4d2gEuSKOLbFijcIzLEWDRSOnd7nFnCG4vgjAILtYtK
-	 cvaRUf7MXgZIS5WOH0e6y5Yjqdesgj7dcydm1Q1+Tb44eOEUh8xVQ6InCV/TJGD6i9TWY
-	 eTZXF+HFQO5eM8B+hRZ5e0g8sh12iX4ycoW+MKafDR6DgF/o7WhfOcMyPzehLnX9fBpi/
-	 BfVCRCJrwRiNb5CBsPP42GVE5BNUKA98dYAfwXK4WkwmeyqznHvJe8WybShDerapnbN4z
-	 x1FKMX/ZBLITeyG1lWS2Xw+wYZIPE8IJjNNXTW56yAtOOZ+zp6fFoeLWsXm75NSrH3w==
+	t=1795021749;
+	b=LJxr3o3Mg/sD9oL1crsQTA9/CGJG7VexIKx62Q6wL78PgXO5NDWKRsI1hqUFquzLmGe8
+	 sCLDQ3YnlLH4sDQ6POEdC8mYytgSRiD/kQy49y43qOs1N1xwjH2NlvRpOIAcXQW9bBn1o
+	 y6GjH3teQs9yJzKrUmLyS3PxS7b4KNPM1VupeFquYh4YHClgmsE33cDTKO/Rk3bmZ1FkL
+	 ae2YfB76UO6O+tHvyShml35NdYQwOC0jraJGlw0+XKwtbZzdJ0D84/ZexVP0PcW3f6y/N
+	 og1O2ox9r4FPM+E4jpGU3hsTAeeSc4YXGDknRZQxMJG9DRR1YrPqDHZ/N5hTbebjvwA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795021742;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795021749;
 	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
 	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Last-TLS-Session-Version;
-	bh=sE/BWVUqMnWUOkIC1yLNFVdbReXab+OeO5XnDYHyTjw=;
-	b=fieMMqlA2xE/IUxitSY2ZC9FaYB6Taw7JxVcNUgHV7tshwyYd0v3ajkHE3JbcukHc1lL
-	 KET2SmUsmopbfnl8D6IxK9wqA6ck1LIW0I3u9BnjXkgUKZEu3Rr7qv0/vBkE+yz8oE3Mx
-	 2bmNOChm7z7Hrcsb2Culli9QjIVhVkTOvaq9N5cLO0YJnUCA9yfD7W4PQGp3Ar2L5DpZT
-	 otylwT+O+Ksam/UDZGltbrR34/q/uVEbhQ2Kmg3KoIk/3zdPP0Izmr7QjANBVRpgUasPT
-	 OTwoRGqt7G//VQXy0d6ShNc5+EECGj+N7HYvQoTeJB1gepXehFR1vKwRQ5+YIw6v6Wg==
+	bh=fLqr/v68/oCbAC/szyoyk5IrhiQHgk4K8tIbryhT7Ag=;
+	b=DAz65+7gPIF5/kx5xWkZw5qw8I6iO4Dj0la8QhfAF0aLxGJcb/CcbgXaeUefTiKBkNyx
+	 6mU7QiB0lVD/E+5Zb3gmnSLq+EkDhCUL2P3PaqzdOrn8Ozmv8kcIScp5QBVeHw2NAMWPK
+	 PAKX6iDmAe+QYjJXRdV4jGZ3n6magR8DAyD62vyCUYSCZGJnUAhsQbN/YfCQjENf3mEbc
+	 rMgxxDAijfWs4it72RZhZpkrpBcqN/39IGRWuByYxuEZhxPFGfBmOE7LGZaZcI4As3Sqn
+	 FOTqE7OMwil/48iRfGatq7MfpISxQvC0lfi98ee0U+uNf5ysE++Q6RMk9O42yt/hgAw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=ERhDShHl;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=xJrAuTrm;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AC81606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:09:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4AC81606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73417606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:09:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 73417606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=ERhDShHl
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=xJrAuTrm
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 354E31A169B;
-	Wed, 18 Nov 2026 17:09:01 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id D11D6C4F77B;
+	Wed, 18 Nov 2026 17:09:11 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 080E05FE9B;
-	Wed, 18 Nov 2026 17:09:01 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D53D611BC2A1E;
-	Wed, 18 Nov 2026 18:08:54 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id ECAAE5FE9B;
+	Wed, 18 Nov 2026 17:09:06 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6A36511BC2A2D;
+	Wed, 18 Nov 2026 18:09:00 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795021736; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1795021742; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=sE/BWVUqMnWUOkIC1yLNFVdbReXab+OeO5XnDYHyTjw=;
-	b=ERhDShHlfTTtU/hweuWnLDBcB9SYUGDtUrBH7lGGjka/bYCSaneG/v9BP+erFGX12ncmPw
-	8TkKKBnDwnY4h/KrX2rXghtK+pp0KRtAMsccSqufEsjIzSzGFC9jYtk6u6l9yE/vhik7SO
-	ThxfJw0hQZFbIIQc525WPUTD5jTjZiI1UlEsCa1rhnyE99IXieBC3GhWnY+GxpnbZ0M3hh
-	70hkwmILZL4GgEM5pJ5JpOl9bEQk0rhoUe6q1FreSgFwemTQgllUp4501tpqeS+80CDk0T
-	LX8nbb0djgb51qk4tixgYcfHAwT3s8htKCDpc9/mI3vRw2HkDKwhfCNawdUmcw==
+	bh=fLqr/v68/oCbAC/szyoyk5IrhiQHgk4K8tIbryhT7Ag=;
+	b=xJrAuTrmVWZ0G2Hsq9tQoPRD6+uxXd/k88UB0spCmlPi51Ro8tbP2h3BZ5RqVG+kx1ycjw
+	KLoA1/fjcSRwnejqpZ/gXUEA83vBuAWeIYbOY+phfgytIqOID5oxb3/ignhmfDne2Q3Z0c
+	17fkKalqv++MGZfkKGqB6J7Vfhd5psDQ09cYZtoGrbr2AardIXjxJ1LEZMa+8wo0jdMWUy
+	0xehm5sLvY2dYBzeBOZADV/qIb2FyLuGUYVNaF/j+ouJWyGqaOnOaOAkAvBPx3cnPppkts
+	3oTa2TbtWbfZCM5XdgcGKGsJxfdRvpEBXn88r13lz1yjwbJ/ggucER60dymEKQ==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Wed, 18 Nov 2026 18:08:27 +0100
-Subject: [PATCH v2 10/13] mtd: spinand: winbond: Add continuous read
- support for W25N02LV
+Date: Wed, 18 Nov 2026 18:08:28 +0100
+Subject: [PATCH v2 11/13] mtd: spinand: winbond: Add continuous read
+ support for W25N04LV
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,7 +66,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-winbond-master-w25nxxlvw-v2-10-55956313d6cb@bootlin.com>
+Message-Id: <20261118-winbond-master-w25nxxlvw-v2-11-55956313d6cb@bootlin.com>
 References: <20261118-winbond-master-w25nxxlvw-v2-0-55956313d6cb@bootlin.com>
 In-Reply-To: <20261118-winbond-master-w25nxxlvw-v2-0-55956313d6cb@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, 
@@ -83,59 +83,41 @@ LV chips have DDR support, otherwise they support the same variants as
 the other chips.
 
 $ nandcontreadtest /dev/mtd0
-testing 10 blocks from 0 to 9 (10 good), seed 27
-success: verified 1310720 bytes read in 756.306 ms (1692.44 KiB/s)
+testing 2 blocks from 0 to 1 (2 good), seed 29
+success: verified 524288 bytes read in 291.735 ms (1755.02 KiB/s)
 
 $ flash_speed /dev/mtd0 -C
-1 page read speed is 1580 KiB/s
-2 page read speed is 1580 KiB/s
-3 page read speed is 1615 KiB/s
-4 page read speed is 1641 KiB/s
-5 page read speed is 1643 KiB/s
-6 page read speed is 1643 KiB/s
-7 page read speed is 1657 KiB/s
-8 page read speed is 1662 KiB/s
-9 page read speed is 1680 KiB/s
-10 page read speed is 1666 KiB/s
-11 page read speed is 1692 KiB/s
-12 page read speed is 1690 KiB/s
-13 page read speed is 1677 KiB/s
-14 page read speed is 1696 KiB/s
-15 page read speed is 1690 KiB/s
-16 page read speed is 1684 KiB/s
-32 page read speed is 1684 KiB/s
-64 page read speed is 1706 KiB/s
+1 page read speed is 1673 KiB/s
+2 page read speed is 1718 KiB/s
+3 page read speed is 1737 KiB/s
+4 page read speed is 1741 KiB/s
+5 page read speed is 1764 KiB/s
+6 page read speed is 1764 KiB/s
+7 page read speed is 1762 KiB/s
+8 page read speed is 1753 KiB/s
+9 page read speed is 1774 KiB/s
+10 page read speed is 1764 KiB/s
+11 page read speed is 1774 KiB/s
+12 page read speed is 1777 KiB/s
+13 page read speed is 1777 KiB/s
+14 page read speed is 1763 KiB/s
+15 page read speed is 1777 KiB/s
+16 page read speed is 1790 KiB/s
+32 page read speed is 1777 KiB/s
+64 page read speed is 1777 KiB/s
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/nand/spi/winbond.c | 21 +++++++++++++++++----
- 1 file changed, 17 insertions(+), 4 deletions(-)
+ drivers/mtd/nand/spi/winbond.c | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/mtd/nand/spi/winbond.c b/drivers/mtd/nand/spi/winbond.c
-index b7a31dc83327..cdfd5a5778c6 100644
+index cdfd5a5778c6..1dc6d78a515d 100644
 --- a/drivers/mtd/nand/spi/winbond.c
 +++ b/drivers/mtd/nand/spi/winbond.c
-@@ -226,6 +226,17 @@ static SPINAND_OP_VARIANTS(w25nxxlv_read_cache_variants,
- 		SPINAND_PAGE_READ_FROM_CACHE_FAST_1S_1S_1S_OP(0, 1, NULL, 0, 0),
- 		SPINAND_PAGE_READ_FROM_CACHE_1S_1S_1S_OP(0, 1, NULL, 0, 0));
- 
-+static SPINAND_OP_VARIANTS(w25nxxlv_cont_read_cache_variants,
-+		WINBOND_CONT_READ_FROM_CACHE_1S_4D_4D_OP(11, NULL, 0, 66 * HZ_PER_MHZ),
-+		WINBOND_CONT_READ_FROM_CACHE_1S_1D_4D_OP(5, NULL, 0, 66 * HZ_PER_MHZ),
-+		WINBOND_CONT_READ_FROM_CACHE_1S_4S_4S_OP(6, NULL, 0, 0),
-+		WINBOND_CONT_READ_FROM_CACHE_1S_1S_4S_OP(4, NULL, 0, 0),
-+		WINBOND_CONT_READ_FROM_CACHE_1S_2S_2S_OP(4, NULL, 0, 0),
-+		WINBOND_CONT_READ_FROM_CACHE_1S_1S_2S_OP(4, NULL, 0, 0),
-+		/* The 1S_1D_1D variant would require 4.5 dummy bytes, this is not possible */
-+		WINBOND_CONT_READ_FROM_CACHE_FAST_1S_1S_1S_OP(4, NULL, 0, 0),
-+		WINBOND_CONT_READ_FROM_CACHE_1S_1S_1S_OP(3, NULL, 0, 0));
-+
- static SPINAND_OP_VARIANTS(read_cache_variants,
- 		SPINAND_PAGE_READ_FROM_CACHE_1S_4S_4S_OP(0, 2, NULL, 0, 0),
- 		SPINAND_PAGE_READ_FROM_CACHE_1S_1S_4S_OP(0, 1, NULL, 0, 0),
-@@ -819,11 +830,13 @@ static const struct spinand_info winbond_spinand_table[] = {
- 		     SPINAND_ID(SPINAND_READID_METHOD_OPCODE_DUMMY, 0x8a, 0x22),
- 		     NAND_MEMORG(1, 2048, 128, 64, 2048, 40, 1, 1, 1),
+@@ -882,11 +882,13 @@ static const struct spinand_info winbond_spinand_table[] = {
+ 		     SPINAND_ID(SPINAND_READID_METHOD_OPCODE_DUMMY, 0x8b, 0x23),
+ 		     NAND_MEMORG(1, 4096, 256, 64, 2048, 40, 1, 1, 1),
  		     NAND_ECCREQ(8, 512),
 -		     SPINAND_INFO_OP_VARIANTS(&w25nxxlv_read_cache_variants,
 -					      &write_cache_variants,
@@ -148,9 +130,9 @@ index b7a31dc83327..cdfd5a5778c6 100644
 -		     SPINAND_ECCINFO(&w25nxxlv_lw_ooblayout, w25nxxkv_kw_lv_lw_ecc_get_status)),
 +		     SPINAND_ECCINFO(&w25nxxlv_lw_ooblayout, w25nxxkv_kw_lv_lw_ecc_get_status),
 +		     SPINAND_CONT_READ(w25n_set_cont_read)),
- 	SPINAND_INFO("W25N02LW", /* 1.8V */
- 		     SPINAND_ID(SPINAND_READID_METHOD_OPCODE_DUMMY, 0x12, 0x22),
- 		     NAND_MEMORG(1, 2048, 128, 64, 2048, 40, 1, 1, 1),
+ 	SPINAND_INFO("W25N04LW", /* 1.8V */
+ 		     SPINAND_ID(SPINAND_READID_METHOD_OPCODE_DUMMY, 0xb2, 0x23),
+ 		     NAND_MEMORG(1, 4096, 256, 64, 2048, 40, 1, 1, 1),
 
 -- 
 2.56.0
