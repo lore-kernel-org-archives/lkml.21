@@ -1,42 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.117.254.33
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795033038;
-	b=VLLP7ivvFUJqiLy8A7+C/wGRCbIYj/sZurbtI7iXa4zX2pSgpkXGdARB+M5n8vouRdjw
-	 kcc0moRfCCOnfpxk9pODumUotiT3ANJ7i4RdiIcQpb7T3w7koxjbSKptixB5ys+NijHJX
-	 9mHjZ3RA1I8ZWtIQgndK9qgcEZjhxmk76M5Wor4Ep+qtzqm7ILq30TRuNfubMHkEcXz3X
-	 Xo98W4tKSQMvn9zaTAxOPAjCX2HOvd7ouEGJEn+zbkLUyHqLg0RgZZP/xlC1F7fFrpw5s
-	 h/jMGTwyROCuhwSy0V4Pnti93NcIygqf5ZiCEf3B846mSAv5ThdDCk00FFv6+osv+VA==
+	b=Z3glf8RBvQhjKtwK1LKEB39zpLTbPPJp7QCwZMzxSnizu4Kwid0DE/2JXHa0xiepRTFz
+	 XaF2bt6+9mPWHNOicu7gb3DCGC/cQOz4Y5JVhbxkI0AgZfdH0HlstrQorUNnM8A/wHfMY
+	 XA5BsggTSFgAuqBeLB+cnNooBGbleFqgyWrybvkIABlzgfcbpdY9WfOvY23RsIhs8tXyS
+	 jh3pduPvQUrPMHOeiW03bju7Pdp6fnMEolVnTTd7lvPCvbAdJqSob6cmxyRDvEipurjD6
+	 8HZQ+lEuiyfY2H2sicHGylij6re6nMKmB57GzGBmtPhfRsQHa/wpRV04AcMLtsEDEGg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795033038;
-	h=DMARC-Filter:Received:Received:MIME-Version:Date:From:To:Cc:Subject:
-	 In-Reply-To:References:Message-ID:X-Sender:Content-Type:
-	 Content-Transfer-Encoding:X-Rspamd-Server:X-Rspamd-Queue-Id:
-	 X-Stat-Signature:X-Spam-Status:X-Session-Marker:X-Session-ID:X-HE-Tag:
-	 X-HE-Meta;
-	bh=1KQDr5H5ZrXqE2xwfRsz5JEYdHKQpCphTBwxeeuDpAo=;
-	b=n0RlVVsMfU9BxHh1je3WhKQRx7X22c9lrCGvDinhhIhbTfO8OI/l18G+vCJGjltZnYp1
-	 N28puYcfTQ3Si02dhskx3FovL6gpftLoU5VA7XFcdEeoCZ+YAy7IU8zWsd9gwJWma5q6L
-	 uR/IeyrgXKsPbjkvry2eZUIMVTeOBx9i9F56k48/4nHa3serOjKLt3HEYQ7BRqzXYhztx
-	 0n1ppptoXbupUsWTEkroDj3VOxNSCAdIwKjCY3I6tjp52Px+yxm+wKFrKxrYUPvUuPKuS
-	 q5yvdfShJRk3cGINN0PmhjvAD5vc/hJyz6GI/u+5iUVWa0AJtBUJ+sulUmUFu0AfGOA==
+	h=DMARC-Filter:DKIM-Signature:Received:Received:X-UD-Smtp-Session:Date:
+	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=HbY4g/YaMvNTowGnC6MUmcHqiwGPxXP3zNLZX21jEEE=;
+	b=NPlBK0JtreJDM9JeNasWRQsaoYSPtaV1C/Z6Ay2+wevOTcH2Nc93EDwI/KaYerpQeEN/
+	 uworNqkqBLLSiNp+2sUMb0gMdyAXyosDkuXkiZFxB/s3dMznjJTMdaEriiAeNND+DtlTr
+	 2jATxF8MnF5sAks3saNo++XckSRCgd6LxsAPR1CFo/QHDSS8uDl4kEeGMjUR1mshtTNsN
+	 2bFFQc4Qf3ExS4uxXtNtqP1va+kSV54QT+lf4i3dtbG0q9fLKKql+hol0TigfleVrTELj
+	 nL8RyXsP1LYlSrghqUVE4okSvB+x6ppK0gxHv/r9TRcMeh2c+UGDArEPSJwdiEb3lCg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=perches.com;
-	spf=pass smtp.mailfrom=perches.com;
-	arc=none smtp.remote-ip=216.40.44.16
-Received: from relay.hostedemail.com (smtprelay0016.hostedemail.com [216.40.44.16])
+	dmarc=none header.from=sang-engineering.com;
+	spf=pass smtp.mailfrom=sang-engineering.com;
+	dkim=pass header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=YtnId6Aj;
+	arc=none smtp.remote-ip=194.117.254.33
+Received: from mail.zeus03.de (zeus03.de [194.117.254.33])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F838606A331
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:17:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5F838606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=perches.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=perches.com
-Received: from omf04.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay10.hostedemail.com (Postfix) with ESMTP id D6EA0C04CB;
-	Wed, 18 Nov 2026 20:17:16 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: joe@perches.com) by omf04.hostedemail.com (Postfix) with ESMTPA id 519622002B;
-	Wed, 18 Nov 2026 20:17:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB2F7606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:17:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB2F7606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=sang-engineering.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sang-engineering.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=YtnId6Aj
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=HbY4
+	g/YaMvNTowGnC6MUmcHqiwGPxXP3zNLZX21jEEE=; b=YtnId6Aje+DfnmCbpsck
+	MsjfG9mVMCN9KE3npRRDuk/YkskwxBKUTTdAK7o87ROI5h9hBr+jDbZUAEXtmSK0
+	hq5574rQhAV7k47xj2ThnP6CB7fPECYSdZUuZ1x8OAieUPqZBtGioDVN+U4FLM4O
+	YVTZMw9qPEe6Kd/2uSr8vpuiA7Knd1JqJ4+lU9vzoqfiIamfiywjH727wGgDi5CQ
+	D3ahA3hH/h+BvBEI8o4aVzbvaIVaeL80zCckYzjv3GqhvjPlXnqKivb2v2fHA17J
+	qBXglOjxw6oQ+lmZWXHKEK+gLhb4B9sGMi9eSBROmnSHDfqivRiP6+wrk+mIihaq
+	hw==
+Received: (qmail 796052 invoked from network); 18 Nov 2026 21:17:12 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 18 Nov 2026 21:17:12 +0100
+X-UD-Smtp-Session: l3s3148p1@AL09spJgrpoujnsi
+Date: Wed, 18 Nov 2026 21:17:12 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Linus Walleij <linusw@kernel.org>, Arnd Bergmann <arnd@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Ulf Hansson <ulfh@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	"linux-mmc @ vger . kernel . org" <linux-mmc@vger.kernel.org>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] mmc: sh_mmcif: rework sg_miter handling
+Message-ID: <av4HwyjnxYYGnsK7@shikoro>
+References: <20261118134445.2909283-1-arnd@kernel.org>
+ <CAD++jLnMxxtrtDMm6rYxB1_5jn-FpnrO3Jrb0=SmBmFWFkCTdA@mail.gmail.com>
+ <bf5fcc4b-05cb-4f11-8f6c-0f94fafd65b9@app.fastmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -46,39 +69,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Wed, 18 Nov 2026 12:17:15 -0800
-From: Joe Perches <joe@perches.com>
-To: HONG Yifan <elsk@google.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Andy Whitcroft
- <apw@canonical.com>, kernel-team@android.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] checkpatch: externalize function-like type macros
-In-Reply-To: <20261118193921.683813-1-elsk@google.com>
-References: <20261118193921.683813-1-elsk@google.com>
-Message-ID: <74682668f673185570e7ea4be4b73c01@perches.com>
-X-Sender: joe@perches.com
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-X-Rspamd-Server: rspamout05
-X-Rspamd-Queue-Id: 519622002B
-X-Stat-Signature: qup9be5a19o1eggzhur3x1cuztufujyo
-X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-Session-ID: U2FsdGVkX1/77YQx6jf67Vdoyec3r8ni5Zvz2xuH0EQ=
-X-HE-Tag: 1795033035-87232
-X-HE-Meta: U2FsdGVkX1/cqwlvWWbbm6T2NexWgE1darfW6nqUYl2ql2b1dGaXhYzR15zQclYXi0CL9u+eao9t+n13wIiOTao6nfmSgmQyM9kA1ujgt/MPFyFWBMScFfeIfO442+lh5FyRB1zLZMECoczgfERzlkkc0vEfF7WhPuNj0/ZJf77ifDJTKfi53U9W6/enutbfVjDv9QwgW7i0KudySNDgf+83KLg0I4USnCqkMaIvZYB98TUzjSwTmfpv26vD35ULxusJ2ffFGIPcj+mWSlmL5Q==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="9i3qkAFQzuI78HwQ"
+Content-Disposition: inline
+In-Reply-To: <bf5fcc4b-05cb-4f11-8f6c-0f94fafd65b9@app.fastmail.com>
 
-On 2026-11-18 11:39, HONG Yifan wrote:
+--9i3qkAFQzuI78HwQ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> Following scripts/const_structs.checkpatch in commit bf1fa1dae68e
-> ("checkpatch: externalize the structs that should be const"), read
-> additional function-like type macro names from a new companion file
-> scripts/type_macros.checkpatch into $type_macros (named to mirror
-> $const_structs/$conststructsfile and initialized with the built-in
-> typeof and __typeof__ keywords) and use $type_macros in $NonptrType and
-> $NonptrTypeWithAttr.
+Hi Arnd, Linus,
 
-Yes like this.
+> I'll post a v2 tomorrow with the bugs addressed that Sashiko found,
+> no point testing this version. Maybe Wolfram can still take a look.
 
-I'll test it before i ack it tomorrow.
+I surely can do testing, the Lager board I have should be suitable.
+Reviewing - I'll try my best with v2, this is all ages ago...
 
-Thanks,  Joe
+Thanks for taking care of this!
+
+   Wolfram
+
+
+--9i3qkAFQzuI78HwQ
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmr+B8MACgkQFA3kzBSg
+Kbb7eQ/+LqBlUi86Xlmyh0vPR2K/rbEduXBxJntUncTCbXR2MOU9jYap1N8vvakz
+LVyB6Z94bjeVW0+cJBY4YRm9Yn6djB56EtIld8VWOObyGx3M5Ul0FEET3uxhAJ9/
+iuiOuvuFBNdpuj7nBFTx7s+qEaYN5brb2cSsTWNUZJ/IhHyYEZgpY4Qx3wla5Z/N
+WCDddYCBWTEKZZyrxsIM5Q+4J0Krzuf61r+lU/6M8Eq3CrxUoLAE86aeTDd11FIi
+9BYNzLB2YsrootDCV9t4GK7lpE5tG7ZRbPUDNN04dmwMS9b7QkU7Q86lXy2O0rDl
+v6ajpJMNlp3bM2Zibg+2oHifZjtJG+zf0azrQoATRK6xK6aWPCieDhMMFoWo+dKz
+Ay1s/kcAxfCDWjseQuBw32mfgyKp5gyTRchqagwC4EM36iGGUlIcEwWWYevLjd1E
+Zy6IXeC887bvebVBS2jmIRtrKqWI8fBNWnol1Tu5DLGXCl0pWt06s+FNPJQuejA7
+GA+PgDp0/5Wr9ivfB/Z94IXsd2dRPwCBVaJ/ZHibG6JrOZJnAjr5fuSOegTOGeBq
+j5hlKkOR95u2gp+sUmrJUhvsxg8x1RvH6JaUqfzOxt9t9mgeV5jxFj9K8YQsFCsJ
+RBQDD2NuJ6eltWU1HRmTidRwNEYU05rZqfICmlI0pEe2PjqkZXk=
+=2xHZ
+-----END PGP SIGNATURE-----
+
+--9i3qkAFQzuI78HwQ--
