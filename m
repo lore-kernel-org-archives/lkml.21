@@ -1,85 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=160.80.4.37
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795014507;
-	b=jAG89oBAP9LZtEwmER94lfnPkLN9m83m8qYJ5yp8JjGmwfGfMFch24oem/dnbN9Rw+Y9
-	 Bgl1D6+snypxiMZFzSIzRfrIR5irYaDWiSiZIwBgi9TZh9kvpucFImjllMS+jBYG1pYE9
-	 d7H06QHEyhKWE7sTOiLIEQeFUYAvV/dJs0whJMAneqZMURexkoc901/lAN5U0l3R6OiO3
-	 5MQeuRLkPzuUPZbiSiErbKrttraqLNXYz79FQt9U26Ws0OZH7u5ohmddARCmsBG46QXxl
-	 motTnb7rA+q26cFJ6ey0o0SHO9Mpg2O/Esh+Hb08DiAJq4nOBi9+s7z3gd7BtAP5fBA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795014507;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:From:To:
-	 Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:X-Virus-Scanned:
-	 X-Virus-Status;
-	bh=3rSKKcOzFng0M9AKi0Z2RIUayRVuSQJhfFNu/CcXx+U=;
-	b=owSS5MBt9yXaLXTy0bc7aDbVbW4O75tEIWSMfUcBgJqeVDDVQnY9CbPhh15q66eQOBzh
-	 T6T1zeGXwCpm+TiC8VBVIJI5zZ5wu22ULWhYoahONTWlIXB8KiZrW+DEFBZElPNqJvqLE
-	 sxCK0QIbBHQop4PPvG1xsxEX0J+wOj1ws5LMOQX+4oxthbuIzYuXWWe470gygK9VUfQUO
-	 sixgwBFWgGK13ZKGOJ+n6j/cWVu7oAqcqaO1Uhd9Z88SltdCGWKYMI/AKmCuWeBx4FQHJ
-	 7qX8mD3e05R75GSD2HBZ6yIskTKPTJMmQsrLjSMSl3V+ysG6gI+uEiIIOLpgs2q0BEg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=uniroma2.it;
-	spf=pass smtp.mailfrom=uniroma2.it;
-	dkim=pass header.d=uniroma2.it header.i=@uniroma2.it header.a=ed25519-sha256 header.s=ed201904 header.b=3xclmsb+;
-	dkim=pass header.d=uniroma2.it header.i=@uniroma2.it header.a=rsa-sha256 header.s=rsa201904 header.b=TaDp+HIK;
-	arc=none smtp.remote-ip=160.80.4.37
-Received: from smtp.uniroma2.it (smtp.uniroma2.it [160.80.4.37])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 18CDF606A320;
-	Wed, 18 Nov 2026 15:08:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 18CDF606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniroma2.it
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniroma2.it
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795014603;
+	b=J3gw5agHEB9VcYbdPgUW/pxvuBCi2jlEszQ+cPlVfU+uWtQTQ1UV4qQ5Zr0OZnpn3viZ
+	 LptdSpUjFhFaeDuFbMHw5U1Pkgx6hvsiGA3VkTmffy2XpxYeU2CW3fT3dW+lcqP3zdlJw
+	 hLMhHJtjmtXnO4ud/4KSqgaxDdkILp8/fbAB7SY3oYadlWNwVnyvmcJ9FDB2Jdml525Nf
+	 +x9u5CnQZfj7EmYqt3ZeOQBjgXpDjMeRsBJB0qYVNovZ41HobOzbvkRM3EbkgMylytfXF
+	 BXYO5BeW9vpuoY10IpyJxQP3mk2LvnKyU+nZSeAXTNX/W2N9+Q0rfWSw/2ccyVJ+qrQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795014603;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
+	 References:In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
+	 Cc:Content-Type:Content-Transfer-Encoding:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=flTkdZEYbmHHX8uDsGTqb+GbA4JNBQ1tY4XceC/t+Xw=;
+	b=EO/yF9K78iA0KhnGVxuSODyw0UN6Y2pF8Zev6DPULDbwtHzKBDdV+cepupq3J7oDqmjb
+	 8oHkLcWOkBFSVrDeJ0+mNyM+y7LNS32t2lsaZwRf2XcnS3OBF2IGuEetiNNem+ymobced
+	 zjzntqjyBQHQqkaq5yjMTXS8DAmF29PKb0kkpqHDefqkDPMJ3E14GYFQk9EVXj2dC/ove
+	 KhPPhNG2AC3WKOD9mNjv8wxTAj0SWrMAWPPFNwt8LFUzdBUf85kZNTTBT0gq50BQe8mkb
+	 JRjHiBEp7eAieIdZffYgR+bJ8AR0zW7drd/YGlznZ/bz+5zvNXjOgkCjQ9qT/Bmt+jw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=bF+QsBGW;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=apikv5VN;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64294606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:10:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 64294606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass header.d=uniroma2.it header.i=@uniroma2.it header.a=ed25519-sha256 header.s=ed201904 header.b=3xclmsb+;
-	dkim=pass (2048-bit key) header.d=uniroma2.it header.i=@uniroma2.it header.a=rsa-sha256 header.s=rsa201904 header.b=TaDp+HIK
-Received: from smtpauth-2019-1.uniroma2.it (smtpauth.uniroma2.it [160.80.5.46])
-	by smtp-2015.uniroma2.it (8.14.4/8.14.4/Debian-8) with ESMTP id 6AIF7YVF012194;
-	Wed, 18 Nov 2026 16:07:39 +0100
-Received: from localhost.localdomain (unknown [160.80.105.87])
-	by smtpauth-2019-1.uniroma2.it (Postfix) with ESMTPSA id A2A23122959;
-	Wed, 18 Nov 2026 16:07:30 +0100 (CET)
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=uniroma2.it;
-	s=ed201904; t=1795014450; h=from:from:sender:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3rSKKcOzFng0M9AKi0Z2RIUayRVuSQJhfFNu/CcXx+U=;
-	b=3xclmsb+zxqlhvQfMDj3Puqn3aGRXjz21i/9qBTDpILExopU1Wd+RaR96cBUu7DcRhpYDJ
-	SEBKNoW/xXp8+SBQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniroma2.it; s=rsa201904;
-	t=1795014450; h=from:from:sender:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3rSKKcOzFng0M9AKi0Z2RIUayRVuSQJhfFNu/CcXx+U=;
-	b=TaDp+HIKBw03D7Xbt1f21mhkTcN/5cZTIuBFVHVWAkyUw+HFvyC+UUEKsFVSwzwO4uSfn+
-	6ypZza93DN+e9s2gBIYSvFBImaaZIIP7He6TPIyDFA3dDw1j9iEgMpaEv9arfG/e/2gks0
-	Pc3ed50cPwH5K91Mwqu/QzFhPy15ESY7QT7hKXYxjW1B5j/uazxNiJQOjImQv08mqecjmm
-	B5lcNSPsQlYGf85O8CPcA0T9StfwQUDqiWuorUE21+CxmB9dkMxKvKD+BVpVngthr/P69B
-	L1b3KHDBIahx4YFPHMosNTxQkg4Jxb4YilmT29rKTTzRs61aV1aIQD07uJE2Fg==
-From: Andrea Mayer <andrea.mayer@uniroma2.it>
-To: "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-        David Ahern <dsahern@kernel.org>, Ido Schimmel <idosch@nvidia.com>,
-        Shuah Khan <shuah@kernel.org>
-Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-        linux-kselftest@vger.kernel.org, bpf@vger.kernel.org,
-        David Lebrun <david.lebrun@uclouvain.be>,
-        Daniel Borkmann <daniel@iogearbox.net>,
-        Mathieu Xhonneux <m.xhonneux@gmail.com>,
-        David Lebrun <dlebrun@google.com>, Hangbin Liu <hangbin.liu@linux.dev>,
-        Justin Iurman <justin.iurman@gmail.com>,
-        Stefano Salsano <stefano.salsano@uniroma2.it>,
-        Andrea Mayer <andrea@common-net.org>,
-        Andrea Mayer <andrea.mayer@uniroma2.it>
-Subject: [PATCH net v2 6/6] selftests: seg6: add test for skb checksum with CHECKSUM_COMPLETE
-Date: Wed, 18 Nov 2026 16:02:51 +0100
-Message-Id: <20261118150251.65-7-andrea.mayer@uniroma2.it>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20261118150251.65-1-andrea.mayer@uniroma2.it>
-References: <20261118150251.65-1-andrea.mayer@uniroma2.it>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=bF+QsBGW;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=apikv5VN
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIEqRig072477
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:10:02 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	flTkdZEYbmHHX8uDsGTqb+GbA4JNBQ1tY4XceC/t+Xw=; b=bF+QsBGW2eNNOq4M
+	1o18j2IRQvedJAbrFgv18WbJ0L9nfEkbNvK5p3rFjFZv3vuxdIpgImIKggAHvJhI
+	gvJ0qQOFkcVPhN8o6jSom5+Sm/Rvi0Rz5vkrK+56bipuIV2WO0T1rThXxjxeOBh+
+	p7YTBrZkd5bLWHYSWRQkv7LEKXTUxzwMSq7l0Mxo7gNiau4tvH/z1ObJ06M77uFm
+	PNOyGElIps2VaSU5gvHBXYVzV6GXsHLLMtfDBSWJCWWPTQ16sF59kQaxF2ZkVQPX
+	iJ1gUuKDwAPngixY2+6OxvBSO4747sRWXISlxP6xPhPajjFHTO/o1Fh9kjodq2Qw
+	nu0Hrw==
+Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j1e5qr2fy-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:10:02 +0000 (GMT)
+Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-cde2fadb00cso940634a12.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:10:02 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795014602; cv=none;
+        d=google.com; s=arc-20260327;
+        b=juYqb78vXyJVJetQo8r9j/+dpI/S7A6fjPE6TMZx0wQSDbDBHHqRbNRrJvVSV80UFc
+         EApJSqXu2ADIOxLSc0jvwq/op3HbYi45/LlFL8a38yGlqRs6WUbAFGJp/z6suCnjhOzG
+         RUhgqCPEMG6FG8JcQD25eQ6+EpmEdLRe6uyoLDw5eExAQ1mcI6FXYwlqAhBZ48HnMkFp
+         X4kAD9Xg58TGwlPx2T6g2t8859GfOOwHb8Jsd7ZsLmlFx6296RCgJ5WfT+UDLP4tp/zx
+         kXLT0PZ7dGwY8xicKycan7VUSOAsQqn7/XmA7MEANPuUA1ntbfYzpZACbbtAsAgfCa7U
+         P1BQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=flTkdZEYbmHHX8uDsGTqb+GbA4JNBQ1tY4XceC/t+Xw=;
+        fh=l1wPGl7/6vJUlz3qFc0f3p1Z9LCLvHOZ+XO086bx8HU=;
+        b=LjWvsE5ve7+us7CCwPOl7Cxc9p95mWTxs33ZjLxZoN/cmJgnUOXoR8Q1tRyCcBQw7v
+         GqHnWOOd1VALWABiQlrKS0zZH5mu0h2izhtLvhTeOTFSa5sfUOULSMJTweM6W1V9GKUr
+         o/kl3F+W+Z5k3ZSVj+tXYC08+rJ4hIuvZRS0FkibZD7Rg1iAXrIeevErEZScIxmfBUDj
+         yP5l+Hb+mnN14I79b5tou+hcVaBKSeXYeo1DRyCzz8Cpm//qcmXLrZrQV4yq39EVCSc+
+         aDKfS7ymDiSBHEythkxGQJgwDJYz724fXyucGUIhjUQUgdM2xKSgwxq8gswgqLlhQxcv
+         Y7oA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795014602; x=1795619402; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=flTkdZEYbmHHX8uDsGTqb+GbA4JNBQ1tY4XceC/t+Xw=;
+        b=apikv5VNqioVqZY0y16A8FlF3b8jNYI/nngyif+HWQoTTUOmYq/WvtuOFSpC4V82Xc
+         5UmCbNRdXkCZFstKPiM0uWOkdwuSgIgEMDcqbbIK6QpVoeYP8gn+ML0CTcZ1hPJ+YjtB
+         jHY3Vfr6p++uEh2xcWstn1C2zJgGpkXpEreNG/JfdISPVyISQCKnNMCA21xJ+bJnFSj6
+         K4asXnebzEqIcUy+77aAfeKL1ieHsEI64Lj9cD2WbFksIUKOxpHLpPEhmrB6UnfSMzby
+         UStBSk4KN1pfKWaOy0ZESTbRTXu3fQ1azQIEKKMxf8dbl+vQsCExe19Fr7+VH5MzqRPM
+         gPlA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795014602; x=1795619402;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=flTkdZEYbmHHX8uDsGTqb+GbA4JNBQ1tY4XceC/t+Xw=;
+        b=MRhSF7zAeMZuTdHiLpOFvctgfeLXu4fp/lQ2aTcv4jh5qkV98KtRB2D8LEv+7ItQ4m
+         Ybc708xPx1RvDSBjpMDwfE60bYCYXsLfkIS73VXXWdEt7YgjlAF3077HmKOrUv+v5RsG
+         dDLHYJXENwRGo1RZYUCvGOWZWWNGd+UzkvmsoFvw5lKK1umA9t5YntL7eZ+Jz3hOzAUG
+         ihJFPV1wZLE9Oh87bQPrC0cDrkwM5C4y1oW+rvfbSRWrtsMfCyegAu1QbSPxSHZ6TSGv
+         GCfFTMZl2tqXldBpnr5FmfaXHOagpPSSuqtjmaAbG3k+uPzYf1Bvu3rBsZV3ZGlSwm3A
+         68uA==
+X-Forwarded-Encrypted: i=1; AL+hErGvePwz1/AEokldfAV/+d0Zv6+kp/RXsAnHPSx32w+e08UiGNyR/EDFTISn0ZCpGj5BKIIrNJVzMLSW6as=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/zyNBjvoQg9g4iB162gLcADBhbx3J1S0czBye0cWaGhktl7m5b
+	WFnw572GeFC1dzKYu+F2Uay9cnyvwM3jQsYEbzi1V2+3bFeKwWr6cbcTH5rXo0KlfckRUINH2Gx
+	zBE0jLSqChFVRml3LuKlw+T4WlN3RqzZPaKxYGliTFnwduc/Ja13AGFVFXOCmM2r4gd+dRlXPth
+	IVNxSpP4olACF1hRuAJ3lD4YoDn+SAXsCV1TVlHHTJRA==
+X-Gm-Gg: AYBFou0dK8GqP9TdFWRRF62+hp98o65skwB+VNfArBCfBYZbUKs6SRxy5L2lqX/VB6u
+	daOjSd48rSQn9BBBo7BBcTpPNxOHaXMIl7G8M6u3KV/FGIEBPUDrO8Lr6x5v9B31Kogk52jNMRU
+	EPUmtiCKPGPBSlTQ6z2nNvg7oJFMqbgSpTcjclqgqbb6o12vO/kYJulGptfg==
+X-Received: by 2002:a05:6a21:3a41:b0:3f8:78ed:b4fe with SMTP id adf61e73a8af0-3fe980f6d1amr3184469637.46.1795014601775;
+        Wed, 18 Nov 2026 07:10:01 -0800 (PST)
+X-Received: by 2002:a05:6a21:3a41:b0:3f8:78ed:b4fe with SMTP id
+ adf61e73a8af0-3fe980f6d1amr3184430637.46.1795014601308; Wed, 18 Nov 2026
+ 07:10:01 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,756 +127,81 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Virus-Scanned: clamav-milter 0.100.0 at smtp-2015
-X-Virus-Status: Clean
+References: <20261118023201.2031211-1-zhangfei.gao@oss.qualcomm.com> <6aeedf05-a8ae-46ac-bf1c-58ecab7ec6aa@sirena.org.uk>
+In-Reply-To: <6aeedf05-a8ae-46ac-bf1c-58ecab7ec6aa@sirena.org.uk>
+From: Zhangfei Gao <zhangfei.gao@oss.qualcomm.com>
+Date: Wed, 18 Nov 2026 23:09:50 +0800
+X-Gm-Features: AclHuK9NVLbGP6CpcTR1T8ysZ9VKjGHAEIip-iOoYZVrM4ubgXtHt96rt46OEkM
+Message-ID: <CAFkd8hu1K_4kfGJyuD2NeD0S=K5fPBk=9=V8Ziv3Qu89YPCxrQ@mail.gmail.com>
+Subject: Re: [PATCH v4 resend] ASoC: qcom: audioreach: support multichannel
+ PCM formats
+To: Mark Brown <broonie@kernel.org>
+Cc: Srinivas Kandagatla <srini@kernel.org>,
+        Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
+        Takashi Iwai <tiwai@suse.com>,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+        shengchao.guo@oss.qualcomm.com, mohammad.rafi.shaik@oss.qualcomm.com,
+        bartosz.golaszewski@oss.qualcomm.com,
+        Prasad Kumpatla <prasad.kumpatla@oss.qualcomm.com>,
+        Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>,
+        linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Proofpoint-ORIG-GUID: C9c1Gs3F-BAn72Os4IxLZeuv3rpauR2v
+X-Authority-Analysis: v=2.4 cv=c5Q+0h9l c=1 sm=1 tr=0 ts=6afdbfca cx=c_pps
+ a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=Um2Pa8k9VHT-vaBCBUpS:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
+ a=_LpRk2n8-sDezK4FkoYA:9 a=QEXdDO2ut3YA:10 a=x9snwWr2DeNwDh03kgHS:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA2MCBTYWx0ZWRfXzpq91JubOtXc
+ EnNADFXgIzfkUslo9p/3LucdbFgtsBVvdvURWVu7jFaHRZTAD8X6PSp9LkZNkwCgvCxcDKZU+1y
+ WdMoAENMEfShh0d96AaJhOt/ZNmldNw=
+X-Proofpoint-GUID: C9c1Gs3F-BAn72Os4IxLZeuv3rpauR2v
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA2MCBTYWx0ZWRfXwUlmDYxMaisA
+ 6nWF0qIWBBdwdzAPQ34o51g8IALZRUd2RFNTRbrMg60dTk7FGOt0KLjN3Y4QGvR3TaymJUpeeWk
+ uQ3FkB16lQXViyN1J/VpKk/0vEEDeGh1KW8Vlh2Cilp+Im4KEQsLlMu+jhiR+/F2JPi9rS1VdOf
+ tcSyy8PNWdNfD4HuI4wQbUYk9HIWb+bFevGRsoSu/vvoE602Q2y2PNOJ5MA9MNxp6a4Zu7fNZw9
+ NPrGNRn+NdK8KTSTPoEW5iDH52TbEhc1EwvbV8/Q0LOxn3ExbIZJZhv3TbxDR8BZ4HP7jybzfxV
+ 5YFzV9XGNhWzH0urzQnWzbQ8kqHtneTe02f+KttjO7Ci23yvHq9tlUQCwaoN/pZylkmB5R2eawp
+ LeKvj5YIMBJiahQDW7cA5gATin1a9ux/YrTFIYTf/uPKnhKMsHQystZsUTO3Jzrtd3E8Bpb86hC
+ UQAwAzJvEjZ1n/l5j4A==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-18_04,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 suspectscore=0 bulkscore=0 lowpriorityscore=0 adultscore=0
+ phishscore=0 priorityscore=1501 malwarescore=0 spamscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180060
 
-Add a selftest for received packets with CHECKSUM_COMPLETE that the SRv6
-code processes before they are delivered on the same node. The test checks
-that, after the node changes the packet, UDP does not read a wrong
-skb->csum.
+On Wed, Nov 18, 2026 at 9:18=E2=80=AFPM Mark Brown <broonie@kernel.org> wro=
+te:
+>
+> On Wed, Nov 18, 2026 at 10:32:01AM +0800, Zhangfei Gao wrote:
+> > AudioReach currently rejects PCM streams with more than four channels i=
+n
+> > the PCM and shared-memory media format paths.
+> >
+> > This prevents TDM links that expose more channels, such as the 6-channe=
+l
+> > playback path used on SA8797P Ride, from being configured.
+> >
+> > Reuse q6dsp_map_channels() to support multichannel PCM formats and use
+> > the common PCM channel limit definition.
+> >
+> > Reviewed-by: Prasad Kumpatla <prasad.kumpatla@oss.qualcomm.com>
+> > Reviewed-by: Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>
+> > Tested-by: Shawn Guo <shengchao.guo@oss.qualcomm.com>
+> > Signed-off-by: Zhangfei Gao <zhangfei.gao@oss.qualcomm.com>
+> > ---
+> >
+> > v4: Rebased onto sound.git/for-next at fcfcd6db32adbd
+>
+> v4 was this rebased onto some other commit.  If you have changed what
+> you are sending, including a rebase, you need to change the version
+> number otherwise both people and tools are going to have a hard time.
 
-The test uses a host and a router connected through a veth pair. Since veth
-does not provide CHECKSUM_COMPLETE, a tc ct action on the router computes
-skb->csum in software.
+OK, will change to v5,
 
-The host sends a UDP datagram to the router along five paths: no SRH (the
-reference), an SRH with local segments, End.B6.Encaps with End.DT6, End
-with the next-csid flavor, and End.BPF. Each datagram is expected to be
-delivered, not dropped as a checksum error. Without the previous patches,
-every path except the reference fails. With them, every path passes.
-
-The host also sends a control datagram. It checks that the test detects a
-wrong skb->csum after a change to the packet. After the ct action, a BPF
-program on the router changes the Flow Label of the control datagram
-without updating skb->csum, and UDP must drop it. If UDP accepts it, the
-paths above may report a false pass, and the test fails.
-
-Signed-off-by: Andrea Mayer <andrea.mayer@uniroma2.it>
----
- tools/testing/selftests/net/Makefile          |   1 +
- .../selftests/net/srv6_csum_complete.bpf.c    |  65 ++
- .../selftests/net/srv6_csum_complete_test.sh  | 627 ++++++++++++++++++
- 3 files changed, 693 insertions(+)
- create mode 100644 tools/testing/selftests/net/srv6_csum_complete.bpf.c
- create mode 100755 tools/testing/selftests/net/srv6_csum_complete_test.sh
-
-diff --git a/tools/testing/selftests/net/Makefile b/tools/testing/selftests/net/Makefile
-index baea3e7f0f8f..46fa754bf0e9 100644
---- a/tools/testing/selftests/net/Makefile
-+++ b/tools/testing/selftests/net/Makefile
-@@ -94,6 +94,7 @@ TEST_PROGS := \
- 	sctp_ifwdtsn.sh \
- 	sctp_vrf.sh \
- 	skf_net_off.sh \
-+	srv6_csum_complete_test.sh \
- 	srv6_encap_lookup_l3vpn_test.sh \
- 	srv6_end_dt46_l3vpn_test.sh \
- 	srv6_end_dt4_l3vpn_test.sh \
-diff --git a/tools/testing/selftests/net/srv6_csum_complete.bpf.c b/tools/testing/selftests/net/srv6_csum_complete.bpf.c
-new file mode 100644
-index 000000000000..281b0361f976
---- /dev/null
-+++ b/tools/testing/selftests/net/srv6_csum_complete.bpf.c
-@@ -0,0 +1,65 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Author: Andrea Mayer <andrea.mayer@uniroma2.it>
-+ */
-+#include <stddef.h>
-+#include <linux/bpf.h>
-+#include <linux/if_ether.h>
-+#include <linux/ipv6.h>
-+#include <linux/pkt_cls.h>
-+#include <linux/seg6.h>
-+#include <bpf/bpf_helpers.h>
-+#include <bpf/bpf_endian.h>
-+
-+/* On the tc ingress, skb->data points to the Ethernet header */
-+#define TC_IPV6_OFF		ETH_HLEN
-+/* Byte with the lowest 8 bits of the Flow Label */
-+#define TC_FLOW_LBL_OFF		(TC_IPV6_OFF + \
-+				 offsetof(struct ipv6hdr, flow_lbl) + 2)
-+/* Bit of the Flow Label changed in the control datagram */
-+#define CTRL_FLOW_LBL_BIT	0x01
-+
-+/* In End.BPF, skb->data points to the IPv6 header, followed by the SRH */
-+#define SRH_TAG_OFF		(sizeof(struct ipv6hdr) + \
-+				 offsetof(struct ipv6_sr_hdr, tag))
-+/* Value written in the SRH Tag, test case (vi) */
-+#define SRH_TAG			0x1234
-+
-+/* Test case (v) of srv6_csum_complete_test.sh. The program runs on the tc
-+ * ingress of rt, after the ct action, only for the control datagram. It
-+ * changes one bit of the Flow Label, without updating the receive checksum
-+ * (skb->csum). The Flow Label is not part of the UDP checksum, which stays
-+ * correct. UDP must drop the datagram because the receive checksum no longer
-+ * matches the packet.
-+ */
-+SEC("tc")
-+int ctrl_flow_label(struct __sk_buff *skb)
-+{
-+	__u8 lbl;
-+
-+	/* Read the byte with the lowest 8 bits of the Flow Label */
-+	if (bpf_skb_load_bytes(skb, TC_FLOW_LBL_OFF, &lbl, sizeof(lbl)))
-+		return TC_ACT_SHOT;
-+
-+	lbl ^= CTRL_FLOW_LBL_BIT;
-+
-+	/* Write the byte back, flags 0 do not update the receive checksum */
-+	if (bpf_skb_store_bytes(skb, TC_FLOW_LBL_OFF, &lbl, sizeof(lbl), 0))
-+		return TC_ACT_SHOT;
-+
-+	return TC_ACT_OK;
-+}
-+
-+/* Test case (vi), the End.BPF program writes the SRH Tag */
-+SEC("lwt_seg6local")
-+int end_bpf_tag(struct __sk_buff *skb)
-+{
-+	__u16 tag = bpf_htons(SRH_TAG);
-+
-+	if (bpf_lwt_seg6_store_bytes(skb, SRH_TAG_OFF, &tag, sizeof(tag)))
-+		return BPF_DROP;
-+
-+	return BPF_OK;
-+}
-+
-+char _license[] SEC("license") = "GPL";
-diff --git a/tools/testing/selftests/net/srv6_csum_complete_test.sh b/tools/testing/selftests/net/srv6_csum_complete_test.sh
-new file mode 100755
-index 000000000000..d72a13041d80
---- /dev/null
-+++ b/tools/testing/selftests/net/srv6_csum_complete_test.sh
-@@ -0,0 +1,627 @@
-+#!/bin/bash
-+# SPDX-License-Identifier: GPL-2.0
-+#
-+# author: Andrea Mayer <andrea.mayer@uniroma2.it>
-+
-+# This test checks the receive checksum of an SRv6 packet that is processed and
-+# then delivered on the same node. The node changes the Segments Left and the
-+# destination address of the packet, and can also change the Hop Limit.
-+#
-+# The receive checksum (CHECKSUM_COMPLETE) is the checksum of the whole packet,
-+# kept with the received packet. When the node changes the packet, it must also
-+# update this sum, or discard it.
-+#
-+# Network topology
-+# ================
-+#
-+# The test uses a host (hs) and a router (rt) connected through a veth pair. In
-+# each test case, hs sends one UDP datagram to an address of rt.
-+#
-+# +--------------------+                    +--------------------------+
-+# |        hs          |                    |           rt             |
-+# |                    |                    |                          |
-+# |  veth-hs           +--------------------+ veth-rt                  |
-+# |  fd00::1/64        |                    | fd00::2/64               |
-+# |  tx checksum off   |                    | tc ingress: ct, then bpf |
-+# +--------------------+                    |                          |
-+#                                           | lo: fc00::1 ... fc00::4  |
-+#                                           |     cafe::1 ... cafe::6  |
-+#                                           +--------------------------+
-+#
-+# Receive checksum
-+# ================
-+#
-+# veth does not provide the receive checksum. For this reason, a tc ct action
-+# runs on the ingress of rt. The ct action checks the UDP checksum, and in this
-+# way computes the receive checksum in software. If the receive checksum does
-+# not match the packet, UDP drops the datagram as a checksum error.
-+#
-+# The ct action computes the receive checksum when hs computes the UDP checksum
-+# in software, before the datagram crosses the veth. For this reason, hs has
-+# transmit checksumming off.
-+#
-+# Each datagram is longer than 76 bytes, UDP header included. For datagrams of
-+# 76 bytes or less, UDP computes the checksum again from the packet, and accepts
-+# the datagram even with a wrong receive checksum.
-+#
-+# UDP counters
-+# ============
-+#
-+# Each datagram goes to a port with no listener. If the UDP checksum check
-+# passes, rt counts the datagram in Udp6NoPorts. If it fails, rt counts it in
-+# Udp6InCsumErrors.
-+#
-+# Control datagram
-+# ================
-+#
-+# A control datagram checks that the test detects a wrong receive checksum after
-+# a change to the packet. After the ct action, a tc bpf filter on rt changes one
-+# bit of its Flow Label, without updating the receive checksum. The Flow Label
-+# is not part of the UDP checksum, which stays correct. UDP must drop the
-+# datagram because the receive checksum no longer matches the packet. If UDP
-+# accepts it, the test cannot detect a wrong receive checksum. The other test
-+# cases may then pass even when their receive checksum is wrong, and for this
-+# reason the test fails.
-+#
-+# Routes and tc filters
-+# =====================
-+#
-+# hs: encap (main table)
-+# +---------+-----------------------------------------------------+
-+# | dst     | action                                              |
-+# +---------+-----------------------------------------------------+
-+# | cafe::1 | via fd00::2                                         |
-+# | cafe::2 | encap seg6 mode inline segs fc00::1,fc00::2         |
-+# | cafe::3 | encap seg6 mode inline segs fcbb:0:0200::           |
-+# | cafe::4 | encap seg6 mode inline segs fcbb:0:0100:0200::      |
-+# | cafe::5 | encap seg6 mode inline segs fc00::3,fc00::4         |
-+# | cafe::6 | encap seg6 mode inline segs fc00::b0,fcbb:0:0200::  |
-+# +---------+-----------------------------------------------------+
-+#
-+# rt: SRv6 behaviors (main table)
-+# +------------------+------------------------------------------------+
-+# | SID              | action                                         |
-+# +------------------+------------------------------------------------+
-+# | fcbb:0:0100::/48 | End flavors next-csid lblen 32 nflen 16        |
-+# | fcbb:0:0200::/48 | End.B6.Encaps srh segs fc00::d6                |
-+# | fc00::d6         | End.DT6 table 255 (local)                      |
-+# | fc00::b0         | End.BPF, the program writes the SRH Tag        |
-+# +------------------+------------------------------------------------+
-+#
-+# rt: tc ingress of veth-rt
-+# +-------+------+---------------------------------------------------+
-+# | chain | prio | filter                                            |
-+# +-------+------+---------------------------------------------------+
-+# | 0     | 1    | matchall, action ct, goto chain 1                 |
-+# | 1     | 1    | flower dst_ip fc00::3, goto chain 2               |
-+# | 2     | 1    | bpf, changes one bit of the Flow Label            |
-+# +-------+------+---------------------------------------------------+
-+#
-+# Test cases
-+# ==========
-+#
-+# hs applies the SRv6 Policies in inline mode, i.e. the original destination
-+# becomes the last SID of the SID List.
-+#
-+#   i) cafe::1, no SRH, used as a reference.
-+#
-+#  ii) cafe::2, SID List=fc00::1,fc00::2,cafe::2
-+#      fc00::1 and fc00::2 are addresses of rt. rt processes the SRH twice. Each
-+#      time, it also decrements the Hop Limit.
-+#
-+# iii) cafe::3, SID List=fcbb:0:0200::,cafe::3
-+#      End.B6.Encaps advances the SRH and adds an outer IPv6 header with an SRH.
-+#      The outer header goes to the End.DT6 SID fc00::d6, which removes it.
-+#
-+#  iv) cafe::4, SID List=fcbb:0:0100:0200::,cafe::4
-+#      End with the NEXT-C-SID flavor changes the DA to the next C-SID,
-+#      fcbb:0:0200::. Then the datagram follows the same path as in (iii).
-+#
-+#   v) cafe::5, SID List=fc00::3,fc00::4,cafe::5, control.
-+#      The tc flower filter matches the first segment, fc00::3, and the tc bpf
-+#      filter changes the Flow Label. Then rt processes the SRH as in (ii).
-+#
-+#  vi) cafe::6, SID List=fc00::b0,fcbb:0:0200::,cafe::6
-+#      End.BPF writes the SRH Tag. Then the datagram follows the same path as in
-+#      (iii).
-+#
-+# In the test case (v), the datagram is expected to be dropped as a checksum
-+# error. In all the other test cases, the datagram is expected to be delivered
-+# on rt.
-+
-+# shellcheck source=lib.sh
-+source lib.sh
-+
-+readonly IPv6_RT_NETWORK=fd00
-+readonly IPv6_DST_NETWORK=cafe
-+readonly SID_LOCATOR=fc00
-+readonly CSID_BLOCK=fcbb:0
-+readonly CSID_LBLEN=32
-+readonly CSID_NFLEN=16
-+readonly CSID_BLOCK_FUNC_LEN=$((CSID_LBLEN + CSID_NFLEN))
-+readonly B6_FUNC=0200
-+readonly CSID_FUNC=0100
-+readonly DT6_FUNC=d6
-+readonly BPF_FUNC=b0
-+readonly DUMMY_DEVNAME=dum0
-+readonly UDP_PORT=9
-+readonly UDP_PAYLOAD_LEN=200
-+readonly WAIT_TIMEOUT_SEC=5
-+
-+# destination of the control datagram on the veth, test case (v)
-+readonly CTRL_DST="${SID_LOCATOR}::3"
-+# tc chain of the flower filter that selects the control datagram
-+readonly CTRL_CHAIN=1
-+# tc chain of the bpf filter that changes the Flow Label
-+readonly BPF_CHAIN=2
-+
-+readonly BPF_FILE=srv6_csum_complete.bpf.o
-+readonly BPF_TC_SEC=tc
-+readonly BPF_END_SEC=lwt_seg6local
-+
-+# return values of check_udp_delivery()
-+readonly UDP_DELIVERED=0
-+readonly UDP_LOST=1
-+readonly UDP_CSUM_ERROR=2
-+
-+SETUP_ERR=1
-+
-+ret=${ksft_skip}
-+nsuccess=0
-+nfail=0
-+
-+print_log_test_results()
-+{
-+	printf "\nTests passed: %3d\n" "${nsuccess}"
-+	printf "Tests failed: %3d\n"   "${nfail}"
-+
-+	# when a test fails, the value of 'ret' is set to 1 (error code).
-+	# Conversely, when all tests are passed successfully, the 'ret' value
-+	# is set to 0 (success code).
-+	if [ "${ret}" -ne 1 ]; then
-+		ret=0
-+	fi
-+}
-+
-+log_section()
-+{
-+	echo
-+	echo "################################################################################"
-+	echo "TEST SECTION: $*"
-+	echo "################################################################################"
-+}
-+
-+cleanup()
-+{
-+	cleanup_all_ns
-+
-+	# check whether the setup phase was completed successfully or not. In
-+	# case of an error during the setup phase of the testing environment,
-+	# the selftest is considered as "skipped".
-+	if [ "${SETUP_ERR}" -ne 0 ]; then
-+		echo "SKIP: Setting up the testing environment failed"
-+		exit "${ksft_skip}"
-+	fi
-+
-+	exit "${ret}"
-+}
-+
-+# add on hs the SRv6 Policy for cafe::<id>, in inline mode
-+# args:
-+#  $1 - destination id
-+#  $2 - segments, comma separated
-+set_hs_policy()
-+{
-+	local dstid="$1"
-+	local segs="$2"
-+
-+	ip -netns "${NS_HS}" -6 route add "${IPv6_DST_NETWORK}::${dstid}/128" \
-+		encap seg6 mode inline segs "${segs}" \
-+		via "${IPv6_RT_NETWORK}::2" dev veth-hs
-+}
-+
-+setup_hs()
-+{
-+	ip -netns "${NS_HS}" link set veth-hs up
-+	ip -netns "${NS_HS}" addr add "${IPv6_RT_NETWORK}::1/64" \
-+		dev veth-hs nodad
-+
-+	# with transmit checksumming on, conntrack on rt does not compute the
-+	# receive checksum
-+	ip netns exec "${NS_HS}" ethtool -K veth-hs tx off >/dev/null
-+
-+	# routes to the SIDs, used after the SRH is inserted
-+	ip -netns "${NS_HS}" -6 route add "${SID_LOCATOR}::/16" \
-+		via "${IPv6_RT_NETWORK}::2" dev veth-hs
-+	ip -netns "${NS_HS}" -6 route add "${CSID_BLOCK}::/${CSID_LBLEN}" \
-+		via "${IPv6_RT_NETWORK}::2" dev veth-hs
-+
-+	# test case (i), the reference, no SRH
-+	ip -netns "${NS_HS}" -6 route add "${IPv6_DST_NETWORK}::1/128" \
-+		via "${IPv6_RT_NETWORK}::2" dev veth-hs
-+
-+	# the SRv6 Policies of the test cases (ii) to (vi)
-+	set_hs_policy 2 "${SID_LOCATOR}::1,${SID_LOCATOR}::2"
-+	set_hs_policy 3 "${CSID_BLOCK}:${B6_FUNC}::"
-+	set_hs_policy 4 "${CSID_BLOCK}:${CSID_FUNC}:${B6_FUNC}::"
-+	set_hs_policy 5 "${SID_LOCATOR}::3,${SID_LOCATOR}::4"
-+	set_hs_policy 6 "${SID_LOCATOR}::${BPF_FUNC},${CSID_BLOCK}:${B6_FUNC}::"
-+}
-+
-+setup_rt()
-+{
-+	local dstid
-+	local dev
-+
-+	ip -netns "${NS_RT}" link set veth-rt up
-+	ip -netns "${NS_RT}" addr add "${IPv6_RT_NETWORK}::2/64" \
-+		dev veth-rt nodad
-+
-+	# local segments of the test case (ii)
-+	ip -netns "${NS_RT}" addr add "${SID_LOCATOR}::1/128" dev lo nodad
-+	ip -netns "${NS_RT}" addr add "${SID_LOCATOR}::2/128" dev lo nodad
-+	# local segments of the test case (v)
-+	ip -netns "${NS_RT}" addr add "${SID_LOCATOR}::3/128" dev lo nodad
-+	ip -netns "${NS_RT}" addr add "${SID_LOCATOR}::4/128" dev lo nodad
-+	for dstid in 1 2 3 4 5 6; do
-+		ip -netns "${NS_RT}" addr add \
-+			"${IPv6_DST_NETWORK}::${dstid}/128" dev lo nodad
-+	done
-+
-+	for dev in all veth-rt lo; do
-+		ip netns exec "${NS_RT}" sysctl -wq \
-+			net.ipv6.conf."${dev}".seg6_enabled=1
-+	done
-+
-+	# SRv6 behaviors used by the test cases (iii), (iv) and (vi)
-+	ip -netns "${NS_RT}" -6 route \
-+		add "${CSID_BLOCK}:${CSID_FUNC}::/${CSID_BLOCK_FUNC_LEN}" \
-+		encap seg6local action End flavors next-csid \
-+		lblen "${CSID_LBLEN}" nflen "${CSID_NFLEN}" dev veth-rt
-+	ip -netns "${NS_RT}" -6 route \
-+		add "${CSID_BLOCK}:${B6_FUNC}::/${CSID_BLOCK_FUNC_LEN}" \
-+		encap seg6local action End.B6.Encaps \
-+		srh segs "${SID_LOCATOR}::${DT6_FUNC}" dev veth-rt
-+	ip -netns "${NS_RT}" -6 route add "${SID_LOCATOR}::${DT6_FUNC}/128" \
-+		encap seg6local action End.DT6 table 255 dev veth-rt
-+	ip -netns "${NS_RT}" -6 route add "${SID_LOCATOR}::${BPF_FUNC}/128" \
-+		encap seg6local action End.BPF endpoint obj "${BPF_FILE}" \
-+		sec "${BPF_END_SEC}" dev veth-rt
-+
-+	tc -netns "${NS_RT}" qdisc add dev veth-rt clsact
-+	# the bpf filter changes the Flow Label of the control datagram
-+	tc -netns "${NS_RT}" filter add dev veth-rt ingress \
-+		chain "${BPF_CHAIN}" prio 1 protocol ipv6 \
-+		bpf object-file "${BPF_FILE}" section "${BPF_TC_SEC}" \
-+		direct-action
-+	# the control datagram goes to the bpf filter
-+	tc -netns "${NS_RT}" filter add dev veth-rt ingress \
-+		chain "${CTRL_CHAIN}" prio 1 protocol ipv6 \
-+		flower dst_ip "${CTRL_DST}" \
-+		action goto chain "${BPF_CHAIN}"
-+	# every packet goes to the ct action, which computes the receive
-+	# checksum, then to the chain of the flower filter
-+	tc -netns "${NS_RT}" filter add dev veth-rt ingress prio 1 \
-+		protocol ipv6 matchall \
-+		action ct pipe action goto chain "${CTRL_CHAIN}"
-+	ip netns exec "${NS_RT}" sysctl -wq \
-+		net.netfilter.nf_conntrack_checksum=1
-+}
-+
-+setup()
-+{
-+	setup_ns NS_HS NS_RT
-+
-+	ip -netns "${NS_HS}" link add veth-hs type veth \
-+		peer name veth-rt netns "${NS_RT}"
-+
-+	setup_hs
-+	setup_rt
-+
-+	# testing environment was set up successfully
-+	SETUP_ERR=0
-+}
-+
-+# print the value of a counter of rt in /proc/net/snmp6
-+# args:
-+#  $1 - counter name in /proc/net/snmp6
-+get_rt_udp6_counter()
-+{
-+	local name="$1"
-+
-+	ip netns exec "${NS_RT}" cat /proc/net/snmp6 | \
-+		awk -v k="${name}" '$1 == k { print $2 }'
-+}
-+
-+# number of datagrams that UDP on rt counted in Udp6NoPorts or Udp6InCsumErrors
-+get_rt_udp6_received()
-+{
-+	echo $(( $(get_rt_udp6_counter Udp6NoPorts) +
-+		 $(get_rt_udp6_counter Udp6InCsumErrors) ))
-+}
-+
-+check_hs_rt_connectivity()
-+{
-+	ip netns exec "${NS_HS}" ping -c 1 -W 1 "${IPv6_RT_NETWORK}::2" \
-+		>/dev/null 2>&1
-+}
-+
-+check_and_log_hs_rt_connectivity()
-+{
-+	check_hs_rt_connectivity
-+	log_test_expected $? 0 "Connectivity: hs -> rt"
-+}
-+
-+connectivity_tests()
-+{
-+	log_section "IPv6 connectivity test between host and router"
-+
-+	check_and_log_hs_rt_connectivity
-+}
-+
-+# Send one UDP datagram from hs to a port with no listener on rt.
-+# args:
-+#  $1 - destination id
-+# return:
-+#  - UDP_DELIVERED if rt counts the datagram as delivered
-+#  - UDP_CSUM_ERROR if rt drops it for a bad checksum
-+#  - UDP_LOST if the datagram cannot be sent, or if it does not arrive
-+check_udp_delivery()
-+{
-+	local dstid="$1"
-+	local noports
-+	local payload
-+	local errors
-+	local recv
-+	local dst
-+
-+	dst="${IPv6_DST_NETWORK}::${dstid}"
-+	noports="$(get_rt_udp6_counter Udp6NoPorts)"
-+	errors="$(get_rt_udp6_counter Udp6InCsumErrors)"
-+	recv=$((noports + errors))
-+	payload="$(printf '%*s' "${UDP_PAYLOAD_LEN}" '')"
-+
-+	# send the datagram with the /dev/udp redirection of bash
-+	if ! ip netns exec "${NS_HS}" bash -c "printf '%s' '${payload}' > \
-+			/dev/udp/${dst}/${UDP_PORT}"; then
-+		return "${UDP_LOST}"
-+	fi
-+
-+	# wait until rt counts the datagram in Udp6NoPorts or Udp6InCsumErrors
-+	if ! slowwait "${WAIT_TIMEOUT_SEC}" until_counter_is \
-+			">= $((recv + 1))" get_rt_udp6_received >/dev/null; then
-+		return "${UDP_LOST}"
-+	fi
-+
-+	if [ "$(get_rt_udp6_counter Udp6InCsumErrors)" -ne "${errors}" ]; then
-+		return "${UDP_CSUM_ERROR}"
-+	fi
-+
-+	if [ "$(get_rt_udp6_counter Udp6NoPorts)" -ne "$((noports + 1))" ]; then
-+		return "${UDP_LOST}"
-+	fi
-+
-+	return "${UDP_DELIVERED}"
-+}
-+
-+# check the delivery of a datagram to cafe::<id> and log the result
-+# args:
-+#  $1 - destination id
-+#  $2 - expected return value of check_udp_delivery()
-+#  $3 - description of the path
-+check_and_log_udp_delivery()
-+{
-+	local dstid="$1"
-+	local expected="$2"
-+	local desc="$3"
-+
-+	check_udp_delivery "${dstid}"
-+	log_test_expected $? "${expected}" \
-+		"UDP: hs -> ${IPv6_DST_NETWORK}::${dstid} (${desc})"
-+}
-+
-+udp_delivery_tests()
-+{
-+	log_section "UDP delivery test with CHECKSUM_COMPLETE"
-+
-+	check_and_log_udp_delivery 1 "${UDP_DELIVERED}" "no SRH"
-+	check_and_log_udp_delivery 2 "${UDP_DELIVERED}" "SRH, local segments"
-+	check_and_log_udp_delivery 3 "${UDP_DELIVERED}" "End.B6.Encaps, End.DT6"
-+	check_and_log_udp_delivery 4 "${UDP_DELIVERED}" \
-+		"End next-csid, End.B6.Encaps, End.DT6"
-+	check_and_log_udp_delivery 5 "${UDP_CSUM_ERROR}" "control, csum error"
-+	check_and_log_udp_delivery 6 "${UDP_DELIVERED}" \
-+		"End.BPF, End.B6.Encaps, End.DT6"
-+}
-+
-+test_dummy_dev_or_ksft_skip()
-+{
-+	local test_netns
-+
-+	setup_ns test_netns
-+
-+	modprobe dummy &>/dev/null || true
-+	if ! ip -netns "${test_netns}" link add "${DUMMY_DEVNAME}" \
-+			type dummy; then
-+		cleanup_ns "${test_netns}"
-+		echo "SKIP: dummy dev not supported"
-+		exit "${ksft_skip}"
-+	fi
-+
-+	cleanup_ns "${test_netns}"
-+}
-+
-+test_iproute2_supp_or_ksft_skip()
-+{
-+	if ! ip route help 2>&1 | grep -qo next-csid; then
-+		echo "SKIP: Missing SRv6 next-csid flavor support in iproute2"
-+		exit "${ksft_skip}"
-+	fi
-+}
-+
-+test_kernel_supp_or_ksft_skip()
-+{
-+	local test_netns
-+
-+	setup_ns test_netns
-+
-+	ip -netns "${test_netns}" link add "${DUMMY_DEVNAME}" type dummy
-+	ip -netns "${test_netns}" link set "${DUMMY_DEVNAME}" up
-+
-+	if ! ip -netns "${test_netns}" -6 route \
-+			add "${CSID_BLOCK}::/${CSID_LBLEN}" encap seg6local \
-+			action End flavors next-csid dev "${DUMMY_DEVNAME}" \
-+			2>/dev/null; then
-+		cleanup_ns "${test_netns}"
-+		echo "SKIP: SRv6 next-csid flavor not supported"
-+		exit "${ksft_skip}"
-+	fi
-+
-+	cleanup_ns "${test_netns}"
-+}
-+
-+test_veth_tx_csum_off_or_ksft_skip()
-+{
-+	local test_netns
-+
-+	setup_ns test_netns
-+
-+	if ! ip -netns "${test_netns}" link add veth-t0 type veth \
-+			peer name veth-t1 2>/dev/null; then
-+		cleanup_ns "${test_netns}"
-+		echo "SKIP: veth dev not supported"
-+		exit "${ksft_skip}"
-+	fi
-+
-+	# setup_hs() turns off transmit checksumming on veth-hs. If it stays on,
-+	# conntrack does not compute the receive checksum and the test cannot
-+	# see the error.
-+	ip netns exec "${test_netns}" ethtool -K veth-t0 tx off >/dev/null 2>&1
-+
-+	if ! ip netns exec "${test_netns}" ethtool -k veth-t0 | \
-+			grep -q "^tx-checksumming: off"; then
-+		cleanup_ns "${test_netns}"
-+		echo "SKIP: Cannot turn off transmit checksumming on veth"
-+		exit "${ksft_skip}"
-+	fi
-+
-+	cleanup_ns "${test_netns}"
-+}
-+
-+test_bpf_file_or_ksft_skip()
-+{
-+	if [ ! -f "${BPF_FILE}" ]; then
-+		echo "SKIP: Missing ${BPF_FILE}, run 'make' first"
-+		exit "${ksft_skip}"
-+	fi
-+}
-+
-+test_tc_or_ksft_skip()
-+{
-+	local test_netns
-+
-+	setup_ns test_netns
-+
-+	ip -netns "${test_netns}" link add "${DUMMY_DEVNAME}" type dummy
-+
-+	if ! tc -netns "${test_netns}" qdisc add dev "${DUMMY_DEVNAME}" \
-+			clsact 2>/dev/null; then
-+		cleanup_ns "${test_netns}"
-+		echo "SKIP: tc clsact qdisc not supported"
-+		exit "${ksft_skip}"
-+	fi
-+
-+	if ! tc -netns "${test_netns}" filter add dev "${DUMMY_DEVNAME}" \
-+			ingress chain "${BPF_CHAIN}" protocol ipv6 \
-+			bpf object-file "${BPF_FILE}" section "${BPF_TC_SEC}" \
-+			direct-action 2>/dev/null; then
-+		cleanup_ns "${test_netns}"
-+		echo "SKIP: tc bpf filter not supported"
-+		exit "${ksft_skip}"
-+	fi
-+
-+	if ! tc -netns "${test_netns}" filter add dev "${DUMMY_DEVNAME}" \
-+			ingress chain "${CTRL_CHAIN}" protocol ipv6 \
-+			flower dst_ip "${CTRL_DST}" \
-+			action goto chain "${BPF_CHAIN}" 2>/dev/null; then
-+		cleanup_ns "${test_netns}"
-+		echo "SKIP: tc flower filter or goto chain action not supported"
-+		exit "${ksft_skip}"
-+	fi
-+
-+	if ! tc -netns "${test_netns}" filter add dev "${DUMMY_DEVNAME}" \
-+			ingress protocol ipv6 matchall \
-+			action ct pipe action goto chain "${CTRL_CHAIN}" \
-+			2>/dev/null; then
-+		cleanup_ns "${test_netns}"
-+		echo "SKIP: tc matchall filter or ct action not supported"
-+		exit "${ksft_skip}"
-+	fi
-+
-+	# setup_rt() turns on nf_conntrack_checksum. If it is off, conntrack
-+	# does not check the UDP checksum and does not compute the receive
-+	# checksum. The test cannot see the error.
-+	if ! ip netns exec "${test_netns}" sysctl -wq \
-+			net.netfilter.nf_conntrack_checksum=1 2>/dev/null; then
-+		cleanup_ns "${test_netns}"
-+		echo "SKIP: nf_conntrack_checksum sysctl not available"
-+		exit "${ksft_skip}"
-+	fi
-+
-+	cleanup_ns "${test_netns}"
-+}
-+
-+test_end_bpf_or_ksft_skip()
-+{
-+	local test_netns
-+
-+	setup_ns test_netns
-+
-+	ip -netns "${test_netns}" link add "${DUMMY_DEVNAME}" type dummy
-+	ip -netns "${test_netns}" link set "${DUMMY_DEVNAME}" up
-+
-+	if ! ip -netns "${test_netns}" -6 route \
-+			add "${SID_LOCATOR}::${BPF_FUNC}/128" encap seg6local \
-+			action End.BPF endpoint obj "${BPF_FILE}" \
-+			sec "${BPF_END_SEC}" dev "${DUMMY_DEVNAME}" \
-+			2>/dev/null; then
-+		cleanup_ns "${test_netns}"
-+		echo "SKIP: SRv6 End.BPF not supported"
-+		exit "${ksft_skip}"
-+	fi
-+
-+	cleanup_ns "${test_netns}"
-+}
-+
-+if [ "$(id -u)" -ne 0 ]; then
-+	echo "SKIP: Need root privileges"
-+	exit "${ksft_skip}"
-+fi
-+
-+# required programs to carry out this selftest
-+require_command ip
-+require_command tc
-+require_command ethtool
-+require_command ping
-+require_command sysctl
-+require_command awk
-+require_command grep
-+
-+test_dummy_dev_or_ksft_skip
-+test_iproute2_supp_or_ksft_skip
-+test_kernel_supp_or_ksft_skip
-+test_veth_tx_csum_off_or_ksft_skip
-+test_bpf_file_or_ksft_skip
-+test_tc_or_ksft_skip
-+test_end_bpf_or_ksft_skip
-+
-+set -e
-+trap cleanup EXIT
-+
-+setup
-+set +e
-+
-+connectivity_tests
-+udp_delivery_tests
-+
-+print_log_test_results
--- 
-2.43.0
-
+Thanks
