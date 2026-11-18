@@ -1,55 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795009260;
-	b=nZGl9eAJoaXZ+rVmcSZNkw6//R2lELN3q+bILBln0CgKf5hXa3UEV2CCmj9UvLFFkY9R
-	 sDTKx7iiS9ck3+35lDfK1D4kJGlSQgVb9VZnkDvujKARJZDm60ZYoR0HiOBbIPO+IU1eB
-	 MTIBKUSAOLQcL03v3Nz9Fv9ShOH9XxrQxC/nS0nHLCCdLBUDf5L8zB8ClHobpmKvvFjn/
-	 cRCS16oi3p9r4mbaWuSNvHlmIsFnq9GyqylmUYRppW5UZp1cli40VQpPs09ar6cg2ZeHj
-	 BcxH8EisI2uBDjEXHuet+Ik/28qYKs7mORpLvW1sNtK6MaWzX/cNs0mUhQ6Xgy/4fVg==
+	t=1795009263;
+	b=NyUChir9b/GqTc1admR+fECZRsnSNHJ6cWm5Dm6CDTon1otcaLvF9O2LObxhsEfhQdpU
+	 JijHjjw1A0udTtMLxUbDPIg92c9y4+t8DfSQogG6bkwC6g7IlXs7y0hR2rOvV1Ex5HOq3
+	 5ykInlCGiY3rnFSm18UEJbLHchlDe7UaqdAi+O/uTGkNzu5AGM71sNYSwMjozwOCoZfT5
+	 XVTzmZwxa5ZubjQ2tEH3aPRyURuONy+NhwJ9naaBnNcNXURRYY2Te3lXj7/DDuHwOMzmG
+	 b+jzXO7LoeMstlv36x+l2w4+gBtpxGGqdVTt/vHU3MksOPYO7Dp78sGAmhfhGm07YrA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795009260;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795009263;
 	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
 	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=S2qC93mmpO3j7YEXCndfyVrlAonLbo+0MinHXVsL1yI=;
-	b=CXA/0nMI73E7bVuItCwYwCnf7FhyuN+q+AAVAD+zl00J2suL0hKednrdU4GZUtWwOoI1
-	 irq+FY8T3KIk2xQVBGfozzivPE9W2C1S41ZkoeBjlkNmUqiUD88ItDL+sRzTlp+KHHXPH
-	 8MucO7/idG0pBK9WvV5tiC7qOr4Gyz00BdJ+H27Xoh74+JOPbdiTj7CVXx6TUEPYM3q6h
-	 kxFOZeBSGrlUButTa1r63BxJxV1PE3zGfuI/kHMOpiPYvJYVxKhRwZGDqknRGLxasIhK6
-	 Gw0BZ334onMKaSSdJs0rhuMjecgQVm0idO7BtOoyETs9Kj1v5CEHFi5FgEaOW4QIeSw==
+	bh=KZ5BCkqNb6oprSxD68qfjURy1vbangKtIh9R21+lBIo=;
+	b=GJbv3kFs7wmeI5f7+kPU0C34B/n8o6t3M0d/MIfKtUPzEqMm5yFfF2gJg/AWPwPg8Yjh
+	 ITNIugr84IAgHlsTUQ5UlECw/wLmzWTlJMxcb+Q9vm6rzBE5JBlgaL45xee3JRrZTfESW
+	 Yt2nR+CUcr2ggFykZVvHmneeLQoVq8rOB1vd5dKliQtuxlhy3x8kQzpjFA2hig2N0DTTa
+	 9v7bABP+ZVo2ocMs35r5sI5dac0eUqfGM34gtKjZQmXLtZGrKSMgkIX1V30OR5i7cCZYz
+	 TFZDDdike1tX0NFlr0czsqNTREw7YHWvzxgcmjhNZv49te1nzQWsUF1qN2Y74uiAXig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=HCOkK50L;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=r3MLFCNN;
 	arc=none smtp.remote-ip=185.171.202.116
 Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C16B6606A33D
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:40:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C16B6606A33D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17E2960A2622
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:41:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17E2960A2622
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=HCOkK50L
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=r3MLFCNN
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 4BDE6C4CBD9;
-	Wed, 18 Nov 2026 13:41:03 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 81EC4C4CBDA;
+	Wed, 18 Nov 2026 13:41:06 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 7591E5FE9B;
-	Wed, 18 Nov 2026 13:40:58 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1DAD811BC20A3;
-	Wed, 18 Nov 2026 14:40:54 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id AB8CF5FE9B;
+	Wed, 18 Nov 2026 13:41:01 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8834A11BC209B;
+	Wed, 18 Nov 2026 14:40:57 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795009257; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1795009260; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=S2qC93mmpO3j7YEXCndfyVrlAonLbo+0MinHXVsL1yI=;
-	b=HCOkK50LZvIFdVK4mwIoqaie++9WKmVL/J/+0kYnhEZZGdY34uJTG9xfYZlE2616i1DJ1N
-	F/MyHW9jGzaI7VM08pJ9tD1hRTJE0fGwdGMUaUE+f/4QcqVGyWCX4mYlCC/ICvqf5D3NTr
-	yQLl72BgbkdbJcIz8Tr1QCbUeu3w+9tykNW2adRfr9oa8JcQVsP0wBryWZaoJNW+NxY8RF
-	zXdVxnuM5uKRqDFXJ43YWHTQmjvA8FhO0gijZ7G3LxcNKLu8j53/+7Vx5kdSUqRvvK/JPF
-	Pl/Mi6CVIQkU2FTf/iIReOq+ZXO7uRk+eXjfJCjW9nxjxIMyWbBwJ7YNxntNiA==
+	bh=KZ5BCkqNb6oprSxD68qfjURy1vbangKtIh9R21+lBIo=;
+	b=r3MLFCNNbOt7LAY/0Shsphf2JysXbMTTxlI6pjahqSeJOIpEoWHsZ72hJ9SVTdUEYfx5MM
+	CyhKadqlFZGzPzO8uRobZuylYQG8UM+jnVRgEiuwryvQBf73WaX0wlBOo5R5JjlEh7PoNw
+	q9XXblIb3tOIEdCxR7tm+5yFOUwI1WZlY57bEhGCBdAParAdmtY4KLDB6kYEDOzV1TXiuz
+	M+w45OoaaT8boo+b8w/8RITpIS6x+BF4uxoGfdVsxlhg4j/GDnaw8EwqOG8EtWnx6hJzuq
+	1BDZ5SHei/Ar6iqy4xbOMmhJZVs4IAUX9wBuqZW/PeviATCKggWIuDzfof1WFQ==
 From: Herve Codina <herve.codina@bootlin.com>
 To: Andrew Lunn <andrew@lunn.ch>,
 	Rob Herring <robh@kernel.org>,
@@ -69,9 +69,9 @@ Cc: linux-i2c@vger.kernel.org,
 	Steen Hegelund <steen.hegelund@microchip.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 	Herve Codina <herve.codina@bootlin.com>
-Subject: [PATCH v10 4/6] i2c: mux: Create missing devlink between mux and adapter physical device
-Date: Wed, 18 Nov 2026 14:39:13 +0100
-Message-ID: <20261118133927.366482-5-herve.codina@bootlin.com>
+Subject: [PATCH v10 5/6] i2c: atr: Set adapter physical device
+Date: Wed, 18 Nov 2026 14:39:14 +0100
+Message-ID: <20261118133927.366482-6-herve.codina@bootlin.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261118133927.366482-1-herve.codina@bootlin.com>
 References: <20261118133927.366482-1-herve.codina@bootlin.com>
@@ -87,122 +87,33 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 
-When removing an i2c controller device handling an i2c bus where an i2c
-mux is connected to, the removal process hangs and is stuck in the
-wait_completion() call done in i2c_del_adapter().
+For i2c atrs, the parent of the atr adapter device is the adapter device
+the atr is connected to.
 
-The i2c_del_adapter() tries to removed the i2c adapter related to the
-i2c controller device and the wait_completion() is waiting for the i2c
-adapter device release. This release is performed when the device is no
-more used (i.e. refcount reaches zero).
+This parent is not necessarily the physical device related to the atr
+adapter. An ATR can be used in a split serializer/deserializer topology
+where atr->dev is the deserializer, but the ATR channel adapter is owned
+by the serializer device passed as desc->parent.
 
-When an i2c mux is involved in an i2c path, the struct dev topology is
-the following:
-
-    +----------------+                +-------------------+
-    | i2c controller |                |      i2c mux      |
-    |     device     |                |      device       |
-    |       ^        |                |                   |
-    |       |        |                |                   |
-    |  dev's parent  |                |                   |
-    |       |        |                |                   |
-    |   i2c adapter  |                | i2c adapter chanX |
-    |     device  <---- dev's parent ------  device       |
-    |   (no driver)  |                |    (no driver)    |
-    +----------------+                +-------------------+
-
-When an i2c mux device creates an i2c adapter for its downstream
-channel, a reference is taken to its adapter dev's parent. This parent
-is the i2c mux upstream adapter device.
-
-No relationship exists between the i2c mux device itself and the i2c
-controller device (physical device) in order to have the i2c mux device
-calling i2c_del_adapter() to remove its downstream adapters and so,
-release references taken to the upstream adapter.
-
-This consumer/supplier relationship is typically a devlink relationship.
-
-Also, i2c muxes can be chained and so, the upstream adapter can be
-supplied by either an i2c controller device or an other i2c mux device.
-
-In order to get the physical device of the adapter a mux is connected
-to, rely on the newly introduced i2c_adapter_get_physdev() and create
-the missing devlink between the i2c mux device and the physical device
-of the adapter the mux/atr is connected to.
-
-With that done, the i2c mux device is removed before the device handling
-the upstream i2c adapter (i2c controller device or i2c mux device). All
-references are released and the i2c_del_adapter() call performed by
-driver handling the upstream adapter device is not blocking anymore.
+Fill the adap.physdev with the desc->parent device.
 
 Signed-off-by: Herve Codina <herve.codina@bootlin.com>
 ---
- drivers/i2c/i2c-mux.c | 44 +++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 44 insertions(+)
+ drivers/i2c/i2c-atr.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/i2c/i2c-mux.c b/drivers/i2c/i2c-mux.c
-index c1836114ef56..702ccca22245 100644
---- a/drivers/i2c/i2c-mux.c
-+++ b/drivers/i2c/i2c-mux.c
-@@ -314,7 +314,10 @@ int i2c_mux_add_adapter(struct i2c_mux_core *muxc,
- 			u32 force_nr, u32 chan_id)
- {
- 	struct i2c_adapter *parent = muxc->parent;
-+	struct device *parent_physdev;
- 	struct i2c_mux_priv *priv;
-+	struct i2c_client *client;
-+	struct device_link *dl;
- 	char symlink_name[20];
- 	int ret;
- 
-@@ -382,6 +385,47 @@ int i2c_mux_add_adapter(struct i2c_mux_core *muxc,
- 				      ACPI_COMPANION(muxc->dev),
- 				      chan_id);
- 
-+	/*
-+	 * There is no relationship set between the mux device and the physical
-+	 * device handling the parent adapter. Create this missing relationship
-+	 * in order to remove the i2c mux device (consumer) and so the
-+	 * downstream channel adapters before removing the physical device
-+	 * (supplier) which handles the i2c mux upstream adapter.
-+	 */
-+	parent_physdev = i2c_get_adapter_physdev(parent);
-+	client = i2c_verify_client(muxc->dev);
-+	if (!parent_physdev) {
-+		dev_warn(muxc->dev,
-+			 "no physical device for the parent adapter, skip device link\n");
-+	} else if (parent_physdev == muxc->dev) {
-+		/*
-+		 * The parent physical device is the mux device itself.
-+		 * Skip the device link
-+		 */
-+		put_device(parent_physdev);
-+	} else if (client && client->adapter == parent) {
-+		/*
-+		 * The mux device is an I2C client on the parent adapter.
-+		 * i2c_del_adapter(parent) will unregister it and remove
-+		 * its downstream adapters before waiting for the parent
-+		 * adapter to be released. No device link is needed, and
-+		 * adding one would make the driver core unbind the mux
-+		 * before the parent physical device's .remove() callback.
-+		 */
-+		put_device(parent_physdev);
-+	} else {
-+		dl = device_link_add(muxc->dev, parent_physdev,
-+				     DL_FLAG_AUTOREMOVE_CONSUMER);
-+		if (!dl) {
-+			dev_err(muxc->dev, "failed to create device link to %s\n",
-+				dev_name(parent_physdev));
-+			put_device(parent_physdev);
-+			ret = -EINVAL;
-+			goto err_free_priv;
-+		}
-+		put_device(parent_physdev);
-+	}
-+
- 	if (force_nr) {
- 		priv->adap.nr = force_nr;
- 		ret = i2c_add_numbered_adapter(&priv->adap);
+diff --git a/drivers/i2c/i2c-atr.c b/drivers/i2c/i2c-atr.c
+index b98442ffff94..7c599d2d09c4 100644
+--- a/drivers/i2c/i2c-atr.c
++++ b/drivers/i2c/i2c-atr.c
+@@ -824,6 +824,7 @@ int i2c_atr_add_adapter(struct i2c_atr *atr, struct i2c_atr_adap_desc *desc)
+ 	chan->adap.algo = &atr->algo;
+ 	chan->adap.algo_data = chan;
+ 	chan->adap.dev.parent = desc->parent;
++	chan->adap.physdev = desc->parent;
+ 	chan->adap.retries = parent->retries;
+ 	chan->adap.timeout = parent->timeout;
+ 	chan->adap.quirks = parent->quirks;
 -- 
 2.56.0
 
