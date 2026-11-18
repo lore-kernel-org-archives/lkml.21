@@ -1,100 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.100.72
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.71
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794998725;
-	b=xL+VLaKxr4nuyJxaVdkWsNhuqCyrVvHoWevLu0amB72ktfuWuVzglaFShj9Iife3ae7q
-	 Ed0FEiMxv1C7Ja/X3VWKum1s3L7nNlvNT+nQDnH23tpxV9s3pG/U9l8Xf71TETmTOCwHq
-	 f2slJL5f/wqxDBVYttnfxnyTGtKdaPcpkhTdQL2fCsBkCbtcOmBSFlUHusbrGjNNQCxfw
-	 x5C5lu7TB1vrUVDqiXO48NEIS0LvLiIpMzA5JKATF5OLfnmMk0nOD0iTMYwv85+tKMkkG
-	 DkUvyW0tYwLrVIlD33kLguhL9DbExq3s67qLKw7G81I0AJ2tpEpPgMTdzGReq1itXIA==
+	t=1794998735;
+	b=RQcV6dACpN3Bz89P8E/uUjTtk12xsciMa6IJMCRb5gdYFrpR69QVkPNPvezOI7WpiHvE
+	 x635Rv53thJmweWrvc9AOcat0TSQx+hOGbEdvsCTbNJ0NzXHEvVn8FqFS+mYHbfpKnsZB
+	 sGk3bzMF2vlGHzhdrN6Yn02hm358ZUvT5yK7KyaKqhmfQWX72Xlxhiq5TdpI6cNflXxt3
+	 w/a7RJUY5ypLrLnNEXgGToZZmwLTli7Of5g6ML0bR14BrrL0aDgLe5nayUYCDl4MBfmup
+	 CblNPsySQA3uPlOxudbysy7/j76ujp6rhWmpwG8pmCqRl9zwc+Zz78EXc2DMc5skdjQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794998725;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794998735;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:From:
-	 To:Cc:X-Mailer:References:In-Reply-To:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
+	 Content-Type:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
 	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
 	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=2wG/eFXnYFnSclfIIhlto94aVO+10kOpmFIvVMnX0Cs=;
-	b=3aBh6ZEnsI+CIcf5jNAWCXpyaaNtS/+AkIB0DjUxukPZ+oaIU4AybVJo/UcaVtyXrP0A
-	 IsgaqQkWQiAbOog+3JcvoYt5dNWPT9m42Gxv5snMbWt1AESx9VxwckM17R7b6SfvSmlRf
-	 yjvomGfpDcIuiTJfgrkY+mTikpJtoncWQaVcUhrS3W7uvUnpBxYPBjglLf39GcJA8gKDj
-	 U3D0WTu/jbYKAwYgzI3bqSO5B3N0LyzIX+KhN/H8AIOEt/xwrnqf44OlNMb74r/Dr/aG6
-	 WohYyJuo1qkkYYHB+eMwLqWTDvQH3DiAdWhAhK/mZdPndYqGyAld5M7eynKSMELCz/w==
+	bh=ms9uEHuYtFxKr7+RGGY2MB4kMPZ1uPR+M1v7PZJVmMU=;
+	b=GJbsCFvtyhH7FUKV/SU05Xx5BoCD5eqYlMypI2ionihOK/r6tHYYVjcJGupTha+cyNI8
+	 c/44O9XXMYnHEU+ku5fRH+gSO+eRNE/KOnlHKvMJdHkLDzi0xSoM362M5WjgPmCV2EsYV
+	 5LYWAXKepqmXqkCwYHadbTa5+b/6TA4pbF5ETi6OxipS/sdEiYPo0QPkVWL4821RwE6mT
+	 e01pCIGm6nA6roWd4DXhd+lbHbFEcq8B4XTDyZQbqNI2ikbwBJ/3yZpviUp/lrtVk9vd+
+	 uutEqaH1kR5lS0BkoxzrYA0XaCrRR6kyrRxvUpnzZTf3meLIkZBQ9rD6JGbaAPpaAxg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=garyguo.net;
-	spf=pass smtp.mailfrom=garyguo.net;
-	dkim=pass header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=cPkL4Itw;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.100.72
-Received: from CWXP265CU009.outbound.protection.outlook.com (mail-ukwestazon11021072.outbound.protection.outlook.com [52.101.100.72])
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=L2wNHSkr;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.71
+Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010071.outbound.protection.outlook.com [52.101.201.71])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA34F606A32C;
-	Wed, 18 Nov 2026 10:45:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA34F606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=garyguo.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=garyguo.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E369606A32A;
+	Wed, 18 Nov 2026 10:45:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E369606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=cPkL4Itw
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=L2wNHSkr
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wlrAmE9oAoX67ie+74/5HsiC7OYWPVX5bH22PMPq8xi64ypZeTbhSg1a6TZ/tqvodeD+piY4/5tdbI1cNP23L8XKUuKg6PaGuk2D6XIpCUX47TiFEM0xzCYtlK0+RDQi4zDo/lkul/5i6c0B0nbMPnVxaZxAzQMjylcfOOXihzKUxwwqj+uJk+LLudVakHzDzFQA93gFCFdnBbcP7cSHJRGv66/DOY6wv3h+aYfSF8dYFLw64SFzu5mw9vPPaAbZT+A+NJk9BVMAtQu0rnUmLLPn9d2iKWJlTmEXN9G/tUQ3xdtiE7B0WuhB6s5fZZ1Yn1jsDsfXRloSSrbZ41NkVQ==
+ b=cpkVrmd8cgNO8Qedbn08t5O+6zhdtu/+pJIZTM8SPHiDkYASG8qZBWJIgA3GsM8aBC1hz3MMuNilXd043RgjfQ6+xScNA1C68h3zZOjJWXUmYWcmOBjHAGtxcfW0hJOBc49ctvqlMzD+yLtqnmAYuyPWhDbYAg3W14QqFwWJjf/OsG2oV6zt4A+utsK9vENoSjQvjBO2pCT0Cx23ggSaexnTL8gu7CfV1j9aGJ9zR2pYxfvFr9U+j3+4/rzu8YUkC3vABn7xwKaIc9O6tFpanu96E+OalScIGAimPlCisHabGYNX0lUEg17i1mQFHsua/GMb3anWngBVa6MjNuAeqQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2wG/eFXnYFnSclfIIhlto94aVO+10kOpmFIvVMnX0Cs=;
- b=dDfNcV95fQTELCPhJlpwHjUlnstT06qBnoUMnkLiNvSAaDsJCJTsxzcuoV+xpkuiyNnR++mvB+bhEVq9Y3K1JDViUxe5CdIzoB4zMo+g9WbVHORIa1PO9xPCyRggDo7YNUW2nwzwxtYEF4G+iNybKScKvO/f8NhdmNXI3ecFO2zB+IE5OU9zlpUuUXN7JaA8an72h15uuJH552Mx87a+7l/2s/79SXOHOeM9O6Kkxpc4hREn4PDRklsnltWoXsUcatzSf58j2XhlR2GkP1YJYVy7IGyPZpjPajLzeOMhmTXT5E5HVWyuhkQ9rBhvylS4e+63MI6ymTBYUx55LlKYwg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
- dkim=pass header.d=garyguo.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
+ bh=ms9uEHuYtFxKr7+RGGY2MB4kMPZ1uPR+M1v7PZJVmMU=;
+ b=H4D54me4P6Zh3nMZcF8HW0aVzvhJPYWeMSxN+zQyMDT+b/ueCo5/bztbeO0HGFZsXZu49esKFrODKQp/ArkyioUkuSZ3yCWAdF/dR/IK7InE72yG5GLZ1bQlnEG/zmOUT2IVTHJg4HV0Oyo3NqkVFZLlv8n8hD5wVclz9g/1m4Q78OPp3K5cRTdTMktiihWVdPGTLhDliRRssJmT1+K5HTnAQH7mZO+GNa6OULsfYZuDjOTruJxE/SAilewn7jWdwRKAZq0V+t8epo6o4n98CQa3cH7noO1b70IATn+Qc1dywKgc6VDrfK3/dvyB2Y9ZiH+Od4jHpf0gzLpNha9JDw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2wG/eFXnYFnSclfIIhlto94aVO+10kOpmFIvVMnX0Cs=;
- b=cPkL4ItwDqGbNsOEQjHC7ultglMDnYU5UH/FvSrSx0O/JVlHkCUZDT0T9nH2zwo5rjDDnQpd2/n+ggoZRHQg9oONOn/Z2Qv8q3BmDpIugzj1lUYcWQKLvzCh5gJGa95pbf41RpSYiSLlhNfokWusqSez2fdH7AQrHzFubDSR8sU=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=garyguo.net;
-Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1cb::9)
- by LO0P265MB9132.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:49f::17) with
+ bh=ms9uEHuYtFxKr7+RGGY2MB4kMPZ1uPR+M1v7PZJVmMU=;
+ b=L2wNHSkrvkhAqQzOdzp15qUgkFFm7qMlSSa2Yxex1jAWnaB0zSspJgOkStGmtqfP6TnTVsug6q7bq/KRbgXyoWtwMCE7HNeHZ7efWvdE+fBDcgYRk1T211/bBZ7ZP42oDFyVWkvSt3lWb54RE9Oyqv9MJbbjO6iHdORhohbKCWM=
+Received: from PH1PEPF00013303.namprd07.prod.outlook.com (2603:10b6:518:1::12)
+ by DS4PR12MB733313.namprd12.prod.outlook.com (2603:10b6:8:50e::9) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 10:45:19 +0000
-Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- ([fe80::55f6:f98b:7fad:c6e3]) by CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- ([fe80::55f6:f98b:7fad:c6e3%2]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 10:45:19 +0000
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 18 Nov 2026 10:45:17 +0000
-Message-Id: <DMY9XV1M1YKE.1FXRA27UM619K@garyguo.net>
-Subject: Re: [PATCH] rust: xarray: capture the iterator lifetime explicitly
-From: "Gary Guo" <gary@garyguo.net>
-To: <peder.bergan@gmail.com>, "Tamir Duberstein" <tamird@kernel.org>,
- "Andreas Hindborg" <a.hindborg@kernel.org>, "Miguel Ojeda"
- <ojeda@kernel.org>
-Cc: "Boqun Feng" <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
- <lossin@kernel.org>, "Alice Ryhl" <aliceryhl@google.com>, "Trevor Gross"
- <tmgross@umich.edu>, "Danilo Krummrich" <dakr@kernel.org>, "Daniel Almeida"
- <daniel.almeida@collabora.com>, "Alexandre Courbot" <acourbot@nvidia.com>,
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
- <rust-for-linux@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Jesung
- Yang" <y.j3ms.n@gmail.com>
-X-Mailer: aerc 0.22.0
-References: <20261118-cleanup-xarray-precise-capture-v1-1-43e148eadea4@gmail.com>
-In-Reply-To: <20261118-cleanup-xarray-precise-capture-v1-1-43e148eadea4@gmail.com>
-X-ClientProxiedBy: LO4P123CA0251.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:1a7::22) To CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:400:1cb::9)
+ 2026 10:45:31 +0000
+Received: from PH7PEPF0000000A.namprd04.prod.outlook.com
+ (2a01:111:f403:c95d::5) by PH1PEPF00013303.outlook.office365.com
+ (2603:1036:903:47::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.14 via Frontend Transport; Wed,
+ 18 Nov 2026 10:45:30 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ PH7PEPF0000000A.mail.protection.outlook.com (10.167.243.41) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.4 via Frontend Transport; Wed, 18 Nov 2026 10:45:30 +0000
+Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
+ 2026 04:45:28 -0600
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb09.amd.com
+ (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
+ 2026 04:45:27 -0600
+Received: from amd-System-Product-Name.amd.com (10.180.168.240) by
+ satlexmb07.amd.com (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.57
+ via Frontend Transport; Wed, 18 Nov 2026 04:45:24 -0600
+From: Vijendar Mukunda <Vijendar.Mukunda@amd.com>
+To: <vkoul@kernel.org>
+CC: <yung-chuan.liao@linux.intel.com>, <pierre-louis.bossart@linux.dev>,
+	<Basavaraj.Hiregoudar@amd.com>, <Sunil-kumar.Dommati@amd.com>,
+	<venkataprasad.potturu@amd.com>, <Syed.SabaKareem@amd.com>,
+	<Mario.Limonciello@amd.com>, <Richard.Gong@amd.com>, <Poojitha.N@amd.com>,
+	<lee@kernel.org>, <linux-sound@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, Vijendar Mukunda <Vijendar.Mukunda@amd.com>
+Subject: [PATCH v7 03/23] soundwire: amd: add pad ctrl helpers for D0/D3 PM transitions
+Date: Wed, 18 Nov 2026 16:12:22 +0530
+Message-ID: <20261118104353.331556-4-Vijendar.Mukunda@amd.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261118104353.331556-1-Vijendar.Mukunda@amd.com>
+References: <20261118104353.331556-1-Vijendar.Mukunda@amd.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,123 +117,209 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CWLP265MB6051:EE_|LO0P265MB9132:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4c2a5e45-d03c-45b2-73c1-08df456109f1
+X-MS-TrafficTypeDiagnostic: PH7PEPF0000000A:EE_|DS4PR12MB733313:EE_
+X-MS-Office365-Filtering-Correlation-Id: 998459d2-fd0b-442d-eb68-08df456110e1
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|10070799003|6133799003|261009223027099003|18002099003|22082099003|3023799007|261022075727099003|261026121527099003|261021123027099003|261021121427099003|261022105027099003|261028144727099003|261102123227099003|56012099006|261026140227099003|10067099003;
+	BCL:0;ARA:13230040|36860700016|82310400026|1800799024|376014|23010399003|6133799003|18002099003|22082099003|261009223027099003|3023799007|5023799004|11063799006|56012099006|261026121527099003|261102123227099003|10067099003|261028144727099003|261026140227099003|261021121427099003|261022105027099003|261022075727099003;
 X-Microsoft-Antispam-Message-Info:
-	Xbz20wdmvGSslJfxo6jiFGuCq+Dt8tD3v488rx0w+lwfOHcZRZ9gVARpz8jXw0n3eCH+Ddc6J6wUOk2ANHxv8ws4ICRGl7ZhIEBGgoFOLbIZbRp7RxY2vpOWLKhFi4jTOUfmsZn+2Gfi3maLIrAA+4AcY7QBpaAvJ2Mhm6w2I4qlnvQ1DBiyinT9CY07p7QDiuPn4tXHTeSlTce0P7gOmHAiN5Ex9EaLy3cqRvfNoj6VS5hWi/tC7OklfggpzQJqE/wQMWNnAODxWXTehEQ2R6pmpV4ZDqL9YxfDXt2mXg/tA21WdGEKXnWw2PQDW97Kae4Ec743Nzd5FG+gG5SPh99VuiERY8//xGkuLxRzTwVVf87jJ4+OkDG2zChi7/M3xyJ5EKF1arhKp+uuTA9YZHn9hBIgvrmivhmDMjCgMJcsIoRdYchvbvJDTerG+2/swjzo+rtRt2TKSccHx60O6rb5AWhm6Q/O3kPSlQpYlDPwn82hfM8PmIJl5N5gA1IkVrKwRvA640yAK5TaM+gMkd8m0sbU7tKKoWPV6hHJFtN1zN0LeJoYm3lxzIWAggL30/2hKdol9Hzf8RbQsUn/XLFAE4e4c/mVtegNIVTDbA7asiTbyD5ZrQEoQt8MQd0MmBDuvoPGvAedobYbWn1cY7TFMY7QFk1YvsCV6+/yUZE=
+	ay4qnudqcxvT7yXUd6gX1gSRVeF4PHRqBuo7eIZHSaUSs2KOrmnGuYkQ4tpxEfT5nPUQlec3KD45vv0nQnitSwERgCsbc+Xu6WRP4Jcygcn6eABphF+6zzeuJhh4boOGk3CQ2lCOixoROA5+HzRacCKJPOQhzD3hC/f51Kz5VGBUBPTNA6J/acy2N1x6Py9OpuXNljlDrPXZ6FWqi2b3JDCjv4KypXWL+NRh4XlVkdhUtJU3z2dSNWcsdLbZp+OgUG1bHpha7GbW5b5M1fRkeyfRQn0MjrTpEtxUo5MYLAnUzNfmIxGXtiUzGu+5XaDW0sDul5pvIe28nPP8kRFxTsFNgb8FAo8wcF1rfiR97ml7e6Co2lovv3jwxuXiYtcTcE24cnwQacXb1ZVwCQ8gDgtKrxrzNewINNoDQHBfF7i2CG2rILulww60kV2Tn/Fbu2u+bRf5BTNP2ng09dXlBn66ydWtGz6GTzf+TKZ1UA+IUSDsWLwKnU/0swqHXVRtT8lpXhnn+TPlIVpLNiU9NzXA39RXwy50Lf9TOT+Qv3u/gevAWkpAT/JsWUmRIdXSTRk74fwbaiSRSauIN5WraodExR4Kw1H5P7GQxh95mIZZGQ/Zyw7Lj+qEq4lPHz4PktifmcilZHcBdfaHlVZ42VrNBMGEq62LgjgXXNqCdMRXhOt7pwyiR901/miKQVM61PezLYb4lih8DQ7zWeQQfw==
 X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(10070799003)(6133799003)(261009223027099003)(18002099003)(22082099003)(3023799007)(261022075727099003)(261026121527099003)(261021123027099003)(261021121427099003)(261022105027099003)(261028144727099003)(261102123227099003)(56012099006)(261026140227099003)(10067099003);DIR:OUT;SFP:1102;
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(1800799024)(376014)(23010399003)(6133799003)(18002099003)(22082099003)(261009223027099003)(3023799007)(5023799004)(11063799006)(56012099006)(261026121527099003)(261102123227099003)(10067099003)(261028144727099003)(261026140227099003)(261021121427099003)(261022105027099003)(261022075727099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?RGV5ZHlxclNYZzhDSTNOQWsvRFFxaU1yb2c4ek5XV0hHQUdBQUtvUXNPWnZj?=
- =?utf-8?B?QW5yM2pJQ3dEWE9SMzhRYmFXRGV6RGczZGtGMkRncDhWdm00K2daNzVmSGlV?=
- =?utf-8?B?YmRBRmFOelVvbk1OVjNtVnJrVnRwQzdJb2hkK0NjejNmcElkQzdVVFJ0WkZQ?=
- =?utf-8?B?RG5qQ2JKR3lVRkl2bkFLRHdZcGZqNGRYU2xmZnY2THFjK1duV0FlRjM0eXVl?=
- =?utf-8?B?WjlOaXc0eGkwTE04dDhrOWRIOVJUbmJ6Q1NFRENuazZZSlQwTzQyNlpRMkNl?=
- =?utf-8?B?LzljMHg5R1RvUWhmUXFZVWwzM3F1NGtLZm42bmJidGpLbjRtUVBmUzFDckl6?=
- =?utf-8?B?TGl5SlhYS2Q4aGxWS3NBZEoyNFdocXByVnh2dnphRVdsTGZyMXRRalJzNTUr?=
- =?utf-8?B?eW1Jd2xWYzVtcGREZUNMRURUbWZuQVJjaVNFS0t6WCs4WElJTVZZU2V4THBs?=
- =?utf-8?B?Z0JGazhLVFR0YXBVR3BQQjR0Y2tuQmVSU2pWcEVyRnEzdExrdlpEM3lzU1M1?=
- =?utf-8?B?TUJHNWRONDNuRGZyTEVaZ0tvYkI1TWEvOHpFUzFMcEx6U25NUDkwVVBncWU0?=
- =?utf-8?B?dUs2ZU9KRlFiVUlhUURMNVE4bUhWSkFZaXJBZCtDMWE3WVc2a1cyOEZ0Y24y?=
- =?utf-8?B?SmV4NmZad3grdHoxQWRMYnlkWmtkVldhSHorTnVWcFRnY2V4dXc2dlpDei9Z?=
- =?utf-8?B?bWp6NVJuaEdIUHlyM1RpUjFkeVNlUTR2Y3phV1hrRmtBenpXYjZlNmJBL0lv?=
- =?utf-8?B?SGZ0eldJaHUzeE4zdjVZNEZwUmVRNzliOFFENitOQlZEVXRSemx2aVZMMGR5?=
- =?utf-8?B?bVAyU2JheVpubDdQdG5yZndVdzhIVnYraUdKVUFXRURVSlIvNFlIbXhKTFk4?=
- =?utf-8?B?N25sYVdHY0hnVVNBNmY0M09oYkc5SFFCSEFodHY1YUd6b0lYQithd3pxWkFr?=
- =?utf-8?B?YzZSRXhRTXRFNllPQURLd0FORFl1MWxpRE1weFd1UExLQk1xSHYyc0dKOWZu?=
- =?utf-8?B?aTNteW9rRCtWbDNJcUhzYk9JeGgwTmR0MmFyQkgrdkh3TWU5MTFtb2lPWFp3?=
- =?utf-8?B?TUJYR092QW12SGc2U1JycXNKa0hZWHMvKytqTlhmeUtHdTZSRUUvSUxiRS9s?=
- =?utf-8?B?by9ZbDNsRHQvSVpjTm9VTmV5TmFHRmlKZHlZNTVZNkZwWERoTXhSUkN1VG42?=
- =?utf-8?B?WlY1amgxTG5rRURQb2JxWEJXRVlNWG1SV3ZZcFk0WnBSTjh1Y3dNZGRrc3hk?=
- =?utf-8?B?eXorVElsSTEzYzBaU3N6SHZnSXNBZXhsNFo3WEFSbU56OEp0NVFGdG5UVHhz?=
- =?utf-8?B?eEZISGY2KzZyTXc4dVZaWXFubzloSlh0MURYa0ZsSVVWNnlVYnYxUmsvazYx?=
- =?utf-8?B?K2duMnFKSE1OOW1LbU0ybGFvcmxqaDBnR2h0ZkJJMXdKNnNWZlVQdWFsalR2?=
- =?utf-8?B?dlU0VjliVVhuVGs1bkE5MXNYSVhJbG05UUZJTm1zK0Q0cWllMGlJMWdRalRF?=
- =?utf-8?B?Q3VnN2ltUkZtZHFoMmtNSDR4am9KRno5QXR4RVQyOFlXdFBhcTV4bTk2STJL?=
- =?utf-8?B?aSt6UTlGRWgrUVVtbjM4U2txcWtIY0RsOVYyYlQrajd2blZ0TzJTRkZibkZm?=
- =?utf-8?B?N0cyUEo5V3RFbk5lV2xyUHdWN2R4QngybXphcStHM2VnUURlT3NWMlJ2Wml6?=
- =?utf-8?B?Y1hKcjhwVHN1azVyclppdUxNcEZEZnZJcndqV2tvWkJ2WFVkcDFqV1owOFZF?=
- =?utf-8?B?TllxallZNE1ta3owZHlxR29RMlM1a0t2Wnhlb3dxVVk0eXNSWm45RWVBa1N2?=
- =?utf-8?B?Z3dncWc5U3o4Z1lUczc1R25uak04ZzVTRSsrZ0F3cWpWL1FnaG5UdnF3cnho?=
- =?utf-8?B?anpNVGxKU3Q5aWRRanJZMTVzNzV2ZEJzQmgwQjFpR3YyNEFxS3RKT05mZGlk?=
- =?utf-8?B?Zll6NU0zRHVMN0ozMEk1RDcvbWYxZjhXd1JLMnNXUnpyR0FFSm1OVGRNNklY?=
- =?utf-8?B?NGwzOS9RaWZZOVRsNHhsYThvcTg1dEhHdkpaSkhDcXBPRzQyelU0bVNWTFE5?=
- =?utf-8?B?SEoydm9oWC9IejZ3aUN0TmpWd0FmV25kSW5EUWUvSWdFNHNEbGZWSExoNHNa?=
- =?utf-8?B?czFIWlR4Skt4eHk0UCtoU0RPVjhmNUJXY1ZLVFBvM0hKNmJjQzZtekdNOWJD?=
- =?utf-8?B?R0lZaGlRd2sydGR4S3JaVkltcHRUZjZqY1M2YVptU29WYlljeFFUeDJYeXZl?=
- =?utf-8?B?SzFNR0ZFVlJVeWZQRmxGTjIxVGZmYnpMN3RhYUVQZk85NFliS1lMdEdYVnFZ?=
- =?utf-8?B?TUo1OW9vNE84NWhUakhNMUZ1ekEzU2YzdDlnbWRJZFcyQXRVU3NJUT09?=
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4c2a5e45-d03c-45b2-73c1-08df456109f1
-X-MS-Exchange-CrossTenant-AuthSource: CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 10:45:19.2314
+	li/GvzX3MflcMgqTOPZ4IhMt7rCKmfwHmyPI5zYhn1ChsbJfhG+R11ykxPz58hazNsif9w2jGCluqBt2udKzdCrwSbzf46f6Yp0D4GXzR3hvpvAAqd8+HfCwQN9Zz6f3qU9kTmQWwKyMPuzYn5TnsY/M3i1euzNgEexS+ZTwVrwbNAkJLseu8Ogh2VHEAGBEFcjNm+iy8lC+o/Pd9dZDYmTeIrnjEIMZZInqDDfile1JRML2wVmHKrc7m0MxzUXtEfzslVniGuQuZCk4K3jm+NQhUUBWYVyMYwZTIEB9k7ECg23gHv951iknEHalka1vSnPVb5LcXsNxP+iHzooRsTbCSJF3gah+yKRJOd9KHzIeIuSTmMkJ5Fab/r7bpPqvmov0v+nBFh5c83/Kk8p6AXQ31/K9maNdMf+BxCnT0rmsWZrmfWMIWMxfvgIvjTar
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 10:45:30.6061
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /VO9xAGlA+fC1ph6TO+CbR5BvWp6bvp8ldx5c9A6WeCGTaa378pHc5kRIKApJN0lXWr6VswtgPzEAeS9/shSKQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO0P265MB9132
+X-MS-Exchange-CrossTenant-Network-Message-Id: 998459d2-fd0b-442d-eb68-08df456110e1
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	PH7PEPF0000000A.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PR12MB733313
 
-On Wed Nov 18, 2026 at 10:39 AM GMT, Peder Bergan via B4 Relay wrote:
-> From: Peder Bergan <peder.bergan@gmail.com>
->
-> XArray::iter uses an outlives bound to capture the lifetime of the
-> borrow of self in the returned iterator. Its caller consumes the
-> iterator during pinned drop and does not need an outlives guarantee.
->
-> Use a precise capturing bound to name the borrowed lifetime. Also
-> include T, since the bound must list all in-scope type parameters.
->
-> Suggested-by: Jesung Yang <y.j3ms.n@gmail.com>
-> Link: https://github.com/Rust-for-Linux/linux/issues/1175
-> Signed-off-by: Peder Bergan <peder.bergan@gmail.com>
-> ---
-> The XArray KUnit doctest passed on x86-64 QEMU. The Rust kernel
-> crate built with CLIPPY=3D1.
->
-> OpenAI Codex assisted with the signature changes, testing and
-> drafting this commit message.
+During POWER_OFF_MODE clock stop the SoundWire clock is expected to
+transition High to Low cleanly. On some OEM platforms based on
+ACP 7.0/7.1/7.2, a transient High pulse is observed after the initial
+Low; the clock briefly follows a High -> Low -> High -> Low sequence
+(High lasting a few milliseconds) instead of the expected High -> Low.
+This spurious High edge interferes with wake interrupt detection,
+causing wake events to be silently missed.
 
+Hardware team analysis identified that the pad keeper, pulldown,
+SCHMEN control and output-enable registers must be programmed as a
+coordinated sequence during D3 entry and D0 re-entry to suppress the
+transient bounce and restore the pads correctly on resume.
 
-None of this is relevant when we upgrade to Rust 2024, I'd avoid the additi=
-onal
-churn and only do this where needed.
+Introduce amd_sdw_pad_ctrl() to program PAD_KEEPER_EN,
+PAD_PULLDOWN_CTRL, PAD_SCHMEN_CTRL and PAD_DISABLE_OE_CTRL in a
+single call for D0 entry (enable=true) or D3 entry (enable=false).
+Introduce amd_sdw_oe_ctrl() as a lighter helper that only toggles OE.
+Introduce amd_sdw_pad_ctrl_supported() to consolidate the ACP revision
+check; both helpers use it in place of duplicate switch statements.
 
-Best,
-Gary
+Both helpers apply only to ACP 7.0/7.1/7.2; ACP 6.3 returns without
+error and unknown revisions emit a dev_err and return.
 
-> ---
->  rust/kernel/xarray.rs | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/rust/kernel/xarray.rs b/rust/kernel/xarray.rs
-> index 987c9c0c2198..4a67e7f24335 100644
-> --- a/rust/kernel/xarray.rs
-> +++ b/rust/kernel/xarray.rs
-> @@ -108,7 +108,7 @@ pub fn new(kind: AllocKind) -> impl PinInit<Self> {
->          })
->      }
-> =20
-> -    fn iter(&self) -> impl Iterator<Item =3D NonNull<c_void>> + '_ {
-> +    fn iter(&self) -> impl Iterator<Item =3D NonNull<c_void>> + use<'_, =
-T> {
->          let mut index =3D 0;
-> =20
->          // SAFETY: `self.xa` is always valid by the type invariant.
->
-> ---
-> base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
-> change-id: 20261118-cleanup-xarray-precise-capture-1bf06165c6cf
->
-> Best regards,
-> -- =20
-> Peder Bergan <peder.bergan@gmail.com>
+Wire amd_sdw_pad_ctrl() into amd_suspend() and amd_resume_runtime().
+Wire amd_sdw_oe_ctrl() into amd_suspend_runtime() to disable OE while
+leaving keeper and schmen enabled; pads remain capable of detecting wake
+events when wake is armed.
 
+Fixes: 829c3e1cb4a3 ("soundwire: amd: set device power state during suspend/resume sequence")
+Signed-off-by: Vijendar Mukunda <Vijendar.Mukunda@amd.com>
+---
+ drivers/soundwire/amd_manager.c | 108 ++++++++++++++++++++++++++++++++
+ 1 file changed, 108 insertions(+)
+
+diff --git a/drivers/soundwire/amd_manager.c b/drivers/soundwire/amd_manager.c
+index a3316efdf8ac..b21691652490 100644
+--- a/drivers/soundwire/amd_manager.c
++++ b/drivers/soundwire/amd_manager.c
+@@ -152,6 +152,104 @@ static int amd_deinit_sdw_manager(struct amd_sdw_manager *amd_manager)
+ 	return amd_disable_sdw_manager(amd_manager);
+ }
+ 
++static void __amd_sdw_oe_update(struct amd_sdw_manager *amd_manager,
++				u32 mask, bool enable)
++{
++	amd_updatel(amd_manager->acp_mmio, ACP_PAD_DISABLE_OE_CTRL,
++		    mask, enable ? 0 : mask);
++}
++
++static bool amd_sdw_pad_ctrl_supported(struct amd_sdw_manager *amd_manager)
++{
++	switch (amd_manager->acp_rev) {
++	case ACP70_PCI_REV_ID:
++	case ACP71_PCI_REV_ID:
++	case ACP72_PCI_REV_ID:
++		return true;
++	case ACP63_PCI_REV_ID:
++		return false;
++	default:
++		dev_err(amd_manager->dev, "unknown ACP revision 0x%x\n",
++			amd_manager->acp_rev);
++		return false;
++	}
++}
++
++static void amd_sdw_oe_ctrl(struct amd_sdw_manager *amd_manager, bool enable)
++{
++	u32 mask;
++
++	if (!amd_sdw_pad_ctrl_supported(amd_manager))
++		return;
++
++	switch (amd_manager->instance) {
++	case ACP_SDW0:
++		mask = AMD_SDW0_PAD_OE_CTRL_MASK;
++		break;
++	case ACP_SDW1:
++		mask = AMD_SDW1_PAD_OE_CTRL_MASK;
++		break;
++	default:
++		dev_err(amd_manager->dev, "invalid SDW instance %d\n",
++			amd_manager->instance);
++		return;
++	}
++
++	mutex_lock(amd_manager->acp_sdw_lock);
++	__amd_sdw_oe_update(amd_manager, mask, enable);
++	mutex_unlock(amd_manager->acp_sdw_lock);
++}
++
++static void amd_sdw_pad_ctrl(struct amd_sdw_manager *amd_manager, bool enable)
++{
++	u32 keeper_mask, pulldown_mask, schmen_mask, oe_mask;
++
++	if (!amd_sdw_pad_ctrl_supported(amd_manager))
++		return;
++
++	switch (amd_manager->instance) {
++	case ACP_SDW0:
++		keeper_mask   = AMD_SDW0_PAD_KEEPER_EN_MASK;
++		pulldown_mask = AMD_SDW0_PAD_PULLDOWN_MASK;
++		schmen_mask   = AMD_SDW0_PAD_SCHMEN_MASK;
++		oe_mask       = AMD_SDW0_PAD_OE_CTRL_MASK;
++		break;
++	case ACP_SDW1:
++		keeper_mask   = AMD_SDW1_PAD_KEEPER_EN_MASK;
++		pulldown_mask = AMD_SDW1_PAD_PULLDOWN_MASK;
++		schmen_mask   = AMD_SDW1_PAD_SCHMEN_MASK;
++		oe_mask       = AMD_SDW1_PAD_OE_CTRL_MASK;
++		break;
++	default:
++		dev_err(amd_manager->dev, "invalid SDW instance %d\n",
++			amd_manager->instance);
++		return;
++	}
++
++	mutex_lock(amd_manager->acp_sdw_lock);
++	if (enable) {
++		/* D0: set keeper, clear pulldown, set schmen */
++		amd_updatel(amd_manager->acp_mmio, ACP_SW_PAD_KEEPER_EN,
++			    keeper_mask, keeper_mask);
++		amd_updatel(amd_manager->acp_mmio, ACP_PAD_PULLDOWN_CTRL,
++			    pulldown_mask, 0);
++		amd_updatel(amd_manager->acp_mmio, ACP_PAD_SCHMEN_CTRL,
++			    schmen_mask, schmen_mask);
++	} else {
++		/* D3: clear keeper, set pulldown, clear schmen */
++		amd_updatel(amd_manager->acp_mmio, ACP_SW_PAD_KEEPER_EN,
++			    keeper_mask, 0);
++		amd_updatel(amd_manager->acp_mmio, ACP_PAD_PULLDOWN_CTRL,
++			    pulldown_mask, pulldown_mask);
++		amd_updatel(amd_manager->acp_mmio, ACP_PAD_SCHMEN_CTRL,
++			    schmen_mask, 0);
++	}
++
++	/* enable OE on D0 (clear disable bits), disable OE on D3 (set them) */
++	__amd_sdw_oe_update(amd_manager, oe_mask, enable);
++	mutex_unlock(amd_manager->acp_sdw_lock);
++}
++
+ static void amd_sdw_set_frameshape(struct amd_sdw_manager *amd_manager)
+ {
+ 	u32 frame_size;
+@@ -1319,6 +1417,8 @@ static int __maybe_unused amd_suspend(struct device *dev)
+ 		ret = amd_deinit_sdw_manager(amd_manager);
+ 		if (ret)
+ 			return ret;
++		/* System suspend: tear down all pads */
++		amd_sdw_pad_ctrl(amd_manager, false);
+ 	}
+ 	if (amd_manager->acp_rev >= ACP70_PCI_REV_ID) {
+ 		ret = amd_sdw_set_device_state(amd_manager, AMD_SDW_DEVICE_STATE_D3);
+@@ -1363,6 +1463,13 @@ static int __maybe_unused amd_suspend_runtime(struct device *dev)
+ 		ret = amd_deinit_sdw_manager(amd_manager);
+ 		if (ret)
+ 			return ret;
++		/*
++		 * For ACP 7.0/7.1/7.2: disable OE only; keeper and schmen remain
++		 * enabled unconditionally so that wake-capable devices can detect
++		 * wake events if wake is armed.
++		 * For ACP 6.3 this call is a no-op.
++		 */
++		amd_sdw_oe_ctrl(amd_manager, false);
+ 	}
+ 	if (amd_manager->acp_rev >= ACP70_PCI_REV_ID) {
+ 		ret = amd_sdw_set_device_state(amd_manager, AMD_SDW_DEVICE_STATE_D3);
+@@ -1403,6 +1510,7 @@ static int __maybe_unused amd_resume_runtime(struct device *dev)
+ 				return ret;
+ 		}
+ 	} else if (amd_manager->power_mode_mask & AMD_SDW_POWER_OFF_MODE) {
++		amd_sdw_pad_ctrl(amd_manager, true);
+ 		writel(0x00, amd_manager->acp_mmio + ACP_SW_WAKE_EN(amd_manager->instance));
+ 		if (amd_manager->acp_rev >= ACP70_PCI_REV_ID) {
+ 			ret = amd_sdw_host_wake_enable(amd_manager, false);
+-- 
+2.53.0
 
