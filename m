@@ -1,60 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.17
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794962713;
-	b=Fv+T8Os6r6toIgln+nFV42x2j0SYayfJwEbrUHP8xSX5uZ0c63Kvzh0W8DCKHrwA0QId
-	 Fir3E0e0iad/OMo88ih4dDmS8fbQ7VV6eDPNhBHkStwYrNSKkEfLrOkQijlsjrvwyQ1Wb
-	 JC6ST9p9CpM/5NXC/xnEjir1Jb8aDDJv9XAIA27HiAkAZ2gZZTxICN8RE0APjqwDWZoE7
-	 rwKgq18AfkPYBx35FJdWqjCTN1trSa1pwavxb09wr1o88T83hSVvzmQvDYvGeljac/xgb
-	 o0oNqiSA36WNE3sLqA7CJiyHWOx++xz0/IvhoPeOGjrpTfNIDn2/nV7GhKt4Eln0Aeg==
+	t=1794962778;
+	b=E7YvCwIXiI4bgizm/0npu/BxK8TThF64L4HBzByGqkp0VjnwW1fuvy2KOD4Bxnuwkgrx
+	 aCY+hazcCZTjEvXI3g31cHQtldJNmPzDMDSpE0GUBgXeS8j7tviP6VT/lW+w8k2RRbH8i
+	 Igy6pyVsDzdkzF4kUrwdRKQMmJkKAWN4mG1EC4lcMZpJ5CLRyLakevbvye3qzt1v8Vxdu
+	 2yUpkM9O52/Cdt71uBSQJyXNu5+XZDQ5XRiQMsVEmCT6x+SGBT18EoiS4drCcHs4bQDO0
+	 e9eyAtPlW5iG2iH2gJe8XrewmzGiYiUZavFzWsJhJJ+7GGgFtQ8iyndHe5gmG5NInxw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794962713;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=ZBVxHAo7/9YleCHtV1mEWSvjrDqDjQfMJqJcB9mj8eE=;
-	b=aLcOYQldiAlAki0nfojNuTXnzoPEoIvKDgczQpjjM7Wq/21n9yDT+sJwSVwe/BeIjTRZ
-	 OP34zat2TWXWMjXnLrLwoaV50vWI7ZjzsUtsUU5gUamKt8ocdMKcOHkBBfeMg5jwgoOm1
-	 ItJtM9xKlyWO7CnVqtseg03PUEC+STVtUfkh/yDsLnk9jXFKjpcheIFJ7PDtWD7kEypej
-	 But7PWCoTbfMbS2zOfLGEKjYrxUubv5VwJrZTizVO/tu1CwtdsICVkUsNJ5h1m5PO1cyc
-	 JAgCrocs3ltU/hMmtHdZwNF3xEW0YL2T9UchZjVBQ6vIiQB8fPyz5ahShTdp/zFqhig==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794962778;
+	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
+	 Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:Message-ID:
+	 References:In-Reply-To:Accept-Language:Content-Language:
+	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=EiYkSaP5dGb5CUj9ezeFxg3h4M419wH0by02fQ2rKfc=;
+	b=sJvnllO4pm/rqdNxBW8D+bUQjUTCJp9Fj95cYEOHoKuVSTbj0nZwEgK2I5tFt+VD6i87
+	 lABkBHURlhtSI3oI1WMNqGzdfREhhJQd979w+u44c6O86I4jjXZk8UrxwFwZPeY7fD96Y
+	 iaNGDXhGrm52iWKGCwWsqYONh6+0KI0apiBOwoVthOLnh1tMXCnLx1wqWsUiqlKVEK6HT
+	 xhIYELfW0bc2EywgbxGE1q19qTT+lhmeUOTnbM7agIMHYn521hUNtL8DWXDNrWJ7NXToo
+	 rSrEI8FOY+jYJ0SsFC3auYfFlng+pOgHuSefXUctbY8LRFMt3vdmNG18NTZKxTI84/g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=pm.me;
-	spf=pass smtp.mailfrom=pm.me;
-	dkim=pass header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=dQv4+10O;
-	arc=none smtp.remote-ip=109.224.244.17
-Received: from mail-24417.protonmail.ch (mail-24417.protonmail.ch [109.224.244.17])
+	dmarc=pass header.from=realtek.com;
+	spf=pass smtp.mailfrom=realtek.com;
+	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=Hrz6InkU;
+	arc=none smtp.remote-ip=211.75.126.72
+Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11B03606A32C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:45:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 11B03606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=pm.me
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pm.me
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EBAAD606A31C;
+	Wed, 18 Nov 2026 00:46:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EBAAD606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=dQv4+10O
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pm.me;
-	s=protonmail3; t=1794962710; x=1795221910;
-	bh=ZBVxHAo7/9YleCHtV1mEWSvjrDqDjQfMJqJcB9mj8eE=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=dQv4+10OV9D9yv9DD+0MKnBfc8enMgLX9yKl18VPvSlmNg1OXtxeLxlFAGaIyL2Z9
-	 Apc5SwVVdT4f07c9qmWnxsP7kINwPbYs/BKaEfOUfSuqkcnctHqFLOQb2p0Hxe/GEX
-	 wajWuNVQWYobb2ClUNZQt24rM87HcEy0GL0Uk+cHLjxz4AYsXhhTNzOFHhXCesZapj
-	 vgEFygONjpgnT7Puoavcy6zYWn2eehyDo6GFvgr4iWTz9qeoBHRYHsUBlpCLEkf3zV
-	 JvlobqNLq1tmpAf9KzhdlO/gcn+JOtbt9OkF4E72UN+cK00vC6HU3O+q9wn4bSFZHN
-	 ZbQUnwSz08MAQ==
-Date: Wed, 18 Nov 2026 00:45:06 +0000
-To: Sakari Ailus <sakari.ailus@linux.intel.com>
-From: Valerii Sokolov <valerii.sokolov@pm.me>
-Cc: Bingbu Cao <bingbu.cao@intel.com>, Tianshu Qiu <tian.shu.qiu@intel.com>, Antti Laakso <antti.laakso@linux.intel.com>, Sarang Sapre <sarang.sapre@intel.com>, Divyamani Tripathi <divyamani.tripathi@intel.com>, Manik Bajpai <manik.bajpai@intel.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, Valerii Sokolov <valerii.sokolov@pm.me>
-Subject: [PATCH v3] media: intel/ipu6: omit sequence number from EOF debug log
-Message-ID: <20261118004459.249226-1-valerii.sokolov@pm.me>
-In-Reply-To: <aus0pXClb3bGAV_7@kekkonen.localdomain>
-References: <20261103211031.1573726-1-valerii.sokolov@pm.me> <20261103211031.1573726-12-valerii.sokolov@pm.me> <aus0pXClb3bGAV_7@kekkonen.localdomain>
-Feedback-ID: 17117034:user:proton
-X-Pm-Message-ID: b22c5d7b61ad67edc652dc26aeaf37451dddb7f6
+	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=Hrz6InkU
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AI0jcffF784555, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1794962738; bh=EiYkSaP5dGb5CUj9ezeFxg3h4M419wH0by02fQ2rKfc=;
+	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	b=Hrz6InkUD9+A/xraD6+HlZ69xtnPb4UITv5+hBk3cfu7cfMr/Osc/XgKK6jIZgsXz
+	 vKTLAsqKv+G6TVwlDxP5FIB60PDaYKj/7nwhZgumMh33UKdpNfXi0ndLM0Ac8DoT58
+	 +lhUEyLAOHVF48lUSOuc64wTHiTbU7MY2lJhFWl9gWguvTPRVHDOMH6zH03wNkFXTn
+	 vdwcAsvpOn04TRVqNfYG3iLwAZfCK5tHcfApSIE4EIsam/RK8sfJj2UEF+fD3U7euQ
+	 TwuP+GTXn2PqPtDxcpULUJEV3q+vOAut+2XYGjGgCTgCHZFesStVdgk/TYjIUgqMmk
+	 DvTRIL0jDcKFg==
+Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AI0jcffF784555
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 18 Nov 2026 08:45:38 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Wed, 18 Nov 2026 08:45:38 +0800
+Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
+ RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
+ 15.02.2562.056; Wed, 18 Nov 2026 08:45:38 +0800
+From: Ping-Ke Shih <pkshih@realtek.com>
+To: Mehmet Fide <mehmet.fide@gmail.com>
+CC: Luka Gejak <luka.gejak@linux.dev>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Zong-Zhe Yang <kevin_yang@realtek.com>, Tzu-En Huang <tehuang@realtek.com>,
+	Yan-Hsuan Chuang <yhchuang@realtek.com>, Kalle Valo <kvalo@kernel.org>,
+	Stanislaw Gruszka <sgruszka@redhat.com>, Brian Norris
+	<briannorris@chromium.org>, "linux-wireless@vger.kernel.org"
+	<linux-wireless@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "mehmet.fide@screeningeagle.com"
+	<mehmet.fide@screeningeagle.com>
+Subject: RE: [PATCH rtw-next v3 5/5] wifi: rtw88: clear the restart flag when
+ the device is stopped
+Thread-Topic: [PATCH rtw-next v3 5/5] wifi: rtw88: clear the restart flag when
+ the device is stopped
+Thread-Index: AQHddraCwLcTtTxZpUS0XSkBmrLE8bcyX6sAgACe/kA=
+Date: Wed, 18 Nov 2026 00:45:38 +0000
+Message-ID: <749d191c3baa42179f87e1af5b9a1a19@realtek.com>
+References: <20261117171003.1840491-6-mehmet.fide@gmail.com>
+ <20261117231558.1952531-1-mehmet.fide@gmail.com>
+In-Reply-To: <20261117231558.1952531-1-mehmet.fide@gmail.com>
+Accept-Language: en-US, zh-TW
+Content-Language: zh-TW
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,52 +89,13 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
 
-When handling IPU6_FW_ISYS_RESP_TYPE_FRAME_SOF in ipu6_isys_isr_one(),
-stream->seq[stream->seq_index] is populated with the current sequence
-and stream->seq_index is immediately advanced to the next ring buffer
-slot.
+Mehmet Fide <mehmet.fide@gmail.com> wroet:
+> Hi Ping-Ke,
+>=20
+> Commit 3f2238709f5d ("wifi: rtw88: clear RTW_FLAG_RESTARTING on stop
+> and start failure") in rtw-next fixes the same case, so please drop
+> this one. Patches 1-4 apply to rtw-next as they are.
 
-Subsequently, when IPU6_FW_ISYS_RESP_TYPE_FRAME_EOF arrives, logging
-stream->seq[stream->seq_index].sequence reads the next slot in the ring
-buffer rather than the slot corresponding to the frame, printing a
-stale or zero sequence number. Since the IPU firmware tracks frames by
-timestamp rather than sequence number at EOF, omit the unreliable
-sequence number from the EOF debug message.
-
-Fixes: f50c4ca0a820 ("media: intel/ipu6: add the main input system driver")
-Signed-off-by: Valerii Sokolov <valerii.sokolov@pm.me>
----
-Changes in v3:
-- Omit printing the unreliable sequence number in the EOF debug message
-  instead of reading atomic_read(&stream->sequence) - 1 (Sakari Ailus).
-- Dropped Antti's Reviewed-by tag due to the change in approach.
-
-Changes in v2:
-- Collected Reviewed-by from Antti Laakso.
-
- drivers/media/pci/intel/ipu6/ipu6-fw-isys.c | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/media/pci/intel/ipu6/ipu6-fw-isys.c b/drivers/media/pc=
-i/intel/ipu6/ipu6-fw-isys.c
-index 5d95fb9234..bfe91232d0 100644
---- a/drivers/media/pci/intel/ipu6/ipu6-fw-isys.c
-+++ b/drivers/media/pci/intel/ipu6/ipu6-fw-isys.c
-@@ -649,9 +649,8 @@ int ipu6_isys_isr_one(struct ipu6_bus_device *adev)
- =09case IPU6_FW_ISYS_RESP_TYPE_FRAME_EOF:
- =09=09ipu6_isys_csi2_eof_event_by_stream(stream);
- =09=09dev_dbg(&adev->auxdev.dev,
--=09=09=09"eof: handle %d: (index %u), timestamp 0x%16.16llx\n",
--=09=09=09resp->stream_handle,
--=09=09=09stream->seq[stream->seq_index].sequence, ts);
-+=09=09=09"eof: handle %d: timestamp 0x%16.16llx\n",
-+=09=09=09resp->stream_handle, ts);
- =09=09break;
- =09case IPU6_FW_ISYS_RESP_TYPE_STATS_DATA_READY:
- =09=09break;
---=20
-2.56.0
+Dropped from patchwork.
 
