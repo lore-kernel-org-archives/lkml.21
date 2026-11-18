@@ -1,96 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.135
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795009051;
-	b=GI2pEl6VgZJijfs/vry8mFR+Tdiq9XFsw72zFlseawC2vhof7F97z62HSBz2qy+TsCuG
-	 AC1Ztsu6zAGhGeMofPOgqz/xA8U1mHb+2ynwkM59sdKPxwuDbAuUpgeyLZA3GTfd1vuA7
-	 QjXt683E8GOHV+rj5BghJCY+MA5qzPBd1Jmprf0UiDqvFx/dgsWqGiYLJutq6XmxRprky
-	 w3znDupC9pwX/6LUhCuyOu6lYXW5u7mXcjHP6Pl78p68J00v+nfaIsIBnhD/GZoX1ve8Y
-	 VbE0KRQ24/dkaJQeVMFQtKcLdUV75JkYEuYoiqIEzAMJm4yEg23n1/G4lKVjENeKbNw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795009051;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=WpeR6k0qQ2gItIFKdESRFdGSd9F3Ovp4zIDmKUjLT5M=;
-	b=l+g3uRpL65FZFhwZkB2Y6qc5mLrOZUB7MNgfU3cXLYhKFFXjVb006/Wd884j2BcY9RZ8
-	 Z9frvdie0D35QzFZ30cELTn7v9fmEC5yoXIScRxHmbSiiaSMOO9yQWqkPF6DF4TUBeVpj
-	 +Dg3lI9ZJQ4XV+PG8waJX89MSEgdw6vj6hB0QBkGj7i7HE0Zj4z6VovyFWefhGSwOZ9Im
-	 3tNsaICwVrVd19NWykhDu2byUUXaU1A48tfw2BOWanEeFcW3U5j0yuRG39IkjULY88oaD
-	 dleAXXSgxpeZr31SqeQpvl0fYgXT98f7pz+oblcJ6ajHZooo517WOxz5wv/FgSzLEKA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b="KwnBa/0H";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.135
-Received: from YT6PR01CU002.outbound.protection.outlook.com (mail-canadacentralazon11022135.outbound.protection.outlook.com [40.107.193.135])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795009072;
+	b=Viqc3fp2KvwuEJhgLobO1Avw0BeorwvTbPK3EWYZ9UDzfoCg7X99GL/waVwsNYgqpj4h
+	 sQO5888nB+F4RaFzDP+JbWe1zxamfDsdIOOBwqTPOCyPewEBKzw2OAvZzkU3pzWtA0xSX
+	 5s8lFoNh7zTVfLISjYw6pH8lKqxHI943G1AE5tGG5B2WNvZtYbrp4TWtWPsTxcH7oW0tF
+	 21H1jVLoqTpmDu6iWt2fTpL431z1APEQj0Uxz/rBj3WeDrefbkaP78KtpWlNFTlp6V+p+
+	 PHW47p9CXXrKWHt+I5W0dIy2I2E0C1Xpl0dvbBbTTOAmpmkjpWSlX5I8i1+Q9tsysTw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795009072;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Subject:
+	 Date:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
+	bh=WGyeXbeTBpO0bbOfE0ofodA7WQqaxR+ETpukNGWz/SM=;
+	b=T2IQuKMuiOmu0z2kZeZcrROiu88DtyTPfRbbF1KSev8C4BjltcIUshSG5Y3xY8eML6Hk
+	 6HEyBYY5yY5Rl6FG8M2ccsXNZs+to4YdahFfJIAK4+D+sdNDs01vzQnUqiGAcydjf8aiM
+	 NF7GQEJwuXfH2swmexF6xhjUvWN8aFxEQNVP4laWbtK7WwFRhWzGRoi6JBVnVX8FZQzHq
+	 +9P+9wZQ3bykAaZCLfJX4T6kseU8q4trJCGLL2ItVRsyHCEXZP4PqEx1ehNTKCxMCgmfc
+	 N2MMv0jq7oan0UwtbUjNPPtnNZH91PVuL0shrc9c0WygN9Rff/YuGNouF1oRMZO4+Uw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=0yrjWeCj;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70CF5606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:37:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70CF5606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 174A6606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:37:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 174A6606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=KwnBa/0H
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Muj/14kRX8t02ak6yi8/8seCM79SExrETNl+SRDeEp/HtdJwMDyzR0uT5saOsFkhkNrOMUWyyu6O2z12sWZshOgyNSV6lmqIoXY+a2ELq2ofx+NrQb/EfXWOv8EW1mF5ZOIfw39gVd052STOXd/83XUjUFzcDJlJd47aE4CrjYEGw55WSs/6dAYMK3xpjRyLIaYEsuZVuSfUehrWHCVz3cY0CGwq8mtLrKnrBPn22qM99MPohoAK1/erG3bbUlUc+5QZR7H03AFM3E3Ke1VoEv2RlOTWARYyHfUWFJO9zDv72wBcnSuhp4rI+EH/DunjdCeJBrDKITQitcxWWUBe9Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WpeR6k0qQ2gItIFKdESRFdGSd9F3Ovp4zIDmKUjLT5M=;
- b=bJZThOtL+sUKksaoDMew9bzWad3WZOGluiwNhZiZjy4b2WjzjrAmPFXS8R/RiBjoSumLF1LXJyO7tY4T3BTflYcPlTokE99vXis93+XpI35NZk2QSVT3DahpEvUWa8PoIwyL2LdNTWC1tgLr9dC6dTd2RKKYjVCYZ6D0J3rKekONpCAZh/OaeUZN1iTxtK+vuOMQ82waBgIDsAg/Pq03fXHyWlJfOsEwBR/BK/+S43U9zQ0EJu0l8jgB5cVowOkneIR4BdpmHCaMiKL8XZwzjGMOTfdvgJw8rO9e0MR76jTzNGoNIURx26wtwn5U6wrCDBgidoh+vxDpC7VnPrC+4w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
- dkim=pass header.d=efficios.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WpeR6k0qQ2gItIFKdESRFdGSd9F3Ovp4zIDmKUjLT5M=;
- b=KwnBa/0HBdy4RnQZfmFTPBysS7ryNt/IByv/Vbebqr2rYMciQhBnQ29q7iVRjWTJFGM3S+dHswbIlG6xeXIukP8CAG1hbGKPymsYR9h7h0Q5uRYYalVL9rEkQOKGLP7oZYvnKntzozpUh5aesQNO5HHPVRjBw38SXnJKvi2ZT+0H/2ncEQBTctP6aruBNm9b2zRacA6vK2FZQRwYo6yZowpRjgm9sPPuwb+CY99t8RCVEIcTnhsTbRWh69+dglWqbVnZj0gxBsXJ04UmSxgnjwOW0qEEnHJLWTOoRfbftGqb+XDitrtdMJdsmQyRxwGDQywCnw6vGqhCP2Mn+R0tDw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=efficios.com;
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10) by YT4PR01MB842743.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:188::20) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 13:37:28 +0000
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 13:37:28 +0000
-Message-ID: <2b589346-62e4-455b-a3aa-a73782f6b679@efficios.com>
-Date: Wed, 18 Nov 2026 08:37:27 -0500
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 18/40] sched/deadline: Record the root domain holding a
- task's bandwidth
-To: sashiko-reviews@lists.linux.dev
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org,
- mkoutny@suse.com, linux-kernel@vger.kernel.org
-References: <cover.1794922146.git.mathieu.desnoyers@efficios.com>
- <81044090393551a0c264a8f3a7d1c3c22321c395.1794922146.git.mathieu.desnoyers@efficios.com>
- <sashiko-outbox-219040@kernel.org>
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Content-Language: en-US
-In-Reply-To: <sashiko-outbox-219040@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: YQZPR01CA0042.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:86::27) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10)
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=0yrjWeCj
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 798721A16D0;
+	Wed, 18 Nov 2026 13:37:44 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 4409E5FE9B;
+	Wed, 18 Nov 2026 13:37:44 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 30A4411BC2074;
+	Wed, 18 Nov 2026 14:37:27 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795009058; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=WGyeXbeTBpO0bbOfE0ofodA7WQqaxR+ETpukNGWz/SM=;
+	b=0yrjWeCjRlF1Q8QECqODe+Wi/p2jg6/W4wFMouKAzBKC0GPtgS2HA5ON//RDCNhs+wKFsS
+	lGxDap+PEGClqeAzA/dsHxMJa2aAId+6wzN+U5m9jWLIwdX4q0m3m3QlmwT9nmSh3/PYPN
+	umMbiwRbsWCMOX+AmCOJc1Y5fPJ+n51tm7nnFKJ9DdilNpsf596dRdFXJOyoNk4ODaeVYv
+	oaka9AkYASZTMUVWKMNnOkX1Nky1gCY8qoV2pTckN0TilD6OO+VKfHDJ6UPhY8gswHop8s
+	gbmxm0zpRL/9NP2IJx6TSDk67PwYj+6snYSYZU6RpHseIciRlVD90fonM0DNZQ==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+Subject: [PATCH v11 00/10] clk: nuvoton: ma35d1: Fix mux parenting and
+ peripheral clock rates
+Date: Wed, 18 Nov 2026 14:37:07 +0100
+Message-Id: <20261118-perso-ma35d1-upstream-clk-v11-0-bd1d1e060926@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,97 +63,152 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YT4PR01MB842743:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0c392aa5-5c77-4966-8717-08df45791698
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|261022075727099003|4143699003|56012099006|261026140227099003|261028144727099003|10067099003|261022105027099003|261026121527099003|22082099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	sVNbrkceWmCUQyHQENNLULvud4vqH0jxG+U0PJQBlDs2AfuooIGpeXiexHMAYwI/C4jN4CKrsjj09U5enb89rhZ4NutdyF5t1qAtgTIYmPwEHndepHMsx0jAygtVORQ/9rbyVDmnfL4gGnrBycQ5UXegVElPlfIVPp9ZMpqiUiO7773LJQ96wi7N6O+qlEniwN1hLchLzB6Ry91HZYBgUkyxCaShyXsyKPF8IIhQ69sv3IO46MiTpEW6zFeAK41lZaR+5Vk0vRuuhgbJCNAzWkRKGtf3UeSB7TsaXPHf45SKF4k54x+siCYvIWt/66yTS+JqhBcXW4fDeJWFMJSEfLGjZT/0CRqL0NL8GSsPqEBwMKGYzkWVAHA4tb0RXSUUyeoBySyTIW9DoLnjsTiRHGmLZJjLzzRUEs+g2YEDUhibCM4nQ9eAVY1xZzdbELonAGKafsyI3uN3KwvKopf7deKtZARP/nWTGj20CMmIGhYkr3h296OmexTeNGwHwmtX/8YDwiIeAva/70luux955bxe7EgEFIjClspqd0Jr/FDUoAiAKNqtez5mFOMQxXHON9IdrhBXTZmFDo4lbhjXFy3Wdvj5VNC7jCvUcg4K3vo=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(261022075727099003)(4143699003)(56012099006)(261026140227099003)(261028144727099003)(10067099003)(261022105027099003)(261026121527099003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?VzAzNklxVzJ5UkpEeGtwenBuNnNid1czcDBFTDl6SUVhdlcycGc1R1c0L2Ir?=
- =?utf-8?B?VVk0SzBibUtmL3BZNWxIUEJCbzJmMnB5U2RHZm5OV0dQR245S1dWSyttazRU?=
- =?utf-8?B?WnY5WC9SdVVlRTh4VDY0eWNhdG9mRjJ5eTFSRDdxeWpOdGZSdzYrdHZuTlNF?=
- =?utf-8?B?a2lkSGsyczgvTXRiVVZGZVBObVRWZkRpdXhkeTF0d2psRzVqWHU0bTMyYnRq?=
- =?utf-8?B?em8yWElXVlNhVnBsbGFuRFNkOFRjOElYZjRsVnphN0JYMVFTZ3JjSXFIcUZ2?=
- =?utf-8?B?c3ZwRmhTUXBwVnNuekM0OWIzWmE3Ly83RWJ6T3RCS2VZQUhCVDVxcHFmR29q?=
- =?utf-8?B?QUlYaVVzMnZjY0lwVXp1VTNXeGhYV3g4bU1OUCtMTi9YM3hSaGQzelFSazg3?=
- =?utf-8?B?VWFUb2JKeFk5T0txSG91WDJTZzdlYjVjQXBHOXFFZFVnd0hMWldaRFc3NSs4?=
- =?utf-8?B?WUJOVkZEK1FSQ3V2a29jWmZkT1NjR2V0d0xsU0tUM1BUb2dOaERFMjJWa0xO?=
- =?utf-8?B?VVV6Z29RWWwwMTBkYVEySlIwU0wyODBHeExLVnlDRHRKOFFaSHN1OGtKVlgy?=
- =?utf-8?B?MGZ1SVh2Mk56dGxlUG1SWUQxQ1RtL0pXUWpBYUxyTWVQbExmN1ByNHB3NWIy?=
- =?utf-8?B?dGg4aWIwOUJyNVZBUEl5MVRYRGFmQkRtYXhObmxIWEp0bC8xK1FyTENoRlBo?=
- =?utf-8?B?YzBWYXk1eEFDM2xHL21Jc1R0WTlwd0hHNkhzby95OEtkUkdva2dlS05jekwy?=
- =?utf-8?B?UUZKSHorNFlwTzZ5NGZFcm5vQnJ1R0xYRGk0TWorWnkwNnhkWG4rOWVHaWFF?=
- =?utf-8?B?YjNGRVRQM3BRclhGS3l4alo2dXBEMWE2TU5DRThnZkxBSUFoNm00Vk54czNV?=
- =?utf-8?B?d2VQTWRyNDNYYWxLV3RzMkd0SnFhOW1qQSthRE1yWkpRUnRDSTZZempXNTkz?=
- =?utf-8?B?SjNFN2ZTZ2trdjRDditBUXpMOFJ2T05aRTlwL2hLL0xINVhsd1FxWG1rYlpN?=
- =?utf-8?B?RFYrT3VMT000aFZBZHhON0hhTWxYWXhZeUM2RmUxSVQ3Q25oR0xFdE8wVmRP?=
- =?utf-8?B?Nlp4dTRwTXpvMmRBTGVBRXJ5NkU0K3U5L0FCSXRBNGxtbERXNTBVMndJbkNz?=
- =?utf-8?B?UWZYcEJ1QVhMRUhnMXozeGpoa3ZiV1cwVkpHTzVXNDdwcm1iWW1Yb2lob2xV?=
- =?utf-8?B?NjBCUC9GVFlLc1ZxK2JHaVA1dlFXaDYvbTROQWh0SDF4WHV5Mld6SmI4cDRh?=
- =?utf-8?B?Y3NBZ1JBb0VnbjNPOUZLRVRWcjVFOU9tU3VZU3pwcFBETnp3eHZhUUVySmRZ?=
- =?utf-8?B?VW1maUNhWUg3ZFBhRHFWd3ZxYW0zNUlaTFFjUTZYL3J5aU9yRGkvYlVZS1dM?=
- =?utf-8?B?RlBFOVYzVWFFbTh0RlIrKyswZ0xocW9hMStNS3VUaXhMSGF4eUFTalgzMlVx?=
- =?utf-8?B?VVpPaWhET2dVcnZhdmJMZmM3UldscmtSaW5tMDQxUGwweEl0QlVpVzlneERm?=
- =?utf-8?B?QzBTZ2RWcGIzNnJlb25ESVA5eUROcTJwaHQxa1ArcEVxM2xPNzlFeXJQMEFB?=
- =?utf-8?B?YjlnNzRIWElQMmQ2VUNoQ0UxYjlpcFhlclkzM2MzeE5nNHFrUTJmSk9DUXgv?=
- =?utf-8?B?eGcvWHlHVGdJQ1U3OUp4QjZ2dVRmRUpDbVdZbjB4c2JKQmE1dTJLQXMxNytN?=
- =?utf-8?B?QjhFQzFodU0yczZRU1VUdTE5R0NKYmJGRXF6bjg0ZnIvZ0UrbjFjZUcvQno0?=
- =?utf-8?B?S2Jjek01NDVRTjBLQmcwdWQvdDZ3T1hSSy9KVkN3VjlUM3NxMGVnOHExNHgx?=
- =?utf-8?B?VEVUcGtDRFExYldObC81M1UxWHRFbWl3S0VGTzk0d1hTdW1hSFVyYktETy9r?=
- =?utf-8?B?aklkakNWRFlHQlVRWDBKVGZQY0hDaGVHVnNUTXJ6eC9SWGo2SGIrU2JtYTV0?=
- =?utf-8?B?UjdWTDFHTU9hK29MSVZCL0VGOGQ5UHVyUXdNRUNqVTFoT0hvSE9rQ01BRFlx?=
- =?utf-8?B?YmVTdmhvZXM0T0JTNFh4dHF1cEJsSXh0NVJLRkpFdUFxeEZPdnBaNFRvVy9L?=
- =?utf-8?B?eUVmdmdVUUJQc2RSMEdqbWVOeDNJNzU1RVFsbFJpNVJDNWFEcmVEalg4ZjlK?=
- =?utf-8?B?Rmtqam4rUmxXcDRWNlFVTW80ZnJ5bGVybWRSSXhwU1N1YkZyazN5M0tuQUt4?=
- =?utf-8?B?TGFPTDRZOHVFK0dQczlQeEhXVmllYXV3MEU3R1k1c3hvako2LzV2NnEvWkt3?=
- =?utf-8?B?WEpFK0w5SndRQUNCcUJacEhYYWpJYUpmL0h4YXREc1YyV2I5ZnQ5NG5oUXM2?=
- =?utf-8?B?OUE3V2R1bDcvOGtybmtYSCtPcFQxOE9EeXZCMytiQlVMN0pZc1R5TjVwcjRz?=
- =?utf-8?Q?pz85cgvJn6rucYe+CzlOfDDBMjcF7br4rZ+cc?=
-X-OriginatorOrg: efficios.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0c392aa5-5c77-4966-8717-08df45791698
-X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 13:37:28.3042
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JF7PVLF/ZBLhNorcgYSAX0TJ5TYeTa6hyuyrnq2fXP1vNlvX1C7Bm+WnfjIb3DwSpZjp5THMAZAGJC+4GvWw6oQAASfMciGXszjqLNOxMgY=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT4PR01MB842743
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/43S3UoDMRAF4FcpuTYyk/945XuIF0l2YoNtt+zWR
+ Sl9d7MVdGVL6OUM5MvJIWc20lBoZE+bMxtoKmPpD3VAfNiwtA2HN+KlqwsmQBhwKPmRhrHn+yB
+ 1h/zjOJ4GCnuedu/c6BRSThiciayePw6Uy+cVf3mt87aMp374ut416Xn7o3rhG+qkOXDjtJTkp
+ SZSz7HvT7tyeEz9ns3uhH9WO+GEHDlZR5oMWkFhbYllLmxZouYS4HMnRXARYG3JpaVblqxWzjG
+ QJRAQ3NpSd1tqtqTxVtfOPOa1ZRaWhJZlqqWcl5bIJB/j2rK/FgKIlmWrlWLna6RghL3Rl1taq
+ mW5ahEGBBNQuHTD8gsLm335amHWyuUg6hPoxv+CuzGEuTGbvI1aBQf+v3a5XL4B2nV4MHMDAAA
+ =
+X-Change-ID: 20260813-perso-ma35d1-upstream-clk-65cacfc1a86b
+To: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Richard Cochran <richardcochran@gmail.com>, 
+ Arnd Bergmann <arnd@arndb.de>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
+ Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
+ Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Steam Lin <STLin2@winbond.com>, linux-arm-kernel@lists.infradead.org, 
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
+ openbmc@lists.ozlabs.org, Miquel Raynal <miquel.raynal@bootlin.com>, 
+ stable@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 
-> Should __sched_setscheduler() also use the root domain recorded in
-> p->dl.dl_bw_cpu rather than rq->rd when validating a deadline task's
-> root domain span and dl_bw.bw?
+I am in possession of an MA35D1 NuMaker board. The SPI controller has
+been contributed, but at this stage it does not work with the current
+clock driver.
 
-This repeats a point from v6, and the answer is the same. That EPERM is
-the baseline's affinity check. This series does not change it. It is a
-gate only. The admission test is sched_dl_overflow(), and it uses the
-recorded CPU. So the gate can refuse wrongly, but it never admits
-wrongly.
+The clock controller registers its muxes with .fw_name parent data,
+which requires every internal clock name to be declared in the DT. As
+the DT does not declare them, all parent lookups fail: muxes end up
+registered as root clocks and most peripherals read a zero rate.
 
-Patch 23 needs the refusal. sched_setattr() can make a task a deadline
-task right after a cpuset move. That task has no recorded CPU yet. The
-CPU it is on is the only one the check can use.
+This conversion exposed a first issue with the WDT/WWDT parents which
+were actually missing in the clock driver. I am not using these clocks
+myself but it is worth fixing.
 
-The hotplug case is the same check, with the same effect. Once the task
-has run on its new CPUs, its parameters can be changed as usual.
+The second round of reviews raised another problem with the
+crystals. HXT and LXT are external crystal oscillators wired on the
+board, while HIRC and LIRC are on-chip RC oscillators. HXT was described
+whereas LXT was not. The series now also takes the two crystal inputs
+from the DT: they get documented in the bindings, described in the
+boards and looked up by the driver (with a fallback for backward
+compatibility).
 
-The v7 cover letter lists this under "Not changed" for the partition
-move. The next version widens that line to a task asleep on a CPU that
-went offline. All of this was checked by reading.
+Finally, I was still unsatisfied by the clock tree because there were
+too many root clocks. Many "gates" were wrongly set aside from the
+downstream clocks they would gate, and SYSPLL was simply not parented at
+all (?).
 
-Thanks,
+The clock tree now looks much more accurate.
 
-Mathieu
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+---
+Changes in v11:
+- Add a patch to fix the CCAP mux bus width.
+- Add comments stating that the HXT and LXT IDs are legacy clock IDs.
+- Collect R-by tag.
+- Dropped the DTS patches from the clock series.
+- Link to v10: https://lore.kernel.org/r/20261015-perso-ma35d1-upstream-clk-v10-0-47c97b54a809@bootlin.com
 
+Changes in v10:
+- Make sure muxes registration is device managed like all the other clocks.
+- Link to v9: https://lore.kernel.org/r/20261015-perso-ma35d1-upstream-clk-v9-0-1f548fa2002e@bootlin.com
+
+Changes in v9:
+- Create devm_clk_hw_register_fixed_rate_parent_hw().
+- Use the above helper to register SYSPLL.
+- Keep hws[HXT] available in the legacy case.
+- Propose myself for maintaining this driver.
+- Link to v8: https://lore.kernel.org/r/20261004-perso-ma35d1-upstream-clk-v8-0-e1a106a128c0@bootlin.com
+
+Changes in v8:
+- Fix an out-of-bound bug (syspll parenting structure was wrongly
+  defined).
+- Make sure HXT_GATE is validated before being reused (and possibly
+  dereferencced blindly by the core.
+- Link to v7: https://lore.kernel.org/r/20261002-perso-ma35d1-upstream-clk-v7-0-cbd991fa6270@bootlin.com
+
+Changes in v7:
+- Avoid opencoding core helpers, replace them with existing helpers
+  (mentioned by Jerome)
+- Rebased on top of clk-next since the first patches have been applied
+- Link to v6: https://lore.kernel.org/r/20260930-perso-ma35d1-upstream-clk-v6-0-48937ee6c9bb@bootlin.com
+
+Changes in v6:
+- Drop the clock output names entirely, they are not relevant.
+- Error out when the crystal providers defer probing.
+- Make sure gates are correctly parented.
+- Make sure SYSPLL is parented.
+- Link to v5: https://lore.kernel.org/r/20260929-perso-ma35d1-upstream-clk-v5-0-68533e935ee4@bootlin.com
+
+Changes in v5:
+- Fix the bindings wrt HXT and LXT.
+- Fix the DT descriptions of HXT and LXT.
+- Collect tags.
+- Link to v4: https://lore.kernel.org/r/20260925-perso-ma35d1-upstream-clk-v4-0-f3697553391f@bootlin.com
+
+Changes in v4:
+- I forgot to bump the clock counter in the driver after adding the two
+  new clocks in the bindings. Sashiko will keep complaining about the
+  incoherency though. Since binding and driver changes should be kept
+  separated, I cannot do both at the same time.
+- Link to v3: https://lore.kernel.org/r/20260925-perso-ma35d1-upstream-clk-v3-0-ffbae7e020a8@bootlin.com
+
+Changes in v3:
+- Drop the number of clocks from the binding, set it in the driver only
+- Split the binding/driver patches completely
+- Link to v2: https://lore.kernel.org/r/20260921-perso-ma35d1-upstream-clk-v2-0-209fd32a8b00@bootlin.com
+
+Changes in v2:
+- New patch 1/3: register the missing WDT/WWDT parent clocks
+- New patch 3/3: harden the code
+- Link to v1: https://lore.kernel.org/r/20260813-perso-ma35d1-upstream-clk-v1-1-e78e5e6172ea@bootlin.com
+
+---
+Miquel Raynal (10):
+      dt-bindings: clock: ma35d1: Mark HXT and LXT legacy
+      clk: nuvoton: ma35d1: Use clk_hw pointers as mux parents
+      clk: nuvoton: ma35d1: Avoid possible error pointer dereferencing
+      clk: nuvoton: ma35d1: Retrieve HXT/LXT from DT when possible
+      clk: nuvoton: ma35d1: Reparent the gates correctly
+      clk: nuvoton: ma35d1: Use device managed helpers for fixed rate clocks
+      clk: Create devm_clk_hw_register_fixed_rate_parent_hw()
+      clk: nuvoton: ma35d1: Reparent SYSPLL correctly
+      clk: nuvoton: ma35d1: Fix CCAP muxes bus width
+      MAINTAINERS: Add myself as Nuvoton MA35D1 clock controller
+
+ MAINTAINERS                                    |   8 +
+ drivers/clk/nuvoton/clk-ma35d1-divider.c       |   3 +
+ drivers/clk/nuvoton/clk-ma35d1-pll.c           |   3 +
+ drivers/clk/nuvoton/clk-ma35d1.c               | 716 +++++++++----------------
+ include/dt-bindings/clock/nuvoton,ma35d1-clk.h |   2 +
+ include/linux/clk-provider.h                   |  13 +
+ 6 files changed, 281 insertions(+), 464 deletions(-)
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20260813-perso-ma35d1-upstream-clk-65cacfc1a86b
+
+Best regards,
 -- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
+Miquel Raynal <miquel.raynal@bootlin.com>
+
