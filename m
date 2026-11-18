@@ -1,94 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794996816;
-	b=ExiBkH3fUoTH5untpxDLeEUrRelueF1HtzAAq6EgRpPSu5fpSvuBdLCuQMrcja1J/f3Q
-	 X7ckrncck6RYagXUY11Vf1rwZiuZX45TAESZKqV8vm9ToSBEY4n9/DsDMuencR0qkxkFf
-	 6O/DJg0jm42vumpcHa4bq/9l+5p0KU1LBVGzXNsO1hU5latOTmOBwu8A69PiwfTEEowLE
-	 Y3nWjZXChXmPglTMvC0TTtaa29B8Q9gGY3HAM1EMgh7r/rQu6RoAzUiIqMy70z1bWfaHq
-	 xpyGtSlivGBbydRrYequR5g2zw3IMOF+M4pf2DLnu5pLeAa5TOiMjg75Tcpb9MFCNvQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794996816;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-TM-AS-GCONF:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=C/4PfCzvD/ktb55WsjcO5Qq4YUlKt4F70+506gstecI=;
-	b=PYoHIjtR5oEvykOCeKNe9aeXHMZnp9st4MF0j46o/YCZtt2AVNqCBsaRlQYNlGy0DJl+
-	 azB6tMZ020j5Hu+ksmC1b0JfkGZoJP59LyxDnsmSEbwsBlnVUTSAHvJNCyiRF+FgqFJbE
-	 twABlWpSedlsZfnFu5aEodAmcjyyetDZzILSSULZL+obnQ1wk7HIwseeovSYq1nC6eFCJ
-	 SHlvQctYVyvaM8vsqS2wKOKjz7+MaQdtxnbXIf4f45D14u+bhTx+m8RqC0CdRihjw43/e
-	 8DCOM/JDKoSrIqOTWGh+uG6TbHus8xlIbF8gl6rTaBvA5nYrRV24bDmBHg5X/MP7d7g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=VzMlTItv;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.37
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794996831;
+	b=Mmq/aSmWBVyWHtyYxynIhHOzb4Al+aaeLTxC0q5mQS9HEMCZ31BhhqtYFlgwPFl4jckv
+	 Pu8vdvb9vOjFAJ+G5bbw58wLnrGZNqbxSp++eVOHPMKp4sgtFVSme1DC50NSj+cD8esqU
+	 Ns43ClmQy6eOGMA12QniqImPU27JbcIFrsIe+WY6K1jTM4Cjot2weSkz1wS/a1leu4tXc
+	 47sPRxtYGb3CcK+FCwkfbq390W2eaTlJaXb6y6jlJ24X+H4rakAiHnF2PyBNG1/Woxvxj
+	 YV6+n5mh5osaueSAD43iqo3M9wMJfA3w41Ibqns4pFGsozSflVwGrgiBoPtkX5ROeAQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794996831;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-ID:X-B4-Tracking:X-Change-ID:To:CC:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=MD43Zh0YAsLNoG4GrO8OMDHzsTFxKN3fxr5Qq5LdC7U=;
+	b=dEQMSJZD1h8Y5Kws/Hwt0VlGH70C/RY3LuEtpjz0g7lpTR2EUiTRc9zmYS/ECk6rTNM8
+	 cz5USM8wL6A0EIAumHdT5Switsr3/kCco1cgiu+h287gqPnkMEEZa2BgnVIqBznSBlNgp
+	 y2CCfYR1Uww0d19Eg9owLdW2FrlCarQlYhDSecQfu5uotBphXwgr7wM6zBo4dTtYwjN50
+	 837HmcxILCBfuYf9GurUHCxySWw3nPbx1Y0Z4zpK6Y6keNtOnt+sZBqA1V3Nj0/BGerDL
+	 dSXTDpJNB+8HeVlr2z6Q5XcKiNh3mEijs9LhROZ0VE/vZFDSzj9IOLWKe6HMVcaGjUg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=TeXcWe1u;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.37
+Received: from PH8PR06CU001.outbound.protection.outlook.com (mail-westus3azon11012037.outbound.protection.outlook.com [40.107.209.37])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 585A9606A338;
-	Wed, 18 Nov 2026 10:13:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 585A9606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C826606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:13:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0C826606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=VzMlTItv
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI9uObJ775952;
-	Wed, 18 Nov 2026 10:13:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=C/4PfCzvD/ktb55WsjcO5Qq4YUlKt4
-	F70+506gstecI=; b=VzMlTItvEZDdJdIKnjKrOoL+rPB9z1k1SZNOJQLoFvNrN9
-	YiDRFngNmnB0bxyB6kfcfrbk9jfU5S3Hyu1/72z4nDg0Ab7nJMTn2wcu932UWIam
-	7LicjuL4YiqmajZxbPePrFEsv7jCCuROkZSnPVuOYNw6fbrHj93Eqpxzseo0fCme
-	bIaiqJ0ITd9BhJIgr73q1KprjMUl2xhBAJxHiTjJGHCVzz2xy/Mu8DBceEkoe39e
-	xpwwh0eC3uLttB8K90diByOWV9oUAFj3GSBXGVhjhRgNIEJxORZ5jwRxgmFn0WFJ
-	ljdYQcP6XKWvfWdP6mGb6ea9PNxJOf4V7jGdurTg==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105wsv5e-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 18 Nov 2026 10:13:33 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI9oWHn2938469;
-	Wed, 18 Nov 2026 10:13:32 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j02jufrup-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 18 Nov 2026 10:13:32 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AIADQvh35782928
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 18 Nov 2026 10:13:26 GMT
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 984222005A;
-	Wed, 18 Nov 2026 10:13:25 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 40B9C20063;
-	Wed, 18 Nov 2026 10:13:25 +0000 (GMT)
-Received: from osiris (unknown [9.68.31.201])
-	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Wed, 18 Nov 2026 10:13:25 +0000 (GMT)
-Date: Wed, 18 Nov 2026 11:13:23 +0100
-From: Heiko Carstens <hca@linux.ibm.com>
-To: Stephen Brennan <stephen.s.brennan@oracle.com>
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        Andrew Donnellan <andrew+kernel@donnellan.id.au>,
-        linux-s390@vger.kernel.org, linux-debuggers@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] s390: add CFI directives for call_on_stack
-Message-ID: <20261118101323.14542B45-hca@linux.ibm.com>
-References: <20261030231714.1319773-1-stephen.s.brennan@oracle.com>
- <87qzgkpsby.fsf@oracle.com>
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=TeXcWe1u
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BH4Tf1RM++K78KAhNtfMXy+zLP5cHssekzzK5Jsjorv+iNod8l0W/9ARPg4bFB7tQqoPPX+vnQdnJE8IvJCFoA6q8CzqzHJJBLbyK0D70OmYSxEZ0Z5Ld89oAplOxipUJvLmnQyZ3iZANe0U0SJemK9KmFrjBO/DFYoDX2IAGOCbd+og8cu6Fk25MC94X6hY/0ZdyFfBkXBPUxMbQZ1utqxv2aKP3bcO5v+zXtudiosbKmRt5vNYrMIfsAc304T325XsSuUm6ZCrFP0HwHeKGxKtH0raXVh5ZTycOuRN5oG/IRvGVPn1Or+Jofg5gqNMaEdu86HiTiTCyaZ1wN8lhw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MD43Zh0YAsLNoG4GrO8OMDHzsTFxKN3fxr5Qq5LdC7U=;
+ b=iURVT0OyXyfjEZMF3pdceGI3dwIRqVVKVYV/POgP4CajOM0W6A0HzS6fyBWBIaTzHe4IxO3+SRC5xJHB24jNtQbphgWtT68po5fKreAHAkgx3f1dWAKs6dOsnzcGwiLHKPiO/PQVUZPTdlUVM/++3duk7sFgmRBvDFR2ca0gMArjfFjzKFurD2l8/SpKa2YxeoRWo4a5zdhZDe969DQTSziAeQ5v1eVGu5Hu7hjyM3/sJhLbR8YrCIhg6G1rlOCHSachjEDxUjdSEpHa+ajp5CcBVwo9SndfJdsbu2N0M/r53ERJmoWe/X3c1i+9aS1IXU6yK1dRzoddCbAPzPlk8w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=linux-foundation.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MD43Zh0YAsLNoG4GrO8OMDHzsTFxKN3fxr5Qq5LdC7U=;
+ b=TeXcWe1ue0DenRrosIXrINjpCqaIUNHKVD4sPvhE//gH+9wv1z5MmZi5Dr5MhPYKKXUmQORrapKTAPpj/tBi9FzZdIHGuvv48SzmOaqWRFavAy3Mj/2KMcwC6j6ZDf29JZxNH9K5XFdhpKutc+NA61uCfm1d+RYPPvc9pPHDaDk=
+Received: from DS7PR05CA0101.namprd05.prod.outlook.com (2603:10b6:8:56::21) by
+ SJ1PR12MB6027.namprd12.prod.outlook.com (2603:10b6:a03:48a::7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.14; Wed, 18 Nov 2026 10:13:46 +0000
+Received: from DM3PEPF000265C6.namprd03.prod.outlook.com
+ (2603:10b6:8:56:cafe::f) by DS7PR05CA0101.outlook.office365.com
+ (2603:10b6:8:56::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.7 via Frontend Transport; Wed, 18
+ Nov 2026 10:13:46 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ DM3PEPF000265C6.mail.protection.outlook.com (10.167.23.187) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Wed, 18 Nov 2026 10:13:45 +0000
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
+ 2026 04:13:44 -0600
+Received: from xhdtunimkar40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
+ Transport; Wed, 18 Nov 2026 04:13:43 -0600
+From: Tushar Nimkar <tushar.nimkar@amd.com>
+Date: Wed, 18 Nov 2026 15:43:40 +0530
+Subject: [PATCH] .mailmap: update email address for Tushar Nimkar
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,76 +101,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <87qzgkpsby.fsf@oracle.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: GA23wieAIJscNyKWE6387hABDrpOWVLZ
-X-Proofpoint-GUID: GA23wieAIJscNyKWE6387hABDrpOWVLZ
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAzOSBTYWx0ZWRfX3xU3VRPKfUxJ
- u/LQLYYizHiftU+jYUWkaOW6o3z4eqBXMpb7seg+Wjvu95CrvqT4bWQcygf6zqDAe4iMX3LHEX0
- c1e+TWfTElsWLuVsX08UfW8hWD59h9QmLCUq+Bro8mw9fL1n3tbv5Dm01vwGSWbzfX+suX7xL/7
- YMoC+O3NbJfskz9mP67am75tVyHuOBtDP5AycXHz25UVZa9fnRKqH8iwbmzZc6IcMdNp8jSMkL4
- QyjCt4Qz5H3ZeXZHnJt4fUUo7Kk09OBupv2QASdCw7O5Z0DRT97kJTpJWiuduRFZ7Dr5Rx83GL/
- TKwcpYyGv6s4Awz0Vs+0Roww7CryrR/3/7cUFbaPJmluyFxz6P8bHTq9sdGywkqvt52VcanhO16
- a/2lmiHZT7IHbAoh/vukE/82gOFTrpVvcIjPfA/SzsOGkMiDXB8eFomJ3u6e++2AomYAWXYyEXD
- IgCK3wfO4YSxTk64nPg==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAzOSBTYWx0ZWRfX3ZZcQuCviIzn
- +Hkwx8w1w+S5qgMWU9kzJqbpBj6ibOnNzIYxLKnk0WiN3wc3PilA46oWXaKo1ZkJUpiOSa2OSEV
- zjsTBdtkxKIcal0xnSTVBBPnfQn8oVs=
-X-Authority-Analysis: v=2.4 cv=K+m3jCWI c=1 sm=1 tr=0 ts=6afd7a4d cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=17FYL03jAAAA:20
- a=yPCof4ZbAAAA:8 a=NHV7Ha0uC3VOG44dLV0A:9 a=CjuIK1q_8ugA:10
- a=bA3UWDv6hWIuX7UZL3qL:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-18_02,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 bulkscore=0 clxscore=1011 adultscore=0 spamscore=0
- priorityscore=1501 impostorscore=0 phishscore=0 lowpriorityscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611180039
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20261118-mailmap-update-v1-1-b7197cd9d19e@amd.com>
+X-B4-Tracking: v=1; b=H4sIAFN6/WoC/yXMTQ5AMBBA4avIrDVpmyhxFbEYOhjx07SIRNxds
+ fwW710QyDMFKJMLPB0ceF0iVJpAO+DSk2AbDVpqo5QqxIw8zejE7ixuJIzMZZ4ZKzU2ECPnqeP
+ zG1b177A3I7Xbe4H7fgA2w8U3cgAAAA==
+X-Change-ID: 20261118-mailmap-update-6070756d02ab
+To: Andrew Morton <akpm@linux-foundation.org>
+CC: <linux-kernel@vger.kernel.org>, Jeff Johnson
+	<jeff.johnson@oss.qualcomm.com>, Michal Simek <michal.simek@amd.com>, "Radhey
+ Shyam Pandey" <radhey.shyam.pandey@amd.com>, Tushar Nimkar
+	<tushar.nimkar@amd.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794996822; l=1054;
+ i=tushar.nimkar@amd.com; s=20260917; h=from:subject:message-id;
+ bh=J/AOhs9Mb2nsm4vFIVIINlZn9QtYyMqkF7GIlkHoQCs=;
+ b=G3iMufx0gPGnFdE78XNScngyAXToCyZ3KZjeoXkODcsf8PPL1l6QYJrf8xFV6ksfbgEB69fy7
+ VpRyhscB+kiBW+3nwEuJBVno625IBLx0ToIoEByY+jzQTLE9NUrduQC
+X-Developer-Key: i=tushar.nimkar@amd.com; a=ed25519;
+ pk=Uirerl/gKBwPgdWL9awJAJkw5FM33ZF2TlUTJ58DEYA=
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM3PEPF000265C6:EE_|SJ1PR12MB6027:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7ac5d0ab-8362-42c3-8f81-08df455ca13a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|1800799024|36860700016|82310400026|376014|10067099003|11063799006|56012099006|261026121527099003|261026140227099003|261028144727099003|261021121427099003|261022105027099003|261102123227099003|261009223027099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	qKF/L7EcecmF51VAZvJqnMJDq1iWirSALGttgROO35jxS85s429libC3pB5Ltamg3EIRmHyAoYCqAsXaivWrD7Hvq0npY1aYySIr/fWh1CcM9h6XclhUvMpAcRiRzM136us/wtUDhi4o9DqTGpnkXBfB/yHXB0lJIRlmgxJFxyen+PxiqQJwdywvETWBpjpbVpstZzPMSiutv2rsR9kZ10vkFD/+qIkaJptgdbZBpOg1GHuunCVb4mJ6cYclvsJR6C4aVSi5XPOj15W171iVaMEA/psTXv5KNn7dS+t8KYZ1mpl+N4Do1j9aulJe45AnyogZnSInrlRzLQv1IcneBtVx72JL5mym8jkSsIpfxMaJVbgNIK9sGq6XNwBYUf1PJuMihntYYIfQGksonikK+n5KkhjbLfA691XTMNdxZwdPC6KJ3pEdg/xQPZ7sw9QKVN28AIk+AxtI7fwZegnKV16N96lutWhX46o3QT5qHE+mMfHIFUQMwKOFWoZ8Qd/EeAUwCXWmaJU/GHSf1cr1UiQCIN1dJrVbso20LXwlNS+w0hhRjVWmxxaVtTknH1WWnKtm5x4AAZcsIpyHnpUjU+gM4K+jH9xeRH6WNxzqw19Xd/H7U+C7Af9PM0vrbJnzKaKUSnHf88vVk260a5DILTv5KIJZ36tpiPNV6P/mh09ObNThe8IKrTO8XKN4VkKejaxddQa++5FKGQV12NpQmQ==
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(36860700016)(82310400026)(376014)(10067099003)(11063799006)(56012099006)(261026121527099003)(261026140227099003)(261028144727099003)(261021121427099003)(261022105027099003)(261102123227099003)(261009223027099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	I5fkulmYXOpY7l+3JZZBwnMB9X8JlgBpKaLIdS5zCdRkc5NY42Zff7rmA6mtYHvw90klsiue5zRuS0GzUUhBsGFdwO2yGOdnwYaUKRJ4ywNkryi4L0HjYAY0H8XuG9P9vpL+ftUTYxjXbpb/axmvx4dQ3bu8XBdakw2jgap8A4jdn9eBEwZ8bOQ1o56cL0mxFZ9ouN/xgxN08BdOYA4J44ztBLb2Cz7XYQLp8mDleDz79fv28a9JD8MrFua0Xh9lFCdXHambXqIZdjNBPreKWytgdJXeG4UcWQV577BgF0+RA+1XKp1DgbGwcr0ByrKxmpJ7Jn55WcZ6PoJd0cGkbkZF0DXy/ejHtdeh8j1FSDNpc+y+nv/8Gt9eJnnJvHWDMLTWtHpbgVAFefeda1DQU8NeLtBF3jSUQ049LyqliZJG+W6IRCWzq3pAlxzSzPF4
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 10:13:45.3428
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7ac5d0ab-8362-42c3-8f81-08df455ca13a
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	DM3PEPF000265C6.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR12MB6027
 
-Hi Stephen,
+Map my old Qualcomm email address to my current AMD email
+address.
 
-On Mon, Nov 16, 2026 at 10:02:57AM -0800, Stephen Brennan wrote:
-> Stephen Brennan <stephen.s.brennan@oracle.com> writes:
-> > When debugging s390 on drgn, we experience two issues. First, when a
-> > panic is triggered on CPU 0, drgn is unable to unwind past a stack
-> > switching event[1,2]. Second, drgn is unable to unwind through an
-> > interrupt exception frame.
-> >
-> > It turns out that the reason for both is the generated call_on_stack()
-> > assembly. It modifies %r15 (the stack pointer) without any CFI
-> > directives describing this change. Thus, the compiler-generated CFI is
-> > wrong, and drgn tries to unwind using rules based on the wrong SP value.
-> >
-> > To resolve this, use %r10 (a callee-saved register) to store the CFA in
-> > a temporary register. Then, emit a CFI directive describing the change.
-> > So long as DWARF CFI is used to unwind all leaf functions, the value of
-> > %r10 should be recoverable, and unwinders will be able to use it to
-> > determine the CFA and continue to the new stack.
-> >
-> > I've tested this only in a QEMU VM using drgn's vmtest framework.
-> > With the patch, drgn is able to unwind through two stack changes: the
-> > change to the IRQ stack, and the change to the CPU0 nodat_stack during a
-> > panic on CPU 0.
-> >
-> > [1]: https://github.com/osandov/drgn/blob/97b613c23bd4d100a61b3b06fb1b5097fcef9f61/vmtest/enter_kdump.py#L69-L74
-> > [2]: https://github.com/osandov/drgn/blob/97b613c23bd4d100a61b3b06fb1b5097fcef9f61/tests/linux_kernel/vmcore/test_vmcore.py#L19-L25
-> >
-> > Signed-off-by: Stephen Brennan <stephen.s.brennan@oracle.com>
-> 
-> Hello,
-> 
-> Following up on this patch. Is there any additional verification I can
-> work on to help facilitate review?
+Suggested-by: Jeff Johnson <jeff.johnson@oss.qualcomm.com>
+Signed-off-by: Tushar Nimkar <tushar.nimkar@amd.com>
+---
+ .mailmap | 1 +
+ 1 file changed, 1 insertion(+)
 
-Sorry for the late reply and thanks for providing the fix!
+diff --git a/.mailmap b/.mailmap
+index de477b76d6cc..17e7e7921ecc 100644
+--- a/.mailmap
++++ b/.mailmap
+@@ -975,6 +975,7 @@ TripleX Chung <xxx.phy@gmail.com> <triplex@zh-kernel.org>
+ TripleX Chung <xxx.phy@gmail.com> <zhongyu@18mail.cn>
+ Tsuneo Yoshioka <Tsuneo.Yoshioka@f-secure.com>
+ Tudor Ambarus <tudor.ambarus@linaro.org> <tudor.ambarus@microchip.com>
++Tushar Nimkar <tushar.nimkar@amd.com> <quic_tnimkar@quicinc.com>
+ Tvrtko Ursulin <tursulin@ursulin.net> <tvrtko.ursulin@intel.com>
+ Tvrtko Ursulin <tursulin@ursulin.net> <tvrtko.ursulin@linux.intel.com>
+ Tvrtko Ursulin <tursulin@ursulin.net> <tvrtko.ursulin@sophos.com>
 
-Please be a bit more patient, your patch was not forgotten, and
-nothing needs to be done on your side. Might take another couple
-of days before I get to it.
+---
+base-commit: 7cfbf79c66c63e807ea452abf0546e6f6d6833a6
+change-id: 20261118-mailmap-update-6070756d02ab
+
+Best regards,
+--  
+Tushar Nimkar <tushar.nimkar@amd.com>
+
