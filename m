@@ -1,102 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.45
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795018202;
-	b=f7oPEjwW6lfHJLY04ptfrla5TlDSLIxx1Fi/Tansc8ReOvDQhHV65/gZMQTINrGr9/sM
-	 PyOkxPNX3edJs84VZGwRDQ8m+nAu3DUpbZD/93buQSfzfkD21lWm8KDXBAZZltG+RMRGm
-	 M4kfpLeQianK2RGY+++X/4pk7gqBahZiD4gW7wPQfx1GeSBf7voQhtjNRbYHSlXiFOvSU
-	 M4z8eGhA3oWd7MwWl16ruE4vVvT31FETlmkFalfxM+Sh8CicSJbfW/kFzCfCmWGHkrdN0
-	 tQP3YnSAaK9lScTFASsgBGYuUFV+D2KVrCKAXp9c/Qo1Nl1iHezHUvipuT551rG/a5w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795018202;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=HbYXoP2RPMw58RAwQCFRXLN2yd0B0w7a3Dun8Sb9Zn8=;
-	b=IQaWm65S4E8/JzmavOw2E7QJrK1PWSMZR5NBJOXeYTI7pZo2jJaB2Nt9xU8/RU5x/3Mj
-	 +b1Q0iScIveIZzacZicg+seZrPigEVCWp3hbHYkhikDa8F3lAdz2MQ8wP+pzqrYOZv/aw
-	 r3wa3CrnVafhv1hcMdxd5ga6ShdxyVymBLaAS/3rdGyzKWle7kFeLSBm2O/HRhc5cswuW
-	 sWeX5LJY6h53mpVVr5ScQ9QwWIPYzR7PKCriETBbH55S/6vu+zTQ7Uu/tEgd0H7XTDv5R
-	 Er6BZuvxHGKkxj+bacCrwmbOSb8LaFz5b6mB2Ap/KVRcdbOoYqF0MfDZyC4GzP1iZBg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pKpVVSBx;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.45
-Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81702606A32F
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:10:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81702606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795018223;
+	b=wAc1TlfVj6nCw67jlf/E0katp0HErBcODS6ryO0E3H4zEf6ip8u0GajqwsxWo3lAP/9/
+	 kt4OkiJ8T7xK5jEFIcvGivc2s1uemAqOIeA5PKWKj8rGEoBim/GkEy50IfFHLQSzz3cRQ
+	 bXu/mbjOusQ8o97glVA82GqqZPSnJyXa2ngtTk2H7LfaA4MpTcQOotumaaRa+HXhWdJY2
+	 F6dxQ3RwMsqV1ENHCiWrlU8AH4UUndjrRU2Gq/AVYehcCM/UyaGuqglhiCNYEhOHPhLCc
+	 WNLL2lkfKbvXrMKVKP9fn2d/vbH0NnrmzsImTW/vzg7vnuHxfdEycA8+g2sz3tQ4OqQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795018223;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=ZNwKoLmqeSwPydDAhEghKLHqTvIumd5TXBU/hrH7FpA=;
+	b=ro3fns6y5Iu6VQJ9zsS6gIUDpgsgLRgRZ0ByCp/q8lc1JSKeM9YfluI2CqUtme5jyfZo
+	 4qeG3GxzGScA3R5jgYKGlFUsDOUUnHzqg58c1vLW3t1t7qasVqrXOea+lWqL9yFx/CfHC
+	 +opubiAXNQCnH3v8SzP3TxR7QLICQi20lM5KtzweqDH1HsEI4bXADHzKr6Rn4w00Ov0lF
+	 RQbMTZzo6bIXrSaF1r8+xc3jyJkhpvBN+yHwVuV2/VCGCf9IskJRbFktIqRRdHfOOsBeD
+	 CD8ml1UMrm1n32hF48GJ6IXEQRBkcz+9y6LVxozUItKPLbr/Alwj7pqNj2LIYN61Hog==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=C3xuFqWJ;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 5E43A606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:10:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5E43A606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pKpVVSBx
-Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4a9a8d6cea8so12323225e9.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:10:01 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795018200; cv=none;
-        d=google.com; s=arc-20260327;
-        b=YOD3skgZGXhgWFGHzCqt78taif67pS7MRNRNBx11FroYn7+ZnHjuVPPG8RVi6fZ2ml
-         ziHCdXjlrXw5AAHWAmEEUv207Buvt8tfH0GK2ghnQM5mS5LUKy5kCiQJ1QBOVKkT7mzw
-         0i324egp7FFCJyNs3mIfHy5f2Hh/iUzCH0UVsOaykD1slobBHc1oCaS1gA7bZyeOExjs
-         xprLnfyqA5mYjmKvumTNrFOjtRfZjACIdWh7jC8vDdiDipLe5tscc3EOD9ny1v5DCS0l
-         fjYnnjXChpDx2YBIGtRt2OV+6bBspAOL8r+fXUJY2rIWrZ/QZfr3mFKWG4SuxmLQyadY
-         aYPQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=HbYXoP2RPMw58RAwQCFRXLN2yd0B0w7a3Dun8Sb9Zn8=;
-        fh=xzPUpg8ucwH64aySVrhf7FEmyUjJ5g1aSFf8y4GFNKo=;
-        b=XTy5bCwrghydr9/AKN3j5pEFvCnS/RlTjgQt1tedS67aCcqGO0pLDwUHY6UQZ8QzjD
-         WiZKg7YwEphiO8Tc9tURk3Y8WBcBzd6nxSBKpo12hQfUIgt9nITVCbgFs8jy+4+1LTgZ
-         TCghVpceq3mTtnIyCQk/5nv1M7MUQyOW1S8NtzJkZ2Gs3QBL3Rtyt3fIyKdEXMqvfgfu
-         +qMJLfPe1TO7htA/OBcylY2fD6dPnk7gGbRSPKZcWjYcQFEkv5JmerJkvVMW7mJBbosr
-         VokaCc8mZRZxVt+IrDgK1+2+PZuD3LeqyBc6wupZgeY5R6jTmj6+++yVGT5H2uCzMl5/
-         EEOg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795018200; x=1795623000; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=HbYXoP2RPMw58RAwQCFRXLN2yd0B0w7a3Dun8Sb9Zn8=;
-        b=pKpVVSBxsv0XSkTMIy8QhpV8iYfpJgFtuIOOMraAqkh6IoY/LmnCeoFY2+atEoT7Mm
-         51yqYjvClrxz7PJEnwcKX+ag5vvKZvXQsxOzLhCYh4JsRBfQzN29l0NprtTdgWvsd6ix
-         AH0QnRKu1GLZ31o6b5lUrcbRaETqVFDnyZJS7t3cmGzJhOaIhFJp2bMr5emwdD29hhJc
-         RTs7I+nGHlyycNopVtnLI4PuG1cfcui/Xum192WTkqg+lt112F9t0Y4AcEwSdQ+g6qnJ
-         fEyxFj0SlLXR+vzEfwDVpIGqxFUfo5VZRX4qXbDxIZEzPRytaBJz01a74eiTXZMyIuVA
-         jVbg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795018200; x=1795623000;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=HbYXoP2RPMw58RAwQCFRXLN2yd0B0w7a3Dun8Sb9Zn8=;
-        b=nnf1T0HlFOOwevYLkXW/XT1slSAvfO8uT1BGNrOa1ne//Gt/5zTdffrlW3wkW/rAb5
-         vW2ly5BxlW0YbEqrNqPZSouPEBk8hJ3f566alCYo0c/q6y8O+jdQK2hDkLm2OKLF1Hys
-         s5NuuB9BEDOtvayyjX6KAgqtYhr4mMSDj7FG9f3iHYONUbdtXTHePPAzyMFWBioC8FeN
-         fIqy1jJ5KgNrGx5HfP20+1Gvmd1zNovjpj+p5XUPmPkSUObq6+ifcalnSeVnpLKAl2KR
-         KC5/sMNJGsbeS1kN0ITAP8BckoYo5R7bSVqNu91CbLgUrOhhHTOKNewUGwnRVpNx+niw
-         7T8A==
-X-Forwarded-Encrypted: i=1; AL+hErEUCG5vK0FvkZmGlSy09UWm3a7HjdhUoo63egU1AON7N4aZrPMSf1b07Z5A0OslIX7RmMBlnKOYvh/RmhI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z896zQrkDt2QJ6ufGU1Wo8eD1L9iDriORZ0UnWMKDGxcJ1ilX/Q
-	LiRzy/ZavHHPbY2hUxiV5KlKuYpEdCZuKz7xoFyDlfBwqqte6xMOODsa1yXdLZ+c2hiV6sanpjk
-	vdm6L9ntc+f1/Wkd9vzH6kZDDgG22wBY=
-X-Gm-Gg: AYBFou2yBs3uw3U1t+9Z4nENvWAZvT5OplrUqlU7JHO0j9CV+LDHhD1gF2SF0rgJLfQ
-	eA7DvLPL8+nBFx4ljGQ5uFDtJwHOi1/wt/0zcLsUd7UwnKL4WQ1vY34HN/C51FJHaoAXva5iwlx
-	Tx0EwhtWP/AYjkB4gu6hI5bKiDqGxg9JC9J9LmdEb1PdGlC5DYrSW2VA1Bte3CY6kjsnNyH+lLh
-	W9JeMlzaoZfd8a95xLnTWs8pu2n/eq8fi9H2p1WHX5GF/3lZEE6HowGyty3RdJujpjFp4uqg2FX
-	xJzxymCbHxZJep5OtD7Zbz9ZOPkX4PUMmywvwicnATiZyNVdfOYPTzpD332GSo69znJGNThbBYi
-	UzDb/txsagywN+0KXOdzH6ZOvyxyIs4B+LNVZduLnuijOkm4wtMfYqOIAuZkjCtYeirZyYNXWug
-	O9jiwLQ0H0rS80nlaZivgrQWEcEh1khHDIbFYetiWWldY3SGkymh+l7XoEZjJLeu0CcEiwOeqfp
-	Q6X
-X-Received: by 2002:a05:600c:3b1c:b0:4bb:5d38:259f with SMTP id
- 5b1f17b1804b1-4bb7da24a26mr60211045e9.12.1795018199716; Wed, 18 Nov 2026
- 08:09:59 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=C3xuFqWJ
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9EFDD339;
+	Wed, 18 Nov 2026 08:10:18 -0800 (PST)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A57E93F673;
+	Wed, 18 Nov 2026 08:10:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795018221; bh=/+padZQ2w+TGhQW06d2Ojc/kEfJW108rtB1jBbALpjQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=C3xuFqWJDbpH6XEiCkUlBwXIN543SWfJMKcxccXPy9d2AfNHicO5Hj5c/DuD5pNr1
+	 KL4sq1hvast3EohM39v1bobaW+vQojqjNZn06FNSorkFZZme6DRTBtRQZSNYzWihaW
+	 9wAFlw5V69dS7yYPdmIqhzWvUOcJuuKEdBg21ZEI=
+Date: Wed, 18 Nov 2026 16:10:16 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
+Cc: Vlastimil Babka <vbabka@kernel.org>, Harry Yoo <harry@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Hao Li <hao.li@linux.dev>, Christoph Lameter <cl@gentwo.org>,
+	David Rientjes <rientjes@google.com>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Suren Baghdasaryan <surenb@google.com>, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	syzbot+527fed49e5b988882c9a@syzkaller.appspotmail.com
+Subject: Re: [PATCH] mm/slub: don't let kmemleak report rcu sheaves
+Message-ID: <av3N6DGiOFK3e3Yw@arm.com>
+References: <20261113151837.123795-1-ngocthang2710.1999@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,29 +65,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117062620.346767-1-yumiao@kylinos.cn> <20261118130537.750211-1-yumiao@kylinos.cn>
-In-Reply-To: <20261118130537.750211-1-yumiao@kylinos.cn>
-From: Nhat Pham <nphamcs@gmail.com>
-Date: Wed, 18 Nov 2026 08:09:47 -0800
-X-Gm-Features: Aa3M54qRdo3OaZ77M4orB5mZ70nSvNFV6Jxp2gOAsd1jbRDwyTe3QzmeCNTj854
-Message-ID: <CAKEwX=MssYOr0J7tk54qUF7DbNb550KZrFmwnBD40L+tWde+5A@mail.gmail.com>
-Subject: Re: [PATCH v2] Docs/admin-guide/cgroup-v2: fix npn tags in memory.stat
-To: Yu Miao <yumiao@kylinos.cn>
-Cc: cgroups@vger.kernel.org, tj@kernel.org, hannes@cmpxchg.org, 
-	mkoutny@suse.com, corbet@lwn.net, skhan@linuxfoundation.org, 
-	rdunlap@infradead.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, akpm@linux-foundation.org, linux-mm@kvack.org, 
-	jiayuan.chen@shopee.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261113151837.123795-1-ngocthang2710.1999@gmail.com>
 
-On Wed, Nov 18, 2026 at 5:06=E2=80=AFAM Yu Miao <yumiao@kylinos.cn> wrote:
->
-> The zswap, zswapped, zswap_incomp, swpin_zero, swpout_zero, zswpin,
-> zswpout and zswpwb entries never show up in memory.numa_stat, so add
+On Fri, Nov 13, 2026 at 10:18:37PM +0700, Nguyen Ngoc Thang wrote:
+> kmemleak reports full rcu sheaves as leaked:
+> 
+>   unreferenced object 0xffff88810005f600 (size 512):
+>     hex dump (first 32 bytes):
+>       e0 79 f0 2b 81 88 ff ff 20 00 b4 81 ff ff ff ff
+>       00 12 04 00 81 88 ff ff 3c 00 00 00 00 00 00 00
+>     backtrace:
+>       __alloc_empty_sheaf mm/slub.c:2854 [inline]
+>       alloc_empty_sheaf mm/slub.c:2874 [inline]
+>       __pcs_replace_empty_main+0x260/0x2e0 mm/slub.c:4806
+> 
+> The second word is rcu_free_sheaf and the size equals the capacity: the
+> sheaf was handed to call_rcu() by __kfree_rcu_sheaf() and is waiting for
+> a grace period. At that point the only reference to it is the ->next
+> pointer of the previous callback in the rcu callback list.
+> 
+> That previous callback may live in memory kmemleak never scans, e.g. the
+> rcu_head of a struct slab queued by rcu_free_slab() for a
+> SLAB_TYPESAFE_BY_RCU cache. Slab pages are frozen (page_count() == 0),
+> so kmemleak skips their struct page. The chain from rcu_data is cut and
+> the sheaf, typically allocated long ago and recycled, looks unreferenced.
+> Since the sheaf is then not scanned either, the objects it is about to
+> free can be reported as well.
+> 
+> Sheaves are allocator metadata and are always owned by a pcs, a barn or
+> an rcu callback. Mark them with kmemleak_not_leak(): they are never
+> reported but still scanned, so objects queued in them stay referenced.
+> Allocations that can't spin are not tracked by kmemleak, so skip them,
+> as alloc_slab_obj_exts() does.
+> 
+> Fixes: ec66e0d59952 ("slab: add sheaf support for batching kfree_rcu() operations")
+> Reported-by: syzbot+527fed49e5b988882c9a@syzkaller.appspotmail.com
+> Closes: https://syzkaller.appspot.com/bug?extid=527fed49e5b988882c9a
+> Signed-off-by: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
+> ---
+> Reproduced in QEMU (syzbot config, 2 vCPUs, numa=fake=2) by stalling a
+> grace period with a preempted reader on CPU0 while CPU1 interleaves
+> rcu_free_slab() (filp slabs) and rcu_free_sheaf() (maple nodes freed by
+> kfree_rcu()) callbacks, then running two kmemleak scans:
+> 
+>   before: 16-18 sheaves reported per run, rcu_head.func == rcu_free_sheaf,
+>           plus maple nodes held by them
+>   after:  no sheaf or maple node reports, no new warnings
+> 
+>  mm/slub.c | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+> 
+> diff --git a/mm/slub.c b/mm/slub.c
+> index cd671b934719..e01416ae0b4a 100644
+> --- a/mm/slub.c
+> +++ b/mm/slub.c
+> @@ -2856,6 +2856,14 @@ static struct slab_sheaf *__alloc_empty_sheaf(struct kmem_cache *s, gfp_t gfp,
+>  	if (unlikely(!sheaf))
+>  		return NULL;
+>  
+> +	/*
+> +	 * A queued rcu sheaf may only be referenced by an earlier rcu callback
+> +	 * in memory kmemleak doesn't scan (e.g. struct slab). Never report
+> +	 * sheaves, but keep scanning the objects they hold.
+> +	 */
+> +	if (alloc_flags_allow_spinning(alloc_flags))
+> +		kmemleak_not_leak(sheaf);
+> +
+>  	sheaf->cache = s;
+>  
+>  	stat(s, SHEAF_ALLOC);
 
-For the (z)swap one:
-
-Reviewed-by: Nhat Pham <nphamcs@gmail.com>
-
-(but the rest LGTM too FWIW).
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
