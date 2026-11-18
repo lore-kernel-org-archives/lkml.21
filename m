@@ -1,101 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.134.164.83
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795016450;
-	b=SWrkoMrTawalSVhSP2TVyax++agRzJ5LgBDtdppIa4TLKxvY0kuCJHJ+NT6syR34WXjF
-	 Pyep60RKBZ/OSIltpH1J04KyxuSdi+/e6bo5y/DvpZqphqek9svCRfI825Y1UrgrcR2Wi
-	 ZA2JcvjiQJrJcoJNqci4QA3LTCwbxF5Ax2GrUmUArfqaD4mgAsiSXTCxiLg5vupWO2ZW+
-	 jwwK/luP5aj48sYYnFqdw7++X4o7h4ciPpMUkJfQ3twDzsKarUzPZ59YrQ7NLTgoM2ZPw
-	 efHlKT2DzYbek7GAPtRH6QNSh6e1Q0ih96FuNvEWCPA+fcLsdiS6XhsGx98XZ6DPhvg==
+	t=1795016472;
+	b=HxPD6rq00Z+MaXQ36vhAp23ktQ7sBcBPxt4WX+af8Y4dkpujRdhjCQ2DrbHOqRuyHomg
+	 zPPy1VshefP5ESZYXKyaJMDHPdE3qMGiYe6T8DVywHZwxPiJt/I+AXeWUgdFZly/YvkrD
+	 uznpBNBzkpgQQO16jQg5LyLMPaWBNcY4V/32RUryT53R+xHyxKEhRtiDBTb6qvYNmbyCF
+	 cwaWwDtrndLEB1GY07DjjD/ZRtEsCHCp9op+fbIp6K3TfOCDNQDF135kGHUwDTG7ga4C8
+	 TvIOOG93dSg93V6ZmvFtBbUWMx5BWq7SI6VQfrz+bxPyB4kNRNT9fz7X2A6eFEZX5Rw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795016450;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=tm6dB1EUYOThFG6qE8KMMgbho+/lR/6Gk/9spMdJzlU=;
-	b=iYzJW8GTYabeUZmBG2LJl0TdHxadNkqRIWLOJlsznaOaLofx2b8BWNEtB7RM4ArfT1l4
-	 hWflBD+THOujMyAYEKAChrWJaYpswNv+ndyPeh4paptp42YfyODA0bNCX6HYgS7Kcyw6P
-	 Fc/Db600Fkyp3YUpWSiKmwiErWJ4dp/hg3eSlx0dZMWcnzJwoX8fTCyszJv9Soj/aoO3R
-	 wd3Pr+WvecVQBW7LAwzoi2SGNgk2s0BhHYg6fX7oqhCPjmvom8H8capsBkOul7Pzc7Bfv
-	 C4fZavMz0PQiPrGDEhXtgj6KE9e5hPiAoGeHNF5dxd9nQzfcYPxsqG/R1JI0DtsQU/g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795016472;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=4VZzvnNyCzqoZS6AgGQvdB6TpwdyO7nYmEyIGI9OWVA=;
+	b=KgIKqxhRn3ZKvr15ZRL8VEvpWYd7rYyKkT90QeOJPsDGdIJfzi1S6m67FL0gu0kQbbnX
+	 nFcYqSwiSzTOp/sG7xv4dTbKPttnmTZEaRj289zrSkc2IaVf/dROOPTeDXv/lddnSfqK0
+	 rleZNHx27ady2ZG7bS7V6KIGbuqG8TljM1xHD4ucYLfDBCav7nwiP6Y8uEyJRTV5CpXaT
+	 PyW5PqJOmhBRKKt4NURgcv5HeLk7koEg3aU3UgzHQ/5iYQZVY+Sj8ZUSYYOEiVFEQ9fvZ
+	 l78LvEYX2i52J9NxjuH0d1mBWeagvIxx5HxLUvLps/TI6mDV5xF8ZZ/Xio8D/EjA0tg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="F/T+wXSc";
-	arc=none smtp.remote-ip=209.85.210.182
-Received: from mail-pf1-f182.google.com (mail-pf1-f182.google.com [209.85.210.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=inria.fr;
+	spf=pass smtp.mailfrom=inria.fr;
+	dkim=pass header.d=inria.fr header.i=@inria.fr header.a=rsa-sha256 header.s=dc header.b=u+28VSsl;
+	arc=none smtp.remote-ip=192.134.164.83
+Received: from mail2-relais-roc.national.inria.fr (mail2-relais-roc.national.inria.fr [192.134.164.83])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8E05606A332
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:40:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8E05606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCFEB606A31C;
+	Wed, 18 Nov 2026 15:41:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CCFEB606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=inria.fr
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=inria.fr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=F/T+wXSc
-Received: by mail-pf1-f182.google.com with SMTP id d2e1a72fcca58-8c4cc85a315so811307b3a.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:40:49 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=inria.fr header.i=@inria.fr header.a=rsa-sha256 header.s=dc header.b=u+28VSsl
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795016449; x=1795621249; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=tm6dB1EUYOThFG6qE8KMMgbho+/lR/6Gk/9spMdJzlU=;
-        b=F/T+wXScP9Zgh1uofVaMqzOlFgqfmKgwCctq1qXcplNMa+wjBVSQAc7SSMeRLdzPB0
-         aZ1GrJrH5iye0o4/LLMI2fA25rH7UfxV1ehkUE7OC99in1a0QZS4q4fUT1mZWt1NMlya
-         gIwScpx9+n0G70Q0jOcfxLy+AeOQGv591C0uGFyEAHz9ZnLD0ZPavJuDzCS5ZaYKLAvn
-         6pxQ0tEw9NUG7Dmh4UdLTFYgD1RdG/Yy3r4oDl+vYou7NUVAtvVOSdOwQBIm1lDnzDne
-         iwJ1y8JgjfqQy1FPn6+euDTe3FiV8I9E4eClxfNeRAuzzroJEQOGh0/mIeVlCC2JDxXj
-         qTMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795016449; x=1795621249;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=tm6dB1EUYOThFG6qE8KMMgbho+/lR/6Gk/9spMdJzlU=;
-        b=b7u5CJ5RJJ+MrdgB8iZSPKi/XyCsgUUgqsB4qqGzDJW8ORuF4fWPyBxP2yxxNpDQMq
-         +yv6LaidX9uhiPMOwxEpEy0UBuZ2tDT9pMMxtUMXT1KlEXl50m8BhvlW+yNjp50tBPIn
-         0IBPoryZCf/FsrHQEI3t4N6MSoo8rkXuSmaKoDtuEFPGViE3DUa6JM5CDd53Cc6wYTBA
-         4NVks6EeIJ61FJHTDbPSIVlYy4AiocpMrnLqJOZ5upj2iXM/40BSMdsS8Ct4b3zYy/a1
-         ZzO1bxispNKLc1bhRmS/mX+aPzXFszIjaZaTgc4gN3aiiWlPzNjrggoS3s92j8PutKSn
-         TT/w==
-X-Forwarded-Encrypted: i=1; AL+hErHsXzHYREb+jd0w3sPvyiPXDsNAZ/9VzRvyAB0vipv6oUfFGN9TXNllgBoulNqQ5JpwkBpEt01LU0RlAck=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9SWgSWpPJQCl+i2bhGnbAtmFaDXPCRACQ9tfYof83PaBIhzvdP
-	9Oc0wUvVsMtWsUdgbZfkJ4uqyAf6HI6Wo3oe6TGb2idSpGJk+f8by1I7
-X-Gm-Gg: AYBFou3pF2qtbMohelIy28BZzp1QlFNRpmb9uqRb0zje59FUHBNUoMX/DlEm8TmV31F
-	f+H+qG1MeDMyq4wzVJ95zuKtPSIFVoClPuggT7yJcYaQOu6zJoPEtRy/n7e9vewwJpk6S5G/gQI
-	B+Ttp1CU+3vsv1L2tU5zeOcdzLRdtmKrBnSgMQe/EAJWNVgAvfJ6yuBVVJG0BINYkq1QxjPF97+
-	ArLH/IgLAECKntJJeTx3n54WsaPhk4iRyARBq1q3V6gWP2HBS5OOkytxIoa2+ceFW4AlEXayyJh
-	wGIY4HjJrCX906mSvhy9mx+MgITKnn6dPTfTR9KaCobsUXuAFu7BvIWLihvHGmKemYyr6kKsIL0
-	sElGbmTUx8BuwWubk4RubjeI+AlrdC58aXLPdr0KHHEp237DJQ0ZeB64cxmAxobqpRtmEKdJ+77
-	ITaoHeWzS+IIMf/7wbeL/nw+Vns5uV/e1kIZ0Qj7dArsYtTLkWqlTmr/bBPVR9JMApVPyMuPtk/
-	4fMVmphtpDa6KgCl0HYZUxlDaHmSRoCaVUig149/uxypnk5TNh1Bn2tzP09jD8lQh7TcZMdvzFO
-	awNoj2Ck9tAxuljQrB8TaQ4zrL1KgDwKp7OUTVY6nO11aI+c
-X-Received: by 2002:a05:6a00:a244:b0:892:e080:4ed8 with SMTP id d2e1a72fcca58-8c5d48d82b8mr2645070b3a.47.1795016449055;
-        Wed, 18 Nov 2026 07:40:49 -0800 (PST)
-Received: from rigel (106-68-220-184.tpgi.com.au. [106.68.220.184])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5ca5bf959sm1421203b3a.20.2026.11.18.07.40.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 07:40:48 -0800 (PST)
-Date: Wed, 18 Nov 2026 23:40:41 +0800
-From: Kent Gibson <warthog618@gmail.com>
-To: Adrian Ambrozewicz <aambrozewicz@nvidia.com>
-Cc: Bartosz Golaszewski <brgl@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Jia Jia <physicalmtea@gmail.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+  d=inria.fr; s=dc;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=4VZzvnNyCzqoZS6AgGQvdB6TpwdyO7nYmEyIGI9OWVA=;
+  b=u+28VSsloqU+wKHZO6pZR1TTAW/FnMi9BqjzDAFJUohgJZAst7CNk5F2
+   YgsLbeacQccQJGlURwpaT0HBH4oqpNWf1JBBuohZ5wVSH1KX7AkOcGZGE
+   /kg1rvtahDUfKhLnxaI7nlpLi2pinRS6QwC5nyt90Da7MuxHqJ/XEUTCk
+   E=;
+X-CSE-ConnectionGUID: nW7qx0IVQLeebx4H0iZwhA==
+X-CSE-MsgGUID: dq1/kDuFR7a3WJLUwUa/gg==
+Authentication-Results: mail2-relais-roc.national.inria.fr; dkim=none (message not signed) header.i=none; spf=SoftFail smtp.mailfrom=zakaria.belkadi@inria.fr; dmarc=fail (p=none dis=none) d=inria.fr
+X-IronPort-AV: E=Sophos;i="6.27,219,1787004000"; 
+   d="scan'208";a="306148046"
+Received: from wifi-eduroam-85-131.paris.inria.fr (HELO Dellisimo.paris.inria.fr) ([128.93.85.131])
+  by mail2-relais-roc.national.inria.fr with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 16:41:08 +0100
+From: Zakaria Belkadi <zakaria.belkadi@inria.fr>
+To: Jens Axboe <axboe@kernel.dk>
+Cc: linux-block@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Kanchan Joshi <joshi.k@samsung.com>,
+	Anuj Gupta <anuj20.g@samsung.com>,
+	florence.schadle@ssi.gouv.fr,
+	frederic.tronel@centralesupelec.fr,
+	louis.rilling@irisa.fr,
+	Zakaria Belkadi <zakaria.belkadi@inria.fr>,
 	stable@vger.kernel.org
-Subject: Re: [PATCH v6 4/8] gpiolib: cdev: don't sleep in the SRCU read
- section in read()
-Message-ID: <20261118154041.GB46152@rigel>
-References: <20261116-gpiolib-chip-removal-v6-0-aambrozewicz@nvidia.com>
- <20261116-gpiolib-chip-removal-v6-4-aambrozewicz@nvidia.com>
+Subject: [PATCH RESEND] block: pin user PI pages for writing when ref tags are remapped
+Date: Wed, 18 Nov 2026 16:40:53 +0100
+Message-Id: <20261118154053.13218-1-zakaria.belkadi@inria.fr>
+X-Mailer: git-send-email 2.39.5
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,36 +72,123 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261116-gpiolib-chip-removal-v6-4-aambrozewicz@nvidia.com>
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 16, 2026 at 03:47:07PM +0200, Adrian Ambrozewicz wrote:
-> linereq_read(), lineevent_read() and lineinfo_watch_read() stay in the
-> gdev->srcu read section while they sleep waiting for an event, so
-> gpiochip_remove() blocks in synchronize_srcu() until an event arrives
-> or the reader is signalled. The device lock is held meanwhile, which
-> also blocks device_shutdown():
-> 
->   task:init state:D stack:0 pid:1 tgid:1 ppid:0
->   Call Trace:
->    __synchronize_srcu
->    gpiochip_remove
->    devres_release_all
->    device_release_driver_internal
->    platform_device_unregister
->    gpio_sim_device_deactivate
-> 
-> Check the chip in a scoped SRCU section only; nothing after the check
-> dereferences it. End the wait once the chip is gone, and return -ENODEV
-> if there is no event to report.
-> 
-> Reproduced with gpio-sim: setting "live" to 0 hangs while a reader is
-> blocked in read() on a line request; with this change, the write
-> returns at once and read() fails with -ENODEV.
-> 
+For an O_DIRECT write that carries a user protection-information buffer
+(io_uring PI attribute), the PI pages are pinned as a data source,
+without FOLL_WRITE: io_prep_rw_pi() imports the buffer as ITER_SOURCE,
+and bio_integrity_map_user() pins the pages and normally uses them
+directly. It copies them to a kernel buffer only if they are misaligned
+or in too many segments.
 
-Reviewed-by: Kent Gibson <warthog618@gmail.com>
+If the integrity profile of the device has BLK_INTEGRITY_REF_TAG,
+blk_mq_start_request() -> blk_integrity_prepare() then remaps the
+reference tags in place in those pages. So the kernel stores into
+whatever page backs the buffer, including a page the caller can only
+read.
 
-Cheers,
-Kent.
+Write access to one such device is therefore enough to make the kernel
+write into any page the user can map for reading, wherever that page
+comes from. Two examples, both tested: the page cache page of a file
+the user can only read, and the shared zero page.
+
+Pin the pages for writing when the request is a write and the profile
+has a reference tag. A read-only buffer is then refused, and a
+never-written anonymous buffer gets its own page.
+
+Fixes: 3d8b5a22d404 ("block: add support to pass user meta buffer")
+Cc: stable@vger.kernel.org
+Signed-off-by: Zakaria Belkadi <zakaria.belkadi@inria.fr>
+---
+Resend: my first attempt today went out with an HTML part and was
+rejected by the lists. Sorry for the noise to those who got it
+directly.
+
+Found by a source review assisted by an LLM. I first sent this
+privately to Jens and security@kernel.org on 16 November, because I had
+missed that Documentation/process/security-bugs.rst asks to treat such
+a finding as public. So I resend it here as a normal patch; sorry for
+the duplicate. The patch in the private mail was truncated, please use
+this one.
+
+I reproduced it myself. A reproducer is available on request.
+
+Affected version: mainline v7.4-rc3 (aebb72744764); both cases below
+were observed on it. The path exists since the commit in Fixes, v6.14.
+
+Path (line numbers at v7.4-rc3):
+  io_uring/rw.c:220, io_prep_rw_pi(): for a write, the PI buffer is
+    imported as ITER_SOURCE.
+  block/bio-integrity.c:368, bio_integrity_map_user(): the pages are
+    pinned without FOLL_WRITE (lib/iov_iter.c:1784) and normally used
+    directly.
+  block/blk-mq.c:1377, blk_mq_start_request() -> blk_integrity_prepare()
+    -> blk_set_t10_map_ref() (block/t10-pi.c:483) stores into them:
+        if (ref == virt && ref != ref_tag)
+                put_unaligned_be32(ref_tag, &pi->ref_tag);
+
+Setup: QEMU guest, emulated NVMe namespace with T10-DIF type 1. Root
+gives one unprivileged user (uid 1000, no supplementary groups, no
+capabilities) ownership of the device node of that namespace, and
+nothing else. That user does one io_uring O_DIRECT write to it.
+
+1. PI buffer = read-only mapping of a file. The file is on another disk
+   and belongs to root (mode 0444); the user can write neither. The
+   write changed the reference tag stored in the file, as seen through
+   the mapping, through pread() and by root. After dropping the page
+   cache the old content was back: the cached page was changed, not
+   marked dirty.
+
+2. PI buffer = never-written anonymous memory (shared zero page). On
+   v7.4-rc3 the zero page is read-only, and the kernel oopses with a
+   write fault in blk_integrity_remap(). Up to v7.1 the x86-64 zero
+   page is writable, so the store lands: on stable 6.18.58 the write
+   succeeded, and a new, independent anonymous mapping then read the
+   reference tag where there should be zeros.
+
+These two pages are only examples. The device is the one thing the user
+was given, and it does not limit where the store lands: that depends
+only on what the user maps as the PI buffer.
+
+Conditions: a device whose integrity profile has a reference tag (NVMe
+PI type 1/2; SCSI DIF type 1/2 by the source, not tested), opened for
+writing with O_DIRECT. What is stored is the 4-byte reference tag of
+the device, at the tag positions, not data the caller chooses freely.
+
+Fix tested on v7.4-rc3, same user: both buffers above are refused (the
+write fails with EIO), with no fault and no change to the file or to
+the zero page; a never-written writable buffer gets its own page; a
+normal writable buffer works as before. Not tested: v6.14 to v7.1 with
+the fix, stacked devices.
+
+The patch makes such writes refuse a read-only PI buffer. If those must
+keep working, the PI buffer could be bounced instead, always or only
+when pinning for writing fails. I can test another fix.
+
+ block/bio-integrity.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/block/bio-integrity.c b/block/bio-integrity.c
+index d3df726e0..3ee2d49d8 100644
+--- a/block/bio-integrity.c
++++ b/block/bio-integrity.c
+@@ -487,6 +487,14 @@ int bio_integrity_map_iter(struct bio *bio, struct uio_meta *meta)
+ 		return -EINVAL;
+ 
+ 	it.count = integrity_bytes;
++
++	/*
++	 * blk_integrity_prepare() remaps the reference tags of a write in
++	 * place, so the PI pages are written. Pin them for writing.
++	 */
++	if (bio_op(bio) == REQ_OP_WRITE && (bi->flags & BLK_INTEGRITY_REF_TAG))
++		it.data_source = ITER_DEST;
++
+ 	ret = bio_integrity_map_user(bio, &it);
+ 	if (!ret) {
+ 		bio_uio_meta_to_bip(bio, meta);
+
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+-- 
+2.39.5
+
