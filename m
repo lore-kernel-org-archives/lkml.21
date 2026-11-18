@@ -1,64 +1,71 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794977378;
-	b=f553uQFTFTm+UjZs8hu/UJq9pHWQtFsSr6khJVfiMnhLEtjlDQdwskdY5MjeXHg0r7vz
-	 l+131fEKa5RV1CXDMrdPZV9pAxK+ABRPS2fMM1mYaeJ+CcIg5D9B4OOzaU82jtbkum9qy
-	 qdQLQux0iLhRqdwiSJHcGx/p8BY56oQ5R/r7b9xqCVT0DoRFebe7XLo6cASybxoSl999Y
-	 u5L/cPBCPOYHIT4FPfYftye8/FZUDn+OTZAZtZWQ3Ro/s2OkJEBi0QdySF/kBgvow81EA
-	 bVhh/QIwB0PANNDOH3154PsFICQaT47+10jVgmgcNKxFnug16i+sW1weR7Rm0GkusAg==
+	t=1794977381;
+	b=Lk4BWFN5XfWajuxAe0z5BdsQpRJOhi+qvlw+idIaedZ5o3XFiDHGAUppiI3AHx1mUnCf
+	 /zYZ724kuzUe1ag7XnjYJOsGWJY1RgiEIFliwPzbbXo2uiZAwhBC6lhSSERjfMUM603ro
+	 Iebqp/kyNXRLnd6UxNcogKVyBi6N3HdooGrr6zAVmzfMHEs+MNM2yXVFn56RjW2jc1YvN
+	 2ecohVXIVAquMOvNQbIYnvEwyWSlKSMrimXe+h53WSTOQSL5KrjLSRP95b4PtHKY5f9vM
+	 7nFuP+9UldvYF/Fsl75wlkpnJKMeb1FgkfAEe/cT9ChyxKwvnUJ7KNBscNmfjizgrgw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794977378;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794977381;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=fgpWZZwE7NSYEWRtNq7ZlfOjQQLjUSuAxIrdzbkZGnM=;
-	b=3mzl70CYKwuIqotfV9S8wCgdYIZX2vnvRMhNyU4kqPsE0dYclFcdN7pqE3WcHBHjpqeI
-	 QwFyBLG1GaCeaBlCtz5dB3Uhxy91d/U6q3zcI4KLWEOW7UtzxCnMhyX5FHDS44dxuK+nU
-	 8Dr887gUUFT9SvnQw199UpZw9QPCZjxZ3caH6feDewf4B9FvxnB6IfQ9wqPifBrD8s1s6
-	 34kNAqQ93xnr41xvU8JlKx0xcwhxfOUsYIvzwTqOEj83eSzVz9oXvxAK7DhvdnzuAiFoN
-	 co32JJdfBAql96Qf6+6kY/d6ebK4fiEpXMbffjcl8XEc7Tos/HU964seTv6P5GebMBw==
+	bh=RufmPLEdOt93I5T5TQq0x49BntHV1EhlC0gK8d0OVmc=;
+	b=aqowsXNKN7PxktArqCjctSNmtXsm3njduuX1j2wHRaqnqna1s7a9AH7NzI86aSvxQ4Uv
+	 oDNKoIlTQnDzk+EyEIDr7bitz5O7NKRJ6Ik/2Fx8Ji5f6DLQCTWBUM3AE3eo6xJiJqCP3
+	 NgWhTR0Jk+3T7/wIlOULyEIDHLCtgW4bROz92nWjSazYWkbe1yGOe1RtyhvqKnfUMgE5+
+	 Mqf2zeyPjs8ZtbTmdeimh9RWMWyiw9+bMM4kb9LvS+IpELFXtnqbZi1jYwiDF+Ec3ABXe
+	 3e3G+/2a9rC9TECdB+CCuMqgGVDvWjgSt6h1TxdKnEdXzbk9FB338FqVPpnONN8mIcw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="M/Z28yIl";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n017AukS;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F57A606A33F;
-	Wed, 18 Nov 2026 04:49:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1DD61606A880;
+	Wed, 18 Nov 2026 04:49:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=M/Z28yIl
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 296341F000CA;
-	Wed, 18 Nov 2026 04:49:37 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n017AukS
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C27361F000C7;
+	Wed, 18 Nov 2026 04:49:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794977378;
-	bh=fgpWZZwE7NSYEWRtNq7ZlfOjQQLjUSuAxIrdzbkZGnM=;
+	s=k20260515; t=1794977380;
+	bh=RufmPLEdOt93I5T5TQq0x49BntHV1EhlC0gK8d0OVmc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=M/Z28yIlfN/dW/5PR331Wua2qc0cdeLPcRWT0tXAUOvYBYQ8TpNLvxL+c0cpqRWSH
-	 eHcG3AYvBCosqnjT5iimqL5FGdOtGM831xCM1QUfyl7jLvNarT4e9j3biL9E5ySZPS
-	 DGvRDjG4tfRaGE/Bsg9m41DxTGwCESe5hGGmZXcgiJPTSQ1cndFofXtpUHJq9a3PtC
-	 YDeBPmcW+L4jikcpS7Zs+W0m87xJ3/Q5RU+KRTecgyDPsYD6V9uUdwOuyCRnHMFiEF
-	 vKyOIurIZco6ae4ixatC3cSDYBHTv/+P10mBmsfbDWyeROV9wTP0oWz6HylVOwx4KQ
-	 0AAid/iSAxT4A==
+	b=n017AukS5pWtxW3mEbmTAkdEnkqiRwcaGLLEUhmXkBAlCxyWMg7LhDgphG/aSSdh3
+	 C6A8uBkNgrmVwggWDJuTobWuxGpnFeJFoPt6vLNCFC4JNXR9a2yJrbwbmi7Cso2raI
+	 r2U/fHAIvIKEc/u8aPGPVk5/ZdaRaiENyJhwuGi1mr31T6m265i1jjUnevy1bvycxS
+	 gZxH0pKMRCKLXhoAugvLFUCafP+44kIzu8/WtLsb8/cHZloY60PNOk9eP+INMa/4EQ
+	 GCFLUS+x7esq5iAl6jYht0eGV1Dq8hfiyw9q4xf6lGwfcN0hE237cgDfai5NFBMdPt
+	 0UTJlkvT1orsw==
 From: "Martin K. Petersen (Oracle)" <mkp@kernel.org>
-To: "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
+To: Jens Wiklander <jenswi@kernel.org>,
+	linux-scsi@vger.kernel.org,
 	Stanley Jhu <stanleyjhu@google.com>
 Cc: "Martin K . Petersen" <mkp@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Arnd Bergmann <arnd@arndb.de>,
 	Bart Van Assche <bvanassche@acm.org>,
+	Avri Altman <avri.altman@sandisk.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Bean Huo <beanhuo@iokpp.de>,
 	Bean Huo <beanhuo@micron.com>,
-	sangram kumar yerra <sangram.k.y@intel.com>,
-	Rajeshkumar Sambandham <Rajeshkumar.Sambandham@amd.com>,
-	linux-scsi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] scsi: ufs: ufs-pci: Check hba->vops in system PM callbacks
-Date: Tue, 17 Nov 2026 23:49:25 -0500
-Message-ID: <179497726103.2093762.2048107205167410263.b4-ty@b4>
+	Alexey Charkov <alchark@flipper.net>,
+	Can Guo <can.guo@oss.qualcomm.com>,
+	Ulf Hansson <ulfh@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Shyam Saini <shyamsaini@linux.microsoft.com>,
+	=?UTF-8?q?Alex=20Benn=C3=A9e?= <alex.bennee@linaro.org>,
+	"James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 0/3] rpmb: Fix request serialisation and teardown races
+Date: Tue, 17 Nov 2026 23:49:26 -0500
+Message-ID: <179497726098.2093762.2793506457468994473.b4-ty@b4>
 X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261111084853.3530107-1-stanleyjhu@google.com>
-References: <20261111084853.3530107-1-stanleyjhu@google.com>
+In-Reply-To: <20261112004112.3059801-1-stanleyjhu@google.com>
+References: <20261112004112.3059801-1-stanleyjhu@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,26 +78,26 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
-On Wed, 11 Nov 2026 16:48:53 +0800, Stanley Jhu wrote:
+On Thu, 12 Nov 2026 08:41:09 +0800, Stanley Jhu wrote:
 
-> ufshcd_pci_tbl[] defines the Samsung 0xC00C and AMD 0x1B29 PCI IDs
-> with .driver_data set to 0, so ufshcd_pci_probe() leaves hba->vops
-> NULL. Both ufshcd_pci_suspend_prepare() and
-> ufshcd_pci_resume_complete() dereference hba->vops->name without
-> checking hba->vops:
+> Jens, Martin,
 > 
-> 1. System suspend on an AMD 0x1B29 or Samsung 0xC00C host enters the
->    PM prepare phase and calls ufshcd_pci_suspend_prepare().
-> 2. ufshcd_pci_suspend_prepare() evaluates
->    strcmp(hba->vops->name, "intel-pci"), dereferences NULL, and
->    triggers a kernel oops in the suspending task.
+> Patch 1/3 serializes requests and provider unregistration in
+> drivers/misc/rpmb-core.c. Patches 2/3 and 3/3 fix UFS RPMB device
+> lifetime and drop the unregistered bus in drivers/ufs/core/ufs-rpmb.c so
+> regions register again after commit 36f35b8df697 ("driver core: reject
+> devices with unregistered buses").
 > 
 > [...]
 
 Applied to 7.4/scsi-fixes, thanks!
 
-[1/1] scsi: ufs: ufs-pci: Check hba->vops in system PM callbacks
-      https://git.kernel.org/mkp/scsi/c/947d8e9a4d1e
+[1/3] rpmb: core: Guard frame requests and teardown with mutex
+      https://git.kernel.org/mkp/scsi/c/e0696bf65006
+[2/3] scsi: ufs: rpmb: Decouple device lifecycle from devres to avoid UAF
+      https://git.kernel.org/mkp/scsi/c/7bc9b854cd68
+[3/3] scsi: ufs: rpmb: Drop the unregistered ufs_rpmb bus
+      https://git.kernel.org/mkp/scsi/c/b1de2bd5a4d6
 
 -- 
 Martin K. Petersen
