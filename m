@@ -1,58 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.221
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794973942;
-	b=dEhU7/uponkiYm7S7SO0IHI8kxjhHfFA6LEZs7N+4ffTpAOzz6ngnKJg0IOteV/Yh0PV
-	 xJCb188eMJe0/HCL4Cob/8voMx5T8rNFlccja/0RgnaaoafHL3d2odOTwCQE1g8XlRx7I
-	 mMwfHLtfIyhFXLbcm2wRgyHb3sUbB7oUA6ktVM77EcjsNTv5uLqJuR9Ts9sVHlX2nhap1
-	 nZrwVuQuBEBBBOV+5HZ3AINjO669HRqzhoDmYcz+ekRwi5Sw2+t1RF+BFRfNQ5FXnmNKk
-	 PACpwulxTMm4Gl48eO8uBGL2Dszv+4CpbNB+O/rLEEPY5Ao/tSc/E1ZeAr2KBbSusHw==
+	t=1794974028;
+	b=TlaaU3MUfZ0V/E410eIyr+H7AnctQ0PQkMCdqMNNDpHiH8sg4IpAQgVo+vgAasaGf8DA
+	 KvUHNe8ElaSHSLj7sCg0QRv6PwmyIEoQHDhTnrjOQ0xI+GIkCWaLVL5afS5gpyp6qTroT
+	 hyhIcsfN4HNjYvIkV6WPZts0TIoH12YAp49/zWJ7ShsgEyLBPMRz1viD7494pr/iFDDKZ
+	 FYgVoyArZX+RKeurDqGnnHal9dcQgExyUgvzOj2AUDfomMJ+YKY34yfwVIMM7/Y2q44o2
+	 2FgxCRVIPnWHWhwUpuS9izWZ4M4n38oDqEW05N8VJg9CFUXf25blqIE99rRbsvB5ASw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794973942;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:References:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=yG/FKg76CiUcJKWaH+8tq1QDfHjGO2G7vSVSe7/ADac=;
-	b=H4qIZr3vKQ7izXpvJiXZkPbYuArjMAUI9V/aRJu9vrDAUncyMDlrq84oJ9QMkVUEPg5g
-	 p/L5xi/XefBAA5dUh70tjWwEqawtm3YYUEieEy1TQxg6YBvdZv9lCSd9jfUNK9P7xHVsl
-	 32sAcXFgFLCg/NA7Zbbs2fTg7c0okxO9T5S6yAPe0yX9yvx+tFq91FJ0+u5XTj8M18QxJ
-	 9gYqVTRT3PuOkpLKhJCRNdJETT1g7HgMJs8nJC+1bnF75tGvXWzDY3Ggz28YpsDuJ+UC/
-	 aKEDRLlwX9agCICk3Yh8/h5FCOvVSXvGUGYkSrz9SbbWA738aSRaHRTIFhtL6jA8wNA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794974028;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:X-Forwarded-Encrypted:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=IOskFv7B1qRwSI1xnDutWFbR8KW2ByneEJ1ja9wWCsE=;
+	b=yHg7hiMuw/AAXPg7hzXwy8LR+sskRbZGWRiKlsVMYNfhov76G73YQqgop5ZkEb0mkbDM
+	 YmHypQYstOzmFjDM9EK9X0Zj/9YV7XCKEZ2mWlatNO+jiE6RVzV+B7s9xOOp5djrZsQp5
+	 iBJCtsde1vBh/xAnJhpvuLzkhfdviaaIhMJSFbvBkk8ihV7iagTl1y25c9p6ItZdBf8dO
+	 xmnX160Jnx/exgh57Nuxh0xIpgrV/nrfYP6eduG181L46kn6WZAfs+026t7N8SO7cQNxZ
+	 9JPniBQYoVR4+Tw1p5/gFUnnmHwTTC5ULKEidHcEObS4vX50BUAizck+ig3pKi68k3A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=m99wPDmF;
-	arc=none smtp.remote-ip=113.46.200.221
-Received: from canpmsgout06.his.huawei.com (canpmsgout06.his.huawei.com [113.46.200.221])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=chromium.org;
+	spf=pass smtp.mailfrom=chromium.org;
+	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=TKEvq4C+;
+	arc=none smtp.remote-ip=209.85.208.52
+Received: from mail-ed1-f52.google.com (mail-ed1-f52.google.com [209.85.208.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A916A606A31C;
-	Wed, 18 Nov 2026 03:52:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A916A606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36612606A32C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:53:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36612606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=m99wPDmF
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=yG/FKg76CiUcJKWaH+8tq1QDfHjGO2G7vSVSe7/ADac=;
-	b=m99wPDmF0ZQexDD0I08LqhStYxozE2iagG6vCbgomP/qCf6MtLJ1eiwS7KTqquIsD4iucrnJg
-	EQiDRNzboxuP2GZOytTCaPnAI/TP8YrTFpqcJyID3EIfQNOiPxWL9TmXnAj2z9Lrs3yi1G1bDKA
-	0sCN3KIVMQt40/IMAr6x0ag=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4jTnjC37FjzRhRQ;
-	Wed, 18 Nov 2026 11:51:59 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id D3D8D4057D;
-	Wed, 18 Nov 2026 11:52:13 +0800 (CST)
-Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 18 Nov
- 2026 11:52:12 +0800
-Message-ID: <e814cf3a-61ee-466e-ae2b-6abf8db16dc0@huawei.com>
-Date: Wed, 18 Nov 2026 11:52:12 +0800
+	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=TKEvq4C+
+Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-6b87a1a2babso1789983a12.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:53:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1794974027; x=1795578827; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=IOskFv7B1qRwSI1xnDutWFbR8KW2ByneEJ1ja9wWCsE=;
+        b=TKEvq4C+kOu9XoWlOvQFsYId9LIonKAfu7yQFn+byhF1WREmZTXURSPDhli/1iI0nU
+         vt6pJ6g34mRZL0z9z+NKUfMr9ybCLlLU2lNuk12lxVGJRGEFpdybPdQJe8SaX1dOLyL6
+         pvrIZM6AIDLUM4zYFHSbs8ydDBtGgT+AfYiGs=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794974027; x=1795578827;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=IOskFv7B1qRwSI1xnDutWFbR8KW2ByneEJ1ja9wWCsE=;
+        b=ZHgsC736KacOdkkZ8S0hPXvgZS1daFdbzyER32gEL8jhwdoGo7fcGvMViZdeWzYK8E
+         SB933FwDLGyfWecu64Aqmn4L/OGkr7ysK3744iYyRFlGk/eui+KWdvajbxNY9J7WzfCZ
+         Y6Trj9pVL7Sp2FE8rBSidxCrJD9HySPC1ImMjMcSOF5WlTs2RcSNWwjaUA8MPr8ZtueQ
+         pDzqtMLkkm/yUsCsdZhA26Yn8OkFIxb+pCanqRO+7iS5EoKRbrUaI5dnb4FvPVylr1JM
+         E1sI0wPhR20Hl3QkIk8DUGURYnblYOkAKAFaeiJnUQCJ24ExOsFzNzG7+x/yNNFG1mkU
+         DTMw==
+X-Forwarded-Encrypted: i=1; AL+hErEqfEIXDvIgXXCVknAb5ETw0KHLi8vuIMHZPwBlhz1frmw5xsNXwvwj7GQa4Ff+psYmGJHvc31vriLlV6c=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9wScLHbBLIrhZdrycqioqij340j4Vcfun6SkU95lHtkeCmrcto
+	BRclnya3MmZXOU41xAK7Z9/v/4D1oCyhbjmwwdXEKa4KGqo/dgcLcb7zLWZeUzNsDZbGdbA2EaQ
+	foV49TZdt
+X-Gm-Gg: AYBFou3J+4ysuWaY4Xoj0qoOHsPuI8en2rBg44qOuSNotSl+9H8YyrcD1/ZG6BZM9xY
+	E5a+W3tL157FtN9Rio7WLa4KgOBLdTpHER0k6ITTwG5yjcTHde72fquXZco0SAe6gQipfmhfI5W
+	yYose2QWcY/PQGlh7Eb/fYKfBVs8y/A4RmCy6XZKmNlArnrX/dTWX1SO7xpop5Gm+oxjQOvv1Lt
+	igZknqLO9pitS27+cPkn9sIvLfc39D750F2q7c1SJo/GLJubrjNN+91vD0NrBD4AYxAyIy87LLb
+	6uEpu8ESmn6/IobOieAfNdUz8mm1OWtMin7qf+PJ62Xrq3sbFHUZ5A6msSDF6aUuT9ouzALwsMg
+	INrjIgnNsJKjJTsKOZeiFwCXmWibBt1VnnZ07XGr8bwO7Kf0H6V9TpvLypK5PlxPlktl9k0MX7x
+	3WaXHuCko9+WHYCMRtAXEGc9fYe1uc6dnRbfVfDdThqRPZ4U9f3Ig1rADc7i/HPYtxGlesodh5W
+	wTmwwgfaNIgEHWZZipyd2MyYROP7PzBvBwJaDjsCOCCGaE78R9xX07UeNa0BSoY/K9rDHeHHUOv
+	Ho8Q4IrZuzPQpWygDiPSvjy3ryACSczz3Ifp/Bqc0CHK+3xLN8iGXmOBt5RiWRazibO3
+X-Received: by 2002:a05:6402:565a:b0:6b4:8d5c:f8b with SMTP id 4fb4d7f45d1cf-6b859b6187dmr2436376a12.15.1794974026637;
+        Tue, 17 Nov 2026 19:53:46 -0800 (PST)
+Received: from mail-wr1-f45.google.com (mail-wr1-f45.google.com. [209.85.221.45])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b88993eba3sm513644a12.13.2026.11.17.19.53.43
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Nov 2026 19:53:45 -0800 (PST)
+Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-490d59c3edaso219587f8f.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:53:43 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFunTYNqDJAskUWqufL96K6FQr3AujTTjY9UycTQymx8qQ6WTlSplFzfHMs2YVKDymMxgb0GaT+cmmFA94=@vger.kernel.org
+X-Received: by 2002:a05:6000:2893:b0:498:364d:7509 with SMTP id
+ ffacd0b85a97d-4a3774cbbbamr10035694f8f.24.1794974022637; Tue, 17 Nov 2026
+ 19:53:42 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,258 +94,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 5/9] fs/resctrl: Allow mba_MBps with assignable MBM
- counters
-To: Ben Horgan <ben.horgan@arm.com>, <tony.luck@intel.com>,
-	<reinette.chatre@intel.com>, <Dave.Martin@arm.com>, <james.morse@arm.com>,
-	<babu.moger@amd.com>, <corbet@lwn.net>, <skhan@linuxfoundation.org>,
-	<rdunlap@infradead.org>, <tglx@kernel.org>, <mingo@redhat.com>,
-	<bp@alien8.de>, <dave.hansen@linux.intel.com>, <hpa@zytor.com>,
-	<fenghuay@nvidia.com>, <tan.shaopeng@fujitsu.com>, <quic_jiles@quicinc.com>,
-	<x86@kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-References: <20261112131255.4043381-1-ruanjinjie@huawei.com>
- <20261112131255.4043381-6-ruanjinjie@huawei.com>
- <1defc561-e7bc-4864-90ad-6aa3fb6be7da@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <1defc561-e7bc-4864-90ad-6aa3fb6be7da@arm.com>
+References: <20261116-reform2-internal-panel-v1-0-765cf8d5ff4f@igalia.com> <20261116-reform2-internal-panel-v1-1-765cf8d5ff4f@igalia.com>
+In-Reply-To: <20261116-reform2-internal-panel-v1-1-765cf8d5ff4f@igalia.com>
+From: Doug Anderson <dianders@chromium.org>
+Date: Tue, 17 Nov 2026 19:53:31 -0800
+X-Gmail-Original-Message-ID: <CAD=FV=XQ0Nw6tuUjr_pC_DQnWQZ0XD=jH+_djvbduQSd3XSrcg@mail.gmail.com>
+X-Gm-Features: Aa3M54pcJVKrzVh9hl7PlSfdr6bBBDt4Ls2uHxZOi9oF_y8egwxD6E6UxsIqAlM
+Message-ID: <CAD=FV=XQ0Nw6tuUjr_pC_DQnWQZ0XD=jH+_djvbduQSd3XSrcg@mail.gmail.com>
+Subject: Re: [PATCH 1/2] drm/panel-edp: Fix Innolux N125HCE-GN1 mode
+To: Christian Gmeiner <christian.gmeiner@gmail.com>, Lucas Stach <dev@lynxeye.de>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <jesszhan0024@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Sam Ravnborg <sam@ravnborg.org>, "Lukas F. Hartmann" <lukas@mntre.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Christian Gmeiner <cgmeiner@igalia.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemk200008.china.huawei.com (7.202.194.74)
+Content-Transfer-Encoding: quoted-printable
 
+Hi,
 
+On Mon, Nov 16, 2026 at 4:11=E2=80=AFAM Christian Gmeiner
+<christian.gmeiner@gmail.com> wrote:
+>
+> From: Christian Gmeiner <cgmeiner@igalia.com>
+>
+> The mode has a pixel clock of 162 MHz, which is 70 Hz. The EDID of the
+> panel only has 60 Hz and 40 Hz. Output of edid-decode:
+>
+>   DTD 1:  1920x1080   60.001038 Hz  16:9     66.721 kHz    138.780000 MHz
+>                Hfront   46 Hsync  30 Hback   84 Hpol P
+>                Vfront    2 Vsync   4 Vback   26 Vpol N
+>   DTD 2:  1920x1080   40.000692 Hz  16:9     44.481 kHz     92.520000 MHz
+>                Hfront   46 Hsync  30 Hback   84 Hpol P
+>                Vfront    2 Vsync   4 Vback   26 Vpol N
+>
+> On the MNT Reform 2 with i.MX8MQ the picture flickers at 70 Hz. Use the
+> 60 Hz timing from the EDID.
+>
+> Fixes: a14c6b0eef77 ("panel-simple: add Innolux N125HCE-GN1")
+> Signed-off-by: Christian Gmeiner <cgmeiner@igalia.com>
+> ---
+>  drivers/gpu/drm/panel/panel-edp.c | 15 ++++++++-------
+>  1 file changed, 8 insertions(+), 7 deletions(-)
 
-在 2026/11/17 19:37, Ben Horgan 写道:
-> Hi Jinjie,
+Hmmm, this worries me a little bit. I know that on some boards people
+purposely set a clock rate that didn't match the EDID because it was
+the only rate achievable with the PLLs available. It kinda seems like
+that's the case for at least one user of this board. In commit
+eb893e34309c ("arm64: dts: mnt-reform2: add internal display
+support"), for instance, I see:
 
-Hi Ben,
+> Clocking
+> is derived from a system PLL, which provides quite good rate matching
+> for the single supported display mode and keeps the video PLL free for
+> usage with the external display, which isn't supported yet.
 
-> 
-> On 12/11/2026 13:12, Jinjie Ruan wrote:
->> The controller needs a counter for the event selected by mba_MBps_event
->> in every monitoring group, so mba_MBps is refused when MBM counters are
->> assignable. On MPAM a group's monitor is assigned from a fixed pool
->> when the group is created, and users can otherwise only pick a
->> percentage of a maximum that firmware does not report.
->>
->> Allow the controller when the architecture has a fixed assignment mode
->> and assigns counters when a group is created. Keep mbm_assign_on_mkdir
->> enabled while the controller is in use, restore its previous value
->> when the controller is disabled, and refuse to unassign the
->> controller's counter meanwhile.
-> 
-> I'm afraid there has been some miscommunication here. What I was trying
-> to suggest is that MPAM could when using the software controller use the
-> default mbm_assign_mode as is used in intel systems. All the counters
-> are allocated up front and there is one of each supported type per
-> monitor group. Using mbm_assign_on_mkdir doesn't always give you
+By picking a different rate here, you might break someone's setup.
+...or is that your setup?
 
-In this case, it is unnecessary to restrict that mbm_assign_on_mkdir
-cannot be disabled during the soft controller is enabled
+FWIW, it would be better to change how the panel is expressed in the
+device tree rather than changing this mode. Can you change to using
+the generic "edp-panel" under the AUX bus? Then everything just comes
+from the EDID anyway.
 
-> guaranteed assigned counters as you point out in your
-> patch "arm_mpam: resctrl: Use the domain's counter ID". I haven't
-
-Yes, that patch is addressing the related issues.
-
-> thought through all the abi consideration but it seems plausible, what
-> do you think?
-
-I like the "default mbm_assign_mode" idea which I think achieved through
-the closid and rmid trimming discussed earlier, while
-mbm_assign_on_mkdir is only a best-effort.
-
-I have a few questions as below:
-
-1、Should report MPAM as the default mode only during the mba_MBps
-mounting?
-
-In this way, when remount without "MBps", the default behavior can be
-restored instead of permanently trimming the number of control groups
-and monitoring groups based on the hardware's mbw counter count.
-
-2、 Should the resctrl files remains unchanged in the ABI?
-
-mbm_assign_mode is displayed as [default], and the semantics of
-assignments/available is still "not enabled".
-
-And update the document about the changes in the mode and
-num_closids/num_rmids caused by the MBps mount option.
-
-Whether num_mbm_cntrs should still be displayed during the default period?
-
-Whether mpam allocates the monitor during group creation or lazily when
-the first read occurs?
-
-Perhaps we only need to align with the default behavior of resctrl and
-x86 default mode?
-
-Best regards,
-Jinjie
-
-> 
-> Thanks,
-> 
-> Ben
-> 
->>
->> Only MPAM has this mode; other systems keep the previous behavior.
->>
->> Suggested-by: Ben Horgan <ben.horgan@arm.com>
->> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
->> ---
->>  Documentation/filesystems/resctrl.rst |  7 +++++--
->>  fs/resctrl/monitor.c                  | 25 ++++++++++++++++++++++
->>  fs/resctrl/rdtgroup.c                 | 30 +++++++++++++++++++++------
->>  3 files changed, 54 insertions(+), 8 deletions(-)
->>
->> diff --git a/Documentation/filesystems/resctrl.rst b/Documentation/filesystems/resctrl.rst
->> index b52795e03303..d70aec6f7096 100644
->> --- a/Documentation/filesystems/resctrl.rst
->> +++ b/Documentation/filesystems/resctrl.rst
->> @@ -471,7 +471,8 @@ with the following files:
->>  	Determines if a counter will automatically be assigned to an RMID, MBM event
->>  	pair when its associated monitor group is created via mkdir. Enabled by default
->>  	on boot, also when switched from "default" mode to "mbm_event" counter assignment
->> -	mode. Users can disable this capability by writing to the interface.
->> +	mode. Users can disable this capability by writing to the interface. While the
->> +	MBA software controller is enabled, auto assignment cannot be disabled.
->>  
->>  	"0":
->>  		Auto assignment is disabled.
->> @@ -704,7 +705,9 @@ When monitoring is enabled all MON groups may also contain:
->>  	   mbm_total_bytes:0=e;1=e
->>  	   mbm_local_bytes:0=e;1=e
->>  
->> -	Assignments can be modified by writing to the interface.
->> +	Assignments can be modified by writing to the interface. While the
->> +	MBA software controller is enabled, the counter of the event the
->> +	controller uses cannot be unassigned.
->>  
->>  	Examples:
->>  
->> diff --git a/fs/resctrl/monitor.c b/fs/resctrl/monitor.c
->> index 8f3b8c3e3010..5a67c8089615 100644
->> --- a/fs/resctrl/monitor.c
->> +++ b/fs/resctrl/monitor.c
->> @@ -1210,6 +1210,12 @@ ssize_t resctrl_mbm_assign_on_mkdir_write(struct kernfs_open_file *of, char *buf
->>  		goto out_unlock;
->>  	}
->>  
->> +	if (!value && is_mba_sc(NULL)) {
->> +		rdt_last_cmd_puts("mbm_assign_on_mkdir is required by the software controller\n");
->> +		ret = -EBUSY;
->> +		goto out_unlock;
->> +	}
->> +
->>  	r->mon.mbm_assign_on_mkdir = value;
->>  
->>  out_unlock:
->> @@ -1776,6 +1782,19 @@ static struct mon_evt *mbm_get_mon_event_by_name(struct rdt_resource *r, char *n
->>  	return NULL;
->>  }
->>  
->> +/*
->> + * Return the event the MBA software controller uses as its input for @rdtgrp.
->> + * A monitor group has no event of its own: its bandwidth is summed into the
->> + * parent control group, which is the group with the mba_MBps_event setting.
->> + */
->> +static enum resctrl_event_id rdtgrp_mba_mbps_event(struct rdtgroup *rdtgrp)
->> +{
->> +	if (rdtgrp->type == RDTMON_GROUP)
->> +		return rdtgrp->mon.parent->mba_mbps_event;
->> +
->> +	return rdtgrp->mba_mbps_event;
->> +}
->> +
->>  static int rdtgroup_modify_assign_state(char *assign, struct rdt_l3_mon_domain *d,
->>  					struct rdtgroup *rdtgrp, struct mon_evt *mevt)
->>  {
->> @@ -1789,6 +1808,12 @@ static int rdtgroup_modify_assign_state(char *assign, struct rdt_l3_mon_domain *
->>  		ret = rdtgroup_assign_cntr_event(d, rdtgrp, mevt);
->>  		break;
->>  	case '_':
->> +		if (is_mba_sc(NULL) &&
->> +		    mevt->evtid == rdtgrp_mba_mbps_event(rdtgrp)) {
->> +			rdt_last_cmd_puts("Counter is in use by the software controller\n");
->> +			ret = -EBUSY;
->> +			break;
->> +		}
->>  		rdtgroup_unassign_cntr_event(d, rdtgrp, mevt);
->>  		break;
->>  	default:
->> diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
->> index b32831871f70..518d89b0c67d 100644
->> --- a/fs/resctrl/rdtgroup.c
->> +++ b/fs/resctrl/rdtgroup.c
->> @@ -2610,10 +2610,9 @@ static void mba_sc_domain_destroy(struct rdt_resource *r,
->>   * The MBA software controller is supported only if MBM is supported and MBA is
->>   * in linear scale, and the MBM monitor scope is the same as MBA control scope.
->>   *
->> - * The software controller cannot be supported when the MBM counters are
->> - * assignable.  There is no guarantee that MBM counters are assigned to the
->> - * event backing the software controller in all monitoring domains of all
->> - * monitoring groups.
->> + * The controller needs a counter for its event in every monitoring group.
->> + * With assignable counters that requires a fixed assignment mode, with
->> + * counters assigned automatically while the controller is in use.
->>   */
->>  static bool supports_mba_mbps(void)
->>  {
->> @@ -2623,9 +2622,13 @@ static bool supports_mba_mbps(void)
->>  	return (resctrl_is_mbm_enabled() &&
->>  		r->alloc_capable && is_mba_linear() &&
->>  		r->ctrl_scope == rmbm->mon_scope &&
->> -		!rmbm->mon.mbm_cntr_assignable);
->> +		(!rmbm->mon.mbm_cntr_assignable ||
->> +		 rmbm->mon.mbm_cntr_assign_fixed));
->>  }
->>  
->> +/* mbm_assign_on_mkdir before the software controller forced it on. */
->> +static bool mba_sc_saved_assign_on_mkdir;
->> +
->>  /*
->>   * Enable or disable the MBA software controller
->>   * which helps user specify bandwidth in MBps.
->> @@ -2633,6 +2636,7 @@ static bool supports_mba_mbps(void)
->>  static int set_mba_sc(bool mba_sc)
->>  {
->>  	struct rdt_resource *r = resctrl_arch_get_resource(RDT_RESOURCE_MBA);
->> +	struct rdt_resource *rmbm = resctrl_arch_get_resource(RDT_RESOURCE_L3);
->>  	u32 num_closid = resctrl_arch_get_num_closid(r);
->>  	struct rdt_ctrl_domain *d;
->>  	unsigned long fflags;
->> @@ -2643,6 +2647,20 @@ static int set_mba_sc(bool mba_sc)
->>  
->>  	r->membw.mba_sc = mba_sc;
->>  
->> +	/*
->> +	 * The controller needs its event counted in every monitoring group:
->> +	 * force automatic assignment on, and restore the user's setting when
->> +	 * the controller is disabled.
->> +	 */
->> +	if (rmbm->mon.mbm_cntr_assignable) {
->> +		if (mba_sc) {
->> +			mba_sc_saved_assign_on_mkdir = rmbm->mon.mbm_assign_on_mkdir;
->> +			rmbm->mon.mbm_assign_on_mkdir = true;
->> +		} else {
->> +			rmbm->mon.mbm_assign_on_mkdir = mba_sc_saved_assign_on_mkdir;
->> +		}
->> +	}
->> +
->>  	rdtgroup_default.mba_mbps_event = mba_mbps_default_event;
->>  
->>  	list_for_each_entry_rcu(d, &r->ctrl_domains, hdr.list, lockdep_is_cpus_held()) {
->> @@ -3352,7 +3370,7 @@ static int rdt_parse_param(struct fs_context *fc, struct fs_parameter *param)
->>  		ctx->enable_cdpl2 = true;
->>  		return 0;
->>  	case Opt_mba_mbps:
->> -		msg = "mba_MBps requires MBM (mbm_event mode not supported) and linear scale MBA at L3 scope";
->> +		msg = "mba_MBps requires MBM and linear scale MBA at L3 scope";
->>  		if (!supports_mba_mbps())
->>  			return invalfc(fc, msg);
->>  		ctx->enable_mba_mbps = true;
-> 
-
+-Doug
