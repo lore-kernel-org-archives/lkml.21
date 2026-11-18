@@ -1,47 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795005784;
-	b=P1SAeDT2KUZjsL4MdrLpcQ7yVuJn6+Rzp1Rv1FVtoZ2B2jwiH5QZ9/eNBP3YL8MfbnL6
-	 tBlWaOpJiV2/o7VJZBiOTMdd5hRM+hvK5qs/VrCZGLOI5jps0DZjLkYhBHT698sxq/3px
-	 P5gaQTPE3buwfuBi7bJEKhBPQn6OKbQgdBcaw47f2BoPAzUdH85VIO0L1aVwWqy89TQJN
-	 uGRaDkqa6vFkh4AacwLeSF2fpaB1EVVI3i/Pk1HhVrs7B/7rhQKH1IHzfBoJiBaVapfPF
-	 BpE7acxmvEas37uSX4inoOyCKnDbkdQMlmxD4VERyr1ng2NRy30qcxL5dGTNVTtoJfg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795005784;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=i7BOqRCeyCtAF/WP5xZtoPvyJhiNeF0I4oiRbcf0zpc=;
-	b=OMAlAB2szhSZEA1oOR2Q/hkpDmQNprfiCKYK8N4pWSJPzJSF5XInKAdZh7uuatsqcxii
-	 LbRjyO493sJVVOgYNRMb/R2WvfspQzEX8Cr3wpJ7BdEXRwqk6rBwE45VFvxYErqkcYZjV
-	 7ePU5LnCmmDrQM5wHHNHtp0X+qXMFcLWgiTfksOvKyiVgsinsCObBmekpwvMvSlTyzm31
-	 dQ6ISL2ogpB4GFKiNAPDIpU3Pt36k96Ny9E7rsWsSNFVF3UnNRySrLa0ypQhDZYrKczwR
-	 cKPRAEc+Vf0DVzJS4Z/zaIGSHQDyvwfQ8phde/sdINR1KqLU9LcM6bD5h/h3Pkocj1g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HJfNtYoA;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.44
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795005828;
+	b=OfRLeVCFAjHeIXnIh66jucfpwLVe/3VvPN+htQOnfdsmIp/MdgvESlf3Wg2veRIkm6+W
+	 VsZtBU/1psNnzKvFt3N4kOtIVtJER4EsyFtP0N7J4reg1Wffj4qPZtGGBsl1GDr2Tznkw
+	 MYnvQRjVgh3VKKd4bPFM2xw9am9jlZa2+AzIsfwu+3wvOxhFl7TUmTivErf8YnT5veGXe
+	 3xwfmvcLg8sdE6O8hGt1H271uDxYfHrPqRedljcQXdXvLfvuEoCAFM3GnXNSZRSz8eGUm
+	 oTalhnTQQdwSPzNXZGU2Lx5Xnlezsz1OTsnpAD22m8ywrnk0B4U+Vc6EGUSQEljqu0A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795005828;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type;
+	bh=HOa9a+YmhCohrGoQIoOJu5k2eiu280ZQTpGsvtsQ4X8=;
+	b=mko0CFEklajvmvGjg7sjtlKcf1jtaHfrDRv7bI2T2buZhgWaxawgWqSKuZ+uO8k5yQR2
+	 cZXMLR0OCehhfu7XSPZlVXPr2xMS7BvZICI90jkCwwEC9QZhff3e8AVnR3GyMlDimisUi
+	 0OtZfXTh2wHm8zCu5/a+sTOjG21+nfR8tWiFW5HkYjsFzOn5EQqi9/f6IfMRZHYbONiKl
+	 r6mmlUu+47vVFgG0W5X5ll6Jk/dOBlGHp7KTzGZCBG8emJLP3dP7Vw7gROlqWZ+svHlLu
+	 9Zqigf7jqW+WaWEtcrgQe/KBQkmmHRmOfJUDE/XVljzbhIQpOIB6GeaPMOOcb4qTHGQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iAXTJNPb;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.44
+Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B15860A260A;
-	Wed, 18 Nov 2026 12:43:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA7B3606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:43:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA7B3606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HJfNtYoA
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 108711F000C5;
-	Wed, 18 Nov 2026 12:42:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795005783;
-	bh=i7BOqRCeyCtAF/WP5xZtoPvyJhiNeF0I4oiRbcf0zpc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=HJfNtYoANKaHZ2oDdH8fQ/6C/p6v3PUgE8GPyx361yKWpTeixsXnScDij65hbQ9MQ
-	 SqHEWaD9MmqvK1z2hp5jkH9wtqeNTFWUCJk75BCZIHos99tIiVq9VDCAb4qOWhBort
-	 jPh4v3Dd7f0K/u3bNtflMuM1JAFORoRBBPz5wf7+kd9C+Tnh11nlv/TVWpVaJ8IzDq
-	 7Tnu4QKM0Mqo7KtS33OBo/l35HQKzCntM18P0Y2+q8rZv9tR9aUkqrXXFt4ZxxiPnX
-	 SHzi39sJLIa4EEtkW4cZlV4EcQVkI7IjH4sJV/7Muc5TF6yNMXdwNK2HyP1++CMYTU
-	 4PkN5XJJK++ng==
-Message-ID: <c20a2a9f-f40d-4ef0-9aa3-f6eee24ed2b1@kernel.org>
-Date: Wed, 18 Nov 2026 13:42:57 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iAXTJNPb
+Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-491971ac844so888117f8f.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:43:47 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795005826; cv=none;
+        d=google.com; s=arc-20260327;
+        b=YZp643hB7rZgQUttKOZtj/R/YCMTK+5iq48nFFLvgIX48k4a/cUhh0nZDKienoprwk
+         NjtjiTeGO5p/Jw7EwtUztBEfviM6JYfvLeynDbykMBMG7qR0+WVpEzteilsuqBY5IvIY
+         Tn7dlKwdnwoo2AnmZJMhV7B9uJAZkopduGw0/27HBo7KnHBpC4NlKizmI6EVonbTZQmG
+         xk62bKZKnux2puBUds8JeNkusU3sLSHFTA/U6mQ0RwPQHvhODKN7qpDcuB1HwxCVLvXT
+         Ha5XRsO+8OlVdQmJ8X0IzyYvNFw4qbKjcg2u21IHYSNQ11OSjfmxOy6ZjIxRD17cx2Jt
+         0itw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=HOa9a+YmhCohrGoQIoOJu5k2eiu280ZQTpGsvtsQ4X8=;
+        fh=nuRXkkPgSQw/gcGDLH/q7U/HFbMZRi8pzWbJ9rewg08=;
+        b=AExay9kM5HJEtWW48LhCcKy0FUFDQQJ+jOwmAdqbmH4hf1Yr5K7NNZFPv2jkTYv2Gy
+         2+qIsc6u9MS2+8xnT5+4ILl+DeGQbX8ceNWN4zcdv/ussFTgHAMcorQfmXmwNl0i7Lx1
+         WKISGzSKQuveP0olzMLbQzi3pf0mxnZv/dbKRDeqEVB8jzQ5/JdR5rqd7/3LLrJ2lrHr
+         pQqhMRvhzhgi1Z9sQtRTSAGyYCV8Rv8MQhHDr0SnuDYOdnz1nzJQo+mkXz9pcpk+C6Hy
+         EmMFnZKZwxiKNbCjYxZoQiOIt0MREU+oNiu7mT3wWi4an3CtTU/Krde3nXPrFfL6+t5U
+         dhFQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795005826; x=1795610626; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=HOa9a+YmhCohrGoQIoOJu5k2eiu280ZQTpGsvtsQ4X8=;
+        b=iAXTJNPbbCN659b9MtFE9Nq3rMo5jF5bTb9kRrR9tpOx3pdss/rcDpa6WK1UryjALr
+         ZBJAlqBA9S5KVXqKFLk59uXQ+JUt05h8tmHqKLwO6fYKzbcrvotCRgoMHWFZTWpUUGmB
+         dd/cEU9vQfDFf98lUVbzKxspwMrgKoAep4AMOAUa3N/5hqJfMn6n6m24xAI9q6CbSnab
+         j6k8/fztBZ5YoaPKZ2yuHtmbYUPCRlIK74ftjquzJO76AB+E3JW+utqEr99xIPLtmall
+         T21cqmj8KzYzPEnD+2G7O38mgLT1PsFavjqz8D8fGobB+4KiwEN2zb9MY+grF7Bsw7xW
+         E6SQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795005826; x=1795610626;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=HOa9a+YmhCohrGoQIoOJu5k2eiu280ZQTpGsvtsQ4X8=;
+        b=yc36bTBmKMxIw8dcH0IjHpFNXmQYKwHPX+uUJkI3V0lQTvIy1ZS5Kz8RSECimeZb/N
+         BbudVV8gdMdbiCkhdXu0BS/CQQCk/UKAzaGQYPw/3FSLJdqFnh7W3d4jY1BXhyp1omrf
+         QJRbyGwADRi5x30ozhXgatZkxT/LNLJmon6u6zPJGxUUSd6Q8sC3qIqDPlF7eSUmoQX6
+         ysu1OtkWjpN/GVUcBfIvFZfRAeP/Mhw2RfZH/M5GlwlzeZPRLsQ4ZGQhjZ228W6ItTQ3
+         aWwJIipmIiPy7oiPoYKedohbGlir4OlMsFJwWuFUOn9K/Cdex4hEEhda2xmRFVu/PobG
+         EFOQ==
+X-Forwarded-Encrypted: i=1; AL+hErE63LCAvgwRq46vnZR61P2G2DfoRd67pZhvV92EiKumYS2uJ0Qix00IJX0H8lgtyvNubcXirMcEe8lugMo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ygpvO9ROjKg6qEPM3Plkz7ulndTTklkPjI0+YOKnGptKcdfhT
+	M8Za+05O2a3BD18SFu3kY4Ir2/e2TBRrykJLssjlsQdZbypSmG3NLrQ5jbbe5j8EjKmC65Z97Hh
+	Om8SazFFyBAMHf4yYAStm6HcwnzjEeIw=
+X-Gm-Gg: AZFdTZcsCj2isyWDBuKaau9zg+7Zyn1XmPT4dbppCllmyU4rLTp1FrgMm8gTEgxUkkg
+	+r5yP2er+K0lDcAG6+WeAOg9BBCN79OXpIAdhnoUkZ5eK7KG/iV7V5naR204fsBKApt5FFlc+dJ
+	j2IJJz1rgC8zUHI/Y44lrgprcTXtmwvNASoIBweTuwJoP8EY2t0TLsYY/VDqLG0sRS1lBk9Ptm4
+	HdxZw/LsLaQjACy5MMFYAhX1Zb5r2kaOtjbCs2pCcpNd91GjTvUaef2d44nUe8tpejR/GU1UQw4
+	q/JSUmGBsi/uKVYDP5p0ilV38ULdmxaX0ESfcF4Hnzl9Fs2boLMG8FD4K3L1huWmEwZ4dAIvAor
+	ZCZ9eNQCH/7bbJAwvcNSHVnlLOHu6p9IFoQ==
+X-Received: by 2002:a05:6000:4a04:b0:4a6:8012:19a with SMTP id
+ ffacd0b85a97d-4a68012033bmr4116923f8f.22.1795005825888; Wed, 18 Nov 2026
+ 04:43:45 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,78 +101,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: defconfig: enable the SerDes PHY for Qualcomm
- SA8255p
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
- Shawn Guo <shengchao.guo@oss.qualcomm.com>
-Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261118-qcom-scmi-sgmii-phy-defconfig-v1-1-d0c7d2e881c7@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261118-qcom-scmi-sgmii-phy-defconfig-v1-1-d0c7d2e881c7@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Wong Steve <shyckless@gmail.com>
+Date: Wed, 18 Nov 2026 20:43:33 +0800
+X-Gm-Features: Aa3M54ppZITCCGdeh2x9pwMNL4N9s_TEBJJomvDgdCI7vdkibDlWPRSqczxn-uw
+Message-ID: <CA+X8SdhwtAT=XoRXf_1=WBfYYrc1MWh1sywQ0uUuQ7b_b3EOeQ@mail.gmail.com>
+Subject: Re: [PATCH 2/2] coresight: etm-perf: reject events that exclude both
+ kernel and user space
+To: moonafterrain@outlook.com, suzuki.poulose@arm.com, mike.leach@arm.com, 
+	james.clark@linaro.org, leo.yan@arm.com, alexander.shishkin@linux.intel.com, 
+	mathieu.poirier@linaro.org, gregkh@linuxfoundation.org
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, danisjiang@gmail.com, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On 18/11/2026 11:31, Bartosz Golaszewski wrote:
-> Enable the SGMII/SerDes PHY driver for the firmware-managed variant of
-> the Lemans platform. This module is required for ethernet to work on
+Hi Junrui,
 
-Which Lemans? This is a generic defconfig, not vendor specific.
+Nice catch, and thanks for the detailed analysis. We ran into the same
+issue independently while auditing privilege checks, and I can confirm
+it is real: in etm4_parse_event_config(), and in the same place in
+etm3x,
 
-> sa8255p-ride.
-> 
+        if (attr->exclude_kernel)
+                curr_config->mode = ETM_MODE_EXCL_KERN;
+        if (attr->exclude_user)
+                curr_config->mode = ETM_MODE_EXCL_USER;
 
-`git grep` gives me only piece of a compatible, not even DTS. There is
-no such board simply. We don't take changes for non-upstream boards.
+the second assignment overwrites ETM_MODE_EXCL_KERN, so an event that
+sets both exclude_kernel and exclude_user excludes only user space and
+still traces the kernel. perf_event_open() skips perf_allow_kernel()
+when exclude_kernel is set, so the privilege check is bypassed and an
+unprivileged user can trace the kernel.
 
+Rejecting the combination in etm_event_init(), as your patch does, is
+the right place to fix it and covers both etm3x and etm4x. I went
+through the patch and it looks correct to me.
 
-Best regards,
-Krzysztof
+Reviewed-by: Suyuan Wang <stevewong@hust.edu.cn>
+
+Suzuki, Mike, James, Leo: this still applies to next-20261117 and the
+hole is still open. The patch has been out since August without a reply
+-- could you let us know its status? Happy to help if anything is needed
+to get it picked up.
+
+Thanks,
+Suyuan
