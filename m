@@ -1,98 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.8
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795022443;
-	b=3IKLhtql676Ive5emYb88suAuz3DMuXsMMWvxGUaK8vSZLxiLqtU3sDVmqsm2jCPHapo
-	 2pwOqxTUMmZTef/Oa0QDV7Z4Lflr28uqcyAz8ds6IacumKqO0iRU08M896XbxIqh6dHoQ
-	 MZEyasTkdpu8byjJPO3CvOnl5iH1SiWUvHyIiFHGAML1+ApwbBMeEFQmCPb4g6SC21CVn
-	 J7pE6+BAcsRfsn2i2SDqSpZTHmctjPxMnZC0eAX7AxwIq9ZfnVxcvm9nH2+IWUVP6LxdC
-	 hbEtxxSd5s/1RNPuAOHmRl41TGMUfUCUDnpSESAy3fqdsqETjCMTWxuuT6B2NtuLEfQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795022443;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=XMxT40yig6VoMIdGl8c3p/xXnTlOl5pevtAgNc70YRc=;
-	b=TUGo09/AL/FgPs70QJ15sE8xP94aMx1iu89gg3cAKkoRBmBX0jKDUh2FOT9gb+8lfbLb
-	 ZxvkvkZ18Js0tlNsOxpiLqfgDssHXjVqFqXl1azft91ypatDnUySlgFF9/cO99ZjQJi4o
-	 F1OciIP5bxdw0A2bVHzqLF9VIAfRe1kMRRHoguc3SXysPR1Bl+vxlD3WceILkShHwiVEQ
-	 CiKUvnvmHMjizbaz5AAaO/TIczFvkznsIAyXKq82nivRhl21CGRyYINi0pYC3yHXRi1Mt
-	 imPtWqjb3Blo8QqhPjdQ1bTADKrPOlG9jQSa0OKbIwBXAa0PjGuFikrWaei1lS9eWOw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=qn8NXxPS;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.8
-Received: from DB3PR0202CU003.outbound.protection.outlook.com (mail-northeuropeazon11010008.outbound.protection.outlook.com [52.101.84.8])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.126.135
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795022466;
+	b=b8ccqwbfbIBHAV9JPJW2UAOWdMGh3yUtylNM6r92MGAb80an8Nsk6BjUOQF9Y1ShkL7l
+	 2OeiwkfzxuCM+6xxPK+5WNHwC2M7Y8Th9GVpa7cbOVeygNFj9i+djwz9ZgDbGo6w+XteQ
+	 Wx8wQF5ELswlCuYQNgpi66r2tS+Gh72fO7GpBozO9V/aKUwl2xvambNmu9tmF5pLD5j/4
+	 uyhQpd1KeaxR2wrMEczdarVxNpZgC/aYLX1X6281jrZCSVSuc2x9Z59MraC8bS6F5Sjow
+	 wofPY4E6KiE2ymCPsIfeiOKbaTeqsY+zDX2lz+mg3s8WK5nEILli375KleX3uZjeL0w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795022466;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
+	 UI-OutboundReport;
+	bh=7B+xkWqUWFTQSiPsnjUgEF1KPiSAU/FfUqGVycOFzGY=;
+	b=cpPcOrI7b3JzBxb1xUwrGLsUD1fkz/pMmvWB/Jl3oU2sP/Qf719o++aQgiFqBq9U66M1
+	 nb5Lkn9JLK7wtKfNByiyZUi7SDKboA7VrCYeHRJHbv2q/tHe+2idmj/zmoFochmvu0FBG
+	 Z1T7Z1Ljpm7RKj6l1DX/335wyuVDX406E+Es3A6PZ3ROQMp6ghnGIrT+fW4Auy04+g45c
+	 eNDnvyWjR/Ay8IxOsLfR/DXoV/HwksCsRIZe/f6YBLkTxJbUaKAkqzoUVu1YxcBK+tOav
+	 jULNrf5nGpT1qgMfQPf9sGlxd+GLqPmNG8hk2gUI84mPEGohUCWHwkjsMfy6YCWBriQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=justus-bergermann.de;
+	spf=pass smtp.mailfrom=justus-bergermann.de;
+	dkim=pass header.d=justus-bergermann.de header.i=mail@justus-bergermann.de header.a=rsa-sha256 header.s=s1-ionos header.b=IdXqblqu;
+	arc=none smtp.remote-ip=212.227.126.135
+Received: from mout.kundenserver.de (mout.kundenserver.de [212.227.126.135])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9A6E606A331;
-	Wed, 18 Nov 2026 17:20:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9A6E606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FB55606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:21:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3FB55606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=justus-bergermann.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=justus-bergermann.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=qn8NXxPS
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NndIfaFt/sW/c/6AN/ON2UA9iNja4mGdoGnuuODUkOIXtR00V/uHNmXinihMEFtAPJicw0jwCSZw3pIw2JQgZqQC317Mj8By1xLUDrr3xofNjM3d+pf7M9KngiS7cVYoLdGuMC1+9nBL710RixFLP/bgraPsY5AsKuj4Ek4Q7EZ1NRooOoCC+PK1y4QPsc9FyY7YmZml/RPkOxbIESC7711E7sQWUCpFmp6Abd5wKexH9VSbKtOOMPGCfrY6xF7vUE7KpM1UwRQxPxD0VC0bU6u3+aGSbY4c5HfWVOxVNijoW5nm74v/w1eB+xYaoFuc1qfOqgmm+YTbxhhHquTpyw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XMxT40yig6VoMIdGl8c3p/xXnTlOl5pevtAgNc70YRc=;
- b=oqBCF6hb6qweLHe1Q91Mir7xJo+SwPM/wHe1atqLHA/nGkjWukbF3riDXBFawXqEGYs6VTDIwBzld0XzsgJ/HUsIIpd1BD+2f7USt8CXx6dRvksvQqdxLHM7agSsNNA4LX4D7PzFWt4i94vKWpok/mCNO5k4GBbAPC00aYuZMbqfGyPbWUG0N4iBVFZvL+L+ZQ0MoqokMv2WoGgwLMhAzBpg5fNnJPjZE98O6QwM+B9ghHQOvzC+nnNciXtD0+xnsaMTubYSy2ukoAgCGpfO27SYZeLZYG0kOFfGA/hVGfkVtHCkVWEgBLR6RHMULJi4bn17nA/z0liB+fHfOEdLPg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XMxT40yig6VoMIdGl8c3p/xXnTlOl5pevtAgNc70YRc=;
- b=qn8NXxPSxIOd2zEvd+iTicMy8VlVrQvyHLoVMM49WbsrogeerlaHbEduqjrVvnDX5Xw1oJP+f/dZIatzVdy3eS4wnXy8hnOqmclenATQrs24yPC4wGIEbjcuw15a9t7EywkZuwuj4cA5eyqxmTY9MCqo5mQL4nQvKtFF5OMwktKyYkT5Re2jdNHYfwYvNVxRQXXZyIOGB8tcwSNvGHWq2bdhactat7abzBfeNYqSaIX+HtCuQlGlig2RVBD2eSTouE/F55MgzFpHDz6AFhTLem1QkHx70kS+RUqmmQTI9hUH/GOzn91g1knEIuF4kRZ+SI1L0l8ruASp4cEhl/8Lzw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by DB9PR04MB9284.eurprd04.prod.outlook.com (2603:10a6:10:36c::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 17:20:32 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 17:20:32 +0000
-Date: Wed, 18 Nov 2026 11:20:23 -0600
-From: Frank Li <Frank.li@oss.nxp.com>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Sergey Khimich <serghox@gmail.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Sia Jee Heng <jee.heng.sia@intel.com>,
-	Mitch Barnett <mitch@accuratesound.ca>, dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v7 1/8] dmaengine: dw-axi-dmac: keep cyclic mode in the
- descriptor
-Message-ID: <av3eV2pXR5ZqYQQC@SMW015318>
-References: <20261117-submit-dw-axi-dma-stop-pause-v1-v7-0-d5f2309afd72@gmail.com>
- <20261117-submit-dw-axi-dma-stop-pause-v1-v7-1-d5f2309afd72@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117-submit-dw-axi-dma-stop-pause-v1-v7-1-d5f2309afd72@gmail.com>
-X-ClientProxiedBy: PH8PR15CA0012.namprd15.prod.outlook.com
- (2603:10b6:510:2d2::18) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	dkim=pass (2048-bit key, unprotected) header.d=justus-bergermann.de header.i=mail@justus-bergermann.de header.a=rsa-sha256 header.s=s1-ionos header.b=IdXqblqu
+DKIM2-Signature:  i=1; m=1; t=1795022456;
+ mf=PG1haWxAanVzdHVzLWJlcmdlcm1hbm4uZGU+;
+ rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+ d=justus-bergermann.de;
+ s=s1-ionos:rsa-sha256:Qh65f6lQq2gw6IQbRGqLklCHKkB/
+   idWDcJs0APWSQ/vdR77o3/aR8HcyVW5MnAPiFGjeRkhm4CSZX2hMUwOpxPuBHPyngL/GW4BIzbI
+   +7QICgtR/nDzf4JY2m13qTuwKmFk06dOLzpBDhlLDymVeAopTWOZRKd6tj9Mh7DRxr2jVDEaQRl
+   /RyAKJ80uHUC8fZanFqnVap0Vu76lM9iNIZ0nM6yO5guOuRb7Pn11UTHSN81xvV+u4p9ULH4M0r
+   gPkP28L2ulEgzM5PYEWL/CKPVQ7kSHr1ltgt/C5xHxOYLPRNLmVwiuJYUsRlnc59KR2xTi60R33
+   Pmzwpz9ztoPbsg==;
+Message-Instance:  m=1;
+ h=sha256:
+   wBljeB7psofb49jwdgQYy98WcKWQDAQhgU1LReJh+90=:
+   PwLCmuxZwDOZ98g584pAvopaqCcLrgu5qNtU7O1giUc=,
+  sha512:
+   PP0vVJJ8ZYRef/HaplAw2heYwG7pWo4r998Xv40y8ExX0HZGITkFcdDMzsqUdO/tec8sZQOvUF6ksFWPPjifPQ==:
+   4oRdx7PNZN8nqJvEgnj0hHIHHXDcTwm57gNojc7VJhrtSjAMYN/ZpYgzpYKrbUqIGriGvIvbTgdJG+G6Zo08QA==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=justus-bergermann.de; s=s1-ionos; t=1795022411; x=1795627211;
+	i=mail@justus-bergermann.de;
+	bh=7B+xkWqUWFTQSiPsnjUgEF1KPiSAU/FfUqGVycOFzGY=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=IdXqblqutsJwD3S54y8zJHXvG4rEAlA6bcTNEv2t8cScYVzIbNckpWWnj1fytHB9
+	 XyI21sSSThZWh6rBf/ejTExqO+rb8AgokKWvTxReT2wayYrvqxlXTluDU4dkF8imj
+	 gmbpwfaXOCMFAs8tFkXmC064qaamVRKswZCKYmHLTkCmrQABdOVj6p767bgR1kYVi
+	 LM9sDgt/NkLjWHK2mfG/IfFgIL6tlIm4quVE2HvdLNSS/HZk3ZM36iYxiigOY4ClJ
+	 JS70rfXBlwNmSYlxwvGOyJo2xQpzWr4ar9ZMv45s5TxUiKrHavxVUMpIEjiW+fmmH
+	 l5ZPIFISiCJyCuG9jw==
+X-UI-Sender-Class: 55c96926-9e95-11ee-ae09-1f7a4046a0f6
+Received: from client.hidden.invalid by mrelayeu.kundenserver.de (mreue012
+ [213.165.67.97]) with ESMTPSA (Nemesis) id 1N6JtR-1wN3zP35Oj-00rWOi; Wed, 18
+ Nov 2026 18:20:10 +0100
+Message-ID: <9774f3e0-1f64-43d7-a8c5-cb61d183b31b@justus-bergermann.de>
+Date: Wed, 18 Nov 2026 18:20:07 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,174 +82,1071 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|DB9PR04MB9284:EE_
-X-MS-Office365-Filtering-Correlation-Id: dd4ca633-a6f7-4327-f2c9-08df45984029
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|19092799006|23010399003|366016|7416014|1800799024|376014|18002099003|22082099003|11063799006|4143699003|5023799004|56012099006|261028144727099003|261102123227099003|261021121427099003|261021123027099003|261026140227099003|261022105027099003|261009223027099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	muHqE5woUEYspTyjWh7zEzNpN11p2UeIhOF/Hl5O5qXN9DBIoFEIZ2YYKNHKRZ9P4obnywSlOyQgFCJKsB/Ue8ORSGcA8MqE4ie1z/2eEzofz2KzHdCWbo9n65u0G1Eh5hfKpcxYztAms8RA/gz/K2yrErKTYSDULktTjk7n3yfTlpAoX66HDEeRdDJFCxEfLPtoaZ1wnkntjFRlPw8HCzvMMtmxFzTfHdcLPswsN8k405gmFNugLpoiH8Qw9HyXktjjUk3TWMiO0MeMhkcY2E7yxbffns3pMRvR4LZEaQrbmqbXpI91Nmb9WghGaIyno73yfwJZomjgpFBkfPnymV71ZTL3D7sNtDovv1OvN9cUgO8KEFu0Op0dGhR14MeU80dwiU67Jn1jIvdGPQHO4UIgQAZkEhFQT0PEsCVx8cngjkCWPYPFPC8ZpUqEIZuAgcJ1TQXm1RNsiswRtGOtQOeb0BoVh058yByRMBM0Raojf80YnhmW138N0Irqo9IrJtkeHkO3U/JDu9sxfKQ6pu/lX1D/Kc++VHIK9N/aPdu2SThv22wAfHDWUO6XnHaw1SB4XS8iao6QPzWG1bnJRo98p1wwvIHDsOj7WwCvRaibIPZW5ffjwEETaiaK9B7F
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(366016)(7416014)(1800799024)(376014)(18002099003)(22082099003)(11063799006)(4143699003)(5023799004)(56012099006)(261028144727099003)(261102123227099003)(261021121427099003)(261021123027099003)(261026140227099003)(261022105027099003)(261009223027099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?+bHFDowcL2TbJ/tGYVYhXo+a0nneNACoWfwoS9t6OSolW+7sFWIgC6XeuPaO?=
- =?us-ascii?Q?Pwba3xeTU7+KhBRihOtx3f+NowrQM7LDp2VDbtLWcy6BpRkAP9D6m7cBzM/u?=
- =?us-ascii?Q?r4nS0wONfqKE48Uu5ifWTNVjdLQw/j9hzCDqXSKZQIYReJ524l2vRVXXOmk9?=
- =?us-ascii?Q?BT6EMFDZ/knqz3wkO1cf0ps9IFFCniayq9K3nsE/nqZD7LOYnzaav+8qEVyk?=
- =?us-ascii?Q?ZjQAkvKvRh3yHirCUD80dBV66G7V0ShHr2p9PgCYYG3KlO1cDEXHoCpqjuBc?=
- =?us-ascii?Q?BbeSJ0gsPUD9cjW7hdZLdacqiBgqnZW2AwlxriYthx3/0f8U5n6c418SuOAU?=
- =?us-ascii?Q?8qFc+ZCM2HhUEHmFpe+XK7gra1R4sxlEj8/N+0Z2CMNoFvjsAUiWCSYtwdIS?=
- =?us-ascii?Q?nJjSk++bI+Iy9xBd2P3L7RhBAfkuyR8Q8op+p8o+K2N8uheN5Fi7s6XwDG/h?=
- =?us-ascii?Q?1HIsR3eFZ9qEktK4YnEKVzKU+vVXV+S0rDeYl3FadgkJTsqmvNnSuS7oQSfy?=
- =?us-ascii?Q?yHd/af3kEPmHeWaEucCfQMzD6+gtcAvonturePVFlhOK/f2xsKBnMN5KwiwG?=
- =?us-ascii?Q?l/o4s0TVRimsXR+ZS9R4XSxIzsiMFQ9sxyuo8k4hdT+qTwXhQIFxwCIkmF7C?=
- =?us-ascii?Q?YZZULHK7AmSAi591j2vQJ8Qf9bKqoLjdZg1bNRJ/qQkUr9H0YUPcg2JRkAfQ?=
- =?us-ascii?Q?ypQ+7kOI6oM88/ysLqVoRUDq7y/NPBhOtAfmEM1nAJ3hxO9kMAGyK8vc0FSE?=
- =?us-ascii?Q?Jt2w87FXHN119+mkkoJTIe/5WCGtWUogYAYyTpuAwoWvKRnV6gP54gfyEBkq?=
- =?us-ascii?Q?QSamnF12XY1gxwyvBeQFpp+hb4M6Y/JpjyJsy9nk8okJyx1bmumgLrmQ2Me5?=
- =?us-ascii?Q?HsIHvUpGjcDc9f9Sy+ufM9fSjABMz/KG402Svh7n6F2mvrECAf13vqt1S9SO?=
- =?us-ascii?Q?WN1FaJN9kQLyEYiBFJhrLoaZ3PcTw6KoNgOpTEK31lRXhzlL4WbszswkGHlQ?=
- =?us-ascii?Q?nA682A5uJ+kC2KV9QxbwpZMWv/JWO120VAreJizihjixiK41CoDQb+tLvTgg?=
- =?us-ascii?Q?lUie+9RUZxGaUeF4w6bkhNmVLSfzsxtAiQrbwEjj+zvOBb9jVHd783fcdQnE?=
- =?us-ascii?Q?BoSH7ImiXNQkaoZtTBY1sxekeP4ZWui+KLqnoigwmghWUE7k4gKpR5sFofxZ?=
- =?us-ascii?Q?lHLpBZrzxN1sgROqobWNSWtlsNWafWvjJVd6xbCdRRlAoGfx/JqDGX7/jZfg?=
- =?us-ascii?Q?kbyq164ulY3jKUHkF4g77QchF/wCtAriVmucWf5OCqRCPNGKSyfhR9JUjnUL?=
- =?us-ascii?Q?e8FQctuQW0OAcLTfnAzpH7umIQ+Aa0zkTr6mSi67FZ7fEoeNbOTSQS6Til86?=
- =?us-ascii?Q?Wj5gM8BDNj0sLoPXoFuz8ra8T8G8uM0oTMSwtCjLpPjLIoMRCZymgM7XX2iK?=
- =?us-ascii?Q?KU4CTUaH5Vo9by+12rZ+ii/qsnVjO02PViGaf6hYcGHJftSwgaRv0xn56gCZ?=
- =?us-ascii?Q?UKPGfhJ0IYQ6C3CJ6mYxuZPuSI6F+pX5gRph2VfaKhYQQR5F99jlivZZF1Tl?=
- =?us-ascii?Q?ztEtY/He5wHflDUjdXMoIbC8wvcujVwCtXOSzCotnIQ9UALYvJD+nhdspoEc?=
- =?us-ascii?Q?RwU1X52ph7U3HikYdywaL6uHkrIoSgmKeUJIPXZlMufCtRT0wVY2n8DZowS3?=
- =?us-ascii?Q?phXTeQXWQyAWuFpQ+OudRElRMHDCUje0TpN/x53sZn3e9hVNN1TLO4JWPI1g?=
- =?us-ascii?Q?zW2ZTByKiwVMNlf+EfDupjMRxy/HHLcTLiBNao8oRLORF91H26Jz?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dd4ca633-a6f7-4327-f2c9-08df45984029
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 17:20:32.5841
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qZByPgxBLim7Tl476b8Ca6hVrSSkgSqarq0/4g2ja3W6DxQiUcoykf64VaswNjde8Ftwf0TeCOy1ZI95JTILJGqlgItFNsI5JuEfzbUkX7w7PtjTSBZBgor5DlF0a3/D
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9284
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] perf vendor events riscv: Add PMU events JSON file for
+ T-Head C908
+To: Justus Bergermann <mail@justus-bergermann.de>,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, James Clark
+ <james.clark@linaro.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20261005-c908-pmu-events-v1-1-cfab33201c59@justus-bergermann.de>
+Content-Language: en-US
+From: Justus Bergermann <mail@justus-bergermann.de>
+In-Reply-To: <20261005-c908-pmu-events-v1-1-cfab33201c59@justus-bergermann.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:/8mz3ekjXVgYBowYP8dxDvQ8Mn2oeN/Tb1+03cc6uuc9UybMciS
+ buLuBC4h1TK2j/n18b01erPUgeopsd/OlMyML7nEUdQkc1ytTAIJMLenm2lKezoKMwY/pGU
+ iViRdI71J+QHFtwsiaEKZmMKn8bwercrxEbDkQsryCxQVkJF/mp+URwuC73lISDoC+vR3f7
+ lvo01XGVilOMMsUXohdkg==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:IgDdIsuexY8=;50L2mMXc80gASsK0WHjVlz+tSTt
+ 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
 
-On Tue, Nov 17, 2026 at 05:07:40PM -0700, James Hilliard wrote:
-> dw_axi_dma_chan_prep_cyclic() sets chan->cyclic before allocating all the
-> hardware descriptors and leaves it set when preparation fails. The flag
-> also survives cyclic transfer errors and channel resource release. A
-> subsequent noncyclic transfer then takes the cyclic completion path,
-> leaving its cookie incomplete and its descriptor on the issued list.
-> Its zero period_len can also cause a division by zero.
+Hi,
+
+I wanted to follow up on this patch. I haven't received any feedback yet=
+=20
+and was wondering whether there are any comments or whether it could be=20
+considered for inclusion.
+
+Thanks,
+Justus
+
+
+On 05/10/2026 at 18:15, Justus Bergermann wrote:
+> The XuanTie C908 cannot use the existing thead/c900-legacy event file:
+> The c900-legacy mapfile entry is 0x5b7-0x0-0x0, which works because the
+> c906 and c910 leave marchid and mimpid unimplemented, so both read
+> as zero. The C908 implements them: a Kendryte K230 with the c908 reports
+> mvendorid 0x5b7, marchid 0x8000000009140d00 and mimpid 0x50000. No entry
+> matches, so perf currently resolves no vendor event names at all on this
+> core.
 >
-> Resetting the flag on failure or channel allocation is not sufficient:
-> preparing cyclic work while an ordinary transfer is active changes how
-> that transfer's completion interrupt is handled.
+> Add a thead/c908 directory describing the 165 raw events defined in
+> Table 14.6 of the XuanTie C908 user manual, codes 0x01 to 0xb4, and a
+> mapfile entry for the core.
 >
-> Store the mode in each descriptor and use the completed descriptor's
-> mode in the interrupt handler. Cyclic preparation sets only its own
-> descriptor's flag, while the zero-initialized noncyclic descriptors keep
-> it clear. Error recovery and channel reuse then use the next descriptor's
-> mode without relying on channel-wide cleanup.
->
-> Fixes: 1deb96c0fa58 ("dmaegine: dw-axi-dmac: Support device_prep_dma_cyclic()")
-> Closes: https://lore.kernel.org/r/sashiko-outbox-208213@kernel.org/
-> Cc: stable@vger.kernel.org
-> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+> Signed-off-by: Justus Bergermann <mail@justus-bergermann.de>
 > ---
-
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-
->  drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c | 35 ++++++++++++--------------
->  drivers/dma/dw-axi-dmac/dw-axi-dmac.h          |  2 +-
->  2 files changed, 17 insertions(+), 20 deletions(-)
+>   tools/perf/pmu-events/arch/riscv/mapfile.csv       |   1 +
+>   .../pmu-events/arch/riscv/thead/c908/cache.json    | 127 +++++
+>   .../pmu-events/arch/riscv/thead/c908/firmware.json |  68 +++
+>   .../arch/riscv/thead/c908/instruction.json         | 192 ++++++++
+>   .../arch/riscv/thead/c908/microarch.json           | 512 +++++++++++++=
+++++++++
+>   5 files changed, 900 insertions(+)
 >
-> diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-> index 7520c78f55cc..6dae63024721 100644
-> --- a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-> +++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-> @@ -801,7 +801,7 @@ dw_axi_dma_chan_prep_cyclic(struct dma_chan *dchan, dma_addr_t dma_addr,
+> diff --git a/tools/perf/pmu-events/arch/riscv/mapfile.csv b/tools/perf/p=
+mu-events/arch/riscv/mapfile.csv
+> index 87cfb0e0849f..51d0438b9cc8 100644
+> --- a/tools/perf/pmu-events/arch/riscv/mapfile.csv
+> +++ b/tools/perf/pmu-events/arch/riscv/mapfile.csv
+> @@ -21,6 +21,7 @@
+>   0x489-0x8000000000000[1-6]08-0x[9b][[:xdigit:]]+,v1,sifive/p650,core
+>   0x5b7-0x0-0x0,v1,thead/c900-legacy,core
+>   0x5b7-0x80000000090c0d00-0x2047000,v1,thead/c900-legacy,core
+> +0x5b7-0x8000000009140d00-0x[[:xdigit:]]+,v1,thead/c908,core
+>   0x602-0x3-0x0,v1,openhwgroup/cva6,core
+>   0x67e-0x80000000db0000[89]0-0x[[:xdigit:]]+,v1,starfive/dubhe-80,core
+>   0x31e-0x8000000000008a45-0x[[:xdigit:]]+,v1,andes/ax45,core
+> diff --git a/tools/perf/pmu-events/arch/riscv/thead/c908/cache.json b/to=
+ols/perf/pmu-events/arch/riscv/thead/c908/cache.json
+> new file mode 100644
+> index 000000000000..052c771fbdea
+> --- /dev/null
+> +++ b/tools/perf/pmu-events/arch/riscv/thead/c908/cache.json
+> @@ -0,0 +1,127 @@
+> +[
+> +  {
+> +    "EventName": "L1_ICACHE_ACCESS",
+> +    "EventCode": "0x00000001",
+> +    "BriefDescription": "L1-icache Access"
+> +  },
+> +  {
+> +    "EventName": "L1_ICACHE_MISS",
+> +    "EventCode": "0x00000002",
+> +    "BriefDescription": "L1-icache Miss"
+> +  },
+> +  {
+> +    "EventName": "ITLB_MISS",
+> +    "EventCode": "0x00000003",
+> +    "BriefDescription": "iTLB Miss"
+> +  },
+> +  {
+> +    "EventName": "JTLB_MISS",
+> +    "EventCode": "0x00000005",
+> +    "BriefDescription": "jTLB Miss"
+> +  },
+> +  {
+> +    "EventName": "L1_DCACHE_READ_ACCESS",
+> +    "EventCode": "0x0000000c",
+> +    "BriefDescription": "L1-dcache load access"
+> +  },
+> +  {
+> +    "EventName": "L1_DCACHE_READ_MISS",
+> +    "EventCode": "0x0000000d",
+> +    "BriefDescription": "L1-dcache load miss"
+> +  },
+> +  {
+> +    "EventName": "L1_DCACHE_WRITE_ACCESS",
+> +    "EventCode": "0x0000000e",
+> +    "BriefDescription": "L1-dcache store access"
+> +  },
+> +  {
+> +    "EventName": "L1_DCACHE_WRITE_MISS",
+> +    "EventCode": "0x0000000f",
+> +    "BriefDescription": "L1-dcache store miss"
+> +  },
+> +  {
+> +    "EventName": "IF_REFILL_STALL",
+> +    "EventCode": "0x00000051",
+> +    "BriefDescription": "IF Refill Stall"
+> +  },
+> +  {
+> +    "EventName": "L1_DCACHE_ACCESS",
+> +    "EventCode": "0x0000009b",
+> +    "BriefDescription": "L1 Dcache Access"
+> +  },
+> +  {
+> +    "EventName": "L1_DCACHE_MISS",
+> +    "EventCode": "0x0000009c",
+> +    "BriefDescription": "L1 Dcache Miss"
+> +  },
+> +  {
+> +    "EventName": "L1_DCACHE_EXCLUSIVE_EVICTION",
+> +    "EventCode": "0x0000009d",
+> +    "BriefDescription": "L1 Dcache Exclusive Eviction"
+> +  },
+> +  {
+> +    "EventName": "ICACHE_PREFETCH",
+> +    "EventCode": "0x0000009e",
+> +    "BriefDescription": "Icache Prefetch"
+> +  },
+> +  {
+> +    "EventName": "DCACHE_AMR_ACTIVE",
+> +    "EventCode": "0x0000009f",
+> +    "BriefDescription": "Dcache Amr Active"
+> +  },
+> +  {
+> +    "EventName": "ICACHE_PREFETCH_MISS",
+> +    "EventCode": "0x000000a0",
+> +    "BriefDescription": "Icache Prefetch Miss"
+> +  },
+> +  {
+> +    "EventName": "DCACHE_REFILL_CAUSED_BY_PREFETCH",
+> +    "EventCode": "0x000000a1",
+> +    "BriefDescription": "Dcache Refill Caused by Prefetch"
+> +  },
+> +  {
+> +    "EventName": "DCACHE_HIT_CAUSED_BY_PREFETCH",
+> +    "EventCode": "0x000000a2",
+> +    "BriefDescription": "Dcache Hit Caused by Prefetch"
+> +  },
+> +  {
+> +    "EventName": "STORE_DTLB_MISS",
+> +    "EventCode": "0x000000a3",
+> +    "BriefDescription": "Store Dtlb Miss"
+> +  },
+> +  {
+> +    "EventName": "LOAD_DTLB_MISS",
+> +    "EventCode": "0x000000a4",
+> +    "BriefDescription": "Load Dtlb Miss"
+> +  },
+> +  {
+> +    "EventName": "L2_ACCESS",
+> +    "EventCode": "0x000000a5",
+> +    "BriefDescription": "L2 Access"
+> +  },
+> +  {
+> +    "EventName": "L2_MISS",
+> +    "EventCode": "0x000000a6",
+> +    "BriefDescription": "L2 Miss"
+> +  },
+> +  {
+> +    "EventName": "SNB_READ_CREATE_VLD",
+> +    "EventCode": "0x000000a7",
+> +    "BriefDescription": "Snb Read Create Vld"
+> +  },
+> +  {
+> +    "EventName": "SNB_READ_CREATE_STALL",
+> +    "EventCode": "0x000000a8",
+> +    "BriefDescription": "Snb Read Create Stall"
+> +  },
+> +  {
+> +    "EventName": "SNB_WRITE_CREATE_VLD",
+> +    "EventCode": "0x000000a9",
+> +    "BriefDescription": "Snb Write Create Vld"
+> +  },
+> +  {
+> +    "EventName": "SNB_WRITE_CREATE_STALL",
+> +    "EventCode": "0x000000aa",
+> +    "BriefDescription": "Snb Write Create Stall"
+> +  }
+> +]
+> diff --git a/tools/perf/pmu-events/arch/riscv/thead/c908/firmware.json b=
+/tools/perf/pmu-events/arch/riscv/thead/c908/firmware.json
+> new file mode 100644
+> index 000000000000..7149caec4f80
+> --- /dev/null
+> +++ b/tools/perf/pmu-events/arch/riscv/thead/c908/firmware.json
+> @@ -0,0 +1,68 @@
+> +[
+> +  {
+> +    "ArchStdEvent": "FW_MISALIGNED_LOAD"
+> +  },
+> +  {
+> +    "ArchStdEvent": "FW_MISALIGNED_STORE"
+> +  },
+> +  {
+> +    "ArchStdEvent": "FW_ACCESS_LOAD"
+> +  },
+> +  {
+> +    "ArchStdEvent": "FW_ACCESS_STORE"
+> +  },
+> +  {
+> +    "ArchStdEvent": "FW_ILLEGAL_INSN"
+> +  },
+> +  {
+> +    "ArchStdEvent": "FW_SET_TIMER"
+> +  },
+> +  {
+> +    "ArchStdEvent": "FW_IPI_SENT"
+> +  },
+> +  {
+> +    "ArchStdEvent": "FW_IPI_RECEIVED"
+> +  },
+> +  {
+> +    "ArchStdEvent": "FW_FENCE_I_SENT"
+> +  },
+> +  {
+> +    "ArchStdEvent": "FW_FENCE_I_RECEIVED"
+> +  },
+> +  {
+> +    "ArchStdEvent": "FW_SFENCE_VMA_SENT"
+> +  },
+> +  {
+> +    "ArchStdEvent": "FW_SFENCE_VMA_RECEIVED"
+> +  },
+> +  {
+> +    "ArchStdEvent": "FW_SFENCE_VMA_ASID_SENT"
+> +  },
+> +  {
+> +    "ArchStdEvent": "FW_SFENCE_VMA_ASID_RECEIVED"
+> +  },
+> +  {
+> +    "ArchStdEvent": "FW_HFENCE_GVMA_SENT"
+> +  },
+> +  {
+> +    "ArchStdEvent": "FW_HFENCE_GVMA_RECEIVED"
+> +  },
+> +  {
+> +    "ArchStdEvent": "FW_HFENCE_GVMA_VMID_SENT"
+> +  },
+> +  {
+> +    "ArchStdEvent": "FW_HFENCE_GVMA_VMID_RECEIVED"
+> +  },
+> +  {
+> +    "ArchStdEvent": "FW_HFENCE_VVMA_SENT"
+> +  },
+> +  {
+> +    "ArchStdEvent": "FW_HFENCE_VVMA_RECEIVED"
+> +  },
+> +  {
+> +    "ArchStdEvent": "FW_HFENCE_VVMA_ASID_SENT"
+> +  },
+> +  {
+> +    "ArchStdEvent": "FW_HFENCE_VVMA_ASID_RECEIVED"
+> +  }
+> +]
+> diff --git a/tools/perf/pmu-events/arch/riscv/thead/c908/instruction.jso=
+n b/tools/perf/pmu-events/arch/riscv/thead/c908/instruction.json
+> new file mode 100644
+> index 000000000000..401544f1d15e
+> --- /dev/null
+> +++ b/tools/perf/pmu-events/arch/riscv/thead/c908/instruction.json
+> @@ -0,0 +1,192 @@
+> +[
+> +  {
+> +    "EventName": "CONDITION_BRANCH_MISPRED",
+> +    "EventCode": "0x00000006",
+> +    "BriefDescription": "Condition Branch Mispred"
+> +  },
+> +  {
+> +    "EventName": "CONDITION_BRANCH",
+> +    "EventCode": "0x00000007",
+> +    "BriefDescription": "Condition Branch"
+> +  },
+> +  {
+> +    "EventName": "INDIRECT_BRANCH_MISS",
+> +    "EventCode": "0x00000008",
+> +    "BriefDescription": "Indirect Branch Miss"
+> +  },
+> +  {
+> +    "EventName": "INDIRECT_BRANCH",
+> +    "EventCode": "0x00000009",
+> +    "BriefDescription": "Indirect Branch"
+> +  },
+> +  {
+> +    "EventName": "INST_STORE",
+> +    "EventCode": "0x0000000b",
+> +    "BriefDescription": "Store Instruction"
+> +  },
+> +  {
+> +    "EventName": "ISSUE_INSTRUCTION",
+> +    "EventCode": "0x00000016",
+> +    "BriefDescription": "Issue Instruction"
+> +  },
+> +  {
+> +    "EventName": "INST_ALU",
+> +    "EventCode": "0x0000001d",
+> +    "BriefDescription": "ALU Instruction"
+> +  },
+> +  {
+> +    "EventName": "INST_VECTOR",
+> +    "EventCode": "0x0000001f",
+> +    "BriefDescription": "Vector SIMD Instruction"
+> +  },
+> +  {
+> +    "EventName": "INST_CSR",
+> +    "EventCode": "0x00000020",
+> +    "BriefDescription": "CSR Instruction"
+> +  },
+> +  {
+> +    "EventName": "ATOMIC_INSTRUCTION",
+> +    "EventCode": "0x00000021",
+> +    "BriefDescription": "ATOMIC Instruction"
+> +  },
+> +  {
+> +    "EventName": "INST_ECALL",
+> +    "EventCode": "0x00000025",
+> +    "BriefDescription": "Environment Call"
+> +  },
+> +  {
+> +    "EventName": "INST_LONG_JP",
+> +    "EventCode": "0x00000026",
+> +    "BriefDescription": "Long Jump"
+> +  },
+> +  {
+> +    "EventName": "INST_FP",
+> +    "EventCode": "0x0000002a",
+> +    "BriefDescription": "Float Point Instruction"
+> +  },
+> +  {
+> +    "EventName": "LOAD_INSTRUCTION",
+> +    "EventCode": "0x00000030",
+> +    "BriefDescription": "LOAD Instruction"
+> +  },
+> +  {
+> +    "EventName": "FUSED_INSTRUCTION",
+> +    "EventCode": "0x00000031",
+> +    "BriefDescription": "Fused Instruction"
+> +  },
+> +  {
+> +    "EventName": "MULT_INSTRUCTION",
+> +    "EventCode": "0x00000032",
+> +    "BriefDescription": "MULT Instruction"
+> +  },
+> +  {
+> +    "EventName": "DIV_INSTRUCTION",
+> +    "EventCode": "0x00000033",
+> +    "BriefDescription": "DIV Instruction"
+> +  },
+> +  {
+> +    "EventName": "BRANCH_INSTRUCTION",
+> +    "EventCode": "0x00000036",
+> +    "BriefDescription": "Branch Instruction"
+> +  },
+> +  {
+> +    "EventName": "UNCONDITION_BRANCH",
+> +    "EventCode": "0x00000037",
+> +    "BriefDescription": "Uncondition Branch"
+> +  },
+> +  {
+> +    "EventName": "BRANCH_MISPRED",
+> +    "EventCode": "0x00000038",
+> +    "BriefDescription": "Branch Mispred"
+> +  },
+> +  {
+> +    "EventName": "UNCONDITION_BRANCH_MISPRED",
+> +    "EventCode": "0x00000039",
+> +    "BriefDescription": "Uncondition Branch Mispred"
+> +  },
+> +  {
+> +    "EventName": "TAKEN_BRANCH_MISPRED",
+> +    "EventCode": "0x0000003a",
+> +    "BriefDescription": "Taken Branch Mispred"
+> +  },
+> +  {
+> +    "EventName": "TAKEN_CONDITION_BRANCH",
+> +    "EventCode": "0x0000003b",
+> +    "BriefDescription": "Taken Condition Branch"
+> +  },
+> +  {
+> +    "EventName": "TAKEN_CONDITION_BRANCH_MISPRED",
+> +    "EventCode": "0x0000003c",
+> +    "BriefDescription": "Taken Condition Branch Mispred"
+> +  },
+> +  {
+> +    "EventName": "UNALIGN_LOAD_INSTRUCTION",
+> +    "EventCode": "0x0000003d",
+> +    "BriefDescription": "Unalign LOAD Instruction"
+> +  },
+> +  {
+> +    "EventName": "UNALIGN_STORE_INSTRUCTION",
+> +    "EventCode": "0x0000003e",
+> +    "BriefDescription": "Unalign STORE Instruction"
+> +  },
+> +  {
+> +    "EventName": "LR_INSTRUCTION",
+> +    "EventCode": "0x0000003f",
+> +    "BriefDescription": "LR Instruction"
+> +  },
+> +  {
+> +    "EventName": "SC_INSTRUCTION",
+> +    "EventCode": "0x00000040",
+> +    "BriefDescription": "SC Instruction"
+> +  },
+> +  {
+> +    "EventName": "AMO_INSTRUCTION",
+> +    "EventCode": "0x00000041",
+> +    "BriefDescription": "AMO Instruction"
+> +  },
+> +  {
+> +    "EventName": "BARRIER_INSTRUCTION",
+> +    "EventCode": "0x00000042",
+> +    "BriefDescription": "Barrier Instruction"
+> +  },
+> +  {
+> +    "EventName": "FAILED_SC_INSTRUCTION",
+> +    "EventCode": "0x00000043",
+> +    "BriefDescription": "Failed SC Instruction"
+> +  },
+> +  {
+> +    "EventName": "FP_DIV_INSTRUCTION",
+> +    "EventCode": "0x00000045",
+> +    "BriefDescription": "FP DIV Instruction"
+> +  },
+> +  {
+> +    "EventName": "FP_LOAD_INSTRUCTION",
+> +    "EventCode": "0x00000046",
+> +    "BriefDescription": "FP LOAD Instruction"
+> +  },
+> +  {
+> +    "EventName": "FP_STORE_INSTRUCTION",
+> +    "EventCode": "0x00000047",
+> +    "BriefDescription": "FP STORE Instruction"
+> +  },
+> +  {
+> +    "EventName": "VECTOR_DIV_INSTRUCTION",
+> +    "EventCode": "0x00000048",
+> +    "BriefDescription": "Vector DIV Instruction"
+> +  },
+> +  {
+> +    "EventName": "VECTOR_LOAD_INSTRUCTION",
+> +    "EventCode": "0x00000049",
+> +    "BriefDescription": "Vector LOAD Instruction"
+> +  },
+> +  {
+> +    "EventName": "VECTOR_STORE_INSTRUCTION",
+> +    "EventCode": "0x0000004a",
+> +    "BriefDescription": "Vector STORE Instruction"
+> +  },
+> +  {
+> +    "EventName": "VECTOR_MICRO_OP",
+> +    "EventCode": "0x0000004b",
+> +    "BriefDescription": "Vector Micro Op"
+> +  }
+> +]
+> diff --git a/tools/perf/pmu-events/arch/riscv/thead/c908/microarch.json =
+b/tools/perf/pmu-events/arch/riscv/thead/c908/microarch.json
+> new file mode 100644
+> index 000000000000..35d344e1f8f1
+> --- /dev/null
+> +++ b/tools/perf/pmu-events/arch/riscv/thead/c908/microarch.json
+> @@ -0,0 +1,512 @@
+> +[
+> +  {
+> +    "EventName": "IFU_BRANCH_TARGET_MISPRED",
+> +    "EventCode": "0x0000001b",
+> +    "BriefDescription": "IFU Branch Target Mispred"
+> +  },
+> +  {
+> +    "EventName": "IFU_BRANCH_TARGET_INSTRUCTION",
+> +    "EventCode": "0x0000001c",
+> +    "BriefDescription": "IFU Branch Target Instruction"
+> +  },
+> +  {
+> +    "EventName": "INTERRUPT_NUMBER",
+> +    "EventCode": "0x00000023",
+> +    "BriefDescription": "Interrupt Number"
+> +  },
+> +  {
+> +    "EventName": "IFU_STALLED_CYCLE",
+> +    "EventCode": "0x00000027",
+> +    "BriefDescription": "Stalled Cycles Frontend"
+> +  },
+> +  {
+> +    "EventName": "IDU_STALLED_CYCLE",
+> +    "EventCode": "0x00000028",
+> +    "BriefDescription": "Stalled Cycles Backend"
+> +  },
+> +  {
+> +    "EventName": "SYNC_STALL",
+> +    "EventCode": "0x00000029",
+> +    "BriefDescription": "SYNC Stall"
+> +  },
+> +  {
+> +    "EventName": "M_MODE_CYCLES",
+> +    "EventCode": "0x0000002b",
+> +    "BriefDescription": "M Mode Cycles"
+> +  },
+> +  {
+> +    "EventName": "S_MODE_CYCLES",
+> +    "EventCode": "0x0000002c",
+> +    "BriefDescription": "S Mode Cycles"
+> +  },
+> +  {
+> +    "EventName": "U_MODE_CYCLES",
+> +    "EventCode": "0x0000002d",
+> +    "BriefDescription": "U Mode Cycles"
+> +  },
+> +  {
+> +    "EventName": "EXCEPTION_NUMBER",
+> +    "EventCode": "0x0000002e",
+> +    "BriefDescription": "Exception Number"
+> +  },
+> +  {
+> +    "EventName": "FLUSH_NUMBER",
+> +    "EventCode": "0x0000002f",
+> +    "BriefDescription": "Flush Number"
+> +  },
+> +  {
+> +    "EventName": "MULT_INNER_FORWARD",
+> +    "EventCode": "0x00000034",
+> +    "BriefDescription": "Mult Inner Forward"
+> +  },
+> +  {
+> +    "EventName": "DIV_BUFFER_HIT",
+> +    "EventCode": "0x00000035",
+> +    "BriefDescription": "DIV Buffer Hit"
+> +  },
+> +  {
+> +    "EventName": "BUS_BARRIER",
+> +    "EventCode": "0x00000044",
+> +    "BriefDescription": "Bus Barrier"
+> +  },
+> +  {
+> +    "EventName": "ECC_INTERRUPT",
+> +    "EventCode": "0x0000004c",
+> +    "BriefDescription": "ECC Interrupt"
+> +  },
+> +  {
+> +    "EventName": "ASYNC_ABORT_INTERRUPT",
+> +    "EventCode": "0x0000004d",
+> +    "BriefDescription": "Async Abort Interrupt"
+> +  },
+> +  {
+> +    "EventName": "IF_STALL",
+> +    "EventCode": "0x0000004e",
+> +    "BriefDescription": "IF Stall"
+> +  },
+> +  {
+> +    "EventName": "IP_STALL",
+> +    "EventCode": "0x0000004f",
+> +    "BriefDescription": "IP Stall"
+> +  },
+> +  {
+> +    "EventName": "IB_STALL",
+> +    "EventCode": "0x00000050",
+> +    "BriefDescription": "IB Stall"
+> +  },
+> +  {
+> +    "EventName": "IF_MMU_STALL",
+> +    "EventCode": "0x00000052",
+> +    "BriefDescription": "IF Mmu Stall"
+> +  },
+> +  {
+> +    "EventName": "IB_MISPRED_STALL",
+> +    "EventCode": "0x00000053",
+> +    "BriefDescription": "IB Mispred Stall"
+> +  },
+> +  {
+> +    "EventName": "IB_FIFO_STALL",
+> +    "EventCode": "0x00000054",
+> +    "BriefDescription": "IB Fifo Stall"
+> +  },
+> +  {
+> +    "EventName": "IB_IND_BTB_RD_STALL",
+> +    "EventCode": "0x00000055",
+> +    "BriefDescription": "IB Ind Btb Rd Stall"
+> +  },
+> +  {
+> +    "EventName": "IB_VSETVL_STALL",
+> +    "EventCode": "0x00000056",
+> +    "BriefDescription": "IB Vsetvl Stall"
+> +  },
+> +  {
+> +    "EventName": "ID_STALL",
+> +    "EventCode": "0x00000057",
+> +    "BriefDescription": "ID Stall"
+> +  },
+> +  {
+> +    "EventName": "RF_STALL",
+> +    "EventCode": "0x00000058",
+> +    "BriefDescription": "RF Stall"
+> +  },
+> +  {
+> +    "EventName": "EU_STALL",
+> +    "EventCode": "0x00000059",
+> +    "BriefDescription": "EU Stall"
+> +  },
+> +  {
+> +    "EventName": "ID_INST_PIPEDOWN",
+> +    "EventCode": "0x0000005a",
+> +    "BriefDescription": "ID Inst Pipedown"
+> +  },
+> +  {
+> +    "EventName": "RF_INST_PIPEDOWN",
+> +    "EventCode": "0x0000005b",
+> +    "BriefDescription": "RF Inst Pipedown"
+> +  },
+> +  {
+> +    "EventName": "ID_ONE_INST_PIPEDOWN",
+> +    "EventCode": "0x0000005c",
+> +    "BriefDescription": "ID One Inst Pipedown"
+> +  },
+> +  {
+> +    "EventName": "ID_CSR_BEFORE_FENCE_STALL",
+> +    "EventCode": "0x0000005d",
+> +    "BriefDescription": "ID CSR Before Fence Stall"
+> +  },
+> +  {
+> +    "EventName": "ID_VSETVL_FOF_STALL",
+> +    "EventCode": "0x0000005e",
+> +    "BriefDescription": "ID VSETVL Fof Stall"
+> +  },
+> +  {
+> +    "EventName": "ID_FLUSH_STALL",
+> +    "EventCode": "0x0000005f",
+> +    "BriefDescription": "ID Flush Stall"
+> +  },
+> +  {
+> +    "EventName": "ID_MISPREDICTION_STALL",
+> +    "EventCode": "0x00000060",
+> +    "BriefDescription": "ID Misprediction Stall"
+> +  },
+> +  {
+> +    "EventName": "ID_IID_NOT_VLD_STALL",
+> +    "EventCode": "0x00000061",
+> +    "BriefDescription": "ID IID Not Vld Stall"
+> +  },
+> +  {
+> +    "EventName": "RF_ONE_INST_PIPEDOWN",
+> +    "EventCode": "0x00000062",
+> +    "BriefDescription": "RF One Inst Pipedown"
+> +  },
+> +  {
+> +    "EventName": "RF_RAW_STALL",
+> +    "EventCode": "0x00000063",
+> +    "BriefDescription": "RF RAW Stall"
+> +  },
+> +  {
+> +    "EventName": "RF_WAW_STALL",
+> +    "EventCode": "0x00000064",
+> +    "BriefDescription": "RF WAW Stall"
+> +  },
+> +  {
+> +    "EventName": "RF_STRUCTURE_STALL",
+> +    "EventCode": "0x00000065",
+> +    "BriefDescription": "RF Structure Stall"
+> +  },
+> +  {
+> +    "EventName": "RF_CSR_AFTER_FENCE_STALL",
+> +    "EventCode": "0x00000066",
+> +    "BriefDescription": "RF CSR After Fence Stall"
+> +  },
+> +  {
+> +    "EventName": "EU_IU_FULL",
+> +    "EventCode": "0x00000067",
+> +    "BriefDescription": "EU IU Full"
+> +  },
+> +  {
+> +    "EventName": "EU_IU_CONTROL_FULL",
+> +    "EventCode": "0x00000068",
+> +    "BriefDescription": "EU IU Control Full"
+> +  },
+> +  {
+> +    "EventName": "EU_CP0_FULL",
+> +    "EventCode": "0x00000069",
+> +    "BriefDescription": "EU CP0 Full"
+> +  },
+> +  {
+> +    "EventName": "EU_LSU_LOAD_FULL",
+> +    "EventCode": "0x0000006a",
+> +    "BriefDescription": "EU LSU LOAD Full"
+> +  },
+> +  {
+> +    "EventName": "EU_LSU_STORE_FULL",
+> +    "EventCode": "0x0000006b",
+> +    "BriefDescription": "EU LSU STORE Full"
+> +  },
+> +  {
+> +    "EventName": "EU_VFPU_FULL",
+> +    "EventCode": "0x0000006c",
+> +    "BriefDescription": "EU VFPU Full"
+> +  },
+> +  {
+> +    "EventName": "EU_BJU_FULL",
+> +    "EventCode": "0x0000006d",
+> +    "BriefDescription": "EU BJU Full"
+> +  },
+> +  {
+> +    "EventName": "IU_DP_STALL_PIPE0",
+> +    "EventCode": "0x0000006e",
+> +    "BriefDescription": "IU Dp Stall Pipe0"
+> +  },
+> +  {
+> +    "EventName": "IU_MULT_STALL_PIPE0",
+> +    "EventCode": "0x0000006f",
+> +    "BriefDescription": "IU MULT Stall Pipe0"
+> +  },
+> +  {
+> +    "EventName": "IU_DIV_EX1_STALL_PIPE0",
+> +    "EventCode": "0x00000070",
+> +    "BriefDescription": "IU DIV EX1 Stall Pipe0"
+> +  },
+> +  {
+> +    "EventName": "IU_DP_STALL_PIPE1",
+> +    "EventCode": "0x00000071",
+> +    "BriefDescription": "IU Dp Stall Pipe1"
+> +  },
+> +  {
+> +    "EventName": "IU_MULT_STALL_PIPE1",
+> +    "EventCode": "0x00000072",
+> +    "BriefDescription": "IU MULT Stall Pipe1"
+> +  },
+> +  {
+> +    "EventName": "IU_DIV_EX1_STALL_PIPE1",
+> +    "EventCode": "0x00000073",
+> +    "BriefDescription": "IU DIV EX1 Stall Pipe1"
+> +  },
+> +  {
+> +    "EventName": "IU_DP_WB_CONFLICT_PIPE0",
+> +    "EventCode": "0x00000074",
+> +    "BriefDescription": "IU DP Wb Conflict Pipe0"
+> +  },
+> +  {
+> +    "EventName": "IU_DP_WAW_STALL_PIPE0",
+> +    "EventCode": "0x00000075",
+> +    "BriefDescription": "IU DP WAW Stall Pipe0"
+> +  },
+> +  {
+> +    "EventName": "IU_DP_UNCOMMIT_PIPE0",
+> +    "EventCode": "0x00000076",
+> +    "BriefDescription": "IU DP Uncommit Pipe0"
+> +  },
+> +  {
+> +    "EventName": "IU_DP_WB_CONFLICT_PIPE1",
+> +    "EventCode": "0x00000077",
+> +    "BriefDescription": "IU DP Wb Conflict Pipe1"
+> +  },
+> +  {
+> +    "EventName": "IU_DP_WAW_STALL_PIPE1",
+> +    "EventCode": "0x00000078",
+> +    "BriefDescription": "IU DP WAW Stall Pipe1"
+> +  },
+> +  {
+> +    "EventName": "IU_DP_UNCOMMIT_PIPE1",
+> +    "EventCode": "0x00000079",
+> +    "BriefDescription": "IU DP Uncommit Pipe1"
+> +  },
+> +  {
+> +    "EventName": "IU_MULT_UNCOMMIT",
+> +    "EventCode": "0x0000007a",
+> +    "BriefDescription": "IU MULT Uncommit"
+> +  },
+> +  {
+> +    "EventName": "IU_MULT_WB_STALL",
+> +    "EventCode": "0x0000007b",
+> +    "BriefDescription": "IU MULT Wb Stall"
+> +  },
+> +  {
+> +    "EventName": "IU_DIV_UNCOMMIT",
+> +    "EventCode": "0x0000007c",
+> +    "BriefDescription": "IU DIV Uncommit"
+> +  },
+> +  {
+> +    "EventName": "IU_DIV_WB_STALL",
+> +    "EventCode": "0x0000007d",
+> +    "BriefDescription": "IU DIV Wb Stall"
+> +  },
+> +  {
+> +    "EventName": "LSU_LOAD_WAW_STALL",
+> +    "EventCode": "0x0000007e",
+> +    "BriefDescription": "LSU LOAD WAW Stall"
+> +  },
+> +  {
+> +    "EventName": "LSU_LOAD_COMMIT_STALL",
+> +    "EventCode": "0x0000007f",
+> +    "BriefDescription": "LSU LOAD Commit Stall"
+> +  },
+> +  {
+> +    "EventName": "LSU_LOAD_RAW_STALL",
+> +    "EventCode": "0x00000080",
+> +    "BriefDescription": "LSU LOAD RAW Stall"
+> +  },
+> +  {
+> +    "EventName": "LSU_STORE_COMMIT_STALL",
+> +    "EventCode": "0x00000081",
+> +    "BriefDescription": "LSU STORE Commit Stall"
+> +  },
+> +  {
+> +    "EventName": "VIDU_RF_NO_PIPEDOWN",
+> +    "EventCode": "0x00000082",
+> +    "BriefDescription": "Vidu Rf No Pipedown"
+> +  },
+> +  {
+> +    "EventName": "VPU_STALL_PIPE0",
+> +    "EventCode": "0x00000083",
+> +    "BriefDescription": "VPU Stall Pipe0"
+> +  },
+> +  {
+> +    "EventName": "VPU_STALL_PIPE1",
+> +    "EventCode": "0x00000084",
+> +    "BriefDescription": "VPU Stall Pipe1"
+> +  },
+> +  {
+> +    "EventName": "VPU_STRUCT_HAZARD_STALL_PIPE0",
+> +    "EventCode": "0x00000085",
+> +    "BriefDescription": "VPU Struct Hazard Stall Pipe0"
+> +  },
+> +  {
+> +    "EventName": "VPU_UNCOMMIT_STALL_PIPE0",
+> +    "EventCode": "0x00000086",
+> +    "BriefDescription": "VPU Uncommit Stall Pipe0"
+> +  },
+> +  {
+> +    "EventName": "VPU_VLSU_STALL_PIPE0",
+> +    "EventCode": "0x00000087",
+> +    "BriefDescription": "VPU VLSU Stall Pipe0"
+> +  },
+> +  {
+> +    "EventName": "VPU_STRUCT_HAZARD_STALL_PIPE1",
+> +    "EventCode": "0x00000088",
+> +    "BriefDescription": "VPU Struct Hazard Stall Pipe1"
+> +  },
+> +  {
+> +    "EventName": "VPU_UNCOMMIT_STALL_PIPE1",
+> +    "EventCode": "0x00000089",
+> +    "BriefDescription": "VPU Uncommit Stall Pipe1"
+> +  },
+> +  {
+> +    "EventName": "VPU_VLSU_STALL_PIPE1",
+> +    "EventCode": "0x0000008a",
+> +    "BriefDescription": "VPU VLSU Stall Pipe1"
+> +  },
+> +  {
+> +    "EventName": "VFPU_FDIV_VDIV_BUSY",
+> +    "EventCode": "0x0000008b",
+> +    "BriefDescription": "VFPU FDIV/VDIV Busy"
+> +  },
+> +  {
+> +    "EventName": "BJU_CP0_STALL",
+> +    "EventCode": "0x0000008c",
+> +    "BriefDescription": "BJU CP0 Stall"
+> +  },
+> +  {
+> +    "EventName": "BJU_IBUF_STALL",
+> +    "EventCode": "0x0000008d",
+> +    "BriefDescription": "BJU IBUF Stall"
+> +  },
+> +  {
+> +    "EventName": "BJU_WB_STALL",
+> +    "EventCode": "0x0000008e",
+> +    "BriefDescription": "BJU Wb Stall"
+> +  },
+> +  {
+> +    "EventName": "BJU_PIPEDOWN_STALL",
+> +    "EventCode": "0x0000008f",
+> +    "BriefDescription": "BJU Pipedown Stall"
+> +  },
+> +  {
+> +    "EventName": "RTU_FLUSH",
+> +    "EventCode": "0x00000090",
+> +    "BriefDescription": "RTU Flush"
+> +  },
+> +  {
+> +    "EventName": "RTU_IU_NOT_NO_OP",
+> +    "EventCode": "0x00000091",
+> +    "BriefDescription": "RTU IU Not No OP"
+> +  },
+> +  {
+> +    "EventName": "RTU_BJU_NOT_NO_OP",
+> +    "EventCode": "0x00000092",
+> +    "BriefDescription": "RTU BJU Not No OP"
+> +  },
+> +  {
+> +    "EventName": "RTU_LSU_NOT_NO_OP",
+> +    "EventCode": "0x00000093",
+> +    "BriefDescription": "RTU LSU Not No OP"
+> +  },
+> +  {
+> +    "EventName": "RTU_CP0_NOT_NO_OP",
+> +    "EventCode": "0x00000094",
+> +    "BriefDescription": "RTU CP0 Not No OP"
+> +  },
+> +  {
+> +    "EventName": "RTU_VFPU_NOT_NO_OP",
+> +    "EventCode": "0x00000095",
+> +    "BriefDescription": "RTU VFPU Not No OP"
+> +  },
+> +  {
+> +    "EventName": "RTU_ONLY_IU_NOT_NO_OP",
+> +    "EventCode": "0x00000096",
+> +    "BriefDescription": "RTU Only IU Not No OP"
+> +  },
+> +  {
+> +    "EventName": "RTU_ONLY_BJU_NOT_NO_OP",
+> +    "EventCode": "0x00000097",
+> +    "BriefDescription": "RTU Only BJU Not No OP"
+> +  },
+> +  {
+> +    "EventName": "RTU_ONLY_LSU_NOT_NO_OP",
+> +    "EventCode": "0x00000098",
+> +    "BriefDescription": "RTU Only LSU Not No OP"
+> +  },
+> +  {
+> +    "EventName": "RTU_ONLY_CP0_NOT_NO_OP",
+> +    "EventCode": "0x00000099",
+> +    "BriefDescription": "RTU Only CP0 Not No OP"
+> +  },
+> +  {
+> +    "EventName": "RTU_ONLY_VFPU_NOT_NO_OP",
+> +    "EventCode": "0x0000009a",
+> +    "BriefDescription": "RTU Only VFPU Not No OP"
+> +  },
+> +  {
+> +    "EventName": "IQ_FULL",
+> +    "EventCode": "0x000000ab",
+> +    "BriefDescription": "Iq Full"
+> +  },
+> +  {
+> +    "EventName": "VIDU_VEC0_STALL",
+> +    "EventCode": "0x000000ac",
+> +    "BriefDescription": "Vidu Vec0 Stall"
+> +  },
+> +  {
+> +    "EventName": "VIDU_VEC1_STALL",
+> +    "EventCode": "0x000000ad",
+> +    "BriefDescription": "Vidu Vec1 Stall"
+> +  },
+> +  {
+> +    "EventName": "VIDU_VEC0_DEPEND_STALL",
+> +    "EventCode": "0x000000ae",
+> +    "BriefDescription": "Vidu Vec0 Depend Stall"
+> +  },
+> +  {
+> +    "EventName": "VIDU_VEC0_STRUCT_HAZARD_STALL",
+> +    "EventCode": "0x000000af",
+> +    "BriefDescription": "Vidu Vec0 Struct Hazard Stall"
+> +  },
+> +  {
+> +    "EventName": "VIDU_VEC1_DEPEND_STALL",
+> +    "EventCode": "0x000000b0",
+> +    "BriefDescription": "Vidu Vec1 Depend Stall"
+> +  },
+> +  {
+> +    "EventName": "VIDU_VEC1_STRUCT_HAZARD_STALL",
+> +    "EventCode": "0x000000b1",
+> +    "BriefDescription": "Vidu Vec1 Struct Hazard Stall"
+> +  },
+> +  {
+> +    "EventName": "VIDU_TOTAL_CYCLE",
+> +    "EventCode": "0x000000b2",
+> +    "BriefDescription": "Vidu Total Cycle"
+> +  },
+> +  {
+> +    "EventName": "VIDU_VEC0_CYCLE",
+> +    "EventCode": "0x000000b3",
+> +    "BriefDescription": "Vidu Vec0 Cycle"
+> +  },
+> +  {
+> +    "EventName": "VIDU_VEC1_CYCLE",
+> +    "EventCode": "0x000000b4",
+> +    "BriefDescription": "Vidu Vec1 Cycle"
+> +  }
+> +]
 >
->  	chan->direction = direction;
->  	desc->chan = chan;
-> -	chan->cyclic = true;
-> +	desc->cyclic = true;
->  	desc->length = 0;
->  	desc->period_len = period_len;
+> ---
+> base-commit: eb3f4b7426cfd2b79d65b7d37155480b32259a11
+> change-id: 20261005-c908-pmu-events-59219f7d3c82
 >
-> @@ -1117,25 +1117,23 @@ static void axi_chan_block_xfer_complete(struct axi_dma_chan *chan)
->  		goto out;
->  	}
->
-> -	if (chan->cyclic) {
-> -		desc = vd_to_axi_desc(vd);
-> -		if (desc) {
-> -			llp = lo_hi_readq(chan->chan_regs + CH_LLP);
-> -			for (i = 0; i < count; i++) {
-> -				hw_desc = &desc->hw_desc[i];
-> -				if (hw_desc->llp == llp) {
-> -					axi_chan_irq_clear(chan, hw_desc->lli->status_lo);
-> -					hw_desc->lli->ctl_hi |= cpu_to_le32(CH_CTL_H_LLI_VALID);
-> -					desc->completed_blocks = i;
-> -
-> -					if (((hw_desc->len * (i + 1)) % desc->period_len) == 0)
-> -						vchan_cyclic_callback(vd);
-> -					break;
-> -				}
-> +	desc = vd_to_axi_desc(vd);
-> +	if (desc->cyclic) {
-> +		llp = lo_hi_readq(chan->chan_regs + CH_LLP);
-> +		for (i = 0; i < count; i++) {
-> +			hw_desc = &desc->hw_desc[i];
-> +			if (hw_desc->llp == llp) {
-> +				axi_chan_irq_clear(chan, hw_desc->lli->status_lo);
-> +				hw_desc->lli->ctl_hi |= cpu_to_le32(CH_CTL_H_LLI_VALID);
-> +				desc->completed_blocks = i;
-> +
-> +				if (((hw_desc->len * (i + 1)) % desc->period_len) == 0)
-> +					vchan_cyclic_callback(vd);
-> +				break;
->  			}
-> -
-> -			axi_chan_enable(chan);
->  		}
-> +
-> +		axi_chan_enable(chan);
->  	} else {
->  		/* Remove the completed descriptor from issued list before completing */
->  		list_del(&vd->node);
-> @@ -1204,7 +1202,6 @@ static int dma_chan_terminate_all(struct dma_chan *dchan)
->
->  	vchan_get_all_descriptors(&chan->vc, &head);
->
-> -	chan->cyclic = false;
->  	spin_unlock_irqrestore(&chan->vc.lock, flags);
->
->  	vchan_dma_desc_free_list(&chan->vc, &head);
-> diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac.h b/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
-> index d8dd07efe60f..3c86e5d468ea 100644
-> --- a/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
-> +++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
-> @@ -50,7 +50,6 @@ struct axi_dma_chan {
->  	struct axi_dma_desc		*desc;
->  	struct dma_slave_config		config;
->  	enum dma_transfer_direction	direction;
-> -	bool				cyclic;
->  	/* these other elements are all protected by vc.lock */
->  	bool				is_paused;
->  };
-> @@ -105,6 +104,7 @@ struct axi_dma_desc {
->  	u32				length;
->  	u32				period_len;
->  	u32				nr_hw_descs;
-> +	bool				cyclic;
->  };
->
->  struct axi_dma_chan_config {
->
+> Best regards,
 > --
-> 2.53.0
->
+> Justus Bergermann <mail@justus-bergermann.de>
+
