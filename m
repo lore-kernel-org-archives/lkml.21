@@ -1,90 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795032766;
-	b=ISyL39QT5d1VWAbNJwH7KP1DRPs8wRAkio1zF7T7emT2cDD8RwR9C0Nk+Kqs6aTkUtSi
-	 vqdHohXZrWQw1dni2REhjO4rDSzUewVwhbaA04FUps5qkJ7ZJKxRXEdPpdHB7IIhce795
-	 PayzZtbTQ8ypO3CVOSGi4VaxCu58HY97Q2YksehCU8yE+zMdozc0sKbZmdAjprU/UIlhw
-	 oTbhxOFU55eNFpeg0N/RluYAKFDmSxRbuIsF8oVPr5SmDJ8bq8lP0DoPqQcPc1M8YrfxO
-	 WWzCUH8FTjRoeCTHvBLnH/6z3OuiCNWEAD71p4TwCeyHf4yWwwPBjnL00xf471tJ7PA==
+	t=1795032804;
+	b=wU1TTh0/8VjNR47M8mwn92Veqkjm8NZCyREFEajTGvM45r9h6yhNmyt7rWjnWlmAAgLH
+	 F0+5Zfn+nTcB8IS5YRWVbLK67pslsPJOiAVrZKtnxH5Az8Q/q+Te7gSWl1SRtjUf5+4jF
+	 z5ZKo4fIJPD+Z+gBfEhbPjijCB9HSLPTB45Plb43IW69Zw0sPY7LWbTnb34nyx1PX1wfX
+	 FjMWTH/q8oHj0r/2DNH5HR6u2Z575eafZ/gEEG4cXT8sBfzPwlcc+ZNHrgGqEzc8OSHdf
+	 jCidYNvKb5OpxFwULpYepn3F22thzqGI6HgV8Snxr7nlzrteQqOzLBZHVAz3vceRH/A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795032766;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795032804;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=Pjuff7q7uzbEL6ANRmv3ID5+cImAFU4IO3TNfZpMezQ=;
-	b=Bx1NUn8gd/mNwT1/1GIt5Z2AwuLLCnmX/Hfr09PpATSUEPp4jvcr9+YEMhSlO8vCAv9y
-	 U9vvN+haJXa6opKFfM5e6otuLTu/Npl6WY3KgaIe737utLIt7DLjGOFaGQBNDKh6X4Nan
-	 LMKOpDR/XTi4dgfRyJJzgxhbyM1OjItvNhMSVvMb+AWH8DYdMYgSU8pdn/MmHj76O23vF
-	 +9Ir4g5+ONKOIqUC+JPgcBI78niwv9c9cU0ipKHNk+VydWJaVKmWHmmoM8+zXBUkQfXyd
-	 530ZTwkJgqhphwZCh3grHB+bXObENeGlXUTlsvb5v5YK9N+BwRksNmBZAuwNPf56TKQ==
+	bh=CWo9gG2M1aL8kOtpEn9bnir/HcJAmR4CCoFL4v530ak=;
+	b=crw16NDHAiV1S6+ooaquhQ7mDEJr4rVU8Hd2q+QmZdPwx3zdn6PiPDAI1iTJdQ+idvR8
+	 WCQ+BsCbgFAsstJMm3XPeSXfCrasPhUk8hDRjGZIhax+IMjLb1ZaXjoqANfDADKA0nLBQ
+	 jAUPu2zJpQlwCwQW9/XWHUD0w/GsE2jhIY9jfzp+m0slPtASHSSuV0R+R0My7HVI26J0C
+	 l628t/EgDq0OkZ0a9T45iVKXOyfRH2/FTAZtCiKnO1b/T9T9qH4SlwDii390SXz4Qxkfd
+	 JnTaao98MMFGTjTHfTsbY6w/CwVob79FNMDu99YLFf4Gk8fMhvlu9qCrL+J0MiYa2kA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kernel.dk;
-	spf=pass smtp.mailfrom=kernel.dk;
-	dkim=pass header.d=kernel-dk.20260707.gappssmtp.com header.i=@kernel-dk.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=YZ7d3lcY;
-	arc=none smtp.remote-ip=209.85.160.50
-Received: from mail-oa1-f50.google.com (mail-oa1-f50.google.com [209.85.160.50])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RFoe4SGS;
+	arc=none smtp.remote-ip=209.85.128.49
+Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF87C606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:12:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BF87C606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kernel.dk
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kernel.dk
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84FEC606A330
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:13:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84FEC606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel-dk.20260707.gappssmtp.com header.i=@kernel-dk.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=YZ7d3lcY
-Received: by mail-oa1-f50.google.com with SMTP id 586e51a60fabf-490d838b425so767373fac.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:12:45 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RFoe4SGS
+Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4bb64ef5a00so11226535e9.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:13:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=kernel-dk.20260707.gappssmtp.com; s=20260707; t=1795032765; x=1795637565; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Pjuff7q7uzbEL6ANRmv3ID5+cImAFU4IO3TNfZpMezQ=;
-        b=YZ7d3lcY633MpPdzjWfeEyddVT+G02tld5QoTSdv291wxWB0jwFPK6qsBfYsuUz9cX
-         kAkzP3LUouv2tijYjJr8sJHC4NjR5gdQsOpn7qWo+6lPhvfvcrw03ejYxDZEH4Qoaj1E
-         RNiNTK0iXxczAY7HrtLO+bVjz6OOX+BM/PNjokwUt860VRPz84en7wkjjhhDbx3F9pX3
-         w6Yh/fYPUTTL5naOyUHHAu1UBrc2k1NL2FrhfcmUIJPSRgHJznmsQZIZd3Buanai17Jp
-         OgDO+LiHyBJp13h4BnLLXG1ojjUnUNoxNhdRWQw+8khp2DEx1JaEO95Dv4tx34KBKU0i
-         Ym1A==
+        d=gmail.com; s=20260707; t=1795032802; x=1795637602; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=CWo9gG2M1aL8kOtpEn9bnir/HcJAmR4CCoFL4v530ak=;
+        b=RFoe4SGSoAriNsO7IBJF+93KSgN7VqcuHBIqO/XDArIqXiKGxaz9iQNC9Qqix7DdlV
+         xAWFF5MI8jkawVifyg8d0vzokL84+v3zLoLoNvM352wDBwYSn95qnzdl7h1fcjruenRO
+         uDaig58D01pppI3Fjm4VYEIqKvkPPnEReWN8GE1FejzlIJVmPAuAKusdOhY/9umO4+yN
+         j45sRvIvdmd23/yGunQWXb64EePXYy9GOw8L/bUwMITt1sD3gZ7S/N75gJWDsTPP76d0
+         yrxLez2avHI+QHpEQUEuXTZTxaqhn1Bf0Mtwb4dgB9v9MTVsG3/dKJI8rIG7nBsllIB7
+         Dyaw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795032765; x=1795637565;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1795032802; x=1795637602;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Pjuff7q7uzbEL6ANRmv3ID5+cImAFU4IO3TNfZpMezQ=;
-        b=H5nhGSvTBTg1zVAQKBjJqDzsShHYDs3CeLrbkMGZgBFrTOZh3hz2rnYUVKsfvlGHw3
-         h+pbZRsV1+CnHae/bUWTiC9gvAXWFCITT6mK9M1z+dT9LQkboJKcHxuFDIRT8+Ti6VJy
-         JZURLNk3giWYhvtQ2he/EeT2oUIYLTkeKWfLh6tPoYZbvCZEcFIBTw2Sv3c33igUydkQ
-         JqGedoQp2evC4xGCOiIFh5INx9OdvQwYorPbvX94L24YoAndf4wFk6ZnZAxikXOeYfN8
-         z8mf7tOyoGXFqVgCmBRELz0YSomX8c75hVffyVUNFaOyUh1dT0gcGpxypjkotNMhsgx6
-         vvnw==
-X-Forwarded-Encrypted: i=1; AL+hErFUiNc/XxIiAevyonhDMi0xAyfw2arB+mHPherIWpuYG6eO6qcAg8KWQ7l1cWM4bqGfyPhS6HT+AjMN5YY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8s2p2SxFBQOuP+yj9K0IY7rQJHePeYoipfzY5s0IRkWGjelv7G
-	bkW/a9SULdYbkuwU2gkWANnUM9jkPudzCF5pprVWAaTHV9euXH2i62nRIlbEGcHMZhWezldx1zo
-	zN/87L+A=
-X-Gm-Gg: AYBFou2a9jEygef8RuvKOU6fSYIHHvAmS1rQodp0aALFNRavUvVaZql0A2xtJrrrIB/
-	DIdLw/l1O4zupuatCRwoxIybdPfe3OlBJ92inauKaBecqqjGnqaZPnVM7lsyeC2SecaXFlfaBFr
-	FqBo2Ijx0dGkNvJPbwsnJQKh0k2wkzZ3EG6eg8GyHC6AHhZZ7exWyx2a6xfiQqcuLaI1SoeEezJ
-	xcuFNjkU7e2OvWVv/5QiBNiO1DxbLVgoleYFxqEYV4AT+AzQPwkBM4wpIDSckLKdlOlMhXsJ5As
-	hP05uMMuX5szKVsgj0S0DT6lwBnfaISbTQzhtsNWEAQs1Kni2pfR0IzFFN5NeqNubFVbYq6L1hX
-	MOaOFbfP+CfCMQmfjAvuOZepQEU7R65vcXaaxke4Ite46ciHnyDA6+9H1oTyrynaPipkXoVsUBL
-	SPko0/JcE2SIc1u4uW+gPgMAwJS3knzL0cKLLs+Ka5BFvx0noThWveCP3JU8r5MoqGaCnR77rW/
-	zvahoete/KL7nVN789M2u6Cag8CrXSbcbwy6zPCYaiy51JBDt8gkGeORpVBjRNNdKaqv+b/g5IH
-	+8Y9Z2/BEJXG18Ck/hT/cgckLScU4ehnxy39+8UcEthGzXEmZszaBERFdfssRWfJ0hjmQWKuxSB
-	E6do1jiL6ZSMLaLqtCwTelLFiHNDMuTaKNud8vqMSH1mbTYY=
-X-Received: by 2002:a05:6871:5826:b0:494:75ba:c6d2 with SMTP id 586e51a60fabf-4b75f1206c7mr3688243fac.13.1795032764761;
-        Wed, 18 Nov 2026 12:12:44 -0800 (PST)
-Received: from [192.168.0.102] ([96.43.243.2])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4b74372cb6bsm2987383fac.4.2026.11.18.12.12.43
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 12:12:43 -0800 (PST)
-Message-ID: <17a2244d-010e-425d-acc7-ce8601982a10@kernel.dk>
-Date: Wed, 18 Nov 2026 13:12:42 -0700
+        bh=CWo9gG2M1aL8kOtpEn9bnir/HcJAmR4CCoFL4v530ak=;
+        b=mz2JQlsajw1gtTn5rbZ+2gW2+n73+aAnL25viTBWd0PSDtkrFnWXKIWYypDAw8HZKK
+         iwXvzDO5qOn2jAxKpI/e3RQ82JH9W3dmxkypF+4LrDmTEn8ZB1oH8oJBPRdjAfx08Q4n
+         2qByt4ZwDGKXadjPNbtBX8b+9rSs9vfKw1CrjDJYXFXPMhNU88fNKNWVkC5KAy5/RwEs
+         x3kLk5kpRjOx2K9qlVpGR4jOSob7mssn4nJ0d793niP/7U0dhqfXsLCfzSaGqFss+ZUx
+         9Qhmz9zdSS7GnhQ/cODAxRT1mtplAeu2QfnRHIo6NZpWyQAHhUUOSNVKrUU6MdJA/vPA
+         KH6g==
+X-Forwarded-Encrypted: i=1; AL+hErHiDoLlDrj1wKK/ane40GMK0usdmxk7NjYHuFEevVkh7VvZUG8RwkQEn8WWmmQpFxp0LeuSyFWurj8XhWo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+OSiJ6lSh+FYnGcG6HQU/84WnrCH4tzQ4CBV27EPb8fUN6QfjL
+	SP6q/d7xlEHkPiSXws0c879TuwJYhg9pUUGgQ140PwZDudUTocV7QcBt
+X-Gm-Gg: AYBFou0oBaF4bWrPtIifirDTDtOARvD7Ijqh8U4/PL7BvsOYQhz5zvw9a7RcxkQ/on8
+	tdul/1vcWjWdvroHeUWL0V2fls2BuHc1sTumLlVpJAWdpI0R5C+BK8EMXVyFRBtMIvMqqmdvGTJ
+	FRd4X9f02M67UKpr554wKh3X5Hrp6WqZkqt5MZ6qGNICpFcXj3NhsLE6PzH25BYCi1JP/EI9CbT
+	gbo4ZwsiB570gJ1nveVbOyYEonV36lemOystYTA2xe0yHoNkb8HViX4Nakii+4OoUrLQQVOj0GY
+	ejDvgIV+UIxFsKT9/zHDwI41lA5OQA/Ww39qw/sFV/TL2DHHF/5TeqrH3ARZ0YdxPIUMKPS3N3R
+	11YodBFPfOxn0TQaxlNX1xfIw2qndvEPSK1tDk0aghvEzQEOJ423HnRyTiggYA1cdOcU6Hd78kM
+	+fijPws4A2rS1OdznoQqPXQ08qDRnMWT218ZEYKXLKd/fg+L65QLjQp5ry7j0Z0MIw1ksXN0gaz
+	Ot3MWkzfFnAatTDUh+e8sx4Po0C0O6pgMVdpXLZFxxsZZKGUNJL00KNiZrvI+25K2caeFPH5QNr
+	6DR3FQ5Ulbr7FIE2mK8hVCfYJihLJD94OQ==
+X-Received: by 2002:a05:600c:3492:b0:4ab:e27d:e241 with SMTP id 5b1f17b1804b1-4bb7da1a5b8mr67234445e9.15.1795032801596;
+        Wed, 18 Nov 2026 12:13:21 -0800 (PST)
+Received: from localhost ([2603:c027:c000:3cde::f])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7e588eabsm47120145e9.3.2026.11.18.12.13.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 12:13:21 -0800 (PST)
+From: Louis Sautier <sautier.louis@gmail.com>
+To: Sathya Prakash <sathya.prakash@broadcom.com>,
+	Sreekanth Reddy <sreekanth.reddy@broadcom.com>,
+	Suganath Prabu Subramani <suganath-prabu.subramani@broadcom.com>,
+	Ranjan Kumar <ranjan.kumar@broadcom.com>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	"Martin K. Petersen" <mkp@kernel.org>
+Cc: MPT-FusionLinux.pdl@broadcom.com,
+	linux-scsi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH] scsi: mpt3sas: Fix out-of-bounds cpu_msix_table read on CPU hotplug
+Date: Wed, 18 Nov 2026 21:13:16 +0100
+Message-ID: <20261118201316.326943-1-sautier.louis@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,26 +101,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] block: Fix NULL pointer dereference in
- blk_mq_complete_request_remote
-To: "Srivatsa S. Bhat (Microsoft)" <srivatsa@csail.mit.edu>,
- Daniel Wagner <dwagner@suse.de>, Christoph Hellwig <hch@lst.de>
-Cc: linux-block@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-hyperv@vger.kernel.org
-References: <20261119-fix-blk-mq-null-ptr-deref-v1-1-9bcbcfcfaff8@csail.mit.edu>
-Content-Language: en-US
-From: Jens Axboe <axboe@kernel.dk>
-In-Reply-To: <20261119-fix-blk-mq-null-ptr-deref-v1-1-9bcbcfcfaff8@csail.mit.edu>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/18/26 12:28 PM, Srivatsa S. Bhat (Microsoft) wrote:
-> Add NULL pointer validation in blk_mq_complete_request_remote() to
-> prevent kernel crashes when block drivers pass freed request structures.
+mpt3sas_base_attach() allocates cpu_msix_table based on the highest CPU
+online at probe time, but _base_get_msix_index() indexes it with
+raw_smp_processor_id() without a bounds check. Once a CPU with a higher
+id comes online, I/O submitted from it causes an out-of-bounds read of
+the table. The value read is sent to the firmware as the reply queue
+index. When it is not a valid queue, the IOC faults and I/O fails.
 
-Please stop this nonsense.
+On a SAS3224 (FW 16.00.01.00) running v7.4-rc3 with KASAN, booted with
+maxcpus=1 and CPUs 1-95 onlined later, read-only fio pinned to each CPU
+in turn triggers, on CPU 1:
 
+  BUG: KASAN: slab-out-of-bounds in _base_get_msix_index+0x1de/0x230 [mpt3sas]
+  Read of size 1 at addr ffff88812fdf51c1 by task kworker/1:1H/1528
+
+and, on CPU 16:
+
+  mpt3sas_cm0: fault_state(0x1500)!
+  mpt3sas_cm0: sending diag reset !!
+  I/O error, dev sda, sector 3873068048 op 0x0:(READ) flags 0x800000 phys_seg 1 prio class 2
+  mpt3sas_cm0: removing unresponding devices: start
+  sd 0:0:0:0: [sda] Synchronizing SCSI cache
+
+Allocate the table based on nr_cpu_ids instead, and map every CPU in
+each reply queue's affinity mask, including offline ones. Managed IRQ
+affinity already spreads the vectors over all possible CPUs, so a CPU
+onlined later uses the queue whose affinity mask contains it.
+
+The online-mask restriction and the bounds check added by commit
+4a8842de8db4 ("scsi: mpt3sas: fix an out of bound write") are no longer
+needed, since the table now has an entry for every possible CPU.
+
+When smp_affinity_enable=0 or a reply queue has no affinity mask, the
+fallback path still sets only the entries of the CPUs online at probe
+time. A CPU onlined later then reads 0 from the zeroed table, and queue
+0 is always a valid queue.
+
+With the change, the same fio test runs without errors, also while
+CPUs 1-95 are taken offline and back online in a loop. With maxcpus=12
+(12 reply queues), I/O from each of the 96 CPUs completes on the vector
+whose affinity mask contains that CPU.
+
+Fixes: f92363d12359 ("[SCSI] mpt3sas: add new driver supporting 12GB SAS")
+Cc: stable@vger.kernel.org
+Assisted-by: Claude:claude-opus-5-5
+Signed-off-by: Louis Sautier <sautier.louis@gmail.com>
+---
+The table is used when there is a single blk-mq hardware queue, i.e. on
+SAS2 and gen 3 chips, and on gen 3.5 chips with host_tagset_enable=0,
+smp_affinity_enable=0 or a single non-high-iops reply queue. Gen 3.5
+chips also use it for internal commands. It is not used in
+msix_load_balance mode.
+
+SAS2 and gen 3.5 cards were not tested.
+
+This patch does not fix the fallback path in
+_base_assign_reply_queues(), which walks cpu_online_mask without
+cpus_read_lock(). A CPU going offline during probe can make
+cpumask_next() return nr_cpu_ids, and the loop then writes the byte
+after the end of the table.
+
+ drivers/scsi/mpt3sas/mpt3sas_base.c | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/scsi/mpt3sas/mpt3sas_base.c b/drivers/scsi/mpt3sas/mpt3sas_base.c
+index 5c957044eded..b33a3e49608d 100644
+--- a/drivers/scsi/mpt3sas/mpt3sas_base.c
++++ b/drivers/scsi/mpt3sas/mpt3sas_base.c
+@@ -3264,11 +3264,8 @@ _base_assign_reply_queues(struct MPT3SAS_ADAPTER *ioc)
+ 				goto fall_back;
+ 			}
+ 
+-			for_each_cpu_and(cpu, mask, cpu_online_mask) {
+-				if (cpu >= ioc->cpu_msix_table_sz)
+-					break;
++			for_each_cpu(cpu, mask)
+ 				ioc->cpu_msix_table[cpu] = reply_q->msix_index;
+-			}
+ 		}
+ 		return;
+ 	}
+@@ -8409,15 +8406,18 @@ int
+ mpt3sas_base_attach(struct MPT3SAS_ADAPTER *ioc)
+ {
+ 	int r, i, rc;
+-	int cpu_id, last_cpu_id = 0;
+ 
+ 	dinitprintk(ioc, ioc_info(ioc, "%s\n", __func__));
+ 
+ 	/* setup cpu_msix_table */
+ 	ioc->cpu_count = num_online_cpus();
+-	for_each_online_cpu(cpu_id)
+-		last_cpu_id = cpu_id;
+-	ioc->cpu_msix_table_sz = last_cpu_id + 1;
++	/*
++	 * Allocate an entry for every possible CPU, because
++	 * _base_get_msix_index() indexes the table with
++	 * raw_smp_processor_id(), which can be a CPU brought online after
++	 * the adapter was attached.
++	 */
++	ioc->cpu_msix_table_sz = nr_cpu_ids;
+ 	ioc->cpu_msix_table = kzalloc(ioc->cpu_msix_table_sz, GFP_KERNEL);
+ 	ioc->reply_queue_count = 1;
+ 	if (!ioc->cpu_msix_table) {
+
+base-commit: 141b164bbe186423e295b139e40e8e2d11cf1341
 -- 
-Jens Axboe
+2.56.0
 
