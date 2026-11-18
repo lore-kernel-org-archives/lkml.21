@@ -1,63 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.251.229.89
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795022099;
-	b=KTk76smaWovhrgGCZW0XQlnmu/TmVkh0xkZ7LNkStYyC7MU4Bcjy6SizWFJNxjeoRN6Q
-	 bb0kMxsEeS+lzmXzU1xBhAIU6mxWNlLbMm3MvwBTdGCp6/VT7yDhOC255p+72J5RwV6LT
-	 SkJsX4FBCFSahrJWuDEQh+xEm8A/SMVWPh5yjKmRUZd+ZKjNGknJwj7lIhbQd3tYRjk/Q
-	 1b8yTshneGBMYFkFnO4IhMj9MdmYZIPdeBz8pUQ2994WFZ9B8vfQAGLwaKB0q/V68jVGp
-	 LX6TATbqOGXjyiVkJg00lX4j+Q4HhC3BX1NVlUgADDMkwaQ2jwyLfBk3Csv0Bz8tr1w==
+	b=XwkZZZpougBlDiqH1G79w2HeQPnz5z24JR9lY+pe1LI8mw05VUXkicbi7uZj184w0Qm/
+	 CQGN6INDVqK/1/9Ps3ryQFWflHsteTQLjZoQK5B95XYc2VkdotYPS2xt3Han8EfcdPinO
+	 msRZa8ySrg3K1JVJRPNSdT5XV/BDGFAfv1tciWhwc+Fod0osGA0rREaKmUkKrhcE5b1U7
+	 tyl67zsIqwDHPGlbEMTWwmE3rknlkEULl7HQX/waL4CDQ0hY+kaYiQnLP2vB0MYebPl/P
+	 yjv11inHml0OELUl3BhMPsWMhPY6Cm7DpxMxmUw5gAODjaxJ/7di81ONmkc6JClltPg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795022099;
-	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Last-TLS-Session-Version;
-	bh=bbgtcDoVMF/QPbHUExOaFjNAJPWnnDdKtqU2UAqaUzg=;
-	b=iOk5hZym/7A2JNle/ftaAYA8m2TkL5aeODvVsQTEhJRZfherdYEcV04CIduauZ+wUk0N
-	 tXG+0CXB9OQWNNYQLfTFiPmeXgnslFLCBnC1cT1HP8rbYttjyepbAu5uHgbreo3QoiXPD
-	 ZlfpvocyrGeka4X30hAI6tOJvm+y8gL0uBFKbqxYV0aavu3YpRqHRIg7rvYQtAUKUcGhM
-	 IUURC37sbSwCRawPpYcHzE8maqgEMABw6RZtv4gzfaXvuHky4qv8DEt+HO+fsSB2MMGU7
-	 sqU1Wt3n7Qdu/M+4MwGvlajif60lp3w5lDep4O+T8BK2BHyec+mNe2o8rS7giDiOaZg==
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:From:To:Cc:References:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=gbPVxoxfdmGztrFbfvbxP7f4LGo/LFsskgdu9AUgwZI=;
+	b=xe4gao2O3L020BCHvQkh3iSwIDdzks59w9U9VVYGymLLfwjVTM+s+NuJCvG6A63wAMCm
+	 Bh5w6Oir8G0/QttPZae9M9YVZ8pRMbkTy1WAB5dYZ6ofTiDHEGbAqOoVFYc5/yHr6ial8
+	 ZkbPAMWVu8igY7pSN+QLdi90V+ZQzkbf/pV9n50RuKBuR85ToHhCxdO/dPiXnuSSg8vUP
+	 vDXrPOKrlXouwuM4ZjDviieoYBhNBoIUYCcCEOdaQd8VB98DOdj0HmVYv8avYqpgfnzbK
+	 i380ZmAT0ws2zzZHLhHNDJxxpMu0Y3ZOFwt3oAbxxQbgTBZVPTFQRsO+yLnSEzozo3w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nabladev.com;
-	spf=pass smtp.mailfrom=nabladev.com;
-	dkim=pass header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=jRZe7mGY;
-	arc=none smtp.remote-ip=178.251.229.89
-Received: from mx.nabladev.com (mx.nabladev.com [178.251.229.89])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76F7E606A320;
-	Wed, 18 Nov 2026 17:14:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76F7E606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nabladev.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nabladev.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=ObJGyse0;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 5DEC5606A325;
+	Wed, 18 Nov 2026 17:14:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5DEC5606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=jRZe7mGY
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 16F6A10DF33;
-	Wed, 18 Nov 2026 18:14:50 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1795022092;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=bbgtcDoVMF/QPbHUExOaFjNAJPWnnDdKtqU2UAqaUzg=;
-	b=jRZe7mGY5T09x3UEc6+VkrkQoNarfY/lMyIxTYzWTHpRB90AUtpBaMyWORHiG2xycoukmC
-	XGPUrdIBBuPRt9ib6n2sNoCIrkuTYBim3IVR3F43Z0GMXYWQAH8qOWAAA9fhohL1mWggy+
-	QjdChAZFHJGhRODh4QxGynnU3rMCrNvDjihVziCc44IM1SG+hQU6dgFTSNi5Vgvp2sJhF6
-	Y/IMgSZ2zcCBF5el1hzsVYIAVdQEWfd80ul7cbEdXIQKupIcWfT9AX/W9olmX/YpFesEnM
-	uLitjjje2p0o60dZyHzipYrg8Ja68PNFaEnMqFka7jHNSY5eH0alIG9SboXZRQ==
-Date: Wed, 18 Nov 2026 18:14:49 +0100
-From: Pavel Machek <pavel@nabladev.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: stable@vger.kernel.org, patches@lists.linux.dev,
-	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
-	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
-	patches@kernelci.org, lkft-triage@lists.linaro.org,
-	pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com,
-	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
-	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
-	sr@sladewatkins.com
-Subject: Re: [PATCH 5.15 0000/2214] 5.15.226-rc1 review
-Message-ID: <av3dCX_jikgUH0oz@duo.ucw.cz>
-References: <20261118150009.797899913@linuxfoundation.org>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=ObJGyse0
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 786591477;
+	Wed, 18 Nov 2026 09:14:55 -0800 (PST)
+Received: from [10.163.128.4] (unknown [10.163.128.4])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CE0A13FA7A;
+	Wed, 18 Nov 2026 09:14:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795022098; bh=5sXytsRGFlO2BU3Kh6Jfrdi1zyqcGfoU7pV+yaj3NgQ=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=ObJGyse0OCTPhtZf7rFgkLxKTCVvvloJVnn6RePVP/IphpVVotf7tAexh1rIz4n9D
+	 I8itCqr9/ZieVJzN4+0fPTt++ubUiurnd5IKE6/8vOjlZBBcWBpH3p4fTUdmvumzv6
+	 8+03ZM5P+Je0fdgfSQhhy6xOAIWs/XOcinnbY8Vw=
+Message-ID: <27ef4d8f-f4fa-49aa-b166-8335ca6f5898@arm.com>
+Date: Wed, 18 Nov 2026 22:44:48 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,40 +53,92 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha1;
-	protocol="application/pgp-signature"; boundary="R9UF4ktUmYBpCif0"
-Content-Disposition: inline
-In-Reply-To: <20261118150009.797899913@linuxfoundation.org>
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH mm-new v2 0/5] mm: remove unused functions
+From: Dev Jain <dev.jain@arm.com>
+To: Shivank Garg <shivankg@amd.com>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>,
+ Andrew Morton <akpm@linux-foundation.org>, Chris Li <chrisl@kernel.org>,
+ Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>,
+ Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>,
+ Barry Song <baohua@kernel.org>, Youngjun Park <youngjun.park@lge.com>,
+ Minchan Kim <minchan@kernel.org>,
+ Sergey Senozhatsky <senozhatsky@chromium.org>,
+ "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>,
+ Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>,
+ Pedro Falcato <pfalcato@suse.de>
+Cc: linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org
+References: <20261117-unused-sym-mm-v2-0-2f845e94dd50@amd.com>
+ <f3219880-c944-473e-82cc-bd6b4196badf@arm.com>
+Content-Language: en-US
+In-Reply-To: <f3219880-c944-473e-82cc-bd6b4196badf@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
 
---R9UF4ktUmYBpCif0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
 
-Hi!
+On 18/11/26 10:35 pm, Dev Jain wrote:
+> 
+> 
+> On 17/11/26 12:46 pm, Shivank Garg wrote:
+>> This series removes five functions and one variable in mm that have no
+>> users left anywhere in the tree. I found them with the kunused scripts
+>> [1], which I wrote with LLM's help. The v1 cover letter [2] has more
+>> details on the scripts and how LLM was used.
+>>
+>> Changes in v2:
+>> - Split v1 [2] up by MM tree, as David suggested. These five patches
+>>   are based on mm-new. 
+>> - No changes to the patches themselves.
+>>
+>> [1] https://github.com/AMDESE/linux-mm/tree/shivank/kunused
+>> [2] https://lore.kernel.org/r/20261026-unused-sym-v1-0-82ca2dceabe1@amd.com
+>>
+>> Signed-off-by: Shivank Garg <shivankg@amd.com>
+>> ---
+> 
+> Okay I just recalled that there have been numerous cases where people ran
+> scripts / compiler with flags etc and sent patches to remove unused functions,
+> but maintainers rejected them citing they are there for a future use. Here
+> are some of those instances:
+> 
+> https://lore.kernel.org/all/20240907021506.4018676-1-Liam.Howlett@oracle.com/
+> https://lore.kernel.org/linux-mm/20100211052247.GA15392@localhost/
+> 
+> So I think the commit messages need to do more, they need to prove that the
+> unused function was a genuine oversight.
+> 
 
-> This is the start of the stable review cycle for the 5.15.226 release.
-> There are 2214 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
+One way to do that would be to mention the commit and its date, if its too old,
+or, if it was part of a patch series but then the author changed their
+strategy in the later patches making the function redundant, etc etc.
 
-We see build failures here, similar to ones already reported.
+In patch 1, you remove mapping_clear_release_always() but d73065e60dcc 's description
+implies it is going to get used, which is confusing. Maybe we are missing
+a genuine bug, or the author forgot to drop the stale description across
+revisions.
 
-https://gitlab.com/cip-project/cip-testing/linux-stable-rc-ci/-/pipelines/3084761653
-https://gitlab.com/cip-project/cip-testing/linux-stable-rc-ci/-/tree/linux-5.15.y
 
-Best regards,
-								Pavel
+> 
+> 
+>> Shivank Garg (5):
+>>       mm: remove unused helpers from pagemap.h
+>>       mm/swapops: remove unused make_guard_swp_entry()
+>>       mm/swap: remove unused folio_to_swp_tb()
+>>       mm/zsmalloc: remove unused zpdesc_lock()
+>>       mm: nommu: remove unused heap_stack_gap
+>>
+>>  include/linux/pagemap.h | 11 -----------
+>>  include/linux/swapops.h |  5 -----
+>>  mm/nommu.c              |  1 -
+>>  mm/swap_table.h         |  5 -----
+>>  mm/zpdesc.h             |  5 -----
+>>  5 files changed, 27 deletions(-)
+>> ---
+>> base-commit: 67f3b04b277373438f17300e056306adbd9edf7b
+>> change-id: 20261109-unused-sym-mm-8fa76462573e
+>>
+>> Best regards,
+> 
 
---R9UF4ktUmYBpCif0
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iF0EABECAB0WIQRPfPO7r0eAhk010v0w5/Bqldv68gUCav3dCQAKCRAw5/Bqldv6
-8uXnAJ9v+lNPNAwhYU+fLAshiMgRsdEpqwCdFBek2LBMMzK2+YkkSuanNn8Cw4E=
-=rNBx
------END PGP SIGNATURE-----
-
---R9UF4ktUmYBpCif0--
