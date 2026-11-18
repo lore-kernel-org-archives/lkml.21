@@ -1,97 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795032316;
-	b=In4kK+fO+/7mIcR6kuzbn6fmH2BvfvjmNZDyBq95b/LZAB5u5VPv1cxtEV/1j7PYKTtP
-	 GpgJgrkqxajrePoWS2VHvd1SnzTQWScvxSyRu2uxvIVgFtwv3AzxLzosqLyNLv208v2U3
-	 marOykOmyFHlGtaga67n+IRNWkKn6hpmOTw8qUyyC2G9YINmXXRWl4L3/gq1xXwKxfMIg
-	 8EugRHoSKvoVi0Az9LbIr27YtAFSo07aZMqAwOk+cbxGrMGGPdOKg4B8Sayrw224D+431
-	 97XMMQtLJXigQDRfVJNycKt1o0MgXpqT9S/N3oPi2gB2iuvpdTt0PXEN0LuiPnnfF4w==
+	t=1795032319;
+	b=xAXlej4OYZEw3/MezvgoWdZYKufARJU02Zj11rwj0GWOcyse2TJaXunCfWJRF9KY5Mum
+	 D5uWhEHRitvtDscTHeoiB7R8gyXdffMoGlHGZefrgg1SK3JaHaBHPocgQQvG1y5BWU/iW
+	 t9oCy4iMWOxzH0z01cGAp3BrfSYtp9UomnQNt7B26z/okP0hDQvPtyU3kAlp5vGkNwrUW
+	 QDBcqpP+1E00jF6ChMriF4HnQSgZ2bV5d/OnV3/i1jgnVU/ZjudfwrfdovUIg3BolZNlm
+	 7+OZeRxksZ26jyhiZMnyjuO1SXhXGsHe9rgz9y5eW6dEnqHFiIyqGqs3Se/rZlfMvFQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795032316;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795032319;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=s+yQtVzCr5ks3JsuMZN3DsU82U2zbbfL6IDAjaawqSk=;
-	b=JK+K1Q+nDKNTkQtOjc8Unj5M0OZE326sBUjbHueqaEr3el3JH0Atp/zEsphwWhisovaT
-	 w5bMMkm4NieP3vKZak0Qe70wD3Cwe/ue31sIOFemcVNl2mLNLmpWE9xwyjrZNR8nkFCMT
-	 DUheOieh7DP6TibGzhYLxMMZuLpbYIKzgtBKID5KdEEBH559XXUdeVkpRQucLJNuyqMb3
-	 42oERSCcL5Og8NvVjb+S31h5vYTqqVSY9Cx7SvdFJoOPIrjsfp1dwcTn/JYsj3p7gdyGU
-	 Fc5jDcVkoaKU3opZQGnGU1dNICC9aP3vdHJ3LPCJxUapDh7J6+nZ/06GK7n2BhrGUEg==
+	bh=BZplnOpSYZYLf9hINwzyXjH3xpqTmffb+IXOPd4GLR4=;
+	b=dqqqcPDP5JT+YNQx4QZlsZ79DsL9PS5zwBAv1CG+N5ylhbmJRNyZ7VKtWiO/p6LPvOCq
+	 7oCa3ucc6hzTr3vOWGyokB1UhgGi591bNDKRiSfRjTL+bkftHdLaZD4dQuNyNLzjZDxh/
+	 irKz61VDFjYUqG9IkXlDEB36wdJfBDV88LbDQKWIwVLHjn3t3OXzLH1cxJaXewiUbUZMf
+	 BKAu222xZGK+Xwd0OhMeoDm+wYoNatlJq5LxD0B2G4l+CAaEFpIrlkBcYnxuj1ufRrBb9
+	 1i8k7I5X4jIC9nIBzrnS/RkjezIgH79ueyTAxWN+DirENa9p7ZmndLk2n6q1I/+Ud/A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ahkZnl5g;
-	arc=none smtp.remote-ip=74.125.82.182
-Received: from mail-dy1-f182.google.com (mail-dy1-f182.google.com [74.125.82.182])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JUvJnVHZ;
+	arc=none smtp.remote-ip=74.125.82.175
+Received: from mail-dy1-f175.google.com (mail-dy1-f175.google.com [74.125.82.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37C22606A332
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:05:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37C22606A332
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19A1F60A260C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:05:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 19A1F60A260C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ahkZnl5g
-Received: by mail-dy1-f182.google.com with SMTP id 5a478bee46e88-36e99cf7bb3so2082008eec.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:05:15 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JUvJnVHZ
+Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-3704d30b84fso2216103eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:05:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795032315; x=1795637115; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795032318; x=1795637118; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=s+yQtVzCr5ks3JsuMZN3DsU82U2zbbfL6IDAjaawqSk=;
-        b=ahkZnl5g6jdgTnj0K+Zm4RNJd2r6f8SFsrifZlX8hBAuBLM3R6kYBVolwpMcQcW4fH
-         RH90zuiKNZ5LlUohfJW9NeO9YWOyFUNlDdZv+gYJa9VcoV942WIWyVyU9kJovq5lTEq+
-         XTYnM+pH8v2/GPpYIhtfLaYZZNs2IIJa1j+DNwmPSngKFjR1TncqnKn+VU1Wg7tnU/ii
-         /hG9rZepibe/MPT6dIbTqMhCmmAvN4ZmEeSmKc76TQtoilX2dBSTRKLRMgKJy2nnR4ik
-         4wdZZoGHMH1NHx/dA++9cQdUEWfI0lRvrTz33ZQorPxE37mA60k7KizLhFYgUrA6gtvA
-         6Fug==
+        bh=BZplnOpSYZYLf9hINwzyXjH3xpqTmffb+IXOPd4GLR4=;
+        b=JUvJnVHZqurjYHq1C0KX5/Sy8Vku8v8wxCPRuzZpNiECIbe6+7XinchU5NE1t82Pf2
+         KZLYL+CXK1HGymg/V6CXjLYUYv1sNjw9b3O6HsVubiUL2gJGar+Q7S/9XdOawhPbMw2K
+         9rY+TetecM7K9HcNYrXHKNd7TItiE2sdMCOLJbYnYNmr11wW3f3t+bgLKYAk2QDEv8jH
+         NUwt6aU0c5XimAnH+FhvyLW5JXjX9lFyEXsMiEJ5sz26Z/eoOvrfsqu0pAeX/iOXaYQI
+         F3x6k2s6JG2VIvhS5NIpbroKcwepmQ2jVRr5UtuKJd1FQCyQes3JAOEmC514WQFZQLHa
+         AJUA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795032315; x=1795637115;
+        d=1e100.net; s=20260707; t=1795032318; x=1795637118;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=s+yQtVzCr5ks3JsuMZN3DsU82U2zbbfL6IDAjaawqSk=;
-        b=TGCXpXMlTw0VwGRy8v2QDn0sY77T4IOFnlAi0bZgPQoqUDOexuyEnsgSk1ELJPQSR8
-         /e+H+FgFF7aK2NnqjaHYOuS/Z1HoBSxRgGjD/9ak7nbWd4YP3j6diHFDZz5n4HaffYG4
-         e3SkB+20y2ZMFiQPUun47FPlwijyRBa7tcmUq6BVplIEYrwKVNmDU9W9CStPkXbBEjTw
-         8XVC4YBFb4tEBLSYNt74oTTHqm0vyx5TenCHSGZE0ez7tagGeYtWwu5B+CL1TzLd63+w
-         qrnMhqrprvqhegHHe3xQfGBb3KU2Rz4L7Y29O2EpQ6O2FIg1iQzWw7iHj2DyfGfP8dvz
-         MrRQ==
-X-Forwarded-Encrypted: i=1; AL+hErHNvQ4R1+fkV0cGRfRWy/A8HHwoKpCGKBWuJD1TDNeDjnTGgyOkj0JBkRYyj/XV1TtmiRvu1ZxS+GE7fFY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/QJVsjlJX8i+Wp84XMw4BYfIYFcqbmIilOu6mFFe6765KSiY7l
-	q3HPJd4NG30CxSi/xzGM49Ls/vrvw+RCk7PzD4vEsV0Ptv6y+pFwfMu+
-X-Gm-Gg: AYBFou1hwT3+TjkncOvGbofkCFzqaSB0KA6OEZ4UWCixXthcuJqF/mn8rDZFEmkvoD6
-	Say3heqSvgubZwjgIX+nudCdsaULldN6HTWXblEK5m/8v+37Q7R9mQcQv5abZN/1PCUtF3i+OUm
-	zUFzs+z0X5de+lsDnUQBip8Hb+El+9KvCmPxUKVJ5gSvECJa32mPPUvP2Ffa2vgpTAy2LbX00bR
-	GD0uT1jhY9fy4mRe1g3OysYXc/QfPLQa3U/WS59XF2CEluurpQOKrbbFTE3rO/QGWiFlyn2e6NB
-	p4oCJwTXBomk4EwiuCaw1TJXKttAw/A4NMUT6YpGpjxO5RRb6bmtH4faMYqxdsltiBVxFf45/W+
-	m+zJ9uB7be22huGTntOjiJORQ+drOKM+S6lLegGdlt3Tb05vIY2aKwrdma8og7kR0EhPb5Df5BS
-	i4CNxyvRxNootCjlrYCp9L/texmdoIRe6xFWIhyI+XqhuBO080z6NfBIbubyR7Mjfxf6uIWoXWH
-	4iWjLOqG0oF9OnY5Gro/NvvkJlGOhUqaTEa8wEVPLL5HHpMXGq8nC88RqT/RnkzohZt7fPifFtW
-	J1/EMq7D8lGCqvBzX51bQq9T+mI9yIM2dTF9YcXDBBNfiOTc9Hka52WPCNb66sVIVoE86PCD1+u
-	hllnAwADGiI3j7zG6InUJPiD1t1Ia
-X-Received: by 2002:a05:7300:d80b:b0:384:8f9:bc0e with SMTP id 5a478bee46e88-38408f9be20mr259000eec.17.1795032315089;
-        Wed, 18 Nov 2026 12:05:15 -0800 (PST)
+        bh=BZplnOpSYZYLf9hINwzyXjH3xpqTmffb+IXOPd4GLR4=;
+        b=GCdN925TsncUrHpFvcJgJoM+H89LrtN9i+lyHUfQaLyy8v99DoRxia13bvEUhXIE4z
+         ZQBfB7DAqfJpUI9dP5FkpWnzYjvzdPv42Igqt8YTm9jobaR5k92hN+fTNiktEEivxVHS
+         HAW26fPDKM804l3OPX/L9UYgurKt0O7E73I1CYRHwtOHdKaf4lY5i8acfnMSXUrpA/lI
+         vky0FvFcp+UFgaLuPRiS60EJxoJxzKl1l48NF/V4TbHenTMmon5i9RvI1M6TimgTkWSz
+         Yfl9cmhm5yAZJcw63xy5CJ5GRq4vHedtfOB2X1Y6K6nlEXneiJMPX0F0ugOFLLi1oTNN
+         BjUQ==
+X-Forwarded-Encrypted: i=1; AL+hErHsW58ig5s3OItaEBkv6TAY0IZtrBiKU2tZrii3ctXpi7+Dys3LjAIDmG94Dy/lNBQPhp2iN/DU+XCBOUw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/1UifGfDC21cmjIQc6CAgBcSJ/ZMDeVHDh12ld7mQABn0I2EZU
+	kI7HW02NCCp6cPb8fuqc+z4IW+juMCB4ygXYnoPnZiBFX3oFYz2NnhL0
+X-Gm-Gg: AYBFou2V9/SbqljGlvn5gCwNn9nPFBq4L1H3IH1eebFjhtxHE9cgtpKKqYBDsN9ZtxW
+	RXyrUYKrpTN7sm8cJ9tqTv/cyls7eMp9apQRVt1vki1MTN4r+d5bzD9AeWkCJrOMahgaxXfLm9c
+	yDw9OYpBXRLsdkMzhsBxmlA/h0xvwX2eRTRbwzyLdZ6dxpuZP0MX45BGNjwbAaJETOioM/yZTDQ
+	qeydTCtQwe6VV6g0UC2N20gAPNRMjlFdMxaEGPNYuyugEs/XznnCTL8RsHa1A7S26l1+oNc5gwl
+	rqsMwhjCLTof8JAxV+dxxU4G3FNzv4aHmTvnwHyMQjrUYkH2iCGaP8I6mOVgJWl5Ix4IC8QpmjS
+	Hy3vZHX3+C4puZOn4dRa8V71VSVgELa5/j/Kvmvh6rGyEC+hwgk6tMZ0kPdmROQQufdAfk2rvP5
+	fUbYolYw9+M+PuzMs8d2hXFU0qCuTIkx1Q404R088xYthQNUPJDmfOitpJGIgooMebcpPR/eaMq
+	kQbZmudEP3vUVBOYd7VA9i4b2ZJMQ8HsAGTV4RERRSsH4DzlBNjAYw92eyY+uwUwe89qUzIBk4U
+	Mh+tfEqMFssDWBo+M+TRRCmm6RwXPuf+MivZJ8PYBloBkmtvn/0azM0BZ5fvFSnLK0817hua1sd
+	W2tytAtrsc1xnns4H0dpiCn68BCP0
+X-Received: by 2002:a05:693c:409a:b0:36a:1bac:6bf4 with SMTP id 5a478bee46e88-38280c2fdd6mr3790822eec.18.1795032317937;
+        Wed, 18 Nov 2026 12:05:17 -0800 (PST)
 Received: from Mac.localdomain ([12.162.234.74])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a45274aesm10869297eec.2.2026.11.18.12.05.08
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a7bc05cfsm10506308eec.26.2026.11.18.12.05.16
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 18 Nov 2026 12:05:09 -0800 (PST)
+        Wed, 18 Nov 2026 12:05:17 -0800 (PST)
 From: Ahmad Byagowi <ahmadexp@gmail.com>
 To: netdev@vger.kernel.org,
 	vadim.fedorenko@linux.dev,
 	richardcochran@gmail.com
 Cc: andrew+netdev@lunn.ch,
+	arkadiusz.kubalewski@intel.com,
 	davem@davemloft.net,
 	edumazet@kernel.org,
+	jiri@resnulli.us,
 	kuba@kernel.org,
 	linux-kernel@vger.kernel.org,
 	pabeni@redhat.com
-Subject: [PATCH net 1/4] ptp: ocp: prevent timestamp rearming during detach
-Date: Wed, 18 Nov 2026 12:05:07 -0800
-Message-ID: <20261118-timecard-common-301f823ddd-1-ahmadexp@gmail.com>
+Subject: [PATCH net 2/4] ptp: ocp: use hardware selectors in DPLL frequency operations
+Date: Wed, 18 Nov 2026 12:05:15 -0800
+Message-ID: <20261118-timecard-common-301f823ddd-2-ahmadexp@gmail.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20261118-timecard-common-301f823ddd-0-ahmadexp@gmail.com>
 References: <20261118-timecard-common-301f823ddd-0-ahmadexp@gmail.com>
@@ -106,117 +108,56 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Detach disables timestamp interrupts before unregistering the PTP clock.
-Until the POSIX clock is unregistered, an ioctl can rearm a channel
-after that disable. The clock can then be released while the timestamp
-IRQ is still registered. The core cleanup does not necessarily disable
-the channel: EXTTS requests do not require a PTP_PF_EXTTS pin
-assignment.
+The selector table index is not the hardware selector value. Passing the
+index to the SMA setter can select unrelated signals, or fail on ART.
+Use the table value, as the sysfs path already does.
 
-Serialize timestamp enables and disables with a mutex. Mark timestampers
-as stopping under that mutex before the detach disable loop, so an
-enable already in progress finishes first and later enables fail with
--ENODEV. Keep disables available for the PTP core cleanup. The existing
-MMIO readback and synchronize_irq() then drain events before
-ptp_clock_unregister() can release the clock.
+Mask the direction enable bit before the frequency lookup. Otherwise an
+enabled, direction-configurable pin has no matching table entry and its
+DPLL get or dump fails. Apply both corrections to all board variants.
 
-Reported by the netdev Sashiko AI review, then checked against the
-current PTP and POSIX-clock paths. A source-derived userspace harness
-forces an enable after detach's disable and reproduces the rearm with
-the old source. With this fix it rejects that enable, waits for an
-enable already in progress, and waits for a mocked active IRQ. Both
-timestamp and combined PPS/EXTTS paths pass with ASan/UBSan. This
-validates ordering with stubbed MMIO/IRQ operations, not an in-kernel
-use-after-free reproduction. No physical card was tested.
+Reported by the netdev Sashiko AI review and confirmed by code
+inspection. Source-derived C regression tests pass with ASan/UBSan;
+restoring the faulty selector, mask, disabled-state or DCF value makes
+the corresponding regression fail. Tests use stubbed MMIO, not hardware.
+The driver object builds on current net with W=1 and KCFLAGS=-Werror. No
+physical card was tested.
 
 Codex prepared the fix, tests and changelog from the review and upstream
 source, at the request to separate common-driver fixes from WiWi support
 and validate removal ordering.
 
-Fixes: 627366c51145 ("ptp: ocp: fix resource freeing order")
+Fixes: 09eeb3aecc6c ("ptp_ocp: implement DPLL ops")
 
 Link: https://lore.kernel.org/r/179502617840.3136.12704245716223038161@kernel.org
 
 Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
 ---
- drivers/ptp/ptp_ocp.c | 22 ++++++++++++++++++++--
- 1 file changed, 20 insertions(+), 2 deletions(-)
+ drivers/ptp/ptp_ocp.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
-index 625a85b2dc..478f7012b2 100644
+index 478f7012b2..d449ed8ca2 100644
 --- a/drivers/ptp/ptp_ocp.c
 +++ b/drivers/ptp/ptp_ocp.c
-@@ -367,6 +367,9 @@ struct ptp_ocp {
- 	struct pci_dev		*pdev;
- 	struct device		dev;
- 	spinlock_t		lock;
-+	/* Serializes timestamp arming and teardown. */
-+	struct mutex		ts_lock;
-+	bool			ts_stopping;
- 	struct ocp_reg __iomem	*reg;
- 	struct tod_reg __iomem	*tod;
- 	struct pps_reg __iomem	*pps_to_ext;
-@@ -2550,6 +2553,13 @@ ptp_ocp_ts_enable(void *priv, u32 req, bool enable)
- 	struct ptp_ocp_ext_src *ext = priv;
- 	struct ts_reg __iomem *reg = ext->mem;
- 	struct ptp_ocp *bp = ext->bp;
-+	int err = 0;
-+
-+	mutex_lock(&bp->ts_lock);
-+	if (enable && bp->ts_stopping) {
-+		err = -ENODEV;
-+		goto out;
-+	}
- 
- 	if (ext == bp->pps) {
- 		u32 old_map = bp->pps_req_map;
-@@ -2561,7 +2571,7 @@ ptp_ocp_ts_enable(void *priv, u32 req, bool enable)
- 
- 		/* if no state change, just return */
- 		if ((!!old_map ^ !!bp->pps_req_map) == 0)
--			return 0;
-+			goto out;
- 	}
- 
- 	if (enable) {
-@@ -2578,7 +2588,9 @@ ptp_ocp_ts_enable(void *priv, u32 req, bool enable)
- 			synchronize_irq(irq_vec);
- 	}
- 
--	return 0;
-+out:
-+	mutex_unlock(&bp->ts_lock);
-+	return err;
+@@ -5900,7 +5900,8 @@ static int ptp_ocp_dpll_frequency_set(const struct dpll_pin *pin,
+ 	tbl = bp->sma_op->tbl[sma->mode];
+ 	for (i = 0; tbl[i].name; i++)
+ 		if (tbl[i].frequency == frequency)
+-			return ptp_ocp_sma_store_val(bp, i, sma->mode, sma_nr + 1);
++			return ptp_ocp_sma_store_val(bp, tbl[i].value,
++						     sma->mode, sma_nr + 1);
+ 	return -EINVAL;
  }
  
- static void
-@@ -5613,6 +5625,7 @@ ptp_ocp_device_init(struct ptp_ocp *bp, struct pci_dev *pdev)
+@@ -5918,6 +5919,7 @@ static int ptp_ocp_dpll_frequency_get(const struct dpll_pin *pin,
+ 	int i;
  
- 	bp->ptp_info = ptp_ocp_clock_info;
- 	spin_lock_init(&bp->lock);
-+	mutex_init(&bp->ts_lock);
- 
- 	for (i = 0; i < __PORT_COUNT; i++)
- 		bp->port[i].uport = NULL;
-@@ -5755,6 +5768,10 @@ ptp_ocp_detach(struct ptp_ocp *bp)
- 	ptp_ocp_detach_sysfs(bp);
- 	ptp_ocp_attr_group_del(bp);
- 	timer_delete_sync(&bp->watchdog);
-+	/* Drain in-flight enables and prevent rearming before unregister. */
-+	mutex_lock(&bp->ts_lock);
-+	bp->ts_stopping = true;
-+	mutex_unlock(&bp->ts_lock);
- 	/* Disable interrupts on all timestampers */
- 	if (bp->ts0)
- 		ptp_ocp_ts_enable(bp->ts0, 0, false);
-@@ -5789,6 +5806,7 @@ ptp_ocp_detach(struct ptp_ocp *bp)
- 	if (bp->n_irqs)
- 		pci_free_irq_vectors(bp->pdev);
- 	mutex_destroy(&bp->cpld_lock);
-+	mutex_destroy(&bp->ts_lock);
- 	device_unregister(&bp->dev);
- }
- 
+ 	val = bp->sma_op->get(bp, sma_nr + 1);
++	val &= SMA_SELECT_MASK;
+ 	tbl = bp->sma_op->tbl[sma->mode];
+ 	for (i = 0; tbl[i].name; i++)
+ 		if (val == tbl[i].value) {
 -- 
 2.54.0 (Apple Git-157)
 
