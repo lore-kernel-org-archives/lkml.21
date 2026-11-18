@@ -1,49 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795000477;
-	b=OaeYBZmHdZNQPHe6HS5x09LJjAyiTkWe8+TU+boiCg5zUIcyeyoCmbzss5GvTak2usy5
-	 j4EJt0byec0wZWKkWhViYGFxFn+a5RT31QH4kbkKUWCAyrvIbcfliIzXj8+bNRgmDL7gY
-	 W0jc8/Cj56IZCOwTaGxo6jTyLbYKo1zp0DSa7Cxm47C7jWj/eAfqZ8wCCrYL9aV9Q7PGm
-	 O0gOW34j8nZLzVJmeK0FsqKnz+6RX4tcZCZUe0pubzMWlVFk4mUKRBqtTiTT14niw1ZjD
-	 QK1yr7cA2H9Ts8+q8KLTk0mqyZXqD+rcmvcGDP9qARwhsoluJcCpPKoIXkrRW5O2ruw==
+	t=1795000502;
+	b=I4z0N075cwNGG2ba5d3l+BXJIKOMcoalD6B6untu4yze9/qXgrWyohRDj/eA1nPmPjmO
+	 VzZDa1tbrYJJhRZqn3exiEEYgeBByFtKWGWEnc5/HDiYxADo7V1LJygXXHZU0y2xo4Ver
+	 aLn/6wAQLbJjTw5EtclHekld5j16wR6ylYiKwkPMFstb3IZi6LX6pDFR97sFz86/wQETW
+	 61loi6VYRcVpo1hiGEI9a6nNj1bbr+j/JU1UFYgouxdhIOYdOBVLDwDR3dJX862vDukpT
+	 oUuJ2GTtrhiI36LyR2RWnb3Yx4t9vC1BqE8rv/kngZ7wFwtE5OP7hM0+6FsQ8VhdC8w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795000477;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=kpFNtNivNFK5E09pZOo62DDo/NkEsRhWz34V2Kf54aw=;
-	b=QUbtJ7gKC4PHpKiVuYtZg0qvKqYf0FdBJHdmI0QGey94QUB6P5ITEa2GOyQHgEOAJLHd
-	 P9hYbEnUK+DtTydnmuDpXsJwlxfvzWB0kGioFy4yLysTDJlLCGsglsgm/XPTFek7jatKW
-	 /mKdXfitJ5EWWVHMv38mUbjvc1qx2sKZzpVFEWfeq9jx+689Ls4I3SgSA/U0rUikw19Tt
-	 4vDgXmadeUmxwSSd5rl8xc+mkSbjfLXKxj8o+ak9nQz2WB0Ikhgqx1VPtSecD63w0c/vQ
-	 xtmCfUP9SYfywGCvH6Q3h2PtZ6FeecEF3z5GkKHcg1NTNULgITEznAtvcAekoQC86rA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795000502;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Sender:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type;
+	bh=6DH0KVmtxdJ4mUifFz/9FMzYO3ur54bwKg2YAmdDwWE=;
+	b=U8rGbzpgc5P4IBPDMp2qgs5w0HI77Z6+q3hfEZ2xuN6pjyO165VZSBwinuKctg1OkN3F
+	 IPmPgHxS2j68CNwnrbUeqz2hIxl3IsZUncmsjwEyQUAAj+ZKRfsAb1L/FBQYrL9gbYnvQ
+	 BP6x+fgr7rL+dIQY6AvrekHvBLb3ycdJTNyCPnjq/+a6q/QSMcDxQSAyW7x0PwclpU1os
+	 EPuqdX/O321n95bTAzKTOoV3YyNLZA7Hvt834lpTs9YSvMZvn37c4/acamnG91P6ko3qD
+	 ZPtsBg+zPO62K7rHytwKPUT3WNeJs5IxLLjcX485h6kT/K81Pq8O1xwMTRIROMphRwA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=E5gQTmv2;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id DA2CA606A31C;
-	Wed, 18 Nov 2026 11:14:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA2CA606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oEg+AYQh;
+	arc=none smtp.remote-ip=209.85.221.47
+Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 833E5606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:15:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 833E5606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=E5gQTmv2
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D56301596;
-	Wed, 18 Nov 2026 03:14:32 -0800 (PST)
-Received: from [10.57.62.206] (unknown [10.57.62.206])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 192D23F673;
-	Wed, 18 Nov 2026 03:14:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795000475; bh=TKbqgMIPduy318TAL4Aa4U0sAxhaULPe1XRzCdumkbg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=E5gQTmv2MiIyZx1MnDRo90tJYN43gume5p7d6KB3NmpM0o7uA6PCE2zYcpBmb8Jsi
-	 t3YfPJKXHuK2Zrp0s0DHEAbc9gp1pTOZXTjE28mbBo8mvrgYgeYJhxuIMZjSTozrXA
-	 vi/rEcEBJt1XoR6wS15Ak9Tq4KWaTk6E+nieQkTo=
-Message-ID: <b1ef7241-54b0-4a17-83b6-0008e722f2f6@arm.com>
-Date: Wed, 18 Nov 2026 11:14:23 +0000
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oEg+AYQh
+Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-4a357b1c649so453418f8f.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:15:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795000501; x=1795605301; darn=vger.kernel.org;
+        h=content-type:in-reply-to:from:content-language:references:cc:to
+         :subject:user-agent:mime-version:date:message-id:sender:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=6DH0KVmtxdJ4mUifFz/9FMzYO3ur54bwKg2YAmdDwWE=;
+        b=oEg+AYQhdqA61jWzO6wBSI87USRl4RigOLJYa5Z2CXgXY+u9E3Amkb07J1lFkPvlky
+         bNH6BsquAoRqmThBRO3drjEcbnUXl6evUpX3DftN7oeQkT9SXawubzf8rppVNTYsfSmY
+         lpbkIBpjI5bU4JIgJC2b2mq3wtY6IHZIFdCem+IotNNxN56bfi9pwk4oQRuAokzlmYTJ
+         bJiggy6hA6ghD8W0xKP8gtDYI5EZ44nFHYOc+Zx65fL7kp02cnQoBZiwYr4XA1Z0Pcb5
+         TT/d7ast9meiEo+fLvPM8BHOXK8zW3BP14tsb+aLM/D3Mqaef2OVawu5TSaQi5MIoTJh
+         bM3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795000501; x=1795605301;
+        h=content-type:in-reply-to:from:content-language:references:cc:to
+         :subject:user-agent:mime-version:date:message-id:sender:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=6DH0KVmtxdJ4mUifFz/9FMzYO3ur54bwKg2YAmdDwWE=;
+        b=HZj27EBdNMIvn5GnV1wPmILq9Pm5yL3YpBKvmNhdp8sKWC4rhDy7cm5vSuBVE94KlN
+         z5DN6RY1DDM5fnbGeW1NELCott8GpH/Xhpy+KpOurgZ3KdRmom2ye7Jcrw4IC+CcP2Vi
+         83bsrx5UO6p9wIPvhvUefk80pgQtyzNqXoMFPimucxeh6uOAndf3SxDGM20XEYOdLwBg
+         0H4ezBgw+k0rt5qAw/yJCr0Rk1YPWrhtRUEwYssQthvYhCcU0Uy/kvi/D8jSY51tbtYK
+         1cWzRyE3xS5Bp5Afge5dta3bJL22j24P2rttH2VWHuSsHj/cWQArDoMmHRJU0nY/OP3k
+         zPnA==
+X-Forwarded-Encrypted: i=1; AL+hErHjHzBPlrJFUEn7e55oj8sq+744hEdPSRl2G3/b7vmmOMORmWKyXm+H5T1As0boEVUWmaq556+TpuZwgRs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9loxzOF+qOMnpgVyveOlZLCqoRu9uIImRpFU3zwasSNdMnKikr
+	YqCyqCWG0XHiWJKRGVSj2+fHp4HbTh1uLEXC5GvgrozyRugYBI3HlNK9
+X-Gm-Gg: AZFdTZc5LGFC795iICRyvdBsTVlDRcFR96S8xbyIouHyuJffjJWsrqd6a3r/2JD2KHh
+	KuicwmNHgJLekAkc7nwekT+vZzTNtLbJ0DsHgZc8+NRdAbUeaxdFntSWHJ/sQWWMdF7VzbvxQlP
+	EKvVfT+vieK0eZasG55KrG5w27PjTmq53q3uX3suO/KMzGllQ0L2/os8LLPoGBINTo5TfwS7lKd
+	uBRQ7j2q/3MpwJhNzvvMFPA8ulq6KNadoWysTF/W6d5a5iLA24w9Wj2AVI6dOhNQDzBVF36eiRM
+	Br8NNzLee1zExTEVtuhjByYMT2UYQXb6VDCgmct0mJ4YC6Ln6i0kZ/XkQOeDTjTu79Yk4N/q0HZ
+	TbvkhxozGvDW+JYcjoQJcVRqXoOcRDUapaJ1C6Mc78BGVGr5JG9yJ4SrFo5zk4ffMcN1Pwmvxro
+	CGdy388nPrRzIEzQEBdIFvpClqGbkKkomqRAuP6yNA5B9Wkb8xxFEF7rIOVGKhPf1GNSoak88Qf
+	mL90DDmS4tJHYTV6V0YxselhSMQaPdPrqymO1tC2r+eh3U3pThflDx7r8ofKRNZwtCI8odDZXKq
+	VY0zK5UNsk9RgrwZxYVujmDI7rx3KN/mz0CYfE3BdZsqfWR8Ocdfp6G+r40g3rQr/ni66H6Jyc2
+	hiqGeTYTSabEqtvi+K+z/hFpKO8MguyjpbbYCWw4=
+X-Received: by 2002:a05:6000:4b1e:b0:499:9f62:d64c with SMTP id ffacd0b85a97d-4a63984a9dcmr4820215f8f.10.1795000500756;
+        Wed, 18 Nov 2026 03:15:00 -0800 (PST)
+Received: from [192.168.0.41] (bl22-190-205.dsl.telepac.pt. [2.83.190.205])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a656095f21sm3965668f8f.38.2026.11.18.03.14.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 03:15:00 -0800 (PST)
+Sender: Julian Braha <julian.braha@gmail.com>
+Message-ID: <f430727b-0ae4-4210-80d2-cef29109a863@gmail.com>
+Date: Wed, 18 Nov 2026 11:14:59 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,65 +93,83 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 01/11] KVM: arm64: guest_memfd: Check mmap support when
- preparing memslot
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, Fuad Tabba <tabba@google.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Kohei Enju <enju.kohei@fujitsu.com>
-References: <20261116164358.142785-1-steven.price@arm.com>
- <20261116164358.142785-2-steven.price@arm.com>
- <CA+EHjTy5xBmavNWSYPjqU9qXtssV3ZHzsUr1s_4bVOt1GnDLVg@mail.gmail.com>
- <6bb490cd-ebbe-41d7-adf3-d6eaf0e53478@arm.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <6bb490cd-ebbe-41d7-adf3-d6eaf0e53478@arm.com>
+Subject: Re: [PATCH v8] scripts/config: honor $KBUILD_OUTPUT by default
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Dmitry Voytik <voytikd@gmail.com>, Nicolas Schier <nsc@kernel.org>,
+ Nicolas Schier <n.schier@fritz.com>, linux-kernel@vger.kernel.org,
+ linux-kbuild@vger.kernel.org
+References: <20261117132513.52725-1-voytikd@gmail.com>
+ <26f53b63-2f75-4fa4-bf6f-d3495e4e5cb0@gmail.com>
+ <20261118081025.GA671584@ax162>
+Content-Language: en-US
+From: Julian Braha <julianbraha@gmail.com>
+In-Reply-To: <20261118081025.GA671584@ax162>
+Content-Type: multipart/signed; micalg=pgp-sha256;
+ protocol="application/pgp-signature";
+ boundary="------------DEjnDSqXCUaZM19f19vV5pT6"
+
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--------------DEjnDSqXCUaZM19f19vV5pT6
+Content-Type: multipart/mixed; boundary="------------4WhGp4f0ehBKXWddaVMCg5Iu";
+ protected-headers="v1"; hp="clear"
+Message-ID: <f430727b-0ae4-4210-80d2-cef29109a863@gmail.com>
+Date: Wed, 18 Nov 2026 11:14:59 +0000
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8] scripts/config: honor $KBUILD_OUTPUT by default
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Dmitry Voytik <voytikd@gmail.com>, Nicolas Schier <nsc@kernel.org>,
+ Nicolas Schier <n.schier@fritz.com>, linux-kernel@vger.kernel.org,
+ linux-kbuild@vger.kernel.org
+References: <20261117132513.52725-1-voytikd@gmail.com>
+ <26f53b63-2f75-4fa4-bf6f-d3495e4e5cb0@gmail.com>
+ <20261118081025.GA671584@ax162>
+Content-Language: en-US
+From: Julian Braha <julianbraha@gmail.com>
+In-Reply-To: <20261118081025.GA671584@ax162>
+
+--------------4WhGp4f0ehBKXWddaVMCg5Iu
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
 
-On 18/11/2026 10:34, Suzuki K Poulose wrote:
-> Hi Steven
-> 
-> On 17/11/2026 14:05, Fuad Tabba wrote:
->> Hi Steven,
+On 11/18/26 08:10, Nathan Chancellor wrote:
+> On Tue, Nov 17, 2026 at 07:25:17PM +0000, Julian Braha wrote:
+>> On 11/17/26 13:25, Dmitry Voytik wrote:
+>>> +# If no '--file' was specified, use KBUILD_OUTPUT as the base if it =
+exists
+>>> +if [[ "$FN" =3D ".config" && -n "$KBUILD_OUTPUT" ]]; then
+>> Right so this will give different results with:
+>>     '--file .config'
+>> and:
+>>     '--file ./.config'
 >>
->> On Mon, 16 Nov 2026 16:43:47 +0000, Steven Price
->> <steven.price@arm.com> wrote:
->>> Check the guest_memfd backing file when deciding whether an arm64
->>> memslot has mappable memory rather than checking whether the slot is
->>> gmem only. A public helper function is added to be able to reuse the
->>> static kvm_gmem_supports_mmap() function.
->>
->> nit: could the message say why this is needed? It's a no-op until
->> patch 8 defines kvm_arch_has_private_mem(), which makes every
->> guest_memfd slot gmem-only.
-> 
-> I still don't understand why this is needed. For arm64 we have always
-> prevented guest_memfd without MMAP, in kvm_arch_prepare_memory_region().
+>> but maybe that was intentional -- i.e. we're assuming a user passing
+>> '.config' intends it to be '$KBUILD_OUTPUT/.config' while a user passi=
+ng
+>> './.config' would intend CWD/.config?
+> It was intentional since I had figured they were passing the default
+> value so they should get the default behavior. Maybe it would be better=
 
-Fuad is correct, this isn't really needed until patch 8. Patch 8 defines
-kvm_arch_has_private_mem() - that means that gmem_in_place_conversion
-becomes true (see include/linux/kvm_host.h). That in turn means that
-every guest_memfd slot is KVM_MEMSLOT_GMEM_ONLY including slots backed
-by a file without mmap support.
+> to only do this when no '--file' value was provided period though to
+> avoid some unexpected behavior?
 
-But regardless the check for kvm_memslot_is_gmem_only() isn't really
-what the code is trying to do. The fact that the memslot is "gmem only"
-isn't really relevant. The thing we care about is the mappability.
+All good, I think it's reasonable. Just wanted to confirm the intention
 
-But I agree the commit message could do with improving. I'll expand that.
+- Julian Braha
 
-Thanks,
-Steve
+--------------4WhGp4f0ehBKXWddaVMCg5Iu--
+
+--------------DEjnDSqXCUaZM19f19vV5pT6
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+wnsEABYIACMWIQT6qjll++tIFxF8TUPElYPCBXNxIAUCav2IswUDAAAAAAAKCRDElYPCBXNxIF2q
+AP0ZpWOny+OS5jO4uJKuuNIxj7yHNBH5kNRGvz6S460DfAEA8aYa4Ojn8ELvoK+uj62fPziyGEse
+NHrN4e0bq2AyzgA=
+=6xHD
+-----END PGP SIGNATURE-----
+
+--------------DEjnDSqXCUaZM19f19vV5pT6--
