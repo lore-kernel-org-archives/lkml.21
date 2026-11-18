@@ -1,59 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.128.211.58
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795020812;
-	b=o6jS3U7B1xWxbQBoRupASK1GZY9kmL/tcrOsvm+B+vUF1MGIV9b7hRVuwdzTxjdT8X0g
-	 lEyMhNqbP4xouM5tsTaOAbWXzDS6RHiR5W7jgMzHMdw/lhMh7LXluqItE4K2oWanlGe0j
-	 A4wASQb7Oodal9PBEV6RUgjJt/RDnLME1jWUsW09mTY67Ci1NHT8zoMMgLfy9c22KHYos
-	 oZEZXLgp88/vfY2taeb1JNfeGHwP/ZDY4eNfjy0LJbeYWE5jtW0F0+Hh/G8MwkjdUcRbX
-	 KR2xQG1vvLbGvjytz3LzoFyifrBJVbtr3WQtNzNoklP86b6qsqj+ZDpbmifhfuK7tBw==
+	t=1795020817;
+	b=cD8C+PBwPW7ZWO+sUe8sTPzQyCWPvhk8Qy/WFL3iEs/uk9vSXaDa4sqFKh4iMMY9KeZ7
+	 ffAsxZE099Cfu5nMK4H8DeXzS/u5oIZ4T8gp/30ewjBToafXB3hyZRCZ0bF/wneRXZoyW
+	 8JzI58GPVVXREgE4mQlvxvZtezVtL8VemyY/t+VUoWS7CtlsJO1YAwQNrEQ35a6pBUYtq
+	 Zd/c/GbCUwjCDGWfRBoGOpTYKW8PIeJ0T8C9udH0RLGUmRtDtzu3jYZ1Y0bO8OnG7xAXe
+	 kpHlACV2aUPlZrocLBKBTMJXp7tQ6HK0UOP81CqCqLkwI+sgHKjFNckbR2fnuVeuOEw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795020812;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Last-TLS-Session-Version;
-	bh=VqaXeB0uMmevpA1DBkwlWl8Zdc+Q/NLjUm3MHxfbmWA=;
-	b=jHd4CrEp+HuR2Zz79ZtVhnNilLM0kLrxEX1rQBvib1IPkNxK+QYV6i7n5Ohiumuh2vPl
-	 /FoO7U4LQ4jnMOj3qhLz9NdtPhWpLS9906HfgMNDJzU/oQoYzMgVDUNGSHZFEJEZMv6mF
-	 5U5P5IuaEOg3gnTSTVkANaF/cqJEje8UiOY5Abmu6w15Fft3PpjnbG6TNE6b+2sYdUNwf
-	 rv2D8Kikbou7iN+DRaGrOsUxG6jB8hmmqk6RfL1KatjUR5mSSffKykOzvMUjptTatlwcF
-	 hVeALjrnQnW1wAk92WiN8yaEo54h96GjNViJXidigGZMd9kDSdHPRHa007qrHIDF11g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795020817;
+	h=DMARC-Filter:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=trsZ+1RZme3i6jPw3o065+OWOfJHPXUoMlTsFMytG/E=;
+	b=tbVCpDS4foGEnaqvvyiIVoBjf/Esd8hhMI/CFPAijf+gFqqTjDcnZmgYQYM8s7bNMRXe
+	 rZBF2FJi874YAeYz08aXHnvpnNzaNK1tDxD4cQ5af+8R+oWQBPF9/IWFKxSqYhCW930I7
+	 43NauE64xcrVkbACQ+oi+VxEu3YiapurtxHqMvRsedeI/wOjMBMmP1r+FU091bA2LNfGJ
+	 GXyWJ2ZbNfRvCjRKD1jB+kdCY+7m3ge9Aw4ZLz7YbNmM38hNogLq/zPsGbXwuNwdFgaCS
+	 P09wQN++GD47j+uAf//7WgQvKHvH94trUV8PXb0B3aRzEVcikg8ohV+ZTuaT0Q6xw1g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=VANaU7qz;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dmarc=pass header.from=librecast.net;
+	spf=pass smtp.mailfrom=librecast.net;
+	dkim=pass header.d=librecast.net header.i=@librecast.net header.a=rsa-sha256 header.s=2026110900 header.b=ZQ31Zats;
+	arc=none smtp.remote-ip=185.128.211.58
+Received: from bregans-1.gladserv.net (bregans-1.gladserv.net [185.128.211.58])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE7B360A261D
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:53:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE7B360A261D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF993606A337;
+	Wed, 18 Nov 2026 16:53:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AF993606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=librecast.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=librecast.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=VANaU7qz
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 7822D1A16E9;
-	Wed, 18 Nov 2026 16:53:30 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 3DF8B5FE9B;
-	Wed, 18 Nov 2026 16:53:30 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1DB3011BC2904;
-	Wed, 18 Nov 2026 17:53:22 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795020808; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=VqaXeB0uMmevpA1DBkwlWl8Zdc+Q/NLjUm3MHxfbmWA=;
-	b=VANaU7qzFLNn9jCCAM4AUeqfHTFbIC0X8Rxr4mIGW8NgVhivkoBEwv2X6tDBhl4RePaRnH
-	0rRdIKVBGH9nre5316eDL8VBW2vQADdBPszUbrrz1eCoD2/39ybx/utxJH4otL5Qf+6DXp
-	voVfQEqZ+SLE/hAmX1kHJzeX7Sdr3G8MvtZ8HNrk/fzCf4QnqtEgcDtlsD3ZclV2TiCT/A
-	1vCIuiKj/u1atUAEslTjoYo6sy+D1buXq/j+n+kc+6aFbiIladk7jHHlk1IioJHcFKwAcd
-	rzM6KInCM4ce+dML/E4aQCZ3pnM/RNZAeqoyjmorV9aDKN+c0RA4SXsv5TLXnA==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Wed, 18 Nov 2026 17:50:14 +0100
-Subject: [PATCH RFC v3 31/31] drm/mxsfb/lcdif: enable bridge hotplug
+	dkim=pass (2048-bit key, unprotected) header.d=librecast.net header.i=@librecast.net header.a=rsa-sha256 header.s=2026110900 header.b=ZQ31Zats
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=librecast.net; s=2026110900; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=trsZ+1RZme3i6jPw3o065+OWOfJHPXUoMlTsFMytG/E=; t=1795020816; x=1795884816; 
+	b=ZQ31ZatsKWh653EzUQcHnOn7X1PKDnsnVLmY6mKiZ4MX2WkmA0gON1RoObE+DpAkji9RBNeGFQ3
+	NKaTAujKP+QdNR+kKzWOpwlYyCU4kV1y4nMH8p6RzGXcTh62sadTyCW4wsd88SY6GOZWy5z9+jKFt
+	zG/Eh3er5FMlsQ+eiq21RoSx5Ngn9U8DJNPfOT7XSl9X1+CBjJrIJ9HgOGU1CBGjateWmRntawrhV
+	kCCv05yrkNATMVkl6ig+m2tkcUZKDXsGuD392eAPR3BF538kWrgixJXZ2hkKiTHarMWUpD3bN/U8X
+	d87cVNbz04osBCXwIXTj1gKcA5ZaiBSdbNSQ==;
+Date: Wed, 18 Nov 2026 17:44:43 +0100
+From: Brett A C Sheffield <bacs@librecast.net>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: stable@vger.kernel.org, patches@lists.linux.dev,
+	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
+	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
+	patches@kernelci.org, lkft-triage@lists.linaro.org,
+	pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com,
+	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
+	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
+	sr@sladewatkins.com
+Subject: Re: [PATCH 5.15 0000/2214] 5.15.226-rc1 review
+Message-ID: <av3V--DT8f8qsT_9@karahi.librecast.net>
+References: <20261118150009.797899913@linuxfoundation.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,151 +67,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-drm-bridge-hotplug-v3-31-44bb3b4a828f@bootlin.com>
-References: <20261118-drm-bridge-hotplug-v3-0-44bb3b4a828f@bootlin.com>
-In-Reply-To: <20261118-drm-bridge-hotplug-v3-0-44bb3b4a828f@bootlin.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Inki Dae <inki.dae@samsung.com>, Jagan Teki <jagan@amarulasolutions.com>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Jessica Zhang <jesszhan0024@gmail.com>, 
- Douglas Anderson <dianders@chromium.org>, Marek Vasut <marex@denx.de>, 
- Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.16.0
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118150009.797899913@linuxfoundation.org>
 
-Switch to the new drm_hotplug_helper() to handle bridge hotplugging.
+On 2026-11-18 15:27, Greg Kroah-Hartman wrote:
+> This is the start of the stable review cycle for the 5.15.226 release.
+> There are 2214 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
+> 
+> Responses should be made by Fri, 20 Nov 2026 14:55:35 +0000.
+> Anything received after that time might be too late.
+> 
+> The whole patch series can be found in one patch at:
+> 	https://www.kernel.org/pub/linux/kernel/v5.x/stable-review/patch-5.15.226-rc1.gz
+> or in the git tree and branch at:
+> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-5.15.y
+> and the diffstat can be found below.
 
-Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-
----
-
-Changes in v3:
-- Adapt to the v3 version of the drm_hotplug_helper, which also handles HPD
-
-Changes in v2:
-- Use the hotplug helper callback to enable HPD on the hotplugged connector
----
- drivers/gpu/drm/mxsfb/Kconfig     |  2 +-
- drivers/gpu/drm/mxsfb/lcdif_drv.c | 40 +++++++++++++++++++--------------------
- 2 files changed, 20 insertions(+), 22 deletions(-)
-
-diff --git a/drivers/gpu/drm/mxsfb/Kconfig b/drivers/gpu/drm/mxsfb/Kconfig
-index 31db7a824a93..ada9a9334ea4 100644
---- a/drivers/gpu/drm/mxsfb/Kconfig
-+++ b/drivers/gpu/drm/mxsfb/Kconfig
-@@ -34,7 +34,7 @@ config DRM_IMX_LCDIF
- 	select DRM_PANEL
- 	select DRM_PANEL_BRIDGE
- 	select DRM_DISPLAY_HELPER
--	select DRM_BRIDGE_CONNECTOR
-+	select DRM_HOTPLUG_HELPER
- 	help
- 	  Choose this option if you have an LCDIFv3 LCD controller.
- 	  Those devices are found in various i.MX SoC (i.MX8MP,
-diff --git a/drivers/gpu/drm/mxsfb/lcdif_drv.c b/drivers/gpu/drm/mxsfb/lcdif_drv.c
-index b7be7e17d1d0..56b15dbcfd2a 100644
---- a/drivers/gpu/drm/mxsfb/lcdif_drv.c
-+++ b/drivers/gpu/drm/mxsfb/lcdif_drv.c
-@@ -18,7 +18,7 @@
- #include <drm/clients/drm_client_setup.h>
- #include <drm/drm_atomic_helper.h>
- #include <drm/drm_bridge.h>
--#include <drm/drm_bridge_connector.h>
-+#include <drm/drm_hotplug_helper.h>
- #include <drm/drm_drv.h>
- #include <drm/drm_encoder.h>
- #include <drm/drm_fbdev_dma.h>
-@@ -47,6 +47,19 @@ static const struct drm_encoder_funcs lcdif_encoder_funcs = {
- 	.destroy = drm_encoder_cleanup,
- };
- 
-+static void lcdif_hotplug_event(enum drm_hotplug_helper_event event,
-+				struct drm_connector *connector)
-+{
-+	switch (event) {
-+	case DRM_HOTPLUG_HELPER_CONNECTOR_ADDED:
-+		drm_kms_helper_poll_init(connector->dev);
-+		break;
-+	case DRM_HOTPLUG_HELPER_CONNECTOR_REMOVING:
-+		drm_kms_helper_poll_fini(connector->dev);
-+		break;
-+	}
-+}
-+
- static int lcdif_attach_bridge(struct lcdif_drm_private *lcdif)
- {
- 	struct device *dev = lcdif->drm->dev;
-@@ -56,9 +69,8 @@ static int lcdif_attach_bridge(struct lcdif_drm_private *lcdif)
- 		struct device_node *remote __free(device_node) =
- 			of_graph_get_remote_port_parent(ep);
- 		struct of_endpoint of_ep;
--		struct drm_bridge *bridge;
- 		struct drm_encoder *encoder;
--		struct drm_connector *connector;
-+		struct drm_hotplug_helper *hotplug_helper;
- 		int ret;
- 
- 		if (!of_device_is_available(remote))
-@@ -68,12 +80,6 @@ static int lcdif_attach_bridge(struct lcdif_drm_private *lcdif)
- 		if (ret < 0)
- 			return dev_err_probe(dev, ret, "Failed to parse endpoint %pOF\n", ep);
- 
--		bridge = devm_drm_of_get_bridge(dev, dev->of_node, 0, of_ep.id);
--		if (IS_ERR(bridge))
--			return dev_err_probe(dev, PTR_ERR(bridge),
--					     "Failed to get bridge for endpoint%u\n",
--					     of_ep.id);
--
- 		encoder = devm_kzalloc_obj(dev, *encoder);
- 		if (!encoder)
- 			return dev_err_probe(dev, -ENOMEM,
-@@ -88,16 +94,10 @@ static int lcdif_attach_bridge(struct lcdif_drm_private *lcdif)
- 					     "Failed to initialize encoder for endpoint%u\n",
- 					     of_ep.id);
- 
--		ret = drm_bridge_attach(encoder, bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
--		if (ret)
--			return dev_err_probe(dev, ret,
--					     "Failed to attach bridge for endpoint%u\n",
--					     of_ep.id);
--
--		connector = drm_bridge_connector_init(lcdif->drm, encoder);
--		if (IS_ERR(connector))
--			return dev_err_probe(dev, PTR_ERR(connector),
--					     "Failed to init bridge_connector for endpoint%u\n",
-+		hotplug_helper = drmm_hotplug_helper_init(encoder, lcdif_hotplug_event, ep);
-+		if (IS_ERR(hotplug_helper))
-+			return dev_err_probe(dev, PTR_ERR(hotplug_helper),
-+					     "Failed to init hotplug_helper for endpoint%u\n",
- 					     of_ep.id);
- 	}
- 
-@@ -211,8 +211,6 @@ static int lcdif_load(struct drm_device *drm)
- 		return ret;
- 	}
- 
--	drm_kms_helper_poll_init(drm);
--
- 	drm_helper_hpd_irq_event(drm);
- 
- 	pm_runtime_enable(drm->dev);
+Same build failure as reported against 5.10.y
 
 -- 
-2.56.1
-
+Brett Sheffield (he/him)
