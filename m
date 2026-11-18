@@ -1,11 +1,11 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.65
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.62
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795044756;
-	b=BdLgr1GpGJ3kO2u205+559reDnNuh7jrlWENoya3LuYptrrb6sZt4g3EEToyMmhqn2/y
-	 B7fQMWrJakrotscwBGXfzpSDFSkWH/7zh3dA0nqwF+aZTW3I6OcKcAzKY3+5HPmraLFBD
-	 OM2psHR37R13wU9xwf2GxxIeCyHdVwmhqI2N56nkz+QwmqZqoUVkNrKnRmZ0UBo214cPQ
-	 F8gkH+CdTrsFHpxBvc7Y4hpTJdAyYfWK8kw1Gze7PgNjhT1AIgJVAhPiu8OXLSfjyPp9w
-	 t+HMI7Phlj0MC3iex5iWjbG/SKAaUMUV+if0uSSLZ8RI3y4lePI9a+PqT6xy8K8E5rw==
+	b=mqpqA6j3G/U2/CXzCFuh+DAY2scmZSRT1OkMphn2tfE6SGOfX5bnHgFq8yvvfobp5c/C
+	 KKNz6Cjy5FhG2mdzxTycLugzbdQGxJx5yjjGqrRRaQFNCMoYBPFE72eawlA58VoIr1WcD
+	 GW31ykS2/Zoz7r6X869VBtK3a5oMTDl/exr0HtJSBjV/2vC15+oiyGEKRt+ilkK6/TXdZ
+	 3Z+YUya7N+H6COFDMxdg59YzvlRvKfJrB4SDNg8TzmePDkY8oQrxH3wSle0zSUkqSqHQN
+	 0rLEvIGChxxn4+LVOVa4t1KK9adfKOHxB2Pfd1gaUMgDSsiO5Qu9HWn+NNqyGCvjWAQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795044756;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:
@@ -26,52 +26,53 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=AMeR6NDUiz18N+Bo2DvJOVGkvlTFuB6dauhlohGe6GI=;
-	b=hXvynRVcLBOhmQ7p9EycUFRhtjrSo5892EmfuzrnTlwSJg3sbwHR9OJqoGanli72jNpF
-	 XDHjNw1//289kgdD3uZeu6bzsuYyZg4qdH44jUrl43rn25MFlF8eX8+MWIqlynwn2VymM
-	 8NU74kJ7d4UapRIRWIaCWln+KPu9j3LMQiwm024rG+KdTd1x9uP3EwSfc/lt7favcl16l
-	 eQUi1yiahHRzosEg+EIZfY04oWXL69Yg8FXLz3zNB26JzJCRfjLZZzh/GdIuvRsrAgAsi
-	 9jxOSJUiFAw7FPMqnATGrzLjLTj44t2YswlBW8H/v5OLYDKpxUSu44MXVAN8j2WBQfg==
+	bh=63m/7o1O8LPb1Ef3SLMh71fdRN6m9po1cxf6iscNjeg=;
+	b=RG/UVgWfGg+ABboms3Y3alPWuJPyUGJnb9gyFJsy5R5eyJpTP2ps7p8vilFN9mQjwMsJ
+	 +NXpIdOUbHS8TMwVrhazh/1IZOVVXjL+0oSBxiZ2h1Rr6+IAxLgkxXF+s1C6R4lMzjiEJ
+	 2Opb4qOqeivciUmMiMW+H/aG2ONXJWDe8TzNac7r7heQTE9N7WK/eszSZHFE/oaL8RBNK
+	 kq5GZAGWKKhLHno3BsVTx80rWuYXeKh3i68wOhNs2XxUdMV9Et2fApDpctH0rL5NoFSIZ
+	 8S0HpSW2v9BB1H+KzHg3DL1oQDZK10PrIPXLsuADjo1Jr45WS22AhxKMoHnNsNeIV8w==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=amd.com;
 	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=4ItbNvjn;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.65
-Received: from PH8PR06CU001.outbound.protection.outlook.com (mail-westus3azon11012065.outbound.protection.outlook.com [40.107.209.65])
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=F63El211;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.62
+Received: from BL0PR03CU003.outbound.protection.outlook.com (mail-eastusazon11012062.outbound.protection.outlook.com [52.101.53.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3643606A32C;
-	Wed, 18 Nov 2026 23:32:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F3643606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4994660A2616
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:32:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4994660A2616
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=4ItbNvjn
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=F63El211
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lgaTxgAgC47PvFh9ipQOmHdz69slJKmMzh3w/BImDtkI5fqp4YPdElL/E5lorWPVXgrlqS6lAGr6BKUoexbOzKCtdKMOaAYujudgsF4Fw4B5YwatFxpUTewt0LovIgeEbzQuvA40PCY5nMux7lPCW1xLhDV6aj+5qaK1MI5u5FitrfQmELUmRQ9X4vyqivCap7tQtH5m77ufNXrAFuG19f3GLjnTxGmeMV0BoUT1giKi/BLbo0Z1g5CKC6Jea9HnuSEA15ZY0SVTpRCIuf91Jdu31dCQ5zzKWWj1ADFEk27T57n7W+CHz6qvc1QhK4v56DBNxiqdI9Q+FZeyzAy3lw==
+ b=P1E0XDPyMr0wuLDKmHwEXQLNOG92QsJ7U5OBb/DtGNprx+T8vrTvOR1+1/DYCc5xy4Kvo+0aob07Vy39FnT1HpA+ZC9yFQnrLPLl9/bEiUqYOUFiwqSzJk4sQMJscYZspkWztAVumu/ZnW8rQtP4ZhAxpol46k6ggMx8djIIwPakC5z2llESxFrgX75riQ6zVVUfUOSZSLPv2FyrrlT45JwZi1PEXZM415oHGAiZrv5h0jkQ/eQRBihlojl01ssABxrKl0/pFwwj4mirsUcavxzcQK+K/8Oof+xvl38ipeEAIAHLcwBhxqAybwvFJsRq/Ue3oBaEosIdrIl57X4dbg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AMeR6NDUiz18N+Bo2DvJOVGkvlTFuB6dauhlohGe6GI=;
- b=wPLUyLHC9MtVApaEdhpf3l73XalGH2TE7GDodU3d8p17E1qbhb1H2J34GJhPjV7SwyPEGB6YriNauyB8J0WVvcGZ29WWyWMT8dzOsB9k7X8fVbWFYTMkCBTpQGiiKtrkr6wLYFz4jtMumE6TIrvYA16ObIJqNgbOoXFf3Z5DBEpQByR+eUJzmFma121FTRGZc7ZL/aej+1vHUb2wfIloCF7sLY8MiM8x0t5uowsuLNEJ97o4YcSiATXtPwusjOo4deeUbx/YolxMKC6N01cMttk5vIW44DhwHU5/l2wveyA1nULKOC0Ly7iUW9AHwS7urSZHtmG/zsFUvlPURfoS9A==
+ bh=63m/7o1O8LPb1Ef3SLMh71fdRN6m9po1cxf6iscNjeg=;
+ b=oYKid/mm8V7EXzY80OJY+4AnbW99Zf+kRtqgHvViXipU+Ya09vkGhS/N0YATZTmYQU1XDg6aQ0yxDXpoKE7hsnURT0eWQYj3z5SlLk1Csb529yzpF5OYKOCvuGJV6opj5nn+w9OIaZHLA7r2lXQRGudxbEj2DesiLorLt/80gtuWvrWGHdmBSHpNcPIN5ZPesN6NNtJWAK1VOjwmzBZga3w37s9j+Ojix4Mo25L0gt7EKEuLKi6ZdViCravX5XxHreXSo90UrhSsWsUmBpLBmTOvXCR4lU0guZcW8HJLP8E474IiVwfYAvDnm3X63ICGDyhIaDWCDYEQr3/zqt130g==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
+ 165.204.84.17) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AMeR6NDUiz18N+Bo2DvJOVGkvlTFuB6dauhlohGe6GI=;
- b=4ItbNvjnwiPdu9WUJqKsOlHwrPWpDlI1Bhil4KF3C3FHlJ5UbI+DY5y1Yi0ljZkVAVT7FH2WxUtl89M0wM4iDsNap/HvKjQv2Y8oGTrX9GYXlv5wt4CMSCzyo9yCPsKn1Nsp1gxaJYxVu8fBmrksdluLYlqOcQyXDpQ7+AwWWIA=
-Received: from BL1PR13CA0083.namprd13.prod.outlook.com (2603:10b6:208:2b8::28)
- by DS7PR12MB8323.namprd12.prod.outlook.com (2603:10b6:8:da::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.14; Wed, 18 Nov 2026 23:32:32 +0000
-Received: from IA0PEPF0000003C.namprd03.prod.outlook.com
- (2603:10b6:208:2b8:cafe::3f) by BL1PR13CA0083.outlook.office365.com
- (2603:10b6:208:2b8::28) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.8 via Frontend Transport; Wed, 18
- Nov 2026 23:32:32 +0000
+ bh=63m/7o1O8LPb1Ef3SLMh71fdRN6m9po1cxf6iscNjeg=;
+ b=F63El2114QaYobYQK3sgSOXDluIYk8Z8bL+jQgZRNdTrbea4w6XDaemD366DbubkhLRfP2hixekUPq0gKlwxAuln/MB1Bwfbr4ThxW00tPgG+GJHXyC9zWNtiV4+0Lvv5Pp/U0WIw7r3BurBVdxBUnSfMtPBvoSO/K/wlFMIckg=
+Received: from BLAPR05CA0006.namprd05.prod.outlook.com (2603:10b6:208:36e::9)
+ by BY5PR12MB4179.namprd12.prod.outlook.com (2603:10b6:a03:211::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 23:32:30 +0000
+Received: from IA0PEPF00000038.namprd03.prod.outlook.com
+ (2603:10b6:208:36e:cafe::2d) by BLAPR05CA0006.outlook.office365.com
+ (2603:10b6:208:36e::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.10 via Frontend Transport; Wed,
+ 18 Nov 2026 23:32:29 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -79,24 +80,25 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
  client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
 Received: from satlexmb08.amd.com (165.204.84.17) by
- IA0PEPF0000003C.mail.protection.outlook.com (10.167.249.73) with Microsoft
+ IA0PEPF00000038.mail.protection.outlook.com (10.167.249.69) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Wed, 18 Nov 2026 23:32:32 +0000
+ 15.21.615.4 via Frontend Transport; Wed, 18 Nov 2026 23:32:29 +0000
 Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb08.amd.com
  (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
- 2026 17:32:29 -0600
+ 2026 17:32:27 -0600
 Received: from xsjgregoryw50.xilinx.com (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Wed, 18 Nov 2026 17:32:28 -0600
+ Transport; Wed, 18 Nov 2026 17:32:27 -0600
 From: Gregory Williams <gregory.williams@amd.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>
-CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH 11/15] dt-bindings: soc: xilinx: Add Versal AI Engine DT binding
-Date: Wed, 18 Nov 2026 15:32:07 -0800
-Message-ID: <20261118233211.4121361-12-gregory.williams@amd.com>
+To: Michal Simek <michal.simek@amd.com>
+CC: Abhyuday Godhasara <abhyuday.godhasara@xilinx.com>, Naman Trivedi
+	<naman.trivedimanojbhai@amd.com>, Senthil Nathan Thangaraj
+	<senthilnathan.thangaraj@amd.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH 10/15] drivers: firmware: xilinx: Add IOCTL support for the AIE run time operations
+Date: Wed, 18 Nov 2026 15:32:06 -0800
+Message-ID: <20261118233211.4121361-11-gregory.williams@amd.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261118233211.4121361-1-gregory.williams@amd.com>
 References: <20261118233211.4121361-1-gregory.williams@amd.com>
@@ -113,111 +115,172 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA0PEPF0000003C:EE_|DS7PR12MB8323:EE_
-X-MS-Office365-Filtering-Correlation-Id: 71174006-f00d-49ba-a19c-08df45cc37bf
+X-MS-TrafficTypeDiagnostic: IA0PEPF00000038:EE_|BY5PR12MB4179:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8176662d-ceaa-499a-901c-08df45cc365e
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|36860700016|376014|1800799024|82310400026|23010399003|261022075727099003|261102123227099003|261026121527099003|261028144727099003|56012099006|11063799006|261026140227099003|10067099003|261022105027099003|261021121427099003|261009223027099003|22082099003|18002099003|6133799003|13003099007|3023799007;
+	BCL:0;ARA:13230040|23010399003|82310400026|36860700016|376014|1800799024|261102123227099003|56012099006|261026121527099003|11063799006|261102130727099003|5023799004|261026140227099003|10067099003|261022105027099003|261022075727099003|261021121427099003|261028144727099003|261009223027099003|6133799003|22082099003|18002099003;
 X-Microsoft-Antispam-Message-Info:
-	QZDtI8lXDvxX9zdXX6xeiYKN2pcukiz+dNHomft0GadG2MWZ0IfGAkXEa5daXash7/lJlbYq+igFlCdN9So3cdnLWQ2KqRFNNCtrS0DolGRGvHcDdctlRp3vVakfxG+TIi+PIDk0/oaS561Pb4N8nOhfFeTxG/PScgbpku+Sd84XnFX9m1YlQ8I5Yfpob9cRKJ+CGOKY+svl68V7fHtv98e3eL+Rx2v0S/1yCbi4z+c6K+sUiImNV+HTJ81OoLxFVaA8ZRCkoev93U8xU5b0oW6PcIWqmwlIB5jUR3HpYXZaLTKZ3uPUFz+RagXl2m/VgnOuY+CYe+Ms/k6tL3SJgWYlfxyjadwTDfZ+0V2gfqrFHQTa/a8nqOUxSJivRvdz1yGJYpx4p8ZtgOWAerWo2a+49QzM39QzmMRfpCFK1A77at2Fa3h9KYz5OBWbVNJpZ5ao2KNtmDSuiGnjve4hBt0jGqoa6TG/HCwn1QO6KghNS9lpAR4Ao/vEz4ofPNDsmyEGTv3YmaGtS/eq+3Cq50H7ZviOmc6ltXkgqM+VmdztLJZKWtBIr4ygZ3FH6qfUYwgXytvdkAk/dOKmHDWoYEV96OmIOe0aGpYgtxOXc8d2S8BZFJF3Hxr/ie2lkU4MzE0pGYb8xbRFD/SzNSbceg==
+	KAllQuRrpBzN4ECxQWYGntS915uG/N7S0n/vGexNvxQsLYKAHp6cl5rsuqm42Ywt13P+5Qy9AOgpwHbJbPyHwruPwmo3r/pOBNldbqyok+IVvjdhR1FdEqvdvz4F+Az8o2Xeab6YYyFxE9bWE8e2aU2bfHdI/FIcG6QsaQbXcgePKP6yR1rMHOi5Fklmm8TK53qVR1w6pkJdDwnuES16lZ2QsBlntL9QZvJdiaSFSk9VQo18CxQSn9FpiHDvdEdP9KhN/3MUvtD2tFgc7qUTIfOPka7FXC4WFF0F/6QOxqwahGT4ZK5X1vJqG/oKa1JlIldwAnaTseC/8t66QtAD9ImuXWdptIWkXijHVngbg82LP/JZNuAVoxWz+cvki5jVnlG8pu9DP2APVpe+Av5y7LSGwwgYuA11KJ9k1n7uYdG49Z4EMVE8hpHj+TbepGgGgFPXAc6IJJEQQ7G0/AmO7aWPcYX1KVNkovcPPMrtLq2CCdgLIPPUMUHaywzUb6Yy5zMJ4LcJ35mpciqSZn6+ZRhjaphVaI8amgPpmFEVJw+dBX/82BZBcrwPeMMNL44C+gD8lXuZmvIPCah1IWV4g7TFzjEg83CzHdnrsumvEVC6ImTgKQVYshFHCXBqrZGw8CwSrFIbCcsHF4TBGosm29oNOWUqdNP/5/Jplph8tIBmtYKsAUemfodWsBIgTYdwJuowXHWhmoWHZIGaBMcV6Q==
 X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(1800799024)(82310400026)(23010399003)(261022075727099003)(261102123227099003)(261026121527099003)(261028144727099003)(56012099006)(11063799006)(261026140227099003)(10067099003)(261022105027099003)(261021121427099003)(261009223027099003)(22082099003)(18002099003)(6133799003)(13003099007)(3023799007);DIR:OUT;SFP:1101;
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(376014)(1800799024)(261102123227099003)(56012099006)(261026121527099003)(11063799006)(261102130727099003)(5023799004)(261026140227099003)(10067099003)(261022105027099003)(261022075727099003)(261021121427099003)(261028144727099003)(261009223027099003)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	LuYvtbEVt9fhXXt52ql6EPe0wsoVnGuf3S9OFDNl4DAkmkFC7SMsXY4k40E6I4hx7OtLmGPw8VK2pTqAZZgELIYFYwofYmkLqgX/YnRBTPGNGnm7uSrcHWBLhPxu54tqHSf8RCpV61xMOyrLRAjD3YjEH/QEkWkOqOmguVJ+gyuqmrPkJq0ZuH621qneluXFJ0F52foSBkv8RCjyVYrH4/h4+m0zVLqiq4HpEZUeYRaPfVIAebukwQSeFWdL6/i3/QqAM4ZPD9WJg+V7BEMezb0f31yhtdd3xmX5DmbW5aFoJrnubd0lmqC0DNquOzs8yPKTnbQb6yea8EnagGwFaQPWRjWM+GHftAjzRD+SsZGH+AlTnYGJL3TbdLFAXI+yIvc+E3vqMbWtVm7arJdNKlOnX8HnT/9y87QsF6z8+fdlI3vbr+WAzWkBEpWUi9xQ
+	L/Gx/DOi7Wo3atgwzVvj4Dblf2ycfj0Q8YAOQ4LYF5mXqaRq+c5TX18RybtcFgTm1254vaDUF9iqncAMt/f3pILuna5fGBIu7Eq5JZJd5yH4AOfPXpQygi4HCdedb7ty+wIqyHVKddlXKu2O94NBfj5V/KZPWlWGm6N6i/ZYPeweZp/bo44UmsH9uDWGqyyCXtdJKYFGm+fW5YBuEHdC+90Lkp1KoaGdISm/+pT5jQIh/vPzN7jzQlgxAi4ky9/3DOtbMyNxeL4ntkVeYyoZdNUPbV8tT1Dq9meJunV0l+0+zR2yIKqyDL8NkO6+4M+vbHk6VMHb6SEQf3DnLczsABY07DWsNgCCl7l992PeIVgcgGqHAitRhoAIPKarne8GM1cBVulPbPM0Wmx8IlcxSjMl2Au61yegFmmHI+wSHRr1Ro97+4Ay5L/jpAFw6ZiN
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 23:32:32.0497
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 23:32:29.7372
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 71174006-f00d-49ba-a19c-08df45cc37bf
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8176662d-ceaa-499a-901c-08df45cc365e
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
 X-MS-Exchange-CrossTenant-AuthSource:
-	IA0PEPF0000003C.namprd03.prod.outlook.com
+	IA0PEPF00000038.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB8323
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4179
 
-Add documentation to describe Versal AI Engine device tree bindings. AI
-Engine is a tile array based processor with many cores and local memory
-cache. Data routing between the cores is done through internal switches,
-interface tiles are used to connect to external sources such as memory
-or PL. Configuration registers of the device are accessed through a
-memory mapped AXI address space.
+From: Abhyuday Godhasara <abhyuday.godhasara@xilinx.com>
 
+Add IOCTL support for the Versal 2 AIE run time operations listed as below
+- Column Reset
+- Shim Reset
+- Enabling of column clock buffer
+- Zeroisation of Program and data memories
+- Disabling of column clock buffer
+- Enabling AXI-MM error event
+- Set L2 controller NPI INTR
+
+Signed-off-by: Abhyuday Godhasara <abhyuday.godhasara@xilinx.com>
+Co-developed-by: Gregory Williams <gregory.williams@amd.com>
 Signed-off-by: Gregory Williams <gregory.williams@amd.com>
+Signed-off-by: Naman Trivedi <naman.trivedimanojbhai@amd.com>
+Signed-off-by: Senthil Nathan Thangaraj <senthilnathan.thangaraj@amd.com>
 ---
- .../bindings/soc/xilinx/xlnx,ai-engine.yaml   | 61 +++++++++++++++++++
- 1 file changed, 61 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/soc/xilinx/xlnx,ai-engine.yaml
+ drivers/firmware/xilinx/zynqmp.c     | 16 +++++++++
+ include/linux/firmware/xlnx-zynqmp.h | 52 ++++++++++++++++++++++++++++
+ 2 files changed, 68 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/soc/xilinx/xlnx,ai-engine.yaml b/Documentation/devicetree/bindings/soc/xilinx/xlnx,ai-engine.yaml
-new file mode 100644
-index 000000000000..6c97b5f0fb03
---- /dev/null
-+++ b/Documentation/devicetree/bindings/soc/xilinx/xlnx,ai-engine.yaml
-@@ -0,0 +1,61 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+# Copyright(C) 2026 Advanced Micro Devices, Inc. All rights reserved.
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/soc/xilinx/xlnx,ai-engine.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
+index a8c70e775ae3..995db401519c 100644
+--- a/drivers/firmware/xilinx/zynqmp.c
++++ b/drivers/firmware/xilinx/zynqmp.c
+@@ -1268,6 +1268,22 @@ int zynqmp_pm_set_boot_health_status(u32 value)
+ 	return zynqmp_pm_invoke_fn(PM_IOCTL, NULL, 3, 0, IOCTL_SET_BOOT_HEALTH_STATUS, value);
+ }
+ 
++/**
++ * versal2_pm_aie2ps_operation - AIE2PS run time operations
++ * @node:	AI engine node id
++ * @size:	Size of the DMA addr
++ * @addr_high:	higher 32 bits of DMA addr
++ * @addr_low:	lower 32 bits of DMA addr
++ *
++ * Return: Returns status, either success or error+reason
++ */
++int versal2_pm_aie2ps_operation(u32 node, u32 size, u32 addr_high, u32 addr_low)
++{
++	return zynqmp_pm_invoke_fn(PM_IOCTL, NULL, 5, node, IOCTL_AIE2PS_OPS,
++				   size, addr_high, addr_low);
++}
++EXPORT_SYMBOL_GPL(versal2_pm_aie2ps_operation);
 +
-+title: AMD AI Engine for Versal SoCs
+ /**
+  * zynqmp_pm_reset_assert - Request setting of reset (1 - assert, 0 - release)
+  * @reset:		Reset to be configured
+diff --git a/include/linux/firmware/xlnx-zynqmp.h b/include/linux/firmware/xlnx-zynqmp.h
+index effa1a2445b3..042dcb164fc3 100644
+--- a/include/linux/firmware/xlnx-zynqmp.h
++++ b/include/linux/firmware/xlnx-zynqmp.h
+@@ -141,6 +141,16 @@
+ #define SD_ITAPDLY	0xFF180314
+ #define SD_OTAPDLYSEL	0xFF180318
+ 
++/**
++ * XPM_VERSAL_EVENT_ERROR_MASK_AIE_CR: Error event mask for ME Correctable Error.
++ */
++#define XPM_VERSAL_EVENT_ERROR_MASK_AIE_CR	BIT(16)
 +
-+maintainers:
-+  - Gregory Williams <gregory.williams@amd.com>
++/**
++ * XPM_VERSAL_EVENT_ERROR_MASK_AIE_NCR: Error event mask for ME Non-Correctable Error.
++ */
++#define XPM_VERSAL_EVENT_ERROR_MASK_AIE_NCR	BIT(17)
 +
-+description:
-+  The AMD AI Engine is a tile processor with many cores (up to 400) that
-+  can run in parallel with some devices containing local cache (memory tiles).
-+  The data routing between cores is configured through internal switches, and
-+  shim tiles interface with external interconnect, such as memory or PL.
+ /**
+  * XPM_EVENT_ERROR_MASK_DDRMC_CR: Error event mask for DDRMC MC Correctable ECC Error.
+  */
+@@ -166,6 +176,37 @@ enum pm_module_id {
+ 	TF_A_MODULE_ID = 0xa,
+ };
+ 
++/* AIE Operation */
++enum pm_aie_operations {
++	XILINX_AIE_OPS_MIN = 0U,
++	XILINX_AIE_OPS_COL_RST = 1U,
++	XILINX_AIE_OPS_SHIM_RST = 2U,
++	XILINX_AIE_OPS_UC_ZEROIZATION = 3U,
++	XILINX_AIE_OPS_ENB_COL_CLK_BUFF = 4U,
++	XILINX_AIE_OPS_HANDSHAKE = 5U,
++	XILINX_AIE_OPS_CLR_HW_ERR_STS = 6U,
++	XILINX_AIE_OPS_START_NUM_COL = 7U,
++	XILINX_AIE_OPS_ZEROISATION = 8U,
++	XILINX_AIE_OPS_AXIMM_ISOLATION = 9U,
++	XILINX_AIE_OPS_NMU_CONFIG = 10U,
++	XILINX_AIE_OPS_DIS_MEM_PRIV = 11U,
++	XILINX_AIE_OPS_DIS_MEM_INTERLEAVE = 12U,
++	XILINX_AIE_OPS_ENB_UC_DMA_PAUSE = 13U,
++	XILINX_AIE_OPS_ENB_NOC_DMA_PAUSE = 14U,
++	XILINX_AIE_OPS_SET_ECC_SCRUB_PERIOD = 15U,
++	XILINX_AIE_OPS_DIS_COL_CLK_BUFF = 16U,
++	XILINX_AIE_OPS_HW_ERR_INT = 17U,
++	XILINX_AIE_OPS_HW_ERR_MASK = 18U,
++	XILINX_AIE_OPS_ENB_MEM_PRIV = 19U,
++	XILINX_AIE_OPS_CTRL_PKT_TLAST_ERR = 20U,
++	XILINX_AIE_OPS_ENB_AXI_MM_ERR_EVENT = 32U,     /* Backward compatibility for AIE1/AIE2 */
++	XILINX_AIE_OPS_SET_L2_CTRL_NPI_INTR = 64U,     /* Backward compatibility for AIE1/AIE2 */
++	XILINX_AIE_OPS_PROG_MEM_ZEROIZATION = 128U,    /* Backward compatibility for AIE1/AIE2 */
++	XILINX_AIE_OPS_DATA_MEM_ZEROIZATION = 256U,    /* Backward compatibility for AIE1/AIE2 */
++	XILINX_AIE_OPS_MEM_TILE_ZEROIZATION = 512U,    /* Backward compatibility for AIE1/AIE2 */
++	XILINX_AIE_OPS_MAX = 1023U,                    /* Backward compatibility for AIE1/AIE2 */
++};
 +
-+properties:
-+  compatible:
-+    enum:
-+      - xlnx,versal2-aieml
+ enum pm_api_cb_id {
+ 	PM_INIT_SUSPEND_CB = 30,
+ 	PM_ACKNOWLEDGE_CB = 31,
+@@ -257,8 +298,12 @@ enum pm_ioctl_id {
+ 	/* Dynamic SD/GEM configuration */
+ 	IOCTL_SET_SD_CONFIG = 30,
+ 	IOCTL_SET_GEM_CONFIG = 31,
++	/* AIE/AIEML Operations */
++	IOCTL_AIE_OPS = 33,
+ 	/* IOCTL to get default/current QoS */
+ 	IOCTL_GET_QOS = 34,
++	/* AIE2PS Operations */
++	IOCTL_AIE2PS_OPS = 39,
+ };
+ 
+ enum pm_query_id {
+@@ -659,6 +704,7 @@ int zynqmp_pm_stop_rpu(const u32 node);
+ int zynqmp_pm_set_sd_config(u32 node, enum pm_sd_config_type config, u32 value);
+ int zynqmp_pm_set_gem_config(u32 node, enum pm_gem_config_type config,
+ 			     u32 value);
++int versal2_pm_aie2ps_operation(u32 node, u32 size, u32 addr_high, u32 addr_low);
+ #else
+ static inline int zynqmp_pm_get_api_version(u32 *version)
+ {
+@@ -996,6 +1042,12 @@ static inline int zynqmp_pm_set_gem_config(u32 node,
+ 	return -ENODEV;
+ }
+ 
++static inline int versal2_pm_aie2ps_operation(u32 node, u32 size, u32 addr_high,
++					      u32 addr_low)
++{
++	return -ENODEV;
++}
 +
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  clock-names:
-+    const: aclk0
-+
-+  xlnx,firmware-device-id:
-+    description:
-+      Device identifier as defined by Versal firmware interface. This value is
-+      passed unchanged to firmware calls.
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - xlnx,firmware-device-id
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    soc {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+
-+      ai_engine: ai-engine@20000000000 {
-+        compatible = "xlnx,versal2-aieml";
-+        reg = <0x200 0x00 0x01 0x00>;
-+        clocks = <&aclk0>;
-+        clock-names = "aclk0";
-+        xlnx,firmware-device-id = <0x18224072>;
-+      };
-+    };
+ #endif
+ 
+ #endif /* __FIRMWARE_ZYNQMP_H__ */
 -- 
 2.34.1
 
