@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795022747;
-	b=guznGorLqmNCqIbM3nOabk+xyK3Z8Fh0sUvZlMPiUQQco2MJW22bt757IdJgEjQyH9DT
-	 GAGRDWrQayjNyyUS81ux8Yn7lu6tqa00njcCYOgO59XcTGBcAl9RONxkWdo2rYEvUPe44
-	 EmYyExEk/7dxoYrKmTEnKlr6NfdW8i8Q10glb6DxOegEa4slBkCtEmPzp0dz7CNY2Xe4+
-	 uZsD3WeHYXE8leVZLWZw6w0JjKqml+nOCSnIUTm/8N+cwBP8lsQqxX3JlEs2Z/A61F8Ft
-	 8FOpYw5WoHEyMJtC010kiUcgoODK9Su6LQn1ZdyP0KQB7yuwtAlU7xhGLTNUy30mIkA==
+	t=1795022748;
+	b=k3sFh6bS85kSCWo1Nc+sxLv7yXkfTuxzdtsFioaDjtnrH7oLlxExrfFoqRJiqxBPtbSJ
+	 V2YlJ6yzIU9VQgNL4srZlBFAAknHD8nxDJYq1Utjz/4OAS9FHCuQ4pEORS6HxS49NYQBw
+	 bSpOiRnjWIffLSCWSOSmTIvJugByvp8F93EtAOlFLS1vMOfQwC+h5JJZF6RRczreAmrmH
+	 2BQUwCzN1caibnPlFP595tBBI//Aqr+WMy3vnQhtrPgsI+ZU1bFDgPTKsAjFnEPdRxK9F
+	 Bat/LgpVD9SWAkKAGVNjLe1kSYGQWI8GD01gOdDha2BarUvzkI6elXysqHlZwWv6uzA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795022747;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795022748;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=4mkoX+OtXZlUYM2KdWyZuMLbP5nRS3AuI75xvEPjRPQ=;
-	b=NM8IuhTquI7oB36+LsrtGbSEuYa2btfNf1l95dBAfrva8hhTukuHqZuwQYrUGj3IgxFh
-	 2TF7gxi8Lp9q19/ndSEXezipTJFgjcED2/ljDD6YZ6Mj6yy0C7sJiy/u5aKVcOWlnnCoO
-	 S5/3rNhGIichGjJJpFgoG2ORHqMHotTWpos8PFjF0+k0q1sQo34ZTPqa+JS4SbADHlEkR
-	 dOpSUERxQgcle2F6zB5dNOK8HlXgmUv4iccMl0+T9qXltc5xLoO9TX+eEaQk2kpnskH2g
-	 0ktO5er5vyhDZyB1TPbpoyZh8hGAKKdw8Qku9ShdJpLlBDclDPd5tzkBFuYq3yCr9Yg==
+	bh=HSCUWDSJEqkYX38VOL+ytbHQvfr3sRJ7rJar/F/Nk2I=;
+	b=0cj9H34dcjc1A1n0lVd7WTI8qq4M7lTu3r2cjWH5Wqefb+bvMrHME/FYv17GlZsWiMcV
+	 tln6h3ZZ0KgREEOlpiAt/Wj898FCGX+M0uovf/LerlAhGrp2bMrb75q4f1jfiLyJtIvZr
+	 URlKl0C3ro6hVc2YuN0dpNEa+blDcuwalIJqefBcaNlH+tOTVBrWEC7adWpa2baGrAv/w
+	 Zl7nNHeZhiiKERNmITLXpg/V+7aBr7joBRK89avR22xvEPh2QeUhZHBPDTuGqCqqc0+Kh
+	 KYhsy6gIB/mJxOiBTBr+4qWiqoqiIDR5p1vNxTOJzqmHrYn6p33ZwdAyewz3KoTW+kQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=L4o0I1Pr;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F5A2VSXE;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 743FF60A380A;
-	Wed, 18 Nov 2026 17:25:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D92F60A5BD1;
+	Wed, 18 Nov 2026 17:25:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=L4o0I1Pr
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F5A2VSXE
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795022747;
-	b=ysWBS6kuW5Ejjt2m6q9cyHIXBtYh8ooBJi7xuOHW+K3N/3djL9BzGGKXS6tsUKDEzqiQ
-	 HtKogbUm4MyS5nHC4+e+HW3xZrG4VTyvkL8WY0x+FruVNQ5YC1VZ2kCdpm5Fy/wemyFmo
-	 3ZKYHrHsxjlRwd4HS13duOGiMmvMVabjRFME0xkQvo1qcbmtayKVNy0LLhhIPDex80ZBe
-	 FGwsEAJuyicfT8P/ev5mFdByUFiPTUv+5A/BclqrctRDP/CYCkOdkUYEkHsebN99kObst
-	 n+DdbXi0JEoevv93Wo3cqSR6dlQmI720r3BbDTxdHBsHgWh/Qc0Tb90AabSE8iI8CJw==
+	t=1795022748;
+	b=tXllFHDjEURiGAmWYhPEA4PtK1siTXBTXLOjSirLbZ88xgbG40xmm276A7tMZI9WipaM
+	 7sxmLCLgSy0SQy7KwhD1nhc3VU+AfW9sTTSrXGGcWcrpXpjNL3hvvGLTI2/0BPorxLOlC
+	 aZpb16tPOrFLT3wlkv0w6nj4JFXcaOTWv558mSxZZXMnFkjpeRjpHFn0+SheFNDa0/dcQ
+	 oEPaxV3tL+IXQro6FtW90Ue+nM0ZoTfAl+C9/VN1HXTC6SjrbGqJqmgT97wXQ//LXEBvI
+	 RA8mv3CcTChpI9ABC+LaBk6Dw2r0RmqAyvZS8GGAjGWZ4idK2DFF/IhB9uxnuRs501A==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795022747;
+	c=relaxed/relaxed; t=1795022748;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=4mkoX+OtXZlUYM2KdWyZuMLbP5nRS3AuI75xvEPjRPQ=;
-	b=YpYRvzr75uor5P15byolbTdnCx5tM+u3MNi2oBDOTiEjAbB7dB0gPGr1a6orocDHkDcG
-	 ifUxQSVsWE+aEKuqeAut4Uxe5oqpP/PRDqxugU7twINXTqZovdPbYTiY7LiK3cZZ8h8RW
-	 LnstybnC3wGGXn18CtxD4GYHb1Aety5To6lA262l7RS9gOlTJkMO3qEwi1OXzQ3ZNeCc0
-	 uER5GWTC53yHRIr8YGCgn+JXqsp7O+iWYkuDxGtsmJar+xjyeTEgjx+fjm8lXdCv5knbS
-	 Enj5bXQGocqRIt/gacP7QWpRHZ3DSeSU5YtUGjPkQuWkctcnGBffSeECJFO7Y2rhVIg==
+	bh=HSCUWDSJEqkYX38VOL+ytbHQvfr3sRJ7rJar/F/Nk2I=;
+	b=1DRqaCgHxjSJG+JJi6VVCqhH+EomtrYgQYzJQKb1Qipebf5JCdxXuVX2XpGIrWKG9X6t
+	 7SkU25hafeoQDbBfb+hzTFYqE4h8jG8sWLpAm0gV3C8PcG6oDfaP4B62N3BOsM1p2VCWQ
+	 WKQdk4cbTRFTtmbLRLmvZeM5WQU4tl49aq+Zc4LKhK56lWMLaGNeIf4Au8umoUDKz3tzM
+	 vg6Nu5mzJN+yH7tZVtOkFCNNZuREybxveFwgFJISYN4nkdRFg9eTmYDGx2xKl3iyl2Ztj
+	 btv2J2gUlywFvtfhr4McsxySmcBt1aSpSL49SQdwbvl8Y3hhDnDz11k3BUu5YjW8UKQ==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 8CE4C1F000C5;
-	Wed, 18 Nov 2026 17:25:46 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 435F51F000D0;
+	Wed, 18 Nov 2026 17:25:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795022747;
-	bh=4mkoX+OtXZlUYM2KdWyZuMLbP5nRS3AuI75xvEPjRPQ=;
+	s=k20260515; t=1795022748;
+	bh=HSCUWDSJEqkYX38VOL+ytbHQvfr3sRJ7rJar/F/Nk2I=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=L4o0I1PrXTadIg6fub9yq4AASiH/KLu1+8Vn+/m9WSS3JXD6AvhzeE8wT8B5FZo59
-	 DU3l3A76P7EXdKZcsHUSIvLmpHiIHmJX90YTrMYhsyn9P3pvz8H6/10ocGIpQS96Iz
-	 o+gA7WCuWXbzYbHmqK3jL9VvUFBgqV2JNHK4WYwaW0brfl21pmhNp4B3tU/oWSwmKW
-	 z2nBoU+yorlXoQscy61lGjyHZcMFDkU+U32q3veFBFzQUNcXTOlWrQQbz9jg3OwHgS
-	 7GevQ9xo8VMrntfaFhyMdxmvmayKrLZLiVxxegfsu2frmyxQPTUv9RcoDs0XM4Kfvo
-	 vtqpoHzDrgWZg==
+	b=F5A2VSXEP3PcRheDvrXpkB+3IdaPmF1ZdGWN0WK4swC4NMUHurZz/JOlH5Zisx/Gy
+	 SHbMsPg27U9s+sK7jfkxv/DuA+U9ogHcmlUBhHvSxtnfkUDlK75LW+oNeTV8E4hE+Q
+	 aqgi31sZfCWbzNbaVptE8lAdysKV+Qztkv/jmOPHW8pGxFLv0Bu0vjhunAAe8VawmA
+	 VCCSwOhqqs9vudNNYCCnnl7arfjRjdcK0zQP3k817qQ9x1fjmxkBDfyF3me5MZ7ER+
+	 LBThu9hvLvt+5XAW+RBhQkpksxLUbcgzIodwnkvb2p3Yxzt5rip3kjxiGNntuG+BV6
+	 40Aq0VajaGrSQ==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 65EFC4AEEE;
+	by lkml.kernel.org (Postfix) with ESMTP id DD4C44AF01;
 	Wed, 18 Nov 2026 17:25:45 +0000 (UTC)
 From: David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
-Date: Wed, 18 Nov 2026 18:25:39 +0100
-Subject: [PATCH v2 06/12] arm64: dts: qcom: pm660: Add node for PMIC VBUS
- booster
+Date: Wed, 18 Nov 2026 18:25:44 +0100
+Subject: [PATCH v2 11/12] arm64: dts: qcom: sdm845-xiaomi-beryllium: Enable
+ vbus support
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261118-pmi8998-vbus-v2-6-3c77a72b280a@ixit.cz>
+Message-Id: <20261118-pmi8998-vbus-v2-11-3c77a72b280a@ixit.cz>
 References: <20261118-pmi8998-vbus-v2-0-3c77a72b280a@ixit.cz>
 In-Reply-To: <20261118-pmi8998-vbus-v2-0-3c77a72b280a@ixit.cz>
 To: Alexey Minnekhanov <alexeymin@minlexx.ru>, 
@@ -102,21 +102,21 @@ Cc: Richard Acayan <mailingradian@gmail.com>, linux-arm-msm@vger.kernel.org,
  linux-pm@vger.kernel.org, phone-devel@vger.kernel.org, 
  David Heidelberg <david@ixit.cz>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1176; i=david@ixit.cz;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1319; i=david@ixit.cz;
  h=from:subject:message-id;
- bh=YJAh5JKxsMmwh1tjGfME9pip1rZ2KokfphW0+tMoGZ0=;
- b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBq/d+X4XIJq3Uh7rLMwNZ4NJPm4II+Kh63DpMFb
- /ZVfEWzL/6JAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCav3flwAKCRBgAj/E00kg
- cox3D/9cMH6PB7kzKPaSjXBTcH/sfzCqzCHlPHzc7cAPhaMZ7htgH5TjkkbaIcP6iaBd8MoTfgE
- lH6fEDloPOUvbyJQoPbskRvfoQaao3kWeJ8vH0XNnwanu5hykDUUaS3CSzwNZVm8122PqTXYnt8
- d+5FfCfM8qC+BUTLsiHov+92qkfbTFoYiG1hmFyFOy5+/62Q2OW8h1PXz+Q12O4UISLYcvI0tvW
- /TTASCkTiiXAYoXeolQ952X89N9OtE12Ap4BFcxlLQXwhd9PDH3oRKS37Ax6y8W8L6uyrBXNrSq
- Yf992tOOyESMgJGfNem/Wm1g5WdxKe39gQH0w0Gir6PHLyxI72PCKRB3a70fy9Kf6YZfcF9RbZ4
- x6nHFOsD0/G+zDtHCZQ9+l7qSfqXO+5wH2WlTFY+OMaalqcLNhGTYJaBxx3iNy/Ysv9moidC71c
- i4PkMlb9c1OIO17BWzYjDtCtsNesTeqnme2y3IiZC5uEtU8ISIj6WY63qEYQvTiCz5P4n/+Sftw
- 5ctFCOw9yWHHSZcB7MN7vhm8FbxhZv1gBysxX/NNZYWjdTdL4KW4cjM8OBoh4DJD/1j8XZVNW4r
- 2fXybMu0IlLWiQSZCpMauKy+4W08t7oIZKyGB1iHBJzn6vpN8dIGK3KICn8p+P3xX5WU7Q4atOS
- la1msPiFU5SdInQ==
+ bh=/Lj3TGFexa5AfzuS/I1Uhtld+K5vTju4obeOh3yWZrc=;
+ b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBq/d+XlZGDgGZoz0iSr3s6ex4mRpEIhqUZGBxp+
+ 1ZJCxpTckeJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCav3flwAKCRBgAj/E00kg
+ cq+EEADLvJzKhZRpu+5LyYC9tSlFmKR0zlyaDNa2Mj6LtKIDkysLAiI20OPDn3NsKzhV7zLrzpI
+ 3mHCEwoZi4IhgrpTsdnWZQ85lJr2UydKl8dtn0tV2Fmtlj0udVyEIW89kwxBFuedvluPYVjX4eq
+ ynSJmSNPNm3o4Tqj7mCUAZ5KpzZj4pSA6q8+Iv+bZYxW5whj4YYEkbXosEKAmtH2ratIIHQZ+ha
+ hGDNxJfefCTEmz0fGctH1h0yhfWzEADXsh1F+B1YDQJE/8opCZVB1vYeEd2TOQj+m8jG0SMhMrP
+ 9B8USfeseQsjXBfkqQetQZplwto3brFCt4gaMaSiwxzbhhUsZ4gnnFAyKws/LbYzp0sVtyoH5So
+ +/ijmXpCTFoC9jNf+cAeuQxSMQdgJBKxDbMl4z/fBRnb/ErMh7b3uGxZgs42g1+7pnGGkA6HKvh
+ XYwBLLfyYScLcksaw6dcVVlAW7aJwfHTRkRq1K3EShcZJRlcJpkozrB/jLCA9lSjQiZOXA7YQz2
+ FicoGv9jBsgA1MU8lo8UuMql1X9PrRsqoqpSUpRS6E+PLgJjwvdf9xIvLyFPwq8Az4UKWP2VUP7
+ kRzElwwHW5Se2Huvqczo39yHcNr1bp4pyzN1GKfDqcKfBXI+4ig+xLxKWQM36MtupP4J9KGjedz
+ qD0LjtOki2MBOpA==
 X-Developer-Key: i=david@ixit.cz; a=openpgp;
  fpr=D77A09CFEEDC2BBD53A7047460023FC4D3492072
 X-Endpoint-Received: by B4 Relay for david@ixit.cz/default with auth_id=355
@@ -126,43 +126,52 @@ Content-Transfer-Encoding: 7bit
 
 From: David Heidelberg <david@ixit.cz>
 
-Add the required DTS node for the USB VBUS output regulator, which is
-available on PM660. This will provide the VBUS source to connected
-peripherals.
+On this device, vbus was setup and switched off by the charger driver.
+Enable proper driver.
 
 Signed-off-by: David Heidelberg <david@ixit.cz>
 ---
- arch/arm64/boot/dts/qcom/pm660.dtsi | 7 +++++++
- 1 file changed, 7 insertions(+)
+ arch/arm64/boot/dts/qcom/sdm845-xiaomi-beryllium-common.dtsi | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/qcom/pm660.dtsi b/arch/arm64/boot/dts/qcom/pm660.dtsi
-index 156b2ddff0dcb..fe9ef304d64e7 100644
---- a/arch/arm64/boot/dts/qcom/pm660.dtsi
-+++ b/arch/arm64/boot/dts/qcom/pm660.dtsi
-@@ -85,16 +85,23 @@ pm660_charger: charger@1000 {
+diff --git a/arch/arm64/boot/dts/qcom/sdm845-xiaomi-beryllium-common.dtsi b/arch/arm64/boot/dts/qcom/sdm845-xiaomi-beryllium-common.dtsi
+index d57851b0b9419..aab5738253914 100644
+--- a/arch/arm64/boot/dts/qcom/sdm845-xiaomi-beryllium-common.dtsi
++++ b/arch/arm64/boot/dts/qcom/sdm845-xiaomi-beryllium-common.dtsi
+@@ -418,16 +418,23 @@ led-1 {
+ 	};
+ };
  
- 			io-channels = <&pm660_rradc 3>,
- 				      <&pm660_rradc 4>;
- 			io-channel-names = "usbin_i", "usbin_v";
+ &pm8998_resin {
+ 	linux,code = <KEY_VOLUMEDOWN>;
+ 	status = "okay";
+ };
  
- 			status = "disabled";
- 		};
- 
-+		pm660_vbus: usb-vbus-regulator@1100 {
-+			compatible = "qcom,pm660-vbus-reg", "qcom,pmi8998-vbus-reg";
-+			reg = <0x1100>;
++&pmi8998_vbus {
++	regulator-min-microamp = <500000>;
++	regulator-max-microamp = <1500000>;
 +
-+			status = "disabled";
-+		};
++	status = "okay";
++};
 +
- 		pm660_temp: temp-alarm@2400 {
- 			compatible = "qcom,spmi-temp-alarm";
- 			reg = <0x2400>;
- 			interrupts = <0x0 0x24 0x0 IRQ_TYPE_EDGE_RISING>;
- 			io-channels = <&pm660_adc ADC5_DIE_TEMP>;
- 			io-channel-names = "thermal";
- 			#thermal-sensor-cells = <0>;
- 		};
+ /* QUAT I2S Uses 1 I2S SD Line for audio on TAS2559/60 amplifiers */
+ &q6afedai {
+ 	dai@22 {
+ 		reg = <QUATERNARY_MI2S_RX>;
+ 		qcom,sd-lines = <0>;
+ 	};
+ };
+ 
+@@ -682,9 +689,8 @@ &wifi {
+ 	vdd-1.8-xo-supply = <&vreg_l7a_1p8>;
+ 	vdd-1.3-rfa-supply = <&vreg_l17a_1p3>;
+ 	vdd-3.3-ch0-supply = <&vreg_l25a_3p3>;
+ 	vdd-3.3-ch1-supply = <&vreg_l23a_3p3>;
+ 
+ 	qcom,calibration-variant = "xiaomi_beryllium";
+ 	qcom,snoc-host-cap-skip-quirk;
+ };
+-
 
 -- 
 2.55.0
