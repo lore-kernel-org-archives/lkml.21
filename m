@@ -1,85 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795017377;
-	b=pIpydki/GEU+dHR6t9ljl2yfWmklAUbnzXXIOY5u0uC3SXw19CB9MXAakwjiRPQqBAzA
-	 V9mekmXgoqEe7HyKJGO3OMIq3yH7L79cDTuxW8KbCh3OML4KXFcQpLZ2paOs2T//8lA6Z
-	 gznK6W4/tPJwtDzF55ZBpxHwbKXR3VlW5QLpK7FLmMMGnnTZzZr+28uNvIrQ8Fxx2LLM7
-	 l1668L16fGPlhNshIgytvLwtJWmHetYInrsauancnl2DzPtDz4I4HzC+aade9XtCTm379
-	 kBAR4uaL7QLH36nbqSWSk/yNS6tdPyavLWoGPiWaKpGeE9uzq69nKyjb6fINdh2GgcQ==
+	t=1795017381;
+	b=UR37/ysTRws0uObL5PqZU2raLYjmvfZWE+QEltb7C7NLVNYVc55pfSgU3CiKaYcxn80l
+	 owOdtWxDgjro9HCTFBAga5t+3DJ+c4iCuB05ZSbhArLpplMgLMjrWkMRhkbt426jKSts+
+	 UGKDszRqNoJ5y6vcyxWJfuDFuagNIqgRyU2gOO7LxU+0N2HUXHbESAEeGSo6zoam134gi
+	 dt3uwZFbmOaWkFeqIprc0p1ij8a+xZHI2xS8k1CAmf2JLqsG+PQpKIAjY7PhZClk78WMT
+	 DFnzQNG57f+LkzRDeHWuy3u/qxqENR5mo7L/QXbp1ZdVsuw8aZYseKw98xua2Se48WQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795017377;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795017381;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
-	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer;
-	bh=3bQBfuPo4+GA4H58G8tofWZlnWMcm4hxNRzjXZBoZg0=;
-	b=rbU/3e6Nx6XSLuVtmYDQeZCwQyey7aUAQcqxErS1QfNVMqNm7rYCGOTmoJoCfjmV1R+e
-	 JrvZiIrA4QlUirMOUq20E5O7FlkwcmJatdAN0bE6hsgEPEdJGTQYMb839duxOQ03rfkPn
-	 Faxbwbgcf02Kfw2064qhRIwK7NXuOf22Ks5ltZjQg+q9QfcGEDTtZ9BdQt7Um9PPlugPa
-	 YsRDA7d+lboFQXLF3LjY6SCZp9bEisF2/rEScd8vQmORU7IK5lk3GBfFsPjKrTUvLndoK
-	 mt99Dz0E4bzDHhVOh1ZZDGtzytewTk0xvXtPtdBz5nU/FZ72mrW8e2ou9z0HqitWBEA==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=14Rrkj1zzHeLghewisueOdMH2DyN75ASzqaxxjdbHII=;
+	b=e8FjcrnXp9iMZ6a7nHYgRfQm6mkDzxgC8RNKrVZRNPAalNavC4nW+dZ+x6OXDx8tHp6F
+	 gQ//XtDwnj9UUilym5y3OtMJxLJd3dUSCB8P3qR00wSLVypgZ3x+6B3U51JmyNHPlHeYi
+	 3dUvi0LeEIQVxquCSVbs2iR5YvbsCugQbFhUc78hRt0eScrGvEsDhAVlk/wDnfH3KwDcO
+	 4vbAS62RyQ6N9c7AL9vrlYUc2v50OEsZpX6CT+LO2TPlKwaMbPmH938oLmr6QvJ+H1XLC
+	 7R0G7Ehp84Q2s354vJCTqOMhMCwb10geY7IqUEmljjKi9MWW3VgIaAXegwZ0klQX4vA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=gourry.net;
-	spf=pass smtp.mailfrom=gourry.net;
-	dkim=pass header.d=gourry.net header.i=@gourry.net header.a=rsa-sha256 header.s=google header.b=gFIxxdDt;
-	arc=none smtp.remote-ip=209.85.219.52
-Received: from mail-qv1-f52.google.com (mail-qv1-f52.google.com [209.85.219.52])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nNpXJrNj;
+	arc=none smtp.remote-ip=209.85.221.44
+Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC9F4606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:56:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC9F4606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=gourry.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gourry.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFCCA606A330
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:56:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CFCCA606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gourry.net header.i=@gourry.net header.a=rsa-sha256 header.s=google header.b=gFIxxdDt
-Received: by mail-qv1-f52.google.com with SMTP id 6a1803df08f44-91ebf4cd218so4361886d6.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:56:16 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nNpXJrNj
+Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-4a34ffd3e39so626887f8f.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:56:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gourry.net; s=google; t=1795017376; x=1795622176; darn=vger.kernel.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=3bQBfuPo4+GA4H58G8tofWZlnWMcm4hxNRzjXZBoZg0=;
-        b=gFIxxdDtcqDrBFkqgwEzkN+bVHfcVbrm/mKFYHBw/aX+aK3i6yXT3iOHNNcy/dVpjR
-         beX1ypC799ntnSOEXoyuWI9KAiYigmUzM2ktWAUGq14UH6bdfs19Po3EeuhNmuPBICwQ
-         4fygV7vNlH+8kA4gHVrwCXXCMRXtK3og0Bhew+zJDF8jtO9O5fvmBFacfYtyQB0ZICfH
-         uto7MDRpcWiyf9+vJZQn3ZyabRKAjiAEnbjmVD+LqH03jEVrnsuMJqNm4PPeRi2PD0kM
-         0m9hgfLivrz1Z3dH1OiBWSOIUeexNiv0u7ws6tg5Gw4PB2Xal1+xCiI4FGHOyO/4c+dY
-         QURw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795017376; x=1795622176;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20260707; t=1795017379; x=1795622179; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=3bQBfuPo4+GA4H58G8tofWZlnWMcm4hxNRzjXZBoZg0=;
-        b=lg9LmerURIxX5X8uQA/zmnGpNyxuSaqIRq6cvEVu447JskjFjBI9PEGEmEIlqMqjoh
-         iHHRhQAMafIB/Gwpg7Exc+uZw9iWZaRDA8wYt3Ak1Jv8qaeRlxSYxom2ce5J08X6tRH7
-         1YfIomYSzCHsf8PjiwVc9/SUrtO/n4R1lZDVg1EgfDphdzKpQ060A0xXFQQ68lOsIIEB
-         f0Lub80+FKrgC6pnD3beSMdkkoxMfaIez+IuJ0Nj43kVJyqualpK1sBLQqBsu5qS8XsJ
-         LJQKEU3cAZy68aaYKZyw6xtqCb/1/NW8dtaO5U7j+fTlgymjYcdL1Ph4t/BSkIqVZufy
-         bGpg==
-X-Forwarded-Encrypted: i=1; AL+hErHqIDR9fOGo/VJB1mTB1UISPd0ECEuq8A8mUO+zegwEuS435l53CgBNw15ZyUpxc//1qY94QPhYKeliCYo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+ICyfnbsPVd3GfkvmdxUaIvHXUYpo8WSq1FEoY1jydJ0gB6IjX
-	YINOdc3VsUlsoBLq1nvcTmqjiO+7/PY5ZuGZrJU0Aj01qouQk0hoBLcJ6ZQh2jmLHoM=
-X-Gm-Gg: AZFdTZd6mqarB9X3qgm2JS+qcSx20fQ71BIwpafrMEpwNhziWBDYVV1urXsPJtGbfEU
-	lpu04BHTG605Ajo797KUE6SWyY3dFZQQCWcT9J8xqnVc2F1IxcZlLWWQD+y48BpTeEUrRAp+9hu
-	pd9sxhQt+wZl8IxTkIYhSTM/ISn/1AH39q22Sxl+edIHGl38+JCHSkye/MpLtEQYh1i5WNGFaZ2
-	DjMWFCD93wiXw2T3J9BT74jQjVQaOZmAwj5yn5hfh8MhCQfDqcBKp+qfvGaNegRbRZFqBQZgokV
-	n4lHYEBrt0xdqG7JlrSk7tnIbsD6vCDFJuqnhY94j436Gq7OqvQhP7CpYld+GD4oOHX+o+wSr4D
-	tqsDzhxIVAgFpmfA4+rrZVTQIJHML08e5/Iyk2/lLquy2DmO6OrOX60L9KjRfw97cH8LacaSGGO
-	pjYz/Ik8iHZWVle0gBnMGHThMD3DQeG82PrbCFscWifkByLAPuFPKmCuNMVki+OW5bKTnXAnvKA
-	tvWo0kleO+7XLhDVPKeUBeIphBd+5mvdHR33RsJAyVMhYf77tHW0mvovKFO/9oJpCUDwtkrVjI8
-	tXbckAeV/4HPjG5ObhiST1yeTUR1UlIpb2KX8z4+kXtXzW1RpfZD79uFP6U5WbUdZaH1RvM9hta
-	yiq+GMSZu4pT+oGq62v7v+6kgMtGv
-X-Received: by 2002:a05:6214:8013:b0:921:1890:b77f with SMTP id 6a1803df08f44-9211890b87emr29798426d6.47.1795017375668;
-        Wed, 18 Nov 2026 07:56:15 -0800 (PST)
-Received: from [192.168.50.231] (pool-71-191-145-202.washdc.fios.verizon.net. [71.191.145.202])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92114d28215sm24719106d6.16.2026.11.18.07.56.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 07:56:15 -0800 (PST)
+        bh=14Rrkj1zzHeLghewisueOdMH2DyN75ASzqaxxjdbHII=;
+        b=nNpXJrNjgKX0g/k/8W9uTi0ybiMY9Om5fZndrOSFdhShxcIomGz3aBxaUmAZCrIq+5
+         VgD0UrFWXEsxqzNgG6Lpt3XJoiRPno05Gm8vpL+P06cGHajtkW+xtd3DBzNacE+KRmbc
+         iscxt+USh5F6yVuVukaxhsHos3Sb/DexpU8XtmIdBHGk1BhwQDVv9yKSO0Kt8RZlMqPO
+         uTivgyS5PepaJkovS9dOvTZ5qWz9VVDq2Y7BJ8jPJ0oNrJsBCl5OMHT3aK54As4ntA+P
+         QQMK4yvMVFFZAEkG3xmK5TljtSnT82f4DFeNhF3r8VnJg7eMCHStokTQLS8yZfO6Ivmr
+         3aYA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795017379; x=1795622179;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=14Rrkj1zzHeLghewisueOdMH2DyN75ASzqaxxjdbHII=;
+        b=QEzvDjoVPgfy8KXMYpJ9lBJ/D3DovLc1+lT7kN5mgd4z0gz/L7sQpd794GhB1oST4D
+         MAuguaGH78wp/ChVnNKO8eHa9zyo8EF0HbUhtf+TqkpLgppeebjdivXbIHxa+5oNrPug
+         Ho3DwMhkV4kobNiyvHlAmv2OpB5/ayuTWnktb/EZNOTuiicE66ZlG9St0jjeUlnY8mXt
+         1c0BieV5a8hI/dxxA/Cgn4P/FS4DuFYP/RxKyNBkxdmhmu4F32jEs06yWPoCl9jQmXMe
+         5EWnTmUGG8LIebX/9kcj3yvqm1HtWjAV/04lS6HtE4yhQhGcR/c90Y9P2qYMrC1/iCAu
+         DHCg==
+X-Gm-Message-State: APuU4Z++sbaEu5K1YrD9IIz4f8sAucv7QB/bvfgKvjjAofx569GIrz74
+	7egq+z5GKEV3I4doB3FtUygqfiuKZjI4v+9FlYOkGlRTEiMglI0QAfEHeAUjMrb6
+X-Gm-Gg: AZFdTZdbWX8FS/Ttz9A3RLm+s6ZOPg1Kwqg2Xp22SCm32T7rFTxxQAwYZmogSuzgl+T
+	6WqF15VCjfl8xC6GE2zTEVfYrUq16u/+9Gh9bAI9TIpZjKcMiimR/svGuAp9qdGXLlOi0itZ6U/
+	qxmmTPFCrAVxFnnJYAU558RA1nlyAm+sFzRHzH7RzDkRXwyFvgzgxlc7yX2iZyfek7elBGvJEsC
+	ObPSLuXZIhKQVrFnJTEPf+3R3G2dcI2NwP39fqvedNUGf0DcBiA7WRN83mZvDUo/6G8OlpJFaNP
+	imv2/zn+alnBSvG9AQS/2zPltrqXtkF1cZ5gsQfI3znmzDzykwP9c14M01O20Ih7hbXpJlRa0Hy
+	18UQJf2amK0NGqw2wMMJ1iv8FtSBscP+JqQWwKwOTE1ThFl4KTiUcNbMYzPsr/2G43dlzYBk26E
+	z8+caoYmQI/O+bMWJ/eCzhvm/K3+Xyd36xZyAfVOxR4brnOancWqvf8KTbMvSyOh2aRWYN3rqOf
+	sPBheTMkF4hIuI5bx9ZI8KT5zRK0KTxJVHhRWd7PqY8ZIAzlqKMO1LsQ0jA8IS2e1qojpYFTciH
+	C8I5PnrHnaDfMm0LoYDI+FFPfoh3kdYBlmC1P3w=
+X-Received: by 2002:a05:6000:461a:b0:493:fdf6:14aa with SMTP id ffacd0b85a97d-4a63c657ca2mr7054638f8f.56.1795017379082;
+        Wed, 18 Nov 2026 07:56:19 -0800 (PST)
+Received: from [192.168.1.50] ([188.27.124.137])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a656c11f4bsm5644289f8f.51.2026.11.18.07.56.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 07:56:18 -0800 (PST)
+Message-ID: <eac5da81-b823-4f9e-ac85-add330c03b0b@gmail.com>
+Date: Wed, 18 Nov 2026 17:56:15 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,61 +90,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH 05/22] mm/mempolicy: keep interleave and tmpfs mount
- policies on common memory
-From: "Gregory Price (Meta)" <gourry@gourry.net>
-To: Richard Cheng <icheng@nvidia.com>
-Cc: "Gregory Price (Meta)" <gourry@gourry.net>, linux-mm@kvack.org, 
- linux-kernel@vger.kernel.org, kernel-team@meta.com, 
- linux-doc@vger.kernel.org, driver-core@lists.linux.dev, 
- linux-serial@vger.kernel.org, linux-pm@vger.kernel.org, 
- damon@lists.linux.dev, linux-cxl@vger.kernel.org, akpm@linux-foundation.org, 
- david@kernel.org, liam@infradead.org, vbabka@kernel.org, rppt@kernel.org, 
- surenb@google.com, mhocko@suse.com, corbet@lwn.net, 
- skhan@linuxfoundation.org, rdunlap@infradead.org, 
- gregkh@linuxfoundation.org, rafael@kernel.org, dakr@kernel.org, 
- johan@kernel.org, jirislaby@kernel.org, kasong@tencent.com, 
- qi.zheng@linux.dev, shakeel.butt@linux.dev, baohua@kernel.org, 
- axelrasmussen@google.com, yuanchu@google.com, weixugc@google.com, 
- baoquan.he@linux.dev, baolin.wang@linux.alibaba.com, yury.norov@gmail.com, 
- linux@rasmusvillemoes.dk, pavel@kernel.org, lenb@kernel.org, 
- hannes@cmpxchg.org, brendan.jackman@linux.dev, ziy@nvidia.com, 
- sj@kernel.org, muchun.song@linux.dev, osalvador@suse.de, 
- nico.pache@linux.dev, ryan.roberts@arm.com, dev.jain@arm.com, 
- lance.yang@linux.dev, usama.arif@linux.dev, kas@kernel.org, 
- xu.xin@linux.dev, chengming.zhou@linux.dev, joshua.hahnjy@gmail.com, 
- rakie.kim@sk.com, ying.huang@linux.alibaba.com, matthew.brost@intel.com, 
- byungchul@sk.com, apopple@nvidia.com, rientjes@google.com
-In-Reply-To: <av3EGWuHX2JDdlrx@MWDK4CY14F>
-References: <20261114070959.3490008-1-gourry@gourry.net>
- <20261114070959.3490008-6-gourry@gourry.net> <av3EGWuHX2JDdlrx@MWDK4CY14F>
-Date: Wed, 18 Nov 2026 10:56:13 -0500
-Message-Id: <179501737390.1206716.11014097946405277594.b4-reply@b4>
-X-Mailer: b4 0.17-dev
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH rtw-next 5/5] wifi: rtw88: sdio: read neighbouring
+ registers of the 88xx chips at once
+To: =?UTF-8?Q?David_H=C3=A4rdeman?= <david@hardeman.nu>,
+ Ping-Ke Shih <pkshih@realtek.com>, linux-wireless@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, Leonard Lausen <leonard@lausen.nl>,
+ Alastair D'Silva <alastair@d-silva.org>, Luka Gejak <luka.gejak@linux.dev>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>
+References: <20261116190145.2736364-1-david@hardeman.nu>
+ <20261116190145.2736364-6-david@hardeman.nu>
+Content-Language: en-US
+From: Bitterblue Smith <rtl8821cerfe2@gmail.com>
+In-Reply-To: <20261116190145.2736364-6-david@hardeman.nu>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On 2026-11-18 23:30 +0800, Richard Cheng wrote:
-> On Sat, Nov 14, 2026 at 02:09:42AM +0800, Gregory Price (Meta) wrote:
-> > -	for_each_online_node(nid) {
-> > -		if (!node_state(nid, N_MEMORY))
-> > -			continue;
-> > -
-> > +	for_each_node_state(nid, N_MEMORY_COMMON) {
+On 16/11/2026 21:01, David Härdeman wrote:
+> Every register access costs a full SDIO command, about 40 us on a NanoPi
+> R76S (RTL8822CS, SDR104), no matter how many bytes it moves. The
+> interrupt handler reads HISR and then RX0_REQ_LEN, which follows it, and
+> a free page sync reads the three REG_SDIO_FREE_TXPG words one by one.
 > 
-> Maybe I overlooked or somehow, but when do we have the assumption
-> that common memory is definitely onlined ?
+> Read HISR together with RX0_REQ_LEN, and the three free page words, with
+> one transfer each, as Realtek's driver does. As in rtw_sdio_readl(),
+> this is only done while the chip is powered on; before that, and if the
+> small DMA-safe buffers this needs could not be allocated, the registers
+> are read one by one as before.
+> 
+> On the R76S acting as an AP, TCP throughput to a client goes from about
+> 170 to about 190 Mbit/s, the other directions are unchanged.
+> 
+> Signed-off-by: David Härdeman <david@hardeman.nu>
+> ---
+>  drivers/net/wireless/realtek/rtw88/sdio.c | 84 ++++++++++++++++++++---
+>  drivers/net/wireless/realtek/rtw88/sdio.h |  4 ++
+>  2 files changed, 78 insertions(+), 10 deletions(-)
 > 
 
-For this particular case it's not particularly relevant.
+[...]
 
-This code only runs at init time, so it's either got memory or it
-doesn't.  If the memory is present but offline, it still wants weights.
+> diff --git a/drivers/net/wireless/realtek/rtw88/sdio.h b/drivers/net/wireless/realtek/rtw88/sdio.h
+> index ab366f82d92..6aa59ed3db2 100644
+> --- a/drivers/net/wireless/realtek/rtw88/sdio.h
+> +++ b/drivers/net/wireless/realtek/rtw88/sdio.h
+> @@ -188,6 +188,10 @@ struct rtw_sdio {
+>  	bool free_txpg_valid;
+>  	/* TX aggregation buffer of the non-8051 chips, under tx_credit_lock */
+>  	u8 *tx_agg_buf;
+> +	/* non-8051 chips: HISR + RX0_REQ_LEN, read by the interrupt handler */
+> +	__le32 *rx_regs;
+> +	/* non-8051 chips: the REG_SDIO_FREE_TXPG words, under tx_credit_lock */
+> +	__le32 *txpg_regs;
+>  	/* one writer at a time between the credit check and the accounting */
+>  	struct mutex tx_credit_lock;
+>  };
 
-There isn't really a bug here, but the existing code could also just
-check N_MEMORY and end up with the same result.  If the memory is
-hotplugged later, it still gets weights accordingly.
-
--- 
-~Gregory
-
+By the way, you can call them "3081 chips".
