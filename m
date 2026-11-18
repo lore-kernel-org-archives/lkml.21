@@ -1,64 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.69
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795032960;
-	b=0MYqKUYSdT34/JcCLiRSxhFm31wKG+noDQTJpFkdnmW+m70yK2+0IGuS0ZtYZa8G8Gez
-	 vcRh4GGyOP8k3Sp59rD+L2TBp+yOJ3XwyeeVSIWg2qUAN/EdAaywVNqUIO/dQ/MaWLCF5
-	 VLrrRj+y9RDggmqolwWtinG+Tx46eunI4XKSPW4Q0eR9C72JI+1iJQAosyZ+v9YnygHji
-	 TC6j3lvYxNx20ZJEVjDCq8ZnQQIqHGlQbvfXNSbpDwE1ciCYLSIJv6SYGr4puI4VzJ8He
-	 bzribjz17HzX/kJwg4dOo/0Fm4dyXlTk25PUx2rUvmosVMJUhyrxvVB15O7v9KfgjcQ==
+	t=1795032996;
+	b=DCcdL4uwTK5CCqZa6u/IoUvM8LCd1jJy4hUBzbEGggQtXgzBdwN89tzxe5N4HOSevGnG
+	 X7e9Z11a7IxsKbM79vZnSpZh05vMnh2/ObZ191JFsohFM4MV5vaobKmK53ukVlUsUisdL
+	 5OM2Mkky7374Z21OseXogEeUVI6Gk4wBwqixtC5DNUvsshThY9sMbrlaaZr2Q+oFaUGzx
+	 61absJGRG8m3V8/3Hkqd0ZQ1XEVdzAVQRaigw72HtOgJoc7o01bbbVnBFruCQ6FfIm8js
+	 ciGIhc0GzLWYEOmIwM7DVt+C6FlKSmUChtxiTAlKdI4YNgTveMxeeKta9sRcBpaTPNg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795032960;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=t46oCZlEPTr5mTMcBQO1+iAphJVAGxOpg+yCTJY7ELc=;
-	b=QDCM0pzZayOo8vWb6Fl0F9uorxlxLYQQKVh9hEMg0bVf0qoQ3Qq+vvdr5OnXe8HNyLJF
-	 VBx8T2E6pBJ4JgAPqDm6YZe0UXckxq+qa+xymmyFU9b0du/Z7sqoFPR5vaaTef1FULwdm
-	 gouogaBDDEPc9Z9RwdLPk9RFsn/F3yBifaopjYgJA1sxTxlZsPCDr22Ddb4ym3nxyxiVL
-	 loEnzkkii01EkDehnUOuszxX2fK064NRbJ/Ap4kGvecJc9WpAOFttiWR1p6IeGoqPFOp7
-	 V2kJTh61uzg/UZKy2aX3BytLz0AJVlm/FfcgKUNER89kYgo0rTtn23wSWmyr4+zcziw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795032996;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=7BbG6Ibh3KVMcdt0G6qbp+g1C+02LBnBwZSTdZVSGeQ=;
+	b=k3dkeq6kcEozo4MV0INDDTs2AZFSzlmURk3byQT3fXMcZsdTLobqPXzIuR7wPVjCy9tQ
+	 u9FVzdrOj3D5tOgDXgIqOPHn3ql5e3+tWoob9XC/FuNilXAar+Le6UtW71rTn9k7TBvfj
+	 7CGHo6+OppNRX2ww2p/SxvFFyVVEpEJnxmvRkY8lyhwOBZxtgbNldWwQ520z4qeVqjzBJ
+	 p2p4h/l7ljmAUKtPMPCSjjMfkdiogSUChiGTkhQy78M6m8BhFwFxU44Zia9IKdxRyqygx
+	 S2o8Uwou/21Tsq2h+bSn0K56gsSI06OUP/SsOhDYdYOhZxTcDbqoG7kas2EqmAXg7jg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WGeymg4H;
-	arc=none smtp.remote-ip=198.137.202.133
-Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--thaisonphan.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Y9OAzbGm;
+	arc=none smtp.remote-ip=209.85.217.69
+Received: from mail-vs1-f69.google.com (mail-vs1-f69.google.com [209.85.217.69])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 695E8606A333
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:15:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 695E8606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 243FE606A331
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:16:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 243FE606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--thaisonphan.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=WGeymg4H
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
-	:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=t46oCZlEPTr5mTMcBQO1+iAphJVAGxOpg+yCTJY7ELc=; b=WGeymg4HyfLLCD02rVRbeH66gh
-	DlppyLse3qppMUZ1SNctkolV/9THkuLRy37LfplwZetrsGg80vw2WWpE/6HyAj5CttbrBwfdF6Uqw
-	+j3w8CgjznkmAhDrhpDtJZMItwlUy9ok/2P3l9IaEPPQNdmyrvPN1U7IFpAbmYNFF+FUTzRh4t9/h
-	h6iaT+m/DI18b8kKJ0keCcE6B8WzSzB+dOwOZFtjuOK7CQEpRM+0Ze1Sav/nRxQ28Kg2vQszlsFTL
-	NuI8bPgus//uPJHb23MFC6D30xMSAkW1gmNCG0MgBNpyKwIF7YWbFbTzluEYy8qS0ezEjB5Nc5seL
-	LMqCrkew==;
-Received: from [38.23.173.23] (helo=localhost)
-	by bombadil.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTm4M-0000000ACGb-38U7;
-	Wed, 18 Nov 2026 20:15:51 +0000
-Date: Wed, 18 Nov 2026 15:15:47 -0500
-From: "Liam R. Howlett" <liam@infradead.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: "David Hildenbrand (Arm)" <david@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Suren Baghdasaryan <surenb@google.com>, 
-	Vlastimil Babka <vbabka@kernel.org>, Shakeel Butt <shakeel.butt@linux.dev>, 
-	Pedro Falcato <pfalcato@suse.de>, Jann Horn <jannh@google.com>, Mike Rapoport <rppt@kernel.org>, 
-	Michal Hocko <mhocko@suse.com>, linux-mm@kvack.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] MAINTAINERS: consolidate the memory mapping entries into
- a VMA entry
-Message-ID: <pczhkwshm2stepxznvaxynkp5svfuc5kdzmwenyrxjp2tm32p6@bdbuvvak7vow>
-References: <20261118-maintainers-consolidate-vma-entry-v1-1-8019b0e9928f@kernel.org>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Y9OAzbGm
+Received: by mail-vs1-f69.google.com with SMTP id ada2fe7eead31-7d2f2df81bbso948172137.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:16:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795032995; x=1795637795; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7BbG6Ibh3KVMcdt0G6qbp+g1C+02LBnBwZSTdZVSGeQ=;
+        b=Y9OAzbGm6kYJALJzjtZ05ZvviapuwbRA2eVXG9xEOzdMK987x+7hSsEHqwQVuCIutS
+         e556beZWHU5xfLOYt3j8Ne0HwFTB4Afoz5gzgrmwd02Kh+evM7nRzJUNETZKD+54eZvQ
+         krEGNSgdZBzxmXN5YmF24HT1azeHV6CAu+tcyEQwBjTYtPkfewUoVJZ+O8mpIc2V2AWw
+         /JMyBBvxrA/v20EVokYkXHQ5JU0CphOLaul7I4AF16m9jvMrTYV8a48BcA+4Uzjy3Q3x
+         o9g9kuf2KIM/1n8QiY1Rdzrt84dwJkxs/hcum5A26XOjIjnRdlXlw6MnHzcdxwIpCPnj
+         xzCQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795032995; x=1795637795;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=7BbG6Ibh3KVMcdt0G6qbp+g1C+02LBnBwZSTdZVSGeQ=;
+        b=LEmwxd26aXsSj3XszteDaEJ7Y8kOGQqMd3YXdy7fCj+kQYp4GPLxR8mARcPRzrUtW3
+         87xMOZayQnD44oH363uFm6WdlOT17ufrcICTQzUI5qxYSH+q5tJKZAN/GSsWKvDXHwiX
+         5//D/13iz0ZhGbvma51ObI4N9+NiMFMrS+6HJUgMUzkf9qUEeJHpSSRbU3X27ztNQPFB
+         nlyhbvEpoa7/6GwAV1lGGw6DAwH2iTLC7RRiTXeF02qwBqTLLjXrkp/FblqNDlkBRtjV
+         2G52UN9rutsAU/GiOv4OUmdgxVFQJ+NRDrB9ZMTeGdt8WSmtvv0KIPvdZb6mQ14rWqfq
+         +eTg==
+X-Forwarded-Encrypted: i=1; AL+hErHlHUn8iKDmpqW8esXtAEZe04svgHsK+RlOIY5VxybzDVPB7i432bfidPi9jYZuQKs1mXeQ/pmRz/MTlkQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/z9eD8Cf6D9Os68o90Gfqq5UVbYh6HhOBlMno1FRfZqPp072eq
+	+BY9RwSwmR4K7Vn6zLyyv9ZxTodO1xyHKNsu9amKLDyQDqlFTjdEOMVKXpvlHHLdDBCoLi/bG7w
+	W4DGhAQYZALn6r+CwB1v6YbKYNg==
+X-Received: from vsbbd17.prod.google.com ([2002:a05:6102:1571:b0:7c3:3c65:bb6d])
+ (user=thaisonphan job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6102:149d:b0:7cc:1045:604 with SMTP id ada2fe7eead31-7d6ba4ca641mr1483449137.30.1795032994710;
+ Wed, 18 Nov 2026 12:16:34 -0800 (PST)
+Date: Wed, 18 Nov 2026 20:16:32 +0000
+In-Reply-To: <sashiko-outbox-220941@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,157 +78,48 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118-maintainers-consolidate-vma-entry-v1-1-8019b0e9928f@kernel.org>
+Mime-Version: 1.0
+References: <20261117124710.1338951-1-thaisonphan@google.com>
+ <20261117124710.1338951-3-thaisonphan@google.com> <sashiko-outbox-220941@kernel.org>
+X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
+Message-ID: <20261118201632.2447530-1-thaisonphan@google.com>
+Subject: Re: [PATCH net v3 2/2] tcp: accecn: initialize AccECN fields in
+ syncookie path
+From: Thaison Phan <thaisonphan@google.com>
+To: sashiko-reviews@lists.linux.dev
+Cc: Thaison Phan <thaisonphan@google.com>, sashiko-bot@kernel.org, 
+	Eric Dumazet <edumazet@kernel.org>, Matthieu Baerts <matttbe@kernel.org>, 
+	Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
+	"David S. Miller" <davem@davemloft.net>, David Ahern <dsahern@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	"=?UTF-8?q?Ilpo=20J=C3=A4rvinen?=" <ij@kernel.org>, Olivier Tilmans <olivier.tilmans@nokia.com>, 
+	Chia-Yu Chang <chia-yu.chang@nokia-bell-labs.com>, Stan Iliev <stani@google.com>, 
+	netdev@vger.kernel.org, bpf@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On 26/11/18 06:22PM, Lorenzo Stoakes (ARM) wrote:
-> Memory mapping entries were kept in three different sections in order that
-> those maintaining/reviewing each distinct part would be made responsible
-> for/cc'd on only those parts.
-> 
-> However this creates confusion as to what files belong to which component,
-> so simplify things by consolidating them into one.
-> 
-> Expand Suren's maintainership to the entire component, as he is a trusted
-> and valued member of the VMA kernel team and very much deserving of the
-> position.
-> 
-> Additionally, drop Suren's core and misc reviewerships in order to focus
-> upon VMA.
-> 
-> As David is receiving pull requests directly, make him a reviewer, purely
-> as an administrative change.
-> 
-> Also specify the new tree location in preparation for the tree being
-> established for next cycle, and remove the link to the not so regularly
-> updated linux-mm website.
-> 
-> Given that, from next cycle, the tree will sit outside of Andrew's current
-> process, remove his entry, also purely as an administrative change.
-> 
-> With that said, I'd like to take the opportunity to express gratitude for
-> Andrew's huge contribution to mm, and for his being both generous and
-> gracious throughout this period of change in the subsystem.
-> 
-> Co-developed-by: Suren Baghdasaryan <surenb@google.com>
-> Signed-off-by: Suren Baghdasaryan <surenb@google.com>
-> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+On Wed, Nov 18, 2026 at 12:47:28PM +0000, sashiko-bot@kernel.org wrote:
+> [Severity: Medium]
+> Does the syncookie path leave tp->saw_accecn_opt stuck at
+> TCP_ACCECN_OPT_NOT_SEEN when the peer includes an AccECN option on the
+> third ACK?
+>
+> In the normal SYN-RECV path, tcp_check_req() calls tcp_accecn_option_init()
+> on the third ACK to update treq->saw_accecn_opt and treq->accecn_fail_mode
+> before tcp_ecn_openreq_child() copies them to the child socket.  The
+> syncookie path bypasses tcp_check_req(), and when tcp_child_process() later
+> runs tcp_rcv_state_process() -> tcp_ack() on that third ACK, neither
+> FLAG_FORWARD_PROGRESS nor FLAG_TS_PROGRESS is set, so
+> __tcp_accecn_process() returns before calling tcp_accecn_process_option().
 
-Acked-by: Liam R. Howlett (Google) <liam@infradead.org>
+Agreed, this is a valid observation, though it is pre-existing missing
+functionality in syncookie AccECN option handling rather than something
+introduced by this patch. Per Eric's guidance on v2 [1], we will leave 3rd
+ACK AccECN option initialization for a separate follow-up patch rather than
+growing this fix series.
 
-> ---
->  MAINTAINERS | 51 +++++++++++++--------------------------------------
->  1 file changed, 13 insertions(+), 38 deletions(-)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 222b7fc2c3aa..59496dd1d11e 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -17509,7 +17509,6 @@ R:	Lorenzo Stoakes <ljs@kernel.org>
->  R:	Liam R. Howlett <liam@infradead.org>
->  R:	Vlastimil Babka <vbabka@kernel.org>
->  R:	Mike Rapoport <rppt@kernel.org>
-> -R:	Suren Baghdasaryan <surenb@google.com>
->  R:	Michal Hocko <mhocko@suse.com>
->  L:	linux-mm@kvack.org
->  S:	Maintained
-> @@ -17680,7 +17679,6 @@ R:	Lorenzo Stoakes <ljs@kernel.org>
->  R:	Liam R. Howlett <liam@infradead.org>
->  R:	Vlastimil Babka <vbabka@kernel.org>
->  R:	Mike Rapoport <rppt@kernel.org>
-> -R:	Suren Baghdasaryan <surenb@google.com>
->  R:	Michal Hocko <mhocko@suse.com>
->  L:	linux-mm@kvack.org
->  S:	Maintained
-> @@ -17974,30 +17972,37 @@ F:	rust/kernel/mm.rs
->  F:	rust/kernel/mm/
->  F:	rust/kernel/page.rs
->  
-> -MEMORY MAPPING
-> -M:	Andrew Morton <akpm@linux-foundation.org>
-> -M:	Liam R. Howlett <liam@infradead.org>
-> +MEMORY MANAGEMENT - VMA
->  M:	Lorenzo Stoakes <ljs@kernel.org>
-> +M:	Liam R. Howlett <liam@infradead.org>
-> +M:	Suren Baghdasaryan <surenb@google.com>
->  R:	Vlastimil Babka <vbabka@kernel.org>
-> -R:	Jann Horn <jannh@google.com>
-> +R:	Shakeel Butt <shakeel.butt@linux.dev>
->  R:	Pedro Falcato <pfalcato@suse.de>
-> +R:	David Hildenbrand <david@kernel.org>
-> +R:	Jann Horn <jannh@google.com>
->  L:	linux-mm@kvack.org
->  S:	Maintained
-> -W:	http://www.linux-mm.org
-> -T:	git git://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm
-> +T:	git git://git.kernel.org/pub/scm/linux/kernel/git/mm/vma.git for-next
->  F:	Documentation/core-api/protection-keys.rst
->  F:	Documentation/filesystems/mmap_prepare.rst
-> +F:	Documentation/mm/process_addrs.rst
->  F:	Documentation/userspace-api/mseal.rst
->  F:	fs/proc/task_mmu.c
->  F:	fs/proc/task_nommu.c
->  F:	include/linux/mman.h
-> +F:	include/linux/mmap_lock.h
->  F:	include/linux/pkeys.h
->  F:	include/trace/events/mmap.h
-> +F:	include/trace/events/mmap_lock.h
-> +F:	include/uapi/asm-generic/mman-common.h
->  F:	include/uapi/linux/mman.h
->  F:	mm/char-mem.c
-> +F:	mm/madvise.c
->  F:	mm/mincore.c
->  F:	mm/mlock.c
->  F:	mm/mmap.c
-> +F:	mm/mmap_lock.c
->  F:	mm/mprotect.c
->  F:	mm/mremap.c
->  F:	mm/mseal.c
-> @@ -18011,36 +18016,6 @@ F:	mm/vma_internal.h
->  F:	tools/testing/selftests/mm/merge.c
->  F:	tools/testing/vma/
->  
-> -MEMORY MAPPING - LOCKING
-> -M:	Andrew Morton <akpm@linux-foundation.org>
-> -M:	Suren Baghdasaryan <surenb@google.com>
-> -M:	Liam R. Howlett <liam@infradead.org>
-> -M:	Lorenzo Stoakes <ljs@kernel.org>
-> -R:	Vlastimil Babka <vbabka@kernel.org>
-> -R:	Shakeel Butt <shakeel.butt@linux.dev>
-> -L:	linux-mm@kvack.org
-> -S:	Maintained
-> -W:	http://www.linux-mm.org
-> -T:	git git://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm
-> -F:	Documentation/mm/process_addrs.rst
-> -F:	include/linux/mmap_lock.h
-> -F:	include/trace/events/mmap_lock.h
-> -F:	mm/mmap_lock.c
-> -
-> -MEMORY MAPPING - MADVISE (MEMORY ADVICE)
-> -M:	Andrew Morton <akpm@linux-foundation.org>
-> -M:	Liam R. Howlett <liam@infradead.org>
-> -M:	Lorenzo Stoakes <ljs@kernel.org>
-> -M:	David Hildenbrand <david@kernel.org>
-> -R:	Vlastimil Babka <vbabka@kernel.org>
-> -R:	Jann Horn <jannh@google.com>
-> -L:	linux-mm@kvack.org
-> -S:	Maintained
-> -W:	http://www.linux-mm.org
-> -T:	git git://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm
-> -F:	include/uapi/asm-generic/mman-common.h
-> -F:	mm/madvise.c
-> -
->  MEMORY TECHNOLOGY DEVICES (MTD)
->  M:	Miquel Raynal <miquel.raynal@bootlin.com>
->  M:	Richard Weinberger <richard@nod.at>
-> 
-> ---
-> base-commit: 0c524518413094607a6178c53a65815762bc9c45
-> change-id: 20261118-maintainers-consolidate-vma-entry-ff6a360ab069
-> 
-> Cheers,
-> -- 
-> Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> 
+Marking v3 as changes-requested as I am sending v4 to guard the syn_ect_snt
+update with !req->syncookie for the BPF custom syncookie path.
+
+[1] https://lore.kernel.org/netdev/CAL4Wiir50_Z+m00GyU9BpRdAqgXs8V-L0S8kmmES=JiYyt==gg@mail.gmail.com/
+
+pw-bot: cr
