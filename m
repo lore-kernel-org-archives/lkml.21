@@ -1,109 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.16
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795001459;
-	b=t5vvWbZTzxxOCS+9rB2V/VDz45nTqfrAUto7dAOWPRSUqPDUsbhZMrX+v76ZyKp9CWvm
-	 832VpHoA2ttQ8SRPFSG92BHAAZsuuq5/MXmLOemHxZsEnxBHO1hH+NQkXYkEzq+buz7S/
-	 hmAFPbZwq6YA/namYnzTr0jZaAFNK1Kze2OpwyQharB/9Sg+8ZwKZS5o3GbguCBx/Qko7
-	 MUf2u1p9/FhDFMkksaKLUujJgynwo06iI9JGQx7iWj/pwcLLl+qxlYycFVC3yQRmlo+JS
-	 WT3rUjKIknvh8hnNg1bYDYhYzjaalznB4liscVxdlazhGs40+Est5lCvuFcgusTXYTQ==
+	t=1795001494;
+	b=5fbEwC8aDGrvszctdg780fQCBPq0nhzWTcvgB2wT1ENEnJbsp2Po6JojUZC4cf3G05rw
+	 8q9wCyLSeQi8cOYHI3B7TGtDWSGf9/wsvpPcErki5q+jQq8F6FXZ91NLKfqO4CuoiJD3N
+	 zimgMg7PsEUxRo2/Nfoj4ZEawf5Z/d6fT6ewvMtIxQNFBzEu9ei6a5eGZ36LsSnorTgic
+	 1j6SQ0Vv6TEFA2WaAYKV6rS16ZT8oQLVfUDR3Zfen0CaJFykvnj9qb7VQRJi/7PUztrgA
+	 SGHhm35VBZ2tSZJ1WZoimF3j/LLJgGkt6l83LC+Rz7zQcpytykcE9N5PNPQfYmgJTSA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795001459;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Spam-Flag:X-Spam-Level:X-Spamd-Result:X-Spam-Score;
-	bh=finFtFd55D9AfQW/KhkVg+EcflCFfdRfis3CjIr5nD4=;
-	b=lGEJAfB3rra7OH+O1ywotA2MDqf2T4ipl+glmvxSp2GchFoyXLgn20vnW6ZfBpjs1ZKx
-	 WGNAYc3PPymZjix9mEDbb+U9IsvkFbMAXTRtuBRAbsTVUKLeWJND8OQzM5k2gLq1yFinw
-	 5LVOneUvxCgjGg47xXD+AxhkPq48A2Az+MfJYDO4oVr38QoFZPUqN9e6igBTKQUD/vNL/
-	 vr9rGkGVRiQks/BIGauBq+ly7Swyksfv2icnI/VgRVn+80oW05hYum0umrT4hlj0rkLo8
-	 RPMGk9ehxQ3qKpaNEojIaE6JM+iUgOP+lM5LL0l+jLCdUoU9RNIg88IlT/N/8BiifYA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795001494;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=+AJdmr09+iBj/Z5WLYyc48Zagz6XLfHcN+HSHTDIS0c=;
+	b=KmNsttHGjD7YkQu3BPT1R+qkbscFZrrsjPkgN+hSdrMTL0yZUnmBjG7tNDdtWjfFYdrR
+	 zUXQWVFujgKVSw4pd5OCjEhRSbkHL7u6SVyB1zByOXEz5LRhy8kZglosyAqVrUFsZkV0N
+	 u7SpHDOkVOLegOxs8IkB+UzCQufkTUqyra5TT8dlV9+XDGQdWWW5cK4qTZzEN46ECyJ5K
+	 TPS7la7jDbKTZ7StwLVt/A2Vb0OsBvo6PzlhQ9u4MBFPb/zBOyz0fzqNMNS76bm2U1IbA
+	 t0m0YB9jwVrr9BkMau00V5w5a/SAEJL/xGuPMFzgVUUvv66dYvGNKSy5pIG/lncIAtg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=suse.cz;
-	spf=pass smtp.mailfrom=suse.cz;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=t98bH0Dl;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=OhIZt3tc;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=t98bH0Dl;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=OhIZt3tc;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lWqcoD9b;
+	arc=none smtp.remote-ip=192.198.163.16
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.16])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63B6D606A31C;
-	Wed, 18 Nov 2026 11:30:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63B6D606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB9FF606A31C;
+	Wed, 18 Nov 2026 11:31:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB9FF606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=t98bH0Dl;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=OhIZt3tc;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=t98bH0Dl;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=OhIZt3tc
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 35FE022323;
-	Wed, 18 Nov 2026 11:30:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795001457; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=finFtFd55D9AfQW/KhkVg+EcflCFfdRfis3CjIr5nD4=;
-	b=t98bH0DlBzSUB4Pjf11EO8c/8xXfrQywOsRrlivJVxMMWHzi6CkQY2rMdUUn86RlHkfge1
-	TRkiaVin1xPS5jU5w28RFBDQEobFHPCuMOBiwa3hWCn7g7jh20DM8z0RKNByHQwClsoZrR
-	ZL7h6wVx1TVD1q/tXDyXGoiG8XJ3M6Y=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795001457;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=finFtFd55D9AfQW/KhkVg+EcflCFfdRfis3CjIr5nD4=;
-	b=OhIZt3tczxGH2HTpBNdFAhaEcDI3qzTW3U/l5jMEzZqzWjVdSKjekGiU+YFyzuHZvDG8/C
-	shbgSR/hSvwT5jAw==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795001457; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=finFtFd55D9AfQW/KhkVg+EcflCFfdRfis3CjIr5nD4=;
-	b=t98bH0DlBzSUB4Pjf11EO8c/8xXfrQywOsRrlivJVxMMWHzi6CkQY2rMdUUn86RlHkfge1
-	TRkiaVin1xPS5jU5w28RFBDQEobFHPCuMOBiwa3hWCn7g7jh20DM8z0RKNByHQwClsoZrR
-	ZL7h6wVx1TVD1q/tXDyXGoiG8XJ3M6Y=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795001457;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=finFtFd55D9AfQW/KhkVg+EcflCFfdRfis3CjIr5nD4=;
-	b=OhIZt3tczxGH2HTpBNdFAhaEcDI3qzTW3U/l5jMEzZqzWjVdSKjekGiU+YFyzuHZvDG8/C
-	shbgSR/hSvwT5jAw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 0F4951334C;
-	Wed, 18 Nov 2026 11:30:57 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 1Rm7NnCM/WqSAgAAD6G6ig
-	(envelope-from <jack@suse.cz>); Wed, 18 Nov 2026 11:30:57 +0000
-Received: by quack.suse.cz (Postfix, from userid 1000)
-	id 9472A25012; Wed, 18 Nov 2026 12:30:56 +0100 (CET)
-Date: Wed, 18 Nov 2026 12:30:56 +0100
-From: Jan Kara <jack@suse.cz>
-To: Sang-Heon Jeon <ekffu200098@gmail.com>
-Cc: Theodore Ts'o <tytso@mit.edu>, 
-	Andreas Dilger <adilger.kernel@dilger.ca>, Baokun Li <libaokun@linux.alibaba.com>, Jan Kara <jack@suse.cz>, 
-	linux-ext4@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Ojaswin Mujoo <ojaswin@linux.ibm.com>, "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, 
-	Zhang Yi <yi.zhang@huawei.com>
-Subject: Re: [PATCH] ext4: fix wrong unit of ratelimit_interval_ms sysfs
- attributes
-Message-ID: <varvaw6u3l26vwumguoemlidckuunpcofhwii6fzzt2hajhdjz@oojqvejz3cvf>
-References: <20261116161701.3664310-1-ekffu200098@gmail.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lWqcoD9b
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795001494; x=1826537494;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ZplAlreEN+1G2HGdfsT/GfZ9NWcBNLei6WdM38+/mfM=;
+  b=lWqcoD9bFlpvcLjRdPe4ZGakqda2ZjVskOmL/CCQzFw03nWXURiu1IQp
+   wmR2userQcIWj0/Evl2qV19M/UwqaIXyGFEFcfmaLI9F/Hg8jQ+JYzYMw
+   qOs8TYm9BnqamkgxoSSN6QMq1u/FyN+fxXvqCoFUff9y3eoUcgJJ49a4S
+   /TvMDPLTbKM0eMF+BG2YeeA7IGo8rWP5rnup6RP28tuDlNOx5jzYBf6Fq
+   OCxa0NnQRY4IXn2QNHlll30hQLsJRZ+CesEhxVJc/ilTK4MFhV024jjvQ
+   3Ra4kJP3RASu6FZgfKijakS8Sp4/RjN+y776dfFS3e2M04TFUbb8nMvZw
+   g==;
+X-CSE-ConnectionGUID: XjHNxGGnTOOpaV12vzkmrQ==
+X-CSE-MsgGUID: hWN2IehiRzOlA6jfAcONfg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3832639"
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="3832639"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 03:31:33 -0800
+X-CSE-ConnectionGUID: pU98kTazQZ6gsyiNdtAAmg==
+X-CSE-MsgGUID: /oIa8dH9SiSshSF91r2EUA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="10205773"
+Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.157])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 03:31:29 -0800
+Date: Wed, 18 Nov 2026 13:31:27 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Joshua Crofts <crofts@kernel.org>
+Cc: Arnav Kapoor <kapoorarnav43@gmail.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Gwendal Grignou <gwendal@chromium.org>,
+	Daniel Campello <campello@chromium.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/2] Semtech SX9xxx: add a reviewer entry and binding
+ maintainer
+Message-ID: <av2Mj3meE15gT7e3@ashevche-desk.local>
+References: <20261117172612.25535-1-kapoorarnav43@gmail.com>
+ <avyoLGkkCkxu11TA@ashevche-desk.local>
+ <20261118083606.00005f7e@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,82 +91,37 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261116161701.3664310-1-ekffu200098@gmail.com>
-X-Spam-Flag: NO
-X-Spam-Level: 
-X-Spamd-Result: default: False [-11.30 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	TAGGED_RCPT(0.00)[];
-	ARC_NA(0.00)[];
-	FREEMAIL_TO(0.00)[gmail.com];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	MISSING_XM_UA(0.00)[];
-	RCPT_COUNT_SEVEN(0.00)[10];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	TO_DN_SOME(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[mit.edu,dilger.ca,linux.alibaba.com,suse.cz,vger.kernel.org,linux.ibm.com,gmail.com,huawei.com];
-	RCVD_COUNT_THREE(0.00)[3];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_TLS_LAST(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,imap1.dmz-prg2.suse.org:helo,suse.cz:email]
-X-Spam-Score: -11.30
+In-Reply-To: <20261118083606.00005f7e@kernel.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On Tue 17-11-26 01:17:00, Sang-Heon Jeon wrote:
-> The interval of ratelimit_state is in jiffies. But the
-> ratelimit_interval_ms sysfs attributes are read and written without
-> converting the interval, so the values are in milliseconds only if HZ
-> is 1000.
+On Wed, Nov 18, 2026 at 08:36:06AM +0100, Joshua Crofts wrote:
+> On Tue, 17 Nov 2026 21:17:00 +0200
+> Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
+> > On Tue, Nov 17, 2026 at 10:56:07PM +0530, Arnav Kapoor wrote:
+
+...
+
+> > > - Patch 2: drop the DT binding F: lines, patch 1 already lists me in
+> > >   the maintainers: field of the bindings (Andy)  
+> > 
+> > I was expressing my opinion, it was not an AR, it was rather the start for
+> > the discussion. I'm not DT maintainer, I don't know what the rules for the
+> > maintainer records there, OTOH I don't know if DT parts belong to the
+> > MAINTAINERS records that have only R: lines (and no M:).
 > 
-> If HZ is 250, the default interval of 5 seconds is read as 1250, and
-> writing 5000 sets the interval to 20 seconds.
-> 
-> So use jiffies_to_msecs() and msecs_to_jiffies() when reading and
-> writing. Also reject values which are too large for the interval.
-> 
-> Fixes: efbed4dc5857 ("ext4: add ratelimiting to ext4 messages")
-> Signed-off-by: Sang-Heon Jeon <ekffu200098@gmail.com>
-> ---
->  fs/ext4/sysfs.c | 23 ++++++++++++++++++++---
->  1 file changed, 20 insertions(+), 3 deletions(-)
-> 
-> diff --git a/fs/ext4/sysfs.c b/fs/ext4/sysfs.c
-> index 923b375e017f..7cc3a2e663f0 100644
-> --- a/fs/ext4/sysfs.c
-> +++ b/fs/ext4/sysfs.c
-> @@ -33,6 +33,7 @@ typedef enum {
->  	attr_mb_order,
->  	attr_feature,
->  	attr_pointer_pi,
-> +	attr_pointer_pi_msecs,
->  	attr_pointer_ui,
->  	attr_pointer_ul,
->  	attr_pointer_u64,
-> @@ -215,6 +216,11 @@ static struct ext4_attr ext4_attr_##_name = {			\
->  #define EXT4_RW_ATTR_SBI_PI(_name,_elname)      \
->  	EXT4_ATTR_OFFSET(_name, 0644, pointer_pi, ext4_sb_info, _elname)
->  
-> +#define EXT4_RATELIMIT_INTERVAL_MAX_MS	(INT_MAX / DIV_ROUND_UP(HZ, MSEC_PER_SEC))
+> Not sure if R: makes a difference, nevertheless better to have the
+> dt-binding files under the MAINTAINERS entry as well (i.e. grep -b5a5 SX9*
 
-I was staring at this for a while before I understood what's going on here.
-Please add here a comment like:
-/* Limit value so that we fit into int after a conversion to jiffies */
+`grep -C5 ...` (C is a combination of A and B).
+But small letters 'b' and 'a' for `grep` seems misleading above.
 
+> MAINTAINERS if I'm looking for a specific sx9xxx binding file).
 
-Otherwise the patch looks good. Feel free to add:
+Okay, fine with me.
 
-Reviewed-by: Jan Kara <jack@suse.cz>
-
-								Honza
 -- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
+With Best Regards,
+Andy Shevchenko
+
+
