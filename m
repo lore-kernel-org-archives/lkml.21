@@ -1,100 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795027908;
-	b=lJAlNOCzSw2vPRK6ITUaTZY1++azuQ19Dd+HJgaF7ryz9OLQcG3/ZWFdR8SU+aSh50jB
-	 8XgpCWswUnnW+8CX1lM+4bCcWHz9MAz0rZWnqOPQSnGJ80Rr9GvTmMM5JGX/BhQOqE7p8
-	 eIbjvZcU6we0aFCzarpSxrcZetycP3G4DJ4f37Tmlr163q3nKTYQ8EjAJPtFKbshqrsvk
-	 KjZbGo2EweIDujDx0cuPnrJlfdWNCzCJXWueMZkERrMyA9bR3HdbVmgJjoRjGwbh486FJ
-	 ZsD4jdy+Isiuv1Oa98SDLPjnS3EjfUdwQWnxyzza3TLCP+J/avDfYaW+3Vexw7gHqjw==
+	t=1795027913;
+	b=0KotIEyMSupRbKMLibCimMyhMglD3mh3lf5zbPKXMkvVcnKHLAGEUEBpwteu9mrqvtas
+	 DPqeRDYlD4X2RI4cZ34AQEDlvbGC+OEN57HTwbADTiGoNa/c4yslzNSt5TDbD91rmlNoJ
+	 7H3cvYpXSY/6c2sbk6iVBpfAZFPehh3jUYN7E0llE0cjPjydtvnYuda7CUGTImK8TQNdq
+	 u0QR8Tf/OjihOeB/KmncnQ7povJ1aJ2puzu1xEwyanN3Jg0czK7w5et+4iDJmjuyJGD6O
+	 khqO5mnn0BJL5y4nqvbw0tCFNzK9gzA9A/ydnDhn6Zs1qy2OaHVdRAUUsU/rk0KhiTw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795027908;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=Xr3ARsn3HSOBe/bAlEDhSRHDkU6XOfuvo4/af9LL+fg=;
-	b=qFDjLwNFCvq17BU43ujJFv2/rK+kEfVkX18e+s2bHlCaA5/iJ9f03HQpcMZiysmprkcQ
-	 yu9NstXF0l5H23UjSu5OhTmeQ2k0ytxFwZ1QPAcd7ctczgtTrj1/F3q+97PJCHL6G83MF
-	 s95mQPAeCPOZnRfIYTrQRCEEiN/AXJOr23H+NVLCpuxtkXCQ8KOUnS+rqc008/mn6jI9q
-	 rRCrWKBQL3TMOKT5I93dJwJILgshybePX4zAZRYuctmRvVyGzeEBQO1kNjt1xCCu8vEtR
-	 doXXA6EpcY6M2w6hikUSuJI/HrQ9iIGMuE/JrohmYzJIhUXB5B36QUVm0WaTAU1AwcA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795027913;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=7r/uBMtDqbIiez9GoW6cYv6uWC8IZHkqEq27b9GWd48=;
+	b=4/4z46c8vjpnK5KKfwAcWVerfF0feEsN2nHW6GS96UkczlW7bLkHW05kaFbadWAzUiwd
+	 puaBWCoCsCq5NWVdEj97Q39W0258SFpoAmOS3jdfFIEs2SoDnIktRUZ7/71oaAN6HajHZ
+	 gBcIyOWFLzDW8qx3Ev0TbcSgxl2eZQGLDXgmy+xBT8X0Yxq3/kxEPpolciYxtxuG7AKID
+	 L9im5A6gExwKD11vBfSNlSiB3bkXNEj5+NCirgg7000cvs8bArYW8zlta7W/95DL0lIMP
+	 SQ6sBXJjuhVSKBT/yvNt1i/X3aaPG/mUl7mi6PDlZ/lxo1PaUfAxX4PDB9AGcdGKCMw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=baylibre.com;
-	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=OCJgcmaN;
-	arc=none smtp.remote-ip=209.85.221.50
-Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com [209.85.221.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=2RU5uVqF;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=KyuNyxSj;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CC1D606A32C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:51:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4CC1D606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E687606A32A;
+	Wed, 18 Nov 2026 18:51:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E687606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=OCJgcmaN
-Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-4a357b1c649so868067f8f.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:51:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795027905; x=1795632705; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Xr3ARsn3HSOBe/bAlEDhSRHDkU6XOfuvo4/af9LL+fg=;
-        b=OCJgcmaNzv3idZo573FNrHHp69nwKZzTQnu0bP5Y/fzVXXfdWzfTxcWT+P2+QpOXFT
-         IqA4wKP4EsZbDeKuyUmVYCtFRA45khDU3Ug39QiBJHvwH2DdI5o1Ddx/uVRFTFqIkMG0
-         rvpJXaX/M3ozh3e5QC8bNKIkBGYpylLLDlcFK8pcY9jd6NDWAOxDKlFz3yP+/JDplbFx
-         YD/pLZ90E8wITqvbW0gWMIZ3rSRag/uJGI7xFUS3IkImR3CyBGRXdtoWVDYDPuilRhcI
-         q6jOBnAGrzOmfs+I2L23YUjqeFXhUdtSDeen3h5uLpU6+bOVWvQgATfreTMIMhVpPDU+
-         D3/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795027905; x=1795632705;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Xr3ARsn3HSOBe/bAlEDhSRHDkU6XOfuvo4/af9LL+fg=;
-        b=njLoJQE2n16bdKKkjsK6IC/tHB3lKh5LOSTOpvfsuXuCTaczROZKbHCCGiIFJI8Uki
-         ueElWExVmdBq1+h2TOWBPGJRF7obD5vmzx+l73s2o+C51y9ZaEN6s9LDg6jC/S7JzzDt
-         2FcYCJ1Xe/CyqRag4LxkTgo6pTAzqS8pwqnVDObBvDuRiraKN/OQEGafYvrb24AhfQOJ
-         pPtskJyt5wdaRwjgZVHeF3X/k76eNQOB0HYy35lFzv0jQvY+ioaU081qPZzGjJnq68wm
-         QEUqDKi7ZYvGnbYAr76ZvNh6qE7fpNWLxnYdCUZqgbYO7a1aaAB8D5wEuXpVMIFBK9W1
-         8GDA==
-X-Forwarded-Encrypted: i=1; AL+hErFvlB1b0jjjeYhbKR8uOLl7tau/gOAuN9sh3LTHGm7WVEmwknhggEl0jtgQn2ZnaZaUd92RSndUH/lU9FA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8sQbBEqsoxmS7CQHCtB0MPVZF7GtJjpvmBpEYGpOKT+zKvyPFf
-	gLC3DSveiVt4HLxmf/0I5mT1LxHy6a97Gu0A2sYKju9nNi1yerd0dw1PYJkNcsbghyU=
-X-Gm-Gg: AZFdTZduabuczZpLzYhLxbsYjIIT/qSTJ26tG93IKxHFg3XzKk+kx/jIsBJ+QM/TVlw
-	Yy0g3CHmhQGdPfOcwNAgTC1xyW80YIaCfZtmbwO+WTlMmrTWTAhGZJwoZM91BAFWdTA5wfSkMUh
-	v5unV3RtEzoDkTi/iDycPSEwJgHtGkehgr7kPhhcIZ3i6GS6N1kErFX5G8fXvXn2iYoKcvWR3gD
-	N9BpGhao9v/oWA/sOn3F0rvYa3Jh4qm6vm2ZuoOYuxZSX7/OOMm29ywbQAikzDf4pcmKMelnbHs
-	4W4SRt4bkJZgI6FzYIfgZ02eLpquVgDIlCMYSGJcjRq6Pr72mJks9DjDgQnjAn2hnls+RS9wBmJ
-	Hq/cJOTAuZblIrN9l8o09/74uZKhdBsWUdVKna6VMEGO4NmyetZb4JgSwobmS1skXwGj0jIjQM5
-	M4bbSdE/yYYylysYKj/qJfbidCURWl/lzKkIhX7m23qtBYib4Eik0Nxy8BfqXKdofHt2v/R0nAZ
-	4kmyaXdjJTGpyJ0bCEWr/kD1vWrau8B/HG/FvWZ0OPhpjcQjdNnjJjb+ZqmHbxLfjoLxk5Vp3Zj
-	17sp2u+j1AREh3AjNX68AXT53vTMD0peE3wqYknuEsKV5+UUX1bZv8kqdKoVewwomQsVwpshmzw
-	ujoEMJ2HcQQ6aRUt37ljLm5hytO8gQhgx2dEPsPbDk45AHw==
-X-Received: by 2002:a05:6000:2601:b0:4a8:647c:f965 with SMTP id ffacd0b85a97d-4a8648c3f15mr2958154f8f.41.1795027905569;
-        Wed, 18 Nov 2026 10:51:45 -0800 (PST)
-Received: from macbook.homenet.telecomitalia.it (host-95-246-144-141.retail.telecomitalia.it. [95.246.144.141])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a654b807fesm5807868f8f.10.2026.11.18.10.51.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 10:51:45 -0800 (PST)
-Date: Wed, 18 Nov 2026 19:51:41 +0100
-From: Carlo Caione <ccaione@baylibre.com>
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
-	Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Jian Hu <jian.hu@amlogic.com>, Chuan Liu <chuan.liu@amlogic.com>, 
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 5/7] clk: amlogic: Add S7 PLL clock controller driver
-Message-ID: <av2kitSLJNxlAKiv@macbook.homenet.telecomitalia.it>
-References: <20261106-upstream-s7-clk-v1-0-7d501d62621f@baylibre.com>
- <20261106-upstream-s7-clk-v1-5-7d501d62621f@baylibre.com>
- <179499607256.413320.18141155995846183804.b4-review@b4>
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=2RU5uVqF;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=KyuNyxSj
+Date: Wed, 18 Nov 2026 19:51:49 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795027911;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=7r/uBMtDqbIiez9GoW6cYv6uWC8IZHkqEq27b9GWd48=;
+	b=2RU5uVqFIoOcYBIuu5FzLeZm4jsbablm0hI6vBLqVKkE+t/H2MyqhbMaMR2PndJTE/aUem
+	VHULrJ2Oi05Ld5cpNiU9InhF4vjDQGSJ690omV224tEOb6J0YH6hPlBYxtTOXoOK+ur8Gu
+	QJbO5uBST6MsWBuBe1aagO5n9FXScXVlciDPXxN03nku1zA8beq6uXbW/EaKff+tbfNW17
+	glFcYsSbmDTESwrioWz4qaBO9M/oJpV1UBY+TrFpP6TygG4VbGrfbyFMuyy/HL0WdjCoHG
+	qOnG23Lrx+4w0qgVjQIOMuWMJoC/JaZ4M8FRfF52slHZm4Sqjp2RqsOhL1F6fA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795027911;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=7r/uBMtDqbIiez9GoW6cYv6uWC8IZHkqEq27b9GWd48=;
+	b=KyuNyxSjVooS0IRzd8hhn0GsDj/vn33Jl75FyYQgzq6P7APeAp8C365+D10R4taBEmalQt
+	aPDusTuQ6CFwBYCw==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Cc: peterz@infradead.org, tglx@kernel.org, mingo@redhat.com,
+	linux-kernel@vger.kernel.org, will@kernel.org, boqun@kernel.org,
+	longman@redhat.com, rostedt@goodmis.org, clrkwllms@kernel.org,
+	dvhart@infradead.org, dave@stgolabs.net, andrealmeid@igalia.com,
+	shuah@kernel.org, juri.lelli@redhat.com,
+	linux-rt-devel@lists.linux.dev, linux-kselftest@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2 1/5] locking/rtmutex: Stop spinning on the owner when
+ the waiter is woken
+Message-ID: <20261118185149.SNIpxf_4@linutronix.de>
+References: <20261108141347.1525532-1-mathieu.desnoyers@efficios.com>
+ <20261108141347.1525532-2-mathieu.desnoyers@efficios.com>
+ <20261116120626.JVHxeSTu@linutronix.de>
+ <83330898-b6de-469c-ac20-7367c1eb4f0e@efficios.com>
+ <20261118141912.GnOg6YYM@linutronix.de>
+ <8ba74adb-b8c4-4109-b20c-7094012d4853@efficios.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,107 +82,28 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <179499607256.413320.18141155995846183804.b4-review@b4>
+In-Reply-To: <8ba74adb-b8c4-4109-b20c-7094012d4853@efficios.com>
 
-On Wed, Nov 18, 2026 at 11:01:12 +0100, Jerome Brunet wrote:
-> > The S7 PLL controller provides the fixed PLL with its fclk dividers,
-> > the GP0, HIFI0 and HIFI1 PLLs, and the HDMI PLL.
-> > 
-> > Add a driver for it. The GP0 and HIFI PLLs are expected to run with
-> > their input divided by 2 (div0p5) and the HDMI PLL without it, as the
-> > firmware and the init sequences set them up.
-> > 
-> > Signed-off-by: Carlo Caione <ccaione@baylibre.com>> > +
+On 2026-11-18 12:27:45 [-0500], Mathieu Desnoyers wrote:
+> Hi Sebastian,
+Hi Mathieu,
 
-[...]
-> > +/* The datasheet documents FIXPLL_CTRL1[30:26] as a single fclk_en field */
+> > > I kept the check for TASK_UNINTERRUPTIBLE on the rt_mutex side. A
+> > > ww_mutex wound also wakes an uninterruptible waiter, and the ABBA case
+> > > of patch 5 needs the spin to stop there.
+> >
+> > Not sure what is related to. I don't see this in this patch.
+> > TASK_UNINTERRUPTIBLE vs TASK_INTERRUPTIBLE would make a difference for
+> > signals here.
 > 
-> Not sure what this imply ?
+> Sorry, that was unclear. The patch tests no state. You had suggested
+> to limit the check to !TASK_UNINTERRUPTIBLE. I did not do that. A
+> ww_mutex waiter sleeps in TASK_UNINTERRUPTIBLE, and the wound wakes it.
+> That is the ABBA case of patch 5. So the spin must stop for an
+> uninterruptible waiter too.
 
-It means that each of the five bits enables one divider, while the
-datasheet only documents the five bits as a single field. I'll reword
-the comment to say that.
+Ah okay, that makes sense. Sorry for the confusion then :).
 
-> > +S7_FCLK(fclk_div2, 1, 2, FIXPLL_CTRL1, 30);
-> > +S7_FCLK(fclk_div3, 1, 3, FIXPLL_CTRL1, 26);
-> > +S7_FCLK(fclk_div4, 1, 4, FIXPLL_CTRL1, 27);
-> > +S7_FCLK(fclk_div5, 1, 5, FIXPLL_CTRL1, 28);
-> > +S7_FCLK(fclk_div7, 1, 7, FIXPLL_CTRL1, 29);
-> > +S7_FCLK(fclk_div2p5, 2, 5, FIXPLL_CTRL0, 25);
-> > +
-> > +static const struct pll_mult_range s7_pll_mult_range = {
-> > +	.min = 134,
-> > +	.max = 265,
-> > +};
-> > +
-> > +static const struct reg_sequence s7_gp0_pll_init_regs[] = {
-> > +	{ .reg = GP0PLL_CTRL0,	.def = 0x02520800 },
-> > +	{ .reg = GP0PLL_CTRL1,	.def = 0x09900322 },
-> > +	{ .reg = GP0PLL_CTRL2,	.def = 0x00000000 },
-> > +	{ .reg = GP0PLL_CTRL3,	.def = 0x00000006 },
-> > +};
-> > +
-> > +static struct clk_fixed_factor s7_gp0_pll_div0p5 = {
-> > +	.mult = 1,
-> > +	.div = 2,
-> > +	.hw.init = &(struct clk_init_data) {
-> > +		.name = "gp0_pll_div0p5",
-> > +		.ops = &clk_fixed_factor_ops,
-> > +		.parent_data = &(const struct clk_parent_data) {
-> > +			.fw_name = "gp0",
-> > +		},
-> > +		.num_parents = 1,
-> > +	},
-> 
-> Is it the good old predivider here ? Shouldn't it be modelled with
-> a read-only divider rather that a fixed factor ? just in case whatever
-> came before did not leave things as we first expected ?
-> 
-> Applies to the other PLL instances
-
-Nope, not the good old provider, this is separate from N: N is in CTRL0
-and our init sequence sets it to 1. This is CTRL1[27], div0p5_en.
-
-Now, it was indeed a read-only divider in an earlier (messier and
-unpublished) version. The problem was that with a cold PLL it could
-cache the power-on setting (/1) at registration, then the VCO init
-sequence would enable /2 without updating that cached parent rate
-basically breaking both rate reporting and set_rate. The fixed factor
-avoids this mismatch when Linux initializes the PLL.
-
-After dropping NOINIT_ENABLED from the HIFI PLLs, the remaining
-assumption is that an already-running GP0 has div0p5 enabled. That
-matches the firmware I tested, but the driver does not check it.
-
-I could (in theory) return to read-only dividers but with probe-time
-setup before registering the clocks to establish the divider setting for
-PLLs Linux will initialize, and selecting suitable multiplier limits for
-any inherited setting we preserve (the current limits assume /2).
-
-Any preference (or any other approach at all)?
-
-[...]
-> > +/* hifi is HIFI0 in the datasheet */
-> 
-> What is stopping us from calling that then ?
-
-Nothing, I kept the S4 name.
-
-[...]
-> > +/*
-> > + * The datasheet documents HDMIPLL_CTRL2[22:19] and [18:15] as single fields:
-> > + * each is two power-of-two dividers.
-> 
-> This comment is somehow confusing because it only partialy matches the clocks
-> defined bellow. Please clarify.
-
-Riiight. [22:19] holds od0 [20:19] and od1 [22:21], and [18:15] holds
-the hdmi_pll divider [16:15] plus [18:17], which isn't modelled. I'll
-clarify.
-
-Thanks,
-
---
-Carlo Caione
+Sebastian
