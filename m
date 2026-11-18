@@ -1,120 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795010141;
-	b=MuKe/0cHy1qtFdbvQJsl+Qk9W3al1kRcFentiGJXxFzQz966uezbh07c1OLoktkkIxBm
-	 BXK5hCEUiKsKtW4/ZcRcSd8h7wW/u58VDvUfR2iUigZMzH7LW+yJ+xdzJWXYTsOyzMOmR
-	 URYrtXOgG6SHaZ5zMgkciIs3/pbDXg+HfAcirwEuDwnCDAfI113k2KjvYrStUIjR6oK34
-	 o9mb1weOO/F2ff2JI3Hp2yQYb2TWcZJw4ucTRILavngPX09i2pOYtJaSe3J+bsJTDMht5
-	 ZPRc+zoxBMIvwrvHr/xgTBlSYE82Ru16v83IyTxqxLrSER47nQrJwLALQjDNa5UBieQ==
+	t=1795010262;
+	b=qE49Ds2AWFQnPLZ/7lesAss0wxgOgB2OB82tfzPyQj/c443Oz1tusBVG5Uryw10PZbJr
+	 oe1PpZ1DIZgFtEC+6oq+5MuHly7Dhzqu/Df++jVx70fzf2lTtYDVJHYcmYmoBPcGMQt2E
+	 E58Yg5opB8cD6onXRJiMSt0R8tlSxXq6kkecpyvgivCrbvTYJn2/C2TkV+ZGZ2VaMT8+m
+	 NllB01KNmImBPr4Bv5pzXyGUkVHWJ+MbDNs6OEdmC6EAz6w0WFCZtvIiIilOTW5ZzbjyU
+	 E5UqVAfYnC6hH7/L56pl08W2+JZoeq8n5FOYRS5CYpCta4S/zk+kGoJ5nFH5nS5DliA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795010141;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:MIME-Version:References:In-Reply-To:From:Date:
-	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=Q93IOK+81L655tUS3XT9KzQ8Uws4KOL15ej2huBrpiw=;
-	b=hRmLVBDbJN3JFLaHArDn9oKJ8nn1rzq+GfWbHFnq/H/Spi43e78m46wrHbhIPyZKoobh
-	 HM5Ox1wP09+ONmg4//xvJTJPfIDYTyiRdyyuKP5iTzQTJ+/Lb6cjYtEXD77fiT/dxvRvJ
-	 rKiWwF6Ny843qQTfK4IL1rqCTb60A4Bl4P2hrcmT3IHDXwkn/4R1n3XnJ2WQQ27iAuC9w
-	 hHt4m19sLY9f1Rbk4JzeA9Ob/E76XkZ1hTHxeIeNuHb/qK8Stm/BWA3DGLJow4GgsxPbK
-	 kQaRLNlZOnXhz05+A/wfkN+yC21mxgqFPCdm69SY/39gSA3AwiLqi1VuPIQOTNZeYjw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795010262;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=9k6xkSgoU4/ycdA73IPAUpz2zxduvWOoGVm9HO78QCk=;
+	b=KZbl4M3PGzRtlI3BRluU3TXaJWCizp5pXuC7jHXN98fhfHtuqE+cWbjR12mHXEy3F+Jz
+	 rpJXsxYzuSThYU/we77GvJq+hulsQggfSL4LuNHGBLwtpa9aD0MUFocS9G+hdDNR6UngF
+	 ALIB5IpY1rYFJ917kptAt7b08TgFWzBRHsBVCDZsG+fSS6g0m5xFwqanVUTTVbwMVzdq0
+	 uIfUBnmel1+AB46T7juqt4SrVzoABe6T+7l83WrJLG/WrkGSDhDU03UQymn2VwKD8UzS4
+	 fpascg7Q1G1vy3GxyrxGXabtFwULT7vTWIUsXbON4BKgvST3dlBLC140qZW9qAQKpkA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Fo+xlKme;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b="YdeGXNs/";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FpKN4xwd;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4819606A32A;
+	Wed, 18 Nov 2026 13:57:42 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FpKN4xwd
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795010262;
+	b=wC3Eumy5vUzYEP/VaAEcCYXT3+aXje/fyymTBdOWstG3ZU8qqZODVcmYwQ7mr+5Rtd//
+	 Yhqmx6qe0tt3n+4UyS0ugI3z8vlOmZC0xjLmmUxhBjkiPo5DVrazBejVhyfk25pP6PvPh
+	 m0qJTUVId0QbnlMTi/bKGN9KaZjJWfnKRGgWfPcUZFhCvaBgqd5db6VNP1vRehPINVKmj
+	 n/LOAuJ6TxqCSAGUoElsVGyiQxOlYA+rBVFgh2agAwD5iXpTEHxGPmzSM53QP5oIsNF2o
+	 91actz0Rd8OEYvr8TPjlrXgciq4G72LAS163PszzW+SwuTjtdtMEb7wCuZIFIGWapTA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795010262;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=9k6xkSgoU4/ycdA73IPAUpz2zxduvWOoGVm9HO78QCk=;
+	b=NfAUb8JHhzha+q4ZbEzKmEFIKEcIwC62iPAS/ca6o1cxQwf9TXulJmNbHDQ/9YgFCekm
+	 BvwjykVJmS64rl6qBFV6LjIz2kcsDyzmNGGU/626J+OtfUNSiPl6pQbza+VurK1KtJj4v
+	 ekbecQU0i8VSX4kb3SDRCKnKxYpoWpbvxzAqSjsPuY3CiKahDwjs2Gq9RFMqbToRnPxeu
+	 S6fG3hkqssLEx0kWOgRUK+LerHeTTHF3a6Qi5YuKYClXBb8+TU1QOBjib+gpsfJTG28r8
+	 NKBMJWotSqTDUXrt53DbYvE0QZLy3cvTF08M/w9hBx8AGYyjQOqpNVgNh4QSTvZsaCQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A3B3606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:55:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7A3B3606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Fo+xlKme;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=YdeGXNs/
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795010139;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Q93IOK+81L655tUS3XT9KzQ8Uws4KOL15ej2huBrpiw=;
-	b=Fo+xlKmeqSf/JQbAa8zOG/gTkvaio/ifFqWbZtDL2AJXX3E8bfj+fd6RZnYTEceUtuuvHB
-	HImAn/70mucSumF6L+2i+AFQoXBIvriUHhalv3zz1ePobrbMF+OjYo9hj2waGf9S3eGgWQ
-	jU/HxtWqkkXBjIWKPfdVcl1iSWgyULI=
-Received: from mail-yw1-f200.google.com (mail-yw1-f200.google.com
- [209.85.128.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-515-vT4GaLWKOy2SqSk9zZyNoA-1; Wed, 18 Nov 2026 08:55:36 -0500
-X-MC-Unique: vT4GaLWKOy2SqSk9zZyNoA-1
-X-Mimecast-MFC-AGG-ID: vT4GaLWKOy2SqSk9zZyNoA_1795010136
-Received: by mail-yw1-f200.google.com with SMTP id 00721157ae682-8b4dca1ef03so12830327b3.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:55:36 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795010136; cv=none;
-        d=google.com; s=arc-20260327;
-        b=kW5eMKIthVnozjHjpFoCqBzKisyDr8Nh+vES83SCm+MPhcXGlR3wCAkupIkANBveb5
-         JjAGlaU5YxeH+lL2wceYUzmITyC1EsiTRvbIj25/TexmHTV9V+YtbxvNc1O4UQho6LZv
-         8q8pgheGetUWzYZ7sLXLQOul8Ti+F2VeMk3xNNUZpLGF5ygI9tu7AYZzhe6uQpfWt2gL
-         WQX5Dzkxu/znFA8a6ozPtATDqojPh1njszrU1SwChxTSu5NnXa0kFAsxmXmzq6xt2+qT
-         MQC8ougDqhPBrEgiBG0/5zPH+nYLkbPwzNfj/3BRBlw/VejB3Is2SVy5h05hLRhRvefl
-         nxkA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Q93IOK+81L655tUS3XT9KzQ8Uws4KOL15ej2huBrpiw=;
-        fh=PKhB+DqZEuHSSIeB52EXnErt6eWrOAbvefxlkBCnoyM=;
-        b=SYUSASAtUkC68Bp1m0fuGESSAjAFcchtvP7NaeM81pm9YE5qIR4E81fqiW54t64/cp
-         yE8Na9TPkNJn2Ni45euPtMyAEMakEmYPzuzbb849jhCDZheviFdFZlJCSbZhoTUK526s
-         rzlcSmlNF7q4vPPDqfIYvRJzxu93N1jMFbkNjsnwxD3lsSZ9iMCT/PnsyxSJneS4bx+Y
-         Z2R1diG302AH/F7nprJ0CKFzoCEtp6LDnghnr0Xcq1LhsmpZaFGBizbyPUlCnOsicsK/
-         jkOOTan2MhO+ua4iGoqnw2pgmtw0e1XZ2yhk1WzGmyPs+7chkh+QK8RGxGb5M0MCK7jx
-         asaA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795010136; x=1795614936; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Q93IOK+81L655tUS3XT9KzQ8Uws4KOL15ej2huBrpiw=;
-        b=YdeGXNs/g+hxp03HRbQSUUfYwpG+Q463Psgnm5pI6nowFTE0GT/AT+9Eba8UqJXu2F
-         Rjm7s6KZtfcTE+jLnJqY9Yha9DiDRbhjBVk9n/zG7Tl/p4QVD4cOVryiVPrvuioWjJ2V
-         kC4s94SucOy//FSYm1394CoCF5UK5zXU1gxH2PfPcfRIkd2mTJdDSJhVy7FSL4lT5EZc
-         m+HBczANYjijzYP43BM9ZWyF2lkON43QQgIwWQhgllRW+41fvFVuY2rQaXLV1H9y0Dqo
-         Sq+5Nt2E0oRySNF5RHc6s28Fs0dEBL+ug6DeSjIEnvBqVwZGg+FdASv6oArpfSCSBBSS
-         kWvA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795010136; x=1795614936;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Q93IOK+81L655tUS3XT9KzQ8Uws4KOL15ej2huBrpiw=;
-        b=kr3AXXTbxpIRhOXQpznX4t+QgnhpdFvUFbl15h/PtpPGCw0rqDnj+iTcf7b32IfXoe
-         NHD3gE43tL1PF8HA4WnnH5KvFAH3URiwFQRKcvFa3RJIam9LFZ6LKRKLRyq83EkDyWtt
-         +C1FJNLdWx5IrbfEExDIJTGexg8vj7XVNUZ/xZzKDG1+yMTeHUKgSOfqzrjKyZBR4Zbm
-         wAQn1cJWT5I1BEu5kRvnb8sOD+z7ZTYcj1oGppfmuC3uK59k/X6wPtiXvSAs8YqlmSjy
-         41D5iwmI82yJvVyg7PhcK21UXtkGFWv7Iw6wvT9dCGc18qYvFMJCOljKSz2vlr5Tlin/
-         EXfA==
-X-Forwarded-Encrypted: i=1; AL+hErFYMJY+9t5qUzS39UhisALIJUTwjA0U8Z4Y9D6eE/iB6MmXqswz4D2Jm1HarhOJTiMdaXBYvm30xFgcm3s=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9u+ypkTKT90DwofSjguC30vXGCaQb0J9Vf05UpFZUV0r9tm3cl
-	48JY8Ivvq/uB3FjGoj4oJ/f+db6A2G+CtfZqppBAaeE9VA8BvK5eQ9bhZ/poZxzuuZYukkUVPzi
-	nPBqTnnAq8LygUD8EH0Au5/vjTuxd6wBX4DToKkF43u+33Qth/Q5rh+pkLCERIMSDWdtHLFt7AE
-	XulVaswRpehQhnIMQg9/+0xRbyb7uJYQdM4hzFK1Np
-X-Gm-Gg: AZFdTZc8cHIEsO+nODwxcKIX/u3D90J4OOM9HqI/sYf8wHArBJG8RE0xwGoP5Rr3f0r
-	hXjxQg9l4uj/pdLTtcv3EJev0PV4B2bnhyCJRHXyLyOpxtDA1Cjp1Di7qrRW4x8TMwZ0Z18AVTz
-	G6pDjaZFSm/X/z0ZCtshVquvXo1ArxpOuQPh827hKdeuL8PW8e0JJ4WUP+
-X-Received: by 2002:a05:690e:1387:b0:67b:f249:5b16 with SMTP id 956f58d0204a3-67dd3fdee8amr1338610d50.55.1795010135890;
-        Wed, 18 Nov 2026 05:55:35 -0800 (PST)
-X-Received: by 2002:a05:690e:1387:b0:67b:f249:5b16 with SMTP id
- 956f58d0204a3-67dd3fdee8amr1338592d50.55.1795010135440; Wed, 18 Nov 2026
- 05:55:35 -0800 (PST)
+	by smtp.kernel.org (Postfix) with ESMTPS id ED4121F000C5;
+	Wed, 18 Nov 2026 13:57:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795010262;
+	bh=9k6xkSgoU4/ycdA73IPAUpz2zxduvWOoGVm9HO78QCk=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=FpKN4xwdcjqxMJpZCwWr5aPFqtlgYWe8ZwIpl8mL7/d6S1cJWgxdzw0jTsiNEvYnc
+	 Ix5HJV7le25bBF1NAoP7yOqaJdQ/R9psBslIyZ0HUQDJbREnQ8fL/vpdkPmhqcoJKH
+	 Hnmnpt3D1nyRet7AdjbRZrEfxHaO+daYTDEcq91nOKCAhOX91FOLcsJZGk+EHaZY0d
+	 lFUMNPowM/XeaxW6lELexH0ek3RRuQXHI/asThfxrweuodNGzWKUe3XKirO2Z05pIo
+	 84dQa1VkDdGT658EqVWUq3gs/Ot9CeaAgiCCkcPUFw2Iyoyd7XjW+8CMyhqgHQ/txt
+	 lBbW08DGUikww==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 4B4D44ADC0;
+	Wed, 18 Nov 2026 13:57:41 +0000 (UTC)
+From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
+Date: Wed, 18 Nov 2026 13:57:41 +0000
+Subject: [PATCH] scsi: ibmvfc: Unmap scatterlists before completing BSG
+ jobs
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -124,141 +83,81 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117-v2_20230123_tjmercier_google_com-v5-4-1ce975f2a9ad@redhat.com>
- <44c0c45c0e2f47ed77bc45be47ebb3fb@paul-moore.com>
-In-Reply-To: <44c0c45c0e2f47ed77bc45be47ebb3fb@paul-moore.com>
-From: Albert Esteve <aesteve@redhat.com>
-Date: Wed, 18 Nov 2026 14:55:24 +0100
-X-Gm-Features: Aa3M54okPSWfJ_g3ixS3iw1yy5owTDFGTKhnOXZ64bND8Gaqu8R-9XYtSNGyOOw
-Message-ID: <CADSE00LVsFVOmezzLgPrPWDd+L+SSGzGvqKTiX25waxRnVPh9Q@mail.gmail.com>
-Subject: Re: [PATCH v5 4/8] lsm: Add memcg_charge_task LSM hook
-To: Paul Moore <paul@paul-moore.com>
-Cc: Tejun Heo <tj@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>, 
-	=?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Sumit Semwal <sumit.semwal@linaro.org>, =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>, 
-	Shakeel Butt <shakeel.butt@linux.dev>, Muchun Song <muchun.song@linux.dev>, 
-	Andrew Morton <akpm@linux-foundation.org>, 
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
-	John Stultz <jstultz@google.com>, "T.J. Mercier" <tjmercier@google.com>, 
-	Christian Brauner <brauner@kernel.org>, James Morris <jmorris@namei.org>, 
-	"Serge E. Hallyn" <serge@hallyn.com>, Stephen Smalley <stephen.smalley.work@gmail.com>, 
-	Shuah Khan <shuah@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, 
-	=?UTF-8?B?T25kcmVqIE1vc27DocSNZWs=?= <omosnacek@gmail.com>, 
-	Jens Wiklander <jenswi@kernel.org>, Sumit Garg <sumit.garg@kernel.org>, 
-	Philipp Stanner <phasta@kernel.org>, airlied@gmail.com, cgroups@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linaro-mm-sig@lists.linaro.org, linux-mm@kvack.org, 
-	linux-security-module@vger.kernel.org, selinux@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, op-tee@lists.trustedfirmware.org, 
-	echanude@redhat.com, mripard@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261118-ibmvfc-v1-1-3115f5901130@gmail.com>
+X-B4-Tracking: v=1; b=H4sIANSu/WoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzNDQ0ML3cyk3LK0ZF1TU9OkRItk4+Sk5DQloOKCotS0zAqwQdGxEH5xaVJ
+ WanIJSLdSbS0Ax0wl/2oAAAA=
+X-Change-ID: 20261118-ibmvfc-555ba8c3cbcf
+To: tyreld@linux.ibm.com
+Cc: linux-kernel@vger.kernel.org, linux-scsi@vger.kernel.org, 
+ linuxppc-dev@lists.ozlabs.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795010260; l=2020;
+ i=shyckless@gmail.com; s=default; h=from:subject:message-id;
+ bh=N0Tx4tKvk+IGw2iXqqTkUq8ZEOCSQRNuciGKIswz/Gg=;
+ b=gfulJ5sTCNkCHuEG89KYs141VHVOJihg1jGg25SYidOMf4HKeizUjAnBk4ijAwqXuQBi+EnWy
+ EG8irAzLWPhAgwj5bHaoFp5FuwKcgOpmAAtUB5Qtne6wavXO8KaJRNI
+X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
+ pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
+X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
+ auth_id=1498
+X-Original-From: Suyuan Wang <shyckless@gmail.com>
+Reply-To: shyckless@gmail.com
 
-On Tue, Nov 17, 2026 at 11:54=E2=80=AFPM Paul Moore <paul@paul-moore.com> w=
-rote:
->
-> On Nov 17, 2026 Albert Esteve <aesteve@redhat.com> wrote:
-> >
-> > Both DMA_HEAP_IOCTL_ALLOC and the new DMA_BUF_IOCTL_XFER_CHARGE ioctl
-> > accept a charge_fd field that, when set, causes the allocation to be
-> > charged to an arbitrary process's cgroup rather than the caller's.
-> >
-> > Charging is currently limited to the caller's own memcg subtree unless
-> > the caller holds CAP_SYS_RESOURCE. But the capability is all-or-nothing=
-.
-> > A process holding it, along with a dma-heap device node or a dma-buf
-> > fd can charge unlimited memory to any other process's cgroup, potential=
-ly
-> > exhausting that cgroup's limit and triggering OOM kills independent of
-> > the victim's own activity or privileges.
-> >
-> > Add security_memcg_charge_task(), called in get_obj_cgroup_from_fd()
-> > when charge_fd refers to another process. The hook receives
-> > the credentials of the allocating process (from) and the credentials
-> > of the process whose cgroup will be charged (to), giving security
-> > modules a controlled enforcement point for cross-cgroup objcg
-> > attribution policy.
-> >
-> > When CONFIG_SECURITY is not set the hook compiles to an inline
-> > returning 0, adding no overhead to the fast path.
-> >
-> > Signed-off-by: Albert Esteve <aesteve@redhat.com>
-> > ---
-> >  include/linux/lsm_hook_defs.h |  1 +
-> >  include/linux/security.h      |  7 +++++++
-> >  mm/memcontrol.c               | 11 +++++++++++
-> >  security/security.c           | 15 +++++++++++++++
-> >  4 files changed, 34 insertions(+)
->
-> ...
->
-> > diff --git a/mm/memcontrol.c b/mm/memcontrol.c
-> > index 03cd90d5e623..2e6fcbe14d43 100644
-> > --- a/mm/memcontrol.c
-> > +++ b/mm/memcontrol.c
-> > @@ -60,6 +60,7 @@
-> >  #include <linux/lockdep.h>
-> >  #include <linux/resume_user_mode.h>
-> >  #include <linux/psi.h>
-> > +#include <linux/security.h>
-> >  #include <linux/seq_buf.h>
-> >  #include <linux/sched/isolation.h>
-> >  #include <linux/kmemleak.h>
-> > @@ -3198,10 +3199,12 @@ static bool mem_cgroup_may_charge(struct mem_cg=
-roup *memcg)
-> >  struct obj_cgroup *get_obj_cgroup_from_fd(int fd)
-> >  {
-> >       struct cgroup_subsys_state *css;
-> > +     const struct cred *tcred;
-> >       struct obj_cgroup *objcg;
-> >       struct mem_cgroup *memcg;
-> >       struct task_struct *task;
-> >       unsigned int pidfd_flags;
-> > +     int ret;
-> >
-> >       if (mem_cgroup_disabled())
-> >               return ERR_PTR(-EOPNOTSUPP);
-> > @@ -3226,6 +3229,14 @@ struct obj_cgroup *get_obj_cgroup_from_fd(int fd=
-)
-> >               if (IS_ERR(task))
-> >                       return ERR_CAST(task);
-> >
-> > +             tcred =3D get_task_cred(task);
-> > +             ret =3D security_memcg_charge_task(current_cred(), tcred)=
-;
->
-> Do you ever envision this "from" cred being something other than
-> current_cred()?
+From: Suyuan Wang <stevewong@hust.edu.cn>
 
-Good point. No, I do not.
+ibmvfc_bsg_request() calls bsg_job_done() before unmapping the request
+and reply scatterlists.
 
-> If the answer is "no", we might want to consider changing
-> the LSM hook slightly to help prevent misuse in the future:
->
->   int security_current_memcg_charge_task(const struct cred *tcred);
+bsg_job_done() starts block request completion, which can run
+bsg_teardown_job() and free both scatterlists before the following
+dma_unmap_sg() calls. The unmaps can then read freed memory.
 
-Agreed. I'll apply the same to the cgroupfd variant for symmetry (its
-"from" is also always current_cred()).
+Complete the job after the common DMA cleanup instead. The completion
+path has already saved the operation result in bsg_reply and set rc to
+zero; paths that return an error keep their existing cleanup and leave
+completion to the FC transport. passthru_mutex stays held until after
+the completion call.
 
-BR,
-Albert.
+Found with a static analysis tool and checked by hand.
+
+Fixes: d31429e1517c ("[SCSI] ibmvfc: Add FC Passthru support")
+Cc: stable@vger.kernel.org
+Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
+---
+Compile tested on powerpc with clang (W=1, no new warnings). I don't
+have IBM Power virtual FC hardware.
+---
+ drivers/scsi/ibmvscsi/ibmvfc-core.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/scsi/ibmvscsi/ibmvfc-core.c b/drivers/scsi/ibmvscsi/ibmvfc-core.c
+index aa7ae81df41b..6dce72cb80b5 100644
+--- a/drivers/scsi/ibmvscsi/ibmvfc-core.c
++++ b/drivers/scsi/ibmvscsi/ibmvfc-core.c
+@@ -2392,14 +2392,15 @@ static int ibmvfc_bsg_request(struct bsg_job *job)
+ 	ibmvfc_free_event(evt);
+ 	spin_unlock_irqrestore(&vhost->host->host_lock, flags);
+ 	bsg_reply->result = rc;
+-	bsg_job_done(job, bsg_reply->result,
+-		       bsg_reply->reply_payload_rcv_len);
+ 	rc = 0;
+ out:
+ 	dma_unmap_sg(vhost->dev, job->request_payload.sg_list,
+ 		     job->request_payload.sg_cnt, DMA_TO_DEVICE);
+ 	dma_unmap_sg(vhost->dev, job->reply_payload.sg_list,
+ 		     job->reply_payload.sg_cnt, DMA_FROM_DEVICE);
++	if (!rc)
++		bsg_job_done(job, bsg_reply->result,
++			     bsg_reply->reply_payload_rcv_len);
+ 	mutex_unlock(&vhost->passthru_mutex);
+ 	LEAVE;
+ 	return rc;
 
 
->
-> > +             put_cred(tcred);
-> > +             if (ret) {
-> > +                     put_task_struct(task);
-> > +                     return ERR_PTR(ret);
-> > +             }
-> > +
-> >               rcu_read_lock();
-> >               css =3D task_css(task, memory_cgrp_id);
-> >               put_task_struct(task);
->
-> --
-> paul-moore.com
->
+
 
