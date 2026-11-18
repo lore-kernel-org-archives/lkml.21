@@ -1,54 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.49
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794960230;
-	b=EJyOq6hUjt10msnkDyOFeDEe14wNfhGeQG8o5B8UlE9lvqVTT7F7UDZaJZTKGKCntZNp
-	 ojFNqVlKTm017I/h+D1g5m4M0fbEqoS8TXE/lu15G3r5k2r5tYbAc8X5EZrMbD0IiHsl+
-	 oVsRhq7LPudkQ+LX6n1HiLBbafN5HPvJ1lgtiDj2vjJ7qacsw3kTjKOzaqOy7KMORjwVk
-	 oswV9tucu/tXE9TGTEONu8PBCRQBMNg319QM0dNSm8jXSBEY3yBO/z4360P0Ua40SSmGm
-	 ESVrLBEnjDG8Mtq4Yy+FYkSHHAZGztX5K/5fydLRlzNaKHuS0UTxeBG8O+fQpY6nTkQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794960230;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=HgUCjkwjNnVwNpG7C+Rc1zoxk9Eyoo4+LcOho9UT1no=;
-	b=pzCPOWy4PwcfgCnB23pWspjsOdbtlSJjAG9nuhhuHmTDUqh/ZfeDJcW7Q3O4wBpCN21w
-	 9D2ITYECtpjXjDdVXSnrHznEG1NhE5wvXtjak/chFhvu3zt+SykTM4tb9/Ebi4SGOmYjy
-	 e3/VZaVk3TXpOrpXG+o2RV24l+q5yPy8WKrhvTp02nDQ8bSlfB9C/5ls2cw8ABe09SVc2
-	 wl3PHKUb3gNvfA5dpS/PzR4+9JiwtX7XIYMnnv/fe55mRa7S/Of65C0l9sxwEy0LeW2Gt
-	 JwusjjegxZ5md5IZ0GRmDyagfx9JU4GLocnJ3stivVib1Wh81n4dCUCoNVCgIht5s8w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=pVjbsq71;
-	arc=none smtp.remote-ip=95.215.58.49
-Received: from mta1.migadu.com (out-49.mta1.migadu.com [95.215.58.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794960368;
+	b=PaZ2+jgfvipBfKqBkxjRdnQYcAf3c8t7sxP/kXxLxoQ9W6FbWuMs20qMGZePH5X6N1oU
+	 lnHrhVam3mwe/Cc27We1esx+NxKPW4ERIC5bdzY6SG1sf7+U3XcMArA+YdRtl5VKn6VlU
+	 AMH5qWRjgPycFOVu8SJ/S+QF/jXADOA1qftZOzWe7i5e7LUEEsEuFUeHqHlNfyf8ezPDl
+	 2H6adavg472Bn+cKZhMlDgIoa2PWEywF70Ekg61PINaCr4XPp0zkmQQgOgWs66Y8mCy5z
+	 DBS6qCDbhS6+dkGkjavCp0/mrnnkBpBPI6BPI6B0MWHQlZfFW8t9MLIyArW3COvmGFw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794960368;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=Sh41BKaEFqu40VZCFAZtZ2re9360uoXZkICjD6gYqTs=;
+	b=wpFfG4+RZSeD0FPDaWoxeqKqaz3YTiolvilEmT6A1VhhzNbason9l5vdA+sCKvS6JPoE
+	 ovPNqtIK6p1APSgC5scb4YNw75Oz/k66mI6aOeU9J0W51Vq5CCC0NQn7hOL1m0YJbVSsF
+	 uqRPspJ6PIKK+eunGzHN4dFCpPZ3mHBa7OtTBJq7BeqXNTznKMYEJDCe8cZbqU6gW9txT
+	 YRfqqFdVmwUCi+MHUObEF+ywp13jMsboCDKyWjYYtefyrHgCPS3HgFHTpgGh+tyzZSOs0
+	 DJzFkT7xIPTXU+pE5mhN8X3T54wFmT6cpezv64lic4CfiKhVvQg/Gl8zJuz767TGQpA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XYxX3ALS;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52FA9606A32A;
+	Wed, 18 Nov 2026 00:06:08 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XYxX3ALS
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1794960367;
+	b=FdqUTD0wj+GlkMx3WsuJFvm6h0aQv0t6+8sPq3640JZKzifxtW4ZNIgL777jQ4feLQTv
+	 IO1XntPfkGM8twfDcTyy4LnLvB0O+T3rJZXScnaidZmDcD7xZTZ8M9l0a5FbujrjgWgiM
+	 773OOo5A31q0ggU+EqL25Z/ruhrG4CFI+p+jhN01NKqX3QWw5erbGZvIatr4kp0apc9kP
+	 4n/JAKRFzoSZwuaSvkWkbekMd1u07lSyyds76yTVvI5hLBBOabalCAKs/EIJljqTlZc3C
+	 BKBY7+qBU9Do+jk68Bs2jL2EcNKQ2t74v/CWOrwr3bLM1V9MzprS9L3ITG+kOG0xaeQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1794960367;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=Sh41BKaEFqu40VZCFAZtZ2re9360uoXZkICjD6gYqTs=;
+	b=Oka17lkNKTu1aE0ugyfr37ydXFk5FvPR+cCAfKYlI9IxqOSXlL/IgD8Ty18ibfzO9jbh
+	 3bQX+wBlo9Dj6IYMAGfUUrcySwxUxCLagtalnzyux1bFyWzERwVvddCllO1T9hwV3WHD9
+	 K/HqHueT+afcKPMGzxDpz156zMNSOC57RXUSwX70ZLmNLXTi51yncVPoP9+vCNTD3yntJ
+	 Dz8BcY9aNd40tpECbOvx5tFZBpTm+m/kH7Nsn6oq0sB5tFH308CD6x22h/nbq+y/KTVlU
+	 pwu1U2nUK/+bGY3kqQgnFcUxLJge+PZX/F2Y6KQkTmz73dOPYQwsLqUg06zyhldYbJQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94FF2606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:03:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 94FF2606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=pVjbsq71
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=8O2Z9i9XyyFs2NBWXPLqftjmKWFZwxaV3dOPhJ6/7fo=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1794960227; v=1; x=1795565027;
- b=pVjbsq71T9RBMDxDrGSDyKWPt759GyH808oSThBjQ2O0I/LTGIlSgSuZauL/vAn2Okk+9hGJ
- b3WQKYxGnnFNfbX8vW116HUGR9K3jKdP5T2IPoxP2LjAm3KgBDeXVa9c98XvHTi5RMOpFspC1bo
- ZaZi250aFnePlkYt5b+etqNQ=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id be12e469f8aa84fa;
-	Wed, 18 Nov 2026 00:03:47 +0000
-X-Mizu-Trace-ID: be12e469f8aa84fa
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <4d3e46fb-a374-4a9b-a47e-1c661b7f0f37@linux.dev>
-Date: Wed, 18 Nov 2026 08:03:35 +0800
+	by smtp.kernel.org (Postfix) with ESMTPS id 0BF6F1F000C6;
+	Wed, 18 Nov 2026 00:06:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794960367;
+	bh=Sh41BKaEFqu40VZCFAZtZ2re9360uoXZkICjD6gYqTs=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=XYxX3ALSDLdil9S02lCrJttjPEnjkuQfsp5RaM4PU7y0owIzwdhvKNP8EEJChkYHW
+	 1HYu8wMmGgByQx3yaMo1Xv3uZGW7+y69J1piZ6qw122jRFgDNn9DHbuvsToY96etsQ
+	 iOC2VVPC8T4A6nVqauHUaMyXrBTOG+rF+1VYlN+TbawXvkaxAf6MeyQ6hHalls2MCu
+	 5Bvaun2Tqpyc6Q/vzIxI0oMaLh39zR4ElpK/vxvodp0SpFBeilVF4dC1C9Heei4hPo
+	 G5pj7euQpXy0JJpiVSWupYcb4030dZz8sFjZUXsWbm3QUVEBfTJ6VyyY9hSsxCkm/n
+	 MaoqFE5NOnZhA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 8D1FC4790C;
+	Wed, 18 Nov 2026 00:06:06 +0000 (UTC)
+From: Maximo Manriquez Lizarraga via B4 Relay <devnull+DelaySystem.tubot.lat@kernel.org>
+Date: Tue, 17 Nov 2026 16:06:06 -0800
+Subject: [PATCH v2] staging: most: dim2: use atomic_t for channel state
+ counters
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,193 +83,135 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] sched/isolation: Publish new HK_TYPE_DOMAIN cpumask under
- cpuset_mutex
-To: Waiman Long <longman@redhat.com>, frederic@kernel.org, tj@kernel.org,
- peterz@infradead.org, mingo@redhat.com, juri.lelli@redhat.com,
- vincent.guittot@linaro.org, dietmar.eggemann@arm.com, rostedt@goodmis.org,
- bsegall@google.com, mgorman@suse.de, vschneid@redhat.com,
- kprateek.nayak@amd.com, hannes@cmpxchg.org, mkoutny@suse.com
-Cc: linux-kernel@vger.kernel.org, cgroups@vger.kernel.org,
- guopeng.zhang@linux.dev, mathieu.desnoyers@efficios.com,
- Ridong Chen <chenridong@xiaomi.com>
-References: <054a53a3-c038-48fe-ac01-fc24fd8065d0@linux.dev>
- <20261117083915.2971979-1-ridong.chen@linux.dev>
- <36d49371-31de-4305-89c4-2ce64dd6848c@redhat.com>
-From: Ridong Chen <ridong.chen@linux.dev>
-In-Reply-To: <36d49371-31de-4305-89c4-2ce64dd6848c@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261117-staging-dim2-atomic-v2-1-a550f0518043@tubot.lat>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32NQQ6CMBBFr0Jm7RhatTauvIdhMcAUxgglbSEaw
+ t0F3Lt8yfvvzxA5CEe4ZTMEniSK71fQhwyqlvqGUeqVQefaKJVfMSZqpG+wlk4jJd9JhcaSvTj
+ rmJyBdTkEdvLeq4/ix3Esn1ylLbUZrcTkw2e/ndTm/X+YFCo0XJ7ZOuXMie5pLH06vihBsSzLF
+ 2q0klzIAAAA
+X-Change-ID: 20261107-staging-dim2-atomic-68a85f8feaf6
+To: error27@gmail.com, shyamsunderreddypadira@gmail.com, 
+ marusik.adamenko@gmail.com, rajveer.chaudhari.linux@gmail.com, 
+ parthiban.veerasooran@microchip.com, christian.gromm@microchip.com, 
+ gregkh@linuxfoundation.org
+Cc: linux-kernel@vger.kernel.org, linux-staging@lists.linux.dev, 
+ Maximo Manriquez Lizarraga <DelaySystem@tubot.lat>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3418;
+ i=DelaySystem@tubot.lat; h=from:subject:message-id;
+ bh=DzVwGgJlaMAT/3SAIgdkmln9ovVSG2ZhjYnhV3aplks=;
+ b=owGbwMvMwCH2SNl4+SzWXm/G02pJDFl/Xr/9uNDl6g6TFZyFb2+K2nkm9HqZsJYuUdnjs1Okr
+ vxT6bKXHaUsDGIcDLJiiixiMjzv6+/rxFlbzTkBM4eVCWQIAxenAExkOwMjw7S0lCZeoSddMrvv
+ tZVHaRq1VuRmi8R8VnGx+Tu9zeb/VEaG9kNmFzmvxIlmGJglyF0NcdiWG6g/9dImzUzTEydPHEt
+ iAwA=
+X-Developer-Key: i=DelaySystem@tubot.lat; a=openpgp;
+ fpr=161C0CEF7FDF2C5E3B3A9CC8E22333A79A058D4B
+X-Endpoint-Received: by B4 Relay for DelaySystem@tubot.lat/default with
+ auth_id=1447
+X-Original-From: Maximo Manriquez Lizarraga <DelaySystem@tubot.lat>
+Reply-To: DelaySystem@tubot.lat
+Content-Transfer-Encoding: 7bit
 
+From: Maximo Manriquez Lizarraga <DelaySystem@tubot.lat>
 
+Replace the volatile int channel state counters with atomic_t and
+convert all access sites to the atomic API.
 
-On 11/18/2026 12:15 AM, Waiman Long wrote:
-> On 11/17/26 3:39 AM, Ridong wrote:
->> From: Ridong Chen <chenridong@xiaomi.com>
->>
->> Commit a84097e625f2 ("cgroup/cpuset: Call housekeeping_update() without
->> holding cpus_read_lock") calls housekeeping_update() after dropping
->> cpus_read_lock and cpuset_mutex, so the HK_TYPE_DOMAIN cpumask is now
->> switched and freed outside of those locks. But readers holding either
->> lock may still access it without rcu_read_lock() as allowed by
->> housekeeping_dereference_check(), and synchronize_rcu() doesn't wait
->> for them:
->>
->>    CPU A                                  CPU B
->>    rebuild_sched_domains()                cpuset_update_sd_hk_unlock()
->>                                             mutex_unlock(&cpuset_mutex)
->>                                             cpus_read_unlock()
->>      mutex_lock(&cpuset_mutex)
->>      p = housekeeping_cpumask(DOMAIN)
->>                                             housekeeping_update()
->>                                               rcu_assign_pointer()
->>                                               synchronize_rcu()
->>                                               kfree(old)
->>      access p <- UAF
->>
->> Fix it by moving the pointer switch into housekeeping_publish(), which
->> is called before dropping the locks. Then CPU A either finishes before
->> CPU B switches the pointer, or only sees the new cpumask:
->>
->>    CPU A                                  CPU B
->>                                           cpuset_update_sd_hk_unlock()
->>                                             housekeeping_publish()
->>                                               rcu_assign_pointer()
->>      mutex_lock(&cpuset_mutex) <- wait
->>                                             mutex_unlock(&cpuset_mutex)
->>                                             cpus_read_unlock()
->>      p = housekeeping_cpumask(DOMAIN)       housekeeping_update()
->>          <- new cpumask                       synchronize_rcu()
->>                                               kfree(old)
->>
->> The rest of housekeeping_update(), including the workqueue flushes,
->> still runs without those locks.
->>
->> Fixes: a84097e625f2 ("cgroup/cpuset: Call housekeeping_update() without 
->> holding cpus_read_lock")
->> Signed-off-by: Ridong Chen <chenridong@xiaomi.com>
->> ---
->>   include/linux/sched/isolation.h |  6 ++++--
->>   kernel/cgroup/cpuset.c          | 12 ++++++++----
->>   kernel/sched/isolation.c        | 23 ++++++++++++++++-------
->>   3 files changed, 28 insertions(+), 13 deletions(-)
->>
->> diff --git a/include/linux/sched/isolation.h b/include/linux/sched/isolation.h
->> index cf0fd03dd7a24..09fabf42e3224 100644
->> --- a/include/linux/sched/isolation.h
->> +++ b/include/linux/sched/isolation.h
->> @@ -43,7 +43,8 @@ extern const struct cpumask *housekeeping_cpumask(enum 
->> hk_type type);
->>   extern bool housekeeping_enabled(enum hk_type type);
->>   extern void housekeeping_affine(struct task_struct *t, enum hk_type type);
->>   extern bool housekeeping_test_cpu(int cpu, enum hk_type type);
->> -extern int housekeeping_update(struct cpumask *isol_mask);
->> +extern struct cpumask *housekeeping_publish(struct cpumask *isol_mask);
->> +extern void housekeeping_update(struct cpumask *isol_mask, struct cpumask *old);
->>   extern void __init housekeeping_init(void);
->>   #else
->> @@ -71,7 +72,8 @@ static inline bool housekeeping_test_cpu(int cpu, enum 
->> hk_type type)
->>       return true;
->>   }
->> -static inline int housekeeping_update(struct cpumask *isol_mask) { return 0; }
->> +static inline struct cpumask *housekeeping_publish(struct cpumask *isol_mask) 
->> { return NULL; }
->> +static inline void housekeeping_update(struct cpumask *isol_mask, struct 
->> cpumask *old) { }
->>   static inline void housekeeping_init(void) { }
->>   #endif /* CONFIG_CPU_ISOLATION */
->> diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
->> index 8a8a424a389f3..1673bb25a797b 100644
->> --- a/kernel/cgroup/cpuset.c
->> +++ b/kernel/cgroup/cpuset.c
->> @@ -1472,17 +1472,21 @@ static void cpuset_update_sd_hk_unlock(void)
->>           rebuild_sched_domains_locked();
->>       if (update_housekeeping) {
->> +        struct cpumask *old;
->> +
->>           update_housekeeping = false;
->>           cpumask_copy(isolated_hk_cpus, isolated_cpus);
->>           /*
->> -         * housekeeping_update() is now called without holding
->> -         * cpus_read_lock and cpuset_mutex. Only cpuset_top_mutex
->> -         * is still being held for mutual exclusion.
->> +         * Publish the new cpumask with cpus_read_lock and cpuset_mutex
->> +         * held, but call housekeeping_update() without them. Only
->> +         * cpuset_top_mutex is still being held for mutual exclusion.
->>            */
->> +        old = housekeeping_publish(isolated_hk_cpus);
->>           mutex_unlock(&cpuset_mutex);
->>           cpus_read_unlock();
->> -        WARN_ON_ONCE(housekeeping_update(isolated_hk_cpus));
->> +        if (!WARN_ON_ONCE(IS_ERR(old)))
->> +            housekeeping_update(isolated_hk_cpus, old);
->>           mutex_unlock(&cpuset_top_mutex);
->>       } else {
->>           cpuset_full_unlock();
->> diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
->> index 156025ef81b75..9e202269e42f6 100644
->> --- a/kernel/sched/isolation.c
->> +++ b/kernel/sched/isolation.c
->> @@ -120,23 +120,26 @@ bool housekeeping_test_cpu(int cpu, enum hk_type type)
->>   }
->>   EXPORT_SYMBOL_GPL(housekeeping_test_cpu);
->> -int housekeeping_update(struct cpumask *isol_mask)
->> +/* Called with cpus_read_lock and cpuset_mutex held */
->> +struct cpumask *housekeeping_publish(struct cpumask *isol_mask)
->>   {
->>       struct cpumask *trial, *old = NULL;
->> -    int err;
->> +
->> +    lockdep_assert_cpus_held();
->> +    lockdep_assert_cpuset_lock_held();
->>       trial = kmalloc(cpumask_size(), GFP_KERNEL);
->>       if (!trial)
->> -        return -ENOMEM;
->> +        return ERR_PTR(-ENOMEM);
->>       cpumask_andnot(trial, housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT), 
->> isol_mask);
->>       if (!cpumask_intersects(trial, cpu_online_mask)) {
->>           kfree(trial);
->> -        return -EINVAL;
->> +        return ERR_PTR(-EINVAL);
->>       }
->>       if (!housekeeping.flags)
->> -        static_branch_enable(&housekeeping_overridden);
->> +        static_branch_enable_cpuslocked(&housekeeping_overridden);
->>       if (housekeeping.flags & HK_FLAG_DOMAIN)
->>           old = housekeeping_cpumask_dereference(HK_TYPE_DOMAIN);
->> @@ -144,6 +147,14 @@ int housekeeping_update(struct cpumask *isol_mask)
->>           WRITE_ONCE(housekeeping.flags, housekeeping.flags | HK_FLAG_DOMAIN);
->>       rcu_assign_pointer(housekeeping.cpumasks[HK_TYPE_DOMAIN], trial);
->> +    return old;
->> +}
->> +
->> +/* Called without cpus_read_lock and cpuset_mutex held */
->> +void housekeeping_update(struct cpumask *isol_mask, struct cpumask *old)
->> +{
->> +    int err;
->> +
->>       synchronize_rcu();
->>       pci_probe_flush_workqueue();
->> @@ -160,8 +171,6 @@ int housekeeping_update(struct cpumask *isol_mask)
->>       WARN_ON_ONCE(err < 0);
->>       kfree(old);
->> -
->> -    return 0;
->>   }
->>   void __init housekeeping_init(void)
-> 
-> Yes, that should work too.
-> 
-> Acked-by: Waiman Long <longman@redhat.com>
-> 
-> I will let other decide which one do they want.
-> 
-Thanks.
+request_counter is incremented in the AHB interrupt handler
+(channel_service_interrupt) and read from task context
+(channel_service), while service_counter is updated in task context.
+Plain volatile provides neither atomicity nor ordering for such
+cross-context sharing, see
+Documentation/process/volatile-considered-harmful.rst.
 
--- 
-Best regards
-Ridong
+Use atomic_set() at init, atomic_inc() for updates and atomic_read()
+for the comparison in channel_service().  No functional change is
+intended.  Unlike the earlier attempt that only dropped the
+qualifier, this converts the access sites as well.
+
+Compile-tested only; I don't have this hardware, so testing on real
+hardware would be appreciated.
+
+Link: https://lore.kernel.org/linux-staging/2026072515-domestic-cardboard-f657@gregkh/
+Signed-off-by: Maximo Manriquez Lizarraga <DelaySystem@tubot.lat>
+---
+Changes in v2:
+- Resend under my real name (From/Signed-off-by: Maximo Manriquez Lizarraga).
+- Apologies for the wasted cycle; if the objection was technical rather than the sender identity, please say what to change.
+- Link to v1: https://patch.msgid.link/20261107-staging-dim2-atomic-v1-1-6eb4e8f1f63a@tubot.lat
+---
+ drivers/staging/most/dim2/hal.c | 11 ++++++-----
+ drivers/staging/most/dim2/hal.h |  5 +++--
+ 2 files changed, 9 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/staging/most/dim2/hal.c b/drivers/staging/most/dim2/hal.c
+index 4f137ef846a3..ca931782b06c 100644
+--- a/drivers/staging/most/dim2/hal.c
++++ b/drivers/staging/most/dim2/hal.c
+@@ -419,8 +419,8 @@ u16 dim_dbr_space(struct dim_channel *ch)
+ 
+ static void state_init(struct int_ch_state *state)
+ {
+-	state->request_counter = 0;
+-	state->service_counter = 0;
++	atomic_set(&state->request_counter, 0);
++	atomic_set(&state->service_counter, 0);
+ 
+ 	state->idx1 = 0;
+ 	state->idx2 = 0;
+@@ -634,7 +634,7 @@ static bool channel_service_interrupt(struct dim_channel *ch)
+ 		return false;
+ 
+ 	state->idx2 ^= 1;
+-	state->request_counter++;
++	atomic_inc(&state->request_counter);
+ 	return true;
+ }
+ 
+@@ -682,8 +682,9 @@ static u8 channel_service(struct dim_channel *ch)
+ {
+ 	struct int_ch_state *const state = &ch->state;
+ 
+-	if (state->service_counter != state->request_counter) {
+-		state->service_counter++;
++	if (atomic_read(&state->service_counter) !=
++	    atomic_read(&state->request_counter)) {
++		atomic_inc(&state->service_counter);
+ 		if (state->level == 0)
+ 			return DIM_ERR_UNDERFLOW;
+ 
+diff --git a/drivers/staging/most/dim2/hal.h b/drivers/staging/most/dim2/hal.h
+index 5d69a5e7d299..70b10793cf84 100644
+--- a/drivers/staging/most/dim2/hal.h
++++ b/drivers/staging/most/dim2/hal.h
+@@ -9,6 +9,7 @@
+ #ifndef _DIM2_HAL_H
+ #define _DIM2_HAL_H
+ 
++#include <linux/atomic.h>
+ #include <linux/types.h>
+ #include "reg.h"
+ 
+@@ -34,10 +35,10 @@ struct dim_ch_state {
+ 
+ struct int_ch_state {
+ 	/* changed only in interrupt context */
+-	volatile int request_counter;
++	atomic_t request_counter;
+ 
+ 	/* changed only in task context */
+-	volatile int service_counter;
++	atomic_t service_counter;
+ 
+ 	u8 idx1;
+ 	u8 idx2;
+
+---
+base-commit: a41e364995bbcfa627418a70fe913c35b7510728
+change-id: 20261107-staging-dim2-atomic-68a85f8feaf6
+
+Best regards,
+--  
+Maximo Manriquez Lizarraga <DelaySystem@tubot.lat>
+
 
