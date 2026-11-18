@@ -1,59 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=116.203.77.234
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794998235;
-	b=1ogV/3xZPMpSDBFMyVTrR5tLqW+d2eT3XwG48jLg0naHfJLR1mLBgkWQnC/wKoQwluVN
-	 X04nJoj/AcoLrU/ieRlxBUbJ56DQPafuNAEJEGShadLLE39nuh4ljZ7aYAhblsXqzA0JN
-	 C3YcNsEcam/4lEgZew1ddgGsKHUb4cOf8TcFvcLL0YYOMoYrnzvgVhFzcB+Ap+VZycYuV
-	 Th38CABgJsAxrw8mtxz4SoPZMkMIbytc37aDuCwKjfQD++n59It1WmosIb4cIXs1OlfPx
-	 2MhQf5Do/jm4YyN+XvB0KfBbk1wvD53XDSSRnnK65Ozfotl8UPssU4dLj0hn56bB/mA==
+	t=1794998292;
+	b=f2VARdEPfMRrtk6KyAy6ENgvu6wBEjBlAUF86lVBijna25WumsAjR8b/FrB/JuyF2+7G
+	 B+rTAXcK122kH8lzy9tuqqmzKTVeN/GCe+hwZtjyNNPQ9/bge6EGysBdWo/R+k/WHsGrF
+	 yax2VPEh1dE9QPSbS3yLA+1+dbR1pNPKP3ypV8JVqY5ExXrb7oRzGoiRIfBbrOhH0aTzB
+	 E7dEiGSN8iXi0LqjuV9KfU0Y/k2gXKiUSG6KRc94YJaB3aYbnx6h7HVxWX2ucz9XqbPpJ
+	 uQ4Kyqils+FZF8Grkzgg/BGteBV1dnbPviBOYDOwhOWOjdlLAMhJQXOUiiubZJR3eMQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794998235;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Last-TLS-Session-Version;
-	bh=BD/7dGjF7sMoB/d2IGhZU+budae+csrWSO8oga6hhcQ=;
-	b=dITLW2VMvJOdyB3OWQST0qjqmf0a43yQ7Z+wc+FLWRXP+vFUgWwogUZwNROM+yQx2cmp
-	 /BXR/d3SGDpS91MDEaE+uOuNgM6ZASF4JhmEzCCy0MRp5R5SAJhOdTp0h/03hEDxabKLf
-	 UMEaYrAz9L37yrmhbnss3kXQVgYMo9gzgLLKnf2krlt2RkmTffuQ20fpvjHD6r6/Eyokq
-	 wrmBXPXX/CKNiIAAf/Ow5dL0q2ZP28pETEvNmCDkKCtubko0vZW8GOQqZ3x2xERVybFQG
-	 GvKS71CIP9Dh99KCfSE4ueOhHoJ+4mMFJIl4aFWV1P5SAoPkDVmnmllPfEu/bxDw90Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794998292;
+	h=DMARC-Filter:From:DKIM-Signature:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Developer-Signature:X-Developer-Key;
+	bh=er5BIVyflTBw/dl8O4AeKo3x5VZC2mUzFVF3Z90Ru84=;
+	b=zZvYVguqU1wiwrKioVTA6XSwSiAZO422BLPuQx5RNXSLRfmNas7fqLvEldopP1N+flid
+	 5bJQHMFy6/Nt3ALrmJoj+A7AREUIv35pJDllgFUY5di76PG/4BW7X+Zd7dXSLN6qfhoBG
+	 CuM7esFUKhSvrcWRJBTbOCLRk3YDADIG8SMsQoDuBoviPwaVeSnALOLzd8lFY1NWYWAfc
+	 idvYo8cDzxiVrBsIVRzyW41jtlTnsUJ1XHDQJ0iRPDOcC+Klgw70/qmusXq8CA5D3kaY4
+	 zpcIzCI44Z7R3z+EpXPgC15hE/0yew4n/YjyPqEJ3X75z7ik94d0lcjZrPDkeS1myQA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=ShNdJBQj;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dmarc=pass header.from=fris.de;
+	spf=pass smtp.mailfrom=fris.de;
+	dkim=pass header.d=fris.de header.i=@fris.de header.a=rsa-sha256 header.s=mail header.b=qJGpuRDi;
+	arc=none smtp.remote-ip=116.203.77.234
+Received: from mail.fris.de (mail.fris.de [116.203.77.234])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83FCC606A336
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:37:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83FCC606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 516E9606A32F;
+	Wed, 18 Nov 2026 10:38:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 516E9606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=fris.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fris.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=ShNdJBQj
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 4912F1A16D1;
-	Wed, 18 Nov 2026 10:37:13 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 17D6D5FE9B;
-	Wed, 18 Nov 2026 10:37:13 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C945611BC1111;
-	Wed, 18 Nov 2026 11:37:08 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1794998231; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=BD/7dGjF7sMoB/d2IGhZU+budae+csrWSO8oga6hhcQ=;
-	b=ShNdJBQjsk3N/eIlJbui5qaasE+DZP66AZcJQcb+sGL2SJhJzj/VbK17EyGoQoMSQ/wclT
-	e9OXCaom+l3C0auwmarGtLqbhsZe/hUpZoPCm6Tzodmr0R0aiHxAmMjyuffCx7ViVWoJ9b
-	Yr7fM8zN+93xBhkCEzxg5gAJFdRzDEuDKELauoklKaqcrZBnb6b6bvk62O+HQB+w+V1iL9
-	tugW1mbOsthJ42Pcchl1YcE5X3DOy6MWmOFvu5Flc2T9+4w+l3TyCemXZfDMRn+rhyo8BD
-	IWmFbsdXf/QcYbcJik3epFP9Zdqwu+/RCFzg8VInFqkQzZowIVkpx+I9LLyXNA==
-From: Kory Maincent <kory.maincent@bootlin.com>
-Date: Wed, 18 Nov 2026 11:36:35 +0100
-Subject: [PATCH 8/8] drm: Move DSC capability reading helper out of i915
+	dkim=pass (2048-bit key) header.d=fris.de header.i=@fris.de header.a=rsa-sha256 header.s=mail header.b=qJGpuRDi
+From: Frieder Schrempf <frieder@fris.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
+	t=1794998283;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=er5BIVyflTBw/dl8O4AeKo3x5VZC2mUzFVF3Z90Ru84=;
+	b=qJGpuRDiX9gBeQC43GmnsepqhWIRwTMLXdljAbtb/sTB/OmHaCDIybyEUuOlbSUDYL+QIt
+	cj8DVBRYlenutZ3D+Gca/5eonUuQO0OqhKr5mJMDTB6pK/BYGnLVzkPG6kPTSKeq0Iv8HV
+	7zzgbuGcXb36S7ulq1qoFJbf6ygjqbg0rIoLr05ahxeuMdAjqAKFHNodsD5JPdgKyn+3HT
+	ndnqiEdOMVtcyecFeCDSFumCLWiNIH2iifPP8yOIDcnca2SzA60NQDo5Z1fWws4zphhhkm
+	tY2qEtpMMXMPSzJ5B9ca8RkYpdLaRRoN1lIcMv4hdJ62GSD5Md3SbsT/ksp2IQ==
+Date: Wed, 18 Nov 2026 11:37:39 +0100
+Subject: [PATCH net-next 1/4] dt-bindings: net: nxp,netc-blk-ctrl: add
+ i.MX952 compatible
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,143 +60,54 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-feat_move_i915_helper-v1-8-652177f3107a@bootlin.com>
-References: <20261118-feat_move_i915_helper-v1-0-652177f3107a@bootlin.com>
-In-Reply-To: <20261118-feat_move_i915_helper-v1-0-652177f3107a@bootlin.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Jani Nikula <jani.nikula@linux.intel.com>, 
- Rodrigo Vivi <rodrigo.vivi@intel.com>, 
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
- Tvrtko Ursulin <tursulin@ursulin.net>
-Cc: Louis Chauvet <louis.chauvet@bootlin.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Mark Yacoub <markyacoub@google.com>, Sean Paul <seanpaul@google.com>, 
- Manasi Navare <navaremanasi@google.com>, 
- Drew Davenport <ddavenport@google.com>, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org, intel-gfx@lists.freedesktop.org, 
- intel-xe@lists.freedesktop.org, Kory Maincent <kory.maincent@bootlin.com>
-X-Mailer: b4 0.16.1-dev-17221
-X-Last-TLS-Session-Version: TLSv1.3
+Message-Id: <20261118-imx952-enetc-v1-1-25721440602e@kontron.de>
+References: <20261118-imx952-enetc-v1-0-25721440602e@kontron.de>
+In-Reply-To: <20261118-imx952-enetc-v1-0-25721440602e@kontron.de>
+To: Claudiu Manoil <claudiu.manoil@nxp.com>, 
+ Vladimir Oltean <vladimir.oltean@nxp.com>, Wei Fang <wei.fang@nxp.com>, 
+ Clark Wang <xiaoning.wang@nxp.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Richard Cochran <richardcochran@gmail.com>
+Cc: imx@lists.linux.dev, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, 
+ Frieder Schrempf <frieder.schrempf@kontron.de>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=895;
+ i=frieder.schrempf@kontron.de; h=from:subject:message-id;
+ bh=vo/Z9PpckDQXfhXy+AKwhEFDXKaJuyt510ocLsCv/0I=;
+ b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JIetvA4fK8Y6fnYxFqrrrrj8RvrNHYd4WCackjqcJd59PE
+ mIJq9DsKGVhEONikBVTZJHit3htaxbrI3+sOgpmDisTyBAGLk4BmMjkzYwM7RMUxWfOnrLonOHV
+ 9/pWjoZGbqfsv3SuC9ju8Gvfom9bUhj+mbDe9Sn9JNLa2v65LLt2PrOI/8KFexc67OcRtTvF/dO
+ LAwA=
+X-Developer-Key: i=frieder.schrempf@kontron.de; a=openpgp;
+ fpr=1A0F38EB3D365D4C1FC67B5A69761B25107C8216
 
-Move the DSC capability reading helper out of the i915 driver into the
-generic DRM helpers.
+From: Frieder Schrempf <frieder.schrempf@kontron.de>
 
-No functional change intended.
+The NETC on i.MX952 has the same IERB, PRB and NETCMIX register blocks
+as on i.MX95, but a different set of ENETC instances and a different
+NETCMIX link configuration. Add a dedicated compatible string for it.
 
-Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
+Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
 ---
- drivers/gpu/drm/display/drm_dp_helper.c | 30 ++++++++++++++++++++++++++++++
- drivers/gpu/drm/i915/display/intel_dp.c | 27 ++++-----------------------
- include/drm/display/drm_dp_helper.h     |  2 ++
- 3 files changed, 36 insertions(+), 23 deletions(-)
+ Documentation/devicetree/bindings/net/nxp,netc-blk-ctrl.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/gpu/drm/display/drm_dp_helper.c b/drivers/gpu/drm/display/drm_dp_helper.c
-index fc3d4db1c7639..06bf7a6ec8934 100644
---- a/drivers/gpu/drm/display/drm_dp_helper.c
-+++ b/drivers/gpu/drm/display/drm_dp_helper.c
-@@ -5144,3 +5144,33 @@ int drm_dp_read_edp_sink_rates(struct drm_dp_aux *aux, u8 edp_dpcd_rev,
- 	return num_sink_rates;
- }
- EXPORT_SYMBOL_GPL(drm_dp_read_edp_sink_rates);
-+
-+/**
-+ * drm_dp_read_dsc_dpcd() - read the DSC capabilities from the DPCD
-+ * @aux: DisplayPort AUX channel
-+ * @dsc_dpcd: Buffer to store the DSC capabilities read from the DPCD
-+ *
-+ * Attempts to read the sink DSC capabilities from the DPCD of @aux.
-+ *
-+ * Returns: 0 on success or a negative error code on failure.
-+ */
-+int drm_dp_dsc_read_dpcd(struct drm_dp_aux *aux,
-+			 u8 dsc_dpcd[DP_DSC_RECEIVER_CAP_SIZE])
-+{
-+	int ret;
-+
-+	ret = drm_dp_dpcd_read_data(aux, DP_DSC_SUPPORT, dsc_dpcd,
-+				    DP_DSC_RECEIVER_CAP_SIZE);
-+	if (ret < 0) {
-+		drm_dbg_kms(aux->drm_dev,
-+			    "Could not read DSC DPCD register 0x%x Error: %pe\n",
-+			    DP_DSC_SUPPORT, ERR_PTR(ret));
-+		return ret;
-+	}
-+
-+	drm_dbg_kms(aux->drm_dev, "DSC DPCD: %*ph\n",
-+		    DP_DSC_RECEIVER_CAP_SIZE,
-+		    dsc_dpcd);
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(drm_dp_dsc_read_dpcd);
-diff --git a/drivers/gpu/drm/i915/display/intel_dp.c b/drivers/gpu/drm/i915/display/intel_dp.c
-index 225f6ed8c32d8..b103d3b87607c 100644
---- a/drivers/gpu/drm/i915/display/intel_dp.c
-+++ b/drivers/gpu/drm/i915/display/intel_dp.c
-@@ -4572,25 +4572,6 @@ static bool intel_dp_get_sst_split_sdp_status(u8 dprx)
- 	return dprx & DP_SST_SPLIT_SDP_CAP;
- }
+diff --git a/Documentation/devicetree/bindings/net/nxp,netc-blk-ctrl.yaml b/Documentation/devicetree/bindings/net/nxp,netc-blk-ctrl.yaml
+index deea4fd73d767..c443fe0b4693f 100644
+--- a/Documentation/devicetree/bindings/net/nxp,netc-blk-ctrl.yaml
++++ b/Documentation/devicetree/bindings/net/nxp,netc-blk-ctrl.yaml
+@@ -23,6 +23,7 @@ properties:
+     enum:
+       - nxp,imx94-netc-blk-ctrl
+       - nxp,imx95-netc-blk-ctrl
++      - nxp,imx952-netc-blk-ctrl
  
--static int intel_dp_read_dsc_dpcd(struct drm_dp_aux *aux,
--				  u8 dsc_dpcd[DP_DSC_RECEIVER_CAP_SIZE])
--{
--	int ret;
--
--	ret = drm_dp_dpcd_read_data(aux, DP_DSC_SUPPORT, dsc_dpcd, DP_DSC_RECEIVER_CAP_SIZE);
--	if (ret < 0) {
--		drm_dbg_kms(aux->drm_dev,
--			    "Could not read DSC DPCD register 0x%x Error: %pe\n",
--			    DP_DSC_SUPPORT, ERR_PTR(ret));
--		return ret;
--	}
--
--	drm_dbg_kms(aux->drm_dev, "DSC DPCD: %*ph\n",
--		    DP_DSC_RECEIVER_CAP_SIZE,
--		    dsc_dpcd);
--	return 0;
--}
--
- static void init_dsc_overall_throughput_limits(struct intel_connector *connector, bool is_branch)
- {
- 	u8 branch_caps[DP_DSC_BRANCH_CAP_SIZE];
-@@ -4641,8 +4622,8 @@ void intel_dp_get_dsc_sink_cap(u8 dpcd_rev,
- 	if (dpcd_rev < DP_DPCD_REV_14)
- 		return;
- 
--	ret = intel_dp_read_dsc_dpcd(connector->dp.dsc_decompression_aux,
--				     connector->dp.dsc_dpcd);
-+	ret = drm_dp_dsc_read_dpcd(connector->dp.dsc_decompression_aux,
-+				   connector->dp.dsc_dpcd);
- 	if (ret < 0)
- 		return;
- 
-@@ -4676,8 +4657,8 @@ static void intel_edp_get_dsc_sink_cap(u8 edp_dpcd_rev, struct intel_connector *
- 	if (edp_dpcd_rev < DP_EDP_14)
- 		return;
- 
--	if (intel_dp_read_dsc_dpcd(connector->dp.dsc_decompression_aux,
--				   connector->dp.dsc_dpcd) < 0)
-+	if (drm_dp_dsc_read_dpcd(connector->dp.dsc_decompression_aux,
-+				 connector->dp.dsc_dpcd) < 0)
- 		return;
- 
- 	if (connector->dp.dsc_dpcd[0] & DP_DSC_DECOMPRESSION_IS_SUPPORTED)
-diff --git a/include/drm/display/drm_dp_helper.h b/include/drm/display/drm_dp_helper.h
-index 81fe87ad47050..4e2762d493bf3 100644
---- a/include/drm/display/drm_dp_helper.h
-+++ b/include/drm/display/drm_dp_helper.h
-@@ -216,6 +216,8 @@ drm_dp_is_branch(const u8 dpcd[DP_RECEIVER_CAP_SIZE])
- }
- 
- /* DP/eDP DSC support */
-+int drm_dp_dsc_read_dpcd(struct drm_dp_aux *aux,
-+			 u8 dsc_dpcd[DP_DSC_RECEIVER_CAP_SIZE]);
- u8 drm_dp_dsc_sink_bpp_incr(const u8 dsc_dpcd[DP_DSC_RECEIVER_CAP_SIZE]);
- u32 drm_dp_dsc_slice_count_to_mask(int slice_count);
- u32 drm_dp_dsc_sink_slice_count_mask(const u8 dsc_dpcd[DP_DSC_RECEIVER_CAP_SIZE],
+   reg:
+     maxItems: 3
 
 -- 
-2.43.0
+2.56.0
 
