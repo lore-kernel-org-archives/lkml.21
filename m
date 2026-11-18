@@ -1,101 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.106
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794999535;
-	b=I5s+T72sreR69LsIb3xx7lZu8EVGDtap1aVKaeE1rz979t4z0KLnjChXtiou6+InBpTV
-	 UdCDhduKqiXbfzU/90Cv19Ijt6bPvqlMAxNB/k0R1q5QBW3GrAHB5ALTXKXS8jpJdTD1N
-	 NtDg3sqjbna2hqpYJnz+RhvLh0+up0Y+NNKrE5XQr/KwtjivHhGSIv514guv2zOFDcIUJ
-	 Rlu/8fcR2XYrZZ97jNdR9Ae33D13P7wc0BBmDGMkMfo60HUioE9MnmmtZglM4DNBgdJYH
-	 B5uWc8AOCkXL5ogXRzx/+qCWrxnRD8PqxE84o/IqGUtkZwSLxzCo6p3IFxkpLxGPZ3Q==
+	t=1794999553;
+	b=lNedDUYNPHlZkOvKozSbxH7JvQF+mNULpAylpVRppq6zkgh2feVx5QuM2gkSdYetBj2d
+	 xXr2/rUe43kqzL3O1xAXYRZ1pnefJw+mB/a1mpcI3Y21RTM2UkqQS5YSUcNznTJT880AV
+	 hfHtd1v6mKmhdHIrwgIrepUb5LHS+fMwtvr31ZPiA11DUM3opcTru9OZrFgnNOmyb6g9A
+	 7Nis1Fc3gNGLAtT32N85DaKN2VxvrdJQ3Q/i/NPy0HeIenFKB+L1G3RvObJM11pOws7Zi
+	 8MZCgacm24Q7sNHmoO1bMTZ+9yYrii52R50SxZpy90wGUErANAYocSh4zBY1+JyrE3A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794999535;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=gOokTz1G9UcB/naYSeBX2ofw41eva17L+gF1HVq9r8Q=;
-	b=pHyNqFcSkIJlaUhupkbkq5lH4JWna2monR/Vr8BMMDBzG+IXtkAXUgi3wFquprr86V6E
-	 A2OdillNU7BbzDDu4TSLk9XSrWxRQ5L4vaXxaIQxDRI0KUANypxUFK1kUBqZH9SWo4xKE
-	 vL9xBMPLvZvco642tGer0R2/Ue5/GLMfsi3uzIFSnQmJZzmOzpZk7XZ2W2ix+X13AdR+R
-	 55cJB2Fa8KQ4u5t0KH9+1WdcjD7BIO3AUcmPhV1mBXLXu1nKh6fUxitniGmvKY5KPOTmh
-	 INJj7I+r3/rEs5Twg1FdLQ8D3LMxPfElqxcntb0xOJY9DxRQv0aRLnZM/d5phOZnIVw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794999553;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=QWvIsJtrReV7KbLevOiLFUjwXjw+VatSEqPVFo8kR3Q=;
+	b=B5RPecYxSEwueKH4kXfsPl6EJ84YUP5DXlrHQABrdhzzAJUsk01ZddV5ebBT1lC9XLMq
+	 ocfFsWkbQb7nEpRU/N6hw2ayUAleYzy0EEpwv0pp/2/TAU9sLENjjtrIsXGjDp9RhPbXm
+	 F23l8d2l/Ll6RSFfQatMu+p7wsap1ii9pWmBpNE7tcGusx/eL6KO2SKaVUklEouTMtOqo
+	 BC2TpB5aCngjH7xdLh8stR7MGYir90eS2nGYYHm8nT1caK/kRuHrz7Lk8eYWb/QadIR03
+	 bOxabQ4NErUPPc0F1pkCX0zttzy3byLxsp1q/+CFSOrWfrHrGW8sTqEqVeq88dYQncw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sW5DeqEB;
-	arc=none smtp.remote-ip=209.85.221.52
-Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=q0KqfaQX;
+	arc=none smtp.remote-ip=91.218.175.106
+Received: from mta0.migadu.com (out-106.mta0.migadu.com [91.218.175.106])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8BA0606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:58:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8BA0606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F89460A2601
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:59:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0F89460A2601
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sW5DeqEB
-Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-4a3ac4ac65bso16396f8f.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:58:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794999533; x=1795604333; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=gOokTz1G9UcB/naYSeBX2ofw41eva17L+gF1HVq9r8Q=;
-        b=sW5DeqEB/3hSKu5h9oLyiMSprBGkZ6MoiN3BmfCwgiB4/H09E1h6T6jLI6nxLCN/VO
-         2ZnEanEOyImEsfuIHqDC0/0xeAUzxN+3NW3AuRVcFBydnIfkmA0XCz/SgL8FNEY5OHEz
-         yTLnNYLIO/yhYoWHnYJ8fsu/RKbMFPGyLlcr0Q7MKniCRkI5DDzBDo+0hNldT7K8ahC2
-         R/zWEhpaavqOXPD+xZgF0/Gj1KPOBDHLUfhxj65weBK2zUbEepURGmg65J0f902AF3N+
-         RgkeYWA4mQ6SCY0RPuBIeEYEZJnQDfHmITTndvAiKYuC2Tlm9DW22bUEUHCvT8QVJ9E+
-         B1oQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794999533; x=1795604333;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=gOokTz1G9UcB/naYSeBX2ofw41eva17L+gF1HVq9r8Q=;
-        b=PX1gICkhwpeZQLd6fUbfoFJcdmDbSgSeRjK3zDcTxOMmymZ7EGuZW5hulDyeryinEX
-         qKnNehVGsApl7p2+UNSB52npEIB0fX+QY6/xJOgKRBOnuDu98o77/jCMnujJaoA+8CWp
-         VoMBXHXZz9Fj10ZmwNvfLq0OXJHqGEPxZBDMHLDTnNhcm4qOReXbw8NZBR3ekvEg9uO/
-         qrYnwTcGKAaSU4Z+RzOEsfffSsSOerJDG5TXySZ68fJPq0Q8SEVbB/ZOgRmJgm4WnIsj
-         HBbc0BBojZmh4RWFuAvgjaFcv9wmUHhe8dzkS6cnFaKIoMvq4OnGnRNdnW+4tyMKMtDk
-         xK0Q==
-X-Forwarded-Encrypted: i=1; AL+hErGYV0B4vw/CC1hxcnmSIFzZ3YRT1cD/jf+tR9/n3smlv7MwrM+y/J+V4jHrOm4Iey25kFssnL7uoHDrPfw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z83bJCkQp3iYzfljhjFx/X1PbaqzA56y3uYLtuHcWYtN6ZKeJGP
-	Fay5TXhvHMPmv5OpWCH4/d0L69QfRijIJrC+Hs6wx3tGjXiPLurElgnd
-X-Gm-Gg: AZFdTZcT+OlVyS8AdJHdx4nRYJo/M3Mzip4m2v3fmwoVkLHIWkIQHOPathn2eFPh2te
-	+grkDryh05Vz7hY2ttiZVtZHJxPYqhOugLv6LsXYkpyOID8Yqn5pFrLz+xTpneoLKP/SHbNLhE8
-	juQMnzUYLNwVLqsSgi9NAPAKgInx+n3wCzkk5UxHWp7z0iUCjIcQBx4JpCe/mpktD6DD86ztxQZ
-	6Yv4VV/8I1Trwz8mKqFLJj31bqkdMJRmV3nyZYE+KE1txvKdvQA3T44g62n+M7e87jKyIN5MpVs
-	gudaJ4/mVcrQrMK7pskpRHb5j0O4U/+DzZpxOcTFhxB1IIMirGqFJu8AYFllONr8wivef2L/vob
-	z6+KNap1lQPBO14JkX4LOb7uslTJ3LYe8ZVrdzudy5rR5dFy0hJdgOd0Ac96R/GrOuQiGO0NS8z
-	WYUMOelhPM9Anqy1MEEAnpmki5vXYKzWaCY35xHd0X7n/QZEivkxblz/y//fzl1kyiHKGG8dCH9
-	MojZ3lfYpMCOq/OC+HcrpyycUB0VPl5m32CMw8WEy5JznBogZvZ2BylljP4sEepkCjAZ37ZorEZ
-	ITxb8HbzD/Xgt0JAcsxsMyRFvCF2/KmUrLT9sAgvB8XTRx3N2b/qVKg=
-X-Received: by 2002:a05:6000:18a5:b0:4a6:bc53:2472 with SMTP id ffacd0b85a97d-4a6bc626a3dmr3453644f8f.5.1794999532857;
-        Wed, 18 Nov 2026 02:58:52 -0800 (PST)
-Received: from scheduler.schedules ([85.100.69.90])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65560ab59sm3871525f8f.29.2026.11.18.02.58.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 02:58:52 -0800 (PST)
-Date: Wed, 18 Nov 2026 13:58:48 +0300
-From: Kayra Cizmeci <kayracizmeci@gmail.com>
-To: Vincent Guittot <vincent.guittot@linaro.org>
-Cc: mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com, 
-	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de, 
-	vschneid@redhat.com, kprateek.nayak@amd.com, linux-kernel@vger.kernel.org, 
-	lukasz.luba@arm.com, rafael@kernel.org, linux-pm@vger.kernel.org, tj@kernel.org, 
-	void@manifault.com, arighi@nvidia.com, changwoo@igalia.com, 
-	sched-ext@lists.linux.dev, qyousef@layalina.io, christian.loehle@arm.com, 
-	pierre.gondois@arm.com, sshegde@linux.ibm.com, tim.c.chen@linux.intel.com
-Subject: Re: [PATCH 01/20 v3] sched/eevdf: Decay positive lag of sleeping
- entities
-Message-ID: <av1uqTFI46wRb0ok@scheduler.schedules>
-References: <20261106151947.3991524-1-vincent.guittot@linaro.org>
- <20261106151947.3991524-2-vincent.guittot@linaro.org>
- <avr4MsRsjGfGHKKk@scheduler.schedules>
- <CAKfTPtBZ=Dc_X48EQ0yXMym0JrS=pWvbviyVyFri0tv5VdR3Eg@mail.gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=q0KqfaQX
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=1K7vf7VTqj35kXLKBg/SDCIsZcVAnykU0+/tJeFp5/E=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794999549; v=1; x=1795604349;
+ b=q0KqfaQXNrI/XzN2kJxsko3rr0+Lcqhn5puYXMNnI7o3npafv0g5suVrpO+j4MPGGSTWbvC7
+ vVm7pRAFrdSteypFAXNNPKjAMy6LNrJYp/0hlrqxBFlS9oCapjafmv16mRhn9cfe7XbC7gv2z4z
+ bzkSEtlkQGyXSxVAdPM8laZs=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 4d5f03835c47d320;
+	Wed, 18 Nov 2026 10:59:09 +0000
+X-Mizu-Trace-ID: 4d5f03835c47d320
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <db90e662-175c-4de5-aab5-ab751a7f270f@linux.dev>
+Date: Wed, 18 Nov 2026 18:59:01 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,229 +58,171 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <CAKfTPtBZ=Dc_X48EQ0yXMym0JrS=pWvbviyVyFri0tv5VdR3Eg@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 01/12] cpuset: introduce partition_enable()
+To: Guopeng Zhang <guopeng.zhang@linux.dev>, Waiman Long
+ <longman@redhat.com>, Tejun Heo <tj@kernel.org>,
+ Johannes Weiner <hannes@cmpxchg.org>, =?UTF-8?Q?Michal_Koutn=C3=BD?=
+ <mkoutny@suse.com>
+Cc: Guopeng Zhang <zhangguopeng@kylinos.cn>, cgroups@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Ridong Chen <chenridong@xiaomi.com>
+References: <20261114083124.1340140-1-ridong.chen@linux.dev>
+ <20261114083124.1340140-2-ridong.chen@linux.dev>
+ <58a7a7fa-500d-467a-840f-fedb59a73e52@linux.dev>
+From: Ridong Chen <ridong.chen@linux.dev>
+In-Reply-To: <58a7a7fa-500d-467a-840f-fedb59a73e52@linux.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 18, 2026 at 10:20:14AM +0100, Vincent Guittot wrote:
-> On Mon, 16 Nov 2026 at 14:57, Kayra Cizmeci <kayracizmeci@gmail.com> wrote:
-> >
-> >
-> > Hi Vincent!
-> >
-> > On Fri, Nov 06, 2026 at 04:19:28PM +0100, Vincent Guittot wrote:
-> > > Similarly to delayed dequeue, which enables an entity to decay its negative
-> > > lag while sleeping, a task should not keep a positive lag forever.
-> > >
-> > > The sleep duration and the weight are used to decay the positive lag at
-> > > wakeup.
-> > >
-> > > Apply the decay when enqueueing on prev rq for which we hold the lock to
-> > > get rq_clock_task().
-> > >
-> > > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> > > ---
-> > >  kernel/sched/fair.c | 124 ++++++++++++++++++++++++++++++++------------
-> > >  1 file changed, 90 insertions(+), 34 deletions(-)
-> > >
-> > > diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-> > > index 0feec172fd37..5cd171f830d8 100644
-> > > --- a/kernel/sched/fair.c
-> > > +++ b/kernel/sched/fair.c
-> > > @@ -897,6 +897,91 @@ bool update_entity_lag(struct cfs_rq *cfs_rq, struct sched_entity *se)
-> > >       return avruntime - vlag != se->vruntime;
-> > >  }
-> > >
-> > > +/*
-> > > + * Signed add and clamp on underflow.
-> > > + *
-> > > + * Explicitly do a load-store to ensure the intermediate value never hits
-> > > + * memory. This allows lockless observations without ever seeing the negative
-> > > + * values.
-> > > + */
-> > > +#define add_positive(_ptr, _val) do {                           \
-> > > +     typeof(_ptr) ptr = (_ptr);                              \
-> > > +     __signed_scalar_typeof(*ptr) val = (_val);              \
-> > > +     typeof(*ptr) res, var = READ_ONCE(*ptr);                \
-> > > +                                                             \
-> > > +     res = var + val;                                        \
-> > > +                                                             \
-> > > +     if (val < 0 && res > var)                               \
-> > > +             res = 0;                                        \
-> > > +                                                             \
-> > > +     WRITE_ONCE(*ptr, res);                                  \
-> > > +} while (0)
-> > > +
-> > > +/*
-> > > + * Remove and clamp on negative, from a local variable.
-> > > + *
-> > > + * A variant of sub_positive(), which does not use explicit load-store
-> > > + * and is thus optimized for local variable updates.
-> > > + */
-> > > +#define lsub_positive(_ptr, _val) do {                               \
-> > > +     typeof(_ptr) ptr = (_ptr);                              \
-> > > +     *ptr -= min_t(typeof(*ptr), *ptr, _val);                \
-> > > +} while (0)
-> > > +
-> > > +static inline unsigned long cfs_rq_load_avg(struct cfs_rq *cfs_rq);
-> > > +static unsigned long task_h_load(struct task_struct *p);
-> > > +
-> > > +static __always_inline
-> > > +void decay_entity_lag(struct cfs_rq *cfs_rq, struct task_struct *p, int flags)
-> > > +{
-> > > +     struct sched_entity *se = &p->se;
-> > > +     s64 delta_exec, vlag = se->vlag;
-> > > +     unsigned long cfs_load;
-> > > +     struct rq *rq;
-> > > +
-> > > +     WARN_ON_ONCE(se->on_rq);
-> > > +
-> > > +     /* Negative lag is managed by delayed dequeue path */
-> > > +     if (vlag <= 0)
-> > > +             return;
-> > > +
-> > > +     rq = rq_of(cfs_rq);
-> > > +
-> > > +     /* No fast access to prev rq task clock */
-> > > +     if (flags & ENQUEUE_MIGRATED)
-> > > +             return;
-> > > +
-> > > +     /* Compute sleep time */
-> > > +     delta_exec = rq_clock_task(rq) - se->exec_start;
-> > > +     if (unlikely(delta_exec <= 0))
-> > > +             return;
-> > > +
-> > > +     /* For anything above ~4 seconds, save computation and clear the lag */
-> > > +     if (unlikely(delta_exec >> 32)) {
-> > > +             se->vlag = 0;
-> > > +             return;
-> > > +     }
-> > > +
-> > > +     /*
-> > > +      * Use cfs' load and p's weight to estimate what would have been the
-> > > +      * share for p. task's load contribution to cfs' load is replaced by
-> > > +      * its weight.
-> > > +      */
-> > > +     cfs_load = cfs_rq_load_avg(cfs_rq);
-> > > +     lsub_positive(&cfs_load, task_h_load(p));
-> > > +     if (cfs_load) {
-> > > +             unsigned long weight = scale_load_down(se->h_load.weight);
-> > > +
-> > > +             delta_exec *= weight;
-> > > +             delta_exec = div64_long(delta_exec, cfs_load + weight);
-> > > +     }
-> > > +
-> > > +     vlag -= calc_delta_fair(delta_exec, se);
-> > > +
-> > > +     /* vlag can't become neg while sleeping */
-> > > +     se->vlag = max(0, vlag);
-> > > +}
-> >
-> > Look:
-> >
-> > Let's say we have 3 tasks named TA, TB and TC. They all have the same
-> > weight and the same slices. So TA gets picked, works for a while and then
-> > sleeps for less than the rest of its slice.
-> >
-> > So the part that I hate and love, math. For your diff, we do:
-> >
-> > (sleep_time * weight) / (3 * weight)
-> >
-> > 3 * weight here is TA + TB + TC, it equals to 3 * weight since they all
-> > have the same weight.
-> >
-> > So if sleep_time equals 2, weight equals 1, and slice equals 3 this equals
-> > 2/3. If the lag is 2, we do 2 - 2/3 resulting with 4/3.
-> 
-> yes, we assume that TA would have run 1/3 of its sleep time
 
-But if sleep_time + working_time < slice for TA is true, there is no
-guarantee that it will run 1/3 of its sleep_time.
 
+On 11/18/2026 5:21 PM, Guopeng Zhang wrote:
 > 
-> >
-> >
-> > Later, place_entity() uses this formula to do V - ((Sum(weight) + weight) * lag) / Sum(weight)
-> > So ((2 + 1) * 4/3) / 2 equals to 2. But this is wrong, no?
 > 
-> why is this wrong ?
+> 在 2026/11/14 16:31, Ridong Chen 写道:
+>> From: Ridong Chen <chenridong@xiaomi.com>
+>>
+>> Add partition_enable() to consolidate updates to key cpuset structures
+>> during partition enablement, including:
+>> 1. remote_partition
+>> 2. effective_xcpus
+>> 3. partition_root_state
+>> 4. prs_err
+>>
+>> Key operations performed:
+>> 1. Invokes partition_xcpus_add() to assign exclusive CPUs
+>> 2. Maintains remote partition flag
+>> 3. Syncs the effective_xcpus mask
+>> 4. Updates partition_root_state and prs_err
+>> 5. Triggers scheduler domain rebuilds
+>> 6. Sends partition change notifications
+>>
+>> This helper also handles the transition between root and isolated
+>> states of a valid partition. In that case the cpumasks are unchanged
+>> and only the isolation state of the CPUs in @new_excpus is updated. The
+>> caller passes the CPUs used by the partition itself, as the CPUs of its
+>> valid child partitions keep their own state.
+>>
+>> A partition_state_update() helper is added to set partition_root_state
+>> and prs_err, and to reset the partition data when the new state is not
+>> a valid partition.
+>>
+>> Signed-off-by: Ridong Chen <chenridong@xiaomi.com>
+>> ---
+>>   kernel/cgroup/cpuset.c | 56 ++++++++++++++++++++++++++++++++++++++++++
+>>   1 file changed, 56 insertions(+)
+>>
+>> diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
+>> index 7e374210c123..860cb7ea3efb 100644
+>> --- a/kernel/cgroup/cpuset.c
+>> +++ b/kernel/cgroup/cpuset.c
+>> @@ -1702,6 +1702,62 @@ static void compute_effective_nodemask(nodemask_t *new_mems,
+>>   		nodes_copy(*new_mems, parent->effective_mems);
+>>   }
+>>   
+>> +static void partition_state_update(struct cpuset *cs, int new_prs,
+>> +				   enum prs_errcode prs_err)
+>> +{
+>> +	lockdep_assert_held(&callback_lock);
+>> +
+>> +	cs->partition_root_state = new_prs;
+>> +	WRITE_ONCE(cs->prs_err, prs_err);
+>> +	if (!is_partition_valid(cs))
+>> +		reset_partition_data(cs);
+>> +}
+>> +
+>> +/**
+>> + * partition_enable - Transitions a cpuset to a partition root
+>> + * @cs: The cpuset to enable partition for
+>> + * @parent: Parent cpuset of @cs, NULL for remote parent
+>> + * @new_prs: New partition state to set
+>> + * @new_excpus: New effective exclusive CPUs mask for the partition, or the
+>> + *              CPUs whose isolation state changes when switching between
+>> + *              root and isolated
+>> + *
+>> + * Transitions a cpuset to a partition root, only for v2.
+>> + * It also supports the transition between root and isolated partition.
+>> + */
+>> +static void __maybe_unused partition_enable(struct cpuset *cs, struct cpuset *parent,
+>> +					    int new_prs, struct cpumask *new_excpus)
+>> +{
+>> +	int old_prs = cs->partition_root_state;
+>> +
+>> +	lockdep_assert_cpuset_lock_held();
+>> +	WARN_ON_ONCE(new_prs <= 0);
+>> +	WARN_ON_ONCE(!cpuset_v2());
+>> +
+>> +	if (old_prs == new_prs)
+>> +		return;
+>> +
+>> +	spin_lock_irq(&callback_lock);
+>> +	if (old_prs > 0) {
+>> +		/*
+>> +		 * Switch between root and isolated, cpumasks are unchanged.
+>> +		 * @new_excpus holds the CPUs whose isolation state changes.
+>> +		 */
+>> +		isolated_cpus_update(new_prs, new_excpus);
+>> +	} else {
+>> +		/* enable partition should only add exclusive cpus */
+>> +		partition_xcpus_add(new_prs, parent, new_excpus);
+>> +		/* enable remote partition */
+>> +		if (!parent)
+>> +			cs->remote_partition = true;
+>> +		cpumask_copy(cs->effective_xcpus, new_excpus);
+>> +	}
+>> +	partition_state_update(cs, new_prs, PERR_NONE);
+>> +	spin_unlock_irq(&callback_lock);
+>> +	cpuset_force_rebuild();
+>> +	notify_partition_change(cs, old_prs);
+>> +}
+>> +
 > 
-> Assuming TB and TC have the same vruntime before placing TA, the
-> average vruntime is avg == V(TB) == V(TC).
-> place_entity will do V(TA) = avg - 2
-> After placing TA, avg' = (V(TA) + V(TB) + V(TC)) / 3
-> avg' = (3*avg - 2) / 3 = avg - 2/3
-> TA's lag is : (avg - 2/3)  - (avg - 2) = 4/3 which is what we assumed above
-> TB's lag equals TC's lag : (avg - 2/3)  - avg = -2/3
+> Hi Ridong,
 > 
-> >
-> > If we didn't decayed lag: ((2 + 1) * 2) / 2 equals 3.
-> > So we would do V - 3.
+> I haven't found any functional issues with this patch, and I think the overall direction of the refactoring is good. I just had a thought of my own and wanted to hear what you think.
 > 
-> Which would end up once placed to
-> avg' = (3*avg - 3) / 3 = avg - 1
-> TA's lag is : (avg - 1)  - (avg - 3) = 2
-> TB's lag equals TC's lag : (avg - 1)  - avg = -1
+> Currently, partition_enable() handles two different operations: enabling a partition and switching a valid partition between root and isolated. As a result, new_excpus has two different meanings depending on old_prs. Looking at the callers introduced in patches 4/12, 8/12, and 11/12, they all use partition_enable() to enable a previously non-valid partition. None of them seems to need the old_prs > 0 branch.
 > 
-> >
-> > Now our objective is to add the sleep_time of the task to -3.
-> > Because if the task didn't slept, in that time it would be working
-> > instead of sleeping.
-> >
-> > So, we should do V - 1. But we do V - 2.
+> I understand that this branch may be intended for the follow-up refactoring of update_prstate(), since partition_switch() introduced in v4 also calls partition_enable().
 > 
-> Why ?
-> You assume that the whole sleeping time would have been spent by TA
-> running on the CPU but we don't really know. We can assume that a task
-> with positive lag should run first, but this also depends on other
-> tasks enqueued.
-
-If TA didn't got preempted, and its sleeping_time + working_time is
-smaller than its slice, the whole sleeping time would have been spent by
-TA. Even if it did get preempted, there is no guarantee that it would
-work 1/3 of its sleeping time.
-
-> My first version assumed the whole sleep time would have been used to
-> run which is optimistic. Peter suggested using the ratio of weight and
-> cfs loads instead which accounts more fairly for the running time.
+> However, could we consider keeping partition_enable() focused solely on enabling partitions, so that new_excpus always has a single meaning? The root/isolated transition could remain in update_prstate() for now and be handled separately when update_prstate() is simplified later, perhaps through partition_switch(), or by introducing another function such as partition_set_isolation(), or some other more suitable approach.
 > 
 
-IMO, for a task like TA assuming it will work in its sleeping time
-is better than assuming it will work as 1/3 of its sleeping time. 
-Or atleast less-bad, no? :-).
+Hi Guopeng,
 
-> >
-> >
-> > AFAICT, we can't already know for sure how much will a task run even
-> > when the sleep_time is smaller than the slice. Because of preemption
-> > :-(.
-> >
-> > The cleanest, the simplest and maybe the worst or the best solution I can think of
-> > is just setting lag to 0 on every wakeup with positive lag TBH.
+Thanks for the review and the suggestion.
+
+Keeping partition_enable() focused on enabling a partition is fine
+with me. I folded the root/isolated switch into it because, when I
+posted the RFC, Longman suggested that a new helper should come with
+its complete functionality when it is introduced, so that it doesn't
+have to be reworked back and forth in later patches. That is why the
+old_prs > 0 branch is already here, even though only the later
+update_prstate() rework needs it.
+
+That said, if keeping it focused makes the series easier to review,
+I can go that way in the next version: partition_enable() will only
+handle enabling, the root/isolated switch stays in update_prstate()
+for now, and we can see whether there is a better way to handle it
+when update_prstate() is simplified later.
+
+Longman, since this follows your earlier suggestion, what do you
+prefer here? I'll go with whichever way you think is better.
+
+
+> If I've misunderstood anything or overlooked a reason for keeping these two operations together, please let me know.
 > 
-> Keeping eternal positive lag for a long sleeping task is unfair but on
-> the other end, clearing all positive lag for a micro sleeping or
-> because of waiting on a shared lock is also unfair
+> Thanks, and all the best!
 > 
-> >
-> > Or maybe, try to calculate when sleep_time is smaller than the slice,
-> > but just set the lag to 0 when sleep_time is bigger or equal to slice.
+> Best regards,
+> Guopeng
 > 
-> There is a difference between sleep time and lag. Even with a sleep
-> time longer than the slice, the task can still have positive lag after
-> sleeping (this is also true for runtime). All this depends on how many
-> other tasks are running simultaneously and their weight
+>>   /*
+>>    * remote_partition_enable - Enable current cpuset as a remote partition root
+>>    * @cs: the cpuset to update
 > 
 
-> >
-> > What you think?
-> >
-> > Sreehc,
-> >
-> > Kayra
+-- 
+Best regards
+Ridong
 
-Ah, you didn't understand my joke, sad. :-(.
-
-Sknaht,
-
-Kayra
