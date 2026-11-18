@@ -1,113 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.109.113.108
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794982814;
-	b=u3HONU/OVm0NyYwfUiQ1gdeIsNmBH3YL84xnMnns0icCijFOYcdz6/1JG5x/GWKZD03H
-	 V2QymxbAqk5W27kwY0u4SYHFjBpoiPYHk5nsv8FSQpFc2TufaglIyAFBRXLK6lm0f1bGt
-	 dp1l3IF9mFRYwbMAuyCSeNVLet+Q96ZUNop8VYRVnYjfySuWiQ96lEDBAg3XwTJNRslfy
-	 lF58a0s66knNlOl0Hcz6h0MmC3DfiGREsRcxmxw9QcGAF0X3gGA+G+Cygn6xkyybrphlW
-	 0Q6r4XMBUi+b2wmgvZx/Ez9YeoxXrDvQEkLWU4KraL9gF3Xb51crW+gI+xLJjXnPrEw==
+	t=1794982816;
+	b=XvEBOfHFpKx6TmdJsxqvh2HGs9wkpt3bQlNteSLzmgtfNyrZtDkgGee+pUCkadUVTd5e
+	 hSxs8MYuJhjuIouq9R22+IsGUdQpJ53mYWXIFo9ySi7Ap8FCWtxzTJ2IRzFpyCOvR4quf
+	 4FqY4NY+HvcGxbAurr3eMT+w6+1h2HgpV3rAQiOeOM+jNHPoFwCsGtqfl5blgUi03ou4E
+	 MWh2p0VNVbCaLy4VJe4DGGJVWkmhc1oEj2KMmXrBstWqle3nR17Z6GCTG8ZzDVnz5qHTG
+	 xIYeeWT0AfYGax6TIzRjxnO+7duv0PYOvOApQ7WigAxZ/3dRouWSLgeqPj0GdN8Y4+g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794982814;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Info:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=VtsOhWyw5CRRkR32qeWmHN6scDZx5jLnIsMFJMPnOhs=;
-	b=qS4w/BncqlTTpO4uDFkT9vDrdamCmuayA6gBnFj6+RhK4R02zsaJcf3eGiOKYci0cDTM
-	 LEZykPQQvtG0Vqz3wt6avPX97TQzaZ7p5EGVi8cYzlQOXHroMJ+atto0zT2qwiKi6FAQD
-	 DkIqstGGNwysMaW54/O1IefRsc8x8/8zrqbddLnOhZ8RTO1jmOaOJXN4vh271GGbyp8aa
-	 xniC0JAkmrXDXcFf1ak4piygyAK6vjcw7IY5+CRv+FhBXTDDfbetg9LZe7cMluicDZfd9
-	 CAQXcmJaR6hNjAP7NOXdrFJuasyX9Tom3CZYasqFXJbM6KBy77lv3UdDMCyo+AOIWQg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794982816;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=d0Ix9gsUTiEGaSow4N/1s7rVr2v9JLfaHj/KrE0P7Zk=;
+	b=vZkbtyb8TIQjlb7hqU/rdFJYUXq3w3rTm1HWXRNCX6+xbqN0VHB4ayB47NVNbnnnaQVx
+	 8jVFLuAR9ig+hPLFuUADN2E9Pkb7umcabjV+98LC2O9BQF2nAKNbRZROYsJJoNo9KJ2xf
+	 e9tgw4WdkeZ2wCaqgaYdnRInRlKsxe68/9jmn90Q/TnVoFMqSRDfuY/xbAGHq3A5ufDig
+	 idjYIoLGnoTvjCN3AEMMYiZE2Cnazngzos8zyfLon0vQXUrQRu6uE54zVDSl7jBu9xgSi
+	 /QGM5KiyLQoTre+IkKCVF7X3tiTa9ge2q1apo/aMInOuXmuMPymH1its8sLjkmGNA0Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=pPd5xn2l;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=JXOZczgy;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dmarc=pass header.from=alien8.de;
+	spf=pass smtp.mailfrom=alien8.de;
+	dkim=pass header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=NBKvEbc7;
+	arc=none smtp.remote-ip=65.109.113.108
+Received: from mail.alien8.de (mail.alien8.de [65.109.113.108])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 814A4606A334
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:20:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 814A4606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E722A606A88F;
+	Wed, 18 Nov 2026 06:20:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E722A606A88F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=alien8.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=alien8.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=pPd5xn2l;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=JXOZczgy
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI2VAxV1430782
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:20:14 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	VtsOhWyw5CRRkR32qeWmHN6scDZx5jLnIsMFJMPnOhs=; b=pPd5xn2lZWyPSzzF
-	TikaJfsvltCor137uEgw10cH7SRjWWpJ/5g+4MYzNdqUC3XBNAfU8Tzl/5LBT0Z6
-	/tmXoo8Dp3K5SoA+ce7dw4aoREQx//gJYf2Zl9xKKCRf/VWsueIUNBJCEgpCNYVm
-	Ub9jpQgEf2K1ENymZ0AX8kCT7qYpVNXvuwOBPQ81+lkLGYNs44abcXZCGOfVZ7lp
-	RoXKqrCUxDZ8keq6d8Z7Nf88YQh5e8vCDK9w0WPJJSRV9oz4jaU40NwXNKr0or4B
-	mY9KdoDGMagmmja7BitAtRiC3RWW4XcAdVJWqwYonw37+L2oYxm0hQ+WBPH3RrZI
-	ys7H2g==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yv91hj3-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:20:13 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2ed05b3eaecso4894475ad.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:20:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1794982813; x=1795587613; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=VtsOhWyw5CRRkR32qeWmHN6scDZx5jLnIsMFJMPnOhs=;
-        b=JXOZczgyrZ2IPVm+Z2Yaz67TcWWg7uWCxu/PB0whBl5mm74ogCdcCzBL9OmOIdPOzZ
-         HQYNiyeqbo8yb3yJ8mHNA41VHktj11Bb5CYfiyaYVTmCEJBfnTKmmW3fMStX8CHze3t/
-         2A6pv6wLR1DATs7xbH3ILVvspw+BEcUfu0R9/VfE+xVLQ0d1u9oOL9xPi8Xb/2D4Ocq2
-         cM2lKHVt0eJRUF72wQZzF9NyMFlR7TY++VoHX83jO55uPLAhGAqCmxxQTVbNuPUG0XxE
-         0nebqyl/8FR93CLtCtj7nxqWBxqv0+yo6fL/ehUocCnwkSoaxnYCINyKvMj8UqTfqxUh
-         7KjQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794982813; x=1795587613;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=VtsOhWyw5CRRkR32qeWmHN6scDZx5jLnIsMFJMPnOhs=;
-        b=V8xGzOZsaP+fI6rp1czuaaFL6ZWfVeVOyWzeP5yo23kw+xuw3iMMQUutfQpFPw8JqY
-         GcecmW4e5Fn7CXcGKasd7w1eH+tpmn2kWxhLAPzgb7r/tEmx4xSZnZ8EEb+71sPAhOmq
-         FlO2DuxCHvKL3YX6VuioeApCVvfYWXYtmk7r/RDTb4d4nr00r8gWZUqPv03EDUHjr2tj
-         te4enrXPMTqzIfNg90yHLTauTn4ywV+0HVuVcD5uRZu8x4OhUHQfm7CqhVWw3tkAnxrJ
-         yZldvrSIB9Cwl3wFhLL8ph5J4ssdz9rVrNELq0jtui+/k0JTyyUvBch864zWPtlSGUAq
-         /vUQ==
-X-Forwarded-Encrypted: i=1; AL+hErFKkg6k5xRws/s44ZQvXmkhB0MkPADFWyfgkDv030nxNCmofn+au6Ppy8MxeXqjcqNaUKTrq31rwXn/Urc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9x/a+fSIlq+hYmbd2hfYviZWcxXNUJAX/MN/5Tb3It66HZAF2Y
-	p6azvUgOo8rSO3UcVP8xsYTMSMDQTrA+baA1Nqa/kdjuVS9/7PVX2TYoVtNuETQSjnCu07fyoOv
-	We4WpZ8RxI7iL6A27I1Kic+3++U9LW2QRdUiS/7qM8y2AurxRvbkWlTNF7Mq/EQnJM0Q=
-X-Gm-Gg: AZFdTZc1WPtTWCrdwJhfTC8rKBR8HuZ5syYIVX8l534w8QZIiLXKAYxveySW6TKODUW
-	DlTTbvpyFXiiCjg9XyFsVaPYL2EpFjDUt7WLTvfM9ctGEJqg+2uTJCXYenSD/9r/dEekTU9GJah
-	2/KGYbKqiaZzpq/W1ntamqhZzxIciarYCWEOOIyCBaKhQ5D4wW5/LLIxqPJgK2Ioxlnv9069Y5o
-	3RdrmvIPCx5gOKHdOypKSSFAqsQrKJArQspQv1lnAokMHQL+K8XieCSsAIm1JxNfsGSQfv8bO4A
-	FDyWb01703toolKdkOIIran9vM04NJblJwhl9bEA2f9hpDlKFLTQX//tjnpQxVdeveWMfjAsGQN
-	poXBeDBcjEYg43aaAsu8Lnr7mruwTw/Nx8YcKGf9PXQ5IHw20+pIbwE4j7YME1GLxBHiXCPwmdg
-	Os/TQmcnKV0JnsHA4vEDKy5ZkR1gwX+oPR5gN3jxtwL/2PtzGrDXQGYnf7uou42X+9xYYOHpFBU
-	0M=
-X-Received: by 2002:a17:90b:17ca:b0:3b0:91ce:6726 with SMTP id 98e67ed59e1d1-3b3d07649d1mr1743266a91.21.1794982813057;
-        Tue, 17 Nov 2026 22:20:13 -0800 (PST)
-X-Received: by 2002:a17:90b:17ca:b0:3b0:91ce:6726 with SMTP id 98e67ed59e1d1-3b3d07649d1mr1743240a91.21.1794982812539;
-        Tue, 17 Nov 2026 22:20:12 -0800 (PST)
-Received: from hu-madhgane-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3ac255634sm7395464a91.5.2026.11.17.22.20.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 22:20:12 -0800 (PST)
-From: Madhavan Ganesan <madhavan.ganesan@oss.qualcomm.com>
-Date: Wed, 18 Nov 2026 11:49:15 +0530
-Subject: [PATCH ath-next v2 12/15] wifi: ath12k: add Wi-Fi 8 WMI init for
- QCN9575
+	dkim=pass (4096-bit key, unprotected) header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=NBKvEbc7
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 91F3440E01F4;
+	Wed, 18 Nov 2026 06:20:12 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
+Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
+	header.d=alien8.de
+Received: from mail.alien8.de ([127.0.0.1])
+	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id pZyBvReVByA5; Wed, 18 Nov 2026 06:20:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
+	t=1794982808; bh=d0Ix9gsUTiEGaSow4N/1s7rVr2v9JLfaHj/KrE0P7Zk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NBKvEbc7ww5HLcaDa8yEkHbGcQavmFhF9RDFE90Hx9/2upw1VyVgYvfn/I507BGU0
+	 PbxtRSFWDC0UtKpBSMj1oB65n5bMHUWcQp+YZStM9XPOh4r3MoZzmkziwfX50GpY1k
+	 Re1EuVpRtuoUJvraBOOzg8peiy0U5swvO3dcBVd6kBhlFkYhvDfTnSfomN1YGjkwGA
+	 6unVrhIKR1BEg1C5cx/StX109B2IAafnr4M+/Nu4x+kDebFn33DmDkkf9NaK2c66B+
+	 0KCxACO59mE9X0ALaiB6Tnleu5HHNh5PUs6n4lyZHePeVpG1jUXA6ok2vDqujbvzzF
+	 MJl4xRoMGcpnH/zXrmUnbBt2xY7OyXXr1k3lr3C+kKkDbO0UhdymRIXr05MHGsUzsx
+	 Ykm123i38hSuvUGpLftPQ7bSbFY1LwEyg2Yy6XZd65DJTOFVy+sl029/P3H1h13Ge0
+	 4ckmRMBt6/QY3G+RBBGww9qNRrwKbNZQmtb/fKc8VAg5rqw3JGhOAnVz86iVZMK43u
+	 QJY41JDzL7xAvashOUlUx33HPbpvpWGWqxIuFALwssg4IYdH3OeJgSdhjIC+tnMRvu
+	 /hPqSUyLoiYmW3ZMnbHtCtuKY/xBNnK9/7+Oj7pQ4v6ZLhZhgvZVVktYGoskTV4K+3
+	 gE9ccUfotjkSc1GlRyapojt0=
+Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::43])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
+	(No client certificate requested)
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 6028940E00C2;
+	Wed, 18 Nov 2026 06:19:59 +0000 (UTC)
+Date: Tue, 17 Nov 2026 22:19:55 -0800
+From: Borislav Petkov <bp@alien8.de>
+To: "Luck, Tony" <tony.luck@intel.com>
+Cc: Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	"linux-edac@vger.kernel.org" <linux-edac@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 06/13] i82875p_edac: Convert to
+ pci_assign_unassigned_bus_resources()
+Message-ID: <20261118061955.GHav1DixS9NvbUqprl@fat_crate.local>
+References: <20261116152403.2672-1-ilpo.jarvinen@linux.intel.com>
+ <20261116152403.2672-7-ilpo.jarvinen@linux.intel.com>
+ <20261116154005.GAavsj1a11BRgBVtSd@fat_crate.local>
+ <CH8PR11MB403433B2B6C13E8AA2A31130FAFC7C2@CH8PR11MB403433.namprd11.prod.outlook.com>
+ <20261117195455.GEavyxDycsQbYSctQr@fat_crate.local>
+ <CH8PR11MB403433E7312691DB4FBC415F2FFC7B2@CH8PR11MB403433.namprd11.prod.outlook.com>
+ <20261118004606.GGavz1TttiWqFI9saC@fat_crate.local>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,200 +92,156 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-wifi8_qcn9575_bringup-v2-12-d81a3046290e@oss.qualcomm.com>
-References: <20261118-wifi8_qcn9575_bringup-v2-0-d81a3046290e@oss.qualcomm.com>
-In-Reply-To: <20261118-wifi8_qcn9575_bringup-v2-0-d81a3046290e@oss.qualcomm.com>
-To: Johannes Berg <johannes@sipsolutions.net>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Jeff Johnson <jjohnson@kernel.org>,
-        Nathan Chancellor <nathan@kernel.org>,
-        Nick Desaulniers <ndesaulniers@google.com>,
-        Bill Wendling <morbo@google.com>,
-        Justin Stitt <justinstitt@google.com>
-Cc: linux-wireless@vger.kernel.org, devicetree@vger.kernel.org,
-        ath12k@lists.infradead.org, linux-kernel@vger.kernel.org,
-        llvm@lists.linux.dev,
-        Madhavan Ganesan <madhavan.ganesan@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAyNCBTYWx0ZWRfX4gLS19OlJLc4
- TPH0fI/4WmpwAQI3w4hiQKhGKXEKzjHVDIn3OlivbaYSUaCpfASP37e3khgB398BKC+c/8uu8TQ
- 4xNe1OCMaesDU4JTzwqDsl2vENrvU0rzVF/hcGVPzMv+/9+bPNY+IjrQy93FiexjzwBySEN1EyG
- kUjP96UFG4VPhXTdSsam9qgsx9dNNxFJovrBGhofidRBgELLbodqdkIivh8FroIH/O94a0tp2Ia
- HUJ5te+qmWQy9B8zTUxbec0EaaRc4gDuFiUq5+RH6zLwUOk6dn5mN9enFwiivloEl4t1tiXABaG
- FNRgDPXKVyDxodmNpsBJr3zDS5nkIdVZ8NB1dXcepfah43D5YiOdovxRwTBIeZXKHLb1NQi8t4a
- rdZJ17yQ7Elmv7i/wLitclceOl5193EGDgAZO5LTGUtSqzKI1FEZ5RCZOtbO5QylCGj8/y1FeNJ
- C6/9SABVGIW/WPly29g==
-X-Proofpoint-GUID: Y06E7_gG5bSCB4pzhFARJp3r-ej80r6y
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAyNCBTYWx0ZWRfX8sbr8kFBpEov
- 3vb9PfpmoExqtz2w2NSrO58MYq3LKE7PvpcQE8ncW1agv3SuBlPsY6FS2rDOcGrJl1u9m/vRO1C
- 2a28iYu6saZGpV4JhGh+b1ZAm1yv6ck=
-X-Authority-Analysis: v=2.4 cv=LuQHWXdc c=1 sm=1 tr=0 ts=6afd439d cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=EUspDBNiAAAA:8 a=Fa-mINMYIZ2DnWK0-L0A:9 a=QEXdDO2ut3YA:10
- a=1OuFwYUASf3TG4hYMiVC:22
-X-Proofpoint-ORIG-GUID: Y06E7_gG5bSCB4pzhFARJp3r-ej80r6y
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-18_01,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 impostorscore=0 malwarescore=0 suspectscore=0 clxscore=1015
- adultscore=0 lowpriorityscore=0 spamscore=0 priorityscore=1501 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180024
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261118004606.GGavz1TttiWqFI9saC@fat_crate.local>
 
-Implement the WMI resource configuration for QCN9575.
+On Tue, Nov 17, 2026 at 04:46:06PM -0800, Borislav Petkov wrote:
+> Thanks, lemme push it out.
 
-Add ath12k_wifi8_wmi_init_qcn9575() in wifi8/wmi.c to populate the WMI
-resource configuration struct used during firmware initialization, setting
-vdev and peer counts, RF TX/RX chain masks, scan and power-save limits, EMA
-and TWT parameters, and peer metadata version. Set the QCN9575 hw params
-wmi_init pointer to ath12k_wifi8_wmi_init_qcn9575 and build wifi8/wmi.c
-from wifi8/Makefile.
+Completely fat-fingered it on the wrong tree and missed a couple of more
+orphaned ones. Below is the updated version. I've kept your Acked-by because
+the patch idea is basically unchanged.
 
-Tested-on: QCN9274 hw2.0 PCI WLAN.WBE.1.6-01243-QCAHKSWPL_SILICONZ-1
-Tested-on: WCN7850 hw2.0 PCI WLAN.HMT.1.1.c7-00108-QCAHMTSWPL_V1.0_V2.0_SILICONZ_UPSTREAM-3
+Thx.
 
-Signed-off-by: Madhavan Ganesan <madhavan.ganesan@oss.qualcomm.com>
+From: "Borislav Petkov (AMD)" <bp@alien8.de>
+Date: Tue, 17 Nov 2026 11:49:09 -0800
+Subject: [PATCH] MAINTAINERS: Add a common entry for orphaned EDAC drivers
+
+This removes a bunch of lines in the MAINTAINERS file while having the
+same result: unify orphaned EDAC drivers which are not going to receive
+any more fixes due to lack of hardware, age of the hardware supported
+and general lack of use.
+
+This is also adding drivers/edac/i82875p_edac.c to the lineup which is
+a 32-bit only chipset for Pentium 4 from 2003 or so.
+
+The code is not going away - if there are users who are willing to test,
+we can easily resurrect them.
+
+Signed-off-by: Borislav Petkov (AMD) <bp@alien8.de>
+Acked-by: Tony Luck <tony.luck@intel.com>
+Link: https://lore.kernel.org/r/20261116152403.2672-7-ilpo.jarvinen@linux.intel.com
 ---
- drivers/net/wireless/ath/ath12k/hw.h           |  2 +
- drivers/net/wireless/ath/ath12k/wifi8/Makefile |  3 +-
- drivers/net/wireless/ath/ath12k/wifi8/hw.c     |  3 +-
- drivers/net/wireless/ath/ath12k/wifi8/wmi.c    | 57 ++++++++++++++++++++++++++
- drivers/net/wireless/ath/ath12k/wifi8/wmi.h    | 13 ++++++
- 5 files changed, 76 insertions(+), 2 deletions(-)
+ MAINTAINERS | 46 ++++++++++------------------------------------
+ 1 file changed, 10 insertions(+), 36 deletions(-)
 
-diff --git a/drivers/net/wireless/ath/ath12k/hw.h b/drivers/net/wireless/ath/ath12k/hw.h
-index 96776c6e2050..b8045b33ca0d 100644
---- a/drivers/net/wireless/ath/ath12k/hw.h
-+++ b/drivers/net/wireless/ath/ath12k/hw.h
-@@ -77,6 +77,8 @@
- #define TARGET_DMA_BURST_SIZE		1
- #define TARGET_RX_BATCHMODE		1
- #define TARGET_EMA_MAX_PROFILE_PERIOD	8
-+/* host supports peer map v3 and unmap v2 */
-+#define TARGET_PEER_MAP_UNMAP_VERSION	0x32
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 12406a2f4d57..4b930d531214 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2152,11 +2152,6 @@ M:	Khuong Dinh <khuong@os.amperecomputing.com>
+ S:	Supported
+ F:	arch/arm64/boot/dts/apm/
  
- #define ATH12K_HW_DEFAULT_QUEUE		0
- #define ATH12K_HW_MAX_QUEUES		4
-diff --git a/drivers/net/wireless/ath/ath12k/wifi8/Makefile b/drivers/net/wireless/ath/ath12k/wifi8/Makefile
-index 3717b00741fd..989e640c7b41 100644
---- a/drivers/net/wireless/ath/ath12k/wifi8/Makefile
-+++ b/drivers/net/wireless/ath/ath12k/wifi8/Makefile
-@@ -6,4 +6,5 @@ ath12k_wifi8-y += ce.o \
- 		  hal_qcn9575.o \
- 		  hw.o \
- 		  mhi.o \
--		  pci.o
-+		  pci.o \
-+		  wmi.o
-diff --git a/drivers/net/wireless/ath/ath12k/wifi8/hw.c b/drivers/net/wireless/ath/ath12k/wifi8/hw.c
-index fa64b865b931..74873fc5f3f3 100644
---- a/drivers/net/wireless/ath/ath12k/wifi8/hw.c
-+++ b/drivers/net/wireless/ath/ath12k/wifi8/hw.c
-@@ -16,6 +16,7 @@
- #include "hal.h"
- #include "hw.h"
- #include "mhi.h"
-+#include "wmi.h"
+-APPLIED MICRO (APM) X-GENE SOC EDAC
+-S:	Orphan
+-F:	Documentation/devicetree/bindings/edac/apm,xgene-edac.yaml
+-F:	drivers/edac/xgene_edac.c
+-
+ APPLIED MICRO (APM) X-GENE SOC ETHERNET (V2) DRIVER
+ M:	Iyappan Subramanian <iyappan@os.amperecomputing.com>
+ M:	Keyur Chudgar <keyur@os.amperecomputing.com>
+@@ -9631,11 +9626,6 @@ L:	linux-mips@vger.kernel.org
+ S:	Maintained
+ F:	drivers/edac/octeon_edac*
  
- static const struct ath12k_hw_params ath12k_wifi8_hw_params[] = {
- 	{
-@@ -70,7 +71,7 @@ static const struct ath12k_hw_params ath12k_wifi8_hw_params[] = {
+-EDAC-CAVIUM THUNDERX
+-L:	linux-edac@vger.kernel.org
+-S:	Orphan
+-F:	drivers/edac/thunderx_edac*
+-
+ EDAC-CORE
+ M:	Borislav Petkov <bp@alien8.de>
+ M:	Tony Luck <tony.luck@intel.com>
+@@ -9659,11 +9649,6 @@ L:	linux-edac@vger.kernel.org
+ S:	Supported
+ F:	drivers/edac/dmc520_edac.c
  
- 		.mhi_config = &ath12k_wifi8_mhi_config_qcn9575,
+-EDAC-E752X
+-L:	linux-edac@vger.kernel.org
+-S:	Orphan
+-F:	drivers/edac/e752x_edac.c
+-
+ EDAC-E7XXX
+ L:	linux-edac@vger.kernel.org
+ S:	Maintained
+@@ -9688,16 +9673,6 @@ L:	linux-edac@vger.kernel.org
+ S:	Maintained
+ F:	drivers/edac/i10nm_base.c
  
--		.wmi_init = NULL,
-+		.wmi_init = ath12k_wifi8_wmi_init_qcn9575,
+-EDAC-I3000
+-L:	linux-edac@vger.kernel.org
+-S:	Orphan
+-F:	drivers/edac/i3000_edac.c
+-
+-EDAC-I3200
+-L:	linux-edac@vger.kernel.org
+-S:	Orphan
+-F:	drivers/edac/i3200_edac.c
+-
+ EDAC-I5000
+ R:	Andrew Luebke <andrew.luebke@gmail.com>
+ L:	linux-edac@vger.kernel.org
+@@ -9722,11 +9697,6 @@ L:	linux-edac@vger.kernel.org
+ S:	Maintained
+ F:	drivers/edac/i7core_edac.c
  
- 		.qmi_cnss_feature_bitmap = BIT(CNSS_QDSS_CFG_MISS_V01),
+-EDAC-I82975X
+-L:	linux-edac@vger.kernel.org
+-S:	Orphan
+-F:	drivers/edac/i82975x_edac.c
+-
+ EDAC-IE31200
+ M:	Jason Baron <jbaron@akamai.com>
+ L:	linux-edac@vger.kernel.org
+@@ -9746,11 +9716,6 @@ L:	linux-edac@vger.kernel.org
+ S:	Maintained
+ F:	drivers/edac/intel-bff.c
  
-diff --git a/drivers/net/wireless/ath/ath12k/wifi8/wmi.c b/drivers/net/wireless/ath/ath12k/wifi8/wmi.c
-new file mode 100644
-index 000000000000..c575cae2582d
---- /dev/null
-+++ b/drivers/net/wireless/ath/ath12k/wifi8/wmi.c
-@@ -0,0 +1,57 @@
-+// SPDX-License-Identifier: BSD-3-Clause-Clear
-+/*
-+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-+ */
-+
-+#include "../core.h"
-+#include "wmi.h"
-+
-+void ath12k_wifi8_wmi_init_qcn9575(struct ath12k_base *ab,
-+				   struct ath12k_wmi_resource_config_arg *config)
-+{
-+	config->num_vdevs = ab->num_radios * TARGET_NUM_VDEVS(ab);
-+	config->num_peers = ab->num_radios *
-+		ath12k_core_get_max_peers_per_radio(ab);
-+	config->num_offload_peers = TARGET_NUM_OFFLD_PEERS;
-+	config->num_offload_reorder_buffs = TARGET_NUM_OFFLD_REORDER_BUFFS;
-+	config->num_peer_keys = TARGET_NUM_PEER_KEYS;
-+	config->ast_skid_limit = TARGET_AST_SKID_LIMIT;
-+	config->tx_chain_mask = (1 << ab->target_caps.num_rf_chains) - 1;
-+	config->rx_chain_mask = (1 << ab->target_caps.num_rf_chains) - 1;
-+	config->rx_timeout_pri[0] = TARGET_RX_TIMEOUT_LO_PRI;
-+	config->rx_timeout_pri[1] = TARGET_RX_TIMEOUT_LO_PRI;
-+	config->rx_timeout_pri[2] = TARGET_RX_TIMEOUT_LO_PRI;
-+	config->rx_timeout_pri[3] = TARGET_RX_TIMEOUT_HI_PRI;
-+
-+	if (test_bit(ATH12K_FLAG_RAW_MODE, &ab->dev_flags))
-+		config->rx_decap_mode = TARGET_DECAP_MODE_RAW;
-+	else
-+		config->rx_decap_mode = TARGET_DECAP_MODE_NATIVE_WIFI;
-+
-+	config->scan_max_pending_req = TARGET_SCAN_MAX_PENDING_REQS;
-+	config->bmiss_offload_max_vdev = TARGET_BMISS_OFFLOAD_MAX_VDEV;
-+	config->roam_offload_max_vdev = TARGET_ROAM_OFFLOAD_MAX_VDEV;
-+	config->roam_offload_max_ap_profiles = TARGET_ROAM_OFFLOAD_MAX_AP_PROFILES;
-+	config->num_mcast_groups = TARGET_NUM_MCAST_GROUPS;
-+	config->num_mcast_table_elems = TARGET_NUM_MCAST_TABLE_ELEMS;
-+	config->mcast2ucast_mode = TARGET_MCAST2UCAST_MODE;
-+	config->tx_dbg_log_size = TARGET_TX_DBG_LOG_SIZE;
-+	config->num_wds_entries = TARGET_NUM_WDS_ENTRIES;
-+	config->dma_burst_size = TARGET_DMA_BURST_SIZE;
-+	config->rx_skip_defrag_timeout_dup_detection_check =
-+		TARGET_RX_SKIP_DEFRAG_TIMEOUT_DUP_DETECTION_CHECK;
-+	config->vow_config = TARGET_VOW_CONFIG;
-+	config->gtk_offload_max_vdev = TARGET_GTK_OFFLOAD_MAX_VDEV;
-+	config->num_msdu_desc = TARGET_NUM_MSDU_DESC;
-+	config->beacon_tx_offload_max_vdev = ab->num_radios * TARGET_MAX_BCN_OFFLD;
-+	config->rx_batchmode = TARGET_RX_BATCHMODE;
-+	config->peer_map_unmap_version = TARGET_PEER_MAP_UNMAP_VERSION;
-+	config->twt_ap_pdev_count = ab->num_radios;
-+	config->twt_ap_sta_count = 1000;
-+	config->ema_max_vap_cnt = ab->num_radios;
-+	config->ema_max_profile_period = TARGET_EMA_MAX_PROFILE_PERIOD;
-+	config->beacon_tx_offload_max_vdev += config->ema_max_vap_cnt;
-+
-+	if (test_bit(WMI_TLV_SERVICE_PEER_METADATA_V1A_V1B_SUPPORT, ab->wmi_ab.svc_map))
-+		config->peer_metadata_ver = ATH12K_PEER_METADATA_V1B;
-+}
-diff --git a/drivers/net/wireless/ath/ath12k/wifi8/wmi.h b/drivers/net/wireless/ath/ath12k/wifi8/wmi.h
-new file mode 100644
-index 000000000000..a66ede369ba3
---- /dev/null
-+++ b/drivers/net/wireless/ath/ath12k/wifi8/wmi.h
-@@ -0,0 +1,13 @@
-+/* SPDX-License-Identifier: BSD-3-Clause-Clear */
-+/*
-+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-+ */
-+
-+#ifndef ATH12K_WIFI8_WMI_H
-+#define ATH12K_WIFI8_WMI_H
-+
-+#include "../core.h"
-+
-+void ath12k_wifi8_wmi_init_qcn9575(struct ath12k_base *ab,
-+				   struct ath12k_wmi_resource_config_arg *config);
-+#endif
+-EDAC-MPC85XX
+-L:	linux-edac@vger.kernel.org
+-S:	Orphan
+-F:	drivers/edac/mpc85xx_edac.[ch]
+-
+ EDAC-NPCM
+ M:	Marvin Lin <kflin@nuvoton.com>
+ M:	Stanley Chu <yschu@nuvoton.com>
+@@ -9797,10 +9762,19 @@ L:	linux-edac@vger.kernel.org
+ S:	Odd Fixes
+ F:	drivers/edac/ti_edac.c
+ 
+-EDAC-X38
++EDAC ORPHANED DRIVERS
+ L:	linux-edac@vger.kernel.org
+ S:	Orphan
++F:	Documentation/devicetree/bindings/edac/apm,xgene-edac.yaml
++F:	drivers/edac/e752x_edac.c
++F:	drivers/edac/i3000_edac.c
++F:	drivers/edac/i3200_edac.c
++F:	drivers/edac/i82875p_edac.c
++F:	drivers/edac/i82975x_edac.c
++F:	drivers/edac/mpc85xx_edac.[ch]
++F:	drivers/edac/thunderx_edac*
+ F:	drivers/edac/x38_edac.c
++F:	drivers/edac/xgene_edac.c
+ 
+ EDIROL UA-101/UA-1000 DRIVER
+ M:	Clemens Ladisch <clemens@ladisch.de>
+-- 
+2.53.0
+
+
+> 
+> -- 
+> Regards/Gruss,
+>     Boris.
+> 
+> https://people.kernel.org/tglx/notes-about-netiquette
 
 -- 
-2.34.1
+Regards/Gruss,
+    Boris.
 
+https://people.kernel.org/tglx/notes-about-netiquette
