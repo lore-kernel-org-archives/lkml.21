@@ -1,66 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.2
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.228.134
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794996677;
-	b=S41SsSr3wZTDwiajNqPahgNYkIefJgxftFNaqogkzI2gyLdsB84BX97L1zxQmvnhwmWS
-	 OR6jR/hl9pn7vHcONljwgWiBq4TLW+zJgd4TudoOhIdNWEt3QSzA+jOppyrU/8qxbNwBt
-	 +AWL5jEEKkB2A61ToU3CFH2AgnArhriYzyJWh81DOggvUfSx8UKRD2NKFc0o7Rk5GcVP+
-	 3WXmu5uWGv7tP/c3snD8p+fzfTm4M6YanVs+BYcMl89CVnqjSIhfuXHCbRiGp3QBI7R1R
-	 plkUwQuzTiz5Q84GVt6tITgktkoBBCcqOXZBT4CDrOVP2q4LooTi3bh3DmqUaWJ+/1w==
+	t=1794996735;
+	b=nS9QTSBR9UWyeoXY4OGb+qbBaAVbwnEjYKEi2Y21d5qZk9czn6grgTlkiTjk2JpXKWQy
+	 kPdKUOHPexd0o9omxGZHCaCzAWpRM5qXR5sTx3scKsXtb6STMtgWSdvdOf4vO3vTY8d4z
+	 PxXic0EPJs1DPgA3IWkORhugtvj9A595mG4xOOlCmQz0uD+xMQdXQdNRs3vSw4+RxldBG
+	 1wDhVwwl7RYqPHX5kt58qUdjuLFW349ZmPaBBsRt/nevJhnZbARp0GNUydah7Sl3VEQxB
+	 WCHs5hIxJBCaDEXSLeA3cRZ/PlgP+YYjYPMOgLu3k4orZKywMzTD+Nj3oz9Kenw4G9A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794996677;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
-	bh=10vF1TNZE1jmUzR5IhA4Cr9+ZCuxH/DSuBr/E3tdBrQ=;
-	b=blAoC3kfsgSRXfdGK/4ESBlpYaRHOPoG1cb4ibeOnWnuUAd3E8TTxLLbI9pF2VUlj0oD
-	 qkXSpMYHZxHQKQUjkt24O0m6O4aXPnHEp/m0pGJLOY+1kcvk6emuI3BMlqiEa6eWjYD+d
-	 +v74Tpv0gTWf6YAhhsPi7bCF/R5gvl4anlwN08g+54rigrnnqTe3O1BnkggwOUezf03Vg
-	 l/c1yMzuqkG4otg2eCY9qci1SKFcl+H8+GYUDPx3Q4pf8FEbob4CjrxUO+xXde5KLyRJ1
-	 pJjwJ+821hEZiLRgiAYE0yESNpgVb5BpY7RPSB10q1AaXWRNiTPG7LIqjMiC2VbJLDA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794996735;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=g0wg2R4D4ws9g0qj9z8FjxgFwkWHzS73xmd1tBLqVOI=;
+	b=a5mesnLTGF9/cRjRepx77coOb0Zt5V8oHq2vUIRDmP+Rcq0IqkT+OeaRvxnBmOGPC7yT
+	 0VnOuM97kTziTB3ftCcI157slBpVL5XGQyXKRNkWiBegO2dYhcBVsHjKroClWe2FIG+LL
+	 dJjrvii3Qy0agBfhJxEqDePrApBk2aE+dm4DIOlPhHBbfdyxeNX6a1tM8TDBXjf/Rd37t
+	 rgYNc/Z1RATjsmj/FzB/ezOYwKC2YxprqC2alKuSVhSxpEslpZY8XCw2KOsPXq+X8Dsqe
+	 0JWhOJw4/eGj6ayxk8hczsG6QWd2pHiJoO4tYADmDGBraDC/Fm1rRXFvI7bKoweXvUw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=XiTjr3A0;
-	arc=none smtp.remote-ip=220.197.31.2
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=M137R3Jq;
+	arc=none smtp.remote-ip=74.125.228.134
+Received: from mail-ej2-f6.google.com (mail-ej2-f6.google.com [74.125.228.134])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F144606A320;
-	Wed, 18 Nov 2026 10:11:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F144606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3084606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:12:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3084606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=XiTjr3A0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=10
-	vF1TNZE1jmUzR5IhA4Cr9+ZCuxH/DSuBr/E3tdBrQ=; b=XiTjr3A0742JJy8J3g
-	2GjHnhhuzFxw72XZJs08zxmKDvpS9bc2zkFZAMMUV20tXpaw6xrI9IM0delGgf28
-	4tJElLPPI0Dc+/nfTiXKdWHSMy2tfFfzFmisZUNzIIKszIpg5cLZ9HqaYmRiKMAe
-	gB8y8+NxMy7aqrH+rj9+PkK00=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wD3_9WAef1qJpK6IA--.4941S2;
-	Wed, 18 Nov 2026 18:10:10 +0800 (CST)
-From: Haoxiang Li <haoxiang_li2024@163.com>
-To: maddy@linux.ibm.com,
-	npiggin@gmail.com,
-	mpe@ellerman.id.au,
-	chleroy@kernel.org,
-	ritesh.list@gmail.com,
-	sshegde@linux.ibm.com,
-	jniethe5@gmail.com,
-	gautam@linux.ibm.com,
-	vaibhav@linux.ibm.com,
-	kconsul@linux.vnet.ibm.com
-Cc: linuxppc-dev@lists.ozlabs.org,
-	kvm@vger.kernel.org,
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=M137R3Jq
+Received: by mail-ej2-f6.google.com with SMTP id a640c23a62f3a-c410cdcab7dso19228566b.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:12:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794996733; x=1795601533; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=g0wg2R4D4ws9g0qj9z8FjxgFwkWHzS73xmd1tBLqVOI=;
+        b=M137R3JqnrXHrCuaq4bpoBaKRlmo7e2gnV3a2TPKEvhnjgrDlE+JNyHI0PyfuvSE3X
+         P8y8WMtV1+L5fdMIbWSguYL+5p0ki837DIG+zF16hhEhLKs8eDnrh/Tr5Um+s6ELD4Of
+         pekQa6zwnbRv/AXECK4EVb5PO5rl7tMXPYpWMPWJwrGF6lofWVR9yXn4uJIAwSjXea9Q
+         xBcfsOjs2kkWA6pDJZo2TNq7L9xwomaf9CfxnoQmkSnjNmdbGr7kYbV7gzdk+MJvzWzm
+         nSrZD324xdWlOSNIjsarhfXYzUBwMUs2Vqd0tXnysSR+vWKYKdKUWEMn+uQRmji/8I7u
+         FwKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794996733; x=1795601533;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=g0wg2R4D4ws9g0qj9z8FjxgFwkWHzS73xmd1tBLqVOI=;
+        b=McqTkQulP3769VbLp98R4FswdADdI2feJZ8Zng5dcRLeM4pcUBWvJ/GjaGk25SuCwi
+         D6e8ovy/KYq2SZkafyxrYE0ikqfQtvZVN1YsVPNxV5IgjGqvSu0tU25kksZPfhnitjEy
+         WbU2sQVnEs9B8zpU8YcEOniKPM4R8CbQqLVQBENpsyBHETqFX+6UhJuDacT3aKR/poto
+         DCup8Tk6NwwKLTA8yIuviOQOlmxtIT6ZGo+NUipPUjQm4KFCJ3qyzyzFXK7NEbUTRfHD
+         7HseQ0yYFRQTwoZo4k2yW780LeE9PUFglrV1CrrySDrCzTsaBNRQ43QXiJlBV2ty/UMz
+         9O4Q==
+X-Forwarded-Encrypted: i=1; AL+hErEOylpwNyMrvC3JeuP2/CrXx4SUFSYxU3F+qJDSj8qij37V6FsogNJ6S9DfvghCqCmx6agfchajznXw/fk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8NOORes6Ik8Vn9v75Gf2YDHCnvDvh4JnzmTCYZJ9ikpYKGmhOP
+	JcyAbB3JY16arA0XFRpq1hgL8bvkffmWKbD9aNo37DxojPTe56wD2n6GTcD9AWBX
+X-Gm-Gg: AYBFou2NH/+aDGiOJKi9Ftiwh4lsuznH5w/ZpVlcjsQW51pxuvnamUu8zCvlj/SGvUg
+	+AuiQ4JRybEF9Hz7eRm3FAnkXayy+8nWLxmbqUnqA6mmrerMAliE1pqoWe0w9Zh9pi9JLxnArov
+	s6y5ZU7P2vpHGOb2KnVzVYBoHw+2W7Z3U76P9ZrKfbrav4H+NffzIM14Cwf+vHG97kj3HmcsgrQ
+	8B4E5la2LDnrqJ/m/8+2xpv5ZZm+nUmK1eztEa0g9b6+VCGBsGU1PKbRkGriGZ0DfzAD+ZGqpOE
+	QUUAXWqB4fmaRh7NNMtKo6OiDd/l7C0y5fFVMK4/xunOlmoZwlSYK7buqDnaUI/kv6dbpnEU1VG
+	MXKscCbO/FIUNQ0XgSenvJQQdheuClPz+fFGAIH81+QdWtjx/vPQ8kkqtDTwiMK8z2sqsfQ55NR
+	fegT5A8bKxT6Hbg1YzBVwL81961TbVf7OmhOh4dnKj3lVHaTNMm4uniwN4vqPlGhJyEEGitG1Ou
+	eO2feJ5Cy6CpnXt1pyekxDefem3g2nmAPVY20wgssKbhCl9lTQphhT67Y4ewLP8dIqEDCg0kDX4
+	hLdhVM7Vx6lu/7HQQXXPsjRgffKF4Q9iUs4ncHzVkgqZWB7e0LDvibDofJfy3PbqRoDIErdX5YS
+	3Smv+jOrOEopOSARBvLopkbkK8zDSi91g+KZva7tRmr8n5AAs10ZgR7uGCNz31VWK2vwLPapqLI
+	FH4g==
+X-Received: by 2002:a17:907:9805:b0:c50:93b6:52ed with SMTP id a640c23a62f3a-c510e34dd9dmr172220566b.40.1794996733005;
+        Wed, 18 Nov 2026 02:12:13 -0800 (PST)
+Received: from thi-server.fritz.box (dslb-092-076-089-226.092.076.pools.vodafone-ip.de. [92.76.89.226])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c510c83f332sm78436366b.7.2026.11.18.02.12.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 02:12:12 -0800 (PST)
+From: Thilo Zirnstein <thi.zirnstein@gmail.com>
+To: michal.simek@amd.com,
+	andi.shyti@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-i2c@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Haoxiang Li <haoxiang_li2024@163.com>
-Subject: [PATCH] KVM: PPC: Book3S HV: Free nestedv2 state on vCPU creation failure
-Date: Wed, 18 Nov 2026 18:10:08 +0800
-Message-Id: <20261118101008.2242596-1-haoxiang_li2024@163.com>
-X-Mailer: git-send-email 2.25.1
+	Thilo Zirnstein <thi.zirnstein@gmail.com>
+Subject: [RESEND PATCH v4 0/2] i2c: i2c-xiic: fix clearing of bnb irq and waiting/ clearing while atomic
+Date: Wed, 18 Nov 2026 11:11:45 +0100
+Message-ID: <20261118101147.3350796-1-thi.zirnstein@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,45 +100,66 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3_9WAef1qJpK6IA--.4941S2
-X-Coremail-Antispam: 1Uf129KBjvdXoWrZF4fAw48WF4xKrWDtw1fZwb_yoWktFX_uw
-	s2q3ZxWaykAay5uw1kAw45WF4Igr48JrW0kw10q3srC39YgrnrWws2qwn8uw1ruayjyFsx
-	G3yvvFnxJ34xKjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7sRR7PEUUUUUU==
-X-CM-SenderInfo: xkdr5xpdqjszblsqjki6rwjhhfrp/xtbC7gKYB2r9eYJzIwAA3P
 
-When nestedv2 is enabled, kvmppc_core_vcpu_create_hv() allocates guest
-state buffers and messages through kvmhv_nestedv2_vcpu_create(). If
-the subsequent vcore lookup or allocation fails, it returns without
-releasing those resources.
+Resend due to inactivity since Nov 09.
+I think PATCH v4 2/2 misses a review.
+Anything I can do to move this further ?
 
-The caller's error path only calls kvmppc_subarch_vcpu_uninit(), which
-does not free the nestedv2 state. Call kvmhv_nestedv2_vcpu_free() before
-returning from the vcore error path when nestedv2 is enabled.
+Dear all,
 
-Fixes: 19d31c5f1157 ("KVM: PPC: Add support for nestedv2 guests")
-Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
+This patch-series fixes the clearing routine for the bus not busy (bnb) irq
+plus the waiting and clearing routines while in atomic context.
+
+The bnb is used to indicate that the current transfer is done.
+A high level view of the software flow for tx:
+
+* init i2c controller
+* prepare all registers ( fill fifo, enable irqs, ... )
+* start i2c txfer
+* clear and enable bnb
+* wait for completion
+* ( serve interrupts )
+* ( bnb interrupt ): complete completion
+
+The datasheet ( pg090-axi-iic, Interrupt-Status-Register ISR)
+states that the bnb bit can only be cleared if
+the bus busy bit in the status register is set.
+So the iic controller must have recognized that their is some activity
+on the bus. ( Start condition )
+
+Currently the bnb bit is cleared without checking or waiting for this
+condition. This can lead to spurious bnb interrupts.
+
+Andi suggested to use an atomic-save function to wait for bnb.
+This was applied for other waiting/ clearing functions, too.
+
+Kind regards,
+
+Thilo Zirnstein
 ---
- arch/powerpc/kvm/book3s_hv.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/arch/powerpc/kvm/book3s_hv.c b/arch/powerpc/kvm/book3s_hv.c
-index 22283d46e8fe..1a1a4e3ba412 100644
---- a/arch/powerpc/kvm/book3s_hv.c
-+++ b/arch/powerpc/kvm/book3s_hv.c
-@@ -3097,8 +3097,11 @@ static int kvmppc_core_vcpu_create_hv(struct kvm_vcpu *vcpu)
- 		}
- 	}
- 
--	if (!vcore)
-+	if (!vcore) {
-+		if (kvmhv_is_nestedv2())
-+			kvmhv_nestedv2_vcpu_free(vcpu, &vcpu->arch.nestedv2_io);
- 		return err;
-+	}
- 
- 	spin_lock(&vcore->lock);
- 	++vcore->num_threads;
--- 
-2.25.1
+RESEND v4
+- Add Reviewed-by Tag
+
+Changes in v4
+- Fix timeout argument of polling in atomic context
+
+Changes in v3
+- Use atomic-save functions for waiting and clearing.
+- Fix intendation
+- Unintentional changes removed
+
+Changes in v2:
+- Unintentional changes removed.
+---
+
+Thilo Zirnstein (2):
+  i2c: i2c-xiic: fix clearing of bnb irq
+  i2c: i2c-xiic: fix waiting/clearing while atomic
+
+ drivers/i2c/busses/i2c-xiic.c | 70 ++++++++++++++++++++++++++++-------
+ 1 file changed, 57 insertions(+), 13 deletions(-)
+
+--
+2.43.0
 
