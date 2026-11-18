@@ -1,84 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.133
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794963680;
-	b=lQVn5YWPsyUxwAk+CRuFRvJ9zOR+ubomwanasPEktnA9ICIAn1EXCwAAZ7TtSomLf4oU
-	 xcVpgv5XHg3szklLauwDA72tH1Rbyz4T68MfkumrOXeSIXvP9BOw5NSsIQqT3nMw8tB9p
-	 SRlYAmFQ9sGU5pIJc9lHbXLTZseWSeXMTczgcobqwfVW0XgaKbqEc6argy1/HMhQkkSIc
-	 k+SfeHswuEa352i5YTX1N6LfaPkvvHTQ7pmHkk1CfEUzMWbkfSfwh2HuFwMUE2/ua7e7g
-	 /jNGEOMMcak/1zRf2C2XvyOT29j81mRkKnqrD4+MOqb4AnVRxlGo1+1S46SFUD7LguQ==
+	t=1794963986;
+	b=BM03iqgLmFkUD1tQa4JsyXOFyOp8BTIJWmtV6Y5+v3oogEcF7u8pT1P2REL7HvxN74Ge
+	 7zjR/tjXquZD+magb77OYD1IrhFFLYZMgtqk63j/dKT3ZYFWf1YPQJwoOgVGWqS9sCkw8
+	 uzQYIlvwC4TVjmXT3g2/DgtQxo9xYUCq0zDdRXtEBLtKoJYx7Un5Q+TGVwCSWpDzYyE60
+	 QbRrD726EWHjO0WhiZ1tMW+rXcTkCB2axfCytcHxnxA0q0loAbyfjExLkLmCaXyKvFeyB
+	 4E7RhPrOAyjiOn3QaZ5428mpJMOclGubzyTCsNmnoR0CwgUneKMHJp4yAK0CYMGOTIg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794963680;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
-	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer;
-	bh=m8/kejje43/iSzUQBqp60HPt96dBU49CmzQKrHbpHKA=;
-	b=0BnPpSQouPWfRJBOcyvFYjqOBHgHd/Xx08pt9o+YcC0s/vGXt35LjvaBuvEDzRCou1dM
-	 CcYmAr6AKlizYD+qSX2VDgXRntoV/IVgdilQJRvEE0oYoA+MyGazrrPMUdgsrw9oFa4Ta
-	 xbENMSjg+l/MYvaW6nsC4/ru7kb0AjfwwEZLrM7T6oof59XgJUQ/9iJXtcv/loqztalgh
-	 xFtllwDw0KbUj9OXbJKCGhYHU6Ajv3YegLOSqz4OX/tlVpBcVcDXo02qNUA0YnI+3Iyy8
-	 simQ/xr2vqiBqd5YYMRLOSsQkorIQ/gVa+UPXGmhRDOeCC8tk0XxrBrWXqQtArpFt/g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794963986;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=60m7KcRIF+636nFMfThPXFQN3d/l9dTK+27x5s5xATE=;
+	b=16F5FVAjkqf+3n6DxhcNnTC+gyxnHKmKtAfRATBCSOH3Xr+/V05hNbriceD7o059N044
+	 OT8BxByw7Fq30OpEZ3hNQIcGcfD4JNnV0rmzXSHqVZQ+rXiXxnTyMYYxUJLWXvh+COnzx
+	 CrFHJ+ar9SpuxdetyehWDmqBiaJapUPv6UAow3yBLf3jY3E/xmSH/+v2hr8l+T1TTbozh
+	 Yk43xnTg5SMjlYjp88K8YTAjORUkIqza3GtzMj28S89nGM20/ldhHWKlmwqG7isRGBXd1
+	 1wWGRxex96g6eQiXiSOfCYGMhHrSbhrcJlGJQt1jN6oQGGXFLiNRHkENpm6ll9mQ55g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=m2IHQ8Ki;
-	arc=none smtp.remote-ip=74.125.82.43
-Received: from mail-dl1-f43.google.com (mail-dl1-f43.google.com [74.125.82.43])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=G2ShfEuZ;
+	arc=none smtp.remote-ip=91.218.175.133
+Received: from mta0.migadu.com (out-133.mta0.migadu.com [91.218.175.133])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5691606A330
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:01:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A5691606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64F21606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:06:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 64F21606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=m2IHQ8Ki
-Received: by mail-dl1-f43.google.com with SMTP id a92af1059eb24-1b50dc340d9so7603c88.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:01:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794963679; x=1795568479; darn=vger.kernel.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=m8/kejje43/iSzUQBqp60HPt96dBU49CmzQKrHbpHKA=;
-        b=m2IHQ8KiXMRSrsUBjAc7o1Xxv3goS5UVQgUK2PHl9CQM8kCeg4JIJQrFcc1N3hIknM
-         RHyfpqUyporiPFE4pFsG3sdghQhy0DP6bxXYor6nLmNyd2ywN7AgLoLDBjkt1EINQcKf
-         j9gkZ2NrCpGQVbVFrRH1l82uhbBG2k54pYb+P0qrVSj8Sh2Om0JA7Q4BeaF4plDNGLYM
-         W97/Yf2w78Tpg/9Zq0TSC4v17jrqcJOpF8b0l09A8lpK2iJNfKHy8ShAyta6DKLUqv1i
-         MTSXtgIZHxBxZHJoZX4UhKTkrMDWb1U7i9s3RpzdFCrXBT6xXyUExoJc+S8Ty0hCYb+7
-         oKaA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794963679; x=1795568479;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=m8/kejje43/iSzUQBqp60HPt96dBU49CmzQKrHbpHKA=;
-        b=bcCn153tSdg70c1PhJk+ZACeQtd+PdQCoWCx13D63KrbMhzHfDDtxvOqnc8oFaAZs2
-         AsMaWNr5U0ABz7sfcPyiBXYDcBax9F936gjpfvsjCWhoKVCr9xNx4K5t4uGy5WENbAS1
-         3AQNr1Iwer8uC+4bDeMPEygUmL1wnjU0AUvcSxyl3ED5x8F0W74NN+U+m1rslmXKCnTk
-         dLLfnh1bqgeF9tTgULVqJcJ1S+WASRnNXijDWtY3zSTz3dGc7tXAjHMCClQ2AEnWisAA
-         hBYU00Uyge3KxpHzSyL3fWVszH/kyPzPEAkvYNuvjIy5OOqta+eB6CPVbJ94HmX4S7pm
-         LP5w==
-X-Forwarded-Encrypted: i=1; AL+hErE2E7Ce+Qx17frxd3Y2U6Bu+XWq/zq7fDNXYJLoSEKotbio1vnE+y8HVo2FuN63Fn1vDhSgcMYQri6eJ2U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/0zJ6t5ZxP35ycu8+8/RowyQGfbKBaOKTF+0aiGPIOaF3sZocs
-	FOZYrwTQRRWLv4EL1hjcLIeTRmYk1iMECXBsUwUfvLuOUL+dUGR8I0qZ
-X-Gm-Gg: AYBFou1/nAByXElwrrR7HMOFPg6iIy/v7c2v4CL9ADpWBMs68bfIBpUKWZNMuzeR7mi
-	6kaMZ8/OIreeILm3fyWnwvXtgQvXtNwRPuxEZsd8U6nC+63OrRYrv97vsG5xDophUoRjbIUZYZL
-	tzw0+xkhxfgrr/9jKUkwll4IrecYW0K1EBkSEoQfSk8aa6c8eMUroBx6gAXtHcOo8oPVWmAn8wW
-	Wrl0ONpuVxwlSqJxgo+iPRjgb7XRrYsake20c/kHpHBsZJHmMQkIYbp4nRcMDvNsavymWP3eWja
-	OnJpITRY9RX7RY1FMaebZL1VE2eQvWaIuIfBMf1eT46eU6wucaqwtpRKFOxrj/ZVbmP9abRe2vi
-	Kmy0T3lyDzlzhOQJcYzpJOo/+kU7k1Sqxd8kRkBpo+n4CP6+zLX/9P7sd+M6sW7IcOIUkVM5WMr
-	BLKrZSdWJt8DzlFqdHul+88u8mOycFNe+HY+HEubUiZIzJYfeScqaiYs7HpsIEtThOVZ7F4pc8L
-	sjvmZ3qdc9DBkGU0kbXg4dvzP0BidhrvczD/UxPTtpXnZY9wJVZlkdtlACh5pBrOS+pdd7yHOwP
-	yrQV13KLrhmAcm5xs4h2LPPS4cEqEILgqSJ8Iu8E1f5y/ylR7jBMiAA219kCAa8ZIow=
-X-Received: by 2002:a05:7022:ea8b:b0:1b3:a881:a67b with SMTP id a92af1059eb24-1b543b7ba68mr1691999c88.1.1794963678164;
-        Tue, 17 Nov 2026 17:01:18 -0800 (PST)
-Received: from o6.lan ([2602:fce1:44f:115e::])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447da7e0sm2636759c88.9.2026.11.17.17.01.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 17:01:17 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=G2ShfEuZ
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=P+w583ycCexQeOOWJwBcF8zhG/qFNQ+UKx5LbN5dQA4=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794963983; v=1; x=1795568783;
+ b=G2ShfEuZTCDHBerSf+ZH5QaosvG2IN7tMAc/GWDm4c8He5RpXlca19ua9UQiSKYAjSCBVpe1
+ AEYaTE/Ip/CZ1qUtPdxTdikFMJckbCnUHHZHbHOd54ZaeVj5K0zVGo2jKnkbsVeNTjkxJiDHeYN
+ 3Sacr8Yu3w5jcEA621NCLyaQ=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta12.migadu.com with ESMTPS id 825b9c48667a5f11;
+	Wed, 18 Nov 2026 01:06:22 +0000
+X-Mizu-Trace-ID: 825b9c48667a5f11
+X-Migadu-Flow: FLOW_OUT
+Date: Wed, 18 Nov 2026 09:06:09 +0800
+From: Hangbin Liu <hangbin.liu@linux.dev>
+To: netdev-bot+sashiko@kernel.org
+Cc: jv@jvosburgh.net, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+	ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
+	john.fastabend@gmail.com, sdf@fomichev.me, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, bpf@vger.kernel.org
+Subject: Re: [PATCH net-next 1/6] bonding: check XDP support before enslaving
+ changes state
+Message-ID: <avz6AQetwPAY--Mt@fedora>
+References: <20261113-bond_enslave_restruct-v1-1-364c549e78db@kylinos.cn>
+ <179492640769.3136.3241898567283164730@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,58 +69,177 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [RFC PATCH 0/2] mm: zsmalloc: make shrinker compaction
- budget-aware
-From: Xueyuan Chen <xueyuan.chen21@gmail.com>
-To: Chris Wiseman <chriswiseman@google.com>
-Cc: Yosry Ahmed <yosry@kernel.org>, Nhat Pham <nphamcs@gmail.com>, 
- Johannes Weiner <hannes@cmpxchg.org>, 
- Sergey Senozhatsky <senozhatsky@chromium.org>, 
- Xueyuan Chen <xueyuan.chen21@gmail.com>, 
- Xueyuan Chen <xueyuan.chen@vivo.com>, Barry Song <baohua@kernel.org>, 
- Yosry Ahmed <yosry.ahmed@linux.dev>, Brian Geffon <bgeffon@google.com>, 
- Minchan Kim <minchan@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
- linux-mm@kvack.org, linux-kernel@vger.kernel.org
-In-Reply-To: <18e8fc17375582a2.3137322e32332e3235332e313736.2a6db6.0000sendgmr@google.com>
-References: <47ed45b5-de67-41aa-aa21-a3ba3479a7cc@vivo.com>
- <anXJ-5_vO7-toSe1@google.com>
- <CAKEwX=Mm2tXcen-quRXHf1Y2qSHYvpEUe4xiw-mHYaJnRUR-EA@mail.gmail.com>
- <auKqt6b4AxCLziIH@google.com> <aufPMirl4cD7tz0X@google.com>
- <18e4542967ebdd10.3137322e32332e3235332e313736.1dfc41.0000sendgmr@google.com>
- <CAKEwX=MV_xEUvz91pz6uc4qXWnWOUDtXZ2zASdNVOBHBLeA60w@mail.gmail.com>
- <18e4ebf806e937ec.3137322e32332e3235332e313736.1bf52a.0000sendgmr@google.com>
- <CAKEwX=PFdgEbba+H3fEnJFDnfkxCTsvuHEb4numVwJRaiMgwKQ@mail.gmail.com>
- <179384102494.19062.12740032892044628762.b4-reply@b4>
- <auwOBaRtM9p_Wxfx@google.com>
- <18e529a5ab0738f7.3137322e32332e3235332e313736.873cb.0000sendgmr@google.com>
- <CAKEwX=OUt4=wqDLiPvYuiTnkpuZYnszkuNQScNR93hHhVPRRGA@mail.gmail.com>
- <CAO9r8zMMGem-LTJQseT5xSSBjfr3UX2gzG_ftpw6+KF8m9v5yw@mail.gmail.com>
- <CAO9r8zOY1E7gCYnJZAfKvyHcbj8e2WVuXMqsaPGPsKR4-9itsg@mail.gmail.com>
- <18e53459a8013078.3137322e32332e3235332e313736.12c7b6.0000sendgmr@google.com>
- <avVVRYkIAQnLC_Yu@google.com>
- <18e8fb5c1c4d127f.3137322e32332e3235332e313736.289d37.0000sendgmr@google.com>
- <CAO9r8zOtL4t5pwQOE=SAWeg=k2TkhtNXgV6CJJGNTwuTebKpBQ@mail.gmail.com>
- <18e8fc17375582a2.3137322e32332e3235332e313736.2a6db6.0000sendgmr@google.com>
-Date: Wed, 18 Nov 2026 09:01:11 +0800
-Message-Id: <179496367147.1128372.9610535275148675145.b4-reply@b4>
-X-Mailer: b4 0.16.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <179492640769.3136.3241898567283164730@kernel.org>
 
-On 2026-11-18 00:27 +0000, Chris Wiseman wrote:
-> On Tue, Nov 17, 2026 at 4:23 PM Yosry Ahmed <yosry@kernel.org> wrote:
-> >
-> > I would rather drop it right away, but I am fine if you don't wanna
-> > bother with zswap.
+On Tue, Nov 17, 2026 at 02:40:07PM +0000, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 3 potential
+> issue(s) to consider.
 > 
-> Works for me - dropping it outright is way cleaner than adding a
-> Kconfig knob nobody wants to maintain.
+> Critical: 0 · High: 1 · Medium: 0 · Low: 2
 > 
-> Nhat / Johannes / Sergey - good with a 2-patch series that just removes
-> the zsmalloc shrinker and adds the unlocked zs_can_compact() pre-check
-> for manual zram compaction?  If Xueyuan doesn't grab it I'm happy to
-> post it.
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
 > 
+> - [High] The fix is incomplete: a slave without ndo_xdp_xmit can still be
+>   reached by bond_xdp_xmit() whenever the bond has no XDP program.
+> - [Low] The commit message presents this as a crash fix ("bond_xdp_xmit()
+>   may call a NULL ndo_xdp_xmit"), but the commit has no Fixes: tag (and…
+> - [Low] The commit author (From:) is "Hangbin Liu
+>   <hangbin.liu@linux.dev>", but the only Signed-off-by line is "Hangbin…
 > 
-:) Thanks, Chris. Feel free to take over the series.
+> --
+> 
+> bonding: check XDP support before enslaving changes state
+> 
+> This commit moves two XDP checks in bond_enslave() to the validation
+> section at the top of the function: the ndo_bpf/ndo_xdp_xmit capability
+> check and the slave XDP program count check. They now run before the slave
+> is opened, attached and made visible to the datapath. The
+> dev_xdp_propagate() setup stays where it was.
+> 
+> > In particular
+> > the slave can become bond->curr_active_slave, or be published via
+> > bond->slave_cnt, before we verify that slave_dev->netdev_ops->ndo_xdp_xmit
+> > exists, so bond_xdp_xmit() may call a NULL ndo_xdp_xmit.
+> 
+> [Severity: Low]
+> The commit message describes this as a fix for a NULL ndo_xdp_xmit call,
+> but there is no Fixes: tag and no Cc: stable. Should there be a Fixes:
+> tag?
+> 
+> git blame shows the late capability and prog-count checks came from commit
+> 9e2ee5c7e7c3 ("net, bonding: Add XDP support to the bonding driver"), and
+> commit 6d5f1ef83868 later restructured them.
+> 
+> > Signed-off-by: Hangbin Liu <liuhangbin@kylinos.cn>
+> 
+> [Severity: Low]
+> The author is Hangbin Liu <hangbin.liu@linux.dev>, but the only
+> Signed-off-by line uses <liuhangbin@kylinos.cn>. checkpatch reports this
+> as a From:/Signed-off-by: email address mismatch. Could the two addresses
+> be made to match?
+> 
+> > diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
+> > index 9249a79a168e4..340af4c3fa201 100644
+> > --- a/drivers/net/bonding/bond_main.c
+> > +++ b/drivers/net/bonding/bond_main.c
+> > @@ -1948,6 +1948,23 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
+> >  		return -EPERM;
+> >  	}
+> >  
+> > +	/* Check XDP support before any state change, so a slave without
+> > +	 * XDP can never become visible to bond_xdp_xmit().
+> > +	 */
+> > +	if (bond->xdp_prog) {
+> > +		if (!slave_ops->ndo_bpf || !slave_ops->ndo_xdp_xmit) {
+> > +			SLAVE_NL_ERR(bond_dev, slave_dev, extack,
+> > +				     "Slave does not support XDP");
+> > +			return -EOPNOTSUPP;
+> > +		}
+> 
+> [Severity: High]
+> Does the "can never become visible" claim still hold when bond->xdp_prog
+> is NULL?
+> 
+> bond_xdp_xmit() is the bond's ndo_xdp_xmit. Devmap and bpf_redirect reach
+> it after only this check:
+> 
+> kernel/bpf/devmap.c:__xdp_enqueue() {
+>     ...
+> 	if (!(dev->xdp_features & NETDEV_XDP_ACT_NDO_XMIT))
+> 		return -EOPNOTSUPP;
+>     ...
+> }
+> 
+> bond_xdp_set_features() builds that flag from bond_xdp_check() and the
+> slaves' xdp_features. It never looks at bond->xdp_prog:
+> 
+> 	if (!bond_xdp_check(bond, BOND_MODE(bond)) || !bond_has_slaves(bond)) {
+> 		xdp_clear_features_flag(bond_dev);
+> 		return;
+> 	}
+> 
+> 	bond_for_each_slave(bond, slave, iter)
+> 		val &= slave->dev->xdp_features;
+> 
+> Take a round-robin, active-backup, XOR or 802.3ad bond with no XDP
+> program, where all current slaves advertise NDO_XMIT and another device
+> redirects XDP frames into the bond. Enslaving a device with a NULL
+> ndo_xdp_xmit skips this check.
+> 
+> The new slave then becomes visible before bond_xdp_set_features() clears
+> NDO_XMIT on the bond:
+> 
+>   - the default case of the mode switch in bond_enslave() does
+>     rcu_assign_pointer(bond->curr_active_slave, new_slave)
+>   - bond_master_upper_dev_link() puts the slave on the lower list that
+>     bond_get_slave_by_id() walks
+>   - slave_cnt++ and bond_update_slave_arr() also run before
+>     bond_xdp_set_features()
+> 
+> A redirect on another CPU runs under RCU only, without RTNL. It could pick
+> the new slave, for example through the IGMP path of
+> bond_xdp_xmit_roundrobin_slave_get():
+> 
+> 	if (iph->protocol == IPPROTO_IGMP) {
+> 		slave = rcu_dereference(bond->curr_active_slave);
+> 		if (slave)
+> 			return slave;
+> 
+> bond_xdp_xmit() then makes the call without a NULL check:
+> 
+> 	err = slave_dev->netdev_ops->ndo_xdp_xmit(slave_dev, 1, frames1, flags);
+> 
+> Can this call a NULL ndo_xdp_xmit in softirq context?
+> 
+> There seems to be a second window as well. __xdp_enqueue() checks
+> xdp_features when a frame is queued, but the bulk queue is flushed later
+> without a recheck:
+> 
+> kernel/bpf/devmap.c:bq_xmit_all() {
+>     ...
+> 	sent = dev->netdev_ops->ndo_xdp_xmit(dev, to_send, bq->q, flags);
+>     ...
+> }
+> 
+> No RCU grace period follows xdp_set_features_flag() either.
+> 
+> The later patches in the series don't close this. At the end of the
+> series:
+> 
+>   - the check is still gated on bond->xdp_prog, now in
+>     bond_enslave_validate()
+>   - bond_xdp_xmit() is unchanged
+>   - bond_xdp_set_features() now runs before bond_publish_slave(), but
+>     still after the curr_active_slave assignment and the lower-list link
+> 
+> One option is to guard the call in bond_xdp_xmit(), or to select only
+> slaves that advertise NDO_XMIT. Another is to clear the bond's NDO_XMIT
+> and wait for in-flight readers before any slave without XDP support
+> becomes visible, whether or not bond->xdp_prog is set. Would one of these
+> be a better fit?
+> 
 
+As I mentioned in the previous mail[1], we may need a check like
+
+  if (likely(slave_dev->netdev_ops->ndo_xdp_xmit))
+      err = slave_dev->netdev_ops->ndo_xdp_xmit(slave_dev, 1, frames1, flags);
+
+On the other hand, should we call bond_xdp_xmit() without a bond->xdp_prog?
+I need to check if we should move the bond_xdp_set_features(bond_dev);
+inside the if (bond->xdp_prog) checking. So when we build the bond xdp
+features, we can make sure there is a bond->xdp_prog set.
+
+[1] https://lore.kernel.org/netdev/aqokD2avF7B7Towi@fedora/
+
+Thanks
+Hangbin
+
+---
+pw-bot: cr
