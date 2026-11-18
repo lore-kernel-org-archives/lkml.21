@@ -1,59 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795027318;
-	b=EoEw+xCTm5Ic7RgO/Sw37WlJfkt245pzcqrF8GyOi252abTPE1Cb/CNWAx+X5JS1m/Sq
-	 Xk1zI6Hw16YTZQlTpQmJN4Fr1UP+7WfmHDVa08FpRPmxDqMxz/dxBJZHIRNCV9TWFxNNn
-	 VBRKAi+NPAnPQW2KoRsQdKY3vXBE9sidmiWalg4d5CLtF7P3izFxBVaBSS68fA7sdi0ri
-	 iWIAVHZWiYtIWHilFrSusy4qyL2N6yXccTWJ8fcPS5NJiDR1tfuYYPuxYPurEnZE2HuVb
-	 8st4FqmsiLj0KEqh+N0KNyIqkpo8LJcDZ6zYHCzO45LvmiTA9sYwrAyD/zlZhPdvcGw==
+	t=1795027356;
+	b=jxj9c9dVbqE97gb9AkSmg2KBBXtzALoyQCHTU1faWUHfkuvnYSdaK7qbvOM/kDZt+JkE
+	 h4OpMmJ6mJRul+9sGDQFdbyvf/m9VbUuKHMk0G1NZBhmrnW25bC9JcjenOMh7XZ/Z2ZzD
+	 8XqEYOkwub+x1pWPFVSJ5f5JzocqLqx9gm4nAL2g7PnEHw/KqMwnH4TwMvOhz/svjaOtU
+	 TUuLwfSNUqq8zlvYZVyRd6ealf+QCC/d6i79yi43r7V0i8Sf8XpMQTlQd/MgIsYuNe/oW
+	 RechiGt1dLUFfWYkhHpM2vxJ5eucJ747L5DJGwoNjtRgAAERVcAd/JmVtZ7PppsKabw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795027318;
-	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Rspamd-Server:X-Rspamd-Queue-Id:
-	 X-Stat-Signature:X-Spam-Status:X-Session-Marker:X-Session-ID:
-	 DKIM-Signature:X-HE-Tag:X-HE-Meta;
-	bh=spjX/AP+q48PaOrXYRssOriUKxZG5CEsdblcdLqAMNA=;
-	b=iM7SgVqg/RA2pdQUTKHcDDC27jge9HsDVlyJeKkua00evYauqPGqrackJZMQl2O1nG74
-	 1eHj6qvIfoNUnxXvZGNeWZ+AgX7Nw+1pkR0kOzRtCLQitcVYi8wKt5UBbs+Exb6J6BJes
-	 xfOZ4dNRq8kzX73ErFK/pXK33CFysIh6EU64rHz8B6X192F3QbN4E0D1hdQQtTDlmvIUc
-	 WaseqfuPSrKbUNrxx3tV+PgXE+klY/K95QgzLw/QGIlGC/l/RL90W+Ol1y9j+CkTLzFwN
-	 1i1r+0UiUMTm645j3him1jHUh+qEJegcefLElEyjW65pRuWIfZ2QF5UqwEV52lem6aQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795027356;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=supjWQ/8tiiTSWvb0f0hWdaRNkjBdKu9iua1cYtSbOQ=;
+	b=GWaNYrxgcUYEp5qK6kgd69LJs8UgAMSTK1mHcubqKMEixe7fRpRgUql/fNTgifvYHo0+
+	 +vrogrIOvgmL41L71AgvIBJQGGksDi30vXNgkXlTUH0GLMR2wsXYiMA1sIXSwd30ylWke
+	 WswnFgQoqe5d7/6EhdXZQCf2NgTOOQ/HOOnr+x0SAopL2r6gLYT+9nfpojfENMZ79J9Ui
+	 yH27KEYIqtad1oLJFhgiOZTPZrcLakkCjqULrEo3pSPe9y3P04piJSDhz3zE6FyZrWtjy
+	 xTaBHiXUBBYA7qrytReQTRee6snqKWSbD+OFr1SXqjR958oJ32PYH+N7k8OrtMIsV+Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=goodmis.org;
-	spf=pass smtp.mailfrom=goodmis.org;
-	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=KAQnh+6l;
-	arc=none smtp.remote-ip=216.40.44.16
-Received: from relay.hostedemail.com (smtprelay0016.hostedemail.com [216.40.44.16])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=PF2vfpno;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Js+2KPre;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDCFF606A338;
-	Wed, 18 Nov 2026 18:41:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DDCFF606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E66A760A2616
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:42:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E66A760A2616
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=KAQnh+6l
-Received: from omf11.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay10.hostedemail.com (Postfix) with ESMTP id DC508C0854;
-	Wed, 18 Nov 2026 18:41:49 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf11.hostedemail.com (Postfix) with ESMTPA id C2E3320029;
-	Wed, 18 Nov 2026 18:41:47 +0000 (UTC)
-Date: Wed, 18 Nov 2026 13:41:46 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Weiming Shi <bestswngs@gmail.com>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland
- <mark.rutland@arm.com>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- co+bba0c6b49150bef3@bugs.sh, Xiang Mei <xmei5@asu.edu>,
- stable@vger.kernel.org
-Subject: Re: [PATCH 1/2] ftrace: Wait for graph readers before releasing
- operations
-Message-ID: <20261118134146.3577fcad@gandalf.local.home>
-In-Reply-To: <20261103175832.3374540-1-bestswngs@gmail.com>
-References: <20261103175832.3374540-1-bestswngs@gmail.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=PF2vfpno;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Js+2KPre
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AII1PAI275485
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:42:32 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	supjWQ/8tiiTSWvb0f0hWdaRNkjBdKu9iua1cYtSbOQ=; b=PF2vfpno+jJczsL7
+	gwxDfvPL6Vg5B+YBB+0F8c2Bzhw5hn2MV/goPaWvnBvL/EO20ThimukhQa8uD0B8
+	WbSpY+rS8p1w90k8IZ1ChKYCMBe2kFk3cq/w0KRS2KxF85S3IU+7yzIC7bWy40PN
+	VbcokZlfhyCcJloc/q5Z1QOdrYufuCIw5l/wHZwRaqon1y+LbO2kw3a2ZIuO4o7v
+	xxT/20q3ma+12yYBTIfra6byFhzv8qeMv4dzBu0p7+P2aBvDEH7jlsY8uy9hpOjG
+	B95Af4lBLF9opvLnE4r3CteQAwrA9gaajG2rjWQGN4ArzN71y6csCD8dl9T2B48p
+	q9EYwA==
+Received: from mail-vs1-f69.google.com (mail-vs1-f69.google.com [209.85.217.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j1gxcr69f-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:42:31 +0000 (GMT)
+Received: by mail-vs1-f69.google.com with SMTP id ada2fe7eead31-7d2ec691518so106519137.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:42:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795027351; x=1795632151; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=supjWQ/8tiiTSWvb0f0hWdaRNkjBdKu9iua1cYtSbOQ=;
+        b=Js+2KPrehhz0cJUNHtKg1I0ioTZhBt8tCtSEsq53IpeZxafQM52UvrW7yU9tQKcGcH
+         QbZAvcUgheHM5XqbRSCLR6/qnFFQ9H/1aDGYrN+iqWjc7Nkc803FxhY5ybIazqmQzyGb
+         J3SORHQ0fghBaJrg83FDjjLNwApAKZWKXVDFxfk+wk+3IWTPsNl+mU3Z/fo4sTbw/7fn
+         nyg2/4x6LNnhSvA3TKPQPmoHLx7/sNQWeogdc7RCbvsWsQmt0VJsAD0oOGb0/Bip8Ftk
+         N1OhApzpIaOjnlxF+tbezanUFyDRSLCdnCAK3Oeh0XQNVkLiY7YaSMruN+Y95gjpIfto
+         MG/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795027351; x=1795632151;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=supjWQ/8tiiTSWvb0f0hWdaRNkjBdKu9iua1cYtSbOQ=;
+        b=mGauF2nwO6VJs6k0CIY7rOjWwCY24C1reuoceA1dhP7yhNymYsodCfUy0PYnN+wNsA
+         lmjoH0SP988gaxQZnqekBFxKhJUnV0RJ+LvuNLyepfQ0a4w4L+Yn2JoTueJFqy2Byxoo
+         F+whW6TfIPAm1r1OUhFYAmZmrhsPdl+X3hQ0Jq6+4E7J5B8Jl5ff/+h7ksU0/sZeywMO
+         gtOH7Vsr8zCy+OevMAiGeDvEXo7uFUg6q2iY/uFnMwf24szgls/bpDjGTp1Gv/FrBHkb
+         yhotD2/0h2J3LPG1SkrIYI9Plgknc8DhvDCXauJgr0lZT9bcCnJmXmRT2ZbWZOme73KL
+         EpyQ==
+X-Forwarded-Encrypted: i=1; AL+hErFukAKPQZmsQ12MV1W83AcCtrdoedjUZLLqXtzxXyf/mfGdSAeDzzJeS87rwGajFADH3vywJ8Z2vVtOrjk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/nyXA7si9yhJLE/0Sy3QZfAVnwvI/u9ugXuK6pgbO1CLtYxH5b
+	JfFu2ScjPAd3EpVXe7dOyPR0dhR5jv5zku6rL/nxZT5SPxryU/hScvxNI1qM5PA+/Wnr++QKGJu
+	1x0G9ayrsEbzBzaeWGu31lD5+aLXgjpb72KoNIkBkn4Jwnq//dnmtf0jbVQWUSudCk5Q=
+X-Gm-Gg: AYBFou3lKe8p8F0ETGl3o9K3bGDExNIJUBCfN4iHSqtq/10M0MD/Ue/DzDlYC6zrZ8O
+	IBxfcT/9n7aBd3wGXnPy1MI9kBqWlAsnHELMjMvmFVObdqIlTLiRuoorzB6Al/z+lwjawawxTi5
+	FnI5WAN+/0omhp2bbGxNZNjJOKdZHwj35ToOTJ15AyStPIpU39ArPXxUGg0nwDOGm7yl1f/WgZz
+	rTAsB+W9pZqjXVauj6GtiEuEyDVU8PgCzShDqksmF/yp+1Qt/eoFK6O0g9DFmxB2wvQ+zdaRsdz
+	3t+2CMPTaazUnCLnxdLd8Pjo1NHKqL5lBHC64HYgGtpYpwiYDM188C0nolw+WmPSV28ffCR3lSF
+	DU+JGTjx17u6EK/BHllucN7lBg2cmEyNdHCrNKCVBTVfXUhmsfdfllFo6x/KrQMpfuzqCCXRqHg
+	==
+X-Received: by 2002:a05:6102:442a:b0:7d2:d799:d7c2 with SMTP id ada2fe7eead31-7d6cb430827mr150828137.2.1795027350951;
+        Wed, 18 Nov 2026 10:42:30 -0800 (PST)
+X-Received: by 2002:a05:6102:442a:b0:7d2:d799:d7c2 with SMTP id ada2fe7eead31-7d6cb430827mr150801137.2.1795027350370;
+        Wed, 18 Nov 2026 10:42:30 -0800 (PST)
+Received: from [10.204.104.211] ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6b91e87f4sm2532457137.7.2026.11.18.10.42.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 10:42:29 -0800 (PST)
+Message-ID: <4d16306b-31c1-4406-a1f4-858abd3f44ff@oss.qualcomm.com>
+Date: Thu, 19 Nov 2026 00:12:18 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,239 +116,116 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/6] firmware: qcom: scm: Add
+ qcom_scm_gpu_init_regs_is_available()
+To: Puranam V G Tejaswi <puranam.tejaswi@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>,
+        Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar
+ <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
+        freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+References: <20261118-adreno-scm-fallback-v1-0-e99cdbf3121d@oss.qualcomm.com>
+ <20261118-adreno-scm-fallback-v1-1-e99cdbf3121d@oss.qualcomm.com>
+Content-Language: en-US
+From: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+In-Reply-To: <20261118-adreno-scm-fallback-v1-1-e99cdbf3121d@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Rspamd-Server: rspamout05
-X-Rspamd-Queue-Id: C2E3320029
-X-Stat-Signature: 7s4gj4buybzgq1fkstuqfg57qojonwt3
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX19XrPjGFbL7NhknHsEsWmykqf4O1VC3d2s=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=spjX/AP+q48PaOrXYRssOriUKxZG5CEsdblcdLqAMNA=; b=KAQnh+6lRo99s81nk3jTg59Dy38EX/msxPLzbjDnFRaG6E2xJ+PjlWkiuhrBBAtfrV8RI7nQ8U0zoNsVlJxqDByq/jU2v29cqSvQzdhzuImFdeVaZtK+I9PloWK2Jl7V9j5cgJKPS45RnbD3LlvcL+Fnu+bYFCrtFtDjKMnK2wY=
-X-HE-Tag: 1795027307-44282
-X-HE-Meta: U2FsdGVkX187V8teZLv/nwiP+uWPrXw3ueZ5JdZdR1zaQDQ/DMZWDFYtNFqZA58Pm+7h7MUyZnSeW6X2zV4DvmGJxMdsS5JrZAoPJDGxZ5ARmUPa+OvTJpu8A03uJ4Ay7abqVYaQI0H2GDSiWwm16KxbcKaeCHCWyMYcW2durbWtvvNQ3WhJZwrmb6EJU7Ov2oOrOUnAMHYvw8Ewxj5UajWSrkfaJfpj3LEwwpPYlJOZ+sONVsPo9ih3Tsten9CoNc/ih/eolyAi2GgbBlGiLjZPiEt0D0gNKgzIVO4YTm49UEpqHFPHKsMRU9QmYQB1DUanNBhXIrsoDIKMB1rzC2PJivZz2t7uklJwxTiJKMCs+L5lCVYOcw==
+X-Authority-Analysis: v=2.4 cv=LZapeTfi c=1 sm=1 tr=0 ts=6afdf197 cx=c_pps
+ a=5HAIKLe1ejAbszaTRHs9Ug==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=EUspDBNiAAAA:8 a=L50M_nCPciy2geT04tYA:9 a=QEXdDO2ut3YA:10
+ a=gYDTvv6II1OnSo0itH1n:22
+X-Proofpoint-ORIG-GUID: 2hsc34b0kcIM5LwHRxMWZVpGK2IMYRwO
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA3NCBTYWx0ZWRfX/O4v9eOq9yQF
+ zfBUcEZaQ30Vs6SOiX87/81MQPo6wc32JUhZ7yofNkDE/QbERSeYqWhQPga17n7pEkLfgCVKNCN
+ S/nolrfgRQ8MYLSVjW98d4xulYa/7oil5kFK+dOH72uBfQmlwjfm7xgmTzw61p7OsOR91dGDkOy
+ v9qaTleIOtkSTHhulgkFCXKoP4WGrtrSZNK135vlV4rDD74O+Tw5cSKKOzLKjhfbS1WdiMmYCow
+ 9hNBLIDbrTIpoainy9778ayaCFZ2uQdi3FNinVfopqS+tafrrzSkcqHNINa1ADfk4sY9EROuyU8
+ 2KIOm9eT5fqYEpF+fjQiwYYKeSpUScB8Kwav+abpeqpAa7bciBTNYBgviiw/GG5Ava0ImsDo7jz
+ AxrIwQdkZbhLh+8lyODYBh+1umRPIbD21a9WgQQK+U6duHBXKOoUZ+ZRH/BKV3MNqM0OOJXHiWl
+ IXbiTox1dMJZvLHbYmA==
+X-Proofpoint-GUID: 2hsc34b0kcIM5LwHRxMWZVpGK2IMYRwO
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA3NCBTYWx0ZWRfX+SlcPkHpTjyj
+ ZHYJbvxBTT+rek73KK2ZmZ19mX3IX8su36fvPeWoFx/BtJhc2FFe9U4+MFqKRoZ5q1aWU02yTs1
+ B9hDYXmkhwqxoebXZ9wKxUNdcWgWm6M=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-18_05,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 spamscore=0 phishscore=0 priorityscore=1501 suspectscore=0
+ bulkscore=0 adultscore=0 impostorscore=0 lowpriorityscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180074
 
-On Tue,  3 Nov 2026 09:58:30 -0800
-Weiming Shi <bestswngs@gmail.com> wrote:
 
-> unregister_ftrace_graph() removes an operation from the graph array before
-> returning. A graph callback may already hold the operation or its filter,
-> however, while the caller can release them as soon as unregistration
-> completes.
+
+On 11/18/2026 6:38 PM, Puranam V G Tejaswi wrote:
+> The Adreno driver asks the secure world to initialize some GPU registers
+> through qcom_scm_gpu_init_regs(), and fails to power up the GPU if this
+> call fails.
 > 
-> This can happen without a hash update failure. For example, consider three
-> graph operations with identical filters where one also enables PID
-> filtering. Removing that operation leaves the manager hashes unchanged, so
-> an in-flight fgraph_pid_func() may call gops->saved_func after unregister
-> has cleared it.
-
-Can you give an actual example of the above? That is, show command lines
-that could possibly create the scenario.
-
-Because honestly, the above is very confusing.
-
+> Not every secure world implements this call. When it is missing, the
+> call fails in the same way as a real error, so the driver cannot tell
+> the two cases apart.
 > 
-> Graph callbacks run with preemption disabled and may run while RCU is not
-> watching.
-
-This is no longer the case. All function tracing should now have RCU watching.
-
-> Separate removing the operation from graph dispatch from waiting
-> for callbacks that may still be using it. Keep unregister_ftrace_graph()
-> synchronous by performing both steps, and require internal users of the
-> split interface to pair every successful removal with a reader wait.
+> Add qcom_scm_gpu_init_regs_is_available(), similar to
+> qcom_scm_set_gpu_smmu_aperture_is_available(), so that the driver can
+> check whether the secure world supports the call before making it.
 > 
-> For fprobes, unpublish the graph operation and release its slot
-> synchronously, then queue the reader waits and filter release. This keeps
-> the waits out of unregister_fprobe_async(). Flush the work before reusing
-> the shared graph operation.
-> 
-> Disable fprobe return dispatch before unpublishing the operation and check
-> that state inside the callback's RCU critical section. Re-enable dispatch
-> only after graph registration succeeds, so a return callback cannot use a
-> released fprobe while cleanup is pending.
-> 
+> Signed-off-by: Puranam V G Tejaswi <puranam.tejaswi@oss.qualcomm.com>
 
-The above is 100% AI generated and not parseable by humans. Please rewrite.
+Reviewed-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
 
-> Cc: stable@vger.kernel.org
-> Fixes: df3ec5da6a1e ("function_graph: Add pid tracing back to function graph tracer")
-> Reported-by: <co+bba0c6b49150bef3@bugs.sh>
-> Assisted-by: LLM
-> Signed-off-by: Weiming Shi <bestswngs@gmail.com>
-> ---
->  kernel/trace/fgraph.c          | 47 +++++++++++++++++++++++++++++++---
->  kernel/trace/fprobe.c          | 21 ++++++++++++---
->  kernel/trace/ftrace_internal.h |  2 ++
->  3 files changed, 62 insertions(+), 8 deletions(-)
+-Akhil> ---
+>  drivers/firmware/qcom/qcom_scm.c       | 7 +++++++
+>  include/linux/firmware/qcom/qcom_scm.h | 1 +
+>  2 files changed, 8 insertions(+)
 > 
-> diff --git a/kernel/trace/fgraph.c b/kernel/trace/fgraph.c
-> index ed455b535..14733f519 100644
-> --- a/kernel/trace/fgraph.c
-> +++ b/kernel/trace/fgraph.c
-> @@ -1420,13 +1420,26 @@ int register_ftrace_graph(struct fgraph_ops *gops)
->  	return ret;
+> diff --git a/drivers/firmware/qcom/qcom_scm.c b/drivers/firmware/qcom/qcom_scm.c
+> index 030e4ba90812..f4f34b7dd0b2 100644
+> --- a/drivers/firmware/qcom/qcom_scm.c
+> +++ b/drivers/firmware/qcom/qcom_scm.c
+> @@ -1941,6 +1941,13 @@ int qcom_scm_lmh_dcvsh(u32 payload_fn, u32 payload_reg, u32 payload_val,
 >  }
+>  EXPORT_SYMBOL_GPL(qcom_scm_lmh_dcvsh);
 >  
-> -void unregister_ftrace_graph(struct fgraph_ops *gops)
-> +/**
-> + * unregister_ftrace_graph_start - unpublish a function graph operation
-> + * @gops: graph operation to remove
-> + *
-> + * Remove @gops from graph dispatch, release its array slot, and update the
-> + * graph and subop state. Existing graph callbacks may still be using @gops
-> + * after this returns.
-> + *
-> + * Return: true if @gops was unpublished. The caller must then invoke
-
-What do you mean by "published" and "unplublished". I don't use that
-terminology in ftrace.
-
-> + * unregister_ftrace_graph_finish() exactly once before releasing @gops or its
-> + * filter, even if the subop hash update failed.
-> + */
-> +bool unregister_ftrace_graph_start(struct fgraph_ops *gops)
+> +bool qcom_scm_gpu_init_regs_is_available(void)
+> +{
+> +	return __qcom_scm_is_call_available(__scm->dev, QCOM_SCM_SVC_GPU,
+> +					    QCOM_SCM_SVC_GPU_INIT_REGS);
+> +}
+> +EXPORT_SYMBOL_GPL(qcom_scm_gpu_init_regs_is_available);
+> +
+>  int qcom_scm_gpu_init_regs(u32 gpu_req)
 >  {
->  	int command = 0;
-> +	bool removed = false;
+>  	struct qcom_scm_desc desc = {
+> diff --git a/include/linux/firmware/qcom/qcom_scm.h b/include/linux/firmware/qcom/qcom_scm.h
+> index a0a6bc0229c4..c9e88b2904e3 100644
+> --- a/include/linux/firmware/qcom/qcom_scm.h
+> +++ b/include/linux/firmware/qcom/qcom_scm.h
+> @@ -131,6 +131,7 @@ bool qcom_scm_lmh_dcvsh_available(void);
+>   */
+>  #define QCOM_SCM_GPU_TSENSE_EN_REQ BIT(3)
 >  
->  	if (WARN_ONCE(!(gops->ops.flags & FTRACE_OPS_FL_GRAPH),
->  		      "function graph ops unregistered without registering"))
-> -		return;
-> +		return false;
+> +bool qcom_scm_gpu_init_regs_is_available(void);
+>  int qcom_scm_gpu_init_regs(u32 gpu_req);
 >  
->  	guard(mutex)(&ftrace_lock);
->  
-> @@ -1440,7 +1453,8 @@ void unregister_ftrace_graph(struct fgraph_ops *gops)
->  	if (fgraph_lru_release_index(gops->idx) < 0)
->  		goto out;
->  
-> -	fgraph_array[gops->idx] = &fgraph_stub;
-> +	WRITE_ONCE(fgraph_array[gops->idx], &fgraph_stub);
-> +	removed = true;
->  
->  	ftrace_graph_active--;
->  
-> @@ -1460,7 +1474,32 @@ void unregister_ftrace_graph(struct fgraph_ops *gops)
->  		unregister_pm_notifier(&ftrace_suspend_notifier);
->  		unregister_trace_sched_switch(ftrace_graph_probe_sched_switch, NULL);
->  	}
-> -	gops->saved_func = NULL;
->   out:
->  	gops->ops.flags &= ~FTRACE_OPS_FL_GRAPH;
-> +	return removed;
-> +}
-> +
-> +/**
-> + * unregister_ftrace_graph_finish - wait for readers of an unpublished operation
-> + * @gops: graph operation previously unpublished by unregister_ftrace_graph_start()
-> + *
-> + * Wait for existing graph readers, then clear the saved callback. This may
-> + * sleep. The caller may release @gops and its filter after this returns.
-> + */
-> +void unregister_ftrace_graph_finish(struct fgraph_ops *gops)
-> +{
-> +	/*
-> +	 * The graph callbacks run with preemption disabled and may run while
-> +	 * RCU is not watching. Wait for both kinds of readers before the
-
-This is no longer correct.
-
--- Steve
-
-
-> +	 * caller can release the graph ops or its filter.
-> +	 */
-> +	synchronize_rcu_tasks_rude();
-> +	synchronize_rcu_tasks();
-> +	gops->saved_func = NULL;
-> +}
-> +
-> +void unregister_ftrace_graph(struct fgraph_ops *gops)
-> +{
-> +	if (unregister_ftrace_graph_start(gops))
-> +		unregister_ftrace_graph_finish(gops);
->  }
-> diff --git a/kernel/trace/fprobe.c b/kernel/trace/fprobe.c
-> index da286619c..c53ad37a0 100644
-> --- a/kernel/trace/fprobe.c
-> +++ b/kernel/trace/fprobe.c
-> @@ -14,9 +14,11 @@
->  #include <linux/rhashtable.h>
->  #include <linux/slab.h>
->  #include <linux/sort.h>
-> +#include <linux/workqueue.h>
->  
->  #include <asm/fprobe.h>
->  
-> +#include "ftrace_internal.h"
->  #include "trace.h"
->  
->  #define FPROBE_IP_HASH_BITS 8
-> @@ -279,6 +281,14 @@ static struct fgraph_ops fprobe_graph_ops = {
->  static int nr_fgraph_fprobes;
->  /* Is fprobe_graph_ops registered? */
->  static bool fprobe_graph_registered;
-> +static void fprobe_graph_cleanup_workfn(struct work_struct *work);
-> +static DECLARE_WORK(fprobe_graph_cleanup_work, fprobe_graph_cleanup_workfn);
-> +
-> +static void fprobe_graph_cleanup_workfn(struct work_struct *work)
-> +{
-> +	unregister_ftrace_graph_finish(&fprobe_graph_ops);
-> +	ftrace_free_filter(&fprobe_graph_ops.ops);
-> +}
->  
->  /* Add @addrs to the ftrace filter and register fgraph if needed. */
->  static int fprobe_graph_add_ips(unsigned long *addrs, int num)
-> @@ -286,6 +296,7 @@ static int fprobe_graph_add_ips(unsigned long *addrs, int num)
->  	int ret;
->  
->  	lockdep_assert_held(&fprobe_mutex);
-> +	flush_work(&fprobe_graph_cleanup_work);
->  
->  	ret = ftrace_set_filter_ips(&fprobe_graph_ops.ops, addrs, num, 0, 0);
->  	if (ret)
-> @@ -297,7 +308,7 @@ static int fprobe_graph_add_ips(unsigned long *addrs, int num)
->  			ftrace_free_filter(&fprobe_graph_ops.ops);
->  			return ret;
->  		}
-> -		fprobe_graph_registered = true;
-> +		WRITE_ONCE(fprobe_graph_registered, true);
->  	}
->  	return 0;
->  }
-> @@ -305,9 +316,9 @@ static int fprobe_graph_add_ips(unsigned long *addrs, int num)
->  static void __fprobe_graph_unregister(void)
->  {
->  	if (fprobe_graph_registered) {
-> -		unregister_ftrace_graph(&fprobe_graph_ops);
-> -		ftrace_free_filter(&fprobe_graph_ops.ops);
-> -		fprobe_graph_registered = false;
-> +		WRITE_ONCE(fprobe_graph_registered, false);
-> +		if (unregister_ftrace_graph_start(&fprobe_graph_ops))
-> +			schedule_work(&fprobe_graph_cleanup_work);
->  	}
->  }
->  
-> @@ -679,6 +690,8 @@ static void fprobe_return(struct ftrace_graph_ret *trace,
->  	ret_ip = ftrace_regs_get_instruction_pointer(fregs);
->  
->  	guard(rcu_sched_notrace)();
-> +	if (!READ_ONCE(fprobe_graph_registered))
-> +		return;
->  
->  	curr = 0;
->  	while (size_words > curr) {
-> diff --git a/kernel/trace/ftrace_internal.h b/kernel/trace/ftrace_internal.h
-> index 3235470e6..abb7776a2 100644
-> --- a/kernel/trace/ftrace_internal.h
-> +++ b/kernel/trace/ftrace_internal.h
-> @@ -52,6 +52,8 @@ static inline int ftrace_shutdown_subops(struct ftrace_ops *ops, struct ftrace_o
->  
->  #ifdef CONFIG_FUNCTION_GRAPH_TRACER
->  extern int ftrace_graph_active;
-> +bool unregister_ftrace_graph_start(struct fgraph_ops *gops);
-> +void unregister_ftrace_graph_finish(struct fgraph_ops *gops);
->  # ifdef CONFIG_DYNAMIC_FTRACE
->  extern void fgraph_update_pid_func(void);
->  # else
+>  int qcom_scm_shm_bridge_create(u64 pfn_and_ns_perm_flags,
+> 
 
