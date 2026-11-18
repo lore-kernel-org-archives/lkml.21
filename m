@@ -1,47 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794996493;
-	b=XPZq9kYS3lBCPcFbpy2zW/uiD8k6NZb+TSAIdC7ueB8iwFbzarETh5LfN0PMwHfK/Lmm
-	 ucIDN0d+VH4lQvbctDHX0AB55PPgh/3x5IXfpLYPU2KEuwqM0kaFIzuxFv3Y6T7lSUzEm
-	 rmRfs2kUPl8q1dqFYr4pCrNFmEPWynZWH+kM+1jSAgaTjnGQVnXPWhgUmD54FhOIamwSq
-	 XIPTdvsQSyNeUk6joHgxxFVNfPhIFjsK5liS8s6kKfSMjUCXeqK+adQHM0pA7b2frdIb9
-	 7D0Y+2+V4rCnPIO+1d4CRNA4C+W20wdkPsGuo2bTQSBwXlKUznCJwlKmHlvdcpamkNA==
+	t=1794996548;
+	b=1AbOkaCxSBT7/WWrkl796eNPQdlaWXyK98Kje1DJdGzEAcB8NhcL357aiU/xwzEoibie
+	 mEuv+vp1DdJlS08rvJP0npjDrjkBrY8KZ+SbwiltLVgPMcJblFGD1Z3IQUAxkRk1ssfxZ
+	 3l0o4pQUmoitaa8Kl47ZRAmKnS8+qvOs3uue1tG1I8WOJOfXHTgqVVmpzftT9NbYpuZ8G
+	 k0OIlKlxC4tp72L0fEA38z6fIgrnThKa3nrTfX7H1DyBiHu5ml+GzxXMliZZ2rxeQvBOe
+	 Y//ATN8dKieaDeIF/cSdt/PT+tyJIx9eV4JJJ89JXHUFmz7bpBRVNqrxKMnWXlpCcOw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794996493;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=7zhgK2cftjiTzkt87l4mZkq8xI6jhkpMgB4GLzuXArw=;
-	b=QIg+LWW3XBzYcaCvd1vlrk9a1mXV3DQ4wqh+hcbfJwWQybmexxtXXp7sLW/J9mL8UfyQ
-	 hi0nt9ra+XkIzAJOY5vVFxMpgpHrIm3VPog+zvejmShheu4LE2CR/Begu1V6p4n6rWEfz
-	 TnN7ZmvpAyN0CMtPDIQi1d7/Vos2NhtUbLA+EswBdX0kPeJ0yvG3C+Z9VYzQGB567M8BU
-	 2yhBQyB7Y/hQMgZ072BpoglgtOURaW5zAWZbFlXXSGZYPwgcF5hkVW5SHmTkvu3LOk4UB
-	 rsbBMqrki2GeRxOcMmej0TtKfkZi6Z7aqYkqeLGK7GBUA8y+YovDCpcY8C6BHtiFDnA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794996548;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=+B1TOH9oUaUU/yKHKlpMG2Fg0rcqqVsIpnka2NiH2/I=;
+	b=fgAeMrN7A5lGVPvnF1pby6X8k08AcoxHspwx+igMNqNS/ybaJMDRyx702SF8SOEI1wYQ
+	 vb2/POO3b5nap3ZQ7hzmYXPv+pj2T8o4fAkVUrw2VJ12FpXs+ZLQiNt8TY1kjSSoeNOgv
+	 u+GnoexKoIBT8PqjNKYiy6zPHn2pxLKxgh65Vzb4Vwp7GCZOctFo6J1Vt0EINb/EvBY3d
+	 oLQde4ZhKf7OaG15jxAaWEZRZWpCRfKs1i6FuOjqOXuOSjWCQxVALvXDQmMs9b+KILe1O
+	 asLbHt8pvWvZJnLfV5kskSy+2A3pJi8bqhIHXlxm0DE1IskZHMthLbsZ1KuN8mfifWg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DYBjfuJG;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--amitamishra.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=G14vOFv3;
+	arc=none smtp.remote-ip=209.85.210.197
+Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2AC4F606A33D;
-	Wed, 18 Nov 2026 10:08:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FCD6606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:09:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0FCD6606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--amitamishra.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DYBjfuJG
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 728631F000C4;
-	Wed, 18 Nov 2026 10:08:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794996492;
-	bh=7zhgK2cftjiTzkt87l4mZkq8xI6jhkpMgB4GLzuXArw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=DYBjfuJGrCXQ5e9ujie/dO4L0JQvm+DUcbp2mc5xLpc6ZPVBjs3Ks40ccoAIAn5jE
-	 S064t9CjDeHB7T3eD57yk2dXCKfnBCc6wRIq+ITEIAdxG1oGk9NZkCCWhJODWp/Dbs
-	 ITgEHQZfxngWJpcYEVO0uKaZyWR9UqTt0PUJ0E5rvoLarq2wbkWgaUzYyw+1OA4UCO
-	 AefOBHsv0F+y8WwxpSM6ztttoWEsueqP42lDnMak+TZEkavGJ0n0yZQjCg7eQsioGi
-	 50KaZEwibq/raNQbq8BnQ6SOqDX6nGbphDC99VEYumkuZNFqFD7zuwP4HwACP0Jmwm
-	 S/Z+52+/5aPjg==
-Message-ID: <fceee6fa-2bfb-4676-b5ac-80e1bae8d4f4@kernel.org>
-Date: Wed, 18 Nov 2026 11:08:06 +0100
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=G14vOFv3
+Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-8b203b0c139so645903b3a.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:09:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1794996547; x=1795601347; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=+B1TOH9oUaUU/yKHKlpMG2Fg0rcqqVsIpnka2NiH2/I=;
+        b=G14vOFv3Ujb4z9LNJX6zHgOB/CiwYIy9Oy8Jt5I6Gz3ApMFDg7KvkQ6RdNztHu3C8c
+         qziMNmi2uJwjjaGR1vEA01vJ0dWRcsexxdNVY3WbxuuoGZ00IDI5nfaFpfm2TOVvOmEv
+         v6GBlsjWXLTtTTxV/GBDpFeJg3Lnac74OjZ1x9PjbqKwQWKRLSbDHwJkWH1Xbwre/Oyq
+         daIGMoFrDrnzXyHsjznsigqT+tDVSneoU1pbr0wCyfdQRCZrV/uqPnvH3EesfIHdEkK/
+         q1rQAwwD0IsLN3y5YmG2rO3PFMh07S/0ZSqHrTRr1v6g7FbtivSzK02Bzn0XmTaGF8je
+         T/Cw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794996547; x=1795601347;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+B1TOH9oUaUU/yKHKlpMG2Fg0rcqqVsIpnka2NiH2/I=;
+        b=JCi8oGocJTPDU5yNZIacVmCLXE0X4RFU4PHJyFYsxt1TCEHRWn454cnJbSuAoh7Mmq
+         fDPQx44dLVkoFoCJlJsv4X6hRz5IQNjReKRvBCdkSJmpJtSBuiINo6/bbbBezSltx3CT
+         eJN6XEA+cdYzLOAU88LU046moVbhU/HKaVEfwE3Foun/WqzlsYv1xwsydCfR4syGdS7H
+         M1P+ATR+wOi2pIP2GRcfCsN7rnuFz5nzbEhvg6w26V7GFEr6JWHsJAcTCoCPF7PEAZYp
+         GgxCfBJUtxfxxW7FJ5o3kXs8ianZINGDHDcnpLZ0rV9kAyffZM0+jF8lEKEHuHLrNBVE
+         3/RA==
+X-Forwarded-Encrypted: i=1; AL+hErFgSsADJ0g8CEP70qPh5qzN8lf6QtQlWs/rBMOnH5oif0YN07i+lMorTkUJp4H3Ue5zJG+x7ok3INYougk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/sptME5SppMrFPJdkUNeOGIKvHtPimtnX80PEy0FkM2/b0y7ns
+	mIkReKpiqr4P8xkgPhmN9NTQ78BRkt7v4vDDKC1WCBs4OejY9M6gK9NHGJ2fd+sVQrYfjLXq0R0
+	n/l1QC9PxS1g9YbjA8TPP1Mgqdw==
+X-Received: from pfdf8.prod.google.com ([2002:aa7:8b08:0:b0:8c5:fdd3:6020])
+ (user=amitamishra job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6a00:1c8e:b0:87d:ee98:606 with SMTP id d2e1a72fcca58-8c5d45de9a8mr1864339b3a.23.1794996547074;
+ Wed, 18 Nov 2026 02:09:07 -0800 (PST)
+Date: Wed, 18 Nov 2026 10:08:39 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -50,162 +75,68 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 2/9] dt-bindings: phy: rockchip,rk3588-mipi-dcphy:
- Select TX or RX, add phy-type
-To: Quentin Schulz <quentin.schulz@cherry.de>,
- Jason Yang <jason98166@gmail.com>, Vinod Koul <vkoul@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Guochun Huang <hero.huang@rock-chips.com>,
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Michael Riesch <michael.riesch@collabora.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20261118-dcphy-rx-v1-v7-0-8de1adac3a74@gmail.com>
- <20261118-dcphy-rx-v1-v7-2-8de1adac3a74@gmail.com>
- <3a9e999f-5ff5-422c-aa65-b8560dca84bc@kernel.org>
- <fe324e43-50c4-4f0e-9bb0-57ea7172530b@cherry.de>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <fe324e43-50c4-4f0e-9bb0-57ea7172530b@cherry.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
+Message-ID: <20261118100839.3090172-1-amitamishra@google.com>
+Subject: [PATCH] dmaengine: dmatest: terminate channel on timeout or error
+From: Amita Mishra <amitamishra@google.com>
+To: Vinod Koul <vkoul@kernel.org>
+Cc: Frank Li <Frank.Li@kernel.org>, Dan Williams <djbw@kernel.org>, dmaengine@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+	Amita Mishra <amitamishra@google.com>
+Content-Type: text/plain; charset="UTF-8"
 
-On 18/11/2026 10:28, Quentin Schulz wrote:
-> Hi Krzysztof,
-> 
-> On 11/18/26 9:16 AM, Krzysztof Kozlowski wrote:
->> On 18/11/2026 06:55, Jason Yang wrote:
->>> The Samsung MIPI D-/C-PHY block on RK3588 and RK3576 has a transmitter
->>> for DSI and a receiver for CSI-2, and the DSI host and the CSI-2 host
->>> can use the transmitter and the receiver at the same time. The single
->>> cell of this binding selects the mode and refers to the transmitter, so
->>> the receiver cannot be described.
->>>
->>> Change the cell to select the transmitter or the receiver. The
->>> transmitter and the receiver cannot operate in different modes [1], so
->>> the optional phy-type property of the PHY node sets the mode for the
->>> whole block, D-PHY by default:
->>>
->>> 	/* the MIPI DSI host, driving the transmitter */
->>> 	phys = <&mipidcphy0 PHY_DIRECTION_TX>;
->>>
->>> 	/* the MIPI CSI-2 host, driving the receiver */
->>> 	phys = <&mipidcphy0 PHY_DIRECTION_RX>;
->>>
->>> For C-PHY the consumers stay the same and the PHY node gets:
->>>
->>> 	phy-type = <PHY_TYPE_CPHY>;
->>>
->>> Existing DTs on a newer kernel: PHY_TYPE_DPHY and PHY_TYPE_CPHY remain
->>> valid as deprecated values. They select the transmitter and imply
->>> phy-type = <PHY_TYPE_DPHY> or <PHY_TYPE_CPHY> respectively, so nothing
->>> changes for them.
->>>
->>> New DTs on an older kernel: an ABI break. The older kernel ignores
->>> phy-type and takes any cell value as the mode of the block. A DSI node
->>> with PHY_DIRECTION_TX therefore gets no display, and a CSI-2 node with
->>> PHY_DIRECTION_RX gets no camera.
->>>
->>> [1] RK3588 TRM: section 22.1 (overview): "The TX and RX only support
->>>      operate in the same PHY mode."
->>>
->>> Suggested-by: Michael Riesch <michael.riesch@collabora.com>
->>> Link: https://lore.kernel.org/r/94d47cab-10c6-4ec3-84a0-3bddc9d67f5f@collabora.com
->>> Signed-off-by: Jason Yang <jason98166@gmail.com>
->>> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
->>> Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
->>> Tested-by: Quentin Schulz <quentin.schulz@cherry.de> # RK3588 Tiger CSI1 2-lane IMX219, CSI0 2-lane OV5675+DSI
->>
->> Please drop the tag, this did not happen. In the future, please add only
->> applicable tags. Otherwise share how this code was executed and tested
->> on the actual hardware (make process, like building code, is obviously
->> not testing).
->>
-> 
-> What did not happen? I tested the v6, on the reported hardware, on the 
-> reported two DCPHYs, see 
-> https://lore.kernel.org/all/840285d6-a8a6-4777-8d38-6758ccbc7723@cherry.de/
+In interrupt mode (!params->polled), when wait_event_freezable_timeout()
+times out (!done->done) or dma_async_is_tx_complete() reports a
+non-DMA_COMPLETE status, dmatest_func() jumps to error_unmap_continue and
+calls dmaengine_unmap_put() without terminating the DMA channel first.
+Channel termination via dmaengine_terminate_sync() only happens later
+when the test thread exits, unlike the polled path which terminates the
+channel immediately after dma_sync_wait().
 
+If the DMA controller is still actively transferring when the source and
+destination buffers are unmapped, an IOMMU-backed DMA engine will trigger
+use-after-unmap translation faults, or overwrite the buffers while the
+next iteration reinitializes them. In addition, if the timed-out transfer
+completes during a subsequent iteration, its callback sets the shared
+per-thread done flag and wakes done_wait prematurely, causing the next
+iteration to fail with "completion busy status".
 
-I comment in a specific place in a specific patch. The testing of this
-patch did not happen, which I explained why.
+Terminate the channel with dmaengine_terminate_sync() on both the timeout
+and non-DMA_COMPLETE error paths before unmapping the buffers, skipping
+the redundant call on timeout when params->polled has already terminated
+the channel.
 
+Fixes: 4076e755dbec ("dmatest: convert to dmaengine_unmap_data")
+Cc: stable@vger.kernel.org
+Signed-off-by: Amita Mishra <amitamishra@google.com>
+---
+ drivers/dma/dmatest.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-> 
-> If you're complaining about the Tested-by being given to a dt-binding 
-> patch, it was provided as an answer to the cover-letter, and the 
+diff --git a/drivers/dma/dmatest.c b/drivers/dma/dmatest.c
+index 2ae3469397f3..950b7a9e7769 100644
+--- a/drivers/dma/dmatest.c
++++ b/drivers/dma/dmatest.c
+@@ -852,6 +852,8 @@ static int dmatest_func(void *data)
+ 		}
+ 
+ 		if (!done->done) {
++			if (!params->polled)
++				dmaengine_terminate_sync(chan);
+ 			result("test timed out", total_tests, src->off, dst->off,
+ 			       len, 0);
+ 			goto error_unmap_continue;
+@@ -859,6 +861,7 @@ static int dmatest_func(void *data)
+ 			   !(dma_has_cap(DMA_COMPLETION_NO_ORDER,
+ 					 dev->cap_mask) &&
+ 			     status == DMA_OUT_OF_ORDER)) {
++			dmaengine_terminate_sync(chan);
+ 			result(status == DMA_ERROR ?
+ 			       "completion error status" :
+ 			       "completion busy status", total_tests, src->off,
 
-I know. Tag was applied blindly and that I ask to correct.
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+-- 
+2.56.1.703.gf848ed807c-goog
 
-> contributor is clearly using b4 considering the last few lines from the 
-> cover letter (base-commit/change-id lines). b4 trailers -u applies the 
-> tags given to the cover letter to all patches in the series, so if 
-> there's someone to blame here, it's me for adding it as an answer to the 
-> cover letter. So now the question is, do you want me to add a Tested-by: 
-> to each individual patches of long series when I technically built and 
-
-The comment was not to you. I responded to the contributor and I expect
-the contributor to act, not you.
-
-> tested only based on the last patch of the series, which is only a DTS 
-> patch adding the nodes to the RK3588 DTSI? In that case, I cannot 
-> provide Tested-by for patches before the last, as it can simply not work 
-> at all until the last (actually all of them, except the bindings) patch 
-> is applied.
-> 
-
-
-
-Best regards,
-Krzysztof
