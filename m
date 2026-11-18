@@ -1,58 +1,87 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795015661;
-	b=IPuLXounrDDgA9mb5ZQYXMU67ni/aDN+U3hY9qJrMXcMu8sn78l+VNt2Zlh7eAXDPLj4
-	 8AgJDoeaTSWRmXsfGsLnkeDLrrtfRnX5yqixLjuDkJ/BRPSwWlTILLkZduNIqILcau4Bt
-	 2LkcYz7fiWZxPAWIbmqmW02M02Qyz1eborWLlg48bC1Jms14Zj5/UI7O/d5JoAVrFvk5G
-	 pfjMe0gOMbjFcPMgXQzKSfKdGKqw4HF3ySXR8X3V53xC0UnMyU0GFSVW2GqhE/fYWIK+j
-	 n9NC+hXDxo93Gwy9LbcjRLBNdypjrbBR5z2Rgfrb4+5QvSTGKXPfogEsof9xDEEc99Q==
+	t=1795015690;
+	b=izEW8C/taY1zT65mgGT/bAEhu3dOzj6Ih5kh/qv9A+CBg37UL5Oe2Og0L2ZQT0IfOt42
+	 +FBsknKf6HTTLlFzic41aooZuztu0uMmeXHL/rtUcjIupTPj8xdHyTqicS8zFjbBCbDK7
+	 wxQAtoJg6vH+kxQ5DOMDGSmuNTa0XL4+DTg7Bu7kJm6tSsunsMZ+ZBDUYk9gwOBZvRiPk
+	 a30JG9gWlj7hNioDlOkkHsVJ35ZVrdheR4IUAoorFSO4Ua1zu4VIj9v7D/YTnyU0hrdlT
+	 d5dyFFSndDuW7IoKynh4XcBzkzViqPhWmdjela495DD/kDp3mL2Xfa6+UpuAx/2fe5A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795015661;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795015690;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=R5HIU47KcQJqEvAKU3L+yO6oZL2xODPwE5MNIcttP24=;
-	b=dZUFsYgHb8Uy0qP+bk/zRKWcJuI2Vtr95vqyiLgTLS9pvk5oQfZ8iz2okTFz74Kbsz73
-	 2kJz+AN62mG+dZzPsNvHOd1ebzqRoGxuW2dfxAcG1+JgJeC2IIfLIM5Kw7TrLBFAgt/DV
-	 MAmghgdjQVJUNA63bVNURBxOWj3ykV7jp3T+CJ320hwfOWszKs1BJvTmmRU30seyZQNG0
-	 qVXEqGj6NB+XSOuOSEGt/7XgjOoZpW1jSOFQaUF2/y49XfCzauUIJxy9btr1BL85yHslb
-	 R5aOQTf5WIfXhVlfIwFwLxRaNmXM53owdsVFilxCTvqM6duovGcH8zAXs5TwhEOYAKw==
+	bh=WAGnVdZX/dnwB/YL80FuMYmEILyT33bR88HdQuYKvtU=;
+	b=oCKlVrOjWZVmfreREw/SGKM4qjqW4APoGqedUSOh0RUJM7e8Ka3aifbPCi1ZKRJmMSa/
+	 nrmkE7JAqabJRpmYISf0sepbkHCX3/pgFs4WO3uJS/VvYBM9fb24wNfnj5s6j4bFikPtw
+	 +EaJ3IN4Oa7AYlGeMN5l/yUczhBlzeybZcsC1luYPvDnmOuHS8/HIyDR72raSeHHQW61P
+	 m/JEXDn0FQQHGVbLTldxM0FEaTl4DPMEkgpAJQVDJ91hpPO1CLxfsu+3+SV127Ab6a1v1
+	 c0CvU0SMluRMHFJP66nKu0pNzw6N1THeGAeypnWUQg0yYjZy66k2UCsoGuHEhmii/Yg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oott4I+g;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lfWAuTIs;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C935606A33F;
-	Wed, 18 Nov 2026 15:27:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 2D7A1606A33D;
+	Wed, 18 Nov 2026 15:28:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oott4I+g
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AACF1F000C4;
-	Wed, 18 Nov 2026 15:27:41 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lfWAuTIs
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 28D621F000C6;
+	Wed, 18 Nov 2026 15:28:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795015661;
-	bh=R5HIU47KcQJqEvAKU3L+yO6oZL2xODPwE5MNIcttP24=;
+	s=k20260515; t=1795015689;
+	bh=WAGnVdZX/dnwB/YL80FuMYmEILyT33bR88HdQuYKvtU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=oott4I+gwvFAaK0Z4o0wIwqjdHYmXg2Z+mE0gOG7uV2XwkJFioK+iuN2OLN60/p5i
-	 A7zLCyTmE3BexAbHBMiRKQVDwnXxgM4Kkb6e1GUUUDIWxrToF/u0eOzl6Mw7f65ECU
-	 ST1ixjOmgeFvzWCaEaqD1f4UcqJIbgkiPq9vYYl/O4m0l0AuWiPI5yRuHqadh6AIKh
-	 EO5qtoRpJHeGJaZjduOBLNDgUc8bA1wxIcy4IU9KQ7lEe6M//60xExcJtLTCIBAF7z
-	 TehYWUiprSFGnpAXntSJUVUubcTXlL8M7aITnhDY3kgsGWk9j4oCaDsUJQO4FWk8nC
-	 yz3HEB0o/ooZg==
-Date: Wed, 18 Nov 2026 09:27:39 -0600
-From: Rob Herring <robh@kernel.org>
-To: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v9 3/3] usb: dwc3: select the shared HS data bus with a
- mux controller
-Message-ID: <20261118152739.GA1824160-robh@kernel.org>
-References: <20261117052137.32833-1-xiaqinghuan@mail.ustc.edu.cn>
- <20261117052137.32833-4-xiaqinghuan@mail.ustc.edu.cn>
+	b=lfWAuTIs9elqBsJl8tmIxnEDN32PGAd9hMguq1CqjQ8o/RkfsPYnbLyaCQh0JpMyp
+	 fCYFUcg47M+Cd8AFwuhSGC48F6Y5cgH6aM9nlI6/evJByLvuSbtNpi1JGxi7EIwUTJ
+	 OBpe67ieUMV93jPV8zcm3tdhPX5s9eusutMgiqm6kM4wKqXDNMLFHJEMZuj5NeUXxH
+	 ZIfPVbs2MPGv01KSLzRUChAtf5HJHH1+2P5aDyz3rsuVFgR1gig0jWqw45i+R2qnT3
+	 bQzaR2mSDre2f3gEgsLPEbuxSQhiPc4duXWEbVzw1Q34ufIovz83232MT4K4OG8WBG
+	 GN+02QKGIh6MQ==
+Date: Wed, 18 Nov 2026 17:28:06 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Josef Bacik <josef@toxicpanda.com>
+Cc: linux-fsdevel@vger.kernel.org, linux-api@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
+	linux-security-module@vger.kernel.org,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@amacapital.net>,
+	Ben Segall <bsegall@google.com>,
+	Christian Brauner <brauner@kernel.org>,
+	David Hildenbrand <david@kernel.org>,
+	David Howells <dhowells@redhat.com>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Ingo Molnar <mingo@redhat.com>, Jan Kara <jack@suse.cz>,
+	Jonathan Corbet <corbet@lwn.net>,
+	John Johansen <john.johansen@canonical.com>,
+	Juri Lelli <juri.lelli@redhat.com>, Kees Cook <kees@kernel.org>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Manfred Spraul <manfred@colorfullife.com>,
+	Mel Gorman <mgorman@suse.de>, Michal Hocko <mhocko@suse.com>,
+	Mike Rapoport <rppt@kernel.org>, Neal Gompa <neal@gompa.dev>,
+	Paul Moore <paul@paul-moore.com>,
+	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Serge Hallyn <sergeh@kernel.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Valentin Schneider <vschneid@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>,
+	alex@amutable.com
+Subject: Re: [RFC PATCH v2 00/13] Namespace for namespace roots
+Message-ID: <av3EBpSuzn_TcrDk@kernel.org>
+References: <20261117231352.3816603-1-jarkko@kernel.org>
+ <wdwc3b5edgtgvrgqfhlzhrachr5hrqb7ahipcuqdz5pffxlc5b@662cpwhxwjer>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,42 +93,47 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261117052137.32833-4-xiaqinghuan@mail.ustc.edu.cn>
+In-Reply-To: <wdwc3b5edgtgvrgqfhlzhrachr5hrqb7ahipcuqdz5pffxlc5b@662cpwhxwjer>
 
-On Tue, Nov 17, 2026 at 01:21:37PM +0800, Qianhui Xu wrote:
-> Respond to Rob's review of v8: drop the private "port-select-gpios"
-> property and drive the shared High Speed data path through a mux
-> controller instead ("Use the gpio mux binding").
-
-What changed in this version isn't really applicable for the commit 
-message. We don't need to record something about "port-select-gpios" 
-forever in the commit log.
-
-The commit msg should answer "why" we need/want this change.
-
+On Wed, Nov 18, 2026 at 02:47:34PM +0000, Josef Bacik wrote:
+> On Wed, Nov 18, 2026 at 01:13:39AM +0200, Jarkko Sakkinen wrote:
+> > OVERVIEW
+> > ========
+> > 
+> > A root namespace (rootns) is a kernel object backed by a file descriptor
+> > that binds together:
+> > 
+> > 1. A full or partial set of detached namespaces.
+> > 2. A dedicated PID namespace for spawning processes into, signaling
+> >    members, and polling or waiting on PID 1 exit.
+> > 3. An initially empty mount namespace (CLONE_EMPTY_MNTNS) that must be
+> >    populated before going live, without inheriting host mount-tree
+> >    ancestors.
 > 
-> The connector to drive is still published per endpoint via "mux-state";
-> dwc3_role_mux_init() now requires the "mux-controls" property and gets
-> the controller with devm_mux_control_get().  A mux controller cannot be
-> read back, so the boot-time connector can no longer be detected: the
-> initial mode request claims the mux for state 0 instead, which is the
-> first mode request that reaches __dwc3_set_mode() after probe.
+> This is what cells is doing https://lwn.net/Articles/1102593/, you may
+> want to take a look at that work. Christian, Lennart, Alex, myself
+> and others are working towards this in a more wholistic way. There's a
+> lot more that goes into this outside of just the object itself. I've got
+> my version deployed inside Anthropic for securing containers and I've
+> tripped over a lot of pre-work that needs to come because we can tackle
+> this. Alex has my rough outline for kuid64 for example, which is
+> necessary for making sure we don't overlap UID's on the system and
+> create holes this way. The cells work/anything that wants to have clear
+> security boundaries is going to require that as a pre-requisite. If
+> you'd like I can include you in our planning so we can get something
+> that will solve all of our problems. Thanks,
 > 
-> mux_control_select() sleeps while waiting for the controller, and
-> mux_control_deselect() may sleep as well.  Both are only ever called
-> from __dwc3_set_mode(), which runs as a work item on
-> system_freezable_wq; the role-switch set() callback keeps recording the
-> request and never touches the mux directly.  The mux is kept selected
-> between switches, since the controller always drives exactly one of the
-> two connectors.
-> 
-> This rework does not change the arbitration, the publication ordering
-> or the teardown rules introduced in v7/v8.
-> 
-> Signed-off-by: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
-> ---
+> Josef
 
-What has changed in each version is useful for review and that goes here 
-after the '---'.
+No it's not doing the same, and this why I sent the patch set.
 
-Rob
+I don't see cells fighting with rootns and given that rootns has a small
+surface and it leverages already battle-tested code, instead of
+reinventing the wheel, it also has benefits. It neither doubles the
+number of container frameworks in kernel.
+
+What I'm not claiming is that this is better. I just wanted to fact
+correct "this is what cells is doing". It is not true. It could be
+better solution but still that statement is untrue.
+
+Br, Jarkko
