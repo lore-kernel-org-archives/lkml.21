@@ -1,82 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794992675;
-	b=yUnsp39h7m6gYfTXAXa/z30FaqiZ/X2HhGI771G6MAADc3rTSw9rMqfsJJvagEJluBzU
-	 DiQ/XvyIn9FfxSOm5N8etS9f91v726V0F249Z94V5hIfq3PbhuIP0oiZcjydDoV6A/Yb9
-	 maF4UA5mtbbxnajJj8q2+Fgx73r5yyt+XNgQNcZTDNw6uz1kwema8osMj4hxoV/1k28jt
-	 wGRn2vMZw9QL0LZh36BYWgQRyKTuUdNiVmnQO2EV0fQG21V5nFr6RQwm4U1FyF4O4lzJh
-	 j1v/VEcnmfdppyCo81jDVpNmqmuHnTnibIjsOiIx0qRkYCK6iBtlBkWz0pvj7YNIFqw==
+	t=1794992717;
+	b=wmGfNmnyX+gTw9+SM6dBHcEIGCIDe6LWXBWed21UZDfQfOwkC+RalhJ5YObS7fv3QU5o
+	 gUIUWcG8BnQ4gPZN7CLq1VqfrG9sFMHiJs7J1ylwhq/bgqmV8jCa3WiLXQ8iHH64Z/v+b
+	 yCThlB1xbjq0XeZQgYwsjGbWZMstEM34o18seEgm0BEOGGzVQ8IZ3X5eA+9eKVP+2B7GZ
+	 zCxFBpFAHQ8DjPhKNVjzOEPofLJSlRy8uiWBf3JSNejSbcbf0JpWh1N2pyS9SZw1+62K6
+	 UYHRF/g/YRnHYqizzbFeqkzqdNMEusHgBT1Hi4kuxt8tpvH4xUC96UpIzPed8KfRyNA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794992675;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
-	 X-Proofpoint-Reinject:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=Hs4znIYC2sMv00DW0RVgvQrNcl3o2x+Yd+uOO1tGCcs=;
-	b=CmLAADTUS2fwrYylm/TMZV6f5A+0HAoAaVa+0rQ+LdInsXiB7WU7wwVkdX+babRCCt4/
-	 5XqlB7fgcqOvBqLgpYdY8pVYZYaAwDyf8lsLk64n39455HffsbYqVR3TF7Sp2L2ejazdL
-	 qFQpHZ6aBFgsQSqLnEsTnQV47WNDKmTeG0scZltOaw5X7COqm8MUDUpfJ/FeVyOkocHar
-	 EkpiDk/X5uikfuei0ZCqwrqDHK2mKUfD+sikZFergoGeedMDjXBUfBF/gj7dNwHhg3nkF
-	 x+dzuZaR235MX1nWDegWQurrYai6P2XWt3YdHcfl13VbJGtk+uPtzK6wIx8Qe/pwt4A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794992717;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=374ri7+4MeVZtf5um2Y1DNiMy9roud5hxc7+KcS4KyA=;
+	b=gpQa+oYujkUVo9hKiEcPOLRtNujj8XEpJxkPq0/pJBskcVZ76ssQ5rLX0LZLSY01Dza3
+	 lbSln4ZWnltfGPbIs0RH65V5cfFm6LlCbEwm5zAtAqjO2BiiDpxhswjhgY9q43438WhMQ
+	 sbgAR/NV8Pd3xdzrdDo1J+mUo0lQhV+A5Qy+vinAwfIxb4NSW/WZ/V3aOApyPq5kucIBx
+	 ym0OlBnDHMFLfVGbfdDcNM2i2I6prLFyGVTB0iK32r3kvYVauxzE+uQLrmX3EUBAKdOHy
+	 Gb1pYVV27VsCVfI07w5/+OL0JTLRa+/f1grZfTZasLVPZqGi9kqV7jg1plg4kgczx3w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=n5EQCCJ6;
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=MtmMx8sj;
+	arc=none smtp.remote-ip=192.198.163.18
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.18])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21CE4606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:04:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 21CE4606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F317606A320;
+	Wed, 18 Nov 2026 09:05:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5F317606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=n5EQCCJ6
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI2S2aw4063444;
-	Wed, 18 Nov 2026 09:04:30 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=Hs4znI
-	YC2sMv00DW0RVgvQrNcl3o2x+Yd+uOO1tGCcs=; b=n5EQCCJ6gwOfqrx9mnKdfc
-	cviPSGF8fhxcobIRJ+p5TESJRTt1gcLNfWHg7FNhg8UENdvzrh1iKzP9FaEWMuct
-	fNCUJ87mutV9Bn6mwyBTZWbmtzStSUguwpmZRPImrPBFZOtdgzOb0la1cfafrXth
-	ZyUGU1JeAWroC/hv0TPrZUfzgBAW6XNaLct/3eQKVY0PCigeuXoYV5JY68jK+fY+
-	NRTtUFpl2Q2i5gH0XWJcy5Ov9ah96jTVcHA6VmYorbZwsRdKDS4PnUtSZ6WazqOG
-	jaz2SGRt1I3UFklf9g7ik3FZkCHgC+PAldNTdUjlAh9znqFWB7LelqPLC5C9pTbg
-	==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105t1p21-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 18 Nov 2026 09:04:29 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI8SCnE274263;
-	Wed, 18 Nov 2026 09:04:29 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j067nf7hx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 18 Nov 2026 09:04:28 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AI94RQ656492482
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 18 Nov 2026 09:04:27 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 349F22004E;
-	Wed, 18 Nov 2026 09:04:27 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id A606220043;
-	Wed, 18 Nov 2026 09:04:25 +0000 (GMT)
-Received: from [9.39.20.135] (unknown [9.39.20.135])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 18 Nov 2026 09:04:25 +0000 (GMT)
-Message-ID: <c40ca6b2-a620-46ee-89e2-84a6a5313776@linux.ibm.com>
-Date: Wed, 18 Nov 2026 14:34:24 +0530
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=MtmMx8sj
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1794992716; x=1826528716;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=JRYvHjc2XzoEsxyTnYYkNUZ2Ub40RofbKnyppuYWcVE=;
+  b=MtmMx8sjCr5vR+qjxpRhT2uNF/AhwpmpnYaQB8iYuwddgwW1eHRpf46g
+   3e9L02Hoy2kNWR8sQXviPEI4D14YgBRHKkDWvp0weTXSdbJvbq8ZvQFHK
+   hHLP0FCbp66isUf6r15T62wjaQMSFVNv0JbRazYb2WZCzVLFO1q7EiAMP
+   Ihx6d4l3R4NHPI0G+L6txUO2TuJqABPynBSXJ8k4mwsBmbAdvmmxQ7rzV
+   OQ5pRDF2MHj3d98/issjEuwX9g833B9Bjk5YPrAopSP698FMHMMrNrg7K
+   w8MuxjqixGHADcE6nB9dgkpRHsa5xs+NpRQBT6NGSHotohuaVBRFON8a3
+   A==;
+X-CSE-ConnectionGUID: a+1EVYp8R06QWilypDlDKg==
+X-CSE-MsgGUID: hAiYoEO7RPWg9VqHpJEg6w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3818818"
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="3818818"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 01:05:02 -0800
+X-CSE-ConnectionGUID: +yvOVnxlTj+CX2zSo4rUIA==
+X-CSE-MsgGUID: nKNRUAYyRJqpgofT/76kLA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="10424378"
+Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.157])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 01:04:59 -0800
+Date: Wed, 18 Nov 2026 11:04:56 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: raffaele.tranfaglia@gmail.com
+Cc: Mark Brown <broonie@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, Johan Hovold <johan@kernel.org>,
+	Jonathan Cameron <jic23@kernel.org>, linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, driver-core@lists.linux.dev
+Subject: Re: [PATCH RFC] regmap: kunit: add tests for values wider than
+ val_bits
+Message-ID: <av1qOFxolvDhQTKs@ashevche-desk.local>
+References: <20261117-regmap-kunit-val-bits-v1-1-a1cd02063217@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,100 +83,114 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] virt/steal_governor: Remove redundant delay filed
-To: Fushuai Wang <fushuai.wang@linux.dev>, yury.norov@gmail.com
-Cc: wangfushuai@baidu.com, linux-kernel@vger.kernel.org
-References: <20261118072722.1052-1-fushuai.wang@linux.dev>
-From: Shrikanth Hegde <sshegde@linux.ibm.com>
-Content-Language: en-US
-In-Reply-To: <20261118072722.1052-1-fushuai.wang@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=IouL47/g c=1 sm=1 tr=0 ts=6afd6a1e cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VwQbUJbxAAAA:8
- a=zuLzuavZAAAA:8 a=y7H06g3HElaTuPd7UWQA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: BdscqQRepzAaUb_sGh0NW0oLp0De0yUd
-X-Proofpoint-GUID: 1Se7RYf0qtaXBaiKU6QCoAjJk7wKva8G
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAzNSBTYWx0ZWRfX8EPGYuV4jIks
- k+FRHNBPgXgl8dq7q3T1/JZUQHnQskOHHtUEAT0ev0LhacOYfnZlbcqw0+y56aHhlxqP44F/FiQ
- h4ryy6y30o9RmPgzGPatYH8q4QoarOeR64cCa9f9fb1iABFcA69HNn3+DTaay5fc+42fbjfFF4q
- U4T77eX4QU4E/fS3lwvQEL0RP8Ik+EYfBcVbe/+8wYb7DQKU+l3ilqp4HIQBjyAsgUtpDfhGMld
- upK9RUlUJ95kDb3FNMoBQbqyLoQJ8mJAad14XZNeVhl+R8Vsee8z6qgJBl4yO+emM4Cf2bpZpfl
- du59yLYZMblZzKUcXeVcJt5cb7nDNdKiCM0/nv2UpVP1gmfCTIrH15JPXNkEKr2SJpdCo4iE+dz
- Hm3DtdEneu/tkLoZdVDr84lfSCMRNdMa2tl5AgIT8gYwxhZXGZXY7UhnkAbTDaNuOzdA8BTDLkP
- 1+xhs8RTOV+D9FaKDBg==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAzNSBTYWx0ZWRfX85NGUqgkYp0z
- xKt4Oquuixi2x/TlFgDPBmCI8jfEECyKU2bVPNoaUhlwtAcwKL7ykdz+tiLCk2gcyWMOwLmuaN6
- o8nCRODrwLEHJJmAWvTtQh1FiRuTjAc=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-18_01,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 spamscore=0 adultscore=0 priorityscore=1501
- lowpriorityscore=0 suspectscore=0 phishscore=0 clxscore=1015 malwarescore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611180035
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117-regmap-kunit-val-bits-v1-1-a1cd02063217@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-Hi.
+On Tue, Nov 17, 2026 at 07:55:14AM +0000, Raffaele Tranfaglia via B4 Relay wrote:
 
-On 11/18/26 12:57 PM, Fushuai Wang wrote:
-> From: Fushuai Wang <wangfushuai@baidu.com>
+Thanks for starting this discussion! My comments below.
+
+> Add two test cases writing 0xffffff0f with regmap_write() to a regmap
+> with val_bits = 16:
 > 
-> The 'delay' member in struct steal_governor is just a cache for
-> msecs_to_jiffies(interval_ms). The duplicate state is confusing
-> and adds no value. Use msecs_to_jiffies() directly at the schedule
-> site and remove the 'delay' field.
+> - write_wider_than_val_bits uses the RAM regmap, a bus that only
+>   provides reg_write()/reg_read();
+> - raw_write_wider_than_val_bits uses the raw RAM regmap, which goes
+>   through the value formatters.
 > 
+> Both expect that only the low 16 bits reach the bus and can be read
+> back. The raw test passes, since regmap_format_16_*() only store 16
+> bits. The RAM test currently fails: _regmap_bus_reg_write() hands the
+> value to bus->reg_write() unmodified, so the bus sees 0xffffff0f. With
+> the rbtree cache the value is in addition truncated in the cache only,
+> so the cache and the bus disagree.
 
-I guess you haven't seen the below change which is in tip tree.
-https://lore.kernel.org/all/179421651800.2093942.14148413791803216183.tip-bot2@tip-bot2/
+It means we can't enable this test cases without addressing the underneath
+implementation(s) of the regmap. I think the proper solution is to cut upper
+bits on the regmap level, so the cache and HW will see it as expected.
 
-With that, we don't need the below change, since there is no more redundant field.
-
-
-> Signed-off-by: Fushuai Wang <wangfushuai@baidu.com>
+> Signed-off-by: Raffaele Tranfaglia <raffaele.tranfaglia@gmail.com>
 > ---
->   drivers/virt/steal_governor.c | 6 ++----
->   1 file changed, 2 insertions(+), 4 deletions(-)
+> regmap_write() takes an unsigned int, also for regmaps with
+> val_bits < 32. What happens to the bits above val_bits currently
+> depends on the bus and on the cache type:
 > 
-> diff --git a/drivers/virt/steal_governor.c b/drivers/virt/steal_governor.c
-> index 6e31f9923dea..8af6c02c7e77 100644
-> --- a/drivers/virt/steal_governor.c
-> +++ b/drivers/virt/steal_governor.c
-> @@ -38,7 +38,6 @@
->   struct steal_governor {
->   	ktime_t			time;
->   	u64			steal;
-> -	unsigned long		delay;
->   	unsigned int		interval_ms;
->   	unsigned int		high_threshold;
->   	unsigned int		low_threshold;
-> @@ -252,7 +251,7 @@ static void steal_governor_loop(struct work_struct *work)
->   	}
->   
->   requeue_work:
-> -	schedule_delayed_work(&sg_ctx.work, sg_ctx.delay);
-> +	schedule_delayed_work(&sg_ctx.work, msecs_to_jiffies(sg_ctx.interval_ms));
->   }
->   
->   static int __init steal_governor_init(void)
-> @@ -270,11 +269,10 @@ static int __init steal_governor_init(void)
->   		return -EINVAL;
->   	}
->   
-> -	sg_ctx.delay = msecs_to_jiffies(sg_ctx.interval_ms);
->   	INIT_DELAYED_WORK(&sg_ctx.work, steal_governor_loop);
->   	sg_ctx.steal = get_system_steal_time();
->   	sg_ctx.time = ktime_get();
-> -	schedule_delayed_work(&sg_ctx.work, sg_ctx.delay);
-> +	schedule_delayed_work(&sg_ctx.work, msecs_to_jiffies(sg_ctx.interval_ms));
->   	pr_info("enabled. interval: %ums, high_threshold: %u, low_threshold: %u\n",
->   		sg_ctx.interval_ms, sg_ctx.high_threshold, sg_ctx.low_threshold);
->   
+> - buses with raw write() go through the value formatters, which
+>   silently drop the upper bits;
+> - buses with only reg_write() get the value unmodified. regmap-i2c's
+>   SMBus backends and regmap-fsi then return -EINVAL, others (like
+>   regmap-ram here) take the full value;
+
+To make the users' lives easier we should not move the burden on their
+shoulders to carefully cut the upper bits all the time it might be required.
+I see the only solution is to fix either globally in regmap core or in each
+bus and document that somewhere that developers for the new regmap busses
+won't repeat the same mistakes.
+
+> - with a reg_write() bus and the rbtree cache, the cache stores the
+>   truncated value while the bus got the full one.
+> 
+> This was found in the adux1020 IIO driver, which writes ~u16 (promoted
+> to int) to a 16-bit register. It works on I2C adapters and fails with
+> -EINVAL on SMBus-only ones [1]. I am raising it here as other drivers
+> can hit the same thing.
+> 
+> The tests in this patch expect masking to val_bits on both kinds of
+> buses, so the reg_write one fails today. This is only to show the
+> difference: should regmap_write() mask the value to val_bits for
+> reg_write() buses, or should it reject such values consistently for all
+> buses? I can send a patch for whichever is preferred and adjust the
+> tests accordingly.
+
+...
+
+> +static void raw_write_wider_than_val_bits(struct kunit *test)
+> +{
+> +	struct regmap *map;
+> +	struct regmap_config config;
+> +	struct regmap_ram_data *data;
+> +	u16 *hw_buf;
+> +	unsigned int rval;
+
+Reversed xmas tree order?
+
+> +	config = raw_regmap_config;
+> +
+> +	map = gen_raw_regmap(test, &config, &data);
+> +	KUNIT_ASSERT_FALSE(test, IS_ERR(map));
+> +	if (IS_ERR(map))
+> +		return;
+> +
+> +	hw_buf = (u16 *)data->vals;
+> +
+> +	/* Write a value with bits set above val_bits */
+> +	KUNIT_EXPECT_EQ(test, 0, regmap_write(map, 0, 0xffffff0f));
+> +
+> +	/* The "hardware" should only have seen the low val_bits bits */
+> +	if (config.val_format_endian == REGMAP_ENDIAN_BIG)
+> +		KUNIT_EXPECT_EQ(test, 0xff0f,
+> +				be16_to_cpu((__force __be16)hw_buf[0]));
+
+Do we really need those explicit castings? I think they are already inside
+the byteorder macros. Also we have be16_to_cpup() and le16_to_cpup() which
+might help.
+
+> +	else
+> +		KUNIT_EXPECT_EQ(test, 0xff0f,
+> +				le16_to_cpu((__force __le16)hw_buf[0]));
+
+Ditto.
+
+> +	/* And that is what we should read back */
+> +	KUNIT_EXPECT_EQ(test, 0, regmap_read(map, 0, &rval));
+> +	KUNIT_EXPECT_EQ(test, 0xff0f, rval);
+> +}
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
 
