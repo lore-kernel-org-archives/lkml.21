@@ -1,70 +1,119 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.7
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795009612;
-	b=ZXMYBjQAaxf2LE7MENxmIN//8vqeqk1bCQfVzlRh/WV+S6pdB8Wijq4omOHvS65dZI3V
-	 NM6yDUpK/OAXWV79k0FKineCWVOrDWuX3UNbc/Qvyj3XOnt1oHZjREviOOJksk3R7P3Dp
-	 uetcD2gDCEOZsCcZgISoTSlWBhbrCO43hFeW6yBlWkJBQqdTyelrN5M8jCeFJN0Hyntin
-	 yPoAGbft1g2CkH3ntup9qhEz2gCX2yf5Qdhx6KQCins7TZCCiLDycJuAFHspPYeEte+AR
-	 iubaL7PRvAgiq4ypQNeq/XdvnX71VSTnzdyicp79DkaylK0w35ietYC6tKp6pICdKnw==
+	t=1795009633;
+	b=DvGJ9lzGA5uImmfHASo5DivTV+ScR8Lk4N7Ie91tGxttNBcDefyFhXDkOIe/kO7uJ05s
+	 Wazi+z4L10WltxRstapEDmXC+X7LcZjvy8tqgBvQ7Y0lodTmJDOQFw95yHgXl/puy/LQi
+	 sCKjbpFS47vhnHDrRvNYX0jXI4G+0XME8lRLAv+rsCN49Hr3nvq196U9g4apVvTLjxlXz
+	 AN5GR5GDhvEZFLsz/dXlSs6OaWzsNm/nqGptByFWcA7/LapijZfvJtGS8YN5ZAm/dNP9g
+	 X+IB2fwtwX+wdBA4lSpbr8jcLGUSAAiTJyGIMMdOLfWZA2fJNyoqZ8+2q06pq1LmpCQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795009612;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=Ej0+BcS+/DetGmL213LeSEXzNIKIImFW7sTsnOy911s=;
-	b=4rnzMNDqL1pbZC/CHObh3NG5K6kxtFXNH1DDI6xB6lB5/WZtRYZWFtJNipwpJ6E7NDr8
-	 C0XptpBSDJOm9vECIS9Xsr4TJ7LMl7V9slene+UcTqoXeZtHNCOxekbz2pt52RHsFE3PG
-	 58V3rY7WWjtjgz6cnXIfAEZVQgMyEy4NML1Tlk/chY0n5pVaRdNfRE+OfbINRODIzJR/D
-	 wbQmSnWhDoIm5JoV80RVhaBnPSEhR4LrxVFVzSoIcsBofFvMtW05yUtB+updDmdTAL37K
-	 OMfpMf+4J7FYWNK2XdzjECkP7jB9o/fhAGHk8HmdpOXw8DmAisJRH+CMKD0SjJs9XdQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795009633;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Date:Message-ID:From:To:Cc:Subject:
+	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
+	 X-Spamd-Result:X-Rspamd-Server:X-Rspamd-Action:X-Spam-Flag:
+	 X-Spam-Score:X-Spam-Level:X-Rspamd-Queue-Id;
+	bh=P29+0WSfDjivL0QnkfaQfvp/outg1KtB0aHDGFukhnc=;
+	b=KroHSicR26to81N4Zm8AMEA8oGNwOd9b3StgybP3FnYa694T2kKuE/VZW2utK5xBxO9i
+	 veWJPMQBwJfMi8zAdoJXEpQngzQQr85yhBlPuielqVAs1kq2PrCUc6lQDvnImsMCZSChz
+	 MMavT7r+fX+E8Cvb/vqlEvapp5JtakIgSjfDIMAyRnsFHgAWkygO025q6sRUKGAjDL8/h
+	 oitNIumw1v8AXb3ZzKH8rzXQkjQ6q1l3QTwGj9kp0aGhhNFhrcNibr46fML8rRA+Lzt3X
+	 cdMkFfPRZoLvmO5B7k4gzI3omQyRjg8FrOxo2ngpQuNy8yEqNq4s096VBY0pv4h5zWw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=126.com;
-	spf=pass smtp.mailfrom=126.com;
-	dkim=pass header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=kG5Ag9GB;
-	arc=none smtp.remote-ip=117.135.210.7
-Received: from m16.mail.126.com (m16.mail.126.com [117.135.210.7])
+	dmarc=pass header.from=suse.de;
+	spf=pass smtp.mailfrom=suse.de;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=r5nNzMcF;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=ahme8KlX;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=r5nNzMcF;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=ahme8KlX;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7ECB8606A325;
-	Wed, 18 Nov 2026 13:46:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7ECB8606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=126.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=126.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63B2D606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:47:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63B2D606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=kG5Ag9GB
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Ej
-	0+BcS+/DetGmL213LeSEXzNIKIImFW7sTsnOy911s=; b=kG5Ag9GBo3DpxFbHEj
-	m14v4Z32PGU492deFbMAxxsjWLUJvp4lVo0yu5Am9zi+7EMhylAxxm3LlmUcnSby
-	izgQJ0r2ijEMhU1Ng4fFKpXe7xheZx3zuCF6tcSONcrAMlvOiMYTXJbXHJzfiGqW
-	j76B34x28F17lVVLLsNZcDQBE=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wD37yb9q_1qGwFIDg--.29240S5;
-	Wed, 18 Nov 2026 21:45:37 +0800 (CST)
-From: Jinvas <jinvas@126.com>
-To: saeedm@nvidia.com,
-	tariqt@nvidia.com,
-	mbloch@nvidia.com,
-	leonro@nvidia.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	jinvas@126.com
-Cc: netdev@vger.kernel.org,
-	linux-rdma@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	horms@kernel.org,
-	alexious@zju.edu.cn
-Subject: [PATCH net v3 1/1] net/mlx5e: fix NULL pointer dereference in arfs_create_groups()
-Date: Wed, 18 Nov 2026 21:45:14 +0800
-Message-Id: <20261118134514.1765-2-jinvas@126.com>
-X-Mailer: git-send-email 2.28.0.windows.1
-In-Reply-To: <20261118134514.1765-1-jinvas@126.com>
-References: <20261118134514.1765-1-jinvas@126.com>
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=r5nNzMcF;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=ahme8KlX;
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=r5nNzMcF;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=ahme8KlX
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 47813222DD;
+	Wed, 18 Nov 2026 13:47:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795009630; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=P29+0WSfDjivL0QnkfaQfvp/outg1KtB0aHDGFukhnc=;
+	b=r5nNzMcFxtfKCzkdsqrQNtjAqYmmIo62cl7Xxr1aOWf4ewQFgO1GaSpRnwrX898O9Ft6+O
+	Uv+Pz8x5K8gUa3Bled5PFMEyKLxSmscMCLzU4ehQ9ht6zJHEGQRMiErVawnSg9YRf9t4Px
+	QuLmWVNFSUzGCrh+bCPE9rWptC3uveg=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795009630;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=P29+0WSfDjivL0QnkfaQfvp/outg1KtB0aHDGFukhnc=;
+	b=ahme8KlXHBzZ6/pvNKoSZbbNxUCEC7EeUhVqyDlkOJgJoQLA7fZVVH4lm164XNuK5TVdNk
+	77tpSO4aFLkTVbBQ==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=r5nNzMcF;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=ahme8KlX
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795009630; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=P29+0WSfDjivL0QnkfaQfvp/outg1KtB0aHDGFukhnc=;
+	b=r5nNzMcFxtfKCzkdsqrQNtjAqYmmIo62cl7Xxr1aOWf4ewQFgO1GaSpRnwrX898O9Ft6+O
+	Uv+Pz8x5K8gUa3Bled5PFMEyKLxSmscMCLzU4ehQ9ht6zJHEGQRMiErVawnSg9YRf9t4Px
+	QuLmWVNFSUzGCrh+bCPE9rWptC3uveg=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795009630;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=P29+0WSfDjivL0QnkfaQfvp/outg1KtB0aHDGFukhnc=;
+	b=ahme8KlXHBzZ6/pvNKoSZbbNxUCEC7EeUhVqyDlkOJgJoQLA7fZVVH4lm164XNuK5TVdNk
+	77tpSO4aFLkTVbBQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id C9D931334C;
+	Wed, 18 Nov 2026 13:47:09 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id VEsWKF2s/WrLEgAAD6G6ig
+	(envelope-from <tiwai@suse.de>); Wed, 18 Nov 2026 13:47:09 +0000
+Date: Wed, 18 Nov 2026 14:47:09 +0100
+Message-ID: <87h5hew8te.wl-tiwai@suse.de>
+From: Takashi Iwai <tiwai@suse.de>
+To: Dmitriy Chumachenko <Dmitry.Chumachenko@cyberprotect.ru>
+Cc: Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>,
+	Sasha Levin <sashal@kernel.org>,
+	Oswald
+ Buddenhagen <oswald.buddenhagen@gmx.de>,
+	Mehul Rao <mehulrao@gmail.com>,
+	Ji'an Zhou <eilaimemedsnaimel@gmail.com>,
+	Norbert Szetei
+	<norbert@doyensec.com>,
+	<alsa-devel@alsa-project.org>,
+	<linux-kernel@vger.kernel.org>,
+	<lvc-project@linuxtesting.org>
+Subject: Re: [PATCH v2] ALSA: pcm_oss: reject buffer reconfiguration while the stream is mmapped
+In-Reply-To: <20261118131945.27592-1-Dmitry.Chumachenko@cyberprotect.ru>
+References: <20261118131945.27592-1-Dmitry.Chumachenko@cyberprotect.ru>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,94 +122,110 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD37yb9q_1qGwFIDg--.29240S5
-X-Coremail-Antispam: 1Uf129KBjvJXoWxXrW3Ww1Utr1fJFW5XFWrKrg_yoW5Zw4kpF
-	45GFyDKF4kGF1xJan7Z3y0qa4rAa1Fyay5C3WSy3yayr15Jr4rXFyru345uFy7CFWrJ3sF
-	yr15Zw1jyF98JaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zRGjgsUUUUU=
-X-CM-SenderInfo: xmlq4tbv6rjloofrz/xtbBsgFF22r9rAGXlgAA3W
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-Spamd-Result: default: False [-12.51 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_CONTAINS_FROM(1.00)[];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	ARC_NA(0.00)[];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	RCPT_COUNT_TWELVE(0.00)[12];
+	MIME_TRACE(0.00)[0:+];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.de];
+	RCVD_TLS_ALL(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[perex.cz,suse.com,linuxfoundation.org,kernel.org,gmx.de,gmail.com,doyensec.com,alsa-project.org,vger.kernel.org,linuxtesting.org];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	DKIM_TRACE(0.00)[suse.de:+];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[cyberprotect.ru:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Rspamd-Action: no action
+X-Spam-Flag: NO
+X-Spam-Score: -12.51
+X-Spam-Level: 
+X-Rspamd-Queue-Id: 47813222DD
 
-arfs_create_groups() creates up to two flow groups in ft->g[], and
-increments ft->num_groups for each group that was created successfully.
-If creating the second group fails, the error path frees ft->g and sets
-it to NULL, but leaves ft->num_groups at 1.
+On Wed, 18 Nov 2026 14:19:45 +0100,
+Dmitriy Chumachenko wrote:
+> 
+> During fuzz testing, the following issue was discovered.                   
+>                                                                            
+> WARNING: CPU: 2 PID: 1734 at sound/core/pcm_native.c:3835                  
+> snd_pcm_mmap_data_fault+0x47f/0x530 sound/core/pcm_native.c:3835           
+>                                                                            
+> Modules linked in:                                                         
+> CPU: 2 PID: 1734 Comm: syz.1.352 Not tainted 6.1.187-syzkaller-00593-g063a81552262 #0
+> RIP: 0010:snd_pcm_mmap_data_fault+0x47f/0x530 sound/core/pcm_native.c:3835 
+>                                                                            
+> Call Trace:                                                                
+>  <TASK>                                                                    
+>  __do_fault+0x10d/0x480 mm/memory.c:4280                                   
+>  do_cow_fault mm/memory.c:4661 [inline]                                    
+>  do_fault+0xa7a/0x1100 mm/memory.c:4762                                    
+>  handle_pte_fault mm/memory.c:5031 [inline]                                
+>  __handle_mm_fault+0xdf3/0x2e40 mm/memory.c:5173                           
+>  handle_mm_fault+0x2da/0xa60 mm/memory.c:5294                              
+>  do_user_addr_fault+0x4aa/0x1050 arch/x86/mm/fault.c:1338                  
+>  handle_page_fault arch/x86/mm/fault.c:1429 [inline]                       
+>  exc_page_fault+0x98/0x1b0 arch/x86/mm/fault.c:1482                        
+>  asm_exc_page_fault+0x22/0x30 arch/x86/include/asm/idtentry.h:608
+> 
+> snd_pcm_oss_change_params() frees and reallocates the substream buffer,
+> and several OSS entry points reach it while the data area may already be
+> mmapped: snd_pcm_oss_mmap() and the SNDCTL_DSP_GETOSPACE/GETISPACE ioctls
+> (snd_pcm_oss_get_space()).
+> 
+> For OSS streams snd_pcm_hw_params() skips the mmap_count guard
+> (!is_oss_stream), so the buffer is torn down under a live mapping. If the
+> reallocation then fails, the substream is left with runtime->dma_area ==
+> NULL, and the next page fault on the stale mapping reaches
+> snd_pcm_mmap_data_fault() with no buffer, hitting the WARN_ON_ONCE().
+> 
+> Reject the reconfiguration in snd_pcm_oss_change_params_locked() when the
+> stream is already mmapped; this covers all callers (read/write already
+> bail out earlier on a non-zero mmap_count). The core WARN_ON_ONCE() is
+> left in place.
+> 
+> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+> Signed-off-by: Dmitriy Chumachenko <Dmitry.Chumachenko@cyberprotect.ru>
 
-The only caller, arfs_create_table(), calls mlx5e_destroy_flow_table() on
-the error path, which calls mlx5e_destroy_groups(). The latter walks
-ft->g[] from ft->num_groups - 1 down to 0 and dereferences ft->g[0].
-Since ft->g was freed and set to NULL, this is a NULL pointer
-dereference, and the kernel oopses.
+Well, if we want to restrict the hw_params with mmap completely, it's
+easier just drop the exception for OSS in the PCM core, instead:
 
-The same error path also leaks the flow group that was created
-successfully before the failure, since ft->g is freed without the group
-being destroyed.
+--- a/sound/core/pcm_native.c
++++ b/sound/core/pcm_native.c
+@@ -778,7 +778,7 @@ static int hw_params_state_check(struct snd_pcm_substream *substream,
+ 	case SNDRV_PCM_STATE_OPEN:
+ 	case SNDRV_PCM_STATE_SETUP:
+ 	case SNDRV_PCM_STATE_PREPARED:
+-		if (check_mmap && !is_oss_stream(substream) &&
++		if (check_mmap &&
+ 		    atomic_read(&substream->mmap_count))
+ 			return -EBADFD;
+ 		return 0;
 
-Freeing ft->g here was added by commit 3c6d5189246f ("net/mlx5e: fix a
-double-free in arfs_create_groups"). Before that commit, the group
-failure path did not touch ft->g at all, so the caller destroyed the
-flow groups that had been created and then freed the array. That
-commit fixed a double free in the allocation failure path by freeing
-ft->g here as well, and in doing so changed the group failure path
-too.
+But, there must be some reason for this explicitly allowance for OSS
+(maybe some apps like the old game need it), and the above (and your)
+change would break it.
+So, if we really want to guarantee the compatibility for old existing
+applications, we need some other ways to check the buffer reallocation
+instead (e.g. disallow the buffer byte size change).  Though, I'm not
+sure whether it's worth...
 
-Rather than also resetting ft->num_groups, leave the free of ft->g to
-the caller: mlx5e_destroy_flow_table() frees ft->g exactly once, and
-also destroys the flow groups that were created. This fixes the NULL
-pointer dereference and the leak, while keeping the double free fixed.
 
-The bug was hit on a virtual mlx5 device whose firmware answers host
-mailbox commands. The device took longer than the firmware's own
-timeout to answer one CREATE_FLOW_GROUP command, so the firmware
-reported the command as failed even though the device had completed it.
-The host then took the error path and oopsed:
+thanks,
 
-  Oops [#1]
-  epc : mlx5e_destroy_groups+0x38/0x6c
-   ra : mlx5e_destroy_flow_table+0x10/0x30
-  status: 0000000200000120 badaddr: 0000000000000000 cause: 000000000000000d
-
-Note that the host oopses on any error returned by CREATE_FLOW_GROUP,
-no matter where the error comes from, so the trigger is not specific to
-that firmware.
-
-The fix has not been tested: the patched kernel was not booted, only the
-original crash was reproduced.
-
-Fixes: 3c6d5189246f ("net/mlx5e: fix a double-free in arfs_create_groups")
-Signed-off-by: Jinvas <jinvas@126.com>
----
- drivers/net/ethernet/mellanox/mlx5/core/en_arfs.c | 9 ++-------
- 1 file changed, 2 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_arfs.c b/drivers/net/ethernet/mellanox/mlx5/core/en_arfs.c
-index c5e62d7..6baffc7 100644
---- a/drivers/net/ethernet/mellanox/mlx5/core/en_arfs.c
-+++ b/drivers/net/ethernet/mellanox/mlx5/core/en_arfs.c
-@@ -265,10 +265,8 @@ static int arfs_create_groups(struct mlx5e_flow_table *ft,
- 		return -ENOMEM;
- 
- 	in = kvzalloc(inlen, GFP_KERNEL);
--	if (!in) {
--		err = -ENOMEM;
--		goto err_free_g;
--	}
-+	if (!in)
-+		return -ENOMEM;
- 
- 	mc = MLX5_ADDR_OF(create_flow_group_in, in, match_criteria);
- 	outer_headers_c = MLX5_ADDR_OF(fte_match_param, mc,
-@@ -338,9 +336,6 @@ err_clean_group:
- 	ft->g[ft->num_groups] = NULL;
- err_free_in:
- 	kvfree(in);
--err_free_g:
--	kfree(ft->g);
--	ft->g = NULL;
- 	return err;
- }
- 
--- 
-2.28.0.windows.1
-
+Takashi
