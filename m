@@ -1,62 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.17
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794966728;
-	b=jGuX88MHk/PknrnxJvnVfgnwQdCmXJzlU/PG67dv/YTtPwoZwZ8ynT00eI0yTOW15qFo
-	 6oG+rOUyhsl2R9Dlq9GQvHb7h/YVejkfII852ckQknUh2VqykHesQB6oKNFUJ36IALEEK
-	 tbwH6o9AePiWzxgRPIr9T6oHZUDEDjhBTGCVRSoCpDXyLTXJIfDoxf6AxXorNIzm9q5c8
-	 CYWpBsyKMcR0hm/FW23lSemQExSOZowI+gwfvU0NnKBjUByrqRQ6BozjZ/IiG9lTL5Y2A
-	 fHtxANg4ABuIf9nwv59iZPWb9XRifkPF+3FxHEw0WIu9RHbpKFj/qQWHWnAO5HVuh3Q==
+	t=1794966742;
+	b=doq6hsxO2TMMOo8DQgAKI/bTT8xa00rkIhNaIqaZo/eAMHVWDLgb4tZgHS6wUIXMlLTF
+	 S/neh5hdT48qYfYyU76s7dO0kjpC/Q6/InSu1Qu0KVEpPfhw5Wysnuhh/3CyeAI97sLd0
+	 1bwGwLEXjx9e6RiL9rJLdHjFjj7+C+C8/l0LBsq2NYiqN/bhIOp8/yhXSfkbslxeRpm/R
+	 1PHCTrB5DiiErSjaGLbNzZMDtOdGPbshbivWJ/2ILK1H9Sn8pdFS+QYRePgxzoDV3rkV/
+	 xNXvcXP61ORsJcBgUbrbY9/FcitH0zrJLn4Y0BC6SkbiYwfLFl8A4sP82s17iGM9nNA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794966728;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=1zyx2Uxy4RUbuMas+e6y49K5/oKqZCnLjsukdPhSewU=;
-	b=MNLPGOGnPWnvaSRgYoSqvlPP1Qr7RKKyyG4OoxRlTI7hKKokzHluZGPcZ4tjfGADs5/n
-	 ZweolpcO6b1JvaQe35rMLDFFU5FBzb6xK4hqYOPl+idLTmM5z1nOCrIw0lWaPfafbzjrJ
-	 YrCR1acE8nhTv9SKYybzD6uJw7baymfoT3ROhQryKsAnR989AnBOntGTz89FlNCgKQHKv
-	 iBw2aOxSJRGvIFKUh+FRp/Xn4L0sy1FIIn/Iugau/JiFFdYC84M/X4DIlgKuG/aLC3IDT
-	 C+A5Aj3FyC+EXchRz8aKfV4sK+LBy80s6PB7Vs0c/2ZE4eDzSfj+St9+pvRtuFQaV+Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794966742;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=yv5J3gvYonX/6FqSmk7sOMY4JB7byW72QtOkwWKI6Hs=;
+	b=0Bl3/NYdC6lUq7vDsPlole79wK9PdSS5MK/kzsPHI3MkcRxVMo+i+HX/I+JOyHxW96AY
+	 StcJCUw/9SqfIWGR6FDeh7S+wI/Y1z0yxFYuLbEUSuxQNe4fvLoRkVzhN4N0TaP0xvVF4
+	 vfmhUIJ25s1SlJdAym4E/xE+LReWdj/iY23370LxKKqssno7Njb44KtOUqthjI5Wn2383
+	 vFawlbgb3Xg3fDdNtZFZyWUNsMph9ARe1xgsAjVssIzW/HikeIFo9DvD/ZaNLiOF/xShx
+	 5s5lND3yp2wWVmst/KTwILrrR5dmRyZvlVhKXDNB77eHPm+nvrofJ/e4UhwN+JYx/LQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FD2BQvqv;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GgCgaVpC;
+	arc=none smtp.remote-ip=198.175.65.17
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2885C606A325;
-	Wed, 18 Nov 2026 01:52:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 923F8606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:52:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 923F8606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FD2BQvqv
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FEF31F000C4;
-	Wed, 18 Nov 2026 01:52:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794966727;
-	bh=1zyx2Uxy4RUbuMas+e6y49K5/oKqZCnLjsukdPhSewU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=FD2BQvqvD1ebkI4yVM0HQcKAE7af/nMis0MsTjUR2Kjz0eWrGbp4I8cDd+Um7qeYv
-	 VANnsw1ZrawZKhyDGXan3S/1i/RhExLR9Bp7d+8SdkPl84QdsxZ9iGPVpY4CGHkI7x
-	 TF8zPVqK+vYtZuSok0CD6KnNs8Je0CCSLZBDXYPnA8MaEP63M4R2GyP2UwqEHKQs4P
-	 134VcKgsCX42/UWsYnMXgJcgUxD2I4zc9A6zhs3RApNjYrUlirAyFJWOzRV4dSuThn
-	 W2/ls1HO29Z63HN92pqWJfUfbs4Kg3CdKLIJ3UViTwmzABYwTmuTLcE1NqzqUnELFg
-	 ARXqlSLEmUlqw==
-From: SJ Park <sj@kernel.org>
-To: Mattathias Pinchover via B4 Relay <devnull+mattathias.pinchover.uber.com@kernel.org>
-Cc: SJ Park <sj@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	damon@lists.linux.dev,
-	linux-mm@kvack.org,
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GgCgaVpC
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1794966742; x=1826502742;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=JzvAYy+mMgwCByAroYj9N8rDne/Z6sbblIq4Fe1MpRs=;
+  b=GgCgaVpC8IFJbkd8qYEHQJJbBdx4ERZk00zupOrrH2ZeN9qOgpz0MnH1
+   tBAjnee40gFiA8bgRTzY3YxOAPuy9go0quHLxRs6QQOMASpaXev5x/MBH
+   NhOY6XvnuHfz6HXbzfB+Knn6/kvo3CuX5dmV3TncLMjav7l5LjGisofiG
+   3/CPvaMmskLfZMHRpAo8tEIts3QgnXqKvUcYctB6c2LTI+BTzY+CHN5Ti
+   A4k6Oj9rsQgqhsMT6LZL7reRn+Q2f9SksIqvTzzXTwJ79FDI0QZ5HMm5L
+   wK8Cte6LRFfl6G/CR8/H9lmxlP5RTmh7q9nARW2z9zo1JFHulqx28oMse
+   Q==;
+X-CSE-ConnectionGUID: qxzunt5rRlan7vCUJjeMcA==
+X-CSE-MsgGUID: 9vwfujWNQp2trQYC8e/i4A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3777422"
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="3777422"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 17:52:21 -0800
+X-CSE-ConnectionGUID: IHmTfrMeRRGkZVF1+ha2cg==
+X-CSE-MsgGUID: /vNDjvkrTpyMqpQemnh5+Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="10172462"
+Received: from fred-panther-lake-client-platform.sh.intel.com ([10.239.144.227])
+  by fmviesa002.fm.intel.com with ESMTP; 17 Nov 2026 17:52:18 -0800
+From: Fred Gao <fred.gao@intel.com>
+To: intel-gfx@lists.freedesktop.org
+Cc: intel-xe@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,
 	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	Mattathias Pinchover <mattathias.pinchover@uber.com>
-Subject: Re: [PATCH v2 1/6] mm/damon/core: introduce sz_ops_filter_passed_last stat
-Date: Tue, 17 Nov 2026 17:51:59 -0800
-Message-ID: <20261118015200.95836-1-sj@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261117-damon-sz-ops-b4-v2-1-439888fa04ac@uber.com>
-References: 
+	jani.nikula@linux.intel.com,
+	rodrigo.vivi@intel.com,
+	joonas.lahtinen@linux.intel.com,
+	tursulin@ursulin.net,
+	ville.syrjala@linux.intel.com,
+	Fred Gao <fred.gao@intel.com>,
+	Chenchen Wang <chenchen.wang@intel.com>
+Subject: [PATCH v2] drm/i915/panel: Restrict highest mode to DRRS-compatible modes
+Date: Wed, 18 Nov 2026 09:49:49 +0800
+Message-ID: <20261118014949.399026-1-fred.gao@intel.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,31 +87,53 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-On Tue, 17 Nov 2026 23:22:15 +0000 Mattathias Pinchover via B4 Relay <devnull+mattathias.pinchover.uber.com@kernel.org> wrote:
+intel_dp_mode_clock() uses intel_panel_highest_mode() when seamless M/N
+updates are supported so the link configuration can accommodate every
+seamless DRRS refresh rate.
 
-> From: Mattathias Pinchover <mattathias.pinchover@uber.com>
-> 
-> DAMOS stat sz_ops_filter_passed shows the total bytes that passed
-> operations layer-handled DAMOS filters, accumulated from the beginning of
-> the scheme's execution.  Users who want the amount for only the latest
-> apply interval, e.g., the size of a workload's anonymous memory that is
-> cold as of now, need to keep the previous values in user space and
-> compute the difference with the help of nr_snapshots.  Because
-> nr_snapshots is increased once per target per apply interval, the
-> computation is complicated and error-prone, especially for contexts
-> having multiple targets.
-> 
-> Introduce a new DAMOS stat, sz_ops_filter_passed_last.  It is
-> updated at the end of each apply interval of the scheme with the amount
-> of sz_ops_filter_passed increase in the interval.
-> 
-> Assisted-by: Claude:claude-opus-5-5
-> Signed-off-by: Mattathias Pinchover <mattathias.pinchover@uber.com>
+The panel fixed mode list can also contain modes with the same active
+size but different blanking timings. Such modes require a full modeset
+and cannot participate in a seamless M/N switch. Letting them affect the
+highest clock can unnecessarily reduce the selected bpp.
 
-Reviewed-by: SJ Park <sj@kernel.org>
+On a 5120x2160 panel, the preferred DisplayID mode uses 717260 kHz, while a
+CTA mode with different blanking uses 742500 kHz. HBR2 x4 can carry the
+preferred mode at 24 bpp, but not the CTA clock. The latter therefore makes
+the link configuration fall back to 18 bpp. The firmware state is 24 bpp,
+so the mismatch forces a full modeset and an eDP backlight and panel power
+cycle during driver takeover.
 
+Use is_alt_drrs_mode() to consider only fixed modes whose timings and flags
+match the adjusted mode. This preserves bandwidth reservation for genuine
+seamless DRRS alternatives while excluding modes that would require a full
+modeset.
 
-Thanks,
-SJ
+Fixes: 74d6f31fa427 ("drm/i915: Add intel_panel_highest_mode()")
+Signed-off-by: Fred Gao <fred.gao@intel.com>
+Reviewed-by: Chenchen Wang <chenchen.wang@intel.com>
+---
+v2:
+ - Resubmit as requested by the CI team to trigger a fresh CI run.
+   No code changes. The previous IGT failures were caused by unrelated
+   patches.
 
-[...]
+ drivers/gpu/drm/i915/display/intel_panel.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/gpu/drm/i915/display/intel_panel.c b/drivers/gpu/drm/i915/display/intel_panel.c
+index 81e638d0c7b3..e82082adb4c0 100644
+--- a/drivers/gpu/drm/i915/display/intel_panel.c
++++ b/drivers/gpu/drm/i915/display/intel_panel.c
+@@ -192,7 +192,8 @@ intel_panel_highest_mode(struct intel_connector *connector,
+ 
+ 	/* pick the fixed_mode that has the highest clock */
+ 	list_for_each_entry(fixed_mode, &connector->panel.fixed_modes, head) {
+-		if (fixed_mode->clock > best_mode->clock)
++		if (is_alt_drrs_mode(fixed_mode, adjusted_mode) &&
++		    fixed_mode->clock > best_mode->clock)
+ 			best_mode = fixed_mode;
+ 	}
+ 
+-- 
+2.43.0
+
