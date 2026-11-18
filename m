@@ -1,59 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794978120;
-	b=Be7boUSpsH+YCIt+lUI9Sg7Y9PKIBT/32OIFRripQWD8TDYnY4VUkJS9uqeRwO8jn5Hf
-	 wA4ZB83E7MHMyCWUzN7BvXjh/F5zth7GD6MtgX1r8raI1aJ6aWqbHgo6VCU4jsUI6bHS4
-	 gPs8cAxhJ7ugxT/Ls7QyIXiG27hpfiPnzkT8LNFgcex8dMN4TrEIyAiMpooVVpH1PMocE
-	 YFSRACsx206WCPWlcGuOLHohmssEiQlwdsed7rY5wI7qbFsfCz3ocv2EyEdA4MoU4LovR
-	 dD5IkVF/hkeP3mNUmjCmV2o6j7FMFOjX4uQOc3pNhMcfiuKee0c+9cj051Hvy3Gxfhg==
+	t=1794978260;
+	b=QpP6TIoyiMQ4ElwUZGYdWlzg2Uc+UUhGwidTIqVrEK2HsD7CfHPPjTnMz8tbS+Sp9aoh
+	 L39QYAPpSC5BO4qRoxOi/lipX6gIPkLQ1/GLx2Evaw18vvD/c2c+oQGYKOdK6UZ1odu7S
+	 5fqLpuXDPw/t2YKCFoWg6TOlDJNE940aN5sC4IHAn9OgBIJSm6St0jS6o/GXioVRhUkEP
+	 tafuuwn3ltFx88hvuYkxPeV4h5hjNX1kfs70K5LbMr7M8v4C7VvMG+M/snTN2Ir+Uq1Z3
+	 DGn6rPaI73kiUTl7r/1AKSHyKbVxP5nXoshGUejCyS+z+jB4r/jugovAoUTPXSBiYQQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794978120;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=buJAxVxDBcGm0+gFbF5F6hAK1IYNZp2MClhpS9+UJjA=;
-	b=UAYffMdn3TAyBVsS8Qhe1XuVGjZVTZvMfrnABRN+nvrf1l8a25jCpcl9JSaF83yD1+P9
-	 QL5kPqH9GERzG48HCwefz1UTVH2ZnNsvmeZH1UVniG5Rh4IrrT4QzDphquQ1cEEJOD/zW
-	 uHrvJLR5ckJBpEYo+zYXjx0xZVvFoTApA8s3gVQ4Uxl9BnOljC7Z3BbCXLu7h7v3iexgo
-	 RJhLi3+6uMp0ib1NeOWELHUqBFzX8iEUJz8WI/Qzc3KIcJVTiG2SiY8gwwiUkzqJnmoIe
-	 NycDmbprMaxLnnSHgB/4IB29xB/H+LkHbpAHTsC7i65T+G0vWdMT0lwnbO5mRNHgKlA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794978260;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
+	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
+	 Subject:From:To:Content-Type;
+	bh=fHKEKHdPjoZhYVJRZoCAKKckDq3mCm+7VXF61UEPMbE=;
+	b=iG2T7t3oJSqaoDUyveW7uQTBupTgkTQcykSpN2kCl1mTyUmm3k4xPuyFfFI7QyY3bfF/
+	 ECs0qCBqV4O09/nwyhL/6nv6u1ZA50T/Dlh7MMkFbzaeDOHGwzMxgX/smoSi/VHj/n6Br
+	 lcY3gqH4JFZPBm5kGM0rs5B58g/RjQ4QRSuvMbY1tAs3S3j/diNHVvSnYuAGXvfePNnx6
+	 cpEPTMhtwpPLq+ATd3Fg68TwDInMp3LfmDTvoAUt9zoy4Vv4wXtlJEsQgU+NnPxTDc/68
+	 HCurPOf7l+xcntegHl3uHxEpV3aXR0RQx2pBuC+xAdbSzyuIHfC1QJ82iv49o/rKSRg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FfwTOhXU;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.167.200
+Received: from mail-oi1-f200.google.com (mail-oi1-f200.google.com [209.85.167.200])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F6AA606A31C;
-	Wed, 18 Nov 2026 05:02:00 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FfwTOhXU
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E2DA1F000C4;
-	Wed, 18 Nov 2026 05:01:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794978119;
-	bh=buJAxVxDBcGm0+gFbF5F6hAK1IYNZp2MClhpS9+UJjA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=FfwTOhXUXPUk+CcNccykVkrwW0f62fCOj8ajYxrUk8D3gwNNG+f0orXOYe7MAP6Ze
-	 kGqxVltBqpd1DH89gmYIJRQdkwTRdgv+x1IaHQx05OnBeLDC13/CE/m6d56egTdOhe
-	 MvxdTCzQCk1HX7V4XjpEO/fGBS+XbXedJVssoX23MdbTqGwSKvDIHVWj9jYBd13NX7
-	 3F6hRp/2gQq3e+Gtf8QXIk2nMYsFwVOVQMeWE03BzAl+P1CvIwyKp9p7mYD4H8y3ti
-	 PIYiXHtwECD1jHhA2UZK5V8gyHBn9SCHHgUujAFow9r9rAOwcSXjeyelZGYhONYPmp
-	 0zgXOC8W4UxXw==
-Date: Tue, 17 Nov 2026 21:01:58 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: Thorsten Blum <blum@kernel.org>
-Cc: David Sterba <dsterba@suse.com>, Chris Mason <mason@kernel.org>,
-	Jaegeuk Kim <jaegeuk@kernel.org>, Chao Yu <chao@kernel.org>,
-	Richard Weinberger <richard@nod.at>,
-	Zhihao Cheng <chengzhihao1@huawei.com>,
-	"Theodore Y. Ts'o" <tytso@mit.edu>, linux-btrfs@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-f2fs-devel@lists.sourceforge.net,
-	linux-mtd@lists.infradead.org, linux-fscrypt@vger.kernel.org
-Subject: Re: [PATCH 0/4] fscrypt: Add FSTR() helper macro and convert
- initializers
-Message-ID: <20261118050158.GC3400@sol>
-References: <20261118002845.574426-6-blum@kernel.org>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49B5C606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:04:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49B5C606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-oi1-f200.google.com with SMTP id 5614622812f47-4cc89e86e4dso606124b6e.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:04:20 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794978259; x=1795583059;
+        h=content-type:to:from:subject:message-id:in-reply-to:date
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=fHKEKHdPjoZhYVJRZoCAKKckDq3mCm+7VXF61UEPMbE=;
+        b=h3XlaCi4GwlXV4OQ9XijcuYHsKQpu25MqZe7PFiDJf3MWIpQBLKeFCYTC47kMkQ5yS
+         bXAxroavMLOv2RexBLUZg/Z2o9iss3aMEk2sBx8iJB2Cecaz1+mlWnW8IrTuKwCoe63z
+         RLocso749R04h10vplmSjmXjLzGKCITHQa7FiQcS2YtLDUHyDnQxqMfzsQJSqURFPrNU
+         BspmUaUd089nVTKQpYF7937/LBiO6824psgJFZni1yHfeAYtFy8HLrJvJIgiPO3kH6z5
+         l2zQsKhXE4T2lZ1Jpf4qq1ZevkcFOjkRlpzUC3gJi53clSlZtkWKwtvMX4fIFdFKl1P2
+         /Nyw==
+X-Forwarded-Encrypted: i=1; AL+hErGazKf4HvbtuRe78pJlVxceLk1f+pQiHvp4ds9TCrCLQ4cws5XV4ZBLtyMGMLGrqhxRFGB8p3LNVaHUXW0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9+coH5EZMNIhAR20yZOo24Udkh5QHsmzvD6nni4r1p8HS8VYZx
+	K6610inKN9I0/uD+f1JXhhGLuF2L4ojXcEKb2fB4HitTBpGs4CAFYiAYTr+MpfoH3zEfrybKNPo
+	ucEf3qPUlpbCEvJXBwUPk94qgAcaNhMZVm6D50OvIauRoHYUSL37YpsWzDeY=
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,18 +58,25 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118002845.574426-6-blum@kernel.org>
+X-Received: by 2002:a05:6808:4fcb:b0:574:82cd:a022 with SMTP id
+ 5614622812f47-57741c1eea6mr2354609b6e.15.1794978259303; Tue, 17 Nov 2026
+ 21:04:19 -0800 (PST)
+Date: Tue, 17 Nov 2026 21:04:19 -0800
+In-Reply-To: <6a8bd0a6.91706f20.16b6e3.02ce.GAE@google.com>
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6afd31d3.8f566acc.2517be.0016.GAE@google.com>
+Subject: Re: [moderation] KASAN: slab-use-after-free Read in uprobe_mmap (2)
+From: syzbot <syzbot+1340ad4350ad43394c10@syzkaller.appspotmail.com>
+To: acme@kernel.org, adrian.hunter@intel.com, 
+	alexander.shishkin@linux.intel.com, irogers@google.com, 
+	james.clark@linaro.org, jolsa@kernel.org, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+	mark.rutland@arm.com, mathieu.desnoyers@efficios.com, mhiramat@kernel.org, 
+	mingo@redhat.com, namhyung@kernel.org, peterz@infradead.org, 
+	rostedt@goodmis.org, syzkaller-upstream-moderation@googlegroups.com, 
+	zafir.taufik@starlabs.sg
+Content-Type: text/plain; charset="UTF-8"
 
-On Wed, Nov 18, 2026 at 01:28:46AM +0100, Thorsten Blum wrote:
-> Similar to QSTR(), add FSTR() to initialize struct fscrypt_str from a
-> NUL-terminated string without specifying its length.
-> 
-> Use the helper for 8 initializers in btrfs, F2FS, and UBIFS, replacing
-> hard-coded lengths and explicit strlen() calls.
-
-It would be worth stating explicitly that the new strlen() calls are
-constant-folded in most configurations (if they indeed are).
-
-- Eric
+Auto-closing this bug as obsolete.
+Crashes did not happen for a while, no reproducer and no activity.
