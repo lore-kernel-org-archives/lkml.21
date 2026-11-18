@@ -1,88 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795029398;
-	b=LED3seH1KsBPtkVAeN9nD9f2yJ6QsBejj8YIRCIGKY0pPkzZNg6qYGrIa5aLVFToACzn
-	 1XXSc+OzSvil9fh82kgp3azM+m69kUUt9Y7h2dGuk2Jp1wZoTofmDeVh+dShG5r0T91+b
-	 aH/ybf8tYRc1QVQGSqBivYyB5BBiFAfw1yZKjmwIO7iRpMZxMJ/FtsvBrq9PFQZ9n1zmy
-	 qQNhiSvwhQxCaumbsIiq6Y2SAWpPNurKBNhernDF00Is+mtFcQwDOXZl3kYG0Mb7YA2nu
-	 z6UOM0G8QGNA6z0m8AgDtG9yW/otMc92DBkNmfdsgVf18fENax+5NRho2ZJUwz7yyBA==
+	t=1795029406;
+	b=z8mERGJrHT9L2BxGNNny8rpyieyTh1N4IdX/KdNTGxGizF32VeLb76WnTgJjbt5sHsXE
+	 LW5YNqxXwdWep2I6i9YUZASyI94TtBbYBaVGbigijpiiL5aY55c/fgke5gDl/hjsNdBeK
+	 u82NbouYDQd/B+ehl3xTSbxQ/BSRLM4BWkazfn1xYvyFq5qc+szl0Y9YZawBf5JTDBb7J
+	 WQuJPwYOO/cfmuZI9HpXmsLv9IvVrhvsM3cLEM6yPKcJ8I4FM7CarzIRoUiNGgPxVUFbW
+	 lwuxGNehVuxr9rNeW72ANIF9MWOLqbslmF6kkyaKShwFAmbWMAgNRCEvJDdGoKRzBIQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795029398;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795029406;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=58b5SUFBCY4/MY2JUfmGH8gHdBS79YyzhPLRjlW4m0U=;
-	b=PeA90lIjmNrgmLhUUyc68cdubdQt9ajJPmfaguEkCMdnIYtT9uPdbHhowQONEddPe1DA
-	 DcwR9KJQ6B4hG1+Gn8dhlGzA5kt8xtI9cPxXGI6xXeN5ZnqQzmIwuExJgPnMZpbVxipWD
-	 D5itbnOmDFN5Dd7Eh2z3mox91zEZWWWTkAltu8+tj5K9g/YyC5QPrlDDwTTst1KfnP6Pc
-	 TnAhLyuhoLEe/6X5EWgkNtqxuLL7F0uAiJKUPv9VSbhrpCrW11KxWvabrMgtkLAZMDgJd
-	 Zt1QgcXSQXQ1P5bks0Ll74vToBHd51b2zlKYw9Mo14e8/OWUz31LcN3PK6XKbeZyR0g==
+	 From:X-Google-Original-From:Date:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=wesoUpV5LSWdODsu/SFZafU9p7VW5qMB6GV5WAXmCps=;
+	b=Vmx79f/PyCE676W14iuNWYhHxsnLR8Bm5za1t65WGLIcGK99+G4uhi9Xr5WSNmT3sgXk
+	 +RPLQTVMsRIek9kkWu0BjB4NemLRNZCpg2UCp77JP7Cc+SxLFApPuv57vGnGT7PK+WPC4
+	 JC2vJlw2E4l5dcR6V8HvUfV9BNJztB+OniCOuQM3XZUQw8BTu+C7yxC5CSpCjme9gOTVh
+	 2lSCgEcQxz7mN2DWNo5GqIW0w4ZLlZFr3u7q9QXw4lylyI45xtjvo64Jfo+s+KoHiv14b
+	 B3h/q1SulNKx1mWoSGZWQk1GajTs8oy7myTbX0xmnycuxGSQcRSknjJZdm4nMHaWc8A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tJYexqmp;
-	arc=none smtp.remote-ip=209.85.210.178
-Received: from mail-pf1-f178.google.com (mail-pf1-f178.google.com [209.85.210.178])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EnOmo1Hu;
+	arc=none smtp.remote-ip=209.85.218.47
+Received: from mail-ej1-f47.google.com (mail-ej1-f47.google.com [209.85.218.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD670606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:16:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AD670606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D70FC606A32C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:16:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D70FC606A32C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tJYexqmp
-Received: by mail-pf1-f178.google.com with SMTP id d2e1a72fcca58-8b904d10882so613738b3a.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:16:37 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EnOmo1Hu
+Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-c4d2b741ed9so220146266b.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:16:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795029397; x=1795634197; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=58b5SUFBCY4/MY2JUfmGH8gHdBS79YyzhPLRjlW4m0U=;
-        b=tJYexqmpB1JqjQGtscML6/STrXZSc3Zf/53lM6/iVI+Lp3aqnTaQk1NbjW5KKOb4BC
-         wdT4sl8305PhWVaBETctmMi6n9bHgdThPbx4CCPY6sdren85WFDhcebDlSmNOKdg8lgz
-         qP5JT14iXk7D5/MguF9AIPPm6bN0OkZNFh3GMOYkffuWqQs39r1204o/C13KnJFRBMTu
-         19SR9+hDSgU0CC1h8oBYIhkLuaBuJRVSUXjABjOJJd2DGIdj/8joy2OLZ348YytSY22O
-         8lfWisihe2ewhIxhtQstSAsPkq+VqLEL67gzBWQGFJXH3VkNDr7tdHdzfxMiMLtK4MKt
-         zLnw==
+        d=gmail.com; s=20260707; t=1795029404; x=1795634204; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=wesoUpV5LSWdODsu/SFZafU9p7VW5qMB6GV5WAXmCps=;
+        b=EnOmo1HuUvc7EGsYlRfl9nhRrKFGNntbj5vInyr6QYmFyneb/tBxWAkVAGBch/f+aJ
+         lNZ15uXiGgqXMUzMS6Q4w4PMOjBsXkRMFRteY5mOwF3XPgDSou3XRG4x9NsrvG5g20aW
+         LJQnWSkulmBqHw7owhF3IPwByiovlskFc4hSOSjKgp5YCLLCZLp+fs0/Dx0/N5/Wy9PK
+         n7IEH+cw6zwKFDUMGXI7NI/nF1OvzjNAUIB9Fd/TcA00xwCkfTrL/GeADbVtP2ahutK0
+         YNeBgFJAhtU7KfwE0BxGZwBRWNUvC0pW1bif8gAf/cqi0YtWJww0L/SinlAqypzPkWmf
+         pRvg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795029397; x=1795634197;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=58b5SUFBCY4/MY2JUfmGH8gHdBS79YyzhPLRjlW4m0U=;
-        b=cT1gEUmm+2m2JRNq+NRp2h5COQCsq2pSfqRcvofMpR1/V+fgzzirxDBdEgcBPYei7l
-         vfLQRQtH1NmJk8aGGOwowhDMBO+xR3ZTKclwBgr/U89M9RKFWdpAhj3Tt6vAUXIK8dGy
-         987/PHdr/6xVx+HJCg5D0SGQ1UAAFHVAQ6afKQlqQsJ2oP0YsZMV8mihe5JdEBjvDhAf
-         /jyJt6Q/vn/LIfvtz/e5yOlWho/+wBK2q0KtFTNMiHL1wbSAlWrNJh8FJKaqa1IbUblV
-         SGRjMESu+ReV0jhLW4yxqcnkiagegFed8JHu3c2Diqzgi2iQOacfLUUKKfMbwA0AvW65
-         bm1g==
-X-Forwarded-Encrypted: i=1; AL+hErH/QRQdlUmcQ2fc3IZT04ert5dgptf64Fxkw+uxJ6/cXjib2Te5cioBo60lbEMoZPkysbkNcky2VyS0otg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+vver2EBsYOE2W2JkUwNLOYr1Fxg2arYXqUAWlE4rqkLKysbqO
-	zPC47gzezh+kIaOOwBDieFnS2YZPlxZ9/dz+DJiGg0D13rxwGFjIFTjW
-X-Gm-Gg: AYBFou1AlcHwLOnpNLM/vFC96jYVOnwIeYc/B1kZHfkH1cFk+7swxjIE8HnJ9lS3ZMP
-	/qkKeHbhCkAVxvNg3/RUafTFQ7bLq3F7QHtnOtS3blsCC0do1ZGdmmzi8a1y0HvYgTPU+uhwRBV
-	6qFWE6udpIFA20yCQyXK0+yIihM6b2TarCIRZDiPsW2dgC0asUxCItXl+USPKzdOPzBntfqRBTT
-	A2qdidx5vwswpoq9q5yUHaLCDefXR4UBwqv3O9U+7cdIh6Qpy35xt5GZTTzKQXVO2nppLD7IerK
-	dHcYLF1wCvguymM0qaIIgBVw8pv2mhqukXgnQXex5jPVZSxGms5Hv33UcEi2n1HGq26YAAB8g3U
-	0ORhPjYwWf7QRbIQBmtu5WIU/35U0C9OwPAHJs4BHXT378fvzBP+mIcoF7HQMA90yok+5TyK5Jq
-	8V/E7wYN61Cv2YBcfZjAg5+5phNTOw/S3kEVvx77ODEaoXsgeXQ1P8hnpw2u6M03yFpqQ74Mczh
-	namJVLF7VVxK6qh11CZRqdxGTXXtASPfbjYNtEICFj57LKMAqvjjI0/62UXhGNhTO7i9shKPwPm
-	2eZzhtMt4mtwHI2vgqTi25hWwy86qVeqCcir6rKZg6xuTtvNIAb564tw
-X-Received: by 2002:a05:6a21:b8c:b0:3fb:1091:bfdc with SMTP id adf61e73a8af0-3fe97bf78a2mr3539072637.37.1795029396924;
-        Wed, 18 Nov 2026 11:16:36 -0800 (PST)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde534854b1sm453228a12.12.2026.11.18.11.16.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 11:16:36 -0800 (PST)
-Message-ID: <65c24a95-1087-4f30-9f9c-9e8636da211c@gmail.com>
-Date: Wed, 18 Nov 2026 11:16:34 -0800
+        d=1e100.net; s=20260707; t=1795029404; x=1795634204;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=wesoUpV5LSWdODsu/SFZafU9p7VW5qMB6GV5WAXmCps=;
+        b=05LA4g/S4lFDtFyIjlW8MGI+OVQBKj80bYM8cFX6g2JbexzkgpeMfc2SGY/wK3fRVW
+         OEc7taAot/HeLVdBgeBzsAAk+5qosA44n0j3SRw2Yb/jYXnjETuLZtmVHq+aRmFAp9Mw
+         Hcj5KAdtZNQnieyxv4703AZPamttMNo+h6gFRp1pXG1xzUonx3U4vbYEdmaCGKPdPZCS
+         UHZXTPzAjT8/8eYYMEphPZ3oS7OF8EARNWfRDIuqZk5t4NhaILHkktVAJQU9SFYwP0lA
+         DHQkqe34a83DTCWASepf/A+u6I94pBGVquHnOX54H1qp+sbzzYObKuRdEY5xm8I4c91s
+         h2eQ==
+X-Forwarded-Encrypted: i=1; AL+hErFTzq1daELFA/FHfVJ5gIYeDE3ch+Gxm9JX90hhN7i33mawu0AT8bNcxd/iLUW60XnaLdDPPmzaCwL5vnw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Qc6+3r6jvMf1nabcg4RfOpE5tVyYmrEg2OyAgH4Kt6I1HbDk3
+	IFNj4/0dfgWIu1S7sLK4OCmZGss67IDyaT9AzP8upEnzAs3sUttaEFSu
+X-Gm-Gg: AYBFou1lezlNQOXppGHYhUODx4U7tyi/4eIpOEYtsudngMpkcmgNOzFkL4R2yDmmJp9
+	G0Pd45//1VR1jaaxCRH+ccypDsmUqY6e7kJRQMhwk6oMExemJmze0kCXqn/BffubK4tklPjRy01
+	yyqONf2lPGFz7SNSBuq/LQtNSamlN41dCH122ZzTHVb6RShEhPSlKujg5NUHcl+XIyPuXh0RyE3
+	xnAHxgYfUwV4d0HzNpcli2uVRnV+WVDfVBahORr4z6vPOPlMLHMcYjTeOYttLjnluHhKiX6+IQq
+	6ti8tJaMYt9+sz6vN2uqJdpMo6sZGSsPoSpOQOg0M+AKq7SHrONIgGmygRJsceSuOOdxH5VqAG+
+	mxr0lHlv4t+tw7qgZi7g+hROaT0eEn5C6DN8x/o1AxfmNg+CffA6uo9YCCM6SsxuZSZOMy4EK1P
+	SPnF68SycX6l+B0Dx8vtehp+mptbg4HiP8zzmVxiAMCRYMmyDYC/pzDZwlcOG64a7Pk+vX5kU9X
+	DpEC7m0+LQvKIw/dQ163C1QprYCi333TD6KbsdsRRe/JjnCPQiCjfg6UcFfSBDtkGCzxA==
+X-Received: by 2002:a17:907:3e9b:b0:c50:5186:a428 with SMTP id a640c23a62f3a-c510e2d83ecmr343950166b.27.1795029404223;
+        Wed, 18 Nov 2026 11:16:44 -0800 (PST)
+Received: from milan ([2001:9b1:d5a0:a500::24b])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c51233c4cf4sm30980066b.29.2026.11.18.11.16.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 11:16:43 -0800 (PST)
+From: Uladzislau Rezki <urezki@gmail.com>
+X-Google-Original-From: Uladzislau Rezki <urezki@milan>
+Date: Wed, 18 Nov 2026 20:16:40 +0100
+To: Dev Jain <dev.jain@arm.com>
+Cc: Hao Ge <hao.ge@linux.dev>, Suren Baghdasaryan <surenb@google.com>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Alexander Potapenko <glider@google.com>,
+	Marco Elver <elver@google.com>, Dmitry Vyukov <dvyukov@google.com>,
+	Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Christoph Lameter <cl@gentwo.org>, linuxppc-dev@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com,
+	linux-mm@kvack.org, Sashiko <sashiko-bot@kernel.org>
+Subject: Re: [PATCH v5 04/11] mm/vmalloc: reject an unaligned range in
+ __vunmap_range_noflush()
+Message-ID: <av35mNq7RrxN56Tp@milan>
+References: <20261116071325.263682-1-hao.ge@linux.dev>
+ <20261116071325.263682-5-hao.ge@linux.dev>
+ <4c233641-15ad-4e5a-a106-423bc31f357c@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,79 +112,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5.15 0000/2214] 5.15.226-rc1 review
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
-Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
- torvalds@linux-foundation.org, akpm@linux-foundation.org,
- linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
- lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
- sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
- hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
- sr@sladewatkins.com
-References: <20261118150009.797899913@linuxfoundation.org>
-Content-Language: en-US, fr-FR
-From: Florian Fainelli <f.fainelli@gmail.com>
-In-Reply-To: <20261118150009.797899913@linuxfoundation.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <4c233641-15ad-4e5a-a106-423bc31f357c@arm.com>
 
-On 11/18/26 06:27, Greg Kroah-Hartman wrote:
-> This is the start of the stable review cycle for the 5.15.226 release.
-> There are 2214 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
+On Tue, Nov 17, 2026 at 11:35:24AM +0530, Dev Jain wrote:
 > 
-> Responses should be made by Fri, 20 Nov 2026 14:55:35 +0000.
-> Anything received after that time might be too late.
 > 
-> The whole patch series can be found in one patch at:
-> 	https://www.kernel.org/pub/linux/kernel/v5.x/stable-review/patch-5.15.226-rc1.gz
-> or in the git tree and branch at:
-> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-5.15.y
-> and the diffstat can be found below.
+> On 16/11/26 12:43 pm, Hao Ge wrote:
+> > The PTE loop stops only at addr == end. An unaligned end is never
+> > reached, so the loop keeps clearing past the range. An unaligned
+> > start clears the page below the range first. Both are caller bugs,
+> > and the damage is hard to attribute afterwards.
+> > 
+> > vmap only installs page aligned mappings, so an unaligned unmap
+> > request is never a legitimate teardown. Warn and bail out at the
+> > entry of __vunmap_range_noflush(), before any PTE is cleared.
+> > 
+> > Reported-by: Sashiko <sashiko-bot@kernel.org>
+> > Closes: https://lore.kernel.org/all/sashiko-outbox-178439@kernel.org/
+> > Signed-off-by: Hao Ge <hao.ge@linux.dev>
+> > ---
+> >  mm/vmalloc.c | 3 +++
+> >  1 file changed, 3 insertions(+)
+> > 
+> > diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+> > index a168f6f20f4f..e2b63cb1592b 100644
+> > --- a/mm/vmalloc.c
+> > +++ b/mm/vmalloc.c
+> > @@ -523,6 +523,9 @@ void __vunmap_range_noflush(unsigned long start, unsigned long end,
+> >  	pgtbl_mod_mask mask = 0;
+> >  
+> >  	BUG_ON(addr >= end);
 > 
-> thanks,
+> Nit: It is usually a practice to change the existing BUG_ON's to
+> WARN_ON's too, if you are changing around that part.
 > 
-> greg k-h
+> 
+> > +	if (WARN_ON_ONCE(!PAGE_ALIGNED(addr) || !PAGE_ALIGNED(end)))
+> > +		return;
+> 
+> Reviewed-by: Dev Jain <dev.jain@arm.com>
+> 
+Agree, please also replace BUG_ON() and feel free to add:
 
-perf fails to build with:
+Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
 
-/local/stbopt_p/toolchains_303/stbgcc-12.4-2.0/bin/../lib/gcc/arm-unknown-linux-gnueabihf/12.4.0/../../../../arm-unknown-linux-gnueabihf/bin/ld: 
-/local/users/fainelli/buildroot/output/arm/build/linux-custom/tools/perf/perf-in.o: 
-in function `test_truncated_branch_stack':
-/local/users/fainelli/buildroot/output/arm/build/linux-custom/tools/perf/tests/sample-parsing.c:358: 
-undefined reference to `__evsel__parse_sample'
-/local/stbopt_p/toolchains_303/stbgcc-12.4-2.0/bin/../lib/gcc/arm-unknown-linux-gnueabihf/12.4.0/../../../../arm-unknown-linux-gnueabihf/bin/ld: 
-/local/users/fainelli/buildroot/output/arm/build/linux-custom/tools/perf/tests/sample-parsing.c:360: 
-undefined reference to `perf_sample__exit'
-/local/stbopt_p/toolchains_303/stbgcc-12.4-2.0/bin/../lib/gcc/arm-unknown-linux-gnueabihf/12.4.0/../../../../arm-unknown-linux-gnueabihf/bin/ld: 
-/local/users/fainelli/buildroot/output/arm/build/linux-custom/tools/perf/tests/sample-parsing.c:361: 
-undefined reference to `evsel__put'
-/local/stbopt_p/toolchains_303/stbgcc-12.4-2.0/bin/../lib/gcc/arm-unknown-linux-gnueabihf/12.4.0/../../../../arm-unknown-linux-gnueabihf/bin/ld: 
-/local/users/fainelli/buildroot/output/arm/build/linux-custom/tools/perf/perf-in.o: 
-in function `test_truncated_swapped_raw':
-/local/users/fainelli/buildroot/output/arm/build/linux-custom/tools/perf/tests/sample-parsing.c:406: 
-undefined reference to `__evsel__parse_sample'
-/local/stbopt_p/toolchains_303/stbgcc-12.4-2.0/bin/../lib/gcc/arm-unknown-linux-gnueabihf/12.4.0/../../../../arm-unknown-linux-gnueabihf/bin/ld: 
-/local/users/fainelli/buildroot/output/arm/build/linux-custom/tools/perf/tests/sample-parsing.c:408: 
-undefined reference to `perf_sample__exit'
-/local/stbopt_p/toolchains_303/stbgcc-12.4-2.0/bin/../lib/gcc/arm-unknown-linux-gnueabihf/12.4.0/../../../../arm-unknown-linux-gnueabihf/bin/ld: 
-/local/users/fainelli/buildroot/output/arm/build/linux-custom/tools/perf/tests/sample-parsing.c:409: 
-undefined reference to `evsel__put'
-collect2: error: ld returned 1 exit status
-make[4]: *** [Makefile.perf:670: 
-/local/users/fainelli/buildroot/output/arm/build/linux-custom/tools/perf/perf] 
-Error 1
-make[3]: *** [Makefile.perf:238: sub-make] Error 2
-make[2]: *** [Makefile:70: all] Error 2
-make[1]: *** [package/pkg-generic.mk:286: 
-/local/users/fainelli/buildroot/output/arm/build/linux-tools/.stamp_built] 
-Error 2
-make: *** [Makefile:29: _all] Error 2
-
-which is coming from fb1a8ab598b3 ("perf evsel: Validate branch stack 
-before byte swapping") and 2bdbf51d3627 ("perf evsel: Validate RAW 
-sample before byte swapping")
--- 
-Florian
+--
+Uladzislau Rezki
