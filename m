@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794989657;
-	b=WxVejXUkDKlQ5SbWh+O7wwzDIQqqh+jCVNgXQYAWxDNEx8nRdf5ZEiExH68tVdQv9Ja4
-	 aOs6qOfrQ4NDu8Lmu8xY62QsWgaXjVfZmCH3qzeTl4/A2s4zXLyiN0QS/nKhO2gc18hrk
-	 gZSlvUvEMyHUcNcEjF1njox9z8RJJylqLe93Jt++d+WxoWR5r3sTJzlXjyaFaVlgINpeV
-	 GzzqhgVGt/UMWn7MB+OcvJ8XZDNCcr7MkUHymfLk9A8Y/9KLu1dSTZjKpjOG7t5IN6oNQ
-	 f71IaQ4yCbzlL6cLB5Vc2RPVAEkCYyWZsam3wNHmalRspSyx2N6Cvlm+x81i8+9OWhw==
+	t=1794989665;
+	b=H0csguyfu2tH//mkrAjexq3ImTMcY4iBEX6b9nSk8g7vNPc0HunwsfqS1N9YnV+5Yz93
+	 kY2CUxE/I0NoWxjnAFOLbVxOyX+f5Oo8LrQhDBJ/2LtuTRf6qBI2Sn/HyfdoFaiAh88ms
+	 UYH8mUuK3vx10oeEQCNi6QpNotKZbm2AOt1XJ98KMokPB3ctTQ1bNMWIq9Qc4/8fdPAB+
+	 Qzbc+FWZgs9cUYBhUK3anH9TGEIPiaPSPoSe2o4K7nMnGI/NkXGPUoqN/PFbkfL5G8N5p
+	 aBwx+SXmplK3N6w3kM88DNdURK1OcoKU9nSsmZrGANV+5om0kBfLZ0Ov8w7h0Y9mn9A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794989657;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794989665;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=M6p0MrJbihgz/aZk9vyBO68IX+8I6pof2cfx86gsggM=;
-	b=zrKhx6CsgLOHrIJKpHfeo0r4Ipa2PQI00hVJaTJ68ejrB+VYpscKy3t0DmKll2v0IOxI
-	 gjLM694l6h31cKijNq49/RmRIzDHZej625NSE0hnFly4fnHehcwZUvIR48pn3zGPn6YMB
-	 +Z4ltmNco85YNvp1ShSDBHegsbY93OzlXTz/19I0UstBWFb5/DQZ0wBAV5lvKYkDpUaOR
-	 BHIrvO0ELHKZbGDZ9x0rCQWstY5lpcI2Ojpj8UPYlfGliv2G6JSRTV89fdGv8o2GP0Nxc
-	 5+jx2MBCdhuNeOv1fCLHxnZCrklc7Ml91Y8ZYTUmF5dP322DK1II9my2DyoHIXDf8mA==
+	bh=APhQwYNmSvby3GRg2cLabLmHneke0qepZv2cjCRyDwg=;
+	b=WjtTKsqIt3+xdH2nPhhZZO23yB/a1fSbkQHYHi6SaSpHpBh92Hf4/jmBtmQXBt7J+bAO
+	 Qmakh5SIl5CraL9N6BhoAs5g1DcncYvTkC25luR1fJl8PvgY1mF/qaMf9XLyb6eLYQELR
+	 XqbMp7Z58xK3fFh0/jmv6IfgwQx7SOxjJQBjpHlWmFSzUhhJuy7+YUgg7yP9nFDEX1k+A
+	 ZF31SMavuS+2Pc8Ri1eD9HI+4DIue0MxWjjMj8oykaqykzhnW80UIViuYnYyHC3SFZQhl
+	 J+KTsJRgQ8z7Gt5S6EhP3DTRZhA3tfrqq/BK7mdKi1Lq+ntUWnGrqVTmxM9F1GU4ZkQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bytedance.com;
 	spf=pass smtp.mailfrom=bytedance.com;
-	dkim=pass header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b="Z5t/7YWk";
-	arc=none smtp.remote-ip=209.85.216.41
-Received: from mail-pj1-f41.google.com (mail-pj1-f41.google.com [209.85.216.41])
+	dkim=pass header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=h3Ucd5Xh;
+	arc=none smtp.remote-ip=209.85.216.47
+Received: from mail-pj1-f47.google.com (mail-pj1-f47.google.com [209.85.216.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4EC17606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:14:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4EC17606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49D77606A32F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:14:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49D77606A32F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=bytedance.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bytedance.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=Z5t/7YWk
-Received: by mail-pj1-f41.google.com with SMTP id 98e67ed59e1d1-3b08cf16decso385545a91.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:14:16 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=h3Ucd5Xh
+Received: by mail-pj1-f47.google.com with SMTP id 98e67ed59e1d1-3ae2b7e1e17so440153a91.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:14:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1794989656; x=1795594456; darn=vger.kernel.org;
+        d=bytedance.com; s=google; t=1794989665; x=1795594465; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=M6p0MrJbihgz/aZk9vyBO68IX+8I6pof2cfx86gsggM=;
-        b=Z5t/7YWkaI8bEKrZGiwMKh/UA5yMGXR/Prny7rzJ5DbGjEAG9ymDoXMVuy7frEYHDn
-         Yuc+MhlLxzDQnMIyl8Y5eeahgxdQZA7lq7whh0X/EC3BjaZa6xMtXiVfU/PAUJYXjNvt
-         tuCrphGdrXtB5bKclZ6pQTcLI9o5lTvEZ7qdzyPUkRqHuAhgY+A+kahJkbwspit0/c4L
-         wCJk2N3RlBskjYDgUzEX3Lvs4pJqhGHiWJfC96j794xrA5YR96EYJ04Ers9cy6+5ZOmn
-         IPdBAFWHoapThr3Ym5MeTJ8jXwtZB4x0JRUKD/rBOlewRTIj3tqJ0biIiB1CDCou4NCV
-         nUYQ==
+        bh=APhQwYNmSvby3GRg2cLabLmHneke0qepZv2cjCRyDwg=;
+        b=h3Ucd5XhGqg813yg6DkzD7DIGmtwbMlGmIVk20YWAaCF5BKmS8akgKvMaIoSNt6O6A
+         JJxCztIBbKHuZgWXQ/RgjYDGImJlTh2t71giDBb5hCxv/lqloX5+S/asf48s5A7wa22i
+         WOQzbIg8cX7kaR0Pa84cv5fTNoczITKdf2y64zlLj1A1vw2iDKftUUGfAZyFppBi8gww
+         44MGzIh/kT3oBFRFRVwAtJa8tUsvtLkh777ZEPz2I/QSw4lrY4ND8LiOhLRfvKtDfOTm
+         icSDHj4HgCHVS1aSV9stSipCZtwYGr7Y+fzHBNr37F4TRUCQrwtCmCE4j/o4rpK6o3Bw
+         MWmg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794989656; x=1795594456;
+        d=1e100.net; s=20260707; t=1794989665; x=1795594465;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=M6p0MrJbihgz/aZk9vyBO68IX+8I6pof2cfx86gsggM=;
-        b=lHdJkkkEKp8vfkvA70QTxTsxFxag0nO6cUSdBoPC3V5SUAM3JwPFFKd9OKYKvqX3Ja
-         2kN8wHuWYFlAF76AhyGgYeuuFDftIJ4tGipIn+rVD8q5DJp1LbMhmqqHJxkdPaWYCdHT
-         ngDul5h8Q9282QOXWiSocFXxiBeDyth1vPChFurH/iLTPRkSNdrr1//zBZm7C7FCrOy/
-         YyAiMCXsBaS+TrkGkV8ghUUKJhXZET7tmYMqZIp4hkIWw0AFHqjoYAGKipqq1XEaYREJ
-         oUVaYqsgvx3y4OU3v1vnuJlx4E2FHFiTabWYksfCKv9QxOFpzWYW9v+GbrxDFsfL/NWN
-         Xy8g==
-X-Gm-Message-State: APuU4Z8rb6NDqD7LBesgRPmedq3cSShlwBxRC/N9NC/3r/8p8rTwk4NL
-	PzRMHJZB6Ja4O1bNbTzw0IxUnYQ3tkgppRnrSGNG78ANWkziLChWiky1yXnEeljYnxY=
-X-Gm-Gg: AZFdTZca74jBS6A+jbRN8TM5DdQo6uWUb9GQ7fO0/+g8jcH9sv5PZsTpgo+Nu3vdg3j
-	2j/eh0mTSnh8Nf08O05Mdy8HGvQ5UFjsIkBIGR/kRwOIbkNpWu/MX68+cLMvnr3Ovh36VVgYXQD
-	N4egZtNsd2exRiUZVVKFrVZLs0+bikhdmKMUKG/5BBTMN7KPxPBgJy+LtFxeRiRibXufQ24H1do
-	1EsfSVWq4EjQL0/GaEiOopDq6VxDfxZcqF/ZDgGK2m6hFaZcRSgs3tqlRIJ+SAcytDVVVp90lXi
-	q4AW7xpUCH323vmvrXyKj/z8HQvBOpJ9tOZ1LvEE9CpuWbtjJgGB4L7nX39qY8AfDRXRRslKXml
-	BBtj3lIcJ7IejEpMzSRjRkaVUZB/5JZyhKQDS9bjtmu8YmsMKq7obhF1KEt64gcH2BKBmhv8RlV
-	d9THsx0BPIHumKjGclhpdzkOrb02Pssb1u4nWjua70RQFca5DgdqhZuGBkWenwlR7P8lJoNbcGL
-	8PrR6Xm/NigAxiXmqbNMwWRDUTz36qYYTf8bIZJ1Y7EiEkLD+kR7Dso9sXd2DHY1HwoBvEorGpk
-	yilPe0Kjr0lWIG183uwhoW0CPESK13oHKre/tSUoF8YqQSDR0pUhB5WlJS8RQ1cZb4+N0NuW684
-	TGWWqNi4=
-X-Received: by 2002:a17:90b:1809:b0:39e:6a7e:ee18 with SMTP id 98e67ed59e1d1-3b3d07ab0f8mr1937736a91.36.1794989655517;
-        Wed, 18 Nov 2026 00:14:15 -0800 (PST)
+        bh=APhQwYNmSvby3GRg2cLabLmHneke0qepZv2cjCRyDwg=;
+        b=t/hFuNQCR6EaXAsLbbJ391INEnx8FJUDe/L6HEy+Ef/s/Qu/6/edpBO2OsfXTOv9Nt
+         SZ8TCtLgJvsyTPUMz8hCH2dOTIKIWAofgvMkCqPqkqUj11+drW5GywJShtJ7bgeqQGJR
+         LDviyd0aYXRG9PmkScaX6eHn7lQqZQztj6EZMhU4wa/Z1VDR94RghqFpTEH/shFXRBeS
+         3Smjw/SJdWvJ1P1Z7w+YAlPTaIJR0S9Tb5nc5zVjHVCBKuC59xJxHUR/2sXWcSHPtTIE
+         5zkQsppoqYlNAxsmB5MU1MXS2wnUau5FCeW8H2MebMvDEioRpJzrZQsOACjxeMnSsIFi
+         n9/Q==
+X-Gm-Message-State: APuU4Z8RRu8GifhqkecLRKAbw0NSbdANXBJtbl60hNKkS4ZljcjLzRwx
+	7aMOqYF5KXLVpyIE9MxZQjH9dcPQRg0YxSLOp6bk1ozPqvfd6I2qKiaO9d9djt1a97U=
+X-Gm-Gg: AZFdTZdFcSvSfZrXa4x59+qkIj4wOD30sh/C4wpMbuRQ5r1qOftr+4oXK24l0h0ySJI
+	XdBVxf/h0PtELHijKeRPGcKRfPb5QN0wBmerUseuruYY0rBOC7cek2/XjUfrBacD8EDyDX5MSES
+	6nN7XySKpI6oVJIInSAwVo0bbWOL6OZhRwx73uPzuvnFGVfR9c7uxNWJkb7LV1aYTLLcmBrh9NU
+	/7awzV/diP/1wwT89iBcOoNudV/bv1Cjj15wNug85QikyarQEcyUsCWfKrvCicjoon/pjhk+CCZ
+	QkudNS4hULW1Eh9vAE1fnRqndxLj6HM7UraBBm2hJyhz3fAuu2wUULcXGvSkpYgOXx/EE8knsP2
+	VwuYmKJJfefsZU5r0kzE6qY2VUuhWdRt4ynO6J7syDDLN1+gnjZQhNoue88A+MdwOJO8FlNMtwY
+	3+p+bhHSKozZfB7leYfae46XQq2xcLnLnmkcd1gaOKd9YK7O9jWMHc6uXMlm7X8vN21R/SJm4o7
+	wyt2N4oGYaT00C226V0yixO/zqOCxSsmMr3O7XGxa1bOPsD9MOcVNWIMynSH+taBQrg++tebJvM
+	SPONdYhjSpIL+23wFgSKgf3gdaQXpwbUsUDm/z4/ho2Q1sAI5+0ySX+gFDiiz8DzWnRhMVnl48l
+	JHoc6fls=
+X-Received: by 2002:a17:90b:57cb:b0:3ab:36c4:b502 with SMTP id 98e67ed59e1d1-3b3d0762904mr1796608a91.30.1794989664256;
+        Wed, 18 Nov 2026 00:14:24 -0800 (PST)
 Received: from FJ7FR2JRQ3.bytedance.net ([186.240.245.239])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d1acde50sm3254680a91.14.2026.11.18.00.14.07
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d1acde50sm3254680a91.14.2026.11.18.00.14.15
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 18 Nov 2026 00:14:15 -0800 (PST)
+        Wed, 18 Nov 2026 00:14:23 -0800 (PST)
 From: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
 To: linux-riscv@lists.infradead.org,
 	linux-perf-users@vger.kernel.org
@@ -103,9 +103,9 @@ Cc: linux-kernel@vger.kernel.org,
 	robh@kernel.org,
 	krzk+dt@kernel.org,
 	conor+dt@kernel.org
-Subject: [RFC PATCH v1 4/5] perf: riscv: Add PDIS event and counter callbacks
-Date: Wed, 18 Nov 2026 16:13:32 +0800
-Message-ID: <20261118081327.10684-11-zhangzhanpeng.jasper@bytedance.com>
+Subject: [RFC PATCH v1 5/5] perf: riscv: Deliver PDIS samples through the SBI PMU interrupt
+Date: Wed, 18 Nov 2026 16:13:33 +0800
+Message-ID: <20261118081327.10684-12-zhangzhanpeng.jasper@bytedance.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20261118081327.10684-7-zhangzhanpeng.jasper@bytedance.com>
 References: <20261118081327.10684-7-zhangzhanpeng.jasper@bytedance.com>
@@ -120,393 +120,306 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Manage the independent PDIS counter as a CPU-wide, fixed-period perf
-event. Track partial periods on read and stop, preserve the remaining
-period across resumes and claim each observed delta once on nested
-reads. COUNT and sticky OF cannot report multiple unobserved reloads,
-so the event count is an estimate.
+Use the recorded PC and the single enabled host privilege to construct
+perf samples. Only read the record header and PC from the indirect
+window. Account for rejected records when applying perf throttling.
 
-Quiesce PDIS at task boundaries to keep task metadata with its sample.
-Keep the remaining interval across a switch. The model must cancel
-in-flight selections when software inhibits PDIS and clears spdisctl.
-Keep the PMU unregistered until overflow delivery is wired up.
+Collect PDIS before acknowledging the shared pending interrupt. Restart
+ordinary counters even on a PDIS-only interrupt, then re-enable PDIS
+if perf has kept the event running.
+
+Register the PMU after probing and installing the interrupt handler.
+Save the remaining period on CPU PM entry and restore it on resume.
 
 Signed-off-by: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
 ---
- drivers/perf/riscv_pdis.c | 315 +++++++++++++++++++++++++++++++++++++-
- 1 file changed, 312 insertions(+), 3 deletions(-)
+ drivers/perf/riscv_pdis.c    | 112 +++++++++++++++++++++++++++++++++++
+ drivers/perf/riscv_pdis.h    |  10 ++++
+ drivers/perf/riscv_pmu_sbi.c |  38 ++++++++----
+ 3 files changed, 148 insertions(+), 12 deletions(-)
 
 diff --git a/drivers/perf/riscv_pdis.c b/drivers/perf/riscv_pdis.c
-index b7671e5ad63e..9a8fe5e4ab82 100644
+index 9a8fe5e4ab82..60c9ece22dfc 100644
 --- a/drivers/perf/riscv_pdis.c
 +++ b/drivers/perf/riscv_pdis.c
-@@ -1,11 +1,13 @@
- // SPDX-License-Identifier: GPL-2.0-only
- /* Experimental RV64 PDIS CSR-output PMU for an explicitly matching model. */
+@@ -3,6 +3,7 @@
  
--#include <linux/bits.h>
-+#include <linux/bitfield.h>
+ #include <linux/bitfield.h>
  #include <linux/cpu.h>
-+#include <linux/device.h>
++#include <linux/cpu_pm.h>
+ #include <linux/device.h>
  #include <linux/errno.h>
  #include <linux/init.h>
- #include <linux/of.h>
-+#include <linux/perf_event.h>
- #include <linux/percpu.h>
- 
+@@ -13,10 +14,12 @@
  #include <asm/asm-extable.h>
-@@ -24,15 +26,41 @@
+ #include <asm/cpufeature.h>
+ #include <asm/csr.h>
++#include <asm/ptrace.h>
+ 
+ #include "riscv_pdis.h"
+ 
+ /* Draft spdis.adoc at 2de60e18118ce78e2da82ec33296345c94d8560c. */
++#define RISCV_PDIS_ISELECT		0x60
+ #define RISCV_PDIS_COUNTER_BIT		BIT(1)
+ /* Local experimental encodings, not architectural CSR allocations. */
+ #define RISCV_PDIS_CSR_CTL		0x5e0
+@@ -26,6 +29,7 @@
  #define RISCV_PDIS_CSR_FILTER		0x5e4
  #define RISCV_PDIS_CSR_VSCTL		0x6d0
  #define RISCV_PDIS_STATEEN		BIT_ULL(55)
-+#define RISCV_PDIS_CTL_SEL		GENMASK_ULL(2, 0)
++#define RISCV_PDIS_CTL_OF		BIT_ULL(63)
+ #define RISCV_PDIS_CTL_SEL		GENMASK_ULL(2, 0)
  #define RISCV_PDIS_CTL_ACC		BIT_ULL(33)
-+#define RISCV_PDIS_CTL_U		BIT_ULL(60)
-+#define RISCV_PDIS_CTL_S		BIT_ULL(61)
-+
-+enum riscv_pdis_select {
-+	RISCV_PDIS_SELECT_ALL,
-+	RISCV_PDIS_SELECT_LOAD,
-+	RISCV_PDIS_SELECT_STORE,
-+	RISCV_PDIS_SELECT_LOAD_STORE,
-+	RISCV_PDIS_SELECT_CONTROL,
-+};
-+
-+#define RISCV_PDIS_SAMPLE_TYPES (PERF_SAMPLE_IP | PERF_SAMPLE_TID | \
-+				 PERF_SAMPLE_TIME | PERF_SAMPLE_ID | \
-+				 PERF_SAMPLE_STREAM_ID | PERF_SAMPLE_CPU | \
-+				 PERF_SAMPLE_PERIOD | PERF_SAMPLE_IDENTIFIER)
-+
-+/* A policy limit for the experiment, not an architectural minimum period. */
-+#define PDIS_MIN_PERIOD	4096
-+
-+/* prev_count holds the 32-bit position and the overflow accounting bit. */
-+#define PDIS_OF_ACCOUNTED	BIT_ULL(32)
+ #define RISCV_PDIS_CTL_U		BIT_ULL(60)
+@@ -39,6 +43,9 @@ enum riscv_pdis_select {
+ 	RISCV_PDIS_SELECT_CONTROL,
+ };
  
- struct pdis_cpu {
-+	struct perf_event *event;
++#define RISCV_PDIS_HDR_TYPE		GENMASK_ULL(2, 0)
++#define RISCV_PDIS_HDR_FMT		GENMASK_ULL(63, 61)
++
+ #define RISCV_PDIS_SAMPLE_TYPES (PERF_SAMPLE_IP | PERF_SAMPLE_TID | \
+ 				 PERF_SAMPLE_TIME | PERF_SAMPLE_ID | \
+ 				 PERF_SAMPLE_STREAM_ID | PERF_SAMPLE_CPU | \
+@@ -54,7 +61,9 @@ struct pdis_cpu {
+ 	struct perf_event *event;
  	bool ready;
-+	bool counter_valid;
-+	bool switching;
+ 	bool counter_valid;
++	bool irq_running;
+ 	bool switching;
++	bool pm_resume;
  };
  
  static DEFINE_PER_CPU(struct pdis_cpu, pdis_cpu);
- static cpumask_t pdis_cpus;
- static bool pdis_test;
-+static struct pmu pdis_pmu;
- 
- static int __init pdis_test_setup(char *str)
- {
-@@ -82,6 +110,7 @@ void riscv_pdis_cpu_starting(void)
- 	unsigned int cpu = smp_processor_id();
- 
- 	pcpu->ready = false;
-+	pcpu->counter_valid = false;
- 	cpumask_clear_cpu(cpu, &pdis_cpus);
- 	if (!pdis_test || IS_ENABLED(CONFIG_KVM) ||
- 	    !riscv_cpu_has_extension_unlikely(cpu, RISCV_ISA_EXT_SSPDIS) ||
-@@ -119,19 +148,299 @@ void riscv_pdis_cpu_starting(void)
- 	cpumask_set_cpu(cpu, &pdis_cpus);
+@@ -399,6 +408,64 @@ static void pdis_sched_task(struct perf_event_pmu_context *ctx,
+ 		csr_clear(CSR_SCOUNTINHIBIT, RISCV_PDIS_COUNTER_BIT);
  }
  
-+static void pdis_clear_accounted(struct perf_event *event)
++/* Called with local IRQs disabled and the PDIS counter inhibited. */
++static int pdis_overflow(struct perf_event *event)
 +{
-+	local64_t *prev_count;
-+	s64 prev;
++	struct perf_sample_data data;
++	struct pt_regs regs = {};
++	unsigned long selector, header, pc;
 +
-+	if (!event)
-+		return;
-+	prev_count = &event->hw.prev_count;
-+	prev = local64_read(prev_count);
-+	while (prev & PDIS_OF_ACCOUNTED) {
-+		if (local64_try_cmpxchg(prev_count, &prev, (u32)prev))
-+			break;
-+	}
++	selector = csr_swap(CSR_SISELECT, RISCV_PDIS_ISELECT);
++	header = csr_read(CSR_SIREG);
++	pc = csr_read(CSR_SIREG2);
++	csr_write(CSR_SISELECT, selector);
++
++	if (FIELD_GET(RISCV_PDIS_HDR_FMT, header) ||
++	    FIELD_GET(RISCV_PDIS_HDR_TYPE, header) > 4)
++		return perf_event_account_interrupt(event);
++
++	/* The draft record has no privilege field. Only one mode is enabled. */
++	regs.epc = pc;
++	if (event->hw.config & RISCV_PDIS_CTL_S)
++		regs.status = SR_SPP;
++	perf_sample_data_init(&data, 0, event->hw.last_period);
++	data.ip = pc;
++	data.sample_flags |= PERF_SAMPLE_IP;
++	return perf_event_overflow(event, &data, &regs);
 +}
 +
- static void pdis_quiesce(void)
- {
- 	csr_set(CSR_SCOUNTINHIBIT, RISCV_PDIS_COUNTER_BIT);
- 	/* The test-model contract requires this to cancel in-flight selections. */
- 	csr_write(RISCV_PDIS_CSR_CTL, 0);
-+	pdis_clear_accounted(this_cpu_ptr(&pdis_cpu)->event);
- }
- 
--void riscv_pdis_cpu_dying(void)
-+static int pdis_check_period(struct perf_event *event, u64 period)
-+{
-+	return period >= PDIS_MIN_PERIOD && period <= U32_MAX ? 0 : -EINVAL;
-+}
-+
-+static int pdis_event_init(struct perf_event *event)
-+{
-+	struct perf_event *sibling;
-+	u64 mode;
-+	int ret;
-+
-+	if (event->attr.type != pdis_pmu.type)
-+		return -ENOENT;
-+	if (event->cpu < 0 || event->attach_state & PERF_ATTACH_TASK ||
-+	    event->attr.inherit || event->attr.freq || event->attr.exclusive ||
-+	    event->attr.aux_output ||
-+	    !is_sampling_event(event))
-+		return -EOPNOTSUPP;
-+	if (!cpumask_test_cpu(event->cpu, &pdis_cpus))
-+		return -ENODEV;
-+	if (event->attr.config > RISCV_PDIS_SELECT_CONTROL ||
-+	    event->attr.config1 || event->attr.config2)
-+		return -EINVAL;
-+	/* Discovery requires host-only execution; an explicit H is optional. */
-+	if (event->attr.sample_type & ~RISCV_PDIS_SAMPLE_TYPES ||
-+	    event->attr.exclude_host ||
-+	    event->attr.exclude_idle || event->attr.precise_ip ||
-+	    event->attr.exclude_user == event->attr.exclude_kernel)
-+		return -EOPNOTSUPP;
-+	if (event->group_leader != event && event->group_leader->pmu == event->pmu)
-+		return -EINVAL;
-+	for_each_sibling_event(sibling, event->group_leader) {
-+		if (sibling != event && sibling->pmu == event->pmu)
-+			return -EINVAL;
-+	}
-+	ret = pdis_check_period(event, event->attr.sample_period);
-+	if (ret)
-+		return ret;
-+	mode = event->attr.exclude_kernel ? RISCV_PDIS_CTL_U : RISCV_PDIS_CTL_S;
-+	event->hw.config = FIELD_PREP(RISCV_PDIS_CTL_SEL, event->attr.config) | mode;
-+	event->hw.idx = -1;
-+	event->attach_state |= PERF_ATTACH_SCHED_CB;
-+	return 0;
-+}
-+
-+/* COUNT is frozen by the caller; OF is sticky until acknowledged. */
-+static void pdis_event_update(struct perf_event *event)
-+{
-+	struct hw_perf_event *hwc = &event->hw;
-+	u64 period = hwc->last_period;
-+	s64 prev = local64_read(&hwc->prev_count);
-+	s64 delta, next, step;
-+	u32 progress;
-+
-+	do {
-+		u32 count = csr_read(RISCV_PDIS_CSR_COUNTER);
-+		bool pending = csr_read(CSR_SCOUNTOVF) & RISCV_PDIS_COUNTER_BIT;
-+		bool accounted = prev & PDIS_OF_ACCOUNTED;
-+
-+		progress = count + (u32)period;
-+		/* COUNT may have overflowed without reloading yet. */
-+		if (progress >= period)
-+			return;
-+
-+		/* OF can reveal one wrap; multiple unseen wraps cannot be recovered. */
-+		step = (s64)progress - (u32)prev;
-+		delta = step;
-+		if (step < 0 || (pending && !accounted))
-+			delta += period;
-+		next = progress;
-+		if (accounted || pending || step < 0)
-+			next |= PDIS_OF_ACCOUNTED;
-+	} while (!local64_try_cmpxchg(&hwc->prev_count, &prev, next));
-+
-+	local64_add(delta, &event->count);
-+	/* Apply the position change without overwriting a nested update. */
-+	local64_sub(step, &hwc->period_left);
-+}
-+
-+static void pdis_update_and_quiesce(struct perf_event *event)
-+{
-+	csr_set(CSR_SCOUNTINHIBIT, RISCV_PDIS_COUNTER_BIT);
-+	pdis_event_update(event);
-+	pdis_quiesce();
-+}
-+
-+static int pdis_program(struct perf_event *event, bool reload)
++bool riscv_pdis_irq_prepare(void)
 +{
 +	struct pdis_cpu *pcpu = this_cpu_ptr(&pdis_cpu);
-+	struct hw_perf_event *hwc = &event->hw;
-+	u64 period = hwc->sample_period;
-+	u64 left = local64_read(&hwc->period_left);
-+	u64 counter = 0;
-+	unsigned long actual;
-+
-+	pdis_quiesce();
-+	if (reload) {
-+		u32 initval = -(u32)period;
-+		u32 count;
-+
-+		if (!left || left > period)
-+			left = period;
-+		count = -(u32)left;
-+		counter = (u64)initval << 32 | count;
-+		csr_write(RISCV_PDIS_CSR_COUNTER, counter);
-+	}
-+	csr_write(RISCV_PDIS_CSR_CTL, hwc->config);
-+	actual = csr_read(RISCV_PDIS_CSR_CTL);
-+	if ((actual & ~RISCV_PDIS_CTL_ACC) != hwc->config ||
-+	    (reload && csr_read(RISCV_PDIS_CSR_COUNTER) != counter)) {
-+		pcpu->counter_valid = false;
-+		pdis_quiesce();
-+		return -EOPNOTSUPP;
-+	}
-+	if (reload) {
-+		hwc->last_period = period;
-+		local64_set(&hwc->prev_count, period - left);
-+		local64_set(&hwc->period_left, left);
-+		pcpu->counter_valid = true;
-+	}
-+	return 0;
-+}
-+
-+static void pdis_enable(struct perf_event *event)
-+{
-+	struct pdis_cpu *pcpu = this_cpu_ptr(&pdis_cpu);
-+
-+	event->hw.state = 0;
-+	if (!pcpu->switching)
-+		csr_clear(CSR_SCOUNTINHIBIT, RISCV_PDIS_COUNTER_BIT);
-+	perf_event_update_userpage(event);
-+}
-+
-+static void pdis_start(struct perf_event *event, int flags)
- {
- 	struct pdis_cpu *pcpu = this_cpu_ptr(&pdis_cpu);
-+	bool reload = (flags & PERF_EF_RELOAD) || !pcpu->counter_valid;
- 
--	if (pcpu->ready)
-+	if (!pcpu->ready || pcpu->event != event ||
-+	    !(event->hw.state & PERF_HES_STOPPED))
-+		return;
-+	if (!pdis_program(event, reload))
-+		pdis_enable(event);
-+}
-+
-+static void pdis_stop(struct perf_event *event, int flags)
-+{
-+	struct pdis_cpu *pcpu = this_cpu_ptr(&pdis_cpu);
-+
-+	if (event->hw.state & PERF_HES_STOPPED)
-+		return;
-+	/* Save progress even on a stop for throttling. */
-+	if (pcpu->ready && pcpu->counter_valid)
-+		pdis_update_and_quiesce(event);
-+	event->hw.state = PERF_HES_STOPPED | PERF_HES_UPTODATE;
-+	perf_event_update_userpage(event);
-+}
-+
-+static int pdis_add(struct perf_event *event, int flags)
-+{
-+	struct pdis_cpu *pcpu = this_cpu_ptr(&pdis_cpu);
-+	int ret;
++	struct perf_event *event = pcpu->event;
++	bool pending;
 +
 +	if (!pcpu->ready)
-+		return -ENODEV;
-+	if (pcpu->event)
-+		return -EAGAIN;
-+	ret = pdis_program(event, true);
-+	if (ret)
-+		return ret;
-+	pcpu->event = event;
-+	event->hw.state = PERF_HES_STOPPED | PERF_HES_UPTODATE;
-+	perf_sched_cb_inc(event->pmu);
-+	if (flags & PERF_EF_START) {
-+		pdis_enable(event);
-+	} else {
- 		pdis_quiesce();
-+		perf_event_update_userpage(event);
++		return false;
++	pcpu->irq_running = event && !(event->hw.state & PERF_HES_STOPPED);
++	csr_set(CSR_SCOUNTINHIBIT, RISCV_PDIS_COUNTER_BIT);
++	pending = csr_read(CSR_SCOUNTOVF) & RISCV_PDIS_COUNTER_BIT;
++	if (pending && pcpu->irq_running && !pcpu->switching) {
++		pdis_event_update(event);
++		if (pdis_overflow(event))
++			pdis_stop(event, PERF_EF_UPDATE);
 +	}
-+	return 0;
++	csr_clear(RISCV_PDIS_CSR_CTL, RISCV_PDIS_CTL_OF);
++	if (pending)
++		pdis_clear_accounted(event);
++	return pending;
 +}
 +
-+static void pdis_del(struct perf_event *event, int flags)
++void riscv_pdis_irq_finish(void)
 +{
 +	struct pdis_cpu *pcpu = this_cpu_ptr(&pdis_cpu);
 +
-+	pdis_stop(event, PERF_EF_UPDATE);
-+	pcpu->event = NULL;
-+	pcpu->counter_valid = false;
-+	perf_sched_cb_dec(event->pmu);
-+}
-+
-+static void pdis_read(struct perf_event *event)
-+{
-+	struct pdis_cpu *pcpu = this_cpu_ptr(&pdis_cpu);
-+	unsigned long inhibit;
-+
-+	if (!pcpu->ready || !pcpu->counter_valid || pcpu->event != event ||
-+	    (event->hw.state & PERF_HES_STOPPED))
-+		return;
-+	inhibit = csr_read_set(CSR_SCOUNTINHIBIT, RISCV_PDIS_COUNTER_BIT);
-+	pdis_event_update(event);
-+	if (!(inhibit & RISCV_PDIS_COUNTER_BIT))
++	if (pcpu->ready && pcpu->irq_running && pcpu->event &&
++	    !pcpu->switching && !(pcpu->event->hw.state & PERF_HES_STOPPED))
 +		csr_clear(CSR_SCOUNTINHIBIT, RISCV_PDIS_COUNTER_BIT);
++	pcpu->irq_running = false;
 +}
 +
-+/* Drop pending selections before changing the task used for sample metadata. */
-+static void pdis_sched_task(struct perf_event_pmu_context *ctx,
-+			   struct task_struct *task, bool sched_in)
+ void riscv_pdis_cpu_dying(void)
+ {
+ 	struct pdis_cpu *pcpu = this_cpu_ptr(&pdis_cpu);
+@@ -413,6 +480,32 @@ void riscv_pdis_cpu_dying(void)
+ 	cpumask_clear_cpu(smp_processor_id(), &pdis_cpus);
+ }
+ 
++static int pdis_cpu_pm_notify(struct notifier_block *nb, unsigned long cmd, void *v)
 +{
 +	struct pdis_cpu *pcpu = this_cpu_ptr(&pdis_cpu);
 +	struct perf_event *event = pcpu->event;
 +
-+	pcpu->switching = !sched_in;
-+	if (!pcpu->ready || !event || (event->hw.state & PERF_HES_STOPPED))
-+		return;
-+	if (!sched_in) {
-+		pdis_update_and_quiesce(event);
-+		return;
-+	}
-+
-+	/* Restore selection without resetting the counter. */
-+	if (pdis_program(event, false))
-+		pdis_stop(event, PERF_EF_UPDATE);
-+	else
-+		csr_clear(CSR_SCOUNTINHIBIT, RISCV_PDIS_COUNTER_BIT);
-+}
-+
-+void riscv_pdis_cpu_dying(void)
-+{
-+	struct pdis_cpu *pcpu = this_cpu_ptr(&pdis_cpu);
-+
-+	if (pcpu->ready) {
-+		if (pcpu->event)
-+			pdis_stop(pcpu->event, PERF_EF_UPDATE);
++	if (!pcpu->ready)
++		return NOTIFY_DONE;
++	if (cmd == CPU_PM_ENTER) {
++		pcpu->pm_resume = event && !(event->hw.state & PERF_HES_STOPPED);
++		if (event)
++			pdis_stop(event, PERF_EF_UPDATE);
 +		else
 +			pdis_quiesce();
++	} else if (cmd == CPU_PM_EXIT || cmd == CPU_PM_ENTER_FAILED) {
++		riscv_pdis_cpu_starting();
++		if (pcpu->pm_resume && pcpu->ready && event)
++			pdis_start(event, PERF_EF_RELOAD);
++		pcpu->pm_resume = false;
 +	}
- 	pcpu->ready = false;
- 	cpumask_clear_cpu(smp_processor_id(), &pdis_cpus);
- }
-+
-+PMU_FORMAT_ATTR(select, "config:0-2");
-+static struct attribute *pdis_format_attrs[] = { &format_attr_select.attr, NULL };
-+static const struct attribute_group pdis_format_group = {
-+	.name = "format",
-+	.attrs = pdis_format_attrs,
-+};
-+
-+static ssize_t cpumask_show(struct device *dev, struct device_attribute *attr, char *buf)
-+{
-+	return sysfs_emit(buf, "%*pbl\n", cpumask_pr_args(&pdis_cpus));
++	return NOTIFY_OK;
 +}
-+static DEVICE_ATTR_RO(cpumask);
-+static struct attribute *pdis_attrs[] = { &dev_attr_cpumask.attr, NULL };
-+static const struct attribute_group pdis_group = { .attrs = pdis_attrs };
-+static const struct attribute_group *pdis_groups[] = {
-+	&pdis_format_group, &pdis_group, NULL,
++
++static struct notifier_block pdis_cpu_pm_nb = {
++	.notifier_call = pdis_cpu_pm_notify,
 +};
 +
-+static struct pmu pdis_pmu = {
-+	.task_ctx_nr = perf_invalid_context,
-+	.capabilities = PERF_PMU_CAP_NO_NMI,
-+	.attr_groups = pdis_groups,
-+	.event_init = pdis_event_init,
-+	.add = pdis_add,
-+	.del = pdis_del,
-+	.start = pdis_start,
-+	.stop = pdis_stop,
-+	.read = pdis_read,
-+	.check_period = pdis_check_period,
-+	.sched_task = pdis_sched_task,
-+};
+ PMU_FORMAT_ATTR(select, "config:0-2");
+ static struct attribute *pdis_format_attrs[] = { &format_attr_select.attr, NULL };
+ static const struct attribute_group pdis_format_group = {
+@@ -444,3 +537,22 @@ static struct pmu pdis_pmu = {
+ 	.check_period = pdis_check_period,
+ 	.sched_task = pdis_sched_task,
+ };
++
++int riscv_pdis_register(struct device *parent)
++{
++	int ret;
++
++	if (cpumask_empty(&pdis_cpus)) {
++		if (pdis_test)
++			dev_info(parent, "PDIS test PMU unavailable on all online CPUs\n");
++		return -ENODEV;
++	}
++	ret = cpu_pm_register_notifier(&pdis_cpu_pm_nb);
++	if (ret)
++		return ret;
++	pdis_pmu.parent = parent;
++	ret = perf_pmu_register(&pdis_pmu, "riscv_pdis_test", -1);
++	if (ret)
++		cpu_pm_unregister_notifier(&pdis_cpu_pm_nb);
++	return ret;
++}
+diff --git a/drivers/perf/riscv_pdis.h b/drivers/perf/riscv_pdis.h
+index b1ffe7d16ce0..8a9cf7afe51e 100644
+--- a/drivers/perf/riscv_pdis.h
++++ b/drivers/perf/riscv_pdis.h
+@@ -2,12 +2,22 @@
+ #ifndef __RISCV_PDIS_H
+ #define __RISCV_PDIS_H
+ 
++#include <linux/types.h>
++
++struct device;
++
+ #ifdef CONFIG_RISCV_PDIS_CSR
+ void riscv_pdis_cpu_starting(void);
+ void riscv_pdis_cpu_dying(void);
++bool riscv_pdis_irq_prepare(void);
++void riscv_pdis_irq_finish(void);
++int riscv_pdis_register(struct device *parent);
+ #else
+ static inline void riscv_pdis_cpu_starting(void) { }
+ static inline void riscv_pdis_cpu_dying(void) { }
++static inline bool riscv_pdis_irq_prepare(void) { return false; }
++static inline void riscv_pdis_irq_finish(void) { }
++static inline int riscv_pdis_register(struct device *parent) { return 0; }
+ #endif
+ 
+ #endif /* __RISCV_PDIS_H */
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 545b8becf90a..af86a30aae83 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -1092,24 +1092,23 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 	struct cpu_hw_events *cpu_hw_evt = dev;
+ 	u64 start_clock = sched_clock();
+ 	struct riscv_pmu_snapshot_data *sdata;
++	bool handled;
+ 
+ 	if (WARN_ON_ONCE(!cpu_hw_evt))
+ 		return IRQ_NONE;
+ 
+ 	sdata = cpu_hw_evt->snapshot_addr;
++	/* Inhibit and collect PDIS before any shared pending bit is cleared. */
++	handled = riscv_pdis_irq_prepare();
+ 
+ 	/* Firmware counter don't support overflow yet */
+ 	fidx = find_first_bit(cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS);
+-	if (fidx == RISCV_MAX_COUNTERS) {
+-		csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
+-		return IRQ_NONE;
+-	}
++	if (fidx == RISCV_MAX_COUNTERS)
++		goto out_clear;
+ 
+ 	event = cpu_hw_evt->events[fidx];
+-	if (!event) {
+-		ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
+-		return IRQ_NONE;
+-	}
++	if (!event)
++		goto out_clear;
+ 
+ 	pmu = to_riscv_pmu(event->pmu);
+ 	pmu_sbi_stop_hw_ctrs(pmu);
+@@ -1128,7 +1127,7 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 
+ 	/* No overflow bit is set */
+ 	if (!overflow)
+-		return IRQ_NONE;
++		goto restart;
+ 
+ 	regs = get_irq_regs();
+ 
+@@ -1181,10 +1180,20 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 		hw_evt->state = 0;
+ 	}
+ 
+-	pmu_sbi_start_overflow_mask(pmu, overflowed_ctrs);
+-	perf_sample_event_took(sched_clock() - start_clock);
++	handled = true;
+ 
+-	return IRQ_HANDLED;
++restart:
++	/* A PDIS-only interrupt must also resume the ordinary HPM counters. */
++	pmu_sbi_start_overflow_mask(pmu, overflowed_ctrs);
++out:
++	/* PDIS can restart only after all sources and shared pending are serviced. */
++	riscv_pdis_irq_finish();
++	if (handled)
++		perf_sample_event_took(sched_clock() - start_clock);
++	return handled ? IRQ_HANDLED : IRQ_NONE;
++out_clear:
++	ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
++	goto out;
+ }
+ 
+ static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
+@@ -1563,6 +1572,11 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ 	ret = cpuhp_state_add_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->node);
+ 	if (ret)
+ 		goto out_unregister;
++	if (irq_requested && riscv_pmu_irq_num == RV_IRQ_PMU) {
++		ret = riscv_pdis_register(&pdev->dev);
++		if (ret && ret != -ENODEV)
++			pr_warn("PDIS test PMU registration failed: %d\n", ret);
++	}
+ 
+ 	/* Asynchronously check which standard events are available */
+ 	schedule_work(&check_std_events_work);
 -- 
 2.50.1 (Apple Git-155)
 
