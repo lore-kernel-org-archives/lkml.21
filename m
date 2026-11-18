@@ -1,123 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795018617;
-	b=tP7NrnMHVz8cRf3Y0Unf5o/RgA8+k8Kp65/axGfz8tcT3gJNjKXM3VVk7WOtESdJuxQ5
-	 uzOC0u53ozRxA+KXE6l6Nsxno4/HhA7fmzSxIGsALzHWTvN2cB1WxJn0UTDlzcPtrse54
-	 YauSPJnTPvh+N7bjxh7rF+RmB4SaqANN1bvOhkO3Nr0V4kb6Vmzi7snzuV4b5NnPB51uS
-	 k1DjuQYIUxwTFXtwNEJq+0ohrkMyT/+OiqLi1KjEthcYuaJ/HxWFKr3Z0rnerpfQYxeKv
-	 CKgNM6OBC1flPXQ3zeoxF9GQ+Q0oiwJwKeGfJQcDgYrsDHsAf414oD5tbNGfqTBMv9A==
+	t=1795018629;
+	b=FnvNHxYHfcWjLIngb69jxaSonZNSeL8xmFcxekKt0XsE12sDiENIbT4cb1RYnXux8ww5
+	 m9hasZjobGg5URIJkp4Lx7afkuQ/MviYRdHMjm6YzVx2CWV3bv+mDWnodmDNRMCbS/BNz
+	 EGVhzc4G3C8Frc4uhBsd9YyMLgr2PzfcFc2NtmYn3iersyFEa0HjQCzeGjJ9oSqJUefQK
+	 4ldso3ZSwYgLWJVPqiJHbEjhrz6tx/myYXtO7PemeAt6MTEnf98oWhgbhU/u9MXPA+aTd
+	 Iek+sTmwo/ye5mU2UWk5YOy6SLz5eRGucqcq3hbzzrfQIrfFB27n+za7oh6UQdnR1VQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795018617;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Authority-Analysis:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=pOB78OBjoKUKg9xXXTUE6AnEpJ3d3Z6dp04LaBMreM8=;
-	b=gxvMWumkwEYrAipPpiVVCK1PtZQ9W1aAHOswufY7sLRZ70NCwhIO/BpRrQdXtIs6SMAx
-	 ykdUrXk6YVCQh9Jh8q0xnqBPkQuljatpSmm/LKJeyEx5BTiZ0KKHk9NIHGuWZFDCWyOQ2
-	 uHdEKiOb/SM9VYNNEPLrBOhwauEwEYruqOQvAXVNQPlQhYP0p6XhwUH8WiecgaDQa796s
-	 YG4Ee4LKecKKyaQAB1kK6W+HFSwJLBbAUNqtstYyciUV7dpidx0AYUPvZ6kzIErQu/EAo
-	 8+pBFpjRIyC+7Ov+jsd+ngDYsAPGLoN1KkljK0soedTAPKa+rcm75a33h+d3U5In8Nw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795018629;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=KH7bb4VaZEOEZgLtTJYQPM7/j5RYK5pPIJZczw0vLME=;
+	b=MDbZpcBAlRR7Aqv+2enLav5l56TyU/MYz306kQSvfhpirLA2SYoGpM5hvR6j/k6/TyNI
+	 DTliiDMiM/in/wFNSDAK6lrL3t9uDVqS5tvMmvbgTvsjUAqn5YZ5h/3DHHUbi/amigIAP
+	 raX8pGbHshVOQMa9K4zli/pI3xbQBgPyxbxixvn7RwVjqnsTOHKkycQGJHjoXLs35DOag
+	 bK8HQmpEPZnDxkvt98aWmlyqv2rkdcmhG7xTpJLBWEWNAFviVS9hXtL+PmoyMdw+iU0FO
+	 OrxGotMPxa2yDQFgyBF50JwRfotbo8YtRQ6inbgSBvwn22M5QQn3WTCsXeGvymoh9vA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XzdA8nap;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=hpCaCzsN;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xtuRzOEa;
+	arc=none smtp.remote-ip=74.125.224.53
+Received: from mail-yx1-f53.google.com (mail-yx1-f53.google.com [74.125.224.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45CBD60A2600
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:16:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 45CBD60A2600
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 529C0606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:17:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 529C0606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XzdA8nap;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=hpCaCzsN
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIFavV03186792
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:16:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=pOB78OBjoKU
-	Kg9xXXTUE6AnEpJ3d3Z6dp04LaBMreM8=; b=XzdA8nap5wPmr2gBgUn7zmPVnYj
-	fYLMbHvYy+AzZr7swPl3HfFMHooKsDpx//mbEd1waQBEMOSKQ2dbBlWAfODE0RMu
-	T4SnnOnRKeBEiZsD7rS3Mi59wt2Cn5wOm9b0yHXJQgTCow88zwEAzRyltQnBsh8R
-	NYVmf29JmyObSXmloI/ckvRMDA1epG65jEx4xPLIQuLeXFlWHSbcb532VpT5Cylz
-	whexmf62GQP4zG2DMcqx8Aik+rqC5i1hixtiFbkFrpgHkbfs7KTTQxt7CrA1JxAI
-	Od7YQrHKjIFSKDsi7oFRIBet1cak4x6P/HqbHF3yO4foyFmbPw3Env7ZkgA==
-Received: from mail-vk1-f199.google.com (mail-vk1-f199.google.com [209.85.221.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j1etnr6ds-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:16:56 +0000 (GMT)
-Received: by mail-vk1-f199.google.com with SMTP id 71dfb90a1353d-5ed100ed770so233119e0c.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:16:56 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xtuRzOEa
+Received: by mail-yx1-f53.google.com with SMTP id 956f58d0204a3-67da7d18f2fso1296385d50.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:17:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795018615; x=1795623415; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795018628; x=1795623428; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=pOB78OBjoKUKg9xXXTUE6AnEpJ3d3Z6dp04LaBMreM8=;
-        b=hpCaCzsN/N6CjZkPz+QdVlRNDqDr/6JLCoU8doHtmEe2Dk9cpcibIwLiu/s9oYa/YQ
-         RzAKj4o8CyMT2ucr8x3JPjkrjTLC+MveN8/uiywLnPj+zA3hrf/oGL1IAAdB1snMyHmx
-         cg5qNnRT6Cgb+qqbDj/VpuRdgl+PdR+wExcZs9f5dw6pyPh4aMML1p55kqPb6oNqdlIU
-         9/4V/4ogkocEm5njRX9wvgvN9gut+RZuxQR7N3B0AXKDZ45mAFfLtIVmA3HHdW5yIu0H
-         qEKzY48TZes5UaB1SNCnTL8ZXy5EoZjaYL55GrknBrkQToZ7tUGKa0182FzLoT6IgyR2
-         gpug==
+        bh=KH7bb4VaZEOEZgLtTJYQPM7/j5RYK5pPIJZczw0vLME=;
+        b=xtuRzOEamMGYgtiYuM6qfVeZbJLoQ4RdjYdaDOdyPo2YNhNfD/OckX6UEtBR3kEZSs
+         vJFYRURQssLs/ekgygb480/C5GjFLqICc0PL2XZda4Oeh5itJ9hfynMoCVX4B6NrAoHa
+         RR4+DcmB17YhLMRN0/66jLTND0N5OrT6zgUaer0oybgbJJrjI+g1UGWVOnGGjVfurzF7
+         0vECaAwjXgM7NKRNJ8W8LG/c2+8L4ITQLaiDcnCGBs6b/0NssZ0Ic/4ydNVaIavxXXMX
+         pWUVBNKRojJotDKcw3Fx5CjRz4dU5sjgWRnznTIE4IvXXm/vQ5Cv97Ss/q6hGklS9aV3
+         NAfQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795018615; x=1795623415;
+        d=1e100.net; s=20260707; t=1795018628; x=1795623428;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=pOB78OBjoKUKg9xXXTUE6AnEpJ3d3Z6dp04LaBMreM8=;
-        b=hD+NJBqh+DSLjWgJfsYyWyktwoE0v+n+LpI2WXfPt2uRiwlWcWcLo0kY2grNhZGltX
-         sz6Vtt5Ejds/jyIqELIW18Geqjx0wyMoqM6xow6yPjBPJYw4bK2Yn6emG8KpVx58U3py
-         7a1eeKGG2AM5DaNMRWOjtawJVBK02Sr9fjy14v1CUwMbpyrcwLNBLW4fbsGZQ8gvDh9x
-         ytM8boL9dotyqPNL1jtBysP/eUm8+u6a3tOaV4Yqf3tdlXo/Y3V4alyourl3Wt7PZ5gl
-         vwmItTPgiTaY7BzECrjoaFjIVbqM+OV1T/Igb7XJ4TMEcmPgsbUk1iPf7ZZn6Q4Sbt8e
-         Dmeg==
-X-Forwarded-Encrypted: i=1; AL+hErEDGj2pTZN9WqOZiGJe38C44Q2FBHn2mgCNh0HkF5t14+T5g9KYWbKZSXE/sjY3KhXtTbW19fYF7CkjkKw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Kbu+8LyiKOMZ30ik0Wb9uuqITZ73hvRsaNiVuZCB1J8jxKSmf
-	2Y+YJwiXMOeR+oxIBkqzN6MBIZJBT7N3CsbQP/1yH3R0fzZE5RggCFfhZvXrshqsbqUASwKQXwq
-	6sA1Comk5r+LIJUGVBdxH5/2i3wSON7Gk+JJMZ7TxXl+UGAof2kzNMszGUy8NxQamsnQ=
-X-Gm-Gg: AYBFou1gTFiyKi0Ye/aY7v8MlNwdCvs7QOuWxsU7F0bCdT0z9zs+/R5LvDTvEvAv2rg
-	DpXEgGW8divX8tpBmJhEeErVZRXY5RbqZ9AHaMrAKAWT6Rlh+OPZ3qUrU+eRl39hyHJEwRi+Xoy
-	776KSN1PT6a2a6h1X6amQnf9dW/I85Z4vSNmRqlL8m4MKnEwA3YZBoiMhIfiXOOqCMoCVV4/3H4
-	NYj7DLw0QKqfhjtfJQVCDVt4o/bGGaFHJr/kEAvumhQWEMvs2wWtzhdU4oEfBZA7/DMKETZSRob
-	RNn9eW2b+DI0VJRg3Pue8QnIrn6h1ZaSFANgSnpkMIsMf8a0BT5CSbWiyxpwq8I/vnAjm0wtwlh
-	rCPYVW6rWqKWtebMF9HHbYQ3pYEWU7lmHAiv4MLCGXDFbd65+z1MybZ5rMjL9w4CtmVNesKjPRn
-	Oo
-X-Received: by 2002:a05:6122:62a6:b0:5ec:c162:d58c with SMTP id 71dfb90a1353d-5ee646c8d94mr1575517e0c.9.1795018615211;
-        Wed, 18 Nov 2026 08:16:55 -0800 (PST)
-X-Received: by 2002:a05:6122:62a6:b0:5ec:c162:d58c with SMTP id 71dfb90a1353d-5ee646c8d94mr1575483e0c.9.1795018614742;
-        Wed, 18 Nov 2026 08:16:54 -0800 (PST)
-Received: from mai.box.freepro.com ([2a05:6e02:1041:c10:d355:fe70:14a0:ac8d])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb78418853sm217090495e9.8.2026.11.18.08.16.53
+        bh=KH7bb4VaZEOEZgLtTJYQPM7/j5RYK5pPIJZczw0vLME=;
+        b=MFhsLUKjQaMlf4e4Wb8Yopb0W/mKI5CYVUctz0vMrEyTXUXbIth1g6oqTJtxV7VX3q
+         Dxcy5pBcB41edCvhAjdsk9yiNtXjJIEJNrUJQ6Vo5KYhhdnKP6uxDESW4IX4oMShMAD5
+         0alotqcB9rpgAEoM7QTJoaUXeBBOzwAZ7W20S2hnfEub0btrWoTSdt40BoJ2Z2sVY56t
+         1XHG0SUxI0/WbpBibKYuXdvv6xPPHC8pz6CXKwXq5BSzqKBlSMgn9KBXRisuQlkS5e3h
+         ygVMdSZLEQ+HLTPVlzRsQhaIRvvkHPGEsjK+jC+WkOjfPzIBe6STiPGioMKRUo7+AjgA
+         079w==
+X-Forwarded-Encrypted: i=1; AL+hErFFVJnhYiAWmoaXnzFDau8z4TaIpqr9f+cHIRxaErapB5WAIMqo+n4483jTis9mKilUeJYBx4QYuIxoeus=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9wkl9ZMLg8yQh9Pbl5PFtkt96uXNmB6cBDFugmkiD6Xy2pjjUb
+	nfdvPelIf7CVnFH4zvLf64GdvI3M339lhHoWeXqy/VoG5h/bbr78XvUH
+X-Gm-Gg: AZFdTZesNq7a2PFBphV5TUoT8skxR7QuEqNjbK6GLsAFS7pt1SqHzIJHwdRDC97o0do
+	8qt3tnSh9lacGGmvjNWsBdGJqYT9/NfTj7AOn5Mg+K8/5Z2o/u6WAU0A2qbGa/2R8zoDIFUtdBE
+	C3WmmVYMQ2K63pfCIm0BWu+XGJejjk5YRduyvhUPEqDRln0O2vW+uHJlVgdnVeYLQzLd1tMAZrk
+	rtwKscYl8XCuoNjChpZi24mQw3ufoesSpk94Or98itI4eHOqEvcWgpQxSUr+0x05BgUFTmWJdS3
+	w22pm3A1KVxdbBoet6HQLqeAL4UVSBBI9KuRqng1LnfrfS/Xbp8jplCS0Y1QqFQAjJKeGtzc3tr
+	t8vO3SizqDl1dwBZVHmmc729frZnHk7RtplQGxSSmjQAj9sm4acVzOmMVnpa7DLSSR1Y47b919K
+	pxkivlapFyRDkkHfqb04GlD1yIBIsOpkgtpe/WJqEkhH1ABtYQFCYL/HjgmDnEuBQkuaMmhskqX
+	CiCuuAjtrMgnDIDzi3JsA8nBNV0OWnVMpkGKX2moB8Ftlq9nvdGimL5gaYrXwg+zolT9ZCK54Ds
+	96v1Lu8lfiJJNQcurBrjlkIzLJqNl5N19060nu+9Enoodiy7tYBx7IRAfKKDWggxP+rO//0N10e
+	Rx839xj9AkgT7/LONuEaQgpx2nBU2GosGmtLwPA85OSKqKsvvluBQCvsTj8Ela9sl/TbcOk49Po
+	dlfYMkQIB0aOysw4sR2g==
+X-Received: by 2002:a05:690e:810:20b0:67d:bcce:d615 with SMTP id 956f58d0204a3-67dc786a8dfmr2191044d50.10.1795018628172;
+        Wed, 18 Nov 2026 08:17:08 -0800 (PST)
+Received: from localhost (107-220-129-194.lightspeed.chrlnc.sbcglobal.net. [107.220.129.194])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67dd58cad32sm1901629d50.22.2026.11.18.08.17.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 08:16:54 -0800 (PST)
-From: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
-To: rafael@kernel.org, tglx@linutronix.de
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Peter Ziljstra <peterz@infradead.org>,
-        Bradley Morgan <brads@mainlining.org>,
-        Heiko Stuebner <heiko@sntech.de>,
-        linux-arm-kernel@lists.infradead.org (moderated list:ARM/Rockchip SoC support),
-        linux-rockchip@lists.infradead.org (open list:ARM/Rockchip SoC support),
-        Bradley Morgan <bradley.morgan@linux.dev>,
-        Thomas Gleixner <tglx@kernel.org>
-Subject: [PATCH RESEND v2 1/2] smpboot: Allow restricting per-CPU threads to a CPU mask
-Date: Wed, 18 Nov 2026 17:15:26 +0100
-Message-ID: <7a1e55d24c39d70caa157e6e2c823d9be5db07e7.1794992905.git.daniel.lezcano@oss.qualcomm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1794992905.git.daniel.lezcano@oss.qualcomm.com>
-References: <cover.1794992905.git.daniel.lezcano@oss.qualcomm.com>
+        Wed, 18 Nov 2026 08:17:07 -0800 (PST)
+From: Matt Turner <mattst88@gmail.com>
+To: Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Paul Mackerras <paulus@ozlabs.org>
+Cc: Tanushree Shah <tshah@linux.ibm.com>,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 7/8] powerpc/perf: Use SIAR for kernel sample addresses on 32-bit
+Date: Wed, 18 Nov 2026 11:17:06 -0500
+Message-ID: <20261118161706.2454031-1-mattst88@gmail.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261117-ppc32-perf-v2-7-2072e9b90009@gmail.com>
+References: <20261117-ppc32-perf-v2-7-2072e9b90009@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,215 +107,106 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=b8UncdGx c=1 sm=1 tr=0 ts=6afdcf78 cx=c_pps
- a=+D9SDfe9YZWTjADjLiQY5g==:117 a=xqWC_Br6kY4A:10 a=zJRp6_cAMcgA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=YMgV9FUhrdKAYTUUvYB2:22 a=EUspDBNiAAAA:8 a=5Kbu-F-uTTPTLeMpapkA:9
- a=vmgOmaN-Xu0dpDh8OwbV:22
-X-Proofpoint-GUID: OIbE8HXGY0H_J_t7JSFGfZXZhVY61NZa
-X-Proofpoint-ORIG-GUID: OIbE8HXGY0H_J_t7JSFGfZXZhVY61NZa
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA2NCBTYWx0ZWRfXxsAEPOMx6dq7
- CdNQlyp1bBGMVCXutGFpHsuGJ+n+3Nu81bu18H7nfWQu3ZL0/pBcSUtr/6i/RjsngG4nur7FiBu
- hedyBzqNqqC5QfnP9nNF7wLAcrF3Cho=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA2NCBTYWx0ZWRfX1WkcAy66sFE9
- xQ51Fnaoli8/R97h9O+YD1qVQQs9TAz2JUlCjs5+Oy/bIhnOI62j5Vnjz/MP77OmuH2Aj0iG0VF
- tyM4HVv5noC8ZDiXToLjofL+wafRjfhP97DuZhOpVYLvFGnoFz9cHZPJw0VuorHbGOvCJcMFUqm
- RoXmwJ7bNvi37d9iNUBRNr36qDArpywE+18rCRdUW5m5Jrlrks/8KINW3V39MUa5A2XxYbLgxZU
- 91b2x1h4+HxEP1DZYMInnbUI2dQufcxw+mdL0ei32QI/611eiVgQW2L9NmZqpEHSrtAMCDYe98C
- NDZ+D8NF3DXxKTFj7IGx9+3tsV8s+T59Iyh6dMa0GeNUIE5u3KGBpuRoVwHrjPmlQazDG/w0lIQ
- vSkaVTquNd2FvqlwWFO32hFg4ZA4RO46fdZiEyRcrHxdCnPU26MHkX/KblYKB77JTA2lhAWWiS9
- f8Y7rcJcOb2j0LO/n6w==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-18_04,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 suspectscore=0 malwarescore=0 adultscore=0 spamscore=0
- clxscore=1015 phishscore=0 lowpriorityscore=0 priorityscore=1501 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180064
-Message-ID: <20261118161526.P8YeER6DayatiTzNXxVivjeKzvBPXNbXCwn-_g2_Zxg@z>
 
-smpboot_register_percpu_thread() creates a thread for every online CPU
-and registers the descriptor for subsequent CPU hotplug operations.
-There is currently no way to restrict these threads to a subset of
-CPUs, even when the user only needs work performed on that subset.
+On 32-bit, perf_read_regs() sets regs->result to 0, so regs_use_siar()
+is always false and every sample is attributed to the interrupted PC.
 
-For example, an idle injection device targets a specific CPU mask.
-Creating threads outside that mask consumes resources unnecessarily.
-Supporting multiple such devices also requires each descriptor to
-manage only the threads associated with its own CPUs.
+The MPC7450 family's SIAR holds the address of the last instruction to
+complete before the performance monitor exception is generated
+(MPC7450UM Rev. 5, section 11.3.7). The exception can be generated
+with MSR[EE] = 0 and is taken once EE is set again (section 11.2), so
+when interrupts are disabled the interrupted PC is wherever they are
+re-enabled, while SIAR still points into the disabled region.
 
-Add an optional CPU mask to struct smp_hotplug_thread and apply it
-throughout the thread lifecycle. Registration creates threads only for
-online CPUs in the mask. CPU bring-up creates threads for selected
-CPUs that were offline at registration, while parking and unparking
-are restricted to the same mask.
+On a 7448, sampling cycles system-wide with --intr-regs=nip during dd,
+perf bench sched pipe and find, 46% of the kernel samples have SIAR and
+the interrupted PC in different functions. 13270 samples have their PC
+on the instruction after the mtmsr that restores interrupts in
+ata_scsi_queuecmd(), and 11661 of those have SIAR in udelay().
 
-Apply the restriction to thread destruction as well, both during
-unregistration and registration failure cleanup. This is necessary
-when descriptors with disjoint masks share the same per-CPU task
-storage: tearing down one descriptor must not stop or clear threads
-owned by another descriptor.
+With interrupts enabled SIAR helps less. Sampling a 32-instruction
+loop with one store and one branch with -c 10007, 99.8% of the samples
+land at:
 
-Reject registrations that share task storage with an existing
-descriptor and have overlapping CPU masks. Check for overlaps under
-smpboot_threads_lock before creating any threads, warn once and return
--EBUSY on a conflict. Checking the masks also covers offline CPUs,
-whose task pointers may not yet be populated. This prevents descriptors
-from sharing a thread and interfering with each other's teardown.
+  event             interrupted PC   SIAR
+  r122 (branches)   br + 13          br + 9
+  r014 (stores)     stw + 21         stw + 17
 
-Default a NULL mask to cpu_possible_mask at registration, preserving
-the existing all-CPU behavior and allowing the lifecycle helpers to
-use the mask unconditionally. Use scoped guards for the registration
-locks so all error returns release them in the correct order.
+Because the exception is held off, it can also be taken on the other
+side of a user/kernel transition from the instruction in SIAR, e.g.
+just after the rfi at the end of a system call. Recording a loop that
+alternates user work with getppid() with perf record -g -c 1000000,
+3022 of 16953 samples had SIAR in a different mode from the
+interrupted PC. The callchain is walked from regs, so taking its first
+entry from SIAR there starts a user callchain with a kernel address.
 
-The caller must keep the mask valid and unchanged until the descriptor
-is unregistered. smpboot serializes the overlap check and descriptor
-registration against other registration and unregistration operations.
+SIAR also holds a real address while translation is off, and a real
+address looks like a user address. The hash_page() fast path on
+CONFIG_PPC_BOOK3S_604 runs with translation off and EE clear and
+returns straight to user space, so an exception generated there is
+taken at a user PC with SIAR holding a kernel real address. Reading
+one word from each of 2048 pages after an mprotect() round trip has
+flushed their hash PTEs, with -c 10007, 1674 of 2659 user samples land
+on the real addresses of DataAccess, hash_page() and
+fast_hash_page_return when SIAR is used whenever its address matches
+the mode of the interrupted context.
 
-Signed-off-by: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
-Reviewed-by: Bradley Morgan <bradley.morgan@linux.dev>
+A user SIAR cannot be told apart from a kernel real address, and the
+table above shows user samples gain little from SIAR. Use SIAR for PMU
+exceptions only when the interrupted context is the kernel and SIAR is
+a kernel address, and the interrupted PC otherwise. With that, neither
+test has user samples at kernel addresses or callchains with mixed
+modes, and 99.9% of the kernel samples in the mprotect() test still
+take their address from SIAR.
 
+Suggested-by: Tanushree Shah <tshah@linux.ibm.com>
+Signed-off-by: Matt Turner <mattst88@gmail.com>
 ---
- include/linux/smpboot.h |  6 ++++++
- kernel/smpboot.c        | 45 ++++++++++++++++++++++++++++++++---------
- 2 files changed, 41 insertions(+), 10 deletions(-)
+Changes in v3:
+- Use SIAR only for kernel samples, and only when it is a kernel
+  address. A real-mode SIAR from the hash_page() fast path looks like a
+  user address and was used for user samples taken after its rfi
+  (Tanushree Shah).
+- Retitled from "Use SIAR for sample addresses on 32-bit".
+- Link to v2: https://patch.msgid.link/20261117-ppc32-perf-v2-7-2072e9b90009@gmail.com
 
-diff --git a/include/linux/smpboot.h b/include/linux/smpboot.h
-index 9d1bc65d226c..57b945d51b19 100644
---- a/include/linux/smpboot.h
-+++ b/include/linux/smpboot.h
-@@ -5,6 +5,7 @@
- #include <linux/types.h>
- 
- struct task_struct;
-+struct cpumask;
- /* Cookie handed to the thread_fn*/
- struct smpboot_thread_data;
- 
-@@ -27,6 +28,10 @@ struct smpboot_thread_data;
-  *			unparked (cpu online)
-  * @selfparking:	Thread is not parked by the park function.
-  * @thread_comm:	The base name of the thread
-+ * @cpumask:		Optional mask of CPUs on which to create threads. Must remain
-+ *			valid and unchanged until the descriptor is unregistered.
-+ *			Registration defaults NULL to cpu_possible_mask. Descriptors
-+ *			sharing @store must have disjoint masks.
-  */
- struct smp_hotplug_thread {
- 	struct task_struct		* __percpu *store;
-@@ -40,6 +45,7 @@ struct smp_hotplug_thread {
- 	void				(*unpark)(unsigned int cpu);
- 	bool				selfparking;
- 	const char			*thread_comm;
-+	const struct cpumask		*cpumask;
- };
- 
- int smpboot_register_percpu_thread(struct smp_hotplug_thread *plug_thread);
-diff --git a/kernel/smpboot.c b/kernel/smpboot.c
-index 4503b60ce9bd..f997fe85f088 100644
---- a/kernel/smpboot.c
-+++ b/kernel/smpboot.c
-@@ -168,6 +168,9 @@ __smpboot_create_thread(struct smp_hotplug_thread *ht, unsigned int cpu)
- 	struct task_struct *tsk = *per_cpu_ptr(ht->store, cpu);
- 	struct smpboot_thread_data *td;
- 
-+	if (!cpumask_test_cpu(cpu, ht->cpumask))
-+		return 0;
-+
- 	if (tsk)
- 		return 0;
- 
-@@ -225,6 +228,9 @@ static void smpboot_unpark_thread(struct smp_hotplug_thread *ht, unsigned int cp
+ arch/powerpc/perf/core-book3s.c | 21 ++++++++++++++++++++-
+ 1 file changed, 20 insertions(+), 1 deletion(-)
+
+diff --git a/arch/powerpc/perf/core-book3s.c b/arch/powerpc/perf/core-book3s.c
+index 10ded865583c..aab18f4dda94 100644
+--- a/arch/powerpc/perf/core-book3s.c
++++ b/arch/powerpc/perf/core-book3s.c
+@@ -112,9 +112,28 @@ static inline u32 perf_get_misc_flags(struct pt_regs *regs)
  {
- 	struct task_struct *tsk = *per_cpu_ptr(ht->store, cpu);
- 
-+	if (!cpumask_test_cpu(cpu, ht->cpumask))
-+		return;
-+
- 	if (!ht->selfparking)
- 		kthread_unpark(tsk);
+ 	return 0;
  }
-@@ -244,6 +250,9 @@ static void smpboot_park_thread(struct smp_hotplug_thread *ht, unsigned int cpu)
- {
- 	struct task_struct *tsk = *per_cpu_ptr(ht->store, cpu);
- 
-+	if (!cpumask_test_cpu(cpu, ht->cpumask))
-+		return;
 +
- 	if (tsk && !ht->selfparking)
- 		kthread_park(tsk);
- }
-@@ -267,6 +276,9 @@ static void smpboot_destroy_threads(struct smp_hotplug_thread *ht)
- 	for_each_possible_cpu(cpu) {
- 		struct task_struct *tsk = *per_cpu_ptr(ht->store, cpu);
- 
-+		if (!cpumask_test_cpu(cpu, ht->cpumask))
-+			continue;
-+
- 		if (tsk) {
- 			kthread_stop_put(tsk);
- 			*per_cpu_ptr(ht->store, cpu) = NULL;
-@@ -279,28 +291,41 @@ static void smpboot_destroy_threads(struct smp_hotplug_thread *ht)
-  * 					    to hotplug
-  * @plug_thread:	Hotplug thread descriptor
-  *
-- * Creates and starts the threads on all online cpus.
-+ * Creates and starts the threads on online CPUs selected by the descriptor's
-+ * cpumask, or all online CPUs if no mask is specified.
++/*
++ * The MPC7450 family's SIAR holds the address of the last instruction to
++ * complete before the performance monitor exception was generated, so for
++ * a PMU exception it is closer to the event than the interrupted PC. The
++ * exception is held off while MSR[EE] is clear, so with interrupts
++ * disabled the interrupted PC is wherever they are re-enabled.
 + *
-+ * Return: 0 on success, -EBUSY if a registered descriptor shares the same task
-+ * storage and has an overlapping CPU mask, or a thread creation error.
-  */
- int smpboot_register_percpu_thread(struct smp_hotplug_thread *plug_thread)
++ * Because it is held off, the exception can also be taken on the other
++ * side of a user/kernel transition from the instruction in SIAR, e.g.
++ * just after the rfi at the end of a system call. SIAR also holds a real
++ * address for code running with translation off, and a real address
++ * looks like a user address. The hash_page() fast path runs with
++ * translation off and returns straight to user space, so a user SIAR
++ * cannot be trusted. Use SIAR only for kernel samples, and only when it
++ * is a kernel address.
++ */
+ static inline void perf_read_regs(struct pt_regs *regs)
  {
-+	struct smp_hotplug_thread *ht;
- 	unsigned int cpu;
--	int ret = 0;
-+	int ret;
+-	regs->result = 0;
++	unsigned long siar = mfspr(SPRN_SIAR);
 +
-+	if (!plug_thread->cpumask)
-+		plug_thread->cpumask = cpu_possible_mask;
-+
-+	guard(cpus_read_lock)();
-+	guard(mutex)(&smpboot_threads_lock);
-+
-+	list_for_each_entry(ht, &hotplug_threads, list) {
-+		if (ht->store != plug_thread->store)
-+			continue;
-+		if (WARN_ON_ONCE(cpumask_intersects(ht->cpumask, plug_thread->cpumask)))
-+			return -EBUSY;
-+	}
- 
--	cpus_read_lock();
--	mutex_lock(&smpboot_threads_lock);
- 	for_each_online_cpu(cpu) {
- 		ret = __smpboot_create_thread(plug_thread, cpu);
- 		if (ret) {
- 			smpboot_destroy_threads(plug_thread);
--			goto out;
-+			return ret;
- 		}
- 		smpboot_unpark_thread(plug_thread, cpu);
- 	}
- 	list_add(&plug_thread->list, &hotplug_threads);
--out:
--	mutex_unlock(&smpboot_threads_lock);
--	cpus_read_unlock();
--	return ret;
-+	return 0;
++	regs->result = siar && !user_mode(regs) && is_kernel_addr(siar);
  }
- EXPORT_SYMBOL_GPL(smpboot_register_percpu_thread);
  
-@@ -308,7 +333,7 @@ EXPORT_SYMBOL_GPL(smpboot_register_percpu_thread);
-  * smpboot_unregister_percpu_thread - Unregister a per_cpu thread related to hotplug
-  * @plug_thread:	Hotplug thread descriptor
-  *
-- * Stops all threads on all possible cpus.
-+ * Stops all threads associated with the descriptor, including offline CPUs.
-  */
- void smpboot_unregister_percpu_thread(struct smp_hotplug_thread *plug_thread)
- {
+ static inline int siar_valid(struct pt_regs *regs)
 -- 
-2.43.0
+2.56.1
 
