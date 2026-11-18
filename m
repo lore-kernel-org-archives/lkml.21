@@ -1,49 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.17
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795005876;
-	b=xMl8q2rF1/BLOMKLuaUDVtC2WQtVbTb++krrKhA5cG4UPSS+EyzqZQksKydiM1gbq52N
-	 WUmKBelJ5T/xBOYcvmxbPyjdlWo+XHwdnkBIiGoKFb5PNpqRXhoO2vI0P/okjSaThhhm/
-	 mY56qlDKTe9TtF7y1IvfWZlyurWYGhLYTEvVXP/bsIQQ8sXrS/tMVYhqvmvJRTQox9PL0
-	 a4Zz86k9m4LWhQwzRYftVYFcNaLmOKfup/HgcxIif42Jan3eV/MngsgsJGchBSVl1TqRc
-	 G7AeTTvp/vp3lsqMb5Ynr98zlaeaDqag7b54pMrSFN1qjV0LJJhNh3ytDnmrdrLr6ug==
+	t=1795005891;
+	b=RFLfBV5JcSDrWu5j8rlNnFK6YC+8a7li+C7y0NlqDcuh/+vOyi1Enxkpm1ITyih3N66p
+	 EGF85TVrH+sD5K5u/LNJp6wYAFeNrpuT2n9+KxA/1gZ9ypd+Z1er8GuWpxMjJVT1ucFcT
+	 df44pkx9V79YmTePhl7MKkjdxl3w+jIFKxuiiNpZCAUEuqcGCFvbtq4QZBthimxMs5JAg
+	 6i/1e3aVWO4Z0q/IETC6dHanaphw3Ki2l6SeGhI03hSZ5I56IPBVqaf8NNSnhrF9TS9j3
+	 Kb3d3+N75jPE1GBbsOkeYWBWzzvDCRjIVSke8Xc0dukNY5K6U8KWIUbJSEvNU4HdmhA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795005876;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=E+TFB5ruIZVQXeeFZKL6zFfyFf8j+3Cog2ncFVsXWyg=;
-	b=2pPtDFfbIOcqsyYNkDMNoGaVCfBEgs2deAWXRatK5UWBL/UdHcSgo3lqPcWAmQcakA3u
-	 t4bSuSi9ztwCUnSsRDmNV+O+eF87XPyBtbs7KSA8ygs1BoD2BfjvC+dW2tqhEwCglBMsE
-	 9E9C2Mqc8uSefQdbWcz77XSs/3X1ZYtCRf3m65ov9+KHLl7C4WYJ0FSNoLKvp0NEsPbEj
-	 Tgs94yS43RpMZThuZJEMdLksiNykYVudHkWEIdRBP0xtnqWtNaNj//xCd8NHEP69XQyhF
-	 gZ2wkO5MPDE458gqasaPa9SOYSqfOfmb4peqnf/j6vxK17aZqq1QsI80RNNr9/x9XZQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795005891;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 In-Reply-To:Organization:References:Date:Message-ID:MIME-Version:
+	 Content-Type;
+	bh=tK3Yl9KuPK4Aw1fNo7fuEuFsLSBRJxLT+br6RGj87XI=;
+	b=CQqNq4GKo4EwFnyvuqmqJPKfX2bhVXKlueKzufTocCVXWEY6D1elLBImKo2Xwe7LXQdo
+	 bB6byhoWpObtmbtPVptyT0rqa89n0PhQ894T/foyatTebzncAQYson68L1fdRsALyRCWV
+	 XZLftqwi/Hwj7zp8YWmD1e73xCF6yrh13D4OofdthsP+Eo+tvlDTnEa0QThfN1GLoUhZv
+	 R1JxYKn5kkWsFwMgeSQFAXx2uwx9CsdAGCDdrFFeNSpS2R0kF6R9BdQUP8CPikbDNmRLQ
+	 nPVqqTdable2R7URz4eTIaXaQbAkmzBm4bjIkNIh887iibHYHOLBkClNs4OrdXswj0Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D3mvja+N;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=kfPMuJY+;
+	arc=none smtp.remote-ip=192.198.163.17
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.17])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87BC460A260F;
-	Wed, 18 Nov 2026 12:44:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 923DE606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:44:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 923DE606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D3mvja+N
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B30991F000CB;
-	Wed, 18 Nov 2026 12:44:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795005876;
-	bh=E+TFB5ruIZVQXeeFZKL6zFfyFf8j+3Cog2ncFVsXWyg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=D3mvja+N90ppnyK3GdaXsj8/GlXwzGrdpEJRwSPqtgp8LsqO5ulE7t6+N6CmevMpE
-	 S4xlfTokaK4UhnVP+cCtRot3jduTBW6g1VidZ/J+lnOoo/UdGyG/l/vTUEb0PwgCGG
-	 JnZBWJNbZij1un4/3LD9dVCCLGH2HiObZ+eGELtHAPnD1qvagE4w6roxhh5Jdj16RM
-	 KpKbvSO09GJHmNZdpOsIvl28b0LhHg5sBnujzjD8U2H+xxTnxF3xhFPNZTjzf+FX+n
-	 pRDrNwpwpSC/1vPtuI+yMcnVt1r+SKkHjh9HB9l3ZXdZRJ9s/1k5OtLk0kYQ3i2ff3
-	 enEYJMBzIX7yA==
-From: Mattijs Korpershoek <mkorpershoek@kernel.org>
-Date: Wed, 18 Nov 2026 13:44:00 +0100
-Subject: [PATCH RFC v2 16/16] media: imx219: Implement .detect() sensor
- operation
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=kfPMuJY+
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795005890; x=1826541890;
+  h=from:to:cc:subject:in-reply-to:references:date:
+   message-id:mime-version;
+  bh=j/mkAOxZhngnYReNQGu1/FJ0IFKN+MiHjoYf4rkE85I=;
+  b=kfPMuJY+V5MT5QnhcZ6xT3nTGiGPHizFY687QlVUPT7R9IsVqu6ttlaI
+   RKtzza20dMZtCiWPbzLyfd92UhZc6GU3cLPlFOph2nzv8YiXivImjxw6C
+   BuQsDc2/TlVa7fv5/5+OG9E8jHW5FXlPfThyNrDhFlvvzS1H7nKz9ND6o
+   Qj6A3AgKU9L7j5xhsn4KjTN23VE/Xez1UhGj/XTHKwNWBtjj4tPZeII6m
+   rPsOHtITbV/u4jfDRP5vnNKfCU+bxjqm3ZdmKIffT/J+4lr8/D1cZHVvO
+   s/i4o0v90NAsqUZJd9llNb2iD9hUw6FpaXiLX89armgx0QAD3qpNU/8Y0
+   w==;
+X-CSE-ConnectionGUID: jRxVzyGvQ9S/c5vh2vuzzQ==
+X-CSE-MsgGUID: DwkSAQ35SP+YTn1CsuNXag==
+X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3803782"
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="3803782"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 04:44:49 -0800
+X-CSE-ConnectionGUID: FTwQz4CPRX+Wqzw3y/rUqA==
+X-CSE-MsgGUID: 4XJJwNIJRGekjzNxKC68Ow==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="10016508"
+Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.187])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 04:44:47 -0800
+From: Jani Nikula <jani.nikula@linux.intel.com>
+To: Noah Weinberger <NoahWeinberger2003@proton.me>, "rodrigo.vivi@intel.com"
+ <rodrigo.vivi@intel.com>
+Cc: "intel-gfx@lists.freedesktop.org" <intel-gfx@lists.freedesktop.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] drm/i915/bios: validate VBT vswing/preemphasis override
+ table
+In-Reply-To: <40IXMMqFQJJm26J3saK7hx09nF4FuE3ZJcU6gMIryuxuGC5VENrcgA9q4klryPNSLnMwE64szv7eg4wf__gU8OlgzlL8tw3CmV_78Kc_H14=@proton.me>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park,
+ 6 krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
+References: <40IXMMqFQJJm26J3saK7hx09nF4FuE3ZJcU6gMIryuxuGC5VENrcgA9q4klryPNSLnMwE64szv7eg4wf__gU8OlgzlL8tw3CmV_78Kc_H14=@proton.me>
+Date: Wed, 18 Nov 2026 14:44:45 +0200
+Message-ID: <332a02491f1f60617411757a2c9abedc4b637141@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,169 +83,93 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-v4l2-sensor-detect-v2-16-1bb1a445b556@kernel.org>
-References: <20261118-v4l2-sensor-detect-v2-0-1bb1a445b556@kernel.org>
-In-Reply-To: <20261118-v4l2-sensor-detect-v2-0-1bb1a445b556@kernel.org>
-To: Hans Verkuil <hverkuil+cisco@kernel.org>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Kieran Bingham <kieran.bingham@ideasonboard.com>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Andy Walls <awalls@md.metrocast.net>, Kees Cook <kees@kernel.org>, 
- "Gustavo A. R. Silva" <gustavoars@kernel.org>
-Cc: Mattijs Korpershoek <mkorpershoek@kernel.org>, 
- Nicolas Dufresne <nicolas.dufres@collabora.com>, 
- Hans de Goede <hansg@kernel.org>, 
- Michael Riesch <michael.riesch@collabora.com>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- Maxime Ripard <mripard@kernel.org>, linux-media@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4413;
- i=mkorpershoek@kernel.org; h=from:subject:message-id;
- bh=TyP8n4mkpZbPBju5QqjjO/ut3VyNVLg80/ioaomM2/I=;
- b=owEBbQGS/pANAwAKARkNHbRmThk1AcsmYgBq/Z2MW+A406U6qSft7hKPUWd/+EE6oVsQ2ZLpP
- OUTRs4dc7OJATMEAAEKAB0WIQQu6UKnth9qvlMTrQAZDR20Zk4ZNQUCav2djAAKCRAZDR20Zk4Z
- Ne+DB/99/drsuDm6qvrIPblgUnFytjfuXwMz+IUi8uLQOwRkhESRCGXmIBOJLMH4J5mmdIGUqUM
- 9KyRQrMWbQsJsbzhdQkCJnudpgSCHA4TJAIy/S3BCu1l6fv+mNto13iswTBQu73U8K+l4HUeHIV
- jnxgENCi1jsfaVOTuoK10sKSMMunFkqKJumyg/N+SYK2ivJFdMuJ1UB0PzdI/ij4scuVk54ui+c
- zEpuTwosDmr+3M9kYmwWaX9Wia9PTYain7J+g/9gRSD6941jyTGNDq8FiJRwolMlyS1/pmzPdOj
- Rap/Cq92jl/M5s2ysEAQxElNZjSTyZt81qm0P7J1994OPIYg
-X-Developer-Key: i=mkorpershoek@kernel.org; a=openpgp;
- fpr=8234A35B45C0D26B31C1A2DA570338B018144F28
+Content-Type: text/plain
 
-Now that the driver can probe() with a missing sensor, userspace should
-be able to query the sensor connection state via the media device.
+On Sun, 08 Nov 2026, Noah Weinberger <NoahWeinberger2003@proton.me> wrote:
+> Hello,
+>
+> Proposed-fix limitation: the patch below does not validate the full
+> VBT table extent against the section size. The malformed/short-table
+> out-of-bounds case described below remains unresolved by these
+> existence and minimum-count checks. This is an incomplete proposal for
+> maintainer review; a complete fix still needs section-extent bounds
+> validation.
+>
+> parse_vswing_preemph_override() stores the raw pointer and count fields
+> from VBT block 57 without validating that the block actually contains
+> the announced table, and allocate_vswing_preemph_override() allocates
+> the consumer structures whenever a child device sets use_vbt_vswing -
+> even when the block is absent entirely. validate_vspeo() only checks
+> that devdata->vspeo is non-NULL and that the port has DP.
+>
+> Two failure modes follow at DDI buffer-translation time:
+>  - block absent: tables == NULL, num_columns == 0, so the consumer
+>    dereferences tables[0] (NULL).
+>  - block short or malformed: the table walk reads up to
+>    (5+1)*num_rows*num_columns u32s from a block whose enforced minimum
+>    size is 2 bytes - with num_columns = 255 that is ~98 KB past a small
+>    heap allocation, and the values are programmed into PHY registers.
+>
+> The patch gates the consumer on the table existing with sane counts.
+> A complete fix should also validate the table extent against the
+> section size, which is not currently plumbed through; happy to rework
+> if there is a preferred way to carry the section size.
+>
+> Affected version/commit: mainline fa4ad798f6f681031775266044ba1b0cf3c670bd (v7.4-rc1, 2026-11-07), drivers/gpu/drm/i915/display/intel_bios.c:2216-2234 (parse), 2654-2676 (allocate), 3874-3923 (validate/consume).
+> Introduced in the v7.4 merge window.
+>
+> This was found during an assisted (AI-supported) static source review of
+> mainline fa4ad798f6f681031775266044ba1b0cf3c670bd (v7.4-rc1, 2026-11-07); every code path cited below was re-verified by the
+> reporter against that tree. The patch below has NOT been compiled and has
+> NOT been runtime tested, and no reproducer was produced - the triggering
+> conditions are described above instead. Please treat this as a report for
+> verification rather than a battle-tested fix.
+>
+> Reported-by: Noah Weinberger <noahweinberger2003@proton.me>
 
-Implement the .detect() sensor operation so that userspace can do that
-using the MEDIA_IOC_G_ENTITY_STATUS ioctl.
+Please see [1] on how to report i915 issues.
 
-Also call media_detect_poll_enable() when streaming successfully started
-and poll_disable() when disabling streaming to make sure that the media
-device reports the status to userspace while streaming.
+BR,
+Jani.
 
-Signed-off-by: Mattijs Korpershoek <mkorpershoek@kernel.org>
----
- drivers/media/i2c/imx219.c | 47 +++++++++++++++++++++++++++++++++++++++++-----
- 1 file changed, 42 insertions(+), 5 deletions(-)
+[1] https://drm.pages.freedesktop.org/intel-docs/how-to-file-i915-bugs.html
 
-diff --git a/drivers/media/i2c/imx219.c b/drivers/media/i2c/imx219.c
-index 02d065fb88d0..5d4432a97eee 100644
---- a/drivers/media/i2c/imx219.c
-+++ b/drivers/media/i2c/imx219.c
-@@ -28,6 +28,7 @@
- #include <media/v4l2-device.h>
- #include <media/v4l2-fwnode.h>
- #include <media/v4l2-mediabus.h>
-+#include <media/v4l2-subdev.h>
- 
- /* Chip ID */
- #define IMX219_REG_CHIP_ID		CCI_REG16(0x0000)
-@@ -742,6 +743,10 @@ static int imx219_enable_streams(struct v4l2_subdev *sd,
- 	if (ret < 0)
- 		return ret;
- 
-+	ret = media_entity_detect_or_fail(&sd->entity);
-+	if (ret)
-+		goto err_rpm_put;
-+
- 	/* Send all registers that are common to all modes */
- 	ret = cci_multi_reg_write(imx219->regmap, imx219_common_regs,
- 				  ARRAY_SIZE(imx219_common_regs), NULL);
-@@ -780,6 +785,8 @@ static int imx219_enable_streams(struct v4l2_subdev *sd,
- 	__v4l2_ctrl_grab(imx219->vflip, true);
- 	__v4l2_ctrl_grab(imx219->hflip, true);
- 
-+	media_detect_poll_enable(&sd->entity);
-+
- 	return 0;
- 
- err_rpm_put:
-@@ -795,6 +802,8 @@ static int imx219_disable_streams(struct v4l2_subdev *sd,
- 	struct i2c_client *client = v4l2_get_subdevdata(&imx219->sd);
- 	int ret;
- 
-+	media_detect_poll_disable(&sd->entity);
-+
- 	/* set stream off register */
- 	ret = cci_write(imx219->regmap, IMX219_REG_MODE_SELECT,
- 			IMX219_MODE_STANDBY, NULL);
-@@ -1006,6 +1015,33 @@ static int imx219_init_state(struct v4l2_subdev *sd,
- 	return imx219_set_pad_format(sd, NULL, state, &fmt);
- }
- 
-+static int imx219_read_chip_id(struct imx219 *imx219, u64 *chip_id)
-+{
-+	return cci_read(imx219->regmap, IMX219_REG_CHIP_ID, chip_id, NULL);
-+}
-+
-+static int imx219_detect(struct media_entity *entity)
-+{
-+	struct v4l2_subdev *sd = media_entity_to_v4l2_subdev(entity);
-+	struct i2c_client *client = v4l2_get_subdevdata(sd);
-+	struct imx219 *imx219 = to_imx219(sd);
-+	u64 chip_id;
-+	int ret;
-+
-+	ret = pm_runtime_resume_and_get(&client->dev);
-+	if (ret < 0)
-+		return ret;
-+
-+	if (imx219_read_chip_id(imx219, &chip_id))
-+		ret = MEDIA_ENT_STATUS_DISCONNECTED;
-+	else
-+		ret = MEDIA_ENT_STATUS_CONNECTED;
-+
-+	pm_runtime_put_autosuspend(&client->dev);
-+
-+	return ret;
-+}
-+
- static const struct v4l2_subdev_video_ops imx219_video_ops = {
- 	.s_stream = v4l2_subdev_s_stream_helper,
- };
-@@ -1029,6 +1065,10 @@ static const struct v4l2_subdev_internal_ops imx219_internal_ops = {
- 	.init_state = imx219_init_state,
- };
- 
-+static const struct media_entity_operations imx219_entity_ops = {
-+	.detect = imx219_detect,
-+};
-+
- /* -----------------------------------------------------------------------------
-  * Power management
-  */
-@@ -1099,11 +1139,6 @@ static int imx219_get_regulators(struct imx219 *imx219)
- 				       imx219->supplies);
- }
- 
--static int imx219_read_chip_id(struct imx219 *imx219, u64 *chip_id)
--{
--	return cci_read(imx219->regmap, IMX219_REG_CHIP_ID, chip_id, NULL);
--}
--
- static int imx219_check_hwcfg(struct device *dev, struct imx219 *imx219)
- {
- 	struct fwnode_handle *endpoint;
-@@ -1237,6 +1272,7 @@ static int imx219_probe(struct i2c_client *client)
- 			goto error_power_off;
- 		}
- 		dev_dbg(&client->dev, "failed to read chip id %x\n", IMX219_CHIP_ID);
-+		imx219->sd.entity.status = MEDIA_ENT_STATUS_DISCONNECTED;
- 	} else if (val != IMX219_CHIP_ID) {
- 		ret = dev_err_probe(&client->dev, -EIO,
- 				    "chip id mismatch: %x!=%llx\n",
-@@ -1271,6 +1307,7 @@ static int imx219_probe(struct i2c_client *client)
- 	/* Initialize subdev */
- 	imx219->sd.flags |= V4L2_SUBDEV_FL_HAS_DEVNODE;
- 	imx219->sd.entity.function = MEDIA_ENT_F_CAM_SENSOR;
-+	imx219->sd.entity.ops = &imx219_entity_ops;
- 
- 	/* Initialize source pad */
- 	imx219->pad.flags = MEDIA_PAD_FL_SOURCE;
+> ---
+> diff --git a/drivers/gpu/drm/i915/display/intel_bios.c b/drivers/gpu/drm/i915/display/intel_bios.c
+> index 7b6a6f8..d99a675 100644
+> --- a/drivers/gpu/drm/i915/display/intel_bios.c
+> +++ b/drivers/gpu/drm/i915/display/intel_bios.c
+> @@ -2657,7 +2657,8 @@ static void allocate_vswing_preemph_override(struct intel_bios_encoder_data *dev
+>  	union intel_ddi_buf_trans_entry *entries;
+>  	struct intel_ddi_buf_trans *vspeo;
+>  
+> -	if (!intel_bios_encoder_requests_vspeo(devdata))
+> +	if (!intel_bios_encoder_requests_vspeo(devdata) ||
+> +	    !devdata->display->vbt.vspeo.tables)
+>  		return;
+>  
+>  	vspeo = kzalloc_obj(*vspeo);
+> @@ -3876,6 +3877,8 @@ validate_vspeo(const struct intel_bios_encoder_data *devdata, bool has_dp)
+>  {
+>  	struct intel_ddi_buf_trans *vspeo;
+>  
+> +	struct intel_display *display = devdata->display;
+> +
+>  	vspeo = devdata->vspeo;
+>  	if (!vspeo)
+>  		return false;
+> @@ -3883,5 +3886,10 @@ validate_vspeo(const struct intel_bios_encoder_data *devdata, bool has_dp)
+>  	if (!has_dp)
+>  		return false;
+>  
+> +	if (!display->vbt.vspeo.tables ||
+> +	    display->vbt.vspeo.num_columns < 3 ||
+> +	    display->vbt.vspeo.num_tables < 6)
+> +		return false;
+> +
+>  	return true;
+>  }
+>
 
 -- 
-2.56.0
-
+Jani Nikula, Intel
