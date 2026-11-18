@@ -1,48 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794992866;
-	b=1y+3zukl0jtno+zMYTBxdwGX1CBKFMfaUgzU2hhtJq9/wn/xUiF8KJLgGFbeGEXEf17z
-	 RMU/82IMldPepy73LlzXK684sd4MDpXMllMysqzPEdm3WdLPhsuBhhdWKhieauPdcGszC
-	 FV17LhaOeg77SkP0CyCkyBMFyRwfaSPC3OQG3yadRdjRTYlf7zM5Vux1cKva1J6eiE7LE
-	 ZHx3gel/oqMf8+L0azQubPGoEdBxeBK/TQCIVDPlgBLI5608QutI63BDFoVMq6Q+iX9nb
-	 dz6hjIS+0n8hYuX8thKbtbGXGc9FWXnjzCBGvzugSBpHpAiXIcKW4kPrWIQm/S5bNIQ==
+	t=1794992868;
+	b=32JsC20uceVnih429jaq8btfLGh9o3K7XzGAVr0MPfG6rin6W/9vaupTtrVpWgpBzosD
+	 gQqHP4vw081TaQ4IhUkJp+a+ArRb1ID4wELm1VmKSJIonlfT43fJAwqqPQdA9WYlxtDWr
+	 /szDh9WRIM7wFKHIb5pnn/7wT8W976g7RoFAl62l2iUSP0evYv1UdMr3DwQ7Tz2L3QCe9
+	 2VJe/nBxQbNzeEse4Arctwlqb47kFUZOtZA56vrBABg8/6mN0BHUm1int6pww18ru+s31
+	 p49GzKbhzFwpwP5bMBcNg19sBptGTqWVbt93wRZO4eFshhEmkVw6ay8QipFIT7Y3lIg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794992866;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794992868;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
 	 X-CM-SenderInfo;
-	bh=eMoIF6Lrn30ijyXWi6LQ4STmwyspf4I5H6VBobt1/us=;
-	b=wM2ppNMw4Vi9vUsloG1GetFcZjm3nroz9mLa7BaPlbaJ3N12hC7ZK/iCBBl4w1oWfoin
-	 31/AjFIgZR26PD/5DLCKqlYgoHFQUO7eVl4+0sE6Hjezzl3VFO1n3/B5NWdYOpUk+lU1M
-	 45Z8lZpzmGeqrOy0DC678lgv6kAGAHb1n2n747IcrPerlz6tOYMt5VnT3+TeZuiCwUfE9
-	 cA0W8e4wbujI0C1PiuwR/c+b+YynQiGHn6SS2rPDWEy5BxS+44YuyPQ3ws+m7hAKEAtOz
-	 vqtOvX5yK2RdojRxsO5oyceN6zaLzeXaMqZ0OFMOjX+6hGuo4c7+kjATb4bGfoNR8rA==
+	bh=0rf03u9hyEOPIeJB9Of8Za+ffwRf4OprtyAZCKFnhco=;
+	b=0ryouQOt9n0gkJrscKArzwpicYvIBkDmEHBpyPzUtzkVW+CIDKHSmMZN9oqRF2dEDROI
+	 IcadP14yM05PXFrF30ZO9HDAlYclZ+riOFoiqsuTXv42TA1umdzjyXGydWVBmICkoY5bm
+	 PxyOnVAC9Nm8zuCZr+Svl4n0jGOaahlNOF3QEBJly+1XvFMIfeugL7vUFIGuK53XgED1U
+	 dgxBKlgrfjDzZ3t0f1WsoYDVN6v2s4Z3t3uogKZZAqfRaK05PvGsMpQ9mC7GjTRCslLmV
+	 snDXgzklB1OUBtfxfhtTQhvNbikx0BN7/9k74QTNmnib2zd/h/C2n7sGK8FGPy7qeYg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=163.com;
 	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=bno0E8Cf;
-	arc=none smtp.remote-ip=220.197.31.5
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.5])
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=ecr4HdTc;
+	arc=none smtp.remote-ip=117.135.210.4
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EC43606A330
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:07:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7EC43606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36323606A33F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:07:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36323606A33F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=bno0E8Cf
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=ecr4HdTc
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=eM
-	oIF6Lrn30ijyXWi6LQ4STmwyspf4I5H6VBobt1/us=; b=bno0E8Cffq/LuDgXUf
-	Jsq3UfK4QGaIYg/AxYx+MnzQP5K2hwOO7kw48Rr1yP1ZlG4iqzwT+HUp+oTARkLv
-	vdIw0Bz+9sryKIL8iEbGnbur4wgZSZ9gSLFUP4aAh538vx+JsWwrqv4EOZ3Rk1ux
-	w2ZJnei+8MM16ulvufy1xQ3eI=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=0r
+	f03u9hyEOPIeJB9Of8Za+ffwRf4OprtyAZCKFnhco=; b=ecr4HdTcY/BPfAbwTc
+	x5IP/1gf0zk0obm5IXPqI8o8lEh+jNjVYGuqQ3q9jupaCn53qVYJjvj4DkFee7gd
+	YOY97o/KzLFzR8JsngOP73IaNQrQLEOzg+1uKkQTLgYC2CTVuuI5wPcxbkuNz2wM
+	7oFJaPM00wjj1ltCXCSmwtpqM=
 Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wDn7yTNav1qnmzWIQ--.7895S8;
-	Wed, 18 Nov 2026 17:07:29 +0800 (CST)
+	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wDn7yTNav1qnmzWIQ--.7895S5;
+	Wed, 18 Nov 2026 17:07:27 +0800 (CST)
 From: Xuewen Wang <wangxuewen_ky@163.com>
 To: linkinjeon@kernel.org,
 	hyc.lee@gmail.com,
@@ -51,9 +51,9 @@ Cc: ntfs@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Xuewen Wang <wangxuewen@kylinos.cn>,
 	Baolin Liu <liubaolin@kylinos.cn>
-Subject: [PATCH v6 06/37] ntfs: preserve compressed I/O preparation errors
-Date: Wed, 18 Nov 2026 17:06:30 +0800
-Message-Id: <20261118090701.1858849-7-wangxuewen_ky@163.com>
+Subject: [PATCH v6 03/37] ntfs: handle source record removal failure during attribute moves
+Date: Wed, 18 Nov 2026 17:06:27 +0800
+Message-Id: <20261118090701.1858849-4-wangxuewen_ky@163.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20261118090701.1858849-1-wangxuewen_ky@163.com>
 References: <20261118090701.1858849-1-wangxuewen_ky@163.com>
@@ -67,92 +67,99 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wDn7yTNav1qnmzWIQ--.7895S8
-X-Coremail-Antispam: 1Uf129KBjvJXoW7uFy7uw1fCr1rGF4fuF47twb_yoW8KFW8p3
-	y3urWkKw4xXF1DWws7tw4Y9F1Ig34IgayUGrW8K3Wxt3Z8Krn2gF18tFn3ur48tryfJ39x
-	Zw4UG3y7GrWYvF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zRfb1nUUUUU=
-X-CM-SenderInfo: pzdqw5pxhzv0xbn1qiywtou0bp/xtbCzhHo0Wr9atHzLwAA3W
+X-CM-TRANSID:_____wDn7yTNav1qnmzWIQ--.7895S5
+X-Coremail-Antispam: 1Uf129KBjvJXoWxAr4rZw4xXw4xJr4kXrWUurg_yoW5Zw1kpF
+	93C3sxKw4DAF17tanakw4jva4Ig34xWr4UXry3Gw13uan5twnFqry8tFyxZa4fKF95Kws8
+	Jr4UJ3y3CFW5Z3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j0nmiUUUUU=
+X-CM-SenderInfo: pzdqw5pxhzv0xbn1qiywtou0bp/xtbC7w-n0Gr9as+0UAAA3B
 
 From: Xuewen Wang <wangxuewen@kylinos.cn>
 
-Compressed reads discard compression-buffer allocation and runlist mapping
-errors at cleanup, returning EIO instead. Compressed writes also replace
-mapping-pairs update errors with EIO.
+ntfs_attr_record_move_to() ignores failure to remove the source attribute
+after copying it. It can update the attribute-list reference and return
+success with both copies present.
 
-Save allocation and mapping results before cleanup and return the original
-errno. Keep EIO for an invalid runlist result with no more specific error,
-and preserve the result of updating mapping pairs after compressed writes.
+Check source removal before changing the list entry. On failure, attempt
+to remove the destination copy, dirty and unmap its record, and leave the
+list pointing to the source. Record both failures with the existing volume
+error bit and log messages after releasing the destination search context.
+
+Shrinking a record to zero needs no extra space, so failure indicates
+inconsistent record accounting. Return EFSCORRUPTED even if cleanup fails.
+
+Fixes: 495e90fa3348 ("ntfs: update attrib operations")
 
 Reviewed-by: Baolin Liu <liubaolin@kylinos.cn>
 Signed-off-by: Xuewen Wang <wangxuewen@kylinos.cn>
 ---
 Changes in v6:
-Extract compressed I/O errno propagation from v5 patch 10.
+Split v5 patch 11: use only the existing volume error bit and diagnostics.
+The final patch adds FAN_FS_ERROR reporting at these sites.
 
 Validation:
 - Compiled and linked the NTFS module object with W=1 at this stage.
 - No undefined references to ntfs_report_* or fserror_report_*.
+- Eight controlled attribute-move cases passed for this stage,
+  including source removal and independent destination cleanup failure.
 
- fs/ntfs/compress.c | 14 ++++++++------
- 1 file changed, 8 insertions(+), 6 deletions(-)
+ fs/ntfs/attrib.c | 22 ++++++++++++++++++++--
+ 1 file changed, 20 insertions(+), 2 deletions(-)
 
-diff --git a/fs/ntfs/compress.c b/fs/ntfs/compress.c
-index 82c7c7d29073..6a393e7fc1dd 100644
---- a/fs/ntfs/compress.c
-+++ b/fs/ntfs/compress.c
-@@ -585,11 +585,13 @@ int ntfs_read_compressed_block(struct folio *folio)
- 	nr_cbs--;
- 
- 	mutex_lock(&ntfs_cb_lock);
--	if (!ntfs_compression_buffer)
--		if (allocate_compression_buffers()) {
-+	if (!ntfs_compression_buffer) {
-+		err = allocate_compression_buffers();
-+		if (err) {
- 			mutex_unlock(&ntfs_cb_lock);
- 			goto err_out;
- 		}
-+	}
- 
- 
- 	cb = ntfs_compression_buffer;
-@@ -633,7 +635,8 @@ int ntfs_read_compressed_block(struct folio *folio)
- 			 * duration.
- 			 */
- 			up_read(&ni->runlist.lock);
--			if (!ntfs_map_runlist(ni, vcn))
-+			err = ntfs_map_runlist(ni, vcn);
-+			if (!err)
- 				goto lock_retry_remap;
- 			mutex_unlock(&ntfs_cb_lock);
- 			goto map_rl_err;
-@@ -839,6 +842,7 @@ int ntfs_read_compressed_block(struct folio *folio)
- 	goto err_out;
- 
- rl_err:
-+	err = -EIO;
- 	up_read(&ni->runlist.lock);
- 	ntfs_error(vol->sb, "ntfs_rl_vcn_to_lcn() failed. Cannot read compression block.");
- 	goto err_out;
-@@ -859,7 +863,7 @@ int ntfs_read_compressed_block(struct folio *folio)
+diff --git a/fs/ntfs/attrib.c b/fs/ntfs/attrib.c
+index 72e0c94c878e..ad2691c3457d 100644
+--- a/fs/ntfs/attrib.c
++++ b/fs/ntfs/attrib.c
+@@ -3466,6 +3466,7 @@ int ntfs_attr_record_move_to(struct ntfs_attr_search_ctx *ctx, struct ntfs_inode
+ 	struct ntfs_attr_search_ctx *nctx;
+ 	struct attr_record *a;
+ 	int err;
++	int remove_err = 0, cleanup_err = 0;
+ 	u32 ic;
+ 	struct mft_record *ni_mrec;
+ 	struct super_block *sb;
+@@ -3520,7 +3521,7 @@ int ntfs_attr_record_move_to(struct ntfs_attr_search_ctx *ctx, struct ntfs_inode
+ 	/* Make space and move attribute. */
+ 	ni_mrec = map_mft_record(ni);
+ 	if (IS_ERR(ni_mrec)) {
+-		err = -EIO;
++		err = PTR_ERR(ni_mrec);
+ 		goto put_err_out;
  	}
- 	kfree(pages);
- 	kfree(completed_pages);
--	return -EIO;
-+	return err;
+ 
+@@ -3535,7 +3536,16 @@ int ntfs_attr_record_move_to(struct ntfs_attr_search_ctx *ctx, struct ntfs_inode
+ 	nctx->attr->instance = nctx->mrec->next_attr_instance;
+ 	nctx->mrec->next_attr_instance =
+ 		cpu_to_le16((le16_to_cpu(nctx->mrec->next_attr_instance) + 1) & 0xffff);
+-	ntfs_attr_record_resize(ctx->mrec, a, 0);
++	err = ntfs_attr_record_resize(ctx->mrec, a, 0);
++	if (err) {
++		err = -EFSCORRUPTED;
++		remove_err = err;
++		if (ntfs_attr_record_resize(ni_mrec, nctx->attr, 0))
++			cleanup_err = -EFSCORRUPTED;
++		mark_mft_record_dirty(ni);
++		unmap_mft_record(ni);
++		goto put_err_out;
++	}
+ 	mark_mft_record_dirty(ctx->ntfs_ino);
+ 	mark_mft_record_dirty(ni);
+ 
+@@ -3546,6 +3556,14 @@ int ntfs_attr_record_move_to(struct ntfs_attr_search_ctx *ctx, struct ntfs_inode
+ 	unmap_mft_record(ni);
+ put_err_out:
+ 	ntfs_attr_put_search_ctx(nctx);
++	if (remove_err) {
++		NVolSetErrors(ni->vol);
++		ntfs_error(sb, "Failed to remove source attribute record");
++	}
++	if (cleanup_err) {
++		NVolSetErrors(ni->vol);
++		ntfs_error(sb, "Failed to remove destination attribute copy");
++	}
+ 	return err;
  }
  
- /*
-@@ -1452,8 +1456,6 @@ static int ntfs_write_cb(struct ntfs_inode *ni, loff_t pos, struct page **pages,
- 
- 	err = ntfs_attr_update_mapping_pairs_locked(ni, 0, ni);
- 	up_write(&ni->runlist.lock);
--	if (err)
--		err = -EIO;
- 	goto out;
- 
- free_rlc:
 -- 
 2.51.0
 
