@@ -1,63 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=57.103.69.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795022704;
-	b=osmUQvZ0bjy/+a6ZPph7XxuPJQh9anuAM2zdmHBxBZ/RfpPpYHOfCw878I1DoiSLd4ol
-	 BWuveQIqPKUu2SZTrfVZs4qPZQPUj0BUCem66EzjYbSurPeWX7In5qNxoWVJ3gac6KSBG
-	 JcBAtwS3FfGNJMK2g2/Lx1v8VtbHJzczmRheNS0hJS4oD4l/5/TZxU1/40FypRNYkzVia
-	 0j0/HexVzVgiLa5l68cUUj2vS01VWqtqX9Ut5du+1fkgWwe50OunQbU9kWLLhsBwBtXIV
-	 R/E4eAf/YorfukE+vm9aKvNhCZLjlxeeR5nwwy1QJ9f9FHUk4zBBGngW8i1jCAtbyTg==
+	t=1795022727;
+	b=DMtxKx6EJJlnIhlxy/ahQU+LM16RkVdDo9eg9yN4AdfsYLAeQj0qMRGXSjCWM8pS7AJS
+	 zxbGA1I7f4OU+nPHbF3zb2gkBW9pbDUdBnmF55IiTH6mo4wiNBF8AXYP0C7wNuNBKQ1tP
+	 AFnAwJq12fZyAzR3637upjbS6GZQyCNG41yPi4tgNgib/b7DPWJakd4pv226+R8VhF88L
+	 mzpvOMXN7Sc3xa90+F5zSEE4yo3xEebuiDfLYNhPLAMCCp3kJekQiE3eXuK/6CprTJcXb
+	 Ok3waHrR3aooSG9QYBda1b35Vpi7M1wziBrzcwo0wT5e9wZK1NFa1ZUr6vL+N7m5btA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795022704;
-	h=DMARC-Filter:Received:X-ICL-RepId:Dkim-Signature:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
-	 X-Authority-Info-Out:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-JNJ;
-	bh=ArPbgmSBvAMgkh9YxNrXFY4USeq1tN9NzTuavtgJjYo=;
-	b=mTenJVY219l1UpJgKVsGphocdjIWNGVaaHM/Phy8iTQ+QhoRPfjYEt4ws/VuAZKxgvQK
-	 ELSJ/b2fd7d9Py0B3uPES3fqmPw2iqSjWuq2ixW/qjK25Ubfmx2f64CExoKwDbXj1ajwa
-	 /FPzXSJuGPCMGBljs0juxVF9WaVgTZ1UuFraFPYDccXSWvvVM3JRkxjHALJTSumbzGuzO
-	 bIICnaxBOzzvyQtocoTE6ykqvvtIAWmL0FvrmgYKpVHwf+euw6i56oLICjkFMPTjHr+Sz
-	 qcFdnCKMqTAD1VLCzifZW5rWORpV7Oii+RO4yToC+4dkoE/Vx8uvZEnLN25Uxtg7gjg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795022727;
+	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 X-Mailer:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Spam-Status:X-Rspamd-Server:X-Stat-Signature:X-Rspamd-Queue-Id:
+	 X-Session-Marker:X-Session-ID:DKIM-Signature:X-HE-Tag:X-HE-Meta;
+	bh=lAlZkFFvPUC1ahUVGV8q0/2eUbrqAK0tAlbDo9QLFvo=;
+	b=5ZkQvTj3kcDuetRDk/vkr+nx9hgbK25CaPG7Jnzm/Sd/HcqerWHXvto8NdquxMhY4l3L
+	 PSovQKchWJ2OcO4LCxl5YhTkaUPT6qhkweju7gGG7s1efUUe8h/ElEFlvkXPdC3sm/S7R
+	 MO4PJrSlVQ/QU2XhPtPDhyddJ5Bdcnh8pWglmrEqWCPbPKMVnX5AIGnYa0195lrJePrPI
+	 QMRb5zObPEOBdAymwd9Zzuz9hn4NEDQ2wb2rgLbaojmCeVnGCFfK6tNJPhTr57BnwvVAD
+	 ameoqjtFIbw47QrLeD3yuwQlQTHy12F1wyLqMtN0KmnKlriRyhkpBjWYJb9FrSwrrbQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=icloud.com;
-	spf=pass smtp.mailfrom=icloud.com;
-	dkim=pass header.d=icloud.com header.i=@icloud.com header.a=rsa-sha256 header.s=1a1hai header.b=Udq56yJn;
-	arc=none smtp.remote-ip=57.103.69.71
-Received: from outbound.mr.icloud.com (mr-2003i-snip4-8.eps.apple.com [57.103.69.71])
+	dmarc=pass header.from=goodmis.org;
+	spf=pass smtp.mailfrom=goodmis.org;
+	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=Ul1Wa5cq;
+	arc=none smtp.remote-ip=216.40.44.14
+Received: from relay.hostedemail.com (smtprelay0014.hostedemail.com [216.40.44.14])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E7D5606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:25:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E7D5606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=icloud.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=icloud.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8324A606A31C;
+	Wed, 18 Nov 2026 17:25:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8324A606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=icloud.com header.i=@icloud.com header.a=rsa-sha256 header.s=1a1hai header.b=Udq56yJn
-Received: from outbound.mr.icloud.com (unknown [127.0.0.2])
-	by p00-icloudmta-asmtp-us-west-2a-100-percent-4 (Postfix) with ESMTPS id ACB0218009A3;
-	Wed, 18 Nov 2026 17:25:02 +0000 (UTC)
-X-ICL-RepId: 01a1efb0-c852-7af4-8972-fb2d86cbded9
-Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=icloud.com; s=1a1hai; t=1795022703; x=1826558703; bh=ArPbgmSBvAMgkh9YxNrXFY4USeq1tN9NzTuavtgJjYo=; h=From:To:Subject:Date:Message-ID:MIME-Version:x-icloud-hme; b=Udq56yJnngJVpvu3y/t7jxsOqQeSeI/yR1au9oYGOQBGVK2ffqH4ToXJyiaBI8gzzlNJ4nAYKsvqPwiAfHwAYr1MlayGkehUBq9HqkkuafeSe+fan1CHU2KuhqMe7sYfNdnmXdvgYe1E9KhSKzq848a8wlbeiDQz+JPb1Vb/9ZWuqWczVOldb9+WDQiPiVaTcRn2EX9ZDRh6iHwZFiT8yHu0U32gmIfezjbibgNQeqpPaCqSZ6B8HfRkxJ2xkDA02nAYW2u7LITtOFrwwlJhjtgk5UEYXXMSZ9y/uO5kI1RR1esyNckfQ3Lc6sTSNYEuOh8yXRTbjriZjcYSrdz7Sw==
-Received: from archlinux (unknown [17.156.200.36])
-	by p00-icloudmta-asmtp-us-west-2a-100-percent-4 (Postfix) with ESMTPSA id CECB4180043E;
-	Wed, 18 Nov 2026 17:25:00 +0000 (UTC)
-From: Philipp Prell <philipp.prell@icloud.com>
-To: philipp.prell@icloud.com
-Cc: dtwlin@gmail.com,
-	elder@kernel.org,
-	gregkh@linuxfoundation.org,
-	greybus-dev@lists.linaro.org,
-	johan@kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-staging@lists.linux.dev
-Subject: Re: [PATCH] staging: greybus: uart: convert from IDR to XArray
-Date: Wed, 18 Nov 2026 18:24:57 +0100
-Message-ID: <20261118172457.388898-1-philipp.prell@icloud.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261118160141.341572-1-philipp.prell@icloud.com>
-References: <20261118160141.341572-1-philipp.prell@icloud.com>
+	dkim=pass (1024-bit key, unprotected) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=Ul1Wa5cq
+Received: from omf15.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay08.hostedemail.com (Postfix) with ESMTP id BFEBD1407D9;
+	Wed, 18 Nov 2026 17:25:24 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf15.hostedemail.com (Postfix) with ESMTPA id 294EB1D;
+	Wed, 18 Nov 2026 17:25:23 +0000 (UTC)
+Date: Wed, 18 Nov 2026 12:25:20 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: LKML <linux-kernel@vger.kernel.org>, Linux Trace Kernel
+ <linux-trace-kernel@vger.kernel.org>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, Beau Belgrave <beaub@linux.microsoft.com>
+Subject: [PATCH] tracing: Do not allow user events to add a system name
+Message-ID: <20261118122520.4a689710@gandalf.local.home>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,51 +57,64 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA2OSBTYWx0ZWRfX5SENPW4Mf99b
- vsKjYvIr3xc38/UToL0d2G8xq8XsS+VD5YERX5n9iNwvnDcdfzLnyyIHc+MbyaSTRQgsJJux2qz
- BIohzLCrPXuCqdzqLKThw5EQFCAD4Yk=
-X-Proofpoint-GUID: subBA8ByJE2sD4cRqPLlKd8XKXbnwZ_t
-X-Authority-Info-Out: v=2.4 cv=Maj5KJ/f c=1 sm=1 tr=0 ts=6afddf6f
- cx=c_apl:c_pps:t_out a=9mRn2PO/+PIrVdEbaIuMPg==:117
- a=9mRn2PO/+PIrVdEbaIuMPg==:17 a=zJRp6_cAMcgA:10 a=x7bEGLp0ZPQA:10
- a=BXpT7KiN_MIA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Lz8lNifEoAKVmCoaIBl5:22
- a=RFeMYaZ6Aqw0RB263Fta:22 a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8
- a=hEDNuPLRspzfzEIEyA0A:9 a=Mi6j4gOevsgA:10 a=QYH75iMubAgA:10
-X-Proofpoint-ORIG-GUID: subBA8ByJE2sD4cRqPLlKd8XKXbnwZ_t
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA2OSBTYWx0ZWRfX0bBrY80P2HQh
- AIGZ+60WHhmwTzlKLlHBFdFFVhGaR/QNRD7L7Pp5qTWn6CrgqAhg/pzLyZyIScRUcKcA3pB4O/k
- StIiuqdUOsMPVn8twUQX80b41JQfhRAzGOfxKmJF5OzuXoWCL3GlaMifOE2pgkdTGHsNRBNndxu
- Ld1EMulc2KF1eWhflBN48kPIk9WDeapUDU7sKinBL9LFK2/cdWWEQD2DRgrE2GFrQWAx6FkTwrs
- xs95VjElkUcmzktr+UA1p6n1v/O/zz+JNH8KfmgTQs+cHHwoAWg6X8Nr6nVxFaCpND97ekVIyOE
- +/Mj8i9spAZDN+SVwZEdjpLCpaO11XZHqKgFlDL+pV57VTNs8SmLGHkvgrzAzg=
-X-JNJ: AAAAAAAB1kZkHKltQ7ylZ/LbKPMLnA7TSwniZS0T+z9EEv6Xm50LR0iNwXVqOpo3wUMwic
- pVUdPgMowCV/Kayg7qdOQ7CX/PK33YuvorhzPoRT2yHG8a9rwTnqHyrE+Rg/fp3MvkJWQj
- 85bho2XiRDcthVHpVhr9C4E3ehlvDdgyBDXhF1TwbtNN1yX6O90Vgkg0k2ZAup0sBbyh0O
- oDJ3FL9JFoSuj4lE9czTWdgXTyKCkLK5lhMTQfM7rjZNQDLMqVHTGqB5T6pHtWHCefnpmP
- MLkOTDFSr5NkwvLLL6BhJWJKMPu9rJ7PzFRahBgNpb8eF3jSxQ760t3DAI/9Rc/3DuHT7I
- IjSd3bRYX7uJPHY/CsoVkFI7wrUAGBXObt9qOcli9G98jd19HYVo1Jc9FBHVZJ6TxcAhPj
- 6nYEfb1GjMyJCNMP0Xi2ncNj/SzAxETJEI1EJ5N1xBwoexNjGpZjnXPQ83tPuSCOwoE/kI
- yQcEid2Ra1d7bI5iclDL5KU0qdeO710H8jNN43bnwzy4ae4leFPr2YUP1Z3Ju+JGfO4MER
- xFkQtMh1dz/oiteaZlh5SnX0aD5Mk1vVb+r6HIHvdCDocGyfcn0YUKWAtZANX3xCr/ZGSh
- TGFdbcUnatO307LIe+wY+UWfbw4yM91BGntg7cQJRlZCpUsJYRLzZNNLwtCtpf4cFTgg4Q
- 4D8uqVR7jw9p6Z96UizU/GyBK/OZmIIANRD4owMr07Zgi9lymGeuy0yM+5vDCmN9iFeW4G
- lXnGxEGS6hvipjDC+dGgvhrSueO7JnknnBrLZSbgsiz731fao+AtnjRoJ+aXM0a2hi8YrG
- fE/5BDJESiNk4FqkeTYgVxma4XsGOSdWU+9ofMdCnXtfb20LeviooSKO61jevHL/WrQTT8
- rIhgDEISKAjTRX8H/3XGBaIJsop3yRLhQZPwtgFIzEsgq1oJ8iWvQmypzHY5YDXUwNgKxu
- xxKXmKqj32JCasTpv9xkwwyFwLArEYAkWvl0tKBYsMtUOL4DXUpDIjZaphuALayQMq8WtX
- /Hq3i0mQSrRPEYvzGy0L2midIqsSep04XHfZwt1FRKIr6dq+zfKpLr5wkRF7+vgcK7Lr/t
- kaQ9Gp/SRzm/719mtySSZnGxJKwNQ5xTJbY2Df6O0inI4fogfTZa82MsNo3qhrFs3xDxwf
- 4nabZPVX1mRBQTm7SlqlZ1Q6LD7aIkrOQMsk1q/Hi3Q16HGG1Qsgt2hOfpeRetc6ziHhyK
- oTXsYmDb0inAluJNAP90RF3/H9c4qi+0vn7yuerWMW+2ROldMXBrPFqQ5mPc6K4h3ZOOVi
- k=
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Server: rspamout06
+X-Stat-Signature: pgbk7r7os4k5jcqjbggyujcrx1f3e4ez
+X-Rspamd-Queue-Id: 294EB1D
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1/12mJxTvg5bPraYeiz1GoR8++kbc5wc7E=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=lAlZkFFvPUC1ahUVGV8q0/2eUbrqAK0tAlbDo9QLFvo=; b=Ul1Wa5cqFzp/6Sr3kZEMLRqUubD1dL3wLUU6PktRbIfsE+1k89szLS6qB7Ouy31gfO+NSYyeY5EueAPCtA0AIKLlNXz64F/13SAtXIKp31m5peJ8vgu0G+KM1Z9NUU5YmDVFMKmVKAHLce/1OpPTt+RO87/jAQwznhFBNtYCZcw=
+X-HE-Tag: 1795022723-160638
+X-HE-Meta: U2FsdGVkX1+OpghJTkazZ+RSkD/abyBNt8kchnyJlFbX6NDdYXeH5nY5pSrUe1sc+DEFgh7CMDPNtvdEQqLGot31STwcoC4ulCtxdjeQSPnlm/qHFmnTcLgxuQJBtoWzmdfTnsUqt/S84QhaqHGBJWa0pC+3tFkMqfAGIhu4y1rcjizbrWskhNqHqJuKydjCM8bf9yLhKTGVBYiaQWvLEo2WgELIklzbMTx10myRNGmAvcSGkMqZV97ndTOfnO1fMvJ2nA4xaO7FfivEhjwTYp/xRjgonmlWGdnvKUV1o7ucrkZOSp+nFFQARpONKNXIXaz8rHhFQEAh9/Kz2VrPQ3q1zvl5FPZn8OBiA+t3/lICIyObtwzUGrSkx7XvXIBSN8rO00kmU2mn86bE/HQxz2jgydaqgOAF62PsCk9/DNN+SKuZlmaIKw==
 
-Hi,
+From: Steven Rostedt <rostedt@goodmis.org>
 
-please drop this patch. I only found out after sending it that the
-same conversion was already posted and rejected in 
-https://lore.kernel.org/linux-staging/20260810141043.76948-1-dimahtms@gmail.com/
+User events currently do not support the addition of a system name, but
+the parsing does not check to see if one is specified.
 
-Sorry for the noise.
+A kprobe can add its own system name with the following command:
 
-Philipp 
+ ~# echo 'p:mysystem/kprobe_event schedule a=%ax' >> dynamic_events
+ ~# ls events/mysystem
+ enable  filter  kprobe_event
+
+But if one tries to do the same with user events:
+
+ ~# echo 'u:user_events/test u32 a' >> dynamic_events
+ ~# ls events/user_events
+ ls: reading directory 'events/user_events/': Invalid argument
+ enable  filter
+
+It corrupts the file system as the event added had a '/' in the name.
+
+Until user events support specifying system names, just return -EINVAL to
+prevent the corrupted file system from happening:
+
+ ~# echo 'u:user_events/test u32 a' >> dynamic_events
+ -bash: echo: write error: Invalid argument
+
+Cc: stable@vger.kernel.org
+Fixes: 7f5a08c79df35 ("user_events: Add minimal support for trace_event into ftrace")
+Signed-off-by: Steven Rostedt <rostedt@goodmis.org>
+---
+ kernel/trace/trace_events_user.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/kernel/trace/trace_events_user.c b/kernel/trace/trace_events_user.c
+index f658c3a77aa7..5d41a28e4493 100644
+--- a/kernel/trace/trace_events_user.c
++++ b/kernel/trace/trace_events_user.c
+@@ -1035,6 +1035,9 @@ static int user_event_parse_cmd(struct user_event_group *group,
+ 	if (flags)
+ 		*flags++ = '\0';
+ 
++	if (strstr(name, "/") != NULL)
++		return -EINVAL;
++
+ 	return user_event_parse(group, name, args, flags, newuser, reg_flags);
+ }
+ 
+-- 
+2.53.0
+
