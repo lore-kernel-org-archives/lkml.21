@@ -1,80 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.128
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794999147;
-	b=BT3dcX3oThMJIh9Y2Sdjv243T+9vkxIfNrmcAhBeXwrhVi7giUWveA5u181im227cQhR
-	 nLek8zYzY6HnGeLTQPkKQ4pczR5ZFJwbXLL3DT/c/3VtDWRpRwVDkQgKfV5KZVn5YbXVy
-	 Uz3XqDRDj3zxI41WYA/bpCaUInLVtyrNj7eHX5dULeWH/3SwU1ur5U+T+8AiMu1gDGuIY
-	 OMmpYGem2tBApoUfWjRqFohwMvdXIRwI4F9/VKhZwY4tVMWmpuYgMwiyBlw0XreXUAEzE
-	 SHoYsDrbRf7jcwGR5XBN7yE2j1+DT8goBFZy8dELnpWFmdCQRbRvFz5rAoAWdlQNKBw==
+	t=1794999167;
+	b=vu57FqhUuvXmhEuXJWCBDkGkVVV68RLG6MCWFbD2VaJGUNZ/LLhPAz66MjajT+hXKmMx
+	 bF9TJfP4SMCr0dQnLeGQxEBwIMToHeUgKwh5jFRVsR8OTD8n01gtKty4A82V2Of9ZQYt/
+	 7EFPOX/aDTbTwIvpQn1YBnqTnnr7XbMtzLgE/HaO8My50wtqepb8f7Xe2RELFfO2NuM2g
+	 4lZxAXq1NltcZSnexp2DHiR78sAOp0gcpfYiFYrFOX43GUYQf1p9DmfZQwdZ5FBqU5bCh
+	 mfEV7jr5a0YWCUcaC/Cge+5TW1tOJaPwmi3lN1vQbvEgs4No+oBy4ZhatIdHjwLrWGQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794999147;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=nLfImRgOXbMw8QQDd1Rl92aKSTsWDssRhn8JRyM3jk4=;
-	b=f2FyAsuMIi8UAipv9tHUS03A/zffWGl4O+KcofpNK9V2caNGLGtwdrvKXYF1JbuSMMoy
-	 ZmL2zyQo8dED5b35Pzx0t3rdEv/DIBydTBbfdgdtU7Oh8lDGbyoV7EetXteegaR3Gdhg4
-	 WaeS7JtHXvu+DXZBFPb3eXAAuEmUNDsGJjT8x55cVaPnX5V75YFfHjORFRy/l+vh+VxHe
-	 lHl53Lxn1IqJfZVe5Cu1BF/oAwEqzNv/Do6vtLx73agkK13Igq1b5eABo0Fqx1BetFhDe
-	 oX51Yb+HIwK1q78y25kBH1i5a/dnqLBO5NKKx4gxv60euFMSjCDEGFrGXJb87LtCSlA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794999167;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=q/WHeFAnSrfqnBVadbFI/Flt1XMD0leQD6vZBgePXEI=;
+	b=gKgjhnn6OsA7bZawfd4ZYpx9i5I7eu2bTGK6VxiSsrYzrS/ASW3QSmXRTeczBBsXfeIC
+	 7TGJ1nMjBAg3HGMMRPN8fWlI5DLs8/ZcxLAB9HLGRAnuJQtjXtln6pvC7pIB+7VJkrG2Z
+	 DhZkpo+jA9xLJL8m8PIV6XlIl9JR7Rdr858VzivcYiQHGcMlm0/Z8hyYvbjVXQTttRGyy
+	 c0WOV7WyxQ2tzvdjZs+KhKGKL3chBqczPnWuBtyTYe8IHYaXt7Q7hvPNegybNA+6LemsA
+	 RuPSpMPCE1ACseY2dW9bcB/2gONyejxVHZUjpzyMAczTcCxRRHPFrTBrdbxWPzK7f1Q==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WjDe6D44;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=kontron.de;
+	spf=pass smtp.mailfrom=kontron.de;
+	dkim=pass header.d=kontron.de header.i=@kontron.de header.a=rsa-sha256 header.s=selector1 header.b=hjn50alu;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.128
+Received: from DU2PR03CU002.outbound.protection.outlook.com (mail-northeuropeazon11021128.outbound.protection.outlook.com [52.101.65.128])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56830606A333;
-	Wed, 18 Nov 2026 10:52:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A766606A339;
+	Wed, 18 Nov 2026 10:52:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5A766606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kontron.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kontron.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WjDe6D44
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794999146;
-	b=QjkGBlXYQYaMSWX3XZN49jiwBYttrzX2CFCosRKpKNFrVg9wg0STkYCZh3nGLKNHNeoi
-	 5A3oTGm61jMkUjxs5pK0AaopjXXr/1r/GTwodE1SDJWUT+jMlW8JN3A+ZBvEq+GRMdxOP
-	 Pg0/+uDcnWbTmB3lKh5dZjgnQFORiSmtsLvvkL6MSmEecb8VLi9YfZ1eeQYbfb2gw92Nt
-	 8jQfl/7fEsJx6wKQv1sFJAuSCY8YV1gTCuynRaUMjquHbF7fCRIkBWnX9evfZoxH2cC1N
-	 tqqp/uo9CMRsPVUzt32lSNZfb8YktvPPPUBWQBswPMBrn0wz6bLhyy4PuQHbrdFXisA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794999146;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=nLfImRgOXbMw8QQDd1Rl92aKSTsWDssRhn8JRyM3jk4=;
-	b=UHs7N2/zvpIGEdHXPlP84O/LCsvaBwxVbmkbMaXO0T+m6cM0VPORDZM7l8UMnVnmyqRa
-	 WFA8u6VMG9TvMDcWSo52pd+CJhtT2Y3Y5IFkOS0hOxt/qqrwfWLbgzkAkmc+Vyddu5Ecb
-	 icjuENZwmy4nziQhybSQTUYpAE52Tr2fbNqY7xcBQd72yu88o3pu6rAhHbbm5Uk9c3YqK
-	 D5Md0Lk1CJxqq7UX3egltTKna9Sr1qgdkyiw8tND01cOaUgqjeSyLilreptyPhnSvrBpr
-	 Icv6GdzskVspPBf2R6IXYXnCAyTr/MdhMf68mwwpPe/zvMQHebZAhrd4sTDsiMSvnYA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id E32C51F000C4;
-	Wed, 18 Nov 2026 10:52:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794999146;
-	bh=nLfImRgOXbMw8QQDd1Rl92aKSTsWDssRhn8JRyM3jk4=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=WjDe6D441ma9hSQKZTBJ0hbirZTBxHMvzAM7aiSMViOYbLFj/oFLqGBpzh8ZVNWOm
-	 AdUtpRNb0PmiosPS/JCfdodaN+JSx8MQHAdQYRGemQQbhE5NIKr+ihUmsamZ5goO+s
-	 8LnKB0mDL+s3RqZx9Xg6ih+y6tZ5F1ir9KLt1Tm2R/jjTjm5EI6Z9e1utzCuKi2O45
-	 03oz3L7tAHJMvDNenK9TraVonQU82X0mMzSv1l2zM/u3R6ZGZ4hEANrt/XF0KG35ZM
-	 ziQMk52EbdRPK/jzzG4qx6wYCCo3DP7Q4k8OzQrx3afYX50aYZOJBat8Z2eLdkB7jx
-	 AX84EGi2Bs7ZQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 449104AD10;
-	Wed, 18 Nov 2026 10:52:25 +0000 (UTC)
-From: Rajan Yadav via B4 Relay <devnull+rajanyadav0307.gmail.com@kernel.org>
-Subject: [PATCH v2 0/6] sunxi: A133: Add CPU speed grade detection and OPP
- table
-Date: Wed, 18 Nov 2026 04:52:23 -0600
-Message-Id: <20261118-a133-series-v2-0-8bcec9c9aadf@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=kontron.de header.i=@kontron.de header.a=rsa-sha256 header.s=selector1 header.b=hjn50alu
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KWFmVX6Uceuou7ZmlkjZf7g3dDuIJwHzvfu5HEWSXOMYd2VsRWUAwAOJiT9gd0HrFa+hqIuPDxj09Z6c7r7PuxWU2thxr4xf31/IR2BO8SrFgkl+Yp4Y81bOi8HioberErPUOyjkwNX4CjHJvQt+Q11e0Hc6ASpPNkrmOEizdPAa4KfXua8qab7rJlnb4OwsMqum+GYKUcOqfk3rPSrau3Ucfx75vuKY98/aeScywd5b7WpgLUSmosh+Y8Vhn2Qyt6n5FCkCtaQdudHCCbxYlsCgVtBZ0BxmETVLgLBE0eam7iTUrEkdNoe+UC504HalIN+CJDQugnfjgLtzFACKAw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=q/WHeFAnSrfqnBVadbFI/Flt1XMD0leQD6vZBgePXEI=;
+ b=TbG/M5pCKrDtaM2ETrOblqjVrVKaKBz82PRkqkpkTV14ny8ewCrJJkDWvsMCflC4abYPNGd2TL7WSUaKDG0LKHuoo0IgQagN3LwTtDESgEcnbZkrow/52qbNdGPxdAqJ789j91kk8dCCLCdZLmdNyMT+Uz0F3/vPu81ZamGjrvL1C+XFaaGmnUHBtZG3tb7OvqoII0JHzM5HJCU0v34eaeiZGZ9Ojv6/5U1YCZArxlWefQQMJZY/DvlqAzXA+I4zVOvT69TBoyNbBQqsGhays0MCc206BFhH7FV0uI/duAFAObbwqtLzvkXWkAcqMVxyLDukf/Eq4Idwn25BwjAURQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
+ dkim=pass header.d=kontron.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kontron.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=q/WHeFAnSrfqnBVadbFI/Flt1XMD0leQD6vZBgePXEI=;
+ b=hjn50aluvuqLEmdcn/6ovMKoRnXuHU+otD6kbacjMaoyCRznKZUMP2YHY7ZaMwTXLujWCiIL0HnVEXXsefvfMlZinbYXNKLKrTcsLMHTPvotkejWiaeUWnvM6WhVJDyfuLKKumx0wjF2bOTywhmAaYyHYK21QKciIZWYV3ZpJDkU9QG2+Bt+68R9EXcEAW3uxY9xSn2vSUGJalFMMUrzSEaGu+3ma7lxf5VqYFRV7PFi1I+3YjgNHDVp+C8puF6o8uveF74NSi5aBmGG9J6D8+2JbFN6cw+FDcjc+Y5DbbLL/suTWXaSHBNjfBXMPebuRaGH9jy/wIy8rboGYhghPg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=kontron.de;
+Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1fb::23)
+ by VI3PR10MB177098.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:800:378::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.8; Wed, 18 Nov
+ 2026 10:52:41 +0000
+Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::a276:4ad7:962:da22]) by AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::a276:4ad7:962:da22%3]) with mapi id 15.21.0639.006; Wed, 18 Nov 2026
+ 10:52:41 +0000
+Message-ID: <dd940fd7-7950-4074-be80-5bf129a57772@kontron.de>
+Date: Wed, 18 Nov 2026 11:52:39 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 0/4] net: enetc: add i.MX952 NETC v4.6 support
+To: xiaoning.wang@oss.nxp.com, netdev@vger.kernel.org
+Cc: Claudiu Manoil <claudiu.manoil@nxp.com>,
+ Vladimir Oltean <vladimir.oltean@nxp.com>, Wei Fang <wei.fang@nxp.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Richard Cochran <richardcochran@gmail.com>, imx@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Clark Wang <xiaoning.wang@nxp.com>
+References: <20261104092217.1730351-1-xiaoning.wang@oss.nxp.com>
+Content-Language: en-US, de-DE
+From: Frieder Schrempf <frieder.schrempf@kontron.de>
+In-Reply-To: <20261104092217.1730351-1-xiaoning.wang@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PAZP264CA0041.FRAP264.PROD.OUTLOOK.COM
+ (2603:10a6:102:1fc::12) To AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:20b:1fb::23)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,198 +105,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGiD/WoC/22P3UrEMBSEX6Xk2khO/hqLLPseshcnyeluxG416
- RZl6bubtoIIXg7MfDNzZ4VyosK65s4yzamk8VqFfGhYuOD1TDzFqpkU0gIIzRGU4nuI994GEUl
- pGwKrifdMffrcaC+nXZebf6UwrYgfR6aPW62ZdhsbqBTcarrm+W9LZfEZOPAovMGoog4mHs8Dp
- rfHMA6HFeixEK9iSFPXWCsdtdVmvTTBRXA9KG1IoRRRgpNPiNSSZuu4SyrTmL+25zNsW/49WRc
- IbpyENnil0LW/C9hpWZZvX7XsRkMBAAA=
-X-Change-ID: 20261104-a133-series-fb6c0de346cc
-To: Yangtao Li <tiny.windzz@gmail.com>, Viresh Kumar <vireshk@kernel.org>, 
- Nishanth Menon <nm@ti.com>, Stephen Boyd <sboyd@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, 
- Viresh Kumar <viresh.kumar@linaro.org>, 
- Andre Przywara <andre.przywara@arm.com>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Alexander Sverdlin <alex@sverdlin.org>, 
- Cody Eksal <masterr3c0rd@epochal.quest>, 
- Paul Kocialkowski <paulk@sys-base.io>, 
- Rajan Yadav <rajanyadav0307@gmail.com>, kernel test robot <lkp@intel.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794999144; l=8641;
- i=rajanyadav0307@gmail.com; s=20261103; h=from:subject:message-id;
- bh=dK4U66K6ZJZQC9rPPJDKQ1oE5tN9CbP2exTQlSVCysk=;
- b=9bMHrQAtT9hESLMAPxi6AihS98ZZeXB+LSOelOMHYz5IhggvlY7KWTtQipW1UXV+jr2i3/sAl
- BGZoVJEeaFkDYX0Rhq6T7CzhgXNdJsJ8KswDHydIHhSEmmqpfsCIptD
-X-Developer-Key: i=rajanyadav0307@gmail.com; a=ed25519;
- pk=4ZPeiP5qrv2b44q/Obxi2koUS70Q6npbttJnpUoTlgg=
-X-Endpoint-Received: by B4 Relay for rajanyadav0307@gmail.com/20261103 with
- auth_id=1391
-X-Original-From: Rajan Yadav <rajanyadav0307@gmail.com>
-Reply-To: rajanyadav0307@gmail.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR10MB4277:EE_|VI3PR10MB177098:EE_
+X-MS-Office365-Filtering-Correlation-Id: e3c496be-34e8-4b76-555f-08df456211a6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|366016|18002099003|22082099003|11063799006|56012099006|10067099003|261022113327099003;
+X-Microsoft-Antispam-Message-Info:
+	fde6oRCs1dw8WDG+dWyLsWy77vE2+hcD0AJWCdVC3sAEAoPerkberzQ08WXK2ohtjVIlSypjAha5XkisO8oOL25tH9/wI0hyQ+qMzdIX9X4W5S3z7lqtFvYfDOS4naArmO+fhI7icWV4UIAcNKgR2NP1Eh1YpQO7aPNhIag+DTdDs87N+9nT6urSFYUEQcA7lGHc2KWC3pCM2XWhMIuCtc5JasBTCxiKjVgKI9eE6gIyf78NxIJz0rAe0lfZIcHzxxaV13q8pdsW/OJ+4E4SrTlfvykinmLKEk33qLSEPTZoE5IUMN+/FAgWdt2WdZYV+c5hQq2xBKjhRuppHiz2HZKCtN7MYSJVpMjl+ZywmdHP6+xshFsJ1I6aXgedx+iLLR2AvEtxqSJWRtGidXU67Ro7xEMe9f35DggVftETM6l4nC+AlIXv/BaptP4zOBmsDARLKn3hRN4VvzQFlSPtzVCIuxtQzBY9yCOgMDWTV3MHs7qTSwICila8eCxzHhfTbUdFrIsQs2jP6koGb4U2PZA0Sg03GNxemw5E9DKOzesuFLxtIaRFBn21Yc9zhMLUQyOsaQdHDEtUDw3eyBcPUEgO5iGrgd3iryWC0TOsin28K+ZAeI5ghQvY0MXo+EbEDiXP8Jx8yCwgDPvhBLgn5kY1nQngwBUO8ZYeg/f1VRk=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(366016)(18002099003)(22082099003)(11063799006)(56012099006)(10067099003)(261022113327099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?QXl1QW44WkM1aFovRlJkMXZ5L3M5d3N4SzBDTStnRUNKemlGZWRqcU53dXZL?=
+ =?utf-8?B?bXdacjRiNjZ5a3hpMzMwUkNLdnFHT1pjczFzV1ZsMUljYy9sRFZSV3VxUVRh?=
+ =?utf-8?B?bCtVMnhsUWZ5eVpIRTlMWU9JNXZHSjBjQVB3QTlKN244MGFPdXovb004dk9I?=
+ =?utf-8?B?d25BeEdPMDd2eUsrVXJUYXBRekFsL2EzMmhZL1dQdldNMElzODlYVzdqeVRl?=
+ =?utf-8?B?SUp5YjZDRmFUWUUyYmRmQWNIZkZ3UGxnd2tGZUxDV0owcWlkWDFDWlFFTTF5?=
+ =?utf-8?B?cGV2WjlCcXFUaWRhcGx3bmsrTVlnRWZGUVNqNmQydHBiamlpVllpTFd2bjdY?=
+ =?utf-8?B?bjlqakVxdjFvNE5ISzJpMFlMcDhnOXZnOGJwQjYzSnlNcS9hS3pzblQrWGpl?=
+ =?utf-8?B?OFVOL2hzVThnOWV1eC9iVG5RWEkrM0svdFN3M2N4WnpCclNiS3picktJMVVV?=
+ =?utf-8?B?NzNxT1Bpa0JTSFdIb0toTCt3dmlXUk5Md3BuaFZHRUxRTkg4WldoR3pDbHVM?=
+ =?utf-8?B?dHRQUFVkNktVaXJWL21ZaDBLcHlDclJKajRCOFVvNkxqVTJCRE1yMnFsbHli?=
+ =?utf-8?B?S3liSUJwdExZN0QvWER2aG5ZV2xvOFhBbTd5NTRCZE9zZXdjeDhmeTM0QzBR?=
+ =?utf-8?B?cVhGbVE3dFpGM29QY3I4TzdoRndYcVhvZFVFOHBzcU9VSTVUZm1WWTlOOFR3?=
+ =?utf-8?B?cHltdGg5a0h3NnVsVEtmTVNMOXBnOGZoV2hXTmlsSmNxVHRaaC9yOVR3d3RV?=
+ =?utf-8?B?VEx0L1Jna05STm1qSU9hSEl2Y1JyeUpMQ3pGbmMxcDFZZ1hXYU9TR1MvcGxl?=
+ =?utf-8?B?dDVaeVdvTy8wdDZwa1J3NmtUWHFVREJEU0pqN2R4c2FoNE1oUlNnNXMyRFR2?=
+ =?utf-8?B?Skl4YnF5cnV0QzBTZGtteTVyYThWZm1ISWgxWDVTTzdRVGRuY0hocHF5SUNk?=
+ =?utf-8?B?SkVsSUZmc013NUpZVXNCY00wUTdHbGs2blRTRm1zcjdqSE83Z0dJY3pkc1p2?=
+ =?utf-8?B?Z0M3bE4rd1dVMk5CbkgrU0V5akVxbHpQVml6ZUlnc3dIbUtoZmdaMzdBWmNS?=
+ =?utf-8?B?N2JnZTJEbE9zZ0plZlEwemgxRVg5RXlIZEpGcjQyTlIwWVdQWk1JUFdxMWdw?=
+ =?utf-8?B?SnNLSUR1OElFREQvNWJPZWs0OU0yOS9YbnRJd0NKNDgrakZQNWp3dSswWjRm?=
+ =?utf-8?B?M01LYUl3RmcrTHd0eUNhSmN0dkNoNEpsOGxyUFpVUGxCLzdwQlZUdXJRdVVN?=
+ =?utf-8?B?SWpSWDNERloydEZHTWlDOE1WTkt5eEtCQXVIdVN6SEJWOGROc3dYMWFkYWhI?=
+ =?utf-8?B?L29Dek44VDNmV1RTRE5UZXBkbjZRRlplUTJJdDFlU3RLSlY5bFpaVXQwSTZL?=
+ =?utf-8?B?SHFKUDZpeGVTdkd3aVp1MkFxaVE1Nk5sdndkbnZPWC9PdEVvSkVuN2ZHRTYz?=
+ =?utf-8?B?K2VMcm56TE50ZG5EZFBOb0JmVElpcWp6a2lnQjlaUEQrVVNmUVZzUlh4RWpQ?=
+ =?utf-8?B?T1JLb1Y2ODJXMUJCLzdsdmpPL0FXblpUa1F4Q3NIdXUyZVJsVmU4ck9mbUFM?=
+ =?utf-8?B?N2NDQUJ2QUxwdC9id2llMU5oTTByMWprR1Brc2hZZWhJcGRNMDdVMVNteEpN?=
+ =?utf-8?B?VFluZ3pHM3FsTnhMT25SOFMzNXlRNUxiaUNLcHovUlVoNTJwYjk4SDlkQm03?=
+ =?utf-8?B?OVkwU3FPVC8xOFdCTGN3SnZJak54YUxxRk56UElpVFBPeTZGOStlS0tFTGgx?=
+ =?utf-8?B?YnBJUkVTU0pESTR3MmVlRTZPVWVZZVJNZFNlMDhTWHRPKzBVYjczc0FnZUhj?=
+ =?utf-8?B?Um8xTVp5SzhVRHptSlorQ3pKZ2ozVEZVVms2OXhteGRTdnFRRklTQ0dWbDJs?=
+ =?utf-8?B?RmZHN1h1TkNlNTZDRTdxZHA4N1NSak1NYVdzeENmVDJzZmI1akQ3Z1RseVpj?=
+ =?utf-8?B?b0p4U2UyOVdzWkZCN3A3alpYMTYrNGtuSUU5YXhlcDlRdDZlSkE3Z05RU0NJ?=
+ =?utf-8?B?ZHlsNGJkeWRVU1R4YTMxMlFHelNSd1hOZ2E0OXZ0alp3NjUzVEtTeTUvUHBV?=
+ =?utf-8?B?RXcvaW03QVRmYW11VU9Uc2xQeFh6ZXVGSkllZ1cvUUp1M05IcGRIVlZRZFpU?=
+ =?utf-8?B?OCsvL3BxTmxtZGY5SDRMM3RIR3NKK2lLQzZLajJ4ZW0zWmZpMkhhOVdTV0JX?=
+ =?utf-8?B?YnpZNEtiN0Q1TlQ2UDdYMmNvTU96cmszdUtXVncrWi9ScXBvWkJIbmQ2amll?=
+ =?utf-8?B?VWVyS0FJQk10UlA0NTlvc1RQSjR2ZFRTTTNPSU1hVkNQVDJxbEhpWS9JclIy?=
+ =?utf-8?B?eXRMdjV5MGIyZkQxSVhocngwVmxsa3hhSVJLQ2FlcytxbXFTbGU1RG9mWDVa?=
+ =?utf-8?Q?s0Wz/UvJbsoyEww0=3D?=
+X-OriginatorOrg: kontron.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: e3c496be-34e8-4b76-555f-08df456211a6
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 10:52:41.7295
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qLURPbnzu/095jym3fdKHMJCObJxLJ9i/YVWqehICEQy6HncoYcXWDZOqK5U0AwCT092KoZPsiWll9eOa7AZdLBkh8TX+cQ84U+WdjnERO8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI3PR10MB177098
 
-Andre asked [1], in his review of my A100 thermal trips patch [2], to
-look at the A133 speed bin selection and OPPs. Mainline treats the A133
-as an A100: it reads only the CPU bin field and picks one of three A100
-voltage tables. The vendor BSP for this family (sun50iw10, KickPi A133
-Linux SDK, linux-4.9) picks one of 11 grades from the chip marking ID,
-the CPU bin, the ICPU current, a field it calls PCPU, a bin extension
-bit and the die revision.
-
-The A100 rule in mainline turns out to be the BSP rule for one group of
-parts: revision A-E parts with a normal marking ID get a0-a2 from the
-same bin rule and with the same voltages as the A100 table, apart from
-a small ICPU/PCPU range that the BSP forces to a0. It is wrong for
-revision F and later parts (a3-a6) and for the "high speed" marking IDs
-(b0-b3).
-
-My KickPi K5C (A133, PCB V1.3) is such a high speed part of revision F:
-the BSP rules select b2, up to 1512 MHz at 1.10 V. Mainline selects
-A100 speed1, so the chip runs 40 mV below the vendor voltage at
-408-816 MHz and 40 mV above it at 1200 and 1320 MHz, and tops out at
-1464 MHz at 1.18 V. Alexander tested v1 on a b3 part (marking 0x1400,
-bin 4, revision 6): the vendor kernel and this series both top out at
-1512 MHz, mainline without it at 1464 MHz.
-
-Patch 1 adds the binding, patch 2 prepares the driver without
-functional change, patch 3 adds the grade selection, patch 4 adds the
-efuse cells (no effect on its own), patch 5 adds the A133 OPP table and
-patch 6 switches the three A133 boards in mainline to it.
-
-Dependencies and merge path:
-- "cpufreq: sun50i: Handle boards with the allwinner,sun50i-a133
-  compatible" [3] is applied (Viresh, cpufreq/arm/linux-next,
-  ba359703fc45). The Teclast P80 needs it for cpufreq at all; the
-  other boards do not.
-- Patches 1-3 are meant for the cpufreq tree, as the A100 binding and
-  driver changes went last time; patches 4-6 are for the sunxi tree.
-- The A133 table keeps the A100 compatible as a fallback, with the
-  speed bin as its first cell. So patches 5-6 do not break anything if
-  they land before patch 3: a kernel without patch 3 gets today's A100
-  selection and voltages (with 1008 instead of 1080 MHz).
-- The thermal trips patch [2] should land first. All my thermal runs
-  had it, and without it patch 6 raises the top OPP of the high speed
-  grades with no passive trip.
-
-The die revision comes from SMCCC SOC_ID, as for the H616 and as Andre
-asked. On the A133 only TF-A master provides it so far (sun50i_a133
-platform, commit a584e8632a7a, not in a release yet). Without it the
-driver keeps the A100 selection, adds the BSP's a0 rule for normal
-parts (which never lowers a voltage), warns and carries on.
-
-Measurements on the K5C (no heatsink, room temperature not controlled,
-4 cores at full load, the 90 C passive trip from [2] in every run):
-
-  OPPs         kernel   top OPP          steady  1 h at full load
-  A100 speed1  6.18     1464 MHz 1.18 V  85.6 C  near 90 C from ~20 min,
-                                                 throttled at ~33 min
-  A133 b2      6.18     1512 MHz 1.10 V  78.2 C  1512 MHz, max 83.7 C
-  this series  7.4-rc1  1512 MHz 1.10 V  -       1512 MHz, max 79.4 C
-
-"steady" is the temperature after 10 minutes in a separate run. The b2
-row on 6.18 used a test DTB with the b2 voltages. Over the hour, b2 did
-3.7% more work (md5 loops) than A100 speed1. At the same 1200 MHz, the
-b2 voltage (0.98 V instead of 1.02 V) ran about 2 C cooler. These are
-single runs on one board, so take them as indications only.
-
-Still open from v1:
-- The factory table has, besides 1608 MHz for b0/b1, a 1416 MHz OPP for
-  a0-a2 (a0 1.18 V, a1 1.18 V, a2 1.13 V). It is not in this version;
-  I can add it if you want the table to match the factory one.
-- A133P: the TrimUI Smart Pro (an "A133 Plus") stock kernel selects a
-  grade named "c0", which neither vendor table I have contains. I found
-  no published table or selection rule for it, so the A133P is not
-  covered; it can be added when such data appears.
-
-As agreed with Chen-Yu on the thermal trips thread [2], the
-dynamic-power-coefficient for the power allocator will follow as a
-separate patch on top of these OPPs.
-
-AI assistance: I used Claude Code (Anthropic, Claude Opus 5.5)
-throughout. It read the vendor BSP sources, the datasheets and my board
-logs, drafted the code, the DT table and the commit messages, and wrote
-the test scripts. I asked it to extract the vendor's selection rules,
-to propose a design that fits the existing binding, to review the
-series, and to write tests that compare the code with the BSP rules.
-No vendor code was copied; only the rules and numbers were taken. I
-reviewed every patch, ran all tests myself, and take responsibility
-for the series.
-
-Testing:
-- host: the grade function, built from the driver source, matches the
-  BSP rules for 120,960 combinations of boundary and typical field
-  values, reaches all 11 grades and gives the A100 selection with the
-  BSP's a0 rule when the revision is unknown; a second harness,
-  written separately (also with Claude Code) from the BSP sources,
-  checked 161,280,000 combinations with no difference
-- host: a script compared every voltage and the frequency set of every
-  grade with both vendor tables: no difference to the BSP table other
-  than the added 1608 MHz OPP, and none to the factory table other
-  than its 1416 MHz OPP for a0-a2
-- each patch on its own: checkpatch --strict (one expected warning:
-  the new OPP dtsi is covered by the existing MAINTAINERS entry), W=1
-  build, sparse (patch 2 removes the one existing warning in the
-  driver), dt_binding_check, and dtbs_check W=1 on the A100 perf1 and
-  the three A133 boards; the binding rejects malformed test tables
-- K5C: grade, OPPs and measured regulator voltages, a 1 h soak, the
-  revision forced to unknown, the A100 table on the patched kernel, the
-  new DTB on a kernel without patch 3 (fallback), the a133-only root
-  compatible, and a missing efuse cell
-- K5C, v2: with a test-only change forcing b0 and b1, the CPU PLL locked
-  at 1608 MHz and the PMIC was set to 1.18 V (b0) and 1.13 V (b1); in
-  two 20-minute full load runs at b0 the 90 C trip was reached after
-  10-13 minutes and the temperature then stayed between 83.5 and 90.4 C
-
-[1] https://lore.kernel.org/all/85dc4135-4684-4e17-95e4-833cf8753b64@arm.com/
-[2] https://lore.kernel.org/all/20261103-a100-thermal-trips-v1-1-73bce7ff0767@gmail.com/
-[3] https://lore.kernel.org/all/20261104-a133-fix-v1-1-d0b5ad3d4c5d@gmail.com/
-
----
-Changes in v2:
-- Patch 5: add 1608 MHz for b0 and b1, from the factory firmware table
-  of the KickPi K5C, as Andre asked (keep 1.6 GHz for the parts that
-  support it). Alexander's Reviewed-by/Tested-by of v1 are not carried
-  over for this patch because of that change.
-- Patch 6: the commit message mentions 1608 MHz for b0/b1; the change
-  itself is the same as in v1.
-- Patches 1-4 and 6: add Alexander's Reviewed-by/Tested-by tags.
-- Cover letter: the dependency [3] is applied; the v1 questions are
-  answered (keep 1608 MHz; leave the A100 table and the 1008 MHz
-  message as they are; use SOC_ID and fail gracefully, as v1 does);
-  the 1416 MHz and A133P points are listed above.
-- Link to v1: https://patch.msgid.link/20261104-a133-series-v1-0-58217cb33a87@gmail.com
-
----
-Rajan Yadav (6):
-      dt-bindings: opp: h6: Add A133 operating points
-      cpufreq: sun50i: Move nvmem cell reading into a helper
-      cpufreq: sun50i: Add A133 speed grade detection
-      arm64: dts: allwinner: a100: Add A133 speed grade efuse cells
-      arm64: dts: allwinner: a133: Add CPU OPP table
-      arm64: dts: allwinner: a133: Use the A133 CPU OPP table
-
- .../opp/allwinner,sun50i-h6-operating-points.yaml  |  94 ++++++++-
- arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi     |  12 ++
- .../boot/dts/allwinner/sun50i-a133-cpu-opp.dtsi    | 182 ++++++++++++++++++
- .../allwinner/sun50i-a133-helperboard-core.dtsi    |   2 +-
- .../dts/allwinner/sun50i-a133-liontron-h-a133l.dts |   2 +-
- .../boot/dts/allwinner/sun50i-a133-teclast-p80.dts |   2 +-
- drivers/cpufreq/sun50i-cpufreq-nvmem.c             | 213 +++++++++++++++++++--
- 7 files changed, 475 insertions(+), 32 deletions(-)
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20261104-a133-series-fb6c0de346cc
-prerequisite-message-id: <20261104-a133-fix-v1-1-d0b5ad3d4c5d@gmail.com>
-prerequisite-patch-id: 24b8eeb24a7f228410c3453027ff79fc785eb38d
-
-Best regards,
---  
-Rajan Yadav <rajanyadav0307@gmail.com>
-
-
+On 04.11.26 10:22, xiaoning.wang@oss.nxp.com wrote:
+> From: Clark Wang <xiaoning.wang@nxp.com>
+> 
+> This series adds Ethernet support for the NXP i.MX952, whose NETC is
+> revision 4.6. Its NETC integration differs from i.MX95 and i.MX94 in
+> the following ways:
+>  - there are two standalone ENETCs and no switch: ENETC 0 on PCIe bus 0
+>    (RMII/RGMII) and ENETC 1 on PCIe bus 1 (RMII/RGMII/SGMII), plus a
+>    single IEEE 1588 timer;
+>  - the NETC system clock is 133 MHz instead of 333 MHz;
+>  - the reset value of the ENETC 0 Tx byte credit registers is too small
+>    for jumbo frames.
+> 
+> The DTS patch set will be sent separately after this series is applied.
+Tested-by: Frieder Schrempf <frieder.schrempf@kontron.de>
