@@ -1,79 +1,80 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795039166;
-	b=jLbV+pwp7owjXrS3bxVwtYat8x0UlxpSnhUNUP9mwEPlbjNmdApMWa19ycIaNMA5x/92
-	 tiKbUzWWcdpHKiWClsF+W34GtCu5yDcD7wLdRaV3G7pE8rLeHFXEZ8pR5guZGGVAt3ueT
-	 NKetn2hHN6onrBen84OCa04Cql4V/kIwvVmdlS/yLJS6CJMF8Nqrc2zFwmZMYxgSzdzVz
-	 NwlcOA+1ry8ZIOMrReBKIxArf4koboXDV+xwgJIBaP3YrAT10Y6CElkZPPVGZu3A3bCdR
-	 fkP/+Dtrx++kszp/WNQzFPUxg4bnMtExtbUH9gNwnJZxr8l8kWi1acmLvgE31p6a5Tw==
+	t=1795039165;
+	b=L8IcDD4MescixT/mcL/2Kj8ilG70luENpKwUYDrG2O/TQZ15LWbzE7oyl4cOGg8nxLRh
+	 7THOGC3zRhwKqKAmrIGNlgJJjlkLsxvRXdNmMk0lnN5oE+sJxd6HevOvOdfvenWk2Xl/6
+	 rlU/1HMXbQ5Z9loX9teGmBLkeXmwOs+dhtJ1m1+Mi0+KrA1d8Z5b1gmoaH5dBKqhZ5jCZ
+	 E9RAr4YOXgEoQ9r4pPlKefWd5hU2BOnlDQCk3Bqyp37nkL933rqOTrtcxK9YXX+kYM6RN
+	 ay5yLdxnJ/we5BIN3w2qrF2b/IsocfCpddkreHwXgZ8jIzU1oKKJaJDiPY+wEJD81aw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795039166;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=7Yl39mKeZgRaNqBdeDMDhKOdQAAgeoxYk2dFdGGo/q8=;
-	b=e/tyJG6SnCVbFJHQp/zk+xV1lxg92lfI05Xp+FOWNgBPtqjRm7rbXNRNu8DOIT7CuPSj
-	 NRIZrQfFOay/djtlya0K1HFgv08tpWzSQNf9yDJWbEJ6h5G/x5oTaZBAqc4BWwd2+bfCa
-	 Mte7lBoWfHqgv0k8PN1jNeJMfnfbW3u6GAQjM4ElUnppRskpolwb2oxVrRxXO2IoECM8M
-	 nvQt/2CQpIyHhkF4BLbw0UXbMgUvpSBMOo0w7KcORblfwszVKXRuecztkh9pyszlsgYqB
-	 WLk4FGyV/u6R5L8g/6tjh9XNYR7m4CtsCuPp58MSVJlgI3GdgOfpjgG/V+1BhfhS6og==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795039165;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=Ea27Ot+ehzrAuRSoKcNDt2qvaz6iTBMPzRnS1G4L6jg=;
+	b=Od/gdIr1spPaamtFKOPwyLL8LEPKLvbfJ/gRKKnFxFZ+SngWsgdnFkf4zSLGc1AowLLq
+	 5zKm/y2wFL9xnSuEnLInaYAblZlnMUOgqUY56o4enM5Pj54LrKTSQdhXVSOYZ7JFJIl8l
+	 wV3NDIAjpNIHzzwydTBvChz43njeJ40BK1jD/mOU1eRgMpX+NToZcVHeIHxvv1V40Gps+
+	 KrKhwhy2SrO4bt0XLFS+NRRKtBZPZWjDUoLCt0UueL7mDGn3wE7zLz+/sNrVUAD66aYZL
+	 o/anyIBdO9zMb8WvEICtQ127kzUhIm3ay5gufbm989k2s0rZV3n33Hjo8Jg9Cop1aGA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mlvMvSZT;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Rm2Hmmb4;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 921AE606A331;
-	Wed, 18 Nov 2026 21:59:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61F73606A31C;
+	Wed, 18 Nov 2026 21:59:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mlvMvSZT
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Rm2Hmmb4
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795039166;
-	b=d0KTLZSTibspKr15bCws7VgREFRHEi7tEOr70v7Gxl/rKVlTH6HsWhDRpndwVJmtAtp0
-	 yD4rPIQfhgaJp0exuFs3aiTw252ze9udvThiBgOanTXipi7EEZbzd/UYYMjVQVgvIajba
-	 tUR0MwLRohV6tvF/mX030wM1+e4tHyDx4+XZCPGoF2Jp5JA4Q5TsZZ5nHcNmhxX0LKpc/
-	 VMn9p8hzm1BEbib9Htuv17vyMp4y8tRH+zkThApQDUplCV3skhkpfu3s7QjciYTad/jp1
-	 1J7k2nTrnlFcy01MeIh6XmNvrQtNxBAwqHeDubmmjb/sO+jgh/hRffSYJG42ZIC+Blg==
+	t=1795039165;
+	b=DWTnBk12sZdF8zsdz9gCwZhv+vYWe3lj68ba0afbHF6Efsi5k1vx2XUhEuda9nkIsQ6U
+	 8UUCLzwgTa5yKFOsTIsR8e3ziEYEat/uHxzYc/Ap1Uft0SCK3eO/SfW/sNB30hcF9uuSn
+	 H5RGi02ffZ6P92b2XEWEEAg6fMzrwWBkCl0FHKqyqLlos6wk5SE89+iMJCgbGqdQk8rJj
+	 CzZ7isjJeChWH8Z6L4MtFvbsuXAaBabQNYgms1OT0HH54Jl/qrWwCuCuLwR1GJxLZgKrY
+	 aXJXrDE56BJ0qUVEO/uBpxgsiAu6s733FH7nl+RuliebBTn0ZSbTzItZ27CqtCCWE9g==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795039166;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=7Yl39mKeZgRaNqBdeDMDhKOdQAAgeoxYk2dFdGGo/q8=;
-	b=GI8popkSjjaeutV2buLEYWDK4og162o6zAMI856nnK64lqOJIWm5+R4oznhcBG1g2pn1
-	 NYwt+WwX8bKZ4qX80+XqnPm6ZA02WwANO8zPEV2h7G9Z1EMJpswHtXJ2F7ZOW6oZhxkZd
-	 LWSxJvG9STGxFXxNz6ila6ULNFrneNr4EY3aLRyqI4qLYXsgw2TyC3DDsvVe02x4pTQFo
-	 1ltq+L/X6ttvPLUdksSRMVN6yH6nLmGVYJOEOW3ryPBSaG2JICWGzUYmGw4U9HTfb6/mM
-	 OLozQW50QjY0uDo9Hj5qmaw3aeN1LBiqmlWmnI+wOO+G8H46cweFVvN7WWS3TuA4ISQ==
+	c=relaxed/relaxed; t=1795039165;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=Ea27Ot+ehzrAuRSoKcNDt2qvaz6iTBMPzRnS1G4L6jg=;
+	b=vnbrzcM0ACGiao2hpRFRi5VeEHM5OehtFUtLvx9I27CA/EcXlrYYWyUSIR39M2awf1VZ
+	 SbLxd+LYhSzluoswD5Gg7NjUYrTFqJb+w8fJgW/fYgsB8BWszPlmScYqBnxmaHp80+SXN
+	 FKOl/2FKqwOCx4l6ZP28X++XcthHU54GEnbultWoFcG79cYP1Ww6seafWvqyjUD6Bl4Vj
+	 wo4Or/VgR//a+utONeWgTh2+UObAsnbDwFLu5En7L70xoS2frXICwG3Ge3roOdJHKYDxS
+	 UTlDEs7dF360Kov6l8TU7YDrwZnjcXZ7XF49oieLLQVdZYdtSOJVB7K0/nff02JX3QQ==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id B4B401F000C5;
+	by smtp.kernel.org (Postfix) with ESMTPS id A6E8A1F000C4;
 	Wed, 18 Nov 2026 21:59:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795039166;
-	bh=7Yl39mKeZgRaNqBdeDMDhKOdQAAgeoxYk2dFdGGo/q8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=mlvMvSZT24cCJl2E6beMO4A7kLIPyog5q/WP4XFBzI3A92eSYMYaIVpY3dHiwVuT4
-	 jMXqtPfOtSmJoED8A2bpJszsgvsHaAAdsTt7DPAL7TMOGLLI02/38eVjD2/VRdOzur
-	 Au49Fx5ZhMtsiI81DXJeAekvgfFbxSTomRB5LvceCjUgHIjO/hpF1sC1quTLCft0eo
-	 3i0x2e4Ut1sjZGYZkC1TrZNF7oJLuNRvQPjLlkHijHuanpORwpzuul/SkOBAeWjh3A
-	 cycp7I4GXoeUP3Iu+tyhbjsqXk74rE3YLuXgc6ziipLHNsYpDUh65dkg1ZY/xx7DJ1
-	 0FqX31mQhlQeg==
+	s=k20260515; t=1795039165;
+	bh=Ea27Ot+ehzrAuRSoKcNDt2qvaz6iTBMPzRnS1G4L6jg=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=Rm2Hmmb47BdMevLkbFJQUrSi1TWermrXl3QJtZMhr8reX1J3w0EvxDUvIxw1Ac2nG
+	 7xKDUd9UPsF/R7gOFst3/YqYT0S4KpdScvIYnJh221gyUqcoJrVdmr1XRuci4ckfnv
+	 4KihRK1CEH/HWvwMohiYfdG0RSuIKbu9CIQ8HZsU5R/BQL038kNaNf3FKkBOkHUoBl
+	 Sf88wMebLLFwrZ0eYM77FkaBr4LomRTHOfThbUSBislJvdyO+ZID4lQcuyliVP9kcK
+	 V/Es5yEjQ0S5srs7LItdWvorf9FR3swXDwASJWzUZbmT8L4aBFin91NG8ig2ZUJ9gF
+	 RypFw+og+GlBA==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 3C8324AFE7;
+	by lkml.kernel.org (Postfix) with ESMTP id 03AD94AFE3;
 	Wed, 18 Nov 2026 21:59:24 +0000 (UTC)
 From: Harrison Crosse via B4 Relay <devnull+harrison.crosse.dev@kernel.org>
-Date: Wed, 18 Nov 2026 16:56:42 -0500
-Subject: [PATCH 2/2] selftests/mm: add a test for populating a page that
- cannot be read
+Subject: [PATCH 0/2] mm/gup: fix mlock() and MAP_POPULATE looping on read
+ errors
+Date: Wed, 18 Nov 2026 16:56:40 -0500
+Message-Id: <20261118-mmpop-populate-v1-0-9c561d178d11@crosse.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,9 +85,11 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261118-mmpop-populate-v1-2-9c561d178d11@crosse.dev>
-References: <20261118-mmpop-populate-v1-0-9c561d178d11@crosse.dev>
-In-Reply-To: <20261118-mmpop-populate-v1-0-9c561d178d11@crosse.dev>
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzNDQ0ML3dzcgvwCXSAuzUksSdW1SDS2ME1NSzRPNU9TAmoqKEpNy6wAGxg
+ dC+EXlyZlpSaXgExRqq0FADAipz5yAAAA
+X-Change-ID: 20261118-mmpop-populate-8a385efa7e7f
 To: David Hildenbrand <david@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>, 
  John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, 
  Andrew Morton <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>, 
@@ -96,524 +99,71 @@ To: David Hildenbrand <david@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>,
 Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
  linux-kselftest@vger.kernel.org, Josef Bacik <josef@toxicpanda.com>, 
  Johannes Weiner <hannes@cmpxchg.org>, Jan Kara <jack@suse.cz>, 
- Harrison Crosse <harrison@crosse.dev>
+ Harrison Crosse <harrison@crosse.dev>, stable@vger.kernel.org
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795039163; l=15821;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795039163; l=2455;
  i=harrison@crosse.dev; s=20261117; h=from:subject:message-id;
- bh=ozpf4+RjmEWsr6XVU7gtEDTBOVvOljQv4enrF13umZI=;
- b=z5iQcgQhQloMXQM8vhSIzkjjnfSBQGFpYstK5hSaIVrlJgBaxIGDWxo3ahHhSUpqOrxRqVh5U
- 4yRWa2VPjxxBSVwyb7lGNG2FVp2pNtGxF4IlfTAi4S2F2PjSSefjwpD
+ bh=/PkZRnZe5tu6LV293Ifp8K0JXLUKyW2KwcahuxQz4ow=;
+ b=OSles3yksDQFXG/3q0tQCEMz+u/knBGbhU4exaXmvxAgSt04CoaGw4td44kcwey09njt++Nuc
+ HjqbxmMiv9fDRR9KESgxdSjanyuJaf+XCzQHDuSAX5Nsnb69pTt5ZLy
 X-Developer-Key: i=harrison@crosse.dev; a=ed25519;
  pk=fwi/XME2YaW/BDBQ76FmKgF9xHZwRb+dxlVCbxuyojo=
 X-Endpoint-Received: by B4 Relay for harrison@crosse.dev/20261117 with
  auth_id=1552
 X-Original-From: Harrison Crosse <harrison@crosse.dev>
 Reply-To: harrison@crosse.dev
-Content-Transfer-Encoding: 7bit
 
-From: Harrison Crosse <harrison@crosse.dev>
+If every read of a page in a file mapping fails, mmap(MAP_POPULATE) and
+mlock() of that mapping retry the read in the kernel until the task gets
+a fatal signal. A load from the page gets SIGBUS, and MADV_POPULATE_READ
+fails with EFAULT.
 
-Add populate_eio, which serves a FUSE file system from the test itself
-on /dev/fuse, without libfuse. Its one file has a page whose reads
-always fail with -EIO. FUSE handles faults on mapped files with
-filemap_fault(), so a fault on that page releases the mmap_lock for the
-read and, on a first attempt, returns VM_FAULT_RETRY whatever the
-result.
+Patch 1 makes __mm_populate() pass FOLL_TRIED when retrying the page
+whose fault released the mmap_lock, as __get_user_pages_locked() does,
+so that a read error ends the loop. mlock() then fails with ENOMEM, and
+mmap(MAP_POPULATE) returns the mapping. Patch 2 adds populate_eio, a
+selftest that serves such a file over FUSE and fails without patch 1.
+The series is based on v7.4-rc3.
 
-The test checks that MADV_POPULATE_READ fails with EFAULT, that
-mmap(MAP_POPULATE) returns the mapping and that mlock() fails with
-ENOMEM. Each call runs in a child with a timeout, so a kernel that
-retries the read endlessly fails the test instead of hanging it.
-Without the previous patch, the mmap(MAP_POPULATE) and mlock() checks
-fail this way.
+The bug was reproduced with the ext4 setup described in patch 1 on
+v7.4-rc3 (arm64 and x86_64), Debian 6.12.116 (arm64) and 6.6.162
+(x86_64). Under QEMU TCG, populate_eio passes its MADV_POPULATE_READ
+check and fails its mmap(MAP_POPULATE) and mlock() checks without
+patch 1 on v7.4-rc3 (arm64 and x86_64) and on 6.12.117 (x86_64), and
+passes all three checks with patch 1 on v7.4-rc3 on both architectures.
 
-The mlock() check is skipped if the test cannot lock an anonymous
-mapping of the same size, and the whole test is skipped if /dev/fuse
-cannot be opened or the file system cannot be created, for example
-without CAP_SYS_ADMIN. The file system is created with fsmount() and
-never attached to a mount point, so it goes away with the test's
-processes. If a child does not exit after SIGKILL because the server
-read its request and stopped, the test kills the server, which aborts
-the connection. CONFIG_FUSE_FS is added to the mm selftest config.
+To reproduce, build and run populate_eio from patch 2 as root on a
+kernel with CONFIG_FUSE_FS.
 
-This test and its changelog were prepared with the help of an AI coding
+The fix was tested only on v7.4-rc3, on arm64 and x86_64 with 4K pages.
+On arm64, only populate_eio was run on the patched kernel. Also not
+tested: populate_eio in unprivileged user namespaces or on kernels older
+than 6.12, the ext4 setup on kernels older than 6.6, and populate_eio
+timing out or getting SIGKILL during a call on the patched kernel, where
+every call returns at once. The notes in each patch list the other cases
+that were not tested.
+
+The analysis and the patches were prepared with the help of an AI coding
 assistant (Claude).
 
 Signed-off-by: Harrison Crosse <harrison@crosse.dev>
 ---
-Tested on x86_64 under QEMU (TCG), with 4K pages. On v7.4-rc3 without
-the previous patch, and on 6.12.117 with the test built with the
-v7.4-rc3 FUSE header, MADV_POPULATE_READ passes and the
-mmap(MAP_POPULATE) and mlock() checks fail with no return within 5 s;
-with the previous patch on v7.4-rc3, all three pass. Two faults were
-tried on v7.4-rc3 without the previous patch, and neither left a
-process or FUSE connection. With the server stopped by SIGSTOP after it
-read the bad page's read request, the test killed the server and ended
-in about 7 s. The other fault killed the test process with SIGKILL.
-Without CAP_IPC_LOCK and with RLIMIT_MEMLOCK at 0, the mlock() check is
-skipped. On arm64 v7.4-rc3 under QEMU (TCG), also with 4K pages, the
-three checks give the same results without and with the previous patch.
+Harrison Crosse (2):
+      mm/gup: make mlock() and MAP_POPULATE handle VM_FAULT_RETRY properly
+      selftests/mm: add a test for populating a page that cannot be read
 
-Not tested: architectures other than x86_64 and arm64, other page
-sizes, unprivileged user namespaces, and kernels older than 6.12.
----
+ mm/gup.c                                  |  36 ++-
  tools/testing/selftests/mm/Makefile       |   1 +
  tools/testing/selftests/mm/config         |   1 +
  tools/testing/selftests/mm/populate_eio.c | 410 ++++++++++++++++++++++++++++++
  tools/testing/selftests/mm/run_vmtests.sh |   1 +
- 4 files changed, 413 insertions(+)
+ 5 files changed, 445 insertions(+), 4 deletions(-)
+---
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+change-id: 20261118-mmpop-populate-8a385efa7e7f
 
-diff --git a/tools/testing/selftests/mm/Makefile b/tools/testing/selftests/mm/Makefile
-index 0ea72e997..2efb61d51 100644
---- a/tools/testing/selftests/mm/Makefile
-+++ b/tools/testing/selftests/mm/Makefile
-@@ -71,6 +71,7 @@ TEST_GEN_FILES += khugepaged
- TEST_GEN_FILES += madv_populate
- TEST_GEN_FILES += map_fixed_noreplace
- TEST_GEN_FILES += map_populate
-+TEST_GEN_FILES += populate_eio
- ifneq (,$(filter $(ARCH),arm64 riscv riscv64 x86 x86_64 loongarch32 loongarch64))
- TEST_GEN_FILES += memfd_secret
- endif
-diff --git a/tools/testing/selftests/mm/config b/tools/testing/selftests/mm/config
-index 06f78bd23..08a5ba29b 100644
---- a/tools/testing/selftests/mm/config
-+++ b/tools/testing/selftests/mm/config
-@@ -14,3 +14,4 @@ CONFIG_UPROBES=y
- CONFIG_MEMORY_FAILURE=y
- CONFIG_HWPOISON_INJECT=m
- CONFIG_PROC_MEM_ALWAYS_FORCE=y
-+CONFIG_FUSE_FS=y
-diff --git a/tools/testing/selftests/mm/populate_eio.c b/tools/testing/selftests/mm/populate_eio.c
-new file mode 100644
-index 000000000..1099bd7ed
---- /dev/null
-+++ b/tools/testing/selftests/mm/populate_eio.c
-@@ -0,0 +1,410 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Populate a file mapping with a page whose reads always fail.
-+ *
-+ * A minimal FUSE server on /dev/fuse serves one file and fails every
-+ * read of one of its pages with -EIO. MADV_POPULATE_READ must fail with
-+ * EFAULT, mmap(MAP_POPULATE) must return the mapping and mlock() must
-+ * fail with ENOMEM, rather than retry the read until the task is killed.
-+ *
-+ * The file system is created with fsopen() and fsmount() and never
-+ * attached to a mount point, so it goes away with the test's processes.
-+ */
-+#define _GNU_SOURCE
-+#include <errno.h>
-+#include <fcntl.h>
-+#include <linux/fuse.h>
-+#include <linux/mman.h>
-+#include <linux/mount.h>
-+#include <signal.h>
-+#include <stdint.h>
-+#include <stdio.h>
-+#include <stdlib.h>
-+#include <string.h>
-+#include <sys/mman.h>
-+#include <sys/prctl.h>
-+#include <sys/resource.h>
-+#include <sys/stat.h>
-+#include <sys/syscall.h>
-+#include <sys/uio.h>
-+#include <sys/wait.h>
-+#include <unistd.h>
-+#include "kselftest.h"
-+
-+#define NR_PAGES	8
-+#define BAD_PAGE	3
-+#define FILE_INO	2
-+#define TIMEOUT_S	5
-+#define GRACE_S		2
-+
-+/*
-+ * Kernels before FUSE 7.47 accept only this size of open reply; 7.47
-+ * appended backing_id_64 and accepts the shorter reply as well.
-+ */
-+#define OPEN_OUT_SIZE	16
-+
-+/* child exit status: 0 if the call succeeded, its errno, or this */
-+#define EXIT_SETUP	200
-+
-+/* run_call() results other than an exit status */
-+#define RUN_TIMEOUT	-1
-+#define RUN_SIGNALED	-2
-+
-+enum call { CALL_MADV_POPULATE_READ, CALL_MAP_POPULATE, CALL_MLOCK };
-+
-+static size_t page_size;
-+static pid_t parent, server;
-+
-+static int sys_fsopen(const char *fsname, unsigned int flags)
-+{
-+	return syscall(__NR_fsopen, fsname, flags);
-+}
-+
-+static int sys_fsconfig(int fd, unsigned int cmd, const char *key,
-+			const char *value)
-+{
-+	return syscall(__NR_fsconfig, fd, cmd, key, value, 0);
-+}
-+
-+static int sys_fsmount(int fd, unsigned int flags, unsigned int attr_flags)
-+{
-+	return syscall(__NR_fsmount, fd, flags, attr_flags);
-+}
-+
-+/* Recheck getppid() in case parent exited before PR_SET_PDEATHSIG. */
-+static void die_with_parent(void)
-+{
-+	if (prctl(PR_SET_PDEATHSIG, SIGKILL) || getppid() != parent)
-+		_exit(EXIT_SETUP);
-+}
-+
-+static void fuse_reply(int fd, uint64_t unique, int error,
-+		       const void *arg, size_t len)
-+{
-+	struct fuse_out_header out = {
-+		.len = sizeof(out) + len,
-+		.error = error,
-+		.unique = unique,
-+	};
-+	struct iovec iov[] = {
-+		{ .iov_base = &out, .iov_len = sizeof(out) },
-+		{ .iov_base = (void *)arg, .iov_len = len },
-+	};
-+
-+	/* ENOENT: the request was interrupted or aborted */
-+	if (writev(fd, iov, len ? 2 : 1) < 0 && errno != ENOENT)
-+		ksft_print_msg("FUSE reply of %zu bytes rejected: %s\n",
-+			       len, strerror(errno));
-+}
-+
-+static void fill_attr(struct fuse_attr *attr, uint64_t ino)
-+{
-+	memset(attr, 0, sizeof(*attr));
-+	attr->ino = ino;
-+	attr->blksize = page_size;
-+	if (ino == FUSE_ROOT_ID) {
-+		attr->mode = S_IFDIR | 0755;
-+		attr->nlink = 2;
-+	} else {
-+		attr->mode = S_IFREG | 0444;
-+		attr->nlink = 1;
-+		attr->size = NR_PAGES * page_size;
-+		attr->blocks = attr->size / 512;
-+	}
-+}
-+
-+static void fuse_read(int fd, uint64_t unique, const struct fuse_read_in *read_in,
-+		      const char *data)
-+{
-+	uint64_t size = NR_PAGES * page_size;
-+	uint64_t bad = BAD_PAGE * page_size;
-+	uint64_t start = read_in->offset;
-+	uint64_t end = start + read_in->size;
-+
-+	if (start < bad + page_size && end > bad) {
-+		fuse_reply(fd, unique, -EIO, NULL, 0);
-+		return;
-+	}
-+	if (end > size)
-+		end = size;
-+	fuse_reply(fd, unique, 0, data, start < end ? end - start : 0);
-+}
-+
-+static __noreturn void fuse_serve(int fd)
-+{
-+	size_t bufsize = FUSE_MIN_READ_BUFFER + page_size;
-+	struct fuse_in_header *in;
-+	char *data;
-+	void *arg;
-+
-+	die_with_parent();
-+	in = malloc(bufsize);
-+	data = calloc(NR_PAGES, page_size);
-+	if (!in || !data)
-+		_exit(1);
-+	arg = in + 1;
-+
-+	for (;;) {
-+		ssize_t n = read(fd, in, bufsize);
-+
-+		if (n < 0 && (errno == EINTR || errno == ENOENT))
-+			continue;
-+		/* read() fails with ENODEV once the connection is gone */
-+		if (n < (ssize_t)sizeof(*in))
-+			_exit(0);
-+
-+		switch (in->opcode) {
-+		case FUSE_INIT: {
-+			const struct fuse_init_in *init_in = arg;
-+			struct fuse_init_out init_out = {
-+				.major = FUSE_KERNEL_VERSION,
-+				.minor = FUSE_KERNEL_MINOR_VERSION,
-+				.max_readahead = init_in->max_readahead,
-+				.max_write = page_size,
-+				.time_gran = 1,
-+			};
-+
-+			if (init_in->minor < init_out.minor)
-+				init_out.minor = init_in->minor;
-+			fuse_reply(fd, in->unique, 0, &init_out, sizeof(init_out));
-+			break;
-+		}
-+		case FUSE_LOOKUP: {
-+			struct fuse_entry_out entry = {
-+				.nodeid = FILE_INO,
-+				.generation = 1,
-+				.entry_valid = 3600,
-+				.attr_valid = 3600,
-+			};
-+
-+			if (in->nodeid != FUSE_ROOT_ID || strcmp(arg, "file")) {
-+				fuse_reply(fd, in->unique, -ENOENT, NULL, 0);
-+				break;
-+			}
-+			fill_attr(&entry.attr, FILE_INO);
-+			fuse_reply(fd, in->unique, 0, &entry, sizeof(entry));
-+			break;
-+		}
-+		case FUSE_GETATTR: {
-+			struct fuse_attr_out attr_out = { .attr_valid = 3600 };
-+
-+			fill_attr(&attr_out.attr, in->nodeid);
-+			fuse_reply(fd, in->unique, 0, &attr_out, sizeof(attr_out));
-+			break;
-+		}
-+		case FUSE_OPEN: {
-+			struct fuse_open_out open_out = { .fh = 1 };
-+
-+			fuse_reply(fd, in->unique, 0, &open_out, OPEN_OUT_SIZE);
-+			break;
-+		}
-+		case FUSE_READ:
-+			fuse_read(fd, in->unique, arg, data);
-+			break;
-+		case FUSE_FORGET:
-+		case FUSE_BATCH_FORGET:
-+			break;
-+		default:
-+			fuse_reply(fd, in->unique, -ENOSYS, NULL, 0);
-+		}
-+	}
-+}
-+
-+/*
-+ * do_mlock() can fail with ENOMEM from RLIMIT_MEMLOCK before reaching
-+ * __mm_populate(), which would falsely pass CALL_MLOCK without CAP_IPC_LOCK.
-+ */
-+static bool can_mlock(size_t size)
-+{
-+	struct rlimit rlim;
-+	bool locked;
-+	void *p;
-+
-+	if (!getrlimit(RLIMIT_MEMLOCK, &rlim) && rlim.rlim_cur < size) {
-+		rlim.rlim_cur = rlim.rlim_max;
-+		setrlimit(RLIMIT_MEMLOCK, &rlim);
-+	}
-+	p = mmap(NULL, size, PROT_READ | PROT_WRITE,
-+		 MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
-+	if (p == MAP_FAILED)
-+		return false;
-+	locked = !mlock(p, size);
-+	munmap(p, size);
-+	return locked;
-+}
-+
-+static __noreturn void do_call(enum call call, int mnt_fd)
-+{
-+	size_t size = NR_PAGES * page_size;
-+	int flags = MAP_SHARED;
-+	char *p;
-+	int fd;
-+
-+	die_with_parent();
-+	fd = openat(mnt_fd, "file", O_RDONLY);
-+	if (fd < 0)
-+		_exit(EXIT_SETUP);
-+	if (call == CALL_MAP_POPULATE)
-+		flags |= MAP_POPULATE;
-+	p = mmap(NULL, size, PROT_READ, flags, fd, 0);
-+	if (p == MAP_FAILED)
-+		_exit(call == CALL_MAP_POPULATE ? errno : EXIT_SETUP);
-+	if (call == CALL_MADV_POPULATE_READ && madvise(p, size, MADV_POPULATE_READ))
-+		_exit(errno);
-+	if (call == CALL_MLOCK && mlock(p, size))
-+		_exit(errno);
-+	_exit(0);
-+}
-+
-+static bool reap(pid_t pid, int *status, int timeout_ms)
-+{
-+	int i;
-+
-+	for (i = 0; i < timeout_ms / 10; i++) {
-+		pid_t ret = waitpid(pid, status, WNOHANG);
-+
-+		if (ret == pid)
-+			return true;
-+		if (ret < 0 && errno != EINTR)
-+			ksft_exit_fail_perror("waitpid");
-+		usleep(10000);
-+	}
-+	return false;
-+}
-+
-+/*
-+ * A caller whose request the server read but did not answer waits for
-+ * the answer even after SIGKILL. Killing the server closes the last
-+ * /dev/fuse file descriptor, which aborts the connection and ends such
-+ * requests.
-+ */
-+static void stop_server(void)
-+{
-+	if (!server)
-+		return;
-+	kill(server, SIGKILL);
-+	while (waitpid(server, NULL, 0) < 0 && errno == EINTR)
-+		;
-+	server = 0;
-+}
-+
-+static int run_call(enum call call, int mnt_fd, int *sig)
-+{
-+	int status;
-+	pid_t pid;
-+
-+	pid = fork();
-+	if (pid < 0)
-+		ksft_exit_fail_perror("fork");
-+	if (!pid)
-+		do_call(call, mnt_fd);
-+
-+	if (!reap(pid, &status, TIMEOUT_S * 1000)) {
-+		kill(pid, SIGKILL);
-+		if (!reap(pid, &status, GRACE_S * 1000)) {
-+			ksft_print_msg("child alive %d s after SIGKILL, killing the server\n",
-+				       GRACE_S);
-+			stop_server();
-+			while (waitpid(pid, &status, 0) < 0 && errno == EINTR)
-+				;
-+		}
-+		return RUN_TIMEOUT;
-+	}
-+	if (WIFSIGNALED(status)) {
-+		*sig = WTERMSIG(status);
-+		return RUN_SIGNALED;
-+	}
-+	return WEXITSTATUS(status);
-+}
-+
-+static void check(const char *name, enum call call, int mnt_fd, int expected)
-+{
-+	int sig = 0, ret;
-+
-+	if (!server) {
-+		ksft_test_result_fail("%s: not run, the FUSE server was killed\n", name);
-+		return;
-+	}
-+	ret = run_call(call, mnt_fd, &sig);
-+	if (ret == RUN_TIMEOUT)
-+		ksft_print_msg("%s: no return within %d s\n", name, TIMEOUT_S);
-+	else if (ret == RUN_SIGNALED)
-+		ksft_print_msg("%s: killed by %s\n", name, strsignal(sig));
-+	else if (ret == EXIT_SETUP)
-+		ksft_print_msg("%s: openat() or mmap() failed\n", name);
-+	else if (ret >= 0 && ret != expected)
-+		ksft_print_msg("%s: %s\n", name, ret ? strerror(ret) : "the call succeeded");
-+	ksft_test_result(ret == expected, "%s\n", name);
-+}
-+
-+static bool unavailable(int err)
-+{
-+	return err == ENOENT || err == ENODEV || err == ENXIO ||
-+	       err == EPERM || err == EACCES || err == ENOSYS;
-+}
-+
-+int main(void)
-+{
-+	char fd_str[16], uid_str[16], gid_str[16];
-+	int fd, fs_fd, mnt_fd;
-+
-+	ksft_print_header();
-+	page_size = getpagesize();
-+	parent = getpid();
-+
-+	fd = open("/dev/fuse", O_RDWR | O_CLOEXEC);
-+	if (fd < 0 && unavailable(errno))
-+		ksft_exit_skip("cannot open /dev/fuse: %s\n", strerror(errno));
-+	if (fd < 0)
-+		ksft_exit_fail_perror("open /dev/fuse");
-+	fs_fd = sys_fsopen("fuse", FSOPEN_CLOEXEC);
-+	if (fs_fd < 0 && unavailable(errno))
-+		ksft_exit_skip("cannot create a FUSE file system: %s\n", strerror(errno));
-+	if (fs_fd < 0)
-+		ksft_exit_fail_perror("fsopen");
-+
-+	snprintf(fd_str, sizeof(fd_str), "%d", fd);
-+	snprintf(uid_str, sizeof(uid_str), "%u", getuid());
-+	snprintf(gid_str, sizeof(gid_str), "%u", getgid());
-+	if (sys_fsconfig(fs_fd, FSCONFIG_SET_STRING, "fd", fd_str) ||
-+	    sys_fsconfig(fs_fd, FSCONFIG_SET_STRING, "rootmode", "40000") ||
-+	    sys_fsconfig(fs_fd, FSCONFIG_SET_STRING, "user_id", uid_str) ||
-+	    sys_fsconfig(fs_fd, FSCONFIG_SET_STRING, "group_id", gid_str))
-+		ksft_exit_fail_perror("fsconfig");
-+	if (sys_fsconfig(fs_fd, FSCONFIG_CMD_CREATE, NULL, NULL)) {
-+		if (unavailable(errno))
-+			ksft_exit_skip("cannot mount FUSE: %s\n", strerror(errno));
-+		ksft_exit_fail_perror("fsconfig create");
-+	}
-+	mnt_fd = sys_fsmount(fs_fd, FSMOUNT_CLOEXEC,
-+			     MOUNT_ATTR_NOSUID | MOUNT_ATTR_NODEV);
-+	if (mnt_fd < 0 && unavailable(errno))
-+		ksft_exit_skip("cannot mount FUSE: %s\n", strerror(errno));
-+	if (mnt_fd < 0)
-+		ksft_exit_fail_perror("fsmount");
-+	close(fs_fd);
-+
-+	server = fork();
-+	if (server < 0)
-+		ksft_exit_fail_perror("fork");
-+	if (!server) {
-+		close(mnt_fd);
-+		fuse_serve(fd);
-+	}
-+	close(fd);
-+
-+	ksft_set_plan(3);
-+	check("MADV_POPULATE_READ fails with EFAULT", CALL_MADV_POPULATE_READ,
-+	      mnt_fd, EFAULT);
-+	check("mmap(MAP_POPULATE) returns the mapping", CALL_MAP_POPULATE,
-+	      mnt_fd, 0);
-+	if (can_mlock(NR_PAGES * page_size))
-+		check("mlock() fails with ENOMEM", CALL_MLOCK, mnt_fd, ENOMEM);
-+	else
-+		ksft_test_result_skip("mlock() fails with ENOMEM: cannot mlock() %zu bytes\n",
-+				      NR_PAGES * page_size);
-+
-+	close(mnt_fd);
-+	stop_server();
-+	ksft_finished();
-+}
-diff --git a/tools/testing/selftests/mm/run_vmtests.sh b/tools/testing/selftests/mm/run_vmtests.sh
-index a1b45a3de..3ac9f9336 100755
---- a/tools/testing/selftests/mm/run_vmtests.sh
-+++ b/tools/testing/selftests/mm/run_vmtests.sh
-@@ -291,6 +291,7 @@ else
- fi
- 
- CATEGORY="mmap" run_test ./map_populate
-+CATEGORY="mmap" run_test ./populate_eio
- CATEGORY="mmap" run_test ./droppable
- 
- CATEGORY="mlock" run_test ./mlock-random-test
-
--- 
-2.56.1
+Best regards,
+--  
+Harrison Crosse <harrison@crosse.dev>
 
 
