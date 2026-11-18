@@ -1,96 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.134
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795039664;
-	b=T4e1o+i89OSaZswt6RKyuhCkkzWp3W0ZOdxzIf8E+pUXZ15ya8Io9qdqOMiuUQWco88M
-	 N6yxHWgSrEaYi6JXrufeiF9GQE9l4bI2oL7WwPZzWG57OKrVdvXZ4LWjN9YAq5mEszBLI
-	 Mwqux/jqx4ATMOs90sKDA/uDVT6v/hEpcu0UzdXT/9WzzdJqVChLbMY3VzqS2nCE/Oc3w
-	 VZdDWdCn0g0AWQz6K8nZHf8sKEoRST++7Y/TccNXVkNLJGe/Z43TCK1pSCsA6Th7bwb6P
-	 7y/vN8/X8eoDrlBTiGLpLgg1qHo7R/XE9+n2diV8Q6O7DvKxn4xnthUE/GoeBT8v/0w==
+	t=1795039669;
+	b=bt6d6j938LCTWTxwNmeLJAVHm86mN04QYcDiL+XPxDvN3RBRK0v626zA+IB2Me1HI5VJ
+	 TWMJkZAUCeyelnWxI8Y0ExZxnyAWSpA+zqTP3tGwahQyftagofMxsoCkecH7W6L4wvtXs
+	 5yBjPbM2/aORTYmo2l8m7X3BtT+Eb2rYwhmNVYdlYhAlqFscBYmZYoIPqzrGPRO/Vc3Zd
+	 LIhBeKfCnPcCpTo/94LphI+0DY2Rj1xdd31Fnea69SMwvkrZr6hqrMk8HoI34z4DYyA8B
+	 NicNzuZ6bDydQVFwyHC6TFLzR3Q3H1iADDohvArbbqfYNPPVBhy+ijKxBuZT8udTUWg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795039664;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795039669;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=8aEHZB7EqKIg6JAblchur0wLhe4h5mRiTbmkDXl4jHo=;
-	b=ZQuBeib2GwTQhwkBn0kM7TQuI9aZ1edw4xaaK33/AkyLc/sJ5aPYx0oPwViqcgNzovhV
-	 NHEXQcPYdb9rp9y+RqAA7UsV0qyt3c+FFfA0t45hspVCB+4sNYfM9vBRIPiI434/FUPkN
-	 fw/Sx6AS3deIqsZraQp5NsUEAZYck+a1d0xU9kVFsxuDBM9kiXs+y47K1FvC9+rhoMpzb
-	 jM+lyLpco29EPCC9mKLLgTXWmU6H6C4/ChkJhh8+298Kf2jf8v3b0uFdQSSltyR22kwxq
-	 51adRLneuQMR/0iaVthoM/Eo7eoqMz8YvSh8u9aBvrOrbH7IjSFb1Ukq/FoEkTXyWTw==
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=eGiTz5a4RWzDfrU+6uE44Y9DQD7JN0lrvIFzNORDJ0I=;
+	b=kEANc1k3I7U9ORhxvkUAKPPXHvLY5g/MNZQwjk4FGeFf/MIzdyq71KQEwsOKG0CYgFaQ
+	 sgqemei16QuppdTFO8+5adoQp5aPxH/VZKLhDaUIJl+uStWPPmR4cSUKmFpqexJXZZi5S
+	 pisM0fGZoUNiwi1Fcwg5VIwLnnCrJqv3ilhk6VpJbF2hQ+NJ1mJZAhxSEqluwdbS47hna
+	 s2jWigivcRkvQrNEFZbsXVgcJ8ME2i3IPEXF2Lvw4VRIEXes8QTCR6xLvnc58msc/ykPF
+	 IDjP0VQWKbuP/UHeVrGxgD+Nu4ycH1o2Dco+ca5z4IRJWSo53LmECE6+ctTvv9UMGkQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=caKU6pmP;
-	arc=none smtp.remote-ip=209.85.221.54
-Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=v8L9PHOr;
+	arc=none smtp.remote-ip=74.125.231.134
+Received: from mail-oo2-f6.google.com (mail-oo2-f6.google.com [74.125.231.134])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB47760A2611
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:07:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB47760A2611
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 256C6606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:07:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 256C6606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=caKU6pmP
-Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-48e3b22e971so901537f8f.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:07:43 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=v8L9PHOr
+Received: by mail-oo2-f6.google.com with SMTP id 46e09a7af769-862990b7bbbso487105a34.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:07:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795039662; x=1795644462; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8aEHZB7EqKIg6JAblchur0wLhe4h5mRiTbmkDXl4jHo=;
-        b=caKU6pmPXY5fhKk39Jp5MQNPtcDmypoXOlEKwE4dYEuo5oO1RlOvTjsJdmeyCs8ks5
-         Ce6vH1NmhW2q+8fW1yTtP5fzz4xH9jfsLa5RwKqxfccmOgbtoAVDxdtsUr41/mKa+8C8
-         ZWhqSp0QxG/RD3FqM61GwGWH46ztEd8KLLEh1XIfVX4IYzJ6gvHKI25o5fdu2akal/b2
-         VXPMHMHvCI5AjFEmg4bCz+EmXf8ES0iy2XzmVYKGvIjxIKliDTGXeQLn3PczkNxxwTsT
-         X9DKQSvTBrLczGhFYb8szVPY7W9zFnulLS8/ZZ78GZWBAup2rdNNOpHuWbgr8CrTFKUG
-         uWZg==
+        d=gmail.com; s=20260707; t=1795039668; x=1795644468; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=eGiTz5a4RWzDfrU+6uE44Y9DQD7JN0lrvIFzNORDJ0I=;
+        b=v8L9PHOrcf6EifRvOUzF1B/yU+AHRT/pt16rArYrVplOhD1uNp54Hi2sayarkYNx4y
+         SGKwZwsGeY3hymNTokhMwV0Is8nFmSWK/C/srm39x4AXDlVBGrEtzfqhphZpiqG4cyNh
+         OPhlfAsx3SNGvrgsWDjYaXdgOd1mdB/TkK5PrT6ZktQ446jnF/xC/82kilWjejCQ5emf
+         LzJa/Exf7jivcmHArr7VqwzQdV1ODOubkngAVZlJCsPV29HLCt0BcCH7Hj97N6+6YhWx
+         vx6vhtZhkipbMCTd9j0Bu/Kr6GW85nw+GLNcCm2oxh/y8+g+KEfcdwvHewCfCCfkTQ+G
+         uB7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795039662; x=1795644462;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8aEHZB7EqKIg6JAblchur0wLhe4h5mRiTbmkDXl4jHo=;
-        b=g/4aSP1JXuOVWEaLsfjicTOc3JBf4H4yClkOaaMUx2lL1fKwxrUix+SGR0PZuifrZ5
-         d7xVTWrDmntq/pFcJZCYVyEPPIB8GFY6dHZtN69rCo8sy31IJMWhUkFUSxeo+xPA7OZ0
-         m/Szv47OyiX3XlP8r3arxVrmYpB2WGiYyLkhiUkcnu7uVuDXRI23p8U0jsBdYfzoAzSu
-         U732IRX/jHwzopMc9QFpCb8+rmjYaRhZarMDN3y7A/1On0HdTbA86w3gk6YeALp9rQ5R
-         6S8hEY0h7WyDjfd3/K5oJ6L5gJWnPgeLjLP9o5qLu4XLGkHqx0MYAJSLMT0c83s0TGB7
-         NXeA==
-X-Forwarded-Encrypted: i=1; AL+hErGBUaoUk8W7PL9CsRR7jwVva2hg1eZTQLyH+DS31vwNc88DiDwGmH7xMG2nrrMoNKP+XjPg8lWdSoRmIjw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9bYTdHadUICoROpA7Ps1fBr2Dj9hHRBYxOKIzBKRzJc0e++ImF
-	7/Pp39B1r/cXz4ZqCgNST475LaBnawXluqzz43f5ZAXmuZBMCYS+uBPU
-X-Gm-Gg: AZFdTZdgDDCe56bC04ZlWPDLNP5eGdgcaQDy/dPG4/0xSzdG/0C1ZUyjQ+chXL3x7CR
-	HYFXO1abGnqmyYxHrPn551NrrssPV7+bQRaOxvWKB3Ze2IdYyVM4yuATTJ/NWRMBX9e6g+RW0kn
-	gsrrUaZCoZqRxdIUYuTBlO11abJegqh1RmJYM/npX/msqy1IPL3hbmto6WRgmetYh8cn1hCf0Zo
-	lfI9lhLO7i+kFis7Nw+1jRaRgV0frmFv4QIG6ip+pa+EY3DpLT65jOzF0YtBpfOUzCapjyo5IN/
-	3c0Ks/WTaVhExSPO3RiFc7gn3quQH/QXvRxKsimusS+yRZn7PB7JkZdBeeq+snuklCYZZQrmSDQ
-	tWrpXmQsz/JMnFnGsT8Wf97XsEc+cWVX4gxkm4J+tvpfT9hxjlcoCxDqbTkEn52c4OgtoP1TrWS
-	MfCAC0prZm9746+rrUekGUqt+5LaMYIu0EM0XGZ0ztOvF/geZeNWdqTpuRtwcnhXtUMByjEkWbN
-	eCpDAI4aWxrzPSVacO99fvrLWQsxAnalq2VF1iKdN4Da+xEx6GpAVIbniu+UnqV6Q/Ng5TZYJJq
-	r6t0wpnhAD0mWoq6bFGjPjy5NeMIsbkbth8FVE1QYZ1p42gKeMYctw2jlvEgneak/Ap4suRS
-X-Received: by 2002:a05:6000:2a88:b0:490:369b:f50e with SMTP id ffacd0b85a97d-4a63984c073mr7179459f8f.19.1795039662145;
-        Wed, 18 Nov 2026 14:07:42 -0800 (PST)
-Received: from Enricos-MacBook-Pro ([2a01:4b00:b82b:de00:c5e0:cc6:391:83e5])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65541f3f7sm7541073f8f.24.2026.11.18.14.07.41
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 18 Nov 2026 14:07:41 -0800 (PST)
-From: Enrico Lorenzoni <enricolorenzoni59@gmail.com>
-To: linux-media@vger.kernel.org,
-	Yasunari Takiguchi <Yasunari.Takiguchi@sony.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	Enrico Lorenzoni <enricolorenzoni59@gmail.com>
-Subject: [PATCH 3/3] media: cxd2880: lower routine tune and L1 messages to debug level
-Date: Wed, 18 Nov 2026 22:07:32 +0000
-Message-ID: <20261118220732.29246-4-enricolorenzoni59@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261118220732.29246-1-enricolorenzoni59@gmail.com>
-References: <20261118220732.29246-1-enricolorenzoni59@gmail.com>
+        d=1e100.net; s=20260707; t=1795039668; x=1795644468;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=eGiTz5a4RWzDfrU+6uE44Y9DQD7JN0lrvIFzNORDJ0I=;
+        b=txg2Cy8BGtioYxZNJZECiooYejX8zZYqLoWFlL+qvsUj+3kLi671VauONYQO9xLnrH
+         xTfoacLcce2JvQt9ypqELA8OEEx81LlHNBIcKtGz6VdSv50R5hlvyCsF7YRoJssdPRu5
+         44euCGZg9Of2TTSmNxjcPvru+MhQOCJHTuSyQDVZNbPqL3VCsO6Yy5a1Xv1jpvEec01o
+         xFOXiPGDNISYGxh7KHxXCfJlU8QHhqW1JNJULO37sUb3pfZtBJclysLL0oMA44JRE5gy
+         KOM615nMghvtnOZKNG4L4i6frv7ww3bxbd8cy/44GyfsRe05wztsJzu6uL+WXH2pQprh
+         07cA==
+X-Forwarded-Encrypted: i=1; AL+hErFo1WdxTzzfleHzoRtYJKRqr4u9bWO2bZEL3HLXqOXBbRGlV6MbUAlpfdgP4zg3ry+Ed7wlbicja6JTFbA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/lDdbqLlLxF4Z4Z6NXfKkgIg2Wfq6IBZQ4oFl+igV/1top5pc1
+	kvgDwI9jiXs9rvYlCK3TWmv4hshvMJrKjDYcJ5OG9vYuctrVlHln8ZUezdqDUqhU97Durw==
+X-Gm-Gg: AYBFou2UKWHiWa+dX2DqkyHzFlZjmyyCM+honNq1T7zwK2ZrNLlhtFzu4yNDoiXTX5I
+	X6FBT+J4Ra3dshnb8J+KptEsZqsCd/Xmhy58fI28TSKEjIY1T5lLN9caJjiEUGZEms294ZvRPOL
+	nWLFSwWcqfu4UEZ0gvVFd8jt9sbLa1UFOXOP4JmWl1JgcTg3HH+pHYq7KE9Sk+W06y4pGH5jZCN
+	yXjspvi8v/DA8e6yHLXD86aEhu3CWnBbKJTC1jKj1TaUC6wGqCLhLgxePxCaVOr3ll7DlRkwTG8
+	OD9I9sTFtkcH/KJGSDZF0FV66rAUgnjFiIPcoPN77IoWWTuk9HADCRG3pamIp+vhyHYwNFAKVsn
+	1mfmsDF5PBs2N7XLagIglCabys/f14LzuldTCtfIpj9oWbEYAqEX6tyB7hex/9myDAocNAijHtr
+	e/4EL2XPZrWP1pndAd4WPVL/JMNZ5w3Ipw3pFL+w8RLjK76i+dxaBe71ok79mjiyraY68n3vJn+
+	4ZKKsxAkcMsb/e/8O5WOQMOB2LCBmc5T7srrGivc1iHQagsTDIBYAOPgWN8/gDXaXTefWrdyMJM
+	5uGob9D7J5kSPBFYKLHZQgXNkX6UC4ymyLQyb8ozuIwCaiDqxWUuQtSGSjE4Py+/h3IlJwbioE8
+	hl625wATUp7lfNl7eUBiynvGDBF0H3yLpxHxbotm5ag==
+X-Received: by 2002:a05:6830:3495:b0:829:9992:20f0 with SMTP id 46e09a7af769-862f08c9ce4mr4131980a34.28.1795039667975;
+        Wed, 18 Nov 2026 14:07:47 -0800 (PST)
+Received: from [10.10.18.223] (wsip-64-207-253-118.tu.ok.cox.net. [64.207.253.118])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-862f021aae9sm3024029a34.18.2026.11.18.14.07.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 14:07:47 -0800 (PST)
+Message-ID: <2fb4e011-8ee8-408b-8684-f3bb8e1ac624@gmail.com>
+Date: Wed, 18 Nov 2026 16:07:45 -0600
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,103 +93,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 0/2] iio: adc: add mt6397 PMIC AUXADC support
+To: Jonathan Cameron <jic23@kernel.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, Roman Vivchar <rva333@protonmail.com>,
+ Luca Leonardo Scorcia <l.scorcia@gmail.com>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+ Andy Shevchenko <andriy.shevchenko@intel.com>
+References: <20261025-rbrue-suez-upstreaming-mt6397-auxadc-v5-0-5c3c7a5a1851@gmail.com>
+ <89c8cadb-0ccb-4aac-9b95-89f355beb24a@collabora.com>
+ <60eeaaf9-57db-4ca7-b4f5-bdec111dcdbb@collabora.com>
+ <4c64aa52-2b75-427e-8f26-c2ef7fc5b822@gmail.com>
+ <20261118215144.301c2467@jic23-hlaptop>
+Content-Language: en-US
+From: Ryan Brue <ryanbrue.dev@gmail.com>
+In-Reply-To: <20261118215144.301c2467@jic23-hlaptop>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-cxd2880_set_frontend() logs two lines at KERN_INFO on every tune:
+On 11/18/26 3:51 PM, Jonathan Cameron wrote:
+> That's indeed a common solution to cases where a binding header
+> is involved. So I'd do this - then chase with a patch next cycle
+> to use the define.
+>
+> J
 
-	cxd2880: cxd2880_set_frontend: sys:16 freq:...
-	cxd2880: cxd2880_set_frontend: tune result 0
+I jumped the gun a bit and sent out v3 of the suez dts earlier today 
+with the proposed change [1]. Should be all ready for AngeloGioacchino.
 
-and cxd2880_set_ber_per_period_t2() logs at KERN_INFO when the DVB-T2
-L1 signalling, the PLP information or the BB header cannot be read yet,
-which is the normal state before the demodulator has locked.
+[1] 
+https://lore.kernel.org/all/20261118-rbrue-suez-upstreaming-amazon-suez-dts-v3-1-c1a8b0febf35@gmail.com/
 
-A channel scan, or an application that retunes often (for example a
-media server rotating its tuners through the muxes), therefore fills the
-kernel log with routine messages. None of them reports a problem the
-user can act on.
-
-Print them with pr_debug() so they remain available through dynamic
-debug.
-
-The two set_frontend messages have been at debug level in an
-out-of-tree build of this driver on Raspberry Pi systems for several
-months.
-
-The change and this changelog were prepared with the help of an AI coding
-assistant (Anthropic Claude). I have reviewed them.
-
-Signed-off-by: Enrico Lorenzoni <enricolorenzoni59@gmail.com> 
----
- .../media/dvb-frontends/cxd2880/cxd2880_top.c    | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/media/dvb-frontends/cxd2880/cxd2880_top.c b/drivers/media/dvb-frontends/cxd2880/cxd2880_top.c
-index 4daebb7ff..ca101b51b 100644
---- a/drivers/media/dvb-frontends/cxd2880/cxd2880_top.c
-+++ b/drivers/media/dvb-frontends/cxd2880/cxd2880_top.c
-@@ -825,20 +825,20 @@ static int cxd2880_set_ber_per_period_t2(struct dvb_frontend *fe)
- 
- 	ret = cxd2880_tnrdmd_dvbt2_mon_l1_pre(&priv->tnrdmd, &l1pre);
- 	if (ret) {
--		pr_info("l1 pre error\n");
-+		pr_debug("l1 pre error\n");
- 		goto error_ber_setting;
- 	}
- 
- 	ret = cxd2880_tnrdmd_dvbt2_mon_active_plp(&priv->tnrdmd,
- 						  CXD2880_DVBT2_PLP_DATA, &plp);
- 	if (ret) {
--		pr_info("plp info error\n");
-+		pr_debug("plp info error\n");
- 		goto error_ber_setting;
- 	}
- 
- 	ret = cxd2880_tnrdmd_dvbt2_mon_l1_post(&priv->tnrdmd, &l1post);
- 	if (ret) {
--		pr_info("l1 post error\n");
-+		pr_debug("l1 post error\n");
- 		goto error_ber_setting;
- 	}
- 
-@@ -906,7 +906,7 @@ static int cxd2880_set_ber_per_period_t2(struct dvb_frontend *fe)
- 						CXD2880_DVBT2_PLP_DATA,
- 						&bbheader);
- 	if (ret) {
--		pr_info("bb header error\n");
-+		pr_debug("bb header error\n");
- 		goto error_ucblock_setting;
- 	}
- 
-@@ -925,7 +925,7 @@ static int cxd2880_set_ber_per_period_t2(struct dvb_frontend *fe)
- 			(pre_ber_rate * kbch_tbl[plp.fec][plp.plp_cr] + 748) /
- 			1496;
- 	} else {
--		pr_info("plp mode is not Normal or HEM\n");
-+		pr_debug("plp mode is not Normal or HEM\n");
- 		goto error_ucblock_setting;
- 	}
- 
-@@ -1087,8 +1087,8 @@ static int cxd2880_set_frontend(struct dvb_frontend *fe)
- 
- 	priv->s = 0;
- 
--	pr_info("sys:%d freq:%d bw:%d\n",
--		c->delivery_system, c->frequency, bw);
-+	pr_debug("sys:%d freq:%d bw:%d\n",
-+		 c->delivery_system, c->frequency, bw);
- 	mutex_lock(priv->spi_mutex);
- 	if (c->delivery_system == SYS_DVBT) {
- 		priv->tnrdmd.sys = CXD2880_DTV_SYS_DVBT;
-@@ -1112,7 +1112,7 @@ static int cxd2880_set_frontend(struct dvb_frontend *fe)
- 	}
- 	mutex_unlock(priv->spi_mutex);
- 
--	pr_info("tune result %d\n", ret);
-+	pr_debug("tune result %d\n", ret);
- 
- 	return ret;
- }
--- 
-2.47.3
-
+Thanks,
+Ryan Brue
