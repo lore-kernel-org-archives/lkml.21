@@ -1,87 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.201
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795021470;
-	b=1TUpverTaQHjioFrCRZun7UaAYNXXEQynZ/OKDgFzSjk3prjn3COsCFyfolOx7yjCHf2
-	 hWMpYqf4P0UWXJ0j5TIDUTsAFkxkzflvdF3MgrynvxLmQjJntx6/s/8arMdlpU9ZeeiqW
-	 u5j0lty0KyRgNLHw3PpR3znNGf4Fs7HaGfJrBEAzyVKex44h18SgVVJYtZEBqnaSPlnOL
-	 QRqPa71Eefqy/FMs8JmXthCqdM2+sxVDxxSsJxM/cdkxyPYY3PPUAWXlpnDG/LZtJdNfX
-	 xZJXH4eiOkXqYUHfu1Xk5RMH7P6CX2lBR2I8Q0ZDtr4sRoEVYVRoXDlNy+U7e8bMOvg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795021470;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:Date:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key;
-	bh=+VAwruKlwA5B2zOO75UhK6ZMJJRYBi0nBjmXwrjGQpE=;
-	b=kbY8tMkeEgcaRNEes7Qx7auIwxxZ3UajFhUNO/2VSbqsFwTwdmqKbvFJngpcgzb4V372
-	 y4lrpo69ibyJLoefZ4aLa0PVMUjMIjKph9RQ75M0coOkBENeiXGUWsPsIOFH+CuFrBXgH
-	 PtrnOeAB4bFaZHtQvdCHjGg5vd+fYs5qp3iGgFFAigunW8tqc/AWgmFrnSdFvDcaYJywW
-	 OfrcmT/HL8gfcVQwQfqAnWQlPx2BNSROc3L3+92K1FdKOd2zuqTjCivTKpE8a4SD1F/r+
-	 4pLxCahEtLRRE9jr3ODkoFxlsb1XMd2SlSdjOz93YqA+k4ITsC/x8ZJo7Lfr3N8nbjw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="lx9r/cZN";
-	arc=none smtp.remote-ip=74.125.231.201
-Received: from mail-oi2-f9.google.com (mail-oi2-f9.google.com [74.125.231.201])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.15
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795021497;
+	b=ebC42lUkiJfDYMJRGCry827/vdBSRoAm8u3k4NjnEWb31yxJJRWR+Z5OD6r4WeydOAY4
+	 ZxPSNL49ViRrNL7cLMuQcBywSWaw8pdNGsWhWCz95wd6SxlqFUN9weDwyMaCBvMpHWcJB
+	 u1sCodErzVy5HgNIRk4fKrQrWrR7LAS5Te5EC3E3qZssgwXmyup9QTjRNUZSIGJ91kZiz
+	 fHbHmp8XmCA3hapdU0naPyVEDi2ra9ciyB9HmhRC6DgzqOwEjwLG5tPzwUaHz/tS9p+oa
+	 Ak56czBon0XV0qTnCWdvpKg9CrK4MCWYEIoH0AgZiDLyMoh+gModAYAzf/1kw3N9SsA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795021497;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=GAO6IYhoBQXWxy//8MhmCY3Mz+rDP6zjTTPSdyEpsA4=;
+	b=PdNQlvtTA0jWYIpc1J5sp/Yl5N+GWcRtAdAv5tJ5074AjCi5TqRr22lboJt0o/6K2L45
+	 l93qt90/2XUFZ61Jx2jopFoOo5ifdbbC7ddlJm2mcg3oXe5RYS7pLrtw0SD30FgFKnQvm
+	 UCeBpkJqDE80eqaUNzZbzkvK8rmTVExLJn0E7gUZABkMRNSxLa69K2XQB+9AS28Opr+cw
+	 xKs6RtLHP6tGFMeaBmvAUd/cMtJDll5JVnClTKglii3KUY2e4sZpqsvUlqZXpAHfdRhvk
+	 ar6jI7F42DHQ1TfH7SS4lp3wzbXcKGp6R68FL99JR2dMNCUTh0vQ3uWNmfIQ7f+RNXg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=nNcgR2xs;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.15
+Received: from DU2PR03CU002.outbound.protection.outlook.com (mail-northeuropeazon11011015.outbound.protection.outlook.com [52.101.65.15])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2670C60A261A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:04:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2670C60A261A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5DA8660A2608;
+	Wed, 18 Nov 2026 17:04:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5DA8660A2608
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lx9r/cZN
-Received: by mail-oi2-f9.google.com with SMTP id 5614622812f47-57391a89682so220399b6e.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:04:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795021468; x=1795626268; darn=vger.kernel.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=+VAwruKlwA5B2zOO75UhK6ZMJJRYBi0nBjmXwrjGQpE=;
-        b=lx9r/cZNkPi1z323XsjTP1fdJIt5OGRKUOWD8LKSuPEXwNPKWq8QrTOumsRIkNxLDw
-         CQl7QNX/FKGm0FCLPK+WsAU0axVsXB5lggg8ss4ECVN3zO2Hl1kWe27+g2prZ5v1hcPU
-         UCsEiPbNAw6jsxhY5UKNMUtlF2ER6NfM1sweqwxrohgUIHoRM6hJ7QpilFC2at7iwF0R
-         Mev4eQknESszradFKpeZbqNiNtlz42FKv5G8VtVmImAGloDm2ZNy6iRWCSBGnQ3Bk7Vc
-         nQex7JwDgGLB1508rkV/RhqPgv4wdYIjoN6OEdZrg9Kc+k3+C+UzmPpqh9p98zRkvoZu
-         qrhw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795021468; x=1795626268;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=+VAwruKlwA5B2zOO75UhK6ZMJJRYBi0nBjmXwrjGQpE=;
-        b=VCESnnAbwTyEdTKTED22wcjLo6p7Fh/fS8KagzJo5XS0MQQ1I+Rq8TUJa/LsiLS+FJ
-         6VEuv4iN5e5q6U94uYVLdGcq+EpEOwjbUM8LbsuKvYTMlYCWdYnuJjpuDOR1WT1jLSYb
-         vb+o/2HYdpXHBzNs0zKgQDE+K5HTs4XYm+JzgdsHpZ7lxEHNEqCYTvyuOzpZippWrdpT
-         J/Bg75gT6XZrPhDfFvD5x0/iHAXw9YuAbkqplHBIA8ePVOu47OSe+eXZjOvb4WCDQYmX
-         z2bE6nEabtyaeLYqz6rnHSdA8uexyUBydd7DUqoe5Le6iOlnyvyqr+4jMnUn51s8v8TC
-         5Fmw==
-X-Gm-Message-State: APuU4Z/2iBuQziP3CXdu80YCyAZW1mGSn/84u5AMq23Cz/kLEaCWsX77
-	Re5Lxc5w3PxWTHop7heQnfgImyTSFuNo/Q5MIcgiB7EdFkmWagGPAn/c
-X-Gm-Gg: AYBFou37ZwuhPkHB0/y8b3/uWE3hTEnZ66Prgtx2AvZVhd98EC6YDSKHr6UDipWFqj8
-	lv59mCKMyP0lGmvtf3uQqdfXAkGmutHslZ8LjVOgSwlaPrudRqwiyuYqKtMwOcsxKt2RURn/e5R
-	uHgqZF3jz7wpNGNPedYXpodxGDC6J1Z9rSeSqxEGb3L34LIIPx/HxZqY6yISas5qYZgVAMcpHI5
-	TBABh/+a1dIqui+HBUI66hW8kALFGq20m4PybFE4RKGncncAjQvFb4OobKljtyXqwC4UU3UgGBa
-	3Qdfe2QUqiMfK2YMD7KjJIZu+TTMLJfCrHBGWEzRPZ/P5gxFEiG0IO5DafdLmmoaH3kMXQOW7fj
-	nuYFpJfJHSuiSBoA19Q5ilj3lMtuJwyA3b6FixsBYnQaQkKvIRaGJXR86v6MnO7UXduEsIkb7RC
-	aF2gZdoHhMexN5LGXYzU8HvRmgKvbnWL/LpadI3PI3nVcZFGOox3e8F2FmSblPD0ezkL6zuogGL
-	LPTB4Shw83+1RLcEeP8colCCAwTnuJrqPsbs38vBHnaIdXFpKvWX/BwKoCAG2gP+9P3CESRdfmA
-	fVej+h4xbQa1q+ON41tZFwkrSXH19V4hw4n919b+GbDqngLwY38oyeP7FJJ1Yxe6c5PvLATMyin
-	zzsPBARuWy/LGfEHCJAE=
-X-Received: by 2002:a05:6808:3195:b0:573:147e:341d with SMTP id 5614622812f47-5773f73e8d2mr3573220b6e.40.1795021467755;
-        Wed, 18 Nov 2026 09:04:27 -0800 (PST)
-Received: from [10.10.18.223] (wsip-64-207-253-118.tu.ok.cox.net. [64.207.253.118])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-5777a8a5b72sm1918967b6e.7.2026.11.18.09.04.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 09:04:27 -0800 (PST)
-From: Ryan Brue <ryanbrue.dev@gmail.com>
-Date: Wed, 18 Nov 2026 11:04:25 -0600
-Subject: [PATCH v3] arm64: dts: mediatek: Add MT8173 Amazon suez
+	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=nNcgR2xs
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gy3y+mFsBSxXSlnDN0u9HkYtyV9SfueZot4AkEWro1tm5fuhgyQCdGrvaoerHsOgjxGAgNTNsGrxdczcEArKUg267R78M2wc7SsoIaprCbRg0+GjfT6zi1UoxF0sAZojgnARaDDnjE+H7B7Px0P5ri4wKokVPcfN87Vns0hJJRWntjRDPSv0x+9duonswP+hQ6qhjourJWHMC648VjK7XPoTvw1rEK84EORsT1Np7y5meuA6gg3hNySQFUa3+Cf0tbBEgHIyen3iudNKEVAF0JdXhuTB5xJyulWIYbPU5Ibj0CGKVuQJ7SehmLfdV/Y2s1iGqi5c3V7JeWmzN11L+A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GAO6IYhoBQXWxy//8MhmCY3Mz+rDP6zjTTPSdyEpsA4=;
+ b=ILJTuZdeABNeDTlTEuAv5kvcZKGHh2WjxKVMi9+qn2YIfYlv81zUrkZHgxIsgkyAMjtmNvS7gd+uYvLkITDG3SedTEqeC4KQRzQaU4DHvYdidddWlokq7KUdoU0oZ3zwA+qeICzoyxf/Th4HUtuVMCf5xltnX/PTHUZ6jwRPwpCPf7MXKWPkPVLZnJQvYtk8CVz1YHvwj47DUMTMYmCviRTiZQNi8INysy3523QrK1UTAcz6oKpjCP36bM5hHBuCkZJsMl+w+tDwJoBt4KQCTD+js9j2w/HhzWN4T6UTooEg24Lxiwwdwmobv2T0mGymCLAzygnuuBHm8as4oaYg+A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GAO6IYhoBQXWxy//8MhmCY3Mz+rDP6zjTTPSdyEpsA4=;
+ b=nNcgR2xs2C9YLuiFmtOWb/ZuKl+fm0TTZTFmO6IITUhWtjG3UbBnh16oKJThDMom4yYolTcLpcFk0dbG4keqP0i+wD59nR0zIgmnlvRjvyU0T84iCIj1YKwYQnlnm6Gcl23iUnR0VE16eilnf5U9PAryyQrKE0nBO84+UH5yUhL55Us7FnKgVlnoiUFolu5dx3hx9N0UGXbfHGJIPWH5Y5AcyYcDdFsV1a7jsQ6Lk06vmEQ25m9jj6TJ0Zy9Yu53SLTmXBoxSR/suTLosJ9LxoUyVs0TWUZqbJTYM6/gbk9F86v6hYBfsRlGOho33dVpMLI8pmCyZ/9ioPlw2RNMHw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by PAWPR04MB9814.eurprd04.prod.outlook.com (2603:10a6:102:37f::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 17:04:52 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
+ 17:04:52 +0000
+Date: Wed, 18 Nov 2026 11:04:44 -0600
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Amita Mishra <amitamishra@google.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Dan Williams <djbw@kernel.org>, dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] dmaengine: dmatest: terminate channel on timeout or error
+Message-ID: <av3arNfXL8zWJv3P@SMW015318>
+References: <20261118100839.3090172-1-amitamishra@google.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118100839.3090172-1-amitamishra@google.com>
+X-ClientProxiedBy: PH2PEPF0000385A.namprd17.prod.outlook.com
+ (2603:10b6:518:1::7c) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,815 +96,118 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-rbrue-suez-upstreaming-amazon-suez-dts-v3-1-c1a8b0febf35@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAA/43PPW6EMBAF4KtYrnci24ANVLlHlMI/Y3akGG9sQ
- MmuuHsUaLbccl7xvTcPXrEQVj6yBy+4UaU885E1F8b91c4TAgU+Mq6E0lKoFoorK0Jd8Q7rrS4
- FbaJ5ApvsPc9nHpYK0mvjjDShMQ2/MH4rGOnnKPr4PO+C3ytVWs6QO1sRfE6JlpHJ1ocwiDY4L
- VTfO9OrGNH6boit10pjlBKH2PF/60p1yeX3+GGTB3bMlVK+OneTIMAY1xof0Bqh3qdk6evN53R
- UbOqZbV5mFQgIjet73UXbifjM7vv+B1j4aoB/AQAA
-X-Change-ID: 20261024-rbrue-suez-upstreaming-amazon-suez-dts-1c67b717d373
-To: Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Kees Cook <kees@kernel.org>, 
- Tony Luck <tony.luck@intel.com>, 
- "Guilherme G. Piccoli" <gpiccoli@igalia.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
- Ryan Brue <ryanbrue.dev@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795021466; l=21735;
- i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
- bh=bRB9yJzzr6yY8Fn9POfNtg+h1gXTtRHxvzDEmRoY+sg=;
- b=uWhgNnDK/nVvODlcjF6m0avfVs24jTTwYmyNi6UN5zIHOaiiYuSq7FeWvpBvuyJg3lqic1vtZ
- WMysCUW8iG3DRhM+7g7R/hY+haq111uE0RKQg13Sv9xBCE2FlWhpnpg
-X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
- pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|PAWPR04MB9814:EE_
+X-MS-Office365-Filtering-Correlation-Id: f6a8e5b1-7504-4e9f-7dc9-08df45960fe4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|376014|1800799024|19092799006|23010399003|10067099003|11063799006|56012099006|261026140227099003|261026121527099003|261028144727099003|261021121427099003|261022075727099003|261022105027099003|261102123227099003|261009223027099003|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	jXuQPOj1f1o5zQwiSVC0hjPhSFKTJ5cxrBf02sXOOrZ+FtAKJ0slChPDjM3WeJJx54NgFKIc8gWc0IC1pxvW3FNodUEtiI5zh4xX4ggC1FhQTIrgWuG15aGRAWv0pIMYnJGd99oV6WGI5HA2GshZxdbAvK08UchnXgJ6oK4j7PpSO/CBDjm5i4R+52nWclQkgaZhI/1iDe7XB3pF1C69DzdKYHLAdFQCHHZ2ynztXihDly4c5EVT8feKhOFyQuqOLUPu3+Q9GvB6UQiu4csHLK035/56X1vUehHbVeAjin9QlBix4VI4UjOLLX9w82ORByKvEcFR6ssguLJYajGmCZea+PSf7jmmK+gEk2EUPTMc70mGRL467JxQDn6o2W60+zNQc34ZzigOkIig7+XCxBTL5sxDhktw55tCnrziO8F86TM4sXh9jsWC7puoOngKLTZt0ceYGCN5sHx1cyPDFzXxLks/Z4tQqPA0S2vGfWWdXF15AV1XsfHkacuLoQ1Bk5Ycwj7VDByBZM21nQyY4IhA7t5d6tXQchRLN/lJr7yXwhVhF3655ilTtTXh/nu9LrDaR467eBADpH8MPqebJ15x3mrXlc4aPWJOxm2cV1DEmT2i81wSdKil0A5tPQkYTaPACMCyty8uhAC7Gjv032g86pF+F7YJ88WoThheCuI=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(19092799006)(23010399003)(10067099003)(11063799006)(56012099006)(261026140227099003)(261026121527099003)(261028144727099003)(261021121427099003)(261022075727099003)(261022105027099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?rXV5JSo/9EUmkOn+9Kk8XPCx1usYsQZ0AGvZHmtRkxiDp3Lv5Fo7vZSLRkl4?=
+ =?us-ascii?Q?98qicUatuWIsSQZje0qDwucQYNJhOUGyis9dUbBaOewe4/iw76uDzgh2ZB2U?=
+ =?us-ascii?Q?8ETznaxD/yss3E89mhIcqa33qyez/C0ZmC9ErSBLMnXGJnIY8JhrbnwD1lgY?=
+ =?us-ascii?Q?anjrsH9uJ31O0JogZvRTh7DajS1JJ7m7uFQWMgtMHityeBIaCuJXq4ehZTFL?=
+ =?us-ascii?Q?MEWuelfJwfr5eMGMe06ciTMm/+gzwqJsMhXX3C6j2WHg2rxMF8wKX3tZk4ky?=
+ =?us-ascii?Q?7F14qwRR0Xh96n8igEtc52AcutBb//CFqFloNa4trEjy3pgmA9uwtvhBwMbo?=
+ =?us-ascii?Q?WhVuOA97VgJb/5+6JwiNPaIN8v7nypV+tH32olcyNABD70Zdacy/AddjmpMF?=
+ =?us-ascii?Q?JDpyfcwhgOSvwBfn/CmjTC9B2eSZOd5Nf/7n3kYNTj/3MgY2vi+jDKP5IF3x?=
+ =?us-ascii?Q?7TFfDIQcEnfU11HKt3vRr5eLhVYVt6gI1xWpgWyjipsxOJYfUV8G8hFga5OJ?=
+ =?us-ascii?Q?vXYNO0qIDGoTa1MXJ6tn7QUsfYJk77Xgu7hAVhUUuHj/zu0miJVgeaLiQl62?=
+ =?us-ascii?Q?OBML80AeEDQ/sJqb4Y11tVBTsjTB8shmMKYio0S6g74FY9CASCdzhKkaPld4?=
+ =?us-ascii?Q?/NFvM4Zl4Kjwir4b05qx3MP8npfLI/JLn325IgAOjWicraprKKbdrLvbYr7i?=
+ =?us-ascii?Q?LreE+xDdwv3ioM7F6UU2+gV6eH9CS88IReOu/sK7fkq9qlcRhOBL3jpoLG5F?=
+ =?us-ascii?Q?A6xANnSN5Kz8/g4FvbcyBhMBiNvO+JpOezK7o3XXIQ/LBngGui64yI8ofSvg?=
+ =?us-ascii?Q?MRi0kQuJVsV2Np1rZ4mLk9KfnqiOFZve9oJss6n2UieaMRm3usZuXNr9kl5K?=
+ =?us-ascii?Q?qMnSyQv1QGWQFmRnaIEqQNbD2U0OR0uh75SMv7dOr5xe6tmLPbHjTWtlzxqZ?=
+ =?us-ascii?Q?+zbuE9AcjMlWyLd3mm6qOPqnMV77RCogIelNWUwZN4c9sFZ4deqYFL34Qo4z?=
+ =?us-ascii?Q?CHRQctUt03VVNbMPsFoYV6YyqNNo7EFzTGXkSDeV/VZ9eef90b2efOWvi+Bc?=
+ =?us-ascii?Q?8NFZWKOqh4taoidnHuCMFFNrVeoa1oiuCsl5HX8WGrQJcueIO+HSQ+0v3YFw?=
+ =?us-ascii?Q?teCA2zPnuNNGGSSUDNvGHkKnSbea/Hs48lDqjTlPFwO2lJq4lyTrzub6e5jk?=
+ =?us-ascii?Q?Rfbcyhg+60ZruBvQpLteTFX05huRdOGkFkjVaWK8mxFhXXBbd3Et6Uox4RAA?=
+ =?us-ascii?Q?6Y4MZAjmk+nYlDwf977eu9fazqCS80eAk5V6JiQH/3bGXhkBOU6P6QK3i0yb?=
+ =?us-ascii?Q?0nsvu5GA3hYb29X9yIsPbYPkOhxs98MSpsQW0w2wDKcvVoPBWohuu1UAaLRo?=
+ =?us-ascii?Q?9LiFhApFihZ1lfbWqsfaDBzlkikxL8qMV9iE63hakEi45bRr6BLPpf3LDGyG?=
+ =?us-ascii?Q?RcDtXmNPEOpf/7TfOCQCYw+ub3dHoQORKi4X4MKbJqNIUplQlm6tPbW8NdJm?=
+ =?us-ascii?Q?IOEfQB/3u2k0aqYvs30Sbt4prQGvbWZoap+WnP2iE2sSUyXHv839sLny31Rh?=
+ =?us-ascii?Q?ZXD3sUGaT0G1KKqBJHkeN6D5O7U0t7JQBuPc4szo24vUg3mM3zxpPZ0/XgHs?=
+ =?us-ascii?Q?FJ3NpaOmWMudx996RCIHnYcC5/EzWAx3XibO5rdTahFAD8Jmtl3PIDIvAZv0?=
+ =?us-ascii?Q?HjZqAkWxmy5o6mDizYm6QF4z3EAgPX6FpF6v3Er+WWfEyehlSIPFcs4FcNxf?=
+ =?us-ascii?Q?WQNIFeI0YyUfCVjrCfthKAnTGZPq0uGGszjzuqN5oycNLat5Uk+K?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f6a8e5b1-7504-4e9f-7dc9-08df45960fe4
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 17:04:52.4799
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: gGyKO1zeePtj5irvJ6PK5vuyzvpihmrsK4lymO3vmrMkYd0hewfqw6MrkGXCL2Krc+U65wB8q3D/ot8LWKPYvnns8oiHivBkgwQeTiRP4BoR42MZPbY5+dsCvHHIVaCf
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB9814
 
-Add a device tree for the Amazon Fire HD 10 (2017), codename suez, an
-MT8173 tablet with an MT6397 PMIC and 2 GiB of RAM.
+On Wed, Nov 18, 2026 at 10:08:39AM +0000, Amita Mishra wrote:
+> [You don't often get email from amitamishra@google.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>
+> In interrupt mode (!params->polled), when wait_event_freezable_timeout()
+> times out (!done->done) or dma_async_is_tx_complete() reports a
+> non-DMA_COMPLETE status, dmatest_func() jumps to error_unmap_continue and
+> calls dmaengine_unmap_put() without terminating the DMA channel first.
+> Channel termination via dmaengine_terminate_sync() only happens later
+> when the test thread exits, unlike the polled path which terminates the
+> channel immediately after dma_sync_wait().
+>
+> If the DMA controller is still actively transferring when the source and
+> destination buffers are unmapped, an IOMMU-backed DMA engine will trigger
+> use-after-unmap translation faults, or overwrite the buffers while the
+> next iteration reinitializes them. In addition, if the timed-out transfer
+> completes during a subsequent iteration, its callback sets the shared
+> per-thread done flag and wakes done_wait prematurely, causing the next
+> iteration to fail with "completion busy status".
+>
+> Terminate the channel with dmaengine_terminate_sync() on both the timeout
+> and non-DMA_COMPLETE error paths before unmapping the buffers, skipping
+> the redundant call on timeout when params->polled has already terminated
+> the channel.
+>
+> Fixes: 4076e755dbec ("dmatest: convert to dmaengine_unmap_data")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Amita Mishra <amitamishra@google.com>
+> ---
 
-This supports the eMMC, the microSD slot, the micro-B port as a USB
-peripheral, the panel and its backlight, the touchscreen, the
-accelerometer, the light sensor, the charger, the lid switch, the power
-and volume keys, CPU frequency scaling, the board's skin thermistors and
-the battery thermistor.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-The volume keys are keys 0 and 1 of the SoC keypad. The controller
-reports a pressed key in every row of its column, so the whole 8 by 9
-layout is described, which keeps each reported position inside the key
-map.
-
-The battery thermistor, a 47 kOhm NTC behind a 24 kOhm pull-up to 1.2 V,
-is on the MT6397's AUXADC: the SoC's AUXADC only has the board
-thermistors, and the charger has no ADC.
-
-The board needs a PSCI 1.0 firmware, such as upstream TF-A. The stock
-BL31's CPU_ON never powers on the secondary cores.
-
-Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
----
-This adds the Amazon Fire HD 10 (2017), codename suez, an MT8173 tablet
-with an MT6397 PMIC.
-
-v2's board compatible and keypad node are in v7.4-next/dts64; this is
-the remaining board patch, on top of them.
-
-v2's board patch used the MT6397 AUXADC header from the AUXADC binding
-[1], which is in IIO for 7.5, so it could not be applied on its own
-this cycle. This version uses the channel number instead and drops the
-include; it builds on v7.4-next/dts64. I will switch it back to the
-macro once both are in mainline.
-
-The board needs a PSCI 1.0 firmware. The stock BL31 implements PSCI 0.2,
-and its CPU_ON never powers on a secondary core, so with this device tree
-the stock firmware ends in a watchdog reset loop. On this board it runs
-TF-A's mt8173 port as BL31, started from the stock preloader by a small
-loader that hands it its parameters, with U-Boot as BL33.
-
-On an upstream kernel the panel also needs the DSI command mode fix [2],
-which is in mediatek-drm-next. If the bootloader leaves the display
-scanning out, as the stock one does, the board also needs the MediaTek
-power domain fix [3].
-
-Tested on the board, booting this device tree on a v7.4-rc3 based
-kernel. On v7.4-next/dts64, dtbs_check reports the AUXADC and keypad
-compatibles, whose bindings are in IIO and input for 7.5, and
-mt8173.dtsi's mmsys assigned-clocks warning, which every MT8173 board
-has. With those two bindings applied, only the mmsys warning remains.
-
-This series was developed with the help of an LLM.
-
-[1] https://lore.kernel.org/all/20261025-rbrue-suez-upstreaming-mt6397-auxadc-v5-0-5c3c7a5a1851@gmail.com/
-[2] https://lore.kernel.org/all/20261004-rbrue-suez-upstreaming-mtk-dsi-cmd-mode-v1-1-53a4f46ca489@gmail.com/
-[3] https://lore.kernel.org/all/20261110-rbrue-suez-upstreaming-mtk-pmdomain-defer-v2-1-3ad9ad0cc67c@gmail.com/
----
-Changes in v3:
-- Only the board patch. The binding and the keypad node are applied
-- Use the AUXADC channel number instead of MT6397_AUXADC_BAT_TEMP, so
-  the board builds without the IIO tree (Angelo)
-- Link to v2: https://lore.kernel.org/r/20261113-rbrue-suez-upstreaming-amazon-suez-dts-v2-0-d3b8865fa50f@gmail.com
-
-Changes in v2:
-- Add the board in one patch. The volume keys and the PMIC AUXADC are no
-  longer separate patches, and the keypad node comes before the board
-  (Krzysztof)
-- Don't disable the VPU, the video codecs, and the MDP. They work on this
-  board with upstream TF-A and the MDP fix
-- Collect Krzysztof's Acked-by on the binding
-- Link to v1: https://lore.kernel.org/r/20261111-rbrue-suez-upstreaming-amazon-suez-dts-v1-0-77b47cdea702@gmail.com
----
-The key map, the debounce time and the thermistor numbers are the vendor
-kernel's.
----
- arch/arm64/boot/dts/mediatek/Makefile              |   1 +
- .../arm64/boot/dts/mediatek/mt8173-amazon-suez.dts | 678 +++++++++++++++++++++
- 2 files changed, 679 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/mediatek/Makefile
-index a86fb313b1a9..ec85d7c49d0d 100644
---- a/arch/arm64/boot/dts/mediatek/Makefile
-+++ b/arch/arm64/boot/dts/mediatek/Makefile
-@@ -93,6 +93,7 @@ mt7988a-bananapi-bpi-r4-pro-8x-sd-cn18-dtbs := \
- 	mt7988a-bananapi-bpi-r4-pro-cn18.dtbo
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt7988a-bananapi-bpi-r4-pro-8x-sd-cn18.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8167-pumpkin.dtb
-+dtb-$(CONFIG_ARCH_MEDIATEK) += mt8173-amazon-suez.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8173-elm.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8173-elm-hana.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8173-elm-hana-rev7.dtb
-diff --git a/arch/arm64/boot/dts/mediatek/mt8173-amazon-suez.dts b/arch/arm64/boot/dts/mediatek/mt8173-amazon-suez.dts
-new file mode 100644
-index 000000000000..68ccf10d1521
---- /dev/null
-+++ b/arch/arm64/boot/dts/mediatek/mt8173-amazon-suez.dts
-@@ -0,0 +1,678 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright (c) 2026 Ryan Brue <ryanbrue.dev@gmail.com>
-+ */
-+
-+/dts-v1/;
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/input.h>
-+#include "mt8173.dtsi"
-+
-+/ {
-+	model = "Amazon Fire HD 10 (2017)";
-+	chassis-type = "tablet";
-+	compatible = "amazon,suez", "mediatek,mt8173";
-+
-+	aliases {
-+		mmc0 = &mmc0;
-+		mmc1 = &mmc1;
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:921600n8";
-+	};
-+
-+	lid-switch {
-+		compatible = "gpio-keys";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&hall_pins>;
-+
-+		switch-lid {
-+			label = "hall-effect-sensor";
-+			gpios = <&pio 124 GPIO_ACTIVE_LOW>;
-+			linux,input-type = <EV_SW>;
-+			linux,code = <SW_LID>;
-+			debounce-interval = <20>;
-+		};
-+	};
-+
-+	memory@40000000 {
-+		device_type = "memory";
-+		reg = <0 0x40000000 0 0x80000000>;
-+	};
-+
-+	backlight_enable: regulator-backlight-enable {
-+		compatible = "regulator-fixed";
-+		regulator-name = "backlight_enable";
-+		gpio = <&mt6397pin 14 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		ramoops@90000000 {
-+			compatible = "ramoops";
-+			reg = <0 0x90000000 0 0x80000>;
-+			console-size = <0x40000>;
-+			record-size = <0x8000>;
-+			ftrace-size = <0x20000>;
-+		};
-+	};
-+
-+	/* Board skin thermistors: 10 kOhm NTCs under 39 kOhm pull-ups to 1.8 V */
-+	thermistor-0 {
-+		compatible = "murata,ncp15xh103";
-+		io-channels = <&auxadc 0>;
-+		pullup-uv = <1800000>;
-+		pullup-ohm = <39000>;
-+		pulldown-ohm = <0>;
-+	};
-+
-+	thermistor-1 {
-+		compatible = "murata,ncp15xh103";
-+		io-channels = <&auxadc 1>;
-+		pullup-uv = <1800000>;
-+		pullup-ohm = <39000>;
-+		pulldown-ohm = <0>;
-+	};
-+
-+	thermistor-2 {
-+		compatible = "murata,ncp15xh103";
-+		io-channels = <&auxadc 12>;
-+		pullup-uv = <1800000>;
-+		pullup-ohm = <39000>;
-+		pulldown-ohm = <0>;
-+	};
-+
-+	/* The battery pack's thermistor */
-+	thermistor-battery {
-+		compatible = "murata,ncp15wb473";
-+		io-channels = <&pmic_auxadc 1>;
-+		pullup-uv = <1200000>;
-+		pullup-ohm = <24000>;
-+		pulldown-ohm = <0>;
-+	};
-+};
-+
-+&cpu0 {
-+	proc-supply = <&mt6397_vpca15_reg>;
-+};
-+
-+&cpu1 {
-+	proc-supply = <&mt6397_vpca15_reg>;
-+};
-+
-+&cpu2 {
-+	proc-supply = <&mt6311_vcpu_reg>;
-+	sram-supply = <&mt6397_vsramca7_reg>;
-+};
-+
-+&cpu3 {
-+	proc-supply = <&mt6311_vcpu_reg>;
-+	sram-supply = <&mt6397_vsramca7_reg>;
-+};
-+
-+&dsi0 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	status = "okay";
-+
-+	panel@0 {
-+		compatible = "boe,tv101wum-nm0", "novatek,nt51021";
-+		reg = <0>;
-+		vdd-supply = <&mt6397_vgp6_reg>;
-+		avdd-supply = <&mt6397_vgp6_reg>;
-+		havdd-supply = <&mt6397_vgp6_reg>;
-+		reset-gpios = <&pio 105 GPIO_ACTIVE_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&panel_pins>;
-+		backlight = <&backlight_lcd>;
-+
-+		port {
-+			panel_in: endpoint {
-+				remote-endpoint = <&dsi0_out>;
-+			};
-+		};
-+	};
-+
-+	port {
-+		dsi0_out: endpoint {
-+			remote-endpoint = <&panel_in>;
-+		};
-+	};
-+};
-+
-+&i2c0 {
-+	clock-frequency = <400000>;
-+	status = "okay";
-+
-+	touchscreen@38 {
-+		compatible = "evervision,ev-ft5726";
-+		reg = <0x38>;
-+		interrupts-extended = <&pio 14 IRQ_TYPE_EDGE_FALLING>;
-+		reset-gpios = <&mt6397pin 12 GPIO_ACTIVE_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&touch_pins>;
-+		vcc-supply = <&mt6397_vgp3_reg>;
-+		iovcc-supply = <&mt6397_vgp4_reg>;
-+		touchscreen-size-x = <1200>;
-+		touchscreen-size-y = <1920>;
-+	};
-+};
-+
-+&i2c1 {
-+	mediatek,use-push-pull;
-+	status = "okay";
-+
-+	mt6311: pmic@6b {
-+		compatible = "mediatek,mt6311-regulator";
-+		reg = <0x6b>;
-+
-+		regulators {
-+			mt6311_vcpu_reg: VDVFS {
-+				regulator-name = "VDVFS";
-+				regulator-min-microvolt = <600000>;
-+				regulator-max-microvolt = <1393750>;
-+				regulator-ramp-delay = <10000>;
-+				regulator-always-on;
-+			};
-+		};
-+	};
-+};
-+
-+&i2c2 {
-+	clock-frequency = <400000>;
-+	status = "okay";
-+
-+	accelerometer@18 {
-+		compatible = "bosch,bma253";
-+		reg = <0x18>;
-+		mount-matrix = "0", "-1", "0",
-+			       "-1", "0", "0",
-+			       "0", "0", "-1";
-+	};
-+};
-+
-+&i2c3 {
-+	status = "okay";
-+
-+	bq24297: charger@6b {
-+		compatible = "ti,bq24297";
-+		reg = <0x6b>;
-+		interrupts-extended = <&pio 9 IRQ_TYPE_EDGE_FALLING>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&charger_pins>;
-+		omit-battery-class;
-+	};
-+};
-+
-+&i2c4 {
-+	clock-frequency = <400000>;
-+	status = "okay";
-+
-+	backlight_lcd: backlight@2c {
-+		compatible = "ti,lp8557";
-+		reg = <0x2c>;
-+		enable-supply = <&backlight_enable>;
-+		dev-ctrl = /bits/ 8 <0x47>;
-+		init-brt = /bits/ 8 <0x64>;
-+
-+		/* In the order the vendor kernel writes them */
-+		rom-14h {
-+			rom-addr = /bits/ 8 <0x14>;
-+			rom-val = /bits/ 8 <0x0f>;
-+		};
-+
-+		rom-13h {
-+			rom-addr = /bits/ 8 <0x13>;
-+			rom-val = /bits/ 8 <0x01>;
-+		};
-+
-+		rom-11h {
-+			rom-addr = /bits/ 8 <0x11>;
-+			rom-val = /bits/ 8 <0x06>;
-+		};
-+
-+		rom-12h {
-+			rom-addr = /bits/ 8 <0x12>;
-+			rom-val = /bits/ 8 <0x2b>;
-+		};
-+
-+		rom-15h {
-+			rom-addr = /bits/ 8 <0x15>;
-+			rom-val = /bits/ 8 <0x42>;
-+		};
-+
-+		rom-16h {
-+			rom-addr = /bits/ 8 <0x16>;
-+			rom-val = /bits/ 8 <0xe0>;
-+		};
-+	};
-+
-+	light-sensor@23 {
-+		compatible = "liteon,ltr559";
-+		reg = <0x23>;
-+	};
-+};
-+
-+&keyboard {
-+	/* Each key is reported in all eight rows of its column */
-+	keypad,num-rows = <8>;
-+	keypad,num-columns = <9>;
-+	linux,keymap = <MATRIX_KEY(0, 0, KEY_VOLUMEUP)
-+			MATRIX_KEY(0, 1, KEY_VOLUMEDOWN)>;
-+	debounce-delay-ms = <32>;
-+	wakeup-source;
-+	status = "okay";
-+};
-+
-+&mfg_async {
-+	domain-supply = <&mt6397_vgpu_reg>;
-+};
-+
-+&mipi_tx0 {
-+	status = "okay";
-+};
-+
-+&mmc0 {
-+	pinctrl-names = "default", "state_uhs";
-+	pinctrl-0 = <&mmc0_pins_default>;
-+	pinctrl-1 = <&mmc0_pins_uhs>;
-+	bus-width = <8>;
-+	max-frequency = <200000000>;
-+	cap-mmc-highspeed;
-+	mmc-hs200-1_8v;
-+	mmc-hs400-1_8v;
-+	hs400-ds-delay = <0x14015>;
-+	cap-mmc-hw-reset;
-+	non-removable;
-+	mediatek,hs200-cmd-int-delay = <30>;
-+	mediatek,hs400-cmd-int-delay = <14>;
-+	mediatek,hs400-cmd-resp-sel-rising;
-+	vmmc-supply = <&mt6397_vemc_3v3_reg>;
-+	vqmmc-supply = <&mt6397_vio18_reg>;
-+	/* HS200 tuning fails on the default MSDC50_0 parent */
-+	assigned-clocks = <&topckgen CLK_TOP_MSDC50_0_SEL>;
-+	assigned-clock-parents = <&topckgen CLK_TOP_MSDCPLL_D2>;
-+	status = "okay";
-+};
-+
-+&mmc1 {
-+	pinctrl-names = "default", "state_uhs";
-+	pinctrl-0 = <&mmc1_pins_default>;
-+	pinctrl-1 = <&mmc1_pins_uhs>;
-+	bus-width = <4>;
-+	max-frequency = <200000000>;
-+	cap-sd-highspeed;
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr104;
-+	cd-gpios = <&pio 1 GPIO_ACTIVE_HIGH>;
-+	vmmc-supply = <&mt6397_vmch_reg>;
-+	vqmmc-supply = <&mt6397_vmc_reg>;
-+	mediatek,hs200-cmd-int-delay = <4>;
-+	status = "okay";
-+};
-+
-+&pio {
-+	charger_pins: charger-pins {
-+		pins-int {
-+			pinmux = <MT8173_PIN_9_EINT9__FUNC_GPIO9>;
-+			input-enable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	hall_pins: hall-pins {
-+		pins-hall {
-+			pinmux = <MT8173_PIN_124_KPCOL2__FUNC_GPIO124>;
-+			input-enable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	mmc0_pins_default: mmc0-default-pins {
-+		pins-cmd-dat {
-+			pinmux = <MT8173_PIN_57_MSDC0_DAT0__FUNC_MSDC0_DAT0>,
-+				 <MT8173_PIN_58_MSDC0_DAT1__FUNC_MSDC0_DAT1>,
-+				 <MT8173_PIN_59_MSDC0_DAT2__FUNC_MSDC0_DAT2>,
-+				 <MT8173_PIN_60_MSDC0_DAT3__FUNC_MSDC0_DAT3>,
-+				 <MT8173_PIN_61_MSDC0_DAT4__FUNC_MSDC0_DAT4>,
-+				 <MT8173_PIN_62_MSDC0_DAT5__FUNC_MSDC0_DAT5>,
-+				 <MT8173_PIN_63_MSDC0_DAT6__FUNC_MSDC0_DAT6>,
-+				 <MT8173_PIN_64_MSDC0_DAT7__FUNC_MSDC0_DAT7>,
-+				 <MT8173_PIN_66_MSDC0_CMD__FUNC_MSDC0_CMD>;
-+			input-enable;
-+			bias-pull-up;
-+		};
-+
-+		pins-clk {
-+			pinmux = <MT8173_PIN_65_MSDC0_CLK__FUNC_MSDC0_CLK>;
-+			bias-pull-down;
-+		};
-+
-+		pins-rst {
-+			pinmux = <MT8173_PIN_68_MSDC0_RST___FUNC_MSDC0_RSTB>;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	mmc0_pins_uhs: mmc0-uhs-pins {
-+		pins-cmd-dat {
-+			pinmux = <MT8173_PIN_57_MSDC0_DAT0__FUNC_MSDC0_DAT0>,
-+				 <MT8173_PIN_58_MSDC0_DAT1__FUNC_MSDC0_DAT1>,
-+				 <MT8173_PIN_59_MSDC0_DAT2__FUNC_MSDC0_DAT2>,
-+				 <MT8173_PIN_60_MSDC0_DAT3__FUNC_MSDC0_DAT3>,
-+				 <MT8173_PIN_61_MSDC0_DAT4__FUNC_MSDC0_DAT4>,
-+				 <MT8173_PIN_62_MSDC0_DAT5__FUNC_MSDC0_DAT5>,
-+				 <MT8173_PIN_63_MSDC0_DAT6__FUNC_MSDC0_DAT6>,
-+				 <MT8173_PIN_64_MSDC0_DAT7__FUNC_MSDC0_DAT7>,
-+				 <MT8173_PIN_66_MSDC0_CMD__FUNC_MSDC0_CMD>;
-+			input-enable;
-+			drive-strength = <6>;
-+			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
-+		};
-+
-+		pins-clk {
-+			pinmux = <MT8173_PIN_65_MSDC0_CLK__FUNC_MSDC0_CLK>;
-+			drive-strength = <6>;
-+			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
-+		};
-+
-+		pins-ds {
-+			pinmux = <MT8173_PIN_67_MSDC0_DSL__FUNC_MSDC0_DSL>;
-+			drive-strength = <8>;
-+			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
-+		};
-+
-+		pins-rst {
-+			pinmux = <MT8173_PIN_68_MSDC0_RST___FUNC_MSDC0_RSTB>;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	mmc1_pins_default: mmc1-default-pins {
-+		pins-cmd-dat {
-+			pinmux = <MT8173_PIN_73_MSDC1_DAT0__FUNC_MSDC1_DAT0>,
-+				 <MT8173_PIN_74_MSDC1_DAT1__FUNC_MSDC1_DAT1>,
-+				 <MT8173_PIN_75_MSDC1_DAT2__FUNC_MSDC1_DAT2>,
-+				 <MT8173_PIN_76_MSDC1_DAT3__FUNC_MSDC1_DAT3>,
-+				 <MT8173_PIN_78_MSDC1_CMD__FUNC_MSDC1_CMD>;
-+			input-enable;
-+			drive-strength = <4>;
-+			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
-+		};
-+
-+		pins-clk {
-+			pinmux = <MT8173_PIN_77_MSDC1_CLK__FUNC_MSDC1_CLK>;
-+			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
-+			drive-strength = <4>;
-+		};
-+
-+		/* Pulled up so that an empty slot, which grounds it, reads low. */
-+		pins-insert {
-+			pinmux = <MT8173_PIN_1_EINT1__FUNC_GPIO1>;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	mmc1_pins_uhs: mmc1-uhs-pins {
-+		pins-cmd-dat {
-+			pinmux = <MT8173_PIN_73_MSDC1_DAT0__FUNC_MSDC1_DAT0>,
-+				 <MT8173_PIN_74_MSDC1_DAT1__FUNC_MSDC1_DAT1>,
-+				 <MT8173_PIN_75_MSDC1_DAT2__FUNC_MSDC1_DAT2>,
-+				 <MT8173_PIN_76_MSDC1_DAT3__FUNC_MSDC1_DAT3>,
-+				 <MT8173_PIN_78_MSDC1_CMD__FUNC_MSDC1_CMD>;
-+			input-enable;
-+			drive-strength = <10>;
-+			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
-+		};
-+
-+		pins-clk {
-+			pinmux = <MT8173_PIN_77_MSDC1_CLK__FUNC_MSDC1_CLK>;
-+			drive-strength = <10>;
-+			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
-+		};
-+	};
-+
-+	panel_pins: panel-pins {
-+		pins-reset {
-+			pinmux = <MT8173_PIN_105_MSDC2_CMD__FUNC_GPIO105>;
-+			bias-disable;
-+		};
-+	};
-+
-+	touch_pins: touch-pins {
-+		pins-int {
-+			pinmux = <MT8173_PIN_14_EINT14__FUNC_GPIO14>;
-+			input-enable;
-+			bias-disable;
-+		};
-+	};
-+};
-+
-+/* DISP_PWM is on the main display path, although the backlight is on I2C */
-+&pwm0 {
-+	status = "okay";
-+};
-+
-+&pwrap {
-+	pmic: pmic {
-+		compatible = "mediatek,mt6397";
-+		interrupts-extended = <&pio 5 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-controller;
-+		#interrupt-cells = <2>;
-+
-+		mt6397rtc: rtc {
-+			compatible = "mediatek,mt6397-rtc";
-+		};
-+
-+		mt6397clk: clocks {
-+			compatible = "mediatek,mt6397-clk";
-+			#clock-cells = <1>;
-+		};
-+
-+		pmic_auxadc: adc {
-+			compatible = "mediatek,mt6397-auxadc";
-+			#io-channel-cells = <1>;
-+		};
-+
-+		mt6397pin: pinctrl {
-+			compatible = "mediatek,mt6397-pinctrl";
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+		};
-+
-+		mt6397keys: keys {
-+			compatible = "mediatek,mt6397-keys";
-+			mediatek,long-press-mode = <1>;
-+			power-off-time-sec = <0>;
-+
-+			power {
-+				linux,keycodes = <KEY_POWER>;
-+				wakeup-source;
-+			};
-+		};
-+
-+		regulators {
-+			compatible = "mediatek,mt6397-regulator";
-+
-+			mt6397_vpca15_reg: buck_vpca15 {
-+				regulator-name = "vpca15";
-+				regulator-min-microvolt = < 725000>;
-+				regulator-max-microvolt = <1125000>;
-+				regulator-ramp-delay = <12500>;
-+				regulator-always-on;
-+			};
-+
-+			mt6397_vpca7_reg: buck_vpca7 {
-+				regulator-name = "vpca7";
-+				regulator-min-microvolt = < 700000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-ramp-delay = <12500>;
-+				regulator-enable-ramp-delay = <115>;
-+			};
-+
-+			mt6397_vsramca15_reg: buck_vsramca15 {
-+				regulator-name = "vsramca15";
-+				regulator-min-microvolt = < 931250>;
-+				regulator-max-microvolt = <1150000>;
-+				regulator-ramp-delay = <12500>;
-+				regulator-always-on;
-+			};
-+
-+			/* The A72 cluster's Vsram despite the name; cpufreq couples the pair. */
-+			mt6397_vsramca7_reg: buck_vsramca7 {
-+				regulator-name = "vsramca7";
-+				regulator-min-microvolt = < 931250>;
-+				regulator-max-microvolt = <1150000>;
-+				regulator-ramp-delay = <12500>;
-+				regulator-always-on;
-+			};
-+
-+			mt6397_vcore_reg: buck_vcore {
-+				regulator-name = "vcore";
-+				regulator-min-microvolt = < 700000>;
-+				regulator-max-microvolt = <1125000>;
-+				regulator-ramp-delay = <12500>;
-+				regulator-always-on;
-+			};
-+
-+			/* 150 us per suez_evt/dvt, not the 115 us of evb and elm. */
-+			mt6397_vgpu_reg: buck_vgpu {
-+				regulator-name = "vgpu";
-+				regulator-min-microvolt = < 700000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-ramp-delay = <12500>;
-+				regulator-enable-ramp-delay = <150>;
-+			};
-+
-+			mt6397_vdrm_reg: buck_vdrm {
-+				regulator-name = "vdrm";
-+				regulator-min-microvolt = <1200000>;
-+				regulator-max-microvolt = <1300000>;
-+				regulator-ramp-delay = <12500>;
-+				regulator-always-on;
-+			};
-+
-+			mt6397_vio18_reg: buck_vio18 {
-+				regulator-name = "vio18";
-+				regulator-min-microvolt = <1620000>;
-+				regulator-max-microvolt = <1980000>;
-+				regulator-ramp-delay = <12500>;
-+				regulator-always-on;
-+			};
-+
-+			mt6397_vtcxo_reg: ldo_vtcxo {
-+				regulator-name = "vtcxo";
-+				regulator-always-on;
-+			};
-+
-+			mt6397_va28_reg: ldo_va28 {
-+				regulator-name = "va28";
-+				regulator-always-on;
-+			};
-+
-+			mt6397_vcama_reg: ldo_vcama {
-+				regulator-name = "vcama";
-+				regulator-min-microvolt = <1500000>;
-+				regulator-max-microvolt = <2800000>;
-+				regulator-enable-ramp-delay = <218>;
-+			};
-+
-+			mt6397_vio28_reg: ldo_vio28 {
-+				regulator-name = "vio28";
-+				regulator-always-on;
-+			};
-+
-+			mt6397_vusb_reg: ldo_vusb {
-+				regulator-name = "vusb";
-+			};
-+
-+			mt6397_vmc_reg: ldo_vmc {
-+				regulator-name = "vmc";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-enable-ramp-delay = <218>;
-+			};
-+
-+			mt6397_vmch_reg: ldo_vmch {
-+				regulator-name = "vmch";
-+				regulator-min-microvolt = <3000000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-enable-ramp-delay = <218>;
-+			};
-+
-+			mt6397_vemc_3v3_reg: ldo_vemc3v3 {
-+				regulator-name = "vemc_3v3";
-+				regulator-min-microvolt = <3000000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-enable-ramp-delay = <218>;
-+			};
-+
-+			mt6397_vgp1_reg: ldo_vgp1 {
-+				regulator-name = "vcamd";
-+				regulator-min-microvolt = <1220000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-enable-ramp-delay = <240>;
-+			};
-+
-+			mt6397_vgp2_reg: ldo_vgp2 {
-+				regulator-name = "vcamio";
-+				regulator-min-microvolt = <1000000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-enable-ramp-delay = <218>;
-+			};
-+
-+			mt6397_vgp3_reg: ldo_vgp3 {
-+				regulator-name = "vcamaf";
-+				regulator-min-microvolt = <1200000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-enable-ramp-delay = <218>;
-+			};
-+
-+			mt6397_vgp4_reg: ldo_vgp4 {
-+				regulator-name = "vgp4";
-+				regulator-min-microvolt = <1200000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-enable-ramp-delay = <218>;
-+			};
-+
-+			mt6397_vgp5_reg: ldo_vgp5 {
-+				regulator-name = "vgp5";
-+				regulator-min-microvolt = <1200000>;
-+				regulator-max-microvolt = <3000000>;
-+				regulator-enable-ramp-delay = <218>;
-+			};
-+
-+			mt6397_vgp6_reg: ldo_vgp6 {
-+				regulator-name = "vgp6";
-+				regulator-min-microvolt = <1200000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-enable-ramp-delay = <218>;
-+			};
-+
-+			mt6397_vibr_reg: ldo_vibr {
-+				regulator-name = "vibr";
-+				regulator-min-microvolt = <1300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-enable-ramp-delay = <218>;
-+			};
-+		};
-+	};
-+};
-+
-+/* The micro-B port is also the charger input */
-+&ssusb {
-+	vusb33-supply = <&mt6397_vusb_reg>;
-+	dr_mode = "peripheral";
-+	maximum-speed = "high-speed";
-+	status = "okay";
-+};
-+
-+&uart0 {
-+	status = "okay";
-+};
-
----
-base-commit: 14cdd904db60288b782ffeac59f4c626ef11e9f5
-change-id: 20261024-rbrue-suez-upstreaming-amazon-suez-dts-1c67b717d373
-
-Best regards,
--- 
-Ryan Brue <ryanbrue.dev@gmail.com>
-
+>  drivers/dma/dmatest.c | 3 +++
+>  1 file changed, 3 insertions(+)
+>
+> diff --git a/drivers/dma/dmatest.c b/drivers/dma/dmatest.c
+> index 2ae3469397f3..950b7a9e7769 100644
+> --- a/drivers/dma/dmatest.c
+> +++ b/drivers/dma/dmatest.c
+> @@ -852,6 +852,8 @@ static int dmatest_func(void *data)
+>                 }
+>
+>                 if (!done->done) {
+> +                       if (!params->polled)
+> +                               dmaengine_terminate_sync(chan);
+>                         result("test timed out", total_tests, src->off, dst->off,
+>                                len, 0);
+>                         goto error_unmap_continue;
+> @@ -859,6 +861,7 @@ static int dmatest_func(void *data)
+>                            !(dma_has_cap(DMA_COMPLETION_NO_ORDER,
+>                                          dev->cap_mask) &&
+>                              status == DMA_OUT_OF_ORDER)) {
+> +                       dmaengine_terminate_sync(chan);
+>                         result(status == DMA_ERROR ?
+>                                "completion error status" :
+>                                "completion busy status", total_tests, src->off,
+>
+> base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+> --
+> 2.56.1.703.gf848ed807c-goog
+>
