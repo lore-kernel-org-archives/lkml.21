@@ -1,50 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.153
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795016619;
-	b=g1ZJthp0nIW6QSfkpmCv2EtJQYvEH5F5A4b6PE4JyyNUwlkKfcryve05rqUAAjNLljfb
-	 e3KzFtU7MJ4rbRuC9nGQtem9e9LyFqT+x/588Idn+nJZ13sM6qnGGxlNTdTBUJxqcECRm
-	 y1V2b6zQqMu5hPHZj+5xXlT3jYmbwUfe86/SZoSxW34hrxCgIHS1Si2w2obGGUMxvOfHn
-	 ioShQxtiJY52wIYcdqGsjRJEon7x1sIt85u1rixbhff33oHnMQa1ZYcNPJB+lO0dZAqfS
-	 E/Zgq+WpurCY/Y7uwDLEBsr1BtDNc9xQ8IEfLxeYumIAgLzEfmhOImvGTt+trAT4Dew==
+	t=1795016643;
+	b=gpp4rNeEfastVkF2XG1OV7G1ACaTG3e6zdLH6uoLFCUqFjvf9i+0J65B4zQQrdugQaY3
+	 zamUO1kSXEWePm6Szuxua64KuYHW8OYeU+NBH98d32YsCrupkhG8xDla4LD7x74Txvvdz
+	 HLfjy+SKe3ZupsOoXA1fsXHghc8AmfmKjYEjYYhxukaEuAfvaCMdr8RxA17SrTnt5Qc/I
+	 h1s9akAOB2XA7iJErY2NMmtym3RPxejWb/iiwOUTvoRyihmNXyjBeBTZxN8LGJRVX9KIM
+	 gxEOXSv/pFjG2rYqhXeVtLXL4P6mR7Ljm2ZcQvBsw1rqo7dBax62ApYwvPsNFmkguHQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795016619;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:Organization:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=rTWxd+TS4ly6rOYqNqxpzFbo7LihUChogpGzZ95RqUM=;
-	b=RGdrp3+wsfnC7NQILnu0mXz1tuZS+a8rgrPoD9w1RBG7s94qJcV56vaU9yuqD6E7Eq2k
-	 w+vXY55HjzgEJvTLNMIpM4l98Do1KCrXCUxSqKdGobz2UTByocwp4FeDtlnmwgz/CQAoU
-	 A7KkLfDxSqNq5UIVxdDI76Obg50rjlz930wRzO16/A0NtyNX1MRV6uG3KGfNI44fauHqI
-	 fr+OL+QvCNv2Z35OfuTyK5rVwNnBcze9ho94RkW6GSAYj9rQ3IL0JzHzJZcQb62lBuHGm
-	 0J+AaiuT97kbCPvatvCjIF/6N3+7pNUakbpnkFttMmLmEb+NEAOS8083EkN8OpwvxDw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795016643;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=2KZXnkNfCltL6Moc4oPNbXGMPcQsDQhA/ArB9jtZRKw=;
+	b=YPdMl1KHqfmrfQ6gQsJSTs+7FbNH70mCY6OInPdkauizTBj/zYbJT7OExn1H1QhQP6St
+	 kvv/Za4iiBp4Zl0hIGsD5K1mySPAGbDxg6TIDchP16uLYwjR8GMMFkLtQ1A+KxedKo6SL
+	 jyc873H5HhHFXyLvBciwBz0+MDLW9xZfA5Mqhebp9z2lh2vfqj4+EZKKjZMSt0a7z8dZe
+	 3yM+RHAojKCWas9sOGC4GsqMK94db29UfeerDUxwsOkthAnDTKeMR6HgYiWAL0HdX19HB
+	 gpVVNmVipK6atU0P0yJLvToE5tClpsYUwI+NMZTmac1btE5Oo2lY3/MKToTuIBeI7Xg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=AY961Grj;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id A4A77606A33A;
-	Wed, 18 Nov 2026 15:43:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A4A77606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=squebb.ca;
+	spf=pass smtp.mailfrom=squebb.ca;
+	dkim=pass header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b=LZyWxPyc;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b="TUHhzL/7";
+	arc=none smtp.remote-ip=202.12.124.153
+Received: from fhigh-b2-smtp.messagingengine.com (fhigh-b2-smtp.messagingengine.com [202.12.124.153])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A438D606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:44:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A438D606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=squebb.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=squebb.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=AY961Grj
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2714B339;
-	Wed, 18 Nov 2026 07:43:35 -0800 (PST)
-Received: from [10.2.213.11] (unknown [10.2.213.11])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6F4AD3F632;
-	Wed, 18 Nov 2026 07:43:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795016618; bh=rTWxd+TS4ly6rOYqNqxpzFbo7LihUChogpGzZ95RqUM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AY961GrjxVInsjIcP+G2smTYjeTeREZ6UIg2fO6tKabgjt5V7KOWtZZhTpJ8grCFh
-	 y6oE38jOUvE03V8mbnvKAO0UiJZlaWWOBKdPN82bVDGeT4jKFbXHbdP/YBr70eEcXf
-	 8GeNkmHR1NWoyzUbaRAXtEqDVQIhP9xqpNiQMMhg=
-Message-ID: <dddc12e4-bb27-4a55-98fb-de5c3d56e726@arm.com>
-Date: Wed, 18 Nov 2026 15:43:33 +0000
+	dkim=pass (2048-bit key, unprotected) header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b=LZyWxPyc;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=TUHhzL/7
+Received: from stl-compute-04.internal (stl-compute-04.internal [10.204.2.64])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id DCAF67A02AB
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:44:01 -0500 (EST)
+Received: from stl-imap-02 ([10.204.2.93])
+  by stl-compute-04.internal (MEProxy); Wed, 18 Nov 2026 10:44:01 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=squebb.ca; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1795016641;
+	 x=1795103041; bh=2KZXnkNfCltL6Moc4oPNbXGMPcQsDQhA/ArB9jtZRKw=; b=
+	LZyWxPyczK70BIo2W6eGvpDZ96SYsB+I1wwol1vt7fr24fYhX7c/q4gdT7YHT1YF
+	IHmMMVtIgyFckyUEwgdo/z9qy/pQptOLIK/Xmd+zTvo7OapBtunsYMjhKqH4kTly
+	FpB0opcyd4QSO6nmwcBc4TGh/gmwdVOXNqbiW5fLuMPaUskrNU8X7qGA700yFH1D
+	F/rVJsMoN1MUXk30xDu0TRuJFxS7FB+eUuXWNO5JLoMEtKGvap8vQziAVvbvhbHk
+	0iRzxstlwXn+99MIpLD9MfUwVEdFOq+ZU6weYe2zvDNOSCpq4aK/OSR/XDMURHlF
+	hCkNN9t+o7b3XWWRdqbBIQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795016641; x=
+	1795103041; bh=2KZXnkNfCltL6Moc4oPNbXGMPcQsDQhA/ArB9jtZRKw=; b=T
+	UHhzL/7pdOYCOBe3H4vMa0HJSwU3s5bVtcJFZOLbwNmYg0Loni2qqAuxKRr/2AkN
+	JGlHOLxQsQXirO7OyHdaHRfz6+aDl0HhXE+v74SFi8ONdrEZw04dmyrxq8/a2plr
+	pKCahpQP/Cwtmka3HiSadIiQR22ykCRzElrk1U8htM4gg/vcXDdJ+hiDwXZTVgy1
+	NwQnofwXamc2Vc4ztgR3BZP6rjjhgmMfUGH9U0dfbqufJQIJWHUdezItF6nIZGUA
+	+yFBk1QwGgjo54xlzHL53h7qI2ZWoHAIvmK0x0vQSveiXqNlTRbxKkEiufwWF5v2
+	s8AgdDTQ6Ye/zfIPirIWg==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=squebb.ca a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795016641; d=squebb.ca;
+	mf=PG1wZWFyc29uLWxlbm92b0BzcXVlYmIuY2E+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm1:rsa-sha256:dgmLxG9CdStPYW+sPX81LoxKhm7/h5rHR/Tb2KAHqMT0Kfb
+	0uQ8SlDJhrfWNIg16+nl6ON/JLveTeFGzt38IK2Oyjw3eznrfcl1El6h0ZqXdNNY
+	k/mp+s6iIqRebesnS2xLww5JjjTTcrlS0lqnHg63vuVCC2gN3oRD2NtgReB9Cy+u
+	OwsEJ6zxWzjj5eYpZFS6ROBJDfAodGZZnXdrbT+WYiPr4CKh/OWAErnHz1w7/KkK
+	U3tB2sWU1amWgk57EGDu4Xf9p9N06R7KXwRAxjC/4lYs9u/IKzrZuZxfdaElceql
+	lThoYVb/Jb1gMctFeJ8bkt5E7oTRkQoN9XaMFug==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:NxTdO0H9+a0zvIWI2EKmj+IUIhVFQwjxHd926W7+mbg=:ABFqtTFbwi2DUeOOrdztNN9j0zg05RHHqN9y5SbLcSc=;
+X-ME-Sender: <xms:wcf9ap2RCODtgnauEQXfhIEXYvODBVrYICdQUJhx2YAjh5A7YF6Ypw>
+    <xme:wcf9aq7hw1SvggDJXrRUypouhI4XwnDHF3bmrvZO1PPTFGkQZsR22yIk9ECDbZvCo
+    y0-m3UnHuOcJdUgI-SAFBSTTTP51zCwr7Fovw7BhqttC_w-gnQRa9ja>
+X-ME-Proxy-Cause: dmFkZTEd/ThqfEfmNprrF9n3ouyy2yi7XElNsFtTWoPkXlxEdearKZlSQBLdbdnX/jPG/l
+    EuvqlvsQAoVGKXpxek8kr+FahT5iXzDNkbBIzLA4NLHHMH8JwCJC4/xEzaD3Vf2NR7WUDt
+    nOsubDjbo9qg2KDVTchOB5TrCz9hLMO5i/rVFZ0eZ0yxttOc38S3kZp8w7wYu5JMhg4Sl6
+    oqKcAFUx4NQiyeYrHdT+Y3NxgUVzESilYFUGhmYRRRezh2zmCYvn4yFR4S5Ml/V9GdbdH+
+    xxpAceR7NcD/wOsqePhv7qPkfymlOjDcimc4a+MJ4zjSqXeH1a6EB8z8rMJViKxxq7YPti
+    JUvcI0qXS+Vjfg0j/qPZTMCl8ewtxYywJZfQuxH3NNPe174QEMzbQW/ow9qnx+JByUTNIa
+    wgAfS68CZ/CLZwSAmfN/RB5h/oQ8F3FlfKmbh+BSnbP5Z9JpmirUebMrlZATLAor17TSGF
+    9rOUxRih/iLpt9j/qm1ns6WE+FdhJz7veGyvv4gwGWp1UqPWJBDDr0jew8c9UsDxIISs8g
+    9Ir6Ti7D6hEGzG0QZiiJf63/JrGG45Q//g/Iy5F+WiyZ2mP6J3RUw+NAiD+ZvDCCBkkCf1
+    45EfIE8kFxgJuSpxca/eShG224S21iZ1u1YmscsxpErTktk6nO0C74Bn+rbQ
+X-ME-Proxy: <xmx:wcf9auX4XiO6s58n5n80nfRrCC5jdT_2s6mHeY9dvOm7mdHP-DyeqQ>
+    <xmx:wcf9aljWWftSjtERltT5ZItBfNB3qmTgspWj1b448DW2vLeQveHhvA>
+    <xmx:wcf9ahbK-7Khg2dlSNSwtmCXF3F12aJI5XGvZT9bIbSjkjVc6_YqmQ>
+    <xmx:wcf9aqrT2ssZRTV40wzRXOZTQC9FZIug3o0xYzuBIy517tE_4Z9oaA>
+    <xmx:wcf9amIG5cyoG9HtlsulgdDT2__5s7zOvA4vV4wJrYgbuUOmf7xfn7Q3>
+Feedback-ID: ibe194615:Fastmail
+Received: by mailuser.stl.internal (Postfix, from userid 501)
+	id E2DD02C00085; Wed, 18 Nov 2026 10:44:00 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,63 +115,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] arm64: entry: sdei: save and restore PMR for
- pseudo-NMI
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
- linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>, Kiryl Shutsemau <kas@kernel.org>,
- Breno Leitao <leitao@debian.org>, Jinjie Ruan <ruanjinjie@huawei.com>,
- Doug Anderson <dianders@chromium.org>, Linus Walleij <linusw@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>, Thomas Huth <thuth@redhat.com>,
- Dawei Li <dawei.li@linux.dev>, mrigendrachaubey
- <mrigendra.chaubey@gmail.com>, kernel-team@meta.com,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org,
- Ada Couprie Diaz <ada.coupriediaz@arm.com>
-References: <20261117174814.95936-1-ada.coupriediaz@arm.com>
- <20261117174814.95936-3-ada.coupriediaz@arm.com>
- <628b2774-30bc-4399-98c3-2d99ad5090b6@arm.com>
-From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Content-Language: en-US, en-GB, fr
-Organization: Arm Ltd.
-In-Reply-To: <628b2774-30bc-4399-98c3-2d99ad5090b6@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+X-ThreadId: A5c9k4FhzC7c
+Date: Wed, 18 Nov 2026 10:43:40 -0500
+From: "Mark Pearson" <mpearson-lenovo@squebb.ca>
+To: "Daniel Lezcano" <daniel.lezcano@oss.qualcomm.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>
+Cc: "Geert Uytterhoeven" <geert@linux-m68k.org>,
+ "Rafael J Wysocki" <rafael.j.wysocki@intel.com>,
+ "Mario Limonciello" <superm1@kernel.org>,
+ "open list" <linux-kernel@vger.kernel.org>
+Message-Id: <6dae8141-cd07-4c4c-a432-f5e84e5b6821@app.fastmail.com>
+In-Reply-To: <20261118110255.2946563-1-daniel.lezcano@oss.qualcomm.com>
+References: <20261118110255.2946563-1-daniel.lezcano@oss.qualcomm.com>
+Subject: Re: [PATCH] platform profile: Restrict the core prompt to COMPILE_TEST
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
 
-Hi Vladimir,
-
-On 18/11/2026 09:58, Vladimir Murzin wrote:
-> Hi Ada,
+On Wed, Nov 18, 2026, at 6:02 AM, Daniel Lezcano wrote:
+> All platform profile providers select PLATFORM_PROFILE, so users do not
+> need to enable the core explicitly.
 >
-> On 11/17/26 17:48, Ada Couprie Diaz wrote:
->> If using pseudo-NMI, PMR must be saved and restored on exception
->> entry/exit. We do so, and set it to a known value reflecting that DAIF
->> is masking all interrupts, in the regular entry path.
->>
->> Do the same for SDEI, as it can interrupt the kernel at any point
->> and does not mandate firmware to touch PMR, but does mandate masking DAIF.
->> This avoids potentially returning with a different PMR than interrupted,
->> and SDEI having the DAIF/PMR pair in a unexpected state compared to
->> the rest of the kernel.
->>
-> I think we need to save/restore PMR into/from pt_regs similarly to regular
-> entry path, otherwise regs_irqs_disabled() is still broken, like it was
-> pointed in the thread [1] (and Sashiko has raised the same concern on
-> FEAT_NMI series)
+> Only show its prompt when COMPILE_TEST is enabled. This avoids exposing
+> the option in normal configurations while allowing the architecture-independent
+> core to be build-tested without a provider.
 >
-> Cheers
-> Vladimir
+> Suggested-by: Geert Uytterhoeven <geert@linux-m68k.org>
+> Signed-off-by: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
+> ---
+>  drivers/platform/Kconfig | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> [1] https://lore.kernel.org/all/auzM-l40BLsT3clg@arm.com/
-
-Thanks for checking, that's definitely what should be done, I was
-a bit hasty...
-Given it's a very simple code change (I rewrote the commit message
-accordingly) I sent the proper fix as a reply to the patch directly.
-Happy to send a full v2 if that would be better !
-
-Kind regards,
-Ada
-
+> diff --git a/drivers/platform/Kconfig b/drivers/platform/Kconfig
+> index 7270f24a3b6e..1cf87904afc3 100644
+> --- a/drivers/platform/Kconfig
+> +++ b/drivers/platform/Kconfig
+> @@ -1,6 +1,6 @@
+>  # SPDX-License-Identifier: GPL-2.0-only
+>  config PLATFORM_PROFILE
+> -	tristate "Platform profile support"
+> +	tristate "Platform profile support" if COMPILE_TEST
+>  	help
+>  	  Provide a common sysfs interface for selecting platform power,
+>  	  performance and cooling profiles. Platform-specific provider drivers
+> -- 
+> 2.43.0
+Looks good to me
+Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
+Mark
