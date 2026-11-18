@@ -1,99 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.133
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794991104;
-	b=MXWO00QgAF56bB8SUMy90YvFCKXy+Aitvy+RAzCjTShJmeMsktUuaoMRMFSN7x/nWJbm
-	 lrmugHaR1/xN0JaSFUODKbc2v0nlesQ5fzosNpTQpqa1puMjF9wx52KCU5tsTWU4lsk0a
-	 mrJrpNAxT2//Ve0r1m17nF4BcMWqheech7rbGmmFzGz0eYrqYLgkllOt7PpZ7Hr9CiOhO
-	 11cerF256AfMbYJvO20s8U84fr45N22ueJfza8NQK965IEdcfZVoMB83kzRKYgp1CP4Et
-	 wEsL9gJlaDezBpAaExD6s4men5xib09wpu08cdHqBzj9CywAoODzl/RROl/DjWn/UQg==
+	t=1794991107;
+	b=U2YmURfTSl4kqVXNtxbRZnpo0GTcvcedKDEbDF+S78nrRc7IKTxJXXu6O56l2+mpTEkm
+	 zCEqubl1Y96LAMTFx6GZGysDnS2zPw0EJr49CRZimICw3Xp704gyLCi9oKU+vxxpPu8BS
+	 nu7EzVvrNkOZOzrmBSSzWEhwvNLwTTvWQ3HDa2Rc3zfVJrtTxqMyF9NdDqXrofZvR5y/q
+	 8ZFp3HIrIGek2PCHAVEVCh/0VVGtBwqK4pIQL7Y9UOR0pluikdJX+CtoUcYtfdHAANvZ9
+	 cq+lrNQe9qAZZRvuSQxTNbXZ43GF5qS0kfLnsUZ4px1xund7qXYGV3Anjn0XHx26+vA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794991104;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=vMKeyOZcK3q18Yw2MNqKYKjsEME0sggs4rjvagocBak=;
-	b=nEoNaf7B+6u7mgHrK9b0Yzqkp+RqQwQMUKO5Lcj/B8tZ9guVcx4fGW2w3BLdI8zw0rYj
-	 35Jt6pZieFCFkOzv1GUabV1/85t2aRppdscrAZUE0qlMabmNhqoKI1tJdntMJx/BGWrBh
-	 5kCKhI8nY1NxhlrNl3I62hvq6Dxo0VBP3cxvf16MJ6fPlAW4Kf3CDWCmGid2sgkuocPNk
-	 Iaj1osdM3MnDvDY5kYFkpFNHQXNVYilm4eoBmfy1uoudM/lc6hhMvErly3sK6cCAK5bzg
-	 oVaohgbXkcZrp5zOyiJqegTUOtRaTzpmCuVnwjI1hzg3445Bm4RkkohrV/muPx/u5jA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794991107;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=KRtJKN4D7KTr1hM8wuPqB24BsqKEkGefeClnbMZYA8w=;
+	b=VpgdoCz13qiEXrWCEx5ONOi0kgtk4tsLa7z/vgbN30YJQJPQp2xOgvH0RNPhMrXkeK/K
+	 m+a4/wTHicd7mKWRVrwTc/10n301TDZXteco44tpY3O80+BXus87krq53CP18j6xWYrO3
+	 qgbB1VOif4eVGib4UZSlspvdTnYFaP7TsPkfUsMG0NrOtSjHSJTQgD/ZuZnRnohUuxTMe
+	 BOk6l2mPw7XAdg/nB/axB4y7Nd7GfF6wxm3BdU3+KGxcrFN6GBZ5q566haCIa+uGFPTJp
+	 wnXUrMi2NyVOxRLcnLeHgo4gxJiriKHicctKjEFJPb0v1KSn2xUc9Iyo2ARbycicxYw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FKI8d9MU;
-	arc=none smtp.remote-ip=74.125.231.133
-Received: from mail-oo2-f5.google.com (mail-oo2-f5.google.com [74.125.231.133])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KpndDx47;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D902D606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:38:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D902D606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5478606A881
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:38:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FKI8d9MU
-Received: by mail-oo2-f5.google.com with SMTP id 46e09a7af769-862a05abb95so134664a34.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:38:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794991103; x=1795595903; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=vMKeyOZcK3q18Yw2MNqKYKjsEME0sggs4rjvagocBak=;
-        b=FKI8d9MUzkUbNdnN8QuOvsu6gjuzjotYn7+lzQJRBwIH+4t5OcEvcg8yr5xq1Mj18/
-         UEDlJg58pIl2ikt3lfgIJQN2Ut5ld4oFeBPcVfE2Ce9yNkrqlUYSr8Up1nSae2Ih7B9F
-         zoLseKBDn0StWUum8symXoT/QHFacANkj6zGg/2OflNiYgk122D40RvVkC3g7Qwf9Io8
-         I4S0Ju/K3qvDJPva7j2ONjlLiB59Fr1LiY4CvImd1FMpMuHmijT0f1nbHbgXej0pWM39
-         tuQRjudolrUMfgiayZ7L3z6fPMxx71n6I6wCeUe/oPIUFIfOiBYboaZdRNz2LoR2UCqk
-         WQQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794991103; x=1795595903;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=vMKeyOZcK3q18Yw2MNqKYKjsEME0sggs4rjvagocBak=;
-        b=Q9n+PZN+1/7eo/JgEG/+xKPnnkBNvBhodz4XzfB9IBuo4xxf4MLXYnhPgU1z9WCr3S
-         BmZvCLheUrwRYzFcFajiBeBUoM0vnf/NkCy26MyxzwR+sN/+dMikh0PIkHhilbKF542k
-         5XybP7PogPYUHFPByDlAUc4p/20xTNErfYlE7SAfsTEHizeW7mDh1p1+rFaPJ+ZtSGAI
-         2PGL4qCUgVFS6QHlOJ9A+Jt+KyAmFM7T9RdLwzKF5lvKx2giDT1UoWvyG5X/MoS7AWUi
-         orAeBc3CWyqRKkQaZBGELEkWK/iZsoX69HqmDlvhMyNyWIpuDmwNdJJ1EbMOiAx+hr0N
-         oEWQ==
-X-Forwarded-Encrypted: i=1; AL+hErE/1THu7JPXJ8zahAkyrlS0IBqRtw2k2B7vhy8nS4qigQF4Ka64Y8Ra6guiBFUGinYl4y46VYpqoAo131A=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+hgx5sF8Jqa/Srz5ZcDCCwtTTfThQ24jGvmvMw8OHrwa1ACLkV
-	w1NmUSg9gyvOtIrHOVgdRZPt44ATc9vuqWo5qj32woXgbp5JfAatIe3a
-X-Gm-Gg: AYBFou3pLxdYNt9WrD1iAclsFjxpP9RVYAsc5oeWvX7BWj5PmPVxaryfQMMvVPUxQdy
-	53cQx/f2YQ0Itl7gOE4CfgBhWIPYhO3dEzxoBubYRTc3D0Jj7gVobkpfhgd2DS/Y5/vajbRf0cy
-	/K3OlTDnt5/iHrLwRgFfTac2IDXV8t97c8xpWKFNaMAJvSttXaYhoFx0861Ub5xfcK7zFVLHDeF
-	P8Uq8v8ABSDGN4AmZpKrtb0Vv0XgxhSYFut3x4oyGgXWECrGp9g9QkI87EXsDRewi4cuX7M+iGs
-	aDZIe0rgJ4MSgf6XDwxQYznVE+7X3AgFfoxzzP0Dq4VJqYe2jTr+eMLrOKHrJWODuQ/wkAbxFFw
-	2MqKuqVs5+1CzclM/wF3z308BggB6bhLAfwTTag6XZQf3KJ7RlA710XeX+lfxjTzOgbcfmRM6Wi
-	CSz/NHZA4vPNuh0Iqyxl+4G7MIsOUTnrg2nHwBUPt9fRE3ElaMIxvDGVYUiiolbGY9qcBac1/QL
-	9C9qWxL+B2qNIbkxfKN6LGDroh8P7M+KTordSh5jOvXHF1v6Hd/gi24tuheV0Vv+I/oDXc06bn7
-	PNTzBveyvgzpogew3R1l/ldjmt9ztCa/Mj/utck73ZKnJbQWIzTlK8wbYwP1DB0KfRzNfEtbJkj
-	ANVhq+eHlEGZQ
-X-Received: by 2002:a05:6820:a70a:20b0:713:da3b:9530 with SMTP id 006d021491bc7-71b187889e8mr789320eaf.44.1794991102733;
-        Wed, 18 Nov 2026 00:38:22 -0800 (PST)
-Received: from localhost.localdomain ([14.22.11.165])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b1945800asm1516812eaf.5.2026.11.18.00.38.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 00:38:21 -0800 (PST)
-From: Henry Martin <bsdhenrymartin@gmail.com>
-To: David Heidelberg <david@ixit.cz>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>
-Cc: oe-linux-nfc@lists.linux.dev,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Henry Martin <bsdhenrymartin@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] nfc: llcp: walk the accept queue under the socket lock
-Date: Wed, 18 Nov 2026 16:38:11 +0800
-Message-ID: <20261118083811.1721010-1-bsdhenrymartin@gmail.com>
-X-Mailer: git-send-email 2.43.7
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KpndDx47
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 774581F000CB
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:38:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794991107;
+	bh=KRtJKN4D7KTr1hM8wuPqB24BsqKEkGefeClnbMZYA8w=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=KpndDx47BE5PHN3YkOr4wC8d2bDJvwZ4SWTFzw18wMRjvayc1gsqvYI0hZDC95qEF
+	 ALU6Ze17g/ca//vsoZfQitysDrcDOAqRb8C6Z9C6WWVMlGc8xxqYZnItOeZi4Qvy1u
+	 THrX/P3h/6FWt0iKQM+SpbJKLRqZDrq4qceAioNTxpGQWMNfoeCUXpgcyOsBPjAIM4
+	 +KAj4GEshy4eUi/SneVPy2sMqiVN5rC/rwY8bIsmDvIXhvcqiihnlY/ThlrEkJS0W2
+	 p10X6mpZ/hOtZ/GIJmDZ11yXq9f4nlF+UxlERuE4BHt7Rws/1bZxmtcR44mlj//x/u
+	 ugYQxA0b91DEg==
+Received: by mail-oo1-f44.google.com with SMTP id 006d021491bc7-71ac9e15640so425327eaf.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:38:27 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErGAiCrL/h1UICBXk+KvoKttgtmvVTBGtdl96wFTQjwsjW7huIrlrio6gPsHFK8W98bKP/HjivVZXnFRN9k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z87yfSIVNPnuzhbMsn70RnydCtkGmdcmiNdIlwB4mU71HTvIYLP
+	tZm1UZjK+FTH0/4BVlqQlWeUaZz78t4MqW+UzpU0flPRUqfj6tcfVQucrlF+g/zV98yl/0c8Hzg
+	5HHtWVEOICuoKCAowDA69xky2baWJG7w=
+X-Received: by 2002:a05:6820:1c8f:b0:71a:ecfc:4406 with SMTP id
+ 006d021491bc7-71b187ad482mr1476088eaf.64.1794991106787; Wed, 18 Nov 2026
+ 00:38:26 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,58 +59,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261118070524.310356-1-jiayuan.chen@linux.dev>
+In-Reply-To: <20261118070524.310356-1-jiayuan.chen@linux.dev>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Wed, 18 Nov 2026 09:38:15 +0100
+X-Gmail-Original-Message-ID: <CAL4WiioCxT9izsNuNAXWg4NPbJJMR3z8AXCSj=f+2_+frQ0mmQ@mail.gmail.com>
+X-Gm-Features: AclHuK--9fXfiLB24KQhCJA7_PKXTYTcPONOafDRgYRYIXUHHUrYJaZBcAt_Dk8
+Message-ID: <CAL4WiioCxT9izsNuNAXWg4NPbJJMR3z8AXCSj=f+2_+frQ0mmQ@mail.gmail.com>
+Subject: Re: [PATCH net-next] net: dropreason: add SKB_DROP_REASON_FRAG_MEM_LIMIT
+To: Jiayuan Chen <jiayuan.chen@linux.dev>
+Cc: netdev@vger.kernel.org, "David S. Miller" <davem@davemloft.net>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	Alexander Aring <alex.aring@gmail.com>, Stefan Schmidt <stefan@datenfreihafen.org>, 
+	Miquel Raynal <miquel.raynal@bootlin.com>, David Ahern <dsahern@kernel.org>, 
+	Ido Schimmel <idosch@nvidia.com>, Pablo Neira Ayuso <pablo@netfilter.org>, Florian Westphal <fw@strlen.de>, 
+	Phil Sutter <phil@nwl.cc>, linux-kernel@vger.kernel.org, linux-wpan@vger.kernel.org, 
+	netfilter-devel@vger.kernel.org, coreteam@netfilter.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-llcp_accept_poll() walks parent->accept_queue and reads each child's
-sk_state without holding the socket lock.  nfc_llcp_accept_dequeue()
-unlinks closed children and drops their creation reference under that
-lock, and the last sock_put() frees the child.
+Le mer. 18 nov. 2026 =C3=A0 08:05, Jiayuan Chen <jiayuan.chen@linux.dev> a =
+=C3=A9crit :
+>
+> This is used to track fragments dropped when the reassembly memory is
+> over the limit (ipfrag_high_thresh, ip6frag_high_thresh).
+>
+> Fragments dropped because high_thresh is 0 get this reason too, the
+> same way they are counted in IPSTATS_MIB_REASMFAILS.
+>
+> Tested with pwru.
+>
+> Before:
+>
+> ... PROTO  MTU   LEN   FUNC
+> ... 0x0800 65536 1500  ip_defrag
+> ... 0x0800 65536 548   ip_defrag
+> ... 0x0800 65536 548   sk_skb_reason_drop(SKB_DROP_REASON_NOT_SPECIFIED)
+>
+> After:
+>
+> ... PROTO  MTU   LEN   FUNC
+> ... 0x0800 65536 1500  ip_defrag
+> ... 0x0800 65536 548   ip_defrag
+> ... 0x0800 65536 548   sk_skb_reason_drop(SKB_DROP_REASON_FRAG_MEM_LIMIT)
+>
+> Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
 
-A poll() racing with accept() therefore reads a freed child:
-
-  BUG: KASAN: slab-use-after-free in llcp_sock_poll+0x440/0x4e0
-  Read of size 1 at addr ffff888112387812 by task poc.bin/528
-  Allocated by task 198:
-   nfc_llcp_sock_alloc
-   nfc_llcp_rx_skb
-  Freed by task 529:
-   __sk_destruct
-   nfc_llcp_accept_dequeue
-
-Take the listener lock around the accept queue walk.
-
-This issue was discovered by Tencent CodeBuddy Security.
-
-Fixes: d646960f7986 ("NFC: Initial LLCP support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
----
- net/nfc/llcp_sock.c | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
-
-diff --git a/net/nfc/llcp_sock.c b/net/nfc/llcp_sock.c
-index 1e5ee4bcde68..3503f1a7a7cc 100644
---- a/net/nfc/llcp_sock.c
-+++ b/net/nfc/llcp_sock.c
-@@ -584,8 +584,16 @@ static __poll_t llcp_sock_poll(struct file *file, struct socket *sock,
- 
- 	sock_poll_wait(file, sock, wait);
- 
--	if (sk->sk_state == LLCP_LISTEN)
--		return llcp_accept_poll(sk);
-+	if (sk->sk_state == LLCP_LISTEN) {
-+		/* nfc_llcp_accept_dequeue() unlinks and frees closed children
-+		 * under the listener lock, so the queue can only be walked
-+		 * with that lock held.
-+		 */
-+		lock_sock(sk);
-+		mask = llcp_accept_poll(sk);
-+		release_sock(sk);
-+		return mask;
-+	}
- 
- 	if (sk->sk_err || !skb_queue_empty_lockless(&sk->sk_error_queue))
- 		mask |= EPOLLERR |
--- 
-2.43.7
-
+Reviewed-by: Eric Dumazet <edumazet@kernel.org>
