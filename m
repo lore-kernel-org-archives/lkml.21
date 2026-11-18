@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795022746;
-	b=E7ZiDDBXN8qzGzdE51x8ncBQaoh/8EVRQhz8WaQf/x5ESnRbT53TxbNC7XPcYhyiM3C2
-	 IaLMBuxcaj9UBQ8Hy242X4REDmEoEjPUY0OTbj/olDxV+sZ2lvu0GXDlz5/todytq35vw
-	 VtXzGliHFsatz5YGJrFMRrFxbofmccoySruNYQNYrRsKZvnjiSPbe9WZrrgB1vfxZE7Uq
-	 S7aAjiC4ZU9wY4eeJvR6qAkyYcVWgV+GP1+LCHk9A6e4XyvrymTYJSeGmz2zs8PKbUOpr
-	 iJpkXnRtPpcJCFAAC5yraF5fbtIz/D0dEJtAWInnzoOusTpB/KG4mGpvwKwHNbt9S5w==
+	b=OO266iAjABiCGq9tMwl3RtRDkTzkKM+yfg8JthR/8UqjyDS1R6yb/ysZD41lyRtIR4ql
+	 CZxXbT2TeVdZ51SiiVVSDL7bjbyxr2DW3U6kDbjz/2z59ZbnpKS83Cpskfe5n1okSn6ja
+	 588F215KwNF3wy72emsmq6UBjsiHB5HNXopVu4emEHQSuagcJyW/JY9Lr6JEflnw8Ta/O
+	 84ex282qmUBP7u6SumE5XchIrRTfNpD+1iAFfDZ9EhTVoC4USf+CxY6uRKoF8gaI2AGic
+	 /9N/DOjDw8LzoADgjvsJNWaAqXm1bfxMRh5O6HbU5jDcRddC2anZcK62jzTCCnfCL2g==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795022746;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=rboQuHxOmmu88XioB4K1KS/EAzIsj/yoeukyg9V2m3Y=;
-	b=aoF3HRbspQxVnShrFN1Zuzd3ONua2G07Yzq4AOES/o961pCvn4xGM16u3tlaqtZ1+RiP
-	 azT+hfBDfiWQrKrJADjrXGzjNWBlYVxpyV8nPmBfb3UBbucx3j7Xo5QHjXX+s8PBy9ysx
-	 QRGjCi5GE9mrfbeUqq4MUMnlD7sq0T1oma9y8g0LBhM4iDjCpF5iLF0iUJVw/Wr4FWrpo
-	 Uyudh9LzxJs+PQoWliyN+fbu9KrpWIESKQIuZ0ImCOWVLQA8K+OKCBUCVwxl5c+n7lZlE
-	 /8KTjuXLTkuOLyoUUYvoMs2aKe8uD70XMVtjBrzwcXT0U47BqW6jeOoyWU9Ym2d0QXw==
+	bh=aeD5uCDGesSovlbMQ/jFI6qOUKSvFgQeSaLSjqHk7Xw=;
+	b=Dm18W8OcbjpraKdcDD9lJLDjLhfsICRjeGBdL3Bl3YMCIVLIH6Pp/t5Led3UUacOSY1x
+	 lVS73nQlRiDq6fCHtMH4zfqcEMfbRJL9XW30jx7hFfRYf9+VA+j2hbGN0hSNzoWnX8uH4
+	 ZoH6T0CsPaFU2Jiax2XJwjOH2gYpDHOMYNKY4Sl7Qva2tyhCWD4UQwPtW7UzDTaGLUE+B
+	 xLPUmyfin2NzVftq7fD40EdaE8Gu/YIc72U1CrRRS+IvUpAqm6NsnV2gOEkJDFdk27sG8
+	 R5E5E8+24K+aO0HWN9f/SFsfzGp2IywnVr/dS5Ce9wO7UiUCIOXzGuZIKOch3UXcoJg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iO3RnXWu;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=faUcQm8+;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FAFE60A2602;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE55860A2616;
 	Wed, 18 Nov 2026 17:25:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iO3RnXWu
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=faUcQm8+
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
 	t=1795022746;
-	b=N+Km3deuiTmxD1yUfBFifXa3u3SUabpgu8fSpTeKI/LZyioF1Ah+3W3LoC3JpVy60op7
-	 E08eYLJi9KnwEoduvF/Z3sst4oy9/6RQAl481IblRPuWYv+W25XUCShzpQM8t9AB1w/9B
-	 7MNPXQbEH+SnZm5NT3P4FL+pohjI9LLUr+ZWXSxp5AAvriSA1NbgGXmO6/wyg5AuHawuS
-	 5KFFESgNaFoqxW7lTP040JnMIik3IkLTSGng3eYsqsfRDU8tSrLr4v/Lwli/ZuSDnB7fL
-	 W4VNk/8CeH3pxUFJxGo/wN5PsVAI4HwWFkuD721xCFJN6Pw2PvVVw0ndibkPhOvZG6Q==
+	b=LaQk/Ii6LopjwdAqmePPWBHjlN+XPyWZMa6Sj6/UzQRcdTK99ryeZpTugMGTvD+NbpNN
+	 IZRev0bnI1s3GSjVbtBhh7XL0lZnmIZ/qoDoYrGgET4tJ7t2zt+zrLNE0iI2feNCb0rra
+	 Us073UCEwUz9kfA5OstMRYmqt07eEfAq3MfGOcf6AXYXOIwnBEMP2LpW8Rm3E6IDjO4Rc
+	 SJJbVApfdGEAlLAnTfb2c6iTC5/0nOnZWafWcL+0AEuo5XOzFz7Bmn78blu+z1uZyBo8n
+	 3tN4FPf6g2UQfDmowcArciyTXpJZvb5nvQZfmt2hXFjOrRAM/oXCG+iArDXCokojzUg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
 	c=relaxed/relaxed; t=1795022746;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=rboQuHxOmmu88XioB4K1KS/EAzIsj/yoeukyg9V2m3Y=;
-	b=UvjlMeOV6/w8Ge+5E0WTPkojuFvYHVGODxshBfslYqW9Gk2zO24cXlxFLqKuLR4eGLsI
-	 6gab45dJB5yTOg8qxC2ezD/jJhHUqYzXmA5/nSi1Dblc5iYA9AmWbJQvrhq5knA7lWeie
-	 4fhYZBQp1XwOytwQz//5Qzf3YMxxqFUvOE223hYsQs1+JmMADRuiWLU+9uF8+fOOVy4t9
-	 4UcvHn7QzsFESY7eucXVbQi3kpia2ODr9j5RVeSOTs5SEJVKA3HgFxS+pVCfa0A7DuD+8
-	 tH6e/7PYi9tHB1bNQqOCJzSdAzLIHkKWOL31lQPaFgQ1ubwPiFW4blNydMCikYmwAhw==
+	bh=aeD5uCDGesSovlbMQ/jFI6qOUKSvFgQeSaLSjqHk7Xw=;
+	b=OVmMhajHiYPLZgdgNxsvE9RsTVEUQG2PeDW2E+WaEjctWqULAxr2IQwmF3qnSwGHugSl
+	 hItTyFN3AEpda3zLyHo3OJOcJ5RUYa6eetR9WMO200JCCp5UyPHoUqR1kJMmJLikt31j1
+	 kTd+0btmYlfJlvlsOup0Ua4AHo92K2NLiNaSmg/j/KqP0q4NYt9gnOEL0N0v4LDYXtrjg
+	 yyZ+qAzEOl0sOhf+X3L6Psj45VZGnPbgyYcPi746ls1JnVoAzzKRAgXL9gtzzldQSgPHQ
+	 LG9QGfC+qjoL5IE1Q34oukznqY6FGuLpjsmI3D5TXBheLt8Yv9+YxZPSHTKkXmFAXhg==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 64A601F000C4;
+	by smtp.kernel.org (Postfix) with ESMTPS id AD0811F000CE;
 	Wed, 18 Nov 2026 17:25:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795022745;
-	bh=rboQuHxOmmu88XioB4K1KS/EAzIsj/yoeukyg9V2m3Y=;
+	s=k20260515; t=1795022746;
+	bh=aeD5uCDGesSovlbMQ/jFI6qOUKSvFgQeSaLSjqHk7Xw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=iO3RnXWuNwcRO0+YfaFjZiooCexjcZ6+UMHmwuLGe24LB56pW3Iztr6Hf/4Nssm/x
-	 8vCmuPmim/X6SNXrMmS/LYnaxbtxlxorjwk46EFpeFxf8tif3cZASGWLOJhPH49AKe
-	 4ex95uESkq3h1qQox8z2i2AGO06DB6vCepwtqilwo07/1UNcKAyKWIS0dV8iI31uOd
-	 0bfoOumba7VZedCGgm9/PP357DNRgo8d83ro/Co4S9SgyLajYUi2SFP2IMMtrxsshW
-	 lbWUryFHqqZtZ9mdRlqv1OTNnSmhGBwnqd8X+2HdP2cxkLYWx1jJfy8Z0CGm9U3t3N
-	 oCH0bkg61eO6w==
+	b=faUcQm8+kQi6Fg0JtJC8e3PzxMrNvBees4MpOGJkBt+T3RQ2+CSTWCVRp5WBDieiU
+	 YlI6jEVpcvtjMGeJSnEqoiPy2knA3inU8xx6Tin41ywESZL0USbTsUWBh2nI8C+PyT
+	 a1CNsb8n8udvqzxZEpj0+87YF+/jbquCwLynmUDakKfQN2PL5syZ14grqVCrzUrnNZ
+	 Muwl2yeAftB0qrnRHZb81zYA7Pyw9JboearWzUBlvlvj/jWRfUpPRwTq9Zz3XiW775
+	 17a/jNAH6dWKgzyeXDRqb+TRfpcKpRwmO7MuXUllSARIci44F7oJD9AZ0vgQ99LxQo
+	 zOXvjzLQEwKhQ==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id D38AD4AEC9;
-	Wed, 18 Nov 2026 17:25:44 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 35AAB4AEE6;
+	Wed, 18 Nov 2026 17:25:45 +0000 (UTC)
 From: David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
-Date: Wed, 18 Nov 2026 18:25:34 +0100
-Subject: [PATCH v2 01/12] regulator: qcom_usb_vbus: Fix the
- MODULE_LICENSE() string
+Date: Wed, 18 Nov 2026 18:25:37 +0100
+Subject: [PATCH v2 04/12] dt-bindings: regulator: qcom,usb-vbus-regulator:
+ Add pmi8998 and pm660
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261118-pmi8998-vbus-v2-1-3c77a72b280a@ixit.cz>
+Message-Id: <20261118-pmi8998-vbus-v2-4-3c77a72b280a@ixit.cz>
 References: <20261118-pmi8998-vbus-v2-0-3c77a72b280a@ixit.cz>
 In-Reply-To: <20261118-pmi8998-vbus-v2-0-3c77a72b280a@ixit.cz>
 To: Alexey Minnekhanov <alexeymin@minlexx.ru>, 
@@ -102,21 +102,21 @@ Cc: Richard Acayan <mailingradian@gmail.com>, linux-arm-msm@vger.kernel.org,
  linux-pm@vger.kernel.org, phone-devel@vger.kernel.org, 
  David Heidelberg <david@ixit.cz>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1232; i=david@ixit.cz;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1376; i=david@ixit.cz;
  h=from:subject:message-id;
- bh=6MCm0tUZg6K77qclXj7MxDYC5mznSlasM+gfjuaMpWY=;
- b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBq/d+WCvmEc49O+Y7h/zvw8H8UpZW+GqBBvKKzK
- lbCjsxOyYCJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCav3flgAKCRBgAj/E00kg
- crfpD/9hYzqBBAGwbfwHsX3WZ2LNhqt+/S6RTU/pqZmHLxXub/7XKXdB4B3BxavgdSqQchMplIc
- mIBZ9/pOGqb64x957Hb6uOAuiBNzNFg3Hs8wwS40ardiAsvSxXpDwOowr6wGylJv6S3sAcoDm5/
- WhZxhd8nqdnqwI3y6ZG0deEOnggo4JbjAbVv3bwCz/5OXzsCin8uuo+UFZb/M8hNWaBpBycBvaS
- 2pcYwd5r8/ViKiEljpXP/12ARctl2prH2vs2kUfhjKwj+Y/2eFDaJctvl/CgzkwtAFatP/aW93g
- 1UMYvd+2H7FzrQqLObHg0Mf2iT92h3ASePHjbg4bJyQ7PWvJWRm9wYk19xvvziFvOmVcPaDucym
- evyibJ9eDrHo3cdF0cdOoCYCkA5hEmgKfTH4rLZQZAqd/H2W5FqWEq7HV63bRG4IhYBev8VCDQ4
- xjXuZUDt7dqqESbofr6mySdSbJVD3cSPQVR1pjxLyyXvT12cpND3cjeK5G64HcsB058VMlAHotN
- cpmy55WLTC2uV7tqx+WJK0QHaQajM+1ZWB8FJeiQS2RV8VgOthvJdTjtERbXQwWFHxWwUZnoyZe
- f3sxcWPvFs1q2oGxeIKyIw9RA+7UI+Ip0xDQekP3Fmcc+QXk+CxvXkPH3bGW0gw7CnDdc6uG18W
- 8OLxT6zqmi1x5AA==
+ bh=iOvaxT1G2XggGbeguNuBhCumUCCnVFoo/EJHZMzemjU=;
+ b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBq/d+XFuPrWspHz0miqC/yWOVsqMFXFIgZPsEzr
+ ljLnGzKRAeJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCav3flwAKCRBgAj/E00kg
+ coz0EACAFvKPWMjZK+r8pF7ySaq6i5bl+/hHZqLw2+kVCr/AEwVpylT8fEjDTOy/OHRd4NHOUJ7
+ hWaboAHTpc+okUIpvDJ78EdCXinzoasks3mKnUMicEdVjDD3JV2tmb4Wxgi7X6e+1bNONR4tkZk
+ /dYUrC/1NwP2Go9bE9VeAbtuWOngNMIw+SrgJmjztAhW01saymfaWcrUjeV/C0XCeRMpGnL+S5/
+ yQweeho95OuyO8isF7R13wENLfQ/79Jf45dzN/x87i7/g46DXLtUBD6EFfk4DVvdsuHlQIMD1/o
+ /gqFXcD2fiZMXPReThwSQAdkP7IUwjNHu+S5tLXNn2DSqIFPpzb6K2/CiXSxF00wU7/Gg1XIL+c
+ 0IAv34gION47c3ka75ph+pKOnaoZPsgvZjqgB/7nTF7ATG/1ENLkPUhyzazowN3h37y+jdnpYmI
+ EjDv06WI1w5Mlsg6jKZahoQN5bi9RrDgveaC1xDLJYJzsfBe1ZKDlrEBce9JSjp/foLEheniWO8
+ BLh+1K8yKi9/jV9RmQiq+3a5ttHiv9pDfxCtrSSRvjenf2SX6zgK0uXx0x5nCIYf3HHPbtCRZ81
+ cbMGev6iXiGRKfi1JpK5WWfjSQmhssmbjTvGnHhMJVyabbZxeHBrhJJCHezfYKWszOCndEUZ4RH
+ 9ABGTObMyUKmtcw==
 X-Developer-Key: i=david@ixit.cz; a=openpgp;
  fpr=D77A09CFEEDC2BBD53A7047460023FC4D3492072
 X-Endpoint-Received: by B4 Relay for david@ixit.cz/default with auth_id=355
@@ -126,34 +126,47 @@ Content-Transfer-Encoding: 7bit
 
 From: David Heidelberg <david@ixit.cz>
 
-Replace the bogus "GPL v2" with "GPL" as MODULE_LICNSE() string. The
-value does not declare the module's exact license, but only lets the
-module loader test whether the module is Free Software or not.
-
-See commit bf7fbeeae6db ("module: Cure the MODULE_LICENSE "GPL" vs.
-"GPL v2" bogosity") in the details of the issue. The fix is to use
-"GPL" for all modules under any variant of the GPL.
+The VBUS register block on the PMI8998 and PM660 PMIC shares the design.
+Define corresponding compatible string, having the
+qcom,pmi8998-vbus-reg as a fallback.
 
 Signed-off-by: David Heidelberg <david@ixit.cz>
 ---
- drivers/regulator/qcom_usb_vbus-regulator.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ .../devicetree/bindings/regulator/qcom,usb-vbus-regulator.yaml       | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/drivers/regulator/qcom_usb_vbus-regulator.c b/drivers/regulator/qcom_usb_vbus-regulator.c
-index d909a6f2b7f14..88f5a6ba79e6e 100644
---- a/drivers/regulator/qcom_usb_vbus-regulator.c
-+++ b/drivers/regulator/qcom_usb_vbus-regulator.c
-@@ -176,9 +176,9 @@ static struct platform_driver qcom_usb_vbus_regulator_driver = {
- 		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
- 		.of_match_table = qcom_usb_vbus_regulator_match,
- 	},
- 	.probe		= qcom_usb_vbus_regulator_probe,
- };
- module_platform_driver(qcom_usb_vbus_regulator_driver);
+diff --git a/Documentation/devicetree/bindings/regulator/qcom,usb-vbus-regulator.yaml b/Documentation/devicetree/bindings/regulator/qcom,usb-vbus-regulator.yaml
+index 024b34d0eb1a6..96f984060ce4d 100644
+--- a/Documentation/devicetree/bindings/regulator/qcom,usb-vbus-regulator.yaml
++++ b/Documentation/devicetree/bindings/regulator/qcom,usb-vbus-regulator.yaml
+@@ -22,22 +22,27 @@ description: |
+   and 5.0 V.
  
- MODULE_DESCRIPTION("Qualcomm USB vbus regulator driver");
--MODULE_LICENSE("GPL v2");
-+MODULE_LICENSE("GPL");
+ properties:
+   compatible:
+     oneOf:
+       - enum:
+           - qcom,pm8150b-vbus-reg
+           - qcom,pm4125-vbus-reg
++          - qcom,pmi8998-vbus-reg
+       - items:
+           - enum:
+               - qcom,pm6150-vbus-reg
+               - qcom,pm7250b-vbus-reg
+               - qcom,pmi632-vbus-reg
+           - const: qcom,pm8150b-vbus-reg
++      - items:
++          - enum:
++              - qcom,pm660-vbus-reg
++          - const: qcom,pm8998-vbus-reg
+ 
+   reg:
+     maxItems: 1
+     description: VBUS output base address
+ 
+ allOf:
+   - $ref: regulator.yaml#
+   - if:
 
 -- 
 2.55.0
