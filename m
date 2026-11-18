@@ -1,49 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794966015;
-	b=kbAwpPSbOHWR+xikEJJv3JqDiMsCl7Ys258BDPGVTWtITBoA3CVIWzSCh69tGsrNOwmH
-	 4yREluflv7eJEyjDE3LfRGeeSb1zL7b4qPgiwTOiznlKH8bjF3GdpwAE1CASz75ogQTjK
-	 RkdMuskkcKZvOiWc+Jhkzi6zYnAUKZQgEQnGQcWeU6Hjv9zOfDxnVA7v9UywczQJIT+TA
-	 +SOLLtiJaeWSjetIiaJtCC24iB1M+xu5Wygoqptbe062IFLuq4qhyMvdBcgU0fsUOt5Xb
-	 Ikcr21v7li0YXAqU6poWMYmJRedFST+YCq78JbHVZIgympZ6BdsxideCjrAJ6BLjDEA==
+	t=1794966024;
+	b=PB4kkVPM/dSffTv0+fA8lTppuA13ZEHUIDChjaldfnlH6tD0mcON4SZsBRWN15ahDa1z
+	 NIcsT0YgL7ktezS0Pv29+uFIjfUgnRyVjRJjfaWlzbnzy4/PoqgfLJr8UzXU5qoIIpMrp
+	 hrnR3kJfkHj5rc7kO7U2NmyQgF/XKzPEmVqoDwH3JUphhXeErhz0t16jkbOjzv3apfYJe
+	 OQDezAeDCl6P6cQrrVm4xLPKlzNnBQdvOmFc6MRfJz2s6inS/h4G+cqsixopW/cp91a53
+	 g+ESjpDg7T9cFg1ojRmC7zhDXSTU0wNA7ahVAsVbAMe9aLmpgYy3w6niu1t7jVXa6sg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794966015;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=Yr03p+7vUaXrmtZ48lm37axmhamBdNeywOXi8yAKdoM=;
-	b=16IiKZtX8aWUEokNvzs2Rfeo74+ofOrQ6EebIZJdc6oVLljfznCWn2J0/YZ2MwDlOdxY
-	 oJgElsXIwca6npuXwnPwbAg0UFghNOpiH4f7/YsKhusfLBDQXekUc8L0mLVAyPNfO1PGx
-	 9lqF9cwZ+XGGAtEupvFR1imxxyCGS0TrjKkqP3WPUBz5OVs0hKh4oAk0lNASukrHqqps4
-	 +85iW2LOJLyfVRu7+CNk7NOjF/CjxrM5JJyb/b+KQy37rZqrBURSBZnr456MaF7LZODvt
-	 UycSKtMPXyMAIyStDS+yBYDdthGGHDg5DeM9VV8Yh9uvJaAKj7LGgJipPvqDdioaBgQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794966024;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Content-Language:To:Cc:From:Subject:Content-Type:
+	 Content-Transfer-Encoding:X-TM-AS-GCONF:X-Proofpoint-Reinject:
+	 X-Proofpoint-GUID:X-Authority-Analysis:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=L6q1Id6Yjw/qKVMjz81RdBpCrMrsXpt90S8flFNX/zk=;
+	b=Tf0MOWZ8t9it+tpZAyQoMUGpYgxigXVljGDSqIIljU1GaxFv4J+TLBzbC/CINtjlWBMB
+	 txBUmKC3ZJBIDWCoxQrgNU8GnPy5FKM+uZ2qdX9yS6Ki3l5JpdWhq1T1NGboAH7isMGpm
+	 vlOEBHPNoMO8wQJNIYMZtItKCAJGGn9eXTDGwe63HbGO1TJKgRSs1wnsDYgNVisjWzCC6
+	 2Z35Xb20xf2EwCq8JzA6fDAJDrcR+g5gOThuAOLBgh5KNXdmTkmh3kNS+/5V5+SE+ypib
+	 2TtSdwQ2T/6JyWXSaRGzuC7Lv7WYDXEafv/59V15Vxywtf3bL9gg/sfp2sXVnehgwtg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T2E9wnrK;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=Zm1GgbSd;
+	arc=none smtp.remote-ip=148.163.156.1
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF093606A31C;
-	Wed, 18 Nov 2026 01:40:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FDE8606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:40:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3FDE8606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T2E9wnrK
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4567C1F000C4;
-	Wed, 18 Nov 2026 01:40:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794966015;
-	bh=Yr03p+7vUaXrmtZ48lm37axmhamBdNeywOXi8yAKdoM=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=T2E9wnrKa5mC1Y7SLOtX4k6071lQIvEJjbgZOtchjhMLDfAYITOsgNf9twGEk9JXs
-	 uqJu5tBc4C03h2p+fwXL3WNRw2edp+Sc362G8ronf5rggqklDsPBiyQ9cXMAlU4OuW
-	 jOGIRO1c9v9ojU6vVwytlyu2xfT2nT5XdB+gIO/BkphdhUJRS5wXIUtShYtgQPuofm
-	 8oWHE8WwhsX91FP3++WJCoGWuJgyLihoYROpu0U0qhf8MvFR40DzFnAViVIFpeI7BE
-	 wR5NUfHalIBH2bEJEQx1MoewMwsn7BHdJv1RMrIjuUWUXl5MLs5Wy5Nwz+lRB79zYt
-	 kKWNLP1qkQOTw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A371392B1FE;
-	Wed, 18 Nov 2026 01:40:15 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=Zm1GgbSd
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AHMvSK52009607;
+	Wed, 18 Nov 2026 01:39:46 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=pp1; bh=L6q1Id6Yjw/qKVMjz81RdBpCrMrs
+	Xpt90S8flFNX/zk=; b=Zm1GgbSdr2jRzCarRGYpP964kU+kV0QUqkLOmiDnlKnF
+	8eLbWCsqYX1AFw81QhHKsGb/WjTWwH8v5GGE/E4lZpiVlJOAzMZ1fZq46zzYdmFV
+	WYbUsf+piDrSuzMzEq1zPZrTrEh593J+noG4tL8tpY6i0lEdrb89khr6JGvWlFc8
+	0AqhqDUb5MrN/nYdbUkVWcW20cl6dV1Uq3vNUkWTD9K38ODVbiTFUQzPknirZueP
+	QGWtab7LAerBPw1C0r/x2Z38aR9rZ+Ybq/8ie5P2izKu4Lm5WmsPSs4w57DZyTde
+	pb+Tl5sluzut0yi/OsO+Tlc0TI+O9HYPogirsUKOGA==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105rgcua-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 18 Nov 2026 01:39:45 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AHMo0u42523290;
+	Wed, 18 Nov 2026 01:39:44 GMT
+Received: from smtprelay07.dal12v.mail.ibm.com ([172.16.1.9])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4hyxwt6ny2-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 18 Nov 2026 01:39:44 +0000 (GMT)
+Received: from smtpav06.wdc07v.mail.ibm.com (smtpav06.wdc07v.mail.ibm.com [10.39.53.233])
+	by smtprelay07.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AI1dhWL30147228
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 18 Nov 2026 01:39:43 GMT
+Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 22E0E5803F;
+	Wed, 18 Nov 2026 01:39:43 +0000 (GMT)
+Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 4F4465804E;
+	Wed, 18 Nov 2026 01:39:35 +0000 (GMT)
+Received: from [9.43.63.250] (unknown [9.43.63.250])
+	by smtpav06.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 18 Nov 2026 01:39:34 +0000 (GMT)
+Message-ID: <6aec7d43-7c12-413e-a73a-3275a1ac79ad@linux.ibm.com>
+Date: Wed, 18 Nov 2026 07:09:33 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,43 +84,159 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Content-Language: en-US
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: amachhiw@linux.ibm.com, brads@mainlining.org, christophe.leroy@csgroup.eu,
+        gautam@linux.ibm.com, info@xenosoft.de, linux-kernel@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, luiz.capitulino@linux.dev,
+        maddy@linux.ibm.com, mdshahid03@gmail.com, mpe@ellerman.id.au,
+        mpe@kernel.org, nathan@kernel.org, naveen@kernel.org,
+        npiggin@gmail.com, sashal@kernel.org, yaojiale02@163.com,
+        "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+        Shrikanth Hegde <sshegde@linux.ibm.com>
+From: Madhavan Srinivasan <maddy@linux.ibm.com>
+Subject: [GIT PULL] Please pull powerpc/linux.git powerpc-7.4-2 tag
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v2] vlan: remove MII ioctl forwarding
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179496601377.1396957.3735556863769474155.git-patchwork-notify@kernel.org>
-Date: Wed, 18 Nov 2026 01:40:13 +0000
-References: <20261115085343.53218-1-dennylin0707@gmail.com>
-In-Reply-To: <20261115085343.53218-1-dennylin0707@gmail.com>
-To: Hungyu Lin <dennylin0707@gmail.com>
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, yuantan098@gmail.com, n05ec@lzu.edu.cn,
- ylong030@ucr.edu, andrew@lunn.ch, f.fainelli@gmail.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-GUID: US7J12UYlWhqabawuB-m5hoj1z_kaM01
+X-Authority-Analysis: v=2.4 cv=e8uT2qp/ c=1 sm=1 tr=0 ts=6afd01e2 cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=VwQbUJbxAAAA:8
+ a=Mo48iAHoWTUKEd3wlQ4A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAwNSBTYWx0ZWRfX2/m0BxrnM3pN
+ gXMKxa9ge49bg/bUIQFoB9VZ2YI1ACzRdD9E78FNVHvHcyArdHUI5huzU13dfvqkrKJHolLNUkt
+ LyibWtLVGsGe54WPjU+w9mH0SdIk0IA=
+X-Proofpoint-ORIG-GUID: 57ekJ4xXDJmO4g4NntKcJd3lpVbRwmD3
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAwNSBTYWx0ZWRfXwqVqG0zj8XTP
+ Wek4f0kFToSkhxl80Erco9CAgODZMZIq6oWf2QrOqqdF7wXs7kCOKplLilI6L1HGL4t7vXkdmZI
+ 2LCuPuyxRqTuvooDEUpxUauRhozVnEgZLGicdRBFYYhr83l/atSNwS1vtgDyTmBwZ9p2MGZzlXm
+ IgRn51uqRVLTkoQL5W0oczRSVPzHUJ3lx/sbvAJ4t0yo8Ply5qT6B76LgG0wk2FQ4UvpjR1BIGA
+ qzshVAVtshntyQcgT+Zn3WqdYCwJST7O5V7RlvFR7qNqZtwIxvtjAnBwXG0CKyEbo18OxmQAOF/
+ hPN9U6iDIqQU7JW2f3aCTj+MTm/dqKqerEz0XJSj0tuWAVbpbf6/rBEBIedO/fpcQTmz/3OvSvA
+ 2D6WFxRz+Vx4fbJsVMDzAew2MjsYq7VfLJSgBJXXc6y/bjE86ytx0Q0TRTcJQSV4cn4K31vT8Ev
+ C3BHHNfleGtnhURLz/g==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-17_05,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1011 priorityscore=1501 suspectscore=0 phishscore=0
+ lowpriorityscore=0 adultscore=0 spamscore=0 bulkscore=0 malwarescore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611180005
 
-Hello:
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Hi Linus,
 
-On Sun, 15 Nov 2026 08:53:43 +0000 you wrote:
-> VLAN devices forward SIOCGMIIPHY, SIOCGMIIREG and SIOCSMIIREG to the
-> lower device. This exposes the lower device's PHY through the VLAN
-> even when the two devices are in different network namespaces.
-> 
-> Bonding used MII ioctls as a fallback for link monitoring. Commit
-> 23a6037ce76c ("bonding: Remove support for use_carrier") removed
-> that fallback.
-> 
-> [...]
+Please pull powerpc fixes for 7.4:
 
-Here is the summary with links:
-  - [net-next,v2] vlan: remove MII ioctl forwarding
-    https://git.kernel.org/netdev/net-next/c/fbf9026e3503
+Notable out of area changes:
+  selftests/powerpc: override EMIT_TESTS instead of the emit_tests rule 
+# 6648db997a0b
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+The following changes since commit 7475ea8b58616b33c04afb976cf0fbaad9dd63fb:
+
+   Linux 7.4-rc2 (2026-11-08 16:22:20 -0800)
+
+are available in the git repository at:
+
+https://git.kernel.org/pub/scm/linux/kernel/git/powerpc/linux.git 
+tags/powerpc-7.4-2
+
+for you to fetch changes up to 9500416c8aa7c271b85be6a0d5856da62b60223a:
+
+   powerpc/perf/vpa-dtl: use GFP_ATOMIC for DTL buffer allocation 
+(2026-11-11 17:33:20 +0530)
+
+- ------------------------------------------------------------------
+powerpc fixes for 7.4 #2
+
+  - powerpc/smp: Handle of_property_count_u32_elems() error in 
+parse_thread_groups()
+  - powerpc/pasemi: Defer Nemo IRQ initialization
+  - powerpc/watchdog: disable watchdog when watchdog_thresh=0
+  - powerpc32/modules: Reserve a PLT entry for ftrace_regs_caller
+  - powerpc KVM fixes
+  - misc fixes and cleanups
+
+Thanks to: Amit Machhiwal, Bradley Morgan, Christian Zigotzky, 
+Christophe Leroy
+(CS GROUP), Gautam Menghani, Jiale Yao, Luiz Capitulino (Red Hat), Michael
+Ellerman, Mohammad Shahid, Nathan Chancellor, Ritesh Harjani (IBM), Sasha
+Levin, Shrikanth Hegde, Timothy Pearson
+
+- ------------------------------------------------------------------
+Amit Machhiwal (1):
+       KVM: PPC: Book3S HV: Disable preemption around host-side HPT lock 
+users
+
+Bradley Morgan (1):
+       powerpc32/modules: Reserve a PLT entry for ftrace_regs_caller
+
+Christian Zigotzky A-EON Open Source (1):
+       powerpc/pasemi: Defer Nemo IRQ initialization
+
+Gautam Menghani (5):
+       KVM: PPC: Book3S HV: Ensure that calls to idr_alloc are synchronized
+       KVM: PPC: Book3S HV: XICS: Update irq_type for cleanup to work
+       KVM: PPC: Book3S HV: XICS: Avoid NULL ptr deref in 
+kvmppc_xive_cleanup_vcpu()
+       KVM: PPC: Book3S HV: Take SRCU read lock around 
+kvmppc_h_page_init() call
+       KVM: PPC: Book3S HV: Avoid spurious interrupts caused by LPCR_MER bit
+
+Jiale Yao (1):
+       powerpc/eeh: NUL-terminate force recovery input
+
+Luiz Capitulino (Red Hat) (1):
+       powerpc/watchdog: disable watchdog when watchdog_thresh=0
+
+Mohammad Shahid (1):
+       powerpc/perf/vpa-dtl: use GFP_ATOMIC for DTL buffer allocation
+
+Nathan Chancellor (1):
+       powerpc/smp: Handle of_property_count_u32_elems() error in 
+parse_thread_groups()
+
+Sasha Levin (1):
+       selftests/powerpc: override EMIT_TESTS instead of the emit_tests rule
 
 
+  arch/powerpc/kernel/eeh.c                    |  6 ++--
+  arch/powerpc/kernel/module_32.c              |  3 ++
+  arch/powerpc/kernel/smp.c                    |  2 ++
+  arch/powerpc/kernel/watchdog.c               |  3 ++
+  arch/powerpc/kvm/book3s_64_mmu_hv.c          | 33 +++++++++++++++++--
+  arch/powerpc/kvm/book3s_hv.c                 |  4 ++-
+  arch/powerpc/kvm/book3s_hv_nested.c          | 34 ++++++--------------
+  arch/powerpc/kvm/book3s_xive.c               |  5 +--
+  arch/powerpc/perf/vpa-dtl.c                  |  2 +-
+  arch/powerpc/platforms/pasemi/pasemi.h       |  6 ++++
+  arch/powerpc/platforms/pasemi/pci.c          |  5 +++
+  arch/powerpc/platforms/pasemi/setup.c        | 12 +++----
+  tools/testing/selftests/lib.mk               |  6 +++-
+  tools/testing/selftests/powerpc/Makefile     |  3 +-
+  tools/testing/selftests/powerpc/pmu/Makefile |  3 +-
+  15 files changed, 84 insertions(+), 43 deletions(-)
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEqX2DNAOgU8sBX3pRpnEsdPSHZJQFAmr9AScACgkQpnEsdPSH
+ZJQ+fw/9EpxF83GtdFyyKaWVVpf2a6xEUURBMNJ0L84BK29xx3kWp2fRvIiGo9dz
+4koXN6OtNwerai3seOa8+B7ZEyIQ+O5oPENomGl/hYKLGWZXuMFmnF6WvOcTsRYP
+RHGO4WPuZTYVr9IwCQG1XIbDJ8yU0KRySXMTf5mmv4FRP8HZ//V4HhQojNu5vZW5
+sTzN5T3AbtHAxPvtIA2UNHLvfEzV+4FQ1UgR5EMswUM9uv+ssU0FZWO1U34bPw/I
+1Kw0wbWFvR1KvMtzChbcNOagwoQU3TPZ5BuCrkFHRb1imGSVKC5RLs6PtTT2BGd2
+cBmODItuF7Jnz1SfylgrPlKMBwi0PMEQNqC3i0sE4/WYM9Q1Ueqdb9D+FwxNf9pG
+qE+gWn7fdQ2vva98WbJ8Xuhuug4kbLJaIwpVry/Nr024UZknflU5Ivk/kezBT47p
+jDog/bPQ0PhTsFfOzyweSzAHrQaBByQgxaOikld62vjSULAyxsKxCcQ+cFbsvNW6
+rlWFV4ritXf9fcJZOcuS0SJaNon0Q0tTxK7mADQk0Ez6wmXlq0T/AgwyDV9d4OHo
+q6xVrrYf9JbG7jzzu76MhWaZ/aZY8t9ckvxqtdGVvFmkO3hUJrvVgX1xuQBr2HOW
+M1sG8qYlqoHhyKcEXn0iGpSCxHFkA/ca0IuGOu0aK3IabIBxEm8=
+=wO8j
+-----END PGP SIGNATURE-----
