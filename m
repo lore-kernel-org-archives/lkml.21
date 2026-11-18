@@ -1,52 +1,64 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795033954;
-	b=vQBnJe9U03WEe6ONr8HxMRI91K/ghTKAxssCiThZawT/pr8s3eKf+Jawg+0JP2UgGLQ1
-	 cF04LeGnZOjLUKUVxMbJsTcGj2u12H6HWeshD+yVckutNKGZxxzks3zIf0gxDB/NW6dSe
-	 vmjGzVo5F/Td0OpO96Ui1hyMPQLCesOqhT/4uHGdshXSGdDtNblOm5k/367BXhTznp8x9
-	 OKhiQ52baIyjUpS5bkj2I8MAPPHF3zyLWSch8Q0/AZUECe9wIZ0eYpBFBux5cwQiaWsRH
-	 frIlAScWeRHXCwR8rtH7962pBDYpsujyaHOwqss8g08/oqxCEOqZI7x+yg/l/6vWiVg==
+	t=1795033959;
+	b=QWwuijXwuax7Ud30aLXDimDCwrPmAO9aDfZOl/FbV5d5xD0U4QbXF2VxlFauyu6iu/v9
+	 v7r/gWtha+ImzK2Tic5/oCMxvxJj8gRXcWp3Lwkvo5aAbvOjjYjLTWrtD52KS57FwVy7g
+	 KeJSGtufUUYVu58DpjyswZaPWT4qsxG7kJnCg+hZL+0BEmRZBvvLdkt2rQSxQVWkYdHiX
+	 EP99xlb2Z++RwM9quf2pxM3bncmCoBLUpAN90/zu/qdqp/1jo0LY8eMZtBFqMY1gqGK7E
+	 v0VR7okxY2oJ78sY4IqaSfs2ft0B4sULexzJ6l85djIwOObbPpKcTLDrJW2Wd0ADWCQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795033954;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795033959;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=pGpLdb5gpDH1q/lbCHvkH2QZ8VkIM3M73qtVnlaA1S4=;
-	b=i3X+SkqKqJO2rs3a1TaLFHtoLzVfjE76a3nKr8N1C3Zmng3cp/2pFP/S9WMbKLIGgRnU
-	 CfbDx6dpM3hOr5rmClbVLKvyas3K9thZbqomxy/JUc7aFZdAG6IKJ1GcH1l/xmNPv21SW
-	 OLUfylicTTU+XX6DrjO4VC5QC76xuWOzYfUEI+mzqN2KJj9iXfhzN5HNjRfVSOCAKpYu3
-	 wYy3MnudPfteQ71x50TMrE2Jpcp/0bDutWhscSCHTfhU00Xaqn3pNQ3TgQzK7GF3qKirk
-	 B9cSsayyvu8HZTpIWzATi+rJ1mJjAXZXNZd095DhGrCyb4lZq/Khs1y3lUdYNmY0JXQ==
+	bh=XJmqha3jczEcaerimpEtNez8vFhS9CMO3UzYk56rIsY=;
+	b=0ghSkzCfdoB0SbASpzB7QbSpayTuqJg3UBjLLad1ms5VIHlLeKeoVUCNWnivLO2hZhSl
+	 FiyagKf3OCv5QKII0MGlkXGAdY/DBFLyBEobHIXqyJLt9n0hRMSZQIBCVbaWKt3sMmdG1
+	 5PtU3nTVOlVc1RJMit7E0fEQl4WJb+mk4syixrc6V91DJvCRfXubI0qz9Iga2S+acpSy7
+	 68BHeqiAAJ247cRAeSMhkfK3vIdZBuCUCdsYF0bCYTPB6lQq5mzGVHQJEMqCJK5m8yXku
+	 Te6aqawegYIa0jHZeCKcOmZCcWrmqhGcNCVNWF8610WjbHwyBzlfgQFhFCYWMkkr+4A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OXhxVe+t;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ak41hTEh;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47CA4606A320;
-	Wed, 18 Nov 2026 20:32:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F014B606A333;
+	Wed, 18 Nov 2026 20:32:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OXhxVe+t
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1734F1F000C4;
-	Wed, 18 Nov 2026 20:32:32 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ak41hTEh
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9666B1F000C6;
+	Wed, 18 Nov 2026 20:32:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795033954;
-	bh=pGpLdb5gpDH1q/lbCHvkH2QZ8VkIM3M73qtVnlaA1S4=;
+	s=k20260515; t=1795033958;
+	bh=XJmqha3jczEcaerimpEtNez8vFhS9CMO3UzYk56rIsY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OXhxVe+tRpWy+neZ4/JusyIIL0FmKk+grrKbtY7gYcfwZvNir+3zYm6fopyUwtGzM
-	 TdCvK/ZBqetDVlakNPx1uQadLinBNsCdrgR5kXuAjDA483TPcNuTFqIMvzFj4O7Ib2
-	 V+SSi6/hzGYYCLcJF9mtsuG4kub9LbaJALS0TnCxrpKGnIxRxQJd1KYP6sFj1GAf3F
-	 zT0tiDFBSL9j/2D0+bkOnuX/+/aASQhXhFIzls0RKsjR3R2vSS6lsfZtoLlrnLMTPS
-	 BbfBreOnZD6nbYtLlCni2DK/E+SgdqItoCiB/QOSr3o6Ww3MzqzE+TASUIWMPH3APu
-	 FNaoKoLPDblUQ==
-Date: Wed, 18 Nov 2026 20:32:30 +0000
-From: Lee Jones <lee@kernel.org>
-To: Brian Masney <bmasney@redhat.com>
-Cc: linux-arm-msm@vger.kernel.org, mfd@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] mfd: convert to subsys_platform_driver()
-Message-ID: <20261118203230.GK98456@joneslee-macbookpro.roam.internal>
-References: <20261106-mfd-subsys-v1-0-1c3e755d37a6@redhat.com>
+	b=Ak41hTEh2Or4toXQzz7176z2UqaczmbWwvTnufoviYFJytOETfRg2aa0QK/68A9Nm
+	 gxIYDh6Ag75SdaG3TKZW+16O2wyybY+cPkHsLxDWD/QC6bQ5ym6fGzH9mXMsP5DIN3
+	 RHP8zK8feAO8BB4Mab8J7Y97Ukhy6y5e7wtbkPSyl4jNHX5Gx8z9d2Rd9qpgn4b7jr
+	 auWnbP5kFSpwUUmbK7pHZg5D0Ah7yuAxK01zgG47x/QVPNEYHIg57EsxCwJ2N6MCb9
+	 jY8keMjByapseewDHzDH4TGhtnl06j0T31BCfNER9ddo3G9guNLbixjZlh1e4oJdCw
+	 NFaYBExwJyP7A==
+Date: Wed, 18 Nov 2026 14:32:36 -0600
+From: Rob Herring <robh@kernel.org>
+To: Arun Iyengar <aiyengar1990@gmail.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Niklas Cassel <cassel@kernel.org>,
+	Pranjal Shrivastava <praan@google.com>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Simon Xue <xxm@rock-chips.com>,
+	Finley Xiao <finley.xiao@rock-chips.com>
+Subject: Re: [PATCH v3 2/3] iommu/arm-smmu-v3: Enable an optional clock
+Message-ID: <20261118203236.GA823624-robh@kernel.org>
+References: <20261113-smmu-v3-pcie-pd-v3-0-39eb4f919529@gmail.com>
+ <20261113-smmu-v3-pcie-pd-v3-2-39eb4f919529@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,30 +70,56 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261106-mfd-subsys-v1-0-1c3e755d37a6@redhat.com>
+In-Reply-To: <20261113-smmu-v3-pcie-pd-v3-2-39eb4f919529@gmail.com>
 
-On Fri, 06 Nov 2026, Brian Masney wrote:
-
-> Reduce boilerplate code in these drivers and convert them over to use
-> the macro subsys_platform_driver().
+On Fri, Nov 13, 2026 at 08:45:06AM +0000, Arun Iyengar wrote:
+> On the RK3588 the PCIe SMMU's clock is gated as unused when no PCIe
+> controller holds it, and the next register access (the CR0 write at
+> shutdown) hangs. Enable the clock from the firmware node, if there is
+> one, while the driver is bound.
 > 
-> Signed-off-by: Brian Masney <bmasney@redhat.com>
-> ---
-> Brian Masney (2):
->       mfd: qcom-pm8xxx: convert to subsys_platform_driver()
->       mfd: tps65911-comparator: convert to subsys_platform_driver()
+> Do it first in probe, as the firmware probe may take a Tegra CMDQV
+> reference that only arm_smmu_impl_probe() releases.
 > 
->  drivers/mfd/qcom-pm8xxx.c         | 12 +-----------
->  drivers/mfd/tps65911-comparator.c | 12 +-----------
->  2 files changed, 2 insertions(+), 22 deletions(-)
+> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
 > ---
-> base-commit: ddfe51b0a0f5dc9e415cc2c8ad8db17532dd426b
-> base-tree: git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> change-id: 20261106-mfd-subsys-63dc5bb82f83
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index 6d4520c47308..d3f42316b0d6 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -12,6 +12,7 @@
+>  #include <linux/acpi.h>
+>  #include <linux/acpi_iort.h>
+>  #include <linux/bitops.h>
+> +#include <linux/clk.h>
+>  #include <linux/crash_dump.h>
+>  #include <linux/delay.h>
+>  #include <linux/err.h>
+> @@ -5786,12 +5787,22 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
+>  	resource_size_t ioaddr;
+>  	struct arm_smmu_device *smmu;
+>  	struct device *dev = &pdev->dev;
+> +	struct clk *clk;
+>  
+>  	smmu = devm_kzalloc(dev, sizeof(*smmu), GFP_KERNEL);
+>  	if (!smmu)
+>  		return -ENOMEM;
+>  	smmu->dev = dev;
+>  
+> +	/*
+> +	 * Before the firmware probe: it may take a reference on the Tegra
+> +	 * CMDQV device that only arm_smmu_impl_probe() releases.
+> +	 */
+> +	clk = devm_clk_get_optional_enabled(dev, NULL);
+> +	if (IS_ERR(clk))
+> +		return dev_err_probe(dev, PTR_ERR(clk),
+> +				     "failed to enable clock\n");
 
-Looks like you were beaten to it.
+The primary point of the "optional" flavor of get functions is so the 
+get function itself can print an error rather than every driver doing 
+it. So drop the error print here.
 
-Please rebase and see if these issues still exist.
-
--- 
-Lee Jones
+Rob
