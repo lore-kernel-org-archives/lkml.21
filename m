@@ -1,190 +1,117 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=60.244.123.138
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794971192;
-	b=5RWVMn92ls4FJh0GpaUnZwE5OO7rhSbMIs9A9PRi1GvTv8lfPLqSwHzZvS2iPs6lLdZh
-	 7GVl6LjMSqOvVyWmPJHrc7vTOrAIcDlvLQZF2p8N5ti+bcT0sjyVU14ya6QNiPmZBbjxC
-	 w58xpLIXiLOQaDCat3GrDP38Banwy1oOkcQy8sAFO3+byzTM7hPWz2nWdwdw7WA0yY/c1
-	 mIOF4hhWMxcpd3Z0r1V56c0y4Z5yB8aS5m9GEgEpM/xxqz4czQtDNtDajni8RNIYhfAdu
-	 uR3aoxo1U/ge/CgseOz/GVgjqc6wE8BxEmcOp0RBZ2h8qOacriKZ4RQJ+h5wfN2z+iw==
+	t=1794971231;
+	b=IvRUKvSdYETBqCzdYiIYitdwaAKIY9hYaAgG23i5spfzCIEDKMqyey2/hTTCZHVxwHqz
+	 H+2z9zr2JRbdBnxc75XtfGvrVKdMV+xeW+jdI9ZjXWptQctwUzxME+p/UtA0VmiSZF3PD
+	 CTDMOeOmyO/03pQXQWBtUI86I6Wrew+2SkFzN8hB5n2hGTeAqZQPcmjCcUcELDhF1/qJx
+	 mRviwU523LNuU7ez2ze9kX2NZvLLtdxXmY1TB1QHtu2ThTNUxF1C82EiFPsRbgnPAY4EF
+	 5gtGloW04zVyPo1lV19j3DtEDuiiH+sup/YLh1fZNmcM+g8p7i/90QIg0ATWJw5dfTQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794971192;
-	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
-	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
-	 Received:Received:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 user-agent:x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ld-processed:
-	 x-ms-exchange-senderadcheck:x-ms-exchange-antispam-relay:
-	 x-microsoft-antispam:x-microsoft-antispam-message-info:
-	 x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:Content-ID:
-	 Content-Transfer-Encoding:MIME-Version:
-	 X-Exchange-RoutingPolicyChecked:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-MTK;
-	bh=Tz5JIJ+Ebazhu2/zVFzTkwHTwq9SKzirPCktIJqP2S0=;
-	b=YffPO51xS49957qyVfCEgZK3KdaRq0yQWcBJtjiTwOVV5RmLaZvdNZhildtNYXpveb/a
-	 XO6QmEx6kTUwjS0GW3+A/KOjQwj6SNbwrp9sR9t8Ws1WUy+Qkohs2NUvQUgYMI3gXkULY
-	 ApH6/UbQpBc2EOl84XI6F06LijnIUhQKFecBSsP7CcEv4VKyn7WgJEewRtoYWa7EUN1gi
-	 X8uooWzTpM4snXB9yM4dlAC6TrjVfmAEUaQ6OABUaOzhpSIh6ZwxTLlTwpf0YKVVvbowf
-	 g2+MLgJcnrP7r88PRX/tI2VSShD1QBJkGlyhM0m8VI/B/6CHMExuEE6zxBEO0UJM8GA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794971231;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:MIME-Version:References:In-Reply-To:From:Date:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type;
+	bh=kysJ1HDuW0DMB+nfNSrlI72YXjyjqOWKk6yfxl+bUkA=;
+	b=OQ9oFIxNbyquZT0kdN/zep5GFBViWOhDEF8PXti68wtO9pfYZugNSVSjgR3cGPzFoaVa
+	 AzIUNA11DCQyRlL5DZoh3xJ43sGC+vNFoqRMolRXogYrwohB/++3EAba8EcXvvmtzmglm
+	 CnkVNIkZ8oLecyWLe18WyasQttSfwVvbN1UcaZz4zMA0ogAtsAGddCjr/fl4HXul1Fucj
+	 p2Z0mpu9joSZ/Hkx0HnzzbQtOM3YIGQ/YobEazqajmarKcUSuutGJQqykLZVaIYnyYtRX
+	 TK8ECMF/B6hu3Udf+VfaupXVDqISvRMFtjwEj6A6ZHnbuG4e/0R90XRNfPb4j+BukeA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mediatek.com;
-	spf=pass smtp.mailfrom=mediatek.com;
-	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=c6Q0cWPi;
-	dkim=pass header.d=mediateko365.onmicrosoft.com header.i=@mediateko365.onmicrosoft.com header.a=rsa-sha256 header.s=selector2-mediateko365-onmicrosoft-com header.b=rhyk1Moa;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=60.244.123.138
-Received: from mailgw01.mediatek.com (unknown [60.244.123.138])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=dL4gRxiR;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=BW5U2AAq;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D441C606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:06:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D441C606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EEEB8606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:07:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EEEB8606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=c6Q0cWPi;
-	dkim=pass (1024-bit key) header.d=mediateko365.onmicrosoft.com header.i=@mediateko365.onmicrosoft.com header.a=rsa-sha256 header.s=selector2-mediateko365-onmicrosoft-com header.b=rhyk1Moa
-X-UUID: 06b93578e2fd11f1b1788b6acf885367-20261118
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=Tz5JIJ+Ebazhu2/zVFzTkwHTwq9SKzirPCktIJqP2S0=;
-	b=c6Q0cWPiv1p7zcvfypxaM1ySFAEZGx4sIT33Lw/EygNTuKjnLfsto9HUnc8S6RfgHZFPUDapLa4DTsYYuM9Yir/qdmeBR/nRRVKggJC1Of74CMO/Tb2HCBrTXRQvwrD4xC4QOI5mORUJU9gDUG0mU6Oyqk7NtqVsrdub9xYJPqY=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.21,REQID:179a4bc8-c093-4c58-bd6f-309e46c4980b,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:b0318ac,CLOUDID:4f22903e-3f0c-4ece-acc2-25cbb05a5e6c,B
-	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|110|111|836|865|888|898,TC:-5,
-	Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:n
-	il,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 06b93578e2fd11f1b1788b6acf885367-20261118
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
-	(envelope-from <ck.hu@mediatek.com>)
-	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 738990659; Wed, 18 Nov 2026 11:06:19 +0800
-Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
- MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Wed, 18 Nov 2026 11:06:18 +0800
-Received: from SI4PR04CU002.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Wed, 18 Nov 2026 11:06:18 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hNzvcSQsoi3vWKzcMBr839mWkyJfMxUK1TcKE+QfqAk1hPnmqyYutSwC3uscbS6LikrL1UBXirtWZXqEmY30ffUUyUEF8u+rYnt3nrMWnNrxJW0b1QB9vAAru19TbHEgEpebiDbQPEBeQf3FWOURBsQ8LGMjOJRSC6N98KwJfp5HbmQQiBjY40nRFnVV8MMYUpR+eXhxPDQuPAp8bjR1GRZbRAOVXojj1UP1PFuprWWY6YdPA43o7XfRLNJZTa4HGdIN1TAZqYXQhMYtC2V9N5SCWQx1iPukIuz8YfC+gDxutwRc14aoyAAtPuDToGPHJG3UkjTEzg6C1OiVC0uHXA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Tz5JIJ+Ebazhu2/zVFzTkwHTwq9SKzirPCktIJqP2S0=;
- b=DM1LgybV+Payv7lPEMP3lcZBnDWSZgNnWbQ0rtblL9ZIMY7711Io2/GVlXuA4roXh5S6chKS+zZJbJ9Kz5H+vWgf/YQG8NCSxVNoce3Ek2iu8+VaotcYXP6YZhiptGaL1VRZWcyLF/MhHVJSUyWzjgqHGdmHxT/a2rw9Cr+T7eWiCf/N6wj/XP5iAUbdzHuUtfsNa5QHZR8WJz15xRpI+jmHqQVUX81j3EfA1Fg8fqBgIL0Z/OW8FxGK6288PQkU+XFABO+zAuMvtBO1JeVl9JiRxt1KOCAyMPLQQ0dHMQY6C38+ghzkhasm7Q1MhFj+LS/sp4LdlMAyKobseGDQnQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=dL4gRxiR;
+	dkim=pass (2048-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=BW5U2AAq
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1794971229;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=kysJ1HDuW0DMB+nfNSrlI72YXjyjqOWKk6yfxl+bUkA=;
+	b=dL4gRxiRBrn3FUNDR7jG1i0zyoap8DP19py2rFy7/QLYM8lMSLocJyG+9keZ3qZ2f9rV+7
+	gbPqKtrxfy0hEtvPaqh4fRUIlvAaXuyKnOGdCROZiTuOya8M0ASfRzXWgebft4v5l/omvx
+	lDLtJ32acUEFl6biVnxQP6ZsL6Mdz/0=
+Received: from mail-vk1-f200.google.com (mail-vk1-f200.google.com
+ [209.85.221.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-613-5HEavrUZOeGvkMcyS_DusQ-1; Tue, 17 Nov 2026 22:07:08 -0500
+X-MC-Unique: 5HEavrUZOeGvkMcyS_DusQ-1
+X-Mimecast-MFC-AGG-ID: 5HEavrUZOeGvkMcyS_DusQ_1794971228
+Received: by mail-vk1-f200.google.com with SMTP id 71dfb90a1353d-5ee30bf935eso127118e0c.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:07:08 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794971228; cv=none;
+        d=google.com; s=arc-20260327;
+        b=F5uott3cTOIOhTklvpAAexijGa42sLhlQGcdJiMMe0ScyCygfd1YnC/sIKPqDg+udz
+         PCupOrN/SGKRDz0jG5IjtLBc96An1GBrxKhhQpbAKCRaVODhOKKk2SI1mVLf5/9NlBEM
+         mnEPIhHI5FxSlv4+1b+kubtlOIc9ic+263HBAujzU7ltg0mDDvY5BgRGAy03oUuTrcDM
+         Gb4XLkn/LyG+9FRWNb8SnXKblcJPJ3rClbZnHCpkYXFQBkQEebP2LSh/E+jaf/RkbYy2
+         UIyIj+e/NqQ3baNSVESKxEVwXfL5uoqegCou6tezdY7UYkoOniS1YcEs5F/2FH1MQo8y
+         PgXA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=kysJ1HDuW0DMB+nfNSrlI72YXjyjqOWKk6yfxl+bUkA=;
+        fh=OGanz/rgI5qjUjsHIbKU5oid/9J4HSGS5CVPdCuknHM=;
+        b=b4bVtenKViAuVvcQ1sM64JXO0Fwv2z/sxxj7S2fSpGLad9PufRbwLNjOHy+u8TW0q2
+         mrJ5ZxbB9b6UKJFn+6+MDb6JuiBXEPVdZhiniGnKORFsGd31hHwJzZr2JGdjO0z4WVyl
+         7N3Sv4FYXKH27dAXIoYeNgEOPwGj5Q5hHNkH+04egEyL6r3biGH3/PAMoTx/blxSIhYS
+         WeBz8ocEuO1XjsSWhV8pBhQaXvm0D2mOyc9fJtIS8CECQmuzYYeFIAcAQk8c97Sjcxow
+         SlCrwjCio+3obHf0Co69QvFDSzIX/P5tGe5vShkwyk1t+fE1f9p5+rTzMWvUZNAZ/xsI
+         JPsg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Tz5JIJ+Ebazhu2/zVFzTkwHTwq9SKzirPCktIJqP2S0=;
- b=rhyk1Moa3xASAnmKmjjEzyVmKYr5XAf7zne/n1sd6qE7q60NEHH84W5pwQnqoM83JHoK/9NuSft9PQZO+uGvkNUYs/TPDmkM+5TQMkCLVl7WHq3ALmfnlThDZNMYig/G3a7rciQuyrVoEVm/dMhhz7MtZaHIvphqW73MhIrdzGY=
-Received: from KUYPR03MB9902.apcprd03.prod.outlook.com (2603:1096:d10:91::20)
- by KUXPR03MB9438.apcprd03.prod.outlook.com (2603:1096:d10:4d::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 03:06:14 +0000
-Received: from KUYPR03MB9902.apcprd03.prod.outlook.com
- ([fe80::9598:2e59:20dd:960b]) by KUYPR03MB9902.apcprd03.prod.outlook.com
- ([fe80::9598:2e59:20dd:960b%5]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 03:06:14 +0000
-From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
-To: "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
-	"chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>, "yidilin@google.com"
-	<yidilin@google.com>
-CC: "simona@ffwll.ch" <simona@ffwll.ch>, "dri-devel@lists.freedesktop.org"
-	<dri-devel@lists.freedesktop.org>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "airlied@gmail.com" <airlied@gmail.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, "fshao@chromium.org" <fshao@chromium.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>
-Subject: Re: [PATCH] drm/mediatek: dp: Wait for the complete AUX reply before
- reading it
-Thread-Topic: [PATCH] drm/mediatek: dp: Wait for the complete AUX reply before
- reading it
-Thread-Index: AQHdcm2XAgCHNjmz30S34phUZXTZSbczLq6A
-Date: Wed, 18 Nov 2026 03:06:14 +0000
-Message-ID: <0964123eb95cd4a6516df05003f59f3cdb260d00.camel@mediatek.com>
-References: <20261112061736.4014993-1-yidilin@google.com>
-In-Reply-To: <20261112061736.4014993-1-yidilin@google.com>
-Accept-Language: zh-TW, en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-user-agent: Evolution 3.52.3-0ubuntu1.1 
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: KUYPR03MB9902:EE_|KUXPR03MB9438:EE_
-x-ms-office365-filtering-correlation-id: e798a30a-c989-4ad1-59a9-08df4520e80b
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|42112799006|376014|7416014|23010399003|366016|18002099003|22082099003|261009223027099003|3023799007|11063799006|56012099006|261102123227099003|261028144727099003|10067099003|261026140227099003|261026121527099003|261021121427099003|261022105027099003|261021123027099003|5023799004|38070700021;
-x-microsoft-antispam-message-info: U45oJ5psQfKfstBZzSPXx9oZmztR9buCKKy3qN6Q/nm54Kdb9puoXIo79JNLapmn5FV0C6tb8Mbw/PSoY+NlrkK6kXcEOvLQDwx/2A8Ap8MF74yVEhDjWKjk9Fcsw/4n1qlF7CdGrzuCzBx77klL8y7rpdKJTWuSexdaW07piOtVFiB8dgD7JcZ+e92TwRBJontXrPn+isR1jgupt1Uhppw2JRKu36j7OmPn1hvm3Yj51gzuKsIUp7DAQ6kgtV1ms8CUIflBKrfq6DDtb5QPNDfA1jtmIvZgycy3bQFGHeUB1VMXcxWN5UiIPz2Wby8R6g5YMLh/mWBkfdlKXLT8eQSep363XPxcJ9rESCZ43l5S6mDDM4i00kBXdSgK8diJHCtz/+TOcRZg+LCRLZjncfT4uCzDPx4CmHgr+7K2W5CmBGhF8i1zqosFL5VE7gfuZTmdPjI5nfusnWzATgzrsfjjI2jk3d1Rvm+X4S09ar7+gb8GVX58hwnX5PBCiNo3vk96UqvmdzpxDjjMA7sZzyykQc3H41XMKs+QuwX4Pe6wBo5TW7Nnx28mkNztOVVoCG6sP+7H7ILbRT2VVUQeqQRf5eFBZi8MMB5bIDe5p4bM0Et7j6J/z5zBr+VflLJiy5puCZ0BfzuXI8fveLBDtPAZ7++sQJYRwU2lTaeGxKwgzhfP5JlhCJ5QcsjE792XyXpT5Nt5Y7K0aThe54j3RxjC8WXLDZYt0KoR+EB4XCc=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KUYPR03MB9902.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(42112799006)(376014)(7416014)(23010399003)(366016)(18002099003)(22082099003)(261009223027099003)(3023799007)(11063799006)(56012099006)(261102123227099003)(261028144727099003)(10067099003)(261026140227099003)(261026121527099003)(261021121427099003)(261022105027099003)(261021123027099003)(5023799004)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?bGF5TEFUUTcySlJIVU5nZzFtWTFqWmJOTTVFbE52dXFIWUQvNmFaalV3b3ZY?=
- =?utf-8?B?OTc0R3JaMlkxVVdyTlROOFhYVENTY1pmTkhDMHlSUG9GOTQzSUs3cEh1djJD?=
- =?utf-8?B?L292bU1YeHZVcHB5b3JrTEx4TVVjWEl0K3pIWDJaYmlvTXF3dDg0dnowZ1pZ?=
- =?utf-8?B?QVIxOHpzY1R2R3kyVmxuZ0tKeHBSMFhMZlZEOG9qYlgxR0FXZ2xGdS9oN09E?=
- =?utf-8?B?TjdlV3dnWVMrbmVRcG5pUE1CZ1NNQ2hBZ0VjL2M0cVJHVThzRldsbllZVHBy?=
- =?utf-8?B?REVIQ0xiMlNuMzN5RTFiajQ4VWZrOU5mVVZSNno5VGlCVlpKSTQ4S2tZL1NO?=
- =?utf-8?B?VFY4bkJuNlA0MjNENlRsNTJyWDRYdHR2TlMxZElNbC9oMmJ6cDk4dTVhWW85?=
- =?utf-8?B?OWFNU3hsMGlSL04xZ3Flc1JKUE1PVjBEWVhQTjYySHZtSzY4WDdiNlFYYzA2?=
- =?utf-8?B?YXFCN3JHVUovSmFKc1NqNjQxaVN3OGRTQ3VCVEJObVV5RUp5VnBsVStqNWcr?=
- =?utf-8?B?MWVCbUdvZkNJQVR5M1JlK1F6a3BOcFNpQ2JVV0F6MGx6UVFSOWtSeGRMVjFV?=
- =?utf-8?B?RUNtNjBYanJYSmJ1MU8xL1U4K1JJc1JhSXFESURhclRZWVlLREJWeDZQODMz?=
- =?utf-8?B?YXJ2VFFWSVR0WlNxa0hQaExkMC9qbS9UMmF5MDVDWWEveUpVUlgrY0I0eStH?=
- =?utf-8?B?TjRBQlhERVU5dTRUUWZvSUt2akFvcmxwOTZQd3FZT284ZlFzWG1GNlVaZjFh?=
- =?utf-8?B?dVJFcmlHV1hCQk5aT2ZNMFpLKzVXa0M4dlBjRkY2TGpYVFNFSEw0U1hwMWt0?=
- =?utf-8?B?eTB0Z05DVVVLZVlGejY0Um5lOTVSNVNWZDRXd2REblpsQURDZEZKSVNMZWpI?=
- =?utf-8?B?bG5qSTk3Q2pzNlFkeGI1Tk11VkZ5cHJ0dlYwQnZ6YnpaM0hmS21ZNWhUakEw?=
- =?utf-8?B?elRIZjNidWNYU2lmalV3R1MrNVZ2dmhUc0VwQ2NobWRvRk54UU80Zk1BUm5s?=
- =?utf-8?B?TkF0KzZUVVBGcTZOdnVRWDNZY3VsdEN3VWdOci9wRUJWajhUUlZWdXoyeU1M?=
- =?utf-8?B?WGNCK29KM09pVFlUbER6VEJVUFFBUTFwNFVoRTRrNjVlWjgxOGFjdGNCdjNO?=
- =?utf-8?B?YmZqemZBK243RXdQbmIxQW9ORTFGSWVXa3dpZnRtMWJVUm1TRjNEdUVlMXRp?=
- =?utf-8?B?NG52ZGtpeVRBcWxjbU9PQnVqbVNwaDNmM0V1R3NxSWRBeEdmcXpXSXNKc0xO?=
- =?utf-8?B?Qy9BcVFKR1JPNzFwREx0TEhtR3dDSE1FZ2tVVDdhekljbzR4TENGVWtwRVNJ?=
- =?utf-8?B?ZUVoTWJEYnJCdklablhncEUxWU83RXEwVWpWa2FQTmhUU0VoK3ZUcGpWd1JQ?=
- =?utf-8?B?VGVNQ0tTdzA1Vi9PTm1NQlBrOTNNWTZFeVZ0ZGZ2TkM3MEZxREd2eElpNnFX?=
- =?utf-8?B?QnViOHN4eitrVTdlaWk2TU45ZFZCaytRb1hzVzhVb2NDTUdMZzFHcVpkSGR5?=
- =?utf-8?B?MSs0bzhlUkZFWGRPQktIM0RRRUtMajhDMERSdWZFNzRyZ21JUTk2dnZjN1Rv?=
- =?utf-8?B?a01Cc2I3dFo1Ly96S2kzM1cySmZHd09MQnpPbnBZeThXMXhZZHhKZE5iNHVN?=
- =?utf-8?B?NGllT00vRDEyM1RETXR1aXZLNnplZkswRDVvWWpIT0ltT3JzeS9TUHdXdytj?=
- =?utf-8?B?TGt5S1VoTTdNNURkS0I5b0xRUmlvZGdPWS9taWhxMlhkMEkydjJDb0w5WUgy?=
- =?utf-8?B?R1VmbE51OWhjdUhkcnJta1l2SXE5cUQ5VUpGR2dwMXdjYzVKWHBDM3lRNXlx?=
- =?utf-8?B?aGw4dVJHWFhNbkozeFNjT0FKNGV4emROV01nLytqTHczaEVjUnVyUEg0cVFS?=
- =?utf-8?B?QkVVSVZteXpRN3VrRTladE0wWnFtaDF3c1JzS0JoSmxYNTlhQ29qVkR0R0ZE?=
- =?utf-8?B?WWRlVHVvWU1Ec3hTN0kzUTROQU9TejBManBsT29LdHVPUEg5TWZXQ3hpSFpU?=
- =?utf-8?B?MlBVMWJrVHdWRWZoNFZqTWFqbE00MXM0SFRzYm1FajBvNS9pSENHR04rTzV6?=
- =?utf-8?B?dGNvTk5UK1FydkY2WGJveEkrTENza0IxVXovNFJkcXg5cCtTZC9BbU5wcS9L?=
- =?utf-8?B?Rzlhc1F1Y3ExZGFBeDJBOUhqSnZhWnpXcGtHL1lWdkJyd2pVRGxmenB6YTE5?=
- =?utf-8?B?bVdKTHM4eWIvME1UanNrRkVpYm5mOEN6bFlnVXY1VFpvM21FSFE0QnVqUkhw?=
- =?utf-8?B?MWxzMXdrM0Z6QmsxL09VbXB0TCswaTZ1bzZjWDF1eGlZUW9BZ3l3N3Y1NWF5?=
- =?utf-8?B?MzJVSEVDRkI0UW9BajFUY1MvM1A4bU40dnVvYWpScHFjcHFCSEFWdz09?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <2B344872F249724AB2D15A7BBDFD50AF@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+        d=redhat.com; s=google; t=1794971228; x=1795576028; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=kysJ1HDuW0DMB+nfNSrlI72YXjyjqOWKk6yfxl+bUkA=;
+        b=BW5U2AAqpA2aQia78Vm4sN0s7bF1ic46Cz9uXAIJDljboxI0NBUkfbhSDW96ik4Rhm
+         cecl/4RISiv/qrUfiU9E4cNpdMSWXSn3pP1PJ1TX//sTu6S942A6+5ulacBAQ9ijah2V
+         mPqWrr0vOcig+sKAjPMEYdl4msf3Fizr7ViJIRk5wtgpSB2xTmUfsey1DSkJl/547PeS
+         tF27SjEee+XTIPfj8SOgnejzci9s7rlwS5L9IghASaqB3dGrG/mgkKbfMpkUpYqDc4uY
+         xDQANhWkaKBb6BqU5nfaKA0BRkNpR/E5uZadEEYv81hqj9fBQr13lw2l3jflk9UYhVDg
+         COmA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794971228; x=1795576028;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=kysJ1HDuW0DMB+nfNSrlI72YXjyjqOWKk6yfxl+bUkA=;
+        b=L02xCK9lqm0TB62EIS7x0JZ61ZbLYdENq8einTnavapUC4nIYgz2jSysMgsv55RUtq
+         Aio/TCAmacXzfBcWOdi83J3DvFkyPVHSmwI3tTCdbdt9z/eQNqPfciWD0k8IKyBAImVi
+         Om8Jynd8+O6Ixyx9KC3rn5O3ZQjX9Cz9xnQAfZAWI1YUsrWFknDNQLJAe2meyqyvrTTI
+         IYtW0kboIBqxGnfcIs54qa0xeX+yiTymWpyNtFIBQgpzZRgTVwxvSsVm2sVJz2zTV5B0
+         TfsvBHr/57CT6gfFDYFrf4VLuQqdjVqKqCNFCue9iNJ5Sz8aLBugWSYpAA0NoWJOti2p
+         47sw==
+X-Forwarded-Encrypted: i=1; AL+hErE0/rDFu0lwGIb7v0+MRmg6EDwHVnaQtzC4+sRppxouXUxDa/Kj7WHbWgIt2Q95H+o1R08/I9EP8jXjnlU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9fgBNRPYQJZ8MNfItfIUwN7M3NML22Cm5ZodRVuYt6h5U7SbMp
+	KrIjfioCP/qW68ww43qeiWSY+eFvX+tU2NJk1PTFsVHv/VG7dGW58qexocJgxNUIDJNpqUIpmje
+	PKoPnJhBhClA/GmbJyZw6pWDkPdK3Bp7nIODrqXe7ED5o9BgoFLUAgn40sK59V47uUDCjjf9EvM
+	oQTix/7KOLFEgYBSbtcNlyaO6/QJnVKACg2UwTUjEA
+X-Gm-Gg: AYBFou1dBw1AO7tA1s2cEJ91hub+1NAvf3wMNBKU+7MnNoT4RJBmkSbfXUSjSfG097U
+	h1+xezdQNPqDr4CgHmXEM0p1fr7Ifn4S9wYO5ZDnELzpONd0N17AdSQRCAYVqquYixMxTQgEUCI
+	7WwvfqZD1ay9d21n4Pwt++cXWawuWLYAXw29G2GzHhlCBjZPar65K5P7Xb
+X-Received: by 2002:a05:6122:1c10:b0:5c8:46e3:ec57 with SMTP id 71dfb90a1353d-5ee645f5852mr805954e0c.1.1794971227453;
+        Tue, 17 Nov 2026 19:07:07 -0800 (PST)
+X-Received: by 2002:a05:6122:1c10:b0:5c8:46e3:ec57 with SMTP id
+ 71dfb90a1353d-5ee645f5852mr805913e0c.1.1794971226867; Tue, 17 Nov 2026
+ 19:07:06 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -194,116 +121,233 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: kW/Y6g7xjvn5Ex4+pNGG0NmaZU81jUpPbvSJUDhx9YIsEq/vRq1A0TIjrA2wWmyiOychwv9gql3JAyQBWvqPAzYCxgR4QjkQKtZrLwceiTWT0CehPvmDgBP8sGXGFt4l2w9/3VsppgvIXrBf0X1bdlxzzxfwQHEy1GeF+CrISBJO5P7OVlaaNuArC2dTSPXgjj8UKlXkVc8qrcZ7EBQJKgjV7+evyk/nczx4cQth9k+ZC9Tsb/vm+OW9ENfrCZSoK7Wgn4ucbLMNtJUiNRHbA9qTIejQZmJxou1PDvZ0bx5fYpf7IdVi4KDzpY3PKUnwvB3aDRi8CzNnsN7wPYAcRQ==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: KUYPR03MB9902.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e798a30a-c989-4ad1-59a9-08df4520e80b
-X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Nov 2026 03:06:14.3553
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: ij8p3EYwP/ytzV30o581Bm6+mJBXCCS7fDQdh1gYnDEamkeBBtdRquWe92UZPD9es27jgPaT0ls82N674chc5g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KUXPR03MB9438
-X-MTK: N
+References: <339bb2636c7306e17540268a9295a8e673b92804.1775065312.git.tim.c.chen@linux.intel.com>
+ <20260409124642.GC3126523@noisy.programming.kicks-ass.net>
+ <a2d7e7b2-5a4c-48bc-b567-61e3cbd17786@intel.com> <20260410092057.GG3126523@noisy.programming.kicks-ass.net>
+ <CAE4VaGAZavgRWDf=ukaj_EJvOO52hTpAYKPe1JEtUE3E2q0y0w@mail.gmail.com>
+ <13d982ce42116f876f01a77bae7f02d3800f08fc.camel@linux.intel.com>
+ <avqYbuJPHo4zLDOd@three-body> <CAE4VaGAL5FPGUrG76pzf=9pJTaMWa60pbkLv-ZXCFjr5H2JpDg@mail.gmail.com>
+ <879c23213859f24b12a23530d6ae849bbe504b6b.camel@linux.intel.com>
+ <avxDmPs4rs39NC9O@three-body> <avxGoEVvohbK0nUS@three-body>
+In-Reply-To: <avxGoEVvohbK0nUS@three-body>
+From: Jirka Hladky <jhladky@redhat.com>
+Date: Wed, 18 Nov 2026 04:06:55 +0100
+X-Gm-Features: AclHuK_dXo8_rXO1-eYkaMaouH9ZQLeGbGf6CYkizGRmH9HlI8WDrRtQzUvBywc
+Message-ID: <CAE4VaGD2idBi35zDQWCY2ybB0spz+tKEX5=59O5U5tBbjGuYAw@mail.gmail.com>
+Subject: Re: [Patch v4 17/22] sched/cache: Avoid cache-aware scheduling for
+ memory-heavy processes
+To: Chen Yu <chen.yu@linux.dev>
+Cc: Tim Chen <tim.c.chen@linux.intel.com>, Peter Zijlstra <peterz@infradead.org>, 
+	"Chen, Yu C" <yu.c.chen@intel.com>, Ingo Molnar <mingo@redhat.com>, 
+	K Prateek Nayak <kprateek.nayak@amd.com>, "Gautham R . Shenoy" <gautham.shenoy@amd.com>, 
+	Vincent Guittot <vincent.guittot@linaro.org>, Juri Lelli <juri.lelli@redhat.com>, 
+	Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
+	Valentin Schneider <vschneid@redhat.com>, Madadi Vineeth Reddy <vineethr@linux.ibm.com>, 
+	Hillf Danton <hdanton@sina.com>, Shrikanth Hegde <sshegde@linux.ibm.com>, 
+	Jianyong Wu <jianyong.wu@outlook.com>, Yangyu Chen <cyy@cyyself.name>, 
+	Tingyin Duan <tingyin.duan@gmail.com>, Vern Hao <vernhao@tencent.com>, 
+	Vern Hao <haoxing990@gmail.com>, Len Brown <len.brown@intel.com>, 
+	Aubrey Li <aubrey.li@intel.com>, Zhao Liu <zhao1.liu@intel.com>, 
+	Chen Yu <yu.chen.surf@gmail.com>, Adam Li <adamli@os.amperecomputing.com>, 
+	Aaron Lu <ziqianlu@bytedance.com>, Tim Chen <tim.c.chen@intel.com>, 
+	Josh Don <joshdon@google.com>, Gavin Guo <gavinguo@igalia.com>, 
+	Qais Yousef <qyousef@layalina.io>, Libo Chen <libchen@purestorage.com>, 
+	linux-kernel@vger.kernel.org, "Luck, Tony" <tony.luck@intel.com>, 
+	Reinette Chatre <reinette.chatre@intel.com>, Philip Auld <pauld@redhat.com>, 
+	Joe Mario <jmario@redhat.com>
+Content-Type: text/plain; charset="UTF-8"
 
-T24gVGh1LCAyMDI2LTExLTEyIGF0IDE0OjE3ICswODAwLCBZaWRpIExpbiB3cm90ZToNCj4gbXRr
-X2RwX2F1eF93YWl0X2Zvcl9jb21wbGV0aW9uKCkgcmV0dXJucyBmb3IgYSByZWFkIGFzIHNvb24g
-YXMgdGhlIFJYDQo+IEZJRk8gd3JpdGUgcG9pbnRlciBpcyBub24temVybywgaS5lLiB3aGVuIHRo
-ZSBmaXJzdCBieXRlIG9mIHRoZSByZXBseQ0KPiBoYXMgYXJyaXZlZC4gVGhlIHJlc3Qgb2YgdGhl
-IHJlcGx5IGlzIHN0aWxsIG9uIHRoZSBBVVggbGluZSwgc28NCj4gbXRrX2RwX2F1eF9yZWFkX3J4
-X2ZpZm8oKSBzbGVlcHMgNTAwLTEwMDAgdXMgYmVmb3JlIHJlYWRpbmcgZWFjaCBieXRlDQo+IG9m
-IGFuIEkyQy1vdmVyLUFVWCByZXBseSBhbmQgMTAwLTIwMCB1cyBiZWZvcmUgZWFjaCBieXRlIG9m
-IGEgbmF0aXZlDQo+IHJlcGx5LiBUaGUgRklGTyBpcyBkcmFpbmVkIHRoaXMgd2F5IGV2ZW4gZm9y
-IERFRkVSIHJlcGxpZXMsIHdoaWNoIGNhcnJ5DQo+IG5vIGRhdGEuDQo+IA0KPiBBIDE2LWJ5dGUg
-RURJRCByZWFkIHRoZXJlZm9yZSB0YWtlcyBhYm91dCAxNiBtcywgYWx0aG91Z2ggdGhlIHJlcGx5
-IGlzDQo+IGNvbXBsZXRlIHdpdGhpbiBhYm91dCAzMDAgdXMgb2YgdGhlIHJlcXVlc3QuDQo+IA0K
-PiBXYWl0IGZvciB0aGUgQVVYIHJlY2VpdmUtY29tcGxldGUgKG9yIDQwMCB1cyB0aW1lb3V0KSBp
-bnRlcnJ1cHQgc3RhdHVzDQo+IGluc3RlYWQsIHdoaWNoIHRoZSB3cml0ZSBwYXRoIGFscmVhZHkg
-cmVsaWVzIG9uLCBhbmQgZHJhaW4gdGhlIFJYIEZJRk8NCj4gd2l0aG91dCBkZWxheXMuIFBvbGwg
-ZXZlcnkgMjAgdXMgaW5zdGVhZCBvZiBldmVyeSAxMDAtNTAwIHVzLg0KPiANCj4gUmVhZGluZyB0
-aGUgMjU2LWJ5dGUgRURJRCB0aHJvdWdoIHRoZSBEUCBBVVggRERDIGFkYXB0ZXIgZHJvcHMgZnJv
-bSAyNjYNCj4gdG8gNi41IG1zIG9uIGFuIE1UODE4OSBDaHJvbWVib29rLCBhbmQgZnJvbSA1NDcg
-dG8gMjMgbXMgb24gYW4gTVQ4MTk2DQo+IENocm9tZWJvb2sgd2hvc2UgcGFuZWwgZGVmZXJzIGV2
-ZXJ5IDE2LWJ5dGUgcmVhZCBvbmNlLiBBIDE2LWJ5dGUgRFBDRA0KPiByZWFkIGRyb3BzIGZyb20g
-YWJvdXQgNC43IHRvIDAuNSBtcy4NCj4gDQo+IFNpZ25lZC1vZmYtYnk6IFlpZGkgTGluIDx5aWRp
-bGluQGdvb2dsZS5jb20+DQo+IC0tLQ0KPiAgZHJpdmVycy9ncHUvZHJtL21lZGlhdGVrL210a19k
-cC5jIHwgNjQgKysrKysrKysrKysrLS0tLS0tLS0tLS0tLS0tLS0tLQ0KPiAgMSBmaWxlIGNoYW5n
-ZWQsIDI1IGluc2VydGlvbnMoKyksIDM5IGRlbGV0aW9ucygtKQ0KPiANCj4gZGlmZiAtLWdpdCBh
-L2RyaXZlcnMvZ3B1L2RybS9tZWRpYXRlay9tdGtfZHAuYyBiL2RyaXZlcnMvZ3B1L2RybS9tZWRp
-YXRlay9tdGtfZHAuYw0KPiBpbmRleCBmNjU2Yjg1Yjg0MjEyLi5iMmY3ZjQyY2JlNzE1IDEwMDY0
-NA0KPiAtLS0gYS9kcml2ZXJzL2dwdS9kcm0vbWVkaWF0ZWsvbXRrX2RwLmMNCj4gKysrIGIvZHJp
-dmVycy9ncHUvZHJtL21lZGlhdGVrL210a19kcC5jDQo+IEBAIC00NSw3ICs0NSw4IEBADQo+ICAj
-ZGVmaW5lIE1US19EUF80UDFUIDQNCj4gICNkZWZpbmUgTVRLX0RQX0hERSAyDQo+ICAjZGVmaW5l
-IE1US19EUF9QSVhfUEVSX0FERFIgMg0KPiAtI2RlZmluZSBNVEtfRFBfQVVYX1dBSVRfUkVQTFlf
-Q09VTlQgMjANCj4gKyNkZWZpbmUgTVRLX0RQX0FVWF9QT0xMX1VTIDIwDQo+ICsjZGVmaW5lIE1U
-S19EUF9BVVhfVElNRU9VVF9VUyAxMDAwMA0KPiAgI2RlZmluZSBNVEtfRFBfVEJDX0JVRl9SRUFE
-X1NUQVJUX0FERFIgMHg4DQo+ICAjZGVmaW5lIE1US19EUF9UUkFJTl9WT0xUQUdFX0xFVkVMX1JF
-VFJZIDUNCj4gICNkZWZpbmUgTVRLX0RQX1RSQUlOX0RPV05TQ0FMRV9SRVRSWSAxMA0KPiBAQCAt
-ODI1LDIwICs4MjYsMTggQEAgc3RhdGljIHZvaWQgbXRrX2RwX2F1eF9maWxsX3dyaXRlX2ZpZm8o
-c3RydWN0IG10a19kcCAqbXRrX2RwLCB1OCAqYnVmLA0KPiAgfQ0KPiAgDQo+ICBzdGF0aWMgdm9p
-ZCBtdGtfZHBfYXV4X3JlYWRfcnhfZmlmbyhzdHJ1Y3QgbXRrX2RwICptdGtfZHAsIHU4ICpidWYs
-DQo+IC0JCQkJICAgIHNpemVfdCBsZW5ndGgsIGludCByZWFkX2RlbGF5KQ0KPiArCQkJCSAgICBz
-aXplX3QgbGVuZ3RoKQ0KPiAgew0KPiAgCWludCByZWFkX3BvczsNCj4gIA0KPiAgCW10a19kcF91
-cGRhdGVfYml0cyhtdGtfZHAsIE1US19EUF9BVVhfUDBfMzYyMCwNCj4gIAkJCSAgIDAsIEFVWF9S
-RF9NT0RFX0FVWF9UWF9QMF9NQVNLKTsNCj4gIA0KPiArCS8qIFRoZSBjb21wbGV0ZSByZXBseSBp
-cyBpbiB0aGUgUlggRklGTywgc28gcmVhZCBpdCB3aXRob3V0IGRlbGF5cy4gKi8NCj4gIAlmb3Ig
-KHJlYWRfcG9zID0gMDsgcmVhZF9wb3MgPCBsZW5ndGg7IHJlYWRfcG9zKyspIHsNCj4gIAkJbXRr
-X2RwX3VwZGF0ZV9iaXRzKG10a19kcCwgTVRLX0RQX0FVWF9QMF8zNjIwLA0KPiAgCQkJCSAgIEFV
-WF9SWF9GSUZPX1JFQURfUFVMU0VfVFhfUDAsDQo+ICAJCQkJICAgQVVYX1JYX0ZJRk9fUkVBRF9Q
-VUxTRV9UWF9QMCk7DQo+IC0NCj4gLQkJLyogSGFyZHdhcmUgbmVlZHMgdGltZSB0byB1cGRhdGUg
-dGhlIGRhdGEgKi8NCg0KV2UgYXNzdW1lIHRoZSBkZWxheSBpcyBqdXN0IGZvciBBVVhfUlhfQVVY
-X1JFQ1ZfQ09NUExFVEVfSVJRX0FVWF9UWF9QMCBhbmQgbm8gdGhlIG90aGVyIGhhcmR3YXJlIGRl
-bGF5Lg0KSXQgc2VlbXMgdGhpcyBhc3N1bXB0aW9uIGlzIHJpZ2h0LCBzbw0KDQpSZXZpZXdlZC1i
-eTogQ0sgSHUgPGNrLmh1QG1lZGlhdGVrLmNvbT4NCg0KPiAtCQl1c2xlZXBfcmFuZ2UocmVhZF9k
-ZWxheSwgcmVhZF9kZWxheSAqIDIpOw0KPiAgCQlidWZbcmVhZF9wb3NdID0gKHU4KShtdGtfZHBf
-cmVhZChtdGtfZHAsIE1US19EUF9BVVhfUDBfMzYyMCkgJg0KPiAgCQkJCSAgICAgQVVYX1JYX0ZJ
-Rk9fUkVBRF9EQVRBX0FVWF9UWF9QMF9NQVNLKTsNCj4gIAl9DQo+IEBAIC04NjQsMzMgKzg2Mywy
-OCBAQCBzdGF0aWMgdm9pZCBtdGtfZHBfYXV4X3NldF9sZW5ndGgoc3RydWN0IG10a19kcCAqbXRr
-X2RwLCBzaXplX3QgbGVuZ3RoKQ0KPiAgCX0NCj4gIH0NCj4gIA0KPiAtc3RhdGljIGludCBtdGtf
-ZHBfYXV4X3dhaXRfZm9yX2NvbXBsZXRpb24oc3RydWN0IG10a19kcCAqbXRrX2RwLCBib29sIGlz
-X3JlYWQpDQo+ICtzdGF0aWMgaW50IG10a19kcF9hdXhfd2FpdF9mb3JfY29tcGxldGlvbihzdHJ1
-Y3QgbXRrX2RwICptdGtfZHApDQo+ICB7DQo+IC0JaW50IHdhaXRfcmVwbHkgPSBNVEtfRFBfQVVY
-X1dBSVRfUkVQTFlfQ09VTlQ7DQo+IC0NCj4gLQl3aGlsZSAoLS13YWl0X3JlcGx5KSB7DQo+IC0J
-CXUzMiBhdXhfaXJxX3N0YXR1czsNCj4gLQ0KPiAtCQlpZiAoaXNfcmVhZCkgew0KPiAtCQkJdTMy
-IGZpZm9fc3RhdHVzID0gbXRrX2RwX3JlYWQobXRrX2RwLCBNVEtfRFBfQVVYX1AwXzM2MTgpOw0K
-PiAtDQo+IC0JCQlpZiAoZmlmb19zdGF0dXMgJg0KPiAtCQkJICAgIChBVVhfUlhfRklGT19XUklU
-RV9QT0lOVEVSX0FVWF9UWF9QMF9NQVNLIHwNCj4gLQkJCSAgICAgQVVYX1JYX0ZJRk9fRlVMTF9B
-VVhfVFhfUDBfTUFTSykpIHsNCj4gLQkJCQlyZXR1cm4gMDsNCj4gLQkJCX0NCj4gLQkJfQ0KPiAt
-DQo+IC0JCWF1eF9pcnFfc3RhdHVzID0gbXRrX2RwX3JlYWQobXRrX2RwLCBNVEtfRFBfQVVYX1Aw
-XzM2NDApOw0KPiAtCQlpZiAoYXV4X2lycV9zdGF0dXMgJiBBVVhfUlhfQVVYX1JFQ1ZfQ09NUExF
-VEVfSVJRX0FVWF9UWF9QMCkNCj4gLQkJCXJldHVybiAwOw0KPiArCXUzMiBhdXhfaXJxX3N0YXR1
-czsNCj4gKwlpbnQgcmV0Ow0KPiAgDQo+IC0JCWlmIChhdXhfaXJxX3N0YXR1cyAmIEFVWF80MDBV
-U19USU1FT1VUX0lSUV9BVVhfVFhfUDApDQo+IC0JCQlyZXR1cm4gLUVUSU1FRE9VVDsNCj4gKwkv
-Kg0KPiArCSAqIFdhaXQgdW50aWwgdGhlIHdob2xlIHJlcGx5IGhhcyBiZWVuIHJlY2VpdmVkLiBU
-aGUgUlggRklGTyB3cml0ZQ0KPiArCSAqIHBvaW50ZXIgYmVjb21lcyBub24temVybyBhcyBzb29u
-IGFzIHRoZSBmaXJzdCBieXRlIG9mIHRoZSByZXBseQ0KPiArCSAqIGFycml2ZXMsIHdoaWxlIHRo
-ZSByZXN0IG9mIHRoZSByZXBseSBpcyBzdGlsbCBvbiB0aGUgQVVYIGxpbmUsIHNvDQo+ICsJICog
-aXQgY2Fubm90IGJlIHVzZWQgdG8gdGVsbCB0aGF0IHRoZSByZXBseSBpcyBjb21wbGV0ZS4NCj4g
-KwkgKi8NCj4gKwlyZXQgPSByZWdtYXBfcmVhZF9wb2xsX3RpbWVvdXQobXRrX2RwLT5yZWdzLCBN
-VEtfRFBfQVVYX1AwXzM2NDAsDQo+ICsJCQkJICAgICAgIGF1eF9pcnFfc3RhdHVzLA0KPiArCQkJ
-CSAgICAgICBhdXhfaXJxX3N0YXR1cyAmDQo+ICsJCQkJICAgICAgIChBVVhfUlhfQVVYX1JFQ1Zf
-Q09NUExFVEVfSVJRX0FVWF9UWF9QMCB8DQo+ICsJCQkJCUFVWF80MDBVU19USU1FT1VUX0lSUV9B
-VVhfVFhfUDApLA0KPiArCQkJCSAgICAgICBNVEtfRFBfQVVYX1BPTExfVVMsIE1US19EUF9BVVhf
-VElNRU9VVF9VUyk7DQo+ICsJaWYgKHJldCkNCj4gKwkJcmV0dXJuIHJldDsNCj4gIA0KPiAtCQkv
-KiBHaXZlIHRoZSBoYXJkd2FyZSBhIGNoYW5jZSB0byByZWFjaCBjb21wbGV0aW9uIGJlZm9yZSBy
-ZXRyeWluZyAqLw0KPiAtCQl1c2xlZXBfcmFuZ2UoMTAwLCA1MDApOw0KPiAtCX0NCj4gKwlpZiAo
-YXV4X2lycV9zdGF0dXMgJiBBVVhfUlhfQVVYX1JFQ1ZfQ09NUExFVEVfSVJRX0FVWF9UWF9QMCkN
-Cj4gKwkJcmV0dXJuIDA7DQo+ICANCj4gIAlyZXR1cm4gLUVUSU1FRE9VVDsNCj4gIH0NCj4gQEAg
-LTkyOCw3ICs5MjIsNyBAQCBzdGF0aWMgaW50IG10a19kcF9hdXhfZG9fdHJhbnNmZXIoc3RydWN0
-IG10a19kcCAqbXRrX2RwLCBib29sIGlzX3JlYWQsIHU4IGNtZCwNCj4gIAltdGtfZHBfYXV4X3Jl
-cXVlc3RfcmVhZHkobXRrX2RwKTsNCj4gIA0KPiAgCS8qIFdhaXQgZm9yIGZlZWRiYWNrIGZyb20g
-c2luayBkZXZpY2UuICovDQo+IC0JcmV0ID0gbXRrX2RwX2F1eF93YWl0X2Zvcl9jb21wbGV0aW9u
-KG10a19kcCwgaXNfcmVhZCk7DQo+ICsJcmV0ID0gbXRrX2RwX2F1eF93YWl0X2Zvcl9jb21wbGV0
-aW9uKG10a19kcCk7DQo+ICANCj4gIAkqcmVwbHlfY21kID0gbXRrX2RwX3JlYWQobXRrX2RwLCBN
-VEtfRFBfQVVYX1AwXzM2MjQpICYNCj4gIAkJICAgICBBVVhfUlhfUkVQTFlfQ09NTUFORF9BVVhf
-VFhfUDBfTUFTSzsNCj4gQEAgLTk1MiwxNSArOTQ2LDcgQEAgc3RhdGljIGludCBtdGtfZHBfYXV4
-X2RvX3RyYW5zZmVyKHN0cnVjdCBtdGtfZHAgKm10a19kcCwgYm9vbCBpc19yZWFkLCB1OCBjbWQs
-DQo+ICAJCQkJICAgQVVYX1RYX0FVWFRYX09WX0VOX0FVWF9UWF9QMF9NQVNLIHwNCj4gIAkJCQkg
-ICBBVVhfUkVTRVJWRURfUldfMF9BVVhfVFhfUDBfTUFTSyk7DQo+ICAJfSBlbHNlIGlmIChpc19y
-ZWFkKSB7DQo+IC0JCWludCByZWFkX2RlbGF5Ow0KPiAtDQo+IC0JCWlmIChjbWQgPT0gKERQX0FV
-WF9JMkNfUkVBRCB8IERQX0FVWF9JMkNfTU9UKSB8fA0KPiAtCQkgICAgY21kID09IERQX0FVWF9J
-MkNfUkVBRCkNCj4gLQkJCXJlYWRfZGVsYXkgPSA1MDA7DQo+IC0JCWVsc2UNCj4gLQkJCXJlYWRf
-ZGVsYXkgPSAxMDA7DQo+IC0NCj4gLQkJbXRrX2RwX2F1eF9yZWFkX3J4X2ZpZm8obXRrX2RwLCBi
-dWYsIGxlbmd0aCwgcmVhZF9kZWxheSk7DQo+ICsJCW10a19kcF9hdXhfcmVhZF9yeF9maWZvKG10
-a19kcCwgYnVmLCBsZW5ndGgpOw0KPiAgCX0NCj4gIA0KPiAgCXJldHVybiAwOw0KDQo=
+Hi Tim, Chen Yu,
+
+Thank you both for the patches and the detailed design discussion.
+Two updates: the trace Tim asked for, and test results for the two
+patches.
+
+PART 1: is NUMA balancing preventing the re-spread?
+
+> Wonder if NUMA balancing is preventing the re-spread?
+> If your traces have numa_preferred_nid and task_numa_migrate activity
+> after the trip, that would confirm or rule out out.
+
+I traced it on the Fix-2 test kernel (mg.D 1x64 CAS-on, two runs that
+aggregated on different nodes, same structure in both): per-thread
+numa_preferred_nid sampled at every context switch, sched_setnuma()
+and migrate_task_to() in the task's own context, every
+sched_migrate_task with origin and destination, and wakeup target
+CPUs, alongside the group state per epoch.
+
+The short answer: yes, but only late, and it is not the main
+obstacle. The run decomposes into three phases:
+
+1. 0 - 4.9 s: consolidation. About 30 cross-node migrations toward
+   the aggregated node; the footprint crosses the threshold at
+   4.2 - 4.9 s and grp->cpu is cleared.
+
+2. Trip to sweep completion (4.9 - 35.8 s in the traced run): the
+   re-spread runs at about 0.5 net cross-node migrations per second
+   (thread placement 2/63 across the two nodes at t=4 s, 18/47 at
+   t=28 s), and numa_preferred_nid is -1 for every thread during this
+   whole window: sched_setnuma() first fires only when the sweep
+   completes and placement runs, at t=35.8 s. So the NUMA preference
+   cannot be what holds the re-spread back here. What the trace shows
+   instead: the wakeup placement keeps directing threads to the
+   aggregated node at roughly 2:1 to 3:1 throughout the window
+   (1264 vs 87 wakeups per 2 s at t=8 s, still 639 vs 380 at t=32 s;
+   these are OMP barrier wakeups landing near their wakers), while
+   the periodic balancer moves tasks out at only about 2 per 4 s.
+   The net drift is the difference.
+
+3. Sweep completion to end (35.8 - 42 s): placement sets
+   numa_preferred_nid to the aggregated node for 53 of 66 threads
+   (the pages have migrated there by then, so the fault statistics
+   point there, exactly your reinforcing loop). From this moment the
+   pull-back engages: migrate_task_to() toward the preferred node
+   appears, and the cross-node churn in the last 6 s is 8 moves out
+   vs 10 moves back, i.e. the spread stalls.
+
+So NUMA balancing does prevent the re-spread, but only in the last
+15 percent of the run. For the first 85 percent the preferred node is
+simply not set, and what holds it back is wake placement plus the
+conservative pace of cross-node load balancing. Resetting NUMA
+preferences at withdrawal would therefore not help this workload:
+the sweep outlives the run, so there is nothing to reset during the
+window that matters. And the wake-placement observation suggests the
+re-spread would stay slow even with preferences reset; an active
+re-spread may need to move the tasks and let the wake placement
+follow.
+
+PART 2: test results for the two patches
+
+I built a kernel from the same 7.4.0-0.rc2.19.eln159 source, with
+Chen Yu's sketch (as tested before) and both patches applied. Both
+applied cleanly. Same test battery as the earlier rounds, n=5
+medians for the NAS runs:
+
+  workload             stock OFF  stock ON   patched OFF patched ON
+  NAS MG D, 1x64thr    26.45 s    41.78 s    26.38 s     26.47 s (+0.3%)
+                                                      (+58%)
+  NAS MG C, 1x4thr       9.34 s     11.99 s     9.38 s      9.36 s (-0.2%)
+                                                      (+28%)
+
+Both reported regressions are gone. The mechanism trace shows why:
+grp->cpu = -1 in all 42,566 task_cache_work() samples over one
+CAS-on MG run. The aggregation never settles, not even during the
+warm-up: the RSS bound refuses within ~0.1 s of the allocation phase,
+before first-touch can skew anything. The hysteresis from PART 1
+never develops because there is nothing to unwind.
+
+The VM reproducer [3], the workload that benefits from packing,
+shows one cost of the patches and one way around it:
+
+  VM runtime:   stock off 22.12 s, stock on 17.66 s (-20%)
+                patched off 21.81 s
+                patched on, tol=1: 22.47 s (+3.0%, win lost)
+                patched on, tol=4: 17.70 s (-18.9%, win back)
+
+  cache-locality: tol=1: -4.6%, tol=4: +24.6%
+  mem-bandwidth:  tol=1: +2.5%, tol=4: +30.6%
+
+The win is lost at the default tolerance: qemu's RSS (guest memory,
+all anon) far exceeds the 108 MiB LLC, and the first sweep of its
+~25 GB address space takes ~100 s while a reproducer pass runs ~20 s,
+so the bound governs throughout and aggregation is refused. At
+aggr_tolerance=4 the bound is (1 + 3*256) x 108 MiB = 83 GiB, qemu
+fits, and the win returns. The tolerance knob thus doubles as the
+opt-in for large-RSS workloads that benefit from aggregation.
+Splitting the two, so the tolerance scales only the estimate and
+not the bound, may be worth considering; either way the coupling
+deserves a line in the documentation.
+
+On Chen Yu's question, whether Fix 1 is still needed if Fix 2
+accumulates the RSS bound: the data says yes for the regression
+class. The bound is what refuses aggregation for MG D and MG C,
+because their fault-based estimate never exists within a run (the
+sweep is too slow), and Fix 2 alone recovered only one sixth of the
+regression in the earlier test.
+
+Fix 2 correcting the initial placement does happen for a
+long-running VM, and I traced it. I ran the VM reproducer with the
+in-VM workloads scaled 10x (about 100 s per phase, 4 minutes per
+pass). The group state over the CAS-on pass at the default
+tolerance:
+
+  t=0      VM boots; rss_bound is 0 for the first epoch, CAS
+           aggregates for ~0.1 s until the first RSS sample lands
+           (435k pages), then refuses.
+  t=16 s   the first scan sweep folds: the history becomes 27,298
+           pages, the VM's actual hot set, within 1.3 percent of
+           the 27,648-page LLC. The estimate takes over from the
+           RSS bound, the check passes, and the aggregation is
+           granted: grp->cpu is set for the first time since boot.
+  t=19 s   the bandwidth phase grows the current window to 23,576
+           pages; max(history, history/2 + window) crosses the
+           threshold and the aggregation is withdrawn.
+  rest     stably refused; the estimate stays above the threshold.
+
+So the mechanism works exactly as designed end to end: the bound
+guards the window before the first sweep, the estimate corrects the
+decision afterward, and the flat combination catches the growth
+within the sweep. This VM is a boundary case by accident rather
+than design: its workload data is tiny, but the guest kernel and
+initramfs dominate the hot set, which was never sized against the
+LLC. Either way it is precisely the flip territory your max()
+smoothing addresses.
+
+The aggregate numbers reflect how little of the run the granted
+window covers: the long pass ends at -2.9% runtime, +2.4%
+cache-locality, +6.0% bandwidth, against -20% for the stock kernel
+and +3.0% for the same patched kernel with the short (~20 s)
+workload. A persistent VM partially recovers the benefit.
+
+One race worth noting: rss_bound is sampled at the first
+task_cache_work() epoch after group creation, so for about 0.1 s
+the bound is 0 and CAS can aggregate. In the traced run that blip
+was enough to set the initial vCPU placement (the threads clustered
+and never moved afterward; the box is idle and nothing pulls 8
+threads back). Sampling rss_bound at group creation in
+mm_init_sched(), or withholding aggregation until the first sample,
+would close it.
+
+Putting the three rounds of testing together, my recommendation:
+
+I vote for keeping both fixes. They do different jobs: the RSS
+bound is the only thing that protects the window before the first
+sweep, which is where the memory-bound workloads take their damage,
+and the within-sweep accumulation is what makes the decision
+correct afterward and recovers the beneficial cases. The cost
+asymmetry settles the default: a wrongly granted aggregation cost
+us 58 percent, a wrongly refused one forfeits a 20 percent gain.
+
+Two refinements seem worth considering on top:
+
+- Hysteresis on the grant/withdraw decision. The VM trace showed a
+  boundary case as it sits close to the threshold, so the aggregation
+  flips as the window grows and the history decays. Withdrawing above
+  the threshold and re-granting below half of it, the pattern imb_pct
+  and overaggr_pct already use, would stabilize it.
+
+- The tolerance splitting. aggr_tolerance was designed to scale the
+  footprint threshold, and it now scales the RSS bound too, so
+  tolerance 2 jumps the bound from 108 MiB to 27.5 GiB. That works
+  as an opt-in but is a blunt one; the per-group control from the
+  prctl RFC seems the better tool for "this large-RSS workload
+  wants aggregation", with the tolerance kept for the estimate.
+
+Happy to share the probe scripts or re-run anything.
+
+Thanks,
+Jirka
+
+[3] The VM test boots a small VM directly off the host's own kernel
+    and initramfs, with no guest OS install: 1 VM, 8 vCPUs, 25 GB of
+    guest memory. Two workloads run inside it, in this order: a
+    cache-locality test (process pairs exchanging data through FIFO
+    pipes, reported as ops/s) and a memory-bandwidth test (cp over a
+    216 MB buffer, twice this host's LLC, reported as MB/s). The
+    test records which physical CPUs the vCPU threads land on, which
+    is how the packing effect is measured. The long variant scales
+    the in-VM iterations 10x, to about 100 s per workload phase.
+
+On Mon, Nov 17, 2026 at 12:39 AM Tim Chen <tim.c.chen@linux.intel.com> wrote:
+
