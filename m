@@ -1,89 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795021095;
-	b=lXxsYu77hLU1OT0cB5QjHrY47RDCvyTTr0pJ/o1fQLiKh6MqJ6fhWAiklO9VkaFlpEOQ
-	 wIdRgHBNvJK1tyiqB0cf4KKBGoV0ZttU4zmjKKkjC2/8lAvweOoMz0QxYttMWFXq2nRt2
-	 yeEsWVm1KhrudLE5JwxUDNqA4Iy9hvqoIrAalDzQeysIMu2CztUZiZS2qN1wRqSKt9uOE
-	 RMEdGUYkN+vRU5TKayaC/jLJPed0O3aKO4duJIX5+xufXN9n39ySpXI60MZ1xnjRaBv5v
-	 H00jabwK2+LeRqQPsEEpa06uY+wOLSBADwY5iLvHj8vgb9kqDc19j59SwAP/03Zo4FQ==
+	t=1795021108;
+	b=EpIixkFFwnvCakXXFaZ4jDGFttMbsWkIJB41IrZm0OmaNjYQuCv6x5vQvlJQsKpQxv2y
+	 SKNSjffWryttzWfvu1BF57wlz6Fv8t5nTUEWIV9p9/2oesC6iM3GtmD+0IMqu8CIxdMUw
+	 l070aOfGZ1hMTC1NIJSa5rxHRp64xSeBwi2dMsrKYTlO+V+y+HWOFOQFTdY9deriVpK1v
+	 wWe5Z9tMASQqrgXYlupPSO7sYsmiu1U1vpTmPdHBLT4QwcA4AOVjJzPkLQk41x/Ncxb1J
+	 +v1P7hyZMxUjscqbs1y+52cKSRO9dJvDrnqtbSXuX2kKeXX2ut7gGQfL0eKyg2BkxdA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795021095;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=km9GD978uRX5/nYQ4zVMWd8Czd4GQb3wZwOd+NOixeM=;
-	b=P+dcHMs0G6LwB+SIImSP6eJ+6/7w1pbU/xhBMiX12x7E4tuPdQtqDsEPux2cZi/MgIw0
-	 G9VY5SQQ/uJv6+ijkaVTl642IsZ+x5nqomnnPgFNn1mzzizX6quiWtCFhVmLrk7s7L11h
-	 CGSaQlUPrdaQKxj0GhM6jAL/xmZ7COOQZi2ZAdnRvV/lX9qk6CSbHAywpcgZ8QxDYj3oV
-	 VXm5EdHTXcNL0uLvND3BtAUu8uzbmg6aIC5f5hYAbz8TEueZ3AAH3wFEi4iRGCiYG3APd
-	 ZIEUrDSqAdq9wPGb3SMcq7aciikZWFhJqALEVG2EmQ6VgF7vzpn+ifvPGjjpgM05hug==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795021108;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:Content-Language:To:Cc:References:From:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=TSwhsJSNjnAtKDkFULTFwFmDhe+Yv9c61DRAS88DMuI=;
+	b=Uo1Lx9usheRejLxm9FCvTBnITsZil8ygMOjdztG4ioXHXWYmyau/GSOzlNfID+3YN835
+	 xZcVKQVYwWFtrEh5OWVWP9yWuLWOyajsSBdXm6pOJh2wDuCXjUSPbE48ohpvnHur5kqAB
+	 JQlNpEuDjkKydqDEiQfA0u4VySrmrpPQNo547JMMlt4/QYvuBW4Rcodikvn8ItzRpWI+I
+	 sik5UC8vDLb3j60M9KjLZQrYUGOkafXYnHFfVSFt14lgptm4SXOGED1dNrLTKxh4o9Wd8
+	 5xQm56SB6jw+UM4+X/pBTa36mVvaplj9NCJbX1or3nJru+i6G53J9SPxtLhU6hnHIyg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=fgg5oEHb;
-	arc=none smtp.remote-ip=209.85.128.46
-Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oFZKfKQl;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B31BD606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:58:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B31BD606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB430606A31C;
+	Wed, 18 Nov 2026 16:58:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=fgg5oEHb
-Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4ba013938d7so12086675e9.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:58:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795021093; x=1795625893; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=km9GD978uRX5/nYQ4zVMWd8Czd4GQb3wZwOd+NOixeM=;
-        b=fgg5oEHbQteCLHBjs8y8bjfuTOdBPDekfVS1nPHxm3IIDAA7nRIwboP3j19dmk7oSv
-         BpzwQtolBDUsqXKFSG0URKNb+1+0Trh4lAhDwFXIpPg1rkzB2F0GXGlmDVkUU8DZBaYB
-         CWs85V5tWAKxcXJnpwNK1MMOzdj6A65HpJipuVBwiqM0R21DokAo4Iqp0t5gjCy6Q/dG
-         lZENBAQvSADE2rdiKdE98iVs4EdqjnchQWmBg1XiGzjzpYdVzQ16cav9UoVhb0YyX7T0
-         QYAVthuFx2IgFFrIUy+uJHuqaioNtGiFW8UDGjPYSnLaE5Ox9drBAVJbnqAMLJvO2/5S
-         uCdQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795021093; x=1795625893;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=km9GD978uRX5/nYQ4zVMWd8Czd4GQb3wZwOd+NOixeM=;
-        b=I1aOXB7v9vE9i+NDyQyjqZ9825ufanegW9KohZbFVYzgtwapfLUrELdjuB6Dw8d1YQ
-         VxtmEYOJzk9rH9JZuG3zEBQ7JlcTMNguUoD2TcKSgVgOojqcJWClrTjI7g1lNiMxJHJY
-         ckidKgoAED2cdgbNNtjL52Kp9Q+cIabIpKtCL2mPeeCjzx1fg5PEdoUD8i/osdCEurpM
-         ubj3qvkXtC/Fiwr631MV7sfiZ+QhSOXoH0WCJR92J6JAV1x1Ma87bNCWE9tfW+za2qKl
-         RIUXqw+xmwhZlvhPjBSNH5TxOG38D79fPYuo+9nT+pED91xy8Vu7zC6K4BV60YKTHWbJ
-         x/7g==
-X-Forwarded-Encrypted: i=1; AL+hErExNu48qtnKrz3n6WtDfhYo99NzAKMJ6Cn0W/STPnq1RaPn/WLvvnXEUAXgkZakjT1lYW+YClE4hHZo2T4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9AuikPwG6fenoGhgOF4Xf2LsSJpjubg19nPPpkwbfxHpgDyBsu
-	grYd2JCMaYnfNAt+qkX56XB/tKKqwd80ehYNvRYJvcHP/+PAPvM/yTkLp4VjqofoOgkNPyftfeG
-	ig92h0wg=
-X-Gm-Gg: AYBFou1RJAFefvmQiK+GXz+YwFd1LSi3tUo9FqurlZ/OIdKNlyw777vevyfQSITZ7sP
-	W/cU51Q8y9BmuxzZoKqE+MdtuZYlQIbt8m69tWM39S3l2xVn1yhR5cRH8kUsx/GRF34poK0rtd+
-	Il7MyF6TxUuP8BqoqjS3DfotXoDHewklWcUUIKqCOkpkA6XnUS83DgiS3kBSbHqWuAMYJkEbvje
-	aYAbbnaAklI4ohwOi8vucAszBRfZcxUi8NI7BWeE1BeOpMCz7Doy2dYy/QqjvxL8AMaZuUWUUER
-	+Om6TWdynyiWrFHmUsxMSEtfCbXtqLpnx/YKf/Jg8zBUP9vZSZBQ9FsMKeF3R92w1r++EM2xm1L
-	DDd8izmwVLevq4Jvysjcn6BNy9AYQOpJ0bHTdQ6J7CYqwJVK8Dh4jSFpD21I9sN3bPoV7I5l1YH
-	7/kZcmTi3BxMBBMWLR1kSUqK+CeBEwqaxgXgerabyAaXhATrOZEJr7X48dMomo75Ursak2iX1Gz
-	VOhz3BNlFUa1LmfYDtrC9BiwW0Z3+aeDfAff2X2sl9kMT00TESRWpstBL+GQmbJ0d2XYk11Mf0q
-	WXumi4qNFPlIASsNmvePAcQ8C3p4PYvvvg==
-X-Received: by 2002:a05:600c:4fc6:b0:4a1:83f0:7c91 with SMTP id 5b1f17b1804b1-4bb7da26333mr64023955e9.18.1795021093075;
-        Wed, 18 Nov 2026 08:58:13 -0800 (PST)
-Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8327c2e8sm1881025e9.3.2026.11.18.08.58.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 08:58:12 -0800 (PST)
-Message-ID: <43e1d316-bed5-4ec0-8287-44663b359e11@linaro.org>
-Date: Wed, 18 Nov 2026 16:58:11 +0000
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oFZKfKQl
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03CE41F000C4;
+	Wed, 18 Nov 2026 16:58:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795021108;
+	bh=TSwhsJSNjnAtKDkFULTFwFmDhe+Yv9c61DRAS88DMuI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=oFZKfKQleOycQXAfqulsKeEapGKLGTey4/+kx9d5tDssB9lQtl8VnoLZYSunOwlFN
+	 yKTCvk4zRFgTjUPQtxiIAiludCEsBREbUVdLyrkMoTWvXDqBRn/asPIuirMZXZl3jg
+	 V7We/Q3VL0z5Iatc+kK4+7AuY9XnH2pS7xtJGdkWR6gcH3PRpi3AVuaY/lyNfDvjKX
+	 wIpP3KgUpJqvlEudYzswYxye/f89Gnb/iGdIntHyaxOQLsqQoAUwM8zqxg2nBWxZJB
+	 5vw9Z1rm/vWb0ymAND4jHc2hyhlWiEJ/pZRBorFcNVImYcIJQSHOixwPifNyZNn6Dk
+	 hNxPvcK2Rfx7Q==
+Message-ID: <2650b0d0-49a9-450c-af6a-df1aa129c3b7@kernel.org>
+Date: Wed, 18 Nov 2026 17:58:23 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,50 +52,139 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 01/10] coresight: configfs: Don't assume active until
- cscfg_mgr is set
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@arm.com>, Suyash Mahar <smahar@meta.com>,
- Yeoreum Yun <yeoreum.yun@arm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Qi Liu
- <liuqi115@huawei.com>, Junhao He <hejunhao3@huawei.com>,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Jonathan Cameron <jic23@kernel.org>
-References: <20261016-james-cs-multiple-per-threads-v4-0-dedf961aca0e@linaro.org>
- <20261016-james-cs-multiple-per-threads-v4-1-dedf961aca0e@linaro.org>
- <20261112171043.GK9176@e132581.arm.com>
+Subject: Re: [PATCH for-next v3 7/7] mm/slab: call debug_locks and KCSAN
+ checks in kfree_nolock()
 Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20261112171043.GK9176@e132581.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+To: "Harry Yoo (Meta)" <harry@kernel.org>,
+ Johannes Weiner <hannes@cmpxchg.org>, Michal Hocko <mhocko@kernel.org>,
+ Roman Gushchin <roman.gushchin@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Muchun Song <muchun.song@linux.dev>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Alexei Starovoitov <ast@kernel.org>, Hao Li <hao.li@linux.dev>,
+ Christoph Lameter <cl@gentwo.org>, David Rientjes <rientjes@google.com>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>
+Cc: kernel-team@meta.com, cgroups@vger.kernel.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev
+References: <20261115-kmalloc-nolock-fixes-v3-0-9034dd4ecaab@kernel.org>
+ <20261115-kmalloc-nolock-fixes-v3-7-9034dd4ecaab@kernel.org>
+From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
+Autocrypt: addr=vbabka@kernel.org; keydata=
+ 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
+In-Reply-To: <20261115-kmalloc-nolock-fixes-v3-7-9034dd4ecaab@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-
-
-On 12/11/2026 17:10, Leo Yan wrote:
-> On Fri, Oct 16, 2026 at 11:46:11AM +0100, James Clark wrote:
+On 11/15/26 16:09, Harry Yoo (Meta) wrote:
+> kfree_nolock() skips free hooks that may acquire spinlocks because it
+> can be called from any context. debug_check_no_locks_freed() and
+> __kcsan_check_access() are skipped as well.
 > 
->> +static enum cscfg_load_ops cscfg_get_state(void)
->> +{
->> +	return cscfg_mgr ? cscfg_mgr->load_state : CSCFG_UNLOAD;
->> +}
+> However, they acquire a spinlock only when they report a bug.
+> debug_check_no_locks_freed() disables interrupts and walks
+> current->held_locks, and reaches printk only when a held lock is inside
+> the freed object. KCSAN takes report_lock only when it observes a race.
 > 
-> Could we check !cscfg_mgr explicitly in the three functions instead?
+> Just like KASAN, take the risk of potential deadlock for bug reporting.
+> Call debug_check_no_locks_freed() and __kcsan_check_access() regardless
+> of allow_spin.
 > 
+> Signed-off-by: Harry Yoo (Meta) <harry@kernel.org>
 
-Didn't I do that in the original version and you said to add a helper? 
-Maybe I misunderstood your comment?
+Seems fair.
 
-> Using CSCFG_UNLOAD to represent both "not initialized" and
-> "cfg unloading" is a bit confusing.
+Reviewed-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
 
-Is that not just a naming issue now? It could be CSCFG_BUSY or something?
-
-Problem is one of the users looks for == CSCFG_UNLOAD and another looks 
-for != CSCFG_NONE so I don't think adding a third value is straightforward.
-
+> ---
+>  mm/slub.c | 25 ++++++++++++-------------
+>  1 file changed, 12 insertions(+), 13 deletions(-)
 > 
-> Thanks,
-> Leo
+> diff --git a/mm/slub.c b/mm/slub.c
+> index fd3de3bee1de..fad19ec6af4b 100644
+> --- a/mm/slub.c
+> +++ b/mm/slub.c
+> @@ -2708,19 +2708,25 @@ bool slab_free_hook(struct kmem_cache *s, void *x, unsigned int free_flags)
+>  
+>  	kmsan_slab_free(s, x);
+>  
+> +	/*
+> +	 * debug_locks, KCSAN, KASAN may acquire a spinlock to report a bug,
+> +	 * but otherwise cannot deadlock. Take the risk of deadlock for
+> +	 * reporting.
+> +	 */
+> +	debug_check_no_locks_freed(x, s->object_size);
+> +
+> +	/* Use KCSAN to help debug racy use-after-free. */
+> +	if (!still_accessible)
+> +		__kcsan_check_access(x, s->object_size,
+> +				     KCSAN_ACCESS_WRITE | KCSAN_ACCESS_ASSERT);
+> +
+>  	/* Hooks that acquire locks or kmalloc_nolock() skips alloc hook counterpart */
+>  	if (likely(allow_spin)) {
+>  		kmemleak_free_recursive(x, s->flags);
+> -		debug_check_no_locks_freed(x, s->object_size);
+>  
+>  		if (!(s->flags & SLAB_DEBUG_OBJECTS))
+>  			debug_check_no_obj_freed(x, s->object_size);
+>  
+> -		/* Use KCSAN to help debug racy use-after-free. */
+> -		if (!still_accessible)
+> -			__kcsan_check_access(x, s->object_size,
+> -					     KCSAN_ACCESS_WRITE | KCSAN_ACCESS_ASSERT);
+> -
+>  		if (kfence_free(x))
+>  			return false;
+>  	}
+> @@ -2728,13 +2734,6 @@ bool slab_free_hook(struct kmem_cache *s, void *x, unsigned int free_flags)
+>  	/*
+>  	 * Give KASAN a chance to notice an invalid free operation before we
+>  	 * modify the object.
+> -	 *
+> -	 * If KASAN finds a bug it will do kasan_report_invalid_free() which
+> -	 * will call raw_spin_lock_irqsave() which is technically unsafe from
+> -	 * NMI, but take chance and report kernel bug. The sequence of
+> -	 * kasan_report_invalid_free() -> raw_spin_lock_irqsave() -> NMI
+> -	 * -> kfree_nolock() -> kasan_report_invalid_free() on the same CPU
+> -	 *  is double buggy and deserves to deadlock.
+>  	 */
+>  	if (kasan_slab_pre_free(s, x))
+>  		return false;
+> 
 
