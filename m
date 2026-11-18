@@ -1,63 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.128.210.58
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795020548;
-	b=3xqYcyJFhNU2xMqkGPOsvVz11rhr4iEsRibkfU7sJZe6athwU5bxHHe1BK8S401orOqi
-	 nZ3LWwj6ro1Q48Y6RvlLWxdbd3EcQ9shslk5DJy69PTXIN6bVv0sDyxspq1GJ+vwZzcIy
-	 O3xwzm1Z4e+7P31MB6H7y86Nl/OfMWJfx5WHQc/VH5Co65u9i5+ANBAzj/8XgI9UITDiB
-	 MDtwn3tRRCc4sAcfLJjDf9vCf/40GkUSxtjELaprO2Enqyz2VjMql9PvLvCisE193hW5Z
-	 0ugpU+h4YERfBVlzzmhSX8nXKbDOkEcN4fbKpck/j7EZjhPFnD/aVEonRHPDX3kHnJA==
+	t=1795020566;
+	b=R5gc9WKfLclX/UxYwXokOuVzBKtDADWaEaVXCaFWzd5MPNCwlOxkasaxw7PnEO32uRcg
+	 OGjl4MCeQPjD89Q04++WTFEl+Na7Q9DSWdcgO65QxRrdD83980pFpvbDtCGbq1FcMQsCC
+	 9GqH0aTlu6er62MoYL0JIvj+SYfdCePm1fcHZqW8V6+hxiY3DkUwo51ojqoFgOixRzANN
+	 p2m0WAxiUbgARo9OjlkuHVp0kC5H/TW5FuFtdacwTi3v66wIjLUDE/NlylWp3pPUkSgMu
+	 zHIwC7sCgFOM4G+slu8Av9BZYDy68+jhblqBJYn6WIX0LyR7VUlGUjqvbpg5stJzf8g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795020548;
-	h=DMARC-Filter:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=17jJjjEF1+rWZilPIQDSUtuio2TWtu8870uYmj+/Khg=;
-	b=MoGVXSoD3LkdzW/vRpwCdLqmjVwG7nAEOA7F8KPYwUL+RJWfYLzBLd642Riu/O27QaIp
-	 cZNHX0DrvCfpZ0QSsV2f8mg79mPGT2LHTLUSMuyzOn92kY5Nc1ti14F7Wskl7Vgl5zrzX
-	 IuGdA09iu2jUuxpi5LjeL0nQHEH9H0tv+051vCLy0d5lXnr/KG1ZP1OyR6pOySurdj+Ok
-	 A4ZWt+lNrfNE505BIu7pyaDxPNsRJOgFsYwLxRZN21GIJe30oRH5Xrf0l0UoBKiEf+lcu
-	 Jm9iUm+PcgLIN3aCFmr8EPEx1xUZGC+hXPb3U4EzhpEBVolVi1ejjd+rwzBtyFZE5+w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795020566;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=We1LJjJy1kCPW5EPJlSwLuh9zShR5MvSm97HULZTIo4=;
+	b=iELb+coKs8ErA9W4nLlLrIFwdKUWG4z+4aPbxYZeuVa2HcQYNrDPTimMORycqusfr05I
+	 47O4JtDJ7Tptf5z9ve1zU9sehWAX+joslzEF1C3TQD4BTQT1Ip1/3FqduTMHn18bO0OOR
+	 Yp3epC9KDqSaxcDAJbnmvQqFg7RwDroSUYLD55NVEhuMi+lH7UkZThAuqIP4EK/jTdn0O
+	 +Z1M3xlbngDED/ONm+IsFMxjqcPGCxgGmsj81/QXu2pjw3zmqzh8ZNgbzlStqsKOwtMRr
+	 pdLBrqGemsSs0DyyQgv5oJ0qWfg76PppyJvBVkzWfsnP/nHyzChp2eUaxxHYKu4LOQA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=librecast.net;
-	spf=pass smtp.mailfrom=librecast.net;
-	dkim=pass header.d=librecast.net header.i=@librecast.net header.a=rsa-sha256 header.s=2026110900 header.b=V7o4RqFC;
-	arc=none smtp.remote-ip=185.128.210.58
-Received: from bregans-0.gladserv.net (bregans-0.gladserv.net [185.128.210.58])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DAF2606A336;
-	Wed, 18 Nov 2026 16:49:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2DAF2606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=librecast.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=librecast.net
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="UAM//OUL";
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 7DEA1606A31C;
+	Wed, 18 Nov 2026 16:49:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7DEA1606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=librecast.net header.i=@librecast.net header.a=rsa-sha256 header.s=2026110900 header.b=V7o4RqFC
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=librecast.net; s=2026110900; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=17jJjjEF1+rWZilPIQDSUtuio2TWtu8870uYmj+/Khg=; t=1795020546; x=1795884546; 
-	b=V7o4RqFC50BJwOz/mx8iF4nmb475am1QJD8xyDmZHPilr6BQXnYgCe+z/QkAyKyrt3RsR73SPwK
-	KpZJqTUK9llU7IU4NqL7UANeF31K4bU7xwHW42FslKTlbxxv/pQCEprAHh2TeUxEimeTv3AuPh6Z7
-	9RkBy18ytK2PuQBP/+h9L4PUCO3lDjGWTBHkwqFu0zg2G3dP3fZ0yCqBzMA7ogFc9VrB1Mx3k/Sji
-	KXxao+paU9Q3vI2hKyUnRsH+e54RjUudLIs5zrmnY7RaaTDV/AC7etQc1oHPMUgVe0ceM1NePKv34
-	n9WkHtuLS8ft1mvPRL6eBh2gfL/equZUEEsw==;
-Date: Wed, 18 Nov 2026 17:40:10 +0100
-From: Brett A C Sheffield <bacs@librecast.net>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: stable@vger.kernel.org, patches@lists.linux.dev,
-	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
-	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
-	patches@kernelci.org, lkft-triage@lists.linaro.org,
-	pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com,
-	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
-	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
-	sr@sladewatkins.com
-Subject: Re: [PATCH 5.10 0000/1848] 5.10.275-rc1 review
-Message-ID: <av3U6pDFzRL3k0m3@karahi.librecast.net>
-References: <20261118145911.150052362@linuxfoundation.org>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=UAM//OUL
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B5AFD143D;
+	Wed, 18 Nov 2026 08:49:21 -0800 (PST)
+Received: from [10.57.62.206] (unknown [10.57.62.206])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 571CE3F673;
+	Wed, 18 Nov 2026 08:49:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795020564; bh=5DF3UMuuIAB9eEb863SsQyI53Bmrii/ORFqImQUx9Ck=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=UAM//OULyFGAv7/1q3GJ435EUNjO1b4O1WG5u+nQr9NMdylc3Fx2uWKh14BhWsVMS
+	 TBOFPuGu3IpQ2ztmBBQhLPAMHzdUK8EcCrJCKwYaZFxQATLKRAyFJG0WzAKC4qGTja
+	 AegXQAErNCqkoGgBNl0v1dds8/wdY+g3Tusstjj0=
+Message-ID: <9b42bb54-97aa-4b2f-94f8-0c887a7f82a2@arm.com>
+Date: Wed, 18 Nov 2026 16:49:17 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,59 +53,81 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118145911.150052362@linuxfoundation.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 08/11] KVM: arm64: CCA: Prevent memslot modifications
+ after Realm creation
+To: Fuad Tabba <tabba@google.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Kohei Enju <enju.kohei@fujitsu.com>
+References: <20261116164358.142785-1-steven.price@arm.com>
+ <20261116164358.142785-9-steven.price@arm.com>
+ <CA+EHjTzAo+5FhtxfX8mQ4t3k5BhatR15UKNSAQw+CRbxJ=wz7A@mail.gmail.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <CA+EHjTzAo+5FhtxfX8mQ4t3k5BhatR15UKNSAQw+CRbxJ=wz7A@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On 2026-11-18 15:33, Greg Kroah-Hartman wrote:
-> This is the start of the stable review cycle for the 5.10.275 release.
-> There are 1848 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
+On 17/11/2026 14:42, Fuad Tabba wrote:
+> On Mon, 16 Nov 2026 16:43:54 +0000, Steven Price <steven.price@arm.com> wrote:
+> [...]
+>> Define kvm_arch_has_private_mem() so generic KVM recognizes Realm VMs
+>> as supporting private memory.
+> [...]
+>> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> [...]
+>> @@ -1611,6 +1611,8 @@ struct kvm *kvm_arch_alloc_vm(void);
+>>
+>>  #define kvm_vm_hyp_is_distrusting(kvm)        ((kvm)->arch.vm_flavor >= __VM_DISTRUSTING_HYP)
+>>
+>> +#define kvm_arch_has_private_mem(kvm) kvm_vm_is_realm(kvm)
 > 
-> Responses should be made by Fri, 20 Nov 2026 14:55:32 +0000.
-> Anything received after that time might be too late.
+> Could the message say that defining the macro makes
+> gmem_in_place_conversion true for every arm64 VM? One visible change
+> is that KVM_SET_MEMORY_ATTRIBUTES2 on a non-Realm VM's guest_memfd
+> returns -EINVAL instead of -ENOTTY.
+
+True - I'll explicitly mention that the commit message just in case
+anyone bisects that in the future.
+
+> [...]
+>> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> [...]
+>> @@ -2887,10 +2903,13 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+>>                  return 0;
+>>
+>>          /*
+>> -         * Prevent userspace from creating a memory region outside of the IPA
+>> -         * space addressable by the KVM guest IPA space.
+>> +         * Realm shared IPAs alias the corresponding private IPAs, so memslots
+>> +         * must reside entirely in the canonical lower half of the IPA space.
+>>           */
+>> -        if ((new->base_gfn + new->npages) > (kvm_phys_size(&kvm->arch.mmu) >> PAGE_SHIFT))
+>> +        ipa_limit = kvm_phys_size(&kvm->arch.mmu) >> PAGE_SHIFT;
+>> +        if (kvm_vm_is_realm(kvm))
+>> +                ipa_limit >>= 1;
+>> +        if (new->base_gfn + new->npages > ipa_limit)
+>>                  return -EFAULT;
 > 
-> The whole patch series can be found in one patch at:
-> 	https://www.kernel.org/pub/linux/kernel/v5.x/stable-review/patch-5.10.275-rc1.gz
-> or in the git tree and branch at:
-> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-5.10.y
-> and the diffstat can be found below.
+> This check still applies to every VM, so I'd keep the old comment and
+> add the Realm sentence to it.
 
-Build failure on amd64 with amdgpu.
+Ack.
 
-git bisect start
-# status: waiting for both 'good' and 'bad' commits
-# bad: [12d2575b30ab6dd7d0f61ef33860d08836347cbb] Linux 5.10.275-rc1
-git bisect bad 12d2575b30ab6dd7d0f61ef33860d08836347cbb
-# status: waiting for 'good' commit(s), 'bad' commit known
-# good: [3a323bc22b881a5bdc1646080f93f5ecb22850bf] Linux 5.10.274
-git bisect good 3a323bc22b881a5bdc1646080f93f5ecb22850bf
-# good: [48be8a7d04b11bd8a2d641bfb8965ee037cab57b] xen/gntdev: Fix gntdev_dmabuf ref leak in dmabuf_exp_wait_released()
-git bisect good 48be8a7d04b11bd8a2d641bfb8965ee037cab57b
-# good: [7edc53e830e18e313c808faa4bc5d2e14d90aa34] iio: dac: ad5758: Fix the offset calculation
-git bisect good 7edc53e830e18e313c808faa4bc5d2e14d90aa34
-# good: [533ee956be520b32f60844a83d6b030ae2586849] sh: sh7785lcr: Register the PCA9564 controller as I2C bus 0
-git bisect good 533ee956be520b32f60844a83d6b030ae2586849
-# bad: [6c4061694ecb407f5d67421f35e7f550f98805df] ASoC: cs42l56: Remove the ADC Mute Switch control
-git bisect bad 6c4061694ecb407f5d67421f35e7f550f98805df
-# good: [5ed2a3e2073ef449d3f0c6d052dbfa8a55c2ff73] ASoC: soc-component: Fix return type of snd_soc_pcm_component_pointer()
-git bisect good 5ed2a3e2073ef449d3f0c6d052dbfa8a55c2ff73
-# bad: [a356793651fdb50e5b5bc0558357d578b8d405d3] selftests: netfilter: fix return value in zone subtest
-git bisect bad a356793651fdb50e5b5bc0558357d578b8d405d3
-# good: [e9e79589baa60f79c75823422974ef46fd619613] ARC: Strip libgcc debug information when generating BTF
-git bisect good e9e79589baa60f79c75823422974ef46fd619613
-# bad: [4428e62a30507763e58fb1bb017f273ec98457d5] bpf: Validate the SRH which End.DT6 uncovers in End.BPF
-git bisect bad 4428e62a30507763e58fb1bb017f273ec98457d5
-# good: [d0c3b85950d12e1808644f31f10a95461f254df0] ASoC: codecs: sta350: Fix definition of Ch2 and Ch3 Volume Bypass controls
-git bisect good d0c3b85950d12e1808644f31f10a95461f254df0
-# good: [1de066662fa2ef918a350698c90f873e803e61eb] gre: keep the UDP tunnel GSO type when completing GRO
-git bisect good 1de066662fa2ef918a350698c90f873e803e61eb
-# good: [51a5555c99ede3eed53b2999a4ab3245cf4a2e49] bpf: Fix verifier WARN on narrow read of bpf_tcp_sock u64 fields
-git bisect good 51a5555c99ede3eed53b2999a4ab3245cf4a2e49
-# first 'bad' commit: [4428e62a30507763e58fb1bb017f273ec98457d5] bpf: Validate the SRH which End.DT6 uncovers in End.BPF
+Thanks,
+Steve
 
-Reverting 4428e62a30507763e58fb1bb017f273ec98457d5 fixes the build.
-
--- 
-Brett Sheffield (he/him)
