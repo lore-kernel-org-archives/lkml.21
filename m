@@ -1,47 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.162
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794989952;
-	b=YyFB8gEJ17JxQRZryb+rBJEwEF6Uc03tUxUYx8rFPmeJeCbFy4j5lVzfawqgrDGgv8Mi
-	 7ZJ4CWK/vHHqk/vomqRO7Q5+tcNJui9O7tW7qhb7B1NQ9XMHml1uKHJdlQUBKW25AhzJR
-	 G/ip+AaCviWyl1tZlcHWWJqcCTsUK8tlPDrX7lwkKphD6uTm6dgtRAW57KDNZ5vpbB2JX
-	 nPXed2YPApOSbgjPPd5zZfPbDhpf3vIvHmqfzFAO3vdpYfCumDRR+3OyvyDqmlEqDywHs
-	 /ac51On87YxvkjZYxPt66UBvsxHPgi837nDtWs72MCxS+FUIi/zkaQ6c/QVTRQsnCyA==
+	t=1794989986;
+	b=GPaCTrA90X3fvoJw/5xhwLw7RoTYRNN2DPgzhSW5mhBCN2NtcqBhHOu1sYiml2nN8hPq
+	 DqEtkgCkX2KJA3M/BT1kSk7y59NxrmRATdj08zRxa3GHPpuvIziGhwZqDkQqTcyKn6NIN
+	 FWV1zoF0nvVRPS88BUt38PYb93SoXS8/MObXLrDtUChg2rEVp33D1h9LiTATbKLWC0Tdw
+	 zE7w6EF3f5o2J1SZpf3polOXOukGlsRERKNCIzV7MioydC5LsT/3x1QeOn+73f+2wMocv
+	 zFDvgGG66jnu3w3Rp5GMrAAPZoEefXwOrZrnhW/DJW6O6fr/5QGf9FFiZJ4gl17IXFg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794989952;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=i0h58FryovOYkLTWxhYK2J95YEoNHW/FFrzIBIQ3ikg=;
-	b=DV9Ko6JMa6OXNIzoGXEGWtPiV3PdNtb/yO1UYPj/76Tho0pvzDnmLHEkuxxlABxszLgO
-	 tcXgPfDJEDHaxSYfOuI8UpucDn0C07UZ8MpzKAw6hkeL0keu/ZKFq+lW5XRp2ZoVq0WPg
-	 x4WWuvHcvaCV7cKLSAJbReOAhLHm9peXqAu9AgT/K2Qwj/suKULJmTwksdSEc+zxBnwvb
-	 Hk+ddhOCET/fxIquIeJyc9LztDEUvdR+1yBCZjP63uvz+SIafd5RmY7uI91gad0NYJRi+
-	 i0H6QcVf7WMncRtH7mKmOjZOwICMJlYGYd9UgdDHvqFjde9Q1TdYFrdiKFrz3zhR/MA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794989986;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:CC:Subject:In-Reply-To:
+	 References:Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=EUug9EhHnn02oR/iLTLhfO3Tu25qBjfgSKtYg+eIcHk=;
+	b=ylGNJ28FdrwZsqgP2Q8tENoh8i9mdS4MouglekSgt1lyHalnvx2S53dYKvazzTwvtwU7
+	 BKlS7WzHy+7I0F7diyBv4A94Yh9M+ountlSl6TIsHtVdWsmq5Vj6VyyMdkiUu2PzNmz1N
+	 hXf63tpdU8LBXOwuNs7XbgTz+iKzMYrmwUjLSXKlMji9pfaHCZjhjQW5Q0u+BFK6Oi1rM
+	 1scW+eduXvUPUE1U2WCGw/E2JXxSD9julZHFaHumOUAjklZBTFiWMQ9Dp297kzQQskg2M
+	 W41s919frOg5u+QVXh2drDGwNInJAB1b+QCNKcf5VuiIUlM1IBVJpib5ZmQzgEHTZIA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gpvaxBtF;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="gJw/fRUS";
+	arc=none smtp.remote-ip=95.215.58.162
+Received: from mta1.migadu.com (out-162.mta1.migadu.com [95.215.58.162])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED357606A31C;
-	Wed, 18 Nov 2026 08:19:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49EE0606A32F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:19:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49EE0606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gpvaxBtF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 688421F000C4;
-	Wed, 18 Nov 2026 08:19:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794989951;
-	bh=i0h58FryovOYkLTWxhYK2J95YEoNHW/FFrzIBIQ3ikg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=gpvaxBtF7PPky8Iwh7/K9lBt8oqrF57ETJEKDP1/3T6oEXeQtEXX1PZpctwC54kZ3
-	 r42ydpMRVWdp5AdZdMgxhV+Zb0v1D8ZSH6P5zEnlzNeGQWHPik0lRHm6JZAP5cS04/
-	 gR4napakEVudT7GAhI+K1ZY0+NAoX+U+YlgCIXFuuhMwh4Ljc6t0ZyyM8FPR41evJQ
-	 DQnjSTTuQXywWay8SZpZjK/m+79wWrK7LQRsxQY2ix9YQDzguQQmedFiE22UxlPQ8w
-	 G0mS/C5pEMJB/YhWeP9XZ/4lpdZ29Dc9K6Jt/v8ydgPTxq5xPjzo1InjfDfmrP6Wnf
-	 XdmJHdFV/kwYA==
-Message-ID: <18756bf6-3eef-4de8-a091-c5218458fd99@kernel.org>
-Date: Wed, 18 Nov 2026 09:18:58 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=gJw/fRUS
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=ytzQ5XeBidt7fXi1H8oh5svqQ3UECQimFjn0eSE7LFU=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794989984; v=1; x=1795594784;
+ b=gJw/fRUSHazv8IchAHw9WuTr42/RAqmI2uxV1TvMlRcMDUSIONvrZ7IZSPbh9L6s7EKNbSDN
+ eGtEOQRMv68TjiUlPJeaSkxrzuHy7225xliTaonYo++R9pZCTVUJI1SbmUIyc6iyL1BJ3gd8LA3
+ 2iO9Fc+eKkKSiuylEkit7B5E=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 523ac45decf7a92b;
+	Wed, 18 Nov 2026 08:19:44 +0000
+X-Mizu-Trace-ID: 523ac45decf7a92b
+X-Migadu-Flow: FLOW_OUT
+Date: Wed, 18 Nov 2026 09:19:38 +0100
+From: Luka Gejak <luka.gejak@linux.dev>
+To: Mehmet Fide <mehmet.fide@gmail.com>, Ping-Ke Shih <pkshih@realtek.com>
+CC: Bitterblue Smith <rtl8821cerfe2@gmail.com>, linux-wireless@vger.kernel.org,
+ linux-kernel@vger.kernel.org, mehmet.fide@screeningeagle.com
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_rtw-next_v12_2/3=5D_wifi=3A_rt?=
+ =?US-ASCII?Q?w88=3A_support_channel_switch_in_AP_mode?=
+In-Reply-To: <20261117232624.1956815-3-mehmet.fide@gmail.com>
+References: <20261117232624.1956815-1-mehmet.fide@gmail.com> <20261117232624.1956815-3-mehmet.fide@gmail.com>
+Message-ID: <9BC4FC13-5723-4711-9798-11E3C285C7F1@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,90 +66,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 7/9] riscv: dts: spacemit: enable USB2.0 controllers on
- BananaPi F3
-To: Junzhong Pan <panjunzhong@linux.spacemit.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
- Xu Yang <xu.yang_2@nxp.com>, Peng Fan <peng.fan@nxp.com>,
- Peter Chen <peter.chen@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev
-References: <20261117-b4-spacemit-k1-usb2-v5-0-52c3829cca69@linux.spacemit.com>
- <20261117-b4-spacemit-k1-usb2-v5-7-52c3829cca69@linux.spacemit.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261117-b4-spacemit-k1-usb2-v5-7-52c3829cca69@linux.spacemit.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: 8bit
 
-On 17/11/2026 13:38, Junzhong Pan wrote:
-> On BananaPi F3, usb2_0 is connected to a Type-C connector at device
-> mode by default. This port have no VBUS supply capability, thus host
-> mode only works with self-powered device or hub. User could switch the
-> role in sysfs.
-> 
-> And the usb2_1 is connected to the USB2.0 pins of the Mini PCIe slot to
-> support cellular modules.
-> 
-> Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> Reviewed-by: Yixun Lan <dlan@kernel.org>
-> Signed-off-by: Junzhong Pan <panjunzhong@linux.spacemit.com>
+Hi Mehmet,
 
-DTS cannot be combined in this patchset and must be split. Don't mix
-patches from independent subsystems when you send something explicitly
-targeting only one subsystem.
-See also: Documentation/devicetree/bindings/submitting-patches.rst
+One more thing in addition to sashiko's comment.
 
+On November 18, 2026 12:26:23 AM GMT+01:00, Mehmet Fide
+<mehmet.fide@gmail.com> wrote:
+
+> @@ -493,11 +513,17 @@ static void rtw_ops_stop_ap(struct ieee80211_hw *hw,
+>       struct rtw_dev *rtwdev = hw->priv;
+>
+>       mutex_lock(&rtwdev->mutex);
+> +     rtw_fw_csa_stop(rtwdev, vif);
+>       rtw_write32_clr(rtwdev, REG_TCR, BIT_TCR_UPDATE_HGQMD);
+>       rtw_write16(rtwdev, REG_ATIMWND, ATIMWND_DEFAULT);
+>       rtwdev->ap_active = false;
+> -     if (!rtw_core_check_sta_active(rtwdev))
+> +     if (!rtw_core_check_sta_active(rtwdev)) {
+>               rtw_clear_op_chan(rtwdev);
+> +     } else {
+> +             /* what a countdown may have held back */
+> +             rtw_fw_download_rsvd_page(rtwdev);
+> +             rtw_send_rsvd_page_h2c(rtwdev);
+> +     }
+
+As far as I can see, this check can still miss the station.
+rtw_core_check_sta_active() uses rtw_iterate_vifs(), whose collecting
+callback skips an interface if its GFP_ATOMIC allocation fails.
+
+If the station associated after the last countdown download, its page
+update was deferred above. Skipping that station here leaves the
+countdown cancelled without refreshing those templates or sending their
+locations to the firmware. There is no next work to carry the update.
+
+I think the presence check is better fixed in
+rtw_core_check_sta_active(). Its callback only reads interface state, so
+could it use an atomic interface iterator without allocating entries?
 
 Best regards,
-Krzysztof
+Luka Gejak
