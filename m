@@ -1,75 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=159.69.201.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795003840;
-	b=5TIRjyrX28JlK0AeLT00cqRHrVgJWs2sTJ9i/nUl7aKbF9JpQgVlUW4q2WA5XaoGGELk
-	 l1r+FN5k5i9Z42nc3wg0rpP1t688uWxpXCvlnmPGB8KHRxdL3O1SRz3phtwpK++Q1bb3E
-	 sfIluX1yauxV7B8vt+U1qfCYCnEpnbV7Jv222MR5wXW9PsrxaEdAbPhKdCwpBQAoTyafZ
-	 pKRHRH4P72mTmQHhljF8h5PSmphUyRC6HjGockbshyIrgkim8yeHDn9fPws3D1Q4yIm2m
-	 ND8JaMToGBtZNj8madpMBx3/RGlv1LMTjuPiFOBCcsPPCbkW/9sNybhrNnBVfOmtXWA==
+	t=1795003851;
+	b=OOceNSxnuVLsed8TOJhkHGLsJs7OFX47AdOqspyKQ4aNe39MBoFtQut1oSo7O3ywAGMn
+	 yB3YhD86B3wSieBdw7mF/DVGcVrJNN1zlN5JraKqRqYYk9IzilersBbtQ6+MyW5VSA5kk
+	 nLeMS6gsAGhXgjScaRScBalmm8jZHlSHwIjlZP6nUCtLy62m4QecNOvjb/HRx7ww1+1jg
+	 15hx3MfGM5noU7E7lCvv6vyUCydHV57AT/aFcqOklzzZCaLNxa9uhaPwxzcQ7FFNEEPs8
+	 s5B+YB127Stq44ULdMjGqYKc0sxucGcp42AUdfSsYI9FTC9sWoMicxFQFk39ZxiGuZw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795003840;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Received:Date:In-Reply-To:Mime-Version:
-	 References:Message-ID:Subject:From:To:Cc:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=qj1PLy2yInc0qHugCW7c4uxMVK1VS1mHZtMcI4xn/SA=;
-	b=GHpuAhsYh++Ba84fs9W76qKT/7z1jve4R0ykfFIwS8hL7O4om3ub67WJSEi1ZyTwEQrv
-	 CbMjRJKOHenM25OdFIESBmSFpOxG9Vk77GqgfQKLBdKWauSWHDzWgfTUPCcReu9iq5uxQ
-	 Wwk0DSdU/mA3isAezeld2n5hfk/FB97XjFVZOgPk/80noHa9PhDpZsLQQJs+uKcbPZnR8
-	 E5cB0OPfsaM561sb1Olz4uvra8XU8HP+w/j1vSwfAPmBTJL0fduJVCgtsiEfUxo55Kj9W
-	 fg1KD+O6xpJ4Qe1DfC4KUOGDbRO7XZXWFcoyDvJRcdZdXOHsw1OGnJmD59xUkUHGdeQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795003851;
+	h=DMARC-Filter:Received:DKIM-Signature:Mime-Version:Content-Type:Date:
+	 Message-Id:Subject:Cc:From:To:X-Mailer:References:In-Reply-To;
+	bh=QCr7roC1+1Ps5FfmFeUaWZRyJXGQJS+ufHB6t/Qd++U=;
+	b=vKuTga78fk32a+fd0YuOyKdoBjaySEJ4ulg7Y2H4qD2IrvJlFwsYRpYjMl4lxHH8aWrc
+	 TUl3Y3UwubwM3c4eK0It3z7drbeXQPeQHn89hUm9dN9y3htRJnXry1yCAe3CrNs/HKbui
+	 8gg8nuycjJa6s+K0J7X55BFqvtVl/k/K5xDiGk2c18y8HBIouC+FIr6pN/UfppiaqfJfp
+	 NqI3Y9qLyctG8LRDC2xt2n8yGdMKENOR2w7jxg1/PPGazPP7r6lOh0c+AjGK70ozKvoTJ
+	 FJsKWH7W/p3/GS1nX2G3iZxrE6sIF9LOX/zCHNG2vVOIj0n2iVXeyEtaFmFpe2K03yg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=bapSOEt2;
-	arc=none smtp.remote-ip=209.85.128.72
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com [209.85.128.72])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=walle.cc;
+	spf=pass smtp.mailfrom=walle.cc;
+	dkim=pass header.d=walle.cc header.i=@walle.cc header.a=rsa-sha256 header.s=mail2022082101 header.b=GB3KloGp;
+	arc=none smtp.remote-ip=159.69.201.130
+Received: from 0001.3ffe.de (0001.3ffe.de [159.69.201.130])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D689606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:10:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3D689606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A626A606A31C;
+	Wed, 18 Nov 2026 12:10:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A626A606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=walle.cc
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=walle.cc
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=bapSOEt2
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4bb68d624baso9319665e9.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:10:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795003839; x=1795608639; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:from:subject
-         :message-id:references:mime-version:in-reply-to:date:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=qj1PLy2yInc0qHugCW7c4uxMVK1VS1mHZtMcI4xn/SA=;
-        b=bapSOEt2yW/HPhm5fe3mo9ZKAMuYA6DQELqvDkIA+dKDC9dGShG2nTqoFU8Jx9OyVq
-         Pmlk5tfxofX4tZv8Odbtc4K54jbSgz37RmWhGtmzFmJQYhsPTAcSzD5jbiySQ8kAKxmk
-         NpB6mhBRbDMnyTbVOYZNU95SguzVcUSD/PyI8H1+KFcMZ5F6+CsqsAvdGMxVRkpd4GnP
-         Koa8XbMnnJbTdaLfnEgr1xVMNdzPH88uPIqKx0kR93dFp/t+7+bd2jN0Uz7DLEJLFsUC
-         nqT1i+AngkHar8mz/kIvFTgKgmoMwKkOUdksgZTZK20OKLm4y2ixgE1H9kptRSSDXoO1
-         ntuA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795003839; x=1795608639;
-        h=content-transfer-encoding:content-type:cc:to:from:subject
-         :message-id:references:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=qj1PLy2yInc0qHugCW7c4uxMVK1VS1mHZtMcI4xn/SA=;
-        b=ujBnboY8vFPeHhu/USHI4MdAIHvE7mqK1HG+MmKrLP9fscWOJXMH8LJfjrLh1JYZ2C
-         8wr9kdnjtLnHRAlw0fGxkmrpYKhawQVZrSm6rnbamasVvWb4jbbfqBbHXg3Sqy9AkEhr
-         gRjEYXCnmc0IcrcNbDTea790G2nQHvQcMxYJfS0idchvKtv4uIXd3ZED/tN3mjZbpcVP
-         TMpOKbf6ftahANMZ9G4OP1w6Pyr3fyiO3Ekr82RH+EfJ+WKQj2IRMfptRxPWvfPn/PFm
-         QNN7yijfjpMHKVcREeTzVQLaQj58Mfvx5ZtQblBLNnm7SQyoS1Tcdyzoj7NSHdPtoRld
-         CWSw==
-X-Gm-Message-State: APuU4Z/QHbCawbjKQCL4relOtumhvfnth9+jSVMkVA9reQJWMsKgM+AF
-	ksbjiFg15Pldb2ZXEayr7ieFk+LoMpf2lNmxcjtZJh1sheb90K98et1wjWiT36WBmoYcRSTzD9m
-	gitizvizdQimN9glNQg==
-X-Received: from wrpe7.prod.google.com ([2002:adf:f347:0:b0:496:d435:25e5])
- (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:3e05:b0:4a1:813f:2a60 with SMTP id 5b1f17b1804b1-4bb7da03dfemr41829965e9.11.1795003838418;
- Wed, 18 Nov 2026 04:10:38 -0800 (PST)
-Date: Wed, 18 Nov 2026 12:10:37 +0000
-In-Reply-To: <20261113-tyr-reset-impl-v8-2-2ee298ac9808@onurozkan.dev>
+	dkim=pass (2048-bit key) header.d=walle.cc header.i=@walle.cc header.a=rsa-sha256 header.s=mail2022082101 header.b=GB3KloGp
+Received: from localhost (unknown [213.135.10.150])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.3ffe.de (Postfix) with ESMTPSA id 0E1816BD;
+	Wed, 18 Nov 2026 13:10:42 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=walle.cc; s=mail2022082101;
+	t=1795003842;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QCr7roC1+1Ps5FfmFeUaWZRyJXGQJS+ufHB6t/Qd++U=;
+	b=GB3KloGpCL6gKdNXfaVO5H/7pKTb6SOZqITMvkZhuonLM+5k4kQAHfh5+x5gI2nhmB5pu0
+	2SFTkXO65uncnVBEjkAoqU2zZ4W788f0fo4bjLBwBwBQriZ951Twy58+qxc7GAnAfw1OrE
+	WSz582V1+fObbZD5SvF4djjElLfQuIQ0c5lDED7QiH+jus7nNYceuWqUhMNz8D7E9iUOMf
+	vtaopJHbD6QkhBp5yaYrtWQfv6JJrJmba1NzL+eWzvO5SoB6SOW2LxI8Mn3iS/qIrKb1gs
+	PdjbEvzwGEkz4mzsEDqQ3QhbjFPF/wcxVKP4H7t6FiB3Cvqc9AN5YfmgrFVOMA==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,124 +58,86 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
-References: <20261113-tyr-reset-impl-v8-0-2ee298ac9808@onurozkan.dev> <20261113-tyr-reset-impl-v8-2-2ee298ac9808@onurozkan.dev>
-Message-ID: <av2VvS0bRJYVwdUz@google.com>
-Subject: Re: [PATCH v8 2/3] drm/tyr: add GPU reset infrastructure
-From: Alice Ryhl <aliceryhl@google.com>
-To: "Onur =?utf-8?B?w5Z6a2Fu?=" <work@onurozkan.dev>
-Cc: linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, dakr@kernel.org, 
-	daniel.almeida@collabora.com, airlied@gmail.com, simona@ffwll.ch, 
-	ojeda@kernel.org, boqun@kernel.org, gary@garyguo.net, 
-	bjorn3_gh@protonmail.com, lossin@kernel.org, a.hindborg@kernel.org, 
-	tmgross@umich.edu, boris.brezillon@collabora.com
-Content-Type: text/plain; charset="utf-8"
+Content-Type: multipart/signed;
+ boundary=eed9819ffa9d9d482d7f2e70e9c7fdf48b9e50eeb17e32951c98b41d269b;
+ micalg=pgp-sha384; protocol="application/pgp-signature"
+Date: Wed, 18 Nov 2026 13:10:38 +0100
+Message-Id: <DMYBR7I0R1PK.25FUNB24SPCFS@walle.cc>
+Subject: Re: [PATCH v5] mtd: spi-nor: clear the default read_sr2 opcode for
+ Octal DTR flashes
+Cc: <linux-mtd@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <imx@lists.linux.dev>, "Haibo Chen" <haibo.chen@nxp.com>,
+ <stable@vger.kernel.org>
+From: "Michael Walle" <michael@walle.cc>
+To: <haibo.chen@oss.nxp.com>, "Pratyush Yadav" <pratyush@kernel.org>,
+ "Michael Walle" <mwalle@kernel.org>, "Takahiro Kuwano"
+ <takahiro.kuwano@infineon.com>, "Miquel Raynal"
+ <miquel.raynal@bootlin.com>, "Richard Weinberger" <richard@nod.at>,
+ "Vignesh Raghavendra" <vigneshr@ti.com>
+X-Mailer: aerc 0.20.0
+References: <20261023-spi-nor-fix-v5-1-bb6e0ce21169@nxp.com>
+In-Reply-To: <20261023-spi-nor-fix-v5-1-bb6e0ce21169@nxp.com>
+
+--eed9819ffa9d9d482d7f2e70e9c7fdf48b9e50eeb17e32951c98b41d269b
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-On Fri, Nov 13, 2026 at 05:32:27PM +0300, Onur =C3=96zkan wrote:
-> +    /// Processes one scheduled reset request.
-> +    ///
-> +    /// If the pending reset cannot be claimed, the worker returns immed=
-iately.
-> +    ///
-> +    /// It first claims [`ResetState::Pending`], then waits for earlier =
-hardware
-> +    /// accesses to complete before issuing the reset and returning the =
-worker
-> +    /// state to [`ResetState::Idle`].
-> +    ///
-> +    /// Panthor reference:
-> +    /// - drivers/gpu/drm/panthor/panthor_device.c::panthor_device_reset=
-_work()
-> +    fn reset_work(&self) {
-> +        if !self.try_transition(ResetState::Pending, ResetState::InProgr=
-ess) {
-> +            return;
-> +        }
-> +
-> +        dev_dbg!(self.pdev, "Starting GPU reset.\n");
-> +
-> +        // Wait for current hardware accesses to finish before resetting=
-.
-> +        let reset_guard =3D self.hw.close();
-> +        let reset_result =3D run_reset(self.pdev.as_ref(), &self.iomem);
-> +        drop(reset_guard);
-> +
-> +        if let Err(e) =3D reset_result {
-> +            dev_err!(self.pdev, "GPU reset failed: {:?}\n", e);
-> +
-> +            // TODO: Unplug the GPU.
-> +            // There is no API for unplugging the GPU and this is unreac=
-hable
-> +            // for now since there are no hardware users for reset API.
-> +        } else {
-> +            dev_dbg!(self.pdev, "GPU reset completed.\n");
-> +        }
-> +
-> +        let _ =3D self.try_transition(ResetState::InProgress, ResetState=
-::Idle);
+On Fri Oct 23, 2026 at 9:11 AM CEST, haibo.chen wrote:
+> From: Haibo Chen <haibo.chen@nxp.com>
+>
+> The core defaults opcodes.read_sr2 to the legacy RDCR opcode (0x35), and
+> spi_nor_cache_sr_lock_bits() reads SR2 during spi_nor_init(), i.e. after
+> the flash has been switched to its runtime protocol. On an octal flash
+> running in 8D-8D-8D mode the opcode is extended per cmd_ext_type (e.g.
+> 0x3535), but RDCR is not a valid register read there: these parts access
+> their status/configuration registers through a vendor-specific indirect
+> space, if at all. The flash does not answer, the register read times out
+> and probe (or resume) fails (on i.MX FlexSPI: -ETIMEDOUT and a controller
+> WARN(), seen with a Micron MT35XU01G and a Macronix MX25UW51345G).
+>
+> Clear read_sr2 on every path that enables 8D-8D-8D, so that
+> spi_nor_read_sr1_and_sr2() degrades to an SR1-only read and no
+> unsupported command is issued. A manufacturer driver that genuinely
+> needs an SR2 read in this mode can still install its own opcode in a
+> later fixup.
+>
+> - spi_nor_parse_profile1(): the common case. The xSPI Profile 1.0 table
+>   does not describe any SR2/RDCR read, and it runs before the
+>   manufacturer late_init.
+> - mt35xu512aba_post_sfdp_fixup(): some mt35xu512aba batches lack the
+>   Profile 1.0 table and enable 8D here instead, with the BFPT QER field
+>   left at a reserved value so read_sr2 keeps its RDCR default.
+> - spi_nor_no_sfdp_init_params(): non-SFDP parts that enable 8D via
+>   SPI_NOR_OCTAL_DTR_READ keep the RDCR default too.
+>
+> CMP (the only user of SR2 beyond quad-enable in the locking code) is
+> Winbond-specific and is not placed in SR2 on their 8D-capable parts, so
+> no octal flash loses a usable SR2 read because of this change.
+>
+> Fixes: 63489002d397 ("mtd: spi-nor: Refactor Read Status/Write Status sup=
+port")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
+> Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
 
-I'm pretty sure this needs to happen before drop(reset_guard).
 
-> +    /// Creates [`ResetHandle`].
-> +    ///
-> +    /// # Safety
-> +    ///
-> +    /// The returned handle must not be leaked or otherwise prevented fr=
-om
-> +    /// running [`Drop`], since it owns work that may borrow from `'rese=
-t`.
-> +    pub(crate) unsafe fn new(
-> +        pdev: &'reset platform::Device<Bound>,
-> +        iomem: ArcBorrow<'_, IoMem<'reset>>,
-> +    ) -> Result<impl PinInit<Self, Error>> {
-> +        let iomem =3D iomem.into();
-> +
-> +        Ok(try_pin_init!(Self {
-> +            // SAFETY: The caller guarantees the handle is dropped.
-> +            controller <- unsafe {
-> +                kernel::new_scoped_work!("tyr::reset", Controller::new(p=
-dev, iomem))
-> +            },
-> +            wq: Queue::new_ordered().build(c"tyr-reset-wq")?,
-> +        }))
+Miquel, if you want to pick it yourself for fixes, otherwise I can
+also push it there.
 
-The Result is not needed. This can simplify to:
+In any case,
 
-	) -> impl PinInit<Self, Error> {
-	    let iomem =3D iomem.into();
-=09
-	    try_pin_init!(Self {
-	        // SAFETY: The caller guarantees the handle is dropped.
-	        controller <- unsafe {
-	            kernel::new_scoped_work!("tyr::reset", Controller::new(pdev, i=
-omem))
-	        },
-	        wq: Queue::new_ordered().build(c"tyr-reset-wq")?,
-	    })
+Acked-by: Michael Walle <mwalle@kernel.org>
 
-> +    }
-> +
-> +    /// Schedules a GPU reset on the dedicated workqueue.
-> +    ///
-> +    /// If a reset is already pending or in progress the call is a no-op=
-.
-> +    #[expect(dead_code)]
-> +    pub(crate) fn schedule(&'reset self) {
-> +        // TODO: Similar to `panthor_device_schedule_reset()` in Panthor=
-, add a
-> +        // power management check once Tyr supports it.
-> +
-> +        if self
-> +            .controller
-> +            .try_transition(ResetState::Idle, ResetState::Pending)
-> +        {
-> +            let _ =3D self.wq.enqueue_scoped(&self.controller);
-> +        }
+--eed9819ffa9d9d482d7f2e70e9c7fdf48b9e50eeb17e32951c98b41d269b
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Because this type is invariant over 'reset, it's impossible to call a
-method that takes &'reset self.
+-----BEGIN PGP SIGNATURE-----
 
-I think you can just change this to &self.
+iKcEABMJAC8WIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCav2VvhEcbWljaGFlbEB3
+YWxsZS5jYwAKCRASJzzuPgIf+CFJAYDxLl7cPQOrF+auKE+a+zNjZULEGQOubSo+
+GmacBs7M11Hw9NG1fXImSX6CntrT/sUBf2mG9P1sp3kZlSnIJ6WhAcGkF/PYoWJf
+B8J2UevRceBo1KsBCHjfDS4iMQ7AqQhkig==
+=Mg6W
+-----END PGP SIGNATURE-----
 
-Alice
+--eed9819ffa9d9d482d7f2e70e9c7fdf48b9e50eeb17e32951c98b41d269b--
