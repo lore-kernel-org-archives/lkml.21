@@ -1,47 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795016562;
-	b=hf3dO2HsDqc6uMc7eR4tl6dE5RuLneFXWLnh/VTMa0gECpwLOFBx7M7SXd2f34YLd9Lb
-	 +I4y6uWP8MXS4hCIanzkWi7nGzOo4NbH82+uFOtaFJ2WbmQPguTeQjOYdai8Eh6ac5eqN
-	 joO87ZrvnRZ3OYPSzVH2UvOQj68F8qLtz6YIyeWbotTUNNhogyKC73iQaiuruNcqavXr7
-	 LGecn8N6bO3pYITcjTuYs6hAj0ytN8rdr2KPzwvhj+dS69+IMPjv6BKLYyuzO9Miv3Rz2
-	 o1iHr/R36CH6mLXjDEW4+nJ0E/NWeciovBeeZXFO5OGyvDiz3bWoLbIaOAeI2ZyWKKg==
+	b=1CO/RBKNHa86cx4pUhBDrI5SNftttrdPG3ITg6xA08k1rfkBu261AVCm3SlCwx4Y8Ryw
+	 BkekEVNdblPJwFQWXVwv5Lt7ISR2IGa47k8lhDQUS67bTzy8hYfs96e7212LI4K/ri6uZ
+	 wfIyEr2eTF+aDmYHQl85PwcxwQ6YTp5ZqJy5n2mQrnFrN4vXnhhtvYqQ3qAmKLFtaeUSY
+	 s+B+CPl1Xt3TTVyKzFMbIhZWw70EFI7WRtB+lhWoUovcTWX+aRSYtwPvE4aKneoFXaiRY
+	 u8S+A+Umr2I8bfMgjXhyHe8DQbqiCrd9O2YfIyBNkaxAzIEcXK8itTd/FS2UmBgHk5g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795016562;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=T4H35RJMHyh2IBOp7z6aeHe3cTv4/zs5uyPOML/omFM=;
-	b=kqcIIWHWg93D/rwegHtEeDjd/hCteqaGmB2PX0uvnOq5EcEbmOTQsV4jWo4v3AD8ePuN
-	 tVReq/aEE3sMsIIvRzjbdxsWdqH9Sg7DLJXZpMHps3S/uv7MCG9vsAUIaraqKPcraGKKc
-	 yU5NbOa+BKKC5yytRKwfuwIPoIcF2lggB4dytEoRQ6SDNgwqvKI4rMv0NleeD1umelmMI
-	 lIYLkkJX7m8DWbWQtmLpQ6bnR0xjT7EDZHgiiyekVJ/4DTyX4hlVCuv+m0qdbXKhj2wvh
-	 fZoPvLvSyuDQOp8SZshrqwkcRgB9xBsBX8dDAm3BFwaIG73tzO33iy/Mg17CKeoTcYQ==
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=QXoVU+zyzO/JVGmjx8QpobF+MHN6a8i8PV7wuxZRA8Y=;
+	b=wMKXrCYy1f9tA9uYQfzTMZPG1hvhFQZTCkKKZiAjl8Ch/zP8ZeQeddRUNcgo8jE6pFLH
+	 cMX8MOHH1sbXlgxJ/H2KUFgnrAjgme4iKS7nmN77BOlpCuN1SzRwACzi5dEXkSN0YjWk5
+	 6KxMBHpq5HLZtqg979u1CNl4xl7LbaLJjwc8HEPEUpJ/VPMFFQiG9PbTqaCIu5lh8gysJ
+	 xdHunvkoSuxlDMCcAZx1CKXrKIaMU21sybbaCpZffL8xsNtT0lgjcXup9ZqCttAwo2QDg
+	 2wfJoqHWGLZGhp+we3ATh0QODtJeBKSy5uEpczxMAIck9nomnQ4sJy3vSuh/qJm1+aQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iLwUtwzT;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E295606A332;
-	Wed, 18 Nov 2026 15:42:42 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=e07SLl5k;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 09A56606A333;
+	Wed, 18 Nov 2026 15:42:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 09A56606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iLwUtwzT
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9324A1F000C8;
-	Wed, 18 Nov 2026 15:42:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795016562;
-	bh=T4H35RJMHyh2IBOp7z6aeHe3cTv4/zs5uyPOML/omFM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=iLwUtwzTAzn0DuNp4huYJNoN0XfsHQ/cxc6heSHg+/8XzhAN//RnSWCYH1ggj8izk
-	 9Q4kg+G8GLVOqi0THwoVKxhJKsOtznmD3fn/uUHhLNMpv7fK26Hej2DFxrtCXHuxQs
-	 R7ry34ly/Jls2i7OiZ0a4NtyF28Ex31ncRnn/lrXiyhqd5GKn0FrXeNaaxtmTsa0aa
-	 UaJBZvgoApdKKy+mCiWd84Hs5xJ1Zft4PGU8ATPi/RhV0gIAExLF268YvZipbnYWcq
-	 HawhnXNdJAeVR56wQ2iUsyBqltNhlYqwk2KkGlM1gOSZYkOJmFAYNRHN0ksqLERUa1
-	 tP2SY7OUB6rzw==
-Message-ID: <fefe83ac-4749-4564-b76f-d89bf491d8af@kernel.org>
-Date: Wed, 18 Nov 2026 16:42:37 +0100
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=e07SLl5k
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6B80F339;
+	Wed, 18 Nov 2026 07:42:38 -0800 (PST)
+Received: from e137867.cambridge.arm.com (unknown [10.2.213.11])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 075293F632;
+	Wed, 18 Nov 2026 07:42:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795016561; bh=+tCwHyaMbDnFYKCMMHM4gMAYD6cSQpaChWqSWXyJq+M=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=e07SLl5kVNB3CtW+vgqxR4VZKtstwTke+UCp6+TtNjlxNQkBYg+EI9GI4OrmAv3KB
+	 1WvzVduXvNDEE109iCWEA7mv54+Sv+EiyVsHyOykiiiGGD93DeQJxISnHpev2r4lBp
+	 n41QOEYCPym7yG5tw49nGVCtHm5acpXX5XbmArYw=
+From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Cc: Vladimir Murzin <vladimir.murzin@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Kiryl Shutsemau <kas@kernel.org>,
+	Breno Leitao <leitao@debian.org>,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Doug Anderson <dianders@chromium.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Huth <thuth@redhat.com>,
+	Dawei Li <dawei.li@linux.dev>,
+	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+	kernel-team@meta.com,
+	linux-kernel@vger.kernel.org,
+	Ada Couprie Diaz <ada.coupriediaz@arm.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v2 2/3] arm64: entry: sdei: save and restore PMR for pseudo-NMI
+Date: Wed, 18 Nov 2026 15:42:33 +0000
+Message-ID: <20261118154233.83599-1-ada.coupriediaz@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261117174814.95936-3-ada.coupriediaz@arm.com>
+References: <20261117174814.95936-3-ada.coupriediaz@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,58 +77,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iio: light: cm32181: Add support for CM32183
-To: NanamiKite <nanami@yosoro.hk>, Jonathan Cameron <jic23@kernel.org>,
- David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>
-Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <tencent_E90EB0AF3888FA057AA5F6008C16C610650A@qq.com>
-From: Hans de Goede <hansg@kernel.org>
-Content-Language: en-US, nl
-In-Reply-To: <tencent_E90EB0AF3888FA057AA5F6008C16C610650A@qq.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-Hi,
+When using pseudo-NMIs, the PMR affects if IRQs are disabled
+and is not updated by the CPU on exception entry/exit. It must be saved
+and restored to/from pt_regs, as the DAIF bits are, so that
+`regs_irqs_disabled()` can reliably work with pseudo-NMIs.
 
-On 18-Nov-26 16:11, NanamiKite wrote:
-> On the H3C MegaBook 14, the ACPI CPLM3218:00 node declares a Capella
-> CM32183 ambient light sensor (CPM0 device ID 0x7db7 / 32183) at I2C
-> address 0x29. Reading CM32181_REG_ADDR_ID (0x07) returns 0xc383, with
-> chip ID 0x83 in the lower byte, causing cm32181_reg_init() to fail with
-> -ENODEV.
-> 
-> The CM32183 uses the same register layout and ACPI CPM0/CPM1 tables as
-> the CM32181 and CM32182. Add chip ID 0x83 to cm32181_reg_init().
-> 
-> Cc: stable@vger.kernel.org
-> Signed-off-by: NanamiKite <nanami@yosoro.hk>
+We do so in the regular entry path, and set it to a known value
+reflecting that DAIF is masking all interrupts.
+Do the same for SDEI, as it can interrupt the kernel at any point
+and does not mandate firmware to touch PMR, but does mandate masking DAIF.
 
-Thanks, patch looks good to me:
+This makes `regs_irqs_disabled()` reliable in the SDEI handler with
+pseudo-NMIs enabled, which is critical as the return path to the kernel
+depends on if the interrupted task had IRQs disabled or not.
+This also avoids returning to the interrupted task with a different PMR
+and a possible DAIF/PMR mismatch, as expected by the rest of the kernel.
 
-Reviewed-by: Hans de Goede <johannes.goede@oss.qualcomm.com>
+Fixes: 133d05186325 ("arm64: Make PMR part of task context")
+Cc: stable@vger.kernel.org
+Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+---
+ arch/arm64/kernel/entry-common.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-Regards,
-
-Hans
-
-
-
-> ---
->  drivers/iio/light/cm32181.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/iio/light/cm32181.c b/drivers/iio/light/cm32181.c
-> index b32a940..aaf1af3 100644
-> --- a/drivers/iio/light/cm32181.c
-> +++ b/drivers/iio/light/cm32181.c
-> @@ -200,6 +200,7 @@ static int cm32181_reg_init(struct cm32181_chip *cm32181)
->  		break;
->  	case 0x81: /* CM32181 */
->  	case 0x82: /* CM32182, fully compat. with CM32181 */
-> +	case 0x83: /* CM32183, fully compat. with CM32181 */
->  		cm32181->num_als_it = ARRAY_SIZE(cm32181_als_it_bits);
->  		cm32181->als_it_bits = cm32181_als_it_bits;
->  		cm32181->als_it_values = cm32181_als_it_values;
+diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+index cb122163a68d..91afd1a36ec6 100644
+--- a/arch/arm64/kernel/entry-common.c
++++ b/arch/arm64/kernel/entry-common.c
+@@ -1067,6 +1067,16 @@ __sdei_handler(struct pt_regs *regs, struct sdei_registered_event *arg)
+ 	else if (cpu_has_pan())
+ 		set_pstate_pan(0);
+ 
++	/*
++	 * Regular kernel entry saves and resets the PMR to align with DAIF,
++	 * but __sdei_asm_handler() does not ; do it now.
++	 */
++	if (system_uses_irq_prio_masking()) {
++		regs->pmr = read_sysreg_s(SYS_ICC_PMR_EL1);
++		write_sysreg_s(GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET,
++				SYS_ICC_PMR_EL1);
++	}
++
+ 	/*
+ 	 * Nothing saved the interrupted context's exception registers on the
+ 	 * way in, and it may be in the middle of exception entry or return
+@@ -1110,6 +1120,9 @@ __sdei_handler(struct pt_regs *regs, struct sdei_registered_event *arg)
+ 	write_sysreg(far, far_el1);
+ 	write_sysreg(vbar, vbar_el1);
+ 
++	if (system_uses_irq_prio_masking())
++		write_sysreg_s(regs->pmr, SYS_ICC_PMR_EL1);
++
+ 	return ret;
+ }
+ #endif /* CONFIG_ARM_SDE_INTERFACE */
+-- 
+2.43.0
 
