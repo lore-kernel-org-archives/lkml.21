@@ -1,64 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795037096;
-	b=R6qXesjTy/to1D8bKxMw3Hi+8dJuI8DW1X/So6pDd7FFXHsBGCTrZXqrO5irYtSA8NKf
-	 /SIU9OB/aGnhUBkjPo4WXWBZhFVkredJo4c6R+0WLC5tWyBm3bvrYyTyrRQocbRd4jgcq
-	 vwuFAk4elhrMiRG1ulC3Ficf1YSOUIxeWnhYB+epZ+j1f6dVwHdpw9T6thg+zMIOHh5JF
-	 BOAvTq2WoRYQofZ02N+/ca5/E5ouC2WIa+bIGuz442n6ozZgDaiLQ4Ai52VClkmunR+MZ
-	 wL20sty1xELevMcP//U0uzYoZEu5nnNTUbiu/+FhJbcHGBkXZa3RX0HoQmubWzzQKyA==
+	t=1795037117;
+	b=HID9iYKUnjsI0AieQX565KjvF0UXwUhFtiZBYEivsdd5VaswZZRxYRPuo4M5SunjIBkS
+	 aP1TELUlp4H2irl2Ix1IReONvzKzhTuj4EraX3D1nwnivPe9AQrLFj7iGTBvUyocu1/G5
+	 EnATsC/OF2gNT070qmNx234Do4eB2/spY9wyQzEahGlj7HhoE4kmzteKgEv4lhyPxIjcC
+	 uaXUxwMiZ7p8zdeomX8NFWumTJmTOpWq+40f+FRVJk0EuuNfa0824U3xe15YJ6wD1tEoG
+	 ZHASjO3rQnf3kLLZvQ5BMe6qbHfMOpJVHV9+zXseY63cG5aNr9dqAdxA+4fNoG+LxAA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795037096;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=HgEH5cLrinHq9eSROFAW3XpxSzq5TUujP250dxuo8uo=;
-	b=NG3/TIc1XXCohVy6bYcQCSeFzsLLzVbwHDW+ZzQaNWQCHlB2cNTJCKp4GihH4iXewK2w
-	 5kXj8SlE8WNjW+tIt3IRytsFg+Y5HV22n2BMHX1kQgBxxnlO5CpvQX5T+RxOGkjKcQHY6
-	 luxuZPzB+Dqp1MwtQvQbE3eGSooEq8vNjvXxIB8k7d4Vr6MpM7GGp/nrADpQPPWQWVjnZ
-	 TssH34QVoBNu/tq3kd6fKT7xA6988hBhF044To1DvkKIUVQkjX4D0ACMHlvq0pTpKdo2W
-	 Z0R502uES1UbD2dX1FeGVMme98Is8gIVqHbxN4ywbyygJNinERGRpesIE/x347QVGiQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795037117;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=sYEvR0y/S587RGU4gKT0zwa1IWS1hIurv3wif+IluiY=;
+	b=hE7TgN2MmSo7owrGuwvjKUShIsbrbfrkbYWBe34eivkYxA9D2mmw2pYnKb9UA6zSejSk
+	 vF7BbgxzEeTslGFbSxohOPCgnTR9rfWtt2VCIMZk6uf+9D1EUzu500B+rWUrp+XAjEfed
+	 cGYrrEEbHpptg2fqj+0RyXPsE3zHTD2nlpynY/6nKCtz8SLN+Kq1VPARCu+DVQWo8vRJF
+	 7x2zX/f24aKEAaqjvGlyHJOyQwZpkjIREtp27JXtywxPIYlikpZkUdEcWkfS+g0IsZGl6
+	 bAJhZnDlOVrLaSjgeP9HtgDLUgppP3QB313UAsX6ite5GuabbgZ4gZZpvL4BI9XDHBA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AJvy2Jum;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=efficios.com;
+	spf=pass smtp.mailfrom=efficios.com;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b="hZ1/OQrG";
+	arc=none smtp.remote-ip=158.69.130.18
+Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D528A606A330;
-	Wed, 18 Nov 2026 21:24:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE2FE606A338;
+	Wed, 18 Nov 2026 21:25:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DE2FE606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AJvy2Jum
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CADF1F000C5;
-	Wed, 18 Nov 2026 21:24:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795037096;
-	bh=HgEH5cLrinHq9eSROFAW3XpxSzq5TUujP250dxuo8uo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=AJvy2Jumdmfk9Z2YWPaQm8LglDiyY/Dj8MkUU8VGJJfVX3ZPHwDf2TTSZws0TlkNw
-	 xhSZnxH16nOw8TvstdnSfzIkl+5fm2IxLf/Zy9Z40mTkoqxWuT4wF9S+e77WGRXAcg
-	 XmOSnCjT4BdfDGwyQc8EHBSc7AlzjFSf18Cz5z+s53Zvh0h8o0KX/24GkcnuzerEkq
-	 /YtmtUlj8FhsVqPf03i94x7C+xMufhPGR5d4wZmWToHX8qBjlq2//sf643zCQ1WJa/
-	 4UA+T5MKrSjuGzkW17MNi0Yb1tJo13zGVLzSLQY3z9wAJuQU/APlbqRSkj0I8JdF3N
-	 nzFqN+nUeQtwg==
-Date: Wed, 18 Nov 2026 13:24:55 -0800
-From: Drew Fustini <fustini@kernel.org>
-To: Kanak Shilledar <Kanak.Shilledar@axis.com>
-Cc: "alex@ghiti.fr" <alex@ghiti.fr>,
-	"guoren@kernel.org" <guoren@kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"pjw@kernel.org" <pjw@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"wefu@redhat.com" <wefu@redhat.com>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 0/4] riscv: dts: thead: Cleanup with dt-check-style
-Message-ID: <av4Xp-apSyZxSgb8@thelio>
-References: <20261002-fix-dts-th1520-v1-0-9a8810091d47@axis.com>
- <55208f641473e0714e4509fd5d071343b3a0de98.camel@axis.com>
- <auPzj_N44iXtrR_3@thelio>
+	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=hZ1/OQrG
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
+	s=smtpout1; t=1795037116;
+	bh=sYEvR0y/S587RGU4gKT0zwa1IWS1hIurv3wif+IluiY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=hZ1/OQrGicJP/4tHG55iTqg5QEl3Y+YBHaq2jSoMcG/9fikeqzF+YHimJ+JNITPR3
+	 BFschatYLf+Fd0mfwqdr7vtNteq2oi6ZcG0GR17SCwzXqYITvLdPjWkiwjWm3xtTzF
+	 5CbDF5Nzm/Hvk06HJNpIIy/+u0qrHxYdmKAQqh7Vx57l3t7fiNZ4tD0gYAeZopRDvY
+	 sH4GrmE2qYMgIg/AoTxJo7JRF50148B57DJu10sDaeL5rGA9/GtNJypCtN6qqopqb2
+	 X+ZR7exYpn7Hty+PLmoRfVFcLfxhvJR0fcK/JOXZLBGKYE3j8C4Ts5GYuJby2hnZFu
+	 J98v3x7bBTYfg==
+Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
+	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jVF4X07vZzS0K;
+	Wed, 18 Nov 2026 16:25:16 -0500 (EST)
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+To: juri.lelli@redhat.com,
+	peterz@infradead.org,
+	mingo@redhat.com,
+	vincent.guittot@linaro.org
+Cc: linux-kernel@vger.kernel.org,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	tglx@kernel.org,
+	will@kernel.org,
+	boqun@kernel.org,
+	dietmar.eggemann@arm.com,
+	rostedt@goodmis.org,
+	bsegall@google.com,
+	mgorman@suse.de,
+	vschneid@redhat.com,
+	kprateek.nayak@amd.com,
+	luca.abeni@santannapisa.it,
+	mathieu.poirier@linaro.org,
+	longman@redhat.com,
+	ridong.chen@linux.dev,
+	tj@kernel.org,
+	hannes@cmpxchg.org,
+	mkoutny@suse.com,
+	shuah@kernel.org,
+	bigeasy@linutronix.de,
+	clrkwllms@kernel.org,
+	parri.andrea@gmail.com,
+	m.szyprowski@samsung.com,
+	kayracizmeci@gmail.com,
+	weihengqiuu@gmail.com,
+	cgroups@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev,
+	stable@vger.kernel.org
+Subject: [PATCH v2 03/16] sched: Let a task boosted by a deadline waiter change its policy
+Date: Wed, 18 Nov 2026 16:24:59 -0500
+Message-Id: <32e83abf79c6cebb23193478bdfea27e3525b025.1795037078.git.mathieu.desnoyers@efficios.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <cover.1795037078.git.mathieu.desnoyers@efficios.com>
+References: <cover.1795037078.git.mathieu.desnoyers@efficios.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,78 +95,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="UAw8jnEInJTNEJJi"
-Content-Disposition: inline
-In-Reply-To: <auPzj_N44iXtrR_3@thelio>
+Content-Transfer-Encoding: 8bit
 
+A SCHED_OTHER or SCHED_FIFO task that holds an rt_mutex can be boosted
+into the deadline class by a deadline waiter. Then a sched_setattr() or
+sched_setscheduler() call on it fails with EBUSY, unless it asks for
+SCHED_DEADLINE. sysrq-n would not reset it either.
 
---UAw8jnEInJTNEJJi
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The admission test runs "if setscheduling to SCHED_DEADLINE (or
+changing the parameters of a SCHED_DEADLINE task)", as its comment
+says. sched_dl_overflow() then handles three cases, by the task's
+policy: the task enters, leaves or stays in SCHED_DEADLINE. But the
+call site tests dl_task(p). That tests the priority, so a boosted task
+passes it. For such a task and another policy, sched_dl_overflow()
+matches no case and returns -1.
 
-On Thu, Oct 29, 2026 at 06:31:59PM -0700, Drew Fustini wrote:
-> On Mon, Oct 26, 2026 at 01:02:22PM +0000, Kanak Shilledar wrote:
-> > On Fri, 2026-10-02 at 15:43 +0200, Kanak Shilledar wrote:
-> > > Fix almost all warnings thrown by dt-check-style after krzk's updates
-> > > to the tool [1] when run under the strict mode. There are still a few
-> > > warnings remaining which are documented in the relevant commit
-> > > message.
-> > > By doing this the files become easier to read and maintain.
-> > >=20
-> > > After this patch series only the following warnings are thrown:
-> > >=20
-> > > 	arch/riscv/boot/dts/thead/th1520.dtsi:221: [child-name-
-> > > order] child node 'oscillator' out of name order
-> > > 	arch/riscv/boot/dts/thead/th1520.dtsi:227: [child-name-
-> > > order] child node '32k-oscillator' out of name order
-> > > 	arch/riscv/boot/dts/thead/th1520.dtsi:248: [property-name]
-> > > property name "snps,wr_osr_lmt" is using discouraged style
-> > > 	arch/riscv/boot/dts/thead/th1520.dtsi:249: [property-name]
-> > > property name "snps,rd_osr_lmt" is using discouraged style
-> > > 	arch/riscv/boot/dts/thead/th1520.dtsi:253: [child-name-
-> > > order] child node 'aon' out of name order
-> > >=20
-> > > These are left for future work as they create a very large diff.
-> > >=20
-> > > [1]
-> > > https://github.com/krzk/linux/tree/b4/dts-style-checker-blank-lines
-> > >=20
-> > > Signed-off-by: Kanak Shilledar <kanak.shilledar@axis.com>
-> > > ---
-> >=20
-> > Friendly ping :)
->=20
-> Thanks for submitting this series and sorry for the delay. I will apply
-> these to thead-dt-for-next once 7.4-rc1 is released.
->=20
-> Drew
+Fix this by testing the policy, with task_has_dl_policy(). A boosted
+task has no bandwidth of its own to admit or release.
 
-I have applied all 4 patches to thead-dt-for-next:
+Now sysrq-n can take a boosted task out of the class.
+normalize_rt_tasks() calls __sched_setscheduler() without pi, so the
+task gets its normal priority. Nothing then drops the boost. At the
+unlock, rt_mutex_setprio() sees no change of priority. The pi_se of the
+task would keep pointing to the waiter, which can exit. So also drop the
+boost in __setscheduler_dl_pi() when the task leaves the class, as
+rt_mutex_setprio() does.
 
-  [1/4] riscv: dts: thead: beaglev-ahead: Cleanup with dt-check-style
-        https://git.kernel.org/fustini/c/27da5ff6ffb2
-  [2/4] riscv: dts: thead: th1520: Cleanup with dt-check-style
-        https://git.kernel.org/fustini/c/eda5b545ffd3
-  [3/4] riscv: dts: thead: th1520-lichee-module-4a: Cleanup with dt-check-s=
-tyle
-        https://git.kernel.org/fustini/c/0cfb7b8f5073
-  [4/4] riscv: dts: thead: th1520-lichee-pi-4a: Cleanup with dt-check-style
-        https://git.kernel.org/fustini/c/5b1f375d891a
+The boosted_owner_policy case of deadline_bw_test, added later in this
+series, fails with EBUSY on v7.4-rc2. It passes with this series. The
+sysrq_boosted_owner case of deadline_switch_test tests the sysrq-n path.
 
-Thanks,
-Drew
+Fixes: 332ac17ef5bf ("sched/deadline: Add bandwidth management for SCHED_DEADLINE tasks")
+Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Reviewed-by: Juri Lelli <juri.lelli@redhat.com>
+Cc: stable@vger.kernel.org
+---
+ kernel/sched/syscalls.c | 14 +++++++++++++-
+ 1 file changed, 13 insertions(+), 1 deletion(-)
 
---UAw8jnEInJTNEJJi
-Content-Type: application/pgp-signature; name="signature.asc"
+diff --git a/kernel/sched/syscalls.c b/kernel/sched/syscalls.c
+index 6f8ce5fd94a1..cb115aa9b0b3 100644
+--- a/kernel/sched/syscalls.c
++++ b/kernel/sched/syscalls.c
+@@ -304,6 +304,13 @@ static inline void __setscheduler_dl_pi(int newprio, int policy,
+ 			scope->flags |= ENQUEUE_REPLENISH;
+ 		}
+ 	}
++
++	/*
++	 * Without pi, as from normalize_rt_tasks(), a boosted task can leave
++	 * the class. Drop its boost then, as rt_mutex_setprio() does.
++	 */
++	if (!dl_prio(newprio))
++		p->dl.pi_se = &p->dl;
+ }
+ #else /* !CONFIG_RT_MUTEXES */
+ static inline void __setscheduler_dl_pi(int newprio, int policy,
+@@ -691,6 +698,10 @@ int __sched_setscheduler(struct task_struct *p,
+ 	 * is available. Keep this check last. If a later check failed,
+ 	 * nothing would give back the bandwidth it reserves.
+ 	 *
++	 * Test the policy, not the priority. A task boosted into the class
++	 * by priority inheritance has no bandwidth of its own to admit or
++	 * release.
++	 *
+ 	 * With SCHED_FLAG_KEEP_PARAMS, the task keeps its parameters, so
+ 	 * there is nothing to admit. Such a call changes other attributes,
+ 	 * such as the utilization clamps. A deadline task does not use its
+@@ -699,7 +710,8 @@ int __sched_setscheduler(struct task_struct *p,
+ 	 * them from the task without a lock.
+ 	 */
+ 	if (!(attr->sched_flags & SCHED_FLAG_KEEP_PARAMS) &&
+-	    (dl_policy(policy) || dl_task(p)) && sched_dl_overflow(p, policy, attr)) {
++	    (dl_policy(policy) || task_has_dl_policy(p)) &&
++	    sched_dl_overflow(p, policy, attr)) {
+ 		retval = -EBUSY;
+ 		goto unlock;
+ 	}
+-- 
+2.47.3
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSy8G7QpEpV9aCf6Lbb7CzD2SixDAUCav4XlAAKCRDb7CzD2Six
-DLNqAP0evKW2cYpDjM5kWGd/p29FC08eDapYN8/RIJfRxhqvlAEA7zVEtHenGSaY
-+U+1z7GHgLr+6iXCQvG1iLEGnnoHBgE=
-=ivEq
------END PGP SIGNATURE-----
-
---UAw8jnEInJTNEJJi--
