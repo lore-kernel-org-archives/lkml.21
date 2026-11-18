@@ -1,54 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794968560;
-	b=HBThjQGJh3EPOgY9Jt6u6k1zHyEX2HuxiSJN7eGK9Ay6RnlmcAOnerCwWternfT8z2qj
-	 rjSTLLY+dYlYm/oZus5kJvmcMs1s30y1oZe7VRvVzOyXytbHnGQQxZnj3pyxDqkHpih1p
-	 nvWJKL1t8p0LbfQixQJznOH/9p3RBfnMpurcH7NZivXJbTW2BPpv9nt0+W6qZhH/QDE5H
-	 UowhjvN2WyPSwYETMntPRnYfWSTTutStqGYNlSkVTSAewn/fbJs07XIqcDD7FjJDG68kD
-	 TLK/ERpppZVqc+BIPZ8blGrqF2zktSHMvELDNrtsrEGXEgzWYHvCrzAxPe24YkBCISw==
+	t=1794968561;
+	b=Pj7/oF3Ke8fQJon6Tw2IhhFmlOgkORjV2DkV2O+ZJBZMj08oBAWG/1KaDOwbJnB6yvZG
+	 oKN6qUY3kGh/GPuuuBQEt5r2XGjQ2cf+YNYjnbGL4u7QzoXzM7MthFTlLPtxAkti1eK8g
+	 0jF35tMLMWV8XUtbsTDXx4fTsnvpUokbt6s6Rz1IHvas0F0H0aN0BS2s4LMfbMQkmHkZU
+	 0+mc2JTNWfc1DP0awkV9pFgGMLhVUhrvWXI/+s+rXKDStypCoPjrV/izXErgB9yI+F1Xl
+	 Mh6hsd+l4/id4B8IWb0BX5f/M2ulZnpLVpr/q8M9Erf7SKR2fHJUSxZr89a8MOG2DsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794968560;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794968561;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=sRVXEo9+L3IOL49loDwH1nSlcsh8gFIjIUafHWHgJ4s=;
-	b=QMY9MWhVQabRx8HSiDlZxX4kKgSKYiiCXnftwIN3/qNPHSiduQwKyk+3R1YlJttmd8fG
-	 DNRpLE6IkvR62qfOhbpcOvnmbgBYK1Lr9W2ICDH8D5i7xdIyumWLZAXkFapGPV5fKzWha
-	 iah8vp7B9nOjrc/e0ojVq5wrL+NJJEPBJw5NCrW1jHTATG3yP/zSZ4NY6/OvlC4fOQJIW
-	 DtFdW/JYrRurQizSBhqj3fiTmbYQ8QNuec8FGWD8ZZmaAksK+xCln/vbq45aBFbN3GH5V
-	 w9y/bqPJE/XlArThjlSTAZWZCMsM3m8XtDRWwCqnSiTLB3LMYgCCie42qxvIudfNdVw==
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=R78z6DX4Eb7n5m3aMS1vuBN9kYcpNJhnmoRj2a8fkoA=;
+	b=TYM6A1Z0/rgd5innMw6kgPNTGi9zei7L/5P2drlW8dZ9H2VMTAsUAM8U6u1MqnrIqKJK
+	 j1UHxj60aW74QsnEAVkT7pEwSxBVA7sWV/0FGvWKVynlusCnN8sDUrdhi9AYkQAmTNC+8
+	 Hq5HlrOkqgJ0mQA4IDWmpN4Op2ntDl4+OrtQFj3hhe2dfHY+C9hgHA0UJ+TbV5PjBlQXo
+	 ZXfKrTfYkUdKE6Z15QzQ8i3xt8Ha7s9s6KMhXjpCCiOEicG7iOeqpWjhLCX8/cp5P1SWD
+	 +R/mDoGf0bmelIWPU60D1aniI69mkho+crgWnGVxUs2PJZ1c7VIql3CMYprt5GjS3kA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mHm5HSyh;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T0SNnpqB;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6BBE5606B54E;
-	Wed, 18 Nov 2026 02:22:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93801606AF50;
+	Wed, 18 Nov 2026 02:22:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mHm5HSyh
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C9F71F000CD;
-	Wed, 18 Nov 2026 02:22:40 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T0SNnpqB
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A8311F00937;
+	Wed, 18 Nov 2026 02:22:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794968560;
-	bh=sRVXEo9+L3IOL49loDwH1nSlcsh8gFIjIUafHWHgJ4s=;
+	s=k20260515; t=1794968561;
+	bh=R78z6DX4Eb7n5m3aMS1vuBN9kYcpNJhnmoRj2a8fkoA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=mHm5HSyhwMzZkeCIUnHHrqzrm1dMW9NzjsNkGz1MfHu7Os/j7F2a6IijPEQhyTlOm
-	 xq2/NQUTJcED1xyjylBhRvOLEjUjT8xlsJZPNQupGkM6bRD6ZumzdOmSR/agDKT5ir
-	 PxaasSHU4ZioUrIdHecpcSQ0yVVxk53b+WAYrQvMrXLwTLpYJl9oALOy4jsF90v/Bz
-	 WgXAp4/r4pMI++5vQpJGoPvQJ6TWg8OusPot+owUkISBW3ftjsqH/dfHznkhGAoWAs
-	 J+C+RO4sy578Qe7uLTlIMw9C3wv8BcNK5TtZq5K/W3uec26P0+jSHvT0ZikWa7lAMY
-	 hZIRnXkq7PsmQ==
+	b=T0SNnpqB8t6E+4PGKkicOyA2bgdDL/KGqJbfnKjnPtWYCdSM4Ao8uhj+FPBpzYf+N
+	 HeQhFnTFHqH//dgs+C5CGx35yY8jEGRhyHyWyrn7k/inqiN29OZLUpGHS4eIjEnSYr
+	 +q2Y7PzeRRw3oqfTh2j9sOhWGOgzQQJxSbHUtMEgmJtuiZRUBkhwsVdt3Vo2jbgWFb
+	 H58AbiFDMLJVt+Sz8wGVIyPEZz1Ij4Gs58dknyEFqfaeS+RGaBrPgJEpy1z56/Crie
+	 Tpo+X3CmsYsTB/WXtE6Cxhy/iB7U3ZKxYYapOcSRBzE1sQkM0oj5BnhNY8EWgc++GZ
+	 kpbZ3KziTHuGA==
 From: SJ Park <sj@kernel.org>
 To: 
 Cc: SJ Park <sj@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
 	damon@lists.linux.dev,
+	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org
-Subject: [RFC PATCH v2 23/27] mm/damon/sysfs: implement submit command for report producer
-Date: Tue, 17 Nov 2026 18:22:18 -0800
-Message-ID: <20261118022225.100659-24-sj@kernel.org>
+Subject: [RFC PATCH v2 26/27] Docs/admin-guide/mm/damon/usage: update for user_report report support
+Date: Tue, 17 Nov 2026 18:22:21 -0800
+Message-ID: <20261118022225.100659-27-sj@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261118022225.100659-1-sj@kernel.org>
 References: <20261118022225.100659-1-sj@kernel.org>
@@ -61,52 +65,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Let users manually submit a report of a data attribute for a given
-address range of memory.  Let producer_state receive "submit" input for
-that.  For the input, generate the report based on user inputs that are
-written to the appropriate sysfs files and submit to DAMON using the
-core API, damon_submit_report().
+Update DAMON usage document for the newly added user_report type data
+attribute report support.
 
 Signed-off-by: SJ Park <sj@kernel.org>
 ---
- mm/damon/sysfs.c | 19 ++++++++++++++++---
- 1 file changed, 16 insertions(+), 3 deletions(-)
+ Documentation/admin-guide/mm/damon/usage.rst | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
 
-diff --git a/mm/damon/sysfs.c b/mm/damon/sysfs.c
-index 5f9bb1955dfd5..0049aac6ab974 100644
---- a/mm/damon/sysfs.c
-+++ b/mm/damon/sysfs.c
-@@ -3107,13 +3107,26 @@ static ssize_t producer_state_store(struct kobject *kobj,
- {
- 	struct damon_sysfs_producer *producer = container_of(kobj,
- 			struct damon_sysfs_producer, kobj);
-+	struct damon_report report;
-+	int err;
+diff --git a/Documentation/admin-guide/mm/damon/usage.rst b/Documentation/admin-guide/mm/damon/usage.rst
+index ce4e9e4c13276..4024dd4e92979 100644
+--- a/Documentation/admin-guide/mm/damon/usage.rst
++++ b/Documentation/admin-guide/mm/damon/usage.rst
+@@ -117,7 +117,7 @@ comma (",").
+     │ │ ...
+     │ reports/
+     │ │ producers/nr_producers
+-    │ │ │ 0/report_type,producer_state
++    │ │ │ 0/report_type,producer_state,addr_start,addr_end
+     │ │ │ ...
  
--	if (sysfs_streq(buf, "on"))
-+	if (sysfs_streq(buf, "on")) {
- 		producer->enabled = true;
--	else if (sysfs_streq(buf, "off"))
-+	} else if (sysfs_streq(buf, "off")) {
- 		producer->enabled = false;
--	else
-+	} else if (sysfs_streq(buf, "submit")) {
-+		if (!producer->enabled)
-+			return -EINVAL;
-+		if (producer->report_type != DAMON_REPORT_TYPE_USER_REPORT)
-+			return -EINVAL;
-+		report.type = DAMON_REPORT_TYPE_USER_REPORT;
-+		report.addr_range = producer->addr_range;
-+		err = damon_submit_report(&report);
-+		if (err)
-+			return err;
-+	} else {
- 		return -EINVAL;
-+	}
- 	return count;
- }
+ .. _sysfs_root:
+@@ -767,6 +767,15 @@ Users can write below keywords for the producer to the file.
+ 
+ - ``on``: Enable the producer.
+ - ``off``: Disable the producer.
++- ``submit``: Generate and submit a new ``user_report`` type report, if
++  ``report_type`` is ``user_report``, and the producer is enabled.
++
++``addr_start`` and ``addr_end`` files are used only for ``user_report`` report
++type.  Those set the address range of memory to manually report .  Users can
++set the start and end address of the address range by writing the addresses to
++the files.  Note that it is open-end range (``[addr_start,addr_end)``) and
++therefore the end address is exclusive.  Reading the files shows the last
++successfully written input.
+ 
+ .. _tracepoint:
  
 -- 
 2.47.3
