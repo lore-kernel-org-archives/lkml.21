@@ -1,82 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.103
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795029327;
-	b=XYv82l4lBAvugl1C7KuJvxUu4wgeEJEZ/yZklN0SqI4uGqDi04ChutuVDmBkTF34+F/4
-	 FFnpCDeW7Pr8C/zjNUdxaFsEwL/SYCSrqn/yxl0hZXuHd1ZqMMwPoomvnB3c26++FnJuc
-	 U2jcIWJ35JEgY7ILAcs5ehN2ai1SGrtu9dZ2xE/9gMIHjHLV41LSbpPtXB2gzwujBzI2Y
-	 KrXLiGm77HIjCe27E1ooIV1kFDIKZtsRYqL+Sv3b1GSVMm0N49gdY9N3DhjWYaGX/Y4S7
-	 o7sIjYdzvSHVp4vkJ5tb7bjSdswfisHO+c7YHiLJOrrRiFuhaT1rVQbKLcpDp0SsIdQ==
+	t=1795029342;
+	b=aj5DTzSmzLzzg2oFj/t1zdiXeiwDBAr8WdZEy6+8PIht4LS4yIB/vkXN3v4buGFH5/wf
+	 2zCRIRyoxXNJ4g1pF2dXKyZwoy8prBqynSsnYN9yGXEeGLyKLy5dvjFb2ExwrwHX2xkOv
+	 hF9vvGZaBov4ENswODKaF+G1lIjME+a8KZeSLUGwqontpswAQbDhU+gp65ZAuctQ2ROa5
+	 vOl+yDLrS7gBVCmQqv0Huhmv2UgxfzMxQnJAJH/XB1x+wSr0+HMdHLlUfbAjUygaN80sJ
+	 IMGdyo4VdM1X2NDYboDdnjuMQ3eApbBa5v5cstfUoDr5tEmkrvBCoUIgkhza04GXD0A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795029327;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
-	 X-Proofpoint-Reinject:X-Proofpoint-Spam-Details-Enc:
-	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=8v8K3PvyFDZwtrrKZ6ztsYRAu8V1T1ZrJiGB0gNBB34=;
-	b=NU9Tfba/MkUEYbUKSODA+o0ixwmng8s7h6tGh9B+JKsvm807ITcRhjkQDdHCva3aIHD1
-	 4iHOFDb1x2dAleoq0KSATU1AojjufRiIBljRZ2Y7pqF949mkvrMDZievDTENfb3SDSA6v
-	 U4i7LZ5bjJoGFPu3pKOqL7rk2UlhRt8QFGzKOB84JlCdHXd8YD3+5u8dB0vdDS1yfBJ8K
-	 l5IYmeY6oPSQLRGejRajHZCbGoTCUwXq2cZYRZhJ83lG2TjC7HsP+px1GrtXl9Bn5QksS
-	 GUYHU8nJZliTxEgXmEMubNDRh3BEN1DZTrj8zlG6jxuq92UsrvqENdKs7U+hjj3vN6A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795029342;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=Ng2TPFdMxOFHLiZdjhAeL2IFis1gohsMTPuJTp5XCoM=;
+	b=sHdWhJWKxy8NlTDi1eolAb1xCs/mUqneJa7Y6BRZpIsn+mwy9dG31y02Gg8XlV8w5JY3
+	 b8akw/mNddNvq9ITqIogTUrrMAbfbiE7XRtlDmONN2Db247OqN2dJXbJ0WMBvNHUYBy6m
+	 6QbRdzhbcERwSSLIYwVhBNclAenEx1rCQzqtE+z2oJZP541JfraI/k1Fp6iwav7fIZ7Xz
+	 SsyBfniTDnkriZTXkGSwDDckzqzNlJtHaX3us/+ar52se80AizHtRIlFYX/1fZXRjmjgV
+	 BLSj9Vyu5AbDwIHRDrTrDNAJZOsQuXXYUEPS8bwNa9IiOm6iAq/N+X2IZDIm5V47o3Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=SApU2BoJ;
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=bFl20dEL;
+	arc=none smtp.remote-ip=95.215.58.103
+Received: from mta1.migadu.com (out-103.mta1.migadu.com [95.215.58.103])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90BC0606A331;
-	Wed, 18 Nov 2026 19:15:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90BC0606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB886606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:15:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB886606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=SApU2BoJ
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIHQ9hd1868698;
-	Wed, 18 Nov 2026 19:15:10 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=8v8K3P
-	vyFDZwtrrKZ6ztsYRAu8V1T1ZrJiGB0gNBB34=; b=SApU2BoJVKZUsAcZ7m3JqH
-	L9CAHrHo8W6F/g3BVnRN4AHz487avs8Ca/JCU0uKe0vyER88h4DVmLToE1+zEDA1
-	72IvfpYM7wgefQY9p3YVTPXMkLDs5pF7w5DV22B6IoylJLqOxNVLU204MHsnINzL
-	OCdP+RsAQenx8vspVsRCwnlFX7hh3quCLDWZJMqpMx3HntBwNW1VVCQO1IniSiEp
-	M6EvtGmvw/43FPXYA2PsWrritlnDxoa/9xlQhMv1JopSASI+Lg/50VRcICmjfA/s
-	AvCV0Ii1WtrXUhZ8EJezdm1OuEMkoDOJsbOPX4/eNZi9w2TPauo1Z2+nr+TB17Zg
-	==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105nc5w8-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 18 Nov 2026 19:15:09 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIHJvlH1223789;
-	Wed, 18 Nov 2026 19:15:08 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j067nh3sf-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 18 Nov 2026 19:15:08 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AIJF4tR35062124
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 18 Nov 2026 19:15:04 GMT
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 5900E2004B;
-	Wed, 18 Nov 2026 19:15:04 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 5736020040;
-	Wed, 18 Nov 2026 19:14:59 +0000 (GMT)
-Received: from [9.39.20.8] (unknown [9.39.20.8])
-	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 18 Nov 2026 19:14:59 +0000 (GMT)
-Message-ID: <9b19c777-e48c-42b4-95da-bfc1a377b3da@linux.ibm.com>
-Date: Thu, 19 Nov 2026 00:44:57 +0530
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=bFl20dEL
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=yJ/VgO6HGAtuOZaxpfVKTTpGQpLGk+yVE1GwJWY0ppQ=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795029339; v=1; x=1795634139;
+ b=bFl20dELIk/bnrWQYSkbwYkGtvl2+h6a379s54Fsy0CrhqE2s554yDAuGymnyX+fsebHwgXU
+ xOUokkwGT8m5P5qXsP7pCPyrBJFakR92VpK7dgufCTxI1hOHVU1v+lrzWl0EEWr0gAlbjcqzw5I
+ kC8TuHRSb4xFpJHso0a3CCBc=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id f1c0974d48d30305;
+	Wed, 18 Nov 2026 19:15:26 +0000
+X-Mizu-Trace-ID: f1c0974d48d30305
+X-Migadu-Flow: FLOW_OUT
+From: Matthew Schwartz <matthew.schwartz@linux.dev>
+To: intel-gfx@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org
+Cc: uma.shankar@intel.com,
+	chaitanya.kumar.borah@intel.com,
+	Matthew Schwartz <matthew.schwartz@linux.dev>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Suraj Kandpal <suraj.kandpal@intel.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org
+Subject: [RFC PATCH 1/2] drm/i915/color: only let the owning plane program the 3D LUT
+Date: Wed, 18 Nov 2026 11:15:12 -0800
+Message-ID: <20261118191514.2931270-2-matthew.schwartz@linux.dev>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261118191514.2931270-1-matthew.schwartz@linux.dev>
+References: <20261118191514.2931270-1-matthew.schwartz@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,494 +77,106 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 3/5] powerpc/pseries/eeh: Implement RTAS-based EEH
- error injection
-To: Narayana Murty N <nnmlinux@linux.ibm.com>,
-        Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        "Oliver O'Halloran" <oohall@gmail.com>,
-        Timothy Pearson <tpearson@raptorengineering.com>,
-        Alex Williamson <alex@shazbot.org>
-Cc: Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin
- <npiggin@gmail.com>,
-        Christophe Leroy <chleroy@kernel.org>,
-        Ritesh Harjani <ritesh.list@gmail.com>,
-        Shrikanth Hegde <sshegde@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org,
-        linux-kernel@vger.kernel.org, kvm@vger.kernel.org, sbhat@linux.ibm.com,
-        harshpb@linux.ibm.com
-References: <20261023073642.59657-1-nnmlinux@linux.ibm.com>
- <20261023073642.59657-4-nnmlinux@linux.ibm.com>
-Content-Language: en-US
-From: Sourabh Jain <sourabhjain@linux.ibm.com>
-In-Reply-To: <20261023073642.59657-4-nnmlinux@linux.ibm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA3NSBTYWx0ZWRfX3g1JijOhbWop
- u6GPFnc1OpyunQNdgeIMBLad220plhK59deo1KMygJMgQwbiOdSXv2/s/aPS+laOaBBi4Aeo3zF
- QTISqg8nyQCTlQcIJgOa7x+R8345o4Hc7VgPKbkHetYUiF+q/bWMsh02wQbEolWhUG4JX2CtgaA
- exuNP4T1qFP16SpKjgalIIipzoGtj4/p4Eq+L2BMJeJxQ3N/nXH0OW4hQCBLaWI2r5JB/Aii5iZ
- us/iLhLHUIf/bSwUnK70tKmRiEarwhHbH/ZW0leGlOdw4BSI5mryWMyh/TNoNgmLgYLDUSrua6W
- IyHhEhdRq5sx5ssO7xObgwsQCV05m7Hc+09CSKGNjwVISCqFZCeYSS6GLCsAo4WLOym2C/ky1CD
- YiNFOvP5zjkoy2n3aRUEllNkPDa1yacLAK+HtYtd0jy+sjxrsxp1CkGSOr5IY7BrkqVO8Gm/VFd
- 6Fpoe87NJL2fZwKfcDA==
-X-Authority-Analysis: v=2.4 cv=HN9WhYtv c=1 sm=1 tr=0 ts=6afdf93d cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VwQbUJbxAAAA:8
- a=VnNF1IyMAAAA:8 a=x9usUER3w8qmL_lCAJQA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-X-Proofpoint-GUID: cmAqQiYfNAjBVYJ5WeccvdzSY7XFUdY2
-X-Proofpoint-ORIG-GUID: ar5ZhI-5nCKnmuRN0WCyuLEIEJ3WwRoH
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA3NSBTYWx0ZWRfXwr2xndFnacaQ
- 3EtTUTluCTSkxMS8tpdPUfOnjG9vuDA2+AnqFQzDgcvwrqpHnsnFi0pco79d42HrcbAcWf6ZsL0
- qgTWLR713K4kOfzOhlotU7wpNL0QL7E=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-18_05,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 priorityscore=1501 impostorscore=0 suspectscore=0 malwarescore=0
- adultscore=0 phishscore=0 lowpriorityscore=0 clxscore=1015 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180075
 
-Similar to 2/5, I'm finding this commit message a bit difficult to follow.
-Could you please rework it to make the changes and their purpose clearer?
+intel_color_plane_commit_arm() runs for every universal plane on pipes A
+and B and rewrites LUT_3D_CTL from that plane's own 3D LUT state. Only
+the primary plane on Xe3p_LPD can carry a 3D LUT colorop, so any other
+plane update on those pipes disables the LUT the primary plane enabled,
+and on older platforms every plane update writes a register no plane
+owns.
 
+Give the "Xe3p_LPD primary plane owns the 3D LUT" rule a single helper
+and use it both to build the plane color pipeline and to decide who may
+write LUT_3D_CTL.
 
-On 23/10/26 13:06, Narayana Murty N wrote:
-> Replace the legacy MMIO stub in pseries_eeh_err_inject() with a full
-> PAPR-compliant RTAS error injection path.
->
-> Serialize each ibm,open-errinjct / ibm,errinjct / ibm,close-errinjct
-> session with errinjct_mutex because RTAS maintains state between these
-> calls.
-I don't quite understand this point. What RTAS state are we referring to
-here? Also, could you clarify how keeping all three calls under a lock helps
-maintain the RTAS state mentioned above?
+Fixes: 65db7a1f9cf7 ("drm/i915/color: Add 3D LUT to color pipeline")
+Signed-off-by: Matthew Schwartz <matthew.schwartz@linux.dev>
+---
+ drivers/gpu/drm/i915/display/intel_color.c          | 10 +++++++++-
+ drivers/gpu/drm/i915/display/intel_color.h          |  3 +++
+ drivers/gpu/drm/i915/display/intel_color_pipeline.c | 10 +---------
+ 3 files changed, 13 insertions(+), 10 deletions(-)
 
->
-> Once ibm,open-errinjct succeeds, ibm,close-errinjct is attempted
-> after parameter preparation or ibm,errinjct failures.  The RTAS work
-> area is allocated after a successful open to avoid holding it while
-> waiting for the mutex or if open fails.
-RTAS work area is mentioned here, but the next paragraph discusses
-something else. The details about the RTAS work area only appear in a
-later paragraph. I think the flow could be improved by keeping related
-information together.
-
-
-> VFIO EEH error injection exposes a generic userspace ABI.  pSeries maps
-> the generic EEH error types to RTAS ibm,errinjct encodings via
-> pseries_eeh_type_to_rtas().  EEH_ERR_TYPE_32 and EEH_ERR_TYPE_64 are
-> unchanged; their values are defined in arch/powerpc/include/uapi/asm/eeh.h
-> and are not renumbered.
->
-> The RTAS work-area allocator guarantees that returned memory is within
-> the range accessible by RTAS (below min(ppc64_rma_size,
-> RTAS_INSTANTIATE_MAX), which is at most RTAS_INSTANTIATE_MAX = 1 GiB),
-> so the physical address fits in the 32-bit RTAS argument without
-> truncation.
->
-> Remove eeh_pe_inject_mmio_error() and its declaration; this patch
-> removes its only caller.  The only remaining caller of
-> eeh_break_device() is eeh_dev_break_write() inside CONFIG_DEBUG_FS,
-> so move eeh_break_device() back inside the CONFIG_DEBUG_FS block to
-> avoid an unused-function warning when CONFIG_DEBUG_FS=n.
->
-> Also introduce validate_errinjct_args() and prepare_errinjct_buffer()
-> here alongside their callers, so each intermediate commit builds
-> cleanly with CONFIG_WERROR.
-
-Could you clarify what this intermediate commit is for?
-
-
-> The addr argument to ibm,errinjct is function-dependent.  Memory and IO
-> load/store functions (EEH_ERR_FUNC_LD/ST_MEM_* and EEH_ERR_FUNC_LD/ST_IO_*)
-> target BAR-backed PCI bus addresses; these are validated against the PE
-> via validate_addr_mask_in_pe().  Config-space functions carry PCI config
-> register offsets and DMA functions carry IOVA/TCE addresses; addr for
-> these functions is passed directly to RTAS without BAR membership
-> validation.
->
-> For the 32-bit RTAS encoding (RTAS_ERR_TYPE_IOA_BUS_ERROR), addr and
-> mask are checked to fit in 32 bits before buffer encoding.  This is an
-> RTAS format constraint independent of function type.
->
-> Tested with corresponding QEMU patches:
-> https://lore.kernel.org/all/20251029150618.186803-1-nnmlinux@linux.ibm.com/
-
-Wouldn't this be better suited for the cover letter?
-
-
->
-> Signed-off-by: Narayana Murty N <nnmlinux@linux.ibm.com>
-> ---
->   arch/powerpc/include/asm/eeh.h               |   2 -
->   arch/powerpc/kernel/eeh.c                    |  10 +-
->   arch/powerpc/platforms/pseries/eeh_pseries.c | 246 +++++++++++++++++--
->   3 files changed, 228 insertions(+), 30 deletions(-)
->
-> diff --git a/arch/powerpc/include/asm/eeh.h b/arch/powerpc/include/asm/eeh.h
-> index b7ebb4ac2c71..083ac58e7eb7 100644
-> --- a/arch/powerpc/include/asm/eeh.h
-> +++ b/arch/powerpc/include/asm/eeh.h
-> @@ -310,8 +310,6 @@ int eeh_pe_reset(struct eeh_pe *pe, int option, bool include_passed);
->   int eeh_pe_configure(struct eeh_pe *pe);
->   int eeh_pe_inject_err(struct eeh_pe *pe, int type, int func,
->   		      unsigned long addr, unsigned long mask);
-> -int eeh_pe_inject_mmio_error(struct pci_dev *pdev);
-> -
->   /**
->    * EEH_POSSIBLE_ERROR() -- test for possible MMIO failure.
->    *
-> diff --git a/arch/powerpc/kernel/eeh.c b/arch/powerpc/kernel/eeh.c
-> index bb836f02101c..bae7ca2bd399 100644
-> --- a/arch/powerpc/kernel/eeh.c
-> +++ b/arch/powerpc/kernel/eeh.c
-[...]
-> @@ -1571,6 +1571,8 @@ static int proc_eeh_show(struct seq_file *m, void *v)
->   }
->   #endif /* CONFIG_PROC_FS */
->   
-> +#ifdef CONFIG_DEBUG_FS
-> +
->   static int eeh_break_device(struct pci_dev *pdev)
->   {
->   	struct resource *bar = NULL;
-> @@ -1664,14 +1666,6 @@ static int eeh_break_device(struct pci_dev *pdev)
->   	return 0;
->   }
->   
-> -int eeh_pe_inject_mmio_error(struct pci_dev *pdev)
-> -{
-> -	return eeh_break_device(pdev);
-> -}
-> -
-> -#ifdef CONFIG_DEBUG_FS
-> -
-> -
->   static struct pci_dev *eeh_debug_lookup_pdev(struct file *filp,
->   					     const char __user *user_buf,
->   					     size_t count, loff_t *ppos)
-> diff --git a/arch/powerpc/platforms/pseries/eeh_pseries.c b/arch/powerpc/platforms/pseries/eeh_pseries.c
-> index 28b1fd19e8bc..2a2ec1a237e6 100644
-> --- a/arch/powerpc/platforms/pseries/eeh_pseries.c
-> +++ b/arch/powerpc/platforms/pseries/eeh_pseries.c
-[...]
-> @@ -35,6 +35,7 @@
->   #include <asm/machdep.h>
->   #include <asm/ppc-pci.h>
->   #include <asm/rtas.h>
-> +#include <asm/rtas-work-area.h>
->   
->   /* RTAS tokens */
->   static int ibm_set_eeh_option;
-> @@ -915,48 +916,253 @@ static int validate_addr_mask_in_pe(struct eeh_pe *pe, unsigned long addr,
->   	pci_unlock_rescan_remove();
->   
->   	if (!found)
-> -		pr_err("addr=0x%lx mask=0x%lx not within any PCI bus BAR of any device in PE\n",
-> -		       addr, mask);
-> +		pr_debug("addr=0x%lx mask=0x%lx not within any PCI bus BAR of any device in PE\n",
-> +			 addr, mask);
-
-IIUC, the previous patch adds pr_err(), and this patch changes it to 
-pr_debug().
-Could we avoid this intermediate change?
-
->   	return found ? 0 : -EINVAL;
->   }
->   
->   /**
-> - * pseries_eeh_err_inject - Inject specified error to the indicated PE
-> - * @pe: the indicated PE
-> - * @type: error type
-> - * @func: specific error type
-> - * @addr: address
-> - * @mask: address mask
-> - * The routine is called to inject specified error, which is
-> - * determined by @type and @func, to the indicated PE
-> + * validate_errinjct_args - Top-level validation for RTAS error injection arguments
-> + * @pe:   EEH PE for the target device
-> + * @type: generic EEH error type
-> + * @func: error function selector
-> + * @addr: address argument (type-dependent, may be zero)
-> + * @mask: mask argument (type-dependent, may be zero)
-Are addr and mask really needed as function arguments?
-
-> + *
-> + * Validates all parameters before opening an RTAS injection session.
-> + * Returns Linux errno values; does not return raw RTAS status codes.
-
-Wouldn't it be better for the function comment to describe what the
-function does, rather than how an RTAS injection session should be opened?
-
-> + *
-> + * Return: 0 if all parameters are valid, negative errno otherwise.
->    */
-> -static int pseries_eeh_err_inject(struct eeh_pe *pe, int type, int func,
-> +static int validate_errinjct_args(struct eeh_pe *pe, int type, int func,
->   				  unsigned long addr, unsigned long mask)
->   {
-> -	struct	eeh_dev	*pdev;
-> +	if (!pe || !pe->phb)
-> +		return -EINVAL;
-> +
-> +	if (pseries_eeh_type_to_rtas(type) < 0)
-> +		return -EINVAL;
->   
-> -	/* Check on PCI error type */
-> -	if (type != EEH_ERR_TYPE_32 && type != EEH_ERR_TYPE_64)
-> +	if (func < EEH_ERR_FUNC_MIN || func > EEH_ERR_FUNC_MAX)
->   		return -EINVAL;
->   
-> +	return 0;
-> +}
-> +
-> +/*
-> + * pseries_eeh_func_needs_bar_addr - return true for error functions whose
-> + * addr argument is a BAR-backed PCI MMIO or IO address.
-> + *
-> + * Memory and IO load/store functions target specific BAR addresses and
-> + * require PCI bus address validation against the PE.  Config-space
-> + * functions carry PCI config register offsets and DMA functions carry
-> + * IOVA/TCE addresses; neither is a BAR address.
-
-This seems like useful information, but perhaps it belongs elsewhere.
-The function itself looks fairly simple, and the comment conveys quite a
-bit of information that I’m not sure how to relate to what the function 
-actually does.
-
-
-> + */
-> +static bool pseries_eeh_func_needs_bar_addr(int func)
-> +{
->   	switch (func) {
->   	case EEH_ERR_FUNC_LD_MEM_ADDR:
->   	case EEH_ERR_FUNC_LD_MEM_DATA:
-> +	case EEH_ERR_FUNC_LD_IO_ADDR:
-> +	case EEH_ERR_FUNC_LD_IO_DATA:
->   	case EEH_ERR_FUNC_ST_MEM_ADDR:
->   	case EEH_ERR_FUNC_ST_MEM_DATA:
-> -		/* injects a MMIO error for all pdev's belonging to PE */
-> -		pci_lock_rescan_remove();
-> -		list_for_each_entry(pdev, &pe->edevs, entry)
-> -			eeh_pe_inject_mmio_error(pdev->pdev);
-> -		pci_unlock_rescan_remove();
-> +	case EEH_ERR_FUNC_ST_IO_ADDR:
-> +	case EEH_ERR_FUNC_ST_IO_DATA:
-> +		return true;
-> +	default:
-> +		return false;
-> +	}
-> +}
-> +
-> +/**
-> + * prepare_errinjct_buffer() - Build ibm,errinjct work buffer
-> + * @buf: RTAS error-injection work buffer
-> + * @pe: EEH PE associated with the injection target
-> + * @rtas_err_type: RTAS firmware error-injection type
-> + * @func: Error function selector
-> + * @addr: Address argument interpreted according to @func:
-> + *        MEM/IO functions: BAR-backed PCI bus address;
-> + *        CFG functions: PCI configuration-space offset;
-> + *        DMA functions: DMA/IOVA/TCE address.
-> + * @mask: Address mask passed to firmware
-> + *
-> + * Zeroes @buf and populates it according to the PAPR layout for the
-> + * selected IOA bus-error injection type.
-> + *
-> + * BAR membership validation is performed only for MEM/IO functions
-> + * whose @addr is a BAR-backed PCI bus address.  CFG and DMA function
-> + * addresses are encoded directly without BAR lookup.
-> + *
-> + * The caller provides an exclusive per-call RTAS work-area buffer.
-> + * Firmware session serialization is handled by pseries_eeh_err_inject().
-Wouldn't this be better documented elsewhere? This function only populates
-the given work area; it doesn't make the RTAS call.
-
-> + *
-> + * Return: 0 on success or a negative errno on invalid input.
-> + */
-> +static int prepare_errinjct_buffer(void *buf, struct eeh_pe *pe,
-> +				   int rtas_err_type, int func,
-> +				   unsigned long addr, unsigned long mask)
-> +{
-> +	__be64 *buf64 = (__be64 *)buf;
-> +	__be32 *buf32 = (__be32 *)buf;
-> +	int rc;
-> +
-> +	if (!buf || !pe || !pe->phb)
-> +		return -EINVAL;
-> +
-> +	memset(buf, 0, RTAS_ERRINJCT_BUF_SIZE);
-> +
-> +	switch (rtas_err_type) {
-> +	case RTAS_ERR_TYPE_IOA_BUS_ERROR:
-> +		/*
-> +		 * 32-bit RTAS format: addr and mask must fit in 32 bits.
-> +		 * This is an RTAS encoding constraint, not BAR validation.
-> +		 */
-> +		if (upper_32_bits(addr) || upper_32_bits(mask))
-> +			return -EINVAL;
-> +
-[...]
-> +		if (pseries_eeh_func_needs_bar_addr(func)) {
-> +			rc = validate_addr_mask_in_pe(pe, addr, mask);
-> +			if (rc)
-> +				return rc;
-> +		}
-> +
-> +		buf32[0] = cpu_to_be32((u32)addr);
-> +		buf32[1] = cpu_to_be32((u32)mask);
-> +		buf32[2] = cpu_to_be32(pe->addr);
-> +		buf32[3] = cpu_to_be32(BUID_HI(pe->phb->buid));
-> +		buf32[4] = cpu_to_be32(BUID_LO(pe->phb->buid));
-> +		buf32[5] = cpu_to_be32(func);
-> +		break;
-> +
-> +	case RTAS_ERR_TYPE_IOA_BUS_ERROR_64:
-> +		if (pseries_eeh_func_needs_bar_addr(func)) {
-> +			rc = validate_addr_mask_in_pe(pe, addr, mask);
-> +			if (rc)
-> +				return rc;
-> +		}
-> +
-> +		buf64[0] = cpu_to_be64(addr);
-> +		buf64[1] = cpu_to_be64(mask);
-> +		buf32[4] = cpu_to_be32(pe->addr);
-> +		buf32[5] = cpu_to_be32(BUID_HI(pe->phb->buid));
-> +		buf32[6] = cpu_to_be32(BUID_LO(pe->phb->buid));
-> +		buf32[7] = cpu_to_be32(func);
->   		break;
-> +
->   	default:
-> -		return -ERANGE;
-> +		pr_err("unsupported RTAS error injection type 0x%x\n", rtas_err_type);
-> +		return -EINVAL;
->   	}
-[...]
->   
-> +	pr_debug("errinjct buffer ready: rtas_err_type=0x%x func=%d addr=0x%lx mask=0x%lx\n",
-> +		 rtas_err_type, func, addr, mask);
->   	return 0;
->   }
->   
-> +/* Serializes the open/inject/close RTAS error injection session */
-> +static DEFINE_MUTEX(errinjct_mutex);
-> +
-> +/**
-> + * pseries_eeh_err_inject - Inject specified error to the indicated PE
-> + * @pe: the indicated PE
-> + * @type: generic EEH error type (EEH_ERR_TYPE_32 or EEH_ERR_TYPE_64)
-> + * @func: specific error function
-> + * @addr: address argument (type-dependent, may be zero)
-> + * @mask: address mask (type-dependent, may be zero)
-> + *
-> + * Implements PAPR-compliant error injection using:
-> + *   ibm,open-errinjct -> ibm,errinjct -> ibm,close-errinjct
-> + *
-> + * errinjct_mutex serializes the open/inject/close session sequence
-> + * because RTAS maintains state between these calls.  A short-lived
-> + * RTAS work area is allocated after a successful open and freed before
-> + * close.
-> + *
-> + * Return: 0 on success, negative errno on failure.
-> + */
-> +static int pseries_eeh_err_inject(struct eeh_pe *pe, int type, int func,
-> +				  unsigned long addr, unsigned long mask)
-> +{
-> +	struct rtas_work_area *area;
-> +	phys_addr_t area_phys;
-> +	void *buf;
-> +	int open_token, errinjct_token, close_token;
-> +	int session_token;
-> +	int rtas_err_type;
-
-The name rtas_err_type seems a bit confusing for the error injection class.
-Would err_injct_class or errinjct_class be clearer?
-
-> +	int close_rc;
-> +	int rc;
-> +
-> +	rc = validate_errinjct_args(pe, type, func, addr, mask);
-> +	if (rc)
-> +		return rc;
-> +
-> +	rtas_err_type = pseries_eeh_type_to_rtas(type);
-> +	if (rtas_err_type < 0)
-> +		return -EINVAL;
-> +
-> +	open_token = rtas_function_token(RTAS_FN_IBM_OPEN_ERRINJCT);
-> +	errinjct_token = rtas_function_token(RTAS_FN_IBM_ERRINJCT);
-> +	close_token = rtas_function_token(RTAS_FN_IBM_CLOSE_ERRINJCT);
-> +
-> +	if (open_token == RTAS_UNKNOWN_SERVICE ||
-> +	    errinjct_token == RTAS_UNKNOWN_SERVICE ||
-> +	    close_token == RTAS_UNKNOWN_SERVICE)
-> +		return -ENODEV;
-> +
-> +	mutex_lock(&errinjct_mutex);
-Is this lock really necessary?
-
-- Sourabh Jain
-
-> +
-> +	do {
-> +		rc = rtas_call(open_token, 0, 2, &session_token);
-> +	} while (rtas_busy_delay(rc));
-> +
-> +	if (rc) {
-> +		pr_err("ibm,open-errinjct failed: status=%d\n", rc);
-> +		rc = rtas_error_rc(rc);
-> +		goto out_unlock;
-> +	}
-> +
-> +	area = rtas_work_area_alloc(RTAS_ERRINJCT_BUF_SIZE);
-> +	buf = rtas_work_area_raw_buf(area);
-> +	area_phys = rtas_work_area_phys(area);
-> +
-> +	rc = prepare_errinjct_buffer(buf, pe, rtas_err_type, func, addr, mask);
-> +	if (rc)
-> +		goto out_free_area;
-> +
-> +	/*
-> +	 * RTAS work areas are allocated below RTAS_INSTANTIATE_MAX, so
-> +	 * area_phys fits in the 32-bit RTAS argument.
-> +	 */
-> +	do {
-> +		rc = rtas_call(errinjct_token, 3, 1, NULL,
-> +			       rtas_err_type, session_token,
-> +			       (u32)area_phys);
-> +	} while (rtas_busy_delay(rc));
-> +
-> +	if (rc) {
-> +		pr_err("ibm,errinjct failed: status=%d\n", rc);
-> +		rc = rtas_error_rc(rc);
-> +	}
-> +
-> +out_free_area:
-> +	rtas_work_area_free(area);
-> +
-> +	do {
-> +		close_rc = rtas_call(close_token, 1, 1, NULL, session_token);
-> +	} while (rtas_busy_delay(close_rc));
-> +
-> +	if (close_rc) {
-> +		pr_warn("ibm,close-errinjct failed: status=%d\n", close_rc);
-> +		if (!rc)
-> +			rc = rtas_error_rc(close_rc);
-> +	}
-> +
-> +out_unlock:
-> +	mutex_unlock(&errinjct_mutex);
-> +	return rc;
-> +}
-> +
->   static struct eeh_ops pseries_eeh_ops = {
->   	.name			= "pseries",
->   	.probe			= pseries_eeh_probe,
+diff --git a/drivers/gpu/drm/i915/display/intel_color.c b/drivers/gpu/drm/i915/display/intel_color.c
+index 4070dc8d97d9..742ae471540d 100644
+--- a/drivers/gpu/drm/i915/display/intel_color.c
++++ b/drivers/gpu/drm/i915/display/intel_color.c
+@@ -4278,9 +4278,10 @@ void intel_color_plane_commit_arm(struct intel_dsb *dsb,
+ 				  const struct intel_plane_state *plane_state)
+ {
+ 	struct intel_display *display = to_intel_display(plane_state);
++	struct intel_plane *plane = to_intel_plane(plane_state->uapi.plane);
+ 	struct intel_crtc *crtc = to_intel_crtc(plane_state->uapi.crtc);
+ 
+-	if (crtc && intel_color_crtc_has_3dlut(display, crtc->pipe))
++	if (crtc && intel_color_plane_has_3dlut(display, plane->pipe, plane->id))
+ 		glk_lut_3d_commit(dsb, crtc, !!plane_state->hw.lut_3d);
+ }
+ 
+@@ -4313,6 +4314,13 @@ intel_color_crtc_has_3dlut(struct intel_display *display, enum pipe pipe)
+ 		return false;
+ }
+ 
++bool intel_color_plane_has_3dlut(struct intel_display *display,
++				 enum pipe pipe, enum plane_id plane_id)
++{
++	return DISPLAY_VER(display) >= 35 && plane_id == PLANE_PRIMARY &&
++		intel_color_crtc_has_3dlut(display, pipe);
++}
++
+ static void
+ intel_color_load_3dlut(struct intel_dsb *dsb,
+ 		       const struct intel_plane_state *plane_state)
+diff --git a/drivers/gpu/drm/i915/display/intel_color.h b/drivers/gpu/drm/i915/display/intel_color.h
+index f3963a8d1239..9d11741423ef 100644
+--- a/drivers/gpu/drm/i915/display/intel_color.h
++++ b/drivers/gpu/drm/i915/display/intel_color.h
+@@ -16,6 +16,7 @@ struct intel_dsb;
+ struct intel_plane_state;
+ struct drm_property_blob;
+ enum pipe;
++enum plane_id;
+ 
+ void intel_color_init_hooks(struct intel_display *display);
+ int intel_color_init(struct intel_display *display);
+@@ -47,6 +48,8 @@ void intel_color_plane_program_pipeline(struct intel_dsb *dsb,
+ void intel_color_plane_commit_arm(struct intel_dsb *dsb,
+ 				  const struct intel_plane_state *plane_state);
+ bool intel_color_crtc_has_3dlut(struct intel_display *display, enum pipe pipe);
++bool intel_color_plane_has_3dlut(struct intel_display *display,
++				 enum pipe pipe, enum plane_id plane_id);
+ u32 intel_color_background_color_drm_to_hw(u64 drm_background_color);
+ u64 intel_color_background_color_hw_to_drm(u32 hw_background_color);
+ 
+diff --git a/drivers/gpu/drm/i915/display/intel_color_pipeline.c b/drivers/gpu/drm/i915/display/intel_color_pipeline.c
+index 7fc31fe891a8..77f65182e3e3 100644
+--- a/drivers/gpu/drm/i915/display/intel_color_pipeline.c
++++ b/drivers/gpu/drm/i915/display/intel_color_pipeline.c
+@@ -58,14 +58,6 @@ static const u64 intel_plane_supported_csc_ff =
+ 		BIT(DRM_COLOROP_FM_YCBCR2020_NC_FULL_RGB) |
+ 		BIT(DRM_COLOROP_FM_YCBCR2020_NC_LIMITED_RGB);
+ 
+-static bool plane_has_3dlut(struct intel_display *display, enum pipe pipe,
+-			    struct drm_plane *plane)
+-{
+-	return (DISPLAY_VER(display) >= 35 &&
+-		intel_color_crtc_has_3dlut(display, pipe) &&
+-		plane->type == DRM_PLANE_TYPE_PRIMARY);
+-}
+-
+ static
+ struct intel_colorop *intel_color_pipeline_plane_add_colorop(struct drm_plane *plane,
+ 							     struct intel_colorop *prev,
+@@ -144,7 +136,7 @@ int _intel_color_pipeline_plane_init(struct drm_plane *plane, struct drm_prop_en
+ 	int ret = 0;
+ 	int i;
+ 
+-	if (plane_has_3dlut(display, pipe, plane)) {
++	if (intel_color_plane_has_3dlut(display, pipe, to_intel_plane(plane)->id)) {
+ 		pipeline = xe3plpd_primary_plane_pipeline;
+ 		pipeline_len = ARRAY_SIZE(xe3plpd_primary_plane_pipeline);
+ 	} else if (icl_is_hdr_plane(display, to_intel_plane(plane)->id)) {
+-- 
+2.56.1
 
