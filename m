@@ -1,55 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=3.121.9.152
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794996334;
-	b=rDUL9QsnYgsFi2HeIJbBMd7lUFS7Ea+SA989JA2jd6f51JYetrPwiN5QQspLBwB/ltLn
-	 FWvmu254AKZ6LcJZkiKmaczJZjVujxS6EzCg1HcDD/2E1C5i3nuOC6X+/X0q9xeJFT06B
-	 7G3f2Tz+X35iYnFU7pJOW/wmg/hWU0ThzLP3CDzYNpUULaEpgMVwV3OY5X9x1IgnB4sGR
-	 zi0KhLMjFn0kpQbuBny0kw+JCW4LP5CNwqH4x3syn8mlK/4gLclUEZD4qKW9e2r/+yzW9
-	 GG6EB40dDi1sK8+Wt/fzsq2T8V//pSglH08WIWUVj+MsMD9Xc88pwsb4V+klwk+RMFA==
+	t=1794996337;
+	b=AzdK4AfFF7UtmW5QblKyBnMhkBbCpSX7jyCc4+PqZtr8f8fyrBslXXZLJtYCtdkJcLP7
+	 G+OWgveWpEVl3vfomdCBw4G0s90mwqzFR8tALfCv9AbP/FIgojONz3RJpJMWJSX8RCm4M
+	 uDTLlgoGvRaqwYcPNARH+f+fcs6MZbriqHz2asNP+VNW7s74Q1ZPw2OJP0Xepe7oIY6u8
+	 8nEw/QvUMrIK7JnCIvvGEd9OqALhspxhvWyrEezAABhsoT02gTdAeOyNh8M6gnjyKN+df
+	 bmX0qE2W358MACUCpd9+epHCagFw1j6Sh6Ze70n0OJbf/4vnjyjSqogCfjek/OMHozA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794996334;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=yTakoTBQpzpd8vPUGIJSVkaGOs54M8jR7qM+MgY7c40=;
-	b=h+S+awDCEXBMBkVfxsrqqWEhuy2BAziU82n6BOxen7Vc/whRydVfrRzkDDTiVeX59AX7
-	 CfChKu5TIfHLFUQ3xOQu9tsjQf3gFzDA++p44qJrueZ/uqcIfSbEW5keJ0rm0VLanLkwA
-	 uogPIdsjqpCJ7t1QwDvM7Gm9lARZRFvx/NejYk0r2yzJ83fy4YQEDv0oMjkU4GRjBow0R
-	 PouwQ5mlAZybov9JNzk5aw5KF0U3pYfaui4O/waobrFVjymPPU1Pa+NhdT2ULJe5/ewZY
-	 q1sPMmnQb2xgFUfwK5S9hNvgpOPvtsWV6KoiAvNu7BThte5xWfHYyXn7ojcQiDPdBug==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794996337;
+	h=DMARC-Filter:Received:X-Titan-User-Uid:DKIM-Signature:X-AuthUser:
+	 Received:Date:Feedback-ID:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:X-F-Verdict:
+	 X-Titan-Src-Out:X-CMAE-Score:X-CMAE-Analysis;
+	bh=Pe0AOfEXOyipGdj7ZRze/R5+qF0TIOc+kk2vWj/SSA4=;
+	b=RrXhhoEsBRLbydcs+cjPEng6iDxMIpZxbjx5zOcqH7WRJ8kgP4pU/DSMRld18lsjkjVn
+	 cVwyPQ1gKvxGzru3kZPH6V6cjsHXQkD4ugf/WkHjiKgTZYND/Xxpa1pVufUU7wkj+MT1p
+	 QD/ggOTgGoL+5/GYpiusM4k98E+HBXKZsFfW25DRA9lgTdXpOQjW2vMjwqsPC3/cK8W4t
+	 p/4FIxmZRUJlPU3wJ1nfz5wBbPPlWOaHW3Csf6G+/dB70mtZLXBgFcdIHqwzctjI5mZ19
+	 WrKypMeuQuq/vv8geXHM76JDRrP6zJgsiBqIKyEqkF4gDjoMVDS5cCPAcUyLg9KwJBg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Tv99oAGl;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=techsingularity.net;
+	spf=pass smtp.mailfrom=techsingularity.net;
+	dkim=pass header.d=techsingularity.net header.i=@techsingularity.net header.a=rsa-sha256 header.s=titan1 header.b=ByvFR39Z;
+	arc=none smtp.remote-ip=3.121.9.152
+Received: from mail33.out.titan.email (mail33.out.titan.email [3.121.9.152])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C07F606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53DD2606A333
 	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:05:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53DD2606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=techsingularity.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=techsingularity.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Tv99oAGl
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5443D1F000CF
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:05:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794996334;
-	bh=yTakoTBQpzpd8vPUGIJSVkaGOs54M8jR7qM+MgY7c40=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Tv99oAGlz1yttm+xb9Y3LzNYdyMOTBOW2gbWd8+u9RzXg4slRpQ4T3l0q2TngfMYu
-	 VfVqLVfCpwj4RAYzIDtE3mHHQHPKB6NI5pUVo6dZGi/RbaPXUDLHcNPt9fuYG+BHTR
-	 I5AWT6CpfRwf0kMpsPF2zAkLp5GNJAjaO9E2HoW3RhIFABy1E2jRYu0HekyyvxAomw
-	 tqfqzE+sRjko8Walj5sJrKgJ34wLYfpYssruxoFVg91O/TNWQcMqUctQt2LctOswm/
-	 S5xB1BQM1Sg3z4H89li4HCSq9+7iS7suaATHVy2zygk5oOtfw0ZaYB6mi3NZtRSx20
-	 tbkRBBFqkLoWQ==
-Received: by mail-oo1-f53.google.com with SMTP id 006d021491bc7-71acdd32a53so295717eaf.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:05:34 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGRpHBCdOwlh2cmjlRnyQgjnddNVTVtNOzFaTlhuCv7sUWqyug1BYKAMlTnJhUPDs7LZTLdeMDyHFXkx4k=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9UFhBy1e8wNIZ6HEQkZUKFekvMojfbfwwoPReXPGE4bdeJXXTl
-	FejSA4ZWDGLVCeNpc6FT/935rwNiQZnyQNsS5g/Wh4mKmeny4nD0wGDClFjPTt8FrGvpKIm18G+
-	L3qMjyKzkj4iSO97wjVfxF+Ek2YwhsJc=
-X-Received: by 2002:a05:6820:f029:b0:712:c3fb:b4dd with SMTP id
- 006d021491bc7-71b18592d82mr1370427eaf.58.1794996333573; Wed, 18 Nov 2026
- 02:05:33 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=techsingularity.net header.i=@techsingularity.net header.a=rsa-sha256 header.s=titan1 header.b=ByvFR39Z
+Received: from localhost (localhost [127.0.0.1])
+	by smtp-out0101.titan.email (Postfix) with ESMTP id 4jTy083d9wzBrJt;
+	Wed, 18 Nov 2026 10:05:28 +0000 (UTC)
+X-Titan-User-Uid: eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..o5-troWWB6m0Ppnt.j_NzXpRd2hsW1SQB_05qNM_Fuh0qDVeZuv7AtWlGcZ2wz5PvDV8nJTndAzk_c-j_EMnJBAZWE3SxAEte7V121dnduoxEE7hJDb441CyqWUh3SMw59RCmgA5GTQ.taSZ9yQEpOpHUCNvyooPEQ
+DKIM-Signature: a=rsa-sha256; bh=Pe0AOfEXOyipGdj7ZRze/R5+qF0TIOc+kk2vWj/SSA4=;
+	c=relaxed/relaxed; d=techsingularity.net;
+	h=subject:message-id:references:date:from:in-reply-to:to:cc:mime-version:from:to:cc:subject:date:message-id:in-reply-to:references:reply-to;
+	q=dns/txt; s=titan1; t=1794996328; v=1;
+	b=ByvFR39ZukAJmgLr4bGXy+VtzuHbK7Qg3G/orx0Kc+zvU+PR4eaCh3ZB9t4/xt90HQAbf8VJ
+	lZ9ajWOFJnQr6D1j660ozfcS2XnsJ4cRLxTdA/ZtEwtbtf132XnOCVqxITBt9cD0AbH0Vlb5EpT
+	Fy/eUFBeGgFm2Qw3NAj4bf9E=
+X-AuthUser: mgorman@techsingularity.net
+Received: from techsingularity.net (unknown [84.203.169.102])
+	by smtp-out0101.titan.email (Postfix) with ESMTPA id 4jTy075wQ0zBrJb;
+	Wed, 18 Nov 2026 10:05:27 +0000 (UTC)
+Date: Wed, 18 Nov 2026 10:05:21 +0000
+Feedback-ID: :mgorman@techsingularity.net:techsingularity.net:flockmailId
+From: Mel Gorman <mgorman@techsingularity.net>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Ingo Molnar <mingo@redhat.com>, 
+	Vincent Guittot <vincent.guittot@linaro.org>, Steven Rostedt <rostedt@goodmis.org>, 
+	Seiji Nishikawa <snishika@redhat.com>, Mian Yousaf Kaukab <ykaukab@suse.de>, 
+	LKML <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3] sched/rt: Do not account migrate-disabled tasks as
+ pushable
+Message-ID: <av1q-2D_tdi9oNEj@techsingularity.net>
+References: <20261113160655.2909479-1-mgorman@techsingularity.net>
+ <20261117152026.GI1813469@noisy.programming.kicks-ass.net>
+ <20261117152414.GG1922751@noisy.programming.kicks-ass.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,43 +72,208 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118022813.9778-1-zhiqizhangg@gmail.com> <20261118022813.9778-3-zhiqizhangg@gmail.com>
-In-Reply-To: <20261118022813.9778-3-zhiqizhangg@gmail.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Wed, 18 Nov 2026 11:05:22 +0100
-X-Gmail-Original-Message-ID: <CAL4Wiiq4s=7odXcU3WxyuqjYw47Z8GUO6Tg5DMfaVJ+43fUD=Q@mail.gmail.com>
-X-Gm-Features: AclHuK8K9tF4TVw7j3RjckE1HLq3h2lEhDOm2ORPcutWmaCCc-IEEsyMxD7ounc
-Message-ID: <CAL4Wiiq4s=7odXcU3WxyuqjYw47Z8GUO6Tg5DMfaVJ+43fUD=Q@mail.gmail.com>
-Subject: Re: [PATCH net v2 2/2] selftests: net: packetdrill: add ROCCET RTO test
-To: Zhiqi Zhang <zhiqizhangg@gmail.com>
-Cc: Neal Cardwell <ncardwell@google.com>, "David S . Miller" <davem@davemloft.net>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Kuniyuki Iwashima <kuniyu@google.com>, Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>, 
-	Tim Fuechsel <t.fuechsel@gmx.de>, Lukas Prause <lukas.prause@ikt.uni-hannover.de>, 
-	netdev@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=iso-8859-15
+Content-Disposition: inline
+In-Reply-To: <20261117152414.GG1922751@noisy.programming.kicks-ass.net>
+X-F-Verdict: SPFVALID
+X-Titan-Src-Out: 1794996328270808189.1930444.7156754528199208151@prod-euc1-smtp-out1003.
+X-CMAE-Score: 0
+X-CMAE-Analysis: v=2.4 cv=Kuj0MWWN c=1 sm=1 tr=0 ts=6afd7868
+ a=pHym636nsqzIClKRuQkSuw==:117 a=pHym636nsqzIClKRuQkSuw==:17
+ a=Q9fys5e9bTEA:10 a=CEWIc4RMnpUA:10 a=pycgwy6UaF_tR2Lduj4A:9
+ a=PUjeQqilurYA:10
 
-Le mer. 18 nov. 2026 =C3=A0 03:28, Zhiqi Zhang <zhiqizhangg@gmail.com> a =
-=C3=A9crit :
->
-> Add a packetdrill test for the ROCCET idle restart on RTO.  TLP is
-> enabled, so the first RTO is affected; the test asserts that
-> tp->snd_ssthresh stays at the prior cwnd (20) across the first and
-> second RTOs.
->
-> The test fails at the first RTO without the preceding fix
-> (snd_ssthresh =3D=3D 10) and passes with it.  A variant with
-> tcp_early_retrans=3D0 (no TLP) fails at the second RTO only.
->
-> CONFIG_TCP_CONG_ADVANCED and CONFIG_TCP_CONG_ROCCET are added to the
-> packetdrill config; ROCCET is only visible when advanced congestion
-> control is enabled.
->
-> Test written by Eric Dumazet.
->
-> Suggested-by: Eric Dumazet <edumazet@kernel.org>
-> Signed-off-by: Zhiqi Zhang <zhiqizhangg@gmail.com>
+On Tue, Nov 17, 2026 at 04:24:14PM +0100, Peter Zijlstra wrote:
+> On Tue, Nov 17, 2026 at 04:20:26PM +0100, Peter Zijlstra wrote:
+> > On Fri, Nov 13, 2026 at 04:06:55PM +0000, Mel Gorman wrote:
+> > 
+> > > As above, the runqueue is still marked overloaded by enqueue_task_rt()
+> > > and put_prev_task_rt() even if the task is migrate-disabled. A
+> > > migrate-disabled task reaches the pushable list through enqueue_task_rt()
+> > > or put_prev_task_rt() when it is preempted, or when it wakes while
+> > > still migrate-disabled. Either path calls enqueue_pushable_task() to set
+> > > rq->rt.overloaded and rto_mask if unset. Once set, every pull from another
+> > > CPU that fires an IPI may only find migrate-disabled tasks rendering the IPI
+> > > useless for a condition that was detectable when placed on the pushable list.
+> > > 
+> > > Stop adding migrate-disabled tasks to the pushable list if RT_PUSH_IPI is
+> > > enabled. This is not a heuristic as migrate-disabled tasks cannot move. Even
+> > > when migration is enabled, the rq still has no pushable candidates until the
+> > > task schedules. The !RT_PUSH_IPI behaviour is preserved and migrate-disabled
+> > > tasks are added to the pushable list. Without IPI, the alternative path in
+> > > pull_rt_task() must find runqueues with off-CPU migrate-disabled tasks. It
+> > > can then push the running task away allowing the migrate-disabled task
+> > > to run.
+> > 
+> > Last time I either didn't notice, or I've gone dumb from staring at perf
+> > issues all day, but I'm not entirely sure I understand how we get here.
+> > 
+> > Suppose:
+> > 
+> >   migrate_disable();
+> >   ...
+> >   schedule()
+> >     migrate_disable_switch()
+> >       // switches p->cpus_ptr and p->nr_cpus_allowed
+> >     pick_next_task()
+> >       p = class->pick_task();
+> >       put_prev_set_next_task(rq, rq->donor, p);
+> >       return p;
+> > 
+> > So any task that ends up in put_prev_task_rt() wlll have passed through
+> > migrate_disable_switch(), which have updated nr_cpus_allowed.
+> > 
 
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+I did not check in this direction but that does not mean I think you're
+right but I also am struggling to prove it.
+
+An earlier version of the patch was like what you suggested (check both
+conditionally in rt.c and copy to deadline.c), hen I thought "deadline had
+no RTO IPI" and the copy felt like cargo culting which definitely would get
+a kicking and I'd be asked "Why did you copy that" and my answer would be
+"Uhhh.. cargo cult?" and then feel like a right idiot.
+
+Without the push IPI, deadline.c needed an explanation why the same check
+is necessary so looked closer at the !PUSH_IPI handling.  The !IPI path
+in both assumes that such tasks can be visible so "why look up?"
+
+In rt.c
+
+--8<--
+ static void pull_rt_task(struct rq *this_rq)
+	....
+	#ifdef HAVE_RT_PUSH_IPI
+		if (sched_feat(RT_PUSH_IPI)) {
+			tell_cpu_to_push(this_rq);
+			return;
+		}
+	#endif
+
+	(!RT_PUSH_IPI path, default in !PREEMPT_RT or sched_debug toggle)
+
+	for_each_cpu(cpu, this_rq->rd->rto_mask) {
+		...
+
+/*****
+  ****
+  **** This bit
+  ****
+  ****
+
+		/*
+		 * Do we have an RT task that preempts
+		 * the to-be-scheduled task?
+		 */
+		if (p && (p->prio < this_rq->rt.highest_prio.curr)) {
+			...
+			if (is_migration_disabled(p)) {
+				push_task = get_push_task(src_rq);
+			} else {
+				move_queued_task_locked(src_rq, this_rq, p);
+				resched = true;
+			}
+			...
+		}
+	}
+--8<--
+
+The !IPI path assumes that a migrate_disabled(p) can exist on the rto_mask
+and it's been like that for a while. Compounding the problem that kept me
+looking down was that PREEMPT_RT tree used to have a patch e18de5e2e3e9
+("sched/rt: Don't try push tasks if there are none.")  that tangentially
+affected the bug (the PREEMPT_RT patch was visible in the distro kernel
+the bug was reported against). The PREEMPT_RT patch was removed around 6.7
+because "it's much better now" and while it was not stated why, I assumed
+it was due to 612f769edd06 ("sched/rt: Make rt_rq->pushable_tasks updates
+drive rto_mask")
+
+I'm not saying this is right, I am saying that blocks of code in both
+rt.c and deadline.c assume this condition can occur.
+
+> > Or so my current thinking goes. You seeing this patch make a difference,
+> > seems to suggest I'm missing something, but I couldn't spot it in that
+> > wall of text.
+> 
+
+It is definitely the case, and I've measured it, that the patch removes
+spurious IPIs and it's verified on a mainline kernel. Spurious IPI in
+this case is that a CPU that has no task that can migrate is considered
+pushable and receives a *lot* of IPIs per second that never move a task
+because there is no task that *can* move. I didn't try quantifing it much
+beyond that because reducing thousands of IPIs/sec seemed like suffficient
+justification to me.
+
+> Ah, is the sched_change pattern the clue? I'm thinking that RT might hit
+> that more than usual due to the PI path.
+> 
+
+You give me too much credit, I started with a cargo cult copy of rt.c to
+deadline.c but couldn't put an obviously correct comment or changelog
+on it so a short paragraph of a changelog turned into a "wall of text"
+while I talked to myself for longer than is considered healthy even by
+the rubber duck.
+
+> In that case we do indeed end up in put_prev_task() / set_next_task()
+> without going through schedule(). In that case the task would be on the
+> pushable list during the change, HOWEVER we should hold rq->lock (which
+> implies have IRQs disabled) over the entire thing, so again, I'm not
+> sure how this is then observable.
+> 
+> > Anyway, I'm still not sure why we can't just write:
+> > 
+> > > diff --git a/kernel/sched/rt.c b/kernel/sched/rt.c
+> > > index 1535046a23ff..bb640278d30e 100644
+> > > --- a/kernel/sched/rt.c
+> > > +++ b/kernel/sched/rt.c
+> > > @@ -396,6 +396,13 @@ static inline void rt_queue_pull_task(struct rq *rq)
+> > >  
+> > >  static void enqueue_pushable_task(struct rq *rq, struct task_struct *p)
+> > >  {
+> > > +	if (p->nr_cpus_allowed <= 1)
+> > > +		return;
+> > > +#ifdef HAVE_RT_PUSH_IPI
+> > > +	if (sched_feat(RT_PUSH_IPI) && is_migration_disabled(p))
+> > > +		return;
+> > > +#endif
+> > > + 
+> > 
+> > 	if (p->nr_cpus_allowed <= 1 || is_migration_disabled(p))
+> > 		return;
+> > 
+
+Yeah, I had that and couldn't copy it to deadline.c because the bug is
+about IPIs, IPIs of the same type don't exist in deadline.c, so the copy
+is "obviously bogus" and on rt.c the same check makes a bunch of
+long-lived code unreachable. That is obviously shit logic to use for
+justifying a kernel change.
+
+I have to look closer at why you think it's not reachable and Steven
+thinks it's plausible. All I've got so far is that
+
+o migrate_disable_switch checks does nothing if
+  "p->cpus_ptr != &p->cpus_mask"
+  and so do_set_cpus_allowed is not guaranteed to be called and
+  therefore the statement "migrate_disable_switch(), which have updated
+  nr_cpus_allowed" might have a counter-example.
+
+o pick_next_pushable_task() has BUG_ON(p->nr_cpus_allowed <= 1) and this
+  thing certainly seems to believe that migrate_disabled tasks can reach
+  it
+                        if (unlikely(is_migration_disabled(task) ||
+                                     !cpumask_test_cpu(lowest_rq->cpu, &task->cpus_mask) ||
+                                     task != pick_next_pushable_task(rq))
+
+  which means nothing at all yet, other than it's an example that is
+  very difficult to reconcile with your version (which matches my old
+  version) and state "this is ok".
+
+> > But perhaps I'm missing something; the above seems to suggest that is a
+> > theme today.
+
+Not sure yet, all I know is that I cannot find so far a way of writing
+a comment or changelog on that version that shows it's safe and doesn't
+degrade rt.c, deadline.c at minimum or break it at worst.
+
+-- 
+Mel Gorman
+SUSE Labs
