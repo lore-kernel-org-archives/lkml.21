@@ -1,90 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.149.156.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=101.71.155.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795011063;
-	b=P9vzAXeDydKLNyGCC4hUi1aVC4+2koF5foyM2iYFxQkyS57NqL+JH2gG3G11SmLqcoFQ
-	 ys10JzyWrRmUNfgmJGjirX1u7+JiRt2hm9Um8r/JOerJiuc2hjFqidEqAD1O13zsS4CoT
-	 aKnwJKikvjkgZnZd0VU4tsR3v2EhABck/2XYTE3yE9/aPkL4+EKMWtm76McGvv6Sp6oQr
-	 ZaxvGWCNOFc7DfPTj750qSfy5qDbTumfM3TyP31FUQ7MsC35xsfsggsjp3xYOSNgLM9xD
-	 VgDpUxOoIDF8ELRRvyYXhDu+mjq+4dj9ZAzvJJgIJ52bGw9mE8V3kXJTlKyb3pK+PMA==
+	t=1795011064;
+	b=LHrol4WDfL2sRwi0WeQsFqcfQFF3WMXki07oYbEP+uahf2P6BdK83x6QrqNV0hRu66Zy
+	 hRjqEwsfMXE7DZcUBCg0U+xoAmLHy3ntGMun/Z+uMnD1hOb/ZkSV+TUR/rUZ3uZpQn1Cb
+	 P1cGabXmiwoEQHMr1FvL++K7AH7xsGMIabYPZNFHv2mz/4fMM0KVZa/xz8hKiEfvfx0ZH
+	 cDrC/2BvDpjZJzAFBE1uSREyMOgJNY+yShZ9j2k7M3eaQ2GAtAMq5J7VsG75zAtI9pzWt
+	 l6l0UFqBIebtLzX60EnsE4gDwKXvXVCJkbZz6yXi0cyOzpOXz6if47Jrn6HqlGIpPlg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795011063;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CMAE-Envelope;
-	bh=fKl8MNySZ88IUVeu2UU7VcrqEn+ayXaw8/l2vB54HEo=;
-	b=u8mclgNY3GQliCSBEYLoEZemngodBz5dBOGP/R/znPI9DZFjI82r7YdoEzpzYWUn9adD
-	 d1hE1aPXwE2TZP+LwG6fzJ0/FZjp8qzttsVCbtQPlVkbfFQMtywQ1lewKLpMiIJ/8AG1W
-	 sNw2A7zoyfCAvYDLc/Iri8vpqEqKuSAcmDpEGWiscPTiA1YhUc4Ud5TGZUc2CMGHbPw2K
-	 I23paopQ8s5PTyYJyKNoH7anAo0ugNXdkJ+hAbE+NX5x39yV+pua++CQqoazWAjeeqWID
-	 GdN/MpdTbTQo5pYp80pVW9pIHWN+pO/F9xRQ2M1UDf8zrec6scpYSN9fa0F3QtFlN0A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795011064;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:X-HM-Spam-Status:
+	 DKIM-Signature;
+	bh=0sSkgJi+Iy6AbBDGZ/m3UoHILo4pwmgba+6jz8hywfI=;
+	b=Vf9OpB70XMAHC6TK0smBH22gkMe7tHJbuR/AwHVUj476iLxsEnOu3GEHyagoQ7smM6LI
+	 syeLTgDObr3CmLlb6etFLUtNtl4TRAF0fCTR1Lp5EQ82VRYmiIwGsuFJwvDJzwmoqRx7g
+	 Ujg1dGuTnWYBxHjGqaL31XbLYBQhZHxQbqbbECOnGkRWpHzzNbMuk3m9ASbE+aC6laV9w
+	 ogF2j5pjjMpvWpNUH2ZSStxOndiNL2N3n7pBd/9UO2qK+J2mBcESetcJ5pAzeUKrVobgm
+	 Ny7vr/73mJSvS8EkcIpNtXprbaUzdQY9aHCmnHMxYjVrTRUFgbmjlbULUvVxnPfzmUw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=enneenne.com;
-	spf=pass smtp.mailfrom=enneenne.com;
-	dkim=pass header.d=aruba.it header.i=@aruba.it header.a=rsa-sha256 header.s=a1 header.b=eJWb9UxQ;
-	arc=none smtp.remote-ip=62.149.156.116
-Received: from smtpcmd11116.aruba.it (smtpcmd11116.aruba.it [62.149.156.116])
+	dmarc=pass header.from=mail.sdu.edu.cn;
+	spf=pass smtp.mailfrom=mail.sdu.edu.cn;
+	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=HrES4Tp4;
+	arc=none smtp.remote-ip=101.71.155.101
+Received: from mail-m155101.qiye.163.com (mail-m155101.qiye.163.com [101.71.155.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB6B960A261D
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:11:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB6B960A261D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=enneenne.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=enneenne.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A5EC60A2625;
+	Wed, 18 Nov 2026 14:10:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5A5EC60A2625
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sdu.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sdu.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=aruba.it header.i=@aruba.it header.a=rsa-sha256 header.s=a1 header.b=eJWb9UxQ
-Received: from polimar.tail4f75e6.ts.net ([101.57.122.26])
-	by Aruba SMTP with ESMTPSA
-	id TgNAx52bt6VShTgNAxMwjf; Wed, 18 Nov 2026 15:10:53 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aruba.it; s=a1;
-	t=1795011053; bh=GvPGRQ87Mt+BUKvr7jj3/S+NK4dYrqykH+GKaaPi5aQ=;
-	h=From:To:Subject:Date:MIME-Version;
-	b=eJWb9UxQhFL46ix3TFV/rWxZQYgNwDgvkzEXGxx+dAa0fIKa9nl6xxcu9R1sqUsQU
-	 70TNopPpMPKX8+sMA7PxML6zXGo20jAZEARneS5fgPEgSsBK6yI0iJ+QjgFO+wi+Xm
-	 7F9YW8NuDMvNxEiKMV1M0U1Dt1kpDYpVLyRWH323K3W5oa+SPn0cCsrgX9NbKMZEUF
-	 QI/6X+293T3J0m+tatOCHPQJa0Jwu2SiFIKOGj39lP0nc5Ta9jCtldrqtp8gDoJsDH
-	 2NspoD23D3W/ZaYc7jgdodUkPwwTrocn7clOezUpe7y/vQbj8OgGjNA/7uqrdFjVHp
-	 Er5lI35K1r0Ew==
-From: Rodolfo Giometti <giometti@enneenne.com>
-To: David Howells <dhowells@redhat.com>,
-	Jarkko Sakkinen <jarkko@kernel.org>,
-	keyrings@vger.kernel.org
-Cc: Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jens Wiklander <jenswi@kernel.org>,
-	Sumit Garg <sumit.garg@kernel.org>,
-	op-tee@lists.trustedfirmware.org,
-	=?UTF-8?q?Horia=20Geant=C4=83?= <horia.geanta@nxp.com>,
-	Pankaj Gupta <pankaj.gupta@nxp.com>,
-	Sahil Malhotra <sahil.malhotra@nxp.com>,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>,
-	Richard Weinberger <richard@nod.at>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Eric Biggers <ebiggers@kernel.org>,
-	Demi Marie Obenour <demiobenour@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Paul Moore <paul@paul-moore.com>,
-	James Morris <jmorris@namei.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	linux-crypto@vger.kernel.org,
-	linux-integrity@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-api@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
+	dkim=pass (1024-bit key) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=HrES4Tp4
+Received: from lgs.. (unknown [101.76.249.61])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 5526d7801;
+	Wed, 18 Nov 2026 22:10:53 +0800 (GMT+08:00)
+From: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+To: Neill Kapron <nkapron@google.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: linux-usb@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Rodolfo Giometti <giometti@enneenne.com>
-Subject: [RFC PATCH 7/9] crypto: caam - add an internal cbc(paes) taking the blob's key modifier
-Date: Wed, 18 Nov 2026 15:10:47 +0100
-Message-ID: <20261118141047.616989-1-giometti@enneenne.com>
+	linuxppc-dev@lists.ozlabs.org,
+	stable@vger.kernel.org
+Subject: [PATCH 1/2] usb: gadget: fsl_udc: Fix potential use-after-free during removal
+Date: Wed, 18 Nov 2026 22:10:53 +0800
+Message-ID: <20261118-324f82bd41-usb-gadget-1@mail.sdu.edu.cn>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261118140421.584086-1-giometti@enneenne.com>
-References: <20261118140421.584086-1-giometti@enneenne.com>
+In-Reply-To: <20261118-324f82bd41-usb-gadget-0@mail.sdu.edu.cn>
+References: <20261118-324f82bd41-usb-gadget-0@mail.sdu.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,248 +59,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CMAE-Envelope: MS4xfE5OpqY75Ap3Fw41rg59MeMfDJL8VLBXfB7grLmJrcheJpfdBBjwj4/o3/jJ+Oq/GidTZ5rPY+KvdqwBHB0smNkdNjPlFYZQ/YMI66SfBxOdEt7QQmuJ
- VxyiSgTYAk6BtCBqQJ4PJc/1GFqvSANx4AQ7GBzWENhF/z1l/fUyGnUY9UVdgfmMtcV5fB/gT3qg4t60O8gkg/AZ5klrgiJk+94IiD8iv8e1an81pI8cY/3B
- iPsu7US/wz9binHbc+L1ce3G8HBgP6gu1qPrGRY94h1XBiuYRKdBjzV+qrlnssejxIQklBlk6wDsbfy/+hQPAOmJuOalB51CIE78GPs9BvDU9c1VYtQNUGPN
- FaNzJTBwYs1vnylakFLkGjXrcDuZ6ElzzijYPmMU/8mxaZ/iXnoJo0noL3UEDlTEoWvFgthTjooPrgwq9r5An5SWmuvA5jhcpDaWjGNPeVpJX/X4mZykjMP9
- dROwmsgDD7Ky0w87+5in9Kr0JTdltoisiZvcKxAp7sqzZ55KrkvjaqH5wQIi1o8veWwci7KpRx48j9G74P4yQsT4ES7thJ21J8gZNqzkeSPFsgIMZb/jKX6S
- Iu4VZmJ1++s2x6l/0cEWtRphuW3Rt6RFezF7qhecDIgg60M/qwsf5E3zKFQ9BnYLobNFEcAg0HY/9d8CPS3USBlzD3aw+5sjpU2cGD9mgzXNZjzz3FRjJQQf
- t6zFocVmFWMtja1S4fFwN4AmjrcFmaTfoniARPlzw7HZd8PS+BC6sMjTOqpFycfcAcpUKbkSVJgxscf8zaWY0TpQlK4L+VtMiqA0QkMh3WPmB83rA3V+W5oi
- NCJCAYKLYHIkbxIhj8o5jILr/DS6haFVdy1dUUBurNJ3NVEhx/7Vl88aA8W6T1sH03o37BahwRPZn9W3PWKa0+F0AMmPB3Zkttbaf03m96JKwG76aRUeJBj8
- 5xtJMj/9ikF/QABBS2kBAMsoYo8Yi0R3vwwVn00LXawbU+eDbEq1DkfZAknqDK5dl5fgvTfDZQO1i3pGoqY90YcSZxgFrGTDxXyD3hnj7fi+90DdqodpZhRD
- xqXY4AaXY6IIpB208HEZi3ndRW+e0hAGd5fM6+65sHfl5qcu1IoMhDjUbotryYDCK8E1dTajC7Xq5L32ML6B9xgnWnsyHAD1r24tb3fl9RGugkZlWZCRow/y
- RufAhx/8Z1aOsTca/tWcherpNmTt7Qw1IVKhW9m2lo+VBNWml7Hskh/nR2lJSEzgI7V0Z0OAjTkr5i/h03plD6qzcTX5PETQI/AeHui6KZd5h/lpfc/YAH9d
- e+lQLGjp76Zpu9yJ4OG4//vtWGgSPc4Cx0hei1rRAjgeKvmCvQ0=
+X-HM-Tid: 0aa1eeff090603a1kunm8266b8a11a0aa5
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZSkJDVhpPSkJLGB1PTk1MGFYeHw
+	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKS0pVTE1VSU9CVU1KWVdZFhoPEhUdFFlBWU9LSFVKS0lCQ0
+	NMVUpLS1VLWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=HrES4Tp44DGQexBDvC2aVamA/bscbe+hZ2E8EVhnkiSq/sXlJiPNQjkWO/rFbdwDE1jlPnuJPpRNbDegiCb0KRxAdkZRc0kTZG+NSWhvKKBxuu//ifvpIVcdYlGaed8zmNjn81+Mb0Evp+bznl8hhHBXmw/oViXnWNl8E72gKE8=; c=relaxed/relaxed; s=default; d=mail.sdu.edu.cn; v=1;
+	bh=0sSkgJi+Iy6AbBDGZ/m3UoHILo4pwmgba+6jz8hywfI=;
+	h=date:mime-version:subject:message-id:from;
 
-cbc(paes) decapsulates every blob with the fixed key modifier
-"SECURE_KEY", the one trusted keys use for their "pk" keys, and is
-reachable from AF_ALG: a blob made for either can be used through the
-other by whoever holds CAP_NET_ADMIN or CAP_SYS_ADMIN (with AF_ALG's
-default restriction), for whatever operation they choose. A kernel
-user that wants its blobs bound to something of its own, such as the
-metadata of the key they protect, has no way to say so.
+usb_del_gadget_udc() can drop the last gadget device reference and call
+fsl_udc_release(), which frees udc_controller. The remaining remove path
+then dereferences it to release its requests, endpoints and DMA pool.
 
-Add a second cbc(paes), cbc-paes-km-caam, flagged CRYPTO_ALG_INTERNAL
-so that only kernel code asking for that flag can allocate it, as the
-DCP's paes is, which trusted keys allocate by driver name with that
-flag; its key names the key modifier to decapsulate with.
-caam_encap_blob() already takes a caller's key modifier, so a kernel
-user can now bind its blobs to a value of its own.
+Hold a gadget device reference until this cleanup has finished.
 
-Its only user is the keycrypt CAAM backend, which is a proposal, and
-so is this.
+This issue was found by our static analysis tool under development.
 
-Signed-off-by: Rodolfo Giometti <giometti@enneenne.com>
+Fixes: eab35c4e6d95 ("usb: gadget: fsl_udc_core: let udc-core manage gadget->dev")
+Cc: stable@vger.kernel.org
+Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
 ---
- drivers/crypto/caam/caamalg.c      | 89 ++++++++++++++++++++++++++----
- drivers/crypto/caam/caamalg_desc.c |  3 +-
- drivers/crypto/caam/caamalg_desc.h |  1 +
- include/soc/fsl/caam-blob.h        |  8 +++
- 4 files changed, 89 insertions(+), 12 deletions(-)
+ drivers/usb/gadget/udc/fsl_udc_core.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/crypto/caam/caamalg.c b/drivers/crypto/caam/caamalg.c
-index d00caa9cdf8e..f34717f312b8 100644
---- a/drivers/crypto/caam/caamalg.c
-+++ b/drivers/crypto/caam/caamalg.c
-@@ -125,6 +125,8 @@ struct caam_ctx {
- 	dma_addr_t key_dma;
- 	u8 protected_key[CAAM_MAX_KEY_SIZE];
- 	dma_addr_t protected_key_dma;
-+	u8 key_mod[CAAM_BLOB_KEYMOD_LENGTH];
-+	unsigned int key_mod_len;
- 	enum dma_data_direction dir;
- 	struct device *jrdev;
- 	struct alginfo adata;
-@@ -784,18 +786,19 @@ static int skcipher_setkey(struct crypto_skcipher *skcipher, const u8 *key,
- 	return 0;
- }
+diff --git a/drivers/usb/gadget/udc/fsl_udc_core.c b/drivers/usb/gadget/udc/fsl_udc_core.c
+index 878d70b55530..9d9d2164c5bf 100644
+--- a/drivers/usb/gadget/udc/fsl_udc_core.c
++++ b/drivers/usb/gadget/udc/fsl_udc_core.c
+@@ -2537,6 +2537,7 @@ static void fsl_udc_remove(struct platform_device *pdev)
+ 	DECLARE_COMPLETION_ONSTACK(done);
  
--static int paes_skcipher_setkey(struct crypto_skcipher *skcipher,
--				const u8 *key,
--				unsigned int keylen)
-+static int paes_set_blob(struct crypto_skcipher *skcipher,
-+			 const struct caam_pkey_info *pkey_info,
-+			 const u8 *blob, unsigned int keylen,
-+			 const u8 *key_mod, unsigned int key_mod_len)
- {
--	struct caam_pkey_info *pkey_info = (struct caam_pkey_info *)key;
- 	struct caam_ctx *ctx = crypto_skcipher_ctx_dma(skcipher);
- 	struct device *jrdev = ctx->jrdev;
- 	int err;
+ 	udc_controller->done = &done;
++	get_device(&udc_controller->gadget.dev);
+ 	usb_del_gadget_udc(&udc_controller->gadget);
  
--	ctx->cdata.key_inline = false;
-+	if (WARN_ON(key_mod_len > CAAM_BLOB_KEYMOD_LENGTH))
-+		return -EINVAL;
+ 	/* DR has been stopped in usb_gadget_unregister_driver() */
+@@ -2554,6 +2555,7 @@ static void fsl_udc_remove(struct platform_device *pdev)
+ 		release_mem_region(res->start, resource_size(res));
  
--	keylen = keylen - CAAM_PKEY_HEADER;
-+	ctx->cdata.key_inline = false;
+ 	/* free udc --wait for the release() finished */
++	put_device(&udc_controller->gadget.dev);
+ 	wait_for_completion(&done);
  
- 	if (pkey_info->is_pkey != 1) {
- 		dev_dbg(jrdev, "not a protected key\n");
-@@ -842,19 +845,52 @@ static int paes_skcipher_setkey(struct crypto_skcipher *skcipher,
- 	/* Retrieve the length of blob*/
- 	ctx->cdata.keylen = keylen;
- 
--	/* Retrieve the address of the blob */
--	ctx->cdata.key_virt = pkey_info->key_buf;
--
- 	/* set command option */
- 	ctx->cdata.key_cmd_opt = KEY_ENC;
- 
--	memcpy(ctx->key, ctx->cdata.key_virt, keylen);
-+	/* The key modifier the blob is decapsulated with, at every job */
-+	memcpy(ctx->key_mod, key_mod, key_mod_len);
-+	ctx->key_mod_len = key_mod_len;
-+
-+	/* Retrieve the address of the blob */
-+	memcpy(ctx->key, blob, keylen);
-+	ctx->cdata.key_virt = ctx->key;
- 	dma_sync_single_for_device(jrdev, ctx->key_dma, keylen, DMA_TO_DEVICE);
- 	ctx->cdata.key_dma = ctx->key_dma;
- 
- 	return 0;
- }
- 
-+static int paes_skcipher_setkey(struct crypto_skcipher *skcipher,
-+				const u8 *key,
-+				unsigned int keylen)
-+{
-+	const struct caam_pkey_info *pkey_info =
-+		(const struct caam_pkey_info *)key;
-+
-+	return paes_set_blob(skcipher, pkey_info, pkey_info->key_buf,
-+			     keylen - CAAM_PKEY_HEADER, KEYMOD,
-+			     sizeof(KEYMOD) - 1);
-+}
-+
-+/*
-+ * The internal cbc(paes): the blob comes with the key modifier it was
-+ * encapsulated with, which only kernel code can choose; a caller that
-+ * picks a modifier of its own keeps its blobs apart from those of
-+ * cbc(paes) and of trusted "pk" keys
-+ */
-+static int paes_km_skcipher_setkey(struct crypto_skcipher *skcipher,
-+				   const u8 *key,
-+				   unsigned int keylen)
-+{
-+	const struct caam_pkey_info *pkey_info =
-+		(const struct caam_pkey_info *)key;
-+
-+	return paes_set_blob(skcipher, pkey_info, key + CAAM_PKEY_KM_HEADER,
-+			     keylen - CAAM_PKEY_KM_HEADER,
-+			     key + CAAM_PKEY_HEADER, CAAM_BLOB_KEYMOD_LENGTH);
-+}
-+
- static int aes_skcipher_setkey(struct crypto_skcipher *skcipher,
- 			       const u8 *key, unsigned int keylen)
- {
-@@ -1398,7 +1434,9 @@ static int init_skcipher_job(struct skcipher_request *req,
- 		edesc->desc_dma = desc_dma;
- 		edesc->desc_dma_bytes = desc_bytes(desc);
- 
--		cnstr_desc_protected_blob_decap(edesc->hw_desc, &ctx->cdata, desc_dma);
-+		cnstr_desc_protected_blob_decap(edesc->hw_desc, &ctx->cdata,
-+						ctx->key_mod, ctx->key_mod_len,
-+						desc_dma);
- 	} else {
- 		sh_desc = encrypt ? ctx->sh_desc_enc : ctx->sh_desc_dec;
- 		ptr = encrypt ? ctx->sh_desc_enc_dma : ctx->sh_desc_dec_dma;
-@@ -2031,6 +2069,30 @@ static struct caam_skcipher_alg driver_algs[] = {
- 		.caam.class1_alg_type = OP_ALG_ALGSEL_AES | OP_ALG_AAI_CBC,
- 		.caam.is_paes = true,
- 	},
-+	{
-+		.skcipher.base = {
-+			.base = {
-+				.cra_name = "cbc(paes)",
-+				.cra_driver_name = "cbc-paes-km-caam",
-+				.cra_blocksize = AES_BLOCK_SIZE,
-+				/* kernel users only: never from AF_ALG */
-+				.cra_flags = CRYPTO_ALG_INTERNAL,
-+			},
-+			.setkey = paes_km_skcipher_setkey,
-+			.encrypt = skcipher_encrypt,
-+			.decrypt = skcipher_decrypt,
-+			.min_keysize = AES_MIN_KEY_SIZE + CAAM_BLOB_OVERHEAD +
-+				       CAAM_PKEY_KM_HEADER,
-+			.max_keysize = AES_MAX_KEY_SIZE + CAAM_BLOB_OVERHEAD +
-+				       CAAM_PKEY_KM_HEADER,
-+			.ivsize = AES_BLOCK_SIZE,
-+		},
-+		.skcipher.op = {
-+			.do_one_request = skcipher_do_one_req,
-+		},
-+		.caam.class1_alg_type = OP_ALG_ALGSEL_AES | OP_ALG_AAI_CBC,
-+		.caam.is_paes = true,
-+	},
- 	{
- 		.skcipher.base = {
- 			.base = {
-@@ -3812,6 +3874,11 @@ static int caam_cra_init(struct crypto_skcipher *tfm)
- 		 * AF_ALG refuses ALG_SET_KEY once an op socket exists, so
- 		 * concurrent jobs all decapsulate the same blob into the same
- 		 * black key.
-+		 * In-kernel users of the internal cbc(paes) set the key once,
-+		 * before any request, as well. It also relies on the black
-+		 * key being decapsulated identically by every job, which ECB
-+		 * black keys are; CCM ones, with their random nonce, would
-+		 * need a buffer per request.
- 		 */
- 		ctx->protected_key_dma = dma_map_single(ctx->jrdev,
- 							ctx->protected_key,
-diff --git a/drivers/crypto/caam/caamalg_desc.c b/drivers/crypto/caam/caamalg_desc.c
-index 04c1105eb1f5..db3bbba67c8b 100644
---- a/drivers/crypto/caam/caamalg_desc.c
-+++ b/drivers/crypto/caam/caamalg_desc.c
-@@ -1410,6 +1410,7 @@ void cnstr_desc_skcipher_enc_dec(u32 * const desc, struct alginfo *cdata,
- EXPORT_SYMBOL(cnstr_desc_skcipher_enc_dec);
- 
- void cnstr_desc_protected_blob_decap(u32 * const desc, struct alginfo *cdata,
-+				     const u8 *key_mod, unsigned int key_mod_len,
- 				     dma_addr_t next_desc_addr)
- {
- 	u32 protected_store;
-@@ -1417,7 +1418,7 @@ void cnstr_desc_protected_blob_decap(u32 * const desc, struct alginfo *cdata,
- 	init_job_desc(desc, 0);
- 
- 	/* Load key modifier */
--	append_load_as_imm(desc, KEYMOD, sizeof(KEYMOD) - 1,
-+	append_load_as_imm(desc, key_mod, key_mod_len,
- 			   LDST_CLASS_2_CCB | LDST_SRCDST_BYTE_KEY);
- 
- 	append_seq_in_ptr_intlen(desc, cdata->key_dma,
-diff --git a/drivers/crypto/caam/caamalg_desc.h b/drivers/crypto/caam/caamalg_desc.h
-index 323490a4a756..ae673b596a6d 100644
---- a/drivers/crypto/caam/caamalg_desc.h
-+++ b/drivers/crypto/caam/caamalg_desc.h
-@@ -117,6 +117,7 @@ void cnstr_shdsc_xts_skcipher_encap(u32 * const desc, struct alginfo *cdata);
- void cnstr_shdsc_xts_skcipher_decap(u32 * const desc, struct alginfo *cdata);
- 
- void cnstr_desc_protected_blob_decap(u32 * const desc, struct alginfo *cdata,
-+				     const u8 *key_mod, unsigned int key_mod_len,
- 				     dma_addr_t next_desc);
- 
- void cnstr_desc_skcipher_enc_dec(u32 * const desc, struct alginfo *cdata,
-diff --git a/include/soc/fsl/caam-blob.h b/include/soc/fsl/caam-blob.h
-index 922f7ec3e231..13c21c7e4c2e 100644
---- a/include/soc/fsl/caam-blob.h
-+++ b/include/soc/fsl/caam-blob.h
-@@ -38,6 +38,14 @@ struct caam_pkey_info {
- /* sizeof struct caam_pkey_info */
- #define CAAM_PKEY_HEADER		4
- 
-+/*
-+ * A key of the CAAM's internal cbc(paes): struct caam_pkey_info, the
-+ * CAAM_BLOB_KEYMOD_LENGTH-byte key modifier the blob was encapsulated
-+ * with, then the blob
-+ */
-+#define CAAM_PKEY_KM_HEADER		(CAAM_PKEY_HEADER + \
-+					 CAAM_BLOB_KEYMOD_LENGTH)
-+
- /**
-  * struct caam_blob_info - information for CAAM blobbing
-  * @pkey_info:	 pointer to keep protected key information
+ 	/*
 -- 
 2.43.0
 
