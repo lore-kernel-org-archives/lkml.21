@@ -1,58 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794966138;
-	b=LpvNPWXdeuDB2dUCpgvPaO4cXWdKCh5TtCTbYt/0WoliQMl2nT8FWm+FuizW7v12ayYQ
-	 xq0jSPugt+dRkeKJAvdrtJnp3IuxgQlGkENYSWNR4bU0E/EXdtr9GMX3SdIwPJcp9XrhP
-	 7Ng/3Bq5VMjAWeqm9CMoGcn8432gPqGo2eDuiui48SjgA7wKfwpG74OFzLjK9uOdmRswP
-	 cxDH2QkfILUXbYE12KC8ySAxzP4xXa4tLvfnnPVKl8HQlAHkHUjluLzxBKnr/KT26ChV9
-	 3Z8cEtXjLeu5SdYJCNbEbtvk3wSWRsBcU2GGZj+kqbZ5A3/21T7mabZRYXvbWhwiS/Q==
+	t=1794966158;
+	b=GI7TBkf1kp2KS8IBFjBIbG47hAgUS4XYXXp8+jQBeH6zOdg0tzm4iCWoOKnttBkoCTnH
+	 WQrB6AJe8Duv8Whw3dpVBzVK9MUsapOAg6SGtijxxvzM8d/wCzrHDNxk1Nw3bYpuvEnvK
+	 4YBBB7NGC0CF/pyLMU08M2E38Qgfaff4T5huOQxJF87TDaxshx/hv/5nrzCn6nOj+zSC5
+	 pvU5PLZY+ocld+ukXjJH0JoENv1MEX7gTztKsmoE7jC7po4nD6yXLy8P5kfrKj0R1cTmv
+	 lvx7LxKOZ9pp0bam9WCTloV1os+pmyQqjwNX+xYQbvUuwzOt2FutWO6woPAG0aw4frw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794966138;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	b=L6+Bp0f0diQR6UkLZvLWvWsdahW3g+iiL9WCEpEaxNnBz/8hnKaBFhcOYBZZjz6MkYeS
-	 XHYG2oCpBQ36smG6qA20Uu8HpbXRVd5Ke7rcNa7jIL2JTRQkJ+FqCxdrnozxAu6UaaCn8
-	 rGyAp16eXypvTePpL1Hcav3CxoH4A3cERdoYRwgIcORKVfnsHARal2UHQpq+UjUL3bpV+
-	 JfZUkAaT4ZE8T5BSQ38cdJ/YMSAceR1qwRHXZN/CMLiLKJHY/SfrrIf1gTtPmoCKnFv1w
-	 WNlcDEt1Z/OWMrBn4rpTOMj8nkTzDTFYR4mt69u4JWUwDC85D76RNGflXTezsOybBNw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794966158;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=ZjfWekzq4/sRPKRMmFj7v/AEpXemuhGVbDD4ndLcqmY=;
+	b=xNt4yvd4oQgdiz4HBFt+56IhsPLVkxyBoEd9dR93dVALKAUAgIuF6MMZD0mjy5rHHlN1
+	 tpGffnjcn6LweYrjg+dd8EAqI+p+OHhPPLRx2/+04h1v1tzOpPXKpR7F9y8cRuiQa/p5o
+	 wp2Ni8yFN717h2ojLWzREYibQm6kbBAUaG8S3hc0qAKWny+DPsdN2Fua+KDKJWOTtDUBR
+	 I5jyQXpJyxTpzLXmvYmUOz0R/2yGXUfm7cI9PQQzZEfBiTIuoXO9cZhbkn33WLMwrx/vl
+	 TP1E0LlACYQHbweoCAw/izJOZCyfEwLeToize6Vq7n0CyOzPuOtJ3rtifavTzWtRjtQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iH4YY5uU;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F78A606A31C;
-	Wed, 18 Nov 2026 01:42:17 +0000 (UTC)
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=OdRnApPq;
+	arc=none smtp.remote-ip=111.22.67.139
+Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 353CF606A31C;
+	Wed, 18 Nov 2026 01:42:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 353CF606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iH4YY5uU
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C3EA1F000C4;
-	Wed, 18 Nov 2026 01:42:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794966137;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=iH4YY5uUVwHBPFQE04mnSbMXiYue6UbP6zaeL750IRaxXmzTFEbOC7MV7VXxegSMR
-	 MULt6xkNX1UT06QImDHmZJIcg6BtUNiCfAMz9vHaK+744cb9uvQeseueVafWGX3h4s
-	 5amIqPetvROzbKbMLptsiHqTqIXPIWl5buvAXBHdJiJNdXCpwM3s55VLapn6/1IENh
-	 80CXkak161loEGxqnoMttU6OiNTQcWP2PkhB9TZW0E2Naoc99/OelZzS3eTGp55SLW
-	 t04o6nHb8o+4cUUzTudM4lQo3L36nvs4/q0eJ9Z+fX1EUvZlALRGtb2zoxysXhJDJZ
-	 JtSmufG3atWQw==
-From: netdev-bot+sinfo@kernel.org
-To: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-Cc: chester.a.unal@arinc9.com, daniel@makrotopia.org, andrew@lunn.ch,
- olteanv@gmail.com, sean.wang@mediatek.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] net: dsa: mt7530: fix regulator leak in mt7530_setup()
-Date: Wed, 18 Nov 2026 01:42:16 +0000
-Message-ID: <179496613691.3291.15730962134420645853@kernel.org>
-In-Reply-To: <20261118014114.1855-1-laixiangwu@cmss.chinamobile.com>
-References: <20261118014114.1855-1-laixiangwu@cmss.chinamobile.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=OdRnApPq
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=OdRnApPqBadmTms5nquAyOq4wuofPZjv8yZ/S7EbX6R9til8+1zgGQqHjJU2OdoTtXUt6+NDW4eWZ
+	 cS8AqriS0U0HoPbWB1423N0gAQZGT4jGJ781Ywnchmy3ZjbSgVMTs9Hg3TeXQKznMBZNSpSKbCIGNV
+	 LUiZnSmf9uoC7kos=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app01-12001 (RichMail) with SMTP id 2ee16afd028b05c-e9a37;
+	Wed, 18 Nov 2026 09:42:36 +0800 (CST)
+X-RM-TRANSID:2ee16afd028b05c-e9a37
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.97])
+	by rmsmtp-syy-appsvr06-12006 (RichMail) with SMTP id 2ee66afd028ac77-c42b3;
+	Wed, 18 Nov 2026 09:42:35 +0800 (CST)
+X-RM-TRANSID:2ee66afd028ac77-c42b3
+From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+To: peter.wang@mediatek.com,
+	chaotian.jing@mediatek.com
+Cc: chu.stanley@gmail.com,
+	alim.akhtar@samsung.com,
+	bvanassche@acm.org,
+	stanley.chu@mediatek.com,
+	linux-scsi@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+Subject: [PATCH] scsi: ufs-mediatek: use devm_regulator_get() for the va09 regulator
+Date: Wed, 18 Nov 2026 09:42:34 +0800
+Message-ID: <20261118014234.424-1-laixiangwu@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.50.1.windows.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,26 +74,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Hi!
+ufs_mtk_init_va09_pwr_ctrl() obtains the va09 regulator with
+regulator_get() but the reference is never released with
+regulator_put(), neither on driver unbind nor on probe failure. The
+other regulators handled by this driver (dvfsrc-vcore) are already
+obtained with devm_regulator_get_optional().
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+Use devm_regulator_get() so that the reference is released
+automatically when the UFS device is detached.
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+Fixes: cf137b3ea49a ("scsi: ufs-mediatek: Support VA09 regulator operations")
+Signed-off-by: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+---
+ drivers/ufs/host/ufs-mediatek.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
-
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
-
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
+diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
+index 5b6bff2cf..426af10b3 100644
+--- a/drivers/ufs/host/ufs-mediatek.c
++++ b/drivers/ufs/host/ufs-mediatek.c
+@@ -692,7 +692,7 @@ static void ufs_mtk_init_va09_pwr_ctrl(struct ufs_hba *hba)
+ {
+ 	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
+ 
+-	host->reg_va09 = regulator_get(hba->dev, "va09");
++	host->reg_va09 = devm_regulator_get(hba->dev, "va09");
+ 	if (IS_ERR(host->reg_va09))
+ 		dev_info(hba->dev, "failed to get va09");
+ 	else
 -- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+2.50.1.windows.1
+
+
+
