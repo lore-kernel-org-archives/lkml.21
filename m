@@ -1,64 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=34.202.193.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795032294;
-	b=0EjkfBjlERgGylsfgEuQFmczbaVZFP7ag/7pWPr/TCdDux6Q/G5BjGORcxbCkq7WIj9G
-	 laF0fWGO3cdNj39D6S01usIhEp2ApioAKkbc16skparlDggq7oFa7XEzKj/YB3etNOuHm
-	 PVTYmS5Xkvyc/fijGX9ENIDVsh393CZpZoWMlbjpJKSVdGHhfI8zW3hzgczRp4s+sgC3U
-	 wDgSm7KdTj/lpAtq5kRC0xJKLBv5iGHWh7djrrFAH/fkgAmGIfC1gqq3yNUIKLNSFW8Gu
-	 XbbLp3kUZnEVDarlwIYtnhsAQ5jzda7Gkm7oW94oZkt0fWZmdX6ymsoIuNxJo1hMQPQ==
+	t=1795032308;
+	b=E+ZPyuapt0Hbt4+MLxKw34n1ERqzConyHkapm24/uOWKnN6t51umtSTc/SO3Chx1tDFW
+	 ogZQe6wNUFcy3abH186DCXYhx0K4qbLIBXexkcE2dyI3GQzSAKAaMUu4BpD8ii7CUNPaH
+	 hrCIc6TUpxaUJ39L1AImgEwVHJ83U2Hgj1NoOFTmccGhqo42s3EODDUqVFYlayXAtlzZV
+	 0dLx8XGTOS85RNe1QXlz2CAi65BnmtZT+ha+IQiuHPFCly8PhCcXbocl970txDcRHgWKY
+	 ipNxsN5mOxS5JI/4FBaMgFobicLz9Y49E7aq6bvUTxx5Pl6Bu5JvPTMVpAgm5Kn2KEQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795032294;
-	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:Feedback-ID:
-	 X-Pm-Original-To:Received:Message-ID:Subject:From:To:Cc:Date:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
-	 User-Agent:MIME-Version;
-	bh=GZNlEJ57vvQoyzdnQf9Tf6a/soql6P4/Cbt/mYWG1eE=;
-	b=U7q0sH15dPkvS3HtYtPKq+kO9/EIMXaQwAQz1QvJyvuB8121tGMfPs7Rsm+VE6F3xitU
-	 8aDcOQ6RXvuaVmzrq1Btsy26i5Ybr1nfmrT4y3Fmu9CXd/tiNmfIiswR4pCL+m9S5DD9T
-	 ANIPJQ2iLXGdxxbfAl7OjqRTm+qb1aerRduPWT/aQN2yJHBs5hTyn5RWP4XBSx9A9xQXw
-	 EGrIUpZYQOqIcoPrDLcYYmilU3JBRKfF2exj13gepFJGf4Up4BdKoJ5H7On+8jGbsZJwA
-	 mDJLqV0fJ/NXeo4yMQ2JD0Foc2KClE/jsQBTlO/Zjc8suFwPyY9PfJ/2hPsqGLpMD0A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795032308;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=z+2tht9hWpEGbEFYrk0DIzYT54hNPtpFJmXd2hLjDks=;
+	b=tRDNiuzKvKHIeikRy3AMdwMV/C2+8QDpyU4ULhotWbug/AEW6W5HEj1P/dyl5LlR8s6z
+	 DMxgSc/ByCZbJbSU22vBMukVCWRKRzVMKgfrH8E43XiXP3lAxbk8AcS9PIBZnb7ek6vop
+	 VSZMWkPm5iAXykBt33QJAFSdaFvhfzx/5LHbBEOjTFRM722E/7s9DPuylDqqMH76+cDQr
+	 haYQpUGlXarYzVGsZdo46VI8P4t5hlvZcIq9MDjD6jajo3ShkgwduplvfM2qg7p/A8UPs
+	 PyDqa1olk6z5pSaxRX6qTu6DBZg7x8iSufnX5/C9fMBGd8lyA1Zgl9W7lfQLSFNMFMQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=sverdlin.org;
-	spf=pass smtp.mailfrom=sverdlin.org;
-	dkim=pass header.d=sverdlin.org header.i=@sverdlin.org header.a=rsa-sha256 header.s=purelymail1 header.b="IYRG/xW4";
-	dkim=pass header.d=purelymail.com header.i=@purelymail.com header.a=rsa-sha256 header.s=purelymail1 header.b=opf4l8EM;
-	arc=none smtp.remote-ip=34.202.193.197
-Received: from sendmail.purelymail.com (sendmail.purelymail.com [34.202.193.197])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cQvqDo0a;
+	arc=none smtp.remote-ip=74.125.82.177
+Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77494606A33B
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:04:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77494606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=sverdlin.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sverdlin.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3CA90606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:05:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3CA90606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=sverdlin.org header.i=@sverdlin.org header.a=rsa-sha256 header.s=purelymail1 header.b=IYRG/xW4;
-	dkim=pass (2048-bit key, unprotected) header.d=purelymail.com header.i=@purelymail.com header.a=rsa-sha256 header.s=purelymail1 header.b=opf4l8EM
-DKIM-Signature: a=rsa-sha256; b=IYRG/xW445PJRT4UmZRgekHROgeT6auxlIgxTpu/5m7YtxNvPlNdUcWI1CD5+VuSFe+IO36Mr/lirfI0fK+ivsoI9AaED6fPk+g3kJxhHWEUuQVVxMCHQzKIWeA1UARlPrsB7xeWtdjO0vs+GEmlxplHXIGPDyQBJP1+Tu3mmIxnmZ4cVo5gFDi+20rTGiLr1qRGaId64iJgmQrbrh74svfiqAdTi3wofMUkl2jy8rfD9+vvV99c9lVqJe5Osc3PYaPs3ndbY0x9/pUrBs/AfASlJPa2x2HWLb0O0q3kXCcg1gMOAvVLbdT7TRp7pD78aNFdaIIbhtbBXdM7+NavHA==; s=purelymail1; d=sverdlin.org; v=1; bh=GZNlEJ57vvQoyzdnQf9Tf6a/soql6P4/Cbt/mYWG1eE=; h=Received:Message-ID:Subject:From:To:Date;
-DKIM-Signature: a=rsa-sha256; b=opf4l8EMklNabkEMKp+mORQZKQyKsAWUzdyFmxlVmoLTVLz/Wl0EibNt5CvrdJpBngfLhdUhBCAO9MpR722hU9p4XzRv3MUv//T64oEgUzsJom4KySXNG5M3txHPExJVchEqEWhLvcgo+XrHd0OfMEFVV1zK6SeV5rkVFUdbGbotazM66Oi0hBH9UgJ+TnDZApWnmSftQ1OhtFbPpYRar3C8NrboSQrWvYroKdT0NOGnmxso3S+iLeSGom4Z5SNZ9OuWNMhxaZF2fVZzWWfgMYmn8w8hofIyFa0X6DRqbAecChE0mKI+oSmXeZAAS179BnCS/dgifmihdmQ05+tglA==; s=purelymail1; d=purelymail.com; v=1; bh=GZNlEJ57vvQoyzdnQf9Tf6a/soql6P4/Cbt/mYWG1eE=; h=Feedback-ID:Received:Message-ID:Subject:From:To:Date;
-Feedback-ID: 815097:39668:null:purelymail
-X-Pm-Original-To: linux-kernel@vger.kernel.org
-Authentication-Results: purelymail.com; auth=pass
-Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 885494569;
-          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Wed, 18 Nov 2026 20:04:09 +0000 (UTC)
-Message-ID: <8a2d6ac552e7a5b7142dc00b72edd0d3b7a1382c.camel@sverdlin.org>
-Subject: Re: [PATCH v2 5/6] arm64: dts: allwinner: a133: Add CPU OPP table
-From: Alexander Sverdlin <alex@sverdlin.org>
-To: rajanyadav0307@gmail.com, Andre Przywara <andre.przywara@arm.com>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Cody Eksal <masterr3c0rd@epochal.quest>, Paul
- Kocialkowski <paulk@sys-base.io>
-Date: Wed, 18 Nov 2026 21:03:59 +0100
-In-Reply-To: <20261118-a133-series-v2-5-8bcec9c9aadf@gmail.com>
-References: <20261118-a133-series-v2-0-8bcec9c9aadf@gmail.com>
-	 <20261118-a133-series-v2-5-8bcec9c9aadf@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.62.1 
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cQvqDo0a
+Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-3282db206d3so3839637eec.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:05:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795032307; x=1795637107; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=z+2tht9hWpEGbEFYrk0DIzYT54hNPtpFJmXd2hLjDks=;
+        b=cQvqDo0adnK7+j+Y1uo8XzQfmY8Bo1NulbOXDjMiiFgpH44YZ3VzH9cEKtEfO8Jj3H
+         vJShE8R/Sl9AQPchvwmBfYUD9jrGg6rc7zAKv1rfdV3kjCBwwIMqE6zFJtYgQZuPkV1g
+         RlqAjRa98sR9bpQYvtwx41D2DOkr4AaVY8ok5QEM9UnD1K2rPiQNyrdB6qPxh97wARzn
+         9q5BfbmE1BlfuwtLAMaDRLXwipLCK5W+8fLykjOZLPQudmUW3g0V50k/1A/3teiZsmiL
+         fIpzX//eDzY8WEZf99bw+VeyzopJx9OOqD9fBNkwSc9tYOkrfBF6m2SJvd4i9HSVoEXn
+         xWbg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795032307; x=1795637107;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=z+2tht9hWpEGbEFYrk0DIzYT54hNPtpFJmXd2hLjDks=;
+        b=xQW5AmtYN49l16rNKS6xDhsUM6ZLtcrJY45qZ0plzf0bqqt4RWwrcKsnmdvMwz3S+7
+         ayNLJ8fiZCtTTV1fBNlVr2Pm+xlE+f8LCu8KnirIeFGdowy5JWa+IwbVsiGx461KJevv
+         5GzpWQDBKOsiB2IU1Ro030726Su1qhpG/wZWMHXv8mewHiDlK/d84VLOGq0D/U5APtyz
+         F1ACmutQalNUG5J+76xPoRBw3WFUeTinUQfIYLogD6iOtJ13qQMXSS86mNj9UDt9tm1O
+         OdcxSDSLt1KxY23YIefBpuZfmmiyWCbvYGlBIiZo3mG7AJxQuJjA+XCyrMbxDq0VsS51
+         YaHw==
+X-Forwarded-Encrypted: i=1; AL+hErFfVlzBtxXW5JMhbryYp9MAY73zxPvPuH4BB9vNZSLWV/eXI+4N/ll0uJOBTQQwDY/vDbmiMP5ZGFEaEII=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+TZQhMn23/NPI1gEljG2Y6w6oghAJYaGu8/gJ5nUlYnuFDFxFl
+	Gr3Xq+I0HoSu37+TpnCMXYyWn5BaRS09DiY3UeTmvo6hwIm/n3nvBGDwWlzkbv3x
+X-Gm-Gg: AZFdTZfaAXVWiNdSrV+vpszeJtK7nCkLwEj+iudBoUcU08wihl4gCDvWj36KGUbSeTe
+	Jc1FeCI3r9bOnBSCdF8cj6Awz0jeZ2k9a+QHSgDyXCQB/AtDi7rgz8Uhr3BBZfoagVON0VoCE/b
+	ueTzEKFdVfEBzWloApj2weMN46F3P+koRlmkI144K5wkygvAvfI3YTCv7tVvh9aEyygJ30w8dAX
+	2zQk0tQy7wQ4IA/ra4R40dYcvwbWG5suOkPp1/Z86D/hYf2l3ZjLLmJTUbBu6n6FB1CowfPFcxP
+	eMcltUkUDo27HnkFuCXW4J9aURxvNQ8+HsZMTWKuILJlejn/6P+NeOdtLdlb3JTi7Qywvjo1Yem
+	JMkKhKloC5YyJMINk3tcWP0r/tW94O1Qwf1qt6oTvvGvcs6YGUnVZGs+Ib63EZXVILMEKsBPjgn
+	GKz6frglQI6/wE73LcTUHMpXHDPgJ2xKzKk73Mok7dkxR7FwHkoRLHzoKU1iTG+/mivp6fIXm2D
+	pbt/2QtJxM/nEIlWmWbcRKSguZtZaTvLRlc/YlLNTG48eGdG4fCXwk2EjdRFkqG7TYp9HgvFjmD
+	jMGf5ZVLqtw8cFaUSaVx5E7lC8f2MvvKToROqPQ3IZvkfkd1p7it4cAYlRej+QPhk/iFZ/c4yTy
+	KX1lMEdPsiU76RJtoyZWlDwFTaO/Z
+X-Received: by 2002:a05:7300:2150:b0:383:bc0:77ea with SMTP id 5a478bee46e88-3830bc0895fmr2635595eec.30.1795032307141;
+        Wed, 18 Nov 2026 12:05:07 -0800 (PST)
+Received: from Mac.localdomain ([12.162.234.74])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a6fe75b5sm9452407eec.15.2026.11.18.12.05.05
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 18 Nov 2026 12:05:06 -0800 (PST)
+From: Ahmad Byagowi <ahmadexp@gmail.com>
+To: netdev@vger.kernel.org,
+	vadim.fedorenko@linux.dev,
+	richardcochran@gmail.com
+Cc: andrew+netdev@lunn.ch,
+	arkadiusz.kubalewski@intel.com,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	jiri@resnulli.us,
+	kuba@kernel.org,
+	linux-kernel@vger.kernel.org,
+	pabeni@redhat.com
+Subject: [PATCH net 0/4] ptp: ocp: fix timestamp teardown and DPLL routing
+Date: Wed, 18 Nov 2026 12:05:04 -0800
+Message-ID: <20261118-timecard-common-301f823ddd-0-ahmadexp@gmail.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,113 +103,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Hi Rajan,
+These fixes affect existing ptp_ocp boards and do not add WiWi support.
+They were identified in the public review of the WiWi series and are
+split out so they can be reviewed and backported independently.
 
-On Wed, 2026-11-18 at 04:52 -0600, Rajan Yadav via B4 Relay wrote:
-> From: Rajan Yadav <rajanyadav0307@gmail.com>
->=20
-> Add the A133 CPU OPPs from the vendor BSP (sun50iw10p1.dtsi), plus
-> 1608 MHz for b0 and b1 from the vendor table in the factory firmware of
-> the KickPi K5C. There are ten voltage sets, speed0-5 for the a0-a5/a6
-> grades and speed6-9 for the "high speed" b0-b3 grades.
-> opp-supported-hw selects the frequencies of each grade:
->=20
-> - 1464 MHz only for the a grades
-> - 1416 and 1512 MHz only for the b grades
-> - 1608 MHz only for b0 and b1, the revision A-E "high speed" grades
-> - 408-1320 MHz for all
->=20
-> The highest voltage is 1.18 V, inside the 0.81-1.2 V recommended
-> operating range of VDD_CPU in the A133 datasheet (V1.5, table 5-2).
->=20
-> The BSP uses 1008 MHz where the A100 table uses 1080 MHz, at the same
-> voltages for a0-a2. U-Boot starts the CPU at 1008 MHz, which mainline
-> now reports as an unlisted initial frequency. This table follows the
-> BSP.
->=20
-> The BSP table stops at 1512 MHz, although some datasheet versions list
-> 1.6 GHz for the A133. The factory firmware of the KickPi K5C (Linux
-> 4.9.170, built January 2026) has the same table plus five OPPs:
-> 1608 MHz for b0 (1.18 V) and b1 (1.13 V, at most 1.14 V), and 1416 MHz
-> for a0-a2. This patch takes the 1608 MHz OPP from it.
->=20
-> The K5C is a b2 part and never uses this OPP. With a test-only change
-> that forces the grade, the CPU PLL locked at 1608 MHz and the PMIC was
-> set to 1.18 V for b0 and 1.13 V for b1. Forced to b0, two 20-minute
-> runs of full load on the K5C without a heatsink reached the 90 C
-> passive trip after 10-13 minutes; from then on the temperature stayed
-> between 83.5 and 90.4 C.
->=20
-> The table has the A100 compatible as a fallback and the speed bin cell
-> first, so a kernel without A133 support selects speed0-2 from the speed
-> bin and gets the voltages of the A100 table, with 1008 instead of
-> 1080 MHz. It needs the efuse cells added to sun50i-a100.dtsi in the
-> previous patch.
->=20
-> A script compared every voltage and the frequency set of every grade
-> with both vendor tables. It found no difference to the BSP file other
-> than the added 1608 MHz OPP, and no difference to the factory table
-> other than its 1416 MHz OPP for a0-a2.
->=20
-> Claude Code (Anthropic) drafted this table and its message from the
-> two vendor device trees (numbers only) and wrote the comparison script;
-> I reviewed it and tested it on a KickPi K5C.
->=20
-> Suggested-by: Andre Przywara <andre.przywara@arm.com>
-> Signed-off-by: Rajan Yadav <rajanyadav0307@gmail.com>
+Prevent timestamp rearming during detach with a mutex-protected stopping
+state. Then correct DPLL selector values, disabled-input frequency
+reporting and the DCF77 output frequency. Each fix has its own Fixes tag.
 
-I've re-tested the whole series on HelperBoard A133
-("marking 0x1400, bin 4, revision 6: speed grade 9"),
-no 1608MHz for me (as expected):
+Validation used source-derived C tests under ASan/UBSan. The old source
+reproduces rearming after detach's disable. The new source rejects late
+enables, waits for an enable already in progress, and drains a mocked
+active IRQ. Targeted mutations of each DPLL fix fail the regression
+tests. The driver object builds against this net base with W=1 and
+KCFLAGS=-Werror. No physical card, real IRQ delivery or in-kernel
+use-after-free reproduction was tested for these fixes.
 
-# cat /sys/devices/system/cpu/cpufreq/policy0/scaling_available_frequencies
-408000 600000 816000 1008000 1200000 1320000 1416000 1512000=20
+The report came from netdev's Sashiko AI review. Codex prepared the code,
+tests and changelogs from that review and the upstream sources, following
+the request to separate common fixes and validate removal ordering.
+This origin information follows Documentation/process/generated-content.rst.
 
-Reviewed-by: Alexander Sverdlin <alex@sverdlin.org>
-Tested-by: Alexander Sverdlin <alex@sverdlin.org>
+Related review:
+https://lore.kernel.org/r/179502617840.3136.12704245716223038161@kernel.org
 
-> ---
-> Changes in v2:
-> - Add 1608 MHz for b0 and b1 from the factory firmware table, as Andre
-> =C2=A0 asked; the commit message describes the source and the K5C tests.
-> - Alexander's Reviewed-by and Tested-by for v1 are not carried over
-> =C2=A0 because of this change. Alexander, could you check whether they
-> =C2=A0 still apply to this version?
-> ---
-> =C2=A0.../boot/dts/allwinner/sun50i-a133-cpu-opp.dtsi=C2=A0=C2=A0=C2=A0 |=
- 182 +++++++++++++++++++++
-> =C2=A01 file changed, 182 insertions(+)
->=20
-> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a133-cpu-opp.dtsi b/arc=
-h/arm64/boot/dts/allwinner/sun50i-a133-cpu-opp.dtsi
-> new file mode 100644
-> index 00000000000..dd5fdeea7ea
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/allwinner/sun50i-a133-cpu-opp.dtsi
+WiWi v4 will be based on these fixes after they are available in
+net-next; it will not carry a second copy of the common fixes.
 
-[]
+Ahmad Byagowi (4):
+  ptp: ocp: prevent timestamp rearming during detach
+  ptp: ocp: use hardware selectors in DPLL frequency operations
+  ptp: ocp: report disabled SMA inputs consistently over DPLL
+  ptp: ocp: correct the DCF output frequency
 
-> +=09=09opp-1512000000 {
-> +=09=09=09clock-latency-ns =3D <244144>; /* 8 32k periods */
-> +=09=09=09opp-hz =3D /bits/ 64 <1512000000>;
-> +
-> +=09=09=09opp-microvolt-speed6 =3D <1180000>;
-> +=09=09=09opp-microvolt-speed7 =3D <1130000 1130000 1140000>;
-> +=09=09=09opp-microvolt-speed8 =3D <1100000>;
-> +=09=09=09opp-microvolt-speed9 =3D <1080000>;
-> +=09=09=09opp-supported-hw =3D <0x3c0>;
-> +=09=09};
-> +
-> +=09=09opp-1608000000 {
-> +=09=09=09clock-latency-ns =3D <244144>; /* 8 32k periods */
-> +=09=09=09opp-hz =3D /bits/ 64 <1608000000>;
-> +
-> +=09=09=09opp-microvolt-speed6 =3D <1180000>;
-> +=09=09=09opp-microvolt-speed7 =3D <1130000 1130000 1140000>;
-> +=09=09=09opp-supported-hw =3D <0xc0>;
-> +=09=09};
-> +=09};
-> +};
+ drivers/ptp/ptp_ocp.c | 30 ++++++++++++++++++++++++++----
+ 1 file changed, 26 insertions(+), 4 deletions(-)
 
-[]
+
+base-commit: 2a324a58a084c5cfd7e5a2f55e0786bee170a4a5
+-- 
+2.54.0 (Apple Git-157)
+
