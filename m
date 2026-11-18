@@ -1,57 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795006305;
-	b=3FmAjXkqG4j1U46enCyR2gsfOwxg0fMoqnzsz+QfpX4keLA2kb5mgBFeMkIlDqbw+jHH
-	 /AhRQJubwLZgZnTWtKi+4OmJ49wVlDLxayVQyfKBywJOz28aFGfJ7hCwEc6yoKB+WOEOJ
-	 VyvuXav1FITMzJjhd6UNu9/JQ35sjuKXtygh8H9TwJ9A5CJd7r5k5eYEH2QbT5hbbzCsW
-	 xQn8ZHK2nC+aWOX25ZlQeoaNjxwqsqSjTR9E1X7dKIZ3uWj1Gbge2zQlsqG6xkruUS1av
-	 nsja0irtRb0YHiAeLzaA+CyB79WxhHMLvpnUgeiJ3H3KX27psZ7YKZVxFOfehA50J5w==
+	t=1795006350;
+	b=caGCFDOQaw/EeVUEJ7NMtfixnkwQ2y9Mpc6uhbopS5FQr+ViwhH1tengnTPPVa2TIg3h
+	 Qj27vimWdyXJfG29nygtgQcdd/Wht5z4V4Dg3dc4N8x03HEM2dGpNM9cRrBwiBSqn6DHJ
+	 evAFGNodAefsi+wyB0In7hX57AVOMhLrAaxfnu5EdBEjxVVh5NRh97Z9xA43Oq6ZgU88A
+	 1RqU2/2TtOhtND9tS2aTNfIdvWaBoMhUH3fq3HKmnhirYd0C58anOYMn3zjSSqOG5oBUS
+	 b9QWiLMH6CMlhS+jxHawqG5gWCfWpkHjjq8tNcCBzz4uHyeIYn2o10BbEjp/dPiicRw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795006305;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=1Yx3bStzxWZo1rxtm2K8qXh4OTe3FaMWmM4IKC0CO7M=;
-	b=dYKokmpiGB+luMkfc3UC64EviwP6Cc94BD3g9yXzYvOS0Hw7z0YYdS0E+lldq3OeOkT1
-	 BNIwmFoJio5wUU8j85VKLHBTkzR2eH5rKoffDJFSOZwuCmVEZYa35CHj6Y6dn54pWmDg7
-	 nPMU6q4oePiQaysD6Hph5v2U3I5ZgaRZPTt5BjzM5QP8BWsCwUTfvsxNvab9RD5ys0yNM
-	 ynVKQ0E+s5bKDfWpuGTso1ditSK4NWdTAQhkVeItIAp62P81xrhdwTiOlQndxFPEyX5SU
-	 5BtT0ncNoWcRbx9kQIaVaj+0QBBvlCZymo9Rq4FIjy8X2Umn7pdHhd4/njv+4V0THMw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795006350;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Date:Message-ID:From:To:Cc:Subject:
+	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
+	 X-Spamd-Result:X-Rspamd-Server:X-Rspamd-Action:X-Spam-Flag:
+	 X-Spam-Score:X-Spam-Level:X-Rspamd-Queue-Id;
+	bh=LqoytvQBEvdhmatfXk26/boGuxDGBy8HsRRl2H2tnRs=;
+	b=s/t/xd87kFdkWo+slwzerVC4qV/JpgpjgVUhy8+w+vpR58IuTNs4N8Epw7x9ygSgYHpA
+	 jwk32oYICjdE4w7Ke97dxzmbISRhJPgZs0lBdrjaj6hvS3wgpCblemxfIe4Q9AsJXxW9f
+	 80tVms0dZgSjP+UjakVQkx1DxyP7jUzQ6MZBbe+G63EtpLeX8b2jaP/8jQLdN1L5QEAIL
+	 GLu+/0iy1Q8VUip1sDykMbj27YYnOnATOq9pOvZWIwutMFDIqzt46cL3Scz/rhyqxTtqd
+	 6fL7BOWb9p1WlRkhzViu9GwesIKHZnPvOs23SAeRcrutq36/V80AVCVztVtLzknppyQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y526emDJ;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=suse.de;
+	spf=pass smtp.mailfrom=suse.de;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=rDwAY5Cm;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=xTTeiKt3;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=rDwAY5Cm;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=xTTeiKt3;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 14544606A320;
-	Wed, 18 Nov 2026 12:51:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18357606A31C;
+	Wed, 18 Nov 2026 12:52:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 18357606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y526emDJ
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 2B9D51F000C4;
-	Wed, 18 Nov 2026 12:51:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795006304;
-	bh=1Yx3bStzxWZo1rxtm2K8qXh4OTe3FaMWmM4IKC0CO7M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Y526emDJs4OqmzMDD9aY+7lbVaNXBU+tDsbRZw9ZnEq2dartvGH8RplMRQtU+NSgb
-	 MW4XODZAQCifseGQ7E5rhhchBOhvEDg+X0HwHkM4Qd9dow/sT2ju7n0hpJjdf4YrmA
-	 rbGG/NiHd1pNgVTcaHeWuY6SIOcLqjJVgSBNw3sHbaPda74ygZNe3JmDaXth+ZFfZB
-	 RODlED1owxUqX8X01W6o2YFGJA4UPesMz8vowsizuF3Rfcif7ZTdpZOCxdx5Y3kSH8
-	 7QIxziRlVUIQy5/sd6mjY8Z41qNrRyIG+ZY5VcC14sMlkyV2IJ1CF142HxQ3aXuttw
-	 ODfZp1GXokiFQ==
-Date: Wed, 18 Nov 2026 13:51:41 +0100
-From: Bartosz Golaszewski <brgl@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shengchao.guo@oss.qualcomm.com>, linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: defconfig: enable the SerDes PHY for Qualcomm
- SA8255p
-Message-ID: <zcqjdhqvdieq7kwbhfbw6s74q35xedzuzcsffsugqgz7yzfs7q@dynjfs6njtix>
-References: <20261118-qcom-scmi-sgmii-phy-defconfig-v1-1-d0c7d2e881c7@oss.qualcomm.com>
- <c20a2a9f-f40d-4ef0-9aa3-f6eee24ed2b1@kernel.org>
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=rDwAY5Cm;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=xTTeiKt3;
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=rDwAY5Cm;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=xTTeiKt3
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 2CDB722171;
+	Wed, 18 Nov 2026 12:52:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795006348; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LqoytvQBEvdhmatfXk26/boGuxDGBy8HsRRl2H2tnRs=;
+	b=rDwAY5CmAvhlPE858Ls3CKhE/sbT1UgKfdmwamMnyM6dylSiu14u3h0+itWS729bGhuISx
+	eNS8n8tXPXjs5Gc+JzD4893xSqACgij3FZ2bv3AwMFhthJst8xl36DpwQDpVp8OITGrw+w
+	S2Kg2bbxGRL15IbSgKdQcsRb7H+Sj3A=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795006348;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LqoytvQBEvdhmatfXk26/boGuxDGBy8HsRRl2H2tnRs=;
+	b=xTTeiKt38Z3xcVn8Qqrl9YJf+Z2NjDHgMmjMz4rrI0r2t0kYHubqOWtBfe1xnfZSHhgCZ9
+	Va/3hyDH08aGxGAQ==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=rDwAY5Cm;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=xTTeiKt3
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795006348; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LqoytvQBEvdhmatfXk26/boGuxDGBy8HsRRl2H2tnRs=;
+	b=rDwAY5CmAvhlPE858Ls3CKhE/sbT1UgKfdmwamMnyM6dylSiu14u3h0+itWS729bGhuISx
+	eNS8n8tXPXjs5Gc+JzD4893xSqACgij3FZ2bv3AwMFhthJst8xl36DpwQDpVp8OITGrw+w
+	S2Kg2bbxGRL15IbSgKdQcsRb7H+Sj3A=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795006348;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LqoytvQBEvdhmatfXk26/boGuxDGBy8HsRRl2H2tnRs=;
+	b=xTTeiKt38Z3xcVn8Qqrl9YJf+Z2NjDHgMmjMz4rrI0r2t0kYHubqOWtBfe1xnfZSHhgCZ9
+	Va/3hyDH08aGxGAQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id DA099134E9;
+	Wed, 18 Nov 2026 12:52:27 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id /ZT8K4uf/WpeVwAAD6G6ig
+	(envelope-from <tiwai@suse.de>); Wed, 18 Nov 2026 12:52:27 +0000
+Date: Wed, 18 Nov 2026 13:52:27 +0100
+Message-ID: <87zev6wbck.wl-tiwai@suse.de>
+From: Takashi Iwai <tiwai@suse.de>
+To: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+Cc: Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ALSA: pcm: Fix potential device leak on partial registration failure
+In-Reply-To: <20261117-571e631490-alsa-pcm-0@mail.sdu.edu.cn>
+References: <20261117-571e631490-alsa-pcm-0@mail.sdu.edu.cn>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,35 +112,57 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c20a2a9f-f40d-4ef0-9aa3-f6eee24ed2b1@kernel.org>
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-Spamd-Result: default: False [-12.51 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	RCPT_COUNT_FIVE(0.00)[5];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	DKIM_TRACE(0.00)[suse.de:+]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Rspamd-Action: no action
+X-Spam-Flag: NO
+X-Spam-Score: -12.51
+X-Spam-Level: 
+X-Rspamd-Queue-Id: 2CDB722171
 
-On Wed, Nov 18, 2026 at 01:42:57PM +0100, Krzysztof Kozlowski wrote:
-> On 18/11/2026 11:31, Bartosz Golaszewski wrote:
-> > Enable the SGMII/SerDes PHY driver for the firmware-managed variant of
-> > the Lemans platform. This module is required for ethernet to work on
+On Tue, 17 Nov 2026 15:47:05 +0100,
+Guangshuo Li wrote:
 > 
-> Which Lemans? This is a generic defconfig, not vendor specific.
+> If capture registration fails after playback was registered, the PCM
+> remains in the BUILD state. Card teardown therefore skips its disconnect
+> callback, leaving the playback device registered and holding its parent
+> card reference.
 > 
-
-SA8255p as per the subject line. In order to not repeat myself, I called
-it "firmware-managed variant of Lemans". I feel like this is
-nit-picking. It's pretty clear on which platform requires that driver.
-
-> > sa8255p-ride.
-> > 
+> Unregister previously registered streams and release their timers before
+> returning the registration error.
 > 
-> `git grep` gives me only piece of a compatible, not even DTS. There is
-> no such board simply. We don't take changes for non-upstream boards.
->
+> This issue was found by our static analysis tool under development.
+> 
+> Fixes: ef46c7af93f9 ("ALSA: pcm: Embed struct device")
+> Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
 
-What do you mean? The full compatible is "qcom,sa8255p-ride", I dropped
-the vendor prefix as this is a commit message and I mentioned it's
-Qualcomm in the previous paragraph.
+Applied to for-next branch.  Thanks.
 
-The .dts is now in next as:
-  arch/arm64/boot/dts/qcom/lemans-sa8255p-ride.dts
 
-Bart
+Takashi
