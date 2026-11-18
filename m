@@ -1,112 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795041007;
-	b=o5K4tCpoj1Y0j1XTI2wbDyG5K3UamSZBTdAXCBnf8oosCx+MXb9j5/UXN1KHKRBDU9qp
-	 GayV++UXZ+WjKAtpEsIPp1G2heC1d2YHuqVl0ddy/ukgij3Em3Zq0T7T/cdFfteyGQlAc
-	 ccu6aJm0T0BcCbupNIHyALRbkb2Y/wUxuHHlcP9wt3jHQV91YcniEMdD4oRbd/cTboyX9
-	 CCQplJQvl1ihudTLydUm2ibwp8wkN/QoUgFy2nXtZcWLVrIy4ip/yZ+xLu5L+XFLpV1r4
-	 LAKFNxcLQmQFlSn/H4SpNoQ6pOk9hZ3LTvGoXM1yH27+wK1DIKb20fiCy5FVFEFEUeQ==
+	t=1795041009;
+	b=aKxnondH7SbGqYtcgQAV9e9lv6T5ddRgib1snlQkIycrSQ7tmeS2VmqasG1JUafHJuq+
+	 Mm5F4a/2Ma1hTwKMzoyxUFA+JFw4PUa+03uKxF3Yd0O6HiT6wvQTjn4ty3a6iU9fXh4Op
+	 UI1/QDftv3tz+Axeh62cGOY4asEYEAdUUaD4LQ0zpWHxSbPNcV6L8t+080ZSQTwdCAK0Z
+	 WxCh5HijL75c8xBZFKoGGWp7mLeTmHdXqbbj+Okcesa9xPfKypGZoJ4kRYhKEBKAcYbd+
+	 XTwpeGbBazdR2AkpduBEkkFfiNrymGFVqhQzr6n98NpG9w+0MDmYUujPGfFBLtzT0Hg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795041007;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=mwG2VB2Wght2+kRDBqQxxN0X/372ypCy9eDDgyMvCTo=;
-	b=1l3APBBWm0GURb1XOmbyn1ZEBqR8M+KRe2PpmMGhdSVxSN+tuXgjqkg0D4HugS6vXOEU
-	 g6PE4v6nd8M2GUA062466ctvZhKDbS9tSfV5hWANedqxNoZm9XZEaac0bN4unTBlVKnTf
-	 3/B1Qr0xfRaCgyNDtbuJXAk+GdKk/GJqhJ+n8/NJwVuHEr7Qp7G7xr+fquNsWi5CI/17c
-	 cEnTg+sz32McrMgMyN8+WnMa4ThbhnIL7ThzoxdfE1uxPTAPWAzREhAW28/Q029jIninc
-	 YbXX+BPUxMGjJHjAt0diCGeSBLnZ+DN5/T6dFxATHdHsL7hTo4hvzCpIjMIH6Mxvwgw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795041009;
+	h=Received:DKIM-Signature:Received:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 User-Agent;
+	bh=KhPGCzLsme1XU4+GASPBXpez80KaHqxyFka5T0h/TSw=;
+	b=qgdWJ5xzt9dyqhCCwqymE8uDeBX0Lw8ed6tTXPfwnug5Pf47xjQMolEDTKUjCyx509dV
+	 D/Cuas4gySS+xU7fvKUfF5e/7ZNbej2tokHuSSwPb436OPdrEucfd9vFmUfdVcyO0NJqz
+	 LJ1/GvGrDhmgessEoNrQx1HNFef9PtqthMjovZKjrTiRPsNGT/xKWe+1oENjllPHXsfny
+	 I4FRGGwh5s0EiWJc4wY5s9iZ/9sI5KZQl89WEmOJVwoWkERUhu26ftPFLuUeMLZiLmTNq
+	 WZzHvPNvlU77MOu9WIgJ8LP2ijWRxb0mPaDoMlkG6ExB0mZSzanKhnhZ3Qy73PB/4OA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=MfyK9ayF;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=etK5QvD2;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c6YFRlaI;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2EE5606A331
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:30:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2EE5606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 478C2606A339;
+	Wed, 18 Nov 2026 22:30:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=MfyK9ayF;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=etK5QvD2
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AILDARK273862
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:30:06 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	mwG2VB2Wght2+kRDBqQxxN0X/372ypCy9eDDgyMvCTo=; b=MfyK9ayFDB4tVk9F
-	9aV70tTVs37YAqlLn/b9MWH2GPEFsbk4uPIlcM85RxFQbMSiUvlZsYwLdQNOOJ+C
-	ZAhUie0BZqi8vFwgX6Aw/fsMNGCTI1DC5ZVN6j/mjIRX7fymvHXpwgqjfMwHkZOf
-	r1OovTlzgZ/lnULD9RV3JFEAePu+RLOHUfYg4EJ8KpL81nLoI5aMDRj1vkMYjckH
-	XENBMAATbeST5eu+UkvxoGTh8ow8zjYJDp6POjaFLMfzxNQNK+BeQXXbw6XjG9mp
-	1H9d6+O8KyRZwvirndwIZJSrghHR6aKsRaeFFyD+XZ9QDd9Xr0Zrhdmldaq77ZCD
-	LgtOLQ==
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j1dpca2gb-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:30:05 +0000 (GMT)
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-33c35f5ca6cso1927182eec.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:30:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795041005; x=1795645805; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mwG2VB2Wght2+kRDBqQxxN0X/372ypCy9eDDgyMvCTo=;
-        b=etK5QvD2ikQUkhNM9NX8Z3CtQ1MDWiTNqoo7Ht9+F5s2IW+SPIOWWabXXOilmhtD1l
-         62SI1oWUldMWLVg3k9CFybeeRrjeoLa71rJX7Zp7LKvVwquSRzz7b0Whjw7bBs/lLZTi
-         decTLdBzzQmxvwtFhgyOugVjmvol1LkWKNM4tXQTEIFvXnJZPQGl0Pa2gjidRKMSP69K
-         2c+BHdNWmQyk6s/Wtik4rtV5E4cG/hnyZHcqxhWqNhlkWs4OrpBEZyk3RofUB5n9RpoQ
-         Knuqbut0f0ISR2vQku4Fz1DOzII8vnkaBmzqsIjL2buaUhZK2pPxIAxLf4vdT06y8+sc
-         2ZIw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795041005; x=1795645805;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=mwG2VB2Wght2+kRDBqQxxN0X/372ypCy9eDDgyMvCTo=;
-        b=E/OvXUtNQk18CUBNzWiMTInaAEI2RaE0aPQiL6KOINQ3GUn3UI4stg5f4h0tLVf9OC
-         QjxlYd4iucgbcwoe1bf+GtY9gc7/gXtNGoi/1R6dmbJm1Bv+7SAvyqo85MeHb0Gd7QdL
-         kXt0QRPmD8kiqo1kfU3k6WVW0tqdNLpuPrOKDwvTJpMrsTpKm4aNT4YT8+Mo08qzRBYm
-         D87WACgNoQIFicz/gW5jsazZNTMDS7AJPADoWe8bytszz+3VNM5JRsJfEsRERQSNeuYG
-         rO4l9PXyDq8zgNQOJHEamNDdr5lHwgIe1uaVShJyrHkqIwZ3wBwVyNEqVz241lnqllo2
-         yHfg==
-X-Forwarded-Encrypted: i=1; AL+hErH5MFqQqXjKdtoYX2gK6GTwrbUcmyJYQhcEvjUVBlXL2EOspFgHHnO3MYwg0t38SAzjYfNLXCijcbSOigg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9GVGDkLf5EdLneKCnrv28K3oqW1WXFm6dMiZREzV5S3+eLyOc1
-	fZBlgEfCIUPvvISP2TzopH/Zzdr0Uzd3K50Vq6WI2aOt/ru4AjDTJgBEzm/QC3BhLlB4Tls7Hb+
-	GX5FIGCiOHyamW5UmOVC2sexh7lFppxPWXsn62/cuHVygUzKepXj1ukGwAZfirvv50UU=
-X-Gm-Gg: AZFdTZf05fCCXhqUJe2yknGDaMSRIUptaeJz9k2MGLTXFhdBpTCKdkIXRz4F6G5BmN0
-	Fa+RwI0ZDysIyiaB8xg/pgQn87DAw075q8NFQj0rGC5taez2gHdLBWqdUNChojF4khoxuNs3BtQ
-	VZEgmtponbXr71E4ajGztMliXdS8EEY43d8qPL5g7DSEXOKYDeB8Tf8uchV0+3QJs37JlpmOW/5
-	u+BwkObuI6WrHnMJ0lFc4oi5r2ZA4anIVBO6iONbGnjvGGC4o9HAJY0UtlwYLylCfqWcYisq+so
-	fr97xEUmkk5L11UrsxA4UWV/lUzoTR0+JaYh7S0nufdFBq3J3O9VIULS31VDmeiKWQKpc4lzYGO
-	b1YQGfXs0/aOCZgd/Olx7tuJjMQtK9lRg6Gcp4vkA8u1zjFjAG4Yh0bCD6DosR1cJkwXlt7bV0h
-	FElZNzHq3JMn44lPwn+4mU
-X-Received: by 2002:a05:7300:824a:b0:37b:4a2b:81a with SMTP id 5a478bee46e88-3827da13cdemr3842403eec.4.1795041005015;
-        Wed, 18 Nov 2026 14:30:05 -0800 (PST)
-X-Received: by 2002:a05:7300:824a:b0:37b:4a2b:81a with SMTP id 5a478bee46e88-3827da13cdemr3842374eec.4.1795041004286;
-        Wed, 18 Nov 2026 14:30:04 -0800 (PST)
-Received: from [10.73.198.203] (pat_11.qualcomm.com. [192.35.156.11])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a7fbceffsm11315249eec.28.2026.11.18.14.30.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 14:30:03 -0800 (PST)
-Message-ID: <82a57df7-a3c5-4986-a724-44f00b22a532@oss.qualcomm.com>
-Date: Wed, 18 Nov 2026 14:30:03 -0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c6YFRlaI
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D73EE1F000C6;
+	Wed, 18 Nov 2026 22:30:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795041009;
+	bh=KhPGCzLsme1XU4+GASPBXpez80KaHqxyFka5T0h/TSw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=c6YFRlaIFFBoL650qerWEyO55KfuJy9O49O2ORyCVU5l2GWcHJPgWCpO2osiAeqCN
+	 aSSx9KNaprK6qkRmPDBDeQLRqXJwLuMnejNrqwyIpaekNsj6XPu9PqQRCVKUAsY5AR
+	 gXVyk4lasQusmWjQkdNrenYdnjJY0EYahSwMGlHBhFG/MYKzSptKCYz+mgY5fIEfrG
+	 bFMnA0mvqlbzqlqyeTgNacDGiDNsCqAg37VJIjOuy1hR4UXjP3MAbruMdkThYHA4wC
+	 VGsOouWAHn0EPXQYvadT5ipwrPA9byro9MyaWizTY1BJCuiTRrXA6lzoFnL00xTMai
+	 p5b6xlDF/JRgA==
+Received: by pali.im (Postfix)
+	id 06481846; Wed, 18 Nov 2026 23:30:05 +0100 (CET)
+Date: Wed, 18 Nov 2026 23:30:05 +0100
+From: Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>
+To: Yury Norov <ynorov@nvidia.com>
+Cc: Matthew Garrett <mjg59@srcf.ucam.org>, Hans de Goede <hansg@kernel.org>,
+	Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>,
+	platform-driver-x86@vger.kernel.org,
+	open list <linux-kernel@vger.kernel.org>,
+	Yury Norov <yury.norov@gmail.com>
+Subject: Re: [PATCH 2/2] platform/x86: dell-laptop: Fix token-based keyboard
+ brightness readback
+Message-ID: <20261118223005.2cwzmzp4niqfgckv@pali>
+References: <20260925193239.248779-1-ynorov@nvidia.com>
+ <20260925193239.248779-3-ynorov@nvidia.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,97 +64,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 0/4] Add larger page size support for USB audio offload
- path
-To: Mathias Nyman <mathias.nyman@linux.intel.com>,
-        Mathias Nyman <mathias.nyman@intel.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-        Michal Pecio <michal.pecio@gmail.com>
-Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-sound@vger.kernel.org
-References: <20261109-16k_offload_v1_b4-v6-0-858c6e0e007d@oss.qualcomm.com>
- <a38e874c-4685-4892-81b4-a6aeeaaeddb4@oss.qualcomm.com>
- <54beec96-2221-4109-ab7a-74502969b369@linux.intel.com>
-Content-Language: en-US
-From: Wesley Cheng <wesley.cheng@oss.qualcomm.com>
-In-Reply-To: <54beec96-2221-4109-ab7a-74502969b369@linux.intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=YJ0KWhGx c=1 sm=1 tr=0 ts=6afe26ed cx=c_pps
- a=Uww141gWH0fZj/3QKPojxA==:117 a=ZdW6uxA9NKXbfdqeeS2OGA==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
- a=VwQbUJbxAAAA:8 a=QyXUC8HyAAAA:8 a=smeftMHU5e7__JqdOnoA:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10 a=PxkB5W3o20Ba91AHUih5:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA4MiBTYWx0ZWRfX2fEjUbKoEY2D
- cd9mzUx65pNFfq4cvwmQGixvT0GCIFH17m//3ki8JlKxUeuB91vf0qbfuDpehDiO8QgkhlrRiR3
- +9zz30khY8yeEt2S2aZsH+w/USlxKUfQSe8x2Xz5HEhtBxAV8gfoNoeTLrA2GlrNmFlpGQSKAtx
- ubomsU1l1AmBGYPsbVkq/STneg2VtAh5N4u5A6R9hIwI5lY85ryC+y1dwsXVLGyrC2sj1KW2Z3G
- WKNFfS6gzELtH95HQxbFaAH9cF6gtXRO5ded5zo3JHf85EhRz83nmPLidDp/ezHjdpT5QpBMUTt
- goSyFlvzV5p3FJ9mUql0zU48/M1a81Rx5vefeNdcjVnOBjQwRJwfktTI/aa+vNCk0XY+Mo0GMs7
- yNY4nOrQjL78Bf7NyTIsfS6iu8ol5RgaZBR4GTydWhvAe1MFLDHLzjSmxxiuijJZav10CbfF9si
- w1/U8HJNmwEKqnjmUtw==
-X-Proofpoint-ORIG-GUID: pkcd-tL0TjuqmRYMhf0ljC1r6oGvF1iF
-X-Proofpoint-GUID: pkcd-tL0TjuqmRYMhf0ljC1r6oGvF1iF
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA4MiBTYWx0ZWRfX7IhmVF8FZani
- 6WAsf7YKgk95GI66EMRPOe/dQ5rY92fI+nFzW++NhS5yOmUjxl7dDL20gHfi96P4acLt7ovvpH6
- dwtKvpDxhIrg47CFUsEYN6D/LlokKaA=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-18_07,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 bulkscore=0 malwarescore=0 priorityscore=1501
- lowpriorityscore=0 suspectscore=0 phishscore=0 spamscore=0 adultscore=0
- clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611180082
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260925193239.248779-3-ynorov@nvidia.com>
+User-Agent: NeoMutt/20180716
 
+On Friday 25 September 2026 15:32:39 Yury Norov wrote:
+> kbd_get_first_active_token_bit() returns an index into kbd_tokens, while
+> LED brightness is an ordinal among the supported tokens. These differ
+> when supported token bits are not consecutive starting at bit 0.
 
+When these can differ? I think that only in the case when token
+KBD_LED_OFF_TOKEN is not supported by the firmware / BIOS.
 
-On 11/17/2026 1:59 AM, Mathias Nyman wrote:
-> Hi
-> 
->>>
->>
->> Hi Mathias,
->>
->> Was wondering if this design looked a bit more acceptable?  Was able to 
->> figure out a way to achieve what you had suggested earlier mitigating the 
->> dma free problem I mentioned in my previous email.  If there are any 
->> issues w/ this please let me know.
->>
->> Thanks
->> Wesley Cheng
-> 
-> Big picture looks good
-> I got stuck on the "no_pool_rings[EP_CTX_PER_DEV]" solution in [PATCH v6 2/4].
-> 
-> It reveals and reminds me of how poorly designed existing xhci_free_dev() is.
-> 
-> I tried to quickly fix that fist by 'unlinking' vdev from xhci->devs[]
-> inside the lock, preventing it from being dereferenced based on slot_id
-> somewhere else, and then free it without the lock.
-> 
-> I ended up with a huge mess that rewrites vdev free/allocation,
-> slot enable/disable, xhci_discover_or_reset_device() and xhci_resume().
-> 
-> Seems like best solution for now is to add "no_pool_rings[]" to support the
-> larger page size, and then later rework the vdev allocation/free and
-> slot enabling/disabling. I'll take a look at the details of the series.
-> 
-> I also have another sideband change attempting to fix the use-after-free
-> stale vdev pointer in sideband. It basically swaps vdev to udev.
-> I'll post it on the list. Let me know your thoughts on it.
-> 
-Sure, I assume you're talking about:
-https://lore.kernel.org/all/20261118125109.1429538-1-mathias.nyman@linux.intel.com/
+But when the token KBD_LED_OFF_TOKEN is not supported, it means that the
+brightness level 0 is not supported, keyboard backlight cannot be turned
+off and so returned value cannot be 0, it has to start at some higher level.
 
-If so, let me look it over, pull it into my branch and test it out if it 
-looks good.  I wasn't able to reliably reproduce the issue that Lianqin 
-initially reported, so I'll see if I can figure out a way to exercise that 
-call path.
+> Count the supported token bits below the active token with hweight16()
+> to recover its zero-based brightness ordinal.
 
-Thanks
-Wesley Cheng
+So I think that this change will start reporting incorrect brightness
+level and the original code was correct.
+
+> Return zero directly when ret == 0: token bit 0 has no supported tokens
+> below it, so its brightness ordinal is zero.
+> 
+> Signed-off-by: Yury Norov <ynorov@nvidia.com>
+> ---
+>  drivers/platform/x86/dell/dell-laptop.c | 10 +++-------
+>  1 file changed, 3 insertions(+), 7 deletions(-)
+> 
+> diff --git a/drivers/platform/x86/dell/dell-laptop.c b/drivers/platform/x86/dell/dell-laptop.c
+> index 03d3bb70b0d1..55fd48222e5e 100644
+> --- a/drivers/platform/x86/dell/dell-laptop.c
+> +++ b/drivers/platform/x86/dell/dell-laptop.c
+> @@ -2003,7 +2003,6 @@ static const struct attribute_group *kbd_led_groups[] = {
+>  static enum led_brightness kbd_led_level_get(struct led_classdev *led_cdev)
+>  {
+>  	int ret;
+> -	u16 num;
+>  	struct kbd_state state;
+>  
+>  	if (kbd_get_max_level()) {
+> @@ -2018,13 +2017,10 @@ static enum led_brightness kbd_led_level_get(struct led_classdev *led_cdev)
+>  
+>  	if (kbd_get_valid_token_counts()) {
+>  		ret = kbd_get_first_active_token_bit();
+> -		if (ret < 0)
+> -			return 0;
+> -		for (num = kbd_token_bits; num != 0 && ret > 0; --ret)
+> -			num &= num - 1; /* clear the first bit set */
+> -		if (num == 0)
+> +		if (ret <= 0)
+>  			return 0;
+> -		return ffs(num) - 1;
+> +		/* Brightness is the active token's rank among supported tokens. */
+> +		return hweight16(kbd_token_bits & GENMASK(ret - 1, 0));
+>  	}
+>  
+>  	pr_warn("Keyboard brightness level control not supported\n");
+> -- 
+> 2.53.0
