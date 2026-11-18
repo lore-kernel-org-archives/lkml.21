@@ -1,44 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=160.236.53.93
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795000094;
-	b=InwC2v6sTkCH2tG5SzxDdZ94Sk0lTrBA1JuCjtugJqpwlD8u1VDrSjXfrwGHt1P4Z46E
-	 kFE1HakWvtMk6OPHSLZ06qusKalyJDsYjm7HSvHZNbJOo2dbqniey8sPWncF0Iic6mnIv
-	 //u5SzFj0BqtLiheEC8eDyi+CDD5eg6JlHIR2NW/gXLS9TExG6Ffp1J1bWFTd6VH+RyiX
-	 8PV4w6+NRdVh4dQH4cePb1hBgESo0FVVh3coOxkjzc5vQ/Cbcwl4uvcr4dT9ILrpYe9KJ
-	 hVOGjhTDcjODJA7gCkthX9Ji2vXWw0qJk3BdPgjXxCKkKU93WGYL75zyboHdDjgL9bQ==
+	t=1795000172;
+	b=P0JvUbXaWcXAKEFaJE5uigj0yLsPFbm63zFpq06rIEZvP/YlgJO3fVe92GgMLPa6DWSj
+	 SL/YcGK/Zu7fmS9onF3JrO8Z1OT9lygSoAU6HLRL8L0gPyAPcDRB0utuIavqfP76dg1aQ
+	 +qm9fpUAkkFmjMIz+mOPoRF0D6vXXTHPxXsi6y+YEP447PVfsacztH+wP1dGCq+j7glTi
+	 Ml3V5EibntK7aX/q1EwVnMfNhx2duUH5SQv3QEjcsdoyeEhtjMY61gaIMvh8klcUQQeHW
+	 fZ5JAIZJaQQOUclzRjF0fct6gsAHjHYh+Gaze47FB6w8rDSpS0wm1QOqg87EmexjEmQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795000094;
-	h=DMARC-Filter:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
-	 X-HM-Spam-Status:DKIM-Signature;
-	bh=5Z5/zjedC8T+CAY4SMgSU23abppwtiRyhcMgN9UWEQ0=;
-	b=ZBn5MfC8da45TifLQAfxMARoh2+C+qaoxV/ozhbVfDh51DHJqTK/sV50RO8sis5jFQ1a
-	 VNWKbrwVSchubI44KHcaPw0ZnrZUNJfTS2sohNHGr4DRKU0w41Hqj0AdlEHL0Dp/5f/PY
-	 z27VlpWqIRfm8JkXj6KR4MWrtOFQRMvHJL5US8Ur52dBMqZeLAaJe/4FVDuqCWuebdotQ
-	 oiCaf+JvfpVOoxubM+Zxg2BXxPxD5zJdw87HH3wM9LS3rn/iE+nFYW7VPrZEVdc3qeNiw
-	 yjAU6JreEOIosGWNWBoHlOb9bwIJC8FEVhBgadA4+12U8acfIIlMsG3I+sU67tG94Ww==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795000172;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=2r4uDbTO5b1ExxzqtmXHm/o8aZPr6mw3/GIXTKP7B9I=;
+	b=lYLOVyHbSTpHkvpXAF5jihz5tFOtTURhQ8rfiUP5kNlytoWlGztvE8DnK6cIHn5XVlX2
+	 5C4MwE9g1IsDZ36O6ka5CKrZCYxPBhX6zgNKjmyzo6VRSM+vaO1k6WxSAQrnYEYFvVaxd
+	 Nh4zlUVbG8obzP+Pqs4qwh1ItTkULRTHk3l4rvIpQmBnQ9xG7CT51pohv8WOZqeh+VljV
+	 WjbcWylIklH1FoG9tbrNreRHi7CEt00gIDsvRee4HLovs3dZciyVsP4wBklm0uyj/k5bB
+	 tWuIIiNnm/HzhfDOm0axZ10PaK5pYdoZUs1eJjliIWGIZ8/6B2np64sHkPv92AxV+RA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rock-chips.com;
-	spf=pass smtp.mailfrom=rock-chips.com;
-	dkim=pass header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=dRStX11h;
-	arc=none smtp.remote-ip=160.236.53.93
-Received: from mail-m1602365393.xmail.ntesmail.com (mail-m1602365393.xmail.ntesmail.com [160.236.53.93])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S5dRIAt5;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A112606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:08:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4A112606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rock-chips.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rock-chips.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9EBC606A31C;
+	Wed, 18 Nov 2026 11:09:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=dRStX11h
-Received: from [172.16.12.74] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 5523317e8;
-	Wed, 18 Nov 2026 19:08:00 +0800 (GMT+08:00)
-Message-ID: <0cd86b2b-004b-4a36-ab8e-fd3b50960413@rock-chips.com>
-Date: Wed, 18 Nov 2026 19:07:59 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S5dRIAt5
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 255611F000C4;
+	Wed, 18 Nov 2026 11:09:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795000172;
+	bh=2r4uDbTO5b1ExxzqtmXHm/o8aZPr6mw3/GIXTKP7B9I=;
+	h=From:To:Cc:Subject:Date;
+	b=S5dRIAt5qwBtGu9sLynNj1ue2gSnNUi3qQxYNtq9CfPuguy487isOOrZE7uhXpbi+
+	 rodELKLsisj0lLLegSbkWLK8zbbSltNAq3shMzpVrl2leWwADCLISjIRLqBZiuy0Hp
+	 aADmEdvx0RMRPBHGOBrS+ltfgpL2D8+T9KbEK8kfV2l032iB3kdZb64T+a92eIiHcv
+	 TdwTqlaV30aVHlwuOkMVrpecY4aimC/5d2fA3Bo12lmNw3P1WjudRY140qm0PvlJdA
+	 xMNWDw6etnwlp7m5ngLhwLS0PtLzv6kDuAkikbxQTYL9i6gliTUu5tmhAoW57u/M1m
+	 5N2YjUDZNRBkQ==
+From: Philipp Stanner <phasta@kernel.org>
+To: Sumit Semwal <sumit.semwal@linaro.org>,
+	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
+	Philipp Stanner <phasta@kernel.org>,
+	Simona Vetter <simona.vetter@ffwll.ch>,
+	Chris Wilson <chris@chris-wilson.co.uk>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	Alice Ryhl <aliceryhl@google.com>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tvrtko Ursulin <tvrtko.ursulin@igalia.com>
+Cc: linux-media@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH v2] dma-buf/dma-fence: Prevent misordering for error checks
+Date: Wed, 18 Nov 2026 12:09:15 +0100
+Message-ID: <20261118110914.1471416-2-phasta@kernel.org>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -48,79 +67,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/8] drm/rockchip: vop2: Only accept AFBC YTR for 8 bit
- RGB on RK3588
-To: aiyengar1990@gmail.com, Sandy Huang <hjc@rock-chips.com>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, Andy Yan
- <andyshrk@163.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Piotr Zalewski <pZ010001011111@proton.me>,
- Chaoyi Chen <chaoyi.chen@rock-chips.com>, dri-devel@lists.freedesktop.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20261113-vop2-fixes-v3-0-08ae37e83b5c@gmail.com>
- <20261113-vop2-fixes-v3-5-08ae37e83b5c@gmail.com>
-Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <20261113-vop2-fixes-v3-5-08ae37e83b5c@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0aa1ee57974103a8kunm31e77375358449
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaGEpLVkgYHUMZT0tPSU9KTFYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=dRStX11hKIKXImeBPSFSnbL4EsfI4ippAvDWiIMjgZwMZsNT/qSSdtmiAfpCFt89dJ4cV435LnMtrQE35l6abkTOSitQjAvB++qhkLwniOfRYGWOa7YzW9QPxuBS9iSdHbj+zvbil7mXmytF+itkskDXYcYyHHEY34tnh6X3yiM=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=5Z5/zjedC8T+CAY4SMgSU23abppwtiRyhcMgN9UWEQ0=;
-	h=date:mime-version:subject:message-id:from;
+Content-Transfer-Encoding: 8bit
 
-Hi Arun,
+Many users of dma_fence do things like:
 
-On 11/14/2026 12:39 AM, Arun Iyengar via B4 Relay wrote:
-> From: Arun Iyengar <aiyengar1990@gmail.com>
-> 
-> According to the TRM, the AFBC decoder of the RK3588 Cluster windows
-> supports the lossless colour transform (YTR) only for the 8 bit RGB
-> formats. An RGB565 buffer with YTR gives a black picture and
-> POST_BUF_EMPTY, while the same buffer without YTR displays fine.
-> 
-> Don't accept YTR for any other format on RK3588.
-> 
-> Fixes: 5a028e8f062f ("drm/rockchip: vop2: Add support for rk3588")
-> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
-> ---
->   drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 5 +++++
->   1 file changed, 5 insertions(+)
-> 
-> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> index e8ef83d6924b..de3da292b05a 100644
-> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> @@ -404,6 +404,11 @@ static bool rockchip_vop2_mod_supported(struct drm_plane *plane, u32 format,
->   	if (vop2_convert_afbc_format(format) == VOP2_AFBC_FMT_INVALID)
->   		return false;
->   
-> +	if (vop2->version == VOP_VERSION_RK3588 && (modifier & AFBC_FORMAT_MOD_YTR) &&
-> +	    vop2_convert_afbc_format(format) != VOP2_AFBC_FMT_ARGB8888 &&
-> +	    vop2_convert_afbc_format(format) != VOP2_AFBC_FMT_RGB888)
-> +		return false;
-> +
->   	/* Different windows have different format/modifier support */
->   	for (i = 0; i < plane->modifier_count; i++) {
->   		if (plane->modifiers[i] == modifier)
-> 
+// Thread A
+dma_fence_set_error(f, -EINVAL);
+dma_fence_signal(f); // <- Takes lock, which orders against the above.
 
-Yes, RK3588 only supports VOP2_AFBC_FMT_ARGB8888/VOP2_AFBC_FMT_RGB888 
-with AFBC_FORMAT_MOD_YTR.
+// Thread B
+if (dma_fence_is_signaled(f)) // <- Does test_bit(), no ordering.
+	pr_info("err: %i\n", f->error); // <- Can be loaded first.
 
-Shall we move this new check a bit earlier, right after the RK3588 10bpc 
-formats check? Also add a comment and a drm_dbg_kms trace for it.
+There is no memory ordering between reading of the signaled-bit and
+reading of the error code. This can result in outdated, wrong error
+codes being evaluated by the user.
 
-Best regards,
-Damon
+Though dma_fence_get_status() does take the fence lock, it is equally
+broken because the misordering can simply happen within the critical
+section.
+
+It's not entirely clear since when this bug exists, but at least since
+dma_fence_get_status() was added, which is why its birth commit is
+marked as the Fixes commit here.
+
+Ensure ordering for everyone evaluating the error code centrally by
+using test_bit_acquire() in dma_fence_test_signaled_flag().
+
+Cc: stable@vger.kernel.org
+Fixes: d6c99f4bf093 ("dma-fence: Wrap querying the fence->status")
+Signed-off-by: Philipp Stanner <phasta@kernel.org>
+---
+Changes in v2:
+  - Use classic C style comments. (Christian)
+---
+ include/linux/dma-fence.h | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
+
+diff --git a/include/linux/dma-fence.h b/include/linux/dma-fence.h
+index dd07d128adc3..a3fa1341765e 100644
+--- a/include/linux/dma-fence.h
++++ b/include/linux/dma-fence.h
+@@ -496,7 +496,18 @@ const char __rcu *dma_fence_timeline_name(struct dma_fence *fence);
+ static inline bool
+ dma_fence_test_signaled_flag(struct dma_fence *fence)
+ {
+-	return test_bit(DMA_FENCE_FLAG_SIGNALED_BIT, &fence->flags);
++	/*
++	 * Best-effort ordering of the locklessly evaluated signaled-bit,
++	 * especially so that reads of fence->error are not misordered.
++	 *
++	 * The release counterpart is typically ensured like this:
++	 *   a) Error codes must only be set before a fence signals and
++	 *   b) The fence's spinlock's barriers effective in dma_fence_signal()
++	 *      ensure ordering.
++	 *   c) For users of dma_fence_signal_locked(), the barrier implied in
++	 *      test_and_set_bit() should do the trick.
++	 */
++	return test_bit_acquire(DMA_FENCE_FLAG_SIGNALED_BIT, &fence->flags);
+ }
+ 
+ /**
+-- 
+2.56.0
 
