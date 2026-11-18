@@ -1,75 +1,44 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.209.128.75
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794988526;
-	b=mmDCEffllCD0a5kLm6+6IIytk0Wi7YAo7WhoA2fuMFj3m+JMAJHpyOHodDI9ymC7zVWa
-	 8yoxyavpeM8vkF2RsIKlGhBB/KHIBb0E5p06oEVGMgTv8vctCBdfITQq4vTN1541GMHoN
-	 eKEXFtY6699zMJauDd20NW7ORtVRepTC2/CLaLiY1uyhLJ7iFkcBHYzlogauWGQH/nazg
-	 Nav1dbRF4O0NNs8YLoDLIhAECoPQJO/a0uzPMX8XRqelWVo2VJrH34fawaO6B0H4UnfOO
-	 09H4sFpYL/u3xjv/YFe9Ksw3M7yqhkQIQF8Ur9LCgkmmXVxvTOP40uWrpXyPrXAfgWQ==
+	t=1794988560;
+	b=XwxlUoZ3c5jkQqL3sWNc/dHXCyzaw310Kf4GallFw8gberEKobnTX/FnHZ3Fwk0yhGBL
+	 u3D452Tf/429Y8DJVoka1lgJCjZ1doDLjvy44L4ErllyLwfRaaFZ9nT66GnJpoduFU5Lf
+	 y7ZQ6z5xiWPdmdnUPn4+fDnOs6lHkl7qM8aWmsTY4EdJRShwPgllOCuiWySzS6BvYDAlb
+	 XGlhSNN6Z+3qcnvxNGRidBCQi4eszFaK0qC84QZEKbi2SGHZa/CQVwLl1uD/efwWFgCu6
+	 3Lg3GXuho1IdGZcX9IVyvN42ujh2/9SzslkKNXLJc6IW22Yb8fjXJUluhW3Mbon+r3g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794988526;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=5DboQG35Wnbme+vu2GzT8Sr2q49b+BE2rknnKDhVsEM=;
-	b=oCGwJgmaSDqu5qqWplZPzV2SZn6VEAx3aTsyxWVO+mgjsIYnBaMAgbl6tCj0LQkGuG73
-	 s5+LTlQb6osmHaGi+o/RJ26gsoVhoc7Uxz3LX0uLohQsdYy1uXU8UBroDghDvU+Z8vvtU
-	 0ip/kBNtx5Wy04Xgd3eUtD3Y4yUz/9mtSyKJZFMaf2lWmvFfwwZryIEtclAJ4P8hVKCtI
-	 WPU1NMBb3s583lDQlHz9zswVoM6TzozHYQLT9exzc7palVvJpcCUcGGZ9mwjbAniija2N
-	 dxoRiFcPis8+wa/DWWRPMbr2BRdYYexgb8O1UrFSYJFuAUy68REx40VkPA1j16UfoZQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794988560;
+	h=DMARC-Filter:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
+	 X-HM-Spam-Status:DKIM-Signature;
+	bh=yoojdmS52xksREd25PZVdu2MX9Ot+zg4Wegw5yQYlu4=;
+	b=F27TajDJvdvpkrTLv4Ia3DPbddHLDiN+JnubLQHkXd/66Lhd9VOJVp9vpTEIQuo4DUrD
+	 VmPV6N+yfYt2JU8BfQzVPFid5sDmj68i6d6qrz2njZXXY56eumI5A46Ys9/T0V28ci1ps
+	 w082E/mIsnxBHCgErDYYEVAVCJcdfOyFDZg9XsdGAa186NkyVcyaFDOksrZ4kKWBIB/+c
+	 S7J7aqvCD2dfVJkxQbz3KAzwzQhIi1R+7LE4L+57Ja+wh9x8MnA7Z4+mFcdMW+tsXPxB8
+	 rdaa2hRdkkofxUsETo+4IAXam8aWH3R7OhoZSKUxKMxZg7G2P2xyRL1iSGxqB+qFKMA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="AQQ/L8vO";
-	arc=none smtp.remote-ip=209.85.161.70
-Received: from mail-oo1-f70.google.com (mail-oo1-f70.google.com [209.85.161.70])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=rock-chips.com;
+	spf=pass smtp.mailfrom=rock-chips.com;
+	dkim=pass header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=RyQFNc4i;
+	arc=none smtp.remote-ip=103.209.128.75
+Received: from mail-m12875.netease.com (mail-m12875.netease.com [103.209.128.75])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07F6E606A889
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:55:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07F6E606A889
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6445606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:55:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B6445606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rock-chips.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rock-chips.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=AQQ/L8vO
-Received: by mail-oo1-f70.google.com with SMTP id 006d021491bc7-71aefbef495so866866eaf.2
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:55:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794988525; x=1795593325; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=5DboQG35Wnbme+vu2GzT8Sr2q49b+BE2rknnKDhVsEM=;
-        b=AQQ/L8vOOgjQs8+YpYQIJxCvxusw4ebii6H3YezaRzLkwaeODjW6b/+tNgvuPwrrB2
-         USnR+i+HCZWOt9xIxM3p3070M4AmbpscZrHeIkWPa6MuK/E2L6x5ixuCDLU+/eEKdWSK
-         iE91CWSnXzxI1Adhzf8Tr/I5uiyFt/ShdYItltY2QPMMYaR8BjRcRIwAF4xLg4zJ47b1
-         87t4jpDgEVVAOctbH3lljq5q6CjCyVDU99tk4MIcsCUEgYuPoxXT/A+2Zao1w/wccQsu
-         Atpcl/Iq9kvaerq9lSu9DygMYJLuF72RLTYAQJv4IaXbV2nan/+fr+8CLK/H5ZqD1B/F
-         AgWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794988525; x=1795593325;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=5DboQG35Wnbme+vu2GzT8Sr2q49b+BE2rknnKDhVsEM=;
-        b=zK7jOqm/wdEOqVzoeIX7BU7Y20xxGRF7iBQ0UuRS41W/g14m1kPSCCKCJYGkYtdAjV
-         Dg7FenXmcWlMGQI+6QzNjVrfAzD2Yo/MUx87Nekgy35a1NmbnAbR9nvtBahVS1t8cthh
-         9dgBv771dTwiWndGOzj9B+K/heJkZ1cPq1zPOUUXFfACQAW+nc2eI6pW9TGbQEI+9g3Q
-         SNv8//BjhU0M0oFYMYwikHTkPhrlqy1BejB5X0sd130wf3o9l7Xb3YAEitFmt9otjseC
-         fSEspM3ooG9sSFrB0fwv8fxwmCzsadI6ogTUm7iQQorUN/RHdDisUe+d6sPM0dN7f35o
-         9gow==
-X-Forwarded-Encrypted: i=1; AL+hErGdl4jsjMMcYlJnklRNQcYeHYlzsAA7OyqzKu1D5trWcU3QkH7VQXHMB067FjXV2Rv+Wvvt3Fy1HraY7BQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+i+Rlz6OXM9X8ET8LWhTDk8+nXB/0MEAZfSQHGDLgvzRgpyhld
-	b5kkkXCQXmc5cXDXojoWbl/6CQsyqkrS65EeEilLzqmiPFvsEPozpZSOXMum0jczpJcFw8SCM4M
-	6E84hE4PKBg==
-X-Received: from oabmp13.prod.google.com ([2002:a05:6870:e0d:b0:4ad:bdb3:7d44])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6820:338e:10b0:71a:e62f:62ee
- with SMTP id 006d021491bc7-71b1843fdc0mr997029eaf.23.1794988524703; Tue, 17
- Nov 2026 23:55:24 -0800 (PST)
-Date: Tue, 17 Nov 2026 23:55:13 -0800
-In-Reply-To: <20261118075516.1278903-1-irogers@google.com>
+	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=RyQFNc4i
+Received: from [172.16.12.74] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 551bffbb0;
+	Wed, 18 Nov 2026 15:55:45 +0800 (GMT+08:00)
+Message-ID: <8e614b4d-b2be-4da8-8003-de88f22ab7ef@rock-chips.com>
+Date: Wed, 18 Nov 2026 15:55:44 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,72 +47,102 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261118075516.1278903-1-irogers@google.com>
-X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
-Message-ID: <20261118075516.1278903-3-irogers@google.com>
-Subject: [PATCH v1 2/4] perf stat: Don't corrupt zero or prev_raw_counts on
- skipped per-pkg CPUs
-From: Ian Rogers <irogers@google.com>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>
-Cc: Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
-	Adrian Hunter <adrian.hunter@intel.com>, James Clark <james.clark@linaro.org>, 
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/8] drm/rockchip: vop2: Don't use uninitialised
+ dividers on RK3588
+To: aiyengar1990@gmail.com, Sandy Huang <hjc@rock-chips.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, Andy Yan
+ <andyshrk@163.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Piotr Zalewski <pZ010001011111@proton.me>,
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>, dri-devel@lists.freedesktop.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20261113-vop2-fixes-v3-0-08ae37e83b5c@gmail.com>
+ <20261113-vop2-fixes-v3-2-08ae37e83b5c@gmail.com>
+Content-Language: en-US
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <20261113-vop2-fixes-v3-2-08ae37e83b5c@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0aa1eda7965b03a8kunm1a1ddd1833dd04
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDGR5DVkgeHktKSUlMSx4aTlYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=RyQFNc4ij2drw6Fx0nqJbDh+SFPMGM1Pqfbh0IhdR4KcOBgFgAMAIFpF/e2okYwYuUcCAohtps8YxDc0spFY7KMXP83tQQMfG/ESJAeh/zlQa5QQZh4F0HozwlE4sFb7RobNAO+ZD02FwVmFtA6gw0qFMA3yf1x3NBMlsCXp4qI=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=yoojdmS52xksREd25PZVdu2MX9Ot+zg4Wegw5yQYlu4=;
+	h=date:mime-version:subject:message-id:from;
 
-In process_counter_values(), when check_per_pkg() sets skip = true for a
-secondary CPU in an already-counted package/die, count was pointed at a
-local 'static struct perf_counts_values zero' before calling
-evsel__compute_deltas().
+On 11/14/2026 12:39 AM, Arun Iyengar via B4 Relay wrote:
+> From: Arun Iyengar <aiyengar1990@gmail.com>
+> 
+> rk3588_calc_cru_cfg() converts all four dividers with ilog2(), but every
+> interface only sets the ones it uses: dclk_out_div is left uninitialised
+> for HDMI, eDP and DPI, if_dclk_div for DP, MIPI and DPI, and
+> if_pixclk_div for DP and DPI. For HDMI and eDP the uninitialised
+> dclk_out_div is then written to RK3588_VP_CLK_CTRL.
+> 
+> Set the dividers an interface doesn't use to 1.
+> 
+> Fixes: 5a028e8f062f ("drm/rockchip: vop2: Add support for rk3588")
+> Suggested-by: Damon Ding <damon.ding@rock-chips.com>
+> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+> ---
+>   drivers/gpu/drm/rockchip/rockchip_vop2_reg.c | 8 ++++++++
+>   1 file changed, 8 insertions(+)
+> 
+> diff --git a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
+> index c44648e1bc0d..f340aba5bfd1 100644
+> --- a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
+> +++ b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
+> @@ -1597,6 +1597,7 @@ static unsigned long rk3588_calc_cru_cfg(struct vop2_video_port *vp, int id,
+>   		 */
+>   		*if_pixclk_div = 2;
+>   		*if_dclk_div = 4;
+> +		*dclk_out_div = 1;
+>   	} else if (vop2_output_if_is_edp(id)) {
+>   		/*
+>   		 * edp_pixclk = edp_dclk > dclk_core
+> @@ -1609,6 +1610,7 @@ static unsigned long rk3588_calc_cru_cfg(struct vop2_video_port *vp, int id,
+>   		 */
+>   		*if_pixclk_div = K;
+>   		*if_dclk_div = K;
+> +		*dclk_out_div = 1;
+>   	} else if (vop2_output_if_is_dp(id)) {
+>   		if (output_mode == ROCKCHIP_OUT_MODE_YUV420)
+>   			dclk_out_rate = v_pixclk >> 3;
+> @@ -1622,6 +1624,8 @@ static unsigned long rk3588_calc_cru_cfg(struct vop2_video_port *vp, int id,
+>   			return 0;
+>   		}
+>   		*dclk_out_div = dclk_rate / dclk_out_rate;
+> +		*if_pixclk_div = 1;
+> +		*if_dclk_div = 1;
+>   	} else if (vop2_output_if_is_mipi(id)) {
+>   		if_pixclk_rate = dclk_core_rate / K;
+>   		/*
+> @@ -1643,8 +1647,12 @@ static unsigned long rk3588_calc_cru_cfg(struct vop2_video_port *vp, int id,
+>   		 * mipi pixclk == dclk_out
+>   		 */
+>   		*if_pixclk_div = 1;
+> +		*if_dclk_div = 1;
+>   	} else if (vop2_output_if_is_dpi(id)) {
+>   		dclk_rate = v_pixclk;
+> +		*dclk_out_div = 1;
+> +		*if_pixclk_div = 1;
+> +		*if_dclk_div = 1;
+>   	}
+>   
+>   	*dclk_core_div = dclk_rate / dclk_core_rate;
+> 
 
-evsel__compute_deltas() saves *count into evsel->prev_raw_counts and
-subtracts the previous interval's raw counts from *count in place. If a
-CPU had non-zero counts in an earlier interval and is later skipped,
-subtracting tmp from zero underflows the static zero struct in place
-(corrupting all subsequent skipped CPUs for the remainder of the perf
-stat run) and overwrites prev_raw_counts for that CPU with zeros.
+Reviewed-by: Damon Ding <damon.ding@rock-chips.com>
 
-Make zero a zero-initialized stack variable, compute interval deltas on
-the real CPU counter values first so prev_raw_counts stays accurate, and
-only substitute &zero afterwards when skipping aggregation.
-
-Fixes: 779d0b997e07 ("perf stat: Add support for per-pkg counters")
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- tools/perf/util/stat.c | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
-
-diff --git a/tools/perf/util/stat.c b/tools/perf/util/stat.c
-index 6da3dbb..267e280 100644
---- a/tools/perf/util/stat.c
-+++ b/tools/perf/util/stat.c
-@@ -398,7 +398,7 @@ process_counter_values(struct perf_stat_config *config, struct evsel *evsel,
- 		       struct perf_counts_values *count)
- {
- 	struct perf_stat_evsel *ps = evsel->stats;
--	static struct perf_counts_values zero;
-+	struct perf_counts_values zero = {};
- 	bool skip = false;
- 
- 	if (check_per_pkg(evsel, count, cpu_map_idx, &skip)) {
-@@ -406,12 +406,12 @@ process_counter_values(struct perf_stat_config *config, struct evsel *evsel,
- 		return -1;
- 	}
- 
--	if (skip)
--		count = &zero;
--
- 	if (!evsel->snapshot)
- 		evsel__compute_deltas(evsel, cpu_map_idx, thread, count);
--	perf_counts_values__scale(count, config->scale, NULL);
-+	if (skip)
-+		count = &zero;
-+	else
-+		perf_counts_values__scale(count, config->scale, NULL);
- 
- 	if (config->aggr_mode == AGGR_THREAD) {
- 		struct perf_counts_values *aggr_counts = &ps->aggr[thread].counts;
--- 
-2.56.1.703.gf848ed807c-goog
+Best regards,
+Damon
 
