@@ -1,96 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794988522;
-	b=dkoj4pyZYOxqS/WDeEPNV6y2XrOM8B8LfrsyRj3gKkAQRaWk6l8DCAZnuFHR4cDy8ulO
-	 1b5a3x/4nzuw0kgJa4AlcZUEXfPZ+KY3x8ND6v0hD/spa64Xya4xn9qjxCoTAJ9K7L6YZ
-	 g+wme1driZQolUXKT/FKtB5iPTHYGhMWXpLOp82Qo5005stClTpW2l52RfePoTKdgChSX
-	 C6d+9xFBtViCCEjskr+cKac53UYdSiVCE5+XX2qyJa/hCFAgUMVweFjeHiJo0jUxzoKt7
-	 Up4cZSHTn1ay/ypxLdng3u5WRkRVV6iEpVD3nUl2E5xJnBXQ0d7pUddxwQb2n5Nl7gA==
+	t=1794988524;
+	b=tVf/GyoTP8HPnippPV2AeanUCp0jvsJ/UO8XJWdj/eOmqiRC+wRdzmWc7x580p4bDi8l
+	 soYwnRm0IgjGik4lH35kZ3zhrisWX4JvOlHpzfltK1NnV3qjkzCm5lDsaSwtkVtwsUyBB
+	 /WzUSprFDgeJ/ZGdzL9ALtOg3RuhwGTUtOQq+TAe2nelsSJQwRE2bOE+XCuKVc2mhzm8N
+	 /sIlCK9DH7V7eaTIgGKZCCBmZHPJXjvQjFS+j9idNPnYhbQFtuqspFHfOMroYboFjSttP
+	 6WzG/iFGkfF/J0YX49islD6fiFlvwYlVVJmqv2Z9XCqkCFAR1uanWSXAUkd/grhrkpw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794988522;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794988524;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=IixbFQXdCcNRV05zhO0CILF5CYB7LhreOsOHyTa+xbQ=;
-	b=lqHaUZ2ZclqJG2j9Bii77Ss1gZj6gT6KPikmFGE3AQjbZbGEnYbUg+F9x7eQ1dKYd9lX
-	 5sRb+cXjf9NNRinX9dHaWz33rJn171wNFHKM/n5k5g5yXutWxk1dy6FWwl+ZeZG1NeHcG
-	 LwPh2k/p/McyaHt4x6bmUplpDFZQiJVfDcaV9ZsJU0i1C+ixKE0NvMVqErgZcM0GCb84k
-	 7wkP0YtzHCtvCtzNPYj++cKpSRbbGYDSqKKqhjbpx7t7IUIpHJSx9ODrkYpoicB5+/1sA
-	 HYiS1314eyE5ubikg55j+JYyxVTYdIXBetlQACZVmwSr4oRrDi6vsxbc7fAL6T/zHww==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=NqBTWbYhrgJljwUx8WqJhkg4ihbk/Vv19VCK3zrjEUA=;
+	b=ELz7lIznncZwoDyPNR1dSnjhA6VZlFQlp09ZPR991WPb/VPusaEgW1rB1J9Lx6QAFUOb
+	 dNl3i8E7b5S2KiTfzdc5OemSz6aJJfEP+2OUzr5rCoPrV2yXdx6L3WLgwJp9HYXCHiL78
+	 I+hs/Un4gatBrLXKK+0mtc1t4dAyGhNSieoJvpWaMldeYg18oCX1LqI6DAiXAzUzMfMN5
+	 OGB2FN628OX0jfdArrb1G65+C5vCqzPbRHRWatkXX0BWMnYOgmsN44wXXT+v8+ze1+p6W
+	 Z2CM6isphkL5uzEv6nTuGnOL0PCMdaaxqqLSgj5ynMwxHye331H5oeCDMUGr7/R+Xow==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZPCDWY5K;
-	arc=none smtp.remote-ip=209.85.128.41
-Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="d/7Io1VV";
+	arc=none smtp.remote-ip=74.125.82.197
+Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19DF0606A331
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:55:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 19DF0606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3441606A88F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:55:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3441606A88F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZPCDWY5K
-Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4bb72b44a97so5037815e9.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:55:21 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=d/7Io1VV
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-381dc4b8f40so918744eec.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:55:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794988520; x=1795593320; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=IixbFQXdCcNRV05zhO0CILF5CYB7LhreOsOHyTa+xbQ=;
-        b=ZPCDWY5KjboLv2qiUQJNLCrhqC0b2RJNEadIMQZ58PFpt3321ldzzVsvZzPH4eVXAP
-         U3z1HuiF3fvO+h48mcpgMzs0HC650MBoJDLQ6NUTwzhuadeOeElBj9VpCc3FrnKAR5IE
-         RW1Pf5c/skEH393lNme8Zv2sToN2m7cd261Ls/+7FKaeWPpbmc1VSDtpwiBGnEghvVys
-         EAnqdmdtOJe6OQ1goXrBZUHqpCApIlegH5C98NIjrk/+2SExYNyncT8V/QWd7yVBhR58
-         7fv5fzq2nX13eAWbMOc5srgfrNdS0oVRpvziEgkLve3vcYiV5/3i7i47h/MGXduqyMxA
-         LZTQ==
+        d=google.com; s=20260707; t=1794988523; x=1795593323; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NqBTWbYhrgJljwUx8WqJhkg4ihbk/Vv19VCK3zrjEUA=;
+        b=d/7Io1VVBbIOEreAOJxktmHodlkVrpBDoA/cprL6W1ywaKOagFc8hIDgnAXixEbFvO
+         LQ91kuOgnuSlXwuFi5EKDccqoIS2LazfKOhFsO5RpOmUMoRKDPb+wWY/b4XexsgxeqiD
+         V2H5eWb6peY5dY923yYV+grX4rPKTWOHcjIQ9IykbUCJLRvNTXOUdKOuWsuS5r6LFzZU
+         FPXN2PGmjNrFP+usqXl+K3tpita1IB7JHUFPLcPzJGJZhwxzAfmdMRFOxV0dCOPQn4+w
+         /HnqCg2MQBcChFSXxqUj0o/3R7rpfjnK5VsFWbCcQXuqXUtbfcsieVHze9NApSS5zWQX
+         eBUw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794988520; x=1795593320;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=IixbFQXdCcNRV05zhO0CILF5CYB7LhreOsOHyTa+xbQ=;
-        b=F9PFjR32YctO2RnRzOIgn1bD39ESUM46SNWQjot3vAJvOPZoYCDmQTMxeWuDw+/9VN
-         xJh9X6muSnQ7mKDDAScNjibluN/PAYoibXoX1xA5A6p3QCDtEnLKFWeDsZPDttvp4WAv
-         S1wBjnwlf3wuGC1bu8BKYTS4T3yMNL5xiN6qUsViD0rl7YASzktUA39LAjHAhrlJpNp9
-         YeOLmtC0xxKEkylBQl4PXtSz0doNr2AOhnRForYMMwV9LimTceDwoVdGtRtMU7q7EWjh
-         ZishrsLngar9ZRlweMTIhszh9fl1q9PB/YiqxeESDJdLNppmUwWK0QSOHRZjeTr9a1MO
-         Tv7Q==
-X-Forwarded-Encrypted: i=1; AL+hErFBjRK4NS7FF/4e6wSbl41VpjHSQZKc034yDppWm2Ia1y4kz0kRqdRJKlJE8R5il/7ldrYs3NAvPvIUmW0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z96JF9JKFsjiChZdqB3T18zkS/rhbmowoHx89bwV9SwcVAK5IAP
-	TwaLhU+3TNB6oACnW3E7IRQsz5cOIK0U3B9xnM2xnC4EQWyZkbUrE/ZZ8uPye331
-X-Gm-Gg: AYBFou0dveQ2r3pXI9lAIAKMwEJUEYeSxRhhZ3GnYYpzCRF+Rxysjn33vDLyzciHGTG
-	rAf+aju/hcprCjYy5LtcqtRH+x1E/mtB4o73h9hs2dQmyV2yXhV9TNvrmp3IkVS0aUi7Ou1MesO
-	NeTP4lNVmAfPAv/zl1VDOswE1OpTk/r/tge1v/7+DYidhoooJWSRBKD8sY8B8nBG6ycLd7IfmYr
-	pIVgRrtatZiqEZzngg1IAI4YBlRuplOq51QaxSXK3dguMh2hEQx+m7UMkNhm+chL2cxVFnm25c1
-	jnH+LG24iDZG5nLbEouMJr7HSyhJr7pbJckmxVHwcKJRVeEa/VrEcvq+TtL1doJY5i8w5mJxFwY
-	NyFN7rSIBGFr0/JkDMrlrbnIQdvDkjonxbjnbaRePZdOkvRixnozMe4xmcfYVVH2sYkXQw1F/h8
-	5+8Vx1vsL49gtQg1URvndG14NbKEzLxqYrj8a5Uqo4TgGjwZfZ5pj0MKbG4snnwyXQ4LTLqMYa7
-	29VetAw4uLS8JvEgmVahVIqGTDNVkAudv5UgKnj8NdyVtVsIiMxTzSWmyC3sOn06UjRiS/lZPSQ
-	X0uEI7D+Lyla+gGb/v2bt6QHr1GDC3DWEVnQ/PFyHMbZKnPdyhOlY10+
-X-Received: by 2002:a05:600c:8710:b0:4bb:6fd3:5aaa with SMTP id 5b1f17b1804b1-4bb7d6d1dcbmr31055095e9.3.1794988520307;
-        Tue, 17 Nov 2026 23:55:20 -0800 (PST)
-Received: from deb05.proceq.com ([213.160.61.66])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7e59834esm15865035e9.4.2026.11.17.23.55.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 23:55:19 -0800 (PST)
-From: Mehmet Fide <mehmet.fide@gmail.com>
-To: Ping-Ke Shih <pkshih@realtek.com>
-Cc: Luka Gejak <luka.gejak@linux.dev>,
-	Bitterblue Smith <rtl8821cerfe2@gmail.com>,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	mehmet.fide@screeningeagle.com
-Subject: Re: [PATCH rtw-next v12 2/3] wifi: rtw88: support channel switch in AP mode
-Date: Wed, 18 Nov 2026 08:55:18 +0100
-Message-ID: <20261118075518.1980526-1-mehmet.fide@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261117232624.1956815-3-mehmet.fide@gmail.com>
-References: 
+        d=1e100.net; s=20260707; t=1794988523; x=1795593323;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=NqBTWbYhrgJljwUx8WqJhkg4ihbk/Vv19VCK3zrjEUA=;
+        b=kcVbkEcitU7sqn1KMbwMf5+33m/+nrBV5/gfbeLKNfXR7UFTIERssnjf1r8gD7E+SC
+         6wyW4AZ8950nQ8cRwXBZjlzGE7E6NyofVKgGMww4HohZr4VcXpjZMdJ+Ccmrjv4AEq6A
+         tsyvsYNyscHd9FhG4fS5auswU+o3Tt2g4WUoVN64oMXuK1us1aEKh+8N77CQe4VDAKxx
+         /MK1YYWVhpvOpdO3O0alHqknH9McjSD687fwxcO/rqMDv2nNhfPsNUvpfR4gUpczcVGm
+         L2y78Mapzca79wjI6jyIoCctFPUuUPVeNp+8iPR2YrnY74R1/E2KhZh0vj4LqmKH4o0l
+         DW5w==
+X-Forwarded-Encrypted: i=1; AL+hErFeqfZ1ThjbPrNHtaK0w7oI3XTqWJPHD65sBzGXMC75xEGlxuAMUumU9losV43v5lPRsoyaiUj23wwSHtA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+VTxcYmLP+lkBjAcKQLOVpripwl86qnLGtyPcd5onMM/Qsz6Xt
+	JrjR9/p27FceI39yjOEun9hn5EalyO9Kdy3HAW2/ZdxctaWPh45aDaeidy2PllnQXuREjC+9dAE
+	dyxMB5z7ieA==
+X-Received: from dybmw7.prod.google.com ([2002:a05:7300:cd87:b0:382:7604:3dd8])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:d08c:b0:381:edba:caba
+ with SMTP id 5a478bee46e88-38280a385e5mr1870465eec.17.1794988522456; Tue, 17
+ Nov 2026 23:55:22 -0800 (PST)
+Date: Tue, 17 Nov 2026 23:55:12 -0800
+In-Reply-To: <20261118075516.1278903-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,19 +78,86 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+References: <20261118075516.1278903-1-irogers@google.com>
+X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
+Message-ID: <20261118075516.1278903-2-irogers@google.com>
+Subject: [PATCH v1 1/4] perf threads: Don't resurrect removed threads in last_match
+From: Ian Rogers <irogers@google.com>
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>
+Cc: Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+	Adrian Hunter <adrian.hunter@intel.com>, James Clark <james.clark@linaro.org>, 
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Sashiko found a hole here: if the download of the count of 1 fails and
-beaconing goes off and on before the retry, as for an off-channel
-period, rtw_ops_bss_info_changed() restarts the countdown with retry
-false, and the work finishes the switch without the count of 1 ever
-reaching the firmware.
+threads__find() looks up the thread under down_read(&table->lock), drops
+the read lock, and then acquires down_write(&table->lock) inside
+threads_table_entry__set_last_match() to update table->last_match.
 
-With a test build that fails that download and an off-channel period
-of 40 ms during a countdown of 2, this happened in 9 of 20 switches on
-an RTL8822CE and an RTL8822BU. Passing rtwdev->csa_retry there instead
-of false keeps the retry: 0 of 20. v13 will have the fix, please do not
-apply v12.
+If threads__remove() (or threads__remove_all_threads()) runs in the
+window between up_read(&table->lock) and down_write(&table->lock), it
+clears table->last_match and deletes the thread from table->shard, only
+for threads__find() to overwrite table->last_match with the removed
+thread. Subsequent lookups for that tid then return the removed thread
+from table->last_match, causing stale event attribution and keeping a
+cached reference until another lookup evicts it. In addition,
+threads__find() unnecessarily took down_write(&table->lock) to re-set
+table->last_match even when last_match already hit.
 
-Mehmet
+Only update table->last_match on a cache miss, and recheck under
+down_write(&table->lock) that tid still maps to the same struct thread
+in table->shard before updating table->last_match.
+
+Fixes: d436f90a64f3 ("perf machine: Move machine's threads into its own abstraction")
+Signed-off-by: Ian Rogers <irogers@google.com>
+---
+ tools/perf/util/threads.c | 16 +++++++++++-----
+ 1 file changed, 11 insertions(+), 5 deletions(-)
+
+diff --git a/tools/perf/util/threads.c b/tools/perf/util/threads.c
+index 5db81b9..736058e 100644
+--- a/tools/perf/util/threads.c
++++ b/tools/perf/util/threads.c
+@@ -85,10 +85,13 @@ static void __threads_table_entry__set_last_match(struct threads_table_entry *ta
+ }
+ 
+ static void threads_table_entry__set_last_match(struct threads_table_entry *table,
+-						struct thread *th)
++						pid_t tid, struct thread *th)
+ {
++	struct thread *cur;
++
+ 	down_write(&table->lock);
+-	__threads_table_entry__set_last_match(table, th);
++	if (hashmap__find(&table->shard, tid, &cur) && RC_CHK_EQUAL(cur, th))
++		__threads_table_entry__set_last_match(table, th);
+ 	up_write(&table->lock);
+ }
+ 
+@@ -96,16 +99,19 @@ struct thread *threads__find(struct threads *threads, pid_t tid)
+ {
+ 	struct threads_table_entry *table  = threads__table(threads, tid);
+ 	struct thread *res;
++	bool update_last_match = false;
+ 
+ 	down_read(&table->lock);
+ 	res = __threads_table_entry__get_last_match(table, tid);
+ 	if (!res) {
+-		if (hashmap__find(&table->shard, tid, &res))
++		if (hashmap__find(&table->shard, tid, &res)) {
+ 			res = thread__get(res);
++			update_last_match = true;
++		}
+ 	}
+ 	up_read(&table->lock);
+-	if (res)
+-		threads_table_entry__set_last_match(table, res);
++	if (update_last_match)
++		threads_table_entry__set_last_match(table, tid, res);
+ 	return res;
+ }
+ 
+-- 
+2.56.1.703.gf848ed807c-goog
+
