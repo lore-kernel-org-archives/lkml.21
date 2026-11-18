@@ -1,60 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795020696;
-	b=fcSlVJCUs+iHWCvHaIxFKWdGdLibZ18bm13vjlisaOivPapq78yC4XScu9sNzQms3tzO
-	 8C2n28afMyjKn8JKJUHYKi5zxYPT7b5RB6RcMUYRRkOV8hW6A0xJXjCaaE1Qd58BUacwS
-	 gpnuHGhcU4rGp4gDW6YNLwEPD9rxGwSTv/D3I84Gv23oq1erYXzalxncMHt3luc4UoozA
-	 GN06h/64sIf9hbR09xsnh/frK9vaTl85OS/Bp/2zVBss216BlKFfKDNysAnsLXNxmfFzz
-	 9rIjMgWXgesY50snYIfURSWvWXFZ4dfYTxPsUx0bklcntiFFi9fs3QQAOJCyJLjQsCQ==
+	t=1795020706;
+	b=Mujfn0Q8oYGp2hzRvFtmOMVvFjuILnl1z0lxA7Ww9Hfnp1jXnw++Zu3W/beANf2YcJue
+	 3Sgx4TjQsVRkMgG7k4Rj1Ig/uuLd+ILu8TH9+sCgPjfsJJPOQEeaAZsVy1lMQXevcM+hk
+	 Z20r8a5HUwbBsC9TElF2gjL9UNnw6tvONBqEU7KI+1HuL2x7qY+ozcijR5+ZfeBfSP+ww
+	 OLL78IhPzB/8uyEXzM0vgvJBD/dl+iBYKjOf8wY2KWeblBLUg9V6erA2PjjypGHje20xd
+	 vP4Au94iPB+ayGkv3Mr6XkhE+daw4/w7JlkqDh58DvGvD+w+1419tpvGBKRJT72mC+A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795020696;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795020706;
 	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
 	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Last-TLS-Session-Version;
-	bh=dWxfOxs6Q0dpbo4RjDNuIDxsM7SkDxHUe3z8fq4Q1kY=;
-	b=4ucwzDnzx0bdlnJjrgduEdIVLNxm9XGR3bA/lHK2uTv0wbakOVqxaKcCX/aTQ3z6XhXf
-	 Jc5jtNIBGhXudNkxcpD2t00SgE495nGDE6ywAaUpwY9FaeeABlPlNadPoRmwoRPKRQ4uv
-	 xH6JLdzjQ3Sa/kjw/5XvS5cw5SRw+wP76R1vwld3seOawjNJrZybmWGKnIfTdw0isjh87
-	 dlE6q8LEDc7UWehDvwCuZmyHYl0YO1NDtMW1RLnqHwCgofvLz+n1pW7xMToYWDJJ/pEhu
-	 DNTR3kxD8sS/ZIJv+Ii+dmFYLmTrSGgjY8hz3hv/3qqAQiHXbtz1ikrNzgbz8CFfyYA==
+	bh=+gnpBc9synDIKGRlYDbwpGZkwJIbWk7JkbUzq9+aVgs=;
+	b=xQRBr/f2CD9VIt7THf9gLvpuo0WR1/9GvcEz4vHk+1zFid3N46i0ZGqF0W6BFHSfNSeN
+	 EF/gArwt9yqxJwc1dExcRxbdtMU9MBae3FWW4bj3RG6ZtxkyhH3m8zOIzhoZYVSYavfwh
+	 cwygQrXTFTL3ZCrR2nufFV9chtJfbG8fzOzdYgF5icn5GsGkKIlxvgtaEuouy9lBIYCNG
+	 kXNXSnVs1zbFwNgFQXZWbBu33rKloYajui0A+6F8GIb+AxvocNtQ0/PEguKQJfs3KVDuk
+	 JSTJfmEkdyILA2gOofjHUNuPiiJ2iEPwc8S99AgXnrAp5dnxEP0GNEkjJiBOW8w0uFw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b="J/xp2jZq";
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=H+lTydkf;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D216606A33B
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:51:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4D216606A33B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8B1B606A336
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:51:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8B1B606A336
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=J/xp2jZq
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=H+lTydkf
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 041FA1A16CA;
-	Wed, 18 Nov 2026 16:51:35 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 5E6F1C4F77B;
+	Wed, 18 Nov 2026 16:51:49 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id C7B035FE9B;
-	Wed, 18 Nov 2026 16:51:34 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7677511BC28C8;
-	Wed, 18 Nov 2026 17:51:28 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 78A0D5FE9B;
+	Wed, 18 Nov 2026 16:51:44 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7555411BC27C2;
+	Wed, 18 Nov 2026 17:51:33 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795020693; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1795020698; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=dWxfOxs6Q0dpbo4RjDNuIDxsM7SkDxHUe3z8fq4Q1kY=;
-	b=J/xp2jZquTe/vOWqVCmtWy9eaF6Mfv6x/+hq/4vcEivdM9AVG1LNAsrPXT7PhT3MXBo6Gs
-	z1RU4KRAqWkY+Pgfbgpuqrcr2pCUjoBTfadAW1a6V+3Xv/sPDL41q1FOtLNI6yNJRkthLv
-	+XJyvOI8ddPi838LQpe+OwzaWz2TxVKppoAzg7nH4/Qys2KwGyY7+ydSBZMVpCJWi/Ov2Z
-	kOHGlSkEwaypk/x2hQn6Nk+b/CxZdVdl2CC4+AWDW7MjOR05WvGLefkP1l8+mThEr3Hujz
-	O3mQJ23axbxKs/tl01yTckTEGChiB3GtX4d8onB/3e2YgJd8a9lhOsoEJNN6oQ==
+	bh=+gnpBc9synDIKGRlYDbwpGZkwJIbWk7JkbUzq9+aVgs=;
+	b=H+lTydkfRATyFQnDcoY+R+GWl/BZjyUg4ecff1G/brsXOX+bUihMNt5xTeFxCZSMDjk9AQ
+	LPv7JujcpJ5HB+Fw5vcVM0GzxUKR0CRj8lp97+horbT+xuJA+LRZ7WnIsn2R/BDqMYJhMr
+	c8cxC7a9e2SfHp/dUYPnLcjVDuY+7sH0xhyZBp59QPpRXMUQYcawemXphHqdpi8E502D+R
+	FOriwXmJFijaDd1Bmeb1A6WoZoY+soKRlc+p7jc6m9Hp+JzdVKHiVV+u6mPz1YrR4Wu/Kk
+	l2NkWj2IMDpgrYBaDw6FfCkifr173jcLBzrIRN0ZjEVCegLIwe5YgsOgkA/lrw==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Wed, 18 Nov 2026 17:49:57 +0100
-Subject: [PATCH RFC v3 14/31] drm/bridge: ti-sn65dsi86: protect device
- resources on unplug
+Date: Wed, 18 Nov 2026 17:49:58 +0100
+Subject: [PATCH RFC v3 15/31] drm/atomic: drm_atomic_private_obj_fini:
+ protect private_obj removal from list
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,7 +66,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-drm-bridge-hotplug-v3-14-44bb3b4a828f@bootlin.com>
+Message-Id: <20261118-drm-bridge-hotplug-v3-15-44bb3b4a828f@bootlin.com>
 References: <20261118-drm-bridge-hotplug-v3-0-44bb3b4a828f@bootlin.com>
 In-Reply-To: <20261118-drm-bridge-hotplug-v3-0-44bb3b4a828f@bootlin.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -92,168 +92,75 @@ Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>,
 X-Mailer: b4 0.16.0
 X-Last-TLS-Session-Version: TLSv1.3
 
-To support hot-unplug of this bridge we need to protect access to device
-resources in case device removal happens concurrently to other code.
+Currently drm_bridge_detach() expects that the bridge private_obj is not
+locked by a drm_modeset_acquire_ctx, and it warns in case that happens:
 
-Some care is needed for the case when drm_bridge_unplug() happens before
-ti_sn_bridge_atomic_post_disable(), so the latter cannot release supplier
-resources taken by ti_sn_bridge_atomic_pre_enable(): runtime PM (and in
-turn regulators) and refclk.
+  drm_bridge_detach()
+  -> drm_atomic_private_obj_fini()
+     -> list_del(&obj->head) // removes priv_obj from
+                             // dev->mode_config.privobj_list
+     -> obj->funcs->atomic_destroy_state()
+     -> drm_modeset_lock_fini(&obj->lock)
+        -> WARN_ON(!list_empty(&lock->head)) // warn if priv_obj->lock
+	                                     // is still in ctx->locked
 
-To ensure those resources are released exactly once on device removal:
+The expectation is not respected when introducing bridge hot-plugging. In
+such case the warning triggers if the bridge is being removed concurrently
+to an operation that locks the private object using a
+drm_modeset_acquire_ctx, such as in this execution scenario:
 
- * move the code to release them to a dedicated function
- * register that function when the resources are taken in
-   ti_sn_bridge_atomic_pre_enable()
- * if ti_sn_bridge_atomic_post_disable() happens before drm_bridge_unplug()
-   (typical non-hot-unplug case):
-   * ti_sn_bridge_atomic_post_disable() can enter the critical section
-     (drm_bridge_enter() returns 0) -> it releases and executes the
-     devres action
- * if ti_sn_bridge_atomic_post_disable() happens after drm_bridge_unplug()
-   (typical hot-unplug case):
-   * ti_sn_bridge_remove() -> drm_bridge_unplug() defuses
-     ti_sn_bridge_atomic_post_disable() so it cannot execute the devres
-     action
-   * the devres action is executed just after ti_sn_bridge_remove()
+  CPU0:
+  drm_mode_obj_get_properties_ioctl() // userspace request
+  -> DRM_MODESET_LOCK_ALL_BEGIN()
+  .  -> drm_for_each_privobj() // loop on dev->mode_config.privobj_list
+  .     - lock the privobj mutex
+  .	- add priv_obj->lock to ctx->locked
+  .	  (list of locks to be released later)
+  .
+  .                         CPU1:
+  .                         drm_bridge_detach() // bridge hot-unplug
+  .		            -> WARN triggers!
+  .
+  -> DRM_MODESET_LOCK_ALL_END()
+     -> for each lock in ctx->locked
+	- remove priv_obj->lock from ctx->locked
+        - unlock the privobj mutex
+
+Fix this by using DRM_MODESET_LOCK_ALL_BEGIN/END() around the list removal
+in drm_atomic_private_obj_fini() to ensure the two threads above
+(CPU0/CPU1) cannot happen concurrently.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 ---
 
-New patch in v3
+ * This patch was sent separately in the past [0]
+ * The issue is still happening with hotplug without this patch
+ * The issue has also been reported by sashiko when reviewing v2 [1]
 
-This commit basically replicates the same change done on the ti-sn65dsi83
-driver, now upstream:
-https://lore.kernel.org/all/20251112-drm-bridge-atomic-vs-remove-v3-2-85db717ce094@bootlin.com/
+[0] https://lore.kernel.org/dri-devel/20260324-drm-bridge-atomic-vs-remove-private_obj-v3-1-64deefe84044@bootlin.com/
+[1] https://lore.kernel.org/all/20261001130542.A40D11F00898@smtp.kernel.org/
 ---
- drivers/gpu/drm/bridge/ti-sn65dsi86.c | 50 ++++++++++++++++++++++++++++++++---
- 1 file changed, 46 insertions(+), 4 deletions(-)
+ drivers/gpu/drm/drm_atomic.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/gpu/drm/bridge/ti-sn65dsi86.c b/drivers/gpu/drm/bridge/ti-sn65dsi86.c
-index 4fd9fde77d2b..75e36bf261b0 100644
---- a/drivers/gpu/drm/bridge/ti-sn65dsi86.c
-+++ b/drivers/gpu/drm/bridge/ti-sn65dsi86.c
-@@ -852,9 +852,15 @@ static void ti_sn_bridge_atomic_disable(struct drm_bridge *bridge,
- 					struct drm_atomic_commit *state)
+diff --git a/drivers/gpu/drm/drm_atomic.c b/drivers/gpu/drm/drm_atomic.c
+index 81591173265d..ad2099b4dffd 100644
+--- a/drivers/gpu/drm/drm_atomic.c
++++ b/drivers/gpu/drm/drm_atomic.c
+@@ -1089,7 +1089,13 @@ EXPORT_SYMBOL(drm_atomic_private_obj_init);
+ void
+ drm_atomic_private_obj_fini(struct drm_private_obj *obj)
  {
- 	struct ti_sn65dsi86 *pdata = bridge_to_ti_sn65dsi86(bridge);
-+	int idx;
++	struct drm_modeset_acquire_ctx ctx;
++	int ret = 0;
 +
-+	if (!drm_bridge_enter(bridge, &idx))
-+		return;
- 
- 	/* disable video stream */
- 	regmap_update_bits(pdata->regmap, SN_ENH_FRAME_REG, VSTREAM_ENABLE, 0);
++	DRM_MODESET_LOCK_ALL_BEGIN(obj->dev, ctx, 0, ret);
+ 	list_del(&obj->head);
++	DRM_MODESET_LOCK_ALL_END(obj->dev, ctx, ret);
 +
-+	drm_bridge_exit(idx);
- }
- 
- static void ti_sn_bridge_set_dsi_rate(struct ti_sn65dsi86 *pdata,
-@@ -1124,11 +1130,16 @@ static void ti_sn_bridge_atomic_enable(struct drm_bridge *bridge,
- 	int ret = -EINVAL;
- 	int max_dp_lanes;
- 	unsigned int bpp;
-+	int idx;
-+
-+	if (!drm_bridge_enter(bridge, &idx))
-+		return;
- 
- 	connector = drm_atomic_get_new_connector_for_encoder(state,
- 							     bridge->encoder);
- 	if (!connector) {
- 		dev_err_ratelimited(pdata->dev, "Could not get the connector\n");
-+		drm_bridge_exit(idx);
- 		return;
- 	}
- 
-@@ -1206,6 +1217,7 @@ static void ti_sn_bridge_atomic_enable(struct drm_bridge *bridge,
- 	}
- 	if (ret) {
- 		DRM_DEV_ERROR(pdata->dev, "%s (%d)\n", last_err_str, ret);
-+		drm_bridge_exit(idx);
- 		return;
- 	}
- 
-@@ -1215,26 +1227,57 @@ static void ti_sn_bridge_atomic_enable(struct drm_bridge *bridge,
- 	/* enable video stream */
- 	regmap_update_bits(pdata->regmap, SN_ENH_FRAME_REG, VSTREAM_ENABLE,
- 			   VSTREAM_ENABLE);
-+
-+	drm_bridge_exit(idx);
-+}
-+
-+/*
-+ * Release resources taken by ti_sn_bridge_atomic_pre_enable().
-+ *
-+ * Invoked by ti_sn_bridge_atomic_post_disable() normally, or by devres
-+ * after ti_sn_bridge_remove() in case this happens befora
-+ * atomic_post_disable.
-+ */
-+static void ti_sn_bridge_release_resources(void *data)
-+{
-+	struct ti_sn65dsi86 *pdata = (struct ti_sn65dsi86 *)data;
-+
-+	if (!pdata->refclk)
-+		ti_sn65dsi86_disable_comms(pdata);
-+
-+	pm_runtime_put_sync(pdata->dev);
- }
- 
- static void ti_sn_bridge_atomic_pre_enable(struct drm_bridge *bridge,
- 					   struct drm_atomic_commit *state)
- {
- 	struct ti_sn65dsi86 *pdata = bridge_to_ti_sn65dsi86(bridge);
-+	int idx;
-+
-+	if (!drm_bridge_enter(bridge, &idx))
-+		return;
- 
- 	pm_runtime_get_sync(pdata->dev);
- 
- 	if (!pdata->refclk)
- 		ti_sn65dsi86_enable_comms(pdata, state);
- 
-+	devm_add_action(pdata->dev, ti_sn_bridge_release_resources, pdata);
-+
- 	/* td7: min 100 us after enable before DSI data */
- 	usleep_range(100, 110);
-+
-+	drm_bridge_exit(idx);
- }
- 
- static void ti_sn_bridge_atomic_post_disable(struct drm_bridge *bridge,
- 					     struct drm_atomic_commit *state)
- {
- 	struct ti_sn65dsi86 *pdata = bridge_to_ti_sn65dsi86(bridge);
-+	int idx;
-+
-+	if (!drm_bridge_enter(bridge, &idx))
-+		return;
- 
- 	/* semi auto link training mode OFF */
- 	regmap_write(pdata->regmap, SN_ML_TX_MODE_REG, 0);
-@@ -1243,10 +1286,9 @@ static void ti_sn_bridge_atomic_post_disable(struct drm_bridge *bridge,
- 	/* disable DP PLL */
- 	regmap_write(pdata->regmap, SN_PLL_ENABLE_REG, 0);
- 
--	if (!pdata->refclk)
--		ti_sn65dsi86_disable_comms(pdata);
-+	devm_release_action(pdata->dev, ti_sn_bridge_release_resources, pdata);
- 
--	pm_runtime_put_sync(pdata->dev);
-+	drm_bridge_exit(idx);
- }
- 
- static enum drm_connector_status
-@@ -1514,7 +1556,7 @@ static void ti_sn_bridge_remove(struct auxiliary_device *adev)
- 	if (!pdata)
- 		return;
- 
--	drm_bridge_remove(&pdata->bridge);
-+	drm_bridge_unplug(&pdata->bridge);
- 
- 	of_node_put(pdata->host_node);
+ 	obj->funcs->atomic_destroy_state(obj, obj->state);
+ 	drm_modeset_lock_fini(&obj->lock);
  }
 
 -- 
