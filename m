@@ -1,80 +1,78 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795035832;
-	b=zYzLs1/HPX4bruCiFlH4TyvtjfwN7ru6+VShnz7KaLwVhWqBPBtutBJEjonkiyFxV4qj
-	 GghhBJQUPbdsifbQmIIf6UAR3CnHUpe4ENOhmLtFXiFCeohbXDc14jzYPdVyaLg6e1N1T
-	 1b5vjUtnL5/nx++Px3lZOuJO85R+CESBcZPxnB7/wjJJfaJx84TaFH14vIyO3I/lOafX6
-	 zPyG3YaIUGXSuZib6jpLNHLGSu6PBXVzsrdA4dsCXWfS+LSQXyzbeqwfoayTFxkgcQsox
-	 9v/RStWbRH5UryHn9YlHuR1TmDVthK7+W1ruh+MeyOVUfZzmjnzo0EvGqyTOyCvHWgw==
+	t=1795035838;
+	b=2HQ3GZthnBOSAfdCGBsRfGUO2JfdgYMNe83nPu5M5uBmsxHI7IonHc29JEyCAuasvrd1
+	 9UelNN+lXNMRqc/In3QAL3GAjFZb6H1LhZSksJ8Lu8lJpPjWwtl959ezikJIFrZC9Ke/4
+	 SDAHIZGjYy9aOSj0TH0bNG+hvovwL5/XKnyFZ8Qz2dSIEcHMaDmb34VxtWqpxsdGqftsy
+	 gnK2MIkuCPpc9vHrqQhTf4jXi/sjr/C3i/iIrzD0ZYyvyuxsuKq4QxauNhhIJb3BPGt+0
+	 SQGubql4No6wCtJgJxVMCIrLIwGPk8Mi9MXZ09p1P+Y0Dw+L1xU/VyopSDK/Tjp9tuw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795035832;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=OnHiFewJFlKMNfekE8TnSR4Tq1o0d0eo3y3ydr4JNWk=;
-	b=c9emPXPUN8NRJh6+lKcnH3N5Ktl+00LRKMZX7pX75TOqsDZLXRv2zB1Yxq67Si6Jm/8+
-	 ayVHukk7QvHTMhr7+INsCO8reHLAU1fV9t+IUVrtEGddGSJqVNLQuLIJt0ehQkz9f/AYF
-	 dhOXBZY9ez5hCKwjXCAZkSToxB0bmPFI46nFsnRH085ngSKc05QJIHRU7BMMJ7jgmmpkN
-	 ZxaAS/FmOIVM6nFIGhpqbrjK0wOfTgVfeEn0t5uUO1+iFYZAW68kbw549fK5B9wF3ZNIY
-	 RKr9MMF8xKydBS/0wmCuilqpzvxURjp1Cy3GR6uw6R2dqvxINKvJfnq3FITs1d3Fo0g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795035838;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=ONH2sHHf2Xx9VeVmwI9oduV7d2UyMRNg4DFB5U1VYOc=;
+	b=CyYYp6k+oDPIaROf7aYy44mB1J/8A++KnxCnCMk5g2dXXO46ABEtYoKssLmGBKGqsbd0
+	 tcBxTjbqVkUL1hcQaiArRq9wQmGB9WR2mEBmXLn73h1EVc545u2fQurces+Wc0Cz0E3Lt
+	 uFeH9uDQxxTDIHqW8/HwxL3rzqQGlBGf+3U2+CEL7+X6guyI1taLh1xbRRpkBMCBayB9m
+	 42RqqVm+d65fR4KK3hT1s/+hPbi5KCJdATSbg8X3BFhMbsBV/4Z5644l0bqNo4uFd95Wz
+	 rIJQZauxkgj+h+A1sUIXTTHAS9tI8N+e/yEhiq/dZq0xUb0jIsNEhFmhJNEOi1UP/KQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NAzKr3os;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oeupgfQV;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79DD560A2603
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:03:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35A4F60A5BD5
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:03:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NAzKr3os
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oeupgfQV
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795035832;
-	b=GyB7j+3/xujnjYbKt+1RMoyJCpaueSQBuMo5OWYhzHPS3AE3AnTiZqjb0VBWgbYltDXZ
-	 yOFjG6BJ2LQJUkBZhFhs0s5esqswu2ZrCWxgpyTOkzuqFry7bM7W3YAcpwnpB+IRN9kaP
-	 /3gpBoh64ZDGPHLQ/BSeMCP69Pm6WZmvkHg1f41YR9S8Nrc2Z6k9KHTtR3TSpb2ki/cbR
-	 Uyk+P8vFvx7j07Q+OZ8smb4O/hv6c24Pg5BnhuBV0TXqd4eB5HHAF23arosAssQUcdMMN
-	 zl3tPPSQjbE9V5Xy+iw4h/AL9vVG5tZJH0gJgfSlvp0PWcIG+n6OnUxvtlMS5cR39EQ==
+	t=1795035838;
+	b=gBVZZZDHm5suwcsYjwE6NwFyu4NDkglwiHzlVYsGPc2MQaYX7yfIhq9gKfKYLWSzol+z
+	 s+lk/ZiYAqjCzIO2PUJY/BYZGLNOc301LNy35hDhL4nucBahP8ebjQTWTswHBdgKPv+PO
+	 qO98dX8ssvSRdmsHnPfQjSYKGJCkUVvpwAxD71/OECPl0Pz8dPA9nvcKr3GukS2mJBiN4
+	 3dIHFcxkf5Yi+d/EZG7B88bfZruq97Mud15LDqI/vrCL1DX+1S+rBNIzN8/rw8YHBJVo5
+	 NrcPAl4zXA0JkbIZ3pTugTkPzZbvR3KdEmXc/vnHD044igHUzaGSFIlWyMDKHNOVmjQ==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795035832;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=OnHiFewJFlKMNfekE8TnSR4Tq1o0d0eo3y3ydr4JNWk=;
-	b=hqa/+uINxXG7YzN0qHjCeCi/+LaE9f9xTr44PPDSDDfFKgX4+sFIy/EWjtHq2jQHtcV6
-	 70gBvIu/vtr2R7ft59lFgPp/I5WkOs5sIPQgH6Q8iP+MiE4z1YyjUMH766FCWUzf2SVnU
-	 JcnkJfMNvFuHAeCjW+iHwakPQm5d1226vq3Ch/LEO5mQ00P6DU9l1REw2IyONojSiAzbN
-	 TXTDRoII+UmBgO7FwiaS68OjGjFkFVsuPzJcehKORQ6105md6SdTRy1tvbnr4ufUo5eYA
-	 /3n/T0tc92QPzFfvs6KC3wiB7mksQ4jadwVLv/2AEHHCLfZmEzUXftcC14tZE5fdnNQ==
+	c=relaxed/relaxed; t=1795035838;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=ONH2sHHf2Xx9VeVmwI9oduV7d2UyMRNg4DFB5U1VYOc=;
+	b=Wmwh8nEyLQyRKjrXpbuNQ1vaHIpRaPNqhxjcKaUk77fHRwb+PMo0AAxxc1snZGWyvIBq
+	 vVUDwP6x1QfLsPxg2iKcC8GVY+gqm9eaUBNmmSFRMAMHkC61N4/zaT+D3ZgiNB4WlVM3w
+	 8b0q6FL/rqhoo50sltDuegDm5TC/Qpznf+bNNAC129d3czDkWmqptdFCCuaBmhyJPDt71
+	 XU+PWUh1KtKcjjp2844BgapltkVf6hMX5cJzT3s7fLTNj4mFkn3yede4Z3/JKeQGuMfA5
+	 WhhbQYDmkN/hWfc1lQnjX3eW7FkjrBjiYGfZUiBBqz31P3UX1QvdZbDtTP8NErUDORw==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id A29501F000CF;
-	Wed, 18 Nov 2026 21:03:43 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 17F5F1F01575;
+	Wed, 18 Nov 2026 21:03:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795035832;
-	bh=OnHiFewJFlKMNfekE8TnSR4Tq1o0d0eo3y3ydr4JNWk=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=NAzKr3oslh4zxwuW9+PDONYw+NYJDqdDbCTm3iEyjyyBYnvbAMRX+GZPHu3VsS56F
-	 vEEqT+7JIETP4JbmsmhaJvf/q3XHaPYETlSvkHjLG9VtjUsDk9VMaoatUmFpugznEn
-	 2DZLg85ozV1mEdyzZiEsamN5KoRWt++0tPMnOT71LcAiFBcb/CujZ7B0WGDBUX9YVn
-	 HykLn2epNrxd1vThTQ0+Kl6HtGv99YLkPmA59qu1u23jDNiSHLFM1NyCRhHnafMqyB
-	 RJvFvi3FaUx6VtzuHJbqTuW+52tFhJ3wQiJkYhD8cqt8kYWXhYBUUqKph8/ddSxp6X
-	 GDtlNtWjIfG/Q==
+	s=k20260515; t=1795035838;
+	bh=ONH2sHHf2Xx9VeVmwI9oduV7d2UyMRNg4DFB5U1VYOc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=oeupgfQVn4/g+XjkJ+ADXiqTWWJeatQtglUEWoQSB1YYyDk+/Pyx7BGioZKpl3GKU
+	 R5DV1dXqx5xUtnErV0f7OPHartHuACOGKzfr8217NproptljZfgBOrrtRA2L4vS7nO
+	 /idxfWhSfnjpu7Vj6rm2B3ZGTDt4p2J4xaSHRFoD9iRr9fkd7FTwOkngNrLPgEN+Oc
+	 QTg3824lBIe2GIv68FN4oj6LitmgSKg4Iv0MDJyCUBS+1PeUmVp8HIE4TDo5zNzKY9
+	 /Lu5Zbqj5U6IrCFMc2XLDB9fFmzJvQpnFrObOkEdx/xX4XmXkvOK6Z9rmasXm6ExzN
+	 OWIGGsqflcPNg==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id D79A74AF84;
-	Wed, 18 Nov 2026 21:03:42 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id B5FBE4AFC3;
+	Wed, 18 Nov 2026 21:03:44 +0000 (UTC)
 From: Kairui Song via B4 Relay <devnull+kasong.tencent.com@kernel.org>
-Subject: [PATCH v5 00/17] mm/mglru: frequency guided promotion (MGLRU-FG)
- and flag cleanup
-Date: Thu, 19 Nov 2026 05:03:32 +0800
-Message-Id: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com>
+Date: Thu, 19 Nov 2026 05:03:48 +0800
+Subject: [PATCH v5 16/17] mm/mglru: make folio_inc_lru_refs lruvec lockless
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,13 +83,9 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAA/2XNy2rDMBAF0F8JWldhNHrZXeU/Qhd6jB2Vxi6SY
- 1qC/71yAolLNgMX7rlzZYVyosLed1eWaU4ljUMN+m3HwskNPfEUa2YIaMAi8nP/lS+867l0GBp
- tlUXtWa1/Z+rSz23q+HHP5eI/KUyrXxunVKYx/95+zWLt3WcbUM/ZWXDgKjbRRdnWYw4TDYGGa
- R/GM1uHZ3zSVogNxUo7NKSDRxOdfaXyQQWA3FBZafBRaWWc9rF9pWpDhdlQVSkKMFZDAN+5/3R
- Zlj8lWTwhZQEAAA==
-X-Change-ID: 20260722-mglru-fg-3a2c8574725b
+Message-Id: <20261119-mglru-fg-v5-16-9eee2fe97a2d@tencent.com>
+References: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com>
+In-Reply-To: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com>
 To: linux-mm@kvack.org
 Cc: Andrew Morton <akpm@linux-foundation.org>, 
  Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>, 
@@ -123,584 +117,223 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
  damon@lists.linux.dev, linux-doc@vger.kernel.org, 
  Kairui Song <kasong@tencent.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795035819; l=29574;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795035820; l=8035;
  i=kasong@tencent.com; s=kasong-sign-tencent; h=from:subject:message-id;
- bh=OdUNWJ+EyxgFhT6LdW4BfSMJUPo7Z/PtZeK9lwwbJKU=;
- b=VKDwqJBBqSWuA8QM+tVFg8dWTJCf02mwhDpVDqol3njakzbDHBSKCo/Ya+0jV86QRwTi0CXlg
- Nda5BlRjRegDqLLp/aeGoPndbmTM3+hAHzAgNbAI/8B0HL8NMNLd2s0
+ bh=g1GkBdhJvxJt7NdeT6aWl+AFEruhMo1F7vyeEAqTuvc=;
+ b=AQEk8zbfMo0ltdb7spakjmZOyW1tsFBfIMyIAUItHbQtMG5kTXs1h0JAVh7XEGTl2bTCcpwWQ
+ sHBftlYw9E5B3fer5EamGLHsVWX0l9LV0T0FG80uYEJYKmrvgOogq2V
 X-Developer-Key: i=kasong@tencent.com; a=ed25519;
  pk=kCdoBuwrYph+KrkJnrr7Sm1pwwhGDdZKcKrqiK8Y1mI=
 X-Endpoint-Received: by B4 Relay for kasong@tencent.com/kasong-sign-tencent
  with auth_id=562
 X-Original-From: Kairui Song <kasong@tencent.com>
 Reply-To: kasong@tencent.com
-
-This series implements MGLRU-FG following the idea proposed at LSF/MM/BPF
-this year [1], based on current mm-new. Depending on the workload, it
-improves the performance or reduces IO by roughly 10% to over 50%,
-fixes multiple long-standing issues with MGLRU metrics, and drops one
-page flag.
-
-The series has been tested on multiple platforms (desktop, large server,
-Android phone, x86_64 and arm64 VM boxes) covering many typical benchmarks,
-databases and real applications, so far everything looks nice, with good
-test reports from other individual testers too.
-
-Different workloads may get a flat, minor or dramatic improvement, the
-gain here is mostly from real improvement of LRU's ability to distinguish
-the hotter workingset.
-
-It also redefines the Active workingset metric for MGLRU, which fixes
-under-accounted PSI and poor active workingset readings. Cloud
-platforms like Kubernetes derive pods' working set from it and use
-it to make eviction decisions, MGLRU gave an unstable one there, and
-users ended up disabling MGLRU to work around it [20]. That is also
-a major blocker for us to deploy MGLRU widely.
-
-The new MGLRU-FG's design is kind of a mixture with LFU, it uses unified
-access frequency to distinguish hotter folios, but it still reclaims by
-generation. The generation and bounded refs together form a
-"logical refs count".
-
-Accesses increase refs. When a folio's refs reach a threshold, the folio
-is promoted to the next newer gen, and promotion caps the refs at a lower
-threshold. A folio with lower physical refs in a newer gen is
-logically hotter than a folio in an older gen with higher physical refs.
-Hence gen aging lowers all logical refs without updating every folio,
-avoiding hot cache pollution at no added overhead, while greatly
-extending the ref counting and hotness distinguishing ability. It also
-balances page table access counting against file descriptor (FD)
-access with a defined rule.
-
-The work here is mostly just a re-explanation of MGLRU's existing
-mechanisms, everything is already there, we just connect them together
-in a different way.
-
-This version is rebased and retested on top of mm-new, which includes
-Barry's swappiness rework [16], and this series combines very well and
-became more important after that. High swappiness now drives file reclaim
-much more aggressively, making the existing PID protection very
-inefficient. Meanwhile FG can promote reused file folios much more
-proactively, and the build kernel test shows a significant improvement
-for that case. I also observed FG performing better in generic cases
-after that series, as the more proactive aging populates more gens,
-which lets FG distribute folios among them more evenly [19].
-
-Test results (CLRU means classical LRU):
-
-Build kernel test:
-==================
-This test is reworked: with the recent swappiness changes, behavior
-differs dramatically between setups, so it is now split into two groups,
-mild swappiness under mild pressure, and extreme swappiness.
-
-For the mild swappiness range (60/100/150), with ZRAM as swap (256G,
-lzo-rle) and a clean make -j48 defconfig build from an existing source
-tree on an NVMe drive in a 3G/2G memcg, the average of 2 rounds across the
-three swappiness levels:
-
-Reading with 3G memcg (lower is better):
-         real       sys    pgpgin   pgpgout pgmajfault refault_file refault_anon
-CLRU     1m33s   10m08s     9.76M    38.05M      1.85M         466k        1.85M
-Before   1m32s    9m27s    12.56M    40.49M      2.35M         345k        2.31M
-After    1m32s    9m15s    10.44M    35.74M      1.80M         347k        1.76M
-delta    -0.2%    -2.1%    -16.9%    -11.7%     -23.4%        +0.4%       -23.8%
-
-Reading with 2G memcg (lower is better):
-         real       sys    pgpgin   pgpgout pgmajfault refault_file refault_anon
-CLRU     1m54s   25m47s    66.35M   158.02M     15.51M        1.57M       15.52M
-Before   1m54s   25m15s    75.47M   183.48M     17.33M         973k       17.17M
-After    1m52s   24m00s    69.67M   171.01M     15.51M        1.19M       15.36M
-delta    -2.0%    -4.9%     -7.7%     -6.8%     -10.5%       +21.8%       -10.5%
-
-We can see the performance is better with lower sys time and total pgpgin
-with the mild setup. The slight drift of the file/anon counters is mostly
-swappiness balance policy differences, which looks OK to me as the total
-refault and IO dropped together with the build time.
-
-Swappiness is still respected. The extreme points below show a major
-improvement with disk as swap:
-
-Using the same setup, first with ZRAM as swap, then with an NVMe device
-as disk swap:
-ZRAM as swap:
-        sw   real  pgpgin  pg{steal/scan}_anon  pg{steal/scan}_file {anon/file}_refault
-CLRU     1  2m06s  68.70M       9.86M / 50.91M     15.14M / 25.67M  2.08M / 14.97M
-       100  1m32s   8.88M       9.15M / 49.65M     562.0k / 667.9k  1.69M / 409.9k
-       200  1m36s  22.35M      19.53M / 79.35M     151.1k / 227.7k  5.52M /  84.2k
-Before   1  1m42s  36.95M       8.45M / 15.43M      7.02M / 15.49M  2.19M /  3.58M
-       100  1m32s  11.80M       9.83M / 20.29M     780.5k / 830.1k  2.16M / 321.8k
-       200  1m41s  46.04M      29.87M / 68.96M          0 /      0 11.68M /      0
-After    1  1m46s  42.75M       8.84M / 15.80M      8.72M / 20.35M  1.96M /  4.54M
-       100  1m32s  11.08M       9.69M / 19.64M     804.0k / 856.6k  1.95M / 364.1k
-       200  1m41s  32.89M      27.00M / 57.04M       1148 /   1152  8.13M /    480
-
-Disk as swap:
-        sw   real  pgpgin  pg{steal/scan}_anon  pg{steal/scan}_file {anon/file}_refault
-CLRU     1  4m23s 153.56M      10.90M / 61.31M     36.00M / 55.81M   2.43M / 35.83M
-       100  3m16s   9.95M       8.22M / 52.72M     588.5k / 652.4k   1.93M / 435.3k
-       200  6m19s  25.36M      20.21M / 98.19M      94.6k /  94.7k   6.30M /   9365
-Before   1  3m07s  27.18M       6.41M / 11.55M      4.83M /  8.80M   1.38M /  2.53M
-       100  2m56s   9.52M       6.31M / 13.75M     609.1k / 628.3k   1.26M / 251.7k
-       200 10m30s  71.66M      38.59M / 92.30M          0 /      0  13.87M /      0
-After    1  3m18s  33.86M       7.60M / 14.89M      7.74M / 16.41M   1.37M /  4.14M
-       100  2m46s   8.94M       5.69M / 13.86M     704.1k / 741.3k   1.09M / 268.8k
-       200  6m03s  30.04M      19.72M / 49.85M        194 /    194   5.00M /    142
-
-For sw=1, pgpgin looks higher, but that is because files are reclaimed
-even harder, as swappiness asks for, while the performance is still OK and
-better than CLRU.
-
-For sw=100, the reading suggests the performance is better with a better
-reclaim balance: pgpgin and total refault are down with both swap
-devices, and building is ~10s faster on disk swap.
-
-At sw=200 the disk swap build goes from 10m30s to 6m03s, almost halved.
-The recent swappiness fix also exposes the weakness of the PID controller,
-which almost stalls the build when reclaim is aimed at file folios, while
-FG promotes file folios much more proactively. This is consistent with
-the pgrefill counter below (Before -> After: the PID protects
-almost nothing at sw=200):
-
-pgrefill         sw=1              sw=100            sw=200
-DISK       3.78M -> 10.23M   16.02M -> 24.17M    8.17k -> 34.28M
-ZRAM       6.28M -> 11.09M   22.21M -> 30.94M   5.20M -> 42.85M
-
-Note, this may read as if reclaim efficiency dropped slightly, which is
-quite the opposite: FG softens the ineffective PID factor, and the lazy
-promotion filters the workingset out proactively, so the scan count
-may look bigger. We are just lacking an activation counter for MGLRU to
-separate the two. Unfortunately that does not fit directly as there is no
-activation for MGLRU; we may discuss and improve MGLRU's statistic
-counters as a follow up.
-
-In summary: MGLRU with FG respects swappiness well and improves the
-performance by a lot, with lower pgpgin and almost half the build time at
-the high swappiness values. The cases where MGLRU used to fall behind CLRU
-now lead as well.
-
-FIO cached read with zipf
-=========================
-(This is a simplified version, fuller coverage can be seen in [17])
-
-Using an NVMe device, in a 16G cgroup, total file size 40G, this
-measures the LRU's theoretical ability to distinguish the hotter
-portion, 2 interleaved runs per config (only n=2, but it reproduces
-the picture of the matrix in [17] just fine), THP off, swap off:
-
-Using read()
-------------
-numactl --membind=0 --cpunodebind=0 \
-fio --name=fg --numjobs=16 --nrfiles=1 \
-    --filename_format="/var/lib/kmultibench/realdk.\$jobnum.img" \
-    --size=2560M \
-    --buffered=1 --ioengine=sync --rw=randread \
-    --random_distribution=zipf:$ZIPF --bs=4k --time_based \
-    --ramp_time=120s --runtime=600s --group_reporting
-
-Avg IOPS (higher is better)
- zipf:θ       CLRU | MGLRU before (vs CLRU) |        FG (vs CLRU) |  Imprv.
-  0.8       396,247|      403,014 ( +1.7%)  |    468,872 (+18.3%) |  +16.3%
-  0.9       601,304|      616,291 ( +2.5%)  |    713,928 (+18.7%) |  +15.8%
-  1.1     2,077,516|    2,158,626 ( +3.9%)  |  2,462,189 (+18.5%) |  +14.1%
-  1.2     4,439,193|    4,546,680 ( +2.4%)  |  5,204,998 (+17.3%) |  +14.5%
-  1.4    14,318,444|   14,122,531 ( -1.4%)  | 14,620,584 ( +2.1%) |   +3.5%
-
-refault/read (lower is better, defined as workingset_refault_file / reads)
- zipf:θ      CLRU | MGLRU before (vs CLRU) |     FG (vs CLRU) |  Imprv.
-  0.8     0.21707 |       0.21288 ( -1.9%) | 0.18887 (-13.0%) |  +11.3%
-  0.9     0.14359 |       0.13994 ( -2.5%) | 0.12292 (-14.4%) |  +12.2%
-  1.1     0.03919 |       0.03785 ( -3.4%) | 0.03267 (-16.6%) |  +13.7%
-  1.2     0.01609 |       0.01551 ( -3.6%) | 0.01323 (-17.8%) |  +14.7%
-  1.4     0.00167 |       0.00182 ( +9.0%) | 0.00133 (-20.4%) |  +26.9%
-
-For typical read() following zipf distributions, FG improves every case,
-mean +12.9% IOPS and -15.7% refault rate.  FG protects the hotter part
-of the workingset better when under pressure, the only case where MGLRU
-is behind CLRU is also ahead now.
-
-Using mmap
-----------
-command: numactl --membind=0 --cpunodebind=0 \
-fio --name=fg --numjobs=16 --nrfiles=1 \
-    --filename_format="/var/lib/kmultibench/realdk.\$jobnum.img" \
-    --size=2560M \
-    --ioengine=mmap --rw=randread --fadvise_hint=0 \
-    --random_distribution=zipf:$ZIPF --bs=4k --time_based \
-    --ramp_time=120s --runtime=600s --group_reporting
-
-Avg IOPS (higher is better)
- zipf:θ       CLRU | MGLRU before (vs CLRU) |        FG (vs CLRU) | Imprv.
-  0.8     1,062,221|    3,591,468 (+238.1%) | 4,066,055 (+282.8%) | +13.2%
-  0.9       658,512|    3,785,168 (+474.8%) | 4,475,720 (+579.7%) | +18.2%
-  1.1     2,183,796|     2,166,070 ( -0.8%) |  2,451,181 (+12.2%) | +13.2%
-  1.2     4,785,117|     4,710,772 ( -1.6%) |  5,199,245 ( +8.7%) | +10.4%
-  1.4    20,654,851|    20,685,287 ( +0.1%) | 21,598,890 ( +4.6%) |  +4.4%
-
-refault/read (lower is better, defined as workingset_refault_file / reads)
- zipf:θ     CLRU | MGLRU before (vs CLRU) |    FG (vs CLRU)  | Imprv. |
-  0.8     0.12460|    0.02124 (-83.0%)  | 0.01898 (-84.8%) |  +10.6% |
-  0.9     0.13972|    0.02010 (-85.6%)  | 0.01717 (-87.7%) |  +14.6% |
-  1.1     0.04036|    0.03955 ( -2.0%)  | 0.03446 (-14.6%) |  +12.9% |
-  1.2     0.01689|    0.01673 ( -0.9%)  | 0.01507 (-10.8%) |   +9.9% |
-  1.4     0.00209|    0.00206 ( -1.4%)  | 0.00184 (-12.0%) |  +10.7% |
-
-For typical mmap read of file following zipf distributions, FG also
-improves every case here: mean +11.9% IOPS and -11.7% refault rate.
-MGLRU remains far ahead of CLRU at theta < 1.
-
-Worth noting, without fadvise_hint=0, we will see a regression like this:
- zipf:θ      CLRU | MGLRU before (vs CLRU) |       FG (vs CLRU) | Imprv.
-  1.1    1,949,856|     1,667,041 (-14.5%) | 1,708,521 (-12.4%) |  +2.5%
-
-That's because MGLRU deliberately disables hotness tracking for
-MADV_RANDOM areas while CLRU still has refault distance. I don't think
-this is a blocker: that is exactly what userspace asked for, and we do
-plan to unify refault distance and improve shadow usage [8], [9], which
-should also help with workingset shift [18]. FG is the baseline and we
-will revisit that later.
-
-Worth mentioning: a previous version test showed FG slightly lower on IOPS
-for one config while its refault rate was actually lower. It is mostly
-due to locking contention:
-
-The earlier perf lock contention analysis shows the lazy promotion could
-make MGLRU's isolation a bit slower than before:
-
-command:
-<same test command above, with 4G memcg, zipf:1.2 and a 300s runtime, and below tracing>
-perf lock contention -ab -- sleep 355
-
-Result (runtime=300s, 4G memcg, zipf:1.2):
-  config:θ       IOPS | mean clat | sys% | lruvec lock total wait |
-  CLRU          1,868k|    8195 ns| 6.01%|          ~10 s         |
-  MGLRU before  1,677k|    9173 ns| 7.25%|          ~75 s         |
-  MGLRU after   1,837k|    8488 ns| 7.33%|          ~78 s         |
-
-MGLRU now promotes more folios due to FG lazy promotion while holding
-the LRU lock, which is a good thing for most cases since it protects the
-workingset better. The lazy promotion cost can be reduced later by
-batching and prefetching during scanning as demonstrated before [12].
-
-MongoDB YCSB [2]
-================
-With recordcount:18000000 operationcount:27000000, threads:16,
-100% zipfian reads, workloads a/b/c, in a 12G memcg, n=2, with a
-5000 IOPS cap on the block device, and a 0.25G WiredTiger cache to
-simulate a slower device and stress the LRU more:
-
-Throughput (ops/sec, higher is better):
-CLRU:         13,474.85 ops/s
-MGLRU Before: 14,101.40 ops/s (+4.6% vs CLRU)
-MGLRU After:  16,577.92 ops/s (+23.0% vs CLRU) +17.6% vs Before
-
-READ p99 latency (us, lower is better):
-CLRU:         69,028.33 us
-MGLRU Before: 65,065.67 us (-5.7% vs CLRU)
-MGLRU After:  6,977.67 us (-89.9% vs CLRU) -89.3% vs Before
-
-READ p50 latency is essentially unchanged. The setup differs from
-previous posted ones as I'm trying to enlarge the test matrix, but
-still we are seeing very nice results.
-
-Chromium & Node.js test [3]
-===========================
-Using ZRAM as swap, 64 workers (32 memcgs x 2 NUMA nodes), 256G
-zram, 1h testing:
-
-                 Total requests:
-MGLRU Before:            146,229
-MGLRU After:             242,644 (+65.9%)
-
-Worth noting there seems to be some reclaim balance jitter for this
-test, while the balancing in upstream is not doing very well at this
-point too, so this is worth more investigation later.
-
-LevelDB Scan/Get
-================
-I also retested the LevelDB benchmark from the cache_ext paper [4].
-Interestingly, mainline MGLRU already beats CLRU on this one after a
-recent change in lru_gen_folio_seq that bumps new folios with refs == 1
-to the second-oldest generation as discussed. That change accidentally
-gave random reads a higher hotness level while making sequential reads
-much colder as described before [13]. However it's unreliable and
-incorrect because it depends on LRU drain timing, and hurts some workloads
-as reported, or where the sequential part is actually hotter (any workload
-involving hotter large file and many small cold files will be affected)
-which is reproduced below.
-
-This series improves it while covering ordinary workloads too and fixing
-more regressions:
-
-LevelDB Scan / Get, Throughput Total:
-CLRU:         4708.3 ops/s
-MGLRU:        5026.9 ops/s (faster than CLRU, but hurts other workloads)
-MGLRU After:  5179.2 ops/s (even better in all cases, and no regression)
-
-The hot-sequential and cold-random workload can be easily reproduced with
-SQLite and grep. SQLite continuously scans and looks up a small hot
-portion of a DB file, while grep iterates over a set of small files much
-larger than RAM [5]:
-
-         SQLite scan & lookup time:       Grep iterate time:
-CLRU:                       14.51ms               13281.37ms
-MGLRU mainline:            567.05ms               13694.47ms
-MGLRU After this series:    10.58ms               12930.43ms
-
-The grep cold portion is larger than RAM and accessed only once per
-iteration, so there's no promotion of any of it. CLRU handles
-this reasonably. Mainline MGLRU has a clear regression; MGLRU-FG not
-only recovers but is able to catch some hot parts from the cold grep
-workload. This test is somewhat subjective, but the signal is clear.
-
-An alternative fix was discussed previously too and I tested it as well
-[17]. FG is still better, and its gain holds on top of it.
-
-Android (For reference)
-=======================
-Testing on Android is quite difficult: lack of mainline support, and it
-is very noisy, but I did an informal backport on top of the 6.1 GKI tree,
-testing with a Pixel 9 Pro (16 GB RAM, 8 GB ZRAM, Android 17), preserving
-the frozen kABI layouts so the implementation is limited [14].
-
-The "before" and "after" kernels share the same base and differ only by
-the FG series: the "before" tree has MGLRU aligned to the current upstream
-code. (And BTW that alignment also improved the performance by a lot,
-which matches the report from previous MGLRU reclaim optimization
-series [11]).
-
-The workload is a churn loop driven over adb: 34 common apps and 20 Chrome
-tabs are launched and cycled, with a brief scroll per app during the cold
-build of each iteration, 16 iterations per run, about one hour per run. The
-loop exhausts memory in every iteration (zram peaks at 6.9-7.8 GB of 8 GB,
-MemFree down to 130-335 MB in every run). The two kernels are run in an
-interleaved rotation and compared both on matched per-iteration samples
-(same period, same iteration index) and on paired run totals, which
-cancels most of the run-to-run drift. I've repeated the test for several
-days and times getting similar results.
-
-The memory-management stack in Android is built around the non-FG MGLRU
-behavior, and the 6.1 base lacks some of the upstream infrastructure. Even
-so, FG holds its own, it lowers reclaim traffic on both the file and the anon
-side:
-
-                          Before     After   Delta 95% CI   Avg Improv.
------------------------------------------------------------------------
-workingset_refault_anon    1.43M     1.25M   [-23%, -3%]          +12%
-workingset_refault_file    1.54M     1.39M   [-17%, +2%]          +10%
-pgscan_anon                4.04M     3.56M   [-20%, -5%]          +12%
-pgsteal_anon               1.64M     1.45M   [-23%, -1%]          +12%
-pgscan_file                7.49M     6.52M   [-17%, -5%]          +13%
-pgsteal_file               6.55M     5.63M   [-18%, -7%]          +14%
-pswpout                    1.82M     1.62M   [-22%, -1%]          +11%
-pgpgin                    23.56M    20.33M   [-18%, -7%]          +14%
-pgmajfault                 1.61M     1.42M   [-21%, -4%]          +12%
-pgpgout                    3.39M     3.48M   [ +0%, +5%]           -3%
-
-Numbers are trimmed means over the 12 interleaved runs per kernel: the
-highest and lowest run are dropped and the middle ten averaged. It's
-the vmstat delta of one full run. The 95% CI is a bootstrap over the
-12 rounds of the paired run-total ratio (After vs Before).
-
-Despite being noisy, every counter except pgpgout and
-workingset_refault_file is improved by ~10% on average, with a 95% CI
-that stays clear of zero. We have been seeing
-positive readings since v2 of this series, and v5 still holds the same
-pattern with a few days of testing. I think we can safely say that this
-series is beneficial for generic Android workloads.
-
-I also ran the Android Jank test from Zicheng [6] for previous versions,
-and did a test on another Android phone with a 5.15 kernel on Xperia 1 V,
-[15], the results are all looking good or basically flat.
-
-Redis / Valkey
-==============
-Valkey in a 2G ARM64 VM, 2.4G dataset, using 8G ZRAM as swap and THP never.
-Note, PT walk is missing there due to lack of hardware capability:
-
-$ cat /sys/kernel/mm/lru_gen/enabled
-0x0001
-
-valkey-server --maxmemory 2560M
-valkey-benchmark -r 3000000 -n 3000000 -d 1024 -c 12 -P 32 -t get
-
-For every sample, 20 rounds each:
-
-                            Before         After
-plain GET              679,151 rps   707,938 rps  +4.2%
-plain GET + BGSAVE     481,886 rps   494,153 rps  +2.5%
-
-Small wins: the dataset does not fit in the guest, so this case runs
-mostly under swap pressure. Nothing regresses, and GET throughput still
-improves by ~4%.
-
-Others
-======
-
-Additionally, PSI, smaps, and readahead should all benefit from better
-accuracy since this series unifies the flag usage between classical
-LRU and MGLRU.
-
-Other tests such as MySQL are looking fine, with no regressions. There is
-also community test report [7].
-
-Refault distance is not included yet, so MGLRU may respond more slowly to
-workingset shifts. That can be added later, as previously demonstrated
-[8], [9].
-
-Extra note about future development: this series is actually highly
-compatible with ideas like workingset reporting [10]. The "gen climbing
-folio" design may appear to conflict with workingset reporting's idea,
-but it doesn't. The solution is simple and straightforward: once we can
-extend the generation number to a larger value (e.g. 64 or 128), the
-refs-driven promotion can stop at a lower gen (e.g. oldest_gen + 16),
-leaving the remaining newer generations as perfectly time-gap-separated
-bins. These older gens can be considered as expiring gen.
-
-The tier count is not fixed either, we'll need to find a way to tune it
-if tiers go beyond 4 though, but that shouldn't be hard, not a blocker
-either.
-
-More details are in the individual commit messages. LLM is used to help
-improve the comments and tests, all results are double checked.
-
-Link: https://lore.kernel.org/linux-mm/CAMgjq7BoekNjg-Ra3C8M7=8=75su38w=HD782T5E_cxyeCeH_g@mail.gmail.com/ [1]
-Link: https://github.com/brianfrankcooper/YCSB/tree/master/workloads [2]
-Link: https://lore.kernel.org/all/20221220214923.1229538-1-yuzhao@google.com/ [3]
-Link: https://dl.acm.org/doi/10.1145/3731569.3764820 [4]
-Link: https://github.com/ryncsn/emm-test-project/tree/master/sqlite-grep [5]
-Link: https://github.com/purplewall1206/android-perf-bench [6]
-Link: https://lore.kernel.org/linux-mm/92DCEFFD13221261+20260828102344.1537874-1-zhaozhengzhuo@uniontech.com/ [7]
-Link: https://lwn.net/Articles/945266/ [8]
-Link: https://lore.kernel.org/linux-mm/20260502-mglru-fg-v1-0-913619b014d9@tencent.com/ [9]
-Link: https://lwn.net/Articles/976985/ [10]
-Link: https://lore.kernel.org/linux-mm/20260417025123.2971253-1-wxy2009nrrr@163.com/ [11]
-Link: https://lore.kernel.org/linux-mm/20240123184552.59758-1-ryncsn@gmail.com/ [12]
-Link: https://lore.kernel.org/all/CAMgjq7Agqr1FLcG3HqT_M_1s8cHc21qQKTM-JS67-3gfQ6azPQ@mail.gmail.com/ [13]
-Link: https://github.com/ryncsn/linux/tree/kasong/android/android14-6.1-mglru-fg-v4c-20261010 [14]
-Link: https://github.com/ryncsn/linux/tree/silsrc/android/android13-5.15-yodo [15]
-Link: https://lore.kernel.org/all/20261114200803.23129-1-baohua@kernel.org/ [16]
-Link: https://lore.kernel.org/linux-mm/avd5bI-b9y1nKWw5@KASONG-MC4 [17]
-Link: https://lore.kernel.org/linux-mm/CAMgjq7AEf_cJsLw4fxs7m5ntYPW9mjCOC_-w5j6ihk8F=xLRWA@mail.gmail.com/ [18]
-Link: https://lore.kernel.org/all/CAMgjq7C1A2axrGiQzo2_9d6N9MQNP6Lg+ZqcHsac+qGvt8OL4A@mail.gmail.com/ [19]
-Link: https://github.com/kubernetes/kubernetes/issues/127844 [20]
+Content-Transfer-Encoding: 7bit
+
+From: Kairui Song <kasong@tencent.com>
+
+The lruvec spinlock in folio_inc_lru_refs was only taken to keep
+concurrent aging from corrupting the size counters.  This is no
+longer needed: the per-generation counters are atomic, and the
+active/inactive ABI counters are updated per folio and linearized by
+the CAS on the folio flags, so concurrent aging can no longer corrupt
+them.  The same argument is what lets folio_reset_lru_refs() update
+the counters without the lruvec lock.
+
+Use folio_lruvec_live_get()/folio_lruvec_live_put() to hold the RCU
+read lock around the lruvec lookup, and drop the spinlock entirely.
+
+Without the lock, aging can advance max_seq while a promotion is in
+flight.  Generations are indexed by seq % MAX_NR_GENS, so the folio
+flags can return to the value read earlier and the cmpxchg succeeds
+with a target gen computed from a stale max_seq.  Recheck max_seq after
+a gen-changing cmpxchg: if it moved, account the committed update and
+retry with LRU_REF_FORCE, which promotes the folio to the newest gen.
+The retry may count the access twice, which is acceptable and avoids
+folio_activate(), whose LRU lock causes latency jitter.  smp_rmb()
+orders the flags read, including the one returned by a failed
+cmpxchg(), before the max_seq read.
+
+Also simplify the post-CAS accounting guards: gen is only assigned
+non-negative values after the old_gen < 0 early exit, so gen != old_gen
+implies gen >= 0, and lru_gen_update_size() needs no explicit guard.
+The active/inactive ABI update keeps its gen >= 0 check because an
+off-LRU folio has no lruvec to update.
 
 Signed-off-by: Kairui Song <kasong@tencent.com>
-Tested-by: Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>
 ---
-Changes in v5:
-- Rebased onto current mm-new.
-- Code and design are basically the same, mostly rebase and adaption and
-  comment updates.
-- Drop "mm: mglru: reparent folios from all generations": the fix it
-  carried is upstream now.
-- Pick up two patches from Ridong Chen to avoid conflicts.
-- Fix a build warning with CONFIG_LRU_GEN=n.
-- Share the ancestor walk between lruvec_live_lock_irq() and the new
-  folio_lruvec_live_get()
-- Note in __lru_gen_reparent_memcg() why the read/set/add of the child's
-  counter cannot lose a lockless update.
-- Say in the gup fast helper changelog what the fast path gains from it.
-- Re-measure almost all tests as the recent swappiness rework changes a
-  lot of things, and it turns out most result are still same or even better.
-- Comment and kdoc updated, documentations needs more systematic update later.
-- Link to v4: https://patch.msgid.link/20261016-mglru-fg-v4-0-2106750c0bfa@tencent.com
+ include/linux/mm_inline.h | 10 +++++-----
+ include/linux/mmzone.h    |  3 ++-
+ mm/vmscan.c               | 51 +++++++++++++++++++++++++++++------------------
+ 3 files changed, 39 insertions(+), 25 deletions(-)
 
-Changes in v4:
-- Defer folios at the tail of their LRU instead of min_seq only:
-  https://lore.kernel.org/linux-mm/CAMgjq7AOhDkuZZnWrGDguMvNtarZ7s0Ouzs1xYi2O4AkPEPbTQ@mail.gmail.com/
-- Re-read max_seq inside the folio_inc_lru_refs_walk() cmpxchg loop, and
-  apply the reparent fix before the lockless change.
-- Tidy up a few code shuffles.
-- Use generic refs-based helper for smaps, DAMON, khugepaged
-  and madvise with better kdocs.
-- Add community Tested-by tags for unchanged parts.
-- Link to v3: https://patch.msgid.link/20261003-mglru-fg-v3-0-cbd4546a5bd9@tencent.com
+diff --git a/include/linux/mm_inline.h b/include/linux/mm_inline.h
+index 77f514143266..2c6cbd0df686 100644
+--- a/include/linux/mm_inline.h
++++ b/include/linux/mm_inline.h
+@@ -317,10 +317,9 @@ static inline bool lru_gen_is_old(struct lruvec *lruvec, int type, int gen)
+ 	       gen == lru_gen_from_seq(min_seq + 1);
+ }
+ 
+-static inline void lru_gen_update_size(struct lruvec *lruvec, struct folio *folio,
+-				       int old_gen, int new_gen)
++static inline void lru_gen_update_size(struct lruvec *lruvec, int type,
++				       struct folio *folio, int old_gen, int new_gen)
+ {
+-	int type = folio_is_file_lru(folio);
+ 	int zone = folio_zonenum(folio);
+ 	int delta = folio_nr_pages(folio);
+ 	struct lru_gen_folio *lrugen = &lruvec->lrugen;
+@@ -399,7 +398,7 @@ static inline bool __lru_gen_add_folio(struct lruvec *lruvec, struct folio *foli
+ 	/* use the refs from the atomic snapshot to avoid raced update */
+ 	refs = lru_get_refs_flags(flags);
+ 
+-	lru_gen_update_size(lruvec, folio, -1, gen);
++	lru_gen_update_size(lruvec, type, folio, -1, gen);
+ 	if (lru_refs_is_active(refs))
+ 		lru += LRU_ACTIVE;
+ 	__update_lru_size(lruvec, lru, zone, delta);
+@@ -429,6 +428,7 @@ static inline bool lru_gen_del_folio(struct lruvec *lruvec, struct folio *folio,
+ 	unsigned long flags;
+ 	unsigned int refs;
+ 	int gen;
++	int type = folio_is_file_lru(folio);
+ 	int zone = folio_zonenum(folio);
+ 	int delta = folio_nr_pages(folio);
+ 	enum lru_list lru = folio_is_file_lru(folio) * LRU_INACTIVE_FILE;
+@@ -452,7 +452,7 @@ static inline bool lru_gen_del_folio(struct lruvec *lruvec, struct folio *folio,
+ 	if (!reclaiming && ((max_seq - gen) % MAX_NR_GENS) < MIN_NR_GENS)
+ 		folio_set_active(folio);
+ 
+-	lru_gen_update_size(lruvec, folio, gen, -1);
++	lru_gen_update_size(lruvec, type, folio, gen, -1);
+ 	if (lru_refs_is_active(refs))
+ 		lru += LRU_ACTIVE;
+ 	__update_lru_size(lruvec, lru, zone, -delta);
+diff --git a/include/linux/mmzone.h b/include/linux/mmzone.h
+index 2680e15b6de9..235fb04f8d78 100644
+--- a/include/linux/mmzone.h
++++ b/include/linux/mmzone.h
+@@ -540,9 +540,10 @@ enum lruvec_flags {
+ #define LRU_TIER_MIN		0U
+ #define LRU_TIER_MAX		(MAX_NR_TIERS - 1)
+ 
+-/* Access source flags for folio_inc_lru_refs() */
++/* Flags for folio_inc_lru_refs() */
+ #define LRU_REF_MAPPED		0x1U
+ #define LRU_REF_EXEC		0x2U
++#define LRU_REF_FORCE		0x4U
+ 
+ #define LRU_REFS_REFERENCED	0x1
+ #define LRU_REFS_WORKINGSET	0x2
+diff --git a/mm/vmscan.c b/mm/vmscan.c
+index 78a1b4de7076..4576a7a369e3 100644
+--- a/mm/vmscan.c
++++ b/mm/vmscan.c
+@@ -876,37 +876,35 @@ void folio_inc_lru_refs(struct folio *folio, unsigned int flags)
+ 	long nr_pages = folio_nr_pages(folio);
+ 	struct lru_gen_folio *lrugen;
+ 	struct lruvec *lruvec = NULL;
++	bool aged = false;
+ 
++retry:
+ 	old_flags = READ_ONCE(*folio_flags(folio, 0));
+ 	do {
+ 		new_flags = old_flags;
+ 		old_gen = lru_get_gen_flags(old_flags);
+ 		old_refs = lru_get_refs_flags(old_flags);
+-		file = folio_flags_is_file_lru(&old_flags);
+ 		refs = old_refs + 1;
+ 		gen = old_gen;
++		file = folio_flags_is_file_lru(&old_flags);
+ 		if (old_gen < 0)
+ 			goto out;
+-		/*
+-		 * Lock the lruvec if the folio is on-list. We are already
+-		 * doing lazy promotion so in theory we don't need this,
+-		 * but for now, concurrent aging would still corrupt the
+-		 * size counters.  This is a temporary limitation and
+-		 * will be lifted very soon, so the lock here is not a
+-		 * performance concern.
+-		 */
+ 		if (!lruvec) {
+-			lruvec = lruvec_live_lock_irq(folio_lruvec(folio));
++			lruvec = folio_lruvec_live_get(folio);
+ 			lrugen = &lruvec->lrugen;
+ 		}
++		/*
++		 * Read the flags before max_seq, paired with the store of a
++		 * gen, which samples max_seq first.
++		 */
++		smp_rmb();
+ 		max_seq = READ_ONCE(lrugen->max_seq);
+ 		max_gen = lru_gen_from_seq(max_seq);
+ 		if (old_gen == max_gen)
+ 			goto out;
+-
+-		if (flags & (LRU_REF_MAPPED | LRU_REF_EXEC)) {
+-			/* Promote second page table access or executable */
+-			if (refs > LRU_REFS_REFERENCED || flags & LRU_REF_EXEC)
++		if (flags & (LRU_REF_MAPPED | LRU_REF_EXEC | LRU_REF_FORCE)) {
++			if (lru_refs_is_workingset(refs) ||
++			    flags & (LRU_REF_EXEC | LRU_REF_FORCE))
+ 				gen = max_gen;
+ 			/* First access only defers eviction of an old generation */
+ 			else if (lru_gen_is_old(lruvec, file, old_gen))
+@@ -931,9 +929,19 @@ void folio_inc_lru_refs(struct folio *folio, unsigned int flags)
+ 			break;
+ 	} while (!try_cmpxchg(folio_flags(folio, 0), &old_flags, new_flags));
+ 
+-	if (gen != old_gen)
+-		lru_gen_update_size(lruvec, folio, old_gen, gen);
+-	if (lru_refs_is_active(old_refs) != lru_refs_is_active(refs) && old_gen >= 0) {
++	if (gen != old_gen) {
++		/*
++		 * Gen-index reuse can fool cmpxchg(). Retry locklessly, accepting
++		 * an extra reference to avoid folio_activate() latency.
++		 */
++		if (unlikely(READ_ONCE(lrugen->max_seq) != max_seq)) {
++			flags = LRU_REF_FORCE;
++			aged = true;
++		}
++		lru_gen_update_size(lruvec, file, folio, old_gen, gen);
++	}
++
++	if (lru_refs_is_active(old_refs) != lru_refs_is_active(refs) && gen >= 0) {
+ 		enum lru_list lru = file * LRU_INACTIVE_FILE;
+ 
+ 		__update_lru_size(lruvec, lru + lru_refs_is_active(old_refs),
+@@ -941,8 +949,12 @@ void folio_inc_lru_refs(struct folio *folio, unsigned int flags)
+ 		__update_lru_size(lruvec, lru + lru_refs_is_active(refs),
+ 				  folio_zonenum(folio), nr_pages);
+ 	}
++	if (aged) {
++		aged = false;
++		goto retry;
++	}
+ 	if (lruvec)
+-		lruvec_unlock_irq(lruvec);
++		folio_lruvec_live_put(lruvec);
+ }
+ 
+ /*
+@@ -3517,12 +3529,13 @@ static int __folio_inc_gen(struct lruvec *lruvec, struct folio *folio,
+ /* protect pages selected by the tier PID controller */
+ static int folio_inc_gen(struct lruvec *lruvec, struct folio *folio, int old_gen)
+ {
++	int type = folio_is_file_lru(folio);
+ 	int new_gen;
+ 	bool gen_increased;
+ 
+ 	new_gen = __folio_inc_gen(lruvec, folio, old_gen, &gen_increased);
+ 	if (gen_increased)
+-		lru_gen_update_size(lruvec, folio, old_gen, new_gen);
++		lru_gen_update_size(lruvec, type, folio, old_gen, new_gen);
+ 
+ 	return new_gen;
+ }
 
-Changes in v3:
-- Micro-optimization for page flags operations: if the flags are
-  unchanged after calculation, skip the cmpxchg.
-- Avoid touching folio_activate even in the cold path. I tried multiple
-  ways for that lockless promotion, PG_lru in the earlier RFC, and
-  previous folio_activate, the new speculative barrier + retry seem the
-  best solution.
-- Apply tier cap for MADV_PAGEOUT.
-- Only promote folio during page table walk or rmap if the folio
-  is in the min gen. May be worth trying to enlarge the range to
-  (max_seq - MIN_NR_GENS) in the next version.
-- Fix a potential folio leak caused by reparenting.
-- Retest shows great results especially for the Android case.
-- Link to v2: https://patch.msgid.link/20260911-mglru-fg-v2-0-f26e5cb26da7@tencent.com
-
-Changes in v2:
-- Rebased; dropped v1 03/05/06 (already upstream), folded v1 01 and 07
-  into patches 01 and 04; new patches 06, 07, 10, 12, 13.
-- Make folio_test_workingset() itself arbitrate, dropping the parallel
-  folio_is_* helpers; convert the last raw PageWorkingset() user
-  (erofs). (Johannes)
-- Use LRU_REF_MAPPED/LRU_REF_EXEC flags instead of is_fault/is_exec
-  booleans. (Barry)
-- Fix syzbot "WARNING in folio_inc_lru_refs" on off-LRU folios.
-- Account active/inactive per folio from refs, not the gen window:
-  /proc/vmstat and memory.stat no longer jump on aging or reverse on
-  swapless machines.
-- Make folio_inc_lru_refs() lockless; add folio_inc_lru_refs_fast()
-  for the gup fast paths.
-- Convert DAMON and khugepaged to the refs-based operations.
-- Drop the lru_size WARN_ON_ONCE() and lockdep_assert_held(): the
-  counter is lockless now, so transient negatives are expected.
-- Link to v1: https://patch.msgid.link/20260804-mglru-fg-v1-0-4d8dad39dad6@tencent.com
-
----
-Kairui Song (15):
-      mm/memcontrol: allow update of LRU statistic without holding LRU lock
-      mm/mglru: make generation page counters atomic
-      mm/memcg: add folio-based lruvec live helper
-      mm/mglru: frequency guided workingset promotion (MGLRU-FG)
-      mm/mglru: make folio lru referenced times count a generic API
-      mm/mglru: move add/del LRU size accounting out of lru_gen_update_size()
-      mm/mglru, gup: mark folios referenced via a fast helper
-      mm/mglru, smaps: convert to LRU refs based operations for MGLRU
-      mm/damon: convert to LRU refs based operations for MGLRU
-      mm/khugepaged: convert to LRU refs based operations for MGLRU
-      mm/madvise: adapt for LRU refs based operations for MGLRU
-      mm/huge_memory: mark folio as accessed more accurately on split
-      mm/mglru: folio LRU refs based active/inactive number accounting
-      mm/mglru: make folio_inc_lru_refs lruvec lockless
-      mm/mglru: make folio_test_workingset() work based on folio LRU refs
-
-Ridong Chen (2):
-      mm/mglru: rename the generation offset in lru_gen_folio_seq()
-      mm/mglru: skip the flags cmpxchg when nothing changes
-
- Documentation/admin-guide/mm/multigen_lru.rst |   4 +-
- fs/btrfs/compression.c                        |   1 +
- fs/erofs/zdata.c                              |   3 +-
- fs/proc/task_mmu.c                            |   6 +-
- include/linux/memcontrol.h                    |  71 +++-
- include/linux/mm_inline.h                     | 380 ++++++++++++------
- include/linux/mmzone.h                        | 150 ++++---
- include/linux/page-flags.h                    |   2 -
- kernel/bounds.c                               |   2 +-
- mm/damon/paddr.c                              |   3 +-
- mm/filemap.c                                  |   1 +
- mm/folio.c                                    |  88 +----
- mm/gup.c                                      |   6 +-
- mm/huge_memory.c                              |   8 +-
- mm/khugepaged.c                               |   4 +-
- mm/madvise.c                                  |  54 ++-
- mm/migrate.c                                  |   2 -
- mm/page_io.c                                  |   1 +
- mm/vmscan.c                                   | 538 ++++++++++++++++++--------
- mm/vmscan.h                                   |   2 +-
- mm/workingset.c                               |  47 ++-
- 21 files changed, 879 insertions(+), 494 deletions(-)
----
-base-commit: 25fee5b1762b8799dd8b72c2f6d666eb01680cc7
-change-id: 20260722-mglru-fg-3a2c8574725b
-
-Best regards,
---  
-Kairui Song <kasong@tencent.com>
+-- 
+2.56.1
 
 
