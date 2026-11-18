@@ -1,52 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.77.101.12
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.77.101.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795013498;
-	b=t+SfuC6fBAzyjkrbbnO6tmzrhMt7ESMrQR0kJtjjEf93pScgvhIX/Dkqy6AzlYrj/3q6
-	 0ZNXMmnGHSNdXXM5JNSaZ21NOD7RFCnxS7FFLuAcmPksyWYBrHX0egZDPT+zZYldJXy0o
-	 izyeGgr7eQibaj/WMV3jWZsJntTQlV/r7QoZfORbXqCFv7L+CKNWCOWIl1bZt1wIZt3CA
-	 bAbS8WCKV5si0kFiUyCOJu1+dK6bx2OUybXbFD3O1tFgCsoFfQ+5Ya77RyslRGebIe/RB
-	 DHeOLPnMf3iwf5Y2WAZ+oTOt0aYxGWUYphtk0UsF0SZ2AiZjl/xZ9ZlvPPdLrxcJiKw==
+	t=1795013495;
+	b=pejw0wEtswLLqkSu8mfvVqPuZDb110azKxWr0ftSQAgCJitMHlfrNCqoKGaqCdrn5EsC
+	 r12BLIW2aauSKG3OHoFZ2MA/cRiiGa5mjxzedxpoNSK71a+4SKZtM6fksklWaiPqtj7Nt
+	 hYdIuuqmNJVrteopCbocHouuKd/iiEbLlUG1pL8GvDJJbbF5Uc16aTjXFFgsRvuApqaA9
+	 6jf/JslnaPuKF1ZL7PYlqrqPe9vLxMdq3KXPSjIMkFxyUuoq6GVEO84+tR67Hwli25VUE
+	 bIf+c+YFk9vTOBABKzM3pHkQqCp8rk2whnBIlQfjVAFPauigUXezdyuMNIkCUuUGHIg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795013498;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795013495;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-WP-MailID:X-WP-AV:X-WP-SPAM;
-	bh=qIlU+acwKKLADzT+uV2Os4B10C9LyZY+L3QQctMtVJc=;
-	b=GRcr33zKtZXzGLAzeyVCFregfqGgas1tcrf3j+KgmbbNh+otAXdXR7+FnVyZHFjhwirt
-	 ucbreaBZ+i3ixpU4Yf7skZhQ28Ap00Z91MU2dxig41Sc4LOAMLTehY+1x7RjlqQoxdpde
-	 wmfc/+c+WemXS4V79VO46yk+lurTbgMkXeJtB1URHPlc1EWhQUpOrwoFLpHCrzzMNnL62
-	 BfVwyxB0Qmx9wwQwCmjOeaEfTroqadtdPnhiLiLvcj7oJ5NzRkYbKiBt82+fKD9tW0oDR
-	 AFQEHqzmF/cQj/bII+iEMjbG+Y8UZga+SbG/JEsdcQNqL7xyehcSRNlC2VuEXwZ7bCA==
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-WP-MailID:X-WP-AV:X-WP-SPAM;
+	bh=4RxBtY9vxc+Kp6wVwu6gxnSGPF/eTmawoe5vFTJzFaQ=;
+	b=QIT5LbcUSYlMgZFezAxelJenhVnartbZxjpX8iytTJsLCBshm6oT8MJ4RvfZnV6uuEh5
+	 YHQMHVbd2FoQLFGJQu0I5oSaxTnSpm2+t2n9IE9hEjmj3+jbjYLyDgx+ifvTzXDm289aD
+	 9DvNwGqqa1Y+OHW1Df9OTpddiCViUZetJ7+smiw7ids3QuxcUkdt1drF5sJMGEePVxP0X
+	 DoXzyHvDUJH8tym8lYz/O7NQOtQzFX/IZzQ/oD9rf59UaS3Vzne3fN6QTbH4/gdaqwCig
+	 /yuGGoqr3trLTeHcEWW+j3KO/ZQuLIXH3q5eENRjhLWfBusVhnsSN6CaAa/W6ZqyAlw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=wp.pl;
 	spf=pass smtp.mailfrom=wp.pl;
-	dkim=pass header.d=wp.pl header.i=@wp.pl header.a=rsa-sha256 header.s=s20261001 header.b=U1cW69i1;
-	arc=none smtp.remote-ip=212.77.101.12
-Received: from mx4.wp.pl (mx4.wp.pl [212.77.101.12])
+	dkim=pass header.d=wp.pl header.i=@wp.pl header.a=rsa-sha256 header.s=s20261001 header.b=V152Dstj;
+	arc=none smtp.remote-ip=212.77.101.11
+Received: from mx4.wp.pl (mx4.wp.pl [212.77.101.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5BDDC60A260A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:51:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5BDDC60A260A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0DD54606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:51:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0DD54606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=wp.pl
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=wp.pl
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=wp.pl header.i=@wp.pl header.a=rsa-sha256 header.s=s20261001 header.b=U1cW69i1
-Received: (wp-smtpd smtp.wp.pl 32397 invoked from network); 18 Nov 2026 15:51:29 +0100
+	dkim=pass (2048-bit key) header.d=wp.pl header.i=@wp.pl header.a=rsa-sha256 header.s=s20261001 header.b=V152Dstj
+Received: (wp-smtpd smtp.wp.pl 21108 invoked from network); 18 Nov 2026 15:51:25 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=s20261001;
-          t=1795013489; bh=qIlU+acwKKLADzT+uV2Os4B10C9LyZY+L3QQctMtVJc=;
+          t=1795013485; bh=4RxBtY9vxc+Kp6wVwu6gxnSGPF/eTmawoe5vFTJzFaQ=;
           h=From:To:Cc:Subject;
-          b=U1cW69i1kK/3M1Tg+Vwq+lyvcC+AnoGtwMPqrMGMuiKIMPfqBtX+RcbIuRo9X9F+m
-           iDa7KrNG5iikVNrfzSY2FU2uboP0LBXQCzWza+PFVIVs4E80nVkES3U6LV9kQTBoEh
-           lP2ot58o9LDQ5aPAtSexE169ET+Noy4+AfF6kqTJGuGn5rByo3MmymmzwjFXav/z5J
-           /nmnM42GfSCg7Yw5bGWykm1k8NWJUeQ6sSFeLR/rYNFYSmPQu5WcroXdQiD6Tr5b6t
-           EWMjdyypYxURIH0XPlO88p0d6zWrKi3D+JPbiz0rG65Bkwt5/fiRwqoV9OiCuuI9MI
-           dqJ/zqW3Vku7w==
+          b=V152DstjlIjXzLnu8NjZyYwreeWqWXoXKShNNSeIv3bo67RwR+wEVyqN4g9YsFjFI
+           xOmptL4yTOchd1zAlsCZR5W+LyTQf6U65AKe2Ww47a6mQTgWXtAew+s42fK1qnKo7A
+           0Ztcn/8a00QwX2omBLvASgTLVrr4rhA36zEExBxXyGpigEmXrSC7NcPzc24EeIGRvb
+           9Jen104NvxdwGozEgTC0ATVLys69IPg53+uhuDb18aP8EGJtgi6fBrMhS/RItLECac
+           f/JoCv5FsdZaU/JA2zqrsq3gA6Jjzyd9A8PMdpRV8YB8aNR4z60wKnxRbGGydOd74M
+           moEIyAmrEqtmA==
 Received: from localhost (77-236-5-223.static.play.pl [77.236.5.223])
           (envelope-sender <stf_xl@wp.pl>)
           by smtp.wp.pl (WP-SMTPD) with TLS_AES_256_GCM_SHA384 encrypted SMTP
-          for <linux-modules@vger.kernel.org>; 18 Nov 2026 15:51:29 +0100
+          for <linux-modules@vger.kernel.org>; 18 Nov 2026 15:51:25 +0100
 From: Stanislaw Gruszka <stf_xl@wp.pl>
 To: linux-modules@vger.kernel.org,
 	Sami Tolvanen <samitolvanen@google.com>,
@@ -62,12 +62,10 @@ Cc: linux-kernel@vger.kernel.org,
 	Jordan Rome <linux@jordanrome.com>,
 	Viktor Malik <vmalik@redhat.com>,
 	Petr Mladek <pmladek@suse.com>
-Subject: [PATCH v3 3/3] module/kallsyms: enable indexed text lookup for livepatch modules
-Date: Wed, 18 Nov 2026 15:51:25 +0100
-Message-ID: <20261118145125.29399-4-stf_xl@wp.pl>
+Subject: [PATCH v3 0/3] module/kallsyms: sort function symbols and use binary search
+Date: Wed, 18 Nov 2026 15:51:22 +0100
+Message-ID: <20261118145125.29399-1-stf_xl@wp.pl>
 X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20261118145125.29399-1-stf_xl@wp.pl>
-References: <20261118145125.29399-1-stf_xl@wp.pl>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,57 +76,39 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-WP-MailID: c227c8fff6f31584fbe9737559213126
+X-WP-MailID: 113bda48f6e52cef21e1ab72afaf099d
 X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
-X-WP-SPAM: NO 000000A [4RME]                               
+X-WP-SPAM: NO 000000B [0RNE]                               
 
-is_core_symbol() returns early for livepatch modules, preventing their
-core text symbols from entering the sorted index. Address lookup
-therefore falls back to a linear scan.
+This series enables binary search over a separate index of core text
+symbols, preserving symbol-table order and supporting livepatch modules.
 
-Allow eligible core text symbols to be indexed while preserving all
-livepatch symbols, so core text address lookups can use binary search.
+v3:
+ - preserve core symtab order by sorting a separate index array
+ - index core text symbols rather than only function symbols
+ - enable indexed text lookup for livepatch modules
+ - rebase and update commit messages and subjects
+ - sort equal-address by descending symbol index so binary search
+   selects the same alias as linear search
 
-Signed-off-by: Stanislaw Gruszka <stf_xl@wp.pl>
----
- kernel/module/kallsyms.c | 9 +++++----
- 1 file changed, 5 insertions(+), 4 deletions(-)
+v2: https://lore.kernel.org/linux-modules/20260327110005.16499-1-stf_xl@wp.pl/
+ - fix searching data symbols for CONFIG_KALLSYMS_ALL
+ - use kallsyms_symbol_value() in elf_sym_cmp()
 
-diff --git a/kernel/module/kallsyms.c b/kernel/module/kallsyms.c
-index 4e7a1c5a3b8b..8f8ac540ab5f 100644
---- a/kernel/module/kallsyms.c
-+++ b/kernel/module/kallsyms.c
-@@ -82,17 +82,18 @@ static unsigned int is_core_symbol(struct module *mod,
- {
- 	const Elf_Shdr *sec;
- 	enum mod_mem_type type;
-+	bool is_lp = is_livepatch_module(mod);
- 
--	if (symnum == 0 || is_livepatch_module(mod))
-+	if (symnum == 0)
- 		return 1;
- 
- 	if (src->st_shndx == SHN_UNDEF ||
- 	    src->st_shndx >= info->hdr->e_shnum ||
- 	    !src->st_name)
--		return 0;
-+		return is_lp;
- 
- 	if (is_ignored_kernel_symbol(&info->strtab[src->st_name]))
--		return 0;
-+		return is_lp;
- 
- #ifdef CONFIG_KALLSYMS_ALL
- 	if (src->st_shndx == info->index.pcpu)
-@@ -106,7 +107,7 @@ static unsigned int is_core_symbol(struct module *mod,
- 	    || !(sec->sh_flags & SHF_EXECINSTR)
- #endif
- 	    || mod_mem_type_is_init(type))
--		return 0;
-+		return is_lp;
- 
- 	return 1 << (type == MOD_TEXT);
- }
+v1: https://lore.kernel.org/linux-modules/20260317110423.45481-1-stf_xl@wp.pl/
+
+Stanislaw Gruszka (3):
+  module/kallsyms: include empty names in is_ignored_kernel_symbol()
+  module/kallsyms: sort text symbol indices and use binary search
+  module/kallsyms: enable indexed text lookup for livepatch modules
+
+ include/linux/module.h        |   2 +
+ include/linux/module_symbol.h |   6 +-
+ kernel/module/internal.h      |   2 +
+ kernel/module/kallsyms.c      | 202 +++++++++++++++++++++++++---------
+ scripts/mod/modpost.h         |   2 +-
+ 5 files changed, 161 insertions(+), 53 deletions(-)
+
 -- 
 2.52.0
 
