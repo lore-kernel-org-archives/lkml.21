@@ -1,58 +1,53 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1794968561;
-	b=Pj7/oF3Ke8fQJon6Tw2IhhFmlOgkORjV2DkV2O+ZJBZMj08oBAWG/1KaDOwbJnB6yvZG
-	 oKN6qUY3kGh/GPuuuBQEt5r2XGjQ2cf+YNYjnbGL4u7QzoXzM7MthFTlLPtxAkti1eK8g
-	 0jF35tMLMWV8XUtbsTDXx4fTsnvpUokbt6s6Rz1IHvas0F0H0aN0BS2s4LMfbMQkmHkZU
-	 0+mc2JTNWfc1DP0awkV9pFgGMLhVUhrvWXI/+s+rXKDStypCoPjrV/izXErgB9yI+F1Xl
-	 Mh6hsd+l4/id4B8IWb0BX5f/M2ulZnpLVpr/q8M9Erf7SKR2fHJUSxZr89a8MOG2DsA==
+	b=hpS7LdrTlB3WGy4JpSRG7LRSqAES7QCNl9dlWLg5jzAzWaBggJa1daXSICkjOE1ogt+q
+	 3K+ll1FSltgD49NwsyUmsBZd8NoYzMWuSiY6FFZ63KtrEfm6j+TK0V251P0d+POW3acyN
+	 C+S4KuHh6bam/pEIdhpOn7Xp4QHqaYpTEbGwxOg9yW+vurnCXBbyQ+al19UpdWu4Srwaa
+	 POIMxXZMbBFP7CBWwnuqn8cRPnDDA7Ox1a6IXctnph+NMNsywLTanDYV0THxR5TVk+yYF
+	 A7v+Ek4FPqWYKuhB3QveTJmi5vKAhyKiOnDDfDQO3NUYBbVTaZ1g3q0+dp8mG3oDCUw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1794968561;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=R78z6DX4Eb7n5m3aMS1vuBN9kYcpNJhnmoRj2a8fkoA=;
-	b=TYM6A1Z0/rgd5innMw6kgPNTGi9zei7L/5P2drlW8dZ9H2VMTAsUAM8U6u1MqnrIqKJK
-	 j1UHxj60aW74QsnEAVkT7pEwSxBVA7sWV/0FGvWKVynlusCnN8sDUrdhi9AYkQAmTNC+8
-	 Hq5HlrOkqgJ0mQA4IDWmpN4Op2ntDl4+OrtQFj3hhe2dfHY+C9hgHA0UJ+TbV5PjBlQXo
-	 ZXfKrTfYkUdKE6Z15QzQ8i3xt8Ha7s9s6KMhXjpCCiOEicG7iOeqpWjhLCX8/cp5P1SWD
-	 +R/mDoGf0bmelIWPU60D1aniI69mkho+crgWnGVxUs2PJZ1c7VIql3CMYprt5GjS3kA==
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=qlae4a7V9R97zMrEaNBWgX7mTwWMZswJckc2kKiXm6o=;
+	b=zKmlrgoOOw9xQwMyNe3FzgVWg99AOI3RLfyX8gdvCzk43ovKtyr4eprPcqMaKNrBnhea
+	 iXzcQzbTT//Fh7ev7IxYYLwVQjxLtxN9vdzKDNwkcfdOk8+9uAruGGXmjjy+buoEnE5/X
+	 GM13XrYVhJOJ2begu9RuZEHIqDyIJ6vStk8T9n/iaEqmt0S/pRX3a+fa1aGzXgluFqQYb
+	 dcvnTkOEg347atjJ79dZQIYsb9ReJBABv734ao9QpFbSS+nVSbn5A1DOAcyfO0E1mubGK
+	 TfexgKFPDpQG1tBOjouudsY/uOkk4FE0VVTjScg6x/s3i9dloMzjri6CU5LX0Uyeoxg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T0SNnpqB;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=drBum+B3;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93801606AF50;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC55A606AF5F;
 	Wed, 18 Nov 2026 02:22:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T0SNnpqB
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A8311F00937;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=drBum+B3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A7C71F000C7;
 	Wed, 18 Nov 2026 02:22:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1794968561;
-	bh=R78z6DX4Eb7n5m3aMS1vuBN9kYcpNJhnmoRj2a8fkoA=;
+	bh=qlae4a7V9R97zMrEaNBWgX7mTwWMZswJckc2kKiXm6o=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=T0SNnpqB8t6E+4PGKkicOyA2bgdDL/KGqJbfnKjnPtWYCdSM4Ao8uhj+FPBpzYf+N
-	 HeQhFnTFHqH//dgs+C5CGx35yY8jEGRhyHyWyrn7k/inqiN29OZLUpGHS4eIjEnSYr
-	 +q2Y7PzeRRw3oqfTh2j9sOhWGOgzQQJxSbHUtMEgmJtuiZRUBkhwsVdt3Vo2jbgWFb
-	 H58AbiFDMLJVt+Sz8wGVIyPEZz1Ij4Gs58dknyEFqfaeS+RGaBrPgJEpy1z56/Crie
-	 Tpo+X3CmsYsTB/WXtE6Cxhy/iB7U3ZKxYYapOcSRBzE1sQkM0oj5BnhNY8EWgc++GZ
-	 kpbZ3KziTHuGA==
+	b=drBum+B3Y0XcHAYkyTKnN1X/Syvw9Gr739WSHwCzcqWKDtRr21TQv5pr4eQyOLkr5
+	 SwpKmDVYFOYUD98T4KzMAyoyzWOsm0vETHeIAkpM9HcuzBld5/kJj+WUYWiVgEKenS
+	 oJELJLWrQJNGJyv/9xmLN2bUlVD+KpwwNhsZjZEFv1MHsouNDFapjtwUGr6Bz5SAIt
+	 eVqjdlzLl4fA16/EASL15TzqbptfEMCDaOXqBv7qXsUOm78q0C/c5F7E2VUonLMVuX
+	 FjMhzUaIZ6nIT7PtnHg7bI5cJ0DBmM/R6qR3Yxna0djdBT2+jbR3OCiVOh74UG2uMQ
+	 tYgcUvNVPUhGA==
 From: SJ Park <sj@kernel.org>
 To: 
 Cc: SJ Park <sj@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
 	damon@lists.linux.dev,
-	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org
-Subject: [RFC PATCH v2 26/27] Docs/admin-guide/mm/damon/usage: update for user_report report support
-Date: Tue, 17 Nov 2026 18:22:21 -0800
-Message-ID: <20261118022225.100659-27-sj@kernel.org>
+Subject: [RFC PATCH v2 27/27] Docs/ABI/damon: update for user_report report support
+Date: Tue, 17 Nov 2026 18:22:22 -0800
+Message-ID: <20261118022225.100659-28-sj@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261118022225.100659-1-sj@kernel.org>
 References: <20261118022225.100659-1-sj@kernel.org>
@@ -65,45 +60,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Update DAMON usage document for the newly added user_report type data
+Update DAMON ABI document for the newly added user_report type data
 attribute report support.
 
 Signed-off-by: SJ Park <sj@kernel.org>
 ---
- Documentation/admin-guide/mm/damon/usage.rst | 11 ++++++++++-
- 1 file changed, 10 insertions(+), 1 deletion(-)
+ Documentation/ABI/testing/sysfs-kernel-mm-damon | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-diff --git a/Documentation/admin-guide/mm/damon/usage.rst b/Documentation/admin-guide/mm/damon/usage.rst
-index ce4e9e4c13276..4024dd4e92979 100644
---- a/Documentation/admin-guide/mm/damon/usage.rst
-+++ b/Documentation/admin-guide/mm/damon/usage.rst
-@@ -117,7 +117,7 @@ comma (",").
-     │ │ ...
-     │ reports/
-     │ │ producers/nr_producers
--    │ │ │ 0/report_type,producer_state
-+    │ │ │ 0/report_type,producer_state,addr_start,addr_end
-     │ │ │ ...
- 
- .. _sysfs_root:
-@@ -767,6 +767,15 @@ Users can write below keywords for the producer to the file.
- 
- - ``on``: Enable the producer.
- - ``off``: Disable the producer.
-+- ``submit``: Generate and submit a new ``user_report`` type report, if
-+  ``report_type`` is ``user_report``, and the producer is enabled.
+diff --git a/Documentation/ABI/testing/sysfs-kernel-mm-damon b/Documentation/ABI/testing/sysfs-kernel-mm-damon
+index e558dd4212f2c..41a4ce49fbd35 100644
+--- a/Documentation/ABI/testing/sysfs-kernel-mm-damon
++++ b/Documentation/ABI/testing/sysfs-kernel-mm-damon
+@@ -722,3 +722,19 @@ Contact:	SJ Park <sj@kernel.org>
+ Description:	A file for requesting actions including enablement and
+ 		disablement of the producer.  Refer to
+ 		Documentation/admin-guide/mm/damon/usage.rst for more details.
 +
-+``addr_start`` and ``addr_end`` files are used only for ``user_report`` report
-+type.  Those set the address range of memory to manually report .  Users can
-+set the start and end address of the address range by writing the addresses to
-+the files.  Note that it is open-end range (``[addr_start,addr_end)``) and
-+therefore the end address is exclusive.  Reading the files shows the last
-+successfully written input.
- 
- .. _tracepoint:
- 
++What:		/sys/kernel/mm/damon/admin/reports/producers/<P>/addr_start
++Date:		Nov 2026
++Contact:	SJ Park <sj@kernel.org>
++Description:	Writing an integer to and reading from this file sets and gets
++		the start address of the report to manually generate and
++		submit, depending on the type of the report producer.  Note
++		that the start address is inclusive.
++
++What:		/sys/kernel/mm/damon/admin/reports/producers/<P>/addr_end
++Date:		Nov 2026
++Contact:	SJ Park <sj@kernel.org>
++Description:	Writing an integer to and reading from this file sets and gets
++		the end address of the report to manually generate and submit,
++		depending on the type of the report producer.  Note that the
++		end address is exclusive.
 -- 
 2.47.3
