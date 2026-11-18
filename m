@@ -1,62 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795041466;
-	b=Px0h2iNUVwhGJb5nzw1Y7xVuL+AmRrXLnRchelO65ECjDiXFULJ7byY5ZNXHNx9ZZ+jz
-	 rG4oigfhv6oCznFjwL22388uJ0dR1aIoIBkaLOVZtVKGwQEt5eTCHnitqooxyIEb6Jviu
-	 5Vj5ZdkaHuyArR9T+xL7Y2swuUHQYNnjvZBDwPjBubeKIyQhs+oG3R4iuhDpuas1VelDB
-	 Uy0H018/U/3nzA9uewnXLpgJPhfPgK0YPq9aOolfPIcdfrW266CUnlgaY9JiOvyaue5Kp
-	 fq4nCaOUzMwH6r6VpvYwIShD5iQdFtKGP+vVm6SFTKm9b7oQva+FCefZP8nT2j6Cpig==
+	t=1795041470;
+	b=pgxl5FY6eqLXGkVhKXJ5OYGEEunlt1qkLXSEZ8AnAf2RLKifd7IHIybtD3ZIX2dlh1h+
+	 AO8CNP6IeGDAWwcQr37Yh/+l9X/8U+o6CJHzCSL/kHT34MlmCFZR9qBlGSOAVo7ixlLo8
+	 w3FAhvZe3xS+ygJsGe0tz2ATya/WJmyIXU0fZ+COOmqLM3HisEx4/2b1TN1y05s3DWprY
+	 nDxIyvDyJsmgebTFfP3SqB3/WpkI3guLhQraS9dIuOPX8xxEl/66Qx8yRhTKDT9NvMFUu
+	 k5aUgasuvErEjBeg3aJ6KIY1GZFWieMaTzE9k4YW1OraoY//d5atTQghfYY+pnDBGeA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795041466;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=dCpUFQTmfxMvrYVOEbCqJQSqnG5loUq97vjZxowCiuU=;
-	b=5hTwjwfwGtkhl8EKga5yROGlYUaMy2QzlQZ83Myh2lT/LvFY56fCritSYFdqbrKsMxeK
-	 x931zWU1IrLgeTqsWyYYWWJ6tB6vOqIJFipshpu+fTu4IVFR2jEE+aUjDkxncbuE9TQCv
-	 d3MhwPZfhKFZ6LGhQo/ytGjoMdmM47OCbd1g2JttvechzUhGrcGFZbckfkTAYykxLsxOH
-	 w6GcOVO0I1ZuklXnAWJI/vEqbixGlocaSXbjwx3NEaGNN1mPIx+3DugmEubwIIiiSEw72
-	 1ruVLU9SV3Nn236p5yf5ACqALtNV8XSeI+rZRMqzDkVAdIv/WHEpkezNk4wHaKLbekQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795041470;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=tJaLAVE6Ohoawqw1sWmwjp5ssQaOa4RU7FxJu0FpFGg=;
+	b=AElpmfcrlGClMONd+O7+32s4EEPO5v6vfPKYWl3nBTWZR/9fsO0WWKyrx4dVdydvaZk4
+	 /e9uXdVn0VYNi6GMt9JB4l8U0Z1yRpVORl5FTlcwgrav+0t8pQ6Cw2BE2lXYOZ3ueLPfR
+	 SZOLryur7jQg6fmPtwpk6jl68dm+vETrBd0gFaP0FZWSRnzufR9DBzMZos6gnl023HXQD
+	 eZGzDd0vmnkGCQAcfdLpyJF2dkPQQoaNHW8XRGpI83KjL6wVA0PtusCk6juCV35JeoNts
+	 Vuo85N6bwekrLCkimIrb2XewYs05TJLoocyEbb8tNCBExObo69suw0WQwucvcrYclDg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IeK8S6jU;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=chromium.org;
+	spf=pass smtp.mailfrom=chromium.org;
+	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=NSaYD0am;
+	arc=none smtp.remote-ip=209.85.210.49
+Received: from mail-ot1-f49.google.com (mail-ot1-f49.google.com [209.85.210.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33893606A339;
-	Wed, 18 Nov 2026 22:37:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F385E60A5BCD
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:37:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F385E60A5BCD
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IeK8S6jU
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A4B01F000C7;
-	Wed, 18 Nov 2026 22:37:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795041466;
-	bh=dCpUFQTmfxMvrYVOEbCqJQSqnG5loUq97vjZxowCiuU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=IeK8S6jUh3Ofrgdwp04apZj+UaKoIgZaF0erhzy/anIjIouvdbGcrVNVpMT3jVxjO
-	 4YorYhNzee4m7bXBq3N9LcNOWj3eFLp6fXRQjlvETLCqWXYPUjGK/2X/IeM3TFoMHE
-	 1Pv7TP0ow6XT7Ipq4DJpLRkMbJB5quphc4tOuacBIb/4JQ8Spbdzg1nEbrcWTR5mEf
-	 lJXJhVaZUsj6X4e5jXn5k5vNUwv0ToooCGhqORbliE6qDqQg/PUgaTY+8LCppC9IV0
-	 y6+YeGTKjhecZy4sGFr1vPDZ1tHQp45VVWEQt7CmSk1XBwWVcVYE7qlihyi2rOylpu
-	 MMLxCxKn0vH5Q==
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Namhyung Kim <namhyung@kernel.org>
-Cc: Ingo Molnar <mingo@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	James Clark <james.clark@linaro.org>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Clark Williams <williams@redhat.com>,
-	linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	Arnaldo Carvalho de Melo <acme@redhat.com>
-Subject: [PATCH v8 04/13] perf tests: Exercise DW_OP_addrx global variables
-Date: Wed, 18 Nov 2026 19:37:15 -0300
-Message-ID: <20261118223725.121500-5-acme@kernel.org>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261118223725.121500-1-acme@kernel.org>
-References: <20261118223725.121500-1-acme@kernel.org>
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=NSaYD0am
+Received: by mail-ot1-f49.google.com with SMTP id 46e09a7af769-862aca1ed4dso632587a34.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:37:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1795041469; x=1795646269; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=tJaLAVE6Ohoawqw1sWmwjp5ssQaOa4RU7FxJu0FpFGg=;
+        b=NSaYD0amCC9xOJya8NYVAj9n3XSKOoqUTENWt4VRsvNVnmTraEPawOt5CkiV5ZsoaJ
+         wdnvUmqVRrorjdy6TL50yKU/SGahd/1LzlNIapGPZfII4KRkTYeACjLqv8ABI1LJi/o5
+         LXjB13ROnt/6VYAYE9Eidx6qv0ohgNoPgBhuE=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795041469; x=1795646269;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=tJaLAVE6Ohoawqw1sWmwjp5ssQaOa4RU7FxJu0FpFGg=;
+        b=HEx2FAgrqE5Hbhy5qCCmAenXyLUs0TA6fklnxTOIX7NwyZvI1hFmnMheyTu28Y0yL2
+         5AvPasDIUDTqxdqSMTERqmPltQ7iZxpzcOW4eqnd1KD298KpPSwIlmVoFIC/UO/vI6bk
+         t2kjMa3f3byFz+AIOPShveu2pXl9Lr354lMKl+59wVInVHEbb1EorlHVmj/B/s8eWavr
+         Ed7ErcXkyRyBja+2WPlTEALPiFkZ9AoE8+qQIF7MZITR5OLKo0VY9+D74XqTjVOAkFKq
+         7pTV9RmReYGEyV4YtBJT1+DSL8E7qrmeM+9rzzR3IGuJPbJypXdX/ouRw5kc0ajV7Qbe
+         3gUQ==
+X-Gm-Message-State: APuU4Z9W3apmDCj0YRXqn6K47ieNFTKBqOT2rrrBktwhzJv4Ec5yvrHt
+	ULUilZtWsdRyJSHYHW4U2J4hTzQzvWym1rGR/APH4zOSATAYndhkP/NB6t7lNDZ2yA==
+X-Gm-Gg: AYBFou1DOiKm7uidtyt3NASWiE6GPWUg8+1K55c+2hDe9L1E/jUyjQhVTRqKZhH9JlR
+	+EEgjPMGI650oMakJSQQf68KbRxlG1TKsdA7HwbmRnTY8KZ17REFATCBHobk+nkqxGtp3DVUDvS
+	hIGFeg4Ly8NOJmlzgzhkPdjQmvS/H5ZnL2js4Qe0kLejVoUUBpOZa8/qSLkvLAzWx2U2dH06HP9
+	KA4Eb4GSq1I+T6PqwC+gUSURZdaf5m3ucAmxzMf0WFXsW3n6JJ8L6IPXBzNHLz4rHmDP0AVdhvS
+	uFrwCAwbw6Koz6PEAdlLlurlSwp2KGiTG8kYFexNeCW1lysfxap+O5LyklZAIlFMW55EBfmzOfV
+	I2UY6ETipzHliTVLmp+SfMGGVVAFiCyaXzJyHEK511Ye4iDU3eKlKdYSswLf/J9wQCZkbeqY9gx
+	JR5iWpY/v6e7OxPat8N9AnFxIOIoNr44nZOZMQyl33EiokeHm9JuE6LHVS2O1HDEsT8vEMkgIvk
+	oqQQq/di2S5ZUJ2SXNrLTAB5tN5NDgepLnmkAGTSH5eoNmheWdPxbMrIcH8p8lM7A6wTLDI9vuI
+	Si8Ta9SpQyWHlyGSIiV+sVHAawWI7HMX7pwbJm0xN5NV+3aCQ0fTfTx4urPJ0qPpxL6+8NR92aP
+	4fHTZUmUtcEdnFOufG/V63dF9zpfNFIB+ibSY
+X-Received: by 2002:a05:6830:4428:b0:862:8382:e0ba with SMTP id 46e09a7af769-862f08facb0mr4136749a34.9.1795041468917;
+        Wed, 18 Nov 2026 14:37:48 -0800 (PST)
+Received: from rrangel.c.googlers.com.com (212.56.236.23.bc.googleusercontent.com. [23.236.56.212])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-862f01d4737sm2948762a34.7.2026.11.18.14.37.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 14:37:48 -0800 (PST)
+From: Raul E Rangel <rrangel@chromium.org>
+To: Kees Cook <kees@kernel.org>,
+	Tony Luck <tony.luck@intel.com>,
+	"Guilherme G . Piccoli" <gpiccoli@igalia.com>
+Cc: linux-kernel@vger.kernel.org,
+	Raul E Rangel <rrangel@chromium.org>
+Subject: [PATCH 0/2] pstore/ram: Fix error-pointer cleanup and region bounds check wrap
+Date: Wed, 18 Nov 2026 15:37:44 -0700
+Message-ID: <20261118223746.2251358-1-rrangel@chromium.org>
+X-Mailer: git-send-email 2.56.0.212.g129ede20d9-goog
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,214 +94,24 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: Arnaldo Carvalho de Melo <acme@redhat.com>
+This series fixes two buglets in fs/pstore/ram.c during ramoops probe:
 
-clang emits DW_AT_location with DW_OP_addrx for globals in DWARF 5, gcc
-emits DW_OP_addr.  The global_data workload keeps a zero initialized
-struct in .bss: at run time it sits past the file backed mapping, where
-the by-name fallback through the thread maps cannot find it, so only the
-DWARF address lookup resolves it.  The test checks that its three member
-accesses are annotated, so the DW_OP_addrx path is exercised when perf
-is built with clang and DWARF 5 (e.g. coverage.sh --dwarf-version 5),
-and the DW_OP_addr one with gcc.
+  1. Clear *prz when persistent_ram_new() returns an ERR_PTR in
+     ramoops_init_prz() so the fail_init teardown path does not pass an
+     error pointer to persistent_ram_free().
+  2. Check remaining region space ahead of the record_size division in
+     ramoops_init_przs(), and subtract from cxt->size instead of adding
+     to *paddr in both ramoops_init_przs() and ramoops_init_prz() so the
+     bounds check cannot wrap.
 
-It skips on 32-bit PIE builds, which reach static globals relative to
-the GOT base register, and the resolver does not track that.
 
-Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
----
- tools/perf/tests/builtin-test.c            |  1 +
- tools/perf/tests/shell/data_type_global.sh | 73 ++++++++++++++++++++++
- tools/perf/tests/tests.h                   |  1 +
- tools/perf/tests/workloads/Build           |  2 +
- tools/perf/tests/workloads/global_data.c   | 57 +++++++++++++++++
- 5 files changed, 134 insertions(+)
- create mode 100755 tools/perf/tests/shell/data_type_global.sh
- create mode 100644 tools/perf/tests/workloads/global_data.c
+Raul E Rangel (2):
+  pstore/ram: Clear *prz on persistent_ram_new() failure
+  pstore/ram: Fix region bounds check wrap
 
-diff --git a/tools/perf/tests/builtin-test.c b/tools/perf/tests/builtin-test.c
-index 327483f96401b580..e056a3d3594ff8a2 100644
---- a/tools/perf/tests/builtin-test.c
-+++ b/tools/perf/tests/builtin-test.c
-@@ -213,6 +213,7 @@ static struct test_workload *workloads[] = {
- 	&workload__deterministic,
- 	&workload__callchain,
- 	&workload__false_sharing,
-+	&workload__global_data,
- 
- #ifdef HAVE_RUST_SUPPORT
- 	&workload__code_with_type,
-diff --git a/tools/perf/tests/shell/data_type_global.sh b/tools/perf/tests/shell/data_type_global.sh
-new file mode 100755
-index 0000000000000000..11fbf852b44cfaad
---- /dev/null
-+++ b/tools/perf/tests/shell/data_type_global.sh
-@@ -0,0 +1,73 @@
-+#!/bin/bash
-+# perf data type profiling test for a global variable
-+# SPDX-License-Identifier: GPL-2.0
-+
-+set -e
-+
-+perfdata=$(mktemp /tmp/__perf_test.perf.data.XXXXX)
-+perfout=$(mktemp /tmp/__perf_test.perf.out.XXXXX)
-+perferr=$(mktemp /tmp/__perf_test.perf.err.XXXXX)
-+
-+cleanup()
-+{
-+	rm -f "$perfdata" "$perfout" "$perferr"
-+	trap - EXIT TERM INT
-+}
-+
-+trap_cleanup()
-+{
-+	echo "Unexpected signal in ${FUNCNAME[1]}"
-+	cleanup
-+	exit 1
-+}
-+trap trap_cleanup EXIT TERM INT
-+
-+if ! perf check feature -q dwarf; then
-+	echo "Skip: no DWARF (libdw) support"
-+	cleanup
-+	exit 2
-+fi
-+
-+# 32-bit x86 PIE reaches static globals relative to the GOT base register,
-+# which the resolver does not track; e_type's low byte is at 16 on LE x86.
-+perf_bin=$(command -v perf)
-+if [ "$(od -An -tx1 -j4 -N1 "$perf_bin" | tr -d ' ')" = 01 ] &&
-+   [ "$(od -An -tx1 -j16 -N1 "$perf_bin" | tr -d ' ')" = 03 ]; then
-+	echo "Skip: 32-bit PIE uses GOT-relative global accesses"
-+	cleanup
-+	exit 2
-+fi
-+
-+# No point in recording if the PMU cannot do memory events.
-+if ! perf mem record -o /dev/null -- true 2>/dev/null; then
-+	echo "Skip: cannot record memory events on this PMU"
-+	cleanup
-+	exit 2
-+fi
-+
-+if ! perf mem record -o "$perfdata" -- perf test -w global_data 1 \
-+		> /dev/null 2> "$perferr"; then
-+	echo "FAIL: perf mem record"
-+	cat "$perferr"
-+	cleanup
-+	exit 1
-+fi
-+
-+if ! perf annotate --code-with-type -i "$perfdata" --stdio \
-+		--percent-limit 1 > "$perfout"; then
-+	echo "FAIL: perf annotate"
-+	cleanup
-+	exit 1
-+fi
-+
-+for member in "+0 (saddr)" "+0x4 (daddr)" "+0x8 (bytes)"; do
-+	if ! grep -Fq "# data-type: struct conn ${member}" "$perfout"; then
-+		echo "FAIL: member ${member} not resolved"
-+		grep 'struct conn' "$perfout"
-+		cleanup
-+		exit 1
-+	fi
-+done
-+
-+echo "global variable resolved"
-+cleanup
-diff --git a/tools/perf/tests/tests.h b/tools/perf/tests/tests.h
-index af822885890dda73..049a164503166529 100644
---- a/tools/perf/tests/tests.h
-+++ b/tools/perf/tests/tests.h
-@@ -273,6 +273,7 @@ DECLARE_WORKLOAD(context_switch_loop);
- DECLARE_WORKLOAD(deterministic);
- DECLARE_WORKLOAD(callchain);
- DECLARE_WORKLOAD(false_sharing);
-+DECLARE_WORKLOAD(global_data);
- 
- #ifdef HAVE_RUST_SUPPORT
- DECLARE_WORKLOAD(code_with_type);
-diff --git a/tools/perf/tests/workloads/Build b/tools/perf/tests/workloads/Build
-index 43cc4da6fb0786de..03017aaaaa0bec32 100644
---- a/tools/perf/tests/workloads/Build
-+++ b/tools/perf/tests/workloads/Build
-@@ -17,6 +17,7 @@ perf-test-y += context_switch_loop.o
- perf-test-y += deterministic.o
- perf-test-y += callchain.o
- perf-test-y += false_sharing.o
-+perf-test-y += global_data.o
- 
- ifeq ($(CONFIG_RUST_SUPPORT),y)
-     perf-test-y += code_with_type.o
-@@ -35,3 +36,4 @@ CFLAGS_deterministic.o    = -g -O0 -fno-inline -U_FORTIFY_SOURCE
- CFLAGS_named_threads.o    = -g -O0 -fno-inline -U_FORTIFY_SOURCE
- CFLAGS_callchain.o        = -g -O0 -fno-inline -U_FORTIFY_SOURCE
- CFLAGS_false_sharing.o    = -g -O0 -fno-inline -U_FORTIFY_SOURCE
-+CFLAGS_global_data.o      = -g -O0 -fno-inline -U_FORTIFY_SOURCE
-diff --git a/tools/perf/tests/workloads/global_data.c b/tools/perf/tests/workloads/global_data.c
-new file mode 100644
-index 0000000000000000..5973f7bb16fd007c
---- /dev/null
-+++ b/tools/perf/tests/workloads/global_data.c
-@@ -0,0 +1,57 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * A zero initialized global struct, so it lands in .bss, past the file
-+ * backed end of the last segment: at run time it sits in an anonymous
-+ * mapping that the thread maps do not name, so only the DWARF address
-+ * lookup finds it.  clang describes its address with DW_OP_addrx in
-+ * DWARF 5, gcc with DW_OP_addr.
-+ *
-+ * 'perf mem record' of this workload followed by 'perf annotate
-+ * --code-with-type' (see tests/shell/data_type_global.sh) resolves the
-+ * accesses to struct conn.
-+ */
-+#include <signal.h>
-+#include <stdlib.h>
-+#include <unistd.h>
-+#include <linux/compiler.h>
-+#include "../tests.h"
-+
-+struct conn {
-+	int saddr;
-+	int daddr;
-+	long bytes;
-+};
-+
-+static volatile struct conn conn;
-+static volatile unsigned long conn_sink;
-+static volatile sig_atomic_t done;
-+
-+static void sighandler(int sig __maybe_unused)
-+{
-+	done = 1;
-+}
-+
-+static int global_data(int argc, const char **argv)
-+{
-+	unsigned long sum = 0;
-+	unsigned int i = 0;
-+	int sec = 1;
-+
-+	if (argc > 0)
-+		sec = atoi(argv[0]);
-+
-+	signal(SIGINT, sighandler);
-+	signal(SIGALRM, sighandler);
-+	alarm(sec);
-+
-+	while (!done) {
-+		conn.saddr = i;
-+		conn.daddr = i + 1;
-+		sum += conn.bytes;
-+		i++;
-+	}
-+	conn_sink = sum;
-+	return 0;
-+}
-+
-+DEFINE_WORKLOAD(global_data);
+ fs/pstore/ram.c | 19 ++++++++++---------
+ 1 file changed, 10 insertions(+), 9 deletions(-)
+
 -- 
-2.56.1
+2.56.1.708.g77570a6a1d-goog
 
