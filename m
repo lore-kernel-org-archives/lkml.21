@@ -1,59 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795006882;
-	b=cutoVI+GcgRe3Wfe7pmWbxcvi/2BtymwNlwjHhSRmc1KzXlr17I0L9vL6Isqpa5ypJjB
-	 Pfcko30eR/ylicCkf4wLFRwnPuawBMY3Iu3WELnI0znVbRqhfaBo4HvHWlQlEJgjyillJ
-	 cu8J4368d2EJGAdm0WK+S8ihcSEfi71q+UMx+uNqIeJFkow5j6YpDZokkEY16ulYeXkAa
-	 DnNLTHqu69TyeY0u35Nc6EpQjiO2Qed6nn3a2lTAuTeQhOdJxt4+DhAPQg31p0rjWERvr
-	 HplZDMVbrFXh8IQcj1vQaMsg9be/CDNuJKzVAw1bHWqsSft4sLjhGasBWGD9yYkp2bQ==
+	t=1795006923;
+	b=qGSKpB8IlbQapQx+pZuyFUuLSoJ1g5vYcHPs1gL+RsMdV1WaY2ShTTv3N5Hdk1AWZBrK
+	 xCzsw/j1I+jRWCLQq9j4vvSFRCHfKdiPwfnNVqXgaTZOWZzHCjYLQTegXMPuxQwkzg0gG
+	 qtKbcQvsKUwz2Y1c7jYCo8n+RvTf+zPesIn61RwqOWVt9klaZ42SoPu1trkBDPOFku6W+
+	 5PVumtQsZZUAOHRXqYDSw8ICjHishqYr3nR7NLd6r28jKguamXtYsGN4X3sk7gSUrOFdL
+	 JJzO2Zgx4T/AcViF8PuQNCg+igULubRp29XA6Eau2BMdl0E/SjH4tNYcd9iyBrvVMyQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795006882;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=GEpliVII4aS/WvWnXApv5elU2gIs/d0QIGsfAPWqOTw=;
-	b=ZyyyNr114l9pTZ7vjKss7QKKXzyhTiSDVGNyjjdgezPjjMS7/21vMuARLp0hM+O+rRlo
-	 yoTUiNcJ8Fu13Ep76GMTdY6keC22477qABnAw9SiwgO8RloSF1aKQqo6UGdvUfhXwFJ6a
-	 c6xRdu/4xubyhaMP5ZJha6Kbw9R9LPqyI6pJVXoVqk+B+Ix32wC5CZMbaqfEVBWYuvto9
-	 Nr+wqJEnGbzDN+zl5QY6BvylFeZ/Fs4yuOdh5b8c3qZbrvwltX1mZP8OMi1a4qPBZVIHR
-	 oU8fhPDza+DPoMkTpuLh1My6wSQm7LO8vk6F1jJ0x16TtEvtI8SCavd1RYWa6egpDJQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795006923;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-Proofpoint-Reinject:X-QCInternal:
+	 X-QCInternal:X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=VwDygCCHelApyhiED5Cw2gQ6wU1HbXqnuZiA13TW/S4=;
+	b=oIuwzzggfFIiA4Jsa268KZoTXGmapISpxC9SvWP4IpY1X6mDRQnWeUyoK45mlfolRpD5
+	 NYE+oBUEl4u6dzG67WJAdiJCqdxpOVHG5Z1eTP9G2MxlZMN0pNUhHQS7ErqbVvSw8k5C7
+	 9zgcXWCB0LeWfAcbjXkFdYX25PyJmzAu8Wd4XY0+Tbdifcv4Goqp4mfMZgOqi72pdOZou
+	 zT07AOHXadhn11kkD7YTt3pe5VaMj3CVLrqyVHJe2RhaVj3K4pu9Duqf3Kqx8dIT2ncF1
+	 Tqac3bHZQRmhAVuoExD44NOD5bucjT9vI5F26e9K5OH8mYDwQF8Es4vehDJLjA0iFvw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h1rXnv3a;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=K6EEZRdn;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1E36606A31C;
-	Wed, 18 Nov 2026 13:01:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57629606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:02:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57629606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h1rXnv3a
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60C231F000C4;
-	Wed, 18 Nov 2026 13:01:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795006881;
-	bh=GEpliVII4aS/WvWnXApv5elU2gIs/d0QIGsfAPWqOTw=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=h1rXnv3aQy3A9JCYxFnQDBpfPZx2ptbKd/E7DSS9E7nPIoCNFyPFRmy2e9qqrVjrK
-	 ahOVgk2StRsJL3J/YWQ5I4z34vNGkCaGoI3QJG6kKr2o7NozPAIsG7FU1TAD+y64Kp
-	 8eQ31nCgpradkHA7UBErdf7msnfKJC4pYynu8WWYHLIm0VRm+QTHg93DCXeK2nyez/
-	 tLjjkMO95dVQ8xpzoFyMEzUR+KH0luDWjGeDQfggMb5Cwq81boIJSCSgYiJF8dVVcs
-	 0Pb5K+tW0Ptb6u0/Aw9NZTH0geM26bftRs1wf4r+J/d+W18hLL9pCiNwXwmy4ejfxp
-	 FUeByXC/KJS9w==
-From: Christian Brauner <brauner@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>, 
- Shuah Khan <shuah@kernel.org>, Kurt Lin <lylin1023@gmail.com>
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>, 
- Alexey Dobriyan <adobriyan@gmail.com>, 
- Swarup Laxman Kotiaklapudi <swarupkotikalapudi@gmail.com>, 
- linux-kselftest@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20261113154411.568272-1-lylin1023@gmail.com>
-References: <20261113154411.568272-1-lylin1023@gmail.com>
-Subject: Re: [PATCH v2] selftests/proc: proc-empty-vm: handle CPUs without
- protection keys
-Message-Id: <20261118-ganzseitig-vorkam-unteilbar-1f0ad26e3468@brauner>
-Date: Wed, 18 Nov 2026 14:01:17 +0100
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=K6EEZRdn
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AICLFiT3420537;
+	Wed, 18 Nov 2026 13:01:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=VwDygCCHelApyhiED5Cw2gQ6wU1HbXqnuZi
+	A13TW/S4=; b=K6EEZRdn9ruKRGw3tOcjxQBlUFnnW5+LrkrthLDeM0yCzRV5ild
+	of0QpUGFM7kYFuslIdcQq8QqIn8JTbxF6oxSWozs8rMWXLTPUjWurv8j0+zb6bxj
+	QYZg5vlpttZGqXZH3AS5k9SsW+iThJ7qNCBTzV6pk8QiX3EIIL6mz3aesfQoyLVf
+	Er83Ht/PnRMERt1Qi+ji9CXisaFO83Mtc1Vm4Nvj0dkeCj1/4mCeIyp1KbNKz7FU
+	DF85lOjho3Wsqie4XWdZkkTQ5n+znxsCTPbzOn+f9FgVn3MFEtMWY9m6JMjtsFQc
+	Q1sfz5JxMRiDt/Srr0XfY9tsgM5ylY6X9hg==
+Received: from apblrppmta01.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yv8u1c0-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 18 Nov 2026 13:01:57 +0000 (GMT)
+Received: from pps.filterd (apblrppmta01.qualcomm.com [127.0.0.1])
+	by APBLRPPMTA01.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AID1tHY2756875;
+	Wed, 18 Nov 2026 13:01:55 GMT
+Received: from hu-devc-hyd-u24-a.qualcomm.com (hu-msavaliy-hyd.qualcomm.com [10.147.246.140])
+	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 6AID1tdP2756837
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 18 Nov 2026 13:01:55 +0000 (GMT)
+Received: by hu-devc-hyd-u24-a.qualcomm.com (Postfix, from userid 429934)
+	id D441B21523; Wed, 18 Nov 2026 18:31:53 +0530 (+0530)
+From: Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>
+To: akpm@linux-foundation.org, kuba@kernel.org, jeff.johnson@oss.qualcomm.com,
+        alex@sverdlin.org, cel@kernel.org
+Cc: linux-kernel@vger.kernel.org,
+        Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>
+Subject: [PATCH] .mailmap: update email address for Mukesh Savaliya
+Date: Wed, 18 Nov 2026 18:31:50 +0530
+Message-ID: <20261118130150.2877850-1-mukesh.savaliya@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,35 +79,60 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev-04696
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-QCInternal: smtphost
+X-QCInternal: smtphost
+X-Proofpoint-ORIG-GUID: l6edkRMka3xfZ-WuenCmP1h2TNq3O9Qk
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA1MSBTYWx0ZWRfX7oxQzl8NC26e
+ aXwTxug4NwW3uUwCQbmQX60n25dYV6K8Pm/u6GV5sb3k1xfQZKs9htjEWU8HoWJbtG6MUuR/AmI
+ 9OuhchJXAneef0/U8YvOEp3cZsUY6a8=
+X-Proofpoint-GUID: l6edkRMka3xfZ-WuenCmP1h2TNq3O9Qk
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA1MSBTYWx0ZWRfX3aJRG9Ez46kY
+ 2xw8DEGBaWkgbyCJSPvXg/tN2QOtbmbTs1juaGF+kzATQPsoZ7xefgcHwTbsm5h6nv3hqXwHjsA
+ 2LehQhic+5xo14vcrScATR2CM6vNtHPJ2wwPWJ3KexFWe4ZDY0oW2AqNOSmIY9eJl/Lf9O5ihTM
+ YXM1CDWPuLBcAQjj0MWju4NEMOED8J02csHHT4hi8JjfasEad0h3En8OZ5hBJsJ/Ui0sMbsi4Ej
+ pX9R0AvnYsGYhv6Q36DMkMkUv0b4BQzCVP8f5bxLMjcdf/1+xNHFUmsZskYxhDOk3nPnKG5l8td
+ 6aifvGrXncdCHxiTNz/UKb/86CMW8nZZOG3rBYFWP/B0hYK21wzoo7vbPw6m2LuG2fpKRL/QyvA
+ gzvysxIWVRaSINdqODPkhmVtdnRAWupvbtfK5ILp/Vrblyj//ShLlCXA02BzoOX7f2no0z6OiYN
+ 1dXw2YrYI++vtySp4/A==
+X-Authority-Analysis: v=2.4 cv=NNVAaE6g c=1 sm=1 tr=0 ts=6afda1c6 cx=c_pps
+ a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=ZpdpYltYx_vBUK5n70dp:22 a=EUspDBNiAAAA:8 a=4M3rY-l1AAAA:8 a=GIY6ePXaAAAA:8
+ a=7CQSdrXTAAAA:8 a=QX4gbG5DAAAA:8 a=COk6AnOGAAAA:8 a=LpQP-O61AAAA:8
+ a=sozttTNsAAAA:8 a=Oir6XmlsqzsE75upo00A:9 a=05SGkpJ4n-ZJ8d_kkqUt:22
+ a=DqLKOb-_9tDIbq1NXmeO:22 a=a-qgeE7W1pNrGK8U0ZQC:22 a=AbAUZ8qAyYyZVLSsDulk:22
+ a=TjNXssC_j7lpFel5tvFf:22 a=pioyyrs4ZptJ924tMmac:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-18_03,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 priorityscore=1501 malwarescore=0 phishscore=0 adultscore=0
+ suspectscore=0 clxscore=1011 impostorscore=0 lowpriorityscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180051
 
-On Fri, 13 Nov 2026 23:44:11 +0800, Kurt Lin wrote:
-> On x86 CPUs without protection keys, pkey_alloc() fails with ENOSPC,
-> as documented in pkey_alloc(2). protection_key_support() only expects
-> ENOSYS or EINVAL, so the test fails on such machines, e.g. an Intel
-> Core i5-7200U:
-> 
->   protection_key_support: error: rv -1, errno 28
-> 
-> [...]
+Map my old Qualcomm email addresses to my current oss.qualcomm.com address.
 
-Applied to the vfs-7.5.misc branch of the vfs/vfs.git tree.
-Patches in the vfs-7.5.misc branch should appear in linux-next soon.
+Signed-off-by: Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>
+---
+ .mailmap | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Please report any outstanding bugs that were missed during review in a
-new review to the original patch series allowing us to drop it.
-
-It's encouraged to provide Acked-bys and Reviewed-bys even though the
-patch has now been applied. If possible patch trailers will be updated.
-
-Note that commit hashes shown below are subject to change due to rebase,
-trailer updates or similar. If in doubt, please check the listed branch.
-
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/vfs/vfs.git
-branch: vfs-7.5.misc
-
-[1/1] selftests/proc: proc-empty-vm: handle CPUs without protection keys
-      https://git.kernel.org/vfs/vfs/c/21cd133d5875
+diff --git a/.mailmap b/.mailmap
+index de477b76d6cc..de71ed445a42 100644
+--- a/.mailmap
++++ b/.mailmap
+@@ -699,6 +699,8 @@ Morten Welinder <welinder@darter.rentec.com>
+ Morten Welinder <welinder@troll.com>
+ Muhammad Usama Anjum <usama.anjum@arm.com> <usama.anjum@collabora.com>
+ Mukesh Ojha <quic_mojha@quicinc.com> <mojha@codeaurora.org>
++Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com> <msavaliy@codeaurora.org>
++Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com> <quic_msavaliy@quicinc.com>
+ Muna Sinada <quic_msinada@quicinc.com> <msinada@codeaurora.org>
+ Murali Nalajala <quic_mnalajal@quicinc.com> <mnalajal@codeaurora.org>
+ Mythri P K <mythripk@ti.com>
+-- 
+2.43.0
 
