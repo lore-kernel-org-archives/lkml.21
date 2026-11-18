@@ -1,55 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795036533;
-	b=B3uLUOcxyeUSfy3bNtu2O8u+7zkE3sVUPsMq7zXdm1WvlIt/t5kXA9uJHBrk+Aci6cZu
-	 wLSZ2bKzyggDAULaSymD1AcIUnpdKBpqtCdOf4ED2f4eOQ3wX1Krh10R/RmD+h0QC43TB
-	 YnbPryPol865WeAqlWlHNowXBldpQ+UX2u89zhguidYX/wb5JLPQmPybMHvzzKLd/Ay6l
-	 RR3kzCZ/vsYWobsdGPAPIHpk/qVb8guMm1FuA4pAQEi1qZJBjR9c5CvYswiB3WP1UdVeu
-	 Bk4w16Aw4k0roGD6inVxF83ua+jA7YB+4aJSaa6LJY1mIFewo7G0EGZdl2KFVI3XdWw==
+	t=1795036591;
+	b=XLrFGrE7YV+s4PwiNeYka9VIkxfUfsiLFa3ls/UQzfyMx1i2c9wJTddxhfke/ibukGss
+	 uPZTpB+ZHJ0Ek3nuMlC9v3xPGRcyQBxU8FJk7qlDT1gINyRCjPJ7EJNqe2IC7HErAuXWI
+	 K1G4P6Z+MoV+UOy7v0UxXSRQv1RqduFRkxEDfJ337OwqWAXZ+53TqdUCkLxBCkF1kH9q3
+	 H4EbrsMhxtWsFI7ZZbua95XBirob9XN73n9Sou3Vgm6zWfwkwKR9DRMfWgrrH5i0ZNzsj
+	 pPbbFIBVx0fzHMyc87zeBaerJCw5Qi0XCyPZ9ZcGzD54RtnT7piHOMTVOYDKoVx2wzw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795036533;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=jXpHBT1/WDmLp0zpzRIxDl44SN5leSzeHP8wCtpU/Po=;
-	b=lePi0TW6YXCTsx0gVfSM8XPSlrvkIOE3sNfFDWV84S/yl7/Up8pvnerbLX+8J0NB4Ss0
-	 MJFOhF4+Yy2OGJGAG22ZDWP449MFGXO765EOlsdS4PzbSJtBxkbFN8De/3CiaujN0Tzgs
-	 Dg9Gz+rXrIIYWVfQBnc7Q+ZmhvZpVXlcrhMwqujXyemW8BYoTxQY1y8qX8B0YVe3ZV4Q7
-	 TiG/VxMsmBLqKVLVqhKBqhIn/UMkVeb12UZhJEa5gedcGjI1cntsOMblP4wqCxmRDxX8S
-	 9SBlCok/+AIVT2SA5XivTjS4126O/j/Z5FuZXTJKI/09d8YArSOmxKtqexWXOLFoHfw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795036591;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=y/YHJ2V7TLyLaA0CfPasf19cYxUxIPcmQV6VRFoc+cI=;
+	b=wftocWjJrJzJRU6SVRydKW/xzZ8zTOFAWU2exWKdYquFSCWKnU4Q3cluqouQFIVrB8c5
+	 RGsoXcUe4rJEj9642/QXJd3gr67vO03nWDoM6r7+F0h2YYNzRgnoqHd+ZYUViByEC1MJk
+	 /4jxXdlyNzTZCXA02Xe29fpHvIZoak+4KQ3RGYp4EzU4eYbfesprrX/kt/w2yVcDmRYNv
+	 KF0EXQjPaqpHDAGoT6P5g7kzvlxrLCKKdWgOeIsIaqR6gQ3SRTxJ5RJ/I9mYd4qSgRVzU
+	 oBGiZLwyo5mnum25FNphQ+W7vecO85XuqVSxrLCEOtV4egJOVHAuBakQ4fYoMLbvo/g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kjSyc0l2;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=fail header.from=isslab.korea.ac.kr;
+	spf=none smtp.mailfrom=isslab.korea.ac.kr;
+	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=tAKIDOon;
+	arc=none smtp.remote-ip=209.85.210.172
+Received: from mail-pf1-f172.google.com (mail-pf1-f172.google.com [209.85.210.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93FF2606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:15:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D5D8606A33D
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:16:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D5D8606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kjSyc0l2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FE001F000CE
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:15:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795036533;
-	bh=jXpHBT1/WDmLp0zpzRIxDl44SN5leSzeHP8wCtpU/Po=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=kjSyc0l2jgfTa1Gr7mPOfzuP6tLnKgnN3OKAYB/HxNNqyFZcDFB46+L21kpljI9ky
-	 tJ9h+IalPk9axrIlGCBbpRHL6+29YZuB0IVHAKxz0bo4UY+/W/P9jT12kdqWlun20T
-	 2HxNcbk4DkYpClX+2W+G1UfwlY6KHQC5fEW0hNuGW6HVROF5lZNd2YIi+YBww4Uot9
-	 Moc3q1Tx7Y0K5G0dZt7BtpTCDpZnSHAZI9DehbqOkkDjGZ7F5pRKWwoKvj6xqWciWf
-	 NaL5g8qzFQNgtN34F5iEG1VxHl+YOFKpbN90QuJjw7Ir/pF7E7bE9cpA46y6plbFkh
-	 HI60rU5SAnfxw==
-Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-5c126fa1e3aso1011831e87.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:15:33 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHYCKsA3OWrXbTLQqLLeGRX+ghppav8VoeuWdxmTaafBXc9uiJklspygAknrug590gNa4FPnncvRBUafGI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9aGaFqaPYNDihBsY/UO4qBa73U4TnGAEox9uVSWac1DUCVjINg
-	usR+gOtF9siUxc+0Xo1/mFPGYKSo0CYGPFSVLsH7Sp0MM+4/xgSkZo8GtoxiMNyUgRGZrdXIwEF
-	9ItUACaALK92DZYVTgFHF1lUOgnLn6PU=
-X-Received: by 2002:a05:6512:1102:b0:5bf:f7e7:85eb with SMTP id
- 2adb3069b0e04-5c1aa0736aamr1346704e87.21.1795036532194; Wed, 18 Nov 2026
- 13:15:32 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=tAKIDOon
+Received: by mail-pf1-f172.google.com with SMTP id d2e1a72fcca58-8a60f90a924so747941b3a.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:16:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795036591; x=1795641391; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=y/YHJ2V7TLyLaA0CfPasf19cYxUxIPcmQV6VRFoc+cI=;
+        b=tAKIDOonM/7tAl+OKNOFPyXrRjlTvzxrmWiMXNZVhliT++H88DRZp4VsIUQSlAau47
+         6Spe9kGkx/9/L36JcBVgrovt+2ZIS4Cr6mD4O+TqZXkb+Fs8d3BHkVFjNRYauw6KUOLW
+         pdZMZkVm1dlo/rRzE7QAqZrltbbI/Gm+XgjCCSuf3kb6HHmDw61HbQhBPAfAaLim7kcd
+         KHhTUjMGyljf1cYXetfpnx+xFF8C6Hzq5WQIa6scbKxA9JGH3dzX3M6mnJbWax5CbQgl
+         rVV82iAcZE4+QNEKxL/Fr+9TjwXagcNwTZIGgDnvPrebuhix9W35IoBv55MqzEQgj6nh
+         xwsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795036591; x=1795641391;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=y/YHJ2V7TLyLaA0CfPasf19cYxUxIPcmQV6VRFoc+cI=;
+        b=GxYzwg5gpwbY/DgZ7CgRmWWv6wlIv1aaDvduXYUKQaKUPQ3Qd0rl4XM91WEeLMBTZl
+         MigU69ASiuTn5Ypts7UxeFrnk0s7vzAg+Gs54xaWzCC62V951Eo0OnmkmrlD8BeCVt2n
+         j8sC35c3czH0iUFcnXpAozxmw177GD3bwrH/erbrtNFhcUx3Zbh0h5NkDMe7HixrQp8G
+         s2pqIhvV2/peuQGLVJnIYwi2MjgQm7OqEpuRgYec2XXtxvelXSk9uZTbRN/NvNP/Pd6Y
+         x7Btm2eS1J+jv3aJv0cq9BP3KO3t8PO5EEeE5CjCrGdUxC/qE3Bg0jkwkb+MBhN2/Cmh
+         Nyzw==
+X-Forwarded-Encrypted: i=1; AL+hErEM0hH73m36ArYfFD/6zL80cjNXgdGDk5p4J0gPC6PQirDpQqmdqKZepAWnetkOoaqGUOx9WAr5CaPW4nY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9T52C3tkwiIPTNld33wOwA4ube2f4LbqeX+gjOC5VJ0JFWMHYP
+	0mVhCewG7boCBHNgryqG7QLSVDRcNBAXfaghagJ0H4LNFp94HUWnburD4Rhh0Y9URKU=
+X-Gm-Gg: AZFdTZdKsZaDm4pFHRzpEELi5jVVxGdkD1snwhdYYHh4JLA7VSx2s2O22itfmYlXgJa
+	6bAt2CenBdHzCw4NPiVoX78iO36Rlb+V4uto5ERVxqUF1BNP7JTS+4YXL2Jn1eGB5R9xQ9O/lva
+	/VfDOL8PpfJC2kQek7yDquc0uO48tHfgHLyIPZ5HHR8Bmgpk8bORCjBHEFzYbaSPDdShMzGXxqn
+	jKWYvTsXuUMm/uPrKCiRQGU6kXm/fRpo209ua6XuESdY4KxHlAo2rpSHyjwMxbe6OlhOiN3VNhF
+	oaYz8G/Vwygl/vl3JjXZULU7P8eySmYRmEZZlUPoMAJOSuRx24QsBFl0Azb42PF20kor3qk42Oe
+	/RnuuggNXaHC/s9tQDLwhzNqvlIcaiS8zkwGPo+Z0m6OVkKSRT6fy0kB/pZ1XCd4HvrGMJ2lwko
+	1gjutPXEaAVS47V9RcdwhSI1HnpuVoqcRp1PviqDOPSeBGDNm2QwQeWPsUVhofbjhGXBitbrsG/
+	OpctRHKlWnPnVe5VehVBZ9jCeN7NgQW/vwcjMnvMXOPtsJuBoVF9IY3/InPyWMoSEKkxoEbCSH2
+	7MThTvRrIjztrquKBbK4C75pklh/oa6NqfdRE265jTQvbTY3uzgdRF0a9M2bgTWEfrscnZr1FDv
+	kLo3hLGMDuZvp8zFmXSa8+Q1Zh9CzAPwIHGQWZA==
+X-Received: by 2002:a17:90b:5307:b0:3a8:545a:9e87 with SMTP id 98e67ed59e1d1-3b3d0759881mr3709135a91.15.1795036590739;
+        Wed, 18 Nov 2026 13:16:30 -0800 (PST)
+Received: from yhlee-960QFG.Davolink ([2406:5900:1044:110c:e78e:f7f0:2120:34e7])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3f706dd83sm914903a91.14.2026.11.18.13.16.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 13:16:30 -0800 (PST)
+From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+To: sagi@grimberg.me,
+	jgg@ziepe.ca,
+	leon@kernel.org,
+	mkp@kernel.org
+Cc: linux-rdma@vger.kernel.org,
+	target-devel@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/4] isert: the commands the target core allocates itself
+Date: Thu, 19 Nov 2026 06:16:23 +0900
+Message-ID: <20261118211623.2526894-1-yhlee@isslab.korea.ac.kr>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261118113905.2361969-1-yhlee@isslab.korea.ac.kr>
+References: <20261118113905.2361969-1-yhlee@isslab.korea.ac.kr>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,42 +104,11 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261110094339.749110-1-zhengping.zhang@airoha.com> <695991a0-ae67-4ce0-9b92-f191ae97a468@iopsys.eu>
-In-Reply-To: <695991a0-ae67-4ce0-9b92-f191ae97a468@iopsys.eu>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 18 Nov 2026 22:15:15 +0100
-X-Gmail-Original-Message-ID: <CAD++jL=_q3SWsh6AW6PLOC=h-z-h-N8AcC8SRCPVKsbzEPktfg@mail.gmail.com>
-X-Gm-Features: Aa3M54omwiJF0rg8LzwHPSiyolxNp74aN1hJ5GJPEJYrBTD3qh4Hbo9mWipBH1I
-Message-ID: <CAD++jL=_q3SWsh6AW6PLOC=h-z-h-N8AcC8SRCPVKsbzEPktfg@mail.gmail.com>
-Subject: Re: [PATCH 00/12] pinctrl: airoha: configure GPIO muxes explicitly
- and fix pad mappings
-To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-Cc: Zhengping Zhang <zhengping.zhang@airoha.com>, lorenzo@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, brgl@kernel.org, naseefkm@gmail.com, 
-	benjamin.larsson@genexis.eu, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, lei.dong@airoha.com, ansuelsmth@gmail.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On Sun, Nov 15, 2026 at 3:10=E2=80=AFPM Mikhail Kshevetskiy
-<mikhail.kshevetskiy@iopsys.eu> wrote:
+This is superseded by v3:
+  https://lore.kernel.org/all/20261118211503.2526705-1-yhlee@isslab.korea.ac.kr/
 
-> Hello Zhengping Zhang,
->
-> Please fix your patches. Looks like you insert patches to the e-mail body=
-,
-> thus your patches were converted to "mail encoding"
-> * tabs was replaced by spaces
-> * unchanged empty lines "<space>\n" were converted to just "\n"
-> * long lines were split with "=3D\n"
-> * "=3D" were replaced with "=3D3D"
->
-> and so on. So please use "git send-email" for patch sending.
-
-I agree, I can't work with this, maybe review a little.
-
-If possible use the b4 tool to manage your patch set(s).
-
-Yours,
-Linus Walleij
+Best regards,
+Yehyeong Lee
