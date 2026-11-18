@@ -1,78 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.117.254.33
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795012811;
-	b=ErJ6fwKLnF5+LvqvGo+bn1RYtnGtEcHrl7CFGEJgBIosPcOZBHvZaA/kBVZgAblXPO70
-	 RDRSwUgwkwJqCOdV/LOCf1XqfaGkW7grb2oblm6q8EPe59giNuoaiC9rMw2y9V8YgNWZX
-	 iE7ApLDzv3dZzqvrVL3cm+30nYsJoiQBFzhUw2AxLHp34GeJFRyItfaZ3rdzDhcWXug53
-	 SdYRASxeatczc1d4m1YMmn5Jf/8wO4KVwpuZhtTmaHFIl9F7esjWhRlhuwhuW7VdswPOM
-	 f8vnqsG8v/PthqbV+eKCiSbp+C3QX5fiG9XF1CLCwXo8a0cVHalgdScPMHuXPnDB+6Q==
+	t=1795012825;
+	b=HS1Rs2y4RkHqqaWY4jJ4+r92kykGkVJaLgY+j5aPp+oZykIeTr4JOOkFfoGY4FaZCCCd
+	 uo1Ih47cQNoJy0en3DHbgwVIC9scjmImDlQdQHjOcYopHh+L9g0V/jeI7fnt2BStEK4IS
+	 V5w3o0cdL6upAbwZZ8HjtCxzJBMwHl7idhpdm4ED2zE4FmUc4bXRl510f5GTZjcGrt0nA
+	 eVJpFzEhsZThWhleId57B32q7lsR2jVie3aYRS4lNWYTo/RXY1h7TUymhGnT9k8SRX4wD
+	 Uy0uq8IryYgv1ZA1umPSmLfyVt08kS0/BPAiT3eZXTIT/mhs2rRci5rN/+f8NRzrIVw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795012811;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=o9zNTrCs5ck/1o3RCSKW2VT8r4JHp1JK8lZkVLfXYGM=;
-	b=FxGpITM7f95gI1IZpRGteJ1bPTlopq/JmKF1O3aN9Z32ft6wE6EQ2Qpf7OEf5+ss8TKU
-	 tclY+Xpiyds+lvCZzKF2eO5TlXPMIhZM1riJWtfPba551g+N+dOujI0wXerYY/P0FZJcD
-	 6TcQ3S+NuJi3gIVu+yMKIkFVluZm8YWHdeSyvt3XCGwRMd78gAJXp30rzjDBhfUQsAA4g
-	 QSa3wKkKi8tkYTxuQo6/Ax1WZO7g40uhtDdjmQYp+/yhZTeVPLgx+WD7UHqpFOEYLNk/n
-	 rWLPABYybvQDqoipGkFbd88bAGkY9rV9ldobPF1MhUxzMUuFGU42HGG7a/7AEYXfsIQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795012825;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:X-UD-Smtp-Session:Date:
+	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=H8ZYFsx3cIv638S7nr6/ZHv18L4yXOfMeCoVrlHn+d4=;
+	b=c77UyRgPS+WGV3RMzfkiqKg0TDD2mn85PfCjUem1sXAYr4P1TgMs43WY3hGhOMciOdHa
+	 BRsZmeUzl87ZbQL+vt5eMSd9zSqMIB1ghGCG9OIdmLnXOavwghZq9Ko+Chz208ifnAylg
+	 sQ7BafHRS0g7n1V4suQPmqjOkRf1bBGV/X9XbJ8HXXGypAcqsIhOxDZ9qQ4zd6VPbte+w
+	 CbkeU6Qk/7XjY4CHhu06sH8UIkJ9jW1wMkr27phxiqvv7603WEDzjLSlUkLv2W0VcmMC/
+	 GXLGBU2j8eZfZFJDkA+lhvIWxseAvUQ+RRqdjX+iAVNWmZeV5j0vDq6X7qFd9Lu6TWw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=Hxw+3jK2;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b="z9dCV9/L";
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	dmarc=none header.from=sang-engineering.com;
+	spf=pass smtp.mailfrom=sang-engineering.com;
+	dkim=pass header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=QzDYbG5M;
+	arc=none smtp.remote-ip=194.117.254.33
+Received: from mail.zeus03.de (zeus03.de [194.117.254.33])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F037606A32A;
-	Wed, 18 Nov 2026 14:40:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F037606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C993606A330
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:40:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C993606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=sang-engineering.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sang-engineering.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=Hxw+3jK2;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=z9dCV9/L
-Date: Wed, 18 Nov 2026 15:40:06 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795012808;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=o9zNTrCs5ck/1o3RCSKW2VT8r4JHp1JK8lZkVLfXYGM=;
-	b=Hxw+3jK2/k2u2O3CKhECYZkMY5C1OWMxtlf2QBhY6TDkaiBTw/BnRslwUxpFzhIB1rghqZ
-	WdaV6Uf9hkBrTfUT6WGqE/dBgr6kYlg4JiQP/B1PwvwdMba0KkcIEoHm5rrzqbp0upS/eJ
-	wxNqxqAtwuzD+FH1xcFk95zTAayGVcrWLldXfqqCGz07hyzl5zHbb71alV63C603+tIDux
-	t27jM1+cUPvsucTEGHEm547VFvbiztOoR5XieLR8tztrq0JROaNCEKxU3mg+K86jSgLfSi
-	Mt/4YpWDMf9kA1gtBLw/JIxE5vhCS+QFkEWYwcSpDshD1JdfsrhcI5UwN0IxsA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795012808;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=o9zNTrCs5ck/1o3RCSKW2VT8r4JHp1JK8lZkVLfXYGM=;
-	b=z9dCV9/LLwfZ/WJUCNkWRDcS94wXIj2YymCvzLINZIqZYOT8lnxmLGaPjBAiDrErtDdc5i
-	TDvDcearZiD+nhDA==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Cc: peterz@infradead.org, tglx@kernel.org, mingo@redhat.com,
-	linux-kernel@vger.kernel.org, will@kernel.org, boqun@kernel.org,
-	longman@redhat.com, rostedt@goodmis.org, clrkwllms@kernel.org,
-	dvhart@infradead.org, dave@stgolabs.net, andrealmeid@igalia.com,
-	shuah@kernel.org, juri.lelli@redhat.com,
-	linux-rt-devel@lists.linux.dev, linux-kselftest@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2 2/5] locking/rtmutex: Initialize the ww_mutex context
- of a waiter
-Message-ID: <20261118144006.ms1fvDv1@linutronix.de>
-References: <20261108141347.1525532-1-mathieu.desnoyers@efficios.com>
- <20261108141347.1525532-3-mathieu.desnoyers@efficios.com>
- <20261116135857.5t9HGji5@linutronix.de>
- <de727dc6-cd11-4a7e-a853-aecd895685a9@efficios.com>
+	dkim=pass (2048-bit key, unprotected) header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=QzDYbG5M
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=H8ZY
+	Fsx3cIv638S7nr6/ZHv18L4yXOfMeCoVrlHn+d4=; b=QzDYbG5M6wIAwIVxj30x
+	fZHXWmNXtd1nqlZJFXCNMOFA8ybNCpa5aKFSspOBjAWsvfafei72TFHDhX5006Pj
+	p1pHbzLdx7gr3Uzu6uNPmVJgc1PXwdIBdles1IDygHuKzU/UkNmzPHL1KDI4I6uG
+	SyUTVZ4buU8EYOnLOh4/Oztowt1FBuL6KxfDw4w3x7JQHk8vjZu+whMk8YnHuTRO
+	RAtzuNiCW7V//LceDjwu8wLfb0+deMoOCTnX/Rjs94YKONgU/3jgmd+z81j3cDfl
+	yQu+NwMha23Lme94wMtLA7dOOyw9obf0JnmVbmFv1Iarm7w8W8bFgzxKBYz9muz5
+	lA==
+Received: (qmail 695558 invoked from network); 18 Nov 2026 15:40:13 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 18 Nov 2026 15:40:13 +0100
+X-UD-Smtp-Session: l3s3148p1@ru8e/Y1g3t4ujnsi
+Date: Wed, 18 Nov 2026 15:40:12 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Svyatoslav Ryhel <clamor95@gmail.com>
+Cc: Hans de Goede <hansg@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>,
+	=?utf-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>,
+	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 1/2] dt-bindings: i2c: Document ASUS Transformer's Dock
+Message-ID: <av24x_dcu2hggP5y@shikoro>
+References: <20261118134555.195479-1-clamor95@gmail.com>
+ <20261118134555.195479-2-clamor95@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,128 +70,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="DIlP1nKDevOE76tJ"
+Content-Disposition: inline
+In-Reply-To: <20261118134555.195479-2-clamor95@gmail.com>
+
+--DIlP1nKDevOE76tJ
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <de727dc6-cd11-4a7e-a853-aecd895685a9@efficios.com>
 
-On 2026-11-16 13:37:09 [-0500], Mathieu Desnoyers wrote:
-> Hi Sebastian,
-Hi Mathieu,
 
-> > I *think* this is unrelated because the futex caller shouldn't end up
-> > here. The __rt_mutex_slowlock() -> rt_mutex_handle_deadlock() should be
-> > different for the futex and ww_mutex case.
+>  .../bindings/i2c/asus,transformer-dock.yaml   | 56 +++++++++++++++++++
+>  1 file changed, 56 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/i2c/asus,transforme=
+r-dock.yaml
 >=20
-> The futex caller does not go through __rt_mutex_slowlock(). It gets to
-> the chain walk through the proxy lock:
->=20
->   futex_lock_pi()
->     rt_mutex_init_waiter(&rt_waiter)
->     __rt_mutex_start_proxy_lock()
->       task_blocks_on_rt_mutex(..., RT_MUTEX_FULL_CHAINWALK)
->         rt_mutex_adjust_prio_chain()
->=20
-> rt_mutex_adjust_prio_chain() reads waiter->ww_ctx in two places:
->=20
-> 	if (IS_ENABLED(CONFIG_PREEMPT_RT) && waiter->ww_ctx && detect_deadlock)
-> 		detect_deadlock =3D false;
-> 	[...]
-> 		if (IS_ENABLED(CONFIG_PREEMPT_RT) && orig_waiter && orig_waiter->ww_ctx)
-> 			ret =3D 0;
->=20
-> Both tests are under IS_ENABLED(CONFIG_PREEMPT_RT), not under
-> build_ww_mutex(). So the futex build of the chain walk has them too.
+> diff --git a/Documentation/devicetree/bindings/i2c/asus,transformer-dock.=
+yaml b/Documentation/devicetree/bindings/i2c/asus,transformer-dock.yaml
+> new file mode 100644
+> index 0000000000000..5f4a40539c2b4
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/i2c/asus,transformer-dock.yaml
 
-Yes, this part. I realised this later=E2=80=A6
+This is not an I2C controller, so "i2c" is not the proper directory, I'd
+say. "connector" maybe? DT maintainers may have another suggestion.
 
-> > Is this really the case?
-> > You have a lock chain where the ww_mutex and a regular rtmutex interact?
->=20
-> No ww_mutex is needed. Two PI futexes are enough. Both waiters come from
-> rt_mutex_init_waiter() in futex_lock_pi(), so both hold the 0x11 poison
-> in ww_ctx with CONFIG_DEBUG_RT_MUTEXES. The chain walk takes them for
-> ww_mutex waiters.
->=20
-> The deadlock case of futex_lock_pi_inherit (patch 4) is that ABBA. With
-> PREEMPT_RT and CONFIG_DEBUG_RT_MUTEXES, it fails without this patch: the
-> second FUTEX_LOCK_PI blocks. It passes with it.
+> +allOf:
+> +  - $ref: /schemas/i2c/i2c-controller.yaml
 
-right. That is an issue.
+Hmm, this bindings only uses "i2c-parent" which is not even described in
+the above file. Not your fault / problem, but we should describe it
+somewhen somewhere central maybe? I guess the above $ref could be
+dropped still.
 
-> > I would argue that the full-chainwalk depends now
-> > on a random stack value _and_ __waiter_less() might access the random
-> > value if ww_mutex is enqueued and a regular mutex exists in the lock
-> > chain.
->=20
-> Yes, those are the two effects. I reproduced the first one only. The
-> second one is from reading the code, which is why the changelog says
-> "would dereference".
+No comments on the general approach, I'll leave this to DT and Asus
+platform maintainers.
 
-The deference _shouldn't_ happen because those two a different. However,
-we could have a mix of those two and which point it becomes relevant.
 
-> You are right that the changelog is confusing. It starts with the futex
-> symptom, and only then says where the value is read. In the planned next
-> version, I would put the mechanism first, with the call path above. Does
-> this read better?
->=20
->     rt_mutex_init_waiter() does not set waiter->ww_ctx. Only
- rt_mutex_waiter::ww_ctx please
+--DIlP1nKDevOE76tJ
+Content-Type: application/pgp-signature; name=signature.asc
 
->     __rt_mutex_slowlock_locked() sets it. So the waiters of PI futexes
->     and rtlocks keep the 0x11 poison of CONFIG_DEBUG_RT_MUTEXES. Without
+-----BEGIN PGP SIGNATURE-----
 
-or random garbage which.
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmr9uMcACgkQFA3kzBSg
+KbbjqA//WGstlBBoM6kifSDuMhhE5o4s9akn25YMVlabG0uopUorrCRS61OHeD9k
+Fd6y/hKKgIHg4QR6d8EukwQCoj/x70e3fz4UezmK8zIB3ReunhegAHRmQdrB0iA0
+mg5/wuYZJt0aYFHlyeCyzTCbQ2ZJRnvjY9SjIdG0pyZ8Rh7zP/lt41t9RackiQUn
+Iv9uvVd0LOUpg33qk7g1dPOhz0Lfn5Uyr32xh2bZnm7932tDAB45Hgka85z7BS7X
+i95Dj+M5VXH0cZfrr4Rt/2zIPG4n/y+3k6Em5mjrQ9syop++9zgDV0WhqDyGkdHb
+QtQ7L/YfyBtJnitukLiiF9zQv2n3yCcmnX6oFe3LKcqSV1rSf+nW4yu5Qxu/Ctx5
+QzOunuc1HP8GwFv1e2k1bOXJBDMjykH+/M8yDLi43YF/BjmwSLCkHHQRiPqKBhn0
+TuEaF2ggGzKJGBuahT9wyhHSsbvmGoP0wrdCHC1DTPeqtat83w55mJo30BD1jgBg
+MuypI9guTu+fPSKHWots83hKMxoUy67Yf8JnYCXN4nJaJaufZTi5spc8bcIrgF25
+zLYBqyWyIrtXUI62Tf/NcLfV76RwN+Bw0bQkkttc4nTX4bfjO+4jTFPNVYIkB1LH
+dpP+bybRKlRSPY38lpaHN6zFM5oSdqTbeLXX5qMYZIQ3J8ng/uA=
+=qm1m
+-----END PGP SIGNATURE-----
 
->     that option, they keep what was on the stack, unless the compiler
->     zeroes it.
->=20
->     With PREEMPT_RT, ww_mutexes are built on rtmutexes. They can create
->     a cycle in the lock graph legitimately, and the wound/die logic
->     resolves it. So rt_mutex_adjust_prio_chain() turns deadlock
->     detection off when it finds a waiter with a ww_ctx. It also drops
->     the -EDEADLK of a walk that started from such a waiter. Both tests
->     are under IS_ENABLED(CONFIG_PREEMPT_RT), so every build of the chain
->     walk has them.
-
-I would strip that paragraph because *I* think it is more important to
-mention the FUTEX case which no longer does proper chainwalk regardless
-of PREEMPT_RT. Yes, ww_mutex has=20
-
->     FUTEX_LOCK_PI gets there with no ww_mutex in the chain:
->=20
->       futex_lock_pi()
->         rt_mutex_init_waiter()
->         __rt_mutex_start_proxy_lock()
->           task_blocks_on_rt_mutex()
->             rt_mutex_adjust_prio_chain()
->=20
->     The chain walk takes its waiters for ww_mutex waiters. With
->     PREEMPT_RT and CONFIG_DEBUG_RT_MUTEXES, FUTEX_LOCK_PI then reports
->     no deadlock. Two threads that each block on a PI futex the other
->     holds sleep forever. Without PREEMPT_RT, the second one gets
->     EDEADLK. FUTEX_LOCK_PI also blocks on a chain deeper than
->     max_lock_depth, instead of returning EDEADLK.
->=20
->     The ww_mutex build of the chain walk can also requeue such waiters.
->     On two of them with equal priority, __waiter_less() would
->     dereference the poison.
-
-The futex code for PI_LOCK performs a RT_MUTEX_FULL_CHAINWALK during
-locking. rt_mutex_adjust_prio_chain() then wrongly assumes that it is a
-ww_mutex (due to random garbage in rt_mutex_waiter::ww_ctx) and does not
-report a deadlock but expects the caller to handle it.
-
->     Fix this by clearing waiter->ww_ctx in rt_mutex_init_waiter().
-rt_mutex_waiter::ww_ctx
-
-This, Fixes: and=20
-
-Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-
-> Thanks,
->=20
-> Mathieu
-
-Sebastian
+--DIlP1nKDevOE76tJ--
