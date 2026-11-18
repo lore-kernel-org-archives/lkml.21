@@ -1,47 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.241.56.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795007766;
-	b=EVP6HxuHG4vlhUUodKAvt0ydAftZtiQelmAwK9dtMMrHgC3w9VuYxWopEXcVbAYWzHEA
-	 I8A/hRAW0tTcxA9Ss31jUaPoGO3hRHnub37p6TQIfLEP443seLzS1aPlBHzE6KErdxwO+
-	 8Z8kIknPcAP0N05pCzHiZuDxjI7nC7eoN16Md/a2CUeJqLTWpSAZ5Z4Czf8wu/GwpEpT1
-	 ICTi+k7gY+ZBYmuQbkFfedl97C0+R8g5/fiXAbejBd4qodNDRsKmP6r+m7NF9mK2o2laD
-	 RiBDjKpwLjXhGf/L2f4iPObVo+tUw2kEnFtYvlEGrzkUMs/SMhb60WFrLH/6ryvlYcw==
+	b=jO7tkvrHwDTYpUpNolcOkMxbEbirCJh8+7UTWOWgZqRx/ot7yjYj8K91OXXXKbzEeQaw
+	 0lBSJcC2kNWobrSlbgHhlvtBAzFOtx/Np/HNcyoQEW0ta66hChGCteA9WpGxC/g4ivI6c
+	 zBERKD4zyZHPZD4yyKTRvCvDwIK0HuRqXqiPOEC6KfHG0gARlxW/M7CTjWeQAayXmNzBO
+	 yJNz1agENYJbJwfoLu/zDNl0F5RnkiIygg8gQ/GINhjKypbCIX03J2jpNChBNga9v8qnj
+	 rMNbAgsU3do6ZTt/69be1TUhPmreH85wfhSekYEAxzDo84G24QBgLyg8h5vX4G9309g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795007766;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=LVM1zKwOem7H0QI/yuEoDgds1LHQI9owDhiOzYcdXp0=;
-	b=w1cqGMmeG4QBiZGizCHFXHYnhZ6uRlFvkVAQX3mXx9W3Gioqea6WVn6+cLZlQEzwbig4
-	 vEWPZehdo7q3QD7t8hNGGqbl0A06gZqqFZGL7m0m3DTB4kJVTkdKkkrZdh62c9W/5Q5/3
-	 ceFobWBscrbLd3oc7jJVjUo2TJeSuS2VjX3l1o3KYTHYsgr+8TR4bNQ2Ll5cXoCVxhVKs
-	 gjpWVS0HfAfIUQNIm8hW0ETEeVRvWQczMiqv2T19zYiJluzkFHCQ6P+MiYuNPm7IqKSuZ
-	 Nn6AwtMWZ1qKb04e3tA9laCt+VNob+dAiyNSGi8B9O/IAZFMphVfGTDK59zZlOtK18g==
+	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Subject:From:
+	 Reply-To:To:Cc:Date:In-Reply-To:References:Content-Type:
+	 Content-Transfer-Encoding:User-Agent:MIME-Version:X-MBO-RS-ID:
+	 X-MBO-RS-META;
+	bh=yW4osrFS24wgu8pSOiR70jM4pZlWA15tPUFvK4+40fk=;
+	b=Ns7c7bk+sqsb1272mOq4Re2OmZuk9tQxNxSQbny6Dldyi6K5jWUgVhi9G5bnGmH5xycf
+	 jcybJO1dTU4E5/id72TTNXZxLbj9nQemQnvD3D9TLfChP84yqxSjeaFJnZ9uLQXp8JTz0
+	 8h0eDByZBpc6397oHrBlRL5b1OB8d51dckuClucAwNgXYmrOh/jE94RubyXtC7EfWcBoB
+	 ZVNYfpoNz8dLGygUtYXESqN64Fd4kfAwKC9GzrEfhkkmQ33k3bn8xPaf0246Ash9+dA9H
+	 xUzalOJD0+bsAapcvVRPW/63Qfby1glHEiNZyQVGRP8aJ0ey1GsatFPLvK2BbsIPSYg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WT8IsEt7;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=mailbox.org;
+	spf=pass smtp.mailfrom=mailbox.org;
+	dkim=pass header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=kMQ2IVGZ;
+	arc=none smtp.remote-ip=80.241.56.171
+Received: from mout-p-201.mailbox.org (mout-p-201.mailbox.org [80.241.56.171])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14832606A320;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08482606A31C;
 	Wed, 18 Nov 2026 13:16:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08482606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=mailbox.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mailbox.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WT8IsEt7
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86CE91F000CB;
-	Wed, 18 Nov 2026 13:16:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795007765;
-	bh=LVM1zKwOem7H0QI/yuEoDgds1LHQI9owDhiOzYcdXp0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=WT8IsEt7X1/cDN5NAXiiZkei//2xi6oSIf8KUcpx0N4xnsgiNBj7OgjukpiVknpUi
-	 tEWXfkBnevD1A+68DETxQ1R17J0pLLlj7C9ws6A67pJQDsVX/W31pGUq3jU/9sI0MK
-	 7TGojM5ujZHe4TTToNJIJzOZL9vCJjuMTnU/m8wOHZmmTA8BEbTPKAll2cQv9i27f5
-	 u032/BslNlrsD69OZRA55dGaztv/w4JT778SBKejw3898nsrKMtg6chuLAqBilrA7n
-	 qnbEC8BUiQWJ09M/JNh73fj76yAt2wAxmsC2hPRMnNZIVl2vfcH50byJdtKB1ysuf+
-	 sV6acvUK17VBg==
-Message-ID: <fdfd177d-b7b5-4583-9dee-b7c593c4a059@kernel.org>
-Date: Wed, 18 Nov 2026 14:15:59 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=kMQ2IVGZ
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4jV2Cw1MlDzMlpB;
+	Wed, 18 Nov 2026 14:15:56 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1795007756; h=from:from:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=yW4osrFS24wgu8pSOiR70jM4pZlWA15tPUFvK4+40fk=;
+	b=kMQ2IVGZHdYSJi1qr7AZ9ssQhavYnyXjudHLXhc5Gz4zhD67Q5LNKVdw/Q7Kf3s7YRMYyT
+	z14c4Gxh3PGt5WK59jRYiVr1b2r1qNmAdnntGsByfYF4p0ivZZ7H2p0RvH+EFN9Nez2qSS
+	cUP+vHa6VeOhBAlRkNj7rIOY33r84D5HLofQpEcar11/GSuVbkA/tSPTuWzf3aVtMF3Wmq
+	B3GGpAFcM8mKji5LdLlnzrMuA8AUTiySFzS5Hx/epY8d4q7Yhu0urRLCB5XylYeA34k8EI
+	vYD6ldQhNbIySbQZT5QISSNB5Llj01NBQehK86haf2EU0duawmxW41BL0xPb6Q==
+Message-ID: <3792b7f8f4729820a924e0d60d17c97489827732.camel@mailbox.org>
+Subject: Re: [PATCH v2] dma-buf/dma-fence: Prevent misordering for error
+ checks
+From: Philipp Stanner <phasta@mailbox.org>
+Reply-To: phasta@kernel.org
+To: Gary Guo <gary@garyguo.net>, Philipp Stanner <phasta@kernel.org>, Sumit
+ Semwal <sumit.semwal@linaro.org>, Christian =?ISO-8859-1?Q?K=F6nig?=
+ <christian.koenig@amd.com>,  Simona Vetter <simona.vetter@ffwll.ch>, Chris
+ Wilson <chris@chris-wilson.co.uk>, Danilo Krummrich	 <dakr@kernel.org>,
+ Alice Ryhl <aliceryhl@google.com>, Daniel Almeida	
+ <daniel.almeida@collabora.com>, Tvrtko Ursulin <tvrtko.ursulin@igalia.com>
+Cc: linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Date: Wed, 18 Nov 2026 14:15:54 +0100
+In-Reply-To: <DMYCSXNA6VQ9.22FS1PMBBYWRO@garyguo.net>
+References: <20261118110914.1471416-2-phasta@kernel.org>
+	 <DMYCSXNA6VQ9.22FS1PMBBYWRO@garyguo.net>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,104 +81,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: defconfig: enable the SerDes PHY for Qualcomm
- SA8255p
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Shawn Guo <shengchao.guo@oss.qualcomm.com>, linux-arm-msm@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261118-qcom-scmi-sgmii-phy-defconfig-v1-1-d0c7d2e881c7@oss.qualcomm.com>
- <c20a2a9f-f40d-4ef0-9aa3-f6eee24ed2b1@kernel.org>
- <zcqjdhqvdieq7kwbhfbw6s74q35xedzuzcsffsugqgz7yzfs7q@dynjfs6njtix>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <zcqjdhqvdieq7kwbhfbw6s74q35xedzuzcsffsugqgz7yzfs7q@dynjfs6njtix>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MBO-RS-ID: 1cf2ae9d8dfe671f094
+X-MBO-RS-META: ko59io9p5mbdaggd9b7y5om1iqooo31t
 
-On 18/11/2026 13:51, Bartosz Golaszewski wrote:
-> On Wed, Nov 18, 2026 at 01:42:57PM +0100, Krzysztof Kozlowski wrote:
->> On 18/11/2026 11:31, Bartosz Golaszewski wrote:
->>> Enable the SGMII/SerDes PHY driver for the firmware-managed variant of
->>> the Lemans platform. This module is required for ethernet to work on
->>
->> Which Lemans? This is a generic defconfig, not vendor specific.
->>
-> 
-> SA8255p as per the subject line. In order to not repeat myself, I called
-> it "firmware-managed variant of Lemans". I feel like this is
-> nit-picking. It's pretty clear on which platform requires that driver.
+On Wed, 2026-11-18 at 12:59 +0000, Gary Guo wrote:
+> On Wed Nov 18, 2026 at 11:09 AM GMT, Philipp Stanner wrote:
 
-No, it's not clear. Only you and Qualcomm knows what is Lemans. No one
-else knows.
+[=E2=80=A6]
 
-I repeated this feedback already 5 times this month and then every other
-month as well.
+> > =C2=A0static inline bool
+> > =C2=A0dma_fence_test_signaled_flag(struct dma_fence *fence)
+> > =C2=A0{
+> > -	return test_bit(DMA_FENCE_FLAG_SIGNALED_BIT, &fence->flags);
+> > +	/*
+> > +	 * Best-effort ordering of the locklessly evaluated signaled-bit,
+> > +	 * especially so that reads of fence->error are not misordered.
+>=20
+> I am not sure if this should focus on the error, or it should just provid=
+e a
+> general guarantee that anything happens before dma_fence_signal is visibl=
+e when
+> signal test returns true. I would lean on the latter?
 
-> 
->>> sa8255p-ride.
->>>
->>
->> `git grep` gives me only piece of a compatible, not even DTS. There is
->> no such board simply. We don't take changes for non-upstream boards.
->>
-> 
-> What do you mean? The full compatible is "qcom,sa8255p-ride", I dropped
-> the vendor prefix as this is a commit message and I mentioned it's
-> Qualcomm in the previous paragraph.
-> 
-> The .dts is now in next as:
->   arch/arm64/boot/dts/qcom/lemans-sa8255p-ride.dts
+See below.
 
-OK, I looked at next from 13th Nov, so indeed a bit stalled.
+>=20
+> > +	 *
+> > +	 * The release counterpart is typically ensured like this:
+> > +	 *=C2=A0=C2=A0 a) Error codes must only be set before a fence signals=
+ and
+> > +	 *=C2=A0=C2=A0 b) The fence's spinlock's barriers effective in dma_fe=
+nce_signal()
+> > +	 *=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ensure ordering.
+>=20
+> Spinlock has nothing to do with this. The only thing that guarantees the
+> ordering is test_and_set_bit in (c).
 
-Best regards,
-Krzysztof
+Why not? A spinlock includes full barriers. If it were set_bit()
+instead of test_and_set_bit(), it would still work.
+
+>=20
+> So probably easier just to say something like
+>=20
+> =C2=A0=C2=A0=C2=A0 /* Pairs with test_and_set_bit() in dma_fence_signal_t=
+imestamp_locked */
+
+It is easier.
+
+I am, however, unhappy with the unclear state of the API contract. It's
+still unclear what the signaled-flag even is supposed to mean. So this
+comment was also supposed to hint at the unclear state.
+
+The desired meaning aimed for by Christian is that it's only meaning is
+"hardware is done".
+
+But as we see here it has implications for the entire semantic, too:
+a) signaled =3D=3D true -> the error code is valid (what else?)
+b) The fence has either signaled or "is still signaling", i.e. running
+callbacks
+
+I still maintain the position that it is inconsistent to run
+test_and_set_bit() under lock protection and evaluate it without the
+lock. Should be one or the other, not both.
+
+Note that this patch intends just to hot-fix the error code evaluation,
+not to make the fence API fully consistent. It's currently not even
+clear whether manual flag evaluation is legal. It used to be legal. I'm
+the one who added dma_fence_test_signaled_flag(), but mostly for
+readability, not for semantic correctness.
+
+It should be illegal to evaluate error codes with anything other than
+dma_fence_get_status(). But there then the meaning of the spinlock is
+currently also undefined. The lock there, with the current thinking,
+would seem surplus with this patch here.
+
+
+P.
