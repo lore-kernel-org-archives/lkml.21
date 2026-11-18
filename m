@@ -1,47 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.204.34.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794990236;
-	b=XV7Q+WGoZgF8gq1QuEBAXIpf+dcmJpTlgDjOYXsH5dOgy4S8b7vxjfkUWg9Y2/ruUEaG
-	 NGWH8rtUX3YclnT7VipvzhakYTrN1RubtbmIdpgLURXuATWY5CyROT7qDBHZ0IeX50SJN
-	 5Nb85xtNwmvQD/UwJBBuOvn/9Zpnr1RDf9f53fRP7s9DSpLaJCs/UWLr4Qa1ht541SfJB
-	 vYbK7pW0/ax54oDtb/w3kmlcABmZI47YqqKH64k8LSPC2QtNaR2WoB/n/ARCkz1fjnHYi
-	 4SvWvLHxHhWRxVTUVVniaWerfhEWIklcP8g/nzAcFmpS72ai647KXq8BjJMfUkhQT0w==
+	t=1794990281;
+	b=13Lvo7WEotJWS/LtmNKlofrd0NF+aP0Z/si+kRFFfVlQA1dWuFN8g39vnarpdg4oYKld
+	 FlexUYbzeogdHo3/75ix1q+/iLcYpxrc7KVdSYFKi8axAK9MMOD4R4fohiMHd5vf7XGUB
+	 Q/Z1OhscJxuhHli6tGyKuN5MOCSzPQeuKEoA6W+d6jPaaPiYnIQw5qGHm4y32cxUVJfKc
+	 6GorUiQ4/p69PUneq0/IBudKXIS0/D+19wCFiVgI1VOHncTdVyjAXoOtMaJE+HoUo+pxy
+	 TOiZZgxiKoE6hXL50N0p5AXBzjZltJQirbA+VjeQHBQtDvihe4FSiNmsUXAsr3jOCtA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794990236;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=W34DDB2cLnsAExSKGg1C86iBQOL5I+MWli8p7NMuBbs=;
-	b=F+9dk54KD4mf7CsZdjw+aeUVoOSH09CEJ84hlxcl82EENChS1cPJ9vEn03790txuE/Az
-	 87fxqmiJCjhzYn+5P8LDnYO3mnto/tU4gBaQSnMijHNQXGqQb29GtsxvNdx8KhRD3vLdI
-	 PNePsCF2gN6TQ1AqrUwhBCFLJeYbBvDSBXO/nGYySONANO9XyOyyRZvwY6X1uU4J0QJdq
-	 cWfrIswWPMyXIlwq5afeTi7L90inLG3PQxBtv0OUPy3TlXn7kuJa2O2S33lf34djUHZrA
-	 Vwe6SxOb54+bLscL8RJdMtqyOPwXp0Z0ybJMxOAKL0rw+5F+m13WnVsOHXl8JSrN5EQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794990281;
+	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
+	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
+	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=820pQUqaUHDX2GM9UQ/wkFPS9tJvZUSCeS9jBYqVfCQ=;
+	b=CJPNfn/Kippj4m72+UeDHIbGTmhayJ9/2ynmGNn1Il4eBsk0kZ4GMGf3M8dT/qNBt/x9
+	 dFlZbOIumKqw0Jhg9mQhlvsebzEXf8oNkBgnakaXVmFzjhFRvTHJdPz6F6dTHcmrlnt2g
+	 TK9RBOCmUpbjomYK/SiIxcChTuk1BEhg2275HMne8CQmubbHbiF1ShzRz/5knM8IAAsIi
+	 vvfhMv6SbZ5q+QWY4DfFCsy4+lz3WKjX+97BgmPqs9ZonIoWamfGC6B7ASTqvj6YW+dCf
+	 J7dyjebnbaxcWOnyE5bm6sVT42o3GcJHYavSvU+zfIQvb124fzN3PrTpmo1KHb+cgIQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T7l0I5Ut;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=uniontech.com;
+	spf=pass smtp.mailfrom=uniontech.com;
+	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=hxdPU9yw;
+	arc=none smtp.remote-ip=54.204.34.130
+Received: from smtpbguseast2.qq.com (smtpbguseast2.qq.com [54.204.34.130])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5893606A31C;
-	Wed, 18 Nov 2026 08:23:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5CEB3606A31C;
+	Wed, 18 Nov 2026 08:24:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5CEB3606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T7l0I5Ut
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A84D1F000C4;
-	Wed, 18 Nov 2026 08:23:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794990236;
-	bh=W34DDB2cLnsAExSKGg1C86iBQOL5I+MWli8p7NMuBbs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=T7l0I5UtBLZnK2lk3AF7CxS691KFZVgFUzzAPZy8+aDGgoY1Eqg2ON+PtbMrOW6WX
-	 glYV6pPkUQc4SNPZjJrnZRJc4x3O1vXciX7pKs61CFGS0feijmNChr6C4L2omWHDN3
-	 pE7+Iph73a6OVRBC40p6jtkSkz/Rx/0Vt0vyEZ9snHls1EXA8I+Z1fYKSUuMjU5Wue
-	 1CopnkXs6qfUk3ICvFi4umn071UZ+0yfmOCn1cH/IJmniGAsQvPE+iLN/wMpKTtXdb
-	 cstPbKCQZNVDc1KVmVtFl/fBISEj4ATrzZs9LhfkGcFmur5FeXQf50Ed82E9tWLUgC
-	 A0aN6XIixOJyg==
-Message-ID: <27677095-4f84-453b-934e-4451d8c549c6@kernel.org>
-Date: Wed, 18 Nov 2026 09:23:48 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=hxdPU9yw
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1794990214;
+	bh=820pQUqaUHDX2GM9UQ/wkFPS9tJvZUSCeS9jBYqVfCQ=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=hxdPU9ywCeZYFahEscYL2Pc0wMZCTjZAanLbpM9+LGP+5qstez7vFBdfW+e0ounzi
+	 rYl4L3RXCdf8wNRxwaLt++gg7b8bITvtU5WUYbjFjaps4tfnOlvkrQ0DcKMRGdDlz4
+	 IR8XC26+hKTftEMr+8aqnmvBATbzrzwMtKRUDvMo=
+X-QQ-mid: zesmtpgz7t1794990209t60ac6531
+X-QQ-Originating-IP: Ec3UQ3CTl6PAjraZqq9pW6x6npDildNMx0o2+AgWK/E=
+Received: from PEC004119 ( [113.57.152.160])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 18 Nov 2026 16:23:26 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 4243911746232227252
+EX-QQ-RecipientCnt: 10
+From: Haowen Tu <tuhaowen@uniontech.com>
+To: broonie@kernel.org
+Cc: david.rhodes@cirrus.com,
+	rf@opensource.cirrus.com,
+	lgirdwood@gmail.com,
+	perex@perex.cz,
+	tiwai@suse.com,
+	linux-sound@vger.kernel.org,
+	patches@opensource.cirrus.com,
+	linux-kernel@vger.kernel.org,
+	Haowen Tu <tuhaowen@uniontech.com>
+Subject: [PATCH] ASoC: cs42xx8: Restore cache-only mode on resume failure
+Date: Wed, 18 Nov 2026 16:23:24 +0800
+Message-ID: <31EF1D727C977B5E+20261118082325.3915977-1-tuhaowen@uniontech.com>
+X-Mailer: git-send-email 2.50.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,105 +74,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 00/14 RESEND] Add clock support for Exynos8855 SoC
-To: Peter Griffin <peter.griffin@linaro.org>
-Cc: Raghav Sharma <raghav.s@samsung.com>, s.nawrocki@samsung.com,
- cw00.choi@samsung.com, alim.akhtar@samsung.com, sboyd@kernel.org,
- bmasney+clk@redhat.com, jbrunet+clk@baylibre.com, robh@kernel.org,
- conor+dt@kernel.org, linux-samsung-soc@vger.kernel.org,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- is.gandhi@samsung.com, ts.amit@samsung.com, pokala.reddy@samsung.com
-References: <CGME20261113104829epcas5p13695795bc337b89816b05eec610a0dba@epcas5p1.samsung.com>
- <20261113110612.3265841-1-raghav.s@samsung.com>
- <a7b901f4-59d1-4671-bfed-0d11f9e505e2@kernel.org>
- <CADrjBPpecGbRo2PhH_zqGfNf3L=bNf81q3SMXnSvD2n0Lx-cbA@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <CADrjBPpecGbRo2PhH_zqGfNf3L=bNf81q3SMXnSvD2n0Lx-cbA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:uniontech.com:qybglogicsvrsz:qybglogicsvrsz3b-0
+X-QQ-XMAILINFO: MBKLumFSBSSxEOJcgdbIEUEuk2EdaycLAHlgC4CAL7uAo5qbB8ITfOYZ
+	BCD33a8nOkakGy2vKJQI3PAXY7YzU8JWjgjkjEilwQm9ne2843cWFTq/yqNcI2BWsPReN+s
+	GQCbcAXEjqiUhPbQJKPKIN3VlLdTUgSiYNvGzz5Qgb102t8bmK+tD8Tgh2/KoglLFO/af+p
+	DyTmkq4+Tf2Qzn89LqcWkSCrQuzdp9JuYaXR8MkQytt4p0B622f7mEtR0RcnKLfmpwxEfBB
+	rThJnZv1zse8o2/NRtPcGO029YYO3laOsdrjwy1HxEkhodGr+Dz1pB5zMZn8Y9jxdv8iUF7
+	0DnWxIdVQg402d2IhPdNHTqz0WQJntDqmMQbqfKOCss3GB2H13UeUNKREjLK+5zkv0m+9/8
+	oZ4yKpYDa25GeSFUEiFDWYFJCdCqUU8WWuS5w3KkMLe1lg5m0gq57amtjo6a1Rb6HQLOpCN
+	EBC5h0fJx565JHOpd77IezSmLSX/VllLuh/lUoMH18slz9V2MTxXzhdXOR3FeMYzdmzA1mN
+	5wra2OCAb7DAuvzKsUdXAbbzrrW64n7UcNND/gYCSrubQStbdxnu39MoVpCMulpyR8CjsaX
+	84nLf8buKSC57SXqIRF8gr5Y0mEjurXw33Q5wma86ZEdX2lMlRA3Io6eHVLz3YFK5/yvnL4
+	PVanYuVtQXUfRSvL0kSlqIhM6HZcSvoXmpXapgaaVmvZ2LnSucjuAlU0663x5EdFN5Pn5nu
+	wh2pmdNmDI2PLYuJ/4UoReb4vgT1rxTu1tuqKLsJzJnbID6PMBti8hKvo4RxWZowrEgvM5y
+	tHQOMgTAHqKr4p2QKu4TnuSQVYmmNfzXBCs8LhbN7cNYYqMZ2Ju+hsGc+D/TU5uAm3KBLDL
+	Ou0FogOERgRRe19RPKXKbMkT2bUsT59tCkcrxnPZtDSKE26OA2/ofqpjHb5Y8FbcnTBV4v6
+	QU5NksBv0j4yxyf809YoguV9bv4+Ttk/MPnPNhtUMtdTCe+wjmfzYR6TWDUAmfEjDnx2bto
+	q+G8PqxRgwfxPa2bTu9hl7jx3wTDdc4tfm/JPULygo8mIEg9vQ
+X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
+X-QQ-RECHKSPAM: 0
 
-On 16/11/2026 19:06, Peter Griffin wrote:
-> Hi Krzysztof,
-> 
-> On Mon, 16 Nov 2026 at 10:02, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->> On 13/11/2026 12:05, Raghav Sharma wrote:
->>> This patch series adds clock support for below blocks
->>> found in Exynos8855 SoC
->>> TOP & PERIC
->>> PERIS
->>> HSI
->>> USB
->>> There are many other blocks, for which the support will be
->>> added in a forthcoming patch series.
->>> Signed-off-by: Raghav Sharma <raghav.s@samsung.com>
->>> ---
->>
->>
->> Thanks, entire set applied (even if b4 thank-you letters show partial).
->> for-next will be updated later today after builds.
->>
-> 
-> Just FYI, there were a couple of outstanding review points on this series.
-> https://lore.kernel.org/lkml/CADrjBPoR7_LDZmxC_bOFigvqDaagVihmybfX5AdvSPr9-FVb8w@mail.gmail.com/
-> https://lore.kernel.org/lkml/CADrjBPrzHP_97OgAYacJKKqeCcp9FURoi6=Dmopk6nisTdEbdA@mail.gmail.com/
-> https://lore.kernel.org/lkml/CADrjBPoAVMdxgU4P+shh+9O5rGJp+m3sRQMDd2c-7zbJ8qhiBQ@mail.gmail.com/
-> 
-> I guess the main thing that would be intrusive to fix in a follow up
-> patch was introducing a slightly different naming scheme (compared to
-> most existing Exynos SoCs). The clock names being
-> "gout_<IP-clock_name>-<block-name>" as opposed to
-> "gout_<block-name>_<IP-clock-name>" that we have for many SoCs. That
-> also applies to the dt-bindings header "CLK_GOUT_WDT0_PERIS" not
-> "CLK_GOUT_PERIS_WDT0" etc.
+The runtime resume callback leaves cache-only mode before synchronizing
+the register cache. If regcache_sync() fails, it disables the supplies and
+clock but leaves cache-only mode disabled. Subsequent register accesses
+can therefore reach the unpowered device instead of using the cache.
 
-Oh, I completely missed these. I'll drop the series.
+Restore cache-only mode before disabling the supplies on a cache sync
+failure, as the runtime suspend callback does before powering down.
 
-Best regards,
-Krzysztof
+Fixes: 0c516b4ff85c ("ASoC: cs42xx8: Add codec driver support for CS42448/CS42888")
+Signed-off-by: Haowen Tu <tuhaowen@uniontech.com>
+---
+ sound/soc/codecs/cs42xx8.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/sound/soc/codecs/cs42xx8.c b/sound/soc/codecs/cs42xx8.c
+index 94860e2802fe..797bb67eafca 100644
+--- a/sound/soc/codecs/cs42xx8.c
++++ b/sound/soc/codecs/cs42xx8.c
+@@ -671,6 +671,7 @@ static int cs42xx8_runtime_resume(struct device *dev)
+ 	return 0;
+ 
+ err_bulk:
++	regcache_cache_only(cs42xx8->regmap, true);
+ 	regulator_bulk_disable(ARRAY_SIZE(cs42xx8->supplies),
+ 			       cs42xx8->supplies);
+ err_clk:
+-- 
+2.50.1
+
+
