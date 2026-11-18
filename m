@@ -1,64 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.54
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795025183;
-	b=ptMD/4y/EK2ycbosXYb9tp6vU52aC/OeQtfAOkJecLn1cAQSi/Hy4bJB7QefA0Y5FXdj
-	 KGuFOoeHsttdrz5ahKEfw7Z9iY7JdVaRG+FROPCTxvxueh4ifqLLgOhndgrfCUjFsWg2F
-	 9wn4imJnBjqPnv0wf8U9eyJ4qcGUpfXyT5OhaheErFoGCVqV/36F8TvNhhyfjQ0xdagwh
-	 bTfcB5RlXLMVcEpXlayP1ZkBXtEoPZQs0KlvY8vTCQSM04eeaPENzJRIY0B6tXDXYURyZ
-	 wRsMkl4r3wBhjvZRYs8kYisUiqWDuV8yH40wx+O2X3paSgmjT37mLmDDpwIcfKU0srw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795025183;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-ZohoMailClient;
-	bh=wNd2LPZyuAEEWn7MpVOXJDJO7rW6ewQN3AF71lVeLY8=;
-	b=kD07HLdphhxpOLnpMh54vnIooM2Xk+iIVxqBjRtk4yuJlpqhezNwHQ6ZvyGjvYUTjIGY
-	 95+ZgIB5J8VKLlynu0yJz6n+/UJZc4jIpuZwgDCGjwhLZc71G/cWQ+JUTFXxha6638PKR
-	 TnHWllhG6Lus0R2Vqcff0eMmiX0BFz5RwmMDdPJZFDyvXarxjyBQnxx1jJ6bEYgNpHwqV
-	 G0fDdYr7aS0V/C1efc1wrzXzp+8WCzbgz4PmhzNSpbKh3kK6/LBKZnIzZujnmq1qney6S
-	 arcZnZPr5A30ofX44nQuC8oQlK9PRWJ8vVZ2ahaXaqKSSl4Boqg/I3HutL4IAPvv+XA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ph4ntom-rev.uz;
-	spf=pass smtp.mailfrom=ph4ntom-rev.uz;
-	dkim=pass header.d=ph4ntom-rev.uz header.i=@ph4ntom-rev.uz header.a=rsa-sha256 header.s=zoho header.b=eokonw75;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.54
-Received: from sender6-of-o54.zoho.com (sender6-of-o54.zoho.com [165.173.180.54])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795025223;
+	b=dhtDdgsIbkCkr99NiKhhF1Y5iUHG5ZcRBEjSCL4i4XW2YtmlmZ08J+457DNAJE99V9Jw
+	 388DCBG9t96RKFsaGMVfu0UqT3FU4TUudcfJ5Aw+K5+Gn5cD2nJYz+ECWdd3Pnz1yWm+Z
+	 Fgyvf255OE4WZPdFLLOHQeddsO6x1hjyBi3w2FjdhpcHfUrIXCsahSTDTR0kq9sWcngFn
+	 d7cQFOszJODHDn+qBqXGeucfcXq7Z9RvpFR4BSIadJMVBu1rQ/7xeKcMkoh0vlax7dq+1
+	 4NXJ3mQkiiBmWfzGGws1FK3denXU0Gokk9Qu32atuzh47ePTmnA9JykjmfzJcCHU7cg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795025223;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=6w82fxlooNXQ3FRv1spxGq7tCSr7KtlspMZHNaHW6JQ=;
+	b=0BV1vFo5N9IEJanxyM4UWWrYbv7b0/AaD0XOFqRxyYX3ADm6j9cjuG+iYjgie5LThJxV
+	 zz52Yb08bE5oYxcvChNVsxmrNRApAucNkMNKUK7VkoCIX/Lw3ytk2ItBc1M0yUPPNNSCL
+	 yAxEIUTM3+O7C/an5aHMKdknLh0f0oYFHvqzZ6DYpwBLPOcA1PNF23qcmR3O09ZnQhtsh
+	 QpNhaNxAbxnPu5BwaRkt3ox/3rDmLsjy0jhGqRpIhJ5tsJTXSee2LqvOTAZsRG/xq+w+M
+	 ETYuGIDRGtF9OUUx6VMnV636kwYNrfPhEr6k2dJ0N7GkGeQxsIxmywQkqOrIZW0SY0w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q70UHiDe;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36534606A336;
-	Wed, 18 Nov 2026 18:06:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36534606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ph4ntom-rev.uz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ph4ntom-rev.uz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21D60606A330;
+	Wed, 18 Nov 2026 18:07:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ph4ntom-rev.uz header.i=@ph4ntom-rev.uz header.a=rsa-sha256 header.s=zoho header.b=eokonw75
-ARC-Seal: i=1; a=rsa-sha256; t=1795025086; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=X09axsOpixziseyJ3NMP85DNvIZcExJwg2agcpF6I7cUvFVLusFiXGJ4q+pXfW/9Kl7LSpwm8Y7cqXpP1ImTNqtUj1rKQNn9XDe3PZxqKgmXSB+/NlIQhVXQmqY55YOwzfXAtGMSyDDlkeRdQduZdtMeMBRXlbLHEkOMUMRjc1E=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795025086; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=wNd2LPZyuAEEWn7MpVOXJDJO7rW6ewQN3AF71lVeLY8=; 
-	b=Hd8HpI4lANywUCzJoCsrSUtXjw9GoUKAW8mzexyttO3Oc/dlzlXj+Uql7WV8EJQV17GTIhQDrRjByI/HLDT8qPvhokn1R/MpioJQdt7tN15uHugu3qkIhKg+nb2TMEJtedOJ2YddntRB7MJbTVTrssNwT12pSe5+0zsr0GsNJds=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=ph4ntom-rev.uz;
-	spf=pass  smtp.mailfrom=owner@ph4ntom-rev.uz;
-	dmarc=pass header.from=<owner@ph4ntom-rev.uz>
-DKIM-Signature: a=rsa-sha256; b=eokonw75WxgAthNU0OF7Wy+1E35UkYPb/fIsnQUEDvyY5V+FlK2JS7WmkCLSb2/Q+uW7SsDBOWw6n9Ukqfk4E0xWvmYo84Ee13TYD3h/B++mamZ4Il2yAGH2BN6xS0fGJ0d2UVXUmK2DPGNx65ctVa614R3nAjKS6Cghm03eagwZAQWe1Y+ChZaKiVnic5jkMh7ENRgCDD7iGbZcv0I11Z4bUFwwxpVRsaTch2Q3ehRJik3/iYLMAEHgYEO2fAtLJe7SCcQEGMQdvKewLurvlul2+k/eBDoQfMWBeAB9NpzOi4WCk8kjOoTJm5dNAdHWkUq4xApd0q3flrX8Pe0SgQ==; c=relaxed/relaxed; s=zoho; d=ph4ntom-rev.uz; v=1; bh=wNd2LPZyuAEEWn7MpVOXJDJO7rW6ewQN3AF71lVeLY8=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795025084043363.4078473415681;
-	Wed, 18 Nov 2026 10:04:44 -0800 (PST)
-From: Enver Ikromov <owner@ph4ntom-rev.uz>
-To: Ping-Ke Shih <pkshih@realtek.com>
-Cc: Zong-Zhe Yang <kevin_yang@realtek.com>,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Enver Ikromov <owner@ph4ntom-rev.uz>
-Subject: [PATCH rtw-next v7 2/5] wifi: rtw89: handle negative rate index for injected frames
-Date: Wed, 18 Nov 2026 23:04:32 +0500
-Message-ID: <20261118180435.904-3-owner@ph4ntom-rev.uz>
-X-Mailer: git-send-email 2.56.0.windows.4
-In-Reply-To: <20261118180435.904-1-owner@ph4ntom-rev.uz>
-References: <20261118180435.904-1-owner@ph4ntom-rev.uz>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q70UHiDe
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 805401F000C6;
+	Wed, 18 Nov 2026 18:06:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795025222;
+	bh=6w82fxlooNXQ3FRv1spxGq7tCSr7KtlspMZHNaHW6JQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Q70UHiDeMAMQsw0MAvhhZ9W6sOlXnopF0pfq7j96Uxl6US4q702R07x57G5EfSOMH
+	 vZKPBs8HFH13kMCUafN5GfPNXJwl6G8fDsBbu3gjz1GY6pNyHt4UI8tUgphaiHKHyW
+	 kbig+K0jXYGUyiBFK9VFPvtQq6hlo2D8muaJ+4Ke+KeWWnDQtcZQ7zoemel7RmAWGQ
+	 TzBmi5v3dmrMYBPSxF4Wo2Rbx8Km8DNMKlb2HKS5HMa70dwtGswThlrkdc513e5LKu
+	 pmYT3RPYYvRS4yXjyqKoWSYZLSWh3P9Hbkz5Pq6rTWZtbA8elfPdejp1oukP5ZKe+V
+	 FY8mOHOUoedhg==
+Date: Wed, 18 Nov 2026 18:06:57 +0000
+From: Conor Dooley <conor@kernel.org>
+To: gaohan@iscas.ac.cn
+Cc: Min Lin <linmin@eswincomputing.com>,
+	Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>,
+	Pritesh Patel <pritesh.patel@einfochips.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Han Gao <rabenda.cn@gmail.com>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] riscv: dts: eswin: Add Milk-V Megrez board
+Message-ID: <20261118-tiny-divinity-920c0b7f3be1@spud>
+References: <20261118-eic7700-megrez-v1-0-af8334b88336@iscas.ac.cn>
+ <20261118-eic7700-megrez-v1-2-af8334b88336@iscas.ac.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,38 +65,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="LIM1ykOGY05fRYAT"
+Content-Disposition: inline
+In-Reply-To: <20261118-eic7700-megrez-v1-2-af8334b88336@iscas.ac.cn>
 
-When user space injects a frame with a radiotap rate that is not
-supported on the current band (for example 1 Mbps CCK on 5 GHz),
-mac80211 sets the rate index to -1. Storing that index in an unsigned
-byte turns it into 0xff and programs an invalid hardware rate into the
-TX descriptor.
+--LIM1ykOGY05fRYAT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Clamp negative rate indices to 0 so the lowest valid band rate (1 Mbps
-on 2.4 GHz, 6 Mbps on 5/6 GHz) is selected.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-Fixes: e96abe4fd7cd ("wifi: rtw89: consider data rate/bandwidth/GI for injected packets")
-Cc: stable@vger.kernel.org
-Signed-off-by: Enver Ikromov <owner@ph4ntom-rev.uz>
----
- drivers/net/wireless/realtek/rtw89/core.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+--LIM1ykOGY05fRYAT
+Content-Type: application/pgp-signature; name=signature.asc
 
-diff --git a/drivers/net/wireless/realtek/rtw89/core.c b/drivers/net/wireless/realtek/rtw89/core.c
-index 1e8b60e..37ff745 100644
---- a/drivers/net/wireless/realtek/rtw89/core.c
-+++ b/drivers/net/wireless/realtek/rtw89/core.c
-@@ -1259,7 +1259,7 @@ static void rtw89_core_tx_update_injection(struct rtw89_dev *rtwdev,
- 	enum mac80211_rate_control_flags flags = info->control.rates[0].flags;
- 	struct rtw89_tx_desc_info *desc_info = &tx_req->desc_info;
- 	const struct rtw89_chan *chan;
--	u8 idx = info->control.rates[0].idx;
-+	u8 idx = max_t(s8, info->control.rates[0].idx, 0);
- 	u8 nss, mcs;
- 
- 	desc_info->use_rate = true;
--- 
-2.56.0.windows.4
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCav3pQQAKCRB4tDGHoIJi
+0oRNAQDIIAUh/nrsZKHpfMnlgt+ICbZMj8fQ6CLKTflq8PCuwgEAgwVnOJlhSx6k
+29KD+La6RdqEaXC37asFR1QjF/UoPwQ=
+=6Wsm
+-----END PGP SIGNATURE-----
+
+--LIM1ykOGY05fRYAT--
