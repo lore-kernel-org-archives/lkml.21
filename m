@@ -1,109 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795003462;
-	b=VXAqXNE34Tmyir9PkwpTkR7HJUX+lFV2vUwSv44JW2MGI3i+2P1wLUnKKaIrf4q3YQhf
-	 xfdC5yc9be5QmIbyMNDPi9KozbRab0fORzWaUNQc77rRrPEV39U5yZzItfERn8ybiOZQA
-	 VpozvrCq/2lmgV6+weiv8TJEqC79/MdrMUdkwM9CwDca7TYwd9l+cXMkW2JWk/U66VmoX
-	 Ig5Ufqg+0LaPeYDHfml4N+0Du5UP2Z5HZDID8BzLlPASvInUAAE15ojz3G97f7vEXSDGn
-	 2vgJoIc29zaEt5eHFnyGnYvpJwMgqXbzy/SjmmuSFW6OB3QsnGixnEP4kQs15yumNbg==
+	t=1795003500;
+	b=GTF1ocEHhNqA+HKuXMAkZRn6jASie0rch89Lf3Xv5qLLihDkhVO/rRxZmu3zCsCSw5RT
+	 QmLfYEMyVLqWilXwNwhTimWC7o8G6BX/1CLC330CvRWIilvDHKtEHXOzO11LDdttg+8fv
+	 uqQrwfQY35oQQJEKP38W2EiSUSj6VXebTdr/Ioog6bpoBaW0ZhsBWo5CbouYkZDQJLYKi
+	 WLwlOjuKNMO8ftmSlszWsLolJmhWma/s+hrGuuUVaMVEB4Z4rJ7LKRysHFHg6LqrlKgVH
+	 drYKv5wrl5vjDZrzTcsLuUxXb/1/YHD9Z7f1QoWwaBoD3yQT1+I4eGR+Y9zrvPGph7Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795003462;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Spamd-Result:X-Spam-Score:X-Spam-Level:X-Spam-Flag;
-	bh=LOuAsQjK+12ngHe0/jbf6hyVj03KNod9mZDaCuhJMi0=;
-	b=Qo63lrObqzDXWtQJayMhsQW7cQldj/+loLkj+ZQfoOvCg3cueQugyztfh9tVbdhOX9fR
-	 aOpYtjU4E5bvF5djo+ddaNuSQJo5pPJUQBmy9kBiycrmDzWJCxTi3kvyQdf/Va9HhQ21t
-	 5m6Qnjj7YG/V7W6TNWZU6cs6Tbc3Mctrj/AnFkAEU45TDweOenpMdhnfo5KuLlZ4C6rBE
-	 bCLhLwgnOsPHug+t63VtLKKTqHf9FsV4P0uHea45sstfvzQAOvhgBWKNvLhw9FL0Omgev
-	 JWc76bVTTtVBIOUXjsGWyJTgXKhRwy+eWA2nwdCLCYFK527lrh1SzeGa5g0qRBQSI8w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795003500;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:Content-Language:To:Cc:References:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=GjX5dn8YpgvZsZ/ABHgbZazrxQHsHlF3Djrqer5Cp/g=;
+	b=aIZsC/KnM8hKh4LCjpfT8uXh6MJYovfhLlvrEHQ5BLo7eO/ohPAb7WxRMO8Bxfo86lm9
+	 2+QTgmZXEkb2gK8zfsh2xBZHxXz6g/hFsdrlhtzATlvlt+xDc56lspAb/pqr3rckNMagE
+	 RXwX7AGFT6BywIk2q80srblIAVyJEfVewvwi9EZPwkaYIlJAT337kj8M1DkBJAMGbUB8l
+	 +YX1kbkd8UVXN1k/kZqfW8bSPtUxCQaqeFnJsd6Ro4fkG2pyE82wxqwDCHSxuvGymxlG4
+	 rs535IHFWPC1USyXlcxOrKTZzf4kUI8UID4ddIeUcDafU69Y+BPsj7mJGpjEUFNESzg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=suse.cz;
-	spf=pass smtp.mailfrom=suse.cz;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=w6dwGBYm;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=odxoIEns;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=w6dwGBYm;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=odxoIEns;
-	arc=none smtp.remote-ip=195.135.223.131
-Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 174A7606A31C;
-	Wed, 18 Nov 2026 12:04:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 174A7606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=TdJ23J5H;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 11BDB606A31C;
+	Wed, 18 Nov 2026 12:04:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 11BDB606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=w6dwGBYm;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=odxoIEns;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=w6dwGBYm;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=odxoIEns
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 166A71F827;
-	Wed, 18 Nov 2026 12:04:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795003460; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LOuAsQjK+12ngHe0/jbf6hyVj03KNod9mZDaCuhJMi0=;
-	b=w6dwGBYmM5NYHYLn0UoR+iuFXtBGe3UdWXPjhmxDj6Hzf/Bxp0BGlUDcqkwvBw0Maex1vV
-	So6XCps3KKcKu1VlfFroIUMtNnEAv2YINe5belg8mMupHgO3bixPSOurbgqruw8ARgQ04G
-	Kj/b6F6ufS/qqTfyBpbgwpB+u0zDzFo=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795003460;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LOuAsQjK+12ngHe0/jbf6hyVj03KNod9mZDaCuhJMi0=;
-	b=odxoIEnsPcu1mAAddRb3r8QMQbdPHvT8o6Sr9ROfknBgbh9tXlv7md2shFeCivUelU4d6o
-	JGPRqcNENN5hqVDQ==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795003460; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LOuAsQjK+12ngHe0/jbf6hyVj03KNod9mZDaCuhJMi0=;
-	b=w6dwGBYmM5NYHYLn0UoR+iuFXtBGe3UdWXPjhmxDj6Hzf/Bxp0BGlUDcqkwvBw0Maex1vV
-	So6XCps3KKcKu1VlfFroIUMtNnEAv2YINe5belg8mMupHgO3bixPSOurbgqruw8ARgQ04G
-	Kj/b6F6ufS/qqTfyBpbgwpB+u0zDzFo=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795003460;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LOuAsQjK+12ngHe0/jbf6hyVj03KNod9mZDaCuhJMi0=;
-	b=odxoIEnsPcu1mAAddRb3r8QMQbdPHvT8o6Sr9ROfknBgbh9tXlv7md2shFeCivUelU4d6o
-	JGPRqcNENN5hqVDQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id E1FB7134E9;
-	Wed, 18 Nov 2026 12:04:19 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id meBdL0OU/WpUJQAAD6G6ig
-	(envelope-from <jack@suse.cz>); Wed, 18 Nov 2026 12:04:19 +0000
-Received: by quack.suse.cz (Postfix, from userid 1000)
-	id 772892502A; Wed, 18 Nov 2026 13:04:19 +0100 (CET)
-Date: Wed, 18 Nov 2026 13:04:19 +0100
-From: Jan Kara <jack@suse.cz>
-To: William Chuang <founder@logarcheon.com>
-Cc: Theodore Ts'o <tytso@mit.edu>, 
-	Andreas Dilger <adilger.kernel@dilger.ca>, Jan Kara <jack@suse.cz>, Ojaswin Mujoo <ojaswin@linux.ibm.com>, 
-	Ritesh Harjani <ritesh.list@gmail.com>, linux-ext4@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	syzbot+e8180f5590685cbc9037@syzkaller.appspotmail.com, syzkaller-bugs@googlegroups.com
-Subject: Re: [PATCH 1/2] ext4: reserve quota credits in
- swap_inode_boot_loader()
-Message-ID: <emqu2ydrdock22ssfqg7sm2gjlzcmep3mbaqeqmpzrcshdxo3q@4cccpl7jgqf2>
-References: <20261117052750.2955-1-founder@logarcheon.com>
- <20261117052750.2955-2-founder@logarcheon.com>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=TdJ23J5H
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 48EC61596;
+	Wed, 18 Nov 2026 04:04:55 -0800 (PST)
+Received: from [10.57.70.68] (unknown [10.57.70.68])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7F22A3F632;
+	Wed, 18 Nov 2026 04:04:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795003498; bh=SIPpZoSZA3ybF9zdso+NVRICnQ4r/7VsBMwmu7R20j0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=TdJ23J5HAp0e6F1wKGMcZcPfGZh5dJ+bBvB6GZi6bwhQwGbVR4N9r8ODtXvfnvSe8
+	 d6+rO1GpcHjaT7sQA9mPB+X0/5maRbPRWiK8bAXFymFKFU/1WCvulutHG7fP6pGB1q
+	 9XcoU5WUtTax9beMwbIgTHdiauENtEKPcKg4/18I=
+Message-ID: <8a095a42-662a-416d-a5d7-79e10161201c@arm.com>
+Date: Wed, 18 Nov 2026 12:04:52 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,109 +53,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117052750.2955-2-founder@logarcheon.com>
-X-Spamd-Result: default: False [-11.30 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	ARC_NA(0.00)[];
-	MISSING_XM_UA(0.00)[];
-	TAGGED_RCPT(0.00)[e8180f5590685cbc9037];
-	MIME_TRACE(0.00)[0:+];
-	RCPT_COUNT_SEVEN(0.00)[10];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	TO_DN_SOME(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[mit.edu,dilger.ca,suse.cz,linux.ibm.com,gmail.com,vger.kernel.org,syzkaller.appspotmail.com,googlegroups.com];
-	RCVD_COUNT_THREE(0.00)[3];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_TLS_LAST(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,suse.cz:email,imap1.dmz-prg2.suse.org:helo]
-X-Spam-Score: -11.30
-X-Spam-Level: 
-X-Spam-Flag: NO
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 01/11] KVM: arm64: guest_memfd: Check mmap support when
+ preparing memslot
+Content-Language: en-GB
+To: Steven Price <steven.price@arm.com>, Fuad Tabba <tabba@google.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Kohei Enju <enju.kohei@fujitsu.com>
+References: <20261116164358.142785-1-steven.price@arm.com>
+ <20261116164358.142785-2-steven.price@arm.com>
+ <CA+EHjTy5xBmavNWSYPjqU9qXtssV3ZHzsUr1s_4bVOt1GnDLVg@mail.gmail.com>
+ <6bb490cd-ebbe-41d7-adf3-d6eaf0e53478@arm.com>
+ <b1ef7241-54b0-4a17-83b6-0008e722f2f6@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <b1ef7241-54b0-4a17-83b6-0008e722f2f6@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Tue 17-11-26 05:28:04, William Chuang wrote:
-> swap_inode_boot_loader() starts its handle with 2 credits, enough for
-> the two inode table blocks it dirties.  Since commit aa507b5faf38
-> ("ext4: update quota information while swapping boot loader inode") it
-> also calls dquot_free_space() or dquot_alloc_space() under the same
-> handle.  On a filesystem with quota enabled, that marks the dquots
-> dirty and ext4_write_dquot() writes them to the quota file.  The
-> nested ext4_journal_start() in ext4_write_dquot() reuses the running
-> handle and adds no credits, so the quota block write can find the
-> handle with no credits left:
+On 18/11/2026 11:14, Steven Price wrote:
+> On 18/11/2026 10:34, Suzuki K Poulose wrote:
+>> Hi Steven
+>>
+>> On 17/11/2026 14:05, Fuad Tabba wrote:
+>>> Hi Steven,
+>>>
+>>> On Mon, 16 Nov 2026 16:43:47 +0000, Steven Price
+>>> <steven.price@arm.com> wrote:
+>>>> Check the guest_memfd backing file when deciding whether an arm64
+>>>> memslot has mappable memory rather than checking whether the slot is
+>>>> gmem only. A public helper function is added to be able to reuse the
+>>>> static kvm_gmem_supports_mmap() function.
+>>>
+>>> nit: could the message say why this is needed? It's a no-op until
+>>> patch 8 defines kvm_arch_has_private_mem(), which makes every
+>>> guest_memfd slot gmem-only.
+>>
+>> I still don't understand why this is needed. For arm64 we have always
+>> prevented guest_memfd without MMAP, in kvm_arch_prepare_memory_region().
 > 
->   WARNING: fs/jbd2/transaction.c:1598 at jbd2_journal_dirty_metadata
->   Call Trace:
->    __ext4_handle_dirty_metadata
->    ext4_quota_write
->    qtree_write_dquot
->    v2_write_dquot
->    dquot_commit
->    ext4_write_dquot
->    mark_all_dquot_dirty
->    __dquot_free_space
->    swap_inode_boot_loader
->    ext4_ioctl
-> 
-> jbd2 returns -ENOSPC and the journal is aborted.  The ioctl still
-> returns 0, and the filesystem is left with the wrong i_blocks on the
-> swapped inode and inconsistent quota usage, which e2fsck reports.
-> 
-> Reserve one quota block per quota type, as ext4_ext_migrate() does.
-> 
-> Tested on UML with a filesystem made by "mke2fs -O quota": write and
-> sync a file, then issue EXT4_IOC_SWAP_BOOT on it.  Without this patch
-> the WARN fires ("credits 3/0") and e2fsck -fn reports errors; with it
-> there is no warning and e2fsck -fn is clean.
-> 
-> Fixes: aa507b5faf38 ("ext4: update quota information while swapping boot loader inode")
-> Reported-by: syzbot+e8180f5590685cbc9037@syzkaller.appspotmail.com
-> Closes: https://syzkaller.appspot.com/bug?extid=e8180f5590685cbc9037
-> Signed-off-by: William Chuang <founder@logarcheon.com>
+> Fuad is correct, this isn't really needed until patch 8. Patch 8 defines
+> kvm_arch_has_private_mem() - that means that gmem_in_place_conversion
+> becomes true (see include/linux/kvm_host.h). That in turn means that
 
-Looks good. Feel free to add:
+> every guest_memfd slot is KVM_MEMSLOT_GMEM_ONLY including slots backed
+> by a file without mmap support.
 
-Reviewed-by: Jan Kara <jack@suse.cz>
+But we dont support slots without MMAP anyways even without this series.
+  So, does it really matter for arm64 ?
 
-								Honza
+Suzuki
 
-> ---
->  fs/ext4/ioctl.c | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
 > 
-> diff --git a/fs/ext4/ioctl.c b/fs/ext4/ioctl.c
-> index e8e579498..ae03eb834 100644
-> --- a/fs/ext4/ioctl.c
-> +++ b/fs/ext4/ioctl.c
-> @@ -425,7 +425,12 @@ static long swap_inode_boot_loader(struct super_block *sb,
->  	truncate_inode_pages(&inode->i_data, 0);
->  	truncate_inode_pages(&inode_bl->i_data, 0);
->  
-> -	handle = ext4_journal_start(inode_bl, EXT4_HT_MOVE_EXTENTS, 2);
-> +	/*
-> +	 * Two inode table blocks, plus one quota block per quota type for
-> +	 * the dquot_free_space()/dquot_alloc_space() update below.
-> +	 */
-> +	handle = ext4_journal_start(inode_bl, EXT4_HT_MOVE_EXTENTS,
-> +				    2 + EXT4_MAXQUOTAS_TRANS_BLOCKS(sb));
->  	if (IS_ERR(handle)) {
->  		err = -EINVAL;
->  		goto err_out;
-> -- 
-> 2.43.0
+> But regardless the check for kvm_memslot_is_gmem_only() isn't really
+> what the code is trying to do. The fact that the memslot is "gmem only"
+> isn't really relevant. The thing we care about is the mappability.
 > 
+> But I agree the commit message could do with improving. I'll expand that.
 > 
--- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
+> Thanks,
+> Steve
+
