@@ -1,53 +1,50 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794989226;
-	b=jiWyxOwofyWOcx5pS0PIF3I0wlsMAcYeCLFFiwJO23CTSZ/toRjrP+30HNiEy+AviOKC
-	 la6001XAh9NNMEx9Y+ewWVZsphd10Eg45KC3HJ0aECxEM8kY7lh8v6NRhNoC9hv4JGB21
-	 GLwa/SLeDFiCggJxa2C/E6bQ0/t107nD7NFtKwjVy/xLBIj5WDY3j+gOhpAEvG9hiPM9s
-	 aOSgMb2cThV5u7tY0SsHgCy9XMEmW/Hrw31hHkVHKz710MlMeLHwOmF7bHzr8bI8v6BYX
-	 CLBE3WLqJd44cAcDNAQG5tbviDhpYXXLfwl5Pk3OXatyi7OTt4D0K4EwTKFXin6U5Kg==
+	t=1794989379;
+	b=ldVhfjP08voR9gYOs9MRGRiZ0kLRKZU5s0SHwMYq7DxYX5Dbsr9R0hDc4eFvIw+mmqJ1
+	 +2/17E0KVeEtPoh9q2rrzcTxAd47c9A1tIb4d4HN5aoyIzdh8iR6SLTxBhkfg8ksxi3z+
+	 eKhl+ay5tdpNoEd9oASZHilprshCHwYvAQAQRv+6+SzJjRO/tyNsHvtVFObJkZjjP9rBa
+	 ddmdaWuJw7LPSKKtB9hBJzdaEaZaxjIvF9d09WL3WFRCYMAC+4G/vZC1vHeUTFiTVbGiJ
+	 Ee0T0cYjMfT8ruqrfhJKidsMhyDrPDuJu7LA06dcCNUvXXfssbhfgm0MXqngSKK9dsw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794989226;
-	h=Received:DKIM-Signature:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=1Bo/wvG56jqqMTFF5RAZSJ1/6NN/t3qLrAptrG7cT7s=;
-	b=WRSMlP/cf6CkzXjoAOtJ0kpre/9wEEwXJHa+iHm/sbfbxBNBC+/21DefMSdt3bghZNQW
-	 7wrng0pI8/CGohwFXDNxUZ1xoWnDL3zMz/buxPTpBFOMSVF70NjMykFpoK9RW7Y/Vc7iS
-	 d3G4oxijjTfcoSaz7fUFQ39L4d82r2GMxzjiEPyBYTy5Lj9CbOoX392Eu/YGAl3oVwpJ7
-	 RUzdwrq/FrdC/ioSpq/ynFdThU0ypQSgb+9Ep4ijN/UeXgYwpwbaL43odkF3Be/acbuKr
-	 7mrHTSS7BkLBKdC+2W6KXpPvRndDbg7ktXU6Qq9cJg0O5uhNjaKvgAk2C2HWvltiYGA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794989379;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=rke1jdyO0lEsHXkbA0Ck5uBcUmcwEIzcVtlXtGAvOMc=;
+	b=rLNyB4OFu1zyMOIj6zrIm4Bny13N2PH0XOuH5Yzwm9rsLeFM6TilNugs06V751wuaQtO
+	 EJZn1oo35QVf3TOWstuGr1x4z8dC3RZhOXpldLoLN6sZM4qxNnmHlJ/+267o7JN4ec4O3
+	 QzTZ+L/IF7ydTFezuNmnFs8VIJBw9ezlLwEmqtLhl0pmrYNDTrGAxBhoNQ1DRiFUyqm3U
+	 iX+mh4jUFYXYh4EMJfzwHiG5dNLg9B6429Udqmx21RG7+7CHOGsHnlMRzPAj1BK2Stv3y
+	 CO7XEaIjdrJ72rZCaysPQtAV7FGnUC0rQ5cGdtRaDbbatFYFntYi7+rsX7pNII+Eqyg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WklOBgTr;
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=atIC1J0O;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 081D7606A31C;
-	Wed, 18 Nov 2026 08:07:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5CA2A606A31C;
+	Wed, 18 Nov 2026 08:09:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WklOBgTr
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48BE31F000C4;
-	Wed, 18 Nov 2026 08:07:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794989225;
-	bh=1Bo/wvG56jqqMTFF5RAZSJ1/6NN/t3qLrAptrG7cT7s=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=WklOBgTrOnumaaV94d2YEKWrGjabVcrhdbw/IlAHUxYCQOX5oZ0l0e0bgHxYtvJms
-	 SFmeaYjRuuv92m8WP08lvOOIpYftB2L0PszkK5Z4fte+8diwEGblvazYLQEtsOctSx
-	 d8+lS0wFgF+EWafUzXvrwF/z3M0rrFV+Uldwb2hNMAMJVHuRnaAw+fjYY/opV6/nR2
-	 B54E6vfyASCCnwJrov9shVK2KcCMCTFQ6PwhcwZpCSDqw4v41KW1djeMTsTkRXPPaC
-	 V5kNEsheOngf1/jjQ0sUmZtqZAD+3MDH4vXVcsat74LcX1vorw1rdoWFkkyUiY+MKT
-	 PhyaxrtPCyEzQ==
-Date: Tue, 17 Nov 2026 22:07:04 -1000
-Message-ID: <58cb2cbaf82c0f671213eaca46465cd5@kernel.org>
-From: Tejun Heo <tj@kernel.org>
-To: Yuri Andriaccio <yurand2000@gmail.com>
-Cc: bsegall@google.com, cgroups@vger.kernel.org, dietmar.eggemann@arm.com, hannes@cmpxchg.org, juri.lelli@redhat.com, kprateek.nayak@amd.com, linux-kernel@vger.kernel.org, luca.abeni@santannapisa.it, mgorman@suse.de, mingo@redhat.com, mkoutny@suse.com, peterz@infradead.org, rostedt@goodmis.org, vincent.guittot@linaro.org, vschneid@redhat.com, yuri.andriaccio@santannapisa.it
-Subject: Re: [RFC PATCH v7 00/29] Hierarchical Constant Bandwidth Server
-In-Reply-To: <20261111175657.250354-1-yurand2000@gmail.com>
-References: <20261109163616.195264-1-yurand2000@gmail.com> <212c244d534ee1fdb0538a980789e16c@kernel.org> <20261111175657.250354-1-yurand2000@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=atIC1J0O
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D09C1F000C4;
+	Wed, 18 Nov 2026 08:09:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1794989378;
+	bh=rke1jdyO0lEsHXkbA0Ck5uBcUmcwEIzcVtlXtGAvOMc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=atIC1J0OqWYKVwOz0tH9WxpUvE0UoD2jC98wXxwhFMDaCDQyveYploMvpwDxu0xGa
+	 cIhdPBLRFmDdps0x2CXTTeCVd1MdVSSE7ivYVRykhuJCCLSn8AN2ixkMyHCdxIYUdu
+	 y1198oNCCvDHFJQui1UJSAcZOB3b8dacVMDlRzQo=
+Date: Wed, 18 Nov 2026 09:09:35 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Ziheng Wei <zihengw03@163.com>
+Cc: Sudip Mukherjee <sudipm.mukherjee@gmail.com>,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2] parport: do not re-enable interrupts in
+ parport_claim()
+Message-ID: <2026111830-doorstep-aloha-5faf@gregkh>
+References: <20261118075816.2323688-1-zihengw03@163.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,56 +55,65 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+In-Reply-To: <20261118075816.2323688-1-zihengw03@163.com>
 
-Hello, Yuri.
+On Wed, Nov 18, 2026 at 03:58:16PM +0800, Ziheng Wei wrote:
+> When the claiming device was on the wait list, parport_claim() takes
+> it off the list with spin_lock_irq()/spin_unlock_irq() while it holds
+> cad_lock with interrupts disabled:
+> 
+>   parport_claim()
+>     |
+>     | write_lock_irqsave(&port->cad_lock)     <- IRQs off, cad_lock held
+>     | spin_lock_irq(&port->waitlist_lock)
+>     | spin_unlock_irq(&port->waitlist_lock)   <- IRQs on too early
+>     |
+>     +---- port interrupt on this CPU ----+
+>     |                                    |
+>     |                                    v
+>     |                        parport_irq_handler()
+>     |                          read_lock(&port->cad_lock)
+>     |                          spins forever: cad_lock is held
+>     |                          by the code it interrupted
+>     |
+>     | write_unlock_irqrestore(&port->cad_lock)  <- never reached
+> 
+> Interrupts are already disabled here, so use spin_lock()/spin_unlock(),
+> like the "blocked" path in the same function.
+> 
+> Found by LLM-assisted static analysis.
+> 
+> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
 
-The summary sounds fine for the most part. Some comments below.
+So, this isn't a real issue given that no one has actually noticed it in
+20+ years?
 
-On Wed, Nov 11, 2026 at 06:56:57PM +0100, Yuri Andriaccio wrote:
-> - `cpu.rt.max` only accepts per-CPU settings, so the global "default" is
->   removed. Removing all overrides means the cgroup is a "max" cgroup, while
->   just a single override means that the cgroup has its own budget.
->   + This new interface disallows zero-runtime overrides, as a zero override
->     is equal to an empty override when there is at least one non-zero override.
->     As an example: [<CPU0 10ms 100ms>, <CPU1 0ms 100ms>] is equal to just
->     having [<CPU0 10ms 100ms>]. This seems a bit odd, how to make this better?
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Ziheng Wei <zihengw03@163.com>
+> ---
+> 
+> Notes:
+>     v2: shorter changelog; drop the kernel test robot tags.
+>     
+>     The bug was found by the static analysis above.  The kernel test robot
+>     had sent a smatch warning for the same code to oe-kbuild only, which I
+>     found afterwards and credited in v1:
+>     https://lore.kernel.org/r/202608091622.jlJn0jOj-lkp@intel.com/
+>     
+>     Tested in QEMU (parport_pc) with two ppdev users, one waiting in
+>     PPCLAIM while the other releases the port: lockdep warns without this
+>     patch and is quiet with it.  I have no parallel port hardware.
 
-It's odd because a missing entry means "max" when there are no entries
-and zero when there are some. Can a missing entry always mean "max",
-per CPU? On a CPU that a cgroup has no entry for, its tasks would be
-served by the nearest ancestor which has one. Zero then becomes a
-regular value which is shown on read, and the two configs in your
-example are different. The former can't run RT tasks on CPU1. The
-latter runs them on the ancestor's budget there.
+Then maybe this isn't a real issue?
 
-This means that a cgroup can have its own budget on some CPUs and be
-"max" on the others. That is a fundamental part of the interface, so I
-think it's best to get it right from the get-go rather than starting
-with a restriction.
+>     On real hardware this needs two users of the same port and a port
+>     interrupt within a few microseconds of the hand-over, so it is
+>     unlikely to be hit; lockdep reports it whenever the path runs.
 
-The root has no ancestor to fall back to, so a missing entry can't mean
-anything there. It has to always carry an entry for every possible CPU,
-which defaults to zero, and reject "max":
+parport devices should not be used by 2 users at once.  If you do so,
+you get to keep the broken pieces :)
 
-  0-127 runtime=0 period=1000000
+thanks,
 
-> - `cpu` and `cpuset` controllers are decoupled, as it was before the `cpuset`
->   integration patch. The user/admin is responsible for inconsistencies between
->   the two controllers (i.e. empty intersection between active server in the
->   rt-cgroup and the allowed cpuset just disallows executing RT tasks entirely).
-
-Yes, let's decouple them. With that, can the CPU offline lockout go
-away too? An entry for an offline CPU can stay configured and take
-effect again when the CPU comes back.
-
-One more thing on the unprivileged FIFO/RR tasks in cgroups. No other
-cgroup resource config grants privileges that way. e.g. If an rlimit is
-set on memory, memory.low doesn't do anything to work around it. I
-think who can use RT policies should be left to system configuration,
-i.e. RLIMIT_RTPRIO and CAP_SYS_NICE. Can you drop that patch?
-
-Thanks.
-
---
-tejun
+greg k-h
