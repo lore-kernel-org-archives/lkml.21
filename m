@@ -1,62 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795025502;
-	b=G5IC8w+sYUK068TDrXXn8Dyf7Ip0UM1t66hhCf42BrnwVzp25NIdE1vBSyD/LG2qzsYN
-	 0gAr2KR3pdyNa+3EvaMdwAqiwBGZ+7I1QM8Xtbn3rkCEiry9+jZr72Yylob7urj8BzUbt
-	 9WNvRDkO9ygM9qsg7/b+QXFAFkoiz4p7gYb2qJxdfEOUC1tQ+ReQ+dGOnnxYismbezQtd
-	 KA2vqsoQ/NYMfdrt767uzBKnlAWK/D50ZL0+LIMQnDCrY21ObvWBDquXypW2slNWUeL+x
-	 9wU4ah0HQW57KUTW2HkmeB7eP47LWCvcfxID+UDLWT+JABZK8zcmwsjzNP7PbblaWkg==
+	t=1795025554;
+	b=190LRlki8oJNdQy5s4VNQQKC8h8cQQllbeGt8k0RA0RVBxBb8gb157TIm3iAOH4/BR8v
+	 58N5/Nk8L+6Mr+IYY+E+A0cqAAhEaVP6n6xtrlOr5DViTS9H2wexGbU8QW1UnSSCQuVsp
+	 0k6OeWOPO+dv/0r7OT9R6BtwVF4iVCNn8LMUQfR+eNFz0J0j7vRLKVQBOqUCkjmujJNdc
+	 HfVLVvhMIbWouBTmzV9XcaInxDJ/nWUvo20//W13y6Ze/lCtT4rlKiklLhxK5f8uto74G
+	 lpXbCjmMTxhSla7EwHEg2I9WqXwrSc+jo9bGUVv3ncSFjT4t0MVByvE6W7B5rWt9yxA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795025502;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=uRkdK0D1Evn9yPGULWEQBwZUI3TEJ1+/UYjutxpisho=;
-	b=D5GEZO9c3Su9JfdwTxHJVwc18U6FSUH4Ky5uszMmB6YdYbodNBOZ7boOPTpBBo94XLvX
-	 y1xmPYRYeF9cAKEgIaBIhXnGFCZxosSk/ke2uQI4ED110e+jjcrQQ1L0aUpYu1Lo+9GNi
-	 0P/BPmbIydV0rUilzrrLVK6IksY/GbKmDGJnTW40dKM7dz74RoeuYOwWFHx4AqVkwQSkX
-	 TpEAsVvtIYmDf1RGWxDGreNpj51sTqEhGCqIxSzo/OMFY4DX8jGfTDPsu6kKzP+CM5ZG9
-	 Ci2DcchsELuXL+YURLvVlWjphm35jNgcnNjvUHA6cP5dTqisIzZgM+jwtMMjVUaTpFQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795025554;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=IUksd2EN7DAxDu03VPjEPJYKskFGPuXrSVOQtY3wFAg=;
+	b=IKRu3zsSU6at8M/+AJPj9p4kC2pssqRMfENj+EjdBgkuzuT1wvkBZz+kc+spbS9lazVM
+	 dfbdMLVaoLrumGuuMvOKp6knpxphlOUA+z/J/NHZwN5nSeuR74ziIDYfrXgC/k74Oc1YL
+	 dyL1xqdor3gPnS9n4so4EgEpfh5tk9VCs45bydBoTIrvf2E3hqqDflktuGI/4nYFTlH4Z
+	 YrygZx3Vn7v1dwNaMUKkKiX9zc2mapyrDlI3Hn2L50QV5YUmRJl4vBwZPNOZX5tJtRlu5
+	 dfCGw4GlJ7Le4NJ5qt0v0ezLU0MVvh0ks/NAS2TcHm4Ivv/Ct7D0lweyzM2WPkMUffQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=sEqgIa6T;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=elM43Bpu;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED51D606A320;
-	Wed, 18 Nov 2026 18:11:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ED51D606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 855B4606A32F;
+	Wed, 18 Nov 2026 18:12:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=sEqgIa6T
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=uRkdK0D1Evn9yPGULWEQBwZUI3TEJ1+/UYjutxpisho=; b=sEqgIa6TdSV5J3WITaCpQ2DfXB
-	UNk1u+f+qqtx9BvBF6d5mBEMgLQaBHtVYCYte6C4XkAFuO/n3ExRN392lJZtn7+/LPRvq1zz75Xnl
-	FzIBncTDn/HkIBMocnTTHRu/RZ5omO55BJtftPzZ4uCk4vynx9sIfYwVQI+aAG1z4DqE=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xTk7v-00HU79-27; Wed, 18 Nov 2026 19:11:23 +0100
-Date: Wed, 18 Nov 2026 19:11:23 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: github@bumblecito.com
-Cc: Russell King <linux@armlinux.org.uk>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v3 2/2] net: sfp: sort OEM and Turris SFP quirks
-Message-ID: <fcc50c7d-f55a-4946-bdba-260b89fba889@lunn.ch>
-References: <20261118162323.436219-1-github@bumblecito.com>
- <20261118162323.436219-3-github@bumblecito.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=elM43Bpu
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E16C1F000C4;
+	Wed, 18 Nov 2026 18:12:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795025554;
+	bh=IUksd2EN7DAxDu03VPjEPJYKskFGPuXrSVOQtY3wFAg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=elM43Bpuqtw+3W3DLdnGQqkXlPot4QLPnjebA+7Ygl7hBPLChmAxGrUjRUIQNTds+
+	 mi6e/yluHrgdcz0iiQf9jnCd4cj9mU3FTNAOyxeCy7ho3WqswAB+Iybqkub/4OWaUX
+	 NLqYU8Y2Abob1lpELVedMjpAcLx6t+4fCvOCD7C5UZTK89X/EtosqWI6Vh29D0pXfQ
+	 rUl/tW4qyr9FvzOknf/G80U+F3yHjQyBlT6wQ2riPRgu7VUoG7xPqAep9hV/Ccn/fU
+	 EL8zoHapGabspc6BblgfurPpCaPVua53j6h0Ga9o35xmnwDA3DUYS3/1X7trxGdal+
+	 a87Oj/9KjGtNQ==
+Date: Wed, 18 Nov 2026 18:12:30 +0000
+From: Conor Dooley <conor@kernel.org>
+To: rva333@protonmail.com
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-iio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/4] dt-bindings: iio: light: stk33xx: add power
+ supply support
+Message-ID: <20261118-coyness-luminance-6d0c07e843b7@spud>
+References: <20261117-6768-stk3337-v2-0-92f4c7be3bc6@protonmail.com>
+ <20261117-6768-stk3337-v2-1-92f4c7be3bc6@protonmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,23 +63,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Wi8VP7MkMSS0kuNp"
+Content-Disposition: inline
+In-Reply-To: <20261117-6768-stk3337-v2-1-92f4c7be3bc6@protonmail.com>
+
+--Wi8VP7MkMSS0kuNp
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261118162323.436219-3-github@bumblecito.com>
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 18, 2026 at 04:23:23PM +0000, github@bumblecito.com wrote:
-> From: Israel Cueto <github@bumblecito.com>
-> 
-> Keep OEM entries together in the vendor table's alphabetical order
-> and sort the OEM and Turris entries by part number.
-> 
-> This is a table-ordering cleanup only; preserve all existing quirk
-> matches and fixup functions.
-> 
-> Signed-off-by: Israel Cueto <github@bumblecito.com>
+On Tue, Nov 17, 2026 at 08:08:35PM +0200, Roman Vivchar via B4 Relay wrote:
+> From: Roman Vivchar <rva333@protonmail.com>
+>=20
+> On some boards, the chip shares a power rail with other components. If
+> that rail is turned off, the chip can't function.
 
-Thanks for spending the extra time to do this.
+With these issues in mind, probably it should be made required, even
+though new required properties are an ABI break.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+>=20
+> Add vdd-supply property to document the chip power supply.
+>=20
+> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+> ---
+>  Documentation/devicetree/bindings/iio/light/stk33xx.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/iio/light/stk33xx.yaml b/D=
+ocumentation/devicetree/bindings/iio/light/stk33xx.yaml
+> index f655a570aac7..114cf87eb54d 100644
+> --- a/Documentation/devicetree/bindings/iio/light/stk33xx.yaml
+> +++ b/Documentation/devicetree/bindings/iio/light/stk33xx.yaml
+> @@ -37,6 +37,8 @@ properties:
+> =20
+>    proximity-near-level: true
+> =20
+> +  vdd-supply: true
+> +
+>  required:
+>    - compatible
+>    - reg
+>=20
+> --=20
+> 2.56.1
+>=20
+>=20
 
-    Andrew
+--Wi8VP7MkMSS0kuNp
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCav3qjgAKCRB4tDGHoIJi
+0lBbAP9YFPlo1iWzvxOPAtC+Ka1IITpaCyap6wkQEn5ECGM9mQEAnZMkdI6PAl0s
+MCvwNfv3kH9BLnT19JYl2/vIDi4vcwQ=
+=mpIH
+-----END PGP SIGNATURE-----
+
+--Wi8VP7MkMSS0kuNp--
