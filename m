@@ -1,91 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.199.235.221
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795022190;
-	b=CvHP4wcN5ZOkCjkmNpOt4E8juo8iKqIgk4rLc1LAJvMLj8rTfN1qr0Ztti5fX6T5p0Kq
-	 lJ81HSmQhcrz+gX5Ak2kIjm/xqU0hO9QeSyzfBEJ3UGdH6q2yMOXdqP8BmseGOF/q8VJV
-	 l/NLdLxkEqVkx5FsDNVcrtX4kbuc7qM897JTAXYBb5n5d4F/04FMgClu2wnlGSD3oW3gx
-	 lS/FMWlROq8MVGBIHhutGIYkU3lS+NqJdT3sAYD+KUZ3d9uTpop9QiceYDkpXRkutXlKW
-	 SiyFoicv2LJG6uh9d3kZRya7VBvA4/iGwMGT/xdKHV7iOj2Tcl8IwBOhdOeVW4YQzog==
+	t=1795022200;
+	b=1EReR1UHMTyGj9eYQFNNpBQsL7iGr0vKnxgGiuvo4QQGfO6S+BcDJIRNBe0NfS6eWLnh
+	 UBpY60FRMdTnahCLUyr/YGKbGZKnAesWdqUG5z+0wrHgp+fCTBzOOyR/ZtmpGEiRYu+pM
+	 5ZH/DX1LH3sSNyVSg6goq94uh/Dd1HfTlxn0erJZmnVwa0Vd5CUPyQglnCSyo89yEkA8u
+	 eqZz+mjHbP9jKaiT0+dgG/CMiYETZePSUFJExnj4q4w2HgmzT6rHO/dtbBfbuDTYs/4Dw
+	 58Sb4XlX7GcL9kn7rpsDg/6cV7g8H3G5Bz0QA8esqimwkoBas5U6RUJX7fXf5AGO20g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795022190;
-	h=DMARC-Filter:Received:Received:DKIM-Filter:DKIM-Signature:
-	 X-Virus-Scanned:Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=JcG5i3n/enYidgqlQ6vBgqJiTw2tRlwgEdU7NIgWq/M=;
-	b=Cq0+fWWur9bVYzAVIZXo/MyJT/0fSs9Us/KpwwvIEm+HWHKmJK0MQL4epiBudUd3oPK+
-	 VrOVL7A+cM59iMrCmjw/EWRJkKEmw1f8eRLW1aTIo+de1T1t7x/g01lGuOUFZWILGnJza
-	 0Qjhc6dO1Byf2fIvUusKZYvUSnSyzscBXsBa+HbsTm4imqZSf0BkwxEprQDrq2ZncW4+C
-	 OgKmeelSpBD8kNMzhu5Lx3RItRk5j7+FUFA5Z3Klm96lr1x+Etc+32SaaBBQ5Urophz1T
-	 WlC4V0FQBVMHu3XMcLwhX4ekjkc8+e5nJAx/bh8e2pQIYNhN6ybO1RBxQG/zhgzttdQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795022200;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=SAzJmY4FCeji/qIKXkz3wy9NVv0twgE5M8r/Ajd4Jqk=;
+	b=vSokR6NYMvDo8LVDEJbgSWyVvBUDoVrcxwLxhhzyDtOD/YYwnU7ghRwRS1fQFIlXux0/
+	 KPmYlMNzwDOIAUa3JzFYH1AKwrGeFR50/vSfDhqDlKo8M8afO5DWY8hhpWfmOMbGzIBSr
+	 hii7RvgzsRYuFJjc+qY6JaOzUA7oxBWG9wkUkO9huV6vTIoQp6yB7GeExLqNGtnH7TD+h
+	 /tuKnybRtS9rhYPkYbVSCiuuvDOI22G06s3SI91U4sI5eLmbJ3xuerVhXn9WUCjTpQXuK
+	 D5xitLw0YdtEaCDLPwIpTVGApJ6OkA43/jQW65s3FBwB8ikiS398iH62E3elnhzvy0A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cirad.fr;
-	spf=pass smtp.mailfrom=cirad.fr;
-	dkim=pass header.d=cirad.fr header.i=@cirad.fr header.a=rsa-sha256 header.s=573E3878-7916-11F1-BF4B-F68474317960 header.b=MDMIV7gp;
-	arc=none smtp.remote-ip=194.199.235.221
-Received: from retz.cirad.fr (retz.cirad.fr [194.199.235.221])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GSY98f4K;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75AD5606A325;
-	Wed, 18 Nov 2026 17:16:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75AD5606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cirad.fr
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cirad.fr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9DD9606A325;
+	Wed, 18 Nov 2026 17:16:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=cirad.fr header.i=@cirad.fr header.a=rsa-sha256 header.s=573E3878-7916-11F1-BF4B-F68474317960 header.b=MDMIV7gp
-Received: from retz.cirad.fr (localhost [127.0.0.1])
-	by retz.cirad.fr (Postfix) with ESMTPS id D5B9920DC666;
-	Wed, 18 Nov 2026 18:16:20 +0100 (CET)
-Received: from localhost (localhost [127.0.0.1])
-	by retz.cirad.fr (Postfix) with ESMTP id B40A120D4CAF;
-	Wed, 18 Nov 2026 18:16:20 +0100 (CET)
-DKIM-Filter: OpenDKIM Filter v2.10.3 retz.cirad.fr B40A120D4CAF
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirad.fr;
-	s=573E3878-7916-11F1-BF4B-F68474317960; t=1795022180;
-	bh=JcG5i3n/enYidgqlQ6vBgqJiTw2tRlwgEdU7NIgWq/M=;
-	h=From:To:Date:Message-ID:MIME-Version;
-	b=MDMIV7gpFlG4nWKnXQsyR2H8laq+en+JwUex05lJFXzBzE0m+pZAMpTmHq/mYFnhX
-	 ETt2+pNDvKWDTSFUo+QIDbBiH5KXmQ/ESS/M8HGhZpr35hqRj9md3ip3C1KlgZb5eZ
-	 vUBQ5j4R3PV8UE2Y4TaqWB2pjPohKozY+8duYsblm5XGZDmTbZtWNT66SaQP6mPk/+
-	 zV9JEGy4wvx/EKCF/SFdcMG2MibDwPegaIXv/gBw52RmACqBES8sxqAJBZGZNiLe2m
-	 Zg0qEf9Lnc2jIs6CIlT0liTD241SrtMPfIrAGKUrwQGzk5+NXbTZE8YYCgewBmLOBR
-	 FT2Ro6bq5hdCg==
-X-Virus-Scanned: amavis at retz.cirad.fr
-Received: from retz.cirad.fr ([127.0.0.1])
- by localhost (retz.cirad.fr [127.0.0.1]) (amavis, port 10026) with ESMTP
- id BA7VGU8kKTYl; Wed, 18 Nov 2026 18:16:20 +0100 (CET)
-Received: from localhost.localdomain (78-196-243-100.subs.proxad.net [78.196.243.100])
-	by retz.cirad.fr (Postfix) with ESMTPSA id 9AC0920DC666;
-	Wed, 18 Nov 2026 18:16:19 +0100 (CET)
-From: =?UTF-8?q?Fr=C3=A9d=C3=A9ric=20Mah=C3=A9?= <frederic.mahe@cirad.fr>
-To: Yixun Lan <dlan@kernel.org>
-Cc: =?UTF-8?q?Fr=C3=A9d=C3=A9ric=20Mah=C3=A9?= <frederic.mahe@cirad.fr>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Yao Zi <me@ziyao.cc>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Haylen Chu <heylenay@4d2.org>,
-	Hung-Chun Tseng <alan.tseng.cs@gmail.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/6] clk: spacemit: k1: Keep pll1_aud_245p7 enabled
-Date: Wed, 18 Nov 2026 18:15:35 +0100
-Message-ID: <20261118171536.197538-1-frederic.mahe@cirad.fr>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261118111528-GKD156369@kernel.org>
-References: <20261117205951.140146-3-frederic.mahe@cirad.fr> <20261118111528-GKD156369@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GSY98f4K
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA67C1F000C9;
+	Wed, 18 Nov 2026 17:16:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795022200;
+	bh=SAzJmY4FCeji/qIKXkz3wy9NVv0twgE5M8r/Ajd4Jqk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=GSY98f4Ki8nRSlVBffIV0exkJgfRM+bfH+yHeRlifszVzSumzm3erhIwdDMLB/7fj
+	 WYuGsz1NZdAkTUpBQDVls9xrw/8a/b2zIh2E9iwDTSk/UdaOZ6G4RAu4okEn0/Iu3N
+	 PJK36e3rQ6ZMubzstA7P42bQv4InxsVDiwfyLcrkXDLMTLJsa1f2OdGsiuFs/eK8cc
+	 0xDRMW5MlS7weCJc+GkV9gA0+XTylYdYwIWF+9JpPxZ8uChYBQFDHWx430nhbIh/aM
+	 nvv3ELf1bpOhmGuYgnz+6ZywpXW9x8G7RX8orGBpDFxfyco7VwG5X2VR5hlL8SaClI
+	 VJ9UXFPiPAtFw==
+Date: Wed, 18 Nov 2026 17:16:36 +0000
+From: Lee Jones <lee@kernel.org>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>
+Cc: Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Mikko Perttunen <mperttunen@nvidia.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Sandipan Patra <spatra@nvidia.com>, linux-pwm@vger.kernel.org,
+	linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH 1/8] pwm: tegra: Prevent 32-bit period truncation and
+ division by zero
+Message-ID: <20261118171636.GD98456@joneslee-macbookpro.roam.internal>
+References: <20261105143847.2559586-1-lee@kernel.org>
+ <20261105143847.2559586-2-lee@kernel.org>
+ <auykeNit2S4e7axg@monoceros>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,72 +65,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-
-Hi Yixun,
-
-Thanks for forwarding it to SpacemiT.
-
-On Wed, Nov 18, 2026 at 11:15:28AM +0000, Yixun Lan wrote:
-> Access which register? is the PWM register in RCPU2?
-
-No, the hang comes before any PWM register access. The PWM probe
-first deasserts the reset and enables the clock, both in
-RCPU2_PWM2_CLK_RST (0xc0888008, in the syscon_rcpu2 range), and that
-access hangs. The PWM registers (0xc0888300) are never reached. I
-have not tested each register on its own (every hang needs a power
-cycle), but I can do it if that helps.
-
-> It just happen to fix the issue, but doesn't sound like a correct fix,
-> usually, it can be fixed with correct clock topology
-
-Agreed. The vendor kernel never gates this clock either
-(CLK_IGNORE_UNUSED in ccu-spacemit-k1x.c). If pll1_aud_245p7 is the
-bus clock of the RCPU2 block, it could become a clock of the
-syscon_rcpu2 node, and the CCU driver would enable it before its
-first register access. I will wait for SpacemiT's answer before v2.
-
-> maybe just "Assisted-by: LLM"
-
-That tag was removed (1e035297ffda), so in v2 I will move the note
-to the cover letter, as Yao Zi suggests.
-
-Fr=C3=A9d=C3=A9ric
-
-From frederic.mahe@cirad.fr Mon Sep 17 00:00:00 2001
-From: =3D?UTF-8?q?Fr=3DC3=3DA9d=3DC3=3DA9ric=3D20Mah=3DC3=3DA9?=3D <frede=
-ric.mahe@cirad.fr>
-To: Yao Zi <me@ziyao.cc>
-Cc: Stephen Boyd <sboyd@kernel.org>, Yixun Lan <dlan@kernel.org>, Troy Mi=
-tchell <troy.mitchell@linux.spacemit.com>, Brian Masney <bmasney+clk@redh=
-at.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kern=
-el.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt=
-@kernel.org>, Haylen Chu <heylenay@4d2.org>, Hung-Chun Tseng <alan.tseng.=
-cs@gmail.com>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dab=
-belt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti=
-.fr>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-riscv@=
-lists.infradead.org, spacemit@lists.linux.dev, linux-kernel@vger.kernel.o=
-rg
-Subject: Re: [PATCH 0/6] riscv: spacemit: k1: RCPU2 PWM clocks and the BP=
-I-F3 fan
-In-Reply-To: <av3MI0wgou3pbab8@pie>
-References: <20261117205951.140146-1-frederic.mahe@cirad.fr> <av3MI0wgou3=
-pbab8@pie>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=3DUTF-8
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <auykeNit2S4e7axg@monoceros>
 
-Hi Yao Zi,
+On Thu, 05 Nov 2026, Uwe Kleine-König wrote:
 
-On Wed, Nov 18, 2026 at 04:02:43PM +0000, Yao Zi wrote:
-> I think spacemit,k1-syscon.yaml should probably be updated to make
-> '#clock-cells' property mandatory for rcpu2 node? And probably also
-> the other blocks capable of clock stuff as fix...
+> Hello Lee,
+> 
+> On Thu, Nov 05, 2026 at 02:38:03PM +0000, Lee Jones wrote:
+> > tegra_pwm_apply() passes the 64-bit state->duty_cycle and state->period
+> > values into tegra_pwm_config(), which accepts signed 32-bit int
+> > parameters and performs DIV_ROUND_CLOSEST_ULL(c, period_ns) before
+> > validating period_ns against pc->min_period_ns.  If a consumer requests
+> > a period that is a non-zero multiple of 2^32 nanoseconds, period_ns
+> > truncates to zero and triggers a divide-by-zero panic.
+> > 
+> > Widen duty_ns and period_ns to u64 and validate that period_ns lies
+> > within [pc->min_period_ns, U32_MAX] prior to dividing by period_ns.
+> > 
+> > Fixes: 1d7796bdb63a ("pwm: tegra: Support dynamic clock frequency configuration")
+> > Fixes: fd3ddd4355c0 ("pwm: tegra: Implement .apply() callback")
+> > Closes: https://sashiko.dev/#/bug/linux-5c5b97d6-4da6-4d06-9dc7-957419dcd832
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Lee Jones <lee@kernel.org>
+> 
+> This is already addressed in
+> 9ad5602d4943 ("pwm: tegra: Fix value discarding for duty and period")
+> which is next-20261102 and later.
 
-Right. In v2, #clock-cells will be required for
-spacemit,k1-syscon-rcpu2 (on its own, since rcpu2 takes no
-osc/vctcxo inputs). For the other blocks, I will check which ones
-provide clocks and send a separate fix.
+Would you like me to resubmit the set without this or can you omit it?
 
-Fr=C3=A9d=C3=A9ric
+-- 
+Lee Jones
