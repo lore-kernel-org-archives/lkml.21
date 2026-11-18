@@ -1,90 +1,154 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.51
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794975452;
-	b=tzdbFosL5FjZyZzQmfKth2ctqxbMEsfDRrGYfv4OMmUUygwXLY8/31EvdCNRnkvjnLAF
-	 1xHTtmYQfxcRdqnF3jGrrLztLyIvr6avuAOXzKI9d1aPFbNrGz0rb+O569WryzfFPc0ef
-	 U0cLS8QPgqhg4UnNwHdFbvh5xtqUNAQsa84bknfg1HPznlkiByESYUOaJJ/S3BKCQgjES
-	 UTAmIhJ701+3SvznVHKpL5NUQogXigeyn4jivofPIff5l7WMi7uUeNTXnW4RbRtVa6/uk
-	 grh1yPAVbyRwhe/2PPhhbSMO7hVvD9G4gIJd46UBJhWjfnQPGblW5R2HN/URomLNMVw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794975452;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:X-Forwarded-Encrypted:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=+jujJ243QVTrYG17pj7lkbHGYx3SfvWrc0zUwmud3CM=;
-	b=Z9ariKUpafHzj5/jLRaiRgEs/5lnRt45aN+1fLsVpVd3GpfLXv5i+PdoTEi2QGI4zb+b
-	 ukKIAzSeJEI0t0i5Vqu3g+vGBaEzhzEa28FvLv9QqREm+IpAqRfTX3RuI55jCKNKo1enm
-	 vtjYzpVSxP4QEsKRx3GHvHGhydjS27ypPI4JRZVRWmrHVB1ZHEVHfCYcqHvpd8BWJtRd3
-	 Pt1V1eVDxjCF5sFuDnW0bDBOzc6C1p3YLYwB8+Wv7HnDnf3SIN5VYVDZ7wXyPb17HiA+G
-	 VSEaEK5nQWGtgISMC+KK5S8LG+YQg6JB4L+pVsu3EDDAGWTkwXLx6I9CuwX34U4FyMQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=EIIgHh6M;
-	arc=none smtp.remote-ip=209.85.208.51
-Received: from mail-ed1-f51.google.com (mail-ed1-f51.google.com [209.85.208.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.39
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794975495;
+	b=CeRHZHCKagUjgPoPs8qYek744ofjr/4anYNrbN2bA5za5eGqhhKvIygAOMSVDLahULwh
+	 /6Vts+O9zKEGT/usticjsXkQV2RBxyfc4764CxHuB0lPrN6HD2O82pM1Tf4jeLxM81XkP
+	 gkocznCaZKg5Ok1jJXQwrbCgu2oDu8wMfcJSnlXKEWgIjcFcuviZSjIYzCQ5Cm9zUuBDH
+	 spgsUITrGP4kBHIYHFb54znyPsrlBbV1mu1qFu/VTYgfimirF9Rl4kE96Vq4VUZVGDPD+
+	 BHjMtwSzFpwoQKBgXA1LZ4VCw3HwlPmtaDmfOSZ10KfnHEQbJCIizBsCZEaWJcWG7og==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794975495;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 msip_labels:x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
+	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=vnQPJjjH6hN5V7veicXc949/FeYS+wOHdGFONuB19cA=;
+	b=5XuXh/IpxWzTSNcg9Wm9bNmk3V+M3wd+VUJ+jTFw518vHEsKifmnK3rm15VMRiBlnxEk
+	 wPPHkWt/MF3F59aneBYU6fca0WmEUGpXXkshELA828bRVeoUUNVm9+pmhTPYFSQnspyzi
+	 fcV9FzzYPL1hfIKLEsutGAIMQ5NqurxYqhJZcx7HJjfxoyPNPmF86xd55IxofewJx+xhy
+	 5mWz/ndzyBs8tb9WCcvLWb4ScssOrXIOBDL8H3n3PSWyn3Vv6M7NiEFKRezhKsvLtk1C1
+	 dHr3RmWj4Nre81QpTwQ8Y/JLLIMUCuYP5uls4SP4YWZaU7k4v7BoZ696xJxBaLSwE3g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nxp.com;
+	spf=pass smtp.mailfrom=nxp.com;
+	dkim=pass header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=Mt3PzOCp;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.39
+Received: from AM0PR83CU005.outbound.protection.outlook.com (mail-westeuropeazon11010039.outbound.protection.outlook.com [52.101.69.39])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 593E0606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:17:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 593E0606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1955606A31C;
+	Wed, 18 Nov 2026 04:18:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1955606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=EIIgHh6M
-Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-6b894a5ce3dso352467a12.2
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:17:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1794975450; x=1795580250; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=+jujJ243QVTrYG17pj7lkbHGYx3SfvWrc0zUwmud3CM=;
-        b=EIIgHh6MpLQjDv/8P6oXJz4LaTgwzCxBIJgCCam9R9jnB3UKgTh0j/IupDZTDDUEIq
-         7S5e1igOmOLWcVcLyWcGSPGQpoRG4Vele5hu7JX1/a9gLxEktBb40d1nyDOQ9SG19inw
-         JRXBPHCP5HcF3PDK3v8OtVW7MTznA/7vb2omg=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794975450; x=1795580250;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+jujJ243QVTrYG17pj7lkbHGYx3SfvWrc0zUwmud3CM=;
-        b=X0S6aul65AAiv/Ca/GKTnP8bwF04PEyiChG0dF/d/ltmW4K++6/q+zWKTI0K2Y3KCJ
-         iGhXe5k6UYeY1Bt/aKeKP6MU+pCyl6ml8rzbY0iuq50ECBttyv0Kvq9CekTMZH3cRCG5
-         Ch4V/FuC23HtuKI3h6njygZ2X6TG3UqfiCjBq1s4+5BKlnDjJ61Yl2X4+y/0lgJLxPuV
-         PH1h4FdN2TdzcEFDlG7xNmdWnr4sYSMO26eL/zTGMaP58BXIhg3b0B/WVHepeBWjc4Bu
-         6uBVUm2XQ+IPd6OCxWBtpHi4ArUmk+i0cMffdVMjW+ajJ4u7yfZTsDzXc/XatoFge5id
-         enqw==
-X-Forwarded-Encrypted: i=1; AL+hErE7ikmG1wBcfTx03175L8xXbIjazQ40f/qoNQYKHEtT/LtecSQXNzu/zG9HkekkmLc2J9J+pTK8xFuOv5s=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/gtPHDbIb7vzpKdvHT0wwFQmAjBAfj1/1op5JPd5uIf6u9SnES
-	kxLDvl6kyBuK9p+l0p3iyTjiZ2lWm/YTQwDiEyxu1csJ1tXMhO1/4mUp5q1bFme5gRD8KKkqU1K
-	DhmyLwHur
-X-Gm-Gg: AYBFou2DKR08gPqWTtYlpuR3iKB/veR4ihGLYYhW2tt+oRksILReJZ4KqlnrYd3+EE3
-	VHZ4iwYmwJQEWFmO8EbwYoFGnzP5J3CAmWoq9kV1iC2V41X+PrtiJHhn6sM88WbMHeC7O7iFUy9
-	01/iEJQBDfWHBctdJT7JZwjwiMiHHq2zb8ovz6XI3dEYwOSPJPb7RzDHoWs5ArXBafIKWIrHEQD
-	6pI9a0QV2T5RgOzxJ5ecgFN9wr9xOL4N88qgx8gnmiluxJi/9QHuDQ8g4zKTjSrfPf/NdJVm4z4
-	fR/G7lEqWcXgSoBKG6jp3sjRq1WgdGzYwKwE0shFTiowS6tKmebJNmsytXoefdNYA/3Q+ejL01b
-	KT/PMgzpi71mxraRXTnODtdiqVR2DEoNGgeaj9oIyojzBfFRfEd7DgGjl3aok7vDrTeL1Js9EsI
-	fDmCkCkSgnFmmE+qJCcqsDt9EJsrtLXTXteha+8U9RmkUA4XUj4YlykzZ5Z3U35nABtca01X22q
-	RemRNDlKfp8hWtg4s7WydjI0mZWDowB3Gu1q/425AY/qjH96EMYpei3oEmeEFDqOBqfBoqwInzi
-	w0wVfItzrpQ4xo/IZC/VN+2vweolIoFVYquzwCduPUWlvWIW5cIRQ+is+TfhrsiyGbWC
-X-Received: by 2002:aa7:c719:0:b0:6b8:7e86:3e90 with SMTP id 4fb4d7f45d1cf-6b88810f98fmr649484a12.38.1794975450516;
-        Tue, 17 Nov 2026 20:17:30 -0800 (PST)
-Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com. [209.85.221.41])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b88a1eab52sm540729a12.25.2026.11.17.20.17.28
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Nov 2026 20:17:29 -0800 (PST)
-Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-4a33359c1b3so264544f8f.3
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:17:28 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFfL7dxBT+uoDe0tEjbA4gzGCUmpGKR0qsdDq9QXx27FfFREjPYrP0yBaUiGBzzgf55OmF6gDclgGz8eOA=@vger.kernel.org
-X-Received: by 2002:adf:e00b:0:20b0:490:7fb3:cb41 with SMTP id
- ffacd0b85a97d-4a63d2cfb02mr1975853f8f.24.1794975447625; Tue, 17 Nov 2026
- 20:17:27 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=Mt3PzOCp
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uydlNblYZYNUoRs63a7z0mHvVGgjT8ilEPucWMl9tCdca9i4Nt5gYZ4YNJJNZwntBWbvqoO4fbAWFL9PhzozQDboY7UvyTyo+P58ZvdnNVCYmWi5EJ+ownuk39HvkKe8GeqeowgU2KIuWScD2bhQn4cGZDprtFyP7SVL8PIgCxjGDCd1ZHg7QfFe8IeUYVTly9zvrJkJzfw9piUbMfWFLqWqVQCXkhcs29ZmtTsv/RWJ7sstzxjnMrYqgQLTZyu2fQOFjXZ2lIhH53J2pYJLEEvkwSO51TLWCwm2z5eGIisu8QuZ9dhbbI4sic/5BVRCC4E7vK4ozvsSashIuju74Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vnQPJjjH6hN5V7veicXc949/FeYS+wOHdGFONuB19cA=;
+ b=KqQbVvBaO0zoX2B2cnMWwkIMQsBp23C1ZlaV7PjsXY82iBLLbQfG2aI3lulHPvWC8sjSFNhjzUhx5l8pehNwihIyDCv7nb185eDQstVyGQ2SywimdTJzWpX866fjbPuBGURv2IAGahHlHMfjjV5kmwcXojIA3QEvNLRgezKULXfUcX97YbM6UlajWnRBIWTW4uGnq80fX0OYdlq14+i+81oD/Mahb6zh/8GBuca1bQBCjZIhasfmhjX6sZ1wS3U822Tiv+mMGqLL4jfEFoBqi5842+/flwQkl0WisKVV5bfi3jPTHava1vOEEPWqjhweKpn9wcq7jxAMGYNgI7J3cQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vnQPJjjH6hN5V7veicXc949/FeYS+wOHdGFONuB19cA=;
+ b=Mt3PzOCp/dJmMIcL7u+wlWS+ycG+o2DpKhWPTuC/fUj2VZXGwLtDp8x5IIPo2of2LP5qe5UhjAjC1nJ1vvGOiyUH0SVEMsmV4W+1L8D2G0E2vTYD3Hg5ret2WkkgZ0wnTLVFT0BKUh/UdIvXo5HP2I7452JNEo3y5xgwYSxl3fClgBN5u74j4cX3AlFRvEkbejAhQLnXH820yJvafQ1/itDvgxhZdh0xXfUk8E8PejMp1gJZ2xwD3DUp5aPga34GoHDy3E1xj6hShhNReZr4wepyCUmhVUYtaTlKGRrUv3UBuAM+TjiZtf+gJz59qn/9bwnQMzfJ5UXvlZUwF5lD+w==
+Received: from AS4PR04MB9338.eurprd04.prod.outlook.com (2603:10a6:20b:4e6::17)
+ by VI0PR04MB11940.eurprd04.prod.outlook.com (2603:10a6:800:307::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 04:18:10 +0000
+Received: from AS4PR04MB9338.eurprd04.prod.outlook.com
+ ([fe80::7c4c:9c56:8552:f680]) by AS4PR04MB9338.eurprd04.prod.outlook.com
+ ([fe80::7c4c:9c56:8552:f680%7]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
+ 04:18:10 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: "netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>, "Wei Fang
+ (OSS)" <wei.fang@oss.nxp.com>
+CC: Clark Wang <xiaoning.wang@nxp.com>, "andrew@lunn.ch" <andrew@lunn.ch>,
+	"olteanv@gmail.com" <olteanv@gmail.com>, "andrew+netdev@lunn.ch"
+	<andrew+netdev@lunn.ch>, "davem@davemloft.net" <davem@davemloft.net>,
+	"edumazet@google.com" <edumazet@google.com>, "kuba@kernel.org"
+	<kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
+	"horms@kernel.org" <horms@kernel.org>, "richardcochran@gmail.com"
+	<richardcochran@gmail.com>, "linusw@kernel.org" <linusw@kernel.org>,
+	"linux@armlinux.org.uk" <linux@armlinux.org.uk>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH v7 net-next 9/9] net: dsa: netc: add PTP one-step
+ timestamping support
+Thread-Topic: [PATCH v7 net-next 9/9] net: dsa: netc: add PTP one-step
+ timestamping support
+Thread-Index: AQHdcaU8FIWnfsUcvkazg7XTHvzRILcuwWcAgAR9yZA=
+Date: Wed, 18 Nov 2026 04:18:10 +0000
+Message-ID:
+ <AS4PR04MB933806268CA9276C44A5696D887A2@AS4PR04MB9338.eurprd04.prod.outlook.com>
+References: <20261111062753.1397582-10-wei.fang@oss.nxp.com>
+ <179472746829.2199510.2714083926199671078@kernel.org>
+In-Reply-To: <179472746829.2199510.2714083926199671078@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+msip_labels:
+ MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_Enabled=True;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_SiteId=686ea1d3-bc2b-4c6f-a92c-d99c5c301635;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_SetDate=2026-11-18T03:59:41.0000000Z;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_Name=NXP
+ Confidential;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_ContentBits=3;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_Method=Standard
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS4PR04MB9338:EE_|VI0PR04MB11940:EE_
+x-ms-office365-filtering-correlation-id: dc2fc065-acab-4e5d-0bdc-08df452af4c1
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|366016|1800799024|376014|7416014|19092799006|23010399003|38070700021|10067099003|5023799004|4143699003|56012099006|261026140227099003|11063799006|261028144727099003|261021121427099003|261022105027099003|261022075727099003|261026121527099003|261021123027099003|261102123227099003|261009223027099003|22082099003|18002099003|6133799003;
+x-microsoft-antispam-message-info:
+ /nmp85ks+s7wa3zg0jPfeIJ7TzOdxARjWrkkif6Iq/CKuDVRI01WZFh6sV4SyDTajUE8+WOLXRMETdy2qqTiAa4+wt0vZtI6gHoZvP8lGVt2wmow3G8eXsgEMDcZAOLSgaz+8oQjUywcDafZd32mq7fH1kmhGQxBahMdaftzpz4cY9Ku5wPr+p4c+urLSAJlFkZno2E7qojRYec3B+nq5uZAMITvErWC2xDsQEIEFMV5OuFaAOROEZvEH0v2geEKyXtwvw8gUkNMOXudT/LwFK041Nput2E5Oryd5l7tU1G3I2psULu8y6GvR3YzzYJ8fQT3SDlz+bNj47xjorL24fKH3s9rxroSfxwV4tJfg2ZmAbUbDMcU6pUxflUzQX8OFCMyzgVLfZGMw+ahOTcy++K4xtivhQLMmkNFqcIc5wjE+viylG1pDOvkvERVbWb6vQ/3T+hfJVTKv1vZbJCOKtGWxis9ze0It4BwuEFbdabd1CUhA2R9w0bqoBfQrwuxkUFjAS+92NglsWW5AJRswiqHn1Rsu+MyousA9irFAmLMZjfQcMrP4LHh5WlPASpErArRKw8kXAv05QKzDCypabyi7Tow8pcVK60p3JQ/ZEZrnXJTNxr0QV5ZklO3SZknPk9QE+Es6hb0GnbaaNATh72ItPgQkldtzx6vaM9qv28Ed2oWQZUstQ5tT3VqBY8DbhM3ZZM/RfgxjkLTfVUpXsBVSz4FokBDHDCzNWF5QIA=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9338.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(19092799006)(23010399003)(38070700021)(10067099003)(5023799004)(4143699003)(56012099006)(261026140227099003)(11063799006)(261028144727099003)(261021121427099003)(261022105027099003)(261022075727099003)(261026121527099003)(261021123027099003)(261102123227099003)(261009223027099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?us-ascii?Q?8kFfOKaWW0q9QZn6zTqS6s0/h4ry/YTuOTfv4VOCZY8xFnlCXmhzNOPFLmwX?=
+ =?us-ascii?Q?9Fh1jreuNDAiyH7yU+WluMxk1lyvIUYBV7kTlTFVE5iwfJ2S5N+nOSUSYKqy?=
+ =?us-ascii?Q?HBCAGoav/qWYw44LZKByHnJRNdRhiXLnSJLaBqZvG+4LmMa8iZavIrREipoj?=
+ =?us-ascii?Q?tkxUc8GVYV2KYrWijsy2nTCaFcvvmqap7QtjRylm8WItZXokf8H6sQ1jNh6j?=
+ =?us-ascii?Q?VH4tZbZbdjBUveABYLYkwvklGvlWbp41hnVp7ygsTKhKu7NGuO1Fzte+xHJd?=
+ =?us-ascii?Q?wUUhv+gCjTuiR9l6f+WaEXZYAgRGOCegXUNAEnNuyyM+wH6dNo3kV+0hiWFE?=
+ =?us-ascii?Q?ioPNL2msV4n7R/bUXk64DqGu+ZNBwmCQU5tBRetVPXT/wrm7jBIeEJ8ZQJjR?=
+ =?us-ascii?Q?eRsUTyzHz+w2u24FYY1RhrkDqg1poAQ/hXbdbQ+pdRoR0yqPU6Nazbr3fXd/?=
+ =?us-ascii?Q?RVyoSU0dybjJlaZBXEbbYgVdOt12yE6Jd0iSdB5TlwfQOroyZf/R8b4dU9te?=
+ =?us-ascii?Q?u2+RUNXMJXL16Vktff7dOe+vm+cF+wBel1aNbKlqhYG9fqeun2KunbBU7JXC?=
+ =?us-ascii?Q?e7ptJy1pfHdxtL0LB2QeTcmlqU//vrjbcXdeCpA12Gf5kmgSWo+W39YrGn3T?=
+ =?us-ascii?Q?JoJkhnbGKGtd3qlpcq6ai0igeIth9acunHCNpeJzde8lmRi1o4q8IxWnqmRk?=
+ =?us-ascii?Q?3gbzUCyHe83gCvQ4Sib7YwJfhYFUHBu9LdkWgte+UTI283AA9/K5uJAoHrXS?=
+ =?us-ascii?Q?YJVsmS2W+fLt4+YXhGwczk7ZxUBSng/XH9aFmsY8UtwaGIvJielSQsW3mzih?=
+ =?us-ascii?Q?JeVpevZXvqFEcvYFIWqynHCS4wQge6FekB6ycQgvvPv5bRQzzxuMo+QBooeZ?=
+ =?us-ascii?Q?Ise5H7OkeB/eaOr7FPxAcKR2uZUoWfG6km5XbA8NyQg6/GNFxxtRdQYkGiaA?=
+ =?us-ascii?Q?fsV3uVEatjMjrK4rS59VvJ+Ddit/JomvWtD4wqra+A0ixaJ+fZKAYRu5tHgM?=
+ =?us-ascii?Q?RgXdLDaurGUxx5/bW8ZXDeO5/gABTWMu8vaAJxv2i0vp0uY+mv+321zjTEj3?=
+ =?us-ascii?Q?mZl9sPcX0okq/aCJw2ll3g2XYx+kO7raVhzNeP5NW/Qa+fN4Proy0LZqTQM8?=
+ =?us-ascii?Q?LzMmSKHQNiWvQ/lLh93IzdVVdlT9JDy/1+9j9UykQPlfN9GVu0pOvQTX1bfu?=
+ =?us-ascii?Q?6o/XLLb5JOeMNNWO0MKmVM0bqKSrOqO0x4qgHp/GqSa6Lxy2w3g5ifUud9we?=
+ =?us-ascii?Q?mDlsjGK5eZxpN+gk14abBwCqiUTKoc+/HOveaVUNkpDZKGGDG1fx1AeKzRNY?=
+ =?us-ascii?Q?UA2QF1ZDqa6MtZJ+0OPRLG1I3lEf1Qvc91TvWODtiJydwnDH1FVBEbe3bq8M?=
+ =?us-ascii?Q?f3//QbMakwscpyatlFTrMQv3BjmVHB4HSwyaNj6e9KSTKJ9aTODGxD5EHYI9?=
+ =?us-ascii?Q?Fwphpybm9jwCG738HWqigaHFn11RftmKjD1AqQUPczrEEYtHKJ5rp0t0B6rj?=
+ =?us-ascii?Q?aWIBTMYztShTe80oAQyEnAugUnqXumb2hZ2WPUBY2XnfKdVMDuEDCe7sE+1b?=
+ =?us-ascii?Q?eBQPBhYJuC+E5CpPDHBOpyS4vURxw/GND0oZfkGIMp18xmcc9zWA/1GtFYUq?=
+ =?us-ascii?Q?4BuGKSUs2kRO8CVeBohTHNjGF9TIbBYouKItdtfZcaccAB54NgdZcX+DUXad?=
+ =?us-ascii?Q?4VYjbOLAy4AuHIjYNusc8Ztk5ADx9GmFeC5J6aNQiuZHEbPb?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,82 +158,183 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261113-sp11-panel-lgd0779-v1-1-1020a0f2f83d@gmail.com>
-In-Reply-To: <20261113-sp11-panel-lgd0779-v1-1-1020a0f2f83d@gmail.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Tue, 17 Nov 2026 20:17:16 -0800
-X-Gmail-Original-Message-ID: <CAD=FV=WYhz_DoF5B-fJ77FYjPR=7+db1dgUsm3mmSKfFd47fEg@mail.gmail.com>
-X-Gm-Features: Aa3M54qamHxziF6HUYxZrhm7gL8MsYoWo8lFKfy-Evpfhj64S9u9ILsI_5O3Rbc
-Message-ID: <CAD=FV=WYhz_DoF5B-fJ77FYjPR=7+db1dgUsm3mmSKfFd47fEg@mail.gmail.com>
-Subject: Re: [PATCH] drm/panel-edp: Add LG LP129WT332166 panel
-To: jimmie.lin@gmail.com
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <jesszhan0024@gmail.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9338.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dc2fc065-acab-4e5d-0bdc-08df452af4c1
+X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Nov 2026 04:18:10.6623
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: dY9VP5y6eUds2dxVWpFgqr6cDJPFQL6fkvg6KRUDWZ7mNmP1fE4S/rdn0fxK6ktH2UTjmZYITTwts/b6PVsgqQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11940
 
-Hi,
+> > +   if (np->onestep_state =3D=3D NETC_ONESTEP_IN_FLIGHT &&
+> > +       time_is_before_jiffies64(expire_time))
+> > +           return true;
+>
+> [Severity: Low]
+> Is it safe to treat PM_SINGLE_STEP as free based only on elapsed time?
+>
+> After netc_port_onestep_work() programs the register and calls
+> onestep_sync_xmit(), the tagged frame may not have left yet. It can still
+> be in the conduit qdisc, the ENETC TX ring, or a switch egress queue (for
+> example under pause/PFC or a closed Qbv gate).
+>
+> Three paths seem to reprogram the register without knowing whether the
+> previous subtype 3 frame has gone out:
+>
+>   netc_port_onestep_sync_enqueue(), once netc_onestep_timeout() is true
+>
+>   netc_port_tstamp_timeout_work(), which sets resume_onestep after 5 s
+>
+>   netc_mac_link_down()->netc_port_disable_onestep() followed by
+>   netc_mac_link_up()->netc_port_enable_onestep(), which sets
+>   NETC_ONESTEP_IDLE without tracking frames already handed to the conduit
+>
+> Suppose the old frame goes out after the register has been rewritten for
+> a new Sync with a different layout (L2 vs UDPv4 vs UDPv6, or VLAN vs
+> untagged). Would the MAC then apply the new correction offset and CH bit
+> to the old frame?
+>
+> The NETC_ONESTEP_VALID_WINDOW comment says such a frame "is already
+> invalid, whether it has been dropped or not". In this case, though, the
+> hardware could add the residence time at the wrong byte offset, for
+> example inside the IPv4 header or the originTimestamp. It could also
+> update or skip the UDP checksum wrongly. The frame on the wire would then
+> be malformed, not just carrying a stale correction field.
+>
 
-On Fri, Nov 13, 2026 at 7:05=E2=80=AFPM Haipeng Lin via B4 Relay
-<devnull+jimmie.lin.gmail.com@kernel.org> wrote:
->
-> From: Haipeng Lin <jimmie.lin@gmail.com>
->
-> Add an entry for the eDP LG LP129WT332166 panel used in the Microsoft
-> Surface Pro 11 (LCD variant).
->
-> No datasheet available. Delays were not derived from ACPI or firmware
-> tables. delay_200_500_e200_d200 was copied from the entry for the
-> closely related LG LP129WT232166 (LGD 0x06b2, Surface Pro 9 5G) which
-> most LGD entries also use.
->
-> Tested on Surface Pro 11 with ftrace (function_graph on
-> msm_dp_wait_hpd_asserted and gpio events for panel power).
-> Tested 22 cycles DPMS off/on, suspend/resume successfully with no prep-
-> are retries. HPD asserts 179-182 ms after panel power-on within the
-> 200 ms hpd_absent.
->
-> Cross-checked that the Windows display driver qcdxkmext8380_DENidp.bin
-> waits 500 ms after power-off, which agrees with the 500 ms unprepare
-> delay.
->
-> edid-decode (hex):
->
-> 00 ff ff ff ff ff ff 00 30 e4 79 07 a1 21 00 12
-> 00 21 01 04 b5 1b 12 78 03 f0 70 aa 50 4e a8 26
-> 0e 4f 53 00 00 00 01 01 01 01 01 01 01 01 01 01
-> 01 01 01 01 01 01 00 00 00 00 00 00 00 00 00 00
-> 00 00 00 00 00 00 00 00 00 00 00 fd 00 18 78 f0
-> f0 48 01 0a 20 20 20 20 20 20 00 00 00 fe 00 4c
-> 47 44 5f 44 56 31 2e 30 5f 0a 20 20 00 00 00 fe
-> 00 4c 50 31 32 39 57 54 33 33 32 31 36 36 01 48
->
-> 70 20 79 02 00 20 00 19 3c e6 24 79 07 a1 21 00
-> 12 00 17 0d 4c 50 31 32 39 57 54 33 33 32 31 36
-> 36 21 00 1d b4 0a 26 07 40 0b 80 07 00 ac aa 50
-> e1 f4 a7 62 e2 0e f2 f4 52 b0 60 b0 60 99 35 13
-> 78 26 00 09 06 00 00 00 00 00 40 00 00 22 00 28
-> c0 e9 0a 84 3f 0b 63 00 07 80 1f 00 7f 07 4f 00
-> 41 00 07 00 c0 e9 0a 04 3f 0b 63 00 07 80 1f 00
-> 7f 07 1f 08 41 00 07 00 00 00 00 00 00 00 d1 90
->
-> Assisted-by: LLM
-> Signed-off-by: Haipeng Lin <jimmie.lin@gmail.com>
-> ---
-> This adds LGD 0x0779 panel based on similar entries for the SP9 LCD
-> panel (the datasheet is unavailable) and live testing based on a
-> v7.2.11 downstream kernel for the Surface Pro 11 with this patch.
->
-> Thanks,
-> ---
->  drivers/gpu/drm/panel/panel-edp.c | 1 +
->  1 file changed, 1 insertion(+)
+Old frames will be discarded by the receiver due to format errors or checks=
+um
+errors, so there is nothing to worry about.
 
-Reviewed-by: Douglas Anderson <dianders@chromium.org>
+> This depends on when the hardware latches PM_SINGLE_STEP. That point is
+> inferred from the commit message, not checked against a datasheet.
+>
+> [ ... ]
+>
+> > +void netc_port_onestep_sync_enqueue(struct dsa_switch *ds, int port,
+> > +                               struct sk_buff *skb)
+> > +{
+> > +   struct netc_port *np =3D NETC_PORT(ds, port);
+> > +
+> > +   spin_lock_bh(&np->onestep_lock);
+> > +   if (unlikely(np->onestep_state =3D=3D NETC_ONESTEP_PORT_INACTIVE))
+> > +           goto free_skb;
+> > +
+> > +   if (unlikely(skb_queue_len(&np->onestep_queue) >=3D
+> NETC_ONESTEP_QTH))
+> > +           goto free_skb;
+>
+> [Severity: Low]
+> Can an unprivileged local sender crowd the real Sync frames out of
+> onestep_queue?
+>
+> SOF_TIMESTAMPING_TX_HARDWARE needs no capability. ptp_classify_raw()
+> treats any UDP datagram to port 319 as a PTP event, and the sender
 
-Pushed to drm-misc-next:
+I think this is an overreaction; ptp_classify_raw() is designed to filter P=
+TP
+frames.
 
-[1/1] drm/panel-edp: Add LG LP129WT332166 panel
-      commit: 742f7adf11338f41fb171180638b1d10a69b7014
+> controls the payload (msgtype Sync, twoStepFlag clear). With
+> HWTSTAMP_TX_ONESTEP_SYNC set, such frames take this path:
+>
+>   dsa_user_xmit()
+>     dsa_skb_tx_timestamp()
+>       netc_port_txtstamp()
+>         netc_port_prepare_onestep_sync()   /* NETC_PTP_FLAG_ONESTEP */
+>   netc_xmit()
+>     netc_port_onestep_sync_enqueue()       /* shared FIFO, drop at 512 */
+>   netc_port_onestep_work()                 /* one frame per response */
+>
+> These frames share the single per-port onestep_queue with the ptp4l
+> Syncs. A flood would delay the real Syncs, or get them dropped once
+> NETC_ONESTEP_QTH is reached.
+>
+> The same sender can also send non-Sync event frames. Those take the
+> two-step path and can use up the 16-entry ts_req_id pool. Then
+> netc_port_onestep_work() drops the real Syncs when netc_get_ts_req_id()
+> fails. If tagged frames are also lost in the conduit, the queue stays
+> stuck until the window check fires on a later enqueue or the 5 s timeout
+> runs.
+>
+> The ts_req_id pool exhaustion already exists before this patch. What is
+> new is the serialized one-step FIFO.
+>
+> [ ... ]
+>
+> > @@ -409,6 +718,67 @@ int netc_port_hwtstamp_get(struct dsa_switch *ds,
+> int port,
+> >     return 0;
+> >  }
+> >
+> > +static void netc_port_prepare_onestep_sync(struct netc_port *np,
+> > +                                      struct sk_buff *skb,
+> > +                                      u32 ptp_class, bool *twostep)
+> > +{
+>
+> [ ... ]
+>
+> > +   /* Ensure the buffer is linear and writable so the packet can be
+> > +    * parsed and updated in place. Otherwise, fall back to two-step.
+> > +    */
+> > +   if (unlikely(skb_linearize_cow(skb))) {
+> > +           *twostep =3D true;
+> > +           return;
+> > +   }
+>
+> [Severity: Medium]
+> What happens here if the frame really is a one-step Sync (msgtype Sync,
+> twoStepFlag clear)?
+>
+> skb_linearize_cow() makes a GFP_ATOMIC copy whenever the skb is cloned
+> or
+> nonlinear. A clone is common, for example from dev_queue_xmit_nit() when
+> tcpdump is attached to the user port. So this can fail under memory
+> pressure before the message type is checked.
+>
+> netc_port_txtstamp() then sends the frame down the two-step path:
+>
+>       if (tx_type =3D=3D HWTSTAMP_TX_ON || twostep)
+>               netc_port_prepare_twostep(np, skb);
+>
+> netc_xmit() then gives the frame a subtype 2 tag. On this path
+> originTimestamp is never written, PM_SINGLE_STEP is not programmed, and
+> the correction field is not updated. The frame still says it is one-step,
+> so no Follow_Up will be sent.
+>
+> Would the slave then compute its offset from whatever originTimestamp
+> user space left in the frame? The socket would also get an unexpected
+> hardware TX timestamp through skb_complete_tx_timestamp().
+>
+> The commit message says:
+>
+>   "Frames that are not one-step Sync still fall back to two-step
+>   timestamping."
+>
+> and:
+>
+>   "If the originTimestamp field of the sync frame is not in the linear
+>   buffer of the skb or the correction offset exceeds the hardware
+>   capability, the frame will be dropped."
+>
+> Should this path drop the frame and count it in tx_dropped, like the
+> offset check further down? The ptp_parse_header() failure falls back the
+> same way. There the header is incomplete, though, so that frame cannot be
+> a well-formed Sync.
+
+From a software perspective, this is a trade-off and cannot completely solv=
+e
+the problem unless skb_linearize_cow() never fails; otherwise, the driver
+cannot parse the message type. The issue raised by Sashiko can indeed occur=
+,
+but only under memory pressure. Once the memory pressure subsides, PTP
+synchronization will return to normal. So there is nothing we can do this i=
+ssue,
+I would like to leave it as it is.
+
+
+NXP Confidential
