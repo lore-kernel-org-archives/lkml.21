@@ -1,88 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.181
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795031672;
-	b=hMNGbPb60fVXE0OERe4R5FHEtrtPxDSSD0t8YSkaT5+62MSDvKGRL7lRcNRdStL9/W5c
-	 WKvjq0zQT2WqGi9gIc4Wx+FvOLKyy228SjYK2Cb5IS4EiKrRqq7VUtrzvfsbvQ92EEVtG
-	 k2eBC+9fwLKkvvb6jBAbVLJJrEUL4varDNzQazZ+RqUTLHJtkPLE0hbR9uD2ZS+qEBZHa
-	 0YWVafrrpeh0yu+GGLNRaoYD9wiSmB9W+NyfenJycSupjzqW8H16LsvGvjzt2hDT2tSfD
-	 612uNEpe6xbqQxsX0DF14Ew9PSzUUu7ORI5G0hbzzleda3+nuPmK/lgFVZNOQjyUoew==
+	t=1795031673;
+	b=BuIUPUPWWGibDF5wZAZisjGAymD3CxtihFNyek+8hB66SHrS7cD+GnXfEBiX5k8ysjZJ
+	 zEFDbha3YjhcExWjb9fAlqmk8B/a1VghrGqFwoLlHH7u9FplXYwvLIgcWw/o7YsEAr6Si
+	 nom58EAvIVgwBHwzeqkWGAFpevbarDKkTdt42ZNZ6UGY7WpyBDJB88i/MVTqV60pfg9Nh
+	 V95C4Pe4pgHEd4twNubkOavhomj4QTFT1XWYvRSVt/g7pUzChnitIVwHzYEkBguPxlCEu
+	 veGl2tyni4EpOlTJOsyspi9bCd4B2C/lx1EP0VDNu/iXzuaWDTNjwCBXchm+gBjox+A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795031672;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=dOMAgC0XvS4nP90YCQcBU0h+fNv/5Kz+lJp/v4CzlRY=;
-	b=fKdO95ICercP4AkvPOQUL6U3pxdrGy9RTczD1uWNP8o1u92yPMPYdhrsCDJNYLBpQujs
-	 ynRDYujeM1fYPWC4z9k33uNqidZpvAgsVvEbwVmR9HAV9oU+MPwBUSgnP1aLfrXok4qN0
-	 a8fFsVfM4P0yISN/5Zw2A8MzXsfYpcHKgbSyBIKe98l/YafDv2JtMrOt9y9dBRhK8jYs8
-	 3ZZUJhhTyqYiq70dC0H8f38fDWnMvObF6gyTAfdizX/zHISlXqVM/Neuo8cAlYQUi7RIs
-	 K1nsIIaSe530F7wVFAp1btO2LgU5PzUZgewn3ON+1m/YjoIli9DNPYMiX4dY9MihLEg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795031673;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=i0RPIOg/N02GB/FO0QU0LL8vtzFon8FGCvQcjRptq9c=;
+	b=LkXI0vB2blPkcCR+UfEHSV+bYjlBTKpCmNC9wcbo1QGFfdyYFlgi4kk9Q6lrqVV2vn9K
+	 Z0RcanCJDTwaVs8Ya/lvtDt36Xd3u6NBK6nOkE7sU8zmNWXCuEVAENZ27xvlAfI6RMY82
+	 5eufQffstZtDdAgPt2GKuXsQjCEJAN9xv3sGVrL2aUX4oRXiqe3/rPIWYmks3ZC9hFLkL
+	 GqJ7l00DOr/RjvbS+GQO2ERcW+6hpTEvtLdSWUxpBQfZBj65mCMO4/M7CkoT2bWBekV4f
+	 p45VjlzEXUzeR70lLtbMWd2M55aaVu7typKHzF4GBgmbFU54X4oy4+h+87T75Ct9oSA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eHGDS24t;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PnPN+RH7;
+	arc=none smtp.remote-ip=209.85.222.181
+Received: from mail-qk1-f181.google.com (mail-qk1-f181.google.com [209.85.222.181])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 3A9CE606A32A;
-	Wed, 18 Nov 2026 19:54:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9D5560A2601
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:54:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D9D5560A2601
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eHGDS24t
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 409C51F000C4;
-	Wed, 18 Nov 2026 19:54:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795031671;
-	bh=dOMAgC0XvS4nP90YCQcBU0h+fNv/5Kz+lJp/v4CzlRY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=eHGDS24tKkdUdQSDE+m8Q9U7FzbKLF5B1bDQj4MZxp+NpFTpVSXqOqxZkSbRrYUCu
-	 xtJKC8BPP86kLhKQWSGTmh00sX0NKvq9TjDCRYonSH8rUaaTLB11cllHumX66RUYyH
-	 ScOEhGBFrGL7aznIPo29PaJXS63D224351P4tQaIaa4C2w33oRPpGvjOVaJF1GWXp0
-	 yn3LJKcQWVn44OuzVcIAi7Xe0ILvDdblzEOdRn+tnrG+OFiaNe8nBeMUP2hyUdRH6G
-	 ezABsk4drujjXkdYoPEJuXtySKLyTCVIg2d2O1x+lXwN8EOL9gzFhw3UcfphSBmKst
-	 FR/hJTy4y6ubA==
-Date: Wed, 18 Nov 2026 21:54:28 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: David Howells <dhowells@redhat.com>
-Cc: linux-api@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
-	linux-security-module@vger.kernel.org,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@amacapital.net>,
-	Anna-Maria Behnsen <anna-maria@linutronix.de>,
-	Ben Segall <bsegall@google.com>,
-	Christian Brauner <brauner@kernel.org>,
-	David Hildenbrand <david@kernel.org>,
-	Davidlohr Bueso <dave@stgolabs.net>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>, Jan Kara <jack@suse.cz>,
-	John Johansen <john.johansen@canonical.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Juri Lelli <juri.lelli@redhat.com>, Kees Cook <kees@kernel.org>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	Manfred Spraul <manfred@colorfullife.com>,
-	Mel Gorman <mgorman@suse.de>, Michal Hocko <mhocko@suse.com>,
-	Mike Rapoport <rppt@kernel.org>, Neal Gompa <neal@gompa.dev>,
-	Paul Moore <paul@paul-moore.com>,
-	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Serge Hallyn <sergeh@kernel.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Valentin Schneider <vschneid@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
-Subject: Re: [RFC PATCH v3 00/13] Namespace for namespace roots
-Message-ID: <av4CdM-eW73oO4wB@kernel.org>
-References: <20261118193539.240065-1-jarkko@kernel.org>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PnPN+RH7
+Received: by mail-qk1-f181.google.com with SMTP id af79cd13be357-93f2f2edb19so130328385a.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:54:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795031672; x=1795636472; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=i0RPIOg/N02GB/FO0QU0LL8vtzFon8FGCvQcjRptq9c=;
+        b=PnPN+RH7pQhbikZJA14mX7rLaH9sPH/vIyKWSDAL6vqRccPUOJmxW/1r1Ov0fvnJRk
+         QlNITGKipLAp/5DDZUwCG9FCGzOW1P6G2CeDeicU8evPwE3mtIcozIb+Yhvoz4uPiiH+
+         S2gQ008I7WL3vXFUeitwiudL2Q0j1w8UzepE9inLHPto6z6IDwaQ18445qFpKiMJx0Hh
+         YYcRNn9fzNtSz0dzyq1VdvisPJsyRgMiy+G21H+0N4qotuyAWqshXUqUmb/2KKji2KO0
+         1H5RBxB352BulL3ICkR/MaXmzD0fy5PSi6P0ZD4mtQ0i/E6Dlko3bcqdg5cTQWRMzn6N
+         Kv/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795031672; x=1795636472;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=i0RPIOg/N02GB/FO0QU0LL8vtzFon8FGCvQcjRptq9c=;
+        b=mYBu6eCC3DD/7jXl5oCyinsajOmcaZUuMWY7Bex09lCc9UTNn1GkiQnsLqs7aFyGT8
+         azi00Q/TPZLgsE+urpFHWjzJu/sJIxPzr9Yd3NrnRMeVrSBGPWKaP1B3ayfFttkpoTOP
+         mYEpfHOFnXWd0pfstNWwP/dNmPlSgpKtCw5hzBaJ4ihZx3CNGOOyetJlmwOnFAlCGMEs
+         w7mUusJK4oJWGCBYv4v/8DOsSyjCGw8pvfNiBsuSFMIGNODyp4e9iwwS9skoBQBciBTm
+         Ji/Tw2qNX0DV+WX7xOyZJOD0snwhndxTzAtRs0zeJn/wqRB7IvBA8n64fhujUHDA/wk0
+         j21A==
+X-Forwarded-Encrypted: i=1; AL+hErGxXIiTWygS1GwJ7e37N66ookrZCPtZSuoiF2OQe3r7hGx49EIN8Adu4b3YdaDnSUfdutN451W4za9xCa0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/Gx/q2uKMEkPnhLh5Pwimip+NaEpYDo6nLxA5Kg76rGAQl3zc7
+	v0HTGhN475NoV0TpPWZ1KgW7cpGbIRXlMTBVnWYxkQDC5b6b3Tc6joq6
+X-Gm-Gg: AYBFou3TsGOppyhgUH8hFmBwUpp2A9HTfzRy62gffzQ7HkveXj61vkPBOGfmFW2RNI0
+	dB7NeyPAEMm6qqoqVsClOgd0h5v9F2NsLg6akXEAQpSWJfmVaNW0XvSsklxtLYET1sWpMXVvf8q
+	N8BeWTX/XijlKVAAYbjU9Nw/q72PP211sfkrWrUyzp1kshbWmCtOz3ge3A5Ip59HAu9F0kZ5I1B
+	8jR3bS1RuQid3gpORmwmm/8nREADiFM8VFoqKWSZjvYTIJquqTZCieRC1jRka1qp3hBUuwEyYJL
+	hjetTsPq7XF47nRBQRu0tVcn3E5yr3rBuqLygvX253Wys3cEB4RumZJduZWZ5NT1Ccz6i5KjutB
+	xTJ8/+QEN5M9BcUIHMjZdyfvajhtARyrdqRROvQZAr9mxkBvczJ2D4sGOvRYbwZihQE2fGrWgKR
+	co5QXu8aIZZ0SxHqmfHEDH1eIBYnES2AiajYs/0efB+0hDjm737es5i5n366wW4s5iEfyfTh7DB
+	KACHEW0qtMbCOPDvYEONyzlHWz0SjsyQipW/tXeG/UZ24XdamNc/q6ADRZq1fXnYXX09QwdM2Zc
+	Xh6s3n7Flr/HG+yZDGX43o6gJlqK4WcNhdO5U/gjLZwVgpUMCTehyGt+gw==
+X-Received: by 2002:a05:620a:7084:b0:947:9060:7efb with SMTP id af79cd13be357-94999574d09mr635823285a.18.1795031671725;
+        Wed, 18 Nov 2026 11:54:31 -0800 (PST)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-9499b7475b8sm257960785a.18.2026.11.18.11.54.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 11:54:31 -0800 (PST)
+Message-ID: <c7f0c78a-47c1-4dfb-bf21-808e25f05611@gmail.com>
+Date: Wed, 18 Nov 2026 11:54:28 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,94 +92,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118193539.240065-1-jarkko@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6.18 0000/2151] 6.18.65-rc1 review
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
+Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
+ torvalds@linux-foundation.org, akpm@linux-foundation.org,
+ linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
+ lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
+ sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
+ hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
+ sr@sladewatkins.com
+References: <20261118150121.603863898@linuxfoundation.org>
+Content-Language: en-US, fr-FR
+From: Florian Fainelli <f.fainelli@gmail.com>
+In-Reply-To: <20261118150121.603863898@linuxfoundation.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 18, 2026 at 09:35:26PM +0200, Jarkko Sakkinen wrote:
-> OVERVIEW
-> ========
+On 11/18/26 06:28, Greg Kroah-Hartman wrote:
+> This is the start of the stable review cycle for the 6.18.65 release.
+> There are 2151 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
 > 
-> A root namespace (rootns) is a kernel object backed by a file descriptor
-> that binds together:
+> Responses should be made by Fri, 20 Nov 2026 14:55:45 +0000.
+> Anything received after that time might be too late.
 > 
-> 1. A full set of detached namespaces owned by a fresh user namespace.
-> 2. A dedicated PID namespace for spawning processes into, signaling
->    members, and polling or waiting on PID 1 exit.
-> 3. An initially empty mount namespace (CLONE_EMPTY_MNTNS) populated
->    directly in its target user namespace before going live, without
->    inheriting host mounts or cloning staged trees, while still allowing
->    new mounts to be attached at runtime.
+> The whole patch series can be found in one patch at:
+> 	https://www.kernel.org/pub/linux/kernel/v6.x/stable-review/patch-6.18.65-rc1.gz
+> or in the git tree and branch at:
+> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-6.18.y
+> and the diffstat can be found below.
 > 
-> Work on this feature started in 2025 from David Howells' container object
-> patch set [1], which I turned into a namespace for namespace roots and
-> rebuilt around that premise.
+> thanks,
 > 
-> While the patch set is manually written, the original motivation came
-> from isolating LLM agents. Running untrusted agent workloads made it
-> clear that OCI runtimes need to minimize their live configuration
-> surface.
-> 
-> Assembling mounts, credentials, and namespaces inside helper processes
-> with a half-configured container is what I see as the main challenge,
-> and the existential debate around namespaces and container objects is an
-> unfocused discussion topic.
-> 
-> [1] https://lore.kernel.org/all/155059610368.17079.2220554006494174417.stgit@warthog.procyon.org.uk/
-> 
-> IMPLEMENTATION
-> ==============
-> 
-> rootns_create() allocates a rootns instance backed by a pollable
-> anonymous inode fd, creating a fresh owning user namespace and a full set
-> of detached namespaces: empty mount (CLONE_EMPTY_MNTNS), PID, UTS, IPC,
-> network, cgroup, and time. ioctl(rootnsfd, ROOTNS_GET_NSFD, nstype)
-> returns nsfs file descriptors for individual member namespaces when
-> standalone namespace operations are needed.
-> 
-> Superblocks are configured directly in the target user namespace via
-> fsopen(), FSCONFIG_SET_ROOTNS, and fsmount(), allowing unprivileged
-> callers to assemble FS_USERNS_MOUNT filesystems without holding
-> CAP_SYS_ADMIN in their own user namespace or entering the target user
-> namespace first. move_mount(..., MOVE_MOUNT_T_MNTNS) operates on any
-> non-anonymous mount namespace fd: on an empty mount namespace it installs
-> "/" onto the nullfs root once, and it attaches relative submounts both
-> before entry and into live mount namespaces.
-> 
-> Once "/" is installed, processes are spawned into the rootns via clone3()
-> with CLONE_INTO_ROOTNS and struct clone_args.rootns, without mutating the
-> caller in place. Pairing CLONE_INTO_ROOTNS with CLONE_VM | CLONE_VFORK
-> and opening the target binary via openat2(..., RESOLVE_IN_ROOT) on the
-> retained "/" mount fd allows spawning with execveat() without copying
-> page tables.
-> 
-> The first entrant becomes PID 1; once it exits and
-> zap_pid_ns_processes() reaps all members, poll() reports EPOLLHUP and
-> rootns_wait() returns init's exit status and rusage. rootns_kill() walks
-> pid_ns->idr under tasklist_lock to signal member thread groups.
-> 
-> CHANGES
-> =======
-> 
-> v3:
-> - The patch set size increased predominantly because the coverage of
->   kselftest had to widened to cover the introduced changes.
-> - Replace MOVE_MOUNT_T_ROOTNS_ROOT with MOVE_MOUNT_T_MNTNS targeting
->   mnt_ns nsfs fds, and add ioctl(ROOTNS_GET_NSFD) to open member
->   namespace fds (Andy Lutomirski).
-> - Allow unprivileged fsopen(), FSCONFIG_SET_ROOTNS, and fsmount() to
->   configure and mount FS_USERNS_MOUNT filesystems directly in the target
->   user namespace without entering it first (Andy Lutomirski).
-> - Fix locking, refcounting, credential/dumpability/timens setup,
->   pivot_root() lookup, and cross-userns mount checks across copy_rootns(),
->   CLONE_INTO_ROOTNS, rootns_kill(), FSCONFIG_SET_ROOTNS, and move_mount()
->   (Sashiko).
-> - Mark PowerPC rootns syscalls nospu (Sashiko).
-> - Update documentation and kselftests.
+> greg k-h
 
-I.e. before PID 1 and /proc/<pid>/ns/* existss, nsfd for namespace other
-than root nsfd can be acquired as follows:
+perf fails to build with:
 
-	int mnts_fd = ioctl(root_fd, ROOTNS_GET_NSFD, CLONE_NEWNS);
+util/annotate-data.c: In function 'global_var__collect':
+util/annotate-data.c:765:30: warning: implicit declaration of function 
+'die_get_type_die'; did you mean 'die_get_typename'? 
+[-Wimplicit-function-declaration]
+   765 |                         if (!die_get_type_die(dwarf, 
+pos->die_off, pos->die_tag,
+       |                              ^~~~~~~~~~~~~~~~
+       |                              die_get_typename
+util/annotate-data.c:765:71: error: 'struct die_var_type' has no member 
+named 'die_tag'
+   765 |                         if (!die_get_type_die(dwarf, 
+pos->die_off, pos->die_tag,
+       | 
+       ^~
+util/annotate-data.c:766:50: error: 'struct die_var_type' has no member 
+named 'from_alt'
+   766 |                                               pos->from_alt, 
+&type_die))
+       |                                                  ^~
+util/annotate-data.c:777:44: error: 'struct die_var_type' has no member 
+named 'from_alt'
+   777 |                                         pos->from_alt);
+       |                                            ^~
+util/annotate-data.c: In function 'get_global_var_type':
+util/annotate-data.c:835:26: warning: implicit declaration of function 
+'die_same_file' [-Wimplicit-function-declaration]
+   835 |                         !die_same_file(cu_die, type_die));
+       |                          ^~~~~~~~~~~~~
+util/annotate-data.c: In function 'update_var_state':
+util/annotate-data.c:873:42: error: 'struct die_var_type' has no member 
+named 'die_tag'
+   873 |                                       var->die_tag, 
+var->from_alt, &mem_die))
+       |                                          ^~
+util/annotate-data.c:873:56: error: 'struct die_var_type' has no member 
+named 'from_alt'
+   873 |                                       var->die_tag, 
+var->from_alt, &mem_die))
+       |                                                        ^~
 
-Br, Jarkko
+-- 
+Florian
