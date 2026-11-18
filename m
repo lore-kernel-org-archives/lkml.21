@@ -1,50 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794985475;
-	b=1Dbxh84NZKypaY/mW8rBSvLIDeZC5bLv+Dwq1Cl5WrkaD1m1ZSukv1QXvWcDPBX8gepv
-	 q3UYs2eOatbgYkW8PoqCGVKL2QsaA2z3ArQp0mwUkg0OqRzLlqDYhuSLrDnh5kYJRlc6K
-	 e2Sm98wy8ZAayOTQ8M3/Q4GesmVEqSJhU4gsfFOCCd1W72jMA3oRgZ4P/i+dpPejuyjDU
-	 GJGgnhsTOUIzKWcq54WmzlpZXR8Qtm8254cl9YIj8WrFAw1frnKCQtiwyEXMx760avLtF
-	 jzPCtWJ6kUamyvA8ZxmB7Yi2Be4UZLpAFn/yHczQ59bQ+VCtbofIBUfe4MC+AdYMYeA==
+	t=1794985538;
+	b=mByhI5mbQQZhUVPDUj3PiuB0/rGsNU+1POOGHNYE8JvOkZ6E9u32P2iZKLWsh5KYXU4d
+	 KmpGYtVmGQfi35B01aZFNyJ6iVLYRiNv63f1DHEMZ4ZQ3IdagozYhBHmAwQBDGY+mwBFl
+	 1peRNKxbzVO3AHZV4VK1yQNbbYBuRDdrAk2LktV/EpEemn0tIhgobjcWBMarQxhrgHaNV
+	 osXYDAglJb0DKSYAjRvjRZ8uMmAyHcfEW6fMxRiFzopCo5WZiNbvQYs6RvEuF8SO8pw0/
+	 0ec7/HjniZphK5n9UmFXgoSwS2akmvl6YoyILKbeoPbY3FGDcXFMZXyLUTVw/CFN2Uw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794985475;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=IBidLxKze/cF8OVvvB427zi7hZyK+UPFvN3ze2Fv1zA=;
-	b=gavCApqqTzQkbItrUb8tuzdaFeOiE2azEzc1SBf0egiMrqR9OUxeOzeIoxJ9qVjYMpeQ
-	 F1GPlvzPkgIxVAUJEyR86vKyU3OjJhm6T7QnDLSpztWv/jtvlRCmfhxpNtXI4wqzpJ1ny
-	 TzEZLcHH3O+S45izzAYhUjgsAPbY3eJaup7DMhy0C0KgddWHLFv6gLUuobmMAgM6quoKo
-	 6HQoVJqM6vAntIpo2PznZJw5sJUyb+nDtvvFlF7rmxiqtMw8y8JNfp/yEXYtvpjz0oT/o
-	 ne1ZjdPtJvos1nm4DSAkN/t0epL/927nop71lCVvwCEE9SoY3eQDJp4HotAdbN4Co3g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794985538;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=mjq3meMdrcgGtZQ1Co1hA6n/sOXNFEBDu4lniMuprQQ=;
+	b=dFaGOJLW3aW8BkWPebqB0NwV7eGdZ3EO0Q3fsTlWC+XR5WOZ+DK7ufdc/2MxN5Rwb4u6
+	 NJFYEsMU++X20y1MgSWgWAFp/u//sGiqICS6bYYLedLlRIUYW1VOpbbZOMyfyTwVdu7Mj
+	 Z/+Ew3LQlvMkLLQD2lYi1duSXegsp+mjflSMd4TRhoT2AZng8e6iXjEJspK6sMVkDophf
+	 ECukl5E4D4AyNSJ9v04w4TRBmlBnlLPIIkX3cnRicH2j3g5vrMzrm3C177TC9Ac8sis4E
+	 lrtMQlVdfchv58zf3POI3k6H8QG2KShzuLKexcaRr2tijy/sfgXYMbQczwzS9qR/s6A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=nVANFmqj;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=kQI0m0iY;
+	arc=none smtp.remote-ip=91.218.175.18
+Received: from mta0.migadu.com (out-18.mta0.migadu.com [91.218.175.18])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE2F1606A325;
-	Wed, 18 Nov 2026 07:04:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06AFD606A32C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:05:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06AFD606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=nVANFmqj
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF5C21F000C4;
-	Wed, 18 Nov 2026 07:04:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1794985475;
-	bh=IBidLxKze/cF8OVvvB427zi7hZyK+UPFvN3ze2Fv1zA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=nVANFmqjCHuT6xyOCPyWXpqxR/wQzG+X8JBZqZuBFeGJuXpIWqRFi7hHbKYRi9adD
-	 UKP8Jg6RH61vQH1wBol8DZZh3Z0lSeBgYKywCIkt4BSXILjqGcUBZBZIyF3EgbOfCH
-	 a4UarIhNGM3yvNnhXd2PpEsTOncxFsEog9/b7ego=
-Date: Wed, 18 Nov 2026 08:04:32 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Ziheng Wei <zihengw03@163.com>
-Cc: Sudip Mukherjee <sudipm.mukherjee@gmail.com>,
-	linux-kernel@vger.kernel.org, kernel test robot <lkp@intel.com>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] parport: do not re-enable interrupts in parport_claim()
-Message-ID: <2026111838-snowshoe-latch-1c25@gregkh>
-References: <20261116130930.1629208-1-zihengw03@163.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=kQI0m0iY
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=ca/pNcctimUgIrRQnFieYRz/dmOQ2n2YtK9gXeLDLIY=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794985535; v=1; x=1795590335;
+ b=kQI0m0iYqmNqwiAWJCoDFA9gf3bg61VNfOINGKhwKU5jCSucCpn4BL3b/+f2tnrXhYiGKyRK
+ c73mohE9I7fbKVTO/bD+nQiV9K4FsSSahm1L9sEMulUrPTxXeiVfELxn/B3keEzCWXWQ/69iUfI
+ VCj47Mno0pk9Kr1qNd9hYzt8=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 8ae76fde31622f60;
+	Wed, 18 Nov 2026 07:05:33 +0000
+X-Mizu-Trace-ID: 8ae76fde31622f60
+X-Migadu-Flow: FLOW_OUT
+From: Jiayuan Chen <jiayuan.chen@linux.dev>
+To: netdev@vger.kernel.org
+Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Alexander Aring <alex.aring@gmail.com>,
+	Stefan Schmidt <stefan@datenfreihafen.org>,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>,
+	Pablo Neira Ayuso <pablo@netfilter.org>,
+	Florian Westphal <fw@strlen.de>,
+	Phil Sutter <phil@nwl.cc>,
+	linux-kernel@vger.kernel.org,
+	linux-wpan@vger.kernel.org,
+	netfilter-devel@vger.kernel.org,
+	coreteam@netfilter.org
+Subject: [PATCH net-next] net: dropreason: add SKB_DROP_REASON_FRAG_MEM_LIMIT
+Date: Wed, 18 Nov 2026 15:05:19 +0800
+Message-ID: <20261118070524.310356-1-jiayuan.chen@linux.dev>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,72 +79,229 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261116130930.1629208-1-zihengw03@163.com>
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 16, 2026 at 09:09:30PM +0800, Ziheng Wei wrote:
-> parport_claim() takes port->cad_lock with write_lock_irqsave() and holds
-> it until the end of the function.  When the device that gets the port
-> was queued on the wait list (sleeping in parport_claim_or_block(), or
-> having a wakeup callback), parport_claim() takes it off the list under
-> port->waitlist_lock using spin_lock_irq() and spin_unlock_irq().  This
-> usually runs in the context of the previous owner, when
-> parport_release() hands the port over.  spin_unlock_irq() enables local
-> interrupts unconditionally, so the rest of the cad_lock section (setting
-> port->cad, daisy chain selection and ->restore_state()) runs with
-> interrupts enabled while cad_lock is held for writing.
-> 
-> parport_irq_handler() takes read_lock(&port->cad_lock) for every
-> interrupt on the port's line, including shared PCI INTx lines, since
-> parport_pc and parport_serial request the IRQ with IRQF_SHARED.  If
-> such an interrupt arrives on the same CPU inside that window, the
-> handler spins on the lock held by the code it interrupted and the CPU
-> locks up.  The early unlock also turns interrupts back on behind the
-> back of callers that hold their own spinlock with interrupts disabled,
-> such as imm_wakeup()/imm_pb_claim() and ppa_wakeup()/ppa_pb_claim(),
-> which call parport_claim() under spin_lock_irqsave(&arbitration_lock).
-> 
-> Reproduced on v7.3.1 (share.c is unchanged in mainline) in QEMU with the
-> emulated ISA parallel port (parport_pc, IRQ 7 from ACPI PnP), as a user
-> in the lp group with two ppdev openers: one holds the port, the other
-> blocks in PPCLAIM, and the holder closes its fd.  Lockdep reports:
-> 
->   WARNING: inconsistent lock state
->   inconsistent {IN-HARDIRQ-R} -> {HARDIRQ-ON-W} usage.
->   ...
->    _raw_spin_unlock_irq+0x28/0x80
->    parport_claim+0x692/0xc80 [parport]
->    parport_release+0x5c0/0x7c0 [parport]
->    pp_release+0x37c/0x980 [ppdev]
-> 
-> and CONFIG_DEBUG_IRQFLAGS adds "raw_local_irq_restore() called with IRQs
-> enabled" for the final write_unlock_irqrestore().  When the closing task
-> runs on the CPU that handles IRQ 7, that CPU spins forever in
-> parport_irq_handler() -> _raw_read_lock(), on top of
-> parport_pc_restore_state() running with interrupts enabled.  QEMU
-> raises the port interrupt on the control register write in
-> ->restore_state(), so there the hang happens every time.  On real
-> hardware the interrupt has to arrive inside a window of a few
-> microseconds; I have not tested real hardware.  With this patch the
-> same test runs clean and the port interrupt is still delivered.
+This is used to track fragments dropped when the reassembly memory is
+over the limit (ipfrag_high_thresh, ip6frag_high_thresh).
 
-This is a wall of LLM-generated text.  Please make this sane and
-concise.
+Fragments dropped because high_thresh is 0 get this reason too, the
+same way they are counted in IPSTATS_MIB_REASMFAILS.
 
-> Interrupts are already disabled at this point, so use spin_lock() and
-> spin_unlock(), as the "blocked" path in the same function already does.
-> waitlist_lock is never taken from hardirq context.
-> 
-> Found by LLM-assisted static analysis.
-> 
-> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-> Reported-by: kernel test robot <lkp@intel.com>
+Tested with pwru.
 
-this tool found this bug?
+Before:
 
-And testing on real hardware would be best.
+... PROTO  MTU   LEN   FUNC
+... 0x0800 65536 1500  ip_defrag
+... 0x0800 65536 548   ip_defrag
+... 0x0800 65536 548   sk_skb_reason_drop(SKB_DROP_REASON_NOT_SPECIFIED)
 
-thanks,
+After:
 
-greg k-h
+... PROTO  MTU   LEN   FUNC
+... 0x0800 65536 1500  ip_defrag
+... 0x0800 65536 548   ip_defrag
+... 0x0800 65536 548   sk_skb_reason_drop(SKB_DROP_REASON_FRAG_MEM_LIMIT)
+
+Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
+---
+ include/net/dropreason-core.h           |  7 +++++++
+ include/net/inet_frag.h                 |  3 ++-
+ net/ieee802154/6lowpan/reassembly.c     |  2 +-
+ net/ipv4/inet_fragment.c                |  8 ++++++--
+ net/ipv4/ip_fragment.c                  | 10 ++++++----
+ net/ipv6/netfilter/nf_conntrack_reasm.c |  2 +-
+ net/ipv6/reassembly.c                   | 10 ++++++----
+ 7 files changed, 29 insertions(+), 13 deletions(-)
+
+diff --git a/include/net/dropreason-core.h b/include/net/dropreason-core.h
+index 27bc63cbc020f..5b7a758603d90 100644
+--- a/include/net/dropreason-core.h
++++ b/include/net/dropreason-core.h
+@@ -98,6 +98,7 @@
+ 	FN(DUP_FRAG)			\
+ 	FN(FRAG_REASM_TIMEOUT)		\
+ 	FN(FRAG_TOO_FAR)		\
++	FN(FRAG_MEM_LIMIT)		\
+ 	FN(TCP_MINTTL)			\
+ 	FN(IPV6_BAD_EXTHDR)		\
+ 	FN(IPV6_TOO_MANY_EXTHDRS)	\
+@@ -493,6 +494,12 @@ enum skb_drop_reason {
+ 	 * (/proc/sys/net/ipv4/ipfrag_max_dist)
+ 	 */
+ 	SKB_DROP_REASON_FRAG_TOO_FAR,
++	/**
++	 * @SKB_DROP_REASON_FRAG_MEM_LIMIT: reassembly memory is over the limit.
++	 * (/proc/sys/net/ipv4/ipfrag_high_thresh,
++	 * /proc/sys/net/ipv6/ip6frag_high_thresh)
++	 */
++	SKB_DROP_REASON_FRAG_MEM_LIMIT,
+ 	/**
+ 	 * @SKB_DROP_REASON_TCP_MINTTL: ipv4 ttl or ipv6 hoplimit below
+ 	 * the threshold (IP_MINTTL or IPV6_MINHOPCOUNT).
+diff --git a/include/net/inet_frag.h b/include/net/inet_frag.h
+index c1fb419a9cf03..ea5a5484c65ef 100644
+--- a/include/net/inet_frag.h
++++ b/include/net/inet_frag.h
+@@ -130,7 +130,8 @@ void fqdir_exit(struct fqdir *fqdir);
+ 
+ void inet_frag_kill(struct inet_frag_queue *q, int *refs);
+ void inet_frag_destroy(struct inet_frag_queue *q);
+-struct inet_frag_queue *inet_frag_find(struct fqdir *fqdir, void *key);
++struct inet_frag_queue *inet_frag_find(struct fqdir *fqdir, void *key,
++				       enum skb_drop_reason *reason);
+ 
+ void inet_frag_queue_flush(struct inet_frag_queue *q,
+ 			   enum skb_drop_reason reason);
+diff --git a/net/ieee802154/6lowpan/reassembly.c b/net/ieee802154/6lowpan/reassembly.c
+index ddb6a5817d098..dcbadb1abb0f4 100644
+--- a/net/ieee802154/6lowpan/reassembly.c
++++ b/net/ieee802154/6lowpan/reassembly.c
+@@ -76,7 +76,7 @@ fq_find(struct net *net, const struct lowpan_802154_cb *cb,
+ 	key.src = *src;
+ 	key.dst = *dst;
+ 
+-	q = inet_frag_find(ieee802154_lowpan->fqdir, &key);
++	q = inet_frag_find(ieee802154_lowpan->fqdir, &key, NULL);
+ 	if (!q)
+ 		return NULL;
+ 
+diff --git a/net/ipv4/inet_fragment.c b/net/ipv4/inet_fragment.c
+index f330d0a398233..728fa78f56b37 100644
+--- a/net/ipv4/inet_fragment.c
++++ b/net/ipv4/inet_fragment.c
+@@ -421,14 +421,18 @@ static struct inet_frag_queue *inet_frag_create(struct fqdir *fqdir,
+ 	return q;
+ }
+ 
+-struct inet_frag_queue *inet_frag_find(struct fqdir *fqdir, void *key)
++struct inet_frag_queue *inet_frag_find(struct fqdir *fqdir, void *key,
++				       enum skb_drop_reason *reason)
+ {
+ 	/* This pairs with WRITE_ONCE() in fqdir_pre_exit(). */
+ 	long high_thresh = READ_ONCE(fqdir->high_thresh);
+ 	struct inet_frag_queue *fq = NULL, *prev;
+ 
+-	if (!high_thresh || frag_mem_limit(fqdir) > high_thresh)
++	if (!high_thresh || frag_mem_limit(fqdir) > high_thresh) {
++		if (reason)
++			*reason = SKB_DROP_REASON_FRAG_MEM_LIMIT;
+ 		return NULL;
++	}
+ 
+ 	prev = rhashtable_lookup(&fqdir->rhashtable, key, fqdir->f->rhash_params);
+ 	if (!prev)
+diff --git a/net/ipv4/ip_fragment.c b/net/ipv4/ip_fragment.c
+index ef7fd61284a3f..7eb40c1041ef9 100644
+--- a/net/ipv4/ip_fragment.c
++++ b/net/ipv4/ip_fragment.c
+@@ -197,7 +197,8 @@ static void ip_expire(struct timer_list *t)
+  * this IP datagram, and create new one, if nothing is found.
+  */
+ static struct ipq *ip_find(struct net *net, struct iphdr *iph,
+-			   u32 user, int vif)
++			   u32 user, int vif,
++			   enum skb_drop_reason *reason)
+ {
+ 	struct frag_v4_compare_key key = {
+ 		.saddr = iph->saddr,
+@@ -209,7 +210,7 @@ static struct ipq *ip_find(struct net *net, struct iphdr *iph,
+ 	};
+ 	struct inet_frag_queue *q;
+ 
+-	q = inet_frag_find(net->ipv4.fqdir, &key);
++	q = inet_frag_find(net->ipv4.fqdir, &key, reason);
+ 	if (!q)
+ 		return NULL;
+ 
+@@ -475,6 +476,7 @@ int ip_defrag(struct net *net, struct sk_buff *skb, u32 user)
+ {
+ 	struct net_device *dev;
+ 	struct ipq *qp;
++	SKB_DR(reason);
+ 	int vif;
+ 
+ 	__IP_INC_STATS(net, IPSTATS_MIB_REASMREQDS);
+@@ -483,7 +485,7 @@ int ip_defrag(struct net *net, struct sk_buff *skb, u32 user)
+ 	rcu_read_lock();
+ 	dev = skb->dev ? : skb_dst_dev_rcu(skb);
+ 	vif = l3mdev_master_ifindex_rcu(dev);
+-	qp = ip_find(net, ip_hdr(skb), user, vif);
++	qp = ip_find(net, ip_hdr(skb), user, vif, &reason);
+ 	if (qp) {
+ 		int ret, refs = 0;
+ 
+@@ -499,7 +501,7 @@ int ip_defrag(struct net *net, struct sk_buff *skb, u32 user)
+ 	rcu_read_unlock();
+ 
+ 	__IP_INC_STATS(net, IPSTATS_MIB_REASMFAILS);
+-	kfree_skb(skb);
++	kfree_skb_reason(skb, reason);
+ 	return -ENOMEM;
+ }
+ EXPORT_SYMBOL(ip_defrag);
+diff --git a/net/ipv6/netfilter/nf_conntrack_reasm.c b/net/ipv6/netfilter/nf_conntrack_reasm.c
+index f25ff2a12a824..019f6669015d0 100644
+--- a/net/ipv6/netfilter/nf_conntrack_reasm.c
++++ b/net/ipv6/netfilter/nf_conntrack_reasm.c
+@@ -159,7 +159,7 @@ static struct frag_queue *fq_find(struct net *net, __be32 id, u32 user,
+ 					    IPV6_ADDR_LINKLOCAL)))
+ 		key.iif = 0;
+ 
+-	q = inet_frag_find(nf_frag->fqdir, &key);
++	q = inet_frag_find(nf_frag->fqdir, &key, NULL);
+ 	if (!q)
+ 		return NULL;
+ 
+diff --git a/net/ipv6/reassembly.c b/net/ipv6/reassembly.c
+index 91a65fe673500..649f2e3283656 100644
+--- a/net/ipv6/reassembly.c
++++ b/net/ipv6/reassembly.c
+@@ -82,7 +82,8 @@ static void ip6_frag_expire(struct timer_list *t)
+ }
+ 
+ static struct frag_queue *
+-fq_find(struct net *net, __be32 id, const struct ipv6hdr *hdr, int iif)
++fq_find(struct net *net, __be32 id, const struct ipv6hdr *hdr, int iif,
++	enum skb_drop_reason *reason)
+ {
+ 	struct frag_v6_compare_key key = {
+ 		.id = id,
+@@ -97,7 +98,7 @@ fq_find(struct net *net, __be32 id, const struct ipv6hdr *hdr, int iif)
+ 					    IPV6_ADDR_LINKLOCAL)))
+ 		key.iif = 0;
+ 
+-	q = inet_frag_find(net->ipv6.fqdir, &key);
++	q = inet_frag_find(net->ipv6.fqdir, &key, reason);
+ 	if (!q)
+ 		return NULL;
+ 
+@@ -337,6 +338,7 @@ static int ipv6_frag_rcv(struct sk_buff *skb)
+ 	struct inet6_dev *idev;
+ 	struct frag_hdr *fhdr;
+ 	struct frag_queue *fq;
++	SKB_DR(reason);
+ 	u8 nexthdr;
+ 	int iif;
+ 
+@@ -385,7 +387,7 @@ static int ipv6_frag_rcv(struct sk_buff *skb)
+ 
+ 	iif = skb->dev ? skb->dev->ifindex : 0;
+ 	rcu_read_lock();
+-	fq = fq_find(net, fhdr->identification, hdr, iif);
++	fq = fq_find(net, fhdr->identification, hdr, iif, &reason);
+ 	if (fq) {
+ 		u32 prob_offset = 0;
+ 		int ret, refs = 0;
+@@ -409,7 +411,7 @@ static int ipv6_frag_rcv(struct sk_buff *skb)
+ 	rcu_read_unlock();
+ 
+ 	__IP6_INC_STATS(net, idev, IPSTATS_MIB_REASMFAILS);
+-	kfree_skb(skb);
++	kfree_skb_reason(skb, reason);
+ 	return -1;
+ 
+ fail_hdr:
+-- 
+2.43.0
+
