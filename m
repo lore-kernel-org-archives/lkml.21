@@ -1,89 +1,191 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794971631;
-	b=QZRPhNnou9i3g03FdohnbIdNlNAuDi3xpLf7mEGl3+ZzxRzze0k/MpeLKf6uiGoZBWgg
-	 bxwc/SZzE9UQnv/5LGZMRH1MUbJC5gD1z3+Q2SNcASwIm6Z5H2F4PK7A+ZVQiNK5V56cx
-	 vX5eLcb+dP+1Egi3PJX2qQzGr2LTSp3GkMo+rmCEaJv1nt/A0/cFsH7RtbcB2p8dJ56XN
-	 7HNskBVQQB1ApKwWyiMbXIaLGQJrz1xcCVCW4dL4mfALg4m+7NDeePo3zYI2ubTSdpNZr
-	 ZppoHKgfO7OOBgc41ex+K4ljQhBXncy3hzYk/eP4jd9qCc3uw2PV+/ZR11EU+131AmA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794971631;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=Bq1xM5S6cCDzBWNgh8mhLU4r4aKno2jWbKQ7mURNMgw=;
-	b=5HiMZfU//3FoJNioM2CK933CcGCHM2WpHf0MNMLhFJzNo+PQzMdPg9SmwWfsCjODEuPX
-	 OlUnq1ziCHfRC4hAQnY2b8z8CWVCGo8ijatVeT/ry4vw1P78o7IJobbozB8EzWlzba2m5
-	 VoHxRJRbxV5fZW8KkKH7ema61ta3jLyeDjVAarMeJKLP7i1xoc377RMSP+ioe3hknYttp
-	 hbGTxGz9oAEaw4mvKIy+bvPujqCECi1BUI5CqOlLq1OeUQgnHBPqJO2YRYYYH6BCMexqj
-	 7KZnmgqggirsoKh20ZO74MhPfZWL5LfxOAWWmvX/lBN3UKWoQi7Fbp0pU49wRhtM1KA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=sifive.com;
-	spf=pass smtp.mailfrom=sifive.com;
-	dkim=pass header.d=sifive.com header.i=@sifive.com header.a=rsa-sha256 header.s=google header.b=Y44+nLb+;
-	arc=none smtp.remote-ip=74.125.82.172
-Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=60.244.123.138
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794971657;
+	b=ywKpS+PekYFCcY9L3E0T+yy4vj+yOs/r3bK6GBPLcY9yiCN8h7npnMa2W0cMgmb9oTsa
+	 U2gzrLSYvUjDlvV+tkz/sqxSlkFy+dwBjV9FcfodVlL8ci3BitCl55CL6H+weeTcfVCGC
+	 7pJ3xmBtS2WrzJF7uxwREuE5rvtHQK7SBX7TX2sytxKMMIdrLHqICfdMZ8fk3PZIR34/i
+	 YcEcFA0LxtOm1o+MdTRqefn73E9JEw1O5lq9l/YDkb+0MqeysdmKoI8oT2J5P6Pd3bwP/
+	 ROmVCfMW86mR2ZXXbD7zpSxBWuNmsVRAlkOuJTgSKoVA5fahbx9Yknaopq3TcK6HFwQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794971657;
+	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
+	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
+	 Received:Received:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 user-agent:x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ld-processed:
+	 x-ms-exchange-senderadcheck:x-ms-exchange-antispam-relay:
+	 x-microsoft-antispam:x-microsoft-antispam-message-info:
+	 x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:Content-ID:
+	 Content-Transfer-Encoding:MIME-Version:
+	 X-Exchange-RoutingPolicyChecked:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-MTK;
+	bh=nRxu80uyoFPR8LTbQrqJIBb5v5KYS3YE+Wo9FpD5T2c=;
+	b=YDugxydQQyzuBBXWR5DqvNFcyzDNdHE5Xc8kSkh0x9H1DmEBKlPbeGtZqoaQiFPsOTdR
+	 +iJHAX1alto0K7cvDLPC6fFQyGtLIiPw4QmCYwtsIjnzxXjEneedWjTpZ5KGp7ZqWClVh
+	 7xTb+2oxbGQUo+FmYHkoO7GLGkguTDpZ2XvW3LDacYqplcsvu2YZPwPpYZfErW+2ENyoc
+	 qKSgnPdQEWwuOMTFzPJWyfbzbGd/zaDxGDLt+Mpr6Lw6ZAvXmiAwO06Z37RpptUzUqFW5
+	 T2FHaLSFy8NTQZB6RQJaVbQJrAj/E0tlhg1kz0+mBX8i1vDyewJn7Wb0J10nE3JotnQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=mediatek.com;
+	spf=pass smtp.mailfrom=mediatek.com;
+	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=MVBvNipD;
+	dkim=pass header.d=mediateko365.onmicrosoft.com header.i=@mediateko365.onmicrosoft.com header.a=rsa-sha256 header.s=selector2-mediateko365-onmicrosoft-com header.b="c/NqcBGW";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=60.244.123.138
+Received: from mailgw01.mediatek.com (unknown [60.244.123.138])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B6B3606A334
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:13:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0B6B3606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=sifive.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sifive.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C82D8606A31C;
+	Wed, 18 Nov 2026 03:14:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C82D8606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=sifive.com header.i=@sifive.com header.a=rsa-sha256 header.s=google header.b=Y44+nLb+
-Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-380c28f9e35so1799333eec.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:13:50 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=MVBvNipD;
+	dkim=pass (1024-bit key) header.d=mediateko365.onmicrosoft.com header.i=@mediateko365.onmicrosoft.com header.a=rsa-sha256 header.s=selector2-mediateko365-onmicrosoft-com header.b=c/NqcBGW
+X-UUID: 20b585c0e2fe11f1b1788b6acf885367-20261118
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=nRxu80uyoFPR8LTbQrqJIBb5v5KYS3YE+Wo9FpD5T2c=;
+	b=MVBvNipDtLB18brYTVL4EYYpvESl7UrjcUL+Shy1quUNWYxz/TNxeJqBwZLr6KnGWRVev0u1ab0r9p0jaSzlPAEaQj+0C843I4nKoZ64fd+dfNJFLQxJwk+PRzo4+dRP0UQcR0UzIz6QOUhIJDbX+31fF0bBGkVPRuHdyfcXEyQ=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.21,REQID:7d68544d-b865-4ba3-9a09-7c699dfc178c,IP:0,U
+	RL:0,TC:0,Content:8,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:8
+X-CID-META: VersionHash:b0318ac,CLOUDID:5fc70031-f289-4656-bb36-27baf4489f11,B
+	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|110|111|836|865|888|898,TC:-5,
+	Content:4|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:n
+	il,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 20b585c0e2fe11f1b1788b6acf885367-20261118
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
+	(envelope-from <ck.hu@mediatek.com>)
+	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1949330741; Wed, 18 Nov 2026 11:14:12 +0800
+Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Wed, 18 Nov 2026 11:14:11 +0800
+Received: from SG2PR04CU009.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Wed, 18 Nov 2026 11:14:10 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CT+dFU/2ti8xNIve+pr7Oojyu7+C0ZpGu3lNEJio5siQsSaIrmPFQHlg6o0X89t53nR+U7WYSoZg280Gji4hyTh9XphcVaOlsYytsn55TjIYbn8QuPJ9MXhMrYS9A/F3yv5Ez3lnL0epGeeZEho2WqesENEAFXVulC9nyGp0z8U0+X3qQMOkwwr6UTeACQmHR3wROFpRHkwcCAD9yYGBJ+TDunOu+vtnDaFLa7QUQF7Jkw7ftcZ4x1+GRg+tYz50K9WLlI+sJILjn6nZUW4qslHV7ogFQWuudYPoeiDCCCfQx+N5dvtTJu1DvAtlVkFbv27FHUbIQ30X4n2f5UwIHQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nRxu80uyoFPR8LTbQrqJIBb5v5KYS3YE+Wo9FpD5T2c=;
+ b=S8S5Ob1paGmvIYvBJQtLZQQtMyvOOaj5YAEnYTpNCuSBgcxp8WEX4nYwdCYYlZ4C873rTA/9fDIiOfClPMq3bvRA3lQ1TkMKmseLEVacneS9wnUdzLtftyO2F6xTjtyCjSfLyvNL8kjIMYw0vGgi5x55t0iMT8DFyCRiTnJ1xQz1EnKNQuq+fml0GMo37aY6BgZgbuk3a41zOPWplt7MdNgWtMBPfcBQdHF0GM6rwHWjfiL2BplgcT1s5Hr8gA8Gx77Ra21IchnHhwHzCDc9nIwKoCMt+ORqj0Tdxb4Hw1KdTL3LLTDZm0j1boGS9bCieRU3dECR7AKDjxiFX2H6TA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1794971630; x=1795576430; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Bq1xM5S6cCDzBWNgh8mhLU4r4aKno2jWbKQ7mURNMgw=;
-        b=Y44+nLb+FZOGeTj1lftXdspKS8dmDt2p+3pzIcX17kvi5ko38iN+3ey/YyTk+7tbDA
-         CJJKlZaS32nSSZZtaaO3DCZPkMgXJxVesMWgKZktmlR7TsnQ6X3hzEOuSE0EmmzepSlj
-         fStYqsSF1RNB/MA3ML8y42drWuRXHCNsEGPg8j1e+B1WGhkZEzoIqrzGgmn1/Gvgxy30
-         12AF8Oo2kxYAH4E4SrlOr9hx+KHJBskfPCSm31ttVCyxZG557Y8U58f5CwrwY0N+2LBp
-         kz6IGpG77fMcA+5MEct8c3saJb9H3Vp2zNH6zNbdWmK8B1mn2XG3bWNT6acNBTWZSTfb
-         uSmA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794971630; x=1795576430;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Bq1xM5S6cCDzBWNgh8mhLU4r4aKno2jWbKQ7mURNMgw=;
-        b=za4gncR6C6veor1JeUq5xDbwSg+iK3ltjvqu3f+F7/DEMgO1YzDehwTUBS1SnWpK9R
-         T5qnVCG0LEoXGxtLyWwE9hjvbpGb5170x2VsrY3YyyEdCkYQR4pLM8OLOOstL6etN6hK
-         SV7O1xuDtpg1KMcg1WsxwyteL8Ig1dPFpRVQpDboWpMRFbHpKfB8pfgGuSsNd7t/sNbU
-         PABbv23PXGcgu5czDUWzgDapP0K0/wHxiz2YzydKMWVZmtJChp9eQVbxGvGx9U9f9cmO
-         xXp4gv5/iYBy6xlgJzBQeiE4KR3DRF+n4dNxeiVUmvwg1kfZK8cViZdleAqild7oioBs
-         0uGQ==
-X-Forwarded-Encrypted: i=1; AL+hErH61iacwJV5uc06+Xj7gKw+pypUezlxHQmQY/xM3nJQE+0nRuE4F3Cj/PIs2xrQRr8y5VNPg2z3ykgePkM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8pMDFuuuLgBp4eesKYOwV6ABYwi3JBGqNH23aWTHQxFVQlcChV
-	Ek2phIUyjGjBvaw4ni8CtSD/aohkwSbmPWOEms9cRZ+xCJw4Qp0N6IwoL8d53DkvHxY=
-X-Gm-Gg: AYBFou3HReIRkq9LQpLWbiztbbkogZr4DYibaWBMFqNjkWqnZ/YXqwU8UQv7AfKaQ08
-	acZ/jPMFrKFB4iAIWjsQHaCjcVoWXu+86JflUvFDw7YtP7ZLN+m76RQDddjBC/nsB+YlqZwvb4h
-	hJps63Fcs5tSDdgyDSz2nnZzyQY+YcVoU+GGqsvCPnaOHd/Cwfm1L5Na+rldPtO2sfJc3hZqRNw
-	RqdFei2PUbAmmzsEEwpn5zxNxYdOPbb54XbGbqxW7PtZUNeyoqmK/O3we3faO5rGcjdRSFek19j
-	GpJv+RVRDQ5JE/50/oxM2FPDnS/m0HFwWn4Uzmzl/DD8/giSh7XCLKyZfFaQIGeo4o9DWhavQcb
-	vn2xJuvqaEv694NKxz8LC7hJBlCwx2NaEIWHsiZNmhgkGy9bX6EPIlJyM3PI43DI5mUilfnI1zu
-	kqPPrPPZOpkTdG16zVSHbh2pJKivGeCPfz+EDtVWZJAn4doHhWD5vUtNOOFTjXIO+b3eZoZyI9c
-	T60rh+eNos7LaD91p5r1gkkjPptcgfgudFxDA33/abBE5yQ4Jdpx77PxoFXaNgqHMLFjVO9jy4G
-	1AOV6ypbt7dmUO1G33rZf60ZR00PreSmeLgpBCItL213Ng==
-X-Received: by 2002:a05:701b:42cb:10b0:1b2:de00:9bc2 with SMTP id a92af1059eb24-1b53a44bcc4mr3841253c88.12.1794971630010;
-        Tue, 17 Nov 2026 19:13:50 -0800 (PST)
-Received: from sw07.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b544784017sm2512908c88.4.2026.11.17.19.13.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 19:13:49 -0800 (PST)
-From: Nylon Chen <nylon.chen@sifive.com>
-Date: Tue, 17 Nov 2026 19:13:45 -0800
-Subject: [PATCH v2 2/2] selftests/riscv: Add vector misaligned load/store
- tests
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nRxu80uyoFPR8LTbQrqJIBb5v5KYS3YE+Wo9FpD5T2c=;
+ b=c/NqcBGWwH96Q6bO6+riDbDA50HfBhDqhpf474c4z6ZVUCjTVluhJy2zS5bcAr7ToKARf3NjacfNdjilizP98D0rKqnnZ3bSdcBHToggLojId2D0/Ck7Fe+0ViP2seZYcKkXlhT0oT6153hIhf/JKQ+Pf0v+6guRtrq1DoJs22s=
+Received: from KUYPR03MB9902.apcprd03.prod.outlook.com (2603:1096:d10:91::20)
+ by OSNPR03MB10134.apcprd03.prod.outlook.com (2603:1096:604:499::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 03:14:07 +0000
+Received: from KUYPR03MB9902.apcprd03.prod.outlook.com
+ ([fe80::9598:2e59:20dd:960b]) by KUYPR03MB9902.apcprd03.prod.outlook.com
+ ([fe80::9598:2e59:20dd:960b%5]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
+ 03:14:07 +0000
+From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
+To: "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>, "simona@ffwll.ch"
+	<simona@ffwll.ch>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, "airlied@gmail.com"
+	<airlied@gmail.com>, "bisson.gary@gmail.com" <bisson.gary@gmail.com>,
+	"rva333@protonmail.com" <rva333@protonmail.com>, "p.zabel@pengutronix.de"
+	<p.zabel@pengutronix.de>, "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>
+CC: "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"stable@vger.kernel.org" <stable@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2] drm/mediatek: mtk_dsi: do not enable HS clock in
+ pre-enable for LPM panels
+Thread-Topic: [PATCH v2] drm/mediatek: mtk_dsi: do not enable HS clock in
+ pre-enable for LPM panels
+Thread-Index: AQHddsFGSy5OtV+/m0a6QonFMFgr+LczKDuA
+Date: Wed, 18 Nov 2026 03:14:07 +0000
+Message-ID: <c0b742895da0e7d8e97e7428fa37dc67b461627a.camel@mediatek.com>
+References: <20261117-6768-dsi-fix-v2-1-6654a072884e@protonmail.com>
+In-Reply-To: <20261117-6768-dsi-fix-v2-1-6654a072884e@protonmail.com>
+Accept-Language: zh-TW, en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+user-agent: Evolution 3.52.3-0ubuntu1.1 
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: KUYPR03MB9902:EE_|OSNPR03MB10134:EE_
+x-ms-office365-filtering-correlation-id: 55282da0-34b4-4084-79c6-08df45220205
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|23010399003|42112799006|7416014|376014|1800799024|6133799003|22082099003|18002099003|261009223027099003|3023799007|56012099006|11063799006|10067099003|261102123227099003|261028144727099003|261026140227099003|261022075727099003|38070700021|261022105027099003|261021121427099003;
+x-microsoft-antispam-message-info: S3TOgZ3A/vgQ8Q9O4gW/e6pBMVovqylU9Y/O/jt1Ls6URGfsDxLRoKRs7E+oaPEWSN9zJ4v3dTBwlvHVIlFVcZ+IXBIwwbmXxs+Vk9tSThYuRrzRbXlKxcf7+9Dvd3+Gi+keXFSvyItGM5NZingrIq1PtXCdwO5855w2H92Pm2YjMNlk9sa20Od/HtiHBplfZQ2gBGffxTtEV3VIhhnAb5UMSVz63sHNNSw+lvTqwzhK6xuxi0ZxCIXnAYk54I2yox2xsoizZdCD9C6Nk6nSJJ6QVvSPoOsfQV3SvvSDnguXIsRucVaL612j0lJlgq48edZOGQ4B7EN/NjP6biJVOjuZrzvDA3NZ9XNb7JYCf6xlzfRcGwBbgd8gkybDKwy0g2I227YBlbwwpcXCJG5Ya6xnS338N7IjPZOgAD009ho0aYhEFO0qCBNqMfcEQvBrzONvRN8th9Z9YLzjQWQPng8HodL62zBQktUWhohf0TU8YYDsnY6K2fuMpKyNj3xGQl9OsTpuzX4s4MwNY4JcE36AwdAMqEn8+MWiv7op0vOwPi2dXXCh25o3+g6wcu2pcy6PoZCwRF/UQX8AYz2Q9FkKWI7tdJVSwDL/2Agv2dOHZJIATu7koTitY8KLsds17bMCV08dj3tA4kLdRkQsL6M3V/dEuWWMw4q+rAsZGr8aSHe2B2tvV3BjXHyUKmRRM9hemjd+qyt1a+jXqZw+H1nbXEP7YA9XS7th40xyn3o=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KUYPR03MB9902.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(42112799006)(7416014)(376014)(1800799024)(6133799003)(22082099003)(18002099003)(261009223027099003)(3023799007)(56012099006)(11063799006)(10067099003)(261102123227099003)(261028144727099003)(261026140227099003)(261022075727099003)(38070700021)(261022105027099003)(261021121427099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?ZUlQRVBxRVVRRFcreWdMS3l3bmpmNFRVb1ZIVUVwbmgxMTZOYkdVeGhMZkxQ?=
+ =?utf-8?B?V3VkWTFsZHJGTUZlWWxnYngvWDZxMm1CU1Y1Z3poOU5UeHZIeHRPa2wvMjlG?=
+ =?utf-8?B?dHFGcVl5eUp3b2U3K0Zmc3JTRFdubmM1SXgwSTNYaXM1VEpPUFl4WHFjRDZE?=
+ =?utf-8?B?T1hpeTJVUmVxL3YwWkVQVTFBbEc0Q1E4RFI2VTZwU3N1Y3JTbkkwaTN2Sit2?=
+ =?utf-8?B?dy81dlhMTjVrSVQvRGdhVHJUa0JvbUNWWlpwRTZxUjdnN1pUeUhhMXR6elkz?=
+ =?utf-8?B?NlBjWnRaWkZqMG93elNHVlFrVVFwTk1jU0VCWDRDdXBDd3IwRlZkcjJWWGZC?=
+ =?utf-8?B?Ly9TL3NzVDgzeTRUaHltOXpBQU1QL01HS1NQbUpiRWJIcnRxVjhiNTNlQTlU?=
+ =?utf-8?B?S2xodHZJS3Uvbm5KdXlQQjlBczFhVlQ3UzZMek5iSzRGQU9rQUdXa0NUQUFR?=
+ =?utf-8?B?cFM2MVFNaVdCdFVpamxOVlhxWUdsZVF6THRUNWZLT3NZSTI3dEhNRHh1ODQ4?=
+ =?utf-8?B?L1l2MW9HWXprSmJyQ2tVTFZ0eFRCN2pkMU1LSkVqSTVrYThPWU0yOHoxakxh?=
+ =?utf-8?B?dlQxUENWYkkwV0ljR0N3UGFCcHJNbkJ0Q0p6LytNZFhMOEVJLzJ4U2V0eU5Y?=
+ =?utf-8?B?bExNU1pnRFlrZkV1cXlQVkY5V3RkU2FtQ24xVmRMWVZoTVFYSDVNcmV4QW80?=
+ =?utf-8?B?enhSZHpzcnVzN3ZIY3RGTGQ0MGIwaExzQjZ1VFdFWFdWTlc0UEpEZ1hMa1Qy?=
+ =?utf-8?B?aXl2U3ZrcittcW5aYWhaSmVxbjlQNGhPd2lpdGxVVzlDdXViUlQrWGx5NXRZ?=
+ =?utf-8?B?TDE0UVA3SnpaOGIxV255eFBRNGRaeTQ5MWdodlR6UlM5aXRhRkcrL1hQZUE4?=
+ =?utf-8?B?Rk5yOHdqbVd5MnNRRldxbXhXQ2IxZlpFMGhQZnFnbzRJVWtPRERHTlFKQWc2?=
+ =?utf-8?B?U2FDVEtuS2VrRXd3Uk9WaDlzeHdIbWVhdHI2M0dVSnpyRkIybTJWUnFHZUUy?=
+ =?utf-8?B?Y3JmblRaeHF4OVJ2ZUFocU44cmNrNzZ0Mnk2Q05HTnhQcnliRzFkMm44bzJn?=
+ =?utf-8?B?eCt1NjhXbG5MM1RScTlqWDFKSkluUk9XSDg0eFFneXF6RXFISTZsVGFBS0Rv?=
+ =?utf-8?B?d01QL2p2YWZlV2VzVFRUNjQ3NkowcUhUbjVOUm1VN3N4NXVNRWZwS0xHd0ds?=
+ =?utf-8?B?Q1VGeGdUamhqZGlKaElna2IxVlgrU1Jyemo4MDJBT1d6bUprOFZ6czVFZWk0?=
+ =?utf-8?B?dlRSUW1UNVpyeVBxUkU1TklKand2OC83dm0rcTVNK0EwNXlqeks5Sm5OYW9a?=
+ =?utf-8?B?eUxYSmQ2aklHTGZvMEtvcld1UHRZazIrdG5vL3dCVlBXMC9YYU1TaXFMd3h5?=
+ =?utf-8?B?a2prdURYVDlUdHdvN0dZTkoyT1hkTENXajFJSzY0clBwOHZpYlEyUjA1bTlu?=
+ =?utf-8?B?eXAwc0VBUlJLZUQ3bHRVc3V1UzdlUGNkNEE3Qlp2bmRNNjc0YzRwNUZsZ3ZM?=
+ =?utf-8?B?RzJRY0tONTdJenpqNks4aGoyenk1anNlRlRpOE4xOWo2OEJSdy9hdmx0WHlX?=
+ =?utf-8?B?UElOV3dNSTBza2duUk0yUmFYdGdNVml1RmhjcVRVdFZmSXZXRlgyYXNqYU9r?=
+ =?utf-8?B?WTF0b21jaUZkV2IvKzExUmgrbWZyNkRVVEl0TXBDT3A4VUh5b0hQWjYyMk4z?=
+ =?utf-8?B?ekJwcm9nN1JlZ3ZFWXdsTnJJRE1CNmhNdzk2STBkSHY0TjFGbXZQbHFmNUVj?=
+ =?utf-8?B?ZUhsdGltUTZUUGx4YmEwSkhaamtWekZyVTd2MU04ZlFmT2lCdmpXWFdWaytP?=
+ =?utf-8?B?MW9rZWtuUFlmYjdUWU1EbkltN21Cbi9sU2wzcS9zTUtJOElLMTllSUFoWGw4?=
+ =?utf-8?B?U3JKMVRRc2dqS1hIejZoQjRyTDlxclp6S3FYNTNLN2haZmNXRmNQSnd6RTNH?=
+ =?utf-8?B?eUZpS3lIQ0VOZitzakZMSFJrVHRTLzVwNU1yUkNOVjd3SnJEZVU0Ni9pTG9q?=
+ =?utf-8?B?WE5IRU40S1pmNkVjSFpweGVrWmNaaXNkSHk5WE56V0h3VmUvQU5JaHh5ZVQ4?=
+ =?utf-8?B?bGNrUHFWbkVNbndUMEJzVWVjVVBHa1V0WEdURGF4SXJ6N01RMEZlV2haNzdW?=
+ =?utf-8?B?WU4xVXR6U1crWHpOQzRTUWNBeWVpQmJMcDVSZENGd2l6dFVyN3ZhT0Zoamx6?=
+ =?utf-8?B?RTJIY1pYMzFsNzRuK0p0V3BvVVc4OW9EY3R6aVlLV3NjUGdSS2xCY2tLY1V4?=
+ =?utf-8?B?d24zU3NUMHMyRGJWWS9FaC9Qc0cyejZ6MlYzV1JDLzB2cERjTWk1TjNkK2Fm?=
+ =?utf-8?B?ZzRtTUl1SmdLVlpCWEpDR1pnQ1ZHMWlrYlRDSXZ6bXlwRlZmeHlCdz09?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <E3BDC5D520D70F43B6AB01BC0656E3E5@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,784 +195,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261117-riscv-vector-misaligned-v2-2-0163d9430ca1@sifive.com>
-References: <20261117-riscv-vector-misaligned-v2-0-0163d9430ca1@sifive.com>
-In-Reply-To: <20261117-riscv-vector-misaligned-v2-0-0163d9430ca1@sifive.com>
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Shuah Khan <shuah@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-kselftest@vger.kernel.org, Nylon Chen <nylon.chen@sifive.com>, 
- Yeting Kuo <yeting.kuo@sifive.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794971627; l=30486;
- i=nylon.chen@sifive.com; s=20260310; h=from:subject:message-id;
- bh=cucAsBHXdr13plVMqPvS//NcNRD5TsQvaW5PNj6lvzw=;
- b=JmkqiINCYjj7EXtdGLQjn1E20klTHqqDWgVBJELB366BMgKcSpaMljWOgR3Ca0oHUj3O7h2/D
- 6Yv7siWgecBARLmSPom5T0yS9cmL1paLlQRqRPk//twOrfxZ3XlM2Hz
-X-Developer-Key: i=nylon.chen@sifive.com; a=ed25519;
- pk=+xtFLLbXfGd50d5UhR9oBzLTh+JLft7T60t3u7YMZPI=
+X-Exchange-RoutingPolicyChecked: bOtit1flFzycVbK8peDBxhvBEn42FjNClSm3CRLhXD4Ta3K88hqp3+PMm8a+ec5w6sa2TvR6ILbt2FC5Vlp46uyAtOiOChdhIL7+mrAUryF2tMfv75x9/KbYiv2ubNU4zEYNjyU27BockLM59df8OO+QBzD8ZrSmR0GnGL8JmHsHpEfo9fUcWr3nMw6iVP82AwmtcY9LelPU48MLCTREnN5JrJecUidJyn0tmd3n/8RI6fo/6/qH6ZqDjLUgshAWgC9uYUieOnfbVkcaINo7tPuYcO1/roqEG6sUP29V89p9/2ZDI53s7aqjv4N3S6COTtt1/veRDzPBi8pkc0+8kQ==
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: KUYPR03MB9902.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 55282da0-34b4-4084-79c6-08df45220205
+X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Nov 2026 03:14:07.4657
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: Bd9ksnNB3erbphNv8LpOQ9VmQpMoWRkwUFh4KGZ7/9aMqQqDuMYKu4Gpbh6oCPzzWS1CrKLuTM19alePnYhU8Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSNPR03MB10134
+X-MTK: N
 
-Add a new kselftest for RISC-V vector misaligned load/store operations.
-This test covers various vector instruction types including:
-- Unit-stride and strided load/store
-- Indexed ordered and unordered load/store
-- Fault-only-first loads
-- Whole register load/store
-- Segment load/store (unit-stride, strided, indexed)
-
-The test uses macros to generate test functions for different element
-widths (16/32/64-bit) and segment configurations (nf=2,4,8), reducing
-code duplication significantly.
-
-The test properly uses kselftest APIs:
-- ksft_print_header() and ksft_set_plan() for initialization
-- ksft_test_result_pass/fail() for reporting test results
-- ksft_finished() for proper exit handling
-
-Signed-off-by: Nylon Chen <nylon.chen@sifive.com>
-Signed-off-by: Yeting Kuo <yeting.kuo@sifive.com>
----
- tools/testing/selftests/riscv/vector/Makefile      |   5 +-
- .../testing/selftests/riscv/vector/v_misaligned.c  | 169 +++++++
- .../testing/selftests/riscv/vector/v_misaligned.h  | 530 +++++++++++++++++++++
- 3 files changed, 703 insertions(+), 1 deletion(-)
-
-diff --git a/tools/testing/selftests/riscv/vector/Makefile b/tools/testing/selftests/riscv/vector/Makefile
-index 0ed09b69dd8a..79f475251797 100644
---- a/tools/testing/selftests/riscv/vector/Makefile
-+++ b/tools/testing/selftests/riscv/vector/Makefile
-@@ -3,7 +3,7 @@
- # Originally tools/testing/arm64/abi/Makefile
- 
- TEST_GEN_PROGS := v_initval vstate_prctl vstate_ptrace validate_v_ptrace \
--		  v_uaccess_stress
-+		  v_uaccess_stress v_misaligned
- TEST_GEN_PROGS_EXTENDED := vstate_exec_nolibc v_exec_initval_nolibc
- TEST_GEN_LIBS := v_helpers.c sys_hwprobe.c
- 
-@@ -40,4 +40,7 @@ $(OUTPUT)/validate_v_ptrace: validate_v_ptrace.c $(OUTPUT)/sys_hwprobe.o $(OUTPU
- $(OUTPUT)/v_uaccess_stress: v_uaccess_stress.c
- 	$(CC) -static -o $@ $(CFLAGS) $(LDFLAGS) $^
- 
-+$(OUTPUT)/v_misaligned: v_misaligned.c
-+	$(CC) -static -o $@ $(CFLAGS) $(LDFLAGS) -march=rv64imafdcvh -mabi=lp64d $^
-+
- EXTRA_CLEAN += $(TEST_GEN_OBJ)
-diff --git a/tools/testing/selftests/riscv/vector/v_misaligned.c b/tools/testing/selftests/riscv/vector/v_misaligned.c
-new file mode 100644
-index 000000000000..c0439a633280
---- /dev/null
-+++ b/tools/testing/selftests/riscv/vector/v_misaligned.c
-@@ -0,0 +1,169 @@
-+// SPDX-License-Identifier: BSD-2-Clause
-+/*
-+ * Copyright (c) 2025 SiFive Inc.
-+ *
-+ * Authors:
-+ *   Nylon Chen <nylon.chen@sifive.com>
-+ *   Zong Li <zong.li@sifive.com>
-+ */
-+
-+#include "v_misaligned.h"
-+
-+/* Strided load/store tests (16/32/64-bit) */
-+DEFINE_STRIDED_TEST(16, uint16_t, 0x1234, 0x1111, 2)
-+DEFINE_STRIDED_TEST(32, uint32_t, 0x12345678, 0x11111111, 4)
-+DEFINE_STRIDED_TEST(64, uint64_t, 0x1234567890abcdefULL, 0x1111111111111111ULL, 8)
-+
-+/* Unit-stride load/store tests (16/32/64-bit) */
-+DEFINE_UNIT_STRIDE_TEST(16, uint16_t, 0x1234, 0x1111)
-+DEFINE_UNIT_STRIDE_TEST(32, uint32_t, 0x12345678, 0x11111111)
-+DEFINE_UNIT_STRIDE_TEST(64, uint64_t, 0x1234567890abcdefULL, 0x1111111111111111ULL)
-+
-+/* Indexed ordered load/store tests (16/32/64-bit) */
-+DEFINE_INDEXED_ORDERED_TEST(16, uint16_t, 0x1234, 0x1111, 2)
-+DEFINE_INDEXED_ORDERED_TEST(32, uint32_t, 0x12345678, 0x11111111, 4)
-+DEFINE_INDEXED_ORDERED_TEST(64, uint64_t, 0x1234567890abcdefULL, 0x1111111111111111ULL, 8)
-+
-+/* Indexed unordered load/store tests (16/32/64-bit) */
-+DEFINE_INDEXED_UNORDERED_TEST(16, uint16_t, 0x1234, 0x1111, 2)
-+DEFINE_INDEXED_UNORDERED_TEST(32, uint32_t, 0x12345678, 0x11111111, 4)
-+DEFINE_INDEXED_UNORDERED_TEST(64, uint64_t, 0x1234567890abcdefULL, 0x1111111111111111ULL, 8)
-+
-+/* Fault-only-first load tests (16/32/64-bit) */
-+DEFINE_FAULT_ONLY_FIRST_TEST(16, uint16_t, 0x1234, 0x1111)
-+DEFINE_FAULT_ONLY_FIRST_TEST(32, uint32_t, 0x12345678, 0x11111111)
-+DEFINE_FAULT_ONLY_FIRST_TEST(64, uint64_t, 0x1234567890abcdefULL, 0x1111111111111111ULL)
-+
-+/* Whole register load/store tests (16/32/64-bit) */
-+DEFINE_WHOLE_REG_TEST(16, uint16_t)
-+DEFINE_WHOLE_REG_TEST(32, uint32_t)
-+DEFINE_WHOLE_REG_TEST(64, uint64_t)
-+
-+/* Strided segment load/store tests (eew x nf combinations) */
-+DEFINE_STRIDED_SEGMENT_TEST(16, 2)
-+DEFINE_STRIDED_SEGMENT_TEST(16, 4)
-+DEFINE_STRIDED_SEGMENT_TEST(16, 8)
-+DEFINE_STRIDED_SEGMENT_TEST(32, 2)
-+DEFINE_STRIDED_SEGMENT_TEST(32, 4)
-+DEFINE_STRIDED_SEGMENT_TEST(32, 8)
-+DEFINE_STRIDED_SEGMENT_TEST(64, 2)
-+DEFINE_STRIDED_SEGMENT_TEST(64, 4)
-+DEFINE_STRIDED_SEGMENT_TEST(64, 8)
-+
-+/* Unit-stride segment load/store tests (eew x nf combinations) */
-+DEFINE_UNIT_STRIDE_SEGMENT_TEST(16, 2)
-+DEFINE_UNIT_STRIDE_SEGMENT_TEST(16, 4)
-+DEFINE_UNIT_STRIDE_SEGMENT_TEST(16, 8)
-+DEFINE_UNIT_STRIDE_SEGMENT_TEST(32, 2)
-+DEFINE_UNIT_STRIDE_SEGMENT_TEST(32, 4)
-+DEFINE_UNIT_STRIDE_SEGMENT_TEST(32, 8)
-+DEFINE_UNIT_STRIDE_SEGMENT_TEST(64, 2)
-+DEFINE_UNIT_STRIDE_SEGMENT_TEST(64, 4)
-+DEFINE_UNIT_STRIDE_SEGMENT_TEST(64, 8)
-+
-+/* Indexed unordered segment load/store tests (eew x nf combinations) */
-+DEFINE_INDEXED_UNORDERED_SEGMENT_TEST(16, 2, uint16_t)
-+DEFINE_INDEXED_UNORDERED_SEGMENT_TEST(16, 4, uint16_t)
-+DEFINE_INDEXED_UNORDERED_SEGMENT_TEST(16, 8, uint16_t)
-+DEFINE_INDEXED_UNORDERED_SEGMENT_TEST(32, 2, uint32_t)
-+DEFINE_INDEXED_UNORDERED_SEGMENT_TEST(32, 4, uint32_t)
-+DEFINE_INDEXED_UNORDERED_SEGMENT_TEST(32, 8, uint32_t)
-+DEFINE_INDEXED_UNORDERED_SEGMENT_TEST(64, 2, uint64_t)
-+DEFINE_INDEXED_UNORDERED_SEGMENT_TEST(64, 4, uint64_t)
-+DEFINE_INDEXED_UNORDERED_SEGMENT_TEST(64, 8, uint64_t)
-+
-+/* Indexed ordered segment load/store tests (eew x nf combinations) */
-+DEFINE_INDEXED_ORDERED_SEGMENT_TEST(16, 2, uint16_t)
-+DEFINE_INDEXED_ORDERED_SEGMENT_TEST(16, 4, uint16_t)
-+DEFINE_INDEXED_ORDERED_SEGMENT_TEST(16, 8, uint16_t)
-+DEFINE_INDEXED_ORDERED_SEGMENT_TEST(32, 2, uint32_t)
-+DEFINE_INDEXED_ORDERED_SEGMENT_TEST(32, 4, uint32_t)
-+DEFINE_INDEXED_ORDERED_SEGMENT_TEST(32, 8, uint32_t)
-+DEFINE_INDEXED_ORDERED_SEGMENT_TEST(64, 2, uint64_t)
-+DEFINE_INDEXED_ORDERED_SEGMENT_TEST(64, 4, uint64_t)
-+DEFINE_INDEXED_ORDERED_SEGMENT_TEST(64, 8, uint64_t)
-+
-+int main(void)
-+{
-+	ksft_print_header();
-+	ksft_set_plan(54);
-+
-+	int VLEN = csr_read(CSR_VLENB);
-+	int VEC_LEN = VLEN / 8;
-+
-+	/* stride */
-+	test_misaligned_strided_load_store_16(VEC_LEN);
-+	test_misaligned_strided_load_store_32(VEC_LEN);
-+	test_misaligned_strided_load_store_64(VEC_LEN);
-+
-+	/* unit-stride  */
-+	test_misaligned_unit_stride_load_store_16(VEC_LEN);
-+	test_misaligned_unit_stride_load_store_32(VEC_LEN);
-+	test_misaligned_unit_stride_load_store_64(VEC_LEN);
-+
-+	/* indexed_ordered  */
-+	test_indexed_ordered_load_store_16(VEC_LEN);
-+	test_indexed_ordered_load_store_32(VEC_LEN);
-+	test_indexed_ordered_load_store_64(VEC_LEN);
-+
-+	/* indexed_unordered  */
-+	test_indexed_unordered_load_store_16(VEC_LEN);
-+	test_indexed_unordered_load_store_32(VEC_LEN);
-+	test_indexed_unordered_load_store_64(VEC_LEN);
-+
-+	/* fault_only_first */
-+	test_fault_only_first_load_16_misaligned(VEC_LEN);
-+	test_fault_only_first_load_32_misaligned(VEC_LEN);
-+	test_fault_only_first_load_64_misaligned(VEC_LEN);
-+
-+	/* whole_reg  */
-+	whole_reg_16(VLEN);
-+	whole_reg_32(VLEN);
-+	whole_reg_64(VLEN);
-+
-+	/* unit-stride segment */
-+	test_misaligned_unit_stride_segment_load_store_16_2(VEC_LEN);
-+	test_misaligned_unit_stride_segment_load_store_16_4(VEC_LEN);
-+	test_misaligned_unit_stride_segment_load_store_16_8(VEC_LEN);
-+	test_misaligned_unit_stride_segment_load_store_32_2(VEC_LEN);
-+	test_misaligned_unit_stride_segment_load_store_32_4(VEC_LEN);
-+	test_misaligned_unit_stride_segment_load_store_32_8(VEC_LEN);
-+	test_misaligned_unit_stride_segment_load_store_64_2(VEC_LEN);
-+	test_misaligned_unit_stride_segment_load_store_64_4(VEC_LEN);
-+	test_misaligned_unit_stride_segment_load_store_64_8(VEC_LEN);
-+
-+	/* strided segment */
-+	test_misaligned_strided_segment_load_store_16_2(VEC_LEN);
-+	test_misaligned_strided_segment_load_store_16_4(VEC_LEN);
-+	test_misaligned_strided_segment_load_store_16_8(VEC_LEN);
-+	test_misaligned_strided_segment_load_store_32_2(VEC_LEN);
-+	test_misaligned_strided_segment_load_store_32_4(VEC_LEN);
-+	test_misaligned_strided_segment_load_store_32_8(VEC_LEN);
-+	test_misaligned_strided_segment_load_store_64_2(VEC_LEN);
-+	test_misaligned_strided_segment_load_store_64_4(VEC_LEN);
-+	test_misaligned_strided_segment_load_store_64_8(VEC_LEN);
-+
-+	/* indexed unordered segment */
-+	test_misaligned_indexed_unordered_segment_load_store_16_2(VEC_LEN);
-+	test_misaligned_indexed_unordered_segment_load_store_16_4(VEC_LEN);
-+	test_misaligned_indexed_unordered_segment_load_store_16_8(VEC_LEN);
-+	test_misaligned_indexed_unordered_segment_load_store_32_2(VEC_LEN);
-+	test_misaligned_indexed_unordered_segment_load_store_32_4(VEC_LEN);
-+	test_misaligned_indexed_unordered_segment_load_store_32_8(VEC_LEN);
-+	test_misaligned_indexed_unordered_segment_load_store_64_2(VEC_LEN);
-+	test_misaligned_indexed_unordered_segment_load_store_64_4(VEC_LEN);
-+	test_misaligned_indexed_unordered_segment_load_store_64_8(VEC_LEN);
-+
-+	/* indexed ordered segment */
-+	test_misaligned_indexed_ordered_segment_load_store_16_2(VEC_LEN);
-+	test_misaligned_indexed_ordered_segment_load_store_16_4(VEC_LEN);
-+	test_misaligned_indexed_ordered_segment_load_store_16_8(VEC_LEN);
-+	test_misaligned_indexed_ordered_segment_load_store_32_2(VEC_LEN);
-+	test_misaligned_indexed_ordered_segment_load_store_32_4(VEC_LEN);
-+	test_misaligned_indexed_ordered_segment_load_store_32_8(VEC_LEN);
-+	test_misaligned_indexed_ordered_segment_load_store_64_2(VEC_LEN);
-+	test_misaligned_indexed_ordered_segment_load_store_64_4(VEC_LEN);
-+	test_misaligned_indexed_ordered_segment_load_store_64_8(VEC_LEN);
-+
-+	ksft_finished();
-+}
-diff --git a/tools/testing/selftests/riscv/vector/v_misaligned.h b/tools/testing/selftests/riscv/vector/v_misaligned.h
-new file mode 100644
-index 000000000000..fe9d53cfe9fc
---- /dev/null
-+++ b/tools/testing/selftests/riscv/vector/v_misaligned.h
-@@ -0,0 +1,530 @@
-+/* SPDX-License-Identifier: BSD-2-Clause
-+ *
-+ * Copyright (c) 2025 SiFive Inc.
-+ *
-+ * Authors:
-+ *   Nylon Chen <nylon.chen@sifive.com>
-+ *   Zong Li <zong.li@sifive.com>
-+ */
-+
-+#ifndef _V_MISALIGNED_H
-+#define _V_MISALIGNED_H
-+
-+#include <stdio.h>
-+#include <stdlib.h>
-+#include <string.h>
-+#include <stdint.h>
-+#include "../../kselftest_harness.h"
-+
-+#define __ASM_STR(x)	#x
-+
-+#define CSR_VSTART	0x8
-+#define CSR_VLENB	0xc22
-+
-+#define OFFSET		1
-+
-+#define csr_read(csr)						\
-+({								\
-+	register unsigned long __v;				\
-+	__asm__ __volatile__("csrr %0, " __ASM_STR(csr)		\
-+		: "=r" (__v)					\
-+		:						\
-+		: "memory");					\
-+	__v;							\
-+})
-+
-+#define csr_write(csr, val)					\
-+({								\
-+	unsigned long __v = (unsigned long)(val);		\
-+	__asm__ __volatile__("csrw " __ASM_STR(csr) ", %0"	\
-+		:						\
-+		: "rK" (__v)					\
-+		: "memory");					\
-+})
-+
-+static inline int check_result(const void *expected, const void *actual,
-+			       size_t element_size, size_t vec_len)
-+{
-+	const uint8_t *expected_bytes = (const uint8_t *)expected;
-+	const uint8_t *actual_bytes = (const uint8_t *)actual;
-+
-+	for (size_t i = 0; i < vec_len; i++) {
-+		for (size_t j = 0; j < element_size; j++) {
-+			if (expected_bytes[i * element_size + j] !=
-+			    actual_bytes[i * element_size + j]) {
-+				fprintf(stderr,
-+					"Error: Expected 0x%02x, got 0x%02x at byte %zu of element %zu\n",
-+					expected_bytes[i * element_size + j],
-+					actual_bytes[i * element_size + j], j, i);
-+				return 0;
-+			}
-+		}
-+	}
-+	return 1;
-+}
-+
-+/*
-+ * Macro to define strided load/store test functions
-+ */
-+#define DEFINE_STRIDED_TEST(bits, type, init_val, fill_val, stride_val)		\
-+void test_misaligned_strided_load_store_##bits(int VEC_LEN)			\
-+{										\
-+	ksft_print_msg("start\n");						\
-+	type *src_vec = (type *)calloc(VEC_LEN + OFFSET, sizeof(type));		\
-+	type *dst_vec = (type *)calloc(VEC_LEN + OFFSET, sizeof(type));		\
-+	if (!src_vec || !dst_vec) {						\
-+		fprintf(stderr, "Error: Memory allocation failed\n");		\
-+		free(src_vec);							\
-+		free(dst_vec);							\
-+		return;								\
-+	}									\
-+	for (size_t i = 0; i < VEC_LEN; i++) {					\
-+		src_vec[i] = (init_val) + (i * (fill_val));			\
-+		dst_vec[i] = (type)-1;						\
-+	}									\
-+	type *misaligned_load_addr = (type *)((uint8_t *)src_vec + OFFSET);	\
-+	type *misaligned_store_addr = (type *)((uint8_t *)dst_vec + OFFSET);	\
-+	asm volatile("vsetvli zero, %0, e" #bits ", m1\n\t"			\
-+		     "vlse" #bits ".v v1, (%1), %3\n\t"				\
-+		     "vsse" #bits ".v v1, (%2), %3\n\t"				\
-+		     :								\
-+		     : "r"(VEC_LEN), "r"(misaligned_load_addr),			\
-+		       "r"(misaligned_store_addr), "r"(stride_val)		\
-+		     : "memory", "v1");						\
-+	if (!check_result(misaligned_load_addr, misaligned_store_addr,		\
-+			  sizeof(type), VEC_LEN)) {				\
-+		ksft_test_result_fail("strided " #bits " fail\n");		\
-+		free(src_vec);							\
-+		free(dst_vec);							\
-+		return;								\
-+	}									\
-+	ksft_test_result_pass("strided " #bits " pass\n");			\
-+	free(src_vec);								\
-+	free(dst_vec);								\
-+}
-+
-+/*
-+ * Macro to define unit-stride load/store test functions
-+ */
-+#define DEFINE_UNIT_STRIDE_TEST(bits, type, init_val, fill_val)			\
-+void test_misaligned_unit_stride_load_store_##bits(int VEC_LEN)			\
-+{										\
-+	ksft_print_msg("start\n");						\
-+	type *src_vec = (type *)calloc(VEC_LEN + OFFSET, sizeof(type));		\
-+	type *dst_vec = (type *)calloc(VEC_LEN + OFFSET, sizeof(type));		\
-+	if (!src_vec || !dst_vec) {						\
-+		fprintf(stderr, "Error: Memory allocation failed\n");		\
-+		free(src_vec);							\
-+		free(dst_vec);							\
-+		return;								\
-+	}									\
-+	for (size_t i = 0; i < VEC_LEN; i++) {					\
-+		src_vec[i + OFFSET] = (init_val) + (i * (fill_val));		\
-+		dst_vec[i + OFFSET] = (type)-1;					\
-+	}									\
-+	type *misaligned_load_addr = (type *)((uint8_t *)src_vec + OFFSET);	\
-+	type *misaligned_store_addr = (type *)((uint8_t *)dst_vec + OFFSET);	\
-+	asm volatile("vsetvli zero, %0, e" #bits ", m1\n\t"			\
-+		     "vle" #bits ".v v1, (%1)\n\t"				\
-+		     "vse" #bits ".v v1, (%2)\n\t"				\
-+		     :								\
-+		     : "r"(VEC_LEN), "r"(misaligned_load_addr),			\
-+		       "r"(misaligned_store_addr)				\
-+		     : "memory", "v1");						\
-+	if (!check_result(misaligned_load_addr, misaligned_store_addr,		\
-+			  sizeof(type), VEC_LEN)) {				\
-+		ksft_test_result_fail("unit_stride " #bits " fail\n");		\
-+		free(src_vec);							\
-+		free(dst_vec);							\
-+		return;								\
-+	}									\
-+	ksft_test_result_pass("unit_stride " #bits " pass\n");			\
-+	free(src_vec);								\
-+	free(dst_vec);								\
-+}
-+
-+/*
-+ * Macro to define indexed ordered load/store test functions
-+ */
-+#define DEFINE_INDEXED_ORDERED_TEST(bits, type, init_val, fill_val, idx_mul)	\
-+void test_indexed_ordered_load_store_##bits(int VEC_LEN)			\
-+{										\
-+	ksft_print_msg("start\n");						\
-+	type *src_vec = (type *)calloc(VEC_LEN + OFFSET, sizeof(type));		\
-+	type *dst_vec = (type *)calloc(VEC_LEN + OFFSET, sizeof(type));		\
-+	type *index_vec = (type *)calloc(VEC_LEN, sizeof(type));		\
-+	if (!src_vec || !dst_vec || !index_vec) {				\
-+		fprintf(stderr, "Error: Memory allocation failed\n");		\
-+		free(src_vec);							\
-+		free(dst_vec);							\
-+		free(index_vec);						\
-+		return;								\
-+	}									\
-+	for (size_t i = 0; i < VEC_LEN; i++) {					\
-+		src_vec[i] = (init_val) + (i * (fill_val));			\
-+		dst_vec[i] = (type)-1;						\
-+		index_vec[i] = i * (idx_mul);					\
-+	}									\
-+	type *misaligned_load_addr = (type *)((uint8_t *)src_vec + OFFSET);	\
-+	type *misaligned_store_addr = (type *)((uint8_t *)dst_vec + OFFSET);	\
-+	asm volatile("vsetvli zero, %0, e" #bits ", m1\n\t"			\
-+		     "vle" #bits ".v v2, (%3)\n\t"				\
-+		     "vloxei" #bits ".v v1, (%1), v2\n\t"			\
-+		     "vsoxei" #bits ".v v1, (%2), v2\n\t"			\
-+		     :								\
-+		     : "r"(VEC_LEN), "r"(misaligned_load_addr),			\
-+		       "r"(misaligned_store_addr), "r"(index_vec)		\
-+		     : "memory", "v1", "v2");					\
-+	if (!check_result(misaligned_load_addr, misaligned_store_addr,		\
-+			  sizeof(type), VEC_LEN)) {				\
-+		ksft_test_result_fail("indexed_ordered " #bits " fail\n");	\
-+		free(src_vec);							\
-+		free(dst_vec);							\
-+		free(index_vec);						\
-+		return;								\
-+	}									\
-+	ksft_test_result_pass("indexed_ordered " #bits " pass\n");		\
-+	free(src_vec);								\
-+	free(dst_vec);								\
-+	free(index_vec);							\
-+}
-+
-+
-+/*
-+ * Macro to define indexed unordered load/store test functions
-+ */
-+#define DEFINE_INDEXED_UNORDERED_TEST(bits, type, init_val, fill_val, idx_mul)	\
-+void test_indexed_unordered_load_store_##bits(int VEC_LEN)			\
-+{										\
-+	ksft_print_msg("start\n");						\
-+	type *src_vec = (type *)calloc(VEC_LEN + OFFSET, sizeof(type));		\
-+	type *dst_vec = (type *)calloc(VEC_LEN + OFFSET, sizeof(type));		\
-+	type *index_vec = (type *)calloc(VEC_LEN, sizeof(type));		\
-+	if (!src_vec || !dst_vec || !index_vec) {				\
-+		fprintf(stderr, "Error: Memory allocation failed\n");		\
-+		free(src_vec);							\
-+		free(dst_vec);							\
-+		free(index_vec);						\
-+		return;								\
-+	}									\
-+	for (size_t i = 0; i < VEC_LEN; i++) {					\
-+		src_vec[i] = (init_val) + (i * (fill_val));			\
-+		dst_vec[i] = (type)-1;						\
-+		index_vec[i] = i * (idx_mul);					\
-+	}									\
-+	type *misaligned_load_addr = (type *)((uint8_t *)src_vec + OFFSET);	\
-+	type *misaligned_store_addr = (type *)((uint8_t *)dst_vec + OFFSET);	\
-+	asm volatile("vsetvli zero, %0, e" #bits ", m1\n\t"			\
-+		     "vle" #bits ".v v2, (%3)\n\t"				\
-+		     "vluxei" #bits ".v v1, (%1), v2\n\t"			\
-+		     "vsuxei" #bits ".v v1, (%2), v2\n\t"			\
-+		     :								\
-+		     : "r"(VEC_LEN), "r"(misaligned_load_addr),			\
-+		       "r"(misaligned_store_addr), "r"(index_vec)		\
-+		     : "memory", "v1", "v2");					\
-+	if (!check_result(misaligned_load_addr, misaligned_store_addr,		\
-+			  sizeof(type), VEC_LEN)) {				\
-+		ksft_test_result_fail("indexed_unordered " #bits " fail\n");	\
-+		free(src_vec);							\
-+		free(dst_vec);							\
-+		free(index_vec);						\
-+		return;								\
-+	}									\
-+	ksft_test_result_pass("indexed_unordered " #bits " pass\n");		\
-+	free(src_vec);								\
-+	free(dst_vec);								\
-+	free(index_vec);							\
-+}
-+
-+/*
-+ * Macro to define fault-only-first load test functions
-+ */
-+#define DEFINE_FAULT_ONLY_FIRST_TEST(bits, type, init_val, fill_val)		\
-+void test_fault_only_first_load_##bits##_misaligned(int VEC_LEN)		\
-+{										\
-+	ksft_print_msg("start\n");						\
-+	type *src_vec = (type *)calloc(VEC_LEN + OFFSET, sizeof(type));		\
-+	type *dst_vec = (type *)calloc(VEC_LEN + OFFSET, sizeof(type));		\
-+	if (!src_vec || !dst_vec) {						\
-+		fprintf(stderr, "Error: Memory allocation failed\n");		\
-+		free(src_vec);							\
-+		free(dst_vec);							\
-+		return;								\
-+	}									\
-+	for (size_t i = 0; i < VEC_LEN; i++) {					\
-+		src_vec[i + OFFSET] = (init_val) + (i * (fill_val));		\
-+		dst_vec[i + OFFSET] = (type)-1;					\
-+	}									\
-+	type *misaligned_load_addr = (type *)((uint8_t *)src_vec + OFFSET);	\
-+	type *misaligned_store_addr = (type *)((uint8_t *)dst_vec + OFFSET);	\
-+	asm volatile("vsetvli zero, %0, e" #bits ", m1\n\t"			\
-+		     "vle" #bits "ff.v v1, (%1)\n\t"				\
-+		     "vse" #bits ".v v1, (%2)\n\t"				\
-+		     :								\
-+		     : "r"(VEC_LEN), "r"(misaligned_load_addr),			\
-+		       "r"(misaligned_store_addr)				\
-+		     : "memory", "v1");						\
-+	if (!check_result(misaligned_load_addr, misaligned_store_addr,		\
-+			  sizeof(type), VEC_LEN)) {				\
-+		ksft_test_result_fail("fault_only_first " #bits " fail\n");	\
-+		free(src_vec);							\
-+		free(dst_vec);							\
-+		return;								\
-+	}									\
-+	ksft_test_result_pass("fault_only_first " #bits " pass\n");		\
-+	free(src_vec);								\
-+	free(dst_vec);								\
-+}
-+
-+/*
-+ * Macro to define unit-stride segment load/store test functions
-+ */
-+#define DEFINE_UNIT_STRIDE_SEGMENT_TEST(bits, nf_val)				\
-+void test_misaligned_unit_stride_segment_load_store_##bits##_##nf_val(int VEC_LEN) \
-+{										\
-+	ksft_print_msg("start\n");						\
-+	size_t eew = bits;							\
-+	size_t nf = nf_val;							\
-+	size_t element_size = eew / 8;						\
-+	size_t total_size = VEC_LEN * nf * element_size;			\
-+	uint8_t *src_vec = (uint8_t *)calloc(total_size + OFFSET, 1);		\
-+	uint8_t *dst_vec = (uint8_t *)calloc(total_size + OFFSET, 1);		\
-+	if (!src_vec || !dst_vec) {						\
-+		fprintf(stderr, "Error: Memory allocation failed\n");		\
-+		free(src_vec);							\
-+		free(dst_vec);							\
-+		return;								\
-+	}									\
-+	for (size_t i = 0; i < total_size; i++) {				\
-+		src_vec[i + OFFSET] = (uint8_t)(i + 1);				\
-+		dst_vec[i + OFFSET] = 0xff;					\
-+	}									\
-+	uint8_t *misaligned_load_addr = src_vec + OFFSET;			\
-+	uint8_t *misaligned_store_addr = dst_vec + OFFSET;			\
-+	asm volatile("vsetvli zero, %0, e" #bits ", m1\n\t"			\
-+		     "vlseg" #nf_val "e" #bits ".v v8, (%1)\n\t"			\
-+		     "vsseg" #nf_val "e" #bits ".v v8, (%2)\n\t"			\
-+		     :								\
-+		     : "r"(VEC_LEN), "r"(misaligned_load_addr),			\
-+		       "r"(misaligned_store_addr)				\
-+		     : "memory", "v8");						\
-+	if (!check_result(misaligned_load_addr, misaligned_store_addr,		\
-+			  element_size, VEC_LEN * nf)) {			\
-+		ksft_test_result_fail("unit_stride_segment " #bits "_" #nf_val " fail\n"); \
-+		free(src_vec);							\
-+		free(dst_vec);							\
-+		return;								\
-+	}									\
-+	ksft_test_result_pass("unit_stride_segment " #bits "_" #nf_val " pass\n"); \
-+	free(src_vec);								\
-+	free(dst_vec);								\
-+}
-+
-+/*
-+ * Macro to define strided segment load/store test functions
-+ */
-+#define DEFINE_STRIDED_SEGMENT_TEST(bits, nf_val)				\
-+void test_misaligned_strided_segment_load_store_##bits##_##nf_val(int VEC_LEN)	\
-+{										\
-+	ksft_print_msg("start\n");						\
-+	size_t eew = bits;							\
-+	size_t nf = nf_val;							\
-+	size_t element_size = eew / 8;						\
-+	size_t total_size = VEC_LEN * nf * element_size;			\
-+	uint8_t *src_vec = (uint8_t *)calloc(total_size + OFFSET, 1);		\
-+	uint8_t *dst_vec = (uint8_t *)calloc(total_size + OFFSET, 1);		\
-+	if (!src_vec || !dst_vec) {						\
-+		fprintf(stderr, "Error: Memory allocation failed\n");		\
-+		free(src_vec);							\
-+		free(dst_vec);							\
-+		return;								\
-+	}									\
-+	for (size_t i = 0; i < total_size; i++) {				\
-+		src_vec[i + OFFSET] = (uint8_t)(i + 1);				\
-+		dst_vec[i + OFFSET] = 0xff;					\
-+	}									\
-+	uint8_t *misaligned_load_addr = src_vec + OFFSET;			\
-+	uint8_t *misaligned_store_addr = dst_vec + OFFSET;			\
-+	size_t stride = nf * element_size;					\
-+	asm volatile("vsetvli zero, %0, e" #bits ", m1\n\t"			\
-+		     "vlsseg" #nf_val "e" #bits ".v v8, (%1), %2\n\t"		\
-+		     "vssseg" #nf_val "e" #bits ".v v8, (%3), %2\n\t"		\
-+		     :								\
-+		     : "r"(VEC_LEN), "r"(misaligned_load_addr),			\
-+		       "r"(stride), "r"(misaligned_store_addr)			\
-+		     : "memory", "v8");						\
-+	if (!check_result(misaligned_load_addr, misaligned_store_addr,		\
-+			  element_size, VEC_LEN * nf)) {			\
-+		ksft_test_result_fail("strided_segment " #bits "_" #nf_val " fail\n"); \
-+		free(src_vec);							\
-+		free(dst_vec);							\
-+		return;								\
-+	}									\
-+	ksft_test_result_pass("strided_segment " #bits "_" #nf_val " pass\n"); \
-+	free(src_vec);								\
-+	free(dst_vec);								\
-+}
-+
-+
-+/*
-+ * Macro to define indexed unordered segment load/store test functions
-+ */
-+#define DEFINE_INDEXED_UNORDERED_SEGMENT_TEST(bits, nf_val, idx_type)		\
-+void test_misaligned_indexed_unordered_segment_load_store_##bits##_##nf_val(int VEC_LEN) \
-+{										\
-+	ksft_print_msg("start\n");						\
-+	size_t eew = bits;							\
-+	size_t nf = nf_val;							\
-+	size_t element_size = eew / 8;						\
-+	size_t total_size = VEC_LEN * nf * element_size;			\
-+	uint8_t *src_vec = (uint8_t *)calloc(total_size + OFFSET, 1);		\
-+	uint8_t *dst_vec = (uint8_t *)calloc(total_size + OFFSET, 1);		\
-+	idx_type *index_vec = (idx_type *)calloc(VEC_LEN, sizeof(idx_type));	\
-+	if (!src_vec || !dst_vec || !index_vec) {				\
-+		fprintf(stderr, "Error: Memory allocation failed\n");		\
-+		free(src_vec);							\
-+		free(dst_vec);							\
-+		free(index_vec);						\
-+		return;								\
-+	}									\
-+	for (size_t i = 0; i < total_size; i++) {				\
-+		src_vec[i + OFFSET] = (uint8_t)(i + 1);				\
-+		dst_vec[i + OFFSET] = 0xff;					\
-+	}									\
-+	for (size_t i = 0; i < VEC_LEN; i++)					\
-+		index_vec[i] = i * nf * element_size;				\
-+	uint8_t *misaligned_load_addr = src_vec + OFFSET;			\
-+	uint8_t *misaligned_store_addr = dst_vec + OFFSET;			\
-+	asm volatile("vsetvli zero, %0, e" #bits ", m1\n\t"			\
-+		     "vle" #bits ".v v16, (%3)\n\t"				\
-+		     "vluxseg" #nf_val "ei" #bits ".v v8, (%1), v16\n\t"		\
-+		     "vsuxseg" #nf_val "ei" #bits ".v v8, (%2), v16\n\t"		\
-+		     :								\
-+		     : "r"(VEC_LEN), "r"(misaligned_load_addr),			\
-+		       "r"(misaligned_store_addr), "r"(index_vec)		\
-+		     : "memory", "v8", "v16");					\
-+	if (!check_result(misaligned_load_addr, misaligned_store_addr,		\
-+			  element_size, VEC_LEN * nf)) {			\
-+		ksft_test_result_fail("indexed_unordered_segment " #bits "_" #nf_val " fail\n"); \
-+		free(src_vec);							\
-+		free(dst_vec);							\
-+		free(index_vec);						\
-+		return;								\
-+	}									\
-+	ksft_test_result_pass("indexed_unordered_segment " #bits "_" #nf_val " pass\n"); \
-+	free(src_vec);								\
-+	free(dst_vec);								\
-+	free(index_vec);							\
-+}
-+
-+/*
-+ * Macro to define indexed ordered segment load/store test functions
-+ */
-+#define DEFINE_INDEXED_ORDERED_SEGMENT_TEST(bits, nf_val, idx_type)		\
-+void test_misaligned_indexed_ordered_segment_load_store_##bits##_##nf_val(int VEC_LEN) \
-+{										\
-+	ksft_print_msg("start\n");						\
-+	size_t eew = bits;							\
-+	size_t nf = nf_val;							\
-+	size_t element_size = eew / 8;						\
-+	size_t total_size = VEC_LEN * nf * element_size;			\
-+	uint8_t *src_vec = (uint8_t *)calloc(total_size + OFFSET, 1);		\
-+	uint8_t *dst_vec = (uint8_t *)calloc(total_size + OFFSET, 1);		\
-+	idx_type *index_vec = (idx_type *)calloc(VEC_LEN, sizeof(idx_type));	\
-+	if (!src_vec || !dst_vec || !index_vec) {				\
-+		fprintf(stderr, "Error: Memory allocation failed\n");		\
-+		free(src_vec);							\
-+		free(dst_vec);							\
-+		free(index_vec);						\
-+		return;								\
-+	}									\
-+	for (size_t i = 0; i < total_size; i++) {				\
-+		src_vec[i + OFFSET] = (uint8_t)(i + 1);				\
-+		dst_vec[i + OFFSET] = 0xff;					\
-+	}									\
-+	for (size_t i = 0; i < VEC_LEN; i++)					\
-+		index_vec[i] = i * nf * element_size;				\
-+	uint8_t *misaligned_load_addr = src_vec + OFFSET;			\
-+	uint8_t *misaligned_store_addr = dst_vec + OFFSET;			\
-+	asm volatile("vsetvli zero, %0, e" #bits ", m1\n\t"			\
-+		     "vle" #bits ".v v16, (%3)\n\t"				\
-+		     "vloxseg" #nf_val "ei" #bits ".v v8, (%1), v16\n\t"		\
-+		     "vsoxseg" #nf_val "ei" #bits ".v v8, (%2), v16\n\t"		\
-+		     :								\
-+		     : "r"(VEC_LEN), "r"(misaligned_load_addr),			\
-+		       "r"(misaligned_store_addr), "r"(index_vec)		\
-+		     : "memory", "v8", "v16");					\
-+	if (!check_result(misaligned_load_addr, misaligned_store_addr,		\
-+			  element_size, VEC_LEN * nf)) {			\
-+		ksft_test_result_fail("indexed_ordered_segment " #bits "_" #nf_val " fail\n"); \
-+		free(src_vec);							\
-+		free(dst_vec);							\
-+		free(index_vec);						\
-+		return;								\
-+	}									\
-+	ksft_test_result_pass("indexed_ordered_segment " #bits "_" #nf_val " pass\n"); \
-+	free(src_vec);								\
-+	free(dst_vec);								\
-+	free(index_vec);							\
-+}
-+
-+/*
-+ * Macro to define whole register load/store test functions
-+ */
-+#define DEFINE_WHOLE_REG_TEST(bits, type)					\
-+void whole_reg_##bits(int VLEN)							\
-+{										\
-+	type *src = (type *)calloc(8 * VLEN + OFFSET, sizeof(type));		\
-+	type *dst = (type *)calloc(8 * VLEN + OFFSET, sizeof(type));		\
-+	if (!src || !dst) {							\
-+		ksft_test_result_fail("whole_reg " #bits " memory alloc fail\n"); \
-+		free(src);							\
-+		free(dst);							\
-+		return;								\
-+	}									\
-+	for (int i = 0; i < VLEN; i++)						\
-+		src[i] = i;							\
-+	type *misaligned_load_addr = (type *)((uint8_t *)src + OFFSET);		\
-+	type *misaligned_store_addr = (type *)((uint8_t *)dst + OFFSET);	\
-+	asm volatile("vl1re" #bits ".v v1, (%0)" :: "r"(misaligned_load_addr));	\
-+	asm volatile("vs1r.v v1, (%0)" :: "r"(misaligned_store_addr));		\
-+	if (!check_result(misaligned_load_addr, misaligned_store_addr,		\
-+			  sizeof(type), VLEN / 8 / 2)) {			\
-+		ksft_test_result_fail("whole_reg " #bits " vl1re fail\n");	\
-+		free(src);							\
-+		free(dst);							\
-+		return;								\
-+	}									\
-+	asm volatile("vl2re" #bits ".v v2, (%0)" :: "r"(misaligned_load_addr));	\
-+	asm volatile("vs2r.v v2, (%0)" :: "r"(misaligned_store_addr));		\
-+	if (!check_result(misaligned_load_addr, misaligned_store_addr,		\
-+			  sizeof(type), VLEN / 8)) {				\
-+		ksft_test_result_fail("whole_reg " #bits " vl2re fail\n");	\
-+		free(src);							\
-+		free(dst);							\
-+		return;								\
-+	}									\
-+	asm volatile("vl4re" #bits ".v v4, (%0)" :: "r"(misaligned_load_addr));	\
-+	asm volatile("vs4r.v v4, (%0)" :: "r"(misaligned_store_addr));		\
-+	if (!check_result(misaligned_load_addr, misaligned_store_addr,		\
-+			  sizeof(type), VLEN / 4)) {				\
-+		ksft_test_result_fail("whole_reg " #bits " vl4re fail\n");	\
-+		free(src);							\
-+		free(dst);							\
-+		return;								\
-+	}									\
-+	asm volatile("vl8re" #bits ".v v8, (%0)" :: "r"(misaligned_load_addr));	\
-+	asm volatile("vs8r.v v8, (%0)" :: "r"(misaligned_store_addr));		\
-+	if (!check_result(misaligned_load_addr, misaligned_store_addr,		\
-+			  sizeof(type), VLEN / 2)) {				\
-+		ksft_test_result_fail("whole_reg " #bits " vl8re fail\n");	\
-+		free(src);							\
-+		free(dst);							\
-+		return;								\
-+	}									\
-+	ksft_test_result_pass("whole_reg " #bits " pass\n");			\
-+	free(src);								\
-+	free(dst);								\
-+}
-+
-+#endif /* _V_MISALIGNED_H */
-
--- 
-2.56.0
-
+T24gVHVlLCAyMDI2LTExLTE3IGF0IDIwOjI2ICswMjAwLCBSb21hbiBWaXZjaGFyIHZpYSBCNCBS
+ZWxheSB3cm90ZToNCj4gRnJvbTogUm9tYW4gVml2Y2hhciA8cnZhMzMzQHByb3Rvbm1haWwuY29t
+Pg0KPiANCj4gQ29tbWl0IDc2MjU1MDI0Y2FkYiAoImRybS9tZWRpYXRlazogbXRrX2RzaTogZW5h
+YmxlIGhzIGNsb2NrIGR1cmluZw0KPiBwcmUtZW5hYmxlIikgbW92ZWQgSFMgY2xvY2sgZW5hYmxl
+bWVudCBmcm9tIG10a19vdXRwdXRfZHNpX2VuYWJsZSgpDQo+IHRvIG10a19kc2lfcG93ZXJvbigp
+LiBMYXRlciwgdGhlIGNvbW1pdCAzZTE5MWVkZGJkY2IgKCJkcm0vbWVkaWF0ZWs6DQo+IG10a19k
+c2k6IEVuYWJsZSBIUyBjbG9jayBvbmx5IGF0IHByZS1lbmFibGUiKSBtb3ZlZCB0aGUgY2FsbCB0
+byB0aGUNCj4gbXRrX2RzaV9icmlkZ2VfYXRvbWljX3ByZV9lbmFibGUoKS4NCj4gDQo+IEhvd2V2
+ZXIsIG10a19kc2lfbGFuZV9yZWFkeSgpIGV4cGxpY2l0bHkgc2V0cyBtdGtfZHNpX2Nsa19oc19t
+b2RlKGRzaSwgMCkNCj4gc28gdGhhdCBEU0kgcGFuZWxzIHdpdGggTUlQSV9EU0lfTU9ERV9MUE0g
+Y2FuIHRyYW5zbWl0IGluaXRpYWxpemF0aW9uDQo+IGNvbW1hbmRzIGluIExvdy1Qb3dlciBtb2Rl
+IGR1cmluZyB0aGVpciBwcmVwYXJlKCkgY2FsbGJhY2suIEVuYWJsaW5nIHRoZQ0KPiBIUyBjbG9j
+ayB1bmNvbmRpdGlvbmFsbHkgaW4gbXRrX2RzaV9icmlkZ2VfYXRvbWljX3ByZV9lbmFibGUoKSBv
+dmVycmlkZXMNCj4gdGhpcyBiZWZvcmUgcGFuZWwgcHJlcGFyZSgpIHJ1bnMsIGNhdXNpbmcgY29t
+bWFuZCB0cmFuc21pc3Npb24gdG8gZmFpbC4NCj4gDQo+IE9ubHkgZW5hYmxlIHRoZSBIUyBjbG9j
+ayBpbiBtdGtfZHNpX2JyaWRnZV9hdG9taWNfcHJlX2VuYWJsZSgpLCB3aGVuDQo+IE1JUElfRFNJ
+X01PREVfTFBNIGlzIG5vdCBzZXQsIGFuZCByZXN0b3JlIG10a19kc2lfY2xrX2hzX21vZGUoZHNp
+LCAxKSBpbg0KPiBtdGtfb3V0cHV0X2RzaV9lbmFibGUoKS4gVGhpcyBpcyBhIG5vLW9wIGZvciBu
+b24tTFBNIGJyaWRnZXMuDQoNClJldmlld2VkLWJ5OiBDSyBIdSA8Y2suaHVAbWVkaWF0ZWsuY29t
+Pg0KDQo+IA0KPiBGaXhlczogNzYyNTUwMjRjYWRiICgiZHJtL21lZGlhdGVrOiBtdGtfZHNpOiBl
+bmFibGUgaHMgY2xvY2sgZHVyaW5nIHByZS1lbmFibGUiKQ0KPiBGaXhlczogM2UxOTFlZGRiZGNi
+ICgiZHJtL21lZGlhdGVrOiBtdGtfZHNpOiBFbmFibGUgSFMgY2xvY2sgb25seSBhdCBwcmUtZW5h
+YmxlIikNCj4gQ2M6IHN0YWJsZUB2Z2VyLmtlcm5lbC5vcmcNCj4gU2lnbmVkLW9mZi1ieTogUm9t
+YW4gVml2Y2hhciA8cnZhMzMzQHByb3Rvbm1haWwuY29tPg0KPiAtLS0NCj4gDQo+IA0KDQo=
