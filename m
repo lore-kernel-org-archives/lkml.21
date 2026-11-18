@@ -1,112 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795001327;
-	b=TZbhFps5MnpqsEPiHL6qBPc0zpagHC091NfEk3ComwmIzqfJotrCHsG91gKQIFfsA72+
-	 +CBFXyHK93Km6sFVqjVooD/H6dk0CcJLxTGdLfRuAqzSXa7W02PxasKu4TirrBcjXE1qp
-	 f2KWdZ1Vf5juuXHwxcyKOeSvsSVIcpLnntoyWGpb9L030RTv7MsLJ996Ucqd04dFlEvJZ
-	 hOAkYS2nN2zkyLU38UIkShUAbjsqiw5qUk2sSDaJtvaJueGC3eQzohb/03qJxJLQ0JX9j
-	 5fjO1XVx3HrLzr7N9Z0Th7Qinqw8fbAX/nDmSkj/cDPV4SJoQxb3NRqLVZHWDOhaHow==
+	t=1795001325;
+	b=Fp+1daG905p56vple0VLSEzXLe7zN/hmeppBoejOlah4T7MzsenMPMpumHZWrB6o77mT
+	 sLPSpBO+ZnUsjd0wEdqKiqUyEn3yKFbDlsA8Ik8WitkcMS2KBHTiGdZcHwzz9JFXxcKiv
+	 572rjslYf4iiAZKYdhvGO2LA3uuIh6viwvhRrZq2eyxnjYfStwtyyzRB85RkMyqume5XN
+	 JZGWm8gsWIQrpHucx4bUoXWxjixBYProtPHo8JTUwyn1pR/2PafUASkgJl895MfWwe/Tg
+	 zgroOZMlHWxaaHLElBJDTMJawI+HACMn0d3xNKiG4oIxNQPsthpRT+kVefwDu2vKwrA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795001327;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=nG1apVdiiVH5xMYZQ+1A0shEqwCnl5EZjE+Zf2il+6o=;
-	b=DChMDzKUaI7LTTOBWy6ciHrNwsD8iFJKdYk7r/Yv0Furc6B85RfHdsRurWMFuaZfDBIZ
-	 5CNctst88Yh5ssIPceOpZu3eWDEzU46/HVW0yIASvIDe5GweYCZlDQR/rMbwk8jTjy9v4
-	 0in9LdXsuFpIC6XQ1zcbXG1oaKqYAUpqsSVEmHOgGWPVuR8lkIpzNb8p1/N0V1PpSfECf
-	 uAkY7ipHkLMs28i0Ueqs5Ap1sn/W9r1MXeUziFvrsBpj2ppUvhW1Ucyl8XP7jdFHC0GV8
-	 ruLKTFPPKBRZyjFtLIhQWYkayE0nL1drIsQi/za4Gs3T7VhTxoJ/6uJSg3tCv/GSEyQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795001325;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 Subject:From:To:Cc:X-Mailer:References:In-Reply-To;
+	bh=PTE76i3nixm+phqU46XvEqvVLXQTlr+vsdjYP97MKXk=;
+	b=0uBNOQav0wDiBXtscO9FUGMonwCYd4Irrk92iB3T/MDmq0reRFxfDNyTyDWMKonREiTz
+	 trqUZTlWX5F7OKmFa3beM6u+Zt7xrd6SyNbZeuJR0WRZpTSl6ASfiyIUK76xaehut+AmK
+	 0M+ZljDL1XmGv5rqvkf0F19KL7i/II8Y6gyTbvt10NPxPp7b3wx6H98ZRfsBEqflMZ1Tq
+	 xUTBQK4caeOR6J/0ar5eoHzTr/6mSAImuRa4qKZS1zcXCOt6MtkP+rMIibwqxDx4Ay0uZ
+	 IC4eOQsGjfNdKfyDKU6qhGapIVVQ5X3lH2MtVo9wJVr9ESHbtl1r3frsEikLUtNEdZw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ntylGciU;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HekuE5EB;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=J9D5OyQQ;
+	arc=none smtp.remote-ip=209.85.219.42
+Received: from mail-qv1-f42.google.com (mail-qv1-f42.google.com [209.85.219.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF8A060A2602
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:28:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF8A060A2602
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7800A606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:28:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7800A606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ntylGciU;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HekuE5EB
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIBKp2t3141599
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:28:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	nG1apVdiiVH5xMYZQ+1A0shEqwCnl5EZjE+Zf2il+6o=; b=ntylGciUuJZfpWf0
-	c9UM6MyqepvVZTCUP0ikndK0p570RLatJXjQ8tNCA42mvik8m09Q7kgxjCpYLS5w
-	3be24pUUqP+OfFXhNIl/dv7A8fLLeH6RfrBGHOO/30xV0aBqh2ZfzKxI677TTEDd
-	KcbZ5VbENV+w640ft3HbjuEvm/246WpbBNMsmpm1min/ZK1eV/GhMmmg5YZH3KU0
-	zAgVZSwH03j1TilDVNNqaeyEAJ8AqtYa9gTsWf9+netIh/R8bQgtN/NKSM5Ri6RX
-	MunrHSIsDg22tgIDcwR6X4XJZb2Z0OVbk665hfMAIpeETNnFmWOLuL8vK6pqqlau
-	GQpvbQ==
-Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yv9jrr7-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:28:46 +0000 (GMT)
-Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-30bcb065bfdso1091607eec.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:28:46 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=J9D5OyQQ
+Received: by mail-qv1-f42.google.com with SMTP id 6a1803df08f44-91f30ff609eso7290676d6.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:28:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795001326; x=1795606126; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=nG1apVdiiVH5xMYZQ+1A0shEqwCnl5EZjE+Zf2il+6o=;
-        b=HekuE5EBj+Qy0wM5jzFMAY5F+E/QUtRvVsaCNnQnC/B+DRMSHdRFj98Sqe+4CHpKpN
-         +DXNZ5nOhFqflt4+g8phxRj72FwLtUJ962jsyof006RpvnDs5CkRUSx9FIflgBkAGpfh
-         INwGnZgbpPyatsRPVHKx0SWzEZBIDkYtGCWwkvSPzF50ZOzMx1/7qxubllIuN/zJ7Iwc
-         tqAFaTgHO7hQBlfKBKaS70CsC3oUTyno+52Bo75zCiMSzmCiJcGE1EnjXn35jpkQsa9i
-         NLZVKRCrdCnqKx8CNktzFLJamWirpM74/tIdZH+tG55G8BQcubm7PYvRO6wxVVVBCs8j
-         QKrQ==
+        d=gmail.com; s=20260707; t=1795001324; x=1795606124; darn=vger.kernel.org;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=PTE76i3nixm+phqU46XvEqvVLXQTlr+vsdjYP97MKXk=;
+        b=J9D5OyQQ7CtDJfGNBTDrS8xXQb1oxOlFHB2CwmcqpmdeGfNTXI0akJ0lAfAC8TqwEE
+         W50Zc7KjwtcLjWa64N2bJICEox+7cN8GZp6uc5A+aZVDr1EgOu+t+DzvVISOmYq2iAnP
+         PN/umpdWd49EvKjLiMbMTTDtc2chbXkrfAjgKwizy/4ebN+GLj6a8QG9/g9QGRq3LP2F
+         5aqm27u+smmz8Up+MD8FsgOPaxTto6ProUjm1Ki35/BNDk9qaIae2f3/ow6m/6yAcjKq
+         cLv7TJBXbB76xCs5dvWqFwpFu2U8Z1Q49AEo32dVZKR7hFJLipWw1HLWdgp89P5IDKk2
+         3zvA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795001326; x=1795606126;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=nG1apVdiiVH5xMYZQ+1A0shEqwCnl5EZjE+Zf2il+6o=;
-        b=tWfymMVMrxbOzKHsgDalzw6VfJmHyWJm2/jPCCf7s05Q1aJaBuemplG6sMqGe9bsBW
-         icjqwD2E2vcVYt15lJTCFGuSPrMrrrBswS515SOh0scDBpHJcDJaeMdtXAGGLFV5Qeja
-         w2uiVnp5LI81jtpJ7pCBO8NiZbIOPklzEGs58p2SGNVuq0F1XPCzLGkXI3jr1aiwAfmZ
-         0JShi2rk+rFcoVUqdNvuM2NVeI8vKje9gZQqgsg3ReWkr6+eH2fuFpP3ssBSuO6V72cB
-         A3zhkLf+uDJnW90ktYBgwshazv2JnHRkxR2MNr2dlE32OQpKcnl0zNKWXkFC3Z5Yb3zG
-         tDdQ==
-X-Forwarded-Encrypted: i=1; AL+hErEVF0CZncXIflLxQ7c/3ljOXblNXn1rQ71grJQ4t6C/mtv6eMoNMhaLzoQyhPuVKfTdhqwjG7U71eCbfWo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/06ctADed273VYQpWCOzx0x/1qP+THNznMb8gOX8yISNYzWFxz
-	k58dhPyYPzu66Lh7LE1WVwk8Owxc9rwXitBJ0LmAhkkIdJUnClv4VFxmWCZyZAAeGgksJ2jSnfX
-	UisIZ0EDKwgCCgypLBBMHVwPcF6PT5eMjHTB0LJefvSM0hieWlqSHHi+lUWnzR+aWK3Q=
-X-Gm-Gg: AZFdTZerLYSgbR8rBDMnyTXJdexOwjWbImWRc8XoblZJiuFCdnYHJDef/JEeP39gU9A
-	2LNsxETUbTInfxmgvlvHRPGM7y41EfcF3Wr5VWQt9tKBcY6oaYbeENjXOM+hiz1Iv9gHK4fwQnv
-	yd9nJ//GbSrgIkdEa8RHV7QlrF+15fh3FXrstHhVADYjbpphcL1Q+Z+AYEfO/gTz5A5ZPNrmcwX
-	6wrqiJ71UUtha5eB0gux5Loo4BtdDTAG3/ELl5Zse8bP18ujfTiqgwqCQPAxN/g9uZvkdstoltx
-	8Kq3+htaatg138G4DpOE/PEf4AJ94fTvUywB+fXcI79kARHOFELnrEZpFOutCYAUyOEDR7X2K1F
-	+DeUmAY/0kf1sEbqCumEaKB3BQD1hJbSFcO/KU32t0hDcR7ec5m7AcAgtxlGZIm/Zi//ceLjFfW
-	i/SLohcA==
-X-Received: by 2002:a05:7301:18aa:b0:381:e45d:be08 with SMTP id 5a478bee46e88-38280a3c1e2mr2400866eec.21.1795001323976;
-        Wed, 18 Nov 2026 03:28:43 -0800 (PST)
-X-Received: by 2002:a05:7301:18aa:b0:381:e45d:be08 with SMTP id 5a478bee46e88-38280a3c1e2mr2400813eec.21.1795001323169;
-        Wed, 18 Nov 2026 03:28:43 -0800 (PST)
-Received: from [10.204.100.88] ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a72eb2f3sm8539071eec.18.2026.11.18.03.28.34
+        d=1e100.net; s=20260707; t=1795001324; x=1795606124;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PTE76i3nixm+phqU46XvEqvVLXQTlr+vsdjYP97MKXk=;
+        b=E7u8sDowLWWtX4PcYxxW4A1Hc88YpJDlIXPi7pGXSelOAKnDYUnel01Rwd63fRh1Hn
+         hSA8g3Yzs8jy60u5XdBIfxEs1+4XqL/9ypt6qjdw7XFd+jsIXbepRgXukQkczDwe5lEp
+         dAZmyRv6V1E6Vnl9T1a0WD2L6ULYlxt5dFd97qalIdu+3BQqgYtioAqgeiracJAtZzOY
+         Mo8MGupquXPhLr0vPVxaRIDesqEWIF/Mg6iNsvpQCdZwAnNPY+d1HoIYg1j2tfJ+Fp1r
+         leIfEis7vMeh2VYj+Rk8LLFW2tzeUzWZVHYWa0tGeM6CNLWRfbb0WQ9IMDczXZVRFLo8
+         3Xcw==
+X-Forwarded-Encrypted: i=1; AL+hErEKtYvbkRC6m2Xxovc6956LpsL5HKXRNat0pZHZ2N9rbVkVfVhUF6lupHh9kcKqr1AOV1Jd/gFkgpk/4fg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9r/sJKo65MWIl0JNvGtxPZYXGwLHeMym1xYypC98chQ6u2a1lR
+	Qhr0EltXn6Nzti2SEfn6SNhJVYaVQ5rPdMM+xoYbvEJYMvnjwc31+1FB
+X-Gm-Gg: AZFdTZc5zxvkN6UpqgpDb9QoudNYzQGHB/JR6EwBv4wHG9LgAymE5J8PgB13Zx4YhBN
+	O1hzleQDlY+Fq/8QuzGzGkBV+y/TxrBkWh98d0JgwA2GDZxqL/QXExF510iD+XfZym5eY1A/SIQ
+	gbFRdKAstM6vRFKxsvhpO3lwUQPDYMTQmbGtcG5LBzqSd1F5hdP0pFIKpX6wZCeYNaVz29vmDKs
+	LYp7rokHCAiuy1sFkOXhhqAaA1fYH5txuM+321hyjjJoZCVqZNY01bLlUefRQloVZ32xAmqGaHt
+	pgTL9KwFxzfIijiFy0k/XadlkeZXJQUmVoo7cBtMeV4Dyqn3CD3Onyt4CdKAYW9Yn/VmQ35GueS
+	ATR6UbU3FDZ4tKODrtAZkxXev/dGut9F4BPV8najsUF//0BaMZfjRlEl+W031924+vC+eAkskyf
+	F/XRPcp8NK92qK7b3ZaWnowelZDCnXr+jCB1RzajumBZqTRuzeQdI6RdWexaJhwze7mgy+LRNtg
+	EBntr03gCifxwUQEnAwYADKyYx5834D3v8CGCEeuPQfnifUhRaz/DfllFU+HTjyl6I8kRdfe8SB
+	qn0YRAiPxk+Nbj4T8zIPNE/n/Abq+g3YGQ==
+X-Received: by 2002:ad4:5aaf:0:b0:91f:329a:904 with SMTP id 6a1803df08f44-92114ee2ddcmr32476686d6.32.1795001324220;
+        Wed, 18 Nov 2026 03:28:44 -0800 (PST)
+Received: from localhost ([2600:4040:9399:4000:e553:72e5:7d37:c7ef])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92114d35dabsm19207126d6.17.2026.11.18.03.28.42
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 03:28:42 -0800 (PST)
-Message-ID: <1fcd89e4-feaa-4072-a5c4-56318b1d8475@oss.qualcomm.com>
-Date: Wed, 18 Nov 2026 16:58:32 +0530
+        Wed, 18 Nov 2026 03:28:43 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,124 +87,161 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 3/5] iommu/of: Make OF_IOMMU depend on OF_ADDRESS
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>,
-        Vasant Hegde <vasant.hegde@amd.com>,
-        Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        David Woodhouse <dwmw2@infradead.org>,
-        Lu Baolu <baolu.lu@linux.intel.com>,
-        Jean-Philippe Brucker <jpb@kernel.org>, Rob Herring <robh@kernel.org>,
-        Saravana Kannan <saravanak@kernel.org>,
-        Tomasz Nowicki <tomasz.nowicki@caviumnetworks.com>,
-        Eric Auger <eric.auger@redhat.com>,
-        Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-        Joerg Roedel
- <jroedel@suse.de>,
-        Srinath Mannam <srinath.mannam@broadcom.com>,
-        Oza Pawandeep <quic_poza@quicinc.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Bjorn Helgaas <bhelgaas@google.com>,
-        Alex Williamson <alex@shazbot.org>, iommu@lists.linux.dev,
-        linux-kernel@vger.kernel.org, virtualization@lists.linux.dev,
-        devicetree@vger.kernel.org, kvm@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, linux-media@vger.kernel.org,
-        Vishnu Reddy <busanna.reddy@oss.qualcomm.com>
-References: <20261106-add_iommu_ranges-v7-0-5c0f72083e52@oss.qualcomm.com>
- <20261106-add_iommu_ranges-v7-3-5c0f72083e52@oss.qualcomm.com>
- <yvkcq3zirv5tz2amfbk52a7smbsqs7jrzdisq3qxzw6xkoxklu@rplx3gvxhcoz>
- <dd62aee3-4f23-4904-827c-7f776c4be60a@oss.qualcomm.com>
- <vwg74npvbwdhepp4uownnzlj2ybpiknfktfvrpy6462rdw7snd@tj4vgnn3dtml>
-Content-Language: en-US
-From: Vikash Garodia <vikash.garodia@oss.qualcomm.com>
-In-Reply-To: <vwg74npvbwdhepp4uownnzlj2ybpiknfktfvrpy6462rdw7snd@tj4vgnn3dtml>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=QenzLcbv c=1 sm=1 tr=0 ts=6afd8bee cx=c_pps
- a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=HfRq2NBFtK1Lh0_1ebIA:9 a=QEXdDO2ut3YA:10
- a=bBxd6f-gb0O0v-kibOvt:22
-X-Proofpoint-ORIG-GUID: eQwCBq9suXwgWI4s9lMPGr47KXvqa5os
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA0NSBTYWx0ZWRfX97nBjbx9ukNf
- 1uAFHjV9KaRzCdTc1WAlQD0Hcweg1jFktiKUMq4axQz2UT6XNyAV61prUV0BCOBoWbZNQv1rpcp
- cmyKqRqiW41P0ddZN850KAIywaYTKFZFVFHuf8/WcUteIE5szMGjwnFJgsixRUVMGDL7d0vcfKT
- QoYlOADMEz6kgr8oi+EHky+ZU+QSTJLOlztLtLJ6sqI9fqbBCUmrXhjXDBoMZ1lfTFAdK64WWEQ
- 93zAP3ACVMHUJr2vdU35agbYwrrNUoS3eEU/Scook3YN0sBzAvGkJUkErDXtOhAkA+Gru5fd6W0
- 8o8qW1lAFd9Hexl1fPziqKrjQeHx8e8ViQVqqnu6big2hvsaC+L4q/UcwKHdiOqR3sSKJmY0vjM
- 5exGX8LgzU7JD7g6o/f0og6G1kIy8S5hdkqA74LvkoWM49mEDDBzSbF2qHtf++BJ2W1bQqAkrUV
- UnYY3rfoeWEtmVIZFFA==
-X-Proofpoint-GUID: eQwCBq9suXwgWI4s9lMPGr47KXvqa5os
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA0NSBTYWx0ZWRfX8fG8uqAr+Bpg
- nzxUWuprjidhH45Stf5T3hJ+f4xvGUWZhvln96cITQ2XVwFjYYfLh8mNDD7t7fPTNIk2vM29hgp
- XhUHSPv20djfLzmts9ISctoBhkBUEq8=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-18_03,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 phishscore=0 clxscore=1015 suspectscore=0 impostorscore=0
- bulkscore=0 priorityscore=1501 lowpriorityscore=0 adultscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180045
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 18 Nov 2026 06:28:42 -0500
+Message-Id: <DMYAV3MCA9T5.180N4MSVXNWT@gmail.com>
+Subject: Re: [PATCH net-next v4 3/5] psp: defer tx key deletions for SADB
+ drivers
+From: "Daniel Zahka" <daniel.zahka@gmail.com>
+To: <netdev-bot+sashiko@kernel.org>, <daniel.zahka@gmail.com>
+Cc: <kuba@kernel.org>, <willemdebruijn.kernel@gmail.com>,
+ <davem@davemloft.net>, <edumazet@kernel.org>, <pabeni@redhat.com>,
+ <horms@kernel.org>, <corbet@lwn.net>, <skhan@linuxfoundation.org>,
+ <rdunlap@infradead.org>, <donald.hunter@gmail.com>,
+ <andrew+netdev@lunn.ch>, <shuah@kernel.org>, <netdev@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+ <linux-kselftest@vger.kernel.org>, <willemb@google.com>
+X-Mailer: aerc 0.21.0-threadmapfix
+References: <20261116-psp-v4-3-1a599df2aefa@gmail.com>
+ <179498190614.3136.5698785790307751985@kernel.org>
+In-Reply-To: <179498190614.3136.5698785790307751985@kernel.org>
 
+On Wed Nov 18, 2026 at 1:05 AM EST, netdev-bot+sashiko wrote:
+> Thank you for your contribution! Sashiko AI review found 4 potential
+> issue(s) to consider.
+>
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 2 =C2=B7 Low: 2
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwor=
+k
+> know by including "pw-bot: cr" as a separate line at the end of your repl=
+y
+> (one such reply per series is enough).
+>
+> - [Medium] The new PSP_ASSOC_DEFER_TX_KEY_DEL path in `psp_assoc_free()`
+>   (net/psp/psp_sock.c:118-121) gives up its only psd reference before=E2=
+=80=A6
+> - [Medium] Removing the SADB check in `psp_sock_tx_rekey()` lets any non-
+>   admin user who can reach the PSP device rekey one established TCP=E2=80=
+=A6
+> - [Low] The commit message never says that this patch turns on Tx rekey
+>   for SADB devices.
+> - [Low] The patch adds a lock-context rule for SADB drivers that only the
+>   commit message states: they must not call `psp_dev_unregister()` with=
+=E2=80=A6
+>
+> --
+>
+> psp: defer tx key deletions for SADB drivers
+>
+> This commit adds a deferred deletion queue for Tx keys on SADB devices.
+> A key detached by a Tx rekey is removed from the device only after a
+> BQL-based descriptor grace period, which a delayed work item checks by
+> snapshotting per-queue num_queued and polling num_completed. It also
+> makes INET_PSP depend on BQL, requires ops-locked netdevs for SADB
+> drivers, and drops the check that rejected Tx rekey on SADB devices.
+>
+>> diff --git a/Documentation/networking/psp.rst b/Documentation/networking=
+/psp.rst
+>> index 43f222b38d3d4..ceb1e232317fc 100644
+>> --- a/Documentation/networking/psp.rst
+>> +++ b/Documentation/networking/psp.rst
+>> @@ -202,6 +202,48 @@ Drivers must use ``psp_skb_get_assoc_rcu()`` to che=
+ck if PSP Tx offload
+>
+> [ ... ]
+>
+>> +* Before calling ``psp_dev_unregister()``, the driver must ensure that =
+all
+>> +  outstanding Tx descriptors containing key references have been comple=
+ted
+>> +  or discarded. PSP core deletes all remaining Tx keys during
+>> +  unregistration without waiting for a grace period.
+>
+> [Severity: Low]
+> Should this list also say that psp_dev_unregister() must not be called
+> with the netdev instance lock held? The commit message states that rule.
+> It is not in this list or in the psp_dev_unregister() kernel-doc, and
+> nothing asserts it.
+>
+> psp_dev_unregister() now starts with:
+>
+> psp_dev_unregister()
+>   psp_deferred_del_stop()
+>     disable_delayed_work_sync(&psd->tx_del.work)
+>
+> and psp_deferred_del_work() takes the locks in this order:
+>
+> 	mutex_lock(&psd->lock);
+> 	netdev_lock(psd->main_netdev);
+>
+> Suppose a driver calls psp_dev_unregister() while holding
+> main_netdev->lock, and the work is blocked in netdev_lock(). Wouldn't
+> disable_delayed_work_sync() then wait forever?
+>
+> Even with the work idle, the later mutex_lock(&psd->lock) in
+> psp_dev_unregister() would run under the netdev lock. That inverts the
+> lock order the work uses.
+>
+> mlx5 complies today, because mlx5e_nic_disable() drops the netdev lock
+> before mlx5e_psp_unregister().
+>
+> Could the rule go in this list with the other requirements? Something
+> like lockdep_assert_not_held(&psd->main_netdev->lock) in
+> psp_dev_unregister() would also match the ops-lock WARN_ON check in
+> psp_dev_create().
+>
+> [ ... ]
+>
+>> diff --git a/net/psp/psp_sock.c b/net/psp/psp_sock.c
+>> index d497f41c483e1..48bffe088c79b 100644
+>> --- a/net/psp/psp_sock.c
+>> +++ b/net/psp/psp_sock.c
+>> @@ -114,8 +114,14 @@ static void psp_assoc_free(struct work_struct *work=
+)
+>> =20
+>>  	mutex_lock(&psd->lock);
+>>  	if (psp_dev_is_registered(psd)) {
+>> -		if (psp_assoc_needs_tx_key_del(pas))
+>> +		if (psp_assoc_needs_tx_key_del(pas)) {
+>> +			if (pas->flags & PSP_ASSOC_DEFER_TX_KEY_DEL) {
+>> +				psp_deferred_del_queue(psd, pas);
+>> +				mutex_unlock(&psd->lock);
+>> +				return;
+>> +			}
+>
+> [Severity: Medium]
+> Once pas is on psd->tx_del.next, its psd reference belongs to the
+> deferred queue. This path keeps no reference of its own across
+> mutex_unlock(&psd->lock). Can psd be torn down while this thread is
+> still inside mutex_unlock()?
+>
+> Documentation/locking/mutex-design.rst says mutex_unlock() may access the
+> mutex after releasing ownership, so the caller has to keep the mutex
+> alive until it returns. When there is a waiter, __mutex_unlock_slowpath()
+> releases ownership and then still takes lock->wait_lock and calls
+> debug_mutex_unlock(lock).
+>
+> A possible sequence:
+>
+> CPU1 (psp_assoc_free work)         CPU2 (psp_dev_unregister)
+> psp_deferred_del_queue(psd, pas)
+> mutex_unlock(&psd->lock)           mutex_lock(&psd->lock) succeeds
+>   still in slowpath                psp_deferred_del_uninit()
+>                                      psp_dev_put(psd)
+>                                    mutex_unlock(&psd->lock)
+>                                    psp_dev_put(psd)
+>                                      psp_dev_free()
+>                                        mutex_destroy(&psd->lock)
+>                                        kfree_rcu(psd, rcu)
+>   debug_mutex_unlock(lock)
+>
 
+Ah TIL. I was a bit naive that mutex_unlock() can still be running while
+the next waiter enters the critical section.
 
-On 11/18/2026 2:32 PM, Dmitry Baryshkov wrote:
-> On Thu, Nov 12, 2026 at 07:10:38PM +0530, Vikash Garodia wrote:
->>
->> On 11/11/2026 6:33 PM, Dmitry Baryshkov wrote:
->>> On Fri, Nov 06, 2026 at 10:44:26PM +0530, Vikash Garodia wrote:
->>>> The OF_IOMMU code relies on OF address parsing helpers, but the
->>>> dependency on OF_ADDRESS is not expressed in Kconfig. As a result,
->>>> of_iommu.c contains CONFIG_OF_ADDRESS guards and a __maybe_unused
->>>> annotation to handle configurations where OF_ADDRESS is disabled.
->>>>
->>>> Make OF_IOMMU depend on OF_ADDRESS and remove the now unnecessary
->>>> preprocessor guards and __maybe_unused annotation.
->>>
->>> Why? What's the problem that you are solving? Why is the current code
->>> bad?
->>>
->>
->> The commit describes the problem as "The OF_IOMMU code relies on OF address
->> parsing helpers, but the dependency on OF_ADDRESS is not expressed in
->> Kconfig"...and instead the code had checks for config or __maybe_unused for
->> cases like sparc.
-> 
-> What is wrong with this approach? What is the problem? There is one, but
-> please state it in the commit message. Something is wrong, otherwise you
-> wouldn't be fixing it.
-> 
->>
->> It was discussed in prior rev
->> https://lore.kernel.org/all/20261104160346.GD3951195-robh@kernel.org/
-> 
-> That's fine, but the reason must be capturedd
-> 
-
-Ack.
-
->>
->> Regards,
->> Vikash
->>>>
->>>> The only architecture supporting OF without OF_ADDRESS is SPARC, which
->>>> does not use OF_IOMMU, so no functional change is intended.
->>>>
->>>> Suggested-by: Rob Herring <robh@kernel.org>
->>>> Co-developed-by: Vishnu Reddy <busanna.reddy@oss.qualcomm.com>
->>>> Signed-off-by: Vishnu Reddy <busanna.reddy@oss.qualcomm.com>
->>>> Signed-off-by: Vikash Garodia <vikash.garodia@oss.qualcomm.com>
->>>> ---
->>>>    drivers/iommu/Kconfig    | 2 +-
->>>>    drivers/iommu/of_iommu.c | 4 +---
->>>>    2 files changed, 2 insertions(+), 4 deletions(-)
->>>>
->>>
->>
-> 
-
+pw-bot: cr
