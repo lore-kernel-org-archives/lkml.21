@@ -1,58 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795018811;
-	b=xTFpm/jnA7FJnADFDAsyYILSIulle2Fgpz31xk+nQrpNd7Dx4A8BXOpIkhA35pn/PEPn
-	 d9CmU3t3MJ53Po/tCdmMyOzLa6prrSKv8HkQuPLjsG17I5VhW7dCsWOXoWCMyT+uY1ODY
-	 pkTDZNUjvXDuZdUP3jAjTuk7K7Dx3H9z/8zsR2oSfcUTqdLK0om4zvB81jbVE0+ucQG0d
-	 JhJnaugE5ZIEV7W4kj+1tfFWbwEdSCSOEpE5HwiPc2tv4LPtz/3e5mZExDu1Xm7DVwNVW
-	 DcY36+DgNlBwONpjTwD0BcUwn+CUPlbw8/ZkV+czhVgnIgbYjBSasUkk1sV+Lu+VeHg==
+	t=1795018921;
+	b=PF3w7NhMJwKIVU8LbdruOcx1Zf4V5WImSeqRAQzzKVbGO1QXSrDJkaGqoz0qo5hiPCeU
+	 1rgu2qwKlZggr+vR31zvqbmXfbY42EDXSlXUFzof6CWK313p7mDMrFsRt8eNefUmYuZgL
+	 amaJd6c0mo2SEoHRzV4XJHum0MlwPcFb76Fm3H/d1a0t9s8tcB5F0qAxfp+thOK1zEOSq
+	 KyybyzgYAzByTDmyaUux/qP3ageRDAAZ23SO9G91v4Ke+9fVSvpcIHIxuZj+nKqNVjpcE
+	 ePLmDOw18zVV9Ys0UXnyQCf03QijEsJ8Fw69cWVgHW4u1vVJvgKxR4RiC7quUKEosFg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795018811;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=sFa+8osRr+Td7hjHKGRDX6/RLhBxSgDFK1+pCtkm/bE=;
-	b=emHKTqt/iy0A7ibt05AxlZvNx7HzdoV4OI6+OHAj06BWXtZLet261dDwJCrnkVmIAwKR
-	 b9XeAIj5XFCulRucRI3JSYQqJzZ+OM/b6rJUtxE/RsNYhVnPVuuftQiaekP7N89zJKWwW
-	 5TvacP3kXjgw6nirzOxICC3VIPBW72HdGMVKit/zFcMvVMTUJay7Fyn3FdHEWY4a1VxUN
-	 igbhQcuzWnz+jts3xL0bc9eYmpRTSLGPcGfLJvJywrTlKF7pQrMKA+S2IMvWr3CrAQdpC
-	 +BxMqZxJ+RsaPNV0T1LXIC6brBwdwSFS1MKu+ctEVIegJjfN1f6bA00o9+l/VAzmB+g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795018921;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=o4IhjYnsAkS+A/M5yq5qkGtMA6PWttIKEDUvGkvU2eY=;
+	b=2/p9je8MLUiJcqwxG8/7sotKaYVxa142YnPZ3PG9mAIGJNUhEMz61p0wPn6eRArukbpW
+	 zanbf2dIHKwY6ASHYlv0NQE2q6dxVE/4Tgro9kzwF5JOC+C/AqwcJOhVhD+CcrRlV+WyT
+	 74lNX5IDPJqfTTf8jKYMuOMYetSRpDCtiKUfLnS3nSls6EwpPLCBZBahbENsMLWpgk87A
+	 xhk0XFy4bRjykmZ5O2CFL/Mp5xNGobpHzWm2jTL9GRzKcjd2EkTldwz2260GdjezD+ffJ
+	 CX/nRpS5jZJjDgtvnTMiNWmRaXbcmAxyYxNq7y2Tw/D0TNUD/NEbCas8rlD61L2sTyQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Cdh1H2XA;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=2R2b9+uz;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A30A606A31C;
-	Wed, 18 Nov 2026 16:20:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E651606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:22:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E651606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Cdh1H2XA
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7592F1F000C4;
-	Wed, 18 Nov 2026 16:20:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795018811;
-	bh=sFa+8osRr+Td7hjHKGRDX6/RLhBxSgDFK1+pCtkm/bE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Cdh1H2XAj1xjH2KEEe3ICZCx5l57Qg63s3AqU20OTD9L8rf3gUC1Nxat3vjQXIFmc
-	 s15EV6o2NaQCZw+AamDvR45fPzTN78lKBU5AUILSc+w9j9Y5qd5ZQ17MinomUPVmSr
-	 wwgf8nB7TPqn0B8HnkFYSCpjxj5/Dc36f176cRzpC7oeNtpxjR/gBtIgsYtD1mL7Qs
-	 qQJB2RpOyX/G9SzpFbdnuKu7Jj//tDxqRpa1zQ5UOxr3GQ6s2kePwN0DVzkjCqaNCG
-	 SqkZPtCSx9Ag7V2LxVRc2BCzPYgo0Q9RZBhk7DoU+KQPFDpvRqn97trAf2NWo8NB/r
-	 ybBz6m8s8A1Hw==
-Date: Wed, 18 Nov 2026 16:20:09 +0000
-From: Yosry Ahmed <yosry@kernel.org>
-To: Zide Chen <zide.chen@intel.com>
-Cc: Sean Christopherson <seanjc@google.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Peter Zijlstra <peterz@infradead.org>, kvm@vger.kernel.org, 
-	Jim Mattson <jmattson@google.com>, Andi Kleen <ak@linux.intel.com>, 
-	Stephane Eranian <eranian@google.com>, linux-kernel@vger.kernel.org, Mingwei Zhang <mizhang@google.com>, 
-	Das Sandipan <Sandipan.Das@amd.com>, Shukla Manali <Manali.Shukla@amd.com>, 
-	Dapeng Mi <dapeng1.mi@linux.intel.com>, Xudong Hao <xudong.hao@intel.com>
-Subject: Re: [PATCH v4 17/21] KVM: x86/pmu: Factor out fixed counter control
- bit calculation
-Message-ID: <av3QM4Mj2KidNro3@google.com>
-References: <20261112203227.289379-1-zide.chen@intel.com>
- <20261112203227.289379-18-zide.chen@intel.com>
+	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=2R2b9+uz
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id F315E4E4160A;
+	Wed, 18 Nov 2026 16:21:58 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id B705A5FE9B;
+	Wed, 18 Nov 2026 16:21:58 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7D84B11BC26F9;
+	Wed, 18 Nov 2026 17:21:38 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795018913; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=o4IhjYnsAkS+A/M5yq5qkGtMA6PWttIKEDUvGkvU2eY=;
+	b=2R2b9+uzpz1RycSQMmA4zCkWe9M65VvGUkYqRX+1u1KTtAl8zxLwkxnHPQzqR+VdJ/ZVor
+	kIofdG4xnPPGBNUYwJiaLMXaKsZtgpxvBcUqKZXh3hBPGL34QX4TXjMYE9262PDctTHfdN
+	psc7w4JRcm9gz7pc71uccgTshjFCV7MnvBpCPCLx2Gh/nICOzHtu/mkuKYWWjWymqsNveU
+	EIgpPrgO6h6OTH742MiFpMRc/gtna3bfUhXufygoUb+nXK9z44VYKSjveYMc5XnXJLWOsY
+	oXqrEyeMqo8GJbHfCGUwPznZERl8pzdjVyTMumDJ+1vKnscB9D6tqz2fPoUSJw==
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
+	Nicolai Buchwitz <nb@tipi-net.de>,
+	Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
+	Joseph Steel <recv.jo@gmail.com>,
+	Muhammad Nazim Amirul Nazle Asmade <muhammad.nazim.amirul.nazle.asmade@altera.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	thomas.petazzoni@bootlin.com,
+	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH net-next] net: stmmac: xgmac: Report the VLAN tag type from the descriptor
+Date: Wed, 18 Nov 2026 17:21:34 +0100
+Message-ID: <20261118162136.2782405-1-maxime.chevallier@bootlin.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,25 +83,102 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261112203227.289379-18-zide.chen@intel.com>
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Thu, Nov 12, 2026 at 01:32:23PM -0700, Zide Chen wrote:
-> Rename intel_pmu_enable_fixed_counter_bits() to
-> intel_pmu_fixed_ctrl_bits() and have it return the computed fixed
-> counter control mask instead of updating fixed_ctr_ctrl_rsvd directly.
-> 
-> Accumulate the desired fixed counter control bits during PMU setup and
-> apply them once in intel_pmu_refresh().
-> 
-> Move the helper earlier in the file so it can also be reused for
-> upcoming ANYTHREAD_DEPRECATION emulation.
-> 
-> No functional change intended.
-> 
-> Signed-off-by: Zide Chen <zide.chen@intel.com>
-> Reviewed-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
-> Reviewed-by: Jim Mattson <jmattson@google.com>
+Stmmac's double VLAN handling hasn't been working great for a while,
+it's been recently reworked for dwmac4 by Ovidiu Panait. In that work,
+it was found that the tag stripping hardcodes the 8021Q tag type for
+XGMAC while stripping the tag, while the IP actually reports the outer
+tag type in the descriptor.
 
-Reviewed-by: Yosry Ahmed <yosry@kernel.org>
+The tag type can be one of 6 different values (note inner/outer is
+reversed in the macro names):
+
+ - XGMAC_ET_LT_VLAN_STAG       single S-tag
+ - XGMAC_ET_LT_VLAN_CTAG       single C-tag
+ - XGMAC_ET_LT_DVLAN_CTAG_CTAG outer C-tag, inner C-tag
+ - XGMAC_ET_LT_DVLAN_STAG_STAG outer S-tag, inner S-tag
+ - XGMAC_ET_LT_DVLAN_CTAG_STAG outer S-tag, inner C-tag
+ - XGMAC_ET_LT_DVLAN_STAG_CTAG outer C-tag, inner S-tag
+
+Report that tag type through a dedicated desc ops and report it to the
+stack.
+
+We keep the 8021Q fallback when we don't have the ops, as we don't
+set NETIF_F_HW_VLAN_STAG_FILTER on the cores that don't support that.
+
+This has been tested on AgileX5 with the vlan.py selftest.
+
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+---
+ .../net/ethernet/stmicro/stmmac/dwxgmac2_descs.c    | 13 +++++++++++++
+ drivers/net/ethernet/stmicro/stmmac/hwif.h          |  2 ++
+ drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c   |  6 +++++-
+ 3 files changed, 20 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+index 6719ac6e395b..71ce2bc9b5e1 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+@@ -76,6 +76,18 @@ static bool dwxgmac2_wrback_get_rx_vlan_valid(struct dma_desc *p)
+ 	       et_lt <= XGMAC_ET_LT_DVLAN_STAG_CTAG;
+ }
+ 
++static u16 dwxgmac2_wrback_get_rx_vlan_proto(struct dma_desc *p)
++{
++	switch (FIELD_GET(XGMAC_RDES3_ET_LT, le32_to_cpu(p->des3))) {
++	case XGMAC_ET_LT_VLAN_STAG:
++	case XGMAC_ET_LT_DVLAN_STAG_STAG:
++	case XGMAC_ET_LT_DVLAN_CTAG_STAG:
++		return ETH_P_8021AD;
++	default:
++		return ETH_P_8021Q;
++	}
++}
++
+ static int dwxgmac2_get_rx_frame_len(struct dma_desc *p, int rx_coe)
+ {
+ 	return (le32_to_cpu(p->des3) & XGMAC_RDES3_PL);
+@@ -352,6 +364,7 @@ const struct stmmac_desc_ops dwxgmac210_desc_ops = {
+ 	.set_rx_owner = dwxgmac2_set_rx_owner,
+ 	.get_rx_vlan_tci = dwxgmac2_wrback_get_rx_vlan_tci,
+ 	.get_rx_vlan_valid = dwxgmac2_wrback_get_rx_vlan_valid,
++	.get_rx_vlan_proto = dwxgmac2_wrback_get_rx_vlan_proto,
+ 	.get_rx_frame_len = dwxgmac2_get_rx_frame_len,
+ 	.enable_tx_timestamp = dwxgmac2_enable_tx_timestamp,
+ 	.get_tx_timestamp_status = dwxgmac2_get_tx_timestamp_status,
+diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+index 8ae95e91a36a..047bda5cbd92 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
++++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+@@ -60,6 +60,8 @@ struct stmmac_desc_ops {
+ 	u16 (*get_rx_vlan_tci)(struct dma_desc *p);
+ 	/* Get the valid status of descriptor */
+ 	bool (*get_rx_vlan_valid)(struct dma_desc *p);
++	/* Get the vlan tag proto from the descriptor */
++	u16 (*get_rx_vlan_proto)(struct dma_desc *p);
+ 	/* Return the transmit status looking at the TDES1 */
+ 	int (*tx_status)(struct stmmac_extra_stats *x,
+ 			 struct dma_desc *p, void __iomem *ioaddr);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
+index fb9aad748cb3..bf23d82e9f38 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
+@@ -209,8 +209,12 @@ static void vlan_rx_hw(struct mac_device_info *hw,
+ {
+ 	if (hw->desc->get_rx_vlan_valid(rx_desc)) {
+ 		u16 vid = hw->desc->get_rx_vlan_tci(rx_desc);
++		u16 proto = ETH_P_8021Q;
+ 
+-		__vlan_hwaccel_put_tag(skb, htons(ETH_P_8021Q), vid);
++		if (hw->desc->get_rx_vlan_proto)
++			proto = hw->desc->get_rx_vlan_proto(rx_desc);
++
++		__vlan_hwaccel_put_tag(skb, htons(proto), vid);
+ 	}
+ }
+ 
+-- 
+2.56.1
+
