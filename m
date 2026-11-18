@@ -1,98 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.66
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795033501;
-	b=k/nXBiYUpCEelg33OyKUiqSy3khCA7FBzgSJMB+ldqnESpY4+F+SeNIWWp/A6NNDc7ad
-	 HAGEhWk5w+xN5pCRIfnY6xk5CWJeCTFkTe0aLVftsPOt806XQVzO+xON+feclE1m7ZqC2
-	 T7ldyG0S0rA9KpASIXnaX57QUgO5nUfOYmdl/yV4/iqosxl/eBPndjWwVF6Ksi4LIOOfp
-	 pxy1YeaoOBu+OMbRbaznI5Iu1N6TUUD0v3mZkAa9+pfbfmbX9r5Sa3WR1POLcpy8wMfDP
-	 bQ/AZw4Jo1DN8Y19cKBHnDyylKrbmk+Ey6J2KvU4WcvCpmwdhOGYyNEOo8NgepYu9hg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795033501;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=QDQbkgDsPUmrMqm3wnA2LGE5x2uQgQtfVSQ8ckhzdGE=;
-	b=ZMOIPL7pTe1Mc0FrG1eQfEGqFTZ3LFxHrUYwhfwxSp9dAq7Hml80czumUVHMc4BEfwpR
-	 B7K8JFDy1hGjqxi7Gxn0Q2AHJhsCtZZdKzsRvImCF5xTTHRZHsHikLoziE1bxZaQv2rBE
-	 ETNiomibS7Sb3jjV9cySBd/QzAuTb7N6KfTqwwQuVaB1+9LBbHh+kwX6pBO1LYwvwRfVl
-	 6AqByWu0cXESJtnt8Rv2sbl5d2R3/FTVPzdT4GZUXb4YTzYxInpbzS4B/8tbK87CGo6Iy
-	 n9wm8yK+BvTWt2tjDwAoFYGS4twmvSOMkq+JedsEhjwe3++DdQaZOsp0itl+Z310mmw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=kPuHMuIA;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.66
-Received: from AM0PR83CU005.outbound.protection.outlook.com (mail-westeuropeazon11010066.outbound.protection.outlook.com [52.101.69.66])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.171
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795033566;
+	b=iXLlvXe85xe1ygAiY5z+OsuyACnryc48+bTw/7FP6eQkzc5Co1U3CwpwQUDqgldM6jsX
+	 J5RkycaJPctNTtdq4SMW7obhTAPThDoXy5npOGOyxtuXD6ajSxgoJ+45n8nd0VARFY9c2
+	 HwIgLuiHovVxu8+wsB3SmVIJtaUk6M5M9kFWSTYXh9yOaX40Wbdy8OYtjYPbhnTIR1woH
+	 CC31LvJ7KdBwL8N9fG82c0XnSkj9+RhXLjpqh/t4XcGOPgVX5lhDsxV/45X+MsMsIdTYj
+	 2rMG3OlOpuuWZxNp3niL0Gf5ReQwQtBW74en6MJG6Qh0wsOkKa/n9uoYeAnC89kGDdg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795033566;
+	h=DMARC-Filter:DKIM-Signature:X-Pm-Submission-Id:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=a9aHOtY9r8YIi90O/ve97/2PegLaKtc6V++AttcaFxk=;
+	b=FCO1IfTX61IFhc7IdL2Fe1MY/uVrnkoBKQ8exOclEEkfAfyWNOdkmOA43ENyv/pdY4YO
+	 1L0nUMSLoLYM3WNMCOYaFEEPfe95g7ZVQa0IvkbkoDJXKNXb/VplLZZe4v85w9zVdJ1AS
+	 o6fwCyfsMmYmj3KOdxAQ1vset6IgjGERdDJW6wYiCB0Wlc4CSyojvh06exjLcn0qn7TQg
+	 snrxvF387GeFR2DZCZbiBacyHAkJywvw8UEonf/cpG+yqIb359N3TmHzC4v5qsTyQAvzl
+	 XZdup1pdAZ/5ScEd/jsmBNz//6mHdT4sXFTcLyANn4Wln0GjPzRVR+I4GlrTMfzz7CA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=raidlab.org;
+	spf=pass smtp.mailfrom=raidlab.org;
+	dkim=pass header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=iu55TWDL;
+	arc=none smtp.remote-ip=185.70.43.171
+Received: from mail-43171.protonmail.ch (mail-43171.protonmail.ch [185.70.43.171])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37B28606A31C;
-	Wed, 18 Nov 2026 20:25:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37B28606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F2C5606A31C;
+	Wed, 18 Nov 2026 20:26:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7F2C5606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=raidlab.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=raidlab.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=kPuHMuIA
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=u22+oMrdsZ7/A9M02W/QcwDA2gBM7f50NWkW8apFeFHhf9Myyet5lFXFbU4igWX4OHrzZieXQJMHmJ/mRjR/t7d+AbQaQzHodxmqbOZD53E/K36dZupolgcBjcRRHTBmL6Cb+57yFnCnAYq3Vge93LHF8DoLdljaitEEmf6c7Z3CkfcNvBYDknHWgf+PxxgujwzRiztzs+9quSxqA9coDjhc7PZCqxwLS/lHI6VcvM5/iscN8o95aeLvm8djh3HXsAOTJpSbDeFx7jTcqmkbYMcndVVlWgLmS3IsAYfKY32V8TT5n946Qa2CjuQs2xTNySuk5d//UEXRYR+hUW2eQQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QDQbkgDsPUmrMqm3wnA2LGE5x2uQgQtfVSQ8ckhzdGE=;
- b=At4MgxCK4fqRDvrZbTEUJcqz1AvzajwMAtkx5QXThEjhr77yYYtrUIcHiS/hQ5VxcAUNPQ+FKLRSmKLEIxF6j8Z2Ct/nLGT5+iG11RC7kLhDyqJmnLVX3xVcFMI/UDRSD9BNverwi9FEcNM0pe+gYui6ppluSnWTZeTrzEaoFfwiIDpKhcFvRtJ3SFxTz1MpKf5k/bjKIjHTKDJWsFNyUgzLi7YVE1Gfmehao5FhTD6nh24APxNWjmCLoLfT9z+hczOyqiYuXcf7PwdljPV7tdgK297d9vtPjX8b93N7xy/GUy3TJAE7ga4+4FtJpV64mUwqfb5BPctjmSn3EZXilA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QDQbkgDsPUmrMqm3wnA2LGE5x2uQgQtfVSQ8ckhzdGE=;
- b=kPuHMuIAi0WImfi12bo07QFKhXzcnTyTUY9I5UNwTzz2K+wiFVFaTPYaRPYUZTbFnQqDbdDeSduttWtPyFjxxliTgZG9gZvxyNGdZWboMPhP+92kS4hvv/YNJXfXN1OSm5pyJA8282BNI/qc3+ltfxz3RmoWHU3iu3jG5MtZjvi1PhGYSK5iWZXx/kXnf/oTeRg0kvbM3ykjVro9Nkid/TaDvNqMXJauw/N4UESX8RP9yXkPyMSXfIfaYOqkDVZ8YkCKnRZ9C3TJU/8D8GfV0PNYaKHagg7WvzFdCMT0wuoGuaK9YNnZrqcg6mK2i5L/NrXHkNDhWASiMDo+22rHBg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by AM8PR04MB7938.eurprd04.prod.outlook.com (2603:10a6:20b:24e::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.10; Wed, 18 Nov
- 2026 20:24:58 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 20:24:58 +0000
-Date: Wed, 18 Nov 2026 15:24:50 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Logan Gunthorpe <logang@deltatee.com>
-Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.li@nxp.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
-	Dave Jiang <dave.jiang@intel.com>,
-	Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>,
-	Kelvin Cao <kelvin.cao@microchip.com>
-Subject: Re: [PATCH v4 3/4] dmaengine: switchtec-dma: add config sysfs
- attributes
-Message-ID: <av4JkptRWXXG5wul@lizhi-Precision-Tower-5810>
-References: <20261110173137.623764-1-logang@deltatee.com>
- <20261110173137.623764-4-logang@deltatee.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261110173137.623764-4-logang@deltatee.com>
-X-ClientProxiedBy: PH8PR02CA0040.namprd02.prod.outlook.com
- (2603:10b6:510:2da::17) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	dkim=pass (2048-bit key, unprotected) header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=iu55TWDL
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=raidlab.org;
+	s=protonmail; t=1795033562; x=1795292762;
+	bh=a9aHOtY9r8YIi90O/ve97/2PegLaKtc6V++AttcaFxk=;
+	h=From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:From:To:
+	 Cc:Date:Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=iu55TWDLoLnqLrAwEc2HfPOe/egIk/popu97XI0DCIPpMdqIniu/FcZ2u9962M9/k
+	 MToYFNv253LMfXya1TRbE++UyovmzNjlxTACFaLZ+0cNukNq6zYpzU9v7yiL5Eg91D
+	 +OhNEb08HBbh2xulPL/TKg9HVVPKKvOHLR/TvelkjEcH20NPBY2ydt0vttF2jMdaEp
+	 Eqd8E9Tz2oqdgymKVspkPwgwxlHnMY+DvdGofx1O91Kg5ifYOFfJmOTdSoRZNZT93e
+	 4ocf4zN0DORqoZUFMXoJUZfxu1P9YxNOpFHy6Okf/W433twxPvGqwprQawlPIM+iRT
+	 Kh+v9v5u1FA9A==
+X-Pm-Submission-Id: 4jVCm835mMz1DDLY
+From: Miroslav Cimerman <mc@raidlab.org>
+To: linux-btrfs@vger.kernel.org
+Cc: David Sterba <dsterba@suse.com>,
+	Chris Mason <mason@kernel.org>,
+	Naohiro Aota <naohiro.aota@wdc.com>,
+	Johannes Thumshirn <johannes.thumshirn@wdc.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] btrfs: wait for block group relocation on remount read-only
+Date: Wed, 18 Nov 2026 20:25:48 +0000
+Message-ID: <20261118202548.82001-1-mc@raidlab.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261118125816.6878-1-mc@raidlab.org>
+References: <20261118125816.6878-1-mc@raidlab.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,297 +67,198 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|AM8PR04MB7938:EE_
-X-MS-Office365-Filtering-Correlation-Id: d64c1e4e-900f-4263-cb69-08df45b20435
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|19092799006|376014|366016|23010399003|1800799024|18002099003|22082099003|6133799003|261026140227099003|56012099006|261009223027099003|261102123227099003|4143699003|11063799006|261028144727099003|261022105027099003|261021121427099003|261021123027099003|261026121527099003|261022075727099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	yY2AYVmHOYB3B/CONpnisyGi9/LQbAqj4s9SdNu37i8ubp9EDgtFQzKTrQGu9KlXzl5NyK+bI1Ewk5V0u1FLArTEy6PyzwlmVK7GMplGDQJ0APRWimR0bYdgjCe9DZf7cqghsQ6HWjvugtMiT/V92zZzE0lCQeEC4OQGAW4toxDiM6ys8wY39cngFhU1fXLgJfeeuvSSHVSkP73f02QwAMyRDIuwNQC7nOI4EZjeL4Clou1YDD173Imja3Hg3wbdre0nNl3pxHfqiMo2lJr77yLP1WPgic+Pk4tFUboARqoLtqx8XVDg4KuDJBJmMz4RzyK521ktLNgY+p2heICn0/AdDNcHCZcpjxCgxBQPz6+8Yc1qPSQUOgy7V0XF85N8c4M18YWSx5qq1kFdtpcnjv0EN4DqrHB3qMJDJrBfHZJG2w0Cu46VCnMIOkyBjgAryVARjlW2JjdpXTGE/HfZewY1rM/+GHa618F/+2O5Qpm2FenHZhu0PVO9MtH1EOrQAWZ/xZjHwD2NEFQo3ZaO+jZUuiZTcQO/hdsryL/7GcpaUcRfrkkmbpQIlf4Gi1bpj/pVewToUwk+9WGEP+e6iTXQs2gAm3uen3MR7JaKWZ4VmcmfPJXo4edQa7vFPvwf0sm/xK9dd+VXZ6OY7cJ2V+gD2FGimNUBR4rFmtsJVyw=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(366016)(23010399003)(1800799024)(18002099003)(22082099003)(6133799003)(261026140227099003)(56012099006)(261009223027099003)(261102123227099003)(4143699003)(11063799006)(261028144727099003)(261022105027099003)(261021121427099003)(261021123027099003)(261026121527099003)(261022075727099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?Qbh44vDhdED3T/LbWWxMNLmpK7rKNFRsJUAD3FfqVv4SsrfqerGuPGv7NPVB?=
- =?us-ascii?Q?XHdXTwgwM0cPa3QaTLYhPV24g9tz/ikOZqWKHr73P9EuDRd/Z/gdjJwplfEA?=
- =?us-ascii?Q?r0tBE1ywAvMAyaQN6m43d5jVSDcVDaY3buNKmnAnx6Tv6yQm+CHE3WRrc1Q9?=
- =?us-ascii?Q?On1rL/68hNlfLi+a2oeGJWt4NNVOC+3z9wyMdDaDHjW0NthuqyWKTsmnOdTu?=
- =?us-ascii?Q?uR0J9sM5RDdOqbu8DZ6u4sntCNeszpBSirZcfMJcC89ZnEkTS4NMIBRxg7bA?=
- =?us-ascii?Q?nmY88U8hgIo2Wn3RNVQfxH0T0SuOko+X2x+trYCtQvdKeeYP9CbUdIlHpuHD?=
- =?us-ascii?Q?L62mhqf9f0B3moOABr4b+UiWoqBz5XW47hcYoinXn4OSbBAxf5aoXwfr6ljX?=
- =?us-ascii?Q?nuzjSw/KpshS6xE4gmH6N9s9SyS+vql5g8GMB5daxcrlgImyRr9vMTUA+B7/?=
- =?us-ascii?Q?wuLwYbXbeCAooFeZGtumLRwFPhstXn1b008fqfLmi827I7eb3qJksmWf9nVy?=
- =?us-ascii?Q?NhEhH5WEp7qkjTQG6N2LXHqHms3iPpcArNAG54KdurLFC8MlKtr5ubxQCR3+?=
- =?us-ascii?Q?58AWr+wn57Vfp81wIhv4PcCILQOu1pb/tfi3n9DVg+HWC3JtJJoG24+FLzy+?=
- =?us-ascii?Q?Y9PUOIjwvdS9l8pZVS8dJL2PZxS+W3YjN6btEspBtNnOywNKYIi5sA/jjXq7?=
- =?us-ascii?Q?wuu2aDP/hscZBTFVyRlb6TnQfCXwTTiouqhVChj0ki/glU4+BK5v+653DGEf?=
- =?us-ascii?Q?JzJfMJh+i5TBh0S4hTvXoWg4d/HhxVJRqdh8qFt//aqLhXGyQbnv9RgW5BOi?=
- =?us-ascii?Q?W9d/UX/Kkb4MZvjU2TqPHFGlHRGi/sDwzNlH+EvA2kJkQBDBN1/Ff6FbOH9w?=
- =?us-ascii?Q?Gk2Rszk025Haqa0PjKKfYF2Qf3pZO6ZVli7d49+tyms385zcf0Nc86xxEyAl?=
- =?us-ascii?Q?U2aIcaBH+P9OgxYXC9EApYf0q00QhdD2jZg49d0geyD9L7CwB3NPaqVQ/9wz?=
- =?us-ascii?Q?QP1s+De+YEdvk740jTA5/y6E+gITd9dkQUzpU3tpvg3zb/MxOzaAHvVbnIDE?=
- =?us-ascii?Q?5lEjZKwYqBXhMHKrxLSjVtHGHja6nbynY76KMMcJ2metAJF6hq1jQTcwzGSb?=
- =?us-ascii?Q?KWUYzz+v6TtVFmAXMO7bwqQtUoygwOGeQS6W6EyZOUmCNizenP6FLCZ7WN0+?=
- =?us-ascii?Q?LWaWrS6N2DZB7ZJo3gndpatcxF43LA5nDuVQEd3uAVnxlZD2c+KAeQX0PK/m?=
- =?us-ascii?Q?hHM5QLae0UBzxP9B+fKozxRf3GqpRvcviVxvB4vTLa7lEnNHd9HHDYUkds+0?=
- =?us-ascii?Q?nsXQFMfQ9OXSa5Xh3HNFOQGaTGrKQVHFhfUKZebDK+5g3pa/0OugvSrG4aQi?=
- =?us-ascii?Q?mgOAaZt47YgWgaxxciBRGkjUorr5DVAMhI4IjkXuqZXuXVCu4nAn/BI2RpY6?=
- =?us-ascii?Q?jMZsPOhhr5PvpoQhzya/RoO2mD4JeyT4dTvS8Gd3oMdiCckfXzv4I1d+QlDB?=
- =?us-ascii?Q?MVBjFX3yYvLyEBrlfpE49yzbWGxOfMgDjzTMd8JZAp+iC7qgsLlPOz8q641/?=
- =?us-ascii?Q?tpOUpalcwkTzebjco9gzv2WupHsIW6Q27gZ5wY+8lxmZwQGYAuqbFAqi95Fr?=
- =?us-ascii?Q?EM3YJFLn0zr5ZnysW+4bUKbkfLY+s1XqhqflDxnhxcXVr7mYiZAZkMJtsBV6?=
- =?us-ascii?Q?3crdrreSiWAZsMbyweB914P0timRg/VmWFQG+WxP37CmFIOaIItHb2hgR2KZ?=
- =?us-ascii?Q?ynI1Gz4KT9xgtHxegEGLUknIW01GDxf09w6YhCNT2xJwiCEvRxfA?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d64c1e4e-900f-4263-cb69-08df45b20435
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 20:24:58.8038
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: l3iOUEIRUIDSvmToxCMBkes1igInbivevlzu1DCBRwOFW59Nq8IKh8K/JbYefXh0lEhK8xaZgJeTkJrqlLk/ekjge85eaQplZfDT94ve2Oa6qtoe0oCh9K0+DmojR9Vr
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7938
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 10, 2026 at 11:31:35AM -0600, Logan Gunthorpe wrote:
-> Add sysfs configuration options for switchtec-dma channels, using
-> dma_device.chan_groups the same way the ioatdma conversion does:
-> attach a "switchtec-config" attribute group directly to the channel's
-> existing struct device, with each show()/store() recovering the
-> struct dma_chan via the dmaengine_chan_from_dev CLASS.
->
-> The read-modify-write of the shared perf_cfg register is protected by
-> hw_ctrl_lock, and writes are rejected with -EBUSY while the channel is
-> allocated to a client (hw_cfg_locked), instead of a TOCTOU-prone
-> chan->client_count check.
->
-> Signed-off-by: Logan Gunthorpe <logang@deltatee.com>
-> ---
+Nothing holds off a remount read-only while the reclaim work or a zoned
+repair relocates a block group. Both take the super write lock, and the
+reclaim work counts on it ("As we did take the super write lock, "mount
+-o remount,ro" won't happen"), but sb_prepare_remount_readonly() doesn't
+look at it. Without the remap tree, the remount is refused with -EBUSY
+while the relocation's orphan inode exists, as it counts in
+s_remove_count. Before the inode is created and after it is dropped, and
+always for a forced remount, the remount goes through:
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+ reclaim work                       remount read-only
+ btrfs_reclaim_block_groups()
+ |-btrfs_relocate_chunk()           btrfs_remount_ro()
+ | Still relocating                 |-btrfs_set_sb_rdonly()
+ |                                  \-btrfs_commit_super()
+ |                                    Returns, read-only
+ \-Keeps writing, leaves its last
+   transaction open
+                                    unmount
+                                    close_ctree()
+                                      No commit on a read-only fs
 
->  drivers/dma/switchtec_dma.c | 179 ++++++++++++++++++++++++++++++++++++
->  1 file changed, 179 insertions(+)
->
-> diff --git a/drivers/dma/switchtec_dma.c b/drivers/dma/switchtec_dma.c
-> index a386c3a284e6..1ebe17095c61 100644
-> --- a/drivers/dma/switchtec_dma.c
-> +++ b/drivers/dma/switchtec_dma.c
-> @@ -132,6 +132,11 @@ struct switchtec_dma_chan {
->
->  	/* Serialize hardware control register access */
->  	spinlock_t hw_ctrl_lock;
-> +	/*
-> +	 * Set while the channel is allocated to a client; blocks sysfs
-> +	 * hw config changes
-> +	 */
-> +	bool hw_cfg_locked;
->
->  	struct tasklet_struct desc_task;
->
-> @@ -1029,6 +1034,10 @@ static int switchtec_dma_alloc_chan_resources(struct dma_chan *chan)
->  	dev_dbg(dmaengine_chan_dev(chan), "MRRS:        0x%x\n",
->  		FIELD_GET(PERF_MRRS_MASK, perf_cfg));
->
-> +	spin_lock(&swdma_chan->hw_ctrl_lock);
-> +	swdma_chan->hw_cfg_locked = true;
-> +	spin_unlock(&swdma_chan->hw_ctrl_lock);
-> +
->  	return SWITCHTEC_DMA_SQ_SIZE;
->
->  err_ring_inactive:
-> @@ -1046,11 +1055,180 @@ static int switchtec_dma_alloc_chan_resources(struct dma_chan *chan)
->  	return rc;
->  }
->
-> +static __always_inline ssize_t perf_cfg_show(struct device *dev, char *page,
-> +					     unsigned int mask)
-> +{
-> +	struct switchtec_dma_chan *swdma_chan;
-> +	struct chan_fw_regs __iomem *chan_fw;
-> +	u32 perf_cfg;
-> +	int value;
-> +
-> +	CLASS(dmaengine_chan_from_dev, c)(dev);
-> +
-> +	if (!c)
-> +		return -ENODEV;
-> +
-> +	swdma_chan = container_of(c, struct switchtec_dma_chan, dma_chan);
-> +	chan_fw = swdma_chan->mmio_chan_fw;
-> +
-> +	rcu_read_lock();
-> +	if (!rcu_dereference(swdma_chan->swdma_dev->pdev)) {
-> +		rcu_read_unlock();
-> +		return -ENODEV;
-> +	}
-> +
-> +	perf_cfg = readl(&chan_fw->perf_cfg);
-> +	value = field_get(mask, perf_cfg);
-> +
-> +	rcu_read_unlock();
-> +	return sysfs_emit(page, "0x%x\n", value);
-> +}
-> +
-> +static __always_inline ssize_t perf_cfg_store(struct device *dev,
-> +					      const char *page, size_t count,
-> +					      unsigned int mask)
-> +{
-> +	struct switchtec_dma_chan *swdma_chan;
-> +	struct chan_fw_regs __iomem *chan_fw;
-> +	ssize_t ret = count;
-> +	u32 perf_cfg;
-> +	int value;
-> +
-> +	CLASS(dmaengine_chan_from_dev, c)(dev);
-> +
-> +	if (!c)
-> +		return -ENODEV;
-> +
-> +	swdma_chan = container_of(c, struct switchtec_dma_chan, dma_chan);
-> +	chan_fw = swdma_chan->mmio_chan_fw;
-> +
-> +	if (kstrtoint(page, 0, &value) < 0)
-> +		return -EINVAL;
-> +
-> +	if (value < 0 || value > field_max(mask))
-> +		return -EINVAL;
-> +
-> +	rcu_read_lock();
-> +	if (!rcu_dereference(swdma_chan->swdma_dev->pdev)) {
-> +		ret = -ENODEV;
-> +		goto err_unlock;
-> +	}
-> +
-> +	spin_lock(&swdma_chan->hw_ctrl_lock);
-> +	if (swdma_chan->hw_cfg_locked) {
-> +		spin_unlock(&swdma_chan->hw_ctrl_lock);
-> +		ret = -EBUSY;
-> +		goto err_unlock;
-> +	}
-> +
-> +	perf_cfg = readl(&chan_fw->perf_cfg);
-> +	perf_cfg = (perf_cfg & ~mask) | field_prep(mask, value);
-> +	writel(perf_cfg, &chan_fw->perf_cfg);
-> +	spin_unlock(&swdma_chan->hw_ctrl_lock);
-> +
-> +err_unlock:
-> +	rcu_read_unlock();
-> +	return ret;
-> +}
-> +
-> +static ssize_t burst_scale_show(struct device *dev,
-> +				struct device_attribute *attr, char *page)
-> +{
-> +	return perf_cfg_show(dev, page, PERF_BURST_SCALE_MASK);
-> +}
-> +
-> +static ssize_t burst_scale_store(struct device *dev,
-> +				 struct device_attribute *attr,
-> +				 const char *page, size_t count)
-> +{
-> +	return perf_cfg_store(dev, page, count, PERF_BURST_SCALE_MASK);
-> +}
-> +static DEVICE_ATTR_RW(burst_scale);
-> +
-> +static ssize_t mrrs_show(struct device *dev,
-> +			 struct device_attribute *attr, char *page)
-> +{
-> +	return perf_cfg_show(dev, page, PERF_MRRS_MASK);
-> +}
-> +
-> +static ssize_t mrrs_store(struct device *dev,
-> +			  struct device_attribute *attr,
-> +			  const char *page, size_t count)
-> +{
-> +	return perf_cfg_store(dev, page, count, PERF_MRRS_MASK);
-> +}
-> +static DEVICE_ATTR_RW(mrrs);
-> +
-> +static ssize_t interval_show(struct device *dev,
-> +			     struct device_attribute *attr, char *page)
-> +{
-> +	return perf_cfg_show(dev, page, PERF_INTERVAL_MASK);
-> +}
-> +
-> +static ssize_t interval_store(struct device *dev,
-> +			      struct device_attribute *attr,
-> +			      const char *page, size_t count)
-> +{
-> +	return perf_cfg_store(dev, page, count, PERF_INTERVAL_MASK);
-> +}
-> +static DEVICE_ATTR_RW(interval);
-> +
-> +static ssize_t burst_size_show(struct device *dev,
-> +			       struct device_attribute *attr, char *page)
-> +{
-> +	return perf_cfg_show(dev, page, PERF_BURST_SIZE_MASK);
-> +}
-> +
-> +static ssize_t burst_size_store(struct device *dev,
-> +				struct device_attribute *attr,
-> +				const char *page, size_t count)
-> +{
-> +	return perf_cfg_store(dev, page, count, PERF_BURST_SIZE_MASK);
-> +}
-> +static DEVICE_ATTR_RW(burst_size);
-> +
-> +static ssize_t arb_weight_show(struct device *dev,
-> +			       struct device_attribute *attr, char *page)
-> +{
-> +	return perf_cfg_show(dev, page, PERF_ARB_WEIGHT_MASK);
-> +}
-> +
-> +static ssize_t arb_weight_store(struct device *dev,
-> +				struct device_attribute *attr,
-> +				const char *page, size_t count)
-> +{
-> +	return perf_cfg_store(dev, page, count, PERF_ARB_WEIGHT_MASK);
-> +}
-> +static DEVICE_ATTR_RW(arb_weight);
-> +
-> +static struct attribute *switchtec_config_attrs[] = {
-> +	&dev_attr_burst_scale.attr,
-> +	&dev_attr_mrrs.attr,
-> +	&dev_attr_interval.attr,
-> +	&dev_attr_burst_size.attr,
-> +	&dev_attr_arb_weight.attr,
-> +	NULL,
-> +};
-> +
-> +static const struct attribute_group switchtec_config_group = {
-> +	.name = "switchtec-config",
-> +	.attrs = switchtec_config_attrs,
-> +};
-> +
-> +static const struct attribute_group *switchtec_groups[] = {
-> +	&switchtec_config_group,
-> +	NULL,
-> +};
-> +
->  static void switchtec_dma_free_chan_resources(struct dma_chan *chan)
->  {
->  	struct switchtec_dma_chan *swdma_chan =
->  		container_of(chan, struct switchtec_dma_chan, dma_chan);
->
-> +	spin_lock(&swdma_chan->hw_ctrl_lock);
-> +	swdma_chan->hw_cfg_locked = false;
-> +	spin_unlock(&swdma_chan->hw_ctrl_lock);
-> +
->  	spin_lock_bh(&swdma_chan->submit_lock);
->  	swdma_chan->ring_active = false;
->  	spin_unlock_bh(&swdma_chan->submit_lock);
-> @@ -1313,6 +1491,7 @@ static int switchtec_dma_create(struct pci_dev *pdev)
->  	dma->device_terminate_all = switchtec_dma_terminate_all;
->  	dma->device_synchronize = switchtec_dma_synchronize;
->  	dma->device_release = switchtec_dma_release;
-> +	dma->chan_groups = switchtec_groups;
->
->  	rc = dma_async_device_register(dma);
->  	if (rc) {
-> --
-> 2.47.3
->
+  BTRFS warning (device nb2 state I): transaction 65 (with 98304 dirty metadata bytes) is not committed
+  assertion failed: !found, in fs/btrfs/disk-io.c:4378
+  kernel BUG at fs/btrfs/disk-io.c:4378!
+
+Every relocation runs under reclaim_bgs_lock, btrfs_relocate_chunk()
+asserts it. Take it in btrfs_remount_ro() around setting the filesystem
+read-only, so the remount waits for the block group being relocated.
+The reclaim work checks for read-only under the lock before each block
+group and skips the remaining ones, add the same check to the zoned
+repair kthread. Take the lock before setting the filesystem read-only,
+as a relocation may wait for unfinished snapshot drops, which the
+cleaner stops working on once the filesystem is read-only.
+
+While it skips them, the reclaim work still calls
+btrfs_delete_unused_bgs() between the block groups, which starts
+transactions, also after btrfs_commit_super() has committed the last
+one, and the cleaner may have queued it again. Stop it once the cleaner
+is done, before that commit. Cancel the space reclaim works last, right
+before that commit, as what the remount waits for may queue them again,
+and run the delayed iputs before, as a work may wait for them.
+
+Balance, resize and device remove hold off a regular remount read-only
+with mnt_want_write_file(), a resumed balance is paused by
+btrfs_pause_balance(), and none of them is changed here.
+
+Fixes: 18bb8bbf13c1 ("btrfs: zoned: automatically reclaim zones")
+Fixes: f7ef5287a63d ("btrfs: zoned: relocate block group to repair IO failure in zoned filesystems")
+CC: stable@vger.kernel.org # 6.8+
+Signed-off-by: Miroslav Cimerman <mc@raidlab.org>
+---
+v2:
+- Cancel the space reclaim works right before the last commit instead of
+  at the start of btrfs_remount_ro(), after running the delayed iputs,
+  as in close_ctree(): what the remount waits for may queue them again
+  (Sashiko).
+- Add a chart of the race.
+
+Found by an LLM while testing "btrfs: zoned: wait for the relocating
+repair kthread during unmount", which noted that remount read-only had
+the same problem for the repair. It turned out to be about any
+relocation, so this is separate and applies with or without that patch.
+The fix and the commit message were prepared with the help of an LLM,
+which also ran the tests below. I reviewed everything.
+
+Tested on btrfs for-next in QEMU with KASAN, remount read-only retried
+while the reclaim work or a zoned repair relocates, then an unmount:
+without the patch 6 of 6 reclaim and 3 of 4 repair runs crash as
+above, with it 9 of 9 runs are clean.
+
+The cancel_work_sync() under s_umount is the same as in close_ctree(),
+and a remount can't run during a freeze.
+
+A remount or unmount during a relocation at the dirty limit still hangs
+without "btrfs: start writeback of relocated data before dirty
+throttling".
+
+When the repair is skipped because of the remount, the block group
+keeps its repair flag, as with the other early exits of the kthread.
+Kernels before 6.8 will need a different backport.
+
+ fs/btrfs/block-group.c |  9 +++++----
+ fs/btrfs/super.c       | 36 +++++++++++++++++++++++++++++-------
+ fs/btrfs/volumes.c     |  4 ++++
+ 3 files changed, 38 insertions(+), 11 deletions(-)
+
+diff --git a/fs/btrfs/block-group.c b/fs/btrfs/block-group.c
+index a40eedc65dd2..9d78ea7d5370 100644
+--- a/fs/btrfs/block-group.c
++++ b/fs/btrfs/block-group.c
+@@ -2021,10 +2021,11 @@ static int btrfs_reclaim_block_group(struct btrfs_block_group *bg, int *reclaime
+ 	/*
+ 	 * Get out fast, in case we're read-only or unmounting the
+ 	 * filesystem. It is OK to drop block groups from the list even
+-	 * for the read-only case. As we did take the super write lock,
+-	 * "mount -o remount,ro" won't happen and read-only filesystem
+-	 * means it is forced read-only due to a fatal error. So, it
+-	 * never gets back to read-write to let us reclaim again.
++	 * for the read-only case, after a remount read-write they come
++	 * back when they are marked for reclaim again. The super write
++	 * lock doesn't hold off "mount -o remount,ro", but
++	 * btrfs_remount_ro() sets read-only under reclaim_bgs_lock, which
++	 * we hold, so a remount waits for the block group we relocate.
+ 	 */
+ 	if (btrfs_need_cleaner_sleep(fs_info)) {
+ 		up_write(&space_info->groups_sem);
+diff --git a/fs/btrfs/super.c b/fs/btrfs/super.c
+index b424cc836bd4..e80df13d36e4 100644
+--- a/fs/btrfs/super.c
++++ b/fs/btrfs/super.c
+@@ -1328,13 +1328,6 @@ static int btrfs_remount_rw(struct btrfs_fs_info *fs_info)
+ 
+ static int btrfs_remount_ro(struct btrfs_fs_info *fs_info)
+ {
+-	/*
+-	 * This also happens on 'umount -rf' or on shutdown, when the
+-	 * filesystem is busy.
+-	 */
+-	cancel_work_sync(&fs_info->async_reclaim_work);
+-	cancel_work_sync(&fs_info->async_data_reclaim_work);
+-
+ 	btrfs_discard_cleanup(fs_info);
+ 
+ 	/* Wait for the uuid_scan task to finish */
+@@ -1342,7 +1335,19 @@ static int btrfs_remount_ro(struct btrfs_fs_info *fs_info)
+ 	/* Avoid complains from lockdep et al. */
+ 	up(&fs_info->uuid_tree_rescan_sem);
+ 
++	/*
++	 * Nothing holds off a remount read-only while the reclaim work or a
++	 * zoned repair relocates a block group, not even the super write lock
++	 * they take. Every relocation runs under reclaim_bgs_lock, so wait for
++	 * the one in progress and set read-only under the lock. The reclaim
++	 * work and the zoned repair check for read-only under it before they
++	 * relocate. Do this before setting read-only, as a relocation may wait
++	 * for unfinished snapshot drops, which the cleaner stops working on
++	 * once the filesystem is read-only.
++	 */
++	mutex_lock(&fs_info->reclaim_bgs_lock);
+ 	btrfs_set_sb_rdonly(fs_info->sb);
++	mutex_unlock(&fs_info->reclaim_bgs_lock);
+ 
+ 	/*
+ 	 * Setting SB_RDONLY will put the cleaner thread to sleep at the next
+@@ -1364,6 +1369,14 @@ static int btrfs_remount_ro(struct btrfs_fs_info *fs_info)
+ 	 */
+ 	wait_on_bit(&fs_info->flags, BTRFS_FS_CLEANER_RUNNING, TASK_UNINTERRUPTIBLE);
+ 
++	/*
++	 * The reclaim work doesn't relocate on a read-only filesystem, but
++	 * it still deletes unused block groups between the ones it skips, and
++	 * the cleaner may have queued it again before going to sleep. Stop
++	 * it, so it can't start a transaction after btrfs_commit_super().
++	 */
++	cancel_work_sync(&fs_info->reclaim_bgs_work);
++
+ 	/*
+ 	 * We've set the superblock to RO mode, so we might have made the
+ 	 * cleaner task sleep without running all pending delayed iputs. Go
+@@ -1385,6 +1398,15 @@ static int btrfs_remount_ro(struct btrfs_fs_info *fs_info)
+ 	 */
+ 	btrfs_qgroup_wait_for_completion(fs_info, false);
+ 
++	/*
++	 * Stop the space reclaim works last, as what we waited for above may
++	 * have queued them again. Run the delayed iputs before, as a work may
++	 * wait for them and the cleaner no longer runs them.
++	 */
++	btrfs_run_delayed_iputs(fs_info);
++	cancel_work_sync(&fs_info->async_reclaim_work);
++	cancel_work_sync(&fs_info->async_data_reclaim_work);
++
+ 	return btrfs_commit_super(fs_info);
+ }
+ 
+diff --git a/fs/btrfs/volumes.c b/fs/btrfs/volumes.c
+index 4630053d5cea..49988f4f8018 100644
+--- a/fs/btrfs/volumes.c
++++ b/fs/btrfs/volumes.c
+@@ -9078,6 +9078,10 @@ static int relocate_repair_block_group(struct btrfs_block_group *cache)
+ 	if (!cache)
+ 		goto out;
+ 
++	/* Don't relocate after a remount read-only, see btrfs_remount_ro(). */
++	if (btrfs_need_cleaner_sleep(fs_info))
++		goto out;
++
+ 	if (!test_bit(BLOCK_GROUP_FLAG_RELOCATING_REPAIR, &cache->runtime_flags))
+ 		goto out;
+ 
+-- 
+2.53.0
+
