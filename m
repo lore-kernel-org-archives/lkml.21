@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1794968557;
-	b=xiACIY280CEkRnM/FTthCzJYf4luX9OwL3l2ZRuZGQy/wLgqNbrgdqpKd7OtXQrZHXci
-	 GOJ0EevIOIX55HCZPBRICEYC6HtgWUpK9bC+H+nGNxjf2nNpRklgst3BnT6gTxCl9eN1t
-	 CJkrmIqZ+AQWDzSwYfs4Sn5GIlaBbVfycWzou4sI6yvIB2QqZgkPW8H5yWjU/9Ec89/WO
-	 lpNJZn620I6QKQK0TZZPKs0scCriXP8RPUln7Ut+UiAdxiHv3/PDUNKKUz8KMQNlucAaR
-	 nxi3IlcOf5J8x7+sQdc9FWrfoRdpOCsdr5fkFuO9n9Tyat9iA71KwDpQGW6CFzrLUAQ==
+	b=RRJ9QdoJf7xm0uZua7nCioW7dUNqf41SCzPzw5smIOekTOvFGa959yRVTtJGWhxVXpeQ
+	 rZDbRZTPZe3XjRglR8cWWaGoqXfyizcuEWEhhAtXgyP7ODk9m3iMqSFr6xszNGvMBqqTo
+	 5DcFa5FonshuHhoE7AIXRlIUzJrWp49q2SyNcQ87Hnsiq0s0uvUu+LBG5FrCAOKshMVOQ
+	 y0iL1J7R5RpcGMnOViwyadRLSF1rHgc+O2h3aOudAhZqWgwKvi1to97jJ+QqCPkd/411R
+	 hin4hVVK8Uml2eDcn8Yz+422pPjNErysydsjUVvCOH8r/bk6XKkQNOEVwTynXbNCCvA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1794968557;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=X2CJN5Z4knyWoRn+4HcxQAux1m0Ndp9v4aXp0+mY1es=;
-	b=VJ5JfVhZ210Grs+a1hsDIQhQyXi7b8G4o1nS9UZSwPMKk5P2x7z/d7JpcDpIEclikxYJ
-	 Eu11oZAJkIlSHYVPjE1/zvO9hGr5BLYEuX3c4+m1ZS917uLCxKYv7N8hZNYoMlBYd7Px7
-	 Z9OxZnaL6XCJeirq2Ifp1lBInwmeY27cPjsc9tAtWwBjKGo1uEbsqTxvWgIUrt7chtV1I
-	 mMFg+A4MuakHjh13CffIbrSZEW0Gs4+oNNF+ILxqmkIoSvcLJjdWloGm9Ci8LmCz5PsEs
-	 t9RK8xWt4fPgIrLznaRZqBI6AYLhiSQCEUzKJLZptYaJRBNUEay80dCK4mcXGWCPZ6A==
+	bh=L5v3TNUEUyGkIhCVZhl1qQoqUnXYUnCoqLwCawYZ32A=;
+	b=AkU2biU/1AZdzdTPE8iuIMLnNQnFPbrMM/x04YGwnDsK44kDloCS7Uykb2AY8FIwRGsG
+	 CHeWYT1fMZi1piVE5ciSpTS9vN1hLG+MUs3xflr1oAZa4sKdQFnhNhoHX781TxfuGRtvZ
+	 t+t22N9QVtHn2Dq9QCUofL4CFpCORdl73fhF/Aa9ksfYYZJy06ma0M+HHfWSDlkFhY/5i
+	 OMc+cTU+r0jWydDwzowCe+O6oNzTQX3bzIwQdZ+nOZod7Csog7Nxi1f3Pt8H1vnWXtgfl
+	 zcFp1dJeiAv6ugqNZ1+Th46BvQVnQXtl8LGatzieTohNSPHbG4Q5cWE9NpaKSjWf8ZQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QBm1PT2C;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V0IPem1m;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4343C60A263A;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6915860A3804;
 	Wed, 18 Nov 2026 02:22:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QBm1PT2C
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9ADE1F000D2;
-	Wed, 18 Nov 2026 02:22:36 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V0IPem1m
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2113C1F0089E;
+	Wed, 18 Nov 2026 02:22:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1794968557;
-	bh=X2CJN5Z4knyWoRn+4HcxQAux1m0Ndp9v4aXp0+mY1es=;
+	bh=L5v3TNUEUyGkIhCVZhl1qQoqUnXYUnCoqLwCawYZ32A=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=QBm1PT2CZVlNnta4Yjgf2hz8Rhy1eICxrk9vhUOOR5D0IDgx/LDc/TUZfCaFQJFQj
-	 wNFuXL8Rp5LhsOUzMkO9XrfC6H5oIxdvBQj4Pu3Q2I+5XIbggwskFwFDY9XXK1bOmL
-	 A9BbepvVMFw2aMhq7l704S/1Q+DC1lIacrC1EX9mZLAP3UMfFhaMMslZZj/6Xniu1n
-	 zEvgR/tf8o6gpTSrJlKbvHL4utgggelCtlKwiEHTU2xQAauK3qI7OflE0mJ4lkBcPK
-	 2DdbIOvxHP+AbFLMWTdO/RpHC72TP2ErwvcRIZpRed5qC8vkujC0OVtKevUgpNDBFf
-	 ETilah6IwObJQ==
+	b=V0IPem1mBDKRz8TiosCk09YG40S9in5HFFUBLvrEX7fIGBZ3+oV8p9GtLaEGla9JK
+	 v7TXkUYWW3G/q9KS3Lpyr3Shz2AfXLCgvTmHvyyI7rY+nCtV9IZwj+SQ7CmxHvdHgq
+	 mucNlomL4RsDtDFDG/tZYHVPgLkgFSP42zHBS5v32PnvQkupDLFEXzhiS76Z0tNXfj
+	 gEudUfHjaWA/nOm/3AJhZu0xnPST6s4uG7NoxORf4qLk0Fj9tuGor/v3dejsYfXUOw
+	 z9Vs46Sz78rFszSZr0lvChKAOf+gSVEYyiVCmG0RVNE26m0ErfpJfiQHQ3uM7XohY7
+	 hOkDWDMIjlyKQ==
 From: SJ Park <sj@kernel.org>
 To: 
 Cc: SJ Park <sj@kernel.org>,
@@ -46,9 +46,9 @@ Cc: SJ Park <sj@kernel.org>,
 	damon@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org
-Subject: [RFC PATCH v2 13/27] mm/damon/core: introduce damon_report_exist()
-Date: Tue, 17 Nov 2026 18:22:08 -0800
-Message-ID: <20261118022225.100659-14-sj@kernel.org>
+Subject: [RFC PATCH v2 14/27] mm/damon/paddr: support REPORT_MADE type probe filter
+Date: Tue, 17 Nov 2026 18:22:09 -0800
+Message-ID: <20261118022225.100659-15-sj@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261118022225.100659-1-sj@kernel.org>
 References: <20261118022225.100659-1-sj@kernel.org>
@@ -63,93 +63,71 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Implement and expose a new DAMON API function for searching data
-attribute reports from the report queue.  The purpose is to let
-operation sets use it for supporting the REPORT_MADE type probe filters.
-
-The caller can specify the type, associated memory address range, and
-the creation time range of reports to search.
-
-The function uses CAS-based try-locking for the mutual-exclusive
-synchronization.  If any parallel access to the queue is detected, it
-forgives searching.
+Add a support of DAMON_FILTER_TYPE_REPORT_MADE type probe filter to the
+physical address space operation set.  Use the DAMON core API function,
+damon_report_exist() for the core report search functionality.  Set the
+time range as the last sampling interval.  Pass damon_ctx to the filter
+matching function for getting the sampling interval.
 
 Signed-off-by: SJ Park <sj@kernel.org>
 ---
- include/linux/damon.h |  3 +++
- mm/damon/core.c       | 46 +++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 49 insertions(+)
+ mm/damon/paddr.c | 17 +++++++++++++----
+ 1 file changed, 13 insertions(+), 4 deletions(-)
 
-diff --git a/include/linux/damon.h b/include/linux/damon.h
-index 09f0dfbde8966..fc84cb9cf5bd9 100644
---- a/include/linux/damon.h
-+++ b/include/linux/damon.h
-@@ -1193,6 +1193,9 @@ int damon_call(struct damon_ctx *ctx, struct damon_call_control *control);
- int damos_walk(struct damon_ctx *ctx, struct damos_walk_control *control);
- 
- int damon_submit_report(struct damon_report *report);
-+bool damon_report_exist(enum damon_report_type report_type,
-+		struct damon_addr_range *addr_range,
-+		unsigned long jiffies_old);
- 
- int damon_set_region_system_rams_default(struct damon_target *t,
- 				unsigned long *start, unsigned long *end,
-diff --git a/mm/damon/core.c b/mm/damon/core.c
-index 24729be5ec4e6..4aa4852f51035 100644
---- a/mm/damon/core.c
-+++ b/mm/damon/core.c
-@@ -2389,6 +2389,52 @@ int damon_submit_report(struct damon_report *report)
- 	return 0;
+diff --git a/mm/damon/paddr.c b/mm/damon/paddr.c
+index e89cb14ee17be..4003ae914f1a2 100644
+--- a/mm/damon/paddr.c
++++ b/mm/damon/paddr.c
+@@ -140,9 +140,10 @@ static void damon_pa_prep_probes(struct damon_ctx *ctx, bool set_samples)
  }
  
-+/**
-+ * damon_report_exist() - Find if a report of a given condition exists.
-+ *
-+ * @report_type:	Type of the report.
-+ * @addr_range:		Address range of the report.
-+ * @jiffies_old:	Oldest jiffies to find the report for.
-+ *
-+ * Returns true if the report is found, false otherwise.
-+ */
-+bool damon_report_exist(enum damon_report_type report_type,
-+		struct damon_addr_range *addr_range, unsigned long jiffies_old)
-+{
-+	struct damon_report_queue *queue;
-+	int lock_old_val;
-+	unsigned int idx, nr_read;
-+	struct damon_report *report;
-+	bool found = false;
-+
-+	queue = &damon_report_queue;
-+	lock_old_val = atomic_cmpxchg(&queue->lock, 0, 1);
-+
-+	if (lock_old_val)
-+		return false;
-+	idx = queue->tail;
-+	for (nr_read = 0; nr_read < queue->nr_reports; nr_read++) {
-+		if (idx)
-+			idx--;
-+		else
-+			idx = queue->size - 1;
-+		report = &queue->reports[idx];
-+
-+		if (time_before(report->jiffies, jiffies_old))
-+			break;
-+		if (report->type != report_type)
-+			continue;
-+		if (addr_range->end <= report->addr_range.start ||
-+				report->addr_range.end <= addr_range->start)
-+			continue;
-+		found = true;
+ static bool damon_pa_filter_match(struct damon_filter *filter,
+-		struct folio *folio)
++		struct folio *folio, phys_addr_t pa, struct damon_ctx *ctx)
+ {
+ 	bool matched = false;
++	struct damon_addr_range addr_range;
+ 
+ 	switch (filter->type) {
+ 	case DAMON_FILTER_TYPE_PGIDLE_UNSET:
+@@ -157,19 +158,27 @@ static bool damon_pa_filter_match(struct damon_filter *filter,
+ 		else
+ 			matched = damon_folio_young(folio) == false;
+ 		break;
++	case DAMON_FILTER_TYPE_REPORT_MADE:
++		addr_range.start = pa;
++		addr_range.end = pa + 1;
++		matched = damon_report_exist(filter->report_type, &addr_range,
++				jiffies -
++				usecs_to_jiffies(ctx->attrs.sample_interval));
 +		break;
-+	}
-+
-+	atomic_cmpxchg(&queue->lock, 1, 0);
-+	return found;
-+}
-+
- /*
-  * Reset the aggregated monitoring results ('nr_accesses' of each region).
-  */
+ 	default:
+ 		return damon_ops_filter_match(filter, folio);
+ 	}
+ 	return matched == filter->matching;
+ }
+ 
+-static bool damon_pa_filter_pass(struct folio *folio, struct damon_probe *p)
++static bool damon_pa_filter_pass(struct folio *folio, struct damon_probe *p,
++		phys_addr_t pa, struct damon_ctx *ctx)
+ {
+ 	struct damon_filter *f;
+ 	bool pass = true;
+ 
+ 	damon_for_each_filter(f, p) {
+-		if (damon_pa_filter_match(f, folio)) {
++		if (damon_pa_filter_match(f, folio, pa, ctx)) {
+ 			pass = f->allow;
+ 			break;
+ 		}
+@@ -199,7 +208,7 @@ static unsigned int damon_pa_apply_probes(struct damon_ctx *ctx,
+ 					ctx->addr_unit);
+ 			folio = damon_get_folio(PHYS_PFN(pa));
+ 			damon_for_each_probe(p, ctx) {
+-				if (damon_pa_filter_pass(folio, p))
++				if (damon_pa_filter_pass(folio, p, pa, ctx))
+ 					r->probe_hits[i]++;
+ 				i++;
+ 			}
 -- 
 2.47.3
