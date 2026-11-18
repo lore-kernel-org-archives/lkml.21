@@ -1,75 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795007464;
-	b=Wj0i506IeqNGUB1H0EUDfJTigXV+c9TAMl3p0NBA3LyoniuuzAQtbTsVaglFOJ9MyXeG
-	 OIxI8gjBxRrwDo8KfO8ywgGLAmJBZNUpdWIOaxty+GbFQjEs2igGvEIFSrttTxGDdfk72
-	 fqtQDP9Ae54ryyzhlrFhZiG+MBpZZ9DW+yVmZwpOhYdTrq10DHZSscXaNlBx5KvYpEwHS
-	 kU2QpWaE4aykWr0+xRsNZGgagMhLtMpm7AptIH9fHr9p7upuminEa6tLqnw7UmZpM8CGw
-	 rQtsOH0qNi6efKr6k25khy9TuTa0C4QsVzZOWfGZpcX1yUKUbX6RBK8tp2PihC8cFEg==
+	b=NX/O4Bg4KU+Q6riBIYJfP5zSI1lmozStwPp0ldu5MMws0cxE7nRTXGPKQgd5CYdrK2n0
+	 sAg6ZEakqmvIDXCUg30qZT0Ub3a9Y+F+Vd0Nw7q6X8Vl+37i0QoBBWLsUfIW6mzND2sc3
+	 qMJ5AN8dCVyYXM6L/ZLDHVE2vaKI9QlnD5IxKzdZOtQ0Tu1iqjnwfMrMd6wHmnGge2sI3
+	 FTSvbUtMwg3/QLL0FzfNG9bykfvpLo/CmNVxpN9oYNeWbis44lrm3hy4ZMtkOlkg7xYSj
+	 2/jLJ6C/1V/v/3Ts3Riz89lJFHVsi6DuH6h4pPAsdci/hP3EzGnDe8Eky5cIrQrfQcQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795007464;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=rZjv8Mq8kebIeUPmcfLPbunYIIr9N4sYE9eDm+AsvT8=;
-	b=rdkR7ZW6ambSJI8H/a86zUT3cHntrQgqIxqiXWR/WRZK6s6aBdrRPJsEIaAsQXX3r9hd
-	 doVzMDeEC/SJAGQgSYUer3noVb+IBpGbTAEtK7mqLlvRI0Nqx9vkYJfuAGyCgczdWMo47
-	 8ztpSKE75PrwTy0E/8by+lsBdjHghLSDl5zNrczfGrUzreD26eyjFrkXN7rasBMCJg3Es
-	 QGsVqdJTc4wbFjdU3mo64H+6J06m0Viy7Xq4KMFanaUUZjwFqvIvJLoR91SXSUSThiLtn
-	 ry9gjodWlVreeoyDbtWJouQT2pWh4NIwpBz8/JQAmvrXv7M+Jx53DfJ7wh+qSESioQA==
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=Jkc5vxUell4DJGLRsmUzNdnS1FjaSDbl1xaX6eVk0/g=;
+	b=OrlFpljaZT62tBKXehLIeRT/a+so9E+V9ad5lMQ6MGQ5AfSPEjyEw+Flcd0c+xl/d1mG
+	 olkYspnRxNYLz+aQ6yv4T6fmxwaqRhj8018WBxVfN/vNfmQJNWTLAJMUsNFknCblyHFyf
+	 ADm+NhTT/T6IIFSQZO+oV6n/Fr4JLbySlpOyzK/tIV5Fyh9z3kKfc5YStQI4bhmD/zple
+	 t+uPg78pEq0iv1fBPkUyshZkxqX6WFu6svmZk+53fP9pKwuBmKW45E+qMM7oH1eL4vtYF
+	 sH2UGqX/BOqxOAQdJ8qz90EayyoD+cBuQRp5TfsDQF4ScP78OAIiJOFZCAy0cvC5Unw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=E+RFPR8Z;
-	arc=none smtp.remote-ip=95.215.58.178
-Received: from mta1.migadu.com (out-178.mta1.migadu.com [95.215.58.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TkAj02s+;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9FC6606A330
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:11:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9FC6606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81800606A334
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:11:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=E+RFPR8Z
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=TmxosFtvGznyGNgGfW/95/46PiO8uiDVIbCfVo7RBqs=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795007461; v=1; x=1795612261;
- b=E+RFPR8ZkEmq6kajlMMyQefkhJz9CuRxHXCbBtQPMuZfdre/uzEgc2+09A5vv8Nh5M3gqCrV
- 1ys558mEwTY6NL83HXM7bb45tVJ0u7cTHSdWhhFM8QzfqB93/WcD3im7GdvCGzG+XLTR+Zh7+iP
- atCQodmJMhaz11Pl48398YVw=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 5b8da3600f67e505;
-	Wed, 18 Nov 2026 13:11:01 +0000
-X-Mizu-Trace-ID: 5b8da3600f67e505
-X-Migadu-Flow: FLOW_OUT
-From: Tao Cui <cui.tao@linux.dev>
-To: tj@kernel.org,
-	josef@toxicopanda.com,
-	axboe@kernel.dk,
-	ast@kernel.org,
-	alexei.starovoitov@gmail.com
-Cc: cgroups@vger.kernel.org,
-	linux-block@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org,
-	andrii@kernel.org,
-	eddyz87@gmail.com,
-	daniel@iogearbox.net,
-	linux-kselftest@vger.kernel.org,
-	cui.tao@linux.dev,
-	cuitao@kylinos.cn,
-	ameryhung@gmail.com
-Subject: [RFC PATCH v14 2/4] blk-iocost: add iocost_ioc_tick tracepoint for per-period device summary
-Date: Wed, 18 Nov 2026 21:10:27 +0800
-Message-ID: <20261118131029.797007-3-cui.tao@linux.dev>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261118131029.797007-1-cui.tao@linux.dev>
-References: <20261118131029.797007-1-cui.tao@linux.dev>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TkAj02s+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D99A1F000D0
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:11:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795007464;
+	bh=Jkc5vxUell4DJGLRsmUzNdnS1FjaSDbl1xaX6eVk0/g=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=TkAj02s+lgjnpJuRM4doMFA9llt7oJYX8EFWS01/Ctr6hGS/avaTz9nhD4IZ6zYLt
+	 53j5nt55FHJmR3HXkQcGwS1ulLQceDBXFQI3mLOfQHVXQtgSq7p3WV+gfFMQ6aFaGC
+	 16uYJ3bZth43q6BIBzrVwrLAeSMVwhs2qcxrsWmNaD9ri+5mSVkmQZrMZ0ctsaBY6Q
+	 qO5AkGrAWmr01HuCzom0w5HRb/Bw4/xb3B671vTPjLn9JRAmEWjkYKAGhY12lD784l
+	 E8EtGUQ1viQy0OeB0wHmzY4TTyXSLbCHtzQCYgLZ38NeovqaQWWpbc+hWnR8KCBtlX
+	 DQ5LdTSiBXv2w==
+Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5be3ed646a5so1025704e87.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:11:03 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHF4mKTCulW8hnEAwAIBOGY6QJ2Sz8hF770gysfSxPhjrQauPGA7LPUB+YQh6lWrjWOo+cMDjM7q+CakhQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+6GU2bte2Q8oGBiVUuyqdWqUHEA36EcGmy9miS2YT3ddKQF7EX
+	fRTFqkdXrwcqUl1tEh/DB800X2iMnnTcDoX8jpgMcXNo+QtxraRNEB/tERntHCBAV6V5Qd1tdLo
+	YSbM0lREE88hM5WoowNQtTu0wk4wfCv0=
+X-Received: by 2002:a05:6512:6602:b0:5c1:ac60:3c65 with SMTP id
+ 2adb3069b0e04-5c1ac603de3mr550322e87.21.1795007462779; Wed, 18 Nov 2026
+ 05:11:02 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,145 +59,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261118103644.1360527-1-antonio.borneo@foss.st.com>
+In-Reply-To: <20261118103644.1360527-1-antonio.borneo@foss.st.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Wed, 18 Nov 2026 14:10:49 +0100
+X-Gmail-Original-Message-ID: <CAD++jLntCeQ3Vf_wyZ4XO29qK+af18O9vGKEZK5SeTAiYwq8AQ@mail.gmail.com>
+X-Gm-Features: Aa3M54onU98M5wFucsM5k6yOBsRr8-I0B7BdMRpixqeyddiCAypU8y2RbjyUO8Q
+Message-ID: <CAD++jLntCeQ3Vf_wyZ4XO29qK+af18O9vGKEZK5SeTAiYwq8AQ@mail.gmail.com>
+Subject: Re: [PATCH] ARM: multi_v7_defconfig: Enable ARM_SMC_WATCHDOG
+To: Antonio Borneo <antonio.borneo@foss.st.com>
+Cc: Russell King <linux@armlinux.org.uk>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Arnd Bergmann <arnd@arndb.de>, 
+	"Kevin Hilman (TI)" <khilman@baylibre.com>, Eric Biggers <ebiggers@kernel.org>, 
+	Parvathi Pudi <parvathi@couthit.com>, Andreas Kemnade <andreas@kemnade.info>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, Guenter Roeck <linux@roeck-us.net>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: Tao Cui <cuitao@kylinos.cn>
+On Wed, Nov 18, 2026 at 11:36=E2=80=AFAM Antonio Borneo
+<antonio.borneo@foss.st.com> wrote:
 
-Add iocost_ioc_tick, a tracepoint emitted once per period with a
-summary of the controller's overall state.
+> On platforms STM32MP1xx the trusted firmware starts the watchdog
+> IWDG1 as secure watchdog.
+> On such platforms the kernel configured with multi_v7_defconfig
+> needs ARM_SMC_WATCHDOG to ping the watchdog and prevent a reset
+> during kernel boot.
+>
+> Enable the driver as module in multi_v7_defconfig.
+>
+> Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
 
-Observing this state today requires drgn scripts to dig into ioc
-internals. Exposing the per-period summary through a tracepoint lets
-the common monitoring paths use standard tools (perf, bpftrace)
-instead, and gives them an interface that does not shift with the
-internal data layout. The emission points and the exact event fields
-are documented in include/trace/events/iocost.h.
+Makes sense.
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-Suggested-by: Tejun Heo <tj@kernel.org>
-Signed-off-by: Tao Cui <cuitao@kylinos.cn>
-Acked-by: Tejun Heo <tj@kernel.org>
----
- MAINTAINERS                   |  1 +
- block/blk-iocost.c            | 18 +++++++++++
- include/trace/events/iocost.h | 57 +++++++++++++++++++++++++++++++++++
- 3 files changed, 76 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 7d4f4312a2c2..cb9837e3bda7 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -6910,6 +6910,7 @@ F:	block/blk-iocost.c
- F:	block/blk-iolatency.c
- F:	block/blk-throttle.c
- F:	include/linux/blk-cgroup.h
-+F:	include/trace/events/iocost.h
- 
- CONTROL GROUP - CPUSET
- M:	Waiman Long <longman@redhat.com>
-diff --git a/block/blk-iocost.c b/block/blk-iocost.c
-index 8398a406f7d3..607f886803b9 100644
---- a/block/blk-iocost.c
-+++ b/block/blk-iocost.c
-@@ -2378,6 +2378,7 @@ static void ioc_timer_fn(struct timer_list *timer)
- 	struct ioc_now now;
- 	LIST_HEAD(surpluses);
- 	int nr_debtors, nr_shortages = 0, nr_lagging = 0;
-+	int nr_active = 0;
- 	u64 usage_us_sum = 0;
- 	u32 ppm_rthr;
- 	u32 ppm_wthr;
-@@ -2575,6 +2576,23 @@ static void ioc_timer_fn(struct timer_list *timer)
- 
- 	ioc->busy_level = clamp(ioc->busy_level, -1000, 1000);
- 
-+	/*
-+	 * busy_level, cur_period, nr_active and usage_us_sum are complete
-+	 * here. usage is wall time over wall time, summed over iocgs, and
-+	 * is not capped at 100. vrate and period_us reflect the current
-+	 * controller state, which an io.cost.qos write may have changed
-+	 * mid-period. Emit before the refresh and the period transition.
-+	 */
-+	if (trace_iocost_ioc_tick_enabled()) {
-+		struct ioc_gq *active_iocg;
-+
-+		list_for_each_entry(active_iocg, &ioc->active_iocgs,
-+				    active_list)
-+			nr_active++;
-+
-+		trace_iocost_ioc_tick(ioc, &now, nr_active, usage_us_sum);
-+	}
-+
- 	ioc_adjust_base_vrate(ioc, rq_wait_pct, nr_lagging, nr_shortages,
- 			      prev_busy_level, missed_ppm);
- 
-diff --git a/include/trace/events/iocost.h b/include/trace/events/iocost.h
-index eb711343ce4f..31df5ed5ee8c 100644
---- a/include/trace/events/iocost.h
-+++ b/include/trace/events/iocost.h
-@@ -181,6 +181,63 @@ TRACE_EVENT(iocost_ioc_vrate_adj,
- 	)
- );
- 
-+/*
-+ * Periodic per-device summary, emitted once per period before the vrate
-+ * adjustment and the period transition in ioc_timer_fn(). Unlike the
-+ * state-change events above, this fires every period the controller is
-+ * running, including steady states, and one final time before the
-+ * controller goes idle, so the transition to dormancy is directly
-+ * visible. It carries the overall controller state so basic monitoring
-+ * doesn't require drgn.
-+ *
-+ * vrate is the current vrate in vtime units, where one IO time second
-+ * is VTIME_PER_SEC (2^37) vtime and cost.vrate in io.stat reports the
-+ * same value as a percentage of that base.
-+ *
-+ * nr_active is the number of iocgs on the active list when the event
-+ * fires, gathered only when the tracepoint is enabled.
-+ * usage_pct is the active iocgs' raw usage deltas summed over the period,
-+ * as a percentage of the period wall time, the input to debt forgiveness
-+ * decisions, before any per-iocg in-flight usage correction (donation
-+ * decisions use the per-iocg usage after that correction). It can
-+ * exceed 100% when concurrent service-time estimates exceed wall time.
-+ */
-+TRACE_EVENT(iocost_ioc_tick,
-+
-+	TP_PROTO(struct ioc *ioc, const struct ioc_now *now,
-+		 int nr_active, u64 usage_us_sum),
-+
-+	TP_ARGS(ioc, now, nr_active, usage_us_sum),
-+
-+	TP_STRUCT__entry (
-+		__string(devname, ioc_name(ioc))
-+		__field(u64, cur_period)
-+		__field(u32, period_us)
-+		__field(u64, vrate)
-+		__field(int, busy_level)
-+		__field(int, nr_active)
-+		__field(u64, usage_pct)
-+	),
-+
-+	TP_fast_assign(
-+		__assign_str(devname);
-+		__entry->cur_period = atomic64_read(&ioc->cur_period);
-+		__entry->period_us = ioc->period_us;
-+		__entry->vrate = ioc->vtime_base_rate;
-+		__entry->busy_level = ioc->busy_level;
-+		__entry->nr_active = nr_active;
-+		__entry->usage_pct = now->now > ioc->period_at ?
-+			div64_u64(usage_us_sum * 100,
-+				  now->now - ioc->period_at) : 0;
-+	),
-+
-+	TP_printk("[%s] period=%llu:%uus vrate=%llu busy=%d active=%d usage=%llu%%",
-+		__get_str(devname), __entry->cur_period, __entry->period_us,
-+		__entry->vrate, __entry->busy_level, __entry->nr_active,
-+		__entry->usage_pct
-+	)
-+);
-+
- TRACE_EVENT(iocost_iocg_forgive_debt,
- 
- 	TP_PROTO(struct ioc_gq *iocg, const char *path, struct ioc_now *now,
--- 
-2.53.0
-
+Yours,
+Linus Walleij
