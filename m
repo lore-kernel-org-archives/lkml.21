@@ -1,97 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795030899;
-	b=V96jgt7uoW8d/iraLjmvvzAGxy64BW5slKYLoDxgoy5iuo4REr+cOZUQQGJuKsYv4jH9
-	 EnIm8CrvkJZgdtblcc8g0QPIVF8b4Q2grZOh/Blurl707U6u7jSL2tlxb4OeDdb+pwktG
-	 vTj0B8E77sxmMJkr8AH5HSyZYzeuNhkhtb66PCoOX5eQdjIv7vzrTsZDUrSlYahzcroG5
-	 /oDUVfdxhTj4h1MhOffKNlVtI4FU2MImb5XFVhZJMiO5PJNu32CPLS8DdKzQeJdyhzygX
-	 6TuCFSCfr0Ci92mQvPEu7pesnhXUtYl+Jjk9SxG5OqDOto8HS5kjYdJTaiFEzPgF6iQ==
+	t=1795030920;
+	b=JBMKPbXJirmaj3Xew9DqDxFJWR+ryTIPrWFAoqI2NVeknxXeapaw0pqN/5fG8Zm4Tygi
+	 3xWU2etBm4NKTggUGRm3Wv+vFMJYkE/h1I7I+xb7EzlvQlrDAlmTs8FENu9UPqoizUvoO
+	 K/M2/u8oAemWyGEBQWuiDJud1YI6EAWEPOsxpQN2voiC7lTGz/f97CUlq/X9V8j4njNWq
+	 zW+qGwSBaMFQPUZx8qC1Ezl6QibZd5hsf7Lv1vSYhTAE3/UMKzYNQzeP2oz62hMXD9R//
+	 GyNNC2nAuUkIFNlQ9frDCJSx1CpdRCb5iU3Y4R7xvHchFx3hu9y1UCPhOabW47zQ2LQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795030899;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
-	 User-Agent:MIME-Version;
-	bh=sxI1zN1iSt5WLFJOiBLp/HXVFEB2cTTrPgSWUehu01E=;
-	b=n3UIIyKPkcWo+H5CYc3Ymyx2KOuc5BwFYs1k2ooKimdIFLvxdhPh06pBTf0CeneOlXzQ
-	 N/i2Kh9efo54i5eZcGydLmPH8moPs5/BcyO6TZ9m1BTURSsNikgESyB9qrdtfRK2SSgYe
-	 Ly6Mz/o/bR79wnCaN36ewj9oUc4WgKPtaLlwtEburIs9B9Gek01Ix+DMkB1L5XGoNvzWD
-	 s/wCUPX8sX3dhQ5PZM7JgnrZS+PWpP1vtD4UIWudOZolncy3gtQ7pykgGR/MnyvMfUA82
-	 iDoCu7XDaLPfdywasoFJkFiaZ5TbWEDG48o8AEbGCQXND/najHhBi9B2aPVYn1TPsSA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795030920;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=UBjeXZZm40bR5HDOgO+Dkyyi9wZC4GuhCapOxJ6PXxY=;
+	b=rQToUyre3jwZJx6uiKTMCjdkqFIFoSn7/JFc/F+gJRmfeQ8zwUvNaOjXGvZzQ2d8qw4S
+	 +yGyBgGCAn4SPN4wGHgGEEwT5do4qIIOQ6QLph2TViMlagjf80xyR9G8mtCx+e8vcm5ds
+	 REnaUffHVBHA0EM7cb/cS0ZjISIWxlrQE8yZoQCXyVXrblocXN17JapUtTJdJTD6dAA46
+	 YxwVbm1E0viwSfbjNOgs2bkG8RoUlFcxVDjiEJA5hNbQHOzxDyBRePzmvvhQz87k7NPvg
+	 9CcIcEa7AYuI1m4DVQWcWv8Rj5IO0zmKveHBaVykPbi8bItBUkwCT6kmCF1dVBFXYZQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=D9PAuqN3;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--elsk.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=l2UT5mIj;
+	arc=none smtp.remote-ip=209.85.210.200
+Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6B0B606DD0A;
-	Wed, 18 Nov 2026 19:41:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B6B0B606DD0A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EEE68606A7C6
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:41:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EEE68606A7C6
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--elsk.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=D9PAuqN3
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795030896;
-	bh=sxI1zN1iSt5WLFJOiBLp/HXVFEB2cTTrPgSWUehu01E=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=D9PAuqN3aX9RLO/jkUibeLIHu70RVAZVUaKrReKklMbzcY1Uf6KzfcBnJg2H1P82W
-	 3CKEr3AB8uoQ5KecvYP/yZwcBhI/lpaI/0FJg0E0Rs0OO4vh9VSzYmnfAdeMHPDxmY
-	 ghYMaBzuryJPVfdLaHoHNbvUBTmKG+Jjbsg9mJ1zB54rXbsJUhaSeRsjHjjNJG9rX2
-	 Pe3X0Oehlym2FY1ikig37oO0W/HFqHagwrMydpsbqAwaSCYLuQcfy/pXA133S9LOLY
-	 x1UpZUXnWJuo91nzm7+n03xEye1eDBlmfOSeIUK47PxrlUdUzyLf1mdT4ZHuhcsLJh
-	 AwGV5vLZKDi8w==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 30B0C17E0406;
-	Wed, 18 Nov 2026 20:41:34 +0100 (CET)
-Message-ID: <457fe01cc1fbc5b6e2d7b5c9c167012b56fe86b2.camel@collabora.com>
-Subject: Re: [PATCH 0/6] rust: iommu: add a paging domain abstraction
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>, Daniel Almeida
-	 <daniel.almeida@collabora.com>
-Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
- Robin Murphy <robin.murphy@arm.com>, Miguel Ojeda <ojeda@kernel.org>, Boqun
- Feng <boqun@kernel.org>, Gary Guo	 <gary@garyguo.net>,
- =?ISO-8859-1?Q?Bj=F6rn?= Roy Baron	 <bjorn3_gh@protonmail.com>, Benno
- Lossin <lossin@kernel.org>, Andreas Hindborg	 <a.hindborg@kernel.org>,
- Alice Ryhl <aliceryhl@google.com>, Trevor Gross	 <tmgross@umich.edu>,
- Danilo Krummrich <dakr@kernel.org>, Tamir Duberstein	 <tamird@kernel.org>,
- Alexandre Courbot <acourbot@nvidia.com>, Onur =?ISO-8859-1?Q?=D6zkan?=	
- <work@onurozkan.dev>, Abdiel Janulgue <abdiel.janulgue@gmail.com>, 
-	iommu@lists.linux.dev, rust-for-linux@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, driver-core@lists.linux.dev, Detlev Casanova	
- <detlev.casanova@collabora.com>
-Date: Wed, 18 Nov 2026 14:41:32 -0500
-In-Reply-To: <20261118193521.GD3115493@ziepe.ca>
-References: <20261112-b4-iommu-domain-v1-0-c29e86788dda@collabora.com>
-	 <20261116193821.GC2452510@ziepe.ca>
-	 <3EB4C2ED-B699-4532-A562-68B78F6E29C6@collabora.com>
-	 <20261117202055.GA3115493@ziepe.ca>
-	 <615C3DA2-4C02-4A8B-AEC4-70D498672559@collabora.com>
-	 <20261118193521.GD3115493@ziepe.ca>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-upUcWOi2k3hKqqHR1efN"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=l2UT5mIj
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-8a0688a43d3so968917b3a.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:41:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795030919; x=1795635719; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=UBjeXZZm40bR5HDOgO+Dkyyi9wZC4GuhCapOxJ6PXxY=;
+        b=l2UT5mIjyhFC63AtrXmNDaOFHb0k0+3mB3N0bxmf0S+aUzWzOmFEy3M7GDX/04tgjk
+         NxgxLuH1J0TMYdiRwMStxwvj5cdJRcaCkf6m6b5Dh/EcE1Sc0tfUXMjrAzggWTkK3te6
+         VeMd/sIsHlbKNV7wJiCGsm0mnQPkMheFIS0rk0Fygh9AbAwliayj0t1iGH4YOUUPEo8R
+         /gsu7RimYSankMikXw5IIYqsm87KXd5h+tKFSOx4H+5RsHT4oMttKvCEGrVEMi4sIUMe
+         zCcSwVoM4xmou9E3psA43xgG7HGNgdW0xToqsaRJoN5reBt8CuhNHbaTqkzY8BuxcZa5
+         Mz3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795030919; x=1795635719;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=UBjeXZZm40bR5HDOgO+Dkyyi9wZC4GuhCapOxJ6PXxY=;
+        b=a4SZI0HEXbnOZ7TVJaz8fA1rmlxEBstr4+h6Ov7GXYj7pMiRG/9nFQw6HpVHsMOSYP
+         82xqRIluAeRoOgdB0R724YL8a/emHHa9JXomPGd3LQ4tRhPne3Cv/1w7oKcq7gl1Jn89
+         A++PYCYQecEJcuzdbz12t/gt69V4DePVdT3rGO1aExzeImFwhLilTIAiWCUV0YdtDmim
+         yI4GHqTX/GbZ2oNebCsN8nP8yvBhZbI93VFA6VJIZ9jEzxy1AAHZom2Ii9KO0tWPTeRh
+         uv6zMAVIE4vIRu58rlMCp6ziL/MXL7rlpE4nLZMakAiTnm1FJ9F9RvuBJnuh4UpYzN7K
+         BfBQ==
+X-Forwarded-Encrypted: i=1; AL+hErHN5dd5feUuNkktCOw8moIy9o4/A31naqpSeeX3wOr95sZlCTiLEfmYVi0eXCTv3JoZzbJTtC3sUDFqgMY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8rzfj8c37a/5p/WcmbLfuLqnFiZfElajP+MzzoQhke0mLevstd
+	fzZ2IM8yJ21tyBjNv0SPYlE5rWmVKGmejoTooaWCsMFFnvdubDEhqzPwGFKSjDpf5lJE7KdzNw=
+	=
+X-Received: from pfy9.prod.google.com ([2002:a05:6a00:a489:b0:8be:87fe:7950])
+ (user=elsk job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:4f81:b0:886:46c:8a1f
+ with SMTP id d2e1a72fcca58-8c5d45df160mr3456060b3a.35.1795030919125; Wed, 18
+ Nov 2026 11:41:59 -0800 (PST)
+Date: Wed, 18 Nov 2026 19:39:19 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,53 +75,131 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-
---=-upUcWOi2k3hKqqHR1efN
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
+Message-ID: <20261118193921.683813-1-elsk@google.com>
+Subject: [PATCH v2] checkpatch: externalize function-like type macros
+From: HONG Yifan <elsk@google.com>
+To: Andrew Morton <akpm@linux-foundation.org>, Andy Whitcroft <apw@canonical.com>, 
+	Joe Perches <joe@perches.com>
+Cc: HONG Yifan <elsk@google.com>, kernel-team@android.com, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-Jason,
+tools/testing/selftests/kselftest_harness.h defines FIXTURE_DATA() and
+FIXTURE_VARIANT() to expand to struct type specifiers
+("struct _test_data_##datatype_name" and
+"struct _fixture_variant_##fixture_name").
 
-Le mercredi 18 novembre 2026 =C3=A0 15:35 -0400, Jason Gunthorpe a =C3=A9cr=
-it=C2=A0:
-> > No, not OK :/ We want to use GEM shmem, which calls into the DMA API in=
-ternally
-> > through drm_gem_shmem_get_pages_sgt() -> dma_map_sgtable().
->=20
-> You cannot continue to use DMA API once you start touching a paging
-> domain directly. It is why driver_managed exist.
+Because checkpatch.pl does not recognize these function-like macros in
+$NonptrType or $NonptrTypeWithAttr, annotate_values() parses them as
+function calls and tags a following '*' as a binary multiplication
+operator instead of a pointer declarator.  This triggers false-positive
+errors across kselftests whenever helper functions take pointers to
+fixture data or variants (over 150 sites in tools/testing/selftests/),
+for example on commit d2b82fa39fda ("selftests/mm: add a GUP selftest"):
 
-You are building a strong argument around something that is not what we int=
-ent
-this binding to be used for. If you had cared about the context you'd know =
-we
-don't want to touch paging from userspace in this type of drivers. At least=
- not
-until we have a really good reason to include this complexity. And I agree,=
- its
-quite likely the iommu subsystem API would just fall short, its far from
-perfect.
+  ERROR:SPACING: need consistent spacing around '*' (ctx:WxV)
+  #319: FILE: tools/testing/selftests/mm/gup.c:191:
+  +		FIXTURE_DATA(gup_test) *self,
 
-There is a line to draw between GPU and VPUs, and memory management is wort=
-h
-looking into. But seriously, let's have this discussion once the driver is =
-ready
-for the ML, so we can code to correlate to.
+Following scripts/const_structs.checkpatch in commit bf1fa1dae68e
+("checkpatch: externalize the structs that should be const"), read
+additional function-like type macro names from a new companion file
+scripts/type_macros.checkpatch into $type_macros (named to mirror
+$const_structs/$conststructsfile and initialized with the built-in
+typeof and __typeof__ keywords) and use $type_macros in $NonptrType and
+$NonptrTypeWithAttr.
 
-Nicolas
+Seed scripts/type_macros.checkpatch with FIXTURE_DATA and
+FIXTURE_VARIANT, and list scripts/*.checkpatch under CHECKPATCH in
+MAINTAINERS.  Valid pointer declarations and casts no longer emit false
+SPACING errors, while malformed pointer placement (such as
+"FIXTURE_DATA(foo)* p" or "(FIXTURE_DATA(foo)*)p") is flagged by
+POINTER_LOCATION.  Keep typeof and __typeof__ built-in as C/GCC
+language operators so $type_macros is never empty and typeof() keeps
+working when scripts/type_macros.checkpatch is missing or empty.
 
---=-upUcWOi2k3hKqqHR1efN
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+Signed-off-by: HONG Yifan <elsk@google.com>
+---
+Changes in v2:
+- Externalize FIXTURE_DATA and FIXTURE_VARIANT into
+  scripts/type_macros.checkpatch instead of hardcoding them in
+  scripts/checkpatch.pl, matching scripts/const_structs.checkpatch from
+  commit bf1fa1dae68e ("checkpatch: externalize the structs that should
+  be const").
+- Add scripts/*.checkpatch under CHECKPATCH in MAINTAINERS.
+- Link to v1: https://lore.kernel.org/r/20261117220522.904290-1-elsk@google.com
 
------BEGIN PGP SIGNATURE-----
+ MAINTAINERS                    | 1 +
+ scripts/checkpatch.pl          | 9 +++++++--
+ scripts/type_macros.checkpatch | 6 ++++++
+ 3 files changed, 14 insertions(+), 2 deletions(-)
+ create mode 100644 scripts/type_macros.checkpatch
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCav3/bAAKCRDZQZRRKWBy
-9Dn+AP9Sxy4GNfTEn1PqG1A0ThC0jQy5J14QKl3UgwHTTy5xEwD/aLpZ8keoPdWW
-1b0zIzgEtpqE19BhAIWbV68uFqtn0AA=
-=xdUx
------END PGP SIGNATURE-----
+diff --git a/MAINTAINERS b/MAINTAINERS
+index d738990161bd..b0dca8edb154 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -6264,6 +6264,7 @@ CHECKPATCH
+ M:	Andy Whitcroft <apw@canonical.com>
+ M:	Joe Perches <joe@perches.com>
+ S:	Maintained
++F:	scripts/*.checkpatch
+ F:	scripts/checkpatch.pl
 
---=-upUcWOi2k3hKqqHR1efN--
+ CHECKPATCH DOCUMENTATION
+diff --git a/scripts/checkpatch.pl b/scripts/checkpatch.pl
+index b8b64f720191..7500e1cf447f 100755
+--- a/scripts/checkpatch.pl
++++ b/scripts/checkpatch.pl
+@@ -71,6 +71,7 @@ my $codespell = 0;
+ my $codespellfile = "/usr/share/codespell/dictionary.txt";
+ my $user_codespellfile = "";
+ my $conststructsfile = "$D/const_structs.checkpatch";
++my $typemacrosfile = "$D/type_macros.checkpatch";
+ my $docsfile = "$D/../Documentation/dev-tools/checkpatch.rst";
+ my $typedefsfile;
+ my $color = "auto";
+@@ -1053,6 +1054,10 @@ if (defined($typedefsfile)) {
+ 	$typeTypedefs .= '|' . $typeOtherTypedefs if (defined $typeOtherTypedefs);
+ }
+
++my $type_macros = "typeof|__typeof__";
++read_words(\$type_macros, $typemacrosfile)
++    or warn "No additional type macros will be considered - file '$typemacrosfile': $!\n";
++
+ sub build_types {
+ 	my $mods = "(?x:  \n" . join("|\n  ", (@modifierList, @modifierListFile)) . "\n)";
+ 	my $all = "(?x:  \n" . join("|\n  ", (@typeList, @typeListFile)) . "\n)";
+@@ -1066,7 +1071,7 @@ sub build_types {
+ 	$NonptrType	= qr{
+ 			(?:$Modifier\s+|const\s+)*
+ 			(?:
+-				(?:typeof|__typeof__)\s*\([^\)]*\)|
++				(?:$type_macros)\s*\([^\)]*\)|
+ 				(?:$typeTypedefs\b)|
+ 				(?:${all}\b)
+ 			)
+@@ -1082,7 +1087,7 @@ sub build_types {
+ 	$NonptrTypeWithAttr	= qr{
+ 			(?:$Modifier\s+|const\s+)*
+ 			(?:
+-				(?:typeof|__typeof__)\s*\([^\)]*\)|
++				(?:$type_macros)\s*\([^\)]*\)|
+ 				(?:$typeTypedefs\b)|
+ 				(?:${allWithAttr}\b)
+ 			)
+diff --git a/scripts/type_macros.checkpatch b/scripts/type_macros.checkpatch
+new file mode 100644
+index 000000000000..c910a09e2ebc
+--- /dev/null
++++ b/scripts/type_macros.checkpatch
+@@ -0,0 +1,6 @@
++# SPDX-License-Identifier: GPL-2.0
++#
++# Function-like macros that expand to type specifiers (for example,
++# struct types) and take parenthesized arguments.
++FIXTURE_DATA
++FIXTURE_VARIANT
+--
+2.56.1.708.g77570a6a1d-goog
