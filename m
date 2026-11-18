@@ -1,80 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.189.82
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794988789;
-	b=1kXSzKkqmqp1Y7q6Ia7yN7OlqMpwu7MQZyc8ttK4VC5m/68VFpsGwPtvnvkDsJkZ8DXM
-	 BcyZ7MaLEzyUZjeQiC5xfwq94chl8l1WV3yFksBa9xOmunL3MBZUpOHwWjZmh3Dpj5doR
-	 B6dFxW+v76xQ1w4HqpPReiKOWysWgWdlMVt48tGv8lU7dTUpRtvZx+n+3zVdXOMeUtmCP
-	 mFTX0qnn39Ad+/Yg0VFGbxgUPEjk7IoplWBu9FxY9o9FfhPSaBMOAR7EKbLcN5tU21nJ6
-	 rQgSSMkJ1uFHmsa9WykLCqHEO0Lk9m1zoVyiOx3AQ31SxJWiJ8xEyRP4VFEi/9anbOA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794988789;
-	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
-	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Mailer;
-	bh=W5u5mMFK+ku88QTK4KObLpRAVOSpX9G17e4WlGIk8Tk=;
-	b=ae/3MPUiJu7zhnkCzBajitwG353EEQ1jnMYPfpkapZ1xsZ+wU0EBUvXm1xomSpbQeOCt
-	 aD+ye8jxsgyRjS+kjWO/h0VUt1rL+KcZJyL4wpj7OHccUBRSUThyB5RUPHoSPwXx/5q0h
-	 5T77h8/r/wRCJ7OwNY1WUifmXBA8kUgskf+KwZtF1JmpYIZ9scx5ocuGiCOEC05wj2jWP
-	 FVOVoXSgcCnaf9kXZ+qvFAsCISiwTYF6juGnyoDRd8kROI/xGgg8X/uV3wzovHCqnX7BK
-	 8PhRXxyjqA/+QZSlFAv9RWWYHR6irFz2NDhf8XMT0aUSPVwnajEJZNQ4UufS/pwocMA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yahoo.com;
-	spf=pass smtp.mailfrom=yahoo.com;
-	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b="CL6/cpdz";
-	arc=none smtp.remote-ip=66.163.189.82
-Received: from sonic306-20.consmr.mail.ne1.yahoo.com (sonic306-20.consmr.mail.ne1.yahoo.com [66.163.189.82])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.229.126
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794988793;
+	b=p6uNBJ5zK6sQeEK0j+5JDpM2yBSa5yViiApDQZc5kytbBf7d4uFrWkuGbAnYbbA7P9tz
+	 HZ37csi+pN5MkLtJpAVkU5BuhkEbgjUwkNchT6c3yXl8tzNuLC7l0bhfoxUciY4Xsna2w
+	 nglfnrCmG0UasyqqH2vVAWKRdMujqPfSt8oBSXtfdZzL+SCFku+A/bv3H0a0+wbvt6KY+
+	 zETuAli5RH15fPeBshS2FK2GHd4oBP4mQy8XWCbBWQKnsQGphiGPOhFeh0PTbSfW5WA1R
+	 +BfCj5dIRtDDJeLD5/vqBS4ZuCNnTWqec24kIII5U2XSE5B7+dcQ6fV95RwkNuI2nzQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794988793;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=7jrBTvfYMSFLmvB9PpPNqSnu4yacu68qL0Z4kZNcb+k=;
+	b=AR432FzkC71DQUq8IqQ6GBQ0GbNE6XivwQ0bmOLdU5h+MfgsKYXCpbeDHG2iBGOhPwWo
+	 YhU0Z55oBQTedYFDVR+9NYV2dYL9tKVwLM3mFru35bl7O0jYeaPryzyHQj2GENhgRowxE
+	 8p+wVzaxupEOg50yJcBqBr2Old51IRfCs4klK+vcndekkB9qKBnD8sy0J+26N8hyKqWXP
+	 q6IIMkMQV3YXGBchd19kAycfnsd/PhKNmdaL8h34h2RbATMKF5QGMKVRMVIACOIkC/o8r
+	 Fro4DRAQAekwBzLuxXYqOAQz83xydIJA53t76ESMXUDFjG+aSJHH9cMogMGv2whrNfA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=valinux.co.jp;
+	spf=pass smtp.mailfrom=valinux.co.jp;
+	dkim=pass header.d=valinux.co.jp header.i=@valinux.co.jp header.a=rsa-sha256 header.s=selector1 header.b=IhInFr61;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.229.126
+Received: from TY3P286CU002.outbound.protection.outlook.com (mail-japaneastazon11020126.outbound.protection.outlook.com [52.101.229.126])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A01D606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:59:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A01D606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 172BD606A333;
+	Wed, 18 Nov 2026 07:59:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 172BD606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=valinux.co.jp
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=valinux.co.jp
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=CL6/cpdz
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1794988787; bh=W5u5mMFK+ku88QTK4KObLpRAVOSpX9G17e4WlGIk8Tk=; h=Date:Subject:To:Cc:References:From:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=CL6/cpdzptZ0Is6AvT6sbTFqTN/70QBl/XhXJ3XybBGgEcs3pMRkSBh1HVbsm4zxvVLWGCM04VSPysQyAbreY87oz2LQX3IjhZLW/vp3hUuJSxDjOKZGDiX2GJhhlk/RANH2kpVX0Ixv/bGhuEQhBUUhkfnSuCZYRFobXqS5QWt40lJOWVzx67BURlpKZn8IrfksPOhZWMMsbWVCPCkijQTnff5zhzIoUJgxzNBOo+pc8sYZ60G6f9RZez2VygAKhRzGlcD4T9EmODza7TXyg9X70Sm7jAQnofydseZ6retRBhNjLYCwtHB0yMq8Au/7v/AieGJaHE69rZJWuox2xg==
-X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1794988787; bh=1x1G2SHOdr4tNaiwBd3OEspsyrBErtGBWdANZKOA+DD=; h=X-Sonic-MF:Date:Subject:To:From:From:Subject; b=tBfxS2YEOoIs7QedTi7LIh6wucK9OJc/xgiFdCJRj+NKuhj9lGKaO8mvHk3QxYJCFbzfhOkmRH0x1NaDR+Ef2rOu4dKcDKK4ciFpWgYO2dmDQWT3xdHDWvaRICODQnxSS4iR/mkbM6wAT8juZh3BLzNvTx3HCMEpWs6tg/3JgEf1NhmsUV83aS61fUCRsst7SL8ZoQTeBf+ZF0PQ9SYOYq77hjj1TGJSKUW13AQg4u+alAk4l/9kcoC3hpTdPngce5jDAG7kj9gDnC5TRSrYZzDsvCUuEoA81VrbGIT6e7u9PNuq6+lZCTAic6VtPD+8brxmYdUpWDoKXDAojgVsJA==
-X-YMail-OSG: q.vf0b8VM1lsBJ.RR94X1Se6L7EmTGzbxBwpqPdNm6TKyPXQgmkFQMGtW7WankF
- u3lPKmNfD6H0HosYzn9wWSb2nGoQY4mAR1qlO8qZVTh06CmBNszkFH0fPBs0RLLloHWr5FmPo9sm
- hi9uuKcPxd4edy0GAsMCM7wEl94lnhLlXAEZbzBC3MdPWFOGw6srx8GeOe6HM_2rNgxIOyhpmAmV
- NffJrlunD2XwR98IIwcnNW8gghYIr_OhRZ_VHW4_g0tnTpwjK2cibDZgvcFvAyXYDIAPYBPpyTsV
- KVknZRaK04fBJIfnTwbUqCKNLXNcG3.rBaVXWUceEugKojwXkYhKu5E.p8uGGlbv__C6FWpwQjyk
- jgVeHjGn7JghYeebNAmNeiWlkS0bskB0_LLRBF81P6JMR9jSFt2V7KhvV5bOfOLOIBa1RJrSugW6
- 5Ykyf5YYBpKv2w0NG7PwqOeFrGjeq4zB5lDlm7GTjEgn3MuzioguVSufCaZOmYtI97Tm99W.nHY.
- IbQdGg0KMLYQwldcWZH3Xe2AbEt9ICzj0lE9dWrLjnpo6V0gZRUbqnlXUKqfbIXN1jPhoW7BKq50
- UiDsjDpfmK9BZ35I9ESiCTy5wQSHy4NiUKnBRi7NGeLE9bJY8CLUR8P2UL6sjcv4mI.2OYGaZwyJ
- jtjph9sIH6H.tpylr8ob0HkxCL3pVJ4xst4pWtoHtglVUkTXCS3n.Jzx5vUDbSNlj3_uTYynH2GS
- EDXLoRvqb7Dwm1N.vaHfLoc.4cCwEUEPV88FjNwNwnk9yo.D_tE_S..rLRvUJKt27ojrT_l59eiS
- DUBnzu35TnhNCba8SEwZL6bxE1P4TK3eItNn30tBjp1BG7DFU8qfK8eJ92Qq8u6aj2qc3qBjtBCL
- JPQ_ymCzwtI8Kq01tGRVOLks2.1pbHz3egs5kZapVzkqECmrxE58L49jCz.JLGky_.xY8Mh35PNU
- ZuGC63M9SMjmMjItxlvyEwdX7RZ7PVyBQWGA4Owmdyn8KXvqZj.3NTuodzFxXXQSIE.4Zfu4KbSw
- 15SA3U8XQYENVW8MLUseS9l083L3S8R5a7A9wxl_GW7mCcHN0RooSEPKXxr.tyuGjGs8LqxiTzVR
- Xaq3bqLGhHoDTXZvU9xdLQ6ZDDXyySEWuD8wlEFm5VLhqzkJHZjOS4o6tRXSjk3743SzjEMMmDcJ
- OV9Eyq6ex1NbY6q6lkUUhcq0.PIlxPSmOIMBacguYOacGLA291ya0xUh0q7WnyDqdwcUFYFKmbxW
- fsgw6nLExkMzoFIE0JFWsLr_GmTIqvmh3q9v8iJNcIcxHlS11aqIEGkL4yv.41E.5c1Wo0JvBlst
- 78C8lmQUvXfu9CxD.7hO2U98MGciLgABP7RupMquA1mnawMt6sSn0Ix2.ES8DZP64nceUKx1Tk1L
- UqCWeO_2JP3wRKysoC7VlJH_z.pBnVKT8ZFnnullx61cqURM4OyQ_TmIVinok2p66XpTgMS507YP
- ii0cYVNul_McMMK1rmCTP1.MTtHAN4.xIKjpLiDSofvMyKRbXHDzHqGSKmYSzil5YPqoXtivLsxa
- G5.kVCNDeY0OQALUAdYDarYOssb1pUwUpclyxPssm909z4pt60udoitrAQtFpYk.HsIzgjidfhWH
- 0MR3fO9j73beh3IzkecPuDL_CtU3SsZfVkEFkx.hQGQcbB4_iEUj_D3CSy3euQ3iMQIg1mWnfGHt
- LgnTEmRUKGvuQhVhQqveF2cZYPuxbACRQEVbru6weX6jfA4MZsBhfsjFc92uvwErA1GktGfEHlrm
- AwHrAagkkZ2o_hSNNJ.c0nY5SKwul9frwed2yBUWfG123davaAUObitwiFBdUaFfo655w5LM6VLS
- nJlqV1E0tdWudAlh8UisfujUX4lYlGrXn3Bfl6YmXZ8yj3Z8RJtI6R23C1zAUtodwtaXgpsdTfC9
- DtvaJP7amUVBWGtbWpV_2NjVCRwXsr9A22e1G7QM.C827fGPUjTs.p9B0TAZdkni3M9SYMt1lO.q
- ZEg0Wf_ZsS03S6Y9UKuuW1UDSFbl4KHW3H6J9AElX.80jSJqVTPSCfjb42eUc62slVkZJwzwdVh6
- TRai60FPeQ7NsmbAFUKrYj1PGxOMp2kCTnlExSpO1rj5nHikD.sD0YL4z_OEcQTnZHfWwf4BDGf1
- MNP6kzLdXatUmWG8cJusyeEy3xO.U8wDn7FxrKdRJ387QsLBWb6bR6Cnf1MCrhyNQ0_BGAqYON_o
- xienan11c4MTZuZ0rYulwE4URjP9mttbcS6pHDhsSHxx_9aXZLJS4G4nMDO2zqSXhkFR52vpPsqL
- tRaJ_fGZQb_eInvUbYafUWQ--
-X-Sonic-MF: <namiltd@yahoo.com>
-X-Sonic-ID: bd71f71b-e7b3-40d4-bfd2-70d195e2a4d3
-Received: from sonic.gate.mail.ne1.yahoo.com by sonic306.consmr.mail.ne1.yahoo.com with HTTP; Wed, 18 Nov 2026 07:59:47 +0000
-Received: by hermes--production-ir2-5dd9bf4598-jgkl4 (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 8aae2971950a5279db19506ff147a8ad;
-          Wed, 18 Nov 2026 07:59:41 +0000 (UTC)
-Message-ID: <6e61078d-45a5-4ebf-9dc3-a74b80a637f3@yahoo.com>
-Date: Wed, 18 Nov 2026 08:59:38 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=valinux.co.jp header.i=@valinux.co.jp header.a=rsa-sha256 header.s=selector1 header.b=IhInFr61
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=t6ZHPyAoeNxk50P9zMoG5c0s1jBWMdx7QpbNSItDs9+I/IiXo1/qHj/aKwmj/VXEAgq0I7d3rrgwRNd8MeSacyHtpqvL22zcT2j5e67qN5cHgvMEBZk4riuX30eJm1N4icNXoc3heEnmQ5QAt8Nyqls9UQh7IHpH6W3I5dfV7bqkzheoiNZa7u3ybD41Ih2x+ZbesyrZcqnmsQ0fV1Vdsgricsg9OaO1WAdWBgL7TpbksZDooMBS0uT1f9XadIuF5H9KWBZzVHQ9tXKI7V8DMS0VkRZIbbhUcl+a7X5u4l2sQJhBa2LIHe1eSCr+Qx+/HETgqALLGasdkaLOC+taYw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7jrBTvfYMSFLmvB9PpPNqSnu4yacu68qL0Z4kZNcb+k=;
+ b=nIvlWzVySTiNsZ5IRE/baizOMGeCPzgFA0xU407Jtq465SoHK8J6vPkP0rQRONtTnN2TxtmJXSZq84Spu2SRxaht6yC4VVnbYx0/g1NZpKn03b42YpeYX4LZ2CrBBbpvwmT9fVEoGUgVuq2yo4OppPhrcTLw4S+Q2XsykLmVzcNqKmNKBbmZ+lxiYhHHnSC+/gdjUo8/kF4eEXDh9m8lxj0aG68Qs3v2jH/61qsSc204MuArU71KOJFSoyMseZJpKn8CQMmarqGrakQj7SyGuJJ6cx+ZXSj9ftYGbTBWyCRN4SN2Qu/JjTCLwEPGaFhkbXGQKYuCPsKR90r6Oq045Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=valinux.co.jp; dmarc=pass action=none
+ header.from=valinux.co.jp; dkim=pass header.d=valinux.co.jp; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=valinux.co.jp;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7jrBTvfYMSFLmvB9PpPNqSnu4yacu68qL0Z4kZNcb+k=;
+ b=IhInFr61zZAazMaQNtEAD5TM4hhMf1e1ofj0dHji9QagjPLDOVqwBNNbArldmOoaVWQXfwzhp3QevayUiMd3Ga7LqPDlSLAVJhFc0lOPA5kfJ2ldxH3n6Ni5pkSdZcLBF78Nb2sP9pdYeXjEj3I5zg6Bov2eE1tMB/98+MDWINo=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=valinux.co.jp;
+Received: from TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM (2603:1096:405:325::11)
+ by TY4P286MB7459.JPNP286.PROD.OUTLOOK.COM (2603:1096:405:34f::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 07:59:48 +0000
+Received: from TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::cce5:2aa8:53f9:dba9]) by TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::cce5:2aa8:53f9:dba9%5]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
+ 07:59:48 +0000
+Date: Wed, 18 Nov 2026 16:59:46 +0900
+From: Koichiro Den <den@valinux.co.jp>
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	Qiang Yu <qiang.yu@oss.qualcomm.com>
+Cc: Manivannan Sadhasivam <mani@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Marek Vasut <marek.vasut@mailbox.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>, Niklas Cassel <cassel@kernel.org>, 
+	Wilfred Mallawa <wilfred.mallawa@wdc.com>, Serge Semin <fancer.lancer@gmail.com>, linux-pci@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, 
+	Shawn Lin <Shawn.lin@rock-chips.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Magnus Damm <magnus.damm@gmail.com>, Jingoo Han <jingoohan1@gmail.com>
+Subject: Re: [PATCH v5 13/17] PCI: rcar-gen4: Route Root Port AER to a
+ virtual Root Port IRQ
+Message-ID: <xrgklao4xvrzu7a2bkcbcx4ehxjpuqknyw5eeimqqahogvemzv@kwnm2kipdcjm>
+References: <20261020031049.969895-1-den@valinux.co.jp>
+ <20261020031049.969895-14-den@valinux.co.jp>
+ <33e7f153-9dde-4bf7-8ab4-d128b256239a@mailbox.org>
+ <dwgbyrulxrbiygjquuyd6cke4i43um7oio4fefey4lfgngwuoe@lkkn7ulwi3vj>
+ <avRZanGRks2mtIw0@ninjato>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <avRZanGRks2mtIw0@ninjato>
+X-ClientProxiedBy: TYCP286CA0093.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:2b4::6) To TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:405:325::11)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,60 +109,174 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v11 07/13] net: dsa: realtek: rtl8365mb: set and
- get vlan 4k for family D
-To: Gustavo Foletto Mora <gusfmora@gmail.com>,
- Linus Walleij <linusw@kernel.org>
-Cc: andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org, davem@davemloft.net,
- edumazet@google.com, pabeni@redhat.com, linux@armlinux.org.uk,
- luizluca@gmail.com, maxime.chevallier@bootlin.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, alvin.sipraga@analog.com, kuncy7@gmail.com,
- fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev
-References: <cf3fd237-2290-4002-8de0-ea4100ef0f85@yahoo.com>
- <7edbdf93-91e1-4dd1-9ecf-35863cecc277@yahoo.com>
- <CAD++jLmDszU-XBV9bVDH39cYLSKMDOAHEMdu7s8mxYjfhEvuNA@mail.gmail.com>
- <CAK+kzgwVSG4CBv8NQvQaqyr__BZbd860EDfEMoZU5JdFCYhtTw@mail.gmail.com>
-Content-Language: pl
-From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-In-Reply-To: <CAK+kzgwVSG4CBv8NQvQaqyr__BZbd860EDfEMoZU5JdFCYhtTw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Mailer: WebService/1.1.27017 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY7P286MB6866:EE_|TY4P286MB7459:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0d6be16c-5c10-46ec-ad68-08df4549ea83
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|23010399003|7416014|376014|1800799024|10070799003|6133799003|22082099003|18002099003|261009223027099003|56012099006|5023799004|10067099003|4143699003|261102123227099003|261021123027099003|261026140227099003|261026121527099003|261022075727099003|261026135527099003|261021135927099003|261028144727099003|261022105027099003|261021121427099003;
+X-Microsoft-Antispam-Message-Info:
+	fh9W94c5YZd8Vtgd5yHnSuNJ9huUTR5pq9Y2Qz1/NgF51SZupQbR3x4VH5nhfkxR/O3lM3cLPOE2lO0gLA+rZI+jH6bjgKkaJlBufMmlIbmSLwuSAoHgU/jUlsZ13G4eECa5YqpTTYWnsk0s5iPY8iOz0HSc1qE49V40z6PMtABtBaRCJzwhhpl9qeFmX1lMd0uUc/0FK+TvWSUe/rtEoehsq5Hu+8C8SU2gEdXwMs95IqjMguPokMc7+nh1meSxKbkblracFRKckYLKoTnnNz7ouNH4VPglkvesdDV/UPdERvlBGYxQFzSCy2CP+ct5knWDGNKRruxyHoLFZm2SwbsTXRmEVNkfvKn4XzgDoX1UUfoeq9d7w/mi/C7WvojkwnpU/kpyAlAuO0dC9MQoXJHyORq7iBOkqUbCJpl/XqwbrKwhA1snIk+J3X2MAIFCP1vriMxzjXqpNwXP7R7Cir2FMUUx6Uehryv51rw+7G2LPTXSSO4QO9phedAX5Z27/ICxTXGluTRjhcBXs+WT4GOALaJYpuqDnXqERs3O0Sj2cfjwFyho8NUG/R1kJRIeAOVWrZTxvWHxzEVAzZcqukaaHkfIZszXauggtNHPHARqag08DxDq5xUL4tC0Km0t
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(7416014)(376014)(1800799024)(10070799003)(6133799003)(22082099003)(18002099003)(261009223027099003)(56012099006)(5023799004)(10067099003)(4143699003)(261102123227099003)(261021123027099003)(261026140227099003)(261026121527099003)(261022075727099003)(261026135527099003)(261021135927099003)(261028144727099003)(261022105027099003)(261021121427099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?TOPDaNXU531W0zuaKdGi/QS56TIKIx/FL7LSH3+C/Zzil6KSSUok1cB5UH+y?=
+ =?us-ascii?Q?bwy/+vRdlfykuDPVxJNKvogY6Z2wt8qpHA+LzJi56nNBcVKA6m7tcIfSlJ4N?=
+ =?us-ascii?Q?ZCW3jEoesL5ypii3yKpplMyIHgfsUVht2GmpmlsE2WbDxq+4CY5XFNMyXh7X?=
+ =?us-ascii?Q?JEqn1n5Eq8uBe+9qXFL73nr9tjtBo0fpOp9012XY0DzpZbzagLP9GC4Fxvmc?=
+ =?us-ascii?Q?2i6opel5qAEbn3ikbTuwAhhgmiARem/bopbq1A++uzFP9ZO9GIjXmvzBbazK?=
+ =?us-ascii?Q?IaF1+YVCWJzDn7fbJaItNNew72pCz2NRwhSpxt/Jepi/gLwwaUcIo+Qvhawr?=
+ =?us-ascii?Q?hkZbHY+qF+r4zLLOao3iHJVk0glGLMnwWB4HQgK6P/GN9/BDrQ3fBoCk8iU4?=
+ =?us-ascii?Q?qGtojAVOO4EP08JMTn3ndBbHPBajz/Cyiya75dFYe9ubQzy1VQ07tR1l6I2b?=
+ =?us-ascii?Q?VhD2A1mwA3cYCNSxdiDOEbOzOgWf6tHeUHXDh4ICLgo+xFPDGU+1iu5cMken?=
+ =?us-ascii?Q?ytl5xcbJknVa7cBlXdwGK0Ld4V3v3XsuKoS1qJpj7ihteANvlzZZ+2Kw5zEQ?=
+ =?us-ascii?Q?8M2BkTrX1n+Bw4NBoz/g5XrpchpMrhS0GVc4BlpqLcrLgnmgRw8OwHJhfRPa?=
+ =?us-ascii?Q?i6RM9vGISJ2uCvGJO2cu7rcNaA+f6OfykVpOxVu/xeP3GeNbQKSg4vEBF9At?=
+ =?us-ascii?Q?gnMZoZ2ZJNcrDzCfuo90l+h3AtnEW1EWLAbhyk8f4VfPSK+EWg/VJMbA+/tg?=
+ =?us-ascii?Q?hBLwfAmCeS4tQ7F6EG25bJIdTuMuuqT8fVZw3XbTLJxxPJySfJOhWwMZ2/cC?=
+ =?us-ascii?Q?3rZDGx39/s/PY2Z5xUiFgCJclWN1M04ayvlcrn108vdBx1RtuQcIy95LZhyc?=
+ =?us-ascii?Q?+ZnLIfWHcQ/Lrz+Ch8Whs801kPS2PgojRE+flOUkAK/PLfhvQHg0NnvS3ddq?=
+ =?us-ascii?Q?MW4RfysBh0C0YBpgKpFF7aBBszuwRu2gCz+BuMVwofly/OGyM2TELIgL9nTi?=
+ =?us-ascii?Q?G9zuOO2NgOO1T6Lj013tKa6YSZuntoLvF//lskrq6FuNIONVwg5bvg1a0jZ2?=
+ =?us-ascii?Q?7WqziDY25YeT9b8qmUBujc55CNzoGymia8zU9CbknyD3wj9W7mPcOPrEQrOT?=
+ =?us-ascii?Q?uvWxtTIgAB2Ass5US9Bo+o/2zkTkJmCIxv5riZYw2oseVJxBxCsiiOi8NY5J?=
+ =?us-ascii?Q?2+M1LI2cRSw4jmOPEMtIpqti9Gwdlacwhwobev74L8WCacXVULzFKtdJK8Dy?=
+ =?us-ascii?Q?vuyB01xWLG5DOuTYkFD7e0K7GSFvNQnHHqX/uS0BNlBTYoz4/j4HHT/VzoDF?=
+ =?us-ascii?Q?ElYE9r0wL2VxuI8ohPQR7em62vJqYbMOhQjba+l9Ua0g/xgGmd3cewzh4ZIR?=
+ =?us-ascii?Q?WY8l2ZN05nFgLYqxfOtRJNVmxGqrANMaFw8lcPnQFu9BHq8rQYtKk+z0GXl4?=
+ =?us-ascii?Q?6wUzEbWjbpEtp21kHRm38tb2G6koa/S6pGd6K3st6eSv7NB04je35vDTI6Hf?=
+ =?us-ascii?Q?A9nMcMz6FwpphCiTA8ovA0xIrumHXQd5vCYp8eO8rRwDYl/IA6kL8YP7a4rF?=
+ =?us-ascii?Q?N2JheV3X7VzJmOwOadx4TJ87uSWfwsx5PwNU9j7KOAUxkJ01I3Wkdxyljrcj?=
+ =?us-ascii?Q?zJyqab0Bfb/GI7n26ytaiJbc6B81VMM4Nt6IiJoehhRpJWpzFuAmr7Z77+8U?=
+ =?us-ascii?Q?PFPayj+4RH/AWrkxHKvOfCmW30RtG0UQnYwgHr6quErus3Hu3yKW/xuoTMvf?=
+ =?us-ascii?Q?MKSaGOp/AQWz1ciRmPAuoiDOnvEg5EtTrO8GFIukkO5TLTx8x1Id?=
+X-OriginatorOrg: valinux.co.jp
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0d6be16c-5c10-46ec-ad68-08df4549ea83
+X-MS-Exchange-CrossTenant-AuthSource: TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 07:59:48.0749
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 7a57bee8-f73d-4c5f-a4f7-d72c91c8c111
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Ouq2OKrO0FDuV35JlTaAPIH8ScYYJZ7Vwy7AcZjzUYlxrmNRhsz6RKEaNPdPN401e1aEcX0pbmKxrdolYZw1CA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY4P286MB7459
 
-Subject: Re: [PATCH net-next v11 07/13] net: dsa: realtek: rtl8365mb: set and get vlan 4k for family D
+On Wed, Nov 11, 2026 at 01:02:50PM +0100, Wolfram Sang wrote:
+> On Mon, Nov 09, 2026 at 11:41:52AM +0900, Koichiro Den wrote:
+> > On Wed, Oct 21, 2026 at 02:19:46AM +0200, Marek Vasut wrote:
+> > > On 10/20/26 5:10 AM, Koichiro Den wrote:
+> > > > On R-Car Gen4 SoCs, the APP block exposes the Root Port interrupt
+> > > > signals in PCIEINTSTS0 and routes them to platform IRQs: AER to
+> > > > intreq_pcim_lperr, and PME and bandwidth notifications to
+> > > > intreq_pcim_sub. On an R-Car S4 with GIC ITS, a link retrain set
+> > > > LnkSta.LBMS and latched PCIEINTSTS0[23] (cfg_bw_mgt_msi), but the Root
+> > > > Port's MSI never fired while endpoint MSIs worked fine. With iMSI-RX the
+> > > > Root Port MSI capabilities are already hidden, but its INTx maps to
+> > > > intreq_pcim_sub. Note that even before this driver took over the IRQ
+> > > > with rcar_gen4_pcie_msi_irq_handler, the port service was unable to
+> > > > request it, as the DWC core used that IRQ for its chained MSI handler.
+> > > > In either case, iMSI-RX or an external MSI controller, Root Port
+> > > > interrupts are not delivered to the port services.
+> > > > 
+> > > > Hide the Root Port MSI/MSI-X capabilities so the port services use
+> > > > INTx regardless of the MSI controller. Do this in the R-Car host setup,
+> > > > which also runs on reset and resume. Use a virtual IRQ to deliver
+> > > > notifications from separate platform IRQs to the standard handlers.
+> > > > Route AER from the optional "aer" interrupt. DTs without it remain
+> > > > supported, but Root Port AER stays unavailable.
+> > > > 
+> > > > The APP block may still receive MSI-form notifications because hiding
+> > > > the Root Port's MSI capabilities does not clear MSICAP0.MSIE. Handle
+> > > > these alongside the INTx-form level signals. Clear the MSI-form latch
+> > > > before the AER handler clears Root Error Status, so a late APP clear
+> > > > does not erase a new notification.
+> > > > 
+> > > > Check for reset requests before dispatch: on S4, DBI accesses from
+> > > > the port services can hang the host immediately after link down.
+> > > > 
+> > > > The next patch also feeds PME and bandwidth notifications from "msi"
+> > > > into this IRQ, so both parents may dispatch concurrently.
+> > > > handle_level_irq() calls irq_ack() before checking whether it can run
+> > > > the handlers. Keep the APP latches set while the IRQ is in progress or
+> > > > disabled, so the level parents can retry through the reset checks.
+> > > > This avoids losing notifications without a raw lock around port
+> > > > services that take regular spinlocks.
+> > > > 
+> > > > Signed-off-by: Koichiro Den <den@valinux.co.jp>
+> > > > ---
+> > > > Changes since v4:
+> > > >    - Hide the Root Port MSI/MSI-X capabilities in host_setup() instead of
+> > > >      adding a no_rp_msi flag to the DWC core. (Shawn)
+> > > >      https://lore.kernel.org/r/bi3rvyqpdu4iq6pfyrqvx7eplyim6gmg2ijal67mpateobmtlq@gec7zewfm76r/
+> > > >      I did not carry Marek's Reviewed-by tag over due to the change.
+> > > 
+> > > Bjorn/Manivannan, can you please have a look at this patch and the MSI
+> > > handling, to be sure this is OK ?
+> > > 
+> > > (no further comments from me below this point)
+> > > 
+> > > Thank you !
+> > 
+> > Marek, thanks for the review.
+> > 
+> > Bjorn/Mani, just a gentle ping. Could one of you take a look? To summarize:
+> > 
+> > - v4 had 'no_rp_msi' flag to the DWC core. Shawn suggested keeping that in the
+> >   glue driver instead, which I found reasonable:
+> >   https://lore.kernel.org/r/20261015033103.3076869-14-den@valinux.co.jp/
+> > - v5 hides them in rcar_gen4_pcie_host_setup(). (this patch)
+> > 
+> > If you'd rather I send v6 first, rebased on the pp->msi_irq_domain rename Shawn
+> > and Geert pointed out, please let me know. Otherwise I'll wait for your comments
+> > before respinning.
 
-Hi Gustavo,
+    ^(a)
 
-Thanks for testing v11, and for the detailed report on the vlan_filtering toggle. I will add your Tested-by on 7, 8 and 9 in the next revision, noting for 8 and 9 that it is family D only.
+> 
+> As maintainers are usually super-busy, is there another MSI expert we
+> could ask to offload work from them?
 
-On the 5.4 s per toggle: agreed, scanning all 4095 entries over MDIO is too slow. I plan to track the VIDs that are in use and scan only those in rtl8365mb_d_vlan_4k_refresh_ivl().
+Hi Wolfram,
 
-I also have a question where your hardware would help. The Sashiko review of v11 12/13 (https://sashiko.dev/#/patchset/cf3fd237-2290-4002-8de0-ea4100ef0f85%40yahoo.com, "Muted" so it did not go to the list) raises the same shared-FID problem you reported earlier. It says:
+Thanks for following up. I'm not sure who'd be best to ask for that, but maybe
+Qiang? Given the history: f5cd8a929c82 -> 0ecd890e3cf54 -> 3a4e8302e72f8
+Let me cc him here.
 
-> Does sharing SVL FID 0 between standalone ports and an offloaded
-> VLAN-unaware bridge break DSA standalone port isolation?
-> [...]
-> Once a MAC is learned or programmed on an offloaded bridge port in
-> FID 0, any frame arriving on a standalone or software-bridged port for
-> that destination MAC hits the bridge port entry instead of flooding to the
-> CPU port, and is dropped by the ingress port's isolation mask.
+Qiang, sorry to take up your time, but I'd appreciate your thoughts on this:
 
-and suggests a way out:
+  For context, R-Car S4 has a platform IRQ for Root Port AER. This patch hides
+  the Root Port's MSI/MSI-X caps even with a GIC ITS and routes AER from that
+  line to the port services via a virtual INTx IRQ.
 
-> Commit "net: dsa: realtek: rtl8365mb: set and get vlan 4k for family D"
-> defines a 2-bit FID field (RTL8365MB_D_CVLAN_ENTRY_D1_FID_MASK) in the
-> family D CVLAN entry and rtl8365mb_d_l2_uc_to_data() already serializes
-> uc->key.fid when ivl is false, so could the offloaded bridge be assigned a
-> non-zero SVL FID to keep it separate from FID 0 on standalone ports?
+  In v4 I used a 'no_rp_msi' flag in the core for this. Shawn suggested hiding
+  the caps in the R-Car driver [1], which made sense to me, so that's what I did
+  in v5. (Personally, I'm fine with keep_rp_msi_en in the core for i.MX since
+  the core would otherwise hide the caps there.)
 
-I cannot verify this from the vendor API alone. What I would like to know, if you have time to try it on the EX511:
+  Does this R-Car approach look reasonable to you?
 
-1. With IVL_EN=0 (VLAN-unaware bridge), if the FID field of the bridge VLAN's 4K entry is set to 1 (for example by a temporary hack in rtl8365mb_vlan_4k_port_set()), does the chip learn the bridge hosts with FID 1? A debug print of key.fid in rtl8365mb_d_l2_data_to_uc() on the learned entries should show it.
-2. Which VLAN4K entry do the standalone ports classify into with PVID 0? If it is not the same entry, they would stay in FID 0 and the bridge could use another FID. If it is the same entry, the FID cannot separate them.
-3. If 1 and 2 work out, do static entries written with key.fid = 1 replace the learned ones?
+FWIW,
+- Since v1, the base tree has included 8d6af27c0a73 ("PCI: rcar-gen4: Configure
+  AXIINTC if iMSI-RX is not used"), which might look relevant. With the caps
+  left visible, Linux assigned the Root Port an ITS IRQ. Despite that, the IRQ
+  count stayed at zero when I injected a correctable error.
+- I wrote "appears to lack SII2MSI" in the cover letter because I couldn't find
+  anything explicit in the S4 docs that clarifies whether it's present. That's
+  about as far as I've got with this. IOW, there could still be some other reason.
 
-If you see that the chip does not use the VLAN4K FID for learning, I will keep this as a documented limitation in the commit message, as it is now. If it does, I will look at giving the offloaded bridge its own FID in a follow-up, with FDB/MDB entries for the bridge keyed with that FID and standalone ports left on FID 0.
+I'd still like to hear from Mani or Bjorn before sending v6 (see (a) above).
 
-Thanks,
-Mieczyslaw
+[1] https://lore.kernel.org/r/3796136c-cc01-472b-b14c-34d140a10cbf@rock-chips.com/
+
+Best regards,
+Koichiro Den
+
+> 
+> I'd also like to have this series in the next merge window. Thanks
+> everyone for all the work involved, so far!
+> 
+
+
