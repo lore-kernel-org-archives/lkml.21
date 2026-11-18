@@ -1,56 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.97
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795013481;
-	b=ut8uGGYsdasX+d6m6xHjKJKYVpVUSgzEc5VCU53ksuoaIpbBj417ofQSjTKrcDpij67N
-	 cWUjqMZH/CFzXHCIKksEq5Lt7KLLS3MM1p48aeYAWJEG97SH5d2fPPcafbmnCsWnpUr0g
-	 atL7jB99jq207bX3clcNeEkUGhyHYpxSDAcTrACqsoUMjjOKmI1fmr3dZoCOb9l3BLn+7
-	 tkB/hcA7Tf8UTSE1YFSer4SNHLxlMC+qxJJb2/j1Kre2kkhjXOb5VYyn4VALoLmP49ZWu
-	 Qv4tCfUXuL+wuONtMqiWMDCNBbST8tmlmTm1GdADCOCNTV64LkTijQxwfvi1TCUIJeA==
+	t=1795013484;
+	b=Wz3lKEdodVqYPxR2ReZMvwmVfXbuxtAjaOz49Mm2lbhrJmqvdUJqSQjcSFAMLuUpbGzk
+	 nI/akmcmZOZX+lATZxCDBtPxXGx6QTvZDCT5Wccfs5y5g6EvxgUF7YO3CJg9kGHDQjWgy
+	 QkW7AaAxNI6pSuugdu3zyOKjHZCuzKWHe+tDxPSouXKSGXsl+rSyB6EOc3hUY8BtrSEWD
+	 P+cCxyf4jVVAcnr8CZG2TFUPzYrj9dv0tDchO0omka/orE210SXjKbbj9havXLg3cqgx0
+	 Y1dgpPFSIs58KpHEJNG8GjL26o67fxrG5Fq17GWB6K1CrHg0Kdl9mbFRGrqmUARcFBw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795013481;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=XNfcKxtjE3WyApHOpNrRRQwr1Y2c1MZAzNhEcwdN+qo=;
-	b=H5ZKSylx1RSB0co42lu/YA4Ab96g/672wlwSnl9xh2Zap8dAgkniH0lAmPPkIYa4gYLV
-	 gikSNnPROOvc00u2uadJmi12fbel+X0/2xdIWN/fI0HgnvMIGiS+VwCWTs3z1kSW3mBNl
-	 0Wd+cWWUsB0wiSKdwI6NuPP0U3BJBv4dORLaD8cwAu5vev9Tupf3jBVLkWoSUFu3mC/Yp
-	 S8xHUp7QHAQ5nuMWwMP9MY63AIqUOYupurDfqJ7hMs5t8G9aIg4w+nH24T0JkfwrV9zyf
-	 xFlwdicBc+kuVnR8uB1c2I2zvHmjSgWpSFyOcbI5vnIGg3z5j2Pqiw+YLqrRzAJpC0g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795013484;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=eY4Iukd9tnjFhKXxywz21kAw07HDovdZxf/3jteIVpk=;
+	b=W5S3ctZcm5w/kgcM84/bwJ3dHIl+Sx9fZ4BryyRxb8o5NTWA0+cbmvcbOGRf+l+n0S+f
+	 2VdBkyEP69z2OYOPeATG9TQZ/mzXIB6Q0m/HydSkhnGSW/qtKin1HnlKUvkqC+Wbfj2Zl
+	 pDLlNcx8byz1N3op7vOzq4ULD/XXfhT19eJaFT4EKOop6MonHgXWZS6OPTcbpVJPGCbrH
+	 InJxRbXsapygUyb1ymEtkxu9vbg++v+LeNR8x8CMkAFgQDrf8H6jypbR38T6fv8AiJMgm
+	 niz57Ke6M/wrp7K5XPGiT56GCFWO2FZf3OyNqURGhpc5hpxQZtldGK+h8nl8pRj8/QA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=egqQAmIn;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=protonmail.com;
+	spf=pass smtp.mailfrom=protonmail.com;
+	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b="rZ/PnwSS";
+	arc=none smtp.remote-ip=79.135.106.97
+Received: from mail-10697.protonmail.ch (mail-10697.protonmail.ch [79.135.106.97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 880C0606A31C;
-	Wed, 18 Nov 2026 14:51:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE171606A33A;
+	Wed, 18 Nov 2026 14:51:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE171606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=egqQAmIn
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4631E1F000C8;
-	Wed, 18 Nov 2026 14:51:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795013481;
-	bh=XNfcKxtjE3WyApHOpNrRRQwr1Y2c1MZAzNhEcwdN+qo=;
-	h=From:To:Cc:Subject:Date;
-	b=egqQAmIn0hLtgYrwMl0jV2JGZCG0rFiJWz6fvECPwSIcn4tcBeyTKI76TjVPgyAht
-	 YYAh7T5iXLt+6vdhHgukEblEmUisyPuBYv6+bhDJMynhpk6D8DtpHXVWSRffsh31SA
-	 4DD4DLCuxgDNo1C9U5JO9J/59+CnZ3KKuCKnJi4NIMUf0xb3uwNt40qWoE9us/vMh4
-	 irG9ZVyMKmlB9zPT6YLp2MU6g9pO45HxgkUkNvgrBZ5ZI/QWXRqRenGXIpVx8Ow9Ww
-	 tSvmYXAmXkyO4wrkK/EdetTZpDqBGGuhMpZqy1uPWePuWVKQ28T+oqR6csmvlMvLO3
-	 kiswOlWCnbx3g==
-From: Philipp Stanner <phasta@kernel.org>
-To: Sumit Semwal <sumit.semwal@linaro.org>,
-	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
-	Philipp Stanner <phasta@kernel.org>,
-	Tvrtko Ursulin <tvrtko.ursulin@igalia.com>
-Cc: linux-media@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] dma-buf/dma-fence: Remove dma_fence_later()
-Date: Wed, 18 Nov 2026 15:50:27 +0100
-Message-ID: <20261118145026.1755441-2-phasta@kernel.org>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (2048-bit key) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=rZ/PnwSS
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1795013480; x=1795272680;
+	bh=eY4Iukd9tnjFhKXxywz21kAw07HDovdZxf/3jteIVpk=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=rZ/PnwSSZ1nVthbPy1h4qRvgQHEffarDlEReR+yx4dBjD7tO5dpXE3Yk0xZ/gp/Qo
+	 v9LxmsS4Tk4xS1FeiH9Ni1c2yU4mo0nDfJx3t4DZZcjLk99IGRTyeLh4zYyxZis8tk
+	 vxaDOHxwwY3IXTw6LEaQLh2GsMiHC3nzYf+unvtdTUV4fDe9iiN1nWWtsj0VkFTkH5
+	 kzfktF8ZQWifZDoNYSY3TzUB3NBZGhx5jl12r/wi6ikVxb3krMi5GcGH2dyBmFPQGj
+	 rFA+nffQYoDiNiapYqKhIviuE65hFotW5iIRO1rxM+lApx3lC876DbwXXAt75lzQKx
+	 tcTciGWpaIh7w==
+Date: Wed, 18 Nov 2026 14:51:13 +0000
+To: Alexey Charkov <alchark@flipper.net>
+From: Ryan Leung <untilscour@protonmail.com>
+Cc: Rob Herring <robh@kernel.org>, Srinivas Kandagatla <srini@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Michael Walle <michael@walle.cc>, Miquel Raynal <miquel.raynal@bootlin.com>, Finley Xiao <finley.xiao@rock-chips.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2 0/4] nvmem: Derive Rockchip MAC addresses from the OTP CPU ID
+Message-ID: <AQpdyd6hRl9cLAxBK-fEdzq0dcZsWpHP63dbDpOxcNQWCdaNIc4D3Mfi9Ll86jBVsbEVhr5-9EZzFHbkF6efBDcRUT7nXx9TH5Aeffy5DyU=@protonmail.com>
+In-Reply-To: <CAKTNdwH6E5=9gZHB6tdianC2+1aDv4wnLmvL59kDW-dR3a12bg@mail.gmail.com>
+References: <20260902-rk3576-otp-cpuid-mac-v2-0-e4b7fe2ab13f@flipper.net> <CAKTNdwH9QAgreJ-6+t1j_P1di4VyoMBSsFkf_g=mCi_-M8g9Pw@mail.gmail.com> <20260917221857.GA4056431-robh@kernel.org> <CAKTNdwH6E5=9gZHB6tdianC2+1aDv4wnLmvL59kDW-dR3a12bg@mail.gmail.com>
+Feedback-ID: 184418679:user:proton
+X-Pm-Message-ID: f72cf6b7ff069e62495bd32a905a304144d1643e
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,87 +64,125 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-dma_fence_later() does not have any in-tree users anymore.
-dma_fence_is_later() is available as an alternative.
+On Friday, September 18th, 2026 at 3:08 PM, Alexey Charkov <alchark@flipper=
+.net> wrote:
 
-Remove the surplus function.
+> Hi Rob,
+>=20
+> On Fri, Sep 18, 2026 at 2:19=E2=80=AFAM Rob Herring <robh@kernel.org> wro=
+te:
+> >
+> > On Thu, Sep 10, 2026 at 06:48:33PM +0400, Alexey Charkov wrote:
+> > > On Wed, Sep 2, 2026 at 5:08=E2=80=AFPM Alexey Charkov <alchark@flippe=
+r.net> wrote:
+> > > >
+> > > > Rockchip SoCs are shipped with a unique CPU ID in their internal OT=
+P
+> > > > memory, and Rockchip bootloaders use it to give boards which have n=
+o
+> > > > dedicated storage for a MAC address a stable one anyway: they hash =
+the CPU
+> > > > ID and patch the resulting addresses into the device tree they hand=
+ over.
+> > > >
+> > > > Kernels started without that fixup, e.g. straight from the SPL in F=
+alcon
+> > > > mode or by any other loader which does not implement Rockchip's der=
+ivation,
+> > > > fall back to random MAC addresses which change on every boot.
+> > > >
+> > > > Formalize the derivation in the DT binding and add a Linux kernel d=
+river
+> > > > implementing it, so that a Linux image can use the same stable addr=
+esses
+> > > > regardless of the boot flow.
+> > > >
+> > > > Only RK3576 is wired up here, that being the SoC I can test on. Oth=
+er
+> > > > Rockchip SoCs keep the same CPU ID at a different OTP offset - 0x7 =
+rather
+> > > > than 0xa on RK3588, for instance - which makes supporting them a tw=
+o-line
+> > > > addition to the driver's match table plus the layout node.
+> > > >
+> > > > Patch 1 is a prerequisite fix. The OTP hardware has its own interna=
+l state
+> > > > machine which only works correctly with serial access, but the curr=
+ent
+> > > > driver serializes nothing, which results in timeouts and/or corrupt=
+ed
+> > > > reads (e.g. returning splicing a TSADC trim value into the buffer o=
+f a
+> > > > caller asking for the CPU ID, or mixing up trim values of different=
+ TSADC
+> > > > callers). Hence the Fixes: tag and Cc: stable.
+> > > >
+> > > > Cross-checked on an RK3576 board: the addresses fixed up into the F=
+DT by
+> > > > U-Boot match the ones derived by the new driver, and the driver cor=
+rectly
+> > > > assigns them to the network interfaces when the kernel is booted wi=
+thout
+> > > > U-Boot proper at all (via Falcon mode).
+> > > >
+> > > > Sashiko also rightly pointed out a use-after-free in the nvmem core=
+ when
+> > > > a layout driver is unloaded leaving its sysfs nodes and the postpro=
+cessor
+> > > > function pointer dangling. This is fixed separately in [1].
+> > > >
+> > > > [1] https://lore.kernel.org/all/20260902-nvmem-layout-unreg-v1-1-2d=
+16bebeb518@flipper.net/
+> > > >
+> > > > Signed-off-by: Alexey Charkov <alchark@flipper.net>
+> > > > ---
+> > > > Changes in v2:
+> > > > - Switched from a scope-based guard to explicit lock/unlock calls i=
+n the
+> > > >   OTP driver to avoid mixing styles in a function using goto error
+> > > >   handling (Sashiko)
+> > > > - Link to v1: https://patch.msgid.link/20260901-rk3576-otp-cpuid-ma=
+c-v1-0-ea9135270fc2@flipper.net
+> > > >
+> > > > ---
+> > > > Alexey Charkov (4):
+> > > >       nvmem: rockchip-otp: Serialize reads
+> > >
+> > > Incidentally, patch 1 of this series also fixes CPU thermal throttlin=
+g
+> > > on my RK3576 device: apparently, the mis-read OTP-programmed thermal
+> > > trim values broke the thermal governor logic, which now works
+> > > correctly with properly serialized OTP reads. So it would be great to
+> > > have these merged.
+> >
+> > It would be great to have the sashiko comments analyzed and replied to
+> > as well if you would like this to be reviewed.
+>=20
+> Of course. One code-related comment Sashiko raised has been addressed
+> in a separate patch [1] which is still pending review. The
+> binding-related comments will need to be revisited, as I'd like to
+> first explore the idea Ryan proposed in the adjacent thread [2], as it
+> will change the approach somewhat if it works out.
+>=20
+> Best regards,
+> Alexey
+>=20
+> [1] https://lore.kernel.org/all/20260902-nvmem-layout-unreg-v1-1-2d16bebe=
+b518@flipper.net/
+> [2] https://lore.kernel.org/all/20260916123355.4507-1-untilscour@protonma=
+il.com/
 
-Signed-off-by: Philipp Stanner <phasta@kernel.org>
----
-No idea why we have two such functions.
+Hi Alexey,
 
-dma_fence_later() seems to be older, coming from a big-bang commit in
-2014. Yet Christian added dma_fence_is_later() in 2015.
+Have you had a chance to explore this? I have got a working proof of
+concept [1] for the format I suggested, tested on RK3576 (NanoPi M5) and
+RK3528 (NanoPi R28S).
 
-*shrug*
----
- drivers/dma-buf/dma-fence.c |  6 ------
- include/linux/dma-fence.h   | 26 --------------------------
- 2 files changed, 32 deletions(-)
+Best regards,
+Ryan
 
-diff --git a/drivers/dma-buf/dma-fence.c b/drivers/dma-buf/dma-fence.c
-index bd58688b81a7..2f805b788f8f 100644
---- a/drivers/dma-buf/dma-fence.c
-+++ b/drivers/dma-buf/dma-fence.c
-@@ -1099,9 +1099,6 @@ __dma_fence_init(struct dma_fence *fence, const struct dma_fence_ops *ops,
-  * refcount after committing with this fence, but it will need to hold a
-  * refcount again if &dma_fence_ops.enable_signaling gets called.
-  *
-- * context and seqno are used for easy comparison between fences, allowing
-- * to check which fence is later by simply using dma_fence_later().
-- *
-  * External locks are a relic of legacy use cases that needed a shared lock
-  * to serialize signaling when no out-of-order signaling was possible through
-  * &dma_fence_ops.signaled. Drivers have abandoned this concept since the
-@@ -1129,9 +1126,6 @@ EXPORT_SYMBOL(dma_fence_init);
-  * refcount after committing with this fence, but it will need to hold a
-  * refcount again if &dma_fence_ops.enable_signaling gets called.
-  *
-- * Context and seqno are used for easy comparison between fences, allowing
-- * to check which fence is later by simply using dma_fence_later().
-- *
-  * New users MUST NOT use external locks. Check the documentation in
-  * dma_fence_init() to understand the motives behind the legacy use cases.
-  */
-diff --git a/include/linux/dma-fence.h b/include/linux/dma-fence.h
-index a3fa1341765e..e11e65b916f1 100644
---- a/include/linux/dma-fence.h
-+++ b/include/linux/dma-fence.h
-@@ -633,32 +633,6 @@ static inline bool dma_fence_is_later_or_same(struct dma_fence *f1,
- 	return f1 == f2 || dma_fence_is_later(f1, f2);
- }
- 
--/**
-- * dma_fence_later - return the chronologically later fence
-- * @f1:	the first fence from the same context
-- * @f2:	the second fence from the same context
-- *
-- * Returns NULL if both fences are signaled, otherwise the fence that would be
-- * signaled last. Both fences must be from the same context, since a seqno is
-- * not re-used across contexts.
-- */
--static inline struct dma_fence *dma_fence_later(struct dma_fence *f1,
--						struct dma_fence *f2)
--{
--	if (WARN_ON(f1->context != f2->context))
--		return NULL;
--
--	/*
--	 * Can't check just DMA_FENCE_FLAG_SIGNALED_BIT here, it may never
--	 * have been set if enable_signaling wasn't called, and enabling that
--	 * here is overkill.
--	 */
--	if (dma_fence_is_later(f1, f2))
--		return dma_fence_is_signaled(f1) ? NULL : f1;
--	else
--		return dma_fence_is_signaled(f2) ? NULL : f2;
--}
--
- /**
-  * dma_fence_get_status_locked - returns the status upon completion
-  * @fence: the dma_fence to query
--- 
-2.56.0
-
+[1] https://github.com/untilscour/openwrt/commit/a622c1cf292f7a4bb7093521e2=
+5436be324fc1a4
