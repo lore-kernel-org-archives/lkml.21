@@ -1,60 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.3
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795008254;
-	b=mgqtCH6V6gsJrmTQ2OB0Gdp75NX3ezE5m4ACNdgkERKDiAj+2b3v0qxNHWv7hF9AW+kB
-	 PS9eImZxOsFFmwkFrP0FUSg4uAXUspOrf8ah5yX7Sose2bM80QHoSaeQmar/Ce3UY31XJ
-	 VrxQoXQ2yUO0hAPDWuQfd1SgU1c55aCSqkz4+aKzRs5VLpGSHksQDSORmtu4m6vW/U5fZ
-	 U2ARZT5fzOa52pMy2RIDrSL8YgWzVFSVHsxnZtwE9zS7OGNlpfALUxkhjmyBu9pMUY/90
-	 wvwGRvdzj03kvsTPKQWGyKgCO08N6j+e2YswjIhZY+1TEbgFegQI6C11mCya/BCBiNA==
+	t=1795008324;
+	b=K2jbifyESiBnsIu2L6OBhJaUdcckJESKlsC4VexR1JGZNQFxHGbZEwvDpvKeuhzCXH1o
+	 aRUVmeqOewQXqurUmQOtViBooux35H4YLKbxZsrzqXYx1ZQyc6b4Vvwg8cBj0bVjJoigo
+	 jiC47wPS9MBiSrfdpAIqOJfZn9zedyD7NDQwFes2001sAIaoWZEI5pptsy4PYlX+yLyJw
+	 qnuZy7y6bWfabTpvLDxthJ/kAA5lW+meGRomw40lwi3z1MnouydFanKsqOhWDazpmnfcC
+	 +cekEm5yl4FvDZi64dpQRbxDIjE7VDSFfvwHi+J2Uv5EZgi9zt1tER8KQ1soXDSzlqQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795008254;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
-	bh=zwh9/RgZ9buOdjk59loExjfzNV3sTF0q3vmVzocq4s4=;
-	b=ZH11vJJPGG2Jz9l8uor/b3nLgcYk8VQO5DtBp5+mU9UeTc1+UMPnx+HmARBNxhPsEMDz
-	 i3URo5L5Uxm0zHDkrGuBrM1RyDHDe2HXlxxt6MEneAk3gnA8iJ5BMTgT/KiUa5IE7Tkir
-	 WnaXxV2T2z9Lq2fSedsUwOqoeftZSULhsjBMt5d0dTtsfoTSKaMsQ3Sv9GsDFBA7FcuFl
-	 v16rRfX1bx5ibEcI0TxFPZDm2NQPDPdqeizRGspup9sGGajIHZCtiqpmgRe+9Y5nd+6DF
-	 YjDq/QmQvJf5KmIq/Lybn+khoYQbymR719rnmhM39LjThi7j/xqiT9iz3PztDn6+Jvw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795008324;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=GxAZTq7Ao+4XtB3Gk3Rw38IdkfFxSdo1k6VZCcuN1II=;
+	b=ubbZRyub4zG3aWZY4ykuhlQu3EIERwQALbsyzuoTOVxjUUyeOBthLc//Cj/Sh1nVWgBB
+	 fKJlMjqw3i24JTBXlmYf9ygslRL7gzii/2Z/ANksRpIjIPRQn4/v7eISWXvcOw8UKcfX/
+	 ZLBsg7Uhx0UztnJhzesrYtCCBDZzHRh5+LvUlBzRVXos5RsPrQwLDluBXpRrk9z/ixcCt
+	 uPhAc3PgYTBhP3wT4pe0LZ6N+G6TCwEdYF1Np1RkukpYATTaU+i2EMy2FOC8G4IvlYeXS
+	 +0+/qnGGcA8GbddA3SdQHJ4EAMv1DT8MqAd+Kv+zMIZJaI+NG70s8BL8Yi2vqTZ1ttA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b="Z/KD2fhY";
-	arc=none smtp.remote-ip=117.135.210.3
-Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.3])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=WoJhJqJr;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBE51606A320;
-	Wed, 18 Nov 2026 13:24:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DBE51606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39E1A606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:25:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39E1A606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=Z/KD2fhY
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=zw
-	h9/RgZ9buOdjk59loExjfzNV3sTF0q3vmVzocq4s4=; b=Z/KD2fhYKnq15hooxe
-	oyYpjPy5uboMD+Ew9TcPmGBYaH3qpszMNh0AtiMtwiwl0sUoCpfmjK/x6plj2U0U
-	koC3opqAVSlcAvrq/xSQjL/tp170B9DNqAoTpLaGne4FvU4SZwAhqpKou6wiWxoa
-	MN7OxURPPvWUXrlDxHjN89MiI=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wD3X0Tgpv1qlRFsIg--.36225S2;
-	Wed, 18 Nov 2026 21:23:46 +0800 (CST)
-From: Haoxiang Li <haoxiang_li2024@163.com>
-To: brgl@kernel.org,
-	andersson@kernel.org,
-	konradybcio@kernel.org,
-	abelvesa@kernel.org,
-	quic_eberman@quicinc.com
-Cc: linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Haoxiang Li <haoxiang_li2024@163.com>
-Subject: [PATCH] firmware: qcom: tzmem: Clean up SHM bridge on pool add failure
-Date: Wed, 18 Nov 2026 21:23:43 +0800
-Message-Id: <20261118132343.2350034-1-haoxiang_li2024@163.com>
-X-Mailer: git-send-email 2.25.1
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=WoJhJqJr
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id CFB1F4E40B00;
+	Wed, 18 Nov 2026 13:25:22 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 875A85FE9B;
+	Wed, 18 Nov 2026 13:25:22 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B095711BC12C1;
+	Wed, 18 Nov 2026 14:25:12 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795008317; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=GxAZTq7Ao+4XtB3Gk3Rw38IdkfFxSdo1k6VZCcuN1II=;
+	b=WoJhJqJrnvjPuwhaF9mH6EaCd9Xtm5DHU+e4UZnoXj9UhyU5+8r6/c5/sWPUzrla/HpGJG
+	qkknMkQ3z2AcQO6KJN+smzwQ6Zx9am4QQeyVTU0XOeunNv8DzODahgQjHcxtReYWI8To8L
+	zFNaJUO7i0ikm8bmgqAX9BuN6AU9lAFTkAL2l5UF5p1Uj8/PG40r3HN28vCHvsG6sdu5Kz
+	VU+4RzSErHDdD/TiVTOw64EFaWUqlu7RmHpcWWMQG535+LrTgp3XVLnM1Cgp4DfBnFSTh4
+	yv7EwKf/W53vafgPKwcURoE/gT+l4oyjhR5Tk57I7Uz7rmSZyB0dUi85u6NCXA==
+Message-ID: <c8161754-f2a0-4efd-a7cc-72cd6a4696ce@bootlin.com>
+Date: Wed, 18 Nov 2026 14:25:11 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,40 +62,117 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3X0Tgpv1qlRFsIg--.36225S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWrtw4Uur1ktF45GFW3Ar45GFg_yoW8Jr4Dpa
-	1UXrW7G3y8Wan7t347G3yrur95Jwn7trWYgry7Aa4F9w1fXr1Fyryjvr4fWFs8CF1vyr43
-	tF4SgF18Xa4Ygr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pEL0ehUUUUU=
-X-CM-SenderInfo: xkdr5xpdqjszblsqjki6rwjhhfrp/xtbC7QL7amr9puIGdAAA3f
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/5] drm/vkms: add a helper for channel to argb_u16
+ conversion
+To: Matheus Alves de Almeida <matheus.aalmeida@inf.ufrgs.br>,
+ Haneen Mohammed <hamohammed.sa@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Melissa Wen <melissa.srw@gmail.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org
+References: <20260928005301.367977-1-matheus.aalmeida@inf.ufrgs.br>
+ <20260928005301.367977-4-matheus.aalmeida@inf.ufrgs.br>
+From: Louis Chauvet <louis.chauvet@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20260928005301.367977-4-matheus.aalmeida@inf.ufrgs.br>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-If gen_pool_add_virt() fails after qcom_tzmem_init_area() succeeds,
-qcom_tzmem_pool_add_memory() frees the DMA memory and area descriptor
-but leaves the SHM bridge and its handle allocated.
 
-Since the area has not been added to pool->areas, pool destruction
-cannot reclaim these resources. Call qcom_tzmem_cleanup_area() before
-freeing the DMA memory to delete the bridge and release its handle.
 
-Fixes: f86c61498a57 ("firmware: qcom: tzmem: enable SHM Bridge support")
-Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
----
- drivers/firmware/qcom/qcom_tzmem.c | 1 +
- 1 file changed, 1 insertion(+)
+On 9/28/26 02:52, Matheus Alves de Almeida wrote:
+> Other pixel formats have similar conversions to the one implemented in
+> the RGB565 helper.
+> 
+> Add a channels_to_argb_u16() helper to convert individual channels into
+> the internal representation, and use it in argb_u16_from_BGR565() and
+> argb_u16_from_RGB565().
+> 
+> Signed-off-by: Matheus Alves de Almeida <matheus.aalmeida@inf.ufrgs.br>
 
-diff --git a/drivers/firmware/qcom/qcom_tzmem.c b/drivers/firmware/qcom/qcom_tzmem.c
-index e1d944d0eb63..b2ca1d18bf3b 100644
---- a/drivers/firmware/qcom/qcom_tzmem.c
-+++ b/drivers/firmware/qcom/qcom_tzmem.c
-@@ -219,6 +219,7 @@ static int qcom_tzmem_pool_add_memory(struct qcom_tzmem_pool *pool,
- 	ret = gen_pool_add_virt(pool->genpool, (unsigned long)area->vaddr,
- 				(phys_addr_t)area->paddr, size, -1);
- 	if (ret) {
-+		qcom_tzmem_cleanup_area(area);
- 		dma_free_coherent(qcom_tzmem_dev, area->size,
- 				  area->vaddr, area->paddr);
- 		return ret;
--- 
-2.25.1
+Reviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>
+
+> ---
+>   drivers/gpu/drm/vkms/vkms_formats.c | 50 +++++++++++++++++------------
+>   1 file changed, 29 insertions(+), 21 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/vkms/vkms_formats.c b/drivers/gpu/drm/vkms/vkms_formats.c
+> index b44900761..6e4f58207 100644
+> --- a/drivers/gpu/drm/vkms/vkms_formats.c
+> +++ b/drivers/gpu/drm/vkms/vkms_formats.c
+> @@ -229,24 +229,42 @@ static struct pixel_argb_u16 argb_u16_from_le16161616(__le16 a, __le16 r, __le16
+>   				       le16_to_cpu(b));
+>   }
+>   
+> -static struct pixel_argb_u16 argb_u16_from_RGB565(const __le16 *pixel)
+> +static u16 channel_to_u16(unsigned int size, u16 in)
+> +{
+> +	s64 fp_ratio = drm_fixp_div(drm_int2fixp(65535), drm_int2fixp((1 << size) - 1));
+ > +
+> +	s64 fp_channel = drm_int2fixp(in);
+> +
+> +	return drm_fixp2int_round(drm_fixp_mul(fp_channel, fp_ratio));
+> +}
+> +
+> +static struct pixel_argb_u16 channels_to_argb_u16(u16 in_r, u16 in_g, u16 in_b, u16 in_a,
+> +						  unsigned int size_r, unsigned int size_g,
+> +						  unsigned int size_b, unsigned int size_a)
+>   {
+>   	struct pixel_argb_u16 out_pixel;
+>   
+> -	s64 fp_rb_ratio = drm_fixp_div(drm_int2fixp(65535), drm_int2fixp(31));
+> -	s64 fp_g_ratio = drm_fixp_div(drm_int2fixp(65535), drm_int2fixp(63));
+> +	out_pixel.r = size_r ? channel_to_u16(size_r, in_r) : in_r;
+> +	out_pixel.g = size_g ? channel_to_u16(size_g, in_g) : in_g;
+> +	out_pixel.b = size_b ? channel_to_u16(size_b, in_b) : in_b;
+> +	out_pixel.a = size_a ? channel_to_u16(size_a, in_a) : in_a;
+>   
+> +	return out_pixel;
+> +}
+> +
+> +static struct pixel_argb_u16 argb_u16_from_RGB565(const __le16 *pixel)
+> +{
+>   	u16 rgb_565 = le16_to_cpu(*pixel);
+> -	s64 fp_r = drm_int2fixp((rgb_565 >> 11) & 0x1f);
+> -	s64 fp_g = drm_int2fixp((rgb_565 >> 5) & 0x3f);
+> -	s64 fp_b = drm_int2fixp(rgb_565 & 0x1f);
+>   
+> -	out_pixel.a = (u16)0xffff;
+> -	out_pixel.r = drm_fixp2int_round(drm_fixp_mul(fp_r, fp_rb_ratio));
+> -	out_pixel.g = drm_fixp2int_round(drm_fixp_mul(fp_g, fp_g_ratio));
+> -	out_pixel.b = drm_fixp2int_round(drm_fixp_mul(fp_b, fp_rb_ratio));
+> +	return channels_to_argb_u16((rgb_565 >> 11) & 0x1f, (rgb_565 >> 5) & 0x3f,
+> +				    rgb_565 & 0x1f, 0xffff, 5, 6, 5, 0);
+> +}
+>   
+> -	return out_pixel;
+> +static struct pixel_argb_u16 argb_u16_from_BGR565(const __le16 *pixel)
+> +{
+> +	u16 bgr_565 = le16_to_cpu(*pixel);
+> +
+> +	return channels_to_argb_u16(bgr_565 & 0x1f, (bgr_565 >> 5) & 0x3f,
+> +				    (bgr_565 >> 11) & 0x1f, 0xffff, 5, 6, 5, 0);
+>   }
+>   
+>   static struct pixel_argb_u16 argb_u16_from_gray8(u8 gray)
+> @@ -259,16 +277,6 @@ static struct pixel_argb_u16 argb_u16_from_grayu16(u16 gray)
+>   	return argb_u16_from_u16161616(0xFFFF, gray, gray, gray);
+>   }
+>   
+> -static struct pixel_argb_u16 argb_u16_from_BGR565(const __le16 *pixel)
+> -{
+> -	struct pixel_argb_u16 out_pixel;
+> -
+> -	out_pixel = argb_u16_from_RGB565(pixel);
+> -	swap(out_pixel.r, out_pixel.b);
+> -
+> -	return out_pixel;
+> -}
+> -
+>   VISIBLE_IF_KUNIT
+>   struct pixel_argb_u16 argb_u16_from_yuv161616(const struct conversion_matrix *matrix,
+>   					      u16 y, u16 channel_1, u16 channel_2)
 
