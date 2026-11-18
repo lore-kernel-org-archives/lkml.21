@@ -1,47 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795013897;
-	b=dSs/DeuZylTgMAYO8/avdhTf/9EwMuKsSkS0uQwuBbeXbZ23NUE/Sx5/pPCcbwz+PrRD
-	 xsKdis62+y/SotxClOd6iUI7YyjOxsWUbEDnBvHyumF+ciFcVBNtWTD4S9z90wsq8EZbP
-	 Lm0eUoEof5km2J59eN+DNsP/HX2QaI/eELLrg7U89kN2jECKIuHw0mgOBsdhrrRd3msIc
-	 gyzjCUznMGoscUK2XKXafM38KrB5RFxRGModGo72IqpzWa+vU+paa4pMSEhW0WROIDJaD
-	 tFJ7N/i4UnIrGc9j/KCqK1DxQgCb+rfB9Kplw+U8CEhBvRhyiHr9cJ4L5Jh+UqAtx9w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795013897;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=PJCnB2NDWiV3ObQfPaZFnBjIW1Yxsi5C6UDhp71aKIY=;
-	b=nbG9TgHDlkIo9sJq/es+lyaHwV1IDj8utJY5gJIviR8snKSyXPbbVG4MN8u7WPWZ9Top
-	 +K4m/WrDHqdHnMR+FyHE7m4cdCucn3GVFLhVe9FofoJ/3Ewak06UBd0KIrPNVfHmLvfR1
-	 NVJ9f3TnhqvT7Bq6037nqNgiAOi/73haQgNZTZWVaBBsj/EOOxfJ8JvDJVk7EE6IxjwmS
-	 ldy3dK3JohSDnObZQ+i8FdaSa0VzvIfx/Eue273AlcOeAdi6xOF8V2feDYRBpC0MQst2s
-	 pdZfxlcHJgLPLoTENRjpFv53LVo2Jc3Mh9Blg4BVD5Td/GxDVC5WvYi1u9+qhlvfUXw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DijxmAwD;
-	arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795013896;
+	b=rXvJL2Aj/M5KU22CbMhfqJeBYBJUbYH+YSDNRzftQcNIzdWQhBOSBdM5wFYHcb9BZnuF
+	 TW1wWyl2rKsexTt5BHUe0EPjczfO15Yo6skqT7LUFpGpggBZL6I3KfJk+XrT2wW19tIPI
+	 d4PUmep8OiKH9oYaP1IH+i2MDE48O/r/JT5D6ux4iSZ6/atcP+kWVwyO9WM63knSf9zy5
+	 U51Qv2xITtIuqiLZx/nkf3WG1xv2vUALEe4xa/bPPW9ZKkAdTuayzycSOkqE9yorCDQ2W
+	 4gOAUIYhgbWAJhvfFXp/N9PXPPWJzNUQHeR1WzW144VrKNGUHQmcGdF4hpjK49WJscw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795013896;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=0XaXdrDvphgQpimZx5cBV74V3RkBkYmldb9F3GdEaZY=;
+	b=t3uT5wwUzOjXIlitOKk7gRgYqhPMi+ZdphiBBxbB8WBAahCUGs6um7W/7y9edJFXbcKO
+	 Buiuv6bBbOT9ulxaTXehWmwsQ8GjklEIJVGMsM3ElJOoPQkwjMpGGPBbuEvkAMfXpvie4
+	 wc+7cb6H6i7h2QjsNXBHYkhnV/EfY7Rkxa7lMoQdTUDQgVTcaxfrBxx8MLHOQ2sxbbiOd
+	 0s+fVuQgNjyBpdk0WjKNIMyKDmQSLwFuBwQ6LmeYS9OKKqLRba/LFjwbSZPfkZKuBq+YF
+	 +LJUMCjdHlIQhOI2+d2RGMRWmLh64JpC38evFC4yPzQVi7VctFcNK6qT/BAi1HT7+7Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fR9D4MB2;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7671860A261F
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:58:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3FEC606A31C;
+	Wed, 18 Nov 2026 14:58:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DijxmAwD
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4096D1F000C6;
-	Wed, 18 Nov 2026 14:58:14 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fR9D4MB2
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795013896;
+	b=H13zCjhqAj44AdEcbGfIzoxvZBj1ciT969lPjo5Ny+E3i2CkadgynjZRAMBJRco0h8bY
+	 evIpZs+Jywqf2ItcbnL45slwuFnxyDnLZvHQL7QMkfJrPWVKc3V1U3o4EngtIm8oJWNcU
+	 3E0FuGSYDASVhdl6ZNk9ECUfMpUass/DK1HsCFljvCKHjF7tM04wN7+gvemaXFEf8hNyM
+	 N4dFUf3vHkFaxywM7Qqa4wKt94TkLhEZvQUzVOcq+JDCgoeA09ExYkCrUCa944xJRcpOz
+	 6IsfWyII6oB0C876rIsjMEfj230mAflETNpWY7wsWCErOeJJwewpv8Am/gYBdN7ik0w==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795013896;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=0XaXdrDvphgQpimZx5cBV74V3RkBkYmldb9F3GdEaZY=;
+	b=sket0ox6sk0kIyGBk1VBx0uebXGuyaqlQc7BTfL8x0vQ/JJ2+tS1jGduP5zaEis+pLc0
+	 pkRgByU6BBUwEEeM7tqt1GjLgphOGc5c+CNsUTGDyuMEM3nliYO2/tCVwmF25wM8rHG7I
+	 UJoG9siI9ZVMMm77vjfUE9Lq8nKqo4E8ee7I+1gMQCD3RLR2qKxqiiyNmmXRKUc24KzUk
+	 NhVqrmXiyAfsj1TLgYYkdC+CvZOMYlIdCIrkYIzrElByWyBQJrOUpvxX+F07C0GFQLL/i
+	 jX40VkN1aw8VNmdJpn6r6SjtZn/uchf9ivqjH5LRt1hQ06PVyS0f3URo4HRRzG+69aw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 8F2901F00925;
+	Wed, 18 Nov 2026 14:58:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795013897;
-	bh=PJCnB2NDWiV3ObQfPaZFnBjIW1Yxsi5C6UDhp71aKIY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=DijxmAwDbTa4L2Ply7caGjZo5P0/KZEG25tVtp7gfTyyxy4pkIsZr+RuhaTgWEr27
-	 yU+/Fs8hacMRumXJ13cbUwfvoJd1nzStWTWKoc+aY28QMmPlhHokIuYj9TL9DpyW61
-	 uRqamPRt7si3+j7WBBLXmbxC4MXNCgnEhyT+EbgTqAszhilZ7w69B96XPhpF04/GL5
-	 bnBYtWWwSyz27qRE9GcI7Z6bZpi/kp0SC9M9WkXJPyqNJQuZPf/U8k9kL+BwCzNo8y
-	 aw30ShH/ITAduc7ZirgqnDRvFzHZk40JaYT+djBuxNJTW1VAyGmph7ANwOOCiOqbCy
-	 u1y7kdnm7XFcA==
-Message-ID: <f30cda1f-3f7f-4e58-b5eb-5db77c0f82ee@kernel.org>
-Date: Wed, 18 Nov 2026 15:58:11 +0100
+	s=k20260515; t=1795013896;
+	bh=0XaXdrDvphgQpimZx5cBV74V3RkBkYmldb9F3GdEaZY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=fR9D4MB2d1Qjol8H8XVYBNwby89AJ3DOQ/sBGoTxJ+CWo5X1QAvhJj+ks5HoLwlZR
+	 hL2K8ZA6yO5997znys+egTGtGoJfYd4BbiF82PEs03hxYtPNAu0gTZNZHs43g/Uce8
+	 RISzsc1HfngjZcBAVuv5XVuF23ESo3u+K3tzTFFzFGrqFYotGAMnF7IBR4k2TR2dmU
+	 YpJpjNuYMrUix1yahje/32vGKdqnfOwZugLqZ8q9+cBy8WhFAE/kmwe/W3W2EwSI8C
+	 W3mQT8Voi62kUiMyzeT95ccj2vMWgJ2sUwWudrYiZ2SAEQPahUTJ0UmzaoJYJz4m7+
+	 h+b014e3Av9Dw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 0A0704AE00;
+	Wed, 18 Nov 2026 14:58:13 +0000 (UTC)
+From: Alexandre Rapaille via B4 Relay <devnull+arapaille.atlr-engineering.com@kernel.org>
+Date: Wed, 18 Nov 2026 15:58:00 +0100
+Subject: [PATCH 2/3] wifi: wcn36xx: Do not enforce interrupt trigger type
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,84 +82,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] mm/memory: remove the mkwrite argument from
- __vm_insert_mixed()
-To: Sang-Heon Jeon <ekffu200098@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
- "Jose A . Perez de Azpillaga" <azpijr@gmail.com>,
- "Liam R. Howlett" <liam@infradead.org>, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, Lorenzo Stoakes <ljs@kernel.org>,
- Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Vlastimil Babka <vbabka@kernel.org>
-References: <20261002160535.661399-1-ekffu200098@gmail.com>
- <20261002160535.661399-3-ekffu200098@gmail.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20261002160535.661399-3-ekffu200098@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261118-wcnss-series-v1-v1-2-a64d82e151bf@atlr-engineering.com>
+References: <20261118-wcnss-series-v1-v1-0-a64d82e151bf@atlr-engineering.com>
+In-Reply-To: <20261118-wcnss-series-v1-v1-0-a64d82e151bf@atlr-engineering.com>
+To: Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Loic Poulain <loic.poulain@oss.qualcomm.com>, 
+ Luca Weiss <luca@lucaweiss.eu>, Eugene Krasnikov <k.eugene.e@gmail.com>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, wcn36xx@lists.infradead.org, 
+ linux-wireless@vger.kernel.org, 
+ Alexandre Rapaille <arapaille@atlr-engineering.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795013892; l=1329;
+ i=arapaille@atlr-engineering.com; s=20261118; h=from:subject:message-id;
+ bh=khOZHEXRcSQmbq7KDArufnHPyg+ogBAkMuAIzDyD5GI=;
+ b=nII4Tr6E80HN1n9xJCpvsfRQtm3voa4KEvn2sUb3dTDXcNFbHiKQ1Jq+Xa7RgMMY+0XXn1unX
+ 8swV0TgKt1hB9hMZ9nFdCy06x0CvWp/RXPAMmDJqGYkbiJHEgW3AC9T
+X-Developer-Key: i=arapaille@atlr-engineering.com; a=ed25519;
+ pk=xskH/sIiNU/aZCeGeBB1TK/AuiG3MXlX0m2wMlbMl08=
+X-Endpoint-Received: by B4 Relay for
+ arapaille@atlr-engineering.com/20261118 with auth_id=1560
+X-Original-From: Alexandre Rapaille <arapaille@atlr-engineering.com>
+Reply-To: arapaille@atlr-engineering.com
 Content-Transfer-Encoding: 7bit
 
-On 10/2/26 18:05, Sang-Heon Jeon wrote:
-> __vm_insert_mixed() is only called from vmf_insert_mixed() with
-> mkwrite == false, so mkwrite is also always false in vm_mixed_ok()
-> and insert_pfn().
-> 
-> So remove the argument and the unreachable code in insert_pfn().
-> 
-> No functional change.
-> 
-> Signed-off-by: Sang-Heon Jeon <ekffu200098@gmail.com>
-> ---
+From: Alexandre Rapaille <arapaille@atlr-engineering.com>
 
-Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+Forcing IRQF_TRIGGER_HIGH over the DT type makes the re-probe after a WCNSS
+restart fail ("type mismatch, failed to map hwirq"). Rely on the DT, as
+commit 1ee6c5abebd3 ("ath10k: do not enforce interrupt trigger type") did.
+
+Fixes: 8e84c2582169 ("wcn36xx: mac80211 driver for Qualcomm WCN3660/WCN3680 hardware")
+Signed-off-by: Alexandre Rapaille <arapaille@atlr-engineering.com>
+---
+ drivers/net/wireless/ath/wcn36xx/dxe.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/net/wireless/ath/wcn36xx/dxe.c b/drivers/net/wireless/ath/wcn36xx/dxe.c
+index 801f1218ef..7852f71368 100644
+--- a/drivers/net/wireless/ath/wcn36xx/dxe.c
++++ b/drivers/net/wireless/ath/wcn36xx/dxe.c
+@@ -552,14 +552,14 @@ static int wcn36xx_dxe_request_irqs(struct wcn36xx *wcn)
+ {
+ 	int ret;
+ 
+-	ret = request_irq(wcn->tx_irq, wcn36xx_irq_tx_complete,
+-			  IRQF_TRIGGER_HIGH, "wcn36xx_tx", wcn);
++	ret = request_irq(wcn->tx_irq, wcn36xx_irq_tx_complete, 0,
++			  "wcn36xx_tx", wcn);
+ 	if (ret) {
+ 		wcn36xx_err("failed to alloc tx irq\n");
+ 		goto out_err;
+ 	}
+ 
+-	ret = request_irq(wcn->rx_irq, wcn36xx_irq_rx_ready, IRQF_TRIGGER_HIGH,
++	ret = request_irq(wcn->rx_irq, wcn36xx_irq_rx_ready, 0,
+ 			  "wcn36xx_rx", wcn);
+ 	if (ret) {
+ 		wcn36xx_err("failed to alloc rx irq\n");
 
 -- 
-Cheers,
+2.43.0
 
-David
+
