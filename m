@@ -1,90 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795013250;
-	b=SD5ChaufL1zKvQKXOZiCChtQjBiIM5624Z8HgIDRUatFqZof9v0F4ZqVMiN98GqwkO+5
-	 rXsv8Ht2xyIc7WjESEupyOlUG6O3DEifWOpgYXhT1cFZTf0NM8ku1KiKRONDJWLYD7qXK
-	 o6K7Ilshm2nwjuu2WBmtF5FwoOJUMDkjtkK+5SZ0ej8X83WoIusfTorZmsrmRK819miPS
-	 /7v4g8BAFZyFbyAm9cbMrIIkzuSDHbgcR4yUl7+1xS95s63hxsVwZUFukFgAiS69covkY
-	 3T14jyfLaK9UljcXr+zEyFKPfRmRpwb+1krY0dSkWodY5yXBMgyx+dwHJvWd1rZMC4g==
+	t=1795013259;
+	b=sfAZlkppuX6XHCxqeDf+dQCnyAxJvHC1ulKg8s98jWYAvZ18phFNrIXPjxD1sSr6/yU1
+	 FVSxtSP3ni6jXmDuSFmyzWMajacvQlXPNkXKsx7kRG2gLYn9/Hfkiz97ZgI0imr5idzVi
+	 xHOiCofIf4eEVg8nplGO3NGZXI3jcNsfvDvdg1xb/JGH9xOqaCFNwldipHVo2JkcSxl83
+	 Dh/8WITdJHmqzI3QXdcS39hUo+/FL7nizy24JsUATMLb2TW8hPs97QGYydqbOQiL2fgQL
+	 X8i68pid0xcm0YrkDr982KqLQYppmcPDWqxk2GYnr649D3ST9c5fC03O5mdWMLQXeDw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795013250;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-TM-AS-GCONF:X-Proofpoint-GUID:
-	 X-Authority-Analysis:X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=t5onPN3TrUNKENSnEWzImlab/yxdW0A7q5jzF8fCqJg=;
-	b=ugK0rtFD7xAlgTaGbdtGr/tki6xI7QUZoGwC45LjCvwm4xBs98UqfXP0PB65DiSeEIGt
-	 W554cMRVm+Dn4lJIXGK576RwxW3i09npndxCwY+xr9ir56kRiP1dfpGktQT35ftogmDdX
-	 Al6A3YF+9dHrr/f7Mjsvsg/4B+sivGrLWPQn728tvGdC1MF3h6HvWtahG/LiJld99tXJ8
-	 rNPAsywB2/THj+p+pUJ0cMgyW/YvT5jzRI5r1c6aaP2sADxWtixo4//UhpV9Set00qMTp
-	 10XyVP3A4qjbqT32d18o/Oabt098Ye+XDdILa4oIeMszwZ5vHGOSxPbDlUFfeLH8Y2A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795013259;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=IgtmGgLwdp7YHZZLZXtmuM3LeEAEVVcvQiETOOFbu8o=;
+	b=ycpArFC+upkAqseB9IQ2/K4HcXbRRtCNWTsqFVKSX8Dt0+vDiB1hAeNwFZA/cAjgGzlL
+	 23UEfhogGlOmKp9LIs/RIP+bC6hx3b4XdMsYKkVp6r2Z7doJu+stQCYJK3y2T+YaJN5QK
+	 K/VmsZF7OoyON0KK85NtblqQAYLICvAFaL0ZMxED5ikmJSfepOOhfdRPQ0Unzfbq/VPIR
+	 RxBklPSWiSuvZRif1fD5mLbcUOJUHxhwEHFjXE0puQ7iXz+5Owjmy620u3ofHND4pzaKQ
+	 hUmLSAj6TxHEqUwygIZ+/8ft2BJkQAtMgzMKNMsZdoxjzksOQFAjXI5LX2Pd2A2d3/Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=rLOOlaCV;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=none header.from=toxicpanda.com;
+	spf=pass smtp.mailfrom=toxicpanda.com;
+	dkim=pass header.d=toxicpanda.com header.i=@toxicpanda.com header.a=rsa-sha256 header.s=google header.b=mce3LPT5;
+	arc=none smtp.remote-ip=209.85.222.175
+Received: from mail-qk1-f175.google.com (mail-qk1-f175.google.com [209.85.222.175])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC990606A331;
-	Wed, 18 Nov 2026 14:47:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC990606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FAB660A261E
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:47:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1FAB660A261E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=toxicpanda.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=toxicpanda.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=rLOOlaCV
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIDR3dB012468;
-	Wed, 18 Nov 2026 14:47:15 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=t5onPN3TrUNKENSnE
-	WzImlab/yxdW0A7q5jzF8fCqJg=; b=rLOOlaCVLQn5/GaIyIhvbmkHf+UXlBnEl
-	XG1109xNVGlnK4u6Q6FEx2RK0TYiu4wIDnMiumMr+whOvJ20otfKpJRA7uGRsiJF
-	CpqjJCtTnaXLWwt3RO546HyLOBa3q48BpMQS9Ww+co/XIf8hUi89UnSNhe/xwdH1
-	GA8zMG65jVcjc5ZLZs5ZPEFESG6AlgKLUemUD93NBieKjt8BrVzArUEY8cG5Yg5m
-	awVZ8cetOuljBfmqeGI/3U/5MDUBa2E71PX40BLpTRKGO8sxE+wqfEMSauyibjLH
-	xA7L0gI/KdQ/r2/yjZFuUlQizXs9sDULyVVg6kH3TUCAKZr0t2ssg==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105vtuxg-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 18 Nov 2026 14:47:15 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIDYtEF3470648;
-	Wed, 18 Nov 2026 14:47:15 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4hyxwt8swc-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 18 Nov 2026 14:47:14 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AIElAJ550659740
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 18 Nov 2026 14:47:11 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id CF07E20049;
-	Wed, 18 Nov 2026 14:47:10 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B03982004B;
-	Wed, 18 Nov 2026 14:47:10 +0000 (GMT)
-Received: from osiris.ehn-de.ibm.com (unknown [9.68.31.201])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 18 Nov 2026 14:47:10 +0000 (GMT)
-From: Heiko Carstens <hca@linux.ibm.com>
-To: Vasily Gorbik <gor@linux.ibm.com>,
-        Alexander Gordeev <agordeev@linux.ibm.com>
-Cc: Mike Rapoport <rppt@kernel.org>, Sven Schnelle <svens@linux.ibm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org
-Subject: [PATCH 3/8] s390/kexec: Let crash_protect_pages() warn in case of an error
-Date: Wed, 18 Nov 2026 15:47:04 +0100
-Message-ID: <20261118144709.202520-4-hca@linux.ibm.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261118144709.202520-1-hca@linux.ibm.com>
-References: <20261118144709.202520-1-hca@linux.ibm.com>
+	dkim=pass (2048-bit key) header.d=toxicpanda.com header.i=@toxicpanda.com header.a=rsa-sha256 header.s=google header.b=mce3LPT5
+Received: by mail-qk1-f175.google.com with SMTP id af79cd13be357-94961ed97bcso130465585a.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:47:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=toxicpanda.com; s=google; t=1795013258; x=1795618058; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=IgtmGgLwdp7YHZZLZXtmuM3LeEAEVVcvQiETOOFbu8o=;
+        b=mce3LPT5oG7C8F/QlXxfra+ftcUqbbosr68KVWr4liElvzqRdfBEqD/aEKIHceO+Aj
+         +7TrSS0VWnGw72sCUYxtMjkg2MrGffSmsRtSP06tlj7q26d8E2nSTu4Z0BSvWs0M5cd8
+         KB4LmsGi40TprWi9Dp8BnOyTEmFGkNYhFFanczHDzzKTNXuNvSPbFVnO0PIil/6+GCbK
+         TBiO4Rkq/COIB6DJcfaHVgLG+7qjvdh1LPzUR7FonRPcRWRDNzUcdJW0Rcnl2JL9lKHC
+         h5D0d4zczwBfyJqPh8GSUOsTeJtA1998BdswYK4nrDfVV55D9/VxOJDtpGtoQt8e5N5W
+         k9ew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795013258; x=1795618058;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=IgtmGgLwdp7YHZZLZXtmuM3LeEAEVVcvQiETOOFbu8o=;
+        b=DQfdAXGF/ACtDknCSaOnlKQ2GaEeZCmnaUb6MtNw+8ddGC7tqEG3DO/9teBK3FLq1v
+         I1G4rWrOvN0FDRTkQZcH8grVcns4eqju9Wsd1tbNXeh9bxlf68OaxdfpsaWpHXg1dnE0
+         NaQEl0SV/CYXg5D4AHcbnjA2O04IGXUx8QhHtA9HAKECz95HyhiQAf0GVEYTYkxHw7Ug
+         ddgc1PAUO8wSYqJjt+CgwpeEhi0+avTMrk+Smmb4T7QV7W5NeXFI9nbpG/sw8LY1PDTN
+         3rFl3FkAMztRfGTnJ7br4H5yqCbIUk1cnVWM+5uWS6DiY9h4x4UY+sI1xQNhb3Axa7/B
+         eW4A==
+X-Forwarded-Encrypted: i=1; AL+hErEwNl5ZceS90nxF9GN93GnNhNVAXvO6vl5oK5jSWJWn7mVYfH6I3/pYr4Km9XEShbvaZykUxDuocns4cgg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/f+HR4NP2G2NRPeBcfT9jZ9vpTQ1jVgAatMOW86XwyxQ1pHXc4
+	j0Dmp63u+rLBOXF8p+NTjT2dwhgqt2wHTwVXTT5EjwSYkWgRouG89aIXUk7DHQjP6/0=
+X-Gm-Gg: AYBFou0L/v4VS0jJD0XSi4vH9si48rg3RfUOq18w2lBwj/mSgIrTA3uNWwTv8CgP5M9
+	xIiwtwoFAFi4NvqW0EeNdf0GnB10slCaaogf39b+PQKjfo8vCAqbD8tnEKXT5+bcqSzw6PeNrLf
+	I18HP3W4m70yaGVbebrkGBDDkj45v3GHtM2SabkZy/M7AX/b1J9JBPUyHWkhGjck3+FP+uSR8XQ
+	Yjx0Ub0Oc7V1scQphHXM/GWLW0DOqp3b5FzqupeqftSR/FIh7rtGnKwBtgykhB0QQ4mbI7/ETgX
+	b8miuubd1z+Zz/oazNOXe258hCZFjXNOzJUmTxI3nMQwRIodLKcvnLISItS3AoZWil9mAdyfREf
+	DBbVGVuz2jAgSCzOEXqNIP2M0zPz26NiBo7Vlrahb+cynunTP3NjGbP1iR2FxCFpl5kPvUEEkhu
+	Cp1XSb9Pf8hmu+PMW2RHE/FjT1O+r0cJwiGnSOOTk7Cb+l6cX15b/z347q+u6juvrtNv7yvtFNe
+	EjxzWT91bJqWxC3CbqCe2hpU0j5GBPX2yGzIk/1YH5UxjeU8IKUWRGMIE2HkGjbN2MZXp5ovjMI
+	0WI9KzvZWotuR2+v/BhrAgBxO0WHqOW6GudxzX+YpQyT128=
+X-Received: by 2002:a05:620a:880a:b0:93c:b5fd:f33f with SMTP id af79cd13be357-94999722106mr491978585a.27.1795013257845;
+        Wed, 18 Nov 2026 06:47:37 -0800 (PST)
+Received: from toxicpanda.com ([153.61.196.252])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-9499b81d4a0sm193898585a.43.2026.11.18.06.47.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 06:47:37 -0800 (PST)
+Date: Wed, 18 Nov 2026 14:47:34 +0000
+From: Josef Bacik <josef@toxicpanda.com>
+To: Jarkko Sakkinen <jarkko@kernel.org>
+Cc: linux-fsdevel@vger.kernel.org, linux-api@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-mm@kvack.org, linux-security-module@vger.kernel.org, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Andrew Morton <akpm@linux-foundation.org>, 
+	Andy Lutomirski <luto@amacapital.net>, Ben Segall <bsegall@google.com>, 
+	Christian Brauner <brauner@kernel.org>, David Hildenbrand <david@kernel.org>, 
+	David Howells <dhowells@redhat.com>, Davidlohr Bueso <dave@stgolabs.net>, 
+	Dietmar Eggemann <dietmar.eggemann@arm.com>, Ingo Molnar <mingo@redhat.com>, Jan Kara <jack@suse.cz>, 
+	Jonathan Corbet <corbet@lwn.net>, John Johansen <john.johansen@canonical.com>, 
+	Juri Lelli <juri.lelli@redhat.com>, Kees Cook <kees@kernel.org>, 
+	K Prateek Nayak <kprateek.nayak@amd.com>, "Liam R. Howlett" <liam@infradead.org>, 
+	Lorenzo Stoakes <ljs@kernel.org>, Manfred Spraul <manfred@colorfullife.com>, 
+	Mel Gorman <mgorman@suse.de>, Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>, 
+	Neal Gompa <neal@gompa.dev>, Paul Moore <paul@paul-moore.com>, 
+	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Randy Dunlap <rdunlap@infradead.org>, Serge Hallyn <sergeh@kernel.org>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Steven Rostedt <rostedt@goodmis.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Valentin Schneider <vschneid@redhat.com>, 
+	Vincent Guittot <vincent.guittot@linaro.org>, Vlastimil Babka <vbabka@kernel.org>, 
+	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>, alex@amutable.com
+Subject: Re: [RFC PATCH v2 00/13] Namespace for namespace roots
+Message-ID: <wdwc3b5edgtgvrgqfhlzhrachr5hrqb7ahipcuqdz5pffxlc5b@662cpwhxwjer>
+References: <20261117231352.3816603-1-jarkko@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,70 +114,35 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: VGYcd1GHk2X6PjwmKUj_tWaY4HtZnlpz
-X-Authority-Analysis: v=2.4 cv=Z8x5j3RA c=1 sm=1 tr=0 ts=6afdba73 cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=V8glGbnc2Ofi9Qvn3v5h:22 a=VnNF1IyMAAAA:8 a=kMJ-d3RZYZQm1CzUGdYA:9
-X-Proofpoint-ORIG-GUID: VGYcd1GHk2X6PjwmKUj_tWaY4HtZnlpz
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA1NyBTYWx0ZWRfX33xbrhqn573I
- 7EajZrqz5VrwYL8/V/e869FRbOoti9YOd06zlLSmBwQV81eJe0uxZyaty/2TCS3E21BzIORjwud
- 2JsPnf/avue/1xRtiHKRner/7fGY8/8=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA1NyBTYWx0ZWRfXxHUNW59blgIP
- HCUvXpndIq4/2HWhsUxPF1vbIxQUWOawsyACSjjl4gwR9UElc8vwlQcPZK47MSCuAZ46UBpSWoZ
- OPxXk/4zUGNE7JG2LalMD1s9Q7q/znD08ozWtdyHIqSPVY/81zNuO7vdtloWF/Xqr/zv+UXPkAu
- f+8hiUxJASo3l08MmXczp/wYaBQUz8Q08942YMuSUeVnotnzcNwCs2wtImJm0bjA0JhWGXGrLj/
- Jzb5y6uT66OCM7mxD+FFXSo2+zVnRg+oT9gLNXy2ujtJbXPKjQWEzCzZK4cBw0ux1+LKcyxgYbR
- qMnzLXtfKEEQUSY3Qqzhhi1AhFVSbkzpiTqKkRIygr+c3CUByEHiOcFsJX1aVnvPLVIJNNS4zKw
- yJqcmo1viabXGhv7sBsuN79RzgIm8vPX0T0rFT/muwa53njkfVsnStoULfSwdazKbuRRV5fVNob
- N7MHHgI6eix7eHzUPwA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-18_04,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 phishscore=0 lowpriorityscore=0 spamscore=0 malwarescore=0
- adultscore=0 bulkscore=0 clxscore=1015 impostorscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180057
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117231352.3816603-1-jarkko@kernel.org>
 
-Let crash_protect_pages() print an error message in case set_memory*()
-fails.
+On Wed, Nov 18, 2026 at 01:13:39AM +0200, Jarkko Sakkinen wrote:
+> OVERVIEW
+> ========
+> 
+> A root namespace (rootns) is a kernel object backed by a file descriptor
+> that binds together:
+> 
+> 1. A full or partial set of detached namespaces.
+> 2. A dedicated PID namespace for spawning processes into, signaling
+>    members, and polling or waiting on PID 1 exit.
+> 3. An initially empty mount namespace (CLONE_EMPTY_MNTNS) that must be
+>    populated before going live, without inheriting host mount-tree
+>    ancestors.
 
-This doesn't buy too much since a failing set_memory_rw() would result in
-a crash of the caller as soon as a write to the memory area happens.
-Fixing that requires larger changes - for now only print a message.
+This is what cells is doing https://lwn.net/Articles/1102593/, you may
+want to take a look at that work. Christian, Lennart, Alex, myself
+and others are working towards this in a more wholistic way. There's a
+lot more that goes into this outside of just the object itself. I've got
+my version deployed inside Anthropic for securing containers and I've
+tripped over a lot of pre-work that needs to come because we can tackle
+this. Alex has my rough outline for kuid64 for example, which is
+necessary for making sure we don't overlap UID's on the system and
+create holes this way. The cells work/anything that wants to have clear
+security boundaries is going to require that as a pre-requisite. If
+you'd like I can include you in our planning so we can get something
+that will solve all of our problems. Thanks,
 
-Signed-off-by: Heiko Carstens <hca@linux.ibm.com>
----
- arch/s390/kernel/machine_kexec.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
-
-diff --git a/arch/s390/kernel/machine_kexec.c b/arch/s390/kernel/machine_kexec.c
-index baeb3dcfc1c8..bf65bea5fa01 100644
---- a/arch/s390/kernel/machine_kexec.c
-+++ b/arch/s390/kernel/machine_kexec.c
-@@ -152,14 +152,17 @@ void crash_free_reserved_phys_range(unsigned long begin, unsigned long end)
- static void crash_protect_pages(int protect)
- {
- 	unsigned long size;
-+	int rc;
- 
- 	if (!crashk_res.end)
- 		return;
- 	size = resource_size(&crashk_res);
- 	if (protect)
--		set_memory_ro(crashk_res.start, size >> PAGE_SHIFT);
-+		rc = set_memory_ro(crashk_res.start, size >> PAGE_SHIFT);
- 	else
--		set_memory_rw(crashk_res.start, size >> PAGE_SHIFT);
-+		rc = set_memory_rw(crashk_res.start, size >> PAGE_SHIFT);
-+	if (rc)
-+		pr_warn("Failed to %sprotect crashkernel memory: %d\n",	protect ? "" : "un", rc);
- }
- 
- void arch_kexec_protect_crashkres(void)
--- 
-2.56.1
-
+Josef
