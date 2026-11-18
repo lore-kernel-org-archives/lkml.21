@@ -1,100 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795009883;
-	b=u1uSmLyy67v53IArNGnHt6YAquvJxo36Dcw7faxVLTLAVzSi/rrFr3PybymXubXozhSc
-	 qK1jfm7zLlTQ/v3+hlUR72RgrfILh4VTwAxKlyu/NB0Na8IDw8y8Yh7W0XE+4NbiXqER6
-	 ZlB1D3CDnEkuyyBE9hDf266CVkJnWonggYt7ItwqHO8FsGCysNKzmSte0TCBdoMR5EmnD
-	 0NyS1Jldtm2E0tyvPMcMXgQyAJnB/xGMo1M1bUnHwyYh4oCS+Vn9zdVSQ0Ki6BxDpcrC6
-	 erjnBjfaAEWCljJBoG0q1f862uOmSN2BVGOMqR7h5oWALa1bmfMErePVZq4u1x1I3HA==
+	t=1795009911;
+	b=FPqBw8z+TOrRKebU0wMdwNtc8zRSx8qxOaApTJtwmaPZCzSHuGCntqrRjTsxMci7rdnQ
+	 +2env8GDNmTLo2+rkspx9gDgqj2aTp8MpbABXnh/VYsCZaKfeToN+qZYgt/gYr/nXHC+B
+	 8tu3tCqB9HwPlJlQFyJ/86GLQPt5h7uPAj7Q/y8d2VHHOMAJgH7Cu+mUkhAVaBZuGtoK4
+	 ydqgNyMky+QpvcW76jb9x22U14X39VMNfUR72YgUy+uiFKqC4m7yFpsjZIv3zw1ENei1r
+	 y2RdTiM3NpLqpj9+2dcbl1CIgxsQhABGZkFNaJvCwahkxKCBLU6Np2UkQ17osgafNNQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795009883;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795009911;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=MIZ17EJ90TVFSitTF/G0V5tHa5Ryh7rhMmfLDU73SIE=;
-	b=khsrvotJsWU0Ou9ilFoTt7Whzvd6cK74s1abETAn6E6c7CAWFrBoMj5TwwamE2hAIUz3
-	 pRfNJ61IBmekk9CGG9FQjaQMH3QYWArEIHNALYikpvON54ROW/ZwQWoJ8B65/zFJk0Enf
-	 zLITWq/Qt/AZb4+0ACw1X8HAfOxBeeYBD/n58jm8orWnE0mwxcZYxMNWdHtq5HEiAiLmQ
-	 fRQjj/xPP0WbF9c3oFs7Z0Sbip8h3rCcaqzmDQjKQIO5pD9qRdd2HrP4FIkb2/k0/e49f
-	 81vJ+TMUwC9t3O1ftgzu1qAjTRn4lJ+jc2TmvzCZwVoJ0TL847vDnFFcHBQMZPv6Btg==
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=HUF/PiY/f+/s1GZtbGWRhctQRnBXulbhgqm2mv2gHGQ=;
+	b=vp2zZfR3uxsri+5xabKisbOzpJke4JXSdOGAylG2u+EU4w0aqIX105/1avQMA8XnNv/2
+	 KLGh7w4RGC5+GXR/Z9hHCAPV3VYzqOAjBT3mPGXhRPjogxdk5j2ElQgwfJblzMgHWUORH
+	 r5XY8wtzV0XYbwWzbKvPYG+9p2LswyoP+2OuNAI7sfa4xJydq5G6xKoIob56h7bp5QCRc
+	 zypT13RSPEV1E+uYnQ+FZs08QwFB7FhRQmFd0eRWxjVvxN4kk9qtLFgoRRcZaFuRHtpFV
+	 ebGz2hRSigafJUJbkjQsAXJhJKB62kE0w7/xVmeG/5mmkn0RkbE7G8wAlbfarsCzRWQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=n9SNehBa;
-	arc=none smtp.remote-ip=209.85.128.53
-Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=q6Hk7fXm;
+	arc=none smtp.remote-ip=209.85.128.42
+Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD002606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:51:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CD002606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1ADD1606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:51:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1ADD1606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=n9SNehBa
-Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4a1b07c3c5fso9653575e9.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:51:22 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=q6Hk7fXm
+Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4a214c5c4c0so10480085e9.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:51:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795009881; x=1795614681; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=MIZ17EJ90TVFSitTF/G0V5tHa5Ryh7rhMmfLDU73SIE=;
-        b=n9SNehBaVqytzIHepeoxjU3EJaqvDEfpn6SeIG7rGNbatJoEMC97JWUV8pzcEjaALD
-         3kSbrOzCfv9fwdttVmYfl4HeNGmHZzo2KXkIj+zoNPIIGALPjic89FLTFJxG7n3p4GZU
-         s7ROnGZOQGw8NXCKtrVuk+yiW9OvXOiQzoOaRzSzZJ8wIutEocCTx+AQiP44uYF1VSyF
-         Pf1rZtVVzXojGj8oZPMlDGeNoKTazvxLEdyW3NapFJAY5rPKI/WxKG5ArNSt+DX7+chm
-         2wQwQVwzbJ8o0q9h2U//41PkRqJUTlHf5evgKbPpY5EzN9QDlB9Mpdl18U/MYpJU9K5n
-         W93A==
+        d=linaro.org; s=google; t=1795009909; x=1795614709; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=HUF/PiY/f+/s1GZtbGWRhctQRnBXulbhgqm2mv2gHGQ=;
+        b=q6Hk7fXmsBsuxdjkDkBlv44AT1bT0hm6ntzIs4Gw0Cae8Yhikcl8UhS+ywrJYx+AvQ
+         K5ol+N/H/5j8wdixMc4x9TyNrNHRmu/Wdfh1uS5O6eZ3b+hPsl9AGYXkxeaEJa3qfakk
+         TeknNRDyFdwkE3qpeNvSGXkRXqKINsVq8/t3CKi0G5GY8CTsJR3mgiBArlSylRFFhLoa
+         JlKU0WlosAiOkF+cc17Mqd0KTNOk+2uzGmbRRyyIgszoQD3GOAtn2EitFWGZTSeS7V+d
+         qpnI7LvKalvqxTx1y7DvC88do/03arE2+1fmeEu+aJJL6HaXD0qVH/0FaGXoxVJLoGBe
+         h2mg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795009881; x=1795614681;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=MIZ17EJ90TVFSitTF/G0V5tHa5Ryh7rhMmfLDU73SIE=;
-        b=ogD/P1RDBvjzRNdmfyZJp4v6GfbizI0CHK6dj/UZOGLdSyb5Gv8v27FRMcJTp1VYLB
-         pEA+nio+mW5aivkHra1NeLi82xX6VuDWl2sJnQAF3rGaM0ln2TspRLoF8SHxHP5DtAip
-         krtFSSSeOqVN7nYy9QN7vbnd0eZabBC0LFpVAZ2kudG+GBMBqBmQQAMr7Gn7d+/rbSVL
-         zfJW7vPt1sv3DvuatS3FOuqxVEyFC46ehMObUuWjbAFKUk7VhLG/3X7Ln9viyFu2wlSY
-         M4UEE0O7h88upskTvYx1NQ3ALNbh1oh9d/0YrXX4qvGVgQvRzLZrkNDcPnXcu5dZ5FiS
-         6Yjg==
-X-Forwarded-Encrypted: i=1; AL+hErGegeuboFmXC423/3SeSUayvJtXUz8oyj6uL98dUbB7ZzGB7becNajVJPVEDHVMXXKA1IRTaxSr+vI+C8w=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9j7n6jBwdYW56KPc8OfEt7jtjt3hMUp8A/k46OCTRfD0Ee1ohi
-	zcShrB11rUXadDcoF4JVGJIuEyrzk8LxtnKyAb5CzCsMK3E6FdVaKN/6
-X-Gm-Gg: AYBFou3qA/3zzJG7DlaY7bC/fIHJGEwGPm8IZX9MbGM5eghp2PuZ2VaqzdJKEKgZH9O
-	NbNUhg2KXh8xdKvAq1TlGx2qB7H7IToY6xrBS0GyOZ5r00tbNeiEWGvRMaRu7A0rjjBqFwQV2aP
-	XyTVkiMtIhrYzwQqnNm+bXUCLnLFD2CoHHBzpDZF5m52dqtfLdtv2Gr9xFbPXCx4zhQdt4TtRDd
-	pxlYFNG9C0s5FENyH6tSDaCuEIY2zrJ29Kl6eZo4Kwn5D2i2GbsSSGc850V3ozh1y+DzjCZNG3A
-	c5dkmDlizblPIWbfC9r9IuB39I0QQ5vwNjB8RaqMQr7uqk5SgbfVx3c4EWI5auvg/8lBKroXOEY
-	SsUYBRQXVBcD4fNfn/ksskiuysPhqgJOvw/j4h/zkL810npW01hAqNRCNA7FnF0aSFxoq5Cl6Ks
-	FSY1uHI2bG5qb6Njk8ee5b9XL/kb4LKFGzbU3rSYRUUSW2oFJtYboyK5E/UY1nmzVzmZhl5rzQa
-	gOB8vEc3oRuohtp+qkN/7RZkIPm585rmBwIQ+sA21OjRyk9AqZ9CkvInv5tDGiQd/p9orw2pjc/
-	chtvsUj+r0xxF3LjMDdHTo4IORMbW1Db33bPfiP9iiZKVoS4CmJctDNC1q2Mg3B8YiOd0uW/N0V
-	fM74PGEwkg2g5pHC1pTqd3dzk4ZQRRENoVaw=
-X-Received: by 2002:a05:600c:5008:b0:4b1:4017:c4f4 with SMTP id 5b1f17b1804b1-4bb7da2709fmr53221605e9.20.1795009881082;
-        Wed, 18 Nov 2026 05:51:21 -0800 (PST)
-Received: from pc.tail250202.ts.net ([87.110.86.243])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a654997681sm3926250f8f.15.2026.11.18.05.51.15
+        d=1e100.net; s=20260707; t=1795009909; x=1795614709;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=HUF/PiY/f+/s1GZtbGWRhctQRnBXulbhgqm2mv2gHGQ=;
+        b=Pv8oNzbWuak6YRmqm7NyxUDzk9of81umPPqNclWw1ighXX8nBd9S0hWnSbqidpOcAp
+         mlXYTIgOL49OYFuylhvxMG3Xy1cZkr+I5FgaSqSEs5yfCSrjNwxmrW5CB2Lzd8MgxgKJ
+         L0WEQifb6LrQeMX/In79zM9Pday5OHQqWZr8O6nLl1e1hob5qXl06WUhJyIMLMg7iXua
+         QiGaHU6AUyp+Zbte50wjNGz7xJ69ETAFqhq9jKTX+axJFoin+vl1okujTNwElYuqZwXd
+         qg1a5sK+lq6i5w2ahCNZMXPkdfQHOC24bAYr0xMPshGq0MWtiqw+R0EzF9j1Tv8fKGtk
+         RbMg==
+X-Forwarded-Encrypted: i=1; AL+hErFiG4X88jhGQsxqyQnmNQ3EMI2sW231kQghP9UNX3STsPQc+KKcBJ5gorNBq3jkbqSQGXfrny4MOXeZem8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+glnnQsjnVouQIHQp3Iuij6TsYxfdfuParzvOdMCrtXiJpF3uw
+	TCvubLAZzq8SNx/x7xDxrLbS2qAXB78a36pFsY0lfloHAtVyk7zKbriUOu0LV0pL+SY=
+X-Gm-Gg: AYBFou0YJlBkW9aO8Z6grzgMK5ddMKQkSGA/h6SbpyXdrKyaGBg66sbfC7oR2peELVB
+	lswSQ7LB8TYcKozAYtin1xMT1ulX0PB2F7F905gTs6dPILPIGZ64ECbrE0u9yMWX48huwzjkqR2
+	2Ax6yrVMIarv4nyYlZGImLIW5OIL87iPdFQFhpwXHu9j+HdavM6VGqbzffuIPgSB574GgKhJ69X
+	VUNG4NIdiwCm2BWuyT56Gjar9B5WfPSD9Mm3SK0TPll3fpMvnZUm9cExBY6PR7h2elhasHheRdK
+	1FcKvAzl/T6Qi32h8lTd4RfQDpjI8/sJ0Em1DPmSwxna0qWIND9Q9c1VWr6yMTYEZXvfRvnaQ5b
+	ecFowhaTCpdpbtwNcadxBAiu8A7lqhcuBq9c+k341vti9gucCVEHz2qLn1KPCyfxFECXyP6pL18
+	St76cIlVN/V8GAAriRafPjOWbvY0szfTuhxkjJQa3DTHL71vpi1/spxdpr6HyjJbuV5fL5l+9wg
+	puFex2eoYxllKAwXXTNtCq+TiO1aySuQ5KTaMSluKoEJdySIaJp40h/1m4PVaSxKK5s9MTVQnuh
+	eoprGWKSKduGyAxLwC3QJwGwxNAmEsLtvOYtLEAqTxcHx+BUC25E482K+4qX32cl+oR4jZKxISN
+	KL/30vLMKYXtMo3uoZ5A7ZVA=
+X-Received: by 2002:a05:600c:81c5:b0:4a1:f720:74cd with SMTP id 5b1f17b1804b1-4bb7da38bd0mr49500135e9.24.1795009909409;
+        Wed, 18 Nov 2026 05:51:49 -0800 (PST)
+Received: from [127.0.1.1] ([2a02:c7c:5e34:8000:80a3:e955:3785:90b3])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb78422d2dsm208544775e9.10.2026.11.18.05.51.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 05:51:20 -0800 (PST)
-Date: Wed, 18 Nov 2026 15:51:14 +0200
-From: Janis Edvarts Lacis <janislacis06@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net, 
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, wellslutw@gmail.com, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] net: ethernet: sunplus: check budget before calling
- napi_complete_done()
-Message-ID: <r5ro4ebbpapeq6yacjttlc5k2isw6seaazu5ixarm4ackmshtg@a5mampmyaz3b>
-References: <20261114222744.535158-1-janislacis06@gmail.com>
- <26c5c08f-d6f5-49b2-9fa8-de6f8c244a78@lunn.ch>
- <7zevuoiao6ildvkxt5baqnalb3nrx736krdxkbrbxouelukveq@2wo6m6cfl6rn>
- <461f7e59-6c1d-4ad5-9eb9-5e5d9b4a9e90@lunn.ch>
- <uscwfcie3wlbyljcowjvwhto7aecdid7cxjknvd4t6t4fyj5tt@lpyoijsxuduk>
- <601a79c9-0447-4571-8590-998d02bf949e@lunn.ch>
+        Wed, 18 Nov 2026 05:51:48 -0800 (PST)
+From: Alexey Klimov <alexey.klimov@linaro.org>
+Subject: [PATCH v2 0/3] thermal: samsung: acpm-tmu: Add Exynos850 support
+Date: Wed, 18 Nov 2026 13:51:44 +0000
+Message-Id: <20261118-acpm-tmu-e850-support-v2-0-19848c0d97e5@linaro.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,37 +92,94 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Disposition: inline
-In-Reply-To: <601a79c9-0447-4571-8590-998d02bf949e@lunn.ch>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WNQQ6CMBBFr0K6dswMCrSsvIdhUegATYQ2LRAN4
+ e5W9i7fS/77u4gcLEdRZ7sIvNlo3Zwgv2SiG/U8MFiTWOSYl0QkQXd+gmVagWWBEFfvXVjAELJ
+ CkhWpVqStD9zb99l9NolHGxcXPufNRj97FrFC9ae4ESCo3phCtuXtrvvHy846uKsLg2iO4/gCF
+ 61vA7sAAAA=
+X-Change-ID: 20261118-acpm-tmu-e850-support-d10e9018719b
+To: Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Mateusz Majewski <m.majewski2@samsung.com>, 
+ Thomas Turner <tturner@lineageos.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, linux-pm@vger.kernel.org, 
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.14.3
 
-On 18 Nov 14:19, Andrew Lunn wrote:
->On Wed, Nov 18, 2026 at 12:10:32AM +0200, Janis Edvarts Lacis wrote:
->> On 16 Nov 23:19, Andrew Lunn wrote:
->> > > I am fairly confident the change is correct, as the documentation
->> > > supports it.
->> >
->> > So the LLM review is wrong?
->>
->> No, the review is not wrong. It correctly points out that the budget
->> cannot be exhausted during normal NAPI polling in this driver, which
->> I had missed originally.
->>
->> It correctly identifies that the old code unmasks interrupts even
->> when napi_complete() returns false. My change calls napi_complete_done()
->> before unmasking interrupts and only unmasks them if it returns true,
->> indicating that NAPI polling has completed and interrupts can be re-enabled.
->>
->> Finally, it brings up some pre existing issues that seem to be appropriate
->> for separate patches.
->>
->> If this patch still makes sense as a net-next change, I will update the
->> commit message to explain the ordering and conditional interrupt masking.
->
->I don't think it makes sense since what it is trying to fix can never
->happen.
+This series adds support for the Thermal Management Unit found on
+the Samsung Exynos850 SoC to the existing acpm-tmu driver.
 
-Understood, thanks for the quick review!
+The acpm-tmu driver was recently introduced to support a hybrid thermal
+architecture where hardware management is shared between the kernel and
+the ACPM firmware. 
+
+However, the distribution of responsibilities between the Application
+Processor and the firmware varies depending on the SoC:
+
+1. GS101 (Existing):
+   The ACPM firmware handles sensor initialization, threshold configuration,
+   and temperature reading via ACPM IPC. The kernel only uses MMIO to read
+   the interrupt pending registers.
+
+2. Exynos850 (This series):
+   The firmware implements a much smaller subset of TMU IPC commands
+   (temperature readings, TMU suspend/resume, basic TMU init).
+   The driver should use direct MMIO register access to support the
+   remaining functionality.
+
+In this series the patch 2/3 prepares the acpm-tmu driver by moving the
+hardcoded GS101 IPC calls into SoC-specific callbacks: tz_control,
+tmu_init, tmu_update_thresholds, and tmu_check_and_clear_irqs.
+The patch 3/3 implements actual Exynos850 support.
+
+Tested with:
+
+tmu_top: thermal-sensor@100a0000 {
+	compatible = "samsung,exynos850-tmu-top";
+	reg = <0x10070000 0x800>;
+	interrupts = <GIC_SPI 226 IRQ_TYPE_LEVEL_HIGH>;
+	clocks = <&cmu_peri CLK_GOUT_BUSIF_TMU_PCLK>;
+	samsung,acpm-ipc = <&acpm_ipc>;
+	#thermal-sensor-cells = <1>;
+};
+and corresponding thermal zones.
+
+Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
+---
+Changes in v2:
+- rebased;
+- reworked defines and hardcoded values a bit;
+- removed efuse_value from acpm_tmu_sensor struct;
+- regmap renamed to "exynos850_tmu_regs" from "e850_tmu_regs";
+- checked ret value from regmap_read/update_bits calls;
+- dev_err() -> dev_err_ratelimited() and return error if clearing
+  irq failed in exynos850_handle_irqs();
+- exynos850_tmu_update_thresholds() tries to restore sensor state
+  if failed;
+- Link to v1: https://lore.kernel.org/r/20260709-acpm-tmu-e850-support-v1-0-9fdd58b634af@linaro.org
+
+---
+Alexey Klimov (3):
+      dt-bindings: thermal: gs101-tmu: add Exynos850 compatible
+      thermal: samsung: acpm-tmu: refactor SoC-specific operations into driver data
+      thermal: samsung: acpm-tmu: add Exynos850 support
+
+ .../bindings/thermal/google,gs101-tmu-top.yaml     |  26 +-
+ drivers/thermal/samsung/acpm-tmu.c                 | 588 ++++++++++++++++++++-
+ 2 files changed, 577 insertions(+), 37 deletions(-)
+---
+base-commit: 7cfbf79c66c63e807ea452abf0546e6f6d6833a6
+change-id: 20261118-acpm-tmu-e850-support-d10e9018719b
 
 Best regards,
-Janis
+-- 
+Alexey Klimov <alexey.klimov@linaro.org>
+
