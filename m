@@ -1,124 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795001210;
-	b=nn1a1rGlo2Wmo2aiBgG8mmnqASpIM1oDjTnGU91o+vgUkDCHdejqFgz4mDrPz36hYPbj
-	 I/yyXFHd6F6/goidRGvZjr8jQLskgGDy0ZJW0CirYLYJq21/+Uityi/ysSEi43VORKncS
-	 WwYBvomH2KpjB6VtJUJ4iSFgLCvr2K4rwN0cDrLbi8S14cGPQHB2lHuM8jWGPRzqLtwj2
-	 Vj8Bkf14RuoWpDOaJw12DEWZZdjeR1ATwc9chqDdK8vqiq85ff0BKGfSTfhjVYRZPpeoo
-	 ntgJwfky+Pph7nieIF+wQSvp4aBQueYFzWBDE34ZheL2SsnezC6EWnwTqp3HryVtGDA==
+	t=1795001216;
+	b=MBSAre+pOET+udY8rQNe50M2Hen+bHHaxre5PZROzTj+rdbBSECFd/eGqZwZ+Nme5m+V
+	 qadMPI6glHCAWk8lM7GgVnVeObRjPWoaKH90as3UvfYvsbeDcjQAVcBTdwUvdNyiJ8bg3
+	 eGosk9s3ZKoejPiri0vvUy+OrQy5jJidnV+3qnRqbwgHA4xBr84sim2WejQsWIMG1TC7D
+	 9xihOrwVmpv+Q58GLzcAIUEW2lYo3BK3ot6M7kClMIZMxaaoQGezUmodPX/yufPhTr8HZ
+	 FyjKOI/ca6X8moeWoJaXqwfl6Ti2483ltOoCljh9ho8MMPK+j4/rEPjIJgDvht7EODA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795001210;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=brXugAcDbaCylrm2Wl7ARVAM15xweZmcyeF8T+2xKUM=;
-	b=COgQ9lwZp2+YeZeJjp9HqbWPWmwlxKTeh+voAPq2+Zz3PLoRKY4nCFdPwQpfUnQrM6Ar
-	 zqr/j/jq4RizL/+8i0jS6cLj2oF3TQKpJOeb0VJO1KjGfjAvm1M75HzMJZ07BbN8OkJMu
-	 1zXIwjK4hke7MunoMzBwnTInqG2UuxYrISUgMlGI0+jmGeofvye/Ef0eEHpGtQ70uFc7f
-	 omaOHgivjDFSOCx/jO+Mxxupby5AeyBVHe3MY/UGsN60ZTjHF1Hgpr0bC1x0mezWQmGa+
-	 hUvJZHztlc0CUf85b6xUvgH1bzfE6D9qaTis7fQ+ZrbVMd9JLV4fqPEYYgEm8j7GJDA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795001216;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=msXJndjH6JzkweLBaiGxmBinT8C/Wtkx/0H1bh3p3rU=;
+	b=4c0YhzDIwezY1B0QU6Vpp2aPus+qPJRj9k7GoKiGTI6tjUhBH1fGeNtEtEEEuqg1n5CO
+	 E/ppuZvp62/aFQCiFImw9Ov5g9CrCQRBSgnULW7Q7jxFz5i5eO/kbO1hvpi6Huw8aTRjo
+	 7aXb5DTQeXSa1QkQyo3RI5bnMZyw8PjXK39PtIo50B5UaQ84nvnkpNuEXVXF82BGM4YDZ
+	 exnZwNaxDqFX9NQkPBcFigG48z2kwuUF70aGyWsLMHMJsCqKYyP4aWl4icDCifm/8XgEP
+	 PB/8jEagQDrMTQHg/zl0nYw5vC9E2IR9V955slXEw60QrKdxkTE73m6XGp572o23a1Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=MTSCO9KN;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=ldl0hQ71;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=P5otasT3;
+	arc=none smtp.remote-ip=209.85.215.170
+Received: from mail-pg1-f170.google.com (mail-pg1-f170.google.com [209.85.215.170])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3A9B60A2618
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:26:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F3A9B60A2618
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52E7060A261D
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:26:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 52E7060A261D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=MTSCO9KN;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=ldl0hQ71
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795001208;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=brXugAcDbaCylrm2Wl7ARVAM15xweZmcyeF8T+2xKUM=;
-	b=MTSCO9KNWcHiY7wfpX0H9Di7lOMSsi28OWm3cotM7G3xoIOeF98RiUjWzm6TIRrqiP/7r3
-	KUWQ6ihgyUBMfoqpXByi6EeqJeBgYQoNpWqDCzYxUQTKOAiFe9JVW61myXg4TBo5T7mO2D
-	4f1o5u9Fl+gnh5e9syrfoBZy4vu+7hk=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-225-HncAbFKXNFK8sDyhJH4u3Q-1; Wed, 18 Nov 2026 06:26:47 -0500
-X-MC-Unique: HncAbFKXNFK8sDyhJH4u3Q-1
-X-Mimecast-MFC-AGG-ID: HncAbFKXNFK8sDyhJH4u3Q_1795001206
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-4a70b42bab0so6517295e9.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:26:46 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=P5otasT3
+Received: by mail-pg1-f170.google.com with SMTP id 41be03b00d2f7-cd6028ff33fso592832a12.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:26:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795001206; x=1795606006; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=brXugAcDbaCylrm2Wl7ARVAM15xweZmcyeF8T+2xKUM=;
-        b=ldl0hQ71DHIdVq7HpWWFHFpHRtzn6igtDD/F2HIuoqcYe/H/DB7u8RQmjziUY0WyLL
-         S9I1Cd8iLHjIJKfEPPGf/HoGVpuSqkelIVhCR6n92+lXpFUKil9nuyyl7Pf/GXvFOK82
-         xjgbhGopkcyxS7WdE4ZOuV/p3XeBdkX5or/H9xjbbhrgMsNwlrT+KE/YzwZZYNvmcqRN
-         ThslAYBt9tUXbgZqUkp1Tvp8MAYdvteJHFm27dS5VtPO+f2JAr0KywG0O0d9SUJx7iz6
-         iLjsjefDNZ+hMi7wuOkL7B7CSpdIqNdADK/j/GrfRqmCUzDNcsCHV45qRRZFb1/aPekS
-         rGmQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795001206; x=1795606006;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20260707; t=1795001210; x=1795606010; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=brXugAcDbaCylrm2Wl7ARVAM15xweZmcyeF8T+2xKUM=;
-        b=qPHxCmAxmisfI7T39QSEn+G8O7JUldysQsD+GwPimtyRRI9KNn6eA5Xi9jYLlJxRhW
-         tGlvHABnLinM24lRSDWpvfMy0MaPWrTYOuCG29YpeEB6wgPlfSR42386xnhvPnHCItLX
-         x7CHZNDfCMXEBkYxnLP0mIXFigfHzHtTNq3YqAWK9q28F6+bp0MJjnL+OUo1/MtyMpKB
-         ZEtrxIqyXBEWaozSjVHdcmKc1ysJcmLtJn+4Aj8sO7fOjb8M8AROIipIC0DQ+oW91VeP
-         JwWwZEFKFOQAYdRJ0FGemeqj0xWnsW42/eCxubVYtJ6JKaWLfuU5ePaxwmoHvv+r77y2
-         UaKQ==
-X-Forwarded-Encrypted: i=1; AL+hErH8xjL2bbCtBwXXvTSp+2CMlpk1jXTvtLniZBrJRCkXqBCM9m8i6uobp4EheFj6zK5G7zri+MZGPfqnkb4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8GVRWizjn14grCAfCXTQ77eigSZNVSZg0ETov9kpoXG+gHBZrX
-	HcXhChAR8SmFJfcXYrumXdSYQTwO3UHFuo7xTJ80EqkyZtAXqh6hIkiQaID/CteOrKba5FqnpCz
-	CBtC2OTlgPbe7xx3lKfSG+lB4TlOBSymyNV2cbdA+WrdPyEMNFrr7D9gLZP8nfCEIBQ==
-X-Gm-Gg: AYBFou0iaKYQt7DH6doSniF9HJJpg7VyOGldXp3OefXtz4JVehms2KzcLNKHZ/lBTZa
-	j2dgo+6L3UkSqao+PCFFw9KGw4XpAhrm8NmXHYIeJFTza0Fsx812dwOB2QGC8lakf2yrki0FpLW
-	k8OPWu5h7kBx0wZyKT/XOyyU9F3Ue6VW1HE05DNxvrsGinoBi0qqAsX+B7/bKe2fN6V2R6hR8WX
-	09oUxDL8zIuv3AlwRIuFC69p0mb5CPuNd7HbJdVg1Wn8Xik8Yms14peqDrdVSaoZ3aqz8V655g7
-	95/TvreApMlIJwOWvXS+jsrtFwVDqnkHys66l904xzyTCHZFf7/uQZ0ujPNTD5wn02qK0MIKN48
-	3kRfE2etgnB6FAyrz2OqAm0EG85vF7kInnPXrqmOfgjxsRBONxj5hp5B/j4LCjhtMXCZ0m2tJLj
-	53Jwc=
-X-Received: by 2002:a05:600c:1d8e:b0:4b9:f90b:1c4d with SMTP id 5b1f17b1804b1-4bb783aec42mr139593175e9.5.1795001205674;
-        Wed, 18 Nov 2026 03:26:45 -0800 (PST)
-X-Received: by 2002:a05:600c:1d8e:b0:4b9:f90b:1c4d with SMTP id 5b1f17b1804b1-4bb783aec42mr139592495e9.5.1795001205361;
-        Wed, 18 Nov 2026 03:26:45 -0800 (PST)
-Received: from jlelli-thinkpadt14gen4.remote.csb ([151.29.158.90])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65560b2a1sm4049093f8f.32.2026.11.18.03.26.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 03:26:44 -0800 (PST)
-Date: Wed, 18 Nov 2026 12:26:41 +0100
-From: Juri Lelli <juri.lelli@redhat.com>
-To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Cc: peterz@infradead.org, mingo@redhat.com, vincent.guittot@linaro.org,
-	linux-kernel@vger.kernel.org, tglx@kernel.org, will@kernel.org,
-	boqun@kernel.org, dietmar.eggemann@arm.com, rostedt@goodmis.org,
-	bsegall@google.com, mgorman@suse.de, vschneid@redhat.com,
-	kprateek.nayak@amd.com, luca.abeni@santannapisa.it,
-	mathieu.poirier@linaro.org, longman@redhat.com,
-	ridong.chen@linux.dev, tj@kernel.org, hannes@cmpxchg.org,
-	mkoutny@suse.com, shuah@kernel.org, bigeasy@linutronix.de,
-	clrkwllms@kernel.org, parri.andrea@gmail.com,
-	m.szyprowski@samsung.com, kayracizmeci@gmail.com,
-	weihengqiuu@gmail.com, cgroups@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-rt-devel@lists.linux.dev,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v7 05/40] sched/deadline: Refuse dl_server debugfs writes
- while the rq is offline
-Message-ID: <av2LcczdGk37WJLm@jlelli-thinkpadt14gen4.remote.csb>
-References: <cover.1794922146.git.mathieu.desnoyers@efficios.com>
- <2bee6a143319301f082855a15274f0563e99b8a5.1794922146.git.mathieu.desnoyers@efficios.com>
+        bh=msXJndjH6JzkweLBaiGxmBinT8C/Wtkx/0H1bh3p3rU=;
+        b=P5otasT3x0KiFi3TS4Vwf6vtcEOMgiVWP29dcN/e9s7NBmiEG7HdrHGZImmidMDo5o
+         5xU+BvlKcj0+KXFWFEC6gq77MtAhKse1eou1ji4Zd3lSWe8x2gQiVXGBx0eaaDdXC3I3
+         wD/SMzHcbNyQGxuokrJROPQ7UU26BYymJf6lubkRav7AWx7Vn2P5Vi6z94wCSxUojU+s
+         +xApZYHKHYnFFfeCQ7t+Q6hM32sj+uTaXL5J+NtlmYzf2R1JsVDdgFZqZiRmPH4jyDNX
+         TVXJxEdQW6qA8P98NZx6jAwMpmvFTLN8U3ybDvWsif3nBIrOCjLrCqyesYadO329VCr+
+         tBpw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795001210; x=1795606010;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=msXJndjH6JzkweLBaiGxmBinT8C/Wtkx/0H1bh3p3rU=;
+        b=STWwyJNlDUKpC46kjTdJLHXqzn3pASX3niEx/p6PVjOAEbEmWMUrTHXw+Yhf78QHx4
+         cytZjqzTQmSkn1JIv/ljoo321jT6NzdIU4BeDuWxDCTBi30wW/GgsSMaB5pPNiAHMmOb
+         QyJidgZpgGfzK997I8hV/DQyt6E8NeGSxgT2sZo8YHBv1Ch2efSu3EhYg337HPPqXuxA
+         n1GorSlN5gQ9OfB0SkjNq5zdzb7GfMsTKWwvr3GeRyTbI9K6tYZSdwRgmneIo7evM9aj
+         +CUXqfyMV42fVEm/JUoOZRKbcdOzdHE5D/Kl+mQrM3QcQp5iqHQvppaG8tZ3iodldCcp
+         7b0g==
+X-Forwarded-Encrypted: i=1; AL+hErGrb579/IbYQ0DgZUtCPBhChVXtz2zxi/VNSwCnLYsdwd95powDtNksKU5LLdZFgrLBIMvi7/mOGmt18gY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8fNcyvJM9ZAZLBsyFWw3Lc2YaNiDw2nqsKTjdcwCQUO5vToSkG
+	cWOZThvKs6ZYISc3DxiiSD26Wmbse83MO3lNVN3JxLmTm+YqcfD2ZLUL
+X-Gm-Gg: AZFdTZcu3KiE6FDGnFZvYJqHKq/lNadnFyJR3tdsG6hCM97j8qOInp5r1iYg4JIp8g6
+	AHZKSSauvTYycCbR0fuQ1ztxsFnIxMyzvaJzwQMviOcCHcHG1S3cEs3Fus++1SHuzx+b4op6ULU
+	u1hs+P3Gju+fYJg7achxWVQvGH2BStC8gJfLX9VM4g7bIPl3ip8GVYcWIiFSfgzxfm5awfm/vdJ
+	sCZPC2w6OGwtIU2QK3Y1ixuQxI3zhbZ6+gKFvpefwOBTp47ITmwtQ4PC7dmuncpcIIXd4hbwNu1
+	OpMSqLFST2f2LlJmTrLEu7bJN6HnBh1poqr7CY7aJ88fG/4lJXL4rkjLhqrBCGLH/h7D1Dy1rQh
+	1EmkAW86xj66PtNCo/MyKMv3TJR7xlgriVY4/mK/7ZW/+Z9NsJtjE8XuIJiPEiA8k1NWal3RYLG
+	iyo8vR53oq0Lv5xz6xeaa4XChxMAe0p06vTinODcaE4wVHKBGntULjL19Tj3is/6cD2Qv2FJ0Mp
+	aQimqD2Jd9ieiXBa+XKVIG4VXg58a6gAnGqW2Vh1DtJ1ZF+FSrL4zXoIhjIzZ64LS5sqskWxOko
+	t0KEZ2nm8GPY1UcQKb6YER2Kxyvd4lfKsLJfPSjRj8hB2N83IVtVTf6x4fURU0yvbOWK
+X-Received: by 2002:a17:90b:440b:b0:3a6:f1d2:57f3 with SMTP id 98e67ed59e1d1-3b3d07e3950mr2232429a91.58.1795001208717;
+        Wed, 18 Nov 2026 03:26:48 -0800 (PST)
+Received: from ?IPV6:2401:4900:1c43:8cbf:33a7:8ddc:7a9c:40f7? ([2401:4900:1c43:8cbf:33a7:8ddc:7a9c:40f7])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d1acd118sm3997301a91.12.2026.11.18.03.26.43
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 03:26:48 -0800 (PST)
+Message-ID: <fe93e84a-1876-4416-b3cc-547b9816c865@gmail.com>
+Date: Wed, 18 Nov 2026 16:56:41 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,45 +92,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2bee6a143319301f082855a15274f0563e99b8a5.1794922146.git.mathieu.desnoyers@efficios.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/4] openrisc: Add unit tests for KProbes on branch
+ instructions
+To: Stafford Horne <shorne@gmail.com>
+Cc: jonas@southpole.se, stefan.kristiansson@saunalahti.fi, naveen@kernel.org,
+ davem@davemloft.net, mhiramat@kernel.org, pjw@kernel.org,
+ wangruikang@iscas.ac.cn, namcao@linutronix.de, kees@kernel.org,
+ linux-openrisc@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260930202744.50489-1-sahilcdq0@gmail.com>
+ <20261026201240.107462-4-sahilcdq0@gmail.com> <avAsy43KVO-7Nm9z@antec>
+ <dbfe2a41-c99d-4f00-ac0d-2b2b31a72986@gmail.com> <avkQctt0CKt3YcsH@antec>
+Content-Language: en-US
+From: Sahil <sahilcdq0@gmail.com>
+In-Reply-To: <avkQctt0CKt3YcsH@antec>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Hello,
+On 11/15/26 7:22 AM, Stafford Horne wrote:
+> On Fri, Nov 13, 2026 at 10:45:03PM +0530, Sahil wrote:
+>> On 11/8/26 1:33 PM, Stafford Horne wrote:
+>>> On Tue, Oct 27, 2026 at 01:42:39AM +0530, Sahil Siddiq wrote:
+>>>> Tests already exist lib/tests to verify the generic functionality of
+>>>> KProbes. Add unit tests to verify that KProbes work on instructions
+>>>> that require simulation in the OpenRISC ISA, and that the corresponding
+>>>> delay slots are handled correctly.
+>>>>
+>>>> Signed-off-by: Sahil Siddiq <sahilcdq0@gmail.com>
+>>>> [...]
+>>>> +
+>>>> +SYM_FUNC_START(test_kprobes_j)
+>>>> +test_kprobes_j_addr1:
+>>>> +	l.addi	r11,r0,0
+>>>> +	l.j	2f
+>>>> +	l.nop
+>>>
+>>> Just a tiny comment here about indenting the delay slots.
+>>
+>> Got it, I'll indent this.
+>>
+>>> You could also use the delayslots here, for example:
+>>>
+>>> 	l.j	2f
+>>> 	 l.addi	r11,r0,0
+>>
+>> I initially thought of that too. But then I thought by keeping l.addi
+>> before l.j, I would also be able to test this for the case when
+>> there are no delay slots. I can reshuffle the instructions if that
+>> test isn't required. Please let me know what your thoughts are.
+> 
+> I don't think it matters either way since these are tests.  But, it would be good
+> to note that in a comment at the top of the files where you want to maintain
+> that convention.
+> 
+> However, thinking a bit further that may be hard to enforce down the line just
+> for a handful of files.  We should assume the kernel code uses delayslots.
 
-On 17/11/26 09:10, Mathieu Desnoyers wrote:
-> Commit 4043f5498416 ("sched/deadline: Reject debugfs dl_server writes
-> for offline CPUs") refuses a write to a dl_server's runtime or period
-> on an offline CPU. Its message says that such a write has no meaningful
-> semantics.
-> 
-> It tests cpu_online(). But during hotplug the CPU is still online while
-> it sits in the default root domain. This lasts from the rebuild in
-> sched_cpu_deactivate() to the offline, and from the online to
-> sched_cpu_activate(). That root domain does not count the server's
-> bandwidth. A write in the window still goes through admission. With
-> admission control off, it changes total_bw there. On v7.4-rc2, a write
-> of the current value divides by zero in that window. The previous patch
-> removes the division, not the write.
-> 
-> Fix this by testing rq->online instead. It is set under the runqueue
-> lock when the CPU joins a root domain that counts it, after
-> cpu_active() is set.
-> 
-> A write now fails with EBUSY while the CPU goes offline or comes
-> online, as a write on an offline CPU already does. Writes at any other
-> time are unchanged.
-> 
-> Applied without the previous patch, this patch alone also stops the
-> oops. The reproducer survives 20 rounds with no warning, in 3 VMs of 3.
-> 
-> Fixes: d741f297bcea ("sched/fair: Fair server interface")
-> Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-> Cc: stable@vger.kernel.org
-> ---
+I agree. Since "head.S" and "entry.S" already use delay slots, I don't think the
+kernel will work with a CPU config that has delay slots disabled. Also, there
+should now be no need to have a static key for "delay_slot".
 
-Reviewed-by: Juri Lelli <juri.lelli@redhat.com>
+> 
+> -Stafford
+> 
 
 Thanks,
-Juri
+Sahil
 
