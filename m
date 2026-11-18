@@ -1,98 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.17
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.173
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795033575;
-	b=lvv2eGKEXCLYWUiODawxS29HhS8MdEfsJ+vO0kYzg8ZRla230a2Ub23j4PLlC5C0Vgwv
-	 Il5ebSHjiQ8mQGaXvyNiZGH3wz2lkGTrp9pBGWqbHw7s882OLkLz2hZzBvxXSpDuYVU6G
-	 yDMEPE3nVgJq9lZRNRY39biRYmCPdWUf8HZu9IavUDfzxYdN1GWPcRg33ET2Q3PwKl/Ta
-	 kVMFmmiz9jsKdBxViX9x4272ODQzKmdjQbkjKnr5eXIKUbcwMQuUiszJ3xAJScs0kFW0U
-	 EUCGrlxTVmPgqxuIaPcEGOCj0JFx4B204wVod2npfo9HsjIPRZZyuQzQ5RqTi5Aj0PQ==
+	t=1795033692;
+	b=QplL2xtnklAriYGIVnQ10qTYC1jAcVQLHzdnynPf9Iq3xJK9VCLNMkXimXBy4ABg5SNb
+	 UTPQEZr3KlYQPNNsLWCeDD6f8ICjh0hiI3Ump4k3R3cgjjb2j8EJYxArwa5ELRSinTrxr
+	 nVJ231pR8hQu9R5O4Ku7MJfj/aS8pIBMEKX81xziXOTHlAbgIY4ahhKC1JitsfTYDLuzS
+	 5c4RLM1Z4k6ZnCfvjPeCnz98g9SjNOD9STsVtC2OpoNXu3/pS9W77sBBHudIR/e3Q2FeJ
+	 balnBYZePGUCsMZdaa4/Igh1A0HP/SNC0TuI1Rk18vZKzzy/iWC+Kq9Nfwi87J6CMcg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795033575;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=WUiUya0RoBaglTkpkJIpKmvBEXkcdL6BChTVgeWR1K4=;
-	b=apRMHzb3Aqbh4DP5rxMhsfiayX+jfO0IMRK6PKRSWb0mSzjsmgI+Imp42Hbl7YHXkxdt
-	 dFkYXGErd9zBSTFL71BQVP5tNDoEzYA+OhH1tJwhqqn5gEpMwl3kLPh+6CnZOfXxbI7Y3
-	 6d9gRudSPMsBUR1pXQHvj1HrRIIHDLaA6cqeek8EwbaJELCP4mIsHka4qUCdiiVDZTUXm
-	 D7kchH0LN7SpQ3mgai4gJDQRUCHAa0lsHCab78hM1cFvLxKax4T/DiXCBmBhakqwKL0VV
-	 GM8hZVrczzup+qR8zzoceU0hJLMfdQ6LKA/plf4e9ibS/rfYdjZV6CYNkryTY0XPjhg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795033692;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=z+AogC8EDUSE3HLZ3UU4rCjeQfZxM4jvNiwuUF4qq2o=;
+	b=xjawPxwc26SLuAAUh6jzz7STkXnqhuESlF9I5vYZ34f7xLi2Xt0rgAjLpzjg7lh58lg7
+	 Rm31ZAjYdFWcpXVX3JOlGmhAy103ppRHICRMBu+tBKnbSRwJde560SSr8WK0TQF7+/bJs
+	 2XNSQsSlxEa19K6lwEbX3nWY1X7w2r3gkFmDcK4xTrrAv3cU0mpoxlIR2iYhKmm1EhF+k
+	 RBPXlWfHObaN+wYjo4IjgPMvN56z8U+wnXAFMrAjiNpe/b0vfFcg/3KjANKhkqh106SnV
+	 uYlbtxeJtsX3dpkPCxzQp42pokj8RsYOt8fS9N3ZopLIESROo7+opyaRyJsOtEACgng==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=QHuFMH7g;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.17
-Received: from OSPPR02CU001.outbound.protection.outlook.com (mail-norwayeastazon11013017.outbound.protection.outlook.com [40.107.159.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=m76Kfdwe;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.173
+Received: from mail-qt1-f173.google.com (mail-qt1-f173.google.com [209.85.160.173])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F08F606A32A;
-	Wed, 18 Nov 2026 20:26:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F08F606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DDF4606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:28:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9DDF4606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=QHuFMH7g
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Cz6+6UBkKiAQHPiskFkv62eUBVsOzEUhq9YHhXB96XqK/fBpCYH2U+vV4zpB4U4wiK/z+x73v0xcBce0v2sawsC1CnvogcQpg6zQdThqBeMZFVX/RO9hcHeVU7UI6P7zg/GfBnY3fsFcPiifRp0wnQeQ/WnBM1drKKgtclkv5BkExdrb9msW7DkPc4n8BFR17U/NMmU/FEoSCYUsYrvNXFmtD55zIvFerCsYcnb3eYdcA+cHJpEOzyrxRdgyxPuZH12C1LHE0rQzjGPRRRl4EOSICtWXw62eIeZW3CZ/7FsyNvPWncIGVs3NAbCxKZ5rM6AhUYI/HN5rlzFBzEvciA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WUiUya0RoBaglTkpkJIpKmvBEXkcdL6BChTVgeWR1K4=;
- b=Lvi6o8MTLkhtM086/NuD9fmNyqw3JfxNsq5hKoSCsfQRsgyOuQdsZ3br23v+uVKnkHhRtqF2XkuD0cNYa3wCaDsUfVTxMteE/DLhbMDaArukwlx29i5dZXXpMQHfy6pJo4N04YQ6g41dWHR7r23A0RmojpxZ/nBCEwlDRprEgyUfq4i+/AmihALHcoeN2a5a+pCSQmCCw7kBCqLNf9Fv2srip07izkdRRZ0i/zXVreUfHSER+cifCkSnZWBHt39jYNnE4OQ14lntB46PCz+UTTaUKtA8yuYr/cpz1PgSP+/cs/yVd/bR8Qo4rNt/pzow1GDWwp3dQxjQuct+vzVrfw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WUiUya0RoBaglTkpkJIpKmvBEXkcdL6BChTVgeWR1K4=;
- b=QHuFMH7g413JoPbffR1LnnD+WUGNGr2bDTrBdtDEd8ufhGRBYVdGat+JmRhR53cA2rdxjnzajuSFrSqkEeCQ2gni9eGS33aC3a7Txfd4JCe/hOJHB8ZcUkS0NpvuE0oYewIqyKKHaVXv4uDu36P/HELfyYR9NTm9AyhoGhtC8jr0Peoi9cUHbqOMncA9VTRUguolXCqYELHRKN6J5zIiLUcAV5L1Wd6rZ6EYG+ypkkxV0JlhMSNf0a0jqPlXtuUA7EwpL2NUqa8cbSTPyuGtItAevzpQPUInzPICnwzQxpXk5HoajeKbSp8xrkGV6D6ffeXSx+kYE8wxCzlCO4XV3Q==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by AM8PR04MB7938.eurprd04.prod.outlook.com (2603:10a6:20b:24e::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.10; Wed, 18 Nov
- 2026 20:26:11 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 20:26:11 +0000
-Date: Wed, 18 Nov 2026 15:26:04 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Logan Gunthorpe <logang@deltatee.com>
-Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.li@nxp.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
-	Dave Jiang <dave.jiang@intel.com>,
-	Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>,
-	Kelvin Cao <kelvin.cao@microchip.com>
-Subject: Re: [PATCH v4 4/4] dmaengine: switchtec-dma: add pmon sysfs
- attributes
-Message-ID: <av4J3CexdnCy3per@lizhi-Precision-Tower-5810>
-References: <20261110173137.623764-1-logang@deltatee.com>
- <20261110173137.623764-5-logang@deltatee.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261110173137.623764-5-logang@deltatee.com>
-X-ClientProxiedBy: PH7P220CA0040.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:32b::24) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=m76Kfdwe
+Received: by mail-qt1-f173.google.com with SMTP id d75a77b69052e-54492d8a988so47531cf.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:28:11 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795033690; cv=none;
+        d=google.com; s=arc-20260327;
+        b=lADhERwbGTc76gQcOPWNtPf+a3u5i4Xg8n7Z4ZSADUM5knj1KfMsB/G3vlNp+tfI21
+         WGInkAcjWpox/Zgc3zkh/RAgN/Uaoiqk0uOOTrOoma8tXkPc5++BD3IdHvNhhFGmCoUv
+         tpt69H4XGTd7YjXAYoR4RRC8Wl5aq+dg9v1J66NzljhvQemzQM6WG4Xay661ndfPzYX3
+         rHWkw6z5whM3iA5tJ/rnmbiRXStj1baxRqwqVDxCyOo5+BlwR/7OHr7O4ChQ7ZFNjr0K
+         DwkcEomx/fwRYif2W7iswUCqpNX6uy4yltnXSYcEewDvIKtwdrrGCL1YfNvYpdoC9ECf
+         d2Ug==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=z+AogC8EDUSE3HLZ3UU4rCjeQfZxM4jvNiwuUF4qq2o=;
+        fh=CmUgPzJCRmxkDhH063E1T7is8hRJSEwNhUVcvErJNek=;
+        b=DexBoepSNKZVJSi9m4Hc0LvAVHBCBiQzTtcgfLqJTLA4kJHJnLhsY8STJwiqBZHNB1
+         Q6tL3kfoS+Cl4og4H04RK6riuZqO+a/OA8qNWf464/xQKiHIXKTPd4hxCsIyrZlqm+4m
+         Ry7WlZpQ8Zj/RJrj8FG7X4M0D2agLDynaig5AsreqnbpT6Lir8IA5xIzu4FCyocGXxhI
+         i/51K/njufR3A94O/Sg/F0vnQhKLshWQaDDP82XdWSEJbU/ySDBtCck/hxxCT09F/bE5
+         U4zs6oCq3RGBMw+6J6ma9yfjmVwQCRepkT0qHuHT37ylpyO9vPoQqkwdSfkUe2j1tfE4
+         PMhQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795033690; x=1795638490; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=z+AogC8EDUSE3HLZ3UU4rCjeQfZxM4jvNiwuUF4qq2o=;
+        b=m76Kfdwepnc9RJNJOlE1kNA7f4xyMcQg+Z6j7vvc9mlVAR/M4+oot4e6eQVSgDKVof
+         3HVGie/Ypgu4ez710CenxLwdT/3Q4uG8w8gMeeFB8gKdP5wnwOTPSMHA+liLDDxLtSQ/
+         QlcwuSgWyAYznRhaRyvVxe2EinQrmcwMcIs+eknljcgEIxr2tYmgrvD1cWdTHNo4xoam
+         ZTGsKjHY00zVKjuQ/e71GwyoJrVUcVHiUk0zMhEjO86WuYx5i1inBhzk9xcQc+/mZqC3
+         LHxubJJADqnLp6z1DkaIg5pVtE4BDaxMdFKZUyA2t2Fmb1sy9khEEfBMyARhf6JdMxTn
+         yazg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795033690; x=1795638490;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=z+AogC8EDUSE3HLZ3UU4rCjeQfZxM4jvNiwuUF4qq2o=;
+        b=xXUlPI0gFCn6dVkTZY4m5llDQrlkgHI2+RZBiVdOajI71IsV37J3ttmkasf8sdasS4
+         1FpzY+auZheXZY9AtG6MHvmDfT4rB/BWgbVXZKFHB4bbwYdcEALnFJiycCgKN2n64/EE
+         +Q4Ay4Zx4NSWo7MBXi5G5UhHL33MNnFE2LUdKrya8O1ACSLqc6IrShw2SBRaPqsB8Our
+         lSA0tuYh2YHULGKC8fpQl1FjeXELSykmHbGk4w4r5EsHsKNV/GcStCCzKhiXm2wil6rQ
+         CuIkNCMllzOy4NtPy9iAcIJcunz0c9AL3eR6ZxRg5VKudnyOmX0OXVxnPL4mMtuP4Ybl
+         MIVA==
+X-Forwarded-Encrypted: i=1; AL+hErGfAHt2HyBaVVid1H0/W/B3t3S1ibfoZl73W7JQfXK+G6zv4ZwZswi8jrMImzVE62oeskYUOUmkdVloNV8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/gacYLOWORQfHT+RpOR7hCNGzMBmPdTHN97WW/YmTgB1BTAV11
+	11vTFVc/3Yhs06pOtS5PIfyFRF5Y6mO1BFdmz5odTSGUOlT/lqVStO95QcFdClm6L9LkOw3pv3e
+	KYWBaIuFq9AxmLxThuGJEx1XbB+Z8ZG+6PTA/sHM9
+X-Gm-Gg: AYBFou0rRFPPboheLlL4nieH2GF6gn0FEC0ua9f0ymOiNJqdEe2hA59HU8/Muo2EX8P
+	SFuDOJ+fQlFOutOmPROYCEND+23IU80Tu9QNFxyrr/wdRE4UZ1MDG6ilXYfQW7TCjcrPTGLtHdX
+	Grk8IKchfsNJOT2ozLuan29Sxd5OoubONAxrKx/21M+X5Bw2DTz8en7aph8+JIEoQ7FWNSpJrEv
+	vvdlyZ86oboQ5UQ/j6TD+pYHb5HjcmCvhpbb9VoJArWNNisjk3aKmRfRy/rFnA7jBjJ0IawRkaN
+	VASngkDrspr0su2RlEFHX2xLyclIqzjGVXYGcaRY6B8C+Q3G9Mw0P2F4uRyNijMHzMKOpeZldT+
+	JLUlSeDgUfSAJ8Vl9qWbSI+mpaNl74OmUaUjXdDWK9A5iC8XiCjoG9hI=
+X-Received: by 2002:a05:622a:4110:b0:55d:3243:574a with SMTP id
+ d75a77b69052e-55d6962de96mr3088621cf.3.1795033689803; Wed, 18 Nov 2026
+ 12:28:09 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,381 +104,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|AM8PR04MB7938:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3fb7714b-e21b-4855-34eb-08df45b22fce
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|19092799006|376014|366016|23010399003|1800799024|18002099003|22082099003|6133799003|261026140227099003|56012099006|261009223027099003|261102123227099003|4143699003|11063799006|261028144727099003|261022105027099003|261021121427099003|261021123027099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	cNzk/W3vI650F/lpFqdfC+KbbY0E0p5gIzuADur4mtW6FsFEcUgwwll7f8Uc08EIGR4L8MkNdZcX2hMP3R2bZxGuO37Uvag/n+BwJ345nRZBd3Czf3UNO/LgfDRAkY/Uh/CRzlYJ8oW0iUic6uKp2UyEHq6f1b48YUZG7B0+UL0IONK9onx17MWz/zZ6rFu8O6TIg/XI6CrEfxJ8iSoyFSK7HzUom0gH0yPg9LkBgjhdoRkwR0jCCLbSUXjyfiR3iB1tY8CbX8J/FMZ/7wer96p4PMlzdCdV7h6Erz+83f+fOfKYpNgPujxcaaCsDEST0A4CJgynyTrj99qPXlN0RKb7W/4irggdoueZUKtdT3bZV2O7UUqCkZToXXc/yNTZMg6jdg86UCtenB8SKaOuYYAx+x0XREKwn7X71SlR6CHxGXEUgM7UJ+meLv/aHFIlzCdp0P7D3WqNJgKbYEqWzBc6dgmm5UJEsEEP8gWlVVJmanZFCK1IPqmIFxYDujlrWrWS9miiLnhX6RS0KGNWCtpKlP5PYL5CZviViZFBf+R6p4XwodHY4bgnAzUzZO1Rix4q8ckJ0a4qTbvorl3YKjdPsZ7SfTZOmoOqj7eNNI4JTIU2EGlweZFOJolVZu6w3Dxj3uQ830XY50MOJrXjhcrBdyWQNhbm4FBTnEy/DUI=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(366016)(23010399003)(1800799024)(18002099003)(22082099003)(6133799003)(261026140227099003)(56012099006)(261009223027099003)(261102123227099003)(4143699003)(11063799006)(261028144727099003)(261022105027099003)(261021121427099003)(261021123027099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?0pqF8n3iSBnHKP2qddud6txtbrh6MvEKb5ZmymH1RBnOMqXVmDG+u2kbZtEd?=
- =?us-ascii?Q?W91RAqsaojx2thyIZKegubuozfPglFW7lgVQ5qbwE/BxDG9dgT5w2rZqj5sF?=
- =?us-ascii?Q?BTt0MQF6Gj5mJTomT2fFPeSxSiX7fx1dcrDp0fwSfd4PQrEDAzcyttNs+B/V?=
- =?us-ascii?Q?DPRoTGF3v7Mo1umJsw38zvTQVyu/njbvw8s+HsotOeIFIxly+Tzg5MJ+cu95?=
- =?us-ascii?Q?KgP5yAUT1b7R1P4iRzPwsyAs0V5dhU1sLOAk0jlSYuFdvrlDDnfVMU4HzxDe?=
- =?us-ascii?Q?Sb2KxKENfySbRckADrkQeUtnnztvl1B8boUlM/Ev/MfidfLOjdIeDSIYs10l?=
- =?us-ascii?Q?1rksUw5zP4bwRm7aGyC7M1lPML7VISRDvYiVdiPY+E6jDBwANLekpU19hWgY?=
- =?us-ascii?Q?cWtwsU7A938OOfn5tGLBo118NvhkilLOpGjBgxNhAOXzWQJK4XLjs0Gx0anI?=
- =?us-ascii?Q?yY4uS9y/IwBe+n4MZ9iDcm1cUW3nJo22Y7s72gvDmD0aU/5+sQdWCeLJEQE5?=
- =?us-ascii?Q?Xbz9PRepmuGPnCWVf2zkicvXcrmCCR9612jHLc/rR2iNGCo8UU6oDg5B5708?=
- =?us-ascii?Q?8ICJonGm12OEeF/6N841BF3LLgLOKQV2Dl26QMJBy79uAiJbcGpKFbzDhitA?=
- =?us-ascii?Q?1S1bilEG8ftbZ0OHLPgMMzQG3t7ZS14WOBEyiI9PPBZ5stKuQIvp/9X7/gjK?=
- =?us-ascii?Q?GOCXHjCjJyb47d7eBjYN+wfgtcVU8/ZjgJoqSPySU5ey0hkr0hv1aIjau4u2?=
- =?us-ascii?Q?czQTcmaYY4q8iYifSMdkCUqd49N35TCPT2dcn0AVrOJmXV/tndBi9etSNi8o?=
- =?us-ascii?Q?v8zHcxhNe1DvpQOY0qMjSqTCZbG2Oy3Xicq0D7clN9+a5SobOedHFiaf4PfH?=
- =?us-ascii?Q?Z//X44IviWtPMNbp5QxBkoVoeBIrmjX6AJj/MD+gzKrh3zuai0pwLXBxm6Hy?=
- =?us-ascii?Q?ZWoskx4JUmSLi+cqJ/tlfUN9p2Zt16uT222Gebtwr0aXyNPNwiVJZhx1Qm0T?=
- =?us-ascii?Q?YBmKMOu+PRB1WNpdym+iViDdh2XB0hz2A8Tkhn9wgZMgpEUXD8/EXqHGVU7X?=
- =?us-ascii?Q?YG1S1VDEj68ZzCauofXCZztwD1mMFDx55kWoUj8bOCktayTT9cBGMlVJs2hA?=
- =?us-ascii?Q?mqi8KVARfL7MdbgjA0k3qjPurgAFjEfpiQ56eVLIExFtkqNo3DimO1ly0tFl?=
- =?us-ascii?Q?i/WpUrXA2p7DNi8RxCccogsO13rIIajQUPlqCJlCLCFOiKmx4P0ZV4zvBlj7?=
- =?us-ascii?Q?Kj4XB03UXcdaDLcjYxqcBHhpuHBHHGJJTmMZ7Tk9C7oMoS95rJ7e14LzLrdt?=
- =?us-ascii?Q?WLCmW7vK4iEpXexOBStfJHEhcDDUnvwH6n1OE7toCSShGcbh9JdTFWh4kDJG?=
- =?us-ascii?Q?xns7q16LuaoydArMRhPQ9kNCa3nUkTEk4marrZHx/CF0L8WUKIR6PvJVO0XW?=
- =?us-ascii?Q?N+HPw9XqhqHRQVcOYkkDLkNMb2/uR1+ZtTt94Cz5irW302Ce8BVFnuag6nfP?=
- =?us-ascii?Q?iD2OjQdXhrpUvi2XV9qAWmui3PPkjUuM/X93s7HvbqdYafLcKoftayd/bfc2?=
- =?us-ascii?Q?pW/APQ9yjSqSg8hmS+BnVj4BRv2fHpbPNG+kAztCeVsbwEe3YFqWWJA5oUuj?=
- =?us-ascii?Q?6XXt7+y5arEGJr/n8VMRgMTLZoo4HcFxrGfGKPVr+K66NcYNJSId0QUs0H/E?=
- =?us-ascii?Q?okWcRz+a535KYBwABt8fMFhLowpTrB/2F1lDb7Xyg0iGBqehnBrDHHMlAKz6?=
- =?us-ascii?Q?w/QvXCFDCtc6m38ZxjLpwlmapCj2LSHJ8LhS032XVyLvR2zLTs7N?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3fb7714b-e21b-4855-34eb-08df45b22fce
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 20:26:11.9232
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: mGl+pjkvJsN/C2Y+fBGBUUXikCKex+3bFsXhVpjq94p+XdxpEbEMN4YQD3gpowrXWtHVHPJBHxXH7LCmf3mvE0+VjueQpwuIDfHEhE/XC1LPFryO0T70E84fI4j28vKz
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7938
+References: <20260929034510.2023173-1-praan@google.com> <20260929034510.2023173-12-praan@google.com>
+ <asZSQRSYBjbUaaH0@willie-the-truck> <atXTtaxz0z-U-XSJ@google.com>
+In-Reply-To: <atXTtaxz0z-U-XSJ@google.com>
+From: Daniel Mentz <danielmentz@google.com>
+Date: Wed, 18 Nov 2026 12:27:58 -0800
+X-Gm-Features: AclHuK_palFTYhnGqFKwt0cs6iRNA8xAzy9LxCS_GSW4lMdE4jAyePa6AgRLHZY
+Message-ID: <CAE2F3rDd23TcWELEu0hNZiw+At==HZjZ=4KWGc-KPoZ4YiFxSg@mail.gmail.com>
+Subject: Re: [PATCH v11 11/16] iommu/arm-smmu-v3: Add CMDQ_PROD_STOP_FLAG to
+ gate CMDQ submissions
+To: Pranjal Shrivastava <praan@google.com>, Will Deacon <will@kernel.org>
+Cc: iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>, 
+	Nicolin Chen <nicolinc@nvidia.com>, Ashish Mhetre <amhetre@nvidia.com>, 
+	linux-arm-kernel@lists.infradead.org, Thomas Gleixner <tglx@kernel.org>, 
+	Radu Rendec <radu@rendec.net>, Bjorn Helgaas <bhelgaas@google.com>, linux-pci@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	rafael@kernel.org, Danilo Krummrich <dakr@kernel.org>, driver-core@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Tue, Nov 10, 2026 at 11:31:36AM -0600, Logan Gunthorpe wrote:
-> Switchtec hardware exposes some performance monitor registers which
-> can be used to monitor various statistics of the hardware.
+On Mon, Oct 19, 2026 at 1:24=E2=80=AFAM Pranjal Shrivastava <praan@google.c=
+om> wrote:
 >
-> Expose these as a "switchtec-pmon" sysfs attribute group, alongside
-> the "switchtec-config" group added previously.
->
-> The various registers are read through a small shared pmon_show()
-> helper parameterized by a reader function pointer, rather than a
-> macro, to avoid generating the whole read + rcu_read_lock/unlock +
-> sysfs_emit sequence per attribute.
->
-> Signed-off-by: Logan Gunthorpe <logang@deltatee.com>
-> ---
+> On Wed, Oct 07, 2026 at 03:08:01PM +0100, Will Deacon wrote:
+> > On Tue, Sep 29, 2026 at 03:45:05AM +0000, Pranjal Shrivastava wrote:
+> > > diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/io=
+mmu/arm/arm-smmu-v3/arm-smmu-v3.h
+> > > index deefb17e31eb..794b258550dd 100644
+> > > --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> > > +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> > > @@ -394,6 +394,11 @@ static inline unsigned int arm_smmu_cdtab_l2_idx=
+(unsigned int ssid)
+> > >  #define CMDQ_ERR_CERROR_ATC_INV_IDX        3
+> > >
+> > >  #define CMDQ_PROD_OWNED_FLAG               Q_OVERFLOW_FLAG
+> > > +#define CMDQ_PROD_STOP_FLAG                (1U << 30)
+> >
+> > I'm unsure about this. Bit 30 of the cmdq prod register is RES0, so it'=
+s
+> > plausible that the architecture allocates that bit for something in fut=
+ure.
+> > For example, if the index field was extended, then I think that would
+> > cause problems for the driver.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Let's cross that bridge when we come to it. I think that for the
+driver's internal llq.prod, we can deviate from the layout that the
+architecture defines for SMMU_CMDQ_PROD, and as Pranjal pointed out,
+we are already doing that. If the architecture eventually consumes the
+current RES0 bits, we could save them in a separate variable and only
+overlay them when writing to SMMU_CMDQ_PROD. If the index field is
+extended, we could artificially limit the index width in this driver
+or transition to a 64-bit type for llq.prod. Also, it appears unlikely
+for the index field to be extended beyond 24 bits, because
+SMMU_CMDQ_CONS allocates bits [30:24] for SMMU_CMDQ_CONS.ERR
 
->  drivers/dma/switchtec_dma.c | 273 ++++++++++++++++++++++++++++++++++++
->  1 file changed, 273 insertions(+)
+> >
+> > Do we have to put the stop flag in the producer value, or can it just b=
+e
+> > a flag elsewhere in memory?
+> >
 >
-> diff --git a/drivers/dma/switchtec_dma.c b/drivers/dma/switchtec_dma.c
-> index 1ebe17095c61..774b418330ed 100644
-> --- a/drivers/dma/switchtec_dma.c
-> +++ b/drivers/dma/switchtec_dma.c
-> @@ -12,6 +12,7 @@
->  #include <linux/pci.h>
->  #include <linux/delay.h>
->  #include <linux/iopoll.h>
-> +#include <linux/io-64-nonatomic-lo-hi.h>
+> Fair point, but the flag is SW-only, i.e. it's always stripped via
+> CMDQ_PROD_IDX_MASK before anything reaches the HW and only ever tested
+> via Q_STOP(). It's the same deal as CMDQ_PROD_OWNED_FLAG, which already
+> uses bit 31 (also RES0 in SMMU_CMDQ_PROD, IHI0070 section 6.3.27) as a
+> SW-only marker in llq.prod.
 >
->  #include "dmaengine.h"
->
-> @@ -91,6 +92,12 @@ struct chan_hw_regs {
->  #define SE_BUF_LEN_MASK		GENMASK_U32(20, 12)
->  #define SE_THRESH_MASK		GENMASK_U32(31, 23)
->
-> +#define SWITCHTEC_LAT_SE_FETCH   BIT(0)
-> +#define SWITCHTEC_LAT_VDM        BIT(1)
-> +#define SWITCHTEC_LAT_RD_IMM     BIT(2)
-> +#define SWITCHTEC_LAT_FW_NP      BIT(3)
-> +#define SWITCHTEC_LAT_SE_PROCESS BIT(4)
-> +
->  #define SWITCHTEC_CHAN_ENABLE	BIT(1)
->
->  struct chan_fw_regs {
-> @@ -1215,8 +1222,274 @@ static const struct attribute_group switchtec_config_group = {
->  	.attrs = switchtec_config_attrs,
->  };
->
-> +static ssize_t pmon_show(struct device *dev, char *page,
-> +			 u64 (*reader)(struct chan_fw_regs __iomem *chan_fw))
-> +{
-> +	struct switchtec_dma_chan *swdma_chan;
-> +	u64 val;
-> +
-> +	CLASS(dmaengine_chan_from_dev, c)(dev);
-> +
-> +	if (!c)
-> +		return -ENODEV;
-> +
-> +	swdma_chan = container_of(c, struct switchtec_dma_chan, dma_chan);
-> +
-> +	rcu_read_lock();
-> +	if (!rcu_dereference(swdma_chan->swdma_dev->pdev)) {
-> +		rcu_read_unlock();
-> +		return -ENODEV;
-> +	}
-> +
-> +	val = reader(swdma_chan->mmio_chan_fw);
-> +	rcu_read_unlock();
-> +
-> +	return sysfs_emit(page, "0x%llx\n", val);
-> +}
-> +
-> +static u64 read_se_count(struct chan_fw_regs __iomem *chan_fw)
-> +{
-> +	return lo_hi_readq(&chan_fw->perf_fetched_se_cnt_lo);
-> +}
-> +
-> +static ssize_t se_count_show(struct device *dev,
-> +			     struct device_attribute *attr, char *page)
-> +{
-> +	return pmon_show(dev, page, read_se_count);
-> +}
-> +static DEVICE_ATTR_RO(se_count);
-> +
-> +static u64 read_byte_count(struct chan_fw_regs __iomem *chan_fw)
-> +{
-> +	return lo_hi_readq(&chan_fw->perf_byte_cnt_lo);
-> +}
-> +
-> +static ssize_t byte_count_show(struct device *dev,
-> +			       struct device_attribute *attr, char *page)
-> +{
-> +	return pmon_show(dev, page, read_byte_count);
-> +}
-> +static DEVICE_ATTR_RO(byte_count);
-> +
-> +static u64 read_se_pending(struct chan_fw_regs __iomem *chan_fw)
-> +{
-> +	return readw(&chan_fw->perf_se_pending);
-> +}
-> +
-> +static ssize_t se_pending_show(struct device *dev,
-> +			       struct device_attribute *attr, char *page)
-> +{
-> +	return pmon_show(dev, page, read_se_pending);
-> +}
-> +static DEVICE_ATTR_RO(se_pending);
-> +
-> +static u64 read_se_buf_empty(struct chan_fw_regs __iomem *chan_fw)
-> +{
-> +	return readw(&chan_fw->perf_se_buf_empty);
-> +}
-> +
-> +static ssize_t se_buf_empty_show(struct device *dev,
-> +				 struct device_attribute *attr, char *page)
-> +{
-> +	return pmon_show(dev, page, read_se_buf_empty);
-> +}
-> +static DEVICE_ATTR_RO(se_buf_empty);
-> +
-> +static u64 read_chan_idle(struct chan_fw_regs __iomem *chan_fw)
-> +{
-> +	return readl(&chan_fw->perf_chan_idle);
-> +}
-> +
-> +static ssize_t chan_idle_show(struct device *dev,
-> +			      struct device_attribute *attr, char *page)
-> +{
-> +	return pmon_show(dev, page, read_chan_idle);
-> +}
-> +static DEVICE_ATTR_RO(chan_idle);
-> +
-> +static u64 read_latency_max(struct chan_fw_regs __iomem *chan_fw)
-> +{
-> +	return readl(&chan_fw->perf_lat_max);
-> +}
-> +
-> +static ssize_t latency_max_show(struct device *dev,
-> +				struct device_attribute *attr, char *page)
-> +{
-> +	return pmon_show(dev, page, read_latency_max);
-> +}
-> +static DEVICE_ATTR_RO(latency_max);
-> +
-> +static u64 read_latency_min(struct chan_fw_regs __iomem *chan_fw)
-> +{
-> +	return readl(&chan_fw->perf_lat_min);
-> +}
-> +
-> +static ssize_t latency_min_show(struct device *dev,
-> +				struct device_attribute *attr, char *page)
-> +{
-> +	return pmon_show(dev, page, read_latency_min);
-> +}
-> +static DEVICE_ATTR_RO(latency_min);
-> +
-> +static u64 read_latency_last(struct chan_fw_regs __iomem *chan_fw)
-> +{
-> +	return readl(&chan_fw->perf_lat_last);
-> +}
-> +
-> +static ssize_t latency_last_show(struct device *dev,
-> +				 struct device_attribute *attr, char *page)
-> +{
-> +	return pmon_show(dev, page, read_latency_last);
-> +}
-> +static DEVICE_ATTR_RO(latency_last);
-> +
-> +static ssize_t latency_selector_show(struct device *dev,
-> +				     struct device_attribute *attr, char *page)
-> +{
-> +	struct switchtec_dma_chan *swdma_chan;
-> +	struct chan_fw_regs __iomem *chan_fw;
-> +	u32 lat = 0;
-> +	int len;
-> +
-> +	CLASS(dmaengine_chan_from_dev, c)(dev);
-> +
-> +	if (!c)
-> +		return -ENODEV;
-> +
-> +	swdma_chan = container_of(c, struct switchtec_dma_chan, dma_chan);
-> +	chan_fw = swdma_chan->mmio_chan_fw;
-> +
-> +	rcu_read_lock();
-> +	if (!rcu_dereference(swdma_chan->swdma_dev->pdev)) {
-> +		rcu_read_unlock();
-> +		return -ENODEV;
-> +	}
-> +
-> +	lat = readl(&chan_fw->perf_latency_selector);
-> +	rcu_read_unlock();
-> +
-> +	len = sysfs_emit(page,
-> +			 "To select a latency type, write the type number\n");
-> +	len += sysfs_emit_at(page, len, "(1 ~ 5) to latency_selector\n\n");
-> +
-> +	len += sysfs_emit_at(page, len, "Latency Types:\n");
-> +	len += sysfs_emit_at(page, len, "(1) SE Fetch latency");
-> +	if (lat & SWITCHTEC_LAT_SE_FETCH)
-> +		len += sysfs_emit_at(page, len, " (*)\n");
-> +	else
-> +		len += sysfs_emit_at(page, len, "\n");
-> +
-> +	len += sysfs_emit_at(page, len, "(2) VDM latency");
-> +	if (lat & SWITCHTEC_LAT_VDM)
-> +		len += sysfs_emit_at(page, len, " (*)\n");
-> +	else
-> +		len += sysfs_emit_at(page, len, "\n");
-> +
-> +	len += sysfs_emit_at(page, len, "(3) Read Immediate latency");
-> +	if (lat & SWITCHTEC_LAT_RD_IMM)
-> +		len += sysfs_emit_at(page, len, " (*)\n");
-> +	else
-> +		len += sysfs_emit_at(page, len, "\n");
-> +
-> +	len += sysfs_emit_at(page, len, "(4) SE Processing latency");
-> +	if (lat & SWITCHTEC_LAT_SE_PROCESS)
-> +		len += sysfs_emit_at(page, len, " (*)\n");
-> +	else
-> +		len += sysfs_emit_at(page, len, "\n");
-> +
-> +	len += sysfs_emit_at(page, len, "(5) FW NP TLP latency");
-> +	if (lat & SWITCHTEC_LAT_FW_NP)
-> +		len += sysfs_emit_at(page, len, " (*)\n");
-> +	else
-> +		len += sysfs_emit_at(page, len, "\n");
-> +
-> +	return len;
-> +}
-> +
-> +static ssize_t latency_selector_store(struct device *dev,
-> +				      struct device_attribute *attr,
-> +				      const char *page, size_t count)
-> +{
-> +	struct switchtec_dma_chan *swdma_chan;
-> +	struct chan_fw_regs __iomem *chan_fw;
-> +	ssize_t ret = count;
-> +	int lat_type;
-> +
-> +	CLASS(dmaengine_chan_from_dev, c)(dev);
-> +
-> +	if (!c)
-> +		return -ENODEV;
-> +
-> +	swdma_chan = container_of(c, struct switchtec_dma_chan, dma_chan);
-> +	chan_fw = swdma_chan->mmio_chan_fw;
-> +
-> +	if (kstrtoint(page, 0, &lat_type) < 0)
-> +		return -EINVAL;
-> +
-> +	switch (lat_type) {
-> +	case 1:
-> +		lat_type = SWITCHTEC_LAT_SE_FETCH;
-> +		break;
-> +	case 2:
-> +		lat_type = SWITCHTEC_LAT_VDM;
-> +		break;
-> +	case 3:
-> +		lat_type = SWITCHTEC_LAT_RD_IMM;
-> +		break;
-> +	case 4:
-> +		lat_type = SWITCHTEC_LAT_SE_PROCESS;
-> +		break;
-> +	case 5:
-> +		lat_type = SWITCHTEC_LAT_FW_NP;
-> +		break;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +
-> +	rcu_read_lock();
-> +	if (!rcu_dereference(swdma_chan->swdma_dev->pdev)) {
-> +		ret = -ENODEV;
-> +		goto err_unlock;
-> +	}
-> +
-> +	spin_lock(&swdma_chan->hw_ctrl_lock);
-> +	if (swdma_chan->hw_cfg_locked) {
-> +		spin_unlock(&swdma_chan->hw_ctrl_lock);
-> +		ret = -EBUSY;
-> +		goto err_unlock;
-> +	}
-> +
-> +	writel(lat_type, &chan_fw->perf_latency_selector);
-> +	spin_unlock(&swdma_chan->hw_ctrl_lock);
-> +
-> +err_unlock:
-> +	rcu_read_unlock();
-> +
-> +	return ret;
-> +}
-> +static DEVICE_ATTR_RW(latency_selector);
-> +
-> +static struct attribute *switchtec_pmon_attrs[] = {
-> +	&dev_attr_se_count.attr,
-> +	&dev_attr_byte_count.attr,
-> +	&dev_attr_se_pending.attr,
-> +	&dev_attr_se_buf_empty.attr,
-> +	&dev_attr_chan_idle.attr,
-> +	&dev_attr_latency_max.attr,
-> +	&dev_attr_latency_min.attr,
-> +	&dev_attr_latency_last.attr,
-> +	&dev_attr_latency_selector.attr,
-> +	NULL,
-> +};
-> +
-> +static const struct attribute_group switchtec_pmon_group = {
-> +	.name = "switchtec-pmon",
-> +	.attrs = switchtec_pmon_attrs,
-> +};
-> +
->  static const struct attribute_group *switchtec_groups[] = {
->  	&switchtec_config_group,
-> +	&switchtec_pmon_group,
->  	NULL,
->  };
->
-> --
-> 2.47.3
->
+> Keeping it in prod is what makes the check + slot reservation atomic in
+> the cmpxchg.. with a separate flag, a CPU could check it, then suspend
+> sets it and samples the target, and the CPU would still reserve slots
+> beyond that target.
+
+I think that the suspend thread needs to ensure that potential users
+of the command queue either (a) observe the stop flag (or some variant
+of it) or (b) are accounted for such that the suspend thread can wait
+for them to conclude their command queue operations. For this type of
+synchronization, I believe we do need some variable that both the
+suspend thread and the command queue users access with cmpxchg or a
+similar operation. I guess that in some alternative design, we could
+use a combination of refcount_inc_not_zero in the command queue user
+threads and refcount_dec_if_one in the suspend thread, and I believe
+one of Pranjal's earlier patches used a similar method. The beauty of
+the current proposal is that we re-use existing synchronization
+primitives and don't introduce any new variables that we need to
+access using cmpxchg.
