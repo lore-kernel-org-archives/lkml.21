@@ -1,80 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.97.179.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795009263;
-	b=NyUChir9b/GqTc1admR+fECZRsnSNHJ6cWm5Dm6CDTon1otcaLvF9O2LObxhsEfhQdpU
-	 JijHjjw1A0udTtMLxUbDPIg92c9y4+t8DfSQogG6bkwC6g7IlXs7y0hR2rOvV1Ex5HOq3
-	 5ykInlCGiY3rnFSm18UEJbLHchlDe7UaqdAi+O/uTGkNzu5AGM71sNYSwMjozwOCoZfT5
-	 XVTzmZwxa5ZubjQ2tEH3aPRyURuONy+NhwJ9naaBnNcNXURRYY2Te3lXj7/DDuHwOMzmG
-	 b+jzXO7LoeMstlv36x+l2w4+gBtpxGGqdVTt/vHU3MksOPYO7Dp78sGAmhfhGm07YrA==
+	t=1795009258;
+	b=aLfupxNtDB/1pC+a1sVmcYF+DS230JqdirbpX2fSsTbTqRlk7XzsK1S9o5tLh8fhK43S
+	 ZgYGyixrpbY8n9mzRLTE400ja3rn+V/Md7/ZrjngMYJtYdX5WhC2X+3SxBkNkDOM+iozR
+	 dq5Wrpl/1pYOduQ8NCpWdDwqwKg8E7yAA+JUXVGypT6b+TZdCRGDgI5gKylNk5TuEEkxI
+	 ogdvowe7SH7eoAm+4q1HDaqIoN1HOrGs99SM+5NJS8lB0jgI/x5sxHOicy8JXSt52XhFy
+	 jdTQhV2uZcE6NkseqqVpQFWnFYECYXQOKOa/i/7yw4KBP3KH6uSzcBm6+ww6pjtlAkQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795009263;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=KZ5BCkqNb6oprSxD68qfjURy1vbangKtIh9R21+lBIo=;
-	b=GJbv3kFs7wmeI5f7+kPU0C34B/n8o6t3M0d/MIfKtUPzEqMm5yFfF2gJg/AWPwPg8Yjh
-	 ITNIugr84IAgHlsTUQ5UlECw/wLmzWTlJMxcb+Q9vm6rzBE5JBlgaL45xee3JRrZTfESW
-	 Yt2nR+CUcr2ggFykZVvHmneeLQoVq8rOB1vd5dKliQtuxlhy3x8kQzpjFA2hig2N0DTTa
-	 9v7bABP+ZVo2ocMs35r5sI5dac0eUqfGM34gtKjZQmXLtZGrKSMgkIX1V30OR5i7cCZYz
-	 TFZDDdike1tX0NFlr0czsqNTREw7YHWvzxgcmjhNZv49te1nzQWsUF1qN2Y74uiAXig==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795009258;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=9g7KvO8us85H6N24ga2RiONwD8RDdkdpwC8qeCr66L8=;
+	b=XA7uq7hoihaJ8MSaIgG3z5sQSeBRk+rHfWQYTBlTnIQEcRkb21wxnNUh/SfIUTojEG5s
+	 4TiFufE7PVzpNXDCu1c/eMl8bdxUYARb2hBu6rS6aUMWgXKy7IzBzB1L9ccOksqZLNNft
+	 1pz1KC9JeIUYwCj4pB7Mp9vDd1KHllMgI9zzVLZjAqEGi3niDyUP8yDNBjgBeFgU8vLgP
+	 P9RADlQPhOE5OzRrXdMaxYcKhVLytP9huhZmNxs5ATvgT72sWVkHxeuEAJ6fzlFZgdMBj
+	 QNwpwb3yHIL9GW7v1MMZcAmr00XISSZbVYNPaVK3fCczwOymx5ikPZoHlrWfZ/yahnQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=r3MLFCNN;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	dmarc=pass header.from=igalia.com;
+	spf=pass smtp.mailfrom=igalia.com;
+	dkim=pass header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=q95DT8hb;
+	arc=none smtp.remote-ip=213.97.179.56
+Received: from fanzine2.igalia.com (fanzine2.igalia.com [213.97.179.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17E2960A2622
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:41:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17E2960A2622
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D5FE60A2605
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:40:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0D5FE60A2605
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=igalia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=igalia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=r3MLFCNN
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 81EC4C4CBDA;
-	Wed, 18 Nov 2026 13:41:06 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id AB8CF5FE9B;
-	Wed, 18 Nov 2026 13:41:01 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8834A11BC209B;
-	Wed, 18 Nov 2026 14:40:57 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795009260; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=KZ5BCkqNb6oprSxD68qfjURy1vbangKtIh9R21+lBIo=;
-	b=r3MLFCNNbOt7LAY/0Shsphf2JysXbMTTxlI6pjahqSeJOIpEoWHsZ72hJ9SVTdUEYfx5MM
-	CyhKadqlFZGzPzO8uRobZuylYQG8UM+jnVRgEiuwryvQBf73WaX0wlBOo5R5JjlEh7PoNw
-	q9XXblIb3tOIEdCxR7tm+5yFOUwI1WZlY57bEhGCBdAParAdmtY4KLDB6kYEDOzV1TXiuz
-	M+w45OoaaT8boo+b8w/8RITpIS6x+BF4uxoGfdVsxlhg4j/GDnaw8EwqOG8EtWnx6hJzuq
-	1BDZ5SHei/Ar6iqy4xbOMmhJZVs4IAUX9wBuqZW/PeviATCKggWIuDzfof1WFQ==
-From: Herve Codina <herve.codina@bootlin.com>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Peter Rosin <peda@lysator.liu.se>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	Allan Nielsen <allan.nielsen@microchip.com>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Daniel Machon <daniel.machon@microchip.com>,
-	Steen Hegelund <steen.hegelund@microchip.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Herve Codina <herve.codina@bootlin.com>
-Subject: [PATCH v10 5/6] i2c: atr: Set adapter physical device
-Date: Wed, 18 Nov 2026 14:39:14 +0100
-Message-ID: <20261118133927.366482-6-herve.codina@bootlin.com>
+	dkim=pass (2048-bit key) header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=q95DT8hb
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:
+	Date:Subject:Cc:To:From:From:Reply-To;
+	bh=9g7KvO8us85H6N24ga2RiONwD8RDdkdpwC8qeCr66L8=; t=1795009257; x=2110369257; 
+	b=q95DT8hbPOqZuqTPZLZ93v1LqswgVHGyaMVvmK5ABlN6OnJDPVN7u+peCgldMWeUpPJgC/4QLgB
+	hCbqbjR3wUujcJrS/S6unzENotw+qyl0qeMWbtf/EVAF6W5y862cC6h61m5cdOckk0PL+mcy0GA6Z
+	tAsyvs8yJathMxSbNLPOPGvtOkpnsEMNdUPaBVMxhHeLVMJXnVUl37zwKo6vIMSZWLQ6pci49icy5
+	5AIpzL2+SruME6bZzbA/opBblZmOGBFZUcTZ7s9VdZ1PrWKDCbQREVp2UwxTPS0RXDImekkwmy3PR
+	8gJH/ft9rEQd3Cn4DhQGr/q3W7pHijO476Bg==;
+Received: from [179.105.94.163] (helo=prince)
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
+	id 1xTfu6-000000011Vj-1H4x;
+	Wed, 18 Nov 2026 14:40:50 +0100
+From: =?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>
+To: mripard@kernel.org,
+	dave.stevenson@raspberrypi.com,
+	Henry Zhang <henryzhang62@gmail.com>
+Cc: =?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>,
+	kernel-list@raspberrypi.com,
+	maarten.lankhorst@linux.intel.com,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] drm/vc4: dsi: Register the PHY clock provider with devm
+Date: Wed, 18 Nov 2026 10:39:10 -0300
+Message-ID: <179500914537.2054070.4093937938217881883.b4-ty@igalia.com>
 X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261118133927.366482-1-herve.codina@bootlin.com>
-References: <20261118133927.366482-1-herve.codina@bootlin.com>
+In-Reply-To: <20261117234107.1298575-1-henryzhang62@gmail.com>
+References: <20261117234107.1298575-1-henryzhang62@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,36 +74,28 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
 
-For i2c atrs, the parent of the atr adapter device is the adapter device
-the atr is connected to.
 
-This parent is not necessarily the physical device related to the atr
-adapter. An ATR can be used in a split serializer/deserializer topology
-where atr->dev is the deserializer, but the ATR channel adapter is owned
-by the serializer device passed as desc->parent.
+On Tue, 17 Nov 2026 15:41:07 -0800, Henry Zhang wrote:
+> vc4_dsi_init_phy_clocks() is called from the component bind. It
+> allocates the clock data with devm_kzalloc() and registers the clocks
+> with devm_clk_hw_register(), so both are released with the devres group
+> that the component framework opens for the bind, when the bind fails
+> later or the component is unbound. The OF clock provider that points at
+> that data is added with of_clk_add_hw_provider() and never removed:
+> after an unbind it stays registered with the freed data, and each new
+> bind adds another provider for the same node. A later lookup of one of
+> these clocks, such as <&dsi1 0>, would call of_clk_hw_onecell_get() on
+> freed memory.
+> 
+> [...]
 
-Fill the adap.physdev with the desc->parent device.
+Applied with the AI-assistance note in the commit message removed, thanks!
 
-Signed-off-by: Herve Codina <herve.codina@bootlin.com>
----
- drivers/i2c/i2c-atr.c | 1 +
- 1 file changed, 1 insertion(+)
+[1/1] drm/vc4: dsi: Register the PHY clock provider with devm
+      commit: db9a489077cbe9217b7bc2b47ebf0fabc5f1a56f
 
-diff --git a/drivers/i2c/i2c-atr.c b/drivers/i2c/i2c-atr.c
-index b98442ffff94..7c599d2d09c4 100644
---- a/drivers/i2c/i2c-atr.c
-+++ b/drivers/i2c/i2c-atr.c
-@@ -824,6 +824,7 @@ int i2c_atr_add_adapter(struct i2c_atr *atr, struct i2c_atr_adap_desc *desc)
- 	chan->adap.algo = &atr->algo;
- 	chan->adap.algo_data = chan;
- 	chan->adap.dev.parent = desc->parent;
-+	chan->adap.physdev = desc->parent;
- 	chan->adap.retries = parent->retries;
- 	chan->adap.timeout = parent->timeout;
- 	chan->adap.quirks = parent->quirks;
--- 
-2.56.0
-
+Best regards,
+- Maíra
