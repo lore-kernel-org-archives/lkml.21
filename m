@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794962939;
-	b=Cxe2KBFqmXxdnpDYzXLU38veCeNmPPUKh+i2k2RJvwW+k5WLIGBojjf27PVFrCbgkQ4o
-	 M/QeX4cofRnOoFkk+dtjZHuSLZxrwY26Fsm9jI+jLTi7ZJeMIsorUUjDOhzzEoT8QeXA8
-	 Z8ihXJg4Nat450hyQGiGzNR7DxhYJoFP6a7iUaF+EvFsOFtc9Y9omcy0M+QMmZ7pC1oQI
-	 S5EMQ/diRaUt+sJuZwV/RCQoYvzpEpU52yo/KLr06sSzjChDiVGZ1MofCpBLlq0Ck8MIY
-	 mLPIeIyrxDrbzwEIagfn6g4Wst6bWmp5e6QE+7znBDq/EvIuTHZ79JwGNLr+Hnrhs3g==
+	t=1794962942;
+	b=lLh8fsiLn/AIaYb9HZGMjFa0eXUqBIBqg7K53F1qjDPFdfvB1L/4buy3/Xr96RqN0vMJ
+	 vOX8QBKy6JWHQmPCqUu+myp6kaXZEN5hk6Ce1XN6OfIdopzGJqktbQ+czt81F+wkRTUjv
+	 ouxGF6BT/7g4BVjfgiJXmKb9Cgrb8EqkxImKpaxj6qQ2bF6zzJ84U/e8tewl/KVqlibTE
+	 Zbjfe3uA/qUUEMyTdP+VOOlTeJRzDLFCl5CXbBta7HE+grD6CEHyfxD13RyeJmUdpDr0a
+	 Stm7Izal4yvvMeB1Dr7aM2CtCewytF/O+20IyWN4Vxvvu8jGhy41Yg5L+CSMiBxkiNg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794962939;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794962942;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=8V2XOZmn0Vctd6GGoq9tH0tWyX2ZAclwzJyrOF4lr5s=;
-	b=b8XX65VydBiuFQNFWRugxRzdyILD/zZxdmWidxH9KXHegGT9gBQbeTYGXregfYtfqGj6
-	 lwAZBXPmKPixDqNpLGNVdau5LuJ7TyrkMsTU12GvV+6zl4C6GEno/+q5EZSSdpqUDgRgL
-	 d1WAmwbOPWOe2nj8KBfNUYE1aDgG8u5UGbilQa5RuzrX4lHwn8bBbujP/yvuMEhzQz3+t
-	 VRCdBwpHYDOGMgFi7WnPuWbTkKxyNLv0WQCOF6GhW3EyM0R0IlL8OtuPTLg29NHBToyys
-	 YB7GRNhllqGMiz7PhKnro0pb/t495279kw4Lw6ZH2nKX0v1j3GOAbGkDDdT4XugS7DA==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=treAuPWg+nKRf97mTBv/ahVAZRlgUNZED9ulS1pYeAk=;
+	b=ZrWCOe7vXROYpR4Ydr6VTUZG6P2PFfRfhtwjefgaE+H4F7SiPYen57ypPVKQcVMxSLp5
+	 BubOMNHDA7iPkIVWb0ffP2XPIypybCnoyqLhnEU5b6cLb4DJDzjgxzaU01KcKliZ9XJKP
+	 dFQtd3Asjud/xhDtW0Qljo9VIykMkjjZZX0ATbJ1pccxlJIa4pXiYYVJsHbdQvS2L8HhK
+	 WG+6CRwea3kkQOKoAcflsfXY9hbngGHP7BeTvqnJtb1ULlyg1m0H+VrApWKd7vJoTqwCl
+	 FYSPaRGb+uj3INxuegwgkjJZl+N2pPv4kj1G7clDMyANxzxLYwt5JYUc9EmzRlb6Kpw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=dubeyko.com;
 	spf=pass smtp.mailfrom=dubeyko.com;
-	dkim=pass header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=j5niG9jT;
-	arc=none smtp.remote-ip=209.85.128.171
-Received: from mail-yw1-f171.google.com (mail-yw1-f171.google.com [209.85.128.171])
+	dkim=pass header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="dV/D+1lA";
+	arc=none smtp.remote-ip=74.125.224.53
+Received: from mail-yx1-f53.google.com (mail-yx1-f53.google.com [74.125.224.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 288F5606A888
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:48:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 288F5606A888
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA386606A89F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:49:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA386606A89F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dubeyko.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dubeyko.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=j5niG9jT
-Received: by mail-yw1-f171.google.com with SMTP id 00721157ae682-8b4e2fcc300so3828057b3.2
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 16:48:56 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=dV/D+1lA
+Received: by mail-yx1-f53.google.com with SMTP id 956f58d0204a3-67c0bd676eeso252217d50.3
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 16:49:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dubeyko-com.20260707.gappssmtp.com; s=20260707; t=1794962936; x=1795567736; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8V2XOZmn0Vctd6GGoq9tH0tWyX2ZAclwzJyrOF4lr5s=;
-        b=j5niG9jTnJN1+gZWK21jVz+cw+yHDsYF54ZwSy+ffCeVmvhUtigihjzMA3Mx/izRsI
-         /fZJgCpHIIkkY5Wf1lmBFZ+Xe3paQzu3YFRsTVJyq7eVhJ6kqpBhSocstjZb7M11xhbh
-         3WlkURETSQgnt/vNwX8lpuJcDbb2BuCoCXjQjs9GaHZcER53/T0+PJmZD0EutNvY67P7
-         I2L+M2GDcmp4rGU+5p53p6w9sYjfjw+kkZAfFDv0qc9Eh0iECvt+7tLG+asujOUE5UTg
-         NTb9cCWZGl9BCi2FGlAKXt5SDnOw5zR7Y0jnh7rD3cPAZV0I5b2KoDTK2BcZMcQqoLyw
-         bf4w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794962936; x=1795567736;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=dubeyko-com.20260707.gappssmtp.com; s=20260707; t=1794962941; x=1795567741; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=8V2XOZmn0Vctd6GGoq9tH0tWyX2ZAclwzJyrOF4lr5s=;
-        b=HfT7vtIfCJ84i4p35aGpK0UO92ialpLVF9SKZDWYIK2HtMtEQPbpiDtZIp7fsXd1aQ
-         ucxKnLyqDEl4QU2bNWNTtEfX5oRhhyJyRtpQ1G/krM9m0pV+eJVZkPLGycWdcnbBQgZO
-         3oHpBM0THuJATCQb011Ea6/5ClOi7JwIJqGrEaneO9QSx9OD5C3T3DeVYvTBL3InAAWp
-         ak2Z3Sxaz+mxG+6MN2Sp9hIUeX1gcUTHOZjgFRDyTvemubssZQYWB18HX0xuN9SJ9oIB
-         BOiFqxW5HdF9bq+QEFzXZcUli3J1Jy4NhFWHoPVdPOnkz3XOMcmYYk1ao8kVmXaKgP9M
-         uTyw==
-X-Forwarded-Encrypted: i=1; AL+hErHByvUqO/GVAfzcgenxAbl8W286csFaz67M+/rrsMobhQyGXHQ2ZYOeesaMmBXJV9gpAU4Xbrdnhbz4cIM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+LgXl1gyzHL4Bc4HTR6JeY8Xkr7gfUvm+A1LM9FHa2BL0bOJpF
-	MUTLZ1PmBl1pgCkBLp85BNEkTSAr9m16bBr3l/HvvRIcc6EW+iQXWVnegVxQ7LQ7ej4=
-X-Gm-Gg: AZFdTZeyY/miYOPxJCj9dk3hAhWLU6vhd32696yg4jBidPBn7xDFn4fspXKNbDTKj+Q
-	mhMfaXE0WO06aiU3uzCoYvkykoCFPZ9pjslY2wtx5bvEK63soJ1MMvLwQZRmECl9HoSemvo/IHh
-	WZvzJIc75785lfFos9MWTR8hCT+0B5RWmJKrQMRy56IpivDLv+3J2nuMsbg/+Zw+Nj2nMEcLCPT
-	lU4z6uT3sTiDARbp9V+Lx9Y+EA42pnT0XizoTc/MzY2HpUuYolVVB49S35XAb0OBYNOqiHGT+0g
-	MdqvX18jTnb3IghsfydPX9yNmSFA8Mv/tuQ7Q4enP5RGW/Lc3XviW6BHZGmXJ0nmUsvMG7g2HBZ
-	2tUKhmmp8FRLEA/l6D5fWB7gNiS20f7vDB3rx3dLCYmTNfRwuK60jlWzIortoSaOiI34W/cS/p7
-	9WKLQWvFVpnSr2CrCPrpy77MooGX+WilIOgIpJRXljFAC0aRO8TpxKV+fYst75+Da/VpKAnp/p+
-	cX/lW/7ZqV1rfVv0A+qb27/bUvGQUjblhagJQKoBtKp8QvzcZlMqBj6cuqcj0YgdovVXTi55/4T
-	sF6iizXt8TkvwOfEXIo9PsUtR3annOHcnwEK86eNYBfEBfvgw/1ud1ay28lJSbmr1IfJ80ljdzp
-	aKoXeD5w0cEKLdi0AQc/DJwT4HFuwRodfMLnDDcnRU4G06ThWVaT4QrTLsIDBtWTmTKlu1/6UbZ
-	mEnDyfi/pGx1qxKaLA
-X-Received: by 2002:a05:690c:6f84:b0:8b3:4b09:f4ef with SMTP id 00721157ae682-8b4febd981dmr3810477b3.13.1794962935978;
-        Tue, 17 Nov 2026 16:48:55 -0800 (PST)
+        bh=treAuPWg+nKRf97mTBv/ahVAZRlgUNZED9ulS1pYeAk=;
+        b=dV/D+1lAEUxsNm/7Hy+JJ7VRKVMTS9E5RhXEsZjMyjom58OBUctpJbmNZeCNwbaLRo
+         g0ellPOR5L18dXUyzydNNly63wJtRHp8W+aiUQi1awyIWZS9i4kal8juKRlQJQtBi26W
+         odzI5h+Ium1feLGkUR/21+WitQtUDqGJsBz5NHPepleXKaKhHbymsoy817nAOtGvcuN1
+         st/o3Z+70oW/eaZI2M1PJpnz+o7gfmbQL1JYn9qmUGY/fxzlkkQrsG5wQauu3NqTNKov
+         SaTs856jddoIVZXrUwSmbQG0ivjbrrwsC+c0H7BUywJD+sPPF0o9+sLUtMGoSwZ2ZYH6
+         1Rnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794962941; x=1795567741;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=treAuPWg+nKRf97mTBv/ahVAZRlgUNZED9ulS1pYeAk=;
+        b=MvUD+oq33KSXIVHIhb1mROtz6i09AiwZI0ZazIE/WWAhvusyFIfWSV6XAjjzRoks/a
+         rhfWzLtH6cXRxTal4RWrYDn6N9iiAG9uepqdBB68DI111crl3r+Wr4T3BukxFPB4+MM1
+         4e+JrZnKTv8RLTMtbaBVQPGMVr4gvhWfjm2k+/5GMBQShpysO7AgYirHBriauOKEG3Fh
+         IV2NFg693GvTInohYfDcYH09Hkqj5cnJ72tUaz6eKRtHWfGMyO5TK0gyxLDOLK+7w0el
+         xTOWAhQuAgzkuTKdhhWW0AYxJ9iwqqvaJ3JqzTbremKA7s5cDfdE+hVIVJTqPNRJw2PI
+         D2Mg==
+X-Forwarded-Encrypted: i=1; AL+hErH263gL0CEDBpPGtOQW5Rcygs4YpRQO4o14x3BQAaKnQPNfATTQhMaOFwp3apv4N4ciUq/c5+QdMnp8T3E=@vger.kernel.org
+X-Gm-Message-State: APuU4Z94W8SEA5CIDl8yfNT9/xfZbOFUUs+TYTk6Tv+SKalRBDvbEKOC
+	6lzUvq/5mnusDOR1cICH+40Gyc86So+1LB2f+RgkEGcyaZbj0i7ur5bsgVKo5Ijjxic=
+X-Gm-Gg: AZFdTZeZhlkJXQ5qzp0RBI7m7Z0pzSlcCL3sJR1hNZ8N5iDhtd0zbA7bYLSQEltqtg7
+	AGuOwLwdFGYFzY3AhvosHn3W9VgBkc7HU2RVIa1V4ma5OxV2IdMa2lXNQUnUlavK9M2X2EsJvJj
+	CnuB49e2jis55aBLsKVqwVZijCQIJAKyoE+MSGOYWs5b9L4TLGQeFf0ArpRJjZ0f756WavLbD21
+	eWb3wB55vsg8O4CApraPqd9C7LpbY6EwnWwoPqjvFqQsEOXe21zCwyJIAqNxyaiz7whRfJqIs+U
+	TINe6ZUOiB2mky295Jbgi7zyN227hSS8ObvHYmE6jsRm0GLsCDnogs9avM+Jn2jEoGi1KwP+SNh
+	eT8RXjPEM51kLQ3lf3MbLTyKIbd3jCMq7sxil20S1/LDxZD0uJSt8IBXT0tddvMNErPELGbzajg
+	MpUITLlY5wxSQTDhSvVlrcFmg/zM1FELXyckBgaCgtYPebxf0mq2diKUPphYVVL0qPCZXvWx7iH
+	Q7dnJGJzz+43p7FjelSZBKvVZnhpOdNLnHmiw9oBfZZigWaPmhqIeGqOE6l/DenHRxLNw/8zxfP
+	XSoTB38uLtOyT4Vi3dB4utyAFsPmhcQPyl9c42LBuuo2N7Fqkj/TF/WHSTNBRrJNH+3c+mwNgq2
+	XtM7LGtNitFn329aWTru54sFmZbenPnoRRZZNLz3yicdEJ0TzeRi0DxbCvRCKXwQlcPPadfw=
+X-Received: by 2002:a05:690e:169b:b0:67d:b449:8572 with SMTP id 956f58d0204a3-67dd3cf9a91mr688414d50.13.1794962940767;
+        Tue, 17 Nov 2026 16:49:00 -0800 (PST)
 Received: from system76-laptop.attlocal.net ([2600:1700:6476:1430:5fae:4d02:7055:94ad])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67dd56ead87sm729575d50.1.2026.11.17.16.48.54
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67dd56ead87sm729575d50.1.2026.11.17.16.48.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 16:48:55 -0800 (PST)
+        Tue, 17 Nov 2026 16:49:00 -0800 (PST)
 From: Viacheslav Dubeyko <slava@dubeyko.com>
 To: glaubitz@physik.fu-berlin.de,
 	frank.li@vivo.com,
@@ -88,11 +88,14 @@ Cc: linux-fsdevel@vger.kernel.org,
 	vdubeyko@coreweave.com,
 	brauner@kernel.org,
 	linux-xfs@vger.kernel.org,
-	Viacheslav Dubeyko <slava@dubeyko.com>
-Subject: [PATCH v5 0/5] hfsplus: convert regular file I/O to iomap
-Date: Tue, 17 Nov 2026 16:48:39 -0800
-Message-ID: <20261118004844.3849979-1-slava@dubeyko.com>
+	Viacheslav Dubeyko <slava@dubeyko.com>,
+	"Darrick J. Wong" <djwong@kernel.org>
+Subject: [PATCH v5 3/5] hfsplus: rework hfsplus_get_block() logic
+Date: Tue, 17 Nov 2026 16:48:42 -0800
+Message-ID: <20261118004844.3849979-4-slava@dubeyko.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261118004844.3849979-1-slava@dubeyko.com>
+References: <20261118004844.3849979-1-slava@dubeyko.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,85 +107,215 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Switch the HFS+ regular file data path from buffer heads and
-blockdev_direct_IO() to iomap.
+Split the extent-lookup/allocate logic out of hfsplus_get_block() into
+a new hfsplus_map_extent(), which reports the mapping as
+(dblock, max_blocks, balloc) instead of filling in a buffer_head.
+hfsplus_get_block() becomes a thin wrapper around it for the
+buffer_head-based callers (B-tree metadata, symlinks).
 
-(1) adds a generic iomap_dio_end_io() helper to
-include/linux/iomap.h: a direct write ->end_io callback that updates
-i_size when the write goes beyond the end-of-file. It can be used by
-file systems that issue all extending direct writes synchronously
-under inode_lock.
+No functional change to the existing buffer_head path. This is
+preparation for the iomap-based regular file I/O path added in a
+later patch, which will call hfsplus_map_extent() directly.
 
-(2) moves the file related operations (open, release, fsync and
-file_operations) from inode.c into the new file.c, without functional
-changes, to prepare the place for the iomap-based file operations.
+cc: Christoph Hellwig <hch@lst.de>
+cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+cc: Yangtao Li <frank.li@vivo.com>
+cc: linux-fsdevel@vger.kernel.org
+Reviewed-by: Christoph Hellwig <hch@lst.de>
+Acked-by: Darrick J. Wong <djwong@kernel.org>
+Signed-off-by: Viacheslav Dubeyko <slava@dubeyko.com>
+---
+ fs/hfsplus/extents.c    | 116 ++++++++++++++++++++++++++++------------
+ fs/hfsplus/hfsplus_fs.h |   2 +
+ 2 files changed, 85 insertions(+), 33 deletions(-)
 
-(3) splits the extent lookup/allocation logic out of
-hfsplus_get_block() into hfsplus_map_extent(), which reports the
-mapping without a buffer_head, so that the iomap path can use it
-directly. No functional change for the buffer_head path.
-
-(4) makes hfsplus_map_extent() return -EIO when no extent covers
-the requested block. On a corrupted volume, hfsplus_get_block() mapped
-such a block to allocation block 0, i.e. the boot blocks and the volume
-header. The iomap path relies on this check, since a zero-length extent
-would otherwise produce a zero-length mapping.
-
-(5) adds the HFS+ iomap operations, implements iomap-based
-llseek/read_iter/write_iter, switches hfsplus_aops to iomap (removing
-hfsplus_direct_IO() and the LEGACY_DIRECT_IO dependency), and rolls
-back i_size and the allocated blocks when the zero-filling extension
-or the data write fails. HFS+ doesn't support holes, so extending
-writes and truncates zero-fill the gap up to the new end-of-file.
-
-Changes since v4:
-- iomap_dio_end_io() is extracted into a dedicated patch 1.
-- Rebased on top of "hfsplus: don't take inode_lock in
-  hfsplus_file_fsync()", "hfsplus: set s_maxbytes from the volume
-  capacity" and "hfsplus: release preallocated blocks in
-  hfsplus_file_truncate()", which are already applied.
-- v5 patches 04, 06, 07 and 10 are squashed into patch 5.
-- The -EIO check in hfsplus_map_extent() is moved out of the iomap
-  conversion into the separate, documented patch 4.
-- The phys_size change in hfsplus_get_block() is dropped: it is not
-  related to iomap, since after the conversion hfsplus_get_block() only
-  allocates blocks when phys_size is block-aligned.
-- hfsplus_write_iomap_end() keeps fs_blocks and the inode byte count in
-  whole blocks, as hfsplus_inode_read_fork() and hfsplus_file_truncate()
-  do, while phys_size stays byte-granular for a partially written block.
-- __hfsplus_iomap_begin() ends a mapping of initialized blocks at the
-  block boundary above phys_size instead of at phys_size itself. With
-  an unaligned on-disk size this used to produce a mapping length that
-  is not a multiple of the logical block size, and an aligned O_DIRECT
-  overwrite failed with -EINVAL.
-- The fsync locking change is dropped from this series, since it is
-  handled by the separate prep patch.
-- The volume capacity check in hfsplus_file_write_iter() is dropped,
-  since generic_write_checks() enforces s_maxbytes, which is set from
-  the volume capacity.
-
-Viacheslav Dubeyko (5):
-  iomap: add iomap_dio_end_io() helper
-  hfsplus: move file related operations to file.c
-  hfsplus: rework hfsplus_get_block() logic
-  hfsplus: return -EIO from hfsplus_map_extent() if no extent covers the
-    block
-  hfsplus: convert regular file I/O to iomap
-
- fs/hfsplus/Kconfig      |   2 +-
- fs/hfsplus/Makefile     |   5 +-
- fs/hfsplus/extents.c    | 163 +++++++++++++++------
- fs/hfsplus/file.c       | 308 ++++++++++++++++++++++++++++++++++++++++
- fs/hfsplus/hfsplus_fs.h |  26 +++-
- fs/hfsplus/inode.c      | 274 +++++++++++------------------------
- fs/hfsplus/iomap.c      | 254 +++++++++++++++++++++++++++++++++
- fs/hfsplus/iomap.h      |  17 +++
- include/linux/iomap.h   |  20 +++
- 9 files changed, 823 insertions(+), 246 deletions(-)
- create mode 100644 fs/hfsplus/file.c
- create mode 100644 fs/hfsplus/iomap.c
- create mode 100644 fs/hfsplus/iomap.h
-
+diff --git a/fs/hfsplus/extents.c b/fs/hfsplus/extents.c
+index 924941440066..cdb337ba3924 100644
+--- a/fs/hfsplus/extents.c
++++ b/fs/hfsplus/extents.c
+@@ -48,18 +48,27 @@ static void hfsplus_ext_build_key(hfsplus_btree_key *key, u32 cnid,
+ 	key->ext.pad = 0;
+ }
+ 
+-static u32 hfsplus_ext_find_block(struct hfsplus_extent *ext, u32 off)
++/*
++ * Find the disk allocation block for 'off' within an 8-entry
++ * extent record, and the number of further allocation blocks
++ * that are contiguous with it in the same extent entry.
++ */
++static u32 hfsplus_ext_find_block(struct hfsplus_extent *ext, u32 off,
++				  u32 *dblock)
+ {
+ 	int i;
+ 	u32 count;
+ 
+-	for (i = 0; i < 8; ext++, i++) {
++	for (i = 0; i < HFSPLUS_FORK_EXTENT_COUNT; ext++, i++) {
+ 		count = be32_to_cpu(ext->block_count);
+-		if (off < count)
+-			return be32_to_cpu(ext->start_block) + off;
++		if (off < count) {
++			*dblock = be32_to_cpu(ext->start_block) + off;
++			return count - off;
++		}
+ 		off -= count;
+ 	}
+ 	/* panic? */
++	*dblock = 0;
+ 	return 0;
+ }
+ 
+@@ -68,7 +77,7 @@ static int hfsplus_ext_block_count(struct hfsplus_extent *ext)
+ 	int i;
+ 	u32 count = 0;
+ 
+-	for (i = 0; i < 8; ext++, i++)
++	for (i = 0; i < HFSPLUS_FORK_EXTENT_COUNT; ext++, i++)
+ 		count += be32_to_cpu(ext->block_count);
+ 	return count;
+ }
+@@ -225,37 +234,46 @@ static int hfsplus_ext_read_extent(struct inode *inode, u32 block)
+ 	return res;
+ }
+ 
+-/* Get a block at iblock for inode, possibly allocating if create */
+-int hfsplus_get_block(struct inode *inode, sector_t iblock,
+-		      struct buffer_head *bh_result, int create)
++/*
++ * Find or allocate a sequence of allocation blocks.
++ *
++ * Looks up the allocation block at 'ablock' for inode, extending the
++ * file (via hfsplus_file_extend(), in clump_blocks-sized chunks) when
++ * 'create' is set and 'ablock' lies beyond the current allocation.
++ *
++ * On success, *dblock is the disk allocation block backing 'ablock',
++ * and *max_blocks is the number of further allocation blocks that are
++ * contiguous with it (i.e. the remaining length of the extent entry
++ * that contains 'ablock'), which may be smaller than the whole file's
++ * remaining allocation when the fork is fragmented across several
++ * extent entries. If a new extent had to be allocated to satisfy the
++ * request, *balloc (when non-NULL) is set to true.
++ */
++int hfsplus_map_extent(struct inode *inode, u32 ablock, int create,
++			u32 *dblock, u32 *max_blocks, bool *balloc)
+ {
+-	struct super_block *sb = inode->i_sb;
+-	struct hfsplus_sb_info *sbi = HFSPLUS_SB(sb);
+ 	struct hfsplus_inode_info *hip = HFSPLUS_I(inode);
+-	int res = -EIO;
+-	u32 ablock, dblock, mask;
+-	sector_t sector;
+-	int was_dirty = 0;
++	int was_dirty;
++	int res;
+ 
+-	/* Convert inode block to disk allocation block */
+-	ablock = iblock >> sbi->fs_shift;
++	if (balloc)
++		*balloc = false;
+ 
+-	if (iblock >= hip->fs_blocks) {
++	if (ablock >= hip->alloc_blocks) {
+ 		if (!create)
+-			return 0;
+-		if (iblock > hip->fs_blocks)
+ 			return -EIO;
+-		if (ablock >= hip->alloc_blocks) {
+-			res = hfsplus_file_extend(inode, false);
+-			if (res)
+-				return res;
+-		}
+-	} else
+-		create = 0;
++		res = hfsplus_file_extend(inode, false);
++		if (res)
++			return res;
++		if (balloc)
++			*balloc = true;
++	}
+ 
+ 	if (ablock < hip->first_blocks) {
+-		dblock = hfsplus_ext_find_block(hip->first_extents, ablock);
+-		goto done;
++		*max_blocks = hfsplus_ext_find_block(hip->first_extents,
++						     ablock,
++						     dblock);
++		return 0;
+ 	}
+ 
+ 	if (inode->i_ino == HFSPLUS_EXT_CNID)
+@@ -274,11 +292,44 @@ int hfsplus_get_block(struct inode *inode, sector_t iblock,
+ 		mutex_unlock(&hip->extents_lock);
+ 		return -EIO;
+ 	}
+-	dblock = hfsplus_ext_find_block(hip->cached_extents,
+-					ablock - hip->cached_start);
++	*max_blocks = hfsplus_ext_find_block(hip->cached_extents,
++					     ablock - hip->cached_start,
++					     dblock);
+ 	mutex_unlock(&hip->extents_lock);
+ 
+-done:
++	if (was_dirty)
++		mark_inode_dirty(inode);
++
++	return 0;
++}
++
++/* Get a block at iblock for inode, possibly allocating if create */
++int hfsplus_get_block(struct inode *inode, sector_t iblock,
++		      struct buffer_head *bh_result, int create)
++{
++	struct super_block *sb = inode->i_sb;
++	struct hfsplus_sb_info *sbi = HFSPLUS_SB(sb);
++	struct hfsplus_inode_info *hip = HFSPLUS_I(inode);
++	u32 ablock, dblock, mask, max_blocks;
++	sector_t sector;
++	int res;
++
++	/* Convert inode block to disk allocation block */
++	ablock = iblock >> sbi->fs_shift;
++
++	if (iblock >= hip->fs_blocks) {
++		if (!create)
++			return 0;
++		if (iblock > hip->fs_blocks)
++			return -EIO;
++	} else
++		create = 0;
++
++	res = hfsplus_map_extent(inode, ablock, create, &dblock, &max_blocks,
++				  NULL);
++	if (res)
++		return res;
++
+ 	hfs_dbg("ino %llu, iblock %llu - dblock %u\n",
+ 		inode->i_ino, (long long)iblock, dblock);
+ 
+@@ -292,9 +343,8 @@ int hfsplus_get_block(struct inode *inode, sector_t iblock,
+ 		hip->phys_size += sb->s_blocksize;
+ 		hip->fs_blocks++;
+ 		inode_add_bytes(inode, sb->s_blocksize);
+-	}
+-	if (create || was_dirty)
+ 		mark_inode_dirty(inode);
++	}
+ 	return 0;
+ }
+ 
+diff --git a/fs/hfsplus/hfsplus_fs.h b/fs/hfsplus/hfsplus_fs.h
+index 554733128fed..0b07259041f9 100644
+--- a/fs/hfsplus/hfsplus_fs.h
++++ b/fs/hfsplus/hfsplus_fs.h
+@@ -447,6 +447,8 @@ int hfsplus_ext_cmp_key(const hfsplus_btree_key *k1,
+ int hfsplus_ext_write_extent(struct inode *inode);
+ int hfsplus_get_block(struct inode *inode, sector_t iblock,
+ 		      struct buffer_head *bh_result, int create);
++int hfsplus_map_extent(struct inode *inode, u32 ablock, int create,
++			u32 *dblock, u32 *max_blocks, bool *balloc);
+ int hfsplus_free_fork(struct super_block *sb, u32 cnid,
+ 		      struct hfsplus_fork_raw *fork, int type);
+ int hfsplus_file_extend(struct inode *inode, bool zeroout);
 -- 
 2.53.0
 
