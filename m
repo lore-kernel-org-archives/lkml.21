@@ -1,60 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.3
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794991299;
-	b=RX+hGO8tSCMxwrnl5/hR4Ey0xc+DAKx/+wkq2/otxXkmaD2iSxBsLo5JNS+1dCOlFLP3
-	 Ha60XJ3IY0iMBGDEzjBbUBvhTu9YNJ9IahqvLeRs1vbhZXXdB3qlIHAKKPzZMSnQVsa8t
-	 lkUc33W7GJhORkcHAvx3p0ddSYlG9r4+A2/ZnpDpMjBhVskmnNOASi6tkuIs3paKccPeA
-	 ZuHrwIc8yP3oCGGmR+VXaSltFbLeesV4ZsCkXcAaSQnaNI/0INZm9FTRGgrWHc8f2koLF
-	 h2bfcR7sQGOHtQu2Wnfi2AYxL8zQT/psQKXjNMKmFE+Uw44X2Gfblzge1NF/+ctFWAw==
+	t=1794991348;
+	b=rcTNl/sH+WMwXJOtaFxondHpNCG41w4GP1LUGU0XnQEeVekTVHIekSRMzJRywEEqfrqi
+	 Q5sI/D44eKlnwoRWl6iamhSLRX/eX+g4CSBISA0mSwFWTYRUL8cJ6oDwk1skfwhep6Vjm
+	 F0BeMhLUJAwk34olv3ywRcX9hODqHIEbi0GZDYHRxoJKsLH0UVJUeZcQRLEdLAqPwb4bC
+	 8atGGDQRTZwWBYAM1/4ffX9fj504eoCVM1Gu3VvNZxJZgvO3+X/bQpQXE2xqpFaMTVz1m
+	 UTSx69Xih1GOqm3PFwIZqGrMlj9Pkqf7TZWhr0CJV5ulTO1Zwyyxv5ki+KH8uEthSgg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794991299;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=m0dm+CSEYXw13XYwLxlYftAcj6aX82i1r4MU3q8Jj90=;
-	b=vxE0HaB74zY07uq5oIDelPC6LV87nNswTreAiMDymq8U0BotHQcU6ffSi9VkJskPU88K
-	 N9BNUstotrSkfgfItbxlXdaN8e5Sviw9/bv8Fb8fvUgDIX2UdEnxq8Jja50xKm69VYKb3
-	 jEbAvi2eYzbh3VazBJitKZf1suZGekBOB6E1AsBLeYWK2Noz1tq8rMvKAR+UshW4/K8oM
-	 iLvg7adwRd3QNX1yB4PQ4cNCzGwgMfoIgo+k8dBFo9s6MMcOAXkniKFUbIZmSWfritv59
-	 zZyLgiKuCYRDN2g8HUOZTL1pih29DKX6Ecsfx7UHfCdiogpDGNwuVaJ8KcVd08Q65kQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794991348;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
+	bh=0ZQTVryEmIsnM+GqvoXyuw7ccmcLMnFre+y24On/fN0=;
+	b=5l5XBM9YwOFL53UURddf74AhebHOApWgXmJ1hUPHZ8MLB9Uuz63wupNC8t68NzcZc+G9
+	 EDg6ZVdhi3gDCHZIVUrnVEKKPmoWWmkXhZx1Dv8ikl+y4wzQSBXclJXgHcf9qlf3kHzfN
+	 HcqWf9R1OLREsJ1i95VtXcQkgIKADX2lbRmPb0e96pM42A5dUYznONwPoT4ekGGjukH35
+	 LzwsZ1V2HxbEMG2fo/s33KEr6Dzz7yXnGLvxEHr6JwgUiw8TuglkWERonNNuUpZ7ovJV2
+	 3s8T49pMqJPZMwkS0zXdN3IDKBRms+miPeX0MO3BMpI2jINtw5eg2ZvFjc2/jC3c9MA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Lqon/DOo";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=MADKrsIE;
+	arc=none smtp.remote-ip=220.197.31.3
+Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.3])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6706D606A31C;
-	Wed, 18 Nov 2026 08:41:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4166E606A32C;
+	Wed, 18 Nov 2026 08:42:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4166E606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Lqon/DOo
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A0E41F000C5;
-	Wed, 18 Nov 2026 08:41:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794991299;
-	bh=m0dm+CSEYXw13XYwLxlYftAcj6aX82i1r4MU3q8Jj90=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Lqon/DOoEGihxibrk2nv2sDab71kMbvl7RxazRsJLXC1EdH3aI5S8zl1pWf39HM1K
-	 iN0aNwD7i+YEgvaXRbAkpxNQeZfmpqex8NM9WG3MpxzEkxKUxK8DMR0PotkbLlUbjk
-	 gGV1YStiefQ3HKXMoq79ulVRigoCPqOl0bWiKVybiOZfYj//+0DLWZ80WOkgXjFUGz
-	 EwH471T28LqbK9vvXT9ILGCyMHRWkpbfOr2gWXBGEc3C+Ry3TwK3ytlSVt+IelVBhW
-	 ti6eTmiB5vJGyD3ubP4ZSlMXoVuqvh7T4yPaXGOojVqssJqAJsyB6iMrrgqGlQTh63
-	 H37yD1n2QGFLA==
-Date: Wed, 18 Nov 2026 09:41:33 +0100
-From: Christian Brauner <brauner@kernel.org>
-To: Bradley Morgan <bradley.morgan@linux.dev>
-Cc: Serge Hallyn <serge@hallyn.com>, 
-	=?utf-8?Q?Micka=C3=ABl_Sala=C3=BCn?= <mic@digikod.net>, Paul Moore <paul@paul-moore.com>, 
-	James Morris <jmorris@namei.org>, Josef Bacik <josef@toxicpanda.com>, 
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] userns: security: Inform LSMs of capability check during
- userns creation
-Message-ID: <20261118-vorkommen-achtzehn-abonnement-6e7e8a08c9cc@brauner>
-References: <20261111205814.3282968-1-bradley.morgan@linux.dev>
- <aveDlb6PlPSVoLD9@hallyn.com>
- <4A0D804A-1199-4402-91EE-E37E8D6EA9E7@linux.dev>
- <0c403a09-38cf-4953-a73a-ee57837b3799@hallyn.com>
- <20261117-brennen-tastatur-ekelhaft-22ee93d5200a@brauner>
- <69BA4071-048F-4D90-9936-4B4856AABDF7@linux.dev>
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=MADKrsIE
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=0Z
+	QTVryEmIsnM+GqvoXyuw7ccmcLMnFre+y24On/fN0=; b=MADKrsIEmxK796aYv8
+	HUDpx0hr1jC98Pmum7dep2Q22+9NI0gqGGduo5q07xaYlby1R8oarmJMHYjwOvGT
+	Rh7zWZ5opqUshDQWSvqS7bEwuDKw1gm8jP+Mg1x4Xyzj3rwf60aDzfGUx+Dh+2Sr
+	DE0wSpH5+FpLSR5h1hYu5AHcE=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g1-3 (Coremail) with SMTP id _____wDnl17YZP1q1I2WIA--.48069S2;
+	Wed, 18 Nov 2026 16:42:02 +0800 (CST)
+From: Haoxiang Li <haoxiang_li2024@163.com>
+To: tony.luck@intel.com,
+	qzhuo@nvidia.com,
+	bp@alien8.de
+Cc: linux-edac@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Haoxiang Li <haoxiang_li2024@163.com>
+Subject: [PATCH] EDAC/igen6: Unregister the correct error handler on probe failure
+Date: Wed, 18 Nov 2026 16:42:00 +0800
+Message-Id: <20261118084200.2184184-1-haoxiang_li2024@163.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,49 +62,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <69BA4071-048F-4D90-9936-4B4856AABDF7@linux.dev>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wDnl17YZP1q1I2WIA--.48069S2
+X-Coremail-Antispam: 1Uf129KBjvdXoW7JF48KrykGw1UuF1xXFykuFg_yoWkXwcE93
+	48tFWxJrZY9r9rJwnxCF4av392kF40gF93Ww1vgF9xGw1fZrWDXF1DuF1UAr17Xr4SkF90
+	kryYgryfuw47CjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7sRtGQ6DUUUUU==
+X-CM-SenderInfo: xkdr5xpdqjszblsqjki6rwjhhfrp/xtbC7Rpp12r9ZNrbUAAA3r
 
-On Tue, Nov 17, 2026 at 04:36:54PM +0000, Bradley Morgan wrote:
-> On 17 November 2026 16:31:16 GMT, Christian Brauner <brauner@kernel.org>
-> wrote:
-> >On Sat, Nov 14, 2026 at 08:34:07AM -0600, Serge Hallyn wrote:
-> >> Nov 13, 2026 15:54:37 Bradley Morgan <bradley.morgan@linux.dev>:
-> >> 
-> >> > On 13 November 2026 21:39:33 GMT, "Serge E. Hallyn" <serge@hallyn.com>
-> >> > wrote:
-> >> >> On Wed, Nov 11, 2026 at 08:58:14PM +0000, Bradley Morgan wrote:
-> >> >>> Right now security_capable() gets called in create_user_ns() to
-> >snapshot
-> >> >>> whether the parent could setfcap, but the LSM gets zero context on
-> >where
-> >> >>> the check actually came from. It is the same story as setid: without
-> >a
-> >> >>> dedicated flag, security modules cannot tell this apart from regular
-> >> >>> capability checks.
-> >> >>>
-> >> >>> Add CAP_OPT_USERNS_CREATE and pass it along from create_user_ns().
-> >> >>
-> >> >> This should be patch 1/N in a set that introduces a user of it
-> >> >> in some lsm.
-> >> >
-> >> > hmm. Did you read Christians suggestion?
-> >> 
-> >> I did, when he first sent it. Actually it seems to me that what the
-> >> lsm would really like to know is that this is not for an immediate use
-> >> of setfcap, but possible future use. But that doesn't really matter. I
-> >> wasn't judging the patch. I was just going by what i believe is
-> >> general lsm subsystem policy.
-> >
-> >My main point is this: right now security_capable() doesn't actually
-> >specify what specific action it denies. I think we would be much better
-> >served if we had an enum that would allow us to annotate places where it
-> >matters what specific action is checked. I would make use of this in bpf
-> >lsms.
-> 
-> Does this patch look okay to you? Would you like any improvements? (Except
-> from adding a user) :)
+register_err_handler() registers either an NMI handler or an MCE notifier
+depending on res_cfg->machine_check. If enabling error reporting fails,
+igen6_probe() always unregisters the NMI handler, leaving the MCE notifier
+registered while the driver resources are released.
 
-I think it's fine but Serge has more expertise in this area. So I'd like
-hear back from him again.
+Use unregister_err_handler() in the probe error path to match the
+registration method, as already done in igen6_remove().
+
+Fixes: 0b7338b27e82 ("EDAC/igen6: Add Intel Tiger Lake SoC support")
+Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
+---
+ drivers/edac/igen6_edac.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/edac/igen6_edac.c b/drivers/edac/igen6_edac.c
+index 776c5db2f598..a2207337f251 100644
+--- a/drivers/edac/igen6_edac.c
++++ b/drivers/edac/igen6_edac.c
+@@ -1948,7 +1948,7 @@ static int igen6_probe(struct pci_dev *pdev, const struct pci_device_id *ent)
+ 	igen6_debug_setup();
+ 	return 0;
+ fail4:
+-	unregister_nmi_handler(NMI_SERR, IGEN6_NMI_NAME);
++	unregister_err_handler();
+ fail3:
+ 	gen_pool_destroy(ecclog_pool);
+ fail2:
+-- 
+2.25.1
+
