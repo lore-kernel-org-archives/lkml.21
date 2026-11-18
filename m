@@ -1,79 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795035838;
-	b=0ek3Wsx2P2TxsgKkRP7qL2OrLjnS+iczf31mNFhBGegpYGbPKQz0ZAmy+a6xKttxOACa
-	 +WI4N6LFmCkL9xo08r5di7ZJVM1/EZ4phd+A4lhIga+GHSOivTVS9VbwJchdjRTaa5ZrH
-	 ErOSXdi5rB39osJvArcRXTCGrIzGXG+ZfwdOJeAB4kSAoLMslELYKTgkxYvhxLCL1uZ+L
-	 GTo2PTF0BO17Ut9PksKM2kT6GGANdNIXyg+xV4b+ZyOjm6yk41k9R5y6PZXvKDQk40bpF
-	 ZKsKVzcRGA58o/wiz9b1pHqsVMj46nOFOMiVLic9xse8OSPnlIs72vxxQMDwotqBdBQ==
+	t=1795035851;
+	b=W9XrZDr1XtJrSraGwaUqFd92waR0+JSzOesyWT6KQHRd0cWUmaKIr9zDxBVTeBUHbp9S
+	 6s01Xer4JGMhTobHIOrAHCQcyIUERcWnRd9IFkNAr+3G4TehSMXaM9XiHSVErecYp15IB
+	 nh3GHUpCp4iDeTVxOBv7n8UF15vWDWPpf4L+RfevJiNhHKKr3qRAyFT0hOFP4A2psd+UB
+	 nw9ODolVTuyFf7je4pOD/TaIbdyFLo+Ycg8tIO541BiCKZUHCey+PaNZviV/bxUYxv7kZ
+	 UxR5fPcCMZ0bSejl219hsd/1tWHBtCWX1MMyFtVLem+OS8S6bihIiFRdTDCrv/kKVhw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795035838;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=umd+xXOtPmpwln7D0djKUtVYi865RTVPW3Jw9yIwv+I=;
-	b=jjKgIfsvc7h5crO5aPxRebjdsm7FcIn23mAAixPJOM8F3E7fXwA/SHQ1/bcJjhnSgjkS
-	 4RtJ0R8St424buwm2vZYhA7WpfCWix5OQwx+tq08aBBUGXW1o7nHVpJviniPzvE37KL0L
-	 613fbhGfnuFEawR1DK/6NDy9U+a8lbTHkokHD2OcxxKS0GLEYSePWTglPySC0RSKyFz6E
-	 CwHwFl6Y1ginYmikvL4pf+Xxd5hZsalk6OX8U5kCFuYt1Fyivx1WPA40iO4PbwQb/LmTi
-	 xvVjqCnRLa0usVx8chRIDBbI6B2mUhQbUgd0Wl1LgoE/whPY7vk3qiwJBJ+gFWS02pQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795035851;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Zoho-Virus-Status:X-Zoho-AV-Stamp:
+	 X-ZohoMailClient;
+	bh=dLelpa7Ur+2lYbuxtI4MMSCNnQruI8JNBFJnmaiXdUg=;
+	b=eLFVncgv0mMiyvYC4fVgRdYpF7PntQcSN7YYK5ePFo3zV0hASkxZGzmujskr8siZ8EEW
+	 8rEvPfyS5znJrUGI5tHDSwzYgJrY+O8JJyimJMBG9E9R1z+5vl971nuftFwA6PtAJknoR
+	 gr/Vk8cyFF2NxItP23vYcu5bqtEaP8ig9sFVcKLLdcblTeJaC/6FLsgvld9tSXR3bUq2/
+	 eeY8GERdr+Jb1cCpQCyC3nT5GWFtsocpgQNxSY/YO4cw6zGTdk5vgMevYeNt8NhNENqXL
+	 XDzR7XE6cgkvwxSeKqEM+oFqLBNnrJSu4I4vLl58oi4bHTyl+bxsnUrXFb4NlYST/Gg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aTLUCNlz;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A756960A5BFC
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:03:58 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aTLUCNlz
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795035838;
-	b=k2ekeG8N3o8Gr8lipcLNfumQZ6AS78UXrM0zsHJKgc7JrDZbF0fHLxSaSKA5ByyH3Bmi
-	 XI1Qe4gMeC3Q9/LcPGQPggHJM8fIA/fKkLYyql2P0PReA7rOYL1Cvmgz4ggPkUoVQx6En
-	 E0xUUZYcQmROm4PDB1F+zooh9sMIFHaNDuD9LEE4sAfOhyhyDSLAJdnf3J208fIulQH56
-	 8RO50i3bPT8uguR4/T7JuJNvg1h9oFKpm0Zi6dSnhulQjO4lvBc0f7pWD0AFFqriV9YF9
-	 akBy7eHZeA4sBqFZNPrsQSRPAu7H1mcA4Jzc83mezHfiPvKwviQSgwyHo7gMgvDj9Rg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795035838;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=umd+xXOtPmpwln7D0djKUtVYi865RTVPW3Jw9yIwv+I=;
-	b=LUxa1W2mf7LXxCFgKtNCZ2qAnhaf9LAsqiFEJFhX5TuP/q58IKTS8NvZema5uRbz5u+v
-	 Z/7O9HtLjsvFUD6eao/Nbu80wcdnRTxvT2IJ1A112mCY2xai+5fQVdPfnSzI0x2KyEs2z
-	 rinfrXPvYCgy1p5/6qH85DUTc4YhcLtZKJJ6sXW9Sg5M9/yTMJY8NgIeBoolfaO01JKid
-	 5gOzZQlNO6H8SGd2qt+NWDkFBp2Uqs1tmS1giejdPppAAkChvYDousGAxBi+ypQC6n1Yh
-	 6EbKof1FrncshRcNW4A/B/GpVzSnoVEuEMrGdk3IKSWUb42CFa8o7EZzdkc4rbXBOCQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=A+sUyO8s;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
+Received: from sender6-op-o11.zoho.com (sender6-op-o11.zoho.com [165.173.180.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id B7CA71F000CE;
-	Wed, 18 Nov 2026 21:03:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795035838;
-	bh=umd+xXOtPmpwln7D0djKUtVYi865RTVPW3Jw9yIwv+I=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=aTLUCNlzQsaAyuCeBZUgOc+fqhcDORsuUNpXRlZnbtT1yZyvvjz8XRkgukRN/abG5
-	 +1ciI+X0PMdwzReCeuDHIkw6xDg98xz3/NSVxP7oEW/QZO8Ao9OMOA1d5PiDtSYmND
-	 sanJL0B96rSwhzIwArBjdEZk90BVrtUkwOfHS8y8BJIXvM3Yl3fT0yT5+DIC1EKJ2a
-	 OOHd/s7n5nrXl6bs86CrdefqCxd2GYIQAMfus+Rnfc13vAyr49NjMbx9EPo5Cq038l
-	 WSikqkqLCpS7srqwH5o1qSTOjM3Jh7U2aA7NO3m98ZZaGcY4IQEmLRhKd7bjyCy6U/
-	 heHxL5j7z2cEg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 3B3B04AFB0;
-	Wed, 18 Nov 2026 21:03:44 +0000 (UTC)
-From: Kairui Song via B4 Relay <devnull+kasong.tencent.com@kernel.org>
-Date: Thu, 19 Nov 2026 05:03:43 +0800
-Subject: [PATCH v5 11/17] mm/damon: convert to LRU refs based operations
- for MGLRU
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E4FC606BE17;
+	Wed, 18 Nov 2026 21:04:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E4FC606BE17
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=A+sUyO8s
+ARC-Seal: i=1; a=rsa-sha256; t=1795035823; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=hc4ewlGfHygjkjHma7t2hBesu+p+lTd6AfgxnMiGRSkxewr3hqXdbJbTYGWO+bQBoH4sXv2//LOMhZgdJECVIOGu3RROZRpMsHlQKoGGjy6HO7KVqSTygO4xkbwYNCp7k7dFy1f2Gpq1uYXHpTjXxVYtQJXXyM149p5EpJxALFU=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795035823; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=dLelpa7Ur+2lYbuxtI4MMSCNnQruI8JNBFJnmaiXdUg=; 
+	b=AsdypB3cqX+AvLVGi7GI8UXF4ult2Lg8+UMeV6vKaqQKrIIQJvah3CJo1GbCaWlwnMYmrh6hdvu/wsppfa/Chjx9ppGb1S2tqwZ/nj5kYzuQHlrpQeprcauY4D+dFhoprO7E1MI29tBT5AS8df3tKCkqmmvLSxtz5AvXmbYBFDA=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: a=rsa-sha256; b=A+sUyO8sq4pk5d0jrPE4wRvNsK5aAQYae7sfxIbHiCHuwjof0HgqNWOF0TRFxM8gv5OUi/1rWp6SLVhNrZqqxX7SyOtSws+jJcU9xkuISTaq301jh7G1HiQNjw6wBT5/CjpZ0DdcFPPyf+keFkPeLyfKzZYsRflkYgOAMwDsX0M=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=dLelpa7Ur+2lYbuxtI4MMSCNnQruI8JNBFJnmaiXdUg=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795035820106725.7828212239302;
+	Wed, 18 Nov 2026 13:03:40 -0800 (PST)
+Received: by venus (Postfix, from userid 1000)
+	id 5734618044A; Wed, 18 Nov 2026 22:03:35 +0100 (CET)
+Date: Wed, 18 Nov 2026 22:03:35 +0100
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Chanwoo Choi <cw00.choi@samsung.com>, 
+	MyungJoo Ham <myungjoo.ham@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+	linux-pm@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, kernel@collabora.com
+Subject: Re: [PATCH v3 0/9] PM / devfreq: rockchip-dfi: cleanups and RK3576
+ support
+Message-ID: <av4SU8KEtldHnJeR@venus>
+References: <20261117-rockchip-dfi-rk3588-cleanups-and-rk3576-support-v3-0-32ff1546b0e4@collabora.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,84 +73,64 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261119-mglru-fg-v5-11-9eee2fe97a2d@tencent.com>
-References: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com>
-In-Reply-To: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com>
-To: linux-mm@kvack.org
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
- Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>, 
- Qi Zheng <qi.zheng@linux.dev>, Ying Huang <ying.huang@linux.alibaba.com>, 
- Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>, 
- Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
- Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>, 
- Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
- Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
- Barry Song <baohua@kernel.org>, Axel Rasmussen <axelrasmussen@google.com>, 
- Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, 
- Vlastimil Babka <vbabka@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
- Nhat Pham <nphamcs@gmail.com>, Youngjun Park <youngjun.park@lge.com>, 
- Zi Yan <ziy@nvidia.com>, Gregory Price <gourry@gourry.net>, 
- "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
- Baolin Wang <baolin.wang@linux.alibaba.com>, 
- Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
- Lance Yang <lance.yang@linux.dev>, Hugh Dickins <hughd@google.com>, 
- SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>, 
- Yu Zhao <yuzhao@google.com>, Vernon Yang <vernon2gm@gmail.com>, 
- Zicheng Wang <wangzicheng@honor.com>, Chen Ridong <chenridong@xiaomi.com>, 
- Tal Zussman <tz2294@columbia.edu>, Kairui Song <ryncsn@gmail.com>, 
- Xiang Liu <liuxiang.277@bytedance.com>, 
- Ehab Ababneh <ehab.ababneh@intel.com>, 
- Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, 
- Lian Wang <lianux.mm@gmail.com>, Joanne Koong <joannelkoong@gmail.com>, 
- Kunwu Chan <kunwu.chan@gmail.com>, Hui Zhu <hui.zhu@linux.dev>, 
- linux-kernel@vger.kernel.org, cgroups@vger.kernel.org, 
- damon@lists.linux.dev, linux-doc@vger.kernel.org, 
- Kairui Song <kasong@tencent.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795035820; l=914;
- i=kasong@tencent.com; s=kasong-sign-tencent; h=from:subject:message-id;
- bh=juJQDvh6WPvm4O7BAbP0QPsVPdfMcO7QrejsQWUOq68=;
- b=4R6elM1NZFwkimFZRIG8TAjoSqNylkU4BwWWediOGKFcIWwn5tKSC/YO+Fj18DbSAz4kMZPeo
- 2b4D2jz24raDp7tNJsjjsSvda7DyWgkAgvzBwtc53YRgbzeEiQFCSXC
-X-Developer-Key: i=kasong@tencent.com; a=ed25519;
- pk=kCdoBuwrYph+KrkJnrr7Sm1pwwhGDdZKcKrqiK8Y1mI=
-X-Endpoint-Received: by B4 Relay for kasong@tencent.com/kasong-sign-tencent
- with auth_id=562
-X-Original-From: Kairui Song <kasong@tencent.com>
-Reply-To: kasong@tencent.com
-Content-Transfer-Encoding: 7bit
-
-From: Kairui Song <kasong@tencent.com>
-
-damon_pa_pageout() cleared PG_referenced directly, which under MGLRU
-corrupts the folio's refs count. That flag is now
-bit 0 of the count (LRU_REFS_FLAGS).
-
-Reset the count instead under MGLRU.
-
-Tested-by: Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>
-Signed-off-by: Kairui Song <kasong@tencent.com>
----
- mm/damon/paddr.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/mm/damon/paddr.c b/mm/damon/paddr.c
-index e89cb14ee17b..411e1d557ba3 100644
---- a/mm/damon/paddr.c
-+++ b/mm/damon/paddr.c
-@@ -279,7 +279,8 @@ static unsigned long damon_pa_pageout(struct damon_region *r,
- 		else
- 			*sz_filter_passed += folio_size(folio) / addr_unit;
- 
--		folio_clear_referenced(folio);
-+		/* The region is cold, better drop the hotness info. */
-+		folio_clear_lru_refs(folio);
- 		folio_test_clear_young(folio);
- 		if (!folio_isolate_lru(folio))
- 			goto put_folio;
-
--- 
-2.56.1
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="3ekhknmpesexcibk"
+Content-Disposition: inline
+In-Reply-To: <20261117-rockchip-dfi-rk3588-cleanups-and-rk3576-support-v3-0-32ff1546b0e4@collabora.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/295.17.74
+X-ZohoMailClient: External
 
 
+--3ekhknmpesexcibk
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 0/9] PM / devfreq: rockchip-dfi: cleanups and RK3576
+ support
+MIME-Version: 1.0
+
+Hi,
+
+On Tue, Nov 17, 2026 at 04:35:36PM +0100, Sebastian Reichel wrote:
+> This is a combination of the DFI driver patches from the following two
+> series to ease applying to devfreq tree. It is based on devfreq-next
+> and there are no other dependencies.
+>=20
+>  * https://lore.kernel.org/linux-rockchip/20260921-rockchip-dfi-cleanup-v=
+2-0-43ff34ac8599@collabora.com/
+>  * https://lore.kernel.org/linux-rockchip/20260921-b4-rockchip-dfi-rk3576=
+-support-v2-0-04f847016321@collabora.com/
+>=20
+> Changes since PATCHv2:
+>  * split out DFI driver patches from both series and merge them into a
+>    new one; clock controller and DT patches will be send separately.
+
+Sorry, I accidently took the v1 patches for this. I will send
+corrected v4 tomorrow.
+
+Greetings,
+
+-- Sebastian
+
+--3ekhknmpesexcibk
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmr+EqYACgkQ2O7X88g7
++ppGAQ/9Gt2sZalCruHyi9gTFVOa94sbuNWqb0I7PxB66i4FTrom2gql22oOX8j8
+a/w/Sn7iEzdUqpOxECjrCZ8D1XwNEI1x1KMqLqQhZsHLNcicrBE+LX4ss0wItIJ8
+GxoSlqlycc2UL7NObovUeY+WgXG5kX+WAGpy4sHLKllRR3bnby/MH9vTIstRTS9/
+IpMad1rH8EgEcnSga47gpjxDwJXnxkHTnQW2U4J4QpOxcJ5vCTK8tMVPC21rS91+
+eUM0i/LF1JmE/GseIARua1DQEuxv2NWHDDIZhe15ykV+UIcVwlNt8l7BoFUBk2tq
+1CitNEs/OzmBK/LdcBsB2evwo1J7Bj8rwrfqXYfLThArwH6pCKO61jEDRfocGujL
+Jrr9e7dQYxcIWm8z/V9L6E40y+G3ZawVmjGy84npYFU2bm9g7Ww7A25H7+2EWAxa
+9eomyY25G3BejRCuWuYk6ZY7k54tgHc3mwAdg8QjKst43RAIOX/9xrIcme1UYz/s
+/3Zx9bFmmeTF5Uv5tBEsA9s7gOVG5yROj3hxqqbooEHu+cGmuIiaHP+00Ud+V+V0
+w2pMKFe7gXTdMG9u2am86+kuiOsN2RwtHUBqrbf2qeCBFgtjzunKOs33Zp7XtWXB
+bcR/7557fhD/MPlGQpFsmLCTCcq9fvsKQb7ECs6tNauASMYxwXA=
+=5zr2
+-----END PGP SIGNATURE-----
+
+--3ekhknmpesexcibk--
