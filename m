@@ -1,59 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795001431;
-	b=M9ywMygersEZQB+QNwxyBIhDE3XsLw1/qo1N8j4XS+B+gXPqhyyCXLmhDS5+A576CgTs
-	 MTuE/HD76kEbGKNLp+TA5gt37ys+HHaTfC6iR2Om/G5MwhstN3PhSFhYG9GH47XN3VTzb
-	 E07MzbywzJLfv/9lBHrMW1DGVShxypRdSQWjH899tJVEIecbBpIdB3ycmgB/zR9tnNN9h
-	 uTvsDwzO0PE8GS+A4rzzfP5rt1aRg+W7jFgCWxm/MIkerHyVJ/abNGUeXjBpZrxwxC7Gr
-	 Wxy4vgCPM4M4HW4ZRG/Wr+0iSx+t9/LaAUiiwDWp2rKv21tGabaSGoKdK7Q8v6JsKEQ==
+	t=1795001459;
+	b=t5vvWbZTzxxOCS+9rB2V/VDz45nTqfrAUto7dAOWPRSUqPDUsbhZMrX+v76ZyKp9CWvm
+	 832VpHoA2ttQ8SRPFSG92BHAAZsuuq5/MXmLOemHxZsEnxBHO1hH+NQkXYkEzq+buz7S/
+	 hmAFPbZwq6YA/namYnzTr0jZaAFNK1Kze2OpwyQharB/9Sg+8ZwKZS5o3GbguCBx/Qko7
+	 MUf2u1p9/FhDFMkksaKLUujJgynwo06iI9JGQx7iWj/pwcLLl+qxlYycFVC3yQRmlo+JS
+	 WT3rUjKIknvh8hnNg1bYDYhYzjaalznB4liscVxdlazhGs40+Est5lCvuFcgusTXYTQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795001431;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-Cookie;
-	bh=Z75hr6SmLYWvtnOelqxQFVBcQ5cH6DsL8tdhf209THk=;
-	b=ypysiUyj8ZYgQrvqehCIdwLQ7FB9/dUgPUKEY0n55KIgiQmsQRVT2QyhMZzscdRHPhS0
-	 VL7oC6K+vkjn+l8isfpcAfM3C00jRds+4j7EY24DwRgLYEeoe4mlyZwG3X9ZodN0wkNv4
-	 tevCjhWGLo8BqeUiRdKnYIk/bEIzi0aOlEUINCz3sJFh0biGSahZOapB49BNQMX8eQchP
-	 AWJ2em/eW3HhEF+jGeVPe8GOEOPQD9pxljOAey0UjgdhuGWYoRmdvrlJWpFjGe4vVqC3n
-	 uSf8RA7Dg5hdYBDFe5TNLGYcPsqCv7SJW7XZ7He/4pj5CZAZVcTrYH9hftriPc+Xm3Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795001459;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Spam-Flag:X-Spam-Level:X-Spamd-Result:X-Spam-Score;
+	bh=finFtFd55D9AfQW/KhkVg+EcflCFfdRfis3CjIr5nD4=;
+	b=lGEJAfB3rra7OH+O1ywotA2MDqf2T4ipl+glmvxSp2GchFoyXLgn20vnW6ZfBpjs1ZKx
+	 WGNAYc3PPymZjix9mEDbb+U9IsvkFbMAXTRtuBRAbsTVUKLeWJND8OQzM5k2gLq1yFinw
+	 5LVOneUvxCgjGg47xXD+AxhkPq48A2Az+MfJYDO4oVr38QoFZPUqN9e6igBTKQUD/vNL/
+	 vr9rGkGVRiQks/BIGauBq+ly7Swyksfv2icnI/VgRVn+80oW05hYum0umrT4hlj0rkLo8
+	 RPMGk9ehxQ3qKpaNEojIaE6JM+iUgOP+lM5LL0l+jLCdUoU9RNIg88IlT/N/8BiifYA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PpPYl0jx;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=suse.cz;
+	spf=pass smtp.mailfrom=suse.cz;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=t98bH0Dl;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=OhIZt3tc;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=t98bH0Dl;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=OhIZt3tc;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97713606A320;
-	Wed, 18 Nov 2026 11:30:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63B6D606A31C;
+	Wed, 18 Nov 2026 11:30:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63B6D606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PpPYl0jx
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F9401F000C4;
-	Wed, 18 Nov 2026 11:30:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795001431;
-	bh=Z75hr6SmLYWvtnOelqxQFVBcQ5cH6DsL8tdhf209THk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PpPYl0jxRytdIpYJVgujuokjsH3uezcSkC88kmkC7/h62CXproAcU9M2GdiJDawQv
-	 5+ogBfvjaLfbKfhhqODJjrPQADU7rRPy6qRIq1gTO198xRiY/Q1SQnBrZfcT6RzJR8
-	 XSvDBN/KRhnw2VhnPEf1zLhxtqI8RH1ArL5N2aALvbHg/cebnXYy///VPjFSGRjJpu
-	 hxgg555qXVsFzNKKspl6nKnQBuTzlB006mFminqcgU+v33/AyFdn/MhhV6n26MM4XG
-	 29rKoAYP0mxd9rLAoQvoGP/owvb21FAfSgpHlaRBsz2hCcojKLvjmYGNVSRSN5jDIe
-	 QOB/+T0INllAQ==
-Date: Wed, 18 Nov 2026 11:30:26 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: raffaele.tranfaglia@gmail.com,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Johan Hovold <johan@kernel.org>,
-	Jonathan Cameron <jic23@kernel.org>, linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, driver-core@lists.linux.dev
-Subject: Re: [PATCH RFC] regmap: kunit: add tests for values wider than
- val_bits
-Message-ID: <a93f6d11-22a2-42db-81d8-297240c9bd2d@sirena.org.uk>
-References: <20261117-regmap-kunit-val-bits-v1-1-a1cd02063217@gmail.com>
- <av1qOFxolvDhQTKs@ashevche-desk.local>
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=t98bH0Dl;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=OhIZt3tc;
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=t98bH0Dl;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=OhIZt3tc
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 35FE022323;
+	Wed, 18 Nov 2026 11:30:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795001457; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=finFtFd55D9AfQW/KhkVg+EcflCFfdRfis3CjIr5nD4=;
+	b=t98bH0DlBzSUB4Pjf11EO8c/8xXfrQywOsRrlivJVxMMWHzi6CkQY2rMdUUn86RlHkfge1
+	TRkiaVin1xPS5jU5w28RFBDQEobFHPCuMOBiwa3hWCn7g7jh20DM8z0RKNByHQwClsoZrR
+	ZL7h6wVx1TVD1q/tXDyXGoiG8XJ3M6Y=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795001457;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=finFtFd55D9AfQW/KhkVg+EcflCFfdRfis3CjIr5nD4=;
+	b=OhIZt3tczxGH2HTpBNdFAhaEcDI3qzTW3U/l5jMEzZqzWjVdSKjekGiU+YFyzuHZvDG8/C
+	shbgSR/hSvwT5jAw==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795001457; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=finFtFd55D9AfQW/KhkVg+EcflCFfdRfis3CjIr5nD4=;
+	b=t98bH0DlBzSUB4Pjf11EO8c/8xXfrQywOsRrlivJVxMMWHzi6CkQY2rMdUUn86RlHkfge1
+	TRkiaVin1xPS5jU5w28RFBDQEobFHPCuMOBiwa3hWCn7g7jh20DM8z0RKNByHQwClsoZrR
+	ZL7h6wVx1TVD1q/tXDyXGoiG8XJ3M6Y=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795001457;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=finFtFd55D9AfQW/KhkVg+EcflCFfdRfis3CjIr5nD4=;
+	b=OhIZt3tczxGH2HTpBNdFAhaEcDI3qzTW3U/l5jMEzZqzWjVdSKjekGiU+YFyzuHZvDG8/C
+	shbgSR/hSvwT5jAw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 0F4951334C;
+	Wed, 18 Nov 2026 11:30:57 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 1Rm7NnCM/WqSAgAAD6G6ig
+	(envelope-from <jack@suse.cz>); Wed, 18 Nov 2026 11:30:57 +0000
+Received: by quack.suse.cz (Postfix, from userid 1000)
+	id 9472A25012; Wed, 18 Nov 2026 12:30:56 +0100 (CET)
+Date: Wed, 18 Nov 2026 12:30:56 +0100
+From: Jan Kara <jack@suse.cz>
+To: Sang-Heon Jeon <ekffu200098@gmail.com>
+Cc: Theodore Ts'o <tytso@mit.edu>, 
+	Andreas Dilger <adilger.kernel@dilger.ca>, Baokun Li <libaokun@linux.alibaba.com>, Jan Kara <jack@suse.cz>, 
+	linux-ext4@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Ojaswin Mujoo <ojaswin@linux.ibm.com>, "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, 
+	Zhang Yi <yi.zhang@huawei.com>
+Subject: Re: [PATCH] ext4: fix wrong unit of ratelimit_interval_ms sysfs
+ attributes
+Message-ID: <varvaw6u3l26vwumguoemlidckuunpcofhwii6fzzt2hajhdjz@oojqvejz3cvf>
+References: <20261116161701.3664310-1-ekffu200098@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,57 +113,84 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="IwlD1OsplhXpBGsL"
-Content-Disposition: inline
-In-Reply-To: <av1qOFxolvDhQTKs@ashevche-desk.local>
-X-Cookie: When in doubt, follow your heart.
-
-
---IwlD1OsplhXpBGsL
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <20261116161701.3664310-1-ekffu200098@gmail.com>
+X-Spam-Flag: NO
+X-Spam-Level: 
+X-Spamd-Result: default: False [-11.30 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	TAGGED_RCPT(0.00)[];
+	ARC_NA(0.00)[];
+	FREEMAIL_TO(0.00)[gmail.com];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	MISSING_XM_UA(0.00)[];
+	RCPT_COUNT_SEVEN(0.00)[10];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	TO_DN_SOME(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[mit.edu,dilger.ca,linux.alibaba.com,suse.cz,vger.kernel.org,linux.ibm.com,gmail.com,huawei.com];
+	RCVD_COUNT_THREE(0.00)[3];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_TLS_LAST(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,imap1.dmz-prg2.suse.org:helo,suse.cz:email]
+X-Spam-Score: -11.30
 
-On Wed, Nov 18, 2026 at 11:04:56AM +0200, Andy Shevchenko wrote:
-> On Tue, Nov 17, 2026 at 07:55:14AM +0000, Raffaele Tranfaglia via B4 Relay wrote:
+On Tue 17-11-26 01:17:00, Sang-Heon Jeon wrote:
+> The interval of ratelimit_state is in jiffies. But the
+> ratelimit_interval_ms sysfs attributes are read and written without
+> converting the interval, so the values are in milliseconds only if HZ
+> is 1000.
+> 
+> If HZ is 250, the default interval of 5 seconds is read as 1250, and
+> writing 5000 sets the interval to 20 seconds.
+> 
+> So use jiffies_to_msecs() and msecs_to_jiffies() when reading and
+> writing. Also reject values which are too large for the interval.
+> 
+> Fixes: efbed4dc5857 ("ext4: add ratelimiting to ext4 messages")
+> Signed-off-by: Sang-Heon Jeon <ekffu200098@gmail.com>
+> ---
+>  fs/ext4/sysfs.c | 23 ++++++++++++++++++++---
+>  1 file changed, 20 insertions(+), 3 deletions(-)
+> 
+> diff --git a/fs/ext4/sysfs.c b/fs/ext4/sysfs.c
+> index 923b375e017f..7cc3a2e663f0 100644
+> --- a/fs/ext4/sysfs.c
+> +++ b/fs/ext4/sysfs.c
+> @@ -33,6 +33,7 @@ typedef enum {
+>  	attr_mb_order,
+>  	attr_feature,
+>  	attr_pointer_pi,
+> +	attr_pointer_pi_msecs,
+>  	attr_pointer_ui,
+>  	attr_pointer_ul,
+>  	attr_pointer_u64,
+> @@ -215,6 +216,11 @@ static struct ext4_attr ext4_attr_##_name = {			\
+>  #define EXT4_RW_ATTR_SBI_PI(_name,_elname)      \
+>  	EXT4_ATTR_OFFSET(_name, 0644, pointer_pi, ext4_sb_info, _elname)
+>  
+> +#define EXT4_RATELIMIT_INTERVAL_MAX_MS	(INT_MAX / DIV_ROUND_UP(HZ, MSEC_PER_SEC))
 
-> > +static void raw_write_wider_than_val_bits(struct kunit *test)
-> > +{
-> > +	struct regmap *map;
-> > +	struct regmap_config config;
-> > +	struct regmap_ram_data *data;
-> > +	u16 *hw_buf;
-> > +	unsigned int rval;
+I was staring at this for a while before I understood what's going on here.
+Please add here a comment like:
+/* Limit value so that we fit into int after a conversion to jiffies */
 
-> Reversed xmas tree order?
 
-I simply do not care about this.
+Otherwise the patch looks good. Feel free to add:
 
-> > +
-> > +	/* The "hardware" should only have seen the low val_bits bits */
-> > +	if (config.val_format_endian == REGMAP_ENDIAN_BIG)
-> > +		KUNIT_EXPECT_EQ(test, 0xff0f,
-> > +				be16_to_cpu((__force __be16)hw_buf[0]));
+Reviewed-by: Jan Kara <jack@suse.cz>
 
-> Do we really need those explicit castings? I think they are already inside
-> the byteorder macros. Also we have be16_to_cpup() and le16_to_cpup() which
-> might help.
-
-If we do need the casts that probably indicates a problem.
-
---IwlD1OsplhXpBGsL
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmr9jFEACgkQJNaLcl1U
-h9CndQf/SewsAZTR6YVIafssLoLMkykhXhPc0/UkWKTWCpQU9/KU8piCxKw5PN/i
-XKSPGLjx2qu1axH+SXGdmQLRxSiWJHSUT3BJpZbtDvpfoiEV1QmBYScztNhLBS2a
-BbnJC0G6+Q67Lzphi7bx+DjRTnlhiMyXAEFbUTHwFnb+4PQFhpn7ycuf1LqQe/Ub
-IR3sz7V+74rEKeyC5H525UXdd0uLx0r4wKwTmuloMBkoxThJKcSIeSxipg7djNVh
-9uMC2HYaJyMyNt2m83PQWoZkJU7H1K6SN5PJFeCdixEF79pQCuYJSdFDSWmZO6Kx
-HCR/LY6sXtvwwelZCsQfPXjyxyyhig==
-=FLe7
------END PGP SIGNATURE-----
-
---IwlD1OsplhXpBGsL--
+								Honza
+-- 
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
