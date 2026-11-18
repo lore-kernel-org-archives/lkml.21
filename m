@@ -1,100 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.180
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795015836;
-	b=T+QqcvEQ8fauhL7t5GwJH9A5fo5zyajZmKefsVJLMca5EDtUcITRExNySjJfrXAyynFH
-	 3MHwOoVEf/aUXmvsy1JKzGbu3QXMTxB9m7JG9knAGNs5cTuFHVtLtC6WJtnBjsEnCQsTy
-	 uXSIyYiX0qCPORf9HtlEMY2pH9PhgtIHeh3FuW3d4eJa2CkpDRAogEuFRXXlNxQ6PIxD8
-	 nCXIXRLX6Uw1tQG8nGf1uJl8wz7OJSkz9NioQo/mgbZmEtDwHDBmVo83yM0tflW2noiLx
-	 7NjL+9EHoFpSmP/Cfc6K5hlpeBoIPR4Hr7TjOvQmHA9ebbXhxJt2mxZECVEuio7c+zw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795015836;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=l0Wbxu7fm6/y8ipzcr+Pib3IjmOX46dTwli0BjlLQ+A=;
-	b=UNWuFkQmVbJZxOP52ewB5BGTWa+YmmtiKik+U3z4EuLc+AnQP//nYWFCn+LfSpBMQfPy
-	 OIEMQCxqpv5OpAkVD4EwTMHooMwNB+kGMRp1bc1aBLlBdqKn4N2mxhG1v57/lkg4hvUXL
-	 aCBTJ1rhMenj0hi5TLXnyybV3GCrNkX8Rdyl3kYYiqLYElr74W0bj64SLMfWOPCraKW8U
-	 aHO+IvJp+97FQgJqlYkhgd2o80LU3LWXy9RnrHYbfepRXrVXXnOzplkyl/D3z3N3rOYeL
-	 hFwH5CNGVil/PUjRfl3o9UG3XQ4tpcZUPdaSZc5YesB/OzDknDgdv/RNDk1GsAdZ2oQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nNjudTQf;
-	arc=none smtp.remote-ip=74.125.82.180
-Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com [74.125.82.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.16
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795015853;
+	b=l9+blGrQRg7SqEsioRHKD3CddGjJ7lEIa+o01BgEYk4XlWtdxwU90WXvbOGtfwsjmx0g
+	 hdZofVgUK75ZtfEijymkXFXoW2CD5/zS4f6kEu3nVDgi9aEm6jQv20uZuDOiUAVvQY5n7
+	 TujPurigjrvSQDzHEIHbqX3gH5lvrVEOfCuiTivTCQqXtIkCcibvOARVmReQfE1ykmdhy
+	 OjVGOaZ/zxPeCONvW7NubBOrboWh0edY9RQOkz2m4JV/RchOyxfQa0Ly37wBqEBzLlEMU
+	 pUdhL/k6GDNYse+iqGWsRy/XUFynmpsFbqtTX3GPi2HsNUyhnbK7VJOD6tkX2J98WyQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795015853;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=bU75CPRwSGAiGxtzCU94bplVd/Wb7DcIU+vF1jsMTW0=;
+	b=Sj8J1x6+RwTaESMVmPRWHLFdLNxzwJHSH3nApi4/7HOyFRvc7fwuWldVje7iHshrKnCL
+	 tYz7sw/hD+jrsfVSyjP4g/zvroisp4H6eqbrU97T9m9QR6cT42AZciCfcvkKNnk3V+Rzn
+	 vMIaFFBrRb0Vk5O7lFMr8G/cvHGwOsDWF76YefF2FY7FRLk6joIp135Y5DRJjlpLp45u2
+	 c2OhDroYh4PsSI/ACvevfwfZgEWi1Sy9fOsoyndBlYBmiK9V5jB4gWDM4ZIpRK0S7Tmfo
+	 qLbdBniVo9KKsfZBLWtrUp+7FmQ1fgoPnMSZMS/W7L/R5YvE0+x/MGQXfvBXYVtMY/A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ST7cLqk1;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.16
+Received: from BL2PR02CU003.outbound.protection.outlook.com (mail-eastusazon11011016.outbound.protection.outlook.com [52.101.52.16])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90BAC606A333
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:30:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90BAC606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A75A606A335;
+	Wed, 18 Nov 2026 15:30:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2A75A606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nNjudTQf
-Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-381d542bc29so2165948eec.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:30:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795015836; x=1795620636; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=l0Wbxu7fm6/y8ipzcr+Pib3IjmOX46dTwli0BjlLQ+A=;
-        b=nNjudTQfUtItgoHK8wzcYX+IGFRMeXj+D0aA6Rd/YI+IqEGKHlmiwm0DTzxYD6tNIX
-         y2UKX/gNMusuX4F3gWYEjtlN+8ppU+9qfpj41cvSgo+uE6MahlY3OMt5dm8/y7FSWxX3
-         U6uURVKB4m7HyQAMo42tMpFsLlL5AZVaf936R3u+u1YnmTDmBtbORevicnDXJl1mpD3X
-         qHDB4F04WBInTWkXwgwgnlQQR3dcIFIBMjVjqbKWs1chILOjZH91nWO3/5uePD3HNchS
-         MHClzeINEWtGDd+pn56VlF6MXsYBD5VxNOG/Nah9zM/VCsYdbhL1xySD7oPug46gf3vb
-         IWnA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795015836; x=1795620636;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=l0Wbxu7fm6/y8ipzcr+Pib3IjmOX46dTwli0BjlLQ+A=;
-        b=OEw3xXEjd/9HJ9wT7Ef3ooxMDwT5BjGc6E5r+AalF5wjZaT+oz2rB38icE3xzTb33/
-         vpswp9iNJFIb+tRzAllhvvlX71cfSy6xd9T9Q5cV4loqm5tCvPnkMs9F+8NObrQppP4O
-         97lmq0INWPbYUHo3YPomZUUdvb6a0LQybruLtu+55o/CXETXQ+lt35732f4Yv/upv9UQ
-         kk/XnHvJcM4RoJuLM1tjqPTBNmfFoUEUeOAB3hpRZPlLKRO007wgP/XMBFeepk560NG3
-         3aJPKF2w8TJfV5Mid+V0QmYJXAmzq5dEwTzQT+//bqstfO3Ju33ZeHQdL4XiGEMACsOt
-         uxww==
-X-Forwarded-Encrypted: i=1; AL+hErGlF7Z5OPAYMKv8LciT2SZ2iq+O8uU1gFJv4eaGga2Y3JhazeWjgaH23sx1MzOjIr+j0yvITgXoHvNHzS4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/kKD5h+3Lh5IRuStWxb+oZbpNCd5iGpVuRaBKW6Y+lhNBKPsn8
-	zfMY5E260k120oC8N42nuMWIOVS4jDBOSMcSdNw7rYxGPDylWi0NQiBq
-X-Gm-Gg: AZFdTZcYMvH+eL+LWUOM2/tuvyuX5oPIo+nooePc8wgRxguxBdQ6nBWujiMI0F+LM6l
-	unh6WTrHA0HNTJXWe1bz/NkFpsaerfb9cgFtdxUu0qz3y6OywtNvgmDHxamWpmvSqFBP1A1aqKl
-	BMiMRa3d6EwfSZ/qobH4fwuUz9N0kGIA5NFwvom7wvqaLl/uy1rx8HGIbGV6JzaDPZW3HN0BuuZ
-	OzcgDfloHnNrUL8UZ4pICyCgB4dZhGMaGNUEjqjswA5M6IzONcJ/DUmOR9QjH9CHZEgB7WMMOmG
-	L9SMFbOjr1OnR1imaeCRo9myf8Ju3pHmr9bkXe6G84lHVBEsJjZoJRyW3MxtoWkuMs1BkxOzuoC
-	OvFRsU3+VGaCb2FR4VH/tbuxLpaWkUg+Wm/v3IpVySqfLH7D3QmyZg3zc8YxeeXVu/SuWvaesEy
-	H0XLbSa5OLbxPjbl6C2aTeGUBqb0Xchbb++DWg9hcvZVMHFmFcB7+Uc1OPuOYe9JXPSV1A7Ajsx
-	G0mohmUxhmPPBYYpr3hDqYrmH9H9pGYFluHPojopTVw8NXbFNLWHZtbWi1XYwkeXVOLtmiG9xJM
-	wByOD3fHUcMUNFzGhvih82qe7WgLq6fe9PocGSPpcylr43eJGoh8vw+UXvU=
-X-Received: by 2002:a05:7300:d210:b0:36d:4135:cd7 with SMTP id 5a478bee46e88-3828083e094mr2685513eec.18.1795015834724;
-        Wed, 18 Nov 2026 07:30:34 -0800 (PST)
-Received: from G7XWH7K1F3 ([2408:8256:2e80:7371:2c16:ada8:2d24:d03])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a630517asm8922616eec.8.2026.11.18.07.30.25
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 18 Nov 2026 07:30:34 -0800 (PST)
-From: Zhao Li <enderaoelyther@gmail.com>
-To: Jeff Johnson <jjohnson@kernel.org>
-Cc: Kalle Valo <kvalo@kernel.org>,
-	Wen Gong <quic_wgong@quicinc.com>,
-	Baochen Qiang <baochen.qiang@oss.qualcomm.com>,
-	Anilkumar Kolli <quic_akolli@quicinc.com>,
-	linux-wireless@vger.kernel.org,
-	ath11k@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Zhao Li <enderaoelyther@gmail.com>
-Subject: [PATCH ath-current 2/3] wifi: ath11k: free the regulatory state when the device is freed
-Date: Wed, 18 Nov 2026 23:29:41 +0800
-Message-ID: <20261118152942.62838-3-enderaoelyther@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261118152942.62838-1-enderaoelyther@gmail.com>
-References: <20261118152942.62838-1-enderaoelyther@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ST7cLqk1
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OekI4APU5UBWbpTi9mP0N3zbwpc2Q+KBw/wuWkrBL7OB0tM2svgvLrG/3l9sKWpjAvI0qGm924uFQUacMkpIJR6TfqLf5YYGaH/ZG8sgnq8VjONrraUjLuavgD40F201UxEG+UJwnb054TkJ5XiqqVLUas29N/zODSB/7pfJEM8NL/Bpt8AcRy8wtn3/ByUM8tleeLiSFpKMnWD19IqXGrhSEFlPNlHu6RWuR0iUeG3HPwGIQBAUHw5QDSvZj/elr21vraU9IzeEsFRJk6EBxs7V54qPq/yR0ksAFUGverSkhD6ISn2264XqERQ5XRdIdWv0FcdvCHKFsWZAZefQ1Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bU75CPRwSGAiGxtzCU94bplVd/Wb7DcIU+vF1jsMTW0=;
+ b=SU/i043vUHM6U5DQ6DqbzeTPb0MVeQqkjg2pUiX6E77OfNiqSrdT00PMzj+/k2ODO+5R/phbhY+izfqYi6wzot03EqATU+VH1QthLAyzTGfC7fk0MADBaJkyIto95KNdzcz/cD+lZibBCt39EEROCg/E9CIHVqz8/ySLY0J1bCNNX1YgaNCDyOvNxzQQLF9FiUg95ZDI76l+kP/8iVE7fqe/QPcjXl2ww0KzzWKkSWIDKbrSVkTBp3o+S4StK0+TsO2f/XKUfAQbqPLYBbr987SSPZ+yX8oB7LiqNmsKQ0kOFFtKPUU8a2bMPRZCU3uOKi13F14O78Cpm6uz+Y47Qg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bU75CPRwSGAiGxtzCU94bplVd/Wb7DcIU+vF1jsMTW0=;
+ b=ST7cLqk1kQxoLWsJDREjtxX1kXrZWVAZgYODYjYlX6CL6/fz/L9D1+d8SYwurOCp19AGVE4Ei2qS5Pwy/mV50m1aC6BaGVf4Bux/dqPZ0nITRH9JC7qolfgFo5e1WtGsliocOOqpN/0VA298S/PJ4x5b3wiXs41NQsnxKDr1rtK305yzaqPNuDCberhJ/ApZOInDCrcgIhnrJa7EL3VrRf6FgV3cUx8zOo2AVq8HunLpSQIVhbgpvmVYcHEUs6l1UxoTSDiy8TuCI1mbzCLtvXKUa11FrLUQ1q718Qc/fHWCDXuf+ZWJnpBzz52LXLrmB34y/vcY9G/Ks2xqk7elwA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from BL0PR12MB2370.namprd12.prod.outlook.com (2603:10b6:207:47::27)
+ by DS0PR12MB8294.namprd12.prod.outlook.com (2603:10b6:8:f4::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.10; Wed, 18 Nov
+ 2026 15:30:20 +0000
+Received: from BL0PR12MB2370.namprd12.prod.outlook.com
+ ([fe80::86cf:c3ec:2cf5:74c8]) by BL0PR12MB2370.namprd12.prod.outlook.com
+ ([fe80::86cf:c3ec:2cf5:74c8%5]) with mapi id 15.21.0615.009; Wed, 18 Nov 2026
+ 15:30:18 +0000
+Date: Wed, 18 Nov 2026 23:30:10 +0800
+From: Richard Cheng <icheng@nvidia.com>
+To: "Gregory Price (Meta)" <gourry@gourry.net>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, kernel-team@meta.com, 
+	linux-doc@vger.kernel.org, driver-core@lists.linux.dev, linux-serial@vger.kernel.org, 
+	linux-pm@vger.kernel.org, damon@lists.linux.dev, linux-cxl@vger.kernel.org, 
+	akpm@linux-foundation.org, david@kernel.org, liam@infradead.org, vbabka@kernel.org, 
+	rppt@kernel.org, surenb@google.com, mhocko@suse.com, corbet@lwn.net, 
+	skhan@linuxfoundation.org, rdunlap@infradead.org, gregkh@linuxfoundation.org, 
+	rafael@kernel.org, dakr@kernel.org, johan@kernel.org, jirislaby@kernel.org, 
+	kasong@tencent.com, qi.zheng@linux.dev, shakeel.butt@linux.dev, baohua@kernel.org, 
+	axelrasmussen@google.com, yuanchu@google.com, weixugc@google.com, baoquan.he@linux.dev, 
+	baolin.wang@linux.alibaba.com, yury.norov@gmail.com, linux@rasmusvillemoes.dk, pavel@kernel.org, 
+	lenb@kernel.org, hannes@cmpxchg.org, brendan.jackman@linux.dev, ziy@nvidia.com, 
+	sj@kernel.org, muchun.song@linux.dev, osalvador@suse.de, nico.pache@linux.dev, 
+	ryan.roberts@arm.com, dev.jain@arm.com, lance.yang@linux.dev, usama.arif@linux.dev, 
+	kas@kernel.org, xu.xin@linux.dev, chengming.zhou@linux.dev, 
+	joshua.hahnjy@gmail.com, rakie.kim@sk.com, ying.huang@linux.alibaba.com, 
+	matthew.brost@intel.com, byungchul@sk.com, apopple@nvidia.com, rientjes@google.com
+Subject: Re: [PATCH 05/22] mm/mempolicy: keep interleave and tmpfs mount
+ policies on common memory
+Message-ID: <av3EGWuHX2JDdlrx@MWDK4CY14F>
+References: <20261114070959.3490008-1-gourry@gourry.net>
+ <20261114070959.3490008-6-gourry@gourry.net>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261114070959.3490008-6-gourry@gourry.net>
+X-ClientProxiedBy: SI3PR03CA0004.apcprd03.prod.outlook.com
+ (2603:1096:4:297::11) To BL0PR12MB2370.namprd12.prod.outlook.com
+ (2603:10b6:207:47::27)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,61 +111,175 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL0PR12MB2370:EE_|DS0PR12MB8294:EE_
+X-MS-Office365-Filtering-Correlation-Id: 779b54a5-31fe-49a8-6736-08df4588d9a3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|7416014|22082099003|18002099003|4143699003|11063799006|56012099006|261022075727099003|261028144727099003|261102123227099003|261021121427099003|261021123027099003|261009223027099003|10067099003|261026121527099003|261026140227099003|261022105027099003;
+X-Microsoft-Antispam-Message-Info:
+	F3G++OhJg09+/fJ7lwBVjJ5XHGVbiJ3FfUmOich/5zJhOb3mfR/mgIqgjUMlnzJqn34hFTq+0f6eDl93zDSW2S0AWjhm+T3PdwEzcLwdFdfkkZgK3ndkKi/+jydTmUqR0xL0nXgudPNicKc95avZUqQF1ar/stmXiYlTE4g3hg4+hdD6dFO0PryJJktm8s4VJjG36Dugq5knUNBQz23mRbVYcCCtm4oqEB5qGvypXXIWqJbaTnOKRMcyUAVKewZ3hIGaIyFHRvflhdlI9B6AvvPC7/ZxlcYBbH5cupzdMhuDBUS9mQwctRMDoSyJetZFC8Ck1XIwcInvF9o6MaWxUnSGxN+g/gsRea+8wude0bc7MLVqVTTODCno6IqKxCG4CdFfeaqBwSJXLXFg5qmPwQmJ3C34g8iYXaE0FljCmD6EP8vGurJvl9FZZTjRq4OloO1oF+6vZt4kpKSEhVRt76dfqEFhTlDHcQ/9P4jrBwyT8zYcv4LdvGFzU3i3IjFMGFk7cbX2i/IJiEvHGVMkLqfdlWYtn2lwUo9YWgmUlcVGd7wluJoovfZE4y3STWnFlvbzFW1a9qSnoJ8T4FnTL/8q3MnCVzCnOJTJAAOJBvvcyNFIPwd5FdljsZewKTRox0p4m50UcPNokVWc9Fy9lIG1K0fnsFN5CgmrIPt+TDI=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL0PR12MB2370.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(7416014)(22082099003)(18002099003)(4143699003)(11063799006)(56012099006)(261022075727099003)(261028144727099003)(261102123227099003)(261021121427099003)(261021123027099003)(261009223027099003)(10067099003)(261026121527099003)(261026140227099003)(261022105027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?tzs4tv6n7OuOUiljj2XYbaHlbgI3wgVrCO0rmPBi6vxs2nSfmkNbSYO3+1qg?=
+ =?us-ascii?Q?W+eRAiuZwT1pzmo6+MPSnhvJaN0VQqfJoyzsCTaoqk4m+yQ7xYJh7QPNNJ9a?=
+ =?us-ascii?Q?j5YjEKOw9xoHU7Y38e20OQfYgvLrGrDbEHNw0+DUuRiXrJNl4HrpsoK8Oxia?=
+ =?us-ascii?Q?jLCSnw2xsuwoeBANBzDElnuxcEAW+N2B5LxEMsdGoaXRGare18S69DeAuGnY?=
+ =?us-ascii?Q?oTaQLQ4ywVceRJlRQdYDyiALkJczu04QjflEEaET2tBJwxkhge4EaduK3S3Z?=
+ =?us-ascii?Q?hyQFTu3hNU0IhgRKwNmOKO2uUepqnzkiBxD1Nqys9eKyKgkr7sMP55QPJFjL?=
+ =?us-ascii?Q?xqlKN3z9C8qN0IWM78u2Nry9q7019iaQYqCO18hIeFdiJ7hyz3vEd8HZNUAo?=
+ =?us-ascii?Q?eL/VyWZv9ZTjUgMK+jwa5hmNLYRFkEg4UmOsVlCzAGxDaRez1RpBSOxj/Xvj?=
+ =?us-ascii?Q?s+5AUJQxqk2HIZocZBX4tvy66tFQfB3Bg0q3ceZF54hvBRpYNmztYYKn3nEy?=
+ =?us-ascii?Q?WR/qoQkFKPO/hrDXegOo8ZoAVwP1Kt8AzxcVenNQVuaPpPKq0HfgUhDU4ER4?=
+ =?us-ascii?Q?ee4BIx2O3vT+PluOWyYjYsHSq1qSgG4Q+TvyN90FyaVMcCrd2vSlhQw2c1bD?=
+ =?us-ascii?Q?Cj6ITebUqfk8l+Rs+dN8v2/2s32zBNDPECDfE1jakWS/qALDc6ZqqBvO7rc9?=
+ =?us-ascii?Q?jUysGxgBpd1AMeuvXV5Q8t+cAV28p9U4mk4O95Dx6XEM+rUO6Jgs2Gw8c+vF?=
+ =?us-ascii?Q?FxwdLSPhYRNJXmAnelUMpIPe/8qFJI1qBB8n16FrD6esg05Tnx2m2UGoOTEM?=
+ =?us-ascii?Q?AjdO9XKQ2n88kr9+IXYiizLKbyWpMKcTWkhr5I+nx4cUlHarQU+sgnxzWLxi?=
+ =?us-ascii?Q?bIDg2/GUVEDpDrrsicKWchR9T/aU7LxanN0L78XWQKIsYONu22Xh0A0ycuxS?=
+ =?us-ascii?Q?W+H7pJhQUKNGKK+Vdwi8mKc4npSMc3hY5+XEvX2/r9dZHBH35gY7jgM3w/GU?=
+ =?us-ascii?Q?lkRKhjjDv/e4NTgc1czuGn2VQF/MhB24Wj3zfD/unaDmo7LXSdTMXWuVjCbf?=
+ =?us-ascii?Q?j70+FP/+y+ock8/xRUhf2UQIP/SKFQ/f6abCc6F2FaKNHMF46aMI0gvjFYap?=
+ =?us-ascii?Q?PAD5tVUT6mxZts73HCsqzUE6rMrVJ1Od1rZ7g85s51j0ZUSV0buMsRKxxsJF?=
+ =?us-ascii?Q?tSQYS366Uo+vQ2gT5xOZZEpKHzytk+iMXIrRxs6F+v6HKpAgzGdcFbOfqi6n?=
+ =?us-ascii?Q?t8PPzoLxy1MNn6Y9IQE+cQU6Ayejuto0bqslQNF/eSGu8cY0vHyYBhOD0rwc?=
+ =?us-ascii?Q?d5CJzKFnTv9G9b6ZK8hnzylb8Cv5Gg6LVSsXxg+QBu5DZRTJ8HbFMxir+ycl?=
+ =?us-ascii?Q?FeWrprH54hsXqxNqyW9x9ygqSaXVmNtkmwYg/J3p59YkrVqD1YV1pCBFWnbO?=
+ =?us-ascii?Q?MusnzH3yTlcsz07v8PBonyVlFe3aNVOD72NS2y7yzwPwDwE3L6Yxj4tYCox+?=
+ =?us-ascii?Q?P30E81xpD3bPm2DIZGjdrEVvqokPO/Hl46cBq9ddvOS4WyML09BQg2bcqFtZ?=
+ =?us-ascii?Q?kvdN6jowAzgmxBmw36P4ddBd6ITJjq14x+dUaVN5bvoSegwgJsts1c7BlYI0?=
+ =?us-ascii?Q?JnihD/zygbtzbhXjMSxXwFcBo+mn9YPKgzzplD0TVa/7vzEmSNY//mFERBAL?=
+ =?us-ascii?Q?pyd9l2A8vgQUFja2PkhEplz/CyyS+YXtNWjrUQSQcpeisqXnpPTW9ksstmER?=
+ =?us-ascii?Q?wMyheo+49Q=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 779b54a5-31fe-49a8-6736-08df4588d9a3
+X-MS-Exchange-CrossTenant-AuthSource: BL0PR12MB2370.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 15:30:18.3432
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: DnX8jIXpMAUBR5mrklAo1G5Z+rwefgHttNCKjWXHMkkrJcRGq/4aniGH+dLbgmaNTyhoICpvKURJWOM7JCIz6Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8294
 
-The regulatory state of struct ath11k_base, the reg_info_store array
-with the rules it holds and the default_regd[] and new_regd[] domains,
-lives as long as the device, but ath11k_reg_free() runs from
-ath11k_core_soc_destroy(), which only ath11k_core_deinit() calls. The
-teardown paths that follow a failed start skip ath11k_core_deinit():
-ath11k_pci_remove() when ATH11K_FLAG_QMI_FAIL is set, and
-ath11k_ahb_remove() and ath11k_ahb_shutdown() when
-ATH11K_FLAG_REGISTERED is clear. They reach ath11k_core_free(), which
-frees ab, and whatever regulatory state the failed start allocated
-leaks.
+On Sat, Nov 14, 2026 at 02:09:42AM +0800, Gregory Price (Meta) wrote:
+> Use N_MEMORY_COMMON for boot mempolicy calculations and their per-node
+> sysfs entries (weighted interleave weights). 
+> 
+> Restrict the node set mpol_set_nodemask() applies to set_mempolicy()
+> and mbind() masks to N_MEMORY_COMMON nodes.
+> 
+> Later when an N_MEMORY node is omitted frmo the N_MEMORY_COMMON set,
 
-Free the regulatory state in ath11k_core_free(), which every teardown
-path reaches, right before ab itself.
+nit: "from"
 
-AI assistance was used.
+> they will be stripped from mempolicy nodemasks as they're not eligible
+> (similar to memoryless nodes today).
+> 
+> All memory is common at this point, no behavior change at this point.
+> 
+> Signed-off-by: Gregory Price (Meta) <gourry@gourry.net>
+> ---
+>  mm/mempolicy.c | 28 ++++++++++++++--------------
+>  1 file changed, 14 insertions(+), 14 deletions(-)
+> 
+> diff --git a/mm/mempolicy.c b/mm/mempolicy.c
+> index b10c098e9c2a3..662ab420fe03c 100644
+> --- a/mm/mempolicy.c
+> +++ b/mm/mempolicy.c
+> @@ -213,10 +213,10 @@ static void reduce_interleave_weights(unsigned int *bw, u8 *new_iw)
+>  	int nid;
+>  
+>  	/*
+> -	 * N_MEMORY can change while wi_state_lock is held. Remember the
+> -	 * nodes contributing to sum_bw so all passes use the same set.
+> +	 * N_MEMORY_COMMON can change while wi_state_lock is held. Remember
+> +	 * the nodes contributing to sum_bw so all passes use the same set.
+>  	 */
+> -	for_each_node_state(nid, N_MEMORY) {
+> +	for_each_node_state(nid, N_MEMORY_COMMON) {
+>  		node_set(nid, nodes);
+>  		sum_bw += bw[nid];
+>  	}
+> @@ -439,9 +439,9 @@ static int mpol_set_nodemask(struct mempolicy *pol,
+>  	if (!pol || pol->mode == MPOL_LOCAL)
+>  		return 0;
+>  
+> -	/* Check N_MEMORY */
+> +	/* Check N_MEMORY_COMMON */
+>  	nodes_and(nsc->mask1,
+> -		  cpuset_current_mems_allowed, node_states[N_MEMORY]);
+> +		  cpuset_current_mems_allowed, node_states[N_MEMORY_COMMON]);
+>  
+>  	VM_BUG_ON(!nodes);
+>  
+> @@ -3400,11 +3400,11 @@ void __init numa_policy_init(void)
+>  
+>  	/*
+>  	 * Set interleaving policy for system init. Interleaving is only
+> -	 * enabled across suitably sized nodes (default is >= 16MB), or
+> -	 * fall back to the largest node if they're all smaller.
+> +	 * enabled across suitably sized common memory nodes (default is
+> +	 * >= 16MB), or fall back to the largest node if they're all smaller.
+>  	 */
+>  	nodes_clear(interleave_nodes);
+> -	for_each_node_state(nid, N_MEMORY) {
+> +	for_each_node_state(nid, N_MEMORY_COMMON) {
+>  		unsigned long total_pages = node_present_pages(nid);
+>  
+>  		/* Preserve the largest node */
+> @@ -3476,7 +3476,7 @@ int mpol_parse_str(char *str, struct mempolicy **mpol)
+>  		*nodelist++ = '\0';
+>  		if (nodelist_parse(nodelist, nodes))
+>  			goto out;
+> -		if (!nodes_subset(nodes, node_states[N_MEMORY]))
+> +		if (!nodes_subset(nodes, node_states[N_MEMORY_COMMON]))
+>  			goto out;
+>  	} else
+>  		nodes_clear(nodes);
+> @@ -3508,7 +3508,7 @@ int mpol_parse_str(char *str, struct mempolicy **mpol)
+>  		 * Default to online nodes with memory if no nodelist
+>  		 */
+>  		if (!nodelist)
+> -			nodes = node_states[N_MEMORY];
+> +			nodes = node_states[N_MEMORY_COMMON];
+>  		break;
+>  	case MPOL_LOCAL:
+>  		/*
+> @@ -3903,6 +3903,9 @@ static int wi_node_notifier(struct notifier_block *nb,
+>  
+>  	switch (action) {
+>  	case NODE_ADDED_FIRST_MEMORY:
+> +		/* Weighted interleave spans only common memory. */
+> +		if (!node_state(nid, N_MEMORY_COMMON))
+> +			break;
+>  		err = sysfs_wi_node_add(nid);
+>  		if (err)
+>  			pr_err("failed to add sysfs for node%d during hotplug: %d\n",
+> @@ -3934,10 +3937,7 @@ static int __init add_weighted_interleave_group(struct kobject *mempolicy_kobj)
+>  	if (err)
+>  		goto err_put_kobj;
+>  
+> -	for_each_online_node(nid) {
+> -		if (!node_state(nid, N_MEMORY))
+> -			continue;
+> -
+> +	for_each_node_state(nid, N_MEMORY_COMMON) {
 
-Fixes: 61a57e51e46e ("ath11k: fix rmmod failure if qmi sequence fails")
-Cc: stable@vger.kernel.org # needs adjustments for <= 5.15
-Signed-off-by: Zhao Li <enderaoelyther@gmail.com>
----
-Found by code review. Tested in QEMU with KASAN, using a test module
-that frees a synthetic device through ath11k_core_free() after a
-SERVICE_READY_EXT event allocated the store, then reads the store to
-see whether it was freed: without this change the read succeeds, so the
-store leaks; with the series applied KASAN reports the read as a
-use-after-free of the store that ath11k_reg_free() freed from
-ath11k_core_free().
+Maybe I overlooked or somehow, but when do we have the assumption
+that common memory is definitely onlined ?
 
-No new W=1, sparse or smatch warnings.
+Best regards,
+Richard Cheng.
 
- drivers/net/wireless/ath/ath11k/core.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/net/wireless/ath/ath11k/core.c b/drivers/net/wireless/ath/ath11k/core.c
-index 766ae27306f4..90124a826088 100644
---- a/drivers/net/wireless/ath/ath11k/core.c
-+++ b/drivers/net/wireless/ath/ath11k/core.c
-@@ -2021,7 +2021,6 @@ static void ath11k_core_soc_destroy(struct ath11k_base *ab)
- {
- 	ath11k_debugfs_soc_destroy(ab);
- 	ath11k_dp_free(ab);
--	ath11k_reg_free(ab);
- 	ath11k_qmi_deinit_service(ab);
- }
- 
-@@ -2734,6 +2733,7 @@ void ath11k_core_free(struct ath11k_base *ab)
- {
- 	destroy_workqueue(ab->workqueue_aux);
- 	destroy_workqueue(ab->workqueue);
-+	ath11k_reg_free(ab);
- 
- 	kfree(ab);
- }
--- 
-2.56.1
-
+>  		err = sysfs_wi_node_add(nid);
+>  		if (err) {
+>  			pr_err("failed to add sysfs for node%d during init: %d\n",
+> -- 
+> 2.53.1-Meta
+> 
+> 
