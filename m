@@ -1,55 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795030273;
-	b=tRjo/Ft+JSNN5xTuZR/uenbnM2nXPhLY4qLTarNaX7TiVk2zVaxdNSQ/8h6S5FZujD9H
-	 LZSzIynbjZzskg9XnOptSTvgJuQGDx/200MR/fBLRD1EvxD6CylNMm1KkSMmVIKvfh4da
-	 u2cVTb/c9N1S6TZ17NGHX1FE9MnF3/1iIRZ6Dq6M4duQQFMwCUp90p/8axWmVpGRgELCo
-	 JThLsCNmmz3SdaXM5P3HlrQecjCwGY9hpM1gH155h7LJr2bIxdc8llvGmM0b/ntW05QLD
-	 8A7hC1MhlPgV5VCgceF24P36sbX8578uBM+YyZPOMmmlYXinkLz6OCeYRChITDqNpzQ==
+	t=1795030285;
+	b=fxaXkMueyf/XgaScnceZoE+BzkiOzZOPF/BC2Bxitcs3m1nzj5bKOfXhx+UBXA0bDaZC
+	 YyXA7vFy+5kBtAW12PvZ++twIwt3/PC9PghE1Fg2xVnGz1uzZuSze7Z0mqwjZFXfI0gJk
+	 DMbnOTC481Kr+VaVVBC1iUcO6effMscx3APzGOx0hGDF1mo5uhggynDez9us6E4MWnhXQ
+	 kMHnb8OrfHgYQhEdi2gRM6G/70vhjsFuGPHeYp+AR4IsMgmtjEDz8wuQp7T9Ry6SiIWjO
+	 frZcTW3MACFS1l6WknrSzRbyzIaRvRqE2MEobzuageQbuZG0Jr/sC4Wy3UGMLrAJ0qQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795030273;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=EDD37NjjvJNIfpw9KAFA+jcN9aRZtu7RwLQr1pxz0OI=;
-	b=Dks+E0FoYHXDKLq4elPpZU64Rb+Ry/Od9iutQ36ykM7f7APv3WRKmQUpd+m65I4ux+ux
-	 M/bSOUkKeOp2fRQ/romtLoyBwDRrEAA64VGOGzBoMZ8ITC9f2WGSZne+NJ3ktcwcM8d8W
-	 97J/O1Jsw3+qQcCgFN7WqDRbdOw9/dA+BH4yQ2hfja1K0jMgLHZm2UMz8jprpYtQDoe0T
-	 lroYJdC19N+wjImn1/R6gfvTyTHm+9dw9Sv3/1qonPqtXN+gyp7oDZpLfVlM4rfkZBUNS
-	 RSjhnIaaPnuRTLZ63tyfzNaxAUiXX72rD6VzgAbo0oST9RYAGpkEclpB1xIxgHwBT7Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795030285;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:X-Google-Original-From:Date:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=DyoNOi8SqxQRtdWNaiooYSD8hFAkDD28ur39JiQbgr8=;
+	b=ts06P27cvZ5qOgjp1ztvgfVkkqOQMiVhFYO8cpHJwk5WepG1qxML+v+y+8YDoXWBg+g1
+	 coNUpMX8t4XWManjsx8ae6CktHR/aN1J3IKUF1CxF+kQciZ7pra1pK9FoslUrluk4BQJj
+	 vyyOtFTU90v9o6zJfTgyRTOBFT9tH9M9GOt82NL6majGWlaHV1c2QMUAGIqfbAUkI3dyA
+	 astybarFEOZQYJSIWfMI2Z0ALjzMc5YxP6ZHUYh2IPgc80rWHdPdjVPPIn18qd8TbCvMm
+	 OLTEgiQ/Pxh/HKeyBVdGh8apPfnK1BkWiVlLPUYMXXdh5V4TmQy79TS+ufI9QLpT9eA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zo6mxFGv;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gFuf4zQU;
+	arc=none smtp.remote-ip=209.85.218.43
+Received: from mail-ej1-f43.google.com (mail-ej1-f43.google.com [209.85.218.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B2E9606E7C8
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:31:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B0FA606A7D7
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:31:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B0FA606A7D7
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zo6mxFGv
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40A2B1F000C9
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:31:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795030273;
-	bh=EDD37NjjvJNIfpw9KAFA+jcN9aRZtu7RwLQr1pxz0OI=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Zo6mxFGv92To40pzc4PkJphlPw0S8B+GnmH04f6BAnRRa8VVDehu9hnrJsDD/f53P
-	 pFRTiHnx7yN1t69bvPTAd66+YXOTT0XQWWIk+U0BWaLl/plvwuWYHlUEaxbZKtKXg8
-	 snJ8iXco3PlIh4OjvxGcgHJwpeYM+d/K+e0yOD7C7PIVzk4v3XDF8qnCkvV3bC0rzY
-	 b8Gx9jcCrHqCL+h1APsvgwf2KE1ADBIfTOoJ9tUEZOqwt+HfmVlrCRuuP5kTR1/iZ/
-	 8uKjUyJvqNv3XvMBXNolr0oKnsNXjx44l5Rp6tAdqo+9CZGFHPRI4AMzIAqIrb2I1Z
-	 AGDBSJ2wP2wGA==
-Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-c505b2e1cb9so211599966b.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:31:13 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErE4aEggDjrL7Ep3mHTTPKqeB480PhwYBugSE8P62vy0qEgcdYy5m5z9UTaSA9BAVZgeguAVdqu1s3CKVmo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8YVS1S+/xnqA4vIZRGfYFX89eATgVgdveinJHUxMjKJzng4O5n
-	Nxk1vUqqZ1o+rDdr3amyMcU7XJMb9iqP6d6kVP0HiB8P6m5k28ah8LoOn5zbB4S6BRHiGj6Oxpk
-	aQnrZp/VkSbV74kGFfJ9wwcm4Q8B1Fhg=
-X-Received: by 2002:a17:906:19c2:b0:c51:24eb:4de9 with SMTP id
- a640c23a62f3a-c5124eb550emr56887566b.34.1795030272192; Wed, 18 Nov 2026
- 11:31:12 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gFuf4zQU
+Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c5118deebcfso150382266b.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:31:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795030282; x=1795635082; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=DyoNOi8SqxQRtdWNaiooYSD8hFAkDD28ur39JiQbgr8=;
+        b=gFuf4zQUDEoP7iC2MdGtPoZNDoQc0po102MyjgPSAjI/BKxKDcOzPFQXDCTGxyoBma
+         ZutVtJQ+lca3F6ODV51vM/ExvFJ/ePHWA7kdQrU6ouTfQXFE+kQaSMexlfB8odlLRHLG
+         5wSicNPDE+0B9z7eJPIRHplPTeH+I0/wlu60Zy+8hYhORZyORxy5hW1S03rK166oNCyn
+         GPsMYDW5+erH449aPuogmViYnqiGWX9Zxg41I6Dxj2YXp+gwOQbxnkdrkmiUT2kewRX2
+         b2YruDCaQzs9cTSB615OgQ8LfgBtVkYQKR3NvNLGq57ePa31b0b9dge2IPneUHc6BXA0
+         RJJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795030282; x=1795635082;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=DyoNOi8SqxQRtdWNaiooYSD8hFAkDD28ur39JiQbgr8=;
+        b=S2n+iasOO+IvvXYqGcaL50ndtIPZ0nMu76eFYi4W6emhkGvJ2XnfWpi/9JJWUVKOHR
+         tI16NB7mTsXUeKEzekU1QhF4RK35qZsq3mqcFi73PUHtAQ+3gUn3hO32qPHh8jK89ub0
+         tc2a4t3tFu3J8IO99gLOP85R22OC3kwwdYIKKjBF5ia+E3a/lk3tKrmZ05O223DWlDS9
+         Q3WuEH39N0GorNsyMtaeM0uMmYMKn1HqrCc2BdceZnWDnClbO4DlgoDEgXhOTDGTtnJw
+         V4nyNI/9XXcijqgq1nl7lltY+ycrPhzqFuj286OZXhsbQDF52zHbkhfyftytYZqS/uSW
+         fT+w==
+X-Forwarded-Encrypted: i=1; AL+hErFp+NxbMNOmfs1H4xbSPvQPb2/fkXoo4y296ezToFmRETZiWI469z5L6KQbgU3OxDZlX/QMxTycyhZBzuQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8iEtsBNBTPsGgwPiDmaYAFc/THvCMTbVVs51Ky2GXG8oIEF+74
+	aqxUhRnCILX7+0q9heMCBC6YP8fiKfaOp37JRrzVdYpfQWX1EwQD3F81
+X-Gm-Gg: AYBFou21prAigJrgv/BoTBjG4B+IKt/UE7JT693vuoTxkJXjd+FVexWCBhVHCh+t0sY
+	fMIrZNoudOTdSc2z8h+nadSabj9i3JEltyuk3qvGAU/QvFEpOttZHxQKzOp9F3BM4Aau7IgqsTi
+	UcSvW0xhohdLjoL2PSo4cxJuf3SNcIkIjTpjN30ubpKTD3q4v0+xjbJEmcbVuQv2Kw3+7YkahE/
+	83VdYVaSfUFrAob64FGXRaLDaIZIJ+MQ2Y74U51V3J14pI5suw4+1gLhtcF8V36LL2URMvkc9Mc
+	n8+iU+EV1lCtM+9fpHj+QTSGwZAQFpAW1jg6xXcPz4Q2En3cYcLf/gM/eznQVLOJr1yo4A4JXLu
+	sR+Y6aDk8A6QI7EWgg4p8C6CzzeLxSYcIfQ/1p8CiH8Qx/PHpHvaoVFdjpk+CP2ckDvzH/FbG9y
+	rnNGCsT9DG7imXoXmCuaAiAmtmts6naf9ieBD/hCdbN4+xVFCW28EwePyNF1SONd5uZCZ4JWadK
+	c2ug4yJiVkg0yREqRF7VwqTJZU+fdmZybPalMo0Ouhg2m9tLsfLFXYR89xkYN+3h/aYwg==
+X-Received: by 2002:a17:907:3f93:b0:c2e:61e:f4fd with SMTP id a640c23a62f3a-c510debe470mr322367566b.5.1795030282513;
+        Wed, 18 Nov 2026 11:31:22 -0800 (PST)
+Received: from milan ([2001:9b1:d5a0:a500::24b])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c512351bc7fsm29492666b.86.2026.11.18.11.31.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 11:31:22 -0800 (PST)
+From: Uladzislau Rezki <urezki@gmail.com>
+X-Google-Original-From: Uladzislau Rezki <urezki@milan>
+Date: Wed, 18 Nov 2026 20:31:18 +0100
+To: Hao Ge <hao.ge@linux.dev>
+Cc: Suren Baghdasaryan <surenb@google.com>,
+	Uladzislau Rezki <urezki@gmail.com>, Dev Jain <dev.jain@arm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Alexander Potapenko <glider@google.com>,
+	Marco Elver <elver@google.com>, Dmitry Vyukov <dvyukov@google.com>,
+	Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Christoph Lameter <cl@gentwo.org>, linuxppc-dev@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com,
+	linux-mm@kvack.org, Sashiko <sashiko-bot@kernel.org>
+Subject: Re: [PATCH v5 05/11] mm/vmalloc: only flush the cache after the vmap
+ succeeded
+Message-ID: <av39BuCsq-dRFiMM@milan>
+References: <20261116071325.263682-1-hao.ge@linux.dev>
+ <20261116071325.263682-6-hao.ge@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,55 +111,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261112203227.289379-1-zide.chen@intel.com> <20261112203227.289379-16-zide.chen@intel.com>
- <av3O9YqD6iW4UT9c@google.com> <bf360695-18f4-4fa1-8030-6df2471dae60@intel.com>
-In-Reply-To: <bf360695-18f4-4fa1-8030-6df2471dae60@intel.com>
-From: Yosry Ahmed <yosry@kernel.org>
-Date: Wed, 18 Nov 2026 11:30:59 -0800
-X-Gmail-Original-Message-ID: <CAO9r8zMXda60R7OrE87k7x-LJpAR14o34aUJL3CVNST-JW-84g@mail.gmail.com>
-X-Gm-Features: AclHuK9q5YNaR422g13fk9iinqVwmj-uwtSYeCa7KEEQi75iphAK3gLDpm-B2ws
-Message-ID: <CAO9r8zMXda60R7OrE87k7x-LJpAR14o34aUJL3CVNST-JW-84g@mail.gmail.com>
-Subject: Re: [PATCH v4 15/21] KVM: x86/pmu: Clamp pmu->version to kvm_pmu_cap.version
-To: "Chen, Zide" <zide.chen@intel.com>
-Cc: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Peter Zijlstra <peterz@infradead.org>, kvm@vger.kernel.org, 
-	Jim Mattson <jmattson@google.com>, Andi Kleen <ak@linux.intel.com>, 
-	Stephane Eranian <eranian@google.com>, linux-kernel@vger.kernel.org, 
-	Mingwei Zhang <mizhang@google.com>, Shukla Manali <Manali.Shukla@amd.com>, 
-	Dapeng Mi <dapeng1.mi@linux.intel.com>, Xudong Hao <xudong.hao@intel.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261116071325.263682-6-hao.ge@linux.dev>
 
-On Wed, Nov 18, 2026 at 11:19=E2=80=AFAM Chen, Zide <zide.chen@intel.com> w=
-rote:
->
->
->
-> On 11/18/2026 10:17 AM, Yosry Ahmed wrote:
-> >> diff --git a/arch/x86/kvm/vmx/pmu_intel.c b/arch/x86/kvm/vmx/pmu_intel=
-.c
-> >> index 5eac64ba8832..0be9956810ae 100644
-> >> --- a/arch/x86/kvm/vmx/pmu_intel.c
-> >> +++ b/arch/x86/kvm/vmx/pmu_intel.c
-> >> @@ -574,7 +574,7 @@ static void intel_pmu_refresh(struct kvm_vcpu *vcp=
-u)
-> >>      eax.full =3D entry->eax;
-> >>      edx.full =3D entry->edx;
-> >>
-> >> -    pmu->version =3D eax.split.version_id;
-> >> +    pmu->version =3D min_t(int, eax.split.version_id, kvm_pmu_cap.ver=
-sion);
-> >
-> > Why not AMD too?
->
-> On AMD, seems pmu->version is already constrained to kvm_pmu_cap.version:
->
-> 1. When vPMU is enabled, AMD has no CPUID version field. KVM sets
-> version to 1, or 2 if guest_cpu_cap_has(PERFMON_V2). Userspace cannot
-> force version 2 on a v1 host because svm_set_cpu_caps() clears
-> PERFMON_V2 from kvm_cpu_caps whenever kvm_pmu_cap.version !=3D 2.
->
-> 2. When vPMU is disabled, kvm_pmu_refresh() sets pmu->version =3D 0 and
-> returns before vendor refresh() is called (!vcpu->kvm->arch.enable_pmu).
+On Mon, Nov 16, 2026 at 03:13:19PM +0800, Hao Ge wrote:
+> vmap_page_range(), __vmap_pages_range() and vmap_pages_range_batched()
+> call flush_cache_vmap() before they even look at the error code. A
+> failed mapping is never used, so the flush is pointless at best.
+> 
+> According to the Sashiko review it is worse than pointless on UML:
+> flush_cache_vmap() there is flush_tlb_kernel_range(), which syncs the
+> PTEs into the host OS. Flushing a half-installed mapping therefore
+> leaves host mappings behind for a range that was just freed again.
+> 
+> Only flush when the mapping, and for vmap_page_range() also the KMSAN
+> metadata, is fully set up.
+> 
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Closes: https://lore.kernel.org/all/sashiko-outbox-178439@kernel.org/
+> Signed-off-by: Hao Ge <hao.ge@linux.dev>
+> ---
+>  mm/vmalloc.c | 11 ++++++++---
+>  1 file changed, 8 insertions(+), 3 deletions(-)
+> 
+> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+> index e2b63cb1592b..d99d7710e1ba 100644
+> --- a/mm/vmalloc.c
+> +++ b/mm/vmalloc.c
+> @@ -371,10 +371,12 @@ int vmap_page_range(unsigned long addr, unsigned long end,
+>  
+>  	err = vmap_range_noflush(addr, end, phys_addr, pgprot_nx(prot),
+>  				 ioremap_max_page_shift);
+> -	flush_cache_vmap(addr, end);
+>  	if (!err)
+>  		err = kmsan_ioremap_page_range(addr, end, phys_addr, prot,
+>  					       ioremap_max_page_shift);
+> +	if (!err)
+> +		flush_cache_vmap(addr, end);
+> +
+>  	return err;
+>  }
+>  
+This is incomplete. Maybe merge with 6.
 
-I see, makes sense. Thanks.
+--
+Uladzislau Rezki
