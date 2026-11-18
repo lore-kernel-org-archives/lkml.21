@@ -1,88 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795031673;
-	b=BuIUPUPWWGibDF5wZAZisjGAymD3CxtihFNyek+8hB66SHrS7cD+GnXfEBiX5k8ysjZJ
-	 zEFDbha3YjhcExWjb9fAlqmk8B/a1VghrGqFwoLlHH7u9FplXYwvLIgcWw/o7YsEAr6Si
-	 nom58EAvIVgwBHwzeqkWGAFpevbarDKkTdt42ZNZ6UGY7WpyBDJB88i/MVTqV60pfg9Nh
-	 V95C4Pe4pgHEd4twNubkOavhomj4QTFT1XWYvRSVt/g7pUzChnitIVwHzYEkBguPxlCEu
-	 veGl2tyni4EpOlTJOsyspi9bCd4B2C/lx1EP0VDNu/iXzuaWDTNjwCBXchm+gBjox+A==
+	t=1795031767;
+	b=hsMgUYk4B6bb0UxHkUC6880TQ/BoAY6iPpBoZzs3jvRgu92UiI5qkxfv5hj7tetaWANz
+	 lY6dxuTfJswx/qxluFBsPXT+4NcY6pjyzVWFwdswRD7g1Y1b2eJxxVRiSbdVFsZBD0fo8
+	 F5Yx0OVMx7xoNE+Opz/04J5U7NbhiHr+R9qChxdL6pb8VIqhdQd/MkzOyIaTBWnTuV8+0
+	 r4MpnvhFerz23wlVh4kz0ChCLT/lYwqVhtsy3ygXoBFioiU3tPDpFM6M9xXG2O6ZinTFp
+	 BNj1JIv/CEs1vHtnUUEcElEmbvhlVU50jVU6RbK4j+HjY/LEIHr9gJ77QpNYx4OEoAA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795031673;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=i0RPIOg/N02GB/FO0QU0LL8vtzFon8FGCvQcjRptq9c=;
-	b=LkXI0vB2blPkcCR+UfEHSV+bYjlBTKpCmNC9wcbo1QGFfdyYFlgi4kk9Q6lrqVV2vn9K
-	 Z0RcanCJDTwaVs8Ya/lvtDt36Xd3u6NBK6nOkE7sU8zmNWXCuEVAENZ27xvlAfI6RMY82
-	 5eufQffstZtDdAgPt2GKuXsQjCEJAN9xv3sGVrL2aUX4oRXiqe3/rPIWYmks3ZC9hFLkL
-	 GqJ7l00DOr/RjvbS+GQO2ERcW+6hpTEvtLdSWUxpBQfZBj65mCMO4/M7CkoT2bWBekV4f
-	 p45VjlzEXUzeR70lLtbMWd2M55aaVu7typKHzF4GBgmbFU54X4oy4+h+87T75Ct9oSA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795031767;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-AI-Review-Draft;
+	bh=wLT03LeZbhXOksmBn0t9WgkTSVA4EyoTOXmG+C7EJso=;
+	b=GGshy7xaEjlvy/qozLw20ymQt46jS4G6NuAdZbOFBFs4Go+kS7pGgvMMPnoCvWfOYQzG
+	 LxopCg5VfIvgD3ts8PX0l8J1DrbHb+/PF7tVY2bwo+H3GIqmyf5tZCM3mzfk/bIIhnd3q
+	 Bv5IkpmByjh0Ehh7AItXXAzX+/vMzzOPM4I+NNYtu8yffDXJ3sikWJKYhutFOCNI4BYAV
+	 +GbWxyKiCHQBOP8o9VRpSNxmlhC/VqiyUICviT4u8mhYVwS4YxGrPwM05Y9fubcaoSrlx
+	 S+2GoV832g/Ntu5YKgxWRYmIoteWfEkBf4zT+byA+nU5znwNp1i38cd7MRsSVH2jeuw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PnPN+RH7;
-	arc=none smtp.remote-ip=209.85.222.181
-Received: from mail-qk1-f181.google.com (mail-qk1-f181.google.com [209.85.222.181])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EIw+gViG;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9D5560A2601
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:54:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D9D5560A2601
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25F8C606A320;
+	Wed, 18 Nov 2026 19:56:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PnPN+RH7
-Received: by mail-qk1-f181.google.com with SMTP id af79cd13be357-93f2f2edb19so130328385a.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:54:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795031672; x=1795636472; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=i0RPIOg/N02GB/FO0QU0LL8vtzFon8FGCvQcjRptq9c=;
-        b=PnPN+RH7pQhbikZJA14mX7rLaH9sPH/vIyKWSDAL6vqRccPUOJmxW/1r1Ov0fvnJRk
-         QlNITGKipLAp/5DDZUwCG9FCGzOW1P6G2CeDeicU8evPwE3mtIcozIb+Yhvoz4uPiiH+
-         S2gQ008I7WL3vXFUeitwiudL2Q0j1w8UzepE9inLHPto6z6IDwaQ18445qFpKiMJx0Hh
-         YYcRNn9fzNtSz0dzyq1VdvisPJsyRgMiy+G21H+0N4qotuyAWqshXUqUmb/2KKji2KO0
-         1H5RBxB352BulL3ICkR/MaXmzD0fy5PSi6P0ZD4mtQ0i/E6Dlko3bcqdg5cTQWRMzn6N
-         Kv/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795031672; x=1795636472;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=i0RPIOg/N02GB/FO0QU0LL8vtzFon8FGCvQcjRptq9c=;
-        b=mYBu6eCC3DD/7jXl5oCyinsajOmcaZUuMWY7Bex09lCc9UTNn1GkiQnsLqs7aFyGT8
-         azi00Q/TPZLgsE+urpFHWjzJu/sJIxPzr9Yd3NrnRMeVrSBGPWKaP1B3ayfFttkpoTOP
-         mYEpfHOFnXWd0pfstNWwP/dNmPlSgpKtCw5hzBaJ4ihZx3CNGOOyetJlmwOnFAlCGMEs
-         w7mUusJK4oJWGCBYv4v/8DOsSyjCGw8pvfNiBsuSFMIGNODyp4e9iwwS9skoBQBciBTm
-         Ji/Tw2qNX0DV+WX7xOyZJOD0snwhndxTzAtRs0zeJn/wqRB7IvBA8n64fhujUHDA/wk0
-         j21A==
-X-Forwarded-Encrypted: i=1; AL+hErGxXIiTWygS1GwJ7e37N66ookrZCPtZSuoiF2OQe3r7hGx49EIN8Adu4b3YdaDnSUfdutN451W4za9xCa0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Gx/q2uKMEkPnhLh5Pwimip+NaEpYDo6nLxA5Kg76rGAQl3zc7
-	v0HTGhN475NoV0TpPWZ1KgW7cpGbIRXlMTBVnWYxkQDC5b6b3Tc6joq6
-X-Gm-Gg: AYBFou3TsGOppyhgUH8hFmBwUpp2A9HTfzRy62gffzQ7HkveXj61vkPBOGfmFW2RNI0
-	dB7NeyPAEMm6qqoqVsClOgd0h5v9F2NsLg6akXEAQpSWJfmVaNW0XvSsklxtLYET1sWpMXVvf8q
-	N8BeWTX/XijlKVAAYbjU9Nw/q72PP211sfkrWrUyzp1kshbWmCtOz3ge3A5Ip59HAu9F0kZ5I1B
-	8jR3bS1RuQid3gpORmwmm/8nREADiFM8VFoqKWSZjvYTIJquqTZCieRC1jRka1qp3hBUuwEyYJL
-	hjetTsPq7XF47nRBQRu0tVcn3E5yr3rBuqLygvX253Wys3cEB4RumZJduZWZ5NT1Ccz6i5KjutB
-	xTJ8/+QEN5M9BcUIHMjZdyfvajhtARyrdqRROvQZAr9mxkBvczJ2D4sGOvRYbwZihQE2fGrWgKR
-	co5QXu8aIZZ0SxHqmfHEDH1eIBYnES2AiajYs/0efB+0hDjm737es5i5n366wW4s5iEfyfTh7DB
-	KACHEW0qtMbCOPDvYEONyzlHWz0SjsyQipW/tXeG/UZ24XdamNc/q6ADRZq1fXnYXX09QwdM2Zc
-	Xh6s3n7Flr/HG+yZDGX43o6gJlqK4WcNhdO5U/gjLZwVgpUMCTehyGt+gw==
-X-Received: by 2002:a05:620a:7084:b0:947:9060:7efb with SMTP id af79cd13be357-94999574d09mr635823285a.18.1795031671725;
-        Wed, 18 Nov 2026 11:54:31 -0800 (PST)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-9499b7475b8sm257960785a.18.2026.11.18.11.54.29
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 11:54:31 -0800 (PST)
-Message-ID: <c7f0c78a-47c1-4dfb-bf21-808e25f05611@gmail.com>
-Date: Wed, 18 Nov 2026 11:54:28 -0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EIw+gViG
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 434DF1F000C4;
+	Wed, 18 Nov 2026 19:56:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795031766;
+	bh=wLT03LeZbhXOksmBn0t9WgkTSVA4EyoTOXmG+C7EJso=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=EIw+gViGE8D7VwnZsn8W/ubXDjUPTNj+64H2VX8P5CPyEG1LuK9h5t3f2JRFirDcq
+	 p64dTmAq/DtVY/hny3ZUkho89kN3GjuOono+7BkJjJAgMEGzxcMYx5ZGTeCgZgBQez
+	 1FgTSExKpjuAkp6JSESRjy0lX31sUPwsh/B5OvPTnmGZOugo2F9/Udy9WpKDPFG25q
+	 CRdZfANDDyvRTHQbvkXwky4faVKExy0s+FjUtWPBPrk32gyPfaC9GVCGs5Bmf7ngMJ
+	 H2+7XShNmoDsbAKn9LD/EkRVKFCn9dFuFWHNqDLO5PxdfqWrntgqkI7HQrEYTl8Rzv
+	 PbA+EwJxrdBZg==
+Date: Wed, 18 Nov 2026 19:56:02 +0000
+From: Lee Jones <lee@kernel.org>
+To: raoxu <raoxu@uniontech.com>
+Cc: pavel@kernel.org, griffin@kroah.com, Denis.Osterland@diehl.com,
+	linux-leds@vger.kernel.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] leds: pwm: Fix active-low brightness with default-state
+ keep
+Message-ID: <179442106213.44545.9829809278369376980@kernel.org>
+References: <9524E319B9AF9D1A+20261109085822.3755803-1-raoxu@uniontech.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,83 +59,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6.18 0000/2151] 6.18.65-rc1 review
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
-Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
- torvalds@linux-foundation.org, akpm@linux-foundation.org,
- linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
- lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
- sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
- hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
- sr@sladewatkins.com
-References: <20261118150121.603863898@linuxfoundation.org>
-Content-Language: en-US, fr-FR
-From: Florian Fainelli <f.fainelli@gmail.com>
-In-Reply-To: <20261118150121.603863898@linuxfoundation.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <9524E319B9AF9D1A+20261109085822.3755803-1-raoxu@uniontech.com>
+X-AI-Review-Draft: <9524E319B9AF9D1A+20261109085822.3755803-1-raoxu@uniontech.com>
 
-On 11/18/26 06:28, Greg Kroah-Hartman wrote:
-> This is the start of the stable review cycle for the 6.18.65 release.
-> There are 2151 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
-> 
-> Responses should be made by Fri, 20 Nov 2026 14:55:45 +0000.
-> Anything received after that time might be too late.
-> 
-> The whole patch series can be found in one patch at:
-> 	https://www.kernel.org/pub/linux/kernel/v6.x/stable-review/patch-6.18.65-rc1.gz
-> or in the git tree and branch at:
-> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-6.18.y
-> and the diffstat can be found below.
-> 
-> thanks,
-> 
-> greg k-h
+On Mon, 09 Nov 2026, raoxu wrote:
 
-perf fails to build with:
+> From: Xu Rao <raoxu@uniontech.com>
+>
+> With default-state set to "keep", led_pwm_add() derives the initial
+> brightness from the PWM duty cycle without accounting for active-low
+> LEDs. However, led_pwm_set() inverts the duty cycle for these LEDs.
+>
+> For an enabled active-low PWM with zero duty cycle, the LED is fully
+> on but its cached brightness is set to zero. Conversely, a full duty
+> cycle is reported as maximum brightness instead of off. This exposes
+> an incorrect brightness to userspace and can restore the wrong value
+> after suspend. With an optional enable GPIO, the incorrect brightness
+> also causes the wrong initial GPIO level to be selected.
+>
+> Invert the computed brightness for active-low LEDs, matching the
+> conversion used by led_pwm_set() while leaving the PWM state intact.
+>
+> The supplied fix was reviewed and this commit message prepared with
+> OpenCode AI assistance.
 
-util/annotate-data.c: In function 'global_var__collect':
-util/annotate-data.c:765:30: warning: implicit declaration of function 
-'die_get_type_die'; did you mean 'die_get_typename'? 
-[-Wimplicit-function-declaration]
-   765 |                         if (!die_get_type_die(dwarf, 
-pos->die_off, pos->die_tag,
-       |                              ^~~~~~~~~~~~~~~~
-       |                              die_get_typename
-util/annotate-data.c:765:71: error: 'struct die_var_type' has no member 
-named 'die_tag'
-   765 |                         if (!die_get_type_die(dwarf, 
-pos->die_off, pos->die_tag,
-       | 
-       ^~
-util/annotate-data.c:766:50: error: 'struct die_var_type' has no member 
-named 'from_alt'
-   766 |                                               pos->from_alt, 
-&type_die))
-       |                                                  ^~
-util/annotate-data.c:777:44: error: 'struct die_var_type' has no member 
-named 'from_alt'
-   777 |                                         pos->from_alt);
-       |                                            ^~
-util/annotate-data.c: In function 'get_global_var_type':
-util/annotate-data.c:835:26: warning: implicit declaration of function 
-'die_same_file' [-Wimplicit-function-declaration]
-   835 |                         !die_same_file(cu_die, type_die));
-       |                          ^~~~~~~~~~~~~
-util/annotate-data.c: In function 'update_var_state':
-util/annotate-data.c:873:42: error: 'struct die_var_type' has no member 
-named 'die_tag'
-   873 |                                       var->die_tag, 
-var->from_alt, &mem_die))
-       |                                          ^~
-util/annotate-data.c:873:56: error: 'struct die_var_type' has no member 
-named 'from_alt'
-   873 |                                       var->die_tag, 
-var->from_alt, &mem_die))
-       |                                                        ^~
+This should not end up in the commit message.
+
+If you want it, move it under the '---'.
+
+> Fixes: 3d3d65bd2764 ("leds: pwm: add support for default-state device property")
+> Signed-off-by: Xu Rao <raoxu@uniontech.com>
+> Cc: stable@vger.kernel.org
+> ---
+>  drivers/leds/leds-pwm.c | 2 ++
+>  1 file changed, 2 insertions(+)
+>
+> diff --git a/drivers/leds/leds-pwm.c b/drivers/leds/leds-pwm.c
+> index 6c1f2f50ff85..da307767dbe8 100644
+> --- a/drivers/leds/leds-pwm.c
+> +++ b/drivers/leds/leds-pwm.c
+> @@ -131,6 +131,8 @@ static int led_pwm_add(struct device *dev, struct led_pwm_priv *priv,
+>  		brightness = led->max_brightness;
+>  		brightness *= led_data->pwmstate.duty_cycle;
+>  		do_div(brightness, led_data->pwmstate.period);
+> +		if (led_data->active_low)
+> +			brightness = led->max_brightness - brightness;
+
+One from the bot:
+
+  What happens if 'pwm_get_state()' returns a state where
+  '!led_data->pwmstate.enabled' or 'duty_cycle > period' from the
+  bootloader/hardware?  Should we check 'led_data->pwmstate.enabled'
+  before deriving a non-zero brightness for an active-low LED with
+  'duty_cycle == 0'?
+
+>  		led_data->cdev.brightness = brightness;
+>  		}
+>  		break;
+> --
+> 2.50.1
+>
 
 -- 
-Florian
+Lee Jones
