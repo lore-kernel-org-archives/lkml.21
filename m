@@ -1,72 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.200
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795030920;
-	b=JBMKPbXJirmaj3Xew9DqDxFJWR+ryTIPrWFAoqI2NVeknxXeapaw0pqN/5fG8Zm4Tygi
-	 3xWU2etBm4NKTggUGRm3Wv+vFMJYkE/h1I7I+xb7EzlvQlrDAlmTs8FENu9UPqoizUvoO
-	 K/M2/u8oAemWyGEBQWuiDJud1YI6EAWEPOsxpQN2voiC7lTGz/f97CUlq/X9V8j4njNWq
-	 zW+qGwSBaMFQPUZx8qC1Ezl6QibZd5hsf7Lv1vSYhTAE3/UMKzYNQzeP2oz62hMXD9R//
-	 GyNNC2nAuUkIFNlQ9frDCJSx1CpdRCb5iU3Y4R7xvHchFx3hu9y1UCPhOabW47zQ2LQ==
+	t=1795030934;
+	b=wtN5w/TgvCx08cOONvkmN1uybuBItsNVKE8+2LC2qCrtSBqyvss2iEhDELnPoLDNqDeM
+	 XfCr4Zyvm4NC3g/7DeoJA7D128fOe9WH5l46AimjU02L9Mp2Cx4jDCaWTNuoWZH0ntKFN
+	 uTBJJPk+TC4S6xInCQupPWbjTtMEq1roeBRjYXvT6R8oskvoT2RssKBH/PetJpRSZCRgK
+	 Sfwo5Y8UOxNG8wR2uBjVPuXGC05hEOdwA3aHEsmK1gioqzKw5TpDYqTxAgzejsk2z6F3h
+	 KMKxde9fenDtNEJStou2YAehIKxvIialu6WL3sVWFNXmxrt5cTrtrEtOppqKTwc9S8A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795030920;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=UBjeXZZm40bR5HDOgO+Dkyyi9wZC4GuhCapOxJ6PXxY=;
-	b=rQToUyre3jwZJx6uiKTMCjdkqFIFoSn7/JFc/F+gJRmfeQ8zwUvNaOjXGvZzQ2d8qw4S
-	 +yGyBgGCAn4SPN4wGHgGEEwT5do4qIIOQ6QLph2TViMlagjf80xyR9G8mtCx+e8vcm5ds
-	 REnaUffHVBHA0EM7cb/cS0ZjISIWxlrQE8yZoQCXyVXrblocXN17JapUtTJdJTD6dAA46
-	 YxwVbm1E0viwSfbjNOgs2bkG8RoUlFcxVDjiEJA5hNbQHOzxDyBRePzmvvhQz87k7NPvg
-	 9CcIcEa7AYuI1m4DVQWcWv8Rj5IO0zmKveHBaVykPbi8bItBUkwCT6kmCF1dVBFXYZQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795030934;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
+	 X-Proofpoint-Reinject:X-Proofpoint-GUID:X-Authority-Analysis:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=ZwkeXhoNuf2KPdjEfw4sg2NJFsMy7sV1rDjpKTrhj/g=;
+	b=ML7g7ty8I/DI5dFU3saFayJfprvEQpIK5vzBBfmcdTAwKhcD+kylLbsn+1e5Q7hJt2tv
+	 m7IDxddosvHA/osvgVhi/DcCEwKx+T43PGjfJWLbtRwpMtmz8mLX4E9oU/BExlvxHI4bi
+	 I3IPPvFXs6Mobe/hLT4AaLwLVKh5CLNm9oyr90nNxIkK4sl2zci8TrHb5/6Z+8Mk3ueAF
+	 qoS8iKz/RYARZry80echBMXUhRsiY0flvUeJSBkLmAd+Aoptnv3NglmWztY8kbwdrUnmG
+	 KPat9m66xPelDimGTvTiM452q5d1cWHrW3JTr0aVffziA9YZMs5urdVORmlt+l2boCA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--elsk.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=l2UT5mIj;
-	arc=none smtp.remote-ip=209.85.210.200
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=MqRX8LLo;
+	arc=none smtp.remote-ip=148.163.158.5
+Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EEE68606A7C6
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:41:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EEE68606A7C6
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--elsk.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2767A606A336;
+	Wed, 18 Nov 2026 19:42:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2767A606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=l2UT5mIj
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-8a0688a43d3so968917b3a.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:41:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795030919; x=1795635719; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=UBjeXZZm40bR5HDOgO+Dkyyi9wZC4GuhCapOxJ6PXxY=;
-        b=l2UT5mIjyhFC63AtrXmNDaOFHb0k0+3mB3N0bxmf0S+aUzWzOmFEy3M7GDX/04tgjk
-         NxgxLuH1J0TMYdiRwMStxwvj5cdJRcaCkf6m6b5Dh/EcE1Sc0tfUXMjrAzggWTkK3te6
-         VeMd/sIsHlbKNV7wJiCGsm0mnQPkMheFIS0rk0Fygh9AbAwliayj0t1iGH4YOUUPEo8R
-         /gsu7RimYSankMikXw5IIYqsm87KXd5h+tKFSOx4H+5RsHT4oMttKvCEGrVEMi4sIUMe
-         zCcSwVoM4xmou9E3psA43xgG7HGNgdW0xToqsaRJoN5reBt8CuhNHbaTqkzY8BuxcZa5
-         Mz3w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795030919; x=1795635719;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=UBjeXZZm40bR5HDOgO+Dkyyi9wZC4GuhCapOxJ6PXxY=;
-        b=a4SZI0HEXbnOZ7TVJaz8fA1rmlxEBstr4+h6Ov7GXYj7pMiRG/9nFQw6HpVHsMOSYP
-         82xqRIluAeRoOgdB0R724YL8a/emHHa9JXomPGd3LQ4tRhPne3Cv/1w7oKcq7gl1Jn89
-         A++PYCYQecEJcuzdbz12t/gt69V4DePVdT3rGO1aExzeImFwhLilTIAiWCUV0YdtDmim
-         yI4GHqTX/GbZ2oNebCsN8nP8yvBhZbI93VFA6VJIZ9jEzxy1AAHZom2Ii9KO0tWPTeRh
-         uv6zMAVIE4vIRu58rlMCp6ziL/MXL7rlpE4nLZMakAiTnm1FJ9F9RvuBJnuh4UpYzN7K
-         BfBQ==
-X-Forwarded-Encrypted: i=1; AL+hErHN5dd5feUuNkktCOw8moIy9o4/A31naqpSeeX3wOr95sZlCTiLEfmYVi0eXCTv3JoZzbJTtC3sUDFqgMY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8rzfj8c37a/5p/WcmbLfuLqnFiZfElajP+MzzoQhke0mLevstd
-	fzZ2IM8yJ21tyBjNv0SPYlE5rWmVKGmejoTooaWCsMFFnvdubDEhqzPwGFKSjDpf5lJE7KdzNw=
-	=
-X-Received: from pfy9.prod.google.com ([2002:a05:6a00:a489:b0:8be:87fe:7950])
- (user=elsk job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:4f81:b0:886:46c:8a1f
- with SMTP id d2e1a72fcca58-8c5d45df160mr3456060b3a.35.1795030919125; Wed, 18
- Nov 2026 11:41:59 -0800 (PST)
-Date: Wed, 18 Nov 2026 19:39:19 +0000
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=MqRX8LLo
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIJQ9Sm755960;
+	Wed, 18 Nov 2026 19:41:59 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=ZwkeXh
+	oNuf2KPdjEfw4sg2NJFsMy7sV1rDjpKTrhj/g=; b=MqRX8LLorA35SpP2mwQbYx
+	7179nv1xPZ1GIzqefkbFUIqw5WxhoIkcOjyUMisBTjYuK5n1ZXx6cg0ItNBPjCKQ
+	PRhBauw6hUFDes1o7EUWvIVZtokj4QGVxD/qcKwDayybix4Bblrgm0gNGOjsMpBO
+	h1ePHO67qco/qBu7Cm7vH6MsvXExtaY6hjqBs5rX9rDMw925seHr93O1r7OY55k6
+	k+caNOIz/PMthUuWtHa+fvbVhCLE9nb7V+k9BY+QZZbY+9GJ3vKzp3iuDYgCItPv
+	uElwjfkussuIKyBAkl2z0SF1AfvWW1SPK9qMuIXtMSZ6eV6YGlBJALgabFGNk/bA
+	==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105vv5ff-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 18 Nov 2026 19:41:58 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIJK45s3854450;
+	Wed, 18 Nov 2026 19:41:57 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j1hd6r6y3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 18 Nov 2026 19:41:57 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AIJfrcY45547844
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 18 Nov 2026 19:41:53 GMT
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id AC53620043;
+	Wed, 18 Nov 2026 19:41:53 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id B7B0420040;
+	Wed, 18 Nov 2026 19:41:48 +0000 (GMT)
+Received: from [9.39.20.8] (unknown [9.39.20.8])
+	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 18 Nov 2026 19:41:48 +0000 (GMT)
+Message-ID: <2ed69cf8-eca2-41ed-a100-844f9d84c2ad@linux.ibm.com>
+Date: Thu, 19 Nov 2026 01:11:47 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,131 +85,134 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261118193921.683813-1-elsk@google.com>
-Subject: [PATCH v2] checkpatch: externalize function-like type macros
-From: HONG Yifan <elsk@google.com>
-To: Andrew Morton <akpm@linux-foundation.org>, Andy Whitcroft <apw@canonical.com>, 
-	Joe Perches <joe@perches.com>
-Cc: HONG Yifan <elsk@google.com>, kernel-team@android.com, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 5/5] powerpc/powernv/eeh: Map generic EEH error types
+ to OPAL
+To: Narayana Murty N <nnmlinux@linux.ibm.com>,
+        Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        "Oliver O'Halloran" <oohall@gmail.com>,
+        Timothy Pearson <tpearson@raptorengineering.com>,
+        Alex Williamson <alex@shazbot.org>
+Cc: Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin
+ <npiggin@gmail.com>,
+        Christophe Leroy <chleroy@kernel.org>,
+        Ritesh Harjani <ritesh.list@gmail.com>,
+        Shrikanth Hegde <sshegde@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org,
+        linux-kernel@vger.kernel.org, kvm@vger.kernel.org, sbhat@linux.ibm.com,
+        harshpb@linux.ibm.com
+References: <20261023073642.59657-1-nnmlinux@linux.ibm.com>
+ <20261023073642.59657-6-nnmlinux@linux.ibm.com>
+Content-Language: en-US
+From: Sourabh Jain <sourabhjain@linux.ibm.com>
+In-Reply-To: <20261023073642.59657-6-nnmlinux@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-GUID: dD3dmLOBGgk3P7MvaFjHXl3PaL0cdUFu
+X-Authority-Analysis: v=2.4 cv=Z8x5j3RA c=1 sm=1 tr=0 ts=6afdff86 cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=VnNF1IyMAAAA:8
+ a=b7QKy6wA_HDc8uP7B80A:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: 24-5BvSMu5bUjEc5gTmCj54tFA2Il3nN
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA3NiBTYWx0ZWRfX+VaaMvH9OC22
+ X/BsPWKxhumCgqKsNQEp91OA1GWrXNi2CBC+ZAvXNdVyEpHajz4O/10O6jvHVYR5+XgtiSFTFoJ
+ DDSjrIZuGO/++G/tAaknwFWzZ/ulSxE=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA3NiBTYWx0ZWRfX0kxVU6SDNxfA
+ H5U5y1fqFXmdCQzUpajVMRASJjdQRlw6DWTekL6xN1Mupnfzrm4gU5t5Diiszm1lz1mC8tbN/2w
+ UgzHWwiuwyhRsY2iJzXoQWQLqz7LHLVjLegXZKUO6TgB107TrCtKp5LBnV40QCPcrGJehvRHbh3
+ XR60x2Z+QuZZueMkVVj70a5eLQU3d+HJP2OZ5AkKtYcHliUl3OxPQpTxIbrgU+vkdvjwP01W3wH
+ jHHuZWjS+hT1Qnzari7rMJWRzQ/dtErfOsLZ1qGhBtddeglTquNhnZm3rm3CPJa4BNtYuP3ZrjG
+ 8RiGu7HhKar0Y8DbUv2D1wHsigdab7xQ5AGU5FOyIQleg7YfUUizj/2h+/VmW6kcfmMGrfrFAfa
+ hZNeAMs81jPgnxPDoBqMD/wHdGvrBkKMHxPi63wdy0ZRtyz/IcKGGi8PGYXYM1Uo87cvT7FzMcB
+ 6UDZZb429Z+xIehEJPg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-18_06,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 phishscore=0 lowpriorityscore=0 spamscore=0 malwarescore=0
+ adultscore=0 bulkscore=0 clxscore=1015 impostorscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180076
 
-tools/testing/selftests/kselftest_harness.h defines FIXTURE_DATA() and
-FIXTURE_VARIANT() to expand to struct type specifiers
-("struct _test_data_##datatype_name" and
-"struct _fixture_variant_##fixture_name").
+Hello Narayana,
 
-Because checkpatch.pl does not recognize these function-like macros in
-$NonptrType or $NonptrTypeWithAttr, annotate_values() parses them as
-function calls and tags a following '*' as a binary multiplication
-operator instead of a pointer declarator.  This triggers false-positive
-errors across kselftests whenever helper functions take pointers to
-fixture data or variants (over 150 sites in tools/testing/selftests/),
-for example on commit d2b82fa39fda ("selftests/mm: add a GUP selftest"):
+For my understanding, could you clarify why this change is needed as 
+part of this series?
+The series is about enabling RTAS-based error injection, and PowerNV 
+doesn't support RTAS.
+How does this change fit with the earlier patches in the series?
 
-  ERROR:SPACING: need consistent spacing around '*' (ctx:WxV)
-  #319: FILE: tools/testing/selftests/mm/gup.c:191:
-  +		FIXTURE_DATA(gup_test) *self,
+On 23/10/26 13:06, Narayana Murty N wrote:
+> eeh_pe_inject_err() is called with generic EEH error types defined in
+> the VFIO/EEH userspace ABI (EEH_ERR_TYPE_32, EEH_ERR_TYPE_64).  The
+> PowerNV backend previously compared these generic values directly against
+> OPAL firmware constants (OPAL_ERR_INJECT_TYPE_IOA_BUS_ERR and
+> OPAL_ERR_INJECT_TYPE_IOA_BUS_ERR64).
+>
+> This is fragile: it relies on the generic EEH ABI values being
+> numerically identical to OPAL-specific values, and would silently
+> misbehave if they ever diverged.
+>
+> Add an explicit mapping in pnv_eeh_err_inject() that translates:
+>    EEH_ERR_TYPE_32 -> OPAL_ERR_INJECT_TYPE_IOA_BUS_ERR
+>    EEH_ERR_TYPE_64 -> OPAL_ERR_INJECT_TYPE_IOA_BUS_ERR64
+>
+> Return -ERANGE for unsupported error types, preserving the behavior
+> of the original code.  Decouples the VFIO/EEH interface from OPAL
+> implementation details.
+>
+> No change to existing userspace ABI or PowerNV behavior.
+>
+> Signed-off-by: Narayana Murty N <nnmlinux@linux.ibm.com>
+> ---
+>   arch/powerpc/platforms/powernv/eeh-powernv.c | 22 +++++++++++++++-----
+>   1 file changed, 17 insertions(+), 5 deletions(-)
+>
+> diff --git a/arch/powerpc/platforms/powernv/eeh-powernv.c b/arch/powerpc/platforms/powernv/eeh-powernv.c
+> index db3370d1673c..01dae760cecb 100644
+> --- a/arch/powerpc/platforms/powernv/eeh-powernv.c
+> +++ b/arch/powerpc/platforms/powernv/eeh-powernv.c
+> @@ -1167,12 +1167,24 @@ static int pnv_eeh_err_inject(struct eeh_pe *pe, int type, int func,
+>   {
+>   	struct pci_controller *hose = pe->phb;
+>   	struct pnv_phb *phb = hose->private_data;
+> +	int opal_err_type;
+>   	s64 rc;
+>   
+> -	if (type != OPAL_ERR_INJECT_TYPE_IOA_BUS_ERR &&
+> -	    type != OPAL_ERR_INJECT_TYPE_IOA_BUS_ERR64) {
+> -		pr_warn("%s: Invalid error type %d\n",
+> -			__func__, type);
+> +	/*
+> +	 * eeh_pe_inject_err() receives generic EEH error types from the
+> +	 * VFIO/EEH userspace ABI.  The PowerNV backend must not rely on
+> +	 * these generic values being numerically identical to OPAL firmware
+> +	 * values.  Translate to OPAL-specific types before calling firmware.
+> +	 */
+> +	switch (type) {
+> +	case EEH_ERR_TYPE_32:
+> +		opal_err_type = OPAL_ERR_INJECT_TYPE_IOA_BUS_ERR;
+> +		break;
+> +	case EEH_ERR_TYPE_64:
+> +		opal_err_type = OPAL_ERR_INJECT_TYPE_IOA_BUS_ERR64;
+> +		break;
+> +	default:
+> +		pr_warn("%s: Invalid error type %d\n", __func__, type);
+>   		return -ERANGE;
+>   	}
+>   
+> @@ -1192,7 +1204,7 @@ static int pnv_eeh_err_inject(struct eeh_pe *pe, int type, int func,
+>   
+>   	/* Do error injection */
+>   	rc = opal_pci_err_inject(phb->opal_id, pe->addr,
+> -				 type, func, addr, mask);
+> +				 opal_err_type, func, addr, mask);
+>   	if (rc != OPAL_SUCCESS) {
+>   		pr_warn("%s: Failure %lld injecting error "
+>   			"%d-%d to PHB#%x-PE#%x\n",
 
-Following scripts/const_structs.checkpatch in commit bf1fa1dae68e
-("checkpatch: externalize the structs that should be const"), read
-additional function-like type macro names from a new companion file
-scripts/type_macros.checkpatch into $type_macros (named to mirror
-$const_structs/$conststructsfile and initialized with the built-in
-typeof and __typeof__ keywords) and use $type_macros in $NonptrType and
-$NonptrTypeWithAttr.
-
-Seed scripts/type_macros.checkpatch with FIXTURE_DATA and
-FIXTURE_VARIANT, and list scripts/*.checkpatch under CHECKPATCH in
-MAINTAINERS.  Valid pointer declarations and casts no longer emit false
-SPACING errors, while malformed pointer placement (such as
-"FIXTURE_DATA(foo)* p" or "(FIXTURE_DATA(foo)*)p") is flagged by
-POINTER_LOCATION.  Keep typeof and __typeof__ built-in as C/GCC
-language operators so $type_macros is never empty and typeof() keeps
-working when scripts/type_macros.checkpatch is missing or empty.
-
-Signed-off-by: HONG Yifan <elsk@google.com>
----
-Changes in v2:
-- Externalize FIXTURE_DATA and FIXTURE_VARIANT into
-  scripts/type_macros.checkpatch instead of hardcoding them in
-  scripts/checkpatch.pl, matching scripts/const_structs.checkpatch from
-  commit bf1fa1dae68e ("checkpatch: externalize the structs that should
-  be const").
-- Add scripts/*.checkpatch under CHECKPATCH in MAINTAINERS.
-- Link to v1: https://lore.kernel.org/r/20261117220522.904290-1-elsk@google.com
-
- MAINTAINERS                    | 1 +
- scripts/checkpatch.pl          | 9 +++++++--
- scripts/type_macros.checkpatch | 6 ++++++
- 3 files changed, 14 insertions(+), 2 deletions(-)
- create mode 100644 scripts/type_macros.checkpatch
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index d738990161bd..b0dca8edb154 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -6264,6 +6264,7 @@ CHECKPATCH
- M:	Andy Whitcroft <apw@canonical.com>
- M:	Joe Perches <joe@perches.com>
- S:	Maintained
-+F:	scripts/*.checkpatch
- F:	scripts/checkpatch.pl
-
- CHECKPATCH DOCUMENTATION
-diff --git a/scripts/checkpatch.pl b/scripts/checkpatch.pl
-index b8b64f720191..7500e1cf447f 100755
---- a/scripts/checkpatch.pl
-+++ b/scripts/checkpatch.pl
-@@ -71,6 +71,7 @@ my $codespell = 0;
- my $codespellfile = "/usr/share/codespell/dictionary.txt";
- my $user_codespellfile = "";
- my $conststructsfile = "$D/const_structs.checkpatch";
-+my $typemacrosfile = "$D/type_macros.checkpatch";
- my $docsfile = "$D/../Documentation/dev-tools/checkpatch.rst";
- my $typedefsfile;
- my $color = "auto";
-@@ -1053,6 +1054,10 @@ if (defined($typedefsfile)) {
- 	$typeTypedefs .= '|' . $typeOtherTypedefs if (defined $typeOtherTypedefs);
- }
-
-+my $type_macros = "typeof|__typeof__";
-+read_words(\$type_macros, $typemacrosfile)
-+    or warn "No additional type macros will be considered - file '$typemacrosfile': $!\n";
-+
- sub build_types {
- 	my $mods = "(?x:  \n" . join("|\n  ", (@modifierList, @modifierListFile)) . "\n)";
- 	my $all = "(?x:  \n" . join("|\n  ", (@typeList, @typeListFile)) . "\n)";
-@@ -1066,7 +1071,7 @@ sub build_types {
- 	$NonptrType	= qr{
- 			(?:$Modifier\s+|const\s+)*
- 			(?:
--				(?:typeof|__typeof__)\s*\([^\)]*\)|
-+				(?:$type_macros)\s*\([^\)]*\)|
- 				(?:$typeTypedefs\b)|
- 				(?:${all}\b)
- 			)
-@@ -1082,7 +1087,7 @@ sub build_types {
- 	$NonptrTypeWithAttr	= qr{
- 			(?:$Modifier\s+|const\s+)*
- 			(?:
--				(?:typeof|__typeof__)\s*\([^\)]*\)|
-+				(?:$type_macros)\s*\([^\)]*\)|
- 				(?:$typeTypedefs\b)|
- 				(?:${allWithAttr}\b)
- 			)
-diff --git a/scripts/type_macros.checkpatch b/scripts/type_macros.checkpatch
-new file mode 100644
-index 000000000000..c910a09e2ebc
---- /dev/null
-+++ b/scripts/type_macros.checkpatch
-@@ -0,0 +1,6 @@
-+# SPDX-License-Identifier: GPL-2.0
-+#
-+# Function-like macros that expand to type specifiers (for example,
-+# struct types) and take parenthesized arguments.
-+FIXTURE_DATA
-+FIXTURE_VARIANT
---
-2.56.1.708.g77570a6a1d-goog
