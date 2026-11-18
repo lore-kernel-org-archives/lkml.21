@@ -1,61 +1,117 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795018223;
-	b=wAc1TlfVj6nCw67jlf/E0katp0HErBcODS6ryO0E3H4zEf6ip8u0GajqwsxWo3lAP/9/
-	 kt4OkiJ8T7xK5jEFIcvGivc2s1uemAqOIeA5PKWKj8rGEoBim/GkEy50IfFHLQSzz3cRQ
-	 bXu/mbjOusQ8o97glVA82GqqZPSnJyXa2ngtTk2H7LfaA4MpTcQOotumaaRa+HXhWdJY2
-	 F6dxQ3RwMsqV1ENHCiWrlU8AH4UUndjrRU2Gq/AVYehcCM/UyaGuqglhiCNYEhOHPhLCc
-	 WNLL2lkfKbvXrMKVKP9fn2d/vbH0NnrmzsImTW/vzg7vnuHxfdEycA8+g2sz3tQ4OqQ==
+	t=1795018236;
+	b=NnzSSZN3IAKAEqfqDH+RuTBuOTvvlUWMuZyC2pYZwFJ7OYPWtJECcNm4KeHRBKNL8bcy
+	 kN1sbYuEfKWa63tXZWNYnPcprapRDJwVd4klNxfp59Q5Z1pFmM0Q3snPPn2lMXMxFJt23
+	 6YH/1YPCSSI0pA878yj1CeDbfSZ+bBXj/tMjk6IZECb1rTfhpSsYKWf8jt0xBwfG3ERRc
+	 w+pFj2Y0ap/+poiLlQWCpdEDUrzjW1hP+6Iv4OvWEd+xmKJZFDX6LZ2+XH1YKLFYB9Kq3
+	 H/wa4v9sErSF4A2RGXVnHDgrBjUh+yTfcbb2jP2/H8S8uYjs9aQNXU5q3pK8braFjtA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795018223;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=ZNwKoLmqeSwPydDAhEghKLHqTvIumd5TXBU/hrH7FpA=;
-	b=ro3fns6y5Iu6VQJ9zsS6gIUDpgsgLRgRZ0ByCp/q8lc1JSKeM9YfluI2CqUtme5jyfZo
-	 4qeG3GxzGScA3R5jgYKGlFUsDOUUnHzqg58c1vLW3t1t7qasVqrXOea+lWqL9yFx/CfHC
-	 +opubiAXNQCnH3v8SzP3TxR7QLICQi20lM5KtzweqDH1HsEI4bXADHzKr6Rn4w00Ov0lF
-	 RQbMTZzo6bIXrSaF1r8+xc3jyJkhpvBN+yHwVuV2/VCGCf9IskJRbFktIqRRdHfOOsBeD
-	 CD8ml1UMrm1n32hF48GJ6IXEQRBkcz+9y6LVxozUItKPLbr/Alwj7pqNj2LIYN61Hog==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795018236;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=6DyjFwh0daqRWVGV8alAfLhW51+EbUV4ESRE/kWsbJw=;
+	b=igZxq8HL3WqK+K+Louyg2NCF0FHbNTEpRVYeKmUSe+5TXrLYUKq5yMOojeDMHxJQ7F6y
+	 uAgsPbJoWUcLzbPhcDqm4D00nxkedJKr5B2WoAWsjeLWTmczcxCylh3v+jPfb7NXvm1kD
+	 CI7sGvXqEImQrOKkNWQYYupcc/yPYzBplppOyarPcR5M0X3GlR2UgPpwcT3uKIv2Z5q4u
+	 YIYlyJ2MsxYxVWMt3kzDBK2guMg0BUCUVdKAkYWFi2OTX4rcjoefVJnTZqRE9iZ+vmP/v
+	 g8tUYseVW+6DTAc8SqqLcO86oTvOaxbSZ8Q7gVUy+i0LRcJpobw1/DYdTIjhWPlfjbg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=C3xuFqWJ;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 5E43A606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:10:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5E43A606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=LiZ7EFEq;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=idfRJWM7;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02D41606A32F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:10:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02D41606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=C3xuFqWJ
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9EFDD339;
-	Wed, 18 Nov 2026 08:10:18 -0800 (PST)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A57E93F673;
-	Wed, 18 Nov 2026 08:10:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795018221; bh=/+padZQ2w+TGhQW06d2Ojc/kEfJW108rtB1jBbALpjQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=C3xuFqWJDbpH6XEiCkUlBwXIN543SWfJMKcxccXPy9d2AfNHicO5Hj5c/DuD5pNr1
-	 KL4sq1hvast3EohM39v1bobaW+vQojqjNZn06FNSorkFZZme6DRTBtRQZSNYzWihaW
-	 9wAFlw5V69dS7yYPdmIqhzWvUOcJuuKEdBg21ZEI=
-Date: Wed, 18 Nov 2026 16:10:16 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
-Cc: Vlastimil Babka <vbabka@kernel.org>, Harry Yoo <harry@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Hao Li <hao.li@linux.dev>, Christoph Lameter <cl@gentwo.org>,
-	David Rientjes <rientjes@google.com>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Suren Baghdasaryan <surenb@google.com>, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	syzbot+527fed49e5b988882c9a@syzkaller.appspotmail.com
-Subject: Re: [PATCH] mm/slub: don't let kmemleak report rcu sheaves
-Message-ID: <av3N6DGiOFK3e3Yw@arm.com>
-References: <20261113151837.123795-1-ngocthang2710.1999@gmail.com>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=LiZ7EFEq;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=idfRJWM7
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIEIE781431842
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:10:34 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=6DyjFwh0daqRWVGV8alAfLhW51+EbUV4ESR
+	E/kWsbJw=; b=LiZ7EFEqfkvy0Nv+KTC5X1Hlg1C5MuL0h1McdBJnli2Y0LcnthZ
+	bnBOCzt2Md1WNrt5PsxTVvm0jw0C6aDUZvsOmM2uXA6HiO3DGGAcXUqFFpD0jWS1
+	YdwflRKmpbYf4ljA/MfyE9aip9GN1XJCpJyGn4x4s9/b3jCvWdd6GPcJc/SUunHt
+	XEVokqUpyPX8U3gKNG7VKJ1SBzWPsQOf8wW5StYj71m6ONvFe2UfulqRZHSUo3/O
+	J0ispPcIVNfsRZ32n53jRa8qvN12z7UOSUJ++/HaG86iFss22mAmW45WhiJgBJZS
+	p4Ki82l92r82hHnoRwTwQGSmUtZM6DeS1IA==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j1dnrrkbm-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:10:34 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-9495dd0f07eso242109985a.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:10:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795018234; x=1795623034; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=6DyjFwh0daqRWVGV8alAfLhW51+EbUV4ESRE/kWsbJw=;
+        b=idfRJWM7LzK7+QwS8ANV/acwK5p7rUilPGhVvDCjItcNG0Pya/7/UAVgdirDXxq1EQ
+         w63Jg6UP8BUQrBIdUk8uei0mmD3RZLTJRAQ+fET7enOX/JKLnHZL5EWc7JXqtRHWHnzO
+         FfaBGfBjTmvlUQxZ/A5I2W6ms0xh1FhF5KQVlEDZl8OxOHTwQ0KnCm4CbnrVNcBIoB2I
+         IYGl6i94GxwOem1WsL7/f9tN4xQHP23iGFK4abuyPsvz7tS8GB5/CKdfQ0GEfY4ICCA2
+         VpQI+HL8LSCxdWJP7/tOWU0TpEP3WtLmpi7s9/0630qpd9mceS/PTqkpEATCQqHtRje9
+         N/hw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795018234; x=1795623034;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=6DyjFwh0daqRWVGV8alAfLhW51+EbUV4ESRE/kWsbJw=;
+        b=hJpDjBQRv7Pm4xRUuglCohtuk3+Zl//HzwuAhjXIx5ffZ7lbP1MKPN+b1bjsXjdN/7
+         o+qAmKCCyeyormS0yDcDm1hElHQQp3aYI3t+PtQ/6NSbHkAniIMvPzy9fwADjZbEuU5m
+         81dBBvo3285JFrALQ3wVUxdTwhpuTvhfTug+Xu9x2QMQEWwAHin7TCLIVkAuUz1sJHx6
+         o9LDjgtzZ3ebHbRcPOMiOSSOfICC6S4En53i7pwytLgKZqHUqMZ8Ks2YKdYEV9d9o52t
+         7P/m09FB5gkHBmnEDYn+edY3nrEuPkcQxa9YMNH1dJ0ZapBKsj+RkYYeCXWdbvYUn7O7
+         QQpg==
+X-Forwarded-Encrypted: i=1; AL+hErFuppxZr3/QQ6pQAl9dpPGaw7mukNgowSiUC7szdtco/xfQ33OBraMXtlfeIuKTva57CNAFtPmOz5IJW1M=@vger.kernel.org
+X-Gm-Message-State: APuU4Z90SI2v9zyGZmWw1B1O6TuPOUry4LmepsLhNaNeUxd32nOLGu70
+	lT8uOrCsleJpvTifovaomAErLStZ+o//JZnseAkEY9MtSP9YP5AegB5k8V2ZVVl4GOZLJocxeps
+	Klcd8dSOmGAJElR5DqvH3o+v7l2aKX9O2e0wchEjFpodatm9LTDS3M/s703BaHZmtt6ipQO5xX6
+	1Q1Q==
+X-Gm-Gg: AYBFou2Wu8zpsdW8olrqvS5Xz+nsjZthRBPc+NXwjtiSl0WTcEzKqp3Yp0TbvkpwDwH
+	yZCNxiMfFqWZ7tUyG+Jp6cIwuPTyNFVrCwGd8FFvh0bFXnk53qxQeSp6q+uLyXvgQGo2F24xB92
+	wXveKqHbBNC+JoE/iFP6yiLX02Af3zRhvrlTffPep12iziRnDS9EYrZxER6Cfelri6gohh4HCQ4
+	Z5me6Kld07XOlXmj+4Op19gLCGzATckyZWVJQqasqpwn5CSjNc3Jc6H890rwaCIdikSpNG4gXrV
+	gzUiceJ9r71ulsdQipAxA0+LzTRJVmVMhAv5i6L+5RwPB1CozcJy7O+qhSe7Kao2R7Qi3cVhaiq
+	MqDRNPeeiXyUo1KEyXJfgdLY+5FNIPTzbKdJA7Xo3SvLKdBIsD8sywgDNfllDeEMpQtGQ3qeDo6
+	kX
+X-Received: by 2002:a05:620a:4551:b0:944:d7b:e7a with SMTP id af79cd13be357-949995e12fcmr574557285a.52.1795018231563;
+        Wed, 18 Nov 2026 08:10:31 -0800 (PST)
+X-Received: by 2002:a05:620a:4551:b0:944:d7b:e7a with SMTP id af79cd13be357-949995e12fcmr574519285a.52.1795018228092;
+        Wed, 18 Nov 2026 08:10:28 -0800 (PST)
+Received: from mai.box.freepro.com ([2a05:6e02:1041:c10:d355:fe70:14a0:ac8d])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65560911fsm5762628f8f.26.2026.11.18.08.10.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 08:10:27 -0800 (PST)
+From: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
+To: rafael@kernel.org
+Cc: linux-pm@vger.kernel.org, Geert Uytterhoeven <geert@linux-m68k.org>,
+        Mario Limonciello <superm1@kernel.org>,
+        Mark Pearson <mpearson-lenovo@squebb.ca>,
+        "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+        linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH RESEND] platform profile: Restrict the core prompt to COMPILE_TEST
+Date: Wed, 18 Nov 2026 17:09:37 +0100
+Message-ID: <20261118160938.3057738-1-daniel.lezcano@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,76 +121,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261113151837.123795-1-ngocthang2710.1999@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA2NCBTYWx0ZWRfX2Wzlbn/lmgjb
+ fjMR1ii+VAflHqHBNKZRhIzY2rJ5pWEQ4jByB7+rErmfViRUP4K8RehsnIsf1M0mkRKJ/oIqzjj
+ ihjUVEzkPAynhkn6U9xkjAamxQJm5376aUELzbeAwPmRwPu+aB7trUfQoLq34KVjSHOCYXI69QG
+ 4PqhKHyT58m/5RTu8Ti/VbHwLu9sOCuKlOvOIwIURakCSgRQNz4VPL3PGWMQ7HlJZ5NO2v0KkKS
+ TqC3xY/4KFs/18eG3NzPBFq9c0m1KJpdboNDfQ0nKArm3kfFRpoyTYIO/vCoEsX+KB4f94R7Ux/
+ r8lPJ7WytYPQ5a4m7lKa5tS8SHbWQHgcii7zfRG9idcZ4z3Vq0jQ/dAYNdPVtWdMYUvhWvJxsha
+ n6SQHrwlo13pgocLPTk/D+N+48dTULuTZOlMNJYRtywPvTpndqMD1O/lSWGSQ2SMK5ATePfE5nZ
+ sJLSNf9iafrU0PEtqOg==
+X-Proofpoint-GUID: uT9zrVswJ7rs_gvzIK53B6QtgSewpIjc
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA2NCBTYWx0ZWRfX7cZ0Hh+fJIdY
+ 2dLNcbMizSi0rN9c7K9Qvb4Vblj8UiPkG+G+nYDBykBkz/wRHt3yzWwe4283egJDaLWDJqWW2EQ
+ EBRFdL/rJCWmHrBpj9NDG7KRUGEQLPo=
+X-Proofpoint-ORIG-GUID: uT9zrVswJ7rs_gvzIK53B6QtgSewpIjc
+X-Authority-Analysis: v=2.4 cv=bfH+w+PB c=1 sm=1 tr=0 ts=6afdcdfa cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=xqWC_Br6kY4A:10 a=zJRp6_cAMcgA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=3WHJM1ZQz_JShphwDgj5:22 a=tBb2bbeoAAAA:8 a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8
+ a=XVxARQIAAAAA:8 a=eSez5piW9hGb_tCy0SwA:9 a=IoWCM6iH3mJn3m4BftBB:22
+ a=Oj-tNtZlA1e06AYgeCfH:22 a=p77dMD-AzHemhwI1qD6W:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-18_04,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 suspectscore=0 adultscore=0 malwarescore=0 bulkscore=0
+ spamscore=0 lowpriorityscore=0 phishscore=0 clxscore=1015 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180064
 
-On Fri, Nov 13, 2026 at 10:18:37PM +0700, Nguyen Ngoc Thang wrote:
-> kmemleak reports full rcu sheaves as leaked:
-> 
->   unreferenced object 0xffff88810005f600 (size 512):
->     hex dump (first 32 bytes):
->       e0 79 f0 2b 81 88 ff ff 20 00 b4 81 ff ff ff ff
->       00 12 04 00 81 88 ff ff 3c 00 00 00 00 00 00 00
->     backtrace:
->       __alloc_empty_sheaf mm/slub.c:2854 [inline]
->       alloc_empty_sheaf mm/slub.c:2874 [inline]
->       __pcs_replace_empty_main+0x260/0x2e0 mm/slub.c:4806
-> 
-> The second word is rcu_free_sheaf and the size equals the capacity: the
-> sheaf was handed to call_rcu() by __kfree_rcu_sheaf() and is waiting for
-> a grace period. At that point the only reference to it is the ->next
-> pointer of the previous callback in the rcu callback list.
-> 
-> That previous callback may live in memory kmemleak never scans, e.g. the
-> rcu_head of a struct slab queued by rcu_free_slab() for a
-> SLAB_TYPESAFE_BY_RCU cache. Slab pages are frozen (page_count() == 0),
-> so kmemleak skips their struct page. The chain from rcu_data is cut and
-> the sheaf, typically allocated long ago and recycled, looks unreferenced.
-> Since the sheaf is then not scanned either, the objects it is about to
-> free can be reported as well.
-> 
-> Sheaves are allocator metadata and are always owned by a pcs, a barn or
-> an rcu callback. Mark them with kmemleak_not_leak(): they are never
-> reported but still scanned, so objects queued in them stay referenced.
-> Allocations that can't spin are not tracked by kmemleak, so skip them,
-> as alloc_slab_obj_exts() does.
-> 
-> Fixes: ec66e0d59952 ("slab: add sheaf support for batching kfree_rcu() operations")
-> Reported-by: syzbot+527fed49e5b988882c9a@syzkaller.appspotmail.com
-> Closes: https://syzkaller.appspot.com/bug?extid=527fed49e5b988882c9a
-> Signed-off-by: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
-> ---
-> Reproduced in QEMU (syzbot config, 2 vCPUs, numa=fake=2) by stalling a
-> grace period with a preempted reader on CPU0 while CPU1 interleaves
-> rcu_free_slab() (filp slabs) and rcu_free_sheaf() (maple nodes freed by
-> kfree_rcu()) callbacks, then running two kmemleak scans:
-> 
->   before: 16-18 sheaves reported per run, rcu_head.func == rcu_free_sheaf,
->           plus maple nodes held by them
->   after:  no sheaf or maple node reports, no new warnings
-> 
->  mm/slub.c | 8 ++++++++
->  1 file changed, 8 insertions(+)
-> 
-> diff --git a/mm/slub.c b/mm/slub.c
-> index cd671b934719..e01416ae0b4a 100644
-> --- a/mm/slub.c
-> +++ b/mm/slub.c
-> @@ -2856,6 +2856,14 @@ static struct slab_sheaf *__alloc_empty_sheaf(struct kmem_cache *s, gfp_t gfp,
->  	if (unlikely(!sheaf))
->  		return NULL;
->  
-> +	/*
-> +	 * A queued rcu sheaf may only be referenced by an earlier rcu callback
-> +	 * in memory kmemleak doesn't scan (e.g. struct slab). Never report
-> +	 * sheaves, but keep scanning the objects they hold.
-> +	 */
-> +	if (alloc_flags_allow_spinning(alloc_flags))
-> +		kmemleak_not_leak(sheaf);
-> +
->  	sheaf->cache = s;
->  
->  	stat(s, SHEAF_ALLOC);
+All platform profile providers select PLATFORM_PROFILE, so users do not
+need to enable the core explicitly.
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Only show its prompt when COMPILE_TEST is enabled. This avoids exposing
+the option in normal configurations while allowing the architecture-independent
+core to be build-tested without a provider.
+
+Suggested-by: Geert Uytterhoeven <geert@linux-m68k.org>
+Signed-off-by: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
+Reviewed-by: Mario Limonciello (AMD) <superm1@kernel.org>
+Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
+---
+ drivers/platform/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/platform/Kconfig b/drivers/platform/Kconfig
+index 7270f24a3b6e..1cf87904afc3 100644
+--- a/drivers/platform/Kconfig
++++ b/drivers/platform/Kconfig
+@@ -1,6 +1,6 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ config PLATFORM_PROFILE
+-	tristate "Platform profile support"
++	tristate "Platform profile support" if COMPILE_TEST
+ 	help
+ 	  Provide a common sysfs interface for selecting platform power,
+ 	  performance and cooling profiles. Platform-specific provider drivers
+-- 
+2.43.0
+
