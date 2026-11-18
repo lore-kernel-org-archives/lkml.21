@@ -1,60 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795044509;
-	b=p98jLY70tOhwq5ssyLYMuNqlOfMrJM0WigaBhDhwwae55uU8gKbxRca160uUG8JW0XLp
-	 ybN+Ri8oBiAdTXAUx75dgqn3kdnlwi78dzB/XgST89KFKWBgkP7DBJK4FotKTzom1XUiD
-	 cKFgiA/4gG3C43hjIY3dMQDMR8sKKkIoSg2PJF5Q/Av03hbECzdw8oXLNofB807YcuvM4
-	 vSybIJK5qdxXoLxLF46RcSZb1qnkE+71b3QJ4GzaXSXbo+WRzbRX6cB215wIrHTR+G+3u
-	 0zn2yrWdsXekIXNntx0cQyaAKxdzpnxqEsGgdScrKXvrMEN/Ze2UsPSruY5bFnpgUPQ==
+	t=1795044617;
+	b=slDOhLI1Nyoxpvku7G2nQ6AAUZiZPXjiX1bpcvolwfdW5XGY0zfE55I3MvYa47ZzUgQT
+	 EYv7rEpoM12GcrOO5uFlRp8R/QSiIfRekxhGqC15+NVu9MriFWtpgDSfwYMP20w6BGZJm
+	 rBkR8Kpf2R9DTwLZlG5tejSBqWOO3IJfRX5f1yh3hFZ/ibKScY1D5bgVubaLUKPZBSxli
+	 PNrPs3h6i2JvhR2/eLhN6Uxh0EeS9saWAqyIdm/JI0dB8ruo6sZKxiX52eu7zGmbLUkiM
+	 ophTt5BYFM2q4fbhO8uL3Mw/U7xd46Gmrw+BnJYEYXWka01wky/a1CdTy9tItlSntsQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795044509;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=wZosD5+/Nj2eIGY2Fv4ggxK50RAWtAyE3IvgDSS2SiQ=;
-	b=PIJW4UIqlhLoSUjHuFf/mx+IFxZSVaVDiIOM4ze7F6qRKaBfhXskoUk+JRqIm7bgMT1L
-	 We1S3M6BYFq6OBLutY4sQc0hmuQ1lHLTCpKE2jfJvHBAAfA+psvkj4Br8BWCCbx/rmog1
-	 ShuXzpo77eDq902y25B8ReY8kr5fH+onNYkBGRpt9LMI3xmGrRXV7fHjg8RV0qX0Hool3
-	 vLsIHnokrduG+5VTFRxcw3CPoXqmLXZ+2PzelFPM1qWWXzY811qEKmNhCdK8rrZ9fPKaV
-	 H/HGWaZtISdX8JuOhd5pJeoZ08MUfdE1IDxJzQwX/L5r8lwtQiaTg3WAb74e3YJQuog==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795044617;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=TJp+v10EMij7VbtZSi1N0VBoPPwdYg/YL3FSqlitLFE=;
+	b=jDq/kkJTsE1R3g0F4qGNUTFYW8Gwi+gX3qh4nA8GoPKHYJiEzBskHJASsEQVXz/oM3wf
+	 +44/JFDFcPNXS61aYrB/RHxnTKbH+RIal3x2E61seWb3keLcVfHhKdZXU3NJlQZFuPGac
+	 8P/ylUEBqwz1I5rkBB9V2WZMT4WfBWIPPxbgFj53CBC5YKWp4MGBjWH04PcrN3rIN+c9F
+	 uqGTBChyRgOhhGMf6JHsLK7TbQZ/BHJktogvf/1DoogwXpHnRc1VftNCBrVMxGYJeUh+1
+	 UNlWHKEj3hG+xQp17JijFScOmVxJF5YsiXCi6iQYkQZvfMzPTDNTE7k24GngC9/Zviw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b2xc3CNk;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lAJKQCyf;
+	arc=none smtp.remote-ip=209.85.218.44
+Received: from mail-ej1-f44.google.com (mail-ej1-f44.google.com [209.85.218.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63DBD606A32F;
-	Wed, 18 Nov 2026 23:28:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3F6C606A32C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:30:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3F6C606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b2xc3CNk
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B9B21F000C4;
-	Wed, 18 Nov 2026 23:28:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795044509;
-	bh=wZosD5+/Nj2eIGY2Fv4ggxK50RAWtAyE3IvgDSS2SiQ=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=b2xc3CNkofjUuaNiWY+44q1putpRhXHx/AV8RXZg+BA/7bJR0Lo0ks54YS2OayOTT
-	 sNDHo7QdvE7gDcWsFywJ8u293UOyfQuJ/8XxL8ktOomjMx/jvkQVdmDKFJb9FfxhGr
-	 0oBy3fSOCqRaRmIrpr9pr414OJbz3KgThA3TgITErWki7PTEDgpm+9c8m6AlePI3ub
-	 sWLekn/m+ZCggtuzRbBgcJQrnOUrDQ8M20dKGy4vw6Om32e2GTv0BFi2EwyvKBnXBn
-	 F6RZA9LEl5z+IYmMCFHFVN8aPG1cTJ+vJy1AQy3PJfYeml9dG9yH82g2Lpt6lcPYNJ
-	 e9eK+AJXGF1tA==
-Subject:
- Re: [PATCH net-next v5 2/4] ipv4: restrict on-link fallback to lookup misses
-From: netdev-bot+sashiko@kernel.org
-To: liamsmith827@grapheneos.org
-Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, shuah@kernel.org, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org, liamsmith827@proton.me
-Date: Wed, 18 Nov 2026 23:28:28 +0000
-Message-ID: <179504450812.3136.16231358596487999009@kernel.org>
-In-Reply-To: <20261116202741.13106-3-liamsmith827@grapheneos.org>
-References: <20261116202741.13106-3-liamsmith827@grapheneos.org>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lAJKQCyf
+Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-c5118deebcfso179274266b.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:30:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795044615; x=1795649415; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=TJp+v10EMij7VbtZSi1N0VBoPPwdYg/YL3FSqlitLFE=;
+        b=lAJKQCyfN1OJVC3Wm7Tq2642xQZI81QkKLG3G0JPjH9fYRmoXUQ1p36ZDYqObIBnut
+         T9GmE/4v3/pimsXbwIrSWeaKv5Ro/p1jMrbEAuEe/gnk/qMyPdKvimuYjlRhFFvUZMdU
+         reP9mAdWjqlN5zIRKqK+yr+zoFDKaXzct5xtdcX3L5FHLJegG1j3Dk/sCiXHLM90xmSE
+         fwExbSgtuYKzfiuD7AqOtnegIB8Rs5hh1xeOrx+8fAeHskWpiqEqhkesd7BhMIWERWD1
+         j0K7klTVPvc6F9U8WXjuVSkVtkLplxootCbYN9N9TNQC3xdyjs5xYC/v7if7F/8F7E78
+         TKgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795044615; x=1795649415;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=TJp+v10EMij7VbtZSi1N0VBoPPwdYg/YL3FSqlitLFE=;
+        b=Kguq7l+B6f4V8DRE+o6byJ9CmZPcQQgzwCpy9Bg1LFLmEI+2UCYoffPTGorXyAA0Mf
+         9PKxczcHo1V7Ub0SSOyZWmkwijYswPzJkbdRng823CD1UVbCQ/rHvAQZUU56n3cwAWY6
+         w7GDrXvg8SdrPFp8sIIyYyL+cRb5P404skhKtwDc0vz7/zDjzGiqgHOv5Ulsi9xvJo8n
+         iS9TpHqFdRv/WEv872j3D4Ig2QQqwBF8tqsSnNxapH0rETPgg2qWjjUXsfAZRhqbk/UD
+         9fdyDHncJJtMAuV0igg4R4Aeec+RAlLXmHHH75n7wx745Fr/sOniE0UTLIbMnUJx2Elj
+         XHSg==
+X-Forwarded-Encrypted: i=1; AL+hErE8cmkBrnAh870Mm1jTTYKz+jALH/sZ3kGVNuAKT8NR655UFuGyBQHgxvtBDBpaMo0e30tMiO+/wSasHps=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/PBsZOgi0tEnS054bhHyltrnsBkINNKGRkvskPtDemjLh5yX2G
+	sNQDx1oG/cFmnEPq4/Crd0OG2J6I+vgDKlfifpLqoBdRmtKk1sWWgVPIBYCAXQ==
+X-Gm-Gg: AYBFou0cH62v9O7oL5jMYt5k0BGbuS/Ce+O/5ZAp/LQPkO+9DlJPHjaArQC4tG7drI2
+	KYyJ3DS64ndxsM16dXabZ6uuAey97+yu1jiYxJMXCLfADQCFgQ4aCaeVk+ZLvl33r797G9zIvTr
+	4BteBpgCRjF1Hk3j7RPu/QxnM7eRIQ38I1mQOgMh2RWKJylkJN83wpEIFHNPVzs+InWCiO1lC2s
+	3M8/P3swJLUO2Jmx9yHLHlaHt9koIoVW4EqKE5o/zY4t1XNmsWvjd8I8latjJ38b3ESs5RVVN7D
+	ti70ny7LvFz0gzRmCsmg0axL2YuAEZrPMxIBGbODD73VM1lHFC1IlbTNUt1CKNFyfkrJ4XBb5XH
+	JmZtlxAP9/zGwYAw6md8DJ7dyHCBAWiK7r57UgkBhQyTttaANF4N7N0wAJtvs69tADv+53VQm4e
+	c57lPsUVVS71qp/rzFgQ4ERF8GVmaEFnkgasM/i336SQkQcK9qPhobAfUNMs4FwKH+5fGEzqSdy
+	0nyIB3MEhdYXqVrtDEI/dZd6vnNv5avueazbchZfjWUJ7c5Ph5c3otwZJOYyg5M68wumIoXNzTE
+	F3+3Mrh5NMxW9eSzzXWta3hQXl5tp3K5vpJXUaGUc2E=
+X-Received: by 2002:a17:907:3d8b:b0:c50:5005:8ecf with SMTP id a640c23a62f3a-c510e0e8be4mr378449666b.8.1795044614898;
+        Wed, 18 Nov 2026 15:30:14 -0800 (PST)
+Received: from localhost.localdomain ([193.107.16.241])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c51234d2159sm47809166b.78.2026.11.18.15.30.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 15:30:14 -0800 (PST)
+From: Dmitry Yashin <dmt.yashin@gmail.com>
+Subject: [PATCH v3 0/4] arm64: dts: rockchip: add Forlinx OK3568-C
+Date: Thu, 19 Nov 2026 04:29:38 +0500
+Message-Id: <20261119-ok3568-c-v3-0-071840643591@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,141 +92,85 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAOI0/moC/22NTQ7CIBgFr9KwFvMBQoor72FctPy0qC0GKtE0v
+ btQE9OFy0nezJtRNMGZiI7VjIJJLjo/ZmC7Cqm+GTuDnc6MKFABkgH2N8ZFjRVWILmkvCWGCpT
+ nj2Cse62p8+XL8dlejZqKXxa9i5MP7/UrkbL7k00EA27AWs255UryUzc07r5XfkAlm+hPJEDER
+ qRZBFFrUR8YGKG34rIsHyni6izrAAAA
+X-Change-ID: 20260930-ok3568-c-c095925b1e26
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ Dmitry Yashin <dmt.yashin@gmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795044612; l=2429;
+ i=dmt.yashin@gmail.com; s=20260930; h=from:subject:message-id;
+ bh=yfphZ0mTqNHaO6RXY1MSM8psuzP4gCsZLr935QJ6cDE=;
+ b=neG5FXjHJ3lCTzvjwqvTzSD1TXFJGfOQShzFZwf6DbnyC1XRKKAAxGFAUAWz78in6AAG21nNg
+ boa7IydzY68Bg+Dw2CevsXCSp8YiulDdybhGSbFA898d0oXb2CSm1Ju
+X-Developer-Key: i=dmt.yashin@gmail.com; a=ed25519;
+ pk=vBe9jaaOEH5bQEvfzb1tWOlz3AMIcXCu/GL/CdlwJco=
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+This series add support for Forlinx OK3568-C board based on FET3568-C SoM
+(rk3568). Patches 1-3 add .dtsi for FET3568-C and .dts for OK3568-C.
+Patch 4 adds .dtso for FIT-PCIE-SATA adapter that allows to connect
+SATA drives to the board.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 1
+Note: tested on v1.1 board. On v1.2 RTL8211F phys use dedicated
+crystal oscillator instead of 25 MHz reference clock from SoC. Patch
+should be compatible with both revisions, as in [1] solution.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+[1] https://lore.kernel.org/all/20250704-rk3576-rock4d-phy-handling-fixes-v1-1-1d64130c4139@kernel.org/
 
-- [High] Route-based restrictions can still be bypassed by an
-  unprivileged process after this fix.
-- [Low] The commit message describes a security-relevant bug that users
-  can see: unprivileged Android apps can get around a VPN kill switch…
+---
+Changes in v3:
+- dropped rfkill-gpio dt-binding patch as not appropriate
+- dropped rfkill-gpio node from the board's device tree
+- Link to v2: https://patch.msgid.link/20261016-ok3568-c-v2-0-068d68430e6d@gmail.com
 
---
+Changes in v2:
+- added patch for rfkill-gpio's dt-binding with reset-gpios property to
+  suppress dt warnings
+- removed mmc-pwrseq. AW-CM358SM has only power management PDn pin
+  for both wifi and bt. Using shared wifi_bt_reg_on regulator fixes
+  bluetooth failure on cold boots
+- added bluetooth wakein/wakeout pins
+- moved leds/common.h to the SoM dtsi
+- switched gmac's phy-mode to rgmii-id
+- added rfkill-gpio for modem reset
+- dropped unused wifi and bt pinctrl's
+- Link to v1: https://patch.msgid.link/20260930-ok3568-c-v1-0-a0ffd55f5c95@gmail.com
 
-ipv4: restrict on-link fallback to lookup misses
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-rockchip@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
 
-With this patch, ip_route_output_key_hash_rcu() takes the oif-bound
-on-link fallback for non-vrf unicast only when fib_lookup() reports a
-real lookup miss (-ESRCH, via FIB_LOOKUP_REPORT_MISS). Errors from
-blackhole, prohibit and unreachable routes or rules now go back to the
-caller, and -ESRCH is mapped back to -ENETUNREACH.
+---
+Dmitry Yashin (4):
+      dt-bindings: arm: rockchip: add Forlinx FET3568-C
+      arm64: dts: rockchip: add Forlinx FET3568-C
+      arm64: dts: rockchip: add Forlinx OK3568-C
+      arm64: dts: rockchip: add FIT-PCIE-SATA overlay
 
-> diff --git a/net/ipv4/route.c b/net/ipv4/route.c
-> index b9f5397336d34..b71443e4b522c 100644
-> --- a/net/ipv4/route.c
-> +++ b/net/ipv4/route.c
-> @@ -2859,12 +2859,13 @@ struct rtable *ip_route_output_key_hash_rcu(struct net *net, struct flowi4 *fl4,
->  		goto make_route;
->  	}
->  
-> -	err = fib_lookup(net, fl4, res, 0);
-> +	err = fib_lookup(net, fl4, res, FIB_LOOKUP_REPORT_MISS);
+ .../devicetree/bindings/arm/rockchip.yaml          |   7 +
+ arch/arm64/boot/dts/rockchip/Makefile              |   6 +
+ arch/arm64/boot/dts/rockchip/rk3568-fet3568-c.dtsi | 332 ++++++++++++
+ .../rockchip/rk3568-ok3568-c-fit-pcie-sata.dtso    |  16 +
+ arch/arm64/boot/dts/rockchip/rk3568-ok3568-c.dts   | 566 +++++++++++++++++++++
+ 5 files changed, 927 insertions(+)
+---
+base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
+change-id: 20260930-ok3568-c-c095925b1e26
 
-[Severity: Low]
-The commit message describes a security-relevant problem that users can
-see: unprivileged apps can bypass the Android VPN kill switch. There is
-no Fixes: tag and no Cc: stable, though.
+Best regards,
+--  
+Dmitry Yashin <dmt.yashin@gmail.com>
 
-The unconditional on-link fallback in ip_route_output_key_hash_rcu()
-dates back to the initial git import. Should this carry something like
-the following?
-
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-
-A Fixes: tag would also make it clearer whether this is meant for net
-or net-next.
-
-This change also depends on the earlier patch "ipv4: add
-FIB_LOOKUP_REPORT_MISS". A backport of this patch alone would fail to
-build, because FIB_LOOKUP_REPORT_MISS would be undefined, so it would
-not misbehave silently. If this is meant for stable, could the
-dependency be stated?
-
->  	if (err) {
->  		res->fi = NULL;
->  		res->table = NULL;
->  		if (fl4->flowi4_oif &&
-> -		    (ipv4_is_multicast(fl4->daddr) || !fl4->flowi4_l3mdev)) {
-> +		    (ipv4_is_multicast(fl4->daddr) ||
-> +		     (!fl4->flowi4_l3mdev && err == -ESRCH))) {
-
-[Severity: High]
-Can route-based restrictions still be bypassed here when the flow asks
-for link scope?
-
-The commit message says this fixes "routes and rules that are supposed
-to restrict traffic (blackhole, prohibit, unreachable)".
-
-An unprivileged process can bind to a device (SO_BINDTODEVICE,
-IP_UNICAST_IF, IP_PKTINFO) and also set SO_DONTROUTE or MSG_DONTROUTE.
-Neither needs a capability. In that case ip_sendmsg_scope() returns
-RT_SCOPE_LINK, and so does ip_sock_rt_scope() for connect and TCP:
-
-include/net/ip.h:ip_sendmsg_scope() {
-	if (sock_flag(&inet->sk, SOCK_LOCALROUTE) ||
-	    msg->msg_flags & MSG_DONTROUTE ||
-	    (ipc->opt && ipc->opt->opt.is_strictroute))
-		return RT_SCOPE_LINK;
-    ...
-}
-
-In fib_table_lookup(), the scope check runs before the reject error is
-read:
-
-net/ipv4/fib_trie.c:fib_table_lookup() {
-    ...
-		if (fa->fa_info->fib_scope < flp->flowi4_scope)
-			continue;
-		fib_alias_accessed(fa);
-		err = fib_props[fa->fa_type].error;
-    ...
-}
-
-Blackhole, prohibit and unreachable routes have universe scope by
-default. fib_create_info() keeps cfg->fc_scope for reject types, and
-iproute2 creates them with universe scope. A link-scope flow therefore
-skips the reject route as if it were not there.
-
-The table then returns -EAGAIN. Because of FIB_LOOKUP_REPORT_MISS,
-fib_lookup() turns that into -ESRCH, and so does __fib_lookup() ->
-fib_rules_lookup() when custom rules exist.
-
-The condition above then holds, and the code jumps to make_route with an
-RTN_UNICAST route on the chosen device. For example:
-
-  ping -r -I eth1 <blocked dst>
-
-That packet would still seem to go out eth1, even with a prohibit route
-for that destination. Before this patch every error fell back. After it,
-the same bypass needs just one more unprivileged socket option.
-
-Rule actions (FR_ACT_PROHIBIT, FR_ACT_UNREACHABLE and FR_ACT_BLACKHOLE
-in fib4_rule_action()) are not filtered by scope. So the kill switch
-built on prohibit rules does look fixed, and only the route case
-remains open.
-
-Could the fallback tell a real miss apart from a reject route that was
-skipped only because of scope? Another option would be to not apply the
-scope filter to reject-type aliases when deciding whether to fall back.
-
-A later patch in the series, "ipv4: replace obsolete routing comment",
-adds the comment "Non-vrf unicast honors restrictions", which does not
-hold in this case either. Nothing later in the series changes
-fib_trie.c or this condition.
-
->  			/* Apparently, routing tables are wrong. Assume,
->  			 * that the destination is on link.
->  			 *
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116202741.13106-1-liamsmith827%40grapheneos.org
