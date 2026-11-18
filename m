@@ -1,71 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=121.127.44.66
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794999739;
-	b=llqZnA/+x6hydDKyRRflr/Br1IBdFKq9X2g1opDzLGxFY/3/MiX6EAqeFh/oAnCvlYUY
-	 nZh22rTGuCIz7psu7Y45LbRiUBnulJZlyP+FuI/ZtK+AqHgjyX6xxDeh0g5mbuuD+nsTx
-	 o51vPkj/L2IRUF54ofZY2SXwKHyMOJYlvVnf73xUGfaH3srBC25PHVTyjnsQFo9qh8fEA
-	 JrDkI7XBOjxQ3vujYjLy/TYJ3K4f+oEzy4E7v+smVkOospZvMsCaRHFLfWbyhFjvIEJJl
-	 GKmtTE4DIRBs6cgVp6TQ78GEdGtG5YSAb70doYueVuPF67pLLZpkq0XMvLpbKvB5JLg==
+	t=1794999734;
+	b=WsWSUjfUUcTKqBu4BAd0XDc2lDXPnlvH3kDrAuG8RBYALeCC2r+qKNWDTEWTtZHoIdoS
+	 BjPwuhkYHd3D5rBT7wELiKHXAw0mFkUG1TWc4JjRgiffpSffX3sbouKRMVLAb81zn7bg3
+	 LZl/6CpoPJeSBIOtd+G5vszsqDgVyWQ1/VRRtqADTXtPAmzk9NKfF/+uZxLmv31gbjagx
+	 KUxMjd8tvssHL6pemAMQQ/kJU1adQNlDAfMZjHt4EDW56CWmIWBs9AXy4I5VNNpN1wIre
+	 ApyE9JY2eH7MvS3xTkBLu7iqsOf4nm+ybmNuKrqOgGElxDMzv16L/jKUrxUOz2jVQtw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794999739;
-	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:CFBL-Feedback-ID:
-	 CFBL-Address:X-Forward-Email-ID:X-Forward-Email-Sender:
-	 X-Forward-Email-Version:X-Forward-Email-Website:X-Complaints-To:
-	 X-Report-Abuse:X-Report-Abuse-To:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=AYyEiT8S3iVnRfgJNlwK/BypiZF9VQ1Q93ZoY/Be5lI=;
-	b=SiNibp2XlWC9lfKmmw8RkyFURNaw0MXbQ/FG4wyeKNn4HtDOW7+GPNmho+gcpp+pbxv5
-	 j4tyu4Q2yQ8au/DBBaamD9Qhqs4/NZ0vrtygKgYu20eRhFFbC47Ci8BOS9u2sqImeWPRw
-	 tGJ5gCJOLWlKqwvTtlB/0BxRhpdekQyRLqzUD6c9uVzEqNxb7mc0Gfs0jOBbUs2xWMDOX
-	 08pbWwhe3mLuoBJSmYHG+wQUwwGxkRoT1Rlp6nPh8qLpQ0tl+v6Mh8WKpiOdkCbiy5FZ+
-	 S0r+RWm/QlcwYkkHVwoooO2Hv+YCiMCLnOArYKOTAl1lX2lpv60dA+LCLDSv0tKEIxg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794999734;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=/ppIoJSSygapoFf8d3+W2D7zVwbW79N+eyf0qrsR1iM=;
+	b=Cxbpo5TgN4aVoeZv4icMD19FV9zpIFR4U3jIiM3c72aSq71nhhgj8cNA5s7tEGSAyERN
+	 xfzjsprN5USOqSA73/5J2q2nFRm1oSPdXu9kF9xRgFttsaMPGFvSDOvH75S0u0H2dSSCE
+	 3SahoqNGjFVB3Eqxl5zTzUhPYlPsxpfNjRrU5ILKRcV07FYeTI1fh+ctwTYz/plOAtjT8
+	 Qjw0gGS9OInxmliKZHgslkw0wyfVwiwRq1AlsrZAEQf8V3XtQdCVpC2Dqn0CgraYbzlvb
+	 M1X7rEUaxPE004Z7k91pu4IxfjIxhTY0uS4DFxvm4pkgvOOOPpjmuieXNJ8WVEm3SVw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ovn.org;
-	spf=pass smtp.mailfrom=fe-bounces.ovn.org;
-	dkim=pass header.d=ovn.org header.i=@ovn.org header.a=rsa-sha256 header.s=fe-13eddc7e57 header.b=UMYX4UUS;
-	dkim=pass header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=o7ZDb0MV;
-	arc=none smtp.remote-ip=121.127.44.66
-Received: from smtp.forwardemail.net (smtp.forwardemail.net [121.127.44.66])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ike5EReS;
+	arc=none smtp.remote-ip=192.198.163.9
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.9])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBF9D606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:02:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CBF9D606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=ovn.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fe-bounces.ovn.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B9A3606A337;
+	Wed, 18 Nov 2026 11:02:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8B9A3606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=ovn.org header.i=@ovn.org header.a=rsa-sha256 header.s=fe-13eddc7e57 header.b=UMYX4UUS;
-	dkim=pass (1024-bit key, unprotected) header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=o7ZDb0MV
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ovn.org;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: Autocrypt: From:
- Content-Language: References: Cc: To: Subject: MIME-Version: Date:
- Message-ID: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=fe-13eddc7e57;
- t=1794999732; bh=AYyEiT8S3iVnRfgJNlwK/BypiZF9VQ1Q93ZoY/Be5lI=;
- b=UMYX4UUSoIpmTkATEo7EUrHa1h3KePaEvBzNI9bb7Uq5VmL2qAPWIVsbqfe02wNYtG8me7jOl
- ugI8wnSgCoIkzCeJaIjofwhtRrLrSNWEVzbFN7QbvI1m626qKgEs0NmXjLj3TIqMRAYn8YNto3r
- Li+vgzRFSuEql1pUj2xzUXQ=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=forwardemail.net;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: Autocrypt: From:
- Content-Language: References: Cc: To: Subject: MIME-Version: Date:
- Message-ID: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=default;
- t=1794999732; bh=AYyEiT8S3iVnRfgJNlwK/BypiZF9VQ1Q93ZoY/Be5lI=;
- b=o7ZDb0MV1RtPQGqBw5ZomfA5hZt53f5hjwjYu8YvU5bL7+ZM1RTke5KOZSu8KoBHdzA28NHyv
- KoKj+qLuVsEiOSEcDpFNHCchKLVkUykBaptjdOx9cJMcup9xVz0UYL2D1Hj6iwTY6DUfELZOfoc
- rlH0fRF+EC2veqDZASGHGns=
-CFBL-Feedback-ID: 6afd85b11fe8aab4913e0453:7a0c2fbf2d45dc7023dc761c8ba22801
-CFBL-Address: abuse@forwardemail.net; report=arf
-X-Forward-Email-ID: 6afd85b11fe8aab4913e0453
-X-Forward-Email-Sender: rfc822; i.maximets@ovn.org, smtp.forwardemail.net,
- 121.127.44.66
-X-Forward-Email-Version: 2.19.29
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <9e9396a8-e692-4438-a43e-7803ee2fcfc4@ovn.org>
-Date: Wed, 18 Nov 2026 12:02:05 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ike5EReS
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1794999733; x=1826535733;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=8XWiTu/a1gGNV02ADUvGH4Yse9XH4Pb47goXb3WR6MI=;
+  b=ike5EReS8TjY69i2zToJ2+gtuRlc+OsB4/1T+G1e5uobiSF40cQr/KKq
+   63Ep+3xMTU58msk6Z4aPjbG9Ku2q+CjebBE2LFI8l5aSTX1DVOBOfwTj/
+   d4k/tCJlQ7s/hie8v9R8Qq3FG04ZNOwltG/h0t43w8tSYbkp1PSPl4Q+x
+   8/McJKQplHtNOMU840fuG5sREaYv5syIlWg131f6libR3kIiRBNItiO/d
+   Kj3NDempG0ok2VxmOOzKy8zQDICcBTC2APrBTPKDl15pYYEev7GBaGZ4l
+   Ivna9EboQSROSOhXvTpS5uYRl8Ux0Z1Rvny7z0+j1mUlVcgiW2DqPu+fj
+   Q==;
+X-CSE-ConnectionGUID: SMagCeWITmCXGcbycO4G/g==
+X-CSE-MsgGUID: 4mnI1qt/RIePCuk8iTE+Lg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3684584"
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="3684584"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 03:02:13 -0800
+X-CSE-ConnectionGUID: yv3n1dy3RVeyjTiA3kzxkA==
+X-CSE-MsgGUID: fvst2zP6QrWSrIoYwPxrTQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="9909357"
+Received: from binbinwu-mobl.ccr.corp.intel.com (HELO [10.124.245.162]) ([10.124.245.162])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 03:02:10 -0800
+Message-ID: <ed90de7e-6019-4d42-bc6e-5b586b460a31@linux.intel.com>
+Date: Wed, 18 Nov 2026 19:02:07 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,121 +73,88 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: openvswitch: avoid hashing the network
- namespace pointer
-To: Eric Dumazet <edumazet@kernel.org>, Zhengchuan Liang <zcliangcn@gmail.com>
-Cc: Aaron Conole <aconole@redhat.com>, Eelco Chaudron <echaudro@redhat.com>,
- Ilya Maximets <i.maximets@ovn.org>, "David S . Miller"
- <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- netdev@vger.kernel.org, dev@openvswitch.org, linux-kernel@vger.kernel.org
-References: <4e124b37fc972925a825881c50f95eb6b3c2e231.1794989369.git.zcliangcn@gmail.com>
- <CAL4WiirYP1mDaZmyjfqoRJWJLd8PnfW3GFey7tnqYtNNqSn-kw@mail.gmail.com>
+Subject: Re: [PATCH v3 1/9] x86/virt/tdx: Add SEAMCALL wrappers for IOMMU
+ setup/clear
+To: Lu Baolu <baolu.lu@linux.intel.com>
+Cc: iommu@lists.linux.dev, x86@kernel.org, linux-coco@lists.linux.dev,
+ kvm@vger.kernel.org, Jason Gunthorpe <jgg@ziepe.ca>,
+ Kevin Tian <kevin.tian@intel.com>, Kiryl Shutsemau <kas@kernel.org>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>, yilun.xu@linux.intel.com,
+ xiaoyao.li@intel.com, Chao Gao <chao.gao@intel.com>,
+ linux-kernel@vger.kernel.org
+References: <20261112043054.2664857-1-baolu.lu@linux.intel.com>
+ <20261112043054.2664857-2-baolu.lu@linux.intel.com>
+From: Binbin Wu <binbin.wu@linux.intel.com>
 Content-Language: en-US
-From: Ilya Maximets <i.maximets@ovn.org>
-Autocrypt: addr=i.maximets@ovn.org; keydata=
- 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
-In-Reply-To: <CAL4WiirYP1mDaZmyjfqoRJWJLd8PnfW3GFey7tnqYtNNqSn-kw@mail.gmail.com>
+In-Reply-To: <20261112043054.2664857-2-baolu.lu@linux.intel.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 
-On 11/18/26 9:49 AM, Eric Dumazet wrote:
-> Le mer. 18 nov. 2026 à 09:40, Zhengchuan Liang <zcliangcn@gmail.com> a écrit :
->>
->> The Open vSwitch vport name table uses the network namespace pointer as
->> the Jenkins hash seed. When an Open vSwitch vport already exists in the
->> attacker's network namespace, unprivileged OVS_VPORT_CMD_GET requests can
->> look up attacker-chosen missing names and time whether those lookups
->> traverse an occupied bucket. Ranking the resulting collision pattern
->> across possible KASLR slides recovers the init_net pointer and thus the
->> kernel text base.
->>
->> Use the namespace cookie instead. It is a stable, unique, non-address
->> identifier that is deliberately exposed to userspace. setup_net() assigns
->> it before per-net initializers run, and it remains unchanged for the
->> namespace lifetime. Fold both halves into the seed so vports in different
->> namespaces retain namespace-dependent bucket placement.
->>
->> Found by AI-assisted code review and reproduced on an unmodified kernel
->> without fault injection. After privileged setup created the resident
->> vport, the timing measurements ran as an unprivileged user with no
->> effective capabilities. With this change, the pointer-derived prediction
->> fails. Existing and missing vport lookups behave as expected. Identically
->> named vports in separate network namespaces remain independent.
->>
->> Fixes: 46df7b814548 ("openvswitch: Add support for network namespaces.")
->> Cc: stable@vger.kernel.org
-> 
-> Same remark as for your dev_name_hash() patch: local KASLR attacks are
-> not a serious concern, a "Cc: stable" tag does not belong in a
-> net-next patch.
-> 
->> Assisted-by: LLM
->> Signed-off-by: Zhengchuan Liang <zcliangcn@gmail.com>
->> ---
->>  net/openvswitch/vport.c | 5 ++++-
->>  1 file changed, 4 insertions(+), 1 deletion(-)
->>
->> diff --git a/net/openvswitch/vport.c b/net/openvswitch/vport.c
->> index 083f7a8d9d4e..6689c8370ec1 100644
->> --- a/net/openvswitch/vport.c
->> +++ b/net/openvswitch/vport.c
->> @@ -53,7 +53,10 @@ void ovs_vport_exit(void)
->>
->>  static struct hlist_head *hash_bucket(const struct net *net, const char *name)
->>  {
->> -       unsigned int hash = jhash(name, strlen(name), (unsigned long) net);
->> +       u32 seed = jhash_2words(lower_32_bits(net->net_cookie),
->> +                               upper_32_bits(net->net_cookie), 0);
-> 
-> Nit: hash_64(net->net_cookie, 32) would be simpler.
+On 11/12/2026 12:30 PM, Lu Baolu wrote:
+[...]
 
-I agree.  Also, both jhash* and hash_64 actually return u32, so we should
-probably swap the type of the local 'hash' variable here as well.  Having
-a mix of u32 and unsigned int for the values of the same nature within the
-same function is not the greatest.
+> +
+> +/* No cache flush is needed; hardware keeps caches coherent across KeyIDs. */
 
-Otherwise, the change looks fine to me.
+Nit: 
+It's a bit confusing without the all the background.
+Once Rick's patch [1] removes tdx_clflush_page() and its comment, a reader may wonder
+why this wrapper explains the cache flush but the others don't.
 
-Best regards, Ilya Maximets.
+Is it better to drop the comment and explain it in the change log?
+
+[1] https://lore.kernel.org/all/20261015191710.3632302-2-rick.p.edgecombe@intel.com/
+
+
+> +u64 tdh_iommu_setup(u64 reg_base, struct tdx_iommu_mt_param *param,
+> +		    u64 *tdx_iommu_id)
+> +{
+> +	struct tdx_module_args args = {
+> +		.rcx = reg_base,
+> +		.rdx = __pa(param),
+> +	};
+> +	u64 ret;
+> +
+> +	/*
+> +	 * Retry only on TDX_INTERRUPTED_RESUMABLE:
+> +	 *
+> +	 *  - TDX_INTERRUPTED_RESUMABLE guarantees forward progress between
+> +	 *    calls.
+> +	 *  - On TDX_INTERRUPTED_RESUMABLE, all registers except RAX remain
+> +	 *    unchanged.
+> +	 *
+> +	 * The ABI spec also allows retrying on TDX_OPERAND_BUSY, but that
+> +	 * status doesn't guarantee forward progress, so retrying could spin
+> +	 * forever. The host serializes all TDH.IOMMU.SETUP and
+> +	 * TDH.IOMMU.CLEAR calls for an IOMMU, so the TDX module should never
+> +	 * report the operand as busy.
+> +	 */
+> +	do {
+> +		ret = seamcall_ret(TDH_IOMMU_SETUP, &args);
+> +	} while (ret == TDX_INTERRUPTED_RESUMABLE);
+> +
+> +	*tdx_iommu_id = args.rcx;
+> +
+> +	return ret;
+> +}
+> +EXPORT_SYMBOL_FOR_MODULES(tdh_iommu_setup, "tdx-host");
+> +
+> +u64 tdh_iommu_clear(u64 tdx_iommu_id)
+> +{
+> +	struct tdx_module_args args = {
+> +		.rcx = tdx_iommu_id,
+> +	};
+> +	u64 ret;
+> +
+> +	/*
+> +	 * Don't retry on TDX_OPERAND_BUSY. See the comment in
+> +	 * tdh_iommu_setup().
+> +	 */
+> +	do {
+> +		ret = seamcall(TDH_IOMMU_CLEAR, &args);
+> +	} while (ret == TDX_INTERRUPTED_RESUMABLE);
+> +
+> +	return ret;
+> +}
+> +EXPORT_SYMBOL_FOR_MODULES(tdh_iommu_clear, "tdx-host");
+
