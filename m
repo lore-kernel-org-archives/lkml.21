@@ -1,92 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.9
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795035276;
-	b=XT7Ei6QxN5xx9tTeI2cGwvCwwFLUuLU9mYvN625zHR9zsYFe7VWoW1p82UqbDuiRAlqy
-	 s3G8zAsg4NumBLivmcfVuqC78NlWpjy+SsmhS5vKdBymSvYISXW+ftrWKj5QE9Cptamds
-	 qys7aRd9oQHvbMKHArElShMJaP01bKsyKJ+wqmwu1f1El2vhl3Js0EMaJVMsn+PIWm2B6
-	 eaIFlKeZ+SqVUcpdshtarPr2ec0ZR3AwRgUCWb6NaoL4F/XDxPlY4yG3a0gB6tOFfRO5j
-	 yR3wNq9xT2m6tt5aMK7ULj0vuWwJCoAUvQNYbWlaBiCMCAR5OxRWk9zXwpyihRIWqfw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795035276;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=CgfZZyH7KabdKr1+wIIK9g0k0FRDxF2NmtOKcQevUd8=;
-	b=dUgRA0dEXYIFY9NH5gmlaB6sUj7VP/9hKG/iFgi1cdrq1WuM8MGefdeGp5PntIyGhyiZ
-	 RLuwEqWr9qU9Th+EwtvQNpdZapwbKBnJfG7G2NPGzvugtBpr+BteY7MY4cD2eK2jy7I/x
-	 LpB/STZqnwnfW7mLa84GiLxiG77U8AHP62m+eLOsFuxjiIjlSikUNgPgC4GSw4k71qoB6
-	 tCzh4QJUMi39s6qZ7OZjPHM4TafwICHix4X4yOMo611FDYthY7WK1n1ZvzNY6x4P45mQN
-	 x+tz3CNlf7Jx0Jfrb8be2aDRuhw1Csj2nZa6j7yyFNlL+8mmutj9Zr01FYMm8mb780A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=VXyk6zvn;
-	arc=none smtp.remote-ip=192.198.163.9
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.9])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.182
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795035349;
+	b=GO4c2LpERKdzrvaSGUdTyoTogVG6ZOOMvKNxXWQjhDzxOHRwyz5B3ltM5aeutxCue3tl
+	 4BAgtHDxuSiBXPVXYH0bBYTCt7Q1LQHlb2JL0g9w7We/2OMRUqr4ej1oJe38Gv6eZTGmK
+	 8tXz+DevpS3yHqvq/afb2xmiqxMz9hScJ4E17ZwuZ6LETpaLICkBlV/1qgb0m33k4xyEG
+	 nlFgBOgrPiNzXRKj50br5jMr6k9ZNsw//X9A8HILZtU7o7tfF+dgzoYk830DpeD1ipS6d
+	 XnCs++UUldICH8QTEmxFvx1NoqZjAE0vWdVuxikvwFs0nvD8I5nCBMrNjBXPmjn8ZIA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795035349;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=9QJl621iF3UbAv+4qSrysOcC68FhiDlj4uSYelJCLVw=;
+	b=WKjwn6F798Drf5EjM6sJkO2889NUjGY2Mh/DlthtBzE7BGWjkPc/cz81l18VQG6TkqpO
+	 hN0XHS5eMKm/+zuBNrqOE2O+BYPe76sllIfCiuLCNVFHvQIGD2GNPCiv81oBi3+rBYUzN
+	 azr0aqtt02xo63RHV3ulgbtxQ6flknL4OChx9j93uhDyZEPjEkspmQ/VYAPfW8huE9LCe
+	 m8a/SgeiMlGzgLsXTOao1r/dASeaJ84aw6dzZpcv7t4EFoXoX98omU3fvEbsQH4ENZuet
+	 MDyhKvdl5ERpAHZIAtgCCym4A33pTeEbfKpARq5ZkUvpl5Dk8jLQjOiiRtA+ENEME0g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pMvG3eK2;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.182
+Received: from mail-qt1-f182.google.com (mail-qt1-f182.google.com [209.85.160.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AE09606A320;
-	Wed, 18 Nov 2026 20:54:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3AE09606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20AF6606A32C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:55:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 20AF6606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=VXyk6zvn
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795035276; x=1826571276;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=3Z8yZI/D4aXBD6yY6mwl1Kv3eFQ1J90JCFRfS4YRBT4=;
-  b=VXyk6zvnWtJaxA4FbrzTwi9wPkJQPvHdYeckQwzRfK8ZyUCRq82ml91P
-   hUiZQ0vsmdnge+IZoaLrgyKJunC7dfdRlYNseUyx5dzH3HvHhoOmOHNQr
-   lm1KGLv6/aob9yf5NQeITlSf56KixOp9PrsGIManH9p7CjtvCk7Z2Ifob
-   03mTp8RQkqtWXLfKij9chqSZw3ti+bxCIBFC0399H+CXdNTjsD+u1CBrY
-   Af59IYk7eSWa9489J5A3qMtng+5np+ARDRl1ULJINrjrqPRcHTfdT/Vr2
-   LLFO+AT3ctsXv0shoscUnYnsUjCJEYaLh1OjZ5bV8+8LeYfxILObQcQ6I
-   w==;
-X-CSE-ConnectionGUID: rxMzRrdLRJyR/p3gj9Ca3A==
-X-CSE-MsgGUID: m0AOpelIRpS0+Pw9byMp/Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3750866"
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="3750866"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 12:54:35 -0800
-X-CSE-ConnectionGUID: zFQUWE4eQdiLMAAJFqq2rQ==
-X-CSE-MsgGUID: za9zUMc1RhSZjEpYJWoLOg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="10460438"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by fmviesa002.fm.intel.com with ESMTP; 18 Nov 2026 12:54:32 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xTmfl-00000001ELO-0Yml;
-	Wed, 18 Nov 2026 20:54:29 +0000
-Date: Thu, 19 Nov 2026 04:54:26 +0800
-From: kernel test robot <lkp@intel.com>
-To: Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	MyungJoo Ham <myungjoo.ham@samsung.com>,
-	Kyungmin Park <kyungmin.park@samsung.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>
-Cc: oe-kbuild-all@lists.linux.dev,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel@collabora.com,
-	Sebastian Reichel <sebastian.reichel@collabora.com>
-Subject: Re: [PATCH v3 6/9] PM / devfreq: rockchip-dfi: make RK3588 use its
- clocks
-Message-ID: <202611190436.kIOKt8jJ-lkp@intel.com>
-References: <20261117-rockchip-dfi-rk3588-cleanups-and-rk3576-support-v3-6-32ff1546b0e4@collabora.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pMvG3eK2
+Received: by mail-qt1-f182.google.com with SMTP id d75a77b69052e-5366ae57896so13480921cf.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:55:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795035348; cv=none;
+        d=google.com; s=arc-20260327;
+        b=GtwKJvExk4xHhGN/ftlzLL+qpG2S4Vf/bZ54sywVZucD7y2kO9v/gTiVAoA7U/kPYW
+         vyTApuvAjuer7r/fEWu2cTg59BQcfKBjn3ERvZ1FVP7G5W7fDZUrJz0oQMLnVUOKDyty
+         2fhTDbAQKqW8Ccyl7OxdQYZEhdry69lBICfjVnmOX60XRW+Zbh9L+O73cgkfBqs9x3E6
+         VD5rDXTw36fx07CRqa3fmk6nE6Bts3q3UZLqLH817kCWKJkArI6YyohdRfY8ngUUbto5
+         jteUYNJDwH6MPDqql1tZ40KBEP374sj9AAEZKKw6bvXQPeygbjmvjO74Lj1hkR1RF/Ou
+         uUUA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=9QJl621iF3UbAv+4qSrysOcC68FhiDlj4uSYelJCLVw=;
+        fh=1usRH8oxMEIxWjnaz3zUJ1RlPnkpwlywfnyw5CH32m4=;
+        b=RANKsZT5Vo5Pek7JD4BXTNKLvcTk1NUmM+S6kqu2EwUm7F4aebeWkMWSONMjx2NlT6
+         EDDf6/PSC7jJwkfYC8QsubYiMLeA2RZS+u8tpXS7HwFYxgQwEv1y6InMyxE05dxufJAZ
+         qvccjfbbwSMcpcxrGua+wgGPcOzEmpATwjmht0E5p6UtIrNhoDzXeb4o7HnwF/Fm1X/H
+         kdBiv/9qtWWL9frryoGpc2ZR9emSGtjGbaGaVHF3zlVFTdJQm+qZsg1A+h1iMzWZacTg
+         Ab42q4izWgzklrjHQUwDvQX9bWfUd19nH/v99P5jytqMOYGH24eE+p2kUdj+7gDxhU+s
+         fDcQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795035348; x=1795640148; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=9QJl621iF3UbAv+4qSrysOcC68FhiDlj4uSYelJCLVw=;
+        b=pMvG3eK2aogC2094P8BxtFGVGw293e8DdAnCtmwV4/ccDI7oFw8bf27i1rafYOyEyH
+         UScSXoO37zMScoqsh8SFOSaoOg7T1R8UkmY4dEDC86Z9RHndvxy/MNb2aZjmHC2JgHVg
+         DJ2r2u/dbJmzln7n/h0b1p8ybAPbVEuiFCZO7MCfjOszY7+LzzVpOdR0WQUtG9g7t89d
+         JfFgn988ZtXxMY7AtF0SdLN5VmjKT5KEJX+qxBFUWSWmwZvebrWFMctLbr7K8E5iqWJM
+         i9YkA3Ix1P7fExqfh3TpsLAQ0QGONZqKAWlyWx4X5spRwqwaFV1J8NG1x1voh2Qaj1dU
+         /URQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795035348; x=1795640148;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=9QJl621iF3UbAv+4qSrysOcC68FhiDlj4uSYelJCLVw=;
+        b=CkZfg69rG22eD9jh05opRxPf46depd21VxrDKYdoiUJpPn6VYzd3IqQo/Re1zOuhEe
+         GKRWmg9BrDUgo3FiTkHi4ESpjbKcXP94RncUjSlE3rOTjStd52uZAEAcJ0qTJKyga30C
+         dv0w+drGEDq5Hb+akyRIJAY6vZBrSsT1rBajeXEF8smHl4PHE8strxxEvAP6ABdNvonZ
+         kDnQ22Y9SAt597xaXv1og+V7fvFJd+Ma059Js/WRRT28XQjKJ2QdEZGMVQ1p+D48uayU
+         w6H1ogZE/sKW86AyExJUi5iW+fhsJSbfYvQbVf6v6AwaSxuV9MB0cknAn1ZwXA2rcQKQ
+         9DPw==
+X-Forwarded-Encrypted: i=1; AL+hErGc68dxKn1o+rrGPDKcKLWjXmM5cDztZQNXCYmhBK8Vz6C7kuJitwniz9cMEd4z/fRmreg3lAvGFwbyIm8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+3jxfG5R8Ak5lZlGd5i61pcOIRIMCQY42wYhMkNrmCLMgeGZyF
+	9dM1fdCZhND1ohcxcNv6LqoJ0S+dBWKeOkq3UzP58rQmrIxT1889iLsn6+9hJEsgOmLa4jnuUDu
+	iOM/XKgw3iYDprsuHekBtcjUyXVbMRF0=
+X-Gm-Gg: AYBFou3EoaK1c5oJNZjiWFQbHu90iAX0Yfao1rRrzWXZ9/P35ANdh1+dZWH9fYZvXAn
+	FWpF8OLYsI9iL0wlbj45+YXq8r9Dnm2j8QPqlwimmoDwSCPq6iBq+FwZX2EIt7EyPETKVm2nhH9
+	XBlbV2UANO8fLDoJ8tSuvs2LZwF6DHci6D1GmODK8tNA5AmDGRfFdRTN7u66r1ZwzgLvsbr2UZP
+	qT1CPCFkdh44OOT1EDtpQpFD0F8xpo9s8PX7wv7HBZ1V02tn8QMWY+71DO0FYFc/LcE069Dwejd
+	CvNY0HNHb7Mq6CgUfELT3fslRrvBOfHNvYAesHNOxARsIx9O8y/jsCjWkO0+OeNIEborB0JD2Ds
+	+B4C2ZAbVt9YtT7OQSGX7K84dlgFSAGzuKx41z65gCVk2WWdSb8Ay727FKHmmFTjGCFMXsPvOrP
+	nGG/AjFCuPizpBpOGcsuhPqzmfw/IGV/BG9HXHhZ3HMcX0uwO4S4nNc60QjbrPCmJw2BD8QWSev
+	M5Fb1p0x+9AbI+HOsxOoSoP
+X-Received: by 2002:a05:622a:40b:b0:55d:37d8:5037 with SMTP id
+ d75a77b69052e-55d5a75b268mr57892941cf.77.1795035347887; Wed, 18 Nov 2026
+ 12:55:47 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,41 +106,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117-rockchip-dfi-rk3588-cleanups-and-rk3576-support-v3-6-32ff1546b0e4@collabora.com>
+References: <20261115140631.70601-1-ic.gabrielribeiro@gmail.com>
+In-Reply-To: <20261115140631.70601-1-ic.gabrielribeiro@gmail.com>
+From: Daniel Pereira <danielmaraboo@gmail.com>
+Date: Wed, 18 Nov 2026 17:55:37 -0300
+X-Gm-Features: Aa3M54rVivx-ML4dxqs1VpuRKkdym9eRYRSCdvf3byQfdD2fvFb5_szmJ4VAN5U
+Message-ID: <CAMAsx6ftHy7DPPcDXXCaOsEFA-xyGtgLD079PmzJst7c+-YvCg@mail.gmail.com>
+Subject: Re: [PATCH v2] docs: translations: pt_BR: add researcher guidelines
+To: Gabriel Ribeiro <ic.gabrielribeiro@gmail.com>
+Cc: linux-doc@vger.kernel.org, corbet@lwn.net, skhan@linuxfoundation.org, 
+	rdunlap@infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi Sebastian,
+Em dom., 15 de nov. de 2026 =C3=A0s 11:07, Gabriel Ribeiro
+<ic.gabrielribeiro@gmail.com> escreveu:
+>
+> Translate the kernel researcher guidelines into Brazilian Portuguese and
+> link the page from the pt_BR process index.
+>
+> Signed-off-by: Gabriel Ribeiro <ic.gabrielribeiro@gmail.com>
+> ---
+> Changes in v2:
+> - Preserve the existing toctree indentation when adding the new entry.
+>
+Hi Gabriel,
 
-kernel test robot noticed the following build warnings:
+Thanks for the translation. I compared it with the original and I'm happy
+with it as is.
 
-[auto build test WARNING on chanwoo/devfreq-next]
-[also build test WARNING on chanwoo/devfreq-testing next-20261116]
-[cannot apply to rockchip/for-next robh/for-next linus/master v7.4-rc3]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+I'm working on a separate series to keep only the plain filenames in the
+pt_BR process index toctree. That doesn't need to block this patch, and we
+can standardize it in your next contributions.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Sebastian-Reichel/dt-bindings-devfreq-event-rockchip-dfi-add-clocks-to-rk3588/20261117-163537
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/chanwoo/linux.git devfreq-next
-patch link:    https://lore.kernel.org/r/20261117-rockchip-dfi-rk3588-cleanups-and-rk3576-support-v3-6-32ff1546b0e4%40collabora.com
-patch subject: [PATCH v3 6/9] PM / devfreq: rockchip-dfi: make RK3588 use its clocks
-config: arm64-defconfig (https://download.01.org/0day-ci/archive/20261119/202611190436.kIOKt8jJ-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 16.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261119/202611190436.kIOKt8jJ-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202611190436.kIOKt8jJ-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> Warning: drivers/devfreq/event/rockchip-dfi.c:139 struct member 'num_clks' not described in 'rockchip_dfi_variant'
->> Warning: drivers/devfreq/event/rockchip-dfi.c:139 Excess struct member 'num_clk' description in 'rockchip_dfi_variant' (did you mean one of: 'num_clks')
->> Warning: drivers/devfreq/event/rockchip-dfi.c:139 struct member 'num_clks' not described in 'rockchip_dfi_variant'
->> Warning: drivers/devfreq/event/rockchip-dfi.c:139 Excess struct member 'num_clk' description in 'rockchip_dfi_variant' (did you mean one of: 'num_clks')
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Reviewed-by: Daniel Pereira <danielmaraboo@gmail.com>
