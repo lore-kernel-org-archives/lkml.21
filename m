@@ -1,83 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.76.78.106
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794999312;
-	b=T1D2pwq/6W8jJvd5+Puhspi9wWzhbe10u+RNZVC07nq+MHu1lfQ/AsE4/0fRMJWuCK9s
-	 I1Sf3H+wKeHm8UeIiBfb59CD4sQSaasKVmiu6mtSzKc0XkEwD0x+H4kySdoMWdq2ah3xf
-	 qeThxsyL/NM8j7E5mfei5kawg22VFq2r4QazCM4kdYRAF/QaLmkz700xl1OpsYOm9omiB
-	 V1SWNKnNaObS9QuGTgoK1GJnm4Nrvb6Tr0rfo7So2N+x/rtL9RwlpYBQqebhHC7hJ4d6y
-	 K/j4bAzu0X3YaOLF/HIiIQmJOQilP1KJV0+8bzofOoKZy+6CbqaQ7vnOEuWmzelNmCQ==
+	t=1794999448;
+	b=FP06v+h3UE1gR+SpYE/tZzRGtjcGdUtr4I430w7pz17nmwntaZcKg+SYBVoYXeZPOmAx
+	 Q6YCWFkQqajqZZFpK8MpGqAdAbUGi41DSr9kHJKlmkRWvnq+md11Ev+W5d44Z7dgKMoCJ
+	 T32YsdaVyanygevRZFOmE85v4CzpBjZSnacZ1fJc//sTE6sxu5G/IeWjnsBxmUq816Zuu
+	 62xxGY3Y9t5+/an4JnpTXl8/pq0OmayWYD5IlS020318lN1plzFAVHRI43vM2qhu0wXR8
+	 JrgauDie1AQ5TK/J8KDOscxQ4N3N4Es0k9MZ4aZ2+pkFVdmSRz/ImAdtQTtH4AduzBA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794999312;
-	h=Received:DKIM-Signature:Received:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
-	 X-SA-Exim-Connect-IP:X-SA-Exim-Rcpt-To:X-SA-Exim-Mail-From:
-	 X-SA-Exim-Scanned;
-	bh=memSx6w5HIqi6Xog48xQOQU+JeaIiIIsaYQx0kH8P4E=;
-	b=nyqiSk5KBNSHCOlw0tcIpHTacfXDMTVVvp9iZPlelnR/OrK469mAO0QPLijbT6/OrU2c
-	 cGWUk6iwkqlKH1wBrcJnAJXCiZKeSPafrVA4p9CQmRA+PmUrv8E0JlzELJMSq78Yntcf+
-	 mQniIob/O+MsOloNUaIcH3P8MrqIHuWpaNmH/u0o5I/dVSm59xVnlsigMEKEnUJUJiRL8
-	 2rfLXQpPTzjDoLHRF1KiJSS2qM30PPg4LaDswU4oZUbJYAvQhfoLnFMiVCk6hlL4Fn66A
-	 yO9BNdOHAyRO96dmYQMGc9guw3+L+WeEQ8FC180O8KafzKxH0a3kemoZQFEqKYjbXOw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794999448;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=5vccRsej6U4a/ZHe+hzTCUcNdodK+DAuno/TNDFubxo=;
+	b=AvP3me1wWi0RpIEPbx2DAOS7HWSMiUslfxiK64Ce1jK/1Qfa8PdYgmL0OkiJMNbiafZR
+	 7Pib2/s+BXkVGXubekegfpfUPhtqx7dBFS1YIpHxrCoaA6k6R8vTB1dnCNn2203wSxNqt
+	 3Hj/Zhx1eNcKO5z45+I+u6r4BzySg77DyG3Rb6TINzrkymvfwdu6xQdasOlmMfnGPtJer
+	 6fMtbpj83FQYzLcv2qkuz7MRvD2CfB902dMLpMxbzCDLbyj4A37FfAyDyX7/jWU0UD/oT
+	 UtWP+dfmb71NZyZwgJX615V/bQOQsPY0iScA/Qfjxfw5+T8jHzGGrfjqUfkyR9YelXw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dysLopPW;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53814606A320;
-	Wed, 18 Nov 2026 10:55:11 +0000 (UTC)
+	dmarc=pass header.from=eswincomputing.com;
+	spf=pass smtp.mailfrom=eswincomputing.com;
+	dkim=pass header.d=eswincomputing.com header.i=@eswincomputing.com header.a=rsa-sha256 header.s=dkim header.b=TLujzcJr;
+	arc=none smtp.remote-ip=13.76.78.106
+Received: from azure-sdnproxy.icoremail.net (azure-sdnproxy.icoremail.net [13.76.78.106])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id DCD5C606A320;
+	Wed, 18 Nov 2026 10:57:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DCD5C606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=eswincomputing.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=eswincomputing.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dysLopPW
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 806941F000C4;
-	Wed, 18 Nov 2026 10:55:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794999311;
-	bh=memSx6w5HIqi6Xog48xQOQU+JeaIiIIsaYQx0kH8P4E=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=dysLopPW6xzBxxVX4sabNEd7hRGAwc/NKR16PzrI3FOaD3p5wWsfF0tME+iCqseut
-	 JtOSf4LAr+6YdhLpZ4CSyxnk0vu5lHQL4YEROuT/nH6hYJz7KKH1v/tdZd6PovX8zX
-	 NfiCvVElD2VGXMuIuk2zk+KeJUWLpO73HLe2E6KLcUlf7Y4ohXiItq/1KV1s45hv3R
-	 o63fvHyqjmqHDwLm/qcq14HQ5l3CejFYnjhFtP8qPFnmv5lDy3sDBhorIJ4YJyivhO
-	 AU1A/i5pNXhIOb/b2veQbtRZnaQlDyRwjiJLE9CsIWDVP7R+yUMWAsHpY+hBFEMIMh
-	 qyiO/hTdi0TrA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xTdJl-0000000HTmw-1aNo;
-	Wed, 18 Nov 2026 10:55:09 +0000
-Date: Wed, 18 Nov 2026 10:55:08 +0000
-Message-ID: <867bia1kab.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Quentin Perret <qperret@google.com>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 01/19] KVM: arm64: Hide generic ptrauth from protected VMs without ptrauth
-In-Reply-To: <CA+EHjTwJ9XTCfrfBLgGjed3GrRtiTnk-ErvPSwU-AhvyTVcnsw@mail.gmail.com>
-References: <20261109084854.840576-1-fuad.tabba@linux.dev>
-	<20261109084854.840576-2-fuad.tabba@linux.dev>
-	<86bj7n1bzx.wl-maz@kernel.org>
-	<CA+EHjTwJ9XTCfrfBLgGjed3GrRtiTnk-ErvPSwU-AhvyTVcnsw@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+	dkim=pass (1024-bit key, unprotected) header.d=eswincomputing.com header.i=@eswincomputing.com header.a=rsa-sha256 header.s=dkim header.b=TLujzcJr
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=eswincomputing.com; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-ID:MIME-Version:Content-Transfer-Encoding; bh=5vccRsej6U
+	4a/ZHe+hzTCUcNdodK+DAuno/TNDFubxo=; b=TLujzcJr94kTWqv3zompplZjyp
+	JJifaWWpcbjg1yZPbHKP47SsjUEIBRtLvXYNLwnu33crjK+ckxIZAWP7TVauSj1u
+	+yfdqlZITz8TY7Js3aFcc9gl7ilPEr9IC1tMcdmRKU3ocpQrpaolURQPXflxH6Gr
+	9xFCGTJ22d+3kUv9k=
+Received: from E0007865LT.eswin.cn (unknown [10.64.112.9])
+	by app1 (Coremail) with SMTP id TAJkCgDn1eSOhP1qLCEAAA--.181S2;
+	Wed, 18 Nov 2026 18:57:20 +0800 (CST)
+From: Donghui Zhao <zhaodonghui@eswincomputing.com>
+To: linux-pci@vger.kernel.org,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>
+Cc: Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	zhengyu@eswincomputing.com
+Subject: [RFC] PCI: dwc: eswin: proposal for a separate EGC-series driver
+Date: Wed, 18 Nov 2026 18:57:17 +0800
+Message-ID: <20261118105717.1364-1-zhaodonghui@eswincomputing.com>
+X-Mailer: git-send-email 2.55.0.windows.4
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,41 +62,57 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, pbonzini@redhat.com, seanjc@google.com, shuah@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, vdonnefort@google.com, qperret@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:TAJkCgDn1eSOhP1qLCEAAA--.181S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxJr1rGFW7ZFWDJr15uw1xXwb_yoW8Gr1rpF
+	W5Way8AFn7JF43u3WkZF4vyFyIvwn3CFyUKws5Gw10v3WfCa4UXr4aqF1FqF1DGF1qgw4j
+	qryYva4UZr4YyFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUva14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWU
+	tVW8ZwCY02Avz4vE-syl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2
+	IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v2
+	6r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2
+	IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv
+	67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyT
+	uYvjfUonmRUUUUU
+X-CM-SenderInfo: p2kd0vxrqjx33l6h245lqf0zpsxwx03jof0z/
 
-On Tue, 17 Nov 2026 19:47:36 +0000,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
-> 
-> Hi Marc,
-> 
-> On Tue, 17 Nov 2026 19:41:54 +0000, Marc Zyngier <maz@kernel.org> wrote:
-> [...]
-> > Burying a fix in a selftest series is a recipe to make sure it is
-> > ignored for a full cycle... Why isn't that with the "massive feature
-> > set" series?
-> 
-> It's in this one because pkvm_id_regs depends on it. The test checks
-> that GPA and GPI read 0 in a protected VM without ptrauth, and it
-> fails without the fix.
+Hello PCI maintainers,
 
-But that's a *test*. Nobody runs tests as a production workload.
-Delaying a fix to satisfy testing makes no sense to me. If someone
-screams that their tests are failing, let them scream, safe in the
-knowledge that you have fixed the problem rather than the symptom.
+ESWIN Computing is preparing support for a new EGC series of SoCs.  The
+PCIe controllers in these SoCs are still based on the Synopsys DesignWare
+core, but the SoC integration around the core differs considerably from
+the EIC7700 controller supported by
+drivers/pci/controller/dwc/pcie-eswin.c.  Reusing the existing driver
+would require a large amount of per-SoC conditional code, so we would
+prefer to keep the new support in a separate driver.
 
-> Would you prefer that I send it on its own, or with the respin of the
-> features series?
+Before posting the full series, could you confirm the preferred upstream
+structure?
 
-I'll cherry-pick it directly.
+  a) Add a new host-only driver in
+     drivers/pci/controller/dwc/pcie-eswin-egc.c, with a separate
+     CONFIG_PCIE_ESWIN_EGC Kconfig symbol and Makefile entry, while
+     reusing the common DesignWare host code.
+
+  b) Extend pcie-eswin.c with additional of_device_id data and per-SoC
+     operations, so that a single ESWIN driver covers both controller
+     generations.
+
+If (a) is acceptable, is pcie-eswin-egc.c the preferred file name?  The
+differences from EIC7700 are at the SoC-integration level rather than in
+the DesignWare core programming; a detailed list will be included in the
+cover letter of the full series.
+
+We will follow up with the driver, the DT binding and the MAINTAINERS
+update as a complete series once the direction is agreed.
 
 Thanks,
+Donghui Zhao
 
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
