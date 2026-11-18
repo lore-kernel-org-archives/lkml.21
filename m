@@ -1,101 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795016495;
-	b=5HoCOYgfzDERw8PAEf7QJW6Fl9diCMuIjV9OLQy/CjhjYlQV2e+NvLA2m7Qasf4aI51B
-	 AL5liiKu33slZx9VNMg240AWb63f4MaJVjJVsYzD6i2JAwB+qPPfRMYSQ4EyBFbyU6XRe
-	 ZX7LwZpJ9eAyU2f2+FlYBLWqDwIo1XSYHY2IyQ97tdRsfwxOZ1zgGULefEHWWeev/NRoC
-	 eAX0ZF0YR0XXktujBJAgHsgdpJnfcIQDJQ4ojrkvJo1aDXArLVbDl6n4/lnqG6tJMUXX7
-	 3onoHj6F4S6cXTEPvP1HMCJEh3OC+W95jnbebUJyrocHXl0y5m28vw5NIBn3rV64Ehw==
+	t=1795016539;
+	b=Ue8REOuCJE4nM83NcflL7YOjeiZlFRI5IVi2EBhzZz7QlapPhSJc956gblCqsaqE1rex
+	 nW9gA4F8MubsO+Tz/M1I+FQtBJha1LqK4EXLg/lO8ljRYAXdQwEUHC+SJRP+7kquaPrgu
+	 tRiKOW6AAFtrLWCjy9hHeNL+k0C/Ou710u1OJuRkVv2X+SHggpwOworH3xfwRFiAuLFXC
+	 Bshyv6pqD7zlUcByeTZh59gbe37He2pb8J5MLn2xSxM7N0zASLeM2HTY5VjVYsY5z5G6G
+	 qIP5ewdy5txPdj3vD3sNU0QYQGlft3Pojjr8BuUEy8gmqf1khDeAs1Kp9gCaK+x2e0g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795016495;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795016539;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
 	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=cD/07tCbP0c2PveFePONvl73YWhDWOPfUwb001eQKwE=;
-	b=qcymVtk+O4WhrWoTWEjzl1H6ZB4YWJ3OimQYlAcKsZTHL8+WjmVbMLh6jV99HcQAo6iL
-	 tHzAS6ZsMcukYxZ6OYYNaAycZH4QXRZUMOJuUs/AyO5kimD1c9WR8LBhqNMlZ+iDtTMr/
-	 om8F6H8sMrLBctxMfZjDElIMA5+UNqzI5BBmuaOqoRtEEP7gHR20NF764FBKPSeoiYZbu
-	 SDzbPaWHW8gIR4/W1TpgHuIcMFcagS8L9Pmjc6ja9r9nbE+VfZiUcAAsU2YiL6Ft2l/QY
-	 xixpSkwnHxcnZxCqzPoBxvpB9OgJlA9Tce/k1Pi8/lCqpNttEu6IoJp+TDkKr05fVGw==
+	bh=CN3uhxZTJ97ugRoC/mFf/rnGzVK4gaQ4Bs/xHJQaLBY=;
+	b=MT2b0ZH3GLn+6zylOsfBVeLi4492x0Mgw+kfKYGFTPvqN71MIo2nojvKeugE2rkMT7Do
+	 3lsVYOVetqfSqejfiO1e4pD69o+3Qunytj2bN35hpBV+Obu8iw8BKWZGdwitXErlN8ZFR
+	 aNhSwfiQbZL5qZC+rylEaxVdwa/i2VWm8rZZlA7vivHE9UYb5Yy3Ul+DDDthiIYsFXJyo
+	 sOWhXOh9SO+UG6zpjCfrI2mT587iJgxyjkSEwYhV2D2wKr1ukMmijXlLWA0KKs8zQXttz
+	 rjg1YEhRoI6HhYwwV6N60y49JBjJ7y3XedOpUxCxC4OQpodlXMHvULfD/DL972wfC6A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Xh4RhHqr;
-	arc=none smtp.remote-ip=209.85.208.44
-Received: from mail-ed1-f44.google.com (mail-ed1-f44.google.com [209.85.208.44])
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=Qo9LytuP;
+	arc=none smtp.remote-ip=209.85.215.176
+Received: from mail-pg1-f176.google.com (mail-pg1-f176.google.com [209.85.215.176])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75C02606A331
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:41:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75C02606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1F48606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:42:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E1F48606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Xh4RhHqr
-Received: by mail-ed1-f44.google.com with SMTP id 4fb4d7f45d1cf-6ae305e3bd9so2128868a12.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:41:35 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=Qo9LytuP
+Received: by mail-pg1-f176.google.com with SMTP id 41be03b00d2f7-cdd9d0c9bbdso774524a12.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:42:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795016494; x=1795621294; darn=vger.kernel.org;
+        d=linaro.org; s=google; t=1795016538; x=1795621338; darn=vger.kernel.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=cD/07tCbP0c2PveFePONvl73YWhDWOPfUwb001eQKwE=;
-        b=Xh4RhHqrHc3yc56+v81B6EtxtJ0ODDySLnhAH6Bcyo+2KI4tb4m0sow/x8cyaDqfJO
-         8Q+GA32xhbsvG9hVZ54LsAdBS8FFPPokzwLwGrQKCbwVfwV2vmeKVJ3C/5b8PX71niNC
-         WgAHlQxGht204JVx93ADZwzNuyhN1HX2gaOxQjuZBijmqfBBjB/y8GerqI7D9v4uBTHt
-         TWnxI7Rvl1PkKhiKF+n1daFsNkmMPYiqIX0/orF6Lxw7IgqtJnpp0OYKfEgvJJCyBWmE
-         e9VhAkiD5Uw+s2MVjs4DGBkwBAJh4QgIIu65X56e50h5v1v8WE/rzC95z0A1Ph6CFlrv
-         nhUg==
+        bh=CN3uhxZTJ97ugRoC/mFf/rnGzVK4gaQ4Bs/xHJQaLBY=;
+        b=Qo9LytuPq3LOx+0z54BQ8PjbGvhnxuvWOVMI0R3WU9/LEMeouwZFqUZAsAXweRSyh8
+         mctaTRMV0HrYwcaNg7z6/vI0LlLIR7vEdKFvaZvbaeZThLqT6m/j82KI2NOvZP9SWqfi
+         kYc4AgVgaZeNPX+vBh7K8zi+oQAuoCkCRto34GxnIV1HYRNIyemmT6O6R954ZbOJC6Hm
+         Qe2OTJFv+9wtAamYJPIb0psqwYmxQVLFNOQiW05xm4H5xv3Stq3HtBWw/Nu2PVn+F8CO
+         RI4RZdAAlDyFEBdssGgII6E856TDWHYWc1CwhNVNpm1odhgJL0Zkiym3R2nuC092CRjo
+         RBZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795016494; x=1795621294;
+        d=1e100.net; s=20260707; t=1795016538; x=1795621338;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=cD/07tCbP0c2PveFePONvl73YWhDWOPfUwb001eQKwE=;
-        b=098CP4An9hY+3l7kY+kt1h0NpG0AcWKqtJGRYCQoDLD0yuvyO8PuwXbfmTt9YCaXnh
-         Cn+EpkjB/Bgrx6dAL2op2ux9LDhhTzm243CIVVKAozRc8+fuG/Qa8Zg2ev2YROZfvbT2
-         pGC+UkGQE+zT4qGM7boMM8qcf/+KVd8A6449X2Cy0PfwufjflQsld1xl34u2kK/r6MyA
-         GDLh+sz1+VgkOi8jH4lMcEi3zKuGij9rFBI378n6OohujMaYJ9HE1kTSLF5p0NYYAenp
-         Kjw5XMrTpCAmeIKVFFOP1t8881+NYpfvp7SdE5fSE3HfzDcx1N5/ZAz6wJOO2iGK5Y6/
-         1ILg==
-X-Forwarded-Encrypted: i=1; AL+hErGRU4m0zTdUFSSWXBFTr3ZaLEqTNOuE/ryNo1WSuyXfdwJRA4PbskAqdEy8QdcPmuzv6X/LCXcyEGwI3fU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+tm0/j5Q01Of79F54l+rvwsmTb6mzJ4USoE10kvfGzmEYDonKR
-	pliKzYlJizrHB8NbzYYKZ0dFeU9284iRdPHHHzN21IdjcbyFmAdMs1i5
-X-Gm-Gg: AYBFou1UVjluRpl2rHkmPu0WCT5xAwaOLeHshhtdFdxnyt7wP1KmmqOmB+uAauzcrI+
-	bHT5I70W1RXHjPQt0DbqOf50vMCL7PO9VTnhDvMPWzB5g306UEWjHet4HTm2boDwNYm2Ny8XwRS
-	01lWe1YApT4n1asRLN/I06BWHn8ctn5At1b7RrE2/JQEaybQZCl1Em3BmNvNjh6Q1DDiGerP1q1
-	YOEfLlTMkVqnLs8lEki5bU6i73ZKKljrv1aK2Zwnv3///s9tFxBsM9uzvLdCjKWJkbfvz3pB7Fo
-	qb8K3V9cxfDq4Z4cN8Z2aQxtKujzo9EbjY5co2g4jhAGFoCfdm5S/CxBM1CqNncp2vzOK7aN6Zn
-	JcMDsex5ZO70P4lUk+YaFHLSRMBe2BijForNUkHAmyGDisPDy3rWybC5fDYhcZShG1mFUDhbrUF
-	F/vqQMN1A4R33PSJXQ0YNibisVRP2uA7pzwef7G1jq+65ht2FQToMYro8yVfKCviTWH/JWm2vxJ
-	I5ng2HNjvrh5xlEDAoxh0azoJlZWogc1/BE1lSC6FicNMtPLLakp4rZL4yGqf9Zez97G6WwiaRb
-	hSLuN1+3hEPhkDbR8s/LPwWxsM4YdU8ZHARk0xf8d7tuD5Xnjw==
-X-Received: by 2002:aa7:d0d1:0:b0:6b5:8cd9:fc1b with SMTP id 4fb4d7f45d1cf-6b887f0e5fcmr1777268a12.23.1795016493632;
-        Wed, 18 Nov 2026 07:41:33 -0800 (PST)
-Received: from rigel (106-68-220-184.tpgi.com.au. [106.68.220.184])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b88a0021d0sm1192372a12.22.2026.11.18.07.41.25
+        bh=CN3uhxZTJ97ugRoC/mFf/rnGzVK4gaQ4Bs/xHJQaLBY=;
+        b=kZGRQKpZL5R3rF22tZTdjVy3namgA3SVFHtMDB7WaZmamXnsip4xySpQ5igA62h+9B
+         CoH97vnM0sIwV3LkMxijvTU1RjZA/NM+5M/2IqusfelkEnsruVkScUeZfWHzwukWsRv+
+         9xJFJyp8Q6A2rK3GX/7SyfxEgfb3Kq94zZl5miwoaufk91h5RWIgyQyl+Q72gepvwgog
+         lPgo1lwNSQsReCzDyaLpzyB5LfS/USH0NQ9jZ3hJjk/jUSp7Z+vwFdc+GejYND7maihB
+         1efnzayOPTcHRThaL0SGV6NdKuEu49+UoRmMgJL1lvysaIiAbe+bikKCkYhULPP1WhpN
+         x6Iw==
+X-Forwarded-Encrypted: i=1; AL+hErH9lZ2TIh+hOh+o9htqiyJoemWSk5KQ1MLOfZIvoLSk2xO2ZVirFguP6mA91XWwQ+u/5vZXVWhan9iPW68=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9gLlPfe4RkWKk7xKFjlCmPhIaPMSGCGBUd47VLgAVtxxtzbEmP
+	WmzV9mw/frgL/X69RtqNl9/nt+FLx7/dM2dyFRs0v4DBJq2Ho/pd4CeUmIrxLWJL3Co=
+X-Gm-Gg: AZFdTZc0MimUN2DjnOK+Xs76NQUZMKYZIPx2WloWsMqOWCnFlBvPyKtKdwY/4vgc/Ps
+	3vxhbEVU2WLLIV1D2cN4LMexJ+1/SSN4MmzjosCSyLcySZKIxnfhNMTNtiCMm+1NdAO6N0nFwBr
+	OcsT+wJDFHb9EwnkXFu2zTDnC5dH2U/gJ8TRfj+fjxGkwU+CqaBsvcSu7JRCUI+dA0SY9x8GOXz
+	13szrqB5uoYuRw0Ol9P2hVgxyqupjGpxUyCYHF5lsO/IBqWOsWxKaV/I4+tUHXdXA10d+3uR0Rl
+	cFev3AimIya3QeYQyxnHGfzSqfl71INNsCRT1n0S9LyL5JNJuiRtpSJhiTdl5G+h4Npy8TZMdrf
+	nzeFIhUd2NXpzNkD7ZxMwVtMBwQg54gutw7RNVOM5ARb4jeWwWurAFHmpOIV4GnWt2VHZUGflwz
+	3c7pTBA1oOWI7EmspZ0jLFKdqd5nEtRWyb0eMrcO0p0tGhtAhZaNuyXQc7YUwHX9a8PjYYyg7Qh
+	pT+goR3jWdAs4hzVwF3O5ELRF2PC6x+zJu0EJx2p49vrQobU5bptOQLS7hE6Kpv3Ve694wvo/4w
+	iz+RpOAGiIx0b7gWU7xQi9SIsKv8B9LStg==
+X-Received: by 2002:a17:902:d2cf:b0:2ef:e06c:38d2 with SMTP id d9443c01a7336-2eff756587bmr30526375ad.54.1795016538193;
+        Wed, 18 Nov 2026 07:42:18 -0800 (PST)
+Received: from p14s ([2604:3d09:148c:c800:9f37:bd39:7f19:3b3c])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff6246213sm16061995ad.56.2026.11.18.07.42.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 07:41:31 -0800 (PST)
-Date: Wed, 18 Nov 2026 23:41:21 +0800
-From: Kent Gibson <warthog618@gmail.com>
-To: Adrian Ambrozewicz <aambrozewicz@nvidia.com>
-Cc: Bartosz Golaszewski <brgl@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Jia Jia <physicalmtea@gmail.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v6 5/8] gpiolib: cdev: don't leak the IRQ name when the
- chip is removed
-Message-ID: <20261118154121.GC46152@rigel>
-References: <20261116-gpiolib-chip-removal-v6-0-aambrozewicz@nvidia.com>
- <20261116-gpiolib-chip-removal-v6-5-aambrozewicz@nvidia.com>
+        Wed, 18 Nov 2026 07:42:17 -0800 (PST)
+Date: Wed, 18 Nov 2026 09:42:14 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Francesco Valla <francesco@valla.it>
+Cc: Bjorn Andersson <andersson@kernel.org>, Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-doc@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH RFC v2 05/11] remoteproc: virtio: report
+ VIRTIO_F_ACCESS_PLATFORM when required
+Message-ID: <av3HVh5jlMsyaiq7@p14s>
+References: <20261102-remoteproc_virtio_map-v2-0-26b300e01c62@valla.it>
+ <20261102-remoteproc_virtio_map-v2-5-26b300e01c62@valla.it>
+ <avs6XQpoQmY_MNYx@p14s>
+ <avzQI6R9LubGP7-d@bywater>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,32 +116,127 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261116-gpiolib-chip-removal-v6-5-aambrozewicz@nvidia.com>
+In-Reply-To: <avzQI6R9LubGP7-d@bywater>
 
-On Mon, Nov 16, 2026 at 03:47:08PM +0200, Adrian Ambrozewicz wrote:
-> The character device requests line IRQs with a copy of the consumer
-> label as the name, and frees the name that free_irq() returns. When
-> gpiochip_remove() frees the IRQ first, it drops that name and the copy
-> leaks:
+On Tue, Nov 17, 2026 at 11:18:03PM +0100, Francesco Valla wrote:
+> On Mon, Nov 16, 2026 at 11:16:13AM -0600, Mathieu Poirier wrote:
+> > On Mon, Nov 02, 2026 at 12:26:42AM +0100, Francesco Valla wrote:
+> > > Depending on the driver originating them, data buffers used for virtio
+> > > communication can either:
+> > > 
+> > >   - already be allocated from the coherent memory area that is
+> > >     accessible by the remote processor; this is the case of
+> > >     remoteproc-specific virtio devices, i.e., rpmsg and rproc-serial;
+> > >   - be allocated from generic kmem, and thus not necessarily accessible
+> > >     directly by the remote processor.
+> > > 
+> > > In the second case, the DMA APIs can be exploited to obtain a
+> > > functional communication, since they will take care of cache maintenance
+> > > and - if required - bounce buffering. The VIRTIO_F_ACCESS_PLATFORM
+> > > feature flag can be used for this purpose: with it set, the virtio
+> > > framework will use the aforementioned DMA APIs to map and unmap buffers.
+> > > 
+> > > Bounce buffering will be transparently used in two cases:
+> > > 
+> > >   - if the buffer address supplied by the virtio driver is not suitable
+> > >     for DMA transfers, or
+> > >   - if the reserved memory associated to the vdev is a
+> > >     restricted-dma-pool; in this case, *all* buffers will be bounced to
+> > >     and from this pool.
+> > > 
+> > > With this support in place, any kind of virtio device can be supported
+> > > through the remoteproc-virtio transport, at least from a data exchange
+> > > standpoint.
+> > > 
+> > > Note that remote processors behind an IOMMU need da == pa for the memory
+> > > region(s) the buffers are allocated from.
+> > 
+> > I'm not sure to understand the da == pa requirement - can you expand more on
+> > that?
+> > 
 > 
->   unreferenced object (size 8):
->     comm "gpio-hold"
->     backtrace (crc dc8eac94):
->       kstrdup
->       kstrdup_and_replace
->       edge_detector_setup
->       linereq_create
->       gpio_ioctl
-> 
-> Keep the name with the line or v1 line event, and free it there,
-> whoever freed the IRQ.
-> 
-> Reproduced with gpio-sim: remove the chip under an open request with
-> edge detection and a consumer label. kmemleak reports up to 23 such
-> objects after 30 cycles; with this change, none after 100.
-> 
+> Yes! With a caveat: the IOMMU usage by the remoteproc framework and how
+> it can integrate with this work is the main reason this is an RFC, as
+> stated in the cover letter, because I'm not sure I understand all of it.
+> See for example the dma-to-da conversion in [1] or the comment in [2].
+>
 
-Reviewed-by: Kent Gibson <warthog618@gmail.com>
+The remoteproc subsystem was written a _very_ long time ago and the context of
+some artefacts, such as [1] and [2], is long lost.
+ 
+> That said: all the IOMMU setup that is done today by the remoteproc core
+> is linked to the *remoteproc* device, not to the rproc_vdev (i.e., the
+> device backing the virtio device). For that reason, the DMA subsystem
+> should not be able to know that setup even exists, in particular while
+> performing swiotlb operations. Hence, the requirement to have a 1:1
+> mapping between da (i.e., the address the device uses) and pa (the
+> physical memory map).
 
-Cheers,
-Kent.
+I would like to reserve the current remoteproc IOMMU design for handling legacy
+rproc-virtio devices, i.e rpmsg and serial, and only use the modern
+virtio/swiotlb API to handle authentic rproc-virtio devices.
+
+Based on what I see here [3], I think above sentence:
+
+"Note that remote processors behind an IOMMU need da == pa for the memory..."
+
+should be replaced with:
+
+"Note that remote processors not behind an IOMMU need da == pa for the memory..."
+
+[3]. https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/remoteproc/remoteproc_core.c#L703 
+
+> 
+> > > 
+> > > Existing use cases (e.g., rpmsg and virtio-console) are not impacted as
+> > > they are explicitly excluded.
+> > > 
+> > > Signed-off-by: Francesco Valla <francesco@valla.it>
+> > > ---
+> > >  drivers/remoteproc/remoteproc_virtio.c | 10 ++++++++--
+> > >  1 file changed, 8 insertions(+), 2 deletions(-)
+> > > 
+> > > diff --git a/drivers/remoteproc/remoteproc_virtio.c b/drivers/remoteproc/remoteproc_virtio.c
+> > > index f1b362158a9c..1496659ddff9 100644
+> > > --- a/drivers/remoteproc/remoteproc_virtio.c
+> > > +++ b/drivers/remoteproc/remoteproc_virtio.c
+> > > @@ -280,9 +280,14 @@ static u64 rproc_virtio_get_features(struct virtio_device *vdev)
+> > >  	 * All non-remoteproc-specific virtio devices are assumed to be
+> > >  	 * compliant with virtio specifications 1.x; there is no other method
+> > >  	 * to transmit this capability from the remote processor to the host.
+> > > +	 *
+> > > +	 * Virtio devices that are specific for remoteproc usage take care on
+> > > +	 * their own to allocate memory from the device's coherent pool; use
+> > > +	 * the DMA APIs for the others through VIRTIO_F_ACCESS_PLATFORM.
+> > >  	 */
+> > >  	if (!rproc_virtio_rsc_vdev_rproc_specific(rsc))
+> > > -		features |= (1ULL << VIRTIO_F_VERSION_1);
+> > > +		features |= ((1ULL << VIRTIO_F_VERSION_1) |
+> > > +			     (1ULL << VIRTIO_F_ACCESS_PLATFORM));
+> > >  
+> > >  	return features;
+> > >  }
+> > > @@ -312,7 +317,8 @@ static int rproc_virtio_finalize_features(struct virtio_device *vdev)
+> > >  	features = vdev->features;
+> > >  
+> > >  	if (!rproc_virtio_rsc_vdev_rproc_specific(rsc))
+> > > -		features &= ~(1ULL << VIRTIO_F_VERSION_1);
+> > > +		features &= ~((1ULL << VIRTIO_F_VERSION_1) |
+> > > +			      (1ULL << VIRTIO_F_ACCESS_PLATFORM));
+> > >  
+> > >  	if (WARN_ON((u32)vdev->features != features))
+> > >  		return -EINVAL;
+> > > 
+> > > -- 
+> > > 2.56.0
+> > > 
+> > 
+> 
+> Thank you!
+> 
+> Reagrds,
+> Francesco
+> 
+> [1] https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/remoteproc/remoteproc_core.c#L716
+> [2] https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/remoteproc/remoteproc_core.c#L461
+> 
