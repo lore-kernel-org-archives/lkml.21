@@ -1,106 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=199.89.1.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795043422;
-	b=gUtrMwP7952UrTrz93C/R49XFhC3Gi9tFQVXVErIfXFTbPQz0VJStjX+l6dx+Rs0HBDc
-	 2g7nTa/iDYDRxWRolNvx6s4I3CED0KNI4tiCqR7g16kDSWIizsf1/MAxM/EqnJ6uCsZ+g
-	 iDHrBzUY3/7RCJArimQ8BESYo+SOxMfnF/oCpA/N+Wv8V2XYckhndpiHXhMbVzb4SFNaG
-	 Lk5XvXl2TXSSaS9gNm/iZxTeLW+0U0ZETnsZAHMnOPiT1ObJ7zmf6ef7v8pQh9VoiTRe4
-	 nmuv+dRcbHA50uXOu4TGjqIWW56aH7VGG5XXLPQ7I7Kzg+/cpRMbEEvvb1zxCh8g++A==
+	t=1795043433;
+	b=WI6sgSb/6437Bp2xf5dfpd53jn82h1EgddpTxtaZWZrAf6haT8eFl1ixNQMjoca4eyWQ
+	 sFWBWZUuqr36sD3l4rdXHo4wYV/vR+eWIBYaQMPS2hH/ivUdD162LtbwBuovigXxzY3M5
+	 0cn293V+AgepZpY46UGftEeCi4VOr0Iyyhxkr+Usxh9PuCOQlA4iiJR3pvPgY9PYJq8Es
+	 zli6tv5juECz3A0mJ+7vvDf99BoTYaJ5ebLbeXVKqSs0b6bWEES7GIsAoxb9vu18+DEOx
+	 EQpg2U71AfJeqRLf6imuegxqu7zQFFJav0Ei2/J4s2RsgyllY5cY34MgoA5F9DOarow==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795043422;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Message-ID:In-Reply-To:References:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=anu/2F6mroicCWt3l+8C2jxZSamPe+b0q+OPEpgFtcQ=;
-	b=y6ib7RxwFnPQbHP8jBmV8WyNs+/0nlvj6VwVHj8Z0AOsBcToPFj+ly1SbwyPiQWvNLWG
-	 ftTlWjqDMPbDJzBs2eV78RpMlqC9GLa35i1GtnE0nUqBhNcFpaqLdhnKQ6e36XnGzyegJ
-	 W3mNNMqmekw/teO7kdkQdrZIJjiF4pTvH7jPOKd4mF7zsNW113ez6lLprVOPcx2GTxqEo
-	 YxWWuXU5PTIijM3cmR5cAbsofa6idCBcj8U8y3CcT1H08h+Wm/jTJbyD/1Pm2pw7UiUFW
-	 GSJgGDRhYJ4edJA8UYltWfHm+UOfGfhr8UIMZ3ngSDd5N9pqORhXseA9SbiU4QWWHbw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795043433;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Virus-Scanned:Received:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding;
+	bh=OwgzAaq9oQg3aBAhmVu4pRUF3d6m1k8L4dHJfpgBNQY=;
+	b=fR/hBKAnGWnlcU5goM/A/oPLDlP6dhI4kmvCPTm41nhO2p9E79AddjwK0WslwQBdOiAT
+	 4X2Q2qQ6jbwb6mcnArTJ5Im1w4ujgRRTtvc8BP7lI5dNs6lPdfUBH3lz1pyUl17Xu9ILW
+	 9k9mbKtlrm3SbLFb/0udobdKvHHotB0fVL0n9hLsVFfepEmQq5LPO/ycA0ahmqMJa5Zpt
+	 7Db3Tcmrw3Pz6hG+1h0VjAXjH3oyK1bYHGEJlFhcmALf3Q5JcqIzYehzGvLMjAQAxjX5t
+	 qv6VOkjrn/H0JiCGmqSDp5aBN5XNGw1irFKLrglV3Z1r2s8vgdcP1bZApVagk8k9f5w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=u3c790lN;
-	arc=none smtp.remote-ip=209.85.160.180
-Received: from mail-qt1-f180.google.com (mail-qt1-f180.google.com [209.85.160.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=acm.org;
+	spf=pass smtp.mailfrom=acm.org;
+	dkim=pass header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=MMuJI0DL;
+	arc=none smtp.remote-ip=199.89.1.14
+Received: from 011.lax.mailroute.net (011.lax.mailroute.net [199.89.1.14])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3384606A941
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:10:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F3384606A941
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12982606A338
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:10:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 12982606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=acm.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=acm.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=u3c790lN
-Received: by mail-qt1-f180.google.com with SMTP id d75a77b69052e-55d30c054dfso16908501cf.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:10:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795043421; x=1795648221; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:subject
-         :references:in-reply-to:message-id:cc:to:from:date:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=anu/2F6mroicCWt3l+8C2jxZSamPe+b0q+OPEpgFtcQ=;
-        b=u3c790lNESfkSxN3vUZxQRKuXR8a5cILECSs7EkIcK99ceeCRYuvkXg2msD0CTAvdl
-         z1cE+3EXT+QqQEjiBiPmSQnDBy2Nils6YIj9rFvkSOXhVFelkN1reL/3nMLD5SdBILA8
-         +HiHz8MBI8OTC1hl7M9KRHTBAqjkXH2EfwdIQ1htAE+MBHjFMWIz0BIoevTMTrZNtlgc
-         qz5OYLAmxn7JGc8Yw4T/42H2tuiEo8Qu8L/wTIfBaQx6V5ngrx6EEcHShbkpVeC77zde
-         jVtTIB8y3GlQax60J9GDzHvjE71u9X8L/ryQ2UF4pFPVVmB2GeXHxCJ+qyHlN/GYui5L
-         Gugg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795043421; x=1795648221;
-        h=content-transfer-encoding:content-type:mime-version:subject
-         :references:in-reply-to:message-id:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=anu/2F6mroicCWt3l+8C2jxZSamPe+b0q+OPEpgFtcQ=;
-        b=lsbVJGj3jiq2AU+gDUp5K89qOwmDBW+t+mjoBIytgISMzi0RbIixMrWIiPS3/FfFBE
-         JA2NXpyNdW9lbVSBDxVgGdjBuB0qB2DbsepPRgGDCPQDyrHjJNyJAhRtcrClWjZHwOvE
-         7FuO2wYDAl+xvnfF9BWP3CKYf7/8BT9fJyGLBT7ag7/W3TtIsnHzWI1psoM2TNnuvaas
-         d4iqa2v8J30pTkcIDUUB3q9mGNA3gWXngzVVKywMxDDDxBg04isWO791Kbfg/JlE2kZA
-         00c9N/3MEVrPQak2UOHfw1xR7fQH3dYUBZsitV4XIPF9qFcf2+/Ga4dX8ZvMw+iT8sKQ
-         kA+w==
-X-Forwarded-Encrypted: i=1; AL+hErEITEptbgB0KwUA6SU93iVJPIIZssVNDHJGWrbIKnKBM/tSySAPWxddT1nRhyTVaxA7GNECR6OceD9rpLI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/CRkmKerU8D6K/szZXEfdh+SBBI3Q1DTXJbffYj/B1zmZg7TvT
-	q2z+qI2bISWmCV1Pdl505K4KxjHi2st8BYWeJV4pVD2WF3eb0u58IyMJ
-X-Gm-Gg: AYBFou1zEFCE5qVnvEH8YqGmUCfyAcP0oqadeHo9aPHpP5pKPxsssxz6PI2QBBJlu/B
-	dQXTXCbA3k6K9d/7yJlooubUaDoo75Uin+u79RJXT58bt8XwAiJhlqQ0SRKTC/jrNqL/GmXeIBP
-	E7lfYmGrC/1j+QsUj0ModnsQionAfLb1+JvjU1IVoQ0ulV3e0HcTY+MynLbzjN5m5eWtVfWGSOG
-	XZxOOmT9GSQLPOo+K6zetMG3GtoDqXRnO+FFRqGpQ2uqXg3XM0la4cAOS/xj5Vs+v2OK+eS9XvZ
-	96Shvo8UliK3S6Ed5rU/DDkEjn6jVNZuxim6P6D/2dJBvumsU0CxaHq83riPByZAxxSuYRVp7tL
-	Eu6l6Il43jjW8GLr/VeRy1ZWQPkCONkaSchdJCrqVTERNitEfTHcx0NN05IipOHdyjs68ueDgcQ
-	vXqrydmVCAfhHkK0d+pXOMiA3EPO50As8ZaDXmz5Eai8S7cCCGjpA/tMXkyrNf4QywAQ6Jk8DOI
-	o2GPYLcTDB9g4lmH+s3E7Sz9hVP+f91Xusu/qeiz/a9lGzjC79qne6yeZhNq27E333S7AAbHmMB
-	CplnxTXsbwYyPyyonQW4MYZBa0I/izDP2MvpNRh5RyfZZZctzz0FWP0/513ua1M/QSn6i88bC9d
-	YPp2TD/9Ge7M2DWbFi0V2Tyg0gZKUDtkVxtp7wcNVS0wbkKKU3Sm+dJZxvlQUIVc=
-X-Received: by 2002:a05:622a:5c10:b0:55d:3201:3083 with SMTP id d75a77b69052e-55d5a57f044mr66912361cf.26.1795043420721;
-        Wed, 18 Nov 2026 15:10:20 -0800 (PST)
-Received: from gmail.com (15.60.86.34.bc.googleusercontent.com. [34.86.60.15])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d66b24b0asm10772451cf.9.2026.11.18.15.10.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 15:10:20 -0800 (PST)
-Date: Wed, 18 Nov 2026 18:10:19 -0500
-From: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
-To: Jingxuan Xie <jingxuanxie@deeproute.ai>, 
- netdev@vger.kernel.org
-Cc: Willem de Bruijn <willemdebruijn.kernel@gmail.com>, 
- =?UTF-8?B?6Z+p5bCR6Ziz?= <shaoyanghan@deeproute.ai>, 
- "David S . Miller" <davem@davemloft.net>, 
- Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, 
- Simon Horman <horms@kernel.org>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Clark Williams <clrkwllms@kernel.org>, 
- Steven Rostedt <rostedt@goodmis.org>, 
- John Ogness <john.ogness@linutronix.de>, 
- linux-kernel@vger.kernel.org
-Message-ID: <willemdebruijn.kernel.342e1ca56d449@gmail.com>
-In-Reply-To: <20261118135443.24767-1-jingxuanxie@deeproute.ai>
-References: <20261118135443.24767-1-jingxuanxie@deeproute.ai>
-Subject: Re: [PATCH net v6] af_packet: avoid waiting for TPACKET_V3 copies at
- retirement
+	dkim=pass (2048-bit key, unprotected) header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=MMuJI0DL
+Received: from localhost (localhost [127.0.0.1])
+	by 011.lax.mailroute.net (Postfix) with ESMTP id 4jVHQ0508rz1XMlX8;
+	Wed, 18 Nov 2026 23:10:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
+	content-transfer-encoding:mime-version:references:in-reply-to
+	:x-mailer:message-id:date:date:subject:subject:from:from
+	:received:received; s=mr01; t=1795043428; x=1797635429; bh=OwgzA
+	aq9oQg3aBAhmVu4pRUF3d6m1k8L4dHJfpgBNQY=; b=MMuJI0DLUV31n4Ku1QTgv
+	AP0LWbCwnka6mIwxxZ+sFBw3YxP9LM5pfqJIM8a3o1984sg+7x0xpH3ATZohUrsy
+	cOsC9WdCiqnM+AdGDsjXRxaehJ5LUQ8+qv8oyLqUaAmB3Hy12xkhZLtBZt9Rw+kH
+	L4mI6k00IIc+0odMewkU/QPUd3PXUCJdKbyfXpIugHXTNjx64Eo8Kz8Sah1BQWsz
+	y9kr6sbsw3g2uzoBVY5XuwSTbBinKEW7jgvlO2QIVpnScIBhNDVJgHspsXD+ZRBy
+	eDPhwMCDF9+TAbvczqHktHYO+kIYC0PJkWMNJNtw75Psm4XYHTd10dCHamfvY1TZ
+	Q==
+X-Virus-Scanned: by MailRoute
+Received: from 011.lax.mailroute.net ([127.0.0.1])
+ by localhost (011.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
+ id iAfYrQ2ZL2DV; Wed, 18 Nov 2026 23:10:28 +0000 (UTC)
+Received: from bvanassche.c.googlers.com.com (57.237.82.34.bc.googleusercontent.com [34.82.237.57])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bvanassche@acm.org)
+	by 011.lax.mailroute.net (Postfix) with ESMTPSA id 4jVHPv5tmhz1XLQ9s;
+	Wed, 18 Nov 2026 23:10:27 +0000 (UTC)
+From: Bart Van Assche <bvanassche@acm.org>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Ingo Molnar <mingo@redhat.com>,
+	Will Deacon <will@kernel.org>,
+	Boqun Feng <boqun@kernel.org>,
+	Waiman Long <longman@redhat.com>,
+	linux-kernel@vger.kernel.org,
+	Marco Elver <elver@google.com>,
+	"Paul E . McKenney" <paulmck@kernel.org>,
+	Christoph Hellwig <hch@lst.de>,
+	Bart Van Assche <bvanassche@acm.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Dmitry Ilvokhin <d@ilvokhin.com>,
+	Christian Brauner <brauner@kernel.org>,
+	"H. Peter Anvin" <hpa@zytor.com>
+Subject: [PATCH v4 2/3] cleanup: Disable context analysis for __free() helpers
+Date: Wed, 18 Nov 2026 15:09:58 -0800
+Message-ID: <d87cfee3aa630885cbdb95f0f918e86a1263c2ec.1795043161.git.bvanassche@acm.org>
+X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
+In-Reply-To: <cover.1795043161.git.bvanassche@acm.org>
+References: <cover.1795043161.git.bvanassche@acm.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,53 +88,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
 
-Jingxuan Xie wrote:
-> TPACKET_V3 retires a full or expired block while holding
-> sk_receive_queue.lock. prb_retire_current_block() takes
-> blk_fill_in_prog_lock for write to wait for in-flight skb_copy_bits()
-> before publishing the block.
-> 
-> On PREEMPT_RT a read lock can be held by a task that has been
-> preempted or is running on another CPU. The packet path or the
-> retirement timer then blocks on the write lock while holding
-> sk_receive_queue.lock, and the receive path resumes only after the
-> copy completes. This was observed as a receive stall of hundreds of
-> milliseconds in a PREEMPT_RT deployment; manual inspection found the
-> same unconditional write_lock() in both the full-block and the timer
-> retirement paths.
-> 
-> Try to take the write lock without blocking on PREEMPT_RT. If a copy
-> is still in progress, leave the current block and its metadata
-> untouched:
-> 
-> - the retirement timer re-arms itself and retries after the configured
->   interval;
-> 
-> - packet allocation returns NULL, so tpacket_rcv() drops this capture
->   record and accounts it in tp_drops, while the original packet remains
->   in the network stack;
-> 
-> - a later packet can retire the block once the copier has finished.
-> 
-> Do not dispatch the next block while the current block is still open.
-> The existing lock order and completion ordering are preserved, and no
-> new state or worker is introduced. The trade-off is a higher capture
-> drop rate while a copy is in progress; original traffic is unaffected.
-> 
-> Non-PREEMPT_RT kernels keep the unconditional write_lock(): there
-> read_lock() disables preemption, so the writer only waits for the copy
-> to finish, not for a scheduled-out task to run again.
-> 
-> The stall was reproduced on QEMU arm64 SMP PREEMPT_RT by delaying a
-> copier after frame reservation: without this change the next sender
-> blocks until the copier is released, with this change only that
-> capture record is dropped.
-> 
-> Fixes: 632ca50f2cbd ("af_packet: TPACKET_V3: replace busy-wait loop")
-> Signed-off-by: Jingxuan Xie <jingxuanxie@deeproute.ai>
+The __free_##_name() helper functions defined by DEFINE_FREE() call the
+free expression that has been passed to DEFINE_FREE(). If that
+expression releases a lock, e.g. because it is a call to an unlock
+function, the Clang thread-safety analyzer complains because it cannot
+know that the variable that is passed to the helper function holds a
+lock. This is needed by:
+- __drm_for_each_bridge_in_chain_cleanup (include/drm/drm_bridge.h),
+  used by drm_for_each_bridge_in_chain_scoped() and
+  drm_for_each_bridge_in_chain_from_scoped().
+- netdev_unlock (net/core/dev.h), used by for_each_netdev_lock_scoped().
+- netdev_unlock_ops_compat (net/core/dev.h), used by
+  for_each_netdev_lock_ops_compat_scoped().
 
-Reviewed-by: Willem de Bruijn <willemb@google.com>
+Disable context analysis for the __free() helper functions.
+
+Acked-by: Marco Elver <elver@google.com>
+Signed-off-by: Bart Van Assche <bvanassche@acm.org>
+---
+ include/linux/cleanup.h | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/include/linux/cleanup.h b/include/linux/cleanup.h
+index 1fb8058b897d..f6afe80781a4 100644
+--- a/include/linux/cleanup.h
++++ b/include/linux/cleanup.h
+@@ -207,8 +207,10 @@
+  * Without the NULL test it turns into a mess and the compiler can't hel=
+p us.
+  */
+=20
+-#define DEFINE_FREE(_name, _type, _free) \
+-	static __always_inline void __free_##_name(void *p) { _type _T =3D *(_t=
+ype *)p; _free; }
++#define DEFINE_FREE(_name, _type, _free)				\
++	static __always_inline void __free_##_name(void *p)		\
++		__context_unsafe(/* _free may release a lock */)		\
++	{ _type _T =3D *(_type *)p; _free; }
+=20
+ #define __free(_name)	__cleanup(__free_##_name)
+=20
