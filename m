@@ -1,59 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795020788;
-	b=l/5ob9CfR2oequ33lIMMSCymyJHCoIlv26qPeR9V+4QWnrmw7Pez66sLIVSrFnFYKRAR
-	 DNg7gg3tKA4o9B1BRA2YxyTUMqFrCoS3wEoOjU5aGL5ZuSjraxD34jgLccuonN3thf6cN
-	 wzuukyWg+K6YAMITwuWyIjUnUR/pTcxF06EgMX6jtMGZlBmJ8DMls4246fzL+f0T6Qsgh
-	 PWBZVZedUe4kh6W5mLrO2eJXZ8iA1LDuzXW2CGk5xVeYKeZ+SZic/yDUXXcUZZiJ11Ru1
-	 32NoTUD9dqdD0iukwb2zv7S/ht2tQHJ7HcuoBjcsIKEasSSRxPjQRXwD3KCRtSlx7oA==
+	t=1795020797;
+	b=MdYJffglIs3EmgmWXLn6yjrNauK+wkddstq+o/Xt62rYXkgZWFuhoTJQZ/6jx6ryvzh3
+	 pvKqPoiYUwTJaicSBT1tGlZ0hpO8W3q4OD1T1tYpSPgxUDDdcuTIPQ50PQeFenQSC6ckm
+	 vLoHWDdiVw/LQ2Zr+DWMjBXzNUMuvVKsf27wQmSAfLCiypkT4yah6gl8i1pXbx2bRtm1h
+	 F9AqjrZdGxPL+yooyjrcAHT3G7g9e4ROEBa6V70CPPPSxxSKqjIoaHX9zrrX4wygTIMxn
+	 J8PVzuy0b0joMCsahCoGZk7ZItraeEpi1OixnHlwt5o3IG3fRDahw9E97luLYEVBb4Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795020788;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795020797;
 	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
 	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Last-TLS-Session-Version;
-	bh=zAeMH+m9bbuc4/9b5hVR3Zv1XPAgorcFNusL+dN/Jro=;
-	b=u1UFXgy9TZSZvilHR+gZ5gceOrFhpBJAiEceYXUo8jPZmFBiRimTGUAlKLnCHk7oRy9D
-	 EaJV+l7vsnZJTMKGp98PiZWjKsqlrjZcsVcsEXMAVCtxqv2oMvSW7U8u9dpplbFCDBc5x
-	 m7v+dX5ArU6QyZpbJdG7DO6wSj4A9MtG0ijxUDGyPrUTAKbqyDN4DfkdmBP8kEXRpeZm4
-	 5HiKojD4Y9tvNn0poRU5sIjr4CpfNFtnz7p1cdQidNrRRNN/ApIYDZJ2KezHKhKsARj82
-	 Pp/ghB11XTQ5hkEXQYgtKiGhM4Xpy6xfNvGUMtTdW0efrAwfG61Tzyimh1zZD620ntA==
+	bh=iAGzeSzQwFqFiRrdmKxP4pGyOW++Nadr+7x8PnEbmSQ=;
+	b=BrZMM+HCORCElnjicdz7y2W8XXSoFDWFTT1E9RYrkyCAL8n2/QvmqtvyBEgdEflmODiJ
+	 Nr2l58QqABqWRTt22x4HohXO6gxlWmlINlTeQ5iKbOCdDbFEx6YVPuqvYcJtKkKFA/Mdf
+	 48G97pn6a2tHQmwbs0NTNfjhO5VcoAaZq1jl/FYHVBI3/8IhR/T5YGmxjysKXaHSv++Fq
+	 PkpSrJCaWb0WPwf0M5N74PYpeWwRZZDrkp3Xv9/nADlQiiGI58mZm8esjjSgkFHI74aGR
+	 NsBNreXSqiwCE/wAiVI/KJ9co9SDCRQdOevAFhki18bLmvWXwqfkUU0bH6Z8YLiXd1Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=mvkFhNIM;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Wjyl9hRE;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96DB2606B587
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:53:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 96DB2606B587
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C92F5606A330
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:53:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C92F5606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=mvkFhNIM
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Wjyl9hRE
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 23D55C4F77E;
-	Wed, 18 Nov 2026 16:53:11 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id B2E521A16CA;
+	Wed, 18 Nov 2026 16:53:15 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 3DE9A5FE9B;
-	Wed, 18 Nov 2026 16:53:06 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9C1C711BC28F7;
-	Wed, 18 Nov 2026 17:52:58 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 7B7A95FE9B;
+	Wed, 18 Nov 2026 16:53:15 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 69E0D11BC2904;
+	Wed, 18 Nov 2026 17:53:04 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795020783; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1795020789; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=zAeMH+m9bbuc4/9b5hVR3Zv1XPAgorcFNusL+dN/Jro=;
-	b=mvkFhNIMGZR8HN2aWke+n2DEjJ5DlPR9jmwQZCf8mnEOriEdPvaf4pgPLr3k+ARmb3bXS+
-	sWPQI9K3PlVFaz+SqvNVho9YgBs9Ea/UFDlnzDmaDsdOX7Lqi7LmbnGqweVLvX5pmXomZB
-	5QlIU7T51RRmcu4A5Xlv1XhdhLUVQ4/fvVDg/vfCv6G48yKY0DUHnIah/u/1CZL47xG8kl
-	x7tLUvrjqnAxoz2k5Id6znYmdKOwDaZL6TkXj8i7tYOv1l8yjHwDe0bisHN/UQMpitk+n9
-	3iGr+gZ7ydBEs4JhHAnvlkdCVKmkMMKLqt1FK83SFmenrytq3J5/1tZla+w0MQ==
+	bh=iAGzeSzQwFqFiRrdmKxP4pGyOW++Nadr+7x8PnEbmSQ=;
+	b=Wjyl9hREMsVMqqx8rCv7E+eKTYNGdme+CXHkd+Ur19lrSkXoO2ThBhZcJ2lyIs8SzB/ENw
+	5CDky1x7oVwGE+vZsdE0JmKyWqYkTOdrO7ZjjlylRmaqAiiM4FyWSkUnwGli7DTpA1tXkA
+	MdS1BV8nhaBY8zBkX/9QSv3YHV9zL1Al4qsMERa3Mx2qBYpS0Bo1R9+Gu4j+jGFpjtAmAy
+	JI/JxB37auZtFDTLLezPIFumutGvWlhvcSWViXkVFjRUtSELI9l/5pYHiGokcFYZq7bELg
+	WJZX7xHCWRg2XqVzTL2ZC8pfGPTWPX3R674Me9Wy2T0vemWo4mVdLPVTKxFBYg==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Wed, 18 Nov 2026 17:50:11 +0100
-Subject: [PATCH RFC v3 28/31] drm/bridge: clear bridge->encoder on detach
+Date: Wed, 18 Nov 2026 17:50:12 +0100
+Subject: [PATCH RFC v3 29/31] drm/bridge: shutdown encoder and detach
+ downstream bridges on bridge unplug
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,7 +66,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-drm-bridge-hotplug-v3-28-44bb3b4a828f@bootlin.com>
+Message-Id: <20261118-drm-bridge-hotplug-v3-29-44bb3b4a828f@bootlin.com>
 References: <20261118-drm-bridge-hotplug-v3-0-44bb3b4a828f@bootlin.com>
 In-Reply-To: <20261118-drm-bridge-hotplug-v3-0-44bb3b4a828f@bootlin.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -91,40 +92,52 @@ Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>,
 X-Mailer: b4 0.16.0
 X-Last-TLS-Session-Version: TLSv1.3
 
-Attaching a bridge to an encoder rightfully sets bridge->encoder to point
-to the encoder. It also sets it to NULL in the error management path.
-
-However drm_bridge_detach() does not set bridge->encoder to NULL.
-
-This will create a potential NULL pointer dereference in a following commit
-(part of when introducing DRM bridge hotplug) because drm_bridge_remove()
-will have to detach bridges attached to an encoder, so it needs to use 'if
-(bridge->encoder)' to know whether the bridge is attached to an
-encoder. For this to work, the bridge->encoder pointer must NULL whenever
-the bridge is not attached to an encoder.
+With the upcoming support for DRM bridge hot(un)plugging, bridges can be
+removed at any time. When this happens, shutdown the affected pipeline
+components and detach from the encoder chain the bridge being removed along
+with all the following ones.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 ---
 
-Issue found by sashiko:
-https://lore.kernel.org/all/20261001131425.A001E1F000FF@smtp.kernel.org/
+changes in v3:
+- do not shutdown the whole card
+- adapt to use drm_bridge_detach_from()
 ---
- drivers/gpu/drm/drm_bridge.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/gpu/drm/drm_bridge.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
 diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-index a29f3e60bb24..ea7ed2c3bece 100644
+index ea7ed2c3bece..0c2295c8137b 100644
 --- a/drivers/gpu/drm/drm_bridge.c
 +++ b/drivers/gpu/drm/drm_bridge.c
-@@ -736,6 +736,7 @@ void drm_bridge_detach(struct drm_bridge *bridge)
- 	drm_hotplug_event_notifier_notify(DRM_BRIDGE_DETACHED, bridge);
+@@ -29,6 +29,7 @@
+ #include <linux/mutex.h>
+ #include <linux/srcu.h>
  
- 	bridge->dev = NULL;
-+	bridge->encoder = NULL;
- 	drm_bridge_put(bridge);
- }
- 
++#include <drm/drm_atomic.h>
+ #include <drm/drm_atomic_state_helper.h>
+ #include <drm/drm_bridge.h>
+ #include <drm/drm_debugfs.h>
+@@ -547,9 +548,17 @@ static void drm_bridge_detach_from(struct drm_bridge *bridge)
+  * it won't be found by users via of_drm_find_and_get_bridge(), and add it
+  * to the lingering bridge list, to keep track of it until its allocated
+  * memory is eventually freed.
++ *
++ * If the bridge is currently attached, also shut down the encoder pipeline
++ * and detach this bridge and the following ones.
+  */
+ void drm_bridge_remove(struct drm_bridge *bridge)
+ {
++	if (bridge->encoder) {
++		drm_atomic_shutdown_encoder(bridge->encoder);
++		drm_bridge_detach_from(bridge);
++	}
++
+ 	mutex_lock(&bridge_lock);
+ 	list_move_tail(&bridge->list, &bridge_lingering_list);
+ 	mutex_unlock(&bridge_lock);
 
 -- 
 2.56.1
