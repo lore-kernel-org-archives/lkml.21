@@ -1,100 +1,125 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.47
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794966534;
-	b=KZGuEuin4qaLbqRBV2LfaCl0xoNbVb8FOlXQjsD8+NDyyMUudFq7GAYjrjt2YGEIm9K3
-	 gQ95DJ3N5rzg9vM+MXYSsz8cPgaqaMkAv8mAlKzuAum0kdPCXQhskKWEfrjLoKjRliUXg
-	 E04+QoEXZMdoqdrp7b0jE5r4OStOTqsbbsAvP+6Edlmu7VcBV6zUOreaGKesQh2ipVOwe
-	 gfl79HopA70PImtGGpVbh/jvz1BG9IlXrTz8Y94xiuDfVOqsVmtuIGu/HgZneGXNJebux
-	 i6N1FmYTMZIoPLEDZ4q2WLlx+jSJ4L3p8UTz9vXhihzWK+F7nXuaqlDBwwaXpGXDHHQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794966534;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=5qA17DFw7pSjm3SQ+rD/8sExO1zdTiuzDiXAhNV0lYE=;
-	b=NAXxBKnPKD9qiVgqe2JdXmmmPpKBGacHfv5h3PTJkxvkRHiLca9SWM0WfZJ2kiDaa0n2
-	 O3J3L0cakJx366/nltBcsGD8rzwckjyRrUDxSX3MgjBRqtLeJfTtDU3sMUlWKFOAMRTv2
-	 eRnuxeGYyKnYAGbaM/LwkpJ8mbMmcRSXC8vN19ilCZXLoq+YxpmAh/K05hSMlrLbJskew
-	 +pREST4VsJQ9OlNui5kfzWRfcGN9Jm/vuxq95ak01DJYn7r4oG6LQKlNP8QjG/sFYvdwJ
-	 BpZOE63MMRXidDay+pkGlFANnsxn4qEtgR8SoBgj4zpnxLoImYrZH+O5ZgaP8uAQSsA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=a+05DTut;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.47
-Received: from mail-yx1-f47.google.com (mail-yx1-f47.google.com [74.125.224.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794966553;
+	b=dG+e60aZaWomz4HSBY6IX0Xxwj3mM2uFOLmR/VWpUeaDBpHyWJfMdsRBa8YR/AMIuBLs
+	 8FpBvdNGhwmYszOUMdJbJA+GNNN2qbQOMszQ/NedR3NUxkbA1ZwfogPHtl7pc9ofNBlSG
+	 4iwr5tf4Vs7IkY/8D269XKmqdAySwuaMymZOKBIPLLBIOnv9zJqVrPOQsGhBLiaRYC0Jd
+	 IuVgYMUACqnELAxdc+XuYbDc+X1//e2PcGStmd2bQmWIfOHz9EnhShqLJ+zRMlBLon432
+	 7ZDgUd2M7r6Cz7ScIyepLhyDTFQ/8MSpXcUhLxKZi/qJAETOpkFCg517+R+ixaCYVyQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794966553;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
+	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Authority-Analysis:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=39gdEmsOXF3i8I4r1Zej3gbK6dbB1A557IW/nCHozLo=;
+	b=vjJ3K7+kKA4gFE3SMixdBXtJHs8DfxKL9JIfV74DTKIsmpP4UcD540t2sfAxvxFo8e1h
+	 evarcln0WPlohwr26W57FiKHUjN03bM+btaLS0EYwO2RRhE1J938VRyF/4QxIPi1ToKg6
+	 8yj/Mbu7r52KZX836deJpHFl8t1tsMbJy7k88TP7NiTZgG5gML3erRQJib6H5gYzfs/w5
+	 n4Ej6f2E8IEIwafINgabAtB89XgQHa4usnfWNvUXSJIzR2KlxAidxjRBpnZvXaU0CyJea
+	 gTvndeRDgEV4/DQ600J6c9V5K1uprcT5F5w5FNDY5dPLueJmbvC8BmR+UTDZG87ft4g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=jIvLBdsJ;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Lx3KIfZr;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B14C1606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:48:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B14C1606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 390AF606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:49:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 390AF606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=a+05DTut
-Received: by mail-yx1-f47.google.com with SMTP id 956f58d0204a3-67be9601f31so314701d50.3
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:48:53 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794966532; cv=none;
-        d=google.com; s=arc-20260327;
-        b=ZdXTTrM/0iorItTfGkNpxR00bPUymlMuFOwM9mMBjiYQT3GP4zisvwTOlXOcMWUP/0
-         d6A+G8PRDLPI5Bl/zNGZ6vdbYjbfbzbQ1WgFlm1F6XyKKUvvW7R4jqRaOTl9vtzD/XbK
-         S2E4pelIosjKh4GnJVo+/HdRtr1OR2VoSOCpnJtsR/Z84KIDpgj+w/BTr/QijuQsW0Ov
-         0eziNTCrWsZn92CekG93fd+7Oa4lAQ1VFkPWjXVIYWgItgMmcvFrAcVpei4E9ysYJrLz
-         d8hzjuXLG9f6Qsei/IsszTBtjb+JajABfnAz3te4W+dRqyU1UwwjCheTL1tcq1siSicc
-         Cksg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=5qA17DFw7pSjm3SQ+rD/8sExO1zdTiuzDiXAhNV0lYE=;
-        fh=w56atT94KT8bCNAN4mp/NoXOPW76dn0HXbG6NtiCAs0=;
-        b=F5zaCG81/BOk0y+N0xFuOTvyj8UR/EM1DtoZTCjqbAaINlb45n2Zu93YusA26u4dRg
-         I7Bio4bIWgd402kvMT/R9rD682etYU7wfVsWx0bgz2GZaibECzm4C/YdTnBA24TkF3rb
-         onooYpClGxIxDQBI6z/CnaM4FxX5fTwCPLEvfvXOKyAMdvwhGds/EtRFAWqQxIeM/4MP
-         bVOa8Wi9TniT9TvoAQ6obMspNa6rjkaL30w6tVc3WB3pdibsARH6cNYX8P9TuYiJedYW
-         4RS0JHXyLsgr9OHEX8XrXdZVdPdReo3ffFzwVaQBsd6a6d7WeLnnlbofDeBB7FIFfzHd
-         J19A==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=jIvLBdsJ;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Lx3KIfZr
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AHMeprZ1464768
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:49:12 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=39gdEmsOXF3i8I4r1Zej3gbK
+	6dbB1A557IW/nCHozLo=; b=jIvLBdsJ1LWlh+5MXzlaAESXTVEMsuv1CWz7ssSR
+	90Hw3SztC9PAwnQXW6jksPZ21Mwog8xqvP4jKfvl31KWZqBPsdR4epp3qoRKdoO9
+	RrbYr+j9hf4j9PQUqVzKEsWlN+b23+9rQe1252y9ZGaPlNBOuqgfvO5WHXhtLEjZ
+	AaMVA4j/yjXNEy8wZB/uUDqV0CUD8iQKPKQwqZLDocec5k+vZfJD1bYxvCXbh8Pd
+	hVPf5K1PPUUtjzrgBUUpMhvSnI1+IQThIUwHIDssKa/NmJP2ehITbcDK/SlO1E0v
+	WnH6cH2v6wpJ9gQp/b9ZRfg3A7vJl70S/+HRRcze8lkvCQ==
+Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yv9gjsh-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:49:11 +0000 (GMT)
+Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-1a5005fd0f8so936583c88.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:49:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794966532; x=1795571332; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+        d=oss.qualcomm.com; s=google; t=1794966551; x=1795571351; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=5qA17DFw7pSjm3SQ+rD/8sExO1zdTiuzDiXAhNV0lYE=;
-        b=a+05DTutJvxia7IoTDjNo1VYDRBwwwjVqFXekgTEedFWdaZYydMQW+429fNheV06C6
-         P2ZYpVEElqd2qFIqiIpUcCRx+MJv5rqfL0ES99/kH6L6QqH0kawf89FzRLFKB+wI0+Ds
-         HHE4y7IrIdv//eLLu21CiojY/DM0wCH/0yI7dCBvDCOIDNeMHLkr7NRYmyEzcSkcY8S8
-         NZAtkmaf/rMU+r5ltV/c5BQoR6vMIEFV1Edyxmv8remvG5z8SA2U6kPDzNI1sqDZTE/f
-         i2v2R4sUxu+37FStQRlTzg4yDiC7WjtHuoeosX53ZNpMkFHXiHZULBQzYVHPodSkWCqu
-         E57w==
+        bh=39gdEmsOXF3i8I4r1Zej3gbK6dbB1A557IW/nCHozLo=;
+        b=Lx3KIfZrqEpw4Uk4ohotWcC8AwDx0JHc6qN7+uxrbeHp7TCn3kEZb0k/CJXXLnu74D
+         +FJFNPGj/eyXJLlXdM7QdU2g3vTMdp5SDesOu++6cOmPkRBccgQ/xCTqoJIkIM21Hic0
+         9ls5HoX+cWqCuDF6zF26/AkE+sBWZ6WAsUK8pJ1EhvXegJibOwSkfZLYEQH2Dd3kZRlE
+         aA6tLzS8hWVXku1c7IZuyaYdpYKQiYpCF+fphVI0qPrcwQ7z5q3UVxwFLtl+Dz6rspp5
+         YyZMKPvB8OT/GZIzqt44Vrb6TrDSqulkbh3cNVSckK4IIcv6MfXgYc92ecgcY5avLW4H
+         gwPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794966532; x=1795571332;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1794966551; x=1795571351;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=5qA17DFw7pSjm3SQ+rD/8sExO1zdTiuzDiXAhNV0lYE=;
-        b=Bc3iHbenCkXSc5ZSn10TzeLEgw+IJ/Tmune6TMou0VteQnl49I0kMSNBX5fj6XyAil
-         jI9K+mzfpJ6au4ad+yiJK6Q7+oKQN5Wpz5SfLiYOT1aCYiWQzMCpat2KKwr8NYR7B71d
-         fZo6TNfBV4/9JEYRpFVgpRjEbzuezppAH9LIHDN2ZBNSOgD0DSJH7vvLfsRDJdd1cqn7
-         jcuCbVceWxj62y73/qH1EN9jGgfy5oWrcze63L8EbNt6aMgVIOyNyKJGQnOgquMQh412
-         p+zDy45/KvJqTOHEFE+lnDrg1m9WJy0pTihYxdEo8cub9cNtv2zlM+3XL77Owi4/Nm6u
-         UsBA==
-X-Forwarded-Encrypted: i=1; AL+hErGRqUOd1syOIO1HQf1Qq4ckq6nvNqsfDo1RpylHJAYy3J8tN/nEyX+NE1affaSREkJJEqbrh/KK+AYnjxw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8gZuX1psEk9JyK4yUFesQXSgvgk1BXYT9P6npBM2kuKPlZVzFy
-	ZvymS6vZ/aBAoO3gOJ4DVt2KpmvomD1zi7nv6bUy5L3xGqZNBV8D+deIo6Edq+bMo+bHcVfvVl7
-	z8KC7s4QuAcM2hGq4WzAp0M2n/1i5I7I=
-X-Gm-Gg: AZFdTZdBZFZpiL+hdsJDYUV9DFqdJq97Yy67Pgv1Z/TT+lV2aAlAv1vEjl3oEkdGNQG
-	D5t40Uwg7PhYnsyaeN2Xqrl3u3Prhwwuws7n4SIh9HfjoufL0/+g9U89ILJhGPnc4vd/fvOVY+3
-	62HFsZ7JUJWTNYJatejvu3ekVXjsH5A67rRMUmEM4XxvVrRBJy2n68MvyBYA1Bxhpw4LHIW9/rn
-	Q3cqYIJ2SGAG62x2s4y1MOwyVAssOxxQqG+YpamacSMtEqG39xNonDsVFNt4nAeuvTKotX9HmI1
-	1eIuYetH4DFhaVpVWrp+4ujd9gSrySqWOXdwOmLeHW0IGeHEauDmxASqieeXrDNqTXXGptyaVfa
-	3ROXAzHqWF2KWYzZjj/Qk4UOGEslRxsxuPABC
-X-Received: by 2002:a53:c044:0:10b0:67d:b299:df4c with SMTP id
- 956f58d0204a3-67dd3fed55bmr447237d50.79.1794966532677; Tue, 17 Nov 2026
- 17:48:52 -0800 (PST)
+        bh=39gdEmsOXF3i8I4r1Zej3gbK6dbB1A557IW/nCHozLo=;
+        b=FwKF/UOUiofjvPUo/sV4gXwSqmHTT6+oL0LI38JCNCFezggXdUWeGkve2tHZFlT1Ib
+         9K+h36nvqn6elBJod3734XfKyfw8vlpN5ZTL5YIM5VGomHYJ8maEblCFnijJSzJBji7p
+         cxAy3uSQ7AQvzlr9nhrfSyyCJSoJRiVuR4jlm5JY6KMjQ5qxAyP93MG/JflXMYFOh5u9
+         FlmhKN/veXpJFycRE5j68sLz2MB7qloTGpDbwUJ10/JMbQ7ttc/1sUPn+ko3MCH5K/z2
+         lIiWuG3YimN58UxbPkyuugFDt/CsAb7gvOMZE+JLwkiY2i9ZvVR5uL4TitADC95MQph7
+         hkLQ==
+X-Forwarded-Encrypted: i=1; AL+hErF1q7+bO2vS3J/nUNEIyg12eAIUUyZRXb+LoovCJctKy5gSW7yGng2LoNIGhKMowsa46qAT3US9dBg/oV8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+MzXasWAdoy84aqIqJcGcDshTKdPQ0lnJWxNhif3Rj4KvGMjqM
+	zSAzwhCeHotFQ9SiVHzbk7h/dWEpOPK91slxOrVWZGKl4c5sUawhD/4nW/wexEaFwgtLeivUU5x
+	DwR5GcOpXY3BbGaaMcjuQTyrGLwG+v/46CnDKaT55oc19cEw3uhpQdbCPkZDh3tAr/dc=
+X-Gm-Gg: AYBFou0KHNZNpskxnvT0ISEVvWxSrtTGNF6Of5sQw7tLwxhbyJNk6KIk4KwaTmasEBp
+	eTBoa2YodCNALTJQD3gEYmdvJVifhJNJbZ/MKEtgXed8AZOa17jXVP6B70OnaWaygpvYs+d9D6t
+	dp1M00Z6IpCLQ6iHng1nmq8LCp53BkF7ylAgmiM2nMsYlix4KXZgv0WJKH5It/g+zwWiJf+OVDp
+	chSrDTsoRq8e32aD+biHPbAfdMyXsSgv4BcZY8bxIpaCaXnHDMeXn2/8W0AkmicyPfTXi9Ij800
+	wZJdX+ijYMsVbaPrTDVT6pIHK+H6qDJ6Hv7QggBf31Gxmn/FuvSFwf+tZDowDpmplCUyxdn9Ku+
+	eRq7q6jHy1XbVnWkUDqAmfHwGOZzD5bCbfO0Ms/ArTZkS8AyzXan9PRJRGpzFmHyljOQ0QfauMy
+	0Loh+Ns3JVIdciVXmbzkNXpSU=
+X-Received: by 2002:a05:7022:7e0b:b0:1b3:b4cf:8f18 with SMTP id a92af1059eb24-1b543c4204dmr1354458c88.41.1794966551029;
+        Tue, 17 Nov 2026 17:49:11 -0800 (PST)
+X-Received: by 2002:a05:7022:7e0b:b0:1b3:b4cf:8f18 with SMTP id a92af1059eb24-1b543c4204dmr1354445c88.41.1794966550447;
+        Tue, 17 Nov 2026 17:49:10 -0800 (PST)
+Received: from hu-ashoraj-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5446f954dsm2070664c88.2.2026.11.17.17.49.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 17:49:09 -0800 (PST)
+Date: Tue, 17 Nov 2026 17:49:07 -0800
+From: Ashok Raj <ashok.raj@oss.qualcomm.com>
+To: Vladimir Murzin <vladimir.murzin@arm.com>
+Cc: Linux ARM Kernel <linux-arm-kernel@lists.infradead.org>,
+        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Jinjie Ruan <ruanjinjie@huawei.com>, Liaochang <liaochang1@huawei.com>,
+        Marc Zyngier <maz@kernel.org>, Radu Rendec <radu@rendec.net>,
+        Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
+        Sathvika Vasireddy <sathvika.vasireddy@oss.qualcomm.com>,
+        Ashok Raj <ashok.raj@oss.qualcomm.com>
+Subject: Re: [RFC PATCH v1 0/2] genirq: add migratable NMI registration and
+ show NMI counts
+Message-ID: <av0EE35H57DWF1E2@hu-ashoraj-lv.qualcomm.com>
+References: <20261114234946.818072-1-ashok.raj@oss.qualcomm.com>
+ <452bf82e-52ea-47c1-9074-eeb614a33747@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,109 +129,125 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <cf3fd237-2290-4002-8de0-ea4100ef0f85@yahoo.com>
- <7edbdf93-91e1-4dd1-9ecf-35863cecc277@yahoo.com> <CAD++jLmDszU-XBV9bVDH39cYLSKMDOAHEMdu7s8mxYjfhEvuNA@mail.gmail.com>
-In-Reply-To: <CAD++jLmDszU-XBV9bVDH39cYLSKMDOAHEMdu7s8mxYjfhEvuNA@mail.gmail.com>
-From: Gustavo Foletto Mora <gusfmora@gmail.com>
-Date: Tue, 17 Nov 2026 22:48:40 -0300
-X-Gm-Features: AclHuK9OfDXHhJvhOW-znqZivtMI1pbd9fi69T_7Y39jiuS3D1c5vGLLPG7v_NM
-Message-ID: <CAK+kzgwVSG4CBv8NQvQaqyr__BZbd860EDfEMoZU5JdFCYhtTw@mail.gmail.com>
-Subject: Re: [PATCH net-next v11 07/13] net: dsa: realtek: rtl8365mb: set and
- get vlan 4k for family D
-To: Linus Walleij <linusw@kernel.org>
-Cc: Mieczyslaw Nalewaj <namiltd@yahoo.com>, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org, 
-	davem@davemloft.net, edumazet@google.com, pabeni@redhat.com, 
-	linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com, 
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	alvin.sipraga@analog.com, kuncy7@gmail.com, fabianotassotti@gmail.com, 
-	gabonpivovich@gmail.com, contact@c127.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <452bf82e-52ea-47c1-9074-eeb614a33747@arm.com>
+X-Authority-Analysis: v=2.4 cv=QenzLcbv c=1 sm=1 tr=0 ts=6afd0417 cx=c_pps
+ a=SvEPeNj+VMjHSW//kvnxuw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8 a=hmA-pMIHEFdmMcvF4JwA:9 a=QEXdDO2ut3YA:10
+ a=Kq8ClHjjuc5pcCNDwlU0:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-ORIG-GUID: AijeaPjgB_0MxHDxAae-vFF5N493nqK8
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAwNiBTYWx0ZWRfX7wHJrCUpgMkr
+ PpL+cMSgRch6mLIKdwPWMvVbs9p0CffnI1oSZLPgLe7LwI11lWijqA0zpunpE+4uxE5SFRjowd2
+ yzNcUOByjC6Dk3N7LhpPiN1FUdgX1OLteo2pgjBnUDO7mjDo2U0/RYh3QnOh4GzFx0s7+pATsK7
+ 4leRlKZ7NXvGnFmaBmo79ndwoW87sYPNrk3KX7F5cHHR8jlGGqWoIbMXWVgmxJMvwbKZ8lytJt8
+ jQV7sC7Xua2DhYgxLi/0UIuXLWMW8klY1pEKAuEpyMwAk9fzADSxkJ9gA1AfWI1qK6EYL1pADtC
+ JkVEWa9419I7Th0vFiiAZ6jJeCBkGtVYPf9psJ1zFdg5pJT8X37EOCpmW1ZrE9piALBatkGc0UN
+ iWandzMld0oEBPYLeykDyZ9qPSAtTLKf6fgCP9Z0zs3E6rnhR6ThDP8ccUUJsQuKAYXwt6khQfk
+ 4AoKWFceiD9u3C7gv9Q==
+X-Proofpoint-GUID: AijeaPjgB_0MxHDxAae-vFF5N493nqK8
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAwNiBTYWx0ZWRfX9Z4KUrWXH3mV
+ 2jCN8IG+3G8HIXtofcqRz7GhGPUB48qUegiDbVXIl5kpFA0ZPzb4hWzAAP6RHT/T3QNt+g+pe2y
+ zrKXnwS2xwbXaR5mGbUAC4PE7mqs6Lg=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-17_05,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 phishscore=0 clxscore=1015 suspectscore=0 impostorscore=0
+ bulkscore=0 priorityscore=1501 lowpriorityscore=0 adultscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180006
 
-On a TP-Link EX511 v2 (RTL8367S-VB, CPU port 6 over 1G SGMII to an
-IPQ5018), on 6.18.44 with v11 applied as is, I tested the live
-vlan_filtering toggle this patch now handles. Two user ports were
-bridged with the uplink, two others were in network namespaces as
-hosts, with loopback cables in between, and the toggle was done with
-"ip link set ... type bridge vlan_filtering", without touching the
-VLANs:
+Hi Vladimir
 
-- 1 -> 0 with the VLAN in place: after a fast age the hosts are learned
-  without a VID (SVL). A static entry with VID 0 on the ingress port
-  drops the frames, and on the other bridge port it steers them there
-  only. A group entry with VID 0 restricts the group. With v10 the VLAN
-  stayed IVL until its VID was deleted and added again.
-- VID deleted and added while not filtering (so it is written SVL),
-  then 0 -> 1 without touching it: the hosts are learned with the VID
-  again and unicast with learning on works. A static entry with the VID
-  on the wrong port replaces the learned one and cuts the traffic, and a
-  group entry with the VID restricts the group. With v10 the VLAN stayed
-  SVL in that case.
+On Mon, Nov 16, 2026 at 10:38:00AM +0000, Vladimir Murzin wrote:
+> Hi Ashok,
+> 
+> On 11/14/26 23:49, Ashok Raj wrote:
+> > request_nmi() currently models NMIs as per-CPU sources. This does not
+> > represent a globally routed NMI source with an affinity-capable irqchip,
+> > which needs to be rerouted when its target CPU is offlined.
+> > 
+> > This RFC adds IRQF_NMI_MIGRATABLE as a request_nmi() registration mode
+> > for such a source. It remains excluded from normal IRQ balancing, but the
+> > generic startup and CPU-hotplug paths may select an online target. The
+> > second patch fixes the related /proc/interrupts display: NMI-safe flow
+> > handling updates the per-CPU counters rather than irq_desc::tot_count.
+> > 
+> > Patch 1: Add the migratable-NMI registration mode, validate that it is
+> > used only through request_nmi() with an affinity-capable non-per-CPU
+> > irqchip, and add IRQ KUnit coverage for registration and CPU-offline
+> > migration.
+> > 
+> > Patch 2: Emit the per-CPU counters for all NMI descriptors, matching
+> > kstat_irqs_desc().
+> > 
+> > Testing:
+> >   - ARM64 changed-object builds with WERROR=1
+> >   - ARM64 !SMP changed-object build
+> >   - ARM64 IRQ KUnit run under QEMU with two CPUs, including registration
+> >     validation and CPU-offline migration
+> >   - local downstream GHES delivery and migration validation for the intended
+> >     consumer topology (not part of this series)
+> > 
+> > Base and dependencies:
+> > 
+> > This RFC was developed and tested on v7.4-rc2 plus the FEAT_NMI v2 series
+> > [1]. It depends on that series' GIC NMI support and is therefore not directly
+> > applicable to mainline or linux-next as posted. This RFC is for design
+> > feedback; it will need rebasing onto the upstream form of those prerequisites
+> > before submission.
+> > 
+> > [1] https://lore.kernel.org/linux-arm-kernel/20261112132042.129062-1-vladimir.murzin@arm.com/
+> > 
+> 
+> I'm not an expert in this area, but based on what I've learned so far,
+> NMI being per-CPU like makes life much easier ;)
+> 
+> IIUC, one of the main problems with a shared NMI (as opposed to a
+> per-CPU) is handling shared state. Consider:
+> 
+> CPU0                       CPU1                       CPU2
+> 
+> ---------------------------------------------------------------------------
+> 
+> <NMI>
+> handling started
+>                            set NMI affinity to CPU2
+>                                                       <NMI>
+>                                                       handling started
+> mutate shared state
+>                                                       mutate shared state
+> handling finished
+>                                                       handling finished
+> 
+> IOW, the same NMI handler could execute concurrently on two CPUs,
+> potentially corrupting shared state. Once again more than happy to
+> be corrected if I missed something :)
+> 
+Thanks, you're right, and I got it wrong in my earlier reply. genirq
+doesn't serialize NMI handlers: handle_fasteoi_nmi() takes no desc->lock
+and sets no IRQD_IRQ_INPROGRESS.
 
-One thing to note: each toggle that flipped the switch-wide state took
-about 5.4 s here (5420, 5450 and 5390 ms for the ip link command),
-presumably the scan of all 4K entries over MDIO. Management over the
-same bridge stayed up and no warnings were logged, but scanning only the
-VIDs in use would make it much shorter.
+These interrupts are external interrupts in the platform, not Per CPU
+interrupts like the perf kinds. 
 
-The rest of the series passes our regression run on this board as with
-v10: VLAN-aware and VLAN-unaware bridges, PVIDs, isolation, FDB and MDB
-entries, flooding flags, load, no driver warnings or port errors.
+I'm new to the GIC, so I'd like to check an assumption. On GICv3, an
+active SPI isn't signalled again until it is deactivated.
+handle_fasteoi_nmi() calls chip->irq_eoi() only after the handler
+returns. 
 
-Tested-by: Gustavo Foletto Mora <gusfmora@gmail.com>
+So I'm assuming a second CPU can't be sent the same SPI while
+the first CPU is still in the handler.
 
-Thanks,
-Gustavo
+Is that a reasonable assumption? 
 
-Em ter., 17 de nov. de 2026 =C3=A0s 05:23, Linus Walleij
-<linusw@kernel.org> escreveu:
->
-> On Tue, Nov 17, 2026 at 8:39=E2=80=AFAM Mieczyslaw Nalewaj <namiltd@yahoo=
-.com> wrote:
->
-> > The hardware structure of 4K VLAN table entries has changed between
-> > silicon families. Family D's CVLAN entry is two 16-bit words rather
-> > than three: there is no third word extending member/untag past bit 7,
-> > and no priority/meter fields at all. The FID field is restricted to a
-> > narrower 2-bit width. The chip itself supports both IVL and SVL.
-> >
-> > IVL_EN (bit 3, versus bit 14 on family C) follows vlan4k->ivl_en. On
-> > family D, rtl8365mb_vlan_4k_port_set() enables it while any user port
-> > has VLAN filtering enabled (dsa_port_is_vlan_filtering()), so that
-> > static and learned FDB/MDB entries use the same key. Family C keeps IVL
-> > always enabled, as before.
-> >
-> > When a vlan_filtering change flips this switch-wide state,
-> > rtl8365mb_d_vlan_4k_refresh_ivl() updates IVL_EN across the active 4K
-> > entries, so existing VLANs, including those programmed before filtering
-> > was enabled, switch between SVL and IVL immediately. Changes that leave
-> > the state as it is do not touch the table, as the update reads every
-> > entry.
-> >
-> > Reusing the three-word family C layout on family D would read a third
-> > word that does not exist as a distinct table word on family D's die.
-> > Whatever data happens to be in that register would be folded into
-> > member/untag bits [10:8] on read, and written back on every
-> > read-modify-write cycle in rtl8365mb_vlan_4k_port_set(). Give family D
-> > its own two-word pack/unpack instead: add rtl8365mb_d_vlan_4k_read() an=
-d
-> > rtl8365mb_d_vlan_4k_write(). The shared code reaches them through the
-> > vlan_4k_read and vlan_4k_write pointers in struct rtl8365mb_family_info=
-,
-> > so the pack/unpack code needs no is_d() check.
-> >
-> > The two-word layout matches the vendor switch API for this chip
-> > family, which writes only 0x0510/0x0511 for a CVLAN entry.
-> >
-> > Nothing points to them until the family D info is added together with
-> > the chip table entry in the last patch. Until then they are not static
-> > and are declared in rtl8365mb_vlan.h, so that the build does not warn
-> > about unused functions.
-> >
-> > Signed-off-by: Mieczyslaw Nalewaj <namiltd@yahoo.com>
->
-> Looks Good To Me (TM)
-> Reviewed-by: Linus Walleij <linusw@kernel.org>
->
-> Yours,
-> Linus Walleij
+I didn't quite follow the mutate shared state comment. 
+
+I just interpreted thast as "handler is now called in another CPU" 
+type assumption.
+
+Cheers,
+Ashok
