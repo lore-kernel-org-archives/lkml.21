@@ -1,62 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1794993132;
-	b=5AhDu08WvXABsmE+KmYoL2ptGoQK690ksHrBQrjv449i8OTAgfOR/QeTgy05yilIsPTa
-	 S2S9uXshxSLgvFcPW63gqKphlDSW/d1WUWrULadrzCBU1O9hgMkJdkKTs0ejGiR6XsT9U
-	 L2dLg1Ztww67Vt6cBMBQQyxPndWZU7fQ48RXgbbH/SHez/yYM+Zp/VIjMvueHwX53h4I+
-	 eWeaZdtD5iUvTCfDDd1KF0HF9j9Iw7zcCOuku/0f8zUFcF5+S4XSmSUJhxP8kERmVAWKZ
-	 lsKNNZyfSMIA2J4TLTwVtwYRtT+9Urpv2kfOGm5UMK+v4JoOrMLz/cDUfu+0Guo0eHA==
+	b=0Q4THspvZb3ghkBoRaDkakn0kKes1bS0XW2vy0relaCxN5JMw3VSrYLFM/bkcv/Fkm6T
+	 oJSmixePn5zxS5vO54a7uQkupf+MupA+u/VeQcEIju99ql7PjOH9oN+Y+DQG/4M/0zkL/
+	 ePwnSy73EXS9xR+zZ7v6T5EFBMKeRYPBTPqP4Few9y+Wq+XLBjJ6ee4xGyKtj4O9+AV5U
+	 U/i/PbxDtcKVxoRxuKl72do4H5UCMSwVmBoCE+vmD+2V+Ut6ThlTv9HHbU7YhwD2M6E0q
+	 /yPWmfCSWy05+ic65thu+PONWPYVEezfyEt3sL6WyIVY6aBjZ7DX0GmzzID/+lSb7aw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1794993132;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=SgfZ+LNnsqWZfGGf7VC/KCgYqnX/cf12Sh4IpDvmxqM=;
-	b=3p55wcPTwTTWO0MRIdIkiM2ACUDujAwWkIkEIDEYYikBMeQxuVEHiPo2B033gsCPs1Bt
-	 9pPQ+CQrZxkg12er/JXf7dXlllo+C3U5e1RGZia/jIwlbhZKGzxfnPtqXFUPP8ATmDbKn
-	 4CQ8HRYAOl0MTEMYytZcV642b7R6DCkaZiqlhmAlJC9yvVmN05R1SEgsvOY5ABd8uarrE
-	 YAAdCJ3ZyJC3AAWprcn6+RK6x8AqozBPhQnhk+WG359p8glwyNeNzspUeOu7pqoraSBAy
-	 tM73ngUcQ5lA8Igkb/TzzSHCsmPzMCZUaelZl8Lroyf6Ntq0H6HnVjWpn0MlRa2iUDg==
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=1x0JvTH95xlVccUSIz+p1toU0TMB79EnxF+TvySYDik=;
+	b=CCFPLxBYcTO909v/qOzm5Ta7sB3DspePUm8u7Pkhl/M0A8PoekX+TWpJYXmXgzuTAKDw
+	 AsQicJ3PG6o8xft3sMGnaLQxU5/wyBuOcKM77CWx/02KukWhc4UBKoSvMgSUVnuFjoRPs
+	 TQcosV4orM9viSgeqKU7VqyAmyrspdLkZM64pn8+HfMLVkY3FNZYl1IQshxRG6Bohr3QH
+	 Dpf+H8lkoo9jK/4E4ZYQCGZxb6zPEIECdv+Aomja5hNE/GmCBKFnwwpRTBgdSERULzZss
+	 Pt2T0GkhcwugfCXadY+dv9a1GfTrxz0iCWNAr2b/7QwY/RyummH/1oGpnFyKcARcoRA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=Tr6rp5UU;
-	arc=none smtp.remote-ip=220.197.31.4
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.4])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O1URnl7s;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56B0E606A897
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:12:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56B0E606A897
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2CE9606A89A;
+	Wed, 18 Nov 2026 09:12:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=Tr6rp5UU
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Sg
-	fZ+LNnsqWZfGGf7VC/KCgYqnX/cf12Sh4IpDvmxqM=; b=Tr6rp5UUp2qwMpyYKy
-	eG7VUOHpy3yNJX1Pf7M3rl8+NVlWcDCjQLh9jmVTisIY1SVnvt618Acq7KcNlW1m
-	L0x3UHOnOBywuCnDBh5dhlisTUalpsH/h1aS81hqxCgYa3wki+/SFb8j+sk+VR2D
-	cFBTHkoiey3WgjZDRNMvea/1E=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wD3v0nSa_1qVwxBIg--.34758S7;
-	Wed, 18 Nov 2026 17:11:50 +0800 (CST)
-From: Xuewen Wang <wangxuewen_ky@163.com>
-To: linkinjeon@kernel.org,
-	hyc.lee@gmail.com,
-	liubaolin12138@163.com
-Cc: ntfs@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Xuewen Wang <wangxuewen@kylinos.cn>,
-	Baolin Liu <liubaolin@kylinos.cn>
-Subject: [PATCH v6 37/37] ntfs: report attribute move removal and cleanup failures
-Date: Wed, 18 Nov 2026 17:07:01 +0800
-Message-Id: <20261118090701.1858849-38-wangxuewen_ky@163.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261118090701.1858849-1-wangxuewen_ky@163.com>
-References: <20261118090701.1858849-1-wangxuewen_ky@163.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O1URnl7s
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D56601F000C4;
+	Wed, 18 Nov 2026 09:12:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794993132;
+	bh=1x0JvTH95xlVccUSIz+p1toU0TMB79EnxF+TvySYDik=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=O1URnl7samSzWAfKkFnwmg2lkOkTknHxowI0kSwtp9/Hs0N62CaLDELNm4wi7KP4G
+	 6Kw3tMtk3B4+yph4HL2ex962gNz6zoDy7UyZ4qLUbDD4JK7Yne767Mtw3zqOcYvWOl
+	 3OpogKjm6BL4GoVk6VBzBIQmwDkde8cS4YtbcP/CoOK1q7GgQ9i6VCDIOHjZ5yzBj5
+	 wh+6llTmZn0bcq3jZ9p1CW8+6j3infvvcy4uC9suBlTrxEDg1uLGVxDCCdUaMhDqvm
+	 7WvTD1w2buZVBfG3X7LVCgl4jcToK5yyJYS/qPXOJbQuThdSYhJUqON97HZlqAcqnm
+	 1+sWLYh3ho06g==
+Subject: Re: [PATCH net-next 2/4] eth: mpnic: add promiscuous and
+ all-multicast filters
+From: netdev-bot+sashiko@kernel.org
+To: daniel.zahka@gmail.com
+Cc: alexanderduyck@fb.com, kuba@kernel.org, kernel-team@meta.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ pabeni@redhat.com, dimitri.daskalakis1@gmail.com, mohsin.bashr@gmail.com,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org
+Date: Wed, 18 Nov 2026 09:12:11 +0000
+Message-ID: <179499313144.3136.4262860920559871885@kernel.org>
+In-Reply-To: <20261116-mpnic-l2-oot-v1-2-8dc6eb3582b0@gmail.com>
+References: <20261116-mpnic-l2-oot-v1-2-8dc6eb3582b0@gmail.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,59 +64,86 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3v0nSa_1qVwxBIg--.34758S7
-X-Coremail-Antispam: 1Uf129KBjvJXoWxJry5Gw4xWry7Zw1xtF4ktFb_yoW8Aw15pa
-	s7C3sIka4DtF17Kws0q3y2q3WI9FykuF45Xr13G3W3Z3Z8t3WqqryxKFWFga4FyFZ5Jws8
-	Xw1jv3y5CFy5uFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UTq2iUUUUU=
-X-CM-SenderInfo: pzdqw5pxhzv0xbn1qiywtou0bp/xtbC8BYqE2r9a9akJgAA33
 
-From: Xuewen Wang <wangxuewen@kylinos.cn>
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-The earlier attribute-move fix checks source removal and destination
-cleanup with the pre-existing volume error bit and log messages. Keep
-that fix independent of the new reporting helpers for backporting.
+Low priority / nit picks for your consideration:
 
-Replace its volume-bit updates with file metadata reports. Report the
-source removal and an independent destination cleanup failure after
-releasing the destination search context, preserving the return errno
-and both diagnostics.
+- [Low] On every ndo_stop, mpnic_clear_rx_mode()
+  (drivers/net/ethernet/meta/mpnic/mpnic_netdev.c, called from…
 
-Reviewed-by: Baolin Liu <liubaolin@kylinos.cn>
-Signed-off-by: Xuewen Wang <wangxuewen@kylinos.cn>
----
-Changes in v6:
-Add reporting to the standalone attribute-move fix in this final patch.
-Report after destination context cleanup and keep separate source and
-cleanup failures.
+--
 
-Validation:
-- Compiled and linked the NTFS module object with W=1 at this stage.
-- Eight controlled attribute-move cases passed for this stage,
-  including source removal and independent destination cleanup failure.
+eth: mpnic: add promiscuous and all-multicast filters
 
- fs/ntfs/attrib.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+This commit implements IFF_PROMISC and IFF_ALLMULTI using the last DMAC
+TCAM entry, which matches either every address or only the multicast bit.
+It also changes the default action on TCAM misses from pass to drop.
 
-diff --git a/fs/ntfs/attrib.c b/fs/ntfs/attrib.c
-index eae88b45d05e..c7e32ef15135 100644
---- a/fs/ntfs/attrib.c
-+++ b/fs/ntfs/attrib.c
-@@ -3739,11 +3739,11 @@ int ntfs_attr_record_move_to(struct ntfs_attr_search_ctx *ctx, struct ntfs_inode
- put_err_out:
- 	ntfs_attr_put_search_ctx(nctx);
- 	if (remove_err) {
--		NVolSetErrors(ni->vol);
-+		ntfs_report_file_metadata_error(VFS_I(ni), remove_err);
- 		ntfs_error(sb, "Failed to remove source attribute record");
- 	}
- 	if (cleanup_err) {
--		NVolSetErrors(ni->vol);
-+		ntfs_report_file_metadata_error(VFS_I(ni), cleanup_err);
- 		ntfs_error(sb, "Failed to remove destination attribute copy");
- 	}
- 	return err;
+> diff --git a/drivers/net/ethernet/meta/mpnic/mpnic_netdev.c b/drivers/net/ethernet/meta/mpnic/mpnic_netdev.c
+> index 16611813db555..43547a7d6e5c7 100644
+> --- a/drivers/net/ethernet/meta/mpnic/mpnic_netdev.c
+> +++ b/drivers/net/ethernet/meta/mpnic/mpnic_netdev.c
+
+[ ... ]
+
+> @@ -54,6 +64,7 @@ static void mpnic_clear_rx_mode(struct mpnic_dev *mpd)
+>  
+>  	mac_addr[MPNIC_TCAM_MACDA_BROADCAST_IDX].state = MPNIC_TCAM_S_DELETE;
+>  	mac_addr[MPNIC_TCAM_MACDA_HOST_ADDR_IDX].state = MPNIC_TCAM_S_DELETE;
+> +	mac_addr[MPNIC_TCAM_MACDA_PROMISC_IDX].state = MPNIC_TCAM_S_DELETE;
+
+[Severity: Low]
+Should this check for MPNIC_TCAM_S_VALID before moving the promisc entry
+to delete?
+
+The broadcast and host address entries are always valid while the
+interface is up. The promisc entry is usually MPNIC_TCAM_S_DISABLED,
+though. That is its state whenever IFF_PROMISC and IFF_ALLMULTI are both
+clear and the mc list is empty, and also after mpnic_promisc_sync() has
+already removed it.
+
+The state comment in mpnic_rpc.h only lists valid as a source of delete:
+
+ *  Valid     1	-> Delete     3
+ *  Delete    3	-> Disabled   0
+
+The other place this patch adds that deletes the same entry follows
+that rule:
+
+mpnic_promisc_sync() {
+    ...
+	} else if (mac_addr->state == MPNIC_TCAM_S_VALID) {
+		mac_addr->state = MPNIC_TCAM_S_DELETE;
+	}
+}
+
+With ip link set dev X up and no promisc/allmulti flags set, followed by
+ip link set dev X down, the path is mpnic_stop()->mpnic_clear_rx_mode()
+->mpnic_write_macda(). This takes a disabled entry straight to delete,
+and then issues an UNLOAD_TRIG for entry 1023 even though it was never
+loaded.
+
+The extra unload looks harmless, because mpnic_rxb_init() already
+unloads every entry at init. The remaining problem is that the code no
+longer matches the documented state ordering, and the two delete sites
+behave differently.
+
+This is still the case at the end of the series. The later commit "eth:
+mpnic: sync unicast and multicast address lists" updates the same
+comment to add "Delete 3 -> Add 2". It does not add a disabled to delete
+transition, and it does not add a state check here.
+
+Could this either check the state, the way mpnic_promisc_sync() does, or
+document disabled to delete as an allowed transition?
+
+>  
+>  	mpnic_write_macda(mpd);
+>  }
+
+[ ... ]
+
 -- 
-2.51.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116-mpnic-l2-oot-v1-0-8dc6eb3582b0%40gmail.com
