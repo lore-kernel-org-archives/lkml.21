@@ -1,79 +1,78 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795028836;
-	b=3CIWf+bKvNrmHpndLOgkM/mLF5akb3JENQmkZqAawFAQIg2HXq5uXvShXzBXYMoKZI+b
-	 KZnWbBCNCtrZ7slfPGhT04L8jWI/C41Nw0O1TcdhFuYzJhY6EvNQws+JOz6VjvMJ0Mbdq
-	 GynB5uPPpLBlzjTL+kxTMF3l6CKGqjWbpgxyXtsvgxmpIK6CB1dS+Ux1uE6wM2ChPB4tU
-	 VwKL646BWz5D2w+L/BNuybnO7Nr+KO0Abf+PzLvzEUOoUXZDrvlgne4CSoNOh9kZQUUKm
-	 Q2z4IPvyn66xLh4vX29Yzv0Hd+0a176sUAum03pCrba4kWFtnBoboX0JWuzmdTy4fbA==
+	t=1795028837;
+	b=pmceKkNutshhXtrLP206+P1Kkg+HHnDqeYwyZrZFZea6X8zNJ/md0LXGvTYGtOSYqgk+
+	 4Kvpg/EdKCdUQBDPkNtLqnuPCARF7XRXXnWjvITkWbLPxe0eE163U6m3SO4Hwd6nvkqbb
+	 xrLZ9Fjg1eRj+vm5bNhIai9qWoy72LUBoMhG/VRpobkEHSK83nei22Z34R234fWrITcAz
+	 egdwxEjWrEJS0OSWyyCDXBhlSh7ryAmbgO+YvKQHb0IS53XO5nN3HHlIEJebC3VX2OiAQ
+	 3/dTSQwd/EaQhfxKfCGojjJrew1klFewPq9JydyTPC4fef46BaaUB46dt9heQ5LxajQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795028836;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795028837;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=GUDae9cdn+7jukw5FaNzRwyibyvz8i01iDH/hVud3Ow=;
-	b=c4pkC/iKBL+KsMpHjcNP+1OrVHwHJxNui28bsCHW2LcheclE8WYCcEhBEIqPO+kDbZgI
-	 ry48x0rcB5hii7S1enNnR3efjDsAgH/qo3Vr/gqyeCiFBGijIL1VwKc7fOpyCd6SxHdcT
-	 7v72KvlL1VYQathDp8bhp7jHAOg5vdnraN5O51cPgBXSub17BW+y9fuQQXiz/T+AeTd7N
-	 ZFEDNUW9MKdwSKPkYeDPun2FOMiXPHsue5lcstN+vQ48i8evDGyutIjyMaau6Ol7O5sTe
-	 Ocg37al91PkiFtviCbmsfW0utdew5wU3US3XZX8ji9UHcEW0W2FclG1W5hgFLwoUyvg==
+	bh=+k/NWSXV+Gb4kP6pdN6Psw2CRLNz63/ZQKflIA7KPmE=;
+	b=CmIinD9jBuZ2fCcTWZSN8BcL6ygLguFictJm3fyHqI1tvNCwV8WtWB7du8Sx9SeenuSw
+	 SVVtmhRqZTXH+LTtadT8RdKGZUljqduP80RHe/3+8k3h0lY7fiX5z5oj7ZhkHES4XSyA2
+	 YyQGwtNJVHMU48Sa5C0Uv54Y29rUQKzggDYZEXNHQ7Lu5CsP+aS5ZR8NCvMINaPYuRWs6
+	 i0EOSzeMqy29/yEpaRKVcS/sF0jItd55NxD4NWpRuxA6HOTDjMpRiIJOj1l5XXxFJaUZe
+	 vHNcHKwPpcej7DUJb822m0f6kWkCnVZgLdUvAlSo7h8tORven07fWnQqXrWG0FOddVw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TlMdNTNu;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GPzfuUth;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00CD960A2606;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 284C860A2620;
 	Wed, 18 Nov 2026 19:07:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TlMdNTNu
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GPzfuUth
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795028835;
-	b=cMqwmDWDY5TDZh+wIwZHQyRRIrOYRNP2bHf0RsDG3GKh1i/R23qc9ONRAqcI6oV7zDrE
-	 n5GoF5rd2XAIW3KXbCuFfO74FUKZCHmTuKsMf8ZH46BJDt10Mlg/JZF+wiZXyg8QxU9/5
-	 DO/TFzLNM1405JNS0B0/+mNw4aVP1J0bWyYRFnQuEh0Y0ctvFn4/SXcvemGkFC9FR6r/b
-	 6AjxCm1NevEAMws67NKLUFmZS9vh2MtLyguac5oNmEDCsvOAqQQ1i5Rq/PtPCHmwTjh4N
-	 obqFtOYRHnvkSrr1tPJh60DC/Wq3Ahf6g5oO/M1tOcdNoB2w5h89bviFsSmKZsGcarA==
+	t=1795028836;
+	b=PBxWD7nSOonEZXHsXBoAvJ+hGThlfm4iYH1ycHhzRYedou4mwbkjmekgnjxCNELCETlD
+	 bfkyTTMF5w4400eVlTh8CcKSy89siO2bUQwBBVSP3xsWIrGwiaxtXcIWfBz8vMlWfnhoT
+	 JmBDos0LAm2skhOcNcdfckG9jRudm6kWF6TLIRfpWlflnZOJ4er6yr+rgAXqJSS+i/ydr
+	 yqW0BbWUCAobFEelNHeu6kduykdGmJLUPKwmDEWr0N2toZKjg5j0znhf2HMdfWMj1899L
+	 IchyWBlLwtqKNrb/vXfW7ZAkWH75zSi1+7Hrxk6tK0Y/VssqKr+qF+mceafGdrblRRw==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795028835;
+	c=relaxed/relaxed; t=1795028836;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=GUDae9cdn+7jukw5FaNzRwyibyvz8i01iDH/hVud3Ow=;
-	b=oUZ+9QkDrK4Hh3IN7HDymtbWUUEqZoSGiUmWsVwNXOnAvXEcblsdBBCqH8TL1EBOrsEn
-	 I3e5S45Sl8yfC7nG4nqWRgfDDa746C588hEzICaN/F2bZf37yp2Fxums/h6lkPBMLA2sr
-	 eejskUY5tWYPJ3f1ENc07k+GoQ7lZWwJrjL2nFmQi7PH3GRnRSmioAfvVr8O/0YV7BI2c
-	 hDy1zRHICGt2gQOUSArqRNiNwPzvepNvfB/KgW6c82Ph4Ef20UaXNXF0+Mqxbk75U8cp6
-	 i44fecHynhsxuzZfNT5KIy4yOI0hLOsVeNWj/D4f8v7m9DH54+xpEkVXlDiFad/F1og==
+	bh=+k/NWSXV+Gb4kP6pdN6Psw2CRLNz63/ZQKflIA7KPmE=;
+	b=OICZsDQs2ZFUz0OvHJxXXiXgV7JpL5TL8ltixFrtbPk/47TRG+QVzqZpyYDbVbK6Cj9z
+	 sKc0B0d2oX80hnGsvZ8etlMGQSFRKT1xZODc4HALTpQC4H9Px8ALBwrFw4kqjggc5N6eY
+	 nPhozNohlEoUb5s7rAfpBDm7AjzWuhs8u+mIQk6wXv0vMIJMJPP3CnG2yuGcIgUc4dFWU
+	 epYI4WsPwkTFnz7+Rdx+q4/5iRYA2VIeqC0UXbOyglTtAn6JjyhHh8iIlxQmEt2ptkTbr
+	 d9WjJDFkLcGlafhY789dTHsGhwQxLdSQRE7QukL8v+cVWX3x0+C7nIwpldeI0R2843A==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 4EE8D1F000C6;
+	by smtp.kernel.org (Postfix) with ESMTPS id 671551F000C7;
 	Wed, 18 Nov 2026 19:07:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795028835;
-	bh=GUDae9cdn+7jukw5FaNzRwyibyvz8i01iDH/hVud3Ow=;
+	s=k20260515; t=1795028836;
+	bh=+k/NWSXV+Gb4kP6pdN6Psw2CRLNz63/ZQKflIA7KPmE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=TlMdNTNuqm4Bax8mGtgSPtQsF4fJHKYNky/NknjWX64UuksZie34RO+UcGVOWLscZ
-	 rpQc5cyoivk6M87AiYMF7+Qu6lXHflJcOIQ2sXjzUY2rzK29gsaQjQrjbO8xbFvFqW
-	 wXdleYigMG9kWqo+m3JDOiBz1ArM3UhxUj4jKlse9krX3f7WhiVUM4PRRCBWTdVyHv
-	 67Wceizklb9yQJvVH/dHCTgNjxEgnryEEqgTltCimq/DUXhftFa4hwJv9wSXuUqThM
-	 eQBsBquHxXZZEoGF49yF5/C4pnvNR1kb+PAgvvDtyLFxWVZBRc6Ahmw4g7vf7bhRys
-	 0XCBB5ijaj7jQ==
+	b=GPzfuUthfXTWFu2YJ2SJdiFEeHUIVHNg3KzuqML5KTotmFsZ8Vx7hKLYkWW6UWAZS
+	 qBn0kI/B+0EHPrxX6IkaIsC4qiXKs9OHA+JoB9GTXmmSslLnNkxYkDveWk9FYt+rdb
+	 9Vb77hPQKSqKvi0FUI2iEy52rmv5kWC6Ig+IHgz3iiPfmfmdHThAxjjp1YhjUO/+MX
+	 yAO0QJFnAs60/FMmDrXgVfKIdhOt6nL308K+m/kNj3nwwSfxqHT5N/IW0uymLDyRw5
+	 C3Wa6k5GlOiabY7Uk22umflLQC34UTXAMqjxcFXcVxuilwaC7e6jyczwv3hEbCuCX7
+	 uoBXFGcEUZmyA==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id CF1774AF2E;
+	by lkml.kernel.org (Postfix) with ESMTP id E7B8C4AF46;
 	Wed, 18 Nov 2026 19:07:14 +0000 (UTC)
 From: =?utf-8?q?Alexandra_=C3=98stermark_via_B4_Relay?= <devnull+alex.cramt.gmail.com@kernel.org>
-Date: Wed, 18 Nov 2026 20:07:13 +0100
-Subject: [PATCH 1/3] arm64: dts: socfpga: agilex5: add the service layer
- interrupt
+Date: Wed, 18 Nov 2026 20:07:14 +0100
+Subject: [PATCH 2/3] dt-bindings: arm: altera: add Terasic DE25-Nano
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +83,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261118-de25-nano-v1-1-473d16131f7a@gmail.com>
+Message-Id: <20261118-de25-nano-v1-2-473d16131f7a@gmail.com>
 References: <20261118-de25-nano-v1-0-473d16131f7a@gmail.com>
 In-Reply-To: <20261118-de25-nano-v1-0-473d16131f7a@gmail.com>
 To: Dinh Nguyen <dinguyen@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -95,11 +94,11 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  Mohamad Asyraaf Azhar <mohamad.asyraaf.azhar@altera.com>, 
  =?utf-8?q?Alexandra_=C3=98stermark?= <alex.cramt@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795028833; l=1261;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795028833; l=924;
  i=alex.cramt@gmail.com; s=20261118; h=from:subject:message-id;
- bh=481VP81WZKi/ygpfq41EOdbsewe8WlT8xUBo1hTQ0dA=;
- b=VA25FgGLIXjC3WvEziZDi4ZpKCwgpHfs9xJ7Wq5dLe0HaxyXjHjcSn3f98n6+93GhmrRyNLDB
- FNeHe6JWH5YA1tr7qZlpiEvVdV9FHu3L8OYTluGlB2sDRoFTPzmjXyi
+ bh=q+ynkvnX0dWnC9dNQRmhhqyaPWV3G/Ese9y4dmoLVu8=;
+ b=5n2X0zcxAsj5ooWW6SMw304IiTNsQdgp3JXMjiLvZrnhb21CGSlO2AeBnelg1ZIwpFrtGL8P8
+ hjLpjpqX1xSA/YUZZwlwXN75kwiDD0sR4O5IGPfJAHyjQj+iOfzpcWh
 X-Developer-Key: i=alex.cramt@gmail.com; a=ed25519;
  pk=vQBaXUvFG7cCIaWDKclPMjo3b4XfPEVkuPjaWCkYddc=
 X-Endpoint-Received: by B4 Relay for alex.cramt@gmail.com/20261118 with
@@ -110,35 +109,27 @@ Content-Transfer-Encoding: 8bit
 
 From: Alexandra Østermark <alex.cramt@gmail.com>
 
-The SDM signals completion of asynchronous service layer requests on
-GIC SPI 0, which the Stratix 10 and Agilex 7 device trees already wire
-up, as does Altera's vendor tree for Agilex 5. Upstream's Agilex 5 svc
-node lacks it, so stratix10-svc logs "Failed to get IRQ, falling back
-to polling mode" and polls for every async reply.
-
-Add the interrupt as the other SoCs do. Tested on a Terasic DE25-Nano:
-the driver registers it for sip async operations, it fires
-(/proc/interrupts counts it), and FPGA configuration through the FPGA
-manager still works.
+The Terasic DE25-Nano is a development board built around the Agilex 5
+A5EB013BB23B SoC FPGA, with 1 GiB of HPS DDR4, a microSD slot, a gigabit
+Ethernet port and USB.
 
 Signed-off-by: Alexandra Østermark <alex.cramt@gmail.com>
 ---
- arch/arm64/boot/dts/altera/socfpga_agilex5.dtsi | 2 ++
- 1 file changed, 2 insertions(+)
+ Documentation/devicetree/bindings/arm/altera.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/boot/dts/altera/socfpga_agilex5.dtsi b/arch/arm64/boot/dts/altera/socfpga_agilex5.dtsi
-index 161f3d4bb..d272cc4fd 100644
---- a/arch/arm64/boot/dts/altera/socfpga_agilex5.dtsi
-+++ b/arch/arm64/boot/dts/altera/socfpga_agilex5.dtsi
-@@ -84,6 +84,8 @@ svc {
- 			compatible = "intel,agilex5-svc";
- 			method = "smc";
- 			memory-region = <&service_reserved>;
-+			interrupts = <GIC_SPI 0 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-parent = <&intc>;
- 			iommus = <&smmu 10>;
+diff --git a/Documentation/devicetree/bindings/arm/altera.yaml b/Documentation/devicetree/bindings/arm/altera.yaml
+index ae38ba0dc..75f874e8b 100644
+--- a/Documentation/devicetree/bindings/arm/altera.yaml
++++ b/Documentation/devicetree/bindings/arm/altera.yaml
+@@ -118,6 +118,7 @@ properties:
+               - intel,socfpga-agilex5-socdk-modular
+               - intel,socfpga-agilex5-socdk-nand
+               - intel,socfpga-agilex5-socdk-tsn-cfg2
++              - terasic,de25-nano
+           - const: intel,socfpga-agilex5
  
- 			fpga_mgr: fpga-mgr {
+       - description: Agilex72 boards
 
 -- 
 2.56.0
