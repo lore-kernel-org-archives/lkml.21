@@ -1,62 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795039071;
-	b=LXxEgFMy4ATwSubIq+RlCUZEWvUSo8J2DJ05pxmSqryc8eOe7VhdOIhMGI2sNIONTD0M
-	 L0kSywnmt/uChj3WzUoyoQhdE58hmPc5Yog5Oy1CXBUcQet7w3OdG6lBoYnB5gXbgbcx4
-	 TcucV4IjgYa3FePdqyV3ULU6CiUWwxt0+vAxYvz31ugd+Nk/pWTSXPslzbLok8D1ZspV1
-	 kbYo/JgK8mAr8AqhAQRXVfuJULph6+K6lg3mvgGAg+MUJygbQCtidwNc7UZQEqDeFJx1p
-	 IG+A8ksm77YQRX5LNsmp2kXW2w09CydNoZNBXfKvpMuObXTKBVh2LakLnQYaBtPTsnA==
+	t=1795039072;
+	b=nkBOPe4R0f5dMAAxYJEP4bJUQLhVxXHdPVWJXoYkf+MyjSlpa7pTN4GR5ahArK+qlm0r
+	 k+6oHUc7etxNAHu2mDgmCT37sjpZLAZe5erQASjnkbwXvMikwMdiwkPhwzOCERkw/WG9s
+	 dmE7dgnHsv+TuFDCb+8HlsdYTeCaBrKEPlZR9U7BqOPEjoMXLi45wo/6pizrJcy1UhGBy
+	 e5svEM2HKuxRw7cmQLvnGplbB6YFpeoJCtX/+aEK82Nxnym3/Z8Utr5JdJKvIV1dppZS7
+	 C+9vvEdc05O0SPFW+PHRuxQDdo3PUfzz60P9foO71ceYKDL7ebtB41VCNzlF8aNShSQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795039071;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=2khjZ2E7Xva6D8F6ans4J6jJKhtPz9tdJhHE3kq/Qz4=;
-	b=Q5KmanLFbcydJ8imjD3LpQrWdkMywjhYRIQVX0xY4nnCku1Pcpkv/A0halHP9pwu3+RV
-	 SRh9Hizx1T9+ilZGcBMpIPRMixW5uAx64RNAq9jjgEITKtrUJEprBCL/hoCchz1/N0VJK
-	 jekYvj0ZZ8ilRiwsrz6ElkL8dOCLC4GucnMHKmPUhn3cr5oL0TmEo64WpMUd9NBp5gVRp
-	 EsG9sAwxemEw48s4IHMQhedvCBb2rirmr8plRDBE/Dk4ax5QtKMLgm1bXbUMEPW9t6F++
-	 5/GwV35PUJNpU87P3YuPvvRB6SgXkqr/k2E2+naCKAc6YclGxdHAxOvT+Leo5Rv/glQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795039072;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:
+	 Content-Type:Content-Transfer-Encoding:User-Agent:MIME-Version;
+	bh=/vgfXNH0IHzSBw/JekYvCw/wkmdl1JVA/UJoPFTrVO8=;
+	b=yyJ3mLsD9pH+cWH2/wqEVQA6hUQZK+cS32SNIk/+7xHMoeqVEhtL5K5hpvsMTN18pYpF
+	 obgE0Q2dzlA356s5ADzOJFfNX527vKPBze6GgKwXPRtHEa5BazeUM3iT1Lnv1Equ3OAWZ
+	 fE5190qmEtt3xqAR9wc2eVIB36c6ibYQXYytEqXoft6y2e2sIgmWSZCZOwRKJSxc8Issh
+	 7N5RqJObl8SyKtfmIlPv+eS1SbQDUcdNb6J/IkmBUZ+ec4XGZ8dBKEngO8QDduIrWBirC
+	 dd9gQqNvri31fjofZkBfMb6tLmlF/296B0OipkBD2JB+a8DKZbtCGOzmlXq/umjuqsQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FU9whtbp;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yZOJ+oa1;
+	arc=none smtp.remote-ip=209.85.214.173
+Received: from mail-pl1-f173.google.com (mail-pl1-f173.google.com [209.85.214.173])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77AA2606A31C;
-	Wed, 18 Nov 2026 21:57:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84391606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:57:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84391606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FU9whtbp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 371CC1F000C4;
-	Wed, 18 Nov 2026 21:57:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795039071;
-	bh=2khjZ2E7Xva6D8F6ans4J6jJKhtPz9tdJhHE3kq/Qz4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=FU9whtbpOHuc6EKkJg5mE2lsjwMg8IuEJyJ40YIih+OAAEb1Ar758XiiYRZpSajHj
-	 f96Rj7ZKmNujGJOg0QK8CK7jOIDZtGCGug4jeaBZoQCdTa+F6aBJmqDJIzllGK3mNN
-	 u/Z6Zud1asCiWofitx21RTBmDklfdNBgCO/xO7+Mp+xN5rSwZk/6xJPDaCRonmrVa1
-	 EOtibFfB9/RJgwifKpW1OyQ9tFJzkU98Cj1zk+L6yCK+s6W57Btu1tX6jf5Of2MzrM
-	 +yAn/tWSUQ42+O40VoMiCv7GnVgLy61j3Ew16dICFgufAVjqorHWQHu+jYJHq2hp27
-	 y+WBA9KOtd5Og==
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Namhyung Kim <namhyung@kernel.org>
-Cc: Ingo Molnar <mingo@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	James Clark <james.clark@linaro.org>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Clark Williams <williams@redhat.com>,
-	linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	Arnaldo Carvalho de Melo <acme@redhat.com>
-Subject: [PATCH v7 08/13] perf annotate: Print the stats after the annotations
-Date: Wed, 18 Nov 2026 18:57:10 -0300
-Message-ID: <20261118215716.114868-9-acme@kernel.org>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261118215716.114868-1-acme@kernel.org>
-References: <20261118215716.114868-1-acme@kernel.org>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yZOJ+oa1
+Received: by mail-pl1-f173.google.com with SMTP id d9443c01a7336-2ed08b07213so7569985ad.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:57:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795039072; x=1795643872; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=/vgfXNH0IHzSBw/JekYvCw/wkmdl1JVA/UJoPFTrVO8=;
+        b=yZOJ+oa1JTdSojU1/MHwyq/2ew76qFcIwev8pdqognMenRmBgAIBzLMSWJoBx18+jU
+         j2/5/irJ3tAWpghrnu2Opwlru0K7lKdfKWe7Ar+2OzsRSIKACHuBjw+SN5UlgCEb2O47
+         KMjjwXoUGNayV8e13A/vbKTmLTe0CIW6P6Dn9v6IMoHXCoUwRehiaUanaEoUXvtEsm7B
+         tBIdq+a/no0w1sYL28HtNarBWSjvIt93/tni42fgduGWk5bE8jKa1+36zYA777QAGQba
+         4rxFZSexAWTHrwTXdL+ZAo/kPn1qFOsQWvbMGkIxSPW+UxjBH82wwnpnqEnLPqJWQFKj
+         yC0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795039072; x=1795643872;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/vgfXNH0IHzSBw/JekYvCw/wkmdl1JVA/UJoPFTrVO8=;
+        b=fbUk4tzVBgEmHdhT/ShBM/Rou0MC+KwCRiS0qWRmQhb55qh+oLoBS/fl8COfD4t2P3
+         xd4HORmYuqTGw9ZWIGi9gc6SR3c/oZp/CIv9UA1yJvG2Fbb+os5J8U0YAUjq9TErJ0Kn
+         jY7B7WJayLLM3HxXUGIiwRgsPYqIzbv6ig+G9P0re1lhCYi+eVunEqaRC9LNl9b8lEOX
+         c3FkScn1KZq/Eb7AJaZHYa4mTFC2A/oeCS5GnJ+/SzOAlc3Z6zBVGxF7ieJXddjtOIfF
+         fZIzGC2Nb4VI08KEFsUkhJRLHTA0qfC5TufcDWJolVHZwNmpB4jp1hzsHbn5FplkJMM8
+         Imqg==
+X-Forwarded-Encrypted: i=1; AL+hErHnTjkBO9JhkujDXKUZiNGx3B+PYvOVYUdpQaHgxBQvpUOxl5xwXBdtO9aJGg500uVkGkG0npDtckqAYMs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+hTGNUxy7BSmIsD0OjdKcp3YyjKQvnTMiyIMTD6Os0Nrk3/6Fx
+	aDNZ4qhzIw6aRvVtwQb9owmIXx5mJXz3VxhoHNnKt88/nr/Ad5Mm2FXo
+X-Gm-Gg: AZFdTZdgWxOtKiOdvoG0UIlmu1LK0ruSkosBPHqIsrdl8Hd9DVO3sgeudW2HwbJtCcl
+	mUX7rVzJnoZ5+pAk2mz91yL6Ox8OpB/fCWCxa+u4pJlYojknfZBybCSIOO3iXKdg9mPN972gtZN
+	JHrzRngeafEvRDGJ9OrZeW3qrlU59KSwlFbGF0dlBdRJUlGHrmOSPOwk3pgT8Fgx4yfdB9xKcyW
+	VE9hgkzEuO/CC2rxxC5TTkl4ek1GtMNE39pnH+erCxnHa+dI/a7skZldsZA0jpYi00pC7/nn1HY
+	lkioWq42zuPS5+81Yh2oVVAn1itGrs7yyzI9v7+PTFgC0LmSC1LobRspU+uRDVn5ub+96I8AGVA
+	7T+bSJFQWPs8Hgvb0zcN9Mq8RDHzXaYlOQI3Tcsylgp685aYaH0IZbzF5mGXB+xyo8CE7nT+shQ
+	hCeJ7Pr92ONBEQxkMCQXrwmF66r8sPKQuhIDnJssdoNsjPpte10k5IPBAY3fDusZlWBZOA/RyvS
+	aKETIiIu0Sb9Cw0HhVc4ph8UnBWPukgo61miaWzZ7LNRxeGjjSlaLMAZ40bE1Zk/7LSZlJIN1oj
+	+BLaw/baPzNm6PTS6d0NPFwUqIAA+/9wFAwVOUhscldCaW5s4ii+vQFj
+X-Received: by 2002:a17:902:c945:b0:2ed:56ee:af84 with SMTP id d9443c01a7336-2eff75693c0mr37754565ad.62.1795039071872;
+        Wed, 18 Nov 2026 13:57:51 -0800 (PST)
+Received: from [192.168.0.13] ([38.34.87.7])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff622c0a5sm20012695ad.50.2026.11.18.13.57.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 13:57:51 -0800 (PST)
+Message-ID: <cfb47f547888b0f70200c0cd5eecff2f20592f29.camel@gmail.com>
+Subject: Re: [PATCH bpf-next v1 0/4] libbpf: Support kernel-side kfunc
+ flavors
+From: Eduard Zingerman <eddyz87@gmail.com>
+To: Ihor Solodrai <ihor.solodrai@linux.dev>, Alexei Starovoitov
+ <ast@kernel.org>,  Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann
+ <daniel@iogearbox.net>, Kumar Kartikeya Dwivedi	 <memxor@gmail.com>
+Cc: Alan Maguire <alan.maguire@oracle.com>, Emil Tsalapatis	
+ <emil@etsalapatis.com>, Jiri Olsa <jolsa@kernel.org>, Song Liu
+ <song@kernel.org>,  Tejun Heo <tj@kernel.org>, Yonghong Song
+ <yonghong.song@linux.dev>, bpf@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, sched-ext@lists.linux.dev
+Date: Wed, 18 Nov 2026 14:57:49 -0700
+In-Reply-To: <dfba2231-4cf4-4bb2-90b9-6261b7567895@linux.dev>
+References: <20261117192153.3384031-1-ihor.solodrai@linux.dev>
+	 <df72a9ab1ebcebff573485a808e45cd493665e75.camel@gmail.com>
+	 <08d6be6e9e0dcf6570ecd83671e9dbe63a417607.camel@gmail.com>
+	 <dfba2231-4cf4-4bb2-90b9-6261b7567895@linux.dev>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-10+b1 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,163 +109,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-From: Arnaldo Carvalho de Melo <acme@redhat.com>
+On Wed, 2026-11-18 at 14:48 -0700, Ihor Solodrai wrote:
+> On 2026-11-18 2:42 p.m., Eduard Zingerman wrote:
+> > On Wed, 2026-11-18 at 14:12 -0700, Eduard Zingerman wrote:
+> > > On Tue, 2026-11-17 at 12:21 -0700, Ihor Solodrai wrote:
+> >=20
+> > ...
+> >=20
+> > > > resolve_btfids fails the build if two of bpf_foo and its flavors ha=
+ve
+> > > > compatible prototypes, unless both have foo's exact prototype
+> > > > (aliases), so the fallback finds at most one match.=C2=A0 This ensu=
+res at
+> > >=20
+> > > Why is an exception for kfuncs with identical prototypes necessary?
+> >=20
+> > Ok, my helpful assistant points out the following use case:
+> >=20
+> > On kernel side:
+> >=20
+> > =C2=A0=C2=A0 __bpf_kfunc bool foo(struct task_struct *p, u64 flags);
+> > =C2=A0=C2=A0 __bpf_kfunc bool foo___v2(struct task_struct *p, u64 flags=
+);
+> >=20
+> >=20
+> > On BPF side:
+> >=20
+> >=20
+> > =C2=A0=C2=A0 extern bool foo(struct task_struct *p, u64 flags) __ksym;
+> > =C2=A0=C2=A0 extern bool foo___v2___compat(struct task_struct *p, u64 f=
+lags) __ksym;
+> >=20
+> > =C2=A0=C2=A0 /* Resolves to the kernel's foo(). */
+> > =C2=A0=C2=A0 foo(p, 0);
+> >=20
+> > =C2=A0=C2=A0 /* libbpf strips ___compat; resolves to the kernel's foo__=
+_v2().
+> > =C2=A0=C2=A0=C2=A0 * workaround used before this series.
+> > =C2=A0=C2=A0=C2=A0 */
+> > =C2=A0=C2=A0 foo___v2___compat(p, 0);
+> >=20
+> > New mechanics adds an obligation on the kernel side to maintain that
+> > foo and foo___v2___compat are semantically identical, despite being
+> > physically different functions. (Does it?)
+>=20
+> Yes. I just replied with exactly same example (it's used in sched-ext).
+>=20
+> >=20
+> > Would it be possible to use some kind of annotation, e.g.:
+> > - __alias(foo___v2) (an ELF symbol alias), or
+> > - __kfunc_alias(foo___v2)
+> > =C2=A0=C2=A0 (resolving to some sort of btf_decl_tag for resolve_btfids=
+ to act upon).
+> > And avoid allowing functions with compatible prototypes w/o exceptions.
+> >=20
+> > ?
+>=20
+> My intuition is that it's possible, but it'd be more complicated.
+> The question is why?
 
-With --code-with-type the instruction stats are printed from
-hists__find_annotations() before that event is annotated: the first
-event reports zeros and later events can report stale counts.  The data
-type total is only counted in --data-type mode, so --type-stat without
-it is incomplete too.
+Is it a requirement now for foo() and foo___v2___compat()
+to be semantically identical? If it is, the alias mechanics forgoes
+this requirement.
 
-Print the stats once after all events have been annotated, warning if
---type-stat is used without --data-type.  Leave the TUI's alternate
-screen before printing, so the stats remain on the terminal.
+> libbpf side might become marginally simpler, but we'd add complexity
+> on the kernel side, no?
 
-Fixes: 58824fa0087e1cb7 ("perf annotate: Add --insn-stat option for debugging")
-Fixes: 61a9741e9f78c64c ("perf annotate: Add --type-stat option for debugging")
-Cc: Namhyung Kim <namhyung@kernel.org>
-Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
----
- tools/perf/Documentation/perf-annotate.txt |  2 +-
- tools/perf/builtin-annotate.c              | 19 ++++--
- tools/perf/tests/shell/annotate_stats.sh   | 69 ++++++++++++++++++++++
- 3 files changed, 84 insertions(+), 6 deletions(-)
- create mode 100755 tools/perf/tests/shell/annotate_stats.sh
-
-diff --git a/tools/perf/Documentation/perf-annotate.txt b/tools/perf/Documentation/perf-annotate.txt
-index 1a90b09a12d5abb1..d27eff28ba4f6af0 100644
---- a/tools/perf/Documentation/perf-annotate.txt
-+++ b/tools/perf/Documentation/perf-annotate.txt
-@@ -169,7 +169,7 @@ include::itrace.txt[]
- 	all data types it finds.
- 
- --type-stat::
--	Show stats for the data type annotation.
-+	Show stats for the data type annotation (with --data-type).
- 
- --skip-empty::
- 	Do not display empty (or dummy) events.
-diff --git a/tools/perf/builtin-annotate.c b/tools/perf/builtin-annotate.c
-index 331adbdbd635917d..8ced8a4aebf07709 100644
---- a/tools/perf/builtin-annotate.c
-+++ b/tools/perf/builtin-annotate.c
-@@ -414,11 +414,6 @@ static void hists__find_annotations(struct hists *hists,
- 	struct rb_node *nd = rb_first_cached(&hists->entries), *next;
- 	int key = K_RIGHT;
- 
--	if (ann->type_stat)
--		print_annotate_data_stat(&ann_data_stat);
--	if (ann->insn_stat)
--		print_annotate_item_stat(&ann_insn_stat, "Instruction");
--
- 	while (nd) {
- 		struct hist_entry *he = rb_entry(nd, struct hist_entry, rb_node);
- 		struct annotation *notes;
-@@ -660,6 +655,17 @@ static int __cmd_annotate(struct perf_annotate *ann)
- 		hists__find_annotations(hists, pos, ann);
- 	}
- 
-+	if (use_browser == 1 && (ann->insn_stat || (ann->data_type && ann->type_stat))) {
-+		/* Leave the alternate screen before printing to the terminal. */
-+		ui__exit(false);
-+		use_browser = 0;
-+	}
-+
-+	if (ann->data_type && ann->type_stat)
-+		print_annotate_data_stat(&ann_data_stat);
-+	if (ann->insn_stat)
-+		print_annotate_item_stat(&ann_insn_stat, "Instruction");
-+
- 	if (use_browser == 2) {
- 		void (*show_annotations)(void);
- 
-@@ -865,6 +871,9 @@ int cmd_annotate(int argc, const char **argv)
- 	if (quiet)
- 		perf_quiet_option();
- 
-+	if (annotate.type_stat && !annotate.data_type)
-+		pr_warning("Warning: --type-stat needs --data-type\n");
-+
- 	data.path = input_name;
- 
- 	perf_tool__init(&annotate.tool, /*ordered_events=*/true);
-diff --git a/tools/perf/tests/shell/annotate_stats.sh b/tools/perf/tests/shell/annotate_stats.sh
-new file mode 100755
-index 0000000000000000..5af48bf187c5e8f5
---- /dev/null
-+++ b/tools/perf/tests/shell/annotate_stats.sh
-@@ -0,0 +1,69 @@
-+#!/bin/bash
-+# perf annotate instruction stats test
-+# SPDX-License-Identifier: GPL-2.0
-+
-+set -e
-+
-+perfdata=$(mktemp /tmp/__perf_test.perf.data.XXXXX)
-+perfout=$(mktemp /tmp/__perf_test.perf.out.XXXXX)
-+perferr=$(mktemp /tmp/__perf_test.perf.err.XXXXX)
-+
-+cleanup()
-+{
-+	rm -f "$perfdata" "$perfout" "$perferr"
-+	trap - EXIT TERM INT
-+}
-+
-+trap_cleanup()
-+{
-+	echo "Unexpected signal in ${FUNCNAME[1]}"
-+	cleanup
-+	exit 1
-+}
-+trap trap_cleanup EXIT TERM INT
-+
-+if ! perf check feature -q dwarf; then
-+	echo "Skip: no DWARF (libdw) support"
-+	cleanup
-+	exit 2
-+fi
-+
-+# No point in recording if the PMU cannot do memory events.
-+if ! perf mem record -o /dev/null -- true 2>/dev/null; then
-+	echo "Skip: cannot record memory events on this PMU"
-+	cleanup
-+	exit 2
-+fi
-+
-+if ! perf mem record -o "$perfdata" -- perf test -w datasym > /dev/null 2>&1; then
-+	echo "FAIL: perf mem record"
-+	cleanup
-+	exit 1
-+fi
-+
-+if ! perf annotate --code-with-type --insn-stat -i "$perfdata" --stdio \
-+		--percent-limit 1 > "$perfout"; then
-+	echo "FAIL: perf annotate"
-+	cleanup
-+	exit 1
-+fi
-+
-+# The instruction stats are accounted while the instructions are
-+# displayed; printing them before the display loop shows zeros.
-+if ! grep -Eq '^total [1-9][0-9]*,' "$perfout"; then
-+	echo "FAIL: instruction stats not accounted"
-+	tail -n 30 "$perfout"
-+	cleanup
-+	exit 1
-+fi
-+
-+if ! perf annotate --type-stat -i "$perfdata" --stdio > /dev/null 2> "$perferr" ||
-+   ! grep -Fxq "Warning: --type-stat needs --data-type" "$perferr"; then
-+	echo "FAIL: missing --type-stat warning"
-+	tail -n 30 "$perferr"
-+	cleanup
-+	exit 1
-+fi
-+
-+echo "instruction stats accounted"
-+cleanup
--- 
-2.56.1
-
+On kernel side or on resolve_btfids side?
