@@ -1,54 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.97.179.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795010457;
-	b=Jv5n444c7DeScXqVyQnOY9LNowU3ttcZKUBXQdkmJhvewIsWLt9sFcTuGNtqxEPGakXJ
-	 y5isn33yBkGowGq9BmVlp+NeuqhudVi8Drf+RLx7VloOVX0w0JJUpqkP879Y4ON2vRB2g
-	 fID2rzy6crhN7Zpaz3h3Apgri4Uq7qC92b5aHpHOfIrizGpOzkv3PTeGvTTkuy2ynf2y9
-	 7OEEMhJA18Q+F6TEQkXsDyN8orkJGdKLkaTeMMlzRwGffVNVzEmVxudbAkIixPEZBoxP9
-	 fVE9Q6FtPQmKw6EWhm9zIbRGElA4hOHIKlcIGPGP5dkPzVHshuwiz0jf094sBhLDUNQ==
+	t=1795010462;
+	b=XJxieFOP9AcLWwhNoRge5M9PnEH7BhmKpxoMmvyqoH34w+FG6uuD+okbrufAGYul2EQc
+	 E679/tX1IN7xEuwzbzoOevgoxLik13gHyfAz1DxxeJysRfYDBnkFZRSJUOWLG4oRgGScK
+	 pPT1Ox1/RmtkawTaCyK2XjauG1hRPjRsJzL4GSSUnZsK4wjjlbgvKgJ1/+sbaDt2w1VXW
+	 AJxgZu+OZ2wiSuuEDKKdjJxqYgpX2BPSbU1ab9PQ9ThaQLO9h6ot2vHiK4JB41XAkR6YV
+	 GPDOoWFa3DZKm/LBk8ux4f61jDEfkmI+ZIFdSBpdO3GnnJyfuvqWHFdEh3lHYyqSkxA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795010457;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:Autocrypt:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=r927fCsu5OYlKQKCmEL8H5aMGocn+zYem10GOxKtVfQ=;
-	b=Mg6YD1fZmNqsnmrTUOpmqbInsCBfglfqU5Ly7Xw79htHR3UFyLaj2Rd2OvyX1oiCPAyh
-	 pzESmdpIiMTO5yi/wz7hRp6f8uSbpDbM0hXvBc4EbwYcTNESpojPgvBPfJFaOMvwSvuB1
-	 oMVEI8ymdCuJbT9wncWs7rLbYsji7VjdpHCRrZEOgyL37HJ3vYfn21/3O06iWSecJBlGL
-	 ppG6/BEehtwiTi0QFqS/qeuo6FRrGIWPYRn9c/jCK9yPL5hxwPM7jS0oFnxGco77o+wYu
-	 Inhdvw9l20nSMTbBJgom4yG5zDIYYE3iihIVlf8Y53S6nJR5qCPO5WS2LOXtj2Vl2zQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795010462;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:Reply-To:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=j3h+xzXMo9Ka0zi+37NKY2m2j24N9rEJ8+Lib0/Avnc=;
+	b=d2S4VqHrKrHZYADJE/TsQxQiuch2mVUv7WT8a6kAmfgm8QqNjj30QyAJ/nBkdAJs4Cer
+	 XArjsWR/AoPccMYb3iFK9YbzpDFy4RhI8vb/3rMOpplIjxkGj8+Foxor03r1X52EwmweI
+	 E5/17C6LBtfMmeu1EITsZipPEhnrBH2C/YbbAOZFGRDeLLkxzwyGCfNCaYOFZeKwh3Zbg
+	 HqTqcr1vImS9Uz0w6x02Cp6Ym7hNsNDn20wKWgOYntAUmFBYSI1AH5FfhBv4NcNGFze64
+	 ABYugDunEtZUzRl8rJTpyoqqfDJZZ49m4yQq1ga4fjFZm75E5agvaM3xvJgvK5zfaWw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=igalia.com;
-	spf=pass smtp.mailfrom=igalia.com;
-	dkim=pass header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=KjVHqZNQ;
-	arc=none smtp.remote-ip=213.97.179.56
-Received: from fanzine2.igalia.com (fanzine2.igalia.com [213.97.179.56])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=minyard.net;
+	spf=pass smtp.mailfrom=minyard.net;
+	dkim=pass header.d=minyard.net header.i=@minyard.net header.a=rsa-sha256 header.s=google header.b=L3bhc5Yf;
+	arc=none smtp.remote-ip=209.85.210.44
+Received: from mail-ot1-f44.google.com (mail-ot1-f44.google.com [209.85.210.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C44F606A32F
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:00:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3C44F606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=igalia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=igalia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 410CA606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:01:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 410CA606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=minyard.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=minyard.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=KjVHqZNQ
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:From:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:From:Reply-To;
-	bh=r927fCsu5OYlKQKCmEL8H5aMGocn+zYem10GOxKtVfQ=; t=1795010455; x=2110370455; 
-	b=KjVHqZNQrJGIiRVtdxmsv8IRLY1cyaOSnJiVLip4pZp+GQ8JeMmeJ/IWT+lyxg9bgEOL/IH2trQ
-	1ZJZ99IKhyukSS7WeTRjYdHcMXOyRt2TtW9WmeRvtaUwcXAbeJaZz5Ywj1NEO36IaRIwm7tO8b4dU
-	XL2jv39Y4SFOpDDaDb8CkGsDUgdCujIsyIH90bRSTTrPpXuxzr+jaOR3OegOlS3PKqyJRbpnds/qo
-	4Ml+YG6pSn3H2H3LXDGbBxisj0T0vvYzYQKscVPlSUMM7f3VdEHOogGpb5owFppnufu0hb0Go1LTs
-	6Uo7d1nrr4b8gZ/VLU2g460bCeg9RWRFKepg==;
-Received: from [179.105.94.163] (helo=[192.168.0.4])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
-	id 1xTgDQ-0000000127X-2lH7;
-	Wed, 18 Nov 2026 15:00:49 +0100
-Message-ID: <bd7812ad-3eb6-49a1-bd22-b4252c09ac00@igalia.com>
-Date: Wed, 18 Nov 2026 11:00:43 -0300
+	dkim=pass (2048-bit key) header.d=minyard.net header.i=@minyard.net header.a=rsa-sha256 header.s=google header.b=L3bhc5Yf
+Received: by mail-ot1-f44.google.com with SMTP id 46e09a7af769-847ac7ccd85so640090a34.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:01:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=minyard.net; s=google; t=1795010460; x=1795615260; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:reply-to:message-id:subject:cc:to:from:date:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=j3h+xzXMo9Ka0zi+37NKY2m2j24N9rEJ8+Lib0/Avnc=;
+        b=L3bhc5YfFoab1s7uHc58XJa7DBtrnc8eCZ/p025wjWGhzJMARPUEBjdy5ScDC4SsXT
+         fP1UKfvqI0e+iV2w8eFI+1rpUDyo+eNfeaz62r7/jvhGXO9t2LQNLdJvixCm65nAUJ4E
+         FfMCRhK4o3BX6X767chsFJP4IPLr5b0QeEhKu7N2fqmSHo1sQ4omRezW5dEhlSUIbfiS
+         7qSeZU2N6N+NbTGHKqeLgMAQx0xwtv4+9/sd6NNNhrQEICz3WtudXjKtVBlAimpG9VLv
+         Q/XKhaFPesCE02W2xTgREdG5nD4p1hBS/24R2CE7f6LWjr/4ubDKiKC16rotCG+58cvA
+         ZvqA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795010460; x=1795615260;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=j3h+xzXMo9Ka0zi+37NKY2m2j24N9rEJ8+Lib0/Avnc=;
+        b=EEYBrJE55Tx7qXjxbGHtvElrEDP0ieZoghq7CBngkOBXVvbs8dhF6eWEijjv1JbNW4
+         WI6SvQsg0sweDCyANbEGlkWmQ2cGdaSdC7AvATDpFMl8+4E4TzV+zddoKwI6iJkVMXmD
+         DkQqZ7GbBLHuB7oaucv7Ekj575Wn5D8Xji91hk+FWwaWkujVmxK+q4NdEGZ89Qu+jese
+         4e8gAvVreN+B9cB5IvdEbZ3j7vx2pum7MUAO8jlVrglHkVWrzeIRVUqw7AEk/0BO2j65
+         WYo2JH6IXjY8XuJkXZo++TAZdD+UcQa2GIHpV6sng/AFd1nan8by1NS6mcFj7bqR5NcU
+         h3CA==
+X-Forwarded-Encrypted: i=1; AL+hErHtrH4AgkHFAQP2yotaginp8aNqoglG2qNlxSQBlzFdnnCZcqwvq1oX2C3clgCISaow0P6CwaGJwj6cA74=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9BKCE8laHZ4497dkwHYpSnt7BlxEPmqm9RHGekFpWQz2pWb53Y
+	UhK0O5zKI18QegEP2uklb7PWkTVypVSC5OvAn1FS8qCFU6MxxwdqBp/O0YUBJHAZ/oc=
+X-Gm-Gg: AYBFou05/aLXUW3kOXOB5QOSqJsXrSX0kiM7jGgn01zhanXRmDq9nSzhN1bjoMD4bj4
+	R7QHJfaXlAror6U+3G0+WD88vrs2ofAWq7Z7wO2WUqoBhot3L/Mwle+lwckEtJ2xT0SKci4V8aM
+	VzpBHqYYzccb7NfOIZVMqhZakNNAx8izJqYrT/h8M3gh9Ac5LHLJv1gWp4vp4IehMkygcbexyxM
+	3iXrP8g3LfdNR1e9Ptp0jY5fH4xjRODzS4xp4VDZv3kQN+SHcgF1cNXu2ycxXJ0VSsmlz5kqpPs
+	NXBhQRLklzUw+ofe0EpMepxJFlKneP2TuOGhx+Tv+3qL47v7VFLBOgKwvWW1Z8q/f7L/nBwH8QI
+	ZYbaORDeAtM+pR3Q2/MtzVt5xvdvRpJ/wG4A4ru2PaSKeOTHksCQVV2SaMfQUWPoDDP6BazIboK
+	Ao84qj5XQqM3OduF2m3bQWTV9BaHE8AnTr83CKYW25kvaj5HqaeRWj90VZU2/iII2HQu63beSW8
+	knqeWx05J0Jn6DtKzTRHofWCyVNfNDdk8QSs3wwF6mLAUDV87pAaEg6Zbh9Vasy4+Vu+6m3CnFx
+	teXEm3E59ZT4u0EC0M3L3a8TMlYBVFz4Jed7N+jCOvIyH+tEsWyOyETuxIiM3LlAFXzxQc/iM+1
+	okmDegWym9mXqCSunp62L/QozrDKPeXKRk6AmxO4v7N1FdGkdPw==
+X-Received: by 2002:a05:6830:440c:b0:862:a53e:6f5f with SMTP id 46e09a7af769-862f09325f7mr2471809a34.11.1795010459743;
+        Wed, 18 Nov 2026 06:00:59 -0800 (PST)
+Received: from mail.minyard.net ([2001:470:b8f6:1b:f905:f7ea:fbfe:90c0])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-862f0212ea3sm2142174a34.17.2026.11.18.06.00.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 06:00:58 -0800 (PST)
+Date: Wed, 18 Nov 2026 08:00:54 -0600
+From: Corey Minyard <corey@minyard.net>
+To: Mason Huo <mason.huo@starfivetech.com>,
+	Andrew Jeffery <andrew@aj.id.au>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	openipmi-developer@lists.sourceforge.net
+Subject: Re: [PATCH vV 2/2] ipmi: add StarFive KCS BMC driver
+Message-ID: <av2vluKBBHXATu07@mail.minyard.net>
+Reply-To: corey@minyard.net
+References: <20261118062526.1436893-1-mason.huo@starfivetech.com>
+ <20261118062526.1436893-3-mason.huo@starfivetech.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,209 +102,424 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/vc4: dsi: Allocate the encoder per DRM device
-To: Henry Zhang <henryzhang62@gmail.com>, mripard@kernel.org,
- dave.stevenson@raspberrypi.com
-Cc: kernel-list@raspberrypi.com, maarten.lankhorst@linux.intel.com,
- tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-References: <20261117205902.1293962-1-henryzhang62@gmail.com>
-From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
-Content-Language: en-US
-Autocrypt: addr=mcanal@igalia.com; keydata=
- xsBNBGcCwywBCADgTji02Sv9zjHo26LXKdCaumcSWglfnJ93rwOCNkHfPIBll85LL9G0J7H8
- /PmEL9y0LPo9/B3fhIpbD8VhSy9Sqz8qVl1oeqSe/rh3M+GceZbFUPpMSk5pNY9wr5raZ63d
- gJc1cs8XBhuj1EzeE8qbP6JAmsL+NMEmtkkNPfjhX14yqzHDVSqmAFEsh4Vmw6oaTMXvwQ40
- SkFjtl3sr20y07cJMDe++tFet2fsfKqQNxwiGBZJsjEMO2T+mW7DuV2pKHr9aifWjABY5EPw
- G7qbrh+hXgfT+njAVg5+BcLz7w9Ju/7iwDMiIY1hx64Ogrpwykj9bXav35GKobicCAwHABEB
- AAHNIE1hw61yYSBDYW5hbCA8bWNhbmFsQGlnYWxpYS5jb20+wsCRBBMBCAA7FiEE+ORdfQEW
- dwcppnfRP/MOinaI+qoFAmcCwywCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQ
- P/MOinaI+qoUBQgAqz2gzUP7K3EBI24+a5FwFlruQGtim85GAJZXToBtzsfGLLVUSCL3aF/5
- O335Bh6ViSBgxmowIwVJlS/e+L95CkTGzIIMHgyUZfNefR2L3aZA6cgc9z8cfow62Wu8eXnq
- GM/+WWvrFQb/dBKKuohfBlpThqDWXxhozazCcJYYHradIuOM8zyMtCLDYwPW7Vqmewa+w994
- 7Lo4CgOhUXVI2jJSBq3sgHEPxiUBOGxvOt1YBg7H9C37BeZYZxFmU8vh7fbOsvhx7Aqu5xV7
- FG+1ZMfDkv+PixCuGtR5yPPaqU2XdjDC/9mlRWWQTPzg74RLEw5sz/tIHQPPm6ROCACFls7A
- TQRnAsMsAQgAxTU8dnqzK6vgODTCW2A6SAzcvKztxae4YjRwN1SuGhJR2isJgQHoOH6oCItW
- Xc1CGAWnci6doh1DJvbbB7uvkQlbeNxeIz0OzHSiB+pb1ssuT31Hz6QZFbX4q+crregPIhr+
- 0xeDi6Mtu+paYprI7USGFFjDUvJUf36kK0yuF2XUOBlF0beCQ7Jhc+UoI9Akmvl4sHUrZJzX
- LMeajARnSBXTcig6h6/NFVkr1mi1uuZfIRNCkxCE8QRYebZLSWxBVr3h7dtOUkq2CzL2kRCK
- T2rKkmYrvBJTqSvfK3Ba7QrDg3szEe+fENpL3gHtH6h/XQF92EOulm5S5o0I+ceREwARAQAB
- wsB2BBgBCAAgFiEE+ORdfQEWdwcppnfRP/MOinaI+qoFAmcCwywCGwwACgkQP/MOinaI+qpI
- zQf+NAcNDBXWHGA3lgvYvOU31+ik9bb30xZ7IqK9MIi6TpZqL7cxNwZ+FAK2GbUWhy+/gPkX
- it2gCAJsjo/QEKJi7Zh8IgHN+jfim942QZOkU+p/YEcvqBvXa0zqW0sYfyAxkrf/OZfTnNNE
- Tr+uBKNaQGO2vkn5AX5l8zMl9LCH3/Ieaboni35qEhoD/aM0Kpf93PhCvJGbD4n1DnRhrxm1
- uEdQ6HUjWghEjC+Jh9xUvJco2tUTepw4OwuPxOvtuPTUa1kgixYyG1Jck/67reJzMigeuYFt
- raV3P8t/6cmtawVjurhnCDuURyhUrjpRhgFp+lW8OGr6pepHol/WFIOQEg==
-In-Reply-To: <20261117205902.1293962-1-henryzhang62@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118062526.1436893-3-mason.huo@starfivetech.com>
 
-Hi Henry,
+Adding Andrew, hopefully he's still available to review.
 
-On 17/11/26 17:59, Henry Zhang wrote:
-> The DSI encoder is embedded in struct vc4_dsi, which lives as long as
-> the DSI platform device, but it is initialised with drmm_encoder_init()
-> and so is only cleaned up when the DRM device is released. The DRM
-> device can outlive the unbind of the vc4 components: unloading the DSI
-> panel driver detaches from the DSI host, which deletes the DSI component
-> and unbinds the whole vc4 DRM device, but a compositor that keeps the
-> DRM device open keeps it alive.
-> 
-> If the panel driver is loaded again before that, the new DRM device
-> binds the DSI component and calls drmm_encoder_init() on the encoder
-> that is still on the old DRM device's encoder list. The old device's
-> release later cleans it up from under the new one. On a Raspberry Pi 4
-> with a 6.18-based kernel, closing the old DRM device then gave:
-> 
->    WARNING: drivers/gpu/drm/drm_encoder.c:214 at drmm_encoder_alloc_release+0x30/0x40 [drm]
->    Call trace: drmm_encoder_alloc_release <- drm_dev_put <- drm_gem_dmabuf_release <- __fput
->    Unable to handle kernel NULL pointer dereference at virtual address 0000000000000008
->    pc : drm_mode_config_cleanup+0x5c/0x2f0 [drm]
->    Call trace: drm_mode_config_cleanup <- drm_managed_release <- drm_dev_put
+A few questions inline, but I don't see any big issues in first
+review.
 
-Could you reproduce this issue on top of drm-misc-next? The downstream
-kernel differs from upstream in several ways. If you are able to
-reproduce it, could you please provide the full call trace?
+-corey
 
-Best regards,
-- Maíra
-
+On Wed, Nov 18, 2026 at 02:25:26PM +0800, Mason Huo wrote:
+> This driver exposes the Keyboard Controller Style (KCS) interface on
+> StarFive SoCs as a character device. Such SOCs are commonly used
+> as a BaseBoard Management Controller (BMC) on a server board, and KCS
+> interface is commonly used to perform the in-band IPMI communication
+> between the server and its BMC.
 > 
-> Allocate the encoder in bind with drmm_encoder_alloc(), so each DRM
-> device has its own and releases only its own. The DSI bridge is still
-> shared: while the old DRM device holds it, drm_bridge_attach() in the
-> new bind fails with -EBUSY, so binding again before the old DRM device
-> is released now fails cleanly instead of corrupting both devices.
-> 
-> The analysis, this change and this description were prepared with the
-> help of an AI coding assistant (Claude Code).
-> 
-> Fixes: 6f0ca506c30e ("drm/vc4: dsi: Switch to DRM-managed encoder initialization")
-> Signed-off-by: Henry Zhang <henryzhang62@gmail.com>
+> Signed-off-by: Mason Huo <mason.huo@starfivetech.com>
 > ---
-> Testing:
+>  MAINTAINERS                          |   6 +
+>  drivers/char/ipmi/Kconfig            |  15 ++
+>  drivers/char/ipmi/Makefile           |   1 +
+>  drivers/char/ipmi/kcs_bmc_starfive.c | 311 +++++++++++++++++++++++++++
+>  4 files changed, 333 insertions(+)
+>  create mode 100644 drivers/char/ipmi/kcs_bmc_starfive.c
 > 
-> - On this base (drm-misc-next 467ac0b56aeb): compile-tested only,
->    arm64 defconfig with DRM_VC4=m, W=1, no new warnings.
-> 
-> - A backport to a downstream Raspberry Pi 6.18.34 kernel, on a
->    Raspberry Pi 4 with an out-of-tree modular DSI panel driver: with the
->    compositor stopped and a process holding /dev/dri/card1 open, unload
->    the panel driver and load it again. The bind now fails cleanly:
-> 
->      vc4-drm gpu: failed to bind fe700000.dsi (ops vc4_dsi_ops [vc4]): -16
->      vc4-drm gpu: adev bind failed: -16
-> 
->    the panel probe fails with -16, and there is no warning or oops,
->    also when the holder then closes the old DRM device. Unloading and
->    loading the panel driver again after that brings back the display
->    and the compositor. Without the change, the same kernel gave the
->    warning and oops above. The backport differs from this patch in two
->    ways: that kernel still gets the panel bridge with
->    drmm_of_get_bridge(), which has a use-after-free of its own in this
->    sequence, so the test kernel used devm_drm_of_get_bridge() instead
->    (not needed here, where the panel bridge is refcounted); and a
->    downstream DSI restart worker that used the embedded encoder now
->    follows a pointer to the current one.
-> 
-> The -EBUSY is final: the panel probe is not retried when the old DRM
-> device goes away, so the panel driver has to be loaded again. Would you
-> prefer the DSI host to wait for the old DRM device to be released
-> before adding its component again, or a bridge allocated per bind?
-> 
-> Not addressed: a connector probe that is already running when the
-> panel is removed can still call into the panel driver.
-> 
-> This applies to drm-misc-next on its own. It also applies on top of my
-> "drm/vc4: dsi: Serialize register writes through the DMA workaround",
-> and it does not touch the code changed by my vc4 DSI series
-> <20261028164539.3471833-1-henryzhang62@gmail.com>.
-> 
-> Tools: Claude Code (an AI coding assistant) analysed the crash logs and
-> the vc4/DRM lifetimes, located the introducing commit, wrote the change
-> and this description, built and checkpatch-checked it, and ran the
-> backport test on the board, at my request.
-> 
->   drivers/gpu/drm/vc4/vc4_dsi.c | 35 +++++++++++++++++++++++------------
->   1 file changed, 23 insertions(+), 12 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/vc4/vc4_dsi.c b/drivers/gpu/drm/vc4/vc4_dsi.c
-> index ec008f766..5bd8f579b 100644
-> --- a/drivers/gpu/drm/vc4/vc4_dsi.c
-> +++ b/drivers/gpu/drm/vc4/vc4_dsi.c
-> @@ -546,9 +546,18 @@ struct vc4_dsi_variant {
->   
->   };
->   
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index ccbcdc0799b9..b238fc730c51 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -26923,6 +26923,12 @@ S:	Maintained
+>  F:	Documentation/devicetree/bindings/pinctrl/starfive,jhb1*.yaml
+>  F:	drivers/pinctrl/starfive/pinctrl-starfive-jhb1*
+>  
+> +STARFIVE KCS-BMC DRIVER
+> +M:	Mason Huo <mason.huo@starfivetech.com>
+> +S:	Supported
+> +F:	Documentation/devicetree/bindings/ipmi/starfive,kcs-bmc.yaml
+> +F:	drivers/char/ipmi/kcs_bmc_starfive.c
+> +
+>  STATIC BRANCH/CALL
+>  M:	Peter Zijlstra <peterz@infradead.org>
+>  M:	Josh Poimboeuf <jpoimboe@kernel.org>
+> diff --git a/drivers/char/ipmi/Kconfig b/drivers/char/ipmi/Kconfig
+> index 538a7d3c65bf..8b51e67d3ac4 100644
+> --- a/drivers/char/ipmi/Kconfig
+> +++ b/drivers/char/ipmi/Kconfig
+> @@ -149,6 +149,21 @@ config NPCM7XX_KCS_IPMI_BMC
+>  	  This support is also available as a module.  If so, the module
+>  	  will be called kcs_bmc_npcm7xx.
+>  
+> +config STARFIVE_KCS_IPMI_BMC
+> +	depends on ARCH_STARFIVE || COMPILE_TEST
+> +	select IPMI_KCS_BMC
+> +	select MFD_SYSCON
+> +	tristate "StarFive KCS IPMI BMC driver"
+> +	help
+> +	  Provides a driver for the KCS (Keyboard Controller Style) IPMI
+> +	  interface found on StarFive SoCs.
+> +
+> +	  The driver implements the BMC side of the KCS controller, it
+> +	  provides the access of KCS IO space for BMC side.
+> +
+> +	  This support is also available as a module.  If so, the module
+> +	  will be called kcs_bmc_starfive.
+> +
+>  config IPMI_KCS_BMC_CDEV_IPMI
+>  	depends on IPMI_KCS_BMC
+>  	tristate "IPMI character device interface for BMC KCS devices"
+> diff --git a/drivers/char/ipmi/Makefile b/drivers/char/ipmi/Makefile
+> index 4ea450a82242..800d570dd4dc 100644
+> --- a/drivers/char/ipmi/Makefile
+> +++ b/drivers/char/ipmi/Makefile
+> @@ -27,5 +27,6 @@ obj-$(CONFIG_IPMI_KCS_BMC_CDEV_IPMI) += kcs_bmc_cdev_ipmi.o
+>  obj-$(CONFIG_ASPEED_BT_IPMI_BMC) += bt-bmc.o
+>  obj-$(CONFIG_ASPEED_KCS_IPMI_BMC) += kcs_bmc_aspeed.o
+>  obj-$(CONFIG_NPCM7XX_KCS_IPMI_BMC) += kcs_bmc_npcm7xx.o
+> +obj-$(CONFIG_STARFIVE_KCS_IPMI_BMC) += kcs_bmc_starfive.o
+>  obj-$(CONFIG_IPMB_DEVICE_INTERFACE) += ipmb_dev_int.o
+>  obj-$(CONFIG_SSIF_IPMI_BMC) += ssif_bmc.o
+> diff --git a/drivers/char/ipmi/kcs_bmc_starfive.c b/drivers/char/ipmi/kcs_bmc_starfive.c
+> new file mode 100644
+> index 000000000000..bff7bdd5ad1c
+> --- /dev/null
+> +++ b/drivers/char/ipmi/kcs_bmc_starfive.c
+> @@ -0,0 +1,311 @@
+> +// SPDX-License-Identifier: GPL-2.0
 > +/*
-> + * The encoder of one DRM device. The DRM device can outlive the unbind of
-> + * this component, so a later bind must not reuse the encoder of an earlier
-> + * one: allocate one per bind, managed by the DRM device.
+> + * Copyright (C) 2024 StarFive Technology Co., Ltd.
 > + */
-> +struct vc4_dsi_encoder {
-> +	struct vc4_encoder base;
-> +	struct vc4_dsi *dsi;
+> +
+> +#include <linux/bits.h>
+> +#include <linux/errno.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/io.h>
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/of_address.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/regmap.h>
+> +#include <linux/spinlock.h>
+> +
+> +#include "kcs_bmc_device.h"
+> +
+> +#define DEVICE_NAME		"starfive-kcs-bmc"
+> +
+> +/*
+> + * Every SIO block of the SoC provides KCS_CHANNELS_PER_SIO KCS channels, each
+> + * occupying a KCS_CHANNEL_STRIDE byte register window, starting at offset
+> + * KCS_CHANNEL_BASE of the SIO register space.
+> + */
+> +#define KCS_CHANNELS_PER_SIO	4
+> +#define KCS_CHANNEL_BASE	0x200
+> +#define KCS_CHANNEL_STRIDE	0x100
+> +#define KCS_SIO_MAX		2
+> +
+> +#define KCS_DO			0x0
+> +#define KCS_DI			0x4
+> +#define KCS_STS			0x8
+> +
+> +#define KCS_INT			0xc
+> +#define   KCS_INT_IBF_EN	BIT(0)
+> +#define   KCS_INT_IBF_STS	BIT(1)
+> +
+> +struct starfive_kcs_bmc {
+> +	struct kcs_bmc_device kcs_bmc;
+> +	struct regmap *map;
+> +	/* Protects ie_en and serialises every write to KCS_INT */
+> +	spinlock_t ie_lock;
+> +	/* Shadow of the KCS_INT enable bits, restored after eSPI bus reset */
+> +	u32 ie_en;
 > +};
 > +
->   /* General DSI hardware state. */
->   struct vc4_dsi {
-> -	struct vc4_encoder encoder;
->   	struct mipi_dsi_host dsi_host;
->   
->   	struct platform_device *pdev;
-> @@ -601,7 +610,7 @@ struct vc4_dsi {
->   	container_of_const(host, struct vc4_dsi, dsi_host)
->   
->   #define to_vc4_dsi(_encoder)					\
-> -	container_of_const(_encoder, struct vc4_dsi, encoder.base)
-> +	(container_of_const(_encoder, struct vc4_dsi_encoder, base.base)->dsi)
->   
->   #define bridge_to_vc4_dsi(_bridge)				\
->   	container_of_const(_bridge, struct vc4_dsi, bridge)
-> @@ -1626,7 +1635,8 @@ static int vc4_dsi_bind(struct device *dev, struct device *master, void *data)
->   	struct platform_device *pdev = to_platform_device(dev);
->   	struct drm_device *drm = dev_get_drvdata(master);
->   	struct vc4_dsi *dsi = dev_get_drvdata(dev);
-> -	struct drm_encoder *encoder = &dsi->encoder.base;
-> +	struct vc4_dsi_encoder *dsi_encoder;
-> +	struct drm_encoder *encoder;
->   	int ret;
->   
->   	drm_bridge_get(&dsi->bridge);
-> @@ -1637,9 +1647,6 @@ static int vc4_dsi_bind(struct device *dev, struct device *master, void *data)
->   
->   	dsi->variant = of_device_get_match_data(dev);
->   
-> -	dsi->encoder.type = dsi->variant->port ?
-> -		VC4_ENCODER_TYPE_DSI1 : VC4_ENCODER_TYPE_DSI0;
-> -
->   	dsi->regs = vc4_ioremap_regs(pdev, 0);
->   	if (IS_ERR(dsi->regs))
->   		return PTR_ERR(dsi->regs);
-> @@ -1758,12 +1765,16 @@ static int vc4_dsi_bind(struct device *dev, struct device *master, void *data)
->   	if (ret)
->   		return ret;
->   
-> -	ret = drmm_encoder_init(drm, encoder,
-> -				&vc4_dsi_encoder_funcs,
-> -				DRM_MODE_ENCODER_DSI,
-> -				NULL);
-> -	if (ret)
-> -		return ret;
-> +	dsi_encoder = drmm_encoder_alloc(drm, struct vc4_dsi_encoder, base.base,
-> +					 &vc4_dsi_encoder_funcs,
-> +					 DRM_MODE_ENCODER_DSI, NULL);
-> +	if (IS_ERR(dsi_encoder))
-> +		return PTR_ERR(dsi_encoder);
+> +static inline struct starfive_kcs_bmc *
+> +to_starfive_kcs_bmc(struct kcs_bmc_device *kcs_bmc)
+> +{
+> +	return container_of(kcs_bmc, struct starfive_kcs_bmc, kcs_bmc);
+> +}
 > +
-> +	dsi_encoder->dsi = dsi;
-> +	dsi_encoder->base.type = dsi->variant->port ?
-> +		VC4_ENCODER_TYPE_DSI1 : VC4_ENCODER_TYPE_DSI0;
-> +	encoder = &dsi_encoder->base.base;
->   
->   	ret = devm_pm_runtime_enable(dev);
->   	if (ret)
-> 
-> base-commit: 467ac0b56aebc804360f276feffbc9032c265a6e
+> +static u8 starfive_kcs_inb(struct kcs_bmc_device *kcs_bmc, u32 reg)
+> +{
+> +	struct starfive_kcs_bmc *priv = to_starfive_kcs_bmc(kcs_bmc);
+> +	u32 val = 0;
+> +	int rc;
+> +
+> +	rc = regmap_read(priv->map, reg, &val);
+> +	WARN(rc != 0, "regmap_read() failed: %d\n", rc);
 
+The WARNs here seem a little heavy, but there is precedent, so I'm ok
+with it.
+
+You probably want to print the register, though, on all of these.
+
+> +
+> +	return rc == 0 ? (u8)val : 0;
+> +}
+> +
+> +static void starfive_kcs_outb(struct kcs_bmc_device *kcs_bmc, u32 reg, u8 data)
+> +{
+> +	struct starfive_kcs_bmc *priv = to_starfive_kcs_bmc(kcs_bmc);
+> +	int rc;
+> +
+> +	rc = regmap_write(priv->map, reg, data);
+> +	WARN(rc != 0, "regmap_write() failed: %d\n", rc);
+> +}
+> +
+> +static void starfive_kcs_updateb(struct kcs_bmc_device *kcs_bmc,
+> +				 u32 reg, u8 mask, u8 data)
+> +{
+> +	struct starfive_kcs_bmc *priv = to_starfive_kcs_bmc(kcs_bmc);
+> +	int rc;
+> +
+> +	rc = regmap_update_bits(priv->map, reg, mask, data);
+> +	WARN(rc != 0, "regmap_update_bits() failed: %d\n", rc);
+> +}
+> +
+> +/*
+> + * Write the shadow of the enable bits to KCS_INT. KCS_INT_IBF_STS is a
+> + * read-only mirror of the IBF flag in KCS_STS, which the hardware clears
+> + * once KCS_DI has been read, so only the enable bits are ever written.
+> + */
+> +static void starfive_kcs_write_ie(struct starfive_kcs_bmc *priv)
+> +{
+> +	int rc;
+> +
+> +	lockdep_assert_held(&priv->ie_lock);
+> +
+> +	rc = regmap_write(priv->map, KCS_INT, priv->ie_en);
+> +	WARN(rc != 0, "regmap_write() failed: %d\n", rc);
+> +}
+> +
+> +static void starfive_kcs_irq_mask_update(struct kcs_bmc_device *kcs_bmc,
+> +					 u8 mask, u8 state)
+> +{
+> +	struct starfive_kcs_bmc *priv = to_starfive_kcs_bmc(kcs_bmc);
+> +	unsigned long flags;
+> +
+> +	/* The hardware has no OBE interrupt */
+> +	if (!(mask & KCS_BMC_EVENT_TYPE_IBF))
+> +		return;
+> +
+> +	spin_lock_irqsave(&priv->ie_lock, flags);
+> +	if (state & KCS_BMC_EVENT_TYPE_IBF)
+> +		priv->ie_en |= KCS_INT_IBF_EN;
+> +	else
+> +		priv->ie_en &= ~KCS_INT_IBF_EN;
+> +	starfive_kcs_write_ie(priv);
+> +	spin_unlock_irqrestore(&priv->ie_lock, flags);
+> +}
+> +
+> +static void starfive_kcs_hw_init(struct starfive_kcs_bmc *priv)
+> +{
+> +	unsigned long flags;
+> +
+> +	/* Restore the enables, e.g. after an eSPI bus reset */
+> +	spin_lock_irqsave(&priv->ie_lock, flags);
+> +	starfive_kcs_write_ie(priv);
+> +	spin_unlock_irqrestore(&priv->ie_lock, flags);
+> +}
+> +
+> +static irqreturn_t starfive_kcs_irq(int irq, void *arg)
+> +{
+> +	/* The interrupt deasserts once the client has read IDR */
+> +	return kcs_bmc_handle_event(arg);
+> +}
+> +
+> +/*
+> + * "espi_rst" is a dedicated interrupt line which carries a single event: the
+> + * host has de-asserted the eSPI bus reset of the SIO block this channel
+> + * belongs to. The line is requested with IRQF_SHARED only because every
+> + * function of that SIO block (KCS, BT, mailbox, ...) listens to the same
+> + * event and has to reprogram its own registers when it fires. It is not
+> + * shared with unrelated interrupt sources and there is no per-function
+> + * status bit to test, so each occurrence is relevant to all handlers and is
+> + * claimed unconditionally. Rewriting KCS_INT from the shadow is idempotent.
+> + */
+> +static irqreturn_t starfive_espi_rst_deassert_irq(int irq, void *arg)
+> +{
+> +	struct kcs_bmc_device *kcs_bmc = arg;
+> +	struct starfive_kcs_bmc *priv = to_starfive_kcs_bmc(kcs_bmc);
+> +
+
+I'm not sure what the hardware does, just making sure you don't want
+to set ie_en to zero or something here.
+
+> +	starfive_kcs_hw_init(priv);
+> +
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +static int starfive_kcs_config_irq(struct kcs_bmc_device *kcs_bmc,
+> +				   struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	int rc, irq;
+> +
+> +	irq = platform_get_irq_byname(pdev, "kcs");
+> +	if (irq < 0)
+> +		return irq;
+> +
+> +	rc = devm_request_irq(dev, irq, starfive_kcs_irq, 0,
+> +			      dev_name(dev), kcs_bmc);
+> +	if (rc < 0)
+> +		return dev_err_probe(dev, rc,
+> +				     "Unable to request kcs IRQ %d\n", irq);
+> +
+> +	irq = platform_get_irq_byname(pdev, "espi_rst");
+> +	if (irq < 0)
+> +		return irq;
+> +
+> +	rc = devm_request_irq(dev, irq, starfive_espi_rst_deassert_irq,
+> +			      IRQF_SHARED | IRQF_TRIGGER_RISING,
+> +			      dev_name(dev), kcs_bmc);
+> +	if (rc < 0)
+> +		return dev_err_probe(dev, rc,
+> +				     "Unable to request espi reset IRQ %d\n", irq);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct kcs_bmc_device_ops starfive_kcs_ops = {
+> +	.irq_mask_update = starfive_kcs_irq_mask_update,
+> +	.io_inputb = starfive_kcs_inb,
+> +	.io_outputb = starfive_kcs_outb,
+> +	.io_updateb = starfive_kcs_updateb,
+> +};
+> +
+> +/*
+> + * The channel number is not described in the devicetree, it follows from the
+> + * position of the channel in the SIO block and from the id of that block.
+> + */
+> +static int starfive_kcs_of_get_channel(struct device *dev, u32 *chan)
+> +{
+> +	struct device_node *np = dev->of_node;
+> +	u32 sio_id, idx;
+> +	u64 offset;
+> +	int rc;
+> +
+> +	struct device_node *sio __free(device_node) = of_get_parent(np);
+> +
+> +	/* Don't translate the address, the offset in the SIO block is wanted */
+> +	rc = of_property_read_reg(np, 0, &offset, NULL);
+> +	if (rc)
+> +		return rc;
+> +
+> +	if (offset < KCS_CHANNEL_BASE ||
+> +	    offset >= KCS_CHANNEL_BASE + KCS_CHANNELS_PER_SIO * KCS_CHANNEL_STRIDE ||
+> +	    offset % KCS_CHANNEL_STRIDE)
+> +		return -EINVAL;
+> +
+> +	idx = ((u32)offset - KCS_CHANNEL_BASE) / KCS_CHANNEL_STRIDE;
+> +
+> +	rc = of_property_read_u32(sio, "starfive,sio-id", &sio_id);
+> +	if (rc)
+> +		return rc;
+> +
+> +	if (sio_id >= KCS_SIO_MAX)
+> +		return -EINVAL;
+> +
+> +	*chan = sio_id * KCS_CHANNELS_PER_SIO + idx;
+> +
+> +	return 0;
+> +}
+> +
+> +static int starfive_kcs_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct starfive_kcs_bmc *priv;
+> +	struct kcs_bmc_device *kcs_bmc;
+> +	u32 chan;
+> +	int rc;
+> +
+> +	rc = starfive_kcs_of_get_channel(dev, &chan);
+> +	if (rc)
+> +		return dev_err_probe(dev, rc, "Unable to determine the channel\n");
+> +
+> +	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+> +	if (!priv)
+> +		return -ENOMEM;
+> +
+> +	spin_lock_init(&priv->ie_lock);
+> +
+> +	priv->map = device_node_to_regmap(dev->of_node);
+> +	if (IS_ERR(priv->map))
+> +		return dev_err_probe(dev, PTR_ERR(priv->map),
+> +				     "Couldn't get regmap\n");
+> +
+> +	kcs_bmc = &priv->kcs_bmc;
+> +	kcs_bmc->dev = dev;
+> +	kcs_bmc->channel = chan;
+> +	kcs_bmc->ioreg.idr = KCS_DI;
+> +	kcs_bmc->ioreg.odr = KCS_DO;
+> +	kcs_bmc->ioreg.str = KCS_STS;
+> +	kcs_bmc->ops = &starfive_kcs_ops;
+> +
+> +	platform_set_drvdata(pdev, priv);
+> +
+> +	starfive_kcs_hw_init(priv);
+> +	rc = starfive_kcs_config_irq(kcs_bmc, pdev);
+> +	if (rc)
+> +		return rc;
+
+Can order matter here?  Can an interrupt come in between the above
+and below calls?
+
+> +
+> +	rc = kcs_bmc_add_device(kcs_bmc);
+> +	if (rc)
+> +		return dev_err_probe(dev, rc, "Failed to register channel %u\n",
+> +				     kcs_bmc->channel);
+> +
+> +	dev_dbg(dev, "Channel=%u idr=0x%x odr=0x%x str=0x%x\n", chan,
+> +		kcs_bmc->ioreg.idr, kcs_bmc->ioreg.odr, kcs_bmc->ioreg.str);
+> +
+> +	return 0;
+> +}
+> +
+> +static void starfive_kcs_remove(struct platform_device *pdev)
+> +{
+> +	struct starfive_kcs_bmc *priv = platform_get_drvdata(pdev);
+> +	struct kcs_bmc_device *kcs_bmc = &priv->kcs_bmc;
+> +
+> +	kcs_bmc_remove_device(kcs_bmc);
+> +
+> +	starfive_kcs_irq_mask_update(kcs_bmc,
+> +				     (KCS_BMC_EVENT_TYPE_IBF |
+> +				      KCS_BMC_EVENT_TYPE_OBE),
+> +				     0);
+
+Would order matter in the above two?  Can an interrupt come in after
+the BMC has been removed?
+
+Also, starfive_espi_rst_deassert_irq()?
+
+> +}
+> +
+> +static const struct of_device_id starfive_kcs_bmc_match[] = {
+> +	{ .compatible = "starfive,jhb100-kcs-bmc" },
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(of, starfive_kcs_bmc_match);
+> +
+> +static struct platform_driver starfive_kcs_bmc_driver = {
+> +	.driver = {
+> +		.name		= DEVICE_NAME,
+> +		.of_match_table	= starfive_kcs_bmc_match,
+> +		.suppress_bind_attrs = true,
+> +	},
+> +	.probe	= starfive_kcs_probe,
+> +	.remove	= starfive_kcs_remove,
+> +};
+> +module_platform_driver(starfive_kcs_bmc_driver);
+> +
+> +MODULE_LICENSE("GPL");
+> +MODULE_AUTHOR("Mason Huo <mason.huo@starfivetech.com>");
+> +MODULE_DESCRIPTION("StarFive device interface to the KCS BMC device");
+> -- 
+> 2.50.1
+> 
