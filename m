@@ -1,72 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795015055;
-	b=GTdkZ8WMUjMBKfLST3q7LtZkTnCjBhirzweqV+gTMnoe0qitnIZs/xdaHjCeyC7IEMJn
-	 J54VkM/8oa6rHfw7Nc/Ssfie8uP3zKDhR3aRMjERVnnm72bDNCMqNpXAJk2peADrRR0qB
-	 XPKi8bycrGwQ8AQdk0VhFi0Pmj1xqy4pGjUGral82q+ZfunWvrr6jud084vyItm3Q7hU4
-	 Sxx83cdvaVu1E4uhaVVRb0SLtJhLj/KE7EYWWacJonRCjPRadGwQ631mgg21M2AZb8Dlq
-	 P7mFrniNKas7odD4zlMiIIHT9869jbgr4u7olvXUwZWdJTb8qAipA0uOBsuYa5/ghLw==
+	t=1795015080;
+	b=VRZEQwKRrwDQ6Kt9MlttIsdVcfBjjFIDLJogdt5UyVrThfTssH2VV8MhohPeHmk5ZAso
+	 Ns4Vc1qcP5WUt3/TKltTZz77gUfNR75mGwMFLBji9xM4fINDFveWImuu1pOYUAFMgeCuP
+	 k1EHOsx4/jcClG/VzKbDRpFlO+vDOPlvg2ixzitYjK2cZPbvfQyvFivQdV1IiNs/2v3D8
+	 XjEaDKw3MuAAuP6c6VQTJC5Bic1Z2KH+odn6Cw2pIypvQ+xY8pFoOKeoTax9XTR9QgPqD
+	 mLougxvGRyZnzkKqcBo7mjQ8NTfWWAc67pJWeAi4oPckZrXdWf5viqqhCtisK/t5+6g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795015055;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=9eNFjz8eGoaFkh5ByexY9gtwepGgk8JN1OSK8KUSAaY=;
-	b=fDcor9TshrLxSjRmenZaHeySMLipAeRw/EUTu2P9TU3A0vt8v++4C9M7c38tQpV+EiB+
-	 S9pB/g9rmpiO8eSSr1CYoG5rI+mQNOjk9DqKlwlN1KFp3tX0eDFIUYcZlXv0izrtzRt7u
-	 Cbtwrs265T63IK9A7LehEicyzHg7MVjc/XCXITrxUPMkk9NDfbz0Pik6JepCw9uspUyNZ
-	 0cdyTnTU75K/JfaHmhcf5tz6XOrkb18feUIIStdoVidMqUxlOVpvg77b63UJKaCbJ393h
-	 WHMoJKKHWA67v4ftJClRLYG67XpQOLjvb8gs0v1yq8qQOd7hV+iu0gXxMk3QLX+8Xmw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795015080;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
+	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer;
+	bh=NayqA+2VU8BL3bQ4QlYOm2bPtjimdoFBif/UfurJ/Ic=;
+	b=vdwKjznzkeSS1CzMbW4jWqp6JjK1iqFm/Jyl3uoDSionv6wYCt3LfvY0hDouJoi/x9Ru
+	 sfxO9Jifnopz2TeSpKuYUsQBDad9ac0yCEgccAAKTtJ0ZYPYgmChnsoGHUNkX6ugpjzEs
+	 yjLxOq7fdTeBbdZFVdqSwJgGuIpAgrJeOobsZgAc/QaikXJgFLvus5yxUkVGEGDE/AYDB
+	 dx+b6e6FfRSRK5Cy5758JNOxBpCN9YRftD4761tTg5ijTu3nD90FpG7sUFKUL3XH8mfNi
+	 gAx++nA6fzuL85TRhxe84WFBKCfkPwBD+SwM4LsMSWzrmmatoA0qCBNDEX0CDOCooIQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K+E3VNgm;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=gourry.net;
+	spf=pass smtp.mailfrom=gourry.net;
+	dkim=pass header.d=gourry.net header.i=@gourry.net header.a=rsa-sha256 header.s=google header.b=e4KQUABj;
+	arc=none smtp.remote-ip=209.85.219.51
+Received: from mail-qv1-f51.google.com (mail-qv1-f51.google.com [209.85.219.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E5DA606A31C;
-	Wed, 18 Nov 2026 15:17:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CA99606A330
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:18:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4CA99606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=gourry.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gourry.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K+E3VNgm
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DE121F000C5;
-	Wed, 18 Nov 2026 15:17:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795015055;
-	bh=9eNFjz8eGoaFkh5ByexY9gtwepGgk8JN1OSK8KUSAaY=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=K+E3VNgmUZ1CtEoIBgh+MLhkxySu15WxG6psA0t/6HrkUXxiH5y8ElLlMW7mU15+1
-	 unb0Cpy1bOEi+FwKaWVQUHRKherIi6ozV1MQHOdHT1e+XKFi96seRY+ixDpN6yzUhp
-	 LEGJ2Ym/5H4pl+484Qy4zhkH1GmXbrH+l3Wg2wt+wLIZmi2jG/8DlnCNPM/Tb3sWti
-	 IlL4dTvvc/IbG43lukUWr6CBeo/sto0yanSZSBgslZiQZu+NT0lbqY1pFZJIMcdlXn
-	 KCGe4Tr0Zd8L1xyjR/7poPi0WPQ1unsz0iJ1gRYcH72G4wc7v+bOBHVmjRM1B4L/2u
-	 5OmhGoPCraD8Q==
-From: David Hildenbrand <david@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>, 
- David Hildenbrand <david@kernel.org>, 
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
- Michal Hocko <mhocko@suse.com>, Alex Williamson <alex@shazbot.org>, 
- Peter Xu <peterx@redhat.com>, Zi Yan <ziy@nvidia.com>, 
- Baolin Wang <baolin.wang@linux.alibaba.com>, 
- Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, 
- Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
- Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
- Kiryl Shutsemau <kas@kernel.org>, Wei Liu <wei.liu@kernel.org>, 
- Roman Kisel <romank@linux.microsoft.com>, 
- Saurabh Sengar <ssengar@linux.microsoft.com>, 
- Naman Jain <namjain@linux.microsoft.com>, 
- Michael Kelley <mhklinux@outlook.com>, 
- "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, Eliav Farber <farbere@amazon.com>, 
- "Jose A. Perez de Azpillaga" <azpijr@gmail.com>, 
- "Gregory Price (Meta)" <gourry@gourry.net>
-In-Reply-To: <20261117-huge-pfnmap-fault-races-v2-0-276007e73bcb@kernel.org>
-References: <20261117-huge-pfnmap-fault-races-v2-0-276007e73bcb@kernel.org>
-Subject: Re: [PATCH v2 0/4] mm: fix races between huge and non-huge faults
- in PFN mappings
-Message-Id: <179501504807.12832.2222363605872715262.b4-ty@b4>
-Date: Wed, 18 Nov 2026 16:17:28 +0100
+	dkim=pass (2048-bit key) header.d=gourry.net header.i=@gourry.net header.a=rsa-sha256 header.s=google header.b=e4KQUABj
+Received: by mail-qv1-f51.google.com with SMTP id 6a1803df08f44-91eb3fea2a9so9480056d6.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:18:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gourry.net; s=google; t=1795015079; x=1795619879; darn=vger.kernel.org;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=NayqA+2VU8BL3bQ4QlYOm2bPtjimdoFBif/UfurJ/Ic=;
+        b=e4KQUABj7gEeUxSS/9AWkxdW17UGKfzuGQLoVBznmZ3Gt2tw44MXP7MS7fuK4a6Xch
+         0yyAXWnxxjkzZiP8jzIwtt8wLQB5Qssy9Gb6kZK/rHIv3jESaumWf1ihxu4gqfy3WHhI
+         oFqLxTx/jKx8gn2+JTWAhEQk7YXH4RcTH2yez5MsQAFrIf799A5J/GHOpS52hUYhDizF
+         brNl3q2lSv7Y6eahBplN+1C7QJXZuPwNsoam+lFO8Uv4TSMXFVNwxTf74WshGCQjFYLx
+         AQVaoBNexrSRe/cQbkOsywEWMHGfpBC1GgvoSO70//W1ftEDbFrlxKA7Po9FCE5MnZw0
+         zQmw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795015079; x=1795619879;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NayqA+2VU8BL3bQ4QlYOm2bPtjimdoFBif/UfurJ/Ic=;
+        b=DHnhQ394PEO7qKseJs7GqVBhj0j71dspWm0VVYf2LGaB5ZnOoUiDskrW7Q4aV181UH
+         u06xvxPkF5a0/9rpU0zxTkPhOs1atluGOn7jzSSZvQEQ+tM5lzJjTIkhg4fnzho74Hi8
+         NcAI/wecEanKdDsRfVoQhyCISikccfgOQD1kNWFBdcLUUnWfxgwknorKv8YHddZgxEI0
+         v5ZwxLtNTkBr43FUXtPnd5DiwhH2SB3lBg0sD9ZFGu/+Wbc9wByBic2w+ft4ePerYoak
+         QLOyFEEnP4fkg9C1Ji95fpUOyFq4n+pmK0cTuVzBorWexepat0umBd9QguIZv3QUGfxm
+         4iRw==
+X-Forwarded-Encrypted: i=1; AL+hErGRoixDKAM9cCaksxcMyEsvPWllrOKSfIvti35WVeiCDVz8wqghI483XHKAvJvTNvY7sRb1GIk6Q0zGLQ8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8GuUfTDGWrgk8mHh915IdNEBVSaO31XN/1dtzC4O1DclOM0sDn
+	i6wAjGal/GTur5ae3y07tSkHjFDZz2gDwpBLWfYAKD6RClKAFgJFNJzrPOJVvtPQud0=
+X-Gm-Gg: AZFdTZcwH1ySQJfwX9CcW+G/237rvkLoXvTptbOWD72SfExvEUXOwgHWZLlACaHINxG
+	jJd6NQXDr50d3Sk3aj+eEYTeqCy+HcY0afJAl1sJHTsUUariKzuTeKoT5xeIE0N/vwWsOYLWV5S
+	AKfq5Wa6qEcdc+REl0GCCYuXtojEey9l0loaVKdCmV5cUYrEYx1o5ghh8hH6/Ga5J6itkeBhSVC
+	GOt3O0rN6OgR2pwvlHDygeklw6gN02cMxDF+pZhKwE2gi+w1mx8aMzGfOHhK3pmHjYv2KNbRTsz
+	9OCzLimNOXbeCnMKZeeY0pZS1bVQqPkutBtuYm8O0Y1VtDF3k2wyHLDbKqsN2/xbVjJZjZ7aodO
+	RxbmRsfI9/CWdVwIzfEz16Es6utdan88DhTQ7lLdGby0skx5GTPpzPWV6DFjaDz5hRhcke6qdSw
+	XBhMuY6A0tAMYdT9nVCcGsqlj+QwkiBnj2MAGKvMAho1W1Ooq4D9tXUGZF3sSbw0zcPyUQRjM90
+	S6qAPBjNUDjPU6ebKMpRWQF+RYCmssNi0mjs4DeDM1++svG5o/1PfkjNfEmAna23YqEDXcW7efv
+	tWy954VOS6FvgDied+aNlT+/mr8f395ACBfYP7CVTEwnXi7acT2G9TulmWrmiDrh2RdD14phz7U
+	IqXmyfurQ4jz3aRGwNFmN2yw5UKYE
+X-Received: by 2002:a05:6214:5d88:b0:91f:2222:b498 with SMTP id 6a1803df08f44-92114f8f66fmr40206726d6.27.1795015079071;
+        Wed, 18 Nov 2026 07:17:59 -0800 (PST)
+Received: from [192.168.50.231] (pool-71-191-145-202.washdc.fios.verizon.net. [71.191.145.202])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92114d35dabsm23793796d6.17.2026.11.18.07.17.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 07:17:58 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,47 +91,79 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16.0
+Subject: Re: [PATCH 01/22] mm: add node-state-filtered zone and node
+ iterators
+From: "Gregory Price (Meta)" <gourry@gourry.net>
+To: Richard Cheng <icheng@nvidia.com>
+Cc: "Gregory Price (Meta)" <gourry@gourry.net>, linux-mm@kvack.org, 
+ linux-kernel@vger.kernel.org, kernel-team@meta.com, 
+ linux-doc@vger.kernel.org, driver-core@lists.linux.dev, 
+ linux-serial@vger.kernel.org, linux-pm@vger.kernel.org, 
+ damon@lists.linux.dev, linux-cxl@vger.kernel.org, akpm@linux-foundation.org, 
+ david@kernel.org, liam@infradead.org, vbabka@kernel.org, rppt@kernel.org, 
+ surenb@google.com, mhocko@suse.com, corbet@lwn.net, 
+ skhan@linuxfoundation.org, rdunlap@infradead.org, 
+ gregkh@linuxfoundation.org, rafael@kernel.org, dakr@kernel.org, 
+ johan@kernel.org, jirislaby@kernel.org, kasong@tencent.com, 
+ qi.zheng@linux.dev, shakeel.butt@linux.dev, baohua@kernel.org, 
+ axelrasmussen@google.com, yuanchu@google.com, weixugc@google.com, 
+ baoquan.he@linux.dev, baolin.wang@linux.alibaba.com, yury.norov@gmail.com, 
+ linux@rasmusvillemoes.dk, pavel@kernel.org, lenb@kernel.org, 
+ hannes@cmpxchg.org, brendan.jackman@linux.dev, ziy@nvidia.com, 
+ sj@kernel.org, muchun.song@linux.dev, osalvador@suse.de, 
+ nico.pache@linux.dev, ryan.roberts@arm.com, dev.jain@arm.com, 
+ lance.yang@linux.dev, usama.arif@linux.dev, kas@kernel.org, 
+ xu.xin@linux.dev, chengming.zhou@linux.dev, joshua.hahnjy@gmail.com, 
+ rakie.kim@sk.com, ying.huang@linux.alibaba.com, matthew.brost@intel.com, 
+ byungchul@sk.com, apopple@nvidia.com, rientjes@google.com
+In-Reply-To: <av1hKrtcATVjCnCM@MWDK4CY14F>
+References: <20261114070959.3490008-1-gourry@gourry.net>
+ <20261114070959.3490008-2-gourry@gourry.net> <av1hKrtcATVjCnCM@MWDK4CY14F>
+Date: Wed, 18 Nov 2026 10:17:57 -0500
+Message-Id: <179501507729.1206716.6880334614636468959.b4-reply@b4>
+X-Mailer: b4 0.17-dev
 
-On Tue, 17 Nov 2026 18:31:31 +0000, Lorenzo Stoakes (ARM) wrote:
-> A driver that implements both ->fault and ->huge_fault must anticipate
-> concurrent use of both.
+On 2026-11-18 16:29 +0800, Richard Cheng wrote:
+> On Sat, Nov 14, 2026 at 02:09:38AM +0800, Gregory Price (Meta) wrote:
+> > +/**
+> > + * for_each_zone_node_state - iterate zones in intersect(nodemask, node_state(state))
+> > + * @zone: The current zone in the iterator
+> > + * @z: The current pointer within zonelist->_zonerefs being iterated
+> > + * @zlist: The zonelist being iterated
+> > + * @highidx: The zone index of the highest zone to return
+> > + * @nodemask: Nodemask allowed by the allocator
+> > + * @state: The node state the zone's node must be in
+> > + *
+> > + * The state filter is part of the iteration rather than a trailing if, so that
+> > + * this expands to a single for statement: a macro ending in an unbraced if
+> > + * silently steals a following else from the caller.
+> > + */
+> > +#define for_each_zone_node_state(zone, z, zlist, highidx, nodemask, state)	\
+> > +	for (z = first_zones_zonelist_state(zlist, highidx, nodemask, state),	\
+> > +		zone = zonelist_zone(z);					\
+> > +		zone;								\
+> > +		z = next_zones_zonelist_state(++z, highidx, nodemask, state),	\
+> > +		zone = zonelist_zone(z))
+> > +
 > 
-> This can happen, for example, if a user calls prctl(PR_SET_THP_DISABLE)
-> concurrent with faulting, as that only holds the mmap write lock and thus
-> does not exclude faulting threads stabilised by VMA lock.
+> A question on consistency. This one is a single for statement, with 2 new helper functions.
+> for_each_populated_zone_state() in the same patch uses "if (!cond) ; else" form instead.
 > 
-> [...]
+> Both forms keep a caller's else correct. The only difference I can find is that the if/else
+> form give a -Wdangling-else warning when the loop is the unbraced body of an if.
+> 
+> Is that the reason for the 2 helper function here? If the warning doesn't matter, this could
+> use the same short form and drop the 2 functions. If it does matter, should
+> for_each_populated_zone_state() be a single statement too ?
+> 
 
-Applied, thanks!
+Yeah I was getting that warning from various checks. I'd convinced
+byself this was a false-positive, but it does look very funky indeed.
 
-tree: mm/core.git
-branch: core-7.5.misc
-
-Applied patches will appear soon in mm-next, followed by linux-next.
-
-Please report any outstanding bugs that were missed during review, so we
-can either drop the patch series or decide how to fix it up.
-
-It is encouraged to provide Acked-bys, Reviewed-bys, and Tested-bys even
-though the patches have already been applied. If possible, patch trailers
-will be updated.
-
-Note that commit hashes shown below are subject to change due to rebase,
-trailer updates or similar. Further, this is not a guarantee that the
-patches will go upstream. If in doubt, please check the listed branch.
-
-[1/4] mm: update walk_to_pmd() to explicitly return an error
-      https://git.kernel.org/mm/core/c/977781a1
-[2/4] mm/memory: remove racy huge PMD assertion from walk_to_pmd()
-      https://git.kernel.org/mm/core/c/dffaff24
-[3/4] mm/memory: do not report OOM if insert_pfn() races a huge fault
-      https://git.kernel.org/mm/core/c/6aaf0015
-[4/4] mm/huge_memory: only compare PFNs of huge entries on huge fault insert
-      https://git.kernel.org/mm/core/c/bc5cff91
+Let me look into this again, it's possible I can massage this better to
+use the short form still.  It's also possible that I should just use a
+different shape entirely than trying to use the existing pattern.
 
 -- 
-Cheers,
-
-David
+~Gregory
 
