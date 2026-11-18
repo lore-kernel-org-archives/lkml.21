@@ -1,58 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=82.195.75.108
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794985021;
-	b=l0Gd8i6yGR7KPLaQARzxsyXNIfzREJdWNQwIQNfolrQ0LLfqKRVr6Utk8Dqu1c6vVNtR
-	 otbOKfLlesLvF79GmR3W39xnNAt4ljZAc2iuLWc6+Nl3CDUgqJC5r4N0PRrZaEaqyGwuN
-	 awbHilFif+ho7NpgXdmRzNta4wtnH1wVBngdyAzLmwLlbTP2dnF99wXcobmb4/7zgZRsH
-	 TowmNvtAcuJ02phEANNzefRMUoGiuE1W07JLrPrqcuqCs1H8MKpb9e1EYqGU3jtc3lqab
-	 iimeI87u82+w7hOFrTTVMyIsP+JYo29vdM22C5Rh7h3xQo4WKcdcjg26IoVnRgMmnKw==
+	t=1794985039;
+	b=wgx4J+hSEV03ircR52XbbsTvrIzxrC+rK5hFbv1SBe3wEoB/KNbQVL4hw4Q68d+ROKCD
+	 MsVsSrPMV1mtXywWnbsiJL8yxy8LspJO4P+EG0teSXM/DX/b+NoPaQnAe6NjepMZrJcxB
+	 SVYUHkDDX2mTqT9W324puONLSw7BWVajzaKA72vuszWmyU//BRpVRWrn+cKNgd5K6aSOY
+	 j25uQrNyw2UI/VhAZ9t3Ap6JMudzsQ5IZ4bZuse3ol7bR71NBKGCOYbXKCo8p/MLFS2yN
+	 WC/gg7ciA2ovCGO3a/kTgQjHgz83Gsck6YbjRGdDPYI5uMwDrS3o7w6EOWMYlRWsf8w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794985021;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=zZ/+BJJJJZFPHSW8x/8iINh+pWk3XdVI+bUIZ2/ivYI=;
-	b=azutUGQDw62VBEI2W7/v6ySklXI0q6ZuAIW8rzmVtJD62T/Q4WSU9d8rNDisn4dpuVqT
-	 mQWLLopLthOGPP6kXpwsztOME/laMlBKnGiiIzv7mx+moEmoUJB85LvnnEvpl5ni6kdZ0
-	 NmWhgOAjdSe+DrR//N7I5OMMk8pmaJLv8HqYxU+BDZJXT62dj+oICuDGc242SykEmXIH1
-	 EaM3Emb1ownzMevJf1MrVUF48qbFkfYCGEd6PBr/+FhNZjpZq/JRq7rTh0idFjY16cqOR
-	 GjtIR6v0SKH3zO+/e1+j/vlv9QVkk3+5H1KFHUSHbnTRP1RTGO6nJW1b/ud4LwdNTsQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794985039;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-Debian-User;
+	bh=Pb3HjAPtMU9VpD16QbGpQcKr/vglWbFlJ7XLzvMerRk=;
+	b=rz8M7SLR5ZCiYik9BGWyJLIZGni3HvLbBX1vezPRK9tBbkIRM1HixV03pNXQ+pE77f8O
+	 fVDDRTiFxY4ZDM26TcD0YIWMrCr6YiHAvg6gtrOqGggSo353I92CwFWOIvYVUzngplqRh
+	 rajH49KAlrO4/2jJYjSS3WmeEvIVum0S7tICYL5NKPmHF9sqOxY4iypqVSbr3tT1/m7NP
+	 rgRQBDIm9WkgDTUXJtX6x2Lg/N3oF5SH8gcCF7recJRT7pbWXJ3hyC80wzq9R5/2jvqrF
+	 lq6SVVbhAIwJWIkJHUg8YnThMsZUDCKQDk8UeXO367OAMsVeqqJ5DRV2S31CuvXpdyQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dsrqAypM;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=debian.org;
+	spf=pass smtp.mailfrom=debian.org;
+	dkim=pass header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=pydFasZP;
+	arc=none smtp.remote-ip=82.195.75.108
+Received: from stravinsky.debian.org (stravinsky.debian.org [82.195.75.108])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73703606A325;
-	Wed, 18 Nov 2026 06:57:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78077606A31C;
+	Wed, 18 Nov 2026 06:57:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78077606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=debian.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=debian.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dsrqAypM
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96B831F000C4;
-	Wed, 18 Nov 2026 06:57:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794985021;
-	bh=zZ/+BJJJJZFPHSW8x/8iINh+pWk3XdVI+bUIZ2/ivYI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dsrqAypMcTAe9PJzkQ4lhw6HR030MEneoLKEUcYc7aETvBMVIGLEsLpiktLin70lC
-	 ximjJ7Cd5TMroNWcrb5znEtkHPGLq/UVnrT2cVs/o6kSKchDui2KctL3VlzFAYnSmI
-	 1vHL98aS9qMZjxH9VXslhZiv8RpFqcVFokQcKrgQN6fkgYasW7PJD5ksk+iRKYMO61
-	 KIYLNY86nu4qMP9t6wW8KxF9/OsdDnzMiPF0JWEhrbcP2QCKtGFZwQsOlv1LGqBxGu
-	 qzVFIF/193PRFTAssmVAp2xkkKRXT3Hf5TE4RXRn7Sn6/9UYtgf/U0XjJGk3fkMez7
-	 PoLd+j37un6Pg==
-Date: Tue, 17 Nov 2026 22:56:59 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: Arnaldo Carvalho de Melo <acme@kernel.org>
-Cc: Ingo Molnar <mingo@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	James Clark <james.clark@linaro.org>, Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Clark Williams <williams@redhat.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	Arnaldo Carvalho de Melo <acme@redhat.com>
-Subject: Re: [PATCH v6 02/13] perf scripts: Add a coverage harness for perf
-Message-ID: <av1MO74yqgr2OJt7@google.com>
-References: <20261117200433.45174-1-acme@kernel.org>
- <20261117200433.45174-3-acme@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=pydFasZP
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=Pb3HjAPtMU9VpD16QbGpQcKr/vglWbFlJ7XLzvMerRk=; b=pydFasZP/71sI40PTpkBJhDN6j
+	pF1MUQ2KIAB0Hc/qZMDeb2cNKUTC8UI/wIu+gf6mailOE+69mtYOFSjNckbbXp7sMVpIZxQwQg/s9
+	oD0r2hkVEcdRFbZqFTDwks6SEcYCXqE7uPQ5RhrnFApPWse/btFXs9ZKKDuAa5uj1XeEG1nbY7uLZ
+	2YtROQFxbu7ZIibrS9DLHu80Ai+r0wWwoh1gMnZ59dd8EAa03sLM8gpu7G7IGM8wZXDUh8zKcLTRO
+	c7pUfdMcuj8nniIfOtiIXHj/1xPp0bALe5kyJ0SqOHHG4Sfv51BIfIKUAdcAA1GOnzUayK2v0tNs6
+	Au3OGSgA==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <emfox@debian.org>)
+	id 1xTZbT-0017sd-07;
+	Wed, 18 Nov 2026 06:57:11 +0000
+From: Emfox Zhou <emfox@debian.org>
+To: Even Xu <even.xu@intel.com>,
+	Xinpeng Sun <xinpeng.sun@intel.com>,
+	Jiri Kosina <jikos@kernel.org>,
+	Benjamin Tissoires <bentiss@kernel.org>
+Cc: linux-input@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] HID: intel-thc-hid: intel-thc: raw spinlocks for registers
+Date: Wed, 18 Nov 2026 14:57:04 +0800
+Message-ID: <20261118065704.672557-1-emfox@debian.org>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,97 +69,34 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261117200433.45174-3-acme@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-Debian-User: emfox
 
-Hi Arnaldo,
+The primary interrupt handlers of intel-quickspi, intel-quicki2c and
+intel-ipts reach the registers from hardirq context. The map is a fast_io
+one, so its lock is a spinlock_t, which on PREEMPT_RT is a sleeping lock:
+taking it there is an invalid wait context.
 
-On Tue, Nov 17, 2026 at 05:04:20PM -0300, Arnaldo Carvalho de Melo wrote:
-> From: Arnaldo Carvalho de Melo <acme@redhat.com>
-> 
-> Build perf with clang source based coverage, run the complete perf test
-> suite, merge the raw profiles and report line and function coverage,
-> optionally against a baseline.  This is pahole's coverage/coverage.sh +
-> coverage-diff.sh merged into one script, wired as
-> 'make -C tools/perf coverage' and listed in 'make help'.
-> 
-> Without -f the report lists the files with the most uncovered lines,
-> which is where new tests should try to get more coverage; -t narrows
-> the tests, -f focuses on specific files, --html writes a browsable
-> report and --table/-T, also available as 'make -C tools/perf
-> coverage-table', prints the last run as an ASCII table with the
-> per-file line and function coverage, like pahole's coverage_table.py.
+Ask for a raw spinlock instead. The accessors only touch MMIO, and the map
+is fast_io precisely because it is used where sleeping is not possible, so
+nothing else changes.
 
-It'd be nice if you could list all options.
+Signed-off-by: Emfox Zhou <emfox@debian.org>
+---
+ drivers/hid/intel-thc-hid/intel-thc/intel-thc-dev.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-> 
-> The build can be split from the test run: 'make -C tools/perf
-> coverage-prep' builds the instrumented perf and records the build
-> directory, and a later run as root, which needs no make, checks that
+diff --git a/drivers/hid/intel-thc-hid/intel-thc/intel-thc-dev.c b/drivers/hid/intel-thc-hid/intel-thc/intel-thc-dev.c
+index 7feda4160..e318f26ad 100644
+--- a/drivers/hid/intel-thc-hid/intel-thc/intel-thc-dev.c
++++ b/drivers/hid/intel-thc-hid/intel-thc/intel-thc-dev.c
+@@ -49,6 +49,7 @@ static const struct regmap_config thc_regmap_cfg = {
+ 	.reg_write = thc_regmap_write,
+ 	.cache_type = REGCACHE_NONE,
+ 	.fast_io = true,
++	.use_raw_spinlock = true,
+ 	.rd_table = &thc_rw_table,
+ 	.wr_table = &thc_rw_table,
+ 	.volatile_table	= &thc_rw_table,
 
-Ok, so IIUC it's optional and just running 'make coverage' would all
-necessary jobs one stop, right?
-
-
-> build, runs the tests and renders the report, or prints the table with
-> --table.  This is for running the tests that need root on the bare
-> metal host while the instrumented perf is built in the development
-> container.
-
-What is the table?
-
-> 
-> The report covers the whole tree, not only the paths the tests walk, so
-> the per-file table is a map of what the suite does not reach in a given
-> run.  The uncovered line list and the failures the runs exposed are what
-> drove the rest of this series.
-> 
->   $ make -C tools/perf coverage-prep O=~/coverage-build
->   ...
-
-What is the actual command line here?  I guess it's..
-
-    $ sudo ~/coverage-build/perf test
-
-
->   $ sudo scripts/coverage.sh
->   ...
->   Total: 104787 of 205810 lines covered (50.91%)
->     perf: 85674 of 173247 lines covered (49.45%)
-> 
->     largest uncovered files (>= 100 lines)
->     file                                            lines     cover    missed  fn-cover
->     util/intel-pt.c                                  3237     0.00%      3237     0.00%
->     util/intel-pt-decoder/intel-pt-decoder.c         3208     0.00%      3208     0.00%
->     ui/browsers/hists.c                              2730     0.00%      2730     0.00%
->     builtin-sched.c                                  3737    41.26%      2195    43.97%
->     builtin-script.c                                 3212    33.50%      2136    37.90%
->     util/auxtrace.c                                  2013     4.47%      1923    11.11%
->     util/session.c                                   2686    41.14%      1581    48.80%
->     ...
->   Report:  /home/acme/coverage-build/cov/report.txt
-> 
-> The total also counts the tools/ libraries and headers linked into
-> perf, the perf line is the tools/perf/ files alone.  The numbers above
-> are from the split run: coverage-prep built the instrumented perf as the
-> developer, the tests and the report ran as root.  This machine has no
-> Intel PT, so the PT tests skip and leave intel-pt.c and
-> intel-pt-decoder.c at 0.00%; the TUI browser is in the list because the
-> suite does not drive it.
-> 
-> 'perf test' exits 0 even when tests fail or time out, so the script
-> takes its status from the "Failed tests :" and "Timed out tests :" lines
-> that perf test prints since commit 33f20342ba525ef7 ("perf test: Add
-> summary reporting").
-> 
-> 168 tests passed, 28 skipped, one failure (20.2: Tracepoint event), in
-> code this series does not change.
-
-Looks useful, thanks!
-
-Namhyung
-
-> 
-> Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
-> ---
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
