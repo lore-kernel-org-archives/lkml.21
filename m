@@ -1,103 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795035145;
-	b=hlSiR+NIknQ6ORQzZVYFoA2Ru/A9WvpcbVvjMXY1y4813Y3UEwTBlIlI84vC4pK+1R2+
-	 FIUT+ObvrQbSkDa/HVr6RfdENAqEa5W+G/bawaADuF9gtaxVGc/o1gOIV3vqA2x+7jWOZ
-	 k0wx4IcrDAECpIoavrhW/6ziU+1j6CkcDlUc9xz/2ysrkiNziEXw5ats7rmxxUSq7gKID
-	 UwHnU4Lmr/yOkEMDHjPS0tnbJm0cUenNKufCtQRgCm+FBohdvjryO7yiMTA67N9YrfmWh
-	 ro8YNxZOnR54sPpASa2O9gIlw5UBQW2zCRkzL89pm+FcuZspFUa+Z1nI/T1OwVkx55g==
+	t=1795035175;
+	b=kEnyD6iAAAf4sXeNO7GKUha9gZQoDrw70utURm1mGyuq6HVc0UFQBkYNsHvH70SBsWcJ
+	 fRD4h01RagCjfNudkPG4EVUvhgMo5LewFicyt698HwY3PKHlVWKGAW8PVU8UePimoDbGn
+	 4AKjeHlUmIaMU1Z5RAvRT4YE8L32eXOFwkuKedSghsA0MZCqbFSfWgLrXLZJk2oQ+TJMo
+	 Y1oU1APCLYASJmFgbWtsWFCOxCPMwVJlDsMX5hqHln5VKvOaFh+qXPTFo1gbjW2/FMv8I
+	 iHMP/bGTKbTKMV+6/vR+eA6/kxxVglHE03GYLd3ShDl+dXi7bhMP3TLp3XiY5XKfCgg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795035145;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Content-Type:Date:Message-Id:Subject:From:To:Cc:In-Reply-To:
-	 References:Content-Transfer-Encoding:MIME-Version;
-	bh=dxmySTmEZ3hib+9H5pqVDEDQRI3wIZljNjzSSTwZn7w=;
-	b=eJo+1XhZcBg65Bgi0watj7yZI/Jq/8bGPxI+MNFp1oz+BPMAnu3Jw1evxvWaT3+XcE1b
-	 aVMOsgOnQCSalBN/zswY0iN2QOVbmxvy1COLtzuwKfukxBVINrZvUbSzO1S68AoLx85s5
-	 SSZFwI/kj7CC+uMDZGZlrVUpFOo4vfuPPWXUDMsvG8OIA78V2kTqK6C3EZPeevePyzuyG
-	 jwWMW5bl0Zu+vu7/dwXqkrsvJdx8FgZPKXs4S3hhnjhVWQFtf9e8HYjHK8O04J9hnJCZW
-	 5IsxdCJnl8UIRaesoaZuQL0NBqf0z6r57VXL6nLr8lkH4XgyjQXFQNoWxszjuY2czNQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795035175;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:To:From:
+	 Subject:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
+	bh=yhKCHOzNyTpfTfx7SAd3IcKFHof/Jwv+3/T1yvn88u4=;
+	b=dmZIXWjWgMnKD9z9Ltn5oRQfFmThRaBSHnNsk4QWKUnYPEhV5KqJHhityUTcYii+uKQa
+	 KfVkDVjD+ExLmXLZgP3m+CJO4Y+yCsWFGEY5zd4QMmGFBlWN/r2t1o8PhVtaiRpQgM86t
+	 RhF66l49Nici9vOevqcgq0qQKtD1wBnQ5+g5axJU3bxZVYP/TPBew50jlsCNn7UcnAA4h
+	 8Z7vaIi3CckVR9gLJLpfSIz3z84cBA02ByKBSagPdSv3V/0tcXlLEXueIqsj7IpXdrm4B
+	 ZdJJQ9Dkx6PefubQmJxZBzABf3dpw27Yp9lnSFKq0gWigzX9t1I2t0gQDWQVCTCZsyw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SqHUcWGu;
-	arc=none smtp.remote-ip=209.85.215.178
-Received: from mail-pg1-f178.google.com (mail-pg1-f178.google.com [209.85.215.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=D9QUesAP;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43A3E606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:52:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43A3E606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 643E0606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:52:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 643E0606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SqHUcWGu
-Received: by mail-pg1-f178.google.com with SMTP id 41be03b00d2f7-cde0daf3a2aso868555a12.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:52:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795035144; x=1795639944; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:cc:to
-         :from:subject:message-id:date:content-type:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=dxmySTmEZ3hib+9H5pqVDEDQRI3wIZljNjzSSTwZn7w=;
-        b=SqHUcWGuBJ5iPjwuoExkJaVT/UVpfdPBxDUFOXh6mpiQuWiJKjjQrPeuXpWMmMwI/u
-         soWYK+E2+ktGyN0Mz0Y/0hREtps/a3j0GpYhuBoacNC49w4L3fbdbfPmwLRrhgBUxom/
-         zsFLmibB8/aUwOgVfsoKnxJ48Wg/ZX8wwMZkIxFkXgN/13l5erXTN1NQchLap+467x4c
-         LCR3snF+qsFzpxzJx547CpICfIsqqVjRXbemsyTJ97tlHu3vMXz0w3VotAin2HXQMLVk
-         F9I4XGQ2sfHYLYsTlk2h/KNSgRqNnjIIIS8lmZtgsWecH4GG6FpElOb4rFYA1+uwN4pm
-         irLg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795035144; x=1795639944;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:cc:to
-         :from:subject:message-id:date:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=dxmySTmEZ3hib+9H5pqVDEDQRI3wIZljNjzSSTwZn7w=;
-        b=XyOazaNIvuezOWWaqHePmANOuPkDJ0jQZfeYKmUZUoNMOBV37kGagWJDc7eTa0yUhs
-         VnddeZm9eRnzQWXqvlb/hKew82faj7S6zU5fBtb2OZ44ciepnDEFGrUOffWnh/nGyjqv
-         Bw1i01pIQQGUnBVsn2+uFCPcHUUBpniy3VaGpKQIavOE8/fTE4ON9meIZ5poPqRvW1qu
-         Z587XBGwq17HDBZu7vl+emMIG77RgaiQifJuXyMt40MaBSmh3NU2taiCTK2vD5ttn/ka
-         JfmMoqBOboTN60xC9s+khWEGv7PdPfpA9B89oQq3hWWUIibh46FDdbNOWnUuhBGAx08p
-         21QA==
-X-Forwarded-Encrypted: i=1; AL+hErHw01TmLZua7gQrxweSz6aQEeY2BX9UzdoFMkmoOcyN+RMMRRq8H+5ZHynD9pGp+xGysMDcys3Fb32ESrQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Y5lf5MtMUMz7iHhWRlwzwiTAppjc4Cxfr9hKbpiYgRnukdaJI
-	1IL1kmJZ1BYVu0EeIgDcax6qNLsMJkRReXPnWpMHgmC5+/6C6aDST+kZ
-X-Gm-Gg: AZFdTZdWRqf39YQS9FTGG0Xulg3oKiPbY8ZAtCqBYF4iZQHshMhMVDTlOzSxFnividX
-	f9vStriZmDxC1DtN2MLhjYTYTRzDRzawBPXFFWoQeyCgBk2b7LkoYuuC0hPR8IEfEjQnUcFTwyq
-	8eeIRzQ9yjbj9xNYl1pUEtv/OHTJIwfIJxhqeUaaLREJfk6bxsyOykRHyh+F7EAm3OTsmzDQq4B
-	kcyFmKEpyixF9gNAAOqAl+22w3kdKuxtToQ6uVCRJPcu7XWtiHZH4YeesG5xsUiIdXY/8qfiSOs
-	F8SV9GCchxxCFpEh5e1TLE7OBnoqCpM4clltbwzdaKK91R6F0ktVqgfGGgw4ULA0sJXJhC1dwEZ
-	y72blCD8iG1ncyWfCg7xPe1GxrmPXQvOLNxbNCfxZSy9Zefg8qFlLhWsDbx136sVySyJ1XE1P+G
-	YdhTIf6F+4/TvKc2ZrQkpVkAzqD5lyTTXO3GYnm0rWpMxDzBB+jaHQWgiubZCZtX3gMhAWeNUGu
-	93lhrxJjM/nRwC1UPRsFxaFe3v9pjLw/Ulj/8fnXEjwV/181Q1ZQXNJBpxqDjvxM643ylTKM1EM
-	bJhEDcX7SDNFxSsNwTIiZidqCXCsFwGIWBfokjtK2ebrLoMsodHn0gCg8Alg4LIjXxD+NNR+K83
-	WvSqVfTTq2DU/NWWUcc9kYPFM9qLbyx9fbA==
-X-Received: by 2002:a17:90b:17ca:b0:3b3:c00e:56a7 with SMTP id 98e67ed59e1d1-3b3d07d458bmr3354393a91.42.1795035144417;
-        Wed, 18 Nov 2026 12:52:24 -0800 (PST)
-Received: from localhost ([153.61.198.241])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d56a3f93sm2644508a91.2.2026.11.18.12.52.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 12:52:24 -0800 (PST)
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 18 Nov 2026 20:52:23 +0000
-Message-Id: <DMYMUOTUYZIC.3CG88B0ZSFU7E@gmail.com>
-Subject: Re: [PATCH] bpf: Fix cgroup link update after a failed effective
- array rebuild
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-To: "J4f J4f" <shlomojune6@gmail.com>
-Cc: <bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <stable@vger.kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>, "Andrii
- Nakryiko" <andrii@kernel.org>, "Eduard Zingerman" <eddyz87@gmail.com>,
- "Kumar Kartikeya Dwivedi" <memxor@gmail.com>, "Martin KaFai Lau"
- <martin.lau@linux.dev>, "Song Liu" <song@kernel.org>, "Yonghong Song"
- <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>, "Emil
- Tsalapatis" <emil@etsalapatis.com>, "Ihor Solodrai"
- <ihor.solodrai@linux.dev>, "Tadeusz Struk" <tadeusz.struk@linaro.org>
-In-Reply-To: <CAE_LbwmtogEFvk5jDUcYhjSaX7_5bsHy-OWxCKPxmiBVDcjj_w@mail.gmail.com>
-References: <20261112134942.288831-1-shlomojune6@gmail.com> <DMTHXFS504S9.2BU4PDLEWG3PX@gmail.com> <CAE_LbwmtogEFvk5jDUcYhjSaX7_5bsHy-OWxCKPxmiBVDcjj_w@mail.gmail.com>
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=D9QUesAP
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 6867BC4F76D;
+	Wed, 18 Nov 2026 20:52:58 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 5092C5FE9B;
+	Wed, 18 Nov 2026 20:52:53 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 415D111BC308E;
+	Wed, 18 Nov 2026 21:52:44 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795035167; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=yhKCHOzNyTpfTfx7SAd3IcKFHof/Jwv+3/T1yvn88u4=;
+	b=D9QUesAPwYl9H7mE2wYqrqrYPZp9eltcYzDlZ0aktBrXsJgb9IbDuBmzzLY+MbGCcF/rg9
+	MNZRrm8JgctksVYhj4mbfrsRjooUJUGO7DFTvCVp4VsQDzC5+2ZSBjae023fKiv6Kidcjh
+	QQIW2LdexlOFXaAaJ38DEu1/GeamqgpU485nD0dX88CldCKcWcGg0kLhJDT0+VbIILAMEI
+	v6UvrLnf+CwxjDDR3OH2zeM8TOJf0mMY8Ov6Lq/l34WomcMPB2YRKlnqhd06/ABVHnJGJI
+	a/+g8Rnhhy27Pkt/cUYQJxY5mO/fEduyeRf1vFCM08kebTNIrR06jAoyGfgRfQ==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,17 +58,189 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 18 Nov 2026 21:52:43 +0100
+Message-Id: <DMYMUY659YDR.2FPDXVGJWJAU6@bootlin.com>
+Cc: <conor.dooley@microchip.com>, <andrew+netdev@lunn.ch>,
+ <davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
+ <pabeni@redhat.com>, <linux@armlinux.org.uk>, <netdev@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <nb@tipi-net.de>, <pvalerio@redhat.com>,
+ <vladimir.kondratiev@mobileye.com>, <gregory.clement@bootlin.com>,
+ <benoit.monin@bootlin.com>, <tawfik.bayouk@mobileye.com>,
+ <thomas.petazzoni@bootlin.com>
+To: <netdev-bot+sashiko@kernel.org>
+From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+Subject: Re: [PATCH net-next v6 2/2] net: macb: distribute evenly Tx SRAM
+ segments
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261113-macb-set-channels-v6-2-5de59d9e7f02@bootlin.com>
+ <179494461057.3136.14140856412630551606@kernel.org>
+In-Reply-To: <179494461057.3136.14140856412630551606@kernel.org>
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Wed, Nov 18, 2026 at 06:41 AM J4f J4f <shlomojune6@gmail.com> wrote:
-> I reproduced it on f66469d9905b39 (7.4.0-rc1).
+Hello netdev-bot+sashiko,
+
+On Tue Nov 17, 2026 at 8:43 PM CET,  wrote:
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issue(s) to consider.
 >
-> [    4.307527] BUG: KASAN: vmalloc-out-of-bounds in
-> cgroup_bpf_prog_query+0xdf1/0x10a0
-> [    4.307589] Read of size 8 at addr ffffc90000073050 by task exp/74
+> Critical: 0 =C2=B7 High: 1 =C2=B7 Medium: 1 =C2=B7 Low: 0
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwor=
+k
+> know by including "pw-bot: cr" as a separate line at the end of your repl=
+y
+> (one such reply per series is enough).
+>
+> - [High] The commit message says TXQSEGALLOC must be re-applied "if/when
+>   number of active queues is modified", but the patch only programs it=E2=
+=80=A6
+> - [Medium] gem_sram_distribute_segments() can build a TXQSEGALLOC value
+>   whose total segment count is larger than the num_segments that=E2=80=A6
+>
+> --
+>
+> net: macb: distribute evenly Tx SRAM segments
+>
+> This patch programs the GEM TXQSEGALLOC register from macb_init_hw(). It
+> spreads the Tx SRAM segments advertised in DCFG6 across the active
+> queues, with each queue's share encoded as a power of two. The new
+> MACB_CAPS_TXQSEGALLOC capability is enabled for ZynqMP, Versal and EyeQ5.
+>
+>> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethe=
+rnet/cadence/macb_main.c
+>> index e7325af4b399c..dc1624815f71e 100644
+>> --- a/drivers/net/ethernet/cadence/macb_main.c
+>> +++ b/drivers/net/ethernet/cadence/macb_main.c
+>> @@ -3432,6 +3432,63 @@ static void macb_context_swap_end(struct macb *bp=
+,
+>
+> [ ... ]
+>
+>> +static u32 gem_sram_distribute_segments(unsigned int num_queues,
+>> +					unsigned int num_segments)
+>> +{
+>
+> [ ... ]
+>
+>> +	/* pow=3D0 for all queues. ilog2(0) is dangerous. */
+>> +	if (num_queues >=3D num_segments)
+>> +		return 0;
+>
+> [ ... ]
+>
+>> +	for (i =3D 0; i < num_advantaged_queues; i++)
+>> +		val |=3D field_prep(GEM_TXQSEGALLOC_MASK(i), pow + 1);
+>> +	for (i =3D num_advantaged_queues; i < num_queues; i++)
+>> +		val |=3D field_prep(GEM_TXQSEGALLOC_MASK(i), pow);
+>> +
+>> +	return val;
+>> +}
+>
+> [Severity: Medium]
+> Can the value built by gem_sram_distribute_segments() add up to more
+> segments than the num_segments read from DCFG6?
+>
+> A field value of 0 still means 2^0 =3D 1 segment. There seem to be two wa=
+ys
+> to over-allocate.
+>
+> First, when num_queues > num_segments, the early return gives every
+> active queue 1 segment. The comment above uses num_queues=3D4 and
+> num_segments=3D2 as an example, which claims 4 segments out of 2.
+>
+> Second, the loops only fill fields for i < num_queues. macb_init_hw()
+> passes bp->ctx->num_queues, not the hardware queue count. The fields for
+> hardware queues from ctx->num_queues up to bp->max_num_queues stay at 0.
+> Each of those still claims 1 segment, on top of an active split that
+> already uses every segment. With 4 hardware queues and 16 segments:
+>
+>   num_queues=3D2: 8 + 8 + 1 + 1 =3D 18
+>   num_queues=3D3: 8 + 4 + 4 + 1 =3D 17
+>
+> On Versal and EyeQ5 (MACB_CAPS_QUEUE_DISABLE), this happens after
+> ethtool -L while the interface is down, followed by an open. The reset
+> value is an even split over all hardware queues, so it adds up to the
+> available segments.
+>
+> If the GEM requires the total to stay within the DCFG6 count, could this
+> give queues overlapping or out-of-range Tx SRAM regions?
 
-That's the last step of the scenario.
-How did the alloc in compute_effective_progs() fail 4 seconds after boot?
-It's a small kmalloc with GFP_KERNEL.
-I think it fails only for an OOM victim or with failslab.
-So it's still wont-fix.
+The manual mentions explicitly that only active queues are taken into
+account. This means writing 0 in the field for a disabled queue won't
+allocate (1<<0) segments for it. Added a paragraph in the commit
+message.
+
+As for the `num_queues > num_segments` case, there is nothing better to
+do than to allocate one segment per queue, which is what we already do.
+We won't add code to handle that unreachable edge case. If it happens,
+edit your verilog!
+
+>
+>> @@ -3465,6 +3522,20 @@ static void macb_init_hw(struct macb *bp)
+>>  	if (bp->caps & MACB_CAPS_JUMBO)
+>>  		bp->rx_frm_len_mask =3D MACB_RX_JFRMLEN_MASK;
+>> =20
+>> +	/* Distribute Tx SRAM segments evenly based on active number of queues=
+.
+>> +	 * TXQSEGALLOC is only documented for some GEM integrations.
+>> +	 */
+>> +	if (bp->caps & MACB_CAPS_TXQSEGALLOC) {
+>> +		unsigned int num_segments;
+>> +		u32 val;
+>> +
+>> +		num_segments =3D 1U << GEM_BFEXT(SEGMENTS_BIT_SIZE,
+>> +					       gem_readl(bp, DCFG6));
+>> +		val =3D gem_sram_distribute_segments(bp->ctx->num_queues,
+>> +						   num_segments);
+>> +		gem_writel(bp, TXQSEGALLOC_LOWER, val);
+>> +	}
+>
+> [Severity: High]
+> The commit message says the distribution needs care "if/when number of
+> active queues is modified". Is that case covered when the queue count
+> changes on a running interface?
+>
+> Only macb_open() and the resume path call macb_init_hw(). Running
+> ethtool -L ethX combined N while the interface is up goes through:
+>
+> macb_set_channels()
+>   macb_context_swap_start()
+>   macb_context_swap_end(bp, new_ctx)
+>     macb_init_buffers()
+>     macb_configure_dma()
+>
+> macb_context_swap_end() installs a context with the new num_queues and
+> turns RE/TE back on. Nothing on this path rewrites GEM_TXQSEGALLOC_LOWER.
+> The Tx SRAM split stays sized for the old queue count until the next
+> down/up or suspend/resume.
+>
+> Two examples:
+>
+> Open with 1 queue. q0 gets 8 segments and the other fields stay at 0
+> (1 segment each). If the interface then grows to N queues while up, each
+> new queue runs with a single segment while TXPBMS is set in DMACFG.
+>
+> Going from 2 queues to 1 while up leaves half of the SRAM assigned to
+> the disabled queue.
+>
+> Versal and EyeQ5 set both MACB_CAPS_QUEUE_DISABLE and
+> MACB_CAPS_TXQSEGALLOC, so this path is reachable there.
+>
+> Could the write be moved into a helper and also called from
+> macb_context_swap_end() under bp->lock, next to macb_configure_dma()?
+
+Mentioned by Nicolai as well. The fix is to make our distribute function
+standalone and call it once from open and once from context swap end.
+
+Thanks,
+
+--
+Th=C3=A9o Lebrun, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
