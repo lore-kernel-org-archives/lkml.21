@@ -1,107 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.139
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795013549;
-	b=DMVfM6Su0l2JvP79/4i75KnDfJgCgcZYmKiVAt9mKSPeZHch5Yw2LVBaYKD+sZONlu5/
-	 w8m6XNWNbY2+ZczLI2/zuoLedr+w+V0KILSZG/BIKbDcKDnPGzr4p6bVT+rPHRDqjiF/T
-	 p1TIhNYz8SGKmIk4evtwq/XOgld4M15VA8uyPbMQOX97DjxsG7gsYmzGZDdwWeRU99Ok3
-	 Z9ZxLr5kW5f2Y/4WTmwM5s3cpcdnQOKGE9BURK/nuasRLyKzTKX/qJ9CXfgFkSzrltlMy
-	 6kzdpa16qykBALGYelsH4xWc2AZuVouWqM1TjaUBuimI7CIuGikMU+WoWmoqVF/+rnw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795013549;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=Nq5o9yhkYtuH+ZXDc69/fViNewBFXpBRSbbR1U7zUpI=;
-	b=MF9SYgv2LonWNb+pwY0EF4B2u7zBcMsgeqZfAPs5Vrf9qyFVEEBrLZWiPKXRPEeMprfu
-	 He2ErrJAMujICdkgbYX/GUDiAusqcY0d3b855Ksqw4RqIa499nQoP652FcGcQFA8sKzn0
-	 LgydSbdVYPo31mnpXAElww/WzMhh6TyROLZelb7G3vnMiRNMaSObxyMRK1oBZhq4YsvVa
-	 NVWbo0SWiwULf0I/u4/Rn/U5pA7DI05DfK0LIJ7PScL+838YBLPJ0Gl6n5D3xC5fORQrK
-	 AdIGHHWFpHNSDlGD6+vghlmWqtgSCHFn/dOkkStC58HngalYlU2FkgwPLaDE5NiBjUg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=WnDz1sCM;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.139
-Received: from YT6PR01CU002.outbound.protection.outlook.com (mail-canadacentralazon11022139.outbound.protection.outlook.com [40.107.193.139])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.125.25.15
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795013551;
+	b=V7ABu3GR1Xgv7/ndjjDI/8TjMXZbyt9kyX4vaKq5sva980BW0wLiPFqzuJ0A9tqezmOH
+	 q7R96vwOUMLo+Eq2VAPYz7sxWY/lXF2YwMMShs56NlsZDut0CkIJtTJiCJ/1BLT2e37UR
+	 yjmV00VCQ3E0W4iHYR1yFQvLlX+wM83ZMPyfn6q08/LzWOx/+V62CD3N4OzL60SyboPbA
+	 YNxj1URMfH4ElM6b5K+ABshSmsSwd2DSJffqvLsqW6SuZxUR9DcAtKchJ9kCQU5BtgJtE
+	 lcMmJIhoqVPJEjfqlas9M8JOeWJ0y7nlif3mEEVIs1rXI5Oz38bkaa6yXkHHtLe2CzQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795013551;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:From:To:Cc:Subject:
+	 Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Infomaniak-Routing;
+	bh=F0Lf2RemKJ8NFGdxBFKn/ZBk+HF8BSqxxMrrZGrxVcQ=;
+	b=gDPJeDeOKhH6sv6VVtg4AThkCvkCWYAQKlgMhm3TUBbeAGSSwdvIYMMndPPO+ejBzo8c
+	 tFVflmCSVKgNSh+YSj8gPa8TXIpNzqmRn+tcd4x6f/q8k8W5XdAECK0VWwOpMknKxbpLH
+	 Yl/PD5czRLznHFdTfThGIg6+YhIfjdcMw6GcVuXq++y+tLZ/HLq62JUqgvEpzXpSrzQp1
+	 AD6Rk0QKxazOTvkzwGjOWdM6/ppUT47cjLp217/UZb1L+860VGgMvLSYghDA9o3JKylWx
+	 +tXzzov5+UYbaJ6ZpAajoti2W2dQhCjA9zZqqzNyKVQpFMnDn48fObv1FMYNHgjlQiA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=digikod.net;
+	spf=pass smtp.mailfrom=digikod.net;
+	dkim=pass header.d=digikod.net header.i=@digikod.net header.a=rsa-sha256 header.s=20191114 header.b=0ZiY3vFI;
+	arc=none smtp.remote-ip=185.125.25.15
+Received: from smtp-190f.mail.infomaniak.ch (smtp-190f.mail.infomaniak.ch [185.125.25.15])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0AEC4606A331;
-	Wed, 18 Nov 2026 14:52:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0AEC4606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B329C60A2620
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:52:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B329C60A2620
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=digikod.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=digikod.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=WnDz1sCM
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uPmkJTL1NCGg76pAIUrFL3pmeyKcTzPdK9CyU8dXxSEWKzez7ysOfULYpsYqOoUs2KUuYhcA6pq4WBMr+BmdPGQ3OuwZnzjV9Nwyiwz01XI+VEUzQhVw+0JKSpoqP2OLd2wPcIVsCW1PKN35VEXEQ7h33Thuoywk8saHR5LfeZ4AqMCn9znItVnLMuZNwM6f92c6XIkHfo3m4RHg5LevToVZ4KQxyfJc9ICvcDc7uiYRcUIjzuyTc6/XXiygiW1qCmGY7rA55MiwgqQgPc3+MgzF/KT42crJU80BDOefmRITsOLmX6J6/rWYtmrPl60IXSaEpxhzwIz1RFKKhLOrGw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Nq5o9yhkYtuH+ZXDc69/fViNewBFXpBRSbbR1U7zUpI=;
- b=gJLzTJtfMx8ZmtL9PSXAvWzhVEBr8F2O8cfsDuV+fSaxo9dBnOLDW/maH7tD/VVcu+ABlUBDZaYa2Itu6Uw8r3iyBEfI3wlVZLGNQGbVTUrjDnQU+jW1hqURWgKWHfKQH5obmzeiVQtcRh+hLbjfHTe4ivruifML3Jc/+ADqsjdFSwGO+cfHk1PE7UBMKo3N0byJqkvcGHFEhdouXmyLWcg+NaOhRXh2vT2IT4NEAHqgDXl9DTyZAEuU4oiugoCQ7Om4whdFnWIJIhlsC/OzS6TB4QHU3t3NsPQDDEn4otcHyelHpVmDDZY2pEIf/t9uqP4I0tyBO8Ask4QwtjxmJA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
- dkim=pass header.d=efficios.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Nq5o9yhkYtuH+ZXDc69/fViNewBFXpBRSbbR1U7zUpI=;
- b=WnDz1sCM6HUcYzV8QNrKtcKa93WZFGKP2ItTpTkICALORfMLfGJ2nGB1Tmoxi80JRIGv+QJOEyz5RsuCtF64w4p3UHRQBGuMePKG9m5wIeywcmHiMMrsP1Rd3Xy64yvhh8oqH16sqHk1Zz7365Qvs17lHuyvaYTTpEamnRoLBGxofqBuclhMIIKbqesMm1k1xH9epAAh9i/FL5kDJ15v/8slWeJCyVmApj5zr+jHVw966mAAouhI3Ytpf0nNYFAF9NERbDzVHf1rVGBrUN9O6tCFT7iN/DTH6AN3VALa773iiK6X58M09iLeqfm56oWupisUF/VL8yS9n/8/TZD4xg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=efficios.com;
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10) by YT2PR01MB8487.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:b6::6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 14:52:24 +0000
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 14:52:23 +0000
-Message-ID: <f6919908-b943-44a9-a71a-35d5a85d54c7@efficios.com>
-Date: Wed, 18 Nov 2026 09:52:22 -0500
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 08/40] sched/deadline: Do not replenish a boost from
- cleared parameters
-To: Juri Lelli <juri.lelli@redhat.com>
-Cc: peterz@infradead.org, mingo@redhat.com, vincent.guittot@linaro.org,
- linux-kernel@vger.kernel.org, tglx@kernel.org, will@kernel.org,
- boqun@kernel.org, dietmar.eggemann@arm.com, rostedt@goodmis.org,
- bsegall@google.com, mgorman@suse.de, vschneid@redhat.com,
- kprateek.nayak@amd.com, luca.abeni@santannapisa.it,
- mathieu.poirier@linaro.org, longman@redhat.com, ridong.chen@linux.dev,
- tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, shuah@kernel.org,
- bigeasy@linutronix.de, clrkwllms@kernel.org, parri.andrea@gmail.com,
- m.szyprowski@samsung.com, kayracizmeci@gmail.com, weihengqiuu@gmail.com,
- cgroups@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-rt-devel@lists.linux.dev, stable@vger.kernel.org
-References: <cover.1794922146.git.mathieu.desnoyers@efficios.com>
- <cefacab5f1c0e7617f17e050af4ef5f6db01700a.1794922146.git.mathieu.desnoyers@efficios.com>
- <av2k8JlLvUcBBOhn@jlelli-thinkpadt14gen4.remote.csb>
- <ddd215ff-d6de-4dea-b12a-80948a9b5ea6@efficios.com>
- <av2295tJMdwRp3wK@jlelli-thinkpadt14gen4.remote.csb>
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Content-Language: en-US
-In-Reply-To: <av2295tJMdwRp3wK@jlelli-thinkpadt14gen4.remote.csb>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: YQBPR01CA0149.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:7e::13) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10)
+	dkim=pass (1024-bit key) header.d=digikod.net header.i=@digikod.net header.a=rsa-sha256 header.s=20191114 header.b=0ZiY3vFI
+Received: from smtp-4-0001 (smtp-4-0001.mail.infomaniak.ch [10.7.10.108])
+	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4jV4MC3HVFzwZN;
+	Wed, 18 Nov 2026 15:52:23 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=digikod.net;
+	s=20191114; t=1795013543;
+	bh=F0Lf2RemKJ8NFGdxBFKn/ZBk+HF8BSqxxMrrZGrxVcQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=0ZiY3vFI/82n1o0DFT6KN1mL3cvAOXw9a/VfogvxDjpTx7qs3KiMb9bGFGF9VSZoA
+	 I/JMC6+Wm1Etvcuxpq7j8gexc2y6ZQyxnkgZdENjf8q/T6vY+c5gZchhsuMYx1X+9r
+	 LPsd50+oImdoqfynESQgUWfmLHTTFpo+wBson7Bo=
+Received: from unknown by smtp-4-0001 (Postfix) with ESMTPA id 4jV4MB0rpczWhb;
+	Wed, 18 Nov 2026 15:52:22 +0100 (CET)
+From: =?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?= <mic@digikod.net>
+To: =?UTF-8?q?G=C3=BCnther=20Noack?= <gnoack@google.com>
+Cc: =?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?= <mic@digikod.net>,
+	Ada Smith <adasmithgt@gmail.com>,
+	Hungyu Lin <dennylin0707@gmail.com>,
+	James Morris <jmorris@namei.org>,
+	Josef Bacik <josef@toxicpanda.com>,
+	Paul Moore <paul@paul-moore.com>,
+	Serge Hallyn <serge@hallyn.com>,
+	Serge Hallyn <sergeh@kernel.org>,
+	kernel-team@cloudflare.com,
+	linux-kernel@vger.kernel.org,
+	linux-security-module@vger.kernel.org
+Subject: [PATCH v3 2/6] landlock: Mediate CAP_SYS_RAWIO for mappings below mmap_min_addr
+Date: Wed, 18 Nov 2026 15:52:06 +0100
+Message-ID: <20261118145217.2551053-3-mic@digikod.net>
+In-Reply-To: <20261118145217.2551053-1-mic@digikod.net>
+References: <20261118145217.2551053-1-mic@digikod.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,88 +72,85 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YT2PR01MB8487:EE_
-X-MS-Office365-Filtering-Correlation-Id: a1fa2958-050d-455a-a29f-08df45838e19
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|7416014|376014|23010399003|366016|22082099003|18002099003|261009223027099003|4143699003|56012099006|261026121527099003|261028144727099003|261026140227099003|261022105027099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	ODccdgiX3mhxduAm90yuGwsI+4vv06dvbOQCS+ZYv0hgG1DpxuTZZYqFEaekYW9x98U8d0KqG8eFQAUYF9aXjYv9puS5EG6nVXNEPGcNoz+B4vuFOLlup2GlKXncwYb2XZPOJ330NguQF9sdeNLxVXYqFVodSC9lJUD7IEPEvJk7XLpeTvz7hX19mDUqO/+JtjNaEd1pcHVnptB/X7SY2pRvmPxCywF+mF0f1hqsvvA20NSDdoMztU0rKi2Lth9X6UXlglFKQWyrh5VF0ioe2k12aQaoZ26p4s1fjAUQLzj0MQ+m7O+Y6dR1R4sLCNUpJRZN8o2jWd+FPU7wIcA+ydVvMHVfrgauE10GSNH96IL14T6+Gwh/q4BNaRNhwIC4E01BniOmUousjJ/qmq6SGbatiOuHTloUQqbPJu/Ye7HQACGxJVktg2zwYnm/BAIFIjeOdSJsfQkfEitZubp7/tRqLm3alPBzv+mh0vMkZY8KDLhI5AECfQ04fHEsVZzidpycZGBTGGm1TbTQ2exkKweSDtMueiE+VoHYlqjqjulSCUaBQJSAPKk1MbufBKG11XEAQW8LHCYTVPBIV6PfxowMfS/lOg9vrq4zwPWQEEM=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(23010399003)(366016)(22082099003)(18002099003)(261009223027099003)(4143699003)(56012099006)(261026121527099003)(261028144727099003)(261026140227099003)(261022105027099003)(10067099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?TmhMTm1rMWVoT0dXOFJJZnZIUU1MbFdmZnFBakNmc0tzY251UXRKV0VmM2o3?=
- =?utf-8?B?U0pCV3pOMHJKQjBZMzBjcDd0TXVhV3hBSnFKZjU3cEwyd3Q0SVpuNXd3MXVC?=
- =?utf-8?B?VVdoUnBHQkd6cmYvZkdVaDFocDRTNy9lb1B2dVB1cWJJNXprZlBqSHhua0Ez?=
- =?utf-8?B?WmpZa3AzVEEwUXBJa2VMYjUra01taHBKZ2x5elRYMUFNMG1WTnozemNtLzVG?=
- =?utf-8?B?SUU4Y3VyUk1LOWMxUTJFNWowRXV2S2dmbUorQnNNTEUrZU45YjhZdTUybk1q?=
- =?utf-8?B?NFdjTkNsTEFmN2dyZkNMR0NvbkZZQlVldXo4NlhxWHJONmFJd1pLMVA1dkxm?=
- =?utf-8?B?YlJYOVdOQ1k4SHFaZ256LzJXb1dnTUFJcUhvcHJaN094alYyVFJ6emprUTda?=
- =?utf-8?B?TGF4RkFsak1kREhjMFM4dXRBUWgzOUZ3bUlORlRaT2FWWlgwZXdkdjVsckx2?=
- =?utf-8?B?eklDOVgzMDh2ZURKK2xtUFNoMGpMVHJEMkhkbCtIb0JZZ1FNU2htV0xqelFR?=
- =?utf-8?B?Tmw1TzkvSHQ3eEJCc2s1SG1TNHJwc1dyQXA5Qk9rZGllZUxxMTNwZWgybStB?=
- =?utf-8?B?N2xRalhDQ1RUZ1NMcjJLYWNaQjAxaGNXdllMRG16Qk91d2NrWklKV2xaYk5R?=
- =?utf-8?B?Q280U2VMR1VxRWt6anAwS3JLQUN1dCt1WHc4akFvRmlKejFSRllkT1R6UTdL?=
- =?utf-8?B?NFRKYkdYMDl4cVNMUjVQMHB4Ni9PS2hEd1J2bEEwR0F4K2JvbVJwbXU0SHRN?=
- =?utf-8?B?T1piNkx2cEFvWC9rTkdkbDB5UnMwZnZ6cElFVklicnRrUFhoUndOWWhmSHZW?=
- =?utf-8?B?WnBZWnpxejAyLzY2MzVBeUUrZm5nZWlqSFY2YlpBR3ZlWDJRV1QycW93UWZR?=
- =?utf-8?B?N1h2WUZZb24vbzB5Ryt2aGJNTExjTVlCMHV5dG1rMFBIeHJ6TVhHQUd6aVVP?=
- =?utf-8?B?M3NZb2ZNUk53bm1hOFlXRUdIYUdjbGhOc1U3YlBoRHg1aTZRYzFKSm1QTExE?=
- =?utf-8?B?QlFYSU1sOTc4RXkvNkQwbS9WNW5zbGZnQnNLaDhFZUIrcnhIT0dpczJHWGNr?=
- =?utf-8?B?S05MUE12WWRXWi9MeVFoMlAyRUFPV2Z5b2hMRWRoQUpUV2pHSjFWTk1OOWFp?=
- =?utf-8?B?Y3cvSlZIcno0a2pBdzlMakdYaG02VGxQcFZYNWsxdXVORCsxNTBiUXBZd2xO?=
- =?utf-8?B?MGduTFFuODg5VzR2NTlRaE1mVmRJRm1PUS9qeW1aSFZQdHRSajRrMnRJT0Rx?=
- =?utf-8?B?SC9vTGd0QktSbmd2czM3eEFQRHZxOFhRNXRsN2hJVVcvUU1yNys0Zk1mTjF0?=
- =?utf-8?B?WFR2ZWVpTEw2a3NhSXF1cXhBY0xKTWNhUlpLUUtQYk5WU201R0pRdW85ZzIv?=
- =?utf-8?B?Wit5TDFXc2Rtekg0UmlGYXFCajhVNTRlOTZJdEVuMjdJcE1OdUU2aHhRaFpl?=
- =?utf-8?B?WHNzL2xxa0FxNGxpUkJCakVVRHd2cmxEUDVncnJlTDJ3aDhtNEluRURVQ2Jw?=
- =?utf-8?B?L0xIMHQvU3hSVkVISkVHbHordHRzYm11L3BGOVRGY096QWNmZXcxNUdqNDBS?=
- =?utf-8?B?UGYySEk1Y0d4dk9MRnA3aEVkQy84aWwyVFk3QWh1RU5DNThNOVg3Z24zV1dY?=
- =?utf-8?B?SmJoSEUvZ00vWUFSNnFudG13NmlFYXAyN3EwS1hSVHFiRHZDNFdRdmI3RHdp?=
- =?utf-8?B?UTcxelJodUprSFlVT1VJVHFGdmdtbmZ4WXFzdjJVMWhraDkxSTQ4ZDFYRUNN?=
- =?utf-8?B?cmhlNGFoSzAyUUNCTHdYL2RYeWZERWNkWVdManRTMGxKblBKczFVUndVZ2RJ?=
- =?utf-8?B?MzB0WkxCTG5VWlJOWjhoSXBURkhSWitoWUlYbWtlZVdUd3lrWTZyNjU5M2RN?=
- =?utf-8?B?SzduWlBSZUdmb240dmxNWDJaZTBvL2RoMnVldVlqa0lXUVJ5SWZTWjg1aElF?=
- =?utf-8?B?bUhHQTdEVnFwTzRFWTZpQ0dEc3k5V0FJdjlYQjhsbzFSNUN4cnVBTmg5SWxH?=
- =?utf-8?B?UFJBNktzKzBJajZwdVkvVm5RUU5WRTJFRUU4STVJMTdwemRnak1mYjBXVVlz?=
- =?utf-8?B?UWhpRnBJK3pySE0rYUZtUVRLamlFVXV2MTB3WkN2dkFJazRXSDc5c3hUeU9K?=
- =?utf-8?B?bUYyZTBOMCtZWUNWZjdTZ1puSVYxRHJNNElhZXpwbkFQbXJSSTJsVUsrTk1h?=
- =?utf-8?B?Q3plUUZ5dU5jSmZCemF1bE5ueDNZd09xb0MzY2xCSEhEaVdhVFRSc2NqUUNG?=
- =?utf-8?B?YmJ3RFBOVDNRSFJiSnprR1F1cU9UWjY1TkduNzZSbHBjWWlrcldUTTdzOU9Y?=
- =?utf-8?B?YnR4M25ieUxJSTNSUUdETThLck41b1NQSGpyanUyNVJ5WTZReGl3dWc4cjUz?=
- =?utf-8?Q?yndiduiSK5/sH7SifPbL9vugRwdx1aE+8PaZp?=
-X-OriginatorOrg: efficios.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a1fa2958-050d-455a-a29f-08df45838e19
-X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 14:52:23.7951
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: LvCPkxGN4RNczm6w0xV9Gl1FDYmsrZyO0Kp8kPAUW7+e8Fg7O8t1HENOJSYiYTFcoOlBnm1cHWhkN9oZWUbE6mGWqJ7K1V5okzf3SQeh/2o=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT2PR01MB8487
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Infomaniak-Routing: alpha
 
-On 18/11/26 15:32, Juri Lelli wrote:
-> Hummm, now that you say it, crediting Sashiko for findings might be
-> worthwhile (for usefulness statistics etc), though.
+commoncap's mmap_addr hook checks CAP_SYS_RAWIO for mappings below
+vm.mmap_min_addr with cap_capable(), which skips the capable hook, so a
+domain denying CAP_SYS_RAWIO cannot prevent these mappings.  Mapping the
+lowest pages helps to exploit kernel NULL pointer dereferences.
 
-Agreed. Documentation/process/generated-content.rst also asks for it:
-"if a tool was used to find a problem addressed by a change, that
-should be noted in the changelog". The next version keeps the credit,
-without the number of the posting. For this patch:
+Add a Landlock mmap_addr hook that checks CAP_SYS_RAWIO against the
+domain under the same condition, as SELinux checks its own mmap_zero
+permission in this hook.  commoncap runs first, so the hook only sees
+mappings that commoncap allowed.  This also covers the x86 vm86(2) and
+vm86old(2) system calls.  Calling capable() from cap_mmap_addr() would
+instead expose this check to the capable hook of all LSMs.
 
-  The Sashiko AI review of this series found the lockup.
+Cc: Günther Noack <gnoack@google.com>
+Cc: Paul Moore <paul@paul-moore.com>
+Cc: Serge Hallyn <serge@hallyn.com>
+Acked-by: Serge Hallyn (AMD) <sergeh@kernel.org>
+Reviewed-by: Günther Noack <gnoack@google.com>
+Fixes: 97c8386f1d74 ("landlock: Enforce capability restrictions")
+Signed-off-by: Mickaël Salaün <mic@digikod.net>
+---
 
-Thanks,
+Changes since v2:
+https://patch.msgid.link/20261117101157.2520463-3-mic@digikod.net
+- Shorten the commit message (suggested by Günther Noack).
+- Add Günther Noack's Reviewed-by.
 
-Mathieu
+Changes since v1:
+https://patch.msgid.link/20261110202436.2408244-3-mic@digikod.net
+- Add Serge Hallyn's Acked-by.
+---
+ security/landlock/cap.c | 22 ++++++++++++++++++++++
+ 1 file changed, 22 insertions(+)
 
-
+diff --git a/security/landlock/cap.c b/security/landlock/cap.c
+index fa59118e3486..10e1ca772b9c 100644
+--- a/security/landlock/cap.c
++++ b/security/landlock/cap.c
+@@ -9,6 +9,7 @@
+ #include <linux/cred.h>
+ #include <linux/lsm_audit.h>
+ #include <linux/lsm_hooks.h>
++#include <linux/security.h>
+ #include <uapi/linux/landlock.h>
+ 
+ #include "cap.h"
+@@ -90,8 +91,29 @@ static int hook_capable(const struct cred *cred, struct user_namespace *ns,
+ 	return check_cap(cred, cap, opts);
+ }
+ 
++/**
++ * hook_mmap_addr - Restrict mappings below dac_mmap_min_addr
++ *
++ * @addr: Address of the new mapping.
++ *
++ * cap_mmap_addr() requires CAP_SYS_RAWIO to map below dac_mmap_min_addr, but
++ * calls cap_capable() directly, which skips hook_capable().  Check the same
++ * condition against the domain.  commoncap runs first, so this only sees
++ * mappings that commoncap allowed.
++ *
++ * Return: 0 if allowed, -EPERM if CAP_SYS_RAWIO use is denied.
++ */
++static int hook_mmap_addr(unsigned long addr)
++{
++	if (addr >= dac_mmap_min_addr)
++		return 0;
++
++	return check_cap(current_cred(), CAP_SYS_RAWIO, CAP_OPT_NONE);
++}
++
+ static struct security_hook_list landlock_hooks[] __ro_after_init = {
+ 	LSM_HOOK_INIT(capable, hook_capable),
++	LSM_HOOK_INIT(mmap_addr, hook_mmap_addr),
+ };
+ 
+ __init void landlock_add_cap_hooks(void)
 -- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
+2.56.0
+
