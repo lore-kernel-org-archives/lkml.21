@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794988530;
-	b=GXQHKRfqaiJpnTXjnu7Dj4uxC7rykAr24A/gmLzEJzzpQh0b05rXxpYm35zA/iZip9sA
-	 jTW2cYJBlOzy7zDbnvx77ITtZhMhJOHhK9R4XzB8GZSCKJ6P5SSTMrUZIl0lybDYsDzRq
-	 hR1xuemzNQO3D26SVfsOuCDfnrOn4aQACEfSI1eBctlYbsfrRsd8F5DlhM2ZHZx2yuehs
-	 dAk8ZB1gODoqTV2VA/3Qe8YZH1RG0SiCraYRp2xWD44qLguAuJIS3tj9ffLxVqg1ccdM5
-	 vJfzn089pXhhKllfWtUa5MFLmuRGwMK4xPQqudgUgkFJuFjbwB53HawBWBGXAmwcyLA==
+	t=1794988526;
+	b=mmDCEffllCD0a5kLm6+6IIytk0Wi7YAo7WhoA2fuMFj3m+JMAJHpyOHodDI9ymC7zVWa
+	 8yoxyavpeM8vkF2RsIKlGhBB/KHIBb0E5p06oEVGMgTv8vctCBdfITQq4vTN1541GMHoN
+	 eKEXFtY6699zMJauDd20NW7ORtVRepTC2/CLaLiY1uyhLJ7iFkcBHYzlogauWGQH/nazg
+	 Nav1dbRF4O0NNs8YLoDLIhAECoPQJO/a0uzPMX8XRqelWVo2VJrH34fawaO6B0H4UnfOO
+	 09H4sFpYL/u3xjv/YFe9Ksw3M7yqhkQIQF8Ur9LCgkmmXVxvTOP40uWrpXyPrXAfgWQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794988530;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794988526;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=JwQhcIOGcjOxphKeILS+5+EKK4GNKccVQCIJqtLQ9r8=;
-	b=oIXDoE84Mn90aDlqIDZ27+TJD7wMAqqS0fP1oSpkSPI3Zz5oTe3Zxh+GP43nk9FitW5i
-	 cocmSwhXsy6M5qxouz9J8WREfEZVIXFSfpSACY6dEmxtBqE+HPncDXm/gWyovWWOD+kvB
-	 aKqHlHZUQaXF4QS6qlZ4W3XnC1QFirbuaEMDYBEAFviS5lpL4VvjwIVtyNYmbfeFfWN7g
-	 5EWXaS9F8wsZkNd4f7pzbvpbkd0xC6gxqWzFvtvVPiFtRa5x4lRZkED6cjbPObYnUw8FW
-	 /ZxhghsqRYQQKP2x6OrhTZ9YfmT5h9JANExRTA4aK1dPbhPr2VKmdYGMCQMJJKLufPw==
+	bh=5DboQG35Wnbme+vu2GzT8Sr2q49b+BE2rknnKDhVsEM=;
+	b=oCGwJgmaSDqu5qqWplZPzV2SZn6VEAx3aTsyxWVO+mgjsIYnBaMAgbl6tCj0LQkGuG73
+	 s5+LTlQb6osmHaGi+o/RJ26gsoVhoc7Uxz3LX0uLohQsdYy1uXU8UBroDghDvU+Z8vvtU
+	 0ip/kBNtx5Wy04Xgd3eUtD3Y4yUz/9mtSyKJZFMaf2lWmvFfwwZryIEtclAJ4P8hVKCtI
+	 WPU1NMBb3s583lDQlHz9zswVoM6TzozHYQLT9exzc7palVvJpcCUcGGZ9mwjbAniija2N
+	 dxoRiFcPis8+wa/DWWRPMbr2BRdYYexgb8O1UrFSYJFuAUy68REx40VkPA1j16UfoZQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=XyJkOTqh;
-	arc=none smtp.remote-ip=74.125.82.72
-Received: from mail-dl1-f72.google.com (mail-dl1-f72.google.com [74.125.82.72])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="AQQ/L8vO";
+	arc=none smtp.remote-ip=209.85.161.70
+Received: from mail-oo1-f70.google.com (mail-oo1-f70.google.com [209.85.161.70])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26D59606A887
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:55:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 26D59606A887
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07F6E606A889
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:55:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07F6E606A889
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=XyJkOTqh
-Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-1b3a348a6dbso1502310c88.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:55:29 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=AQQ/L8vO
+Received: by mail-oo1-f70.google.com with SMTP id 006d021491bc7-71aefbef495so866866eaf.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:55:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794988529; x=1795593329; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1794988525; x=1795593325; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=JwQhcIOGcjOxphKeILS+5+EKK4GNKccVQCIJqtLQ9r8=;
-        b=XyJkOTqh27uUQlBwbxDrFYFzQs2zYRPweIigoEuAf2m0EgFcEBLjBvSlpEGObO36iG
-         4xw7/ZnoaVkVdJGZ9WCuahZPq/mO6lrixZ9PAXcARjsFLnhHm9K3FDoISWsh2Wh5eUsB
-         bH2AMeaXam0a9RFy2ik0CcUun/zY3LequVMIukrYKEjI04S58a8k8OZDteLzl44HhnDb
-         AAmU59FVBfW1ur278HvBlno04C4jFD3Im0GmRa10525gB1uWhCX2g9ygAPZkeXFYdM5o
-         m7mmo6j2lXE40kqm6sBNWXEIQj9Ji7ldph2vwDVFOoWxKUZDuBOwpEFnOdGRZPxQshGF
-         +yZQ==
+        bh=5DboQG35Wnbme+vu2GzT8Sr2q49b+BE2rknnKDhVsEM=;
+        b=AQQ/L8vOOgjQs8+YpYQIJxCvxusw4ebii6H3YezaRzLkwaeODjW6b/+tNgvuPwrrB2
+         USnR+i+HCZWOt9xIxM3p3070M4AmbpscZrHeIkWPa6MuK/E2L6x5ixuCDLU+/eEKdWSK
+         iE91CWSnXzxI1Adhzf8Tr/I5uiyFt/ShdYItltY2QPMMYaR8BjRcRIwAF4xLg4zJ47b1
+         87t4jpDgEVVAOctbH3lljq5q6CjCyVDU99tk4MIcsCUEgYuPoxXT/A+2Zao1w/wccQsu
+         Atpcl/Iq9kvaerq9lSu9DygMYJLuF72RLTYAQJv4IaXbV2nan/+fr+8CLK/H5ZqD1B/F
+         AgWw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794988529; x=1795593329;
+        d=1e100.net; s=20260707; t=1794988525; x=1795593325;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=JwQhcIOGcjOxphKeILS+5+EKK4GNKccVQCIJqtLQ9r8=;
-        b=qEoizLGwFDf9CUG8cJJ/beSq0RUYpM6Ow3ta6ky6Wck0LoBk5ZRyKzR0kcF6SlbITg
-         1X+2byvT5B6riGSQLZJvc6apBJ8GQrxyZIuaqiyf4ZgALZr4SSUFblqY/pi2cjg+wpde
-         3TT2ibfGjekfLaJ7xY20g/Gpeh5w+BOHrlYmvJGNY5EWfpejmdG+42btJvxzmO4ZCmZF
-         8QcZXWjyvdrikFuFPdkSHjR4kRJYCp9pW5qBRpbcCvE/ZUDedrCtYUBG5M0itFP3uRDN
-         3ixU0TxYHUmMI3CsfIaxhfAlQd4DF7virgoE0Wtd5SNoyHdhN0BiVLbzAu+FTv5IbJLH
-         LQ1A==
-X-Forwarded-Encrypted: i=1; AL+hErEOpPV8ZY7nk5ZkxyjNbg0SHyG7z3DoY1RGTIde1j/gdT0FAleoCISK7Pb2Qaq7Cx83kpJ4RTnKCO82M6o=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/hOLVnUO0ME71JH+mJ0PknoEuyh1qwcYAfdeIZcX9mPtAt5G9h
-	zbWQQt9TBoISCQ33AIK9VqraWM0RoqPYQUKydd6ECKC7KMpceHE58F+Ku9CMMIQWfloOh2KPvsq
-	YURO0nRRg0A==
-X-Received: from dlgw16-n2.prod.google.com ([2002:a05:701a:cc90:20b0:1b5:35b8:3a82])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:701b:2903:b0:1b5:39a3:75e5
- with SMTP id a92af1059eb24-1b543c33197mr1752962c88.33.1794988528819; Tue, 17
- Nov 2026 23:55:28 -0800 (PST)
-Date: Tue, 17 Nov 2026 23:55:15 -0800
+        bh=5DboQG35Wnbme+vu2GzT8Sr2q49b+BE2rknnKDhVsEM=;
+        b=zK7jOqm/wdEOqVzoeIX7BU7Y20xxGRF7iBQ0UuRS41W/g14m1kPSCCKCJYGkYtdAjV
+         Dg7FenXmcWlMGQI+6QzNjVrfAzD2Yo/MUx87Nekgy35a1NmbnAbR9nvtBahVS1t8cthh
+         9dgBv771dTwiWndGOzj9B+K/heJkZ1cPq1zPOUUXFfACQAW+nc2eI6pW9TGbQEI+9g3Q
+         SNv8//BjhU0M0oFYMYwikHTkPhrlqy1BejB5X0sd130wf3o9l7Xb3YAEitFmt9otjseC
+         fSEspM3ooG9sSFrB0fwv8fxwmCzsadI6ogTUm7iQQorUN/RHdDisUe+d6sPM0dN7f35o
+         9gow==
+X-Forwarded-Encrypted: i=1; AL+hErGdl4jsjMMcYlJnklRNQcYeHYlzsAA7OyqzKu1D5trWcU3QkH7VQXHMB067FjXV2Rv+Wvvt3Fy1HraY7BQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+i+Rlz6OXM9X8ET8LWhTDk8+nXB/0MEAZfSQHGDLgvzRgpyhld
+	b5kkkXCQXmc5cXDXojoWbl/6CQsyqkrS65EeEilLzqmiPFvsEPozpZSOXMum0jczpJcFw8SCM4M
+	6E84hE4PKBg==
+X-Received: from oabmp13.prod.google.com ([2002:a05:6870:e0d:b0:4ad:bdb3:7d44])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6820:338e:10b0:71a:e62f:62ee
+ with SMTP id 006d021491bc7-71b1843fdc0mr997029eaf.23.1794988524703; Tue, 17
+ Nov 2026 23:55:24 -0800 (PST)
+Date: Tue, 17 Nov 2026 23:55:13 -0800
 In-Reply-To: <20261118075516.1278903-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,8 +81,9 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261118075516.1278903-1-irogers@google.com>
 X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
-Message-ID: <20261118075516.1278903-5-irogers@google.com>
-Subject: [PATCH v1 4/4] perf pmu: Free alias on error paths in perf_pmu__new_alias()
+Message-ID: <20261118075516.1278903-3-irogers@google.com>
+Subject: [PATCH v1 2/4] perf stat: Don't corrupt zero or prev_raw_counts on
+ skipped per-pkg CPUs
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>
@@ -91,45 +92,58 @@ Cc: Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
 	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-In perf_pmu__new_alias(), alias is allocated with zalloc(), but if
-parse_double() fails on any of the retirement latency fields or
-io__getline() fails when reading sysfs alias terms, the function returns
-ret directly without freeing alias.
+In process_counter_values(), when check_per_pkg() sets skip = true for a
+secondary CPU in an already-counted package/die, count was pointed at a
+local 'static struct perf_counts_values zero' before calling
+evsel__compute_deltas().
 
-Call perf_pmu_free_alias(alias) on both error paths, matching the
-existing perf_pmu__convert_scale() failure path.
+evsel__compute_deltas() saves *count into evsel->prev_raw_counts and
+subtracts the previous interval's raw counts from *count in place. If a
+CPU had non-zero counts in an earlier interval and is later skipped,
+subtracting tmp from zero underflows the static zero struct in place
+(corrupting all subsequent skipped CPUs for the remainder of the perf
+stat run) and overwrites prev_raw_counts for that CPU with zeros.
 
-Fixes: 84bae3af20d0 ("perf pmu: Don't eagerly parse event terms")
-Fixes: fc807b6bde6a ("perf pmu-events: Add retirement latency to JSON events inside of perf")
+Make zero a zero-initialized stack variable, compute interval deltas on
+the real CPU counter values first so prev_raw_counts stays accurate, and
+only substitute &zero afterwards when skipping aggregation.
+
+Fixes: 779d0b997e07 ("perf stat: Add support for per-pkg counters")
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/util/pmu.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ tools/perf/util/stat.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
-index 1ae8bcf..adf85d0 100644
---- a/tools/perf/util/pmu.c
-+++ b/tools/perf/util/pmu.c
-@@ -607,8 +607,10 @@ static int perf_pmu__new_alias(struct perf_pmu *pmu, const char *name,
- 		ret = parse_double(pe->retirement_latency_max, NULL,
- 				   &alias->retirement_latency_max);
- 	}
--	if (ret)
-+	if (ret) {
-+		perf_pmu_free_alias(alias);
- 		return ret;
-+	}
+diff --git a/tools/perf/util/stat.c b/tools/perf/util/stat.c
+index 6da3dbb..267e280 100644
+--- a/tools/perf/util/stat.c
++++ b/tools/perf/util/stat.c
+@@ -398,7 +398,7 @@ process_counter_values(struct perf_stat_config *config, struct evsel *evsel,
+ 		       struct perf_counts_values *count)
+ {
+ 	struct perf_stat_evsel *ps = evsel->stats;
+-	static struct perf_counts_values zero;
++	struct perf_counts_values zero = {};
+ 	bool skip = false;
  
- 	if (val_fd < 0) {
- 		alias->terms = strdup(val);
-@@ -621,6 +623,7 @@ static int perf_pmu__new_alias(struct perf_pmu *pmu, const char *name,
- 		ret = io__getline(&io, &alias->terms, &line_len) < 0 ? -errno : 0;
- 		if (ret) {
- 			pr_err("Failed to read alias %s\n", name);
-+			perf_pmu_free_alias(alias);
- 			return ret;
- 		}
- 		if (line_len >= 1 && alias->terms[line_len - 1] == '\n')
+ 	if (check_per_pkg(evsel, count, cpu_map_idx, &skip)) {
+@@ -406,12 +406,12 @@ process_counter_values(struct perf_stat_config *config, struct evsel *evsel,
+ 		return -1;
+ 	}
+ 
+-	if (skip)
+-		count = &zero;
+-
+ 	if (!evsel->snapshot)
+ 		evsel__compute_deltas(evsel, cpu_map_idx, thread, count);
+-	perf_counts_values__scale(count, config->scale, NULL);
++	if (skip)
++		count = &zero;
++	else
++		perf_counts_values__scale(count, config->scale, NULL);
+ 
+ 	if (config->aggr_mode == AGGR_THREAD) {
+ 		struct perf_counts_values *aggr_counts = &ps->aggr[thread].counts;
 -- 
 2.56.1.703.gf848ed807c-goog
 
