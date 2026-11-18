@@ -1,13 +1,13 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.89.44.33
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794985390;
-	b=i/TmTS+46jkqv/6Y9mD5djAIhCqRq9Fn8RrxJvqoTW9vXFczp6yLAeSBLPP1jD19F2sa
-	 iqWaGvVRrhRvXpjHoORsPIT6uGlv/UosdbbWSuwG9l/51oIA9iSGePhER/Mzq/+SBHXnw
-	 nTUtcyX493wFfa76FF6jUCgjEYGMz8xX4FGM0uBjOA8HsfRqphMXlHnZ6zQ2R6AS/XrS8
-	 ZzE2Xm2THvyNaDBo6FX7A3gvXkFlZ3V+L3m7KjnClA+jQKSflIkOwn7AT5s81uE6ecoOv
-	 MGj5OBJlSoje7VFwgsjgHM4avBBdakRmWgH9S/J6HqWpVTXxn+aDCjlxiTHlzU2tEag==
+	t=1794985392;
+	b=0HVs4VtHCujxwWKMz2xloaBWzN22rd8w66jR9XVNUIedWY1tpLq9MGJzhM7wtZQzY7oK
+	 5VC7iLQbZEA7gZXYOj4L/z34dwEO38KIPFpI+Tg5eiZ2M/8vFrFdkolLuVlOF96x8guNk
+	 ClGOQ1mt6andzxWEYiR1t42Be27ebHtCZXSqtzeOcdlMA1TQDz1jGXVb8kwvvcYbutgeT
+	 w0kv6duBdRj5PUydSPnSbFqkrPcIJZ7X1q+knPHE5MR/phnEB0k345muaknC1X6N53Fao
+	 WkuTjfh8Yd4nKo92zhbqwsvz3++drIJCghK1y9JEtlTZjzbX+JNklPKZt71o4z9wAKg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794985390;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794985392;
 	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
 	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
 	 References:MIME-Version:Content-Transfer-Encoding:X-AntiAbuse:
@@ -15,36 +15,36 @@ ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	 X-Source-IP:X-Source-L:X-Exim-ID:X-Source:X-Source-Args:X-Source-Dir:
 	 X-Source-Sender:X-Source-Auth:X-Email-Count:X-Org:X-Source-Cap:
 	 X-Local-Domain:X-CMAE-Envelope;
-	bh=BjcLRLO1ri+BpH+GCxTtQvyte9QyaKnD+yEnGC08KjI=;
-	b=OtVy0jkV/7/1PdlPPMAy/+Gq9qceOF7Yol/cD2M1K5v04TWZzKy/7f9M/FxcMLSQy/d/
-	 DoepHGCVI9cutCFzpd0YP9IxbQ5O8KIN34Wh91HXLDn9T1ujfVQMgLdQCMOlXjH/7IZ8q
-	 w4nDsJCliXEcSago+zg2En2MPvBXq/qFIT0gTdmSTGAnEwOt8JtMwCcFnvLsVCLcBWwfO
-	 ad7s6WqUBmLMRKmJtmYRoFM3SSJpZqDkJ9xh9Ub+jUuCz6qlTyuUYOTbyHigfnyaeOcZb
-	 hEYS0fKllw89VYZDlk3ap9LMbUUS77kEI3CznwL1cC0PiRoFinPBQz3qp7ODc6GBl2g==
+	bh=AmaWeU4MO6ngVRRD6vG/r7mzdb6FLOu0b+ksQyR6+To=;
+	b=jEqb4FK3LaVg26PnelElQbXPSYOqugE0BNDkmk3wdZ8NkolY3lWwXMK41PCyLgnShEHs
+	 dkqQRP+2TDD6eDmv2UdVs3xY+/9dENWZeROPxZ8+KB6vPJOtJjfYUdE4uhFSB19DZLuXZ
+	 r9Uhdz75wfCOkJnXoMMY3AqwENTgwXoSoarYemUTJYM+hPk4inWG+BiUWSiTeuwlZhg5U
+	 v2gfFgy/fc+7b0KeJiqBFFNWx76RQe3Ev+lew38zsKfk6HBPYcna6MukRa46e8oBaujL9
+	 rcj3eVJTvZV2vwwP1WoBzHV06JDzt36doq4BKgkHmGcVyEE/4KATTtUmLcDllruLC+w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=sellers.id.au;
 	spf=fail smtp.mailfrom=sellers.id.au;
-	dkim=pass header.d=sellers.id.au header.i=@sellers.id.au header.a=rsa-sha256 header.s=default header.b=Tuz6ZCbx;
+	dkim=pass header.d=sellers.id.au header.i=@sellers.id.au header.a=rsa-sha256 header.s=default header.b=GrS5LJ5X;
 	arc=none smtp.remote-ip=35.89.44.33
 Received: from omta34.uswest2.a.cloudfilter.net (omta34.uswest2.a.cloudfilter.net [35.89.44.33])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E05B606A332
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:03:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E05B606A332
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BF93606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:03:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3BF93606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=sellers.id.au
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=sellers.id.au
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=sellers.id.au header.i=@sellers.id.au header.a=rsa-sha256 header.s=default header.b=Tuz6ZCbx
-Received: from eig-obgw-6002b.ext.cloudfilter.net ([10.0.30.203])
+	dkim=pass (2048-bit key) header.d=sellers.id.au header.i=@sellers.id.au header.a=rsa-sha256 header.s=default header.b=GrS5LJ5X
+Received: from eig-obgw-6004b.ext.cloudfilter.net ([10.0.30.210])
 	by cmsmtp with ESMTPS
-	id TT9Xx4mYVAR1iTZhFxrB44; Wed, 18 Nov 2026 07:03:09 +0000
+	id TSHKx4bmrAR1iTZhIxrB5O; Wed, 18 Nov 2026 07:03:12 +0000
 Received: from just2044.justhost.com ([173.254.29.206])
 	by cmsmtp with ESMTPS
-	id TZhFxt9Qk8cn4TZhFxElVV; Wed, 18 Nov 2026 07:03:09 +0000
-X-Authority-Analysis: v=2.4 cv=Qrde3Uyd c=1 sm=1 tr=0 ts=6afd4dad
+	id TZhHx4PyalaNKTZhHx6KiN; Wed, 18 Nov 2026 07:03:11 +0000
+X-Authority-Analysis: v=2.4 cv=UbpRSLSN c=1 sm=1 tr=0 ts=6afd4daf
  a=pynxHT4M0AVwz8ROpNtnNw==:117 a=tbVZtiplu92VKpH45hjydQ==:17
- a=zJRp6_cAMcgA:10 a=QzMiS2WfBm8A:10 a=ADz86Hvpe3RKLVHNFJUA:9
+ a=zJRp6_cAMcgA:10 a=QzMiS2WfBm8A:10 a=IehRXGEb1GNWFAjnUyIA:9
  a=sW6rCsXrbcaOzks2YK80:22
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=sellers.id.au; s=default; h=Content-Transfer-Encoding:MIME-Version:
@@ -52,26 +52,26 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:
-	List-Archive; bh=BjcLRLO1ri+BpH+GCxTtQvyte9QyaKnD+yEnGC08KjI=; b=Tuz6ZCbxPnpY
-	OamOpQ4oc/6KVLkyQHW2S5GW2usE5DCXNYOoNhYmUklON3l4RflNV0ijhWfMxPq0iNL2+AAWdnsWG
-	azvdn/cnrA3WkF9UeN0If58iCUaL5514vsOEFhuwSC3Ni2x8+32DazG8bjeoApwQOsuij6UzEU42P
-	z/Q9W/9HEHX+ceEi6Hqs2Qb19Oz2Rig5+XlrB1O4kcicPlJ/cx42Pnh4oS8wZUOdXAiMHfRVnB+jQ
-	NbO9Gm2rW2MlSk6dcnEpec5h8xKBuLIo/sx6ATVjloBfeDl8mMABOB2/L1n6XZDyrN0FmA8L1+pj+
-	bfR1EHGm5tr1cnigVHluxA==;
+	List-Archive; bh=AmaWeU4MO6ngVRRD6vG/r7mzdb6FLOu0b+ksQyR6+To=; b=GrS5LJ5XcUTY
+	n2g/MEjAXcU7Y3vqTsmUL3DBiGD0YKHKJ3BNJuehd0mMLdL3Zl2KEqMPmGBDdRXk6w2FDo9bst2Xh
+	V6QMZjaSfKgaDzTlrQVSslBIDmydOexw0ty75JtsWCkoIo1LAchw+JyZi2Raom7mziwhYZRl9cgB9
+	d6IO5ZU3TZDptwtQy+XrZ4YuLWKTmtrY6lqo/bBuWpitWrTcBSkT1satfc5motjJX8fo37jtBLJzo
+	JJqCexU5wHS58why2WrdYcch1x1LzZLpOYinWbh4OXi4YQAF0cRNQPSdLiIrcONP5Gjok+DWEN0Ck
+	aGqgU54vKXA+GFA1VY8UZw==;
 Received: from n110-32-20-158.rdl21.qld.optusnet.com.au ([110.32.20.158]:46974 helo=localhost.localdomain)
 	by just2044.justhost.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.100.1)
 	(envelope-from <dean@sellers.id.au>)
-	id 1xTZhE-00000002TMc-1KS4;
-	Wed, 18 Nov 2026 00:03:08 -0700
+	id 1xTZhG-00000002TMc-0qX7;
+	Wed, 18 Nov 2026 00:03:10 -0700
 From: Dean Sellers <dean@sellers.id.au>
 To: Linus Walleij <linusw@kernel.org>
 Cc: linux-gpio@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Dean Sellers <dean@sellers.id.au>
-Subject: [PATCH 1/2] pinctrl: sx150x: don't clobber the oscillator source when driving OSCIO
-Date: Wed, 18 Nov 2026 18:02:58 +1100
-Message-ID: <20261118070259.2557570-2-dean@sellers.id.au>
+Subject: [PATCH 2/2] pinctrl: sx150x: move wide registers in a single block transfer
+Date: Wed, 18 Nov 2026 18:02:59 +1100
+Message-ID: <20261118070259.2557570-3-dean@sellers.id.au>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261118070259.2557570-1-dean@sellers.id.au>
 References: <20261118070259.2557570-1-dean@sellers.id.au>
@@ -93,60 +93,134 @@ X-AntiAbuse: Sender Address Domain - sellers.id.au
 X-BWhitelist: no
 X-Source-IP: 110.32.20.158
 X-Source-L: No
-X-Exim-ID: 1xTZhE-00000002TMc-1KS4
+X-Exim-ID: 1xTZhG-00000002TMc-0qX7
 X-Source: 
 X-Source-Args: 
 X-Source-Dir: 
 X-Source-Sender: n110-32-20-158.rdl21.qld.optusnet.com.au (localhost.localdomain) [110.32.20.158]:46974
 X-Source-Auth: dean@sellers.id.au
-X-Email-Count: 4
+X-Email-Count: 7
 X-Org: HG=bhshared_jh;ORG=bluehost;
 X-Source-Cap: cmVhbHN0cjE7cmVhbHN0cjE7anVzdDIwNDQuanVzdGhvc3QuY29t
 X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfNgSEzB7mEtRAhXILxaxdDBu3IAJVRurp31bWJOADYN5bTSgPyUH9P0eAnvU34tZGcti9cSijF5gkBz7F+Wevo3wJLb/eaZtGHrRUcAHPGebV/Mko91C
- laiT7+O21TYm8iz5TirN1vRqf0eXoQkLPn33BlGCqVXd+yYNh523UsSYB79BsZuBYkJ24Sv8ew4QZBS7iSKTbK0jXD69g23ShKQ=
+X-CMAE-Envelope: MS4xfLFBvKX722uEx7H0xSDo4g+ChryZ6dn/vPcVuFCvDdYhc/2fyoLut208Z55t50metm2jKGHSkEvbv0c8q4iC0MmU0A2fMOBTOB19TE9kL6F1LUwotsIT
+ FzuJis+tqTVeO2su3AnnN8uKhVKI1IPS5ELgXq7QIa6V6Ua5iaSdLPxiw2ixOhIK8TtBWr1hnbdB/fC1+UpjjM8TpmW0fMoK8/o=
 
-On the 789 models, sx150x_gpio_oscio_set() drives the OSCIO pin as a
-static output by writing the whole of RegClock. Only bits [4:0] belong
-to OSCIO: bit 4 selects output, and [3:0] select the OSCOUT frequency,
-where 0xf is a static high and 0x0 a static low. Bits [6:5] select the
-fOSC source, and writing them as 00 turns the oscillator off.
+The regmap accessors build each logical register from one SMBus byte
+access per byte. On a 16-line part every register on the interrupt path
+is 16 bits wide, so servicing one interrupt costs six i2c transfers: two
+to read RegInterruptSource, two to ack it, and two more when gpiolib
+reads RegData back to report the line level.
 
-fOSC clocks the input debouncer, the keypad scanner and the LED driver.
-The driver does not configure any of those today, but anything that
-does, whether firmware or a later driver change, is silently switched
-off the first time a consumer drives OSCIO.
+Measured on an SX1509Q on a 100 kHz bus, each transfer costs about
+0.6 ms, of which roughly 0.36 ms is time on the wire and the rest is
+fixed adapter overhead. The transfer count dominates interrupt latency,
+and it is well above the minimum hardware debounce period of 0.5 ms. The
+longer the latency, the wider the window in which a second edge merges
+into a latch bit that is already set and is lost.
 
-Update only bits [4:0].
+The 789 parts auto-increment the register address across a multi-byte
+access unless that is disabled in RegMisc[1]. The bit is clear out of
+reset and sx150x_init_misc() leaves it clear, so a wide register can be
+moved in one transfer. That takes the interrupt path from six transfers
+to three.
 
-Fixes: 9e80f9064e73 ("pinctrl: Add SX150X GPIO Extender Pinctrl Driver")
+Enable this only on the 789 models, and only when the adapter advertises
+I2C_FUNC_SMBUS_I2C_BLOCK. The 123 and 456 parts stay on byte-at-a-time
+access, because their datasheets do not document the same
+auto-increment behaviour.
+
+A short block read is reported as -EIO, so a truncated transfer is
+never returned as a register value.
+
 Signed-off-by: Dean Sellers <dean@sellers.id.au>
 ---
- drivers/pinctrl/pinctrl-sx150x.c | 11 ++++++++---
- 1 file changed, 8 insertions(+), 3 deletions(-)
+ drivers/pinctrl/pinctrl-sx150x.c | 44 ++++++++++++++++++++++++++++++++
+ 1 file changed, 44 insertions(+)
 
 diff --git a/drivers/pinctrl/pinctrl-sx150x.c b/drivers/pinctrl/pinctrl-sx150x.c
-index 04a0e6269e5b..c97e9bc3a33f 100644
+index c97e9bc3a33f..970f9d8bd809 100644
 --- a/drivers/pinctrl/pinctrl-sx150x.c
 +++ b/drivers/pinctrl/pinctrl-sx150x.c
-@@ -427,9 +427,14 @@ static int __sx150x_gpio_set(struct sx150x_pinctrl *pctl, unsigned int offset,
- static int sx150x_gpio_oscio_set(struct sx150x_pinctrl *pctl,
- 				 int value)
- {
--	return regmap_write(pctl->regmap,
--			    pctl->data->pri.x789.reg_clock,
--			    (value ? 0x1f : 0x10));
-+	/*
-+	 * RegClock[4] makes OSCIO an output and [3:0] set OSCOUT, where
-+	 * 0xf is a static high and 0x0 a static low. Leave the oscillator
-+	 * source in [6:5] alone.
-+	 */
-+	return regmap_write_bits(pctl->regmap,
-+				 pctl->data->pri.x789.reg_clock, 0x1f,
-+				 value ? 0x1f : 0x10);
- }
+@@ -38,6 +38,8 @@ enum {
+ enum {
+ 	SX150X_789_REG_MISC_AUTOCLEAR_OFF = 1 << 0,
+ 	SX150X_MAX_REGISTER = 0xad,
++	/* Widest logical register is the 32-bit RegSense quartet. */
++	SX150X_MAX_REG_BYTES = 4,
+ 	SX150X_IRQ_TYPE_EDGE_RISING = 0x1,
+ 	SX150X_IRQ_TYPE_EDGE_FALLING = 0x2,
+ 	SX150X_789_RESET_KEY1 = 0x12,
+@@ -105,6 +107,8 @@ struct sx150x_pinctrl {
+ 	} irq;
+ 	struct mutex lock;
+ 	const struct sx150x_device_data *data;
++	/* Wide registers can be moved in one i2c block transfer */
++	bool block_xfer;
+ };
  
- static int sx150x_gpio_set(struct gpio_chip *chip, unsigned int offset,
+ static const struct pinctrl_pin_desc sx150x_4_pins[] = {
+@@ -1065,6 +1069,24 @@ static int sx150x_regmap_reg_read(void *context, unsigned int reg,
+ 	 *		reg + 3 [ 3 3 2 2 1 1 0 0 ]
+ 	 */
+ 
++	if (pctl->block_xfer && width > 8) {
++		const int count = width / 8;
++		u8 buf[SX150X_MAX_REG_BYTES];
++
++		ret = i2c_smbus_read_i2c_block_data(i2c, reg, count, buf);
++		if (ret < 0)
++			return ret;
++		if (ret != count)
++			return -EIO;
++
++		for (n = 0, val = 0; n < count; n++)
++			val = (val << 8) | buf[n];
++
++		*result = sx150x_maybe_swizzle(pctl, reg, val);
++
++		return 0;
++	}
++
+ 	for (n = width, val = 0, idx = reg; n > 0; n -= 8, idx++) {
+ 		val <<= 8;
+ 
+@@ -1090,6 +1112,17 @@ static int sx150x_regmap_reg_write(void *context, unsigned int reg,
+ 
+ 	val = sx150x_maybe_swizzle(pctl, reg, val);
+ 
++	if (pctl->block_xfer && width > 8) {
++		const int count = width / 8;
++		u8 buf[SX150X_MAX_REG_BYTES];
++		int i;
++
++		for (i = 0, n = (width - 1) & ~7; i < count; i++, n -= 8)
++			buf[i] = (val >> n) & 0xff;
++
++		return i2c_smbus_write_i2c_block_data(i2c, reg, count, buf);
++	}
++
+ 	n = (width - 1) & ~7;
+ 	do {
+ 		const u8 byte = (val >> n) & 0xff;
+@@ -1150,6 +1183,17 @@ static int sx150x_probe(struct i2c_client *client)
+ 	if (!pctl->data)
+ 		return -EINVAL;
+ 
++	/*
++	 * The 789 parts auto-increment the register address across a
++	 * multi-byte access unless that is disabled in RegMisc, which
++	 * sx150x_init_misc() leaves enabled, so a wide register can be moved
++	 * in one transfer. The 123 and 456 datasheets do not document the
++	 * same behaviour, so those parts stay on byte-at-a-time access.
++	 */
++	pctl->block_xfer = pctl->data->model == SX150X_789 &&
++			   i2c_check_functionality(client->adapter,
++						   I2C_FUNC_SMBUS_I2C_BLOCK);
++
+ 	pctl->regmap = devm_regmap_init(dev, NULL, pctl,
+ 					&sx150x_regmap_config);
+ 	if (IS_ERR(pctl->regmap)) {
 -- 
 2.43.0
 
