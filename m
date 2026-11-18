@@ -1,75 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.69
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795001376;
-	b=po2VT2RjOWnk6eyvOFwQXy5XllZ0PO/dXoSWNIATsr8bmRNb7HPymcsAkTwFJvFBl8sZ
-	 8mlnViK62FscyuzRpcqRXyZZ8BbXWAXh6mN3kagexhfGd5kjhO/Q3Z6jK53hv/VJcPlct
-	 xs2aubXJCjkgg5T5tpCSqAJ6pBTt5/ncghCMK99ZDZxjqv6M5lmlfoqGjweHCGFeoSkVm
-	 EMWzGhgHWRs3aN5WJGF1T7lisT+l/E91Hj5cZ7m66w03AIUgnWXWrl8zIWF7Vr8UmNdgx
-	 4ZUxkM78XYh8qxg5n4j5VVTjm+q92n0JGyQbeIqzpd2ALegqSnjbWj9WMVYIbnmoTRg==
+	t=1795001399;
+	b=2bGwykYghbyW6hEkLmms6cWvLHBs3FM8yppa5tNW2lcj2VhBhOCIFV+m0DoXEvwSJGs1
+	 e3FC0J76c6ANjLe7Y59O5SteZnfHL5tBPDlEtPOw/RudAKWLpww5lYpi8PsC7a7eZAoKJ
+	 hFH3W9XVucGYNkWKrA/wYXu+4W8UuGG3JDFGk+ScpPHA7bXjEkkXmWmt7axNjDoBJE19L
+	 cm+wZnMYGr3D9VSTRAETWYOIVAbs5opQY2tFeI6VEHOKMmJgNvs08kX3BSmC6x5qcHRyS
+	 pWoYvTvRo5xOroYF4lFR8QYeWmv5VKDuqvXFxlELpegxcHTi8RS85b9CBhULfquSnmw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795001376;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795001399;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=fiRXPitExg9c6g7UHC8j9HW4vMb1uaFTU/jha31fP2w=;
-	b=NlQmRA9ws6Q0izbaWhRotVbsC5NpfZqQxGnVE0DxGdKwk8TLQYcCUGg0xX92WTbC8i2J
-	 nBfkVjWix3/qhixs8wFq5dNYl+RP4tMJj2zErciubz0MyPtrDsmXPmBi1tAxiRiilFc06
-	 TVGAD3DU5olhn/O++qkcN7HNYrdKn5r4HOrUR39tQR8yUkQ9LaotsCVbHMYaezS3p5p8Y
-	 3J9tzHHlZZH/CD6wadyVxkyXK5O8ZVk+TyuC6N2BRedhtQemHK3plJ9VX49OngGL3qTLU
-	 pA0NgjPxDODp+9ZvnOpBbF0xZ0DngSggec20qSQgNP0ERZ2OT12dQp6u3jQDwx1WXOQ==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=CKJXXPGigrKiCn6BqmrO398ZNmnv1y4ivGMlHte/o0E=;
+	b=qdJ9gACisr/4GK88f6Yf9/sUIpAh5Nrs0q+CMT3rBfLDw6t4SawM1lYVE9tN7hyTgb8S
+	 KNVnW2MQiYRdkVtuKx1cUh6ANNBRQRTNdaPNUcCwNcbea+g2dYr+AHOruLF9Aclqnuan4
+	 JafZDyfa1rmn7h1c6z5Zu9yiqVltKaOUjKprr0xPQ6WoUPZtndYcjSSroEHjHcS2r84vg
+	 SaYncI+icX07fmKcE7IjeAkRmfSpiOH6c/2Z76HJzhTguLVmDlhV7WONjCE142YU/sxEX
+	 oFkZbKdCJet4Xgtj2sGWbR5mjBESGd+WJiwPddlKVU2tWs5eh9ZvNIMi4EagIoJESdw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=FPxBJ7Fu;
-	arc=none smtp.remote-ip=209.85.128.69
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com [209.85.128.69])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uuBN95WS;
+	arc=none smtp.remote-ip=209.85.215.169
+Received: from mail-pg1-f169.google.com (mail-pg1-f169.google.com [209.85.215.169])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A9FC606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:29:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1A9FC606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B01DB606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:29:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B01DB606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=FPxBJ7Fu
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4a359b714f8so5701345e9.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:29:35 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uuBN95WS
+Received: by mail-pg1-f169.google.com with SMTP id 41be03b00d2f7-cd60c5da24cso652389a12.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:29:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795001374; x=1795606174; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=fiRXPitExg9c6g7UHC8j9HW4vMb1uaFTU/jha31fP2w=;
-        b=FPxBJ7Fu5862Z/MAJ89JmQqESgILChRBFEPRHJXgdjOUAJ82tKBBx+dhQsBub1mSZf
-         K8PxpT9Jr8OB98ieeoTXEaIAYgk4WyciMLMKwdB0eCiY49yA9VkjjJuhM4xRD09VSQST
-         jVPgczsN9FVE/ubT6oXp87EKTwOPjp1QfigXnh1RYQZcX+vkOnFCA9HoaM8Ubsjrc+os
-         q/0sT8bOkL2fZtR6iGi7sZmr/Wr9/N2MKMHi9QAto+HzmnbxAdoncJb27Jf+fm3QkTUQ
-         EG6I1kZCMlcw5SWjxrA4sUxGrA010fBBXZbYXYNEl+PcEvK+X3e5F6iPqIVq0OvexnJg
-         2qRw==
+        d=gmail.com; s=20260707; t=1795001398; x=1795606198; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=CKJXXPGigrKiCn6BqmrO398ZNmnv1y4ivGMlHte/o0E=;
+        b=uuBN95WSEgtwvJ5b3XgGzVGsIkSPMmD8peFA0kaW4t8J3Hwzt8LSI6YOOnU2f1r9i5
+         OvNL3KbvQYpNCSdr4fkW8z4Owu0lZQUoGE+LyG6s6i/gmvGrxNZaz3EpqcOQR29bT9OR
+         zH/OqaFbFTiUIWiVtLqPyPJUBEj9XAGdKQ5OShvoTH1AoAnu0p+lO+2MdvvRXDmrJSfC
+         k75uYDvq/+C9rUeOwqRvUt0WBSJxm4StE/pdGoVi70UzAJnNG2hvAZBtvQ7qwy8laElu
+         wfqopc3FOF8KIQCBjYlAmTR0Cnk8apqX8oyrqsp8R2XoG6GAvC/5UTnu67p8g94mHb8V
+         FzaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795001374; x=1795606174;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=fiRXPitExg9c6g7UHC8j9HW4vMb1uaFTU/jha31fP2w=;
-        b=JaP/TZGQIo3/V4uXO0nIg0jDCUFboynQVuzZbpVS0Zohsgx2ZnEXotdOCeQI6sc69C
-         uRQ/MY77t8KSPmVutIK7DCxuFVP93Ys9/Xk6lqhGDGCVJNR51Yl+BMa01qttVj+uBp6p
-         4t6wj4dKq0WX4y2DIaVCan+2MlNzYcakYre44E/EZaIaIxMRlExk0+KvLxDVFDUHFJNS
-         zP7abkG4oEaezIZjNfH7R0w4583x0YzZXzGaAKDaBygk6K73TrX4XlyDUs2U8ImnFmPP
-         B7dzDvQQboq2JO+yEcUNQSPys067o4kLV6F2eUOmbXr+hFcLVn/JhZgS9aVjmaREncYR
-         KnEg==
-X-Forwarded-Encrypted: i=1; AL+hErFnsR0aiK+2ThY7v/3bBDQ22VpJvjp4NbB2g+P3ld6T+Q7OpqtqIzCtPA7QjqFCwVUOVqT0xGj2iNAR9lM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/ozL9A9sRHtB1ba9l+B0BV6rnZgHbrUhsh0jc3adqiLRv831WM
-	fxhwHhn27aO6meSoo9n9Rx3RouVX/myptM4HHPL83TE9ocCLjQsqcfOoszrhGAZDdmTga14ia6s
-	LNl0s5u3wfdKKNzvdZQ==
-X-Received: from wmrn31.prod.google.com ([2002:a05:600c:501f:b0:4a1:f37f:7f0b])
- (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:3494:b0:4a2:267:25b3 with SMTP id 5b1f17b1804b1-4bb7da4efd4mr41542225e9.35.1795001374269;
- Wed, 18 Nov 2026 03:29:34 -0800 (PST)
-Date: Wed, 18 Nov 2026 11:29:32 +0000
-In-Reply-To: <20261117231927.2200674-1-cmllamas@google.com>
+        d=1e100.net; s=20260707; t=1795001398; x=1795606198;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=CKJXXPGigrKiCn6BqmrO398ZNmnv1y4ivGMlHte/o0E=;
+        b=JsrAJ80n3zjbkP1UjXBWfmk8PVpVC2Auknv0HP/aHw8VGyYgT4UWm1eyThdOrNdwmU
+         QbOfOLqlkVSPPgNY4CPPBrFv8wQW8poXqbsl6Fe7Opt1iL4ysqqEv40dRE1z5McY4EG+
+         n2beicfjyhQrQc5hPx4j/78QFGJrNOz2wc9x9f4nTesrUv1IqGu91nlV0epYS7Vn/cp9
+         0MsmeA2/kkW0FznGG9WfyUT+GnWvBaTCEcbUH8iDiXR/HZlbyHF3EqJZmVHwcm199X6N
+         X624NJcLFUWX5cBylm5eRpgmBOpLb37oezzPiZGxoZUoN45reF8kRStN9fyCj9ylxONH
+         833w==
+X-Forwarded-Encrypted: i=1; AL+hErEIaF6ODXbPgOG+TDFKqCJ/9yfVBICSbRwmlM8hO3nhL6FHQdRFlTSm178lpnLeS7fibCeu6tCHDEBRzmI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9iHYH8zlfY8eIy/y1CWELmOOuY268s+f1KGo50ifGO0TXMrda+
+	a+oBA91QGh/672nGgBg3Yl7s1QRs+eb0LrtC04YDzyl7WhujBfpj3H/I
+X-Gm-Gg: AZFdTZfZ1bFnlppH8NPflZm/7/5Vb0VQRnUbMcTlxps2MBTxJnduIV8rCxy+XnuWrNm
+	MEZCKo3GnMoBZ6lxfwvTuK3g5hCxsCNsZlGlPd7RdpFPjobLbp1LpPvhwesAc60sdQrJnwOh7k0
+	8zzLUAOO4g7kBZHcn4d2e5kd4N/LjFMSwVhm7iRbKJ+ZPMAkjr+iNMdb6CCqvhyC8qZ0ajaY/cp
+	8NJPjCeOYjbmoqxxUzA5Qm9qjChWsufNookajWPZgodepI8LhzpLnj2uC7bm+l9kHp82xGC6H1C
+	1jMohKfWimVHf7nMT2dre7l8jwDEr3UmzJOlrVy0SGHI4sc/JwVV7AO/MffGFc9iuZsh7aifxdD
+	ACxwylAlpfbegVYUNnt4VMgbwgLfB0O95fyM8kgdLe0iT46vtsaJGmgFgbjOCavxoYmeEMg29Um
+	nFpuDDzNYUKo/PzLQ3D4/GxF8LJRschhFfbjW+QLWsIVb5mBO5hTXifgOJbKt6bXINKAVL85ixl
+	QyLofgl4yP7ZFuFeXka6y08M+uCXqLikQYwGsHrf3eKZizZY8hkp7TccuEUtPwOGNGrjNg3BD7x
+	ifG1ki077FdGU0lYtKymBBI1uIA=
+X-Received: by 2002:a17:90b:1a8d:b0:3b3:c4dd:5437 with SMTP id 98e67ed59e1d1-3b3d06415fdmr2730809a91.5.1795001397974;
+        Wed, 18 Nov 2026 03:29:57 -0800 (PST)
+Received: from localhost ([2001:19f0:8000:4ce8:5400:7ff:fe0e:e6b2])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d143d69csm3960221a91.1.2026.11.18.03.29.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 03:29:57 -0800 (PST)
+Date: Wed, 18 Nov 2026 19:29:27 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Peixin Xie <peixin.xie@linux.spacemit.com>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Yixun Lan <dlan@kernel.org>, 
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>, Guo Ren <guoren@kernel.org>, 
+	Conor Dooley <conor.dooley@microchip.com>, Charlie Jenkins <thecharlesjenkins@gmail.com>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, spacemit@lists.linux.dev, stable@vger.kernel.org
+Subject: Re: [PATCH] riscv: cpu: Fix incorrect cached machine IDs on
+ secondary harts
+Message-ID: <av2L1MlTWoYI74eu@inochi.infowork>
+References: <20261118-riscv-marchid-fix-v1-1-6d677fcd5461@linux.spacemit.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,41 +100,65 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261117231927.2200674-1-cmllamas@google.com>
-X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
-Message-ID: <20261118112933.477541-1-aliceryhl@google.com>
-Subject: Re: [PATCH] rust_binder: disallow binder fd transfers
-From: Alice Ryhl <aliceryhl@google.com>
-To: Carlos Llamas <cmllamas@google.com>
-Cc: Alice Ryhl <aliceryhl@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"=?UTF-8?q?Arve=20Hj=C3=B8nnev=C3=A5g?=" <arve@android.com>, Todd Kjos <tkjos@android.com>, 
-	Christian Brauner <brauner@kernel.org>, kernel-team@android.com, linux-kernel@vger.kernel.org, 
-	rust-for-linux@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118-riscv-marchid-fix-v1-1-6d677fcd5461@linux.spacemit.com>
 
-On Tue, Nov 17, 2026 at 11:19:26PM +0000, Carlos Llamas wrote:
-> @@ -182,6 +182,13 @@ pub(crate) fn info_add_fd(
->          buffer_offset: usize,
->          close_on_free: bool,
->      ) -> Result {
-> +        // SAFETY: `file` is valid; read `f_op` with `READ_ONCE` semantics.
-> +        let f_op = unsafe { (&raw const (*file.as_ptr()).f_op).read_volatile() };
-> +        if core::ptr::eq(f_op, &crate::rust_binder_fops.0) {
-> +            // Binder FD transfers are not allowed.
-> +            return Err(EINVAL);
-> +        }
+On Wed, Nov 18, 2026 at 11:04:33AM +0800, Peixin Xie wrote:
+> During early ISA-string parsing, the boot hart stores its mvendorid
+> and marchid in riscv_cpuinfo. This happens before setup_per_cpu_areas(),
+> which copies the static per-CPU data to each CPU's allocated area.
+> 
+> When riscv_cpuinfo_starting() runs on the other harts, the copied IDs
+> are already nonzero, so it skips reading their own IDs. As a result,
+> secondary harts can retain the boot hart's IDs.
+> 
+> Read mvendorid and marchid unconditionally on each hart, as already
+> done for mimpid.
+> 
+> Fixes: e482eab4d1eb ("riscv: cpufeature: Fix thead vector hwcap removal")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Peixin Xie <peixin.xie@linux.spacemit.com>
+> ---
+>  arch/riscv/kernel/cpu.c | 12 ++++--------
+>  1 file changed, 4 insertions(+), 8 deletions(-)
+> 
+> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> index af84b97af3a1..64c0c83eff76 100644
+> --- a/arch/riscv/kernel/cpu.c
+> +++ b/arch/riscv/kernel/cpu.c
+> @@ -197,16 +197,12 @@ static int riscv_cpuinfo_starting(unsigned int cpu)
+>  	struct riscv_cpuinfo *ci = this_cpu_ptr(&riscv_cpuinfo);
+>  
+>  #if IS_ENABLED(CONFIG_RISCV_SBI)
+> -	if (!ci->mvendorid)
+> -		ci->mvendorid = sbi_spec_is_0_1() ? 0 : sbi_get_mvendorid();
+> -	if (!ci->marchid)
+> -		ci->marchid = sbi_spec_is_0_1() ? 0 : sbi_get_marchid();
+> +	ci->mvendorid = sbi_spec_is_0_1() ? 0 : sbi_get_mvendorid();
+> +	ci->marchid = sbi_spec_is_0_1() ? 0 : sbi_get_marchid();
+>  	ci->mimpid = sbi_spec_is_0_1() ? 0 : sbi_get_mimpid();
+>  #elif IS_ENABLED(CONFIG_RISCV_M_MODE)
+> -	if (!ci->mvendorid)
+> -		ci->mvendorid = csr_read(CSR_MVENDORID);
+> -	if (!ci->marchid)
+> -		ci->marchid = csr_read(CSR_MARCHID);
+> +	ci->mvendorid = csr_read(CSR_MVENDORID);
+> +	ci->marchid = csr_read(CSR_MARCHID);
+>  	ci->mimpid = csr_read(CSR_MIMPID);
+>  #else
+>  	ci->mvendorid = 0;
+> 
+> ---
+> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+> change-id: 20261118-riscv-marchid-fix-3ea3672d1e0e
+> 
+> Best regards,
+> --  
+> Peixin Xie <peixin.xie@linux.spacemit.com>
+> 
 
-We have moved to using atomic_load instead of a volatile read when the C side
-uses READ_ONCE. For example:
+LGTM.
 
-	// SAFETY: `file` is valid, so `f_op` is valid and aligned, and any
-	// concurrent writes are atomic under LKMM.
-	let f_op = unsafe { atomic_load(&raw mut (*file.as_ptr()).f_op, Relaxed) };
-
-however the f_op field isn't read/modified with READ/WRITE_ONCE on the C
-side, so I think we can use a bare access.
-
-	let f_op = unsafe { (*file.as_ptr()).f_op };
-
-Alice
+Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
