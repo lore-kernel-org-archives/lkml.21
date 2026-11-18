@@ -1,88 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795096126;
-	b=CuOTUf4wnp8JDR1Oq9/BxN17bkQ9CVXOfwxJ++xB3JIo2WxPSzNixAkIWG5S04FpJ2eP
-	 Ah30cgGbrGCKyjuHsU+s25pjC7W48+q4O8/BiKjVnPJJPWWk+yBdGdwcQrsCfOvb9Ndtc
-	 i5OA4EpJ/JUBpoZ3UDmju21HN5OY5Z5NHNlVO8BnlP6z5zBLxkN9XWC8yyoE0Ed7b9e9r
-	 3NkkHXdILH9pSZlNmm2GBOLOag2dWNset57/3XK5sSxpktxoh1UieSfIFh+h3WMWIFgQV
-	 rK2unR7vMmSVUZswG0NYS4vM/7fZO6LVniqDdCdZdW1bXAekzNbqT541X/ouy+aQiiA==
+	t=1795096144;
+	b=UUPHYWpPlPpniKy0hy4EHLw96PTAeVEzs75pmvaWLs0UkG4qmBowhfdXdtLvk0jRJa51
+	 WDlBUJ4lhwB5SPSE4tAFDuDOL/jYZAzKUfu27VdNis7I00TS/fHi0gXCyuLpl45kxw/dm
+	 tzEkapYvO5RRVtI92oBzs/TeAY46nMFd1/Lph0jetUNAJYACMPo25N6X5TrTn/VXYfeC4
+	 bxxiIpO+26upqojx+428sWRcUzf01QKA+8lsiiLyQHmwSnJ9WnUxan7ph6/adGeiH8aag
+	 8kux4I6ym+bGFUmzoxbtbE/c5eWqt0Dv/BzFp9Ova6ErPf6XXxZN1M1K5K0Nla7OWmA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795096126;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=BKa5IC7AB3kLyLATonakZgU4RKoDnILa/q6mHie7Xw0=;
-	b=hmKCU21Tqp4QzvlSLA6DCmW7soWZEj1PDgcjQwdliJm7s99rmQjsLcT9Tadv/ibXVQ/Q
-	 Y6RlTaiFmcxy6Mv2f+wrCvr6H9LNov2Al8BDuVicDeF98BtVm1PHqSv7PUsuWEdf0IiEf
-	 +g+BD3MXQL4Cz71BrthOFzB7RV4rkCtLe24mF95MKp3sOFMX94HaSYqBqmBkJkA258wyg
-	 MyHGv02CbaqE5Z5ZvIkfhIWXK1mnUKbV+T70OvL8lhq/Mh4Rxn0M7Cu3v/KLoso+8z5gD
-	 7D4il53ybvJYY3iMGCsqz49+f1h9sZ1rlIM9SLh2BSWENTCI130SdF/IC+iy6r44akA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795096144;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=RHIJc1ZvM5IUGhVoXeitNJ89r1xtXyRqYi3xvQXKSls=;
+	b=yj+YW8kaK5sdjO3XoLN4uTpEwGYKaLK6rzz29JYVLWjIep+XrhV5VR26K/0BxBtrh5jB
+	 9Kv4M6/ddT45v2YgAFUvdRhiig24MxFcVAx36MN5vAYagTc3++fROb8N7WVWSZbEfG9bJ
+	 sn4RUQ1jZPT+alcifVJb4s5lg/LI8wHyF2hf+K8GW9botOXbYgauVAHtnXYF/gfMBL437
+	 l0pZ5lJ42LEyIxnV/gNeCzrKd0k8ZbURxt2AMASuyxlG5fPLNcPmoy3kOfo3Av5ljpTbO
+	 c/jsA2KT/sDdCZVMYa0IO/izWrlcGODq2p7Qlf/fOstQJ8GnViJp9P9qDr3dts8FrBA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=fL93sBph;
-	arc=none smtp.remote-ip=209.85.221.43
-Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CxDtlnbt;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E307B606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:48:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E307B606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 094E6606A332;
+	Thu, 19 Nov 2026 13:49:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=fL93sBph
-Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-48e09aa5264so1313743f8f.2
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:48:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795096124; x=1795700924; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BKa5IC7AB3kLyLATonakZgU4RKoDnILa/q6mHie7Xw0=;
-        b=fL93sBphOCi0c4Cbb9loeHvf7xl9+2wRsGNd1Zkk7WfkZbs7Br+PFcCik+0Qzose8F
-         wlV1I5nH3tgPGkQAjg5duPXqhqd9s6Z5vPkS70cjUl95yVpMfiZITXE70sOC05uR4Y2+
-         9HpGfjPiT/IOS9gSLXjBLURHQaAqef92Op4wStEFvcmhJKQgepquUQVW1Q2AKUpo3Mv3
-         ohdXw1wJRFURvNCMejSS4JWuDBgXTp64OvouZBOVWfNP2jUmu70SzRI+wCopIcp0jEBv
-         NSdAW4mQQSZzeFSQ1B8E12+Rqrv7aFHAscPvQtj7FYHoLcuw9DKHXHW3KGGuveUZ84Ms
-         JVkQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795096124; x=1795700924;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=BKa5IC7AB3kLyLATonakZgU4RKoDnILa/q6mHie7Xw0=;
-        b=BtNzz23y6eKkiglj3LSv90lq/mdFEDJ13ryvvNSvGeEmLvZTKIhbT7Uvj3h/XMLWB7
-         J+GZin+vDbGvF4d8OyeAXqOX5U0h+PHylBZYk0po/+rtKjSDhar+/hz6XbBFHz0RDzx1
-         15G8P1qq+/gtJ8oZAEop9phpUHivq779Oor9WzMTFT9YMzPKoCWgK3BCf5VQXz8qA7Hg
-         vAIYZ2YKowO3d3sq+OzSQERMtn0BC5Oefc3/WamjQOwMQQlLcjvYCj7+/vLCdxgkbsgg
-         PzM9p+ZyqEshwF3WWk+GUDqNVb++jgDbGHMIIQfc0dY3N9wVj6eP4rWhgZWuiBoNtXlr
-         eNGg==
-X-Forwarded-Encrypted: i=1; AL+hErH3Uspw3eL+SGHCHt/dcN8aTa6UPy8XW3WOGnpF1C04jkX+rnm8NuPt1SwfztRC5y95U1H3AI7v6HWUq6E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/SrS7voSyQDAWQy2nRC1p400BKo/64HNY+kOI2AJnJwmQqJUgj
-	bQ6812/sakdeGDQlfy7bWU7kmTLrNKbHVD906sOkAxhW72Ny2eznfY7VjJLCtugktMw=
-X-Gm-Gg: AZFdTZeCfhNU17elsPfgXPJmIfRgg0ivZSOlNvI6dwwWHl39uYuH0qlVLN5Jj+eP8yv
-	AbY9QXYQt6GZBE9aX5oVTmztI/ubahwpL/RcbN8bE9o9aAJ8eUPFM6hEAslT+2k0KWfpT0HKm31
-	9ERZzzX02zhfskHynMyeJol2BUGTIBgiMfHkFDbopzmEyT3EzmuI4AIF0WTw007feN2We9y+Wf1
-	Qz1CS3wsB+/4iR6+s/y9stG+kI00rxJdcX2aWdFLjblcAmclrMRZkMp+Ext21q5Sz21D6VaYon4
-	fOPUFq9Rx5b8YudGNGYgp7EZg/ac4Rnlw4jfFSdp+TsUxP58uyT1n5SB0Nqssl9GQz/CS3w4wo+
-	g2U3eC5W8wiDQbkkEP4ANxValbaWMQjrA5oiHWQchdZxjF7gfcXc5vWKbYDa9qnS4NnDxNz5ef0
-	00nMqdG+2v97PfN7fzAx1/wmgQW4etZfnp1jGO9r6fntmeNhxk/bn8BK2BD5NjoyK6lTcdFmPLx
-	IG/oCUlx/7x4ImfdwhU231yHEn298Q3lpHJHz50FGB6W11N/KMc0TqqEdDKWH8oZn7OTKGfWWJq
-	9U2/N9uCBdN4KcPR9F9mhOCclI5C61yz8OfdffXa
-X-Received: by 2002:a05:6000:613:b0:4a7:45a2:ec26 with SMTP id ffacd0b85a97d-4a745a2ed63mr12002121f8f.16.1795096124130;
-        Thu, 19 Nov 2026 05:48:44 -0800 (PST)
-Received: from [192.168.0.252] ([79.115.63.210])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65609391bsm10932012f8f.36.2026.11.19.05.48.43
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 05:48:43 -0800 (PST)
-Message-ID: <96fb6324-7563-4d0d-88d8-cba55b92eebf@linaro.org>
-Date: Thu, 19 Nov 2026 15:48:42 +0200
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CxDtlnbt
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17C2D1F000C4;
+	Thu, 19 Nov 2026 13:49:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795096143;
+	bh=RHIJc1ZvM5IUGhVoXeitNJ89r1xtXyRqYi3xvQXKSls=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=CxDtlnbtdf3FiIrpS01bif1eJxVD739dNZI/DLLPKAcX2/DFt4CScsFalKfdzYq5e
+	 TyrN+ijXr2Xz19d6b8Ol2HKMu+c/dr9SM+bC7jd4h4zCiNaRa/0ZZfa6L9d/oTsw8H
+	 9ikigWXxN3/c2Vy1uIpSCMebHfmfzpNfxON0BkWWxXq+nc9TvesCJzk2tBXSJFWk5L
+	 VMe3xwrNhL7l5NuSFlHzvPwLIS8YLmx6Z/nps3YLnWLGSa18P84CYO0eNLp3DZvE07
+	 6fYD2Q2lVh5ahyN3eIP9NdObvojPD2P+r2GvMtEcglhgXM0+WSNMzyDBjzAhAo7BMu
+	 BWgYENtJ0Oaxw==
+From: Mark Brown <broonie@kernel.org>
+To: phucduc.bui@gmail.com
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, jonathan.downing@nautel.com, 
+ Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>, 
+ Vladimir Zapolskiy <vz@mleia.com>, linux-sound@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org
+In-Reply-To: <20261118100631.26658-1-phucduc.bui@gmail.com>
+References: <20261118100631.26658-1-phucduc.bui@gmail.com>
+Subject: Re: [PATCH 0/2] ASoC: fsl: lpc3xxx-i2s: Fix error handling and DMA
+ configuration
+Message-Id: <179501192655.349622.2821526031939514716.b4-ty@b4>
+Date: Wed, 18 Nov 2026 14:25:26 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,40 +62,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] thermal: samsung: acpm-tmu: Fix spurious CPU throttling
-To: Christian Loehle <christian.loehle@arm.com>, bzolnier@gmail.com,
- Daniel Lezcano <daniel.lezcano@kernel.org>
-Cc: krzk@kernel.org, rafael@kernel.org, lukasz.luba@arm.com,
- linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- linux-pm@vger.kernel.org, Juan Yescas <jyescas@google.com>
-References: <20261117083442.830549-1-christian.loehle@arm.com>
- <3ea5d94b-6913-4534-816a-3935c689225b@linaro.org>
- <56a7a762-7667-4186-973c-ca0fcb399ecc@arm.com>
- <b2b0ddc6-964f-4d8d-86d4-a0bc24d9022e@arm.com>
- <4d51fe5f-d233-44d4-a50e-ef168b6f0402@linaro.org>
- <2cc6efc8-db35-4b40-ab71-815f08ed9dc9@linaro.org>
- <a1c4e409-2d73-4689-b136-41825ee2b61b@arm.com>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <a1c4e409-2d73-4689-b136-41825ee2b61b@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1425; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=UtT14b3aDsCNas90DxDGlsVK8Y57ng2BypyV6PRZCHg=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLL+/fMRrl7HyBCzT+DPilnTpLq+neFTeisoHMuvoBfc5
+ ef/rFa3o5SFQYyLQVZMkSUui/tlfcnrNXwHF7bBzGFlAhnCwMUpABMJkGH4p17w6/XxrQXvjNQM
+ RCL3nJxXP1P76oaLX9c+mrT1OuvyA78ZGe5f3Gh26l923YKlh5q+eD3Zt1xiWm7ilaNpbH+LzoQ
+ IsvABAA==
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
+On Wed, 18 Nov 2026 17:06:29 +0700, phucduc.bui@gmail.com wrote:
+> ASoC: fsl: lpc3xxx-i2s: Fix error handling and DMA configuration
+> 
+> From: bui duc phuc <phucduc.bui@gmail.com>
+> 
+> Hi all,
+> 
+> This series simplifies error handling and fixes incorrect
+> DMA depth macro usage.
+> 
+> [...]
 
+Applied to
 
-On 11/19/26 3:24 PM, Christian Loehle wrote:
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
 
-> The alternative is of course to just hardcode slot 7, downstream uses 115C
-> as a default value (supplied by DT trip point 'hot'). Or do that as a fix and
+Thanks!
 
-I thought about this too. The problem with it is that we ignore the DT value,
-and downstream relies on the DT value too.
+[1/2] ASoC: fsl: lpc3xxx-i2s: Simplify error handling
+      https://git.kernel.org/broonie/sound/c/f8b9931f96c0
+[2/2] ASoC: fsl: lpc3xxx-i2s: Fix DMA depth configuration
+      https://git.kernel.org/broonie/sound/c/239eb443bf6c
 
-> then follow-up with a proper wire-up? What do you prefer?
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-I have no preference. DT was queued for next, so nothing enables the driver
-in v7.4. Maybe that's why Daniel queued the other fixes for next too ...
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-Cheers,
-ta
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
