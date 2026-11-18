@@ -1,84 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=85.214.127.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.16
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795027227;
-	b=cZZI5XpCuWAyRXs/B9Yyd/Zs0fDGm1ggeCwDP4d/Wh+fwcd72qmqmybduV7xjqu3Byy1
-	 7uv8G1Baw5Jo5wzctQHN+vqHdpGgCr/OblKAbKQ63uRHCSUT055tgavnX+saGpYXtrvZ0
-	 T8ffve2WOs2PTn+j/5odFdHej8djybaauQUjiR49MzDI1vEl9SfSkDuM5g2SAw2C+wMHZ
-	 T6SqjxTlaeu7lT1dI9ZMRyQRSPk9Sbl+NQYGgvpV0WQEf9sse/7ydvPzwLXSeB4IkSu7x
-	 sM94W+OC1EQ6DDJqdKTJW2YEU1MCfZNRyido+FrIaffZL5v1h0oYFFdIcIYpHUAY/Fg==
+	t=1795027318;
+	b=EoEw+xCTm5Ic7RgO/Sw37WlJfkt245pzcqrF8GyOi252abTPE1Cb/CNWAx+X5JS1m/Sq
+	 Xk1zI6Hw16YTZQlTpQmJN4Fr1UP+7WfmHDVa08FpRPmxDqMxz/dxBJZHIRNCV9TWFxNNn
+	 VBRKAi+NPAnPQW2KoRsQdKY3vXBE9sidmiWalg4d5CLtF7P3izFxBVaBSS68fA7sdi0ri
+	 iWIAVHZWiYtIWHilFrSusy4qyL2N6yXccTWJ8fcPS5NJiDR1tfuYYPuxYPurEnZE2HuVb
+	 8st4FqmsiLj0KEqh+N0KNyIqkpo8LJcDZ6zYHCzO45LvmiTA9sYwrAyD/zlZhPdvcGw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795027227;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Virus-Scanned:Received:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding;
-	bh=eBfy3C/qatKvrXugrVDBOzdGAnD9yCzVqwvXlNIQDTE=;
-	b=Ozk1lhG/N9rw1Eus9dvq1QW35F4DOcdFB2wV5ZxEVQpWfHgi823oU2L0keDLrTd9MTzK
-	 jRdMvbzWs003DhhJjBt0jPHoIV99W79zSQ2HnzpPulVQGPNvXDM8hPIw1Z2UAU5Z6YJk6
-	 IXqNGqyHwk4IWDKwqY2ydTxIsWVCsjMRPhZBLpfUszz9MxN6mRVXY4jIgEYJ7zN/w4zgH
-	 DQYA+np6aoxdR5pT5MlHyzO6co8FJNh6LclSkgLc9JLZDPpZaWIMIAbMrUlh/ZRkorECV
-	 nxYDtbyqGd+mGE4gkJv/gQ6g0gyfNbXw057utArfOZ9OyGH4ASi1MpKKqSuUA8+T3+w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795027318;
+	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Rspamd-Server:X-Rspamd-Queue-Id:
+	 X-Stat-Signature:X-Spam-Status:X-Session-Marker:X-Session-ID:
+	 DKIM-Signature:X-HE-Tag:X-HE-Meta;
+	bh=spjX/AP+q48PaOrXYRssOriUKxZG5CEsdblcdLqAMNA=;
+	b=iM7SgVqg/RA2pdQUTKHcDDC27jge9HsDVlyJeKkua00evYauqPGqrackJZMQl2O1nG74
+	 1eHj6qvIfoNUnxXvZGNeWZ+AgX7Nw+1pkR0kOzRtCLQitcVYi8wKt5UBbs+Exb6J6BJes
+	 xfOZ4dNRq8kzX73ErFK/pXK33CFysIh6EU64rHz8B6X192F3QbN4E0D1hdQQtTDlmvIUc
+	 WaseqfuPSrKbUNrxx3tV+PgXE+klY/K95QgzLw/QGIlGC/l/RL90W+Ol1y9j+CkTLzFwN
+	 1i1r+0UiUMTm645j3him1jHUh+qEJegcefLElEyjW65pRuWIfZ2QF5UqwEV52lem6aQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=szelinsky.de;
-	spf=pass smtp.mailfrom=szelinsky.de;
-	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=CXNyRe4p;
-	arc=none smtp.remote-ip=85.214.127.56
-Received: from szelinsky.de (szelinsky.de [85.214.127.56])
+	dmarc=pass header.from=goodmis.org;
+	spf=pass smtp.mailfrom=goodmis.org;
+	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=KAQnh+6l;
+	arc=none smtp.remote-ip=216.40.44.16
+Received: from relay.hostedemail.com (smtprelay0016.hostedemail.com [216.40.44.16])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D33460A3829;
-	Wed, 18 Nov 2026 18:40:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D33460A3829
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=szelinsky.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=szelinsky.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDCFF606A338;
+	Wed, 18 Nov 2026 18:41:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DDCFF606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=CXNyRe4p
-Received: from localhost (localhost [127.0.0.1])
-	by szelinsky.de (Postfix) with ESMTP id 869ACE83AD0;
-	Wed, 18 Nov 2026 19:40:17 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=szelinsky.de;
-	s=mail; t=1795027217;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eBfy3C/qatKvrXugrVDBOzdGAnD9yCzVqwvXlNIQDTE=;
-	b=CXNyRe4pqTg5mz4C07G7Wdwun4vjMbwSGj5kVQOF3LFxXsmqJv8BlmRDczQ56JJWVnOGjJ
-	Mz537jyE4OyimmhNfnVmcEsR1cWELrjc0hR8LlcIH5l2F0AOG/AWOCdJljanwfzOHNJAym
-	EKMhng5u53zxSF9/VfhVAQqL+0GVlYyuyW/XzRKIq6M0o2iOpnt+mPyfMYRDpRz6spBDe/
-	CvI5roH5c9yzznaVWmiZOdaq7WxIaE86YlYeH9ebbpoBHsUxXOLn3Cj/yCxDJfXuYOa9o5
-	bEL+D2ysDiUCNooK95Qin+cRhyhv2b33DPAauIl93kZWy9PSa0Svyo/c8RZ2xQ==
-X-Virus-Scanned: Debian amavis at szelinsky.de
-Received: from szelinsky.de ([127.0.0.1])
- by localhost (szelinsky.de [127.0.0.1]) (amavis, port 10025) with ESMTP
- id h2J8Vemafvbo; Wed, 18 Nov 2026 19:40:17 +0100 (CET)
-Received: from p14sgen5.. (unknown [91.25.97.186])
-	by szelinsky.de (Postfix) with ESMTPSA;
-	Wed, 18 Nov 2026 19:40:17 +0100 (CET)
-From: Carlo Szelinsky <github@szelinsky.de>
-To: Oleksij Rempel <o.rempel@pengutronix.de>,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Simon Horman <horms@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Kyle Swenson <kyle.swenson@est.tech>,
-	Ross Cawston <ross@r-sc.ca>,
-	netdev-bot+sashiko@kernel.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Carlo Szelinsky <github@szelinsky.de>
-Subject: [PATCH net v5 11/14] net: pse-pd: free the notification kfifo when registration fails
-Date: Wed, 18 Nov 2026 19:39:54 +0100
-Message-ID: <20261118183957.2031311-12-github@szelinsky.de>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261118183957.2031311-1-github@szelinsky.de>
-References: <20261118183957.2031311-1-github@szelinsky.de>
+	dkim=pass (1024-bit key) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=KAQnh+6l
+Received: from omf11.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay10.hostedemail.com (Postfix) with ESMTP id DC508C0854;
+	Wed, 18 Nov 2026 18:41:49 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf11.hostedemail.com (Postfix) with ESMTPA id C2E3320029;
+	Wed, 18 Nov 2026 18:41:47 +0000 (UTC)
+Date: Wed, 18 Nov 2026 13:41:46 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Weiming Shi <bestswngs@gmail.com>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland
+ <mark.rutland@arm.com>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ co+bba0c6b49150bef3@bugs.sh, Xiang Mei <xmei5@asu.edu>,
+ stable@vger.kernel.org
+Subject: Re: [PATCH 1/2] ftrace: Wait for graph readers before releasing
+ operations
+Message-ID: <20261118134146.3577fcad@gandalf.local.home>
+In-Reply-To: <20261103175832.3374540-1-bestswngs@gmail.com>
+References: <20261103175832.3374540-1-bestswngs@gmail.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,94 +63,239 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Server: rspamout05
+X-Rspamd-Queue-Id: C2E3320029
+X-Stat-Signature: 7s4gj4buybzgq1fkstuqfg57qojonwt3
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX19XrPjGFbL7NhknHsEsWmykqf4O1VC3d2s=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=spjX/AP+q48PaOrXYRssOriUKxZG5CEsdblcdLqAMNA=; b=KAQnh+6lRo99s81nk3jTg59Dy38EX/msxPLzbjDnFRaG6E2xJ+PjlWkiuhrBBAtfrV8RI7nQ8U0zoNsVlJxqDByq/jU2v29cqSvQzdhzuImFdeVaZtK+I9PloWK2Jl7V9j5cgJKPS45RnbD3LlvcL+Fnu+bYFCrtFtDjKMnK2wY=
+X-HE-Tag: 1795027307-44282
+X-HE-Meta: U2FsdGVkX187V8teZLv/nwiP+uWPrXw3ueZ5JdZdR1zaQDQ/DMZWDFYtNFqZA58Pm+7h7MUyZnSeW6X2zV4DvmGJxMdsS5JrZAoPJDGxZ5ARmUPa+OvTJpu8A03uJ4Ay7abqVYaQI0H2GDSiWwm16KxbcKaeCHCWyMYcW2durbWtvvNQ3WhJZwrmb6EJU7Ov2oOrOUnAMHYvw8Ewxj5UajWSrkfaJfpj3LEwwpPYlJOZ+sONVsPo9ih3Tsten9CoNc/ih/eolyAi2GgbBlGiLjZPiEt0D0gNKgzIVO4YTm49UEpqHFPHKsMRU9QmYQB1DUanNBhXIrsoDIKMB1rzC2PJivZz2t7uklJwxTiJKMCs+L5lCVYOcw==
 
-When pse_controller_register() fails after it allocated the
-notification kfifo, it returns without freeing it.
+On Tue,  3 Nov 2026 09:58:30 -0800
+Weiming Shi <bestswngs@gmail.com> wrote:
 
-Free the kfifo on every error path.
+> unregister_ftrace_graph() removes an operation from the graph array before
+> returning. A graph callback may already hold the operation or its filter,
+> however, while the caller can release them as soon as unregistration
+> completes.
+> 
+> This can happen without a hash update failure. For example, consider three
+> graph operations with identical filters where one also enables PID
+> filtering. Removing that operation leaves the manager hashes unchanged, so
+> an in-flight fgraph_pid_func() may call gops->saved_func after unregister
+> has cleared it.
 
-Found by code inspection and AI review.
+Can you give an actual example of the above? That is, show command lines
+that could possibly create the scenario.
 
-Fixes: ffef61d6d273 ("net: pse-pd: Add support for budget evaluation strategies")
-Reviewed-by: Kory Maincent <kory.maincent@bootlin.com>
-Signed-off-by: Carlo Szelinsky <github@szelinsky.de>
----
- drivers/net/pse-pd/pse_core.c | 24 ++++++++++++++++--------
- 1 file changed, 16 insertions(+), 8 deletions(-)
+Because honestly, the above is very confusing.
 
-diff --git a/drivers/net/pse-pd/pse_core.c b/drivers/net/pse-pd/pse_core.c
-index 134c273487ba..c86e2c44e3ff 100644
---- a/drivers/net/pse-pd/pse_core.c
-+++ b/drivers/net/pse-pd/pse_core.c
-@@ -1119,24 +1119,25 @@ int pse_controller_register(struct pse_controller_dev *pcdev)
- 	    !pcdev->ops->pi_get_pw_status) {
- 		dev_err(pcdev->dev,
- 			"Mandatory status report callbacks are missing");
--		return -EINVAL;
-+		ret = -EINVAL;
-+		goto free_kfifo;
- 	}
- 
- 	ret = of_load_pse_pis(pcdev);
- 	if (ret)
--		return ret;
-+		goto free_kfifo;
- 
- 	/* The PI regulator ops use pcdev->pi until devres unregisters the
- 	 * regulators, so free it from devres too, after them.
- 	 */
- 	ret = devm_add_action_or_reset(pcdev->dev, devm_pse_release_pis, pcdev);
- 	if (ret)
--		return ret;
-+		goto free_kfifo;
- 
- 	if (pcdev->ops->setup_pi_matrix) {
- 		ret = pcdev->ops->setup_pi_matrix(pcdev);
- 		if (ret)
--			return ret;
-+			goto free_kfifo;
- 	}
- 
- 	/* Each regulator name len is pcdev dev name + 7 char +
-@@ -1153,26 +1154,33 @@ int pse_controller_register(struct pse_controller_dev *pcdev)
- 			continue;
- 
- 		reg_name = devm_kzalloc(pcdev->dev, reg_name_len, GFP_KERNEL);
--		if (!reg_name)
--			return -ENOMEM;
-+		if (!reg_name) {
-+			ret = -ENOMEM;
-+			goto free_kfifo;
-+		}
- 
- 		snprintf(reg_name, reg_name_len, "pse-%s_pi%d",
- 			 dev_name(pcdev->dev), i);
- 
- 		ret = devm_pse_pi_regulator_register(pcdev, reg_name, i);
- 		if (ret)
--			return ret;
-+			goto free_kfifo;
- 	}
- 
- 	ret = pse_register_pw_ds(pcdev);
- 	if (ret)
--		return ret;
-+		goto free_kfifo;
- 
- 	mutex_lock(&pse_list_mutex);
- 	list_add(&pcdev->list, &pse_controller_list);
- 	mutex_unlock(&pse_list_mutex);
- 
- 	return 0;
-+
-+free_kfifo:
-+	cancel_work_sync(&pcdev->ntf_work);
-+	kfifo_free(&pcdev->ntf_fifo);
-+	return ret;
- }
- EXPORT_SYMBOL_GPL(pse_controller_register);
- 
--- 
-2.43.0
+> 
+> Graph callbacks run with preemption disabled and may run while RCU is not
+> watching.
+
+This is no longer the case. All function tracing should now have RCU watching.
+
+> Separate removing the operation from graph dispatch from waiting
+> for callbacks that may still be using it. Keep unregister_ftrace_graph()
+> synchronous by performing both steps, and require internal users of the
+> split interface to pair every successful removal with a reader wait.
+> 
+> For fprobes, unpublish the graph operation and release its slot
+> synchronously, then queue the reader waits and filter release. This keeps
+> the waits out of unregister_fprobe_async(). Flush the work before reusing
+> the shared graph operation.
+> 
+> Disable fprobe return dispatch before unpublishing the operation and check
+> that state inside the callback's RCU critical section. Re-enable dispatch
+> only after graph registration succeeds, so a return callback cannot use a
+> released fprobe while cleanup is pending.
+> 
+
+The above is 100% AI generated and not parseable by humans. Please rewrite.
+
+> Cc: stable@vger.kernel.org
+> Fixes: df3ec5da6a1e ("function_graph: Add pid tracing back to function graph tracer")
+> Reported-by: <co+bba0c6b49150bef3@bugs.sh>
+> Assisted-by: LLM
+> Signed-off-by: Weiming Shi <bestswngs@gmail.com>
+> ---
+>  kernel/trace/fgraph.c          | 47 +++++++++++++++++++++++++++++++---
+>  kernel/trace/fprobe.c          | 21 ++++++++++++---
+>  kernel/trace/ftrace_internal.h |  2 ++
+>  3 files changed, 62 insertions(+), 8 deletions(-)
+> 
+> diff --git a/kernel/trace/fgraph.c b/kernel/trace/fgraph.c
+> index ed455b535..14733f519 100644
+> --- a/kernel/trace/fgraph.c
+> +++ b/kernel/trace/fgraph.c
+> @@ -1420,13 +1420,26 @@ int register_ftrace_graph(struct fgraph_ops *gops)
+>  	return ret;
+>  }
+>  
+> -void unregister_ftrace_graph(struct fgraph_ops *gops)
+> +/**
+> + * unregister_ftrace_graph_start - unpublish a function graph operation
+> + * @gops: graph operation to remove
+> + *
+> + * Remove @gops from graph dispatch, release its array slot, and update the
+> + * graph and subop state. Existing graph callbacks may still be using @gops
+> + * after this returns.
+> + *
+> + * Return: true if @gops was unpublished. The caller must then invoke
+
+What do you mean by "published" and "unplublished". I don't use that
+terminology in ftrace.
+
+> + * unregister_ftrace_graph_finish() exactly once before releasing @gops or its
+> + * filter, even if the subop hash update failed.
+> + */
+> +bool unregister_ftrace_graph_start(struct fgraph_ops *gops)
+>  {
+>  	int command = 0;
+> +	bool removed = false;
+>  
+>  	if (WARN_ONCE(!(gops->ops.flags & FTRACE_OPS_FL_GRAPH),
+>  		      "function graph ops unregistered without registering"))
+> -		return;
+> +		return false;
+>  
+>  	guard(mutex)(&ftrace_lock);
+>  
+> @@ -1440,7 +1453,8 @@ void unregister_ftrace_graph(struct fgraph_ops *gops)
+>  	if (fgraph_lru_release_index(gops->idx) < 0)
+>  		goto out;
+>  
+> -	fgraph_array[gops->idx] = &fgraph_stub;
+> +	WRITE_ONCE(fgraph_array[gops->idx], &fgraph_stub);
+> +	removed = true;
+>  
+>  	ftrace_graph_active--;
+>  
+> @@ -1460,7 +1474,32 @@ void unregister_ftrace_graph(struct fgraph_ops *gops)
+>  		unregister_pm_notifier(&ftrace_suspend_notifier);
+>  		unregister_trace_sched_switch(ftrace_graph_probe_sched_switch, NULL);
+>  	}
+> -	gops->saved_func = NULL;
+>   out:
+>  	gops->ops.flags &= ~FTRACE_OPS_FL_GRAPH;
+> +	return removed;
+> +}
+> +
+> +/**
+> + * unregister_ftrace_graph_finish - wait for readers of an unpublished operation
+> + * @gops: graph operation previously unpublished by unregister_ftrace_graph_start()
+> + *
+> + * Wait for existing graph readers, then clear the saved callback. This may
+> + * sleep. The caller may release @gops and its filter after this returns.
+> + */
+> +void unregister_ftrace_graph_finish(struct fgraph_ops *gops)
+> +{
+> +	/*
+> +	 * The graph callbacks run with preemption disabled and may run while
+> +	 * RCU is not watching. Wait for both kinds of readers before the
+
+This is no longer correct.
+
+-- Steve
+
+
+> +	 * caller can release the graph ops or its filter.
+> +	 */
+> +	synchronize_rcu_tasks_rude();
+> +	synchronize_rcu_tasks();
+> +	gops->saved_func = NULL;
+> +}
+> +
+> +void unregister_ftrace_graph(struct fgraph_ops *gops)
+> +{
+> +	if (unregister_ftrace_graph_start(gops))
+> +		unregister_ftrace_graph_finish(gops);
+>  }
+> diff --git a/kernel/trace/fprobe.c b/kernel/trace/fprobe.c
+> index da286619c..c53ad37a0 100644
+> --- a/kernel/trace/fprobe.c
+> +++ b/kernel/trace/fprobe.c
+> @@ -14,9 +14,11 @@
+>  #include <linux/rhashtable.h>
+>  #include <linux/slab.h>
+>  #include <linux/sort.h>
+> +#include <linux/workqueue.h>
+>  
+>  #include <asm/fprobe.h>
+>  
+> +#include "ftrace_internal.h"
+>  #include "trace.h"
+>  
+>  #define FPROBE_IP_HASH_BITS 8
+> @@ -279,6 +281,14 @@ static struct fgraph_ops fprobe_graph_ops = {
+>  static int nr_fgraph_fprobes;
+>  /* Is fprobe_graph_ops registered? */
+>  static bool fprobe_graph_registered;
+> +static void fprobe_graph_cleanup_workfn(struct work_struct *work);
+> +static DECLARE_WORK(fprobe_graph_cleanup_work, fprobe_graph_cleanup_workfn);
+> +
+> +static void fprobe_graph_cleanup_workfn(struct work_struct *work)
+> +{
+> +	unregister_ftrace_graph_finish(&fprobe_graph_ops);
+> +	ftrace_free_filter(&fprobe_graph_ops.ops);
+> +}
+>  
+>  /* Add @addrs to the ftrace filter and register fgraph if needed. */
+>  static int fprobe_graph_add_ips(unsigned long *addrs, int num)
+> @@ -286,6 +296,7 @@ static int fprobe_graph_add_ips(unsigned long *addrs, int num)
+>  	int ret;
+>  
+>  	lockdep_assert_held(&fprobe_mutex);
+> +	flush_work(&fprobe_graph_cleanup_work);
+>  
+>  	ret = ftrace_set_filter_ips(&fprobe_graph_ops.ops, addrs, num, 0, 0);
+>  	if (ret)
+> @@ -297,7 +308,7 @@ static int fprobe_graph_add_ips(unsigned long *addrs, int num)
+>  			ftrace_free_filter(&fprobe_graph_ops.ops);
+>  			return ret;
+>  		}
+> -		fprobe_graph_registered = true;
+> +		WRITE_ONCE(fprobe_graph_registered, true);
+>  	}
+>  	return 0;
+>  }
+> @@ -305,9 +316,9 @@ static int fprobe_graph_add_ips(unsigned long *addrs, int num)
+>  static void __fprobe_graph_unregister(void)
+>  {
+>  	if (fprobe_graph_registered) {
+> -		unregister_ftrace_graph(&fprobe_graph_ops);
+> -		ftrace_free_filter(&fprobe_graph_ops.ops);
+> -		fprobe_graph_registered = false;
+> +		WRITE_ONCE(fprobe_graph_registered, false);
+> +		if (unregister_ftrace_graph_start(&fprobe_graph_ops))
+> +			schedule_work(&fprobe_graph_cleanup_work);
+>  	}
+>  }
+>  
+> @@ -679,6 +690,8 @@ static void fprobe_return(struct ftrace_graph_ret *trace,
+>  	ret_ip = ftrace_regs_get_instruction_pointer(fregs);
+>  
+>  	guard(rcu_sched_notrace)();
+> +	if (!READ_ONCE(fprobe_graph_registered))
+> +		return;
+>  
+>  	curr = 0;
+>  	while (size_words > curr) {
+> diff --git a/kernel/trace/ftrace_internal.h b/kernel/trace/ftrace_internal.h
+> index 3235470e6..abb7776a2 100644
+> --- a/kernel/trace/ftrace_internal.h
+> +++ b/kernel/trace/ftrace_internal.h
+> @@ -52,6 +52,8 @@ static inline int ftrace_shutdown_subops(struct ftrace_ops *ops, struct ftrace_o
+>  
+>  #ifdef CONFIG_FUNCTION_GRAPH_TRACER
+>  extern int ftrace_graph_active;
+> +bool unregister_ftrace_graph_start(struct fgraph_ops *gops);
+> +void unregister_ftrace_graph_finish(struct fgraph_ops *gops);
+>  # ifdef CONFIG_DYNAMIC_FTRACE
+>  extern void fgraph_update_pid_func(void);
+>  # else
 
