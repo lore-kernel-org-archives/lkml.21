@@ -1,94 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795012065;
-	b=vRClN5uQOQAQ9ymGs+02S0A+bu256cIFxAPrdF3RCcGsaJhqLcR1RSfgnx+qF+ZG8h04
-	 7okZP2qdi8cjp+noAVXN61RYT2d6HAohAnfbRCY+SQgxbvK01voz/xwwjNSQ4SBpbn6hw
-	 ME/FoOelSzMJAFeDk1goXnO3kYAK93vSz/2140f5jU76Jq2QCigHCxETyyeIMOhkXP9Lh
-	 doDQbQSIXP3YRs5+shNalCUam+ZZeE4TDmWrhCVA45HDjPngiTQwc6eZYgdZ18VjP7Lbg
-	 Yvbbd4B/SrIRnMurp1Hg7cZE6gu0fPUxAuNRDW8zrNWu9MU//cqESbOuhVn80OmuoWg==
+	t=1795012068;
+	b=DUe91uaLGW3AQ8qRl1/mIzRK0NgjYj745jlzTluU+bGSgEKPA6TifNrFR72H2Leu47go
+	 rd98h75GKEbvrr0EyvffAR2NEt+wwclfA0VyG6cuAJdT8CtAAZeHw6rGwmkgpJR8CGtS7
+	 J7e89BRGqYwiqJHYcjeV90Ebn3YxZdS54qMGOm3pCaMPuJ2ZuPMY811g4/ct7NPGZ5UJ0
+	 PyxtUgTdoTbd/TcYmCwDsIDxSOhck7GXkf0TmCZJAIvn55RZzEm/rSshg8U6KqXQgQ4Ko
+	 xXj0dIK7oeSKQVSrcRtSlyCbhNuB44Nn4oOLA6WmqMqCVZ6B6+VIwZV7cIH3SxiSX6Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795012065;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=SzCtrb4I1oeIw2u+c9ts0iXdAzyI2eH808CNGZDafBc=;
-	b=TU3EoiydL57NmcVFnXd/uL9V9K+OqpVBBVkV7NL/ltSdyY5enx8+e1Yvdi/D/qNFS4XF
-	 tlmvqOx1OPhWNOrXBnghPEbVTdRODlDHWsumYrp5sCZIx29+pKwRyV4poy814hCFPFv4e
-	 k6JtPOAYLhLa7v5LSHjQyQKXr1JzOBDb17RIgqLoNd71HGgxVasrADJlzt2C2YX863HjF
-	 mZq3/9A6QsbwHavja533K510GKlq/kgD5afQahKg6Gbqj762G0NvSPZcynUCFw8IK9Tk3
-	 8v4WyJmbRU7cwpJzXaeOreclvvtnw+HQ50B6q1k0LXYfms1bnL7yf/MYWN2FiyG8U0w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795012068;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=IrpiBrM7liH8MKiWPu8fuzT5T22D0j2HTUUXtUQY1FQ=;
+	b=vm9q3TmsrDWrYfr6py/6UXPw/kB/BlG/m8EPWHCuqeIHTbrmhbzj29m6DIkxzQSsCIpM
+	 CyDEORPHedrvBhiBylB1ZL8z0XzZBBtrdh+s8SpIXD5V8efq4dEgN54AK1Qbx+gQcWYUY
+	 l0WUXYSu2nVVxPJYiT2bYCrBcW8cToO54wfvXk4WfxNx7qCIAzp0XMONzzYPYe2EhynM/
+	 ZoXj9B7Th/UqpY1IhWVl0dapdYNMK8gNELPCTYlTYWFVpmpXTC3FuOaX66GAY3uFO/w91
+	 lFVt7SfQHh7eAH+gUy77jSvMVm3Mv8pPGZqy2knhqTMdVSObhPY1ZxUExZCziHFYmPg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=asseily.com;
-	spf=pass smtp.mailfrom=asseily.com;
-	dkim=pass header.d=asseily.com header.i=@asseily.com header.a=rsa-sha256 header.s=google header.b=C4YetAr+;
-	arc=none smtp.remote-ip=209.85.208.49
-Received: from mail-ed1-f49.google.com (mail-ed1-f49.google.com [209.85.208.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fTdaO141;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F46C60A2613
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:27:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F46C60A2613
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=asseily.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=asseily.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9837606A33E;
+	Wed, 18 Nov 2026 14:27:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=asseily.com header.i=@asseily.com header.a=rsa-sha256 header.s=google header.b=C4YetAr+
-Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-6b167ffd132so1907217a12.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:27:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=asseily.com; s=google; t=1795012059; x=1795616859; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=SzCtrb4I1oeIw2u+c9ts0iXdAzyI2eH808CNGZDafBc=;
-        b=C4YetAr+YHIjc2/kUvXelgtBNjt9sT0Y/7cMGhiuYIvjD9INfpG2dZNd/caXXtl0zg
-         De/7JuA+pjifP5SvGgt0gnK+XDTSsg/2bXp5Vdn3mSQzeZ3ZqlOAxcI/1mp1B6FrQq/+
-         F9dDkmjUrNo9jEw//kbBgzIsPcXnBtYLWjG0z7/OXjFbWyAjLvCuHwQ6s+5W6FuO7jc/
-         iA8nTtqh31En3/anLweP3q88d773l8bClzZKTmGuWbZq3hD098dR6sSEoO7ja0KKvLO0
-         QpOQQQYWLTYm57+OZkylLuNJ6cdEq4mTL0dl/Yz8t+VtpGZFqu/NcV6HWpQ25fo2Yj9p
-         /cYQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795012059; x=1795616859;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=SzCtrb4I1oeIw2u+c9ts0iXdAzyI2eH808CNGZDafBc=;
-        b=O8hlklrkUzbpjvrirsV3+pOhYh7FK1BialhBME09Q88B3IvuQ3EiKCnJTY4xMWkz33
-         18YIp2smPAz2I0OXY1N4DdjEv2IR18X8egfsp0tnB6yaa9z+0okG4mr1v6QIuViBTYXu
-         fODpKjJf++FveKhlJ86EVI8L0q5/E8c78qjlg3TCKKIPH9O0Rt4oFKgRSgYC9If7dsqD
-         Y3SIbwnr3i15wLHdI8Y682ORx9bzzOsVNABsXvv2mn32JIvLkBjyBNcpDFrazt45sAHq
-         UrNdXel80N6jm6LL0hQsFApjBjO+6C++DyJ56G6/umn6vXK/67iw2OOylqkOo8lqF4yS
-         /PUA==
-X-Forwarded-Encrypted: i=1; AL+hErFE33EWyl7YBMLRh0PgQI6OVJuTjg5fgqcDqHGGgp5N1OG92cg7CRt1NKmxdjsYgikVihwHizDWlCYUhII=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+e3RRt4ryxkXeQ2vMadXvWkPTevR5LTqWnFZjf29sUYGkEPP91
-	KNtGl1N9Rk1G9XjX9BWqsH9fZWQVwl2ftFj4j+ZN4I05Fqas3h4kcCDZZbQOtnS6/PE=
-X-Gm-Gg: AYBFou2ksWudmGw32ebOuxVgA6rKWR+P7jjwccC1Ofu2u2pf87xGV+ydaOzs1TkDnav
-	zdu16XrLO7k9NgppsUnYPdCuoogsXiE7JSdvmZIe0kJkdpC3WofdiFvAtbzpA99GdwhlviuPhnn
-	R/TZfVE3UXIwQpJ1V61p6J+VPRc5f99OoHvrTuAi+tZjPYJIxOsC6xNaqOYq2ZIFey4VfjykkkR
-	hH8UgRPT1UR5jXXhEK0oLO5Ys2c+lV+j+3K/YlFkWdK/gDISTC7IhXA0ktWYIKCpHG81iVa4B2u
-	a4K+66ZKz6pu68oqP9SMvv2MNjocsGksseMgLuS5jXWl8SJGqVUIcUgw/DFO00ULCXSClyWqav2
-	jPxEAJVmT4GGTmOvf8KbkKEpwFJdpePVvlqi8BTQxs4vEl/8ipGEJekjjbiSeUfxfcPng1pP8L6
-	uq7SqkFJuPTyWoRTf0VeJg2g9fXMW7pbw4GwJVkXBRaAJr3Gw2F8UpFW/vnxvR91Wjib91DCIJC
-	lRAj2BnLQGnEBl6BkhQ/qPEi9VrXettFh+HUMZgFtz9atUmtJ9Vqbv2ZxUMJNj3zx4hXIdU2JN2
-	zal85HhPOq6k2R1v62Om0e9JKkx+ydxnwTzW7L4S4Go=
-X-Received: by 2002:a17:907:6d07:b0:c42:102f:15d7 with SMTP id a640c23a62f3a-c510e275424mr242780866b.10.1795012059362;
-        Wed, 18 Nov 2026 06:27:39 -0800 (PST)
-Received: from localhost.localdomain ([178.135.21.157])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b88993e76bsm1100538a12.12.2026.11.18.06.27.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 06:27:38 -0800 (PST)
-From: Karl Asseily <karl@asseily.com>
-To: broonie@kernel.org,
-	lgirdwood@gmail.com,
-	perex@perex.cz,
-	tiwai@suse.com
-Cc: linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Karl Asseily <karl@asseily.com>
-Subject: [PATCH] ASoC: es9039q2m: Enable the DAC clock at component probe
-Date: Wed, 18 Nov 2026 16:27:27 +0200
-Message-ID: <20261118142728.101180-1-karl@asseily.com>
-X-Mailer: git-send-email 2.47.3
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fTdaO141
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82BDB1F000C5;
+	Wed, 18 Nov 2026 14:27:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795012068;
+	bh=IrpiBrM7liH8MKiWPu8fuzT5T22D0j2HTUUXtUQY1FQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=fTdaO141iKava4U02bGsRcWshGkeb9ovgA4WkCWpAKecLl5TZxk0dnh8ZaYWicMfZ
+	 tpbO0jgTXFuMb9gqtXs1H3JL505BuGEObSktbtHlRonX1W+CnBnXBsQQKdpF5NjgxT
+	 4BLOudDQw+d5Ihmvy3SgJD22ccc1D3xe910LaQOMSsqSvecT0uhV/Tkh3KO0Mrpigx
+	 Cq2MLRMR4vv3b0hfX8qa4KKZ1bLLx8uheVq4Jih0emKGKUSl+e1/MTBWVuvnv5z7zL
+	 VbyQG7yDGok9QASvRPGIMJzdLQXa6NbzFfnflirjCDTg4o/9IjvADxQgGNfz8dNXlE
+	 QdB9MSGP5/qNg==
+Date: Wed, 18 Nov 2026 14:27:41 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	David Hildenbrand <david@kernel.org>, Jan Kara <jack@suse.cz>, Jingyi Sun <1045704958@qq.com>, 
+	"Liam R. Howlett" <liam@infradead.org>, Matthew Wilcox <willy@infradead.org>, 
+	Michal Hocko <mhocko@suse.com>, Muhammad Usama Anjum <usama.anjum@arm.com>, 
+	Peter Xu <peterx@redhat.com>, Suren Baghdasaryan <surenb@google.com>, 
+	Vlastimil Babka <vbabka@kernel.org>, linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
+	nvdimm@lists.linux.dev
+Subject: Re: [PATCH 3/3] mm/memory: don't upgrade non-present PTEs in
+ insert_page_into_pte_locked()
+Message-ID: <av21s_WAXAzEtLyX@gremlin>
+References: <20261117-uffd-dax-async-wp-fix-v1-0-c9a30f27f452@kernel.org>
+ <20261117-uffd-dax-async-wp-fix-v1-3-c9a30f27f452@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,74 +63,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117-uffd-dax-async-wp-fix-v1-3-c9a30f27f452@kernel.org>
 
-es9039q2m_suspend() gates the part's internal clock tree by clearing
-ENABLE_DAC_CLK in register 1, bypassing the cache so that
-regcache_sync() sets it again on resume. The part keeps its registers
-through a warm reset - only removing power clears them - so a reset
-while the system is suspended skips the resume and leaves the bit clear
-for the next boot.
+On Tue, Nov 17, 2026 at 05:58:34PM +0200, Mike Rapoport (Microsoft) wrote:
+> On a write fault insert_page_into_pte_locked() assumes that a non-empty PTE
+> maps a page, compares its PFN with the page being inserted and upgrades
+> the PTE to writable.
+>
+> Since guard regions are allowed in file-backed mappings,
+> MADV_GUARD_INSTALL can put a guard marker into a PTE of a DAX mapping
+> after the DAX fault handler found that PTE empty and before it inserts
+> the page.
+>
+> vmf_insert_page_mkwrite() then extracts a PFN from the marker, hits the
+> WARN_ON_ONCE() and fails the fault with SIGBUS instead of the SIGSEGV
+> expected on access to a guard region:
+>
+>   WARNING: mm/memory.c:2489 at insert_page_into_pte_locked+0x47e/0x490, CPU#3: guard-race/157
+>   RIP: 0010:insert_page_into_pte_locked+0x47e/0x490
+>   Call Trace:
+>    <TASK>
+>    insert_page+0x6f/0xc0
+>    vmf_insert_page_mkwrite+0x31/0x60
+>    dax_fault_iter+0x3be/0x5f0
+>    dax_iomap_pte_fault+0x1b8/0x390
+>    ext4_dax_huge_fault+0x1a4/0x2f0
+>    __do_fault+0x34/0xc0
+>    do_fault+0x179/0x610
+>    __handle_mm_fault+0x8ca/0x1250
+>    handle_mm_fault+0xb4/0x290
+>    do_user_addr_fault+0x15f/0x730
+>    exc_page_fault+0x83/0x190
+>    asm_exc_page_fault+0x26/0x30
+>
+> Return -EBUSY for non-present PTEs on write faults like it's done for read
+> faults, so that the fault is retried and handle_pte_marker() deals with
+> the marker.
+>
+> Fixes: f807123d578d ("mm: allow guard regions in file-backed and read-only mappings")
+>
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 
-Nothing in the driver sets it again. The register cache has no
-defaults, so the first access to register 1 at probe reads the gated
-value from the part and caches it, and every later suspend/resume cycle
-restores that same value. A stream then runs as far as ALSA can tell,
-but the part automutes both channels and the analogue output stays
-silent until power is removed. Boards that remove the supplies in
-suspend reset the part and are not affected.
+Seems similar to some of my recent work :) what a hive of alien facehuggers
+insert_page() and friends are...
 
-Set ENABLE_DAC_CLK at component probe, after the mute and before the
-datapath is enabled. Of the two writes the driver makes behind the
-cache, this is the one probe did not already repeat; the other is the
-mute at resume. On a part that came up from power the bit is already
-set and the write changes nothing.
+Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 
-Tested on an RK3588 board whose ES9039Q2M is clocked by a fixed
-24.576 MHz oscillator: suspend, reset while asleep, then play a 1 kHz
-tone. Without this patch register 1 reads 0x35 where 0xb5 is expected,
-both Automute Active controls read 1, and nothing is heard; setting
-ENABLE_DAC_CLK by hand mid-stream clears both at once and the tone
-comes back. With this patch the same sequence reads 0 on both controls
-and the tone is heard, and a part left gated before the fix was
-installed recovers on the next warm boot without power being removed.
+> ---
+>  mm/memory.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/mm/memory.c b/mm/memory.c
+> index 66ad58429967..a80925c61706 100644
+> --- a/mm/memory.c
+> +++ b/mm/memory.c
+> @@ -2474,7 +2474,7 @@ static int insert_page_into_pte_locked(struct vm_area_struct *vma, pte_t *pte,
+>  		return 0;
+>  	}
+>
+> -	if (!mkwrite)
+> +	if (!mkwrite || !pte_present(pteval))
+>  		return -EBUSY;
+>
+>  	/*
+>
+> --
+> 2.53.0
+>
 
-Fixes: 004e260a5475 ("ASoC: es9039q2m: add ESS Technology ES9039Q2M codec driver")
-Signed-off-by: Karl Asseily <karl@asseily.com>
----
-
-Notes:
-    Tool use (Documentation/process/generated-content.rst): the cause was
-    traced, and this patch and its changelog written, with an LLM - Claude
-    Opus 5.5, in Claude Code. The fault was found, reproduced and the fix
-    tested on my board, as described above.
-
- sound/soc/codecs/es9039q2m.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
-
-diff --git a/sound/soc/codecs/es9039q2m.c b/sound/soc/codecs/es9039q2m.c
-index 2a451dfcc..e3f963909 100644
---- a/sound/soc/codecs/es9039q2m.c
-+++ b/sound/soc/codecs/es9039q2m.c
-@@ -1634,6 +1634,18 @@ static int es9039q2m_component_probe(struct snd_soc_component *component)
- 	if (ret)
- 		return ret;
- 
-+	/*
-+	 * Turn the DAC clock on. It is set at power-up, but suspend clears it
-+	 * and only resume sets it again, and a reset while asleep skips the
-+	 * resume without resetting this part. It then comes back gated: the
-+	 * stream runs, the part automutes, and the analogue output is silent
-+	 * until power is removed.
-+	 */
-+	ret = regmap_update_bits(priv->regmap, ES9039_SYS_MODE,
-+				 ES9039_ENABLE_DAC_CLK, ES9039_ENABLE_DAC_CLK);
-+	if (ret)
-+		return ret;
-+
- 	/*
- 	 * Enable the datapath. SYSTEM_CONFIG[1] is clear at reset, so in
- 	 * software mode nothing turns the DAC on at power-up: the analogue
--- 
-2.47.3
-
+--
+Cheers, Lorenzo
