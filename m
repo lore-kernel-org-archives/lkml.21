@@ -1,48 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794981894;
-	b=VABAdTDh2++wX0+LkO1V2Uo8+nXWNNSWW+77b2fg//0H29cFWl/c5Y7BBBZFB403Ub19
-	 Yx7qDzN7xPe+8oB9i9v17CxYOSDsi8H16Hjf/+rLyrLbcy84nVrtNQH1bCulQzPwS71um
-	 N10TChl7yDu9tLrwtx2oF2/QpiX4Fk0uKMTm85WCiBIoxbsFuG6agyUEAbxTrv9WJdE8U
-	 lfWtEjnOew/DB//0ikUgQixXyZ1dQ86PG16FrFEsX8M9ECL6KS4UmQS8Kxkd0BwjGUw4b
-	 NZFIUT+BRZJ38Km/ujyNHjXPY7dX1hUr9ijW92IStcWGAQfu84JniBmM2OIY/iBOS2w==
+	t=1794981898;
+	b=3riDpihZoEw1iRilDFvbZlRyfTFCSf9C1c06NgMQTEOO4jVBy9wmUiodbeAHPsX3lrXc
+	 ObkyUeSNgA/sFby8XGfTOc3q8kvBudg814H8tkP9C5VCfhd8D2FAm5CoMylMgBU4MBnme
+	 WW4JYRT0sRrSDQeNhiWo6pVgiItrt0AzlyJCfPOazk3NWR/29JTEtn74OxJKY6lDmLRGU
+	 8nIbmoxHJ/vuW/N4FyBp5bXes5n2VdTkcMAHn1SIm2FrCSFWzHzR1zJDdTIASOjI64p0P
+	 KefrJ86bB4zbV9KHx9YeBcOtKX8Bu07BtJLiA3OD8Ui0bM7fyGo+FvB/qtT3l6xptZA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794981894;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794981898;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
 	 X-CM-SenderInfo;
-	bh=2O/0GxFTdaVqIt+Fh1ZdEiw319MytGrC5ThQaqmf72I=;
-	b=MAF00SWTKxZXpUieu7e8+O4LD9DzDYw3gJD3V3OqUV2QIl9dGSLiWtuJudZvTVOL3//9
-	 KMuQ/xvpafh/zXTU0ynfNSFkGDtaR3WHfY4fZ6RSpuVTscgC/pSHJLEVYuqiOso43xFDN
-	 zTstGJ/G7fugzkKd5IGotvCFHQ1LKJ16BQrYlK61Vo4v+yjw4B2myKNrFeT0G5LCC2OXV
-	 /JZK7ykUEKQUoKUaS/gYE70ylQggvHFJiD1U8r0k3XEqPpM5XKDi5MgRm9Y0VX75l+qnq
-	 Mhg/pyi/hgXFJnOhza2yPmoX7aIJEec5MIRV6vhppbHYBi/cU1ss/qok5EOE6V/P3xQ==
+	bh=433+jF5VmY7mJrkGv4a5VU07RrjmRllblHsG6O6S3l0=;
+	b=zRZQpR3ZXABUqGAas6Cbfs835wDolqpl2WfwcA4Ad9Yzvi4r9p7sgC3OU+SORqhepHfW
+	 +cqdzFQK2R0xRytvcOsQt2EV1ipAEvJq1M2zAsfj6bXH27zA2xZInUlAoAoa9EBUyEbmK
+	 pXq80d51kOXeg1YEU4Sl/NU+pEu8LQj807W2lhTK9Gr2ajF6StnMrQSOr4ZjChTqk7Yr4
+	 75bjCUWyFlDPQDQAECHsLiF7HSFwIq8RpKktx7bRPrh7OJrzrcxeRko+ePreBllVwIwRj
+	 MinMxWaTTY40ARnl3yygj31kfbIPJtTDcAs8s56PLHEIXo+vT1m27fb/Uaoiw/xT1HQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=163.com;
 	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=OwBLaZmz;
-	arc=none smtp.remote-ip=117.135.210.4
-Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.4])
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b="mN7/eRKf";
+	arc=none smtp.remote-ip=220.197.31.5
+Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5AC07606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:04:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5AC07606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60056606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:04:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 60056606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=OwBLaZmz
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=mN7/eRKf
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=2O
-	/0GxFTdaVqIt+Fh1ZdEiw319MytGrC5ThQaqmf72I=; b=OwBLaZmzFpmY1aOtGg
-	50Wyv/UM//zVBXv0x8LG9ob7u9Tu1OnDeb/BYUC7ES/d9XsJssK+X4dm9RKsuOqj
-	RYW9XSkaOYWz92gSyQvBJP1DRecpFkyWdnJq9tDW+gyoIC3Yf/3Ii/Ipx9UhKlP/
-	DBp/QlXyAIpzcxzYc+/TR1EPM=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=43
+	3+jF5VmY7mJrkGv4a5VU07RrjmRllblHsG6O6S3l0=; b=mN7/eRKfEz6Ngv05Hv
+	B0BQRae/FVfKmuRonq5m3LnVhIzpJHl60PRlTvlA4+vLnvpL728S6XGtL/cKkgM3
+	WJjBZMcJvAiir+3zceuKWvdCCt4fgaYAIJPZHsX15q8PBhJ+dmgQG3/JMTnXbiDf
+	9UbgOw96xfEpYpx7Yj+3Tf1Gc=
 Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-0 (Coremail) with SMTP id _____wD3HwjJP_1qmvfEIw--.16665S3;
-	Wed, 18 Nov 2026 14:03:55 +0800 (CST)
+	by gzga-smtp-mtada-g0-0 (Coremail) with SMTP id _____wD3HwjJP_1qmvfEIw--.16665S4;
+	Wed, 18 Nov 2026 14:03:56 +0800 (CST)
 From: Xuewen Wang <wangxuewen_ky@163.com>
 To: vbabka@kernel.org,
 	harry@kernel.org,
@@ -58,9 +58,9 @@ To: vbabka@kernel.org,
 Cc: linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org,
 	Xuewen Wang <wangxuewen@kylinos.cn>
-Subject: [PATCH v1 1/2] tools/mm: slabinfo: fix inverted numeric sorting
-Date: Wed, 18 Nov 2026 14:03:16 +0800
-Message-Id: <20261118060317.1802620-2-wangxuewen_ky@163.com>
+Subject: [PATCH v1 2/2] tools/mm: slabinfo: preserve the average partial object count
+Date: Wed, 18 Nov 2026 14:03:17 +0800
+Message-Id: <20261118060317.1802620-3-wangxuewen_ky@163.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20261118060317.1802620-1-wangxuewen_ky@163.com>
 References: <20261118060317.1802620-1-wangxuewen_ky@163.com>
@@ -74,63 +74,42 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3HwjJP_1qmvfEIw--.16665S3
-X-Coremail-Antispam: 1Uf129KBjvJXoW7AF1fCry7urWxJrWUGrWDtwb_yoW8Cw1UpF
-	Wjy347Cr4v9FWUCFWUCr1jqFWIgr93A34Ut3W0kryDZwnF93WSvF1FyFZxCrW7XFn5Xrs5
-	uFykJas0vry5ZaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jJ5rxUUUUU=
-X-CM-SenderInfo: pzdqw5pxhzv0xbn1qiywtou0bp/xtbCzgscBWr9P8vi8QAA3s
+X-CM-TRANSID:_____wD3HwjJP_1qmvfEIw--.16665S4
+X-Coremail-Antispam: 1Uf129KBjvdXoW7Xw4UWw4fArW8KrWkZr4ktFb_yoWkWwb_GF
+	y7t3WkWw4UZrs7Gw4fAFZrXr10qF1agFWjyFZrtFn8Gr1UGwn8JrWvk3Zay3WF9ayvvF4a
+	qwnxtaykGF4xKjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUeSPfJUUUUU==
+X-CM-SenderInfo: pzdqw5pxhzv0xbn1qiywtou0bp/xtbC7wwdBmr9P8yjdwAA3I
 
 From: Xuewen Wang <wangxuewen@kylinos.cn>
 
-The numeric branches of sort_slabs() return either zero or one for
-unequal keys. Negating these values for -i never yields a positive
-result, so the sort does not swap entries with different numeric keys.
-For example, partial-slab counts 30, 10, 20 remain in that order
-with -P -i instead of being sorted as 10, 20, 30.
+totals() calculates avg_partobj as total_partobj / used_slabs, but then
+overwrites it with total_partobj * 100 / total_objects. Consequently,
+the PartObjs Average column of -T and -X reports a percentage instead
+of an object count per cache.
 
-Return a positive or negative result for unequal numeric keys so that
-the existing inversion works for size, activity, loss and partial-slab
-sorting. Preserve the alphabetic tie break for equal keys and avoid
-subtracting unsigned counters.
+Remove the second assignment. The aggregate partial-object percentage
+is already calculated where it is printed, and avg_ppartobj separately
+holds the average per-cache percentage.
 
 Fixes: c09d87517298 ("slub: add slabinfo tool")
 Signed-off-by: Xuewen Wang <wangxuewen@kylinos.cn>
 ---
- tools/mm/slabinfo.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ tools/mm/slabinfo.c | 1 -
+ 1 file changed, 1 deletion(-)
 
 diff --git a/tools/mm/slabinfo.c b/tools/mm/slabinfo.c
-index 48d1ee8b0e81..3e62a2fccaeb 100644
+index 3e62a2fccaeb..116625bd1110 100644
 --- a/tools/mm/slabinfo.c
 +++ b/tools/mm/slabinfo.c
-@@ -1075,22 +1075,22 @@ static void sort_slabs(void)
- 				if (slab_size(s1) == slab_size(s2))
- 					result = strcasecmp(s1->name, s2->name);
- 				else
--					result = slab_size(s1) < slab_size(s2);
-+					result = slab_size(s1) < slab_size(s2) ? 1 : -1;
- 			} else if (sort_active) {
- 				if (slab_activity(s1) == slab_activity(s2))
- 					result = strcasecmp(s1->name, s2->name);
- 				else
--					result = slab_activity(s1) < slab_activity(s2);
-+					result = slab_activity(s1) < slab_activity(s2) ? 1 : -1;
- 			} else if (sort_loss) {
- 				if (slab_waste(s1) == slab_waste(s2))
- 					result = strcasecmp(s1->name, s2->name);
- 				else
--					result = slab_waste(s1) < slab_waste(s2);
-+					result = slab_waste(s1) < slab_waste(s2) ? 1 : -1;
- 			} else if (sort_partial) {
- 				if (s1->partial == s2->partial)
- 					result = strcasecmp(s1->name, s2->name);
- 				else
--					result = s1->partial < s2->partial;
-+					result = s1->partial < s2->partial ? 1 : -1;
- 			} else
- 				result = strcasecmp(s1->name, s2->name);
+@@ -973,7 +973,6 @@ static void totals(void)
+ 	/* Per object object sizes */
+ 	avg_objsize = total_used / total_objects;
+ 	avg_objwaste = total_objwaste / total_objects;
+-	avg_partobj = total_partobj * 100 / total_objects;
+ 	avg_memobj = total_objsize / total_objects;
  
+ 	printf("Slabcache Totals\n");
 -- 
 2.25.1
 
