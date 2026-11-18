@@ -1,68 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=3.121.9.152
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794996337;
-	b=AzdK4AfFF7UtmW5QblKyBnMhkBbCpSX7jyCc4+PqZtr8f8fyrBslXXZLJtYCtdkJcLP7
-	 G+OWgveWpEVl3vfomdCBw4G0s90mwqzFR8tALfCv9AbP/FIgojONz3RJpJMWJSX8RCm4M
-	 uDTLlgoGvRaqwYcPNARH+f+fcs6MZbriqHz2asNP+VNW7s74Q1ZPw2OJP0Xepe7oIY6u8
-	 8nEw/QvUMrIK7JnCIvvGEd9OqALhspxhvWyrEezAABhsoT02gTdAeOyNh8M6gnjyKN+df
-	 bmX0qE2W358MACUCpd9+epHCagFw1j6Sh6Ze70n0OJbf/4vnjyjSqogCfjek/OMHozA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794996337;
-	h=DMARC-Filter:Received:X-Titan-User-Uid:DKIM-Signature:X-AuthUser:
-	 Received:Date:Feedback-ID:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:X-F-Verdict:
-	 X-Titan-Src-Out:X-CMAE-Score:X-CMAE-Analysis;
-	bh=Pe0AOfEXOyipGdj7ZRze/R5+qF0TIOc+kk2vWj/SSA4=;
-	b=RrXhhoEsBRLbydcs+cjPEng6iDxMIpZxbjx5zOcqH7WRJ8kgP4pU/DSMRld18lsjkjVn
-	 cVwyPQ1gKvxGzru3kZPH6V6cjsHXQkD4ugf/WkHjiKgTZYND/Xxpa1pVufUU7wkj+MT1p
-	 QD/ggOTgGoL+5/GYpiusM4k98E+HBXKZsFfW25DRA9lgTdXpOQjW2vMjwqsPC3/cK8W4t
-	 p/4FIxmZRUJlPU3wJ1nfz5wBbPPlWOaHW3Csf6G+/dB70mtZLXBgFcdIHqwzctjI5mZ19
-	 WrKypMeuQuq/vv8geXHM76JDRrP6zJgsiBqIKyEqkF4gDjoMVDS5cCPAcUyLg9KwJBg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=techsingularity.net;
-	spf=pass smtp.mailfrom=techsingularity.net;
-	dkim=pass header.d=techsingularity.net header.i=@techsingularity.net header.a=rsa-sha256 header.s=titan1 header.b=ByvFR39Z;
-	arc=none smtp.remote-ip=3.121.9.152
-Received: from mail33.out.titan.email (mail33.out.titan.email [3.121.9.152])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=139.219.146.111
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794996349;
+	b=uS4iV4i09o+rmpo/xzGO1kiitlwHmdLKPn92kr2IfJUzRlW1tu47UuTiTeq5OEKD1eEm
+	 tv3qpMNQNpsKKGV4iCZy0Dc99T4q0n/FdVF4yPvRU33N2u+KG+AyoLamnzTGrIfJSQgEs
+	 9ukmlJvKPq5kMrFZPQm3Ns3M4Zdg17N8aFsspROvYV9hm5b3zXJjy7H8dAvnHNJv6e+JU
+	 8OJUADcZaMSc8+/87wwmhBLEgtnZ95rJdwskE4BkkkSRsFGk70+kZjf/N+LuGdGOWa8M7
+	 9N08HLFmGDKk9W5V9Nccrt+byWCB+c/Re9eRRqHy6f5jXUNg3zPJi4xhbzUO9/JdpcA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794996349;
+	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-Id:
+	 X-Mailer:Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:
+	 MIME-Version:X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=J6Qaqa7SmXCAUJIUyI/Oi7AlBxTK6NHCjC4aW2RhpJ0=;
+	b=HmqHIs4wV/5+pP5OuX9udb1e+vKjFwosXDRCsZECr3gXqo00LxUEy2Tfnwz+R1VjhwE4
+	 /fm0opFi16mpnxnmKblUDMxsDrRjaK3CXu+Mm7EilpRGkW6O6Nuzk7ZjssCSTxNWWz/C1
+	 4mf4Hf7FH8bVG+vAkpTbplXoh/GqXUN4v4ppdd8iY1GDj9G+i/xpKWdBGSeJeUXmQl5da
+	 mgiZExq1iUuiOM1yK2orla2aphOu3MdTShoUn9furECLZiyuVOg/5+yISteRy4h8Wg6F+
+	 PjiFafX4WB9REUl01c5BwS50CHvX0frCbS1HTPYVJ/30Xwq57Sn1ENQabePms6CV6AQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=starfivetech.com;
+	spf=pass smtp.mailfrom=starfivetech.com;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=139.219.146.111
+Received: from CHN02-SH0-obe.outbound.protection.partner.outlook.cn (mail-sh0chn02on2111.outbound.protection.partner.outlook.cn [139.219.146.111])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53DD2606A333
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:05:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53DD2606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=techsingularity.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=techsingularity.net
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=techsingularity.net header.i=@techsingularity.net header.a=rsa-sha256 header.s=titan1 header.b=ByvFR39Z
-Received: from localhost (localhost [127.0.0.1])
-	by smtp-out0101.titan.email (Postfix) with ESMTP id 4jTy083d9wzBrJt;
-	Wed, 18 Nov 2026 10:05:28 +0000 (UTC)
-X-Titan-User-Uid: eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..o5-troWWB6m0Ppnt.j_NzXpRd2hsW1SQB_05qNM_Fuh0qDVeZuv7AtWlGcZ2wz5PvDV8nJTndAzk_c-j_EMnJBAZWE3SxAEte7V121dnduoxEE7hJDb441CyqWUh3SMw59RCmgA5GTQ.taSZ9yQEpOpHUCNvyooPEQ
-DKIM-Signature: a=rsa-sha256; bh=Pe0AOfEXOyipGdj7ZRze/R5+qF0TIOc+kk2vWj/SSA4=;
-	c=relaxed/relaxed; d=techsingularity.net;
-	h=subject:message-id:references:date:from:in-reply-to:to:cc:mime-version:from:to:cc:subject:date:message-id:in-reply-to:references:reply-to;
-	q=dns/txt; s=titan1; t=1794996328; v=1;
-	b=ByvFR39ZukAJmgLr4bGXy+VtzuHbK7Qg3G/orx0Kc+zvU+PR4eaCh3ZB9t4/xt90HQAbf8VJ
-	lZ9ajWOFJnQr6D1j660ozfcS2XnsJ4cRLxTdA/ZtEwtbtf132XnOCVqxITBt9cD0AbH0Vlb5EpT
-	Fy/eUFBeGgFm2Qw3NAj4bf9E=
-X-AuthUser: mgorman@techsingularity.net
-Received: from techsingularity.net (unknown [84.203.169.102])
-	by smtp-out0101.titan.email (Postfix) with ESMTPA id 4jTy075wQ0zBrJb;
-	Wed, 18 Nov 2026 10:05:27 +0000 (UTC)
-Date: Wed, 18 Nov 2026 10:05:21 +0000
-Feedback-ID: :mgorman@techsingularity.net:techsingularity.net:flockmailId
-From: Mel Gorman <mgorman@techsingularity.net>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Ingo Molnar <mingo@redhat.com>, 
-	Vincent Guittot <vincent.guittot@linaro.org>, Steven Rostedt <rostedt@goodmis.org>, 
-	Seiji Nishikawa <snishika@redhat.com>, Mian Yousaf Kaukab <ykaukab@suse.de>, 
-	LKML <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v3] sched/rt: Do not account migrate-disabled tasks as
- pushable
-Message-ID: <av1q-2D_tdi9oNEj@techsingularity.net>
-References: <20261113160655.2909479-1-mgorman@techsingularity.net>
- <20261117152026.GI1813469@noisy.programming.kicks-ass.net>
- <20261117152414.GG1922751@noisy.programming.kicks-ass.net>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9172606A31C;
+	Wed, 18 Nov 2026 10:05:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9172606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=starfivetech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=starfivetech.com
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=odm/z7JkVuvIQtcwl/tnFUafvr5sfEmLLno8TCxpiX0QTdBCdPYTeECKUIF69bVjpWGy1xoLngdng49pPb8KpPB1qBILCItVpleYGiGTvdGT9ewZaa8T2PZYyHde9RQb1OL/QH4DkVBQKtIiLvQ93Wfp/LyOoVfGq4WjOtHV0dbp4UwTRgKcmqnm8o3fp0fn/vUj1sEhOjvPDWABGiv2n4IHobfF7KKxsV0fWh49/hGFpdl0qnaA3mOd6/7UCRlU+k0Al00dGG+/DFmUEz6BxQ5yhtX6Ky2fmKwzBApPk7zzef+6tll/7R6f5d4KkVUpVCSRXUCEBPsN30B7cDtxkQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=J6Qaqa7SmXCAUJIUyI/Oi7AlBxTK6NHCjC4aW2RhpJ0=;
+ b=Sz8sLzy7bCI9IRAuZopgbxT4WNzR9hJFX7+cgVA50/8lhZAQpIsYPpBLcY/CnuFHEUnArln74yJCtGhISWUQZvwM+PcmFDExNJnK89rocAIlEa20UWTA3addGxIdPsCny4945/KsW0W1KAqIS+j536r+Inptqv8lf8jOWWSOo6C+kdOacIqXCnln9EqBcc5/1LPJLkGYrDrePAUwwJlMo002NRzkpP9b4LceKUBL4IrJgKwksNIwy60T7t5eOuo5tQCXsv4iN5xpP3f2jLrO4jGfqtzD9wsevcOaDN3ChsGTSglmnpve2voc08JZMT3kBwSqiqtpJGzdHVZOIgX7JA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::6) by ZQ4PR01MB1170.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.10; Wed, 18 Nov
+ 2026 10:05:36 +0000
+Received: from ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ ([fe80::e7d4:256c:b066:850d]) by
+ ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn ([fe80::e7d4:256c:b066:850d%4])
+ with mapi id 15.21.0615.009; Wed, 18 Nov 2026 10:05:36 +0000
+From: Changhuang Liang <changhuang.liang@starfivetech.com>
+To: Brian Masney <bmasney@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Emil Renner Berthing <kernel@esmil.dk>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Hal Feng <hal.feng@starfivetech.com>,
+	Changhuang Liang <changhuang.liang@starfivetech.com>
+Subject: [PATCH v2 0/6] Add System-0 CRG for JHB100 SoC
+Date: Wed, 18 Nov 2026 02:05:17 -0800
+Message-Id: <20261118100523.11395-1-changhuang.liang@starfivetech.com>
+X-Mailer: git-send-email 2.25.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: BJSPR01CA0013.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c211:c::25) To ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:17::6)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,208 +94,161 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-15
-Content-Disposition: inline
-In-Reply-To: <20261117152414.GG1922751@noisy.programming.kicks-ass.net>
-X-F-Verdict: SPFVALID
-X-Titan-Src-Out: 1794996328270808189.1930444.7156754528199208151@prod-euc1-smtp-out1003.
-X-CMAE-Score: 0
-X-CMAE-Analysis: v=2.4 cv=Kuj0MWWN c=1 sm=1 tr=0 ts=6afd7868
- a=pHym636nsqzIClKRuQkSuw==:117 a=pHym636nsqzIClKRuQkSuw==:17
- a=Q9fys5e9bTEA:10 a=CEWIc4RMnpUA:10 a=pycgwy6UaF_tR2Lduj4A:9
- a=PUjeQqilurYA:10
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: ZQ4PR01MB1202:EE_|ZQ4PR01MB1170:EE_
+X-MS-Office365-Filtering-Correlation-Id: 696c4631-1473-4e64-06e0-08df455b7db4
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|7416014|52116014|23010399003|1800799024|376014|366016|261009223027099003|261026140227099003|38350700014|10067099003|261021121427099003|56012099006|261009223327099003|261022105027099003|261102123227099003|261022075727099003|261009221227099003|261009220027099003|261009221727099003|261021123027099003|261028144727099003|261026121527099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	Jd82Mtd0NmT5QXCVYkiJvwqDBcSYvlWvMbJZNN8YT96hsl34OfVl+rzswHs6SWuUxIZyVWuLEaPpEGQewZH+OQl/y89ftoCm4wdw6Y0hunNA8fgN3AhfRuBj9GIOT3gC9MBkr7av/YgbcUweeMupU4JGSdVCPiwHwxGfpbN7Jh1Arzuxae2fjSRqj9MF+WsrEXggSf9p0IcQMGIBJ/ppxwmn/PSsAyz16No7417cpzwMPabtBGLNWXH6jRmRGzoJKLrB9dbLuzc+LZAi5KcXAWD3QwH95cO+qDE9uIeUhPbsa7irwLpxHv5j/62BLQe2Hz/VnK/Zs0rVJWafibYrtPYop0fUR/FoicD/JRyslUEIKx3S3D5UV7qCwPH4q/FdDwX03RyDxKtT5a7VB896/y9tbZdY/rRipV7ILSiuRquviKaHgN9Rw9kyEJakfMokNzAOwCaau55nTHpv3nK9YSB4cOrZuVNTDzJVjmP2bhDRSjqSQ5m2E8fsUcnl0JpnCs8y0lIX6N7Vk9ost+PLQu0riD1HP71qsn429n9rL+vA1qDw5xqEEeO5wYCKZG8j
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(23010399003)(1800799024)(376014)(366016)(261009223027099003)(261026140227099003)(38350700014)(10067099003)(261021121427099003)(56012099006)(261009223327099003)(261022105027099003)(261102123227099003)(261022075727099003)(261009221227099003)(261009220027099003)(261009221727099003)(261021123027099003)(261028144727099003)(261026121527099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?kDpEWiBcCdk804HN88zr65gXhBm/kBqqXB0Ce0024fyTDKCfBJXVsLYCx1qc?=
+ =?us-ascii?Q?EXoRkPF2/roJV2U4KfPhexFPeuTRGxUrmV7C5dPB4+T2hc7s4A33TQBhdCx2?=
+ =?us-ascii?Q?9VFCtTaP3TXX2ylCawa5nT2pM2d3mc5U2zvGxvJ8TH9034fORB0iN/NYp6Cw?=
+ =?us-ascii?Q?MweLatFAGmEVSF4jU4CVrUGqPSxtlvcaD0dfX2go+8zU+D6q7XfJ1vQxHyb1?=
+ =?us-ascii?Q?cqDz4hyoVVztCUuVohZvDoWgpvNJnCR7UgDOH7qqfgr6bJsw3M4fHq8R6Ugo?=
+ =?us-ascii?Q?hFO6tZ2UPAzMlIpMbnHL2j3KQqFiWvqXTi76ir3z8+3lD/J0EMB70du7LqFz?=
+ =?us-ascii?Q?abPA1ucNjjZpcH/MtchzxYJYqMvcyPW7m5cbjPcSZXjRSYhqoxlp1b4vBLNn?=
+ =?us-ascii?Q?IZjy8gNL/Zs1vX4OYxyDVQV0s0Ao+GaNFALajB9I6/RK04nvHuuOu87TS695?=
+ =?us-ascii?Q?M8Hz/lcfn8qwE00oAbH6akKYOaUEMM1dYbOrE6bmMtNUv68BenpSukk/ubcG?=
+ =?us-ascii?Q?WFrN9WQQtr/otQSDh6hBSpIuaF2OrMlJBpzg8C/1H0y1TpOPHcdPognPtebE?=
+ =?us-ascii?Q?DK98B9OsGUdqHaJLecL1mwt/2v9uz/PlYnYBdQvaY4zXxMDM9W145PDkg+80?=
+ =?us-ascii?Q?WImN2WkH9olkGxIWx1I5us6994q0kZ8PjdWr8LGcs1i0sAvVF/VZrh1r7GtL?=
+ =?us-ascii?Q?TbguT/SeiD7K9YQIiLM8wszDqWxftLpzMxrYPbtAuNExWY8ZhkP43ZVWVdyg?=
+ =?us-ascii?Q?umCXgdVshAWRrfNNcW3bDbhdMTZ9uQ/cSLjAyT5+ZZmeoBZuAo0AFbr7WYe3?=
+ =?us-ascii?Q?GCcvA/SkzdPu1pmiKT41xy8N7zabhEVDK0UKpsqrq6X6zo5uG9mvX/SWOW8T?=
+ =?us-ascii?Q?dSSHD6z9s//FSPR9PgH8QYmFljdo3oIiwk4a1zcYBlIi/Yl/y4lMfGSo2dOw?=
+ =?us-ascii?Q?UAuXRxuXzJTqZse6WbZEBTox+mbVFGIf4TJdcWSvtRp8m5/D6DEu7E1M/Mpw?=
+ =?us-ascii?Q?sK0G77wp7t8QVt2393E3mH7iy9w+yXPgfZebQj4ZAUMvdsAbr+Q4ShaAqHvJ?=
+ =?us-ascii?Q?2Z8yiFnjGY9fzGqv5THmfr4X8/542s9OTL28lA2e56Uth90gWMzJK+Kt2c0H?=
+ =?us-ascii?Q?jlKI2Bx/UF5oRg0Ih5rEQwi09BE2WBrL5D4NoZpZ3TO5NGbygyK3UmJYMtvE?=
+ =?us-ascii?Q?BO+eH4Y/n0r1FkugM9xMIBnkBNEmY2mVBr8z+4wQuF4xpb4JM+2DdcOdbENp?=
+ =?us-ascii?Q?frL0zEwW/hYSz9Toah8zWiIlHZdVBOEV0GEzs6yX36uqSyZ11K77rJDc6u1Q?=
+ =?us-ascii?Q?2peWr+8zdQd0k4CQvHZqSZNpW07zVN3kQmCCooyiIWArHlM95kHzHH5Ydzer?=
+ =?us-ascii?Q?dlgkLubkeC58meb5UuQFwwu5tXpsDfPJ/5qguzaKudNZQZX5xq57PSPCde0r?=
+ =?us-ascii?Q?e9kjRJwlzghOzWqYxWjkfeXeT5wkZ3JeATh+IrQXP2NgL3YUV543RDsu5rZX?=
+ =?us-ascii?Q?bjT0myNmImrCtkq2296M2LZvfW/Y6VUPeqdtOo0EBuNd8q+WiLJcuoOJN3DW?=
+ =?us-ascii?Q?MtpFDeUzbfMAP0GOwH5nL+FPDYk2/uEZBzctM2OJ+vctQOuRM7txb4fjoZM8?=
+ =?us-ascii?Q?q8DGc07vhfImLa1ITWhTugH8KBm4vwe2dN2WojJzs9M7iIp++rWaHG9Iixlo?=
+ =?us-ascii?Q?Q5ZUPUiFr+SF8r5BLsch4YZtvsByPE51J6hhwRGxL0bkg+/b3lYwZNmWc7XQ?=
+ =?us-ascii?Q?ZBOEkBA7pwAeXKxdxf85gFxD+upSluGgqibHCsW3tuPo8s9q9O2e?=
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 696c4631-1473-4e64-06e0-08df455b7db4
+X-MS-Exchange-CrossTenant-AuthSource: ZQ4PR01MB1202.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 10:05:36.4955
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: TBuThkkKEa4RqFm5dA9/7ZYsX5TYpwHmB7A7WhA4duV5/lreX7ViJ7W770PiyQe16ExvrQVpaZprCTsouLA5L/kUHZFmTT46kfTff1uEKVnIlsnn/8v2vgGQDF2y4SV3
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ4PR01MB1170
 
-On Tue, Nov 17, 2026 at 04:24:14PM +0100, Peter Zijlstra wrote:
-> On Tue, Nov 17, 2026 at 04:20:26PM +0100, Peter Zijlstra wrote:
-> > On Fri, Nov 13, 2026 at 04:06:55PM +0000, Mel Gorman wrote:
-> > 
-> > > As above, the runqueue is still marked overloaded by enqueue_task_rt()
-> > > and put_prev_task_rt() even if the task is migrate-disabled. A
-> > > migrate-disabled task reaches the pushable list through enqueue_task_rt()
-> > > or put_prev_task_rt() when it is preempted, or when it wakes while
-> > > still migrate-disabled. Either path calls enqueue_pushable_task() to set
-> > > rq->rt.overloaded and rto_mask if unset. Once set, every pull from another
-> > > CPU that fires an IPI may only find migrate-disabled tasks rendering the IPI
-> > > useless for a condition that was detectable when placed on the pushable list.
-> > > 
-> > > Stop adding migrate-disabled tasks to the pushable list if RT_PUSH_IPI is
-> > > enabled. This is not a heuristic as migrate-disabled tasks cannot move. Even
-> > > when migration is enabled, the rq still has no pushable candidates until the
-> > > task schedules. The !RT_PUSH_IPI behaviour is preserved and migrate-disabled
-> > > tasks are added to the pushable list. Without IPI, the alternative path in
-> > > pull_rt_task() must find runqueues with off-CPU migrate-disabled tasks. It
-> > > can then push the running task away allowing the migrate-disabled task
-> > > to run.
-> > 
-> > Last time I either didn't notice, or I've gone dumb from staring at perf
-> > issues all day, but I'm not entirely sure I understand how we get here.
-> > 
-> > Suppose:
-> > 
-> >   migrate_disable();
-> >   ...
-> >   schedule()
-> >     migrate_disable_switch()
-> >       // switches p->cpus_ptr and p->nr_cpus_allowed
-> >     pick_next_task()
-> >       p = class->pick_task();
-> >       put_prev_set_next_task(rq, rq->donor, p);
-> >       return p;
-> > 
-> > So any task that ends up in put_prev_task_rt() wlll have passed through
-> > migrate_disable_switch(), which have updated nr_cpus_allowed.
-> > 
+The JHB100 SoC includes CRG (Clock and Reset Generator) for multiple
+subsystems:
 
-I did not check in this direction but that does not mean I think you're
-right but I also am struggling to prove it.
+The JHB100 SoC is divided into multiple subsystems, and basically
+each subsystem includes a CRG(Clock and Reset Generator):
+ - sys0crg/sys1crg/sys2crg/
+ - per0crg/per1crg/per2crg/per3crg/
+ - voutcrg
+ - vcecrg
+ - gpu0crg/gpu1crg
+ - cpucrg
+ - usbcrg
+ - host0crg/host1crg
+ - pcierpcrg
+ - husb0crg/husb1crg
+ - husbcmncrg
+ - husbd0crg/husbd1crg
+ - npucrg
 
-An earlier version of the patch was like what you suggested (check both
-conditionally in rt.c and copy to deadline.c), hen I thought "deadline had
-no RTO IPI" and the copy felt like cargo culting which definitely would get
-a kicking and I'd be asked "Why did you copy that" and my answer would be
-"Uhhh.. cargo cult?" and then feel like a right idiot.
+[1]: https://lore.kernel.org/all/20261008123338.11081-1-changhuang.liang@starfivetech.com/
 
-Without the push IPI, deadline.c needed an explanation why the same check
-is necessary so looked closer at the !PUSH_IPI handling.  The !IPI path
-in both assumes that such tasks can be visible so "why look up?"
+This is a split of the previously sent large series [1].
+The original series had too many patches, and there was a lot of
+similar logic among the patches. To reduce the burden of repeating
+similar comments and reviews, the original series of patches was
+split up and a new series was established.
 
-In rt.c
+This series is based on the clk-next branch.
 
---8<--
- static void pull_rt_task(struct rq *this_rq)
-	....
-	#ifdef HAVE_RT_PUSH_IPI
-		if (sched_feat(RT_PUSH_IPI)) {
-			tell_cpu_to_push(this_rq);
-			return;
-		}
-	#endif
+changes since v1:
 
-	(!RT_PUSH_IPI path, default in !PREEMPT_RT or sched_debug toggle)
+patch 2:
+- Rename struct jh71x0_reset_adev to struct jh71x0_reset_platform_data
+- Use devm_kzalloc_obj() to allocate the platform data.
+- Add Acked-by from Philipp Zabel.
 
-	for_each_cpu(cpu, this_rq->rd->rto_mask) {
-		...
+patch 3:
+- Describe each clock parent with a struct jh71x0_parent_data. The clock
+  table is now made of struct jh71x0_crg_clk_data entries, filled with
+  JH71X0_EXT_PARENT() and JH71X0_INT_PARENT().
+- Drop JH71X0_EXT_CLK_FLAG, JH71X0_EXT_CLK() and the ext_clk/num_ext_clk
+  members of struct jh71x0_crg_domain_info.
+- Use devm_kzalloc_flex() to allocate the private data.
 
-/*****
-  ****
-  **** This bit
-  ****
-  ****
+patch 4:
+- Describe the parents with JH71X0_EXT_PARENT() and JH71X0_INT_PARENT().
+- Drop the external clock name table and the static_assert() on the
+  size of the clock table.
 
-		/*
-		 * Do we have an RT task that preempts
-		 * the to-be-scheduled task?
-		 */
-		if (p && (p->prio < this_rq->rt.highest_prio.curr)) {
-			...
-			if (is_migration_disabled(p)) {
-				push_task = get_push_task(src_rq);
-			} else {
-				move_queued_task_locked(src_rq, this_rq, p);
-				resched = true;
-			}
-			...
-		}
-	}
---8<--
+patch 5:
+- Translate the reset ID to the hardware reset line once, in a custom
+  fwnode_xlate callback.
+- Index the map by reset ID and make it a plain array of hardware reset
+  lines. Drop struct jh71x0_reset_map.
+- Drop jh71x0_reset_info::discontiguous, JH71X0_RESET_ID_INVALID and
+  jh71x0_reset::info. A non-NULL map already tells that the controller
+  needs the translation.
+- Use devm_kzalloc_obj() to allocate the reset data.
 
-The !IPI path assumes that a migrate_disabled(p) can exist on the rto_mask
-and it's been like that for a while. Compounding the problem that kept me
-looking down was that PREEMPT_RT tree used to have a patch e18de5e2e3e9
-("sched/rt: Don't try push tasks if there are none.")  that tangentially
-affected the bug (the PREEMPT_RT patch was visible in the distro kernel
-the bug was reported against). The PREEMPT_RT patch was removed around 6.7
-because "it's much better now" and while it was not stated why, I assumed
-it was due to 612f769edd06 ("sched/rt: Make rt_rq->pushable_tasks updates
-drive rto_mask")
+patch 6 (in v2):
+- Index the reset map by reset ID and drop .discontiguous.
+- Depend on ARCH_STARFIVE || COMPILE_TEST instead of CLK_STARFIVE_JH71X0
+  and drop "default ARCH_STARFIVE", the clock driver implies this driver.
+- Use struct jh71x0_reset_platform_data.
 
-I'm not saying this is right, I am saying that blocks of code in both
-rt.c and deadline.c assume this condition can occur.
+v1: https://lore.kernel.org/all/20261013102707.9207-1-changhuang.liang@starfivetech.com/
 
-> > Or so my current thinking goes. You seeing this patch make a difference,
-> > seems to suggest I'm missing something, but I couldn't spot it in that
-> > wall of text.
-> 
+Changhuang Liang (6):
+  clk: starfive: jh7110-sys: Fix memory leak in reset controller
+    register
+  clk: starfive: jh71x0: Move reset controller registration to jh71x0
+    common code
+  clk: starfive: jh71x0: Add generic CRG probe helper
+  clk: starfive: Add JHB100 System-0 clock generator driver
+  reset: starfive: jh71x0: Support discontiguous reset IDs
+  reset: starfive: Add StarFive JHB100 System-0 reset driver
 
-It is definitely the case, and I've measured it, that the patch removes
-spurious IPIs and it's verified on a mainline kernel. Spurious IPI in
-this case is that a CPU that has no task that can migrate is considered
-pushable and receives a *lot* of IPIs per second that never move a task
-because there is no task that *can* move. I didn't try quantifing it much
-beyond that because reducing thousands of IPIs/sec seemed like suffficient
-justification to me.
+ MAINTAINERS                                   |  13 ++
+ drivers/clk/starfive/Kconfig                  |  12 +-
+ drivers/clk/starfive/Makefile                 |   2 +
+ .../clk/starfive/clk-starfive-jh7110-aon.c    |   2 +-
+ .../clk/starfive/clk-starfive-jh7110-isp.c    |   2 +-
+ .../clk/starfive/clk-starfive-jh7110-stg.c    |   2 +-
+ .../clk/starfive/clk-starfive-jh7110-sys.c    |  57 +-------
+ .../clk/starfive/clk-starfive-jh7110-vout.c   |   2 +-
+ drivers/clk/starfive/clk-starfive-jh7110.h    |   4 -
+ drivers/clk/starfive/clk-starfive-jh71x0.c    | 116 ++++++++++++++-
+ drivers/clk/starfive/clk-starfive-jh71x0.h    |  36 +++++
+ .../clk/starfive/clk-starfive-jhb100-sys0.c   | 137 ++++++++++++++++++
+ drivers/reset/starfive/Kconfig                |   8 +
+ drivers/reset/starfive/Makefile               |   1 +
+ .../reset/starfive/reset-starfive-jh7110.c    |  19 ++-
+ .../reset/starfive/reset-starfive-jh71x0.c    |  60 ++++++++
+ .../reset/starfive/reset-starfive-jh71x0.h    |  24 +++
+ .../reset/starfive/reset-starfive-jhb100.c    |  74 ++++++++++
+ include/soc/starfive/reset-starfive-jh71x0.h  |  12 +-
+ 19 files changed, 498 insertions(+), 85 deletions(-)
+ create mode 100644 drivers/clk/starfive/clk-starfive-jhb100-sys0.c
+ create mode 100644 drivers/reset/starfive/reset-starfive-jhb100.c
 
-> Ah, is the sched_change pattern the clue? I'm thinking that RT might hit
-> that more than usual due to the PI path.
-> 
 
-You give me too much credit, I started with a cargo cult copy of rt.c to
-deadline.c but couldn't put an obviously correct comment or changelog
-on it so a short paragraph of a changelog turned into a "wall of text"
-while I talked to myself for longer than is considered healthy even by
-the rubber duck.
-
-> In that case we do indeed end up in put_prev_task() / set_next_task()
-> without going through schedule(). In that case the task would be on the
-> pushable list during the change, HOWEVER we should hold rq->lock (which
-> implies have IRQs disabled) over the entire thing, so again, I'm not
-> sure how this is then observable.
-> 
-> > Anyway, I'm still not sure why we can't just write:
-> > 
-> > > diff --git a/kernel/sched/rt.c b/kernel/sched/rt.c
-> > > index 1535046a23ff..bb640278d30e 100644
-> > > --- a/kernel/sched/rt.c
-> > > +++ b/kernel/sched/rt.c
-> > > @@ -396,6 +396,13 @@ static inline void rt_queue_pull_task(struct rq *rq)
-> > >  
-> > >  static void enqueue_pushable_task(struct rq *rq, struct task_struct *p)
-> > >  {
-> > > +	if (p->nr_cpus_allowed <= 1)
-> > > +		return;
-> > > +#ifdef HAVE_RT_PUSH_IPI
-> > > +	if (sched_feat(RT_PUSH_IPI) && is_migration_disabled(p))
-> > > +		return;
-> > > +#endif
-> > > + 
-> > 
-> > 	if (p->nr_cpus_allowed <= 1 || is_migration_disabled(p))
-> > 		return;
-> > 
-
-Yeah, I had that and couldn't copy it to deadline.c because the bug is
-about IPIs, IPIs of the same type don't exist in deadline.c, so the copy
-is "obviously bogus" and on rt.c the same check makes a bunch of
-long-lived code unreachable. That is obviously shit logic to use for
-justifying a kernel change.
-
-I have to look closer at why you think it's not reachable and Steven
-thinks it's plausible. All I've got so far is that
-
-o migrate_disable_switch checks does nothing if
-  "p->cpus_ptr != &p->cpus_mask"
-  and so do_set_cpus_allowed is not guaranteed to be called and
-  therefore the statement "migrate_disable_switch(), which have updated
-  nr_cpus_allowed" might have a counter-example.
-
-o pick_next_pushable_task() has BUG_ON(p->nr_cpus_allowed <= 1) and this
-  thing certainly seems to believe that migrate_disabled tasks can reach
-  it
-                        if (unlikely(is_migration_disabled(task) ||
-                                     !cpumask_test_cpu(lowest_rq->cpu, &task->cpus_mask) ||
-                                     task != pick_next_pushable_task(rq))
-
-  which means nothing at all yet, other than it's an example that is
-  very difficult to reconcile with your version (which matches my old
-  version) and state "this is ok".
-
-> > But perhaps I'm missing something; the above seems to suggest that is a
-> > theme today.
-
-Not sure yet, all I know is that I cannot find so far a way of writing
-a comment or changelog on that version that shows it's safe and doesn't
-degrade rt.c, deadline.c at minimum or break it at worst.
-
--- 
-Mel Gorman
-SUSE Labs
+base-commit: 59841a2d8757b951e8d93f92ffdfaa8c9503435f
+--
+2.25.1
