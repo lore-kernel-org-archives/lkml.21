@@ -1,72 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.69
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794997498;
-	b=lu3k0RkFN6V+12gLiWLLkdCaV44RyrenT0Ax8Z5ca0CfaECJcChvUR/Qx/fr3Pn4HWSi
-	 ZYKr4ssO04jC3rwrrtW08AHGmiNvzSMt0EzBeZBhsAd9ID1l/vW2BbXNoqYUF3FVkSDUh
-	 WIr7LYnjvl2aTt1cHUTa6fuVxRK41ugQx3nNbPU2/WWOWdS0l10ip23cL6Md5jiEifeoU
-	 T4+v/y4C1GvLV5hHtI0cVDf4s7QdigJVbHpBI3UmULVLXOJieByrLU+9HOLhoGpLsuT75
-	 38PLM+myJVuKiQCjw/sWYvhAS0OZc5H+A7qNlfDGOzC4BwigQYOIVYIlJRZHixcjFLA==
+	t=1794997508;
+	b=gRbCarQQOdWs6ax2Ql+rojbVrORErU9jLr56CmKc2+VV5SI3+CLN//dlExzQe8lxL4C5
+	 cUwp394ZSElzTg9GEyEvIIMaGwC6RBaKm7OFzxn7fXLkbnVgcqKO4uHCu8PGn2FNnZQLB
+	 boQf8J52+SD39XKk4W2Dv0bk7TC3xSol8pGLlfWFOYgvKHknnL+Gr7ikLEviFMya0lutC
+	 uS9ZB+ZuiMFtpjB7nFSOH6jXdTEJ9PBX6/xbdAJsp47jjqho2EieiZqg11Bzd2gaGVl7n
+	 QfObNZmQ89IQgS1dX9HyiGIpLNqLM2ZKFqFS/1fb+EQnrscSOjwyL30Qbbq/vNV+wyQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794997498;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=If0wiTaVRkXQ5kmmpt319RkHXOqmyU3DcRDOmq3khpg=;
-	b=wO6NN/hTs72G6rUNLdqJowWa6s7NkQ5dYZs4CejO4N5cV8D5X02XIN7rwLLkrMfi7v1P
-	 gGBp0h//Sf0wP/3XwYe1fk4uIPVtNhIWLaH/4wlL1FNbnbHVr1a7Bb5yd3zjsLBqa1PSn
-	 GAy87eLyYL93exnEEC3PAY3aQ7mm7mzOekNy7CdVbG4QWOSgWXV2VfR3Rm6wFoKZWxCBB
-	 MjGn946yrTzAuBHrygM9k9VWz1PH3ZkyEHa2eFQcxkBfDINI01RYlZ5099r4DRjjMBviK
-	 NvDZBTXwO9ubmmQmIjgmi3qoAePuN0TcvwozpOLFYtGZXszh8VfQMmRwfq6fs61RvuQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794997508;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Date:Message-ID;
+	bh=Yhigk21UeHnX3LFKE02WJlX+yu75OJpAsHrP2ixijWE=;
+	b=HqYQ6EWeygH/NdAgslriO1hR+8z+Ul6cAONddagCiyVDxf9gFPLhmcw/J5ycyRUyD+Su
+	 qCuJMUUMym+imliswpJH827zOIXpOL5keK3JmRogpsX0Ohlq02Dwg1G20igWLcPJv/2cN
+	 5SF4lPfaplucprWSRwG9TkmQ2JbSe/0neyGhTyM7D/MR0eOIE9yRTkGoNvgnaYO6MEIaw
+	 YO8d0Co6M3Sy7ftJZ14/w2i6Sn33DNHOQg6TZLQ9Z3iFvGin+xtuGijnfzjVGsMGHreyy
+	 KPoAQU58SG3zBavD278wrSogMoCF/9cq2V8/6OLFt4L+58E/ErxHEa5x343iP737DBQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--jpiecuch.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=QWrc+X4r;
-	arc=none smtp.remote-ip=209.85.128.69
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com [209.85.128.69])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36C27606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:24:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36C27606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--jpiecuch.bounces.google.com
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=NefQZF7j;
+	arc=none smtp.remote-ip=111.22.67.139
+Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id CF2E1606A32A;
+	Wed, 18 Nov 2026 10:25:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF2E1606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=QWrc+X4r
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4bb68d624baso8193845e9.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:24:56 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=NefQZF7j
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794997495; x=1795602295; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=If0wiTaVRkXQ5kmmpt319RkHXOqmyU3DcRDOmq3khpg=;
-        b=QWrc+X4rEBpCMtkcTWr6GMUk9zMyg2BTgSu4SGr4F/TQCXaY1BtMqzRfPfNoguWKt0
-         XPJZsybAs0md1VjZ+i5R8tzgXQtltCMUm+4U6ZNH3IJw77O6N+6lhIz+iuKE/IGAYA+c
-         2EuV3e6u1svuW0heaL64gA+iphD49eu7FrnJV1gNjsuuC+7J81BpWlRuwhCVCO+TMOVZ
-         6Y8JeWJwaCEUP/f3j8FHWJXZtiE3+uBCjS5HDm0tYnWr7Od4yxqdnO6sC2Ln1p9UZPnr
-         HlOhKLWl1rXrruwMb20St8OZ2U1Nss+eYrFg/WvrYacviJqeomEHewS32/QTp94A9X7h
-         jszQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794997495; x=1795602295;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=If0wiTaVRkXQ5kmmpt319RkHXOqmyU3DcRDOmq3khpg=;
-        b=F4gLDUEjJnVDRW6F6R94dhrPIG+oJHa98LeIbXZD1BoyyGCSANoDX+2yCxvCSPmyC2
-         XqoJlrorx8bYD//cp6TaUoHqNs082jYVlBXqjb/q1X+tsU52iHn40d2JYVEhfHNgAhab
-         86cH8AocWfEXAztvNumyT197akwEh1bzKWmWEGiHXwP5VKlcTFYPJAZ9REC+njLK8iYV
-         WrOI8ZjuhD+tbDF951dZPq8L3h5OHUdm2a20/RFDdrLiWC6wFguFA5omrXnyqeVC+ARs
-         EwN93SECffZ8p9Il6J5N40NmS7LXmxQEE9CwEaxzV0CdOW9u7MkTfNguOD1R8Vu1wuLO
-         msGw==
-X-Forwarded-Encrypted: i=1; AL+hErEQQTWxhJzndLCbstEM0hKvYRoOMWY3OLyJ/3qFeuW0Th5JuF1jDcYgKPt/YwVRnXCOBi51iFREVGd0iyQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8qbaHfDi0ffJCYZopK0TWffzFrjAWDfoAvStegCwi/yN6ALWUf
-	P19yhs6Uljfj9rWU/Zrg9l6dbAZgSeM/WC2dw+xKugnnfPEGpeH7SsvjHdkKx3kH6gLm06T3yBH
-	hhpXTeh6szIF1UQ==
-X-Received: from wmuh1.prod.google.com ([2002:a05:600d:4121:b0:4a1:f082:d6ca])
- (user=jpiecuch job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:3111:b0:4a6:4d6b:a840 with SMTP id 5b1f17b1804b1-4bb7da2bb49mr40194335e9.31.1794997495263;
- Wed, 18 Nov 2026 02:24:55 -0800 (PST)
-Date: Wed, 18 Nov 2026 10:24:52 +0000
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=NefQZF7jCQieaZJKEurUuZjqrM6zvK+V0mrRU1WNN7RnvWkzTp6RQeG1rjS4vzG/5dgEgy9ybc58f
+	 WyZTRRu7kbrprdKGZ2jc2Ikh56P7UsNaBqibH8jNJas2S+m6OViJrZyj1FjBVFWAqnbGOlpOtE9k8m
+	 kNXYlzfzuiCxbvEo=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app05-12005 (RichMail) with SMTP id 2ee56afd7cff391-10eb7;
+	Wed, 18 Nov 2026 18:25:04 +0800 (CST)
+X-RM-TRANSID:2ee56afd7cff391-10eb7
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from [198.18.0.131] (unknown[223.108.79.102])
+	by rmsmtp-syy-appsvr09-12009 (RichMail) with SMTP id 2ee96afd7cfedfd-d3b0d;
+	Wed, 18 Nov 2026 18:25:04 +0800 (CST)
+X-RM-TRANSID:2ee96afd7cfedfd-d3b0d
+From: Xia Yan <yanxia@cmss.chinamobile.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, linux-kernel@vger.kernel.org, kuniyu@google.com,
+ xeb@mail.ru, yana06070@163.com
+Subject: Re: [PATCH net-next v3] ip6_gre: fix changelink conflict checks for
+ L2 tunnels
+In-Reply-To: <179489968486.3136.18372818760197436344@kernel.org>
+References: 
+ <179455350258.84965.17518172977020586093.ip6gre-v3@cmss.chinamobile.com>
+ <179489968486.3136.18372818760197436344@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,110 +70,35 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
-Message-ID: <20261118102453.1315267-1-jpiecuch@google.com>
-Subject: [PATCH sched_ext/for-7.4-fixes] sched_ext: Don't route tasks to SCX
- before __scx_enabled is fully patched
-From: Kuba Piecuch <jpiecuch@google.com>
-To: Tejun Heo <tj@kernel.org>, David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>, 
-	Changwoo Min <changwoo@igalia.com>
-Cc: Kuba Piecuch <jpiecuch@google.com>, sched-ext@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Date: Wed, 18 Nov 2026 18:24:57 +0800
+Message-ID: <179499749739.1141732.10101346678312526903.ip6gre-v4-followup@cmss.chinamobile.com>
 
-scx_root_enable_workfn() sets scx_switching_all and calls
-static_branch_enable(&__scx_enabled) before switching tasks, and
-task_should_scx() gates only on scx_enabled(). static_branch_enable()
-patches jump-label sites in address order rather than atomically:
-task_should_scx() may be patched before __schedule().
+Hi,
 
-If a concurrent fork or sched_setscheduler() runs in that window,
-task_should_scx() observes scx_enabled() and moves the running task
-from fair_sched_class to ext_sched_class, setting need_resched on the
-class degradation. The following __schedule() can still observe
-!scx_enabled() in next_active_class(), skip ext_sched_class, and pick
-rq->idle while the runnable SCX task is still rq->donor:
+I reproduced both cases and addressed them in v4:
+https://lore.kernel.org/netdev/179491056935.741041.1816208847037703396.ip6gre-v4@cmss.chinamobile.com/
 
-  WARNING: kernel/sched/ext/ext.c:3840 at put_prev_task_scx+0x405/0x7a0
-  Sched_ext: enq_select_cpu (enabling+all), task: runnable_at=+0ms
-  Call Trace:
-   __schedule+0x5cc/0x1100
-   preempt_schedule_common+0x12/0x40
-   preempt_schedule_thunk+0x16/0x40
-   __sched_setscheduler+0x8d8/0x920
+Metadata updates now go through the duplicate check when their receive
+parameters change. Moving one onto an existing ordinary tunnel returns
+EEXIST, including for L3 GRE.
 
-Gate task_should_scx() on a scx_task_switch_enabled flag that is set with
-release semantics only after static_branch_enable(&__scx_enabled) has
-finished patching all call sites and scx_switching_all is updated, and
-cleared on disable alongside scx_switching_all.
+Updates that keep the receive parameters unchanged skip that lookup.
+They also keep the hash entry in place, so updating either device in an
+existing ordinary/metadata overlap does not change the receive priority.
+Both GRE and ERSPAN changelink paths do this.
 
-This bug was found and the patch was written with the help of an AI
-coding assistant.
+UML tests passed for all three kinds, including received-packet checks.
 
-Fixes: f0e1a0643a59 ("sched_ext: Implement BPF extensible scheduler class")
-Cc: stable@vger.kernel.org # v6.12+
-Signed-off-by: Kuba Piecuch <jpiecuch@google.com>
----
- kernel/sched/ext/ext.c | 20 +++++++++++++++++---
- 1 file changed, 17 insertions(+), 3 deletions(-)
+On Fixes, Ido asked to drop Fixes/stable and target net-next:
+https://lore.kernel.org/netdev/20261030151629.GA85001@shredder/
+I've kept that for v4.
 
-diff --git a/kernel/sched/ext/ext.c b/kernel/sched/ext/ext.c
-index 10de6bd865e8..e8c30a21e03e 100644
---- a/kernel/sched/ext/ext.c
-+++ b/kernel/sched/ext/ext.c
-@@ -134,6 +134,7 @@ DEFINE_PERCPU_RWSEM(scx_fork_rwsem);
- static atomic_t scx_enable_state_var = ATOMIC_INIT(SCX_DISABLED);
- static DEFINE_RAW_SPINLOCK(scx_bypass_lock);
- static bool scx_init_task_enabled;
-+static bool scx_task_switch_enabled;
- static bool scx_switching_all;
- DEFINE_STATIC_KEY_FALSE(__scx_switched_all);
- static DEFINE_STATIC_KEY_FALSE(__scx_tid_to_task_enabled);
-@@ -6493,6 +6494,15 @@ bool task_should_scx(int policy)
- 	if (!scx_enabled())
- 		return false;
- 
-+	/*
-+	 * static_branch_enable(&__scx_enabled) patches call sites one by one.
-+	 * Wait until all sites are patched before routing tasks to SCX, so
-+	 * __schedule() never sees !scx_enabled() when a task is on SCX. Pairs
-+	 * with smp_store_release() in scx_root_enable_workfn().
-+	 */
-+	if (unlikely(!smp_load_acquire(&scx_task_switch_enabled)))
-+		return false;
-+
- 	/* scx is taking over all SCHED_OTHER and SCHED_EXT tasks */
- 	if (READ_ONCE(scx_switching_all))
- 		return true;
-@@ -7568,6 +7578,7 @@ static void scx_root_disable(struct scx_sched *sch)
- 
- 	static_branch_disable(&__scx_switched_all);
- 	WRITE_ONCE(scx_switching_all, false);
-+	WRITE_ONCE(scx_task_switch_enabled, false);
- 
- 	/*
- 	 * Shut down cgroup support before tasks so that the cgroup attach and
-@@ -8965,11 +8976,14 @@ static void scx_root_enable_workfn(struct kthread_work *work)
- 	percpu_up_write(&scx_fork_rwsem);
- 
- 	/*
--	 * All tasks are READY. It's safe to turn on scx_enabled() and switch
--	 * all eligible tasks.
-+	 * All tasks are READY. Finish patching all scx_enabled() sites before
-+	 * opening task_should_scx() and switching eligible tasks.
- 	 */
--	WRITE_ONCE(scx_switching_all, !(ops->flags & SCX_OPS_SWITCH_PARTIAL));
-+	WARN_ON_ONCE(scx_task_switch_enabled);
- 	static_branch_enable(&__scx_enabled);
-+	WRITE_ONCE(scx_switching_all, !(ops->flags & SCX_OPS_SWITCH_PARTIAL));
-+	/* pairs with smp_load_acquire() in task_should_scx() */
-+	smp_store_release(&scx_task_switch_enabled, true);
- 
- 	/*
- 	 * We're fully committed and can't fail. The task READY -> ENABLED
+Thanks,
+Xia Yan
 
-base-commit: 700a332c3fe33014bbd5ae852d71ba679fc29e0a
--- 
-2.56.0.679.gc527c65306-goog
+pw-bot: cr
+
 
