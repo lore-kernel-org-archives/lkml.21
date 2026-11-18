@@ -1,63 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.219
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794970289;
-	b=sfUsbGVv46r+/uULzF4LKnWcwe1mZF79QVkSunJOiXg015ZjYVVWX2L/ilYsgDxY/2Dz
-	 9D+FNWK09CJr3REHTToy/ka8fPfilCLVA92SqfOj0c2/Tu/w+RA3nW06sX62XDv1il+q0
-	 Na6lplsz/XuOBg7FRuY6MQV7wZKkSJaYZCGDYkci3ukctx05iem+GMfNKzMs0jZEjQ2P1
-	 hmrEAHnVsl5cJeEsg1wQHUhD8vPkcfa6sfOvNJmz/mTXsreP9ApYuxKyejld0zd2XyNam
-	 1zxiQiPqDJnT/uE8nkz+97sf7MF9tEgqr+ngGnShGqrFhJiATXffCTamwiUXyaHWNBg==
+	t=1794970536;
+	b=IrKgYhsc0d5nm1OQhi7AGsLMm4vzfE5ZMxsRGq3Y1+hi2iSx3OiwCAOXvrH9nCyuZ5Zb
+	 z7f6CxsJf/z8MUHJ+Me7OdI6ECDE4rXqEHwSWe9VUIEgXEJVE8Vd1B8oAIKnyXOeZb+u/
+	 cgWyjX7xAyofckNKUpP+in/llpJseEWMVLB6uaxCb6H0h1qYgfN+oq6jmQmm6faW7KwGd
+	 iFTFaXztcTqchsYrEyBVMCLRD76XH0qHefjGQ/f3duZnb+A7NLzIMSEc7+jSqCT7Hep/7
+	 o/dpXt76xCGN3UPQ9Vj107zT/MkoveMMO03HqCgAsHXNnc0OSf+MbGRy70tkA5Zuh9g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794970289;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=3CZyrOmhc89sv0CEQ5bjPHCe3RbhzJaUwkxiKpylggM=;
-	b=Uz+87CI/KnylGlFW2wLAq69OMXrxuqyIVVXAxsuJUjcOj8SVzlYOnu0t3qFpLZbtnQ8P
-	 brx8KYMmcJniEF5AbxA3XbBoNt01lowBYCLlf4vnP83DnTehcpGVCbXW1gUjDekbDIznr
-	 r8UxVv26NxUIDULJtDApC8yVrtzDoFqT7bbLhInl0yxEv+X/hFk3YevSgS8n/i2MInYI6
-	 y+nlqUeqNAefRPGEpUm12AnhPL5VIpyEweYNJX/Hk+bJpPFycuia32RKG0Gzl//0peXdw
-	 AUb4It9shF16WvOtH+ERfUn+/V9RS5XcVeuwnpRGthpemcRby8zQj63ldpsvQyYLWUw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794970536;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=Cc1CenNSOFeQKanbwZUmn2fS8ubg1Oyl3pgDvfLoRhU=;
+	b=5tTNTzxdz+W5jCeEXpSKADhahoK8OJaW01nrV7zvwEhoXfDD++VtrAtd8nsK1JGTD73J
+	 YcT9hbpCtgTDlvJuI05HR2YjJwVea/3/WyccMuwxvdHTmcSPwJzL9eTNc+KaP+4c5KbWB
+	 ZepsuM3VP8Q3f2bxkSMZ8RuqverJXAIhjNhOjbcpCz/+oKo1KcTY3XfGLEc8H2o4eg9nz
+	 37sPn36OIT5ho3AOGPUyBtemrNfAtXuXH/dewCM8sw4j8M2QjxVtGRfIEZ/3uT3mqQ19d
+	 419qw7EYk6LSq2nN1NNOAa+M+vPDDRuB0ncE0GW5LkO+8ZBSXMnl7YXrR0q87tCHoOA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=TTJtQRyS;
-	arc=none smtp.remote-ip=113.46.200.219
-Received: from canpmsgout04.his.huawei.com (canpmsgout04.his.huawei.com [113.46.200.219])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KNWJx1vt;
+	arc=none smtp.remote-ip=209.85.215.175
+Received: from mail-pg1-f175.google.com (mail-pg1-f175.google.com [209.85.215.175])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 403D3606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:51:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 403D3606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8432606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:55:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C8432606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=TTJtQRyS
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=3CZyrOmhc89sv0CEQ5bjPHCe3RbhzJaUwkxiKpylggM=;
-	b=TTJtQRyS6Ibh+P8UFwk3uV8ej6oZNbYv6CXw0d9f3y113gtZBARrf+38jZDvoE//eAJ0FgRjV
-	bR8IKUTNh95I3ETPYndhi8Y7GnaZV2ECyjUnOS9zyKUSk1XfGevEOxObWUtrgshuPfn2j28Q/cB
-	aNChhud/0atevZsC36HepJo=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4jTmLz24PYz1prMj;
-	Wed, 18 Nov 2026 10:51:07 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 0C9BE40684;
-	Wed, 18 Nov 2026 10:51:20 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 18 Nov
- 2026 10:51:19 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <maz@kernel.org>, <tglx@kernel.org>, <radu@rendec.net>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v3] irqchip/gic-v3-its: Size the collection table for all possible CPUs
-Date: Wed, 18 Nov 2026 10:51:06 +0800
-Message-ID: <20261118025106.623070-1-ruanjinjie@huawei.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KNWJx1vt
+Received: by mail-pg1-f175.google.com with SMTP id 41be03b00d2f7-cdb75699c7cso255531a12.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:55:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794970535; x=1795575335; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Cc1CenNSOFeQKanbwZUmn2fS8ubg1Oyl3pgDvfLoRhU=;
+        b=KNWJx1vtty5adSQWncXc2jvEYw8BgOiCGQJuKPijpgJDXNdPsWSZ80sT6Cx46FSVJC
+         Z06qICAMn8sCtamXfYZ14PskbVqTHDGBlSVpQCIvMURVitJNH+jDGidgGM5r+S7T5gAg
+         FWFP3Y2z+enDNnZNY65XrUcBgJnFKLorS13DdoVcNxvOsRdnw1u2W75Ot2GmsaxgYI9j
+         nvmlUiGhJjjHp/rGaKljAX+Tu8vRPkLj1XI9Y7DJIX+s7Cdba1s7WL0/0+OPitCI85Vd
+         hGdcmoJJW7Dk+4ln9vhx7vQXLP7/R78TI8r0yNLcDcDHK8z/iBOjp5rQn6zxY2/Yadmr
+         9Hsw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794970535; x=1795575335;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Cc1CenNSOFeQKanbwZUmn2fS8ubg1Oyl3pgDvfLoRhU=;
+        b=Nn4km9MLE1wNeWgfBpeVAxIoGHMG3o/O+4JIGOPjfP5XSz5y2rDCjKsV7yOtgi6fFl
+         /AVO+PulN98V15tJeEVxvRtQDceAaey+YUOihP04KaT2Zpwbl84misXt8r7nPq/ywLVO
+         Nm6soL/xwYZE2Iz1G/XpSf7mz0GWQBoqn87JE3ivQB6wkmAvFT/LzepqGDLDtfWxotQj
+         05A3DSbISDl7s2Nqb5Wq3hqNdTXvgh8OL39MId8gMapdDcOI+AHv0qPsDi+WkWklH9Lt
+         Tk5f+rEBC8VwKbPV7Lggxacvu3KFZSNlLUuZRZ3lgYYwxNsLEf2hW6FZYpvajlRpF94i
+         CkqA==
+X-Forwarded-Encrypted: i=1; AL+hErHOk4ZoyYPViVU/+SfyKt+Yx1kMHXdXiXWeoPzm+xrjV35c0cnCgx6Ifz26rf5zLiqBL+ZxBSTTahSZrz8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+S3xt/WU31sNG2QNJltYYZFxQ1OKuQqFBFaFMBjjGIbIfop1f8
+	l2sWB/RUChDSFSOxPFyxfqqQ3BhXN3MC4sgvpAX4vzAgBKPMu6Iu7STq
+X-Gm-Gg: AYBFou3rVnK48HB9aV6Q8SODUmKagoZn2ef5o21F7tzSi++Pjry3s9bO50iBBR/zvIU
+	8tZbnGU91ECxOGgCiev25skqkUhb++uPSUi21X0H7ykyNmTOaiTTZXR2UZTEWcuzhHj408et3uv
+	XooOI0myCHdcg57l5Bn1wBGCRRhyu80SyNXKIR0eFaDPCHujRyStoR9YbqHZH85rr4EoDBEec2q
+	RILpRpUnYcwZG7yab7jDi/XacAze7zhcTH+Yq9keQ/npmFPn0w9i9kHa9l+mFemWRpGIsag58Fz
+	tV4zTSO8yRE1FoZusnuZB8a8sssl3pbGBnalMp94Wn22ZIzxaVx1axwHZ0vPkYcRF/nOVb3vCcz
+	EFLRMy6S7/SiR4g4iaO99QXag2SDnN+zY14mx3MyEmCtuKX5uFgNydO+wMaVvge2sVP4j94F1GW
+	ZldC9zZEAs/9shTamn8GEYHgDcry9HSfgxu3fVgV/vkLfh37P1YyumsLOGy5ngkubscEdazq+gb
+	ffyFJQKVM8SjMX8ZWtKMJVb6XYdrG9jRCyfd/+BCZWlSOxcV2vLAn0awuviVs7ecAXPPKvQMhxO
+	7N1I1YHUMWLCGNX+RmRTJtd52Shx
+X-Received: by 2002:a05:6a21:880a:b0:3fb:6e73:ce48 with SMTP id adf61e73a8af0-3fe980f7b76mr958069637.48.1794970534917;
+        Tue, 17 Nov 2026 18:55:34 -0800 (PST)
+Received: from server227.. ([39.170.101.209])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde3af30db8sm304885a12.1.2026.11.17.18.55.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 18:55:34 -0800 (PST)
+From: Zxyan Zhu <zxyan0222@gmail.com>
+To: maxime.chevallier@bootlin.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com
+Cc: netdev@vger.kernel.org,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	rmk+kernel@armlinux.org.uk,
+	Zxyan Zhu <zxyan0222@gmail.com>
+Subject: [PATCH net-next v4] net: stmmac: program the FSM timeout timer
+Date: Wed, 18 Nov 2026 10:55:28 +0800
+Message-Id: <20261118025528.2703790-1-zxyan0222@gmail.com>
 X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -69,82 +106,230 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemk200008.china.huawei.com (7.202.194.74)
 
-The collection table is currently sized at a single ITS page size,
-and the driver's allocation policy is to allocate a single collection
-per CPU. On systems with more CPUs that the ITS can fit in a single
-page, no LPI can be routed to the CPUs that don't have an allocated
-collection, and the system grinds to a halt.
+stmmac enables the FSM timeout checker (TMOUTEN) but never programs the
+MAC_FSM_ACT_Timer register.  Per the databook the checker only fires once
+NTMRMD is programmed with a non-zero duration; NTMRMD == 0 disables the
+timer, so with TMOUTEN set but the timer left at reset a stuck FSM is
+never reported and the advertised timeout protection is ineffective.
 
-Change the allocation policy to allow two-level tables, similarly to
-the other tables.
+Program MAC_FSM_ACT_Timer right after TMOUTEN is enabled, deriving the
+TMR field (CSR clocks per 1us tic) from the CSR clock rate and using a
+1s timeout.
 
-Suggested-by: Marc Zyngier <maz@kernel.org>
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+The NTMRMD field holds a power-of-two microsecond timeout per the
+databook: 0x0 disables it, and 0x1..0xa encode 1us, 1.024ms (~1ms),
+16.384ms (~16ms), 65.536ms (~64ms), 262.144ms (~256ms), 1.048s (~1s),
+4.194s (~4s), 16.777s (~16s), 33.554s (~32s), 67.108s (~64s).
+
+The issue was hit in testing on dwmac4 and dwxgmac, where a stuck FSM was
+not reported through the safety interrupt despite TMOUTEN being set.
+
+Signed-off-by: Zxyan Zhu <zxyan0222@gmail.com>
 ---
-v3:
-- Bail out on a BASER type the architecture does not define.
-- Add Suggested-by.
-- Link to v2: https://lore.kernel.org/all/20261117123116.591621-1-ruanjinjie@huawei.com/
-v2:
-- Cleanup the similar calls of its_parse_indirect_baser() (Marc).
-- Simplfy the commit message (Marc).
-- Drop fix tag and comment (Marc).
-- Link to v1: https://lore.kernel.org/all/20261116022330.273840-1-ruanjinjie@huawei.com/
----
- drivers/irqchip/irq-gic-v3-its.c | 19 ++++++++++++++-----
- 1 file changed, 14 insertions(+), 5 deletions(-)
+v4:
+- Drop the warning on a missing CSR clock.
+- Drop the ntmrmd field and hardcode the 1s timeout (NTMRMD = 0x6).
 
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index c952c069f937..9f7616c46c7d 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -2682,7 +2682,7 @@ static int its_alloc_tables(struct its_node *its)
- 		u64 val = its_read_baser(its, baser);
- 		u64 type = GITS_BASER_TYPE(val);
- 		bool indirect = false;
--		u32 order;
-+		u32 order, nr_ids;
+v3: https://lore.kernel.org/netdev/20261116114923.1157920-1-zxyan0222@gmail.com/
+v2: https://lore.kernel.org/netdev/20261112053321.1103678-1-zxyan0222@gmail.com/
+v1: https://lore.kernel.org/netdev/20261111143322.2234321-1-zxyan0222@gmail.com/
+
+ drivers/net/ethernet/stmicro/stmmac/dwmac5.c   | 17 ++++++++++++++++-
+ drivers/net/ethernet/stmicro/stmmac/dwmac5.h   |  6 +++++-
+ drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h |  3 +++
+ .../ethernet/stmicro/stmmac/dwxgmac2_core.c    | 18 +++++++++++++++++-
+ drivers/net/ethernet/stmicro/stmmac/hwif.h     |  3 ++-
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c  |  8 +++++++-
+ include/linux/stmmac.h                         | 12 ++++++++++++
+ 7 files changed, 62 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac5.c b/drivers/net/ethernet/stmicro/stmmac/dwmac5.c
+index f1bb981cab7c..5cf5139f442a 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac5.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac5.c
+@@ -2,6 +2,7 @@
+ // Copyright (c) 2017 Synopsys, Inc. and/or its affiliates.
+ // stmmac Support for 5.xx Ethernet QoS cores
  
- 		if (type == GITS_BASER_TYPE_NONE)
- 			continue;
-@@ -2696,8 +2696,7 @@ static int its_alloc_tables(struct its_node *its)
++#include <linux/bitfield.h>
+ #include <linux/bitops.h>
+ #include <linux/iopoll.h>
+ #include "common.h"
+@@ -184,7 +185,8 @@ static void dwmac5_handle_dma_err(struct net_device *ndev,
+ }
  
- 		switch (type) {
- 		case GITS_BASER_TYPE_DEVICE:
--			indirect = its_parse_indirect_baser(its, baser, &order,
--							    device_ids(its));
-+			nr_ids = device_ids(its);
- 			break;
+ int dwmac5_safety_feat_config(void __iomem *ioaddr, unsigned int asp,
+-			      struct stmmac_safety_feature_cfg *safety_feat_cfg)
++			      struct stmmac_safety_feature_cfg *safety_feat_cfg,
++			      unsigned int csr_clk_mhz)
+ {
+ 	struct stmmac_safety_feature_cfg all_safety_feats = {
+ 		.tsoee = 1,
+@@ -245,6 +247,19 @@ int dwmac5_safety_feat_config(void __iomem *ioaddr, unsigned int asp,
+ 		value |= TMOUTEN; /* FSM Timeout Feature */
+ 	writel(value, ioaddr + MAC_FSM_CONTROL);
  
- 		case GITS_BASER_TYPE_VCPU:
-@@ -2713,11 +2712,21 @@ static int its_alloc_tables(struct its_node *its)
- 				}
- 			}
- 
--			indirect = its_parse_indirect_baser(its, baser, &order,
--							    ITS_MAX_VPEID_BITS);
-+			nr_ids = ITS_MAX_VPEID_BITS;
- 			break;
++	/* Program the FSM active timer so the timeout checker actually fires.
++	 * TMR is the number of CSR clocks per 1us tic, i.e. csr_clk in MHz.
++	 * Use a 1s timeout.
++	 */
++	if (safety_feat_cfg->tmouten && csr_clk_mhz) {
++		value = readl(ioaddr + MAC_FSM_ACT_TIMER);
++		value &= ~(MAC_FSM_ACT_TIMER_NTMRMD | MAC_FSM_ACT_TIMER_TMR);
++		value |= FIELD_PREP(MAC_FSM_ACT_TIMER_NTMRMD,
++				    STMMAC_NTMRMD_1SEC) |
++			 FIELD_PREP(MAC_FSM_ACT_TIMER_TMR, csr_clk_mhz);
++		writel(value, ioaddr + MAC_FSM_ACT_TIMER);
++	}
 +
-+		case GITS_BASER_TYPE_COLLECTION:
-+			nr_ids = order_base_2(num_possible_cpus());
-+			break;
-+
-+		default:
-+			pr_err("ITS@%pa: BASER%d has invalid type 0x%llx\n",
-+			       &its->phys_base, i, type);
-+			its_free_tables(its);
-+			return -ENXIO;
- 		}
+ 	/* 4. Enable Data Parity Protection */
+ 	value = readl(ioaddr + MTL_DPP_CONTROL);
+ 	if (safety_feat_cfg->edpp)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac5.h b/drivers/net/ethernet/stmicro/stmmac/dwmac5.h
+index 00b151b3b688..734e7630f28d 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac5.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac5.h
+@@ -8,8 +8,11 @@
+ #define MAC_DPP_FSM_INT_STATUS		0x00000140
+ #define MAC_AXI_SLV_DPE_ADDR_STATUS	0x00000144
+ #define MAC_FSM_CONTROL			0x00000148
++#define MAC_FSM_ACT_TIMER		0x0000014C
+ #define PRTYEN				BIT(1)
+ #define TMOUTEN				BIT(0)
++#define MAC_FSM_ACT_TIMER_TMR		GENMASK(9, 0)
++#define MAC_FSM_ACT_TIMER_NTMRMD	GENMASK(19, 16)
  
-+		indirect = its_parse_indirect_baser(its, baser, &order, nr_ids);
- 		err = its_setup_baser(its, baser, cache, shr, order, indirect);
- 		if (err < 0) {
- 			its_free_tables(its);
+ #define MAC_PPS_CONTROL			0x00000b70
+ #define PPS_MAXIDX(x)			((((x) + 1) * 8) - 1)
+@@ -82,7 +85,8 @@
+ #define GMAC_INT_FPE_EN			BIT(17)
+ 
+ int dwmac5_safety_feat_config(void __iomem *ioaddr, unsigned int asp,
+-			      struct stmmac_safety_feature_cfg *safety_cfg);
++			      struct stmmac_safety_feature_cfg *safety_cfg,
++			      unsigned int csr_clk_mhz);
+ int dwmac5_safety_feat_irq_status(struct net_device *ndev,
+ 		void __iomem *ioaddr, unsigned int asp,
+ 		struct stmmac_safety_stats *stats);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+index f8ab347f7b5b..1fd501728b18 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+@@ -169,8 +169,11 @@
+ #define XGMAC_HWFEAT_PCSEL		GENMASK(1, 0)
+ #define XGMAC_MAC_DPP_FSM_INT_STATUS	0x00000150
+ #define XGMAC_MAC_FSM_CONTROL		0x00000158
++#define XGMAC_MAC_FSM_ACT_TIMER		0x0000015C
+ #define XGMAC_PRTYEN			BIT(1)
+ #define XGMAC_TMOUTEN			BIT(0)
++#define XGMAC_MAC_FSM_ACT_TIMER_TMR		GENMASK(9, 0)
++#define XGMAC_MAC_FSM_ACT_TIMER_NTMRMD		GENMASK(19, 16)
+ #define XGMAC_MDIO_ADDR			0x00000200
+ #define XGMAC_MDIO_DATA			0x00000204
+ #define XGMAC_MDIO_C22P			0x00000220
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+index 7ad08651675e..3caab23527a1 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+@@ -4,6 +4,7 @@
+  * stmmac XGMAC support.
+  */
+ 
++#include <linux/bitfield.h>
+ #include <linux/bitrev.h>
+ #include <linux/crc32.h>
+ #include <linux/iopoll.h>
+@@ -837,7 +838,8 @@ static void dwxgmac3_handle_dma_err(struct net_device *ndev,
+ 
+ static int
+ dwxgmac3_safety_feat_config(void __iomem *ioaddr, unsigned int asp,
+-			    struct stmmac_safety_feature_cfg *safety_cfg)
++			    struct stmmac_safety_feature_cfg *safety_cfg,
++			    unsigned int csr_clk_mhz)
+ {
+ 	u32 value;
+ 
+@@ -873,6 +875,20 @@ dwxgmac3_safety_feat_config(void __iomem *ioaddr, unsigned int asp,
+ 	value |= XGMAC_TMOUTEN; /* FSM Timeout Feature */
+ 	writel(value, ioaddr + XGMAC_MAC_FSM_CONTROL);
+ 
++	/* Program the FSM active timer so the timeout checker actually fires.
++	 * TMR is the number of CSR clocks per 1us tic, i.e. csr_clk in MHz.
++	 * Use a 1s timeout.
++	 */
++	if (safety_cfg && safety_cfg->tmouten && csr_clk_mhz) {
++		value = readl(ioaddr + XGMAC_MAC_FSM_ACT_TIMER);
++		value &= ~(XGMAC_MAC_FSM_ACT_TIMER_NTMRMD |
++			   XGMAC_MAC_FSM_ACT_TIMER_TMR);
++		value |= FIELD_PREP(XGMAC_MAC_FSM_ACT_TIMER_NTMRMD,
++				    STMMAC_NTMRMD_1SEC) |
++			 FIELD_PREP(XGMAC_MAC_FSM_ACT_TIMER_TMR, csr_clk_mhz);
++		writel(value, ioaddr + XGMAC_MAC_FSM_ACT_TIMER);
++	}
++
+ 	/* 5. Enable Data Path Parity Protection */
+ 	value = readl(ioaddr + XGMAC_MTL_DPP_CONTROL);
+ 	/* already enabled by default, explicit enable it again */
+diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+index 8ae95e91a36a..395655b01ea8 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
++++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+@@ -378,7 +378,8 @@ struct stmmac_ops {
+ 			     bool srgmi_ral);
+ 	/* Safety Features */
+ 	int (*safety_feat_config)(void __iomem *ioaddr, unsigned int asp,
+-				  struct stmmac_safety_feature_cfg *safety_cfg);
++				  struct stmmac_safety_feature_cfg *safety_cfg,
++				  unsigned int csr_clk_mhz);
+ 	int (*safety_feat_irq_status)(struct net_device *ndev,
+ 			void __iomem *ioaddr, unsigned int asp,
+ 			struct stmmac_safety_stats *stats);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 4da728962638..5e5c54b58bee 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -3691,10 +3691,16 @@ static void stmmac_mtl_configuration(struct stmmac_priv *priv)
+ 
+ static void stmmac_safety_feat_configuration(struct stmmac_priv *priv)
+ {
++	unsigned int csr_clk_mhz = 0;
++
+ 	if (priv->dma_cap.asp) {
+ 		netdev_info(priv->dev, "Enabling Safety Features\n");
++		if (priv->plat->stmmac_clk)
++			csr_clk_mhz = clk_get_rate(priv->plat->stmmac_clk) /
++				      1000000;
+ 		stmmac_safety_feat_config(priv, priv->ioaddr, priv->dma_cap.asp,
+-					  priv->plat->safety_feat_cfg);
++					  priv->plat->safety_feat_cfg,
++					  csr_clk_mhz);
+ 	} else {
+ 		netdev_info(priv->dev, "No Safety Features support found\n");
+ 	}
+diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+index 00be2df63d22..659f5db528d3 100644
+--- a/include/linux/stmmac.h
++++ b/include/linux/stmmac.h
+@@ -170,6 +170,18 @@ struct stmmac_safety_feature_cfg {
+ 	u32 tmouten;
+ };
+ 
++/* MAC_FSM_ACT_Timer.NTMRMD timeout durations */
++#define STMMAC_NTMRMD_1US		0x1
++#define STMMAC_NTMRMD_1MS		0x2
++#define STMMAC_NTMRMD_16MS		0x3
++#define STMMAC_NTMRMD_64MS		0x4
++#define STMMAC_NTMRMD_256MS		0x5
++#define STMMAC_NTMRMD_1SEC		0x6
++#define STMMAC_NTMRMD_4SEC		0x7
++#define STMMAC_NTMRMD_16SEC		0x8
++#define STMMAC_NTMRMD_32SEC		0x9
++#define STMMAC_NTMRMD_64SEC		0xa
++
+ /* Addresses that may be customized by a platform */
+ struct dwmac4_addrs {
+ 	u32 dma_chan;
 -- 
 2.34.1
 
