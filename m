@@ -1,62 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795043032;
-	b=W+eM8zPmTNCbg+2meT9usBEY/zq1u/OMh1EboUrTf3zYP6thO6J5oOUOjs/fTMV2CSoe
-	 kT9RMEhwJklkXu1dFRBEGJPv8zY8d21aVIOAiYN+7RDLEhVUAqNMS+z0vvCCaTCK+QNev
-	 zpuhgbNJS8wR3KHXubetrQ0cDcECjYAbeR7BuWHD1Ep9tFLbRebu607j8bHfbBE9cWj2M
-	 t6jx2dZmnFJxW/VMrYe1nFPbCf59xqBquHUMi0TXsWBGrKVt7Kq4LbFOVvwIubgdQqdOR
-	 xYcV73k9hTdnPv/Avhb1pTcuUVlWq/O0mKnxgm2KxXectSO4v27+3/XqBpo+qOmweUQ==
+	t=1795043029;
+	b=XM86KiwkZSO8pOdJYR+uqupO1Yya/Hxk/m0kkkA4F+ag6Hn3z0/uXcm2FNfv+ossEvxL
+	 HPRlduFr5WaNVc9Jujh2wmW89UDm6eSzmrOc644Gr3SMy6+CsPu4Bma7Ii4v54zsCRTih
+	 aIDB/ieM9qYwLwKVNPx1zo5QGSzxKabfKPY2hgStqbm4gO7q6q3blcgyN76j9OKDxqTZE
+	 JhrNCR3FebVOklu9+nzwwEUIYereFjREbQkpXJAz59pvl3HEshFd65U3M7/DzEdJ1KZG8
+	 4pMblUv179A3bHPt0twHqBoge8o2ryisG79DhhD6h8V9g4zKTThzegYdDQRalE8/Sdg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795043032;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795043029;
 	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:To:Cc:Subject:Date:
 	 Message-ID:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=pIeG/X/94duY8UPmUKyn4l6H/vTS0d4bIEK2ndG/QD4=;
-	b=rQxsNyOvQHOwVFt65PvoUK5jvqQgcEPQjw5gOy3ki27i1G7LNDOfwfTCJJOI/4KQLrJI
-	 hjD9DpxGp5phnvjAOb0HWV3Wzk/HAMPbfQ7DdcQ51d6SDtE8oxFCb8FZAYgJ0Z/sHR+GH
-	 XTxpEsh7mh5iX4qjXRiCYloWKXmUX/qLUTS3/DJok5vexSPc/yG/o2CnThMn8j+7magYR
-	 Ot8AHiT6NWN6qvl/fVar7Fy1eBUp/lJiayXjSXc7a+PWlXXlAJz0/BKvBRzICDnypA+uJ
-	 IrbaccC1j/zbxH6heuBnbpm1qLmdJeqzQbuZMqrijt+KQ9BCRxpTG481QoSnobKflsw==
+	bh=afnjPJUTSG1r9uCzQyOfgjhsmaGX4UxcB8hhrbxjjS0=;
+	b=b2fVDgDCdAaGBfuv6jtIPeyn1UpfAQNz/bMadRqh7hS8FMzymIbf6CEBbJWKCk0P/QL7
+	 0QDXwWn4QNM8sfDhAhXNGh6jQ3KAz5PsEd7GX8tDNPmp5zbyTBKcmj3cQTInKhMobuV/0
+	 pahlJcCaeY5LouSziM221JVnBM7cQiifdI+aZJ9qipH9htCq7AfsQlcVBnKdeZEIL1l9O
+	 JlFSi3t1hiPDpHzx5rcnE73ikIcWRF40m+vIeYZPEImWgVs5Ip1r349SbxVk0a6ihdY4h
+	 E/W3IIz+etdFlfnqem+J5RH+tzg/TTSobw1z2SomL4TtM7yqqZnZ7wqbbflo2vcACUQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linutronix.de;
 	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=kGvYBu+Z;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=oTYLcZxA;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=2KcbWV8X;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=ikOwLpec;
 	arc=none smtp.remote-ip=193.142.43.55
 Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C76260A2624
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:03:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C76260A2624
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9956606A330
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:03:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E9956606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=kGvYBu+Z;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=oTYLcZxA
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=2KcbWV8X;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=ikOwLpec
 From: John Ogness <john.ogness@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795043030;
+	s=2020; t=1795043027;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=pIeG/X/94duY8UPmUKyn4l6H/vTS0d4bIEK2ndG/QD4=;
-	b=kGvYBu+ZCD0gFf4HuhZ/QIvcMtNPRb4PfCnWC2KRWN1lOWJRpcakghT3OWuPkfRDKUQEG9
-	uXNVCesUBpsxJ0FkWXq5QXaHm96DbL+DH2ye37F3BcqQygsnmgvD3nc1gz1P8wpP8Vpe9J
-	BogmE/75LFALbc2MPC0xDHefurulaSni8IntBEdU7IHektsaL95yQ9mf58X+zz65ahHi2Z
-	TvjlYGGhahIelEDo7TnJtQZG8JKpGW6swNgOMB7zc7M+Cc+cJWLER9IWSlZLfowjJehQJE
-	o43N9DIWZ/OztO9+DnATG7wMwPC8aesmz0JPfl6emZbQNteK71j2XABbmul29A==
+	bh=afnjPJUTSG1r9uCzQyOfgjhsmaGX4UxcB8hhrbxjjS0=;
+	b=2KcbWV8XkVHQkwNiJ/JKQhcdeXbDAaq6j1xTRP1MIMC8HMzNVtbMhWD4HHMC49r44DoQUJ
+	2obLjDRFiifcp9bwWl3XCyRROaa5fqPVeUbLoBhLO6t3qjpkJd3qClDGmMk/mT7IdSbiAk
+	82zSK/wn6wBW9zq5xegZ9OeKsfUlyijtjCRrKzXgwHOn9ENimam5qVfUjTY4DSr4K15rRD
+	fJnMeHZ5e9UwUDWcKK/xVUcaq6HQ14ZBDdRysNwWXh5Hr1RN3hNdhTwOtyaIbatEhZ6BZV
+	hkU7l9Rk1UZdOzrB4pPCLZt+IcqgDrw3/HPMlpFawTzgv4gkmp+2xVbzaey+gg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795043030;
+	s=2020e; t=1795043027;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=pIeG/X/94duY8UPmUKyn4l6H/vTS0d4bIEK2ndG/QD4=;
-	b=oTYLcZxAsZhZcGO7nA9CN/fclc2HgQP+za1A3bMn7e2yVvneMLb/FaxSPqUB+Z8NVhfezk
-	htwO5HAn/q8IxfAg==
+	bh=afnjPJUTSG1r9uCzQyOfgjhsmaGX4UxcB8hhrbxjjS0=;
+	b=ikOwLpec7zXL9OW1N8f3zRrL2H6YuLO32wokKGSLpw7yY85xTUZNHSS6ey4NOifZgkVq7Y
+	tJMQw9ZjB8s/nmDw==
 To: Petr Mladek <pmladek@suse.com>
 Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
 	Steven Rostedt <rostedt@goodmis.org>,
@@ -65,20 +65,17 @@ Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
 	printk@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Andrew Morton <akpm@linux-foundation.org>,
-	Baoquan He <baoquan.he@linux.dev>,
-	Mike Rapoport <rppt@kernel.org>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Pratyush Yadav <pratyush@kernel.org>,
-	Dave Young <ruirui.yang@linux.dev>,
-	Bradley Morgan <include@grrlz.net>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
-	Petr Pavlu <petr.pavlu@suse.com>,
-	"Cen Zhang (Microsoft)" <blbllhy@gmail.com>,
-	kexec@lists.infradead.org
-Subject: [PATCH printk v3 6/7] printk: Add unsafe flush points for panic+kexec and emergency_restart
-Date: Thu, 19 Nov 2026 00:09:42 +0106
-Message-ID: <20261118230345.808560-7-john.ogness@linutronix.de>
+	Rio <rioo.tsukatsukii@gmail.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Aaron Tomlin <atomlin@atomlin.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Alessandro Carminati <acarmina@redhat.com>,
+	Pnina Feder <pnina.feder@mobileye.com>,
+	Gal Pressman <gal@nvidia.com>
+Subject: [PATCH printk v3 1/7] printk: Introduce and specify flush reasons
+Date: Thu, 19 Nov 2026 00:09:37 +0106
+Message-ID: <20261118230345.808560-2-john.ogness@linutronix.de>
 In-Reply-To: <20261118230345.808560-1-john.ogness@linutronix.de>
 References: <20261118230345.808560-1-john.ogness@linutronix.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -92,46 +89,127 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-During emergency and panic, nbcon consoles transition to atomic printing.
-However, there are consoles that do not support safe atomic printing
-(CON_NBCON_ATOMIC_UNSAFE). Such consoles will only flush when an unsafe
-flush is explicitly invoked and their unsafe policy permits unsafe
-flushing for that context.
+Prepare for per-console unsafe atomic flushing policies by
+introducing enum pr_flush_reason to classify various reasons
+for performing a printk backlog flush. Specify the reason for
+nbcon_atomic_flush_unsafe().
 
-Call nbcon_atomic_flush_unsafe(PR_FLUSH_RESTART) before performing kexec
-and emergency restarts in order to allow such consoles to perform an
-unsafe flush (if their unsafe policy permits).
+Propagate the reason down to __nbcon_atomic_flush_pending(),
+where consoles are selected for atomic flushing.
+
+Update the nbcon_atomic_flush_unsafe() and
+__nbcon_atomic_flush_pending() call sites to specify the flush
+reason.
+
+Note that PR_FLUSH_RUNTIME is used for cases where the reason
+for the flush is not clearly defined.
+
+No functional change.
 
 Signed-off-by: John Ogness <john.ogness@linutronix.de>
 ---
- kernel/crash_core.c | 1 +
- kernel/reboot.c     | 1 +
- 2 files changed, 2 insertions(+)
+ include/linux/printk.h | 17 +++++++++++++++--
+ kernel/panic.c         |  2 +-
+ kernel/printk/nbcon.c  | 11 +++++++----
+ 3 files changed, 23 insertions(+), 7 deletions(-)
 
-diff --git a/kernel/crash_core.c b/kernel/crash_core.c
-index d0bd2d0cf8990..79a67956743ac 100644
---- a/kernel/crash_core.c
-+++ b/kernel/crash_core.c
-@@ -140,6 +140,7 @@ void __noclone __crash_kexec(struct pt_regs *regs)
+diff --git a/include/linux/printk.h b/include/linux/printk.h
+index f594c1266bfd4..68cf51db5f0ea 100644
+--- a/include/linux/printk.h
++++ b/include/linux/printk.h
+@@ -145,6 +145,19 @@ void early_printk(const char *s, ...) { }
  
- 			crash_setup_regs(&fixed_regs, regs);
- 			crash_save_vmcoreinfo();
-+			nbcon_atomic_flush_unsafe(PR_FLUSH_RESTART);
- 			machine_crash_shutdown(&fixed_regs);
- 			crash_cma_clear_pending_dma();
- 			machine_kexec(kexec_crash_image);
-diff --git a/kernel/reboot.c b/kernel/reboot.c
-index a93c23b9e1948..b26d131c54151 100644
---- a/kernel/reboot.c
-+++ b/kernel/reboot.c
-@@ -102,6 +102,7 @@ void emergency_restart(void)
- 	 */
- 	nbcon_cpu_emergency_enter();
- 	printk_trigger_flush();
-+	nbcon_atomic_flush_unsafe(PR_FLUSH_RESTART);
+ struct dev_printk_info;
  
- 	machine_emergency_restart();
++/**
++ * enum pr_flush_reason - Reason for a flush
++ * @PR_FLUSH_RUNTIME:	A flush while the kernel is running
++ * @PR_FLUSH_HANG:	The kernel is ending and will enter an infinite loop
++ *
++ * Flush reasons are used to determine if unsafe atomic flushing should be
++ * performed, based on individual console policies.
++ */
++enum pr_flush_reason {
++	PR_FLUSH_RUNTIME,
++	PR_FLUSH_HANG,
++};
++
+ #ifdef CONFIG_PRINTK
+ asmlinkage __printf(4, 0)
+ int vprintk_emit(int facility, int level,
+@@ -207,7 +220,7 @@ void console_try_replay_all(void);
+ void printk_legacy_allow_panic_sync(void);
+ extern bool nbcon_device_try_acquire(struct console *con);
+ extern void nbcon_device_release(struct console *con);
+-void nbcon_atomic_flush_unsafe(void);
++void nbcon_atomic_flush_unsafe(enum pr_flush_reason reason);
+ bool pr_flush(int timeout_ms, bool reset_on_progress);
+ #else
+ static inline __printf(1, 0)
+@@ -318,7 +331,7 @@ static inline void nbcon_device_release(struct console *con)
+ {
  }
+ 
+-static inline void nbcon_atomic_flush_unsafe(void)
++static inline void nbcon_atomic_flush_unsafe(enum pr_flush_reason reason)
+ {
+ }
+ 
+diff --git a/kernel/panic.c b/kernel/panic.c
+index a4dbb6b8cd2bf..21d0ca892c64f 100644
+--- a/kernel/panic.c
++++ b/kernel/panic.c
+@@ -765,7 +765,7 @@ void vpanic(const char *fmt, va_list args)
+ 	 * Explicitly flush the kernel log buffer one last time.
+ 	 */
+ 	console_flush_on_panic(CONSOLE_FLUSH_PENDING);
+-	nbcon_atomic_flush_unsafe();
++	nbcon_atomic_flush_unsafe(PR_FLUSH_HANG);
+ 
+ 	local_irq_enable();
+ 	for (i = 0; ; i += PANIC_TIMER_STEP) {
+diff --git a/kernel/printk/nbcon.c b/kernel/printk/nbcon.c
+index 5f8afaca88665..72fb49ade6fe5 100644
+--- a/kernel/printk/nbcon.c
++++ b/kernel/printk/nbcon.c
+@@ -1652,9 +1652,10 @@ static void nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq)
+ /**
+  * __nbcon_atomic_flush_pending - Flush all nbcon consoles using their
+  *					write_atomic() callback
++ * @reason:			The reason for the flush
+  * @stop_seq:			Flush up until this record
+  */
+-static void __nbcon_atomic_flush_pending(u64 stop_seq)
++static void __nbcon_atomic_flush_pending(enum pr_flush_reason reason, u64 stop_seq)
+ {
+ 	struct console *con;
+ 	int cookie;
+@@ -1688,20 +1689,22 @@ static void __nbcon_atomic_flush_pending(u64 stop_seq)
+  */
+ void nbcon_atomic_flush_pending(void)
+ {
+-	__nbcon_atomic_flush_pending(prb_next_reserve_seq(prb));
++	__nbcon_atomic_flush_pending(PR_FLUSH_RUNTIME, prb_next_reserve_seq(prb));
+ }
+ 
+ /**
+  * nbcon_atomic_flush_unsafe - Flush all nbcon consoles using their
+  *	write_atomic() callback and allowing unsafe hostile takeovers
+  *
++ * @reason:	The reason for the flush
++ *
+  * Flush the backlog up through the currently newest record. Unsafe hostile
+  * takeovers will be performed, if necessary.
+  */
+-void nbcon_atomic_flush_unsafe(void)
++void nbcon_atomic_flush_unsafe(enum pr_flush_reason reason)
+ {
+ 	panic_nbcon_allow_unsafe_takeover = true;
+-	__nbcon_atomic_flush_pending(prb_next_reserve_seq(prb));
++	__nbcon_atomic_flush_pending(reason, prb_next_reserve_seq(prb));
+ 	panic_nbcon_allow_unsafe_takeover = false;
+ }
+ 
 -- 
 2.47.3
 
