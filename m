@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795035838;
-	b=NJPwB8K/9EUb3VOZhwbcOL5n1tv9qPJOeWG14dqNzBRmR1WL/3/sc3rzHLgCKxXl80S5
-	 GVDMDxVSa1cnAM8/9zE6YuXl5DJ5eQcY9/59VL0sMKtmaIGqJ8zGtmNHwOGW4chXYPQ5k
-	 AX8jYNcBeoLDWV5qgcNS3IW5JtIUCrYXnZl9POpScVRfcAxFrOhWfc1SjrzZvadTJ6+d8
-	 hebSKG25TrKp6vHJeM6AwixZ+ClsYrogcdTNbD18Ds8isDDeouj4uTu53MI9YY0v4yslr
-	 JbiGEU9Tp9wwbIQ48MsqRnOLO0Z3SBDIoE+SpgmmZwao/H4AN5nRgO1es12I+7DVoFA==
+	b=0ek3Wsx2P2TxsgKkRP7qL2OrLjnS+iczf31mNFhBGegpYGbPKQz0ZAmy+a6xKttxOACa
+	 +WI4N6LFmCkL9xo08r5di7ZJVM1/EZ4phd+A4lhIga+GHSOivTVS9VbwJchdjRTaa5ZrH
+	 ErOSXdi5rB39osJvArcRXTCGrIzGXG+ZfwdOJeAB4kSAoLMslELYKTgkxYvhxLCL1uZ+L
+	 GTo2PTF0BO17Ut9PksKM2kT6GGANdNIXyg+xV4b+ZyOjm6yk41k9R5y6PZXvKDQk40bpF
+	 ZKsKVzcRGA58o/wiz9b1pHqsVMj46nOFOMiVLic9xse8OSPnlIs72vxxQMDwotqBdBQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795035838;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=E4/9CXaCKwR+a8e+Rb4YtN6Xrcv9L6Zys6gp9ou+drU=;
-	b=XtI5jWJS7+vJLtjAY7dWKGUmI8dbU70/DeKfc0M/pEtJ4nRZjz5k5tGQf4zahffUAwO1
-	 wfnM0LTx5QIRnvghz+Uu4leAi3vTYiBHHpc6K2YUJKhpfd/svydVEwh4bgo3PLZF4AKF8
-	 ObH/YcZaPVzOThzW31NzZXZgmEBKTa8/F749eR+wfkFUfoVAvnHkiGCP65adh9zmEP1mI
-	 eELLJ5f4QUIw6tOhCkq8JadTHwt4JY9zgjMyAMhN4ymL6c7l9mM3TEpEfv5h4lIZJ3Avg
-	 H+ikPbVLi6W3lyMQDgfPIo2hYswApBS7fkWbeIFbzJS4t758CQ7iqXWPA0puqGigRkA==
+	bh=umd+xXOtPmpwln7D0djKUtVYi865RTVPW3Jw9yIwv+I=;
+	b=jjKgIfsvc7h5crO5aPxRebjdsm7FcIn23mAAixPJOM8F3E7fXwA/SHQ1/bcJjhnSgjkS
+	 4RtJ0R8St424buwm2vZYhA7WpfCWix5OQwx+tq08aBBUGXW1o7nHVpJviniPzvE37KL0L
+	 613fbhGfnuFEawR1DK/6NDy9U+a8lbTHkokHD2OcxxKS0GLEYSePWTglPySC0RSKyFz6E
+	 CwHwFl6Y1ginYmikvL4pf+Xxd5hZsalk6OX8U5kCFuYt1Fyivx1WPA40iO4PbwQb/LmTi
+	 xvVjqCnRLa0usVx8chRIDBbI6B2mUhQbUgd0Wl1LgoE/whPY7vk3qiwJBJ+gFWS02pQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CMmvMT1p;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aTLUCNlz;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 164B760A5BCF
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A756960A5BFC
 	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:03:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CMmvMT1p
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aTLUCNlz
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795035837;
-	b=0nxCS1st4X9vuRaDc0wSTwWBoKnmngqMw7mQq7uuagVaNUTbo+jreGSxHiC2oyIWCFnE
-	 wTMrZ4T4F8OHneiAAGIvbR+aqOCzLFWsz+VzL+23YUQSiY2JciVaEUJO6sPa+DAxOovpy
-	 Dk3OT3oY6DpcFgCsNyFJnafov0J5+vkgyf9M6xyDST6SXGBLXAVQvLyTo/R86iOtwqirl
-	 CSyj1cW7G3C/fl6N7xx2n/+bXOmlpLYu8HMAuDNWTMiD/Lb1xupBCaRmhIVX0efAi0NY8
-	 RSNOt8EMsNHPDE8S+w1+TLYtrtlL1KJmHHVE9X37q+ZOuDSUfAo058N4UWZkjbDnKmw==
+	t=1795035838;
+	b=k2ekeG8N3o8Gr8lipcLNfumQZ6AS78UXrM0zsHJKgc7JrDZbF0fHLxSaSKA5ByyH3Bmi
+	 XI1Qe4gMeC3Q9/LcPGQPggHJM8fIA/fKkLYyql2P0PReA7rOYL1Cvmgz4ggPkUoVQx6En
+	 E0xUUZYcQmROm4PDB1F+zooh9sMIFHaNDuD9LEE4sAfOhyhyDSLAJdnf3J208fIulQH56
+	 8RO50i3bPT8uguR4/T7JuJNvg1h9oFKpm0Zi6dSnhulQjO4lvBc0f7pWD0AFFqriV9YF9
+	 akBy7eHZeA4sBqFZNPrsQSRPAu7H1mcA4Jzc83mezHfiPvKwviQSgwyHo7gMgvDj9Rg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795035837;
+	c=relaxed/relaxed; t=1795035838;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=E4/9CXaCKwR+a8e+Rb4YtN6Xrcv9L6Zys6gp9ou+drU=;
-	b=C83+h86KR3nZjY1Nbw24K92jSnpM+ddCvDY1r848oIm7GaCrLl6xPZfzMLDaaBlWPklo
-	 rkOeXHbqzvLdowhx815Ii3/qtFVHwXvtxLmsAedcREoK0oVgBbsANst2Q85IBILydtpe3
-	 2nCuUoC8MyuUMYYrPvg8Ik3kwGuS/m8d0uwzZToIz4jkNeoVgMqrH9AW2Qw/CusgIdoQL
-	 GmAZgWIelpAbRYD9dhyrcjouEoewvv4yLgwVRsuwPvS9cRaMZ+54ZmemTdZ+aUQ7nit/2
-	 3XL9Xqgy1d+2lny4Gwme/9UUSRY7F7Jfmlnc36BzTHBdu+ABgiCMM8hBoRcI5Jt5aYw==
+	bh=umd+xXOtPmpwln7D0djKUtVYi865RTVPW3Jw9yIwv+I=;
+	b=LUxa1W2mf7LXxCFgKtNCZ2qAnhaf9LAsqiFEJFhX5TuP/q58IKTS8NvZema5uRbz5u+v
+	 Z/7O9HtLjsvFUD6eao/Nbu80wcdnRTxvT2IJ1A112mCY2xai+5fQVdPfnSzI0x2KyEs2z
+	 rinfrXPvYCgy1p5/6qH85DUTc4YhcLtZKJJ6sXW9Sg5M9/yTMJY8NgIeBoolfaO01JKid
+	 5gOzZQlNO6H8SGd2qt+NWDkFBp2Uqs1tmS1giejdPppAAkChvYDousGAxBi+ypQC6n1Yh
+	 6EbKof1FrncshRcNW4A/B/GpVzSnoVEuEMrGdk3IKSWUb42CFa8o7EZzdkc4rbXBOCQ==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 3F1331F000D2;
-	Wed, 18 Nov 2026 21:03:53 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id B7CA71F000CE;
+	Wed, 18 Nov 2026 21:03:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795035837;
-	bh=E4/9CXaCKwR+a8e+Rb4YtN6Xrcv9L6Zys6gp9ou+drU=;
+	s=k20260515; t=1795035838;
+	bh=umd+xXOtPmpwln7D0djKUtVYi865RTVPW3Jw9yIwv+I=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=CMmvMT1p9ENZ105ODyDSh4HA3azJYgHudUuhJoL8fvj7bQ4vEfjikcbNrRo9Gt1PJ
-	 /2cJ/aIrT47UnswLygjJXHEMHgZg1WFYnC7ncGXhtPe+87SWzOAsXTSmSwGat4cWXF
-	 MCLOzLKspbw66QrrbBOlmMnxVpAh1+wkaWeZoasNpmmV2CN9n7QC62BzYlkphUS3Ay
-	 FYjiTFbXUokB4VavlOUh08wC5+FmAMKzycO69JtIbm9lDA1chJhqplDS0l1IsyhHeE
-	 c6Dowgo2Mr93ucUH/6PS01CbXsOtthmLskInN1hGergmThVn6OLpW5MtdRZ+Q+kCYH
-	 wImwSWdvKQewQ==
+	b=aTLUCNlzQsaAyuCeBZUgOc+fqhcDORsuUNpXRlZnbtT1yZyvvjz8XRkgukRN/abG5
+	 +1ciI+X0PMdwzReCeuDHIkw6xDg98xz3/NSVxP7oEW/QZO8Ao9OMOA1d5PiDtSYmND
+	 sanJL0B96rSwhzIwArBjdEZk90BVrtUkwOfHS8y8BJIXvM3Yl3fT0yT5+DIC1EKJ2a
+	 OOHd/s7n5nrXl6bs86CrdefqCxd2GYIQAMfus+Rnfc13vAyr49NjMbx9EPo5Cq038l
+	 WSikqkqLCpS7srqwH5o1qSTOjM3Jh7U2aA7NO3m98ZZaGcY4IQEmLRhKd7bjyCy6U/
+	 heHxL5j7z2cEg==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 8367A4AFBB;
+	by lkml.kernel.org (Postfix) with ESMTP id 3B3B04AFB0;
 	Wed, 18 Nov 2026 21:03:44 +0000 (UTC)
 From: Kairui Song via B4 Relay <devnull+kasong.tencent.com@kernel.org>
-Date: Thu, 19 Nov 2026 05:03:46 +0800
-Subject: [PATCH v5 14/17] mm/huge_memory: mark folio as accessed more
- accurately on split
+Date: Thu, 19 Nov 2026 05:03:43 +0800
+Subject: [PATCH v5 11/17] mm/damon: convert to LRU refs based operations
+ for MGLRU
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261119-mglru-fg-v5-14-9eee2fe97a2d@tencent.com>
+Message-Id: <20261119-mglru-fg-v5-11-9eee2fe97a2d@tencent.com>
 References: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com>
 In-Reply-To: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com>
 To: linux-mm@kvack.org
@@ -118,11 +118,11 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
  damon@lists.linux.dev, linux-doc@vger.kernel.org, 
  Kairui Song <kasong@tencent.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795035820; l=1979;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795035820; l=914;
  i=kasong@tencent.com; s=kasong-sign-tencent; h=from:subject:message-id;
- bh=vrmC2+9un5UxKDyFv7OO9k0KgNpOMmdZ6k1J7wplnr4=;
- b=QbYGss5INU4OZp8SggcIPzbLrD6kqcII0Rj4ALNbbDFMY5rCSN4SVyukVmNce4vSBNBwVPH9v
- N2OQruy/P3EAfo691tZIfocByLpuriqA2ipbGuq7KWvtwxZfL2QvItX
+ bh=juJQDvh6WPvm4O7BAbP0QPsVPdfMcO7QrejsQWUOq68=;
+ b=4R6elM1NZFwkimFZRIG8TAjoSqNylkU4BwWWediOGKFcIWwn5tKSC/YO+Fj18DbSAz4kMZPeo
+ 2b4D2jz24raDp7tNJsjjsSvda7DyWgkAgvzBwtc53YRgbzeEiQFCSXC
 X-Developer-Key: i=kasong@tencent.com; a=ed25519;
  pk=kCdoBuwrYph+KrkJnrr7Sm1pwwhGDdZKcKrqiK8Y1mI=
 X-Endpoint-Received: by B4 Relay for kasong@tencent.com/kasong-sign-tencent
@@ -133,51 +133,32 @@ Content-Transfer-Encoding: 7bit
 
 From: Kairui Song <kasong@tencent.com>
 
-The behavior of updating the folio's access info isn't consistent for
-huge mapping splitting or ordinary unmapping. The page table's young
-flag has to be translated into folio's access info.
+damon_pa_pageout() cleared PG_referenced directly, which under MGLRU
+corrupts the folio's refs count. That flag is now
+bit 0 of the count (LRU_REFS_FLAGS).
 
-Right now it only checks and sets the folio's referenced flag, which isn't
-enough since folio flag updates on access have their own rules. Ordinary
-unmapping (zapping) calls folio_mark_accessed(), and it also checks
-if the VMA has recency to avoid false updates.
-
-So first just use the right helper here to be more consistent. Keep
-accounting the young PTE as a cache access, sticking to the current
-behavior.
+Reset the count instead under MGLRU.
 
 Tested-by: Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>
 Signed-off-by: Kairui Song <kasong@tencent.com>
 ---
- mm/huge_memory.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ mm/damon/paddr.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-index 0d589be136d2..1a415a6704be 100644
---- a/mm/huge_memory.c
-+++ b/mm/huge_memory.c
-@@ -3104,8 +3104,8 @@ static void __split_huge_pud_locked(struct vm_area_struct *vma, pud_t *pud,
+diff --git a/mm/damon/paddr.c b/mm/damon/paddr.c
+index e89cb14ee17b..411e1d557ba3 100644
+--- a/mm/damon/paddr.c
++++ b/mm/damon/paddr.c
+@@ -279,7 +279,8 @@ static unsigned long damon_pa_pageout(struct damon_region *r,
+ 		else
+ 			*sz_filter_passed += folio_size(folio) / addr_unit;
  
- 	if (!folio_test_dirty(folio) && pud_dirty(old_pud))
- 		folio_mark_dirty(folio);
--	if (!folio_test_referenced(folio) && pud_young(old_pud))
--		folio_set_referenced(folio);
-+	if (pud_young(old_pud) && vma_has_recency(vma))
-+		folio_mark_accessed(folio);
- 	folio_remove_rmap_pud(folio, page, vma);
- 	add_mm_counter(vma->vm_mm, mm_counter_file(folio),
- 		-HPAGE_PUD_NR);
-@@ -3227,8 +3227,8 @@ static void __split_huge_pmd_locked(struct vm_area_struct *vma, pmd_t *pmd,
- 			folio = page_folio(page);
- 			if (!folio_test_dirty(folio) && pmd_dirty(old_pmd))
- 				folio_mark_dirty(folio);
--			if (!folio_test_referenced(folio) && pmd_young(old_pmd))
--				folio_set_referenced(folio);
-+			if (pmd_young(old_pmd) && vma_has_recency(vma))
-+				folio_mark_accessed(folio);
- 			folio_remove_rmap_pmd(folio, page, vma);
- 			add_mm_counter(mm, mm_counter_file(folio), -HPAGE_PMD_NR);
- 			folio_put(folio);
+-		folio_clear_referenced(folio);
++		/* The region is cold, better drop the hotness info. */
++		folio_clear_lru_refs(folio);
+ 		folio_test_clear_young(folio);
+ 		if (!folio_isolate_lru(folio))
+ 			goto put_folio;
 
 -- 
 2.56.1
