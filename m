@@ -1,104 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.162
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794968913;
-	b=i2I6imZYXvOFI8iEs+2kGCyLxFj/wJTUu87ezxGf1pHStKbyS2ZUwTX0NvtJeh2AGr/E
-	 yNssgPQInJGnp3aYgX30XCGjUbzDHxA2bPnWahkVKv4XK39MnTgcm5sw6NZ1t+7dzrVd0
-	 C5hZ8K0J0ZlDh/b90GsNwNDUJvRwCNxtuwOaQTpleHpXS4IrfMN0U2cueKxhp5VqNnpl0
-	 +4COvKT4Mon2e/wuchF0TbAnUzVdgHkN03VlWfpn3+A9OLVYs/Nx49Qw5Z3kE1FzclZ5A
-	 SCHSU7WL3/eLmoviQHEbNlFjwBluErYk4+23ClINxYpjA38N5ywvGkGKTJW+ryQHzWQ==
+	t=1794968919;
+	b=F4aaozm/hZWfACWiT3ABR7L86uIpaWNnNvirrlbKzbd7V4+19aDPGG7h8cR4ZjpSJ+c9
+	 JRTvYEss7LyWaRnEM63G9h2wwDSvG1UW/WC5PSGT2RgnqGI1GAgDd2E5PoQmxX1pDWy2Q
+	 pqU6ix7E5gC1s0nUo8vKNslmYg332rukqweVdZ9fO+e7bwO0lByiETC9gaPBgIEPIyAVH
+	 oTSTfzN8JzBsql8jA7LZEwOVa3J0lttRtTTUwSUKnYmPYFsSr8fC2/Oc6sUEKrrtjwVQF
+	 3wA36SpNs53sYz3RxQjsgs2xMrnTM8lY1Pdp/BiG0z3skKzGEk9Vn6tnjxWtoMCB7Hw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794968913;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Ho54TYF6nZjSAVceuh96jk4faWMez+7R+0ZdE7pbCeo=;
-	b=p33zlDGIxx8vgmed6y3fDmz/CAkvPU5vMHWZCIHfRbOOF7q1yF4Vc5FCi2RDy7WTA1Qj
-	 KsfQ6mu6hBgoePEWW+fpIG3NEDZuwFvplWFtTIaX6HwrfCeNYG8pAqI+8GkjUp6LUHbK/
-	 Ryib2ElHapSY3Ez0wLGMZjUAbR5hgumTUpzbXipcOikozYIOB1oPoKF42Ky5hV36Wgw34
-	 tBg00BG+4PR6F5ErqjVaDcXd1/auShOhpF9OCVC4PAqQL7kN+zu9xHhRBp8cthbIgb58n
-	 uq3zbRxKJA1MjcMtOGz6CGiHnWOxwUxLXGZcnIg8RqoNkYU6M65viHMRdv7E++tdmVQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794968919;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:To:
+	 Cc:X-Mailer;
+	bh=piadX7DCQN7dnI1PWSYyjQ0A0vL4PpkN2uWmi7fyHSE=;
+	b=aC1zDmdzR0jd1J3o39ecYImhrJQ11FVSu6pg78+nidxkIdQHJD8sX5xP0Y5CvqwHIikr
+	 c0/faCcodamjcj90PzsZibc/p6lrzpXsau4zY+PIFJj5/PRqQvVwNWlV0/0+jw+HXcE9t
+	 RjxqTnXlSmZa2u8+paBM8cDU984stgov5PymbfJBPPQUyitUYDOHD6c+zhEUShcuYdI2/
+	 JdN9LcuMHOMAFLeUhPVt8iLIeWMCv7UHz7t/yVFRMSvJthoea2w+desMO4oDEW7TSgNp2
+	 wt4MxXdHO89taaKKs9w4yRy5EClPy1y8c6NJMaqRSs0qOc1HcUsugGGr+gvRnL55fHA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=noSpeQOW;
-	arc=none smtp.remote-ip=209.85.216.51
-Received: from mail-pj1-f51.google.com (mail-pj1-f51.google.com [209.85.216.51])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BDGvkxjs;
+	arc=none smtp.remote-ip=91.218.175.162
+Received: from mta0.migadu.com (out-162.mta0.migadu.com [91.218.175.162])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9835E606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:28:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9835E606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E29C1606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:28:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E29C1606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=noSpeQOW
-Received: by mail-pj1-f51.google.com with SMTP id 98e67ed59e1d1-3b16896b8ceso193370a91.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:28:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794968912; x=1795573712; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Ho54TYF6nZjSAVceuh96jk4faWMez+7R+0ZdE7pbCeo=;
-        b=noSpeQOWMnvjMUB6qRG1XQ4bNW0CovOzR4Vock8d8sRNJybt3HCHGEScStRD4rHXQw
-         qz60TaqJL5yaoG7l01VvNRfzP3YN1ZG4Ockxhic+KD7NCdgifN0nu/W7rTvARuUm+j9C
-         UugLhefh86fBh9EFvt56DLVHm0/6KtbPyKrdZnZU/3dCWq9T3EsNpZrQ6Clhh2VZlC5k
-         KmVIaN5kugqEK8xGHodYrAaBq1/LBqURUOvPksHiVpUHVG2HvrVOnxzo90Jl0G6pqXxG
-         n4fKFxn90Ayht0MnfjGbVYXAbHSCi0CKmZx0uhpL91VZy6+0RCBtcqznu8iF5PWcVAf3
-         eSZA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794968912; x=1795573712;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Ho54TYF6nZjSAVceuh96jk4faWMez+7R+0ZdE7pbCeo=;
-        b=EmRQRJMdwUNkNbmjdydvH4ZyAhyojmUjxQW2DdrYCIu1r7j2/S8IjgAKalHSL2qeZm
-         TQQ8FcWi5Q6/UIX0kzRfCKX60lUGvLS7tLZN4XMgK0pSlGjeTjqqHNBRpFsPGbX23poR
-         NeYlwpqFm9xYE+wBSNaghM8eINGKyZ3yUG1nDe+cbpCSUAmF5nqz9wUynuLo5lhPzMg5
-         Jok/JdNj+ur7cgHz+CTeWzxWYHPsvLFsalaS+67rgpr7jAyA20OyvOcatY1E2v6D1Eg4
-         IQ6+nnt9PSkQsPyWvgUS3op3aU+Ihv15tNtXeidP+CqbbK5y5m3PvkrqHF7JTPbwICMW
-         hiEg==
-X-Forwarded-Encrypted: i=1; AL+hErEjE8XV7NfYciwCYHeEfmm2Vqw01ui50w1YUaoPIVOKVwaqJvRZLzCcLCJUi3VfUX421JDTR5AzKqWMf9g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/KL67fjteaX09Lt/PPUL5/7GmwUDfDt3bNwLl85zmjwZhdE9cH
-	rK2S/6ugI0HpiVGZbe8C7Cxm3g3GbmYV2ps0djde4oWxuDHgIFlbnXbH
-X-Gm-Gg: AZFdTZd/7ngM1uOxjNyzsqiimVVOB0R81yQzryxLKXpWtBJzo9JXNmnIfrIyQanBfI/
-	aKVnNfS+76tY/3dyZO8UgIEuph1ZUO7PGxoq3eN92TQ08JlfmV81sardZBPSWbpmANPOyyiWVzJ
-	xoYKl75djZRwByiZY78HlrLEUpSfy/h1SJFTYH7YjqQq1MhTcFVj2SBEQaCgrJKs90B0fiBqwjK
-	9UOQTToqcCCMfwAUP99Z/S0mLrJ4gxG6Qxed2ILe7lWWCGbtXzGj/T5btlyR5HGnUcEGCbPu5XP
-	iQQo4z72ty0m19vySc/hV3v5U/QCW5WFiSeC8uzPXwF6Jj+joJWB4ACV3b8RhU1cMNINGxmCZmD
-	F0tX2qngsXZi38DP/WP1FDXnNrzS+TTWgfFXLAGJSJgtd3n6PpvvMQKZs5h0OzQwjBTZMXX7Rmd
-	RzEIq8it/g9zXwYSZni4eWZ7+BR4aw0VbP67TKxr/Dy+WZ80J4ZvHuK3Z+8RwzJliNj3g9yTK10
-	JWJfEo/Cdgj4JMHTMfMRJVot8xMhb5KcUI1mHBo2SiDUuF/QRMGcc+5lbBtcvOjKXl8nvfNlay1
-	hHwwSU6WPU/Z/qUyKVqCqC1TELP7Y1+h7UqTq+tdlopnOtBFBrTShiW37OOayTvain8AuTqzYud
-	AI+qBg6gsgWPEwA3ce2kidbw=
-X-Received: by 2002:a17:90a:dfc8:b0:3b0:9cc6:62ba with SMTP id 98e67ed59e1d1-3b3d07d410cmr1041938a91.38.1794968911769;
-        Tue, 17 Nov 2026 18:28:31 -0800 (PST)
-Received: from message.eml ([2a09:bac1:76e0:450::21f:e8])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3ac2b5ec6sm6700682a91.10.2026.11.17.18.28.28
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 17 Nov 2026 18:28:31 -0800 (PST)
-From: Zhiqi Zhang <zhiqizhangg@gmail.com>
-To: Eric Dumazet <edumazet@kernel.org>,
-	Neal Cardwell <ncardwell@google.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Kuniyuki Iwashima <kuniyu@google.com>,
-	Simon Horman <horms@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Tim Fuechsel <t.fuechsel@gmx.de>,
-	Lukas Prause <lukas.prause@ikt.uni-hannover.de>,
-	netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v2 2/2] selftests: net: packetdrill: add ROCCET RTO test
-Date: Wed, 18 Nov 2026 10:28:13 +0800
-Message-ID: <20261118022813.9778-3-zhiqizhangg@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261118022813.9778-1-zhiqizhangg@gmail.com>
-References: <20261118022813.9778-1-zhiqizhangg@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BDGvkxjs
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=OktuLr0DwTw9RYjPY5fkZ8QC4ABTj/yCvojAgRbuM78=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794968916; v=1; x=1795573716;
+ b=BDGvkxjs26vSVWd4EUkPQjjmrlssG/GZgx/5v/ZZEZvErLLHacjhlAbpYb8D5drihczG9Zob
+ wCWcNZgAlOGL5GR1IHPq3eQZd8BHYKvcQ8xCu8GD+WgdxcaQxq5vK/Vol7Cido21DrKituZn1IT
+ hxnF3ZvSByCdSllLY9vPJFXE=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id c63383c44b5772d0;
+	Wed, 18 Nov 2026 02:28:36 +0000
+X-Mizu-Trace-ID: c63383c44b5772d0
+X-Migadu-Flow: FLOW_OUT
+From: Qiliang Yuan <qiliang.yuan@linux.dev>
+Subject: [PATCH net-next v4 0/4] net: make moving a device to another netns
+ cheaper
+Date: Tue, 17 Nov 2026 21:28:29 -0500
+Message-Id: <20261117-bug-net-netns-move-rcu-barrier-v4-0-43e1ca0aac7f@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,114 +61,126 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAE0N/WoC/43NTW7DIBAF4KtEs+5E/NgYuso9qiwMnjhIMa7AR
+ q4i3z2ELlp1ky5m8fQ037tDougpwfvhDpGyT34OJTRvB3DXPoyEfigZBBOKM67QriMGWp4XEk5
+ zJoxuRdvH4kQcjNFOSdNqyaAgn5EufqsDH/D9ty1wLs3Vp2WOX3U589r/dyRzZNjwths6o1WrL
+ 6dx6v3t6Oap0ln85sxLThTOKrJdp5lrjPjLyR+Os9ecLJxiurF138rTzYd1Ow6U4bzv+wPYCo6
+ WdAEAAA==
+To: "David S. Miller" <davem@davemloft.net>, 
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+ David Ahern <dsahern@kernel.org>, Ido Schimmel <idosch@nvidia.com>, 
+ Nikolay Aleksandrov <razor@blackwall.org>
+Cc: Kuniyuki Iwashima <kuniyu@google.com>, netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Qiliang Yuan <qiliang.yuan@linux.dev>
+X-Mailer: b4 0.13.0
 
-Add a packetdrill test for the ROCCET idle restart on RTO.  TLP is
-enabled, so the first RTO is affected; the test asserts that
-tp->snd_ssthresh stays at the prior cwnd (20) across the first and
-second RTOs.
+Moving a device to another netns waits in rcu_barrier() with RTNL held.
+Container and sandbox managers move one end of a veth pair for every
+new network namespace, so this barrier limits how fast such namespaces
+can be created on the whole system, to about 70 per second with 4
+CPUs online however many threads create them.
 
-The test fails at the first RTO without the preceding fix
-(snd_ssthresh == 10) and passes with it.  A variant with
-tcp_early_retrans=0 (no TLP) fails at the second RTO only.
+The barrier was added for NETDEV_UNREGISTER_FINAL, which is long gone,
+but it still keeps cached IPv4 routes through the moved device from
+being accepted in the old netns, and it lets the RCU callbacks of the
+nexthops removed with the device release their IPv6 route exceptions
+before the move. Routes through nexthop objects are not fully covered by
+it: their cached dst entries are released by an RCU callback queued from
+another RCU callback, so a socket in the old netns can still send
+through a device that now belongs to another netns whenever the route
+generation numbers of the two netns happen to match.
 
-CONFIG_TCP_CONG_ADVANCED and CONFIG_TCP_CONG_ROCCET are added to the
-packetdrill config; ROCCET is only visible when advanced congestion
-control is enabled.
+Patches 1 and 2 draw the IPv4 rt_genid and the IPv6 fib6_sernum bumps
+from sequences shared by all netns, so a cached route no longer matches
+another netns. Patch 3 releases the cached routes of a nexthop when it
+is removed from a group, instead of leaving its IPv6 exceptions valid
+until it is freed. With these, nothing relies on the barrier, and patch
+4 removes it.
 
-Test written by Eric Dumazet.
+Without patch 3, removing the barrier lets a socket keep sending through
+a moved device that carries no IPv6 address and is a member of a nexthop
+group, until its exceptions are released. Datagrams a socket in netns A
+sent through such a device after it moved to netns B, 10 trials,
+median and range, with patches 1, 2 and 4 before and 1-4 after:
 
-Suggested-by: Eric Dumazet <edumazet@kernel.org>
-Signed-off-by: Zhiqi Zhang <zhiqizhangg@gmail.com>
+               before (datagrams)   after (datagrams)   change
+  per trial       1044 (444-7789)                   0    -100%
+
+Creating 400 netns, each with a veth pair whose host end is moved back
+to the initial netns, a tap device, addresses and routes, in a guest
+with 4 CPUs online, median of 5 runs:
+
+               before (netns/s)   after (netns/s)   change
+  1 thread                   30                32    +6.7%
+  4 threads                  40                48     +20%
+  16 threads                 69               110     +59%
+
+Signed-off-by: Qiliang Yuan <qiliang.yuan@linux.dev>
 ---
- .../testing/selftests/net/packetdrill/config  |  2 +
- .../net/packetdrill/tcp_roccet_rto.pkt        | 63 +++++++++++++++++++
- 2 files changed, 65 insertions(+)
- create mode 100644 tools/testing/selftests/net/packetdrill/tcp_roccet_rto.pkt
+V3 -> V4:
+- 2/4: reject the initial fib6_sernum in rt6_is_valid(), which a route
+  can record while fib6_add() has published it but not bumped the sernum
+  yet (Sashiko review)
+- 3/4: release the per-cpu routes and exceptions of the removed IPv6
+  nexthop instead of bumping the IPv6 sernum once per group, and flush
+  the IPv4 route cache at most once; this also drops the forward
+  declaration (Jakub Kicinski, Sashiko review)
+- 3/4: with the exceptions released when the nexthop leaves the group,
+  4/4 no longer lets nexthop_free_rcu() remove them after the old netns
+  freed its rt6_stats (Sashiko review on 4/4)
+- Drop the Fixes and Reviewed-by tags (Jakub Kicinski)
+- Rebase onto net-next and remeasure in a 32 vCPU guest with 4 CPUs
+  online, so the netns creation rates differ from v3
 
-diff --git a/tools/testing/selftests/net/packetdrill/config b/tools/testing/selftests/net/packetdrill/config
-index b7df8bf309..6e012141d5 100644
---- a/tools/testing/selftests/net/packetdrill/config
-+++ b/tools/testing/selftests/net/packetdrill/config
-@@ -6,6 +6,8 @@ CONFIG_NET_SCH_FIFO=y
- CONFIG_NET_SCH_FQ=y
- CONFIG_SYN_COOKIES=y
- CONFIG_SYSCTL=y
-+CONFIG_TCP_CONG_ADVANCED=y
- CONFIG_TCP_CONG_CUBIC=y
-+CONFIG_TCP_CONG_ROCCET=y
- CONFIG_TCP_MD5SIG=y
- CONFIG_TUN=y
-diff --git a/tools/testing/selftests/net/packetdrill/tcp_roccet_rto.pkt b/tools/testing/selftests/net/packetdrill/tcp_roccet_rto.pkt
-new file mode 100644
-index 0000000000..dabaf07f32
---- /dev/null
-+++ b/tools/testing/selftests/net/packetdrill/tcp_roccet_rto.pkt
-@@ -0,0 +1,63 @@
-+// SPDX-License-Identifier: GPL-2.0
-+// Test that ROCCET does not take its "restart after idle" path on RTO.
-+//
-+// An RTO retransmit raises CA_EVENT_TX_START, because all outstanding
-+// packets were just marked lost (tcp_packets_in_flight() == 0) while
-+// tp->packets_out is not zero. If (now - tp->lsndtime) >= icsk_rto,
-+// roccet_cwnd_event_tx_start() used to overwrite the snd_ssthresh
-+// that tcp_enter_loss() had just set with TCP_INIT_CWND.
-+//
-+// TLP is enabled here. The RTO timer is rearmed for a full icsk_rto when
-+// the loss probe is sent, and the probe is the last transmit, so the
-+// very first RTO is affected.
-+
-+`./defaults.sh
-+./set_sysctls.py /proc/sys/net/ipv4/tcp_slow_start_after_idle=1`
-+
-+    0 socket(..., SOCK_STREAM, IPPROTO_TCP) = 3
-+   +0 setsockopt(3, SOL_SOCKET, SO_REUSEADDR, [1], 4) = 0
-+   +0 setsockopt(3, SOL_TCP, TCP_CONGESTION, "roccet", 6) = 0
-+   +0 bind(3, ..., ...) = 0
-+   +0 listen(3, 1) = 0
-+
-+   +0 < S 0:0(0) win 65535 <mss 1000,sackOK,nop,nop,nop,wscale 7>
-+   +0 > S. 0:0(0) ack 1 <mss 1460,nop,nop,sackOK,nop,wscale 8>
-+  +.1 < . 1:1(0) ack 1 win 511
-+   +0 accept(3, ..., ...) = 4
-+
-+// ROCCET paces its packets: do not expect precise outgoing packets,
-+// rely on TCP_INFO instead.
-+   +0 write(4, ..., 10000) = 10000
-+  +.1 < . 1:1(0) ack 10001 win 511
-+   +0 %{ assert tcpi_snd_cwnd == 20, tcpi_snd_cwnd }%
-+
-+// RTT is 100ms, RTO is ~300ms. Nothing is acked from now on.
-+   +0 write(4, ..., 20000) = 20000
-+
-+// TLP fires ~250ms after the write.
-+  +.4 %{
-+assert tcpi_ca_state == TCP_CA_Open, tcpi_ca_state
-+assert tcpi_total_retrans == 1, tcpi_total_retrans
-+}%
-+
-+// First RTO, ~300ms after the TLP probe.
-+// ROCCET is still in LAUNCH state: ssthresh is set to the prior cwnd.
-+  +.3 %{
-+assert tcpi_ca_state == TCP_CA_Loss, tcpi_ca_state
-+assert tcpi_backoff == 1, tcpi_backoff
-+assert tcpi_total_retrans == 2, tcpi_total_retrans
-+assert tcpi_snd_cwnd == 10, tcpi_snd_cwnd
-+assert tcpi_snd_ssthresh == 20, tcpi_snd_ssthresh
-+}%
-+
-+// Second RTO, ~600ms after the first one.
-+  +.6 %{
-+assert tcpi_ca_state == TCP_CA_Loss, tcpi_ca_state
-+assert tcpi_backoff == 2, tcpi_backoff
-+assert tcpi_total_retrans == 3, tcpi_total_retrans
-+assert tcpi_snd_cwnd == 10, tcpi_snd_cwnd
-+assert tcpi_snd_ssthresh == 20, tcpi_snd_ssthresh
-+}%
-+
-+// Reset sysctls
-+`/tmp/sysctl_restore_${PPID}.sh`
+V2 -> V3:
+- Add patch 3: flush the cached routes of a group when one of its
+  nexthops is removed. Without it, patch 4 lets a socket keep sending
+  through a moved device that has no IPv6 address (Sashiko review)
+- 1/4, 2/4: say that cached routes carry values drawn from the sequence
+  because inserting a route bumps it, not because NETDEV_UP does, and
+  that this holds until the sequence wraps (Sashiko review)
+- 1/4, 2/4: add Kuniyuki's Reviewed-by, the code changes only in comments
+- 4/4: commit message only, keep Eric's and Kuniyuki's Reviewed-by
+- Rebase onto net-next and remeasure in another guest, where the barrier
+  costs about 4 ms per move instead of about 10 ms, so the gains are
+  smaller than in v2
+- Send from my linux.dev address
+
+V1 -> V2:
+- 2/3: keep the initial fib6_sernum of each netns and never hand it out
+  from the shared sequence, instead of drawing a value at netns creation
+  (Eric Dumazet); 1/3: do the same for rt_genid
+- 2/3: note that fib6_sernum is no longer monotonic per netns (Eric
+  Dumazet); 1/3: likewise for rt_genid
+- Drop Kuniyuki's Reviewed-by from 1/3 and 2/3, which changed
+- Rebase onto net-next and remeasure
+
+v3: https://lore.kernel.org/r/20261109-bug-net-netns-move-rcu-barrier-v3-0-6084b02610b3@linux.dev
+v2: https://lore.kernel.org/r/20261019-bug-net-netns-move-rcu-barrier-v2-0-b6eb7780c492@gmail.com
+v1: https://lore.kernel.org/r/20261016-bug-net-netns-move-rcu-barrier-v1-0-4157d798658f@gmail.com
+
+---
+Qiliang Yuan (4):
+      ipv4: draw rt_genid from a sequence shared by all netns
+      ipv6: take fib6_sernum from a sequence shared by all netns
+      nexthop: release cached routes when a nexthop leaves a group
+      net: remove rcu_barrier() from __dev_change_net_namespace()
+
+ include/net/net_namespace.h |  5 +----
+ net/core/dev.c              |  1 -
+ net/ipv4/nexthop.c          | 15 +++++++++++++++
+ net/ipv4/route.c            | 21 +++++++++++++++++++++
+ net/ipv6/ip6_fib.c          | 16 +++++++++++++---
+ net/ipv6/route.c            |  6 +++++-
+ 6 files changed, 55 insertions(+), 9 deletions(-)
+---
+base-commit: c432f1c3b529be7fdaa5c08feeeb640b6e144745
+change-id: 20261016-bug-net-netns-move-rcu-barrier-d998c6395830
+
+Best regards,
 -- 
-2.54.0 (Apple Git-157)
-
+Qiliang Yuan <qiliang.yuan@linux.dev>
 
