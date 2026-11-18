@@ -1,63 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.128.211.58
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.250.60.165
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795020817;
-	b=cD8C+PBwPW7ZWO+sUe8sTPzQyCWPvhk8Qy/WFL3iEs/uk9vSXaDa4sqFKh4iMMY9KeZ7
-	 ffAsxZE099Cfu5nMK4H8DeXzS/u5oIZ4T8gp/30ewjBToafXB3hyZRCZ0bF/wneRXZoyW
-	 8JzI58GPVVXREgE4mQlvxvZtezVtL8VemyY/t+VUoWS7CtlsJO1YAwQNrEQ35a6pBUYtq
-	 Zd/c/GbCUwjCDGWfRBoGOpTYKW8PIeJ0T8C9udH0RLGUmRtDtzu3jYZ1Y0bO8OnG7xAXe
-	 kpHlACV2aUPlZrocLBKBTMJXp7tQ6HK0UOP81CqCqLkwI+sgHKjFNckbR2fnuVeuOEw==
+	t=1795020846;
+	b=mIwJrUfewzAkX0JJMwylhVXQGtjYGNtt7ojPgLmNUkVEu8HIwVZ5SB3i9dmGITlDeFdL
+	 xJeh4jOdDXx9xaYTE0Ev/i0GTcE6MUmkF2QWv35gUDJnbmLye4HZ2OBQKGJJ4s3j9OD2z
+	 TVhYdSA/VYjBYrooOkCjTTaNsbDZmYtkcnaePHtla2ff1XUxB2I1TdNoKVyDZEKcQvql/
+	 PgQMO8qkHXD4hvKsJIWXSysox7nG64TxLW/YN0tJhHXpwCVkDYFI6xbitIQCrHmVww1MG
+	 DyyxCF4z5NmHAIhBjY9MiIFaS88riU0UQUoRfsgBQdxebz/4URF2BqhRVwTXahmwIEw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795020817;
-	h=DMARC-Filter:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=trsZ+1RZme3i6jPw3o065+OWOfJHPXUoMlTsFMytG/E=;
-	b=tbVCpDS4foGEnaqvvyiIVoBjf/Esd8hhMI/CFPAijf+gFqqTjDcnZmgYQYM8s7bNMRXe
-	 rZBF2FJi874YAeYz08aXHnvpnNzaNK1tDxD4cQ5af+8R+oWQBPF9/IWFKxSqYhCW930I7
-	 43NauE64xcrVkbACQ+oi+VxEu3YiapurtxHqMvRsedeI/wOjMBMmP1r+FU091bA2LNfGJ
-	 GXyWJ2ZbNfRvCjRKD1jB+kdCY+7m3ge9Aw4ZLz7YbNmM38hNogLq/zPsGbXwuNwdFgaCS
-	 P09wQN++GD47j+uAf//7WgQvKHvH94trUV8PXb0B3aRzEVcikg8ohV+ZTuaT0Q6xw1g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795020846;
+	h=DMARC-Filter:Received:Received:X-Yandex-Fwd:DKIM-Signature:From:To:
+	 Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=EOJ8Sv/YlC8vz0y+8TQ4TF7t2l9IIfJq2FXNg6WSXn8=;
+	b=Jlj5RWynKkCi0Yc5g/rxnM7n+sQ5h29pKccRQu5ZLJiwAe9SijJ1529hD7VKdF9+kvKy
+	 gVu4KHM4KrjbDZAgca97G16ulY6RNqUbovkVBKcBiag4Rz3BF4VM8zN1E64dYy36esDoi
+	 l2k2acha9rCXnmZW4gSA182m8geyPVg177+joF7PUho1BTiRNc/Ie9rDcFXwNH2LBnXon
+	 qxho1/MYWqnIEAhtad/2DqCMH0UgW60pj1PBIupKlfSENb3FQE53B8Ze51+kOQBdsInVn
+	 DIW1uLtIMWamjWoHdM0qHyF02Iac6DCzearFj8zdR0Tx4GC03srr0ZOaniUdhV3Ab6w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=librecast.net;
-	spf=pass smtp.mailfrom=librecast.net;
-	dkim=pass header.d=librecast.net header.i=@librecast.net header.a=rsa-sha256 header.s=2026110900 header.b=ZQ31Zats;
-	arc=none smtp.remote-ip=185.128.211.58
-Received: from bregans-1.gladserv.net (bregans-1.gladserv.net [185.128.211.58])
+	dmarc=pass header.from=yandex.com;
+	spf=pass smtp.mailfrom=yandex.com;
+	dkim=pass header.d=yandex.com header.i=@yandex.com header.a=rsa-sha256 header.s=mail header.b="IoPwM4/+";
+	arc=none smtp.remote-ip=51.250.60.165
+Received: from forward105d.mail.yandex.net (forward105d.mail.yandex.net [51.250.60.165])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF993606A337;
-	Wed, 18 Nov 2026 16:53:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AF993606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=librecast.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=librecast.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B56560A260E
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:54:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4B56560A260E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=yandex.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yandex.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=librecast.net header.i=@librecast.net header.a=rsa-sha256 header.s=2026110900 header.b=ZQ31Zats
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=librecast.net; s=2026110900; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=trsZ+1RZme3i6jPw3o065+OWOfJHPXUoMlTsFMytG/E=; t=1795020816; x=1795884816; 
-	b=ZQ31ZatsKWh653EzUQcHnOn7X1PKDnsnVLmY6mKiZ4MX2WkmA0gON1RoObE+DpAkji9RBNeGFQ3
-	NKaTAujKP+QdNR+kKzWOpwlYyCU4kV1y4nMH8p6RzGXcTh62sadTyCW4wsd88SY6GOZWy5z9+jKFt
-	zG/Eh3er5FMlsQ+eiq21RoSx5Ngn9U8DJNPfOT7XSl9X1+CBjJrIJ9HgOGU1CBGjateWmRntawrhV
-	kCCv05yrkNATMVkl6ig+m2tkcUZKDXsGuD392eAPR3BF538kWrgixJXZ2hkKiTHarMWUpD3bN/U8X
-	d87cVNbz04osBCXwIXTj1gKcA5ZaiBSdbNSQ==;
-Date: Wed, 18 Nov 2026 17:44:43 +0100
-From: Brett A C Sheffield <bacs@librecast.net>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: stable@vger.kernel.org, patches@lists.linux.dev,
-	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
-	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
-	patches@kernelci.org, lkft-triage@lists.linaro.org,
-	pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com,
-	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
-	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
-	sr@sladewatkins.com
-Subject: Re: [PATCH 5.15 0000/2214] 5.15.226-rc1 review
-Message-ID: <av3V--DT8f8qsT_9@karahi.librecast.net>
-References: <20261118150009.797899913@linuxfoundation.org>
+	dkim=pass (1024-bit key, unprotected) header.d=yandex.com header.i=@yandex.com header.a=rsa-sha256 header.s=mail header.b=IoPwM4/+
+Received: from mail-nwsmtp-smtp-production-main-66 (mail-nwsmtp-smtp-production-main-66.yp-c.yandex.net)
+	by forward105d.mail.yandex.net (postfix) with ESMTPS id 37EBB100036;
+	Wed, 18 Nov 2026 19:53:55 +0300 (MSK)
+Received: by mail-nwsmtp-smtp-production-main-66 with ESMTPSA id YrdcVw0j54Y0-vlfv0vrV;
+	Wed, 18 Nov 2026 19:53:54 +0300
+X-Yandex-Fwd: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex.com; s=mail;
+	t=1795020834; bh=EOJ8Sv/YlC8vz0y+8TQ4TF7t2l9IIfJq2FXNg6WSXn8=;
+	h=Message-ID:Date:In-Reply-To:Cc:Subject:References:To:From;
+	b=IoPwM4/+G6iuBYnsqs6wPD1Mec6CqC38mgXduK3ckxC8/7q2aZJEurdTHiHuxi43S
+	 PpK2fLEqUxSU7yojJa8TJAlERPg8rM5Zt0ywQL9DBGpyB91anpM61xuQURfBl7gi0E
+	 bqJV+oqtUGAb4P1MSObTvsB9m3TPvvSRqJVfvJiM=
+Authentication-Results: mail-nwsmtp-smtp-production-main-66; dkim=pass header.i=@yandex.com
+From: Alex <xnderv@yandex.com>
+To: Lyude Paul <lyude@redhat.com>,
+	Danilo Krummrich <dakr@kernel.org>
+Cc: dri-devel@lists.freedesktop.org,
+	nouveau@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	xnderv@yandex.com
+Subject: Re: [PATCH v2] drm/nouveau: idle the channel before destroying an engine object via abi16
+Date: Wed, 18 Nov 2026 19:53:28 +0300
+Message-ID: <20261118165328.53341-1-xnderv@yandex.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261023152332.9420-2-xnderv@yandex.com>
+References: <20261023152332.9420-2-xnderv@yandex.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,26 +68,15 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118150009.797899913@linuxfoundation.org>
+Content-Transfer-Encoding: 8bit
 
-On 2026-11-18 15:27, Greg Kroah-Hartman wrote:
-> This is the start of the stable review cycle for the 5.15.226 release.
-> There are 2214 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
-> 
-> Responses should be made by Fri, 20 Nov 2026 14:55:35 +0000.
-> Anything received after that time might be too late.
-> 
-> The whole patch series can be found in one patch at:
-> 	https://www.kernel.org/pub/linux/kernel/v5.x/stable-review/patch-5.15.226-rc1.gz
-> or in the git tree and branch at:
-> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-5.15.y
-> and the diffstat can be found below.
+Hi,
 
-Same build failure as reported against 5.10.y
+Gentle ping on this one. v2 addresses the review comment on v1 (wait for
+the scheduler job queue to drain before idling the channel). It still
+applies cleanly to current mainline (checked today, 2026-11-18).
 
--- 
-Brett Sheffield (he/him)
+Is there anything else you would like me to change?
+
+Thanks,
+Alex
