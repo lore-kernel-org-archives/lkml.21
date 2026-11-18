@@ -1,75 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795036190;
-	b=0KlR6d3i8tVJ//WmdR/mStxwhSJRb83mUSHHXTtu2WJzBq55W3fArLlZ7bF/AeTz7Z1/
-	 IkT2W0skgFZVuLxwXpAfG5JV9VaPzocp8ltDS4HX669V5EErJyHScjCYwaFX1SICnbiEn
-	 0kAo81UZJ60nvWHvG2JgS3xhJM7TToJKTTB8NYpLVjum1J5iJ1cA3KOOhcsVpIdgxtJH4
-	 cB4PFBStcs5FYM+VmyDOo1gKQQ0IqGA+nRJ0PnhMb9DBWn3sFFFBUAlG16rinaLdLizQF
-	 kMTN1CKi/YklGeyOdIedN8o+SULyxC03JPgziKM1sUlwg2x+ZS310UHv4+gZ1fOaxYg==
+	t=1795036195;
+	b=Dql+j+DcoCgVdpbfk6ZqykMZWsjv4zUCZ2JE5hf602+gb/5c7hLKestWq38iuXJGTAfO
+	 pCBth6xhc74gVHhMbP5wLdmfOypqGgRhnZIivYWAiQ4rSNcloy3ZGHNtB4usihpjmwScg
+	 2No74+DrZ1QePjaUz3fW3o1QxeTHMXDM+0M2Afa18vpkU5mTQDyyfZ67r932KgEZ9kPmH
+	 7ramqarxzgaHJMVQUpXMzRNnbxEhI4m7ZWn+TNIJM4POBVXMgG4czled85JqBsF/BYGQX
+	 VDIgm5clkXkY6rkuLoEnANGBWICvPtodkkU9Jl6fRdSduGEAvss2E+cCbEa7gmkvYOg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795036190;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=INm/FnEpTCfTyow7VOum/3qmO9+j35dJqSIb5QUtmvg=;
-	b=LwauEFHA68T5752WPHXRidoGSguTTj17hXdlGh+59bkEsDEvC8/qWASl59AlPfcAAksw
-	 C1LEhfgF+5mc0oqko+CySLZc+f1dex2XiplU1b8f/z8xeFi4tWIlV078wT76SEu+YxjgR
-	 tP60MqzmveJ3QeTjJ3/pMijlz85oAxDViWuubGLAkTdeTIpeg/29CIzm8UaXTXkjs6ZFl
-	 jd9pPBKbnwZ+b13f3u4nsmOGfTaTSTTGJIyvHlweUiBRHSvBHXZF0g6dhxwyICcFD5R4e
-	 uRJSa61fQ1+CPHQmRXn5tzRNJIYch3tDYtD9LB/bNLXa/iPVEeoN4RUWSV3kwvCKczA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795036195;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=jr2i5Ws8efXcq7fsLottyNoSDK02f27nflx3w/WwBX4=;
+	b=Q/JXy3RTKmw+TC/ocYMVPR0ny/ymCNs7dZpRFudEYWC1Elw7lMyhLxrZKWZYtKb3GXOs
+	 2MSov8VubmQtBp/RHp5tnl8IxEYgOdEklQbBTw3UqiYPTwXBdl7fApyFDgWCA9svdOdSh
+	 d33wG7mDywipyCU5ne1ZF9q9Sy367/LcvQepuk1HNEhuSlfI5cRBlZtqU5yk8qHsezzin
+	 NaK35H/nsmRPovO1oR1sdFYxAuBAJw1SeUI79VaELSk2hpNXr7MT049J0UKzEwc669IRn
+	 AJcZO3aatZayGHKrIUKZXOPjW+qOxG+feZ0xYbEYaWmB5DgUn84uB/xUfGnqLouYZkg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--thaisonphan.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=EEHEWhA1;
-	arc=none smtp.remote-ip=209.85.222.71
-Received: from mail-ua1-f71.google.com (mail-ua1-f71.google.com [209.85.222.71])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="e/v+eP0h";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7444E60A2610
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:09:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7444E60A2610
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--thaisonphan.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91D37606A32F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:09:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=EEHEWhA1
-Received: by mail-ua1-f71.google.com with SMTP id a1e0cc1a2514c-9907539aff7so807864241.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:09:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795036189; x=1795640989; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=INm/FnEpTCfTyow7VOum/3qmO9+j35dJqSIb5QUtmvg=;
-        b=EEHEWhA1wUvsfNWjiWjO8Btw4tCYofSgDkVStNN+MPTXz1TUEM+a7g26y/lO4VSZE2
-         PLW7N9U4/nIwLw/yUf/UNYhvt3rBs9fSMXnVW5JRv19r4S0lNcV88821rj5zQFFO1KPV
-         fVlT3qTZORCDQEG8l4nnEy9TGplQoHk5udO6/akwUAVB5uqEQuawfO1S4L6VhWnffN5s
-         u7WIhm8yfIyodg5yNOQHX4S8S7mWiBVS0whd0AKDNUVD53A2G8E/MvHK1RotSqOlKwzg
-         3mA588qLmM5Sp/xHUcfb7d0LdjFNCUG73SC8zJ/2yJE79eOGW9bCKQvWr4u+Fc6EQH/c
-         BDIA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795036189; x=1795640989;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=INm/FnEpTCfTyow7VOum/3qmO9+j35dJqSIb5QUtmvg=;
-        b=RFfj3++vI1KCWBbghVppjDNexouzP6v996ZIst41jIsZlnW6sfcWH4ldxBEglQKzBC
-         CXGj8beq+y2k7snSvwI2E3+hF8+5+Ce5MxPB9C/Q7Gwz4VZcbKqDnJU8R0tASa/R4Q0e
-         NVBlOWconsZPxsUrmMrHf79yevm+uXQfalGYe+t3nmD3yghNLEOCtsvSUZY7OUAr4cKp
-         kc2S46X1hqEeBqrimp43FfjGGJFGimjPa2HdrbZQY6hn9gJqGHo6/TpRs0p+xdHCfwl9
-         2+s6WMiOuv8l/zfLD79jcrG5haluJQJtJhRhjxAhw8Jfn+/mLneOWb8nKFGRlt+PLNXU
-         sSig==
-X-Forwarded-Encrypted: i=1; AL+hErHw+46KkJw1r8x31TPqCYx2B6JC6TPrcde87RHr/OgyJfEn8ObYiHkSikQhGka1jOwvbMIoaXIYuUYhBLI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/09PYdd4njQVSUl1igvaHarsVxZ5QTe/zVmkw75eJ/dVanCfY2
-	DJKEw8kFuGqbbyEhZT75BJ2KI/94ZBjJfLqHYG/s24cBPVzkNwYWn7gZgwT5XaItMtiP/5V6CeM
-	u0L7mUBPrtDLe95te/9FTUCZNzw==
-X-Received: from uabjw11.prod.google.com ([2002:a05:6130:8b:b0:998:b46f:334d])
- (user=thaisonphan job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6102:50a3:b0:7ab:af4a:f2f3 with SMTP id ada2fe7eead31-7d6ba43ebc0mr1873249137.26.1795036189080;
- Wed, 18 Nov 2026 13:09:49 -0800 (PST)
-Date: Wed, 18 Nov 2026 21:09:33 +0000
-In-Reply-To: <20261118210933.2477423-1-thaisonphan@google.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e/v+eP0h
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70BA91F000CB
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:09:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795036195;
+	bh=jr2i5Ws8efXcq7fsLottyNoSDK02f27nflx3w/WwBX4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=e/v+eP0hWOV6kjrBAYvATcWqJ/gpTYajGabAuTPKDi7RdPofCoC4e4edajjc5vl40
+	 9yfvw4ZdmUN7Uf2c53lZTCOqs505LhW/o4zhZIDc+pnvObwR31spw8mxRUee1Al9y8
+	 tMCLQxfN0H8Y8nP2MqZA1EC3Wyb3Hb0imIEt6VKrRrtYYbZ0OfGkb5yehDHQqfy5DZ
+	 fNqnR2Ds/v3WKlR+NbSZQ1jSa65a8kBBXS8dDyquOO89DCX7OWtqJiKP51UimA9hNt
+	 W+8MYCG0JCTZKPxdOJ8Zz7jjSftDVIP+0zfe7+dV58zgGOzzdco5q6OTz8JltFYLQP
+	 EpFBCJR/jEn5w==
+Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-3ae2ab35d82so13392721fa.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:09:55 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErGZz/8KgeGIkMQSgyjWWP3YkIUHuJ7PRPimLWxoWN2RQ9EdMI07QpxYhbRMSUdBRYCXEABCAm/fJrbmCzc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/Hd8UnSd+8bJMbcq2yiqUl9j+391ha69DAE4JIFRB3iZFa8lXV
+	NbC7Kbx3CtJyRarOrJI4EQp+jFgM4D4mlRPpwIwqnG7VWeSFkwY3GOA3lhRuW07WXK9V2CH4oXo
+	nKD624YOvb6ZJFUiRTPrwBVI6BdUhgcE=
+X-Received: by 2002:a05:6512:6891:10b0:5c1:b107:2bb with SMTP id
+ 2adb3069b0e04-5c1b107097dmr214230e87.29.1795036194225; Wed, 18 Nov 2026
+ 13:09:54 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,119 +58,38 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261118210933.2477423-1-thaisonphan@google.com>
-X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
-Message-ID: <20261118210933.2477423-3-thaisonphan@google.com>
-Subject: [PATCH net v4 2/2] tcp: accecn: initialize AccECN fields in syncookie path
-From: Thaison Phan <thaisonphan@google.com>
-To: Eric Dumazet <edumazet@kernel.org>, Neal Cardwell <ncardwell@google.com>, 
-	Kuniyuki Iwashima <kuniyu@google.com>, "David S . Miller" <davem@davemloft.net>, 
-	David Ahern <dsahern@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Matthieu Baerts <matttbe@kernel.org>, Simon Horman <horms@kernel.org>, 
-	"=?UTF-8?q?Ilpo=20J=C3=A4rvinen?=" <ij@kernel.org>, Olivier Tilmans <olivier.tilmans@nokia.com>, 
-	Chia-Yu Chang <chia-yu.chang@nokia-bell-labs.com>, Stan Iliev <stani@google.com>, 
-	netdev@vger.kernel.org, bpf@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Thaison Phan <thaisonphan@google.com>
+MIME-Version: 1.0
+References: <20261110083253.1525-1-laixiangwu@cmss.chinamobile.com>
+In-Reply-To: <20261110083253.1525-1-laixiangwu@cmss.chinamobile.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Wed, 18 Nov 2026 22:09:40 +0100
+X-Gmail-Original-Message-ID: <CAD++jLn1P9hT-YH9vM9VSvoMRei5LJv+hDZMH1en6CfFXPB-5w@mail.gmail.com>
+X-Gm-Features: Aa3M54qVfEnBQGnC1md9osy2E13w8uoX854ImpVfar6VoMvtX9B4F6U4NV-DAk4
+Message-ID: <CAD++jLn1P9hT-YH9vM9VSvoMRei5LJv+hDZMH1en6CfFXPB-5w@mail.gmail.com>
+Subject: Re: [PATCH v2] pinctrl: stm32: Fix reset control leak in
+ stm32_pctl_probe() error paths
+To: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+Cc: antonio.borneo@foss.st.com, mcoquelin.stm32@gmail.com, 
+	alexandre.torgue@foss.st.com, linux-gpio@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-cookie_tcp_reqsk_alloc() and bpf_sk_assign_tcp_reqsk() allocate struct
-request_sock without __GFP_ZERO, leaving saw_accecn_opt,
-accecn_fail_mode, syn_ect_rcv, and syn_ect_snt uninitialized. When
-accecn_ok is negotiated in cookie_{v4,v6}_check(),
-tcp_ecn_openreq_child() reads all four fields to initialize the child
-socket's AccECN state.
+On Tue, Nov 10, 2026 at 9:32=E2=80=AFAM Xiangwu Lai
+<laixiangwu@cmss.chinamobile.com> wrote:
 
-In addition, because the temporary request_sock used to send a cookie
-SYN-ACK is immediately freed, treq->syn_ect_snt is lost. For AccECN
-connections where the listener marks ECT on the SYN-ACK, leaving
-syn_ect_snt as 0 causes tcp_accecn_third_ack() to see a mismatch between
-the expected Not-ECT and the peer's reflected ECT in the ACE field,
-erroneously flagging TCP_ACCECN_ACE_FAIL_RECV in accecn_fail_mode. Refer
-to Table 4 of RFC 9768 for more details.
+> Signed-off-by: laixiangwu <laixiangwu@cmss.chinamobile.com>
 
-Initialize the AccECN fields in cookie_tcp_reqsk_init() to match
-tcp_openreq_init(). For kernel-generated cookies (!req->syncookie), set
-syn_ect_snt from the listener's TOS/tclass in cookie_{v4,v6}_check() to
-match tcp_{v4,v6}_send_synack(); for BPF custom syncookies
-(req->syncookie), leave syn_ect_snt at 0 (Not-ECT) since the SYN-ACK was
-built by the BPF program rather than the kernel and bpf_tcp_req_attrs
-does not report the SYN-ACK ECN codepoint.
+Fix your email address in .gitconfig please so you don't use
+your login name as name.
 
-Found by AI-assisted code inspection comparing tcp_openreq_init() and
-cookie_tcp_reqsk_init() while investigating the cookie_v6_check()
-LOOPBACK4_IPV6 bug. Reproduced in a QEMU VM with tcp_syncookies=2,
-tcp_ecn=3, SLUB_RCU_DEBUG=y, and slub_debug=P, observing bogus
-tcpi_accecn_fail_mode and tcpi_accecn_opt_seen values in TCP_INFO on the
-accepted child socket (and tcpi_accecn_fail_mode=0x2 on ECT(0)
-listeners), and tested with packetdrill AccECN and syncookie selftests.
+Example:
 
-Fixes: 3cae34274c79 ("tcp: accecn: AccECN negotiation")
-Fixes: b40671b5ee58 ("tcp: accecn: AccECN option failure handling")
-Signed-off-by: Thaison Phan <thaisonphan@google.com>
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
-Reviewed-by: Matthieu Baerts (NGI0) <matttbe@kernel.org>
----
-v4:
-  - restore treq->syn_ect_snt = 0 in cookie_tcp_reqsk_init() and guard
-    syn_ect_snt updates in cookie_{v4,v6}_check() with !req->syncookie
-    for BPF custom syncookies; document in changelog (Sashiko,
-    Eric Dumazet)
-  - add Reviewed-by tag from Matthieu Baerts
-v3: https://lore.kernel.org/netdev/20261117124710.1338951-3-thaisonphan@google.com/
-  - clarify syn_ect_snt / tcp_accecn_third_ack() description for
-    AccECN connections and reference RFC 9768 Table 4 (Chia-Yu Chang)
-v2: https://lore.kernel.org/netdev/20261116023709.132684-3-thaisonphan@google.com/
-  - drop redundant treq->syn_ect_snt = 0 in cookie_tcp_reqsk_init()
-    (Eric Dumazet)
-  - clarify how the bug was discovered and observed via TCP_INFO
-    (Eric Dumazet)
-  - add Reviewed-by tag from Eric Dumazet
-v1: https://lore.kernel.org/netdev/20261114161248.3428695-3-thaisonphan@google.com/
+[user]
+        name =3D Linus Walleij
+        email =3D linusw@kernel.org
 
- net/ipv4/syncookies.c | 7 +++++++
- net/ipv6/syncookies.c | 3 +++
- 2 files changed, 10 insertions(+)
 
-diff --git a/net/ipv4/syncookies.c b/net/ipv4/syncookies.c
-index 4e0ff3b82062..89169c82431c 100644
---- a/net/ipv4/syncookies.c
-+++ b/net/ipv4/syncookies.c
-@@ -290,6 +290,10 @@ static int cookie_tcp_reqsk_init(struct sock *sk, struct sk_buff *skb,
- 	 */
- 	treq->txhash = treq->snt_isn;
- 	treq->syn_tos = TCP_SKB_CB(skb)->ip_dsfield;
-+	treq->saw_accecn_opt = TCP_ACCECN_OPT_NOT_SEEN;
-+	treq->accecn_fail_mode = 0;
-+	treq->syn_ect_rcv = 0;
-+	treq->syn_ect_snt = 0;
- 
- #if IS_ENABLED(CONFIG_MPTCP)
- 	treq->is_mptcp = sk_is_mptcp(sk);
-@@ -502,6 +506,9 @@ struct sock *cookie_v4_check(struct sock *sk, struct sk_buff *skb)
- 		ireq->rcv_wscale = rcv_wscale;
- 	ireq->ecn_ok &= cookie_ecn_ok(net, &rt->dst);
- 	treq->accecn_ok = ireq->ecn_ok && cookie_accecn_ok(th);
-+	/* SYN-ACK was not sent by the kernel if req->syncookie is set. */
-+	if (!req->syncookie)
-+		treq->syn_ect_snt = READ_ONCE(inet_sk(sk)->tos) & INET_ECN_MASK;
- 
- 	ret = tcp_get_cookie_sock(sk, skb, req, &rt->dst);
- 	/* ip_queue_xmit() depends on our flow being setup
-diff --git a/net/ipv6/syncookies.c b/net/ipv6/syncookies.c
-index b33011b71fff..e8d45a627ca2 100644
---- a/net/ipv6/syncookies.c
-+++ b/net/ipv6/syncookies.c
-@@ -276,6 +276,9 @@ struct sock *cookie_v6_check(struct sock *sk, struct sk_buff *skb)
- 		ireq->rcv_wscale = rcv_wscale;
- 	ireq->ecn_ok &= cookie_ecn_ok(net, dst);
- 	tcp_rsk(req)->accecn_ok = ireq->ecn_ok && cookie_accecn_ok(th);
-+	/* SYN-ACK was not sent by the kernel if req->syncookie is set. */
-+	if (!req->syncookie)
-+		tcp_rsk(req)->syn_ect_snt = READ_ONCE(np->tclass) & INET_ECN_MASK;
- 
- 	ret = tcp_get_cookie_sock(sk, skb, req, dst);
- 	if (!ret) {
--- 
-2.56.1.831.g720f3f5937-goog
-
+Yours,
+Linus Walleij
