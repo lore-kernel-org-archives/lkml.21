@@ -1,79 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795011486;
-	b=TxOeo5lHvQ3FDUwLqu938eXgN6oUuE9+fzojxVJ5LNMvnVGwqwAOBSyTyNtpk+6nY8vo
-	 NlAsNqTBRGsMjXGFEmiwIW+uk+kkVXlFuIIRnp1UqYUXGXcSJPegbxaM3c8fsxTT3en1X
-	 Gyr5qYV47txFxTtyO/6ie+fO1PuO/eZfhRuETR89eRO43s1HcC20R+gWpmd+T+F6trDAa
-	 PlsWghOSv/tET1ZQg3lMjLUW9jaWtO1uA/5IReIqP6OwLM/hfyN7R9iLaDdWKRrKWBzpc
-	 6XLvBfVxFDzZ7F1BB0DKjzZAPFhG67xSKm6FI/t8jaRmHoBSD/4N/r0ARby1WCjqFLQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795011486;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=dw8kfo0jr+5HnxA4ZRVp7iOwPegZqFvAC4q9TGpP07U=;
-	b=p8kX45cbIqVVP4Mo2hOZ6J2cJGl3qZT5YkdkzvZ3kDcasztaMwVRPV5s39K2N+7VUuJW
-	 u/H414OUcxE3cWOyhrBFt3TUNQa+qXipNv8JQmxaoetfH89D2ngJ+e8wfEKImOwdha2UB
-	 piCk1sQ5XJLZyhXJm+9c00+xyoJ716qDhRn9gWYISWFri+gLbVvFJUDnoX7RM+0kOlLZk
-	 3ifOiPKrWMkxoVP4cXSG6N9plC6kk+PWM4j7S6Wkboz/ZE4MkdvvZ4gM3y+A1uS2WshL/
-	 z/L4Qvpey/mTVLXyOWp74WbGw1MZHVojORhDl+ZIwQs1Tlm+mB9ryFxwQF1JyzIG8ig==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hcjoV049;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.42
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795011498;
+	b=FZ+bwqO7j7ZN0oSOnl6OENUP2cNtczLntSYi59zL1O/aSge+Sxnh1YW9jdfk5XODw/mD
+	 F1xvotVaUv1HUHHPsNG7NfhRbVePduUHSyJM2Hlors9FiujWSE6mHyukIQpwSx+/81sRL
+	 I1rMkoFSH5RCmNL7DF4KGl78PiF4sW1DQvCzQheNRzxxQEtBHqguQACi6C1ULKMV7D7in
+	 jf7HePdzgW2vJ3KT3O64v7rZY65V4ZxZl/DQm7LEPvl7T05uNyJKbY9uXhcT8lEWi51yo
+	 OcZWmIT0qoWM5TcdNnPJ+0ZGXDPyvPSN92oDuWI3sGz0k74Vy4UFuroKMN/k7BLS7XA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795011498;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=E995rutgSzyg1i9LNX9zVJhyluCmPXgjFoQIxd7q954=;
+	b=k28oipjaifPv0Qi4nLaaTV8h27vjZrmXOBewSpn5fm/+1G8UT6jwsudcHu8VteqIdlf1
+	 3wSnVkllXe7rOxrTE+762NItNkXreOb/SsAK3BQItsW20EV4L9n2ogHuQuX9xytUZZiO9
+	 ZzCyUQdA5Hkp/e+2r/BmLU7b4HHuXQl79vP+FOBMw8zsqrrHAVIbddq0YFNwrRpj50NDY
+	 oDiKaoH/dmrJecnRiNjJLKMw6gDKF6Ixz6GxudBE6mLOvTYo2gsNA9OIKyouctXeh6fpf
+	 GM0GTHA34j/k+eUilo2TkhLgpp1tPXy0vId8ER++PT6uWmYGC8EH6ehwQtDWhWP+x5g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=amutable.com;
+	spf=pass smtp.mailfrom=amutable.com;
+	dkim=pass header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=O5UUux+N;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.42
+Received: from mail-yx1-f42.google.com (mail-yx1-f42.google.com [74.125.224.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AAAD606A333;
-	Wed, 18 Nov 2026 14:18:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FEE3606A339
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:18:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9FEE3606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=amutable.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amutable.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hcjoV049
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E360C1F000C4;
-	Wed, 18 Nov 2026 14:17:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795011485;
-	bh=dw8kfo0jr+5HnxA4ZRVp7iOwPegZqFvAC4q9TGpP07U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hcjoV049icqMAqOW/hYn+GtbP550DC9ZCxh1djiAIYxD5bhiR5bxmNaKM+xKbb9RD
-	 LAJ9NaCx2SsaUPDUboVSqG/cBj/qhdcP2jLYhO8qlLGLXUaNbEU0t+Lzo56lZb1HCw
-	 w8NIqcNkhyfvPKtmxh0ZZiWN+uwczWz7X2JD+N5xKV8PPc5KOo0hzKhmkiBi9iWmjt
-	 1BwyP9EBC74Rguwwa1WnsKhgFDuovM5D41N78CtFfc7BiSBmENU/E1EyQDGmULe4eL
-	 KCaNQzMe1IOyAVOkSYJuJTFBBH4rrvtXnvtjxAB6YGnO2ryUHBWVI+2w8+WJ2Y9So1
-	 5kucFx7ApUHBQ==
-Date: Wed, 18 Nov 2026 16:17:53 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Chris Down <chris@chrisdown.name>
-Cc: Muchun Song <muchun.song@linux.dev>,
-	Muchun Song <songmuchun@bytedance.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marco Elver <elver@google.com>, Dmitry Vyukov <dvyukov@google.com>,
-	David Hildenbrand <david@kernel.org>,
-	"Liam R . Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Brendan Jackman <brendan.jackman@linux.dev>,
-	Zi Yan <ziy@nvidia.com>, Joerg Roedel <joerg.roedel@amd.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Pranjal Shrivastava <praan@google.com>,
-	Ketan <ketan.kishore@oss.qualcomm.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Sang-Heon Jeon <ekffu200098@gmail.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Sashiko <sashiko-bot@kernel.org>, kasan-dev@googlegroups.com,
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org
-Subject: Re: [PATCH v2 5/7] mm/page_ext: allocate page extensions early for
- SPARSEMEM
-Message-ID: <av2zkUpYGmGWPx8T@kernel.org>
-References: <20261117120627.50601-1-songmuchun@bytedance.com>
- <20261117120627.50601-6-songmuchun@bytedance.com>
- <avzsFxVqO27Vf4Db@chrisdown.name>
- <3C50E682-848F-4788-9238-923D5E292DEE@linux.dev>
- <av1M9itGiTF1Akqi@chrisdown.name>
+	dkim=pass (2048-bit key) header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=O5UUux+N
+Received: by mail-yx1-f42.google.com with SMTP id 956f58d0204a3-67da62357acso1351108d50.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:18:17 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795011497; cv=none;
+        d=google.com; s=arc-20260327;
+        b=cfUsT7GqXPUtOeQOjbt5TPRyIyuyzZc7O52PVuCOKIK0eDBeH27VVFL1HE2PV/peNO
+         GcHKQXz8bub68DZJ2zrshf8vIWsEt3eVAw0k70USN/w+VNeMr52XuVmvfC13mjNA1aM1
+         s8OOknFqTCArZg5hjg51xwfmVNdUZFoFCI1YWOkYlhzM0r2Thqu2Z651v8ClX1vqEo/J
+         0gPRhD5CEU7P/HQokRIclCgPw98rGAZiOZ07mT2aNq56IndwgDVEhr7JUZNvZ6My1KxT
+         DjUKxydCgNfbUCHkm3vxQuJni6vpDJUx4WT9QL/9cvadl11VTnugvk9GUaq3s5nvJDCN
+         3MHQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=E995rutgSzyg1i9LNX9zVJhyluCmPXgjFoQIxd7q954=;
+        fh=rByHKHi6v3jDX/aQ8au2dcJu9ptoYT29fWlGi3NVxJs=;
+        b=hdfjrNABSvvOSVhOakxsMD0fudMmCc35uB2lxNdvOwd4bkbL8BI1zJ5j0F9CSoKKhc
+         dG/tQCenuBqWKIQsixbLCcIxjSpF2AF2tmNoH6ZXl+8Q/MSwqdt4RnySiJskB1G7HcJE
+         Uvhw2rMr+4YjSlclcdUTzLFu0gNhupo0PpX3yaIAUbJvOi86jgHGW1NRdNN5WAPswrnc
+         AXpX9lqFXOiRfX2oa/LvYfc38NSPdrqXOSQGGrEB438QzMtTtF1mq4ZetzFRjGptfKkv
+         +qwJw2C9cvI7Oz9vQ0OaZY03qqAk4Ykk+cKPVTReLMq3wmMkahBBU8Tufyff8QBfTv3Z
+         /fAw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amutable-com.20260707.gappssmtp.com; s=20260707; t=1795011497; x=1795616297; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=E995rutgSzyg1i9LNX9zVJhyluCmPXgjFoQIxd7q954=;
+        b=O5UUux+NOPIYcIxm9GdkUyn1dV1Z7MVuIgoSdbfmnaP/eK6AC4apGC+HdZG9UQUd5n
+         ligrsVZV45YjTrvOJZLEemNjbLd8xzYw8XARmr4IegzICIMy8Qtj8Zcd9r54ZOyNg9QV
+         0K5/9jCqmLZ8jT8Yr/ktIJ4SuHZ2Xf+XniwTlDCi+wnVqehrapGaKaV3Ft6+Fjgeky/5
+         9FzaJB9fDzcEzVQOgOozc4M+THsf5EMA2FBzgskfPm1me31CP9fN3DTs1nxgb/ESdOm+
+         pizrtLkLu+8sdHn9KzmTuCrY9xlouejVYuoBIgBhFNpe6S3RVTYyuX2UXcLTdWeCEvjh
+         Ek7A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795011497; x=1795616297;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=E995rutgSzyg1i9LNX9zVJhyluCmPXgjFoQIxd7q954=;
+        b=HzliVGuXnPUh4y0T4iSJagfBGimSZ7i4Dt1VvOPhlgA6hy+bM5R+mXO/IALHE6F8so
+         DGOwvg5Kzyly49Iric6Xrw/511pG6TuSuJ5FFsA9N5vVSUNGMUTTriIhmLBV1Soi9zab
+         ayJbOczxScR73FJp1TN4unLpPAEvJ3Kli2E3q5D/c12MqBB9Sb1n8T0iCVhmciMo1q7W
+         ldqd2IugPq8G/wdq6UU5OueoY5V01vUpe0630IAcHTlNZOK01W77uP2SRvNp9R3Vgeu8
+         JgipzEo2cmTZgYNBdCYadMVb9YUdfQaBQJU7NOMK82DNgcVB0KJW5RnKUGEfBIIrJ7Ta
+         FWPw==
+X-Forwarded-Encrypted: i=1; AL+hErGZWhc84CCVyiuwUnKa5qgBh7PCzzj/QNFBj3ch6/UxippFAzW1O5Ub3N7Mcr6XaP7RtvwM9dGOUFgmh6Q=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+XZ2SwwtyGe4Knq58hvkzA2Qv75u/UWk/wXxJLACSTHdg6fD3Z
+	yggHKiTiMqwzHvZC8wSlyKqaiHjAuLrnM0/DjsXfKt7IFslykCZgElP1QdRlitsDa1/n/8BfFBC
+	qNl6potXoxpQdLNCwnp5LeR2b01twpZV/hVL/DjuRG0Q=
+X-Gm-Gg: AZFdTZdZAVuHA617c5NodlrKXxKNZFrmiDNQNOVjg2ohZmMIzCWskDHbvkQ3lOq1L4p
+	Omz+O1LTV59ZIQq20xu0EM+ZxLTtxIcnySb/DlbiZ+TTeAmiK5rV8G3OGW+7XuzDgTiEFJs4Z/t
+	Wb32kzQwfnzv8SjMTO2/8XNgfer5ynkP7/ZWm7qwvMbPl2Z4BwGOfdBlrIoe5/127iLqpSR9fWN
+	Jb2ZRkoLchHuF2kJ4BQc0AQ7Gt2/5CR9112Ay4UjhTHbHH7b3IgiYTxCoDaa9B8Oc2j0kJq7E93
+	OpMHpja13nM1Y9jZVbjonZpz9jz3gVowMZicMDAQokwCaWuojBV1C1la3MSfkqguLrKyvgiPcjS
+	SuNxg6habmZLYKdc6o9nLybTR3w0rVD9B9jOBo/BzaFo+VpV0UDEAkwrgC/9munrSc83DNcY=
+X-Received: by 2002:a05:690e:190d:b0:679:a42b:f0dd with SMTP id
+ 956f58d0204a3-67dd3cf9efcmr1187071d50.14.1795011496626; Wed, 18 Nov 2026
+ 06:18:16 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,69 +104,194 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <av1M9itGiTF1Akqi@chrisdown.name>
+References: <d85ece6e-27f9-4d9f-83af-4101bc76fef6@app.fastmail.com>
+ <356db94e-f5d6-4fb2-839a-b97aef72256b@app.fastmail.com> <CAHC9VhR9sjunJRnM9gy-BkBZkapQTrr8a8FtmaK7JkAmUqTrLA@mail.gmail.com>
+ <CAEf4BzZKmn6g0SK8OddjKFj_vAmZFvpZv32Hs_S+GHgT7VNfrg@mail.gmail.com>
+ <9d6bdc31-e57c-4187-be78-29d82471f710@app.fastmail.com> <9695ec3d-7b81-488d-989f-0bd411d673f2@linux.dev>
+In-Reply-To: <9695ec3d-7b81-488d-989f-0bd411d673f2@linux.dev>
+From: Daan De Meyer <daan@amutable.com>
+Date: Wed, 18 Nov 2026 15:18:05 +0100
+X-Gm-Features: AclHuK_kSwvu5Jj3k6C9_kA8WpAYJGoXqqdOwo0daouusPGhJdTvAUCcGkN4sy0
+Message-ID: <CAPa8sAh6b5xn4rZzPfM0nZ+_kkywWj22fy8deLq+6qYews0rdQ@mail.gmail.com>
+Subject: Re: [BUG] bpf, lsm: new first argument in 7.4 inode hooks silently
+ breaks BPF LSMs
+To: Ihor Solodrai <ihor.solodrai@linux.dev>
+Cc: roblabla <linux@roblab.la>, Andrii Nakryiko <andrii.nakryiko@gmail.com>, 
+	Paul Moore <paul@paul-moore.com>, bpf@vger.kernel.org, 
+	linux-security-module@vger.kernel.org, paul.mabileau@harfanglab.fr, 
+	linux-kernel@vger.kernel.org, Andrii Nakryiko <andrii@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Tue, Nov 17, 2026 at 11:00:06PM -0800, Chris Down wrote:
-> Hi Muchun,
-> 
-> Muchun Song writes:
-> > Mike's suggestion considerably simplifies the code, and early page_ext is
-> > only needed by optional debugging and instrumentation users. I would prefer
-> > to keep this approach.
-> 
-> You're probably right. 
+Note that we've already merged code in systemd that depends on the
+current argument order, so I'd really prefer if it didn't change. If
+it does, do cc me on the patch so I can fix the issue in systemd.
 
-I think so :)
-The memap_alloc() that essentially allocates the memory map does 
+Cheers,
 
-	memblock_alloc_try_nid_raw(size, align, min_addr,
-				   MEMBLOCK_ALLOC_NOLEAKTRACE, nid);
+Daan
 
-so we anyway may end up with reserved memory in ZONE_MOVABLE.
-
-Until recently we had memory map allocation before the zones were setup, so
-there wasn't much we could do about it, but ...
-
-> But can I cheekily suggest something in the middle perhaps? :-)
-> 
-> Given the zones are already set up before page_ext_alloc() runs, perhaps
-> you can pass the start of the node's ZONE_MOVABLE as max_addr to
-> memblock_alloc_try_nid() when the node has one. The general idea is:
-> 
->     struct zone *movable = &NODE_DATA(nid)->node_zones[ZONE_MOVABLE];
->     phys_addr_t max_addr = MEMBLOCK_ALLOC_ACCESSIBLE;
-> 
->     if (!zone_is_empty(movable))
->             max_addr = PFN_PHYS(movable->zone_start_pfn);
->     addr = memblock_alloc_try_nid(size, PAGE_SIZE, __pa(MAX_DMA_ADDRESS),
->                                   max_addr, nid);
->     if (!addr && max_addr != MEMBLOCK_ALLOC_ACCESSIBLE)
->             addr = memblock_alloc_try_nid(size, PAGE_SIZE,
->                                           __pa(MAX_DMA_ADDRESS),
->                                           MEMBLOCK_ALLOC_ACCESSIBLE, nid);
-
-... with zone extents known we could take it even further :)
-
-page_ext is treated as the memory map in many ways, so we can allocate the
-early page_ext sections with memmap_alloc().
-And since the latter always runs after zones are set up it could include
-this change.
-
-But I think this should come as a separate series that also could move
-memmap_boot_pages_add to memmap_alloc().
- 
-> I briefly tried that and it seems to work quite nicely.
-> 
-> But I don't object to it even without that, so feel free to add either way:
-> 
-> Reviewed-by: Chris Down <chris@chrisdown.name>
-> 
-> Thanks!
-> 
-> Chris
-
--- 
-Sincerely yours,
-Mike.
+On Wed, Nov 18, 2026 at 1:52=E2=80=AFAM Ihor Solodrai <ihor.solodrai@linux.=
+dev> wrote:
+>
+> On 11/9/26 8:07 AM, roblabla wrote:
+> > Hi,
+> >
+> > Thanks for the replies!
+> >
+> >> [...]
+> >
+> > So what would be really nice is a way to make eBPF code robust against
+> > kernel changes such that it either works, or fails to load, but doesn't
+> > do the halfway "loads but silently misbehaves". Here are two ideas that
+> > have been in the back of my mind that could help solve this issue (thou=
+gh
+> > I understand that they may be rather large changes, I'm putting them ou=
+t
+> > there mostly as a conversation starter):
+> >
+> > 1. Could libbpf/the kernel have a mismatch check on hook arguments? I
+> >    understand that libbpf and the verifier don't know the types a
+> >    program expects, since BPF_PROG() only casts u64s. But the macro
+> >    does know the types at compile time. Could it (or an opt-in variant)
+> >    record the expected prototype in the program's BTF, so that libbpf
+> >    can compare it against the LSM hook's prototype in vmlinux BTF and
+> >    refuse to load on a mismatch?
+> >
+> > 2. Since kernel BTF has parameter names for the bpf_lsm_* functions,
+> >    could we maybe have CO-RE-style relocation to resolve "the argument
+> >    named dentry" to the argument index at load time? This way, adding a
+> >    new argument could happen anywhere in the argument list without
+> >    breaking eBPFs, and removing an argument will (correctly) cause our
+> >    eBPF to stop loading. It does mean the eBPF programs must provide th=
+e
+> >    same argument names, but maybe that's an acceptable tradeoff?
+>
+> Hi everyone.
+>
+> roblabla's comments got me curious, and I spent some time with my
+> helpful assistants poking at the problem.
+>
+> There is another workaround in addition to what Andrii suggested.
+> A program can already make itself fail to load on a signature
+> mismatch:
+>
+>         union security_list_options___mine {
+>                 int (*inode_create)(struct inode *dir,
+>                                     struct dentry *dentry, umode_t mode);
+>         };
+>
+>         extern void lsm_proto_mismatch__inode_create(void) __ksym __weak;
+>
+>         SEC("lsm/inode_create")
+>         int BPF_PROG(deny_create, struct inode *dir, struct dentry *dentr=
+y)
+>         {
+>                 if (!bpf_core_type_matches(union security_list_options___=
+mine))
+>                         lsm_proto_mismatch__inode_create();
+>                 ...
+>         }
+>
+> bpf_core_type_matches() checks the expected prototype against the
+> hook's member of union security_list_options in kernel BTF.
+> On a mismatch the call to the unresolved weak kfunc stays reachable,
+> so the verifier rejects the program, and libbpf reports:
+>
+>   kfunc 'lsm_proto_mismatch__inode_create' is referenced but wasn't resol=
+ved
+>
+> It's positional and needs the exact argument count, but it turns
+> silent misbehavior into a load failure. The same should work for
+> tp_btf with the btf_trace_<tp> typedefs.
+>
+> But of course it's just a workaround..
+>
+> A bit more generally, expanding on roblabla's second idea, I think libbpf
+> could resolve hook arguments by name with the existing CO-RE machinery,
+> without kernel, verifier or LSM changes.
+>
+> The BPF side could look like this:
+>
+>         SEC("lsm/inode_create")
+>         int BPF_PROG_ARGS(deny_create, struct inode *, dir,
+>                           struct dentry *, dentry)
+>         { ... }
+>
+> BPF_PROG_ARGS() (name TBD) takes (type, name) pairs like BPF_PROG2(),
+> but instead of casting ctx[0], ctx[1], ... it reads each argument
+> through a local preserve_access_index-marked struct, so every argument
+> access is a regular CO-RE field relocation:
+>
+>         struct bpf_func_args___deny_create {
+>                 const struct mnt_idmap *idmap;  /* 7.4+ */
+>                 struct inode *dir;
+>                 struct dentry *dentry;
+>         } __attribute__((preserve_access_index));
+>
+>         SEC("lsm/inode_create")
+>         int deny_create(u64 *ctx)
+>         {
+>                 struct bpf_func_args___deny_create *args =3D (void *)ctx;
+>
+>                 if (bpf_core_field_exists(args->idmap))
+>                         /* use args->idmap */;
+>
+>                 return check(args->dir, args->dentry);
+>         }
+>
+> Nothing changes on the loader side:
+>
+>         skel =3D deny_create__open_and_load();
+>         if (!skel)      /* mismatch: load fails, libbpf logs why */
+>                 return -errno;
+>         err =3D deny_create__attach(skel);
+>
+> To achieve this libbpf would need to do the following at load time:
+>
+>   - treat bpf_func_args___* as a reserved type in CO-RE relocations;
+>   - find the program's attach target in kernel (or module) BTF:
+>     bpf_lsm_<hook>, the fentry/fexit target, or the tracepoint stub for
+>     tp_btf;
+>   - build a struct from the target's prototype: one member per
+>     parameter, named after it, at the parameter's ctx offset, plus 'ret'
+>     for fexit, fmod_ret and LSM;
+>   - resolve the relocations against it by name, with a strict type check
+>     (pointee types must match, qualifiers ignored), since CO-RE normally
+>     treats any two pointers as compatible.
+>
+> A missing argument or a type mismatch is a normal CO-RE relocation
+> failure: the program fails to load with an error naming the argument,
+> unless the access is guarded by bpf_core_field_exists().
+>
+> And this is not LSM specific, fentry/fexit/fmod_ret and tp_btf would
+> work the same way.
+>
+> It doesn't help if a hook keeps its signature but changes semantics,
+> or if the attach point goes away (that already fails to attach).
+>
+> Here is a vibe-coded prototype of the above:
+> https://github.com/kernel-patches/bpf/compare/bpf-next_base...theihor:bpf=
+:bpf-named-args
+>
+> It's an entirely new libbpf feature though.
+>
+> Andrii, what do you think of it?
+>
+> ---
+>
+> And just my 2c re argument ordering:
+>
+> Paul, with all due respect, prioritizing code style and personal
+> preferences over backwards compatibility is unreasonable even for
+> unimportant applications. And here we are talking about apps
+> implementing security policies, which many organizations (not just
+> companies) in the world rely on. Given the recent flood of
+> cybersecurity issues (in Linux and beyond), I don't see why would we,
+> as in kernel devs, intentionally make the defenders' job harder.
+>
+>
+> >
+> > Thanks,
+> > roblabla
+>
