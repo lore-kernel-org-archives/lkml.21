@@ -1,60 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.226
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795020219;
-	b=Bp92KNNDRuh3QyRX5SYJ2Z2wwxH25bW8VxOKz+3JB6+uQL/CaBYDvfXQj0egBesvztl5
-	 /73gcBeJ931ytK1iJ2Yg8F7qH28nBrEFbIWJZ1svim7s5eOQNnqm+Czp/OdTBsHw2Cwta
-	 PKxbNJWTN7DGt3D092peLBQuvLMXZmXWf+kJlfihfx/QMxBf9d7waHOWRxGFGhUyyQ4jK
-	 vvOAfEyrCyeyhsby1axhuJ+y4WB7kv1I3aXspjhQrwKb4U+kCBi5w858wVm8ATUP15x0O
-	 DjPo+BgK4tHZ+uh3YeiaE1YFN/HLSZy4guZKeUGBXWjtr78OkxoZCAPY6P+6tffWK2g==
+	t=1795020259;
+	b=eIoBKtY2LD5GhnZXWQobjp1Zl6FQ32u7/Z/g4n4tVxCzIPX/Od0Jcms1sYMJ4Z1Hb0oi
+	 pDIjILVoA1tab+EMV+z4wFYlWK9Y/O0EvoQSNwdZeBTyVuFYCWhLzCuhDIarnhGhxOSKi
+	 PDmqoJYgFc3iwER6DvPnGNbMNq75WUQnXeJB3pCoE6CMEs1FkR1Vsw8aQ0pCrXAYvQkxP
+	 YreYGoAK9fM66Esy63x4hcgRzc+gjWkAX2AoEER0q7v2uNTyQUOn7SpmvUXHV18avBTUy
+	 W8E27qC8F0hzLpG2niaf7+aSylWgkNNxAU2NaOA5XL1eq07y10EP2eKjvjIKAa3V08A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795020219;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=XniNYFBtJTE+9qOOq15tFLI6AKi9yaCDJXq5LBSrfl8=;
-	b=OoinuI9Ful65KhEG2RzpLE7iH0zJzkvgCbM/lMdACd6AdBY7tIE+M0JGboB1KOdkXWEp
-	 eJ1uQmVUzMeEKakzHWVdDWnie8CKM71Ry7W1KHPryYrnGo1KYEJLcnyDIVD+WNlcf5u83
-	 9XO/bKncgJx68nlduIk18gt+o5CTPsrJTkUl3cxowYyjcOmpKyjiroVQs87ndgauz1LZr
-	 spF6x9bALEa7aQeesS8cFvNa3Y1jH5FaQw/NaBGa8r3SsOx+aGiQNj4e7+vo81ed55zaV
-	 k9ljrdYQvUsSyoCWTFl2AUY/eD1heiLvFYv1vwrycU1o7beXzTrSp+niPZUgBvJkMNA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795020259;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:References:Content-Language:From:Cc:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=dvQKDptWWm8R0eb9TuCYWY1w87VP0C5dY/jzQ1Uh4ks=;
+	b=sDkBpOym1kanxrPN9AwEIetPJHJGyIaW7cz477qrhwRzrT7dr48AK4qD1Vhlkr9FW6T/
+	 22hCXzqplxhSor0ArJ62FxfWvrh4q7K84EypgHny4htnJkeoZw0+Wd1liB3Ui4QN1U70v
+	 TJgkOipv+keCzP5ckAwKzlIp2SV3UPNwQmx1howyCZA7Z/ObQF+z5NznxVpe0kDqkK3bS
+	 NqjTDW84OHxG/9NC3pV8JbTCFs665FGkpF02SLVWQmWo383RLhwTJ+GNKsVefgWu1h7bD
+	 57Z6ECl+kjID1jsiNyKu4sXLeN65E8MBLBjUKLmn2C1Gqo+DrRieli5uphkgcDXeT2A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UeK4RMao;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=mY74Bsms;
+	arc=none smtp.remote-ip=95.215.58.226
+Received: from mta1.migadu.com (out-226.mta1.migadu.com [95.215.58.226])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 987B8606A31C;
-	Wed, 18 Nov 2026 16:43:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C4CB606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:44:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0C4CB606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UeK4RMao
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F20631F000C6;
-	Wed, 18 Nov 2026 16:43:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795020219;
-	bh=XniNYFBtJTE+9qOOq15tFLI6AKi9yaCDJXq5LBSrfl8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=UeK4RMao2Z57KpmezA5xm5c1hd5E42HSrZxakKzNep/ORf8Z8fSnGTcCC+SN6um+i
-	 uFa3b6WLgX/65NuTQIOb/igzjz3qzfBS6XVvCQeFBBeKiprFAxQEr8tQ/HwoYgEbfD
-	 IduMxH3N54ovxRkudp4oRnGiH1Ez4KsyHlwtoNE8TKcsy8vsz30ID9aWqIwKrnARqa
-	 9e5FmDXwba5GAZX0TzVxX+MPUyEke2Y6CbvArb9gY3gK+3X3JryJx7P4IMCXQIXMEx
-	 fe5JyLvJUMtXJElCo/CUKnMiXzVLyJGBLuLNmF3k5pFatpN+xQXNNml9XWzhkCgthG
-	 tqir/4Q1G0kKg==
-Date: Wed, 18 Nov 2026 13:43:36 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Namhyung Kim <namhyung@kernel.org>
-Cc: Ingo Molnar <mingo@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	James Clark <james.clark@linaro.org>, Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Clark Williams <williams@redhat.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	Arnaldo Carvalho de Melo <acme@redhat.com>
-Subject: Re: [PATCH v6 07/13] perf tests: Exercise data type resolution from
- a register
-Message-ID: <av3VuNr38Zxh0KV_@phoenix2>
-References: <20261117200433.45174-1-acme@kernel.org>
- <20261117200433.45174-8-acme@kernel.org>
- <av1QxJZA36xcbcEL@google.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=mY74Bsms
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=4mYkAbmJ50bqRecl7WhLUagLCIRRi22IPvNzPbrs644=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795020257; v=1; x=1795625057;
+ b=mY74BsmsBP1fmTeK9MELFapEviFdKYTZXA8wUSH0YFl5T0h1M3jgCvb3bV0r6vgjKEfp6QqP
+ 6Y5RhFfBnTSks18AA58/5alb0Ly68NeZEXq3msPagi/zaQ/ZXSZOQF4hsDBAKT2IOjS5oYUydaw
+ vbZ17hjw8EybVBxq6WPe6zJo=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 5f1217d9bb73e6af;
+	Wed, 18 Nov 2026 16:44:17 +0000
+X-Mizu-Trace-ID: 5f1217d9bb73e6af
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <9751bd2c-897c-433c-a4da-5ec420ced322@linux.dev>
+Date: Thu, 19 Nov 2026 00:44:11 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,32 +58,36 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <av1QxJZA36xcbcEL@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] irqchip/gic-v3-its: Size the collection table for all
+ possible CPUs
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+References: <20261118025106.623070-1-ruanjinjie@huawei.com>
+Content-Language: en-US
+From: Zenghui Yu <zenghui.yu@linux.dev>
+Cc: maz@kernel.org, tglx@kernel.org, radu@rendec.net,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20261118025106.623070-1-ruanjinjie@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Tue, Nov 17, 2026 at 11:16:20PM -0800, Namhyung Kim wrote:
-> On Tue, Nov 17, 2026 at 05:04:25PM -0300, Arnaldo Carvalho de Melo wrote:
-> > From: Arnaldo Carvalho de Melo <acme@redhat.com>
-> > 
-> > At -O2 a struct pointer lives in a register (with DWARF describing it with
-> > a register location on register-argument ABIs), while the unoptimized
-> > workloads the data type tests profile keep their variables on the stack.
-> > 
-> > Add a regptr workload with a noinline function that takes the pointer from
-> > a volatile global, so the compiler cannot constant-propagate the object
-> > address, and check that its three member accesses are resolved from that
-> > register.
+On 11/18/26 10:51 AM, Jinjie Ruan wrote:
+> The collection table is currently sized at a single ITS page size,
+> and the driver's allocation policy is to allocate a single collection
+> per CPU. On systems with more CPUs that the ITS can fit in a single
+> page, no LPI can be routed to the CPUs that don't have an allocated
+> collection, and the system grinds to a halt.
+
+The issue on the reported hardware ("384-CPU HiSilicon HIP12 system", as
+described in v1) is fixed by allocating 2 pages for the flat collection
+table. That is fine.
+
 > 
-> Thanks for adding the workloads for data type profiling.  I was unsure
-> if it's ok to add since it'd requires many test cases to cover various
-> aspect of binary patterns or compiler/language differences.  But having
-> a seperate repo for the test programs would be cumbersome too.
+> Change the allocation policy to allow two-level tables, similarly to
+> the other tables.
 
-I think these are all super small samples that can get into the perf
-binary, at some point if possible we can have it in dlsym'able .so
-files. For now this way of including what is needed to fine tune/test
-important new features such as data-type profiling is worth having it
-linked in the main binary.
+But I'm afraid that the two-level CT is still not supported: nothing in the
+driver allocates the level-2 CTs.
 
-- Arnaldo
+Thanks,
+Zenghui
