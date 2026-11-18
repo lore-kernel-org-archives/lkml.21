@@ -1,103 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795037330;
-	b=iF4RA7S/1U88W2DLYA0LPcitdrKiavbPps1wzN3C8Z9j/Qi24oBGcFftSFC6qsnumfEN
-	 55BCT3mtClAU5wdb+PJQX9H8vdo5sd0A6iVSLv96dTXZcztp6vBf/FOTTt/3HzUJTXYuj
-	 PI01tl7cgGITEvhU0y9UmF76wFIB9wMfm+78NOnK5Cjs5a/gHEMzYkexXlgSQK0aEHqut
-	 il2Q7tWhI6I4bDKesaOOktcNWp6WqwItU2FUyAVk6uHZrWhwDoX3oa/adE/sTfQ4PeP9w
-	 U+At9ARtOggPWGSiEF422HrM/G+XrHRrHio5ZZI9PpQIclePAXvWih/LDevF9JzM6/g==
+	t=1795037331;
+	b=lgTMJu/HTZEoShAMTyXtfjIhJN0HIv3+Tf5e7wYmpn6tXRsjmw7HWE8q6O51b6cK4Kc/
+	 KVoa6+wstWw1zvrufUER1XdZZU72ONpCEm/DvYxEupH5YqhGW3B1FzgaL69P2Sif7XfU6
+	 Blk8IpjzKTaL+ZoOD7M3+8DGUTPetrS/iFMrHgi6DZn22txSb4oZdlS455ZhAOe8MhhET
+	 SrTBE0TmgPRPPgzb4JysEg/ghMGnsHutkR4NnO0EMMkIKwuNf0vrRhZSS8vu5Mn0Q4dJX
+	 bZwziSutS0im4MU9WqpktPTVLTI7Yceo8XqCX08S9YpIuog3/omSymJNb95FW+ezdDg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795037330;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795037331;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=RinnfRqFmJMbnCr6d3DXp7w2qk/BhwlH7a68zOSwViI=;
-	b=lCmF7gBXCltk1rgThrZivhqdRHRy1sWudaaINOvF4A0l+0h2b3dvLSCGCt3U7zdzVBJo
-	 3FUsr90xnGUZYLpxIcxkHFWsQkcAtQkqi9lkh8oHLo1oNNanfK8O0y18cJ/NRgubsnlh2
-	 VfGNvDwU6SsLSylA050/enlkOhQOOXe/WFlrgQLDH9q1UO8UzoQuHD4vmPEI6SxtySAxc
-	 ikCTMOqvj3iRQmU976zgNNShTi7Sue8BTCA4muJ5pobJCavold+tGpjFIdLL1pX6S6RFH
-	 ekfy3kK+V4iajZli94B+77Jvdk9CV2TTSKyaPnWrk7/7odc/kddU8662JfsI6EnIGCw==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=wFYUOJj2+7G2v/k9lLyOgh0sZkoos/zK1jWHhTk0qZ4=;
+	b=R8VmWcDU/pk2BkUNC4xCO42RhNj8AGvSARu3uRZrSYWs7fTcNI3SeXUtMapyzqPK5PTa
+	 XbS8W6e158ZuDVyfwarS/oFNHbF3gRMttzeCjiRsVg7v+gzOkGlxH6Tpc+crSRDwzhr2e
+	 FewPowZZb24A54ZZc7eN/43FbZc+g/t8u+kujVafUO1kCV8I9oWPk8AtWR0XxazW2m4ud
+	 w/p75nfmLHhJczXyv5uS7xXSnHIHNCO19icjMz8wbCb6G4pz491RSFbiKkRjtzn8xofkZ
+	 qr+YhR70Hr1S2MTzT0f/AytDcCsVTu4Nl0bJNZR+i2nR9/kqueAyDKsXQje8+4pBtqw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=soleen.com;
-	spf=pass smtp.mailfrom=soleen.com;
-	dkim=pass header.d=soleen.com header.i=@soleen.com header.a=rsa-sha256 header.s=google header.b=OamzoJbL;
-	arc=none smtp.remote-ip=209.85.217.54
-Received: from mail-vs1-f54.google.com (mail-vs1-f54.google.com [209.85.217.54])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--nilayvaish.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=i0+5sRpk;
+	arc=none smtp.remote-ip=74.125.82.72
+Received: from mail-dl1-f72.google.com (mail-dl1-f72.google.com [74.125.82.72])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C80FD606A32C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:28:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C80FD606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=soleen.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=soleen.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69EF2606A331
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:28:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69EF2606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--nilayvaish.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=soleen.com header.i=@soleen.com header.a=rsa-sha256 header.s=google header.b=OamzoJbL
-Received: by mail-vs1-f54.google.com with SMTP id ada2fe7eead31-7d2bf046d7fso859149137.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:28:49 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=i0+5sRpk
+Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-1b3b45597c7so2687796c88.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:28:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=soleen.com; s=google; t=1795037329; x=1795642129; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=RinnfRqFmJMbnCr6d3DXp7w2qk/BhwlH7a68zOSwViI=;
-        b=OamzoJbL9uxjeznOyamyEJPum8bSRzXRjYlCzZLURlPdu+bET+SL96zAc0amHZw74w
-         Ls8sLCgyWz7UeAOt1aeaNSEVB0WSGIqARJ/AqvqrElfpbhrNqY4nz8bhZPlCJnZsoBVG
-         4meE12uFE8V563KmzfQJBho02GI9ZHqRHEoHFExj6VTqyOUdtltEI/921TA8KDu9uqeS
-         RJRJHdgouAAehrM44ztE6RQDdN9QBi+E2EXFc5W02W63aimScMoeX4xHguu5g8VFWAU9
-         dbSVTj2/q/wTNQdXzxNuotbpd6GoS1hLZq9YasC1nIJOGCWHD2d1rpLsR5Mppr3xfuJD
-         VrAQ==
+        d=google.com; s=20260707; t=1795037330; x=1795642130; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=wFYUOJj2+7G2v/k9lLyOgh0sZkoos/zK1jWHhTk0qZ4=;
+        b=i0+5sRpkohQP+5U7vrew4LDud8Dd2jcenAJMqpPRkaPjg7EI4socU7IdcqcoMCFlux
+         KeoOGznqTqeDv1AWJX/5yRNzpQBlKpHfATY21bSjCPumofg6Zv3i/U5jYfyEAwqI9EH2
+         6xyLsT2mOHHn6NYsrRAxcmEYKXLZ+cfZAEEo8xOw6gs1fNuRyVgTwf6kckFg3hgx6M4f
+         95913Vb4GBf1DW1w96HP+7W7v6YnwyRvCXM0Ltwr9TDkmdS15bQcaklFfOExOM7yfGmj
+         eYpPiVe7lHct0MuX/O3KdxRWHMoiO0m4a1Lo8EJPtKuTB1BBfe2LrNk25OCMsmMpbAnO
+         M7Cg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795037329; x=1795642129;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=RinnfRqFmJMbnCr6d3DXp7w2qk/BhwlH7a68zOSwViI=;
-        b=0VVA5CUMtXRpOJYtPqfsID3t1yURPWEiXAJQZOOBhT0Uz9y/87wZYpxj/X/CwiPJ8x
-         chBn7CyfMdeu/HksD6JNxevnjZ+PqKX5SMLZmhmvaJx2A5Fq+8W2fdOu/bPWs/NgHb+h
-         zSa9XAODot4FDXDWwdi4zSSHF7gxbowfinUCoJt4Fd/SevSrUTASmDnUCgRF1aISB0w8
-         lQBGmYn8Y+roBns6HZHC8XLPNdAkewsdOwB7GmoNbrsZM6/Ve4mPeOMwtvkp0aNjENjW
-         ayvZnNBVc4Ry9YQqm2V/aMNgnr8ETFSP387AvFzd1l/g8EIvxjptYDZiEoNKwWOxn5uX
-         ilkQ==
-X-Forwarded-Encrypted: i=1; AL+hErETTKybRqBKTK3PEZeMlJAZk1AqCPA6qNP3OAxpaKYQbF+TvjgTrmFOvCn/01/V4evY2HOup2RKSId5smE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+1+R1+rQUQ3dclcZJk15YMHkmxmgto/ONvjTHfJaYHpFdlUY2L
-	rP3xBnxHRk00ws75WGP2AXlCsxLfRAur1Vir8pNjUdCno7Z2N+Uyoxk1BErbhbMcyrQ=
-X-Gm-Gg: AYBFou0zbKKm0s9L3vB73H8ihy57xDOkHpf7nbdW+7MUpcCaaOST/K+9XjxwSxI3U1j
-	geaamav7QhFGjrP68cDH+NEvU40WBBb3VYSM4BKpAG2OvLKsbvnrWo5F81Yw8f1/MIy+4K0Ibaw
-	eGEjXepPAj8i4oeacl2Tq80Y6GSxEBtUfAYeZBmObOcWRWFAR706nQVMC2EhUK37fFEXSdecgFc
-	ihP0jGgOclsoG6vrStXsfaTOQgiZl0kF7elXuB6V/TY+dDhpVROgHwTvapYhF3yFAPuHs0pjBwI
-	PX+JxZL0aYuHQUzmnockCkhqKEHeXzU8pEq/ioKk0A1hJKN7h671ytWXzzk/+Ab1VCH1nPAYgCp
-	FvfC/+OL7V7ALYe3NuX/6EWkIrnw5uVkbo3tfrJuuiRMQeUWsi1tgjDRhoYkB7pzILRdEGKie6A
-	Ayp1fxH/osbiO0VLepqFZT6KnSiQIzf/oewPzR9xJG5qE5SpY8HZtUIblZSoTU/2B5vrdEUFko9
-	OcMn8GRPtv14u7hLYVwWk6bdSD5ivEgzaxnfCqQviradJXW3X3iaLST8grVBBJ5p1e2JmzgtgiE
-	zer6W4XGKTUm0RtoQmlUGxGgcvWiVvYHUUAa/Xi06k6uDOwy+higIJ6nskGULOw3/6idKbqo91W
-	c9+w2D898xuyKKKaQyr5p/ZaOQvg+BJpLyqU1MW1jzHjw9x2OioRr
-X-Received: by 2002:a05:6102:4455:b0:7cc:25bc:3b30 with SMTP id ada2fe7eead31-7d6ba438d36mr1283355137.21.1795037328579;
-        Wed, 18 Nov 2026 13:28:48 -0800 (PST)
-Received: from soleen.c.googlers.com.com (57.233.150.34.bc.googleusercontent.com. [34.150.233.57])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6b9185bc3sm2724635137.5.2026.11.18.13.28.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 13:28:48 -0800 (PST)
-From: Pasha Tatashin <pasha.tatashin@soleen.com>
-To: linux-kselftest@vger.kernel.org,
-	rppt@kernel.org,
-	shuah@kernel.org,
-	skhan@linuxfoundation.org,
-	linux-doc@vger.kernel.org,
-	vipinsh@google.com,
-	linux-kernel@vger.kernel.org,
-	corbet@lwn.net,
-	linux-api@vger.kernel.org,
-	pasha.tatashin@soleen.com,
-	dmatlack@google.com,
-	kexec@lists.infradead.org,
-	pratyush@kernel.org,
-	rdunlap@infradead.org,
-	graf@amazon.com
-Subject: [PATCH v6 0/7] liveupdate: Add LIVEUPDATE_SESSION_FREEZE ioctl
-Date: Wed, 18 Nov 2026 16:28:35 -0500
-Message-ID: <20261118212845.2855249-1-pasha.tatashin@soleen.com>
-X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
+        d=1e100.net; s=20260707; t=1795037330; x=1795642130;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=wFYUOJj2+7G2v/k9lLyOgh0sZkoos/zK1jWHhTk0qZ4=;
+        b=JUksJCSb4mEqTtm58bv1wU5XMrPr9o6AIr4bd0TR2GDsGqC8yJ5fDzYGmHXoyjI6rV
+         bnBgBj6nsEs/pKEsLPKBzSARDasptCB4szHdFVzB+3pc2BYX9OBlLyAfpylwhDua/JFL
+         hLUzqtR4ifd+1Nk1JyqxOOQPt4+hSwjktxpsKMHNlSiwJXpBDn1u8QB22FFF4DKc9hWa
+         vlo66/wE88exRMiM7Gbh3nqx1GIhv5sRJ3LxaRi9/WDkxhxX/BxVfInTQesnbxiA4v/R
+         W7tB+0KvwFn11el/cT7F4XjLv8HLnjuWaLU6h1HrtmMMVTI4lzCrIX2IpJlJgdMYznMu
+         9AFw==
+X-Forwarded-Encrypted: i=1; AL+hErE25rSW2Qepcum3bOk8D0Ryw6Y9lxEbpt5tskCCJE553GFki9775LI60G1CufX458hCdT8qzOohBTFPgQw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8uhCwl4LGJkORXly8DOospGubmrAnfCm0bvPE69R8X9ywFN4Nd
+	XX/GAtHrLUXkxSSS6LPChssaEJavjcfzWg8xuWRejHWa/WgpeaiYhhWIYA+oR6637aiUS2OwGS6
+	Vhe0u4JfW+DWRlc0X5DS7rQ==
+X-Received: from dlcio6.prod.google.com ([2002:a05:7023:c006:b0:196:8199:c26c])
+ (user=nilayvaish job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:7022:7f02:b0:18c:e014:6f1d with SMTP id a92af1059eb24-1b543c38731mr3242553c88.1.1795037330212;
+ Wed, 18 Nov 2026 13:28:50 -0800 (PST)
+Date: Wed, 18 Nov 2026 13:28:19 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,109 +75,112 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
+Message-ID: <20261118212819.403059-1-nilayvaish@google.com>
+Subject: [PATCH] mm/page_owner: fix double decrement of stack count on unpoison
+From: Nilay Vaish <nilayvaish@google.com>
+To: Andrew Morton <akpm@linux-foundation.org>, Vlastimil Babka <vbabka@kernel.org>, 
+	Oscar Salvador <osalvador@suse.de>
+Cc: Johannes Weiner <hannes@cmpxchg.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Michal Hocko <mhocko@suse.com>, Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>, 
+	Marco Elver <elver@google.com>, Andrey Konovalov <andreyknvl@gmail.com>, 
+	Miaohe Lin <linmiaohe@huawei.com>, Naoya Horiguchi <nao.horiguchi@gmail.com>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, Nilay Vaish <nilayvaish@google.com>, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-This series adds the LIVEUPDATE_SESSION_FREEZE ioctl on outgoing session
-FDs. Once frozen, no additional files can be preserved in the session
-and repeated freeze calls return -EBUSY.
+page_owner counts, for each allocation stack, how many pages allocated
+from that stack are still in use. The count is incremented when a page
+is allocated and decremented in __reset_page_owner() when it is freed.
 
-Currently, LUO freezes sessions only during reboot(LINUX_REBOOT_CMD_KEXEC),
-serially under global write locks. On hosts running multiple workloads
-such as VMs, freezing sessions early under their per-session mutexes
-lets workloads freeze in parallel as they pause ahead of kexec,
-reducing blackout time.
+A page that is hwpoisoned while in use and later unpoisoned passes
+through free_pages_prepare() twice:
 
-By default, session lifetime remains tied to the session FD: closing
-the FD before reboot unfreezes and unpreserves the session, while
-keeping it open skips late auto-freeze at kexec.
+  1. On poisoning, the last reference is dropped. free_pages_prepare()
+     calls reset_page_owner() but, because the page is PageHWPoison(),
+     keeps it off the free lists.
 
-Userspace can optionally set LIVEUPDATE_SESSION_FREEZE_COMMIT in flags
-to serialize the frozen session and its FLBs into the outgoing KHO state
-immediately and transfer ownership to LUO until reboot. Committed
-sessions survive closing the session FD, allowing processes to hand off
-preserved state and exit prior to kexec.
+  2. On unpoisoning, unpoison_memory() drops the poison reference and
+     free_pages_prepare() calls reset_page_owner() again, this time
+     really freeing the page.
 
-Overview:
-- Patch 1 decouples luo_file_freeze()/unfreeze() from
-  struct luo_file_set_ser.
-- Patches 2-4 add lazy block linking in kho_block and incremental
-  serialization for LUO sessions and outgoing FLBs, dropping the
-  separate luo_flb_serialize() pass in liveupdate_reboot().
-- Patch 5 adds LIVEUPDATE_SESSION_FREEZE and
-  LIVEUPDATE_SESSION_FREEZE_COMMIT along with uAPI and core docs.
-- Patches 6-7 add unit and multi-session kexec selftests.
+__reset_page_owner() decrements the stack count both times, although
+the page was allocated only once. The first call clears
+PAGE_EXT_OWNER_ALLOCATED, but the second call never checks it.
 
-This series is based on liveupdate/next commit 079c138d2b68 ("Merge
-branch 'lu-pci-preservation' into next").
+If this drives the count to zero while the stack is still in use,
+stackdepot treats the record as freed and warns on every later
+allocation or free that uses the same stack:
 
-Changelog:
-v6:
-- Rebase onto latest liveupdate/next (079c138d2b68).
-- Replace "publish" terminology with "serialize" across the series (Mike).
-- Drop kho-ro concurrent-reader prep (ordering helpers and
-  kho_block_set_it_append()), deferring them to the kho-ro series (Mike).
-- Tighten commit messages, docs, and address remaining nits from Mike.
-v5:
-- Rebase onto latest liveupdate/next.
-- Replace reserved field in struct liveupdate_session_freeze with flags
-  and add LIVEUPDATE_SESSION_FREEZE_COMMIT.
-- Add incremental KHO serialization support in kho_block, luo_session, and
-  luo_flb so committed sessions and their FLB dependencies are serialized
-  immediately on freeze, dropping the separate luo_flb_serialize() pass
-  at reboot.
-- Keep luo_session_freeze_one() / luo_session_unfreeze_one() in Patch 1.
-- Update Documentation/userspace-api/liveupdate.rst and kernel-doc.
-- Drop v4 Reviewed-by tag on the modified freeze and selftest patches,
-  and expand selftests to cover both uncommitted and committed freezes.
-v4:
-- Split out a preparatory patch that drops struct luo_file_set_ser *
-  from luo_file_freeze() / luo_file_unfreeze() and moves file_set_ser
-  handling into session serialization helpers (Suggested by Mike
-  Rapoport).
-- Few more nits from Mike.
-v3:
-- Renamed session->frozen to session->user_frozen, - Pratyush
-- Added Reviewed-by's
-v2:
-- Rebased onto liveupdate/next and split out early session freeze into a
-  standalone series.
-- Dropped struct luo_file_set_ser * from luo_file_freeze() /
-  luo_file_unfreeze() (Suggested by Pratyush Yadav).
-- Unfreeze the session's files if luo_ucmd_respond() fails in
-  luo_session_freeze().
-- Updated reboot-only wording in luo_file.c kernel-doc comments and
-  added incoming session -EINVAL / invalid flag selftest checks.
-Link: https://lore.kernel.org/all/20261105050053.3063001-1-pasha.tatashin@soleen.com/ # v5
-Link: https://lore.kernel.org/all/20261015093816.2438942-1-pasha.tatashin@soleen.com/ # v1
+  dec_stack_record_count: refcount went to 0 for 92274844 handle
+  WARNING: lib/stackdepot.c:517 at depot_fetch_stack+0x5c/0x70
+  Call Trace:
+   __set_page_owner+0x110/0x290
+   get_page_from_freelist+0x1225/0x1440
+   __alloc_frozen_pages_noprof+0x1fc/0x1b00
+   __folio_alloc_noprof+0x12/0xa0
+   alloc_migration_target+0x81/0x1e0
+   migrate_pages_batch+0x1f2/0x14c0
+   migrate_pages+0x9c3/0xca0
+   soft_offline_page+0x189/0x570
 
-Pasha Tatashin (7):
-  liveupdate: Move file_set_ser handling to luo_session_serialize()
-  kho: link outgoing blocks lazily in kho_block
-  liveupdate: luo_session: support incremental session serialization
-  liveupdate: luo_flb: serialize outgoing FLBs incrementally
-  liveupdate: Add LIVEUPDATE_SESSION_FREEZE ioctl to freeze sessions
-    early
-  selftests: liveupdate: Add unit tests for LIVEUPDATE_SESSION_FREEZE
-  selftests: liveupdate: Test LIVEUPDATE_SESSION_FREEZE across kexec
+A single soft offline followed by an unpoison is enough to trigger it,
+because the migration-target stack that the offlined page is accounted
+to usually has very few pages.
 
- Documentation/userspace-api/liveupdate.rst    |  20 +++
- include/linux/liveupdate.h                    |   2 +-
- include/uapi/linux/liveupdate.h               |  38 +++++
- kernel/liveupdate/kho_block.c                 |  38 +++--
- kernel/liveupdate/luo_core.c                  |  10 +-
- kernel/liveupdate/luo_file.c                  |  76 +++++----
- kernel/liveupdate/luo_flb.c                   | 102 +++++++-----
- kernel/liveupdate/luo_internal.h              |  15 +-
- kernel/liveupdate/luo_session.c               | 151 +++++++++++++-----
- .../liveupdate/lib/include/libliveupdate.h    |   1 +
- .../selftests/liveupdate/lib/lu_utils.c       |  13 ++
- .../testing/selftests/liveupdate/liveupdate.c | 107 +++++++++++++
- .../selftests/liveupdate/luo_multi_session.c  |  36 ++++-
- 13 files changed, 473 insertions(+), 136 deletions(-)
+Fix it by decrementing the stack count only if PAGE_EXT_OWNER_ALLOCATED
+was still set, i.e. only the first time the page is freed.
 
+To reproduce, boot with page_owner=on and CONFIG_HWPOISON_INJECT, soft
+offline anonymous pages with madvise(MADV_SOFT_OFFLINE), and unpoison
+each old PFN through debugfs hwpoison/unpoison-pfn. Without this patch
+the first cycle prints the message above and 2200 cycles produce 6597
+warnings. With it, the same run is clean and all stack counts return
+to their initial values.
 
-base-commit: 079c138d2b6870bb658b6e638077264aefc03833
+Fixes: 217b2119b9e2 ("mm,page_owner: implement the tracking of the stacks count")
+Cc: stable@vger.kernel.org
+Signed-off-by: Nilay Vaish <nilayvaish@google.com>
+---
+ mm/page_owner.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/mm/page_owner.c b/mm/page_owner.c
+index 02bb304b53cf..0793a460d615 100644
+--- a/mm/page_owner.c
++++ b/mm/page_owner.c
+@@ -320,11 +320,13 @@ void __reset_page_owner(struct page *page, unsigned short order)
+ 	depot_stack_handle_t alloc_handle;
+ 	struct page_owner *page_owner;
+ 	u64 free_ts_nsec = local_clock();
++	bool allocated;
+ 
+ 	page_ext = page_ext_get(page);
+ 	if (unlikely(!page_ext))
+ 		return;
+ 
++	allocated = test_bit(PAGE_EXT_OWNER_ALLOCATED, &page_ext->flags);
+ 	page_owner = get_page_owner(page_ext);
+ 	alloc_handle = page_owner->handle;
+ 	page_ext_put(page_ext);
+@@ -339,7 +341,7 @@ void __reset_page_owner(struct page *page, unsigned short order)
+ 	__update_page_owner_free_handle(page, handle, order, current->pid,
+ 					current->tgid, free_ts_nsec);
+ 
+-	if (alloc_handle != early_handle)
++	if (allocated && alloc_handle != early_handle) {
+ 		/*
+ 		 * early_handle is being set as a handle for all those
+ 		 * early allocated pages. See init_pages_in_zone().
+@@ -348,6 +350,7 @@ void __reset_page_owner(struct page *page, unsigned short order)
+ 		 * their refcount either.
+ 		 */
+ 		dec_stack_record_count(alloc_handle, 1 << order);
++	}
+ }
+ 
+ noinline void __set_page_owner(struct page *page, unsigned short order,
 -- 
 2.56.1.708.g77570a6a1d-goog
 
