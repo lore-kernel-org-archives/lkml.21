@@ -1,102 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.169
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795020606;
-	b=co+bW7q4ApVUCMc1QRGwgv+UkYqYf1Ij94V6KkQTEbdgyWKyJUkh4lthBf+Rnj2JXQro
-	 7nYSIRspF41JtXxLnxkB5IMAdPuJ3UZ8Fbig163st/HSkbl4hzMJSqt9pqadBv41YxyNP
-	 NL+AG4t8l86G2W6Ay6lxuoZ4othFRT1UiXq9ycK9Q9JCaaUC0ZO79/DZMBVYTO7a65Z92
-	 PHW19q7MDY7KZTCet99hptFtfWLrQbIbBjif7rOWHmquYYxI37kGs4zknD9vMKHKfwT9A
-	 Asu0CwfVyYKvL1HOgq3CyRIxhna+Bs1yMXfaaMRhG/2eJjWUiF1OAuSgec0dDlbWcgQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	b=3nBmtFvrb5c5MYgcOhqxzfIfemQE8tncwXferNQz2CLP6qFoEPxT0VREGaYnW19Hi7Fz
+	 TcYIFraTMwXFK47eda98JRYdbaDpfACnVBL99ORKumP0lzborKwqlT4Hz1gVzNPYskPJh
+	 FWp0c4Se7A5A8Ivc8rEDTW/XFO7kiaueiLT8VmBQnrdZGxuPcEJFB2A5+RsJm7rb5YDJk
+	 77PaI7e0UJxDngBTS/tbmTOaWvxb99SSwAq+h9nF0JDTkmaLtnucSf/YarV0YrOf4gnC3
+	 rdJKTVrYeCbHlKmZNa0raHXFyzdYn4vebhY7wKgM8HuAKIiRudL0Nfzrjq3KIlFQTLw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795020606;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=BmkZHXBmjri2IPEtvf2Tq64RWcFCsPi4YttXc86znUY=;
-	b=KwpXT0Sg3S/Pujrb804jTSQPKUC79FWbwRgLaqkws6It+0cb2Xj1N4r5ILWqvBYaMbzZ
-	 mGu8LQh0y2/8q6LhxYdDLnFgIlWGQuhZCvNSdm0DyFJQcnq/j4aMdys41j5p/VOMCg5T8
-	 wm314ac9llRlKZPRjPKtVGqSsdnRZnyAH9tjzqmcZ8g9FmKaMBi3UHRJYrQgYdqIfG/tP
-	 V7JNMxldR+dZPeLpxfsDxzKl3Okj3PTag0eSma6/AqL1joxZBlKvsuiLZDy5hccsXpz8I
-	 qXGZFmq88Ew7c6zTxPhh44j9My/PSAUF4+GkaGbZsE0gnCe5ONRGAdxiK8jXSbA+epg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LywfaUL1;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.169
-Received: from mail-vk1-f169.google.com (mail-vk1-f169.google.com [209.85.221.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Subject:
+	 Date:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
+	bh=CyjKDjy9c46o/HWa56BDlf4pykp2gQLkYqhUcMj3WmQ=;
+	b=qqAEqkIh4trTyIbDHlS1dCjhmPE+vMWTetensN1t77v/TReije6CPW8SgI3z8jZ8qVeR
+	 clK5edabGiYhYCz+02QIfgG1W6uwYfNdxUPTXJUiH6cLPrpX7ilKXB+EuBERZPoikBh3s
+	 oHmLUV7wSRGP9PDSGjGjIM0nj9WTZN49n/xIN2JNVxeYwmcCp/E11HalTCzKMSAIj4+k0
+	 Nk4V3vudelQY3O8/IDnIAJ25EXeeZme40e+atugz/kW33q82F/Wj2Hsl3o5qcOXQav2p2
+	 92SJP22phSemIjPatz0eBLK57He2dNILn6om9ar43wd5xyb/QK8Q9/1FlEfepEPstxw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=ZUGoGX5b;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD794606A333
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:50:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD794606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E452606A32C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:50:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E452606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LywfaUL1
-Received: by mail-vk1-f169.google.com with SMTP id 71dfb90a1353d-5ee029fd76aso738116e0c.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:50:05 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795020605; cv=none;
-        d=google.com; s=arc-20260327;
-        b=gtsgoArwYYEiMFsAvsa+fhOhiC09nHM4lB85dXMogE0qYCec5jvj0xpLhYDGQeGK1I
-         d6YCx6DBcWHrnxfYqg02kAO2kW8rZ0g6Nc57i2MqYPt//STqq4MgLXXuwfBJHl1pZaHy
-         T5UHdrKbk3oRNnEPBxBBN0rQVII9JSq5JT+MFwAhUXbv+gQA5nQh9FwCfb0keAsXkFwF
-         1D3tzH6pAkU68IOB8gX7MCcyCZb5d8nX2u2x2KEMFEbHER/9g5q+5E0/yEOx0gsqvUQP
-         JdAGEAGWs55OxC7bgHlSSGdfCwm0+8QmvUIbwNuAe7rom0FIlja0y+4C4VmdpnfIodbJ
-         yTsw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=BmkZHXBmjri2IPEtvf2Tq64RWcFCsPi4YttXc86znUY=;
-        fh=0ucPxRn6o0vq7mjAy5M42M3Xe4EETUyHsekW6Tx+yc8=;
-        b=ZL75ILA/1weoLWZLfLgSYEJP8KBoAyEUpLORj9d+EaqcuXYbkWcrzW4OwhpG3PuMpN
-         HLLeXT/KrzPvyNkEIfKLmOuM2xHIC6ZZECv97IKrvCOaB+7sfKPmjnJEyHXwZzlQJo/A
-         TnkUQ0sGE+w0Dqzoe/vltwf0C305uCOPy27q8EHG60rk5JC1QfFmO6M/BdMb1+C7wY9l
-         FMuAx0hkMXyC4JjLCcsxkdtivhyxeZaD76AOcyGrBNES2ekn0SWLtVRcFFzMrwwQJyKP
-         pA9uykEKZCXLbOoLF8DIXoyCRifoUNQfP6/OyQT1Sf6r9A1DtraJxxg8VksV1DgYmrQY
-         nQcw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795020605; x=1795625405; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=BmkZHXBmjri2IPEtvf2Tq64RWcFCsPi4YttXc86znUY=;
-        b=LywfaUL1r486yC8yFxqpSnASvBblhpFGFn+QOLuObLNnRowhFh/6e1x+HHdNc5GoQz
-         tlpkYJ/uBeokDk8ncy1ofx2qNEh/dgT4CHdrcvWrL37FSBtuwbIUa6NBtcThOz67RimA
-         1RScJbic7yKshV5TrQIFE/MurTs/4Zk72VnP1jyv3eniFK+znBO/C6qykDlw6qKyKeKk
-         aaaR1hIBBUddskXxVRe+TDMREw1ao2Xdes2rZJBay+EnB2VTIDKa3vNys+lS7pSbwJMQ
-         KPaZnn+sDWDEAq8EPJtmf0GCXSyZGuSVfNZWz3dlzWIMpTMTn3VT32cD03h67EAbQ0kc
-         n1nA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795020605; x=1795625405;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BmkZHXBmjri2IPEtvf2Tq64RWcFCsPi4YttXc86znUY=;
-        b=fdIxVZYZ+nltByNzqu2s9a2lgP+H7SMeoB4lgUBglXvKHt4J6ryede58ykllkDeiUc
-         agP+lU3Fk34jHG01l4C24nlBCXMKDgV+NEtHk0iM0fqUEww/YeCygajI+gRKMt5rzkZH
-         zh9SLHZDKu4KkKEsEGCxQ4gQ2+1Y0Xu+HWlJmr+1PpopcuA9Qvjus9VnrmdqjMiGJXHd
-         bgX1AfDrS/g8UpbajwWL1XvpboiWkXkv2BzKu1nvwxYEZUGoSwkIpZCUiaPE4k0X+kDF
-         t2Vv5BtqSsY0xFvpWeUHLJoDs/6eca7Hwm+9ZC4QiPMzC63rcqA3aOZBTnK56DfRx6Xo
-         1BIA==
-X-Forwarded-Encrypted: i=1; AL+hErEhDc2LDQx8LE+2QUS59LcfSf8J7zyB9qeLCRswP6y3e7PqiHjsoIxC4AwUolMOlHgeUUDyti1lfnGNzMk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8MWwNv7a8RYJKEHU5YIWIdK6PHiCvMucTmI0BOd87FfKbSMVK/
-	3GJRgYnj4kWZFFAW8NULFx8nsABOdadrlkZsmDGY45wlhdr9vDshdXst5R0lj9A+IdgOL+8RboE
-	t6PJU5iLq/+QdVR2tuxRzPZZKXwxvsME=
-X-Gm-Gg: AZFdTZdu+U0jCkORRgXCJ4ZoXT/JnJ2u5gnWCxm1ZPKJznGC978+9S+WVGNSPEUTxrT
-	qqiRt46Q3fpmoK2MZpjnumR6KjNBP6ep7q+Fq2eYjU6RZXvDh8NL/XRz1wLW4669T1XEfGSMHJy
-	jZ9ybm05Ca+saRPkT+n38BolkeQH1yul4Gedz9bL08IiFYgPlXpcctelgRka07sSu72GC6LpPoK
-	RDyLWLcLiAxp2fYemGePBbpGR3Rsv1x+GfIgY7NoMsmk3hurtPuc0DHNGYKMtzse86Bmac6Kyjc
-	DqK7TBjKNiJiFgCeRvh/ggRhmuR7WL0UxVVRz+Rz/RUhjUOCB2vuwwhyYPubd11On8yv3/lv5vH
-	uvxCcg/L3+C4jJIrehFHlBHsWWK/u72DjESSIf9TMXL+gp8ovuydkT9YKalJlGsRKgEcpNkWq6I
-	Qc19QmoDELXj/rMkoOniSC1KISQ/7gBBxbLoklKIDW7F1J9LiZbuezifINvVqLz/siBxeVeyn+i
-	QBaexPD7OkOE8tj/codIPW91Df6cw==
-X-Received: by 2002:a05:6122:8b1a:b0:5ee:40e0:482d with SMTP id
- 71dfb90a1353d-5ee645eebbemr1908245e0c.3.1795020604679; Wed, 18 Nov 2026
- 08:50:04 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=ZUGoGX5b
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 8E1624E40546;
+	Wed, 18 Nov 2026 16:50:03 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 51DA25FE9B;
+	Wed, 18 Nov 2026 16:50:03 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B73EC11BC288E;
+	Wed, 18 Nov 2026 17:49:50 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795020600; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=CyjKDjy9c46o/HWa56BDlf4pykp2gQLkYqhUcMj3WmQ=;
+	b=ZUGoGX5bBxznGuj2njy1KOPSgGFIOjUlp8TNOOXoCntty8WmdVCpyfs4sYguwawSwOav8a
+	4LJNI6/NlRMXiURLOqu0IQyqoA1O7731csdWZ6ExGtQf1E3k1/goi1gS7mPkYSS2NANZBk
+	6N4vxmmbuB49N2WFZ3B51Vr3/daAxw2TpKsb35IUPX2isGt/Fdf9+vM5xGusg5GT4/NlKl
+	7+2yvEVbnS2qrUUp2XQ6aP0OaKlGdpb03kcO/pZYjtanjTUlNHOstypjXlB3ddOU42NEIi
+	UYcZGVrIcfn7XLhtMmUjOT+rdprQolwtMzqoOmq49JiZbJ66OqbwN2kL4cGqGg==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Subject: [PATCH RFC v3 00/31] drm bridge hotplug
+Date: Wed, 18 Nov 2026 17:49:43 +0100
+Message-Id: <20261118-drm-bridge-hotplug-v3-0-44bb3b4a828f@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,64 +62,275 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261103-submit-rawnand-timing-recovery-v1-v1-1-1cc33723e052@gmail.com>
- <874idejux6.fsf@bootlin.com>
-In-Reply-To: <874idejux6.fsf@bootlin.com>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Wed, 18 Nov 2026 09:49:52 -0700
-X-Gm-Features: Aa3M54oA-NhlWDrlV5o4l_cAgJ4pKdNdRQHVkaAuLvVQxEV9MUhD02iNL28zf5k
-Message-ID: <CADvTj4or-XBJCp3oUh2T438Tf5kB0vfecNzOV+haisVrLKW9vA@mail.gmail.com>
-Subject: Re: [PATCH] mtd: rawnand: propagate timing-mode recovery failures
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
-	Boris Brezillon <bbrezillon@kernel.org>, linux-mtd@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22OywrCMBBFf6VkbSSPJrSuBMEPcCsuTDO1EW00S
+ YNS+u+mDwTB5Z25c870yIMz4NEm65GDaLyxbQp8laGqObcXwEanjBhhkggqsHZ3rJzRadPY8Lh
+ 1F5xLJoXmZ1YXAqXDh4PavCboER32O3Sah75TV6jCiFtqDp5dUoa5O9Ya44N17+mfSCfCoi7/q
+ SPFBOcCmNKK61rlW2VtuJl2Xdn75I3sC6GE0L8QliAF8LwspK6ULH4hwzB8AGftJr8nAQAA
+X-Change-ID: 20260515-drm-bridge-hotplug-46265d3a2f85
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Inki Dae <inki.dae@samsung.com>, Jagan Teki <jagan@amarulasolutions.com>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Jessica Zhang <jesszhan0024@gmail.com>, 
+ Douglas Anderson <dianders@chromium.org>, Marek Vasut <marex@denx.de>, 
+ Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Wed, Nov 18, 2026 at 3:28=E2=80=AFAM Miquel Raynal <miquel.raynal@bootli=
-n.com> wrote:
->
-> On 03/11/2026 at 23:13:18 -07, James Hilliard <james.hilliard1@gmail.com>=
- wrote:
->
-> > When GET_FEATURES succeeds but the chip does not acknowledge the reques=
-ted
-> > timing mode, nand_setup_interface() falls back to mode 0. Both the
-> > controller-interface reset and the NAND RESET command can fail, but the=
-ir
-> > return values are discarded. The function then returns the successful
-> > GET_FEATURES status even though the fallback did not complete.
-> >
-> > Check the controller reset before issuing RESET and propagate either
-> > recovery error when there was no earlier error. Preserve an earlier
-> > GET_FEATURES failure and keep returning success when a timing mismatch
-> > is recovered by a successful mode-0 fallback.
->
-> You are carrying a return value in an error path of an error path. If
-> the reset actually fails, the very next attempt will fail and probe will
-> be aborted anyway. So while the fix is not inherently wrong, the title
-> and commit log overstate the problem.
->
-> My proposal:
->
-> mtd: rawnand: propagate mode-0 fallback failures
->
-> When a chip does not acknowledge the requested timing mode,
-> nand_setup_interface() falls back to mode 0 by resetting the controller
-> interface and issuing a NAND RESET. Either step can fail; returning
-> success will likely lead to any later attempt at talking to the chip to
-> fail.
->
-> Make sure the error path propagates those failures in the mode-0
-> fallback case.
+Hello,
 
-There is also a caller outside probe: nand_do_write_oob() calls
-nand_reset(), which calls nand_setup_interface(). If GET_FEATURES
-reports a different timing mode and the fallback fails, nand_reset()
-currently returns success and the OOB write continues past its reset
-check. Propagating the fallback error lets the write stop there.
+this series adds support for devices with a DRM pipeline whose final
+components, including one or more bridges, can be hot-plugged and
+hot-unplugged.
 
->
-> Thanks,
-> Miqu=C3=A8l
+For more about the use case see the v1 cover letter:
+https://lore.kernel.org/lkml/20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com/
+
+Design
+======
+
+The drm_bridge_connector is nowadays the recommended way to implement DRM
+connectors when a chain of bridges is used.
+
+This series proposes a small helper (drm_hotplug_helper) which drivers can
+use to make their encoder able to:
+
+ * receive hotplug-relevant events
+ * add a drm_bridge_connector when a new bridge is added making the
+   pipeline complete in the hardware
+ * remove the drm_bridge_connector when a bridge is removed
+ * start/stop HPD polling when the connector is added/removed
+   (despite the name, HPD is pretty much orthogonal to bridge hotplug)
+ 
+Series layout
+=============
+
+There are various preparation steps before the last patches introduce
+bridge hotplug itself.
+
+ A. Add a dynamic variant of drmm_connector_hdmi_init() and non-drmm
+    hdmi-cec API
+    (needed for the bridge-connector to allocate the connector dynamically)
+
+     1	drm/display: hdmi-cec-helper: use drmm_ prefix for drmm action
+     2	drm/display: hdmi-cec-helper: add non-drmm API variant
+     3	drm/display: hdmi-cec-notifier-helper: use drmm_ prefix for drmm action
+     4	drm/display: hdmi-cec-notifier-helper: add non-drmm API variant
+     5	drm/connector: split drmm_connector_hdmi_init() in 3 parts
+     6	drm/connector: add drm_connector_hdmi_dynamic_init()
+
+ B. bridge-connector: use a dynamic drm_connector
+
+     7	drm/display: bridge-connector: split allocation code from initialization code
+     8	drm/display: bridge-connector: hoist error management to common code
+     9	drm/display: bridge-connector: use a dynamic connector
+    10	drm/display: bridge-connector: add APIs to add/remove the connector dynamically
+
+ C. Misc preparation work
+
+    11	drm/bridge: constify of_drm_find_and_get_bridge() device_node parameter
+    12	drm/bridge: initialize chain_node list head on allocation
+    13	drm/bridge: initialize chain_node list head on detach and attach errors
+    14	drm/bridge: ti-sn65dsi86: protect device resources on unplug
+    15	drm/atomic: drm_atomic_private_obj_fini: protect private_obj removal from list
+
+ D. Add notifier mechanism to let common code (the bridge-connector)
+    take actions on hotplug events
+
+    16	drm: event-notifier: add mechanism to notify about hotplug events
+    17	drm/bridge: notify about added and detached bridges
+    18	drm/mipi-dsi: notify about DSI attach
+
+ E. Let bridges return their next bridge
+    (allows to know when the pipeline is complete)
+
+    19	drm/bridge: add drm_bridge_get_next() and supporting func
+    20	drm/panel: implement .get_next_bridge
+    21	drm/bridge: display-connector: implement .get_next_bridge
+    22	drm/bridge: ti-sn65dsi83: implement .get_next_bridge
+    23	drm/bridge: ti-sn65dsi86: implement .get_next_bridge
+    24	drm/bridge: samsung-dsim: implement .get_next_bridge
+
+ F. drm_bridge: stop pipeline when a bridge is removed
+
+    25	drm/bridge: add drm_bridge_detach_from()
+    26	drm/atomic: add drm_atomic_shutdown_encoder()
+    27	drm/tests: atomic: add tests for drm_atomic_shutdown_encoder()
+    28	drm/bridge: clear bridge->encoder on detach
+    29	drm/bridge: shutdown encoder and detach downstream bridges on bridge unplug
+
+ G. Implement bridge hotplug in bridge-connector, enable it in a driver
+
+    30	drm: drm_hotplug_helper: new helper to implement bridge hotplug
+    31	drm/mxsfb/lcdif: enable bridge hotplug
+
+== Grand plan
+
+This is part of the work to support hotplug of DRM bridges.
+
+Here's the work breakdown (➜ marks the current series):
+
+1. … add refcounting to DRM bridges struct drm_bridge,
+      based on devm_drm_bridge_alloc()
+    A. ✔ add new alloc API and refcounting (v6.16)
+    B. ✔ convert all bridge drivers to new API (v6.17)
+    C. ✔ kunit tests (v6.17)
+    D. ✔ add get/put to drm_bridge_add/remove() + attach/detach()
+         and warn on old allocation pattern (v6.17)
+    E. … add get/put on drm_bridge accessors
+       1. ✔ drm_bridge_chain_get_first_bridge(), add cleanup action (v6.18)
+       2. ✔ drm_bridge_get_prev_bridge() (v6.18)
+       3. ✔ drm_bridge_get_next_bridge() (v6.19)
+       4. ✔ drm_for_each_bridge_in_chain() (v6.19)
+       5. ✔ drm_bridge_connector_init (v6.19)
+       6. ✔ protect encoder bridge chain with a mutex (v7.2)
+       7. ✔ of_drm_find_bridge
+          a. ✔ add of_drm_get_bridge() (v7.0),
+               convert basic direct users (v7.0-v7.1)
+          b. ✔ convert direct of_drm_get_bridge() users, part 2 (v7.0)
+          c. ✔ convert direct of_drm_get_bridge() users, part 3 (v7.0)
+          d. ✔ convert direct of_drm_get_bridge() users, part 4 (v7.1-v7.2)
+          e. ✔ bridge-only drm_of_find_panel_or_bridge() users (v7.2)
+       8. … panel_bridge lifetime
+          a. ✔ cleanup DRM_PANEL in bridge drivers (v7.4)
+	  b. ✔ embed a drm_bridge in every drm_panel (v7.4)
+	  c. ✔ remove *_of_get_bridge(): non-OF drivers (v7.5)
+	  d. … remove drmm_of_get_bridge()
+	  e. … remove devm_drm_of_get_bridge(), part 1
+	  f.   remove devm_drm_of_get_bridge(), part 2
+       9. ✔ enforce drm_bridge_add before drm_bridge_attach (v6.19)
+    F. ✔ debugfs improvements
+       1. ✔ add top-level 'bridges' file (v6.16)
+       2. ✔ show refcount and list lingering bridges (v6.19)
+ 2. ✔ handle gracefully atomic updates during bridge removal
+    A. ✔ Add drm_bridge_enter/exit() to protect device resources (v7.0)
+    B. ✔ Add drm_bridge_clear_and_put() (v7.1)
+ 3. ✕ DSI host-device driver interaction
+ 4. ✔ removing the need for the "always-disconnected" connector
+ 5. ✔ Migrate i.MX LCDIF driver to bridge-connector (v7.2)
+ 6. ➜ DRM bridge hotplug
+    A. ➜ Bridge hotplug management in the DRM core
+       1. ✔ bridge-connector: attach encoder to the connector (v7.2)
+       2. ➜ drm bridge hotplug
+    B.   Device tree description
+   
+
+---
+Changes in v3:
+- Handle use cases where the first bridge after the encoder is hotpluggable
+  (in v1 and v2 the first bridge was required to be always present)
+  as well as all cases where the first bridge is a DSI host
+   - Removed "samsung-dsim: move drm_bridge_add() call to probe", not
+     needed anymore
+- Handle hot-pluggable bridges supporting HPD, add TI SN65DSI86 DSI-to-DP
+- Fully implement dynamic connector in drm_bridge_connector (CEC helpers
+  were missing in v2)
+- Fixed shutdown to not shutdown the whole card
+   - as a consequence, removed (not needed anymore)
+     "drm/atomic: move [...] from drm_atomic_helper to drm_atomic"
+- Many smaller fixes and improvements
+- Link to v2: https://patch.msgid.link/20261001-drm-bridge-hotplug-v2-0-8e34986dcb68@bootlin.com
+
+Changes in v2:
+- Rewrote: added new drm_hotplug_helper, dropped most changes to
+  drm_bridge_connector
+- Added get_next_bridge func, dropped is_tail func, and stop
+  using -EPROBE_DEFER to mean a next bridge is needed but currently absent
+- Rebased on drm-misc-next, which required a few reworks
+- Fix dynconn mutex locking
+- Fix sashiko-reported bugs
+- Drop "drm/display: bridge-connector: store the drm_device pointer", not
+  strongly needed, and adapt the remaining patches
+- Simplify handle_hpd code types
+- Lots of other smaller improvements
+- Link to v1: https://patch.msgid.link/20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com
+
+---
+Luca Ceresoli (31):
+      drm/display: hdmi-cec-helper: use drmm_ prefix for drmm action
+      drm/display: hdmi-cec-helper: add non-drmm API variant
+      drm/display: hdmi-cec-notifier-helper: use drmm_ prefix for drmm action
+      drm/display: hdmi-cec-notifier-helper: add non-drmm API variant
+      drm/connector: split drmm_connector_hdmi_init() in 3 parts
+      drm/connector: add drm_connector_hdmi_dynamic_init()
+      drm/display: bridge-connector: split allocation code from initialization code
+      drm/display: bridge-connector: hoist error management to common code
+      drm/display: bridge-connector: use a dynamic connector
+      drm/display: bridge-connector: add APIs to add/remove the connector dynamically
+      drm/bridge: constify of_drm_find_and_get_bridge() device_node parameter
+      drm/bridge: initialize chain_node list head on allocation
+      drm/bridge: initialize chain_node list head on detach and attach errors
+      drm/bridge: ti-sn65dsi86: protect device resources on unplug
+      drm/atomic: drm_atomic_private_obj_fini: protect private_obj removal from list
+      drm: event-notifier: add mechanism to notify about hotplug events
+      drm/bridge: notify about added and detached bridges
+      drm/mipi-dsi: notify about DSI attach
+      drm/bridge: add drm_bridge_get_next() and supporting func
+      drm/panel: implement .get_next_bridge
+      drm/bridge: display-connector: implement .get_next_bridge
+      drm/bridge: ti-sn65dsi83: implement .get_next_bridge
+      drm/bridge: ti-sn65dsi86: implement .get_next_bridge
+      drm/bridge: samsung-dsim: implement .get_next_bridge
+      drm/bridge: add drm_bridge_detach_from()
+      drm/atomic: add drm_atomic_shutdown_encoder()
+      drm/tests: atomic: add tests for drm_atomic_shutdown_encoder()
+      drm/bridge: clear bridge->encoder on detach
+      drm/bridge: shutdown encoder and detach downstream bridges on bridge unplug
+      drm: drm_hotplug_helper: new helper to implement bridge hotplug
+      drm/mxsfb/lcdif: enable bridge hotplug
+
+ MAINTAINERS                                        |  16 +
+ drivers/gpu/drm/Kconfig                            |   5 +
+ drivers/gpu/drm/Makefile                           |   2 +
+ drivers/gpu/drm/bridge/display-connector.c         |   7 +
+ drivers/gpu/drm/bridge/samsung-dsim.c              |   9 +
+ drivers/gpu/drm/bridge/ti-sn65dsi83.c              |   9 +
+ drivers/gpu/drm/bridge/ti-sn65dsi86.c              |  61 +++-
+ drivers/gpu/drm/display/Kconfig                    |   7 +
+ drivers/gpu/drm/display/Makefile                   |   2 +
+ drivers/gpu/drm/display/drm_bridge_connector.c     | 225 ++++++++++----
+ drivers/gpu/drm/display/drm_hdmi_cec_helper.c      |  62 ++--
+ .../gpu/drm/display/drm_hdmi_cec_notifier_helper.c |  34 ++-
+ drivers/gpu/drm/display/drm_hotplug_helper.c       | 325 +++++++++++++++++++++
+ drivers/gpu/drm/drm_atomic.c                       | 151 ++++++++++
+ drivers/gpu/drm/drm_bridge.c                       |  87 +++++-
+ drivers/gpu/drm/drm_connector.c                    | 131 ++++++---
+ drivers/gpu/drm/drm_hotplug_event_notifier.c       |  62 ++++
+ drivers/gpu/drm/drm_mipi_dsi.c                     |   3 +
+ drivers/gpu/drm/drm_panel.c                        |   8 +-
+ drivers/gpu/drm/mxsfb/Kconfig                      |   2 +-
+ drivers/gpu/drm/mxsfb/lcdif_drv.c                  |  40 ++-
+ drivers/gpu/drm/tests/drm_bridge_test.c            | 209 +++++++++++++
+ include/drm/display/drm_hdmi_cec_helper.h          |  21 ++
+ include/drm/drm_atomic.h                           |   1 +
+ include/drm/drm_bridge.h                           |  27 +-
+ include/drm/drm_bridge_connector.h                 |   4 +
+ include/drm/drm_connector.h                        |   6 +
+ include/drm/drm_hotplug_event_notifier.h           |  52 ++++
+ include/drm/drm_hotplug_helper.h                   |  30 ++
+ 29 files changed, 1442 insertions(+), 156 deletions(-)
+---
+base-commit: 9c327dceb627a7947de3e82da6363fa508fd619b
+change-id: 20260515-drm-bridge-hotplug-46265d3a2f85
+
+Best regards,
+--  
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
