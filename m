@@ -1,85 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795011129;
-	b=S02DD10ZeKMNarKArPpve7O/uVWJg+J6kbSeYkvAV+g5I4EMZNkUuloOF8dmU2bmmBv6
-	 Vt+3vfs3LvR4W5Jyk5J8ed2FQRyn/2b+tBQOIbfE3mNzjWOYdjrqpxyD3a5mA51dRRdMJ
-	 JJ5+V8S9tHYEoMcCoKDX/8yBhlJBY4m7i4IyUVDFCwSxNMQECz0eh/MLEJtHshz8dvGrc
-	 UQM0ZZnKnYVAisoI4qB6BoQvNGuw4+Su+KMftu3lKMFESZxerFIArCIzxNJ+MstYuWBS/
-	 tMoGxCqojzbd+oVpVdZNr1CItraJb+SH+LFllsQBIE7MJSnKtsSjWUNQLD8CN6/9K+g==
+	t=1795011141;
+	b=4e4gp0z3+5WIRhK6IB2QEm+d1erX/BdyTM0eq+iSwjrBChWDmvPtbO2wQkB3z+gnoA+f
+	 EH1eD/soQyA2V0OrGkX6nfmA0iqwE9/4ih27bFSajKakwVfYkxHBw3BjIhq9HZWmwsXEu
+	 GHBvWCgxBJJHP/Q/GpvQ9hlXYBgeskTT76QAz4zvSgLP4jf3C/4g3xPI3h48dzcfL60f5
+	 Cg8/z59MCLHT6xOSj1PtwMFwYfPSkaH1CKeJOUx9P1rw45kRTndUzHpRAg/OOaoQLN0nn
+	 eu0UE9RYFyUCquuKP7LpPBJh0CzvjSfJcbI1MVOrSu+zcSGvC2kcJZGDFCmWcxlFcIw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795011129;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795011141;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
-	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=8+oQ1HV3e9R+CSE12Qaoq1BXQEmnqEm37qYpcdR4cOY=;
-	b=j+eupxmAdYJb1s0NZYZfSTLWbFbxpb0/83biltobn9A6Y5tNGCJUQJI0MU2CKcC81Thr
-	 uXMenKJHKcEZ9cJKWkDT5uSk4BGxZjxdy6A85Ve3vEDJt+a92xEZlaKfAl2a+ZRJHgAmm
-	 l4EuJL+wZTcvC7YxL1+tKgZ7XKHXrMazRJo2QLxS4Mh4c9jz6uuE57r2EFErAqYMy7y8J
-	 Sdp+5pReAbl3ziuqkn6YcDBN/M3swLlzJDnalQP0qkoTFLTWXgmLroGaZKWOwvcV/FvzM
-	 qoOHeO9VdAZyntYw7Ux7EVW4fAqtmkGOP2FztYvQIP4YQ+rsdlStUQFtZMORRMTz8yw==
+	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer;
+	bh=aZUtL6/Zh+PGwvVCL/LrsblWzIm0zKOhzUlFpTCrzCY=;
+	b=kOM4J1/YMHwQx+4xQ4ygTB4CSFJJMg0qHkckPT+shH4XauiXvNBDeFWTKTzdgntBDIEP
+	 IFmIbou5tPsjkamZoBJbC9RX663IU84jZmbkT8N3gHh30AnaaROjtjxXsx/lth5VCB67+
+	 iA2S4qlITyX4j1lAauAiwLeJBALFOHWcSYbQGfTlfXO4OIt6u9UFTkCvXOBbHOJufrtT7
+	 nqpxZw7feieoAw8LAVW1jsuaGt9fDHekUEgNTvqTPIHBIS72Gi9hGtfEm6B2e0hnsgjd5
+	 MIHeOVn7xnXnv6Ko72BQUQwOdyTXRaXVHllxoRv6q6i084vdZNHEh75m5WoOE79Speg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=baylibre.com;
-	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=X+Du2E5H;
-	arc=none smtp.remote-ip=209.85.221.44
-Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
+	dmarc=none header.from=gourry.net;
+	spf=pass smtp.mailfrom=gourry.net;
+	dkim=pass header.d=gourry.net header.i=@gourry.net header.a=rsa-sha256 header.s=google header.b="mLopjy/F";
+	arc=none smtp.remote-ip=209.85.222.174
+Received: from mail-qk1-f174.google.com (mail-qk1-f174.google.com [209.85.222.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5A5E60A2617
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:12:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D5A5E60A2617
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34CDC606A333
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:12:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34CDC606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=gourry.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gourry.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=X+Du2E5H
-Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-490c3ae81d3so670902f8f.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:12:07 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gourry.net header.i=@gourry.net header.a=rsa-sha256 header.s=google header.b=mLopjy/F
+Received: by mail-qk1-f174.google.com with SMTP id af79cd13be357-9495d543c42so100254285a.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:12:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795011126; x=1795615926; darn=vger.kernel.org;
+        d=gourry.net; s=google; t=1795011139; x=1795615939; darn=vger.kernel.org;
         h=message-id:date:references:in-reply-to:cc:to:from:subject
          :content-transfer-encoding:content-type:mime-version:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=8+oQ1HV3e9R+CSE12Qaoq1BXQEmnqEm37qYpcdR4cOY=;
-        b=X+Du2E5HeDdGwpJtkkybS4mRnYIN76epeyKOe0BAKNzk2aIzSHPLlFW1sPj87xh6QD
-         r8+27iMo40fH3/Dfjz/gjFCrVzVzwYvkUZD9TFz9bTM2Tc3FHcMsL2SxK0ysirMwspZ6
-         bFZaHoYqXkDu1jjng6iK63CdgKssDdTzOvbzGkeu4BC33Kqb/OL0JZe3/FnqX3w7/Q09
-         CoxzHRaFuCZM5DNQ+HEpaMLG+idiYekrYrYyjwysV7ldZqI8eqFfS9p9yDN77C27r4nd
-         aQWcGYi1pHhF3PATB+2bvKGeW6ek3lSjSwjVlq1jIHKFJ/2km/fmms3HIkfrJRTOi6Bb
-         ot/g==
+        bh=aZUtL6/Zh+PGwvVCL/LrsblWzIm0zKOhzUlFpTCrzCY=;
+        b=mLopjy/FWyaePPgsuWwuOKjCR11EwCSppNLOhSXESKB/06hq1gR89aotb7+i6h1yzk
+         4pS0coDD0y7WzNPKQRm4TrTQewjKvJCmK0gDifoqLKINkm0Av1vXBJpMDD8YsVKqpGo7
+         ZKKvuMzix0DJ21EM5qCVACBwFg1f4AoESXKeucXt/wsP4xPfRlEWt3Z0506NRvO/Sek3
+         2Xblf8uR9i2ArLTrvX/BSJH1twvMuYu1lhLMxORqheyoFTMDnqx532JxmhkqpFmiH/A7
+         +qrkbgx3eLDwAGjTvxf7MXMDg9pPq6uTBTSf/b/dBWASK5KMHG9rlnV+eDf3kO3Z4dlr
+         53Zw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795011126; x=1795615926;
+        d=1e100.net; s=20260707; t=1795011139; x=1795615939;
         h=message-id:date:references:in-reply-to:cc:to:from:subject
          :content-transfer-encoding:content-type:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=8+oQ1HV3e9R+CSE12Qaoq1BXQEmnqEm37qYpcdR4cOY=;
-        b=L9cnMpq1J2VVuvBqPmhPSWsm11P8NTpne0SZnOTrqTNTeidZC7tXfjXDRxu8SWr3Eq
-         p71ReZsLBGemHZJTIG/QGb+yGgCaXRa/SmwWpKXBG6oV4EaLSnboJ2RPTL2wYSoGGS4X
-         4GfB6i4E7AUqV6ZCbPlnGcPWbAk8BcuMCw/1328vF3FmQRS6QFP+j2hDIkk0wlOdGcZG
-         5ObcSWvVxXshSoWt4d/ciL9i4oFCGDLrpqNB/yKm6/VOFl0wU9oxPqLoFN5UXirWbznM
-         4ZfZibPO9R9v8XVkH++SUeUwFD+VlHToGFiPoxrGMX6dIHffVsKBV6/ZCx4hkK8WYPaZ
-         NIrw==
-X-Forwarded-Encrypted: i=1; AL+hErGF9XNYrw7yRrV5aBcMi/lLNai+UfxwTSCy7i2/6kQnQ1HOtrm63Pf9peJ3y7aDrusTU5ERIi5GUCPz3hs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z921ayt0oUsyl85AJLASa3xJxLTp0W4EWarqHeQFridLI2wQiF1
-	w1V+NFHAOZElq4hOaCd9Z52rnT3DVw2CZPClZe/rYezwV9CJGE0RbDiV+UUXnKaC2jM=
-X-Gm-Gg: AZFdTZeEznWfM4pSkN17xZwEBtfja94bi9xG1fgHsVILZMjx5gnVnduSZAn/ur/ZfTQ
-	+8CCmXjOD1ANdi+X2z1C3fH5KMbEI7f+T6L+b/8mobpOHtzAnYud0HDPqeKDdeM6bhefcntS/w/
-	P8oondZPS98j+4WWlf8BGsXj9OsaITEKC4Weu04B8ddeCcIgpYGChj3TWKfQ79nwXXdJERFoRwc
-	9+8iY7y5M+PPgN0iwwhDkq+pYpO6OCu7bI51CXtPRjdMCj462PXqCReXKpYPjHKcRLE23gBR3dZ
-	FM5erUtaH+5soYFWbarsClQzcf8bxl5H/9YCHOA9XrRHNxZSD+eTf8NgfPpJw3ldys9cFYcXi/G
-	UtNGLM7Qpl5IqW7xE+OUCxv8efp4BoDCeFs46HUZjY23UqFxJN/UBG++BNLT1gHlUejg0pvUfed
-	x9EkF8BRIYk9GI/r6jj+HmNo9Yc9yQrrL/Wj2Jdhv3bcxYFXEt4Un++8CHADa+vSLHXj03gjVOG
-	7MMuvBmg1aR3n8+1Xes6lwoNRSm3tpcLt75bwVrKGIkyo9obbqmiKVsNZttsaKOU4UIcdP+Q580
-	DJcCJmZ2cDfKdc+x4vEhy8Me0BRivI3kUl/CB8CXr0Cgi9Ar
-X-Received: by 2002:a05:6000:186b:b0:48e:88e2:fe6a with SMTP id ffacd0b85a97d-4a63f4623d2mr6222883f8f.49.1795011126108;
-        Wed, 18 Nov 2026 06:12:06 -0800 (PST)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a650d2ecd0sm5590663f8f.8.2026.11.18.06.12.05
+        bh=aZUtL6/Zh+PGwvVCL/LrsblWzIm0zKOhzUlFpTCrzCY=;
+        b=l1oBuavtftKVydm3g9/OYuyiwhBw9ll9hiT2Z8NeZPhxdyqrn//FJDbiTMPEfD41JX
+         KFWDIDkW1AqXBQWrRXYtlWG5FP4v3XBYH6lnQ4y2kkeV4wd+B/hTmLT7c9MOBYXHJfZE
+         pBOSG3vmbTlkqfnu/VyX7FKdYs29igocJSQhXEqZyZ4m3mJIHM9t0qnrYNpSXIjYO6ey
+         k7GNHSw2NEuvkgm85WhxJtCKirASSeuoqvxmYrpqtDqGUuzKw35f10pdIuQ2L7aIVaJd
+         abMLyU512Ze/gi9BsOdN/rgPKzK/chSr6umU8qD9Q3qOUa2wB5Qxg2LNaKhE6xPme2k8
+         /4LQ==
+X-Forwarded-Encrypted: i=1; AL+hErHYSx5UV6qWI2xKKNCB7PUyX2jM39SxHqORP7aNhlr+51sEHcy1pOMeVJimxeh7DbwDlpRQN0sbqzu8B9E=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8uotH7j1fiTR9IllQAxp/LMSDDXFEiVWHACaafdYL9I/C2ABZq
+	TvoNrEjD+UXDfYHj50PP0eVUQ4y/b+XFmNJNqZW50rYBygH0+wFAAJN/1in+HNArsI3yFLqDIcs
+	ueysh
+X-Gm-Gg: AYBFou3DmHwOh0aOpqrprKZucHgdFJt8UGjQ6EP3CZtHEH78VuyMuhQ9ebP+NIZRxB2
+	MSMx6/aHbb9nLLGkFL/0jOjSoJqywT9cqKIzElo0ckKwYkkXwzkjkb/TesheDEdncSMnOij2Y5G
+	4cfXHdxal5AVvrC4Em5S0XePrM6YVloCyN7yyLOQWJVLwm6fcAFsDBphqIHCOf4+h0LrRoManxf
+	/PnSTy5NhHGj7YcROfPazAvfKMb6rljWlB+WQQJNUXFgkMIXu0wvoOhq1btERtbJMIAhNTdLDU+
+	5yUgM4grsVOte7HQqpYqb1HzJEwAZoH6ie4IYQXTzHDSF/Da8OBR19lSFG3HOFbZnieBX+j3ywf
+	TVu27U99hzdYh/w3gfDt0K6Oz25UAyO9lmM6UVbGz0wDc+JOTFvOLgwUmYoSzoPqjpTgcGbcNVq
+	RdkDTjHFjZFsqRk+5SOLO8IXI0EHJJOcc4M14t2J3PK0BJGQUzeI7G17FRe36usQATqrgwljfzB
+	ZApJNq2mHDmK5SqQRbaJtPJ8U5POzPyLaRjRI1LhvgCei+U2s6NJNTapxUge4T/itCOfuvRv24b
+	/4DQ+ZgwMmrKph0d3FFEnaWxZsZGehSfQgTngPudYwV/k5biKHqvCMtLXyw1uyz+gDlWZFZCsnp
+	cRd5vAJo=
+X-Received: by 2002:a05:620a:44ca:b0:93f:3163:3e25 with SMTP id af79cd13be357-949996e2da8mr497886585a.24.1795011138732;
+        Wed, 18 Nov 2026 06:12:18 -0800 (PST)
+Received: from [192.168.50.231] (pool-71-191-145-202.washdc.fios.verizon.net. [71.191.145.202])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-9499b454facsm191203985a.5.2026.11.18.06.12.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 06:12:05 -0800 (PST)
+        Wed, 18 Nov 2026 06:12:18 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,77 +92,47 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH] MAINTAINERS: Update UltraRISC driver maintainers
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Xincheng Ji <jixincheng@ultrarisc.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Stephen Boyd <sboyd@kernel.org>, 
- Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Linus Walleij <linusw@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Rob Herring <robh@kernel.org>, 
- linux-pci@vger.kernel.org, linux-clk@vger.kernel.org, 
- netdev@vger.kernel.org, linux-gpio@vger.kernel.org, 
- Fei Chen <chenfei@ultrarisc.com>, Conor Dooley <conor@kernel.org>, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Jerome Brunet <jbrunet@baylibre.com>
-In-Reply-To: <20261116-ultrarisc-maintainer-v1-1-f58706ae438c@ultrarisc.com>
-References: <20261116-ultrarisc-maintainer-v1-1-f58706ae438c@ultrarisc.com>
-Date: Wed, 18 Nov 2026 15:12:02 +0100
-Message-Id: <179501112283.639563.5233054429317576626.b4-review@b4>
+Subject: Re: [PATCH] mm/userfaultfd: reject DAX mappings
+From: "Gregory Price (Meta)" <gourry@gourry.net>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+ Mike Rapoport <rppt@kernel.org>, Peter Xu <peterx@redhat.com>, 
+ Muhammad Usama Anjum <usama.anjum@arm.com>, linux-mm@kvack.org, 
+ linux-kernel@vger.kernel.org, Chris Mason <mason@kernel.org>, 
+ Jingyi Sun <1045704958@qq.com>
+In-Reply-To: <20261118-dax_uffd-v1-1-d776cca1ae17@kernel.org>
+References: <20261118-dax_uffd-v1-1-d776cca1ae17@kernel.org>
+Date: Wed, 18 Nov 2026 09:12:17 -0500
+Message-Id: <179501113767.2932576.9608927748315673286.b4-reply@b4>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1377; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=vlDn3aALOXByZVs7mEqRvuJC3A1ctnxY975yMiaHYv8=;
- b=owGbwMvMwCW2VtK+WnvWU3HG02pJDFl/N5nknC99zPPvkMAeEz+LJ/rb3O42SObtqLnBOZNhY
- rKGh3pmRykLgxgXg6yYIksNd7X4O0mtL7Om69yGmcPKBDKEgYtTACbyv5rhf+pRtSNHwkU+xf62
- 3H1MSnpnB/t0htMrxT57Xp29uUlbppLhf/BEnSWNU72uGOXvU9VP+/jowUV9g7UhNjMfXXfY/J3
- 3GgMA
-X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
- fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 
-> Jia Wang and Xincheng Zhang have left UltraRISC and are no longer
-> maintaining its drivers. Jia's listed company email address is
-> no longer available.
+On 2026-11-18 11:03 +0100, David Hildenbrand (Arm) wrote:
+> UFFD_FEATURE_WP_ASYNC made DAX mappings eligible for userfaultfd
+> write-protection, but the DAX fault paths have never fully supported it.
 > 
-> Replace Jia Wang with Xincheng Ji and add Fei Chen as a co-maintainer
-> for the DP1000 PCIe, clock, DWMAC and pinctrl drivers. Remove
-> Xincheng Zhang from the PCIe maintainer entry.
+> DAX faults use vmf_insert_mixed() and vmf_insert_mixed_mkwrite(), which
+> treats any non-empty PTE, including uffd-wp markers, as an existing mapping.
+> A read fault on an uffd-wp marker therefore returns VM_FAULT_NOPAGE without
+> replacing the marker, causing the fault to repeat indefinitely.
 > 
-> Having two maintainers provides continuity for maintenance and
-> patch review when either maintainer is unavailable, as suggested
-> by Conor Dooley during the UltraRISC maintenance handover.
+> PAGEMAP_SCAN can also write-protect a DAX PMD, but the huge DAX write-fault
+> path can make it writable without clearing its uffd-wp bit, breaking async
+> write tracking.
 > 
-> Link: https://lore.kernel.org/all/20261112-legend-outcast-c2226b5e02a1@spud/
+> Device DAX mappings requiring huge-page alignment and cannot serve PTE
+> faults after UFFDIO_WRITEPROTECT has split their huge mappings.
 > 
-> Signed-off-by: Xincheng Ji <jixincheng@ultrarisc.com>
-> ---
-> Hi all,
+> So let's just disallow DAX mappings in vma_can_userfault() entirely,
+> making UFFDIO_REGISTER fail with EINVAL.
 > 
-> Jia Wang and Xincheng Zhang have left UltraRISC and no longer
-> maintain these drivers. Jia's listed company email address is
-> no longer available.
+> Fixes: d61ea1cb0095 ("userfaultfd: UFFD_FEATURE_WP_ASYNC")
+> Reported-by: Chris Mason <mason@kernel.org>
+> Reported-by: Jingyi Sun <1045704958@qq.com>
+> Closes: https://lore.kernel.org/all/tencent_1874C71D4177A1624528043E008DB1A5EF05@qq.com
+> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
 
-Maintenance is not necessarily tied to an employer.
-It would be better if the people removed could Ack the change, and let
-the community know they don't plan on being involved anymore.
-
-If they do not reply within a reasonable timeframe (a cycle maybe?) I guess
-you can remove them anyway.
-
-That does not prevent you from adding yourself in the meantime.
-
-I suppose this would go through a starfive/riscv tree ?
-
-For the clock:
-Acked-by: Jerome Brunet <jbrunet@baylibre.com>
+Reviewed-by: Gregory Price (Meta) <gourry@gourry.net>
 
 -- 
-Jerome
+~Gregory
 
