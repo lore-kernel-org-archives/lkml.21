@@ -1,78 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795026377;
-	b=NIkwJ19ScnWpJoNFcLf/ieLIh4ggUcNf26de3RimxLEhwe2gv+TK/7HDObZtzEW10F9k
-	 JNQ2N863xjqY4dFoirhWmBpXmlAkBWK4P8L5FeM4RQz8iTC6N3TeyYYrWzfjnE2XrCynu
-	 /azDJSSvmY4Cpy24TrLJ/sVy5ZF6Iy0J5J9Z3QX/o2VdPEvzeoswZQm0hRooMoUTmTtcr
-	 IhZXlJGGJ5rUovPF8Js0GJvi7r9f5Mmaw6mE4ZOBjluUk2TifgLemAbjbH0SBNbRxX3X/
-	 BlrkChic95lFyybXtyiaugML8kZNoPioBiBBPeVcQVBIJ+zdXiLv6iQaMWkb3s0cCRQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795026377;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=r7sbzCl2qpTgoM/gKEteCq1RYkwvwSqJCdHHjbgh9xU=;
-	b=DpE/Ub4DkmVwjqjVMb28mACK6NDxVIuE2Wr1UgbT5A6c5e1AxL+jbbldD98e8pclF3mH
-	 twBDBxrbYi5UhAau34QoYjSp4SUFmD9FYiuVIkA9KKBmBKsIwLGMTna2XyawXpaBBChhP
-	 F/RK6aSvzGAZjpJoQ219sHR/KRI4HadZEKsXj1+8nLcAzOmJzP5u6xlkxaXBJJCCxQ0mY
-	 Qt6o3l86VSjwK3D5gXR5T8oZ706bZoSzoj1xV2vTLgEZKI4FHae0UcSi2AvpQsUKd8vdF
-	 wrBBpXhjk+SnP4e3AEizp0KHWLSpjk6QUf8n4rJB5GHWc/86nVwkPQ1Su4xTIAuLFfQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zjir4qpl;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81050606A31C;
-	Wed, 18 Nov 2026 18:26:17 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795026427;
+	b=bQPxbSprSxgq/RUTpsIBmbVuXoCaJHtT9Sn5Hg3gi/XBy7tleycoZ6agDsMqo/ThxGpL
+	 3Odcp0a+l+h/N3zoFK1sLeUclrjTUqX37lc6Lzk461hVDFiTfgVEni5AIxDE7/Yo8/DHv
+	 kvNBAtmiJkDX0FD0RbRLScuWlTRqmMr+mfeo7klnVVzH6tN+tE/rNFXN14i9Gu304sfNx
+	 aRZ02PEwe7x3veNgA355tHA/gZBBF8j17+7Eh2j7AF5ZuWoQSNnUYSjiRwOWr5qQcyBNv
+	 F2dwi/7D+Oy1hQNRuBj8Ry7/AoQCoVF1JMNLM+ceR6efeV87ALs+DQa9X+sVOmrCeIA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795026427;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=Z/lgf/GnvODHH2kSfd1ioOa/KiKtGaKkOea+zkHk+YI=;
+	b=loqeR4te4YFwecRqd8jAfsVIEchUiBCNFWJMGzEjDBr39CgT27ZA4t4TRZqm91ZXrFez
+	 roPKeJFMbOtG8PF2bkWmrVy/W5gDPJt9ILdJaEBX7TLGBzjXY9elBlmOjFWu+oF8/Uz66
+	 QpTwCggC2WSFkU8CTCSUP4WoHvO7Cg+YW5ZhSA+GkJAeeV/00oCbSBGlNf2bITKjm01KV
+	 v0QD7GBJPweFma+B/ivaD9dBdyoAzShrpkVA8mYN1bDyyPwqyV7TpY9Khg9oWbrZ1JZxS
+	 3wSCajnEdF9azPicHCogvZPxHMz192SFVMouskkX+HH5uTy0seumGAVVbTLVSbgsvLQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=OdFPmX7Z;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id AA844606A331;
+	Wed, 18 Nov 2026 18:27:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA844606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zjir4qpl
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795026377;
-	b=xE30EIpjA+tvBvcnwmFilf8lUrpVNpBl1gOJrMzyqvmcQHIaX6cCc1qcwfNm5XLQ9BVc
-	 z/9UQDjvTiUupIIgCY6pUbF+p6ltCPE4v0SVSUoJkcON+fUq29DyBAMm19vBKGrJlC43H
-	 8Jz3ujXbExSoK4g4MRqazOk/dAGXH6LCHt1tTdk9CRi1HeebL5pqiO4U8m5gU7GdJ2uvS
-	 MWYvhHnlQ3CHk8R0WorGmIctVAA1rtjRBLh7NFIhI/I5UsNZGMXJkxM7evBO9PJmJ5WEx
-	 qbcd36PfqKyT5xya5cHzO0T3i+iJ3Kjj1zXE9lEAUNoj1antwkuvi4K7pl5Qmt3qQ6g==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795026377;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=r7sbzCl2qpTgoM/gKEteCq1RYkwvwSqJCdHHjbgh9xU=;
-	b=FU8mX5wfb0bavvKmqjC4Qm3617EnUD6QNddgmGM4c2hW+5GuItP/d9HKBC9BbMeZLojj
-	 vDnX3XS01QUU0T5nZLrcJBUZLLcfHpJp1uvTjWcFdDa6cLjtoCyPv5txqQYNmtSpybbEb
-	 PZ+ev0tcdTsCemNeVlNCarpY7Y6CYIUoVjQjCfl8j2y/lokJBnRzqH4+SqOvelSQFpEOQ
-	 WEXaQT+PCGGUwoF6bKdhOybqkV3fFtCzxGftd54C/D2Le22MyUBvTWnUZuPje8O+YX0eY
-	 dB4Xn38HoC5/V77bdTS+lJtHp1mCejIHfx7g+buD6WJnaFYpFkhYdnydqnvNM9zgmbA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id D62D21F000C4;
-	Wed, 18 Nov 2026 18:26:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795026377;
-	bh=r7sbzCl2qpTgoM/gKEteCq1RYkwvwSqJCdHHjbgh9xU=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=Zjir4qplSv8aSEBPPG0izn1e/f7nrRAolyNYb7OhiAxUeJV3YOmXFf3EH9xh/q2SB
-	 /JwkB1wtS1z//nIT6m/BuvebnXCzDvJYhLnezdPbToQx2TvasbIEmS49d3hKSmmoEa
-	 GBa5wVjKbUXRPidh6Jz/55mrE9EQTkMMazE5KZE5Vd6gZZrF51QFQSZoHPOSATwq8e
-	 JYt1cUZ7/DHitSXKN9bhafNfFnRBDWKbtbuKLDINOsHEY1NNMNX5rXzNMxnwyGFCuG
-	 15R2YvPKXPZ8XBz1ipCQ+KPnM2//ntgJJDJorKUG9yDUyDmU+afcrDySX4FJdTQTrT
-	 LEcS7FTI45NHQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 52AD04AEF9;
-	Wed, 18 Nov 2026 18:26:16 +0000 (UTC)
-From: Maximo Manriquez Lizarraga via B4 Relay <devnull+DelaySystem.tubot.lat@kernel.org>
-Date: Wed, 18 Nov 2026 10:24:41 -0800
-Subject: [PATCH v3] staging: most: dim2: drop volatile from state counters
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=OdFPmX7Z
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E52071477;
+	Wed, 18 Nov 2026 10:27:02 -0800 (PST)
+Received: from gaia.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2BBFA3F673;
+	Wed, 18 Nov 2026 10:27:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795026425; bh=KD00H1LZROLiORUw7YDn6v/wgRaKM9BnTfzpbzUCeVo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=OdFPmX7Z+SLEjJNH0jSOiiUGQ/J+Aol+4r8E/VTNF6DOQRuVpf4adrDYexah8mmF+
+	 4jDcYK8Wk7NsokRYoqRZ5Qw1H/1WTK2rN/deYIZVtBYReCe+v+Dclr7yWoC3bHHqXq
+	 xX5Rd+MsP0iG6Nw7Zw5AUKcb6i8eo2z7FBvm9dDE=
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Pavel Machek <pavel@kernel.org>,
+	Ben Cressey <ben@cressey.dev>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	Kees Cook <kees@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	kexec@lists.infradead.org,
+	llvm@lists.linux.dev,
+	Nathan Chancellor <nathan@kernel.org>,
+	Zhaoyang Huang <zhaoyang.huang@unisoc.com>,
+	Jeson Gao <jeson.gao@unisoc.com>,
+	stable@vger.kernel.org
+Subject: Re: (subset) [PATCH v2 0/2] arm64: use typed entries into copied code for kCFI
+Date: Wed, 18 Nov 2026 18:26:38 +0000
+Message-ID: <179502639864.2187887.8685436920018120058.b4-ty@b4>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261111-arm64-kexec-nocfi-v2-0-ddf0c4aa326f@cressey.dev>
+References: <20261111-arm64-kexec-nocfi-v2-0-ddf0c4aa326f@cressey.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,101 +76,20 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261118-staging-dim2-atomic-v3-1-bc595e081fc8@tubot.lat>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32NQQ6CMBQFr0K6tqYttDauvIdxUeAXvhFq2kI0h
- Lvb4oaNLid5b2YhATxCIOdiIR5mDOjGBOWhIE1vxg4otomJYEJxzk40RNPh2NEWB0FNdAM2VGm
- jpdUWjFUkPZ8eLL426/X25TDVd2hiVuVFjyE6/96yM8+7/4WZU04V1BVoy60qzSVOtYvHh4kkF
- 2axc/AfDpEcRkpmmeSaVeXesa7rB+y+100MAQAA
-X-Change-ID: 20261107-staging-dim2-atomic-68a85f8feaf6
-To: shyamsunderreddypadira@gmail.com, marusik.adamenko@gmail.com, 
- error27@gmail.com, gregkh@linuxfoundation.org, 
- christian.gromm@microchip.com, parthiban.veerasooran@microchip.com, 
- rajveer.chaudhari.linux@gmail.com
-Cc: linux-kernel@vger.kernel.org, linux-staging@lists.linux.dev, 
- Maximo Manriquez Lizarraga <DelaySystem@tubot.lat>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2808;
- i=DelaySystem@tubot.lat; h=from:subject:message-id;
- bh=obOr3rP8PTgcSS0Dx2Zi17AJdPtVHUgcvGOImUJO25I=;
- b=owGbwMvMwCH2SNl4+SzWXm/G02pJDFl/3x5P7s9RsppXzhhYcOZ+pvvrOqFdkX2Z/3pcfvKc2
- B16UO9ARykLgxgHg6yYIouYDM/7+vs6cdZWc07AzGFlAhnCwMUpABNhe87IMHWOdUfRJukPVl2L
- MrishERuvv88t2zdhp92ORYzVqz7c4fhf/mX4D+5C2qEL21gv+i+6R3/UvNP543fiPwriSxNkF0
- whQsA
-X-Developer-Key: i=DelaySystem@tubot.lat; a=openpgp;
- fpr=161C0CEF7FDF2C5E3B3A9CC8E22333A79A058D4B
-X-Endpoint-Received: by B4 Relay for DelaySystem@tubot.lat/default with
- auth_id=1447
-X-Original-From: Maximo Manriquez Lizarraga <DelaySystem@tubot.lat>
-Reply-To: DelaySystem@tubot.lat
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-From: Maximo Manriquez Lizarraga <DelaySystem@tubot.lat>
+On Wed, 11 Nov 2026 15:26:03 -0800, Ben Cressey wrote:
+> An arm64 kernel built with CONFIG_CFI=y oopses after "Bye!" on every
+> kexec that relocates the image. v1 [1] marked machine_kexec() __nocfi.
+> This version types the copied relocation code instead, as Kees Cook
+> suggested [2], and does the same for hibernate, as Mark Rutland asked
+> [3], so that swsusp_arch_resume() loses its __nocfi. Only kexec faults
+> today, and its fix does not depend on the hibernate patch. x86 follows
+> as a separate patch.
+> 
+> [...]
 
-The request_counter/service_counter pair is shared between the AHB
-hard-IRQ handler and the threaded-IRQ service path, but every access
-already runs under dim_lock with local interrupts disabled:
-dim2_ahb_isr() holds it across dim_service_ahb_int_irq(),
-dim2_task_irq() across dim_service_channel(), and configure_channel()
-across the dim_init_*() calls that zero the counters. The spinlock
-provides both the mutual exclusion and the memory barriers, so the
-volatile qualifier adds nothing and wrongly suggests lockless
-cross-context sharing (see
-Documentation/process/volatile-considered-harmful.rst).
+Applied to arm64 (for-next/fixes), thanks! The second patch is for 7.5.
 
-Converting to atomic_t is the wrong tool here: the service-side
-check-and-increment cannot be a single atomic step when done as
-separate atomic_read() calls, as Dan Carpenter pointed out on the
-atomic_t attempt, and a lockless scheme would still need dim_lock for
-the sibling channel state (level, indices, done-buffer count, MBO
-lists) anyway.
-
-Drop the qualifier and document the actual protection in place. No
-functional change intended.
-
-Compile-tested only (MOST=m, MOST_DIM2=m build clean); I don't have
-this hardware, so testing on real hardware would be appreciated.
-
-Signed-off-by: Maximo Manriquez Lizarraga <DelaySystem@tubot.lat>
----
-Changes in v3:
-- New direction: drop the NAKed atomic_t conversion. An audit showed every counter access already runs under dim_lock, so drop volatile and document the lock instead (Dan Carpenter).
-- Link to v2: https://patch.msgid.link/20261117-staging-dim2-atomic-v2-1-a550f0518043@tubot.lat
-
-Changes in v2:
-- Resend under my real name (From/Signed-off-by: Maximo Manriquez Lizarraga).
-- Apologies for the wasted cycle; if the objection was technical rather than the sender identity, please say what to change.
-- Link to v1: https://patch.msgid.link/20261107-staging-dim2-atomic-v1-1-6eb4e8f1f63a@tubot.lat
----
- drivers/staging/most/dim2/hal.h | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/staging/most/dim2/hal.h b/drivers/staging/most/dim2/hal.h
-index 5d69a5e7d299..f857e6856a16 100644
---- a/drivers/staging/most/dim2/hal.h
-+++ b/drivers/staging/most/dim2/hal.h
-@@ -33,11 +33,11 @@ struct dim_ch_state {
- };
- 
- struct int_ch_state {
--	/* changed only in interrupt context */
--	volatile int request_counter;
-+	/* protected by dim_lock; incremented in interrupt context */
-+	int request_counter;
- 
--	/* changed only in task context */
--	volatile int service_counter;
-+	/* protected by dim_lock; updated in task context */
-+	int service_counter;
- 
- 	u8 idx1;
- 	u8 idx2;
-
----
-base-commit: a41e364995bbcfa627418a70fe913c35b7510728
-change-id: 20261107-staging-dim2-atomic-68a85f8feaf6
-
-Best regards,
---  
-Maximo Manriquez Lizarraga <DelaySystem@tubot.lat>
-
-
+[1/2] arm64: kexec: use a typed entry to fix kCFI oops
+      https://git.kernel.org/arm64/c/b059e957d07b
