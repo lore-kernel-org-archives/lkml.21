@@ -1,113 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794989780;
-	b=rtcf7lRBMEMHQpDegeGXsDqiM6TBPW91VSCVLiiH90ZsT47U7enGDC2wbU1m4pl9RL6A
-	 XEaI/f5LxphMTYzif5q3Lun+U0nIoj8t57Lw9yDzUGMrPIfYRK4NwC9o7HSyIjxm5H4Dh
-	 zB2U3VAAxK8NmDboGoJRS00VhifXM4njX43oHVX7ewa6BF1QO/S4e0xfF/mq4Fb0yVn8o
-	 VQIQ5yKTQqVHGLDzLNB/5/ShUkAACw31tvww/aWxNJlnp2W7qmtwpYgJPBCItj+MzTpNu
-	 m2Qn0Az0wDqBYyZyNs7MiMksWO4b8uMe1bmSlVt5mA75p+eO8RY5f/zXvItr3ZhjU4Q==
+	t=1794989787;
+	b=yVtLFsBDRGOyv9fAEICDJMTT+/0tynzmFs31wPot2Z+11OKenAB7Gmpx5Vu/xGOONHa4
+	 tEz0mEfvA40scFVDO/sckL7HWaRewop+/qHyFluPmwcvEmegJXeDDxvDHbxm0rI2OYwQ7
+	 gT53xvKcrrwyqiIIa2IuuTfHphlfQ/CFW8wckP0rsf2E822dATEHISmJxSphL1t+VYIdX
+	 JhFbepDVnoXHDpurmxht5YzuiAh9/V7DnTaFe2muTlhK8UBhJ8zyDufF1PpX4JjLghgmp
+	 o4K16U4TGeK+5e8z/NWhXYmWtAycrmSBhCOZLuVEsMpxtpmHb6SSnZxmwff+XBjICfQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794989780;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794989787;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
 	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
 	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=A1tmtQvewlRPfaTZR/GJOfz1XEOPZtFpYykA8zG+CFU=;
-	b=fUosGOeKHkLFMuaUY4qB7pDgwWjTrV3vRtbqawN5ocjF/TW5qlPqj1jXFPuQqEjQnviH
-	 YGCLZvnSWD4hUjz8ZhKx2m2IW6kMPJUqQWoo6dUUYwh2R8jkJQQjDLqNWvJHXmfP7de7n
-	 POb3T6AH9COw0lPbFP51didMkGf9NEcuVm4IYAnLdEGxEOpDan8uVil75AZFp2YcCxu9U
-	 lyz+RBvKVB5P2PT/ONZquPbcSj0S4KOFlJPeGxveU7Kq/nfZieUfXKMVnMuete/WOz4mW
-	 GkjAIdehn/gB9fLGf7D8keIA7SM5m2veSSm4rTAvTys543wwUfJV1oR3gikyh0wU2ig==
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:X-Authority-Analysis:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=PO7c9o0yG0Z1EDbhW+OqM/Ij43hLdl7lNBk4x9MT9E8=;
+	b=GuhbIluCc50zFh4WGKFdqqF2uV8B01tCp8ZCfaqDbr8eB5Nf8wdlSE6aFrHjIgDoiPga
+	 8wNQGxCgXj/QdrorA3/rh5b+yZNpFqZbSvdKqjmPiRT7OiLonSWN4F5wqOzdpTP9Yo6TT
+	 +0U9WbvxO/GW4bYscvKzQUW717w+MgUAcm0+ONiFpqoTEzc7VY4DMgMqKxOAaP8oq2e9N
+	 JlYigngHMeq3mkU7GlvmNSw9JJyaS0HZzhpBEJZOzcOsunwn+eXpdP3BxN8823iSwIYwj
+	 LdKlhGUwjMiCr0jT3qxw9e0njUnGgp8uSj9dptDfVcyqjUy3ZdApp7cs03xi2JsqxFQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=oss.qualcomm.com;
 	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=E062KLWI;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=dS3APYEi;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=DzCboT7D;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=ZqhfalMR;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17358606A330
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:16:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17358606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E088606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:16:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8E088606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=E062KLWI;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=dS3APYEi
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI2V2U7764106
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:16:19 GMT
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=DzCboT7D;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=ZqhfalMR
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI2VvYp4059968
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:16:25 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	A1tmtQvewlRPfaTZR/GJOfz1XEOPZtFpYykA8zG+CFU=; b=E062KLWIE7vf8KJc
-	8AXOA8YTofeLmze+XEj8E5JSdBXBhrpBdHVINxQX049RZ6KoocV0N/TZyeHIl+pf
-	le2RfPQ3Frx7u07XbAjUkWDboU/aJ0V1NMHF+qX+uICOTB80H1n0Mj/y5k/9epjN
-	2Og29Udz5x/Cxu3o8tXeqL/0BME3S5b6enOYd4G6eEzrnvOqB8+f/yjJMsXBO+q4
-	XcaZzTYIF6mj/mp8h8fMZNX4ptuETpCbv2gbgTLM6m/fT5i4KnKaanpBsJy7YpKJ
-	bw4a4DGZmQ7sLV/oDwkKTZUw6CmlFGm8bXsB4o2edgaA5BWmcy91qMDJl+I5TBl3
-	QWCBDA==
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yvba0cb-1
+	PO7c9o0yG0Z1EDbhW+OqM/Ij43hLdl7lNBk4x9MT9E8=; b=DzCboT7Dhn4gGb+i
+	TKOVZRY4KjDy1mBZpGu3EEkyjoEsvlCkOvJksE4Rjgq5yUOJHiEDO7cUGcbMcdLU
+	YDu7rJfTvsgwFBD+IipYzt4X3XhRNfgcjPC8e0JXIBpU3v3Bt/EaLN3/xHOAE4t2
+	gAA0sk8RB8umQ+qZ3mJHt0gWfYHl8Ni8EfHuyj54kpTTcPvkwoa+TcrleTNl31Ai
+	IQ0Z2Fs3XXOqRhEupUNC7Wd4mv7jdt7xfwIiEcp6rot7Xu5oP6jwJY7cc/k/H2I3
+	MpkVyI8B1Zm/PnkPp3UXkoY0JUzHfS6zhWd+zMNsVy067//RjR2PTXXXd9SIXHo4
+	TDcMVA==
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yvcj0y6-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:16:19 +0000 (GMT)
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-3b3a9ee822fso949539a91.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:16:19 -0800 (PST)
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:16:25 +0000 (GMT)
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3b07b06027eso806811a91.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:16:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1794989779; x=1795594579; darn=vger.kernel.org;
+        d=oss.qualcomm.com; s=google; t=1794989784; x=1795594584; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=A1tmtQvewlRPfaTZR/GJOfz1XEOPZtFpYykA8zG+CFU=;
-        b=dS3APYEiDrpt6Js/n9KvLWpMppzYuWh+SPMzQv3SgJMm+9dIEY1ZmdUmr7oln3gWBj
-         gK0tlyeR+lDBEcK3xgH57jn0XiNSfjh1l6kEvRFvelZMxpit8NVIx4jEw7dBqBMm/dvL
-         q++6fCQcQVFR31ZxQpERxVE3cryzepZQRUn96JBTjBch/knkpwvTAdp0xh88N65Ee8X3
-         3Wij0oOrObfdm1n4nCkXpVoO0k561U68ebRIr24o6Jio7mvsOGWlfkkhM+JFGRP6dABI
-         SbhDkHbpiuU1jyG7HYflyueej3F50NdsB00JtsdVUO0fQk8fveYvOW0xLz4pFjgL3XEu
-         wFeQ==
+        bh=PO7c9o0yG0Z1EDbhW+OqM/Ij43hLdl7lNBk4x9MT9E8=;
+        b=ZqhfalMRIVW9zVTEZ5bAp2qwag2BL1ME8zRXHJ7pl3oShz5HizaCfg1/DVt77l6s0q
+         9zm8fWVxQM4z+rpixI01305IxCoXSZPj1I60CQXLWuOJ7lJfmTO4FteXzWKSM1IdzRg3
+         NJbZsePll4JGgDD0KMyZkc3m5PE8UL25dHXC/kZTm2RKZGWy4/+bouen9jpnpEsluvyt
+         TbxRyrhHVFef6IwsiuVSMPsHh76ni5z3qctlKZvrXsybhHM332aVG4BjHHGDuLD+nFew
+         vT7UR/JCVDHet/rOztERk/Y1r3bYDvGyOsP57RWSUsyxZqZAe2BF1rH2fciaBax8wf07
+         FYWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794989779; x=1795594579;
+        d=1e100.net; s=20260707; t=1794989784; x=1795594584;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=A1tmtQvewlRPfaTZR/GJOfz1XEOPZtFpYykA8zG+CFU=;
-        b=pTYm/fMd9XN6k2JtfAFqCEr94fuZOfLZG/36XaGyGtcLDT026TonYOAPodZ7nyqbFn
-         K4WbCo1nxORT3zinnCvBE4tUolSRX+eOuEAH3D/K0M8PLpU7aGjx5EeuSF9zdOlJ2uEx
-         la6f9qiGuI5LO8S9jmtr0TLMC/OLVl0XnBYVr9hrVSeTQoyGSxZl8R3G9LjmlABgPhCl
-         P/kbA4hL9r3xJsiIR6UZ1EI5vnvH/R1hMksXdFCHfZkRSdlfjSNdkKWPQ7+tr/zAwoVV
-         sI8+72SbRtGlnGJpr6IajviCz7PU7BqYhCDDu672QsQ6SttYYN41eRhL2pkKi0TBI89/
-         Ffig==
-X-Forwarded-Encrypted: i=1; AL+hErG4xi9AkAYnxXv5ErF5Lq8Z9PTjVj8kRHlDB4P9+QI0oD90uZLGXkmIE1bD9JvHS61LjUra/Bt57xnvusU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9g02hlChjK/OV5Eu7FVia2CykY2lp2BDFz8f7d1K28ODCzn1GK
-	A+qNpXxQAIkcfH+0Bemj0OYPHwq8F+pdQYGD03sz3CcglZ1bUXUdd+jFRSE1V0sgAWaCfKLTVN7
-	an8BVVWc2obzISBp18XtbwXmDV1Uz8+m/rvUpTShSm/QlB1TUIdieZzCJbaSwrFb0d/k=
-X-Gm-Gg: AZFdTZdmGrZV/90GvfAz1uAZnDfSY1bH6MLxFhHvY4WG1HO5UR8zLVfQZD0gXDu8IkS
-	PGRJIV0r15S4qRT/aTKkFkjphAIGrSH9X8eITEQbMkQZvTChkSUchQrXIV8mKq+WSuUaJviXRnX
-	UtNfVMYH4SBdcNw4Ea/HTqDzHtcf6G6Kr4fMgRFBOEK6hxHvsMaRcM09ou2y+0ivdw+ub768nMz
-	+RnXBwrbM9Lzv+JXjJC51XQxgyWRyQkeLn1RzLhSGDelzktftb00m8Kx+347zBO1awmG3RY5S+d
-	tuPyxtJUzXyJzZ9CFYfJgLSOlILF336VML7j3PDNtflC5B2Uu4REOVWSxxnpq/3JXEBTqLMMT3b
-	XKSfA4p7D/TiukGe0W24V+ftamaQ/q2N5t3IRwCtu+HhLfQIZHKIxHuTEKERA7Tm4g9y+gfemCV
-	W97RxhcRgHOl/52qhq8atsTHh7HSonAsqlTr3fUO2+OIyhIbljReQKpGN2Si1ofYBuIg4L3HGq3
-	A==
-X-Received: by 2002:a17:90a:e7c1:b0:3b3:b0e5:57ee with SMTP id 98e67ed59e1d1-3b3d07e0c97mr2148678a91.54.1794989778713;
-        Wed, 18 Nov 2026 00:16:18 -0800 (PST)
-X-Received: by 2002:a17:90a:e7c1:b0:3b3:b0e5:57ee with SMTP id 98e67ed59e1d1-3b3d07e0c97mr2148643a91.54.1794989778240;
-        Wed, 18 Nov 2026 00:16:18 -0800 (PST)
+        bh=PO7c9o0yG0Z1EDbhW+OqM/Ij43hLdl7lNBk4x9MT9E8=;
+        b=UwB4tYnNsoJ4sidSNndiXaXElmcUCAgVcBqGmtzf2+Vss6i11Z7rEyzLavJhDGr1tt
+         yMyL9COpeMKyeCywJH8OMsG+dLQ74OaZ1PXZ/YAggQhuqvApjGEGCGZs8YS9LcRfIfYd
+         yI19vA0a0PCwCb9erbBldLuhT4vMz9FIJmnQE4W50UzQpdEiBVsV7ufE7LulO0WiGfcT
+         GY9WsaxylJ3JVUD08tCQtWGTCHelrSUJFzGMSUPaQpyEIFr07PRY+17cleXe8/luagih
+         iRZArDlTZMvSBI+PAmSvMUCq92rr/fy3aHzcH010GhlIVSPGdm/1KN8H1AcCMYYtJOv1
+         5c7w==
+X-Forwarded-Encrypted: i=1; AL+hErEM1nDvCuvsWiark6w0f6zBmv/bANLwJgAjRQWobnlVnU5BJ71EvmUEVA+V1o6cMvTSV8ScZ42Vof/mr6Q=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ZF0Vm5Q9NS3EtPc7jjkabfZri0URjKe9hHK/tmEDia8kP+6WP
+	rzWF7V9DKbEvypM7zUwfgqueJoi76rCMakX18nuT7O0TRoBBAhz6ABwDmbBpzxBDSI71+SisEQu
+	YlzN3grYwbuaLahmOn4n0hnsOQc4dLqaZBAHnht3Z0hi+K85bcYAQ21Rn0u6plme5C3Q=
+X-Gm-Gg: AZFdTZfpZNeOnnUlQm/0hCJPp7wDD/aCajop/nlaj//cM14g4AOXFBp5ZoaWS6X/O6N
+	j+74cGxnh9PIn3GrTmULKDeD8a7YaiqjMpmYBXplkC3/Ef+42EXHlp8McuAu33IFW95Zxhv7QVc
+	4UK2cgRaZkMRPCTHVrYUqkWkri5EfYxzFNdk66m/UPNQBKoP30LaZt+SgcyT0GKfdZYYCkZ8zM7
+	ZvExDfZMu4MPb8SBn+CL8P/uN+Vk9CRMGHoLG3GcXW1Ia6NhWm9wHJaqjrUJJVb/OlIfLvHWJMU
+	G5yDYWTkRlWRBe8lqOZZxZD+zr0Fqwq7pKCCn3qMVwYmNzOJE0ylSr6hYWvzAiwEnwrO/g++v7x
+	S/slX4MB1WmvTlxKT4AfHsni850zqoOQ4WPstUgPrEw0jnkcioQhF9lolrwk4M0q2HJvdqyE3xh
+	rCzEZVaAZOzhSLQY+Wr/FHMPSQmfxNsp4f9xMuTsciazzdKnTzsKJ11OQ/RmRQHOM67Me9SxcAT
+	Q==
+X-Received: by 2002:a17:90b:3908:b0:3a7:3474:b1ee with SMTP id 98e67ed59e1d1-3b3d07cb4bamr1897043a91.60.1794989783755;
+        Wed, 18 Nov 2026 00:16:23 -0800 (PST)
+X-Received: by 2002:a17:90b:3908:b0:3a7:3474:b1ee with SMTP id 98e67ed59e1d1-3b3d07cb4bamr1897016a91.60.1794989783284;
+        Wed, 18 Nov 2026 00:16:23 -0800 (PST)
 Received: from hu-madhgane-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d19b5e8asm3369181a91.8.2026.11.18.00.16.13
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d19b5e8asm3369181a91.8.2026.11.18.00.16.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 00:16:17 -0800 (PST)
+        Wed, 18 Nov 2026 00:16:22 -0800 (PST)
 From: Madhavan Ganesan <madhavan.ganesan@oss.qualcomm.com>
-Date: Wed, 18 Nov 2026 13:45:32 +0530
-Subject: [PATCH ath-next v3 09/15] wifi: ath12k: add unified firmware image
- support for QCN9575
+Date: Wed, 18 Nov 2026 13:45:33 +0530
+Subject: [PATCH ath-next v3 10/15] wifi: ath12k: add Wi-Fi 8 MHI config for
+ QCN9575
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,7 +119,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-wifi8_qcn9575_bringup-v3-9-9875d2a3953f@oss.qualcomm.com>
+Message-Id: <20261118-wifi8_qcn9575_bringup-v3-10-9875d2a3953f@oss.qualcomm.com>
 References: <20261118-wifi8_qcn9575_bringup-v3-0-9875d2a3953f@oss.qualcomm.com>
 In-Reply-To: <20261118-wifi8_qcn9575_bringup-v3-0-9875d2a3953f@oss.qualcomm.com>
 To: Johannes Berg <johannes@sipsolutions.net>, Rob Herring <robh@kernel.org>,
@@ -134,285 +134,175 @@ Cc: linux-wireless@vger.kernel.org, devicetree@vger.kernel.org,
         llvm@lists.linux.dev,
         Madhavan Ganesan <madhavan.ganesan@oss.qualcomm.com>
 X-Mailer: b4 0.15.2
-X-Proofpoint-GUID: keBRz7MA4JKpAWpypmTb9u25KNGLCmwb
-X-Proofpoint-ORIG-GUID: keBRz7MA4JKpAWpypmTb9u25KNGLCmwb
-X-Authority-Analysis: v=2.4 cv=YfgodARf c=1 sm=1 tr=0 ts=6afd5ed3 cx=c_pps
- a=RP+M6JBNLl+fLTcSJhASfg==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+X-Authority-Analysis: v=2.4 cv=R5OWitRX c=1 sm=1 tr=0 ts=6afd5ed9 cx=c_pps
+ a=0uOsjrqzRL749jD1oC5vDA==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
  a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=EUspDBNiAAAA:8 a=yptJjfQlWYdCmDOAxUgA:9 a=QEXdDO2ut3YA:10
- a=iS9zxrgQBfv6-_F4QbHw:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAzMiBTYWx0ZWRfX9KMKGxuTnp5K
- v0O5DcKuoC5deyzjFvUBPI5OthNBeVNAWPPVg9IK3ewkZnzs2JmxBXgXXkXFNo45ViSDn9pmVpA
- mBsQt1txpfFejHKHvdaH4hdNlfAOAv0=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAzMiBTYWx0ZWRfXwFYRF6rATcpQ
- vLafwpN3b6GlIPyq4xEE2VbaDCs44rLeSAEN11Eu3q7MhTOvkCzcgCVM5Mni4160a8ORVOLRYUL
- Y7CjiboNfQLfUAHtmDPvasG9qGgVfjJxqB3l2Rl71CBBsoy9plZrUGIfcCs2h+fIDUmyXkyNnJT
- lL3kpKyyUjqt4PIQuAhTTMFrfh3va1ZPHyI9Mzh3k3KxtX/AvuASd351uA0eWu7RxccM/QCqEoa
- Uc8FEP3/7MECxbI0XGkIq75eu+DP0qSCJeJUcuxMzJDtckFkot+FgNlqfdj3gWTlPQ252MbIzI5
- l7aDBmF8f9KVxrqGnwcjr59Y9Ll7HY7txghnDG9PYMno+n7m4Dnfvo0XjQ2Esc3mdk7Cfz6E37R
- YwimQv1K25AO8qToimom6iTtJkdclIGSas2AwpU+AO8bI9TZ4d7fs60s2L1wIxsSjJQQJIJ/b8l
- CL31CAlSA1DBzUQMqmw==
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
+ a=EUspDBNiAAAA:8 a=FOB8LY2opcXQ8BbJJMkA:9 a=QEXdDO2ut3YA:10
+ a=mQ_c8vxmzFEMiUWkPHU9:22
+X-Proofpoint-GUID: jpS3LlX4ZTgcm06nMClM2aamoIQ8cpLH
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAzMiBTYWx0ZWRfX0LOYUJ3N7bCI
+ +OtlbPXWghu8Y/eXsNGNR/f/Ut1ydu/QpHgOz4mhpDwPqk8bMwOapv3Hb4d0l964YhxUku4J1Qa
+ R4HRy8IYwPEaiqL41kG4iKi293yR2MQ=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAzMiBTYWx0ZWRfX3Lbe5qt4uIkV
+ Q15oazSfmzp35eFDZ9NGUC6cyl51/4jh8DPE/P2mD/53zc0DWEFpKDkgjuzKUcWNGz84Dx52w5q
+ eT29DFSDBSVnAkc7Cnqq1O2pgCJGFrI8rpRYrvJxqz0dWI8MC+Smmk+t+zgUj5sbrq4t/DedE1R
+ mIlBYYsagm9wkSm3Bds60jtJyTMWAJURUBWMxZijJ7Z2Vvy0wPbq/tqSzal9NNAhaO1neDfdKec
+ tfnRTn0mZrWrgXpymLD3wBADimVtI87e+NgmAOGaAMtj0anuFtbck6xEyT48QM4QSPLLJzQtJ/G
+ tngsody/ntTP8RwHuhmjD829MNmKanK0n1Nl+pWU5kGw8HP7g75qbxh+WJ+mfD/G9e6vSHf0GrD
+ a6TGTlZLCfJpb4R6twhKOlOgpL2Yc4fkrxtqU9RI6CnvGmGerSXYYmdfxtFyMo7q7qwKrHUa0KU
+ BrDn1eadbS3r3LoOCFA==
+X-Proofpoint-ORIG-GUID: jpS3LlX4ZTgcm06nMClM2aamoIQ8cpLH
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-18_01,2026-11-16_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 lowpriorityscore=0 phishscore=0 impostorscore=0 malwarescore=0
- adultscore=0 priorityscore=1501 spamscore=0 bulkscore=0 suspectscore=0
+ clxscore=1015 impostorscore=0 spamscore=0 lowpriorityscore=0 suspectscore=0
+ malwarescore=0 priorityscore=1501 bulkscore=0 adultscore=0 phishscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180032
 
-Wi-Fi 7 chips select between single-mac and dualmac firmware images
-based on the OTP board ID, loading a separate firmware-N.bin for
-dualmac boards. QCN9575 (Wi-Fi 8) instead ships a single unified
-firmware image for all board variants and expects the host to write
-the OTP board ID into a PCIe local scratch register so firmware can
-determine the board configuration itself at boot.
+Implement the MHI controller configuration for QCN9575.
 
-Add the unified_fw_image flag to ath12k_hw_params.fw and set it to
-false for all existing Wi-Fi 7 hw_params entries, with QCN9575 as the
-only chip enabling it. In ath12k_mhi_register(), once the OTP board
-id is read, stash it in ab_pci->unified_fw_board_id for unified-image
-chips instead of running the dualmac firmware-selection path, since a
-single firmware blob is used regardless of board id.
-
-Add unified_fw_board_id_reg to ath12k_hw_regs and populate it for
-qcn9575_regs with the PCIe local scratch register address, keeping
-the register layout per-chip and self-contained. Introduce
-ath12k_pci_update_unified_fw_board_id() to write the cached board id
-into that register and read it back, since iowrite32()/ioread32()
-give no other way to detect a failed write. Call it from
-ath12k_pci_power_up() before MHI start for unified-image chips, and
-return -EIO on a readback mismatch so ath12k_pci_power_up() aborts
-before starting MHI and firmware. Continuing after a mismatch would
-let firmware boot with whatever stale or incorrect value is already
-in the register and self-configure for the wrong board silently,
-with no symptom beyond a warning in the kernel log.
+Add ath12k_wifi8_mhi_config_qcn9575 with IPCR channels 20 and 21 and
+control and data event rings in wifi8/mhi.c, and export it through
+wifi8/mhi.h. Update the QCN9575 hw params entry to use
+ath12k_wifi8_mhi_config_qcn9575. Build wifi8/mhi.c from wifi8/Makefile.
 
 Tested-on: QCN9274 hw2.0 PCI WLAN.WBE.1.6-01243-QCAHKSWPL_SILICONZ-1
 Tested-on: WCN7850 hw2.0 PCI WLAN.HMT.1.1.c7-00108-QCAHMTSWPL_V1.0_V2.0_SILICONZ_UPSTREAM-3
 
 Signed-off-by: Madhavan Ganesan <madhavan.ganesan@oss.qualcomm.com>
 ---
- drivers/net/wireless/ath/ath12k/hal.h              |  1 +
- drivers/net/wireless/ath/ath12k/hw.h               |  1 +
- drivers/net/wireless/ath/ath12k/mhi.c              |  4 ++-
- drivers/net/wireless/ath/ath12k/pci.c              | 31 +++++++++++++++++++++-
- drivers/net/wireless/ath/ath12k/pci.h              |  3 +++
- drivers/net/wireless/ath/ath12k/wifi7/hw.c         |  7 +++++
- .../net/wireless/ath/ath12k/wifi8/hal_qcn9575.c    |  1 +
- drivers/net/wireless/ath/ath12k/wifi8/hw.c         |  1 +
- 8 files changed, 47 insertions(+), 2 deletions(-)
+ drivers/net/wireless/ath/ath12k/wifi8/Makefile |  1 +
+ drivers/net/wireless/ath/ath12k/wifi8/hw.c     |  3 +-
+ drivers/net/wireless/ath/ath12k/wifi8/mhi.c    | 70 ++++++++++++++++++++++++++
+ drivers/net/wireless/ath/ath12k/wifi8/mhi.h    | 10 ++++
+ 4 files changed, 83 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/wireless/ath/ath12k/hal.h b/drivers/net/wireless/ath/ath12k/hal.h
-index 4b0fbd6f4aea..9e88bdf4a93b 100644
---- a/drivers/net/wireless/ath/ath12k/hal.h
-+++ b/drivers/net/wireless/ath/ath12k/hal.h
-@@ -1219,6 +1219,7 @@ struct ath12k_hw_regs {
- 	u32 gcc_gcc_pcie_hot_rst;
- 
- 	u32 qrtr_node_id;
-+	u32 unified_fw_board_id_reg;
- };
- 
- /* HAL context to be used to access SRNG APIs (currently used by data path
-diff --git a/drivers/net/wireless/ath/ath12k/hw.h b/drivers/net/wireless/ath/ath12k/hw.h
-index 6fd87482425a..9c11edd2b051 100644
---- a/drivers/net/wireless/ath/ath12k/hw.h
-+++ b/drivers/net/wireless/ath/ath12k/hw.h
-@@ -160,6 +160,7 @@ struct ath12k_hw_params {
- 		size_t cal_offset;
- 		enum ath12k_m3_fw_loaders m3_loader;
- 		bool download_aux_ucode:1;
-+		bool unified_fw_image:1;
- 	} fw;
- 
- 	u8 max_radios;
-diff --git a/drivers/net/wireless/ath/ath12k/mhi.c b/drivers/net/wireless/ath/ath12k/mhi.c
-index 56e697fbdad5..90b7774ae6e8 100644
---- a/drivers/net/wireless/ath/ath12k/mhi.c
-+++ b/drivers/net/wireless/ath/ath12k/mhi.c
-@@ -211,6 +211,8 @@ int ath12k_mhi_register(struct ath12k_pci *ab_pci)
- 		if (!board_id || (board_id == OTP_INVALID_BOARD_ID)) {
- 			ath12k_dbg(ab, ATH12K_DBG_BOOT,
- 				   "failed to read board id\n");
-+		} else if (ab->hw_params->fw.unified_fw_image) {
-+			ab_pci->unified_fw_board_id = board_id;
- 		} else if (board_id & OTP_VALID_DUALMAC_BOARD_ID_MASK) {
- 			dualmac = true;
- 			ath12k_dbg(ab, ATH12K_DBG_BOOT,
-@@ -218,7 +220,7 @@ int ath12k_mhi_register(struct ath12k_pci *ab_pci)
- 		}
- 	}
- 
--	if (dualmac) {
-+	if (!ab->hw_params->fw.unified_fw_image && dualmac) {
- 		if (ab->fw.amss_dualmac_data && ab->fw.amss_dualmac_len > 0) {
- 			/* use MHI firmware file from firmware-N.bin */
- 			mhi_ctrl->fw_data = ab->fw.amss_dualmac_data;
-diff --git a/drivers/net/wireless/ath/ath12k/pci.c b/drivers/net/wireless/ath/ath12k/pci.c
-index 6617440954b1..d238603f6075 100644
---- a/drivers/net/wireless/ath/ath12k/pci.c
-+++ b/drivers/net/wireless/ath/ath12k/pci.c
-@@ -976,6 +976,24 @@ static void ath12k_pci_aspm_restore(struct ath12k_pci *ab_pci)
- 						   PCI_EXP_LNKCTL_ASPMC);
- }
- 
-+static int ath12k_pci_update_unified_fw_board_id(struct ath12k_base *ab)
-+{
-+	struct ath12k_pci *ab_pci = ath12k_pci_priv(ab);
-+	u32 reg, val;
-+
-+	reg = PCIE_UNIFIED_FW_BOARD_ID_REG(ab) & WINDOW_RANGE_MASK;
-+	ath12k_pci_write32(ab, reg, ab_pci->unified_fw_board_id);
-+
-+	val = ath12k_pci_read32(ab, reg);
-+	if (val != ab_pci->unified_fw_board_id) {
-+		ath12k_warn(ab, "unified_fw_board_id readback mismatch: wrote 0x%x, read 0x%x\n",
-+			    ab_pci->unified_fw_board_id, val);
-+		return -EIO;
-+	}
-+
-+	return 0;
-+}
-+
- void ath12k_pci_cancel_workqueue(struct ath12k_base *ab)
- {
- 	int i;
-@@ -1484,16 +1502,27 @@ int ath12k_pci_power_up(struct ath12k_base *ab)
- 	if (ath12k_fw_feature_supported(ab, ATH12K_FW_FEATURE_MULTI_QRTR_ID))
- 		ath12k_pci_update_qrtr_node_id(ab);
- 
-+	if (ab->hw_params->fw.unified_fw_image && ab_pci->unified_fw_board_id) {
-+		ret = ath12k_pci_update_unified_fw_board_id(ab);
-+		if (ret)
-+			goto err_unwind;
-+	}
-+
- 	ret = ath12k_mhi_start(ab_pci);
- 	if (ret) {
- 		ath12k_err(ab, "failed to start mhi: %d\n", ret);
--		return ret;
-+		goto err_unwind;
- 	}
- 
- 	if (ab->static_window_map)
- 		ath12k_pci_select_static_window(ab_pci);
- 
- 	return 0;
-+
-+err_unwind:
-+	ath12k_pci_msi_disable(ab_pci);
-+	ath12k_pci_aspm_restore(ab_pci);
-+	return ret;
- }
- 
- void ath12k_pci_power_down(struct ath12k_base *ab, bool is_suspend)
-diff --git a/drivers/net/wireless/ath/ath12k/pci.h b/drivers/net/wireless/ath/ath12k/pci.h
-index 62b72558c0e2..70952a52a1b1 100644
---- a/drivers/net/wireless/ath/ath12k/pci.h
-+++ b/drivers/net/wireless/ath/ath12k/pci.h
-@@ -38,6 +38,8 @@
- #define PCIE_SMLH_REQ_RST_LINK_DOWN		0x2
- #define PCIE_INT_CLEAR_ALL			0xffffffff
- 
-+#define PCIE_UNIFIED_FW_BOARD_ID_REG(ab) \
-+	((ab)->hal.regs->unified_fw_board_id_reg)
- #define PCIE_QSERDES_COM_SYSCLK_EN_SEL_REG(ab) \
- 	((ab)->hal.regs->pcie_qserdes_sysclk_en_sel)
- #define PCIE_QSERDES_COM_SYSCLK_EN_SEL_VAL	0x10
-@@ -144,6 +146,7 @@ struct ath12k_pci {
- 	const struct ath12k_pci_reg_base *reg_base;
- 
- 	u32 window_reg_addr;
-+	u32 unified_fw_board_id;
- };
- 
- struct ath12k_pci_driver {
-diff --git a/drivers/net/wireless/ath/ath12k/wifi7/hw.c b/drivers/net/wireless/ath/ath12k/wifi7/hw.c
-index 48a2f6da16ef..282a41980d98 100644
---- a/drivers/net/wireless/ath/ath12k/wifi7/hw.c
-+++ b/drivers/net/wireless/ath/ath12k/wifi7/hw.c
-@@ -413,6 +413,7 @@ static const struct ath12k_hw_params ath12k_wifi7_hw_params[] = {
- 			.cal_offset = 128 * 1024,
- 			.m3_loader = ath12k_m3_fw_loader_driver,
- 			.download_aux_ucode = false,
-+			.unified_fw_image = false,
- 		},
- 		.max_radios = 1,
- 		.single_pdev_only = false,
-@@ -509,6 +510,7 @@ static const struct ath12k_hw_params ath12k_wifi7_hw_params[] = {
- 			.cal_offset = 256 * 1024,
- 			.m3_loader = ath12k_m3_fw_loader_driver,
- 			.download_aux_ucode = false,
-+			.unified_fw_image = false,
- 		},
- 
- 		.max_radios = 1,
-@@ -607,6 +609,7 @@ static const struct ath12k_hw_params ath12k_wifi7_hw_params[] = {
- 			.cal_offset = 128 * 1024,
- 			.m3_loader = ath12k_m3_fw_loader_driver,
- 			.download_aux_ucode = false,
-+			.unified_fw_image = false,
- 		},
- 		.max_radios = 2,
- 		.single_pdev_only = false,
-@@ -702,6 +705,7 @@ static const struct ath12k_hw_params ath12k_wifi7_hw_params[] = {
- 			.cal_offset = 128 * 1024,
- 			.m3_loader = ath12k_m3_fw_loader_remoteproc,
- 			.download_aux_ucode = false,
-+			.unified_fw_image = false,
- 		},
- 		.max_radios = 1,
- 		.single_pdev_only = false,
-@@ -792,6 +796,7 @@ static const struct ath12k_hw_params ath12k_wifi7_hw_params[] = {
- 			.cal_offset = 256 * 1024,
- 			.m3_loader = ath12k_m3_fw_loader_driver,
- 			.download_aux_ucode = true,
-+			.unified_fw_image = false,
- 		},
- 
- 		.max_radios = 1,
-@@ -891,6 +896,7 @@ static const struct ath12k_hw_params ath12k_wifi7_hw_params[] = {
- 			.cal_offset = 128 * 1024,
- 			.m3_loader = ath12k_m3_fw_loader_remoteproc,
- 			.download_aux_ucode = false,
-+			.unified_fw_image = false,
- 		},
- 		.max_radios = 1,
- 		.single_pdev_only = false,
-@@ -983,6 +989,7 @@ static const struct ath12k_hw_params ath12k_wifi7_hw_params[] = {
- 			.cal_offset = 128 * 1024,
- 			.m3_loader = ath12k_m3_fw_loader_remoteproc,
- 			.download_aux_ucode = false,
-+			.unified_fw_image = false,
- 		},
- 		.max_radios = 1,
- 		.single_pdev_only = false,
-diff --git a/drivers/net/wireless/ath/ath12k/wifi8/hal_qcn9575.c b/drivers/net/wireless/ath/ath12k/wifi8/hal_qcn9575.c
-index 076a5a609f8b..92ea24634100 100644
---- a/drivers/net/wireless/ath/ath12k/wifi8/hal_qcn9575.c
-+++ b/drivers/net/wireless/ath/ath12k/wifi8/hal_qcn9575.c
-@@ -68,6 +68,7 @@ const struct ath12k_hw_regs qcn9575_regs = {
- 	.gcc_gcc_pcie_hot_rst = 0x1e38438,
- 
- 	.qrtr_node_id = 0x01e03300,
-+	.unified_fw_board_id_reg = 0x1e03304,
- };
- 
- static int ath12k_hal_srng_create_config_qcn9575(struct ath12k_hal *hal)
+diff --git a/drivers/net/wireless/ath/ath12k/wifi8/Makefile b/drivers/net/wireless/ath/ath12k/wifi8/Makefile
+index b1b90c109c76..051c6447d35c 100644
+--- a/drivers/net/wireless/ath/ath12k/wifi8/Makefile
++++ b/drivers/net/wireless/ath/ath12k/wifi8/Makefile
+@@ -4,4 +4,5 @@ ath12k_wifi8-y += core.o \
+ 		  hal.o \
+ 		  hal_qcn9575.o \
+ 		  hw.o \
++		  mhi.o \
+ 		  pci.o
 diff --git a/drivers/net/wireless/ath/ath12k/wifi8/hw.c b/drivers/net/wireless/ath/ath12k/wifi8/hw.c
-index 91d8f762e642..bffd1081fd2f 100644
+index bffd1081fd2f..428d6b2b4418 100644
 --- a/drivers/net/wireless/ath/ath12k/wifi8/hw.c
 +++ b/drivers/net/wireless/ath/ath12k/wifi8/hw.c
-@@ -24,6 +24,7 @@ static const struct ath12k_hw_params ath12k_wifi8_hw_params[] = {
- 			.cal_offset = 128 * 1024,
- 			.m3_loader = ath12k_m3_fw_loader_driver,
- 			.download_aux_ucode = false,
-+			.unified_fw_image = true,
- 		},
- 		.max_radios = 2,
- 		.single_pdev_only = false,
+@@ -13,6 +13,7 @@
+ #include "../mhi.h"
+ #include "hal.h"
+ #include "hw.h"
++#include "mhi.h"
+ 
+ static const struct ath12k_hw_params ath12k_wifi8_hw_params[] = {
+ 	{
+@@ -64,7 +65,7 @@ static const struct ath12k_hw_params ath12k_wifi8_hw_params[] = {
+ 		.num_tcl_banks = 0,
+ 		.max_tx_ring = 0,
+ 
+-		.mhi_config = NULL,
++		.mhi_config = &ath12k_wifi8_mhi_config_qcn9575,
+ 
+ 		.wmi_init = NULL,
+ 
+diff --git a/drivers/net/wireless/ath/ath12k/wifi8/mhi.c b/drivers/net/wireless/ath/ath12k/wifi8/mhi.c
+new file mode 100644
+index 000000000000..04eb1f1650c3
+--- /dev/null
++++ b/drivers/net/wireless/ath/ath12k/wifi8/mhi.c
+@@ -0,0 +1,70 @@
++// SPDX-License-Identifier: BSD-3-Clause-Clear
++/*
++ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
++ */
++
++#include "../mhi.h"
++#include "mhi.h"
++
++static const struct mhi_channel_config ath12k_wifi8_mhi_channels_qcn9575[] = {
++	{
++		.num = 20,
++		.name = "IPCR",
++		.num_elements = 32,
++		.event_ring = 1,
++		.dir = DMA_TO_DEVICE,
++		.ee_mask = 0x4,
++		.pollcfg = 0,
++		.doorbell = MHI_DB_BRST_DISABLE,
++		.lpm_notify = false,
++		.offload_channel = false,
++		.doorbell_mode_switch = false,
++	},
++	{
++		.num = 21,
++		.name = "IPCR",
++		.num_elements = 32,
++		.event_ring = 1,
++		.dir = DMA_FROM_DEVICE,
++		.ee_mask = 0x4,
++		.pollcfg = 0,
++		.doorbell = MHI_DB_BRST_DISABLE,
++		.lpm_notify = false,
++		.offload_channel = false,
++		.doorbell_mode_switch = false,
++	},
++};
++
++static struct mhi_event_config ath12k_wifi8_mhi_events_qcn9575[] = {
++	{
++		.num_elements = 32,
++		.irq_moderation_ms = 0,
++		.irq = 1,
++		.data_type = MHI_ER_CTRL,
++		.mode = MHI_DB_BRST_DISABLE,
++		.hardware_event = false,
++		.client_managed = false,
++		.offload_channel = false,
++	},
++	{
++		.num_elements = 256,
++		.irq_moderation_ms = 1,
++		.irq = 2,
++		.mode = MHI_DB_BRST_DISABLE,
++		.priority = 1,
++		.hardware_event = false,
++		.client_managed = false,
++		.offload_channel = false,
++	},
++};
++
++const struct mhi_controller_config ath12k_wifi8_mhi_config_qcn9575 = {
++	.max_channels = 30,
++	.timeout_ms = 10000,
++	.use_bounce_buf = false,
++	.buf_len = 0,
++	.num_channels = ARRAY_SIZE(ath12k_wifi8_mhi_channels_qcn9575),
++	.ch_cfg = ath12k_wifi8_mhi_channels_qcn9575,
++	.num_events = ARRAY_SIZE(ath12k_wifi8_mhi_events_qcn9575),
++	.event_cfg = ath12k_wifi8_mhi_events_qcn9575,
++};
+diff --git a/drivers/net/wireless/ath/ath12k/wifi8/mhi.h b/drivers/net/wireless/ath/ath12k/wifi8/mhi.h
+new file mode 100644
+index 000000000000..7a229ea378d2
+--- /dev/null
++++ b/drivers/net/wireless/ath/ath12k/wifi8/mhi.h
+@@ -0,0 +1,10 @@
++/* SPDX-License-Identifier: BSD-3-Clause-Clear */
++/*
++ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
++ */
++
++#ifndef _ATH12K_WIFI8_MHI_H
++#define _ATH12K_WIFI8_MHI_H
++
++extern const struct mhi_controller_config ath12k_wifi8_mhi_config_qcn9575;
++#endif /* _ATH12K_WIFI8_MHI_H */
 
 -- 
 2.34.1
