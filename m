@@ -1,64 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795009183;
-	b=TvEKmcxk0rsIXiJJt8AoSWMOtbr5ofosw+Xz0+qa11Jfxugx4XTgm4vyVzqkki2IvRsm
-	 0afzDXamShCrGQwgVlkmWzN8eOSTS7jKrHICiVUu7ItcUb7zUk9sgaJjjmdNqaC1QuCsT
-	 wRSb1hl/iLDu9OLD9lJ4IZj5DAHyKQNjS/3X9sgk8pJ4V2dyddemgcq880w0a6k07DF+1
-	 LB4WhgtfZ+czjUz+hRRN3BjshA4mVe+oMToujbpxH3NJJ1duM7g28ZSqafveofYj25z5j
-	 jsGrGPu12CrJ5Jmq6DVXLcWq5UZ8tok3LwvDhstfE+SuV3YzhGtprAz93e9L2sqhy4g==
+	t=1795009191;
+	b=I+OUvga/sr+CObdFLWa0UfJcqVoq8iEBq+T/ssbJYs03/KLC86ik6ryYF2AFdcQ40fX1
+	 vX1fjleM6lK3+1ue+poKOufSNjDg2Q0NTCOrhC4qny1lSFGdF+zrdQxmzI4sfMUvFU3v2
+	 +JJ5zyXrJqb3Qe0eGDkke572/VZYDfTW3IILKo4AsvGEmu48lM3sv7L1M1ciGU/eCW5rw
+	 M7FbTUkBzBiytz7Vd+9BCfLYTeP5ojzRG3HQ8lCoy8FbGQ8VyhPq2lN0LG6H36swmiSAl
+	 JQedMW+L3va1l0IZpfzt6zkzm4w9vTzOoYR5Hij0CJETXQb225lI3P7Dp5f5EhrgDtA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795009183;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=H16wPM7V43qGhOUqYIC9Lq66inZTiW4pkuJdkCDBv0k=;
-	b=JLiCgxr69oUpUvX8l7PnGLWHLUiFMu02aS1qkU8RHaxiCfW8GK36TeWXFdvNLd63gqWg
-	 USWsVucNBJgq68d08pGIdyCGpjMAzDqo/UNMPwLfmlow/UI+Vqjp/0aQMrqQXa74vEO+3
-	 B6ktH4Wm3KcHK8eGo10IYUhf58PJ6+4whCFhJdEdL4mk3XU2z4VNQ2lzMuDRYMLE0ySs/
-	 sFNUDZaxmTKU2oelKM30/2wAhy3eAvlMlo+1WPt12phZkPzuXEKB7UrUih07SJcCo8ib+
-	 DLJ6J47HS8UHzEfMcpGOegdHmbVRZvixDtlQ0WgJc3sn0BS++pTsWWWv/bAPxZKYiVw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795009191;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=n/xNnljAIoTpSIonTUtPSuIAXIf9DvOLWxzsuQnFSHo=;
+	b=XVNdMR/z+7IsaHRnIzbHcoVtwBf6O3SBa6oTo7wxJzQqIwPnaXEBO0vuqDtQNFALqkGx
+	 Vl7GcQr1hNvbERrCNQh2Yj1UtIWntWmoQwM2WOeIN4MKsU2BCvArOcE0U8NbyF8fB9dE3
+	 TsUZUviZbbfOFRFHis9cYfYtFzSrnTBdpELEEeWfe0sYtojUJh5qfyr+nB3767DDcFX4Y
+	 3bUfl4fE1M52WJ4VVNnbEIJtLOiMUpE4LVdjc3MFP6dS4IipJhwoJ2SN90ewBFO01CbRk
+	 uXQBRIQTIsjihjtZTZsv9eA4KgtDaqXWM08TBdkEkcKKbsZHKdJ3hs0RXAiFm1cWyRA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QnXDe1Br;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=YkjZItOj;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADF5B606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:39:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10F47606A320;
+	Wed, 18 Nov 2026 13:39:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 10F47606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QnXDe1Br
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B57A61F000C4;
-	Wed, 18 Nov 2026 13:39:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795009183;
-	bh=H16wPM7V43qGhOUqYIC9Lq66inZTiW4pkuJdkCDBv0k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=QnXDe1Brr0lrrc+WoVXWDQAuB6mqEFMBO+0+D9laEIhooYb5UkBJwdxFGdNoFKZ8o
-	 WsN/4VSJX8Ukxv40UAWQeosgaBpENKCEoKAhEJU/n0HJDVG7RFGt5Tf+O6Qqk0oOjB
-	 tUWVsP80MgMO5zLwbQe5JOvapb4ltLtoalyxyxnqfxQKI2Ncsk0gfqz5wwMgWAyR0R
-	 wSEiN0O+h+OsCr45zE/AVP0h9V7vjw+iklvGxntQ/cwEjQ668fX+q7ZNvsAWAuCnbX
-	 ByuKEzWtSQ71KctGcmmul6ypubbhZDF4k5uirUtO+pJuonoIRG+0CxaBJLCwoUTHn7
-	 9DPdbMnx3vQEw==
-Date: Wed, 18 Nov 2026 15:39:36 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Shivank Garg <shivankg@amd.com>,
-	David Hildenbrand <david@kernel.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Brendan Jackman <brendan.jackman@linux.dev>,
-	Zi Yan <ziy@nvidia.com>, Luiz Capitulino <luizcap@redhat.com>,
-	linux-mm@kvack.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] mm/page_ext: remove unused page_ext_iter_get()
-Message-ID: <av2qmOfuu9QMny5o@kernel.org>
-References: <20261117-unused-sym-page-ext-v2-1-900f4c3c6856@amd.com>
- <e745f91b-3312-47b9-965c-510bf0a0b7f7@kernel.org>
- <20261117111336.ee49c0d4722a042c071c68b0@linux-foundation.org>
- <5541ef01-f9c0-4ce1-b77a-5bb81c6cfdd4@kernel.org>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=YkjZItOj
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 551CDC4CBD9;
+	Wed, 18 Nov 2026 13:39:54 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 7CCD45FE9B;
+	Wed, 18 Nov 2026 13:39:49 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9EBE311BC2086;
+	Wed, 18 Nov 2026 14:39:37 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795009183; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=n/xNnljAIoTpSIonTUtPSuIAXIf9DvOLWxzsuQnFSHo=;
+	b=YkjZItOjnKrvUNQqGwfyVQDndORZx7f2ZBPqGS+E23ES7+QUG3XwwROwBKolYxAvgMNi3I
+	yAXrUFn91oCVAqdkEKuVcfoo0hRBi0eRPaynPINZgJNHxgcqIR5LHt3lX0ycBFx7r4C+UY
+	IGkmqueyDXyO8N8GEB6TFUvhd0KZW1mebwpVOYP5xNtKgraNT4sG37sUZYLTIKUhqZy+eP
+	ITDLhrf2bxGY27yx7umEFIkOIBMmaLVjax8tGT0rHzfqgPgpCbXH1WFWlxeze1zBqJd8t+
+	7/pMmlWphALzrrRe3rmrwScJ96FnwJh62qp2XvYfZWyLHm5w1LruFdazQfRKzg==
+From: Herve Codina <herve.codina@bootlin.com>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Peter Rosin <peda@lysator.liu.se>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>
+Cc: linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	Allan Nielsen <allan.nielsen@microchip.com>,
+	Horatiu Vultur <horatiu.vultur@microchip.com>,
+	Daniel Machon <daniel.machon@microchip.com>,
+	Steen Hegelund <steen.hegelund@microchip.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Herve Codina <herve.codina@bootlin.com>
+Subject: [PATCH v10 0/6] lan966x pci device: Add support for SFPs, i2c part
+Date: Wed, 18 Nov 2026 14:39:09 +0100
+Message-ID: <20261118133927.366482-1-herve.codina@bootlin.com>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,68 +81,138 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <5541ef01-f9c0-4ce1-b77a-5bb81c6cfdd4@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Wed, Nov 18, 2026 at 11:10:45AM +0100, Vlastimil Babka (SUSE) wrote:
-> On 11/17/26 20:13, Andrew Morton wrote:
-> > On Tue, 17 Nov 2026 19:50:09 +0100 "Vlastimil Babka (SUSE)" <vbabka@kernel.org> wrote:
-> > 
-> >> On 11/17/26 17:26, Shivank Garg wrote:
-> >> > It was added in commit 9039b9096ea2 ("mm: page_ext: add an iteration API
-> >> > for page extensions") but has never had a caller.
-> >> > 
-> >> > Signed-off-by: Shivank Garg <shivankg@amd.com>
-> >> 
-> >> Added to page_alloc.git for-next, thanks!
-> > 
-> > Thanks.  Helps.
-> > 
-> >> Hm page_ext.h should be added to the PAGE ALLOCATOR section. Wonder if
-> >> Andrew's patches adding various missing bits included that too.
-> > 
-> > Nope.  I'll add the below.
-> > 
-> > A few things under mm/ include page_ext.h so perhaps more mentions are
-> > needed.
-> 
-> Thanks! Stuff that includes it are its users and not necessarily page
-> allocator itself. Nothing jumped at me.
+Hi,
 
-The whole initialization part is in a way mm_init ;-)
- 
-> > I'm presently carrying no patches which alter page_ext.h or page_ext.c
-> > 
-> > 
-> > 
-> > From: Andrew Morton <akpm@linux-foundation.org>
-> > Subject: MAINTAINERS: add page_ext.h to MEMORY MANAGEMENT - PAGE ALLOCATOR
-> > Date: Tue Nov 17 11:05:44 AM PST 2026
-> > 
-> > Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
-> > Cc: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
-> 
-> Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
-> 
-> > 
-> >  MAINTAINERS |    1 +
-> >  1 file changed, 1 insertion(+)
-> > 
-> > --- a/MAINTAINERS~a
-> > +++ a/MAINTAINERS
-> > @@ -17779,6 +17779,7 @@ F:	include/linux/compaction.h
-> >  F:	include/linux/gfp.h
-> >  F:	include/linux/page-isolation.h
-> >  F:	include/linux/pageblock-flags.h
-> > +F:	include/linux/page_ext.h
-> >  F:	include/trace/events/compaction.h
-> >  F:	include/trace/events/page_isolation.h
-> >  F:	include/trace/events/page_ref.h
-> > _
-> > 
-> 
+Previously, I sent a big picture series adding support for SFP ports
+available on the LAN966x PCI device [0].
+
+In this series patches touch several parts and sub-system in the kernel.
+Reviews have be done and it makes sense to split the series and send
+parts separately.
+
+This current series is the extraction of patches related to issues in
+the I2C subsystem. It has to be seen as a continuation of the big
+picture series but related to this specific I2C part.
+
+Those patches are related fw_delink issues specific to I2C muxes and
+atrs.
+
+They purpose is to correctly set a link between an adapter supplier and
+its consumer. Indeed, an i2c mux/atr adapter's parent is not the i2c
+mux/atr supplier but the adapter the i2c mux/atr is connected to. Adding
+a new link between the adapter supplier involved when i2c muxes/atrs are
+used avoid a freeze observed during device removal.
+
+[0] https://lore.kernel.org/all/20260325143555.451852-1-herve.codina@bootlin.com/
+
+During the previous iteration, Sashiko reported some issues [1]. This
+new iteration takes them into account.
+
+Also, previously, modification done on muxes and atrs were done in the
+same patch. This new iteration split them in several patches. Even if
+modification are similar, commit logs are not. For instance, serializer
+and deserializer related to issues reported by Sashiko are present in
+atrs but not muxes. With that in mind, having specific commits for muxes
+and atr makes sense.
+
+[1] https://sashiko.dev/#/patchset/20261104135324.492692-1-herve.codina%40bootlin.com
+
+Still worth noting that I tested modifications done in mux but not in
+atr. Indeed, I don't have any atr devices on the different boards I have
+to perform a test.
+
+Best regards,
+Hervé
+
+Changes:
+
+v9 -> v10
+  v9: https://lore.kernel.org/all/20261104135324.492692-1-herve.codina@bootlin.com/
+  Sashiko's review: https://sashiko.dev/#/patchset/20261104135324.492692-1-herve.codina%40bootlin.com
+
+  Patch 1 (new patch in v10)
+  - Update rtl2832 driver to pass &client->dev instead of &i2c->dev
+    (issue reported by Sashiko).
+
+  Patch 2 (patch 1 in v9)
+  No change
+
+  Patch 3 (patch 2 in v9)
+  - Split v9 patch 2 (mux part)
+  - No specific mux change
+  - Keep 'Reviewed-by: Andy' tag
+
+  Patch 4 (patch 3 in v9)
+  - Split v9 patch 3 (mux part)
+  - Handle issues reported by Shashiko (possible NULL parent_physdev,
+    possible parent_physdev == mux->dev)
+  - Handle DVB bridges issue reported by Sashiko (client->dev.driver
+    NULL pointer dereference). Fix it avoiding the link creation when
+    the consumer is an i2c client attached to the same adapter as the
+    supplier.
+
+  Patch 5 (patch 2 in v9)
+  - Split v9 patch 2 (atr part)
+  - Use desc->parent for chan->adap.physdev (serializer/deserializer
+    issue reported by Sashiko).
+
+  Patch 6 (patch 3 in v9)
+  - Split patch 3 (atr part)
+  - Use desc->parent for the devlink consumer (reported by Sashiko)
+  - Avoid a dangling pointer in atr->adapter[chan_id] (reported by
+    Sashiko)
+  - Take into account possible NULL parent_physdev (idem mux)
+  - Take into account the parent_physdev == desc->parent case (idem
+    mux).
+  - Avoid link creation when the consumer is an i2c client attached to
+    the same adapter as the supplier (idem mux).
+
+v8 -> v9
+  v8: https://lore.kernel.org/all/20260630103010.413688-1-herve.codina@bootlin.com/
+  Rebase on top of v7.4-rc1
+
+  Patches 2 and 3
+  - Add same modifications in i2c-atr.c than the ones done in i2c-mux.c.
+  - Update commit logs accordingly.
+
+v7 -> v8
+  v7: https://lore.kernel.org/all/20260605083158.28ac874f@bootlin.com/
+
+  Rebase on top of v7.2-rc1
+  No other changes
+
+v6 -> v7
+
+  Rebase on top of v7.1-rc1
+
+  - Patch 1, 2 and 3
+    No changes
+
+Older iterations:
+  Patches 14, 15 and 16in the big picture series
+  https://lore.kernel.org/all/20260325143555.451852-1-herve.codina@bootlin.com/
+
+Herve Codina (6):
+  media: rtl2832: Use I2C client device as mux device
+  i2c: core: Introduce i2c_get_adapter_physdev()
+  i2c: mux: Set adapter physical device
+  i2c: mux: Create missing devlink between mux and adapter physical
+    device
+  i2c: atr: Set adapter physical device
+  i2c: atr: Create missing devlink between ATR and adapter physical
+    device
+
+ drivers/i2c/i2c-atr.c                 | 47 +++++++++++++++++++++++++++
+ drivers/i2c/i2c-core-base.c           | 16 +++++++++
+ drivers/i2c/i2c-mux.c                 | 45 +++++++++++++++++++++++++
+ drivers/media/dvb-frontends/rtl2832.c |  2 +-
+ include/linux/i2c.h                   |  3 ++
+ 5 files changed, 112 insertions(+), 1 deletion(-)
 
 -- 
-Sincerely yours,
-Mike.
+2.56.0
+
