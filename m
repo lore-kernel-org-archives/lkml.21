@@ -1,50 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.109
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.117
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795039324;
-	b=IJ/Kywk8zRHK/3dK7CDIjDwY+A1U+JfYFX2SAwyuXssQivXp8rCMNh3OWmbmi8cv5w36
-	 47aqwsgY8smhXBpXxjapuFMGd1LjTEHBXDNRxgawvHXBP93t3SS/UV7BCFU2QTthnH/NU
-	 2UHYK/luH6hXfbWe2aJO3cKqe+Z6axhA7do41zE1VRK2dUzjo+AYVxUYuTDMcf4KYV+Jf
-	 lIV8WiIAEeL1HsRveMhdwEdRqjmi1g9Tjd6rEdwVEUBh3kjxfj50elTHqNOkmwofzak9n
-	 sCqjLioViEUSX/hyqUOZ14H0DmhnPAyBef407UtzfR1eTxT6Xd6nKK0fps1pyyHy3EQ==
+	t=1795039329;
+	b=Z8uulhNLAyab6p719OxJpAN0zVrbU+OetsWjyap+rb5YWbp0aomxsVI9aWs4abR5K+FX
+	 UEOQQC4Gk5TdpAhSHuNxHDYIrk3ciwBnm8ALtOasg6UBdi5oJPDMBSwDe8HV01EGhK91m
+	 Sbb8XZlLaFWdiGmyMHUnwin3ZenLBi8y7Oe6K9JXvEtYBbf/4s0ViHhdYfYAXVJ5VBv3n
+	 2wOX2bwV3IQ+GQnleMBtP/4BNkkW/eLI7mWIcIvaGiaBWeXxepJuOxT5xCKtiQyrB+8xI
+	 +L8CHAOPHITQRvcMfwew3/zC5hgYKhek22ZDM/zcdhX3RuXm0RG0nNu+boIultfGTTA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795039324;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795039329;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=XRDroY0sFver367kyPDJQmEiNfmQbEfbzCRal+gdQOs=;
-	b=4Xjd80h1HP7Xx5H7wFbl49bIElA8pV0HtDDzY7g39g9DPVfjVhGmQtpbzOto1sCEec4X
-	 HZoVzWGWcZL98Y1H95EakBwXbm+YiOTB1r+aI8hxCH3//ev9O9KH3OFi1vhTeMT23XETw
-	 YYVpmigEzIJkzIT9MUmt6EDN/xQUt5qWB3pPawyv0nfW8fMe18ca8rA4wLefR5tQXXqnx
-	 +1G1nDzY4fboQNeFXwy8y1YiB91azZmHlt96vDxU6VV6tRy10DUT1YGr6VlmkbrVgXBWv
-	 1oaEbMG8sV9HY5HjUJ26w6i0hyaifVqWE6WqqygzoBQgPDdDc170gaH37M7JRu7ZFIg==
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=dsLrDyEWbz+FxTmzr1hiOWbLBqwFQDIMBIXxuGuo1+o=;
+	b=31Unh7RI+3gGSIzqv1a7MpGH5jiurVFFOWYqIDDgpo74CWZGjat5O7k4m6g42l8WWLFp
+	 ZPg8yTyRyy0y3wJgg1AcSqTVcL/bQve1P5aR+x6WPPE8IvdZrEVanmOxG2RLj1l5/F+jr
+	 FkAVfXgfGgaKz6WyPBml2vF+wYalnOPYADsL00DMpWAn2AyFvsRdSjSZQcwZJfkZEfBwI
+	 bcJLPZNJq6fgb37AsAITuhcjBT2NkhLZe5G8XSpuodXgL8hCT2miPZD7y0SR7gE4KmfVi
+	 gsr5tiHr8fWATmncLL6Z/CbXfzlgoo9UcMvSVIycgIrfs9kY+JTLcvTTI9re6qbpqmQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=qWmNt2nF;
-	arc=none smtp.remote-ip=91.218.175.109
-Received: from mta0.migadu.com (out-109.mta0.migadu.com [91.218.175.109])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=szoOfojn;
+	arc=none smtp.remote-ip=91.218.175.117
+Received: from mta0.migadu.com (out-117.mta0.migadu.com [91.218.175.117])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33DF4606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:02:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33DF4606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4756606A331
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:02:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A4756606A331
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=qWmNt2nF
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=szoOfojn
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=DGS02wSdxHBC/Vz45KLDoTie2ewpXny5EB7Q155fn3U=;
+DKIM-Signature: a=rsa-sha256; bh=+w/td86AL1OiB0ag/cvwouwLI4x3vgdy6/G0vf1xatM=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795039321; v=1; x=1795644121;
- b=qWmNt2nFPdVNIlT8raP3f2MYzRV7XMj76d6AV0d4+9VWSX2R/C++wAxcR2GXq5wDgryIW1Ue
- 9DFJySq+l3uVfG3sjJ+XF0JQZ/NTiHS8Ne3Wh00uTiLz94IphqdWVn39e7cl9TrDAAZrH+Be97Q
- fCCQ0VTogtqkG8L75bJQuD5I=
+ t=1795039326; v=1; x=1795644126;
+ b=szoOfojnkE+4kLZquEh9Y2wg4ssDIZDJ7+Ua8HHYKeVqnor94DYcf6HNV70gCH0V/UOrakPc
+ S4kHQug92L2WHV9Ac3qHnjXrk0zjWWpjSIJBCMuJmubiW5r6hMq8YJUc/3A90FRYQlU4DrEZVtr
+ KdA3Zs+aHuptQhfOxsIdR9AA=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 0b0544c079918681;
-	Wed, 18 Nov 2026 22:02:01 +0000
-X-Mizu-Trace-ID: 0b0544c079918681
+Received: by smtp.migadu.com with ESMTPS id d3be7b250bfc536d;
+	Wed, 18 Nov 2026 22:02:06 +0000
+X-Mizu-Trace-ID: d3be7b250bfc536d
 X-Migadu-Flow: FLOW_OUT
 From: Shakeel Butt <shakeel.butt@linux.dev>
 To: Christian Brauner <brauner@kernel.org>
@@ -57,10 +58,12 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	linux-fsdevel@vger.kernel.org,
 	driver-core@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/6] kernfs: stop taking kernfs_iattr_rwsem for writing in mkdir/rmdir
-Date: Wed, 18 Nov 2026 14:01:47 -0800
-Message-ID: <20261118220154.2965621-1-shakeel.butt@linux.dev>
+Subject: [PATCH 1/6] kernfs: report times and link count from the node in getattr
+Date: Wed, 18 Nov 2026 14:01:48 -0800
+Message-ID: <20261118220154.2965621-2-shakeel.butt@linux.dev>
 X-Mailer: git-send-email 2.53.1
+In-Reply-To: <20261118220154.2965621-1-shakeel.butt@linux.dev>
+References: <20261118220154.2965621-1-shakeel.butt@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,83 +75,91 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-In the Meta fleet, cgroup mkdir and rmdir can stall cgroup operations
-on the whole host.  They hold cgroup_mutex and kernfs_rwsem while they
-wait for kernfs_iattr_rwsem, which every path walk takes for reading,
-and they take it once or twice for every file of the cgroup.  systemd,
-clone3() into a cgroup, BPF queries and the OOM daemon all wait behind
-them.
+getattr and permission copy a node's attributes into its inode while
+holding kernfs_iattr_rwsem for reading, so several of them can write
+the same inode at once.  That is safe only because every update of
+these attributes takes the lock for writing, so they all write the same
+values.  Commit aa1d058d48f2 ("kernfs: dont take i_lock on inode attr
+read") relies on this.  Setting up a node's first iattrs from setxattr
+does not take the lock, but a refresh that misses them writes no times.
 
-- Our lock monitor saw a kernfs_rwsem writer blocked on
-  kernfs_iattr_rwsem several thousand times on a large number of hosts
-  in 29 days (in mkdir and rmdir), for up to 1.8 s at a time.
+The next patches let a directory's times and link count change without
+that lock.  A slow refresh could then write an old value after a newer
+one, and stat() could return a stale or torn time or link count.
 
-- Under memory and CPU pressure the waits become host-wide stalls.  In
-  one week, we observed several cases where the OOM daemon and the
-  monitoring agent were stuck for up to 22 minutes.  In October, one
-  batch job caused these stalls on a large number of hosts.  On the
-  sampled hosts with current kernels, the cgroup_mutex owner was always
-  waiting for kernfs_iattr_rwsem (in mkdir and rmdir).  One specific
-  stall lasted 90 minutes and ended in a reboot.
+Make getattr report the times and link count from the node instead of
+the inode.  Permission checks use neither.  Nothing changes yet, except
+that a stat() racing a node's first setxattr can report the new times.
 
-The write lock is not needed for most of what it covers:
+Signed-off-by: Shakeel Butt <shakeel.butt@linux.dev>
+---
+ fs/kernfs/inode.c | 32 ++++++++++++++++++++++++++++++--
+ 1 file changed, 30 insertions(+), 2 deletions(-)
 
-- kernfs_rwsem already serialises the parent's two counters and
-  KERNFS_REMOVING (patches 3 and 4).
-- The parent's times get a seqlock of their own (patch 5).
-- Only inode setup needs to set a directory's i_nlink, so removal can
-  clear it without the lock (patches 2 and 6).
-
-The lock also kept times and link counts stable while getattr and
-permission copied them into the shared inode.  Patches 1 and 2 make
-getattr report them from the node and stop copying them, so stat()
-cannot return a stale or torn value.
-
-After the series, mkdir and rmdir take no kernfs_iattr_rwsem for
-writing.  Write acquisitions, from lock_stat:
-
-                                          before   after
-  5 dummy netdevs created and removed       1850       0
-  100 cgroup mkdirs and 100 rmdirs          7500       0
-
-Latency in a VM with 8 vCPUs, while 32 threads walk cgroupfs paths
-(worst of three 20 s runs; mkdir and rmdir by a SCHED_FIFO thread):
-
-                         before                  after
-                    p50     p99     max     p50    p99    max
-  cgroup mkdir     2.8ms   9.0ms  20.1ms    25us   37us   84us
-  cgroup rmdir     4.2ms  12.7ms  26.6ms    28us   38us  107us
-
-A write that only needs cgroup_mutex waited up to 23 ms before and up
-to 34 us after.  With 8 threads and no writer, stat() and access() on
-a path whose directories have iattrs are 12-14% faster, since the
-refresh copies less.
-
-Tested with the kernfs selftests on lockdep + KASAN and KCSAN kernels;
-with extra checks of link counts, times and IN_DELETE_SELF; with
-concurrent mkdir/rmdir, setattr, stat, readdir and netdev churn; and
-with test-only delays that force the stale stat(), lost time update,
-backwards time, overwritten setattr and stat()-during-removal races.
-KCSAN reports nothing new, and its set_nlink() reports from the refresh
-are gone.
-
-Based on vfs-7.5.kernfs.  It also applies to v7.4-rc3.
-
-Shakeel Butt (6):
-  kernfs: report times and link count from the node in getattr
-  kernfs: don't copy times and link count into the inode on refresh
-  kernfs: don't take kernfs_iattr_rwsem for the directory counters
-  kernfs: don't take kernfs_iattr_rwsem to publish KERNFS_REMOVING
-  kernfs: update a directory's times without kernfs_iattr_rwsem
-  kernfs: don't take kernfs_iattr_rwsem in __kernfs_remove()
-
- fs/kernfs/dir.c             |  48 +++++---------
- fs/kernfs/inode.c           | 125 ++++++++++++++++++++++++++++++------
- fs/kernfs/kernfs-internal.h |   2 +
- 3 files changed, 124 insertions(+), 51 deletions(-)
-
-
-base-commit: ccf2a4692fed0fa77751d32d2690585127a152c5
+diff --git a/fs/kernfs/inode.c b/fs/kernfs/inode.c
+index 53b1a2796e0b..3616161a56cb 100644
+--- a/fs/kernfs/inode.c
++++ b/fs/kernfs/inode.c
+@@ -162,9 +162,22 @@ static inline void set_inode_attr(struct inode *inode,
+ 	inode_set_ctime_to_ts(inode, attrs->ia_ctime);
+ }
+ 
++/*
++ * Get the link count of a directory: its subdirectories plus two.
++ * Return false for other nodes and for a directory being removed.
++ */
++static bool kernfs_dir_nlink(struct kernfs_node *kn, unsigned int *nlink)
++{
++	if (kernfs_type(kn) != KERNFS_DIR || (kn->flags & KERNFS_REMOVING))
++		return false;
++	*nlink = kn->dir.subdirs + 2;
++	return true;
++}
++
+ static void kernfs_refresh_inode(struct kernfs_node *kn, struct inode *inode)
+ {
+ 	struct kernfs_iattrs *attrs;
++	unsigned int nlink;
+ 
+ 	inode->i_mode = kn->mode;
+ 	attrs = kernfs_iattrs_noalloc(kn);
+@@ -175,8 +188,8 @@ static void kernfs_refresh_inode(struct kernfs_node *kn, struct inode *inode)
+ 		 */
+ 		set_inode_attr(inode, attrs);
+ 
+-	if (kernfs_type(kn) == KERNFS_DIR && !(kn->flags & KERNFS_REMOVING))
+-		set_nlink(inode, kn->dir.subdirs + 2);
++	if (kernfs_dir_nlink(kn, &nlink))
++		set_nlink(inode, nlink);
+ }
+ 
+ int kernfs_iop_getattr(const struct mnt_idmap *idmap,
+@@ -186,10 +199,25 @@ int kernfs_iop_getattr(const struct mnt_idmap *idmap,
+ 	struct inode *inode = d_inode(path->dentry);
+ 	struct kernfs_node *kn = inode->i_private;
+ 	struct kernfs_root *root = kernfs_root(kn);
++	struct kernfs_iattrs *attrs;
++	unsigned int nlink;
+ 
+ 	down_read(&root->kernfs_iattr_rwsem);
+ 	kernfs_refresh_inode(kn, inode);
+ 	generic_fillattr(&nop_mnt_idmap, request_mask, inode, stat);
++
++	/*
++	 * Other refreshes may store older times or link counts in the
++	 * inode at the same time.  Report the values from the node.
++	 */
++	attrs = kernfs_iattrs_noalloc(kn);
++	if (attrs) {
++		stat->atime = attrs->ia_atime;
++		stat->mtime = attrs->ia_mtime;
++		stat->ctime = attrs->ia_ctime;
++	}
++	if (kernfs_dir_nlink(kn, &nlink))
++		stat->nlink = nlink;
+ 	up_read(&root->kernfs_iattr_rwsem);
+ 
+ 	return 0;
 -- 
 2.53.1-Meta
 
