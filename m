@@ -1,87 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.148.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.139.74
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794975992;
-	b=AWStuBczr8iOrjJY/4FSJI7QVEjMsJq85s6KlF7vw4sLGa6abcDXRQ9luhUQo+of+eI0
-	 d3DoYGBfRQ8ALMv/BgmYsxmq/Oevna5lqJdoRhOZ9MeO4j0lhDLWarMzOiuIgOCNvntxu
-	 g5Jvt+RA96L+RmE2eNI9Iethp56dvrmZTdmTqAd1gwXQ9WOjuaZP4zgp44iYGSTRLBeQW
-	 sjb8Qu9YWwoIy8Yzox10XK1tZmKOArew084zqbRsaEXhiDK7WwjTt78/GOowoMepiaVe6
-	 5BTT1Y1Y3kEBo9WBr4a2G/Mo0UL/VWXWsW7XomMPTlAEYXxSMp0evsprTDuI428IavQ==
+	t=1794976158;
+	b=t15qcljpfHEJq53fTnPX1HH/qbnT2LfP1LGNB4j4zr86HnJ70ifgixdafI1cypgpepBN
+	 AhJfBnuqpdnigSlXM7CbM50EKs9g/PsvRVxLvnZeiFYbe1iJGiIjpYTUKT4EnYh1zcpxp
+	 q9MELTSKCG36fmjCjxT5LHqGJVfNof+xMyVNYOjInc2g8CcnRUGNMIWvTwONoSBDPzTC0
+	 B65Yc4AxT9C9R/VOjXk0vbGOLTZvh1qPzSNX4Urvk7hsRvQJjp8bOZRVGpXTb0V9z8MUs
+	 zhdUhlHpOiWgUFEY8UFHkj58oC6zWKW6VuSQGXz6a2LteM9J22bxZ1OeZml3SgOIBsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794975992;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version;
-	bh=0WqMk/9EjOE02syakNUAMPGrm2R4TgLrNy35QNB61ww=;
-	b=mnizf9r36XU1feVYIV6z/C3SyGNCB6tMjc7njeGpoq4UQIa48PmLWVep7GW47fOHhMAD
-	 GBjiRiwQ2YSY9/5WopHJEo53256gnTEUOjcF63AEgOh/pp1yfTU4/ij966dEPl/Q1P7pp
-	 bVCuUg6sJwb95rSH3onlNcXITSCX4ery5HfMMfxhQEOT3K9M228EsviiM8UyQshCKHWr+
-	 5Pfau84jieYP6m9JC68O3wbnemd9Thp00TXmfYrXNzacvFkQfLi2vtX6tAwhMZuJDzFJ6
-	 R2j/Kv2JSoTiqLAhDCBy09F2AWJLxdVEyK7OtU9umWcXgn8Qo1DChDXuLx8GZeivXCA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794976158;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Authority-Analysis:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=1pZTPbPLpqcipBn+gCe+PHsN8BLdvgf8n1ZHU7b2omk=;
+	b=n7jOQcyNqS9B9OqWSbv5P4StvSssFyf4gjPBmT4fmXIZycajjE7Swj8NDmz1I3Iz4TTm
+	 eSmfh4IggeEanb96qs5VMtsZDAb+441/Iy9i6tf0niEz7Eyxm6h7sudE+qtBuFbMSBIls
+	 xxy04J7KJq8JhcVchsAcYF0z/HeX/5NiDCK75sTBYQysxlFKFYM5hD4dEF58lqqoX1yPA
+	 bwcfidzREbHDLLxoEDXo9YrmcoYrDdYwpfs4WqxjhlrjQtX9mZQ8K/+Rk2JOtj6GH4ebr
+	 GSz715PtMAc7eb8CqWrdS0d2xTjtVoEsX/NP1oK45ZnYWMqqcnsFZ+0/Y+4mivokhmg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=marvell.com;
-	spf=pass smtp.mailfrom=marvell.com;
-	dkim=pass header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=pfpt0220 header.b=RgXZClWx;
-	arc=none smtp.remote-ip=67.231.148.174
-Received: from mx0a-0016f401.pphosted.com (mx0a-0016f401.pphosted.com [67.231.148.174])
+	dmarc=pass header.from=columbia.edu;
+	spf=pass smtp.mailfrom=columbia.edu;
+	dkim=pass header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=pps01 header.b="aX/azDTm";
+	dkim=pass header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=lionmail header.b=20VZb8oq;
+	arc=none smtp.remote-ip=148.163.139.74
+Received: from mx0b-00364e01.pphosted.com (mx0b-00364e01.pphosted.com [148.163.139.74])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A95F9606A31C;
-	Wed, 18 Nov 2026 04:26:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A95F9606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=marvell.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=marvell.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC7F5606A33E
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:29:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC7F5606A33E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=columbia.edu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=columbia.edu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=pfpt0220 header.b=RgXZClWx
-Received: from pps.filterd (m0431384.ppops.net [127.0.0.1])
-	by mx0a-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI2SRNr1183034;
-	Tue, 17 Nov 2026 20:26:18 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=pfpt0220; bh=0WqMk/9EjOE02syakNUAMPG
-	rm2R4TgLrNy35QNB61ww=; b=RgXZClWx5n4sDHOf6/lJpTaGDP/7MgjOQWQlZJ/
-	gGxuE0RfE54jwNQcmk6WFUHaYKs4YdiKzV7SgSClByXUItSoPkElj+xGXiL1cKOD
-	RsL3iVfmJ/fdm9uqP/Cbcusl+71dT+rlQ92JJYLCh+7Z1KCJ049cfpSG2ByHTJLH
-	8gN3aNYhR2mIWbAICCC/hkyfpRY9m6wNNI9QzgHA0hJkooBwSru/EVEDWLajaok5
-	PVTj6XfW/nOMs76xANUnGmt3gR6cuwxAmx2BCir7ejNF3BvvT+bXhOezg7VEQ2S/
-	8GLyEte6U+Jkdet8ihQE2i+bvI+6bL+jg4EWqx8kpLkmgdQ==
-Received: from dc5-exch05.marvell.com ([199.233.59.128])
-	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 4j0ytus0s1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 17 Nov 2026 20:26:18 -0800 (PST)
-Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
- DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Tue, 17 Nov 2026 20:26:06 -0800
-Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
- (10.69.176.209) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Tue, 17 Nov 2026 20:26:06 -0800
-Received: from localhost.localdomain (unknown [10.110.24.192])
-	by maili.marvell.com (Postfix) with ESMTP id B9DE83F7071;
-	Tue, 17 Nov 2026 20:26:17 -0800 (PST)
-From: Vadluri Mukunda <vmukunda@marvell.com>
-To: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-CC: Sunil Goutham <sgoutham@marvell.com>,
-        Ratheesh Kannoth
-	<rkannoth@marvell.com>,
-        Geetha sowjanya <gakula@marvell.com>,
-        "Subbaraya
- Sundeep" <sbhatta@marvell.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S
- . Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>,
-        "Jakub
- Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-        Satha Rao
-	<skoteshwar@marvell.com>,
-        Vadluri Mukunda <vmukunda@marvell.com>
-Subject: [PATCH net v2] octeontx2-af: widen TX scheduler queue index to 11 bits
-Date: Wed, 18 Nov 2026 04:26:14 +0000
-Message-ID: <20261118042614.878448-1-vmukunda@marvell.com>
-X-Mailer: git-send-email 2.25.1
+	dkim=pass (2048-bit key) header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=pps01 header.b=aX/azDTm;
+	dkim=pass (2048-bit key) header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=lionmail header.b=20VZb8oq
+Received: from pps.filterd (m0167077.ppops.net [127.0.0.1])
+	by mx0b-00364e01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI1XeJS2952067
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:29:11 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=columbia.edu; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pps01; bh=1pZT
+	PbPLpqcipBn+gCe+PHsN8BLdvgf8n1ZHU7b2omk=; b=aX/azDTmf2h7yR5Vjear
+	bS0xksh+kHycMdXrf/MUt+2nFXKp0T2HZ+HWyNb74fEMpBg9UsypYlm6i4/5vsGS
+	sNqllSzxTvQidwjQ89pJEkl6MA2N4MUW8BxEaa1GrF9uVWAkHsvze3mE7C46rrJl
+	rhDaXEZxcLTtduVc9J1TlNMb/bQ+5GOuws3gqjwzcTPyCcPmKhQXbSiAAVTz18tm
+	s7kJvLJjB1Zo4G0i7xfR+giX/dC58Y9Jvve2SxJdJY0ofVST9yrVnPQFhGKftuFz
+	dZuj/YLYrjaCZ1AyPps7NOdlPQEQJe7Yc4UB/bTrLZNi6uAvGr1I87pFiorfmgv6
+	mw==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0b-00364e01.pphosted.com (PPS) with ESMTPS id 4j0yu5sfap-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:29:11 -0500 (EST)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93f33438950so121112285a.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:29:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=columbia.edu; s=lionmail; t=1794976150; x=1795580950; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=1pZTPbPLpqcipBn+gCe+PHsN8BLdvgf8n1ZHU7b2omk=;
+        b=20VZb8oqzo0rZ8pxmptxAvVzLz3lr054eutWVAg/b2lW9lzONpsYgI3HfLi82ElL4L
+         OfgoR0IBGcxWVVHZ5tzjYXblGffNWiXd5XbZNUMeF82nT805AlTft7HceIoTNX2sZdJO
+         Z4dKM6l6h6LluDmuLKLC5Hthizz36cKUrsCLuXudsYpWgufmE8Y/J9LiqkmkwOLSmevj
+         uZPhiZDo16ZYnqMWHwje08DNVPDy/fzvaDfDju/o9ECw/GWiNT3ShiJf1lKfe+K21Hj9
+         6GlvbotxlE5JJTtr8bwFefq0NDCxpnXH/JTgfPET0Gk6zFc0vfxcW7uaAhiC0CR7dWvP
+         NBHQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794976150; x=1795580950;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=1pZTPbPLpqcipBn+gCe+PHsN8BLdvgf8n1ZHU7b2omk=;
+        b=g2me1cphpN40LSfZuy+ofQR7aEPp+OOYw+98+EkXR6gB6xIXVfAN1ppsf/ANxeAFOa
+         StSfF2e8JYBhDzaUVb/V/npljVYIzzC3e1KVoZjdeAzWQPaavVR0krrdrGVknGVJ+agB
+         SFIzUKQ25P1mU0BPWp/52AWr0XQFpNwQC26q/GMtwt/YvMJHw3F5LWNn4Y3Yl0IMm7Go
+         bXxi/xbH+TkQ2XenUFv6lIEPlpP+il/W7LPN+H7b/4sYlJs4dFHXAxG5XTSW19huRUq4
+         8JHlqqVnB64JUyZZXTr7Y5p3flMKPjL1cvzAoS0sSuUXxdawYY2Iv1OsH2liq14Q/Msp
+         UoZA==
+X-Forwarded-Encrypted: i=1; AL+hErEOmuDWcE6yewZqg70nN+eDuKaT5IZRePAG3Bi5RCGuCDEyWemqGBszwkieFdg67ioPw5qM5tg6S17KCLo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9/QHm8kKJi6plwZjagbJyXmZvIOAysSBOWJM5PrC37uWImLeUq
+	iHqOuft0Jp2Hj4/fMiI3daBE4OG3J35VivNkXeYEUK4PI6t3mrWjmpQDiPW90XgS3l6Jnu41m1O
+	GU6/B6kVAOhAeaRHOQ+NDEZkjYSunN42bwTWXd/rOMvg+9pZxkrHvLm78Kc2CeA==
+X-Gm-Gg: AYBFou0RLptyg97iXXtvFsdAKIqtKl2ckU9WWALvVcSCtZ8chgx+O1tAYf/K4bs/HhO
+	TdlKbENRJ0j14JwC1oSgNR2mGXEfPSQWPGXOa2ACy04OHTHqWmukG/kfz1TIkflldHwDwj3HcMu
+	e+kXPA1rgAKFvt5AP2ZV0CCn4MsmqTmtY0QGj8F2C4lK7AM3zik/kx/GK1GQStmOaan5eHReJip
+	LKWYCR5G/1dUP5gpedEMQ9CCw0ZuiewuFVy8sSc0+fpIjY9ldN3sB3wR5374zQVVrNPxxsENRKL
+	2To1z2xXcjYBlMNthzwySbd7hPQNu8YBEYs4/HY/n8BIRRH6+cNwvnCc9Wz/2KX7/j09ydrUGVF
+	j3mM26CoAJbweU22rhS3fs41K2ILnG2BiW+/lVKdXUMephghpmCGAS22yNfAvyAaVb0u+2kq8cK
+	yV07byLCZrIWTtNbuNVQ==
+X-Received: by 2002:a05:620a:2b46:b0:949:73f3:843 with SMTP id af79cd13be357-94999631b1dmr290179685a.74.1794976150518;
+        Tue, 17 Nov 2026 20:29:10 -0800 (PST)
+X-Received: by 2002:a05:620a:2b46:b0:949:73f3:843 with SMTP id af79cd13be357-94999631b1dmr290176785a.74.1794976149985;
+        Tue, 17 Nov 2026 20:29:09 -0800 (PST)
+Received: from [127.0.1.1] (dyn-160-39-33-242.dyn.columbia.edu. [160.39.33.242])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-9499b743a8bsm89678085a.17.2026.11.17.20.29.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 20:29:09 -0800 (PST)
+From: Tal Zussman <tz2294@columbia.edu>
+Date: Tue, 17 Nov 2026 23:28:41 -0500
+Subject: [PATCH v3 1/9] userfaultfd: use anonymous memory for
+ UFFDIO_ZEROPAGE on private file mappings
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,88 +117,205 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Proofpoint-ORIG-GUID: s6SJakT3sxQzQghWifN-PwscKYqn09D0
-X-Proofpoint-GUID: s6SJakT3sxQzQghWifN-PwscKYqn09D0
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAxNyBTYWx0ZWRfXyNuSxU3uesdC
- ZKQ7j9RgfEuBx/ODaGN3CHTVu6LGpoR26XzrjMoc/vNo4Wvz8LORCuMXvpeZ7FF15Baill0/vG6
- sVvXTuNVytoxXX3tIldr4Zx4GhM1EYk=
-X-Authority-Analysis: v=2.4 cv=MIb1C8Zl c=1 sm=1 tr=0 ts=6afd28ea cx=c_pps
- a=rEv8fa4AjpPjGxpoe8rlIQ==:117 a=rEv8fa4AjpPjGxpoe8rlIQ==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=l0iWHRpgs5sLHlkKQ1IR:22
- a=TtqV-g6YmW1Jfm2GSLaY:22 a=VwQbUJbxAAAA:8 a=M5GUcnROAAAA:8
- a=EuGbU4x2D8lrRcO57msA:9 a=OBjm3rFKGHvpk9ecZwUJ:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAxNyBTYWx0ZWRfXzisoyrD0DDvt
- Q4+pmoIXdh92dXFN1A/WjQQ/xDbILcMFZRvwMnHl7GxE5F+buj7D+lfe0z7w96d23ekweA9KD6v
- U9MCYmjrqsm/1/hv8gJC9NlRwqJ5OrfZwUybyI0KEKE/k02BaW7L1tJmjeliGkm0qXjXDtObtqG
- XBnfI0DAyD4dX0ZcieZX3VMe5UwdGh93Qf0bm23fia/OUMT37hAaHhdvq2WgJ6AmvAPcPeOXutg
- 5+bpTyOOF4LqBTFrYrbTEDoPb0RC/TQyKAuwI0XXdJYwywaCRQXbCyCdgNtVMipPeH2y24vMk9E
- R59aYxkwtC7rRANIZvoluxWmAUJLf0Qu0BLsEYVzQYtCgD/ObfhdwsdM3hrN9hUKF06j9mUkoES
- jK2UdNCQL+8+LAtHtJbWOGD9Ae6/N4DC5GhGCIcbXQkduEK4ZHEk4FR1ELLhVIaueBQCffmS4+F
- vRLueptkAtqVpHnaNLA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-18_01,2026-11-16_01,2025-10-01_01
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261117-uffd-state-fixes-v3-1-b617009d1a4a@columbia.edu>
+References: <20261117-uffd-state-fixes-v3-0-b617009d1a4a@columbia.edu>
+In-Reply-To: <20261117-uffd-state-fixes-v3-0-b617009d1a4a@columbia.edu>
+To: Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
+        Peter Xu <peterx@redhat.com>, James Houghton <jthoughton@google.com>,
+        Andrea Arcangeli <aarcange@redhat.com>,
+        Suren Baghdasaryan <surenb@google.com>,
+        Balbir Singh <balbirs@nvidia.com>,
+        "Liam R. Howlett" <liam@infradead.org>,
+        Lorenzo Stoakes <ljs@kernel.org>, Vlastimil Babka <vbabka@kernel.org>,
+        Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>,
+        David Hildenbrand <david@kernel.org>, Michal Hocko <mhocko@suse.com>,
+        =?utf-8?q?Micha=C5=82_Miros=C5=82aw?= <mirq-linux@rere.qmqm.pl>,
+        Andrei Vagin <avagin@gmail.com>,
+        Muhammad Usama Anjum <usama.anjum@arm.com>,
+        Stephen Rothwell <sfr@canb.auug.org.au>, Arnd Bergmann <arnd@arndb.de>,
+        Zi Yan <ziy@nvidia.com>, Matthew Brost <matthew.brost@intel.com>,
+        Joshua Hahn <joshua.hahnjy@gmail.com>,
+        Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>,
+        Ying Huang <ying.huang@linux.alibaba.com>,
+        Alistair Popple <apopple@nvidia.com>,
+        Baolin Wang <baolin.wang@linux.alibaba.com>,
+        Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>,
+        Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>,
+        Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>,
+        Kiryl Shutsemau <kas@kernel.org>, Muchun Song <muchun.song@linux.dev>,
+        Oscar Salvador <osalvador@suse.de>,
+        =?utf-8?q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+        linux-fsdevel@vger.kernel.org, stable@vger.kernel.org,
+        Tal Zussman <tz2294@columbia.edu>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794976146; l=5479;
+ i=tz2294@columbia.edu; s=20250528; h=from:subject:message-id;
+ bh=D1dw78bimKL+d/luxdZ7meDrQ3j5/UFW8Z8ACLLeFmI=;
+ b=RfkD2DVfsR3kFo46MpyYEDOjmciIMWeEGcVQFwYVPUGxT1EM+lXv9ORRuj/jFjXbmxhIYk4TD
+ rjKTtksjKS0B4mjB4HplBkLm6jtCZgqq8RPGFYZO9QYNFVL1tJIoIsB
+X-Developer-Key: i=tz2294@columbia.edu; a=ed25519;
+ pk=BIj5KdACscEOyAC0oIkeZqLB3L94fzBnDccEooxeM5Y=
+X-Authority-Analysis: v=2.4 cv=Ir6L47/g c=1 sm=1 tr=0 ts=6afd2997 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=GaPK54s0Se3oFqK5NkZy0g==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=x7bEGLp0ZPQA:10 a=A0y_DWxS2BwA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=Da8U98TiO7q1upZEImrf:22 a=QOCMdifcju39GKoXhKua:22
+ a=VwQbUJbxAAAA:8 a=a5NvJi0EDLanwwYVvGMA:9 a=QEXdDO2ut3YA:10
+ a=NFOGd7dJGGMPyQGDc5-O:22
+X-Proofpoint-ORIG-GUID: IVlAcxKreQye3kSSHzb7e56ovj0rhSTF
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAxNyBTYWx0ZWRfXxA2O7YSU5DP1
+ 1+WyncbmKOuiVgDCgLPKu/0tQpo9HYM9ZY682IptcseP4RgeI+uoAKgY+78YC5I3gD8AuKjp332
+ RWpnw2RL5D1bBT1O8Bde9ixRBdGX24eEryHtG/Lu9uWkQi1wRO5s
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAxNyBTYWx0ZWRfX9W9VbqZtTctg
+ fiw4OyijIAujNAi+FVploGRxaJVItUqBKFoczLKwB1qI0K/tfUu9aiCvDI3yLZ0DfcltdFg6CrR
+ sOqvSmgaHR0G6fMNqZohcrJ0jj+PWWRbpk51XwHiGoFDkTEDiNbZjKlTgNcZ579cDDnQb/E724s
+ AzLgkpBlWTHd4w4CqDPuMnxSOnTQUtFojnSgvBuwPNly21AzbouAwapQcSmtc00e1TsYyxKaecR
+ xp6GHPGmej5IP+EPyDOC+koINleF0g/LrvgLOxXs6zG/sMdbSs9D4iGY9ybF79Oo/M1xNDMLLYj
+ P4Iy0VoqOXXQVE/B/Ennw2nCWzvuXwaw8gJ50tkbA996C8Kv1/R+NLEsRpvhwb2OcVqGiy0WHvc
+ OsTVs+q3Sb4r+KPe4/E2wdqwKC5pQ42MgKtReI5PqS2pkQg3olGzxl4eaMAgu/lfS+pOwjdIUpg
+ g4OSX324UDqCS6UVqAQ==
+X-Proofpoint-GUID: IVlAcxKreQye3kSSHzb7e56ovj0rhSTF
+X-Proofpoint-Virus-Version: vendor=nai engine=6900 definitions=11969
+ signatures=596817
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 spamscore=0 phishscore=0 lowpriorityscore=10
+ malwarescore=0 clxscore=1015 suspectscore=0 impostorscore=10 bulkscore=10
+ adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611180017
 
-From: Satha Rao <skoteshwar@marvell.com>
+If the mm cannot map the shared zero page, UFFDIO_ZEROPAGE falls back to
+mfill_atomic_pte_zeroed_folio(), which allocates a zeroed folio and
+installs it through vma_uffd_ops(), no matter what kind of mapping it
+is. An s390 KVM guest with storage keys or protected virtualization is
+such an mm.
 
-The scheduler queue number packed above the 16-bit register offset
-was masked to 10 bits ([25:16]). Queue indices of 1024 and above
-were truncated, so configuration and readback used the wrong TX
-scheduler queue. The queue number is 11 bits ([26:16]).
+For a MAP_PRIVATE shmem mapping, that adds the zeroed folio to the page
+cache of the file. That is wrong: a private mapping must never modify
+the file it maps, and the file might even be mapped from a read-only fd.
 
-The SMQ field of the CN20K SQ context is 11 bits wide, so queue
-indices of 1024 and above first became reachable with the CN20K NIX
-contexts.
+The ioctl can also fail where it should succeed. A missing fault is only
+delivered for a hole in the file, but UFFDIO_ZEROPAGE can be called on
+an address that did not fault, or can race with a write to the file. If
+the file has a page at that offset by then, inserting the zeroed folio
+fails and the ioctl returns -EEXIST although nothing is mapped at the
+destination address.
 
-Widen TXSCHQ_IDX_MASK to 11 bits and NIX_TX_SCHQ_MASK through bit 26.
+What we want is what UFFDIO_ZEROPAGE does on a private mapping when the
+shared zero page can be used, and what UFFDIO_COPY does: only check that
+nothing is mapped at the destination address, map zeroed memory there,
+and leave the page cache alone. The zeroed folio path did that before it
+was moved to vm_uffd_ops.
 
-Compile tested only; not tested on real hardware.
+To fix it, pick the ops in the common folio path, as
+mfill_atomic_pte_copy() did for UFFDIO_COPY: anon_uffd_ops for a private
+mapping, the ops of the VMA otherwise. That makes
+mfill_atomic_pte_copy() and mfill_atomic_pte_zeroed_folio() redundant,
+so remove them and rename __mfill_atomic_pte() to
+mfill_atomic_pte_folio().
 
-Fixes: b5dcdde074d5 ("octeontx2-af: Add cn20k NIX block contexts")
-Signed-off-by: Satha Rao <skoteshwar@marvell.com>
-Signed-off-by: Vadluri Mukunda <vmukunda@marvell.com>
+While at it, use vma_is_cow_mapping() to check for a private mapping.
+
+UFFDIO_ZEROPAGE no longer modifies the file, and only fails with -EEXIST
+if something is already mapped at the destination address.
+
+Fixes: f74991b4e383 ("shmem, userfaultfd: implement shmem uffd operations using vm_uffd_ops")
+Cc: stable@vger.kernel.org
+Acked-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+Signed-off-by: Tal Zussman <tz2294@columbia.edu>
 ---
-v2:
-  - Fixes tag now points to an upstream commit
-  - Use full name in Signed-off-by
-  - Add test status to the commit message
-v1: https://lore.kernel.org/netdev/20261026062316.754904-1-vmukunda@marvell.com/
+ mm/userfaultfd.c | 46 ++++++++++++++++------------------------------
+ 1 file changed, 16 insertions(+), 30 deletions(-)
 
- drivers/net/ethernet/marvell/octeontx2/af/mbox.h    | 2 +-
- drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c | 4 ++--
- 2 files changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/net/ethernet/marvell/octeontx2/af/mbox.h b/drivers/net/ethernet/marvell/octeontx2/af/mbox.h
-index cece197d1074..1b62f9d7f00a 100644
---- a/drivers/net/ethernet/marvell/octeontx2/af/mbox.h
-+++ b/drivers/net/ethernet/marvell/octeontx2/af/mbox.h
-@@ -1164,7 +1164,7 @@ struct nix_txschq_config {
- 	u8 lvl;	/* SMQ/MDQ/TL4/TL3/TL2/TL1 */
- 	u8 read;
- #define TXSCHQ_IDX_SHIFT	16
--#define TXSCHQ_IDX_MASK		(BIT_ULL(10) - 1)
-+#define TXSCHQ_IDX_MASK		(BIT_ULL(11) - 1)
- #define TXSCHQ_IDX(reg, shift)	(((reg) >> (shift)) & TXSCHQ_IDX_MASK)
- 	u8 num_regs;
- #define MAX_REGS_PER_MBOX_MSG	20
-diff --git a/drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c b/drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c
-index 153eb57bad06..68cf730a8372 100644
---- a/drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c
-+++ b/drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c
-@@ -2850,9 +2850,9 @@ static void nix_tl1_default_cfg(struct rvu *rvu, struct nix_hw *nix_hw,
+diff --git a/mm/userfaultfd.c b/mm/userfaultfd.c
+index d65184d9a480..e787e9a3ea29 100644
+--- a/mm/userfaultfd.c
++++ b/mm/userfaultfd.c
+@@ -531,15 +531,27 @@ static int mfill_copy_folio_retry(struct mfill_state *mfill_state,
+ 	return 0;
  }
  
- /* Register offset - [15:0]
-- * Scheduler Queue number - [25:16]
-+ * Scheduler Queue number - [26:16]
-  */
--#define NIX_TX_SCHQ_MASK	GENMASK_ULL(25, 0)
-+#define NIX_TX_SCHQ_MASK	GENMASK_ULL(26, 0)
+-static int __mfill_atomic_pte(struct mfill_state *state,
+-			      const struct vm_uffd_ops *ops)
++static int mfill_atomic_pte_folio(struct mfill_state *state)
+ {
++	const struct vm_uffd_ops *ops = vma_uffd_ops(state->vma);
+ 	unsigned long dst_addr = state->dst_addr;
+ 	unsigned long src_addr = state->src_addr;
+ 	uffd_flags_t flags = state->flags;
+ 	struct folio *folio;
+ 	int ret;
  
- static int nix_txschq_cfg_read(struct rvu *rvu, struct nix_hw *nix_hw,
- 			       int blkaddr, struct nix_txschq_config *req,
++	/*
++	 * The normal page fault path for a MAP_PRIVATE mapping in a
++	 * file-backed VMA will invoke the fault, fill the hole in the file and
++	 * COW it right away. The result generates plain anonymous memory.
++	 * So when we are asked to fill a hole in a MAP_PRIVATE mapping, we'll
++	 * generate anonymous memory directly without actually filling the
++	 * hole. For the MAP_PRIVATE case the robustness check only happens in
++	 * the pagetable (to verify it's still none) and not in the page cache.
++	 */
++	if (vma_is_cow_mapping(state->vma))
++		ops = &anon_uffd_ops;
++
+ 	if (!ops) {
+ 		VM_WARN_ONCE(1, "UFFDIO_COPY for unsupported VMA");
+ 		return -EOPNOTSUPP;
+@@ -597,32 +609,6 @@ static int __mfill_atomic_pte(struct mfill_state *state,
+ 	return ret;
+ }
+ 
+-static int mfill_atomic_pte_copy(struct mfill_state *state)
+-{
+-	const struct vm_uffd_ops *ops = vma_uffd_ops(state->vma);
+-
+-	/*
+-	 * The normal page fault path for a MAP_PRIVATE mapping in a
+-	 * file-backed VMA will invoke the fault, fill the hole in the file and
+-	 * COW it right away. The result generates plain anonymous memory.
+-	 * So when we are asked to fill a hole in a MAP_PRIVATE mapping, we'll
+-	 * generate anonymous memory directly without actually filling the
+-	 * hole. For the MAP_PRIVATE case the robustness check only happens in
+-	 * the pagetable (to verify it's still none) and not in the page cache.
+-	 */
+-	if (!(state->vma->vm_flags & VM_SHARED))
+-		ops = &anon_uffd_ops;
+-
+-	return __mfill_atomic_pte(state, ops);
+-}
+-
+-static int mfill_atomic_pte_zeroed_folio(struct mfill_state *state)
+-{
+-	const struct vm_uffd_ops *ops = vma_uffd_ops(state->vma);
+-
+-	return __mfill_atomic_pte(state, ops);
+-}
+-
+ static int mfill_atomic_pte_zeropage(struct mfill_state *state)
+ {
+ 	struct vm_area_struct *dst_vma = state->vma;
+@@ -634,7 +620,7 @@ static int mfill_atomic_pte_zeropage(struct mfill_state *state)
+ 
+ 	if (mm_forbids_zeropage(dst_vma->vm_mm) ||
+ 	    (dst_vma->vm_flags & VM_SHARED))
+-		return mfill_atomic_pte_zeroed_folio(state);
++		return mfill_atomic_pte_folio(state);
+ 
+ 	_dst_pte = pte_mkspecial(pfn_pte(zero_pfn(dst_addr),
+ 					 dst_vma->vm_page_prot));
+@@ -927,7 +913,7 @@ static __always_inline ssize_t mfill_atomic_pte(struct mfill_state *state)
+ 	if (uffd_flags_mode_is(flags, MFILL_ATOMIC_POISON))
+ 		return mfill_atomic_pte_poison(state);
+ 	if (uffd_flags_mode_is(flags, MFILL_ATOMIC_COPY))
+-		return mfill_atomic_pte_copy(state);
++		return mfill_atomic_pte_folio(state);
+ 	if (uffd_flags_mode_is(flags, MFILL_ATOMIC_ZEROPAGE))
+ 		return mfill_atomic_pte_zeropage(state);
+ 
+
 -- 
-2.25.1
+2.39.5
 
