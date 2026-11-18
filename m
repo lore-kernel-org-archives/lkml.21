@@ -1,51 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794984545;
-	b=iBP+Zjk+n3d4gciR5EqQkNaBO4Kgq97R090r+dnrXm7Yq+EQDgT09jNuUG0y6sUWxU+y
-	 FYntsVjoIb+YnUJRCT3mwArAePywx5g0hRBSpkT/Ht7ix4Cimu8yhoJUrdDpp0xnBWE2t
-	 rd4xQGjcvmFG4vDrknUkAiR3brHTlfVpyUHpu/QK4yNb3Wp39+xKbDbBig/Ofw9UeXZ4F
-	 6dVBD5HwBz3ZmiUoTHjzC5VAD3+a8YpVHnXwJ72xTLRIpzbHPGZf/t2Oy0jQgKWO/fRSe
-	 5MVvdnyKrFEXm98Zy+8JN6lyAeP4HVdIv2abh7DQm4h1u7aOMw5XtWNu0dHlemfy2cg==
+	t=1794984621;
+	b=OJFSRI+59C+9Z9AtxmsWpjFetjUfHL34Sm0sp6FQbUYf3jzEMrRz1WvpOsFK8YUZpFfP
+	 RcyEPtIetNSUA4iwTkNs5WrJmzjtUNf3+P5QM/dp3XVGWa1SLNTVxBgdrWjKEyrseGkbS
+	 UPhQSc0R3zhD38I6vqyYEBECWtg/YCLXn2wE6irXbRbEgS+Z4bGbHpfXsMSNtFr/dmaBk
+	 p51JAdlEMIcAwPRlkXEBP7uNdY/G/hgt3en5I5edqqyceZarWw0YoKtxQO+DcicwFtR+x
+	 +M3UnNAdACTKdpuxQStF5dpxA80Dl5j2QJ/1ZDcIkREMVUCL1rqFfdlHEzBoBpNmuSw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794984545;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=xxWKMH6BY+Z09D/5F5m0IFSeEDfCXNxKdZmc2UOHg20=;
-	b=n3W/j9qe99mTr+5/O8WEVMITwDY/CacsuMRaa4Ue4CmQigxl2/iv6osDF9bKnGZBUBLC
-	 O1lC5O+Yf4dI+nAY4AdqP30ICsqty6gdEUpkGk01gbvlEeBr1b/7stzYI1aPSZqBlCtPs
-	 OOgGLwVWlebUDksrfA4+99tnbruD1XF/Y6upNEZSr/UhJdo1ezu6uxWCiuJd5ytLqXkK9
-	 +iagLvQoGjSRHUKpyyfNaV7r+uqZssr8mCzyfm54D9H9g8PLO8yi+ol9LW/HnxMsbdvXS
-	 9BUtj5FDP3w4I7boMiPZwrLTxjBNGgHauW9Jw9c2SabQPMf6/J0GmfvT6TwGWm7ltCQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794984621;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=U8jV7OnHEFz0j+0ag5AfooSr+IDZRuR+qja3G5heTVk=;
+	b=jbiGl4I95jzOlBoGpK3eJRdd2imSF4kiShRDAaiZ2VuMygqWWRsFbbO0xsw4Jda17pKo
+	 Y+ekpLAOWnwwrM1KcNlbVZod0t2BGZtqOvNMBb01YUAT6cWehu1FCSOp3qy8RROv7K1Jh
+	 b0euzu3KdjAm/3Bcdmdv+LdwSeuLmMF7DtoV/HqhEFSHvVSzzoGTS374m2f9fEpVfNrUg
+	 LWNJhz4XQxNUMDrntq94WaTE6Fk6qE1Xw8xp0RzkhTCt0+HZT93o5J01VKn1qdgo2w45V
+	 7oDaRvB79LDmIloaX0PWr87pR+fXzvxCtqNo8gpL9lLrFX/Tdm/Sq7rxCPLZDctxqlQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=OAW0E20z;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=s0uXzD84;
+	arc=none smtp.remote-ip=209.85.214.178
+Received: from mail-pl1-f178.google.com (mail-pl1-f178.google.com [209.85.214.178])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6931606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:49:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C30A606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:50:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C30A606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=OAW0E20z
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A45D21F000C4;
-	Wed, 18 Nov 2026 06:49:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1794984545;
-	bh=xxWKMH6BY+Z09D/5F5m0IFSeEDfCXNxKdZmc2UOHg20=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OAW0E20zRI04KRDo6EGVkgEmQnUifBijI3BXdyIJEJrLFydbQ6KJF9U/H7zfKMeae
-	 Me0j/n9bBj9HZw+Bd8HPo2N4//96VymwdsnC9G9nKu6vdKwZBP4IcUenxQLhyFaX9/
-	 0p9JN+ck5OoX5lKdx/yOAuzeypVa63swGqvp5Jko=
-Date: Wed, 18 Nov 2026 07:49:02 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: desobei <desobei@outlook.com>
-Cc: Ian Abbott <abbotti@mev.co.uk>,
-	H Hartley Sweeten <hsweeten@visionengravers.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] comedi: ni_routing: fix SyntaxWarning in
- convert_csv_to_c.py
-Message-ID: <2026111830-writing-dripping-428d@gregkh>
-References: <PH7PR19MB66587C2BE5E8E94F693B4F14AF7A2@PH7PR19MB6658.namprd19.prod.outlook.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=s0uXzD84
+Received: by mail-pl1-f178.google.com with SMTP id d9443c01a7336-2efd432714aso2646865ad.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:50:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794984620; x=1795589420; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=U8jV7OnHEFz0j+0ag5AfooSr+IDZRuR+qja3G5heTVk=;
+        b=s0uXzD84SDYX/NyRfUu+pmyAx3omQcq/Npa12/ohehJ37cs5tojh1o1ewVq72p+t6O
+         2ANwHvn3nZk/qCYXz+8aAB2FH9S3QPhqMog0+dT0kw4pOXg2G4UekNHEoVeYR7HLYWq5
+         8/7l9qh1/kg2m3BmGP/zIZh1bIr198lrZRgAvzORwYbzlzXiCdkhHVpnY8o5+Oj5O3j5
+         QCvwpKBRNpKYGu9ucjJjfmZqIB/R5KccPX6rIMNVF7CNmb37v6OU1g8/oxh9DFiD2BK1
+         V0ZqfK2pr9GKZ4+gXnPH876yIB7FOGlU7q/Ohynk3hTGvUXGTPbs2w8AO6Ux+DweHVYi
+         yhIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794984620; x=1795589420;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=U8jV7OnHEFz0j+0ag5AfooSr+IDZRuR+qja3G5heTVk=;
+        b=TcLqV9Rf39WvGbx5AE9YetTs26Gz2RTMgwXCOUE86DHwE9Iwz0GEowyaxtPgDBHKa8
+         5APP9GAfyrPWZOvmd35RmLd0sq55pNjj0GeDFqVTVnXN+mJxJ8U15xM58WWDUVo5tTmq
+         ob1+JiucHxrV3FQMjmZdKR+gqN/Du0NgOF2Vg04Y8nyKeDRjYj+2DCtzeDVw9dXdQVl9
+         v9iIRVLBqQ+ye3i3fHOqgMWAkxi2+Y18S27ZESIuX25fa7kw9b6VrPSfwqlRza6Oz21K
+         eZe/GtYxeMqeXrGGjZOC7dnVYHGM+Onmlzc2PPfUea8p5YTEjrJZQED97A6CpYbe3fWl
+         LchA==
+X-Forwarded-Encrypted: i=1; AL+hErEkQsfa4zZOPRgv5XXIs/m2o/15fBYaKOVlk1YxS+e5GETzudbxAA320xmbWZtNS0gq9ClupWm0M9Y8xdc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+rR2SbrkL2HjTzGN54lPUvy5POpDvdzzwWx62PJDPvUa+omU7H
+	utaDycnSKcXhTyIBxKUu/P/DEkTOQzvHbUbzIxVMy02MydKnuh+EUXrx
+X-Gm-Gg: AZFdTZdIJLmvzjMXTnHGSeAESVcrne+s+YEURVGj8x+8tmxyBPK/yk3lgyj5qERwg0J
+	IjafAGjmmjemyqJdKlgGESBMkkPifJDOwz1ZNPpF+FD7SGo5XVQ7z2lA06De8ntCYsBgU6HwebX
+	vrhC5COgIkyfNQehe9NT0DpcnfPKbkricyT37tQB7PPX23XlCeKX8FUA1heSyiPZYRpWH6XRgDW
+	SMvGjKl7b1sUeJzLYKeLJFDoCiaZ4MlXslCbTzndKTJUiiwLLF0dTAVeI7VozJUHEe7lRx8ADPY
+	YY83usQXpW3WcMot/DbY5HjfbU92lSOqmyHKmcXZJCeTnNozOo4+Ev7lI0x/DLn6gSTFdXEqq7V
+	BRJ/7XSafD1XqgR7x4dCpYutCRraTJdWqxF4S1Q796OdpTsLxzy7fqeepM/xNFtVRXzg4yslgum
+	b4N+kDg7PFv4vZxdXD1o1aZs6MDDTabLl0NDwDw5yv1rXHnYOGXDpSGV3ES31G1kyvLL3sSq1Pr
+	ecV/pcR5POrwtJAAsXTkzDnJvcSj8PjFQTs+ac7xzNHF7JFRA3TYjRDR6ozylJf8yIv8qClTz20
+	aJpI4bYSKwhxLLxengd7WlJdXcgUgWQSWPVEbc82QeTgv8DVxOjwB1Fb25hMS7KphO+I8VNfg2m
+	dRQ3twJ1T5utoMx6v+Lw=
+X-Received: by 2002:a17:902:cf10:b0:2ed:e22b:77a2 with SMTP id d9443c01a7336-2eff7560dd4mr16662645ad.55.1794984619740;
+        Tue, 17 Nov 2026 22:50:19 -0800 (PST)
+Received: from li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com ([129.41.58.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff62897d0sm7773615ad.64.2026.11.17.22.50.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 22:50:19 -0800 (PST)
+Date: Wed, 18 Nov 2026 12:20:12 +0530
+From: Mukesh Kumar Chaurasiya <mkchauras@gmail.com>
+To: Shrikanth Hegde <sshegde@linux.ibm.com>
+Cc: maddy@linux.ibm.com, linuxppc-dev@lists.ozlabs.org, 
+	chzigotzky@xenosoft.de, mpe@ellerman.id.au, npiggin@gmail.com, 
+	christophe.leroy@csgroup.eu, linux-kernel@vger.kernel.org, msuchanek@suse.de, 
+	ritesh.list@gmail.com, harshpb@linux.ibm.com, gautam@linux.ibm.com, 
+	amachhiw@linux.ibm.com, venkat88@linux.ibm.com, nnmlinux@linux.ibm.com, 
+	stable@vger.kernel.org
+Subject: Re: [PATCH v5 1/3] PPC32: Fix hard_irq_disable to follow tracing and
+ lockdep state
+Message-ID: <av1KYTtbzgwtDKn_@li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com>
+References: <20261118051419.783878-1-sshegde@linux.ibm.com>
+ <20261118051419.783878-2-sshegde@linux.ibm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,57 +105,56 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <PH7PR19MB66587C2BE5E8E94F693B4F14AF7A2@PH7PR19MB6658.namprd19.prod.outlook.com>
+In-Reply-To: <20261118051419.783878-2-sshegde@linux.ibm.com>
 
-On Wed, Nov 18, 2026 at 12:09:49AM -0500, desobei wrote:
-> convert_csv_to_c.py validates register values against the regex
-> '[VIU]\([^)]*\)', written as a plain string literal. "\(" and "\)" are
-> not valid Python escape sequences, so with Python 3.12 and later every
-> run of the script (e.g. "make c-files") prints:
+On Wed, Nov 18, 2026 at 10:44:17AM +0530, Shrikanth Hegde wrote:
+> On PPC32, the code for hard_irq_disable has diverged and it doesn't
+> do lockdep/tracing anymore, leading to use of both local_irq_disable
+> and hard_irq_disable on PPC32 to overcome those.
 > 
->   convert_csv_to_c.py:47: SyntaxWarning: "\(" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\("? A raw string is also an option.
+> That is un-necessary, instead simply calling local_irq_disable is
+> enough. It disables EE bit and does lockdep tracking.
 > 
-> Python currently keeps unrecognized escapes verbatim, so the regex still
-> works, but the script will stop compiling once this warning becomes an
-> error.
+> Subsequent patch uses this API in KVM code to avoid the warnings.
+> Wider use of it is possible, but it will be taken subsequently.
 > 
-> Use a raw string. The resulting string is identical, so there is no
-> functional change.
+> Cc: <stable@vger.kernel.org> # v7.2+
+> Suggested-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+> Reviewed-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+> Signed-off-by: Shrikanth Hegde <sshegde@linux.ibm.com>
+> ---
+> PS: New warnings would have started since commit 
+> 12013e3d4695 ("KVM: powerpc: Use generic xfer to guest work function")
+> which added local_irq_disable for 32 bit. The proper fix may date back
+> years ago. To avoid backport complications, keeping it backported till
+> 7.2. So removed fixes tag and cc'ed stable.
 > 
-> The problem was found by compiling all in-tree Python files with Python
-> 3.14 and SyntaxWarning promoted to an error. The search and this patch
-> were done with the help of an AI coding assistant (Claude Opus 5.5).
-> Tested by checking that the script now compiles cleanly with warnings
-> as errors, that its compiled bytecode, constants and names are
-> unchanged, and that the regex still accepts all 95 register values used
-> in the ni_route_values tables.
+> Also, 32 bit shouldn't need hard_irq_disable. But that can only be taken
+> up subsequently.
 > 
-> Signed-off-by: desobei <desobei@outlook.com>
+> Also, below fix isn't needed anymore.
+> https://lore.kernel.org/linuxppc-dev/a14571be1897955f43d9994f0e093de3ada6ecde.1793447880.git.ritesh.list@gmail.com/
+> 
+>  arch/powerpc/include/asm/hw_irq.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/powerpc/include/asm/hw_irq.h b/arch/powerpc/include/asm/hw_irq.h
+> index b7eee6385ae5..ddb850e62abd 100644
+> --- a/arch/powerpc/include/asm/hw_irq.h
+> +++ b/arch/powerpc/include/asm/hw_irq.h
+> @@ -464,7 +464,7 @@ static inline bool arch_irqs_disabled(void)
+>  	return arch_irqs_disabled_flags(arch_local_save_flags());
+>  }
+>  
+> -#define hard_irq_disable()		arch_local_irq_disable()
+> +#define hard_irq_disable()		local_irq_disable()
+>  
+>  static inline bool regs_irqs_disabled(struct pt_regs *regs)
+>  {
+> -- 
+> 2.54.0
+> 
+Cool, this makes things simple.
 
-Hi,
 
-This is the friendly patch-bot of Greg Kroah-Hartman.  You have sent him
-a patch that has triggered this response.  He used to manually respond
-to these common problems, but in order to save his sanity (he kept
-writing the same thing over and over, yet to different people), I was
-created.  Hopefully you will not take offence and will fix the problem
-in your patch and resubmit it so that it can be accepted into the Linux
-kernel tree.
-
-You are receiving this message because of the following common error(s)
-as indicated below:
-
-- It looks like you did not use your "real" name for the patch on either
-  the Signed-off-by: line, or the From: line (both of which have to
-  match).  Please read the kernel file,
-  Documentation/process/submitting-patches.rst for how to do this
-  correctly.
-
-If you wish to discuss this problem further, or you have questions about
-how to resolve this issue, please feel free to respond to this email and
-Greg will reply once he has dug out from the pending patches received
-from other developers.
-
-thanks,
-
-greg k-h's patch email bot
+Reviewed-by: Mukesh Kumar Chaurasiya (IBM) <mkchauras@gmail.com>
