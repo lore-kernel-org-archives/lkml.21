@@ -1,82 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795029742;
-	b=1CFUqJaV065LVNmiedmZf9voKaRgFVwyqnga44RUOZaea+0DCN28G2YWb3H9Xfe9/+Gi
-	 WZemaIR9pXN/WOkOtqUekd4FwBP+tnnAFbc4gwt7UQAqHTfnW9cSIuH9fAlJXKMUzVYgL
-	 ZtszK0cbsmV5CVPY4644tcYTy5xYiIXON44MX+I5I/hQXM+yTPi3YuukVe28+JBVazLRp
-	 X0Ip4xJZtb59c3mAG/sYROPDx0XTJkIWdYeGQQ51M6KQNiHu/DyjG3GSjxCLuXeoS0ni/
-	 M2ytEh7XsXMOfXyUcXMpfegLE7xepd2xqwhfNlKJX0uvdqsUs7vJU8lxwbgshC/+apw==
+	t=1795029749;
+	b=KvUGV+l5x7ODdsw+qzu26ROZqBNIGirvnIRAw+M9uLO9/+Dz+uVMlc2JbFj6Mdy5dmeg
+	 2itY4ox+bElz0CznfzjpRwJrF2BH8GjmoRkfGjUNJL3HqzouoVU5SFkmvOFukENEnfIQQ
+	 Z+8Exyu2qVmXkb/F12FSNtuPFjHZ0TPEr2H8d0lSxehO3LH/fG/8QfWVDmTHcdkmSsELN
+	 lBisR0Ql0mnShG2GnStYTZ5RMMzNFKyUOqiWgwHXniRxMfqBGL+DRIXYSOyOPwgrUVzbt
+	 AWbeqjDBuUBv0FVWyufp37sWl2IUIOCKmbHCyq4oQWlTbbFCo4IL/RL4jaXuYeQkmRg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795029742;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795029749;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=rwmZr5W4nZSsOTe0w97y5anuT6JfQ9DYmBD/J9o88lc=;
-	b=QN5vgvE4lWApPN0B5ul3xRTB6yUHHdVn4MC4dQjEGhHX/l33AB4Ru+yMC44+1sumxng5
-	 dA+D57WVQKlHVaA7YpTV3axen4TaGF5Z0mNeHmfR98DJEOl6TYtMIdiw0fVRzBADJIj/A
-	 h7oVy1nh7Px5hLUSiiZEDAWopMVyhzpreXJFz6Ig2r4vf8X1JHHB4rafNeU2pQSmEcROq
-	 21l1jLKx64VeB9LBJhvST3GVCXyrqNYQ+8jG8zAzO8vNlbo3dipgiT11RntmlnZqzmpgE
-	 kxjb7XEk/V66fH9Fd4zVsnuBC9z82q+qYW9dhcNegh9dfuka0xyBICHJ0CPGwWoumgw==
+	bh=JjQKOjoi0YbVdKDaXTUg0ORZjwXbMMCDyN0aPYFrKQk=;
+	b=vCkoLQ4jMU863eN8HIcolAvmaeMuq2Rped3Q0bRLqSinxPfR1kujnIxI4p62twftJqFL
+	 TJzQU3JNrDC/6GG0ytIzd2LsRQq8v5OZiHiHlBFvABKE6gDb2GbtuDtSGiLXdvctj6sWx
+	 bly/vPjnrOvqu/UsGBNPVOG5A1ErBChywPPsydrW5dIoyno3Ba9iblXb/xBmfHUZqqZpI
+	 tgPnrhRCPqs7DIvp9nN8LeeB5P9Wy9vm7YX7con0W3RlTCnCuTeldDtVprjCpDGRxBdy2
+	 p4yUJDdWh+eTaa3bWAfmVsHiYaaTQWFDw5IQMybAC+5KmhgWWPrndxu0XTqpjzxwO1Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="wYv/LqR6";
-	arc=none smtp.remote-ip=209.85.161.54
-Received: from mail-oo1-f54.google.com (mail-oo1-f54.google.com [209.85.161.54])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XiMT7BC2;
+	arc=none smtp.remote-ip=209.85.161.41
+Received: from mail-oo1-f41.google.com (mail-oo1-f41.google.com [209.85.161.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E170606A33D
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:22:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E170606A33D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D8B2606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:22:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D8B2606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wYv/LqR6
-Received: by mail-oo1-f54.google.com with SMTP id 006d021491bc7-71ae5389c00so962845eaf.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:22:21 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XiMT7BC2
+Received: by mail-oo1-f41.google.com with SMTP id 006d021491bc7-71ab5e64742so867565eaf.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:22:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795029740; x=1795634540; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795029747; x=1795634547; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=rwmZr5W4nZSsOTe0w97y5anuT6JfQ9DYmBD/J9o88lc=;
-        b=wYv/LqR6fz5vDhRycfRmAGof5bnUVT/8UNQAmqn7BpUB2CevoqAzvjkBExCdBd0J4e
-         Sy/z89Jc1pVlV4R5SZkXVkGETWa058tIoBEulILKyljZWy0UfGlyepO3vMHU9cIQn9Gh
-         lWxl51NUebzCQaE4fXTzHuw2LoC4u5P11vx6uoWePbKzhZ1vPyWVlEeqQ6/y57kzUTOa
-         sIrIGkGyb6i1K0KuNfBfWvK+I9UActNt0DAlnn6ilPVceCgaZs3L/v2ai3GWPHusRJzO
-         3hGDDZBkkmZyTQ/kjGxKDSTtwoMPCJOlDN11KqijfVANVw8P6wzP3S3WaPhaOZ4cTV8D
-         lRLw==
+        bh=JjQKOjoi0YbVdKDaXTUg0ORZjwXbMMCDyN0aPYFrKQk=;
+        b=XiMT7BC2fEWCvyJmCFnTdRQy68dLZ+hIb+yQdsmPfCWVGAh36riCoLsLH6s/6BwBU4
+         I6FW2Fi55gvaG0juJvVx1Tuq7StryhXCu3qRa0kQAxPHHL+IvwI4ZM5aQPqm+q8AExOd
+         Tmmx4rALYarW6lS9W6DV1wapGWSGblPQ0gXKRmOqTYfcFhJppi0laSb2WLh4jTxIHzNA
+         1Va9LoZzjBbGNGEKo2+cOtK7w4N8z6mXM1kJiCEhzDOyVwGPRHfYz4yg4wloUXSBmN8W
+         x74hi6hwnEgyWHj8n3dzEdLA5CZaeP5S2JACGb6JMAlp3uQ6MWPqiZkDPjkDp5HHygUU
+         U6AQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795029740; x=1795634540;
+        d=1e100.net; s=20260707; t=1795029747; x=1795634547;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rwmZr5W4nZSsOTe0w97y5anuT6JfQ9DYmBD/J9o88lc=;
-        b=pzes+imYxaHbgW8Ltsi0jCxtnBJGuyS7kTw+RJeY/uGrC7sXiypJFjBdSiDboMlz0R
-         k1FDFJjbULjm0dqMIIBj6AyqSBlM1IPtkYfeDNVBZOPzWpGrysILJRuVvdWTSx2oXBCz
-         QTMtfGqNO3HaU18RGkbTArV3rgC0fM/FEVRrCeFErw+nkjEfGs7OOqNk6KXpmIgdx1BW
-         Oy6ywBg02ebXVlTGvdYQp/B8hSpN74NlrDYwYyuZdn9JAy0dvJJtK48bvRRU4YL5aQuH
-         W7nW9CoFuE+G9+1wN/Tzhsb6v0WPsn4FhLMA5tcpHUqo2iPW/YIPj5TIQTONkqfQfDdz
-         Gayg==
-X-Gm-Message-State: APuU4Z87WSFoVrGKTZLs5GYlN+e9YyTBVaY8NAKmyG6FO/Oj4wMih7SF
-	2zueL703IFR9zaIUuLfLJpOn/8G8x2Xcnihj1mT2r+Hu07nEWa7JuGQ=
-X-Gm-Gg: AYBFou0HvlgeP9hUyN+iuNhNjnIgsPz7BJWIOFcmLOpLaiMH4eYN/0PcpU2inT/FpYJ
-	2Cl+OXmdFPzd83dEESxJMe+9Wskt05ZnuUOTgkjDUfvRMOICKqk7LOjFJ3RLRYl9GA+tFq8lAm2
-	yf2UMqSMCR9p8CZOErbAXlBq/JVLRrGYKJyQzc1hefZQIA7+jwKsshykJc841+jysFWvpOt8yYK
-	9i55C+lFdsWx+SPx5C0wC40cn+qapE5kqR7jRkruRd5bkqGCIyyE0hPUbMAhsSLrv7jaiUwNaDT
-	JkjUo2/54Xv6GjCXVUX+CNCs1yXv3Iy/oFNuuk3ZACOxXT4VtuxsntCLJxUe0GPWtG5D6oYBr0X
-	mBW0EgslHyOLyeiXOt2GeJGi1vZMaW4mqsFK1a+ojSEYs8d4oYsFWdgxgF/aZfprIg7TrQDidVA
-	dqaWn5HZOD/GAEEghRfB/e9rYtFpecMeRFWuC21D0bRvAESadJ03zLw+KPig8Yh4A712BCFnTjH
-	9q2k80z7BCG83vyKMyFgwJ8owfEhp+O3OnOAVMMlEFGjaznRHarsQslaAV2RotuwnB3mBZwCwF2
-	wg1bZKcZWBEx1c2ltbgaiYSW1UmEyJxlSxJRqqfRQH05wQ2ERLOSn6MQ
-X-Received: by 2002:a05:6820:83cb:10b0:712:c3fb:b4e2 with SMTP id 006d021491bc7-71b187c0ee5mr1992374eaf.66.1795029740105;
-        Wed, 18 Nov 2026 11:22:20 -0800 (PST)
+        bh=JjQKOjoi0YbVdKDaXTUg0ORZjwXbMMCDyN0aPYFrKQk=;
+        b=n519CjlbQ60xlnmbqM7N/JLhyZoN8gq3xzrXUFwMg8AbmJwAlwpxgtn/8OEpncXzeE
+         BVmIbUSKzJSM2Sap3lhOk7rxbr9ZHmbsz2WhZOXmBnRrnAxZLSjTuuuDsH/yLcjI+fKT
+         uX7jUcwnfhEZd87WCYpq9tD9AFwtXQgkpzDHoNqqsnyAm81v2k/zesjK5sS6DmjrfEQu
+         0qJRGVWlXFtiA9WmHeN6TpwxHjS/FX4IOeelKuzDquDfbekuuVVepUBr5Z2JfBksuJ0C
+         6yV6NB72Dp/uPcbltDiF3emapmUpbsy4PvccTS2gOzupmqG0EYNWl5flVg3wh975099Y
+         Bqwg==
+X-Gm-Message-State: APuU4Z87iSaYAPoG4iHRoxgkRUV1RL9Xb33SCoyAm/oS2ZUhlxvO9nbq
+	c6v7jaSnv17XAYiLRsew0B/Gk/C79NKFFireDJXJLPYq5OcuzwVjFYABJp4vTRGwpQ==
+X-Gm-Gg: AYBFou3xVi5CN1vHXmxEPFQ0QUBei8ErnMHV9+GTKQ4udYUOVKVOgttsrK68ktjwVqq
+	bmhdcfY99Gv0cSAJw1CJiLR5l/Yo/pEHNQtEtoHKpLtV0zFWNWADKgneeMd9myApbepSaZnWxyP
+	ttZgTfyxC85QtZd34q/xhZ8zn3m2BubAkLH+BqgniyglzChd/+fr/H3nv8CXaIlhmOxj1Iyesfu
+	LcAeOoKmWiLRPe6GDhGmV37/Mr3SCrnxs148Kma5oznyByPTt5gfKMEUcERXA+49mi0LIupDe9O
+	NwkFGZGlFZzBZzq3viR+EhoRqgSpQZjc3r/MnopslE0+3sK0gom4KVIrJ1D4eX9dXEtsXlDjX8W
+	7gm74fCcM2BAYv4xWmktfx9ro+7VpkloTDVr1hmfxh1HmhndL14pjzYzl5d+DEupspOOe3OZ4dr
+	5e/qgxLp0p4SpqQINGgswVQxRf/vejKlcKp7FsFxZhPmv28KJ10ZlRR0cBRzXswSrwfmEe77c8t
+	XRIQV6JZ3jEdle8aRgfuSgZ726/5nGZAOg9kwBV6uatJMABdMt+VqIGFYS9Q6daC9Pcl6IWLzNH
+	j5UraN61NbCA6IOSm53ly5lHAkgi4sNPBUX9j79QBxJcwwkJcylj/+ib
+X-Received: by 2002:a05:6820:338c:20b0:6d8:bba5:6589 with SMTP id 006d021491bc7-71b184bf355mr1839817eaf.48.1795029747180;
+        Wed, 18 Nov 2026 11:22:27 -0800 (PST)
 Received: from miso.lan ([136.62.61.36])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b195c0bafsm2376912eaf.14.2026.11.18.11.22.19
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b195c0bafsm2376912eaf.14.2026.11.18.11.22.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 11:22:19 -0800 (PST)
+        Wed, 18 Nov 2026 11:22:26 -0800 (PST)
 From: Matthew Laux <matthew.laux@gmail.com>
 To: Mauro Carvalho Chehab <mchehab@kernel.org>,
 	Hans Verkuil <hverkuil@kernel.org>,
@@ -84,9 +84,9 @@ To: Mauro Carvalho Chehab <mchehab@kernel.org>,
 Cc: linux-kernel@vger.kernel.org,
 	linux-media@vger.kernel.org,
 	Matthew Laux <matthew.laux@gmail.com>
-Subject: [PATCH v5 4/8] media: tw9900: use runtime PM autosuspend and power down on suspend
-Date: Wed, 18 Nov 2026 13:21:20 -0600
-Message-ID: <20261118192124.23330-5-matthew.laux@gmail.com>
+Subject: [PATCH v5 6/8] media: tw9900: add S-Video input and progressive source detection
+Date: Wed, 18 Nov 2026 13:21:22 -0600
+Message-ID: <20261118192124.23330-7-matthew.laux@gmail.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261118192124.23330-1-matthew.laux@gmail.com>
 References: <20261118192124.23330-1-matthew.laux@gmail.com>
@@ -101,146 +101,241 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Add support for autosuspend to the tw9900 driver. This is so that initial
-bursts of register writes for configuration don't suspend after every
-write and cause the init to take a long time.
+Add support for the S-Video Y/C input of the tw9900. Also, use the NINTL
+bit of the Chip Status II register to correctly report when a source is
+240p/288p instead of 480i/576i.
 
 Signed-off-by: Matthew Laux <matthew.laux@gmail.com>
 ---
- drivers/media/i2c/tw9900.c | 37 ++++++++++++++++++++++++++++++-------
- 1 file changed, 30 insertions(+), 7 deletions(-)
+ drivers/media/i2c/tw9900.c | 112 +++++++++++++++++++++++++++++++++++--
+ include/media/i2c/tw9900.h |   4 ++
+ 2 files changed, 111 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/media/i2c/tw9900.c b/drivers/media/i2c/tw9900.c
-index d365432e8f89..4d0d437d02f3 100644
+index 95e8e306469f..88dba608fa5a 100644
 --- a/drivers/media/i2c/tw9900.c
 +++ b/drivers/media/i2c/tw9900.c
-@@ -34,6 +34,9 @@
+@@ -29,12 +29,19 @@
+ #define TW9900_REG_CHIP_STATUS			0x01
+ #define TW9900_REG_CHIP_STATUS_VDLOSS		BIT(7)
+ #define TW9900_REG_CHIP_STATUS_HLOCK		BIT(6)
++#define TW9900_REG_CHIP_STATUS_VLOCK		BIT(3)
++#define TW9900_REG_INFORM			0x02
++#define TW9900_REG_INFORM_IFSEL_MASK		GENMASK(5, 4)
++#define TW9900_REG_INFORM_IFSEL_SVIDEO		BIT(4)
++#define TW9900_REG_INFORM_YSEL_MASK		GENMASK(3, 2)
++#define TW9900_REG_INFORM_YSEL_MUX1		BIT(2)
+ #define TW9900_REG_OUT_FMT_CTL			0x03
+ #define TW9900_REG_OUT_FMT_CTL_STANDBY		0xA7
+ #define TW9900_REG_OUT_FMT_CTL_STREAMING	0xA0
  #define TW9900_REG_CKHY_HSDLY			0x04
  #define TW9900_REG_OUT_CTRL_I			0x05
  #define TW9900_REG_ANALOG_CTL			0x06
-+#define TW9900_REG_ANALOG_CTL_CLK_PDN		BIT(3)
-+#define TW9900_REG_ANALOG_CTL_Y_PDN		BIT(2)
-+#define TW9900_REG_ANALOG_CTL_C_PDN		BIT(1)
- #define TW9900_REG_CROP_HI			0x07
- #define TW9900_REG_VDELAY_LO			0x08
- #define TW9900_REG_VACTIVE_LO			0x09
-@@ -48,6 +51,7 @@
- #define TW9900_REG_HUE				0x15
- #define TW9900_REG_VBI_CNTL			0x19
- #define TW9900_REG_ANAL_CTL_II			0x1A
-+#define TW9900_REG_ANAL_CTL_II_PLL_PDN		BIT(6)
- #define TW9900_REG_OUT_CTRL_II			0x1B
- #define TW9900_REG_STD				0x1C
- #define TW9900_REG_STD_AUTO_PROGRESS		BIT(7)
-@@ -64,6 +68,7 @@
- #define TW9900_STD_AUTO				7
++#define TW9900_REG_ANALOG_CTL_SRESET		BIT(7)
+ #define TW9900_REG_ANALOG_CTL_CLK_PDN		BIT(3)
+ #define TW9900_REG_ANALOG_CTL_Y_PDN		BIT(2)
+ #define TW9900_REG_ANALOG_CTL_C_PDN		BIT(1)
+@@ -60,6 +67,8 @@
+ #define TW9900_REG_STDR				0x1D
+ #define TW9900_REG_MISSCNT			0x26
+ #define TW9900_REG_MISC_CTL_II			0x2F
++#define TW9900_REG_CHIP_STATUS_II		0x31
++#define TW9900_REG_CHIP_STATUS_II_NINTL		BIT(3)
+ #define TW9900_REG_VVBI				0x55
  
- #define TW9900_VIDEO_POLL_TRIES			20
-+#define TW9900_AUTOSUSPEND_DELAY_MS		1000
+ #define TW9900_CHIP_ID				0x00
+@@ -94,6 +103,12 @@ struct tw9900 {
+ 	bool streaming;
+ 	const struct tw9900_mode *cur_mode;
+ 	const struct tw9900_platform_data *pdata;
++
++	u32 input;
++	/* Set once s_routing has been called. */
++	bool routed;
++	/* The source was 240p/288p as of the latest querystd. */
++	bool progressive;
+ };
  
- struct regval {
- 	u8 addr;
-@@ -338,14 +343,14 @@ static int tw9900_s_stream(struct v4l2_subdev *sd, int on)
- 
- 		mutex_unlock(&tw9900->mutex);
- 
--		pm_runtime_put(&client->dev);
-+		pm_runtime_put_autosuspend(&client->dev);
- 	}
- 
- 	return 0;
- 
- err_unlock:
- 	mutex_unlock(&tw9900->mutex);
--	pm_runtime_put(&client->dev);
-+	pm_runtime_put_autosuspend(&client->dev);
- 
+ #define to_tw9900(sd) container_of(sd, struct tw9900, subdev)
+@@ -180,6 +195,39 @@ static int tw9900_read_reg(struct i2c_client *client, u8 reg)
  	return ret;
  }
-@@ -522,7 +527,7 @@ static int tw9900_querystd(struct v4l2_subdev *sd, v4l2_std_id *std)
+ 
++static int tw9900_apply_input(struct tw9900 *tw9900)
++{
++	int ret;
++	u8 val;
++
++	lockdep_assert_held(&tw9900->mutex);
++
++	ret = tw9900_read_reg(tw9900->client, TW9900_REG_INFORM);
++	if (ret < 0)
++		return ret;
++
++	val = ret & ~(TW9900_REG_INFORM_IFSEL_MASK |
++		      TW9900_REG_INFORM_YSEL_MASK);
++	if (tw9900->input == TW9900_INPUT_SVIDEO)
++		val |= TW9900_REG_INFORM_IFSEL_SVIDEO |
++		       TW9900_REG_INFORM_YSEL_MUX1;
++
++	ret = tw9900_write_reg(tw9900->client, TW9900_REG_INFORM, val);
++	if (ret)
++		return ret;
++
++	ret = tw9900_read_reg(tw9900->client, TW9900_REG_ANALOG_CTL);
++	if (ret < 0)
++		return ret;
++
++	val = ret & ~(TW9900_REG_ANALOG_CTL_SRESET |
++		      TW9900_REG_ANALOG_CTL_C_PDN);
++	if (tw9900->input == TW9900_INPUT_COMPOSITE)
++		val |= TW9900_REG_ANALOG_CTL_C_PDN;
++
++	return tw9900_write_reg(tw9900->client, TW9900_REG_ANALOG_CTL, val);
++}
++
+ static int tw9900_write_mode(struct tw9900 *tw9900)
+ {
+ 	const struct tw9900_platform_data *pdata = tw9900->pdata;
+@@ -197,12 +245,14 @@ static int tw9900_write_mode(struct tw9900 *tw9900)
+ 				  pdata->n_pal_regs);
+ }
+ 
+-static void tw9900_fill_fmt(const struct tw9900_mode *mode,
++static void tw9900_fill_fmt(struct tw9900 *tw9900,
+ 			    struct v4l2_mbus_framefmt *fmt)
+ {
++	const struct tw9900_mode *mode = tw9900->cur_mode;
++
+ 	fmt->code = MEDIA_BUS_FMT_UYVY8_2X8;
+ 	fmt->width = mode->width;
+-	fmt->height = mode->height;
++	fmt->height = tw9900->progressive ? mode->height / 2 : mode->height;
+ 	fmt->field = V4L2_FIELD_NONE;
+ 	fmt->quantization = V4L2_QUANTIZATION_DEFAULT;
+ 	fmt->colorspace = V4L2_COLORSPACE_SMPTE170M;
+@@ -218,7 +268,7 @@ static int tw9900_get_fmt(struct v4l2_subdev *sd,
+ 	struct v4l2_mbus_framefmt *mbus_fmt = &fmt->format;
+ 
+ 	mutex_lock(&tw9900->mutex);
+-	tw9900_fill_fmt(tw9900->cur_mode, mbus_fmt);
++	tw9900_fill_fmt(tw9900, mbus_fmt);
+ 	mutex_unlock(&tw9900->mutex);
+ 
+ 	return 0;
+@@ -239,7 +289,7 @@ static int tw9900_set_fmt(struct v4l2_subdev *sd,
+ 		return -EBUSY;
+ 	}
+ 
+-	tw9900_fill_fmt(tw9900->cur_mode, mbus_fmt);
++	tw9900_fill_fmt(tw9900, mbus_fmt);
+ 
+ 	mutex_unlock(&tw9900->mutex);
+ 
+@@ -381,6 +431,40 @@ static int tw9900_subscribe_event(struct v4l2_subdev *sd,
+ 	}
+ }
+ 
++static int tw9900_s_routing(struct v4l2_subdev *sd, u32 input, u32 output,
++			    u32 config)
++{
++	struct tw9900 *tw9900 = to_tw9900(sd);
++	int ret;
++
++	if (input != TW9900_INPUT_COMPOSITE && input != TW9900_INPUT_SVIDEO)
++		return -EINVAL;
++
++	mutex_lock(&tw9900->mutex);
++
++	if (tw9900->streaming) {
++		mutex_unlock(&tw9900->mutex);
++		return -EBUSY;
++	}
++
++	tw9900->input = input;
++	tw9900->routed = true;
++
++	mutex_unlock(&tw9900->mutex);
++
++	ret = pm_runtime_resume_and_get(&tw9900->client->dev);
++	if (ret < 0)
++		return ret;
++
++	mutex_lock(&tw9900->mutex);
++	ret = tw9900_apply_input(tw9900);
++	mutex_unlock(&tw9900->mutex);
++
++	pm_runtime_put_autosuspend(&tw9900->client->dev);
++
++	return ret;
++}
++
+ static int tw9900_s_std(struct v4l2_subdev *sd, v4l2_std_id std)
+ {
+ 	struct tw9900 *tw9900 = to_tw9900(sd);
+@@ -536,6 +620,15 @@ static int tw9900_querystd(struct v4l2_subdev *sd, v4l2_std_id *std)
+ 	}
+ 
+ 	ret = tw9900_get_stream_std(tw9900, std);
++	if (ret)
++		goto out_unlock;
++
++	ret = tw9900_read_reg(tw9900->client, TW9900_REG_CHIP_STATUS_II);
++	if (ret < 0)
++		goto out_unlock;
++
++	tw9900->progressive = ret & TW9900_REG_CHIP_STATUS_II_NINTL;
++	ret = 0;
  
  out_unlock:
  	mutex_unlock(&tw9900->mutex);
--	pm_runtime_put(&tw9900->client->dev);
-+	pm_runtime_put_autosuspend(&tw9900->client->dev);
- 
- 	return ret;
- }
-@@ -558,7 +563,7 @@ static int tw9900_g_input_status(struct v4l2_subdev *sd, u32 *status)
- 	ret = tw9900_read_reg(tw9900->client, TW9900_REG_CHIP_STATUS);
- 	mutex_unlock(&tw9900->mutex);
- 
--	pm_runtime_put(&tw9900->client->dev);
-+	pm_runtime_put_autosuspend(&tw9900->client->dev);
- 
+@@ -580,7 +673,12 @@ static int tw9900_g_input_status(struct v4l2_subdev *sd, u32 *status)
  	if (ret < 0)
  		return ret;
-@@ -613,7 +618,7 @@ static int tw9900_check_id(struct tw9900 *tw9900,
- 	ret = tw9900_read_reg(client, TW9900_REG_CHIP_ID);
- 	mutex_unlock(&tw9900->mutex);
  
--	pm_runtime_put(&tw9900->client->dev);
-+	pm_runtime_put_autosuspend(&tw9900->client->dev);
+-	*status = ret & TW9900_REG_CHIP_STATUS_HLOCK ? 0 : V4L2_IN_ST_NO_SIGNAL;
++	if (!(ret & TW9900_REG_CHIP_STATUS_HLOCK))
++		*status = V4L2_IN_ST_NO_SIGNAL;
++	else if (!(ret & TW9900_REG_CHIP_STATUS_VLOCK))
++		*status = V4L2_IN_ST_NO_V_LOCK;
++	else
++		*status = 0;
  
- 	if (ret < 0)
- 		return ret;
-@@ -683,6 +688,13 @@ static int tw9900_runtime_suspend(struct device *dev)
- 
- 	mutex_lock(&tw9900->mutex);
- 
-+	tw9900_write_reg(tw9900->client, TW9900_REG_ANALOG_CTL,
-+			 TW9900_REG_ANALOG_CTL_CLK_PDN |
-+			 TW9900_REG_ANALOG_CTL_Y_PDN |
-+			 TW9900_REG_ANALOG_CTL_C_PDN);
-+	tw9900_write_reg(tw9900->client, TW9900_REG_ANAL_CTL_II,
-+			 TW9900_REG_ANAL_CTL_II_PLL_PDN);
-+
- 	if (tw9900->reset_gpio)
- 		gpiod_set_value_cansleep(tw9900->reset_gpio, 1);
- 
-@@ -693,6 +705,15 @@ static int tw9900_runtime_suspend(struct device *dev)
  	return 0;
  }
+@@ -591,6 +689,7 @@ static const struct v4l2_subdev_core_ops tw9900_core_ops = {
+ };
  
-+static void tw9900_pm_cleanup(struct device *dev)
-+{
-+	pm_runtime_dont_use_autosuspend(dev);
-+	pm_runtime_disable(dev);
-+	if (!pm_runtime_status_suspended(dev))
-+		tw9900_runtime_suspend(dev);
-+	pm_runtime_set_suspended(dev);
-+}
+ static const struct v4l2_subdev_video_ops tw9900_video_ops = {
++	.s_routing	= tw9900_s_routing,
+ 	.s_std		= tw9900_s_std,
+ 	.g_std		= tw9900_g_std,
+ 	.querystd	= tw9900_querystd,
+@@ -682,6 +781,9 @@ static int tw9900_runtime_resume(struct device *dev)
+ 		ret = tw9900_write_array(tw9900->client, tw9900_init_regs,
+ 					 ARRAY_SIZE(tw9900_init_regs));
+ 
++	if (!ret && tw9900->routed)
++		ret = tw9900_apply_input(tw9900);
 +
- static int tw9900_probe(struct i2c_client *client)
- {
- 	struct device *dev = &client->dev;
-@@ -757,6 +778,8 @@ static int tw9900_probe(struct i2c_client *client)
- 		goto err_free_handler;
+ 	if (ret) {
+ 		if (tw9900->reset_gpio)
+ 			gpiod_set_value_cansleep(tw9900->reset_gpio, 1);
+diff --git a/include/media/i2c/tw9900.h b/include/media/i2c/tw9900.h
+index 11e3bfe38e2b..4de03873aeb4 100644
+--- a/include/media/i2c/tw9900.h
++++ b/include/media/i2c/tw9900.h
+@@ -8,6 +8,10 @@
  
- 	pm_runtime_set_suspended(dev);
-+	pm_runtime_set_autosuspend_delay(dev, TW9900_AUTOSUSPEND_DELAY_MS);
-+	pm_runtime_use_autosuspend(dev);
- 	pm_runtime_enable(dev);
+ #include <linux/types.h>
  
- 	ret = tw9900_check_id(tw9900, client);
-@@ -772,7 +795,7 @@ static int tw9900_probe(struct i2c_client *client)
- 	return 0;
- 
- err_disable_pm:
--	pm_runtime_disable(dev);
-+	tw9900_pm_cleanup(dev);
- 	media_entity_cleanup(&tw9900->subdev.entity);
- err_free_handler:
- 	v4l2_ctrl_handler_free(hdl);
-@@ -791,7 +814,7 @@ static void tw9900_remove(struct i2c_client *client)
- 	media_entity_cleanup(&sd->entity);
- 	v4l2_ctrl_handler_free(sd->ctrl_handler);
- 
--	pm_runtime_disable(&client->dev);
-+	tw9900_pm_cleanup(&client->dev);
- 
- 	mutex_destroy(&tw9900->mutex);
- }
++/* Inputs for the s_routing video op */
++#define TW9900_INPUT_COMPOSITE	0 /* composite on Mux0 */
++#define TW9900_INPUT_SVIDEO	1 /* Y on Mux1, C on the chroma input */
++
+ struct tw9900_regval {
+ 	u8 addr;
+ 	u8 val;
 -- 
 2.47.3
 
