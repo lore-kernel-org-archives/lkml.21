@@ -1,57 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794961533;
-	b=i6QyaJFMaqsBDisL3ku3ueLPrv6TGZLhNztDhdS6dhTzgtI9tpA9k4DkkeW7U0jaD8sQ
-	 /QW+whSOcNbmymuzguTZ1TCBn6NU2R2F+XiQX3Zb0nT7Ns65ilannggmTwE/33557U2KT
-	 Biaa3oB0koeT+Yvs7t9d/lgTmlrSntnpMWl/n7O2uNA1g4+2moTRQcfwSBuL8FYowYIeB
-	 VlKnmqOYJ7j5Y/MkVkyNmTDBAyMvm6Pz3U7wxMT5xBODqhdMcADz89YaJXk6rUU13I3gI
-	 4adpot7xar0I5NMpVS0OR0eIFzTlcAckYHW8IesDYuOA0UrosjjpThCcVKHhrlz8qPA==
+	t=1794961566;
+	b=E61nyMt3dIH7dLnQ+Ts7txxRdoKZoACy129bLlRxKP4af9j8U+C/X62FFZSvs/r7AlVx
+	 bbgb60m+8Y5d9w54JawkMtTn6LL4jp63620rS2X6NA4Grz49GlSLuTo1PrL3SbG+A4+be
+	 aljYSrV/ZBw5eNdwTDcUQKldzi+gDsaL2ImvplrJnV79w4Awdf2dvbuKOJuNU6382unwl
+	 C+jgSPI6f/AZ3JtqQPnU51Zql4DJvLylPEppdPZBQJagey46t1MBuxcXsX4M18WC5Bk29
+	 HIDPW1m/lv7ZNjpl/950balXpZJIthOJ1tknIs76CPRIdCZAXyL0vWRLjCe9X3Bdq+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794961533;
-	h=Received:DKIM-Signature:Date:From:To:cc:Subject:In-Reply-To:
-	 Message-ID:References:MIME-Version:Content-Type;
-	bh=0FtVx+bdZ2ArSXP0mcBKd/WQHCmPoQ5KtqvMi55F/xs=;
-	b=YNNbTumYPJAqev+Y8ylxIeucHR5PosGXSqWdhRtv1rNvbDERIMozkMIpf1aZWdheIqSU
-	 6ejEgpsnJs79tkxH/Oz2QlvOvKeNNUfnXnwqVQ/iggcG1Wa66oY7PsVI4+0xMXjKQjedJ
-	 O78U2G8czUUmboZ9H44ePVUr7qo0icyh84he86QhnYZTgH6KtlE0I59Lw8VHyofq+I4hC
-	 +ocpSZglOfNRQkaeQk7CN9BA60FraAWIq1UBBDpnx7Hkkhxm0eX3JQBf656xypuX5b2lO
-	 0VV+8eI8qrNHrvMj3AnU2Wj5bHmXrbc9ulp0T02C8IsmOQTnOA4QWk8XR8nD6coNCqQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794961566;
+	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
+	 Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:Message-ID:
+	 References:In-Reply-To:Accept-Language:Content-Language:
+	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=FzE7gLKg1OTzTgCIwrnCtdrb1qb6sYMfsgUvspRs+Lc=;
+	b=l4/UzoaoNYchLSjjMiZEVT2MPHmYiPg4OvcyB/iViUtzRUtRc13tq5eVdoBP0akQFtMF
+	 ABni1qXEQaf9uwyBDvSoPqRZEo1Dw7GCp5ocE40OsYpH4Cn2Ef0Bdzbl+U0flqxJwuhTc
+	 7Zs+ZeaKUe79W+itWP/yhI8wliRmc24wvBttixoaiWc7q6LbbT/n3StsJydP0hzXdPfG+
+	 YMHuH0qNLr057Txjiff0SLd8aqD0slbtLZ2fPbO+mXa338fhJQk9ZQiea+bicemKcuyLr
+	 /hj1Lj1W1sES40gxVy7KtISn2VZeAh7z9VU0FkngnSyF/WG8Ioiwsi0qSsCk0bnGwOA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RcbYZgYK;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=realtek.com;
+	spf=pass smtp.mailfrom=realtek.com;
+	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=J6CtUEH6;
+	arc=none smtp.remote-ip=211.75.126.72
+Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C2F0606A31C;
-	Wed, 18 Nov 2026 00:25:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EFC0606A31C;
+	Wed, 18 Nov 2026 00:26:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7EFC0606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RcbYZgYK
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 112E31F000C4;
-	Wed, 18 Nov 2026 00:25:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794961532;
-	bh=0FtVx+bdZ2ArSXP0mcBKd/WQHCmPoQ5KtqvMi55F/xs=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=RcbYZgYKuT8rtNBavT9z0RMeM4rv0wQkI8zvWHGBOBvEBOgztWdMgNcwrojSs3pWx
-	 HRRaFKWgBtsPJfe0t/DO4Bbcp04o4fMI9CXSTEo+D7alzjW73Kmofjb+seANrtRMXg
-	 PbXFyPiP+fZj/bQNK3A3AMBPlvGQE2r2QDwBeOp0kkL2YEgx+WSPQZyx+ZCwm1Fctn
-	 xkVDBtaBfAt5+4g9ucbO/tXTR3RX0McYZgbPwcNcNfrQ58eFBavf1XIYebevnXW4/K
-	 A7jlS6YsGDl3fqMDvPR+spnQ2RThSzCEcsf2Oa0e/rpWh4VVy7jnhNwQN27f2d3G/9
-	 4l3d+Yv1MXXkg==
-Date: Tue, 17 Nov 2026 17:25:27 -0700 (MST)
-From: Paul Walmsley <pjw@kernel.org>
-To: Mike Rapoport <rppt@kernel.org>
-cc: Pasha Tatashin <pasha.tatashin@soleen.com>, 
-    Chen Pei <cp0613@linux.alibaba.com>, pjw@kernel.org, palmer@dabbelt.com, 
-    alex@ghiti.fr, pratyush@kernel.org, graf@amazon.com, shuah@kernel.org, 
-    guoren@kernel.org, linux-riscv@lists.infradead.org, 
-    linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
-    linux-kselftest@vger.kernel.org, kexec@lists.infradead.org
-Subject: Re: [PATCH v3 2/4] riscv: Add support for kexec handover (KHO)
-In-Reply-To: <avLi0_mYXatBWmpL@kernel.org>
-Message-ID: <6c377596-479e-439a-f68c-5d61fe40824c@kernel.org>
-References: <20261106071459.2003-1-cp0613@linux.alibaba.com> <20261106071459.2003-3-cp0613@linux.alibaba.com> <179415145358.358073.165272378597657083.b4-review@b4> <avLi0_mYXatBWmpL@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=J6CtUEH6
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AI0Pf4H2775622, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1794961542; bh=FzE7gLKg1OTzTgCIwrnCtdrb1qb6sYMfsgUvspRs+Lc=;
+	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	b=J6CtUEH6YL56YmXItbMd8vFrS0mLVu1iCFwtgWR/SZ1cN/Yat8hcwoB+m4Gh/0+jy
+	 2DOicFBBFnsBd2PPa8NyF/MFmoGISTcvQ6PffxL4J6ODZVvy8tFqkIL67UtFVKTwon
+	 cdJwWU3VZNJBo3FTfautZ2K4uDC35OXH0WiKNC3sGBKhciArIXncVKzgmfOgNWWjkK
+	 JPocKYlQqFEtLx7vEQ2Z8UEphRtT47xY+p17ALkP9+95Nmg9Kh3iW2rG/RB+RR6idk
+	 rD+V81mRydzhp6tR3WElYCCdklVyJb+Go3bX1cSkh67L4ms/kbyv2dE2GdnRKldbS/
+	 IVUX3CcPLukUA==
+Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AI0Pf4H2775622
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 18 Nov 2026 08:25:41 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Wed, 18 Nov 2026 08:25:42 +0800
+Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
+ RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
+ 15.02.2562.056; Wed, 18 Nov 2026 08:25:42 +0800
+From: Ping-Ke Shih <pkshih@realtek.com>
+To: Luka Gejak <luka.gejak@linux.dev>, Zeshan Ahmed Nobin
+	<zeshanahmednobin@gmail.com>, "linux-wireless@vger.kernel.org"
+	<linux-wireless@vger.kernel.org>
+CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Kalle Valo
+	<kvalo@kernel.org>
+Subject: RE: [PATCH rtw-next v3 2/2] wifi: rtw88: 8822c: ignore nrx values
+ without CCK PD registers
+Thread-Topic: [PATCH rtw-next v3 2/2] wifi: rtw88: 8822c: ignore nrx values
+ without CCK PD registers
+Thread-Index: AQHddT6xhEieifs1MkKPJ2YdDVTuQ7cx0FCg///rKACAAT4bYA==
+Date: Wed, 18 Nov 2026 00:25:41 +0000
+Message-ID: <7ec3ca20e62d4a34811492a21619cf6d@realtek.com>
+References: <20261115201826.181662-1-zeshanahmednobin@gmail.com>
+ <20261115201826.181662-3-zeshanahmednobin@gmail.com>
+ <427f6f2e79474058958c3f3d0901df38@realtek.com>
+ <8023529A-60D3-4708-9772-027436BF7756@linux.dev>
+In-Reply-To: <8023529A-60D3-4708-9772-027436BF7756@linux.dev>
+Accept-Language: en-US, zh-TW
+Content-Language: zh-TW
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,30 +87,27 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
 
-Hi Mike,
-
-On Tue, 10 Nov 2026, Mike Rapoport wrote:
-
-> On Sun, Nov 08, 2026 at 10:24:13AM -0500, Pasha Tatashin wrote:
-
-> > Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com> 
-> > 
-> > But pre-reqs. should be applied prior taking this series:
-> > 
-> > 1. https://lore.kernel.org/all/20261023054518.3258350-1-gthelen@google.com
-> 
-> I'm planning to send it to Linus this week.
-> 
-> > 2. https://lore.kernel.org/all/20261104-kho-bootmem-sizing-v2-0-b0d1a834780f@kernel.org
-> 
-> This is easy if we take it via liveupdate tree :) 
-> 
-> @ricsv folks, how do you prefer to play it?
-
-Sure, if you want to take it, that's fine.  I'll send acks for the two 
-arch/riscv patches.
-
-
-- Paul
+THVrYSBHZWphayA8bHVrYS5nZWpha0BsaW51eC5kZXY+IHdyb3RlOg0KPiBPbiBOb3ZlbWJlciAx
+NywgMjAyNiA3OjM4OjIxIEFNIEdNVCswMTowMCwgUGluZy1LZSBTaGloDQo+IDxwa3NoaWhAcmVh
+bHRlay5jb20+IHdyb3RlOg0KPiANCj4gWyAuLi4gXQ0KPiANCj4gPiBTaW5jZSB0aGlzIG9ubHkg
+Y2FuIGhhcHBlbiB3aGVuIGEgZGV2aWNlIGlzIHJlbW92ZWQgc3VkZGVubHksIGhvdyBhYm91dA0K
+PiA+IHJldmVydGluZyBwYXRjaCAxLCBhbmQgYWxzbyB2YWxpZGF0ZSBidyA8PSBSVFdfQ0hBTk5F
+TF9XSURUSF80MCBoZXJlLg0KPiANCj4gQXMgZmFyIGFzIEkgY2FuIHNlZSwgcnR3X3NldF9jaGFu
+bmVsKCkgc3RvcmVzIHRoZSBiYW5kd2lkdGggaW4gaGFsIGFuZA0KPiBwYXNzZXMgdGhlIHNhbWUg
+dmFsdWUgdG8gdGhlIGNoaXAncyBzZXRfY2hhbm5lbCBjYWxsYmFjay4gV2UgYWxyZWFkeQ0KPiB1
+c2UgaGFsLmN1cnJlbnRfYmFuZF93aWR0aCB3aGVuIHNldHRpbmcgVFggcG93ZXIuDQo+IA0KPiBD
+Q0sgUEQgYWxyZWFkeSBjaGVja3MgaGFsLmN1cnJlbnRfYmFuZF90eXBlIGFuZCBvbmx5IHJ1bnMg
+b24gMi40IEdIeiwNCj4gd2hlcmUgdGhlIGJhbmR3aWR0aCBpcyAyMCBvciA0MCBNSHouIFNvIEkg
+dGhpbmsgdXNpbmcgdGhlIHN0b3JlZCB2YWx1ZQ0KPiBoZXJlIGlzIHJlYXNvbmFibGUgdG9vLiBJ
+dCBhdm9pZHMgYW5vdGhlciByZWdpc3RlciByZWFkIGFuZCBrZWVwcyBhDQo+IGZhaWxlZCByZWFk
+IGZyb20gYmVjb21pbmcgdGhlIGJhbmR3aWR0aCBpbmRleC4NCj4gDQo+IFdvdWxkIHlvdSBiZSBv
+a2F5IHdpdGgga2VlcGluZyBwYXRjaCAxIGFuZCB1c2luZyBucnggPiBSRl9QQVRIX0IgaW4NCj4g
+cGF0Y2ggMiwgYXMgeW91IHN1Z2dlc3RlZD8NCg0KRnJvbSByZXZpZXcgcG9pbnQgb2Ygdmlldywg
+dmFsaWRhdGlvbiB0aGUgcmVhZCB2YWx1ZSBmcm9tIHJlZ2lzdGVycw0KaXMgZWFzaWVyLiANCg0K
+VG8gcmV2aWV3IHBhdGNoIDEsIHJldmlld2VycyBzaG91bGQgdHJhY2UgdGhlIGNvZGUgdG8gdW5k
+ZXJzdGFuZCBob3cgDQpSRUdfVFhCV0NUTCBpcy4gSW4gZHJpdmVyIHNpZGUsIHllcywgaXQgaXMg
+b25seSBtb2RpZmllZCBieQ0KcnR3X3NldF9jaGFubmVsKCksIGJ1dCBjYW4geW91IGVuc3VyZSBm
+aXJtd2FyZSBkb2Vzbid0IGNoYW5nZSBpdA0KKGl0IHNob3VsZCBub3QpPyANCg0KSSdkIHByZWZl
+ciBzcXVhc2hpbmcgdHdvIHBhdGNoZXMgaW50byBvbmUsIGFuZCBqdXN0IHZhbGlkYXRlIHRoZQ0K
+cmVhZCB2YWx1ZXMuIENvbW1pdCBtZXNzYWdlIGNhbiBiZSBhbHNvIHNpbXBsZXIuIA0KDQoNCg==
