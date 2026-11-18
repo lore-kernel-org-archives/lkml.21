@@ -1,49 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795016404;
-	b=mHDGjyv2m7wYBojksbFilU8mSz3mEAgflId1NXtgyntkRCvIFnlSZ/WGy4NePMlb0JC1
-	 JQMKHCtdndJNxacnqXpe7xRKAC2hLVqx6fZ+fLxqEHTO/IsRa7qjIGXJfv4uUS6+jU7+u
-	 vKjK4MHcELnpPPrW+qgJhEX0QMc3ufbgzdlFozobh67yMJx6drtt5e/rDOCmhGSLlyEzY
-	 6uVdgjaCj03mU3ofx1Bdj+IzK0+2rTzyQQ2je0bADRhqldsRyITXnETkNdNYtG9s9SFMv
-	 q8swX9BOgfpMfVxWU+3F6YvUg6hCt2ifY4jDk44xcU+kA5C5pLTusCCqpSBFmRjE+Xw==
+	t=1795016450;
+	b=SWrkoMrTawalSVhSP2TVyax++agRzJ5LgBDtdppIa4TLKxvY0kuCJHJ+NT6syR34WXjF
+	 Pyep60RKBZ/OSIltpH1J04KyxuSdi+/e6bo5y/DvpZqphqek9svCRfI825Y1UrgrcR2Wi
+	 ZA2JcvjiQJrJcoJNqci4QA3LTCwbxF5Ax2GrUmUArfqaD4mgAsiSXTCxiLg5vupWO2ZW+
+	 jwwK/luP5aj48sYYnFqdw7++X4o7h4ciPpMUkJfQ3twDzsKarUzPZ59YrQ7NLTgoM2ZPw
+	 efHlKT2DzYbek7GAPtRH6QNSh6e1Q0ih96FuNvEWCPA+fcLsdiS6XhsGx98XZ6DPhvg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795016404;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=j2BNbivZPHPibCEyc+H9GBBrQYs+VsZCs/2qn47xLAI=;
-	b=TxS4vRFACUTOERntXZ0eKge1Un3r+ZBxjfH0zsgQ2wU6buAp77DL4Kpazg1R6a8zmgvW
-	 /R04UPi4yoWDnELzHWXjULkplrTsvA6PXgSHUNFHd5KljSmAxwb8nvduwnnMOxvA3Iwnh
-	 DiE9QnrPKZlHanOo4ff4eaTHFFgvdb07V5ntrjc1Xvjifq59sWK3+GhDTe/NTkB9B5xnd
-	 uUaN6n5drz6lqd5MNzP5nj2ztxQE5Bm9pPycOT++gzJHPB7vgvoa2WZE1mFJOsC3I2FqR
-	 1oSxo4mGvEiWCvykLjE0X2bz/VrSv2dxwEp1MA9FpaTdBPFvYIMrGf0Bb2u5xBzenpw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795016450;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=tm6dB1EUYOThFG6qE8KMMgbho+/lR/6Gk/9spMdJzlU=;
+	b=iYzJW8GTYabeUZmBG2LJl0TdHxadNkqRIWLOJlsznaOaLofx2b8BWNEtB7RM4ArfT1l4
+	 hWflBD+THOujMyAYEKAChrWJaYpswNv+ndyPeh4paptp42YfyODA0bNCX6HYgS7Kcyw6P
+	 Fc/Db600Fkyp3YUpWSiKmwiErWJ4dp/hg3eSlx0dZMWcnzJwoX8fTCyszJv9Soj/aoO3R
+	 wd3Pr+WvecVQBW7LAwzoi2SGNgk2s0BhHYg6fX7oqhCPjmvom8H8capsBkOul7Pzc7Bfv
+	 C4fZavMz0PQiPrGDEhXtgj6KE9e5hPiAoGeHNF5dxd9nQzfcYPxsqG/R1JI0DtsQU/g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=i4AadcTo;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 8464160A2624;
-	Wed, 18 Nov 2026 15:40:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8464160A2624
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="F/T+wXSc";
+	arc=none smtp.remote-ip=209.85.210.182
+Received: from mail-pf1-f182.google.com (mail-pf1-f182.google.com [209.85.210.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8E05606A332
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:40:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8E05606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=i4AadcTo
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E80641477;
-	Wed, 18 Nov 2026 07:39:59 -0800 (PST)
-Received: from [10.57.69.78] (unknown [10.57.69.78])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1988D3F632;
-	Wed, 18 Nov 2026 07:39:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795016402; bh=UmjalxywmS7cNpDQUWtopHm/4dset/da/ZsuV9sIQp4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=i4AadcToOCPgX632yqW2lnrSqScyRtw9QtO2o3OxZKLKLdOUdMia2PtHh/ABU/HxR
-	 8Fa1If1Dumx3yG9CNeisIFfYXssDXYPXrNj8IoWLqqKk+HTJFXs1zscm+UxOhVGqq6
-	 ZgiAMXhgWMFCf+l0zwEIO6v4b8RFRSIcQs/hLplg=
-Message-ID: <35a06829-dd6d-4ef1-aadf-245d1e7ca433@arm.com>
-Date: Wed, 18 Nov 2026 16:39:58 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=F/T+wXSc
+Received: by mail-pf1-f182.google.com with SMTP id d2e1a72fcca58-8c4cc85a315so811307b3a.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:40:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795016449; x=1795621249; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=tm6dB1EUYOThFG6qE8KMMgbho+/lR/6Gk/9spMdJzlU=;
+        b=F/T+wXScP9Zgh1uofVaMqzOlFgqfmKgwCctq1qXcplNMa+wjBVSQAc7SSMeRLdzPB0
+         aZ1GrJrH5iye0o4/LLMI2fA25rH7UfxV1ehkUE7OC99in1a0QZS4q4fUT1mZWt1NMlya
+         gIwScpx9+n0G70Q0jOcfxLy+AeOQGv591C0uGFyEAHz9ZnLD0ZPavJuDzCS5ZaYKLAvn
+         6pxQ0tEw9NUG7Dmh4UdLTFYgD1RdG/Yy3r4oDl+vYou7NUVAtvVOSdOwQBIm1lDnzDne
+         iwJ1y8JgjfqQy1FPn6+euDTe3FiV8I9E4eClxfNeRAuzzroJEQOGh0/mIeVlCC2JDxXj
+         qTMw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795016449; x=1795621249;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=tm6dB1EUYOThFG6qE8KMMgbho+/lR/6Gk/9spMdJzlU=;
+        b=b7u5CJ5RJJ+MrdgB8iZSPKi/XyCsgUUgqsB4qqGzDJW8ORuF4fWPyBxP2yxxNpDQMq
+         +yv6LaidX9uhiPMOwxEpEy0UBuZ2tDT9pMMxtUMXT1KlEXl50m8BhvlW+yNjp50tBPIn
+         0IBPoryZCf/FsrHQEI3t4N6MSoo8rkXuSmaKoDtuEFPGViE3DUa6JM5CDd53Cc6wYTBA
+         4NVks6EeIJ61FJHTDbPSIVlYy4AiocpMrnLqJOZ5upj2iXM/40BSMdsS8Ct4b3zYy/a1
+         ZzO1bxispNKLc1bhRmS/mX+aPzXFszIjaZaTgc4gN3aiiWlPzNjrggoS3s92j8PutKSn
+         TT/w==
+X-Forwarded-Encrypted: i=1; AL+hErHsXzHYREb+jd0w3sPvyiPXDsNAZ/9VzRvyAB0vipv6oUfFGN9TXNllgBoulNqQ5JpwkBpEt01LU0RlAck=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9SWgSWpPJQCl+i2bhGnbAtmFaDXPCRACQ9tfYof83PaBIhzvdP
+	9Oc0wUvVsMtWsUdgbZfkJ4uqyAf6HI6Wo3oe6TGb2idSpGJk+f8by1I7
+X-Gm-Gg: AYBFou3pF2qtbMohelIy28BZzp1QlFNRpmb9uqRb0zje59FUHBNUoMX/DlEm8TmV31F
+	f+H+qG1MeDMyq4wzVJ95zuKtPSIFVoClPuggT7yJcYaQOu6zJoPEtRy/n7e9vewwJpk6S5G/gQI
+	B+Ttp1CU+3vsv1L2tU5zeOcdzLRdtmKrBnSgMQe/EAJWNVgAvfJ6yuBVVJG0BINYkq1QxjPF97+
+	ArLH/IgLAECKntJJeTx3n54WsaPhk4iRyARBq1q3V6gWP2HBS5OOkytxIoa2+ceFW4AlEXayyJh
+	wGIY4HjJrCX906mSvhy9mx+MgITKnn6dPTfTR9KaCobsUXuAFu7BvIWLihvHGmKemYyr6kKsIL0
+	sElGbmTUx8BuwWubk4RubjeI+AlrdC58aXLPdr0KHHEp237DJQ0ZeB64cxmAxobqpRtmEKdJ+77
+	ITaoHeWzS+IIMf/7wbeL/nw+Vns5uV/e1kIZ0Qj7dArsYtTLkWqlTmr/bBPVR9JMApVPyMuPtk/
+	4fMVmphtpDa6KgCl0HYZUxlDaHmSRoCaVUig149/uxypnk5TNh1Bn2tzP09jD8lQh7TcZMdvzFO
+	awNoj2Ck9tAxuljQrB8TaQ4zrL1KgDwKp7OUTVY6nO11aI+c
+X-Received: by 2002:a05:6a00:a244:b0:892:e080:4ed8 with SMTP id d2e1a72fcca58-8c5d48d82b8mr2645070b3a.47.1795016449055;
+        Wed, 18 Nov 2026 07:40:49 -0800 (PST)
+Received: from rigel (106-68-220-184.tpgi.com.au. [106.68.220.184])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5ca5bf959sm1421203b3a.20.2026.11.18.07.40.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 07:40:48 -0800 (PST)
+Date: Wed, 18 Nov 2026 23:40:41 +0800
+From: Kent Gibson <warthog618@gmail.com>
+To: Adrian Ambrozewicz <aambrozewicz@nvidia.com>
+Cc: Bartosz Golaszewski <brgl@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Jia Jia <physicalmtea@gmail.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v6 4/8] gpiolib: cdev: don't sleep in the SRCU read
+ section in read()
+Message-ID: <20261118154041.GB46152@rigel>
+References: <20261116-gpiolib-chip-removal-v6-0-aambrozewicz@nvidia.com>
+ <20261116-gpiolib-chip-removal-v6-4-aambrozewicz@nvidia.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,220 +105,36 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] clk: sunxi-ng: a733: Keep SCP firmware bus clocks
- enabled
-To: wens@kernel.org
-Cc: Enzo Adriano <enzo.adriano.code@gmail.com>, sboyd@kernel.org,
- bmasney+clk@redhat.com, jbrunet+clk@baylibre.com, jernej.skrabec@gmail.com,
- samuel@sholland.org, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- Junhui Liu <junhui.liu@pigmoral.tech>,
- Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
-References: <20261112-a733-fwclk-v2@gmail.com>
- <2374cc08-fd47-435a-b1e8-c7e9a61954c4@arm.com>
- <CAGb2v66w9XYO7CUFrvJq2HL7ELABptg=3Bs4XbZxMh7VU0pepw@mail.gmail.com>
- <124bb855-f2f6-4b10-b0be-99fb53cc2ee8@arm.com>
- <CAGb2v65A4rAFTFYyB_sZBC9O7fb0TJWE1YRjdGrLeNgwyVzcSw@mail.gmail.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <CAGb2v65A4rAFTFYyB_sZBC9O7fb0TJWE1YRjdGrLeNgwyVzcSw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261116-gpiolib-chip-removal-v6-4-aambrozewicz@nvidia.com>
 
-Hi,
-
-On 11/18/26 16:15, Chen-Yu Tsai wrote:
-> On Wed, Nov 18, 2026 at 10:51 PM Andre Przywara <andre.przywara@arm.com> wrote:
->>
->> Hi,
->>
->> On 11/18/26 14:41, Chen-Yu Tsai wrote:
->>> On Wed, Nov 18, 2026 at 1:18 AM Andre Przywara <andre.przywara@arm.com> wrote:
->>>>
->>>> Hi,
->>>>
->>>> the patch itself looks fine, but the comments and the commit message are
->>>> not entirely correct, I think.
->>>>
->>>> On 11/12/26 22:38, Enzo Adriano wrote:
->>>>> The A733 PRCM's bus-r-riscv and bus-r-msgbox gates have no Linux
->>>>> consumers, so unused-clock cleanup gates them. With vendor SCP firmware
->>>>> running on the E902 as shipped on Cubie A7S, warm reboot then stalls.
->>>>
->>>> Please note that we don't support "vendor firmware" with mainline Linux.
->>>> That was mostly incompatible in the past, and while it might work these
->>>> days, this is not something we control and want to endorse.
->>>> So we would be quite reluctant (to put it mildly) about merging patches
->>>> that are solely needed for BSP firmware bits.
->>>>
->>>>> Keep both critical until remoteproc/mailbox drivers can claim them.
->>>>
->>>> I don't think this "until" is an argument. Even if we'd have Linux
->>>> driver support, they would be optional to use (not compiled, not
->>>> loaded), and would only be needed to *communicate* with the firmware.
->>>>
->>>> But those clocks are actually there to drive the RISC-V core clock, and
->>>> also the "RISC-V side" of the peripherals, due to a lack of separate
->>>> clock controls in the SoC in the Allwinner design. So the kernel should
->>>> not care about or touch those clocks at all - which is what
->>>> CLK_IS_CRITICAL does.
->>>
->>> No. CLK_IS_CRITICAL also tells the kernel to turn it on, and you then
->>> can never turn it off. You get a big warning if you try to defeat the
->>> refcounting, but nothing else happens.
->>
->> Good point, so is CLK_IGNORE_UNUSED a better flag? As far as I can see,
->> it only prevents turning it off if unclaimed, it doesn't turn it on if
->> it was off initially, and it doesn't disallow turning it off.
+On Mon, Nov 16, 2026 at 03:47:07PM +0200, Adrian Ambrozewicz wrote:
+> linereq_read(), lineevent_read() and lineinfo_watch_read() stay in the
+> gdev->srcu read section while they sleep waiting for an event, so
+> gpiochip_remove() blocks in synchronize_srcu() until an event arrives
+> or the reader is signalled. The device lock is held meanwhile, which
+> also blocks device_shutdown():
 > 
-> Yes. It's like an uncoordinated simplefb? :p
-
-I guess you could see it that way, although Linux wouldn't directly know 
-about it.
-
->>> So what if the *real* remoteproc driver needs to turn the clock off to
->>> pause the RISC-V core? It can't
->>
->> I guess this depends on the use case, which isn't very well defined. If
->> this E902 is really a remoteproc device entirely controlled by Linux,
->> then sure: Linux should have full control over its clock.
->> But if it's running some kind of firmware component, then the kernel
->> shouldn't mess with it, IMHO. But I think there is still the arisc on
->> the A733, so this would more likely run the management processor (SCP) code?
+>   task:init state:D stack:0 pid:1 tgid:1 ppid:0
+>   Call Trace:
+>    __synchronize_srcu
+>    gpiochip_remove
+>    devres_release_all
+>    device_release_driver_internal
+>    platform_device_unregister
+>    gpio_sim_device_deactivate
 > 
-> Even if it had firmware already running, if it provides some interface to
-> the OS (other than PSCI / SCMI), then you'd probably still have a remoteproc
-> driver claiming and somewhat controlling it, plus rpmsg or something else
-> to bridge the firmware interface.
+> Check the chip in a scoped SRCU section only; nothing after the check
+> dereferences it. End the wait once the chip is gone, and return -ENODEV
+> if there is no event to report.
 > 
-> OTOH, AFAIK some SCP, such as crust, are pretty much transparent to the OS,
-> i.e. the OS doesn't know about it. The RISC-V core is probably useful beyond
-> just being the SCP. You could offload control of various hardware blocks to
-> it if you wanted, or you could have it be an always on sensor hub. Either way
-> the OS would have some control over it and some defined interface to it.
+> Reproduced with gpio-sim: setting "live" to 0 hangs while a reader is
+> blocked in read() on a line request; with this change, the write
+> returns at once and read() fails with -ENODEV.
+> 
 
-Yes, that is what I mean: there are two distinct use cases: the realtime 
-one, where Linux uses remoteproc to offload timing critical load, and 
-the "SCP" one, where it just runs in the background, and the kernel is 
-not directly involved. For this latter case we would need to not turn 
-off the clocks.
-
-The question now is whether this SCP use case is something we deem 
-useful, for mainline. If it's just about to run the BSP firmware, I 
-think we shouldn't bother, we just don't support that. But if we end up 
-running something like crust on the E902, then it's a different story.
-
-So I wonder if we should just pragmatically add CLK_IGNORE_UNUSED, to 
-not shut on the door on this SCP use case later.
-If we ever only want to use remoteproc, I think we don't need this patch.
+Reviewed-by: Kent Gibson <warthog618@gmail.com>
 
 Cheers,
-Andre
-
->>> So, not a fan of this. If the loaded firmware somehow needs some resources
->>> then perhaps the software that loaded it needs to somehow tell the kernel
->>> they are needed, like the bootloader patching the DT passed to the kernel.
->>>
->>> If the firmware needs a piece of DRAM, you don't say in the kernel that
->>> this piece of DRAM is off-limits. You let the bootloader tell the kernel.
->>> Static DRAM carve outs with reserved-memory nodes in the DT source is also
->>> ugly, as you could end up with mismatches if the firmware somehow changed.
->>>
->>> IMO CLK_IS_CRITICAL should be used for things that the kernel knows it needs
->>> but there's nothing to claim it.
->>>
->>>
->>> ChenYu
->>>
->>>>> This follows A523 bus-r-cpucfg in commit 1dba74abf3e2 ("clk: sunxi-ng:
->>>>> Mark A523 bus-r-cpucfg clock as critical") and the temporary SCPI firmware
->>>>> clock protection for Meson AXG fclk_div3 in drivers/clk/meson/axg.c.
->>>>>
->>>>> On Cubie A7S with vendor boot0/BL31/SCP/U-Boot and without
->>>>> clk_ignore_unused, warm reboot returns with both clocks critical and
->>>>> stalls without them. Vinicius found either flag alone insufficient on
->>>>> Cubie A7Z. Power-off, suspend, single flags on A7S, other
->>>>> boards/firmware and upstream TF-A were not tested.
->>>>>
->>>>> Link: https://lore.kernel.org/r/20261005183038.417798-1-vinicius.eduardo.pedrosa@gmail.com
->>>>> Signed-off-by: Enzo Adriano <enzo.adriano.code@gmail.com>
->>>>> ---
->>>>> Changes in v2:
->>>>> - Drop r-timer0, bus-r-timer and bus-msgbox0: A7S warm reboot works with
->>>>>      these at 0/0. Keep only the two E902/mailbox bus gates after Junhui's
->>>>>      review, pending remoteproc/mailbox ownership.
->>>>> - Rebase on CCU v7; its PRCM clock definitions are unchanged from v6.
->>>>>
->>>>> v1:
->>>>> https://lore.kernel.org/r/20261031020640-263f7b05-a7s-clock@gmail.com
->>>>>
->>>>> Base: v7.4-rc1. Depends on CCU v7 (all eight patches):
->>>>> https://lore.kernel.org/r/20261112-a733-clk-v7-0-db7c5451ffa2@pigmoral.tech
->>>>>
->>>>> November 12 board test: two RAM boots and warm reboot -f returns on
->>>>> Cubie A7S with vendor boot0/BL31/SCP/U-Boot, without clk_ignore_unused.
->>>>> Both retained clocks were 1/1; all three dropped clocks were 0/0.
->>>>> The no-flag stall was observed with CCU v6 on Nov 10; PRCM code is
->>>>> byte-identical in v7, where the no-flag control was not repeated.
->>>>> Runtime used DT v3 and its dependencies (all four UART v2 patches),
->>>>> with the PMIC identifier and pinctrl IRQ-map context adapted to the base:
->>>>> https://lore.kernel.org/r/cover.1794227241.git.enzo.adriano.code@gmail.com
->>>>
->>>> I don't think there is any need for those longish test descriptions,
->>>> especially if they pass.
->>>>
->>>>>
->>>>>     drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c | 7 +++++--
->>>>>     1 file changed, 5 insertions(+), 2 deletions(-)
->>>>>
->>>>> diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c b/drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c
->>>>> index b8f6e8c6e507..f2965daba0d3 100644
->>>>> --- a/drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c
->>>>> +++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c
->>>>> @@ -108,7 +108,9 @@ static SUNXI_CCU_DUALDIV_MUX_GATE(r_spi_clk, "r-spi", r_spi_parents, 0x150,
->>>>>                                   0);
->>>>>     static SUNXI_CCU_GATE_HW(bus_r_spi_clk, "bus-r-spi", &r_ahb_clk.common.hw, 0x15c, BIT(0), 0);
->>>>>
->>>>> -static SUNXI_CCU_GATE_HW(bus_r_msgbox_clk, "bus-r-msgbox", &r_ahb_clk.common.hw, 0x17c, BIT(0), 0);
->>>>> +/* Vendor SCP firmware on E902 needs this until a remoteproc/mailbox driver claims it. */
->>>>
->>>> Please change this comment. Something like the msgbox clock is shared
->>>> between the E902 core and the Arm APs.
->>>>
->>>>> +static SUNXI_CCU_GATE_HW(bus_r_msgbox_clk, "bus-r-msgbox", &r_ahb_clk.common.hw,
->>>>> +                      0x17c, BIT(0), CLK_IS_CRITICAL);
->>>>>
->>>>>     static SUNXI_CCU_GATE_HW(bus_r_uart0_clk, "bus-r-uart0", &r_apb1_clk.common.hw, 0x18c, BIT(0), 0);
->>>>>     static SUNXI_CCU_GATE_HW(bus_r_uart1_clk, "bus-r-uart1", &r_apb1_clk.common.hw, 0x18c, BIT(1), 0);
->>>>> @@ -146,8 +148,9 @@ static SUNXI_CCU_MUX_DATA_WITH_GATE(r_riscv_clk, "r-riscv", r_riscv_parents, 0x2
->>>>>                                   24, 2,        /* mux */
->>>>>                                   BIT(31),      /* gate */
->>>>>                                   0);
->>>>> +/* Vendor SCP firmware on E902 needs this until a remoteproc/mailbox driver claims it. */
->>>>
->>>> and this. Just note that the E902 might be running on its own, in a pure
->>>> firmware role, or even completely separate from the main kernel.
->>>>
->>>> Oh, and also please put somewhere that this is based on the linux-sunxi
->>>> for-next tree, aside from just having the base-commit ID below.
->>>>
->>>> Cheers,
->>>> Andre
->>>>
->>>>>     static SUNXI_CCU_GATE_HW(bus_r_riscv_clk, "bus-r-riscv", &r_apb0_clk.common.hw,
->>>>> -                      0x21c, BIT(0), 0);
->>>>> +                      0x21c, BIT(0), CLK_IS_CRITICAL);
->>>>>     static SUNXI_CCU_GATE_HW(bus_r_riscv_cfg_clk, "bus-r-riscv-cfg", &r_apb0_clk.common.hw,
->>>>>                          0x21c, BIT(1), 0);
->>>>>
->>>>>
->>>>> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
->>>>
->>
->>
-> 
-
+Kent.
