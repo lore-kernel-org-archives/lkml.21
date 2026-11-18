@@ -1,84 +1,84 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794983974;
-	b=D/mYBixzMlh3E52YybQPcujlXw4YoMzaTXnuk1b7FTpvpew9a2mpytQ40vL/App65iuF
-	 aEpyuZNnQAtdLWhKvt4CfBieQkmdLOm36wGchseVG2/Mri3TkBRilE2tV8QGeAhFn/pnm
-	 zj+6mQRiW3IPH+NYsvYi8yJZivma4bXM22kCjFktnnTW2OkgJ+S6VAB+WMqKGV71C7aIC
-	 K6WVsQtQl5lhFJiDMF+oEwIs4XwkgqVp1mQ2I4wZ5QQju6sOxrNnWIZEMOud7L/+deRTt
-	 uMK8oS2M1jX9CzhLD/V9J2MBiIv/POyVjmkwHKZb2P1cn+UR4gELiWrzhdvhjDW/mzA==
+	t=1794983979;
+	b=qAcxDGg+f8XrRi0fQyjIbTuT718DdP9UxfVZBXwdIRsKV0z9YDYH2nFaMNthEbVos2rr
+	 f++CfWkRtPTmLRzl4gUHSsFnksT1a34bM0rt/hEM2kDLa/D/XzkhlThj6vjIDb1kTK81x
+	 yZHQCIqAyRQqXt0hEx11DCxF5EDHlEvCXbuPNWvUILsfCNsGQAK0adp20sRVpm+Mo04hm
+	 cVekXstZsLFrwXxhQ9DLNsZtwCK85+pLgBvfFLpVQGHUyZz7hsArT96qJiXmtBHqO0KhC
+	 XW/DIOHDXZuLfljNGpQuZzY3w3ctmb6m/lwem/VKuWszjGFfk8NNnPEYGS6S/xIVoKA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794983974;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794983979;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=aoczeufkw3DOf+e+V7z0I3M4e1H07M0CJBQzemDHKiA=;
-	b=aSd5/N6Q5OswrlTfDaCM4r/xMRWmdVgOfTwRrzD8Q9odS26qNm9+UkdtbdAaP8hfvkBq
-	 SPWswkfRYpx0r+7iau5qj1/G5lrtE0sDZxzBK0Uqru4Qqw5hsPp2f03FptU+B88bH0qFG
-	 a/92duy+gXh863MFtt+RtrCXOegEiVmzvW2SGKdnDHm9Zqp+YRNJIThfASCC+m2PIgm8J
-	 x1LhdZurmQQsyM+REHy4NeAhd6cIUVTxXhlhJeE08Ff2g0H1DiDyP8NOEcHWwTpo53D53
-	 u2p/LlDGwUdmfBEqvlKaBuU+Czl7srZMbSZ5SHVkLyAk5cAjAKi2dBiohRN0KIayWmA==
+	bh=+hfYLfF1sqEj1++0abJ8h5Rbccp1+H1WdLqSrymE34I=;
+	b=QCKbxf84EdobsjNirIwUKwzyfv30Xnn4yL6G7/An8okOVJn+PBL3E7T2yUikVs1VXf9+
+	 eVCeNL/7GL/U0Jb5BADOMCUr0GGvZvl1Zfd5JLIkPmzXjkJHuMZ8DtJqn4opxIc4Hj2CS
+	 ek2EZxSAyhegzAyA0ESqiO3MPYrZrZGerlA6DYgsr54D2l9W88LL1l0YzLc0IZ8WJ9Vyk
+	 j884hNddzaPC5JcwgTnMYDPy9EJMili27TWSGvKTGKtbnZ58Rc1I+ynH/yma7mk5UTROb
+	 r2ZiI2u7I+TlYsaBf1Hu1Vucu4q03WjzJzObZPPGqtzJc0+6fjxey93D7t1dypoip4w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fraUT9mF;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CXgVIKtD;
 	arc=none smtp.remote-ip=209.85.216.54
 Received: from mail-pj1-f54.google.com (mail-pj1-f54.google.com [209.85.216.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 714A6606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:39:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 714A6606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4B8C606A32F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:39:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4B8C606A32F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fraUT9mF
-Received: by mail-pj1-f54.google.com with SMTP id 98e67ed59e1d1-3b12cb3c37bso287110a91.2
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:39:34 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CXgVIKtD
+Received: by mail-pj1-f54.google.com with SMTP id 98e67ed59e1d1-3acb11973c3so470439a91.3
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:39:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794983974; x=1795588774; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794983978; x=1795588778; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=aoczeufkw3DOf+e+V7z0I3M4e1H07M0CJBQzemDHKiA=;
-        b=fraUT9mFHK9og4458A+ZbVxONdM9BrGJ9bX9Kp+OXfOb9NeYDjpjCoMbZ3cosjdsMn
-         txiPE7W0rSaEf6Rdy/FOVk+s5d/sQgGj6gQk10guHUGKBpu48l79tsHDhP0JZSV3loy1
-         o+U+vaM7FiIUxLHy8H203NdhjTNa/PwgWsZmYJsGI6EFuy5C3kevAHOPznWFUWQRiH2U
-         51eUSNNAAZGU6Iv/R/NaaPS3WRRIkms3+8XzRq2W3VRPdRnJ1VKrsqVELlStAw4b7Qm4
-         WS2QFQgW5GrAXtfKCa3TcnSRclBlAspk+NpBzi+1QhTcpWQ14Kg2VjF8Egcy/6bHgo2+
-         HPvQ==
+        bh=+hfYLfF1sqEj1++0abJ8h5Rbccp1+H1WdLqSrymE34I=;
+        b=CXgVIKtDMsvQvxV0CHP5wTmAFFaocxyvACMGDqqk2cOBwm4MwX/CdyAwq+VYBNb4fR
+         lpE+o90zrinxUZbEhMCRRbxdwfvu/duc9vRSikT5AohDp+600LRo+/49nGzC8ENkic++
+         IyanGeZjGHSo927oVr327tzz9HAtu8cKNNCjYpuvme0mOoILi9xqg9LeZbGOqNcigHAr
+         miWBwHVj/d3WsSZgyMpG/fjVStJ3KnA3nxwzY5HN9H1904ADsHIDRZrPDZ7+iqFpnpt9
+         X/abqZZeIOGsxzJLm78WgFKIqhM3jhm7Ln12cgASSJF3Kf2hmFEeNY/3ez5OJ8VnPdgv
+         4+YQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794983974; x=1795588774;
+        d=1e100.net; s=20260707; t=1794983978; x=1795588778;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=aoczeufkw3DOf+e+V7z0I3M4e1H07M0CJBQzemDHKiA=;
-        b=a95A7F1S92Ew3Id5qOQ7ta02l3cANBD4Vte7rdpkxtEMXQDSI3WVbjRa9PM4LVY7r/
-         LeTm3xId2CbF3fBeiuxlh+dQS2X2BIRpI8RaiGQSB5q9CS/ZgQWyXajkMa4wnlFAGsh4
-         A9iSNWZ1KCzLh11jO6og+c3wqMFcjWhWUrlYnQD5819XyMwpupYmD/c+nBJLAwwr26dc
-         QMDJlbsKb4YH3KGCkri0+wP1H8xUvFprsPQVv3MjRjbb0I1+0P0gyV75PIE1zJkKcmSn
-         t3v46aaqYTZTrOmFHozDdFGSyq3k+n91kG8caPz5XIMedDcdaVqy2wAsmRb1OAisa+Qb
-         +UwA==
-X-Forwarded-Encrypted: i=1; AL+hErHvEK5RBCwrrWBlngPIIyAYZtEl7HEYhFAlOtUsCx8CQLRUqM7jiAAZ+iv8h+np2ar608b3x7ITuA3CiWc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8FRYxnty/xGIqtCYuTH9teZoxb0bKim7bUd1DblwHFFCxVJ62k
-	PacaGvwR7R+JuzL0qMUMlrx7Bj2nYIwR9crHumZ+sWLiQ9oZrYlTU8q5B8kSxKxy7us=
-X-Gm-Gg: AZFdTZc+CnkPZ7CTvVdgDISBI4fTOj0a4baxX48q8MqV3sRHhHCDZicr+dFmGnxdIXn
-	bO4qBxAn1vth8EW4X8HjDFcnihSGuJ7YV+t9b7+Jd8gbbzFucQqgjWIext0lY6/DeFOL6Ayo6r5
-	ugHbrooJiSEs6uSSNX3uJKzgEcS1VQiSqJgzjfA8UcB7OkFapvJgrGseojguC+rBLZbfepd48zS
-	9ZMjOTLehPCZPvqOF3N8eplDJtXO4iiJAATx58JvaoWBgCJgwPfWEH2O3FM8hHhIVA3nbBb2q27
-	niGTV4H2gnUnTnAo+dAewwYdcwYF6tEQS7RuHYgnBtVcniJ69jgF75a5pNGxO0UdaaRzX773lAX
-	Ow82lq/fu2hGE2yGd1jCnrQ/ZBifFNzF8TFLsqoN+V3PYak8sSsqi7pDGjJFiV51d+qOEL69WcI
-	t/lujrPSHWp8/v8J+4wez9NIF9v0WO3U3xsuyrbzzVLVYuBMnJtL6Q1x+snemKxyJ0nLIchLiNg
-	n0T+EBX8Hhn4nSOpoKPII1pCzHAEveeot4bV3fkWcCkn1YQGdXFyH31hkARLkmXotqYDMynBimi
-	AqqnqMKys8c+ndTr4RKaRmRswIVVo+KOh58nEvvkLrkSjD0cL/bLvj63Rz2eoPaS7U2v6/nyF9O
-	kbZuxYJR71fgVCIrGuWJksM46sSCn58aKPKF4LsI4RvR2DqYGHQ3V
-X-Received: by 2002:a17:90a:d445:b0:3a7:ef4:164b with SMTP id 98e67ed59e1d1-3b3d06873d0mr1539328a91.2.1794983973868;
-        Tue, 17 Nov 2026 22:39:33 -0800 (PST)
+        bh=+hfYLfF1sqEj1++0abJ8h5Rbccp1+H1WdLqSrymE34I=;
+        b=qWdRYgDR9o50EFskN+Fr6YzXGb391YvZ7r1co1BrLC7llYBvkbtnW8go6fYk9J7xFm
+         JZ43i908601S7347jDMDn9VtGxVovJCNJDa/kkfGTpJysAlVIpdSG04qPdD5BtNJ1f/9
+         RT4gUYTiyK1vx5X53hzHpVV5u/1HOCuPCCWGgszUyB6SBlA3YtgxU7QKDEjTKHxwPjpS
+         DEi3ur7HI8xIff3pS9XAtkxxG1pVWtQfBzR0UqOgHX7ghV+VDhbke/872cNohulvB3uf
+         LtJSgzG+nCa6Y9lx9+C+NF7KNVIyqqoKJppSc0cHSASVypBH6+xbQAYdf3f1PQpTOSeI
+         lU7g==
+X-Forwarded-Encrypted: i=1; AL+hErGb6l5se/NHtQvtFjipP+yG96lv44gq7H4QK3pu/f+Lnyo1cNUYEFgby+CsRz6CaYHdDxoY2sE3CNhyjic=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/tqm4J0jwdJ6XM3p2VOBX/fa4mDJm9NDBsjeMhcnYXs3zo9hYK
+	8GKynt20LKJ9EL7aEsH0z9j3H1ApccyaIrWrk7nEEU7qPxUYI+ZN6AFH
+X-Gm-Gg: AZFdTZfNT7tMqlK5imqtwAtZEMtSa/4YieH/jEcxnnXmvVvw7NXk36DuC6fGaPUpMlF
+	Jh6QRi982h+T121QIgZmoYGJUlHA/MeXW1Kx1fg+WftGd7c9z+6c7aGHstiHiyWFwyrIkLLf1z5
+	gac8m0ZgCGJ/UEgGBG1Ze+DSw8vg70ILCm4c3GuRuR1ZlW6LZTkR78BbGr9MI1QFkjB0IfWBhbr
+	Fwf5ukJicSEkgmL4cuyA44mcoziS4LDANZJVendZc62pu8ua1RrGUrakPpZfKR7KPY27vVin246
+	kDGF0OUy2gJM6ySNCryE/F9R3dyVDth8mTrbYThkfCKIGHDxunVP3gW6RXGk01IKTuXh5a3mHxG
+	52Ou1rLVa5HZJxFh00oihCG/3t1aBGHGA6XfBh1ztvxoMKIOQdRSzeHneGvzGOtCWXYNcaUuc/d
+	pZ69RQDDK7X5/Aq79+a7ROOB7Wsd2qi19Aj1Ki1/G0de/k9jZ0pGkYrl4lRDk3p6fvcmf/zr4Sl
+	9XDRN5DN4Ifz5Q1x+3+Mza0sitJ6UFJgcKC15U4PcQKZX/4VEIusWSA1wxavyXzu6fUaLnwbt7K
+	wQCk7WUb4zYK6a9Gl3YvUtpBNtAFoqtNQkTDmXyqhBksvrIE0Vn4chraYRflwv7i3JP41Td3Iij
+	YBRW60W8DSfmpj4Ly6OY9F95mNiVS/70ORZETAV0A862QIiaglGd54Q==
+X-Received: by 2002:a17:90b:1b0e:b0:3b1:3598:f881 with SMTP id 98e67ed59e1d1-3b3d07c9e3dmr2047240a91.53.1794983977826;
+        Tue, 17 Nov 2026 22:39:37 -0800 (PST)
 Received: from LDYT9Q2G2M.pvgl.sap.corp ([104.28.235.58])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d1c03e04sm2562322a91.15.2026.11.17.22.39.29
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d1c03e04sm2562322a91.15.2026.11.17.22.39.34
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 17 Nov 2026 22:39:33 -0800 (PST)
+        Tue, 17 Nov 2026 22:39:37 -0800 (PST)
 From: Zhiqi Zhang <zhiqizhangg@gmail.com>
 To: netdev@vger.kernel.org
 Cc: jhs@mojatatu.com,
@@ -91,11 +91,10 @@ Cc: jhs@mojatatu.com,
 	shuah@kernel.org,
 	koen.de_schepper@nokia-bell-labs.com,
 	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH net 1/2] net/sched: dualpi2: refresh head timestamps after trimming
-Date: Wed, 18 Nov 2026 14:39:21 +0800
-Message-ID: <20261118143500.dualpi2.1.543a9a1be910-zhiqizhangg@gmail.com>
+	linux-kselftest@vger.kernel.org
+Subject: [PATCH net 2/2] selftests: net: check DualPI2 head timestamps after trimming
+Date: Wed, 18 Nov 2026 14:39:22 +0800
+Message-ID: <20261118143500.dualpi2.2.543a9a1be910-zhiqizhangg@gmail.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20261118143500.dualpi2.0.543a9a1be910-zhiqizhangg@gmail.com>
 References: <20261118143500.dualpi2.0.543a9a1be910-zhiqizhangg@gmail.com>
@@ -110,59 +109,753 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Reducing limit or memory_limit in dualpi2_change() removes packets with
-qdisc_dequeue_internal(), bypassing the timestamp refresh performed by
-dequeue_packet(). The cached c_head_ts and l_head_ts can therefore refer
-to a packet that has already been removed. If a queue is drained, its
-timestamp remains nonzero.
+Add regression checks for the queue-head timestamps cached by DualPI2
+when a configuration change trims packets. Exercise complete and partial
+memory-limit trimming and partial packet-limit trimming for C and L,
+mixed queues, and a change which drains C while retaining L. Also check
+normal dequeue and a configuration change that does not trim packets.
 
-get_queue_delays() continues reporting an increasing delay for the empty
-queue, and calculate_probability() uses that delay as input to the PI2
-controller. Partially trimmed queues also report the delay of the old
-head instead of the retained head.
+Use an isolated namespace and a dummy interface shaped by HFSC ls/ul
+curves. This holds ordinary AF_PACKET frames without peeking into the
+child qdisc. A small helper sends frames and obtains DualPI2 statistics
+through RTM_GETQDISC. Monotonic send and sampling bounds identify the
+retained queue head, including when its enqueue time differs from the
+removed head.
 
-Refresh both cached timestamps from the internal queue heads after the
-trim loop, while still holding the qdisc tree lock. head_enqueue_time()
-returns zero when the corresponding queue is empty.
+Build the helper through TEST_GEN_FILES using the kernel UAPI headers,
+use the shared net selftest helpers, and include the required scheduler
+config options. Associate the new files with the TC maintainers.
 
-I identified this issue and reviewed the fix. I used OpenAI Codex for
-root-cause analysis, drafting the fix and this changelog, and assistance
-with regression-test development. Codex also performed automated
-validation; the archived results are described below.
+I developed and tested these regression checks with OpenAI Codex
+assisting with the initial test code and this changelog. I reviewed the
+contribution. Codex also ran the archived automated before/after
+validation described in the cover letter.
 
-I reproduced the issue using Codex-assisted automated tests on an
-unmodified arm64 net-tree kernel in QEMU, with real AF_PACKET traffic
-in an isolated network namespace and HFSC ls/ul shaping to retain
-packets. No source changes or fault injection were
-used to trigger the bug. The companion kernel selftest covers C/L
-dequeue, full and partial trimming, mixed queues and no-trim changes:
-the baseline passes three controls and fails eight trimming checks;
-the fixed kernel passes all 11. Runtime coverage is this DualPI2 selftest
-on arm64. I also used Codex to build arm64 Images and compile the modified
-object with W=1; additional build coverage is in the cover letter.
-
-Fixes: 8f9516daedd6 ("sched: Add enqueue/dequeue of dualpi2 qdisc")
-Cc: stable@vger.kernel.org
 Signed-off-by: Zhiqi Zhang <zhiqizhangg@gmail.com>
 ---
- net/sched/sch_dualpi2.c | 2 ++
- 1 file changed, 2 insertions(+)
+ MAINTAINERS                                 |   1 +
+ tools/testing/selftests/net/Makefile        |   2 +
+ tools/testing/selftests/net/config          |   2 +
+ tools/testing/selftests/net/dualpi2_head.c  | 304 +++++++++++++++++
+ tools/testing/selftests/net/dualpi2_head.sh | 350 ++++++++++++++++++++
+ 5 files changed, 659 insertions(+)
+ create mode 100644 tools/testing/selftests/net/dualpi2_head.c
+ create mode 100755 tools/testing/selftests/net/dualpi2_head.sh
 
-diff --git a/net/sched/sch_dualpi2.c b/net/sched/sch_dualpi2.c
-index 4947def7c4..79eba7209e 100644
---- a/net/sched/sch_dualpi2.c
-+++ b/net/sched/sch_dualpi2.c
-@@ -938,6 +938,8 @@ static int dualpi2_change(struct Qdisc *sch, struct nlattr *opt,
- 			break;
- 		}
- 	}
-+	WRITE_ONCE(q->c_head_ts, head_enqueue_time(sch));
-+	WRITE_ONCE(q->l_head_ts, head_enqueue_time(q->l_queue));
- 	qdisc_tree_reduce_backlog(sch, old_qlen - qdisc_qlen(sch),
- 				  old_backlog - sch->qstats.backlog);
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 66e609de66..fc869d0ec6 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -27407,6 +27407,7 @@ F:	include/uapi/linux/pkt_sched.h
+ F:	include/uapi/linux/tc_act/
+ F:	include/uapi/linux/tc_ematch/
+ F:	net/sched/
++F:	tools/testing/selftests/net/dualpi2_head.*
+ F:	tools/testing/selftests/tc-testing
  
-
-base-commit: 2a324a58a084c5cfd7e5a2f55e0786bee170a4a5
+ TC90522 MEDIA DRIVER
+diff --git a/tools/testing/selftests/net/Makefile b/tools/testing/selftests/net/Makefile
+index baea3e7f0f..b54dcaf47b 100644
+--- a/tools/testing/selftests/net/Makefile
++++ b/tools/testing/selftests/net/Makefile
+@@ -28,6 +28,7 @@ TEST_PROGS := \
+ 	cork_fragsize.py \
+ 	double_udp_encap.sh \
+ 	drop_monitor_tests.sh \
++	dualpi2_head.sh \
+ 	ecmp_rehash.sh \
+ 	exception_cache.sh \
+ 	fcnal-ipv4.sh \
+@@ -148,6 +149,7 @@ TEST_PROGS_EXTENDED := \
+ TEST_GEN_FILES := \
+ 	bind_bhash \
+ 	cmsg_sender \
++	dualpi2_head \
+ 	fin_ack_lat \
+ 	hwtstamp_config \
+ 	io_uring_zerocopy_tx \
+diff --git a/tools/testing/selftests/net/config b/tools/testing/selftests/net/config
+index 3e7ce41bd6..54e4adc218 100644
+--- a/tools/testing/selftests/net/config
++++ b/tools/testing/selftests/net/config
+@@ -101,9 +101,11 @@ CONFIG_NET_L3_MASTER_DEV=y
+ CONFIG_NET_NS=y
+ CONFIG_NET_NSH=m
+ CONFIG_NET_PKTGEN=m
++CONFIG_NET_SCH_DUALPI2=m
+ CONFIG_NET_SCH_ETF=m
+ CONFIG_NET_SCH_FQ=m
+ CONFIG_NET_SCH_FQ_CODEL=m
++CONFIG_NET_SCH_HFSC=m
+ CONFIG_NET_SCH_HTB=m
+ CONFIG_NET_SCH_INGRESS=m
+ CONFIG_NET_SCH_NETEM=y
+diff --git a/tools/testing/selftests/net/dualpi2_head.c b/tools/testing/selftests/net/dualpi2_head.c
+new file mode 100644
+index 0000000000..aafe0c95ff
+--- /dev/null
++++ b/tools/testing/selftests/net/dualpi2_head.c
+@@ -0,0 +1,304 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/* Send frames through DualPI2 and sample its queue statistics. */
++#define _POSIX_C_SOURCE 200809L
++#include <arpa/inet.h>
++#include <errno.h>
++#include <inttypes.h>
++#include <linux/if_ether.h>
++#include <linux/if_packet.h>
++#include <linux/pkt_sched.h>
++#include <linux/rtnetlink.h>
++#include <net/if.h>
++#include <stdbool.h>
++#include <stdint.h>
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++#include <sys/socket.h>
++#include <sys/time.h>
++#include <time.h>
++#include <unistd.h>
++
++static uint64_t now_us(void)
++{
++	struct timespec ts;
++
++	if (clock_gettime(CLOCK_MONOTONIC, &ts)) {
++		perror("clock_gettime");
++		exit(1);
++	}
++	return (uint64_t)ts.tv_sec * 1000000 + ts.tv_nsec / 1000;
++}
++
++static unsigned long parse_ulong(const char *s, unsigned long min, unsigned long max)
++{
++	unsigned long n;
++	char *end;
++
++	errno = 0;
++	n = strtoul(s, &end, 10);
++	if (errno || !*s || *end || n < min || n > max) {
++		fprintf(stderr, "invalid number: %s\n", s);
++		exit(2);
++	}
++	return n;
++}
++
++static void put_be16(unsigned char *p, unsigned int value)
++{
++	p[0] = value >> 8;
++	p[1] = value & 255;
++}
++
++static void ip_checksum(unsigned char *ip)
++{
++	unsigned int sum = 0;
++	unsigned int i;
++
++	ip[10] = 0;
++	ip[11] = 0;
++	for (i = 0; i < 20; i += 2)
++		sum += ((unsigned int)ip[i] << 8) | ip[i + 1];
++	while (sum >> 16)
++		sum = (sum & 65535) + (sum >> 16);
++	put_be16(ip + 10, ~sum & 65535);
++}
++
++static int read_stats(const char *dev)
++{
++	struct {
++		struct nlmsghdr n;
++		struct tcmsg t;
++	} req = {
++		.n.nlmsg_len = NLMSG_LENGTH(sizeof(struct tcmsg)),
++		.n.nlmsg_type = RTM_GETQDISC,
++		.n.nlmsg_flags = NLM_F_REQUEST | NLM_F_DUMP,
++		.n.nlmsg_seq = 1,
++		.t.tcm_family = AF_UNSPEC,
++	};
++	struct sockaddr_nl kernel = { .nl_family = AF_NETLINK };
++	struct timeval timeout = { .tv_sec = 5 };
++	union {
++		struct nlmsghdr align;
++		unsigned char data[16384];
++	} buf;
++	struct tc_dualpi2_xstats app;
++	struct tc_stats stats;
++	uint64_t start, end;
++	struct sockaddr_nl peer;
++	struct iovec iov;
++	struct msghdr msg;
++	struct nlmsghdr *n;
++	struct rtattr *a;
++	struct tcmsg *t;
++	bool have_app, have_stats, is_dualpi2;
++	ssize_t received;
++	unsigned int len;
++	int fd, alen;
++
++	req.t.tcm_ifindex = if_nametoindex(dev);
++	if (!req.t.tcm_ifindex) {
++		perror("if_nametoindex");
++		return 1;
++	}
++	fd = socket(AF_NETLINK, SOCK_RAW, NETLINK_ROUTE);
++	if (fd < 0) {
++		perror("socket(NETLINK_ROUTE)");
++		return 1;
++	}
++	if (setsockopt(fd, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout)))
++		goto error;
++	start = now_us();
++	if (sendto(fd, &req, req.n.nlmsg_len, 0,
++		   (struct sockaddr *)&kernel, sizeof(kernel)) < 0)
++		goto error;
++	for (;;) {
++		iov = (struct iovec) { .iov_base = buf.data, .iov_len = sizeof(buf.data) };
++		msg = (struct msghdr) {
++			.msg_name = &peer,
++			.msg_namelen = sizeof(peer),
++			.msg_iov = &iov,
++			.msg_iovlen = 1,
++		};
++		received = recvmsg(fd, &msg, 0);
++		end = now_us();
++		if (received < 0) {
++			if (errno == EINTR)
++				continue;
++			goto error;
++		}
++		if (!received || msg.msg_flags & MSG_TRUNC) {
++			errno = EMSGSIZE;
++			goto error;
++		}
++		if (peer.nl_pid)
++			continue;
++		len = received;
++		for (n = (struct nlmsghdr *)buf.data; NLMSG_OK(n, len);
++		     n = NLMSG_NEXT(n, len)) {
++			if (n->nlmsg_seq != req.n.nlmsg_seq)
++				continue;
++			if (n->nlmsg_flags & NLM_F_DUMP_INTR) {
++				errno = EAGAIN;
++				goto error;
++			}
++			if (n->nlmsg_type == NLMSG_DONE) {
++				errno = ENOENT;
++				goto error;
++			}
++			if (n->nlmsg_type == NLMSG_ERROR) {
++				struct nlmsgerr *err;
++
++				if (n->nlmsg_len < NLMSG_LENGTH(sizeof(*err))) {
++					errno = EPROTO;
++					goto error;
++				}
++				err = NLMSG_DATA(n);
++				if (!err->error)
++					continue;
++				errno = -err->error;
++				goto error;
++			}
++			if (n->nlmsg_type != RTM_NEWQDISC ||
++			    n->nlmsg_len < NLMSG_LENGTH(sizeof(*t)))
++				continue;
++			t = NLMSG_DATA(n);
++			if (t->tcm_ifindex != req.t.tcm_ifindex ||
++			    t->tcm_handle != TC_H_MAKE(0x10 << 16, 0))
++				continue;
++			have_app = false;
++			have_stats = false;
++			is_dualpi2 = false;
++			alen = n->nlmsg_len - NLMSG_LENGTH(sizeof(*t));
++			for (a = TCA_RTA(t); RTA_OK(a, alen); a = RTA_NEXT(a, alen)) {
++				if ((a->rta_type & NLA_TYPE_MASK) == TCA_KIND &&
++				    RTA_PAYLOAD(a) == sizeof("dualpi2") &&
++				    !memcmp(RTA_DATA(a), "dualpi2", sizeof("dualpi2")))
++					is_dualpi2 = true;
++				if ((a->rta_type & NLA_TYPE_MASK) == TCA_STATS &&
++				    RTA_PAYLOAD(a) >= sizeof(stats)) {
++					memcpy(&stats, RTA_DATA(a), sizeof(stats));
++					have_stats = true;
++				}
++				if ((a->rta_type & NLA_TYPE_MASK) == TCA_XSTATS &&
++				    RTA_PAYLOAD(a) >= sizeof(app)) {
++					memcpy(&app, RTA_DATA(a), sizeof(app));
++					have_app = true;
++				}
++			}
++			if (!is_dualpi2 || !have_stats || !have_app) {
++				errno = EPROTO;
++				goto error;
++			}
++			printf("%u %u %u %u %u %u %u %" PRIu64 " %" PRIu64 "\n",
++			       stats.qlen, app.memory_used, app.delay_c, app.delay_l,
++			       app.packets_in_c, app.packets_in_l, app.prob, start, end);
++			close(fd);
++			return 0;
++		}
++		if (len) {
++			errno = EPROTO;
++			goto error;
++		}
++	}
++error:
++	perror("RTM_GETQDISC");
++	close(fd);
++	return 1;
++}
++
++int main(int argc, char **argv)
++{
++	unsigned char frame[ETH_FRAME_LEN];
++	struct sockaddr_ll addr = { 0 };
++	unsigned char *ip = frame + ETH_HLEN;
++	unsigned char *udp = ip + 20;
++	uint64_t first, last;
++	unsigned int index;
++	unsigned long ecn, count, len, i;
++	int fd, saved_errno;
++	ssize_t ret;
++
++	if (argc == 3 && !strcmp(argv[1], "--stats"))
++		return read_stats(argv[2]);
++	if (argc == 2 && !strcmp(argv[1], "--now")) {
++		printf("%" PRIu64 "\n", now_us());
++		return 0;
++	}
++	if (argc != 4 && argc != 5) {
++		fprintf(stderr, "usage: %s DEVICE ECN COUNT [FRAME_BYTES]\n",
++			argv[0]);
++		fprintf(stderr, "       %s --now\n", argv[0]);
++		fprintf(stderr, "       %s --stats DEVICE\n", argv[0]);
++		return 2;
++	}
++	ecn = parse_ulong(argv[2], 0, 3);
++	count = parse_ulong(argv[3], 1, 10000);
++	len = argc == 5 ? parse_ulong(argv[4], 64, ETH_FRAME_LEN) : 1024;
++	index = if_nametoindex(argv[1]);
++	if (!index) {
++		perror("if_nametoindex");
++		return 1;
++	}
++	fd = socket(AF_PACKET, SOCK_RAW, htons(ETH_P_IP));
++	if (fd < 0) {
++		saved_errno = errno;
++		perror("socket(AF_PACKET)");
++		return saved_errno == EPERM || saved_errno == EACCES ? 4 : 1;
++	}
++	addr.sll_family = AF_PACKET;
++	addr.sll_protocol = htons(ETH_P_IP);
++	addr.sll_ifindex = index;
++	addr.sll_halen = ETH_ALEN;
++	addr.sll_addr[0] = 2;
++	addr.sll_addr[5] = 2;
++	if (bind(fd, (struct sockaddr *)&addr, sizeof(addr))) {
++		perror("bind(AF_PACKET)");
++		close(fd);
++		return 1;
++	}
++	memset(frame, 0, sizeof(frame));
++	frame[0] = 2;
++	frame[5] = 2;
++	frame[6] = 2;
++	frame[11] = 1;
++	put_be16(frame + 12, ETH_P_IP);
++	ip[0] = 0x45;
++	ip[1] = ecn;
++	put_be16(ip + 2, len - ETH_HLEN);
++	ip[8] = 64;
++	ip[9] = IPPROTO_UDP;
++	ip[12] = 192;
++	ip[14] = 2;
++	ip[15] = 1;
++	ip[16] = 192;
++	ip[18] = 2;
++	ip[19] = 2;
++	put_be16(udp, 4242);
++	put_be16(udp + 2, 4243);
++	put_be16(udp + 4, len - ETH_HLEN - 20);
++	memset(udp + 8, 0x5a, len - ETH_HLEN - 28);
++
++	/* Kernel enqueue timestamps lie between these userspace bounds. */
++	first = now_us();
++	for (i = 0; i < count; i++) {
++		put_be16(ip + 4, i);
++		ip_checksum(ip);
++		do {
++			ret = sendto(fd, frame, len, 0,
++				     (struct sockaddr *)&addr, sizeof(addr));
++		} while (ret < 0 && errno == EINTR);
++		if (ret != (ssize_t)len) {
++			if (ret < 0)
++				perror("sendto(AF_PACKET)");
++			else
++				fprintf(stderr, "short packet send: %zd\n", ret);
++			close(fd);
++			return 1;
++		}
++	}
++	last = now_us();
++	close(fd);
++	printf("%" PRIu64 " %" PRIu64 "\n", first, last);
++	return 0;
++}
+diff --git a/tools/testing/selftests/net/dualpi2_head.sh b/tools/testing/selftests/net/dualpi2_head.sh
+new file mode 100755
+index 0000000000..7dc6c70513
+--- /dev/null
++++ b/tools/testing/selftests/net/dualpi2_head.sh
+@@ -0,0 +1,350 @@
++#!/bin/bash
++# SPDX-License-Identifier: GPL-2.0-only
++# Check DualPI2 head timestamps after changing queue limits.
++# HFSC with only ls/ul curves holds packets without peeking into DualPI2.
++# This avoids exercising the separate peeked-packet memory accounting path.
++
++source "$(dirname "$(readlink -e "$0")")/lib.sh"
++
++ALL_TESTS="
++	c_dequeue
++	l_dequeue
++	c_empty_trim
++	l_empty_trim
++	c_memory_trim
++	l_memory_trim
++	c_packet_trim
++	l_packet_trim
++	mixed_empty_trim
++	mixed_partial_trim
++	no_trim_change
++"
++
++TC=$(printenv TC || echo tc)
++SENDER="$net_dir/dualpi2_head"
++ns=
++FAIL_REASON=
++
++skip()
++{
++	echo "SKIP: $*"
++	exit "$ksft_skip"
++}
++
++cleanup()
++{
++	cleanup_all_ns
++}
++
++in_ns()
++{
++	ip netns exec "$ns" "$@"
++}
++
++tc_ns()
++{
++	in_ns "$TC" "$@"
++}
++
++fail()
++{
++	FAIL_REASON="$*"
++	return 1
++}
++
++setup_queue()
++{
++	local mode=$1
++
++	tc_ns qdisc del dev dummy0 root >/dev/null 2>&1 || true
++	if [[ $mode == slow ]]; then
++		tc_ns qdisc add dev dummy0 root handle 1: hfsc default 1 || return 1
++		tc_ns class add dev dummy0 parent 1: classid 1:1 \
++			hfsc ls m2 8bit ul m2 8bit || return 1
++		tc_ns qdisc add dev dummy0 parent 1:1 handle 10: dualpi2 \
++			limit 1000 memlimit 1048576 target 60s no_split_gso || return 1
++	else
++		tc_ns qdisc add dev dummy0 root handle 10: dualpi2 \
++			limit 1000 memlimit 1048576 target 60s no_split_gso || return 1
++	fi
++}
++
++send_frames()
++{
++	local bounds
++
++	bounds=$(in_ns "$SENDER" dummy0 "$1" "$2" 1024) ||
++		{ fail "packet sender failed"; return 1; }
++	read -r SEND_START SEND_END <<< "$bounds"
++	[[ $SEND_START =~ ^[0-9]+$ && $SEND_END =~ ^[0-9]+$ ]] ||
++		{ fail "invalid sender timestamps"; return 1; }
++}
++
++snapshot()
++{
++	local stats value
++
++	stats=$(in_ns "$SENDER" --stats dummy0) ||
++		{ fail "cannot read DualPI2 statistics"; return 1; }
++	read -r QLEN MEMORY DELAY_C DELAY_L PKTS_C PKTS_L PROB \
++		READ_START READ_END <<< "$stats"
++	for value in $stats; do
++		[[ $value =~ ^[0-9]+$ ]] ||
++			{ fail "invalid numeric statistics"; return 1; }
++	done
++	[[ -n $READ_END ]] || { fail "incomplete statistics"; return 1; }
++	echo "# qlen=$QLEN memory=$MEMORY delays=$DELAY_C/$DELAY_L prob=$PROB"
++}
++
++check_counts()
++{
++	local ecn=$1 expected=$2
++
++	if (( ecn == 0 )); then
++		(( PKTS_C == expected && PKTS_L == 0 )) ||
++			{ fail "expected C/L counts $expected/0, got $PKTS_C/$PKTS_L"; return 1; }
++	else
++		(( PKTS_C == 0 && PKTS_L == expected )) ||
++			{ fail "expected C/L counts 0/$expected, got $PKTS_C/$PKTS_L"; return 1; }
++	fi
++}
++
++check_empty()
++{
++	(( QLEN == 0 && MEMORY == 0 && DELAY_C == 0 && DELAY_L == 0 )) ||
++		{ fail "empty queue: qlen=$QLEN memory=$MEMORY delays=$DELAY_C/$DELAY_L"
++		  return 1; }
++}
++
++wait_empty()
++{
++	local deadline now
++
++	deadline=$(( $("$SENDER" --now) + 1000000 ))
++	while :; do
++		snapshot || return 1
++		if (( QLEN == 0 )); then
++			check_empty
++			return $?
++		fi
++		now=$("$SENDER" --now) || return 1
++		(( now < deadline )) || { fail "queue did not drain within 1s"; return 1; }
++		sleep 0.01
++	done
++}
++
++prime_slow_queue()
++{
++	local ecn=$1
++
++	setup_queue slow || { fail "HFSC fixture setup failed"; return 1; }
++	# The first frame transmits; the ul curve holds the next for about 1000s.
++	send_frames "$ecn" 1 || return 1
++	wait_empty || return 1
++	check_counts "$ecn" 1 || return 1
++}
++
++normal_dequeue()
++{
++	local ecn=$1
++
++	setup_queue normal || { fail "DualPI2 setup failed"; return 1; }
++	send_frames "$ecn" 4 || return 1
++	wait_empty || return 1
++	check_counts "$ecn" 4 || return 1
++}
++
++full_trim()
++{
++	local ecn=$1 delay immediate_ok=1 immediate_reason
++
++	prime_slow_queue "$ecn" || return 1
++	send_frames "$ecn" 8 || return 1
++	sleep 0.2
++	snapshot || return 1
++	check_counts "$ecn" 9 || return 1
++	delay=$DELAY_C
++	(( ecn != 0 )) && delay=$DELAY_L
++	(( QLEN == 8 && MEMORY > 0 && delay >= 150000 )) ||
++		{ fail "fixture did not retain eight aged packets"; return 1; }
++	tc_ns qdisc change dev dummy0 parent 1:1 handle 10: dualpi2 memlimit 1 ||
++		{ fail "memory limit change failed"; return 1; }
++	snapshot || return 1
++	if ! check_empty; then
++		immediate_ok=0
++		immediate_reason=$FAIL_REASON
++	fi
++	sleep 0.2
++	snapshot || return 1
++	check_empty || return 1
++	check_counts "$ecn" 9 || return 1
++	(( immediate_ok )) || { fail "$immediate_reason"; return 1; }
++}
++
++check_head_delay()
++{
++	local ecn=$1 start=$2 end=$3 low high delay
++
++	(( READ_END >= READ_START && READ_END - READ_START < 100000 )) ||
++		{ fail "statistics observation exceeded 100ms"; return 1; }
++	# Both kernel enqueue and xstats sampling use CLOCK_MONOTONIC.
++	# Allow 2ms around the userspace bounds. Callers age retained packets
++	# for at least 20ms, so resetting a nonempty queue timestamp cannot pass.
++	low=$(( READ_START - end - 2000 ))
++	high=$(( READ_END - start + 2000 ))
++	(( low > 0 )) || { fail "retained packets were not aged enough"; return 1; }
++	delay=$DELAY_C
++	(( ecn != 0 )) && delay=$DELAY_L
++	echo "# expected head delay $low..$high us; observed $delay us"
++	(( delay >= low && delay <= high )) ||
++		{ fail "head delay $delay outside enqueue bounds $low..$high"; return 1; }
++}
++
++partial_trim()
++{
++	local ecn=$1 trim_kind=$2 start end budget
++
++	prime_slow_queue "$ecn" || return 1
++	send_frames "$ecn" 6 || return 1
++	sleep 0.2
++	send_frames "$ecn" 4 || return 1
++	start=$SEND_START
++	end=$SEND_END
++	snapshot || return 1
++	check_counts "$ecn" 11 || return 1
++	(( QLEN == 10 && MEMORY > 0 && MEMORY % 10 == 0 )) ||
++		{ fail "fixture did not retain ten equal-sized packets"; return 1; }
++	budget=$(( MEMORY / 10 * 4 ))
++	if [[ $trim_kind == memory ]]; then
++		tc_ns qdisc change dev dummy0 parent 1:1 handle 10: dualpi2 \
++			memlimit "$budget" || { fail "memory trim failed"; return 1; }
++	else
++		# Explicit memlimit avoids the automatic cap derived from limit.
++		tc_ns qdisc change dev dummy0 parent 1:1 handle 10: dualpi2 \
++			limit 4 memlimit 1048576 || { fail "packet trim failed"; return 1; }
++	fi
++	sleep 0.02
++	snapshot || return 1
++	(( QLEN == 4 && MEMORY == budget )) ||
++		{ fail "trim: qlen=$QLEN memory=$MEMORY expected memory=$budget"; return 1; }
++	check_head_delay "$ecn" "$start" "$end" || return 1
++	if (( ecn == 0 )); then
++		(( DELAY_L == 0 )) || { fail "unused L queue has delay"; return 1; }
++	else
++		(( DELAY_C == 0 )) || { fail "unused C queue has delay"; return 1; }
++	fi
++	check_counts "$ecn" 11 || return 1
++}
++
++mixed_trim()
++{
++	prime_slow_queue 0 || return 1
++	send_frames 0 4 || return 1
++	send_frames 1 4 || return 1
++	sleep 0.2
++	snapshot || return 1
++	(( QLEN == 8 && MEMORY > 0 && PKTS_C == 5 && PKTS_L == 4 &&
++	   DELAY_C >= 150000 && DELAY_L >= 150000 )) ||
++		{ fail "fixture did not retain mixed C/L packets"; return 1; }
++	tc_ns qdisc change dev dummy0 parent 1:1 handle 10: dualpi2 memlimit 1 ||
++		{ fail "mixed memory trim failed"; return 1; }
++	snapshot || return 1
++	check_empty || return 1
++	(( PKTS_C == 5 && PKTS_L == 4 )) || { fail "mixed counts changed"; return 1; }
++}
++
++mixed_partial()
++{
++	local start end budget
++
++	prime_slow_queue 0 || return 1
++	send_frames 0 4 || return 1
++	send_frames 1 4 || return 1
++	start=$SEND_START
++	end=$SEND_END
++	sleep 0.2
++	snapshot || return 1
++	(( QLEN == 8 && MEMORY > 0 && PKTS_C == 5 && PKTS_L == 4 )) ||
++		{ fail "fixture did not retain mixed C/L packets"; return 1; }
++	budget=$(( MEMORY / 2 ))
++	# The change path drains C first, retaining all four L packets.
++	tc_ns qdisc change dev dummy0 parent 1:1 handle 10: dualpi2 \
++		limit 4 memlimit 1048576 || { fail "mixed packet trim failed"; return 1; }
++	sleep 0.02
++	snapshot || return 1
++	(( QLEN == 4 && MEMORY == budget && DELAY_C == 0 &&
++	   PKTS_C == 5 && PKTS_L == 4 )) ||
++		{ fail "mixed trim did not drain C and retain L"; return 1; }
++	check_head_delay 1 "$start" "$end"
++}
++
++change_without_trim()
++{
++	local c_start c_end l_start l_end memory
++
++	prime_slow_queue 0 || return 1
++	send_frames 0 4 || return 1
++	c_start=$SEND_START
++	c_end=$SEND_END
++	send_frames 1 4 || return 1
++	l_start=$SEND_START
++	l_end=$SEND_END
++	snapshot || return 1
++	(( QLEN == 8 && MEMORY > 0 && PKTS_C == 5 && PKTS_L == 4 )) ||
++		{ fail "fixture did not retain mixed C/L packets"; return 1; }
++	memory=$MEMORY
++	tc_ns qdisc change dev dummy0 parent 1:1 handle 10: dualpi2 target 120s ||
++		{ fail "target change failed"; return 1; }
++	sleep 0.02
++	snapshot || return 1
++	(( QLEN == 8 && MEMORY == memory && PKTS_C == 5 && PKTS_L == 4 )) ||
++		{ fail "non-trimming change altered queue contents"; return 1; }
++	check_head_delay 0 "$c_start" "$c_end" || return 1
++	check_head_delay 1 "$l_start" "$l_end" || return 1
++}
++
++run_case()
++{
++	local label=$1
++	shift
++
++	RET=0
++	retmsg=
++	FAIL_REASON=
++	if ! "$@"; then
++		check_err 1 "$FAIL_REASON"
++	fi
++	log_test "$label"
++}
++
++c_dequeue() { run_case "C normal dequeue" normal_dequeue 0; }
++l_dequeue() { run_case "L normal dequeue" normal_dequeue 1; }
++c_empty_trim() { run_case "C trim to empty" full_trim 0; }
++l_empty_trim() { run_case "L trim to empty" full_trim 1; }
++c_memory_trim() { run_case "C partial memory trim" partial_trim 0 memory; }
++l_memory_trim() { run_case "L partial memory trim" partial_trim 1 memory; }
++c_packet_trim() { run_case "C partial packet trim" partial_trim 0 packets; }
++l_packet_trim() { run_case "L partial packet trim" partial_trim 1 packets; }
++mixed_empty_trim() { run_case "Mixed C/L trim to empty" mixed_trim; }
++mixed_partial_trim() { run_case "Mixed trim drains C and retains L" mixed_partial; }
++no_trim_change() { run_case "Change without trimming" change_without_trim; }
++
++[[ $(id -u) == 0 ]] || skip "requires root"
++require_command ip
++require_command "$TC"
++require_command "$SENDER"
++
++trap cleanup EXIT
++setup_ns ns || exit "$ksft_skip"
++
++# Prevent unsolicited IPv6 traffic when dummy0 is brought up. IPv6 is optional.
++in_ns sh -c '
++	p=/proc/sys/net/ipv6/conf/default/disable_ipv6
++	[ ! -e "$p" ] || echo 1 > "$p"
++' || exit "$ksft_fail"
++ip -n "$ns" link add dummy0 type dummy || skip "requires dummy interface support"
++ip -n "$ns" link set dummy0 up || exit "$ksft_fail"
++setup_queue slow || skip "requires HFSC, DualPI2 and tc DualPI2 support"
++
++tests_run
++exit "$EXIT_STATUS"
 -- 
 2.54.0 (Apple Git-157)
 
