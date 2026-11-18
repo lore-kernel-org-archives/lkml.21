@@ -1,109 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.195.23
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794998737;
-	b=28LbfVjlci953CBpQTHK+u7x2wVXyqidxrx86YdqKoDnb4OYnTdlHOCGntQgJmoFu0NV
-	 Tbjt5n3N8ixmVrVj5Y9+10PgZU7KyFOY3wRvZWvCwwNwFSh/j3ywtMsAMytXJf11Ty/9o
-	 FkS7QaW9zBYihoYq0lb8V4J/LJDezc6uoxXjWtNtDvSJf6CfjpMOs37KgaizUQZ1L9Wn0
-	 NAhW4fzODtvelNHGekbzZOX2ChQmRvsP3u8NddJ9+CCFO0637wRpMqSWp57GJ0NsVhkaO
-	 4v0Kl8ZttHlXBjO3jiPIZ2lN5Pc16qZJSIcJy8ktm+8nvSd8uO/rr7zU8GisyUsSYTQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794998737;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:Content-Type:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=7Yh7g6+ls0YXloQW4lcXcbUh9g1Cu6xfmR8M8g3ZcQM=;
-	b=tl4N+6hVRigSl0Ml5ycMQvdY6WZ9JlN9nKfsGiJlsSUxjJ2WqV5KAnaAmccpqKfbUsiI
-	 TCKokjTO5gU805WTzbKAWnyAFR3CxhCN893qT5kGnZsBjqREeFYKsKoqVjqFCNGFNR5IU
-	 zXeTU12P5AhIj8y59Y90jfgYy8faW4PiSS5XVx/8qOe+gQ3B4rmSBRVqjac0ZXoBrPtA5
-	 I/cHflyMbRe5aEX1zkIr0aMqbh7K8+fkUOexgw+/gEAhxk3lIY7ib8xwxt8RWJ5Wp1YU9
-	 KMXirrVPBNHir4+sYgN8wQkBx5RgkMh5EtHk+Kjl5/6AlP7zkZ8ysswxXa4BNmIfAFg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=bvRgvCKK;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.195.23
-Received: from SN4PR2101CU001.outbound.protection.outlook.com (mail-southcentralusazon11012023.outbound.protection.outlook.com [40.93.195.23])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.181
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794998744;
+	b=c+LBvSrSG6n1jSq4zRpK8W77meZQNcvPqbwLp8dFxzUE50qPVGK6f2rWQFFzNAD8Hxmb
+	 VLoen6hv5SMIME0Nqns5N600ZGNo7YRXRSpqW60hrdNNbiXPXx+pQSTxFYeTFkNYIZbvd
+	 hU7ayamtzSYzyIdPj5s0iDdaUGLOnXTO4ubZkQBfmNFZUkQvs+3cY9EjcMLUsYKXY9vZB
+	 p0eaQUfrrPgUmZqwUAgxih+hm5EdUzhXTGlL0uRCojOe4vRIK6FHhJ16I/0LTNLx2ll2U
+	 fcm/gcGqCooo64KOM4NdyrPAfn76ABKOtlrBqkpo8t8H7jz/0Xz7MUrLMOsxoZxLJJQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794998744;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=AiXntOOWWCJfb4TGuJ6oSSVg/cGdXJUJaojShUwh9+Q=;
+	b=0mAZcCdDt5bvaYyDl7XoCC5NqIknndK0I30pQNZ0Otbc7JGlTi+wEotVriJ5MkhNC7R2
+	 903Zli+H8IUcSM7RFv8tYYEhvQH7Cn3f1m4KAEr32h2WB+O1+qtNwS3NCrIXrWQd/U7lL
+	 TkZTYt2UchrmpZPOAZPuSDiIQhTPi2rBfWgXyOXfdB+Avr4SA0lWO7pZJgHC0zxC9qrO1
+	 3j/HSjKSlv0OsgWid8hs5ZCZXFZjWtRM8VWrrMIV8eseT7dqghZ9+LRWWzTX/N3LgArwB
+	 6xgkid7FjnO2DPlpNh1NCs6tFa01++HOC4bjmXihXml1EZm/lBzqMDftq6d5Mrh5RSA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JhHoGZx3;
+	arc=none smtp.remote-ip=74.125.82.181
+Received: from mail-dy1-f181.google.com (mail-dy1-f181.google.com [74.125.82.181])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5196A606A337;
-	Wed, 18 Nov 2026 10:45:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5196A606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82A62606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:45:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 82A62606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=bvRgvCKK
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Z0eMEDqQkaVZBy11tvJmyOWgyKGNKHM7TdwTm20x91wmg65J8D5FIvjGarsRDrAuPL6Eio2ihSpcFUUppCdwJApBD8goJdF1Aa4/A6ufPrzkuAgAsRw30+yIx3RtFEZ0eI2CIhXMImTM6yLzX3dwmnYKu7G/XLlrNsm0u7CCdJFj8u+avxohUMZ+tkXfa9DifyufTxwdMJuzXxe99NxyUa4MEsJCEFqMJBLF6z4VZw9zR7CJEqnh+MiOCh0iAGoH2c3qPk663G5PIDGKGpfQR0HTFp87ZZEutKFIT6ls4qa4P05Rb3a0ArA9a/6vP/oeL7GrzVVJqOjalbMyPFgfvQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7Yh7g6+ls0YXloQW4lcXcbUh9g1Cu6xfmR8M8g3ZcQM=;
- b=juQSGkPB9KivRTSw4BQLAaVULIb9uZ1gOf732pcbTvrdFMy+VMVop7KYV2QuZRyJRPrjGHy43SB3l/tB8olq7z3KzH+5VuF7PlV4FRqh+b3pklqugVR+AyHeOLfAahAufYbNOixKbMDsu/KNFure7seHpVqIyhVC5515HwsRPxkdLDoQQqMY0H7U94VMxwjFmpKZ1ZYxlqzy2vKm80nYKshBAhkOsaBSwP+oJ1J4oo2gADRjg6wStS8HHzljd9kqCAd+tD0vuy3gvQ97G2gWGHgprj1Bo23fbskNXKpl6exa/THmhvw3SEa/4lDNmOPViA6BOKEFJvhW3Qz79s/3PQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7Yh7g6+ls0YXloQW4lcXcbUh9g1Cu6xfmR8M8g3ZcQM=;
- b=bvRgvCKKhbqbtvUPAFBjeBlIbfF1bpgJQ5844NA7o3F+iUk+9QfEzlya65vbxDzaDnI8OWgf4Tk7k61T0cwJfKx2LjHk5M59DFs1hFx7ZvMuzYnfdC/kCjYdvPaBYA4n/Ij9Ar7IxB/yhqOYMFRrNOneU0JWLdSCQorevkzZ92Y=
-Received: from PH1PEPF00013314.namprd07.prod.outlook.com (2603:10b6:518:1::6)
- by MN2PR12MB4357.namprd12.prod.outlook.com (2603:10b6:208:262::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 10:45:32 +0000
-Received: from PH7PEPF0000000A.namprd04.prod.outlook.com
- (2a01:111:f403:c95d::5) by PH1PEPF00013314.outlook.office365.com
- (2603:1036:903:47::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.14 via Frontend Transport; Wed,
- 18 Nov 2026 10:45:32 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- PH7PEPF0000000A.mail.protection.outlook.com (10.167.243.41) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Wed, 18 Nov 2026 10:45:32 +0000
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
- 2026 04:45:31 -0600
-Received: from amd-System-Product-Name.amd.com (10.180.168.240) by
- satlexmb07.amd.com (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.57
- via Frontend Transport; Wed, 18 Nov 2026 04:45:28 -0600
-From: Vijendar Mukunda <Vijendar.Mukunda@amd.com>
-To: <vkoul@kernel.org>
-CC: <yung-chuan.liao@linux.intel.com>, <pierre-louis.bossart@linux.dev>,
-	<Basavaraj.Hiregoudar@amd.com>, <Sunil-kumar.Dommati@amd.com>,
-	<venkataprasad.potturu@amd.com>, <Syed.SabaKareem@amd.com>,
-	<Mario.Limonciello@amd.com>, <Richard.Gong@amd.com>, <Poojitha.N@amd.com>,
-	<lee@kernel.org>, <linux-sound@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Vijendar Mukunda <Vijendar.Mukunda@amd.com>
-Subject: [PATCH v7 04/23] soundwire: amd: track full pad teardown across suspend/resume
-Date: Wed, 18 Nov 2026 16:12:23 +0530
-Message-ID: <20261118104353.331556-5-Vijendar.Mukunda@amd.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JhHoGZx3
+Received: by mail-dy1-f181.google.com with SMTP id 5a478bee46e88-36a315ed211so664749eec.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:45:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794998743; x=1795603543; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=AiXntOOWWCJfb4TGuJ6oSSVg/cGdXJUJaojShUwh9+Q=;
+        b=JhHoGZx37+/5tKT3WzBQUpRpgtGpD23sl0PwUs2dAjeTw0boTHa7nxbxGiiO3oG8Se
+         I9x+BeyiZ4/igwRhoe1gHfstgfayg0y3IJ3ObCFWJLCK18igY6YJUkQH/dK9eB22yQZi
+         miXjQn3tPfylhk07UnLAYdcMvzGSGZmXC+TBV+NWElmWGVL+mQaEiEm/c6bjD2bVSU80
+         nPZbJAPgK8hksQbkKQHjivbqTcBTXY5DcBmuU5wopD/FHfH2aBI/85i5madrJ3PFpDfS
+         DrhenMUwGOUX4BJBTu9ARuTmLO4JDH+0QraTz3Ftx6aWE5cppkUQx8u7gytN56ZEw7zh
+         RKGQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794998743; x=1795603543;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=AiXntOOWWCJfb4TGuJ6oSSVg/cGdXJUJaojShUwh9+Q=;
+        b=AinZy0JM9klZxhnkslW2aM754nRvRykFjk1k3DBxWYQPlu5yIqdP10q74209DoBvup
+         e/SW0FE1+PGEUnolSfoDFqtpaok9FHIagnvv8jm5XjgB1/oRNTJskEUgPmIndvYruYUI
+         Qikqt5sVADx8547xnpq0itVI1JZP1mcNrn0eC9k1uAS50Mn4NSUYfTapl2XMKnsEwzvT
+         zzBLbZlTCfgmz4OBnnaEwORdIYCy2KR8LLrtphROj/N7jVJgqblzWu4c5eMeCtM4OkU4
+         BS5pSTQysDgKqYZ9rz6myNLbnygSpexWBr/Af7ys/fLckLaJXTp/Dz75CueNnUm6Bgra
+         BfJA==
+X-Forwarded-Encrypted: i=1; AL+hErGpIFoKjQeQwdtdKgkNyp6arUhSfezilSgexeky+MtkQAx5XWlHRtDETdwGIQvzkECLYbNATZXBqgvxlmM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z85TxZFHYrjlkNeOWi5hitnk6KZ/9DHTEd8BSH0JbhwsnrIpVj2
+	JdYToorQHuvjtvPqacbR3W4gSoORyDS7YR16ZNNXUy6ghHujgGxUYWHBjEw2j9sXKE0=
+X-Gm-Gg: AZFdTZc61dSnn23B/rE6WWPwnVxbDpbWHTV9Gg9gkr7nHy0IqULhZD0chCXPxQkfrXm
+	nbVup4xoi2nddCSEjHTcu0A5mAbvoD+nopsoSQ993WAwWB5LUoBXvxS3UMAAPrCBKkzhAtWXfhC
+	BZ+kC9RiUdCXoPcGBg1XmxHwxvC/8Tk5lgWjWIH/uS9hxdi/tF0mIVOfzH6JoZMoxZlEtSlBQY6
+	WKQSCxWn73rMGRqoJLsDXZmOIgWzkFMdSp8YN+OZrlRFhb7o9C56WK+8ehP10nQTp8KTqGDcnT0
+	Izc2iuyJcizB0yXN+si2Vh0AWtNVQu0c6Jtp4KXq5PLuy0cbl2rtTRwMx5xFWGx+aDzUPV2+MFR
+	5BdaRF4pV/2gh4bD88cQEi3ARIvhzKIc1nAtbvplIkTL5Ri/+Yn7wecSseEaSexT/ZINbXM4grc
+	ECnI4jXfoA5q6cWITO02ljbcnVWR7zJq2tfaq3dYVeLu6xeNC7InOQRiPjuSp5JH7/iGBUgIQL6
+	k+/I9mu/j5hTjVHoqg6PhJlaUuy68SU8HUVxQ5fnd138aPCmPTSRcm/LAtt2U5ehjkLk2a0sToJ
+	JpH2EkwGVex6hZzFVO0MIe2jYk82jQ5f1SrRqhz5MVeuTdtmx5T+1WXe/6vq4hoS7ngAxytkFwV
+	0XR59iJvAGdrBxPGVqMZHXYhu/C4nCYRI4TZ9klRNggUCDn199wl95vBiKbdBFQ20b9IJtHPe0h
+	QJQvGfG9T4E8PPTB6WO9+XzwIRpsK4EvJ0jEkuPG1GuPGVYzW/bTBhJrNUizCCNGI=
+X-Received: by 2002:a05:7300:e9c8:10b0:37a:15c:b8c5 with SMTP id 5a478bee46e88-3810bf52de9mr5393573eec.2.1794998743427;
+        Wed, 18 Nov 2026 02:45:43 -0800 (PST)
+Received: from kapoor.iiserb.ac.in ([203.18.51.239])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a6304efbsm11906478eec.7.2026.11.18.02.45.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 02:45:42 -0800 (PST)
+From: Arnav Kapoor <kapoorarnav43@gmail.com>
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: Mudit Sharma <muditsharma.info@gmail.com>,
+	Andy Shevchenko <andriy.shevchenko@intel.com>,
+	Matti Vaittinen <mazziesaccount@gmail.com>,
+	David Lechner <dlechner@baylibre.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Arnav Kapoor <kapoorarnav43@gmail.com>
+Subject: [PATCH v3] iio: light: bh1745: fix 16-bit register accesses
+Date: Wed, 18 Nov 2026 16:15:32 +0530
+Message-ID: <20261118104534.159876-1-kapoorarnav43@gmail.com>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261118104353.331556-1-Vijendar.Mukunda@amd.com>
-References: <20261118104353.331556-1-Vijendar.Mukunda@amd.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,110 +104,171 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PEPF0000000A:EE_|MN2PR12MB4357:EE_
-X-MS-Office365-Filtering-Correlation-Id: 596b236d-2721-47cd-1be9-08df45611207
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|36860700016|1800799024|82310400026|376014|23010399003|22082099003|18002099003|261009223027099003|11063799006|56012099006|261026140227099003|261026121527099003|261021121427099003|261022075727099003|261021123027099003|261022105027099003|261028144727099003|261102123227099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	xd0hCAD+cJWGXznzspgS4hjBGDnbOABd73cYoaPeUjLh98awurgBMINyQf6HIx4klGJ1AZu1nZW4NacU79xcoFqbd598o0Ehwy3qmzQ0+ivC8cJtzQyWgcDnb57iSW/FaoZPFLgiEFOk2eg1cASBF5G/qFtjxm4R0nji+/jqoz/qb9pvQ2lo3QX8XPBnQNSe+GRueEEO9NV91U6/fNaR7E0hhdK3zuBbYDOcEX933e8hh1QJerwWmGB8In2Tl7mkrrwTx9NzYBDiWlEu2BE9OHU1JaNW8zTA/P5n+JR2MJbZXaYcJuoXKpD+itkmocRqh/V0cDi0ofS9JS0xtm/KWf+lkXiFsd7nDpaI0Vg2Bysww/9j+BNq4g9iStTIYzJEpvmGbuWPX/+9eTe8BOpTKdPGA/U7Kvw+8yD5VJZtqlT61fFkJar2o88UDVUiVJpEE6RT0GSSdVnh8pEizgcuSTaROtzvzAirPxZJ9x29i2fcRk3AqxFjir6StqlRddRFRuzDdSxYlboaAL9ey30aocP8bNECI68tVxcaHsZG63RV9C9B5PCNIWAXtAzTBzw7LmgFvUrmEW2eBPqeGw02dWeiAUHeNnDAG4pjEMaGw1xSVvGfk/Ttgp+6dFx9DTFTCDhnfj5d3JKHiH04vzcN6bUcTHKDv6yw2IOPmkYKSCCfu2EzuEDT9v4/mHIplqXNzsPeXAwCAStYOUljEz65zA==
-X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(82310400026)(376014)(23010399003)(22082099003)(18002099003)(261009223027099003)(11063799006)(56012099006)(261026140227099003)(261026121527099003)(261021121427099003)(261022075727099003)(261021123027099003)(261022105027099003)(261028144727099003)(261102123227099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	UoJMKSqtb3eN01FylUuD2sSsWZ+hd95+IEBspnKSr9jv3VBLPX4lMdj+ZTGDSvt7OfbaToNOFUforxHPjDOK+5fbl3WJibtZft6I0QeG8jL1FUI1WeV9qW3QX44o+HQ0LXdx+qw85CKWYvGeTbYIh2DpmqsuZQm5tPFLN2E3vQvVndg/+NRjO/1B+4PFrWV4xpaToJ6TXo9rW90HV+yHC6KA1Sj4Cs/KibDCKSfxZ5uxOtYxnxWbeY6YPIRzqYD6Ll8SGARqQDIH287Ap1uvsF1mUoAyLlIORstLSPYqoF8dl4/t2kmtfzWBdjxVsRaqfopSnZO2+1UFybymQ9q7/BhoSln3gHqvRLjHgFpuGojYdRFyWNbyIQLA/8Xqf8cBol00OrQuM8SCwMd8d3K5ZMY3dDVlQNcCQspvaJtRexFWTxqFhfnLze96Dd4VFM9J
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 10:45:32.5193
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 596b236d-2721-47cd-1be9-08df45611207
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	PH7PEPF0000000A.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4357
 
-amd_sdw_pad_ctrl() performs a full pad teardown (keeper, pulldown, schmen
-and OE) for system suspend, while amd_sdw_oe_ctrl() disables only OE for
-POWER_OFF_MODE runtime suspend. amd_resume_runtime() must distinguish
-between these two cases to restore pads correctly: a full teardown requires
-amd_sdw_pad_ctrl(true) on resume; a POWER_OFF_MODE runtime suspend in
-which only OE was disabled requires only amd_sdw_oe_ctrl(true).
+The 16-bit colour data and threshold registers are little-endian
+LSB/MSB pairs, but the driver accesses them through regmap_bulk_read()
+and regmap_bulk_write() with an int or u16 buffer and no byte-order
+conversion:
 
-Introduce pad_fully_torn_down flag to track when a full pad teardown was
-performed. Set the flag after amd_sdw_pad_ctrl(false) in amd_suspend()
-using amd_sdw_pad_ctrl_supported() to gate the assignment to revisions
-that support pad control. Clear it after the full restore in
-amd_resume_runtime(). On resume, restore all pads if the flag is set,
-otherwise restore OE only; both paths delegate revision gating to the
-respective helpers.
+- bh1745_read_raw() reads 2 bytes into an uninitialised int, so the
+  upper 16 bits returned to user space are stack contents.
+- bh1745_read_thresh() reads 2 bytes straight into *val, which the IIO
+  core leaves uninitialised, with the same result for the event
+  threshold attributes.
+- bh1745_write_thresh() writes the first 2 bytes of an int, which are
+  the upper (zero) bytes on big-endian.
+- bh1745_trigger_handler() pushes the raw register bytes, which are
+  little-endian, in a u16 to a buffer whose scan type is IIO_CPU, so
+  user space gets the samples byte-swapped on big-endian.
 
-Signed-off-by: Vijendar Mukunda <Vijendar.Mukunda@amd.com>
+Use an __le16 buffer for all of them and convert with le16_to_cpu() /
+cpu_to_le16().
+
+Fixes: eab35358aae7 ("iio: light: ROHM BH1745 colour sensor")
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+Reviewed-by: Matti Vaittinen <mazziesaccount@gmail.com>
+Signed-off-by: Arnav Kapoor <kapoorarnav43@gmail.com>
 ---
- drivers/soundwire/amd_manager.c   | 12 ++++++++++--
- include/linux/soundwire/sdw_amd.h |  7 +++++++
- 2 files changed, 17 insertions(+), 2 deletions(-)
+Changes in v3:
+- Include linux/types.h for __le16 (Andy)
+- Add Matti's Reviewed-by
+- Rebase on the current fixes-togreg
 
-diff --git a/drivers/soundwire/amd_manager.c b/drivers/soundwire/amd_manager.c
-index b21691652490..28f5dbe131dc 100644
---- a/drivers/soundwire/amd_manager.c
-+++ b/drivers/soundwire/amd_manager.c
-@@ -1418,7 +1418,10 @@ static int __maybe_unused amd_suspend(struct device *dev)
+v2: https://lore.kernel.org/all/20261117110327.198084-1-kapoorarnav43@gmail.com/
+v1: https://lore.kernel.org/all/20261116194214.45174-1-kapoorarnav43@gmail.com/
+
+Compile-tested only (W=1, checkpatch --strict clean); I don't have
+BH1745 hardware.
+
+ drivers/iio/light/bh1745.c | 32 ++++++++++++++++++++++----------
+ 1 file changed, 22 insertions(+), 10 deletions(-)
+
+diff --git a/drivers/iio/light/bh1745.c b/drivers/iio/light/bh1745.c
+index 2b8ff36071b8..d312ea278f2b 100644
+--- a/drivers/iio/light/bh1745.c
++++ b/drivers/iio/light/bh1745.c
+@@ -16,6 +16,9 @@
+ #include <linux/regmap.h>
+ #include <linux/bits.h>
+ #include <linux/bitfield.h>
++#include <linux/types.h>
++
++#include <asm/byteorder.h>
+ 
+ #include <linux/iio/iio.h>
+ #include <linux/iio/sysfs.h>
+@@ -421,19 +424,20 @@ static int bh1745_read_raw(struct iio_dev *indio_dev,
+ 			   int *val, int *val2, long mask)
+ {
+ 	struct bh1745_data *data = iio_priv(indio_dev);
++	__le16 value;
+ 	int ret;
+-	int value;
+ 
+ 	switch (mask) {
+ 	case IIO_CHAN_INFO_RAW:
+ 		if (!iio_device_claim_direct(indio_dev))
+ 			return -EBUSY;
+ 
+-		ret = regmap_bulk_read(data->regmap, chan->address, &value, 2);
++		ret = regmap_bulk_read(data->regmap, chan->address, &value,
++				       sizeof(value));
+ 		iio_device_release_direct(indio_dev);
  		if (ret)
  			return ret;
- 		/* System suspend: tear down all pads */
--		amd_sdw_pad_ctrl(amd_manager, false);
-+		if (amd_sdw_pad_ctrl_supported(amd_manager)) {
-+			amd_sdw_pad_ctrl(amd_manager, false);
-+			amd_manager->pad_fully_torn_down = true;
-+		}
- 	}
- 	if (amd_manager->acp_rev >= ACP70_PCI_REV_ID) {
- 		ret = amd_sdw_set_device_state(amd_manager, AMD_SDW_DEVICE_STATE_D3);
-@@ -1510,7 +1513,12 @@ static int __maybe_unused amd_resume_runtime(struct device *dev)
- 				return ret;
- 		}
- 	} else if (amd_manager->power_mode_mask & AMD_SDW_POWER_OFF_MODE) {
--		amd_sdw_pad_ctrl(amd_manager, true);
-+		if (amd_manager->pad_fully_torn_down) {
-+			amd_sdw_pad_ctrl(amd_manager, true);
-+			amd_manager->pad_fully_torn_down = false;
-+		} else {
-+			amd_sdw_oe_ctrl(amd_manager, true);
-+		}
- 		writel(0x00, amd_manager->acp_mmio + ACP_SW_WAKE_EN(amd_manager->instance));
- 		if (amd_manager->acp_rev >= ACP70_PCI_REV_ID) {
- 			ret = amd_sdw_host_wake_enable(amd_manager, false);
-diff --git a/include/linux/soundwire/sdw_amd.h b/include/linux/soundwire/sdw_amd.h
-index 470360a2723c..c8bd8e1a4771 100644
---- a/include/linux/soundwire/sdw_amd.h
-+++ b/include/linux/soundwire/sdw_amd.h
-@@ -75,6 +75,12 @@ struct sdw_amd_dai_runtime {
-  * @wake_en_mask: wake enable mask per SoundWire manager
-  * @acp_rev: acp pci device revision id
-  * @clk_stopped: flag set to true when clock is stopped
-+ * @pad_fully_torn_down: true when system suspend performed a full pad
-+ *   teardown (keeper, schmen and OE cleared, pulldown asserted). Cleared after
-+ *   all pads are restored in amd_resume_runtime(). False on initial probe
-+ *   (zero-initialized) and after a POWER_OFF_MODE runtime suspend in which
-+ *   only OE was disabled; in the latter case amd_resume_runtime() restores
-+ *   OE only, leaving keeper and schmen untouched.
-  * @power_mode_mask: flag interprets amd SoundWire manager power mode
-  * @dai_runtime_array: dai runtime array
-  */
-@@ -106,6 +112,7 @@ struct amd_sdw_manager {
- 	u32 power_mode_mask;
- 	u32 acp_rev;
- 	bool clk_stopped;
-+	bool pad_fully_torn_down;
+-		*val = value;
++		*val = le16_to_cpu(value);
  
- 	struct sdw_amd_dai_runtime **dai_runtime_array;
- };
+ 		return IIO_VAL_INT;
+ 
+@@ -503,6 +507,7 @@ static int bh1745_read_thresh(struct iio_dev *indio_dev,
+ 			      enum iio_event_info info, int *val, int *val2)
+ {
+ 	struct bh1745_data *data = iio_priv(indio_dev);
++	__le16 value;
+ 	int ret;
+ 
+ 	switch (info) {
+@@ -510,18 +515,22 @@ static int bh1745_read_thresh(struct iio_dev *indio_dev,
+ 		switch (dir) {
+ 		case IIO_EV_DIR_RISING:
+ 			ret = regmap_bulk_read(data->regmap, BH1745_TH_LSB,
+-					       val, 2);
++					       &value, sizeof(value));
+ 			if (ret)
+ 				return ret;
+ 
++			*val = le16_to_cpu(value);
++
+ 			return IIO_VAL_INT;
+ 
+ 		case IIO_EV_DIR_FALLING:
+ 			ret = regmap_bulk_read(data->regmap, BH1745_TL_LSB,
+-					       val, 2);
++					       &value, sizeof(value));
+ 			if (ret)
+ 				return ret;
+ 
++			*val = le16_to_cpu(value);
++
+ 			return IIO_VAL_INT;
+ 
+ 		default:
+@@ -547,6 +556,7 @@ static int bh1745_write_thresh(struct iio_dev *indio_dev,
+ 			       enum iio_event_info info, int val, int val2)
+ {
+ 	struct bh1745_data *data = iio_priv(indio_dev);
++	__le16 value;
+ 	int ret;
+ 
+ 	switch (info) {
+@@ -554,10 +564,12 @@ static int bh1745_write_thresh(struct iio_dev *indio_dev,
+ 		if (val < 0x0 || val > 0xFFFF)
+ 			return -EINVAL;
+ 
++		value = cpu_to_le16(val);
++
+ 		switch (dir) {
+ 		case IIO_EV_DIR_RISING:
+ 			ret = regmap_bulk_write(data->regmap, BH1745_TH_LSB,
+-						&val, 2);
++						&value, sizeof(value));
+ 			if (ret)
+ 				return ret;
+ 
+@@ -565,7 +577,7 @@ static int bh1745_write_thresh(struct iio_dev *indio_dev,
+ 
+ 		case IIO_EV_DIR_FALLING:
+ 			ret = regmap_bulk_write(data->regmap, BH1745_TL_LSB,
+-						&val, 2);
++						&value, sizeof(value));
+ 			if (ret)
+ 				return ret;
+ 
+@@ -741,18 +753,18 @@ static irqreturn_t bh1745_trigger_handler(int interrupt, void *p)
+ 		u16 chans[4];
+ 		aligned_s64 timestamp;
+ 	} scan = { };
+-	u16 value;
++	__le16 value;
+ 	int ret;
+ 	int i;
+ 	int j = 0;
+ 
+ 	iio_for_each_active_channel(indio_dev, i) {
+ 		ret = regmap_bulk_read(data->regmap, BH1745_RED_LSB + 2 * i,
+-				       &value, 2);
++				       &value, sizeof(value));
+ 		if (ret)
+ 			goto err;
+ 
+-		scan.chans[j++] = value;
++		scan.chans[j++] = le16_to_cpu(value);
+ 	}
+ 
+ 	iio_push_to_buffers_with_ts(indio_dev, &scan, sizeof(scan),
+
+base-commit: 51b83d4cb0f5c1342868c7aa1edbf0c4867477aa
 -- 
 2.53.0
 
