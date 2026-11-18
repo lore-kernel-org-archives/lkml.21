@@ -1,60 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795018504;
-	b=5Lz36yPC/LE4XrZB11QTh0df4c1vu5bgamECqyUvrAPtuisu6EwbL4wic9mu3dbbnhBV
-	 WcVhJWPhNakF6O29TuH7IjAw76uao0UGZY5n9WPxDAkG32qShWvn/Px4RAFVdcT6L3rmu
-	 275UCfddJ/R2KSJXKcDrVzowZgxR11Ub5P9tz9FC566C40ge80TKv/08E2OXhxT4jd3T3
-	 B7VA4ydjdZHUaCEtm9ZOzxUXomXV9GEv3FpmxV8aztYL6A6CGh0jgtnT2IJX++cnqk6cK
-	 47H9U/kmPV+t30UB7idbRu3s0pM+qJjumm/RVvr2bW2lUSkvMuJm2YIEl24+IgN4H6w==
+	t=1795018543;
+	b=WX8yxTw0DMjbpJmrUn7MqX4NUyKob8q3HJolYchwdsLbR/crkT170QnwEeKDN7aztsv/
+	 G8ljQFVaJ5QaLVHHDNcgFlJPzSuUrzKFfYazLeJJ8atMqge1he/oMj5VgRI1NSbWwc4aC
+	 UARotVkLgsSpseFli7G09gYv6r2lHsFaidDqVDqaj/fUtMgtn964TBidYZ/8Yew69sFyc
+	 spMxcyZwIH55woF44vXOBH3v6iRHj1RJ6x3xeAwaMEuqFY/DIS2vN01rtzvvJh0jnTyrX
+	 CnX6wcD555vFeqmJsamRMKMLPqMvpYppz5mATZbu31uptCQGDh7eVhiroluER31LXXw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795018504;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=8BTsj7xQZG7PduAVaPvxu5YiA218HiWcfmYrYcf3JnM=;
-	b=dRKs5R055rpb0NrMqUhqhZ6+sfpN4//LD7adDrm9J8tJnJFh2BX62d8gkeuvDyI1W3KM
-	 3B88CGV9EPZ2mQRE0B7wuXnZOtXZ2V8o+TYj/TSVxmdblddTaZbyMJnt3RQCh7LztBvdD
-	 XFia6o6kXQhwL24iPZsKVT5SUuG124c3UZtDPh6vh2ZOT5EEglKNLWu7qMgdQTRji85gN
-	 lOIRUnroIE4rRCnYZ1f92apaiU7VK3zTMNxIc9FcV86i0cIW0D16bUU3Z3L6HZnNmBdBj
-	 Y/wx3x0vrDKPgwgFmVSmEZFRWebJg3vJzljtXoio1z89f8DtvS4aEGfvbt95/R9TjTw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795018543;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=PtaUSzwjrD11B5B9a8gnRbixfst3fcr+VZgafM92sW4=;
+	b=qNudbaHMGZd7SrmPYg2leZcCtyolD7eGW0iuoTePzH4SvPEFAEfh5kyc0/CJU/7k4v2m
+	 10ejlsSd4hXf8NIa1Gz/IOhBxoHLjXH6ZvDGFKIlmegFPZGCXIz19o6AOrYK8xZxkfAmf
+	 +k2K85k2E2wexpxuBtSpPtQkrThu8s7pxQ/5auT4duM/MV2A+Qc2tHUCr0/sKHAs7Gnl1
+	 v7P6qL79ciXJ9CUQ/J7jrXnldg3NV0sXuf33WnnO9uXD3BTCw3cN2vhTkqwR3W5verSeF
+	 cCPAi4B2rpATx80h4hcbEc0CdVM9Vqcc/LxSOCmYAK2Sw2LoD0EFvZLYpvNDrOq1PPw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ArV1+vK0;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linuxfoundation.org;
+	spf=pass smtp.mailfrom=linuxfoundation.org;
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=google header.b=gOtPPGZ2;
+	arc=none smtp.remote-ip=209.85.210.53
+Received: from mail-ot1-f53.google.com (mail-ot1-f53.google.com [209.85.210.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35DBE606A32A;
-	Wed, 18 Nov 2026 16:15:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8900606A32F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:15:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8900606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=linuxfoundation.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ArV1+vK0
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BDA51F000C6;
-	Wed, 18 Nov 2026 16:15:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795018504;
-	bh=8BTsj7xQZG7PduAVaPvxu5YiA218HiWcfmYrYcf3JnM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ArV1+vK0hQeWyt57BCYJmQWRzFdH2n8f4JlwdFiZGs0XPrqqRrucVSpBsAi409yr0
-	 AeKYpCZYHuXBTX7GW5GQHXIfV8uKPl48x/tDqWmzYH5z/YdBeI3LUuEGq12Yt9Cxu7
-	 g1Y7esNqtwrk9t+LTfs4iFhrswaKKtS70RAwrcm6sJPfPMyXSMIy7Wop3A7AuUcODP
-	 qxdMaXhiEHSoV7ijhGgVWw60u9DSuVrzJJIcRlM5qvg4v8tMBtaIeX+/iTEnKI98G8
-	 2Y31j47XVkmtQ9D3/hQ293tzCMpCG9Bt6cgW0FND70eNxG+l97FYIFfZdh8QKXMaBg
-	 tbHej1N0yQFOw==
-Date: Wed, 18 Nov 2026 13:15:00 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Namhyung Kim <namhyung@kernel.org>
-Cc: Ingo Molnar <mingo@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	James Clark <james.clark@linaro.org>, Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Clark Williams <williams@redhat.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	Arnaldo Carvalho de Melo <acme@redhat.com>
-Subject: Re: [PATCH v6 03/13] perf annotate: Handle absolute addressing in
- data type profiling
-Message-ID: <av3PBLtZQ0mYf-1V@phoenix2>
-References: <20261117200433.45174-1-acme@kernel.org>
- <20261117200433.45174-4-acme@kernel.org>
- <av1O-I_uLOoY0u5r@google.com>
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=google header.b=gOtPPGZ2
+Received: by mail-ot1-f53.google.com with SMTP id 46e09a7af769-862b090e41eso658391a34.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:15:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linuxfoundation.org; s=google; t=1795018541; x=1795623341; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PtaUSzwjrD11B5B9a8gnRbixfst3fcr+VZgafM92sW4=;
+        b=gOtPPGZ2bHmtTKeYCy4EAz7T/pFGWFi6gsfTd7EE5Acfd52wwtbSj7q3qXRGzYuYpa
+         FKq3J6b0XhWnKKflE4CYhyuuPijwHI3URihDUxLOX76XV0LdsWgC+xOOPnPpzOpYQfnr
+         t6K4qRawk1bSr8pE9S2Z3OXGZMb6d3pleGuxY=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795018541; x=1795623341;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=PtaUSzwjrD11B5B9a8gnRbixfst3fcr+VZgafM92sW4=;
+        b=xMdMVzTOhHoOibt1olxxmMQXbytABv7G+R4sdmr5802N3sB923akTg8IYO7YZWxrcL
+         GbLtGBtD6zTe570PQuX+eoPnrC0gMQRKNmr9f80eNz1vkKVeeCv6734ChSiTIjO3XnTJ
+         UjrDtVu7fK8EXo/IIBnqTf1TNsvg6IMqeTLRzIHHgUqzlR02yDPzO2IwDEdSpAt9Sh/B
+         9U8pSuiE5pBykRPNVFCLPGfVDOJr4jKjY89b27z5GOEgc/977fK8gYX8SrXiu26cOBG1
+         RiY3XEgyK5lyUiln13XoVNiT00+YPLXNemBpVZhiRQdyprMxE4VpZRj8sdV0IAY2ywol
+         t0UQ==
+X-Forwarded-Encrypted: i=1; AL+hErH63hYXu0LlNxzFt/jt+EboNpNO07h6C5mzYL8wYiN0jbBDmh9VF8DIQKDgsCVEpYnlJwXRlr9M2lAb0fc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/MvStRmWLKgYkusiae+X6zapkRZiZHMuLFV9xMMF2QPdmuk6cY
+	XDVoWBHeXBUGbF1AiwBwrEffBNP8Xu477o6xbNpdDzSOD5ZwuGNksZ3rqZyqXhqKyx6nco2JP4+
+	hJqHUMFc=
+X-Gm-Gg: AYBFou1838rAyoFu5VzmBVAKruCCkJcmj+myZMWIIlKh2UOxga5auwL92OngUBQXc0x
+	u1FAhs/emr6p8xZBj7Ag9RQQUomBAi+yCi7RKxRPiOgXEz4s8l27+RDYgEgz6p7g56UhGwwWRd/
+	sjedpzvskkG73L65WzA5QcUFnT8Q/sYpoes43EzzcWIFIBNF8E4h9OJxaqkz2vDbBmJ7qXbGUtn
+	zBwzRVSaBdOGkEE4uJWwK0K7QNWc2Nqw+YncC442ee1ZeLHGO/4BDyce1US46iKvpevDjne34JD
+	XBuBgLSqo2qTW77RpY4ZSgzQcriKVpW9TLMFAO14udlsoIqvYBVyMhLUDiCQp1+ULNEYR2p01Tj
+	+ussYZAiEWHYTJ0AtHu56oq5EoaU2y+eqKkoA4mapY2eFJHKwAgKbCgjly/1ttwPdv82s0oqJBf
+	KPqUGDcl9bCOwg8TlFKqnUypdSjy1yMe/EdUsj2ozX3rERW2uxK2xvbXCip1QD5nRRqmnuOXSXU
+	VOIfShBa1vaEeqNX+9ESPW895NM3JcaNV3pj+AGvNbTSgIAtmQ947qcRNfuKBvVoBKQIY6r0pAs
+	kkSdBvyh2JoBILYnHTVarW4Oga3LM4YnHmcVaBU=
+X-Received: by 2002:a05:6830:4390:b0:81a:9522:f00f with SMTP id 46e09a7af769-862f08ed4ecmr2929188a34.6.1795018541594;
+        Wed, 18 Nov 2026 08:15:41 -0800 (PST)
+Received: from [192.168.1.128] ([38.15.57.99])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-862f01facf7sm2346292a34.13.2026.11.18.08.15.40
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 08:15:40 -0800 (PST)
+Message-ID: <13c6ec9c-c4ea-4471-b5e8-77d1a786796b@linuxfoundation.org>
+Date: Wed, 18 Nov 2026 09:15:39 -0700
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,124 +90,64 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <av1O-I_uLOoY0u5r@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/3] selftests: add option to print the time spent per
+ test
+To: "Jori Koolstra (CIQ)" <jkoolstra@xs4all.nl>, Shuah Khan
+ <shuah@kernel.org>, David Ahern <dsahern@kernel.org>,
+ "David S. Miller" <davem@davemloft.net>, Hangbin Liu
+ <hangbin.liu@linux.dev>, =?UTF-8?Q?Ricardo_B=2E_Marli=C3=A8re?=
+ <ricardo@marliere.net>, Shuah Khan <skhan@linuxfoundation.org>
+Cc: linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261118-kselftest-run-timer-v1-0-53a838b2d62b@xs4all.nl>
+Content-Language: en-US
+From: Shuah Khan <skhan@linuxfoundation.org>
+In-Reply-To: <20261118-kselftest-run-timer-v1-0-53a838b2d62b@xs4all.nl>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Tue, Nov 17, 2026 at 11:08:40PM -0800, Namhyung Kim wrote:
-> On Tue, Nov 17, 2026 at 05:04:21PM -0300, Arnaldo Carvalho de Melo wrote:
-> > From: Arnaldo Carvalho de Melo <acme@redhat.com>
-> > 
-> > 32-bit x86 accesses globals with absolute addresses, like
-> > "movl %eax,0x8c73448", but the operand parser only recognized the
-> > offset(reg) forms, so the operand had no memory reference, the resolver
-> > saw a zero data address and resolved nothing.
-> > 
-> > Parse a bare "0x" number as an absolute memory operand, leaving jumps,
-> > calls, loop* and the 64-bit movabs* out, use the address in the resolver,
-> > and let the instruction tracking record the type of an absolute global
-> > load in the destination register.  The displacement is sign extended for
-> > 64-bit objects, as the CPU does, and zero extended for 32-bit ones.
-> > Values that do not fit the int offset, zero, and the operands of
-> > relocatable objects, which are unrelocated addends, are skipped.
-> > 
-> > With bare numbers being memory operands, a frame base register of -1,
-> > "none", would also compare equal to the -1 "no register" of an absolute
-> > operand and take it for a stack access, so guard those comparisons.
-> > Operands left with no register, like a user space "%gs:imm", are no
-> > longer looked up as variables, which can change the data type stats of
-> > those samples.
-> > 
-> > Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
-> > ---
-> >  tools/perf/util/annotate-arch/annotate-x86.c | 52 ++++++++++++++++++--
-> >  tools/perf/util/annotate.c                   | 25 +++++++++-
-> >  tools/perf/util/annotate.h                   |  7 +++
-> >  3 files changed, 79 insertions(+), 5 deletions(-)
-> > 
-> > diff --git a/tools/perf/util/annotate-arch/annotate-x86.c b/tools/perf/util/annotate-arch/annotate-x86.c
-> > index e38a4e7a54d5585c..adb52d148cba6001 100644
-> > --- a/tools/perf/util/annotate-arch/annotate-x86.c
-> > +++ b/tools/perf/util/annotate-arch/annotate-x86.c
-> > @@ -230,6 +230,11 @@ static bool vtable_get_rettype(Dwarf_Die *class_die, int offset,
-> >  	return die_get_real_type(&func_die, type_die) != NULL;
-> >  }
-> >  
-> > +static bool is_stack_or_fb_reg(struct type_state *state, int fbreg, int reg)
-> > +{
-> > +	return (fbreg != -1 && reg == fbreg) || reg == state->stack_reg;
-> > +}
-> > +
-> >  static void update_insn_state_x86(struct type_state *state,
-> >  				  struct data_loc_info *dloc, Dwarf_Die *cu_die,
-> >  				  struct disasm_line *dl)
-> > @@ -437,7 +442,7 @@ static void update_insn_state_x86(struct type_state *state,
-> >  		invalidate_reg_state(tsr);
-> >  
-> >  		/* Case 1: Based on stack pointer or frame pointer */
-> > -		if (sreg == fbreg || sreg == state->stack_reg) {
-> > +		if (is_stack_or_fb_reg(state, fbreg, sreg)) {
-> >  			struct type_state_stack *stack;
-> >  			int offset = src->offset - fboff;
-> >  
-> > @@ -626,7 +631,7 @@ static void update_insn_state_x86(struct type_state *state,
-> >  
-> >  retry:
-> >  		/* Check stack variables with offset */
-> > -		if (sreg == fbreg || sreg == state->stack_reg) {
-> > +		if (is_stack_or_fb_reg(state, fbreg, sreg)) {
-> >  			struct type_state_stack *stack;
-> >  			int offset = src->offset - fboff;
-> >  
-> > @@ -741,6 +746,29 @@ static void update_insn_state_x86(struct type_state *state,
-> >  				     insn_offset, addr, dst->reg1);
-> >  			pr_debug_type_name(&type_die, tsr->kind);
-> >  		}
-> > +		/* Or an absolute address, as used by 32-bit code */
-> > +		else if (annotated_op_loc__is_abs(src, map__dso(dloc->ms->map))) {
+On 11/18/26 06:40, Jori Koolstra (CIQ) wrote:
+> For CI/CD purposes it is useful to know how much time each selftest
+> took to complete, for instance, to know which suites to run for a
+> quick-fail diagnostic, or what percentage of tests you can expect to
+> complete on a paricular --override-timeout value.
 > 
-> Then shouldn't it check if it's actually 32-bit code?
+> Add a -T/--timed option to run_kselftest.sh. When it is set, run_one()
+> prints a KTAP diagnostic line with the elapsed wall-clock time just
+> before the result line of each test that is actually run, e.g.:
+> 
+>        # selftests: timers: nanosleep
+>        # time: 12.34s
+>        ok 3 selftests: timers: nanosleep
+> 
+> The other two patches clean up the use of 'local' in runner.sh and fix a
+> bug when using --netns in run_kselftest.sh. Strictly these could be sent
+> as separate patches, but "selftests: add option to print the time spent
+> per test" builds on these, and it would otherwise require needless
+> rebasing for two small fixes.
+> 
+> Signed-off-by: Jori Koolstra (CIQ) <jkoolstra@xs4all.nl>
+> ---
+> Jori Koolstra (CIQ) (3):
+>        selftests: use local variables consistently in runner.sh
 
-After some more rounds of local reviews and trying to answer your
-question:
-                        /*
-                         * Keep only what fits the int, as disp32 or as a u32;
--                        * movabs*, the 64-bit form, is left out.
-+                        * a 64-bit absolute value is left out.  The LLVM
-+                        * disassembler prints a disp32 that does not fit an
-+                        * int as a negative number.
-                         */
-                        if (offset != 0 && (offset <= UINT_MAX ||
-                                            (s64)(int)offset == (s64)offset)) {
--                               /* Absolute address, as used by 32-bit code */
-+                               /* An absolute address: 32-bit code, or a 64-bit disp32 */
-                                op_loc->mem_ref = true;
-                                op_loc->offset = offset;
-                        }
+Please spilt the convention related changes and real changes.
 
-It is not 32-bit specific, the comment was wrong.
- 
-> > +			struct map_symbol *ms = dloc->ms;
-> > +			u64 ip = ms->sym->start + dl->al.offset;
-> > +			u64 addr = annotated_op_loc__abs_addr(src, map__dso(ms->map));
-> > +			int offset;
-> > +
-> > +			if (!get_global_var_type(cu_die, dloc, ip, addr, &offset,
-> > +						 &type_die) ||
-> > +			    !die_get_member_type(&type_die, offset, &type_die)) {
-> > +				invalidate_reg_state(tsr);
-> > +				return;
-> > +			}
-> > +
-> > +			tsr->type = type_die;
-> > +			tsr->kind = TSR_KIND_TYPE;
- 
-> I'm not sure if it's _TYPE at this point.  Probably _POINTER instead?
+>        selftests: pass the timeout override to tests run in a netns
+>        selftests: add option to print the time spent per test
 
-Why do you think so?
+These two look good to me. I will pull them all as a series once you
+fix the problem with patch 1/3
 
-This is just duplicating to some degree what is right before, that uses
-a TYPE for a global, no? But please check v7, there is a change in this
-area.
+> 
+>   tools/testing/selftests/kselftest/runner.sh | 50 ++++++++++++++++++++++-------
+>   tools/testing/selftests/run_kselftest.sh    |  8 +++++
+>   2 files changed, 47 insertions(+), 11 deletions(-)
+> ---
+> base-commit: 666539eecdf4db623f5e3c3e55cf9f2dfad24aa4
+> change-id: 20261117-kselftest-run-timer-df3ac531652e
+> 
+> Best regards,
 
-- Arnaldo
+thanks,
+-- Shuah
