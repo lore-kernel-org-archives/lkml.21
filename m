@@ -1,81 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.149
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795007441;
-	b=gwd7sUe0HDzPofDYZ0mzBoRIJ8DHoqUXOn2dx2gaOIvyy9rwoMZjFHjlqr/NvGqhJTaD
-	 6cipnOGlDvh8MTza1mzDgHLS59d8xdkU1yEgZ+SUP3kNJciio0qkUDxGkenvJfnBpWMM1
-	 w/wF6xlFwXlmWmbIPaxfhrscoGMnScESP4AfjxDI5FrLfD1zqu4fkTXiYb0CUBrbJ2kJH
-	 v/gm6ji6NKdLTv5XqveW7kt0utipCQw0D5dgVQHxYTmc7CX/41WPcfWtiI4zqqbmjxrgP
-	 lU9IhdtWQBKnCMNz5c762uVhW7UAEWCPTruVSlwaUwUGgrKYH4RKTg77p3gmSOvYv1Q==
+	t=1795007447;
+	b=LZOVG4ijtjm9AuTVNZO2FkdMqR2J/7CLWl52+tbnlGbD2Kr9lh3zqZFYOksCXtVOH9xu
+	 +bxcRrOdFcLAW5+/2j2vedAEsfJb0bMUZjzag1BaKg+NuMBoLzIB10klp3Ij2HO/Ov5/E
+	 dD44v2ud7cHz66QgXkVqGvTXZ4Ct/4GiF1DqAsGuk6NR8Kquf6VnjHPuTGbhQZXZJPv7X
+	 +AUBr2NQOg/S0zhYBSlSY8dMHWbecE4AFE6IWXVZqtTmjheVQF4khiiaq4JAUR7lano0E
+	 CXk1erxJc+5cRUOuWcBVfTfRRbdKI1eNmPzFl5+Gu8W2Kx9j4E64Eml1Xkrt4NaA/zw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795007441;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Date:From:To:
-	 Cc:Subject:Message-ID:In-Reply-To:References:Organization:X-Mailer:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=OV06CLl8OOdgdpg8BFRH5p75zlrKtpNqJrmClfjwDec=;
-	b=IHSI+ytZUxwR3yWzKbEhmvCWx3AUSNSSmc490NcEfq+dxR4O1KNyQ4tiw6/2dkaQmw5y
-	 YdVTnYvSoDuYF1Yre8gtxwwx+squ426lsYRgS43ZPFJS1K+VBKVNOlphoId/0MbnL6YSi
-	 DhsNL2ryR3t2hFTUxxgPUlLrwjf6sAN12gh8JrTlHif2EDtVPfIFPWaYtH6xdn6/n70fJ
-	 UvOI3kn/QBJ4ATIEuiWK/gKIvCJ4BrMMkH1PN8Je7qVZWHm5YiJ81amdM0L4jyHtnWkEq
-	 e5wyav/Raa/PtoDtiExV/A8ozwa6em4b8lBajgrU33HXOIVT8Af+6TZ7ofihkH82OoQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795007447;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=G+7Zvegs7qt1nRSh/wHg70utm6ALKh4FLelSbXl2gqk=;
+	b=XhqLlgf9wozgzFjT2k2nxbx7igx3wgtNZh+FGHz3sp8HNirzJpBEXnBNUj4YGU6/DBxe
+	 X/nBAGvBlwcJKCT17ZkRS1mW1kqOpiCX6m2Ew5mL/MJeDkPqLiGxcN9LYs71UV3rV8yMq
+	 CmNWW7u0VMGEdVrBLxZDYHko7gOyiwPFxGEfGc+f1HGysZXFtg6DBCGtVfOtdWw6tRU0X
+	 jopbX2klk9r5Tcbzt2voMNgdxT/aEthewKJK+d0IJoDbgEoy8ppKFT6cCkw/JGydqXAqD
+	 6gI3qIhvkjRjmqwnGxDeAS83B01oglp5UX/Jgtb/D+zFVAXYEG0+EGdRJ20XLDH8HZA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=c6mW8uTi;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=dTLiT0tF;
+	arc=none smtp.remote-ip=95.215.58.149
+Received: from mta1.migadu.com (out-149.mta1.migadu.com [95.215.58.149])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B16C606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:10:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B16C606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C3CD606A332
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:10:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C3CD606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=c6mW8uTi
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 84C5F4E4063D;
-	Wed, 18 Nov 2026 13:10:37 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 388B05FE9B;
-	Wed, 18 Nov 2026 13:10:37 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0D01C11BC1F63;
-	Wed, 18 Nov 2026 14:10:30 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795007436; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=OV06CLl8OOdgdpg8BFRH5p75zlrKtpNqJrmClfjwDec=;
-	b=c6mW8uTijMvY1u+q/ndfIhhb1kDgwTGQw2FcUjppnSMBuU++Xyt+psPM2vuszpV7hwFXWK
-	I5RwxPdHuYq43NJ6pEeVd2DYl+TKpKOsgSLnEbW7tVys7CSltQlLejZTJpmwh3EG8MNs13
-	0gdjarX5VrBwBquZaTbTgPfJeZAXnRooX9mEvXkjT6xXZ0bkHP3zERS8EWC5fLZ0gVrMTk
-	8W/QC4VxdJeH8j+8NRemoF/5XoYlNyfuPTDA7EFPflNOFJcocbAQ/U6SqIKrXkaD2NnUv0
-	pw9ZpSEOHJqWIpEnr4HTnDA0+IA4u7IQH0Lnm22uWR9DfgXe3Iy1wbLADdr5qw==
-Date: Wed, 18 Nov 2026 14:10:28 +0100
-From: Herve Codina <herve.codina@bootlin.com>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: Svyatoslav Ryhel <clamor95@gmail.com>, Rob Herring <robh@kernel.org>,
- Luca Ceresoli <luca@lucaceresoli.net>, Andi Shyti <andi.shyti@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Peter Rosin <peda@axentia.se>, =?UTF-8?B?TWljaGE=?=
- =?UTF-8?B?xYIgTWlyb3PFgmF3?= <mirq-linux@rere.qmqm.pl>, Jonas
- =?UTF-8?B?U2Nod8O2YmVs?= <jonasschwoebel@yahoo.de>,
- linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 0/2 RESEND] i2c: muxes: Add GPIO-detected hotplug I2C
-Message-ID: <20261118141028.24179f5c@bootlin.com>
-In-Reply-To: <av2Nb_likDLz1u2c@shikoro>
-References: <20251013060018.43851-1-clamor95@gmail.com>
-	<w3bn5bqxqjhf4uvxov47rwlvmnbic6xnlk25xbpnbmi2eyup7q@tjuiu7pl3mmo>
-	<CAPVz0n1-jN5WLFq4e0CZrneExrN_A=GNeGTwGHTCj14NAta+jQ@mail.gmail.com>
-	<aPCfiJxyKOXsgNJe@shikoro>
-	<20251021132529.GA4133357-robh@kernel.org>
-	<CAPVz0n3jt04xEwGr1aiDTJ7OonYYgOy3QneteLXgdGruXGMP_A@mail.gmail.com>
-	<20261118091334.3d51a5f0@bootlin.com>
-	<CAPVz0n3=rL9jVc7DtG9FmcH0zs11+LXg1+HRRf9aagUqZf=+_g@mail.gmail.com>
-	<av2Nb_likDLz1u2c@shikoro>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=dTLiT0tF
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=Fi9zG0kILVgw7gwn3q1iC/p76/mjXn21af0ZN83dwgk=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795007444; v=1; x=1795612244;
+ b=dTLiT0tF2czqpOIUvxG9NXf5qZcICa2Pdz2EhIbHr5GF6kkC15HhHcWZNEdCZaskH3Jc6zOH
+ 2G9g6bSvV/WtCcB24HKCo7ztZs79idmUhYwToxnn33cMj9IwC9+tu8fNucj7T8mcGaIhUB/mYxP
+ CpKHyivqw9OptyXP8EnsHyWM=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 95c49d686309c77b;
+	Wed, 18 Nov 2026 13:10:42 +0000
+X-Mizu-Trace-ID: 95c49d686309c77b
+X-Migadu-Flow: FLOW_OUT
+From: Tao Cui <cui.tao@linux.dev>
+To: tj@kernel.org,
+	josef@toxicopanda.com,
+	axboe@kernel.dk,
+	ast@kernel.org,
+	alexei.starovoitov@gmail.com
+Cc: cgroups@vger.kernel.org,
+	linux-block@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	bpf@vger.kernel.org,
+	andrii@kernel.org,
+	eddyz87@gmail.com,
+	daniel@iogearbox.net,
+	linux-kselftest@vger.kernel.org,
+	cui.tao@linux.dev,
+	cuitao@kylinos.cn,
+	ameryhung@gmail.com
+Subject: [RFC PATCH v14 0/4] blk-iocost: BPF struct_ops cost model
+Date: Wed, 18 Nov 2026 21:10:25 +0800
+Message-ID: <20261118131029.797007-1-cui.tao@linux.dev>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,89 +76,74 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
 
-On Wed, 18 Nov 2026 12:35:15 +0100
-Wolfram Sang <wsa+renesas@sang-engineering.com> wrote:
+From: Tao Cui <cuitao@kylinos.cn>
 
-> Hi Svyatoslav, and Hervé, and all,
-> 
-> > > > > > So, if you want upstream supported I2C hot-plugging, you need to wait
-> > > > > > for Luca's and Herve's work being accepted. Or provide a superior
-> > > > > > solution. Or, if you want, join the ride. You already have experience in
-> > > > > > this field (and hardware plus use case), you would be a very welcome
-> > > > > > contributor, I would say.  
-> > > > >
-> > > > > Agreed.
-> > > > >
-> > > > > What really slows things down is when there is only 1 user of a new
-> > > > > binding. Too many times have I accepted one only for the 2nd user to
-> > > > > show up right after accepting it and wanting something different. So
-> > > > > now I just require more than 1 user and it is on the submitter(s) to do
-> > > > > that. After all, it is their itch, not mine.  
-> 
-> For completeness, let me emphasize the above paragraphs again.
-> 
-> > > No new advancements. I moved on a prerequisite: Having support for addon
-> > > format in dtb in order to have support for a list of exported symbols
-> > > resolution when an dtb is applied on a live devicetree.  
-> 
-> Well, I would consider advancements in prerequisites also advancements.
-> 
-> > > Anyway, the v3 series [1] need to be updated and a new iteration need to be
-> > > sent. Also, same operations need to be done on the SPI version [2].  
-> 
-> Hervé, is that the next planned step or are there prerequisites needed
-> still?
+This series lets a BPF program take over the cost model of one
+device. The BPF model provides calc_cost() for charged IOs plus two
+transfer coefficients for the completion-time sizing, io.cost.model
+selects between the attached model and the builtin one, and enabling
+and disabling the controller stays with io.cost.qos.
 
-I think this is a planned step. Is it the next one, I don't know.
+The builtin model is a linear formula derived from a handful of device
+parameters, and the right formula is device specific. A BPF model can
+be adapted to the device and updated without rebuilding the kernel.
 
-Support for addon dtb format is a huge topic and I need to move forward on this
-topic before switching back to i2c-bus-extension.
+The series is based on next-20261117.
 
-Even if we could avoid the need for i2c-bus-extension for I2C with addons, IHMO
-decoupling things and having devices that belong on a extension board clearly
-identified in a devicetree is a good thing to keep, i2c-bus-extension provides
-this decoupling.
+Changes since v13:
+ - p1: stop updating attached and attached_link under ioc->lock;
+   rq_qos_mutex already orders all their accessors (review from tj)
+ - p1: name the calc_cost flags enum iocost_calc_flags and rename
+   ioc_model()/model to ioc_bpf_model()/bpf_model so that the
+   builtin model isn't called a NULL model (review from tj)
+ - p1: document why iocost holds its own model reference, the
+   field locking and the merge flag semantics, and reword the
+   commit message to describe guarantees instead of code paths
+   (review from tj)
+ - p1: clear the autop stepping timestamps when a BPF model is
+   attached; without this, the timestamps from before the attach
+   survive until a model=linear switchback and can trigger an
+   immediate profile step on that stale pre-attach evidence
+   (report from sashiko)
+ - p1: align the BPF pricing scope with the builtin model:
+   dataless bios with no flush state and ops other than reads,
+   writes and zone appends cost nothing, completion-time sizing
+   prices reads, writes and zone appends, and a dead owning map no
+   longer reports -EBUSY (report from sashiko)
+ - p3: probe the iocost_ioc_tick tracepoint, unwind the private
+   mount namespace on setup failure, report fopen errors faithfully
+   and fix an inverted posix_memalign() assertion that made the
+   streams test skip its whole IO block (report from sashiko)
+ - p2/p4: document the iocost_ioc_tick fields in the trace header
+   and extend the io.cost.model docs with the dev supply and the
+   -ENODEV attach conditions (report from sashiko)
 
-On SPI, no way to do without a spi-bus-extension. Chip selects must be translated
-between chip select numbers provided by a base board SPI bus, wired to the connector
-and chip select numbers seen from the extension board (i.e. chip select numbers at
-connector level).
+Tested on next-20261117 (qemu x86_64): the selftests pass, and the 2x
+example model doubles the charged cost over the builtin on a
+rotational device (2.00x measured), returning to 1.00x after
+"model=linear".
 
-Having extension bus for both I2C and SPI make sense and keep things consistent
-between both busses.
+Link: https://lore.kernel.org/r/20261106122356.3224638-1-cui.tao@linux.dev # v13
 
-Working on extension busses can be done without addon dtb feature. I am just
-too busy to work on both topics in parallel.
+Tao Cui (4):
+  blk-iocost: add BPF struct_ops cost model support
+  blk-iocost: add iocost_ioc_tick tracepoint for per-period device
+    summary
+  selftests/bpf: add iocost cost model test
+  docs: cgroup-v2: document the iocost BPF cost model attachment
 
-Best regards,
-Hervé
-
-> 
-> > Rob, Wolfram, since the DT Addon framework is not mature yet, may
-> > i2c-hotplug-gpio be accepted in some form? Maybe a staging driver or  
-> 
-> I vote against it. Accepting intermediate solutions will slow down the
-> proper solution even more.
-> 
-> > with notes that ABI may be changed and are unstable or maybe as a
-> > device specific driver only for transformers like
-> > "asus-transformer-dock" etc?  
-> 
-> Which kernel are you using? Can't you use your driver downstream instead
-> of upstream unless Herve's work is usable?
-> 
-> Happy hacking,
-> 
->    Wolfram
-> 
-
-
-
--- 
-Hervé Codina, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+ Documentation/admin-guide/cgroup-v2.rst       |  55 +-
+ MAINTAINERS                                   |   1 +
+ block/Kconfig                                 |   4 +
+ block/blk-iocost.c                            | 360 ++++++-
+ include/trace/events/iocost.h                 |  57 ++
+ tools/testing/selftests/bpf/config            |   2 +
+ .../selftests/bpf/prog_tests/iocost_model.c   | 947 ++++++++++++++++++
+ .../selftests/bpf/progs/iocost_model.c        | 188 ++++
+ tools/testing/selftests/bpf/progs/iocost_ms.c | 195 ++++
+ 9 files changed, 1797 insertions(+), 12 deletions(-)
+ create mode 100644 tools/testing/selftests/bpf/prog_tests/iocost_model.c
+ create mode 100644 tools/testing/selftests/bpf/progs/iocost_model.c
+ create mode 100644 tools/testing/selftests/bpf/progs/iocost_ms.c
