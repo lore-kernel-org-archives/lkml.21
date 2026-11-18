@@ -1,55 +1,54 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794992337;
-	b=2je523e5wNhKF79bYkbu38PFBLfkDz0o7iZVDKFUYpx5DTbvOhWdIr/ulqkvdPaWB4kT
-	 g+CbfE5CiLR9GhMUrv+Cd5X3xmdnJPSbaCLNbEv3fhG6AFuEvnfwJFXvNf0eBqS9mWNwQ
-	 cggize6a745a2U0eFh+rtcZ0fjgzpwHGVhf1P7+x1mSVnfT/6oZQ6WUAWf8WZuNBiuA4Y
-	 8yhSe9ro2GVtnrFA8wJLq9V0H2AC6S8K+ySabAO4nZSzGRx3eArq74fGqK7K1F1YT+Nl5
-	 YH0s1wJrr0HUrNvUch9weUQAnt+ugWjeiojxYj2R1atv1DQsrB8exC/4ccZuUyC3tVA==
+	t=1794992339;
+	b=w9iXDBcHT7HnCwa13e4gN+vVIjvkEfYqvXFVKyPWZwRhkypUoodj0o4xMorCXL521fKC
+	 q3bCQY5/unDUlCnMmjq0ymQeF7J4/4zcjNOAW/5AAhYGc4/XouRXlkyTRhjFqbvJ7brr/
+	 OnjEcXWYL9G1dz4Ti+t8mpb/mwvof7tPagctBwZWjA675sCJsLv1ZE96G3NXmnYZyaOwZ
+	 0A/USG3Q3Mvl61I4GMnQARswQu9129ghSWHXLqsHo5UeOXA/Wx1fZKYnUNnLrhxPW9i8O
+	 pIYko/lSRBU2HzMYt8EVd8YyvVDWdnWEqzGNPGzhxU5brukMXmFas4WEJf1njbb/eqw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794992337;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794992339;
 	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
 	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 X-Mailer;
-	bh=16q+QGNnClWPAhZ6ICQsB/lvmg8JavVivPJYpngnr6g=;
-	b=R4rSNG2A6V15IF4E1m/j+qGDYc9YQMm32Y+TokO8mNY+w0lcOf1n04u5TJ+qhceVt+F9
-	 sqBMyX/QpaZyrm9zVSYlJ2dgsT0QlkTpcAYEBLNXMnW2tuAgUi9NhkTPlYwdY3faZVQht
-	 4tqUidccxU1FVIsv5udQ5uJSArnPSfCKOqU2rtdabg5qWSHvLc7S7fAfZCnxCff9LWcB1
-	 1rjCNjwRxK5MDzLRZLvQE1J3Xdh0nXtUerTTO8Y5QyGnyVnw/o4BDfPK3JK2VS5VLEO0r
-	 5+aU0DebUC5UefUoi6oj7ThzNDty2Nql5JUvufC6607auMwbKQIWUXdQyTyagUTtE3Q==
+	bh=4u+NNLWEM85m+eLVVZXfFRxdPZ/ybHRbZTDzL1gpdEo=;
+	b=mXoSs/w0lhRbSaSE1u6KMmvaBDXe4niVt29QVl3RnorghFtT9p06HBqwo94pV81MPX/o
+	 PzN4baeajXun954bWm7EsHW/3KExrih2BW1Dm1ug0WM9+HR4UYOUGURx7FFY0dXzb9+5Y
+	 PHI7OBImI+1suUIw3JBBGErF9VafJ9OqoNXjGRFRnXEa27XYR3n2auJUdtIBtgOg+1nT+
+	 A88T0/VRT7FR4cpsF4k+HWpTgEKEHPud0eg1EKwWLWh67+3D1jxkiyyd+DM4TniB9PeQ0
+	 8Lhz1w/xczbI19hWVReo3ICI+4QvwtvoV3MVUG3fmvMWW1R8T/UM6OKuJ/4MQAUAn3Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mh+LgBuW;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZAK+zaRn;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CDA6E606A31C;
-	Wed, 18 Nov 2026 08:58:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05548606A895;
+	Wed, 18 Nov 2026 08:58:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mh+LgBuW
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D93B1F000D0;
-	Wed, 18 Nov 2026 08:58:56 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZAK+zaRn
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 198971F000C6;
+	Wed, 18 Nov 2026 08:58:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794992337;
-	bh=16q+QGNnClWPAhZ6ICQsB/lvmg8JavVivPJYpngnr6g=;
+	s=k20260515; t=1794992338;
+	bh=4u+NNLWEM85m+eLVVZXfFRxdPZ/ybHRbZTDzL1gpdEo=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=Mh+LgBuWklmCKLHWV9NomONKrZIuqLjpIBVQXa7Nu/QePRAUB7OQpLXqpMT1aP03P
-	 8XKTgBicN/TEpfplUsGbCUNBC1VDj4qslo0dqpt7aKVA83FVgy2I/zhBRdxTZ6E9TL
-	 k1Cb3IqDXKPbZEIQMp7c/wwCjyUFhAp1DYSmwF33W/ABw+RI2yK99uuRXhq17Iq1Ht
-	 ybaglpIRKm7gRrKnQ4awHlg0NK9vSPnH1LvkNhry7P/B66pl5q0XYp/ZSNXPFKVYC7
-	 VI4+f8o6+1Z9sNnKAEq+yRt+hCE6Pg2mdpjpSNzDinq38fvBN0U2wEoQlz6WfFhQw1
-	 hwtX8U2lhmZTQ==
+	b=ZAK+zaRnpzmNA0pgLL5AWiYm/LDvsIeHJ5qdCjmaygU1jHUaM6aCJ7lCR/R6+Y0yx
+	 XIIHZM3XBya1bq0dpPyTnOU8ipVUFDWIN0ShqeBZR5gTxE4T55EJBLue9IExnDE3SU
+	 3sOB8T8YhaVE2pGgJ3ze8zqWpXNaEpPPfkB9yBc5VvdP12ux6BgzKeLNv8VIycBI6g
+	 xGYcBR+xJLaiI8G94MmVdoAswuXDj5gZjnkYaLSniKjCFvYIHXxRllZ/tdR0ZkvPLV
+	 19usqzOe7O+q859IIY3VxdqsDuF1NVb/vbMOmRzed1YZfKLdSK9ZDdtpcTpGboLPos
+	 YqSX/ylWql21w==
 From: Carlos Maiolino <cem@kernel.org>
-To: Hengyu Liang <hengyul@cs.unc.edu>
-Cc: "Darrick J. Wong" <djwong@kernel.org>, Christoph Hellwig <hch@lst.de>, 
- linux-xfs@vger.kernel.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org
-In-Reply-To: <20261112102018.3922571-1-hengyul@cs.unc.edu>
-References: <20261112102018.3922571-1-hengyul@cs.unc.edu>
-Subject: Re: [PATCH] xfs: fix f_bfree underflow in statfs()
-Message-Id: <179499233595.5574.11097163378563687104.b4-ty@kernel.org>
-Date: Wed, 18 Nov 2026 09:58:55 +0100
+To: Yiqing Wu <wuyiqing@cmss.chinamobile.com>
+Cc: linux-xfs@vger.kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20261116014802.16078-1-wuyiqing@cmss.chinamobile.com>
+References: <20261116014802.16078-1-wuyiqing@cmss.chinamobile.com>
+Subject: Re: [PATCH] xfs: remove unused variable in
+ xchk_stats_estimate_bufsize()
+Message-Id: <179499233780.5574.6310002190973802227.b4-ty@kernel.org>
+Date: Wed, 18 Nov 2026 09:58:57 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,22 +62,20 @@ Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.3
 
-On Thu, 12 Nov 2026 05:20:18 -0500, Hengyu Liang wrote:
-> Commit dd324cb79e54 ("xfs: refactor xfs_fs_statfs") made
-> xfs_statfs_data() limit f_bfree with max(0LL, ...) instead of
-> max_t(int64_t, 0, ...).
+On Mon, 16 Nov 2026 09:48:02 +0800, Yiqing Wu wrote:
+> The css variable in xchk_stats_estimate_bufsize() is initialized to
+> point to the start of the cs_stats array and incremented on every
+> iteration of the scan loop, but it is never dereferenced.  GCC flags
+> this as a dead assignment when building with W=1:
 > 
-> However, the value is an unsigned difference, so max() never picks 0.
-> As of now, when the free block counter is below the count of
-> unavailable blocks, statfs() reports f_bfree and f_bavail close to 2^64
-> instead of 0, and df prints negative sizes.
+>   fs/xfs/scrub/stats.c:146:34: warning: variable css set but not used [-Wunused-but-set-variable=]
 > 
 > [...]
 
 Applied to for-next, thanks!
 
-[1/1] xfs: fix f_bfree underflow in statfs()
-      commit: f0b9e58eee233547e5d77e467ccee89d7a59dd63
+[1/1] xfs: remove unused variable in xchk_stats_estimate_bufsize()
+      commit: 56b3c41b05ae2fc342ac874757d65482322eb360
 
 Best regards,
 -- 
