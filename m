@@ -1,101 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794993089;
-	b=M1N8PIZEpjqcvPvxAHuWYVGKt/Qv35LfGjEpv55himf6vSy7kWOZ7et668J7tGzj2lEV
-	 nbug0kNj+xb8Klbs+qLqu2MKfNSlMtTbfMZUvGH7M53ipiJku6wXV6Xi0tBeLx1Ssk0Yp
-	 ROxA5OkysUtDsRczyK3O6/tzUqeehxKHLMA27hI5YmL7S4s9YY6twG/KYI/ImgWxWsNyn
-	 RErg2kb/EzVm0SWRiGiqoXBU3gwZIBs3LzYht6ChWEOConMX88h8oKk6LtlzvErvgZAhM
-	 FaUgYWCvGKAlyy+oA15e/SV4wFSefxjE9+iFqcosI/o0zCsWYhDsRVNxhTLlFnWnDPQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794993089;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=YGpixNBxWXCW1MjpAmJloCJpQLDbcvvCFftHkMbvGwc=;
-	b=iLmL0GxaJSNUuACC6mII/CvYtNl/sEKvtyuUt3Wns0hgtF1HO7o+xcpBdU8iD83Bx5Dz
-	 UeJ3Unn1P2hOkvZ3vZ4Sqn23JQuKJg7P3wrjpJL9K4iZqb5j/LU7upF/ZohSfwGNoow9s
-	 /PQg/vOolPYfN09AyKQhMu7Gz6+sg5BtSJsfoYBv8vzR5xdB7pNlu3x2hVu+vzIbn2DdW
-	 oTB7U170cYtPrMu9EoX7lZ+z240XcOlMfU0ey9wP37gkXNZPui+GKtZ8CLcCjfgxtCFM9
-	 QU5hF+z/JhzWMqlGwJhZgLODVcmVBBY82dGvQas9wc9rYZQuQThZS8lzkHBhxAbOYKw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g2s4Iku7;
-	arc=none smtp.remote-ip=209.85.128.42
-Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794993110;
+	b=JS3FaoBBDFVpAqDQNROpQsK95EYPxcYAM38naZs1IfLLqLFeIgT/pEpcpJlsJy4EJmRX
+	 H7fjRXjvVNZY1Su9a9S1SO/jQq5Fflk+Pi9GMZk081cKYd+2jfabnsXZIuQP6qY5FAVCd
+	 AWD6CSQ2vRzVPXvCFZmJnRHrEv9iQAnPMiChU8kaBlo/sjQu/1Oj2tG/A/iGt0dCGjoOm
+	 5MjS0F3BCbvkJ0zN6P8edBNPK2s6E945EDw8jtMXYDdi4CGNR9wVp+6MDakNhJd3OErNk
+	 3f6XLSYzR4lKK//6dLgzwHT2DACt+yBqIDq4QgOjkJ0xF6kT5OCN/L2KaaxYlMkdDLw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794993110;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=EsWY/yTZXFYVprtWvUf3XnhiSXDepU5aallNWHc59Og=;
+	b=F3tq/ft62Uy9yuzQvDdpBYNsCKJwEmNe0vOUHKatSSySs2Eqve0y9trUOi27Cw3lcoRK
+	 m2I8YafAfAbdqtTGb6pdfFUDdqbUUUn1bBVPHAcjJGtGb9v3f1ArbudZZHsbtrsSOEgey
+	 YJoSkUHOWS4bzpWApCMx5O5VqnIYTSJd5taMNvXQiDO1Wr06+wabVRBUHX0vgouG8VSRE
+	 8u4pkuG7/vUqjp83kg6NhhoIkOiIpjnGn5Klc3nTRQWSVep5yqH4iAGfIagfOhlHc73k3
+	 JApu7RX3MWG7+eUjMvXI/oEljg6wx4Jve3UIBnYfJNX7WRHtpwJ2zcXphDsmE1Ke0aw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cg8UQOSf;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DEAB3606A31C;
+	Wed, 18 Nov 2026 09:11:50 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cg8UQOSf
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1794993110;
+	b=zN5rWGonFWd3P3XPvsGyPRC6h+EKlKywBOTCBCIMCIPOSFK8+d0uI74WLQveJO2cz+EM
+	 R679MQWE7w37q4Iu9Agw2Rm2wsIqMko7DjF8Ra7saBAJrPWaqNOFdK7H76ySPJ2rzzTnw
+	 dEcIfuYpwPZiChmNXzzom/sAzy4FQKdKiPc2akkI1zw/mjaTZEMtFKTM+bcisvOrabIRq
+	 LBhE58GmRljfyiZTKCFZ5h/aY54wCKGfpAL//mfoJgA4q98ubob04F+8RHvXUKeESa1X6
+	 lGay6CdbXuFL53V5BOTqY2Cpo8TSaqiHYuGKgVwnUnbHdrW6M+luNqAxYGaZJOkIxzQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1794993110;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=EsWY/yTZXFYVprtWvUf3XnhiSXDepU5aallNWHc59Og=;
+	b=RJcTHQKXMqCfiO7YbfQAdUrVQ/kFxTQIOWAyQUcEbGin9+UwJCA2BL34Lo1NEpV3uVoj
+	 j8BAw3Feo5cv6u+d4cfrxdh7FFfZQb0qJScBmTfCkZumlZIqKLGhlu5NrDA1l1Tw4z6/p
+	 CHdCIvyhkEJ8kOxxG+RVfMCwRe01ga3V8gWxsUhWRJgLKRAOoOUC72mpOWL+UNudfMDh6
+	 IW6LZ6tP3TMJ5zJRlopVd5HkFHy8BINpAb63pI7PX+n6gyJp7sygyoUTVTHDmcKBgX8z5
+	 SupOSgd9nfqQBuPC/du2krFYnFm9VuEZV6gy3PL5b1t2Mv8PLdH2w/WoNxM7TIsMQzA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03AE9606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:11:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 03AE9606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g2s4Iku7
-Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4bb64ef5a14so7419465e9.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:11:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794993087; x=1795597887; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=YGpixNBxWXCW1MjpAmJloCJpQLDbcvvCFftHkMbvGwc=;
-        b=g2s4Iku7fL1iTpQaoQ708ygu6fzygbaE3zOXWXqM2MbDKrmoFPXbpRNn/oB1g93lvQ
-         z5AqF2xM8Zd2xkzLJcHIL7kyUU4ZqUeUbjYi9p/+iXy0d/SpfRQy0dSprtNIa6kkJd+n
-         wsNgPp88gBZY0BDKjaOZQ7yOHgN/JcGSDoQ9YvjW12uWCHIvmAy0FXlyIhXqB7VFlCPP
-         +EibaSR72QQxvUZsQ+6k17i5SVeNRD0miwLTN8lIfZ71RID6+xxVT662FNSdV6USC++b
-         JTBAFKky90kvtDDZ2CQ///rf0mmoWyqIRAzn7Qdlu8bJHfU4SFQJxRtCpROJbkaVvN6e
-         FW/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794993087; x=1795597887;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=YGpixNBxWXCW1MjpAmJloCJpQLDbcvvCFftHkMbvGwc=;
-        b=ckdFrXqaQRglHUyMh1aGhquPJnuLz42Z2XwxMAKLCAYcGYA8rCghQm0HgrPiv6Qg72
-         DCajC1Xvzq+8igLwtXLQ2CG0aIFDPT4pl2TKawveWNNda0b+i9gZfmKsR50BMsqOTVay
-         ua+ugZJESvj37h1d0elA/MZ8M5RwxwTR7JOGsg1c/MGR8PIc8djc526Ifku1HjvBsmre
-         P3aaizj9pPpy+4WyZssRX8ON5DB3fjaeIjMJuKf8veHVEXWrIgjeYVqfvirIwst9+ubD
-         oj7PXzeXfciD8YAwdeYn6vo1VesjBlde6mAC95rTxIB3x2tdnKJy/8ecTnFh8W59cL7g
-         26iQ==
-X-Forwarded-Encrypted: i=1; AL+hErHXwZUeh6jilEKxO9oSM2cTZjGjCsKcVB2g1WHpxu1ghZy1rFJLtasX44ICpyyLxb3pRgtKE4AezFHvAiM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9S73X2tf3HDQmYH7wLTc4qY1ooyBsBBUGZ5lSI+PzMmcXlLz1S
-	Ot+jeLqwZYq62M/U+v4UydGdUDPE7Le4+u2LFaNzFFkT3lFOkauiSJbY
-X-Gm-Gg: AYBFou0QYTkApyauaA+caqTJJbEcqeqFixDVhzr5c8XV48WACsHl/qkChDMqlNCvwsS
-	RK6NZ//BdfJN7yG9p1oxKcOvBpMrT8tR2c2tDfWtrD3eVYRo8qVfW1KxVxbbzLfwcuj8jmt7NsU
-	bC+iWbmGFtestt9idjcZ5O3jgRJiXe4nVmHRQtvZ1sGKQLJhECxQlO/frg6F5VfoTBBMPL517o9
-	TtCbxK/ThCPxKwQmfQjXMljP2GuyqlQajhNZKOWk5YemnBqCu4fq00V0bqdP3g/qi7s4eyYjwGL
-	GM5RppoPvNnHkVhUvHPQ20Zp8ZRtxPYf1K2HO24Kw6uv3jepFylZNAus81FDqO/dyzZ5JY6imzV
-	A2XlEHlFz8UHV1WrmcLca4mSa4NtRVSHk81So99w3ywEdek7TSQUBBEulONhHU1MhQgoHBWoCDi
-	ZOhjUBOoNOGg+xL3NkoILFLw2ybsfWcna6aGHSK/DmDBIKwKBTxVNoMM5B4k/2FrskSfhYSLm6O
-	b9va5v71YVoKXIRH6htbCAnaGXcB71cy7N1zorOU2YN7tlivE1+MmvGpar6na2uG9qcaR6R86YZ
-	iHtj4fzDmLAv1Xlo+rs4WmsYy97kqRid05ZrsTzi77RgUTIDIvn7zkWZ85PHMqSbYg==
-X-Received: by 2002:a05:600d:6011:b0:4a2:1050:aff with SMTP id 5b1f17b1804b1-4bb7da12dd2mr34320085e9.6.1794993087333;
-        Wed, 18 Nov 2026 01:11:27 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb78430752sm137000655e9.12.2026.11.18.01.11.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 01:11:27 -0800 (PST)
-Date: Wed, 18 Nov 2026 09:11:26 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Heiko Carstens <hca@linux.ibm.com>
-Cc: "Mike Rapoport (Microsoft)" <rppt@kernel.org>, Vasily Gorbik
- <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Christian
- Borntraeger <borntraeger@linux.ibm.com>, David Hildenbrand
- <david@kernel.org>, Sven Schnelle <svens@linux.ibm.com>, Vlastimil Babka
- <vbabka@kernel.org>, linux-s390@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org
-Subject: Re: [PATCH 10/14] s390/sclp_cmd: Replace page allocator calls with
- kzalloc()
-Message-ID: <20261118091126.25efaea8@pumpkin>
-In-Reply-To: <20261116152216.165348Aa5-hca@linux.ibm.com>
-References: <20261108-s390-sclp-ready-v1-0-3e7c90eb6676@kernel.org>
-	<20261108-s390-sclp-ready-v1-10-3e7c90eb6676@kernel.org>
-	<20261116152216.165348Aa5-hca@linux.ibm.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	by smtp.kernel.org (Postfix) with ESMTPS id 33C661F000C6;
+	Wed, 18 Nov 2026 09:11:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794993110;
+	bh=EsWY/yTZXFYVprtWvUf3XnhiSXDepU5aallNWHc59Og=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=cg8UQOSff/gt1lIkTG6qaorIXz8eypzeWSXjxbZYP4Il+XxkiGf62fVjq0hGNvgLZ
+	 pxarXkR/8UBkIgyPXA+28SZOu8m+tY/xbGzuLC7z4uZDMUvySfsN5qvb5d6mWgXd5M
+	 /+E8VnwDLXvPIqFSL3ClLub3eHSmYFCJR5axIxOcB3ciwiP2t4Sk4olRxXua1cS+s2
+	 izkl2YNX4qqzegTh+SlGEha7DSH+XYOrJQgtt9Vrh97z2mEqRppPVgSTWGs5oICyrv
+	 Rp5yvPf9aWnPze0LTntqIZ74Suag2Zr9eh8R9ENC6hLl5s9WRM6cx5GWQFvqnVH3Uc
+	 c56KdmdRSjgGA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id B49D34ACB7;
+	Wed, 18 Nov 2026 09:11:49 +0000 (UTC)
+From: Cunhao Lu via B4 Relay <devnull+1579567540.qq.com@kernel.org>
+Date: Wed, 18 Nov 2026 17:11:39 +0800
+Subject: [PATCH v5 1/2] dt-bindings: power: rockchip: Add RK3572 power
+ domains
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,68 +83,120 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261118-add-board-ok3572-c-pmdomain-v5-1-f1af919dd434@qq.com>
+References: <20261118-add-board-ok3572-c-pmdomain-v5-0-f1af919dd434@qq.com>
+In-Reply-To: <20261118-add-board-ok3572-c-pmdomain-v5-0-f1af919dd434@qq.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Elaine Zhang <zhangqing@rock-chips.com>, Ulf Hansson <ulfh@kernel.org>
+Cc: Cunhao Lu <1579567540@qq.com>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+ Finley Xiao <finley.xiao@rock-chips.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794993108; l=2834;
+ i=1579567540@qq.com; s=20261015; h=from:subject:message-id;
+ bh=oyvMUU7R4CjKJ/p4yd/DxcdPfUMgGd3L5BZrnlpZr8A=;
+ b=n9oUdGknt5UXzLgbxGOnuZrN2DYIPg7Zf3SerWTzsMreq06AqsfiFnxINufChqBTDqW5kxwRR
+ Dy0WqcIzUJXBLfzo3b2ItgK/LEJ45SvTLNHMccAsa/fk0rlpB8wD8Xz
+X-Developer-Key: i=1579567540@qq.com; a=ed25519;
+ pk=sUTWrzlIwT4C7ctjNfVZAzzg0G7QUn2XxRGpYsw4RtM=
+X-Endpoint-Received: by B4 Relay for 1579567540@qq.com/20261015 with
+ auth_id=1177
+X-Original-From: Cunhao Lu <1579567540@qq.com>
+Reply-To: 1579567540@qq.com
 
-On Mon, 16 Nov 2026 16:22:16 +0100
-Heiko Carstens <hca@linux.ibm.com> wrote:
+From: Finley Xiao <finley.xiao@rock-chips.com>
 
-> On Sun, Nov 08, 2026 at 10:58:41AM +0200, Mike Rapoport (Microsoft) wrote:
-> > _sclp_get_core_info(), do_chp_configure() and sclp_chp_read_info()
-> > allocate the SCCBs used to read the CPU information, to configure a
-> > channel path and to read the channel path information.
-> > 
-> > These buffers can be allocated with kmalloc() as there's nothing special
-> > about them to go directly to the page allocator.
-> > 
-> > kmalloc() provides a better API that does not require ugly casts and
-> > kfree() does not need to know the size of the freed object.
-> > 
-> > Performance difference between kmalloc() and __get_free_pages() is not
-> > measurable as both allocators take an object/page from a per-CPU list for
-> > fast path allocations.
-> > 
-> > For the slow path the performance is anyway determined by the amount of
-> > reclaim involved rather than by what allocator is used.
-> > 
-> > While on it, allocate only the amount of memory the SCCB actually
-> > requires in _sclp_get_core_info() rather than rounding it up to the next
-> > power of two. An SCCB must be page aligned and kmalloc() guarantees that
-> > the alignment of an allocation is at least its largest power of two
-> > divisor, so the extended SCCB is still page aligned.
-> > 
-> > Replace use of __get_free_pages() and get_zeroed_page() with kzalloc()
-> > and free_page[s]() with kfree().
-> > 
-> > Link: https://lore.kernel.org/all/635405e4-9423-4a25-a6e7-e03c8ea0bcbe@redhat.com
-> > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> > ---
-> >  drivers/s390/char/sclp_cmd.c | 12 ++++++------
-> >  1 file changed, 6 insertions(+), 6 deletions(-)
-> > 
-> > diff --git a/drivers/s390/char/sclp_cmd.c b/drivers/s390/char/sclp_cmd.c
-> > index 1dc93d945be6f..6aaf1f6a3633f 100644
-> > --- a/drivers/s390/char/sclp_cmd.c
-> > +++ b/drivers/s390/char/sclp_cmd.c
-> > @@ -102,7 +102,7 @@ int _sclp_get_core_info(struct sclp_core_info *info)
-> >  		return -EOPNOTSUPP;
-> >  
-> >  	length = test_facility(140) ? EXT_SCCB_READ_CPU : PAGE_SIZE;
-> > -	sccb = (void *)__get_free_pages(GFP_KERNEL | GFP_DMA | __GFP_ZERO, get_order(length));
-> > +	sccb = kzalloc(length, GFP_KERNEL | GFP_DMA);  
-> 
-> It is a bit subtle that this really works. EXT_SCCB_READ_CPU is 3 * PAGE_SIZE,
-> so we end up with a guaranteed 4k alignment from the slab cache, which is
-> indeed sufficient here. But this is really not obvious, and not as stable as
-> before, IMHO.
-> 
-> I'd prefer to have this changed to:
-> 
-> 	sccb = kzalloc(PAGE_SIZE << get_order(length), GFP_KERNEL | GFP_DMA);
-> 
-> which comes with the same alignment guarantees as before.
-> 
+Describe the RK3572 power controller and define its 14 power-domain IDs.
+Require the system GRF phandle used to check firmware shift-ready status.
 
-Would it be better (more obvious) to round up EXT_SCCB_READ_CPU ?
+Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
+Signed-off-by: Cunhao Lu <1579567540@qq.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+---
+Changes in v4:
+- Describe the system GRF register as firmware shift-ready status.
+---
+ .../bindings/power/rockchip,power-controller.yaml  | 17 ++++++++++++
+ .../power/rockchip,rk3572-power-controller.h       | 30 ++++++++++++++++++++++
+ 2 files changed, 47 insertions(+)
 
-David
+diff --git a/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml b/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml
+index b41db576f95d..fbf3e0ab4cd9 100644
+--- a/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml
++++ b/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml
+@@ -43,6 +43,7 @@ properties:
+       - rockchip,rk3528-power-controller
+       - rockchip,rk3562-power-controller
+       - rockchip,rk3568-power-controller
++      - rockchip,rk3572-power-controller
+       - rockchip,rk3576-power-controller
+       - rockchip,rk3588-power-controller
+       - rockchip,rv1126-power-controller
+@@ -57,6 +58,22 @@ properties:
+   "#size-cells":
+     const: 0
+ 
++  rockchip,grf:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: System GRF with firmware shift-ready status.
++
++allOf:
++  - if:
++      properties:
++        compatible:
++          const: rockchip,rk3572-power-controller
++    then:
++      required:
++        - rockchip,grf
++    else:
++      properties:
++        rockchip,grf: false
++
+ required:
+   - compatible
+   - "#power-domain-cells"
+diff --git a/include/dt-bindings/power/rockchip,rk3572-power-controller.h b/include/dt-bindings/power/rockchip,rk3572-power-controller.h
+new file mode 100644
+index 000000000000..c2316fa859df
+--- /dev/null
++++ b/include/dt-bindings/power/rockchip,rk3572-power-controller.h
+@@ -0,0 +1,30 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
++/*
++ * Copyright (c) 2026 Rockchip Electronics Co., Ltd.
++ * Author: Finley Xiao <finley.xiao@rock-chips.com>
++ */
++
++#ifndef __DT_BINDINGS_POWER_RK3572_POWER_CONTROLLER_H__
++#define __DT_BINDINGS_POWER_RK3572_POWER_CONTROLLER_H__
++
++/* VD_NPU */
++#define RK3572_PD_NPU		0
++
++/* VD_GPU */
++#define RK3572_PD_GPU		1
++
++/* VD_LOGIC */
++#define RK3572_PD_NVM0		2
++#define RK3572_PD_NVM1		3
++#define RK3572_PD_DSMC		4
++#define RK3572_PD_PHP		5
++#define RK3572_PD_AUDIO		6
++#define RK3572_PD_IMG		7
++#define RK3572_PD_VDEC		8
++#define RK3572_PD_VI		9
++#define RK3572_PD_VENC		10
++#define RK3572_PD_VO		11
++#define RK3572_PD_VOP		12
++#define RK3572_PD_VOP_PRE	13
++
++#endif
+
+-- 
+2.34.1
+
+
