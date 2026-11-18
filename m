@@ -1,62 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.3
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794993060;
-	b=LypRifzVJWo6OY/OQMHD1OcAjevKQNDuP3tSECMVHfnCMJ4Az2AkFrafaae8s5H5Cad3
-	 D7RsMadIHrP3hGrxSpQAt1diFxBkrhgFj9Q4CIBnaaI+kNhjKUy/QkU9y1ubFf1FdWWTc
-	 fK5bUxsiVlEkbijHYXpcTH1gtSsLRTEWW0IqATtVYdZWKajAL5/XfB91gkHfaCIMBiSY6
-	 fPt4selaocnojUQP9IP1u4VG1tNAMRLTA6RQz+Ijpydj9vUERZO3HHXh2anB+TFRybsHy
-	 xPizu0sAKNHIxi8+pvvt3zx6mff4/oAJZ8SQw5eLc9JLnvsGdIkfW1v3v9Tj1ofD4sA==
+	t=1794993089;
+	b=M1N8PIZEpjqcvPvxAHuWYVGKt/Qv35LfGjEpv55himf6vSy7kWOZ7et668J7tGzj2lEV
+	 nbug0kNj+xb8Klbs+qLqu2MKfNSlMtTbfMZUvGH7M53ipiJku6wXV6Xi0tBeLx1Ssk0Yp
+	 ROxA5OkysUtDsRczyK3O6/tzUqeehxKHLMA27hI5YmL7S4s9YY6twG/KYI/ImgWxWsNyn
+	 RErg2kb/EzVm0SWRiGiqoXBU3gwZIBs3LzYht6ChWEOConMX88h8oKk6LtlzvErvgZAhM
+	 FaUgYWCvGKAlyy+oA15e/SV4wFSefxjE9+iFqcosI/o0zCsWYhDsRVNxhTLlFnWnDPQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794993060;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=VDDyZuUZPm3GOO6+vK+/1S6TU7SR/NVbUBDU5GyTuoA=;
-	b=q6fmFbQkrX69lmGN1VCcmMdAuXZIBmQbtOkBOdi24TzkH+zOjRbNbfzDk0M1ktRKHejY
-	 WfGhutBrBarvxKPilv5tXedk8tjNQtMBZmfOrt8HcMGPxYZNGOw7ukoUYW5+NXKT/gwVA
-	 QokVX5K/1290INpXgEcMy52R5Kp2aVBP5h6B4TQVgC2s4B0jGZZhLmpTGAZgqHko0P3X8
-	 N6WP+/gbsOfHhD8/g2qdqj5Q4ytTxfgIImSwPKid35/zyaToF2zm65yh9DRByd94muNEv
-	 bw6a14vW5MT+bHt+WUK6Zmmg3l//f1m0jgUo2hrvX2usgz+rEUYFYyITesZjRPVk7EA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794993089;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=YGpixNBxWXCW1MjpAmJloCJpQLDbcvvCFftHkMbvGwc=;
+	b=iLmL0GxaJSNUuACC6mII/CvYtNl/sEKvtyuUt3Wns0hgtF1HO7o+xcpBdU8iD83Bx5Dz
+	 UeJ3Unn1P2hOkvZ3vZ4Sqn23JQuKJg7P3wrjpJL9K4iZqb5j/LU7upF/ZohSfwGNoow9s
+	 /PQg/vOolPYfN09AyKQhMu7Gz6+sg5BtSJsfoYBv8vzR5xdB7pNlu3x2hVu+vzIbn2DdW
+	 oTB7U170cYtPrMu9EoX7lZ+z240XcOlMfU0ey9wP37gkXNZPui+GKtZ8CLcCjfgxtCFM9
+	 QU5hF+z/JhzWMqlGwJhZgLODVcmVBBY82dGvQas9wc9rYZQuQThZS8lzkHBhxAbOYKw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=ml5V2fbG;
-	arc=none smtp.remote-ip=117.135.210.3
-Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.3])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g2s4Iku7;
+	arc=none smtp.remote-ip=209.85.128.42
+Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE284606A897
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:10:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE284606A897
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03AE9606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:11:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 03AE9606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=ml5V2fbG
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=VD
-	DyZuUZPm3GOO6+vK+/1S6TU7SR/NVbUBDU5GyTuoA=; b=ml5V2fbG9QI0dRK9zx
-	FNch3sHUGeYOgOF9bPf0vDNA6Dlt2TH9Us0DykGVvYd1ylZ+nm/JaEdKLpDM9JDu
-	keZhHSeolLW580zJv86KJq47NucBv1lUicGVn54v7NrbH7+w1XhWEnmzvQxyVNiR
-	dtf79QwBWQPAPlshI/iZqWL2Q=
-Received: from localhost.localdomain (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id PigvCgD3UiuQa_1qEjvuGg--.61000S6;
-	Wed, 18 Nov 2026 17:10:43 +0800 (CST)
-From: Xuewen Wang <wangxuewen_ky@163.com>
-To: linkinjeon@kernel.org,
-	hyc.lee@gmail.com,
-	liubaolin12138@163.com
-Cc: ntfs@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Dandan Wu <wudandan@kylinos.cn>,
-	Baolin Liu <liubaolin@kylinos.cn>
-Subject: [PATCH v6 28/37] ntfs: report namespace and file recovery errors
-Date: Wed, 18 Nov 2026 17:06:52 +0800
-Message-Id: <20261118090701.1858849-29-wangxuewen_ky@163.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261118090701.1858849-1-wangxuewen_ky@163.com>
-References: <20261118090701.1858849-1-wangxuewen_ky@163.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g2s4Iku7
+Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4bb64ef5a14so7419465e9.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:11:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794993087; x=1795597887; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=YGpixNBxWXCW1MjpAmJloCJpQLDbcvvCFftHkMbvGwc=;
+        b=g2s4Iku7fL1iTpQaoQ708ygu6fzygbaE3zOXWXqM2MbDKrmoFPXbpRNn/oB1g93lvQ
+         z5AqF2xM8Zd2xkzLJcHIL7kyUU4ZqUeUbjYi9p/+iXy0d/SpfRQy0dSprtNIa6kkJd+n
+         wsNgPp88gBZY0BDKjaOZQ7yOHgN/JcGSDoQ9YvjW12uWCHIvmAy0FXlyIhXqB7VFlCPP
+         +EibaSR72QQxvUZsQ+6k17i5SVeNRD0miwLTN8lIfZ71RID6+xxVT662FNSdV6USC++b
+         JTBAFKky90kvtDDZ2CQ///rf0mmoWyqIRAzn7Qdlu8bJHfU4SFQJxRtCpROJbkaVvN6e
+         FW/Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794993087; x=1795597887;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YGpixNBxWXCW1MjpAmJloCJpQLDbcvvCFftHkMbvGwc=;
+        b=ckdFrXqaQRglHUyMh1aGhquPJnuLz42Z2XwxMAKLCAYcGYA8rCghQm0HgrPiv6Qg72
+         DCajC1Xvzq+8igLwtXLQ2CG0aIFDPT4pl2TKawveWNNda0b+i9gZfmKsR50BMsqOTVay
+         ua+ugZJESvj37h1d0elA/MZ8M5RwxwTR7JOGsg1c/MGR8PIc8djc526Ifku1HjvBsmre
+         P3aaizj9pPpy+4WyZssRX8ON5DB3fjaeIjMJuKf8veHVEXWrIgjeYVqfvirIwst9+ubD
+         oj7PXzeXfciD8YAwdeYn6vo1VesjBlde6mAC95rTxIB3x2tdnKJy/8ecTnFh8W59cL7g
+         26iQ==
+X-Forwarded-Encrypted: i=1; AL+hErHXwZUeh6jilEKxO9oSM2cTZjGjCsKcVB2g1WHpxu1ghZy1rFJLtasX44ICpyyLxb3pRgtKE4AezFHvAiM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9S73X2tf3HDQmYH7wLTc4qY1ooyBsBBUGZ5lSI+PzMmcXlLz1S
+	Ot+jeLqwZYq62M/U+v4UydGdUDPE7Le4+u2LFaNzFFkT3lFOkauiSJbY
+X-Gm-Gg: AYBFou0QYTkApyauaA+caqTJJbEcqeqFixDVhzr5c8XV48WACsHl/qkChDMqlNCvwsS
+	RK6NZ//BdfJN7yG9p1oxKcOvBpMrT8tR2c2tDfWtrD3eVYRo8qVfW1KxVxbbzLfwcuj8jmt7NsU
+	bC+iWbmGFtestt9idjcZ5O3jgRJiXe4nVmHRQtvZ1sGKQLJhECxQlO/frg6F5VfoTBBMPL517o9
+	TtCbxK/ThCPxKwQmfQjXMljP2GuyqlQajhNZKOWk5YemnBqCu4fq00V0bqdP3g/qi7s4eyYjwGL
+	GM5RppoPvNnHkVhUvHPQ20Zp8ZRtxPYf1K2HO24Kw6uv3jepFylZNAus81FDqO/dyzZ5JY6imzV
+	A2XlEHlFz8UHV1WrmcLca4mSa4NtRVSHk81So99w3ywEdek7TSQUBBEulONhHU1MhQgoHBWoCDi
+	ZOhjUBOoNOGg+xL3NkoILFLw2ybsfWcna6aGHSK/DmDBIKwKBTxVNoMM5B4k/2FrskSfhYSLm6O
+	b9va5v71YVoKXIRH6htbCAnaGXcB71cy7N1zorOU2YN7tlivE1+MmvGpar6na2uG9qcaR6R86YZ
+	iHtj4fzDmLAv1Xlo+rs4WmsYy97kqRid05ZrsTzi77RgUTIDIvn7zkWZ85PHMqSbYg==
+X-Received: by 2002:a05:600d:6011:b0:4a2:1050:aff with SMTP id 5b1f17b1804b1-4bb7da12dd2mr34320085e9.6.1794993087333;
+        Wed, 18 Nov 2026 01:11:27 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb78430752sm137000655e9.12.2026.11.18.01.11.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 01:11:27 -0800 (PST)
+Date: Wed, 18 Nov 2026 09:11:26 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Heiko Carstens <hca@linux.ibm.com>
+Cc: "Mike Rapoport (Microsoft)" <rppt@kernel.org>, Vasily Gorbik
+ <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Christian
+ Borntraeger <borntraeger@linux.ibm.com>, David Hildenbrand
+ <david@kernel.org>, Sven Schnelle <svens@linux.ibm.com>, Vlastimil Babka
+ <vbabka@kernel.org>, linux-s390@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org
+Subject: Re: [PATCH 10/14] s390/sclp_cmd: Replace page allocator calls with
+ kzalloc()
+Message-ID: <20261118091126.25efaea8@pumpkin>
+In-Reply-To: <20261116152216.165348Aa5-hca@linux.ibm.com>
+References: <20261108-s390-sclp-ready-v1-0-3e7c90eb6676@kernel.org>
+	<20261108-s390-sclp-ready-v1-10-3e7c90eb6676@kernel.org>
+	<20261116152216.165348Aa5-hca@linux.ibm.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,347 +105,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:PigvCgD3UiuQa_1qEjvuGg--.61000S6
-X-Coremail-Antispam: 1Uf129KBjvJXoW3Cr4rtr1UXr4DXF45Xw4UCFg_yoWkXFyrpF
-	ZrGws7t397Jr92grnaya1jvw1S9FyIgrWUWrWUG3WfJan8Kw1IgF4ktry29FyrtrZ5J3s8
-	XF4UK3yUCr4DXFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UTVb9UUUUU=
-X-CM-SenderInfo: pzdqw5pxhzv0xbn1qiywtou0bp/xtbC8BMZAmr9a5OccAAA37
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-From: Dandan Wu <wudandan@kylinos.cn>
+On Mon, 16 Nov 2026 16:22:16 +0100
+Heiko Carstens <hca@linux.ibm.com> wrote:
 
-Report stale directory references, missing FILE_NAME counterparts and
-missing index entries during deletion. Return EFSCORRUPTED from the
-affected failing lookups; ordinary missing names remain valid results.
+> On Sun, Nov 08, 2026 at 10:58:41AM +0200, Mike Rapoport (Microsoft) wrote:
+> > _sclp_get_core_info(), do_chp_configure() and sclp_chp_read_info()
+> > allocate the SCCBs used to read the CPU information, to configure a
+> > channel path and to read the channel path information.
+> > 
+> > These buffers can be allocated with kmalloc() as there's nothing special
+> > about them to go directly to the page allocator.
+> > 
+> > kmalloc() provides a better API that does not require ugly casts and
+> > kfree() does not need to know the size of the freed object.
+> > 
+> > Performance difference between kmalloc() and __get_free_pages() is not
+> > measurable as both allocators take an object/page from a per-CPU list for
+> > fast path allocations.
+> > 
+> > For the slow path the performance is anyway determined by the amount of
+> > reclaim involved rather than by what allocator is used.
+> > 
+> > While on it, allocate only the amount of memory the SCCB actually
+> > requires in _sclp_get_core_info() rather than rounding it up to the next
+> > power of two. An SCCB must be page aligned and kmalloc() guarantees that
+> > the alignment of an allocation is at least its largest power of two
+> > divisor, so the extended SCCB is still page aligned.
+> > 
+> > Replace use of __get_free_pages() and get_zeroed_page() with kzalloc()
+> > and free_page[s]() with kfree().
+> > 
+> > Link: https://lore.kernel.org/all/635405e4-9423-4a25-a6e7-e03c8ea0bcbe@redhat.com
+> > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> > ---
+> >  drivers/s390/char/sclp_cmd.c | 12 ++++++------
+> >  1 file changed, 6 insertions(+), 6 deletions(-)
+> > 
+> > diff --git a/drivers/s390/char/sclp_cmd.c b/drivers/s390/char/sclp_cmd.c
+> > index 1dc93d945be6f..6aaf1f6a3633f 100644
+> > --- a/drivers/s390/char/sclp_cmd.c
+> > +++ b/drivers/s390/char/sclp_cmd.c
+> > @@ -102,7 +102,7 @@ int _sclp_get_core_info(struct sclp_core_info *info)
+> >  		return -EOPNOTSUPP;
+> >  
+> >  	length = test_facility(140) ? EXT_SCCB_READ_CPU : PAGE_SIZE;
+> > -	sccb = (void *)__get_free_pages(GFP_KERNEL | GFP_DMA | __GFP_ZERO, get_order(length));
+> > +	sccb = kzalloc(length, GFP_KERNEL | GFP_DMA);  
+> 
+> It is a bit subtle that this really works. EXT_SCCB_READ_CPU is 3 * PAGE_SIZE,
+> so we end up with a guaranteed 4k alignment from the slab cache, which is
+> indeed sufficient here. But this is really not obvious, and not as stable as
+> before, IMHO.
+> 
+> I'd prefer to have this changed to:
+> 
+> 	sccb = kzalloc(PAGE_SIZE << get_order(length), GFP_KERNEL | GFP_DMA);
+> 
+> which comes with the same alignment guarantees as before.
+> 
 
-Report independent cleanup failures during create, link, rename, file
-size restoration and preallocation trimming. Use directory attribution
-where appropriate and volume reports during failed creation.
-Only negative reparse-index cleanup results are errors; a positive
-returned data length means cleanup succeeded.
+Would it be better (more obvious) to round up EXT_SCCB_READ_CPU ?
 
-Report missing required parents and attributes during file fsync while
-retaining its best-effort lookup handling.
-
-Reviewed-by: Baolin Liu <liubaolin@kylinos.cn>
-Signed-off-by: Dandan Wu <wudandan@kylinos.cn>
----
-Changes in v6:
-Keep namespace/file reporting here; buffered-fallback errno
-preservation is now a preceding patch.
-
-Validation:
-- Compiled and linked the NTFS module object with W=1 at this stage.
-
- fs/ntfs/file.c  | 24 ++++++++++++--
- fs/ntfs/namei.c | 86 ++++++++++++++++++++++++++++++++++++-------------
- 2 files changed, 86 insertions(+), 24 deletions(-)
-
-diff --git a/fs/ntfs/file.c b/fs/ntfs/file.c
-index b1c6a84bf955..c1ce2c173717 100644
---- a/fs/ntfs/file.c
-+++ b/fs/ntfs/file.c
-@@ -85,6 +85,7 @@ int ntfs_file_open(struct inode *vi, struct file *filp)
-  */
- static int ntfs_trim_prealloc(struct inode *vi)
- {
-+	int report_err = 0;
- 	struct ntfs_inode *ni = NTFS_I(vi);
- 	struct ntfs_inode *mrec_ni = ntfs_base_inode(ni);
- 	struct ntfs_volume *vol = ni->vol;
-@@ -117,14 +118,17 @@ static int ntfs_trim_prealloc(struct inode *vi)
- 		if (err) {
- 			kvfree(ni->runlist.rl);
- 			ni->runlist.rl = NULL;
-+			report_err = err;
- 			ntfs_error(vol->sb, "Preallocated block rollback failed");
- 		} else {
- 			ni->allocated_size = ntfs_cluster_to_bytes(vol, vcn_tr);
- 			err = ntfs_attr_update_mapping_pairs_locked(
- 					ni, 0, ni);
--			if (err)
-+			if (err) {
-+				report_err = err;
- 				ntfs_error(vol->sb,
- 					   "Failed to rollback mapping pairs for prealloc");
-+			}
- 		}
- 	}
- 
-@@ -133,6 +137,8 @@ static int ntfs_trim_prealloc(struct inode *vi)
- 	mutex_unlock(&mrec_ni->mrec_lock);
- 	inode_unlock(vi);
- 
-+	if (report_err)
-+		ntfs_report_file_metadata_error(vi, report_err);
- 	return err;
- }
- 
-@@ -337,8 +343,13 @@ int ntfs_file_fsync(struct file *filp, loff_t start, loff_t end,
- 				continue;
- 
- 			parent_vi = ntfs_iget(vi->i_sb, MREF_LE(fn->parent_directory));
--			if (IS_ERR(parent_vi))
-+			if (IS_ERR(parent_vi)) {
-+				if (PTR_ERR(parent_vi) == -ENOENT &&
-+				    !NInoBeingDeleted(ni))
-+					ntfs_report_file_metadata_error(vi,
-+									-EFSCORRUPTED);
- 				continue;
-+			}
- 			mutex_lock_nested(&NTFS_I(parent_vi)->mrec_lock, NTFS_INODE_MUTEX_NORMAL);
- 			ia_vi = ntfs_index_iget(parent_vi, I30, 4);
- 			mutex_unlock(&NTFS_I(parent_vi)->mrec_lock);
-@@ -369,6 +380,11 @@ int ntfs_file_fsync(struct file *filp, loff_t start, loff_t end,
- 			attr_vi = ntfs_attr_iget(vi, ctx->attr->type,
- 						 name, ctx->attr->name_length);
- 			if (IS_ERR(attr_vi)) {
-+				if (PTR_ERR(attr_vi) == -ENOENT) {
-+					ntfs_report_file_metadata_error(vi,
-+									-EFSCORRUPTED);
-+					attr_vi = ERR_PTR(-EFSCORRUPTED);
-+				}
- 				kfree(attr);
- 				continue;
- 			}
-@@ -949,6 +965,8 @@ ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
- 					old_init_size);
- 			mutex_unlock(&mrec_ni->mrec_lock);
- 		}
-+		if (init_err)
-+			ntfs_report_file_metadata_error(vi, init_err);
- 		/*
- 		 * The shrink clamps the initialized size to the data size,
- 		 * which can sit above the old initialized one and expose
-@@ -963,6 +981,8 @@ ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
- 			data_err = __ntfs_attr_truncate_vfs(ni, old_data_size,
- 					old_data_size);
- 			mutex_unlock(&mrec_ni->mrec_lock);
-+			if (data_err)
-+				ntfs_report_file_metadata_error(vi, data_err);
- 			/* Like ntfs_setattr_size(): stay on the durable size. */
- 			if (data_err)
- 				i_size_write(vi, ni->data_size);
-diff --git a/fs/ntfs/namei.c b/fs/ntfs/namei.c
-index fb1946b9e7e3..5a497807dda0 100644
---- a/fs/ntfs/namei.c
-+++ b/fs/ntfs/namei.c
-@@ -236,14 +236,21 @@ static struct dentry *ntfs_lookup(struct inode *dir_ino, struct dentry *dent,
- 				goto handle_name;
- 			}
- 			ntfs_error(vol->sb,
--				"Found stale reference to inode 0x%lx (reference sequence number = 0x%x, inode sequence number = 0x%x), returning -EIO. Run chkdsk.",
-+				"Found stale reference to inode 0x%lx (reference sequence number = 0x%x, inode sequence number = 0x%x), returning -EFSCORRUPTED. Run chkdsk.",
- 				dent_ino, MSEQNO(mref),
- 				NTFS_I(dent_inode)->seq_no);
-+			ntfs_report_file_metadata_error(dir_ino, -EFSCORRUPTED);
- 			iput(dent_inode);
--			dent_inode = ERR_PTR(-EIO);
--		} else
-+			dent_inode = ERR_PTR(-EFSCORRUPTED);
-+		} else {
-+			if (PTR_ERR(dent_inode) == -ENOENT) {
-+				ntfs_report_file_metadata_error(dir_ino,
-+								-EFSCORRUPTED);
-+				dent_inode = ERR_PTR(-EFSCORRUPTED);
-+			}
- 			ntfs_error(vol->sb, "ntfs_iget(0x%lx) failed with error code %li.",
- 					dent_ino, PTR_ERR(dent_inode));
-+		}
- 		kfree(name);
- 		/* Return the error code. */
- 		return ERR_CAST(dent_inode);
-@@ -303,8 +310,11 @@ static struct dentry *ntfs_lookup(struct inode *dir_ino, struct dentry *dent,
- 				if (unlikely(err)) {
- 					ntfs_error(vol->sb,
- 						"Inode corrupt: No WIN32 namespace counterpart to DOS file name. Run chkdsk.");
--					if (err == -ENOENT)
--						err = -EIO;
-+					if (err == -ENOENT) {
-+						err = -EFSCORRUPTED;
-+						ntfs_report_file_metadata_error(dent_inode,
-+										-EFSCORRUPTED);
-+					}
- 					goto err_out;
- 				}
- 				/* Consistency checks. */
-@@ -339,7 +349,8 @@ static struct dentry *ntfs_lookup(struct inode *dir_ino, struct dentry *dent,
- 
- eio_err_out:
- 		ntfs_error(vol->sb, "Illegal file name attribute. Run chkdsk.");
--		err = -EIO;
-+		err = -EFSCORRUPTED;
-+		ntfs_report_file_metadata_error(dent_inode, -EFSCORRUPTED);
- err_out:
- 		if (ctx)
- 			ntfs_attr_put_search_ctx(ctx);
-@@ -536,7 +547,7 @@ static struct ntfs_inode *__ntfs_create(const struct mnt_idmap *idmap, struct in
- 	if (IS_ERR(dni_mrec)) {
- 		ntfs_error(dir_ni->vol->sb, "failed to map mft record for file 0x%llx.\n",
- 			   dir_ni->mft_no);
--		err = -EIO;
-+		err = PTR_ERR(dni_mrec);
- 		goto err_out;
- 	}
- 	parent_mft_ref = MK_LE_MREF(dir_ni->mft_no,
-@@ -727,9 +738,11 @@ static struct ntfs_inode *__ntfs_create(const struct mnt_idmap *idmap, struct in
- 		rollback_err = ntfs_attr_remove(ni,
- 				AT_SECURITY_DESCRIPTOR, AT_UNNAMED, 0,
- 				&rollback_sd_vi);
--		if (rollback_err)
-+		if (rollback_err) {
-+			ntfs_report_metadata_error(ni->vol, rollback_err);
- 			ntfs_error(sb,
- 				"Failed to roll back security descriptor.\n");
-+		}
- 	}
- 
- 	if (rollback_data) {
-@@ -737,12 +750,18 @@ static struct ntfs_inode *__ntfs_create(const struct mnt_idmap *idmap, struct in
- 
- 		rollback_err = ntfs_attr_remove(ni, AT_DATA, AT_UNNAMED,
- 				0, &rollback_data_vi);
--		if (rollback_err)
-+		if (rollback_err) {
-+			ntfs_report_metadata_error(ni->vol, rollback_err);
- 			ntfs_error(sb, "Failed to roll back DATA attribute.\n");
-+		}
- 	}
- 
--	if (rollback_reparse)
--		ntfs_delete_reparse_index(ni);
-+	if (rollback_reparse) {
-+		int rollback_err = ntfs_delete_reparse_index(ni);
-+
-+		if (rollback_err < 0)
-+			ntfs_report_metadata_error(ni->vol, rollback_err);
-+	}
- 	/*
- 	 * Free extent MFT records (should not exist any with current
- 	 * ntfs_create implementation, but for any case if something will be
-@@ -752,14 +771,22 @@ static struct ntfs_inode *__ntfs_create(const struct mnt_idmap *idmap, struct in
- 		int err2;
- 
- 		err2 = ntfs_mft_record_free(ni->vol, *(ni->ext.extent_ntfs_inos));
--		if (err2)
-+		if (err2) {
-+			ntfs_report_metadata_error(ni->vol, err2);
- 			ntfs_error(sb,
- 				"Failed to free extent MFT record. Leaving inconsistent metadata.\n");
-+		}
- 		ntfs_inode_close(*(ni->ext.extent_ntfs_inos));
- 	}
--	if (ntfs_mft_record_free(ni->vol, ni))
--		ntfs_error(sb,
--			"Failed to free MFT record. Leaving inconsistent metadata. Run chkdsk.\n");
-+	{
-+		int free_err = ntfs_mft_record_free(ni->vol, ni);
-+
-+		if (free_err) {
-+			ntfs_report_metadata_error(ni->vol, free_err);
-+			ntfs_error(sb,
-+				   "Failed to free MFT record. Leaving inconsistent metadata. Run chkdsk.\n");
-+		}
-+	}
- 	unmap_mft_record(ni);
- 	kfree(fn);
- 	kfree(si);
-@@ -1015,6 +1042,11 @@ static int ntfs_delete(struct ntfs_inode *ni, struct ntfs_inode *dir_ni,
- 			ntfs_attr_reinit_search_ctx(actx);
- 			goto search;
- 		}
-+		if (err == -ENOENT) {
-+			err = -EFSCORRUPTED;
-+			ntfs_report_file_metadata_error(VFS_I(ni),
-+							-EFSCORRUPTED);
-+		}
- 		goto err_out;
- 	}
- 
-@@ -1023,8 +1055,14 @@ static int ntfs_delete(struct ntfs_inode *ni, struct ntfs_inode *dir_ni,
- 		goto err_out;
- 
- 	err = ntfs_index_remove(dir_ni, fn, le32_to_cpu(actx->attr->data.resident.value_length));
--	if (err)
-+	if (err) {
-+		if (err == -ENOENT) {
-+			err = -EFSCORRUPTED;
-+			ntfs_report_file_metadata_error(VFS_I(dir_ni),
-+							-EFSCORRUPTED);
-+		}
- 		goto err_out;
-+	}
- 
- 	err = ntfs_attr_record_rm(actx);
- 	if (err)
-@@ -1236,7 +1274,7 @@ static int __ntfs_link(struct ntfs_inode *ni, struct ntfs_inode *dir_ni,
- 	struct super_block *sb;
- 	struct inode *vi = VFS_I(ni);
- 	struct file_name_attr *fn = NULL;
--	int fn_len, err = 0;
-+	int fn_len, rollback_err, err = 0;
- 	struct mft_record *dir_mrec = NULL, *ni_mrec = NULL;
- 
- 	ntfs_debug("Entering.\n");
-@@ -1247,7 +1285,7 @@ static int __ntfs_link(struct ntfs_inode *ni, struct ntfs_inode *dir_ni,
- 
- 	ni_mrec = map_mft_record(ni);
- 	if (IS_ERR(ni_mrec)) {
--		err = -EIO;
-+		err = PTR_ERR(ni_mrec);
- 		goto err_out;
- 	}
- 
-@@ -1267,7 +1305,7 @@ static int __ntfs_link(struct ntfs_inode *ni, struct ntfs_inode *dir_ni,
- 
- 	dir_mrec = map_mft_record(dir_ni);
- 	if (IS_ERR(dir_mrec)) {
--		err = -EIO;
-+		err = PTR_ERR(dir_mrec);
- 		goto err_out;
- 	}
- 
-@@ -1309,7 +1347,8 @@ static int __ntfs_link(struct ntfs_inode *ni, struct ntfs_inode *dir_ni,
- 	if (err) {
- 		ntfs_error(sb, "Failed to add FILE_NAME attribute.\n");
- 		/* Try to remove just added attribute from index. */
--		if (ntfs_index_remove(dir_ni, fn, fn_len))
-+		rollback_err = ntfs_index_remove(dir_ni, fn, fn_len);
-+		if (rollback_err)
- 			goto rollback_failed;
- 		goto err_out;
- 	}
-@@ -1327,6 +1366,7 @@ static int __ntfs_link(struct ntfs_inode *ni, struct ntfs_inode *dir_ni,
- 
- 	return 0;
- rollback_failed:
-+	ntfs_report_file_metadata_error(VFS_I(dir_ni), rollback_err);
- 	ntfs_error(sb, "Rollback failed. Leaving inconsistent metadata.\n");
- err_out:
- 	kfree(fn);
-@@ -1430,7 +1470,7 @@ static int ntfs_rename(const struct mnt_idmap *idmap, struct inode *old_dir,
- 
- 			ni_mrec = map_mft_record(NTFS_I(new_inode));
- 			if (IS_ERR(ni_mrec)) {
--				err = -EIO;
-+				err = PTR_ERR(ni_mrec);
- 				goto err_out;
- 			}
- 			err = ntfs_check_empty_dir(NTFS_I(new_inode), ni_mrec);
-@@ -1455,9 +1495,11 @@ static int ntfs_rename(const struct mnt_idmap *idmap, struct inode *old_dir,
- 		ntfs_error(sb, "Failed to delete old ntfs inode(%llu) in old dir, err : %d\n",
- 				old_ni->mft_no, err);
- 		err2 = ntfs_delete(old_ni, new_dir_ni, uname_new, new_name_len, false);
--		if (err2)
-+		if (err2) {
-+			ntfs_report_file_metadata_error(VFS_I(new_dir_ni), err2);
- 			ntfs_error(sb, "Failed to delete old ntfs inode in new dir, err : %d\n",
- 					err2);
-+		}
- 		goto err_out;
- 	}
- 
--- 
-2.51.0
-
+David
