@@ -1,58 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795045004;
-	b=OD7/RqzbMdnWin6tgYdef+6BHiBu1oADWer1Z81Me9BnFU/Mc1fHchYXBK4zi/LmEN7h
-	 GdVVPLXF6mN29PlNL3PKLSKS8HSGwbw3o5uRcSExG+qQZ3cDCqNJfh930xlLjOvcGr1zs
-	 WydVuu+RdDzVzquF7nSuG8G13+uG0QJUwLSPqE3mevJH8ZUOB2zuLXu8ggJ1cdbv6qevU
-	 aLK9GD24+Q4utZlRwwqY20TaVUbw7/YJdlHMqjs0PdlTI291mtKbbeue04U/XrzQvM8dw
-	 9mLqi82807PeoEshKFS9ZnwaiJGvSMfybb0FbtBLfwTM57ES6+m44ldq/szXag3B4+g==
+	t=1795045045;
+	b=Jirc5odiZIXZByuo1ajosBPpGMbRHbF68OnCmV5WgdwtRoZQ9ielYrxZ0fhaK9yiS2wD
+	 O/lqWNUzvsXbLLFDPwjvPaK64XkpB4xX1YG0Nz792ACyo8/nV3YNn2xaJYlLN+S3oKWxE
+	 AGtJgW/nz4l1DC+ssbE233ce37EHTp2e1U6lCG9HiSufI5nPIjA+ln4jBOXMFRZ5gobXN
+	 FzCmnUGUy7xcefNKPvHLqq0ScW+/aQWOPBeHXwXf33MfrqZuEHuYEZ8pXlA+LAvcdIek9
+	 q5l1KEfjtgaCCAzujz6vDn0KjkxvTQjLeTUjQgOC4ASSxo7HxE7cZmXBK+b2w+iA3bw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795045004;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=UzULi3pDyt9yA1wkNNfY/xIv0rCm9wBQxGgbAXP0KBw=;
-	b=MCJcfsTBkqgjAhbKr97p8WFr0C3hCSOOlHUUVTwta4DzqCtw3wsKg+WY0fSNCZdZr+TI
-	 PdTfDMubuAtoiGqTz/4cRp1/zKa+SUFOGAgq15qrDmXDQZjp+Xt0g8KLfR2ucRtmCdpzY
-	 mRILyHU7PhpPvykzp+6Fs0KwzqDA6aQtQFlWKTJr39Gl6L0qWv6vlDsshoNGrlwbOkfB6
-	 4DJ6YI9Ijz0Bz9q2cXV0a5a2wHvD0tKV5QE8M2v16K2NK949NqgrvIuYlXhFFurW6ZVW9
-	 J16Qcz4707uAMyI4iZp1ZeG1iND+o4IGj9sZaB3Mttk9ltI+Z2CO71kLNwu/NKPkPvw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795045045;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=oxGRhGQXP+saO4hdaaeuycHrsZeNHZNVjp3QPLTuF0w=;
+	b=Mn5WYUNgB8gqJYfL/LhCwRYDcA6dZs+bd/TmA3geE11a7USJxx3ybo2HZakywO7gDgCQ
+	 Rs6EmeAdcFnZUvyYnJWvambmGbA04Hr1/Oyo+PgduT1PIAf/eiFsk27MCASLgg902mWOf
+	 ZMbOEPhCt4ACcXYn+NMYPRcrn0XUl1tVFnVWOsC4uXecpwQrKAd6v4vT+mX+6bWGXjJ6S
+	 oGrSMWoif7ukbhHY+qV/xLblpWDi/Qzsy/3sDLkgJG5sfoCln0NqsXTRX++/6W0YFf+rL
+	 Es5AwXdk6sxE+bZm2P7/giQJ3mLNNLHELr7pBtYFsw0RXMkCtcJH6s0xgzHFJEdj3/A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=5uZ6z84R;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--jmattson.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=PYktBma3;
+	arc=none smtp.remote-ip=209.85.167.199
+Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com [209.85.167.199])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47D48606A31C;
-	Wed, 18 Nov 2026 23:36:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 47D48606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D5CF606A32F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:37:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6D5CF606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--jmattson.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=5uZ6z84R
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=UzULi3pDyt9yA1wkNNfY/xIv0rCm9wBQxGgbAXP0KBw=; b=5uZ6z84RPsLSQVVFdYB1pcAc3j
-	tH8ohlD4j0LBFv0zoJQvwi2ZiAC6t6h+1zMC2Dhw60hd4FS3MjQ7BvlUzoDCNEiiOgMJ0H4A+SHlf
-	EuEQLK5L3vumrfdq9pAZbEhv9K6aRES65SnGP83UgtEHU8Av6H4KnPOJrcg/ZH5TAqTo=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xTpCV-00HWlx-VF; Thu, 19 Nov 2026 00:36:27 +0100
-Date: Thu, 19 Nov 2026 00:36:27 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-Cc: chester.a.unal@arinc9.com, daniel@makrotopia.org, olteanv@gmail.com,
-	sean.wang@mediatek.com, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] net: dsa: mt7530: fix regulator leak in mt7530_setup()
-Message-ID: <7c6bcbbe-bcca-4294-a54c-320b26a9d3da@lunn.ch>
-References: <20261118014114.1855-1-laixiangwu@cmss.chinamobile.com>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=PYktBma3
+Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-55bf11583d9so480209b6e.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:37:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795045043; x=1795649843; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=oxGRhGQXP+saO4hdaaeuycHrsZeNHZNVjp3QPLTuF0w=;
+        b=PYktBma3zGnmgU3FEdhSeE3oExDUfohiUpQetb31i0M8L5INWjBsjCM4IaP4qQ+3Aj
+         YBUNGH07aX6lMBWJX8+I0hAff+oRIKIBSQA0mYr22EO4shaWxDSkGp393sjibvOmqLli
+         Shw7sK3NjguuAQYsIJbyBV9pBFzykc+jfwlSgWq1TGilA0laM2fGVgigOCqZZahqbqzw
+         VHd7ODkk9lkQ0S1k/W75zgeYf3IKGxIMnEWByuuDY1YlW2vipjw2Jsor7aOJNgjag/yJ
+         wPiNtTuw/lQRY5R7bDgayvDu48DkVHYqIQQxNEqaoso/29pLol8G9ZYNqBcFYyspehYk
+         REuQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795045043; x=1795649843;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=oxGRhGQXP+saO4hdaaeuycHrsZeNHZNVjp3QPLTuF0w=;
+        b=o+rZaxYl8Okp97Z2mEBITedTTVCNdBysuDKlVYOC9gHFKiVE9LxKxjYeM3QNWy1E0b
+         PaFOb5WYCZ5EmJL4IONqS54s6q7tE+ylv4rMQyJeTL208NkXDdXQ9CajhudiWuANELU+
+         7jIBHaYw+VE00HggWXqVRJfghO+w0IzT81VRVT58RY8S+cWqi5j3W/Vb4yhyWURgmtNA
+         2hfUG+YmLLckHIbzgegk+2GlOCXM0RHvmr4yglR5OmaF5gW9ABEuPOUKX6t0rNLROqN+
+         /R7hopY9EU7EfICE5UlGAAZwce4XBhnThCLRkiVXdafR26IZ9UsMe+SP8zOZM7F3NabO
+         CjRQ==
+X-Forwarded-Encrypted: i=1; AL+hErGy5w6Pwz+daiIh720JZh7qYrifAOqsC0d1ArIUP2mN0qVlif9YJDEgQdzmA+afNGMfp0PaF8AYLr6D3a0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8w/33pItfC5nFo6av18aMf4x0crKQs3muB9phbkhyRyRxuobuM
+	9UoilPVCqlfNis08zLNci7yRGOMCbQSi2qVTdZQVVN7EA0EW6FShr3aI2VyhBs0xbDwit5sNMWy
+	NjVaKn7kzB7mSLw==
+X-Received: from ilei20-n1.prod.google.com ([2002:a05:6e02:61d4:10b0:54e:8720:76ce])
+ (user=jmattson job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6808:2f13:b0:53a:1c29:cb37 with SMTP id 5614622812f47-579083c6501mr264180b6e.38.1795045042975;
+ Wed, 18 Nov 2026 15:37:22 -0800 (PST)
+Date: Wed, 18 Nov 2026 15:37:19 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,43 +75,55 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118014114.1855-1-laixiangwu@cmss.chinamobile.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
+Message-ID: <20261118233719.2101265-1-jmattson@google.com>
+Subject: [PATCH] KVM: SVM: Set V_IGN_TPR when enabling a dummy V_IRQ for an
+ IRQ window
+From: Jim Mattson <jmattson@google.com>
+To: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>
+Cc: Yosry Ahmed <yosry@kernel.org>, kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Jim Mattson <jmattson@google.com>
+Content-Type: text/plain; charset="UTF-8"
 
-> Fixes: b8f126a8d543 ("net-next: dsa: add dsa support for Mediatek MT7530 switch")
+Per the APM, the processor takes a virtual INTR interrupt only if
+V_INTR_PRIO is *strictly* greater than V_TPR, unless V_IGN_TPR is set to
+bypass the priority comparison.
 
-Does this bother anybody?
+In svm_set_vintr(), KVM injects a dummy V_IRQ with V_INTR_PRIO=0xf to
+trigger #VMEXIT(VINTR) as soon as an interrupt window opens, but it does
+not set V_IGN_TPR.  If V_TPR is 0xf when the window opens--e.g. when
+CR8=0xf (in L1, or in L2 with V_INTR_MASKING=0) while a TPR-independent
+ExtINT or userspace IRQ-window request is pending, or in L2 with
+V_INTR_MASKING=1, INTERCEPT_INTR=0, and vmcb12.int_ctl.V_TPR=0xf--the
+priority comparison (0xf > 0xf) fails, and hardware masks the dummy
+V_IRQ indefinitely (also stranding any VM-wide AVIC IRQ-window inhibit).
 
-https://www.kernel.org/doc/html/latest/process/stable-kernel-rules.html
+Set V_IRQ_INJECTION_BITS_MASK (which includes V_IRQ_MASK,
+V_INTR_PRIO_MASK, and V_IGN_TPR_MASK) in svm_set_vintr().  Note that
+svm_clear_vintr() already clears and restores V_IRQ_INJECTION_BITS_MASK.
 
-> +err_disable_core_pwr:
-> +	regulator_disable(priv->core_pwr);
-> +	return ret;
-> +
-> +err_powers:
-> +	if (priv->id == ID_MT7530) {
-> +		regulator_disable(priv->io_pwr);
-> +		regulator_disable(priv->core_pwr);
-> +	}
-> +	return ret;
-
-It is unusual to have two different goto labels with return. Normally
-cleanup is structured similar to the code which went wrong.
-
-So something like:
-
-> +err_powers:
-> +	if (priv->id == ID_MT7530)
-> +		regulator_disable(priv->io_pwr);
-> +err_disable_core_pwr:
-> +	if (priv->id == ID_MT7530)
-> +		regulator_disable(priv->core_pwr);
-> +	return ret;
-
-
-    Andrew
-
+Fixes: 649d68643ebf ("KVM: SVM: sync TPR value to V_TPR field in the VMCB")
+Signed-off-by: Jim Mattson <jmattson@google.com>
 ---
-pw-bot: cr
+ arch/x86/kvm/svm/svm.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/arch/x86/kvm/svm/svm.c b/arch/x86/kvm/svm/svm.c
+index e30ee80624b7..2c60413597ae 100644
+--- a/arch/x86/kvm/svm/svm.c
++++ b/arch/x86/kvm/svm/svm.c
+@@ -1622,9 +1622,7 @@ static void svm_set_vintr(struct vcpu_svm *svm)
+ 	 */
+ 	control = &svm->vmcb->control;
+ 	control->int_vector = 0x0;
+-	control->int_ctl &= ~V_INTR_PRIO_MASK;
+-	control->int_ctl |= V_IRQ_MASK |
+-		((/*control->int_vector >> 4*/ 0xf) << V_INTR_PRIO_SHIFT);
++	control->int_ctl |= V_IRQ_INJECTION_BITS_MASK;
+ 	vmcb_mark_dirty(svm->vmcb, VMCB_INTR);
+ }
+ 
+-- 
+2.56.1.708.g77570a6a1d-goog
+
