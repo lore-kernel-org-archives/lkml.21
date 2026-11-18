@@ -1,105 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794989814;
-	b=ajntP9xrkn5YanoxfOPrIOf7bzX7wEpYH3+mnP0VAzhOrexR1ver4xiFE5R95cJ3diwB
-	 AJkjgM5MKQYHZXGNvBTKSuJWnTFyu5Q00toZTaEQKBHnJrp5UAGGs/jUC5shz1fpxsSoc
-	 x20GN1P/Yp9QAVTPbYwsUG+tThEpOO5fFAJcC75NJnYmybXLPHbbLCpymWqBaCllrbvmW
-	 nA+wW8lbKVwA6UiSN81lTse+AIHXR59cR7oEjfpCw+/y63d8mo/qOxnXyYObh0IG41ghF
-	 lnc1Ne2xC21D3I8TgoX3oAPEFDh0mux7hKxTm+0N9spPegvuDEa3mhyCIfhja0uVf9Q==
+	t=1794989809;
+	b=Srii+pkbBHJY7iEGjZFJgmAXgHk/GhhR3mxpQA1jqau8dITHhfHx2jkOtzLL3yBY/fLU
+	 oRIBqvaNShE60g3abifbPRjfyKkW4r8ZnGzR2Z+/RzKkRV9wOT9fVUhkdDKyR23xqGtAh
+	 FndSc7v/4mtMCRT0P+SLRdQESGqnHEzUhXh0oxg6cQ3rPhNvv2MB8ICE/bn2mFYfmYyyY
+	 PDda5EI1Pk+4B2RzJpmy+tBQsXQsvxkP8lJ2qbi1fZ1xcVDNfjAx2yHWlgueRjIRtaqUl
+	 y/Yz6IRHMYTSDqrhZQnmG+SioWW+dq5vvbumEppQOYGaGM/x5lnq8rcTjMIOE+1O4gg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794989814;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794989809;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=DruTwIEuL419lERQzYgeQDALQqSuvj3CoTd7MhEXhE0=;
-	b=pcCh2NvK9ywqFxqI54pD17IKO31MDgpD7gC7/TbosFu/VLzRAKp5YwKVpNpmqMug87ld
-	 ZvnU7Fmc3IOo/m6HWDcxupxFoG4aBFoB9f9MTCq1cKKsgu62trB4IsGVUC3yG31XDdbHp
-	 j5+Et/baVbUH8b0dcu1ChCJmUNvGdjQfaQs3d/+VU2XtMFs7FwbnulNabV7LLIWZaPBEf
-	 +mhgXUuNSZMZx+ZfxNiqJrVr8cr7wjHr45Myrogc6OetbfxIJG7EY3P716etya02IsaIj
-	 9OxWfcCwZEap7vwdSPQrmrWdgonRxGDvv+EZ4PebC/rW4FBC+j8EK3gglL/Cbjh8SYg==
+	bh=n/X/ib+QXW0aM8E5khBCUAfePu160JSALCSJ/A5VZrw=;
+	b=E89N8Z3SCwftDki9xWQwvt8brCmDEEopr75npA8KB5HKKi80qnuWawAprTgkVijiMXox
+	 ADg/Pebf0vU+h5VtVeEYNtiJ7jalIrT9GFtDInTlgt2MIZKGeDuQWJpIKlfyycmw21Rvf
+	 3iBYC6cPaSFggBF9sv/BSpvz3LHj3zOMV9W1SluaUh9goSUKCpFenP6SKZx5jq8PF+Ssk
+	 QvhKh7Au2j+DZGLvqrjf3w1wWQJm7lGf8TQ66hMSAA13xQSa4kzleKSKyocBMMWcfWoj0
+	 dAWXXmIiP9VFqP1Ht1lrZXPDZrd3H9DuJTklQ9WQv46fTku68sNQYIFgC+EFZYwATRQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=USPeiRF6;
-	arc=none smtp.remote-ip=209.85.210.175
-Received: from mail-pf1-f175.google.com (mail-pf1-f175.google.com [209.85.210.175])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=G4BAYY8f;
+	arc=none smtp.remote-ip=209.85.210.180
+Received: from mail-pf1-f180.google.com (mail-pf1-f180.google.com [209.85.210.180])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D8B860A3803
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:16:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4D8B860A3803
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CE4F606A33B
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:16:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9CE4F606A33B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=USPeiRF6
-Received: by mail-pf1-f175.google.com with SMTP id d2e1a72fcca58-8a058315c79so349979b3a.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:16:54 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=G4BAYY8f
+Received: by mail-pf1-f180.google.com with SMTP id d2e1a72fcca58-8b6a88e4341so313240b3a.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:16:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794989814; x=1795594614; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794989809; x=1795594609; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=DruTwIEuL419lERQzYgeQDALQqSuvj3CoTd7MhEXhE0=;
-        b=USPeiRF6Io8kJCL6UTsJnDfsRDziB0l2u00jfPT4LTitHF1kc0qS0uCA0/sU0+A3nS
-         MSnbfb7Uo+xh9nIJaQrTTff3HzFw4Jwrswz53GxG19I1ZlMjHaeZui1UudS75cXxKUfr
-         T69s0m1YLE/7gSegRNvNFQiyMp/PwGjQyL/a80PcorVvtBEhwajvDFZJY1lSxPczHNM5
-         DUD2Z6yU3WMtPr15R95iS8LEmMfpRlQNKMFSVSCZq4yEx4Z8LuiYOd5w4GCwbp0WBAyP
-         R6Q75mnzaHNPWnXZGxu1LoTWomnwwugazAgdf16Akj9z/36ep1+J6458Cp4GH2T6vhLl
-         g1lg==
+        bh=n/X/ib+QXW0aM8E5khBCUAfePu160JSALCSJ/A5VZrw=;
+        b=G4BAYY8fsWvX9Ui/fpCbTHUfOurLU1Q06k6rEX2qO6A2DZ0V6UIYYPHrHyvz7bDUg5
+         qLr/z/t7guAAcYDqPqJ1+brNYYCvyiT0w6J/YR+hghUkTW/og8o9BsuTAPGpudTqGQVA
+         AnbiSeeMtkCDizn0a60BRaIGuW57VS0ZXB/YOtnLFzqu83lHIWIcs3x41FFa35jf00DP
+         LGbGhV/sF2E8mDQcOY3d4D8qETdTxph+BwVlN+bRhVgXhp5hgGrhFUllCKn8Ro1fWmC+
+         Vvs3mdakDr2jQZJQ1X7sPv2Pda/D8CUU2ha9MeyA3sE5HD0WjtQpX+HOjIUnCunnH1+6
+         TKhw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794989814; x=1795594614;
+        d=1e100.net; s=20260707; t=1794989809; x=1795594609;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=DruTwIEuL419lERQzYgeQDALQqSuvj3CoTd7MhEXhE0=;
-        b=aDa1+KqZXx+Jw7WsxX000jNX/rMhRXYb5+7AiXNiUDu7pC4ynNFZW2LjYgYJn/o8k3
-         19pbKsuJRqZJKkVv3z8WXFj1bWe2BYldtJeZ7Q9AAb7M0VYGH6EZXN3Y+C+ZugCRZuxg
-         ypvAa1qJRSkHjRkAiLm/X2JWwdr3uyf9Rl3n8A4lJQvpdoJvtx3+gdBCjrZktBpyALcn
-         iioxhOzkriqtbXu5vtdNXUm727d/vjgjC5FsTIuRzLNTWFUJyoTvbq0cb3uTaDkxEzWB
-         Nrr3AQuEDASOcFMPcEBl070fVVcRfW5A7TizYLi0JpgP8PEvn11NyKTwrkF3C1cdldZt
-         5iww==
-X-Gm-Message-State: APuU4Z9u42vn5jiYjgetXidYLBdjtPaZ/0/VLzc36i8bLTBMnvNEizI2
-	BzYd4FfltAoPwm8Sziq4mnzcLYQomMKDFoantfoneoo711zeMFYXcCtC
-X-Gm-Gg: AYBFou152hC5AfCG4GhjRN9YFLBSVpGtjqUvssK3RD/72i07mZMSZKwY8dgXGGwkbdo
-	3AobXE8f6pyNP4VWm2Ww2xcDZwEL4sWBLAIGgwlvXMkoAiltPwofi7nQk1bnHEysdD9AafnzYmF
-	sP1oicRPg8WWTdkP8kkmQI0CyLxhgPD7ap06ZwAhgf3ym0RLSzmubnZue1Acpq7Rwdjp0cY+tsp
-	dP7Na2qAlDmGTXNVgWbzEAAPwajMzoR2+n1IugeL/nQfMPDP5q/Z9u9niPTOxqFXCWkIe+M3OFh
-	l6svQI2A2eu7gXaRgXF4p4QpRp5eyel6BVpERN+5sNsmeIcXQQzrR6lADEaeTkW4WWmIJmtXC+N
-	iwuHxBQAfZ9Fseu2yEs4R8T8P6CTHLRuS/Z4sZ0jeBF2wUHHg3eWORymiMnANGjiDeqYNkGi8YT
-	UhMzRxpiNJHYiRWRRxXLn/rMZWIKN6WFDzOsMFOlzPLEsi/aPyIe5obCfuUCbkWfOfiNMWX7L0U
-	JlTbHYHHl32Rvx2FllE4mLWCFuGowy2mrbat+uUNO09Hwp8pojHEh3i/lIXtrH6sKVoBGSedbbs
-	yQf/tVSX/8VSZ0pGd0qp4tEBJ3XGztDH+SW8Hfh02hBEeLbhAB6HsTBU2Gh+sehIpFNSrPY=
-X-Received: by 2002:a05:6a21:828c:b0:3f9:b55e:10bb with SMTP id adf61e73a8af0-3fe98af080bmr1592901637.87.1794989813764;
-        Wed, 18 Nov 2026 00:16:53 -0800 (PST)
+        bh=n/X/ib+QXW0aM8E5khBCUAfePu160JSALCSJ/A5VZrw=;
+        b=smbnZep1pKl1xN7qPC/2pxvuNuaHgGzUD2251HK4lfJO06DOUxkfE62xs3Jz18dg0V
+         wI67ZRpeCpSSu5uCMYJv9gecXNLoXR89RLe53Dkchlw8GRWCzwddTOLCpuON7bnIr0nX
+         GIbIqoFaq/TSMskFYj+i9C2dj2qBP17PdnAzWYco7f+eCNNzh4n4QmDLsTFU1yNCB2xg
+         iKWLmjaWbHzMt4y9JnXPvTIPeoVWlYz6WWMo8LmF/XzHiai9ncG5S0z6XJNan7Vmvuob
+         ekn7IlgXgjCe8jIy3qPK9xA7f2rKqemnCGvAiCCVWZD27ojEHj0xln1Xwqqo8BNdHuC2
+         n7sw==
+X-Gm-Message-State: APuU4Z9A54DhHxdLm28AhnOjkQxrnxCPqHrqW7bSXQIw8TzsJI2oQVvA
+	jxJnuGszndQp7FK242s4YsmkGwfEBJjzq6H3GC2/axvX8TUis7f9pM+k
+X-Gm-Gg: AYBFou0xmvTukQgkSyeQC/7fWxa0COXRBdyTck2GI5Knuc1hhoDlOGG4RQ4HVwon/nT
+	uJsuYfcQgJQfXTPl9kBr/wTiEisyMKekfuJa+9HEW3+qB9YAQ1NBhtVplo4oHb9FN4MIZHRYxso
+	IJNaCYdp6O3ymjdrXPOl9tIEEaUX3pkUUXwkQF22ecky4cRi6oXnW/G81cgmgrLewa4YLLem2bC
+	AT4IOuH9EOgdTiWmi3/tCdyJBN7yeThu837PJ00IuUZx4P7QfCJuf1fI0c9lMIHGl4lIT3KM1ZZ
+	UKfhvogNzgC1fEAoHHpA+NDrRRia6+If8MESstpDyXSMoPrWzQXcmIzT2FNY2yFrEdekywnlcu1
+	TYtd1PQg2CUSFlJkOcZ23F5dhC1QpzHxFZJzqegJ/LtV6tecqW2rbbWgjjGr0O5IeLKsZhI9tgk
+	3sz8SGb24Sp8/F+RKCHeIoAE6B4jXb2fLEOvch66oNSgsHp/0psrppFTS9lycntxJnM8F0xxGB8
+	cPtZfrpXcHn4EEHNtglYs1cfhyVkjn/U1zQkW4Sk9ruXOExLToWYp/YDeSiODkKrLl67f6V38FA
+	Y8wZ+1kIkRjNlZnPSg7x/bTOSCeUgv+KPJ9W5mHU9EpJ8EPIh3IyMflilXrZCpUD/IYzM/g=
+X-Received: by 2002:a05:6a21:7a8b:b0:3de:4516:27c9 with SMTP id adf61e73a8af0-3fe988f72afmr1918544637.64.1794989808851;
+        Wed, 18 Nov 2026 00:16:48 -0800 (PST)
 Received: from hcdev-d520mt2.. (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5cad8cefbsm764401b3a.31.2026.11.18.00.16.50
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5cad8cefbsm764401b3a.31.2026.11.18.00.16.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 00:16:53 -0800 (PST)
+        Wed, 18 Nov 2026 00:16:48 -0800 (PST)
 From: a0282524688@gmail.com
 To: lee@kernel.org,
 	Ming Yu <tmyu0@nuvoton.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Marc Kleine-Budde <mkl@pengutronix.de>,
-	Vincent Mailhol <mailhol@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>
 Cc: linux-kernel@vger.kernel.org,
 	Ming Yu <a0282524688@gmail.com>,
-	linux-gpio@vger.kernel.org,
-	linux-hwmon@vger.kernel.org,
-	linux-i2c@vger.kernel.org,
-	linux-can@vger.kernel.org,
-	linux-rtc@vger.kernel.org,
-	linux-watchdog@vger.kernel.org,
-	mfd@lists.linux.dev
-Subject: [PATCH v10 06/13] mfd: nct6694: Move module type macros to shared header
-Date: Wed, 18 Nov 2026 16:16:17 +0800
-Message-Id: <20261118081625.2399247-7-a0282524688@gmail.com>
+	mfd@lists.linux.dev,
+	linux-rt-devel@lists.linux.dev
+Subject: [PATCH v10 05/13] mfd: nct6694: Drop the unused IRQ enable mask
+Date: Wed, 18 Nov 2026 16:16:16 +0800
+Message-Id: <20261118081625.2399247-6-a0282524688@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261118081625.2399247-1-a0282524688@gmail.com>
 References: <20261118081625.2399247-1-a0282524688@gmail.com>
@@ -116,203 +106,101 @@ Content-Transfer-Encoding: 8bit
 
 From: Ming Yu <a0282524688@gmail.com>
 
-Each sub-device driver defines the module type used by its own
-commands. The upcoming HIF transport also needs to recognise
-NCT6694_RPT_MOD, as report accesses are served from a separate
-register space rather than through the command mailbox.
+The .irq_enable and .irq_disable callbacks only update the irq_enable
+bitmask under irq_lock, which is a spinlock_t. Nothing ever reads that
+bitmask, so the callbacks do not mask anything. They also take irq_lock
+while the IRQ core holds desc->lock, a raw spinlock. On PREEMPT_RT this
+is an invalid wait context.
 
-Move all module types into the shared header so that the transports
-and the sub-device drivers use a single set of definitions.
+Remove both callbacks, along with irq_enable and irq_lock, and keep
+IRQCHIP_SKIP_SET_WAKE. Without .irq_disable, the IRQ core falls back to
+lazy disable, and handle_simple_irq() keeps a disabled interrupt pending
+instead of calling its handler. The behaviour is therefore unchanged.
 
-No functional change.
-
-Reviewed-by: Andi Shyti <andi.shyti@kernel.org>
+Fixes: 51dad33ede63 ("mfd: Add core driver for Nuvoton NCT6694")
 Signed-off-by: Ming Yu <a0282524688@gmail.com>
 ---
 Changes in v10:
-- None.
+- New patch. Drop the .irq_enable/.irq_disable callbacks, which only
+  update a bitmask that is never read and take a spinlock_t while the
+  IRQ core holds the raw desc->lock (reported by Sashiko on v9 06/12
+  and 09/12).
 
-Changes in v9:
-- Added Andi's Reviewed-by.
+ drivers/mfd/nct6694.c       | 25 -------------------------
+ include/linux/mfd/nct6694.h |  2 --
+ 2 files changed, 27 deletions(-)
 
-Changes in v8:
-- Reworded the commit message to explain why the transport needs the
-  module types.
-
-Changes in v7:
-- None.
-
-Changes in v6:
-- None.
-
-Changes in v5:
-- Split from the monolithic v4 patch to follow the single logical change
-  principle.
-
- drivers/gpio/gpio-nct6694.c         |  7 -------
- drivers/hwmon/nct6694-hwmon.c       | 21 ---------------------
- drivers/i2c/busses/i2c-nct6694.c    |  7 -------
- drivers/net/can/usb/nct6694_canfd.c |  6 ------
- drivers/rtc/rtc-nct6694.c           |  7 -------
- drivers/watchdog/nct6694_wdt.c      |  7 -------
- include/linux/mfd/nct6694.h         |  9 +++++++++
- 7 files changed, 9 insertions(+), 55 deletions(-)
-
-diff --git a/drivers/gpio/gpio-nct6694.c b/drivers/gpio/gpio-nct6694.c
-index 9d51bf52e99a..b3eba9f344ef 100644
---- a/drivers/gpio/gpio-nct6694.c
-+++ b/drivers/gpio/gpio-nct6694.c
-@@ -13,13 +13,6 @@
+diff --git a/drivers/mfd/nct6694.c b/drivers/mfd/nct6694.c
+index 6b8b951f0166..27e9effd68a7 100644
+--- a/drivers/mfd/nct6694.c
++++ b/drivers/mfd/nct6694.c
+@@ -19,7 +19,6 @@
+ #include <linux/mfd/nct6694.h>
  #include <linux/module.h>
- #include <linux/platform_device.h>
- 
--/*
-- * USB command module type for NCT6694 GPIO controller.
-- * This defines the module type used for communication with the NCT6694
-- * GPIO controller over the USB interface.
-- */
--#define NCT6694_GPIO_MOD	0xFF
--
- #define NCT6694_GPIO_VER	0x90
- #define NCT6694_GPIO_VALID	0x110
- #define NCT6694_GPI_DATA	0x120
-diff --git a/drivers/hwmon/nct6694-hwmon.c b/drivers/hwmon/nct6694-hwmon.c
-index 32f96867635f..fde32010a66c 100644
---- a/drivers/hwmon/nct6694-hwmon.c
-+++ b/drivers/hwmon/nct6694-hwmon.c
-@@ -15,13 +15,6 @@
- #include <linux/platform_device.h>
  #include <linux/slab.h>
+-#include <linux/spinlock.h>
+ #include <linux/usb.h>
  
--/*
-- * USB command module type for NCT6694 report channel
-- * This defines the module type used for communication with the NCT6694
-- * report channel over the USB interface.
-- */
--#define NCT6694_RPT_MOD			0xFF
+ static const struct mfd_cell nct6694_devs[] = {
+@@ -250,31 +249,9 @@ static void usb_int_callback(struct urb *urb)
+ 		dev_warn(nct6694->dev, "Failed to resubmit urb, status %pe",  ERR_PTR(ret));
+ }
+ 
+-static void nct6694_irq_enable(struct irq_data *data)
+-{
+-	struct nct6694 *nct6694 = irq_data_get_irq_chip_data(data);
+-	irq_hw_number_t hwirq = irqd_to_hwirq(data);
 -
- /* Report channel */
- /*
-  * The report channel is used to report the status of the hardware monitor
-@@ -38,13 +31,6 @@
- #define NCT6694_TIN_STS(x)		(0x6A + (x))
- #define NCT6694_FIN_STS(x)		(0x6E + (x))
- 
--/*
-- * USB command module type for NCT6694 HWMON controller.
-- * This defines the module type used for communication with the NCT6694
-- * HWMON controller over the USB interface.
-- */
--#define NCT6694_HWMON_MOD		0x00
+-	guard(spinlock_irqsave)(&nct6694->irq_lock);
 -
- /* Command 00h - Hardware Monitor Control */
- #define NCT6694_HWMON_CONTROL		0x00
- #define NCT6694_HWMON_CONTROL_SEL	0x00
-@@ -53,13 +39,6 @@
- #define NCT6694_HWMON_ALARM		0x02
- #define NCT6694_HWMON_ALARM_SEL		0x00
- 
--/*
-- * USB command module type for NCT6694 PWM controller.
-- * This defines the module type used for communication with the NCT6694
-- * PWM controller over the USB interface.
-- */
--#define NCT6694_PWM_MOD			0x01
+-	nct6694->irq_enable |= BIT(hwirq);
+-}
 -
- /* PWM Command - Manual Control */
- #define NCT6694_PWM_CONTROL		0x01
- #define NCT6694_PWM_CONTROL_SEL		0x00
-diff --git a/drivers/i2c/busses/i2c-nct6694.c b/drivers/i2c/busses/i2c-nct6694.c
-index 158a533dfba7..d3e2316ff53c 100644
---- a/drivers/i2c/busses/i2c-nct6694.c
-+++ b/drivers/i2c/busses/i2c-nct6694.c
-@@ -12,13 +12,6 @@
- #include <linux/module.h>
- #include <linux/platform_device.h>
- 
--/*
-- * USB command module type for NCT6694 I2C controller.
-- * This defines the module type used for communication with the NCT6694
-- * I2C controller over the USB interface.
-- */
--#define NCT6694_I2C_MOD			0x03
+-static void nct6694_irq_disable(struct irq_data *data)
+-{
+-	struct nct6694 *nct6694 = irq_data_get_irq_chip_data(data);
+-	irq_hw_number_t hwirq = irqd_to_hwirq(data);
 -
- /* Command 00h - I2C Deliver */
- #define NCT6694_I2C_DELIVER		0x00
- #define NCT6694_I2C_DELIVER_SEL		0x00
-diff --git a/drivers/net/can/usb/nct6694_canfd.c b/drivers/net/can/usb/nct6694_canfd.c
-index e5f7f8849a73..262b4c26c9d4 100644
---- a/drivers/net/can/usb/nct6694_canfd.c
-+++ b/drivers/net/can/usb/nct6694_canfd.c
-@@ -18,12 +18,6 @@
- 
- #define DEVICE_NAME "nct6694-canfd"
- 
--/* USB command module type for NCT6694 CANfd controller.
-- * This defines the module type used for communication with the NCT6694
-- * CANfd controller over the USB interface.
-- */
--#define NCT6694_CANFD_MOD			0x05
+-	guard(spinlock_irqsave)(&nct6694->irq_lock);
 -
- /* Command 00h - CAN Setting and Initialization */
- #define NCT6694_CANFD_SETTING			0x00
- #define NCT6694_CANFD_SETTING_ACTIVE_CTRL1	BIT(0)
-diff --git a/drivers/rtc/rtc-nct6694.c b/drivers/rtc/rtc-nct6694.c
-index 501c364277d8..86a03f02515c 100644
---- a/drivers/rtc/rtc-nct6694.c
-+++ b/drivers/rtc/rtc-nct6694.c
-@@ -14,13 +14,6 @@
- #include <linux/rtc.h>
- #include <linux/slab.h>
- 
--/*
-- * USB command module type for NCT6694 RTC controller.
-- * This defines the module type used for communication with the NCT6694
-- * RTC controller over the USB interface.
-- */
--#define NCT6694_RTC_MOD		0x08
+-	nct6694->irq_enable &= ~BIT(hwirq);
+-}
 -
- /* Command 00h - RTC Time */
- #define NCT6694_RTC_TIME	0x0000
- #define NCT6694_RTC_TIME_SEL	0x00
-diff --git a/drivers/watchdog/nct6694_wdt.c b/drivers/watchdog/nct6694_wdt.c
-index 57bcc1299973..94c630a9ced6 100644
---- a/drivers/watchdog/nct6694_wdt.c
-+++ b/drivers/watchdog/nct6694_wdt.c
-@@ -21,13 +21,6 @@
+ static const struct irq_chip nct6694_irq_chip = {
+ 	.name = "nct6694-irq",
+ 	.flags = IRQCHIP_SKIP_SET_WAKE,
+-	.irq_enable = nct6694_irq_enable,
+-	.irq_disable = nct6694_irq_disable,
+ };
  
- #define NCT6694_WDT_MAX_DEVS		2
+ static int nct6694_irq_domain_map(struct irq_domain *d, unsigned int irq, irq_hw_number_t hw)
+@@ -356,8 +333,6 @@ static int nct6694_usb_probe(struct usb_interface *iface,
+ 	ida_init(&nct6694->canfd_ida);
+ 	ida_init(&nct6694->wdt_ida);
  
--/*
-- * USB command module type for NCT6694 WDT controller.
-- * This defines the module type used for communication with the NCT6694
-- * WDT controller over the USB interface.
-- */
--#define NCT6694_WDT_MOD			0x07
+-	spin_lock_init(&nct6694->irq_lock);
 -
- /* Command 00h - WDT Setup */
- #define NCT6694_WDT_SETUP		0x00
- #define NCT6694_WDT_SETUP_SEL(idx)	(idx ? 0x01 : 0x00)
+ 	ret = devm_mutex_init(dev, &nct6694->access_lock);
+ 	if (ret)
+ 		goto err_ida;
 diff --git a/include/linux/mfd/nct6694.h b/include/linux/mfd/nct6694.h
-index 2022b8fcc096..d752708c2a8d 100644
+index 69e4652cf16c..2022b8fcc096 100644
 --- a/include/linux/mfd/nct6694.h
 +++ b/include/linux/mfd/nct6694.h
-@@ -8,6 +8,15 @@
- #ifndef __MFD_NCT6694_H
- #define __MFD_NCT6694_H
+@@ -91,13 +91,11 @@ struct nct6694 {
+ 	struct ida wdt_ida;
+ 	struct irq_domain *domain;
+ 	struct mutex access_lock;
+-	spinlock_t irq_lock;
+ 	struct urb *int_in_urb;
+ 	struct usb_device *udev;
+ 	union nct6694_usb_msg *usb_msg;
+ 	void *data_buf;
+ 	__le32 *int_buffer;
+-	unsigned int irq_enable;
+ };
  
-+#define NCT6694_HWMON_MOD	0x00
-+#define NCT6694_PWM_MOD		0x01
-+#define NCT6694_I2C_MOD		0x03
-+#define NCT6694_CANFD_MOD	0x05
-+#define NCT6694_WDT_MOD		0x07
-+#define NCT6694_RTC_MOD		0x08
-+#define NCT6694_RPT_MOD		0xFF
-+#define NCT6694_GPIO_MOD	NCT6694_RPT_MOD
-+
- #define NCT6694_VENDOR_ID	0x0416
- #define NCT6694_PRODUCT_ID	0x200B
- #define NCT6694_INT_IN_EP	0x01
+ int nct6694_read_msg(struct nct6694 *nct6694, const struct nct6694_cmd_header *cmd_hd, void *buf);
 -- 
 2.34.1
 
