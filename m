@@ -1,95 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.200.30
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.179
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794991231;
-	b=ErXFvvueNG7wF74R6HfKcy0W3YirkIN448iS1uLpnvVkg2FkGQJpo5h5NjqQkN7D1Pt0
-	 Ut40DVhxD+KQ8Rq46hRkOA3/KOF2RucyFzPMoJ5hwSh61M0+7AKM46MgUGCBG5sEIa9b8
-	 QRdLC4iChQ7JjU7NSdTAbroFfth2TAhpmqM5GrJKOa1CnqJzPm9cMouVz9quVPN/nhVkp
-	 Ia6o3Ryoau91igeLh2IFSQV9FpcrylNpfl0pEiUuwTVOfcnXWLxZTykh79aJkehbxal0e
-	 BdtAxogORjfGbLi/3hN+MRl5MjXnfmJNpGB6iD5eTexdX85XYZOf4+34XVucBxSzurg==
+	t=1794991237;
+	b=kbhpqD2E0nmrCQ32FGNrSAcQxq/2EDaslwIT5BE46a0q7r14QOENNesdQqkOvvFZZv7P
+	 1nIv6l38gOznQXCThc4Dy2jv3kb61267N37QVbtU+Gcic+ozeOC2koK8MFp+XCVzI29LL
+	 NsfrSKUBYkpGy4iPgUlbaKudgPIAYgVZKd+MiRLqEg5qIE/pepVxkJ4BP1nEcmfnvvqu3
+	 XjEsvGvmcD04RAqSN6g4Mo4WERo2mBmAgDowXi+Mfjgmp0JqvFF11kpxRQtEdjC0CjVC2
+	 WyNDAxxjZsve2dxbh/+XAlxdV1mVjSV4NrcEVAGWL6rv3109Sd68yZLWPEJkSjcv6Ew==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794991231;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=hXofRKU80HobS0eEy0BLJ+bXjd3BZ1obLil78HUAOCc=;
-	b=IPnrX3W102o9HrYhsHAqG0UZoJlioEdvuW6oAG1M2CIeJ/ivae/Frm8x6+Uehwd128MA
-	 iijwPonY161aSWl7k9TbV9wePBWoX1JwsfJt/flJXiq68TMJRjx+0mTv1rR2odjyibd5q
-	 i7kJ+Hv1XhCxC8yyCNYRfwdcX01VdnCx/n1wico64T1FIy0r4g+C4HV95BHhV++mBVQh/
-	 YUOtNArfcjE1EVNx+sFvS9NiLViXxHfhS8+ZlRF6EReFIAqW3yBz3zy4Ry8z66DJbhXKA
-	 CqdvLpvHqeMnyo4jSm1NQ+QapHwm/OigJOEtplRO4swKawSUZy/qi/DwVX/lYewIbVg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794991237;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=nxBFBJcPsYEHnoML0v/R3WCL5lSz1O0owQoKLBfb8eE=;
+	b=GuJAiYkvJXX70JS5DZ4fui3Yqz0hIlWRWVUx+8Df23DVTzLp1FZHIKwSW1PFkfQMHoAm
+	 brXkfZ0HyuodM1E8s4uddSW8lk+avs0NghYCPeVoQmfRPtdey31g4NR6Xp2ME2tdwlI3Q
+	 ScLrumKIdGH/8IGILbk0XuB6Wvof6+P0l5kQiGiJEVnaFRNhSyZFO1qjsCQjfwjl4nJFO
+	 FQ20IjYThDvifzDcmYkQhfOAKAGQPEkNlAKC6MaCvNXlB/+mbHdGWG0ilqJZlpVTYaHEj
+	 nw/vacuR8iV4cwyDvO9VjED3yqWPhHJDFlr4AKEa19wrzRgoPygoOgBI+iA3U0d6A9g==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=1mnv6mBb;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.200.30
-Received: from CH5PR02CU005.outbound.protection.outlook.com (mail-northcentralusazon11012030.outbound.protection.outlook.com [40.107.200.30])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=R6LULoa0;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.179
+Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 661AD606A32A;
-	Wed, 18 Nov 2026 08:40:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 661AD606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29E57606A336
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:40:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 29E57606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=1mnv6mBb
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ylmUT5bZfDxB2qz/q2ZzLjHu5uCWoSQgUuu15cwHEDzf7BlzFLqy+sCvNHbrf0IR7Hk8i9jDB3IK3ZmiRk1VscNZbRlL047qec254BFjHE9JKedOuoe6GA57b6DlmhqzVeIGroFidLQawlICeOLw86OXsyOHcHQLsYStO5aK1HvlkTyL9t8Neb+ySp8gxPzSGb0Hhu4MM+wzePwPEd9w5/dtfwtuUHUhXFKhk61bE5uyuWd8HZ1VTKp/iDhWJYC/s9nv9qezH1fT3g5IVeWZcc+HMl/YxHfiGhCdy/O++SZ2ZF+OA+eQzCat7i8tBOCE78xbfxnnjURQxrkVU9nsuA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hXofRKU80HobS0eEy0BLJ+bXjd3BZ1obLil78HUAOCc=;
- b=SLoFIcAgEpUs8J2eZDzMsStehdH2UrOB57+NOQTAGKZgJNTjh8/WghJuJ1AFGJjC/1wqpX89t9US9DbjhRyhiPp6Du3MF4LY/7xlRCJb7CnXCstp8KJyK/06fUn69CQxWjsk2D5jmWaCPvMbeQpMCg4rftEXZv3vSXrml6Rl1vr6zncWsPbzO0iHcRDW++7QmdZBTyONp7NSO/EQh2x7lJF4JR8+y+RofQFLWZ9pq8CcshoPNroDrb8+weGapWru70kYAj2/+xwsexy/fIDp7bzuwZyrksbeH56d6nj+jsnam1gAWdvkzB0ooODcGvhfCpBtgO4NZe8NFQ2uHUMrbg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hXofRKU80HobS0eEy0BLJ+bXjd3BZ1obLil78HUAOCc=;
- b=1mnv6mBbp4b1DGGSepdPXBBRpUziwF8r7pbeBMtEV2cxldV8D+zDDemC2OdbTKpFJLrSre667Lt8grZGSnPJdYFNarUV1xImHh5anvEqBDYwCBdoSrdWWPSwFf7DDFfLEcqBOJIWaSyqsY8/ujogWqhD6YDYCZSSgf60GFU7nvo=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from DS0PR12MB9060.namprd12.prod.outlook.com (2603:10b6:8:c4::12) by
- SA3PR12MB7783.namprd12.prod.outlook.com (2603:10b6:806:314::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.13; Wed, 18 Nov
- 2026 08:38:22 +0000
-Received: from DS0PR12MB9060.namprd12.prod.outlook.com
- ([fe80::e096:864d:d60a:c83f]) by DS0PR12MB9060.namprd12.prod.outlook.com
- ([fe80::e096:864d:d60a:c83f%4]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 08:38:22 +0000
-Message-ID: <85ff5be0-4fad-4d92-b9f3-2553c7c4365b@amd.com>
-Date: Wed, 18 Nov 2026 14:08:16 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] pinctrl: zynqmp: Ensure function names are NUL terminated
-To: David Laight <david.laight.linux@gmail.com>
-Cc: Linus Walleij <linusw@kernel.org>, Michal Simek <michal.simek@amd.com>,
- linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, saikrishna12468@gmail.com, git@amd.com
-References: <20261117073947.1100444-1-sai.krishna.potthuri@amd.com>
- <20261117131616.0a631d5c@pumpkin>
-Content-Language: en-US
-From: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
-In-Reply-To: <20261117131616.0a631d5c@pumpkin>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA0PR01CA0074.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:ad::7) To DS0PR12MB9060.namprd12.prod.outlook.com
- (2603:10b6:8:c4::12)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=R6LULoa0
+Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-382ecd5cf2cso354038eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:40:36 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794991236; cv=none;
+        d=google.com; s=arc-20260327;
+        b=H8O0L2wUnl2h7vvnAeEGV+LBiq/zb8zvL9Kh/815LHkBYp/hj7rFlY4Q7nRqzK3rYf
+         H0ocZp7PSraE2jS4LW5yeQlW5aN6TG0TDskXpOTIN6B7ulFhYOzfCOmb/Ltlug0udUNS
+         t3Gd07JYPsUTt8Jh7PWlBDdvGp8gRHH8CCogeg0W47ombAP+VjUUYwrGHYgMOY+3UBsU
+         U1wRfJElUbPRNow9TIMgfFQRM7TOazBZvXraOQV+X53tkgS7sU83zI6UeGNM6HrnHAB2
+         SnnRBTW7UwLolpDkoIheWFFaFJm2i5A75cjEcdyI/uKmeypFSt8O6K8nB1K4a2CIl8sB
+         6agQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=nxBFBJcPsYEHnoML0v/R3WCL5lSz1O0owQoKLBfb8eE=;
+        fh=jCfMcWuhD2Hjq4RZyWFCYPjW76sPXLtZqyY3XheVYCg=;
+        b=PVcAUM3xQGrj0c5nu/9Ir+O3ZJFzCrM5ETVGx0FowGjhQggx6+Lr8ElSNqrcIQCWnM
+         nIytUjB5kQwchD+3E+B5Zm5F040yxw3n8jwnV00/0EDAuK0MuixJjRUg8gVDd0H7JMol
+         OpzlOJwf1u9rcgHCPiePj7NJiXG43QDyFP1zUnwfXS+YxZzKhjhoxeRI3ID9zJysc9oa
+         GCDlrgfVfcd5yAJmWOq/v+cwwHzVv5aAI9tpb9/P7QSYtTGDBuig7P2+vpfEbpQiSdxR
+         NpKVs68G0+0Xvmpk7XtHqsues4E+xOuwM6ua7LWekeT+e2YKux/lQyjD1MGx9kA41VXd
+         RMPg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794991236; x=1795596036; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=nxBFBJcPsYEHnoML0v/R3WCL5lSz1O0owQoKLBfb8eE=;
+        b=R6LULoa0nUEKQ7noASBC+IOahmdb412tvQrJrTLxZM/BlBucf7gLQwhmI9N39Tx0iK
+         hP6VkKt+3wD1Bat7iBJvcIstAmngruwpy7MjvJOmOWOH9wP4TB2IGFUe1D1AxXXBuStT
+         eZvxl6yH4iFUQnzT9Qcmh66wJDaXMZudBDxekJq5eh878uUySEtZBoxDFGrmceknVxoz
+         CfUfvEjg3e1HELAnDnDpbdWtjFk7ofJeyXC6FaEendOgus5q7z7Qm5oDQ2u/XBQQC4qd
+         xlxaErKSNW4zmLqlVTXP73+bwMw6AbUacTTbxXlmkfH0jYvyB8ZfE9j6vcLQhlR4lH1V
+         EJag==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794991236; x=1795596036;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=nxBFBJcPsYEHnoML0v/R3WCL5lSz1O0owQoKLBfb8eE=;
+        b=HWYnNRrjME4Nv/7GSEr8SnOFpgyoPXGY976EjH07cJI6N3YpNmXwMasW01+GIBn5Mh
+         aBPJrLI4ykzKV2Lh/GyfvoEz1Etq2MPXFqiUyRGCvrh8XDeVfaLRMlCH67rRG+KTIPhg
+         IAClRCg8jjBfjitZStW6kye4UJgl9W1mr9KiG+yVk5FZlCx3Tza7lXYGiWf1GLG4LK69
+         sjY/Qwuh2+aKc2Zw93tnurwpMgHI6MrFiD0GNjKAeFyqm7S3j6bYpmj7ACBL87J4PzKp
+         bzzVDoPTlG8mVoxQyxbVXOllvtEcJkRN4mpE8evzgUuih2oqa9Alu1TPnqu1qLtAK6aY
+         QbRg==
+X-Forwarded-Encrypted: i=1; AL+hErEDhciSW4MfqoKd6kA6Yc+OKBvm+GK/1ZuAJYFWFj4tIysJ0aNfxguIPFGj0pL1cUXl6MiI+Wa2+ouUCWc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8XqEvzdtDvq2o8oG0iXENP8qXBnl9rCHWmlP85i9b1lMVIhi47
+	wtRuEZkRLCUFADhmiNE/6q9PzSWmohUY+5mFINcT7gduaZ/yud3l3kkUipASkPCSCq6EhXmqm5U
+	UsfZEp+tVC9xhlOukC0HNIqj4vz/du0U=
+X-Gm-Gg: AZFdTZeTNhQll7lFbPFYmzXbfJQmKCzjNR5/tbWoDZWIEAWwL+N1YstCaq0JBdPVG9g
+	jUslq0Rzad1vvD1I1i7tjuJZ6v2gQGH0cRS8nAsmCaiifECIBz2kDZGexh/YgEvY9IKtU0J+2H4
+	Q4sJO1+kznlNZ/ebhQ6nuwswZUMICetr9BNyxwXeI+o3N0/PSostxlUpnIpEN8DMVUEXy0u4EQu
+	okEdiZbY13G8ygigkLwVO/RgJS9nTIEsD+0yWbwi3Gj11b51j56exE0O8FVPRXgPinSboXhnSWR
+	Sg/EsAVjDX8qco4o4b7M7HIzCxd2GoGth+5Dz6fNmVg4xNLj2wwuISA+VrxOddCuCiH8F8bE2CC
+	rFpZAfA5FyyPzVqfpX7A5oUIw129R8TxAigBalMgx+bMmA1ZWh8FvbyCLQB2/E+WgXKxmRVjsI2
+	XXe+LDecIIjZ3iBGkqSUGAmrfPJgd5wQ==
+X-Received: by 2002:a05:7300:3395:b0:377:3984:5cb with SMTP id
+ 5a478bee46e88-3810f02aadbmr5027302eec.17.1794991236131; Wed, 18 Nov 2026
+ 00:40:36 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,140 +105,132 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR12MB9060:EE_|SA3PR12MB7783:EE_
-X-MS-Office365-Filtering-Correlation-Id: 44271f06-7127-4522-db4b-08df454f4ddd
-X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|22082099003|18002099003|6133799003|3023799007|11063799006|4143699003|56012099006|261022115727099003|261026135527099003|261022075727099003|261028144727099003|261022113327099003|261021121427099003|10067099003|261009221227099003|261021123027099003|261009223327099003|261009221727099003|261009223027099003|261021135927099003|261102123227099003|261021130227099003|261009220027099003|261021133027099003|261026140227099003|261026130827099003|261022105027099003|261026121527099003;
-X-Microsoft-Antispam-Message-Info:
-	M02bDW2vX/UFPgDlNMzKUcnnMejPN8yeQVCQ36C7ysCQ2vYsELALi0vbyMCbSUCDPxiC4ieMOUswRFFEwpWPyYBZgNSYa+vQyRKKkAdE32Ziv5fFx4q3rKyCSUN8pSNNutxyHdH2ATViciUsKgDjNqy/u34spUCTHrYgVZvyW+31ACRmup/VdmjXLQ7yj1MRhJbNAYzMbKFSiZPUG9UpA+460UUbE2iwBzRedIjmlIkyYAVmy1Tb4ODD/5GIYEihM2oGofvsDrkK08yGxomSrDAoMnVZXPLA61xgkN/AgRiAr+EGH0Z+fQO5RpHsUeqxZ0e2pFlfVGAYHDv7yqMMl7s0/zI/3DrYbNHT5bD87vj/sI17IRx0Qlc0edLgswLUmEb3i7xXLgpx2TOPMNzyGWiX8UPIqhumvOofBisiRinqkYwOe+CQeYzSLhSU7K5wnBFJkjVmq9aVomg6F1uwRMuUgLbBGTbGItx8qpNQ+JMO5JTNv1c47o+XCWGRFlmSSh+IVW+fx1FzoHfln4qg2KVzyPppXCY9ErHtzKYWp34DFwP9nq5numaZ/uSYh0jPouBLzsJG58m7NMQd+iuu8gzau67lOLAfManqLD3Z8OwUIpWX9KZ6nqBHbBRFJDD+fEAzj+aXizV089s61jR/djjZXjREEoi8fLOs5PbXPh0=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB9060.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(22082099003)(18002099003)(6133799003)(3023799007)(11063799006)(4143699003)(56012099006)(261022115727099003)(261026135527099003)(261022075727099003)(261028144727099003)(261022113327099003)(261021121427099003)(10067099003)(261009221227099003)(261021123027099003)(261009223327099003)(261009221727099003)(261009223027099003)(261021135927099003)(261102123227099003)(261021130227099003)(261009220027099003)(261021133027099003)(261026140227099003)(261026130827099003)(261022105027099003)(261026121527099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?Q0hxK1Y0NHRCR2pna1BIUEY4NjErdDVWT25PTllIZlFmMms0aUoyczhqZWtL?=
- =?utf-8?B?TWF4Vlplbnc3ckRzbENoRTl0cWIySDRZYncwdXRLVUhCUGNOQmdmVkJwNmlw?=
- =?utf-8?B?cDRNbEJCSUx6ci9HQjl1UE5JY0tWUXFPMnQ0MXhXdG5UZDB5R21uWmROb3ZU?=
- =?utf-8?B?dlhNYmJ5WkZhalFZYnVpcXZpK2R2T1pqSnFVSVNWQ25WRVNEMzRaMlIvQnBI?=
- =?utf-8?B?UGFOYk1lMWE5ZklvSzcxRVpxeDRPQVZwb3NoajlFSWRoRlQ3eSt0Ly92R28z?=
- =?utf-8?B?eXM5VVJtT2xSWEdUbUJQa3kxTXh2R3RLVzRsQzFBd1hNY0ZkRlBPTkIyVDRZ?=
- =?utf-8?B?aWhaMlVsY25JNGdXdldmc0dxdzl6MEw1S0Q2dWNlc3BUaVFoTmk4ZHJ6VHIx?=
- =?utf-8?B?QW9DbWpCamtqOEZuNkZ3dE5nb3RRWGlQaWdVNDI4bjlwVjNQeUlvZnZ5ZzRw?=
- =?utf-8?B?Z3Brd28xM2lRdHlzelB5Z0xDKzhTN2hkR1ZoMDBudXhDOVRiUnF6TS9TdlhK?=
- =?utf-8?B?b1A1eURHK20zZlBBa0xDNkQwNjhDeDJkdDZodW52MUE5OUdjRGJMMXR0VE9i?=
- =?utf-8?B?NXJsNFRmbkkvWVB3TXFyZVFOSHZpV2FRcnF4ZThWZFkzUjh5dkRXRnVuWkhn?=
- =?utf-8?B?SW9nczhZY0Q5Wm01UkhQT1BKWUN3YmJZTldnd0k1bnVTaDJQQm1CSnBEaTlL?=
- =?utf-8?B?eHp2dXhCS0dZc255SmVGNW5oNUs5Y1h4NjhkUEsyZWduVXo3MnFJZWIxOURE?=
- =?utf-8?B?S1RNQmVMNlRNVmMrMU1EekZ0bEtLVXhSblBLakdOQ2lhYWFPazFmRzNWNDlX?=
- =?utf-8?B?RG9MY0N2ZzYyc0lUWEVFRlV1Yml1c2RiaXI0SkJtODFDeUhYVXQ3S1VuSW9v?=
- =?utf-8?B?ditLWmgveTgvQ2k3Wkdwb0FiK0xZaHYzeldyRm1Fd1E5aUxDZmx5SUp4b3JF?=
- =?utf-8?B?Ukd5a25WWjFnV2FwbmZ5TkhRdTNDQ2lSb29wYVRMdWQ3aVM5U0xHYzE2TDN2?=
- =?utf-8?B?QjAwU290RVZoT0RwZ0d3bWR5ZnhUYTBZejNkSHE3OFlXdFdqZjZickhhOXpF?=
- =?utf-8?B?b0psanJVNWh0czhiNzN0SDUxRlNVWk1GSXdWRHdWbS9VQ2htVWhpeEJuTDN0?=
- =?utf-8?B?SUhtOTNiRTltSzZCbVlCbTNZYjBNSzE2UmZRUkRjdTlDUVhib0tJNHVLRXlY?=
- =?utf-8?B?LzZ6enBJS1UrSGlEaGg3Wk5tV1JHaHRoSGl4ZGxKT0RGVHZIenM1RStKZmta?=
- =?utf-8?B?L3NzNFB6N0dxbzlrUDA2dXZYZW5oOW5HbzVqOGlSZGJHTWJTdnJSVU9RZW5y?=
- =?utf-8?B?SWRvbDNXWjVpMTNmY2JOTmVKV1A2YTVkWHFDbnF5dmhEcDM1dzNGTnRoU3Aw?=
- =?utf-8?B?VVBLMDA3TWhFV2hTNi9XazczT29ZQjk1ekN6ZVpFSVpiT0JuTjEvNVVEQllS?=
- =?utf-8?B?eThBZ1Q5b1BLYSsvRUVIVXhJbm1xd3o0dldxdXJCUXE2S3d0bzFUbFNTdy94?=
- =?utf-8?B?cmZXV2FKMFVRaTBWLzJldE5QQXIwUlh0eDQ5ajBwdTZFMndVdGc1UGtOT1R5?=
- =?utf-8?B?aFZZa01YN2Jib1FOK1BzVERWYnkxbEkyQWJac1VWaVMvaXJyd0dzYmhvREpN?=
- =?utf-8?B?Ri92M29wS3JYSFFqQWQremYwY2JPOXh5TzBtZk5wVzNwenpnREpJeXhPZmlh?=
- =?utf-8?B?SWlvNE9GZXQwK3JvOURscmpsSW9JalhlTEkrQjlERmc5OXhiRndHQ2NJMXMy?=
- =?utf-8?B?MTRnWnJmM0VVWVVPQ1VZMHNJKzZtK3Z1ZzR1cmVTNGViekVLNno3TktaWCt2?=
- =?utf-8?B?ZHo1TzJBajREN3h5RVB4cEJ6d1d2MFFrYU9uNXk0SHByVUNrdWg0YXdiaUQz?=
- =?utf-8?B?dnFwUjJYUW93M3J6U2NhMUIyTHFGZjZsK2pEc2x5dDRyWVNZMnNFZzRFNFBv?=
- =?utf-8?B?UmxpMzJwODlVK0lYSUdEalZvb2M2OHlsbFl5bG03S0ZNWkpVY1JoekhvV3dH?=
- =?utf-8?B?a0FsTldEQ1ZRb3ZkZmdEOWZGVm8zRzBKVkRleU5LbHFwUlVYdHBGeVhKbEpv?=
- =?utf-8?B?YWdkVk5LL1BxdWx6V1JPalhCK0VxRHZCUFIyWS9DV0ZWbDZsZUFmZFpHSTJm?=
- =?utf-8?B?SFVuMysxeDY2aEwwUGV6bU56NjlvcU1oYURXWEVoWGc4dG16dWhwV3NXblpm?=
- =?utf-8?B?dXBRdE4vM29VbXdRaXRkR0IyeWRqZGZ4UVRvTkRzdWZsMG9lREhpT0Y5L0Vw?=
- =?utf-8?B?QTVQZ3JBTytvL01GYmlka1VGbndTc0dJVXNqMHp2VTU3YUY2TVpLUG5RUVY0?=
- =?utf-8?B?K0RqT0l1SHY3b090YnRLblloRVUyUVBVUGxLT0JtWkUvZGpGSll5QT09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 44271f06-7127-4522-db4b-08df454f4ddd
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB9060.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 08:38:22.5265
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ICZ+PW1Xc+NXtbGo4MJNQ3/XvDzDgs47U4UjmkaxL74TIAU5oTcieItUJiMYTJQ9cFAVhc3p9I8wHqJP9kAlrg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB7783
+References: <20251013060018.43851-1-clamor95@gmail.com> <w3bn5bqxqjhf4uvxov47rwlvmnbic6xnlk25xbpnbmi2eyup7q@tjuiu7pl3mmo>
+ <CAPVz0n1-jN5WLFq4e0CZrneExrN_A=GNeGTwGHTCj14NAta+jQ@mail.gmail.com>
+ <aPCfiJxyKOXsgNJe@shikoro> <20251021132529.GA4133357-robh@kernel.org>
+ <CAPVz0n3jt04xEwGr1aiDTJ7OonYYgOy3QneteLXgdGruXGMP_A@mail.gmail.com> <20261118091334.3d51a5f0@bootlin.com>
+In-Reply-To: <20261118091334.3d51a5f0@bootlin.com>
+From: Svyatoslav Ryhel <clamor95@gmail.com>
+Date: Wed, 18 Nov 2026 10:40:24 +0200
+X-Gm-Features: Aa3M54rharDKJbRF2DF-qewrb726K8b5XrfXN5sVsjDYYHGVF7G-51OovVUxmLI
+Message-ID: <CAPVz0n3=rL9jVc7DtG9FmcH0zs11+LXg1+HRRf9aagUqZf=+_g@mail.gmail.com>
+Subject: Re: [PATCH v1 0/2 RESEND] i2c: muxes: Add GPIO-detected hotplug I2C
+To: Herve Codina <herve.codina@bootlin.com>, 
+	Wolfram Sang <wsa+renesas@sang-engineering.com>, Rob Herring <robh@kernel.org>
+Cc: Luca Ceresoli <luca@lucaceresoli.net>, Andi Shyti <andi.shyti@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Peter Rosin <peda@axentia.se>, 
+	=?UTF-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>, 
+	=?UTF-8?Q?Jonas_Schw=C3=B6bel?= <jonasschwoebel@yahoo.de>, 
+	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi David,
+=D1=81=D1=80, 18 =D0=BB=D0=B8=D1=81=D1=82. 2026=E2=80=AF=D1=80. =D0=BE 10:1=
+3 Herve Codina <herve.codina@bootlin.com> =D0=BF=D0=B8=D1=88=D0=B5:
+>
+> Hi Svyatoslav,
+>
+> On Sat, 17 Oct 2026 20:17:39 +0300
+> Svyatoslav Ryhel <clamor95@gmail.com> wrote:
+>
+> > =D0=B2=D1=82, 21 =D0=B6=D0=BE=D0=B2=D1=82. 2025=E2=80=AF=D1=80. =D0=BE =
+16:25 Rob Herring <robh@kernel.org> =D0=BF=D0=B8=D1=88=D0=B5:
+> > >
+> > > On Thu, Oct 16, 2025 at 09:32:24AM +0200, Wolfram Sang wrote:
+> > > > Hi Svyatoslav,
+> > > >
+> > > > > Herve and Luca did not come up with anything meaningful, they pro=
+vided
+> > > > > just a few rough ideas. It will take an inconsiderate amount of t=
+ime
+> > > >
+> > > > Well, IIRC they said that your use case can be mapped onto their
+> > > > approach. Which is meaningful in my book.
+> > > >
+> > > > > before there will be any consensus between them and schema
+> > > > > maintainers, and even more time would be requited to settle this =
+into
+> > > > > schemas and implement into drivers. Why should I suffer from this=
+? Why
+> > > > > should changes I need be halted due to some incomplete 'ideas'? T=
+his
+> > > > > driver uses existing i2c mux framework and fits into it just fine=
+.
+> > > >
+> > > > I am sorry to bring you bad news, but you need to suffer because th=
+is is
+> > > > how development goes. If I get presented a generic solution (see He=
+rve's
+> > > > mail) and a specific solution (your driver), for this case I as a
+> > > > maintainer will prefer the generic solution. Generic solutions need=
+ more
+> > > > time because there are more things to handle, of course. This is ty=
+pical
+> > > > for development, I would say, it is not Linux or Free Software spec=
+ific.
+> > > >
+> > > > I appreciate that you tackled your issue and were open to share it =
+with
+> > > > the community. I see the work being done there. However, there are =
+so
+> > > > many things going on independently that I can't really prevent doub=
+le
+> > > > development from happening despite it having a high priority for me=
+. As
+> > > > soon as I get aware of people working on similar issues, I connect =
+them.
+> > > > That's what I did here as well.
+> > > >
+> > > > So, if you want upstream supported I2C hot-plugging, you need to wa=
+it
+> > > > for Luca's and Herve's work being accepted. Or provide a superior
+> > > > solution. Or, if you want, join the ride. You already have experien=
+ce in
+> > > > this field (and hardware plus use case), you would be a very welcom=
+e
+> > > > contributor, I would say.
+> > >
+> > > Agreed.
+> > >
+> > > What really slows things down is when there is only 1 user of a new
+> > > binding. Too many times have I accepted one only for the 2nd user to
+> > > show up right after accepting it and wanting something different. So
+> > > now I just require more than 1 user and it is on the submitter(s) to =
+do
+> > > that. After all, it is their itch, not mine.
+> > >
+> > > Rob
+> >
+> > Hello there!
+> >
+> > Were there any advancements with i2c-bus-extension so that I could
+> > finally configure and make my tablet work? Could anyone point me in
+> > the right direction? Thanks.
+>
+> No new advancements. I moved on a prerequisite: Having support for addon
+> format in dtb in order to have support for a list of exported symbols
+> resolution when an dtb is applied on a live devicetree.
+>
+> Anyway, the v3 series [1] need to be updated and a new iteration need to =
+be
+> sent. Also, same operations need to be done on the SPI version [2].
+>
+> [1] https://lore.kernel.org/all/20250618082313.549140-1-herve.codina@boot=
+lin.com/
+> [2] https://lore.kernel.org/all/20250729-spi-bus-extension-v1-0-b20c73f21=
+61a@beagleboard.org/
+>
+> Best regards,
+> Herv=C3=A9
 
-On 11/17/2026 6:46 PM, David Laight wrote:
-> On Tue, 17 Nov 2026 13:09:47 +0530
-> Sai Krishna Potthuri <sai.krishna.potthuri@amd.com> wrote:
-> 
->> PM_QID_PINCTRL_GET_FUNCTION_NAME returns the function name in a fixed
->> 16-byte field and does not guarantee NUL termination. A 16-character
->> name fills the entire field.
->> The driver copies this field into a 16-byte buffer and subsequently
->> uses it as a C string. For a non-NUL-terminated name, string operations
->> can read past the end of the buffer into the adjacent groups pointer.
->>
->> Reserve an extra byte for the NUL terminator and explicitly terminate
->> the copied function name.
->>
->> Signed-off-by: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
->> ---
->>   drivers/pinctrl/pinctrl-zynqmp.c | 7 ++++++-
->>   1 file changed, 6 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/pinctrl/pinctrl-zynqmp.c b/drivers/pinctrl/pinctrl-zynqmp.c
->> index aba129ead04c..c778133fadc2 100644
->> --- a/drivers/pinctrl/pinctrl-zynqmp.c
->> +++ b/drivers/pinctrl/pinctrl-zynqmp.c
->> @@ -29,7 +29,11 @@
->>   
->>   #define ZYNQMP_PIN_PREFIX			"MIO"
->>   #define PINCTRL_GET_FUNC_NAME_RESP_LEN		16
->> -#define MAX_FUNC_NAME_LEN			16
->> +/*
->> + * Firmware returns the name in a fixed-size field and does not guarantee a
->> + * NUL terminator. Keep one extra byte for the NUL terminator.
->> + */
->> +#define MAX_FUNC_NAME_LEN			(PINCTRL_GET_FUNC_NAME_RESP_LEN + 1)
->>   #define MAX_GROUP_PIN				50
->>   #define MAX_PIN_GROUPS				50
->>   #define END_OF_FUNCTIONS			"END_OF_FUNCTIONS"
->> @@ -650,6 +654,7 @@ static void zynqmp_pinctrl_get_function_name(u32 fid, char *name)
->>   	 */
->>   	zynqmp_pm_query_data(qdata, payload);
->>   	memcpy(name, payload, PINCTRL_GET_FUNC_NAME_RESP_LEN);
->> +	name[PINCTRL_GET_FUNC_NAME_RESP_LEN] = '\0';
-> 
-> Too many constants....
-> You might want to try embedding 'name' in a structure.
-> 
-> Then, at least, you can use sizeof().
-Ok, i will define the below structure
+Thank you, Herv=C3=A9!
 
-struct zynqmp_func_name {
-        char name[ZYNQMP_FUNC_NAME_LEN];
-        char nul;
-};
+Rob, Wolfram, since the DT Addon framework is not mature yet, may
+i2c-hotplug-gpio be accepted in some form? Maybe a staging driver or
+with notes that ABI may be changed and are unstable or maybe as a
+device specific driver only for transformers like
+"asus-transformer-dock" etc?
 
-and initialize them as below.
-
-memcpy(fname->name, payload, sizeof(fname->name));
-fname->nul = '\0';
-
-Regards
-Sai Krishna
-
-> 
-> David
-> 
-> 
->>   }
->>   
->>   static int zynqmp_pinctrl_get_num_functions(unsigned int *nfuncs)
-> 
-
+Best regards,
+Svyatoslav R.
