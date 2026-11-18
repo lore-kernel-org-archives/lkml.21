@@ -1,98 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.43
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795023152;
-	b=XnJsKdPZvQh7sxXinGaloZev8f5L1fPIG+2Kv3FlR+rV98IxJFgW1YlJK1TzhSpCQKMD
-	 F9U5+6VqW8aW7hwzvVmc52foR43/0SJaHemPkuhiMx6KVgkKolFk0hxIXwgZsyXvFssYF
-	 GZ3tLrAs1t2l5hU7LjFckHy3vxzPlxWuuZ4/NmGmYik6CHO0aEscuDSsRbC0MWNQFa3+J
-	 kMh38GTWFStS3Cnol1DGt5/iGRcSXpvWgBjEMvJSto+Jut4MJOlUe33UDZQHFN73f4POr
-	 4dHcTNIfSzNikiYd/8DqwYSFCsAM1hiXgj1IDdIbSKhXfHuWzRiMP83jIN9MWGQno5Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795023152;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=d/ULkVw6ZogNEuM3IO8XrGmrpvDsrusUhHJ7PBDHKuk=;
-	b=yJXaEpVc46F5e0bL9Bx7XEwWsnnByQ8m8xWOg8Rqpot8HbFfu3jckJenJ45CWmNVd4IC
-	 LiFB7itoEkSfTJivr+s1/evg2nbxVSU5oEXvhNFSSV5vw8FHCdozxHnK+kuPdzktLlRzQ
-	 Ka45ItOop6dy8IqE08MFxBOEtCyM9jU4E0mChpt2o+P0U2Zp6JiwS38AOa05VPezWNMh8
-	 Vok11iWbMew75KZ+WXMV8ZQFUMVZ7nR0XGbYI7drf/PcJFgKXONnYk74aGVskNkt//v6j
-	 3VNtON+3I6bYE/CeQgvf7rOcYP99EWj9k8GIiL7muov+ipHxr99ua6h2yh+FWEizn/w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=KDcOX5cN;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.43
-Received: from AS8PR04CU009.outbound.protection.outlook.com (mail-westeuropeazon11011043.outbound.protection.outlook.com [52.101.70.43])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.167.242.64
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795023192;
+	b=3eJQDhH51JiyUEqNBrwF7Ioz8BAm9PDcG62xQCADgskqrJRGsTNASuLcvZOp9j67MnSw
+	 UxfFkeBc7rK6qQC+BB0GSIcQVx3B/1jFLMCqusv2hk2TfoSi4YH6XHKj3Qdg60BPdIOk7
+	 xQbVP6YODQvYwC66k/t+VjmE1AqZAivqbcZqnFccOWdRqevOEb8OfCmz7fNXuqZUDvlMO
+	 xxroKgM+0MMZOoiliRnkg4rBsgflKrBSaXz8zVBMbnSPjfF30VCPLeNPiDiyAc9VQ4Td5
+	 0zKN6zLgD5cwvb54igaeWhHKrPsvKXBTn/TI6s+vRfMVAiPcg5aRb5An2W/EXduW1mQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795023192;
+	h=DMARC-Filter:Received:DKIM-Signature:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:In-Reply-To:References:Subject:From:Cc:To:
+	 Date:Message-ID:User-Agent;
+	bh=a/lyCJQdRve1tbsoR8RKcutalG9QBdrs3OjhI/MIc7M=;
+	b=JyL5LW6yugaYkN8Sk5DYx7X59DtXXimPcCIJ+r8ZzBHwWYAmQX+9PaI3us+s+XaMt/tN
+	 YEUuU5ztKsPT0zoLDCZj1RayRkA88fIzEmlvsnq6Nta8LLQ0n4K35z+IMj0DaxROV4CFQ
+	 F0AG2MUGT9JY/naQ8TsDJ99iH0kxMTTGOgtDMA6md7ByoBHg+k5la1sKhYsmligdxLutF
+	 dHY145+adRu/WpS9T5bwGewKq5fdeH2BCYKdHZefdPPJ1VlAj4LQjnBaOUaSaGQm5V8d0
+	 Cr9n7GuBuxVf2XJy9xs9ebQHjAI2mFVJwHtz7HycKNDotegi+QQidPSPA9rN+bhvBqA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=ideasonboard.com;
+	spf=pass smtp.mailfrom=ideasonboard.com;
+	dkim=pass header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=UvsMN39A;
+	arc=none smtp.remote-ip=213.167.242.64
+Received: from perceval.ideasonboard.com (perceval.ideasonboard.com [213.167.242.64])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55ED3606A320;
-	Wed, 18 Nov 2026 17:32:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55ED3606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E26B2606A32A;
+	Wed, 18 Nov 2026 17:33:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E26B2606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ideasonboard.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ideasonboard.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=KDcOX5cN
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FcafOLk0d7DME62mHUjTPFRC+rcAPt4YwNlugtOceJLqVfRoUs48mvsjTiXlXwVryko6rUSmLCjaWzGSxAYyh5rHgnrRHjGAZQS4HTpWZpjJ3QMV9t6QaGghSs9YqY+QlRCAvBs+/B6wyBgk+UZb27CR8C+iMyui9w1kPymqHaczAN8j7G7qLqaaW1+m4qGs7bAoYmgHJ1ktTIA1YaCgaII2ep+qlHaZEYdBK4zYBRN9BQ63zOw2/+w9vBHdSfCkOxe65VEqGBXBHPv1rTpqVk6tksmgBfdlDNyFMc7hJ+Xgmqu7qZe0RR3gjBi+xZYUxWuuBgQr6WCKjq2NmrAZsA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=d/ULkVw6ZogNEuM3IO8XrGmrpvDsrusUhHJ7PBDHKuk=;
- b=U5QMnX1FKdzw9JFvJHbALcK/WjJwXNxqCOvThtnokFyzg1M9CYEbhEppZ/yjDcdq0VGiC1LrVIsAWuNtgKrCzXiNdk6vOKI8XSunvJCOn9H4BiGYkpeRh1fz/PxCyPg6TJNciB88Yv/P63LbU98hsEYLWdF/cMo+7gOm4gxT0id1bk2/xhgH4nJ6H8TdUpdQ0ZBFy36i7T4c9cD5zMq60x/4Q7fRM6636tB3oSFlgIkjDPkosrkAXeAkydpJuhWZ24kzALaObGm6/Tfb1PHJ9VK4VPXUSjUiJdxNgd+1rBP9sfy1cr4kzuOf1vGDz3DgRBgawb8kPcVOP6PEc6afVA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=d/ULkVw6ZogNEuM3IO8XrGmrpvDsrusUhHJ7PBDHKuk=;
- b=KDcOX5cNTPmdkHqeEMgAFMdqbyzeVvJNdlXt6P+VDSHJWFMYxlD/abdxZeKqr8vK4ZgpEcBK2NxMGKcMln+4Xu5zChpUcfUTM8X1XNfuUtFtogwkffMUAwtQ94kW6NLu7U3IlaOj1YrZ5W35P8ZzhB5FIIG1mFZARvaMuPOm+kwvPNmpE/hAB0OOJ61PVyflVF9/YDiUgAHAPZJ/acsSMJ7LjL6BLiYPgS8rhqp8AF73S8DJzUxhOprFUpqKl7WYvsXB6OPRMlor89X0cdvzXyL6uq8ZrY03QTjd2YX6g6QRv/UX6FkUcQKE0jbGXwj1Q8ZJfrumvOFgJtKb3OTLDg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by PA1PR04MB11360.eurprd04.prod.outlook.com (2603:10a6:102:4f2::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 17:32:29 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 17:32:29 +0000
-Date: Wed, 18 Nov 2026 11:32:20 -0600
-From: Frank Li <Frank.li@oss.nxp.com>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Sergey Khimich <serghox@gmail.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Sia Jee Heng <jee.heng.sia@intel.com>,
-	Mitch Barnett <mitch@accuratesound.ca>, dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v7 4/8] dmaengine: dw-axi-dmac: use atomic polling for
- suspend acknowledgment
-Message-ID: <av3hJPZhRD9t_XOz@SMW015318>
-References: <20261117-submit-dw-axi-dma-stop-pause-v1-v7-0-d5f2309afd72@gmail.com>
- <20261117-submit-dw-axi-dma-stop-pause-v1-v7-4-d5f2309afd72@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117-submit-dw-axi-dma-stop-pause-v1-v7-4-d5f2309afd72@gmail.com>
-X-ClientProxiedBy: PH7P222CA0001.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:510:33a::14) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	dkim=pass (1024-bit key) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=UvsMN39A
+Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c67:cdf:7464:6c04:36e4:ee87])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 661D5270;
+	Wed, 18 Nov 2026 18:30:33 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1795023033;
+	bh=kudhAj0IuoHyw+UdwKzgpyxC28M9LV4mqZXkQiOmDlw=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=UvsMN39AxilyRRaSXbHZPXLjNoVKqxq9WMwcJl7ZarDO+oNUHOOtn3n3xnoR2FjEZ
+	 Dm2yUnJwbPbMpjxgimpG5OL7ghKctSjVK+cjZ39AGzVdVYeiIvwR/GwM87S7aFRvX+
+	 IgF6EM6I+ttSJbgktDbenSEUfDgJ3Kl+xLsY/qyo=
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,121 +53,247 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|PA1PR04MB11360:EE_
-X-MS-Office365-Filtering-Correlation-Id: 64a4acc7-ec90-4b8f-41dd-08df4599ebab
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|19092799006|366016|1800799024|7416014|376014|18002099003|22082099003|261009223027099003|4143699003|11063799006|261026121527099003|56012099006|261026140227099003|261102123227099003|261028144727099003|261021121427099003|261021123027099003|261022075727099003|261022105027099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	uFlBaKwpkgTarvGeWhMS1WTKTDWuZIKNu4midfdfLf2yqgJFQ2zqh+dnom3pmhVFjGb7eiqTJqHSDUMdRQgEAMTfeuVStXR0l75/4C9qzBaYVIZJka0Yg2bc554FwemXbc1ccRyL4F/h706B0pJ84uE4LD+WMwhM1DUrUQYhwf8F/DYSPTtP2KE6kk1WNd1c5Tpy/buxMXDDKQ9pK7pMU7MgQbYlWygClI97XVvbwR3EIx5kO875eylmMsqRizkJqmHOu1oLRv2AlWSA/utVOSOD8kuJcPvSyMtV6DNw+uFh1H+yrX47+LMaSIDIdMWY4PU9DoJ+RwVXFXvpyrQk5mhmVTLPk1aMQiQttjHFWnjgdixexrwxvbiqWK0Jw86FnEUEJNh+LByWfDErq4S1N+MxXQj8rqsfDw2UcTUHntxegUw18uRu9BNw0NFoFNOffI32PgeI9BSBdfkW4hOnoULKo75k3F5XSArJ3W7ppDKj9dzfkmwgLuQCjmrL4iFZj2YnPIWZE+uwvGCb7bPH6vV3oO0MEe+AdVfyMSuOlCMZ28m17iOaxTIAU83Og0AoJrHTQ8/40UNzpIkAySetC3D60q1B+e4cOTITOBKnfkhRO36tBeeWLZYAqy/rxc9er3A0BfAc3V75UsZvty/HYfsMvt+K7NYuGXNbgZGzgc0=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(366016)(1800799024)(7416014)(376014)(18002099003)(22082099003)(261009223027099003)(4143699003)(11063799006)(261026121527099003)(56012099006)(261026140227099003)(261102123227099003)(261028144727099003)(261021121427099003)(261021123027099003)(261022075727099003)(261022105027099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?vjMcBKmPUYkOyBwSWMoA23u9EP3kW6SCD2ZR/AiOGgvXV+J//bwTpWB5hNB+?=
- =?us-ascii?Q?4l7OXQUlfl/1FzdJyUXGzJcIfpOtEV7mJOs2O3OJFg9xr7MCxsRgh8OeRIVU?=
- =?us-ascii?Q?IlHGapejbLGuicD8kQPNiWXnu3S7J6vHcKzaOWwUX0AiRYlTupugysvwWvHh?=
- =?us-ascii?Q?i+e+gSAAGajopCY0tfxwSm03KmwuaRrKsrdTSe4jD6aq0EkyXkXfFFY7XmVS?=
- =?us-ascii?Q?St12b7CVTiApKsv+ou50mCd7q9PYOufIENXnKRA31nRewHwfdHORCs9XJ3KN?=
- =?us-ascii?Q?cFB1Z5MKldDfXm54/adsfqe2X5mMsoB0tOz5ZK2OrW2mIlXeTSbs+eGPKmnA?=
- =?us-ascii?Q?KOBNN4vkaORWryo/Rvru/kSoQPuCh0zYlh2oygvPPSQ3afEYM59kai7W3grm?=
- =?us-ascii?Q?JcFSdtZP6iEhTRRBx0HRia1T6Ku1Ee0Wjp1eETYsEq+lxid1OuYqzTzD7E1u?=
- =?us-ascii?Q?kQZeHc7UEz258ALj92GMN782ausQ0i/i3fUaktZjVFUdJMeUdlH9oRpOalT8?=
- =?us-ascii?Q?di9VchkJOykuO7Yn/dbWmzo/u4FSZhd3bkEbwbBx09bMDT7taIHin5aWuka1?=
- =?us-ascii?Q?7kGaBA3nn/119/vmxkRcAhgfkcfv7iTTfJhVDag12WNhmZ3v4d+WM5ihjLAf?=
- =?us-ascii?Q?1CDBVcpClmVHEe/SCU5Vhv3IzAvo/IHMNjNd7HCGIVinVOepcpUne07llWvN?=
- =?us-ascii?Q?iizh6vQ484AZrps+dkpu63+PHlGlOsySGzA20D3mcRJcdyvjOEF/LyuWysyT?=
- =?us-ascii?Q?hRgZcqqPE5DEAc91Gz87UYtw6hxT254Nt84AYhjndeSazAbM8hH/fVDPPiYY?=
- =?us-ascii?Q?FJvNBTbG1ZEPOU2qDQdGfBY1t8xkI3kl0bzwbNXrAm6alX4h6n89kxLOrWC/?=
- =?us-ascii?Q?mpM4S863IF7R7+h+TnGcJGmbKG2ospavDp25uCTV+I6Px6PR0rpZ8443oX41?=
- =?us-ascii?Q?IPSop7AdBd7F7ycdDWJtGUkVmaLEC+ACUGJz7Ao747+rhP0a3Z5au0WEiBuY?=
- =?us-ascii?Q?6LAj9YcfwlOcLvjQBegVNmPmAIPfcHUk0bEX5Hg/DYSasfLE62FGUMgQvgUw?=
- =?us-ascii?Q?wPN7REtOPx1jr6YP3dJXoxTqiIjaUwZjPEQ8bEO0yrS2WHytcPjsaN/KNWSs?=
- =?us-ascii?Q?r/DcZ0Y4CD3U7XcvG0Ou2fNa0GxqiQZbndozoiNdO6Ot5UYu6hbLFbu2YhQK?=
- =?us-ascii?Q?gNoaP14TGsRbRaCB9zQ6LhH3xlOFv9/GAnlG+Nr58pzG+Upx0SNDdnPptrC7?=
- =?us-ascii?Q?fQhdJl4byvmgJncXXjpYSuBAZAARssnjxGY5eIM7u3H2YWFAVwGeoXBCT84A?=
- =?us-ascii?Q?iW8//KUooNMwuaBN5FD/rb5+J0FaU5iPPb4SwGL2NEqJQXSRBz07GO0RXSUY?=
- =?us-ascii?Q?6GAqEsF/VDnfyF8wKcz6kHoNItBkezAEVZSC6sf3LUnE+vJCf/jAvtpteBPT?=
- =?us-ascii?Q?l3NPsav9sexwwL8KwF8zhYgYH0TnXCy4kaC3k9xGsCM0SUIG6Yyomah6k42V?=
- =?us-ascii?Q?3RTBmANxVFk2c/QWX2W+my4TzfMDSN1a2azjfCbEu707izBKnSdqmo+SCaLh?=
- =?us-ascii?Q?YhVshs/VmWtIJNM8EC/lzYJq+KW18MNEwFa6g8MOTQtz4LuxySkkUdiTT1j2?=
- =?us-ascii?Q?QADKJo451dPCEn0jYhkkajqN1YIilHi1DURcWAG3uwCi7duyOR5EFra+oh1r?=
- =?us-ascii?Q?m0ffFv6FAwmUk3RJOkTZfMEaRTtnKcV5z685bbPjWcZuEmXYdT1dVk8KN7dh?=
- =?us-ascii?Q?22MtHXiz94QfBQxBcfItzF4WZ/DT7mo6e9xSh/GGkp0n8yx0iJtT?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 64a4acc7-ec90-4b8f-41dd-08df4599ebab
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 17:32:29.8172
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ve1/gAh83CSzz8gLSVV+jnp4LTKgO4FMGYoP96xkBdfy5g9AOLUIFYZ/7c9otmaLajrxsQovETT+t6kTwCuMWWMtZl//Mdc/sUSgMWNDXoINvZTmpo1rsYPpSNAvWnE7
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11360
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <avsIXOBDRYvwINiI@valkosipuli.retiisi.eu>
+References: <20261112-b4-vchiq-isp-v6-0-711b48378367@ideasonboard.com> <20261112-b4-vchiq-isp-v6-4-711b48378367@ideasonboard.com> <avsIXOBDRYvwINiI@valkosipuli.retiisi.eu>
+Subject: Re: [PATCH v6 4/5] media: platform: broadcom: Add bcm2835-isp driver
+From: Jai Luthra <jai.luthra@ideasonboard.com>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>, Tomasz Figa <tfiga@chromium.org>, Marek Szyprowski <m.szyprowski@samsung.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Kieran Bingham <kieran.bingham@ideasonboard.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, Naushir Patuck <naush@raspberrypi.com>, Stefan Wahren <wahrenst@gmx.net>, Paul Elder <paul.elder@ideasonboard.com>, Hans Verkuil <hans@jjverkuil.nl>, linux-media@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+To: Sakari Ailus <sakari.ailus@iki.fi>
+Date: Wed, 18 Nov 2026 23:02:56 +0530
+Message-ID: <179502317689.4071753.17481325815212926138@freya>
+User-Agent: alot/0.13.dev199+g9722e8483
 
-On Tue, Nov 17, 2026 at 05:07:43PM -0700, James Hilliard wrote:
-> The pause loop delays after its final status read, so an acknowledgment
-> that arrives during that delay is cleared without being observed and
-> the caller receives -EAGAIN.
->
-> Use readx_poll_timeout_atomic() to check the status after the final delay.
-> Keep the two-microsecond polling interval, 40-microsecond timeout and
-> -EAGAIN return value when suspension is not acknowledged.
->
-> Fixes: 1fe20f1b8454 ("dmaengine: Introduce DW AXI DMAC driver")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-> ---
->  drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c | 14 ++++++--------
->  1 file changed, 6 insertions(+), 8 deletions(-)
->
-> diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-> index 040c12d07db2..1a53fbc951a9 100644
-> --- a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-> +++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-> @@ -1219,7 +1219,8 @@ static int dma_chan_pause(struct dma_chan *dchan)
->  {
->  	struct axi_dma_chan *chan = dchan_to_axi_dma_chan(dchan);
->  	unsigned long flags;
-> -	unsigned int timeout = 20; /* timeout iterations */
-> +	u32 status;
-> +	int ret;
->  	u64 val;
->
->  	spin_lock_irqsave(&chan->vc.lock, flags);
-> @@ -1250,12 +1251,9 @@ static int dma_chan_pause(struct dma_chan *dchan)
->  		}
->  	}
->
-> -	do  {
-> -		if (axi_chan_irq_read(chan) & DWAXIDMAC_IRQ_SUSPENDED)
-> -			break;
-> -
-> -		udelay(2);
-> -	} while (--timeout);
-> +	ret = readx_poll_timeout_atomic(axi_chan_irq_read, chan,
-> +					status, status & DWAXIDMAC_IRQ_SUSPENDED,
-> +					2, 40);
+Hi Sakari,
 
-use read_poll_timeout_atomic()
+Thank you for the review.
 
-Frnak
->
->  	axi_chan_irq_clear(chan, DWAXIDMAC_IRQ_SUSPENDED);
->
-> @@ -1263,7 +1261,7 @@ static int dma_chan_pause(struct dma_chan *dchan)
->
->  	spin_unlock_irqrestore(&chan->vc.lock, flags);
->
-> -	return timeout ? 0 : -EAGAIN;
-> +	return ret ? -EAGAIN : 0;
->  }
->
->  /* Called in chan locked context */
->
-> --
-> 2.53.0
->
+Quoting Sakari Ailus (2026-11-16 19:12:52)
+> Hi Jai, Naush,
+>=20
+> On Thu, Nov 12, 2026 at 04:56:32PM +0530, Jai Luthra wrote:
+> > diff --git a/drivers/media/platform/broadcom/bcm2835-isp/bcm2835-isp-fm=
+ts.h b/drivers/media/platform/broadcom/bcm2835-isp/bcm2835-isp-fmts.h
+> > new file mode 100644
+> > index 000000000000..6f3333d33c4f
+> > --- /dev/null
+> > +++ b/drivers/media/platform/broadcom/bcm2835-isp/bcm2835-isp-fmts.h
+> > @@ -0,0 +1,558 @@
+> > +/* SPDX-License-Identifier: GPL-2.0 */
+> > +/*
+> > + * Broadcom BCM2835 ISP driver
+> > + *
+> > + * Copyright =C2=A9 2019-2026 Raspberry Pi (Trading) Ltd.
+> > + *
+> > + * Author: Naushir Patuck (naush@raspberrypi.com)
+> > + *
+> > + */
+> > +
+> > +#ifndef BCM2835_ISP_FMTS
+> > +#define BCM2835_ISP_FMTS
+> > +
+> > +#include <linux/videodev2.h>
+> > +#include <linux/raspberrypi/mmal-encodings.h>
+> > +
+> > +struct bcm2835_isp_fmt {
+> > +     u32 fourcc;
+> > +     int depth;
+> > +     int bytesperline_align;
+> > +     u32 mmal_fmt;
+> > +     int size_multiplier_x2;
+> > +     u32 colorspace_mask;
+> > +     enum v4l2_colorspace colorspace_default;
+> > +     unsigned int step_size;
+> > +};
+> > +
+> > +#define V4L2_COLORSPACE_MASK(colorspace) BIT(colorspace)
+>=20
+> The V4L2 prefix shouldn't be used for declaring macros in drivers. Please
+> use a driver specific prefix instead.
+>=20
+
+Will fix.
+
+[...]
+
+> > +             return -EINVAL;
+> > +     }
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +static int bcm2835_isp_mmal_buf_cleanup(struct mmal_buffer *mmal_buf)
+> > +{
+> > +     mmal_vchi_buffer_cleanup(mmal_buf);
+> > +
+> > +     if (mmal_buf->dma_buf) {
+> > +             dma_buf_put(mmal_buf->dma_buf);
+> > +             mmal_buf->dma_buf =3D NULL;
+> > +     }
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +static int bcm2835_isp_node_queue_setup(struct vb2_queue *q,
+> > +                                     unsigned int *nbuffers,
+> > +                                     unsigned int *nplanes,
+> > +                                     unsigned int sizes[],
+> > +                                     struct device *alloc_devs[])
+> > +{
+> > +     struct bcm2835_isp_node *node =3D vb2_get_drv_priv(q);
+> > +     unsigned int size;
+> > +
+> > +     if (setup_mmal_port(node))
+> > +             return -EINVAL;
+> > +
+> > +     size =3D node->q_data.sizeimage;
+> > +     if (size =3D=3D 0) {
+> > +             v4l2_info(&node_get_dev(node)->v4l2_dev,
+> > +                       "%s: Image size unset in queue_setup for node %=
+s[%d]\n",
+> > +                       __func__, node->name, node->id);
+> > +             return -EINVAL;
+> > +     }
+> > +
+> > +     if (*nplanes)
+> > +             return sizes[0] < size ? -EINVAL : 0;
+> > +
+> > +     *nplanes =3D 1;
+> > +     sizes[0] =3D size;
+> > +
+> > +     node->port->current_buffer.size =3D size;
+> > +
+> > +     if (*nbuffers < node->port->minimum_buffer.num)
+> > +             *nbuffers =3D node->port->minimum_buffer.num;
+> > +
+> > +     node->port->current_buffer.num =3D *nbuffers;
+> > +
+> > +     v4l2_dbg(2, debug, &node_get_dev(node)->v4l2_dev,
+> > +              "%s: Image size %u, nbuffers %u for node %s[%d]\n",
+> > +              __func__, sizes[0], *nbuffers, node->name, node->id);
+> > +     return 0;
+> > +}
+> > +
+> > +static int bcm2835_isp_buf_init(struct vb2_buffer *vb)
+> > +{
+> > +     struct bcm2835_isp_node *node =3D vb2_get_drv_priv(vb->vb2_queue);
+> > +     struct bcm2835_isp_dev *dev =3D node_get_dev(node);
+> > +     struct bcm2835_isp_buffer *buf =3D
+> > +             to_bcm2835_isp_buffer(to_vb2_v4l2_buffer(vb));
+> > +
+> > +     v4l2_dbg(3, debug, &dev->v4l2_dev, "%s: vb %p\n", __func__, vb);
+> > +
+> > +     buf->mmal.buffer =3D vb2_plane_vaddr(&buf->vb.vb2_buf, 0);
+> > +     buf->mmal.buffer_size =3D vb2_plane_size(&buf->vb.vb2_buf, 0);
+> > +     mmal_vchi_buffer_init(dev->mmal_instance, &buf->mmal);
+> > +     return 0;
+> > +}
+> > +
+> > +static int bcm2835_isp_buf_prepare(struct vb2_buffer *vb)
+> > +{
+> > +     struct bcm2835_isp_node *node =3D vb2_get_drv_priv(vb->vb2_queue);
+> > +     struct bcm2835_isp_dev *dev =3D node_get_dev(node);
+> > +     struct vb2_v4l2_buffer *vb2 =3D to_vb2_v4l2_buffer(vb);
+> > +     struct bcm2835_isp_buffer *buf =3D to_bcm2835_isp_buffer(vb2);
+> > +     struct dma_buf *dma_buf;
+> > +     int ret =3D 0;
+> > +
+> > +     v4l2_dbg(3, debug, &dev->v4l2_dev, "%s: type: %d ptr %p\n",
+> > +              __func__, vb->vb2_queue->type, vb);
+>=20
+> Is this still appropriate after development time?
+>=20
+
+I don't think so, I'll drop this and other ones at v4l2_dbg level 3.
+
+[...]
+
+Ack on rest of the comments for prints as well.
+
+> > diff --git a/drivers/media/v4l2-core/v4l2-ioctl.c b/drivers/media/v4l2-=
+core/v4l2-ioctl.c
+> > index 17ba1ae70735..1449de2b64b5 100644
+> > --- a/drivers/media/v4l2-core/v4l2-ioctl.c
+> > +++ b/drivers/media/v4l2-core/v4l2-ioctl.c
+> > @@ -1490,6 +1490,8 @@ static void v4l_fill_fmtdesc(struct v4l2_fmtdesc =
+*fmt)
+> >       case V4L2_META_FMT_GENERIC_CSI2_16:     descr =3D "8-bit Generic =
+Meta, 16b CSI-2"; break;
+> >       case V4L2_META_FMT_GENERIC_CSI2_20:     descr =3D "8-bit Generic =
+Meta, 20b CSI-2"; break;
+> >       case V4L2_META_FMT_GENERIC_CSI2_24:     descr =3D "8-bit Generic =
+Meta, 24b CSI-2"; break;
+> > +     case V4L2_META_FMT_BCM2835_ISP_STATS: descr =3D "BCM2835 ISP Imag=
+e Statistics"; break;
+> > +     case V4L2_META_FMT_BCM2835_ISP_PARAMS: descr =3D "BCM2835 ISP Con=
+fig Parameters"; break;
+>=20
+> What's the status of the documentation for these? Do we have something
+> beyond the headers?
+>=20
+
+These are documented in metafmt-bcm2835-isp.rst, which in turn refers to
+v4l2-isp.rst, and also refers to the actual parameter and stats structures
+defined in the bcm2835-isp.h.
+
+I'll add an actual C code example for reading AWB stats, as that seems to
+be missing right now, even though it's straightforward.
+
+[...]
+
+> > +/**
+> > + * struct bcm2835_isp_params_digital_gain - Digital gain parameters bl=
+ock
+> > + *
+> > + * @header: Block header (type =3D BCM2835_ISP_PARAM_BLOCK_DIGITAL_GAI=
+N)
+> > + * @digital_gain: Digital gain configuration
+> > + */
+> > +struct bcm2835_isp_params_digital_gain {
+> > +     struct v4l2_isp_params_block_header header;
+> > +     struct bcm2835_isp_digital_gain digital_gain;
+> > +} __attribute__((aligned(8)));
+> > +
+> > +/**
+> > + * define BCM2835_ISP_PARAMS_MAX_SIZE - Maximum size of all ISP parame=
+ters
+>=20
+> How about adding a build-time check to the driver the size remains
+> unchanged? There are quite a few different fields there.
+>=20
+> I might do the same for the statistics.
+>=20
+> This can be all fixed on top though and doesn't affect the UAPI.
+>=20
+
+I'll add a static_assert() for both in the next revision.
+
+> > + *
+> > + * This defines the maximum size needed to accommodate all possible pa=
+rameter
+> > + * blocks in a single buffer. Drivers use this to allocate appropriate=
+ly
+> > + * sized buffers.
+> > + */
+> > +#define BCM2835_ISP_PARAMS_MAX_SIZE                                  \
+> > +     (sizeof(struct bcm2835_isp_params_black_level) +                \
+> > +      sizeof(struct bcm2835_isp_params_geq) +                        \
+> > +      sizeof(struct bcm2835_isp_params_gamma) +                      \
+> > +      sizeof(struct bcm2835_isp_params_denoise) +                    \
+> > +      sizeof(struct bcm2835_isp_params_sharpen) +                    \
+> > +      sizeof(struct bcm2835_isp_params_dpc) +                        \
+> > +      sizeof(struct bcm2835_isp_params_cdn) +                        \
+> > +      sizeof(struct bcm2835_isp_params_cc_matrix) +                  \
+> > +      sizeof(struct bcm2835_isp_params_lens_shading) +               \
+> > +      sizeof(struct bcm2835_isp_params_awb_gains) +                  \
+> > +      sizeof(struct bcm2835_isp_params_digital_gain))
+> > +
+> >=20
+>=20
+> --=20
+> Regards,
+>=20
+> Sakari Ailus
+
+Thanks,
+Jai
