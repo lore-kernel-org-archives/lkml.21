@@ -1,163 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.12.5
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794990793;
-	b=WEbOkjrsjS+BjsanjovfvB6SOR6qY4bIrrmeehUgutNC+t7Tb6nIzuvtNh44eijwtcZ7
-	 ARgZrE5w7oSsFhUrJOQ7WVt7HxcuWfsmyhPUGKFpZQdIemEzHgqUujL+51hrZF7l5c29A
-	 twSlzIKJC8AyR2QiB3gl1aFDihMh9zX0Tw1DFMw54r+WQD5XcoADwIGQ1yCQlLl+H3Bmr
-	 yFIki9X66sW1oKfW58YdldNjEyDi7h1cXeWWwzgJPjnSlJZqBwKUv87aZv7Qyer8yf+Lb
-	 lI1s2Af6cDuOFvedp4WcZLNCHDS8SjkRsA8CbRkYWHmxIZ7Jhg8lMfdk5uMzb7Yz7YQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794990793;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:
-	 X-MS-Exchange-CrossTenant-rms-persistedconsumerorg:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=KPUHtdYQMbFgzpItn4i2pnnQ+aZIVOWjRB9ku2hYfEY=;
-	b=JKAYGkvkKs+8WiBKdJkrnu/WS3TdE0vDVbVjzh6E1zxcymQTNvBO4ftmLWhZRkrJ3r5y
-	 u+7chkN29EvYSCJV+w3mix9CLTzBV+Ug8R+5ElgHes4rMwPZdJdmPUoK1nLRbvV9ST3ex
-	 MULMUel9Dv7a2ANEp73NOHFLdCPXcJeW91AeLHbS2mHsuT+oliUvWyfRwrYnBurcayZue
-	 axyC+GmB82OalcPB3+ddVNTvHO6OE9+ADJk5Dm23P+1K+9C+4OMBniahD7U6Zjt4rE4Tt
-	 uHtyJRlVNTkI8S6vTHlD0V5mOoCkzNEKxO7B5zoCzBgogOAbF0HGCZdB15wHghS4EfQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=outlook.com;
-	spf=pass smtp.mailfrom=outlook.com;
-	dkim=pass header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=Yui0i8E6;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.12.5
-Received: from BN1PR04CU002.outbound.protection.outlook.com (mail-eastus2azolkn19010005.outbound.protection.outlook.com [52.103.12.5])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794990795;
+	b=O9HnguTiSi7EQekuUl8mhHbEcij/OvxX3Ei3tN3KrmYqWA5zVTkDti3pu/0tx5bRVLPP
+	 hy2uyGAwpxVNmKgOYWfQkRhv4tTQVILl6wb2ZWELuJ3yrT9GiSP+3y+t/SUgbjqU59auY
+	 Wn+pb9YjTrjqxo5GQI0PDf8y5LwqCIwp7UOqGdIOlZsHnDrlVf5uYIozsOYLr8pvWY4BE
+	 N/rah9QtXMDXY7pBZjcK1Wcvtv0m9HETUWDSZrWSRLPjr1OcLOIgbjkTHZURscw64b7KI
+	 UWSrfQ0PFisjo483OFXBVNrvPB0rNWK1hf0Mvg1vhMaLoSI94YhOkLLJF701SRxc3CQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794990795;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=YkLjxEfejJuPL4lHxwbsC8p5SslZ5/tNoomXIlukABk=;
+	b=WmFBxBOlal+V6goioyGaQr+GTZzdCA9uoHsEWA4EcspHWOl0+sg6/kqcxi4aUxUlxfAq
+	 NyOhmeXG9vka/T1XPxDsKmeq6ETWiXisQRnkxz7/LUU4i9UhQi3/nJKnomf5DSgOqECPz
+	 1xKO5r8oI/HIs+2Ec5W9utXJBQYY4GT+43tYXj9wQD81S+87CjJJYSbIlDI2J11PcFP6A
+	 3XAVuEWP2LMfemrsUf5T5D/C0/ap5esYOlMkXF9qUzZ9tiI9dT/VxKwQB8hZuV5h6+odj
+	 Uz3QKF7v6Jj+Pwoctl9c3bQ4FV9Hn0ZsVUiy++GgmLsZlaq8YPkD64nxhWjkziYoIeQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XFbRPSJF;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB10760A2603;
-	Wed, 18 Nov 2026 08:33:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB10760A2603
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=outlook.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=outlook.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28220606A8AF;
+	Wed, 18 Nov 2026 08:33:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=Yui0i8E6
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WkpdElOD5gh4zYYLJD4729HcDhk0qzPh/kEaH/jmn97bD00ocsIBiVMVcHOoWBw1iPXa3O5rR8oIspxHxsNGIdY8XstSjnQMQ+pMeFqz+t04eFo29nJhJpbL+kC13cGLQyLYEGUUWre4vZ4DtpaRv4BZHEyvc1xbn9vPqh2Zj3NmFeWh9AuOmyAOn99QTYHjKwu838q1mM4Awd6yxtzZLZ0jU7gWvoYBc+vBr5LYFLzAgqL22MndBBwPJA720Bx0R5agbdAsJPtGYljWiM0f+4dE5b8LSg3IyhrnOqi8AxubW7Iv1eD+/65P8QCrwDc4cXBVhEjdXroVBJTSJ7xp6Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001; h=From:Date:Subject:Message-ID:MIME-Version;
- bh=KPUHtdYQMbFgzpItn4i2pnnQ+aZIVOWjRB9ku2hYfEY=;
- b=X+KS616UpDEa5gOBmmimtv80+hiPyS28pcHEGk9Ju+JjKxQ8rZZImbVT/P004fmSYTMYaFESRRrG4KibWiQBYgNgabCPljT5PpzIxEWf/lqy3pylnufVe8sFLsS0N5yovxseE7pGbKoSDi/h0ofAPP4BVdxoOuaDPvsdDWfCuTlhKfn/246nZF3CUDB1WOKSoebod6risFENRoZLmy1dSpA+HNbAKO6/tNYT63HcLro9SdR3S6drHkIluWYdD3SlWMtTR6W4E5kh7/wpBH66V7jdP4wdEyOYPdu+3Yic0Un6EpnHBQcKZOMw8rqn8v5EMD1EhZBzd/reuDRzXThtyQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KPUHtdYQMbFgzpItn4i2pnnQ+aZIVOWjRB9ku2hYfEY=;
- b=Yui0i8E6wv3UPEJdRCiusOcgxkd+PrhTzv3NDtldWmS5mczpuzQ3NjBdDcGiOpbLQ/6wPufHL/478FCNh8keoVUYg123ibrvNnncgoE7t7wlm7QQwCtUSVfXJr4lsARArKePFzQLmB+zBJkRFvaN3kAhwC3Y993nADBvP4Ek9f1XoAyZdQq4cxat8mdbp0/wnvSSnYGLZYotqdjoB6jR9Ocw7LcHcYDBTNsE6Vpa8wLWSeQgkvTZR359ZU2lLx1qdOUEdqVQm+OWWqOr88oDxYQSauvBJcBBtuA9Vs+MvMg1Ba0Y54M5LshSsve7gGny6d9z6XIUCeZkF/TxQF+h9w==
-Received: from SA3PR05MB10385.namprd05.prod.outlook.com
- (2603:10b6:806:39d::17) by PH0PR05MB999481.namprd05.prod.outlook.com
- (2603:10b6:510:116::21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 08:33:10 +0000
-Received: from SA3PR05MB10385.namprd05.prod.outlook.com
- ([fe80::e22f:a0f5:fcb0:9b0d]) by SA3PR05MB10385.namprd05.prod.outlook.com
- ([fe80::e22f:a0f5:fcb0:9b0d%6]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 08:33:10 +0000
-From: Yingjie Wang <x-professor@outlook.com>
-To: "Martin K. Petersen" <mkp@kernel.org>, "James E.J. Bottomley"
-	<James.Bottomley@HansenPartnership.com>
-CC: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>, Bart Van Assche
-	<bvanassche@acm.org>, Yang Xiuwei <yangxiuwei@kylinos.cn>, James Houghton
-	<jthoughton@google.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v4 3/4] scsi: sr: release CDDA request before user copyback
-Thread-Topic: [PATCH v4 3/4] scsi: sr: release CDDA request before user
- copyback
-Thread-Index: AQHddzdxExsm/Hte6kGPRTFFGaDCXg==
-Date: Wed, 18 Nov 2026 08:33:10 +0000
-Message-ID:
- <e9916537db797cda88f00744bbec10e87cdcf190.1794990780.git.x-professor@outlook.com>
-References: <cover.1794990780.git.x-professor@outlook.com>
-In-Reply-To: <cover.1794990780.git.x-professor@outlook.com>
-Accept-Language: en-US, zh-CN
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SA3PR05MB10385:EE_|PH0PR05MB999481:EE_
-x-ms-office365-filtering-correlation-id: 26234402-2e59-452d-9281-08df454e9430
-x-microsoft-antispam:
- BCL:0;ARA:14566002|24021099003|25010399006|4140399003|41001999006|38102599003|24121999003|22091999003|8060799015|8062599012|31061999003|19110799012|15080799012|3412199025|4302099013|440099028|102099032|10035399007|12091999003|1602099012|53005399003|40105399003|26121999007;
-x-microsoft-antispam-message-info:
- =?utf-8?B?L0VMQ0RXY2Y2VFkwSmJ1eEdrSTNabVFwWVpzb3laL1ZWNlMvVTl5UXRHVUc2?=
- =?utf-8?B?dVpaUGVpbWUzOGtjemY2VHovU2QxMm9mOXVMM2pLdHdkNldjVzVXUXdqUURJ?=
- =?utf-8?B?Rk9obVp1Y3h2UjFmNU05RzZidWU1N1hBMnZZWUhyMW9Udk85K2Q5RzA4TkFz?=
- =?utf-8?B?eWxDeTdiOHkxTzFIcUhTem1IRjhLRjFBTzVQY0l4N3M1Z1lZdEdKT0psOHlx?=
- =?utf-8?B?L2VkVWlIWVNzRU4xdzJrOFpZenYxZGU4aGZTVkl4OE9CNWFKOUp0L0thT3J3?=
- =?utf-8?B?NmhybzdDVFdhUmdIVTJCM1V3QVgybXQyMitIa1VuN0M1eDZ2Z0g1NXFUam1o?=
- =?utf-8?B?N1IrbktQUDhGK1E0T0dRUG5EM21yeFJibUtXaHVWQy9Hd1pQYm92dEY5dHBm?=
- =?utf-8?B?SFltL29sRXMwZjlmbHNEeFlrQU5jUFhwdnA0c3F0cEZlT2EydEQzTlViYW03?=
- =?utf-8?B?cm5NaGFxa2dXdDdnSlhkTmw4a3ZqbTZsQTB3Tmp5UEUrdGpEQlRYQXpBR2lj?=
- =?utf-8?B?UmVCMlRwTUJ5RUk1eWplQ2szZGlmK3cyM2YxVkRFYXFSMVRDY0EzcTR2c2Nz?=
- =?utf-8?B?N0tkdldaOS9tWU0wSzM1M0gvR3o3QjRjS1VYN3ZzeTFjT1EzTzJ0UlV4NmtK?=
- =?utf-8?B?Q1BzRU9vaDlVVWIwUTlIMXM4dnd3KytDQkdIYVlFY0oxakVPK01uTVJxY3Bh?=
- =?utf-8?B?UmR6ZDF3NENBd0tqRWNTVFVHQUtvZ2Nwc0J5VU1uWVBwb0lJZVJOT0pRQlVp?=
- =?utf-8?B?bkpNVGVMTlBCZlBPdDJBWDRONkxldVBQVjQ3ZjFFdklKK0VkNG1IdUFEeXdu?=
- =?utf-8?B?bEpSNHIwbkZyaTFmb3BwOCtpdVVQN2FaOFUvSUJKZVNnQ1MzdjRQZTNURFBH?=
- =?utf-8?B?ZUlNUm5Tc2tXejJ6cE1VYlFxZUJqM0NSZ2NwZ0FpVWJONDYrMlMwS1pzSDFj?=
- =?utf-8?B?Ty9JV0dHWUtUZzdTK2FkQi9oZkNXdzZrdVBXZUJRR0lGK3RSM3FFZk5MY2da?=
- =?utf-8?B?N0tjano2d2ZuMWc3bTE3RnVNeGpuWnNwUXNUc09uTnoxeDBtdmNYdnE5RlpN?=
- =?utf-8?B?UU85OVB0U3I2eXo3SWl0QVhGbFFQeTZoRHNrTmpqV2NKaFo5T2NmbU11eU5s?=
- =?utf-8?B?eFR4L2IvVWhzcFN1R0lscFlTNWtPaGNXNno2Z1FZNi8yOTFDczVHZkl3d3JI?=
- =?utf-8?B?OEc3MTQvbTByYk83RWF3MGF3VTJoWVpKVzNBTk1ralBMY0VHZ1lvTndINEY2?=
- =?utf-8?B?NDdubjc4cngxQ0NCVk5XL2N0aWxyT0JRcEFncXFSMGZVYzM3c3ZlU0VtdWFp?=
- =?utf-8?B?Q2kvejk2OE1hVVhZQTFETnpiZGpvYlBDK3dRSDR1M3ZjbmkvRkJNOXAvTzEz?=
- =?utf-8?B?T25jMTlWZ1FaN2U1Vi9HNFZFd2xFZHpyOXVQWmY2MUEwdXVMeXhoWWw4R3Nw?=
- =?utf-8?B?SlBIZ1RXYUFaN0FFU3ErMWJrQTlrVm9VQ0RJNEhwdU5rMVB2cElVanFqVTBS?=
- =?utf-8?B?bTJjakc4THl4bUpJYlFLN1VZeXozeUNBOTdjb3EzaXNuVlVkeVIzRVMwQmF5?=
- =?utf-8?Q?+IoE0/hW5xZ766JDCuGQouG0M=3D?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?utf-8?B?T1hoQ0NkL1Z6SWFVdThpUWplSUozRXB1QnRsbVFNR2FSTDE1djMxdmt0NVNU?=
- =?utf-8?B?Q3RnOUVPUWwzRnRuemlvbENYWU9xQmNXWDJ5OXFMNHBUZGpBS2xNbzRJZlRX?=
- =?utf-8?B?R3VqdEhXenV3eDdiZzdOZnZwR244QTBsanZuRklnNVZacFJ4aVdtcjZJSHhz?=
- =?utf-8?B?VWFKQ081V2pSejVVZ01xUHFyd01qdy9WL2k1SDBFNHZNRFIvMEw2Tk5VcXhF?=
- =?utf-8?B?Sk02SUJKaXBHMUhFOGVtQ2IyL2tZdWc3clpqSVpyem5iVkNxOGs2UGx2TzhF?=
- =?utf-8?B?SmkxU2lJM2V2TkpoZkZpYjhpTVd0WnpxU3BqS0xoZWFWejhVZSt0T0ZRWWxO?=
- =?utf-8?B?ZnUzdEJPcHg3NS9SSzA3MzdCOWFhTVB1Z01OUmNDNE1XUWNsRTBmQzZ4YmVy?=
- =?utf-8?B?U1BWNnJxWmVxZXI3OVBxNEt0eURnb0cvelh6VVNJUXRXOTZDNGR5RnBJUU5B?=
- =?utf-8?B?SVVXRFZWbWFFYjA1eHRvaWJwanZOeWlMRms0cUx2Rm1oMnZ6Yk1lbXNmbEY0?=
- =?utf-8?B?Q2V1TlVtTCtjL3VWRE5ucHRvV2NqQUxDRzVaU2Ntanl0SzdPQzVNZHBnOUo2?=
- =?utf-8?B?eVVoNVZ5TGdDQlgzYnFWaFpwQjRDcWNsK3NuU0J3N1JQTUNRTGY1bjhNb1Zi?=
- =?utf-8?B?dWtpa2hheDFjSGR4emt1UHNmSlVPcE1CaG1NYWY2djUzUU9Nbnp5Uk1BMi9x?=
- =?utf-8?B?bFJVaEYvYi9NcUtab2FDSmNTVkl0VUFnMHl6bE9CaVl2THY1K24rdEZyTUhp?=
- =?utf-8?B?QUZqc2VrVGNOWllsMnZSUUhTMzQyRWl5QS9BUDRPQ1pzRGZmbThTN0E4N1lB?=
- =?utf-8?B?VXVxa3h0Y09Yc3hndGoxbWVPNmtod2psVHdCNEFveXAxd0NrT2tQbzlOdFdC?=
- =?utf-8?B?OXMvQkxuUlNyWkJuN1Y4RHBvSEtaK0o3bVZzbE5zTi93TDFBY2NvVmVUVWNK?=
- =?utf-8?B?eGdJU0VJWlc5a0pOVzBxZ2NIRkZLSzVhOXd6WUhOVnUwR1VQMnoxbldXZVZj?=
- =?utf-8?B?clN6WXNaQ3kyQ3g3V25WNHZYSUFTRHlYSm5IZFdvc3ZIQ3VnYlQ4VGNHMnhx?=
- =?utf-8?B?aDVaTk1tVzhrTjFqRU5LUnNmMlh2VjdVZ2hPd0djME5SZTdseWl1RkY5cXVM?=
- =?utf-8?B?VnBLRUNJLzB5Um5KTTVMTk5UVU9IOFpweTJSN2Z4cWsyQyt2UmtjdkVpRUM0?=
- =?utf-8?B?MjNob2hrN3grT0NwbTNKZHVtREtkM0hWaElwNmJNa0VFYlg0ZDVueEZMaGc5?=
- =?utf-8?B?ZGtFVEgxWjU2QVd5a29YeGRwMjNJNjU2dG1LVmNQWXlINTEzUDkrQm9zR0tZ?=
- =?utf-8?B?TitiZ1hqVmVrd3pIUW1aYjN6UzFpeEJick5JOXY0elNrai9nbDNJQmt5dGhI?=
- =?utf-8?B?TjFJQ2IwVmRDUVVwYUtncU9kM1BkamtnTFUzbE45L1RQTGpqZkwvTGJUdWIz?=
- =?utf-8?B?V1JqVWtSWE5LSHc1SXBCS1NBKzBmRFZKeXV0eDdCWUdONno2Um1kWUhqdS9o?=
- =?utf-8?B?c2FzQjJSTHBJaFdKMDdoWnIrRlRnRmxyOE9UeVlFeWtDdHpZeENCbVNoUGtk?=
- =?utf-8?B?aGhid0VqNllZM0JYWGdBM2ZCTU1HNy9DTzZFRWJWWklycmY1SjRDbkhRSXJI?=
- =?utf-8?B?V0g5N250b1pUUE4xMnUvWlM4eFNVZ3MvbklNTkJoZTA5UTZwbitBVG9yY3JM?=
- =?utf-8?B?bnd5MXg1dUwvZTh3MzVjZVdlQlUyb0JMZUVnVzBLVGo4bEhrU0tKYzMyU0lh?=
- =?utf-8?B?ZzdiYWV5L1pCQUJKQWJIMFNVdndUVjQ2SUdZMCs2TEp1anUrMlBudWE4a0pV?=
- =?utf-8?B?K1EzdERKUVBoaVd5ZXBPejlVaERQUjRXdENKczd5RTQ3NVhwditwSE4xQUVV?=
- =?utf-8?Q?Xwk4kmZaGTjJz?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XFbRPSJF
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8672B1F000CF;
+	Wed, 18 Nov 2026 08:33:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794990795;
+	bh=YkLjxEfejJuPL4lHxwbsC8p5SslZ5/tNoomXIlukABk=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=XFbRPSJFX/C69AzQPbkqVw/tMG+z4SsfmFkjidQfMzaUT0xe8Xguf6LVPNwXXQZOA
+	 pl4yKwGbL4961etmhLq2EzM6JBV44sVEKbKx+9UM8VAnOvmW4F83SfyMHjZxasqmfG
+	 GiKhIZe50KVtwYY4gq/ssBgCKx1mAcrKGNF6Z2LizVFZ8KZu6P4CK33PGEcFmcfK+p
+	 HhP3bN47BPnVJJA01SYrXoLAs7Iq9AgsLupeYRubilFyX+ovvCAIGZJ3Zoslr4mHPm
+	 NT9bXtUUK3iMkBugZzfwE2ipoe2UmJQbBOhAjsZ5//eGzEu//yAnBnNP4iDLdBW5tq
+	 1yfGaEuCxTpLg==
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Date: Wed, 18 Nov 2026 09:32:40 +0100
+Subject: [PATCH net 3/4] net: skbuff: limit folio refcount when splicing
+ pages into skbs
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -167,41 +53,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SA3PR05MB10385.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: 26234402-2e59-452d-9281-08df454e9430
-X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Nov 2026 08:33:10.4324
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR05MB999481
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261118-skb_refcount_overflow-v1-3-5551b4954c3f@kernel.org>
+References: <20261118-skb_refcount_overflow-v1-0-5551b4954c3f@kernel.org>
+In-Reply-To: <20261118-skb_refcount_overflow-v1-0-5551b4954c3f@kernel.org>
+To: "David S. Miller" <davem@davemloft.net>, 
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+ Andrew Morton <akpm@linux-foundation.org>, Kiryl Shutsemau <kas@kernel.org>, 
+ Song Liu <songliubraving@fb.com>, Johannes Weiner <hannes@cmpxchg.org>, 
+ Rik van Riel <riel@surriel.com>, 
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+ Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
+ Pedro Falcato <pfalcato@suse.de>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-mm@kvack.org, "David Hildenbrand (Arm)" <david@kernel.org>, 
+ stable@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2437; i=david@kernel.org;
+ h=from:subject:message-id; bh=Sq30vkZVXk/xrSazqlDw0jf8y1oNryrxNBcxU8XdZv8=;
+ b=owGbwMvMwCF2/OVpCdfQ3ZWMp9WSGLL+Jm37do1P+X5R0+dls19/cVWo8OU9eYM58WMZ1xt93
+ fVtV5c2dpSyMIhxMMiKKbIEBd83ePlyXW21Gx8zzBxWJpAhDFycAjCR7nuMDJN8wrev1035+iXw
+ /6Qr8rILmL8d3be7VPVghYdIUK3ywxiGf7Zehb6Zbb877p5gL4l/pCVmNC/A6Kag+srMh0kWPOc
+ E2AA=
+X-Developer-Key: i=david@kernel.org; a=openpgp;
+ fpr=1BD9CAAD735C4C3A460DFCCA4DDE10F700FF835A
 
-RnJvbTogWWluZ2ppZSBXYW5nIDx4LXByb2Zlc3NvckBvdXRsb29rLmNvbT4KCnNyX3JlYWRfY2Rk
-YV9icGMoKSByZXRhaW5zIGl0cyBjb21wbGV0ZWQgcmVxdWVzdCB3aGlsZSB1bm1hcHBpbmcgdGhl
-IHVzZXIKYnVmZmVyLiBGb3IgYSBib3VuY2VkIGRhdGEtaW4gbWFwcGluZywgdW5tYXBwaW5nIGNh
-biBjb3B5IHRvIHVzZXJzcGFjZQphbmQgZmF1bHQuIEEgZmF1bHQgdGhhdCBuZWVkcyBJL08gZnJv
-bSB0aGUgc2FtZSBxdWV1ZSBjYW5ub3QgcHJvZ3Jlc3MgaWYKdGhlIGNvbXBsZXRlZCByZXF1ZXN0
-IHJldGFpbnMgdGhlIGF2YWlsYWJsZSB0YWcuCgpSZWxlYXNlIHRoZSByZXF1ZXN0IGFmdGVyIGNv
-bnN1bWluZyBpdHMgY29tbWFuZCByZXN1bHQgYW5kIHNlbnNlIGRhdGEsCmJlZm9yZSB1bm1hcHBp
-bmcgdGhlIG9yaWdpbmFsIEJJTyBjaGFpbiBzYXZlZCBhdCBzdWJtaXNzaW9uLiBObyByZXF1ZXN0
-Cm9yIFNDU0kgY29tbWFuZCBmaWVsZCBpcyBhY2Nlc3NlZCBhZnRlciB0aGUgcmVsZWFzZS4gVGhl
-IG1hcHBpbmcncyBCSU8KcmVmZXJlbmNlcyByZW1haW4gb3duZWQgYnkgYmxrX3JxX3VubWFwX3Vz
-ZXIoKS4KClRoZSBzY3NpLW1xIHJlcXVlc3QgcG9vbCBpbnRyb2R1Y2VkIHRoaXMgdGFnIGRlcGVu
-ZGVuY3kuIFRoZSBsYXRlciBtb3ZlCm9mIHRoZSBDRERBIGltcGxlbWVudGF0aW9uIGZyb20gZHJp
-dmVycy9jZHJvbSBpbnRvIHNyIHdhcyBhIHJlbG9jYXRpb24uCgpGaXhlczogZDI4NTIwM2NmNjQ3
-ICgic2NzaTogYWRkIHN1cHBvcnQgZm9yIGEgYmxrLW1xIGJhc2VkIEkvTyBwYXRoLiIpCkxpbms6
-IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjAyNjEwMjIuc2NzaS1jZGRhLWxpZmV0aW1lLjhm
-MzFhMmM5N2I0MkBvdXRsb29rLmNvbQpDYzogc3RhYmxlQHZnZXIua2VybmVsLm9yZwpTaWduZWQt
-b2ZmLWJ5OiBZaW5namllIFdhbmcgPHgtcHJvZmVzc29yQG91dGxvb2suY29tPgotLS0KIGRyaXZl
-cnMvc2NzaS9zci5jIHwgMyArKysKIDEgZmlsZSBjaGFuZ2VkLCAzIGluc2VydGlvbnMoKykKCmRp
-ZmYgLS1naXQgYS9kcml2ZXJzL3Njc2kvc3IuYyBiL2RyaXZlcnMvc2NzaS9zci5jCmluZGV4IDRm
-MmU4ZDFiZTZkYS4uYzY0YzI1ZTlmNDA0IDEwMDY0NAotLS0gYS9kcml2ZXJzL3Njc2kvc3IuYwor
-KysgYi9kcml2ZXJzL3Njc2kvc3IuYwpAQCAtOTY5LDggKzk2OSwxMSBAQCBzdGF0aWMgaW50IHNy
-X3JlYWRfY2RkYV9icGMoc3RydWN0IGNkcm9tX2RldmljZV9pbmZvICpjZGksIHZvaWQgX191c2Vy
-ICp1YnVmLAogCQlyZXQgPSAtRUlPOwogCX0KIAorCWJsa19tcV9mcmVlX3JlcXVlc3QocnEpOwog
-CWlmIChibGtfcnFfdW5tYXBfdXNlcihiaW8pKQogCQlyZXQgPSAtRUZBVUxUOworCXJldHVybiBy
-ZXQ7CisKIG91dF9wdXRfcmVxdWVzdDoKIAlibGtfbXFfZnJlZV9yZXF1ZXN0KHJxKTsKIAlyZXR1
-cm4gcmV0OwotLSAKMi40My4wCgo=
+Various networking features use MSG_SPLICE_PAGES to add pages to skbs,
+whereby skb_append_pagefrags() takes a page reference for each fragment it
+adds. Pages spliced from pipes were already checked when entering the
+pipe, but in-kernel users like sunrpc pass pagecache pages directly. This
+allows for exceeding folio refcount limits.
+
+This is not specific to large pagecache folios, but with them it is a
+lot easier to reach the refcount limit, as page table mappings can cheaply
+create many references.
+
+Let's use try_get_page() in skb_append_pagefrags() and fail with -EFAULT.
+Don't use -EMSGSIZE, as TCP would just retry with a new skb. The only
+caller, skb_splice_from_iter(), handles that.
+
+Fixes: 800d8c63b2e9 ("shmem: add huge pages support")
+Fixes: 99cb0dbd47a1 ("mm,thp: add read-only THP support for (non-shmem) FS")
+Fixes: 793917d997df ("mm/readahead: Add large folio readahead")
+Cc: stable@vger.kernel.org
+Acked-by: Pedro Falcato <pfalcato@suse.de>
+Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+---
+ net/core/skbuff.c | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
+
+diff --git a/net/core/skbuff.c b/net/core/skbuff.c
+index bed1c8c4c6b99..c937d74eed6ac 100644
+--- a/net/core/skbuff.c
++++ b/net/core/skbuff.c
+@@ -4714,8 +4714,13 @@ int skb_append_pagefrags(struct sk_buff *skb, struct page *page,
+ 	if (skb_can_coalesce(skb, i, page, offset)) {
+ 		skb_frag_size_add(&skb_shinfo(skb)->frags[i - 1], size);
+ 	} else if (i < max_frags) {
++		/*
++		 * Don't use -EMSGSIZE, as callers would just retry with a new
++		 * skb.
++		 */
++		if (!try_get_page(page))
++			return -EFAULT;
+ 		skb_zcopy_downgrade_managed(skb);
+-		get_page(page);
+ 		skb_fill_page_desc_noacc(skb, i, page, offset, size);
+ 	} else {
+ 		return -EMSGSIZE;
+@@ -7613,8 +7618,9 @@ static void skb_splice_csum_page(struct sk_buff *skb, struct page *page,
+  * possible, copying them to fragments if not possible (such as if they're slab
+  * pages).
+  *
+- * Returns the amount of data spliced/copied or -EMSGSIZE if there's
+- * insufficient space in the buffer to transfer anything.
++ * Returns the amount of data spliced/copied, -EMSGSIZE if there's
++ * insufficient space in the buffer to transfer anything, or -EFAULT if we
++ * could not take a page reference.
+  */
+ ssize_t skb_splice_from_iter(struct sk_buff *skb, struct iov_iter *iter,
+ 			     ssize_t maxsize)
+
+-- 
+2.43.0
+
