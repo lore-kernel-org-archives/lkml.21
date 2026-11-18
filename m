@@ -1,165 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.228.1
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795010983;
-	b=hkQo47n1N5OpmAqrpQ4/WoNlGpVkLi8XEH7Ptb1MSndBJCJL9L7cBqEqOCGn/WQ0aljo
-	 /NvGXs9FORcaOlDMgdMdr0Dpw/vA87ThwOkQcOcNQefCYyeQOslQqXoG12ZqFo3cJuwPF
-	 fd8AIsQkyqjFNu18f9W9imTCMUZ4JDo42aDzIZ8HeaxYy/PU3VkXUVuqqvyBXWuxZ/NiX
-	 Kiyu9MCPnQo6WqtbUz2cAf1GyaLAn2SDRVeQCcsrBh4l1r1grNhnKxxpAoa+Q68DjV7Jv
-	 ja7m8HYpVI+mj0ELtvvPMh8yY8dAVt6dvx6DqQkFGWmRWaoAJ4wzDOCYHVzODY6bv0g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795010983;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ld-processed:
-	 x-ms-exchange-senderadcheck:x-ms-exchange-antispam-relay:
-	 x-microsoft-antispam:x-microsoft-antispam-message-info:
-	 x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=zuVW0/523lvDnQbTQRbtyYTUwUvMq0d/Aij3IUnakvU=;
-	b=v+ta5WHs2ICAzJzOr519Ne53O5xV1zO+Ipk5sO0UQSiRedbJITpcDnYpHCO64pMDauqC
-	 DYzPjnSKeKqSAqTKdX0LdzTLB5jEiRtaOAg84b5wcSvti8x3g0DVIcZzlo28FuNeZl8NV
-	 JzMJWMSyqgazqtu/Q7HZotiPvm8Ti30dnk/+S9PSn+VbRde8WxBnN3+LJNp9ec1VrPmym
-	 XtfBJDvo3ETgY5hxx5LxlLPI/Y3XloLHwXspdDn1dHwunN3V1PniY6pQuo7ElGBUa8Emo
-	 IC4Jg4g0O19oocw8QYvwicmdwEjS+SB3XOxrclICtVBf6onCM6Y+2ou0o2GmbW50Ibw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bp.renesas.com;
-	spf=pass smtp.mailfrom=bp.renesas.com;
-	dkim=pass header.d=bp.renesas.com header.i=@bp.renesas.com header.a=rsa-sha256 header.s=selector1 header.b=tmV7416E;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.228.1
-Received: from OS0P286CU011.outbound.protection.outlook.com (mail-japanwestazon11010001.outbound.protection.outlook.com [52.101.228.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.43
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795010984;
+	b=KG2DAoMb3KCl5y0MgnLfUAixc83hHgvNb2mN56VXSAg+6wrj8+zvQBngqN5m8oOj7YUz
+	 MTIfaldtAJrAz3PeSK8prIOj3ALeWyt1pmgdDTIThXYy0coCVaQb9R/guKjBkaX7pzW7m
+	 k0VRUsiBsZcpwUwvQIpsXMw1zIVGFl7kAQIKrvGkA+6AygmO/xbxhzyj1biJhlvf7QRQg
+	 vIhr0Y7ZIr1yK5SfiQbHFnSGAszAGU0dxJLUbrD6L2v3fQf4KsdVRD19feeFDZR6uWxUR
+	 p27aN1RXdQW1wMTEOIMG9JQDnRydygyvoiupSeOPpfBlyJ2DgqP8/Kz8RL2jWI9D1Sg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795010984;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
+	bh=BhI9NvyCgtOZtuaslrAqMXx6Ds5DSmZ6/JAKnGkqXCU=;
+	b=ZvwG5+2GxAJiHoJO+o0YmO151VUM12JS7vJ7VL6qScKd7v2n2lArIQ3t53U4TLI/hyD7
+	 ca5uF7o6K9jq1YyO+6PuUIM+0KKO2FTITShFJ2ks6iN3orUj5OGWgqVPdlZWjQCMagLkG
+	 tL2PgfPaF1tirkB/7dteRVtCVfB9OS6b95beItLDHhzKkLk/ZMMecS8DkoQt9bTGMWeTp
+	 gCFEaAvmZDVFCvGk6aXZGaQMcLGnwCYb76ObGqPNoO6J0/iXQ4iF2tbUm+1+UXOrwblQ4
+	 HN3Z97V7m4qgPstB2t+xFcoYu/R/ssLoMLw73TpW3/6EY+3/Sy0ypTdAkRP+Pgl+YFA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=D7Q7R2io;
+	arc=none smtp.remote-ip=209.85.210.43
+Received: from mail-ot1-f43.google.com (mail-ot1-f43.google.com [209.85.210.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72AD6606A332;
-	Wed, 18 Nov 2026 14:09:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 72AD6606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=bp.renesas.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bp.renesas.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 676CA60A2612
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:09:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 676CA60A2612
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=bp.renesas.com header.i=@bp.renesas.com header.a=rsa-sha256 header.s=selector1 header.b=tmV7416E
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=F0NCCvJIbE2dj85v3WvE+PehM4TZJ0wDcfOpGhHu6iAtXDBbESX8pmZcWlwcJwPvK5TUMkNUk62DdAWh8ZqsUdDH2EE2V5XNud3SvJShvlZlYBAG4Ru/4rl4sN3Io/zhUdBNXglFrBOLJ7UyQ1uzQDYPtCwSfVGzEMIb06lLtlAkidOyJOoQ5XBXcnzTV2vcS25di16fTJ0i+/P0CUcP/u/kqhE/HLhtyqZinhbJDQrpJtFw4/W4hSzsTSAcBIN8loNj1AmbK2eb55luTgeyxRdjpPOZ2oFU7EZHipkUOgV4vCongvXjVGc8pqk9L2GQl/XAEmLA9OkqG7/gvJJcPg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zuVW0/523lvDnQbTQRbtyYTUwUvMq0d/Aij3IUnakvU=;
- b=o5TBH7zPK4an1ZjK1xGch8vgLh4C+wcCzVun2Xm3dsFb9RgtLThtNPazF58vTaBkph7+6oadZbTUx/6hukbpmJ/fKD8Gfj4WYhqh6OExjgzkxVwy073MazMtWULdaM5Wuu2nXvdw5J97ac0GfB1Xx6Z3xnkjIRo3xhiC017RIPdw7LhGyf7D7YJmnvi5RkmXqvM1wCi2+mLnG7a8ksDVc0lRQfyBhVH0RvaC6uZ0MEnnXgxpXBFxGogtwjGfZwloRPS9YS1y00bVk0Aw9lqw8o5VWiuNOgsYHAkje1l2waku9GYyO/1Uet8WlKZ/GbPY5acWyse6feloAdSPArGfLQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
- header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zuVW0/523lvDnQbTQRbtyYTUwUvMq0d/Aij3IUnakvU=;
- b=tmV7416EvHJNXy88xQgBNco4+kN7fOlhqKkQDMuglUy/W13sLzR/Zxg2u2CxKCAU0l0IsGxu0wgADMHbTEEyrlh6P/kBiH1REGLUCm6CJD4l8nKapG47VgOZm6gdxOOXLqcDN5ghIspg7RbbdflXvj7khkYHyB51G/qDB3EhBCc=
-Received: from TYYPR01MB6603.jpnprd01.prod.outlook.com (2603:1096:400:e0::9)
- by TY3PR01MB10207.jpnprd01.prod.outlook.com (2603:1096:400:1d8::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 14:09:38 +0000
-Received: from TYYPR01MB6603.jpnprd01.prod.outlook.com
- ([fe80::145b:b854:162:2e7f]) by TYYPR01MB6603.jpnprd01.prod.outlook.com
- ([fe80::145b:b854:162:2e7f%5]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 14:09:38 +0000
-From: Biju Das <biju.das.jz@bp.renesas.com>
-To: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>, Tommaso Merciai
-	<tomm.merciai@gmail.com>, Prabhakar Mahadev Lad
-	<prabhakar.mahadev-lad.rj@bp.renesas.com>
-CC: "linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Maarten
- Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
-	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>,
-	"magnus.damm" <magnus.damm@gmail.com>, Laurent Pinchart
-	<laurent.pinchart+renesas@ideasonboard.com>,
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v10 02/12] drm: renesas: rz-du: vsp: Keep the planes in
- the VSP
-Thread-Topic: [PATCH v10 02/12] drm: renesas: rz-du: vsp: Keep the planes in
- the VSP
-Thread-Index: AQHdc2lvllZyziUlY0GXMFC4v6YLwbcz4hHQ
-Date: Wed, 18 Nov 2026 14:09:38 +0000
-Message-ID:
- <TYYPR01MB66036E5E97AD52E68DE078AE867A2@TYYPR01MB6603.jpnprd01.prod.outlook.com>
-References: <cover.1794502191.git.tommaso.merciai.xr@bp.renesas.com>
- <6e420483129b494a4522c952de593b8082b9510a.1794502191.git.tommaso.merciai.xr@bp.renesas.com>
-In-Reply-To:
- <6e420483129b494a4522c952de593b8082b9510a.1794502191.git.tommaso.merciai.xr@bp.renesas.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=bp.renesas.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYYPR01MB6603:EE_|TY3PR01MB10207:EE_
-x-ms-office365-filtering-correlation-id: c574756d-15b9-4b78-abbf-08df457d9505
-x-ld-processed: 53d82571-da19-47e4-9cb4-625a166a4a2a,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam:
- BCL:0;ARA:13230040|7416014|1800799024|376014|366016|23010399003|56012099006|261022105027099003|38070700021|261021121427099003|4143699003|11063799006|10067099003|261026140227099003|261026121527099003|261022075727099003|261028144727099003|261102123227099003|261021123027099003|261009223027099003|18002099003|22082099003;
-x-microsoft-antispam-message-info:
- O9dgoSpzIk6EwZiI1ffvI30jf/3CGBhoKgF1+k2AYCkhBg2Lc9B0WXSh8LopB8JAsdKN0lUlyRo243cEFnVzjBQzmAbc65sw80mwbl6pPnOsgna6ysEOmeupsuQCjUoMY0bdQH7KDK/fwu2efp2OppP/QP3ZZjxXXC1iv8cr0zkcgr2KMh17jHwZmjn2SbDgXWJpoNLF4r0jUNLXGrAZ6nHxVCFqjs86F9/O5lBlzglXzGvU2QSbZpMuzYQJQy/e+hC1gPNRguMPqWCIQkkzfhJhISNLVgTH5GXn59ip5KDuXKR5EGREZS+lSPjNOLQjw/pk5Wfd83zuTU8PdgV12DtgFExOfCEhZ6epFH9bD6x+Nf8dyEEYxcMUXiFPoLBEO0EdmejYVpczynQTYmWj+ER6IXKE2Aby0nPzxhJ6MccJnRxRccDccNuCOU69mXuI3xzlLjNbkF/mY6U1aSJYekac7hAPUqk+k4kDofRcdRG8GpoI5WTElOfhKBMtmFAOmDaAqr6xfVnf2EvgMmY1xrjsGee2lk7tpjmpnto/aqiOGbfimiOmMQCwyllJhl7d+EoPAhf5iZhhYTIiVwffX73zit9tBpscXUCSSpL9rw8457l6Q7XLJhTs1EgHdAV4rcdU9NKg1umqoNbamVultRxCAKhtJLehbFO93s6RYgj/OzPiFL4iX5dzG8A55OjP74kJ4k9eBJZAkAZVGF9KUg==
-x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYYPR01MB6603.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(23010399003)(56012099006)(261022105027099003)(38070700021)(261021121427099003)(4143699003)(11063799006)(10067099003)(261026140227099003)(261026121527099003)(261022075727099003)(261028144727099003)(261102123227099003)(261021123027099003)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?utf-8?B?TWMzVU1DYURRZXN2cFpWS1lpSzRvYlBKT1JKdW1uNk1MWnFyVUxhUUlyL0Z0?=
- =?utf-8?B?bHVzdHh5YzMrUFRUMURhT1RrS3Rud1ZGTVo0clZ1ZnpuR2Q1NDZjbFc4MzBz?=
- =?utf-8?B?VGtieHlTQlYyZGVpTTNLMDRodW9nMEtBOUhRdkh2aUQrOHorODNFT3N6akdy?=
- =?utf-8?B?dFNOYUV1ajFQVEVydFJKSnlzVUFYb2ZiSWloaFhDRWFQUFBVb2Y1alVtQTNW?=
- =?utf-8?B?bVZtRGtPM0xDVDVVMTM2aTJVczFLY0tZWWwrU1BoOGRyNE96bnpVT0crMDVo?=
- =?utf-8?B?QmRRVjdLNW1HQmU4QTkxLy9xUVlEbmFLcWNuc05HZHpmY1lPWlBrSUlsNlAx?=
- =?utf-8?B?TS9vWmpzVG03amhWM3djbHdBb2hiTGRqVUxGR0RiYlYrUU1MOGxUV2RKZFFv?=
- =?utf-8?B?WlB6bWcxbzNBT1F4YS91RGlEdU9sYlJtaVAzc0FwSjdaUWVTamtsQm92WU5B?=
- =?utf-8?B?OXlCOEpVZXdEcHU2akNWS001OVF2dnJGeEhMSjB2K0t1cUFHYmVyWGlJTWpY?=
- =?utf-8?B?K2tjQ1RseHFLSVU1WEl0bnFZVC93NUcrQjJLVlNBaURPMllKb3NRNTZvVzhw?=
- =?utf-8?B?TndraW5aejN4ODdmSDJscDNRQXA4c01uZTlKRWVMZXVReUV2QWhTTnFpbnBB?=
- =?utf-8?B?SEpaMlNDQjg2U3RuMTRSbnN5RThVTmllMW1QUGVWYitYMXpZMTl1amRSdVJu?=
- =?utf-8?B?aWJRSTM0U0E5K3pTNUlJUStmeUVvaW4zV1hxVWZ4cCt6N3pkeGk5ZWtTR3By?=
- =?utf-8?B?dGJVNWh3YmlWUXBLOXBTN3k2V2dKazdWSTkrWVFHcmRLR2lieVQ1Y0RVVTd6?=
- =?utf-8?B?UDZGOEZ1QlJmWTN6TUxWMUpUQVR3cUx2ekl1TE91aHNEZFdFZU0wZTFIQnBu?=
- =?utf-8?B?UnBSR0ZTOUZzamkvMmdQc2w2ZGZHck5RbHhiUzlITkZBaTFRWjltZVZyUmlz?=
- =?utf-8?B?dklZRFdQdGI1dzVZUnRiTjBwcVA2UzF6aWQwdnlHdGQ4ZXRtNEJWRnZpV1Rw?=
- =?utf-8?B?T29ya2hpZUZlNjQrREhpcDR3UEhQNmxEdDZxVGhnODRML1BYZzhoa0RHV2VY?=
- =?utf-8?B?a01iMXZLWHZHVklpTUlvN3ZnODVZOTZFTjZCc0tPeG1CTlVJeTVudjNmMXFO?=
- =?utf-8?B?SnhVdzZiZEIyd2xkam5PYTc2SVVkbmtHeSswS0kxL1dKeEpjN21sN0tOVVV0?=
- =?utf-8?B?QmJ6WnAxOE4xWTNTeXdGaWZoTWEzdjlndWphY3dRakhjNTFYZnY2b05uSWtG?=
- =?utf-8?B?cjJFaWFYczNTOGFLY3c5TW5LVnpvbjh1UDNsVWtBeEVtRUtLdUNhSUxiNFNG?=
- =?utf-8?B?b1ZkTWtaT1VVd1pCME50MzJOc1FBUS9qd0RyZ0NwNXVOL1p3QWNVSlpTT28v?=
- =?utf-8?B?YS9sd0xYOFhJRFNQanQrT2tOQitoNzVtbXoxYlVrWW9MelZlR2NteVJONFlh?=
- =?utf-8?B?am9FNTZqZlBzY25uZGw4Vk9qQmI4cEtYTG1kN3dDYmpXcGJJL0dueXQyTGo1?=
- =?utf-8?B?UVk2eENJazhUN1NFZ1JXclU5UGM0OGxFUmhvdkZlZC83OTBOSlg1TU02Y254?=
- =?utf-8?B?R0dhV2hWQmNEcTlvdXhGcTRMM2QvTUdaNjdOM01FTEZHelY1cFBqSXRuYTZL?=
- =?utf-8?B?VEp4SjR5YTFlYTBHMWt6Kyt6Tm9ubTZ2dlR2TTVMZ3h6WWVOcVVyaWllbzJw?=
- =?utf-8?B?WlNWTzduNndTVkVQeGgxR1UxV1NNb042VkNZcWtKVHVPV3hjOEExcGx5dHdM?=
- =?utf-8?B?b1dCM0tUYnFVY1MwaTNNVFhwUVAvR1FqUG4wSGE2SVhMVWNsNUp2NVpqWXVr?=
- =?utf-8?B?citUNHFWNHdwMkpjVENHMW9uVmt0ay9zSkxicGFrMEk5My9Uck0yd253eEpa?=
- =?utf-8?B?aldhR2U5VENxSHRPL1lHclRxcUlURVFRdkRCVWdDMSttNjdLeVM2eDh3NWFy?=
- =?utf-8?B?YlphdEswTE5SZjczNlpPT0FjWDJiMVUybnlyRmVhQTJ0VzZBa1J5Umh4MTkx?=
- =?utf-8?B?eFpzY2xiSFg2QUdkTXk0SGU2ODlreFVlZG91WEVrZHhMZjNJYk1EQW0xaWpH?=
- =?utf-8?B?VmtJRUJlQXNNUGEzTURiYWg4WkxIa1dMNzYyZHh1THV5ZkVpeUkxdkhGMldh?=
- =?utf-8?B?Q0RFQjZxVnFQdW1ab2hnQytjNWcvbXA2YTA1OUU1S0VGQmJ0MEMvMWMydzhF?=
- =?utf-8?B?SVNkcTN4RkdPL3N2dkNsMjZRWW5CQ2wxWU00SFI5ZWEvZlRRM3EyTno2S1FQ?=
- =?utf-8?B?MmVMcEZFWU4zZVRWV1J0SkQzTGwzL2d6ZW1RMHVDQnI2aThuMDZkSWVhWXcr?=
- =?utf-8?B?d0k4V2F1VXQyTWs1dXBuQzhjSVREdVVHRHYrc1p3Yk5RT1BsNmVIQT09?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=D7Q7R2io
+Received: by mail-ot1-f43.google.com with SMTP id 46e09a7af769-86103aaac12so1164842a34.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:09:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795010980; x=1795615780; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=BhI9NvyCgtOZtuaslrAqMXx6Ds5DSmZ6/JAKnGkqXCU=;
+        b=D7Q7R2ioolNlOqkHOMmCmgYJugv+9RIyIrdghZ4WbG4sWvx+OjE4Yd+UEoQ4Zs0h6g
+         mlRSvlyXr8lRNf8nvEnAHPOftraDFhiZsw7rjprV6d5kC9TFxUvBbOwBNj9viXW6FSbx
+         hQKnhPJs4pKUJwFLI19DnSy5+zxBdq3ijnKIivDYeAZaa67W7IpHTrjbJlP1AkiF9u7P
+         T4n9vrt/RJYhhi0+ndHof7y2UBd/F/MSARkDslMt3xAPyotgr6N96YuHgXMECEn1Kvat
+         Pfqz1kFAOZCR3vbtKl+QcKXPIdhyMmfvAKiAlfLl+9bjxZrFkKYxbCnxPe3KrqLGxsUi
+         Fn+A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795010980; x=1795615780;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=BhI9NvyCgtOZtuaslrAqMXx6Ds5DSmZ6/JAKnGkqXCU=;
+        b=yh1pG9eXEvMHdCcpU8iKYA0+IXoKXObkR77cCgPYXwCcLxdt1bkAkn/MLtZcOPXTzr
+         WO+VlGsgfj/l4EJmYy0aU0b/R0RgIpK5DmyuzA4aaIxOUg2OhpOjU6J2qqT28nQM815a
+         NEoBKEEr93kVma9wZ2YxKp4+6AJdWBKdYihrkQXLYO8bfrUoi67UA1WCfItyxmYXg7fQ
+         eCa3L07cjPwOkCCeSRmYhJpCOvjdWIZWNbi8/AtzgqfFOWGuhbNN4R5R9H63S8SXheKy
+         dIoNRj8IlfeKAWjshQFIxRDwOeVdw9OavjLtzjVqFhvuXomDROmYX+MRmJ6q9uhpGXZl
+         wsug==
+X-Forwarded-Encrypted: i=1; AL+hErGG1SDFveLtwb0+a2LlnCathIvkK5cbMoqKuDM9k2/2wRlTDxZM/ltzaMLhwA2kBoQaFjs9EbpQnSMqCsg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8JAOQz8gAk5rN+J6rALb8Q50EXMZ+q/x7Zl4+ks170CtUZVF8l
+	1drTN2WHtQwJ1Gf4E6gCgrqINC/zASjFO9SKCg6Wjlw3rILT2ZyOfuxAE9fJuk6Y
+X-Gm-Gg: AYBFou0TVmX92QCD1kFz6x7vV7+e1IEHhKJSAyWhhVio/w/mSYcTLVV1izDgAg2VqWS
+	J5gLMj2I2iP1cgCc1JaPdTukbIXkcqtVYDUUtYfl14WrIdGvIJl8bj3Tc9s67Bf5Z8jO9xoFl6B
+	p4lJeM4eSD53khkTtekfWjNyti+VUvAYk/IqBq5DVfw4+D0EpqkrJuWep8PwQqVbYC5M5p0DVtp
+	pgxoSOUFwV0oUEe+SbCy+S6vm+2ABiVbFi/1/X7OQNAQQEPK5e+yVunhCZI1R+QKsztkBigp6yz
+	Wc0StXtFF36RDJqrGGF6E8jXUnzqcslfqKfQ3YE5nlvGy9oTgrdECKA2hy3JvnYrXCOgGC3sUlw
+	DDyECabMN2oeXPwAeEUoH4/7HVhXeCfV/xvmmwoy/IQ+6MZMN/Ithd3klynDBk6p+UXY5la2FCW
+	mRafiTgczDuivYZog2A97SjKIr97mGeYCgju9a9sEAoDIIS2IzKHLDk5nQQ2lxn/XZicPkuf4WF
+	zJT+a2AN95fqdNNpYYLBhWqhtGS/eJkZVDIABq6BXILeOYMNIoo2zzsxyRqhAV615wSVAN878C4
+	Odi0S2+ARAbv/CT4okZl9dlZLw==
+X-Received: by 2002:a05:6830:680d:b0:845:8d86:9f81 with SMTP id 46e09a7af769-862f0832679mr1678535a34.6.1795010980265;
+        Wed, 18 Nov 2026 06:09:40 -0800 (PST)
+Received: from localhost ([2a03:2880:30ff:7::])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-862f021295csm2160757a34.15.2026.11.18.06.09.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 06:09:39 -0800 (PST)
+From: Daniel Zahka <daniel.zahka@gmail.com>
+Date: Wed, 18 Nov 2026 06:08:03 -0800
+Subject: [PATCH net-next v5 1/6] psp: support rx rekey operation
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -169,117 +91,297 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: bp.renesas.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYYPR01MB6603.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c574756d-15b9-4b78-abbf-08df457d9505
-X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Nov 2026 14:09:38.2856
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 2+V7AK8AFhT1Ym5Gb7NPjJH2LdiyO9m6tkBW+fj8C0Uympn+JjAN0VknHNPx73VDBgcqfsJekgY0s1yIErB63RUc9fglTf+rerlNVxDvWzA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY3PR01MB10207
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261118-psp-v5-1-b9ec840e0296@gmail.com>
+References: <20261118-psp-v5-0-b9ec840e0296@gmail.com>
+In-Reply-To: <20261118-psp-v5-0-b9ec840e0296@gmail.com>
+To: Jakub Kicinski <kuba@kernel.org>, 
+ Willem de Bruijn <willemdebruijn.kernel@gmail.com>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>, 
+ Donald Hunter <donald.hunter@gmail.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, Shuah Khan <shuah@kernel.org>
+Cc: Daniel Zahka <daniel.zahka@gmail.com>, netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+ linux-kselftest@vger.kernel.org, Willem de Bruijn <willemb@google.com>
+X-Mailer: b4 0.13.0
 
-SGkgVG9tbWFzbywNCg0KVGhhbmtzIGZvciB0aGUgcGF0Y2guDQoNCj4gLS0tLS1PcmlnaW5hbCBN
-ZXNzYWdlLS0tLS0NCj4gRnJvbTogVG9tbWFzbyBNZXJjaWFpIDx0b21tYXNvLm1lcmNpYWkueHJA
-YnAucmVuZXNhcy5jb20+DQo+IFNlbnQ6IDEzIE5vdmVtYmVyIDIwMjYgMTI6MjANCj4gU3ViamVj
-dDogW1BBVENIIHYxMCAwMi8xMl0gZHJtOiByZW5lc2FzOiByei1kdTogdnNwOiBLZWVwIHRoZSBw
-bGFuZXMgaW4gdGhlIFZTUA0KPiANCj4gRWFjaCBWU1AgbnVtYmVycyBpdHMgcGxhbmVzIGZyb20g
-emVybywgc28gdGhlIGRldmljZS13aWRlIHNlYXJjaCBpbg0KPiByemcybF9kdV92c3BfZ2V0X2Ry
-bV9wbGFuZSgpIHBpY2tzIHRoZSB3cm9uZyBwbGFuZSBhcyBzb29uIGFzIGEgU29DIGhhcyBtb3Jl
-IHRoYW4gb25lIFZTUDogdGhlIHByaW1hcnkNCj4gcGxhbmUgb2YgdGhlIHNlY29uZCBDUlRDIGlz
-IGxvb2tlZCB1cCBvbiB0aGUgZmlyc3QgVlNQLCB3aG9zZSBwb3NzaWJsZV9jcnRjcyBtYXNrIGRv
-ZXMgbm90IGNvdmVyIHRoYXQNCj4gQ1JUQy4NCj4gDQo+IEluIHByZXBhcmF0aW9uIGZvciBzdXBw
-b3J0aW5nIFJaL0czRSwgc3RvcmUgdGhlIHBsYW5lcyBpbiB0aGUgVlNQIHRoYXQgb3ducyB0aGVt
-IGFuZCBpbmRleCB0aGUgcGVyLVZTUA0KPiBhcnJheSBkaXJlY3RseSBmcm9tIHJ6ZzJsX2R1X2Ny
-dGNfY3JlYXRlKCksIGFzIHRoZSBSLUNhciBEVSBkcml2ZXIgZG9lcywgYW5kIGRyb3AgdGhlIG5v
-dyB1bnVzZWQNCj4gc2VhcmNoIGhlbHBlci4NCj4gDQo+IE5vIGZ1bmN0aW9uYWwgY2hhbmdlIGlu
-dGVuZGVkLg0KPiANCj4gU2lnbmVkLW9mZi1ieTogVG9tbWFzbyBNZXJjaWFpIDx0b21tYXNvLm1l
-cmNpYWkueHJAYnAucmVuZXNhcy5jb20+DQo+IC0tLQ0KPiB2OS0+djEwOg0KPiAgLSBObyBjaGFu
-Z2VzLg0KPiANCj4gdjgtPnY5Og0KPiAgLSBEcm9wcGVkIHRoZSB2c3BfcGlwZSBib3VuZHMgY2hl
-Y2sgaW4gcnpnMmxfZHVfY3J0Y19jcmVhdGUoKSBhbmQgdGhlDQo+ICAgIG5vdyB1bnVzZWQgbnVt
-X3BsYW5lcyBmaWVsZCwgYWxpZ25pbmcgd2l0aCByY2FyX2R1X2NydGNfY3JlYXRlKCkuDQo+ICAt
-IFVwZGF0ZWQgY29tbWl0IG1lc3NhZ2UgYWNjb3JkaW5nbHkuDQo+IA0KPiB2Ny0+djg6DQo+ICAt
-IE5ldyBwYXRjaC4NCj4gDQo+ICBkcml2ZXJzL2dwdS9kcm0vcmVuZXNhcy9yei1kdS9yemcybF9k
-dV9jcnRjLmMgfCAgNCArLS0tICBkcml2ZXJzL2dwdS9kcm0vcmVuZXNhcy9yei1kdS9yemcybF9k
-dV92c3AuYw0KPiB8IDE5ICsrLS0tLS0tLS0tLS0tLS0tLS0gIGRyaXZlcnMvZ3B1L2RybS9yZW5l
-c2FzL3J6LWR1L3J6ZzJsX2R1X3ZzcC5oICB8IDEwICsrKy0tLS0tLS0NCj4gIDMgZmlsZXMgY2hh
-bmdlZCwgNiBpbnNlcnRpb25zKCspLCAyNyBkZWxldGlvbnMoLSkNCj4gDQo+IGRpZmYgLS1naXQg
-YS9kcml2ZXJzL2dwdS9kcm0vcmVuZXNhcy9yei1kdS9yemcybF9kdV9jcnRjLmMgYi9kcml2ZXJz
-L2dwdS9kcm0vcmVuZXNhcy9yei0NCj4gZHUvcnpnMmxfZHVfY3J0Yy5jDQo+IGluZGV4IGFiMmYy
-NGNjNzY4My4uYzU3ODg0YWI1YjliIDEwMDY0NA0KPiAtLS0gYS9kcml2ZXJzL2dwdS9kcm0vcmVu
-ZXNhcy9yei1kdS9yemcybF9kdV9jcnRjLmMNCj4gKysrIGIvZHJpdmVycy9ncHUvZHJtL3JlbmVz
-YXMvcnotZHUvcnpnMmxfZHVfY3J0Yy5jDQo+IEBAIC00MDksOSArNDA5LDcgQEAgaW50IHJ6ZzJs
-X2R1X2NydGNfY3JlYXRlKHN0cnVjdCByemcybF9kdV9kZXZpY2UgKnJjZHUpDQo+ICAJaW5pdF93
-YWl0cXVldWVfaGVhZCgmcmNydGMtPmZsaXBfd2FpdCk7DQo+ICAJcmNydGMtPmRldiA9IHJjZHU7
-DQo+IA0KPiAtCXByaW1hcnkgPSByemcybF9kdV92c3BfZ2V0X2RybV9wbGFuZShyY3J0YywgcmNy
-dGMtPnZzcF9waXBlKTsNCj4gLQlpZiAoSVNfRVJSKHByaW1hcnkpKQ0KPiAtCQlyZXR1cm4gUFRS
-X0VSUihwcmltYXJ5KTsNCj4gKwlwcmltYXJ5ID0gJnJjcnRjLT52c3AtPnBsYW5lc1tyY3J0Yy0+
-dnNwX3BpcGVdLT5wbGFuZTsNCg0KVGhlIGJvdW5kcyBjaGVjayBvbiB2c3BfcGlwZcKgIGlzIGRy
-b3BwZWQuIMKgcGxhbmVzW3ZzcF9waXBlXcKgaXMgbm93IGluZGV4ZWQgZGlyZWN0bHkgaW50byBh
-IDItZW50cnkgYXJyYXksDQpzbyBhIGJhZCBEVCB2YWx1ZSBvb3BzZXMuDQoNCj4gDQo+ICAJcmV0
-ID0gZHJtbV9jcnRjX2luaXRfd2l0aF9wbGFuZXMoJnJjZHUtPmRkZXYsIGNydGMsIHByaW1hcnks
-IE5VTEwsDQo+ICAJCQkJCSAmY3J0Y19mdW5jc19yeiwgTlVMTCk7DQo+IGRpZmYgLS1naXQgYS9k
-cml2ZXJzL2dwdS9kcm0vcmVuZXNhcy9yei1kdS9yemcybF9kdV92c3AuYyBiL2RyaXZlcnMvZ3B1
-L2RybS9yZW5lc2FzL3J6LQ0KPiBkdS9yemcybF9kdV92c3AuYw0KPiBpbmRleCA5NDRiYzlhYzk1
-ODkuLjEyZmUzNTc0MGM2MiAxMDA2NDQNCj4gLS0tIGEvZHJpdmVycy9ncHUvZHJtL3JlbmVzYXMv
-cnotZHUvcnpnMmxfZHVfdnNwLmMNCj4gKysrIGIvZHJpdmVycy9ncHUvZHJtL3JlbmVzYXMvcnot
-ZHUvcnpnMmxfZHVfdnNwLmMNCj4gQEAgLTcxLDIyICs3MSw2IEBAIHZvaWQgcnpnMmxfZHVfdnNw
-X2F0b21pY19mbHVzaChzdHJ1Y3QgcnpnMmxfZHVfY3J0YyAqY3J0YykNCj4gIAl2c3AxX2R1X2F0
-b21pY19mbHVzaChjcnRjLT52c3AtPnZzcCwgY3J0Yy0+dnNwX3BpcGUsICZjZmcpOyAgfQ0KPiAN
-Cj4gLXN0cnVjdCBkcm1fcGxhbmUgKnJ6ZzJsX2R1X3ZzcF9nZXRfZHJtX3BsYW5lKHN0cnVjdCBy
-emcybF9kdV9jcnRjICpjcnRjLA0KPiAtCQkJCQkgICAgIHVuc2lnbmVkIGludCBwaXBlX2luZGV4
-KQ0KPiAtew0KPiAtCXN0cnVjdCByemcybF9kdV9kZXZpY2UgKnJjZHUgPSBjcnRjLT52c3AtPmRl
-djsNCj4gLQlzdHJ1Y3QgZHJtX3BsYW5lICpwbGFuZSA9IE5VTEw7DQo+IC0NCj4gLQlkcm1fZm9y
-X2VhY2hfcGxhbmUocGxhbmUsICZyY2R1LT5kZGV2KSB7DQo+IC0JCXN0cnVjdCByemcybF9kdV92
-c3BfcGxhbmUgKnZzcF9wbGFuZSA9IHRvX3J6ZzJsX3ZzcF9wbGFuZShwbGFuZSk7DQo+IC0NCj4g
-LQkJaWYgKHZzcF9wbGFuZS0+aW5kZXggPT0gcGlwZV9pbmRleCkNCj4gLQkJCWJyZWFrOw0KDQpE
-byB5b3UgbmVlZCB0byByZW1vdmUgdGhpcyBmdW5jdGlvbj8gDQphcyBwbGFuZSBoYXMgdnNwIGFu
-ZCBpbmRleCBpbmZvcm1hdGlvbi4NCg0KcGxhbmUtPnZzcCA9IHZzcDsgDQpwbGFuZS0+aW5kZXgg
-PSBpOw0KDQpDaGVlcnMsDQpCaWp1DQoNCj4gLQl9DQo+IC0NCj4gLQlyZXR1cm4gcGxhbmUgPyBw
-bGFuZSA6IEVSUl9QVFIoLUVJTlZBTCk7DQo+IC19DQo+IC0NCj4gIHN0YXRpYyBjb25zdCB1MzIg
-cnpnMmxfZHVfdnNwX2Zvcm1hdHNbXSA9IHsNCj4gIAlEUk1fRk9STUFUX1JHQjMzMiwNCj4gIAlE
-Uk1fRk9STUFUX0FSR0I0NDQ0LA0KPiBAQCAtMzAzLDcgKzI4Nyw3IEBAIGludCByemcybF9kdV92
-c3BfaW5pdChzdHJ1Y3QgcnpnMmxfZHVfdnNwICp2c3AsIHN0cnVjdCBkZXZpY2Vfbm9kZSAqbnAs
-DQo+ICAJc3RydWN0IHJ6ZzJsX2R1X2RldmljZSAqcmNkdSA9IHZzcC0+ZGV2Ow0KPiAgCXN0cnVj
-dCBwbGF0Zm9ybV9kZXZpY2UgKnBkZXY7DQo+ICAJdW5zaWduZWQgaW50IG51bV9jcnRjcyA9IGh3
-ZWlnaHQzMihjcnRjcyk7DQo+IC0JdW5zaWduZWQgaW50IG51bV9wbGFuZXMgPSAyOw0KPiArCXVu
-c2lnbmVkIGludCBudW1fcGxhbmVzID0gUlpHMkxfRFVfVlNQX01BWF9QTEFORVM7DQo+ICAJdW5z
-aWduZWQgaW50IGk7DQo+ICAJaW50IHJldDsNCj4gDQo+IEBAIC0zNTAsNiArMzM0LDcgQEAgaW50
-IHJ6ZzJsX2R1X3ZzcF9pbml0KHN0cnVjdCByemcybF9kdV92c3AgKnZzcCwgc3RydWN0IGRldmlj
-ZV9ub2RlICpucCwNCj4gDQo+ICAJCXBsYW5lLT52c3AgPSB2c3A7DQo+ICAJCXBsYW5lLT5pbmRl
-eCA9IGk7DQo+ICsJCXZzcC0+cGxhbmVzW2ldID0gcGxhbmU7DQo+IA0KPiAgCQlkcm1fcGxhbmVf
-aGVscGVyX2FkZCgmcGxhbmUtPnBsYW5lLA0KPiAgCQkJCSAgICAgJnJ6ZzJsX2R1X3ZzcF9wbGFu
-ZV9oZWxwZXJfZnVuY3MpOw0KPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9ncHUvZHJtL3JlbmVzYXMv
-cnotZHUvcnpnMmxfZHVfdnNwLmggYi9kcml2ZXJzL2dwdS9kcm0vcmVuZXNhcy9yei0NCj4gZHUv
-cnpnMmxfZHVfdnNwLmgNCj4gaW5kZXggYTIyYWFmMDg0M2VkLi5hY2I0MWQzNDMyOTcgMTAwNjQ0
-DQo+IC0tLSBhL2RyaXZlcnMvZ3B1L2RybS9yZW5lc2FzL3J6LWR1L3J6ZzJsX2R1X3ZzcC5oDQo+
-ICsrKyBiL2RyaXZlcnMvZ3B1L2RybS9yZW5lc2FzL3J6LWR1L3J6ZzJsX2R1X3ZzcC5oDQo+IEBA
-IC0yNywxMSArMjcsMTQgQEAgc3RydWN0IHJ6ZzJsX2R1X3ZzcF9wbGFuZSB7DQo+ICAJdW5zaWdu
-ZWQgaW50IGluZGV4Ow0KPiAgfTsNCj4gDQo+ICsjZGVmaW5lIFJaRzJMX0RVX1ZTUF9NQVhfUExB
-TkVTCQkyDQo+ICsNCj4gIHN0cnVjdCByemcybF9kdV92c3Agew0KPiAgCXVuc2lnbmVkIGludCBp
-bmRleDsNCj4gIAlzdHJ1Y3QgZGV2aWNlICp2c3A7DQo+ICAJc3RydWN0IGRldmljZV9saW5rICps
-aW5rOw0KPiAgCXN0cnVjdCByemcybF9kdV9kZXZpY2UgKmRldjsNCj4gKwlzdHJ1Y3QgcnpnMmxf
-ZHVfdnNwX3BsYW5lICpwbGFuZXNbUlpHMkxfRFVfVlNQX01BWF9QTEFORVNdOw0KPiAgfTsNCj4g
-DQo+ICBzdGF0aWMgaW5saW5lIHN0cnVjdCByemcybF9kdV92c3BfcGxhbmUgKnRvX3J6ZzJsX3Zz
-cF9wbGFuZShzdHJ1Y3QgZHJtX3BsYW5lICpwKSBAQCAtNjIsOCArNjUsNiBAQA0KPiBpbnQgcnpn
-MmxfZHVfdnNwX2luaXQoc3RydWN0IHJ6ZzJsX2R1X3ZzcCAqdnNwLCBzdHJ1Y3QgZGV2aWNlX25v
-ZGUgKm5wLCAgdm9pZA0KPiByemcybF9kdV92c3BfZW5hYmxlKHN0cnVjdCByemcybF9kdV9jcnRj
-ICpjcnRjKTsgIHZvaWQgcnpnMmxfZHVfdnNwX2Rpc2FibGUoc3RydWN0IHJ6ZzJsX2R1X2NydGMN
-Cj4gKmNydGMpOyAgdm9pZCByemcybF9kdV92c3BfYXRvbWljX2ZsdXNoKHN0cnVjdCByemcybF9k
-dV9jcnRjICpjcnRjKTsgLXN0cnVjdCBkcm1fcGxhbmUNCj4gKnJ6ZzJsX2R1X3ZzcF9nZXRfZHJt
-X3BsYW5lKHN0cnVjdCByemcybF9kdV9jcnRjICpjcnRjLA0KPiAtCQkJCQkgICAgIHVuc2lnbmVk
-IGludCBwaXBlX2luZGV4KTsNCj4gICNlbHNlDQo+ICBzdGF0aWMgaW5saW5lIGludCByemcybF9k
-dV92c3BfaW5pdChzdHJ1Y3QgcnpnMmxfZHVfdnNwICp2c3AsIHN0cnVjdCBkZXZpY2Vfbm9kZSAq
-bnAsDQo+ICAJCQkJICAgIHVuc2lnbmVkIGludCBjcnRjcykNCj4gQEAgLTc0LDExICs3NSw2IEBA
-IHN0YXRpYyBpbmxpbmUgaW50IHJ6ZzJsX2R1X3ZzcF9pbml0KHN0cnVjdCByemcybF9kdV92c3Ag
-KnZzcCwgc3RydWN0IGRldmljZV9ub2RlDQo+IHN0YXRpYyBpbmxpbmUgdm9pZCByemcybF9kdV92
-c3BfZW5hYmxlKHN0cnVjdCByemcybF9kdV9jcnRjICpjcnRjKSB7IH07ICBzdGF0aWMgaW5saW5l
-IHZvaWQNCj4gcnpnMmxfZHVfdnNwX2Rpc2FibGUoc3RydWN0IHJ6ZzJsX2R1X2NydGMgKmNydGMp
-IHsgfTsgIHN0YXRpYyBpbmxpbmUgdm9pZA0KPiByemcybF9kdV92c3BfYXRvbWljX2ZsdXNoKHN0
-cnVjdCByemcybF9kdV9jcnRjICpjcnRjKSB7IH07IC1zdGF0aWMgaW5saW5lIHN0cnVjdCBkcm1f
-cGxhbmUNCj4gKnJ6ZzJsX2R1X3ZzcF9nZXRfZHJtX3BsYW5lKHN0cnVjdCByemcybF9kdV9jcnRj
-ICpjcnRjLA0KPiAtCQkJCQkJCSAgIHVuc2lnbmVkIGludCBwaXBlX2luZGV4KQ0KPiAtew0KPiAt
-CXJldHVybiBFUlJfUFRSKC1FTlhJTyk7DQo+IC19DQo+ICAjZW5kaWYNCj4gDQo+ICAjZW5kaWYg
-LyogX19SWkcyTF9EVV9WU1BfSF9fICovDQo+IC0tDQo+IDIuNTQuMA0KDQo=
+Support updating the rx PSP state used by a socket. This is most
+useful to do after a device key rotation has occurred and the key
+being used by the peer will become stale after the next device key
+rotation.
+
+Create a new psp_assoc for the socket to use that contains the same tx
+state, but with new rx state. Copy the previous rx state to use as a
+fallback while the peer is in the process of switching to the new key.
+
+skbs matching the current rx spi and generation or the previous rx spi
+and generation will be accepted. It might be reasonable to stop
+accepting skbs on the previous state after seeing skbs with the new
+state and after waiting a grace period, but that is not implemented
+for now.
+
+Reviewed-by: Willem de Bruijn <willemb@google.com>
+Signed-off-by: Daniel Zahka <daniel.zahka@gmail.com>
+---
+v3:
+- move the replaced assoc to psd->stale_assocs, so a rotation
+  racing with its free doesn't count it in stale-events
+- drop the requirement that the new rx spi has the opposite phase
+  bit from the previous one
+- keep prev_generation valid across a rotation when the prev SPI is
+  from the same generation
+- document rx rekey in the rx-assoc op doc in psp.yaml
+
+v2:
+- copy old rx state by value instead of pointer to prev
+- place non-datapath fields at end of struct psp_assoc
+- disallow rx rekey when socket is not in full psp state, or
+  dev/version doesn't match.
+- require the new rx spi to have the opposite phase bit from the previous
+  one
+---
+ Documentation/netlink/specs/psp.yaml |  4 ++-
+ Documentation/networking/psp.rst     | 23 ++++++++++++++--
+ include/net/psp/functions.h          | 10 ++++---
+ include/net/psp/types.h              | 17 +++++++++++-
+ net/psp/psp.h                        |  3 ++-
+ net/psp/psp_sock.c                   | 52 +++++++++++++++++++++++++++++++++---
+ 6 files changed, 96 insertions(+), 13 deletions(-)
+
+diff --git a/Documentation/netlink/specs/psp.yaml b/Documentation/netlink/specs/psp.yaml
+index f3266763c325..d5713f5d1af7 100644
+--- a/Documentation/netlink/specs/psp.yaml
++++ b/Documentation/netlink/specs/psp.yaml
+@@ -265,7 +265,9 @@ operations:
+ 
+     -
+       name: rx-assoc
+-      doc: Allocate a new Rx key + SPI pair, associate it with a socket.
++      doc: |
++        Allocate a new Rx key + SPI pair, associate it with a socket.
++        If the socket already has PSP state, rekey its Rx direction.
+       attribute-set: assoc
+       do:
+         request:
+diff --git a/Documentation/networking/psp.rst b/Documentation/networking/psp.rst
+index 0f9b6b73f244..fab797506b0a 100644
+--- a/Documentation/networking/psp.rst
++++ b/Documentation/networking/psp.rst
+@@ -140,14 +140,33 @@ The PSP assoc state of a socket is not reset when the connection is
+ torn down. ``connect()`` on a socket that has PSP assoc state will
+ return ``-EINVAL``.
+ 
++Rekeying
++--------
++
++A connection which has completed the exchange described above and is
++in the "PSP Full" state can be rekeyed in place without being torn
++down, using the same netlink calls as in connection setup.
++
++``rx-assoc`` allocates a new Rx key and SPI, which should be passed
++to the peer exactly as during the initial exchange. The SPI which was
++in use before the rekey remains acceptable on the socket until the
++next Rx rekey, or until the device key it was derived from has been
++rotated out, so packets the peer sent before it learned the new SPI
++are still received.
++
++A rekey is rejected with ``-EINVAL`` if it would change the PSP device
++or the PSP version of the association. It is rejected with ``-EBUSY``
++if the socket has not completed its initial exchange in both
++directions.
++
+ Rotation notifications
+ ----------------------
+ 
+ The rotations of device key happen asynchronously and are usually
+ performed by management daemons, not under application control.
+ The PSP netlink family will generate a notification whenever keys
+-are rotated. The applications are expected to re-establish connections
+-before keys are rotated again.
++are rotated. Applications are expected to rekey their connections,
++as described above, before device keys are rotated again.
+ 
+ Kernel implementation
+ =====================
+diff --git a/include/net/psp/functions.h b/include/net/psp/functions.h
+index 410adb6718c1..5a7a518b9579 100644
+--- a/include/net/psp/functions.h
++++ b/include/net/psp/functions.h
+@@ -77,10 +77,12 @@ psp_is_allowed_nondata(struct sk_buff *skb, struct psp_assoc *pas)
+ static inline bool
+ psp_pse_matches_pas(struct psp_skb_ext *pse, struct psp_assoc *pas)
+ {
+-	return pse && pas->rx.spi == pse->spi &&
+-	       pas->generation == pse->generation &&
+-	       pas->version == pse->version &&
+-	       pas->dev_id == pse->dev_id;
++	return pse && pas->version == pse->version &&
++	       pas->dev_id == pse->dev_id &&
++	       ((pas->rx.spi == pse->spi &&
++		 pas->generation == pse->generation) ||
++		(pas->prev_spi && pas->prev_spi == pse->spi &&
++		 pas->prev_generation == pse->generation));
+ }
+ 
+ static inline enum skb_drop_reason
+diff --git a/include/net/psp/types.h b/include/net/psp/types.h
+index b8905efbd604..9eb89d2d680c 100644
+--- a/include/net/psp/types.h
++++ b/include/net/psp/types.h
+@@ -3,6 +3,7 @@
+ #ifndef __NET_PSP_H
+ #define __NET_PSP_H
+ 
++#include <linux/bits.h>
+ #include <linux/mutex.h>
+ #include <linux/refcount.h>
+ #include <net/net_trackers.h>
+@@ -78,7 +79,8 @@ struct psp_assoc_dev {
+  * @active_assocs:	list of registered associations
+  * @prev_assocs:	associations which use old (but still usable)
+  *			device key
+- * @stale_assocs:	associations which use a rotated out key
++ * @stale_assocs:	associations which use a rotated out key, or were
++ *			superseded by a rekey
+  *
+  * @stats:	statistics maintained by the core
+  * @stats.rotations:	See stats attr key-rotations
+@@ -152,6 +154,15 @@ struct psp_key_parsed {
+ 	u8 key[PSP_MAX_KEY];
+ };
+ 
++/**
++ * enum psp_assoc_flags - flags of struct psp_assoc
++ * @PSP_ASSOC_SKIP_TX_KEY_DEL: Do not delete Tx key from psp_dev. It was
++ *	copied to a newer psp_assoc during an Rx rekey.
++ */
++enum psp_assoc_flags {
++	PSP_ASSOC_SKIP_TX_KEY_DEL	= BIT(0),
++};
++
+ struct psp_assoc {
+ 	struct psp_dev *psd;
+ 
+@@ -159,6 +170,10 @@ struct psp_assoc {
+ 	u8 generation;
+ 	u8 version;
+ 	u8 peer_tx;
++	u8 prev_generation;
++	u8 flags; /* Slow path, protected by psd->lock */
++
++	__be32 prev_spi;
+ 
+ 	u32 upgrade_seq;
+ 
+diff --git a/net/psp/psp.h b/net/psp/psp.h
+index b123c2427905..92d7b92acaed 100644
+--- a/net/psp/psp.h
++++ b/net/psp/psp.h
+@@ -63,7 +63,8 @@ static inline bool psp_dev_has_sadb(struct psp_dev *psd)
+ static inline bool psp_assoc_needs_tx_key_del(struct psp_assoc *pas)
+ {
+ 	lockdep_assert_held(&pas->psd->lock);
+-	return psp_dev_has_sadb(pas->psd) && pas->tx.spi;
++	return psp_dev_has_sadb(pas->psd) && pas->tx.spi &&
++	       !(pas->flags & PSP_ASSOC_SKIP_TX_KEY_DEL);
+ }
+ 
+ #endif /* __PSP_PSP_H */
+diff --git a/net/psp/psp_sock.c b/net/psp/psp_sock.c
+index f2cba3fa3a23..c1e38845f08c 100644
+--- a/net/psp/psp_sock.c
++++ b/net/psp/psp_sock.c
+@@ -149,10 +149,39 @@ void psp_sk_assoc_free(struct sock *sk)
+ 	psp_assoc_put(pas);
+ }
+ 
++static int psp_sock_rx_rekey(struct psp_assoc *pas, struct psp_assoc *prev,
++			     struct netlink_ext_ack *extack)
++{
++	if (pas->psd != prev->psd) {
++		NL_SET_ERR_MSG(extack, "PSP device mismatch with existing state");
++		return -EINVAL;
++	}
++	if (pas->version != prev->version) {
++		NL_SET_ERR_MSG(extack, "PSP version mismatch with existing state");
++		return -EINVAL;
++	}
++	if (!prev->tx.spi || !prev->peer_tx) {
++		NL_SET_ERR_MSG(extack, "Socket PSP state is not fully established");
++		return -EBUSY;
++	}
++
++	pas->peer_tx = 1;
++	pas->prev_spi = prev->rx.spi;
++	pas->prev_generation = prev->generation;
++
++	memcpy(&pas->tx, &prev->tx, sizeof(pas->tx));
++	memcpy(pas->drv_data, prev->drv_data, pas->psd->caps->assoc_drv_spc);
++	prev->flags |= PSP_ASSOC_SKIP_TX_KEY_DEL;
++	list_move(&prev->assocs_list, &prev->psd->stale_assocs);
++
++	return 0;
++}
++
+ int psp_sock_assoc_set_rx(struct sock *sk, struct psp_assoc *pas,
+ 			  struct psp_key_parsed *key,
+ 			  struct netlink_ext_ack *extack)
+ {
++	struct psp_assoc *prev;
+ 	int err;
+ 
+ 	memcpy(&pas->rx, key, sizeof(*key));
+@@ -165,10 +194,11 @@ int psp_sock_assoc_set_rx(struct sock *sk, struct psp_assoc *pas,
+ 		goto exit_unlock;
+ 	}
+ 
+-	if (psp_sk_assoc(sk)) {
+-		NL_SET_ERR_MSG(extack, "Socket already has PSP state");
+-		err = -EBUSY;
+-		goto exit_unlock;
++	prev = psp_sk_assoc(sk);
++	if (prev) {
++		err = psp_sock_rx_rekey(pas, prev, extack);
++		if (err)
++			goto exit_unlock;
+ 	} else if (sk_has_decrypt_user(sk)) {
+ 		NL_SET_ERR_MSG(extack, "Socket has incompatible state");
+ 		err = -EINVAL;
+@@ -177,6 +207,7 @@ int psp_sock_assoc_set_rx(struct sock *sk, struct psp_assoc *pas,
+ 
+ 	refcount_inc(&pas->refcnt);
+ 	rcu_assign_pointer(sk->psp_assoc, pas);
++	psp_assoc_put(prev);
+ 	err = 0;
+ 
+ exit_unlock:
+@@ -302,8 +333,21 @@ void psp_assocs_key_rotated(struct psp_dev *psd)
+ 	 */
+ 	list_for_each_entry_safe(pas, next, &psd->prev_assocs, assocs_list) {
+ 		pas->generation |= ~PSP_GEN_VALID_MASK;
++		pas->prev_generation |= ~PSP_GEN_VALID_MASK;
+ 		psd->stats.stales++;
+ 	}
++
++	/* Don't allow SPI from two generations ago to alias one from the
++	 * current generation. Rx rekeying under the same device key generation
++	 * is currently permitted, so skip if the previous SPI is from just one
++	 * generation ago.
++	 */
++	list_for_each_entry(pas, &psd->active_assocs, assocs_list) {
++		if ((pas->rx.spi ^ pas->prev_spi) &
++		    cpu_to_be32(PSP_SPI_KEY_PHASE))
++			pas->prev_generation |= ~PSP_GEN_VALID_MASK;
++	}
++
+ 	list_splice_init(&psd->prev_assocs, &psd->stale_assocs);
+ 	list_splice_init(&psd->active_assocs, &psd->prev_assocs);
+ 
+
+-- 
+2.52.1
+
