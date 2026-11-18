@@ -1,60 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795011654;
-	b=zHJ2mufygd7K3vkXfrD8wwELCAgp+IKZNFu8jxCh5qI1GK1NTrbPnO1251zrpOZ9ZvGS
-	 A3XSNCu9+eRgXrnmr3wJ5u4U67eDe/r7RExDHN4a7aiW/D53pr1VDVPFTaYIFiFDPM5mV
-	 hH8A90oLWCmfWSNMrItQ9cD0AJP05RQNObElwaRBD7dA+uXdQXPwHH4aimmk4V1Ru59Av
-	 zxUw+vxzF0dUQK2zekGXM01U18K8KvPpAk6lMENV6tg4xKHvPMooOIeA6fmzPlJeAXXGV
-	 XoDfSwYRMsY4V/qqUo7fj8ZNn9y2t6Ue5xWJmWQVXR/x3UhTBn6EnTOhdieB6ArdrJA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795011654;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=gJZYIJR/KVRhmRv58xDPqzK1j0F7y63tdZWkx/0vk7o=;
-	b=Ew43V7z/4fAD1dvzxd0YqOEF7xCzVWJQXbWjafMMdsYE+6ZWcNUA68ud3YlO9MBypb6t
-	 qJCBHyZforo40l/L812fQkZAb/urFV6rNTvM8q+yRsTTSd5v9Rc8y3ReFm5mLSoItQ/hA
-	 deNb7i0QZ1MULdgs/ziiJNm+CVGXQ1+zt43K0MY2m93XtSfnJ23fu4poA9XbVVE/pQ8At
-	 mMzOBMv7Sm0nqBVh/4pzOj2Fx94zUKx5zfoL8oV+2J/NQTX5af0bRvGqEBKkgccb9Ji2q
-	 duNYyD604nN6ep+8sXOjREjDsD6AW07McSu9L8CNnmzwPI+lZQGAcW8kwkCIcfJcR5A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TQ58xOzN;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.34
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795011656;
+	b=gwutCKE199JfeaHyN2gFmUZ9g84rGXmD+WQTG95QSnXlmdsL1bK5skLOiFW6WyI6cs6Q
+	 SlSid8gPdZqLtmF7EY/DlX8fxt3fIofHiwWUXIGeP4mvrHV2E8Ld3ifokYJVClVau22Z0
+	 cFyNw3uP4f+H4jiyr9F3E8dAvXX+B66a5U+K8+OWJWY8jg7NRe3OYNkaMwcC5Yza3gclA
+	 vUJSQjl9yXgsPAFyfyu7XZqco4bj84FgugIKmhGI/8xhPjTowYxkXnLxD403d7T1w5kRQ
+	 oR7U76uw7uWZsJD4PuYTU/+l2zAvWpwKwiBXkaoiU1ZmyHZK7rMxX5EG9r4H5yVE/PQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795011656;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=m5s+JDioHhNUj6WIauuvxxjWFB2cQEmZwHCv7o0M+pM=;
+	b=2JoFF7lT0ujbTM3j+Y4yEjdhUB+Vc6oanp9SAf7PgW9qAP6kylQTiiarwK5hWwTMJKu/
+	 XmCQWrydY+TivinbrVVpTK5BbRSKzADo55Gg5AaeV4XHgpa+ZwYdLXAC1YwNjq+VZhjNW
+	 QCcTr46AvvCSbp7gt8fdsm+PUeHFw4jHFYfXNrbV8KSrCOcWAj2sYdYvIAwMra6cIDx4e
+	 1NFFfSazA7BcUD0+dfly9ChY8ki39xtQ22dlQxuhC/1hIgnlITe6SCvTKBtDU20dypFHh
+	 fiJLTCS3jyZ4tT6tYKHxRmhUyrX5csAkCqI0HuSZgHIK/mjMBTfVgmAEnx2LP1YPyGQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=fMQSC3Mi;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.34
+Received: from SN4PR0501CU005.outbound.protection.outlook.com (mail-southcentralusazon11011034.outbound.protection.outlook.com [40.93.194.34])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F04C0606A31C;
-	Wed, 18 Nov 2026 14:20:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34C0A606A332
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:20:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34C0A606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TQ58xOzN
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B2321F000C4;
-	Wed, 18 Nov 2026 14:20:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795011653;
-	bh=gJZYIJR/KVRhmRv58xDPqzK1j0F7y63tdZWkx/0vk7o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=TQ58xOzNpdg44+qwpzeTh77kIJgJX1IYttnKIGMYn9Em347kAw3UgT05XeCM70yvm
-	 u6ahlLyz6MSTP7XEhrYMvA74OH0JwUSYIiR3eB3mL3iUeR/RNapVjK41YyK/DF8TpL
-	 sEE2JtaxCXGwC4WHH5vCw62/a4trSaMwjQF3/BJciy/j87J8bAK+naRUVsGZ2AYMCZ
-	 AWZ7upSDR+uCz9FPiPAVulOX6MtcBi8gfb8B1P3fcBpHmfiu5XYN/PWsbI2p2HAOpm
-	 BDXHpVemOio0K+q+iBUmq8sghsKg396f5wCStKee7fbya4ITlomEG3JkT9LnXpEVp6
-	 +rc4YFUQfIEDQ==
-Date: Wed, 18 Nov 2026 15:20:50 +0100
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Ridong <ridong.chen@linux.dev>
-Cc: longman@redhat.com, tj@kernel.org, peterz@infradead.org,
-	mingo@redhat.com, juri.lelli@redhat.com, vincent.guittot@linaro.org,
-	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
-	mgorman@suse.de, vschneid@redhat.com, kprateek.nayak@amd.com,
-	hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org,
-	cgroups@vger.kernel.org, guopeng.zhang@linux.dev,
-	mathieu.desnoyers@efficios.com, Ridong Chen <chenridong@xiaomi.com>
-Subject: Re: [PATCH] sched/isolation: Publish new HK_TYPE_DOMAIN cpumask
- under cpuset_mutex
-Message-ID: <av20QrLUdOC_ysS0@localhost.localdomain>
-References: <054a53a3-c038-48fe-ac01-fc24fd8065d0@linux.dev>
- <20261117083915.2971979-1-ridong.chen@linux.dev>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=fMQSC3Mi
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nvew2pcQWtgoYLSXE/gFIl4GIhMhUOmqEaGO5yWQx3iXWg6mCw5sHjPfILFNLd1MLXrABW9omr4I4TNeMiiOK5MtB55JAoKoZtW98LxDOynFquQIQve08Dpf8SzNU5ND2FVSuf8bNnYfikzAXENbhUQsetPFeJZEibc2Se2kFkIXbqXLMudQ9E1dWPcd3uSHHTjuDy0TUqoQPQSY3Dy2ko7BTKx0ibL8n1Pu+40nlmGBX7q/UUoo4Bw7ulBxWiY6VUMFmTD9IBezIH6bELqA7HEOP1AlwuIDr6dAWOhLI+AXNaJ5nddDq/D4rsWj+ZbGLvi3LRH5NcyHgFtPJ+8KKg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=m5s+JDioHhNUj6WIauuvxxjWFB2cQEmZwHCv7o0M+pM=;
+ b=U61IpsMwIaqQrlIAXgTOuERjglzrUhX9SpLWAlx2hPLVGEN1b8Q1nMxsU/ZogfDEKrYb2IxhwWbYEQ6GbWYT0p8XRrQQTgeAluVHI+vSEDjUGPuvcD+hgHVmfD0J/B+Znxyv/VwRMhfPthvOQHp0r5Hy1GNujLjiJ3v13yMzJbwDdCQps8V6XT8kQywiKVYqxHPw4+057pM1nnVMyaEZkCz74dHhkbIAliwlUWUZdQFVpqHX1DGvnuq5xwdT2DV0fXwKwNWihv8vjNtXgfD7UEMxQbvy258B7K3aqzgdr0mTiqyh3kSc7A4ySp4iswRNyxvrfdnbRP0ks5gU1k6Ltg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=m5s+JDioHhNUj6WIauuvxxjWFB2cQEmZwHCv7o0M+pM=;
+ b=fMQSC3Mi2wvzcYSMSKUOJgh7Ks7j9Y5HIdLzx9TVQm7NF3G3AwFMfyBpfrVDOxrN3bSuzTqa2lIIfZtcXtrCSEdqQxh3ox31ZzrhvuaD9hR+Uk1g7XwEBiMcZnpF4jdn3NiTJPslt17FAuX9Agltd2selJuHsfCnCCVLxrqekCDeGMKfL1blhVYTxymIwam2BBqB14ePb8UWra6ME2czDle73Nr0aIfdMCZWTqLdEmnad95OQ3kKOKAlllTkPC2knHnF8XpxyiJXsG0XJEhZhI+kCdrJ+W31pSfUucxnTPzGT4mh/8/ZtM6YjE2k0oRiBy4sWOYzOr3ud1sdvUysVQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from BL1PR12MB5174.namprd12.prod.outlook.com (2603:10b6:208:31c::19)
+ by IA1PR12MB9030.namprd12.prod.outlook.com (2603:10b6:208:3f2::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 14:20:52 +0000
+Received: from BL1PR12MB5174.namprd12.prod.outlook.com
+ ([fe80::58de:822b:868:96e9]) by BL1PR12MB5174.namprd12.prod.outlook.com
+ ([fe80::58de:822b:868:96e9%6]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
+ 14:20:51 +0000
+Date: Wed, 18 Nov 2026 15:20:44 +0100
+From: Andrea Righi <arighi@nvidia.com>
+To: Kuba Piecuch <jpiecuch@google.com>
+Cc: Tejun Heo <tj@kernel.org>, David Vernet <void@manifault.com>,
+	Changwoo Min <changwoo@igalia.com>, sched-ext@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH sched_ext/for-7.4-fixes] sched_ext: Don't route tasks to
+ SCX before __scx_enabled is fully patched
+Message-ID: <av20PBaLcuPwDf_l@gpd4>
+References: <20261118102453.1315267-1-jpiecuch@google.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118102453.1315267-1-jpiecuch@google.com>
+X-ClientProxiedBy: MI3PEPF00007544.ITAP293.PROD.OUTLOOK.COM
+ (2603:10a6:298:1::4cf) To BL1PR12MB5174.namprd12.prod.outlook.com
+ (2603:10b6:208:31c::19)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,64 +97,164 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261117083915.2971979-1-ridong.chen@linux.dev>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL1PR12MB5174:EE_|IA1PR12MB9030:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9c0d0990-c606-4476-24a0-08df457f2646
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|366016|376014|1800799024|261021123027099003|10067099003|261022075727099003|5023799004|56012099006|11063799006|261026140227099003|261028144727099003|261021121427099003|261022105027099003|261026121527099003|261102123227099003|261009223027099003|18002099003|22082099003|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	C0+euruo811qJJflAQz3eZXBhTtetxwdXy3wRiuUFuGB4PigQpaZRTsoudglA9jf+VnitOjBQu/+EbWn/Ql0NKx01qNDCsRTXxhRshJEz8xRnBVs90P2TpOU2zbD1mT42vui1H3SgHwMeGglGWy0Yjo9K0x/QdGYGED/rFtwqUB79i1rVCFJSU+FuoZcTBFVWqebiBiMBFD8OGdJ3ZbZrhGS3LTG00PQnTztZC16YWg6gnoWAFVhkFXkIAY7NBeziWxvD3Smqc9C4EY9LHm8eTUMjHGq1CBon3mSGUetGCl1ZLeyF4Mqcl1jXDe8nwcA2f1feSeRZwyv7qq5WnSX+8om6Ugtva4ImFwtSBYCWbNacWVScJlnULHr71UBVBXd4hkVN1M9A4OeFgDbPyxKlC95Y4SqEFC0KKgpuYZ53pllo8fd+SH9mHAJ7uqupZaM8aADnpWa/FB1lDB2OO7I8VV9AtreBTz/19vvR8tFIgvmu9h+UffpPuyPRCOjonyZQV/dgn2epw8lZTm2nOzsoZywK2p+2F1fP9D0y2rynzbySuxofTWBCQuGDi+zB3gKSruuXafFEKPszG4zEcNq+tr+37S0B2yqcHALlvBoEjaKhqhLYWHRYMNRYGL1oYPj2XXyaG/cm5Mz6TApsbWpO4+Jgfhr9ZrzrlJIvAcwCJs=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PR12MB5174.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(376014)(1800799024)(261021123027099003)(10067099003)(261022075727099003)(5023799004)(56012099006)(11063799006)(261026140227099003)(261028144727099003)(261021121427099003)(261022105027099003)(261026121527099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?AyoocBPS5+ksUE3po0Tek6pfiTdnwxKkt6ZLAqvVnO42WZn2tuTKd0nACFVH?=
+ =?us-ascii?Q?lyDV+vw0kEoM3CX7dum9q60J6Sh/MGkBorW6321EdTS6lUu6zfukl1VAc6gp?=
+ =?us-ascii?Q?Sd6VXaR5KP9bSVvUdbYEvFmI5c0FNofy4onR4LJy/fwlGz7VbWiznktN+IhP?=
+ =?us-ascii?Q?E5j1uBosRQzHZ/nNUsIffyF2hp62V5CJZR+hXxfVWrIqRih3qNudcrdFFMbr?=
+ =?us-ascii?Q?4T+ciA942/ZI7yQ0rJMs+rk6IGSn2z6Z2/Fm+XLMGjDnrYL7P7taOKhDIfWE?=
+ =?us-ascii?Q?PZZV3athWah1RQf6zuY249hO2+jkfHNhf5R4TQQ2p5bdVCHlQabjziBup6VK?=
+ =?us-ascii?Q?RwrOUJ56dHx3raEMXch/WNMQi8O3t9UCi4XcleuKMdt4yyQT67A8gp7kuck5?=
+ =?us-ascii?Q?YG3+d+cBj4dYiN8orxs2AwdCnPhQgEgzBmIkIlrcY295TMgOdxUA5kd6LUsR?=
+ =?us-ascii?Q?UOIjXgYt7+PJ0p6w/CCpuHr8SDcT1gRgDnA0Y9Nut6HN3dvEvnbCYN4LLm6c?=
+ =?us-ascii?Q?w/+1r/w+aS2Zb1mT2fuHdgtpyfwymCUo856/rjvQQewVRx0KTI4UoTWmrycx?=
+ =?us-ascii?Q?/wqLt6ExPLmEAaHe2ZsFUSwnpa4XevyVOz/cArx4E+YVr7ON5CSJms/vGtpn?=
+ =?us-ascii?Q?naxsjyqAh4G+s2a6pTE7rmtLm7phV31rQy1EdKcBy3Viet5fx/XcNfaV/Dmh?=
+ =?us-ascii?Q?iQvkeqVmTpTA/JMSKbPRVHBKYvaYHrGXAbJEYwbjhP3Q2tTe25ZOp+buetq+?=
+ =?us-ascii?Q?NY6tsWM3RG/Mz4ya1tFo0lSqFOWnfdrLag6nt2JywJsEBZMS4HV2MFPKm867?=
+ =?us-ascii?Q?RP7SUPdqMsBTyWuK8rUBn/NCvMgyGI4O07wU41Pl2IYvmlpTNVgULi0jHF+7?=
+ =?us-ascii?Q?DI436Hfui9hhdOl6Oez3vZVyqQNx/8ECfAUmCrPcVzrrZZstxBvpAm/MTIqW?=
+ =?us-ascii?Q?BXghmvExmkH4b9jRdx4MjpN6L6MqGiorlZwFNng1Le9Tjftco5HcuzRznnBF?=
+ =?us-ascii?Q?thO4Nmdymco5vKOdN4W5HY1HJkAqa+Yc+07L21KUgPk+KwcFouRFHj/4kU0K?=
+ =?us-ascii?Q?33Jq67RLmW3qkGq0+6EveqLtaMuPTJO7IT7h6ADPa/h6dR3h9TQGHGw2QRWd?=
+ =?us-ascii?Q?dJyVWo1yUCvGIF4TaNafjepvxK8FOlAOXPxnLWKM+N4L5OjCn6o46FXtGmVb?=
+ =?us-ascii?Q?QIVPKSdQW6a4aaXRZV2uCQkrWghHudK8Lr7Ky31Th16adtSiWq1llKUcXQtl?=
+ =?us-ascii?Q?w2d5PKpDAZGOBRFHRuQoH+XhJ/fuQnbdMhkpZXH+0ZFAcTc3g/sZvrnLdT8x?=
+ =?us-ascii?Q?/o8saNaLk9N1GYzkFKEv7+Gq/O9VW7k9ZwqsV7ME9kSd8CEePedA4soZUhsh?=
+ =?us-ascii?Q?WSrqp/tQFnB6gMc8QbkWI2ODI5DoUFtQ9Gpe83y7BzKaHlG6F8n/YuIydAzP?=
+ =?us-ascii?Q?4R13noeHD7RDDzW8QI11pMuuUXgqOCPqV2/0NFzacNZC9SU03WEdfAla1O8y?=
+ =?us-ascii?Q?X91abfsbobehoXnSwalTFNgwYdK8DkblkGSw0P16z30PWZAa1QIgXcYFPCgW?=
+ =?us-ascii?Q?zVr0BrngQsMAHCs0K4j4p78SZrpXDLppxP30PirnT5Tzis4Ag8JbUEDtobCu?=
+ =?us-ascii?Q?KyrwyjM9oo/k2QiH7p6FN+1K36py6hMeKt6PHOcNeEAnlxTzCqOdfjD5ow7r?=
+ =?us-ascii?Q?vbcYTeHAc9aF2LCjf2dsPP9Mj6jPI9DFfT6M07GnsXnMZXEp8EActQ7kHcqx?=
+ =?us-ascii?Q?nLWkQjblXg=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9c0d0990-c606-4476-24a0-08df457f2646
+X-MS-Exchange-CrossTenant-AuthSource: BL1PR12MB5174.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 14:20:51.8543
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: cK22pgM0PO0nbZ0B7c4ttbeHQRbtwpihV+OB7FDaXO49EzJVDRscUbGfuu+GIHy0shle/f0G0Vv6KW20VnWaKQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB9030
 
-Le Tue, Nov 17, 2026 at 04:39:15PM +0800, Ridong a écrit :
-> From: Ridong Chen <chenridong@xiaomi.com>
-> 
-> Commit a84097e625f2 ("cgroup/cpuset: Call housekeeping_update() without
-> holding cpus_read_lock") calls housekeeping_update() after dropping
-> cpus_read_lock and cpuset_mutex, so the HK_TYPE_DOMAIN cpumask is now
-> switched and freed outside of those locks. But readers holding either
-> lock may still access it without rcu_read_lock() as allowed by
-> housekeeping_dereference_check(), and synchronize_rcu() doesn't wait
-> for them:
-> 
->   CPU A                                  CPU B
->   rebuild_sched_domains()                cpuset_update_sd_hk_unlock()
->                                            mutex_unlock(&cpuset_mutex)
->                                            cpus_read_unlock()
->     mutex_lock(&cpuset_mutex)
->     p = housekeeping_cpumask(DOMAIN)
->                                            housekeeping_update()
->                                              rcu_assign_pointer()
->                                              synchronize_rcu()
->                                              kfree(old)
->     access p <- UAF
-> 
-> Fix it by moving the pointer switch into housekeeping_publish(), which
-> is called before dropping the locks. Then CPU A either finishes before
-> CPU B switches the pointer, or only sees the new cpumask:
-> 
->   CPU A                                  CPU B
->                                          cpuset_update_sd_hk_unlock()
->                                            housekeeping_publish()
->                                              rcu_assign_pointer()
->     mutex_lock(&cpuset_mutex) <- wait
->                                            mutex_unlock(&cpuset_mutex)
->                                            cpus_read_unlock()
->     p = housekeeping_cpumask(DOMAIN)       housekeeping_update()
->         <- new cpumask                       synchronize_rcu()
->                                              kfree(old)
-> 
-> The rest of housekeeping_update(), including the workqueue flushes,
-> still runs without those locks.
-> 
-> Fixes: a84097e625f2 ("cgroup/cpuset: Call housekeeping_update() without holding cpus_read_lock")
-> Signed-off-by: Ridong Chen <chenridong@xiaomi.com>
+Hi Kuba,
 
-Ok that should work but, IIRC this whole locking puzzle is there because
-cpuset_handle_hotplug() can change isolated partitions. Why is it the case
-since cpuset.cpus shouldn't care about offline CPUs?
+On Wed, Nov 18, 2026 at 10:24:52AM +0000, Kuba Piecuch wrote:
+> scx_root_enable_workfn() sets scx_switching_all and calls
+> static_branch_enable(&__scx_enabled) before switching tasks, and
+> task_should_scx() gates only on scx_enabled(). static_branch_enable()
+> patches jump-label sites in address order rather than atomically:
+> task_should_scx() may be patched before __schedule().
+> 
+> If a concurrent fork or sched_setscheduler() runs in that window,
+> task_should_scx() observes scx_enabled() and moves the running task
+> from fair_sched_class to ext_sched_class, setting need_resched on the
+> class degradation. The following __schedule() can still observe
+> !scx_enabled() in next_active_class(), skip ext_sched_class, and pick
+> rq->idle while the runnable SCX task is still rq->donor:
+> 
+>   WARNING: kernel/sched/ext/ext.c:3840 at put_prev_task_scx+0x405/0x7a0
+>   Sched_ext: enq_select_cpu (enabling+all), task: runnable_at=+0ms
+>   Call Trace:
+>    __schedule+0x5cc/0x1100
+>    preempt_schedule_common+0x12/0x40
+>    preempt_schedule_thunk+0x16/0x40
+>    __sched_setscheduler+0x8d8/0x920
+> 
+> Gate task_should_scx() on a scx_task_switch_enabled flag that is set with
+> release semantics only after static_branch_enable(&__scx_enabled) has
+> finished patching all call sites and scx_switching_all is updated, and
+> cleared on disable alongside scx_switching_all.
+> 
+> This bug was found and the patch was written with the help of an AI
+> coding assistant.
+> 
+> Fixes: f0e1a0643a59 ("sched_ext: Implement BPF extensible scheduler class")
+> Cc: stable@vger.kernel.org # v6.12+
+> Signed-off-by: Kuba Piecuch <jpiecuch@google.com>
 
-I remember Waiman said it could be fixed in the long run. I don't remember
-the details though.
+Looks good, good catch.
 
-Thanks.
+Reviewed-by: Andrea Righi <arighi@nvidia.com>
 
--- 
-Frederic Weisbecker
-SUSE Labs
+Thanks,
+-Andrea
+
+> ---
+>  kernel/sched/ext/ext.c | 20 +++++++++++++++++---
+>  1 file changed, 17 insertions(+), 3 deletions(-)
+> 
+> diff --git a/kernel/sched/ext/ext.c b/kernel/sched/ext/ext.c
+> index 10de6bd865e8..e8c30a21e03e 100644
+> --- a/kernel/sched/ext/ext.c
+> +++ b/kernel/sched/ext/ext.c
+> @@ -134,6 +134,7 @@ DEFINE_PERCPU_RWSEM(scx_fork_rwsem);
+>  static atomic_t scx_enable_state_var = ATOMIC_INIT(SCX_DISABLED);
+>  static DEFINE_RAW_SPINLOCK(scx_bypass_lock);
+>  static bool scx_init_task_enabled;
+> +static bool scx_task_switch_enabled;
+>  static bool scx_switching_all;
+>  DEFINE_STATIC_KEY_FALSE(__scx_switched_all);
+>  static DEFINE_STATIC_KEY_FALSE(__scx_tid_to_task_enabled);
+> @@ -6493,6 +6494,15 @@ bool task_should_scx(int policy)
+>  	if (!scx_enabled())
+>  		return false;
+>  
+> +	/*
+> +	 * static_branch_enable(&__scx_enabled) patches call sites one by one.
+> +	 * Wait until all sites are patched before routing tasks to SCX, so
+> +	 * __schedule() never sees !scx_enabled() when a task is on SCX. Pairs
+> +	 * with smp_store_release() in scx_root_enable_workfn().
+> +	 */
+> +	if (unlikely(!smp_load_acquire(&scx_task_switch_enabled)))
+> +		return false;
+> +
+>  	/* scx is taking over all SCHED_OTHER and SCHED_EXT tasks */
+>  	if (READ_ONCE(scx_switching_all))
+>  		return true;
+> @@ -7568,6 +7578,7 @@ static void scx_root_disable(struct scx_sched *sch)
+>  
+>  	static_branch_disable(&__scx_switched_all);
+>  	WRITE_ONCE(scx_switching_all, false);
+> +	WRITE_ONCE(scx_task_switch_enabled, false);
+>  
+>  	/*
+>  	 * Shut down cgroup support before tasks so that the cgroup attach and
+> @@ -8965,11 +8976,14 @@ static void scx_root_enable_workfn(struct kthread_work *work)
+>  	percpu_up_write(&scx_fork_rwsem);
+>  
+>  	/*
+> -	 * All tasks are READY. It's safe to turn on scx_enabled() and switch
+> -	 * all eligible tasks.
+> +	 * All tasks are READY. Finish patching all scx_enabled() sites before
+> +	 * opening task_should_scx() and switching eligible tasks.
+>  	 */
+> -	WRITE_ONCE(scx_switching_all, !(ops->flags & SCX_OPS_SWITCH_PARTIAL));
+> +	WARN_ON_ONCE(scx_task_switch_enabled);
+>  	static_branch_enable(&__scx_enabled);
+> +	WRITE_ONCE(scx_switching_all, !(ops->flags & SCX_OPS_SWITCH_PARTIAL));
+> +	/* pairs with smp_load_acquire() in task_should_scx() */
+> +	smp_store_release(&scx_task_switch_enabled, true);
+>  
+>  	/*
+>  	 * We're fully committed and can't fail. The task READY -> ENABLED
+> 
+> base-commit: 700a332c3fe33014bbd5ae852d71ba679fc29e0a
+> -- 
+> 2.56.0.679.gc527c65306-goog
+> 
