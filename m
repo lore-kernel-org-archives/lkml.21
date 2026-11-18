@@ -1,85 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794996646;
-	b=JdsxEyU1YIaH1P3acJonbjVMRQd4qXpk7rG2Hs95+E5osJZOlYeh8LXvdH7L0vntr3CT
-	 jja0DEDd46E3qEAgSf3OtyU4uy9Dq+DwbFnEGrpqsJYv8WVumy2o1y2kqT4YkWxLpZql8
-	 jNi2QU6SGBo7SZ8x2kq63+BBQOu9fhOzVN0bFsdjleGHmgWiluCmj+hrh2LnnpVN2dMKo
-	 2DVCygxj29QkwXyb2cxflqnMjwGK8OXBqNKasttkxPOESFyn0DTqGAtJN2K0DCsYaDFkj
-	 3lfZQlzU9i8aMZagWgW2spobFii7BNgU+113jLpoqoWNv3z6OitWw38BDAihVAa/XDw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794996646;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=na3SCtKaMWZuX/KeiC6h6IrCBQ6q25xd39tU+cz0gjU=;
-	b=JO56gZSLVKRgQ1JgImih8/dD8brOknZnRdTnLGKBVnbzKyMk66GGZuvk7qXAmiY1aHpx
-	 m2ssvO7j1vJIQv2z2/ijvoqumDosps5UVxvdl6Dy1GGKl51c4KxtRzk27/mXWUwzI7SAf
-	 lbixsIYmXHAyDtVpp/S9NeDr9OjlLw7RPoN3md89DAo85ulerLf9ytiIfQ9Y/H8kNOGxx
-	 OJlImO+b/C7XYuX/gnxveDBpvAUBzjHQ/XN6rYW96WCMkw2gLBLV0ilVfxehsF+Ya32hb
-	 N5CQWQjDu8oa/mBh63BvcHljZMRbOL+ZRIhdcNuBqL1JEf9pZRtpwUOJ/ErABTCCn8A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fR0kzRCI;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794996650;
+	b=XXP23vKTkSxU07ZBmIV8uY8Gc3oNtXHIzgIqM1o5e9zFRdW4Wmhq9TVeNk4DqHcAtXXR
+	 xixCsZ/fumGkExjXZR5xUYLGIpwRgjfL2PuSaoFDVzXOMMnByvyvcjBNsG9jE2CzuIP0K
+	 lvUW8pekJWLZTR2FxvtU2GxzPNwRQxECzXoUo16vQcnIlPI6DUr25gwXD5wNynWVwV49D
+	 LN5WhOR4SurAhsgfvleGUxiF6kEtc2TmejpfwObSVwQ8m2HbQY0y6+PTE52DYH9poMwhd
+	 14vqkiRGgNRMWVq8Y2RbxF/Od1vaG4+aLvCHV4ZqCxTVn5ROHpF+qmFg9oiXyw9YReA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794996650;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:Content-Language:To:Cc:References:From:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=5xQ2uInXZNMm0R6AQn2LPL3rDrnpuIT1agq9O7VBa0A=;
+	b=DsfvMJG31uD860jqS9M/GpABW7Ywf3hRGvQzNizs962BXp/hJ0INH8zE+SCuZ3+71NJT
+	 7A/HqHGj5uXG8jzP477FJu60K0YBq/Tsr0Thg+E5hoehyI9oCKUrd+dETIicfHjX6Pwn0
+	 5DOpt87jyBdkemdN0pcoyb9geSCXgxRR8QPmvNT3W9184oZIFVMc1f2Q/bKMUk7jKPcAt
+	 L8U/32w5jPjl4DZevNtKlLswPmOCpTAdWRkyZ8Cf6SOaO337GtewtS4m6lJXKe0t34yqx
+	 Mhwx7B8DYJvI9Ua5Ku2cZPcETOYYelXsbCUmpnhP0N+1swStv2II3cmn2CgDNPKP1PA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HllsBS6e;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C201606A330;
-	Wed, 18 Nov 2026 10:10:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66A19606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:10:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fR0kzRCI
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=90.182.112.124
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794996646;
-	b=PAqAyahoImuSrah0r4cPW7n9m0aHOdlCiEPDvc4+UPGFexNqwR9CUjlQy89WXb/FpRID
-	 Z3IGA5pn2u08wyGkc1Hq1M/qfdRKnIKH2RjpQhUJYCqibMCAaF3iQaDaokK3tY+LjOBSA
-	 vp4175ykw+MK26eXcRYTHwRs+XKjGol0umjfxFQXVrmWCLFK3DaYbmBdv5IS/GGRUe2GU
-	 HLCc1plUp1K3EBhBTmYarvUSWmKLmsIQckdnKm3hJdhjlWKsjCA55KoJ4rcRXSPUtC6bs
-	 ZFrbx9lqVJtqCaL3R3kp5W51dzONUrYwdifMz6jFWuC2/SGs9RG9FBG6Y+io20GW+yw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794996646;
-	h=DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:In-Reply-To:
-	 References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=na3SCtKaMWZuX/KeiC6h6IrCBQ6q25xd39tU+cz0gjU=;
-	b=IAQGhMuP374eMSaBV3yJnmC5hSPWp0Qga3oT7P8g3clXzNL1TBDydmCgHrX6n/pHLBEf
-	 RvO68RnlPK5pHUiykPBd4WXNkv3hsB3ImIz+AKDaK1DJcLeL5LC+prA9mz7WDK8Xg5Tle
-	 ZpY84lb68yP9HxoY2YWe7EocU/GyjGHYV47aCrVnyfdmm/z+jkYcQjvnR4R1Ejjo4H30T
-	 z7ntVxn3lgpXCFdbP9jbfVjMgNTExD+Yiild8axTxSaFur+6O83ip0Ru8o432xItIl3CB
-	 LdtldiIydC7rD60oYccjThdVMsockee932v33dONJE5wZSwhzgBNhEAkQkFCQQbNYBw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=90.182.112.124
-Received: from localhost (90-182-112-124.rcp.o2.cz [90.182.112.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPSA id C14931F000C4;
-	Wed, 18 Nov 2026 10:10:42 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HllsBS6e
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BBBD1F000C8;
+	Wed, 18 Nov 2026 10:10:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794996645;
-	bh=na3SCtKaMWZuX/KeiC6h6IrCBQ6q25xd39tU+cz0gjU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=fR0kzRCI3bNULEazq5ncYwDPD+0lBU11wInTF5g1oPtyPmkXiDaQkcIe3kNXiCmS3
-	 YTu/tChM3jvUJsV3BuV+uE+UB7coT9vx8NWpozU9KVwLUDbYthjQXjumcN2YKK5eY/
-	 b51TPw2FRBTjjDubKuhkTvVGlYP77+OpwLM69ibiaPIXxIBBAjaR+4RH2IoPLKFrFL
-	 O63AHVbUOb3mwoDlBgIX2dTW32R3Lit/+iDDSyTTTZfxsfyM1errSr0sdiWLPiigDi
-	 iVpdI9KDXNWC3q8Xgdue7fLGda3mYYohmR6vMO6R8ZZOej7iKdvakJaRgQBANTU5NP
-	 IgP+09YwDkV9w==
-Date: Wed, 18 Nov 2026 11:10:30 +0100
-From: Joshua Crofts <crofts@kernel.org>
-To: Maximo Manriquez Lizarraga via B4 Relay
- <devnull+DelaySystem.tubot.lat@kernel.org>
-Cc: DelaySystem@tubot.lat, jic23@kernel.org, Michael.Hennerich@analog.com,
- dlechner@baylibre.com, gregkh@linuxfoundation.org, andy@kernel.org,
- nuno.sa@analog.com, linux-iio@vger.kernel.org, krzk@kernel.org,
- linux@analog.com, linux-kernel@vger.kernel.org,
- linux-staging@lists.linux.dev
-Subject: Re: [PATCH v2] staging: iio: adc: ad7816: use dev_err_probe() for
- GPIO lookups
-Message-ID: <20261118111030.00002090@kernel.org>
-In-Reply-To: <20261117-batch1-s3-warn-v2-1-17f4e541123b@tubot.lat>
-References: <20261117-batch1-s3-warn-v2-1-17f4e541123b@tubot.lat>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+	s=k20260515; t=1794996649;
+	bh=5xQ2uInXZNMm0R6AQn2LPL3rDrnpuIT1agq9O7VBa0A=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=HllsBS6eEh3h2hm7iSzKWXKDhZSKfZFbSOL4EvlBLLjbfVzybvCnjlX3BBbTQKv9H
+	 4f5i8la0iI006jW+YPVH9Thkaj33eA5s6+rLD6IPjhtjHgQmhIF6mSRurwk1ERRY/L
+	 VTKsAV8mESstu9DYLXSdG/CynNlMGVri/hOP+kYm7FutJj94HfXyTe1bnhAGHTAjx6
+	 4JKIRJDezEfobxJe5bJlGNs+mU2ULYfKik3NP+Lijue0jwlMwWbjjuzHHdyKDRDAuB
+	 cLQRVqWnQ6n3m9czgQM75ViKqRBAgYh/SeU9r9D2+sarp+9jKD0aHGqKiJ8efNWxiW
+	 5zDD6SoLkPbHw==
+Message-ID: <5541ef01-f9c0-4ce1-b77a-5bb81c6cfdd4@kernel.org>
+Date: Wed, 18 Nov 2026 11:10:45 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,43 +51,115 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] mm/page_ext: remove unused page_ext_iter_get()
+Content-Language: en-US
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Shivank Garg <shivankg@amd.com>, David Hildenbrand <david@kernel.org>,
+ Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>, Johannes Weiner <hannes@cmpxchg.org>,
+ Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>,
+ Luiz Capitulino <luizcap@redhat.com>, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org
+References: <20261117-unused-sym-page-ext-v2-1-900f4c3c6856@amd.com>
+ <e745f91b-3312-47b9-965c-510bf0a0b7f7@kernel.org>
+ <20261117111336.ee49c0d4722a042c071c68b0@linux-foundation.org>
+From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
+Autocrypt: addr=vbabka@kernel.org; keydata=
+ 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
+In-Reply-To: <20261117111336.ee49c0d4722a042c071c68b0@linux-foundation.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-On Tue, 17 Nov 2026 16:06:03 -0800
-Maximo Manriquez Lizarraga via B4 Relay <devnull+DelaySystem.tubot.lat@kernel.org> wrote:
-
-> From: Maximo Manriquez Lizarraga <DelaySystem@tubot.lat>
+On 11/17/26 20:13, Andrew Morton wrote:
+> On Tue, 17 Nov 2026 19:50:09 +0100 "Vlastimil Babka (SUSE)" <vbabka@kernel.org> wrote:
 > 
-> GPIO lookups can return -EPROBE_DEFER.  Convert the rdwr and convert
-> GPIO lookup failures in ad7816_probe() to dev_err_probe(), which
-> suppresses the error message on deferral and records the deferral
-> reason.  The busy-GPIO path is left untouched: its optionality is the
-> subject of a separate proposed change.
+>> On 11/17/26 17:26, Shivank Garg wrote:
+>> > It was added in commit 9039b9096ea2 ("mm: page_ext: add an iteration API
+>> > for page extensions") but has never had a caller.
+>> > 
+>> > Signed-off-by: Shivank Garg <shivankg@amd.com>
+>> 
+>> Added to page_alloc.git for-next, thanks!
 > 
-> No functional change other than defer handling.
+> Thanks.  Helps.
 > 
-> Signed-off-by: Maximo Manriquez Lizarraga <DelaySystem@tubot.lat>
-> ---
-> Changes in v2:
-> - Resend under my real name (From/Signed-off-by: Maximo Manriquez Lizarraga).
-> - Apologies for the improper sign-off on v1; no code change.
-> - Link to v1: https://patch.msgid.link/20261107-batch1-s3-warn-v1-1-4fc38341ca38@tubot.lat
-> ---
+>> Hm page_ext.h should be added to the PAGE ALLOCATOR section. Wonder if
+>> Andrew's patches adding various missing bits included that too.
+> 
+> Nope.  I'll add the below.
+> 
+> A few things under mm/ include page_ext.h so perhaps more mentions are
+> needed.
 
-You've missed the following segment starting line 398:
+Thanks! Stuff that includes it are its users and not necessarily page
+allocator itself. Nothing jumped at me.
 
-	if (chip->id == ID_AD7816 || chip->id == ID_AD7817) {
-		chip->busy_pin = devm_gpiod_get(&spi_dev->dev, "busy",
-						GPIOD_IN);
-		if (IS_ERR(chip->busy_pin)) {
-			ret = PTR_ERR(chip->busy_pin);
-			dev_err(&spi_dev->dev, "Failed to request busy GPIO: %d\n",
-				ret);
-			return ret;
+> I'm presently carrying no patches which alter page_ext.h or page_ext.c
+> 
+> 
+> 
+> From: Andrew Morton <akpm@linux-foundation.org>
+> Subject: MAINTAINERS: add page_ext.h to MEMORY MANAGEMENT - PAGE ALLOCATOR
+> Date: Tue Nov 17 11:05:44 AM PST 2026
+> 
+> Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+> Cc: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
 
-Otherwise the existing changes are fine.
+Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
 
--- 
-Kind regards,
-Joshua Crofts
+> 
+>  MAINTAINERS |    1 +
+>  1 file changed, 1 insertion(+)
+> 
+> --- a/MAINTAINERS~a
+> +++ a/MAINTAINERS
+> @@ -17779,6 +17779,7 @@ F:	include/linux/compaction.h
+>  F:	include/linux/gfp.h
+>  F:	include/linux/page-isolation.h
+>  F:	include/linux/pageblock-flags.h
+> +F:	include/linux/page_ext.h
+>  F:	include/trace/events/compaction.h
+>  F:	include/trace/events/page_isolation.h
+>  F:	include/trace/events/page_ref.h
+> _
+> 
+
