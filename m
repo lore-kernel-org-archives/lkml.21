@@ -1,63 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795019329;
-	b=qrjfDQmH02NqBOmN6Ge5sNLdjiOTSYI02wQioGrucrLNsGJAMuXkSh3mQ83g+4PQUrAy
-	 ULoSx3N+DkuE3iX/tG2kZ3HFvYd4r1hAVD0DudahljCykbTNL4qkjo5Z/y9oor3MhZVk7
-	 pLQ/E9+aBtTYDIG5FxboMzxeFn8C3H7w+gEzrC5Am3rqTHEthz6H9+ZvlmN9ofvV6L17V
-	 nXAkRMSNEpw1PnLBw9gNUnbhEQHGP9LfruesUNen9FI0TSVBP0YfPCa+EheNsjVFOCtKB
-	 Bl5TdXTyTddXDDnsBS5VmJ+8/O/7lTZxqiEPEMDAKq5100Pu1traqqoIsQSjOser7vw==
+	t=1795019391;
+	b=SF4nMCR/NwRaZMEPJTxvOWVv4poLvDMw7dEuFmrzqJnp8LlrZ28zYAnPrchv62SlQhig
+	 aaEN9Hz+4+u3Hxp35nKmus1fAIImqFelrZjZ4noTKchehQOtYGXgvzETJU0/U2loQc2Qs
+	 MRDoq4HL3gysN5OgH7qQWj/VkHXO5Is1Wiq5D8eoUWhnrtXLHLuoUzF8c+0yW28G1vvK3
+	 LrahlHvbJOohyIcedVPX4xMqPmY0apUx/s6ZQBuyy380HwS1GjlVl6uaxnPg9GdD5Co4T
+	 3SbQIiyuEbCtVRGOCwsW89+ewfUlDTT2y/IU8tUXgOh4tW+QtF08Q4utJ7nFn8f7z+A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795019329;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=xMfIcPgaVZTBupxAWvjD3tsTuymj4i3EzJ8xT6VI/p4=;
-	b=xCQOhIaUNqGBQxk6Nz4hoMFrM/4AOq+ajn9LsN5cppaRoeUEOCukPvH/RIJpIzlKFp6R
-	 8+1PDV383HXG344P8hdPVIdxxuYyPghAFKwDLGZdCcAnt8O5vyAtJLzfbpFSWNXkSxJoz
-	 ktu3KBYSMJg3lFUf/eN8kUtLWg8e9PFM6+CIdr3x2LYlrmIE9+QWAXwwFoQVtKERwXeOl
-	 JHVJ2MdI8/FmtYg0jUDCabl9OKO0/6mzK9WD8kZYruge0cPZwGEPHu18Gp59EaLi1sjOF
-	 4ti7h5RmT1AJ2/xR0GSwPphwUXDzzHrwjabAClFyZr9/iHJ6LaTeAYadEqH8zgPbk6Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795019391;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
+	bh=ZoY49G9OBW2Ss+uxh9zKm04Sv5cGEWU0IEPT/pkp6FA=;
+	b=0DBA3qRyPlF1t0SbTi7V9ADyyhux4sXEgWo5hON2T85hdFm2IYrRuGsk9lmPRNJGzGBz
+	 2x8hNw7HlT6M7AT3dO/05fR1qZREbGd5K47EslpDu/dw4SpX7f0YncTV7/7y9haAnb1hY
+	 yfh7hn9Izov+ewcsZ9/OBMotnTMTHRICZtp/HKwHOqfYCBPLAJQ7Y7lcOu2Y9KrwY322O
+	 6yCzjd5oJUwJEjYcGGkJ7xVHz65nlIT7kpC2dSfAAiNi7YF7Tl/d3i6oX8hHCuU2KeezW
+	 0NjSluCeGR7Wa6Hqjr7kyBRDbL0ILQtRqNddgADUA6x5AjxYa0WStHIpYsMFOxRS66Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PklrzH67;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=ItxjA1sV;
+	arc=none smtp.remote-ip=209.85.221.46
+Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3B7560A260E;
-	Wed, 18 Nov 2026 16:28:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8DF08606A339
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:29:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8DF08606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PklrzH67
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 323E21F000C5;
-	Wed, 18 Nov 2026 16:28:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795019329;
-	bh=xMfIcPgaVZTBupxAWvjD3tsTuymj4i3EzJ8xT6VI/p4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PklrzH67Sm6BG0wMKCibEmN0wipTMtwuYNQTaO0oROI/MLEYX0dxwEq7Fj3dAYGUg
-	 TvWFvjHfnOQiSSOvCF1kUX+UY6tAJEhmaD+DQWkLhKK1W3qnSryXdhQdL5K7qQSOXF
-	 k7qH+KNrTQzKAPN6dA1Nr9AcJn2fwH+T7WbtolbXXCpzX2gd0LaBQ6TDQY3QsO9ixu
-	 9RsmTdVwvaG/ieur/RamGcDyW6ka7+v27m98sRaj7BY9gEuZZcG+buikf1nifjRadX
-	 i8bBa7Ql+jkMlAizPEMkCES303wwSlANuqatezeo05bDhkSsBVyx7q+mA6/wI4XbXn
-	 oogAb2VkVQaMw==
-Date: Wed, 18 Nov 2026 10:28:47 -0600
-From: Rob Herring <robh@kernel.org>
-To: Suraj Gupta <suraj.gupta2@amd.com>
-Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michal Simek <michal.simek@amd.com>,
-	Russell King <linux@armlinux.org.uk>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v5 2/6] dt-bindings: net: xlnx,xxv-ethernet: Add
- Xilinx XXV 10G/25G Ethernet
-Message-ID: <20261118162847.GA2433918-robh@kernel.org>
-References: <20261114182947.2908628-1-suraj.gupta2@amd.com>
- <20261114182947.2908628-3-suraj.gupta2@amd.com>
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=ItxjA1sV
+Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-48e20ed3b9dso1037846f8f.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:29:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795019389; x=1795624189; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ZoY49G9OBW2Ss+uxh9zKm04Sv5cGEWU0IEPT/pkp6FA=;
+        b=ItxjA1sVIskn2bXlZ8MTSXkdRYNJRscOn99Rj9xvDeRBspcvHJp4myUSRG1aCmqm6E
+         LhPNNj9jqiVN/6CMIlYllbOqVP4DCwD7ioMPADk5wxEhjTFuu/3YmhZpPpdzMc6FlLRD
+         pRYPa14fW6iY5u+eS74t4wnyLRfXxd7j0gFDg1HDgG8BJUXIFLX1diV9WjCN5u3Uc0ka
+         54FFZ2zDykxmpIjiTs1eJI6GSXG0jQJlFA9uItihYz2rSPs5LJw2olI5hpOiiyXazoMd
+         F0E8dRo9+TqspRbRJsMExuh52UnO02AhmhSTtaRiY+FUxk813z13SuNh91xV6/5Ubbdu
+         XKBg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795019389; x=1795624189;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZoY49G9OBW2Ss+uxh9zKm04Sv5cGEWU0IEPT/pkp6FA=;
+        b=pUED5YlBJPaBv+jc8D6ElZZrFADaXoSDboLs+zFfcYlNLKvw6OR4cHOLYwXF1QbTmN
+         si4DGXlKc2qKJ5HYps4AM29IJT4ToSeaxd6+KJ/In8g2I8oeQKIBJtL8P3z/0h4fD52i
+         gTEW0bHDacOiWEy4h+4B083QHW3HEz1mNlXQHo0ShpRwLd2azMZJXEg19xyp3/IUz8dn
+         yAsyDD3qlIl4tGmT99Xi9P7MZ4TVmKP9CIKboNR/xv1b8Z8dshw5Zo6omNsCCCXItGP8
+         NpKofpY3n66q4ETmh+Otsg4fyg2Zhw8X2jrAaPOyxk/eWdPPwMHy43DeMmQnW/jXcFvW
+         4W0g==
+X-Forwarded-Encrypted: i=1; AL+hErFuyM2lE0Ltsf3ju56e3AF1GR89aA5qQ6xFe5N0XiuFa46Pn176znAY0lidNleuuH920waiYj1zXIargY0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+YsuhTvUYbsTD8aKoBSTG1nyi0t15vhFpFVlXTxY/E4LX1Kl/Y
+	MU1ZgylchHrFOIsrwxqMY436xdFyGsL6l5qk2szGPt72DT2cNh62NRD2shQVZpBpxdY=
+X-Gm-Gg: AZFdTZfOIrwX9ir1cohbCyMqrg70RzQLt/xEDfEsQeu5VkcjBRiMevaiOm7AolltMJA
+	Jg6HjoUvimr/0FCsZeIHceDiYxj25EDBbx9akybshBZlMuQjC3JLUa75L5ObxkZrRWla4nGD9/2
+	LxF9wAS27kyaM5hBmYqchi8K6hftP7EnNmcMU+JKoXYE6caognDLhM0TbO9Fr4dAs/5y9MLFgHt
+	Krn9VO2cFZKjTCm2mOeLVxbt9E+fLSpGBf/Qm+sna7jICm7leGixTRhxcsdYnoOqfjy4VkU1fQ7
+	fV9XQqThsOc/HPX8Q3Gk6NdcxcTaZrHweYtBXDVxkyvKcTvazvUKcU4+FlEkrBGUkVC7vlR1/Rb
+	c28qmMwoYO8Om6pXGguNepnp7tnAc9RvjQZuySLkXZh6+BD0zHsCiEG3PZmYEEElUje/o73Qp/6
+	5UZl84xGN95+SXBXb8wBrxsv2dCOTangH5Ia1gzSfdVo96Wj6Y2weVYvJX8QSibmFJazERay51y
+	BFloxYkMJGfkjOXxY1m6Ub9O5pKR1ieuS8F3hkJS16vP+243107N7NGKIKeziLqZW3Ua/D4K6Nh
+	qQETVwFIFlV9Bs9qsXtI5r/6O52r+7ac
+X-Received: by 2002:a05:6000:61e:b0:4a8:e472:a50 with SMTP id ffacd0b85a97d-4a8e4720c5amr42347f8f.7.1795019388940;
+        Wed, 18 Nov 2026 08:29:48 -0800 (PST)
+Received: from pop-os.local ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a654a8c23bsm4980927f8f.12.2026.11.18.08.29.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 08:29:48 -0800 (PST)
+From: James Clark <james.clark@linaro.org>
+Date: Wed, 18 Nov 2026 16:29:23 +0000
+Subject: [PATCH 01/34] perf jit: Support JITDUMP_USE_ARCH_TIMESTAMP on
+ arm64
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,97 +92,74 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261114182947.2908628-3-suraj.gupta2@amd.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261118-james-coresight-jit-v1-1-dad4d90747f6@linaro.org>
+References: <20261118-james-coresight-jit-v1-0-dad4d90747f6@linaro.org>
+In-Reply-To: <20261118-james-coresight-jit-v1-0-dad4d90747f6@linaro.org>
+To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
+ Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>, 
+ Leo Yan <leo.yan@arm.com>, Amir Ayupov <aaupov@fb.com>, 
+ Suyash Mahar <smahar@meta.com>
+Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ James Clark <james.clark@linaro.org>
+X-Mailer: b4 0.15.2
 
-On Sat, Nov 14, 2026 at 11:59:43PM +0530, Suraj Gupta wrote:
-> The XXV Ethernet IP integrates a 10G/25G Ethernet MAC with an in-core
-> PCS/PMA driving a high-speed serial transceiver. Its payload is moved by
-> an external AXI DMA (or multichannel DMA) controller referenced through
-> the dmas/dma-names properties. Document the IP in a dedicated schema
-> file.
-> 
-> Add the "xlnx,xxv-ethernet-1.0" compatible with the 10gbase-r and
-> 25gbase-r phy-modes, the rx_core/drp/s_axi clocks and the AXI DMA
-> channel properties. The GT transceiver reference clock is described as
-> an optional fourth "ref" clock, for boards where it is supplied by a
-> Linux-managed clock provider rather than a fixed oscillator.
-> 
-> Add "xlnx,has-statistics-counters" as well. The statistics counters are
-> an optional part of the IP, selected by the "Include Statistics Counters"
-> build option (PG210), and unlike the 1G MAC the subsystem has no ability
-> register that reports whether they were included, so the devicetree has
-> to describe it.
-> 
-> Require "xlnx,rxmem". The driver reads it unconditionally at probe time
-> and fails if it is absent, and the value is what bounds the largest frame
-> the device accepts, both when validating a new MTU and when deciding
-> whether jumbo frames can be enabled.
-> 
-> Disallow phy-handle, its deprecated phy and phy-device spellings, and
-> pcs-handle. All are inherited from ethernet-controller.yaml, so
-> unevaluatedProperties does not reject them, but the subsystem has no MDIO
-> bus master and its PCS is in-core, so neither an external PHY nor an
-> external PCS can be attached. Constrain managed to in-band-status for the
-> same reason; it stays optional, as the link is always managed in-band.
-> 
-> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
-> ---
->  .../bindings/net/xlnx,xxv-ethernet.yaml       | 146 ++++++++++++++++++
->  MAINTAINERS                                   |   1 +
->  2 files changed, 147 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/xlnx,xxv-ethernet.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/net/xlnx,xxv-ethernet.yaml b/Documentation/devicetree/bindings/net/xlnx,xxv-ethernet.yaml
-> new file mode 100644
-> index 000000000000..caf582c72a8d
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/xlnx,xxv-ethernet.yaml
-> @@ -0,0 +1,146 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/net/xlnx,xxv-ethernet.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Xilinx XXV 10G/25G Ethernet Subsystem
-> +
-> +maintainers:
-> +  - Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-> +  - Suraj Gupta <suraj.gupta2@amd.com>
-> +
-> +description:
-> +  The Xilinx XXV Ethernet Subsystem implements a 10G/25G Ethernet MAC with an
-> +  in-core PCS/PMA driving a high-speed serial transceiver. It supports the
-> +  10GBASE-R and 25GBASE-R line rates, with 25G operation following the 25G
-> +  Ethernet Consortium specification. Because the PCS/PMA is integrated into
-> +  the IP, the subsystem has no MDIO bus master and is not managed through an
-> +  external MDIO PHY; link state is read from the MAC's own status registers.
-> +  As there is no PHY to manage, the link is always managed in-band.
-> +  Any SFP module management (e.g. I2C) is handled by separate IP outside this
-> +  binding. Its payload is moved by an external AXI DMA (or multichannel DMA)
-> +  controller referenced through the "dmas" property.
-> +
-> +properties:
-> +  compatible:
-> +    const: xlnx,xxv-ethernet-1.0
+CLOCK_MONOTONIC can't be correlated with timestamps in trace, so to
+allow the JVMTI agent to be used with SPE and Coresight, use CNTVCT_EL0
+when JITDUMP_USE_ARCH_TIMESTAMP is set.
 
-I hope you based 1.0 on something? Looks made up to me.
+Signed-off-by: James Clark <james.clark@linaro.org>
+---
+ tools/perf/jvmti/jvmti_agent.c       | 5 +++++
+ tools/perf/tests/workloads/jitdump.c | 7 ++++++-
+ 2 files changed, 11 insertions(+), 1 deletion(-)
 
-From here[1], looks like you are missing some versions:
+diff --git a/tools/perf/jvmti/jvmti_agent.c b/tools/perf/jvmti/jvmti_agent.c
+index 526dcaf9f079..674eed455586 100644
+--- a/tools/perf/jvmti/jvmti_agent.c
++++ b/tools/perf/jvmti/jvmti_agent.c
+@@ -96,6 +96,11 @@ get_arch_timestamp(void)
+ 	asm volatile("rdtsc" : "=a" (low), "=d" (high));
+ 
+ 	return low | ((uint64_t)high) << 32;
++#elif defined(__aarch64__)
++	uint64_t val;
++
++	asm volatile("mrs %0, cntvct_el0" : "=r" (val));
++	return val;
+ #else
+ 	return 0;
+ #endif
+diff --git a/tools/perf/tests/workloads/jitdump.c b/tools/perf/tests/workloads/jitdump.c
+index 01cbbbd564e8..8422b66ee600 100644
+--- a/tools/perf/tests/workloads/jitdump.c
++++ b/tools/perf/tests/workloads/jitdump.c
+@@ -34,6 +34,11 @@ static inline uint64_t get_timestamp(void)
+ 	asm volatile("rdtsc" : "=a"(low), "=d"(high));
+ 
+ 	return low | ((uint64_t)high) << 32;
++#elif defined(__aarch64__)
++	uint64_t val;
++
++	asm volatile("mrs %0, cntvct_el0" : "=r" (val));
++	return val;
+ #else
+ 	struct timespec ts;
+ 	int ret;
+@@ -55,7 +60,7 @@ static FILE *open_jitdump(void)
+ 		.pid = getpid(),
+ 		.timestamp = get_timestamp(),
+ 		.flags =
+-#if defined(__x86_64__) || defined(__i386__)
++#if defined(__x86_64__) || defined(__i386__) || defined(__aarch64__)
+ 			JITDUMP_FLAGS_ARCH_TIMESTAMP,
+ #else
+ 			0,
 
-The offset of user configuration registers in the IP was updated (and 
-removed in case of USER_REG_1) which breaks backward compatibility of 
-any custom user config application code with newer versions of the IP. 
-Please make sure to use the correct offset as per the IP version as 
-specific below and ignore "XXE_USR0_OFFSET". Please note that this has 
-NO impact on the example as this definition is not used.
+-- 
+2.43.0
 
-    Upto IP Version 2.2 https://docs.xilinx.com/v/u/2.2-English/pg210-25g-ethernet, USER_REG_0 is at offset 0x184 and USER_REG_1 is at offset 0x188
-
-    IP Version 2.3 and above https://docs.xilinx.com/v/u/2.3-English/pg210-25g-ethernet, USER_REG_0 is at offset 0x134 and USER_REG_1 is removed
-
-Rob
-
-[1] https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842542/Baremetal+XXV+Ethernet+driver
