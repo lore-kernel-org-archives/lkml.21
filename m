@@ -1,49 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795043413;
-	b=OyDwywEiuMCyDZpDUecW7gRPBf5ti91LPk1g3jsZ0/QVplHnMpLxyFrGO80HYdOFqzr4
-	 YXP3x7kZg9A4R8Gu2NEOO4BxHcHq5nIhCMbTH7AYvBV2pI1Tx7HNyjdEyx/xWuVLHhUmy
-	 H7W8iikAOBGeiFPQpmzrc4albGxwCNv5gWQQmcNF/M+YCtEoM1AdXZTHvNc0MCPgrQivo
-	 NDoce+PPVT78vi4QmlLc4uldtwc9qe1U6qIXsIoBmwNLuAOqFfuGxooeWqibkZ/W+1hZp
-	 6+kVJRAFUsAD9G7V0bx6k4TbBPyYdljyDzaTvI4gVNLY7H66j9ZmXo4yFAePCAOzZfA==
+	t=1795043415;
+	b=0//PYgpSlUedscJyDjWaYJF1Zk7KrxJk/XJ4cdwFtOTTaQq7g4XsQmyzIe+F79XTBg7W
+	 4E2TTCOPKvTaZU+4Azhl14Ib8AFNTlk868Rk6OUz4aLylDsmZeNTj3AHAqt9iDYZWY0/F
+	 Wl3OIDkohHEJTBPpmaDkjtXL++88pp7RTvC8q+ua/kxD5CwpSkOpiPq1gE71WXu+Z7ecW
+	 bmaXuqGCz7zuTchGO14qFT5idkkRVuyQFwojQ8iQxFfVmpTjdXvCh2QWdGupQiqe+hGJo
+	 QWEdbRyrr47dcjKhTn1vjPBh2wIoIouGyKd44bmhKalzbpdkYtziC+bBTA8dsmGQ3UA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795043413;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795043415;
 	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
 	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=MG+gW1EVMSKvb4NfoIrlm9cuiPMNVKfTsf1BhG8ibl4=;
-	b=p4S4om6AFgyXgUXererWfn+bjKj+F9zt0AB1zdubPCSWcujiz5o6nhRebXzocl4asTx+
-	 j5ee+EGR+LvOPccVxjLF5yLrcR4cnJ1ReO+/UpX7KQJ2PJJj6/xbTPTi02LgtpgaZ4GyT
-	 9QJlhyWmQX6c68bAnI2q7t3JxR76bZ/+23HjzWubaE8FI3Dix3hoKLc4J6hh9NquagQYA
-	 YNZmH+f9Ly5ocZIuyXzXj/iYw2iexj3cJu60RDqetie+Fy+D4NglI8hrIeXnmPnq82B/F
-	 Of3BCeG2JUHsFnczQW/YFbRtZmEjAASMU4xTqn9Bgs61gUqP1KOLtUpB8vEr1t+wO3w==
+	bh=98gzbUeo8vcQaD7nyJvjJoaYXb7ud2EdtFUfp4zBrxQ=;
+	b=XfAbKmEVOPuRUMuvz7y55u/5a0fRsqgoz1P8I6qbpqo7tONI3bWS98I1u31okc85SrjZ
+	 RiM1+Ku97VD01okCYyYRAFipaxPuqMvaT/1PfWHUVsJOBQXnBWBYu53izk41GPCF2WFaC
+	 yGAsxznunNmMtiXuv+6TNUO3d4PNjo8AjWxbwJ5ANVKzJb+9HfZ+c9Xn01snPuYuMraDZ
+	 FnOSpv4zZ8sDNoTtw4bADkg0VoarkRQmVRE5j+lsQtrHcc2UTOgOjdNxQj0nMzshFyb5z
+	 TtJxdTmpqVVV0r4kHeuEpioF0JhQXZGs5bnVaVlX2+kJCW1QeMQ9ap16hErnTfiWR4Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VWTvd1yA;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bnvklFOM;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C70660A2622;
-	Wed, 18 Nov 2026 23:10:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 996D060A3831;
+	Wed, 18 Nov 2026 23:10:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VWTvd1yA
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8F9B1F000C4;
-	Wed, 18 Nov 2026 23:10:12 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bnvklFOM
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1269B1F0092F;
+	Wed, 18 Nov 2026 23:10:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795043413;
-	bh=MG+gW1EVMSKvb4NfoIrlm9cuiPMNVKfTsf1BhG8ibl4=;
+	s=k20260515; t=1795043415;
+	bh=98gzbUeo8vcQaD7nyJvjJoaYXb7ud2EdtFUfp4zBrxQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=VWTvd1yAnLq2Q/+3oHCac0u9wTguZc/cda/+svA65RQllGDP5e/NPteEpYKb4t0ba
-	 DhaskKXQDecA1MD9/VsydjaTw59EUzbTk9+2vN7suTjFrS4Dv7Ywg7lyiWXqGMQ6xY
-	 0CRjnB9jt5N3TETs02hEOjDh3v05KLf1u2989+uc0vjwRmHrJWztu8xiYmKWijlXp8
-	 gBb9MCW+58k+KF2oViAEpzjVVkLKvTmmxHemdbAjUyE5M2OTWc92n1DzFkiytLU+jj
-	 aVYWg3ovAATHvSW1fDJHGpVkvW9l3z2jb1DhZ7DmHEppybyOp+2FfPf0JwT2c8sSyN
-	 SxzyTNkRnpxzw==
+	b=bnvklFOMgnNgKz1jj6II6+oYRERQt1whTkDKA9G206vmh8SmsG7lxTP6XGoeYyMWD
+	 dEvG/8OzyvugcLhxndUjOjzVrAxAmH5zI9Wh5mXtSYMU5+si4YASv3mQ6P1hAaCHcd
+	 oGXLjSywSUxQIaxD10Ee8lmKT84t5nNCPL5M/WdCNOnL+gwBjllQWS2vBuJT7aoP/t
+	 pd1kqegnxXaiYQbziOxi1CuZBVSjcSIAOJ0xE8abmTYLtORuDre2hXRW+s2jz9jF9L
+	 6UQ3N2uxb03+8MnEwv6fk0HTdHY2CEo94ogOcYUpT7dOnjt0RQlORBR73/xL1vlbJX
+	 eIngR2hUtqN4g==
 From: Jeff Layton <jlayton@kernel.org>
-Date: Wed, 18 Nov 2026 15:10:01 -0800
-Subject: [PATCH v3 04/11] scsi: mpt3sas: Fix pcie_device leak in
- _scsih_ublock_io_device_wait()
+Date: Wed, 18 Nov 2026 15:10:05 -0800
+Subject: [PATCH v3 08/11] scsi: mpt3sas: Cache the missing delays the IOC
+ actually uses
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,7 +55,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-sas-abba-v3-4-5562d690cf61@kernel.org>
+Message-Id: <20261118-sas-abba-v3-8-5562d690cf61@kernel.org>
 References: <20261118-sas-abba-v3-0-5562d690cf61@kernel.org>
 In-Reply-To: <20261118-sas-abba-v3-0-5562d690cf61@kernel.org>
 To: Sathya Prakash <sathya.prakash@broadcom.com>, 
@@ -71,62 +71,111 @@ Cc: Keith Busch <kbusch@kernel.org>,
  linux-scsi@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Jeff Layton <jlayton@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1833; i=jlayton@kernel.org;
- h=from:subject:message-id; bh=+aNnIbQIALjy/ci901sXJi/VmWzbCUg9vUt/h27aZJs=;
- b=owEBbQKS/ZANAwAKAQAOaEEZVoIVAcsmYgBq/jBQmExxfmufsizEKy1m474Cb0iWp3A8NjQTV
- xt16g3PcgqJAjMEAAEKAB0WIQRLwNeyRHGyoYTq9dMADmhBGVaCFQUCav4wUAAKCRAADmhBGVaC
- FZGPD/9afVqmuQszpdzHnV+cAJiy79dY6vFVUSVI+nCBs5Kv71tlMjSDP8OgZmlF54KejhKqP2V
- Pbm6UJ1E5qUTel8P40xuDX4BuIx1ibpqLhjRXOboDrRDQqPsfjj/nBe/j6kvl7Yy1eCMccGEbjt
- y0n1z0uqQdN+v8ooIn/Kh9T3faY85TTxwwQEOubxhZvAq7g27sJvgGTPzfnI2uUc6rgPoiexyEh
- 4S8LZnY8HRsaRMuyop2aR8lgzpwmI/OEoK8yefjMLGiQrb9Xo3mb8cG/elTOhjQiuzJM4ELfQQj
- ZXXIlRSmVDzZnU9VXmuKugxRLn5AntXctOYZRxelu4c+yg628XsVUOpE4hdQFbB1QKDFCSmOkV0
- 4hQcFApUpe9GBsJcHsjtVTr+0GcdP3in5Yv+EFDbKBtBhqIy0ml6F5+1egA0nWCIxg3SaT9yCKM
- EPmfXcmMqg84Tef7osIgsCC0PHiiE9qmUpa4u+vS80nx603GpZ5p1h84AX7b9Ixk6qrzGsKRgR2
- 2Js2KO6fvClR1nv46zLEvjVqRu+zQeo9zl32GBNm2TFGTydlB4qp55rS2OhVDfSVH4ddCXxVXKN
- CsmkhSfJQmfyc9fZML0ZlS3aJ7+SmQZ0sX4Z545zVADygvl16+ml1dTuQSh8hIFmoMIG89GzmJV
- KJF6n5CWDPEZ3Sw==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3608; i=jlayton@kernel.org;
+ h=from:subject:message-id; bh=K0fdyMV98/3nylNqbCI1uwwpC7KswRXV/gdfvVRaUUY=;
+ b=owEBbQKS/ZANAwAKAQAOaEEZVoIVAcsmYgBq/jBRExULbnnNvlmhXJRfoKe4MkaWblhWln/Y8
+ ul//AMel4qJAjMEAAEKAB0WIQRLwNeyRHGyoYTq9dMADmhBGVaCFQUCav4wUQAKCRAADmhBGVaC
+ FZiTEACx9n2Wh3wV2DSFRvjbsqllYzhjmjytm2vFt/uwWzC73hEdLp/BroUD9Vj56MyvvZyNfJD
+ shXHdfaOp4EyKmqgoLj2CpkSMVQU/AJQvhWvd6Omrz9CR8ntd9I/az6zMzmqK8m2VK+bjDrmXMb
+ DHy/oPWJpPJHRXXecVz3LcME1BryU3INMADsJEE6L4Posivq+Kwz8c6atLEzUNgRLvysR8R58Y9
+ CT2V4U6CHaJh/A3RZkzHsDBpmkjDVIKvqoV+0b66RzZoi9lTglgpYzpMn6vyayO98iuV40ZdZEk
+ RNlFh06d7jfjdoCr+3jF7Di/RXzlFen2aZwbqjIAjZv9X/SsIohfEdk6bEEpUa9pWwKlH0MgNBw
+ 4uYZWmSGWIprUkRCVbxI0ctXxSVGitAQLd4em1o+TMevqEvnVVkJpRwhYyQMqCooJ0zNzz5tjoH
+ AnEdMAoMCsUU2sTzNrIxtOq3+pIiIzszDFKGfh0uQKFHT39dZn0pJNc/zY/x6hl7AVWUIlxF7ZS
+ G+xta3iVCOBLNmZ5HDrdPPvitryiCt+T9W7AqRgt5p0QFiYurMzl9AyJybuWyn/mgEmFVTj73Ud
+ pTMInDTTK3nTYf1xcqMpsXjN6A1hyug0XElSYaEOldBomFuo5mL6JTcaz9igTlCdqCkn4ZAvt3S
+ 82eBm72M2GYj5ZA==
 X-Developer-Key: i=jlayton@kernel.org; a=openpgp;
  fpr=4BC0D7B24471B2A184EAF5D3000E684119568215
 
-_scsih_ublock_io_device_wait() gets the pcie_device on each pass of its
-TEST UNIT READY retry loop. But it puts the pcie_device only at the
-bottom of the loop. The DEVICE_RETRY/START_UNIT/STOP_UNIT/RETRY_UA
-branch ends in a continue, which skips the put. Thus each retry of an
-NVMe device leaks a reference, and the driver can never free the
-_pcie_device.
+When the missing_delay module parameter is set,
+mpt3sas_base_update_missing_delay() writes the new delays to SAS IO
+Unit Page 1. If the write succeeds, the function caches the requested
+values in ioc->device_missing_delay and ioc->io_missing_delay.
 
-The function needs the pcie_device only for the reset timeout and the
-reset method. Put the pcie_device immediately after the function reads
-these values.
+mpt3sas_config_set_sas_iounit_pg1() ignores the result of the
+WRITE_CURRENT request. It returns the result of the subsequent
+WRITE_NVRAM request. If the WRITE_CURRENT request fails and the
+WRITE_NVRAM request succeeds, the cached delays do not match the delays
+that the IOC uses. The device_delay sysfs attribute then reports the
+wrong value.
 
-Fixes: aee682fad6cd ("scsi: mpt3sas: Improve device discovery and readiness handling for slow devices")
+After the write, read the page again and cache the delays that it
+reports. If this read fails, cache the requested delays if the NVRAM
+update succeeded, as before.
+
+Fixes: f92363d12359 ("[SCSI] mpt3sas: add new driver supporting 12GB SAS")
 Signed-off-by: Jeff Layton <jlayton@kernel.org>
 ---
- drivers/scsi/mpt3sas/mpt3sas_scsih.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/scsi/mpt3sas/mpt3sas_base.c | 46 +++++++++++++++++++++++++------------
+ 1 file changed, 31 insertions(+), 15 deletions(-)
 
-diff --git a/drivers/scsi/mpt3sas/mpt3sas_scsih.c b/drivers/scsi/mpt3sas/mpt3sas_scsih.c
-index 2d98fcb8e135..45419f0ebedc 100644
---- a/drivers/scsi/mpt3sas/mpt3sas_scsih.c
-+++ b/drivers/scsi/mpt3sas/mpt3sas_scsih.c
-@@ -4220,6 +4220,8 @@ _scsih_ublock_io_device_wait(struct MPT3SAS_ADAPTER *ioc, u64 sas_address,
- 				tr_timeout = pcie_device->reset_timeout;
- 				tr_method = MPI26_SCSITASKMGMT_MSGFLAGS_PROTOCOL_LVL_RST_PCIE;
- 			}
-+			if (pcie_device)
-+				pcie_device_put(pcie_device);
- 			rc = _scsih_wait_for_device_to_become_ready(ioc,
- 			      sas_target->handle, 0, (sas_target->flags &
- 			      MPT_TARGET_FLAGS_RAID_COMPONENT), sdev->lun, tr_timeout, tr_method);
-@@ -4241,8 +4243,6 @@ _scsih_ublock_io_device_wait(struct MPT3SAS_ADAPTER *ioc, u64 sas_address,
- 				}
- 				continue;
- 			}
--			if (pcie_device)
--				pcie_device_put(pcie_device);
- 		} while ((rc == DEVICE_RETRY || rc == DEVICE_START_UNIT ||
- 		    rc == DEVICE_STOP_UNIT || rc == DEVICE_RETRY_UA)
- 			&& count++ <= command_retry_count);
+diff --git a/drivers/scsi/mpt3sas/mpt3sas_base.c b/drivers/scsi/mpt3sas/mpt3sas_base.c
+index 5c957044eded..07e16acc8abc 100644
+--- a/drivers/scsi/mpt3sas/mpt3sas_base.c
++++ b/drivers/scsi/mpt3sas/mpt3sas_base.c
+@@ -4923,6 +4923,7 @@ mpt3sas_base_update_missing_delay(struct MPT3SAS_ADAPTER *ioc,
+ 	Mpi2ConfigReply_t mpi_reply;
+ 	u8 num_phys = 0;
+ 	u16 ioc_status;
++	int rc;
+ 
+ 	mpt3sas_config_get_number_hba_phys(ioc, &num_phys);
+ 	if (!num_phys)
+@@ -4969,23 +4970,38 @@ mpt3sas_base_update_missing_delay(struct MPT3SAS_ADAPTER *ioc,
+ 	io_missing_delay_original = sas_iounit_pg1->IODeviceMissingDelay;
+ 	sas_iounit_pg1->IODeviceMissingDelay = io_missing_delay;
+ 
+-	if (!mpt3sas_config_set_sas_iounit_pg1(ioc, &mpi_reply, sas_iounit_pg1,
+-	    sz)) {
+-		if (dmd & MPI2_SASIOUNIT1_REPORT_MISSING_UNIT_16)
+-			dmd_new = (dmd &
+-			    MPI2_SASIOUNIT1_REPORT_MISSING_TIMEOUT_MASK) * 16;
+-		else
+-			dmd_new =
+-		    dmd & MPI2_SASIOUNIT1_REPORT_MISSING_TIMEOUT_MASK;
+-		ioc_info(ioc, "device_missing_delay: old(%d), new(%d)\n",
+-			 dmd_orignal, dmd_new);
+-		ioc_info(ioc, "ioc_missing_delay: old(%d), new(%d)\n",
+-			 io_missing_delay_original,
+-			 io_missing_delay);
+-		ioc->device_missing_delay = dmd_new;
+-		ioc->io_missing_delay = io_missing_delay;
++	/*
++	 * This returns the result of the NVRAM update, not of the update
++	 * to the current page, so read back the delays the IOC now uses.
++	 * If that fails, assume the requested delays are used if the NVRAM
++	 * update succeeded.
++	 */
++	rc = mpt3sas_config_set_sas_iounit_pg1(ioc, &mpi_reply,
++	    sas_iounit_pg1, sz);
++	if (!mpt3sas_config_get_sas_iounit_pg1(ioc, &mpi_reply,
++	    sas_iounit_pg1, sz) &&
++	    (le16_to_cpu(mpi_reply.IOCStatus) & MPI2_IOCSTATUS_MASK) ==
++	    MPI2_IOCSTATUS_SUCCESS) {
++		dmd = sas_iounit_pg1->ReportDeviceMissingDelay;
++		io_missing_delay = sas_iounit_pg1->IODeviceMissingDelay;
++	} else {
++		ioc_warn(ioc, "failed to read back the missing delays\n");
++		if (rc)
++			goto out;
+ 	}
+ 
++	if (dmd & MPI2_SASIOUNIT1_REPORT_MISSING_UNIT_16)
++		dmd_new = (dmd & MPI2_SASIOUNIT1_REPORT_MISSING_TIMEOUT_MASK) * 16;
++	else
++		dmd_new = dmd & MPI2_SASIOUNIT1_REPORT_MISSING_TIMEOUT_MASK;
++	ioc_info(ioc, "device_missing_delay: old(%d), new(%d)\n",
++		 dmd_orignal, dmd_new);
++	ioc_info(ioc, "ioc_missing_delay: old(%d), new(%d)\n",
++		 io_missing_delay_original,
++		 io_missing_delay);
++	ioc->device_missing_delay = dmd_new;
++	ioc->io_missing_delay = io_missing_delay;
++
+ out:
+ 	kfree(sas_iounit_pg1);
+ }
 
 -- 
 2.56.1
