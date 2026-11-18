@@ -1,92 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795017679;
-	b=K+Jj1sKSiCF2HFr0xNqq1gjsna8OVTCEFUAz9tcZWmU8kvsrGs31XgoeeAPFwGYTdk7Y
-	 URB5TiDU6xKBMvbd4KTLzqd144KaTXbukvg+zAjkMydYPXwPzM0tpCNhFHRhyTF4+P3fq
-	 dnhdSWRtwmTwY9/qMqIgG1WgY8+lHJXd4bBOEX1ODSURO8gBqHYhXI6eqOnYy52NIkIpn
-	 nuWjYBRXufbh/HQadGZFoSi0YHePGbmPwKWhUgc3qHV3MSBn9v+UwRf5H0G7Etl8kDWPV
-	 aPYrwGhRthp2j8jhX3mmeRnxzKHiVv+HN6Ok49KbSJtmbi6lGBKFOSqvetjOx6cumLg==
+	t=1795017701;
+	b=u+shE9e3mWfIjB2X4z0mUQN8ZDLSwTwolP51bXBN+HxaGZl8I0OqIEskFGmrDkv+I0lK
+	 Aekq4xnUmOGH2YzElu5i99znJ4TX6FmhetxpYTy9bcMCFfQo7pJ4mAdjUhuE2Wr2RG4N9
+	 NnWAVcN+Yv6BwEMVeI7E1oeDEUh/nFV4fgJYeAMi2rOxwTCIwv3yPxhC0a4DahSU4QrAe
+	 //hMwpZXmnZgHvrjF439IpKtODgAQHWIa1n8srftnuypl/L8txIiGXu1nes4QDcID/EHY
+	 b7QUzFBsTR6wg5Uj41NtEYoSV7zT7Fjd+ASvpxdIsXmb4JHqjXnF3YiE21Skup77ROw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795017679;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795017701;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=U8C1CgvvgJkxuBAF5XlPlcDG9pCDTXTfhUIEI+I0GtI=;
-	b=LSmZrrmLAj+Qj+2n/dwqxECEZWv2KoWIyMQ2hZmynuNn5Wk/QgbzUNron6Z0oatRJZwx
-	 cwvuN8ex36/1hixUyTd4l8eVP+6kQ/Ak+PaTaCjWjOterB8sQQxijTBgo1deBw0NHNlG0
-	 uDzNweIaBMPRMxtL4A1Kxh9z8yHWR7ob9KS+ZUQOXVAvqyx2GmwUZwNIOguec+FBlLEyx
-	 IF1UCM6tMBruvQzbDpV5b7ZeqD2lJ4u2mcx8Vib/bo1LwK2LYXo/3sOt2kgr7gTL5dYYN
-	 yi0ZPvzgUDju2BJ8Nsi4aEQ1swmaP3erIE2m/qP4XDeN2k/eGQlmt6AW0mxoLWMqmnQ==
+	 Received:X-Forwarded-Encrypted:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=+2RLaCA+CTvvhLn9hoYoWmbd8XvuHHvjif/znAEqg5I=;
+	b=GYeLnos2XXjPO58xc3M/wudz8N58pZ5QotbvLKQHVCZqZJRLg7U0Vz8TdiZcLJjGzZSi
+	 iowYz2DHF2hPryNOukbSMM0edwYQ2dEJ/ClLYNIXHtaHUUe4hpCMTiSiKii6aYYQqxuwk
+	 WpSwK7UH7gfde5U2ACarc7V1UXjOeX6nsiWLdVlFKEx9tutNsW2jRQcAucADSSi9zFVKz
+	 NM2eyInWNB/++yqfH2E/6D5/ob7UNWydsX9WmkWxjSk8dupzoWvNIeaJrm5LeVL2J7qqr
+	 BMxql9io8wgDa6iRChCMo7hiLR6Lnt4e9E4vjIAuDuUUFbTbYfEsUyH5tP3Ycv/DwDQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g370uabh;
-	arc=none smtp.remote-ip=209.85.167.173
-Received: from mail-oi1-f173.google.com (mail-oi1-f173.google.com [209.85.167.173])
+	dmarc=none header.from=linux-foundation.org;
+	spf=pass smtp.mailfrom=linuxfoundation.org;
+	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=FkUyYAAh;
+	arc=none smtp.remote-ip=209.85.208.45
+Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com [209.85.208.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE0B9606A32C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:01:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE0B9606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED9B7606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:01:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ED9B7606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g370uabh
-Received: by mail-oi1-f173.google.com with SMTP id 5614622812f47-571eb508ebbso540316b6e.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:01:18 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=FkUyYAAh
+Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-6b8815693e2so1614925a12.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:01:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795017678; x=1795622478; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=U8C1CgvvgJkxuBAF5XlPlcDG9pCDTXTfhUIEI+I0GtI=;
-        b=g370uabhDPxC5ljczIgZFx108Ve2rIBGsXWDAeBUoqdYv98TtS4GHX+yp9vRdhHTMe
-         61u6dWYD6+xs+1DEU28L2tav2cxucTbl6lqklZh5CALfHQo4SZijmvp8sczEImHkAOdO
-         5FzX3IPSwSdL1lq27m9DQAxc0ymW/kCe9LXOEidaM/7moCl29YZM4ug4V8Lj5cK1gvL0
-         aWJJrDjpR4+icksnbzsrv0p0Eyyjmb3zdRUg39Ehr0bo7uF+i9/nrLXGA/3obvBId0tb
-         //1mcSUEfSqzHAMPW1NTBe6D/uGufMj8NuGcumk/wvmR+8kh+Kkv9NM0fXijvjRF/VzT
-         4RYA==
+        d=linux-foundation.org; s=google; t=1795017699; x=1795622499; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+2RLaCA+CTvvhLn9hoYoWmbd8XvuHHvjif/znAEqg5I=;
+        b=FkUyYAAhaw7xBnz3AIlHyO40fGm4JohW3nNn6SQ164hbyqNEjCtyEdZjRcoYshIbGQ
+         4vutcmfeu1fM18Iob62km67g4ywxGW/xTL5fiMusIhTiY13m4fxBndoVffqTT4wP07JT
+         wtFBIvrluo3EyJ3Is9wBLVNvX4Ycr5t2h7OAA=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795017678; x=1795622478;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=U8C1CgvvgJkxuBAF5XlPlcDG9pCDTXTfhUIEI+I0GtI=;
-        b=WudKEd96E2mLNm5CBZlCpRUAkkuqS7WuAWccFu0TxcUKre6+Uo9N5MEr1b/6DQG/nA
-         84qzbPR4So8bR1zR6vV73R0OqmR0KljM4JcBCWoVPxzzUd/lQL6vDbashhp4HcYWrnJC
-         yUTREpHv84JuLtgtGvPRJJwVxdNCkwHOa5J9Wde4rVEvGSm/8mF347xXrXm2er83h/WI
-         yrE2X5YvPz5hCWCnPVHUgc17ZVdyrc4fqPtrneUDHvZPP1/+NMvyHhro3XNchKA5jdha
-         gvbjwjxnytFbRYZxCyUR2OjJ2xf28VZ8c96K4gREbYhBow1fe3VmIOOGCd4O2cEXvNV3
-         2N5g==
-X-Forwarded-Encrypted: i=1; AL+hErGE+dAwSQw+snTlYDdxfXK2givf3TuLbvii5BhI52Cr5TPsYFsgznyDqDrzfq7QNrAycb9DnE58DLZ0P6Q=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+BYwKgzexXt8NJaTBTeUvLm+CP19r9mEDLZABbzLnZrn4sHuAX
-	XdtlDkLxzTZy8ZnlxFoulRwboNYGw8gkjOgVOfmsyQN8TrGNRemeQsIb
-X-Gm-Gg: AYBFou1+xQAMnUZ1mPLVjVEjB8SfbxGtzYQX4MiKafCkanFtX2lyRagbhRiiu+WNjaW
-	yipY9inSid9s35YMCibguQgIkz7sN8FlP0C3931icc3SiEtSPw7aBil5a1SgZPRHPZ9HcizuvBw
-	JDyFAbkhf0zH2GaEfQs+VcRA0W1Hur1DUbSl/eKIxZg8XPqX0WtapgYJXRFNbplQIU6JXCEzn5V
-	PSULr97HdP7+IzCA2My/QL/OAeQy3L3E9+uzA8vAPM+0bAsCM8vrmZyaykZhXaeBumnhX8nSVfw
-	wOfjIrff/Cp6xQtEAg+WxJ5e2HFp+6t6Qz0D7XEQH17dLdXg+FFB6fD/L3L8BrQxZ1fIPOZJPuI
-	HOjywsWtsWK7SKZs0dqR3X6HVtQmTZW6e3E8ruzV6tKHoYzrGlJFldpYT57Iv7APRe4Et3QfFBp
-	CuiyZGDmAGAOQtE0LkRWC7hctgHuqIIZt+mI0/dZuG0GoAuEk1EUPIYigXfjUYyq9PiaiCJMAon
-	WowqOq7gtOiLTOY2uTTi5GlGun6zQpBl2hIhJYCRWKmzYlQ4jHz35WH2+YhLjlqWYDJCcvT5/HX
-	hT+TTyt7YefHYLqCKKwumuiph74qrw==
-X-Received: by 2002:a05:6808:c3ea:b0:572:86c8:6b4c with SMTP id 5614622812f47-5773a0086c5mr3318610b6e.6.1795017677466;
-        Wed, 18 Nov 2026 08:01:17 -0800 (PST)
-Received: from gentoo ([49.204.145.8])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-5777b39306asm1705822b6e.15.2026.11.18.08.01.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 08:01:17 -0800 (PST)
-From: Shreesh Adiga <16567adigashreesh@gmail.com>
-To: Eric Biggers <ebiggers@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Demian Shulhan <demyansh@gmail.com>
-Cc: linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] lib/crc: Add 4-way folding in NEON crc64_nvme implementation
-Date: Wed, 18 Nov 2026 21:31:00 +0530
-Message-ID: <20261118160110.1662470-1-16567adigashreesh@gmail.com>
-X-Mailer: git-send-email 2.56.1
+        d=1e100.net; s=20260707; t=1795017699; x=1795622499;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=+2RLaCA+CTvvhLn9hoYoWmbd8XvuHHvjif/znAEqg5I=;
+        b=zF+qOfrSQKhTM1vIr4onnnBsBNXfx3dPINv4TgLscGaUrC9kfNI54kCSjv1jdHZnAz
+         25E8i++CQNvh1QZgKpdUVeab99wgS3V3BRQT1ISLwk+5WZhrDmASPRMit14o2jGgC+vD
+         NEmza2HM/7ZwR2IWa3Ke8AiSA5XgCAap84+rmytmztnrCflzAxQau8xMbjHFdWi5zO10
+         mygdevoz33CA2AKo5mXE709SvwbYpboO/l+DLVvWn3/dVM2BPyf/qXeD+aRecBADG/Mp
+         Vm4KR3VPN9nqunw3Bbbel5AwtzC89bNQu5JKOqLjhE5KaOo77QTlr5F11kwOssVMKL03
+         4tzA==
+X-Forwarded-Encrypted: i=1; AL+hErGay2DYwbNz/c6w7zmT1N+eRTfOwNmZsmNOjI2nKo0Q14pefR4vqDfyNNdiD+pF6NGM37xnPj9958ydX/4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z87jM5ykiGDWv3pKNpS5bkKrNy/D8JzqIyiX7I9bLKVmbR1eyE+
+	4eOnwimgL4QjoMmDFJtIv0vPu2DVINl/EEhkZdTKcfMKETa0Khi8EJMQxg7w2TOd2HXatm0BoqX
+	sfuGr6Lg=
+X-Gm-Gg: AYBFou2826pNEfD8qtBU3n0+TEZq03EHALb7AjedJrT2F2ckmoY4j2di1z70yD/UHcF
+	iUaE6d2BoFjl50PrNP7Usitx6gbd/tIHPRUNZXveEXLWUXp78bcxk5PwG2Z7DdgmhtHQ3XsAx2a
+	iWnjPm6/QrkCQICCyolGxRtiek9jf3Z8IrdsDskmGkRjxYSJGFid4Om77+kogxZrDU7RScKoyQB
+	dkhVKYSTlgNKzzv70vvDY5NQjfZOBj7KwmKwQriApAYqvhYtan90Fs1yrWtzxvasc1Udp6qie2+
+	bLcu4zbcK6fSdJWVMzcj5G1FWtofyhPhDFDwOyUqzSz7iWavx63RrRP624SDM21Ku30PNaNMZS8
+	8ByX7PFhwCKpBW8IMarmm7aDKlsanxwS6FLLsmU63zcutLpkXCc6gtz84bQtkQ3suZlieDgyVtS
+	OAy1N3NkjAQVzWMCZXcj9k2xK+mqevKHmbZF7cEP1KK06mZ/Fxfg3rAPac9EPG0LXkSkKIV5qCp
+	JO2NYkW384fjss0Mr7METqLx2pOmq1PJr9uOGjx7kaHIWPgIZEMURyF6hY7X7m+PNJPM0K/f7UC
+	dO8s08WkicZ6cmNsV35pIuKUI9cF+5hkNkW8h9AGfAXWDiS0OsKtXBQRpX5kHe7ASFxnqmJZGNF
+	/2fc=
+X-Received: by 2002:a17:907:968b:b0:c49:cdc8:10cf with SMTP id a640c23a62f3a-c510e3a717dmr290282166b.40.1795017699084;
+        Wed, 18 Nov 2026 08:01:39 -0800 (PST)
+Received: from mail-ej1-f54.google.com (mail-ej1-f54.google.com. [209.85.218.54])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c51234d4726sm15487166b.80.2026.11.18.08.01.18
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 08:01:19 -0800 (PST)
+Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-c4d581da0aaso137105966b.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:01:18 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFYsrFOOR5WSf9I8bPo9nKC7OoUgHOdr+bmi3JiTuLvm/QeYLRn4kXFtAES0bnzbZJQHVW+uv5wNhiMn8M=@vger.kernel.org
+X-Received: by 2002:a17:907:cd14:b0:c51:24e9:c474 with SMTP id
+ a640c23a62f3a-c5124e9ca9emr12311066b.16.1795017678422; Wed, 18 Nov 2026
+ 08:01:18 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,227 +94,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261111-pipe-epollexclusive-wakeup-v1-1-0af6283e9fda@columbia.edu>
+ <avxWKI795DthE8Sb@redhat.com> <CAHk-=wjOq+G=6gte4vX_YxOD_VfE1uZh7=+KHs8N0wU75xyHEg@mail.gmail.com>
+ <avyODoFhZ_M7YDU5@redhat.com> <CAHk-=wgcBSBtHE+3ceKGjq1jyF64OyoEqf5JPpixowAa80GqNQ@mail.gmail.com>
+ <avyVwg-5ef-pXZkG@redhat.com> <CAHk-=wjJF8uZLfVbbqei9-fhs9K70i2OnVreCV-rQF9EGKAxJg@mail.gmail.com>
+ <CAHk-=wjqParwoB8wb9KfGVpbwUwvKvObpLOo=XPM0GGfkn3ibw@mail.gmail.com> <av2juQijIISJAgyf@redhat.com>
+In-Reply-To: <av2juQijIISJAgyf@redhat.com>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Wed, 18 Nov 2026 08:01:01 -0800
+X-Gmail-Original-Message-ID: <CAHk-=wg4RgBYZcUU+c16XxdZ4UbAaazJkUS=R6=tpN4xUBdDRw@mail.gmail.com>
+X-Gm-Features: AclHuK-jO2btqFqtri5NH0SNA66TSaufpqFn40OH8HLtU3lTATNZK-kccXjyNlw
+Message-ID: <CAHk-=wg4RgBYZcUU+c16XxdZ4UbAaazJkUS=R6=tpN4xUBdDRw@mail.gmail.com>
+Subject: Re: [PATCH] pipe: keep per-write wakeups for EPOLLEXCLUSIVE consumers
+To: Oleg Nesterov <oleg@redhat.com>
+Cc: Mani Tofigh via B4 Relay <devnull+mt4022.columbia.edu@kernel.org>, 
+	Breno Leitao <leitao@debian.org>, Christian Brauner <brauner@kernel.org>, 
+	Mateusz Guzik <mjguzik@gmail.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	tz2294@columbia.edu, stable@vger.kernel.org, 
+	Mani Tofigh <mt4022@columbia.edu>
+Content-Type: text/plain; charset="UTF-8"
 
-Use 4-way folding in the shared NEON crc64_nvme for AArch64
-as well as AArch32. This improves performance by about 2x for 512 byte
-data size on Cortex-X925.
+On Wed, 18 Nov 2026 at 05:10, Oleg Nesterov <oleg@redhat.com> wrote:
+>
+> What if we add, say, WQ_FLAG_LOCKED and change prepare_to_wait_event()
 
-Add similar optimizations from x86 implementation like reducing
-the 4x to 2x and doing a tail (len >= 32) 2x fold as well as partial
-block handling to process lengths which are not multiple of 16 bytes.
+No, I absolutely detest conditional locking. It *will* cause problems.
+Particularly when based on something like this where the locking
+depends on not an argument and a call chain, but on a (potentially)
+long-lived flag.
 
-The partial block stage is enabled only for AArch64 as it needs the
-128-bit TBL instruction not available in AArch32.
-Modified the loop dispatch on AArch64 to allow any len >= 128 rather
-than just multiple of 16 bytes.
+> Then we can trivially redefine all users of __wait_event_interruptible_locked()
+> on top of ___wait_event/etc.
 
-Modified the pmull intrinsics from crc64-neon.h to use inline
-assembly as the intrinsic usage was causing the compiler to
-generate the fold constants via mov+movk+fmov/dup which was about 10
-instructions for 16-byte constant instead of expected adrp+ld1.
+.. *if* it was passed down as just the argument, I might be open to
+it, but honestly, even then it's just nasty. I *much* prefer to have
+statically visible locking, and have the pattern of one single helper
+that does the core work, and another helper that just does the lock
+and then calls the first one.
 
-Signed-off-by: Shreesh Adiga <16567adigashreesh@gmail.com>
----
- lib/crc/arm64/crc64-neon.h | 15 +++---
- lib/crc/arm64/crc64.h      | 18 ++++---
- lib/crc/crc64-neon.c       | 96 +++++++++++++++++++++++++++++++++++---
- 3 files changed, 110 insertions(+), 19 deletions(-)
+Some duplication - with explicit naming of the locking status for the
+special cases that are called with the lock already held - is much
+preferable to dynamically doing the locking (even if the compiler may
+be able to then turn it into a static choice at build time, if it's
+not obvious from the source code it's still "dynamic")
 
-diff --git a/lib/crc/arm64/crc64-neon.h b/lib/crc/arm64/crc64-neon.h
-index fcd5b1e6f812..700a3a8619f4 100644
---- a/lib/crc/arm64/crc64-neon.h
-+++ b/lib/crc/arm64/crc64-neon.h
-@@ -2,20 +2,21 @@
- 
- static inline uint64x2_t pmull64(uint64x2_t a, uint64x2_t b)
- {
--	return vreinterpretq_u64_p128(vmull_p64(vgetq_lane_u64(a, 0),
--						vgetq_lane_u64(b, 0)));
-+	uint64x2_t r;
-+
-+	asm("pmull %0.1q, %1.1d, %2.1d" : "=w"(r) : "w" (a), "w" (b));
-+	return r;
- }
- 
- static inline uint64x2_t pmull64_high(uint64x2_t a, uint64x2_t b)
- {
--	poly64x2_t l = vreinterpretq_p64_u64(a);
--	poly64x2_t m = vreinterpretq_p64_u64(b);
-+	uint64x2_t r;
- 
--	return vreinterpretq_u64_p128(vmull_high_p64(l, m));
-+	asm("pmull2 %0.1q, %1.2d, %2.2d" : "=w"(r) : "w" (a), "w" (b));
-+	return r;
- }
- 
- static inline uint64x2_t pmull64_hi_lo(uint64x2_t a, uint64x2_t b)
- {
--	return vreinterpretq_u64_p128(vmull_p64(vgetq_lane_u64(a, 1),
--						vgetq_lane_u64(b, 0)));
-+	return pmull64(vextq_u64(a, a, 1), b);
- }
-diff --git a/lib/crc/arm64/crc64.h b/lib/crc/arm64/crc64.h
-index c7a69e1f3d8f..06dd08a21dd6 100644
---- a/lib/crc/arm64/crc64.h
-+++ b/lib/crc/arm64/crc64.h
-@@ -10,19 +10,25 @@
- 
- u64 crc64_nvme_neon(u64 crc, const u8 *p, size_t len);
- 
-+static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_pmull);
-+
- #define crc64_be_arch crc64_be_generic
- 
- static inline u64 crc64_nvme_arch(u64 crc, const u8 *p, size_t len)
- {
--	if (len >= 128 && cpu_have_named_feature(PMULL) &&
-+	if (static_branch_likely(&have_pmull) && len >= 128 &&
- 	    likely(may_use_simd())) {
--		size_t chunk = len & ~15;
--
- 		scoped_ksimd()
--			crc = crc64_nvme_neon(crc, p, chunk);
-+			crc = crc64_nvme_neon(crc, p, len);
- 
--		p += chunk;
--		len &= 15;
-+		return crc;
- 	}
- 	return crc64_nvme_generic(crc, p, len);
- }
-+
-+#define crc64_mod_init_arch crc64_mod_init_arch
-+static void crc64_mod_init_arch(void)
-+{
-+	if (cpu_have_named_feature(PMULL))
-+		static_branch_enable(&have_pmull);
-+}
-diff --git a/lib/crc/crc64-neon.c b/lib/crc/crc64-neon.c
-index 4753fb94a4be..03b46d0abcc4 100644
---- a/lib/crc/crc64-neon.c
-+++ b/lib/crc/crc64-neon.c
-@@ -10,6 +10,12 @@
- 
- u64 crc64_nvme_neon(u64 crc, const u8 *p, size_t len);
- 
-+/* x^575 mod G, x^511 mod G */
-+static const u64 fold_consts_4x_val[2] = { 0x0c32cdb31e18a84aULL,
-+					   0x62242240ace5045aULL };
-+/* x^319 mod G, x^255 mod G */
-+static const u64 fold_consts_2x_val[2] = { 0xb0bc2e589204f500ULL,
-+					   0xe1e0bb9d45d7a44cULL };
- /* x^191 mod G, x^127 mod G */
- static const u64 fold_consts_val[2] = { 0xeadc41fd2ba3d420ULL,
- 					0x21e9761e252621acULL };
-@@ -17,23 +23,101 @@ static const u64 fold_consts_val[2] = { 0xeadc41fd2ba3d420ULL,
- static const u64 bconsts_val[2] = { 0x27ecfa329aef9f77ULL,
- 				    0x34d926535897936aULL };
- 
-+static inline uint64x2_t fold_single_round(uint64x2_t fold, uint64x2_t temp,
-+					   uint64x2_t consts)
-+{
-+	uint64x2_t temp1 = pmull64(consts, fold);
-+	uint64x2_t temp2 = pmull64_high(consts, fold);
-+
-+	return temp ^ temp1 ^ temp2;
-+}
-+
-+#ifdef CONFIG_ARM64
-+/* vqtbl1q_u8 is not available on AArch32. */
-+static inline uint64x2_t fold_partial_block(uint64x2_t fold, uint64x2_t consts,
-+					    const u8 *p, size_t len)
-+{
-+	static const u8 crc_neon_shift_tab[32] = {
-+		0xff, 0xfe, 0xfd, 0xfc, 0xfb, 0xfa, 0xf9, 0xf8,
-+		0xf7, 0xf6, 0xf5, 0xf4, 0xf3, 0xf2, 0xf1, 0xf0,
-+		0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
-+		0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f
-+	};
-+
-+	uint8x16_t last16, t1, t2;
-+	uint64x2_t a, b;
-+
-+	last16 = vld1q_u8(p + len - 16);
-+	t1 = vld1q_u8(crc_neon_shift_tab + len);
-+	a  = vreinterpretq_u64_u8(vqtbl1q_u8(vreinterpretq_u8_u64(fold), t1));
-+	t2 = vmvnq_u8(t1);
-+	t2 = vqtbl1q_u8(vreinterpretq_u8_u64(fold), t2);
-+	t1 = vcgezq_s8(vreinterpretq_s8_u8(t1));
-+	b  = vreinterpretq_u64_u8(vbslq_u8(t1, last16, t2));
-+
-+	return fold_single_round(a, b, consts);
-+}
-+#endif
-+
- u64 crc64_nvme_neon(u64 crc, const u8 *p, size_t len)
- {
-+	/* Assumes len >= 64. AArch32 also assumes len is multiple of 16. */
- 	uint64x2_t fold_consts = vld1q_u64(fold_consts_val);
-+	uint64x2_t fold_consts_4x = vld1q_u64(fold_consts_4x_val);
-+	uint64x2_t fold_consts_2x = vld1q_u64(fold_consts_2x_val);
- 	uint64x2_t v0 = { crc, 0 };
- 	uint64x2_t zero = { };
-+	uint64x2_t v1, v2, v3;
-+
-+	v0 ^= vreinterpretq_u64_u8(vld1q_u8(p));
-+	v1  = vreinterpretq_u64_u8(vld1q_u8(p + 16));
-+	v2  = vreinterpretq_u64_u8(vld1q_u8(p + 32));
-+	v3  = vreinterpretq_u64_u8(vld1q_u8(p + 48));
- 
--	for (;;) {
--		v0 ^= vreinterpretq_u64_u8(vld1q_u8(p));
-+	p += 64;
-+	len -= 64;
-+	while (len >= 64) {
-+		uint64x2_t t0 = vreinterpretq_u64_u8(vld1q_u8(p +  0));
-+		uint64x2_t t1 = vreinterpretq_u64_u8(vld1q_u8(p + 16));
-+		uint64x2_t t2 = vreinterpretq_u64_u8(vld1q_u8(p + 32));
-+		uint64x2_t t3 = vreinterpretq_u64_u8(vld1q_u8(p + 48));
- 
-+		v0 = fold_single_round(v0, t0, fold_consts_4x);
-+		v1 = fold_single_round(v1, t1, fold_consts_4x);
-+		v2 = fold_single_round(v2, t2, fold_consts_4x);
-+		v3 = fold_single_round(v3, t3, fold_consts_4x);
-+		p += 64;
-+		len -= 64;
-+	}
-+
-+	v0 = fold_single_round(v0, v2, fold_consts_2x);
-+	v1 = fold_single_round(v1, v3, fold_consts_2x);
-+
-+	if (len >= 32) {
-+		uint64x2_t t0 = vreinterpretq_u64_u8(vld1q_u8(p +  0));
-+		uint64x2_t t1 = vreinterpretq_u64_u8(vld1q_u8(p + 16));
-+
-+		v0 = fold_single_round(v0, t0, fold_consts_2x);
-+		v1 = fold_single_round(v1, t1, fold_consts_2x);
-+		p += 32;
-+		len -= 32;
-+	}
-+
-+	v0 = fold_single_round(v0, v1, fold_consts);
-+
-+	if (len >= 16) {
-+		uint64x2_t t0 = vreinterpretq_u64_u8(vld1q_u8(p));
-+
-+		v0 = fold_single_round(v0, t0, fold_consts);
- 		p += 16;
- 		len -= 16;
--		if (len < 16)
--			break;
--
--		v0 = pmull64(fold_consts, v0) ^ pmull64_high(fold_consts, v0);
- 	}
- 
-+#ifdef CONFIG_ARM64
-+	if (len)
-+		v0 = fold_partial_block(v0, fold_consts, p, len);
-+#endif
-+
- 	/* Multiply the 128-bit value by x^64 and reduce it back to 128 bits. */
- 	v0 = vextq_u64(v0, zero, 1) ^ pmull64_hi_lo(fold_consts, v0);
- 
--- 
-2.56.1
+No locking hacks. Locking - along with memory ordering - is special.
+Locking is *not* a flag.
 
+           Linus
