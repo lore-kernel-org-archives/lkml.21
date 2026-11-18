@@ -1,61 +1,61 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795013782;
-	b=hyfF70JNqMhAFsR4TYcU8ht761BcmFP94jA4pinnS7lw3w4Qp77LZuFNi0ETDoVJFkW1
-	 ETwyVzTSlpBwUnBM6BhG3hq7OeUOEf/kXXmoXT4Z8rtYqaCbTTown4N4lcx8VrjaBQ+ix
-	 5IC4NAsFa2l+Olp6O05ZPf32N/f1c6wUi/ldfXN/z1lCZjEISs99v0gUeLfD6XpCB1+58
-	 S3CMIIaSyUmodqsIi7avhdZlK7XDEemRwWAOW7yFMJXYjiTOFXRSmwOkeNk/sH8mz+fHt
-	 TS2tYVFSFGKvQrouNrkWKmw3BjpKuImDq4rsJ9lTUKCz40UIwW1XMmKL6JNVRc3tjNw==
+	t=1795013787;
+	b=tR3pyQjXtmNBz0FXibyy2BUH7m3I1lOCOHtBKPrQmMuqESF1U7SrLkaXTODsuBGf672W
+	 n9AbF45jnwGcqZFIG5sbxrMybQUoFi9encjFie6dRyroWJEimRQH2PzVS0bD5aNYe06qe
+	 CeB7WJS3//TsSF6I14zz24+P5uKUoSjGPiNxaMB2YL1W+qGXFFeJMxD91UVSO0ftT89fr
+	 FtjN4HqotBbQ6kU1oYkFs0KLZnjOgYs5R14bBfLHwzM0uN6riGTMAL79b/5IinPPFkj9e
+	 InYSgCWfFRQ0pedrkRsy5pNwWd6PBf3Spf81QnaaxnZnesrM1tIFVF+VwCvYCDX+ntA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795013782;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795013787;
 	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
 	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 X-Mailer;
-	bh=adL7jX6Yj0zfzxNXCqGjb+oq/ba6DVUeZOr2j2Db+wc=;
-	b=zMzP8Z5G9gG0rTabk4o/8YDF26FlrdsSNENPLl5UNJGKeyP22AFalYZUqsY7l6kYu9BC
-	 +NQT5929ByLqBXNvqXt+cDlpfsVe4ZqPGyQGGWkeWGtbpq1X76r7AsV6mKMdJDEc0+E6W
-	 bCbuRL92z09FN62WnQLzXMilGCLZqh/0S2Tc6X8lpdcdrJXLh1xb3SwRA4FE9+KU2gt0i
-	 EraKDWEtyuhyx1RAeCrpXk0Wx/w8duoM4qM6Lc+MqaLW8j/xHnA578fadKmEnVM+flbWr
-	 TDcI3DqA1zzIKc4IvdaOApD9b+3MsI5kz7F8WG/pqTERNt1dYYlW+GbKctEJ5IY3Myw==
+	bh=AfmHFHPccB7lfpPsxP2zwN+ffoQn2aS0RlA9LBjrJMM=;
+	b=tjr8FABrwYvas8xHH8RDjTFHKKEeup+e70E763+UfOSa+1I1DZvHLdVbIUaaNLeFwNd0
+	 dUZeuh/mgs6xsh+OSvguFsdIJiapCeCcPvn99rHB9eys8ZSR1ZjaktcxuvtCkV5ab9DWy
+	 rUsIh4KpvJAxvkyEIpQQWrxy0+3V3rB20aNoYLIaaXe9w6Uj53gJvXgfoOgdJHey1454H
+	 bP7Y6/dNGTibBeOjcVh+/N7jsBYZk2bfMJkiXVjU8bUgKTOgpvGC8bCXEkFYCOxcLIN8c
+	 ZTwUMsyD6PpDZbZXLKOt+sGCH3s0EPUmQYjny7V19RmYUL1WWTRtz030IzZYffGpJwA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dVUdI3GB;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DAROiEXl;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1BAD9606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:56:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E057606A31C;
+	Wed, 18 Nov 2026 14:56:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dVUdI3GB
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4CAE1F000C4;
-	Wed, 18 Nov 2026 14:56:15 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DAROiEXl
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B3561F000C4;
+	Wed, 18 Nov 2026 14:56:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795013781;
-	bh=adL7jX6Yj0zfzxNXCqGjb+oq/ba6DVUeZOr2j2Db+wc=;
+	s=k20260515; t=1795013787;
+	bh=AfmHFHPccB7lfpPsxP2zwN+ffoQn2aS0RlA9LBjrJMM=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=dVUdI3GBPeIX5A4sxo1sodZL/BJP/U1IngusWrZbMa/dLnX8gGi9pZQkRGLNN+mYy
-	 vNJBO1FJgg3LyUPMBfZI+MWsWAdltM4aGMdqv5bRM9/PbSn4z2w3Zz99fWoPapahCg
-	 5jd/xFqF+o47NFgRJ1OkXNgvAtTiAWrILVEdu2bFlOf/t3cc4eDi+yBjiD16xSCWYL
-	 74cv0lIsmrQAg6gHZ0ZhMI+WmVQRGBK4kPocSy5PA4P/q5GkprGW4QpDh4P7qHpI0v
-	 ibXVyi3ABfcbjYGr+aPwXZqMIUAQNHp7wHVdG89ztZIj8zmwx8X3mA3e/Ha7k+6znI
-	 KbceUgizfo6dA==
+	b=DAROiEXl/uBEjFrbVmJW1e/aAc9Qw3sYEQhfet8uq2R7VAv9EWfteSAsL96KEdtwq
+	 don0DD0FM8uwX3AIRJHra0yYM3r7AOC55Z2n5caoOAQrgcJzB0shseGNOQyWwTAZh0
+	 5+9KTQFc5p9AWagn8fbjPNFUuh5m/W/ciqOdTqrP4GyPZpvVcpqwHmSYJMa/rpaDvi
+	 2XwZOFGbE1AdcZrdFSz5UIqn3oG25NeSaCUh6cU6cp8EJ5gP0vjqo25eQsJQmxYsmP
+	 i7hJdnolkk9NcnMUKWI3B6laPesoat/dfAIZWRT9v7gkgwzOqDSWWV3zAEm7byKfzJ
+	 kwea6dZ0nlEaQ==
 From: David Hildenbrand <david@kernel.org>
-To: akpm@linux-foundation.org, david@kernel.org, 
- Yuanhe Shu <xiangzao@linux.alibaba.com>
-Cc: "Huang, Ying" <ying.huang@linux.alibaba.com>, 
- Kaitao Cheng <kaitao.cheng@linux.dev>, "Garg, Shivank" <shivankg@amd.com>, 
- vbabka@kernel.org, ljs@kernel.org, liam@infradead.org, rppt@kernel.org, 
- surenb@google.com, mhocko@suse.com, linmiaohe@huawei.com, 
- nao.horiguchi@gmail.com, ziy@nvidia.com, wangkefeng.wang@huawei.com, 
- tujinjiang@huawei.com, mgorman@techsingularity.net, chengkaitao@kylinos.cn, 
- muchun.song@linux.dev, linux-mm@kvack.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261110112641.1196786-1-xiangzao@linux.alibaba.com>
-References: <20261110112641.1196786-1-xiangzao@linux.alibaba.com>
-Subject: Re: [PATCH v3] mm/highmem: refuse to copy hwpoisoned folios in the
- !copy_mc fallbacks
-Message-Id: <179501377550.5042.12629270943219413525.b4-ty@b4>
-Date: Wed, 18 Nov 2026 15:56:15 +0100
+To: Andrew Morton <akpm@linux-foundation.org>, 
+ David Hildenbrand <david@kernel.org>, 
+ "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Cc: Jan Kara <jack@suse.cz>, Jingyi Sun <1045704958@qq.com>, 
+ "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>, 
+ Matthew Wilcox <willy@infradead.org>, Michal Hocko <mhocko@suse.com>, 
+ Muhammad Usama Anjum <usama.anjum@arm.com>, Peter Xu <peterx@redhat.com>, 
+ Suren Baghdasaryan <surenb@google.com>, Vlastimil Babka <vbabka@kernel.org>, 
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, nvdimm@lists.linux.dev
+In-Reply-To: <20261117-uffd-dax-async-wp-fix-v1-0-c9a30f27f452@kernel.org>
+References: <20261117-uffd-dax-async-wp-fix-v1-0-c9a30f27f452@kernel.org>
+Subject: Re: (subset) [PATCH 0/3] mm/memory: fix handling of PTE markers in
+ insert_page_into_pte_locked()
+Message-Id: <179501378200.5042.13914562022654307180.b4-ty@b4>
+Date: Wed, 18 Nov 2026 15:56:22 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,18 +69,14 @@ Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.16.0
 
-On Tue, 10 Nov 2026 19:26:41 +0800, Yuanhe Shu wrote:
-> The !copy_mc fallbacks of copy_mc_user_highpage() and
-> copy_mc_highpage() return 0 after a plain copy.  With PG_hwpoison
-> set while the data stays readable, there is no fault to recover
-> from: the copy completes, the destination folio carries no poison
-> marker, and the poison is consumed silently.
+On Tue, 17 Nov 2026 17:58:31 +0200, Mike Rapoport (Microsoft) wrote:
+> Jingyi reported that a uffd-wp marker in a DAX mapping causes endless
+> refaults on reads and SIGBUS on writes [1].
 > 
-> Check the source page with is_page_hwpoison() in both fallbacks,
-> before the copy, and return PAGE_SIZE, the not-copied-bytes
-> convention of the real copy_mc paths, so the callers take their
-> existing error paths.  On archs with copy_mc this code does not
-> compile.
+> The root cause is that insert_page_into_pte_locked() treats every PTE that
+> is not none as a present mapping. Besides uffd-wp markers, this also
+> affects guard markers that MADV_GUARD_INSTALL can put into a DAX mapping
+> concurrently with a write fault.
 > 
 > [...]
 
@@ -102,8 +98,8 @@ Note that commit hashes shown below are subject to change due to rebase,
 trailer updates or similar. Further, this is not a guarantee that the
 patches will go upstream. If in doubt, please check the listed branch.
 
-[1/1] mm/highmem: refuse to copy hwpoisoned folios in the !copy_mc fallbacks
-      https://git.kernel.org/mm/core/c/35c0195e
+[3/3] mm/memory: don't upgrade non-present PTEs in insert_page_into_pte_locked()
+      https://git.kernel.org/mm/core/c/3fa9917a
 
 -- 
 Cheers,
