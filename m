@@ -1,112 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.131
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795035823;
-	b=l3GfKcc0naNHTGPB4jgbA35NctI1k8TZH5WIBFVAaVEU2lr3ARl3BGaP3a3/kGS2SlV8
-	 ydcjZzlidO5UFped/EoBr0PSv07rFYRr2fy3Yrblay7NGLpg72de8Plw2tUZnztDpxLJS
-	 VMUB8t9axKFxkKW8CKiYpelXcGjKvzIYUcBZH6WEteLzFL5Eosy4R7L0b5b/X0OfRoKn4
-	 mUF+EBd6aKC8ASkFiHP/oxtYj6Y9YIaYvSYIMreA/JQqpAhoSNruayRvI6WeoMaVQCsFL
-	 qB+xryXYmDYDSKau2IEhM3234TUdtNuyNXgaLtLrLI4Q9gLTdGvLw6orkRcyPfYdqcw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795035823;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:Message-ID:From:To:Cc:Subject:In-Reply-To:References:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=AOYoHqd+TEhq9YYSZd05JTs9KMcPqQTIbqKvDzsDrNA=;
-	b=TcVc58sSf6jW0e4VNrk3FrzqAwq3FzDdlz3LuZZ2Txz8fxAFNG8HieYGOiJZorP+Rcpx
-	 d7fANuuiJIhW1wPQIdRTKVHXCoo7KvJVxYmU1ifkrJnT2eSQkCod728jpMNj2nWDChcah
-	 x1H90rSgd4TMtKC0KOeUuCMix0wYEHaRxKHAsaFhyk7fjM4ukm4bHAocsTuhsjMYrj33z
-	 nxlrYe1cOKmrbRtrG9sF3lUyU/k87xqiifYBj6162aBU85xpsMlISG0XGFILwWavm7OAO
-	 jSGF0fMz0tSLuTrz0tU+jEUVyoON468GPcU/kA1Yq8z9MPhZT5fEUVWGrq38UNgtCRw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Hdv4jdP5;
-	arc=none smtp.remote-ip=74.125.227.131
-Received: from mail-pj2-f3.google.com (mail-pj2-f3.google.com [74.125.227.131])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795035834;
+	b=HBmMUYHeV5D0g4XChD/pNygVFDAriSVHnxZDW3FhD/mBGk4jweSsrMhVcgY1A7uoXU9J
+	 zX1OS8XHSSNhEcraLkHWGdq5CTdJRd+7wc9m5nZlmc+UJmASr00AosGn4BV/0FVVO4VUU
+	 8YEB0y51CJCkEqJF4mST0aXwBTGaaJm1NGJFWABoe7D++gPb/Rzv/py01i3wHEqxN4rpy
+	 cjfY6kUC5qmdf5mJjhr/qiP/SdYyAhL/YdnrG7f3zczhX0egCKUatp1k2RHtYQW1heqwk
+	 cXoZAAt3yvk0uPCiFfMhErmXDdV6bszkDcNJvTyY0yaVqMbbjzGAPdYN/K7iesl53eA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795035834;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=IzsbJHeLt6AX6DClQU1Tp3h6tzemqX+s4gHhI4j9FYs=;
+	b=Cm6xrjV+3sf08BRqVMKb8N2IRr25tO02tbOb0BnrdF7LZ2zCt90kJE0wqyGM8YGixvk6
+	 z6IIqYmR8uwI24L91v4HSmVUeqbJKTKbF6P3xHNH6my5o5enwR82dSchwoNeKGgOIFC7z
+	 G+BJnegyZzo4iBYqBTABnEMRse7JfAe/Q8oS14D1l+kpS6sUgxwTLOv5K1YAi1yccc7mJ
+	 PppV7Ue06q2BSK275lvykDEmy7iStqisgqylUMm3Lqp9uaZwhT+VYlBcLC8/gu26M8B8X
+	 mFWSGmCM0Ps9uBPtSlRxq+55OF2v7aJ42ATqA0FBNIb0ZNhBBJZd8bbntovHXSA7MGw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fTwF4mZ2;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20AFF60A261F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:03:54 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fTwF4mZ2
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795035834;
+	b=TgiaFScJYbX4l67tOy0J5jTUoiHkElwP9NRG7nnVsdIWeIFFDb94ect94+iv7akRBT2O
+	 7FROT/8mle8ttJGH/tMGfZHUfb/6ohx1LYXFFlITr711g9O4HqxtC19PcsfvyzzQ9Efhd
+	 Gb78LR/k9BgzKAO5S09Cn2u91t6kCkR3jNPL4XgrM5nDky+cryKLoK7pf7N6TqeZs5tBl
+	 rsmXkiyAlrH7PrBz+V1FGHTxzweHyLsk/rvXXyXfYA+HuyJMAA/+Uha/awPtZfL1DUN/D
+	 iwBsAvnWImKQQ2pdPBmf2T5IkU4Igi0UgGGwQU37g4afud01X0bhveyMwLnzyIrwMCw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795035834;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=IzsbJHeLt6AX6DClQU1Tp3h6tzemqX+s4gHhI4j9FYs=;
+	b=DWCXpQrw4BtbU2urQJJtVrSdAHxS0MmyDC1FXHyZehbz2cPo/3Ym5xlimlHBlN1qA11v
+	 ghYRjAvKNFlE+WeFH43sUxxRJBxm7lUAhOFfCSGeOzHPTv/TIVHzrn7hVNa5toaz9zhoG
+	 bDnuVZihlthmY+k3aNi2faFNTtvWfR0c5AdDRmDaaPjepTlizvjc1ZQVG/2jF7Fq8KKE+
+	 H9tkMjSOYvX/efYMvfvXVbefK2y2B1Q41i3tBnkmT7rQeiGWAbFh+lihL8ixc9OhpkZU0
+	 GC5h8BRKvR245SifKb6vmoRrC13n8Lp3H21UeukwdI4z93QaPLjEXmkdEMMCWn9Cx7g==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8FAFE606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:03:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8FAFE606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Hdv4jdP5
-Received: by mail-pj2-f3.google.com with SMTP id 98e67ed59e1d1-3adc0ac3566so279166a91.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:03:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795035823; x=1795640623; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:content-type:references
-         :in-reply-to:subject:cc:to:from:message-id:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=AOYoHqd+TEhq9YYSZd05JTs9KMcPqQTIbqKvDzsDrNA=;
-        b=Hdv4jdP5sy08zBfvTne0xomG45Tbd1SP7Lw1QxQiIEaqMHzUWHLKKP1pb5bPGJ18o3
-         Z7cgIX0JOKAMgAGkY8GYD8LG45OOJVsRuBguZwtDwir/MfS/T4RFWjFTWmVabRKHN6/i
-         m9VD9crrDrCVDJLSJ74eFbq+atvvEZ0lDoAiUOyBNqFLDROZRWxOqhOozmcRGUqOnhOH
-         w/1no8qMQitL31Eac27CIrgHXZbkgmAKaNqgZYprs0+nDRr3Obh3WwCugHtc2xm5179u
-         aozEwiHn8TIh+3WD3JiobVeFkGOtW2KqSzVMLbaEQBmANt+nwjFiyLk4JMy+ogR+SGLM
-         Jgtw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795035823; x=1795640623;
-        h=mime-version:content-transfer-encoding:content-type:references
-         :in-reply-to:subject:cc:to:from:message-id:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=AOYoHqd+TEhq9YYSZd05JTs9KMcPqQTIbqKvDzsDrNA=;
-        b=hCM67s6rw7Domx/cfuvIcs1wDJnzGT/NJMRa0icwudwKRZv9Shdr76wrUB6YbKvyP7
-         QA1USHCm8A8hehI5XxijAD/6Zl49GcGQ2fMegCg3+sRgurojklo4j4VBLRYWiDYy3sjU
-         oYu83NQW+Jc+90dJAPMczqnxpVa+QFZ3eg8w497oDid8RGKYA2I2aZgnJ0sRA/7YfkVS
-         hrfNI46PRGrA9mfY37POkZYG7nCC4Th/wdkhsRxLsmNl6vel/yQ47doRxp2Rl1OhpBhb
-         1yE/ohTTmPkf1cCbD6gDDcprvH9qljXt6ne/PJpqMesLiWifaNOVCT+wzwvGxqcdiRE6
-         7Iuw==
-X-Forwarded-Encrypted: i=1; AL+hErFlatAxahqcqiqAuZ6NGiP/cWd7iCJ18P85x8LSYjzR+QWHDpd+eEhqJGnqPQYONKm+jswOEr8fzhA0FS4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8V5gpYyo0jr+eQnbSlsToomGjY7yIqmHMLYxyjtK2KmW1kY407
-	C0w3kDnz9QRmymFBJwuw/L4udhz42zO1wDzoymGLc+jrnLF8eOqxw9tq
-X-Gm-Gg: AZFdTZeI4/vz1YQrLTIgNzOGD/4mcuDIreEcnYe7PBKWVFoYSK8DTEeD3xIHkM+b0te
-	r1WybDs3MUEu7qJumsnc7LaANksEhbXOgljyiIgEhwqjTTIMtOOaUtqW02IrJjh4d2QzuyuFwO3
-	2wRMZJO9rhBtRvtKBRY+5ZmHbLVqkY7vlwT6hH9xaN0ZehvMC9aWil33rZLR4zXCO09tG1IElAS
-	pJeL8v2GQ9Ti+FvVMm2mMTR8F6I1NssPxFWNwQrnNdZrkj9QFhinnVmTek356k2BwDmXpiA8MG0
-	Invnpd/L4474+Ta40ghnlnrRxKWJ0bFYq2ThD4PWZQ27heSRN1PDew5PUwQts04aHmoVXsPO298
-	8XpT5P/q01j1gUThxYo/qzKXuJi7EPeVEwdMMDyP/P5Nw9xo3KQe31IiMHmae6FMc+C9fKSQ/xz
-	SZnv/fzcK8PZL9fHs/ms72pgQHpL4d0bOAMQSrfu/rZY30q2jdQkqWN5vGWwAexLnuU7XxSjoyD
-	k4ydSo8ECbDJsuppOCYdhjksSHtcyBhziYBfhw8FjAa0/bvOZ8ZNnZdMUxUyHbpv7rxY5Ua2wSe
-	IZ8=
-X-Received: by 2002:a17:90b:3c81:b0:3ac:80dc:f419 with SMTP id 98e67ed59e1d1-3b3d07aa355mr3694363a91.25.1795035822845;
-        Wed, 18 Nov 2026 13:03:42 -0800 (PST)
-Received: from localhost ([2403:2c80:6::107b])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3f7066ef3sm865257a91.11.2026.11.18.13.03.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 13:03:42 -0800 (PST)
-Date: Thu, 19 Nov 2026 05:03:36 +0800
-Message-ID: <5167ad548a578a23ed8d5172196b36f0.codykang.hk@gmail.com>
-From: Cody Kang <codykang.hk@gmail.com>
-To: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Yixun Lan <dlan@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>, Haylen Chu <heylenay@4d2.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
- Brian Masney <bmasney@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Yao Zi <me@ziyao.cc>,
- Uwe =?utf-8?q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Guodong Xu <docular.xu@gmail.com>, dri-devel@lists.freedesktop.org,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH v2 08/17] drm/spacemit: add Saturn DPU core types, cmdlist
- and display MMU
-In-Reply-To: <0dc12950-68e7-4c30-9138-23539e676e1a@suse.de>
-References: <20260809-k3-display-v2-0-327d7910bf71@gmail.com>
- <20260809-k3-display-v2-8-327d7910bf71@gmail.com>
- <0dc12950-68e7-4c30-9138-23539e676e1a@suse.de>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	by smtp.kernel.org (Postfix) with ESMTPS id 353EE1F000D1;
+	Wed, 18 Nov 2026 21:03:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795035833;
+	bh=IzsbJHeLt6AX6DClQU1Tp3h6tzemqX+s4gHhI4j9FYs=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=fTwF4mZ2ntiCM6HOgmmENBnhFJG4Ogpk4lkeCNkSqSS6Jpm8UZXsPzLBfaDqSWuKg
+	 jLSshVGFyBF4UpBHrmTOUf39tmQ7SWnqHRlTw1cXrXMaTsuAUMvQugfusd/xg0XF6+
+	 U4+5bsKZkZ4dwC/VMtwK+VbBrLDUGuwXxpeScPgIgv4yQyrBKF6UDz+lu2eAFuZygW
+	 7w1iu2SdoUq+3IxGlF0JT7/Y6kdoAoI4T9HUr2Iod786SbKYmuoLyHhrKfsUEcMcLR
+	 UL+TwgvMwXPLbAf5XctNndKpA9dmJmBk7bWwOtP3okwkBa3N2G1UeoCpgW9ar5utqc
+	 ww4btBDWZc+zw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id CCE944AFA0;
+	Wed, 18 Nov 2026 21:03:43 +0000 (UTC)
+From: Kairui Song via B4 Relay <devnull+kasong.tencent.com@kernel.org>
+Date: Thu, 19 Nov 2026 05:03:39 +0800
+Subject: [PATCH v5 07/17] mm/mglru: make folio lru referenced times count a
+ generic API
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,35 +83,192 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261119-mglru-fg-v5-7-9eee2fe97a2d@tencent.com>
+References: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com>
+In-Reply-To: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com>
+To: linux-mm@kvack.org
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+ Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>, 
+ Qi Zheng <qi.zheng@linux.dev>, Ying Huang <ying.huang@linux.alibaba.com>, 
+ Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>, 
+ Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
+ Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>, 
+ Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
+ Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
+ Barry Song <baohua@kernel.org>, Axel Rasmussen <axelrasmussen@google.com>, 
+ Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, 
+ Vlastimil Babka <vbabka@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+ Nhat Pham <nphamcs@gmail.com>, Youngjun Park <youngjun.park@lge.com>, 
+ Zi Yan <ziy@nvidia.com>, Gregory Price <gourry@gourry.net>, 
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
+ Lance Yang <lance.yang@linux.dev>, Hugh Dickins <hughd@google.com>, 
+ SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>, 
+ Yu Zhao <yuzhao@google.com>, Vernon Yang <vernon2gm@gmail.com>, 
+ Zicheng Wang <wangzicheng@honor.com>, Chen Ridong <chenridong@xiaomi.com>, 
+ Tal Zussman <tz2294@columbia.edu>, Kairui Song <ryncsn@gmail.com>, 
+ Xiang Liu <liuxiang.277@bytedance.com>, 
+ Ehab Ababneh <ehab.ababneh@intel.com>, 
+ Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, 
+ Lian Wang <lianux.mm@gmail.com>, Joanne Koong <joannelkoong@gmail.com>, 
+ Kunwu Chan <kunwu.chan@gmail.com>, Hui Zhu <hui.zhu@linux.dev>, 
+ linux-kernel@vger.kernel.org, cgroups@vger.kernel.org, 
+ damon@lists.linux.dev, linux-doc@vger.kernel.org, 
+ Kairui Song <kasong@tencent.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795035820; l=4693;
+ i=kasong@tencent.com; s=kasong-sign-tencent; h=from:subject:message-id;
+ bh=koGM/cEkqmlw+8OmW+1cKVMTHOPOsjOLqgFFy8X/KuU=;
+ b=zi/6EnbKEEehIkojCaP08SItBx3AmxZ9iynviSfz0axtK8BbU4T2ebhake7ZZUYYYMxUobit/
+ dhlpf518quqDlSdQTWZXqY7Y4QUCWJ5nRk1PPMq8DvUs3x0SaQPIdbl
+X-Developer-Key: i=kasong@tencent.com; a=ed25519;
+ pk=kCdoBuwrYph+KrkJnrr7Sm1pwwhGDdZKcKrqiK8Y1mI=
+X-Endpoint-Received: by B4 Relay for kasong@tencent.com/kasong-sign-tencent
+ with auth_id=562
+X-Original-From: Kairui Song <kasong@tencent.com>
+Reply-To: kasong@tencent.com
+Content-Transfer-Encoding: 7bit
 
-Hi Thomas,
+From: Kairui Song <kasong@tencent.com>
 
-On Mon, 14 Sep 2026 16:10:25 +0200, Thomas Zimmermann wrote:
-> Hi
->
-> Am 09.08.26 um 15:14 schrieb Cody Kang via B4 Relay:
-> > From: Cody Kang <codykang.hk@gmail.com>
-> >
-> > Register programming of the Saturn DPU is batched: the driver builds
-> > per-module register lists in memory and the hardware command-list
-> > engine replays them at frame boundaries, while scanout buffers are
-> > mapped through the DPU's private address translation unit (DMMU)
-> > rather than scanned out by physical address.
->
-> I've looked through the code in patch 10. How does a plane interact with 
-> the hardware? It apparently has its own command list, but there's mostly 
-> code for the CRTC update.
+Pure code shuffle, no behavior change.
 
-Thanks for the review. A plane programs the hardware through a
-command list. Its atomic_update fills the list with the registers of
-the plane's read channel, the driver points the command-list engine
-at it, and the hardware replays it once the driver raises
-config-ready.
+Make the folio LRU refs helpers available regardless of CONFIG_LRU_GEN.
+Without MGLRU the extra bits are never set, so they are inert. Move the
+lru_gen_* helpers into the CONFIG_LRU_GEN section.  This prepares for
+unifying the API for checking folio referenced and workingset status.
 
-In v2 the plane only fills its list; sorting the lists and handing
-them to the engine is done in the CRTC update, which is why most of
-the code is there. v3 will move that into the plane: each plane
-builds and submits its own list in atomic_update, and the CRTC flush
-only submits its own list, for the composer, and raises config-ready.
+folio_migrate_lru_refs() now migrates the complete refs count,
+including PG_workingset (bit 1 of the encoding), bitwise identical to
+the direct copy dropped from folio_migrate_flags().
 
-Cody
+lru_set_refs_flags() skips the nonexistent mask bits when
+LRU_REFS_WIDTH collapses to 0, preserving the two independent flags for
+!CONFIG_LRU_GEN builds.
+
+Tested-by: Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>
+Signed-off-by: Kairui Song <kasong@tencent.com>
+---
+ include/linux/mm_inline.h | 55 ++++++++++++++++++++++++-----------------------
+ mm/migrate.c              |  2 --
+ 2 files changed, 28 insertions(+), 29 deletions(-)
+
+diff --git a/include/linux/mm_inline.h b/include/linux/mm_inline.h
+index f38dad1198fc..180db43c3a85 100644
+--- a/include/linux/mm_inline.h
++++ b/include/linux/mm_inline.h
+@@ -184,6 +184,12 @@ static inline int lru_get_gen_flags(unsigned long flags)
+ 	return gen;
+ }
+ 
++static inline int folio_lru_gen(const struct folio *folio)
++{
++	return lru_get_gen_flags(READ_ONCE(*const_folio_flags(folio, 0)));
++}
++#endif
++
+ /**
+  * lru_set_refs_flags - Set the LRU referenced count to folio flags.
+  * @flags: pointer to the folio flags
+@@ -206,7 +212,8 @@ static inline void lru_set_refs_flags(unsigned long *flags, unsigned int refs)
+ 		*flags |= BIT(PG_referenced);
+ 	if (refs & BIT(1))
+ 		*flags |= BIT(PG_workingset);
+-	*flags |= ((unsigned long)refs >> 2) << LRU_REFS_PGOFF;
++	if (LRU_REFS_WIDTH)
++		*flags |= ((unsigned long)refs >> 2) << LRU_REFS_PGOFF;
+ }
+ 
+ /**
+@@ -252,13 +259,31 @@ static inline void folio_set_lru_refs(struct folio *folio, unsigned int refs)
+ 	} while (!try_cmpxchg(folio_flags(folio, 0), &old_flags, new_flags));
+ }
+ 
++#ifdef CONFIG_LRU_GEN
+ void folio_inc_lru_refs(struct folio *folio, unsigned int flags);
++#else
++static inline void folio_inc_lru_refs(struct folio *folio, unsigned int flags)
++{
++	/* Should not be called with !CONFIG_LRU_GEN */
++	WARN_ON_ONCE(1);
++}
++#endif
+ 
+-static inline int folio_lru_gen(const struct folio *folio)
++/**
++ * folio_migrate_lru_refs - copy the reference state to a new folio
++ * @new: the destination folio
++ * @old: the source folio
++ *
++ * Transfer the reference state to @new during migration: the MGLRU
++ * refs count, or PG_referenced and PG_workingset (bits 0-1 of the
++ * encoding) for the active/inactive LRU.
++ */
++static inline void folio_migrate_lru_refs(struct folio *new, const struct folio *old)
+ {
+-	return lru_get_gen_flags(READ_ONCE(*const_folio_flags(folio, 0)));
++	folio_set_lru_refs(new, folio_lru_refs(old));
+ }
+ 
++#ifdef CONFIG_LRU_GEN
+ static inline bool lru_gen_is_old(struct lruvec *lruvec, int type, int gen)
+ {
+ 	unsigned long min_seq = READ_ONCE(lruvec->lrugen.min_seq[type]);
+@@ -424,20 +449,6 @@ static inline bool lru_gen_del_folio(struct lruvec *lruvec, struct folio *folio,
+ 
+ 	return true;
+ }
+-
+-/**
+- * folio_migrate_lru_refs - copy the reference state to a new folio
+- * @new: the destination folio
+- * @old: the source folio
+- *
+- * Transfer the reference state to @new during migration: the MGLRU
+- * refs count, including PG_referenced, or just PG_referenced for the
+- * active/inactive LRU.
+- */
+-static inline void folio_migrate_lru_refs(struct folio *new, const struct folio *old)
+-{
+-	folio_set_lru_refs(new, folio_lru_refs(old));
+-}
+ #else /* !CONFIG_LRU_GEN */
+ 
+ static inline bool lru_gen_enabled(void)
+@@ -470,16 +481,6 @@ static inline bool lru_gen_del_folio(struct lruvec *lruvec, struct folio *folio,
+ {
+ 	return false;
+ }
+-
+-static inline void folio_inc_lru_refs(struct folio *folio, unsigned int flags)
+-{
+-}
+-
+-static inline void folio_migrate_lru_refs(struct folio *new, const struct folio *old)
+-{
+-	if (folio_test_referenced(old))
+-		folio_set_referenced(new);
+-}
+ #endif /* CONFIG_LRU_GEN */
+ 
+ static __always_inline
+diff --git a/mm/migrate.c b/mm/migrate.c
+index 28a8d7734735..c8c49357df87 100644
+--- a/mm/migrate.c
++++ b/mm/migrate.c
+@@ -796,8 +796,6 @@ void folio_migrate_flags(struct folio *newfolio, struct folio *folio)
+ 		folio_set_active(newfolio);
+ 	} else if (folio_test_clear_unevictable(folio))
+ 		folio_set_unevictable(newfolio);
+-	if (folio_test_workingset(folio))
+-		folio_set_workingset(newfolio);
+ 	if (folio_test_checked(folio))
+ 		folio_set_checked(newfolio);
+ 	/*
+
+-- 
+2.56.1
+
+
