@@ -1,109 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795011522;
-	b=ZCoS40IABcv2UtJx+u9rXx6onptp9cqcHAxgGTCsvldDM55I0GVvbJ4jXofAr20L7csG
-	 FAaMbv1n8yQlpfu9A9Dtd6jYoD1besbdtAx3ktQeDutXUh3//D49ggxLBASix/oI0CQFg
-	 jjaVjMjHdMwdNY3XUYrD5RlznD6jpH5XRKIge5psYaV30k/6aLORzNE8SHEX36kUVwAat
-	 gHgBBd5vP4ViUuJhTbeWLX9WuQKvEwTH+Q1IjllyvHz0y6P8ehk596mzhnt3y/dcFJ9YJ
-	 pg4xTcz0hkj5TH10MLJwuLILvLXDzBkIa0bvfC0GCtaZRpTOEtPvMbKcd49wLQ3DC6Q==
+	t=1795011538;
+	b=WLGGr+YUX4Qlc62rPoGWhJYzieTjHyF1XowkFnF/Uob5eQL8jCjL8J1weyPjizL+SXII
+	 aPbq+9/Sa86l9FjLOjXzycVozbHrzr0DBo0bAYMwGtwIThW6Mpqvhn7H15i0JblCsc42x
+	 vzKGFw1pCWOjaobptn+kszs1X7yAg7E6kIdsBlj45L7sQd2fqXd/DCsY0DYaFifYacAoL
+	 XJKZTtdWktqzMm8AfL0fwR5pp7BzIaWP181K3R2vOJ/+cnk8WTAiEGKvFNxzhtqofnmn3
+	 tij/CM5SQf+/Xmvu/gbvDZ3Nwf51NecOR7ydnsUhujDjGMVEtldWU7gllbTGatfrCYw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795011522;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Spamd-Result:X-Spam-Score:X-Spam-Level:X-Spam-Flag;
-	bh=QROhWMzlykaiuQCCkL24rkKkdLiuZjzK5ETs2yxqYKU=;
-	b=3xA5kgaJY+coKIJ4HwWHme5ankGqFRuWLMv+bcLXNUeNQz/YCogvGPhmuPqGnKa990hZ
-	 zW313AoOrNrK7z7ywT2zIq1aE4NgYPsi8sFda1zwJ6rW30aDbpB9/WfWCs0sAKC0AuyEl
-	 AA2Hhr8xQ1zZHeoCnqikzYNNIUAxOfvXe6D9vySyaHKsnRBW/ZQIIvHm3yrLcrpopEvN9
-	 ymgrNB1NqVywiFRGOh8P6qoaFbH+XyeVrT1hgQvlrbjtr4IidvzS/btNuuk7m9hMRZarE
-	 Uo3x2/SDHNvpyhu9bkxXwBzNLIDUzHdpJckDWXTaGTh/ch328iy8cqlR+zQzGOWsZYQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795011538;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=yspg3RYK6hfplwr2guwVtoc91Gns2znX/lR8zgZBFVs=;
+	b=0KEfnfioFbGpLVAN14/sD0dAhvtwq2A9H4nH4wA00m/ehwk2BrzJP1bOFDExDAsQTUUw
+	 jHaRchFhSkulKaOpgQkJVBanAH07kUYwdIzdBrWBqh1B6OQvS+BeinqjB/WPVZ7kW4+1c
+	 VVLow2t+jCSdZrnqCFnMGkQ8zAHWI6fUyrexAwvSyzKhvKwt/qt6NPhXGK5n6vqL/l0ZA
+	 AZ+RLMOIRn8t3EM9OII/WAlAanb4l42llhKHXasnsaNdItA5fv7TWrxO26I4fWXs4DtZN
+	 2JSuuIeYrAPGf4lC1lmFQkt9ZCKaVY9F2KSFDIbaw0y1WmO5SWJdGSjsbNefoaVxVPA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=suse.cz;
-	spf=pass smtp.mailfrom=suse.cz;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=zg13HXJ7;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b="Fpa0wb/f";
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=zg13HXJ7;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b="Fpa0wb/f";
-	arc=none smtp.remote-ip=195.135.223.131
-Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TjsgJxsb;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FC3E60A2625;
-	Wed, 18 Nov 2026 14:18:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0FC3E60A2625
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F12AD60A2609;
+	Wed, 18 Nov 2026 14:18:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=zg13HXJ7;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Fpa0wb/f;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=zg13HXJ7;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Fpa0wb/f
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 205E21F84D;
-	Wed, 18 Nov 2026 14:18:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795011520; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QROhWMzlykaiuQCCkL24rkKkdLiuZjzK5ETs2yxqYKU=;
-	b=zg13HXJ7jADMk9z96y3DFcZUTy4nGww5LqNwNIiCSt3PTrE0N6Acu3cfLQC8/NzMM9igWG
-	8v5Lduem7Cs/h39vCCC1VIECisZ0C+yvn7GYjxMtJA/Hl+pyZYj8XPsiCQesDaEzw06Bdo
-	CIVE5yjbTHe74Cy6n7w6PfDLTt9WZIk=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795011520;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QROhWMzlykaiuQCCkL24rkKkdLiuZjzK5ETs2yxqYKU=;
-	b=Fpa0wb/fgifXMmUiAWnLIzlXbBJ4JiQt8gNzvUjX8JRk6HzkegUUz9XBVMS2oHDD4iOOSk
-	G2E6P6+1/1ozyBDA==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795011520; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QROhWMzlykaiuQCCkL24rkKkdLiuZjzK5ETs2yxqYKU=;
-	b=zg13HXJ7jADMk9z96y3DFcZUTy4nGww5LqNwNIiCSt3PTrE0N6Acu3cfLQC8/NzMM9igWG
-	8v5Lduem7Cs/h39vCCC1VIECisZ0C+yvn7GYjxMtJA/Hl+pyZYj8XPsiCQesDaEzw06Bdo
-	CIVE5yjbTHe74Cy6n7w6PfDLTt9WZIk=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795011520;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QROhWMzlykaiuQCCkL24rkKkdLiuZjzK5ETs2yxqYKU=;
-	b=Fpa0wb/fgifXMmUiAWnLIzlXbBJ4JiQt8gNzvUjX8JRk6HzkegUUz9XBVMS2oHDD4iOOSk
-	G2E6P6+1/1ozyBDA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id EB619134E9;
-	Wed, 18 Nov 2026 14:18:39 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id fsyLMb+z/Wq5MwAAD6G6ig
-	(envelope-from <jack@suse.cz>); Wed, 18 Nov 2026 14:18:39 +0000
-Received: by quack.suse.cz (Postfix, from userid 1000)
-	id 6F82F25077; Wed, 18 Nov 2026 15:18:35 +0100 (CET)
-Date: Wed, 18 Nov 2026 15:18:35 +0100
-From: Jan Kara <jack@suse.cz>
-To: Ding Feng <dingf3ng@gmail.com>
-Cc: viro@zeniv.linux.org.uk, brauner@kernel.org, jack@suse.cz, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, dlemoal@kernel.org, 
-	naohiro.aota@wdc.com, jth@kernel.org, Jun-ichi Takimoto <takimoto-j@kba.biglobe.ne.jp>, 
-	stable@vger.kernel.org
-Subject: Re: [PATCH 1/2] fs: ignore RLIMIT_FSIZE above LLONG_MAX in
- generic_write_check_limits()
-Message-ID: <hwwtflqzbga65oxvo7bw44xuhpbqseyfww62kyzko5az4gdnxy@4wxsl465nvp5>
-References: <20261117173129.61028-1-dingf3ng@gmail.com>
- <20261117173129.61028-2-dingf3ng@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TjsgJxsb
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 896811F000C4;
+	Wed, 18 Nov 2026 14:18:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795011537;
+	bh=yspg3RYK6hfplwr2guwVtoc91Gns2znX/lR8zgZBFVs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=TjsgJxsb3omgZC7Y7BqVmG9Ex9ZO4k8c2B1tbSP/96Q0m5xKS+UvBbENGt+SaQib9
+	 9kUbL0e5wLlwJegMYSiSzUPGcows/z3EtystFW8tMA2Izw5ThIzP4oA+E73pK54zhD
+	 pTjJ+HJCkJg8pdSfKAp7mW9qElOyGSzrm+b7bTUN9wUnOrH1Au3oUxHBI9P838qb45
+	 bI41cCj3uoYB0day2lARxxnN8bF0wjB7hlN2wnAaMTIl/RtvRJOlAPdAaNrImCwE8E
+	 Q6CIIgWSCViQL/WRgnaNuQGPB7lDcH8fnD257mcfFw3w4bbDXMb7IlMJIvIb3gKmHF
+	 Jk6E5jDwzWb4A==
+Date: Wed, 18 Nov 2026 16:18:45 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Muchun Song <songmuchun@bytedance.com>
+Cc: Alexander Potapenko <glider@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marco Elver <elver@google.com>, Dmitry Vyukov <dvyukov@google.com>,
+	Chris Down <chris@chrisdown.name>,
+	David Hildenbrand <david@kernel.org>,
+	"Liam R . Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Brendan Jackman <brendan.jackman@linux.dev>,
+	Zi Yan <ziy@nvidia.com>, Muchun Song <muchun.song@linux.dev>,
+	Joerg Roedel <joerg.roedel@amd.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Pranjal Shrivastava <praan@google.com>,
+	Ketan <ketan.kishore@oss.qualcomm.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Sang-Heon Jeon <ekffu200098@gmail.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Sashiko <sashiko-bot@kernel.org>, kasan-dev@googlegroups.com,
+	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org
+Subject: Re: [PATCH v2 4/7] mm/page_ext: use common allocation and
+ initialization entry points
+Message-ID: <av2zxfDZI-ECPByB@kernel.org>
+References: <20261117120627.50601-1-songmuchun@bytedance.com>
+ <20261117120627.50601-5-songmuchun@bytedance.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,117 +82,41 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261117173129.61028-2-dingf3ng@gmail.com>
-X-Spamd-Result: default: False [-12.80 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	MISSING_XM_UA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	FREEMAIL_TO(0.00)[gmail.com];
-	RCVD_COUNT_THREE(0.00)[3];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCPT_COUNT_SEVEN(0.00)[11];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	RCVD_TLS_LAST(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.com:email,suse.cz:email]
-X-Spam-Score: -12.80
-X-Spam-Level: 
-X-Spam-Flag: NO
+In-Reply-To: <20261117120627.50601-5-songmuchun@bytedance.com>
 
-On Wed 18-11-26 01:31:28, Ding Feng wrote:
-> generic_write_check_limits() stores rlimit(RLIMIT_FSIZE), an unsigned
-> long, in a loff_t. A soft limit between 2^63 and RLIM_INFINITY becomes
-> negative there, so "pos >= limit" holds for every position: each write
-> through generic_write_checks() or copy_file_range() fails with -EFBIG
-> and raises SIGXFSZ, although no file position can reach such a limit.
+On Tue, Nov 17, 2026 at 08:06:24PM +0800, Muchun Song wrote:
+> FLATMEM uses separate page_ext_init_flatmem() and
+> page_ext_init_flatmem_late() entry points, while SPARSEMEM performs its
+> work through page_ext_init().  This exposes the memory model in the
+> generic boot sequence and obscures the allocation and client
+> initialization phases.
 > 
-> Reproducer (bash counts ulimit -f in 1024-byte blocks, so 2^53 blocks
-> is 2^63 bytes):
+> Rename the early entry point to page_ext_alloc() and use
+> page_ext_init() for client callbacks in both memory models.  SPARSEMEM
+> keeps its existing late allocation behavior for now; its
+> page_ext_alloc() remains an empty configuration stub.
 > 
->   $ bash -c 'ulimit -f 9007199254740991; echo hi > /tmp/f'; echo $?
->   0
->   $ bash -c 'ulimit -f 9007199254740992; echo hi > /tmp/f'; echo $?
->   File size limit exceeded
->   153
+> This also moves FLATMEM client callbacks from immediately after
+> kmem_cache_init() to after vmalloc_init().  The callbacks still run
+> after the buddy and slab allocators are available, as required by
+> page_owner.
 > 
-> Before commit 9fd91a90cb98 ("vfs: strengthen checking of file range
-> inputs to generic_remap_checks") the limit was an unsigned long in
-> generic_write_checks(), and such limits had no effect.
-> 
-> Keep the limit unsigned and apply it only when it is at most LLONG_MAX.
-> Smaller limits keep the existing loff_t arithmetic, so their behaviour,
-> including for negative positions, is unchanged.
-> 
-> Fixes: 9fd91a90cb98 ("vfs: strengthen checking of file range inputs to generic_remap_checks")
-> Reported-by: Jun-ichi Takimoto <takimoto-j@kba.biglobe.ne.jp>
-> Closes: https://lore.kernel.org/linux-fsdevel/8F9EB913-3AC3-4D89-9DA3-427029F6D211@kba.biglobe.ne.jp/
-> Cc: stable@vger.kernel.org
-> Assisted-by: Claude:claude-opus-5-5 Frama-C
-> Signed-off-by: Ding Feng <dingf3ng@gmail.com>
+> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
 
-Looks sane. Feel free to add:
-
-Reviewed-by: Jan Kara <jack@suse.cz>
-
-								Honza
+Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 
 > ---
-> 
-> Notes:
->     Tested on v6.12 (arm64 tinyconfig, QEMU virt, initramfs on ramfs) with
->     a static test program that sets the soft RLIMIT_FSIZE, writes 2 bytes
->     and copies 10 bytes with copy_file_range():
->     
->       soft limit            unpatched           patched
->       1024, 2^63-1          ok                  ok
->       2^63, 2^63+4096,
->       2^64-2                EFBIG (both)        ok (both)
->       1                     short write, then EFBIG (both kernels)
->     
->     Also reproduced on 6.10.14 (arm64) with write(), pwrite() and
->     copy_file_range() on tmpfs and overlayfs. Compile-tested for x86_64
->     defconfig with clang; not run on x86_64.
-> 
->  fs/read_write.c | 9 +++++----
->  1 file changed, 5 insertions(+), 4 deletions(-)
-> 
-> diff --git a/fs/read_write.c b/fs/read_write.c
-> index b15522c..18a217d 100644
-> --- a/fs/read_write.c
-> +++ b/fs/read_write.c
-> @@ -1693,14 +1693,15 @@ int generic_write_check_limits(struct file *file, loff_t pos, loff_t *count)
->  {
->  	struct inode *inode = file->f_mapping->host;
->  	loff_t max_size = inode->i_sb->s_maxbytes;
-> -	loff_t limit = rlimit(RLIMIT_FSIZE);
-> +	unsigned long limit = rlimit(RLIMIT_FSIZE);
->  
-> -	if (limit != RLIM_INFINITY) {
-> -		if (pos >= limit) {
-> +	/* No file position reaches a limit above LLONG_MAX. */
-> +	if (limit != RLIM_INFINITY && limit <= LLONG_MAX) {
-> +		if (pos >= (loff_t)limit) {
->  			send_sig(SIGXFSZ, current, 0);
->  			return -EFBIG;
->  		}
-> -		*count = min(*count, limit - pos);
-> +		*count = min(*count, (loff_t)limit - pos);
->  	}
->  
->  	if (!(file->f_flags & O_LARGEFILE))
-> -- 
-> 2.55.0
-> 
+> v2:
+> - Split the common allocation and initialization entry points into a
+>   preparatory patch
+> - Document the later FLATMEM client callback timing (noted by Chris
+>   Down)
+> ---
+>  include/linux/page_ext.h | 20 +++++---------------
+>  mm/mm_init.c             |  7 +------
+>  mm/page_ext.c            |  5 ++---
+>  3 files changed, 8 insertions(+), 24 deletions(-)
+
 -- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
+Sincerely yours,
+Mike.
