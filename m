@@ -1,106 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.44.128
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794966280;
-	b=oRn8UHGvI7MhNwiHJcwpL0PiMyhy9EnGPMdgxIsiPRsvdIezddg4gvIsgrugAvVmvjV4
-	 ArWCKPFKFaz4n6gqq4MFK0RHIHHFLXe1oDwPMNRpMakHbv0nzeV8ebZ2fPwi/gTNeYOhm
-	 22dc/jsJin0j/tyOsJwxz9m9Z9KMSVwZPi18fZxkTxF/8Ugb8IgOkyK6ksPypT8N7il9w
-	 Da10l1Evc5bZ1+tYw+B+accUQfX7EKF9U1OkFPjB6oiMC5MR6YLQ845Gqqi/h0LV7ciSv
-	 vzuheR6VNRTok6lRk+s22ALsMb3vnpccgHDJn3AJU4jjtOUQcmjsMfGStCvTVmExPVw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794966280;
-	h=DMARC-Filter:Received:Received:X-MS-Exchange-Authentication-Results:
-	 Received-SPF:Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:Content-Type:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=IK47gmLXjQYtR3QPjuBqimLTbqJ+3Tf6AL6xgIEzRt0=;
-	b=jFc7NBv4OozGVv25muIbWK12mP80pwWrb7Bx1/Pr8BLUh5ztng3UxW5X6PG5jW3lgfA6
-	 oGKBC9iwd9imzqp52jwhzhUqVRKE0mA554/0bAcvssgr1bBP7e8eZEoqfTd5gUH9dEKcM
-	 4YsieMeCUcPhKCdH0TNkvvNd+2y/WZCkIT81u2WVhIftUIRQyNYwVw1irCVFHqbg8G1La
-	 1sGkNYjd/VB8VnddvIdrrCDBSAo1c2/VwcFXydGYn1mxTPW3Ll4K1IuM3ZYyiaNn5Cwmo
-	 15oAKix2c4OT1U6ANmLopiPr3Bt9BS0ud/MKEYpWej6hF8mX1mP2URDPXb44XpyhnTw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=cixtech.com;
-	spf=pass smtp.mailfrom=cixtech.com;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.44.128
-Received: from SEYPR02CU001.outbound.protection.outlook.com (mail-koreacentralazon11023128.outbound.protection.outlook.com [40.107.44.128])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794966301;
+	b=xQItsXZ/aDY64KA43qmGkTYMhiU25R3GVZy7YtGY71rlbpSTNi8Q7XFFfz7NmGPw0m6T
+	 TKSVVTRyAzqG+ZKhNNvErkoKXKNLtdOkSiJqpNgOOFE8VCHNSBcabk54iFFJLdC+Sj0Yu
+	 J1bimzt2CDCQoG8bqR/VlvpNzSrSmDvkJW1fPJa0FZ+l93AgF937Lzv/IdGlB7sDJyE1e
+	 sJ2u6JDrEexhznCDya7o+ELZAEW6OoNb59RkdBjUdK0cyBY0e5J273bOhTqhk0EFdRYgQ
+	 XSxfhe7PXc5MOQQVMhBkT4ByCaGyRGR0ioTgoqbczQZajBXjhV1tnjbKqkN3O2fmOhA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794966301;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-TM-AS-GCONF:X-Proofpoint-Reinject:
+	 X-Authority-Analysis:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=uPj2X8KhO1OscrKtkgCKzVwK3Pjz1SVL5I8ga2MSWvk=;
+	b=xbUwXQJQXJ3x0fzYaq+sCjskKs0R5DcHSdhQ1OR889UBlbe6uhDlGGcGC8InyCx4lfmZ
+	 LkKN/zHWa9OZnJXKbHOI/jniLhyliqtx/LLX37w7cPfvqkeMR/Gzge2Hprl0dfWTwdKma
+	 wI/sjRMf0p4qRC7S7T8zOExcw+b0BO8TzDdlPUt4HRNSVarM53kw0V+DCTwUk6qJf7Daa
+	 Jwu0veMhv8JQZ7wyCXg40HhyssErale5aSOdLvoDzC+5zoTUgI74u6pCT4WlU33dvW61b
+	 cwLcNzfDVrrzUykbNxw7TCKC8+ZzdIaV1pQ6AePjJ64vKk5fe+N7mCGuERH6/T+ZSFw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=DXYexYPX;
+	arc=none smtp.remote-ip=148.163.156.1
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF374606A31C;
-	Wed, 18 Nov 2026 01:44:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF374606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=cixtech.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cixtech.com
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xXzgN6Gd2ECq7NND9/rV8DX2iX/M21NqgNkLu3EY+0l+Ws6lpBgqD3AHgSoFyU/NvqBjdzVais4jdOOUVE64W8YD2ZdDYGSHd80WwJroEHvZabNIJF3PHuXNK6PCZsDCDY87AqoNfh8ddIj6eRWNI2qZ4BHKsp/sZGK4WIvigqfK5tQhh0giKoRAsyDh++BNN0k6a9jMBsIPa9EITNoZAWcVJAP/h+GWzIsEzLZ6BLwFX1Mp9P0Hoh2nsDCCrwq0Ir41RumLj7NE4Hqx8LkYUTZnuFXHvyQeFow/1aKOjLgrAOtHZGWM4lolA5Cs2J3wZPXZHvdvEPCPwyuNy1Ahpg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IK47gmLXjQYtR3QPjuBqimLTbqJ+3Tf6AL6xgIEzRt0=;
- b=xRBy2LYSQdTPYBkXQ5pdk7JX02zAogOhfm8l/TpdwXH6KYXfWCVZbyYdXXOApEMF7nScLEZQozw9PZqg+0IHQoQYbTG/NHPBgOJM3pvg6bZWzs52qhUOn0B92oSe9auXUbdECyJ4/S1Aumzlb28gLHAZJNDYU2D8NKM8RmsMpMYb5f4b2kK5RLjU0HCiVMm8A21LNOwYa6Pf6r6ZLyZtWp6e606z31r8Nz3dpFyfnSBuncnh0U+t/iHaa2MucVwZ3zDdgpI1k/QAyesICr8avOn30h1ofsJBXrYXybCN80mFs9ok/9Cu6mEuRimSP2lX5+2ZxJwAyUKZA30eBTJPBA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=cadence.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from TY4P286CA0107.JPNP286.PROD.OUTLOOK.COM (2603:1096:405:380::7)
- by TY0PR06MB5458.apcprd06.prod.outlook.com (2603:1096:400:329::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.8; Wed, 18 Nov
- 2026 01:44:34 +0000
-Received: from TY2PEPF0000AB83.apcprd03.prod.outlook.com
- (2603:1096:405:380:cafe::ad) by TY4P286CA0107.outlook.office365.com
- (2603:1096:405:380::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.14 via Frontend Transport; Wed,
- 18 Nov 2026 01:44:34 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- TY2PEPF0000AB83.mail.protection.outlook.com (10.167.253.4) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Wed, 18 Nov 2026 01:44:33 +0000
-Received: from hongliang-System-Product-Name (unknown [172.20.64.180])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id AF7D5427EFC6;
-	Wed, 18 Nov 2026 09:44:31 +0800 (CST)
-From: Hongliang Yang <hongliang.yang@cixtech.com>
-To: linux-usb@vger.kernel.org
-Cc: gregkh@linuxfoundation.org,
-	peter.chen@kernel.org,
-	pawell@cadence.com,
-	rogerq@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	p.zabel@pengutronix.de,
-	Gary.Yang@cixtech.com,
-	fugang.duan@cixtech.com,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	cix-kernel-upstream@cixtech.com,
-	Hongliang Yang <hongliang.yang@cixtech.com>
-Subject: Re: [PATCH v9 2/2] usb: cdns3: Add CIX Sky1 glue driver
-Date: Wed, 18 Nov 2026 09:44:31 +0800
-Message-ID: <20261118014431.3405198-1-hongliang.yang@cixtech.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <sashiko-outbox-218132@kernel.org>
-References: <20261117021705.2202892-1-hongliang.yang@cixtech.com> <20261117021705.2202892-3-hongliang.yang@cixtech.com> <sashiko-outbox-218132@kernel.org>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8513B606A32A;
+	Wed, 18 Nov 2026 01:45:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8513B606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=DXYexYPX
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AHMvD3g3642039;
+	Wed, 18 Nov 2026 01:44:44 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=uPj2X8
+	KhO1OscrKtkgCKzVwK3Pjz1SVL5I8ga2MSWvk=; b=DXYexYPXuS9F/DZPPZ03aB
+	aYieMQWdFBVQevusWuRVxc2xjMIYmtMJ3OmZkmxKkZvc3R+f2XijRdmmCaiBNVvT
+	8HzLkjcwxKC7in8n6O+Nskn513q8P0lPkrWuEkvJKzT1F8Vj2A8AJMwRx/0a4Tiy
+	e+JO0lI3y8bF91hW/4IAo7VT+qcxyWOr4CjleK+A3eXVZ3p1nbC3oLletsRnzx9p
+	LqHYYZjALdrWYGxnxYfKRwWZPEsv5ZNl6h5poXKqZz1kXjyQ99lwosVXBnxQ9rLo
+	r9L3JES/QFzvVdHz5nQChFdzCBx1amKOMxwTpjTuER53ogrkVdfev9N/kVsbtkGg
+	==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105t0d6k-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 18 Nov 2026 01:44:43 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AHMo0dC030822;
+	Wed, 18 Nov 2026 01:44:43 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j067ne2jy-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 18 Nov 2026 01:44:43 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AI1idQ329032828
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 18 Nov 2026 01:44:39 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 466212004B;
+	Wed, 18 Nov 2026 01:44:39 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 8B17E20040;
+	Wed, 18 Nov 2026 01:44:34 +0000 (GMT)
+Received: from Linuxdev.ibmuc.com (unknown [9.43.63.250])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 18 Nov 2026 01:44:34 +0000 (GMT)
+From: Madhavan Srinivasan <maddy@linux.ibm.com>
+To: linuxppc-dev@lists.ozlabs.org, Amit Machhiwal <amachhiw@linux.ibm.com>
+Cc: Nicholas Piggin <npiggin@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
+        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+        "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+        Shrikanth Hegde <sshegde@linux.ibm.com>,
+        Alexander Graf <agraf@suse.de>, Avi Kivity <avi@redhat.com>,
+        kvm-ppc@vger.kernel.org, kvm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, Gautam Menghani <gautam@linux.ibm.com>,
+        Harsh Prateek Bora <harshpb@linux.ibm.com>,
+        R Nageswara Sastry <rnsastry@linux.ibm.com>,
+        linux-hardening@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] KVM: PPC: Book3S HV: Disable preemption around host-side HPT lock users
+Date: Wed, 18 Nov 2026 07:14:33 +0530
+Message-ID: <179496619897.633156.6514109970527173646.b4-ty@linux.ibm.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261014185215.71832-1-amachhiw@linux.ibm.com>
+References: <20261014185215.71832-1-amachhiw@linux.ibm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,64 +101,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB83:EE_|TY0PR06MB5458:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 6a1fac70-3cca-4e3f-4e47-08df45157eed
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|36860700016|23010399003|82310400026|1800799024|376014|7416014|261028144727099003|261026140227099003|261026121527099003|4143699003|261022105027099003|56012099006|10067099003|18002099003|261009223027099003|22082099003;
-X-Microsoft-Antispam-Message-Info:
-	Z5lZR5EGuU+HLUYA9YGptiqYGHkwLmWPGrKZz85GC85q0H3pG5mcRyNCzxO7VIhMMtl3EbH2Weru88fCTh2O3JLewBLynhTbfwfvczArqpV82IRzpGUYSgz3iAzuI3S0M+DzAmBmJGr7GauDPturNBO+4BJMGwhI3aFHZSNtZbn1LLEVuXopxpfmE+ZNfXQsgZEUWuVV0JT0lCkPEoln0arvxzcKIRnY6q8UpE/nFnWhhA0pwFdk1Td4AV3rO9iewpXU37dcJ6vJ18aHCCyeSNCxpu4RnOQ3sAzTP8D1CMKO+svZ39es528OWYTGH7/X/GAWOwB2EnK5Bz5wJd+95hMdyzyWxuHrR/qyskukh6usRlCZiRCAtuElnkrZLLckQNgHSTx5pDRcCoEhl/L2KbwadtLHmjeir9wF35gcDYxcTL3X+yPxG2bAecjYKzX1wMTB9TQit8LIUGQRxnMtn9dg1oxyOR3sJiUi/8EJs/RK1XiyQ1SIQCr5eF3Hqd5BRSdsEceOFfasql2UDcKmVPCvEQQlCoGwLpBMuabC5XsGe4D/DMC69mHoue3XkBRALV2oc3NadTFtmsB1p904WX9dMExZnHRO1SnWDaApmFEFK0EOnGclm93O4msdPHBCqw4IJ/TI0JfWggLf2HnVC91KgMB2eayGRmNhAozz2ikpYL0zWtFzrFAiOsoDkyffTbJRvz2CDOri0ZiFdPSxBA==
-X-Forefront-Antispam-Report:
-	CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(82310400026)(1800799024)(376014)(7416014)(261028144727099003)(261026140227099003)(261026121527099003)(4143699003)(261022105027099003)(56012099006)(10067099003)(18002099003)(261009223027099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	A89+EZXZcYUTuBccOXOiDzLNA1NEuyES7LhpatZUPA21PVkWGX0sGPTsPfiSMA/QJxbWyfzw+RXEpgopQrZ8EhdmfThEgLo5Iedvn1PDjVCYRQwrSVRLy7DtIzU4MGeb8v7wmyZN8GYYWysrQarJOWfkMbB2SfdyHEY5L/fTt6W2v0rg1EgZlRRfg6E8G3ezQ9/JIPgdxyk3J4I06/T8AADMiuq1n/16j74GTDyucYW9spz3PKaMJokC4SRqUqtLMx9QmseugQz1F2CjQqi0D1LlG84wtpt08nrWj2DaLdeKhKgPO2g/gOsLDD0HDbj0imKlHfX6rRtKOifh5BxNqqBsz6w79v+zrhESAQ9nVZxKQjWNH0U0TW505yGPsQj45qGzXErxQa2kbdAsLGybp/b1nHx8VlNzduVV0uHc17zPRwxK25jCd75USNE5RLq2
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 01:44:33.3547
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6a1fac70-3cca-4e3f-4e47-08df45157eed
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	TY2PEPF0000AB83.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR06MB5458
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=IouL47/g c=1 sm=1 tr=0 ts=6afd030c cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VwQbUJbxAAAA:8
+ a=qyQGTUAR5DSMwchT5_QA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: a3dRU6Gzo3Ru-U3igaaGOBCUqlvQ5g3O
+X-Proofpoint-GUID: JjmVVTr0acEnABj2T5hmRDHE_ZUOdW9n
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAwNSBTYWx0ZWRfX9+yNv2YB5W7H
+ MxM/zGFNI/qx/4NzsMRuxO2qlwYqSUfoT7vr4Eqzpb55pShQEjmsSDwpNzSuxTWmMv5tg4EWP7g
+ BltX7lvCLcM2KgUIbvjhBWVvjPpC5RuN0oQvhqXz7DK9mzJW4mjrqPRX5G8ZCC50BWORrCHTdG+
+ 8JbzuJonsEFW/bgrI/JhYJmLk2X2JSRJw68d/+o/JG9/2iDJsZg2C+hrRtSHnd8w/Tcn9/rXfQv
+ MP03hJk0PWVbR/NOJVFsAdSUMbJuUvAqjpIjDKOuyw54lOIiapRIfgfsYvCMJZ1/dJDefbHcv+A
+ //AuDRRYv6xCJPbRw2edi5upIUt5uPgbC162T1yBVA5eXzxZYPHWsrGLgaEGMyAXqP07XyaoA5O
+ eVj0oE9+CJxc8Gx5A6uE8cTigsRGNbZwkbfbeSTRrUfyowdmp2d7o58lNGNZRJcLSxVgq0k+lJm
+ VJgCXXQ6BF3SQhz3ySw==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAwNSBTYWx0ZWRfX+yJuBQ4n8Ggx
+ l+aYmtizKtNfyz67Nj5BwkiZ8h/ct5L+EMxYDM0qsv6WVYsOlkU7hLa5CZ8NHTqQ83EYcqZw7rN
+ Lw5kHXQoycTVTE69a1Jb/TlcL+pG6OA=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-17_05,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 spamscore=0 adultscore=0 priorityscore=1501
+ lowpriorityscore=0 suspectscore=0 phishscore=0 clxscore=1015 malwarescore=0
+ bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611180005
 
-Both halves are real.
+On Thu, 15 Oct 2026 00:22:15 +0530, Amit Machhiwal wrote:
+> A previous change ("KVM: PPC: Book3S HV: Add preempt_disable() around
+> virtual-mode HPTE bit-lock users") at [1] added preempt_disable() around
+> guest vCPU HPT hcalls and page fault handlers executed in virtual mode.
+> This ensures vCPU threads cannot be preempted while holding
+> HPTE_V_HVLOCK or the reverse-map lock.
+> 
+> However, several host-side virtual-mode paths in book3s_64_mmu_hv.c also
+> acquire HPTE_V_HVLOCK and lock_rmap() in process context with preemption
+> enabled.  Specifically, kvm_unmap_rmapp() and kvm_age_rmapp() take both
+> locks during MMU notifier callbacks and memslot flushes, while
+> resize_hpt_rehash_hpte() acquires HPTE_V_HVLOCK during HPT resizing.  If
+> a host thread is preempted while holding either bit-lock, any guest vCPU
+> thread scheduled on the same CPU spinning for the same lock with
+> preemption disabled will never yield, resulting in a permanent CPU hang.
+> 
+> [...]
 
-> Can this leak cdns_sky1_pdata and silently succeed when creating the child
-> device fails?
+Applied to powerpc/fixes.
 
-Yes. With matches == NULL of_platform_populate() always returns 0:
-of_platform_bus_create() returns 0 as soon as
-of_platform_device_create_pdata() returns NULL. That function also returns
-before it stores platform_data when the node is unavailable, when
-OF_POPULATED is set, or when of_device_alloc() fails, and only the
-of_device_add() failure path frees the buffer, through
-platform_device_release(). With the child checked by
-cdnsp_sky1_check_children(), the reachable cases are the two -ENOMEM ones.
+[1/1] KVM: PPC: Book3S HV: Disable preemption around host-side HPT lock users
+      https://git.kernel.org/powerpc/c/4e6e66ecf62185828f731914000a6b0baff355db
 
-v10 checks the result instead of the return value:
-
-	core = of_find_device_by_node(core_np);
-	if (!core) {
-		dev_err(dev, "failed to create the cdns3 child device\n");
-		ret = -ENODEV;
-		goto err_quiesce;
-	}
-
-probe fails rather than returning 0 with the clocks and the resets still
-active, and the buffer is freed where of_platform_populate() itself returns
-an error.
-
-The one case the caller cannot see is of_device_add() failing after the
-buffer was handed over: it returns NULL like the of_device_alloc() failure
-and has already freed the buffer. The two are indistinguishable, so the
-buffer is left alone there - a one-off 16-byte leak under OOM rather than a
-double free.
+cheers
