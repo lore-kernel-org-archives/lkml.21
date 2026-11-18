@@ -1,58 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=159.226.251.25
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795016099;
-	b=UsyH3+PYU+0jps+pqaPFxjyTnx96FiPIArokENWdYZj2V0vn++9ndXY5rbVtWdOMIFrB
-	 RQazpADW0V0JelsvAmUQCYj0e+92JBturY8DghJ2areae2O9RtxbWNtgBQczIeBx5P2P9
-	 TzppBNiw0XjZMBS/8+Zt0sUbEmHXJl2eVTwwJ3YSbmDpINz5MJ3kHuC4Skqb8VDN6+UDj
-	 +NZvj9fTbG4oYLkfg4NBmXsdWcHr6yJOOhOmDq7U3EPs2EmALLhRE2XLgnU97S7+SsQes
-	 NmiMsDv47jK+6vyjhbO5Dis3t4oiXdgGoqUwAjgt1OYPHMv0A7eGQRauNCzYmRMwjbA==
+	t=1795016111;
+	b=L0V9KlNmrGsExu0+x+gzs5trPU29JIiyiQu9cmRKWLCfj/atbFl71crmB07pCmDcPoab
+	 QCE7FDNG+bKtzo/p8CfX0r+UvQCBqTbgaok6zWWvnit36gMXFxElpJV7Ej0lKz/6yBY4p
+	 ntBtrvk5BlM6Gt/CNNA+fEkHOvUwns17aOZC1SC0c81+Lmoqb4LScy3kq4h85IHwU/Vll
+	 BADfl4oh5odBJAq2KEiJuABtWS5FTP9Fk7j0RYMv7DlyS0K47JVkbKEUGKhuEfmeWXaC1
+	 Yb94dX9VG/2HW0VP2Kj8sa+Mb8OLctuNzQ6v7G4XDH5fE29g3zeUOBZVodKTADQDzFg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795016099;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=q4DZBiCtptxDUrZaYhWzriU2UClMGlXG5cbDC6IikrQ=;
-	b=lbgBXU+Lvj3nn9hhItwD11BpX4AzA72d/Z88hTDB4wDq9jidXpTB+qOtIU4Afeg1doLa
-	 uDHg6WD6hnxTRFQrft5CwuZHPA0nLCZyzUsfLtf6mdQsPgArNHC5mpZwoNzZi6pLDuDMA
-	 Et5Vs0BZI4X3J5sRSUaLoMCTE9GoiztXO4VR5wAQVRZ0zC6ULQE+Bhnpv993Fqgzkz71z
-	 CFs3gtxhCr4u2oRGzeEV1nUrPqMh5xq03aF6iKIXCGMGR9vIkVQqeC1jyHYoW/sMcLZ/f
-	 B7tVdUCIwwKYmfgg4t9Zba1nLQAirA9UYvkmXQrpXbc0r4D6es5/r3jqQVeH6P7+AkQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795016111;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
+	bh=DyGP/7boUGzlCdL682QquJ0bBuUZAurKtD3uiWinjq0=;
+	b=aNVtfXF8R5bHIleyHPPlQIY0Rm2EqUH75M49+NbaQpmD47KDVGNoFtKBQnWoc6e1r/Q/
+	 WKDH21DDntQfxaWnqoS16pB6oSvWX5jqs2WTWFyomqnFkzvf0lASepHhi9z8yiXxUNAaG
+	 d0g0WRqweM+64bKgYLRRwee9tH1jtCEJ142G/fgAK3q94DnBqmmMOfk0NOnoiW8XTA2Kh
+	 f47BE+edE82DuE77wx12fhWcXt0CFwL/ke0LpkcwS1Bg+2DxDPYT50E7x4262P8AHy4CT
+	 EsN4ODliOG1h8NiHIXPRCROstKymV9yhF3px5LT+g8xzAR4bqQC2xQmYqaVJBDUr2TQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W7mEOWi8;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=iscas.ac.cn;
+	spf=pass smtp.mailfrom=iscas.ac.cn;
+	arc=none smtp.remote-ip=159.226.251.25
+Received: from cstnet.cn (smtp25.cstnet.cn [159.226.251.25])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C446606A334;
-	Wed, 18 Nov 2026 15:34:59 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W7mEOWi8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD49D1F000CD;
-	Wed, 18 Nov 2026 15:34:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795016099;
-	bh=q4DZBiCtptxDUrZaYhWzriU2UClMGlXG5cbDC6IikrQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=W7mEOWi8ttnaoJb/PCE9A6g57U4FTYQVssJWU202EjVLqCr5+Bz/B7x1AI5cqOR63
-	 Xb+TIQcKxnDeYZagbb6/DuuUVlcMPfNgl2xFWCVmpim1/XdoRpB6uzev384u+uW4A5
-	 g6k4JBTFUN7M+h3XNU8uiFlaNAC5K7Octmk/QjfYFHK70UjJ37d2O35MN0q7yYtoZ8
-	 i+4DhF79hDg/BAZZ9miCzif9K4144UbfK/3y9xg7Znp9Lj7E6DSKHc/RqYGAkNJYEX
-	 yV90hOHspVk2fsMUPT/+S2KizeNtocH/LyhKP0oY+mZVWLG3JhbGU176PaOUxP7KYn
-	 1Q1lUJ+rToYAQ==
-Date: Wed, 18 Nov 2026 09:34:57 -0600
-From: Rob Herring <robh@kernel.org>
-To: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v9 1/3] dt-bindings: usb: snps,dwc3: two connectors are
- two endpoints of one port
-Message-ID: <20261118153457.GB1824160-robh@kernel.org>
-References: <20261117052137.32833-1-xiaqinghuan@mail.ustc.edu.cn>
- <20261117052137.32833-2-xiaqinghuan@mail.ustc.edu.cn>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 588AB606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:35:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 588AB606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iscas.ac.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iscas.ac.cn
+Received: from edelgard.fodlan.icenowy.me (unknown [112.94.102.23])
+	by APP-05 (Coremail) with SMTP id zQCowAB31bqdxf1qc3xpAQ--.6681S5;
+	Wed, 18 Nov 2026 23:34:59 +0800 (CST)
+From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Simona Vetter <simona@ffwll.ch>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Joey Lu <a0987203069@gmail.com>,
+	Han Gao <gaohan@iscas.ac.cn>,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	Icenowy Zheng <uwu@icenowy.me>
+Cc: David Airlie <airlied@gmail.com>,
+	Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Subject: [PATCH v3 3/5] drm/verisilicon: nuke planes' atomic_enable hooks
+Date: Wed, 18 Nov 2026 23:34:46 +0800
+Message-ID: <20261118153448.375639-4-zhengxingda@iscas.ac.cn>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261118153448.375639-1-zhengxingda@iscas.ac.cn>
+References: <20261118153448.375639-1-zhengxingda@iscas.ac.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,198 +61,139 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117052137.32833-2-xiaqinghuan@mail.ustc.edu.cn>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:zQCowAB31bqdxf1qc3xpAQ--.6681S5
+X-Coremail-Antispam: 1UD129KBjvJXoWxGF47Cw1rtw4Dur1fAFWkJFb_yoWrtw48pr
+	4YyFykKw4FqaykWFyDtr4vqay3G3W0k34Igrs5GwsIqrnxtw47u3W8tr97uF4DJr9rGa1f
+	JFs2y3Z8Ar1IyF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmj14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JrWl82xGYIkIc2
+	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UM2
+	8EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0DM2AI
+	xVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20x
+	vE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xv
+	r2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxan2IY04
+	v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j
+	6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7
+	AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE
+	2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcV
+	C2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2Kfnx
+	nUUI43ZEXa7VUbpwZ7UUUUU==
+X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 
-On Tue, Nov 17, 2026 at 01:21:35PM +0800, Qianhui Xu wrote:
-> Rework of the v8 binding per Rob Herring's review of
-> 2026-11-10 16:36Z (<20261110163640.GA85824-robh@kernel.org>):
-> 
->   "ports are for separate data streams. Endpoints are for mux'ed data
->    streams. This looks like the latter, so port@0 should have 2 endpoints
->    and port@2 dropped."
-> 
-> and, for the GPIO property:
-> 
->   "Use the gpio mux binding."
-> 
-> Two connectors sharing one High Speed D+/D- pair are two mux'ed data
-> streams of one port, so they become endpoint@0 and endpoint@1 of port@0
-> (the Super Speed lane stays port@1).  The GPIO that selects between them
-> is no longer described by a private "port-select-gpios" property but by a
-> "gpio-mux" controller referenced from "mux-controls", and the endpoint of
-> each connector carries the mux state that reaches it.
-> 
-> *** AI-assistance disclosure ***
-> This patch was prepared with the help of an LLM coding assistant.  The
-> author reviewed every line and ran the gates quoted in the series notes.
-> 
-> Signed-off-by: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
-> ---
-> 
-> DRAFT: driver (3/3) still uses a GPIO and must be ported to mux_control_*
-> in the same series; DTS (2/3 equivalent) must be rewritten to the new
-> shape.  See README.md in this directory.
+The atomic_update hooks of both planes are just bailing out early when
+the planes are invisible, so it's reasonable to just remove these hooks
+and update the enabled state in atomic_update.
 
-??
+This fixes the problem that invisible but enabled planes won't be
+shown when made visible, as pointed by Sashiko.
 
-> 
-> --- a/Documentation/devicetree/bindings/usb/snps,dwc3-common.yaml
-> +++ b/Documentation/devicetree/bindings/usb/snps,dwc3-common.yaml
-> @@ -13,6 +13,84 @@ description:
->    Defines the properties of the DWC3 core as being embedded in either an
->    vendor-specific implementation or as a standalone component.
->  
-> +$defs:
+Fixes: dbf21777caa8 ("drm: verisilicon: add a driver for Verisilicon display controllers")
+Fixes: 8c4ae2189125 ("drm: verisilicon: add support for cursor planes")
+Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+---
+ drivers/gpu/drm/verisilicon/vs_cursor_plane.c | 22 +++-------------
+ .../gpu/drm/verisilicon/vs_primary_plane.c    | 26 +++++--------------
+ 2 files changed, 10 insertions(+), 38 deletions(-)
 
-You don't need to use $defs here.
+diff --git a/drivers/gpu/drm/verisilicon/vs_cursor_plane.c b/drivers/gpu/drm/verisilicon/vs_cursor_plane.c
+index 1fa6b7578b27e..1e1805eb88704 100644
+--- a/drivers/gpu/drm/verisilicon/vs_cursor_plane.c
++++ b/drivers/gpu/drm/verisilicon/vs_cursor_plane.c
+@@ -99,23 +99,6 @@ static void vs_cursor_plane_commit(struct vs_dc *dc, unsigned int output)
+ 			VSDC_CURSOR_CONFIG_IMG_UPDATE);
+ }
+ 
+-static void vs_cursor_plane_atomic_enable(struct drm_plane *plane,
+-					   struct drm_atomic_commit *atomic_state)
+-{
+-	struct drm_plane_state *state = drm_atomic_get_new_plane_state(atomic_state,
+-								       plane);
+-	struct drm_crtc *crtc = state->crtc;
+-	struct vs_crtc *vcrtc = drm_crtc_to_vs_crtc(crtc);
+-	unsigned int output = vcrtc->id;
+-	struct vs_dc *dc = vcrtc->dc;
+-
+-	regmap_update_bits(dc->regs, VSDC_CURSOR_CONFIG(output),
+-			   VSDC_CURSOR_CONFIG_FMT_MASK,
+-			   VSDC_CURSOR_CONFIG_FMT_ARGB8888);
+-
+-	vs_cursor_plane_commit(dc, output);
+-}
+-
+ static void vs_cursor_plane_atomic_disable(struct drm_plane *plane,
+ 					    struct drm_atomic_commit *atomic_state)
+ {
+@@ -154,6 +137,10 @@ static void vs_cursor_plane_atomic_update(struct drm_plane *plane,
+ 	output = vcrtc->id;
+ 	dc = vcrtc->dc;
+ 
++	regmap_update_bits(dc->regs, VSDC_CURSOR_CONFIG(output),
++			   VSDC_CURSOR_CONFIG_FMT_MASK,
++			   VSDC_CURSOR_CONFIG_FMT_ARGB8888);
++
+ 	/* Other sizes should be rejected by atomic_check */
+ 	switch (state->crtc_w) {
+ 	case 32:
+@@ -227,7 +214,6 @@ static void vs_cursor_plane_atomic_update(struct drm_plane *plane,
+ static const struct drm_plane_helper_funcs vs_cursor_plane_helper_funcs = {
+ 	.atomic_check	= vs_cursor_plane_atomic_check,
+ 	.atomic_update	= vs_cursor_plane_atomic_update,
+-	.atomic_enable	= vs_cursor_plane_atomic_enable,
+ 	.atomic_disable	= vs_cursor_plane_atomic_disable,
+ };
+ 
+diff --git a/drivers/gpu/drm/verisilicon/vs_primary_plane.c b/drivers/gpu/drm/verisilicon/vs_primary_plane.c
+index c12fe54096c33..7add4669f5803 100644
+--- a/drivers/gpu/drm/verisilicon/vs_primary_plane.c
++++ b/drivers/gpu/drm/verisilicon/vs_primary_plane.c
+@@ -60,25 +60,6 @@ static void vs_primary_plane_commit(struct vs_dc *dc, unsigned int output)
+ 			VSDC_FB_CONFIG_EX_COMMIT);
+ }
+ 
+-static void vs_primary_plane_atomic_enable(struct drm_plane *plane,
+-					   struct drm_atomic_commit *atomic_state)
+-{
+-	struct drm_plane_state *state = drm_atomic_get_new_plane_state(atomic_state,
+-								       plane);
+-	struct drm_crtc *crtc = state->crtc;
+-	struct vs_crtc *vcrtc = drm_crtc_to_vs_crtc(crtc);
+-	unsigned int output = vcrtc->id;
+-	struct vs_dc *dc = vcrtc->dc;
+-
+-	regmap_set_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
+-			VSDC_FB_CONFIG_EX_FB_EN);
+-	regmap_update_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
+-			   VSDC_FB_CONFIG_EX_DISPLAY_ID_MASK,
+-			   VSDC_FB_CONFIG_EX_DISPLAY_ID(output));
+-
+-	vs_primary_plane_commit(dc, output);
+-}
+-
+ static void vs_primary_plane_atomic_disable(struct drm_plane *plane,
+ 					    struct drm_atomic_commit *atomic_state)
+ {
+@@ -149,13 +130,18 @@ static void vs_primary_plane_atomic_update(struct drm_plane *plane,
+ 	regmap_write(dc->regs, VSDC_FB_BLEND_CONFIG(output),
+ 		     VSDC_FB_BLEND_CONFIG_BLEND_DISABLE);
+ 
++	regmap_set_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
++			VSDC_FB_CONFIG_EX_FB_EN);
++	regmap_update_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
++			   VSDC_FB_CONFIG_EX_DISPLAY_ID_MASK,
++			   VSDC_FB_CONFIG_EX_DISPLAY_ID(output));
++
+ 	vs_primary_plane_commit(dc, output);
+ }
+ 
+ static const struct drm_plane_helper_funcs vs_primary_plane_helper_funcs = {
+ 	.atomic_check	= vs_primary_plane_atomic_check,
+ 	.atomic_update	= vs_primary_plane_atomic_update,
+-	.atomic_enable	= vs_primary_plane_atomic_enable,
+ 	.atomic_disable	= vs_primary_plane_atomic_disable,
+ };
+ 
+-- 
+2.56.0
 
-> +  hs-endpoint:
-> +    $ref: /schemas/graph.yaml#/$defs/endpoint-base
-> +    unevaluatedProperties: false
-> +
-> +    properties:
-> +      usb-role-switch:
-> +        type: boolean
-> +        description:
-> +          This connector endpoint has its own USB role switch. The switch is
-> +          registered against this endpoint and looked up with
-> +          usb_role_switch_at_endpoint().
-> +
-> +      mux-state:
-> +        $ref: /schemas/types.yaml#/definitions/uint32
-> +        enum: [0, 1]
-> +        description:
-> +          State of the High Speed data bus multiplexer which connects this
-> +          connector to the controller.  The two connectors of one controller
-> +          must use different states; the driver rejects a device tree where
-> +          two connectors claim the same one.
-> +
-> +    dependentRequired:
-> +      usb-role-switch: [mux-state]
-> +      mux-state: [usb-role-switch]
-> +
-> +  hs-port:
-> +    $ref: /schemas/graph.yaml#/$defs/port-base
-> +    unevaluatedProperties: false
-> +
-> +    # The two connectors are two mux'ed data streams of the same High Speed
-> +    # bus, so they are two endpoints of one port, not two ports: "ports"
-> +    # describes the controller's own data streams (HS in port@0, SS in
-> +    # port@1), and an endpoint describes one stream multiplexed onto a port.
-> +    properties:
-> +      '#address-cells':
-> +        const: 1
-> +
-> +      '#size-cells':
-> +        const: 0
-> +
-> +      endpoint@0:
-> +        $ref: '#/$defs/hs-endpoint'
-> +        required: [reg]
-> +
-> +      endpoint@1:
-> +        $ref: '#/$defs/hs-endpoint'
-> +        required: [reg]
-
-These can be:
-
-patternProperties:
-  '^endpoint@[01]$':
-    [everything from hs-endpoint]
-
-> +
-> +    required: ['#address-cells', '#size-cells', endpoint@0, endpoint@1]
-> +
-> +    # The two connectors must claim opposite mux states; requiring both
-> +    # endpoints in every branch is what makes the two cases mutually
-> +    # exclusive for oneOf.
-> +    oneOf:
-> +      - properties:
-> +          endpoint@0:
-> +            properties:
-> +              mux-state:
-> +                $ref: /schemas/types.yaml#/definitions/uint32
-> +                const: 0
-> +          endpoint@1:
-> +            properties:
-> +              mux-state:
-> +                $ref: /schemas/types.yaml#/definitions/uint32
-> +                const: 1
-> +      - properties:
-> +          endpoint@0:
-> +            properties:
-> +              mux-state:
-> +                $ref: /schemas/types.yaml#/definitions/uint32
-> +                const: 1
-> +          endpoint@1:
-> +            properties:
-> +              mux-state:
-> +                $ref: /schemas/types.yaml#/definitions/uint32
-> +                const: 0
-> +
->  allOf:
->    - $ref: usb-drd.yaml#
->    - if:
-> @@ -26,8 +104,47 @@ allOf:
->        $ref: usb.yaml#
->      else:
->        $ref: usb-xhci.yaml#
-> +  - if:
-> +      required: [mux-controls]
-> +    then:
-> +      # The mux path is only taken when the controller itself carries
-> +      # "usb-role-switch": dwc3_get_dr_mode() forces dr_mode back to
-> +      # peripheral, dwc3_get_extcon() skips the role-switch branch and
-> +      # dwc3_drd_init() never sets the mux up without it.
-
-Don't put driver specifics in bindings.
-
-> +      required: [dr_mode, ports, usb-role-switch]
-> +      properties:
-> +        dr_mode:
-> +          const: otg
-> +        ports:
-> +          required: [port@0]
-> +          properties:
-> +            port@0:
-> +              $ref: '#/$defs/hs-port'
-
-This $ref can be dropped. You already have the schema for 'port@0' 
-below.
-
-> +    else:
-> +      properties:
-> +        ports:
-> +          properties:
-> +            port@0:
-> +              properties:
-> +                endpoint@0:
-> +                  properties:
-> +                    usb-role-switch: false
-> +                    mux-state: false
-> +                endpoint@1:
-> +                  properties:
-> +                    usb-role-switch: false
-> +                    mux-state: false
->  
->  properties:
-> +  mux-controls:
-> +    maxItems: 1
-> +    description:
-> +      Phandle to the multiplexer that selects which of the two connectors
-> +      drives the controller's shared High Speed data bus, e.g. a
-> +      "gpio-mux" controller.  Each connector is described by the endpoint@0
-> +      or endpoint@1 of "port@0", and the endpoint of that connector carries
-> +      its own role-switch input and the "mux-state" it is reached in.
-> +
->    extcon:
->      maxItems: 1
->      deprecated: true
-> @@ -411,7 +528,7 @@ properties:
->  
->      properties:
->        port@0:
-> -        $ref: /schemas/graph.yaml#/properties/port
-> +        $ref: '#/$defs/hs-port'
