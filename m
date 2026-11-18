@@ -1,95 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795016144;
-	b=XLmYuG20fFhyDTc4NPvFvHHSDxOhXtrI3C4ehNpbuC0mZ23BvL48WY94qzgLLnufPKeW
-	 X2J+j0EMLQa63Glpggrt9KhIImd22i14RC3gD9oSIcnCSRawR0pAmFGtTONPnz77kVVlh
-	 Pm+1A8Zw2Ep6yumqzF2Qvhw1TBAThhBezuQk+OSVJmtdB1wWA528O0uIGBJbLWgy3gIOu
-	 UhzMs1no0F7ZXC2EQCZX6EifnHrZxOZ+GPz35Er/9HPzTORZ47rQchpPeXX2tla7YW4FW
-	 anGu6d9YgOH/ZnxznqrfvKOv/SStUNquctuErxjoiXEBrHxbzT+nsb7ByAfolDlJIPg==
+	t=1795016149;
+	b=4wDkuV8yXFwmJo6Wkz7chKbLhMoigZDdPM281c/ht60YTW173NrdSuEa2y8Qf+nGSZ4J
+	 phm4IBuYp5ohncq/goKD3P/T58klTiWnAzfsNVvXKUl00XRuKHGNaie2FP4EEm+KOBxd+
+	 BQxtgJ08abU/GiLEnYs51MnYXzPJppGH9tgjxP6gyn1NvEti2O7TRnwc4ZEtPQVFK9rWv
+	 YWBPlzGEHqGVHXk2BqKLDCgufoPR+eFK0DQBsycClJsy3DZ78tD6s0EWaYc+heBcPBcaM
+	 xwjTUV6k/BFr8msicvHzU326dsm0REh/YCToYoEgw1r3uWJF+fPzEXzX91I7gmoqIWQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795016144;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
-	 User-Agent:MIME-Version;
-	bh=vIXaxwabzQ8+Hyu7ckpupUBYG45/UINkuK4etw8/0xM=;
-	b=QE15WlxJUNqhxXmCmQ3oOXL9q7L2i4smIhusAaLDMhqB3gHAK0MK/tMKdUPgHq8s8Qud
-	 jEbW359LqdIuaiNHb2XdTCa8ciFqn9Eaez88VJ/lf7pn8fOBSN1PdFecbjOG3mN6xoRXy
-	 BN9PvjBmEOwu/w7bYa7VuAzdGh5ZCSnQAAe5HV5FLUS3p7FZP1gkyKGfXWIQIpg0a31zf
-	 ozXKNGdxgvZz3DHI6BET1j26Xwxw2qwi1M1hAGq/TVyFspkwfCJkJ/fVzV4+3Moy56Zft
-	 RgYaIMUsv5oRbr/lsH26D9x1O1j0AdOowy4XYmikTDlOCS3bmAVcXF1NPoi2GnZd6zw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795016149;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=t2Y0uksBfonBwzOwNmdjxS0BTSWKi5CUHrmpAZqGpVc=;
+	b=28+HdFueDQ5SJthlzNVqFE76z/NiraB85QTLTuQWIt9DAKgrPL46pGY+KGrEsa51ZOZR
+	 xSMl3DC5J0zABjvMLogNicy2VPHfRwExGqAY4aHFClteOZBRw8lr47sNAX2g4orgUm5jC
+	 mJn+VoHbwZMbcGfuspQpKQ8bAugnaZP6Wxap+yQYpLPPxSt8IGXRdYOM9N243tu/ocOh0
+	 xUb7h2Idq8ybWVmmPbRfTCyKGIPZJZ9TLWgT7cul3ubml2Nd3Peyi/bT/jrnVdSGBzfgF
+	 EbkWCZ/99IGwauYcxz0CDo35MjmhPLcmrBJrqJz7qVdXVLRrhyBasvQhPvGHQuFmhnw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b="Fe2/18J1";
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NZAyN23c;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB81D606A31C;
-	Wed, 18 Nov 2026 15:35:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EB81D606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08B16606A336;
+	Wed, 18 Nov 2026 15:35:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=Fe2/18J1
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795016142;
-	bh=Pa+l9p/ldmFV5IzkC7e19kzsj1Gaw7fnpk5iOSUaRGQ=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=Fe2/18J1Y2lrX6s3KGi1hDkc4VGGUhXoV+T5mwr8GtCf1GSJ275r0E9kw3HxkjBO4
-	 UpG0xmlRDEL4FvKm/ZHIDsTvhV76dLuifnu3O+R67M9PmOOkdxc3Fusplve3aD9jQG
-	 LsOJ8nZaNGTwUkh2kG63o1krsjvpSuiq4t2uwHJJZSsEUb7HwbCcdPJt3NwTSyc6Ny
-	 j4o4Jj9AS1yyATJftwF2T9Xr7+iI3Rx0AX4rVdr/+qj23OWvVqgh/ApZlvHqnu6ivc
-	 8XZ8xOSfhB0dnwfU4NV+1eo0HZAb0J48OFnxFGJEuFJfe7/MqBI25X/SXnDiTWtx7x
-	 Ww+LNjbsQRX+A==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C106C17E0564;
-	Wed, 18 Nov 2026 16:35:39 +0100 (CET)
-Message-ID: <41750a65530034b0dfb144f4c8c10bae3bbe60eb.camel@collabora.com>
-Subject: Re: [PATCH v12 01/10] dt-bindings: media: mediatek: decoder: Add
- MT8189 mediatek,vcodec-decoder
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Rob Herring <robh@kernel.org>, Kyrie Wu <kyrie.wu@mediatek.com>
-Cc: Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen	
- <andrew-ct.chen@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,  Matthias Brugger
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>,  Hans Verkuil
- <hverkuil@xs4all.nl>, Nathan Hebert <nhebert@chromium.org>, Arnd Bergmann
- <arnd@arndb.de>,  Irui Wang <irui.wang@mediatek.com>, George Sun
- <george.sun@mediatek.com>, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
- <andrzejtp2010@gmail.com>, Yilong Zhou	 <yilong.zhou@mediatek.com>
-Date: Wed, 18 Nov 2026 10:35:38 -0500
-In-Reply-To: <20261118152011.GA1714890-robh@kernel.org>
-References: <20261117085834.1464723-1-kyrie.wu@mediatek.com>
-	 <20261117085834.1464723-2-kyrie.wu@mediatek.com>
-	 <20261118152011.GA1714890-robh@kernel.org>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-39yOFI3IZD1p7uEEO9ym"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NZAyN23c
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FFC11F000C9;
+	Wed, 18 Nov 2026 15:35:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795016148;
+	bh=t2Y0uksBfonBwzOwNmdjxS0BTSWKi5CUHrmpAZqGpVc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=NZAyN23cS3UbJ/9rD5RcMSWPahxbPftycUeQarC22xj/dMgCMTu7gdUdRL+AzWI48
+	 HCddOA12zv+vmSsdyWZpk8mMdvMjbFmBvNJWu9HONh1itqoLdq2yRfvkPBgZW3Sawq
+	 KGsDf1kaN9hWptbz0OxDnSIN++gAZYla6Pm5+uf1yO4sHyQpD1QySJzpN/egZnjfnr
+	 9OsGsr0KEUxxsUNSRQrAzAMYOeTadzDFqgZG60RhJ4WNV98x/+Eu0G1DGTfPFJXG9j
+	 RPci+KnUD8+8dVTBkG0H8TFal/Pg6WlQy9aQkcPTbvtyvW8qSNKx0o6JioXBGHbcRX
+	 gXtJuzQKxIVWg==
+Message-ID: <90a961f5-e488-46de-8872-0e1540eaad4c@kernel.org>
+Date: Wed, 18 Nov 2026 16:35:32 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,49 +51,111 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-
---=-39yOFI3IZD1p7uEEO9ym
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-Le mercredi 18 novembre 2026 =C3=A0 09:20 -0600, Rob Herring a =C3=A9crit=
-=C2=A0:
-> On Tue, Nov 17, 2026 at 04:58:24PM +0800, Kyrie Wu wrote:
-> > Add compatible for video decoder on MT8189 platform. Compared with
-> > former ICs, the MT8189 decoder use iommu to instead of smmu, and
-> > use scp architecture, the frequency is only 406MHZ, and cannot reach
-> > more than 700MHZ. It uses two clocks named soc-vdec and vdec. At the
-> > same time, the decoder supports the vp9 decoding protocol for the first
-> > time in single IC.
-> >=20
-> > Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
-> > Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
-abora.com>
-> > Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-> > ---
-> >  .../media/mediatek,vcodec-subdev-decoder.yaml | 24 +++++++++++++++++--
-> >  1 file changed, 22 insertions(+), 2 deletions(-)
->=20
-> This patch should be based on this one:
->=20
-> https://lore.kernel.org/20261019212431.4109371-1-robh@kernel.org
-
-Ack.
-
->=20
-> Rob
-
---=-39yOFI3IZD1p7uEEO9ym
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 00/13] mm: batch of (urgentish?) fixes in oomk,
+ cachestat, dev-migrate, percpu
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>, David Rientjes <rientjes@google.com>,
+ Shakeel Butt <shakeel.butt@linux.dev>,
+ Andrew Morton <akpm@linux-foundation.org>, Jann Horn <jannh@google.com>,
+ Pedro Falcato <pfalcato@suse.de>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>,
+ Nhat Pham <nphamcs@gmail.com>, Johannes Weiner <hannes@cmpxchg.org>,
+ Zi Yan <ziy@nvidia.com>, Matthew Brost <matthew.brost@intel.com>,
+ Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>,
+ Gregory Price <gourry@gourry.net>, Ying Huang
+ <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>,
+ Usama Arif <usama.arif@linux.dev>, Kairui Song <kasong@tencent.com>,
+ Balbir Singh <balbirs@nvidia.com>, =?UTF-8?B?SsOpcsO0bWUgR2xpc3Nl?=
+ <jglisse@redhat.com>, Kiryl Shutsemau <kas@kernel.org>,
+ Yu-cheng Yu <yu-cheng.yu@intel.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Dennis Zhou <dennis@kernel.org>,
+ Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@gentwo.org>,
+ Peng Fan <peng.fan@nxp.com>, Josef Bacik <jbacik@fb.com>,
+ Chris Mason <mason@kernel.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, "Borislav Petkov (AMD)" <bp@alien8.de>,
+ Mark Brown <broonie@kernel.org>,
+ "Dennis Zhou (Facebook)" <dennisszhou@gmail.com>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>, stable@vger.kernel.org,
+ Josef Bacik <josef@toxicpanda.com>
+References: <20261113-mason-migrate-et-al-fixes-v2-0-50a2ed382b61@kernel.org>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20261113-mason-migrate-et-al-fixes-v2-0-50a2ed382b61@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
------BEGIN PGP SIGNATURE-----
+On 11/13/26 22:45, Lorenzo Stoakes (ARM) wrote:
+> A bunch of fixes for oomk, cachestat, device migration and the per-CPU
+> allocator.
+> 
+> These patches were originally AI-generated, tamed into upstreamable state.
+> 
+> Some are more reworked than others. Those which needed a significant
+> rethink are submitted as mine and marked as Reported-by the relevant
+> original author, others are smaller edits which are annotated as such in
+> the usual fashion.
+> 
+> Please check for correctness, sanity, and whether the cc: stable is
+> warranted (I have not included it for 3 where it seemed unwarranted.)
+> 
+> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> ---
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCav3FygAKCRDZQZRRKWBy
-9J+DAP4gKGQQnQ/zLHxmgqQbgAGqlrumu2hJskKy01zGA4GVPAD/fm6R5hueQywc
-oui/a0M7xHVlfupp0bee2wjaGx+5QAE=
-=t7+b
------END PGP SIGNATURE-----
+Lorenzo, I would pick up the migrate_device patches now.
 
---=-39yOFI3IZD1p7uEEO9ym--
+Which one should be fast-tracked upstream and which can wait for the next cycle?
+
+Use-after-free, shadow stack and out-of-bounds write ... look rather bad.
+
+-- 
+Cheers,
+
+David
