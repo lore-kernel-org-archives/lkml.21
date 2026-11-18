@@ -1,98 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795003271;
-	b=BefaL3qSy+tGZx/7ioTS+n2STQ0D9rHAnvzplsUbRO/L5D4AH7tG/KFmExHw2zh5Egez
-	 ZsagOPatT5BYXfm/pHJHgRv7ccUK5Ey92tX5xiLtKBks98OanuFzrJ7KBKsFpFOI4p9Df
-	 CaFZ//u36ErJnKjKqdHt8sJXYiitjglCz0wNd9rlA2gPaY+ZsWHRERVif9bvr04XR3g6B
-	 iSI+LL7Y8eFgK1+2JVlZvBSz7bRW1qKwz7QcjkOTEh7ZH/rtyB1apD3ciGgBKNJ+Emwp8
-	 tm+9sl2sHspNVqPmpbTAbXNlmC21uwnXF1ygiHbIPW5mYoP6u8Flmpbtlv+IBVEvPkQ==
+	t=1795003301;
+	b=jeRz/q+CUT5gIMw3AYk8Fppviu4L/vvXuH3883fFYW4R1QiDcWcohmg0oQy3UoTyoVPU
+	 CWRpmZQlNH/pkC4ZVdYl1yENtRDKrciJsB5zfjMEYIL8mHXKT+MEISIEHfAfoSuwY6AXe
+	 lgtLusmC2Kcfjn9Iz1Jpw3bQ0AAPHzYSgAE5b96alDUigjtMB+Ll0j4RH799t5kNC3Xcw
+	 9n/fv7JpqrE8w+HvNsrHjbPoXF9DKBJ5eTC6wI+I5iAHANo64iXs6+VABRgDTnt3BdcvU
+	 CrHNWCgyOyx2YaQcTds91ylkO0h67KGox6SvKRCxleE1dLzOJNiPaPOM1GO+SZuz53g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795003271;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795003301;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=1c90KFVvzpFDqnGvEd8sXMtLzVt9oSB8UiZ61ce5p98=;
-	b=wtUrae5CC+S5OLLzXq4wycNSYFHacN+EWOmgFYrpxdiHzo1Z03hM521CGuXs1bgUHlYw
-	 jd/f3e23rB5okexUH3X29Kz775m/mGL5YDeyPZypCOlfNnyPVBehpuFwOkH0EWeA/4Pdk
-	 lCe1ZEFc/P2E2+7aLvg3l77AUgaXYEEsuC0ocerRtdFtRpDLz7Bir7KCyfqTAZi5c81r3
-	 CCvLJ8N91zSpg+T6i18OTgCPam5FuWcCi1Zio1N87fXYT/EGOsmkENOpOAsmoALDZUhDn
-	 n450Ur+Zg38lhKmztWfzXT74EtujhREAhULAxmkPiBFdJbGbKxQ+36xRGUmdQR43wpw==
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=KSUxz0kUmubjph+cp2VPmoNpzQJPoX8IF209FgUek9w=;
+	b=k7FaJdekfekjjbrJqzQ83qU9o/3HEOp8PBhAe5t4YrMQJEMkPwuaz3VPyag0YhZIjVpY
+	 XB1ueSMhTu/eY818QjMxLbEAlcNuYcYQUss97SNCf6Q5Xo041oAaQpF8HavcJNd91LPZj
+	 wKy43/1ssdQhYyxbsDBQr14rjN2P4fFT1VUxmeIfQ7vcTyXSUcSWdjRvOphCbZVJj7cwq
+	 l9yG64VEJmOuhG4b8CVr9PwTQlww2V0dnxx2ktr+tQWVGPzIa3SQVEGcPwIaRp13Ehmke
+	 HojH+izZ5NvfVOVdQiebWLR1NUDJDjWiuvAoyolwfztJ3sJ4M7lWPPa3NuF/jtC6dvg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=m7nPcD0M;
-	arc=none smtp.remote-ip=209.85.210.172
-Received: from mail-pf1-f172.google.com (mail-pf1-f172.google.com [209.85.210.172])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=04dyscUx;
+	arc=none smtp.remote-ip=209.85.128.44
+Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com [209.85.128.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C32A2606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:01:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C32A2606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BAB11606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:01:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BAB11606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=m7nPcD0M
-Received: by mail-pf1-f172.google.com with SMTP id d2e1a72fcca58-8b271e573adso387876b3a.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:01:10 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=04dyscUx
+Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4bb6057b333so4241895e9.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:01:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795003270; x=1795608070; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=1c90KFVvzpFDqnGvEd8sXMtLzVt9oSB8UiZ61ce5p98=;
-        b=m7nPcD0MsmFjwaSi0bTu3XZBB4Bvzdi8UzkKfUfnAjo0PAp7SxyrOh555DMvwuQlrQ
-         a3SDjgg9/bmEuDfxcQP6k4IA3ny/wYt5w+1FGTVrnWmWQilwYeGKALWG8kOLlCFJ3Hk4
-         1+72ZTgoynsRxhN+fUpy/MnCRU7W325ASLYiNAJrWG/4eqGM4fRpk6dRStVypWmAVJ5C
-         u9j1JwL9N8dws6FTEb3AiwX4SSUKI7lw7l/orjml7n4SsQEkDYWQz3tkWCTLOKy7VOp5
-         XKamIegSpU+xhBI16DbBwZ3AC1HYS8uh0fVjJc2gj5lGiJdFNiQIr2dkLKdbmB4pl8+P
-         SmrQ==
+        d=gmail.com; s=20260707; t=1795003299; x=1795608099; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=KSUxz0kUmubjph+cp2VPmoNpzQJPoX8IF209FgUek9w=;
+        b=04dyscUx28izuEt9mrVrJfPqFjgqJBfekGAHo+DIC7UsC1Egv+6+EanxCuGYPtclPe
+         S9lmowoVSyq3fIjh0dwNE1/PURIF15sTKBpU61WRqQlqynOm4qqZHdlLymgHd6yl++WH
+         bFTTb3Pj/CK9+jvcjQrwMv5+yYPO+HerKySfn28Zt0xFKvnwLnlWayvGmiQjZriR+ZCd
+         9W8jU1PryytOQngz89wie5VB5P8hwA7osEFSQYdzw+aWLd6mcLkKBlS5mG+QL7IIiYfy
+         62EczH9QCzzLMX7yTRnGHfPuHk38DdTtQlvsb350n3KqQ19PlI+VHQs5/pcuyDT8fw0t
+         YbKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795003270; x=1795608070;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=1c90KFVvzpFDqnGvEd8sXMtLzVt9oSB8UiZ61ce5p98=;
-        b=Y23RsgxG50IqsXIGC+8Q/nEAi5mF56tAvg6WqhDj7rgsllRh4ox9rMnRJLUWboXcVY
-         PMRedKRnRjsTr45piD7e+qoj4yrDHXpPRfJcExIsRvQFb8G0Nch42Eo2dHWCRjSEei3K
-         rIANFi/cq5NyEwJu/yLJApXa1JvaXFEerPngXHHyAhlCMw3XDvwy2jH+STPAgM37Xnqc
-         23bvM87nX34D9cp3N5AhtvJFVFO0O9uSEIutigRAbLJZRXetzRBex5RhbZ2hn074NBAb
-         79rzs2kZqL3j+jBIl76v6XYJhHWCJXOamu/g74mfGrN5Xn4cU9ac6sySIu4KtimglpYV
-         PH5g==
-X-Forwarded-Encrypted: i=1; AL+hErE5/YmW9XzQGb0ezHJsyHmn6KXI7l6UfAjBx2FyK9rCK7hnfdTeRjJefQIprrdVJV8jBqKuMJJvu+nF7/c=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8CesdxK3QeVbZ0uyceqyfWQaMnqhRXFA8aftW7AxOCvFgFU8RO
-	FzPeVaTz3KkIgBIe7dDryxCnoZBf2LqB/dUGq8e6HVz5Qp9w2BynvgX2
-X-Gm-Gg: AYBFou2YYK5JYrlCN32F4LlICjIChqmLCxslfzz9N95P1DbGH5snn4zx2lyxUd2U42k
-	oXip/zbDsaJp+hyrdU3gkcWOSKXkG55gRrsmY0oWO5Q9i86/yvM1l2VJzyRTa1mvQXgmyYWc2vh
-	hWDmMKlBHO3p/tn/mVYaW/Sgir8oD9CTRmMTs0YGEnE6dIMcFLMVpL3oTJ3j1uijuXyAjjOMM/V
-	CN04Tjk6l+e+f+xaG0pig2Bhg3VZw61xIfLPjYQfqtvBYkapsJfgx83ZQTfHXFn70Hz77NCc2rx
-	7So+/Z5ghgwG6cSxdPVPIhpI6uTV5y5uOL/U8K6SOUpULrj/U6HdmMlSTzpYo/2457kfVxNFU0c
-	Ct1n+4NImjcqZOPWuodWRxXWPQb00vEoRLBWSDp+vW/YF2QMUP9cWui9lhj5/xJP9NVuA42ySEW
-	T/g71dlZzC/jIpeq8u2P5oYJdYP5UyxiPNulKpIwkGVaBD5eU9bbdrOSMlY0G1riZlXHm9ou+Ig
-	XtRe05PqfeXmrgCL/z+CvAHNhjT5kC/Pi+rFdzPRu/IiHt0yLHKgLqiHMjGHbqJV9bagkZBn6Dq
-	nt0k50t+v0CoVkP6fdRzM0CRFBdyUIvkUBPxV1ZcvNUEiBq4VHLSDQyUGTnZaPtSpGl/0yk=
-X-Received: by 2002:a05:6a00:1820:b0:882:1b4d:1840 with SMTP id d2e1a72fcca58-8c5d44e78a5mr2240369b3a.24.1795003269690;
-        Wed, 18 Nov 2026 04:01:09 -0800 (PST)
-Received: from localhost.localdomain ([112.170.44.210])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5cb54e413sm1115220b3a.43.2026.11.18.04.01.05
+        d=1e100.net; s=20260707; t=1795003299; x=1795608099;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=KSUxz0kUmubjph+cp2VPmoNpzQJPoX8IF209FgUek9w=;
+        b=jIEkB1f8X9okYMiF1HHzzJ7p8pcyZq7OXm7P+pLhfEbb5YgUxzHyC64XmDBjqRdQpE
+         8K8b5PsgUMMCNZjtz28b1ovEpIWr5kTGngq+wEC1FxP4vCdORO4FpXJJf8DzyY8TN9UF
+         8EZ787Q3Tp5+Fj2doV6Ab5Vnw766lRXIewp+myfoRZy/V8Ja7vG+Cq3o5FH2qNlSTD1Q
+         7G1dCPiEXFLv9ES3Gf57EanOB9hB4DZAzp7TUQygwXXvdV1lcN6RE8FSWfP5maAlk0jZ
+         0Brh0kGz1yfZmF7YM4B1x1Diorj9cajr6PKgSYfkrtlVGwtjQFaTqn/7pKw4Yjek6Hus
+         Dzow==
+X-Forwarded-Encrypted: i=1; AL+hErFkI1nGSiSc0JGWbJvVDDuxFwN/FdE66lC1E4sHhVbJ+WY34i3J6VEey2QTkiU2QCpifgmGH2slqmHF5TY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9ZdM1e6uCTtkv3ITDmGOnkgfPmPOkd2Xmb3yahxnL8djy4vBS7
+	WgIWxe/6CVqzRNHkfPeHadvJvsjLXMJEWbbNpp6MXEmSHH5/nNWSHrK5
+X-Gm-Gg: AYBFou0mAh2VqJnISduluqm8gfxNaR5b5I7NYnWYuTbi+o61vlK3PE1Ffwq7gpK1Tbt
+	Nvu0o3zA8zFhER0aJKZYlW2kG4+CXmDXMs6/lKDe5ysFqesYjnMN+EGKuQGN0Xg4H4GuOqbwZl9
+	RND44XPRu7YiTA+r6+W/0ZzWxePn98bD/O7W/1VIpLTbnnj/xzo6NGi/flJ0sWTn7aCd9UHfRmv
+	1XoDMHnrhRsbPYq/b3uSTezdGcqu979og9Wr9kY+UQ9FaLQusoYphFWFERcss/ZMTi5rkE7GKJv
+	QjLsOwDyHcWp8PH4yF+Eoni82GfOwcr966R3LD4ASs8N3pfEio5grq72PA+U07tgvoGcIlmaaJC
+	2qs5QTH+LjXkdGSNSA6Y2GBm5J4nATQhxOfa/YEgUccV/ss2LTdpYWUosmAwGUiJEzHWKlX+XqF
+	6mBoYXiy6AmDFgB86i728EyE/itDbBCKWBtfYmHeMpi1vUyoCUrDr5C7iIrZeVFtmfQlntM5Fu7
+	C001gnUk+iG7fYgVD3mfZh1IpyUgmS0GCyxeMVfPkmiPhXtH6OWgxTpFyr4WmagBu46VpEeVm1Z
+	PlwXVT0cjr0KApxdKWLXNWloGbd7oTSzJbdLkN5OR9/EHo+mQErx2s35Og481l0F2rXxPPAGU0i
+	a/LDX3bYGxf8FGZMAHpDFE0aK/JKNsnGk8j+VcW7gy1PBR/C8rM0XMcnS4zhdSaCK6yk=
+X-Received: by 2002:a05:600d:600b:b0:4a2:cbe:bec2 with SMTP id 5b1f17b1804b1-4bb7da3a374mr41928875e9.32.1795003298771;
+        Wed, 18 Nov 2026 04:01:38 -0800 (PST)
+Received: from localhost ([2c0f:3d00:6be:8900:ce5e:9212:ea4b:f30])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a6575a5c28sm4520927f8f.59.2026.11.18.04.01.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 04:01:08 -0800 (PST)
-From: Junyoung Jang <graypanda.inzag@gmail.com>
-To: Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
-	Jason Wang <jasowangio@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Junyoung Jang <graypanda.inzag@gmail.com>,
-	Gwanhyun Lee <gwanhyunlee@gmail.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v2] tap: clamp zero-copy copylen to remaining payload length
-Date: Wed, 18 Nov 2026 21:01:00 +0900
-Message-ID: <20261118120102.3717000-1-graypanda.inzag@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        Wed, 18 Nov 2026 04:01:37 -0800 (PST)
+Date: Wed, 18 Nov 2026 15:01:34 +0300
+From: Dan Carpenter <error27@gmail.com>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Shivani Patel <patelshivani2283@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Parthiban Veerasooran <parthiban.veerasooran@microchip.com>,
+	Christian Gromm <christian.gromm@microchip.com>,
+	linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Julia Lawall <julia.lawall@inria.fr>
+Subject: Re: [PATCH v3 1/2] staging: most: video: Protect pending_mbos and
+ mute with list_lock
+Message-ID: <av2Tnre7L8iEAf98@stanley.mountain>
+References: <20261117170558.33844-1-patelshivani2283@gmail.com>
+ <av1t4DbqGsmUmrZJ@stanley.mountain>
+ <av2KgdP5EuLamxpe@ashevche-desk.local>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,91 +104,73 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <av2KgdP5EuLamxpe@ashevche-desk.local>
 
-tap_get_user() derives the linear copy length for zero-copy TX from
-hdr_len or GOODCOPY_LEN without bounding it to the payload remaining
-after the virtio header. tap_alloc_skb() exposes that length in the skb,
-but zerocopy_sg_from_iter() copies only the available payload bytes.
-The unfilled tail is transmitted on the underlying link and can expose
-stale kernel heap contents.
+On Wed, Nov 18, 2026 at 01:22:41PM +0200, Andy Shevchenko wrote:
+> On Wed, Nov 18, 2026 at 12:20:32PM +0300, Dan Carpenter wrote:
+> > On Tue, Nov 17, 2026 at 10:35:57PM +0530, Shivani Patel wrote:
+> > > data_ready() and get_top_mbo() read mdev->pending_mbos without holding
+> > > mdev->list_lock, racing with comp_rx_data() which modifies the list
+> > > under mdev->list_lock. Also, comp_vdev_close() clears mdev->mute without
+> > > holding mdev->list_lock.
+> > > 
+> > > Acquire mdev->list_lock in data_ready(), get_top_mbo(), and when
+> > > clearing mdev->mute in comp_vdev_close(). Use list_first_entry_or_null()
+> > > in get_top_mbo() so comp_vdev_read() can drop the redundant data_ready()
+> > > check inside the read loop.
+> 
+> ...
+> 
+> > > -static inline bool data_ready(struct most_video_dev *mdev)
+> > > +static bool data_ready(struct most_video_dev *mdev)
+> > >  {
+> > > -	return !list_empty(&mdev->pending_mbos);
+> > > +	unsigned long flags;
+> > > +	bool ready;
+> > > +
+> > > +	spin_lock_irqsave(&mdev->list_lock, flags);
+> > > +	ready = !list_empty(&mdev->pending_mbos);
+> > > +	spin_unlock_irqrestore(&mdev->list_lock, flags);
+> > > +
+> > > +	return ready;
+> > 
+> > It doesn't really matter if we take the lock where since we drop it
+> > right away.  The list_empty() doesn't anything that requires locking
+> > so far as I can see.
+> 
+> Right, but the problem is that we possibly might compare valid pointer
+> (list head itself) with the stale pointer (head->next and/or head->prev).
 
-For example, a 246-byte padded virtio header and a 14-byte Ethernet
-frame leave only 14 payload bytes, but a zero hdr_len makes copylen 128.
-With a 512-byte virtio header, a guest-supplied hdr_len of 256 also
-passes __tun_vnet_hdr_get(): it checks hdr_len before skipping the
-padding. That makes copylen 256 for the same 14-byte frame.
-Larger padded headers can raise copylen as far as good_linear.
+It's fine.  If you strip away the macros what the code is doing is.
 
-Clamp copylen to the remaining payload length before allocating the
-skb. The minimum Ethernet frame size has already been checked.
-
-Fixes: 97bc3633bec7 ("macvtap: macvtapTX zero-copy support")
-Co-developed-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
-Signed-off-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
-Signed-off-by: Junyoung Jang <graypanda.inzag@gmail.com>
----
-Changes in v2:
-- Replace the Fixes placeholder and add the co-developer trailers.
-- Document and reproduce the guest hdr_len > GOODCOPY_LEN path.
-- Shorten the code comment and keep the C reproducer separate.
-- Link to v1: https://lore.kernel.org/netdev/20261113164903.785381-1-graypanda.inzag@gmail.com/
-
-Tested on Linux 7.4.0-rc2 (067c5c24cef2) in x86-64 QEMU/KVM with
-two vCPUs, CONFIG_MACVTAP=y, CONFIG_VHOST_NET=y, and CONFIG_VETH=y.
-The guest used vhost_net.experimental_zcopytx=1 and init_on_alloc=0.
-Each case ran in a fresh VM with TUNSETVNETLE enabled.
-
-Before this patch, with a 14-byte Ethernet payload:
-
-  [POC] case=A
-  [POC] case_a_hdr0 received_len=128 expected_user_frame=14
-  [POC] case_a_hdr0 tail_bytes=114 tail_nonzero=98
-  [POC] control received_len=14 expected_user_frame=14
-  [POC] used_idx=2 trigger=128 control=14
-  POC_EXIT=0
-
-  [POC] case=B
-  [POC] case_b_hdr256 received_len=256 expected_user_frame=14
-  [POC] case_b_hdr256 tail_bytes=242 tail_nonzero=82
-  [POC] control received_len=14 expected_user_frame=14
-  [POC] used_idx=2 trigger=256 control=14
-  POC_EXIT=0
-
-With this patch applied, using the same inputs:
-
-  [POC] case=A
-  [POC] case_a_hdr0 received_len=14 expected_user_frame=14
-  [POC] control received_len=14 expected_user_frame=14
-  [POC] used_idx=2 trigger=14 control=14
-  POC_EXIT=0
-
-  [POC] case=B
-  [POC] case_b_hdr256 received_len=14 expected_user_frame=14
-  [POC] control received_len=14 expected_user_frame=14
-  [POC] used_idx=2 trigger=14 control=14
-  POC_EXIT=0
-
-Disclosure: An in-house LLM-based analysis tool developed by the authors
-assisted in surfacing this bug candidate and drafting the initial notes.
-All root-cause analysis, patch code, and QEMU/KVM reproducer results
-were manually reviewed and independently verified by the authors.
-
- drivers/net/tap.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/drivers/net/tap.c b/drivers/net/tap.c
-index 2f19fb07bb2d..f25c58d6e986 100644
---- a/drivers/net/tap.c
-+++ b/drivers/net/tap.c
-@@ -608,6 +608,8 @@ static ssize_t tap_get_user(struct tap_queue *q, void *msg_control,
- 		struct iov_iter i;
+diff --git a/drivers/staging/most/video/video.c b/drivers/staging/most/video/video.c
+index 3a0445ff62f4..7bebbf1e11cb 100644
+--- a/drivers/staging/most/video/video.c
++++ b/drivers/staging/most/video/video.c
+@@ -62,7 +62,9 @@ static DEFINE_SPINLOCK(list_lock);
  
- 		copylen = clamp(hdr_len ?: GOODCOPY_LEN, ETH_HLEN, good_linear);
-+		/* The remaining payload may be shorter than copylen. */
-+		copylen = min_t(unsigned long, copylen, len);
- 		linear = copylen;
- 		i = *from;
- 		iov_iter_advance(&i, copylen);
+ static inline bool data_ready(struct most_video_dev *mdev)
+ {
+-	return !list_empty(&mdev->pending_mbos);
++	if (mdev->pending_mbos.next == mdev->pending_mbos.prev)
++		return false;
++	return true;
+ }
+ 
+ static inline struct mbo *get_top_mbo(struct most_video_dev *mdev)
 
-base-commit: 067c5c24cef23d913b67eaaf71ae67e7169a6620
+The lock is unecessary, but also harmless.  Why I don't like adding a
+lock is because we drop the lock before we return so the return value
+could be wrong by the time it gets to the caller.  Nothing really
+relies on the return being correct.  It's useful because we set the
+error code based on it, but if it's wrong the system isn't going to
+crash.
+
+It's pretty common to do this sort of thing where we check in a racy
+way if we can return early, then we take a lock and check again to
+ensure that something is still true when it matters.
+
+regards,
+dan carpenter
