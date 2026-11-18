@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795039074;
-	b=DD1dyGZ+p8QQtM9TsDjtt5AiSl52uia37TbkAcB5D8AM+NOa6Ft3IN+1eApDgtm3jh6O
-	 qwwyLl1PY8zXMy0GBlNXYKzeVdJBjTY/V3IjhJq/G9bMTcWqyfOLvxkskrzYt6eCgtoIO
-	 Z5s2A4+xCbDX5z2stfghw8OZqNSHTiSrXm0XMPB2/datnrWd/4S/prj0DutUTvKcsV52R
-	 m+UyoTDYvZlfHbyDVR72cyXXiYkzAvxqH3tM0ODXIPmjUT+yOkCTVQpro+XIDsPhZS33q
-	 HJbuo6NYOrATl1YM+uBQlFPH3I3/r1S5wVlgn3CDSiyGkBKOtYCntF92YVqE8MhxvsA==
+	t=1795039081;
+	b=J+7qlOU0TYE919eOyHd11irBdeAI18XXVXw58lk5ZanM1bLhcde9TFIbmpvXoLNLxLyP
+	 O+7dr2xTFWVK77Aub/lhF9i/u2gWjSA5WbjdQXDRRvkGBiM/Q99Q83PBzngy1Ipmox4bL
+	 NIOGNfIue28udi8gILpLafo88iqDrobrcMBJeFS61GH0fwlB3y38v7QBytJlWQbgAbPc/
+	 C/idb9bKyXbhwRmxe19FECD69XGM4ueq2EWOxyXcyNWMXrvsAzDuzLJ3AN3uyIfuM7q20
+	 jbCuII+5OkmqRh8dJgZzD7CL9I+bO9IOo7Imsc6Q4gbOzGC7DfLpCpMw6DbpB1ng/GA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795039074;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795039081;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=2gpm1UxUzmoyh40qnSOyQEWaCYOdlmC3cCwN/wZvJAc=;
-	b=4LRxe86u0shx2yJPSRvvJ1ME8Vnhbx+o5jBDtUBWk1iF9dNjpPgJVdZoHu4/zm2COH8E
-	 2jMLTMyKVppp8oTxIWpHfdnahlrYwUpNYjq4TEUmRT7zM1Zze2zU8C8UKAI8mIrF2ku1y
-	 PiKjVV+E5hHC9525aaDZCVDSMZAKPoENPcZsh5mw10ZZ1EzzPSP+XAsd2RJbwU+r0pJW1
-	 hAEzB0OAHPt+QLF1Xk6d3uIpKZreJDzNxjmNywCe3YtZivnWAUpcvhZMxKtmMHZzMhII6
-	 H4JTQ9HOh6b03jA8m0DhbOOAqVgXN3CtyoATrVhNFsjAS8dYuKkJsSZpnmsNJDy5Ssw==
+	bh=MdAXpGeuC0Zr1ucQ0vm0QgEFLGsNzUop+nl8yFYM4Q4=;
+	b=rDeXM0oBm57rjtgXj7+2PYFne8Kd5bipUTyl8KSxQ+ouOH8SIaox4RsNPskAoxAs9DFO
+	 mzOLjeRSi/DvZ5bw4neJi4up75j+bf47OohdM+xQvj/AxRo3sFzQHTyj4mV0yxNI8OCuc
+	 cy8/L4uz2/VPKWIRvIKIDin9awceQDaAcz22lr0M/Adst7qL1RtHmCHWbMv8n/4Wf4+kB
+	 OI8u6kYpn+B6HBnlu/kOg37cEI21nbpS7KQyDilO6DMtACyPu+s+Wq+6Ra839RsWNSMns
+	 I3TJmXKPsfpL/Bn2cTLSBwR3xuyhUF3PMaCedwL+KWTyWJzSWgfP0hX2YWUA3lS3UYQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ltJR0Pfc;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jjr4R7bV;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5D99606A338;
-	Wed, 18 Nov 2026 21:57:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C29F6606A31C;
+	Wed, 18 Nov 2026 21:58:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ltJR0Pfc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CFF61F000C4;
-	Wed, 18 Nov 2026 21:57:51 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jjr4R7bV
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 720531F000C7;
+	Wed, 18 Nov 2026 21:57:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795039074;
-	bh=2gpm1UxUzmoyh40qnSOyQEWaCYOdlmC3cCwN/wZvJAc=;
+	s=k20260515; t=1795039081;
+	bh=MdAXpGeuC0Zr1ucQ0vm0QgEFLGsNzUop+nl8yFYM4Q4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ltJR0PfcQs4coyUfKqsiWj5aGTWv+mCAvGENLcsGZLkaWSKwsCVPuO3Bz9jhEslzY
-	 c6HE7zlxxAdBOxU7EXUwH5OpE/x8zxNg4f+y2/MminkGsDl7x7lCDpdivD7qGb1Ovr
-	 P7BziPm1ZX9RiXHXVKlhHzbxPo++GQiNWJPF4FGQOkO7BhDHT3Uz+eEnmvRUhhpy+b
-	 5/yK/sQ0FOllGM31VqCCMa9jOycEcT1cfZJr5G+KDU8qEVIuzOJFm9NVB2qRustItb
-	 Ztx17AejBd2P2hwnf5F4ULvfwkqieqkB8dO+5Y8JLNRY5mguR1WsnPzBnw4xvFR9yP
-	 OZ4X9XLHVK8eA==
+	b=jjr4R7bVD1tjQGuDZHLKnGb03eAuR1lMnNIg+Nv0/9XrHE4ywgCLXzgEP8VWfAw2T
+	 NetIe1ckjW6CqLQ4jdq1XqhqnwXK6wY89Ea90Vp5UT/3oxXQ9s//LwHeXnRVyW3LLr
+	 pi5K+wD5o+P5rsVISxZs95o1UlywJf5an456p/hiNaVh23XCS+evEr6BE9zopymEfw
+	 lROMEGaCAW5x8TTPfh8aWe+OzK623chQqvETUcl7oTy0GiWzdPl2hua5o8F66QnBD3
+	 6YjUCktiysuvHq6GhEw1565fcOulidvzAdKcH3GJt8nBWDcybUDrU7hflU0oSPvGiB
+	 lDV1E3OCVajzg==
 From: Arnaldo Carvalho de Melo <acme@kernel.org>
 To: Namhyung Kim <namhyung@kernel.org>
 Cc: Ingo Molnar <mingo@kernel.org>,
@@ -51,9 +51,9 @@ Cc: Ingo Molnar <mingo@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-perf-users@vger.kernel.org,
 	Arnaldo Carvalho de Melo <acme@redhat.com>
-Subject: [PATCH v7 09/13] perf tests: Silence the libbfd probe in build-test
-Date: Wed, 18 Nov 2026 18:57:11 -0300
-Message-ID: <20261118215716.114868-10-acme@kernel.org>
+Subject: [PATCH v7 11/13] perf tests: Fix the Intel PT virtual LBR check
+Date: Wed, 18 Nov 2026 18:57:13 -0300
+Message-ID: <20261118215716.114868-12-acme@kernel.org>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261118215716.114868-1-acme@kernel.org>
 References: <20261118215716.114868-1-acme@kernel.org>
@@ -70,35 +70,53 @@ Content-Transfer-Encoding: 8bit
 
 From: Arnaldo Carvalho de Melo <acme@redhat.com>
 
-build-test evaluates the libbfd probe at parse time and the compiler's
-stderr isn't captured by $(shell ...), so without binutils-devel it
-prints "bfd.h: No such file or directory" once per tests/make
-invocation, five times per run.
+On an Intel host the virtual LBR check failed with:
 
-Redirect the compiler's stderr; the empty result still skips the
-nondistro tests as intended.
+  Warning: Processed 29 samples and lost 100.00%
 
-Fixes: 523471c5163659c6 ("perf build: Skip nondistro build test if libbfd is old")
-Reviewed-by: Ian Rogers <irogers@google.com>
-Cc: James Clark <james.clark@linaro.org>
+The record leaves the buffer sizes to the tool defaults: the data ring
+follows perf_event_mlock_kb, and the runner's small value left a single
+page, too small for the AUX samples.  Pin 4 data and 64 AUX pages, so
+the test does not depend on the host sysctl, and give the AUX ring room
+instead of the single page the tool sizes to the 4 KiB snapshot.  Both
+fit in the default mlock allowance regardless of the CPU count.
+
+Also require the Python perf module to export session: a perf module
+without it, like the distro's python3-perf, made the check fail instead
+of skipping.
+
+Fixes: 915d6b14dc0c8971 ("perf test: Migrate Intel PT virtual LBR test to Python API")
+Cc: Adrian Hunter <adrian.hunter@intel.com>
+Cc: Ian Rogers <irogers@google.com>
 Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
 ---
- tools/perf/tests/make | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ tools/perf/tests/shell/test_intel_pt.sh | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
 
-diff --git a/tools/perf/tests/make b/tools/perf/tests/make
-index 7524de5228029e7e..e6d7ac49b5b1693d 100644
---- a/tools/perf/tests/make
-+++ b/tools/perf/tests/make
-@@ -128,7 +128,7 @@ make_minimal        += NO_SDT=1 NO_JVMTI=1 NO_LIBZSTD=1
- make_minimal        += NO_CAPSTONE=1
+diff --git a/tools/perf/tests/shell/test_intel_pt.sh b/tools/perf/tests/shell/test_intel_pt.sh
+index c0ecece0a8255124..96f5c132cebf23e6 100755
+--- a/tools/perf/tests/shell/test_intel_pt.sh
++++ b/tools/perf/tests/shell/test_intel_pt.sh
+@@ -384,13 +384,15 @@ test_virtual_lbr()
+ 	# shellcheck source=lib/setup_python.sh
+ 	. "${shelldir}"/lib/setup_python.sh
  
- # binutils 2_42 and newer have bfd_thread_init()
--new_libbfd := $(shell echo '#include <bfd.h>' | $(CC) -E -x c - | grep bfd_thread_init)
-+new_libbfd := $(shell echo '#include <bfd.h>' | $(CC) -E -x c - 2>/dev/null | grep bfd_thread_init)
+-	if ! "$PYTHON" -c 'import perf' > /dev/null 2>&1; then
+-		echo "SKIP: Python perf module not found"
++	if ! "$PYTHON" -c 'import perf; perf.session' > /dev/null 2>&1; then
++		echo "SKIP: Python perf module with session support not found"
+ 		return 2
+ 	fi
  
- # Whether libLLVM can be built, which needs the llvm-devel/llvm-dev headers and
- # libraries of version 13 or newer, not just llvm-config. This mirrors the
+-	# Check if virtual lbr is working
+-	perf_record_no_bpf -o "${tmpfile}" --aux-sample \
++	# The default data ring follows perf_event_mlock_kb and can be too
++	# small for the AUX samples; pin 4 data and 64 AUX pages, which fit
++	# in the default allowance.
++	perf_record_no_bpf -m 4,64 -o "${tmpfile}" --aux-sample \
+ 		-e '{intel_pt//,cycles}:u' perf test -w brstack || return 1
+ 	perf inject --itrace=L -i "${tmpfile}" -o "${perfdatafile}" || return 1
+ 	output=$("$PYTHON" "${shelldir}/lib/perf_brstack_max.py" -i "${perfdatafile}") || return 1
 -- 
 2.56.1
 
