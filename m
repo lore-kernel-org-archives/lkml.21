@@ -1,102 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794998487;
-	b=ptk5DOXaV9os/fkZpJAMfaY1DuNfim7rc+u/4SF8sQHZ+FQ35BiPxPmvzJapAS0wQi0V
-	 wYTVmHXYoQp80KC/mG3cD5RNMduza+Ae+LxA8JMvsKgj4GJJ2TqD7H2oTg8SHLXBT2GB4
-	 2Mr7WW2b21uDzKzZ/MSKa2Jbqx6vX/OS7eJx7ocJN8rwmOxt3A7IKdriJyhBhlgiVbO3n
-	 UaaR4A+kWBeu/BivaIZPUJGtnrI13ODooMQztJUOnVHnYtQd/7ya69dWKnB8n61OpZ7nK
-	 WEmBefUNCNwyTLT8RaM+BG6X0nqdTFI3jv5I8bbeCYikavw0Mn+Df0M97CM4D7L9P0w==
+	t=1794998489;
+	b=gNY0X3aU9A6jjKHut1kb92ZoCcRCm/oeVXeKboq5onlci1Rn98PQFqh5TfDd6Rpnjdm2
+	 9ro/rg4wgkliD8bKYOG2wBJ8fO2pSAQH0pvkwr3rYXArEedZmic0it9mgs9x54R3cguKK
+	 xw3gTzHzN7uSIi5ZO9Y0TSF0nllZDfyRiB82JYrTP9rB+5mpy5+cHOqYfpBrl+u10C+qU
+	 +BCn0wty2Z6QIR9EPKPXsrKR9ONc4Jbl1dZP+m5aj71U4l2A99OpdBRJf03Oi2/L+KlFY
+	 x2aIUcREMdf9WpXunaAE5ykmiO9C/MB+jkEp+qrDalmIC+O7CuqHW1szkiPcixoDjIQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794998487;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=8DddB4BOu0Fwu4SIijc7HO6ywtYEmx0fPwUuOrXpjQw=;
-	b=eOdsww2c7EwFAC5AlnUAWJPUzCnp8xHAnhyQe3Fs/bZq9NShWMJY2G1bwEOz1mB7qn6M
-	 hsZkXRso21ydq7B1lVoAKEpR0bajXptUKN+VY9KFHyBm3Dcn21rpd0Wab9+0Vvjn3c8k4
-	 zF/TqVKOTwbsES/jqSHSq3lcEPLqrPvXKsTGTpZ0V5Hxy29RQT3+U30MfPgB4FDTVQ2Wq
-	 ZuqyqgnHpvOdAtzxg19cMPyshTHBweHIwGdxKKoxqQCTTjYsyvolscaU2OFoKIfp1rMuH
-	 rvE2j16v7uhi5kLw2M+n6xcMM11kIOQzjjoLmmF/iZOylDspQ4C4kF9Gz6bRnxmt7EA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794998489;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=wtOLIIGy2V2qdHSm0s3wSDnD9BTWQqmLjRaYH3bZpf0=;
+	b=zpM2LLy+edQ+MvzQV1ZumIUNruEqEiA2LNOGEJtCndF7z2uWUUJwJJnBmAsDYC9Ddv21
+	 ru77PhOZFguAORxh/YxN/cxyzrnBCI8IVb4Z8mCU5fFet1DSenTv5cCFAhzSvGiGvpYAK
+	 ct9Hx/GzDJjOV9ka1du7ig3HttkypzR1CytADqcp3TW4VHrEaqduESOgXtMjJsnHd/XL2
+	 V/g1cXoig6IP0uFFhz1O4NVeci3NdCbL374+lNQbJL8vyAgJqv+R9C6GJCqyGbfp7gsHg
+	 Ulyfx2txjgn4Zzu6u3lRNDJjhLjV8LE+ke1qqAN6NxRXaidmPc4axhXexkVxaQfc3fQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=pereq.eu;
-	spf=pass smtp.mailfrom=cryspen.com;
-	dkim=pass header.d=pereq.eu header.i=@pereq.eu header.a=rsa-sha256 header.s=google header.b=Xf8uSlRa;
-	arc=none smtp.remote-ip=209.85.221.54
-Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A7MKf6u5;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E36A606A330
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:41:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5E36A606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=pereq.eu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cryspen.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D7FF60A2613;
+	Wed, 18 Nov 2026 10:41:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pereq.eu header.i=@pereq.eu header.a=rsa-sha256 header.s=google header.b=Xf8uSlRa
-Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-490f38e9688so472725f8f.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:41:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pereq.eu; s=google; t=1794998486; x=1795603286; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=8DddB4BOu0Fwu4SIijc7HO6ywtYEmx0fPwUuOrXpjQw=;
-        b=Xf8uSlRaFQFlv8Dor+hj1kyAeXZ7Uj9fUvn5XkvhtJfgVAt1Cxtk7BpWqbFG+FZjwH
-         papRatzgHCPos8zf98m28UNHdmB505l1ujouSNA7jcboyn5y9hTOWb55rrcXx5aUOk/r
-         vrxXaQOMWB76UfYenBZNUZ6TRiOru4IswmGBUsaCV/ib9lIlE+FhkoJ6CKKtI2wOQIDe
-         CWaBRE3j05GcWG5rPUciQ5q8o268dsNAEAI5fFAo4d0R4SPfupSw2rKcMNodhH7K2IFY
-         S4eNixs5ywstT5kbYsC/hXx2GqVMc5LYNJXRcn4bidTrp0n2JeDLpn1f6En0+xWdFHm/
-         tt7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794998486; x=1795603286;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8DddB4BOu0Fwu4SIijc7HO6ywtYEmx0fPwUuOrXpjQw=;
-        b=0NCoc50SPp4+ztSTlcjGVB7sFVoY0ZzChvP8N4oLx6v7iWomUyc54fDtl1m1eOgJXb
-         noNT/1HEXNvvI7QhSmm59FDXi2/h2YWzBwAU/gPvcEPp1sZyS5iTaf00ljB5Ci1kp0j4
-         hx1mqKnoYY9mBfBOaDq4By09bEr6fOmcqdvF0kBU/PbzpFaVIfwF/TfiiKxwLLOLQXlg
-         Q5oWa9C+T+cFVlkk0OO2CYQRg70ODY0m1MT8ntjhD6kO5+ecjuklKGdbmRKKik6ogPfC
-         aHJOBp8Hhs0hcBAhuOYB+f/D6ymCMm32cPMZqbiXGW2X0BETj3PQnIFcxsos+cP1Vz7U
-         he+w==
-X-Forwarded-Encrypted: i=1; AL+hErEeJ1mYw3xm2yoBJ+nb/MQgQfIlfrmA3FVgtX47vT+eK5o9XCBu8vq+Xh5O9/XhmSyuOVmW8hx98E7KHKI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+j+89CEIcsHvLcVB0hrV2WzVtIy9vv9utacrGDC2How1x0W5mc
-	s98yVD236YjNiFGM7QGx4Iz2GiFqCAwlYKLDmyZuJtCbJP2HWVYN6p93QWIOV6+piA8=
-X-Gm-Gg: AZFdTZfRa12kdkQ3XamxjpXrAn4uxpiwCv2trjCNCYGbtyfZvkbLRw2xcrJzrK0Wqxu
-	jR/hNei1fe7JMxc0Q8dXdXr2g7D74mpIBJegU/QU9LMAR65bYm6WJYhEV/SuLGpmEoFY9OE6yVp
-	gopCAj1m9KhZ4Hf1ft6xP3QU/66H4PQQl4TwDXYQA8GLoEm+DL7CCPky+LnPHSOmGYHTs3pmZOO
-	OkfZy7xF/eQxyv07O4eWTz4sG4ukIZgs6y6eBtWNYTtj542O73r+aE0vmnQvI4k7Rc1LU9Av7fe
-	9QfDLaE7ebbP7Ct3VZpCkWXjvUp/T1CkMwjH3Dxy8cz5O+yqI5+9BhniMyFI4ktofCTpPe0Zt3R
-	CfOtdkMZh+zifKF/vgoCQc+V32xatkfYt5j3XjjhTOc1wuCOZp0UsBGCeGEBugJPFybDYrGJ7Z3
-	cJKN0pNuSEw+Avs3AxOWvoscHbp/bIBQUPS08UFkiOVVHfd/TM+lzO5NfIjuh82cuWf91Y01stj
-	9a5M6ZvJxD53fn+/vA2hCikVAQfjb0SQVF1st8gZBx1IQwGCcwbzmJtJLCrDJ5eqE3LwRSOpREG
-	izd8VGQ/97c5+DROPn280YrnL8D54c2BIHM5vHjH
-X-Received: by 2002:a05:6000:2489:b0:495:b427:1e6f with SMTP id ffacd0b85a97d-4a62d6d71ebmr4953529f8f.0.1794998485425;
-        Wed, 18 Nov 2026 02:41:25 -0800 (PST)
-Received: from localhost ([2c0f:3d00:6be:8900:ce5e:9212:ea4b:f30])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a6573baa9fsm4323892f8f.57.2026.11.18.02.41.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 02:41:24 -0800 (PST)
-Date: Wed, 18 Nov 2026 13:41:20 +0300
-From: Dan Carpenter <dan@pereq.eu>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Karthik Bhargavan <karthik@pereq.eu>,
-	=?iso-8859-1?Q?Cl=E9ment?= Blaudeau <clement@cryspen.com>
-Subject: Re: [PATCH] KVM: arm64: nv: Fix NULL dereference in
- kvm_inject_nested()
-Message-ID: <av2A0FxSab9P3eMW@stanley.mountain>
-References: <avsH0lxpLIF2Ug64@stanley.mountain>
- <86h5hg1wak.wl-maz@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A7MKf6u5
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4AF91F000C4;
+	Wed, 18 Nov 2026 10:41:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794998488;
+	bh=wtOLIIGy2V2qdHSm0s3wSDnD9BTWQqmLjRaYH3bZpf0=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=A7MKf6u5BHKVv1R+Sujt5r3gCGRPLDpsQh5UyGBQWLTwhrw3HU8TlJiyxwPrUE3mN
+	 Huj5qK6DeLVXVLYA4MUu6uJHwaTzAeA+CEXzTZNAu2UhXHdjFUHRIgu8HQrEvGmcEH
+	 OBlCpLIIxDmCKpsZGWhV9kZD+3YGtisvctqk2/zqx21lL5Kl7XEBE/EiCYfFE5Mf3W
+	 Mv+wRB9fNsgyp1QBEKvscVcTygexfmL0BQqXcGhxQh+OVks8SezcqxTi9vLPCsALop
+	 2e37kfKZM7MZLokOefBdu8+tkkdC8OQtDqVyUQGZrbtO7vjktfCYKz3qvR+lrXdGLa
+	 f3FGIt0Qr74/Q==
+Subject: Re: [PATCH net-next v3 2/2] net: stmmac: dwmac-rk: Add RK3572 support
+From: netdev-bot+sashiko@kernel.org
+To: 1579567540@qq.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, heiko@sntech.de, david.wu@rock-chips.com,
+ alexandre.torgue@foss.st.com, peppe.cavallaro@st.com, joabreu@synopsys.com,
+ maxime.chevallier@bootlin.com, mcoquelin.stm32@gmail.com,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+Date: Wed, 18 Nov 2026 10:41:27 +0000
+Message-ID: <179499848737.3136.8604402338812509621@kernel.org>
+In-Reply-To: <20261116-add-board-ok3572-c-net-v3-2-a957fdcd9c7a@qq.com>
+References: <20261116-add-board-ok3572-c-net-v3-2-a957fdcd9c7a@qq.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,47 +67,111 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86h5hg1wak.wl-maz@kernel.org>
 
-On Mon, Nov 16, 2026 at 06:11:15PM +0000, Marc Zyngier wrote:
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 5959bbbfa026f..21cd872ea394b 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -2007,7 +2007,7 @@ static int kvm_arm_vcpu_get_events(struct kvm_vcpu *vcpu,
->  static int kvm_arm_vcpu_set_events(struct kvm_vcpu *vcpu,
->  				   struct kvm_vcpu_events *events)
->  {
-> -	int i;
-> +	int i, ret;
->  
->  	/* check whether the reserved field is zero */
->  	for (i = 0; i < ARRAY_SIZE(events->reserved); i++)
-> @@ -2019,7 +2019,11 @@ static int kvm_arm_vcpu_set_events(struct kvm_vcpu *vcpu,
->  		if (events->exception.pad[i])
->  			return -EINVAL;
->  
-> -	return __kvm_arm_vcpu_set_events(vcpu, events);
-> +	vcpu_load(vcpu);
-> +	ret = __kvm_arm_vcpu_set_events(vcpu, events);
-> +	vcpu_put(vcpu);
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
+
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
+
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] RK3572 RGMII delay lines get fixed values that the DT is not
+  allowed to describe.
+
+--
+
+net: stmmac: dwmac-rk: Add RK3572 support
+
+This patch adds RK3572 support to the Rockchip dwmac glue driver. It
+covers the register layout for the two GMAC controllers in the PHP and
+NVM0 GRFs, plus a set_to_rgmii callback that programs the RGMII delay
+lines through the IOC.
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> index a37df5767d84e..c9d8d8bf51f7b 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+
+[ ... ]
+
+> +static void rk3572_set_to_rgmii(struct rk_priv_data *bsp_priv,
+> +				int tx_delay, int rx_delay)
+> +{
+> +	u32 val = GRF_FIELD(14, 8, rx_delay) | GRF_FIELD(6, 0, tx_delay) |
+> +		  GRF_FIELD(15, 15, !!rx_delay) | GRF_FIELD(7, 7, !!tx_delay);
 > +
-> +	return ret;
->  }
->  
->  /*
-> 
-> and be done with it, avoiding the fast-path bloating altogether.
-> Unless you can spot another path where the vcpu is not loaded, but
-> still requires the injection of an exception?
+> +	if (bsp_priv->id == 1) {
+> +		regmap_write(bsp_priv->php_grf, RK3572_VCCIO0_3_VO_IOC_CON1, val);
+> +		regmap_write(bsp_priv->php_grf, RK3572_VCCIO5_6_IOC_MISC0, val);
+> +	} else {
+> +		regmap_write(bsp_priv->php_grf, RK3572_VCCIO1_2_4_VI_IOC_CON1, val);
+> +	}
+> +}
 
-I feel like this approach brings arm64 slightly more in line with
-x86 so I like it.  I'll send that.
+[Severity: Medium]
+Where are the tx_delay and rx_delay values for RK3572 meant to come from?
 
-I'm still redoing the TCR2 changes so I won't send those today.
+The companion binding change in rockchip-dwmac.yaml forbids the legacy
+properties for this compatible:
 
-regards,
-dan carpenter
+  - if:
+      properties:
+        compatible:
+          contains:
+            const: rockchip,rk3572-gmac
+    then:
+      properties:
+        rx_delay: false
+        tx_delay: false
 
+That means a schema-valid RK3572 node never has them. rk_gmac_setup() then
+falls back to the old defaults and logs an error on every probe:
+
+drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c:rk_gmac_setup() {
+    ...
+	ret = of_property_read_u32(dev->of_node, "tx_delay", &value);
+	if (ret) {
+		bsp_priv->tx_delay = 0x30;
+		dev_err(dev, "Can not read property: tx_delay.");
+    ...
+	ret = of_property_read_u32(dev->of_node, "rx_delay", &value);
+	if (ret) {
+		bsp_priv->rx_delay = 0x10;
+		dev_err(dev, "Can not read property: rx_delay.");
+    ...
+}
+
+rk_gmac_powerup() passes these defaults on for "rgmii" (both delays),
+"rgmii-rxid" (tx_delay) and "rgmii-txid" (rx_delay). Since bits 15 and 7
+are set from !!rx_delay and !!tx_delay, rk3572_set_to_rgmii() switches on
+the IOC delay lines with 0x30/0x10 taps for every RGMII mode except
+"rgmii-id".
+
+The 0x30/0x10 defaults come from older Rockchip SoCs. Do they match the
+RK3572 tap size?
+
+A board can't override them without failing schema validation. The driver
+also doesn't read rx-internal-delay-ps or tx-internal-delay-ps.
+
+Consider a board that uses "rgmii" with PCB delays, or a PHY that adds its
+own delay. Could this leave the RX/TX sampling skewed, with no supported
+way to fix it in DT?
+
+Would it make sense to either zero the MAC-side delays for RK3572 when the
+legacy properties are absent, or take them from the standard
+*-internal-delay-ps properties? If not, should the binding keep allowing
+tx_delay/rx_delay for now?
+
+> +
+> +static const struct rk_gmac_ops rk3572_ops = {
+> +	.init = rk3572_init,
+> +	.set_to_rgmii = rk3572_set_to_rgmii,
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116-add-board-ok3572-c-net-v3-0-a957fdcd9c7a%40qq.com
