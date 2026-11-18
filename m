@@ -1,65 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=176.10.93.31
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795008019;
-	b=nv6rx6Clmai46eepcMNKSBpaEsXDHjS8dkNV6+vlSyrRqLh2ZZNcqwDnsvUk1Z5f0Dfg
-	 mkxNxZRcfZl3HqZ7ZOfie4dpxui1uEzT0AFi+VJju92oweuCOFbN87kysSrmkFMmhAan4
-	 kzLzpJiuxrTVtzOR+CtEXMcuG+HidezRUHCNeA/6v8AKXWihPilIuyrf+Bc2ga76r9M5G
-	 Z2NFWfIDs30iRhUljeQCrO5fQETohdsFgzeN9K54f9UzQ1DixsGP1Jf3gP64IJ7O9iU79
-	 Z5KajXwePmrNPmwFLl/BU1QBMZjXUK5mxNu5PQQ3I8gct0jA92A6WLyZUTBml0KMVhQ==
+	t=1795008060;
+	b=wmJLhfc0XC/ulDX15CfiXMNtIZBVA++/l7Hax1/H3TzWEPw6hUznay5qITN+PYS/3pwN
+	 ig6eYjmnoAgwAJjkQwlzI/TC4vSTj6T0qXvB+EJUPCbb+adnMzut7Y9u45XHR1BwpW7Dq
+	 IT3I7mfrVjU/x3+HXkuIfRyIO2O9uPDrBW+MZhGInezPEvQxpVCUqdNOvSpkcw3BAuyG8
+	 tN3WRRyjDSvx6MXWHqXyxq9Xq++2OY6wu04roPAGkYes3OgM8BEya4V7npZqJOIgsOHxo
+	 JY+AJ1VgamC2pb3aEekTkWJYvkIm1LozXWjlDR/v1flqnXYkQ7l7bm6j57VB/QRIC/g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795008019;
-	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:From:To:CC:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 Content-Type:X-Originating-IP:X-ClientProxiedBy;
-	bh=32cyXCU1sWs+5TgmQguEoU4tTwPL+UvYB/tYlKxvnd8=;
-	b=45QkOSy9RQUkPeg4x3z5mV5DcjMWCblzoyMy6VVWLCZxYQIQclx0KZAtWSTiWaw7IcxE
-	 qqg0+Zv0az7foQKQh3+8yh2ctHmSeRB7f4KYD3su7rYTuPVAa3xcBGx7RppTtIM08bijq
-	 k9V6KxIWPc1nkXcW1YY9mt2Ia+843mS8HnVe6MR+UE+0AcovDPJo8Rh2LqMJb2Z/rki8v
-	 YpCdUxUoASsobs7Wfzw6wxsbrow9BqH4HfD4KBPL60Iwy1fsddtndOw4/wnCLDK21PFGs
-	 L0xEsWtPH/6NFkNBTSp5Eq4qLflZ1UwmOtjhE8dhmWPF180347WJNyCsmPsTjFQmbjQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795008060;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition;
+	bh=eCD6KYxE7KafmDUvT/CJJctFxELiwnm2j6W6mM8f0nk=;
+	b=NbPx3HuDoFu/6opPFMGoSlcxIPHJebAMkIc6UzVKdWxrRjazx4da5CVxLk7gryM3ArP3
+	 pHBpJpTRzAoT+DM9Ftip5tS/tXd+Z/ZYEYfZTasVYQsETYJsG0oJhCrt/Jy6KE1wZaPqz
+	 gtgsm05aF8z96OvB7FCdi8OxKFUlpmAKf/u8DziXTxaXllmZk9wSZlGVg9khofzgwpbne
+	 yeV1i/uKjiLIMYh+m7UmM+H9CCCd7CaEsI5yUBA7g3kNenOKh+gICNr1SQoU2qxgM/793
+	 RH0vMX2S0Q/q6e15WDX/Xc2KE9GBA08zM1nuMCjTwcLjxSwghxZAkWi4Q8U8BSxeS4g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cyberprotect.ru;
-	spf=pass smtp.mailfrom=cyberprotect.ru;
-	dkim=pass header.d=cyberprotect.ru header.i=@cyberprotect.ru header.a=rsa-sha256 header.s=dkim-r header.b=UYOW2Gi3;
-	dkim=pass header.d=cyberprotect.ru header.i=@cyberprotect.ru header.a=ed25519-sha256 header.s=dkim header.b="4irY/SdN";
-	arc=none smtp.remote-ip=176.10.93.31
-Received: from mx2.cyberprotect.ru (mx2.cyberprotect.ru [176.10.93.31])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="QwXk27I/";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8347606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:20:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8347606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cyberprotect.ru
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cyberprotect.ru
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A7B8606A320;
+	Wed, 18 Nov 2026 13:21:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=cyberprotect.ru header.i=@cyberprotect.ru header.a=rsa-sha256 header.s=dkim-r header.b=UYOW2Gi3;
-	dkim=pass header.d=cyberprotect.ru header.i=@cyberprotect.ru header.a=ed25519-sha256 header.s=dkim header.b=4irY/SdN
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=cyberprotect.ru; s=dkim-r; h=MIME-Version:Date:From:Sender:Reply-To;
-	bh=32cyXCU1sWs+5TgmQguEoU4tTwPL+UvYB/tYlKxvnd8=; b=UYOW2Gi3CMf/tAuu7+s8KX8Wv9
-	py4RP9kUFn7kmDO/JKczP71w9pntQCWbe89qEaIBDBJkOsIPuYBd5k1E1AMi4/tPX6pyn408uCpcQ
-	29cBLWrdmkKi/24V8uH44pChKqH+01LNp9AyHibaBFWVZBm32aPfaodYT5Bx8DIHlBhb2x0eGAJaz
-	WOBLL4fTvlZCQs8I9YpwBdFqXyuwWHMeHRzzQSFPGq3zQqTMsUW5eAuqoH1DJTA0xqpBmnkMQHFJ/
-	Ydt6rk/q6OibKhau3Qs0RUnkF6rSjRAiUbeZnz51GyBKba2xQjDprVqxeNmELECAJg+KJAxEK5QH6
-	OuWTRbVw==;
-DKIM-Signature: v=1; a=ed25519-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=cyberprotect.ru; s=dkim; h=MIME-Version:Date:From:Sender:Reply-To;
-	bh=32cyXCU1sWs+5TgmQguEoU4tTwPL+UvYB/tYlKxvnd8=; b=4irY/SdNPUamy7Q3S+eHGD7jMd
-	lg6PWy+mOHZ9ZIhEj3bb1IPvu4ivYexv3VkmP2zRAB1hANCfd4SL/qfiBUDg==;
-From: Dmitriy Chumachenko <Dmitry.Chumachenko@cyberprotect.ru>
-To: Jaroslav Kysela <perex@perex.cz>
-CC: Takashi Iwai <tiwai@suse.com>, Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>, Sasha Levin <sashal@kernel.org>, Oswald
- Buddenhagen <oswald.buddenhagen@gmx.de>, Mehul Rao <mehulrao@gmail.com>,
-	Ji'an Zhou <eilaimemedsnaimel@gmail.com>, Norbert Szetei
-	<norbert@doyensec.com>, <alsa-devel@alsa-project.org>,
-	<linux-kernel@vger.kernel.org>, <lvc-project@linuxtesting.org>, Dmitriy
- Chumachenko <Dmitry.Chumachenko@cyberprotect.ru>
-Subject: [PATCH v2] ALSA: pcm_oss: reject buffer reconfiguration while the stream is mmapped
-Date: Wed, 18 Nov 2026 16:19:45 +0300
-Message-ID: <20261118131945.27592-1-Dmitry.Chumachenko@cyberprotect.ru>
-X-Mailer: git-send-email 2.49.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QwXk27I/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2CEC1F000C4;
+	Wed, 18 Nov 2026 13:20:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795008060;
+	bh=eCD6KYxE7KafmDUvT/CJJctFxELiwnm2j6W6mM8f0nk=;
+	h=Date:From:To:Cc:Subject;
+	b=QwXk27I/cC+svgn8mDcDxcSofs2mRqkgeKA2MJMTjKTbzzmAAT+tNx4TaYzJFS3yd
+	 kySgMzHC5pihsF1tQWhwabWxkG9uJETBudH2KhSaK8w/+VvR81TsVoQ1UwBHGwsKX/
+	 cVUL9LK6uABpCbGwGJlyaM66TZvPWK0gOYJzjiho4RAbIA6OODBr1RKk1h75RAYXCR
+	 O4xwLh85VV92u0eiIUH6zQB1pZo/Egs99vBqEqiH+/y/zsqSkWmBChwVZlr10SfUpX
+	 V+8yZVIObjBZjtQpNxhuzaMmy+T7csxVf3M+cAQg3E7o4HTKuTPv5ctA5YuS4/iNN2
+	 GMMOxyBumSYQw==
+Date: Wed, 18 Nov 2026 13:20:56 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Christian Brauner <brauner@kernel.org>
+Cc: Chi Zhiling <chizhiling@kylinos.cn>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Linux Next Mailing List <linux-next@vger.kernel.org>,
+	Namjae Jeon <linkinjeon@kernel.org>
+Subject: linux-next: manual merge of the vfs-brauner tree with the exfat tree
+Message-ID: <av2mOPyANz3H59F5@sirena.org.uk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,72 +57,175 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: AIP-EXCH-1.aip.ooo (10.77.28.101) To AIP-EXCH-1.aip.ooo
- (10.77.28.101)
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="RvYcReLTk4/oCryJ"
+Content-Disposition: inline
 
-During fuzz testing, the following issue was discovered.                   
-                                                                           
-WARNING: CPU: 2 PID: 1734 at sound/core/pcm_native.c:3835                  
-snd_pcm_mmap_data_fault+0x47f/0x530 sound/core/pcm_native.c:3835           
-                                                                           
-Modules linked in:                                                         
-CPU: 2 PID: 1734 Comm: syz.1.352 Not tainted 6.1.187-syzkaller-00593-g063a81552262 #0
-RIP: 0010:snd_pcm_mmap_data_fault+0x47f/0x530 sound/core/pcm_native.c:3835 
-                                                                           
-Call Trace:                                                                
- <TASK>                                                                    
- __do_fault+0x10d/0x480 mm/memory.c:4280                                   
- do_cow_fault mm/memory.c:4661 [inline]                                    
- do_fault+0xa7a/0x1100 mm/memory.c:4762                                    
- handle_pte_fault mm/memory.c:5031 [inline]                                
- __handle_mm_fault+0xdf3/0x2e40 mm/memory.c:5173                           
- handle_mm_fault+0x2da/0xa60 mm/memory.c:5294                              
- do_user_addr_fault+0x4aa/0x1050 arch/x86/mm/fault.c:1338                  
- handle_page_fault arch/x86/mm/fault.c:1429 [inline]                       
- exc_page_fault+0x98/0x1b0 arch/x86/mm/fault.c:1482                        
- asm_exc_page_fault+0x22/0x30 arch/x86/include/asm/idtentry.h:608
 
-snd_pcm_oss_change_params() frees and reallocates the substream buffer,
-and several OSS entry points reach it while the data area may already be
-mmapped: snd_pcm_oss_mmap() and the SNDCTL_DSP_GETOSPACE/GETISPACE ioctls
-(snd_pcm_oss_get_space()).
+--RvYcReLTk4/oCryJ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-For OSS streams snd_pcm_hw_params() skips the mmap_count guard
-(!is_oss_stream), so the buffer is torn down under a live mapping. If the
-reallocation then fails, the substream is left with runtime->dma_area ==
-NULL, and the next page fault on the stale mapping reaches
-snd_pcm_mmap_data_fault() with no buffer, hitting the WARN_ON_ONCE().
+Hi all,
 
-Reject the reconfiguration in snd_pcm_oss_change_params_locked() when the
-stream is already mmapped; this covers all callers (read/write already
-bail out earlier on a non-zero mmap_count). The core WARN_ON_ONCE() is
-left in place.
+Today's linux-next merge of the vfs-brauner tree got a conflict in:
 
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Signed-off-by: Dmitriy Chumachenko <Dmitry.Chumachenko@cyberprotect.ru>
----
-v2: Fix the root cause in the OSS layer instead of silencing the core
-    warning. v1 dropped the WARN_ON_ONCE() in snd_pcm_mmap_data_fault();
-    v2 refuses to reconfigure (and free) the buffer while a data mapping
-    is active, which is what left dma_area NULL.
- sound/core/oss/pcm_oss.c | 2 ++
- 1 file changed, 2 insertions(+)
+  fs/exfat/file.c
 
-diff --git a/sound/core/oss/pcm_oss.c b/sound/core/oss/pcm_oss.c
-index 2dbc27831eb3..4ce9ecaa6ab1 100644
---- a/sound/core/oss/pcm_oss.c
-+++ b/sound/core/oss/pcm_oss.c
-@@ -861,6 +861,8 @@ static int snd_pcm_oss_change_params_locked(struct snd_pcm_substream *substream)
- 
- 	if (!runtime->oss.params)
- 		return 0;
-+	if (atomic_read(&substream->mmap_count))
-+		return -EBADFD;
- 	sw_params = kzalloc_obj(*sw_params);
- 	params = kmalloc_obj(*params);
- 	sparams = kmalloc_obj(*sparams);
--- 
-2.49.0
+between commits:
 
+  cfdee4e5f5764 ("exfat: coordinate direct writes with mmap faults")
+  b900c61a3f21b ("exfat: drain dirty pages after forced shutdown")
+  e70ec3eaac957 ("exfat: increase VDL before unlocking initialized folios")
+
+=66rom the exfat tree (plus my earlier merges) and commit:
+
+  788f21d1f1923 ("exfat: don't set SB_RDONLY after filesystem errors")
+
+=66rom the vfs-brauner tree.  Again, this needs double checking.
+
+I fixed it up (see below) and can carry the fix as necessary. This
+is now fixed as far as linux-next is concerned, but any non trivial
+conflicts should be mentioned to your upstream maintainer when your tree
+is submitted for merging.  You may also want to consider cooperating
+with the maintainer of the conflicting tree to minimise any particularly
+complex conflicts.
+
+diff --cc fs/exfat/file.c
+index 8078e9bccbe13,b985f4e9b314b..0000000000000
+--- a/fs/exfat/file.c
++++ b/fs/exfat/file.c
+@@@ -1102,13 -899,10 +1123,14 @@@ static ssize_t exfat_file_write_iter(st
+  	loff_t pos, valid_size, end;
+  	int err;
+ =20
+- 	if (unlikely(exfat_forced_shutdown(inode->i_sb)))
+- 		return -EIO;
++ 	err =3D exfat_emergency_state(inode->i_sb);
++ 	if (unlikely(err))
++ 		return err;
+ =20
+ +	/* Gap initialization and source faults require blocking operations. */
+ +	if (iocb->ki_flags & IOCB_NOWAIT)
+ +		return -EAGAIN;
+ +
+  	inode_lock(inode);
+ =20
+  	ret =3D generic_write_checks(iocb, iter);
+@@@ -1207,51 -993,58 +1229,52 @@@ static ssize_t exfat_file_read_iter(str
+  static vm_fault_t exfat_page_mkwrite(struct vm_fault *vmf)
+  {
+  	struct inode *inode =3D file_inode(vmf->vma->vm_file);
+ +	struct address_space *mapping =3D inode->i_mapping;
+  	struct exfat_inode_info *ei =3D EXFAT_I(inode);
+ +	struct folio *folio =3D page_folio(vmf->page);
+ +	loff_t fault_start =3D folio_pos(folio);
+ +	loff_t new_valid_size, gap_start;
+  	vm_fault_t ret;
+ -	loff_t new_valid_size, mmap_valid_size, fault_page_start;
+ -	int err;
+ +	int error;
+ =20
+- 	if (unlikely(exfat_forced_shutdown(inode->i_sb)))
+- 		return VM_FAULT_SIGBUS;
+ -	err =3D exfat_emergency_state(inode->i_sb);
+ -	if (unlikely(err))
+ -		return vmf_fs_error(err);
+ -
+ -	if (!inode_trylock(inode))
+ -		return VM_FAULT_RETRY;
+ -
+ -	mmap_valid_size =3D ((loff_t)vmf->pgoff + 1) << PAGE_SHIFT;
+ -	fault_page_start =3D ((loff_t)vmf->pgoff) << PAGE_SHIFT;
+ -	new_valid_size =3D min(mmap_valid_size, i_size_read(inode));
+ -
+ -	if (exfat_get_valid_size(ei) < new_valid_size) {
+ -		loff_t zeroed_size =3D exfat_get_zeroed_size(ei);
+ -
+ -		if (zeroed_size < fault_page_start) {
+ -			/*
+ -			 * Zero only the gap below the faulting page. The read
+ -			 * fault populated its folio and iomap_page_mkwrite()
+ -			 * will dirty it.
+ -			 */
+ -			err =3D exfat_prepare_valid_range(inode, zeroed_size,
+ -					fault_page_start);
+ -			if (err < 0) {
+ -				inode_unlock(inode);
+ -				return vmf_fs_error(err);
+ -			}
+ -		}
+ -
+ -		/*
+ -		 * Track zeroed_size by block, not page, because writeback stops
+ -		 * at i_size recording blocks wholly beyond it could skip a
+ -		 * later required zeroing.
+ -		 */
+ -		exfat_advance_zeroed_size(ei,
+ -				round_up(new_valid_size, i_blocksize(inode)));
+ -		exfat_set_valid_size(ei, new_valid_size);
+ -		mark_inode_dirty(inode);
+ -	}
+++	error =3D exfat_emergency_state(inode->i_sb);
+++	if (unlikely(error))
+++		return vmf_fs_error(error);
+ =20
+  	sb_start_pagefault(inode->i_sb);
+ -	file_update_time(vmf->vma->vm_file);
+ +	error =3D file_update_time(vmf->vma->vm_file);
+ +	if (error) {
+ +		ret =3D vmf_fs_error(error);
+ +		goto out_pagefault;
+ +	}
+ +	filemap_invalidate_lock_shared(mapping);
+ +
+ +	if (folio->mapping !=3D mapping || fault_start >=3D i_size_read(inode)) {
+ +		ret =3D VM_FAULT_NOPAGE;
+ +		goto out_unlock;
+ +	}
+ +
+ +	/* The faulting folio is already populated; initialize only its gap. */
+ +	gap_start =3D max(exfat_get_valid_size(ei), exfat_get_zeroed_size(ei));
+ +	error =3D exfat_prepare_range(inode, gap_start, fault_start, true);
+ +	if (error) {
+ +		ret =3D vmf_fs_error(error);
+ +		goto out_unlock;
+ +	}
+ =20
+ -	filemap_invalidate_lock_shared(inode->i_mapping);
+  	ret =3D iomap_page_mkwrite(vmf, exfat_iomap_next, NULL);
+ -	filemap_invalidate_unlock_shared(inode->i_mapping);
+ +	if (ret =3D=3D VM_FAULT_LOCKED) {
+ +		/* Buffered write may have grown EOF before we locked the folio. */
+ +		new_valid_size =3D min(folio_next_pos(folio), i_size_read(inode));
+ +		exfat_advance_zeroed_size(ei,
+ +				round_up(new_valid_size, i_blocksize(inode)));
+ +		if (exfat_advance_valid_size(ei, new_valid_size))
+ +			mark_inode_dirty(inode);
+ +	}
+ +out_unlock:
+ +	filemap_invalidate_unlock_shared(mapping);
+ +out_pagefault:
+  	sb_end_pagefault(inode->i_sb);
+ -	inode_unlock(inode);
+ =20
+  	return ret;
+  }
+
+--RvYcReLTk4/oCryJ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmr9pjcACgkQJNaLcl1U
+h9CRNQf9HRwh6WivFmXClDihSkALarqzK6aq62JMV6DDbAK2m4r0X7DtC/7qOF2s
+TMWyIiJzaQT61qfrjvSaQv5y+mvQesCil8vzPwz/S6q4XnH2p1ccKS9O/JfNZZNH
+D5rafqw22q2PlAhnDWBX3DEIhXOCPShAt/HsB+MKuItT/Uj+RjimrESv1My3ChAL
+AgbZKp4qFs+HHHCrxvkJdT+rPTCslsCk4MV4oASyMITMkzbfO7ou+aDHbls8icMa
+QnCXLyYpkF7xfYGpcS+tZUFfyAxR7FctMXvONGC2FXWSA/7c4zqD1AwlSNfRBDXp
+qXOb8Amf8m9FcHgLxRcuD8bD/TLLoA==
+=iFxA
+-----END PGP SIGNATURE-----
+
+--RvYcReLTk4/oCryJ--
