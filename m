@@ -1,64 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.133.104.62
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795026432;
-	b=0N35oAWhC4pVtaUakTVdTGRV85kl9jHfZM7VMHBU1yv+BHxFz0aFQ6ZOHwMLqdqg9pLk
-	 BdrGWZ7XI/+cQzXID4qWakGGwa6ADJ/OIDcilYb0jQG2+zr6qZIc3slWfXEq3tO+oAOBP
-	 MeRm0Nbpiva0fA/PPebwikqnM+7I+mUSI7vBRAky+kPoatGjwpM2PhQ/Gi4BjY2G/IHp0
-	 7y4yWZnygaswJClU9QRJSQ89IjEfrVUil4U9QYBcjSPWr7r+iUE1zkNPpt+O9i34/Z/Qa
-	 Aj1yaZ9zyEnAUfrGLUdf/tBB6cMfXu5ufP1pCKcq61llUOn6VW5Nxfa8M18vwJhe6WA==
+	t=1795026453;
+	b=3SxOKoz/ubD7AZPOId43zZ07LHq3XDBAroZMP4AJD4G0hC88L2C2bYyhHgOSmC30umyV
+	 CtptFJ895YGePZJor8rGeWzQCb8nHqkxuiTrBv0i9pFK/BHy0kEM86s259Ch6GDsAXCej
+	 oYpA0JDZOKi/4QmeMFGi6OygsuYjNeMzH/0uEPW0F0aGsfsWWfW4YC9Z8Pvez/y22RUu4
+	 F/VwPM03yiRB6Q0ZyGs5c/GO8bfIsuUkYgF1rTKBaq+OtLEnB1JistUTGvLw0QuJXWQJc
+	 FsWmN9I5VVfvEyNnNsuG/16SUZ11Dk2VCHWuRz0qm/P/63KB7yCiowhaDFatBg0sw5g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795026432;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Virus-Scanned;
-	bh=kQ8DyF1/v6HIM+JWWjYVxIs1gLifqeg4BwJopfCzUy8=;
-	b=kE2GRsv8QwhxMVuWWRtyBaRtD4bpJCcdKdBAAHbhIAEHY4TABf00xZJhNM6hWW+Rml54
-	 vaPUArVeGNBYYjmrn0pptHB7xQCIqz3WygG/9BySsa6yrpFLzhvHkqszcDT+InaKxlS7/
-	 5bPiqMDiW0OervUWebzdLGsMT+vggOa+lcrk4EsKI2RRtepvK2IXXyOpo6cuBWLr1YqgP
-	 Hi80qP7n262Sxy8lsemtPEqSLDNlrSTANEoQHt73Tt7RSYTqC+wXt/MqR4NNubp0Qej0n
-	 SLjTZt4MGB6h0xYT+Sftd0sHc4vf+t/FZSktwA2Gch0xtYTNqt+8VlFq5vKKmtLAWkw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795026453;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=LUsD5Csh3GIptL1Tq8/cMwSlA5TqieuaWNVvXB6pwtU=;
+	b=uv2qAuL/PJsosPtVFmTnCKiFnRaHQkRKVPlTx7l5DegJGQGlkABQxEQK6tZmNY6dx2+B
+	 eT/P4Kwd+G1WuizcHbZkK+CxgzjepW+uNB9lnTVt5X+7j8EEoVcYTEar4VZzGxC8/bISI
+	 voNaL2kSEGfVUg6kE2nyu712T6rqH4o7rObaPvIv+pyzP5tTo6zqA+6eCT8Z00Sp0AMVm
+	 nX/A5O54ZaHbGkaDzrO1QozAEEYYzq2dZnUkzQBMlF5lOpOzf0UhgX+OOk99/64tBvuN2
+	 oTVA2YDgqBJXh3nzKwQqtysmCqNkJNZbkOcmFb4UiJbArIGV3HNqhvTgQrVSNE9Ab3Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=iogearbox.net;
-	spf=pass smtp.mailfrom=iogearbox.net;
-	dkim=pass header.d=iogearbox.net header.i=@iogearbox.net header.a=rsa-sha256 header.s=default2302 header.b=pcPNb8Ve;
-	arc=none smtp.remote-ip=213.133.104.62
-Received: from www62.your-server.de (www62.your-server.de [213.133.104.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BF44606A337;
-	Wed, 18 Nov 2026 18:27:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2BF44606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=iogearbox.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iogearbox.net
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=MJ8AaDiH;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id A49AE606A335
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:27:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A49AE606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=iogearbox.net header.i=@iogearbox.net header.a=rsa-sha256 header.s=default2302 header.b=pcPNb8Ve
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=iogearbox.net; s=default2302; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=kQ8DyF1/v6HIM+JWWjYVxIs1gLifqeg4BwJopfCzUy8=; b=pcPNb8Ve0lfmKj5OjcQoE5P4F8
-	Wc3bdDQWed8zDgTEnKafoYEkUR8YDZrP4sVmPz62AWiOBALYxPbZshN2fpAbWqjcd0ujNh0WUg5Im
-	taBJOdHVWjUrOYSlRkuwGPtuoH3NArKN9ocuTwt1yVi59h8Gb8PvGlpgMi1dWwAvypaNQmAdPR+Dh
-	v93C+3chhfmjLoB9Zf+mN3BiSvIyIIDob8K2gwDeaD9/bPqoW9bNq5x4x176cUqh5X/NWxkdl/pYL
-	PclxpqOvNTkiTjNLR49M6XWYm/JOazfBHWZiylBcQHqXMqBT+bXm+MY+uq2oxbs9DIrOO1EtnTWJY
-	5EFpXrew==;
-Received: from sslproxy07.your-server.de ([78.47.199.104])
-	by www62.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <daniel@iogearbox.net>)
-	id 1xTkMx-0004Wo-1d;
-	Wed, 18 Nov 2026 19:26:55 +0100
-Received: from localhost ([127.0.0.1])
-	by sslproxy07.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <daniel@iogearbox.net>)
-	id 1xTkMw-000Hvj-08;
-	Wed, 18 Nov 2026 19:26:54 +0100
-Message-ID: <4d271539-b2f5-4fb9-a4dd-32becd02ce5e@iogearbox.net>
-Date: Wed, 18 Nov 2026 19:26:53 +0100
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=MJ8AaDiH
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0D5841477;
+	Wed, 18 Nov 2026 10:27:29 -0800 (PST)
+Received: from gaia.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E7B4E3F673;
+	Wed, 18 Nov 2026 10:27:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795026452; bh=1MS5uybl7w1NZXxUxb0cnUerlsOo/zrS81uZ7LmgQT8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=MJ8AaDiH6bW7WOVMGXyJxxrA5fuwJxSYqqycqW3zaHDN+7UoGX3AZnKUEQJ3y/kRB
+	 ASJjs4e7xDN69fhDwWt18U+HspK9bXK6975kl3Sr6hahhJ1CBpmZvkCX1Q4Bc3sIaG
+	 rGcHk/xvixRZhTKZcAwpfuLX6fYZn8qSTzWvqp98=
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Linu Cherian <linu.cherian@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: (subset) [PATCH v1 0/6] arm64: BBML3 errata workarounds and cleanup
+Date: Wed, 18 Nov 2026 18:27:08 +0000
+Message-ID: <179502639862.2187887.16636130062052880342.b4-ty@b4>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261113145022.2592454-1-ryan.roberts@arm.com>
+References: <20261113145022.2592454-1-ryan.roberts@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,80 +64,22 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v1 07/15] bpf: don't redirect decrypted skbs from
- egress to ingress
-To: Todd Bert Freed <toddfreed@meta.com>
-Cc: netdev@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
- Andrew Lunn <andrew+netdev@lunn.ch>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@kernel.org>, bpf@vger.kernel.org,
- Daniel Zahka <daniel.zahka@gmail.com>,
- Donald Hunter <donald.hunter@gmail.com>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Jamal Hadi Salim <jhs@mojatatu.com>,
- Jiri Pirko <jiri@resnulli.us>, John Fastabend <john.fastabend@gmail.com>,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-rdma@vger.kernel.org,
- Martin KaFai Lau <martin.lau@linux.dev>, Paolo Abeni <pabeni@redhat.com>,
- Saeed Mahameed <saeedm@nvidia.com>, Simon Horman <horms@kernel.org>,
- Tariq Toukan <tariqt@nvidia.com>, Wei Wang <weiwan@google.com>,
- Willem de Bruijn <willemdebruijn.kernel@gmail.com>
-References: <20261111005533.6436-1-toddfreed@meta.com>
- <20261111005533.6436-8-toddfreed@meta.com>
- <ea8a18e0-12cc-48e0-903e-325a8ece5a0f@iogearbox.net>
- <CADh2yMxffQ3cywT3aNg3SkVfog5CFnUSp34F1esyun-xUBVa9g@mail.gmail.com>
-Content-Language: en-US
-From: Daniel Borkmann <daniel@iogearbox.net>
-In-Reply-To: <CADh2yMxffQ3cywT3aNg3SkVfog5CFnUSp34F1esyun-xUBVa9g@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Virus-Scanned: Clear (ClamAV 1.4.6/28187/Wed Nov 18 07:28:39 2026)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 
-On 11/18/26 6:46 PM, Todd Bert Freed wrote:
->>> +     /* On transmit, decrypted asks the device to encrypt the packet. Sent
->>> +      * to ingress, the packet would read as decrypted by the device.
->>> +      */
->>> +     if (unlikely((flags & BPF_F_INGRESS) && !skb_at_tc_ingress(skb) &&
->>> +                  skb_is_decrypted(skb))) {
->>> +             kfree_skb(skb);
->>> +             return -EINVAL;
->>
->> This check should rather live in the bpf_redirect (and friends) helper e.g. after
->> we check for invalid params, etc, rather than here which feels off. Also, it would
->> probably make sense to refactor this condition into a small inline helper so you
->> don't have to open code it multiple times.
+On Fri, 13 Nov 2026 14:50:14 +0000, Ryan Roberts wrote:
+> This series updates the BBML3 allow list following a review of Arm CPU errata
+> and implementation support.
 > 
-> Sounds good I will move this check into the two callers
-> (bpf_clone_redirect() and
-> skb_do_redirect()) under a helper.
-
-But why under skb_do_redirect? I meant just here:
-
-diff --git a/net/core/filter.c b/net/core/filter.c
-index 532405988fd9..ba112111de22 100644
---- a/net/core/filter.c
-+++ b/net/core/filter.c
-@@ -2471,6 +2471,8 @@ BPF_CALL_3(bpf_clone_redirect, struct sk_buff *, skb, u32, ifindex, u64, flags)
-  
-         if (unlikely(flags & (~(BPF_F_INGRESS) | BPF_F_REDIRECT_INTERNAL)))
-                 return -EINVAL;
-+       if (...cond...)
-+               return -EOPNOTSUPP;
-  
-         /* BPF test infra's convert___skb_to_skb() can create type-less
-          * GSO packets. gso_features_check() will detect this as a bad
-@@ -2563,6 +2565,8 @@ BPF_CALL_2(bpf_redirect, u32, ifindex, u64, flags)
-         if (unlikely(!bpf_net_ctx_get() ||
-                      (flags & (~(BPF_F_INGRESS) | BPF_F_REDIRECT_INTERNAL))))
-                 return TC_ACT_SHOT;
-+       if (...cond...)
-+               return TC_ACT_SHOT;
-  
-         ri = bpf_net_ctx_get_ri();
-         ri->flags = flags;
-
-> FYI this patch was moved to the net series "net: don't redirect
-> decrypted skbs to
-> ingress, psp time-wait validator", so you will see this applied to v3 there.
+> The first two patches remove Neoverse-V3/AE and Cortex-X4: their latest SDENs
+> show that revisions previously treated as unaffected still suffer from
+> BBM-related livelock errata. These patches are intended for stable backporting.
 > 
-> -Todd
+> [...]
 
+Applied to arm64 (for-next/fixes), thanks!
+
+[1/6] arm64: cpufeature: Remove Neoverse-V3/AE from the BBML3 allow list
+      https://git.kernel.org/arm64/c/4f9280c8db69
+[2/6] arm64: cpufeature: Remove Cortex-X4 from the BBML3 allow list
+      https://git.kernel.org/arm64/c/c6ba16d8157b
