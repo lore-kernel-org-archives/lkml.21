@@ -1,98 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795020735;
-	b=B+We0puC4U9WRG1Dw7TnPg71In4yNym6Nn/EBwJ9nXrJdL0MSnYSmNs5rDIw0Jd0zFJC
-	 8eBZ8mFDp0dtyvRGGMIFQXwmQaMndy6pibiSLAI8gFOl1lEyRFPaLF7p7Npc52huDkFMY
-	 Y6FyoiBMmvEN/egZLFVDAYE3A1Qw9hbk8YOh8HGTk0EUMC5U6LMWxTohiqNPOMfLbUlC3
-	 NCVmZYQCuziFQd0m3Yc6hglHiiB3b16RPHAT7zh3X0UX1FXvw4TPPJiRtVoFHzeMclYfY
-	 xQG2rR97vQkWJgZJ7JLK99UPi5ITTGep0Zt4B892xEI0+ycl7t6FJAyK169hLPPmwsA==
+	t=1795020737;
+	b=yZpOMuIqB+JAiX1n21D5jQQ2Mq75IKRrEurJ0oi4f/kDaZ1uU/Cm/Nc4OHiXK/fw25/h
+	 EnQOYKuTJYPEwbFh+DYONsmsjHxYIkWxsgj+NEL3u6CUn90dT4uRkXCTPe06U8UDyC2ai
+	 bgc5Tc0WFy9hemP1ZEk01zht1vsxF/uj5tNszzvtNmb1jFZhveKe0BVPkTsDkcqbc7HNe
+	 TZbn5qcLhyJpLU5Mxb5SzKG+nMdIL0xbiIne3ipFXmh0cQjgLFpL2KYk8xDPZ5XwN0sz8
+	 WyeppJMbvjlmBj5gbkdNLYE5tiJpuIRn/O8O5Xc1elb2aM2HWmcw/TFiOqbMqKqqdGg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795020735;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=xjRCxVsOqeAjiMswucgxugEspmZi3U3IrZmdCQAxIno=;
-	b=W/eZFBe5yQrZyz7syBcSrXE6lADkTKgL9pyj6C85kqZxpY+KjA1I9vHhivzPa6Xp+d3R
-	 B5H93KvbFABfYHB6oViAPUx4r6V4sbY+dnTCz2jXsvmlE1QWA+dg8hxEaqL8dRG1y7anH
-	 Kv9KIU//F9gTSBUQjepE83TEtL9JxMBWjL23zUBuPK6aj6X4jgvuQ3pU6GbCcLUmBmWd0
-	 TWLJ1FeVAN6gWt/mJWLHlCdkCbXW8EIshbxVwLDu79YQBD2YQ8H3slDxKJkSfA0RqDexp
-	 wuEGmlbU0+/o4Usp/5lj38gzmb91KsNi4biFx07zmUf2O0YVMkbHB2jCxUeAekQywqA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795020737;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Last-TLS-Session-Version;
+	bh=aN7ZfX2fzTUuVA8ldlfQcBZtVWylxKsPo5u6oPKsLgo=;
+	b=GWI65igWGjTCVxcD7aFwx+KjHrOPoDiJkmNH74S+X0SeEjCQej7nsBxLxUYWbG4qoP8P
+	 9hrjfqSQhcKSs2F1gYiaSrZgMzfsFr6EHXV5hMpUGJ4Svi28p/tjQkjqFcyzGELrR0a6Q
+	 exTxI9ZFMxEEtmw04LFCjsgU6HwANIrWos3INE2t28nDFTYF0x6Qu/Jb08L/6nxJ0KkX0
+	 1s/z9dnuu6/yahdOgv9AQtAgqsJMP3sn2/sbMDz8DklE1bHkC9x5wJVIMLbeIIR/pjOjs
+	 U+9pm0tXGIHSmXz5Kn9N2NE4lLuZQWKCGVj9cmRqL4BgkRGxgUQEAdW8HleI9NxWHHw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=x2tsrl4b;
-	arc=none smtp.remote-ip=209.85.128.54
-Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=bgNX4NAP;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F08560A2636
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:52:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0F08560A2636
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA56960A261F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:52:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA56960A261F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=x2tsrl4b
-Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4ba013938d7so11992505e9.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:52:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795020733; x=1795625533; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=xjRCxVsOqeAjiMswucgxugEspmZi3U3IrZmdCQAxIno=;
-        b=x2tsrl4bT2uSvJscsPqR5W/OYVq6+XC98r4tNKhfRq5o0qu9GfOkkzlqNdl5NtdlBE
-         FVwvFnfo+Qio/FoQIyMxLJiiWYcEvr9pWnZ2dwMuy60N9h+piI/WAe74pDOmRzfyy7HX
-         Gmt5ya1pSivUcyicT4/YPWIlzdRvfBUXzasOskFUgmdisUsjv1WcQP24lIVRgTAOkAYJ
-         OsH7wx4UgWSC1ysIXWlOcAGtA2nE/B5M7CEhomzizlZQcgBjU78p43GYrERIwMCbvBK3
-         DpzglYOtQJp65gkG2maw6IvMf2WBQoCXmltNQey17Yass5pMMVN1TUfi1NyDwjx1GhMC
-         +f4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795020733; x=1795625533;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xjRCxVsOqeAjiMswucgxugEspmZi3U3IrZmdCQAxIno=;
-        b=uQ8MFERDkh7hMb+fwk4NsQta/hsOiIiWLT967payMeaazqLwcZ3z9CtDmGtbst35Wi
-         Xs2JJymKUU8EekrmvR2/FuEX3SIRqw3fm9duYZ2t8YJYxPWM5uJ7kFGUqt9L7sNpyIAY
-         ISi098Hm+iOzBpqQRadBZtl06z70R5ypY2EnrRypaQpEZTOn10crN8ex6CUu9VDNjIU+
-         ET0r6JkbyKRkRLb6MzQMMit2kJAWePLlXeTCUn77AkR/F9mXQH/ePEMIZ/j2BLve0IuS
-         KQ0P4GbovGYPrBa+dZfcmHdbSJki1scehRWEEyMd0IDBWyL9Kk+EGRoWurxY60Sxc+Rf
-         MnCA==
-X-Forwarded-Encrypted: i=1; AL+hErEgvPphLjPRmsOdg7v9r2pkBZSBX0C8LxaPKqgZTCGs7nxewi9W6gITxNtzj9kAClJPyjpXHiaSoscBGyw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+PR2iBLpWIPUSyd0NyuIF729f6gWzV3WyS9kzf/BAGEsoWDyps
-	ceNnpfSZitQNb/Cdf6HzyvO8HT3XySxEX7Qx/Sjkm6La48IAjmq1cYCz
-X-Gm-Gg: AYBFou1yyfMK3WKxjF3QsVZU6+PqcVRZdMKf4BpgHJZ2tLTN2aJ1KHDnSges/tvKajo
-	m1bIrxkleUAc+LSClFCXlSi3BFJxOkwp3wDbYlz4/JWOAvBeD9lxYZnZfGmsHQ+43YkFvjyT1mS
-	K+ZCe69rMawBSR2UvhtlN+1Lx1BIbbcOm4DQ9vrfkjxR//MAuMhI4Vlf+exODgkvkhbiVe89ttB
-	QcQAYMqW5jct/2krJYdwoybYzU0ur2pXWpZBk1UHC1AN7rD9TrU6LipPqFv6n9zDzrjg8+c3NMt
-	Kn1q2PUmzJBqtLbkb/rap5X/2JIGg6rsf5PhQu2Iw51blBJKPYL+fwS9C2o2ZRpvs4l7aIOUJDM
-	vd9NqFTRcZ1vC8rD5SMmVTs4krTp7Pil8x3V0BLWD0BWMOM78E8sX3pPGEYZG0ihQtMTS/cdp33
-	njmtJhVoGDP3Wrpr5iCwULC83ETnXdhZcM2+eDc7tl/dfE6e0dwDy7OkQRpoQBxVh6soZmn2bny
-	LpnQhhfEAR+g2qtdoO0VrKy5iBkCu4IlNX7tGV5C8xslPjythN3c7I6YOSfB4lAZnlW0wHOfZcJ
-	r3DTb36UwaxfZ3eVdT3JXFZ+7qwKSg==
-X-Received: by 2002:a05:600c:6746:b0:4a2:729:f7ce with SMTP id 5b1f17b1804b1-4bb7da12d14mr61880185e9.8.1795020733237;
-        Wed, 18 Nov 2026 08:52:13 -0800 (PST)
-Received: from fedora ([2001:ac8:24:6a7::20])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7e5ae0bdsm24093625e9.4.2026.11.18.08.52.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 08:52:12 -0800 (PST)
-From: Tommaso Perondi <perondi.tommaso@gmail.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Tommaso Perondi <perondi.tommaso@gmail.com>,
-	dpenkler@gmail.com,
-	linux-kernel@vger.kernel.org,
-	Josef Bacik <josef@toxicpanda.com>,
-	stable <stable@kernel.org>,
-	=?UTF-8?q?Dominik=20Karol=20Pi=C4=85tkowski?= <dominik.karol.piatkowski@protonmail.com>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>
-Subject: Re: [PATCH] gpib: tnt4882: set iobase for the ISA and PCMCIA boards
-Date: Wed, 18 Nov 2026 17:51:40 +0100
-Message-ID: <20261118165140.1481402-1-perondi.tommaso@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <2026102704-deletion-handcart-ee29@gregkh>
-References: <2026102704-deletion-handcart-ee29@gregkh>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=bgNX4NAP
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 2CFBCC4F77E;
+	Wed, 18 Nov 2026 16:52:20 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 43C5F5FE9B;
+	Wed, 18 Nov 2026 16:52:15 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B8CED11BC28D4;
+	Wed, 18 Nov 2026 17:52:08 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795020733; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=aN7ZfX2fzTUuVA8ldlfQcBZtVWylxKsPo5u6oPKsLgo=;
+	b=bgNX4NAPXcaG5Mb9ugUFKhvQfe61a1fXQ1SyKiFu2HgkLUHvmT8G0SceNCkza9LwVilR++
+	/NwCiXLLAkGFaqZzNYNwlA17e4yvK7p2JCyNPFGCf2HpMFOlMzhYiTqJdu2kE/XbZ7D1SD
+	CGUCT3RR+A79/NwHumgamxuw8A3jgf+p3nyEsq5MolqESxyljokP+lzvItH48k2OMj3Iq5
+	TxCvwBE1aYkJiHSzFr8e/fm+LdV11S73YMiphwmXphNRTjqt62B7FN1WbywupCyL/3g1Tp
+	PpmHDjfY7KgAqbnsBg33tFnyZw76ZtyxvYFJVmCFS7rDnZmPqJwo3ZWIkYXJLw==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Date: Wed, 18 Nov 2026 17:50:03 +0100
+Subject: [PATCH RFC v3 20/31] drm/panel: implement .get_next_bridge
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,28 +63,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261118-drm-bridge-hotplug-v3-20-44bb3b4a828f@bootlin.com>
+References: <20261118-drm-bridge-hotplug-v3-0-44bb3b4a828f@bootlin.com>
+In-Reply-To: <20261118-drm-bridge-hotplug-v3-0-44bb3b4a828f@bootlin.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Inki Dae <inki.dae@samsung.com>, Jagan Teki <jagan@amarulasolutions.com>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Jessica Zhang <jesszhan0024@gmail.com>, 
+ Douglas Anderson <dianders@chromium.org>, Marek Vasut <marex@denx.de>, 
+ Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Tue, Oct 27, 2026 at 05:29:03PM +0100, Greg Kroah-Hartman wrote:
->  - Both detach functions call release_region() only if iobase is set. The
->    region is never released, so the board cannot be put online a second
->    time: request_region() fails with -EBUSY until the next boot.
+This bridge never has a next bridge. Add get_next_callback func to expose
+this.
 
-Hi Greg, Josef, thanks for the fix.
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+---
+ drivers/gpu/drm/drm_panel.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
-I applied this patch and tested it on a National Instruments
-AT-GPIB/TNT (ISA) board. REN is asserted again and I can take the
-board offline and back online without getting -EBUSY.
+diff --git a/drivers/gpu/drm/drm_panel.c b/drivers/gpu/drm/drm_panel.c
+index 560ea57591bd..11ca2d192669 100644
+--- a/drivers/gpu/drm/drm_panel.c
++++ b/drivers/gpu/drm/drm_panel.c
+@@ -77,6 +77,11 @@ static const struct drm_connector_funcs panel_bridge_connector_funcs = {
+ 	.atomic_destroy_state = drm_atomic_helper_connector_destroy_state,
+ };
+ 
++static struct drm_bridge *drm_panel_bridge_get_next_bridge(struct drm_bridge *bridge)
++{
++	return NULL;
++}
++
+ static int panel_bridge_attach(struct drm_bridge *bridge,
+ 			       struct drm_encoder *encoder,
+ 			       enum drm_bridge_attach_flags flags)
+@@ -227,6 +232,7 @@ static void panel_bridge_debugfs_init(struct drm_bridge *bridge,
+ }
+ 
+ static const struct drm_bridge_funcs panel_bridge_bridge_funcs = {
++	.get_next_bridge = drm_panel_bridge_get_next_bridge,
+ 	.attach = panel_bridge_attach,
+ 	.detach = panel_bridge_detach,
+ 	.atomic_pre_enable = panel_bridge_atomic_pre_enable,
+@@ -610,7 +616,7 @@ void drm_panel_add(struct drm_panel *panel)
+ 	mutex_unlock(&panel_lock);
+ 
+ 	panel->bridge.of_node = panel->dev->of_node;
+-	panel->bridge.ops = DRM_BRIDGE_OP_MODES;
++	panel->bridge.ops = DRM_BRIDGE_OP_MODES | DRM_BRIDGE_OP_GET_NEXT_BRIDGE;
+ 	panel->bridge.type = panel->connector_type;
+ 	panel->bridge.pre_enable_prev_first = panel->prepare_prev_first;
+ 
 
-I don't have a GPIB-PCMCIA card, so I could not test the PCMCIA part
-(including the new iosize field).
+-- 
+2.56.1
 
-There is no gpib list, so you may have missed it: I posted this fix in
-August as a two-patch series (ISA and PCMCIA). I won't resend
-mine. Feel free to add the Link: below to the commit if you think it's
-useful for the history, or just drop it.
-
-Link: https://lore.kernel.org/all/20260815195757.2001555-1-perondi.tommaso@gmail.com/
-Tested-by: Tommaso Perondi <perondi.tommaso@gmail.com> # ISA only
-
-Tommaso
