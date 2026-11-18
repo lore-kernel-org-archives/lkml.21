@@ -1,68 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794994613;
-	b=Hkw2SITJ13wEWprBDAuGMZVW4Fue+SFi3BiNuskHsaIvRBQ3XiDtmtzmFeWYP/MzaXrY
-	 U22I6hVRaL+gaAHjoxdqU2SGKPRvQth0dXAFWB70cWTk4Zz3jhhxZhZ1GL4d3WoYuA/q6
-	 DWvhFhLSPTPl0KGD2oG/JdDSL8IIgjDwLbKbJODssCob3QRjc8WXmVBOVcTcxtWzhMYHm
-	 f5EZAQldIQEo55znY1As+6kC4RujDeBlpml8HJutF3sxLijKWmdfvyymdrTMBzVp6poTm
-	 ii2s3mt9P2nn1hpRPJhC/A4MHoAivmUo+CoFqtWy6gETLPeiF2Aw2xPrU64p3SocO4w==
+	t=1794994672;
+	b=wejhgTJtTiXyWrHE5+blfdKDKRMF1pM2GsETrtvI3GiVShZncHfHbFLZ+2CoVr8ah3uQ
+	 tTFSbiZtK0k6yhyuZO6rCC4nG7yHM+atycraq2dfKS4ema8q+BuaK6XtVEO8iZRpHBqVv
+	 ns7tWw2k1Rc4ewpSBzpB9McZHNatco6qdbd7r+VD287vf3W01jVW9amZHwDmpUooQMDMO
+	 Vn6ESQxe/0xV8KHubGazuxw5veTjxjm4Wth5HWCinDjf/F702zEXRaw0EiGuLj+v26X5b
+	 lyVAevms5l10YCkyvGtAZMVCPzXSEBfxk3VIb/RI7hmi8OyuSZ2796qVrBsjvJ8rVxw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794994613;
-	h=Received:DKIM-Signature:Received:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=kbRmNI2E1W6sUc3AbI7TqK+tU8lljpg50Qb3VML0+KY=;
-	b=oj4jwaEdJP6LeErc1u15GMWehrSMarPwuseZe++LTqvVbB6w323k88All1gm7zoSY2rE
-	 xitGkAZeCgDLV6bk2OZCyOcrM7b/rkaDipFgjpPiRSeEop6Ir4cfo7Wf8na6s+DbCtO32
-	 R55B8vsXfzdVdQVz/pNqXb4l02hYAZmZYU1Qpapn54yq7S2YE/rbfQd8WtSCpTnnHklhb
-	 p9Eaa5NSLPl0qTlT5qJbRUs54hPADHYb/8SHTdxGVrvhVym621jPcyxbravbkdPQmsX3p
-	 3IlxrKgFuwFGbvjcGaoY/G+PaicspkSnu+ArtzW9s/JSGQ+ChRRAvK4vo174ArDqCjg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794994672;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=A/VDrnF8rEM8ik2qBI8UieOOtJ2qpXz9Tme8jmSivy4=;
+	b=GU5Xw7GxhXls0sbUUFkhYYagfUkRFlfLRObknGuCbnhZ9lMdxVwapNtKX2LlSLXIQf97
+	 Jc+tCjsOPGnMFHnSYlecapsYSur5na5I6mVNICJtRNPPtrwoGBSw8FvgzZUh+1PpVeanw
+	 NNAwyK8FCY36mhdW/QgsMekK8Q1QugSfoSuOO9Wky2gbrZaTum9ljchuoLAb5jTxlRcTV
+	 HlJ/iQTndysmMF3u10nZs3Cp7YqDX1AAxFDsfZTuEjTXZSS6Kw7emRs8Hp1hwGm9JQSkC
+	 akW7TC2lmY2TfvS7vkUigEId5XCGMgBD3zXOft+ByRLmyHh7RCwDllzvstQWnkdwV9A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B7exoyp5;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sx3up4GN;
+	arc=none smtp.remote-ip=74.125.82.179
+Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3651606A31C;
-	Wed, 18 Nov 2026 09:36:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56678606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:37:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56678606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B7exoyp5
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40F441F000C4;
-	Wed, 18 Nov 2026 09:36:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794994613;
-	bh=kbRmNI2E1W6sUc3AbI7TqK+tU8lljpg50Qb3VML0+KY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=B7exoyp5tC6yZqy2topR/b99Vx/7SenWATSGXKY5QUcmlaP/9F8zaKPwSmoR56VPN
-	 l2bVW4/X6ZdIZSAGS060gb+0A4GhDFzlGfV8HW9pS5CrPi6KrQqHI/WcWpIIO77Pnw
-	 4LqAibbSttkK6+jx3M24lqoTt/fi4C+dnLDDYW6BqGG7Y+T4M69kyR6/eFsCffyNoK
-	 zTLKCKEOkPu+E9kVbXb5HqTEXzyfRREWpXIe61Gp089n7v9ReTKIWTlpYXGpKBP647
-	 TQDDNvlXQpopXHrGbWCrMiyZF16OdfTsJ7I8WCu/ISZy2ffCfkkO77CsJtGWx1T42I
-	 /+SHtfCkUT2kA==
-Received: from johan by xi.lan with local (Exim 4.100.1)
-	(envelope-from <johan@kernel.org>)
-	id 1xTc5y-00000004XAs-20zL;
-	Wed, 18 Nov 2026 10:36:50 +0100
-Date: Wed, 18 Nov 2026 10:36:50 +0100
-From: Johan Hovold <johan@kernel.org>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	driver-core@lists.linux.dev, linux-acpi@vger.kernel.org,
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 4/8] software node: ignore primary nodes in
- device_remove_software_node()
-Message-ID: <av1xsrv8zNIEOtxg@hovoldconsulting.com>
-References: <20261117101336.980216-1-johan@kernel.org>
- <20261117101336.980216-5-johan@kernel.org>
- <avxeTnaEG_FnBhck@ashevche-desk.local>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sx3up4GN
+Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-36e99cf7bb3so1157880eec.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:37:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794994671; x=1795599471; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=A/VDrnF8rEM8ik2qBI8UieOOtJ2qpXz9Tme8jmSivy4=;
+        b=sx3up4GNHY4PV5rpOWK47NqZzOdor01MkE+cmqVk5CeWHjoo9GXylbdQA+Q5hFY17F
+         hbtsAlxm7oNEClUH2xh3iFQevvMmES3ILQTPcUCAIxKZSxqr5i5uv0RhmRCz84MQH/Zk
+         t9Y063SLDopdZ78m2xHXJmSmd73V339XkkfHqrX6ibsnOYD9ygTxqbYXzSlpar6FKniR
+         9m/1y6lV9VfNeGLLVayMyJh7nxtzTcIUuJOxWOYHf8GWfhW4JAkA+VD2kx06uQs8O2a1
+         GwZ1hoCqbFRIIwySi3viwLEhjRmMHYwYdJ2PNE3s02PZTTuz3juyL3ZtHLsj6qawoNWE
+         +BYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794994671; x=1795599471;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=A/VDrnF8rEM8ik2qBI8UieOOtJ2qpXz9Tme8jmSivy4=;
+        b=lUhNpwScQjZ6JNYYa6RrYP16yQ0bBV9bDpXdab3WpUeyxOauHvPdRzw5E2XSb5nbCX
+         K2vj4F6I1p8FNxE1FiLdkYxANDh6klcgKeEEzBMQDOeoYzuai6JbD0aB5dCqVhqFbwF8
+         VCN4lOGMW+BkKeXdoBZMLVI28TSKT2/xcjrbdEWus/axvuzu8ENbAW9BkDB+BJ0CS7/I
+         hni0OQyNuFWaRfuN66TFDLitxd52zG/xnCUr+CU1M7iBtAcVJqHhY1D+2K9Y4UWuGNqc
+         lo18oP9CTYReYfbHgLHXd7A8wszboDNNmcUHiJOs2kRtYgtr8tVcupJWfgt9fHBGflnx
+         hdOw==
+X-Forwarded-Encrypted: i=1; AL+hErFq0ul9dyiGDaPhRmc0h2GoqfHNDyIBzRhOx+frCsSLLBaG9Yqz9EI/JRL0BHfxQnAgSIQLQd/rIJSKFFU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z969cUHW8upc8cNQhar7rEPHr3emW7+9M7J/X01yrtX24qNqgTa
+	pRJdEModCg6Kr5PZp0Y+wPUqYxENrMLeqG5CEJaMHBxKM+9a9A5N7beI
+X-Gm-Gg: AZFdTZdHCIwJ2YmgMQNZdp4QcCjAngdsf0T/dOOsHfVxOcsAWXc3CJtg1wm5/jJOsJu
+	upC8SZbILL877gsqvdPHU6UXWzoO9C/CvQxurgbuQ0ZSV09cm1o/hEhMDPFxhw3vt+G7+uo6rkM
+	pzWcWgxN3KYzZdB+eIPdFnk6pdKanjs0SS9as/oSiSF1HaWIN8GUwmFojA1lAt1wSZLOdVGpyTF
+	3ZvJWusi3ekh9gm2yHMdqAn/NtdedsV13loWC8IifX/r64TO4Aq5gGAmjlGuMaYbMRa7ZFojjEK
+	lyaN/HVGpWLuMnQZndt4+N7aZGtXDERBtZRkSADNVY7psxyKRM0DQMpcAB5n1kmfX3R/xTLcSXf
+	J34qR8j4+YH2DTNk7ZBney7sY1Sx/EYdyvcNePHr0Ftik5zXMapW6+vRHuOkX0T1z1GoRIAN4Zq
+	caTR+ssCBf0yvRRY4As+V7qeUa8A1GxjXGXIvoNnH/h2qvrMyn9/xb3nv1e+u9X4iWqXxba9tDb
+	7PjuMDm/6141xMcyaBC3xFHHXyyF4pM5rxaA43IA6sPhUtsuSKY7J+W+qoiN6E2B7ZCA12rNcq7
+	VZezx47a5GrJVTaqFOZjA0s3IZpB2WKbFbia
+X-Received: by 2002:a05:7300:6a90:b0:36c:dbac:705d with SMTP id 5a478bee46e88-382815247a2mr1735354eec.15.1794994671297;
+        Wed, 18 Nov 2026 01:37:51 -0800 (PST)
+Received: from Zoro.lan ([2409:4090:2022:b216:787d:f4f4:944d:f4ad])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a76d70fasm6353460eec.22.2026.11.18.01.37.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 01:37:50 -0800 (PST)
+From: Vishal Satle <vishalsatleit24@gmail.com>
+To: Hou Zhiqiang <Zhiqiang.Hou@nxp.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>
+Cc: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Vishal Satle <vishalsatleit24@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v2] PCI: mobiveil: Drop unnecessary msi-parent check in ls_g4_pcie_probe()
+Date: Wed, 18 Nov 2026 15:07:31 +0530
+Message-ID: <20261118093731.43980-1-vishalsatleit24@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261027094427.143733-1-vishalsatleit24@gmail.com>
+References: <20261027094427.143733-1-vishalsatleit24@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,55 +106,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <avxeTnaEG_FnBhck@ashevche-desk.local>
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 17, 2026 at 04:01:50PM +0200, Andy Shevchenko wrote:
-> On Tue, Nov 17, 2026 at 11:13:32AM +0100, Johan Hovold wrote:
-> > device_remove_software_node() should only be used to remove secondary
-> > firmware nodes added by device_add_software_node() but will currently
-> > drop a reference also if a device has a primary software node.
-> > 
-> > Bail out early if device_remove_software_node() is called for a device
-> > whose primary firmware node is a software node and fix up the two
-> > callers that currently work around this themselves.
-> 
-> ...
-> 
-> > +++ b/drivers/i2c/i2c-core-base.c
-> 
-> >  void i2c_unregister_device(struct i2c_client *client)
-> >  {
-> >  	struct fwnode_handle *fwnode;
-> > -	bool fwnode_is_software_node;
-> >  
-> >  	if (IS_ERR_OR_NULL(client))
-> >  		return;
-> 
-> > -	fwnode_is_software_node = is_software_node(fwnode);
-> >  	device_remove_software_node(&client->dev);
-> >  	/*
-> > -	 * If the firmware node is a software node, its reference count
-> > -	 * was decremented by device_remove_software_node().
-> > +	 * Must be done after device_remove_software_node() which may have
-> > +	 * freed a secondary firmware node and cleared the fwnode pointer.
-> >  	 */
-> > -	if (!fwnode_is_software_node)
-> > -		fwnode_handle_put(fwnode);
-> > +	fwnode_handle_put(client->dev.fwnode);
-> 
-> We have fwnode getter, so better use it
-> 
-> 	fwnode_handle_put(dev_fwnode(&client->dev));
+ls_g4_pcie_probe() calls of_parse_phandle(np, "msi-parent", 0) solely as
+a boolean existence check without releasing the returned device_node via
+of_node_put(), leaking a reference count on probe.
 
-I used the fwnode pointer directly here on purpose since that is the
-pointer that gets cleared by device_remove_software_node() and which the
-comment refers to.
+Instead of keeping the check with of_node_put(), drop the check
+altogether. The driver does not use the phandle directly (the irqchip
+layer handles it), other PCI controller drivers do not enforce this
+check, and without "msi-parent" INTx still works even though MSIs will
+not, so probing does not need to fail.
 
-This hopefully also reduces the risk of anyone introducing a UAF by
-reusing the fwnode variable (or the compiler doing something silly since
-dev_fwnode() returns the dev->of_node->fwnode when CONFIG_OF is
-enabled).
+Also remove the now-unused local variable np.
 
-Johan
+Suggested-by: Manivannan Sadhasivam <mani@kernel.org>
+Cc: stable@vger.kernel.org
+Signed-off-by: Vishal Satle <vishalsatleit24@gmail.com>
+---
+Changes in v2:
+- Drop the msi-parent check and the now-unused np variable altogether
+  instead of adding of_node_put(), as suggested by Manivannan.
+- Link to v1: https://lore.kernel.org/all/20261027094427.143733-1-vishalsatleit24@gmail.com/
+
+ drivers/pci/controller/mobiveil/pcie-layerscape-gen4.c | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/drivers/pci/controller/mobiveil/pcie-layerscape-gen4.c b/drivers/pci/controller/mobiveil/pcie-layerscape-gen4.c
+index 4919b27ea..f31be6327 100644
+--- a/drivers/pci/controller/mobiveil/pcie-layerscape-gen4.c
++++ b/drivers/pci/controller/mobiveil/pcie-layerscape-gen4.c
+@@ -198,14 +198,8 @@ static int __init ls_g4_pcie_probe(struct platform_device *pdev)
+ 	struct pci_host_bridge *bridge;
+ 	struct mobiveil_pcie *mv_pci;
+ 	struct ls_g4_pcie *pcie;
+-	struct device_node *np = dev->of_node;
+ 	int ret;
+ 
+-	if (!of_parse_phandle(np, "msi-parent", 0)) {
+-		dev_err(dev, "Failed to find msi-parent\n");
+-		return -EINVAL;
+-	}
+-
+ 	bridge = devm_pci_alloc_host_bridge(dev, sizeof(*pcie));
+ 	if (!bridge)
+ 		return -ENOMEM;
+-- 
+2.53.0
+
