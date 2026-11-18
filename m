@@ -1,64 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794988631;
-	b=YVTxgpGELbTcUE/DGmmjFdEoqGauN+U5E4rkPsz6hgO9PJ1hdhHu+CT9i2FQ5Fg0aipb
-	 nZgzXw1v40untErJAYGNXrq6RwMNNoALb/edZK1+8PqqdCFM457EAqZmFoCWR7pvirGO6
-	 3zuuP+sUZq1bg71ieXmi3+5UykGMoRM11j5D0OfVMm64gxs1Qm885nbet3YUC6JlTPvzA
-	 l6fwjZkJ1NY3/QFXfrOOHViL3H7M7aVXDb2MJD3R2SdLdbo1ed/K3zjUYTFiQignNpBMW
-	 x8glcoDb34cCDtYWXndl3UefAGUqKoDZozNCvGoVEm+qc20fwK982hGe5FjHg1pw7vQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794988631;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=HVlY59yebrjjIBqdbedBvMWvL8/mmW3OmeZ7ju/UwIk=;
-	b=0kzCIBglB3f58/wbvzuFzJtRMb3P758lH3NbP4iFCu39FOxWpNUrDYQg3zH72eyrNNVr
-	 0AP1BLSnFgSSEFg3jsOYe/U5r+FYVqMBhhh5mNpvTkD0Cn6uEyMogUEyWg9Z3SNQ2I1TK
-	 n/QfgwMar5Z0McS+pLupkQLUka0u6OEy/0T8PEjhWk6Sc8nLmYkMi2dSnIAlecDqQs5PF
-	 9fiqJZsfGoW74jYyU32wC/R57zaXv6lRsRt94gaKn+FNqrO7BX2QrhkAu+VmDbvPpqlOG
-	 pBAEOfnzzz5PkoS2LiC89x8AJF+br7l8ZJsyQO9bo3aXf9nwwD+50wcwBU8zJmRahLA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nDqCzRnH;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.14
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794988668;
+	b=ivphRevHFGh+XHS9UVY2ikqF1QykZGP7t1zzHgTHmywPyww6Eu7yInjs/44ZDk2CMmd+
+	 tjTxNPWAONxNenb9xKwY+K5i2MbowsYCswORkWX2arCcz5hpgBOQaVG9VACeCe+OscuHc
+	 Ebh4Jo/kox2wlez0pxcXDz1ER6HGfeYwwW3mfwvDb0oo/GfkVk40FuXq0yNYx7yCgSqxg
+	 O7N0+ePpPS0j+WRMjJMjnrZ17yyLa2yvv6ZlUM5gO+/3QgGizag8NT8tve/fAciB57bdl
+	 MnMTiElaHdgy4ZPd+WNuL1v2sgEOSpRt2pihGHERK0QtCy1KXHHeUYuE6UTg7o9uhpg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794988668;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-LD-Processed:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=AbSMG01wD4YwjyBbzekil8yakWUlpLgqY3IFG8Ye7HI=;
+	b=oerf7eHfF9Go6rIdCuFlXqAatyFrnpxeNyfGUm2gmoWUVCukyGKNzoRnQCdrDde3TiLm
+	 jhlzKJjdEWaXM8uk4WlMOzU85u/AmeaIJzm6PJRRjar9lFAx8Usak0LoO2wTxCq01irCd
+	 Ju/a4MdkmygJUi5g9+rcpRFMx7emOQAnFi0nK8C7PxORUErd+ObPmC3I78DoofUpfalLa
+	 Os2znhxrnQ6OFLnuuwcA3Ov2J2kfGrwNZjWhyvbycbH2+TQV4xv5cb+9Cey1bCNvJVEXU
+	 cQnFQ89cG68H3GROUovfUiO1PHZYKYnX0sJP7oCfhxmd6kYshkBGbpG/6kS+nDPVmYw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b="KMFEP/dV";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.14
+Received: from BYAPR05CU005.outbound.protection.outlook.com (mail-westusazon11010014.outbound.protection.outlook.com [52.101.85.14])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADFD3606A33D;
-	Wed, 18 Nov 2026 07:57:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6F87606A32A;
+	Wed, 18 Nov 2026 07:57:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6F87606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nDqCzRnH
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 924671F000C4;
-	Wed, 18 Nov 2026 07:57:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794988631;
-	bh=HVlY59yebrjjIBqdbedBvMWvL8/mmW3OmeZ7ju/UwIk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=nDqCzRnHPXyb/gq9KlbI1jhO1d6sLC5wiyW1rsRinzdlIwL0M5af/x0zWX6fkyafn
-	 9AbML9xsvFdVnL+8ZFVOF2K8/+MC1NUV10r0LBEGMPQG0P6+p79WJvNUgsQTMCZdUA
-	 aryafQ98wFmwISoxAL6muJCU1SLywwZeYX9Xhf6fNuVA4MzFdxXufC1jplnimOwVEv
-	 DcY3hwxVCJpy1Vw/WxhyWDgqIo1q/lUi64oXnFo+VpmowczPmhm+T4PsQYcRxAGdeV
-	 1aQwC7oLh2Z2TEZowt7f3/SdDNC5Dyy/FcHqmmiDvfQvaVvbFyO4T1UDkFlNTQuuMJ
-	 JfxAMy33K2JmA==
-Date: Wed, 18 Nov 2026 00:57:06 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Nick Desaulniers <ndesaulniers@google.com>,
-	Peter Zijlstra <peterz@infradead.org>
-Cc: Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2] sched/topology: Avoid unsequenced accesses to jiffies
- in sd_init()
-Message-ID: <20261118075706.GB325225@ax162>
-References: <20261116-topology-wunsequenced-v2-1-54611119172b@kernel.org>
- <20261117183043.GK1813469@noisy.programming.kicks-ass.net>
- <CAKwvOd=9pjhCnreMvoAH_0PegYg60ouaZL=BAjB242bE48J23g@mail.gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=KMFEP/dV
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gAUVCnKAyBp/Hap4JlgObel9kES7SoFOMzPq3+Pxo0X5h3JQ65iRDl9dxPP+HWr2bo3NsxPs8AQBwW68psZtfctitrOVqGInIcAvtm4oykQEgjajM2SuiovwVk81x+nybt4PI2J1EVt4zQ8nN9lqGozwyDFN+b6Bumou+SFXOWoBNYUk6hiG8B7NrVhyYgKn+X9pN6JYbgEkpce8HaE8oTm+irdhlGOu6VBblfCm6ZWs2djCaWun7OsWSph/WH5RGle7H6ZLB4E6DPNJOoNPuqjxI37hmRKRN6kDdU7nZMYhXI/lPyiUwJdxjpVRMc2g3AVEFe4aFahz1Wn53Tu5Cw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AbSMG01wD4YwjyBbzekil8yakWUlpLgqY3IFG8Ye7HI=;
+ b=WAfiYiG+jJ32P9tnAuYSAMOwni7E4t3k4pvlYs69QpE+9R6SidpvYwKj/6uqPY02gVjw/ROUjGxVso7tFW43fP9Xp5QyWkDQGUAAwZ48hixLxHtaI+lW58Jnx7ZGEzeKSMRJnyF6p8WUPMgAK2owDgihOCakPNP7vWLPrTcpw11OkvMQoz4kCcQZhG9s2OXpBjzxRNiK4RqJ0BoViUFHuxv/NW7GTiWPq/QnYBylE9Ywav4r0jHYnw4KVSrViqcxa8OKsKwOkDvMFulx6dKYggtLa74bkzlt0522165PVRMF1YM1f2xEYCarQA/kE17WNrZ/7QBNYPIKIG+rLhUBJQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=codeconstruct.com.au
+ smtp.mailfrom=nvidia.com; dmarc=pass (p=reject sp=reject pct=100) action=none
+ header.from=nvidia.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AbSMG01wD4YwjyBbzekil8yakWUlpLgqY3IFG8Ye7HI=;
+ b=KMFEP/dVYViCDmT6wo5XuD/zOTP/3ImX6vGaaVJi/WITu9vT/UvDw4jpjwpBJHrDavKcBDD/hR8P/zqWFcTDfH9SvXkkWLHLBSoekn72IZryS8S/vYD8adzpkgyBY22hD3wo8c0prKVaXEnzab+UL6kKzmizUROF3cDKyQKiA9PszKqvhxVAd8DRUOuGgc8noUvyh1EiqXf5iPUhrU5yklgLniFm3+jQfnZyZFFUz7GfrGKaelbSSKHLLpcGkog7NRQeHzxTSBvhUvBQ8Jw462uk4MR723CrOafS0nHzZWbETzPEAYHGdKKUiKYUJDIsIFF8RIuPl677PhBJhkyI6g==
+Received: from CY5PR19CA0120.namprd19.prod.outlook.com (2603:10b6:930:64::10)
+ by SN7PR12MB7024.namprd12.prod.outlook.com (2603:10b6:806:26e::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 07:57:38 +0000
+Received: from CY7PEPF000000EC.namprd04.prod.outlook.com
+ (2603:10b6:930:64:cafe::41) by CY5PR19CA0120.outlook.office365.com
+ (2603:10b6:930:64::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.10 via Frontend Transport; Wed,
+ 18 Nov 2026 07:57:38 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ CY7PEPF000000EC.mail.protection.outlook.com (10.167.247.168) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.4 via Frontend Transport; Wed, 18 Nov 2026 07:57:37 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 17 Nov
+ 2026 23:57:20 -0800
+Received: from nvidia.com (10.126.231.37) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Tue, 17 Nov
+ 2026 23:57:17 -0800
+From: Jacky Huang <jackyhuang@nvidia.com>
+To: Andrew Jeffery <andrew@codeconstruct.com.au>, Joel Stanley
+	<joel@jms.id.au>
+CC: Jacky Huang <jackyhuang@nvidia.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Ryan Chen <ryan_chen@aspeedtech.com>, Billy Tsai <billy_tsai@aspeedtech.com>,
+	Andrew Lunn <andrew@lunn.ch>, <devicetree@vger.kernel.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <openbmc@lists.ozlabs.org>
+Subject: [PATCH v3 0/2] ARM: dts: aspeed: Add NVIDIA MGX Vera C2 BMC support
+Date: Wed, 18 Nov 2026 16:56:54 +0900
+Message-ID: <cover.1794985308.git.jackyhuang@nvidia.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,32 +114,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAKwvOd=9pjhCnreMvoAH_0PegYg60ouaZL=BAjB242bE48J23g@mail.gmail.com>
+Content-Type: text/plain
+X-ClientProxiedBy: rnnvmail201.nvidia.com (10.129.68.8) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY7PEPF000000EC:EE_|SN7PR12MB7024:EE_
+X-MS-Office365-Filtering-Correlation-Id: a924bf31-1265-48ce-3a52-08df45499ccd
+X-LD-Processed: 43083d15-7273-40c1-b7db-39efd9ccc17a,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+ BCL:0;ARA:13230040|23010399003|36860700016|82310400026|1800799024|7416014|376014|18002099003|261009223027099003|13003099007|260925022911599003|11063799006|260925021311599003|56012099006|260925021911599003|261026140227099003|261028144727099003|261102123227099003|261022075727099003|261021123027099003|261021121427099003|261022105027099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+ N5YNFKflXtGpgVPjwPCYNpYuXv2S9vX8ynRhEenxHu+qFP9rOxSN08/SoDBUBRnLrOQfqPE0DbtNAUQ58ESSCMDA/ClZc5W7/LXbOLt5M+251Ci7bIuohiJZQmyMfrl+emet/GSye08BYjp2UH+jNCflrrps5HmKfdU9OY+zyxwXwrpRtlU5ohFr+OeyPzrVKKS5pgFF2bd/04KbIyXxXEYre5KdoVbShH+7b5WmipF+en8j0AF0wjj4Qry92p+KHJ3OJwl3jhae6hKhTvmeDVA6Pm6buWk/2Stqg8no/Wx6sB5u6YI6cUL7SLI+TQ3RtcO+rgz+H3E+7qqGSEsym3Lsh/bcZlRgHKbFlUmau7G4ayVQcTRZKPFpLj06ZCnLb7OSFNuTF6EmxmMibr7FDMx8uSF7u0QaUU7nhcXZpBz1uhzNBMWYYZZy3oiFr21EPNPz5iGjm5j4KGb9Po6UEHpcE7TSBr9wpf3u3B9lWEJPx0VYoELyjRsNBtQMt2MRBD4eBI0oysxVMJpUwZOeBE/QMLnJkHimW9dJDCZzLK0JbYnXenQCUpRjp2d+hJrMZpiUt0qnGltCLHdWewBikOp7wo1KC76hQDk+kym6BE4Qq80cxXLahW3NxI5FlV5XiZRQu4BhqggcS/s7po82f4GQ8GnVjEwciJDkM7LGOevwc9CJJ4QnNNmfSAnYnCftMEy5OF0BMTzzb3jnhDLU7w==
+X-Forefront-Antispam-Report:
+ CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(1800799024)(7416014)(376014)(18002099003)(261009223027099003)(13003099007)(260925022911599003)(11063799006)(260925021311599003)(56012099006)(260925021911599003)(261026140227099003)(261028144727099003)(261102123227099003)(261022075727099003)(261021123027099003)(261021121427099003)(261022105027099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+ WVSCCkvy02wBA+7sonsUvEFKgsMhv6oNbnvzhpPvB1NRWKXTH+Pid+INtif7KzspDDvgT0LpCtwimp2wnGQt1XMPl56mq62p7cobTvcftu8WzB5RqJcrQnGBycCIVAFqG6saxXJN/BJ1dCR6VUo3wA0Yd8unpwX2dGBIbVvL5DTiDwac6kH1YDqIvwMgji74/2UsArClmVGQLTVYW1Ux2WeZ4sJ5VvOh+tatuwghLPR+mFsisIe9tPBMua4sOZbIswSPAwUDngEHIY4n8m9J8xGMlUFCPQ0IgPRMk/acBG8yEIptr18u4NEp63AVWtJtdxrf53o+4wqguf9vlfddHwJclNRyHudzzI7QfbZI0Z72U5PJtoSrGr1W1wT12QKQ8o3CgaWSw8JZkFBhMPo9Hcy0Ari61OR/6JwGg1eqFModXqZjv8CdaCZLWiJrS4MF
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 07:57:37.4467
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a924bf31-1265-48ce-3a52-08df45499ccd
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY7PEPF000000EC.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7024
 
-On Tue, Nov 17, 2026 at 10:39:15AM -0800, Nick Desaulniers wrote:
-> On Tue, Nov 17, 2026 at 10:30 AM Peter Zijlstra <peterz@infradead.org> wrote:
-> >
-> > I don't speak enough C legal to actually understand the Changelog, but
-> > the actual change seems daft. Is this really needed?
+NVIDIA MGX Vera C2 is a dual-socket, air-cooled 2U server reference
+platform based on NVIDIA Vera CPUs. It provides a reference design
+for partners to build and customize Vera-based servers using the
+MGX modular architecture.
 
-Yes, I would say this is needed. I am far from a C lawyer myself but I
-think this is like any other undefined behavior: it might not be a real
-problem now but it could always become one later.
+This series adds the board compatible and device tree for the
+platform's AST2600 BMC.
 
-> I would imagine a delta of the disassembly here before/after the
-> change would make it more obvious (one less volatile access, which be
-> have arbitrary ordering between initializing other members).
-> 
-> But I guess I'm also curious why jiffies is defined as volatile
-> anyway? I thought the usual guidance was to use
-> cast-to-volatile-qualified pointer during access, rather than declare
-> as volatile?
+Changes in v3:
+- Describe the platform's purpose and link to the MGX and Vera CPU pages.
+- Drop the misleading RGMII delay comment.
+- Update the write-protect GPIO name.
 
-Maybe because jiffies is accessed a lot across the tree?
+v2: https://lore.kernel.org/all/cover.1793705210.git.jackyhuang@nvidia.com/
+v1: https://lore.kernel.org/all/cover.1793243187.git.jackyhuang@nvidia.com/
 
+Jacky Huang (2):
+  dt-bindings: arm: aspeed: Add NVIDIA MGX Vera C2 BMC
+  ARM: dts: aspeed: Add NVIDIA MGX Vera C2 BMC
+
+ .../bindings/arm/aspeed/aspeed.yaml           |    1 +
+ arch/arm/boot/dts/aspeed/Makefile             |    1 +
+ .../aspeed/aspeed-bmc-nvidia-vr-c2-bmc.dts    | 1271 +++++++++++++++++
+ 3 files changed, 1273 insertions(+)
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-vr-c2-bmc.dts
+
+
+base-commit: ba3f2c447203166c640e40dc8e9b4b91fc613aa5
 -- 
-Cheers,
-Nathan
+2.43.0
+
