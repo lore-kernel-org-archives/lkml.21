@@ -1,57 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794990415;
-	b=a9vbWt5+5n7EwbSAY5pque5loDlWk3cz22LM/49ukHlS7FRapzIji5yLUWRDlfCk6imn
-	 zt7mdI+WDV5RA1Jd9QHui6I3XSwjLqfDdky9nB2u5EykWazBUUjfsZMOY7Zma3+QQj4RA
-	 W23Wp3ykSMl2HpvHMQnOKNS3IpeGBwcYktS3zkggSwkWXVEzK7M9OKyS2q8LQN8GFc0S7
-	 bFjYTB0jise07XlvcqJEfDVX4ALvUO/Se0P1q5389ZnPi6UOK9zxHw1B4Sjg8kCCN5pen
-	 gOWDblH86Dk5FxUkVP0DyzpSD8QB1svg5i7VRVvktT9Z8vGuylP6LNg58kqJXs2VgTg==
+	t=1794990438;
+	b=oJ+VhICJCpfs8Lv6vJde2KlwaLCP9A5PK2FuPjI0O9AZtoaTUTnxgPfU50ylk0/qH2/H
+	 lgGFzUlwFea+ll5BUKzmU/f3qJTyF6/YCZB5R11xPMTwHSzzy+plk0eBmX11IlFVifJ7n
+	 9eiHHxqv9EdsBF0agpxeZfFOkb8+kvtkw5BApAl6eLpjvqFMN9XfQeaOZVJOPIy7D+4jb
+	 KicJTU2i3bBUtjmtVKFpaN5hKRStTjtYqoxsmenzYxgGpuLjP/PWan0Uc0Z8k1GdMoHPT
+	 DEKEVxg1g1ZpU2vSorxZFcHCwF5QJ0IlVriUvG9n4tLRJKE2KsHU/P+9R/ZHx9u3dvQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794990415;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=r/VlPs6VNksU8Hyjvppt/65i66imtzhs5iZhO7qX/oM=;
-	b=yBm94JQ4FBpTV0as4MW9z6NE4OVxfoVYkARak2XbkmvYK1OWYVFxx3TmPQhfnrhPNy2O
-	 I0YDPLKQ7jkyt4dskDwN+8+m9kEBiBA8hV20VgSaWP1wXczLU6UbRsfgXNlQw0HZJUBUv
-	 BAK3Y/IUXB6cTV28xr8QUSjQoD01CGCqoTbxfR2Lpc5S2NaQh9D++flRu5WkUEpJLyX+G
-	 bEbSGzz6NBuTUHH6uMM0hRMOgIeXzE0kqp85RHG0WYXzxYFiyCnVXuU9OkJ/a86K1w6OC
-	 SHKn6//xhNq5615hmisN53o7NeCfSr6Z8/6SChzOuY25jN0cp5Pt1qRHwqHhYh4fTpg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794990438;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=gadXbyq6kkimUUJ2iNNLdaAaP/G19gIHifpqbx4fy98=;
+	b=K6iyJtlnZHvoYohWGO7kW8lKUOMOkNBEqG/1kqbA/FcG9UOJfuIk5K7ADDwDi+wn2XBB
+	 e6NDbgzRhBNmVbV56rrnS0pI8TnLU+RL3a0qjgJ32cSSbvnJiDTSb0bMOHpMMQZBTgZv8
+	 fVoG1ZqW+2BGHNYhJ53vbT9VZWB+Qdf4YG9fkfEGXqPLve5ZuE4CpMbPuvyjfTMy5z+Td
+	 ePWUoA8Mn0rW0yaqjQx0l1/yLeoCO+agHmltxv9tuk7BrW/vlY+0imu0nW+NJOLqrNN2K
+	 RCI4fEWLl7SKczNWfh/UPE0CbB9lNPr12N20c7Bafe0OvpUK6FsvJYQMetXJot3NcAA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Rco1sEDO;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=m42car4W;
+	arc=none smtp.remote-ip=95.215.58.124
+Received: from mta1.migadu.com (out-124.mta1.migadu.com [95.215.58.124])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F8AF606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:26:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2E95606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:27:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2E95606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Rco1sEDO
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21F6A1F000C4;
-	Wed, 18 Nov 2026 08:26:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794990414;
-	bh=r/VlPs6VNksU8Hyjvppt/65i66imtzhs5iZhO7qX/oM=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=Rco1sEDO8RTXetZXYYFhDM2gmgpabkEW342ZRHKnvku0EzmkFu64gfO/fFH/T3YKa
-	 JiqTQM7l0+zzShSQQX9jPxrEcUI7RHxBb/AtZpNpYszQOg+Qa6BdVUhy+T3lYDtgV5
-	 as70zBEbS8liex/IG+61eklABa7QBrdFAgCX/xNhIG4NXbaU9SJjxM3LkojIWLfFtM
-	 QVkcDclIENoe0l7mEVVsNr2EHOwnTQjIj9eOljLZ5C/8m8otCrm0z6vmLMAqumn20T
-	 Hhfwc2RDqAgZGTdNdmsKX2/U+2gxUH5yn8lgWIO56oEtpZ+kSNeKJjqdAIVxtNjg/X
-	 DCRYBtCEQObcQ==
-From: Christian Brauner <brauner@kernel.org>
-To: Nickolai Zeldovich <nickolai@csail.mit.edu>, 
- Oleg Nesterov <oleg@redhat.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
- Thomas Gleixner <tglx@kernel.org>, 
- "Eric W. Biederman" <ebiederm@xmission.com>, linux-kernel@vger.kernel.org
-In-Reply-To: <auXxUSMHCh4vA3yV@redhat.com>
-References: <auXxUSMHCh4vA3yV@redhat.com>
-Subject: Re: [PATCH] signal: fix lockup in complete_signal() racing with mt
- exec
-Message-Id: <20261118-unkraut-plagt-virtuell-59a64b9c3a89@brauner>
-Date: Wed, 18 Nov 2026 09:26:50 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=m42car4W
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=aoOLVpBoWNs84O56OwBWfuEn1iIlTR6T4qFPvvTlP/0=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794990436; v=1; x=1795595236;
+ b=m42car4Wimit/SuZmWvk0s7e+6V2UvcS0iy/1++b7+ZHPR3+5YjHsSdcLvDbZxabEc/GyIta
+ bcDW9vq2GX8DqlhLUrPJqKp0HaOMVKWk253W5gqnUrp3VawRZTC+7czkT5z37NDdkpY/9mMb7d2
+ rysiXhxfI0eW3U1bEabY27rw=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta12.migadu.com with ESMTPS id dd52a83b7784220a;
+	Wed, 18 Nov 2026 08:27:15 +0000
+X-Mizu-Trace-ID: dd52a83b7784220a
+X-Migadu-Flow: FLOW_OUT
+Date: Wed, 18 Nov 2026 16:27:07 +0800
+From: Hangbin Liu <hangbin.liu@linux.dev>
+To: Pin-yen Lin <treapking@google.com>
+Cc: Jay Vosburgh <jv@jvosburgh.net>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Bjoern Doebel <doebel@amazon.de>, Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>, Shuah Khan <shuah@kernel.org>,
+	netdev@vger.kernel.org, Matthieu Baerts <matttbe@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	Jonathan Toppins <jon.toppins+linux@gmail.com>,
+	linux-kselftest@vger.kernel.org, Hangbin Liu <liuhangbin@gmail.com>
+Subject: Re: [PATCH net] selftests: bonding: fix failover race in
+ bond_options.sh prio test
+Message-ID: <av1hWxGIlZUJDUpl@fedora>
+References: <20261112014942.2946303-1-treapking@google.com>
+ <avaewOJD7tX1UYfE@fedora>
+ <avanVkILHDYdpond@fedora>
+ <CAHwYsio=qtCY10EPnh+qvWpdgtQUG5mw1b3WKMt9_Kytcc7h9A@mail.gmail.com>
+ <avwBrbJfp4ET9ifT@fedora>
+ <CAHwYsiqwCVPJqtQRoP+9Uw66RpdGL4zuiCPO8+mqShxnvFgDPw@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,35 +77,118 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev-04696
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAHwYsiqwCVPJqtQRoP+9Uw66RpdGL4zuiCPO8+mqShxnvFgDPw@mail.gmail.com>
 
-On Sat, 31 Oct 2026 14:46:57 +0100, Oleg Nesterov wrote:
-> Nickolai Zeldovich says:
+Hi Pin-yen,
+On Tue, Nov 17, 2026 at 06:32:52PM -0800, Pin-yen Lin wrote:
+> Hi Hangbin,
 > 
->     kill(2) of a process while a non-leader thread of it is in execve()
->     can lock up the machine: complete_signal() loops forever with siglock
->     held and interrupts off, and de_thread() then spins on siglock in
->     release_task() with tasklist_lock held.
+> On Mon, Nov 16, 2026 at 11:26 PM Hangbin Liu <hangbin.liu@linux.dev> wrote:
+> >
+> > Hi Pin-yen,
+> > On Mon, Nov 16, 2026 at 05:30:28PM -0800, Pin-yen Lin wrote:
+> > > Thanks for the pointer, but I believe Bjoern's patch addresses a
+> > > different problem.
+> >
+> > I think they are the same issue, as you comment also said
+> >
+> > The ARP/NS monitor marks a slave down when it has received nothing for
+> > too long.
 > 
-> [...]
+> This is the existing behavior of the bonding driver, and the prio test
+> uses it to check which backup slave takes over. Slaves being marked
+> down is not the root cause of the test failure. Instead, the root
+> cause is the ping replies described below.
 
-Applied to the vfs.fixes branch of the vfs/vfs.git tree.
-Patches in the vfs.fixes branch should appear in linux-next soon.
+If the backup slaves are not mark down, we can active the correct slave
+based on the priority, right? I think that's the root cause. The ping testing
+is just for checking connectivity.
 
-Please report any outstanding bugs that were missed during review in a
-new review to the original patch series allowing us to drop it.
+> 
+> >
+> > >
+> > > Bjoern's patch keeps the traffic flowing so that idle slaves are kept
+> > > alive between the test steps. This patch fixes the case where the ping
+> > > replies from bond_check_connection() only arrive on the active slave
+> > > right before it is set down. The active slave's failure is then
+> > > detected one monitor interval late, when the backups have also timed
+> > > out.
+> >
+> > The reason is we set arp interval to 100ms, and slowwait also check every
+> > 100ms. If the backup slave down at the same check point, e.g.
+> >
+> >   t=300  monitor: eth1 idle 230ms -> still up
+> >   t=400  monitor: eth1 idle 330ms -> down
+> >                   eth2 idle 400ms -> down too
+> >
+> > The test failed.
+> 
+> I don't think the slowwait interval makes a difference here.
+> 
+> The ARP monitor decides which slave becomes active, and slowwait only
+> reads the result afterwards. The test expects the active slave and the
+> backups to time out in different monitor runs, so that a backup can
+> take over. In the example above, eth2 is already down when the bond
+> picks the new active slave, no matter when slowwait polls.
 
-It's encouraged to provide Acked-bys and Reviewed-bys even though the
-patch has now been applied. If possible patch trailers will be updated.
 
-Note that commit hashes shown below are subject to change due to rebase,
-trailer updates or similar. If in doubt, please check the listed branch.
+My idea is, by extending the arp interval, there is a larger gap. e.g.
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/vfs/vfs.git
-branch: vfs.fixes
+   t=300  monitor: eth1 still up
+		   ^^ slowwait check, incorrect active slave
+   t=400  monitor: eth1 down
+                   eth2 still up, should become active slave
+   t=500  monitor: eth1 down
+                   eth2 still up, active slave
+		   ^^ slowwait check, correct active
 
-[1/1] signal: fix lockup in complete_signal() racing with mt exec
-      https://git.kernel.org/vfs/vfs/c/94ca49563acb
+> >
+> > >
+> > > The ARP requests triggered by Bjoern's ping are sent only about once
+> > > per second, which isn't frequent enough for this failure. I tested
+> > > Bjoern's patch and confirmed that it didn't fix the issue in our
+> > > testing environment. We also can't simply use arping instead because
+> > > iputils arping doesn't support sub-second intervals.
+> > >
+> > > If you're worried that the 200ms sleep is too short, would increasing
+> > > it to 0.5s or 1s work for you?
+> >
+> > It's not about the sleep time before setting active slave down. I'm afraid
+> > about the slowwait checking time. Even we sleep 1s, with arp interval 100,
+> > we still only have 100ms checking window. Before the window, the active slave
+> > is up, after the window, the backup slave also down. With a debug kernel, this
+> > time is a little tight.
+> >
+> > So, either we have some background arp traffic, or let's extend the arp
+> > interval to a larger one.
+> >
+> > What do you think?
+> 
+> I agree that a 100ms ARP interval could be too short in environments
+> like a debug kernel.
+> 
+> Background ARP traffic doesn't widen that window, though: it is sent
+> through the active slave, so once the active slave is set down,
+> nothing reaches the backups. It could only help with the ping reply
+> race if it were very frequent; Bjoern's patch triggers about one ARP
+> request per second and didn't fix the failures in our testing.
 
+For background traffic, I mean let the client send the arp requests,
+not from active slave of server. With arp_validate 0, the backup slaves
+will update last_rx and won't be down with idle.
+
+> 
+> Increasing the ARP interval alone won't address the ping reply race,
+> but it should help in environments like a debug kernel. I'd prefer to
+> keep this patch focused on the ping reply race and send the ARP
+> interval change as a follow-up, but I can fold it into v2 if you
+> prefer.
+
+Doesn't extending the arp_interval (e.g. to 500) resolve your issue?
+Are you still able to reproduce the problem?
+
+Thanks
+Hangbin
