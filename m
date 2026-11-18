@@ -1,96 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.114
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795008710;
-	b=MYssLREOfGC/W5Q/nPd0gsXPcAeOXaTjvnZElzGIlh2MU/lv1Igg1YJw3cet51rsIvWR
-	 jzUCVdEj+nys9HludkxDqHDC6nrYiq4FeqgAw3P94uk/mHE5eoA7bCKdnxfWJp/PKurCa
-	 UhCniSPLtdVe//UaLqb/UJJW/wgmX7wGaVNYR5vQUD2zR4gFYKaB7SC9Dbs+CF6Zkt5uF
-	 4DujOL7Yc6POa2iJoL3xtb1+cVb1QwG+EcOgx5ynu49rLTAsL0xwlUJYBwdP4ZPfd/7OX
-	 JGbxnFD5yRBiA6WMo3400z0EeWIzDQKKMWICNcvJhOPMy3QT5OxjuJRz04qxNfybkew==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795008710;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=FkOSgDsC+mMHs+oRP8pRdgJmfoewwD8yrGR/X5SJH6A=;
-	b=3qKQcHpDfulzS6qqhg8p1zczOEt6l8ORX/Eb3b9yKQdEGGQOvWeISlZZXcHrmwvGP4K+
-	 KfWt7T57t4boD6tlCiffixORHY95Mb1zttpu8XPkGhPayRqjI0wR+/Gj0q3BjCwasyODa
-	 0dTQGqUlkmgNIZW3/KfV4XC9Tio+aUeA77qJT/j9bqX4W0T+Ug9l5bM7oGkcFIK5dEoYd
-	 ov74P1zCiuj53O4XBbOJBlcWNg2h77joec+2oE4KkOdJ20XmUMCUf0MCwo8SUWJ0RanFb
-	 TmMzmSaUI++UR6+ye8XZ5fJvKM6izdzjlb7sIFd1XtmNmbPl6B7KM3j2MQqc4NJu4bQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=PM4t528P;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.114
-Received: from YT6PR01CU002.outbound.protection.outlook.com (mail-canadacentralazon11022114.outbound.protection.outlook.com [40.107.193.114])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.170
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795008764;
+	b=gth9PR3y0wwR7rm45yK14hmOSvDkqaLt1gN2kcryWhVFlC5CXZIRRW0QhWJEXj1ci8ed
+	 UdJ+admK7f6eE0uv5DntfHXRtFQuh0YPSi7LrqaGUEZXfBy9fGd1jaxSe5t5h058mRcvG
+	 cfrIjmIEiDx4AAoYcbTc5d4ju5fcbv0hXdt3i8LeRqPJbQil3KP4BC2YKW7X+LoeJUiXy
+	 o6ILG5UDEAZzhl12vb0twGgUWC9fCmg7eNZd3CU/26WkpCiiDEIs+7J+60L8k2KY2+/Co
+	 Mbjt4k/la6EK/UwrbYtvUG2hYhiFVRaqygNW0o7Onqhef40vwczkpYwqSmVfuQTABJw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795008764;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=vARgZ4ae1GlRG7TFzkKePX/f+At6TdRa5dq48dnLYwg=;
+	b=waNJ6b58ZMJuqK6hiyhsks7aSbrLX6WpuyyhNRamA4fqWOn+h/ifNMMbEzC0IKaD4PNE
+	 Z4N1FdhBk6Qsm+qouFU0ChzuNmsXO8WKFt7DGj2M8dxkx40DirCY+BKJhvC7fjHMGW9jW
+	 Pr0IKHA0nNoYFqk7WgwV3DNrcOQEqKCGFvP4FnglNNpWNELNFqDlfN4QFdAb8numXN1CW
+	 3+X6PL+idvSne0sYAohn5Lrfw08iwOuOYouUMfkGXBF/QJnifLh56uBsKVuuEix4vJbbL
+	 R2SI0bUOQPkZ+iPqPmT/jb892sxs6VV2uT0mbtZ9FOqFlCTxLocLvuEoKbkVJepS/+w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=R0HGTCba;
+	arc=none smtp.remote-ip=209.85.208.170
+Received: from mail-lj1-f170.google.com (mail-lj1-f170.google.com [209.85.208.170])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 577B9606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:31:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 577B9606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7113D606A32C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:32:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7113D606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=PM4t528P
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=x6fj3wzj2sS4uX5dpj6/MkDYpCQQbjJYxCC3f9edt72cpcvW/AccPxplkaOBKlADwzHx85sYD6HhnbiQxf2K6AfSe4pKkunOVeCgGt4RckoObhF7lDzrZro+AXUs58QHZiP3G9fZ4MeNuhI5EQLSijyvJRtZ08RtzXODaPw/caDwBjX7CCEKZR0tV0f/9pBvSyzMGbVQkKsfSBBRSG9ggtmCjN25clhtHCHQS5ZhUrX6zonSC8mpzEO5kYvo9/xjKtUsKrwS0/KIBDElEwwBfayo8EeIiAP4TSvvIDQlW6ZjFXGa/W1/l/g8PfW2H+4RfRZH+k5h0DIgfDzPQOPfmw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FkOSgDsC+mMHs+oRP8pRdgJmfoewwD8yrGR/X5SJH6A=;
- b=tWbuHiV8BPSUCqaXz0pEvVecYb2FlvZZiOeiWiN6ekkCh1/sOj8TEjl1POIF99LDhOgPp2TPSQZn/WSAL0l9SOScODMEuqpH5VrTz0PQEHUSvZ7rsLMlFg17wPeuhLS5mLydrR2TaUb6Cyw9COvuV7ucIuBHL30NDzVhcFA4xlwjn4M8PELHHTq7VwuLdoHHfTSS+TLeBtDT9pII0oAmZFrE7ceOe3c2pv5h/qaou22G8goKWKmU3tlMkDdyAMr7xnLFct7wphp2+2Xb3EI1fU3Q9zcv4iUXye/fbSmU+a0Pwatjl+Q/X2nTUiVl/lvR19MPWn6rjLUSSQAi1iSnug==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
- dkim=pass header.d=efficios.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FkOSgDsC+mMHs+oRP8pRdgJmfoewwD8yrGR/X5SJH6A=;
- b=PM4t528P7pG6W2RFD2eU9+KwYLWbzOQtKvKSmszUS5JQYnPPwGcTKFEipH0juiq9gUOQhZbmlpr2Jd1I1KpxN231zNEc78DobsHEGgEz+h2993Ig8GCcRteEUtsH4JsuP65iyA/jDCHL18Dd3W122gvQm2OxalxwvfKD/CkAp7/k6jaXwCjCGVt9MwTG04zOzOVzz3Sfv6V5U2njQG9Zb1f48x21kwOvwpr4myq1ycIg3upkxyzPTCbUvO4bEMfNZiyQWAsoUvshh1UUNSi3u74uM/Qs2uW4GKfXsVeNHKuPyuxOutCNveeCjhEMhsFYN4O2/8mCHWUmQQJRDIHOKA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=efficios.com;
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10) by YT2PR01MB11645.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:154::6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 13:31:47 +0000
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 13:31:46 +0000
-Message-ID: <d5bbdb4a-1695-4585-87a3-7f561d4d614d@efficios.com>
-Date: Wed, 18 Nov 2026 08:31:45 -0500
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 05/40] sched/deadline: Refuse dl_server debugfs writes
- while the rq is offline
-To: sashiko-reviews@lists.linux.dev
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org,
- mkoutny@suse.com, linux-kernel@vger.kernel.org
-References: <cover.1794922146.git.mathieu.desnoyers@efficios.com>
- <2bee6a143319301f082855a15274f0563e99b8a5.1794922146.git.mathieu.desnoyers@efficios.com>
- <sashiko-outbox-218977@kernel.org>
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Content-Language: en-US
-In-Reply-To: <sashiko-outbox-218977@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: YQBPR0101CA0214.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:67::20) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=R0HGTCba
+Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-3adef977ad9so9492121fa.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:32:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795008761; x=1795613561; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=vARgZ4ae1GlRG7TFzkKePX/f+At6TdRa5dq48dnLYwg=;
+        b=R0HGTCbaAt0zBaWeiU03QdsUJ5zB3b5nl2+hCxiIpFJveWiSYRqck2FLSpimAl71oi
+         RPVTb1zX7Td6eSZXvcqJ5GQakK8jQFlR/hqbdtNjmr6W14RYBqQp9Qf7VTht+2cX5Pya
+         cIXOgxwaW8F/ZHlUlVj/L+S0rgjxMnPEHWVLxJQ5tqfP/tGgMBjUvpOptED3DDL7U4lW
+         3EXzCsPngS2WxozP+/fuyI2WGhmTC5XbIq8jxRuPnQD/BPQhwA0Dw8UiG7aEeYmlumDl
+         +viPvvBHNaO/ZrO/ivZlU9u+nT3uke3BXcq59CvvMq1j916Cef3BNDanSzP3gMtDoEYI
+         I6tw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795008761; x=1795613561;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=vARgZ4ae1GlRG7TFzkKePX/f+At6TdRa5dq48dnLYwg=;
+        b=T1Pz9vvBt8+dRweaW4zNsps+xSxKxJHXRj7DyKjgfRZRuAXCgTq7bTUiMl20LOylB+
+         /AY86/CxY3I1Nm7A7FQO+gvlwWNHg1CosKP/lGvrnw6P2d0219J4bZWXefT7Sh/D/ikc
+         tUviCnoIayJv72qrmQPNp6m4Zl0G3tcVzMMmtEZnsUPbzXY0G39z2Woqv87145nKeRvV
+         AcCyMLLFaYcZwVy2dYh0fTBdoZ0WbkRXfMWxnEYxO8XH4Vkx8NiGhZ/xIva8NSvqfpS+
+         0L5b5bPwif3Up2q2Ie+Ip0sPhN+JwOrkTEg4rxIXntFKxfspS1Rn/nw15zodmj3UVC3g
+         xMpw==
+X-Forwarded-Encrypted: i=1; AL+hErFvqsuV1UbXY1+OjNSoC291ttJdT60uXhVVAdCLIChYCRPAw7NBgRx3zDBg+DLa0xzQpkCx0/4iQ314flc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+hMDgkTdfjX1X6IGAu7FP3+GVnIfz5//dDf2DPURSOn+Be4v6b
+	Tu0bBuvpQT7SrAGtssq1Pe6sxBcjTFMvAZG5oZudHfzE9hQht9x6ooVz
+X-Gm-Gg: AYBFou0hAMacnYet0AFnfQOL9kevIoZGx8VLT+JcWSzneu3LW0jTwncoQbiAK6w4xk/
+	nDZVRBcv+uo6kEmt1J+NU++f2tmrWeKjgjpRiAKd7ybPtGiySAkQSi21rCNW1/oeleIyxH4FQxm
+	5WqOtuGYwPQWCP56iTCXrJU07ztQQNXoS+XY+31tVauCRSVBk+IFcO16lzFJP+3fP04YiorQslh
+	3cRVLl6w3898HA3Uy38i42kE2v3sS6Y68bnHDLXPCv2zHju/UlQQppppEHyZqba+LwGkAGCK9YA
+	5iB9pGCzfQdEKa+z5OaNkGQYhmfkOkhXrTdg6OpgVMYmcqB+XFeSfk0WhGs6Vfed4ZvND4EkMsJ
+	IvsB2332OZYYiYPf5kNbN1TIo68k6QSpEfDDawgRfW7JBx9bN+jj91+jh8IqelLtOlg30FyAKjm
+	E5XIO83RZ/frGBhbqe2NBxW9wEN7MXW92d3bQj+A5eenqxrnDwlHGr3ArS55qYcAVS91lHdsZUk
+	3sFNnIxcJMsJcP7Ju+zV1ygPPEiKUM2GxwWdrhzwvsrFs2vefe/j5a9DIUEneTyfnX+INj2WlZ2
+	WEe8MoJKUHDHpzGhUEyad2ARp5RCXNP3u8bXvoa9IqUvINwA/RZJLF+j6pM9aEu/Xwbn4CzsGA4
+	akY5qJiAHCR6U59b3UtflTYWwGP5y4ibCvhdBVXBGF7uTNdA/8JG/EmsFsqVgP2ztD9go4cmfhg
+	f6
+X-Received: by 2002:a05:6512:104c:b0:5c0:a7f:3ee8 with SMTP id 2adb3069b0e04-5c1a9d25ab8mr1067457e87.8.1795008761239;
+        Wed, 18 Nov 2026 05:32:41 -0800 (PST)
+Received: from C422HJQPQG-Fractile (cmbg-18-b2-v4wan-168328-cust3701.vm17.cable.virginm.net. [80.5.206.118])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-4a650d2e26csm4798809f8f.4.2026.11.18.05.32.39
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 18 Nov 2026 05:32:40 -0800 (PST)
+From: "Vishal Moola (Fractile)" <vishal.moola@gmail.com>
+To: Danilo Krummrich <dakr@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?= <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Trevor Gross <tmgross@umich.edu>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	=?UTF-8?q?Onur=20=C3=96zkan?= <work@onurozkan.dev>,
+	Asahi Lina <lina+kernel@asahilina.net>,
+	Lyude Paul <lyude@redhat.com>
+Cc: dri-devel@lists.freedesktop.org,
+	rust-for-linux@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	"Vishal Moola (Fractile)" <vishal.moola@gmail.com>
+Subject: [PATCH] rust: drm: ioctl: fix call to unsafe function
+Date: Wed, 18 Nov 2026 13:32:32 +0000
+Message-ID: <20261118133232.48603-1-vishal.moola@gmail.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,93 +114,60 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YT2PR01MB11645:EE_
-X-MS-Office365-Filtering-Correlation-Id: 72f33c64-63f6-42e4-1be3-08df45784b0f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|5023799004|261022075727099003|4143699003|56012099006|10067099003|261021121427099003|261026121527099003|261102123227099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	QdzH7wI2L+KdHMbRCvXqLehBhaPAHjsNciYCKmsaVfp35CjQBnIsf9br/rUOIfeaVWbGTt2fUxviE8BeopXQXSGyzgzMiOIFTTPqfdMNJ0zUBiaqOjhyYS3+VSYRPqQawkxnplLE4wAQDQlDFsAOwERKpNxgFrMEglBWCbh+tgDXn52McuyOnIgC4j6LIb8J+l+MGk9puRmHopXJ5AdHWg1einhdkUqUNRfls46IKgqKGCDuX/59jOmUFsub8lzotcbcQh3WaoIW9PSxiatzbDss3jUCb8FvDr8c9bA6LYSFqdl5Pd5BYEmcUJNOeJ/Mi/TLZV3BbcgNDAJVaHewZEyJpoW089xpInkhQrir+HGnfGQ5rKCB9kwrQz7NsJdErQ2HMlNttdkwDw/H9QejAjBaVkQp2Koe+Ea/fDnXiCWjIPcMsyZrd0W6qa2NwBL+lQ7YKlJJ95DFu0Wz/D9Aw9/+UNNEYpQzyUInZ8h2eGeRuTXWrsksOKAze2p266OFSsilBULsgrhi2b0bU56JLuRmoQCt8yyv8kNCiq+4T0NFhTCXtxuPsx6xNL/Smpmo9vGS5yfNaZJqFKGLkZ4nVqOqqAhVe3lBqj0Mf5CXwlg=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(5023799004)(261022075727099003)(4143699003)(56012099006)(10067099003)(261021121427099003)(261026121527099003)(261102123227099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?eUFPVnp3aU9icmJXWHl3QUQ3YWlsZTk1U3hoWGpxUzR6Z2RtYXRWWCt5YmRv?=
- =?utf-8?B?bURnZDJWUktnSkRhcHVCNlUyV3lKaEJYNTFkbGovRUxpQWUzUkZVNDBGcldJ?=
- =?utf-8?B?QXVsa1FUVks2QU5qdE1CbGJKQ0FQem1FdnMvOHloOE9oKzl6U1E0K3RSVStK?=
- =?utf-8?B?ckxibWo0dHYvMW9FVkJwR1d6WSsxRk03STlQWkJCNlcxM3JyeTlrSDN3VTkr?=
- =?utf-8?B?SDJqTUZRRDh0OEt6OFMwNytuTTA0SW1jNU1mQ0lIRlhYZDNoQWhiTXJEdTdR?=
- =?utf-8?B?MUQ0ZGVCWGkyOGc3YkIwQWVuSnFpQ1ZiSW9GcS9PaTBGdDBCL3p6SVZCenpL?=
- =?utf-8?B?WnFvSFVvZktrZTloTW1GR09Va0Q4a29LdFJwZENLS2NFa3RBeFE1Z0ljcVhD?=
- =?utf-8?B?Q1ovZ2ppakdnVy9TQkd4WU5iMnVKSUFoQVFRdkNGU0hqN3pzNzZVZ1B3UHVV?=
- =?utf-8?B?VzY3eEFTTFJnUGhEVU1FcGdrNGJjWGJId2hEYjlGRGpXTy9qU3FvVllBTHJm?=
- =?utf-8?B?Zm9yTHc5b2NaWXpNcGVyODVqKzJVL0MrZFRLMUNTclAwaExnWU9pUTVNbVZM?=
- =?utf-8?B?ajNSeVg4L3lwVHhDVVBrYng3Yko1cTVoRlVlMmRHNWN3NDQvQVZRbVZSMDI3?=
- =?utf-8?B?bGZqcEZFdkRvZDcrVE1uWlBDZ04reDZlVGY4UUYyYlZESkpGRitLWEJRdzZR?=
- =?utf-8?B?RVdMeVRjOHUzSWQwMUlrMy9XK2ZnbDRjcWVYSXQwd2wzUlFaTEM4UEFMTW5X?=
- =?utf-8?B?b0NiTTBudHFRYUxObjkrMndpcW5BOFkyQVNya2VZRDlqWVI2VFVYRllBVmQ1?=
- =?utf-8?B?QnhRdk5wUkJDWFVGVTJueTZvRkJqbnFqcUZScm9WYlFTUlljU04wOWIzWkE0?=
- =?utf-8?B?TnJMeWJXQzh2bmh2V0MyZU4xWXpZZXJNVm05cEVVZTBKTWRYYXlsTXkySTB0?=
- =?utf-8?B?VmxJdGZDUVozR1EvOHFGQk5tRm44VlNIQmR3VWlSYWpKblZDb2E0aHc4VEtk?=
- =?utf-8?B?bnR6WEdpamNiM0NNVlhyNnJuTFc0K3JRUjdOOVIvQnVCU2V3UkU4SVFtdWxk?=
- =?utf-8?B?SUV0SnFuK1pFQjJhMURobU90UDdMSXQ4V25QbnI4aGEzMGt1aWJwa3RNNWxr?=
- =?utf-8?B?ZW12UmJ0UmU5WXJsNU9xUjBUQTlvdUdHZHZTYzR3c2lTanlSdXhWaTlzZjlk?=
- =?utf-8?B?bEJjTEU3NUlwanpKVDJmWnNtRzI0M0RIck5xL2tYYkYwbGI5RGxaV2h4cS9q?=
- =?utf-8?B?QmJxUEY0ejRkbTZwUU9EN2NuZHJjRjZhNjhmRUJBRTRHaXcyRTlWcThOTmtZ?=
- =?utf-8?B?c1lpVDBPMEJobnYwSHpWcW12d05oTG5HOVBMWDRqTGZudzdVcG5DcHR5TGRB?=
- =?utf-8?B?TTM4cTdybDFEU1RZS3c0b1FKbE9sZnNXOEZIWUFSV3dDSXBXMnpNRjJNd3ph?=
- =?utf-8?B?Mm9rdTV1T1VGYkxOR0xwZGxOdHYrNkFoMkpkNGNjc0hQcVhld0RRNGFETDNp?=
- =?utf-8?B?a0k1TEpzWXg1T2c4TVE2eWtOM2wwUitJR0lLWGVtZS8rKzJ2eWlkN1pVR2Z5?=
- =?utf-8?B?NGV5dmhodHFBc2JaalVwaDBqUDJhVm8rRTYremNYUkp1aks4blhBeno5VHM1?=
- =?utf-8?B?ZG9iRVpERXhrclRtTGk2VG1MT3NQaFNud3I4NlBadGxOZ0NUWitYZW1mRldK?=
- =?utf-8?B?aWxSUFdXTUlTY1V2L216QUJwVitnNy9nVnhrbXRWNytISVFMZEhieUprQ1Ar?=
- =?utf-8?B?S2huN3FwZmM4YjlMQkVRZVlNTTIvVHNFV3dHTk1URUV1bHpuRXZqYkI1QXRr?=
- =?utf-8?B?N2dlT25rbmFTMnUxNkpBN0pSV0JhSjF1V0gxR2dITnFlRjJSS2NFak5lWWNI?=
- =?utf-8?B?YnowaDRteGhWZWZuVVJLRjUvSTdJYzdJM0lmQUR5Qnh4ODQxSDhYU3Z5RlJZ?=
- =?utf-8?B?bXVvZzVGRCt6Rlhya0pMNFpFVFNIVkZ3cCt0a053WlQ3VDhFZVdtOEwyZUxu?=
- =?utf-8?B?Rk1FMWYySWtnQ015SDhCSmtKcU1GbTg1MHdwejVYemlYaHVtamxrMHJ0cWpQ?=
- =?utf-8?B?dnMyRjI5RHJyaE9SKzZBSno5WHhZQlE5eUIrQVQvSFlGSGZPUVB5OURGK1pG?=
- =?utf-8?B?V3pLMThrS0NxZmRFaGNHR3Z3cG12amdCU3ltN3VKa2J4U1hvOEtJREp6YndU?=
- =?utf-8?B?a2V6clZBcWlxYW0yM3pUSC9xelhsZDkySGlMQ3JvcXJOeGRPYTNGYy92UHMz?=
- =?utf-8?B?TFJCOW1STEIwRmJ1TnMvOCszR09xd1Z3dG5mdkUvN1g0aThYeW1BcllMdmlW?=
- =?utf-8?B?ZllaQXMzTHJRb09UM2RRaDFKazVSMHhPSXJEWEhkTVFIMnFzWHVVQitTVjhy?=
- =?utf-8?Q?mEaNhFw30zfRR0JsOdKa4GC0/P0QCgKvdS4CZ?=
-X-OriginatorOrg: efficios.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 72f33c64-63f6-42e4-1be3-08df45784b0f
-X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 13:31:46.9183
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YOP1rlYsj2Mr0mazdC6LPvPtJtFU1hgUa5ZoRxPWNNWoduki6505y6cEzb0PMi9iqVrUYJuNAXeXF5gPgBU/nMnsTGCJDLL6j3vpgP3LCE4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT2PR01MB11645
+Content-Transfer-Encoding: 8bit
 
-> Does checking only !rq->online still leave a window during CPU
-> deactivation where cpu_active(cpu) is already false while rq->online
-> is still set?
+dev is created via an unsafe pointer dereference. Following the
+convention, it should be wrapped in an unsafe block, but it is not.
 
-Yes. On v6 I answered that the rq->online test would stay as it is. The
-next version adds the cpu_active() test you suggest. The refusal then
-covers the whole deactivation, so the window is gone.
+The compiler only properly lints declare_drm_ioctls! when its defined
+in the same crate as it expands in. Since upstream drivers are all
+separate crates, this is silently ignored.
 
-On the way up, cpu_active() is set before rq->online. So the extra test
-changes nothing there.
+This has been present since commit 9a69570682b1 ("rust: drm: ioctl:
+Add DRM ioctl abstraction").
 
-A write in that window left no wrong state in v7. The rebuild at the end
-of sched_cpu_deactivate() resets total_bw and extra_bw. But the comment
-says the refusal covers the whole offline, and now it does.
+Fixes: 9a69570682b1 ("rust: drm: ioctl: Add DRM ioctl abstraction")
+Signed-off-by: Vishal Moola (Fractile) <vishal.moola@gmail.com>
 
-This was checked by reading, not reproduced.
+--------------------
+Based on drm-rust-next.
 
-Thanks,
+I encountered this while trying to build a rust driver out of tree. I
+copied the macro to an out-of-tree crate so that our uapi can see the
+same generated values without needing the generated bindings.
 
-Mathieu
+Ai has told me that this is because the macro expands from the same
+crate its defined in, which sounds sensible.
 
+I see:
+
+error[E0133]: call to unsafe function `kernel::drm::Device::<T, C>::from_raw` is unsafe and requires unsafe block
+  --> driver/drm_ioctl.rs:77:33
+   |
+77 |   ...                   ::kernel::drm::device::Device::from_raw(raw_dev);
+   |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ call to unsafe function
+   |
+
+Plus a number of warnings. But warnings are warnings so those are
+whatever... Its all silently ignored upstream anyways, so doesn't
+need a cc-stable either.
+---
+ rust/kernel/drm/ioctl.rs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rust/kernel/drm/ioctl.rs b/rust/kernel/drm/ioctl.rs
+index 64af9eacc306..5a2e2f4f0e91 100644
+--- a/rust/kernel/drm/ioctl.rs
++++ b/rust/kernel/drm/ioctl.rs
+@@ -152,7 +152,7 @@ macro_rules! declare_drm_ioctls {
+                             // dev/file match the current driver these ioctls are being declared
+                             // for, and it's not clear how to enforce this within the type system.
+                             let dev: &$crate::drm::device::Device<_, $crate::drm::Ioctl> =
+-                                $crate::drm::device::Device::from_raw(raw_dev);
++                                unsafe { $crate::drm::device::Device::from_raw(raw_dev) };
+ 
+                             // Type-inference anchor: the closure is never called but ties `dev`'s
+                             // type to `$func`'s first parameter, which the compiler cannot infer
 -- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
+2.55.0
+
