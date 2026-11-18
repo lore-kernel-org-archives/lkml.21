@@ -1,49 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.23
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794993716;
-	b=4r843/u1IPwTvDIyfoRyAvKPWkMfyEw+2K8kBm4WOXZmoXUX2qrPLoloX0WEam0skZlV
-	 9QeCpjaJcc1we7/f6SjKulfHg8RaKhxKLYAQDgtbRTqGwghOFlAEm0JH1UyvaFqyVoXsc
-	 GIHiGDpTRVaDNSJgM5IcQHmuYAPwLKzl1IR4/im+S0Bow2p5bVExTcxUJ7tM6y6oh85Z1
-	 woYFGiu9uYTb9XVtiEtY/wfLSNTuD0dvsphA3ThXZvRxlM+R9Bcag9DlbGaKGMZWr/Crv
-	 oPYk+Azr/FB07KTt7cv7PcZnYGhw4a0C1ON9hhR4THUUrs9lYFvs2eL5A55nz82nHNA==
+	t=1794993721;
+	b=u7RUskNKYsiGhJYW9rUhkJJ2e4mEf9iyz0Zx02ZPXA7Ebys+DCC7uiLCmMNaw1SZTfAA
+	 znzE/nyo6rvk8Tl5lcVfOAAHQi5r8Xjac/eB7Ol8LHeFoNq3HXJvsLeEq9k5U0UxZWNpW
+	 W/uPnSOsvRqkJRMu9EgPY83Ums+2X44ry+a1jm9Jwjpb5UTs7sd21edIJZ07QbkNv/zYk
+	 ByPh8X/VWDMOmPUTq1AgA2BLj4GuxyUzHKFk2rWYqx1W66m4WGCoH03wecGHGGYLRgc1O
+	 59Q98bEGsvpsB8YVtMe4xGxbgFaByk+hmrIPaQk5EDJ+k7PYFjF2NSDfxEcvWEPqgaA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794993716;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=wS0Us7CQpCD0WTbwehZzt06gr0ePGvS25DDYj5+ZQAw=;
-	b=VGd+wCmh1UuckoigRmAjVtQ6iLiwu5P8e2odo052EqwKcRAjiWSOtzY6w2AS/G5KDBCN
-	 qnS1tx5nl9rVH2HID7m0r1vKvI+2CRhna6Q60PUxuSnwMWysYm6VhTpCtN7zfY2Zv6Agj
-	 XKzUCU5VBgmebDBFNA4dF2ImmqCHwI+zCIALe0CAqX2iC9pP7DMen3qZYcJ1smXJg0B3z
-	 /IWsu56bRxHM898pEnyvr4S5gi9T8AhRGpfdkJSzpiIwDInFGH3jMV0J4H9zMTtiRAOBz
-	 whRZXExhm4sBLgalq73TA3uoKzbDsj9vRCgNxqw77xFDsVPPBp3+EVKthq4m6gIfcDA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794993721;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=gzIfQo+V40+G/VauJiKWlPuxA1l3b/hPJPpuHDGZsmA=;
+	b=C17PF9BSFwizokOEN87Iip295yI4ZEF9smLx0MFJcqezwNJg6S0+x2g9OVKu6miKtQIG
+	 +fs8H+Xboq1npxs5tHTqOWIjIOU0SnBbr7QgNwjWW7OQ3K7Ld/a2zNQmfVF+p3J049BO7
+	 Cul6jSHbpK6VHrrNIcQfvL8UL/JaG2Rwg8bwd2xhG9wsPyo2MxM7z5o8jXlJLjl8BI3DQ
+	 NWPsr7yUqqvAa/IwHDm0mjT4KKOX85SbnW+z6rVtXjsEeyVX4wFd1wBOOKXFLhkg3AfYj
+	 0kpROLCDAWAdi8xvAd/1llzmmbWXwPnNFlT+KfhHHINdeXD0iUxjfajDnjbxiUH4OEw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VoqhNNdt;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=p3VRkYAW;
+	arc=none smtp.remote-ip=91.218.175.23
+Received: from mta0.migadu.com (out-23.mta0.migadu.com [91.218.175.23])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D638B606A31C;
-	Wed, 18 Nov 2026 09:21:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87F35606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:22:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 87F35606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VoqhNNdt
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A5251F000D2;
-	Wed, 18 Nov 2026 09:21:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794993716;
-	bh=wS0Us7CQpCD0WTbwehZzt06gr0ePGvS25DDYj5+ZQAw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=VoqhNNdt+V+c8FvWfmPUoV8DESgpKxJPPFDfvnbSUzCnRwkfjncKSSHF36coBnaXf
-	 MXiSi/bQXgvTNCS4lmgbsMIO+YxRvaKQ71jTWgaTEc3asD0HEcIKDaDmZNMMJS+/Y0
-	 xd0uHtGTqreiHIGW2YG4Mq/1KxxbHTeqmfpWVIt+XzYlO01FozY3VZOlasGCNBJZhD
-	 yFjA3weMIh7XTbo3IfLIyKGG2kiI708zwyHbEUNSiCe90JLIvSObaNzdtLDxH1eQW6
-	 nXh5hJTnq84nsv6ajy74a6XalBnCO+zQWM1B/fUVNf/x+jVvZy+IZwcs3Hfx38JlMr
-	 r8wV9PDi4n/0w==
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Date: Wed, 18 Nov 2026 10:20:39 +0100
-Subject: [PATCH 4/4] RFC: mm/vmscan: unlock unmapped folios only after the
- deferred TLB flush
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=p3VRkYAW
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=aApfAP319qtaqrvPZcix/c+LpziV/0GztArdiAixTSw=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794993718; v=1; x=1795598518;
+ b=p3VRkYAWRP8IDP0E6kljvYhfMeZnH9VwOYpDlc2BgQ6PYyKc22Ce1z2G3dI832BwHQ6c0wMT
+ /hbHINBoBMnIlWApxMJk5WrYg5SbgGB/r7MpAooSGnCKH00rAx0K8iSlqKMYwjVgul8phLsALN/
+ nDy1G4tzQ8pFV2Dw2H4rSrP8=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 368022f8a7a724ec;
+	Wed, 18 Nov 2026 09:21:58 +0000
+X-Mizu-Trace-ID: 368022f8a7a724ec
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <58a7a7fa-500d-467a-840f-fedb59a73e52@linux.dev>
+Date: Wed, 18 Nov 2026 17:21:53 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,504 +58,139 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-file_folio_flush-v1-4-e9e739ed14e0@kernel.org>
-References: <20261118-file_folio_flush-v1-0-e9e739ed14e0@kernel.org>
-In-Reply-To: <20261118-file_folio_flush-v1-0-e9e739ed14e0@kernel.org>
-To: Lorenzo Stoakes <ljs@kernel.org>, 
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
- "Borislav Petkov (AMD)" <bp@alien8.de>, 
- =?utf-8?q?Cenk_Y=C4=B1lmaz?= <cenk@deepfinresearch.com>, 
- Zhang Peng <zippermonkey@icloud.com>, Mike Rapoport <rppt@kernel.org>, 
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
- Andrew Morton <akpm@linux-foundation.org>, Zi Yan <ziy@nvidia.com>, 
- Matthew Brost <matthew.brost@intel.com>, 
- Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>, 
- Gregory Price <gourry@gourry.net>, 
- Ying Huang <ying.huang@linux.alibaba.com>, 
- Alistair Popple <apopple@nvidia.com>, Chris Li <chrisl@kernel.org>, 
- Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>, 
- Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>, 
- Barry Song <baohua@kernel.org>, Youngjun Park <youngjun.park@lge.com>, 
- Mel Gorman <mgorman@suse.de>, Sasha Levin <sasha.levin@oracle.com>, 
- Rik van Riel <riel@redhat.com>, Ingo Molnar <mingo@kernel.org>, 
- Peter Xu <peterx@redhat.com>, Hugh Dickins <hughd@google.com>, 
- Axel Rasmussen <axelrasmussen@google.com>, 
- Johannes Weiner <hannes@cmpxchg.org>, Michal Hocko <mhocko@kernel.org>, 
- Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, 
- Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, 
- Baolin Wang <baolin.wang@linux.alibaba.com>, 
- Andrea Arcangeli <aarcange@redhat.com>, Thomas Gleixner <tglx@kernel.org>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, "David Hildenbrand (Arm)" <david@kernel.org>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=16608; i=david@kernel.org;
- h=from:subject:message-id; bh=2kxKir3pFctf+HjAbEk4CCWEoO4hFl+Fq7j1hctv2ho=;
- b=owGbwMvMwCF2/OVpCdfQ3ZWMp9WSGLL+5v5cYS19JNiyZOKRw68MF1S49vLOFY8J+Tip8phaX
- s2KG9Y1HaUsDGIcDLJiiixBwfcNXr5cV1vtxscMM4eVCWQIAxenAEzEPZmR4XRufufVz1adGZMX
- GMf/0/1++MCXF7tkvVvNykLvPZ973omR4axn0arYuM2fNgSaBPL9lT86JetldLrZweVbev8+URS
- r4QcA
-X-Developer-Key: i=david@kernel.org; a=openpgp;
- fpr=1BD9CAAD735C4C3A460DFCCA4DDE10F700FF835A
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 01/12] cpuset: introduce partition_enable()
+To: Ridong Chen <ridong.chen@linux.dev>, Waiman Long <longman@redhat.com>,
+ Tejun Heo <tj@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>,
+ =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>
+Cc: Guopeng Zhang <zhangguopeng@kylinos.cn>, cgroups@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Ridong Chen <chenridong@xiaomi.com>
+References: <20261114083124.1340140-1-ridong.chen@linux.dev>
+ <20261114083124.1340140-2-ridong.chen@linux.dev>
+Content-Language: en-US
+From: Guopeng Zhang <guopeng.zhang@linux.dev>
+In-Reply-To: <20261114083124.1340140-2-ridong.chen@linux.dev>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-try_to_unmap() with TTU_BATCH_FLUSH zaps the PTEs, transfers the PTE
-dirty bit to the folio and defers the TLB flush. Until the TLB is
-flushed, other CPUs might still access the folio through stale TLB
-entries.
 
-However, reclaim unlocks folios it keeps and removes folios it frees
-from the page-cache / swap-cache before performing the deferred TLB
-flush.
 
-Stale writable TLB entries are currently handled by flushing them right
-after try_to_unmap() if the folio is dirty, so writes through stale TLB
-entries cannot get lost, but they are also not batched.
+在 2026/11/14 16:31, Ridong Chen 写道:
+> From: Ridong Chen <chenridong@xiaomi.com>
+> 
+> Add partition_enable() to consolidate updates to key cpuset structures
+> during partition enablement, including:
+> 1. remote_partition
+> 2. effective_xcpus
+> 3. partition_root_state
+> 4. prs_err
+> 
+> Key operations performed:
+> 1. Invokes partition_xcpus_add() to assign exclusive CPUs
+> 2. Maintains remote partition flag
+> 3. Syncs the effective_xcpus mask
+> 4. Updates partition_root_state and prs_err
+> 5. Triggers scheduler domain rebuilds
+> 6. Sends partition change notifications
+> 
+> This helper also handles the transition between root and isolated
+> states of a valid partition. In that case the cpumasks are unchanged
+> and only the isolation state of the CPUs in @new_excpus is updated. The
+> caller passes the CPUs used by the partition itself, as the CPUs of its
+> valid child partitions keep their own state.
+> 
+> A partition_state_update() helper is added to set partition_root_state
+> and prs_err, and to reset the partition data when the new state is not
+> a valid partition.
+> 
+> Signed-off-by: Ridong Chen <chenridong@xiaomi.com>
+> ---
+>  kernel/cgroup/cpuset.c | 56 ++++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 56 insertions(+)
+> 
+> diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
+> index 7e374210c123..860cb7ea3efb 100644
+> --- a/kernel/cgroup/cpuset.c
+> +++ b/kernel/cgroup/cpuset.c
+> @@ -1702,6 +1702,62 @@ static void compute_effective_nodemask(nodemask_t *new_mems,
+>  		nodes_copy(*new_mems, parent->effective_mems);
+>  }
+>  
+> +static void partition_state_update(struct cpuset *cs, int new_prs,
+> +				   enum prs_errcode prs_err)
+> +{
+> +	lockdep_assert_held(&callback_lock);
+> +
+> +	cs->partition_root_state = new_prs;
+> +	WRITE_ONCE(cs->prs_err, prs_err);
+> +	if (!is_partition_valid(cs))
+> +		reset_partition_data(cs);
+> +}
+> +
+> +/**
+> + * partition_enable - Transitions a cpuset to a partition root
+> + * @cs: The cpuset to enable partition for
+> + * @parent: Parent cpuset of @cs, NULL for remote parent
+> + * @new_prs: New partition state to set
+> + * @new_excpus: New effective exclusive CPUs mask for the partition, or the
+> + *              CPUs whose isolation state changes when switching between
+> + *              root and isolated
+> + *
+> + * Transitions a cpuset to a partition root, only for v2.
+> + * It also supports the transition between root and isolated partition.
+> + */
+> +static void __maybe_unused partition_enable(struct cpuset *cs, struct cpuset *parent,
+> +					    int new_prs, struct cpumask *new_excpus)
+> +{
+> +	int old_prs = cs->partition_root_state;
+> +
+> +	lockdep_assert_cpuset_lock_held();
+> +	WARN_ON_ONCE(new_prs <= 0);
+> +	WARN_ON_ONCE(!cpuset_v2());
+> +
+> +	if (old_prs == new_prs)
+> +		return;
+> +
+> +	spin_lock_irq(&callback_lock);
+> +	if (old_prs > 0) {
+> +		/*
+> +		 * Switch between root and isolated, cpumasks are unchanged.
+> +		 * @new_excpus holds the CPUs whose isolation state changes.
+> +		 */
+> +		isolated_cpus_update(new_prs, new_excpus);
+> +	} else {
+> +		/* enable partition should only add exclusive cpus */
+> +		partition_xcpus_add(new_prs, parent, new_excpus);
+> +		/* enable remote partition */
+> +		if (!parent)
+> +			cs->remote_partition = true;
+> +		cpumask_copy(cs->effective_xcpus, new_excpus);
+> +	}
+> +	partition_state_update(cs, new_prs, PERR_NONE);
+> +	spin_unlock_irq(&callback_lock);
+> +	cpuset_force_rebuild();
+> +	notify_partition_change(cs, old_prs);
+> +}
+> +
 
-Stale read-only TLB entries, on the other hand, are problematic:
+Hi Ridong,
 
- (1) A page fault can map a new page-cache folio, or swap in a new folio
-     once reclaim removed the old one from the swap-cache (e.g., a clean
-     swap-cache folio, or a dirty folio mapped by clean PTEs after
-     synchronous swap-out to zram or zswap). Modifications of the new
-     folio (e.g., through write() or page table mappings) are then not
-     visible to CPUs that still read the old folio.
+I haven't found any functional issues with this patch, and I think the overall direction of the refactoring is good. I just had a thought of my own and wanted to hear what you think.
 
- (2) A CoW fault in a MAP_PRIVATE mapping can copy a page-cache folio
-     that reclaim kept. Writes go to the new anon folio, while other CPUs
-     still read the old folio.
+Currently, partition_enable() handles two different operations: enabling a partition and switching a valid partition between root and isolated. As a result, new_excpus has two different meanings depending on old_prs. Looking at the callers introduced in patches 4/12, 8/12, and 11/12, they all use partition_enable() to enable a previously non-valid partition. None of them seems to need the old_prs > 0 branch.
 
- (3) Invalidation (e.g., invalidate_inode_pages2()) can remove a folio
-     that reclaim kept from the page-cache without flushing the TLB, as
-     the folio is no longer mapped. A page fault can then map a new
-     folio while other CPUs still read the old folio.
+I understand that this branch may be intended for the follow-up refactoring of update_prstate(), since partition_switch() introduced in v4 also calls partition_enable().
 
-This can be reproduced easily by swapping out an anon memory range with
-MADV_PAGEOUT, reading it back in, and swapping it out again
-(MADV_PAGEOUT) while one thread keeps reading the range and another
-thread writes to pages as soon as reclaim removed the folios from the
-swap-cache. The first thread will occasionally read the old content.
+However, could we consider keeping partition_enable() focused solely on enabling partitions, so that new_excpus always has a single meaning? The root/isolated transition could remain in update_prstate() for now and be handled separately when update_prstate() is simplified later, perhaps through partition_switch(), or by introducing another function such as partition_set_isolation(), or some other more suitable approach.
 
-Fix it by reclaiming folios in batches of up to 64 folios:
+If I've misunderstood anything or overlooked a reason for keeping these two operations together, please let me know.
 
- (a) Lock each folio, check whether we want to reclaim it, and unmap it.
-     Keep the folio locked if any deferred TLB flush is pending after
-     unmapping it, otherwise unlock it right away.
+Thanks, and all the best!
 
- (b) Flush the TLB once, and unlock all folios that are still locked.
+Best regards,
+Guopeng
 
- (c) Lock the folios again, one at a time, to try reclaiming them.
-     Activate folios that are still or again mapped, and skip folios
-     that are under writeback or poisoned by now, or that somebody else
-     holds locked.
-
-As others might map or unmap folios while they are unlocked, we might
-now activate or reclaim some folios that we would previously have kept
-or activated, which is fine.
-
-Keeping folios locked until the TLB flush makes sure that nobody can
-remove them from the page-cache / swap-cache, copy them or start
-writeback. Page faults will either wait on the folio lock, or find the
-old folio and map it again, which is fine.
-
-Unlocking folios before trying to reclaim them makes sure that we never
-hold more than one folio lock while performing I/O or waiting on the
-filesystem.
-
-The idea of unlocking folios and locking them again using a trylock
-before trying to reclaim them was inspired by [1] from Zhang Peng.
-
-As nobody can start writeback before the TLB flush, we no longer have to
-flush stale writable TLB entries right after try_to_unmap(), so remove
-the try_to_unmap_flush_dirty() call and batch these flushes as well.
-This effectively enables batching TLB flushes of stale writable TLB
-entries, which is what [1] tried to achieve.
-
-We must not wait for a folio lock, a folio flag or I/O while keeping
-other folios locked, as that could deadlock. So flush the TLB and unlock
-the batch early before waiting for writeback (legacy memcg), and before
-allocating swap space would perform synchronous discard I/O
-(folio_alloc_swap() now returns -EBUSY if allocation failed but retrying
-with synchronous discard might help).
-
-Allocating swap space can otherwise only sleep when allocating memory
-for the swap table, which cannot enter direct reclaim or compaction,
-as reclaim runs with PF_MEMALLOC.
-
-We'll limit batching to 64 folios for now; the limit mostly matters for,
-e.g., MADV_PAGEOUT and DAMON that can pass more, or when reclaim splits
-large folios.
-
-Note that khugepaged and batched (async) folio migration already keep up
-to HPAGE_PMD_NR (e.g., 512 with 4 KiB pages) small folios locked after
-unmapping them with a deferred TLB flush; migration even allocates new
-folios, possibly entering direct reclaim, before flushing the TLB and
-unlocking them. Both also call MMU notifiers while keeping other folios
-locked, just like we do now.
-
-Keep code churn to a minimum. Some follow-up cleanups and optimizations
-make sense, in particular:
-
- (1) Cleanly separate the stages of shrink_folio_list() (see the TODO).
-
- (2) Avoid unlocking and locking folios again that do not require a TLB
-     flush. But only if it's worth it and doesn't make the code too
-     ugly.
-
- (3) Remove the remaining try_to_unmap_flush() calls before freeing
-     folios; we only free folios that we flushed already or that we
-     never unmapped.
-
- (4) Remove the now-unused try_to_unmap_flush_dirty() infrastructure.
-
-[1] https://lore.kernel.org/linux-mm/20261031-batch-tlb-flush-v6-0-190539839eec@tencent.com/
-
-Fixes: 72b252aed506 ("mm: send one IPI per CPU to TLB flush all entries after unmapping pages")
-Cc: stable@vger.kernel.org
-Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
----
- mm/internal.h |   5 ++
- mm/rmap.c     |   5 ++
- mm/shmem.c    |   2 +-
- mm/swap.h     |   5 +-
- mm/swapfile.c |   7 ++-
- mm/vmscan.c   | 155 ++++++++++++++++++++++++++++++++++++++++++++++++++++++----
- 6 files changed, 165 insertions(+), 14 deletions(-)
-
-diff --git a/mm/internal.h b/mm/internal.h
-index 8a204f7352364..0d89968648b37 100644
---- a/mm/internal.h
-+++ b/mm/internal.h
-@@ -1253,6 +1253,7 @@ extern struct workqueue_struct *mm_percpu_wq;
- #ifdef CONFIG_ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
- void try_to_unmap_flush(void);
- void try_to_unmap_flush_dirty(void);
-+bool try_to_unmap_flush_pending(void);
- void flush_tlb_batched_pending(struct mm_struct *mm);
- #else
- static inline void try_to_unmap_flush(void)
-@@ -1261,6 +1262,10 @@ static inline void try_to_unmap_flush(void)
- static inline void try_to_unmap_flush_dirty(void)
- {
- }
-+static inline bool try_to_unmap_flush_pending(void)
-+{
-+	return false;
-+}
- static inline void flush_tlb_batched_pending(struct mm_struct *mm)
- {
- }
-diff --git a/mm/rmap.c b/mm/rmap.c
-index 3935eed23a361..399cba0395742 100644
---- a/mm/rmap.c
-+++ b/mm/rmap.c
-@@ -731,6 +731,11 @@ void try_to_unmap_flush_dirty(void)
- 		try_to_unmap_flush();
- }
- 
-+bool try_to_unmap_flush_pending(void)
-+{
-+	return current->tlb_ubc.flush_required;
-+}
-+
- /*
-  * Bits 0-14 of mm->tlb_flush_batched record pending generations.
-  * Bits 16-30 of mm->tlb_flush_batched bit record flushed generations.
-diff --git a/mm/shmem.c b/mm/shmem.c
-index 5cb628cc9c6bb..3757bc1208068 100644
---- a/mm/shmem.c
-+++ b/mm/shmem.c
-@@ -1936,7 +1936,7 @@ int shmem_writeout(struct swap_io_ctx *ctx, struct folio *folio,
- 		folio_mark_uptodate(folio);
- 	}
- 
--	ret = folio_alloc_swap(folio);
-+	ret = folio_alloc_swap(folio, /* may_sync_discard= */ true);
- 	if (!ret) {
- 		bool first_swapped = shmem_recalc_inode(inode, 0, nr_pages);
- 		int error;
-diff --git a/mm/swap.h b/mm/swap.h
-index d5bf21f517dce..b77c8a071a0a8 100644
---- a/mm/swap.h
-+++ b/mm/swap.h
-@@ -243,7 +243,7 @@ extern int swap_retry_table_alloc(swp_entry_t entry, gfp_t gfp);
-  *
-  * folio_put_swap(): does the opposite thing of folio_dup_swap().
-  */
--int folio_alloc_swap(struct folio *folio);
-+int folio_alloc_swap(struct folio *folio, bool may_sync_discard);
- int folio_dup_swap(struct folio *folio, struct page *page);
- void folio_put_swap(struct folio *folio, struct page *page);
- 
-@@ -363,7 +363,8 @@ static inline struct swap_info_struct *__swap_entry_to_info(swp_entry_t entry)
- 	return NULL;
- }
- 
--static inline int folio_alloc_swap(struct folio *folio)
-+static inline int folio_alloc_swap(struct folio *folio,
-+		bool may_sync_discard)
- {
- 	return -EINVAL;
- }
-diff --git a/mm/swapfile.c b/mm/swapfile.c
-index 2d2df53fc51a9..242a361513301 100644
---- a/mm/swapfile.c
-+++ b/mm/swapfile.c
-@@ -1732,16 +1732,19 @@ static int swap_dup_entries_cluster(struct swap_info_struct *si,
- /**
-  * folio_alloc_swap - allocate swap space for a folio
-  * @folio: folio we want to move to swap
-+ * @may_sync_discard: whether we may wait for synchronous discard I/O
-  *
-  * Allocate swap space for the folio and add the folio to the
-  * swap cache.
-  *
-  * Context: Caller needs to hold the folio lock.
-  * Return: %0 on success, %-E2BIG if splitting the folio might allow swapout,
-+ * %-EBUSY if allocation failed but retrying with @may_sync_discard might
-+ * succeed,
-  * %-ENOSPC if no global swap space is available, or %-ENOMEM if splitting
-  * would not help.
-  */
--int folio_alloc_swap(struct folio *folio)
-+int folio_alloc_swap(struct folio *folio, bool may_sync_discard)
- {
- 	unsigned int order = folio_order(folio);
- 	unsigned int size = 1 << order;
-@@ -1774,6 +1777,8 @@ int folio_alloc_swap(struct folio *folio)
- 	local_unlock(&percpu_swap_cluster.lock);
- 
- 	if (!order && unlikely(!folio_test_swapcache(folio))) {
-+		if (!may_sync_discard)
-+			return -EBUSY;
- 		if (swap_sync_discard())
- 			goto again;
- 	}
-diff --git a/mm/vmscan.c b/mm/vmscan.c
-index af7831643ecf5..11dbe19b170da 100644
---- a/mm/vmscan.c
-+++ b/mm/vmscan.c
-@@ -1155,6 +1155,91 @@ static bool may_enter_fs(struct folio *folio, gfp_t gfp_mask)
- 	return false;
- }
- 
-+/*
-+ * Maximum number of staged folios that shrink_folio_list() collects before
-+ * it flushes the TLB.
-+ */
-+#define MAX_STAGED_FOLIOS	64
-+
-+struct staged_folios {
-+	/* Locked folios, waiting for the TLB flush. */
-+	struct list_head unflushed;
-+	/* Unlocked folios, after the TLB flush (if required). */
-+	struct list_head flushed;
-+	/* Number of folios in the current batch. */
-+	unsigned int nr_folios;
-+};
-+
-+static bool staged_folios_empty(struct staged_folios *staged)
-+{
-+	return list_empty(&staged->unflushed) &&
-+	       list_empty(&staged->flushed);
-+}
-+
-+static void staged_folios_add(struct staged_folios *staged,
-+		struct folio *folio, bool unmapped)
-+{
-+	if (unmapped && try_to_unmap_flush_pending()) {
-+		/* Keep the folio locked until we flushed the TLB. */
-+		list_add_tail(&folio->lru, &staged->unflushed);
-+	} else {
-+		folio_unlock(folio);
-+		list_add_tail(&folio->lru, &staged->flushed);
-+	}
-+	staged->nr_folios++;
-+}
-+
-+static void staged_folios_flush(struct staged_folios *staged)
-+{
-+	struct folio *folio;
-+
-+	try_to_unmap_flush();
-+	list_for_each_entry(folio, &staged->unflushed, lru)
-+		folio_unlock(folio);
-+	list_splice_tail_init(&staged->unflushed, &staged->flushed);
-+}
-+
-+static struct folio *staged_folios_next(struct staged_folios *staged,
-+		struct list_head *folio_list)
-+{
-+	struct folio *folio;
-+
-+	if (staged_folios_empty(staged))
-+		return NULL;
-+	/* Collect more folios until we have enough or there are no more. */
-+	if (staged->nr_folios < MAX_STAGED_FOLIOS && !list_empty(folio_list))
-+		return NULL;
-+
-+	/* Flush the TLB and unlock the folios that waited for the flush. */
-+	staged_folios_flush(staged);
-+
-+	folio = list_first_entry(&staged->flushed, struct folio, lru);
-+	list_del(&folio->lru);
-+	/* We handed out all folios: start collecting again. */
-+	if (list_empty(&staged->flushed))
-+		staged->nr_folios = 0;
-+	return folio;
-+}
-+
-+static int staged_folios_alloc_swap(struct staged_folios *staged,
-+		struct folio *folio)
-+{
-+	bool may_sync_discard = list_empty(&staged->unflushed);
-+	int ret;
-+
-+	ret = folio_alloc_swap(folio, may_sync_discard);
-+	if (ret != -EBUSY)
-+		return ret;
-+
-+	/*
-+	 * Don't wait for synchronous discard I/O while keeping other folios
-+	 * locked: there is potential for deadlocks and long delays.
-+	 */
-+	staged_folios_flush(staged);
-+	may_sync_discard = true;
-+	return folio_alloc_swap(folio, may_sync_discard);
-+}
-+
- /*
-  * shrink_folio_list() returns the number of reclaimed pages
-  */
-@@ -1166,6 +1251,10 @@ static unsigned int shrink_folio_list(struct list_head *folio_list,
- 	struct folio_batch free_folios;
- 	LIST_HEAD(ret_folios);
- 	LIST_HEAD(demote_folios);
-+	struct staged_folios staged = {
-+		.unflushed = LIST_HEAD_INIT(staged.unflushed),
-+		.flushed = LIST_HEAD_INIT(staged.flushed),
-+	};
- 	unsigned int nr_reclaimed = 0, nr_demoted = 0;
- 	unsigned int pgactivate = 0;
- 	bool do_demote_pass;
-@@ -1177,15 +1266,41 @@ static unsigned int shrink_folio_list(struct list_head *folio_list,
- 	do_demote_pass = can_demote(pgdat->node_id, sc, memcg);
- 
- retry:
--	while (!list_empty(folio_list)) {
-+	/*
-+	 * We take folios from folio_list to pre-process them (lock, check,
-+	 * unmap). Then, they move to the staged(unflushed) list, from where
-+	 * they move to the staged(flushed) list after a batched TLB flush
-+	 * and after unlocking them. If no TLB flush is pending for a folio,
-+	 * it moves to the staged(flushed) list directly.
-+	 *
-+	 * We then take folios from the staged(flushed) list to actually
-+	 * reclaim them, or to activate them if they are still mapped.
-+	 *
-+	 * So we pre-process folios from folio_list until we collected a batch
-+	 * of staged folios, or until there are no more folios to
-+	 * pre-process. Then, we perform a single TLB flush and reclaim all
-+	 * folios of that batch, before we pre-process more folios.
-+	 *
-+	 * Once all lists are empty, we are done.
-+	 *
-+	 * TODO: the stages of this algorithm should be cleanly separated.
-+	 */
-+	while (!list_empty(folio_list) || !staged_folios_empty(&staged)) {
- 		struct address_space *mapping;
- 		struct folio *folio;
- 		enum folio_references references = FOLIOREF_RECLAIM;
- 		bool dirty, writeback;
-+		bool unmapped = false;
- 		unsigned int nr_pages;
- 
- 		cond_resched();
- 
-+		folio = staged_folios_next(&staged, folio_list);
-+		if (folio) {
-+			nr_pages = folio_nr_pages(folio);
-+			goto reclaim_staged;
-+		}
-+
- 		folio = lru_to_folio(folio_list);
- 		list_del(&folio->lru);
- 
-@@ -1324,6 +1439,11 @@ static unsigned int shrink_folio_list(struct list_head *folio_list,
- 			/* Case 3 above */
- 			} else {
- 				folio_unlock(folio);
-+				/*
-+				 * Don't wait for writeback while keeping
-+				 * staged folios locked.
-+				 */
-+				staged_folios_flush(&staged);
- 				folio_wait_writeback(folio);
- 				/* then go back and try same folio again */
- 				list_add_tail(&folio->lru, folio_list);
-@@ -1382,7 +1502,7 @@ static unsigned int shrink_folio_list(struct list_head *folio_list,
- 				    split_folio_to_list(folio, folio_list))
- 					goto activate_locked;
- 			}
--			ret = folio_alloc_swap(folio);
-+			ret = staged_folios_alloc_swap(&staged, folio);
- 			if (ret) {
- 				int __maybe_unused order = folio_order(folio);
- 
-@@ -1401,7 +1521,7 @@ static unsigned int shrink_folio_list(struct list_head *folio_list,
- 				}
- #endif
- 				count_mthp_stat(order, MTHP_STAT_SWPOUT_FALLBACK);
--				if (folio_alloc_swap(folio))
-+				if (staged_folios_alloc_swap(&staged, folio))
- 					goto activate_locked_split;
- 			}
- 			/*
-@@ -1455,21 +1575,36 @@ static unsigned int shrink_folio_list(struct list_head *folio_list,
- 				flags |= TTU_SYNC;
- 
- 			try_to_unmap(folio, flags);
--			/*
--			 * Flush deferred writable TLB entries before we could
--			 * drop the folio lock and others could start writeback.
--			 */
--			if (folio_test_dirty(folio))
--				try_to_unmap_flush_dirty();
-+			unmapped = true;
- 			if (folio_mapped(folio)) {
- 				stat->nr_unmap_fail += nr_pages;
- 				if (!was_swapbacked &&
- 				    folio_test_swapbacked(folio))
- 					stat->nr_lazyfree_fail += nr_pages;
--				goto activate_locked;
- 			}
- 		}
- 
-+		staged_folios_add(&staged, folio, unmapped);
-+		continue;
-+
-+reclaim_staged:
-+		if (!folio_trylock(folio))
-+			goto keep;
-+
-+		/*
-+		 * We failed to unmap the folio, or it was mapped again while it
-+		 * was unlocked.
-+		 */
-+		if (folio_mapped(folio))
-+			goto activate_locked;
-+		/*
-+		 * While the folio was unlocked, writeback might have started, or
-+		 * it might have been poisoned.
-+		 */
-+		if (folio_test_writeback(folio) ||
-+		    folio_contain_hwpoisoned_page(folio))
-+			goto keep_locked;
-+
- 		/*
- 		 * Folio is unmapped now so it cannot be newly pinned anymore.
- 		 * No point in trying to reclaim folio if it is pinned.
-
--- 
-2.56.1
+>  /*
+>   * remote_partition_enable - Enable current cpuset as a remote partition root
+>   * @cs: the cpuset to update
 
