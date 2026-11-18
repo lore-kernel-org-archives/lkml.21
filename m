@@ -1,54 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.223
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795043632;
-	b=fBexHOA2cdFNynYpY48MeGONpkJ1XqWhtw7QHvKzvYEJykwGsnJnLSjqz1JmSoH83tlf
-	 X7DWoAPcs+A1flHqxmGbyDm7thuwYJLrPr15zp/czoPgx/V1urTx1kLI0j8bDEyP/eVep
-	 QnqMFY5x1gr2VShDudSWn9HQmlogvXSxCQ/OK7enMUXBsF9WzqNgLOds6g0nde8/zklMX
-	 zGY0P9bzzGOou+9HgWZfOoEtSnSfYZ021DfkVzD4L2ikJFfpiDG/+Seph7SlsvsDuxpk+
-	 IMyqKbnthuz/8UdZvvCUhR/Rp9EvkvX5g2CCC7hhHN1GBcq1+cUVp6egkzvIyP1K6aQ==
+	t=1795043633;
+	b=CzhpsvIqD5IxFrAcEURQYdqNtBuN7y9HS6y4+uQRKOgfPmFxGzSYOV0PKgGdF3BvtWWA
+	 RISQonZt9pJaNA5bsuPDFOkKp6SKES03BA/fbzVQpNtUe8OWDeL6Uq6K6A1Dx3Ps/Bmcp
+	 zOEQMix0ZHKfat1nWVUCVF7eT5S0XgXlMoICbV40oVb2xoPPkRPo1ZtNzPYhdvMDhHnf3
+	 26XF6nbSPEwhXGWnHBpRFv/7YZTShrZD/2wq1hIZxoIjveGxHZrm++BXezcSlX5ANIKxf
+	 diPJrEP2XAiCWLTDKUnMztRNELyjjyCINs4btYWwr6vXDL4ZaCyscv/ZJbrJk15uToQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795043632;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=ffLc8M6kgUXDxTvAEIl4EfnyU6vkbLzw92jR7anCh+k=;
-	b=Z2IbpUqQ1Cy+qCp4AtaMjpxOboLF4joZa2vlnfkvNbRTBcIF6i/E5di3lyMPyNvScovj
-	 rshufp33wrcToPX/qr0TxUWMUF6kivDoixApfsxGK8fO11zYbWuk6Khf0BuQNBaeRtnLm
-	 m6/j2/BFOSHeOvXK0i9xFqFQtFUmqG2d+7A5/4D29xwP0jOPvOLSCuYrsywZJFMk2MZzg
-	 pP1YbEE1TK26CYTsryLAny9fb6b5VlYQ5lYOjg+xK3QWX10tn65YlK09L3aNAXVguVXCb
-	 7F2+pGUGLQYqrDW2E6ga+MqG2vJFnUZdqNuAXoPCNMuFO3kxP0Muv6TLoFULIBKZOUg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795043633;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=U2sLAuN9XmB+8Qa4Z+TqAPFS0kw+btbeuIVWSXx3mKQ=;
+	b=0yIJ1fK+7bg3iMY/GHXiM6wGCZwRgcALyo95J3343OGR6MG2t9JlLa9rhmJ6+fhuTUNB
+	 KY1xBUdFnKA5/mKxTtyWjlphVDzOfnEiIfKnUQTcawVE32lwx+DM4Wg9Yu1XGlHxJgx6D
+	 +00Qi0/wo1tuJVmhnZEz+BSoqNdxZ3i1kJ1qRJFg1BwnthVtp4HGsD0CADzr3iTIWDItD
+	 e70AyJ3OF87QppqYIBPSIpDMv2hvqChJlI7ORYXZQ3vUneLPdX7vAuzVHPz0Od9kdV7Oq
+	 wO4tuEo66Yk1GmITPGcvMbPTYHiE5WeYBaXjy14UD6Je7FuR6sPz8ywkFUse6t3SyhQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=pkNX7Yzw;
-	arc=none smtp.remote-ip=91.218.175.223
-Received: from mta0.migadu.com (out-223.mta0.migadu.com [91.218.175.223])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DwDYl0pG;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8AC33606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:13:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8AC33606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4343C606A331
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:13:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=pkNX7Yzw
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=tQf2RroZFgidYhH8VlIC9DnLVfLCV5SLUf0kaG6u5o8=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795043629; v=1; x=1795648429;
- b=pkNX7YzwK+FuVIyZfuh5RjJtDnRvtBq+7ZddG4QVLwCF9uT8BupvhW/uLdI4cBZwoGEcRDBM
- vIq5v4fDzsNHFN+ygqXlBv5iKS7uBPpK1NKr+sPVsRE4k80UtSn5QtCWgwJWngejOO4iRwiOgIw
- Iid1i5Gt9taTIgFrkozNOEMc=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id db2b73d50699373c;
-	Wed, 18 Nov 2026 23:13:49 +0000
-X-Mizu-Trace-ID: db2b73d50699373c
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <a54689c5-83d8-4a81-a8a2-ba971793d981@linux.dev>
-Date: Wed, 18 Nov 2026 16:13:44 -0700
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DwDYl0pG
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 210FA1F000D0
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:13:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795043633;
+	bh=U2sLAuN9XmB+8Qa4Z+TqAPFS0kw+btbeuIVWSXx3mKQ=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=DwDYl0pGRRpXYPDwHzGQjjdAr7A2aq1eVNTLUE6zag/Wxb5mdFX42wWPpWbJL+8Au
+	 9/ckG9LPhSyFvkpyLvS9i3W7GvVzfutN6oJDA66nF8/RVHrcr+JIVX/2BjHe6CYLBG
+	 IF+5ujaMUVhqIop0RueXKEfw/1T5p+rASlTsIzLT8t+QFeawX23gbkSE6XcwMhh8Np
+	 T4D5OcwaJyjXBsZ2Cpw8MzmJ7tBeN22mKDP75Pd0GumEzK1T0gl0mbyFl8Q3bFg23C
+	 FLCEHOzSU/ABrKbn7IYiBS/HS73HOY3lAOW0uGOoI/5U/gxIu2cvFYKdro9NglulGk
+	 268rabgU0JgPQ==
+Received: by mail-oo1-f53.google.com with SMTP id 006d021491bc7-716c0217635so406329eaf.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:13:53 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErGGfiEwlF3d+wYzBIuhwUj2cnKQVXcLaKDMH+JvHYA+PymEiD+Yo+0uc/4d7ep5hDlwm3EKplb5i2lHtf0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9fqEY8IKogL+t/r+uR7NKOVLrk2Q64afZbN6oxC8eNwpozK9JU
+	42mMDfCQLNp1um6Dpa0OwUtYvL9hLF6BOEwyOb2dv7R5FIVOPAQ3cYz3LFAi4Do7XLoc4+HWMGg
+	+Euob78Y2NPHQS3er4imLFivUzJbtXFI=
+X-Received: by 2002:a05:6820:3505:20b0:71a:fb85:d056 with SMTP id
+ 006d021491bc7-71b2e1830d0mr153233eaf.6.1795043632256; Wed, 18 Nov 2026
+ 15:13:52 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,131 +59,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v1 0/4] libbpf: Support kernel-side kfunc flavors
-To: Eduard Zingerman <eddyz87@gmail.com>, Alexei Starovoitov
- <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Cc: Alan Maguire <alan.maguire@oracle.com>,
- Emil Tsalapatis <emil@etsalapatis.com>, Jiri Olsa <jolsa@kernel.org>,
- Song Liu <song@kernel.org>, Tejun Heo <tj@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>, bpf@vger.kernel.org,
- linux-kernel@vger.kernel.org, sched-ext@lists.linux.dev
-References: <20261117192153.3384031-1-ihor.solodrai@linux.dev>
- <df72a9ab1ebcebff573485a808e45cd493665e75.camel@gmail.com>
- <6a1b6f05-448e-461c-bd79-0acd67fb7edc@linux.dev>
- <d2f665211f7c294bf7a8f3897b247863090e4e19.camel@gmail.com>
-Content-Language: en-US
-From: Ihor Solodrai <ihor.solodrai@linux.dev>
-In-Reply-To: <d2f665211f7c294bf7a8f3897b247863090e4e19.camel@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20261118-nb-genet-xmit-drop-kick-nn-v1-1-e4e54b143d60@tipi-net.de>
+ <377f9f22-4ef6-4b55-9276-ffa4893eda1e@broadcom.com>
+In-Reply-To: <377f9f22-4ef6-4b55-9276-ffa4893eda1e@broadcom.com>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Thu, 19 Nov 2026 00:13:40 +0100
+X-Gmail-Original-Message-ID: <CAL4WiiqM4uAi-YZyWKc8nJv3TL67tU1VnKrAEXTpLV6Pgn0BrA@mail.gmail.com>
+X-Gm-Features: AclHuK8eBwJrfhyin3SZg4bGLsa4kZahp_0pSqnbPmibibSVGeBRbc-WcUQOYsk
+Message-ID: <CAL4WiiqM4uAi-YZyWKc8nJv3TL67tU1VnKrAEXTpLV6Pgn0BrA@mail.gmail.com>
+Subject: Re: [PATCH net-next] net: bcmgenet: write the Tx producer index when
+ a frame is dropped
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Nicolai Buchwitz <nb@tipi-net.de>, Doug Berger <opendmb@gmail.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Justin Chen <justin.chen@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 2026-11-18 3:11 p.m., Eduard Zingerman wrote:
-> On Wed, 2026-11-18 at 14:37 -0700, Ihor Solodrai wrote:
->> On 2026-11-18 2:12 p.m., Eduard Zingerman wrote:
->>> On Tue, 2026-11-17 at 12:21 -0700, Ihor Solodrai wrote:
->>>> An incompatible change to a kfunc's prototype, such as an added
->>>> parameter, breaks BPF programs built against the old one. libbpf
->>>> ignores the ___<flavor> suffix of a kfunc declared in a BPF program,
->>>> but makes an exact name look up on the kernel side, so the kernel
->>>> can't keep the old prototype available under the kfunc's name.
->>>>
->>>> sched_ext ran into this. cded46d97159 ("sched_ext: Make
->>>> scx_bpf_dsq_insert*() return bool") kept the old prototype as
->>>> scx_bpf_dsq_insert___compat, expecting libbpf to bind old binaries to
->>>> it, and broke them. 2dbbdeda77a6 ("sched_ext: Fix scx_bpf_dsq_insert()
->>>> backward binary compatibility") reversed the naming. A ___v2 kfunc
->>>> declared as vmlinux.h spells it doesn't bind: 56bbc91219c0
->>>> ("sched_ext: Fix scx_bpf_dsq_move_to_local___v2 compat detection")
->>>> fixed a compat macro that silently dropped enq_flags because of this.
->>>
->>> Please prefer examples to prose in cover letters.
->>
->> The sched_ext story above narrates the commit history to illustrate
->> the motivation for the feature.  Would you like to see code samples
->> from there, or are you suggesting to drop the paragraph?
->>
->> The documentation patch includes code examples of the new binding
->> rules, I didn't want to duplicate that in the cover.
-> 
-> There are two ways to act while reading the above paragraph:
-> - follow the referenced commits and reconstruct the issue (time consuming).
-> - ignore it (not helpful).
+Le mer. 18 nov. 2026 =C3=A0 22:01, Florian Fainelli
+<florian.fainelli@broadcom.com> a =C3=A9crit :
+>
+> On 11/18/26 12:40, Nicolai Buchwitz wrote:
+> > With xmit_more, queued frames reach the hardware only when a later fram=
+e
+> > writes TDMA_PROD_INDEX. If that frame is dropped, the write is skipped
+> > and the queued frames wait for the next transmit on that ring, which ma=
+y
+> > never come.
+> >
+> > Write the producer index on the drop paths too.
+> >
+> > Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
+>
+> Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
 
-sigh... There are more:
+I think this is a net candidate, even if you could not reproduce the bug.
 
-- Read the paragraph to understand the issue on the high level,
-   without loading the entirety of the details into your head.
-   Example interpretation:
-   - sched-ext had a problem with scx_bpf_dsq_insert() changing the
-     return type, which led to reverts and inconvenient hacks
-- Give the paragraph to your helpful assistant and ask it exact
-   questions that interest you. Since the paragraph has commit hashes,
-   it's trivial for ai to navigate this.
+Fixes: ddd0ca5d60b3 ("net: bcmgenet: add support for xmit_more")
 
-And other approaches in between. It all depends on how deeply do you
-want/need to understand the specific thing.
-
-> 
->>> Also, please de-Claude the included prose.
->>
->> Please be more specific. Which "included prose"?
-> 
->    sched_ext ran into this. cded46d97159 ... kept the old prototype as
->    scx_bpf_dsq_insert___compat, expecting libbpf to bind old binaries to
->    it, and broke them. 2dbbdeda77a6 ... reversed the naming. A ___v2
->    kfunc declared as vmlinux.h spells it doesn't bind: 56bbc91219c0 ...
->    fixed a compat macro that silently dropped enq_flags because of this.
-> 
-> This screams Claude from 1000 miles distance.
-
-Sure. So what? Have you read the bpf list lately?
-(I also use Codex and Muse btw, not only Claude)
-
-AI-generated prose is not a bad thing by itself. It can be no less
-useful than human-written prose. Yes there is a wide spectrum of
-slopiness, and submitters need to know what they are posting.
-
-Personally, I try to be careful about commit messages and cover
-letters. I iterate on them multiple times with AI, then I read them
-and edit by hand. If I posted the first generated thing it would look
-much worse.
-
-Look around on the list. Do you think this paragraph is the worst slop
-cover letter compared to things that have been landed already?
-
-I'm a little annoyed by your comment, because the slop filter you are
-applying now is not applied uniformly on the list. It's not fair.
-
-I would write the cover entirely by hand if that was a strict rule
-here, because I respect the rules. But it's not.
-
-> Maybe I have reading comprehension issues, but in order to decipher it
-> one has to:
-> - "kept old prototype" - figure out that two functions were declared
->    "scx_bpf_dsq_insert" and "scx_bpf_dsq_insert___compat"
-> - "bind old binaries to it and broke them" - figure out that existing
->    bpf programs referred to "scx_bpf_dsq_insert" and libbpf mechanics
->    didn't work as expected.
-> - "reversed the naming" - like a new function became ___compat or what
->    happened?
-> - "A ___v2 kfunc declared as vmlinux.h spells it ..."
->    Now there is a ___v2 in the picture.
-> - "... doesn't bind" - figure out that this refers to libbpf mechanics.
-> - "fixed a compat macro that silently dropped enq_flags because of this."
->    Incomprehensible w/o looking in the code.
-
-Your reading is a valid approach to understand the history in more
-details, and you are correct that the paragraph does not provide them.
-
-However IMO those details are unnecessary in the cover, but pointers
-are useful. Which is why I left this ai-generated paragraph be.
-
-It's a minor issue, however. I'm happy to drop the paragraph, I just
-disagree that "it screams Claude" is a valid reason.
-
-> 
->>>
->>>> [...]
+Reviewed-by: Eric Dumazet <edumazet@kernel.org>
