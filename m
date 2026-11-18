@@ -1,49 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=34.2.64.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795013994;
-	b=k0tPwAqqs7AOb5uk+b2AZaTyfLxCr0f1kYXemmtpWuPLpwD3o2nLdfSJuYqmR4618+4I
-	 PyYmcUcsIGT22RHmQUDwbvhlyWblxwf73hCMltcIkADYyEYdCqxGMYVeMQyjj0p3/4FeA
-	 noMZ0/ezNPpMyxmQS0DUM6/ddaB42bi9AmmjwQcIi5BGW+QbjRZBwKjfbpUxYLisBDnZJ
-	 k4oVLD6h8xsUOuHLjBDrZzJWvwOW78lWjxhgpPvyx6HMz3SaJAhNNfOajB7GWgQJb45o3
-	 B7kfreO+NJI2998ke1ZDgpLzuN/vQlgDUB5cmJz2XG4yHisTj84rJekkuIY1H0M3B6A==
+	t=1795014028;
+	b=W4xmM9Bepl/aaLy/ZU4wFhJO74j9jGGs+goKDYZPZ19qEilEGZh8JmenYkzGhfzI9Ipz
+	 f6MCZ4ovBE/JhtsIuffxMfVtD/sxNXovm/t+SVigzc9DgKp+XC0Q+xg2PnPoTBFHik+7x
+	 EPqDZUHgKHytTVYfsGLHk4VqG3FhDwyBJKZpJCq3T5GGWTtYR7qwlJrmPpjvPjcNDdpJ7
+	 kwcb4p1JZdZMoN40mV+tUEgs+Qs/bNmhlz34JgIlB2mNOfa0Rj1V1b2ky73iu9r4J1yHu
+	 JdKl/WCSpkfygEd4A1gO9VQB7Rd0kX2ymvxSAQqgRpNjnABuytSxOG7rUOnUzJswwdQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795013994;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=UHA2gSMreq5NvV78ff3NkuJxnwpR2g2o/LhjS2wMs8A=;
-	b=ZuRKKYg3A/sZtjvlcyN1Quk8/hK8kauNV2BgCeHJwPa7bKjL0xJwgJTnH4bmX42EwCPz
-	 NRIgONWN83+hb0R1K0j5bAEJYBr/6JH/5B3oa9CB9oEzzKhcitxGdZfGgJT4lv1+aBpe0
-	 6LZTNdN5Eg7kMUHHNaHlku5mbo5mhHRIDLh3p39NZaLpf2md1MdVYGz3hCzxb0U9Mdfj2
-	 klUlN7CHHWPQgdCC9BLfScP+9QxEVo9pt4pYcagagRnFoagEMFK4kvoD+OKVGLR3kdoBm
-	 1ULQOfrfGhpc7qwhDD6hGgV8Vxtogh4Hc4PXC9KE3bL22KMB/rQ4EA1In4vxHc6bYtg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795014028;
+	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
+	 X-Sonic-ID:Received:Received:From:To:Cc:Subject:In-Reply-To:
+	 References:Content-Type:Content-Transfer-Encoding:MIME-Version:Date:
+	 Message-ID:X-Mailer;
+	bh=xIqP9DW0MNb8cbUSMB4qwOLD6IctYX6wVFr0Jt4lshg=;
+	b=HnqlfzCwTsJv/9oSnVVOrAU8iYyncjTSPXiF3OCWooW1WjHYkc4V0/1cbHwqkhLsPwhw
+	 fkcgHY7ZSFd2LvcRG7i1KplmYlx13W9kFWsj3KkRUTMFF/+MS4Wtdl1C+AFRZSvR9Ov7v
+	 U4nxEeD3UEYkcgqcjR6YEYZ0zVT06a4B6Lbesiz08e15VCZM+JCh7u4Mbb2Ork5jcVe/M
+	 63ZuL7PbV74nShJb2WhJIUQMYXMxQcPsdgP9xNa9kl8pGu5+5I945ZEVCFOBcFYwNGZ9g
+	 +sYAP7ljwZedn8TKKYP4vtlrgJp3G9AB3eG9H4zTMKqkLv245xWR6KV/XSag4zHcfnQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=HNQAplAi;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 59ADC606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:59:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59ADC606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=yahoo.com;
+	spf=pass smtp.mailfrom=yahoo.com;
+	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=EwfrE1wC;
+	arc=none smtp.remote-ip=34.2.64.18
+Received: from sonic.asd.mail.yahoo.com (sonic-usea1-0019.asd.mail.yahoo.com [34.2.64.18])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AAFB5606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:00:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AAFB5606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=HNQAplAi
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A55EC1477;
-	Wed, 18 Nov 2026 06:59:50 -0800 (PST)
-Received: from [10.163.128.4] (unknown [10.163.128.4])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 66DC33F632;
-	Wed, 18 Nov 2026 06:59:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795013993; bh=YniiAGhFs3f6RndqIyYnDs1IU7RZgamrSEyiFvFrpD8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HNQAplAiLMoNveoYkT2JyRS41v1GiH0guf1kxhNgsdRvvQf0dUA2DKfmDGxR0PNwu
-	 FhzNBR1nlLkEfVfyBrjg85ooYVWz1HickJ83DYukJrIarRHYwLEysWl/ynz+SXDJbu
-	 7pboArrQDJja4AqSVQAiXmFjvdRYLVxq9adSxc+g=
-Message-ID: <b2093f38-e3e3-494e-a27b-afc91c578053@arm.com>
-Date: Wed, 18 Nov 2026 20:29:44 +0530
+	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=EwfrE1wC
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795014026; bh=xIqP9DW0MNb8cbUSMB4qwOLD6IctYX6wVFr0Jt4lshg=; h=From:To:Cc:Subject:In-Reply-To:References:Content-Type:Date:From:Subject:Reply-To:Content-Type; b=EwfrE1wCkMIAcRR52/xuNkW0E0Ov6fHUpOiyxLAC/lctf1qGNJAW2luqgTHKGLlftnB2fhdAze4QhaOAQn5tfjkruKWER9trRMmf/BqGUnD+u4dz2tcJP04CbCD3YaOzojlNeCj9DumqtkeGQytfQ4Py/LLTNoZS0C5m/o5hsiQkim4DAJ5t7HoZQ8q93BloJ/yTobH6e+GZQWs4tCsHCYAzs3QuwU8nmdzxySYTLqe0GXtuy1WrYZsVrZEE9FKDYpIpPpciNRvd4CmiycFWUh71gdGe/Q7sXO4ts5G7T3RN6yIhd8PSNo/HtTl+1tnd4Osljb5HKE9jVmeHL8o4eg==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795014026; bh=RCiGym3CU8r0C6LVzkksbr0t+PRx3iPkDnpOh/F0JH/=; h=X-Sonic-MF:From:To:Subject:Date:From:Subject; b=IlTqul6xKUFAiLZIi4rLoN6m92Gkkwke1N3kthHmAfbx2DPRmmVgc2Aq0FhgqRf8WmzbwqCvglXsHsYQXznpE3Y8RBsOdyFm0vFSoEYrLIFf5i3gpkYusUulcJRe1KnHLNz9Jg4jE8B6uay1otHYXze3caLZDk3vtd/XUTnVPGO+yALIDW3pKlwXfghzDAB9YPlwz8k2Bpq/N+RCCUjZK+e6WGZ+KY9bBE121UeYj3f45ecarKFD14H+e8iAzZkNmoJxAdrovjOwT8f0b8VND45uIvigmS4qHAsz1ABsMJb3tRyegYGb2+jsLFn4zYbxVulyeC7OsmrZol+NBTw+Xw==
+X-YMail-OSG: zaODDQ8VM1m9mxg_ufJDXxMzGJbO2SaJab0zLytJvodbZTOCEywBLhb9WAbpj3d
+ b2LrtS9VpZAWpHGf89y78SzazHRDGJWLya45YxJWLM34WoJR03KBoKiGG3fKxUpLfda3E5YimCs6
+ AYal_2A4fUh8OXB5zgZM_YEsJMHAKhJY4DEKEuqHbdPBIbwH.dW_mo42dumYV6SK21JqHiCRntIj
+ GJtFf1qFLXF6BuHpksgB9MJheAi2MYSu2S8lRID5yKz8SUd4vcMDm6zzEhOX41yCOyZu8iJOvvgQ
+ .SqV60DDDFT7MqkGHHGenfRGGWV33uZDptIN8BfhbAZiD6NNMbKEn.SXZI4LXvz4HcETexf_F6EF
+ yLp589K9KziCyi7CZ_bEJhXnjroAt7Ix4xBbE.Da1WiwtPUD9s0GwHScdry4kXIT88NmMhZ6nsEt
+ eoGCdC1nkNa6UeJnqtW9T2jnsAyDsclJNX0WAPwjWHn5ovNYBXqk0fvtelKXaV2R0s64grL2L6qe
+ 73Vja.OlgInt6OexGTGN7sjG9TRiJw5FnbQIVgnAjOyiPbMEsWKSAMqZf2Bk._SV8XKkCgaw883D
+ 7t65GCWnBp0D03j2aYaJr7a.dfGgK0SeV0ifUaqW8KdFG79dEKfm9S0bC3grxpN2y5JWDC0nWYfm
+ VQC7T_3Gw9HBfgLnjVTSkTgN.PlO7Zcfix4242ouynu4tw2KJ_79S9ju.F2AjpbSP5FAPzwqDgcE
+ 8Kdd59VRj_P3HCf9B2TxGCn10nqViKbSTBZbYNtUW1zu4df7L9Roz6feZ5iQpr5xirc87vdmBQ94
+ 5o_zeLV.4rBLTDJk1d_zMQ2PdkUrfBCGg5F1E.qoRRbZ5CCoRy0fNrqhjF9Tebt0lPtUaNc._dNn
+ 2WBF3_0dbBuz18dCCvNzf0K0Imj.AHPhkHKZeZl2HslEk_7cf_EckNgJKlnqKTahxedpAt8kuBPX
+ INTIJXjIUOGUUmpyDD8d86GnfTHeGI87jNM3gIyxc46XXfx7S5Yw78djbUD_cyGWmZAd0mIssH4d
+ LLlPJUzDByc3OkTzIk4jAc0bfIZ2lRzeGxKEwiVIXnUdbxuUp3v9smxKBwX5qrja0WgB4EaIlYkH
+ qN0TwEfCuJjxlzAaJ8yG8xB70bZHMlyj.erX6xMy3wd.oV8UcJMx7pja3D.h740PnpvaBlmj7beT
+ Po8QmZSkEefjRjxq8ttHsviw_5zJbMBL7eV2O70QJ6TxXydrUmihQ5T8S0Hru97rbEuuRS_EfN4j
+ 1hgHEe5VJ8O6YuYeMBg.W67BvWySaJr08FKkG2LyC2V_8Z4WKCBFbEIITeoDh08uY8mLGyofOmu8
+ dEtCHVxCMA6tI.V9Sfi13p7OoPMsQZUOT5XgnvPNUQAhbVWwbT8TPCJZZv8yYE8kgkWRERaPol8F
+ gZ3763n4Baydyp7AyCO2N_qWmdQ2LuaWS5_71SdJf3LI7DJZdcHDByMkLL9gkd9p_pI_SIATcyL.
+ QSEI9agH.hnndAd0RGKins9y0zIryqxqBEstsQUSlN2buss5V2..R.j5tKaArc_MZb7C3WGOBD0_
+ QBjUUVZgOxBNi2EOwtZu9CQcq58nipN7RlcRi6HxCWoP33wbDHvJiulcRlo9noXj51YvphrpS9xn
+ p.eoCbOhz87rsxBzggTzO31YCCToT3ZhBvxwEyGcwJQ09tjSAYCcIvo02dNpzqMrJRZmobkQOHc5
+ a1Kgok3COxRF6EeaMqzdXEK9MHNYfFwXY0r3iRxl0NXZk2aioJiECEBYXCLXx2TdVJBr1TccKZJp
+ MzSSy3pJwGvG4GEghvQ3OSPntal3QPppTEMgJXzBTLiQ.lWHsc1yEIr8yqDlLAl9AT5Rmjhqe83n
+ 56IBv9Z7rxd.ku1E9j5Qi63Pye2kWlmUEWTrYYPYyEo7I_JCpxRwQdy9lGUcQDDutYpfIqNtehsA
+ OQJQGVt93dQdhk5PiCdSAvYs5Cq656SZle73ZztDQYk1bd1iKsUUHVLNG1qrrw0Gc5d1quTBrJq7
+ yf6ZLgcVN_wGB
+X-Sonic-MF: <capitain_jack@yahoo.com>
+X-Sonic-ID: b63a302d-7415-4630-ad1f-8e1de52c2318
+Received: from sonic.gate.mail.ne1.yahoo.com by mail-asdoutdeli-p-cin-usea1-prod-sonicconsumer-svc-102 with HTTP; Wed, 18 Nov 2026 15:00:26 +0000
+Received: from dip20.lsn.bf1.yahoo.com ([67.195.177.29])
+          by hello (SMTP) with SMTP ID 18b76bb473d01ac89d7404256b7eb674;
+          Wed, 18 Nov 2026 15:00:20 +0000 (UTC)
+From: Daniel Campos Ramos <capitain_jack@yahoo.com>
+To: Tomasz =?utf-8?q?Paku=C5=82a?= <tomasz.pakula.oficjalny@gmail.com>
+Cc: dmitry.torokhov@gmail.com, corbet@lwn.net, jikos@kernel.org,
+ bentiss@kernel.org, linux-input@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, vi@endrift.com, linux-kernel@altimeter.info,
+ peter.hutterer@who-t.net, Ricardo Esteves <ricardo.lopes.esteves@oracle.com>
+Subject: Re: [RFC PATCH 0/6] Input: New EV_BTN event for generic buttons
+In-Reply-To: <20260104213132.163904-1-tomasz.pakula.oficjalny@gmail.com>
+References: <20260104213132.163904-1-tomasz.pakula.oficjalny@gmail.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,100 +90,74 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] mm/page_alloc: drop unused gfp_mask from
- zone_watermark_fast()
-To: Joshua Hahn <joshua.hahnjy@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Vlastimil Babka <vbabka@kernel.org>, David Hildenbrand <david@kernel.org>
-Cc: Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>, Brendan Jackman <brendan.jackman@linux.dev>,
- Johannes Weiner <hannes@cmpxchg.org>, Zi Yan <ziy@nvidia.com>,
- Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org, kernel-team@meta.com
-References: <20261116232346.788145-1-joshua.hahnjy@gmail.com>
- <20261116232346.788145-2-joshua.hahnjy@gmail.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <20261116232346.788145-2-joshua.hahnjy@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Date: Wed, 18 Nov 2026 12:00:15 -0300
+Message-ID: <179501401503.113617.9596561330028866042@yahoo.com>
+X-Mailer: WebService/1.1.27017 mail.core.serving.mcws.prd.acl:role.token.mcws.jsmtp.yahoo
 
+Hi Tomasz,
 
+Your EV_BTN series has a home. I carry the six patches as posted in
+the kernel of Sparky Stereo OS, my edition of SparkyLinux, in all
+three flavours we build (normal, x86-64-v3 and PREEMPT_RT), on 7.3.4.
+Your SDL pull request 14758 and your Wine merge request 9853 are in
+our SDL and Wine packages beside it.
 
-On 17/11/26 4:53 am, Joshua Hahn wrote:
-> zone_watermark_fast() has not used its gfp_mask argument since commit
-> 2973d8229b78 ("mm: discard __GFP_ATOMIC") switched the watermark boost
-> check from __GFP_ATOMIC to ALLOC_MIN_RESERVE.
-> 
-> Remove the argument, no functional changes intended.
-> 
-> Reviewed-by: SJ Park <sj@kernel.org>
-> Reviewed-by: Chris Down <chris@chrisdown.name>
-> Reviewed-by: Zi Yan <ziy@nvidia.com>
-> Signed-off-by: Joshua Hahn <joshua.hahnjy@gmail.com>
-> ---
+Thank you for this work. Thanks also to Ivan Gorinov and Ricardo
+Esteves, whose patches of December and February went at the same
+limit from the other side.
 
-Note that this series:
-https://lore.kernel.org/all/20261116125103.2894162-1-kas@kernel.org/
+Why I wanted it: more than 80 buttons is ordinary hardware now. Sim
+racing and flight cockpits, button boxes, control surfaces and
+accessibility devices built from many switches all pass that number.
+Linux can be the platform for these, and today it stops at button 80.
 
-needs to use the gfp mask. So perhaps drop this patch? Otherwise we will
-just make noise on the list by adding it back :)
+What I measured, with a virtual HID joystick (uhid) of 128 buttons,
+eight hats and twelve axes:
 
+  With the series:
+    EVIOCGBTNCNT gives 128.
+    All 128 buttons arrive as EV_BTN, the first 80 also as EV_KEY.
+    SDL3 with pull request 14758 reads 128 buttons, and so do SDL2
+    programs through sdl2-compat.
+    Wine with merge request 9853 gives DirectInput 128 buttons, by
+    the udev backend and by the SDL bus.
+  Without the series:
+    80 buttons as EV_KEY, and SDL reads 79.
 
->  mm/page_alloc.c | 12 +++++-------
->  1 file changed, 5 insertions(+), 7 deletions(-)
-> 
-> diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-> index 9e1261521b6a3..4d829e5eac49d 100644
-> --- a/mm/page_alloc.c
-> +++ b/mm/page_alloc.c
-> @@ -3675,7 +3675,7 @@ bool zone_watermark_ok(struct zone *z, unsigned int order, unsigned long mark,
->  
->  static inline bool zone_watermark_fast(struct zone *z, unsigned int order,
->  				unsigned long mark, int highest_zoneidx,
-> -				unsigned int alloc_flags, gfp_t gfp_mask)
-> +				unsigned int alloc_flags)
->  {
->  	long free_pages;
->  
-> @@ -3877,7 +3877,7 @@ get_page_from_freelist(gfp_t gfp_mask, unsigned int order, int alloc_flags,
->  		    !waitqueue_active(&zone->zone_pgdat->kswapd_wait)) {
->  			mark = wmark_pages(zone, kswapd_watermark);
->  			if (!zone_watermark_fast(zone, order, mark,
-> -					ac->highest_zoneidx, 0, gfp_mask)) {
-> +					ac->highest_zoneidx, 0)) {
->  				skipped_kswapd_nodes = true;
->  				continue;
->  			}
-> @@ -3897,8 +3897,7 @@ get_page_from_freelist(gfp_t gfp_mask, unsigned int order, int alloc_flags,
->  
->  		mark = high_wmark_pages(zone);
->  		if (zone_watermark_fast(zone, order, mark,
-> -					ac->highest_zoneidx, alloc_flags,
-> -					gfp_mask))
-> +					ac->highest_zoneidx, alloc_flags))
->  			goto try_this_zone;
->  		else
->  			set_bit(ZONE_BELOW_HIGH, &zone->flags);
-> @@ -3906,8 +3905,7 @@ get_page_from_freelist(gfp_t gfp_mask, unsigned int order, int alloc_flags,
->  check_alloc_wmark:
->  		mark = wmark_pages(zone, alloc_flags & ALLOC_WMARK_MASK);
->  		if (!zone_watermark_fast(zone, order, mark,
-> -				       ac->highest_zoneidx, alloc_flags,
-> -				       gfp_mask)) {
-> +				       ac->highest_zoneidx, alloc_flags)) {
->  			if (cond_accept_memory(zone, order, alloc_flags))
->  				goto try_this_zone;
->  
-> @@ -5245,7 +5243,7 @@ unsigned long alloc_pages_bulk_noprof(gfp_t gfp, int preferred_nid,
->  		mark = wmark_pages(zone, alloc_flags & ALLOC_WMARK_MASK) + nr_pages - nr_populated;
->  		if (zone_watermark_fast(zone, 0,  mark,
->  				zonelist_zone_idx(ac.preferred_zoneref),
-> -				alloc_flags, gfp)) {
-> +				alloc_flags)) {
->  			break;
->  		}
->  
+Two notes on those results. The SDL number is with one small fix on
+top of the pull request: built against kernel headers that have no
+EV_BTN, its fallback define never asks the kernel, and SDL stays at
+79 buttons. The Wine number needed two small fixes in Wine itself,
+outside your merge request. Both belong to those projects and not to
+this thread.
 
+One thing for a next version. A report that changes many buttons at
+once overflows the evdev client buffer. With all 128 buttons changing
+in one report the client received 44 of the 128 EV_BTN events and a
+SYN_DROPPED. input_estimate_events_per_packet() makes room for "KEY
+and MSC events" with a constant 7 and does not count EV_BTN. Counting
+one event per button when the device has EV_BTN gives 128 of 128 and
+no SYN_DROPPED here:
+
+ 	/* Make room for KEY and MSC events */
+ 	events += 7;
+ 
++	/* Every generic button can change in one report */
++	if (test_bit(EV_BTN, dev->evbit))
++		events += dev->button_count;
++
+ 	return events;
+
+It only makes sense on top of your patch 2, so take it into the
+series if it is useful.
+
+Benjamin's review of patches 3 and 4 reads to me as the way to a
+next version. The test device's descriptor and the result tables are
+available to anyone who wants them.
+
+I work with AI partners on this distribution. I read and ran what is
+reported here and I answer for it.
+
+Daniel Campos Ramos
+Sparky Stereo OS
+https://github.com/Sparky-OS/sparky-stereo-os
