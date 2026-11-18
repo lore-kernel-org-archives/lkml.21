@@ -1,77 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795027536;
-	b=iO86OYLDAGi+Gn2Wx0C1eC/RfA3aCYS1ARw1TlBcmkWZrC+tBo4GwYl/Ijly6NKxMJRb
-	 iFE3135EpT26oL5WbswmyVTSaBa/I8ggFEC0lWzbgXgXhwHGwCiJfLmraowaRO5LV9Ws0
-	 egU5mQkVMcqnx34EFs+rMPeiPEYLv1G+fG1XkdcIQ2MYrSVwGpJgAmWh9k7w+Lq6aV0AJ
-	 mKQ2KSCm84Idoq+B4aKFolfszzN/cPzOOzwFxC+Du3DLQZN/ONeDh7ZCTEF92rCQs+7Cw
-	 YM3+1utz0mDRwxpsat9fyZr4qWGq2YBJv3wHQePDP7c38IC5R/jyUh4KRI+o4w06ArA==
+	t=1795027558;
+	b=GWAG1/QCWW1+IVEC0JzwPY0bcOp5gBHAxUncmRyzI1RKoj+990P6yJ8kkcGnnLPjVOHk
+	 7wsSMQJWRgmW22xj4Acq8HbIKxfMPCrngX5fM9xNebwtMYAEj9/jnC1vSfnlIK6flCqoE
+	 BCd9+ZONL7Hhs7rWT6sxuT5oGQOkzcoS4ek/K8Y9ChwkTPW4rb+HDT+iCAdgDCO+LXItw
+	 7PJe7e0jVYtxOofY/yE68rtwW5joatOz2qVm8stZ85OAsFarkcuUy+oO6I7BUOJLD4Ddq
+	 bS+8MZ9O9JyrbF3954/kzNxcH+ryCMKOcW0B0OSgyvTj4hRjxk42gXbYkoK9RuNodpQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795027536;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=vGWUgyGfw7j22BMb4pU06ctXkLaCqXf8bR6lTYcnToQ=;
-	b=VbiJOP8+eJBYSAIUghaZQIfoU5ZxUpMyAk73E8e4l6h7zTekQu0h7cfxrXV2FlaGwmXj
-	 gSAw4dLGD1Euw7ZaBBHZUhnBjqYPg6ZurgWRHSl3pqXMnuqiCtlmDlgVHQAhTQ4P6Eprp
-	 3osS2c2HyI/qiiCvMexzCqVozmi5wvVXVckpLFX1Ox0FiZpvyZbmH+U/Voc920qrRxmW1
-	 nRq4UCPkAn8Nvu8dr3p0wfdd7e7OoJaQQYg2dD2MhQpIZe4DKj0BxXnC66wC/BCxarsPf
-	 0HdNYZYv0lUuGoiEVKOqYpfEvIIBv9KkoYStaGFX+gWWl5wctKw4cx+gL+FXPYufF4g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795027558;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
+	bh=q47HBnsBXsh2bthirykI6rD+fkcQs2OaoEr05am18HI=;
+	b=RXHYM9Euby39BAwziEj63a0NCVPorRSPP3qtZ/PJzgqjIWwW5bsiIdZEcuMc2N8JFrOV
+	 NrmoJujoPC7nc6PlrTAUaGq14kzx35wUAnZCNhCG1toxQ4zavLd485dGCj5P/2ja3tCeD
+	 Rev863SSR4uk7XHiIxMJKrItY3SKQpLJkQ2vtScl01iZFpjxAQt4OzuxqUSTPckFiqxsW
+	 Hgon5LPcgIf9yF8OcWb35FCptmCEvK3leyjpwntcVOmDWYQ4nh6tFha3H6u7V/D31XLgi
+	 cHkSlb3q2GXz7OcbENeYMtVlEOMyOAuIsIZhdrav4NP9Ad4WULZLGsV7jibIHZ0/C4w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=IQCQA2zd;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=IB0tl0dO;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06FA860A260E;
-	Wed, 18 Nov 2026 18:45:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06FA860A260E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=JWVFmd9+;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 580F860A2607;
+	Wed, 18 Nov 2026 18:45:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 580F860A2607
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=IQCQA2zd;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=IB0tl0dO
-Date: Wed, 18 Nov 2026 19:45:24 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795027526;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vGWUgyGfw7j22BMb4pU06ctXkLaCqXf8bR6lTYcnToQ=;
-	b=IQCQA2zdkTcf9E6mhzzRMaLYIbiNdjO5KRf7VnD1VGfQrT6qv3DniWkbigfsq+bhE6Tujk
-	RrogTYi0aSVRHhW+5nEICKshtgXZ20WtT7qg76ppTdO/A9i69qiyJmz6EOdcL/CDrqbKl6
-	RO5pEABTAuySwUj8DFCvw0Uju+upOqm4vWES9HTXn0F67xMBEkb/G5w6AVBGg/2hLlwcgK
-	w8Q0kxcrt8oqGQUJOyp2nN68x+Uy/nby68mlXbMYoltILfitXFV2/387HEW6HseduaC4Gw
-	auMtX0afIROcw0m2kbOpTHB0HEJe4ZzBscTzHUsrwHpQIdRKrhzK6sznwFM7nw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795027526;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vGWUgyGfw7j22BMb4pU06ctXkLaCqXf8bR6lTYcnToQ=;
-	b=IB0tl0dO0GEA+iI8A5RmjHEUCuLm9UMaL/bBsKz0K1j3Ghz/dISF3vGZHh1wz6CpgDAsRt
-	C1fdWc9vPTxswjCw==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Cc: peterz@infradead.org, tglx@kernel.org, mingo@redhat.com,
-	linux-kernel@vger.kernel.org, will@kernel.org, boqun@kernel.org,
-	longman@redhat.com, rostedt@goodmis.org, clrkwllms@kernel.org,
-	dvhart@infradead.org, dave@stgolabs.net, andrealmeid@igalia.com,
-	shuah@kernel.org, juri.lelli@redhat.com,
-	linux-rt-devel@lists.linux.dev, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v2 5/5] locking/ww_mutex/test: Time an ABBA with both
- owners running
-Message-ID: <20261118184524.Vxz_-nKr@linutronix.de>
-References: <20261108141347.1525532-1-mathieu.desnoyers@efficios.com>
- <20261108141347.1525532-6-mathieu.desnoyers@efficios.com>
- <20261118163807.75hxTxGn@linutronix.de>
- <e57bdae9-4f87-4cc1-9fdc-22c2d766e252@efficios.com>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=JWVFmd9+
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B61601477;
+	Wed, 18 Nov 2026 10:45:54 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 330113F673;
+	Wed, 18 Nov 2026 10:45:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795027557; bh=RgXpgp1b64sl9UfssU3kG9kquYvtoA69zMUuuOQNjXM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JWVFmd9+3yNomI/qoopkleACN5TNxUN3On+VVyud7IpUCc/SG+Ig7dye/VtQj3Gz+
+	 XscHeHYR6bZSkFh7ZNolGXymS8NH5Kbskz2yOHb3ZSiVXRIV0xMb2DzwXo6Pfv+j9w
+	 MozS/n6dl2ICb40gnwWiNxAS4XWK/eIpmthc0otc=
+Date: Wed, 18 Nov 2026 18:45:51 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Sudeep Holla <sudeep.holla@kernel.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	Chengyu Liu <lui2012qwq@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, arm-scmi@vger.kernel.org,
+	philip.radford@arm.com, stable@vger.kernel.org
+Subject: Re: [PATCH 1/2] firmware: arm_scmi: Fix deadlock between reboot
+ notifier and forceful work
+Message-ID: <av3yX-5WUt8bT8Jg@pluto>
+References: <20261116084211.3066460-1-cristian.marussi@arm.com>
+ <20261116084211.3066460-2-cristian.marussi@arm.com>
+ <20261116-astonishing-urchin-from-jupiter-838cfc@sudeepholla>
+ <avw5o7sTyriZ2ZiX@pluto>
+ <20261117-prodigious-limpet-of-fame-3d72e6@sudeepholla>
+ <CAE=Q7=4+HMtqbiK9v3jw4t31TQOYUfRXKRurZ7KcMi7GTi1v2A@mail.gmail.com>
+ <avyS2OLs3XGcKXXn@pluto>
+ <20261117-hypersonic-beautiful-perch-bd4fcf@sudeepholla>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,57 +71,40 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <e57bdae9-4f87-4cc1-9fdc-22c2d766e252@efficios.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261117-hypersonic-beautiful-perch-bd4fcf@sudeepholla>
 
-On 2026-11-18 12:29:55 [-0500], Mathieu Desnoyers wrote:
-> Hi Sebastian,
-Hi Mathieu,
+On Tue, Nov 17, 2026 at 06:27:52PM +0000, Sudeep Holla wrote:
+> On Tue, Nov 17, 2026 at 05:46:00PM +0000, Cristian Marussi wrote:
+> > On Wed, Nov 18, 2026 at 01:35:04AM +0800, Chengyu Liu wrote:
+> > > Hi,
+> > > 
+> > > I think the current v2 may have reintroduced the second deadlock
+> > > described in my original commit message.
+> > > 
+> > > scmi_forceful_work_func() still calls unregister_reboot_notifier()
+> > > while holding sc->state_mtx. Could you also check the potential lock
+> > > inversion between state_mtx and reboot_notifier_list.rwsem?
+> > > 
+> > > The reboot path holds the rwsem read lock while executing the notifier
+> > > callback, which then waits for state_mtx. Meanwhile, the worker holds
+> > > state_mtx while trying to unregister the notifier, which requires the
+> > > rwsem write lock.
+> > 
+> > Yes indeed Sashiko complains about the same and the second part of the
+> > issue on the rwsem is unresolved and will need more work.
+> > 
+> 
+> That's what I was referring when I said
+> " ... re-evaluate needs_forceful again here after un-registration before
+>   calling below forced transition ?"
+> 
 
-> > This is the ww_mutex equivalent of the futex case on PREEMPT_RT. I got
-> > lightly distracted by the -35/-EDEADLK error it always returns.
-> > Something that we might have since v5.16-rc1=E2=80=A6
->=20
-> Where do you see it? In this case, the younger context gets -EDEADLK
-> from ww_mutex_lock(A). That is the wound: it backs off and retries, and
-> the case returns 0. In our PREEMPT_RT VMs, test-ww_mutex loads with 0.
-> If a case of the module returns -35 on your setup, I can look into it.
-> Which case prints it?
+I know what you mean... 
 
-The timeout that was introduced in commit cfa92b6d52071
-("locking/ww_mutex/test: Make sure we bail out instead of livelock")
-triggers. That is not related to your patch. Increasing the timeout
-makes it go away. It takes ~7sec to complete. It is not related to your
-changes.
-According to the history it hangs on real hardware and passes in kvm.
+> But then your response somehow convinced me that it is not needed 😉.
 
-> > Since both (ww-mutex and futex) use the same code I am tempted to say
-> > that one test case might be enough.
->=20
-> The two take different wakeups through the same spin. A timeout or a
-> signal wakes the futex waiter, and its cases fail with and without
-> PREEMPT_RT. The wound wakes this one, and it fails only with
-> PREEMPT_RT. I would keep it, but I can drop it if you prefer.
+..but I fooled myself too O_o
 
-The testsuite changes, without the fixes I get
-| [    0.810516][    T1] Beginning ww (wound) mutex selftests
-| [    7.388445][  T143] stress (stress_inorder_work) failed with -35
-| [    7.410548][    T1] Beginning ww (die) mutex selftests
-| [   13.994648][    T1] All ww mutex selftests passed
-
-The ww_mutex testsuite complains only on PREEMPT_RT. The route cause is
-the same. I don't see a difference on !PREEMPT_RT here nor do the
-patches touch anything.
-
-I don't call the shots here, I just explained why I don't see this
-needed. We might want to cover this code path if the paths divert in
-future.  I don't know.
-
-> > But in case we want this,
-> > Tested-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
->=20
-> Thanks!
->=20
-> Mathieu
-
-Sebastian
+Thanks,
+Cristian
