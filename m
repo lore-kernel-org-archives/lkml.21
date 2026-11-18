@@ -1,69 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=93.77.172.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794960038;
-	b=1Yw4BRGYFMYkvkdJN0o6oBbY9aEYGtF5PCV6KR72Aqtiivs913iZNAVUzAhvxeuPS5pD
-	 IpF5PQZhY2WoVI6MFZM8/HeG7kcmaKza0FSGUonwjBsZDVo/jjlUGnK3uEVgnx8euCdUx
-	 kWybDrQ8tEbR891kYxfby71CF0MeWuPiWbgLR9q3RLBrBIzjd7Zf5eJW0eGUuGEYjtOEe
-	 fsKAaAbdme6jSP/SZerzNZYtmZm0I4tJukL6lriAQTQZe1HXShuZkqruwOX4hVkGoeLds
-	 Y2Xmm7PCjM1cOM4bm7qDkYWw3O15Oh4ZRPFW3qi26l6PPhVFqnBwBQzx5k43moDfC1g==
+	t=1794960077;
+	b=4z2gQislGd4q1hFaFjQawFu5ptDE0TU9PO7dRIkMDnvUbIHjYmE9nOZuXUUkabBXzpCC
+	 WS+IPwT2UL9zewx0vJc9SrfK4qhUTAsROux6it6imjl73izPlDYLimaW+Uutj8X2lI8W0
+	 hOUwBxZ8ZJDm+eNShuSbmZ7MsVR7zQE580fNfDFT/2djLJYUGgDW/PK8vvq2uLrQT3ltU
+	 3cMmVZyoIGbbkLZkNvPxWVepcgC7yuWkox3x4WVJ8mtAwGdgyuQAEtYY2BiVd3L9fDUxe
+	 97UCTP7jOu7CjIrKS9orVkbp5XcwFy4nRRpnSDTtcG1bIrk7zogUUAFqPu64HeA6U1g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794960038;
-	h=DMARC-Filter:Received:Received:X-Yandex-Fwd:DKIM-Signature:From:To:
-	 Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1794960077;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:X-Developer-Signature:X-Developer-Key:
 	 Content-Transfer-Encoding;
-	bh=7IO9qqU3wnMoibykZ1N5l5PPq7ErE0eqGwekZqMRpqE=;
-	b=irHOgWWPbaFJ8FjLOFm5Dgd8zZBQyPIACBRKABGgsIsy0RPPcgArv4JB5tt/lToV6avO
-	 lc4eQrxVmQmE7BMHncKD0G2RyZCOWu0lkt5S58131hk9n8WfoMmF0rCuRORXNoGDDSpiE
-	 jOdB+WBRQMzMbRtJkmTe7+ruq+NTyH5WmWJfQPx2EtyN47JB8E4fO6FZ2c79ElQElPs0A
-	 jrGceR6KxOKRCcCZUmhOfIT5inAvjidBCjXglF1E0549cSs8AfVHFZIlZsG/rLzi1KMOQ
-	 Dkp1yoOHmNpRQ1YWS4/kaJ2i84jglm7G2oLwYP39kvC1ryEwEOyAv3Q4rQxAnIF5sCg==
+	bh=C5IVEgivpLIjQLL8Y0aBi9Sm1XnQqI6/FTgtJP70mkk=;
+	b=vUzKAqtQXi6ENlTEeeNfAK4g2lO4RfZwSRS7LH9dG73esWmreXPLcwwMQ9Bmr3Nvulg9
+	 srK4moJSkUZjqQ3fmtpQZFyRz1/ffpZw7/K9/EOLb8f3iUW+aLGy9qigEQzFZZdnUlCnH
+	 mUAGLfszbJENLyusCa1IiMDX95LtKS59cCUWlWjfUjLGPRaNwFrtux8dhbB23wl9VFbAL
+	 Iis7U2+ILiYYPiYgb9jpPLC3auX75nHoYIeGJK8Ful4Y+KKzxINFzkn9u49ehZ2N9zUpj
+	 w+edns3v8zsQwwvyzOvMcPl8+GWKha8/hhaL2wuqUTex+fJ/yx4q0eylm2TZVrPN4Kg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yandex-team.ru;
-	spf=pass smtp.mailfrom=yandex-team.ru;
-	dkim=pass header.d=yandex-team.ru header.i=@yandex-team.ru header.a=rsa-sha256 header.s=default header.b=L6u3caU5;
-	arc=none smtp.remote-ip=93.77.172.5
-Received: from forwardcorp2e.mail.yandex.net (forwardcorp2e.mail.yandex.net [93.77.172.5])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=liUlh6Mr;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E5DA606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:00:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E5DA606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=yandex-team.ru
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yandex-team.ru
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E273C606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:01:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=yandex-team.ru header.i=@yandex-team.ru header.a=rsa-sha256 header.s=default header.b=L6u3caU5
-Received: from mail-nwsmtp-smtp-corp-main-80 (mail-nwsmtp-smtp-corp-main-80.yp-c.yandex.net)
-	by forwardcorp2e.mail.yandex.net (postfix) with ESMTPS id 52195C0053;
-	Wed, 18 Nov 2026 03:00:27 +0300 (MSK)
-Received: from i101646577.yandex-team.ru
-	by mail-nwsmtp-smtp-corp-main-80 with ESMTPSA id L0NFxU0Yj0U0-eYG64ehH;
-	Wed, 18 Nov 2026 03:00:26 +0300
-X-Yandex-Fwd: 1
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex-team.ru;
-	s=default; t=1794960026;
-	bh=7IO9qqU3wnMoibykZ1N5l5PPq7ErE0eqGwekZqMRpqE=;
-	h=Message-ID:Date:Cc:Subject:To:From;
-	b=L6u3caU5HDhbgq9gNGbkegT7GZ25C9gWnv+Cczano/c6tPTYjfBNCFO13jqGgR/eS
-	 igXD0bTj49EYDSYLvCJdgkuxvgy1atUs4tZBB6pwYj5x7WF4NJd5NM879JF4b8tAG+
-	 fxYbTCVTregpSMs+qUzBJW4gqBP1Ubu03nVdCyOk=
-Authentication-Results: mail-nwsmtp-smtp-corp-main-80; dkim=pass header.i=@yandex-team.ru
-From: Daniil Tatianin <d-tatianin@yandex-team.ru>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=liUlh6Mr
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9318B1F000C4;
+	Wed, 18 Nov 2026 00:01:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794960076;
+	bh=C5IVEgivpLIjQLL8Y0aBi9Sm1XnQqI6/FTgtJP70mkk=;
+	h=From:To:Cc:Subject:Date;
+	b=liUlh6MrM0iQdj6CXADAfeq9CUfzm2/EMmDbsj2TGTtyhLN1K6h49ZdAfzq9iTcUt
+	 S4TOr5QXKHHp+dWthSOIGQpBlXz1oT3tPnlu+NSwX4NxKq8QtyxY4TIgOsaQvt6Nw/
+	 GqDTnyAzFVfnoElEPz7ixYGRaNf/B4I0U1nOaXpGW2bKXACgqo68Hq9o2xnSCyYKwl
+	 uJ5Rpp6fQB/e7toAbKUfDg4+Y+1CkrFSS/ud+MHSteQ7cLp+VDadpKSLvNHR8OWjVu
+	 Jsrbgb3RywSSdXK3nLRTa4Pz3jG1a0TlPSF9ISqYX8QdnQxpVQZlLsmizvA4z2kpIn
+	 fNE3J7j6y2BlQ==
+From: Thorsten Blum <blum@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>,
-	Vlastimil Babka <vbabka@kernel.org>
-Cc: Daniil Tatianin <d-tatianin@yandex-team.ru>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Brendan Jackman <brendan.jackman@linux.dev>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Zi Yan <ziy@nvidia.com>,
-	David Hildenbrand <david@kernel.org>,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] mm/page_alloc: don't undo another caller's pageblock isolation
-Date: Wed, 18 Nov 2026 03:00:13 +0300
-Message-ID: <20261118000014.1474617-1-d-tatianin@yandex-team.ru>
-X-Mailer: git-send-email 2.43.0
+	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
+	Thorsten Blum <blum@kernel.org>,
+	Christian Brauner <brauner@kernel.org>,
+	Sang-Heon Jeon <ekffu200098@gmail.com>,
+	Breno Leitao <leitao@debian.org>,
+	Wilson Felipe Pereira <wfelipe@google.com>
+Cc: linux-kernel@vger.kernel.org
+Subject: [PATCH] init: Use ARRAY_SIZE() in unknown_bootoption()
+Date: Wed, 18 Nov 2026 01:00:36 +0100
+Message-ID: <20261118000037.552633-2-blum@kernel.org>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,45 +62,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1671; i=blum@kernel.org; h=from:subject; bh=iF7qB8sYhyZ70MszL/QigOKfNPaZo64NdKmvJd139EY=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDFl/Xi1lvuEsell23Vw9s8KzQdIKIo9tIjjPpEjErGxmK VvPrLuzo5SFQYyLQVZMkeXBrB8zfEtrKjeZROyEmcPKBDKEgYtTACaixcXIMOcFj+vJLfPNJofY f2FtfNAWL6gS+muP0KV5Dzuv720SZmJk+Kno9F/t5bn50wRVxEr5VVN1Zzoyfzx11W6HrM5s9rQ VXAA=
+X-Developer-Key: i=blum@kernel.org; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
 Content-Transfer-Encoding: 8bit
 
-start_isolate_page_range() fails with -EBUSY when a pageblock in the
-range is already isolated, after it has undone the isolation it did
-itself. Commit 2c7452a075d4 ("mm/page_isolation.c: make
-start_isolate_page_range() fail if already isolated") made it work this
-way, so that users of overlapping ranges, such as CMA, memory offlining
-and gigantic hugetlb pages, can use pageblock isolation to stay out of
-each other's way.
+Remove the NULL terminator from the bootloader array, make its entries
+const, and use ARRAY_SIZE() as the loop bound. Also reuse the for loop
+index i instead of redeclaring it multiple times.
 
-Since commit b2c9e2fbba32 ("mm: make alloc_contig_range work at
-pageblock granularity"), alloc_contig_frozen_range() handles this
-failure by jumping to its common exit path, which calls
-undo_isolate_page_range() on the whole range. What is still isolated
-there at this point belongs to the other user, so this takes the
-isolation away while that user is still working on the pageblock. The
-page allocator can then hand out its free pages again.
-
-Return right away instead, like offline_pages() does when
-start_isolate_page_range() fails.
-
-Fixes: b2c9e2fbba32 ("mm: make alloc_contig_range work at pageblock granularity")
-Signed-off-by: Daniil Tatianin <d-tatianin@yandex-team.ru>
+Signed-off-by: Thorsten Blum <blum@kernel.org>
 ---
- mm/page_alloc.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ init/main.c | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
 
-diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-index 12fac9084c48..151a8d64783d 100644
---- a/mm/page_alloc.c
-+++ b/mm/page_alloc.c
-@@ -7335,8 +7335,9 @@ int alloc_contig_frozen_range_noprof(unsigned long start, unsigned long end,
+diff --git a/init/main.c b/init/main.c
+index 2011e09439de..5543576c9c29 100644
+--- a/init/main.c
++++ b/init/main.c
+@@ -576,7 +576,8 @@ static int __init unknown_bootoption(char *param, char *val,
+ 	 * 1. LILO/Grub pass "BOOT_IMAGE=...";
+ 	 * 2. kexec/kdump (kexec-tools) pass "kexec".
  	 */
+-	const char *bootloader[] = { "BOOT_IMAGE=", "kexec", NULL };
++	const char * const bootloader[] = { "BOOT_IMAGE=", "kexec" };
++	unsigned int i;
  
- 	ret = start_isolate_page_range(start, end, mode);
-+	/* After a failure, whatever is still isolated belongs to someone else */
- 	if (ret)
--		goto done;
-+		return ret;
+ 	/* Handle params aliased to sysctls */
+ 	if (sysctl_is_alias(param))
+@@ -585,7 +586,7 @@ static int __init unknown_bootoption(char *param, char *val,
+ 	repair_env_string(param, val);
  
- 	drain_all_pages(cc.zone);
+ 	/* Handle bootloader identifier */
+-	for (int i = 0; bootloader[i]; i++) {
++	for (i = 0; i < ARRAY_SIZE(bootloader); i++) {
+ 		if (strstarts(param, bootloader[i]))
+ 			return 0;
+ 	}
+@@ -603,7 +604,6 @@ static int __init unknown_bootoption(char *param, char *val,
  
+ 	if (val) {
+ 		/* Environment option */
+-		unsigned int i;
+ 		for (i = 0; envp_init[i]; i++) {
+ 			if (!strncmp(param, envp_init[i], len+1))
+ 				break;
+@@ -615,7 +615,6 @@ static int __init unknown_bootoption(char *param, char *val,
+ 		envp_init[i] = param;
+ 	} else {
+ 		/* Command line option */
+-		unsigned int i;
+ 		for (i = 0; argv_init[i]; i++) {
+ 			if (i == MAX_INIT_ARGS) {
+ 				panic_later = "init";
