@@ -1,13 +1,13 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.30
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.28
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795029887;
-	b=aR5KHwZIZEIisSc3cNvTEaF8jOHRqCX7JB5tq001LwYAkpVL+lQ5iHQDplPjkvTH4ibZ
-	 9zRkPKd8qN93M2nKpK4HPl0rx8ej5dpCIQeP/NJx47nW4Ql3lC/WDkH5s+2J3qEkz81gi
-	 IZIYjemnrcm7w2xk+BN0JVm7ZJeKPh0soDeaEQLdZCrXE0AiZNaJM81cSUKDQ6rreFuF0
-	 9JzhP92Wn5a5ZV/6HUiKcwM/mt/tq5MYoKj+DGM5JBdeZVb4RlozxYW9ZNZHjuaxb2g4g
-	 VJPln6FD4y2ICE2z+C4CzuJJmvIscwcjtRk8bblsQhlAAHU2yfIDIMOW8uMI804unMA==
+	t=1795029905;
+	b=CN/eF+WBCJz5cGswhy9v7nxDIe2+qLEXCb73xMMXGPA8sM6RLF+t9pz1zvdI5HppuJbO
+	 fYqPzkM/AWvhIFVTLuYjrtFtaL5ANT402Y3+GMJ1pmqdpLjChdfR/yrC1QX+J6pwREsHi
+	 sDPjuU4c4oPYzvwqf44BkmHK4/AnWLx6kEke7lG1G0GkQPevczlrj8g/PMV6/UPP/q94n
+	 kkgwa4QtQiw815wvEj6wkW2mNH6wq1AKAWbayfm7lTLpNgBvKTvWW1/SVEbfDde3tXpCF
+	 ZNDRGAczocK0RY+XIW+N0nAZZIdtPUpBNZ6dCZpP8SCdpPoZL8WTz6DFwuISl7Gyyew==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795029887;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795029905;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
 	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
 	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
@@ -25,52 +25,52 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
 	 X-MS-Exchange-CrossTenant-userprincipalname:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=di6CpM8xPfKp+JB2JVbEkH1jHYWw8AZmgKJXDjtifP4=;
-	b=jkCGbK4HBzfVbjjjLx7dxlSVq+HRy09fnLP71DfPLz/JvPKF8/P10Z/IRUuHRDYS8SlS
-	 0x+A8Fc7TNLYa2ddokb/XKwe7KptgFO4AB0OadY4x7mxHrni0sgjrxGulXmfM9WrpZNwx
-	 ukIxc+2y+JMeSCLXfTZ+bJyz5ifp1zL21JsBVBZSzhreWqjwwjzsK2u8npQTj0oQKg2IO
-	 0juOHM9lbuzLJ1skdtEHnqm0a0dzf32IcM6lyuNOO/hnk958pTjBXPv+bEcZr5dcxmkIT
-	 mZDN2NQzpBcwxm7bBiYCtEa0FqykHrPeMqChYQN8l0naVbEgjgCfufZXIsf8/+v5NYA==
+	bh=p0ckIBSLWBLs5a0fo9yBcCJh7aYmg2JGCZaqim8FE4E=;
+	b=adcyFGyhYzlUcGoQ7u1DTvaXtCwUqGBCcKzIdDw/IeGvCKY8t6PiWqNUJ7zNdD9DyZyv
+	 I2OHNs+1pGXyd5FVL6Slsf2H+Iltm//sei5xEs5FpRUMgU08FmDhoeB53+Aluz36kH/hz
+	 KsuNIxZozzokL4HcTGqAjZSi8iF1l+6mIxtgmxiSNQFG3m1q4e2fB7JUMC6I9BUPS8AYz
+	 X91vNnfYHgpn1ckEuZYTJcKyOkL8VM9njhTV7i05e+2iTjfNamz8vxQXykiSdG/dTfTAa
+	 sDe/+cmeE/6yTpg+luqRWyLjtzme7I/1WCoL6tIGWsmUomYVS/j6UKvPYxK5R/x9+HA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=nvidia.com;
 	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=lUSFAeKG;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.30
-Received: from BL0PR03CU003.outbound.protection.outlook.com (mail-eastusazon11012030.outbound.protection.outlook.com [52.101.53.30])
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=CS7ipwqy;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.28
+Received: from CH4PR04CU002.outbound.protection.outlook.com (mail-northcentralusazon11013028.outbound.protection.outlook.com [40.107.201.28])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45FE160A262D;
-	Wed, 18 Nov 2026 19:24:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 45FE160A262D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 907E2606A334;
+	Wed, 18 Nov 2026 19:25:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 907E2606A334
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=lUSFAeKG
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=CS7ipwqy
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=x1daMFYebXw3jp/Xd3y0xodag4Yii1ygb5OJBG89sz//FNPnQKmuC5H+gmcnY67szFsomipQ5iHsQyWkcQhCpsyDUx2CnqtVLbnFyQYFMwR2SrfDs0lBkGwbu00tX8ZHU8fACvHcVnjJg+DpP51V3piipn7a5t3KRmGmUG1zwA330lH3qG6Zs7z76J0Gggweo6CA/OOhCcnBi1nx+IIwpG30JLqzaLXkV5KAOhM0kV8YpEeS676JkBM/GnNLI6VZFcfhdeWY3n3wE9p4U0JB2dVLObHUeDrfkBwKa6Z0/+PD+dReUPLWF9sHTiFT1vo/NK5FLdk2ByC6Dj10y4CWmA==
+ b=TJEGLsiy8SxzD3xdVWXp9+syXjCsYLj+9FVcd2/Z10D/e1M13qtOr5KjC8/6xAUOmzXPWfbFhJBhS6T9POOiv0dR3kfQTUaDSiH8+lVFqCO3sNjU2iRHbPkwR4VeRc4x8N5ofNvt7HnrtgJnN4BYXIiiTyujXW8p7nxWIsocy49y1AhKbnvkVb4BweoMJPSBtWxMjizzQjj75Dg7QpNbALPuVvWfe86IENS/JY/LAJdLpig3tQStuLVxAr9NLer9Pc1WQhXWlvRzCjspDNuqY2lVtJZGITAJvy+yHh4wEkEiQxY5yhY+r4sKGkZhMELKqz41ixuj/4eylRxkZgoE8A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=di6CpM8xPfKp+JB2JVbEkH1jHYWw8AZmgKJXDjtifP4=;
- b=K5Cki4BPsD6W9sJEWP/ZfHhTu0VSHgThViOHv++0yi2dMuZE1vsGA9lojyaodjmGi+dj2ZJor/HbonRMnhmxRoorbp0bH6QFPsgl3Q//UD3hwl2fDiZDotjolKHbPbejHiwBDa5mCD8VcGrwhmdFzlUGQ93fAJuZn49Tvc0Wk+vUxHAIRgoG+Dy4KVUuoHCVAz8jfwsJAYzIov9cTFv/fXCcNAkdDk3ClbYe3xXm6sQiWfWxeP6sYrV/0TJv4krjFLyWq0x4LeMOPuq8aeWryN9Re3ZQ5CBipOBeA/JCcvXqsUk7BfS0Y1TCnmsYaxWh6zr4P8Cc3tCZ0g4A4QJ/sQ==
+ bh=p0ckIBSLWBLs5a0fo9yBcCJh7aYmg2JGCZaqim8FE4E=;
+ b=es80TZkJ7iSAP6IJaSBa/QN7JOw5pUX81DlNrRlRNgaZaiFL14DW6O1DlUA2gRBo96w2HQlH29jjECL5PFNk2Cy/EnufyJZMTWnrXbGPl5sm2gv3Y4zq0pnJcwMsiE/0qG4ZA02Ln7UFm/3l/tqZwl4Bjz7v3+G6hJuQ0WwdpJSdqLR2E2EQAYPNjt68ArtpW4yLPMM8nusWJxaQg+yp/DZqTOjQ9w7zpVIHawjywb8kiFAHtbJm+Z5QLC6ljeXyLXweu0kPP12z51AAvG3897qikYSOre6lbFxIDBByaS8XzGul7vng00E62xH3FI8cThuY7b/sUqOWSBGMDLJyvA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=di6CpM8xPfKp+JB2JVbEkH1jHYWw8AZmgKJXDjtifP4=;
- b=lUSFAeKGJe4g+qvYe76TRN9c+ykZ4EE1eH8Crppa3SUPIp0aMQPcn51SrRmSl2KwKGxMiivgHmAP0GKNliQRbnmvJcT5rx/ySur4qiWD6GfHAsQW8UwNK9Px34bryWn0X/JwOwIrierduTx8EHYfPue6L3792nesRqCNhDLEqi0cZFyeEAdciOYokkO781Xfrz55/ih1WrJsM1xjTuI1RU07cJEeDe9id6tB8T9n+4kV3DZLYSfao56NY4uLTfl8ifur55SRegQOAlzoSJ/zOP+p3BDtpWGpwZdM4mOgqSxmdOvqqfdx5c2EPxvY3pkkRkVSofkT9TrxAEKBXWI5cQ==
+ bh=p0ckIBSLWBLs5a0fo9yBcCJh7aYmg2JGCZaqim8FE4E=;
+ b=CS7ipwqyuZvvWpoAMmASkU8s3HBkcuN7lnVoHZ2rVHe/OOlsmrKYXAHNX8letYGjuKjyTLIMgyw39BQy0pXoES0cclSKhEYVFOWs4rEH6PBnasD6ZX4PCCrpp7kOC5oLIcZuT8DnQ7srMNHNSKf1Wgqq+AX8cQOW5a+YMem8imtS1yalzRdGR6HjLx6ub6TT18dijFysqCocfsobTm7bwZdAP42lF4mBEQW+m7CkhzHHSgZwjlpOG9O3Rv4EoeQoRGq8b96nUI8jp+3VBt6DO6VOLeadHYXd9OeTkY909ksSh0TcreWdkVy9qD2Ep2QSQIv1Nty+PvTGrm0gTPxYEg==
 Received: from IA1PR12MB9030.namprd12.prod.outlook.com (2603:10b6:208:3f2::22)
  by CH3PR12MB9455.namprd12.prod.outlook.com (2603:10b6:610:1c1::20) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 19:24:36 +0000
+ 2026 19:24:52 +0000
 Received: from IA1PR12MB9030.namprd12.prod.outlook.com
  ([fe80::2c1d:ed27:b53a:97d2]) by IA1PR12MB9030.namprd12.prod.outlook.com
  ([fe80::2c1d:ed27:b53a:97d2%6]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 19:24:34 +0000
+ 19:24:52 +0000
 From: Manish Honap <mhonap@nvidia.com>
 To: Alex Williamson <alex@shazbot.org>
 CC: "jgg@ziepe.ca" <jgg@ziepe.ca>, Ankit Agrawal <ankita@nvidia.com>,
@@ -95,18 +95,18 @@ CC: "jgg@ziepe.ca" <jgg@ziepe.ca>, Ankit Agrawal <ankita@nvidia.com>,
 	<linux-pci@vger.kernel.org>, "linux-kselftest@vger.kernel.org"
 	<linux-kselftest@vger.kernel.org>, "linux-hardening@vger.kernel.org"
 	<linux-hardening@vger.kernel.org>, Manish Honap <mhonap@nvidia.com>
-Subject: RE: [PATCH v6 10/31] vfio/pci: Refuse ioeventfds and dma-buf exports
- over excluded ranges
-Thread-Topic: [PATCH v6 10/31] vfio/pci: Refuse ioeventfds and dma-buf exports
- over excluded ranges
-Thread-Index: AQHdXYpXTaVh73CCV0e7bQqHCmUr9bchpneAgBKiknA=
-Date: Wed, 18 Nov 2026 19:24:34 +0000
+Subject: RE: [PATCH v6 15/31] vfio/pci: Route every reset point through a
+ try-reset helper
+Thread-Topic: [PATCH v6 15/31] vfio/pci: Route every reset point through a
+ try-reset helper
+Thread-Index: AQHdXYpzlycI4IIptEyBvFxe1YDKw7cetBqAgBWkjdA=
+Date: Wed, 18 Nov 2026 19:24:48 +0000
 Message-ID:
- <IA1PR12MB9030391F457918CEC347418CBD7A2@IA1PR12MB9030.namprd12.prod.outlook.com>
+ <IA1PR12MB9030983615B465CF53B80489BD7A2@IA1PR12MB9030.namprd12.prod.outlook.com>
 References: <20261016161839.2765592-1-mhonap@nvidia.com>
-	<20261016161839.2765592-11-mhonap@nvidia.com>
- <20261106135245.2870aebb@shazbot.org>
-In-Reply-To: <20261106135245.2870aebb@shazbot.org>
+	<20261016161839.2765592-16-mhonap@nvidia.com>
+ <20261104165247.2597f574@shazbot.org>
+In-Reply-To: <20261104165247.2597f574@shazbot.org>
 Accept-Language: en-US
 Content-Language: en-US
 X-MS-Has-Attach:
@@ -115,46 +115,46 @@ authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 x-ms-publictraffictype: Email
 x-ms-traffictypediagnostic: IA1PR12MB9030:EE_|CH3PR12MB9455:EE_
-x-ms-office365-filtering-correlation-id: 4b3dd3e4-cb44-4b76-b341-08df45a993d9
+x-ms-office365-filtering-correlation-id: 445f3b94-5046-46a7-a7d9-08df45a99ec4
 x-ms-exchange-senderadcheck: 1
 x-ms-exchange-antispam-relay: 0
 x-microsoft-antispam:
- BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|366016|22082099003|18002099003|261009223027099003|4143699003|261102130727099003|56012099006|11063799006|261026121527099003|261102123227099003|261028144727099003|261026140227099003|261021121427099003|261022105027099003|261022113327099003|38070700021|261021123027099003|10067099003;
+ BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|366016|6133799003|22082099003|18002099003|261009223027099003|4143699003|56012099006|11063799006|261026121527099003|261102123227099003|261028144727099003|261026140227099003|261021121427099003|261022105027099003|38070700021|261021123027099003|261022075727099003|10067099003;
 x-microsoft-antispam-message-info:
- pEvPfkgaqTjeur1j9fBHFP6AmvOlrzyWfIPalRnWcGuF9LBoBVZ0+VQljk8VmPiB74DRRL2QRBzsH3jvaKc5mqChVrK1gHog50BKqjDpiapvlTgYX8gi9htOhC4zTxD+jm/55iJyEd3o/B2/lzDleLVFYy/D6ER9zdkcafg/SRu1rsFdFaV4TqBgXeZJgi1L8Gxn4bDAiK7K/VHCMISrfi+CwLQeNGkgmQtV3cqHXsZ8Zl+XvQHrJb8XZWkx7EUBczdIsFZb76t2R3wgW5x7dZdZEeOKKdJ+HEJhRrwMZ8zF8rTGH2Q2rljkFLVba1k9R42NNCVv/YQO0wP7WAx3pY7NGVJ87XI+KBWslxzatvKdo5GOzLg/cBvWrx/9QZXiwHGjWONIf2DpBqFn9vJ8F/zethSjG5W8CI0/JqrqB6kGFPwYDNw51+YlnCgAotxiqlWGZXtOTgauGmqhsdG5T/H/+rJJLGRcayCUDJmJWv/FsCCXY99TI1shhW5MnzF1C/hJ7XSZyedk1prZnQeNdFnDJLjw5Uu42mWAi9sk6MbwL+AznSAF8rYutkXc3WRSuX8toThplMdnfKdLAuXt0vERSC6BHhSbwe1m616JVlte6LwRQzHI6UpWnQLHpupPncuiHNV7pamoqYnimHwLnnCae81wPtaVGObfGG67/01HEplbwhRKfPt0WOMfrtaShjLjvX9WOK38gSlyCTZt4iRWCydERIYoEX1L/88Gnto=
+ 8RDw6pNUFr6R9HRzASnA0d410o722aeCLhfHfo28pBHzy8Ty84LNqXijZwnk9aBzN4IV8XHTYTmMgmcv6/x+NijsVMsXT9HDTUh9rolUVrp3vwooWSH1Q5Cnv7n9lo+FkHBb4k+jolOewqcdwx+WvvhfsgCiGu7q18PyewLJpTrTuTOyqsExnlB78Xk8o0Jt4n48e32AUV2KTYhe645XzkVIgmgOiADKJ3ij5dTCVZTXaiPb08jc51EFT6umM2c81yGsA+cxGYD+vtWxaEk3RnFhgfV050vIocjvnmvwRmV8803eyLJd4LlUj2BNcGppNEWrkNLJf1V0PApPZJ4EU5zv0jU8xGtnfsEdc0m20kuwGUUqbX7kHAvdiPB2cjgyAO76+1LmoIQLe2grLgPCMy/E2dKXdAsUhYgsvABLxdmFUSNPzen3fKG4yco0z1+nNJFlDHIWLAgLDwbOpHMpl0xgIFWpDykIqFeJVFE/rGe0m41KH8uGuOeaagsGjNc9DLZ4O0FQyMHMMcKZFhLtHJU7YdHivO0EPKgR4jKtHqK36wSgGeQN1c/L4HGavNEnRiuVXG+xxhvvXqHK9SOyum9NV5161EsnCHiAkX2Bb3W7VC4lCmN5uHKL2wS/5jDTQNNi+an9MFhPxfyrjDXQFTpKIEAxg9zKCBW/oL3MyIaqH5g4ZmZSfa9Cbi1xKlLZCS/qod427SJRxoFenpMqRCyTE1CXHCeIZFrx5Ssq+mQ=
 x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR12MB9030.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(366016)(22082099003)(18002099003)(261009223027099003)(4143699003)(261102130727099003)(56012099006)(11063799006)(261026121527099003)(261102123227099003)(261028144727099003)(261026140227099003)(261021121427099003)(261022105027099003)(261022113327099003)(38070700021)(261021123027099003)(10067099003);DIR:OUT;SFP:1101;
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR12MB9030.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(366016)(6133799003)(22082099003)(18002099003)(261009223027099003)(4143699003)(56012099006)(11063799006)(261026121527099003)(261102123227099003)(261028144727099003)(261026140227099003)(261021121427099003)(261022105027099003)(38070700021)(261021123027099003)(261022075727099003)(10067099003);DIR:OUT;SFP:1101;
 x-ms-exchange-antispam-messagedata-chunkcount: 1
 x-ms-exchange-antispam-messagedata-0:
- =?us-ascii?Q?lRAOTP69nX/R+9sorufR9LSix9/K8IChf7PsY3KF2egDTAucWJEOLwZUWXkJ?=
- =?us-ascii?Q?7Ka1wnWJUZAkOqdPuAHD51yTmZP1YNJ72oztBkqi+WPrhoM4I/uYxZNYHQ2v?=
- =?us-ascii?Q?iXt88wW7pV9I9BN3WxuXrLqeTMB5GkD/uo1uVEE01/AkgYfkmTISoFcH8y2I?=
- =?us-ascii?Q?YWxrPeH+Bu7o5MthodClQlTHKv5zIv7tMU9kKBCIi2+cgK90qZpbL7ufKaxC?=
- =?us-ascii?Q?/6GHk80+eJgvmvjsB0RCBKUn+BslwsdWDcuCQwRXMSKQZVZSE6mWl2wU9zjW?=
- =?us-ascii?Q?VYmfQA1RSdcoRDI1QyERTJlr1SD0Ra5X41Onzca/5XPlZzJbyqonSiYNHwr9?=
- =?us-ascii?Q?CprQi/uw/r6K1PMTcgyprS3ucT5KAPksOdmBvgaNVeE973XtRWoE7pUtUbJH?=
- =?us-ascii?Q?fTY2WACF8lSLvntj136YSBTlEGPYhj4P++X9LGXprikRYhgC8lL2Q1q6XyWo?=
- =?us-ascii?Q?XosBD01Msxsq9zazQuxIAhpmEccBOSb2VJkSBtRAA2DiWBXws0Hz23CA+DKI?=
- =?us-ascii?Q?hZW1CfVCfUukDQmdSD/Iltz6YJXd4XstG1mo2as7gKW5kIRSaDsXvkU4ojpd?=
- =?us-ascii?Q?UdrGnfgnVlm8iQy8INMJJnYk0Y1TgCM9zUNz1pyXiAwfJqNGvn1T/6NLXUv+?=
- =?us-ascii?Q?wKQBzxjfZQmrt27X98XAhUiLC1PWToZX006kUhkYz6ZDPU3SemQ+easO8vDU?=
- =?us-ascii?Q?ygPN+Ckn/4V84+wz+cqe8ib6cHtMi/q6QajU3JYvDy0KpUlgZlNkxFq0rloE?=
- =?us-ascii?Q?BvpLKbZSv6km327ch4Of4bMAW7kxfipGArbNxyTr6T0m0dcRc6aYwFn78sRo?=
- =?us-ascii?Q?93pth8pP7w9E8jqu9Ozs2SB5/X/s+7PeEGRoADssmhOmDpK5LFIxsCvijkkb?=
- =?us-ascii?Q?RNFyDs6l6P4APsxRWMi1WpL080SXmDm6ZCc/YG2p7MMjFnaxWbuF/1zG+kCh?=
- =?us-ascii?Q?W6KZ3CP8q0W87P7/oG5dVQi47OBiP3I/91V0qFoPmd9BQMIeJlgPxZoaZ3+m?=
- =?us-ascii?Q?lz1j/FVPo6Bp3m7hYBunA+D5LLNkhxMhxQVqxy5+OUMrCFrv4+VlF58kkOTH?=
- =?us-ascii?Q?gQvtsq9bgbmWK7GAQRHZaOCBYD4FLIyVRtOdDmi3q06DY92ogdj86InwFLfN?=
- =?us-ascii?Q?2poVDMgBw97VUxJ/f7t1/rbhKGm6gcGRa70u2RVuV8DrA4shpNChaAHAy73b?=
- =?us-ascii?Q?q+Pf5I072ghdysxBq3C3Ay6Lx65IPbKaduQXpvAtqutbe/j0Y6HjsBGklJQH?=
- =?us-ascii?Q?Jt4/8IA9agCUKDLvmIMzevKqh/2lX66K7zcS6hjA+HjqJD5tGNUYCYT4LyOX?=
- =?us-ascii?Q?LoECzWI4pTLJQCsT+1pxg7Jgm9bIYnHDv3C1YAkUotVpirf2dz8sleYWiTzn?=
- =?us-ascii?Q?amekFXvtcjNbZrQvN4u+hgzmr18uu/wXGhRMq8bwQM3mSYhGr/RAdamdUNrU?=
- =?us-ascii?Q?oAu1yAfJvyYIYeTMwU5cFNxdy/PaRfHRu5oah8qYEaSqTwyxs8XkuZ0HY+ZU?=
- =?us-ascii?Q?Rj9g/hYGBEXM4SLQz1GgXFfM0pQdfw9Huc4t03k84Zhn6+0IK6Iq+/Xb2T9k?=
- =?us-ascii?Q?ny3J35+TawL+vDGAAYB4F8Y75TUo9bQNz1SEswaTLCFYuG/zIteOvkU0n5e1?=
- =?us-ascii?Q?ieiCh/5VEvt642gJoun6zqg13BB3NI+F90r05I+VaGoF8ChnS3PrOPRZN83w?=
- =?us-ascii?Q?xdRQdncfUhcyAHgXo1r4H03Tr29Kldatl4eqCMIxVYmVZoeJ?=
+ =?us-ascii?Q?9Kq7c0tGHHglGFUSXKtDV1ffzpMUQ60jrWU4L+azRxU1BiPntpRE6uLrUZQl?=
+ =?us-ascii?Q?fGIzgymRkxsI5Tb34jzWX+r5OUAZfkMxi3IW+iHhFqYSZtvfFDR4qJEwPOlB?=
+ =?us-ascii?Q?W+kqyzhJYjzivDMzxKcupJ//xjcrzxa4agIKaNolQwf4zRBrDakoQh2ntE8E?=
+ =?us-ascii?Q?do+ycDyM4jGoCoy6WkbjH06R4JlAxwls7luxJjPQUwP/2tOp9XET3HZEWpAB?=
+ =?us-ascii?Q?4vIDpE2SpYWFx+4Omhcu6o3e4T/ZDZafb8T1FRS9/MN/7TmYOohgRtx8Dlve?=
+ =?us-ascii?Q?0pO0DgomKRovFNbBwDK4wymCZ8wgGngez3eWSwEEay4UVH/zYEARnoBRmsNa?=
+ =?us-ascii?Q?/jt7At28htznFG2lLccyl1HBZnDfD1bgML7u2dY7INMU+NgyLIJTisxI8GTN?=
+ =?us-ascii?Q?iC8G5jVMJtW+W4wX/dH3nT5J5FJMfBJnuaStniR/LgZ3YiMRn+PlimUUufSQ?=
+ =?us-ascii?Q?KtCE/ey9jXgKAZQg1elsQeXT8TP/xv+ufV6QEsvfA9iOEL3K94+ypc0dhEdb?=
+ =?us-ascii?Q?41Yg9hIBm8hB1wzBq0bOh85K2z7XrnWq5zrTt3NMi6b50QIdZY63sIUm1zQ7?=
+ =?us-ascii?Q?m2VtPveZH5RoDSfchsI1OX8u3nAwO7zI1Kw4zIah67FOEkPc2cbszeoguT7s?=
+ =?us-ascii?Q?UZJ/ghQS8XiSCSJ3uNDu6AEaEoolnARQCxhJMCScdZpc+GJTBxSyhS4hmz6O?=
+ =?us-ascii?Q?eixw3we2TmFR48ZPVHsIl6wBhKZBxrcV0g3sMll1LV5hsgcg+UikBSeZByuK?=
+ =?us-ascii?Q?tMKi0c/R940QZzC/M/Rr5dCefP6rKy2vZWqifmMY896gGDWc1AE5pwFATuFl?=
+ =?us-ascii?Q?9wl+fZN+UtjLoHOD0vRyHMU8KpmOz1HMSCdchnR/nececAjclQn2K0HYypVU?=
+ =?us-ascii?Q?JSZbiJ5/zKpR5pZjiH+XSSIJIEr5uBvG2aJMLWGmX8kav/0RwM3CaJtx7omQ?=
+ =?us-ascii?Q?r2Y5YVk0JqWd5r0Lj2rQhv5UGBUjZuyNJhdCyWhtZnzyHlw5sxZ9vxqCJLrA?=
+ =?us-ascii?Q?Dd7/+WWQV1GrBdBSn9a2C7D3N+mN4TesTfh6hVMu4IljyYBjxDwyLjt5UJ7A?=
+ =?us-ascii?Q?B2Q3uUgHoOYEhqn4XAoP84UGgmw18SrK6OW6Bbw4amilFyTuMQfHPzjg9I2b?=
+ =?us-ascii?Q?cd14P7YC6wSjoE478bcdlo/2UkJOSwJYVmWFPBonueuCgUDGS72Ws8SD8e8N?=
+ =?us-ascii?Q?YqF7JxnmKodVEmlYjLJ+KQ7SR8rfn9BAdYEJ1JgnLx7KlCZ2zNzU2wPoPsx4?=
+ =?us-ascii?Q?2AARszosYj/vtL4YeIzBtoTavxAqh+5qs2aW1RSAxeIMP6INt/3BIbmb547C?=
+ =?us-ascii?Q?jmnjL9gTM5NeVDWX5lK76Km5KNPyl6qzXi/I0b6fsIkRqjbSgwXgc/5IV5Xy?=
+ =?us-ascii?Q?y8jaiB3eSwPTsU/V1joDufVAI1r4qACCGYSsAG23etyWkTeBdpoUjvPuLPBH?=
+ =?us-ascii?Q?ndYjG/0bXE7+SbbYHnDS/DmAfRWLkQCPT+4qxM8pVfnE3YNBnUyqlSP/Iqj6?=
+ =?us-ascii?Q?UgTgi6Z8Ys0Q1FFOs6imxwYNLx5S12mA3esa2L5JyW/DOMvjCVuDQ6oQEtr1?=
+ =?us-ascii?Q?PnHasTyn0PFNaIVpfZPcOO0JPdp2p30gI0tGyuY0u4gsOLhidGVa3a57Ks0i?=
+ =?us-ascii?Q?XLxQ5BwRSSpWZYMtKsT8k9ppgvuicwiGRqcXOAbCNSOWdJ11n1hnFzMowLy9?=
+ =?us-ascii?Q?ueki5qir/fKlrR1w1JY4jW1AQNtY+V6DVz//PfK0quu2ry39?=
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -169,20 +169,20 @@ MIME-Version: 1.0
 X-OriginatorOrg: Nvidia.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
 X-MS-Exchange-CrossTenant-AuthSource: IA1PR12MB9030.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4b3dd3e4-cb44-4b76-b341-08df45a993d9
-X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Nov 2026 19:24:34.1972
+X-MS-Exchange-CrossTenant-Network-Message-Id: 445f3b94-5046-46a7-a7d9-08df45a99ec4
+X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Nov 2026 19:24:49.0190
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: FcQbyADEUy4vLf7p2m0+NTm9EPNfMqkmyC5wy6YtNn7kfvqXG3QXlDMqxOHISkrbDRS6y+TR7/IAK5mq8KeVuA==
+X-MS-Exchange-CrossTenant-userprincipalname: 4hvmq/YwKRSH7+pJIhKv7Vn5it5izvLrzLT6Rjxdo2KtSI32Qks5yzLGJT1rZgLpySPlWnDMGcd+l4jrGCa+qg==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9455
 
 
 
 > -----Original Message-----
 > From: Alex Williamson <alex@shazbot.org>
-> Sent: Saturday, November 7, 2026 2:23 AM
+> Sent: Thursday, November 5, 2026 5:23 AM
 > To: Manish Honap <mhonap@nvidia.com>
 > Cc: jgg@ziepe.ca; Ankit Agrawal <ankita@nvidia.com>; jic23@kernel.org;
 > dave.jiang@intel.com; alejandro.lucero-palau@amd.com; Srirangan Madhavan
@@ -198,144 +198,380 @@ X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9455
 > linux-cxl@vger.kernel.org; linux-pci@vger.kernel.org; linux-
 > kselftest@vger.kernel.org; linux-hardening@vger.kernel.org; alex@shazbot.=
 org
-> Subject: Re: [PATCH v6 10/31] vfio/pci: Refuse ioeventfds and dma-buf exp=
-orts
-> over excluded ranges
+> Subject: Re: [PATCH v6 15/31] vfio/pci: Route every reset point through a=
+ try-
+> reset helper
 >=20
 > External email: Use caution opening links or attachments
 >=20
 >=20
-> On Fri, 16 Oct 2026 21:48:17 +0530
+> On Fri, 16 Oct 2026 21:48:22 +0530
 > <mhonap@nvidia.com> wrote:
 >=20
 > > From: Manish Honap <mhonap@nvidia.com>
 > >
-> > vfio_pci_bar_rw() keeps the excluded ranges of a BAR off the device,
-> > but two other paths reach BAR MMIO without it.
+> > A provider such as vfio-cxl must reset its device itself: a CXL Type-2
+> > function must not take an FLR, and its reset changes what the provider
+> > lets the fault path map. vfio-pci-core resets a function at five points=
+:
+> > enable, close, VFIO_DEVICE_RESET, a virtualized PCIe or AF FLR, and
+> > the guest's CXL Reset doorbell in the virtualized CXL DVSEC.
+>=20
+> What substantiates the claim that a type-2 device must not take an FLR?
+
+No, this is a wrong claim in this patch.
+This statement is wrong and I will drop it in v7.
+As per cxl spec 4.0, FLR only affects CXL.io and does not affect the CXL.me=
+m, CXL.cache,
+CXL DVSEC state or the memory controller behind the HDM.
+
+>=20
+> Here we're promoting all resets to a CXL reset, but a CXL reset and an FL=
+R have
+> different scopes.  FLR is exposed to the user through config space.  A us=
+er might
+> reasonably expect an FLR scoped reset through the PCIe/AF capabilities.  =
+The
+> CXL spec defines FLR vs CXL reset, so this actually makes the device non =
+CXL
+> compliant through vfio-pci.  This is a massive policy imposition.
+>=20
+> What makes this necessary?
+
+Agreed that this is changing the already established policy in VFIO.
+For v7, I will address the reset as per scope the spec has defined.
+
+This is my plan:
+- A PCIe or AF FLR written to config space is a PCIe FLR in vfio side. For =
+a
+CXL device, vfio-cxl will run pcie_reset_flr inside the same save, disable =
+and
+restore steps in pci_reset_function.
+
+- Initiate_CXL_Reset written to the CXL DVSEC from guest will be a CXL rese=
+t
+routed through pci_try_reset_function(). cxl_reset series orders cxl_reset
+ahead of FLR so that method will be run here. cxl_reset series also perform=
+s
+all cxl_reset's with a mem_clr enable so we will also have the same effect
+in this case and guest's own Mem Clr Enable will be dropped and not passed
+on to VFIO.
+
+- For open/close/Reset ioctl, I will call the same PCI core calls done toda=
+y.
+For a CXL type-2 device, those will be cxl_reset with Mem Clr Enable.
+
+The cxl_ops reset op, this patch and the owner-aware entry in patch 04
+will go away. vfio-cxl keeps only the work around the resets vfio
+starts: it revokes its memory mappings and dma-bufs before the reset
+and reopens the memory after the device reports Memory_Active again.
+
+vfio-cxl also holds the HPA range exclusively while the device is open,
+and the cxl_reset method refuses to reset a range that someone else holds.
+So, for v7, I will release the vfio-cxl's claim on the range and release
+it around the resets vfio starts, after its mappings are revoked. The claim
+will be taken back before the memory reopens. A sysfs reset of an open
+device gets -EBUSY from the cxl_reset method.
+
+>=20
+> > Add a mandatory reset op to the provider ops, and refuse to register
+> > ops without it. Add vfio_pci_try_reset_function(), which keeps the
+> > trylock of pci_try_reset_function(): it returns -EAGAIN when the
+> > device lock is contended, and otherwise runs the provider's reset with
+> > the device lock and memory_lock held. The close path keeps its bridge
+> > and device trylock and calls a locked variant.
+> > vfio_pci_try_reset_function() saves the PCI state first, as
+> > pci_try_reset_function() does, for the provider's reset to restore.
+> > The locked variant does not save: on close the reset must restore the
+> > open-time state that vfio_pci_core_disable() has just loaded. A failed =
+save is
+> returned and the reset is not attempted.
 > >
-> > An ioeventfd writes the BAR directly when it fires, through
-> > vfio_pci_core_iowriteN(). Refuse an ioeventfd whose range overlaps a
-> > write-excluded range, as one over the MSI-X table is already refused.
+> > The enable path still fails only on -EAGAIN. A provider checks at bind
+> > that it can reset the device, so reset_works is set for a provider
+> > device whatever the result of the first reset.
 > >
-> > A dma-buf export of a BAR range lets an importer map it for DMA, which
-> > reaches a range that the BAR keeps off mmap. Refuse an export whose
-> > ranges overlap an mmap-excluded range, so the dma-buf follows the same
-> > rule as mmap.
+> > The CXL Reset doorbell now runs the reset and reports its result in
+> > Status2: Reset Error on failure, Reset Done on success.
 > >
 > > Suggested-by: Alex Williamson <alex@shazbot.org>
 > > Assisted-by: LLM
 > > Signed-off-by: Manish Honap <mhonap@nvidia.com>
 > > ---
-> >  drivers/vfio/pci/vfio_pci_core.c   |  4 ++--
-> >  drivers/vfio/pci/vfio_pci_dmabuf.c | 14 ++++++++++++++
-> >  drivers/vfio/pci/vfio_pci_priv.h   |  3 +++
-> >  drivers/vfio/pci/vfio_pci_rdwr.c   |  9 +++++++++
-> >  4 files changed, 28 insertions(+), 2 deletions(-)
+> >  drivers/vfio/pci/vfio_pci_config.c | 19 ++++++--
+> >  drivers/vfio/pci/vfio_pci_core.c   | 71 ++++++++++++++++++++++++++++--
+> >  drivers/vfio/pci/vfio_pci_priv.h   |  1 +
+> >  include/linux/vfio_pci_core.h      |  7 +++
+> >  4 files changed, 90 insertions(+), 8 deletions(-)
 > >
+> > diff --git a/drivers/vfio/pci/vfio_pci_config.c
+> > b/drivers/vfio/pci/vfio_pci_config.c
+> > index 1fc463540211..6fbece95cb9f 100644
+> > --- a/drivers/vfio/pci/vfio_pci_config.c
+> > +++ b/drivers/vfio/pci/vfio_pci_config.c
+> > @@ -910,7 +910,7 @@ static int vfio_exp_config_write(struct
+> vfio_pci_core_device *vdev, int pos,
+> >               if (!ret && (cap & PCI_EXP_DEVCAP_FLR)) {
+> >                       vfio_pci_zap_and_down_write_memory_lock(vdev);
+> >                       vfio_pci_dma_buf_move(vdev, true);
+> > -                     pci_try_reset_function(vdev->pdev);
+> > +                     vfio_pci_try_reset_function(vdev);
+> >                       if (__vfio_pci_memory_enabled(vdev))
+> >                               vfio_pci_dma_buf_move(vdev, false);
+> >                       up_write(&vdev->memory_lock); @@ -995,7 +995,7
+> > @@ static int vfio_af_config_write(struct vfio_pci_core_device *vdev, i=
+nt
+> pos,
+> >               if (!ret && (cap & PCI_AF_CAP_FLR) && (cap & PCI_AF_CAP_T=
+P)) {
+> >                       vfio_pci_zap_and_down_write_memory_lock(vdev);
+> >                       vfio_pci_dma_buf_move(vdev, true);
+> > -                     pci_try_reset_function(vdev->pdev);
+> > +                     vfio_pci_try_reset_function(vdev);
+> >                       if (__vfio_pci_memory_enabled(vdev))
+> >                               vfio_pci_dma_buf_move(vdev, false);
+> >                       up_write(&vdev->memory_lock); @@ -1786,9
+> > +1786,20 @@ static int vfio_cxl_dvsec_write(struct vfio_pci_core_device
+> *vdev, int pos,
+> >       if (!(ctrl2 & PCI_DVSEC_CXL_DISABLE_CACHING))
+> >               status2 &=3D ~PCI_DVSEC_CXL_CACHE_INV;
+> >       if (ctrl2 & PCI_DVSEC_CXL_INIT_CXL_RST) {
+> > +             int ret;
+> > +
+> >               ctrl2 &=3D ~PCI_DVSEC_CXL_INIT_CXL_RST;
+> > -             status2 &=3D ~PCI_DVSEC_CXL_RST_ERR;
+> > -             status2 |=3D PCI_DVSEC_CXL_RST_DONE;
+> > +
+> > +             /* Run the real reset here and report its result in Statu=
+s2. */
+> > +             vfio_pci_zap_and_down_write_memory_lock(vdev);
+> > +             vfio_pci_dma_buf_move(vdev, true);
+> > +             ret =3D vfio_pci_try_reset_function(vdev);
+> > +             if (__vfio_pci_memory_enabled(vdev))
+> > +                     vfio_pci_dma_buf_move(vdev, false);
+> > +             up_write(&vdev->memory_lock);
+> > +
+> > +             status2 &=3D ~(PCI_DVSEC_CXL_RST_DONE |
+> PCI_DVSEC_CXL_RST_ERR);
+> > +             status2 |=3D ret ? PCI_DVSEC_CXL_RST_ERR :
+> > + PCI_DVSEC_CXL_RST_DONE;
+> >       }
+> >
+> >       *pctrl2 =3D cpu_to_le16(ctrl2);
 > > diff --git a/drivers/vfio/pci/vfio_pci_core.c
 > > b/drivers/vfio/pci/vfio_pci_core.c
-> > index f099a294af34..211fff6045e2 100644
+> > index 1e0ac28b7564..6676c561465b 100644
 > > --- a/drivers/vfio/pci/vfio_pci_core.c
 > > +++ b/drivers/vfio/pci/vfio_pci_core.c
-> > @@ -1107,8 +1107,8 @@ static void vfio_pci_free_excluded_ranges(struct
-> > vfio_pci_core_device *vdev)  }
+> > @@ -605,6 +605,62 @@ static void vfio_pci_core_unmap_bars(struct
+> vfio_pci_core_device *vdev)
+> >       }
+> >  }
 > >
-> >  /* True when [start, start + len) on @bar overlaps a range with any
-> > of @flags. */ -static bool vfio_pci_bar_range_excluded(struct
+> > +/**
+> > + * vfio_pci_try_reset_function() - reset the function without
+> > +blocking
+> > + * @vdev: vfio PCI device, with memory_lock held for write
+> > + *
+> > + * Reset through the PCI core, or let the provider reset a device it s=
+erves.
+> > + * The provider resets the device with its PCI device lock held, so
+> > +take that
+> > + * lock here, without waiting, as pci_try_reset_function() does.
+> > + *
+> > + * Return: 0 on success, -EAGAIN when the device lock is contended,
+> > +or the
+> > + * reset error. For a provider device a failed pci_save_state() is
+> > +also
+> > + * returned, and the reset is not attempted: unlike
+> > +pci_try_reset_function(),
+> > + * the provider's reset needs a valid saved state to restore.
+> > + */
+> > +int vfio_pci_try_reset_function(struct vfio_pci_core_device *vdev) {
+> > +     struct pci_dev *pdev =3D vdev->pdev;
+> > +     int ret;
+> > +
+> > +     lockdep_assert_held_write(&vdev->memory_lock);
+> > +
+> > +     if (!vdev->cxl_ops)
+> > +             return pci_try_reset_function(pdev);
+> > +
+> > +     if (!pci_dev_trylock(pdev))
+> > +             return -EAGAIN;
+> > +
+> > +     /*
+> > +      * The provider restores PCI state from the saved copy, so save t=
+he
+> > +      * current state first, as pci_try_reset_function() does. The loc=
+ked
+> > +      * variant on the close path must not: it resets with the state t=
+hat
+> > +      * vfio_pci_core_disable() has just loaded.
+> > +      */
+> > +     ret =3D pci_save_state(pdev);
+> > +     if (!ret)
+> > +             ret =3D vdev->cxl_ops->reset(vdev);
+> > +     pci_dev_unlock(pdev);
+> > +
+> > +     return ret;
+> > +}
+> > +
+> > +/*
+> > + * As vfio_pci_try_reset_function(), for a caller that holds the devic=
+e lock.
+> > + * Only the close path calls this. It takes memory_lock with the
+> > +device lock
+> > + * held, so user config access is blocked meanwhile: the order a
+> > +sysfs reset
+> > + * uses. That cannot deadlock against a PCI_COMMAND write holding
+> > +memory_lock
+> > + * because no user remains at close.
+>=20
+> Please tell the AI not to add any comments, these are difficult to parse =
+and
+> often unnecessary.  If there are specific locking requirements for this f=
+unction,
+> they should be annotated.  If this function cannot be annotated, and it n=
+ot
+> general, even within a static context, maybe it shouldn't be a separate f=
+unction.
+>=20
+
+Understood. I will refactor this part. For v7, this function will be remove=
+d and=20
+close path will keep calling the __pci_reset_function_locked as it does tod=
+ay.
+
+> > + */
+> > +static int vfio_pci_reset_function_locked(struct vfio_pci_core_device
+> > +*vdev) {
+> > +     if (!vdev->cxl_ops)
+> > +             return __pci_reset_function_locked(vdev->pdev);
+> > +
+> > +     guard(rwsem_write)(&vdev->memory_lock);
+> > +     return vdev->cxl_ops->reset(vdev); }
+> > +
+> >  static void vfio_pci_core_free_dev_regions(struct
+> > vfio_pci_core_device *vdev)  {
+> >       for (int i =3D 0; i < vdev->num_regions; i++) @@ -636,11 +692,14
+> > @@ int vfio_pci_core_enable(struct vfio_pci_core_device *vdev)
+> >               goto out_power;
+> >
+> >       /* If reset fails because of the device lock, fail this path enti=
+rely */
+> > -     ret =3D pci_try_reset_function(pdev);
+> > +     down_write(&vdev->memory_lock);
+> > +     ret =3D vfio_pci_try_reset_function(vdev);
+> > +     up_write(&vdev->memory_lock);
+> >       if (ret =3D=3D -EAGAIN)
+> >               goto out_disable_device;
+> >
+> > -     vdev->reset_works =3D !ret;
+> > +     /* A provider checks at bind that it can reset the device. */
+> > +     vdev->reset_works =3D vdev->cxl_ops || !ret;
+>=20
+> I suppose, but why is ret not still a valid indicator?
+
+Hmm, yes, ret is the valid indicator. I will remove the function so this
+part will be moved to the earlier version.
+
+>=20
+> >       pci_save_state(pdev);
+> >       vdev->pci_saved_state =3D pci_store_saved_state(pdev);
+> >       if (!vdev->pci_saved_state)
+> > @@ -846,7 +905,7 @@ void vfio_pci_core_disable(struct
+> vfio_pci_core_device *vdev)
+> >               if (bridge && !pci_dev_trylock(bridge))
+> >                       goto out_restore_state;
+> >               if (pci_dev_trylock(pdev)) {
+> > -                     if (!__pci_reset_function_locked(pdev))
+> > +                     if (!vfio_pci_reset_function_locked(vdev))
+> >                               vdev->needs_reset =3D false;
+> >                       pci_dev_unlock(pdev);
+> >               }
+> > @@ -1541,7 +1600,7 @@ static int vfio_pci_ioctl_reset(struct
 > vfio_pci_core_device *vdev,
-> > -                                     int bar, u64 start, u64 len, u32 =
-flags)
-> > +bool vfio_pci_bar_range_excluded(struct vfio_pci_core_device *vdev, in=
-t
-> bar,
-> > +                              u64 start, u64 len, u32 flags)
-> >  {
-> >       struct vfio_pci_excluded_range *range;
+> >       vfio_pci_set_power_state(vdev, PCI_D0);
 > >
-> > diff --git a/drivers/vfio/pci/vfio_pci_dmabuf.c
-> > b/drivers/vfio/pci/vfio_pci_dmabuf.c
-> > index c16f460c01d6..8606c15ab2fe 100644
-> > --- a/drivers/vfio/pci/vfio_pci_dmabuf.c
-> > +++ b/drivers/vfio/pci/vfio_pci_dmabuf.c
-> > @@ -260,6 +260,20 @@ int vfio_pci_core_feature_dma_buf(struct
-> vfio_pci_core_device *vdev, u32 flags,
-> >       if (ret)
-> >               goto err_free_ranges;
+> >       vfio_pci_dma_buf_move(vdev, true);
+> > -     ret =3D pci_try_reset_function(vdev->pdev);
+> > +     ret =3D vfio_pci_try_reset_function(vdev);
+> >       if (__vfio_pci_memory_enabled(vdev))
+> >               vfio_pci_dma_buf_move(vdev, false);
+> >       up_write(&vdev->memory_lock);
+> > @@ -2397,6 +2456,10 @@ int vfio_pci_core_register_cxl_ops(const struct
+> > vfio_cxl_ops *ops)  {
+> >       guard(rwsem_write)(&vfio_pci_cxl_ops_rwsem);
 > >
-> > +     /*
-> > +      * A DMA mapping built from the dma-buf would reach a range that =
-the
-> > +      * BAR keeps off mmap, so refuse such a range here as mmap does.
-> > +      */
-> > +     for (u32 i =3D 0; i < get_dma_buf.nr_ranges; i++) {
-> > +             if (vfio_pci_bar_range_excluded(vdev, get_dma_buf.region_=
-index,
-> > +                                             dma_ranges[i].offset,
-> > +                                             dma_ranges[i].length,
-> > +                                             VFIO_PCI_EXCLUDE_MMAP)) {
-> > +                     ret =3D -EINVAL;
-> > +                     goto err_free_ranges;
-> > +             }
-> > +     }
+> > +     /* vfio-pci-core never resets a provider's device by itself. */
 >=20
-> This should be rolled into validate_dmabuf_input().
+> What a bizarre comment.  Relevance?
 
-Okay, I will update this in the given function.
+I think this was edited in partial and left out during merge conflict handl=
+ing.
+I will remove this.
 
 >=20
-> > +
-> >       priv =3D kzalloc_obj(*priv);
-> >       if (!priv) {
-> >               ret =3D -ENOMEM;
-> > diff --git a/drivers/vfio/pci/vfio_pci_priv.h
-> > b/drivers/vfio/pci/vfio_pci_priv.h
-> > index 53544e0cbedf..09a68c99b43c 100644
-> > --- a/drivers/vfio/pci/vfio_pci_priv.h
-> > +++ b/drivers/vfio/pci/vfio_pci_priv.h
-> > @@ -52,6 +52,9 @@ struct vfio_pci_excluded_range {
-> >       u32                     flags;
-> >  };
-> >
-> > +bool vfio_pci_bar_range_excluded(struct vfio_pci_core_device *vdev, in=
-t
-> bar,
-> > +                              u64 start, u64 len, u32 flags);
-> > +
-> >  #ifdef CONFIG_VFIO_PCI_VGA
-> >  ssize_t vfio_pci_vga_rw(struct vfio_pci_core_device *vdev, char __user=
- *buf,
-> >                       size_t count, loff_t *ppos, bool iswrite); diff
-> > --git a/drivers/vfio/pci/vfio_pci_rdwr.c
-> > b/drivers/vfio/pci/vfio_pci_rdwr.c
-> > index 93823c6391f6..ef098f0b1401 100644
-> > --- a/drivers/vfio/pci/vfio_pci_rdwr.c
-> > +++ b/drivers/vfio/pci/vfio_pci_rdwr.c
-> > @@ -476,6 +476,15 @@ int vfio_pci_ioeventfd(struct vfio_pci_core_device
-> *vdev, loff_t offset,
-> >             pos >=3D vdev->msix_offset + vdev->msix_size))
-> >               return -EINVAL;
-> >
-> > +     /*
-> > +      * The ioeventfd fire path writes the BAR directly, without the
-> > +      * excluded-range filter of vfio_pci_bar_rw(), so refuse a write-=
-excluded
-> > +      * range here.
-> > +      */
-> > +     if (vfio_pci_bar_range_excluded(vdev, bar, pos, count,
-> > +                                     VFIO_PCI_EXCLUDE_WRITE))
+> > +     if (!ops->reset)
 > > +             return -EINVAL;
 > > +
+> >       if (vfio_pci_cxl_ops)
+> >               return -EBUSY;
+> >
+> > diff --git a/drivers/vfio/pci/vfio_pci_priv.h
+> > b/drivers/vfio/pci/vfio_pci_priv.h
+> > index 09a68c99b43c..dbede6e24fa9 100644
+> > --- a/drivers/vfio/pci/vfio_pci_priv.h
+> > +++ b/drivers/vfio/pci/vfio_pci_priv.h
+> > @@ -80,6 +80,7 @@ int vfio_pci_set_power_state(struct
+> vfio_pci_core_device *vdev,
+> >                            pci_power_t state);
+> >
+> >  void vfio_pci_zap_and_down_write_memory_lock(struct
+> > vfio_pci_core_device *vdev);
+> > +int vfio_pci_try_reset_function(struct vfio_pci_core_device *vdev);
+> >  u16 vfio_pci_memory_lock_and_enable(struct vfio_pci_core_device
+> > *vdev);  void vfio_pci_memory_unlock_and_restore(struct
+> vfio_pci_core_device *vdev,
+> >                                       u16 cmd); diff --git
+> > a/include/linux/vfio_pci_core.h b/include/linux/vfio_pci_core.h index
+> > 991a3fcd84eb..cb9ba92b696a 100644
+> > --- a/include/linux/vfio_pci_core.h
+> > +++ b/include/linux/vfio_pci_core.h
+> > @@ -87,6 +87,13 @@ struct vfio_cxl_ops {
+> >        */
+> >       void    (*reset_prepare)(struct vfio_pci_core_device *vdev);
+> >       int     (*reset_done)(struct vfio_pci_core_device *vdev);
+> > +     /*
+> > +      * Reset the function in place of the PCI core; mandatory. Called=
+ with
+> > +      * the PCI device lock and memory_lock (for write) held. The call=
+er
+> > +      * provides the saved PCI state the reset restores: the try-reset=
+ path
+> > +      * saves it first, the close path keeps the open-time copy.
+> > +      */
 >=20
-> The code immediately above this is still performing the open coded exclus=
-ion
-> based on the MSI-X range, which is now incorporated into the generic rang=
-e
-> exclusion.  It should be removed.  Thanks,
->=20
+> Reads like more AI generated comments.  These things like to talk, please=
+ curb
+> them.  Look at vfio_device_ops for an example how to briefly and concisel=
+y
+> document callback ops like a human.  Thanks,
 
-Okay, I will remove this in v7.
+I will update this. The remaining ops will be edited similar to vfio_device=
+_ops style.
 
 Thanks,
 Manish
 
+>=20
 > Alex
+>=20
+> PS - I'm still working on the remainder of the series.
+>=20
+> > +     int     (*reset)(struct vfio_pci_core_device *vdev);
+> >       /* Pinned per bound CXL device so vfio-cxl cannot unload under us=
+age */
+> >       struct module *owner;
+> >  };
+
