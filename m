@@ -1,82 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.15
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794983207;
-	b=WRbz6R1onq53SK6oJ65JYqVgsgLuTR5Q9/yvdhnLmebA7gLLrO5YZV5qc7AsWmuh4Qpo
-	 IEjJXWUMYYY+O4XfdJFLNlrLg92dR4J590iKfkC92CbD+Dx8EWvkbsa6H5/tnvet+woe/
-	 xVKaDpFEpEg+qwsE+F1v36C5/09OnqEGZ1Hpkmp1xioE3/JU7dT+WSnvwpKBlRrCjcuBv
-	 GnlIn6tHE0/f/TVgJZSwUuF6D73mh4dcVjAZxdQXIkJgD5KjLXrLtRGwqc4knUDzmqDFb
-	 j1JjN0ta018Wj2+4ci/6wimnS8nKn0mPggpALD+yNQQVp996PlXyb39B8zG1svEzSKQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794983207;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
-	 User-Agent:MIME-Version:X-ZohoMailClient;
-	bh=wChTs17w/kPirEcR5u/gSY+8kUIHSjZ+Ainq8hP8/TU=;
-	b=WIaXSXEpUgY6FultC6cZ9Qs3etIo99mM8+dhsNfFPRDFtHkSZEJ9A1e8kzaoI6L12SON
-	 P9Zu8EOVti1fwMSlLt1Jh0r7xQxykP8H2gu5Fft5YoaX4V0vB5jCS5f0TmGu+P8KyNRMY
-	 Co4rNPSd+ZAFWxH2eC9RTXU6FL1+3DBG+ztHwsZYopaETsrapg5ygdKVZo5H+iJwq7Kq+
-	 edLGHOb5wDxxfkhrNHzr/ccqNbreZBFTzSse7sBjRvDHI/VHdBOHPgZon6v+rhcV/1Uc4
-	 VWbFn4mM33K9EERhXRDnk7E3IyHLGDsbVWdfdMWwG+0IquoiYO4Lk6nR1H04FFcFl7w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=icenowy.me;
-	spf=pass smtp.mailfrom=icenowy.me;
-	dkim=pass header.d=icenowy.me header.i=@icenowy.me header.a=rsa-sha256 header.s=zmail2 header.b=VVy59VhX;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.15
-Received: from sender6-op-o15.zoho.com (sender6-op-o15.zoho.com [165.173.180.15])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.52
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794983245;
+	b=cJO74tikhqTsT3IuiEuvL46usCYLjMVrVVAI2xVtuCOuSKmVarF34eURB7W9rcUryd+F
+	 aFyBuUZeD4ldyGLYDvkVmQxb30SKvOzmGVnOW1oP9v0g6HXg+90HgNntH2MCJ6aFwZ5di
+	 4NptA9ZJXA/fiZKHK+YpHXsLbf945q3wPl+LcHKoMAKuVJmBiQXPtTCLFivv1rJQCm6Bk
+	 Jfv9B2ApX73nhdN35NBhN5Wl9Z8oKNLWpXppuHtslIZjG1L1JYKPSJRQUsd6Cs+LpzQqn
+	 bW+3fx5Uje0vo5y6EOyP0cyzDPsnFFME/q6SeNtj4YGxDh4ymiX+mNXTnPLRsyrwRdQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794983245;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=7z2zaD9FhGQE52XLgJ6ugKxfSiH1puWP6hppmumNUXE=;
+	b=dX9VwtK65KiT1F/R+FjRQRBtEr7B3hLsWcXtpNA3zfMGyXar93FV+KaCfskoCKPndo8/
+	 7+X7TE6JSOIj5Bg3Mkh3IDsGHks0QTT1k7dMvdf5o8ivm1Y3c9v6Fw6VE6cAH6/OhhXbC
+	 OiCLEwh0Jb+2RzM2A1Dpj5TlSJ7dvbs8WlyBXr8LuWN/jDZBscyZqnrEvXDyQucUVf3Z0
+	 87tpyVQu+qoQosPDvvsEQoOcuOzXIeovLcZK/VyPtPH58envFNbRwYy7rQ6c8mnC7mm/l
+	 c2t10oY/2GwVkFyYfvVFJCpKVwEaar7jIox4ZluafvaSDUUFgfZl6UPP2rizbfuN6OQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=x7IwsRBo;
+	arc=none smtp.remote-ip=74.125.82.52
+Received: from mail-dl1-f52.google.com (mail-dl1-f52.google.com [74.125.82.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1AD7B606A31C;
-	Wed, 18 Nov 2026 06:26:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1AD7B606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=icenowy.me
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=icenowy.me
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA03C606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:27:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA03C606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=icenowy.me header.i=@icenowy.me header.a=rsa-sha256 header.s=zmail2 header.b=VVy59VhX
-ARC-Seal: i=1; a=rsa-sha256; t=1794983169; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=II/905t/7s1Bx2boCuHu/7QbYxEz+LgQLzRgga2Y2iNyT2iRlg8cYn/Sh9TeD5z/IL90wCBleYcN4uCdvRRdJWYm0Pe9kseSvuF+VxCLh/PiQIJ2Sop7S61eseKeZAFVwM45ji40cwP5T6E+zjOxc0L0Is0EmgpbeOK80P6RxF8=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1794983169; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=wChTs17w/kPirEcR5u/gSY+8kUIHSjZ+Ainq8hP8/TU=; 
-	b=JHhEy+7gRq7N9dwaoUeNiKRqY0KJCJLsbz8t6/Pe733vDBJY95QQy2YA4pEObW2cVV+hem/rSgnNqxoQREvZkpFCldM9ywDm55k+ifV9oZGcLcKN2B4KTyCnE0vsaJmkZvroWUEUeWnH3UCK6H7cQRIPt3RI4uotr2mnhSuw9+w=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: a=rsa-sha256; b=VVy59VhXnd3NmcMyl4P+5fUkpk/NxP74/38dN0hJ+TQz/hJRSel3AlhuVs3d/fK1E2tFmbhkQDSBM1TV4GVn2/7pfJA/9XwedNA79MvxorYEBvSwPUQRCt0ycWmlie/UDgtBmQo33Fen2oDdQlfLCFqZ7AR/7o9x0LVKLGajmZ5aLlMvq6LptGs0TFjZL059B/PhrEN0uOvchMxc4njgNPo79UEfQjr2XHNv2Xk8VOyFVCxGWDWy3iZly+wsvucrZp8+Y43R8s3mVJ8BTti0VsnU+F99NOR7xxRYC7RDwQ85J1Qz/dp0axDxmlGdwmeMTkquFlKPQ1+8/JUes9R34w==; c=relaxed/relaxed; s=zmail2; d=icenowy.me; v=1; bh=wChTs17w/kPirEcR5u/gSY+8kUIHSjZ+Ainq8hP8/TU=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1794983165898478.8118549869997;
-	Tue, 17 Nov 2026 22:26:05 -0800 (PST)
-Message-ID: <9d97d5dbcc619a9c52904ff8c6704a91fe8351e7.camel@icenowy.me>
-Subject: Re: [PATCH v2 15/17] riscv: dts: spacemit: k3-pico-itx: enable the
- DisplayPort output
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Guodong Xu <docular.xu@gmail.com>
-Cc: Cody Kang <codykang.hk@gmail.com>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard	 <mripard@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring	 <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley	
- <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, Vinod Koul
- <vkoul@kernel.org>,  Neil Armstrong <neil.armstrong@linaro.org>, Haylen Chu
- <heylenay@4d2.org>, Michael Turquette	 <mturquette@baylibre.com>, Stephen
- Boyd <sboyd@kernel.org>, Brian Masney	 <bmasney@redhat.com>, Philipp Zabel
- <p.zabel@pengutronix.de>, Paul Walmsley	 <pjw@kernel.org>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou	 <aou@eecs.berkeley.edu>, Alexandre Ghiti
- <alex@ghiti.fr>, Yao Zi <me@ziyao.cc>,  Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?=
-	 <u.kleine-koenig@baylibre.com>, dri-devel@lists.freedesktop.org, 
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-phy@lists.infradead.org, linux-clk@vger.kernel.org
-Date: Wed, 18 Nov 2026 14:25:38 +0800
-In-Reply-To: <f4b8c87eb0676500661ebea67363ac27.docular.xu@gmail.com>
-References: <20260809-k3-display-v2-0-327d7910bf71@gmail.com>
-	 <20260809-k3-display-v2-15-327d7910bf71@gmail.com>
-	 <576146d4f2752c3c3f6ec6c42812cb9956406383.camel@icenowy.me>
-	 <f4b8c87eb0676500661ebea67363ac27.docular.xu@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=x7IwsRBo
+Received: by mail-dl1-f52.google.com with SMTP id a92af1059eb24-1a3c08d6928so970005c88.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:27:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794983244; x=1795588044; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=7z2zaD9FhGQE52XLgJ6ugKxfSiH1puWP6hppmumNUXE=;
+        b=x7IwsRBoydcdMDD+Flq5s/JnPlKTEaTAsAn2nfIjGaw9MBXsSkA2Nfw1JPuT/ZsYiO
+         HFnNJEA/pLadXhW1Es4LkjsSrJk5cCs6GzQANCXo9CK0HEkNqwyA79/NvxV2VT1qN5wp
+         ykphWF/0eZ+abm4urq7bmJ5tU3rsxPO0CwuSGB6CCcg0u09knvlleABa3/THBgY8JxSS
+         k2yECAxi+hhOeO3KlJ/e2Y8XcfRLPLHadbCyN6f/pSkmNQU1Cs9yOgAA0h4mih9uOzBZ
+         alWCisxdNxSdOk1hpRZvy0cA7ejdlDqC4Y++CwLE9zby1T9bxWTadwbAH7oyzSQNKuwW
+         4rPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794983244; x=1795588044;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=7z2zaD9FhGQE52XLgJ6ugKxfSiH1puWP6hppmumNUXE=;
+        b=M1sW02tOSCppPCpfAdZky35PVfw31qx2Wkj73u7X2HNAjfzOWVDgw1AAATWyA6lfXz
+         Awvg6UNlfdVe2cAqNZ3sYqup/NQER0fd/N6LipFTWMMiX3OJF0WpvAeLInENis6wJbje
+         GxU2oKVIOlecTWFi81UegZm8ILipxenKrcqEY2eynRsIkdTmYWR04aRMn1prsQc6b63D
+         qLPmBZHCUqI/LoztU1Bbn7tyvKJievioCQYUybNrog1CQBh8J3d9P8QkA/qA2GK/7RH6
+         41glM63SDXM1V2Wk29oC2y2DCwVOQQpWoSQyRt+XBc39w8kaHu3uE+v9185kd2VA32CH
+         Dl2w==
+X-Forwarded-Encrypted: i=1; AL+hErHIi+S+FakpzQIhfGKSrLobCqiFp6lK8asBVFqFQXYVAoCjxkF1xFlL50GJqLsRvk5ZRM2W8IaXkQ3oPyY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/LaNmgI8smI/HqpDdVAkz0mAKo2fWLGs4VGC8AbBlT0EVLIfyi
+	GpbpZfz+wnavLP6mjRsJi5ShN2PQQSjqwIJJVOZU83s5dsaSoZx52wWb
+X-Gm-Gg: AYBFou3pJT5/q3TnV2tlh9XJ/PcjA6P3nqfmQij4JRCOE3Ra1ise5mFbmXSV2ABb4s6
+	R3GkCYoJyBToPLJIgjnlpie24bosHhdDmDJ+At/JcUlOPrvhspmrupDI2C2cdTZlzrmXt/Wacaz
+	uhHMsej4rYHCpFgGkYjxciycVCKAh03ETzlqgVj+tJh/MMAjZrnYoZBpzo6pZpjTLSqBvHda3QV
+	XlsYgZhnHZP0Mj33qj7qmCr+u6aiD6Jtu9JwzUoO92CF4y1/o51Ofcns5Kb5E+ffJ9N68CH8N2C
+	0eon6WPvG14lwAoUb2Y2jiYkFnlG1KV1AtpxeKIgvOhLULaS1dvg1Ltm9cfwWiMbZqfU0A096zB
+	EFkIMS+ujxKe30W8yUQfDvmkuI48OBDJ9CzXEvD238fpuybbvPkFNTaUR+CPrxb/C15wWPSBWii
+	onHgKNkR89t5mfqNv98LW/Kec081td6lfOlHce+7heckq+3lwUs2WmDNfAH47iXQ1WOLFRXdPhz
+	lnmdXpvBlykZ8ueyenEc4Sfi6bf57fqPOJ3HgAP8xGYTg15uxYQIFJ9kjYMKieKiIjs3Xl27gU+
+	8jqVn6XWPmxAiwRdvt3XwAm8Rli5OsAE0ugjbi0=
+X-Received: by 2002:a05:7022:b88a:b0:1ab:faad:cba with SMTP id a92af1059eb24-1b543d06698mr1557626c88.34.1794983243728;
+        Tue, 17 Nov 2026 22:27:23 -0800 (PST)
+Received: from kq.cs.ucr.edu (kq.cs.ucr.edu. [169.235.27.223])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447f4eafsm3608663c88.14.2026.11.17.22.27.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 22:27:23 -0800 (PST)
+From: Zhengchuan Liang <zcliangcn@gmail.com>
+To: "David S . Miller" <davem@davemloft.net>
+Cc: Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Zhengchuan Liang <zcliangcn@gmail.com>
+Subject: [PATCH net-next v2] net: avoid hashing the namespace pointer for device names
+Date: Tue, 17 Nov 2026 22:26:52 -0800
+Message-Id: <c9b3c1a0e3410ffa70db448e2299ed420528b5ff.1794981913.git.zcliangcn@gmail.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,39 +99,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 8bit
 
-=E5=9C=A8 2026-11-17=E4=BA=8C=E7=9A=84 15:51 -0500=EF=BC=8CGuodong Xu=E5=86=
-=99=E9=81=93=EF=BC=9A
-> Hi Icenowy,
->=20
-> On Thu, 03 Sep 2026 20:09:42 +0800, Icenowy Zheng wrote:
-> > The connector available on the Pico-ITX mainboard isn't a
-> > DisplayPort
-> > port -- it's a USB Type-C port instead.
->=20
-> Right, it is a Type-C receptacle, and the commit message should say
-> so.
->=20
-> > I think you need to model the Type-C port and alt functions of it.
->=20
-> I am not sure that can be done on this board. The redriver/mux in
-> front of the receptacle and the PD controller that steers it both
-> sit on the EC's own I2C bus, and their interrupt goes to the EC too.
-> The SoC has no bus to either chip; all it gets from that side is the
-> DP1 HPD line.
+dev_name_hash() salts device-name hashes with the network namespace
+pointer. An unprivileged user can time SIOCGIFINDEX lookups for chosen
+missing names and identify collisions with a resident name such as "lo".
+Ranking this collision pattern across possible KASLR slides recovers the
+init_net pointer and thus the kernel text base.
 
-The ChromeOS EC firmware exposes some control for a Type-C port, you
-can search for `google,cros-ec-typec` and `google,extcon-usbc-cros-ec`
-compatible string in arch/arm64/boot/dts for more details.
+Use an unsalted name hash. Each network namespace has a separate hash
+table, so this does not change lookup or namespace-isolation semantics.
 
-Although the K3 Pico ITX hardware connects the EC to the SoC with some
-not-so-embedded interface (eSPI), which needs to be handled first.
+Found by AI-assisted code review and reproduced unprivileged on an
+unmodified kernel without fault injection. The reproducer and networking
+selftests pass with this change.
 
-Thanks,
-Icenowy
+Fixes: 8387ff2577eb ("vfs: make the string hashes salt the hash")
+Cc: stable@vger.kernel.org
+Assisted-by: LLM
+Signed-off-by: Zhengchuan Liang <zcliangcn@gmail.com>
+---
+Changes in v2:
+- Pass NULL instead of net_hash_mix(), which would expose a seed shared
+  by other per-network namespace hash tables.
+- Target net-next, as requested by Eric.
 
->=20
-> So a usb-c-connector node would have nothing to link to here.
->=20
-> Guodong
+v1: https://lore.kernel.org/all/62774f8c6cbad549d1a95f88df99ab7745d7f6b8.1790917676.git.zcliangcn@gmail.com/
+
+ net/core/dev.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/net/core/dev.c b/net/core/dev.c
+index d88af07aea29..12100fbf9022 100644
+--- a/net/core/dev.c
++++ b/net/core/dev.c
+@@ -195,7 +195,7 @@ static inline void dev_base_seq_inc(struct net *net)
+ 
+ static inline struct hlist_head *dev_name_hash(struct net *net, const char *name)
+ {
+-	unsigned int hash = full_name_hash(net, name, strnlen(name, IFNAMSIZ));
++	unsigned int hash = full_name_hash(NULL, name, strnlen(name, IFNAMSIZ));
+ 
+ 	return &net->dev_name_head[hash_32(hash, NETDEV_HASHBITS)];
+ }
+-- 
+2.34.1
+
