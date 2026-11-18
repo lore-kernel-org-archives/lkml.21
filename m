@@ -1,79 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.14
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795001849;
-	b=VY0OaD6v++QEiw/kq1ruUJu7uWNUOcXsIDFag/Y48bwI8OsokIu8l+k0gBBhjo6WiLsn
-	 6ktGdE7wIJqlB7fK+Skoq9AxnnbDtienWLkOtc+9Ll8yGeUfPY7Y/zmVBFduYXmEBwucc
-	 nz26mxyBn4Dy05BCcrWNy1rzx3tTA+nGfvBqaxWpJhTn+YGS2jzQkFk44g59VldY21ZRi
-	 RQN2d36l4TwiqOZxOWjjlpT/D5dOH7yTpZbu8nx7w0NLv7wjF/dMwDhyc+i+5JYHfKNfd
-	 TSonnuEi/3cTJVSgEbUzERDfQ3/ygbxxuOVpeooN1ZSXTPsTcFJd1wCRc9W4/na4RHw==
+	t=1795001885;
+	b=Io26KDD9qgJvMcQrydfAB+JZR+b5qOnpSKZzOW5VHUYlktsiNpflSelDz1Yza3i4iBju
+	 TTO7hjcisGD7Kct6LL7jfBu/XmD0ksLnX2XQ2YIfEwWxlgMUK9NnhJT04ZQyJ4BiTh+Hl
+	 m8u4UlRr8FexujHnNoBUi6yrxkMkuRTEW2GSrj0jTZVVT3Q0lnG/zUu5xr3iDmcGCUNS6
+	 pwZqcY+yUuqKqzvh70m6Xifexx/YXiEt+fXrje0y9u0C0pBOvolctwnbAK49dDQGlw61I
+	 vLmlTQssWKi8Lz4kGZPtAK3eOySTPW8GbXGnuRq7P5rcBhZPKrikSuMH/NVDRujJZxA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795001849;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=jF8l6au+qW0mhT4ujwQ3fTVPLxWplhmpuA8FoIYYSu4=;
-	b=be/L0AjE2K36TuNAFRsw12mA2MI3BUWyHfr4YdlCM6XK5YrWSO+stOBs0Jtzf26R/P55
-	 4g/aczrQSBP6pOax6j3tLwEbGyLEe06C8m50iQELfQ9CAT3ulvBC8BZVkEF7sstoQ94vn
-	 JRsh2UGq+TL0NPamA1LkQjkc08VJZ9op3AGXWP8Zml9yWmO1yqXfzI4Fgmfi853IvLuOt
-	 zvfVetTsqvBlFu7qU0hY66vZ0FWV6cd1C7ug55ZZ8Xc0qBkMXwkf2Zs/fONGKYON4NxBT
-	 C86k7ow9UPFZWoKBOdbzLanLQByx5GuLzppKB7SeGjIYxGkP4kkbohwQQdDniaNs09A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795001885;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=AZ7qkD0L75OuzyZ7+z/b4gyTaud+oMoBaIWST7AAwg8=;
+	b=kmkdSxugi/03TLNwrelcagyI9gV1/0/+8YngLkDeFrw+55H7NuCB9jQg5tgExiyuk5pe
+	 RAbs5hOTfOGituZyRWHtZ+oals1FYxrjt8tVm/pLLWlDR58+mcKZxVu/ELRt9L9GoSgks
+	 OavWw5Drr60cl3JEJPwC7xlRoV1B/9XrtLCyyj4cWhucsvf4a9LmXCnpgGfK0+5316EAT
+	 VlNYONXChLa8l5ruOONKmIdyXDzRHWFbn/TwloX2ElzNvhNAzHQGZ3tLfuOH7lZeQZt1o
+	 Ug6SCTVq8X+V2C2QEVcxori8JjS+zYqRBBCjMC6cwpvQXFw+V3Agpgzp5xqqy9KL8CQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gIj27hs+;
-	arc=none smtp.remote-ip=192.198.163.14
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.14])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=v+7og4LC;
+	arc=none smtp.remote-ip=209.85.215.178
+Received: from mail-pg1-f178.google.com (mail-pg1-f178.google.com [209.85.215.178])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C228B606A320;
-	Wed, 18 Nov 2026 11:37:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C228B606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7D8260A2612
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:38:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7D8260A2612
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gIj27hs+
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795001848; x=1826537848;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Yh+KpAP41gGxV7MFLK9TOv5pTo3pj/yyBQtvn0T/3bo=;
-  b=gIj27hs+6m9xS+Q4AiY0l9EySh8kVW9InhAU+M0MxPHI2FCnL4Iy62aa
-   44IJk71H0ShCN9+WCbqWvjd2zpA/F03vj53atXCG7rD9/YvCaRrgaulmn
-   Bm1P2FFo/9zd/XdAOnIR2lvwswHLo97iU9uvkbcqp/zXIHvcmZuemE4ct
-   Hlq3mdAL6MmwYnvgZOagFkNhYmRGK7IzVuBe06TKyXxiepufJsqkvRJOj
-   OTQZj6uP/+37FWCj6FRCCkZmh00zw/G1WR/ehcVqsOD6bWthoPsKKpLoa
-   E8tTBNW+tcKRfAoviKE5A3qQDed6blSrg1Du1vjMYERof6RnRTWGii3HF
-   w==;
-X-CSE-ConnectionGUID: USMNTVSsSGuYbylByFWZzg==
-X-CSE-MsgGUID: sUJYutE5QyWxI7qpHGpTxA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3695898"
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="3695898"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 03:37:28 -0800
-X-CSE-ConnectionGUID: OgMj5SdYT9+JKMQFfKNUTA==
-X-CSE-MsgGUID: r3Qv7R0XQ8u2O21l2IblyQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="10131779"
-Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.157])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 03:37:26 -0800
-Date: Wed, 18 Nov 2026 13:37:23 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Volodymyr Chapman <volodymyrchapman@gmail.com>
-Cc: sakari.ailus@linux.intel.com, mchehab@kernel.org,
-	dan.scally@ideasonboard.com, hansg@kernel.org, andy@kernel.org,
-	gregkh@linuxfoundation.org, linux-media@vger.kernel.org,
-	linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/3] media: Add Sony IMX175 sensor driver (Lenovo
- ThinkPad 10 rear camera)
-Message-ID: <av2N81gHOXYpaV-C@ashevche-desk.local>
-References: <20261116175151.20150-1-volodymyrchapman@gmail.com>
- <avwnh1o6rFzayxkj@ashevche-desk.local>
- <20261117175614.11710-1-volodymyrchapman@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=v+7og4LC
+Received: by mail-pg1-f178.google.com with SMTP id 41be03b00d2f7-cdb2893531bso630101a12.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:38:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795001884; x=1795606684; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=AZ7qkD0L75OuzyZ7+z/b4gyTaud+oMoBaIWST7AAwg8=;
+        b=v+7og4LCpbgt8zqV0qGj5L5k9LpgFcD0H0EJlsFDgNHGtKS0F9k3naOHe+9i/2bWeK
+         fPnCiGrJ1oREJ2+h9P6ZKwmoSXSZwgkiENGzo78/EZxbAgOUuY7qaBdPUhqxxdZAdfMn
+         PINW7m5SL8HOai4MWvu+6qrQ3a3gdYcAWvU+dqtYCKFjQTTY/LjyJEp9BT2ogV+kY6jV
+         wQwSCQwUH1MCU09yI/qoVnTqk+MsQEBxxK++4yao1W4KqJSdklyQ1POSzEjEu3h4QkPN
+         R0NvlLmgEt57FkDf2isa3IkqaEuFkxQCgoorgkuw6Irqm5R4d5NvSZmko/MjOATcgF/l
+         X1Ew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795001884; x=1795606684;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=AZ7qkD0L75OuzyZ7+z/b4gyTaud+oMoBaIWST7AAwg8=;
+        b=p1cHdXw/wHCOggk+3pwMv46w4TB7FQBF32S6r1J2oYz0K9GnRMo3QXEaWurLERF4Nx
+         fvmWfrlqp/UuWsEte+8ww6oK1yr6yqKxbnnDW4AAEwyYNsjFtXy5YxV7HfdcBodOKltQ
+         KCDaPZbWFr45Z3wQ+BXz4lVzKnORLlI8XDBHVDuvtPo4sfhsbkbBoYqyt9/fGC+FY+oy
+         YM++Tpe5iL0ZC0lOaDbdF66FIBcSYkP1w6QErReSpDIglekRWOTBiR9Iw8iLyzOGIvha
+         KoMDTN5o4WoT1avqidMkMLh/mvKXtKVI70gTxwCVbfccHpTJpeQ7Btbg+gpZgqv0mhPS
+         K2tA==
+X-Forwarded-Encrypted: i=1; AL+hErG093Ze4y7iFz0Iha7Am/S3+4z0838yDOzhUD9HHoEMCsGvOdtocOCIISC8ECp1CBKb04BvJqEaRNZSDaU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9qL7kPtqwifvbrgEQFOMmM4hkzCDFfzDOez9AhU2zNsZWZmxPh
+	C+I2mSv9SpB7J5OuDo+a4tCYEfJPhGBVHYNVXBCzaNu+y6URDoA8eGMB
+X-Gm-Gg: AZFdTZc078a+Le21U83hOpENPEu4i276e1rpyCbs/sw3GiOmhWw92vy+ptZeoRCBYHg
+	MG1BqQllDZap/zJXK8wijaHd+MVyePIsq8aeaPXE6ILsq7v7hyVL23GbPeCk27NcFJEk88mekMC
+	lnkmg8bwDjDgMDtqitwXRKLOPWwH7Nh/E1BnKcfvjrS2UITNDNeQEq0LxW8CnB6AIRPw/xM+fPO
+	T+jvqLBReEByILiTBZfHlV0gbn7BKGdqDLnu35TwlTnHhVdJ70J0+R+GYtxvsvM7GKjSenUVKu0
+	qCUJEwjeaFduTTDkgGevktdyu+2Q6cDT5dhIKvkNN+23F+QirweujgdRj0VklRHq7ebLYAMLFtO
+	LKzYQET342WgVJ6n9gOYRTEybcAoUrcDmJ5Mglpg8LmLWXphwblKQK4NQFMVozXH+WTmFspGmP2
+	+bL3yeQFs05lDDG4DcJ16UGbdWWjt+9GzZE0F7bp9LbKQruiogQp7ny1OJ6XfVRELyxHNoXBvpD
+	uKSl/1V39X5BnlLdGNz6QaBxeDDJdlaGb9r+buhbQZYfPgJu+FG/1YMW93IWq+n5ta6UQALjmup
+	qiHhYMfxeF6n3KHsjUnKP5i4OIXSECs7GN+IO9e51NjZxqzLqpbaGNyuXxYMCMJFaNn4wOMMAWH
+	IUo20pciBFCM=
+X-Received: by 2002:a17:90b:5407:b0:3a6:e901:e79b with SMTP id 98e67ed59e1d1-3b3d074d841mr2303560a91.15.1795001884103;
+        Wed, 18 Nov 2026 03:38:04 -0800 (PST)
+Received: from 1.tailnet.ftu ([1.54.0.190])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3ac254ba6sm8950084a91.4.2026.11.18.03.38.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 03:38:03 -0800 (PST)
+From: =?UTF-8?q?Tr=E1=BA=A7n=20Trung=20Nh=C3=A2n?= <nhan.094.vn@gmail.com>
+To: Peter Griffin <peter.griffin@linaro.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Kees Cook <kees@kernel.org>,
+	Tony Luck <tony.luck@intel.com>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	phone-devel@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] arm64: dts: exynos: Add initial support for Samsung Galaxy Note8
+Date: Wed, 18 Nov 2026 18:37:19 +0700
+Message-ID: <20261118113756.304373-1-nhan.094.vn@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <CADrjBPph5r0rjZPLz7db9-QtmN5+7S2Ft8Zgn1oi+C0Okvas_w@mail.gmail.com>
+References: <20261118-upstream-greatlte-dts-v2-0-bc2f23ce81c6@gmail.com> <20261118-upstream-greatlte-dts-v2-2-bc2f23ce81c6@gmail.com> <CADrjBPph5r0rjZPLz7db9-QtmN5+7S2Ft8Zgn1oi+C0Okvas_w@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,51 +110,64 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117175614.11710-1-volodymyrchapman@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 17, 2026 at 05:56:14PM +0000, Volodymyr Chapman wrote:
-> Hi Andy,
-> 
-> On Tue, Nov 17, 2026 at 12:08:07PM +0200, Andy Shevchenko wrote:
-> > > Not supported: the voice coil motor (the firmware does not name its
-> > > type) and the LM3554 flash.
-> >
-> > Why not flash? It's in the kernel provided by drivers/leds/leds-lm355x.c
-> 
-> I should have mentioned that leds-lm355x cannot be used on this machine as
-> it is: it only probes with platform data (it has no ACPI or DT matching,
-> and nothing in the tree provides the platform data), it does not drive the
-> LM3554's HWEN enable line, which has to be raised here before the chip
-> responds, and it registers plain LED class devices rather than a flash
-> LED class device.
-> 
-> When atomisp's own LM3554 driver was removed in commit f1aa35ab5943
-> ("media: atomisp: Drop the atomisp custom lm3554 flash driver"), the
-> commit message said it should be re-implemented with the
-> led-class-flash API if it turned out to be needed, so that is what I
-> did. The new driver binds to the same ACPI ID (INTCF1C) and uses the
-> same GPIO order (0 strobe, 1 torch, 2 enable) as the removed one.
-> 
-> I have sent it to linux-leds:
-> 
-> https://lore.kernel.org/linux-leds/20261116180809.26946-1-volodymyrchapman@gmail.com/
-> 
-> Whether that or extending leds-lm355x is the better way is up to the LED
-> maintainers; I will ask on that thread. In v2 of this series, I will reword
-> the cover letter to point to it. The VCM has since turned out to be a
-> DW9714 at the address listed in _CRS, and I have a follow-up patch for
-> it which I can include in v2.
+Hi Peter,
 
-You still can mention that the AtomISP specific LM3554 driver was dropped and
-the replacement should be developed from a scratch or using existing LEDS
-driver as a base.
+On Wed, 18 Nov 2026 at 10:51, Peter Griffin <peter.griffin@linaro.org> wrote:
+> Does the Samsung bootloader not pass a correctly populated memory node
+> for the device? Or is this required because UniLoader doesn't pass
+> along the memory node it received from the previous stage bootloader?
 
--- 
-With Best Regards,
-Andy Shevchenko
+From what I can check here, it's a bit of both. S-Boot doesn't build
+the memory node itself. It loads the DTB from the boot image it boots
+(BOOT, or RECOVERY as in my test); it checks that a /memory node
+exists, and only fills in the bank at 0x900000000
+(reg = <0x9 0x0 0x80000000>) when it detects 6GB of DRAM. The other
+three banks have to be in the DTB already. Samsung's own device tree
+for this phone lists them and leaves the size of the fourth bank as 0
+for S-Boot to fill in. From
+arch/arm64/boot/dts/exynos/exynos8895-greatlte_common.dtsi in
+Samsung's kernel source release for the Note8 (SM-N950F_PP_Opensource,
+N950FXXSGDUG6, on opensource.samsung.com):
 
+	memory@80000000 {
+		device_type = "memory";
+		reg = <0x0 0x80000000 0x3C800000>;
+	};
 
+	memory@C0000000 {
+		device_type = "memory";
+		reg = <0x0 0xC0000000 0x40000000>;
+	};
+
+	memory@880000000 {
+		device_type = "memory";
+		reg = <0x00000008 0x80000000 0x80000000>;
+	};
+
+	memory@900000000 {
+		device_type = "memory";
+		reg = <0x00000009 0x00000000 0x0>;
+	};
+
+The DTB in the stock SM-N950N BOOT image (N950NKSU5DZE2) has the same
+four nodes.
+
+S-Boot does the same on SM-N950F: the device tree fixups in its
+N950FXXSGDUG6 bootloader are the same code as in the SM-N950N
+N950NKSU5DZE2 one. Every Exynos Note8 ships with 6GB of RAM, so the
+fourth bank is always filled in and the DTS doesn't need to differ
+between them.
+
+uniLoader then doesn't pass that DTB on. It boots the kernel with the
+DTB linked into it and only adds the initrd properties to /chosen, so
+nothing S-Boot wrote reaches the kernel and the memory node has to be in
+the DTS. dreamlte and starlte do the same for the same reason.
+
+btw, the name's Nhân; Trần is the family name, and if the convention is
+to write first name first, I'd be pleased to adjust!
+
+Thanks,
+Nhân
