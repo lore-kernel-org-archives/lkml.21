@@ -1,84 +1,84 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794962939;
-	b=Frr1mnE/LdXa05p8WQXqdAtg23/SZ5zjLtrJmr8u4RNz189tvVw9z49ZM7XTKVH9/uND
-	 tZqBihRM1Jh5qYlD4jVIRwBfjfBR7LBB4KEB9v+XeeuUQzjUDgaSuZtQT/wI3PAT1oOhS
-	 cuPxv0YboZSwWfad1uvHJDl9D6FE6+FCuPc8nYp+gX9R1vjb3N4OB8LoPQ8+leW2gw/nO
-	 v2lC1j7/jgFcoxgk1T3hqstE9HnUN8tnLnkFeElpOe0I3dIDZ1/ltJoCfwGeHIMJAojZB
-	 PIcIXpcN18X8IUW+f3W9QfJY2LoDC0M9qsPJLGcLha/lsExEYBI3puv9E5e46p/byiQ==
+	t=1794962945;
+	b=ZU0eSsCiGbZVKF5aTPxEefAiTUxRdwAAHR6A56/PeNC+B7IunOyIDUVONLtHNxfgEe15
+	 v+OdiOe5ncODhc2/CtJXaULoNllA7C11u/jA5SBasbuXJ6HJI0SyeXcZRWTQ8EBiI8xP5
+	 jbXVj+dccsNlzCvDuCtdbzMWXWXck2gM0Z09f5yEGh56LwrRBSpkghjZcyqMAcUW8xBW3
+	 2xHXeqyg2r3yKAfZnQoC9S0IxG8dNiA3jo4Y2E1fL8KDra9ZemN4ARC2oSFulTr0K8LHK
+	 TAeTjineD6j6nuEddoYto7pEZWVdxrBCLgwfp0xWY9XpCFPi6objNCAaIFyGFis/ZVQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794962939;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794962945;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=JT5GitO9guQMxmpDsN7N3JTT9ZwlLUCA63pj7Wlo4Ow=;
-	b=h6n7XPap7gJawscQJgvEOIYVqEjOSVZapVcf9yiEzGtpvqaCipDltuaC7DCn3XIXmHFm
-	 CPfqULG7pE/LbjG32Wbu2GiJOJ3mP6YRFuCm5RQEAQD09PZjcvvz21zuA51jFJes6wfmg
-	 MwEk50JBt5QOJaUiMD0ZubiiRxtImQB7uW66jSmtWNi1WO+oPyh/h813I04cVLwnaXBoT
-	 WSCrmK6pjxydwTb0D1iwuzWNLe7TeaMRbBRf/7KssK6TOFnUyMbfV+0sVAskKEzEWJ/l/
-	 VDa+zPVl2hUNwU00MxjHifD9UQdrXaimvkxrpRG100Vd+TUMWaJuFkeuRgsc5sW7s8Q==
+	bh=uygP09TWvScyICofwLDljYgom7VYS3wGkavE3BwU9h8=;
+	b=rh/zVnUKcdBMpGMTOOnm3Wq9rHFmAB4iKTTz2lkvJz/wofQ8Ynycq0XUuDCrC3mxsd8C
+	 1Q21U9icCFLSv8EqAlkKotE9U149tbnhyalsPHAiapHHotJ8eP3G0GjNvvOU9EbmxXFkh
+	 kMQVs0ESNLgSzJruSd8BJpXTArBDLz7FiJU4luik4Ypn/m1xxU2TFvYmN4kqmDbDNycHM
+	 RLnmQR72MyZQkCScmGCiB5t/8rUVoM3Szke3JVPWVIE/vwVXGfC98IZRyMVfPCq+8RTv0
+	 i17nOw87ch8OPSjnjESxGVqGGc6VOBeRcaNFehGagqxvOL2ZQTDTIcQbmlVZyNmGYEA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=dubeyko.com;
 	spf=pass smtp.mailfrom=dubeyko.com;
-	dkim=pass header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=gsVY7QIi;
+	dkim=pass header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Dqr3ni5J;
 	arc=none smtp.remote-ip=74.125.224.45
 Received: from mail-yx1-f45.google.com (mail-yx1-f45.google.com [74.125.224.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87558606A88F
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:48:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 87558606A88F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8240E606A334
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:49:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8240E606A334
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dubeyko.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dubeyko.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=gsVY7QIi
-Received: by mail-yx1-f45.google.com with SMTP id 956f58d0204a3-67db8985419so496463d50.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 16:48:58 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Dqr3ni5J
+Received: by mail-yx1-f45.google.com with SMTP id 956f58d0204a3-67db8985419so496533d50.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 16:49:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dubeyko-com.20260707.gappssmtp.com; s=20260707; t=1794962937; x=1795567737; darn=vger.kernel.org;
+        d=dubeyko-com.20260707.gappssmtp.com; s=20260707; t=1794962942; x=1795567742; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=JT5GitO9guQMxmpDsN7N3JTT9ZwlLUCA63pj7Wlo4Ow=;
-        b=gsVY7QIiaHuhXw9hDeLuIoiMd7+78YSHKcBI9sh7vklFBT18aPuLoJ/EvDFS5jWINs
-         A8A+MhYvjG5S5diQqSdSqdaPIkk5E6Dgqm3AFJ++EZdT0hD/zxy7599MQIFvC9ljaMBv
-         bc+x/vl1OKmKcsPcR15R+h9UaLmVgYRvE8285uSTgRJCrD1TJDlZCZQM+r4YG2t//5L7
-         JJ3H7a5uK7cr2zKAhn97lL6DVH/mXjcVgHNiDZzUPSO4iijb02o2X/d/fBRNOxAc7sIw
-         C4vQVo3ArK8dsDolaUO4laRWjoBDohTdoiBtEEeul4wFrboxl8AGWUj5m2Ng7jzslNRT
-         5McQ==
+        bh=uygP09TWvScyICofwLDljYgom7VYS3wGkavE3BwU9h8=;
+        b=Dqr3ni5JjgMu8kUg65eWevBO8hYO/MldUTZEDJdMF+7N/h4n0s+4fvDmy3RG7QoKRt
+         0Uw+ayj0sLeXkK+6jVTY1T3uH8wHy4z9m59RWo/n9SOppMcxcVEOJ4UBJYJx3Q/CRs2q
+         LznBcoWnqadFL0Wvz0LE0WlxwiAxcSMw5wa6JA5EOL6pj7kCOuULU/fQ9D8xxBmKBO0h
+         GIpCWLBPcP4zmnA7Ym3rICn1gv9IQn8w0/PymPyNWsggmYqzOFFsXEWcGG5vhwmrV80U
+         fQ9BHH8nYqRsrAAarBdYYQcHCZa9B40kaP38olItOGkpGfe53Lbvv7sXhQFHVwYewHCQ
+         Ambw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794962937; x=1795567737;
+        d=1e100.net; s=20260707; t=1794962942; x=1795567742;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=JT5GitO9guQMxmpDsN7N3JTT9ZwlLUCA63pj7Wlo4Ow=;
-        b=g2/49W0zgn7v8CCfcJeMSTqK1T9PmZ5VVySOl3C5Fe0ickSLB+iFGDiThAl6RBBGyz
-         lRyRuNL/tVjG/CKI5fqy2Y+BXbjH2LlyMYEZL9mNCBcqb4OlFQZ24xg7mFqXTRDuxs4f
-         adyymc4UAqFdikr29cpeDkYQT3NJYgB9yxqvLGdEUCg882r/SG/TYdrFJoxD+WJosPj5
-         ayamGWSdpqXVCFjJ006tPVErvAwYHGZnMiGoPQfK8NZcAQoGKLUUgPD+VKBAJkcdipbI
-         XIGoT9264RuOD4vu0Na12Sysu9WQR4glY1F6gaey2/JuVs9uaqPLilg6ltCslp7RsU8n
-         vTOg==
-X-Forwarded-Encrypted: i=1; AL+hErGQ+o/uKcd+22+5Wsla5MNHYRM5YNq1Z0lUgQrlGKskIgLiyqnCNwyVmLjQDptw6afoZE4zRhE82T1XNBM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Ifqo+KeCJpJbD4iORDGjhpTJ+TtvVNAFe3Rce7TXV4oW7Qv02
-	NjBVSYNpkEdIwAt2Gb/fhJUKrrGgXu+cP4Q6RfuoHr1C2oprxnhuOkcVWcOrLiynQDI=
-X-Gm-Gg: AZFdTZfugNaC5AFl17ywTtQesxTxbQlhDGblHWwIyqhZZDxExWz+Ja0qveq6HJhkfPj
-	9qnMUF85dfG4ZAR4UPnYQecEQL4TSLGBO8mKce7IPb3xxmM7IGpKh1X+Wr/1RURJy9Q/xLhG5/4
-	Kww+KV80jySODeaTwAmK5pSDHhSe0QKj6MJDHetNXItK60i2s3MNTuXRiEhTR4xB1ycEWSFg1or
-	qiRlmbmAWdGX+ApSIJl7u2BZqw6mrysfMYwVHgx+2N1ricp/TLI74Gy6AOp7WWFqODkuwPCBnPx
-	smCn5i1MwiRX794Ey1Kydw6EEqIkdj6VqVzOfTuw0DEktw/FpsvW0wuF4nECmoaFAMHzD/0di6C
-	zhABGzUI6BwuBZRauX4GgbO83jZqSrsId3ysMQyKRlC5uzikepo3l6vYZkr9pl6FXfWiPK41zxv
-	rKcGTgwcMQd9efMVGUdX3uOweM8sJlTj3x+3tUascihrVT83UFT/D5sDdhEHjK2FIuAyft1250c
-	QmAHam8+vfpG0blTjN9IcIcQF6uDaUVVk8VQnqXEJti50vhqHgi7fabaIyqrTWFnAuUvs7wZIrq
-	sDfeEtfKoRn/7BGe8aQ952xPpBEybHRHe5h6sXlqwKjspYYSRdwtppg3PpJtGoiVgXl09OnS/YT
-	V2NJvb/w81nF7IouArPoAB+A49x+1BRQ8bbjrr7uUnyswX3po3lR68B3vdPV3QppN8j4wAxw=
-X-Received: by 2002:a05:690e:1348:b0:67d:bb89:acd8 with SMTP id 956f58d0204a3-67dd459e236mr521095d50.76.1794962937364;
-        Tue, 17 Nov 2026 16:48:57 -0800 (PST)
+        bh=uygP09TWvScyICofwLDljYgom7VYS3wGkavE3BwU9h8=;
+        b=UJIjvNfTSKUp9kl9BODD3JGQBHW5XB4nMPbtC0Uex5gPUHQs1GfUCUk2BgxcjxqugM
+         6cJeDm7ks3Ccyag//oUF+DU+V8DkXcZ5VkpLN/EFDIx4BeJ5sAUoppiJrCpHryGGUI76
+         0xbwPgYwXDVEmv0t6H9Usgrbv+olAvCTOrMcEwaK3lNiDLG18G+WZb89bIW4K0lVNUXY
+         ZZ+qOIuxpVbszv68Nnl3Zsvkde13UTkz6zVJzYGRBRSjZKiZ4ep5/fEC/FKx+4oWEyjG
+         G6oz3mzAmjv2v6oyPzxE2aQ9KXlX9c3G+PkVPgAh8E8/HDnvEJ2MR0FCxy3gO/Po6d9P
+         if1Q==
+X-Forwarded-Encrypted: i=1; AL+hErFzUt+UYX2E4pUAfPCfGFGPBHWHefHsZDr4sIEKiotcI7A90VlW95j8pY1Qf1eNTkvdKmmFnoNdIV53vdQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9q0qssPek3yO+JY3AE8vYvyF6I6Ikrl+a3WbIER5F+Q7prFqTN
+	fWXwqEVDP3ePsEEnPIcff31BG1IRcagdFDZMgWRCurpyxYTZ0SghG2jLWdtqGh+ZutE=
+X-Gm-Gg: AZFdTZe9Ijbl/tZiHV7FUQBWutuy5+FnRtXpwvm+e0KhmHVHYrPwKokRKW8hc7Gr4RV
+	uXdHQOLdW8VFzWUZ6deRQOXKVZI9/YRWPWj6ECkw5+ApNhcgRGQdgfRFiNy79mGMZd2iU26BJF4
+	ml6bh5v//k9A89j4r9z+Z6b3OmsHbgybgk1jZMzvz31cBSposRsxsHZnRjo0yMal69xq+FlpQb5
+	0YBAklWu+RgHBrZ8FoEOQqnclnEPlVCrl8dv2BlQzRMVb+EhaAxg56myUMm+UJu7Gn2rCPVW5Fe
+	pIuH/r5kVyVFbWqHgZ0k+IZazpgDloGtl6BwplHl2QvNyWGUT5Q/R0Ex6Uu7aDp6X1/C/ZUII3n
+	7zT0nRanQ1UpzvgIVMZYgngvOUyEgPdXjG6MzhFFjkZVzcF4J8FOkzE53N/5KTh+hpqv2sur7Io
+	v2n6mVueLr+BJNBSWlAklaWNsdLrysAiHf6Kd0VBL7DZ2jjTqlLgmmeh41F3cx4VrQgNPnGidkt
+	T6s6UEMTDbicGIqQRB7IFdEOtB70tU7L0xo0ebcs7mMqsw4cBUC0Z7femYO9MGYsKLM2i/nGlHF
+	S35ew9FzYRa/CBjN5BGtJL9VPL4svXd7DaulYXqLQ1gwZvbSdXzlWcN7m9oYcDozU2ByuAMcBCH
+	N9byLYLCrYWwQMVnvZ7uXnE8EnoahmPSP39TQ1z+y7UI6ZyewbbL2mMUayh6VVGqMSIbqudU=
+X-Received: by 2002:a05:690e:12c6:b0:67d:ac2d:d821 with SMTP id 956f58d0204a3-67dd45342e3mr649464d50.44.1794962942572;
+        Tue, 17 Nov 2026 16:49:02 -0800 (PST)
 Received: from system76-laptop.attlocal.net ([2600:1700:6476:1430:5fae:4d02:7055:94ad])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67dd56ead87sm729575d50.1.2026.11.17.16.48.56
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67dd56ead87sm729575d50.1.2026.11.17.16.49.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 16:48:56 -0800 (PST)
+        Tue, 17 Nov 2026 16:49:01 -0800 (PST)
 From: Viacheslav Dubeyko <slava@dubeyko.com>
 To: glaubitz@physik.fu-berlin.de,
 	frank.li@vivo.com,
@@ -88,11 +88,10 @@ Cc: linux-fsdevel@vger.kernel.org,
 	vdubeyko@coreweave.com,
 	brauner@kernel.org,
 	linux-xfs@vger.kernel.org,
-	Viacheslav Dubeyko <slava@dubeyko.com>,
-	"Darrick J. Wong" <djwong@kernel.org>
-Subject: [PATCH v5 1/5] iomap: add iomap_dio_end_io() helper
-Date: Tue, 17 Nov 2026 16:48:40 -0800
-Message-ID: <20261118004844.3849979-2-slava@dubeyko.com>
+	Viacheslav Dubeyko <slava@dubeyko.com>
+Subject: [PATCH v5 4/5] hfsplus: return -EIO from hfsplus_map_extent() if no extent covers the block
+Date: Tue, 17 Nov 2026 16:48:43 -0800
+Message-ID: <20261118004844.3849979-5-slava@dubeyko.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261118004844.3849979-1-slava@dubeyko.com>
 References: <20261118004844.3849979-1-slava@dubeyko.com>
@@ -107,61 +106,68 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Several file systems implement an almost identical ->end_io callback
-for direct writes: if the write succeeded and went beyond the current
-end-of-file, update i_size and mark the inode dirty (for example,
-ext2_dio_write_end_io()). Add a generic iomap_dio_end_io() helper for
-this case, so that file systems don't need to open-code it.
+hfsplus_ext_find_block() walks one 8-entry extent record and returns
+the number of contiguous allocation blocks starting at the requested
+offset. If the offset lies beyond all entries of the record, it sets
+*dblock to 0 and returns 0. hfsplus_map_extent() ignores this and
+returns success, so the caller gets allocation block 0 as the mapping.
 
-The helper updates i_size without any locking, so it can be used only
-by file systems that issue all direct writes extending i_size
-synchronously (IOMAP_DIO_FORCE_WAIT) under inode_lock.
+This can only happen on a corrupted volume, for example when the
+extents overflow b-tree lacks a record for a range that is below
+alloc_blocks, or when the found record does not cover the requested
+block. THe hfsplus_get_block() then maps the file block to allocation
+block 0, which holds the boot blocks and the volume header. A read
+returns that metadata as file data, and writeback of a dirty page
+of such a file overwrites the volume header.
 
-The first user will be HFS+.
+Return -EIO from hfsplus_map_extent() when hfsplus_ext_find_block()
+finds no extent, for both the fork's first extents and the cached
+extent record. The iomap conversion later in this series relies on
+this too: __hfsplus_iomap_begin() derives the mapping length from
+max_blocks, and a zero max_blocks would produce an invalid zero-length
+mapping instead of an error.
 
-cc: Christian Brauner <brauner@kernel.org>
-cc: Christoph Hellwig <hch@lst.de>
-cc: Darrick J. Wong <djwong@kernel.org>
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
 cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
 cc: Yangtao Li <frank.li@vivo.com>
-cc: linux-xfs@vger.kernel.org
 cc: linux-fsdevel@vger.kernel.org
 Signed-off-by: Viacheslav Dubeyko <slava@dubeyko.com>
 ---
- include/linux/iomap.h | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+ fs/hfsplus/extents.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/include/linux/iomap.h b/include/linux/iomap.h
-index 5254430844b2..616abe7ebad9 100644
---- a/include/linux/iomap.h
-+++ b/include/linux/iomap.h
-@@ -672,6 +672,26 @@ struct iomap_dio_ops {
- 	struct bio_set *bio_set;
- };
+diff --git a/fs/hfsplus/extents.c b/fs/hfsplus/extents.c
+index cdb337ba3924..bb5a1508498d 100644
+--- a/fs/hfsplus/extents.c
++++ b/fs/hfsplus/extents.c
+@@ -67,7 +67,7 @@ static u32 hfsplus_ext_find_block(struct hfsplus_extent *ext, u32 off,
+ 		}
+ 		off -= count;
+ 	}
+-	/* panic? */
++	/* 'off' lies beyond this extent record; callers treat 0 as an error */
+ 	*dblock = 0;
+ 	return 0;
+ }
+@@ -273,6 +273,8 @@ int hfsplus_map_extent(struct inode *inode, u32 ablock, int create,
+ 		*max_blocks = hfsplus_ext_find_block(hip->first_extents,
+ 						     ablock,
+ 						     dblock);
++		if (!*max_blocks)
++			return -EIO;
+ 		return 0;
+ 	}
  
-+/*
-+ * Direct I/O completion handler
-+ */
-+static inline
-+int iomap_dio_end_io(struct kiocb *iocb, ssize_t size,
-+		     int error, unsigned int flags)
-+{
-+	struct inode *inode = file_inode(iocb->ki_filp);
+@@ -300,6 +302,9 @@ int hfsplus_map_extent(struct inode *inode, u32 ablock, int create,
+ 	if (was_dirty)
+ 		mark_inode_dirty(inode);
+ 
++	if (!*max_blocks)
++		return -EIO;
 +
-+	if (error)
-+		return error;
-+
-+	if (size && i_size_read(inode) < iocb->ki_pos + size) {
-+		i_size_write(inode, iocb->ki_pos + size);
-+		mark_inode_dirty(inode);
-+	}
-+
-+	return 0;
-+}
-+
- /*
-  * Wait for the I/O to complete in iomap_dio_rw even if the kiocb is not
-  * synchronous.
+ 	return 0;
+ }
+ 
 -- 
 2.53.0
 
