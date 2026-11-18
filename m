@@ -1,75 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.201
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795007477;
-	b=zxk82/9os4uUpwaLgQ0NvFJRYVCW53h5j14IQKqE+OHpqW8yTLtk2K3Eq9vZ88+Z4gBO
-	 fGjyjGqzCs42ONDmSy0IrVkbdl3/HToOAWDfEB9oTPz/lHuch6ONVvMOwJou3fC3e0zBQ
-	 ouYT+8k7nET8ZCezQYpyac34AOhcleRspGkAyMb9pB4TT8/eDxasFucVhmjTZVS3p8VAk
-	 FTy6ws/Wn9leGEG2XU2NnHB2pl+N2CikjjCloNCWLD5Fpe28C7KMyKA+tDdfQ+9XDkXEK
-	 /aPr0tFtpOQY2Bkimj+PW7ULYNRCvCyd1y5yUrOBoS/AV4oVynx9YLALmzsLbLZFdYA==
+	t=1795007481;
+	b=wTt+nYeRKmNkfo14YIBa4wWQeDQ0r7hR9AIW9THFUG0UrZTlv9TlFr6OQw2Z3VhLU0T4
+	 1p5IK4anVeqYui237nCHlGZLd40Sj0JUBWR2zuyfTfQnK4kFTcMZ7NDKG9oFyiv8JuZ2L
+	 gPlPlO4Bnr48FWBy44n1MHssKAxtTyiLUnLfwHJ5OoLfNIcdomd+YVWMyL/GzeNeX5JX4
+	 cNMu6n4kBplow6LgmPLjQVm6/Vcl/pZDFKuX9KkEJqaHzKA1K2b8JrKZSMrp9sB62eOJY
+	 3ebYvv9s/OQO99jy7HJZgD056iurmqYMqlaicZVfHQcBuZaAlSx7qCJr0zEwAYuDiOA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795007477;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=QJAC08ngDRm9W4yawdTHyboRVQ9MGN7haYElLNq+7pU=;
-	b=P6Z3df0L7ixnwbcssgPRRhomJ0GkIsov6hf5y7UPkyUlA/t7oe+nHlBLb4ETATGxVRAS
-	 yaQgPqJbYx0GLW4lFJevF6sXiveACjAwrAC2E8WNKM+o4GKksjIZriw3Gj0KxDeeeRPRU
-	 +K0AJeGU6VdEzL0ItCVfIEDjtWxIDNIMqnt8Atvc1ntQC5SUpJiXSaXZ/dPAgce5lPtQW
-	 nG7hRN5UuK30qtEa0uulHeHsipxrjJbe9E8M9jQ+O0V7CpRSKahVHC+UcAgBy7Cl3EXbt
-	 LyyX86GFOeYzOhdNWQF2AeiOaIbfk1QgYtYtakOqclGTICMgvcKXvnxjaYHZtTfFesQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795007481;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=r+7quN+GXBrQXljQFdduQ9uCmIQYnXKvh0n7Ko5kSMI=;
+	b=eW9ChXXUgp8AF6JiHLP+AhNYLHp2HNCY6JxptnwdlFBfQ77Rngv+0BzfddEBoWdxZtsj
+	 liOh54GmFugSIhKlka7E08hPwosuzvavUwG2Bt1jT3YHUbtvpLSiwg3jeTyotKxWvquuN
+	 7h3gE6SS3GJoDlpODbLrzlt/hM5d78ZDfz8+0bOuSsEbUXejdg5vAhfRz87z4kIHTl6bo
+	 wBDYJvjaKsURt+aPzn+vgJRK91cMietOjFw9FzbXYWrbsSIaEMxyl7r3uEzZ5q6tnB4jP
+	 DOb9ajacpvNwxCygC063r/pcHhKIt3rTYmMX4ZTAPQXXaNzegIFvBDjktXx1iGuvLCg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=WyZI6CJM;
-	arc=none smtp.remote-ip=95.215.58.201
-Received: from mta1.migadu.com (out-201.mta1.migadu.com [95.215.58.201])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AEaCO8Ou;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D1C9606A32C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:11:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6D1C9606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3438606A31C;
+	Wed, 18 Nov 2026 13:11:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=WyZI6CJM
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=RMpd59Gb6dpKtX3get0waM32XpfRzKJRh6E8RWM6GBM=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795007474; v=1; x=1795612274;
- b=WyZI6CJMpR2JzG0xH9pWLqLOd9sD5rcrzUY3EyZSpuedZRCwAcV0ju6Cbq+bBG9I9tozVrKv
- ahN5j7O3ka+rk9/fDYa4C6TlWsyJB6WkDsha63OcVJ15xKmJ/aRTuw4ToWB/MHj+VSP+9ozXuuk
- 9MbkuYctNf0NJ6cx4I3QHOjA=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 8bd3cc9683cdaa16;
-	Wed, 18 Nov 2026 13:11:14 +0000
-X-Mizu-Trace-ID: 8bd3cc9683cdaa16
-X-Migadu-Flow: FLOW_OUT
-From: Tao Cui <cui.tao@linux.dev>
-To: tj@kernel.org,
-	josef@toxicopanda.com,
-	axboe@kernel.dk,
-	ast@kernel.org,
-	alexei.starovoitov@gmail.com
-Cc: cgroups@vger.kernel.org,
-	linux-block@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org,
-	andrii@kernel.org,
-	eddyz87@gmail.com,
-	daniel@iogearbox.net,
-	linux-kselftest@vger.kernel.org,
-	cui.tao@linux.dev,
-	cuitao@kylinos.cn,
-	ameryhung@gmail.com
-Subject: [RFC PATCH v14 4/4] docs: cgroup-v2: document the iocost BPF cost model attachment
-Date: Wed, 18 Nov 2026 21:10:29 +0800
-Message-ID: <20261118131029.797007-5-cui.tao@linux.dev>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261118131029.797007-1-cui.tao@linux.dev>
-References: <20261118131029.797007-1-cui.tao@linux.dev>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AEaCO8Ou
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74B4F1F000C4;
+	Wed, 18 Nov 2026 13:11:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795007481;
+	bh=r+7quN+GXBrQXljQFdduQ9uCmIQYnXKvh0n7Ko5kSMI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=AEaCO8Ou258CYi6ozrLsOHwP/CgC7usWd3ZqOZf3yedz8J6gJFJEyyuP36bxVG6/Z
+	 YP1v46USV9pgpN2JqXqOTvDUkZOcAJn38wQ3tY8hOUSONfTT9ZyV1dRa0U7O5azT7R
+	 tsJijB62Syce1VryS6Ca7wMGdL1Vi0XMnP5Hh/qRaDmJn2ZMg5NYGcvPuVPobaRmjU
+	 4t0jQQNOxynKkvxqRIY9NouaKbrn+tyFNz+039bKiLQcx97wg5MpHfvUrAkQxc4lBa
+	 bJyxV0JrTTMpW02xxp3/dEptu4+lkQNbOf6AsJlCEEvFEy4rTZYYH2AD1QPDRFuHJg
+	 ++D3Gu9z3XA3A==
+Date: Wed, 18 Nov 2026 14:11:15 +0100
+From: Christian Brauner <brauner@kernel.org>
+To: Chris Down <chris@chrisdown.name>
+Cc: Omar Sandoval <osandov@osandov.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
+	linux-debuggers@vger.kernel.org, linux-fsdevel@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, kernel-team@meta.com
+Subject: Re: [PATCH v3] proc/kcore: allow disabling /proc/kcore at boot
+Message-ID: <20261118-masken-disput-miesmacher-27d6baaae6a8@brauner>
+References: <7c10f2e01b6f19229c83e81d887a87f5d1151841.1794904698.git.chris@chrisdown.name>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,104 +59,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <7c10f2e01b6f19229c83e81d887a87f5d1151841.1794904698.git.chris@chrisdown.name>
 
-From: Tao Cui <cuitao@kylinos.cn>
+On Tue, Nov 17, 2026 at 02:20:38AM -0800, Chris Down wrote:
+> /proc/kcore lets any process with CAP_SYS_RAWIO read all of kernel
+> memory. That's a pretty large read primitive for anyone who obtains
+> CAP_SYS_RAWIO (and it also gives away the KASLR layout).
+> 
+> For this reason on some hosts we want to turn /proc/kcore off. In terms
+> of what it can read, /proc/kcore isn't any more concerning than other
+> ways to read kernel memory, like BPF with CAP_BPF and CAP_PERFMON. The
+> distinction is that a process with CAP_SYS_RAWIO doesn't necessarily
+> have CAP_BPF and CAP_PERFMON, because CAP_SYS_RAWIO may be needed for
+> hardware access without necessarily wanting to grant general RAM access.
+> CONFIG_STRICT_DEVMEM already makes that possible for /dev/mem, but
+> /proc/kcore gives the same capability to do general purpose RAM reading
+> anyway.
+> 
+> However, on a kernel built with CONFIG_PROC_KCORE=y the only ways to
+> block it today are lockdown=confidentiality (which also disables many
+> other things we perhaps don't want to disable, like kprobes and
+> bpf_probe_read_kernel()), or an LSM. That's annoying, because on the
+> majority of hosts we do want it on for things like drgn/crash, so today
+> we build two separate kernels.
+> 
+> Let's add a "kcore=" boot parameter so that this can be disabled at
+> boot, which lets us preserve those choices while using the same kernel
+> image.
+> 
+> Signed-off-by: Chris Down <chris@chrisdown.name>
+> ---
+> v2 at https://lore.kernel.org/r/a8474f0e2d0ef5ea9d53aa6649c7e9c9ea6f15c2.1794800574.git.chris@chrisdown.name
+> 
+> v3: Make kcore_enabled __ro_after_init (Kees)
+> v2: Give more justification in changelog (Omar)
+> 
+>  Documentation/admin-guide/kernel-parameters.txt |  6 ++++++
+>  fs/proc/kcore.c                                 | 12 ++++++++++++
+>  2 files changed, 18 insertions(+)
+> 
+> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+> index 176648941aec..205228294fc2 100644
+> --- a/Documentation/admin-guide/kernel-parameters.txt
+> +++ b/Documentation/admin-guide/kernel-parameters.txt
+> @@ -2902,6 +2902,12 @@ Kernel parameters
+>  			parameter KASAN will print report only for the first
+>  			invalid access.
+>  
+> +	kcore=		[KNL,EARLY]
+> +			Enable or disable /proc/kcore on kernels built with
+> +			CONFIG_PROC_KCORE=y.
+> +			Format: <bool>
+> +			Default: on
 
-Document the BPF cost model attachment in the io.cost.model section
-of the cgroup v2 documentation: attaching an iocost_model_ops
-struct_ops to a device by its major:minor, the model=bpf readback
-while attached (ctrl keeps describing the coefficients), the builtin
-model coming back on detach, and ctrl writes never selecting a model.
+So I'm happy to take this on top of vfs-7.5.procfs but I'm really
+unhappy about this proliferation of various hyper-specific opt-outs.
 
-Suggested-by: Tejun Heo <tj@kernel.org>
-Signed-off-by: Tao Cui <cuitao@kylinos.cn>
----
- Documentation/admin-guide/cgroup-v2.rst | 55 +++++++++++++++++++++----
- 1 file changed, 47 insertions(+), 8 deletions(-)
+For example, we already have:
 
-diff --git a/Documentation/admin-guide/cgroup-v2.rst b/Documentation/admin-guide/cgroup-v2.rst
-index 9e3c67b02ae2..a3c402f03ae9 100644
---- a/Documentation/admin-guide/cgroup-v2.rst
-+++ b/Documentation/admin-guide/cgroup-v2.rst
-@@ -2056,8 +2056,9 @@ IO Interface Files
- 	currently implements "io.weight" proportional control.  Lines
- 	are keyed by $MAJ:$MIN device numbers and not ordered.  The
- 	line for a given device is populated on the first write for
--	the device on "io.cost.qos" or "io.cost.model".  The following
--	nested keys are defined.
-+	the device on "io.cost.qos" or "io.cost.model", or when a BPF
-+	cost model is attached to it.  The following nested keys are
-+	defined.
- 
- 	  ======	=====================================
- 	  enable	Weight-based control enable
-@@ -2111,13 +2112,50 @@ IO Interface Files
- 	implements "io.weight" proportional control.  Lines are keyed
- 	by $MAJ:$MIN device numbers and not ordered.  The line for a
- 	given device is populated on the first write for the device on
--	"io.cost.qos" or "io.cost.model".  The following nested keys
--	are defined.
-+	"io.cost.qos" or "io.cost.model", or when a BPF cost model is
-+	attached to it.  The following nested keys are defined.
- 
--	  =====		================================
-+	  =====		==========================================
- 	  ctrl		"auto" or "user"
--	  model		The cost model in use - "linear"
--	  =====		================================
-+	  model		The cost model in use - "linear" or "bpf"
-+	  =====		==========================================
-+
-+	When BPF cost model support is available, a BPF cost model
-+	can be bound to a device by attaching an
-+	"iocost_model_ops" struct_ops carrying the whole disk's
-+	major:minor as encoded by makedev(3) in its "dev" member (a
-+	partition's major:minor is rejected).  The loader supplies
-+	"dev" when the map is created and it cannot be changed
-+	afterward.  Attaching creates the controller if needed, like an
-+	io.cost.model write does, switches the device's pricing to the
-+	model and populates the device's line in this file and in
-+	"io.cost.qos" if it did not exist yet.  Attaching fails with
-+	-EBUSY if the device already has a model attached, with
-+	-EINVAL if the model fails its attach-time validation, with
-+	-EOPNOTSUPP if dev names a partition or a device without a
-+	multiqueue queue, and with -ENODEV if dev does not name an
-+	existing device or if the device has gone away.  Updating the
-+	link to a different model is not supported and fails with
-+	-EINVAL or -EOPNOTSUPP; switching models requires detaching
-+	first.  The
-+	attached model prices IOs only while the controller is enabled
-+	through "io.cost.qos"; attaching does not enable it.  IOs issued
-+	directly by the root cgroup bypass the model's per-IO pricing;
-+	the completion-time sizing of their requests still uses the
-+	attached model's transfer coefficients.
-+
-+	While a model is attached, "model" selects between it and the
-+	builtin model: "model=bpf" switches to the attached model and
-+	"model=linear" switches back to the builtin model, and neither
-+	detaches the struct_ops.
-+
-+	Detaching removes the model, after which "model=bpf"
-+	fails and the device prices with the builtin model again.
-+	Device removal ejects the attached model as well, while the
-+	struct_ops link remains until userspace destroys it.  "ctrl"
-+	accepts only "auto" and "user" and never selects a model.  It
-+	keeps describing the builtin coefficients, which take effect
-+	again when switched back.
- 
- 	When "ctrl" is "auto", the kernel may change all parameters
- 	dynamically.  When "ctrl" is set to "user" or any other
-@@ -2125,7 +2163,8 @@ IO Interface Files
- 	automatic changes are disabled.
- 
- 	When "model" is "linear", the following model parameters are
--	defined.
-+	defined.  They remain readable and writable while "model" is
-+	"bpf".
- 
- 	  =============	========================================
- 	  [r|w]bps	The maximum sequential IO throughput
--- 
-2.53.0
+enum proc_mem_force {
+        PROC_MEM_FORCE_ALWAYS,
+        PROC_MEM_FORCE_PTRACE,
+        PROC_MEM_FORCE_NEVER
+};
 
+static enum proc_mem_force proc_mem_force_override __ro_after_init =
+        IS_ENABLED(CONFIG_PROC_MEM_NO_FORCE) ? PROC_MEM_FORCE_NEVER :
+        IS_ENABLED(CONFIG_PROC_MEM_FORCE_PTRACE) ? PROC_MEM_FORCE_PTRACE :
+        PROC_MEM_FORCE_ALWAYS;
+
+to block FOLL_FORCE access on kernels which is another huge proc-based
+attack surface. My thesis is that if one is worried about /proc/kcore
+readout attacks they should be equally worried about these types of
+attacks.
+
+Iow, it would be nicer if someone took the time and came up with some
+boot setting that is a list of memory protection settings instead of
+spraying ever more kernel command line switches that nobody can
+reasonably remember or use.
