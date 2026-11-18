@@ -1,64 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.189
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=78.133.224.34
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794967103;
-	b=0ffInkFna/wcopPJ/QWq+49hCUvWOmksxfngWmY4C3fFuSLirMbA/WHMtLsUxrOjczzS
-	 9ekcEc7XaJMra/jd4HhNCpsbdaAjSTNoLAo7lM4V7+oWdvTTV3JeBFTShH+bB5sYJ42tc
-	 Z+ItH0uVIQwBPYiu+Ub1z2BRDn0ZLU3TYl8QGYZajbyi8wcvGsjF2v2JdwowGLBbiZ1zm
-	 lgC7ZWhVN/RuVQxEW1kvMvXOur0p7Ixa5eNjp50zz7nvaTeorQ7NL1C9wtur/suMvyUJ3
-	 OoDksiGGNLGTEO34xVlGrPaKd9KPbZRMkBeDFZiiFfOEy51YRIOyEfkz4u3yWF3R2mg==
+	t=1794967164;
+	b=yleItUrTrL0spIMVTdbktnXOkgtE7Y7t9jj7igzFC2219R3j6ykhO06Do0/q6GSpxR/u
+	 oA9jR257rkYLKnsQpVQ8VAKVFDGjSngCRBw50QKtw3AHgtSUdytgely3PbiFqs2Wy2gzf
+	 4YvQHWD7ydp6h2RAtUrcxxZ0x56zk5wXHUjQ1QsyAmYI9hp8AUT//uatnMtYrz8zVIQ5V
+	 YeuE+0hqACibD1pgdzq76t9bpD4nruN7GT2KgxunstWcW2x2Sg8mbfwOBVO4V0m+0yHEb
+	 3WYpYNEWofkswD1/n9whPLaFnrHNd4/3WgDvKvg18rtgRLPaSlGXiTtkFnWsENks8nA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794967103;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=ITUp8NIvhldWsNi8iytcAhNIizGkjNIfj+Yb6zk179c=;
-	b=3K2gSMsxCI1E2fomg0ift6dV4ZW4vex8VXyvuqGIL+KxTFfNEpefIAg5e1rYbDCRBcaB
-	 hP6rpLcv0N4EdbysCKWbSwijtNjwGh3A7r5FizRSDa30N75QtK/DgJopLLnKHuJVbskVS
-	 nHxmrlTifiAU1qvjrrG91MJLzFo0VgYa44k9tiG4PYBCJy8WmDFJti0r1Rw+bsNrCv5iV
-	 AvVspveYdy2jHr7PDDT2elw32dNgYC1/VcbvG7uUxyPuWSAMMVYaSWMHkRHZGqDk0bLbC
-	 SzOGPa3lDbpSqJsC9cF9sKikKEQRT7AIxkcG7X8ZM1E6NlKQ3B/xzuQe+py45on8R3Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794967164;
+	h=DMARC-Filter:Received:Received:Date:From:To:cc:Subject:In-Reply-To:
+	 Message-ID:References:User-Agent:MIME-Version:Content-Type;
+	bh=YXvyIN9D+f/OPmEpdLl4SRjTdUjd8ReYNTZq0CniktU=;
+	b=EJRsCLDBhZC3Zl896M7Zzfnu/te0T5SVubkmQyJ3VfDSeP0SFi9ZI0eR9s2X0xittB/G
+	 KkvBaFCbFeU5tEHldZ6TGy+aiUF8cA7Fxlpwvl3ZyGQYZ0HMfemBmfZQaeaKJiAMnMQvT
+	 6NGIDIKDDp/uj1+PU1HJvqpCum+bxjHuXaxWROCFsJkFkHDtYlpD1dAf3fiiMuT9GX+tK
+	 CEFuPs9i2jdAHRHaghk1KWqwLvAEAPY3X1NvW6KrhM+RB+mOxn4yo1JcYw+cNLjfHzduj
+	 dPfgLah6DjQibY3fgZDbvHgaVMeOv+rd3yLPdFjUyFXChumm9UpTtNVngRYsS0acdqA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=pfbPMQeu;
-	arc=none smtp.remote-ip=91.218.175.189
-Received: from mta0.migadu.com (out-189.mta0.migadu.com [91.218.175.189])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27124606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:58:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27124606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=pfbPMQeu
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=YP2d+xxYOufR4KpdbNEU0c25RfRJ3bUPYwDDxUg1ss0=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1794967100; v=1; x=1795571900;
- b=pfbPMQeu8fmztMdKVjg4yw1xEBv1cDSP+jby47+6LCH9+3g3EdVNpvt+ZHddmB51kqo9WVkT
- lHywH4/f5ShnbmEDjtocDa9t4u7mpZvva6OtwKhMbUQ2WmOJsqWY86IBi9foPJUhR+rL03D4XXj
- utg4Dy9WrFUm7urzjVfKvJio=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 01de500fc65dbef3;
-	Wed, 18 Nov 2026 01:58:20 +0000
-X-Mizu-Trace-ID: 01de500fc65dbef3
-X-Migadu-Flow: FLOW_OUT
-From: Youling Tang <youling.tang@linux.dev>
-To: Namjae Jeon <linkinjeon@kernel.org>,
-	Sungjong Seo <sj1557.seo@samsung.com>
-Cc: Yuezhang Mo <yuezhang.mo@sony.com>,
-	Chi Zhiling <chizhiling@163.com>,
-	exfat@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	youling.tang@linux.dev,
-	Youling Tang <tangyouling@kylinos.cn>
-Subject: [PATCH v2] exfat: hold s_lock for cluster-chain updates in __exfat_cont_expand()
-Date: Wed, 18 Nov 2026 09:58:02 +0800
-Message-ID: <20261118015802.899847-1-youling.tang@linux.dev>
-X-Mailer: git-send-email 2.43.0
+	dmarc=none header.from=orcam.me.uk;
+	spf=none smtp.mailfrom=orcam.me.uk;
+	arc=none smtp.remote-ip=78.133.224.34
+Received: from angie.orcam.me.uk (angie.orcam.me.uk [78.133.224.34])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id EE2FD606A31C;
+	Wed, 18 Nov 2026 01:59:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE2FD606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=orcam.me.uk
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=orcam.me.uk
+Received: by angie.orcam.me.uk (Postfix, from userid 500)
+	id EE41392009D; Wed, 18 Nov 2026 02:59:22 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by angie.orcam.me.uk (Postfix) with ESMTP id E6D4892009B;
+	Wed, 18 Nov 2026 01:59:22 +0000 (GMT)
+Date: Wed, 18 Nov 2026 01:59:22 +0000 (GMT)
+From: "Maciej W. Rozycki" <macro@orcam.me.uk>
+To: Florian Fainelli <f.fainelli@gmail.com>
+cc: linux-kernel@vger.kernel.org, 
+    Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+    "open list:REAL TIME CLOCK (RTC) SUBSYSTEM" <linux-rtc@vger.kernel.org>
+Subject: Re: [PATCH RFC] rtc: m41t80: Support SMBus adapters without I2C
+ block transfers
+In-Reply-To: <ccee564e-c705-4669-aef8-e0ed284fb776@gmail.com>
+Message-ID: <alpine.DEB.2.21.2611180158030.54328@angie.orcam.me.uk>
+References: <20261103225027.1248035-1-f.fainelli@gmail.com> <ccee564e-c705-4669-aef8-e0ed284fb776@gmail.com>
+User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,96 +52,18 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
 
-From: Youling Tang <tangyouling@kylinos.cn>
+On Tue, 17 Nov 2026, Florian Fainelli wrote:
 
-__exfat_cont_expand() allocates clusters, appends them to the FAT chain
-and updates ei->start_clu, ei->flags and i_blocks without holding
-sbi->s_lock.  Readers such as writeback call exfat_map_cluster() with
-s_lock held but without inode_lock, so they are not serialized against
-the expansion and can observe the chain metadata mid-update.
+> > Maciej W. Rozycki proposed SMBus-only support for this RTC family in
+> > 2008. The same SiByte limitation was discussed again in 2018, including
+> > register latching, seconds rechecks and a possible regmap conversion.
+> > This change revisits that approach using the current I2C helpers.
+> 
+> Maciej, Alexandre, any feedback on this approach?
 
-Hold s_lock around the cluster allocation, chain append and i_blocks
-update.  This nests inside the invalidate_lock held by
-exfat_cont_expand(), matching the order used by exfat_truncate().  i_size
-is published via exfat_pagecache_isize_extended(), which takes the
-straddling folio lock; since writeback takes folio lock -> s_lock, this
-must happen after s_lock is released to avoid inverting the lock order.
-i_blocks is therefore updated first, under s_lock, which also ensures a
-reader never sees i_size beyond the allocated chain.
+ Last week was the end of Stage 1 for GCC and sheer madness for me.  I'm 
+still recovering from the backlog and will try to have a look soon.
 
-Signed-off-by: Youling Tang <tangyouling@kylinos.cn>
----
-v2: rebase onto exfat/dev and adapt to __exfat_cont_expand().
-
- fs/exfat/file.c | 18 +++++++++++++-----
- 1 file changed, 13 insertions(+), 5 deletions(-)
-
-diff --git a/fs/exfat/file.c b/fs/exfat/file.c
-index 9dfd99ad9265..c7991e98a07a 100644
---- a/fs/exfat/file.c
-+++ b/fs/exfat/file.c
-@@ -105,6 +105,7 @@ static int __exfat_cont_expand(struct inode *inode, loff_t size)
- 	if (ret)
- 		return ret;
- 
-+	mutex_lock(&sbi->s_lock);
- 	num_clusters = exfat_bytes_to_cluster(sbi, exfat_ondisk_size(inode));
- 	/* integer overflow is already checked in inode_newsize_ok(). */
- 	new_num_clusters = exfat_bytes_to_cluster_round_up(sbi, size);
-@@ -116,7 +117,7 @@ static int __exfat_cont_expand(struct inode *inode, loff_t size)
- 		exfat_chain_set(&clu, ei->start_clu, num_clusters, ei->flags);
- 		ret = exfat_find_last_cluster(sb, &clu, &last_clu);
- 		if (ret)
--			return ret;
-+			goto unlock;
- 
- 		clu.dir = last_clu + 1;
- 	} else {
-@@ -130,7 +131,7 @@ static int __exfat_cont_expand(struct inode *inode, loff_t size)
- 	ret = exfat_alloc_cluster(inode, new_num_clusters - num_clusters,
- 			&clu, inode_needs_sync(inode), false);
- 	if (ret)
--		return ret;
-+		goto unlock;
- 
- 	/* Append new clusters to chain */
- 	if (num_clusters) {
-@@ -147,15 +148,19 @@ static int __exfat_cont_expand(struct inode *inode, loff_t size)
- 	ei->flags = clu.flags;
- 
- out:
-+	inode->i_blocks = round_up(size, sbi->cluster_size) >> 9;
- 	inode_set_mtime_to_ts(inode, inode_set_ctime_current(inode));
-+	mutex_unlock(&sbi->s_lock);
-+
- 	/*
- 	 * When extending file size, call exfat_pagecache_isize_extended()
- 	 * to update i_size and ensure the straddling folio is properly
- 	 * marked RO so page_mkwrite() is called and post-EOF area is zeroed.
-+	 *
-+	 * It takes the folio lock; call it without s_lock (writeback uses
-+	 * folio lock -> s_lock).
- 	 */
- 	exfat_pagecache_isize_extended(inode, oldsize, size);
--
--	inode->i_blocks = round_up(size, sbi->cluster_size) >> 9;
- 	mark_inode_dirty(inode);
- 
- 	if (IS_SYNC(inode))
-@@ -165,7 +170,10 @@ static int __exfat_cont_expand(struct inode *inode, loff_t size)
- 
- free_clu:
- 	exfat_free_cluster(inode, &clu);
--	return -EIO;
-+	ret = -EIO;
-+unlock:
-+	mutex_unlock(&sbi->s_lock);
-+	return ret;
- }
- 
- static int exfat_cont_expand(struct inode *inode, loff_t size)
--- 
-2.43.0
-
+  Maciej
