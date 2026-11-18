@@ -1,101 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.182
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.42
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1794991945;
-	b=Jf0KqHH/d1iOe/APbeJdHQMP9Orm9oYU6lmupZ5PX+P/idztFu+0khNSavwBIZbMoesK
-	 K5uGmH6plazztYoBl7vlem//M0TVRV1s3P4RLQ4ZdapWzsAMp0YEvL2b0caoZ46Yoe/KP
-	 O5loHfIRuH1Selig7qOK6NWAn5xszgvZV9pyjbpBiNoE9cmUFzxvgd5Cjs8bff7jezc7L
-	 ojIZEKTtMrHJK2xtO6VI/sAPXMKat5SHQNWiyVAIlnwLn5gk9Ioyjdr1cKGsfl4xw93A0
-	 xx+QllC++RusDFZ6AmFBOIRc0HTXOvEXbXan9+NDejsgiW/1V2XiWBuOkxNlKFlKJbg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	b=qGfWVX0YIY73xLMOFp+qfEvxksO0r9ionTwb08NDbpuj6zFr9kvoTXJnvN5Cvv5J9+Ec
+	 eZdlg62IltLWvuMnfqYmyqLsl2LCSbOeC7dlfmvOm/jaat31IeyWj40D4AOz+p+0bjdTS
+	 YBKRgtOyRz7hmXjLTps4W6FbRNczzPrkLtzA/mpqsOd97BxheJSj6ixCV/kS1VY2tkiXr
+	 YFWMJmkkE6IZoSjTU40Lx0yUDQj7scIOeOsX1i8uj8fsETauGgQnjZGz1ZwgFFsJRI8jp
+	 0u+A9bGP1syMt1MN4cXPpfMMr6963CTPeiB7LQwSjbcO+yZhZnJPq1TureYRCljMlmQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1794991945;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=lIgoSWi3OXpDAQd0fuya5uSx6BuLk2gilrPbc6gW7IE=;
-	b=UlVdwfJLbHyU8dBSQtgD4gy+za0+KVLFczCXy/+qECD467cV76i/ztOcPGXJiVOdYMGg
-	 EY7y5guJbVuUFfxNE1zHFP1PwPr7NxdO2pXqdqwUa3UdGKVPRwKhIYeVWF1nOPaze67Jt
-	 FX/0cW++GByv86tfXBM2qpGMS5FcbqWoqf7hxND45keW2w0TNzVuUE+ZarA/jXGgYSt0n
-	 aOj8T8O/Swjs9vph1gLQN71KmPp7FCtILMDSdeawGIbu1jOauIHmFRb0ILyX9F8Okq7hE
-	 xEuYUbjjUUXE4C7cP3l8g3vUtP4ZSKYQ7Ywoz3s/WMTNzpytJWbCmUQHkVssAmBHsfg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=eZUgNvRThSBkygn279XE/ZK5ImQQ93aCcXD2XI/JzgA=;
+	b=jjS0BiaNWyWH7mr4JFi/HjCPl+tQOhXJHjneXgpigeWEGbP3PZ5gqX9+/BeJp3kJUzix
+	 NC4U2shmCM7WMgmJcMkeA/o/IFf1YfsPF3GdmDSThZZVzaf0xPUAvz8PF8KmdX8Yn48IN
+	 WhBDdbhPeXqMEq9Pd0doX1K3loHpkES+4MkXip7EY7Xkb/h/o2t52a8gCNR78t3h2HsFT
+	 r2CSDfq0MRCGHQO8pBZygWxViQCDdnK3NjDxbAD/+EEvXi3T2tvX4Q1yz+/m9MmnH2/QM
+	 8/biRRMsdsm8WziFDejFn5HFxtu56BfRozVg1UsgsxCCLD+2MFvAcT7WwsnaAsAnqHA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GabG479g;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.182
-Received: from mail-dy1-f182.google.com (mail-dy1-f182.google.com [74.125.82.182])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=He9IaW+M;
+	arc=none smtp.remote-ip=209.85.218.42
+Received: from mail-ej1-f42.google.com (mail-ej1-f42.google.com [209.85.218.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D307606A32F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D0C8606A333
 	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:52:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4D307606A32F
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D0C8606A333
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GabG479g
-Received: by mail-dy1-f182.google.com with SMTP id 5a478bee46e88-382c3c9671fso696838eec.0
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=He9IaW+M
+Received: by mail-ej1-f42.google.com with SMTP id a640c23a62f3a-c50abd5b4fcso77401166b.1
         for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:52:25 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794991944; cv=none;
-        d=google.com; s=arc-20260327;
-        b=CM9he2xjW5KcoxHYnBKe0owI4aFHKhh7FYAUcnAWbM0bX9dTTpM2tn9y2MSbOAXuEm
-         1Vnv25rlfvAi9Yb4wtqqslVKDHbrrsxnXrSNgeH9QHg+UwukWLGE0CvkmhOVXc8rG7oz
-         g938TAA0OX2jnXX28DSSDNmRD24BwKVnjcYRmywW4+NpHxGAr7BuBoCIzFhdMuC4SKhH
-         QqO/yV2f3uz5mJBu7xIS6P9Z9Spm6IbuNLHtQ6Tvl+VHV8jjk+Y5VO7eeMbvukovqdlH
-         NtPQL9xeTnIbzCnZSYI26RTcTgMqQnAiCNSPdLw+B1UN9KZQNyNiUVw2iGW+qDvInMgl
-         Tp9g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=lIgoSWi3OXpDAQd0fuya5uSx6BuLk2gilrPbc6gW7IE=;
-        fh=ZlWJEsoRywBovTNp1NK+8owMd7YVmwGvSFzr7zyhf/M=;
-        b=IH5jXPGV3jObhcXO5vvqYhMi4z2fej2Ieh8YI3ztRfuZPxVRYIMeE9GEG+SQ0xV0Nn
-         bqZvaZ1DHPXXC8gaKV/jw73xllo/sOTmNXApf1h7qvoxYyWjrEKkJ7k9KZUfNLX9AQor
-         6nwI+Zgcm4IhMor1iE7L8ovHOK1W4vh/8vm9pueEkhvyR353y5uMI8JCVXyIDJ7HopK0
-         r6yfVPm1a3F2Q6rrd+6vRy+ZkeK2I4Im21uWK+JZ9ILLm7/ttyI98ISbRDWPzBuq/CdY
-         8DmwDFDPju0+Gozvob2w6ogqVlXYcJALLOzHTpFAHcFg0JZhQaAQ0/arOYwfe/4epC9B
-         Wl0g==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20260707; t=1794991944; x=1795596744; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=lIgoSWi3OXpDAQd0fuya5uSx6BuLk2gilrPbc6gW7IE=;
-        b=GabG479gc7SQtMKk6DUrhHDQXHroIceWLhNoIHp0kZP11T4uJNV4ts4eVR2bGpM5WI
-         8Mhz2biSzc/F7bv3izo8A5vZl7wp3vLTa2I2Lqaf+gLsKbgflvS1ReE0JkPH2eXxg/B2
-         rBXOpfodZSW3bGHJ2LZPbpNK9baCxzFl9nHtbLFKA838yANCndxu3C3gYthddFNl9nht
-         JzVfgWpqrzL15vRDk/jeYU5loe/y9d88sc6QFsJ76e351jUPEoBzazu5kTzlgOsaaxuj
-         klgmv9RQuGyOFaPK//yZO6OuIjOMR+Ov2oYOrE8pGUKIUYb5tqnBmPWNbS1qUBzO7VyT
-         NUZA==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=eZUgNvRThSBkygn279XE/ZK5ImQQ93aCcXD2XI/JzgA=;
+        b=He9IaW+MibL+q/d8FrlanbAiok3rByNCBQVzaihfOKod1yX1q4GUBOpKmwNRIjJRTM
+         xqw5ELx4J5BDIT8DeIxu3RHEGEGJC63ipJhyPv/BzEoPVCh0QOuRZe/r/Bzl8+bX7Eur
+         ADFWO9IcXU7ozunE7frmOJ3oDWqZ+QnpNulWT1D0Z8ecl+R0TGpmeGjAf/HxzO90hMNy
+         7vjvXlvQNnfF0MBEgvKhcK8TkWp64l2yAtI4/Iw2du8kGWem0txt6naabgdMrs/4ELFG
+         HRqgTfO2yEPA7FmVaB+VoM658abNZfYRGLmC+AV2bJO/5u0CdRsBwEPuNtbAu7miiFeT
+         LTMQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1794991944; x=1795596744;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lIgoSWi3OXpDAQd0fuya5uSx6BuLk2gilrPbc6gW7IE=;
-        b=AhXQKLWPeD2zvEvK4JQQlAR3cNx7DEWohy+iR+Gkpuc4Hiw8CKUH+wVlQeBAj9nuHU
-         WsNLKfgg3/Pbqdoq+a4x3eJUTBm8EoM4ZCki7v/TruTkPAYV61p3BQ41xupfDMC2umEb
-         nMUoaqJ4gX/fOwcYwTkcIH4n4hCslzpyeDwR55JfJVNHgKfdif27PUaq+d+yos6CPYKO
-         uupaAA3iUoKcMM/tjd0Jy/Cm5owdWzfN1QXJQwouE7+jRu5n/6rOLYpmAPZud8LrL8K5
-         us3UZ7fzby7cWmGw7EP+C/7l+Ja1LTkKpfZETW19MoDSiTjrARNVQrV0v02jj4k8zVtT
-         WHBg==
-X-Forwarded-Encrypted: i=1; AL+hErH+1CGdFAhbBqnunWbjSk3nnFOWUxqeX133cibA5KOc73n+Ib3m7oldnnfNKM9l9E6wlV4E5UpIRrcs7pI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8nwQRXDaBmc2cwCjsYLArn3zxcL1lhUXBGi7N0b/GkILzrDqPx
-	R8YBPqe+MScKbLijpN0mFK9/5B1UfgY27iXMt7nagDhH4HJUXX/4TXSwOs7jGcWIf/gL7XBRAxO
-	Eg3JzgySmpo6jMJvmEBvWs6wpX7XT6R8=
-X-Gm-Gg: AZFdTZcqIynpZ2jS0BA4YX0xvhOnJEY7ddhi+vtOKoOdbbXbBPWAnp7JRvQzzCAhIYu
-	c9XYsUo2CREtbPEASNH9be0r5TuSaKs3WZKQeuT7dPKsI823sLjpPmp07TIFRowI4hafOE+6KqW
-	FhhccGq1WWMHGPTKIXk+NGhoaFI219ELvTA7jNjb/7aq3eBZsn7jJm67Hc2sfwOrjBqfDeeacVC
-	q5F0GJv2WD9yFRPqh0Qixj9uvR/EoH+x0V2O0/O2s2WF5nOxSXn8QxNMeCkpk5AdU8RKnjDFmXL
-	KyJXyA+eBQTO1/5uhArdjYhaqGPLykq7Iv6XEtKnM5pqW5BkXZ60vF/LpF8hcrCbYH0uLBFzdyz
-	El8Qxhklj5D/7TrXBrpF7aNdRbV2/xpmaDsk8k/2HOnDuWUqn5/hIPHMlqy9NbddzavUoTjTTLb
-	W5T/V5pXWCvmHmhQg5NGQXmLVjIFwKJQ==
-X-Received: by 2002:a05:7300:d210:b0:374:c5cd:42cf with SMTP id
- 5a478bee46e88-3828180f712mr2187391eec.35.1794991944368; Wed, 18 Nov 2026
- 00:52:24 -0800 (PST)
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=eZUgNvRThSBkygn279XE/ZK5ImQQ93aCcXD2XI/JzgA=;
+        b=FCRL9ZiKNhYucdPuJosf95Fy/27H2xtRvUWlHxFqe1mWu+ZYVU+c+L7ZzvQuHauR5V
+         9oAyyzT4MZ4ofc3X0aoFjGW+y/7mHEOWqeM9MplHBu5RFJw7ROAUz3JNmtDIaa1TRuEK
+         d5WxWp/1QFFuQo0SlbpvHlpJMXjxlJD0iMZSGHTVqbzLFovBbFfo/uz1YZFyaeEYzZS6
+         J5XSzeU2C6N04ireUYdXbsc6s9tfYnLTZCtzX8EsKBPktFtUBiR1qE9ykYx9rrchGoF2
+         0R4LLR+VrQRcbN8u6AahXzlz3+syvDOa9FhUDPd9Fm4W3jAMerMhQOCwtxyQvn8CQrvH
+         GkkQ==
+X-Forwarded-Encrypted: i=1; AL+hErGR2cNKfsIjNM5C9XcJCp5WU2gFll4bXmqARCt44d9SNoOjWnkA6F3AfnGi0P3sUPxn7Lzvcj0YP2J9cSQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z++rBQmgytRSVSu5tQJKUWtWgVzGIisSUIvX2pwWyxX9EHLL3p6
+	cla7z830h9cnGWLIwgQH3c+PB+RQkPqEKSPlT85LuQQOvdgw7LENmsc9
+X-Gm-Gg: AYBFou3y9nTV9C82NY6JfmxP4+zJ2bD+WLyDF377oaJZvpD4rTDNV2CL/tQahpxAL0e
+	FIeIXxziBXsgymuRTusQvS6x7bkg0K/SYv/KzlVmoL6XJza33Fvl5ILZ9rxsdYoib8PXaXbgRgn
+	c3+Bv+jCQonN4Rs0L4I7MSUtjh5456aZmfS+fk4hu4Eu9/fwaDW3tI7fvQe2uXDGS/wVpdVkMYB
+	QEYx/vHg3ETWrok8BMFaOkUV7nwoodji7OJ+rw6ABlM/JanMolzdF22FEwI8onkHKfmzbwH5gbj
+	blTjY9aJHrJAiDubN6eQdjmVwEXVzgvwMAWLqTyYPoyo8zvwHu+4wUv6idNqz6sDp4HzAOLZyp6
+	fyHh9xyP4vSSQ0/lJ5UYBLtSOTipIc3AjM8nNwpdeqrrcF2HGGFWKdj9DckR58SU5EbRJrMtrjK
+	8pIrk9n8n8nWPMVXw3vzI4EjepLSbHaAR7oXrDnvIM/B3svRSCa1eNohC9PAsT1+CKs/cszI+Oj
+	8LIX+kAtj7gTeeXVvYvFejJKOc3u6AloiIDdzncNkITQElDKqeOxQwq8T0ShmTWpkc2XJjLfTnX
+	iLrwzLgE56TdkYVXXFyJJJZYM5eJPoYn45OZ
+X-Received: by 2002:a17:907:2d9f:b0:c4d:5820:325e with SMTP id a640c23a62f3a-c510e159e89mr150966266b.13.1794991943191;
+        Wed, 18 Nov 2026 00:52:23 -0800 (PST)
+Received: from kernel.. ([191.40.25.13])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c510c83f31csm71077266b.10.2026.11.18.00.52.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 00:52:22 -0800 (PST)
+From: Kunwu Chan <kunwu.chan@gmail.com>
+To: dave@stgolabs.net,
+	paulmck@kernel.org,
+	josh@joshtriplett.org,
+	frederic@kernel.org,
+	neeraj.upadhyay@kernel.org,
+	joelagnelf@nvidia.com,
+	boqun@kernel.org,
+	urezki@gmail.com
+Cc: rostedt@goodmis.org,
+	mathieu.desnoyers@efficios.com,
+	jiangshanlai@gmail.com,
+	qiang.zhang@linux.dev,
+	linux-kernel@vger.kernel.org,
+	rcu@vger.kernel.org,
+	Kunwu Chan <kunwu.chan@gmail.com>,
+	Kunwu Chan <chentao@kylinos.cn>
+Subject: [PATCH v2 2/7] rcutorture: Require debug_objects flag for debug-objects test
+Date: Wed, 18 Nov 2026 16:51:42 +0800
+Message-ID: <20261118085147.1668598-3-kunwu.chan@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261118085147.1668598-1-kunwu.chan@gmail.com>
+References: <20261118085147.1668598-1-kunwu.chan@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,64 +110,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261004165204.205660-1-clamor95@gmail.com> <20261004165204.205660-2-clamor95@gmail.com>
- <20261026222928.GA15139-robh@kernel.org> <CAPVz0n2rkWikz1CZhkKiZnX5P+NdDH0RfJi69AyVTEV7qw_VXg@mail.gmail.com>
- <avxHzF-uiOAhwXIW@orome>
-In-Reply-To: <avxHzF-uiOAhwXIW@orome>
-From: Svyatoslav Ryhel <clamor95@gmail.com>
-Date: Wed, 18 Nov 2026 10:52:13 +0200
-X-Gm-Features: AclHuK93RBJ02mfDmLX1EGnWRCzqbB375hZf8dudgwlzH98v_5reAPWSy751p0s
-Message-ID: <CAPVz0n2h_uzr1MRZWSxUiPwu0=mXjhOwaP6HTFHDRV9DmF4z3A@mail.gmail.com>
-Subject: Re: [PATCH v1 1/2] dt-bindings: usb: Move Tegra-specific Chipidea USB
- properties into a dedicated schema
-To: Thierry Reding <thierry.reding@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, Mikko Perttunen <mperttunen@nvidia.com>, 
-	Jordan Viknar <jordanviknar@gmail.com>, linux-usb@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-tegra@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-=D0=B2=D1=82, 17 =D0=BB=D0=B8=D1=81=D1=82. 2026=E2=80=AF=D1=80. =D0=BE 14:4=
-0 Thierry Reding <thierry.reding@kernel.org> =D0=BF=D0=B8=D1=88=D0=B5:
->
-> On Tue, Oct 27, 2026 at 10:51:52AM +0200, Svyatoslav Ryhel wrote:
-> > =D0=B2=D1=82, 27 =D0=B6=D0=BE=D0=B2=D1=82. 2026=E2=80=AF=D1=80. =D0=BE =
-00:29 Rob Herring <robh@kernel.org> =D0=BF=D0=B8=D1=88=D0=B5:
-> > >
-> > > On Sun, Oct 04, 2026 at 07:52:03PM +0300, Svyatoslav Ryhel wrote:
-> > > > Move all Tegra-specific Chipidea devices and their properties into =
-a
-> > > > dedicated schema file, by analogy with i.MX.
-> > >
-> > > I don't really see the point given it is only 2 deprecated properties=
-.
-> > > Maybe those can be removed? Depends if they are deprecated and still
-> > > used or deprecated and removed from .dts files years ago.
-> > >
-> >
-> > The ci-hdrc-usb2.yaml schema contains properties that are not
-> > applicable to Tegra, and conversely, Tegra-specific properties are not
-> > applicable to qcom, nxp, nuvoton, etc.
-> >
-> > The 'nvidia,needs-double-reset' property is required for Tegra20 and
-> > Tegra30, and it is still actively in use, as you can see here [1]. Its
-> > marked deprecated state appears to be incorrect, as it should simply
-> > be restricted to Tegra20 and Tegra30.
->
-> For what it's worth, I looked into this a little bit to find out why
-> this is only needed on USB1, whereas USB2 and USB3 don't seem to be
-> affected. Turns out that USB1 is a different controller than USB2 and
-> USB3 and it has this errata. In retrospect it would've been more correct
-> to assign a different compatible string for it and derive the quirks
-> from that, but given the ABI stability it's probably not worth
-> correcting it at this point.
->
-> Thierry
+rcu_test_debug_objects() checks for missing callback and barrier
+operations only when ->debug_objects is set.  With the flag clear,
+execution falls through to the test even if those operations are
+missing.
 
-Thank you for the explanation. Having a common schema for many cases
-is great, but IMHO mixing different SoCs in a basically SoC specific
-schema is not the right approach. Having a dedicated Tegra version
-like i.MX has seems beneficial.
+With CONFIG_DEBUG_OBJECTS_RCU_HEAD=y and rcutorture.object_debug=1,
+the trivial flavor can therefore call a NULL function pointer.
+
+Skip the test for flavors that do not set ->debug_objects.
+
+Signed-off-by: Kunwu Chan <chentao@kylinos.cn>
+---
+ kernel/rcu/rcutorture.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/kernel/rcu/rcutorture.c b/kernel/rcu/rcutorture.c
+index 968343be4e0d1..caa550095705a 100644
+--- a/kernel/rcu/rcutorture.c
++++ b/kernel/rcu/rcutorture.c
+@@ -4603,8 +4603,13 @@ static void rcu_test_debug_objects(void)
+ 		return;
+ 	}
+ 
+-	if (WARN_ON_ONCE(cur_ops->debug_objects &&
+-			(!cur_ops->call || !cur_ops->cb_barrier)))
++	if (!cur_ops->debug_objects) {
++		pr_alert("%s: %s does not support debug-object testing\n",
++			 KBUILD_MODNAME, cur_ops->name);
++		return;
++	}
++
++	if (WARN_ON_ONCE(!cur_ops->call || !cur_ops->cb_barrier))
+ 		return;
+ 
+ 	struct rcu_head *rhp = kmalloc_obj(*rhp);
+-- 
+2.43.0
+
