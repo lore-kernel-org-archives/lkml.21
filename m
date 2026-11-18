@@ -1,62 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=52.26.1.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=44.246.1.125
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1794987541;
-	b=FcNZU6QmtJViQSImjFrKlcw2tw2Rl5grF+mQst+3VE6/bKDVbBv7ZSPW/esmgNxOCICV
-	 nq71rDwomFNtucDnMMjNV6iAux0/tib6LWEEKVaPLpLy1umeNq/HAp0kGlIdnfFzyZk2k
-	 NE19u80laUiXQ1ltjl2Vhu/+yWnuUKManlU2BYyaZrkx6J8KfqttewFUWya4pxiZbVFNM
-	 yNheyChrZAjGBivNJ4B91xrVmw3OMrKKMlGqEp43D1AXYCv+l+sLdVbvhCKVRmfQL4U9N
-	 W8IbXFm8oSXjnEcS5w+nqcdsNFLE62YGVHFeCgmkX2xPbMNgfU3jiXMv9NN2pAVJ9sA==
+	b=WJkATfrIJOukxRPmMKWEeHlqpJk13K/ZRMeIODHskLkc5RxXMY+2wOof+wOscGIyzg8v
+	 tR0x9M8++gn66lL2EIcLNzIAhCyjvgzmYaOFN1QfYRSL6N5Ud+uJZOQlDCS51f/HmdxEg
+	 uG9Oep7nNmLlLzifvAyQnPAfcNBdlRH/BBMUZ2HVWHGF7XDnS1QSpzsdh5DJ+kQhMlGJt
+	 LWnUYxgMyliIKvgjjVSPOD14at8QIRrLYQEGlTVHj44Ykb1R5MKVFF7pVXTTT7+E5y9k+
+	 mEQA9HFclO6hkN7z2LupczDSF4zy81KL5pYzozu55JYbZ9x7RNo332kgJu26+FiSAlA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1794987541;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:Received:Received:X-Farcaster-Flow-ID:Received:Received:
-	 From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type:X-Originating-IP:
 	 X-ClientProxiedBy;
-	bh=OJgQQYxJs0Sb7LZKdrxdw/6+xeL6InZ2RrNS/V3saLk=;
-	b=SkH462/UReJ+LtWsyUIiJwyOAYY9mo+Z/1GLqjVqR5KxX0zcfVH3/QOSCuobuMgWEE9r
-	 MQuMEv1927A/zR9Ge1s5vF6igEnoLRmqWujmlHfWg93ASeMG5aGW2zxXQsCQaxDM31VPr
-	 uG8w7LBcbqQuUlxCGcgo3Kip+D4GOvNK52vyOZucjcVtjjmPILwFBH3fYvfclXwIi/3BE
-	 sDAKqwh1BROja++am65mr7fceDhSlBONwfscgGZ+uhl4w4XTmglj9pFnJbYT0WB6z2r3a
-	 8WFnV87morXb7hzF0bAemyz7giRMDjaP6SAc3F1ZPe0Kl/sY3YIPK8FGjByL8xlvKVw==
+	bh=g409skIBE5QnOJnhrUZ6oj1QzklISW5q/kf1QfamMtE=;
+	b=RiIYwUT7578wHG3NVFuXlb/boSRbuQSOEkQbcy7p7yZ42yV4gemuHmrk2qWdEiwGbeP5
+	 u1Xh7ETtfIhoNAOsK87eNLynJyibCjclnuBHue+z0nLVVmEPXyqEsnTyiJmnJ71xzxkhY
+	 iWdBs/HxZ5NK+r+TtrqqAF0/IKSABwqNjJxprCE/LV468Xc9UBMWsPELXEfRmspIat4Bc
+	 bmR6r/EZE9UrbBLDLUSmNyJwA7wtaclibHriniLLfPxT4QlEHptUJasABacE+IsAaH/eQ
+	 N/U66H9JL9Uiielb3cz3YrjqS30nmrJ6MOryhKzVXTYGhF0TVO9TfiRyal7tjhXereQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=amazon.com;
 	spf=pass smtp.mailfrom=amazon.com;
-	dkim=pass header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=T5cwlpCS;
-	arc=none smtp.remote-ip=52.26.1.71
-Received: from pdx-out-006.esa.us-west-2.outbound.mail-perimeter.amazon.com (pdx-out-006.esa.us-west-2.outbound.mail-perimeter.amazon.com [52.26.1.71])
+	dkim=pass header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=gh8Z4eDz;
+	arc=none smtp.remote-ip=44.246.1.125
+Received: from pdx-out-002.esa.us-west-2.outbound.mail-perimeter.amazon.com (pdx-out-002.esa.us-west-2.outbound.mail-perimeter.amazon.com [44.246.1.125])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94F92606A325;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10B41606A32A;
 	Wed, 18 Nov 2026 07:39:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 94F92606A325
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 10B41606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amazon.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amazon.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=T5cwlpCS
+	dkim=pass (2048-bit key) header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=gh8Z4eDz
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1794987540; x=1826523540;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=OJgQQYxJs0Sb7LZKdrxdw/6+xeL6InZ2RrNS/V3saLk=;
-  b=T5cwlpCSeZFPTiF5VOKaisk5K2Zx6UBNOJ4HMAgytHL1003xWCTyPqn4
-   t6bjw3ACbpOm9m1HkrZaPI50SlXeEK23YWFKDerXjUGkFmy+6ySWXE9Yl
-   cC13GaZSgAwptC7SXbIund24isTA2V7jEOU62f2ruucaWdeT4dB7AaNk3
-   i9culIkVDctl83m8ALACZSrdMym3yNrmIKv1GjbXJPzikNgqaInfNsk5I
-   EwyFsxXiIHTSMzXg8atsXR1j5UNBdBh7fJ1eqSWNZsbTQ8i9lZv/engp0
-   klOqlm6tvA1KgRnfKqpymsXpK1Qgpgqmz+YfQiC0AJdkFdAP2fy1IOsV6
-   w==;
-X-CSE-ConnectionGUID: wsIhGAYsTb6lBq+7A+eYqg==
-X-CSE-MsgGUID: bEHT4r7PRCuqWzjp0L+Khw==
+  t=1794987541; x=1826523541;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=g409skIBE5QnOJnhrUZ6oj1QzklISW5q/kf1QfamMtE=;
+  b=gh8Z4eDzwlrDNaC5UzuAKmB8BZJn/zCHv7y+0MGqjT8roR1tXT6yuAms
+   J9cKJBMP0pA52nQt/XuKRjOZajD0AJ1S8hKUM4CfPf+t+/l3x/ONyCpRW
+   YRYmJ2Eg+wvDqm+f3h9FRd0IqlREFwQBwlNN0eRes7rL2hEMXKU1GhSy9
+   z4IXxGIqj7DJLJtSiRRPHzlC6A2CvaK6j/TvdXuNuN8lIJgEuzvHGnKpg
+   uXYuS7uCQR+dkViwS4ioRCy7rHHB9llmSAQFQ4wkScTPB6S9PeIyL1Y01
+   NveJUw1N4/JE7zqBo0ogQe9XAY17l8yzU0pbiLjxSVmO/zK7AHXn34CRZ
+   g==;
+X-CSE-ConnectionGUID: dFNkqFMmRh+Iff+l5XZZaQ==
+X-CSE-MsgGUID: 909moT+SQ7Wj9s9zEsaq1A==
 X-IronPort-AV: E=Sophos;i="6.27,219,1787011200"; 
-   d="scan'208";a="34489208"
-Received: from ip-10-5-6-203.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.6.203])
-  by internal-pdx-out-006.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 07:38:58 +0000
+   d="scan'208";a="34417935"
+Received: from ip-10-5-9-48.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.9.48])
+  by internal-pdx-out-002.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 07:38:58 +0000
 Received: from EX19MTAUWA002.ant.amazon.com [205.251.233.178:12579]
  by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.46.128:2525] with esmtp (Farcaster)
- id bdf68e22-b966-4573-a584-d8d0f21a771c; Wed, 18 Nov 2026 07:38:57 +0000 (UTC)
-X-Farcaster-Flow-ID: bdf68e22-b966-4573-a584-d8d0f21a771c
+ id cb797244-b32d-4105-b333-144ab2b16c5e; Wed, 18 Nov 2026 07:38:58 +0000 (UTC)
+X-Farcaster-Flow-ID: cb797244-b32d-4105-b333-144ab2b16c5e
 Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
  EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.56;
@@ -74,10 +74,12 @@ CC: Jason Gunthorpe <jgg@ziepe.ca>, <linux-integrity@vger.kernel.org>,
  Leitao" <leitao@debian.org>, <nh-open-source@amazon.com>, Alexander Graf
 	<graf@amazon.de>, Gunnar Kudrjavets <gunnarku@amazon.com>, Josh Levinson
 	<joshlev@amazon.com>
-Subject: [RFC PATCH v4 0/8] tpm: Rework timeout and duration handling
-Date: Wed, 18 Nov 2026 07:38:44 +0000
-Message-ID: <20261118073852.81107-1-surenkj@amazon.com>
+Subject: [RFC PATCH v4 2/8] tpm: Wire the timing setup to the limits table
+Date: Wed, 18 Nov 2026 07:38:46 +0000
+Message-ID: <20261118073852.81107-3-surenkj@amazon.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261118073852.81107-1-surenkj@amazon.com>
+References: <20261118073852.81107-1-surenkj@amazon.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,191 +94,528 @@ Content-Type: text/plain
 X-ClientProxiedBy: EX19D031UWC003.ant.amazon.com (10.13.139.252) To
  EX19D001UWA001.ant.amazon.com (10.13.138.214)
 
-Review of v2 [1] asked to redesign how the timeouts and durations are
-handled across TPM families and drivers. This series is my attempt
-at it.
+tpm1_get_timeouts() and tpm2_get_timeouts() still write the jiffies
+fields of struct tpm_chip directly and tpm_tis patches the TPM 1.x
+values through ->update_timeouts() and ->update_durations(). Build the
+limits table instead.
 
-- Interface timeouts live in four fields, TPM1.x duration in an array
-which uses duration class and TPM2.0 in a different map with raw time
-values and other duration macros. Move interface timeouts and duration
-classes to a new struct called struct tpm_limits embedded in struct
-tpm_chip so that core and most drivers read them from one place.
+Both functions now call tpm_limits_update(). The TPM 1.x path passes
+what the chip reported after the existing fixups for chips. The table
+already keeps the default where the chip reports a zero. When the final
+values differ from the reported ones tpm1_get_timeouts() logs both
+for the durations as well as the timeouts.
 
-- Currently it's left up to the driver to initialize the timeout values.
-During probe, core/driver runs tpm_get_timeouts() which on TPM1.x
-queries the TPM for timeout values. The transmit function used for this
-request uses these timeouts for the state changes which can be zero at
-this time. I found a case with xen-tpmfront where it calls tpm get
-capability with TIMEOUT_C at zero. Hence the limit table is initialized
-with default value which is highest among both TPM1.x and TPM2. This
-makes sure driver is not missing to initialize during probe.
+The waits/polls still read the jiffies fields so tpm_limits_commit()
+copies the table into them. Since that already fills them with the
+defaults at tpm_chip_alloc(), tpm_tis_core_init() no longer uses
+TIS_TIMEOUT_*_MAX macros which are removed and xen-tpmfront gets
+a nonzero TIMEOUT_C for its timeout query.
 
-- Add module param option for all duration and timeouts. This gives an
-option of passing these values via kernel command line.
+The Atmel 3204 timeout quirk and the STMicroelectronics 0x104a
+duration quirk move to tpm_tis_adjust_limits() and the two old hooks
+are removed. The quirks use the DID/VID that tpm_tis_core_init()
+already reads so they no longer read the register under ->clk_enable().
 
-Current flow:
+The "[adjusted]" marker in the timeouts and durations sysfs files now
+means that a final value differs from what the chip reported. That
+was already true for the quirks and the fixups above. A value changed
+by validation is the new case. Update the ABI text which only
+described the msec scaling.
 
-  tpm_chip_alloc()             Each driver sets its own default timeouts
-                               or none
-  tpm1_get_timeouts()          reported values, ->update_timeouts()
-                               and ->update_durations(), into
-                               jiffies fields and chip->duration[]
-  tpm2_get_timeouts()          fixed TPM2_TIMEOUT_A..D, no driver hook
-  tpm_calc_ordinal_duration()  chip->duration[] on TPM 1.x, a fixed
-                               per-ordinal map on TPM 2.0
-  tpm_transmit()               resubmits on TPM2_RC_RETRY until the
-                               delay passes TPM2_DURATION_LONG
+Signed-off-by: Surendran Kanagaraj <surenkj@amazon.com>
+---
+ Documentation/ABI/stable/sysfs-class-tpm |  12 +-
+ drivers/char/tpm/tpm-limits.c            |  14 +++
+ drivers/char/tpm/tpm1-cmd.c              | 147 +++++++++++------------
+ drivers/char/tpm/tpm2-cmd.c              |   5 +-
+ drivers/char/tpm/tpm_tis_core.c          | 137 ++++++---------------
+ include/linux/tpm.h                      |   5 +-
+ include/linux/tpm_ptp.h                  |   9 --
+ 7 files changed, 129 insertions(+), 200 deletions(-)
 
-The limit table is built in fixed order starting with family
-defaults, reported by TPM chip, ->adjust_limits, tpm.limits= parameter
-and finally the validation that checks the bounds. This also adds
-a visibility to the source which sets the limit eg: default, TPM,
-driver, param etc.
-
-The flow after this series:
-
-  tpm_chip_alloc()
-    tpm_limits_init()          larger of the TPM 1.x and 2.0 defaults,
-                               tpm.limits= and bounds check
-  tpm1_get_timeouts(), tpm2_get_timeouts()
-    tpm_limits_update()        family defaults
-                               reported values (TPM 1.x)
-                               ->adjust_limits()
-                               tpm.limits=
-                               bounds check
-  readers of chip->limits
-    tpm_try_transmit()         polls for completion up to the command's
-                               duration class
-    tpm_transmit()             resubmits on TPM2_RC_RETRY up to the
-                               LONG duration
-    drivers                    tpm_poll_timeout(), or the limit in
-                               jiffies where a driver counts jiffies
-    sysfs                      timeouts and durations, on TPM 2.0 too
-
-This changes some of the existing behaviour:
-
-  - TPM2_VerifySignature waits DEFAULT 120 s instead of 30 s.
-  - Completion polling first sleeps at most 100 us instead of 1 ms.
-  - Until the timing query runs, tpm_crb waits up to 750 ms for
-    TIMEOUT_C instead of 200 ms, xen-tpmfront 750 ms instead of 0, and
-    st33zp24, tpm_i2c_infineon and tpm_i2c_nuvoton up to 4 s for
-    TIMEOUT_B instead of 2 s.
-  - On TPM 1.x, an ordinal with no class waits DEFAULT, which is never
-    shorter than LONG, so a chip that reports LONG above two minutes
-    waits longer than the old fixed two minutes.
-  - The timeouts and durations sysfs files now print exact
-    microseconds, and their "[adjusted]" marker also covers a value
-    changed by validation. TPM 2.0 chips now get both files too, in
-    /sys/class/tpm/tpmX/. tpm.limits= is documented in
-    kernel-parameters.txt.
-  - tpm_atmel, tpm_nsc and tpm_infineon never query the TPM for its
-    timeouts and durations, so their sysfs files now show the
-    defaults, marked "[original]", instead of zero timeouts and an
-    empty durations file.
-
-I ran each patch in QEMU with swtpm, on TPM 2.0 over CRB and TIS and
-on TPM 1.2 over TIS. Every boot answered commands and the TPM 1.2
-sysfs output stays the same across the series. I also fed tpm.limits=
-values below the floor, above the ceiling and malformed, and with a
-local test hook held the TPM in TPM2_RC_RETRY and stalled completions
-to see each wait end where the table says.
-
-On an EC2 instance with Amazon NitroTPM, I ran a GetCapability and hwrng
-loop through repeated periods of TPM unavailability. Kernel without
-these changes logged "tpm2_load_context: failed with a TPM error 0x0922"
-and every later TPM command failed. With this series applied, no command
-failed.
-
-The idea for this series is mine. An LLM coding assistant helped draft
-the code and I reviewed every patch myself.
-
-[1] https://lore.kernel.org/linux-integrity/atLD-d1v1B8ARv7x@kernel.org/
-
-Surendran
-
-V3 -> V4:
-- Add a header comment to tpm-limits.c describing the limits table
-- Export __tpm_poll() and make tpm_poll_timeout() and
-  tpm_poll_timeout_us() static inline in tpm.h
-- Drop tpm_limits_apply_quirks() and struct tpm_limits_quirk
-- Keep the existing tpm_tis timeout override table, and set the
-  NitroTPM limits in tpm_crb with tpm_limits_driver_set()
-- Drop HW_ERR from the "Adjusting reported" logs
-- Document the TPM 2.0 timeouts and durations paths in sysfs-class-tpm
-
-V2 -> V3:
-- Replace the TPM 2.0 duration override with one limits table for both
-  TPM families, built in a fixed order and validated
-- Replace ->update_timeouts() and ->update_durations() with
-  ->adjust_limits()
-- Bound the tpm_transmit() retry loop by the LONG duration instead of
-  TPM2_DURATION_LONG
-- Add tpm.limits=, and show the timeouts and durations files for
-  TPM 2.0 chips
-- Move the NitroTPM values to a tpm_crb quirk table, raise its SHORT
-  and MEDIUM durations to 30 s and its LONG duration to 45 s
-
-V1 -> V2:
-- Drop chip->busy_timeout_ms. TPM2 durations and the TPM2_RC_RETRY
-  budget now come from chip->duration.
-- Map TPM2_CC_SELF_TEST and TPM2_CC_VERIFY_SIGNATURE to TPM_LONG with
-  floors of 3s and 30s since their durations do not fit SHORT, MEDIUM,
-  LONG durations.
-- Keep the TPM2 defaults for commands sent before tpm2_get_timeouts()
-  has run such as the one in tpm2_probe() and keep the 2s retry
-  budget for TPM 1.x chips.
-- Keep the first TPM2_RC_RETRY wait at TPM2_DURATION_SHORT instead of
-  chip->duration[TPM_SHORT]. No TPM2 command maps to TPM_SHORT today
-  and a driver that raises TPM_SHORT for its commands should not also
-  lengthen the first retry wait.
-- Return early from tpm_tis_update_durations() for TPM2 chips, since
-  its overrides are for TPM 1.x.
-- Raise TPM_SHORT, TPM_MEDIUM and TPM_LONG to 30s for NitroTPM.
-- Replace the vendor quirk table in tpm_crb with a plain vendor ID
-  check.
-- Use the TPM_CRB_ prefix for the new tpm_crb macros.
-- Rename the patches from "tpm: Add per-chip timeout for transient
-  unavailability" and "tpm_crb: Raise timeouts for Amazon NitroTPM".
-
-v3: https://lore.kernel.org/linux-integrity/20261112163846.97654-1-surenkj@amazon.com/
-v2: https://lore.kernel.org/linux-integrity/20261016043733.30589-1-surenkj@amazon.com/
-v1: https://lore.kernel.org/linux-integrity/20260923142834.16786-1-surenkj@amazon.com/
-
-Surendran Kanagaraj (8):
-  tpm: Add a single table for all TPM wait limits
-  tpm: Wire the timing setup to the limits table
-  tpm: Take command durations from the limits table
-  tpm: Bound core and CRB waits by the limits table
-  tpm: Drop the jiffies timing fields from struct tpm_chip
-  tpm: Add the tpm.limits= parameter
-  tpm: Show timeouts and durations for TPM 2.0 chips
-  tpm_crb: Raise the limits for Amazon NitroTPM
-
- Documentation/ABI/stable/sysfs-class-tpm      |  38 +-
- .../admin-guide/kernel-parameters.txt         |  13 +
- drivers/char/tpm/Makefile                     |   1 +
- drivers/char/tpm/st33zp24/st33zp24.c          |  28 +-
- drivers/char/tpm/tpm-chip.c                   |   1 +
- drivers/char/tpm/tpm-interface.c              |  72 +-
- drivers/char/tpm/tpm-limits.c                 | 427 +++++++++++
- drivers/char/tpm/tpm-sysfs.c                  |  29 +-
- drivers/char/tpm/tpm.h                        |  63 +-
- drivers/char/tpm/tpm1-cmd.c                   | 669 +++++++++---------
- drivers/char/tpm/tpm2-cmd.c                   |  80 ++-
- drivers/char/tpm/tpm_crb.c                    | 107 ++-
- drivers/char/tpm/tpm_i2c_atmel.c              |   9 -
- drivers/char/tpm/tpm_i2c_infineon.c           |  25 +-
- drivers/char/tpm/tpm_i2c_nuvoton.c            |  32 +-
- drivers/char/tpm/tpm_tis_core.c               | 168 ++---
- drivers/char/tpm/tpm_tis_i2c_cr50.c           |  15 +-
- drivers/char/tpm/xen-tpmfront.c               |  10 +-
- include/linux/tpm.h                           |  66 +-
- include/linux/tpm_ptp.h                       |   9 -
- 20 files changed, 1179 insertions(+), 683 deletions(-)
- create mode 100644 drivers/char/tpm/tpm-limits.c
-
-
-base-commit: 8054cba7f0619486c237b21bd257a4544b5de455
+diff --git a/Documentation/ABI/stable/sysfs-class-tpm b/Documentation/ABI/stable/sysfs-class-tpm
+index 411d5895bed4..73b69f63b298 100644
+--- a/Documentation/ABI/stable/sysfs-class-tpm
++++ b/Documentation/ABI/stable/sysfs-class-tpm
+@@ -61,10 +61,10 @@ Description:	The "durations" property shows the 3 vendor-specific values
+ 		Here the short, medium and long durations are displayed in
+ 		usecs. "[original]" indicates that the values are displayed
+ 		unmodified from when they were queried from the chip.
+-		Durations can be modified in the case where a buggy chip
+-		reports them in msec instead of usec and they need to be
+-		scaled to be displayed in usecs. In this case "[adjusted]"
+-		will be displayed in place of "[original]".
++		"[adjusted]" is displayed in place of "[original]" when a
++		value differs from what the chip reported, for example
++		because the chip reported msecs instead of usecs or a driver
++		quirk replaced the value.
+ 
+ What:		/sys/class/tpm/tpmX/device/enabled
+ Date:		April 2006
+@@ -181,8 +181,8 @@ Description:	The "timeouts" property shows the 4 vendor-specific values
+ 		  750000 750000 750000 750000 [original]
+ 
+ 		The four timeout values are shown in usecs, with a trailing
+-		"[original]" or "[adjusted]" depending on whether the values
+-		were scaled by the driver to be reported in usec from msecs.
++		"[adjusted]" if any value differs from what the chip
++		reported, and "[original]" otherwise.
+ 
+ What:		/sys/class/tpm/tpmX/tpm_version_major
+ Date:		October 2019
+diff --git a/drivers/char/tpm/tpm-limits.c b/drivers/char/tpm/tpm-limits.c
+index 0d3729839e05..5b984cb636f0 100644
+--- a/drivers/char/tpm/tpm-limits.c
++++ b/drivers/char/tpm/tpm-limits.c
+@@ -177,6 +177,20 @@ static void tpm_limits_commit(struct tpm_chip *chip,
+ 
+ 	chip->limits = *p;
+ 
++	/* Copy the limits into the jiffies fields that the waits still read. */
++	chip->timeout_a = usecs_to_jiffies(e[TPM_LIMIT_A].time_us);
++	chip->timeout_b = usecs_to_jiffies(e[TPM_LIMIT_B].time_us);
++	chip->timeout_c = usecs_to_jiffies(e[TPM_LIMIT_C].time_us);
++	chip->timeout_d = usecs_to_jiffies(e[TPM_LIMIT_D].time_us);
++	chip->duration[TPM_SHORT] =
++		usecs_to_jiffies(e[TPM_LIMIT_SHORT].time_us);
++	chip->duration[TPM_MEDIUM] =
++		usecs_to_jiffies(e[TPM_LIMIT_MEDIUM].time_us);
++	chip->duration[TPM_LONG] =
++		usecs_to_jiffies(e[TPM_LIMIT_LONG].time_us);
++	chip->duration[TPM_LONG_LONG] =
++		usecs_to_jiffies(e[TPM_LIMIT_LONG_LONG].time_us);
++
+ 	for (limit = 0; limit < TPM_NR_LIMITS; limit++)
+ 		dev_dbg(&chip->dev, "limit %s = %u us (%s%s)\n",
+ 			tpm_limit_names[limit], e[limit].time_us,
+diff --git a/drivers/char/tpm/tpm1-cmd.c b/drivers/char/tpm/tpm1-cmd.c
+index 7a8606e8c711..c02d46eab8c3 100644
+--- a/drivers/char/tpm/tpm1-cmd.c
++++ b/drivers/char/tpm/tpm1-cmd.c
+@@ -332,12 +332,48 @@ static int tpm1_startup(struct tpm_chip *chip)
+ 	return tpm_transmit_cmd(chip, buf, 0, "attempting to start the TPM");
+ }
+ 
++/*
++ * Set the "[adjusted]" flags that sysfs shows, and log the reported and final
++ * values, when a final value differs from what the chip sent.
++ */
++static void tpm1_report_adjusted(struct tpm_chip *chip, const u32 *raw,
++				 unsigned long mask)
++{
++	const struct tpm_limit_entry *e = chip->limits.entry;
++	unsigned long changed = 0;
++	int limit;
++
++	for_each_set_bit(limit, &mask, TPM_NR_LIMITS) {
++		if (e[limit].time_us != raw[limit])
++			changed |= BIT(limit);
++	}
++
++	chip->timeout_adjusted = changed & TPM_LIMIT_INTF_MASK;
++	chip->duration_adjusted = changed & TPM1_LIMIT_DURATION_MASK;
++
++	if (chip->timeout_adjusted)
++		dev_info(&chip->dev, "Adjusting reported timeouts: A %u->%uus B %u->%uus C %u->%uus D %u->%uus\n",
++			 raw[TPM_LIMIT_A], e[TPM_LIMIT_A].time_us,
++			 raw[TPM_LIMIT_B], e[TPM_LIMIT_B].time_us,
++			 raw[TPM_LIMIT_C], e[TPM_LIMIT_C].time_us,
++			 raw[TPM_LIMIT_D], e[TPM_LIMIT_D].time_us);
++
++	if (chip->duration_adjusted)
++		dev_info(&chip->dev, "Adjusting reported durations: SHORT %u->%uus MEDIUM %u->%uus LONG %u->%uus\n",
++			 raw[TPM_LIMIT_SHORT], e[TPM_LIMIT_SHORT].time_us,
++			 raw[TPM_LIMIT_MEDIUM], e[TPM_LIMIT_MEDIUM].time_us,
++			 raw[TPM_LIMIT_LONG], e[TPM_LIMIT_LONG].time_us);
++}
++
+ int tpm1_get_timeouts(struct tpm_chip *chip)
+ {
++	unsigned long mask = TPM_LIMIT_INTF_MASK;
++	u32 reported[TPM_NR_LIMITS] = {};
++	u32 raw[TPM_NR_LIMITS] = {};
++	u64 val[TPM_NR_LIMITS];	/* u64 so the scaling by 1000 cannot overflow */
+ 	cap_t cap;
+-	unsigned long timeout_old[4], timeout_chip[4], timeout_eff[4];
+-	unsigned long durations[3];
+ 	ssize_t rc;
++	int limit;
+ 
+ 	rc = tpm1_getcap(chip, TPM_CAP_PROP_TIS_TIMEOUT, &cap, NULL,
+ 			 sizeof(cap.timeout));
+@@ -356,83 +392,28 @@ int tpm1_get_timeouts(struct tpm_chip *chip)
+ 		return rc;
+ 	}
+ 
+-	timeout_old[0] = jiffies_to_usecs(chip->timeout_a);
+-	timeout_old[1] = jiffies_to_usecs(chip->timeout_b);
+-	timeout_old[2] = jiffies_to_usecs(chip->timeout_c);
+-	timeout_old[3] = jiffies_to_usecs(chip->timeout_d);
+-	timeout_chip[0] = be32_to_cpu(cap.timeout.a);
+-	timeout_chip[1] = be32_to_cpu(cap.timeout.b);
+-	timeout_chip[2] = be32_to_cpu(cap.timeout.c);
+-	timeout_chip[3] = be32_to_cpu(cap.timeout.d);
+-	memcpy(timeout_eff, timeout_chip, sizeof(timeout_eff));
+-
+-	/*
+-	 * Provide ability for vendor overrides of timeout values in case
+-	 * of misreporting.
+-	 */
+-	if (chip->ops->update_timeouts)
+-		chip->ops->update_timeouts(chip, timeout_eff);
+-
+-	if (!chip->timeout_adjusted) {
+-		/* Restore default if chip reported 0 */
+-		unsigned int i;
+-
+-		for (i = 0; i < ARRAY_SIZE(timeout_eff); i++) {
+-			if (timeout_eff[i])
+-				continue;
+-
+-			timeout_eff[i] = timeout_old[i];
+-			chip->timeout_adjusted = true;
+-		}
+-
+-		if (timeout_eff[0] != 0 && timeout_eff[0] < 1000) {
+-			/* timeouts in msec rather usec */
+-			for (i = 0; i != ARRAY_SIZE(timeout_eff); i++)
+-				timeout_eff[i] *= 1000;
+-			chip->timeout_adjusted = true;
+-		}
+-	}
+-
+-	/* Report adjusted timeouts */
+-	if (chip->timeout_adjusted) {
+-		dev_info(&chip->dev, HW_ERR "Adjusting reported timeouts: A %lu->%luus B %lu->%luus C %lu->%luus D %lu->%luus\n",
+-			 timeout_chip[0], timeout_eff[0],
+-			 timeout_chip[1], timeout_eff[1],
+-			 timeout_chip[2], timeout_eff[2],
+-			 timeout_chip[3], timeout_eff[3]);
+-	}
+-
+-	chip->timeout_a = usecs_to_jiffies(timeout_eff[0]);
+-	chip->timeout_b = usecs_to_jiffies(timeout_eff[1]);
+-	chip->timeout_c = usecs_to_jiffies(timeout_eff[2]);
+-	chip->timeout_d = usecs_to_jiffies(timeout_eff[3]);
++	raw[TPM_LIMIT_A] = be32_to_cpu(cap.timeout.a);
++	raw[TPM_LIMIT_B] = be32_to_cpu(cap.timeout.b);
++	raw[TPM_LIMIT_C] = be32_to_cpu(cap.timeout.c);
++	raw[TPM_LIMIT_D] = be32_to_cpu(cap.timeout.d);
+ 
+ 	rc = tpm1_getcap(chip, TPM_CAP_PROP_TIS_DURATION, &cap,
+ 			 "attempting to determine the durations",
+ 			  sizeof(cap.duration));
+-	if (rc)
+-		return rc;
++	if (!rc) {
++		raw[TPM_LIMIT_SHORT] = be32_to_cpu(cap.duration.tpm_short);
++		raw[TPM_LIMIT_MEDIUM] = be32_to_cpu(cap.duration.tpm_medium);
++		raw[TPM_LIMIT_LONG] = be32_to_cpu(cap.duration.tpm_long);
++		mask |= TPM1_LIMIT_DURATION_MASK;
++	}
+ 
+-	chip->duration[TPM_SHORT] =
+-		usecs_to_jiffies(be32_to_cpu(cap.duration.tpm_short));
+-	chip->duration[TPM_MEDIUM] =
+-		usecs_to_jiffies(be32_to_cpu(cap.duration.tpm_medium));
+-	chip->duration[TPM_LONG] =
+-		usecs_to_jiffies(be32_to_cpu(cap.duration.tpm_long));
+-	chip->duration[TPM_LONG_LONG] = 0; /* not used under 1.2 */
++	for (limit = 0; limit < TPM_NR_LIMITS; limit++)
++		val[limit] = raw[limit];
+ 
+-	/*
+-	 * Provide the ability for vendor overrides of duration values in case
+-	 * of misreporting.
+-	 */
+-	if (chip->ops->update_durations)
+-		chip->ops->update_durations(chip, durations);
+-
+-	if (chip->duration_adjusted) {
+-		dev_info(&chip->dev, HW_ERR "Adjusting reported durations.");
+-		chip->duration[TPM_SHORT] = durations[0];
+-		chip->duration[TPM_MEDIUM] = durations[1];
+-		chip->duration[TPM_LONG] = durations[2];
++	/* TIMEOUT_A below 1000 means the four timeouts are in milliseconds. */
++	if (val[TPM_LIMIT_A] && val[TPM_LIMIT_A] < 1000) {
++		for (limit = TPM_LIMIT_A; limit <= TPM_LIMIT_D; limit++)
++			val[limit] *= 1000;
+ 	}
+ 
+ 	/* The Broadcom BCM0102 chipset in a Dell Latitude D820 gets the above
+@@ -440,14 +421,22 @@ int tpm1_get_timeouts(struct tpm_chip *chip)
+ 	 * fix up the resulting too-small TPM_SHORT value to make things work.
+ 	 * We also scale the TPM_MEDIUM and -_LONG values by 1000.
+ 	 */
+-	if (chip->duration[TPM_SHORT] < (HZ / 100)) {
+-		chip->duration[TPM_SHORT] = HZ;
+-		chip->duration[TPM_MEDIUM] *= 1000;
+-		chip->duration[TPM_LONG] *= 1000;
+-		chip->duration_adjusted = true;
+-		dev_info(&chip->dev, "Adjusting TPM timeout parameters.");
++	if ((mask & BIT(TPM_LIMIT_SHORT)) &&
++	    val[TPM_LIMIT_SHORT] < 10 * USEC_PER_MSEC) {
++		val[TPM_LIMIT_SHORT] = USEC_PER_SEC;
++		val[TPM_LIMIT_MEDIUM] *= 1000;
++		val[TPM_LIMIT_LONG] *= 1000;
+ 	}
+ 
++	for_each_set_bit(limit, &mask, TPM_NR_LIMITS)
++		reported[limit] = min_t(u64, val[limit], U32_MAX);
++
++	/* The reported timeouts apply even when the durations query failed. */
++	tpm_limits_update(chip, reported);
++	tpm1_report_adjusted(chip, raw, mask);
++	if (rc)
++		return rc;
++
+ 	chip->flags |= TPM_CHIP_FLAG_HAVE_TIMEOUTS;
+ 	return 0;
+ }
+diff --git a/drivers/char/tpm/tpm2-cmd.c b/drivers/char/tpm/tpm2-cmd.c
+index 4b2bb2ddc321..f943f1c05721 100644
+--- a/drivers/char/tpm/tpm2-cmd.c
++++ b/drivers/char/tpm/tpm2-cmd.c
+@@ -43,10 +43,7 @@ EXPORT_SYMBOL_GPL(tpm2_find_hash_alg);
+ 
+ int tpm2_get_timeouts(struct tpm_chip *chip)
+ {
+-	chip->timeout_a = msecs_to_jiffies(TPM2_TIMEOUT_A);
+-	chip->timeout_b = msecs_to_jiffies(TPM2_TIMEOUT_B);
+-	chip->timeout_c = msecs_to_jiffies(TPM2_TIMEOUT_C);
+-	chip->timeout_d = msecs_to_jiffies(TPM2_TIMEOUT_D);
++	tpm_limits_update(chip, NULL);
+ 	chip->flags |= TPM_CHIP_FLAG_HAVE_TIMEOUTS;
+ 	return 0;
+ }
+diff --git a/drivers/char/tpm/tpm_tis_core.c b/drivers/char/tpm/tpm_tis_core.c
+index 143ef160820e..384468920b5d 100644
+--- a/drivers/char/tpm/tpm_tis_core.c
++++ b/drivers/char/tpm/tpm_tis_core.c
+@@ -626,81 +626,16 @@ static int tpm_tis_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+ struct tis_vendor_durations_override {
+ 	u32 did_vid;
+ 	struct tpm1_version version;
+-	unsigned long durations[3];
++	u32 durations_us[3];
+ };
+ 
+-static const struct  tis_vendor_durations_override vendor_dur_overrides[] = {
++static const struct tis_vendor_durations_override vendor_dur_overrides[] = {
+ 	/* STMicroelectronics 0x104a */
+ 	{ 0x0000104a,
+ 	  { 1, 2, 8, 28 },
+-	  { (2 * 60 * HZ), (2 * 60 * HZ), (2 * 60 * HZ) } },
++	  { 120 * USEC_PER_SEC, 120 * USEC_PER_SEC, 120 * USEC_PER_SEC } },
+ };
+ 
+-static void tpm_tis_update_durations(struct tpm_chip *chip,
+-				     unsigned long *duration_cap)
+-{
+-	struct tpm_tis_data *priv = dev_get_drvdata(&chip->dev);
+-	struct tpm1_version *version;
+-	u32 did_vid;
+-	int i, rc;
+-	cap_t cap;
+-
+-	chip->duration_adjusted = false;
+-
+-	if (chip->ops->clk_enable != NULL)
+-		chip->ops->clk_enable(chip, true);
+-
+-	rc = tpm_tis_read32(priv, TPM_DID_VID(0), &did_vid);
+-	if (rc < 0) {
+-		dev_warn(&chip->dev, "%s: failed to read did_vid. %d\n",
+-			 __func__, rc);
+-		goto out;
+-	}
+-
+-	/* Try to get a TPM version 1.2 or 1.1 TPM_CAP_VERSION_INFO */
+-	rc = tpm1_getcap(chip, TPM_CAP_VERSION_1_2, &cap,
+-			 "attempting to determine the 1.2 version",
+-			 sizeof(cap.version2));
+-	if (!rc) {
+-		version = &cap.version2.version;
+-	} else {
+-		rc = tpm1_getcap(chip, TPM_CAP_VERSION_1_1, &cap,
+-				 "attempting to determine the 1.1 version",
+-				 sizeof(cap.version1));
+-
+-		if (rc)
+-			goto out;
+-
+-		version = &cap.version1;
+-	}
+-
+-	for (i = 0; i != ARRAY_SIZE(vendor_dur_overrides); i++) {
+-		if (vendor_dur_overrides[i].did_vid != did_vid)
+-			continue;
+-
+-		if ((version->major ==
+-		     vendor_dur_overrides[i].version.major) &&
+-		    (version->minor ==
+-		     vendor_dur_overrides[i].version.minor) &&
+-		    (version->rev_major ==
+-		     vendor_dur_overrides[i].version.rev_major) &&
+-		    (version->rev_minor ==
+-		     vendor_dur_overrides[i].version.rev_minor)) {
+-
+-			memcpy(duration_cap,
+-			       vendor_dur_overrides[i].durations,
+-			       sizeof(vendor_dur_overrides[i].durations));
+-
+-			chip->duration_adjusted = true;
+-			goto out;
+-		}
+-	}
+-
+-out:
+-	if (chip->ops->clk_enable != NULL)
+-		chip->ops->clk_enable(chip, false);
+-}
+-
+ struct tis_vendor_timeout_override {
+ 	u32 did_vid;
+ 	unsigned long timeout_us[4];
+@@ -712,38 +647,50 @@ static const struct tis_vendor_timeout_override vendor_timeout_overrides[] = {
+ 			(TIS_SHORT_TIMEOUT*1000), (TIS_SHORT_TIMEOUT*1000) } },
+ };
+ 
+-static void tpm_tis_update_timeouts(struct tpm_chip *chip,
+-				    unsigned long *timeout_cap)
++static void tpm_tis_adjust_limits(struct tpm_chip *chip, struct tpm_limits *p)
+ {
+ 	struct tpm_tis_data *priv = dev_get_drvdata(&chip->dev);
+-	int i, rc;
+-	u32 did_vid;
++	const struct tis_vendor_timeout_override *t;
++	const struct tis_vendor_durations_override *o;
++	struct tpm1_version *version;
++	cap_t cap;
++	int i, j;
+ 
+-	chip->timeout_adjusted = false;
++	if (p->family != TPM_FAMILY_1)
++		return;
+ 
+-	if (chip->ops->clk_enable != NULL)
+-		chip->ops->clk_enable(chip, true);
++	for (i = 0; i < ARRAY_SIZE(vendor_timeout_overrides); i++) {
++		t = &vendor_timeout_overrides[i];
++		if (t->did_vid != priv->did_vid)
++			continue;
+ 
+-	rc = tpm_tis_read32(priv, TPM_DID_VID(0), &did_vid);
+-	if (rc < 0) {
+-		dev_warn(&chip->dev, "%s: failed to read did_vid: %d\n",
+-			 __func__, rc);
+-		goto out;
++		for (j = 0; j < ARRAY_SIZE(t->timeout_us); j++)
++			tpm_limits_driver_set(p, TPM_LIMIT_A + j,
++					      t->timeout_us[j]);
+ 	}
+ 
+-	for (i = 0; i != ARRAY_SIZE(vendor_timeout_overrides); i++) {
+-		if (vendor_timeout_overrides[i].did_vid != did_vid)
+-			continue;
+-		memcpy(timeout_cap, vendor_timeout_overrides[i].timeout_us,
+-		       sizeof(vendor_timeout_overrides[i].timeout_us));
+-		chip->timeout_adjusted = true;
+-	}
++	if (!tpm1_getcap(chip, TPM_CAP_VERSION_1_2, &cap,
++			 "attempting to determine the 1.2 version",
++			 sizeof(cap.version2)))
++		version = &cap.version2.version;
++	else if (!tpm1_getcap(chip, TPM_CAP_VERSION_1_1, &cap,
++			      "attempting to determine the 1.1 version",
++			      sizeof(cap.version1)))
++		version = &cap.version1;
++	else
++		return;
+ 
+-out:
+-	if (chip->ops->clk_enable != NULL)
+-		chip->ops->clk_enable(chip, false);
++	for (i = 0; i < ARRAY_SIZE(vendor_dur_overrides); i++) {
++		o = &vendor_dur_overrides[i];
++		if (o->did_vid != priv->did_vid ||
++		    memcmp(&o->version, version, sizeof(*version)))
++			continue;
+ 
+-	return;
++		tpm_limits_driver_set(p, TPM_LIMIT_SHORT, o->durations_us[0]);
++		tpm_limits_driver_set(p, TPM_LIMIT_MEDIUM, o->durations_us[1]);
++		tpm_limits_driver_set(p, TPM_LIMIT_LONG, o->durations_us[2]);
++		return;
++	}
+ }
+ 
+ /*
+@@ -1112,8 +1059,7 @@ static const struct tpm_class_ops tpm_tis = {
+ 	.recv = tpm_tis_recv,
+ 	.send = tpm_tis_send,
+ 	.cancel = tpm_tis_ready,
+-	.update_timeouts = tpm_tis_update_timeouts,
+-	.update_durations = tpm_tis_update_durations,
++	.adjust_limits = tpm_tis_adjust_limits,
+ 	.req_complete_mask = TPM_STS_DATA_AVAIL | TPM_STS_VALID,
+ 	.req_complete_val = TPM_STS_DATA_AVAIL | TPM_STS_VALID,
+ 	.req_canceled = tpm_tis_req_canceled,
+@@ -1145,11 +1091,6 @@ int tpm_tis_core_init(struct device *dev, struct tpm_tis_data *priv, int irq,
+ 
+ 	chip->hwrng.quality = priv->rng_quality;
+ 
+-	/* Maximum timeouts */
+-	chip->timeout_a = msecs_to_jiffies(TIS_TIMEOUT_A_MAX);
+-	chip->timeout_b = msecs_to_jiffies(TIS_TIMEOUT_B_MAX);
+-	chip->timeout_c = msecs_to_jiffies(TIS_TIMEOUT_C_MAX);
+-	chip->timeout_d = msecs_to_jiffies(TIS_TIMEOUT_D_MAX);
+ 	priv->chip = chip;
+ 	priv->timeout_min = TPM_TIMEOUT_USECS_MIN;
+ 	priv->timeout_max = TPM_TIMEOUT_USECS_MAX;
+diff --git a/include/linux/tpm.h b/include/linux/tpm.h
+index 57d9356055fc..25c30f3fc269 100644
+--- a/include/linux/tpm.h
++++ b/include/linux/tpm.h
+@@ -49,10 +49,6 @@ struct tpm_class_ops {
+ 		    size_t cmd_len);
+ 	void (*cancel) (struct tpm_chip *chip);
+ 	u8 (*status) (struct tpm_chip *chip);
+-	void (*update_timeouts)(struct tpm_chip *chip,
+-				unsigned long *timeout_cap);
+-	void (*update_durations)(struct tpm_chip *chip,
+-				 unsigned long *duration_cap);
+ 	void (*adjust_limits)(struct tpm_chip *chip, struct tpm_limits *p);
+ 	int (*go_idle)(struct tpm_chip *chip);
+ 	int (*cmd_ready)(struct tpm_chip *chip);
+@@ -91,6 +87,7 @@ enum tpm_limit {
+ };
+ 
+ #define TPM_LIMIT_INTF_MASK		GENMASK(TPM_LIMIT_D, TPM_LIMIT_A)
++#define TPM1_LIMIT_DURATION_MASK	GENMASK(TPM_LIMIT_LONG, TPM_LIMIT_SHORT)
+ 
+ enum tpm_family {
+ 	TPM_FAMILY_1,		/* TPM 1.1 and 1.2 */
+diff --git a/include/linux/tpm_ptp.h b/include/linux/tpm_ptp.h
+index e80ed810a269..3b6e7a854f70 100644
+--- a/include/linux/tpm_ptp.h
++++ b/include/linux/tpm_ptp.h
+@@ -79,15 +79,6 @@ enum tis_x86_defaults {
+ 	LPC_CLKRUN_EN			= (1 << 2),
+ };
+ 
+-/*
+- * Some timeout values are needed before it is known whether the chip is
+- * TPM 1.0 or TPM 2.0.
+- */
+-#define TIS_TIMEOUT_A_MAX	max_t(int, TIS_SHORT_TIMEOUT, TPM2_TIMEOUT_A)
+-#define TIS_TIMEOUT_B_MAX	max_t(int, TIS_LONG_TIMEOUT, TPM2_TIMEOUT_B)
+-#define TIS_TIMEOUT_C_MAX	max_t(int, TIS_SHORT_TIMEOUT, TPM2_TIMEOUT_C)
+-#define TIS_TIMEOUT_D_MAX	max_t(int, TIS_SHORT_TIMEOUT, TPM2_TIMEOUT_D)
+-
+ #define	TPM_ACCESS(l)			(0x0000 | ((l) << 12))
+ #define	TPM_INT_ENABLE(l)		(0x0008 | ((l) << 12))
+ #define	TPM_INT_VECTOR(l)		(0x000C | ((l) << 12))
 -- 
 2.47.3
 
