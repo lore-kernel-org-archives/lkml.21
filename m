@@ -1,67 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=82.195.75.108
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794985087;
-	b=K1tv9c2IrmVgxPY4UDtWWpacoFPpo9aAT+8Z65AwDBCnQJgEVYj6ejadQedQoD4dV+NB
-	 7puQC9iLVb6kHMPvTAdUHt/Fw4LEC9gUnrWY+3ZiG2U+P8YA3GG02jBye6q1RGj7bnpyR
-	 8oLgLyD9RWJ6MC5ovOdoeVjZVKDdeHg6xSsoGS0zQl7pRBMkInL0Ourm3kZQ1bEuHXVta
-	 hcczn5XQTy9GEfpJaR5CwUCzQQmrEqPrg6ElJZjdjVfEaGOh0e/t558F82s9w25bABTcX
-	 gZK9ajz/yClNq4q4gQQo+Q1Fvj+7pem3ya0LyPzhjpzBMDiy4ari19Fjy/OKjm1DLnw==
+	t=1794985185;
+	b=YBdg432r+RsxP3eELO5TjhJvoCI33+drMuB2/uje+ZKaOqLmHbolqejQPJ2kDHm+1KMT
+	 DHgJ0ImwiqgIg+vMDhZWwRPvurFG9mwN7Ws6DzGjgZ5oP1P2/jhL76GSTF8v0TTXPuky6
+	 esPmwGxvAdiv0+iLaGM3u13KOnM8c9oWcZzdAjLknCJ4GuW2csfwdbYqLKuYQvyCiNixD
+	 HnPzh5hTnI7YcM6b4UvOV9ibtEHHXnnO+7T4DSeLedPQ+JYpxGDLL1iyOFwXU/vF2KJj1
+	 EVRsEl/9FMkfL/w/PwJvOR3fm8UlSJWyvsB7I6Oo0Zas3ZserhkJv7c+Wo29auAQMaQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794985087;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Debian-User;
-	bh=4tGFP33VkTrDJmEm8l02YsCNfXgeLphumCyL2ku8Avg=;
-	b=dRT+bNxN7sQAnIIDBNO1zI9fFS7FEvpR3FD8MSZBOLTAnIfkrik45RDR8j6bDItU+9vb
-	 bB84Cgotx8PmfhOjbvDJiz/qbLUMDnotT2gp6V29Oe1+lfAwc8Si8wt4OD+OCoY4Hr+XZ
-	 ITEjlG8uhhHzaqOpPPT6aZAdmlXggBu0MjT0CqRUeynbHC95QmDModezhU234AtYmEjf7
-	 i3NhpJm2LljzbqYHa54OVo0qloJJaHpQ23GiFP/9I7RjadzfD5hHpNCli1Mqfp1ofow9H
-	 1wF86m6rsmna2zoQweOO1HlDM/iFYUxiOCYjzwYccuErvc989CS1RjWZJiFw0R0TCbw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794985185;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-Id:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=heXCHdN3Xo0X72Nq73T4MUZg+DJ+WOwvUemHigw2T60=;
+	b=uwgrY52Wl5ZjvWNS8yyiXrAHtGgDT3zJEWgDlc2batssrM1mgi6EnU4r2ezkGsFyesUX
+	 hdb7obNj/RXyr9DUjrWkR73vi3zipaqypiMJ9Q+GIqgGtOiSK37Cmxe6Mmy8hb9INf/xc
+	 Wg+YaH8Qkl0NiKF9SCx945LhDnqaw0AC7IruyeIx6Qem2Vu2fRsxYu1W5SZbLN6CHYgF1
+	 WVKBg40AumtxZoMjnC0aE9Ms2WPIvfJkHes+fgSDo66kAzVT0LMBd3zjfsSXM63WupUOy
+	 /28t5KLGo5/V+ON229yjdTv+gTWoMjTxsKHz2dlZHtIZDgOHwsDmDOtGTiuqjoqd99Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=debian.org;
-	spf=pass smtp.mailfrom=debian.org;
-	dkim=pass header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=iFm9XfSJ;
-	arc=none smtp.remote-ip=82.195.75.108
-Received: from stravinsky.debian.org (stravinsky.debian.org [82.195.75.108])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ber6wwS1;
+	arc=none smtp.remote-ip=95.215.58.131
+Received: from mta1.migadu.com (out-131.mta1.migadu.com [95.215.58.131])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A644606A32C;
-	Wed, 18 Nov 2026 06:58:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7A644606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=debian.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=debian.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E0E0606A330
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:59:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E0E0606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=iFm9XfSJ
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=4tGFP33VkTrDJmEm8l02YsCNfXgeLphumCyL2ku8Avg=; b=iFm9XfSJ4+bGdM2w6CrY9qos7j
-	JKJOY16eZVDAsGWYPgLtEbg4GysAElc86qWox42YZdv+fZSbFRRjMNtJ7gpcgthVvDv5158VLTAWl
-	guVKkRnHiuokrQzYEBdmkqxKd2oqR1KSoEdogjJL49n71DXIwF9ZgUoIKsl12eLJASdFdnkkkqUkt
-	eM06QfgloWR2FzvgGBarCMzFDYxnMqWA5VaBFs9sI4Fj5APnJiPBXpDoC8tZUQIkzST8KwyN7h1ie
-	Dovq4HWab1K0sPdd0BxvQJtUKAnV46gOLYkkLpqF9xI8rqbmnTaz0Qn+LTHlvyN6tecyPtAzxPVyE
-	2QRasT/w==;
-Received: from authenticated-user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <emfox@debian.org>)
-	id 1xTZcI-0017te-1h;
-	Wed, 18 Nov 2026 06:58:03 +0000
-From: Emfox Zhou <emfox@debian.org>
-To: Even Xu <even.xu@intel.com>,
-	Xinpeng Sun <xinpeng.sun@intel.com>,
-	Jiri Kosina <jikos@kernel.org>,
-	Benjamin Tissoires <bentiss@kernel.org>
-Cc: linux-input@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v8 5/5] HID: intel-thc-hid: intel-ipts: document the IPTS mode
-Date: Wed, 18 Nov 2026 14:57:25 +0800
-Message-ID: <20261118065725.673090-6-emfox@debian.org>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261118065725.673090-1-emfox@debian.org>
-References: <20261118065725.673090-1-emfox@debian.org>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ber6wwS1
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=Rg+1vT3rPQ1wgGLASxTg42XZBtRbemyqxsNnQ7I22sU=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794985181; v=1; x=1795589981;
+ b=ber6wwS1LnR4PBKI0+Bo0P+SE/NyIMRuJmZtg2mtPepf3h7uKBK7SEAQYZiySJJdVvqtvZX8
+ 8F1L1ZZH3pswBWbN/Ke61MVtvHMYDwOwNN72EK0VKYzftJxk1zNAZ7eoP+Fyow0R1asmJau7Efh
+ o4ZrcIqmR0aSg347q4CnqwN0=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta11.migadu.com with ESMTPS id 6b525de8134ec44f;
+	Wed, 18 Nov 2026 06:59:41 +0000
+X-Mizu-Trace-ID: 6b525de8134ec44f
+X-Migadu-Flow: FLOW_OUT
+From: Fushuai Wang <fushuai.wang@linux.dev>
+To: mingo@redhat.com,
+	peterz@infradead.org,
+	juri.lelli@redhat.com,
+	vincent.guittot@linaro.org,
+	dietmar.eggemann@arm.com,
+	rostedt@goodmis.org,
+	bsegall@google.com,
+	mgorman@suse.de,
+	vschneid@redhat.com,
+	kprateek.nayak@amd.com,
+	sshegde@linux.ibm.com
+Cc: linux-kernel@vger.kernel.org,
+	wangfushuai@baidu.com
+Subject: [PATCH v2] sched/core: Fix a TOCTOU bug in sched_non_preferred_cpu_push_stop()
+Date: Wed, 18 Nov 2026 14:59:21 +0800
+Message-Id: <20261118065921.98260-1-fushuai.wang@linux.dev>
+X-Mailer: git-send-email 2.39.2 (Apple Git-143)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,139 +74,83 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Debian-User: emfox
 
-The THC documentation only covers HIDSPI and HIDI2C. Ports from before
-Meteor Lake run in a third mode, and the intel-ipts driver is
-written against behaviour that is not described anywhere in tree.
+From: Fushuai Wang <wangfushuai@baidu.com>
 
-Record what the driver depends on: the layout of the configuration
-block, the frame codes and header sizes, the bulk data window, and the
-order in which quiesce, interrupt configuration and the DMA engines
-have to be set up.
+sched_push_current_non_preferred_cpu() is called in irq context. It
+checks is_migration_disabled() before queuing the stopper.
 
-Signed-off-by: Emfox Zhou <emfox@debian.org>
+migrate_disable() sets p->migration_disabled in preempt_disable() section.
+An irq can hit after preempt_disable() but before p->migration_disabled=1.
+After the irq returns, the task cannot be preempted by stopper becuase
+preemption is disabled, so it finishes setting p->migration_disabled=1
+before the stopper runs.
+
+It may be like:
+    task context:                       irq context:
+    migrate_disable()
+        preempt_disable()
+                                        is_migration_disabled()
+        migration_disabled = 1
+        preempt_enable()
+
+So recheck is_migration_disabled() in sched_non_preferred_cpu_push_stop()
+before calling __migrate_task().
+
+The stack may be like:
+   WARNING: kernel/sched/core.c:3432 at set_task_cpu+0x1b8/0xdf0, CPU#21: migration/21/152
+   CPU: 21 UID: 0 PID: 152 Comm: migration/21 Tainted: G        W  O        7.4.0-rc1 #3 PREEMPT(lazy)
+   Stopper: sched_non_preferred_cpu_push_stop+0x0/0xb10 <- sched_push_current_non_preferred_cpu+0x6a6/0x9a0
+   RIP: 0010:set_task_cpu+0x1b8/0xdf0
+   Call Trace:
+    <TASK>
+    ? set_task_cpu+0x5/0xdf0
+    move_queued_task+0xfc/0x650
+    ? is_cpu_allowed+0x341/0x820
+    ? __this_cpu_preempt_check+0x13/0x20
+    sched_non_preferred_cpu_push_stop+0x7b7/0xb10
+    ? __this_cpu_preempt_check+0x13/0x20
+    ? __pfx_sched_non_preferred_cpu_push_stop+0x10/0x10
+    ? __pfx_sched_non_preferred_cpu_push_stop+0x10/0x10
+    ? sched_non_preferred_cpu_push_stop+0x5/0xb10
+    ? __pfx_sched_non_preferred_cpu_push_stop+0x10/0x10
+    cpu_stopper_thread+0x205/0x410
+    ? smpboot_thread_fn+0x307/0xa60
+    ? __pfx_cpu_stopper_thread+0x10/0x10
+    smpboot_thread_fn+0x352/0xa60
+    ? __pfx_smpboot_thread_fn+0x10/0x10
+    kthread+0x3a6/0x4d0
+    ? __pfx_kthread+0x10/0x10
+    ret_from_fork+0x68e/0xb40
+    ? __pfx_ret_from_fork+0x10/0x10
+    ? __kasan_check_read+0x11/0x20
+    ? __switch_to+0x592/0x1210
+    ? __pfx_kthread+0x10/0x10
+    ret_from_fork_asm+0x1a/0x30
+    </TASK>
+
+Fixes: 74699f56ebcf ("sched/core: Push current task from non preferred CPU")
+Signed-off-by: Fushuai Wang <wangfushuai@baidu.com>
 ---
- Documentation/hid/intel-thc-hid.rst | 109 +++++++++++++++++++++++++++-
- 1 file changed, 108 insertions(+), 1 deletion(-)
+v1->v2: No code changes, just improve the commit message.
 
-diff --git a/Documentation/hid/intel-thc-hid.rst b/Documentation/hid/intel-thc-hid.rst
-index 8b378c57b..e6bdf30b6 100644
---- a/Documentation/hid/intel-thc-hid.rst
-+++ b/Documentation/hid/intel-thc-hid.rst
-@@ -590,7 +590,114 @@ To debug THC, event tracing mechanism is used. To enable debug logs::
-   echo 1 > /sys/kernel/debug/tracing/events/intel_thc/enable
-   cat /sys/kernel/debug/tracing/trace
+ kernel/sched/core.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index 5ed660f099a5..6f9374aa3f19 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -11314,7 +11314,8 @@ static int sched_non_preferred_cpu_push_stop(void *arg)
+ 		rq->npc_push_work_pending = false;
+ 		update_rq_clock(rq);
  
--7. Reference
-+7. IPTS Mode
-+============
-+
-+THC also supports IPTS mode, the private Intel Precise Touch and Stylus
-+protocol. The port drives the touch controller over plain SPI and moves the
-+data through the same DMA engines, but the framing is private and the
-+parameters come from the controller itself instead of ACPI. The
-+``intel-ipts`` module handles ports in that mode, which is what Tiger Lake,
-+Lakefield, Alder Lake and Raptor Lake hardware use.
-+
-+This section describes how the driver uses those ports. It is not a
-+specification: everything below comes from observing the controller and is
-+limited to what this driver relies on.
-+
-+7.1 Configuration Block
-+-----------------------
-+
-+At SPI address 0 the controller exposes a 64 byte block. The driver reads it
-+over the PIO path after releasing the controller from reset, and retries
-+until the tag ``$TIC`` (``0x43495424``) appears, because the block is only
-+partially filled while the controller is still starting.
-+
-+Two steps come before that read: the DMA engines are unconfigured first, so
-+engines the firmware left armed do not keep writing through the PRD base it
-+had mapped, and the interrupt trigger is switched to edge, without which the
-+first read is unreliable.
-+
-+Fields the driver uses:
-+
-+======  ==========================================================
-+Offset  Meaning
-+======  ==========================================================
-+0x00    pending interrupt causes
-+0x08    buffer sizes, ``(size / 64) - 1``; Rx bits 13:0, Tx 23:14
-+0x0c    touch engine control: enable BIT(0), HID reports BIT(2),
-+        power state GENMASK(5, 3)
-+0x14    controller tag, ``$TIC``
-+0x18    SPI timing: clock divisor GENMASK(3, 1), divide-by-8 and
-+        dual/quad bits
-+0x1c    vendor and product ID reported to HID
-+0x20    product revision
-+0x24    firmware version word
-+======  ==========================================================
-+
-+The driver enables the touch engine with reports and full power, and clears
-+it again when the port is shut down.
-+
-+The offsets above, the frame codes and the header sizes below are compiled
-+into ``ipts.h``; a ``static_assert()`` on every offset makes a mismatch a
-+build failure rather than a quiet misread.
-+
-+7.2 Frames
-+----------
-+
-+Both directions carry a code and a length in front of the payload. Frames
-+from the controller use a 64 byte header, frames to it an 8 byte header, and
-+only the latter has the payload padded to a four byte boundary.
-+
-+==== ========================== =======================
-+Code Received from controller   Sent to controller
-+==== ========================== =======================
-+3    input report               set feature
-+4    feature report             get feature
-+5    report descriptor          output report
-+7    reset request              get report descriptor
-+==== ========================== =======================
-+
-+A report descriptor comes back with eight bytes of preamble that the driver
-+skips.
-+
-+7.3 Data Window
-+---------------
-+
-+Bulk transfers go through address ``0x1000`` of the controller, not through
-+address 0. The DMA engines have to be pointed there explicitly, otherwise
-+they write into the configuration block and the controller drops the frames
-+without reporting an error. The input header address is zero: that is where
-+the controller writes the interrupt cause word, at the start of the
-+configuration block.
-+
-+7.4 Enabling and Flow Control
-+-----------------------------
-+
-+The port has to be released from quiesce before the driver enables the
-+touch engine: quiescing holds back the device interrupt and the data path,
-+not the configuration access, which is why the block above is read while the
-+port is still quiesced. The interrupt configuration programs the interrupt
-+type field in the device to the invalid value, and starting the receive
-+engine then replaces that field with the type it expects, so the two have to
-+happen in that order.
-+
-+The controller starts streaming once user space asks for it, through a set
-+feature request on report 5. The driver does not do that on its own; the
-+daemon that opens hidraw sends it.
-+
-+7.5 What Is Left to User Space
-+------------------------------
-+
-+The reports carry heatmap data, and turning that into contacts is a
-+substantial image-processing job that already exists in user space. The
-+driver therefore stops at the HID layer: the report descriptor comes from
-+the controller and is not written by the driver, the report stream is
-+available through hidraw, and ``iptsd`` decodes it into input events.
-+
-+System sleep tears the port down and brings it back, so the hidraw node is
-+destroyed and re-created: a daemon has to reopen it after resume.
-+
-+8. Reference
- ============
- - HIDSPI: https://download.microsoft.com/download/c/a/0/ca07aef3-3e10-4022-b1e9-c98cea99465d/HidSpiProtocolSpec.pdf
- - HIDI2C: https://download.microsoft.com/download/7/d/d/7dd44bb7-2a7a-4505-ac1c-7227d3d96d5b/hid-over-i2c-protocol-spec-v1-0.docx
+-		if (task_rq(p) == rq && task_on_rq_queued(p)) {
++		if (task_rq(p) == rq && task_on_rq_queued(p) &&
++		    !is_migration_disabled(p)) {
+ 			struct rq *dest_rq = __migrate_task(rq, &rf, p, cpu);
+ 
+ 			if (rq != dest_rq)
+-- 
+2.36.1
+
