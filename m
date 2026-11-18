@@ -1,55 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795025357;
-	b=w38tut4I7GTrfZNGz4lBdAFRUnqzmPma92IaFtFMjX1pftSjvdxzvF9VHIKfBrVfLNuo
-	 Aj9K3piWzBYosZgSPGZyZL8NosyrsRNVwSf8AYlFOflFMUfmMjf9oIHfRDbjbckeZJd6L
-	 F6EVX/5P4C4uviBYVZcIfByn4WPofYY0zCjWbp0o2JfcYC/Ashddqdv+WIIGNPHYBOecA
-	 /BWbY7s/IxdSX/+Stnho8ycgoqpupfgMfD1I/MrJyA0FVX3y5eawTssqc1+fM/E3HXE1N
-	 BSutsFV9wNFQr0dHVqPX/ZcdjEu1ROKTBcIB3b4Vd4iny3SEOvsMsEAkI9UxIYSijqw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795025357;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=RIdkJa5LenRRw6urYfdJfH94Dy+Daqb3UMbNwAcNkUI=;
-	b=N4ZMu+C9bUw2e0VjbKYuMzhZEtp9S+QR4fbLyhIkg+m1JTUtbOORxfI+5tKEaTbcPU2A
-	 FxKb/gibaj3kot2KLwxi0Fqldx4XZQoagqJLDzX3SrpeHCakrQwVXQzgpxC8Mtx0ExISc
-	 N43yos3OP1VqOTxwH6OCc9U6zShXF08fO6bNGJIgRRWGiBedw3Th7B2q3608Hiyvas36T
-	 z5G0f6smQgu5wjdzg6iYPPZ18njzUlFpUln92tlp8AfHbTdEwaj7vlplRVOO3qbhOVK78
-	 M5RH6MV2qQ3zgk3DogJgh5D2z1xvQ6BCJYONcsFIe2klHWPhhUhB0gFdcUulM45xjSw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GcikOcyy;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.52
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795025358;
+	b=Dh/VR/37bSUHvkaQqy/JCnHwfTrLvcyUbzrv4uwG8om3xGXymG/fXJO1mFsI5pdQS/YS
+	 qQFG9wx+jFQ25656pHF/Dntxr/j/S5Ah+Q37PEyucQnn5j8FG6euwpVNnSSEri98PuEIH
+	 aOP5DqFNCYROoW6liyQ/hDntjqPoCi5sSfAPd0gaJXhl3FXaCy4pOBLpJjcYQVXWHUkAS
+	 +ybN8VsAWodvE+oqXFfWEt0oyCRTSQF07NRDeTT3FYPhiV6EWbvGs+/UJ4F2j35aP8j/R
+	 N9cDxU8eFK0ebwxPt2jcsQgAmfuU+DFIM0aYxPwzA0p/LoGYjaqIkEdj98A+utUHi+w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795025358;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=kwy4Hj1zovxLuT7JhwbmIP+fCBASCZe33N49zoGI9m8=;
+	b=OW+2szxkIOswLOXbr1Xj0owBKl8YY8KU/eeV6BLqo85exMhCEf6BxK+6j4QsmWUsZ/Ff
+	 LK60rZjSzWCU1EmApVMaPwv01eiAV7vdDEMKqrVSuNEF9MjXP4T6THcEmwobBR7+PC+7j
+	 DXpg/l1dSBIxWM0CfrHBUzItmwerHikIbcRLEpvs4Zcmu7DTFPrNBa2OLlarQBRmJ3/Yh
+	 pS0KWfq1rGx28R/H9xOdNxwCjoRXUCZHkf/a75516VhI8WXlbykxbVOde1bN3GrJU/9ZR
+	 9YyIj17alDgncZXekL9JWsp4MwMwT+KS0DCuv0/rdOO3uM2cTNv8QcR9CT0tQ+yB5VA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FaCjoIxd;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.52
+Received: from mail-ed1-f52.google.com (mail-ed1-f52.google.com [209.85.208.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 247CA606A31C;
-	Wed, 18 Nov 2026 18:09:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0680B60A2613
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:09:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0680B60A2613
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GcikOcyy
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9036C1F000C5;
-	Wed, 18 Nov 2026 18:09:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795025356;
-	bh=RIdkJa5LenRRw6urYfdJfH94Dy+Daqb3UMbNwAcNkUI=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=GcikOcyyZbV6ZYAYVI05NCsP4SBhjk/0zkZ9hQ0Y5QcBQUw8d76lEvq1hmmoHMi/a
-	 nVEfWYTm72i1jyOTFf09ZgN5GbqCLUqubJYCCK62FwqQlM8KtL6E9OulTZM5JYzAYt
-	 ww/pmAVnqtLhnqx6uCYy5HCdLoEKt5dMWLlBmeSilP+bzi55AgEqjMNZRInvgV2MP/
-	 6VGerKob9GVW5VaX26wpxQpvL68yq5J2yo+ExsTTbYbx3JpYO01t315/Tn6T8kgWOp
-	 8tXz1veIiKPZpT3LtDKSxY71FNibFckoybu9WxgeFwiJTafGvrtN0F9UBnkUMK8taY
-	 dCtSbYDm3DQhA==
-From: Mark Brown <broonie@kernel.org>
-To: Haowen Tu <tuhaowen@uniontech.com>
-Cc: peda@lysator.liu.se, lgirdwood@gmail.com, perex@perex.cz, 
- tiwai@suse.com, linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <BF435C6BC6FC2868+20261118033156.3845276-1-tuhaowen@uniontech.com>
-References: <BF435C6BC6FC2868+20261118033156.3845276-1-tuhaowen@uniontech.com>
-Subject: Re: [PATCH] ASoC: max9860: Register the supply notifier after
- initializing regmap
-Message-Id: <179502535165.810609.9743452411132204827.b4-ty@b4>
-Date: Wed, 18 Nov 2026 18:09:11 +0000
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FaCjoIxd
+Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-6b6f42095bcso2117591a12.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:09:17 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795025356; cv=none;
+        d=google.com; s=arc-20260327;
+        b=p+ibavs/76+TyNKO7ZLokYu+2sS0JV88icwIHOFD33yutWnE7up6W3wQ1BidmnjHCz
+         Vwq9Jd8aAZ9l5Y+5BJpQg2xgVU+meiqbTMMXzgw1Co45tbOL2UtmKbgeTuKYsD7OLVex
+         xQ/u0oIv7XYjN5KAMYUxh+s9RInv9lAmSNNgB58cYT5oBCOGCkcBATL3TIlEo36SN3GF
+         WBnEyS7XN3BCyTeUxCmOkBtqJ6xqcpz5k8g9SxzRMQySfwBDsrIpvKYJKk0MxsxiHr3E
+         niAiLZ8/6i61q0IoPlZA9uvsSBpMzJeMSHP+8uNrkrJRlMviJWNtJo6fbszsedDJUzIu
+         L5ew==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=kwy4Hj1zovxLuT7JhwbmIP+fCBASCZe33N49zoGI9m8=;
+        fh=YZIP1jYvfYlmzQFaLA1AX9zjPbh+l4ujinebQKr2BeA=;
+        b=FNRYyQ2CAgzl3f2JeEfm29Bbi7VRMvdhDALO1N38hDYjsOmPKjxJGbbqTQCx6EfiNn
+         0PTi39Mir2+SQ06LyXJOFXeJyCUS1cxoPOPxztaSoiTBvDSifXOwDVuCdM/HWWCwlySi
+         1yUPlTHBwwq/0JdY63YG4YrH+L2x40Py+8VWIHaVuCRp1fssIC5gpB/D9P2btVQj/IMo
+         nE/bLQf+CioOrz7EJmL/mJqV7033tBaC6RSTx5RwsccYS3yJa6SQT9GAZK98re/zXfoE
+         LP2yB8vfDhOU196X+cdB/OeGADBS95kM7JZqUQBVEYoeW5Bte2WIoE8sK1wJKbtpaTUp
+         Hv0w==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795025356; x=1795630156; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=kwy4Hj1zovxLuT7JhwbmIP+fCBASCZe33N49zoGI9m8=;
+        b=FaCjoIxduW+OQqqM1HY+h2AatdrxA8mvHHYzo/xdr5ctytG8VhpPyqRKZKMRhE7iVv
+         7FgmUAafV1rRzfmFxPFRFw3/BiHts/CNWjIbRJHB2j3xXPmy5weVodlesnbV0UkSas/2
+         04rG+3UIa8LffuqU1uXJ9bDdgIwXauiQh4WsLgN4RYqIqTp1/ywOah9cXAKi6V+tM6wb
+         /PMdlxMBGsA/QMbgsYo7AO/hF9BST1V0cVWyNmm27iBtzdykIEmrdjR/cVPK2ZzRoM6I
+         WtiX51ayzxrUg9vwzy5WadGWFEyQicy72O2ouN3fpFqg9K6FEkOJIh/l5xbnNTQ+JvAG
+         CxFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795025356; x=1795630156;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=kwy4Hj1zovxLuT7JhwbmIP+fCBASCZe33N49zoGI9m8=;
+        b=QquNARd7KAy9wCm9hrxJ5h1TatFDk9qT5Uc2bRnFcTRR4NF8Gbc28O9Q8buXKgXuPs
+         tzi9IAxAyNkKtQoC5xLfA7cazEi5WlP9U8operYjLMqmdE4QEXL52Zlk4LsbmhnhkX6u
+         Kxv/ZjmY2Hoo4z3cXipeMExeFJKoOpvcOhlTRR//bKlQYAlE3FuHHzVvr0F02acgSeC9
+         8d/eIU1s1m7bU0TEvXxAz/GziLOd3CqLRdDNApS0okKiIQ1z08ikpgsKLEqqZT1mG38N
+         mpMzXyIm8LKxda8ztC3iVxo8RPY7DnHo35Guwc5blJ+jvFdy05szzoAsKIHXdkhIEOE3
+         qsxw==
+X-Forwarded-Encrypted: i=1; AL+hErHntc4B7QYOHPeKvCZ7oEDea8Tjde4GSjZKu1JrZzbmpseZke2hii/626JnJQHjIVaFbZt6QK1NfBALJyU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/x1z7tsU6O4YsYj1iaYNtfQ2Kgo5+ct397LFyY/FNXMeifRfdm
+	pL16eBNesrYxyICb0Q2jLcGF5h/A1HoNLHjXhRwfmjUE5NsHpBXHKiR2CquP+8w84yrGP/aROQ/
+	pHms6fEaBeAZkMj6ro0XjaUuSyKVIq2E=
+X-Gm-Gg: AYBFou1glVh/eW50t0lbrfGxhQQeaR6jGO/xhFRBFMALWtUgaOKN8hw2jOLkMVoOdrj
+	FaUXk8yk3r43SOWmvknGv2a4lwGNPPjqZiVs/1aBQds4brHk4oqTQJ8YKRZvStcKcmwVa6mQhkn
+	uU+hLFA/Vqj5dX14wHp0A3/X1nRqOpOzpZ9zhrb40Ps24nncJicl/tl/6FFYWCSKbaPeESUxYLP
+	m8mp+kbWvSRVSIwSkWupXr9Q2SWahtraPSImnAOm8lpojSMnhI8j7h58WS2AlZ+I/S3rGzp9lyL
+	5KBG+h1pRxm/A1eGEZ7G81Bt5m2k/U+0iGqt6hcLc/+ChUDdhFZUPDnM5UEOa9QpceAoUthoDAJ
+	HaBHfc4IHndxpE84Rz5dFVat0OMRbXX4erqLu1ab0OVCxnLCdgPffOYY=
+X-Received: by 2002:a05:6402:1d4b:b0:6b7:f9e0:a5bd with SMTP id
+ 4fb4d7f45d1cf-6b887eb273amr2779728a12.23.1795025356010; Wed, 18 Nov 2026
+ 10:09:16 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,46 +104,201 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1153; i=broonie@kernel.org;
- h=from:subject:message-id; bh=pLuXjnWgNTYMmlcO+Udup31AdsKFGdHj6AdalwXw7G4=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLL+vjy5zuGjzLxjmqejlvpuurnx06u4rb+9nOS+CVn/q
- fj0ft97v45SFgYxLgZZMUWWuCzul/Ulr9fwHVzYBjOHlQlkCAMXpwBMpKaJ4a/0be68BctXWN/5
- fqBfcNKpOm65u1cOBF/8sTvq3YlNPRGbGP6Hc+R8mnfqdMd9H6HaOVeqbzdu+XBqFpPXhhiDSdV
- nH9pwAgA=
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+References: <20261118-b4-ovl-containerized-sync-v7-0-54f45743fe55@toxicpanda.com>
+ <20261118-b4-ovl-containerized-sync-v7-7-54f45743fe55@toxicpanda.com>
+In-Reply-To: <20261118-b4-ovl-containerized-sync-v7-7-54f45743fe55@toxicpanda.com>
+From: Amir Goldstein <amir73il@gmail.com>
+Date: Wed, 18 Nov 2026 19:09:04 +0100
+X-Gm-Features: AclHuK8VtQI7kbgQWNsYTQs5zinc50rhvyv9MuCfqsFP8jTSp9pRJGJQpVNgjmU
+Message-ID: <CAOQ4uxiexeX-Mu3eTOUTnOknb7BrYw3vSsSxqA3+oQVVYVh9oQ@mail.gmail.com>
+Subject: Re: [PATCH v7 7/7] ovl: implement containerized syncfs for overlayfs
+To: Josef Bacik <josef@toxicpanda.com>
+Cc: Miklos Szeredi <miklos@szeredi.hu>, Christian Brauner <brauner@kernel.org>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>, 
+	Christoph Hellwig <hch@infradead.org>, Chris Mason <mason@kernel.org>, 
+	Chengguang Xu <cgxu519@mykernel.net>, linux-unionfs@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Chengguang Xu <charliecgxu@tencent.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, 18 Nov 2026 11:31:56 +0800, Haowen Tu wrote:
-> ASoC: max9860: Register the supply notifier after initializing regmap
+On Wed, Nov 18, 2026 at 6:03=E2=80=AFPM Josef Bacik <josef@toxicpanda.com> =
+wrote:
+>
+> From: Chengguang Xu <charliecgxu@tencent.com>
+>
+> Now overlayfs can only sync own dirty inodes during syncfs,
+> so remove unnecessary sync_filesystem() on upper file system.
+>
+> Do that with fsync=3Drelaxed only, which is what the default, fsync=3Daut=
+o,
+> selects on most filesystems.  fsync=3Don brings the old behaviour back.
+>
+> Take the steps of sync_filesystem() for the upper filesystem, but only fo=
+r
+> the tracked inodes, and go about it like the page cache does.
+>
+> Without wait, ->sync_fs() gives every inode that is marked dirty the
+> towrite mark.  That is what this sync has to write.  Then it starts
+> writeback of the upper inode of each of them, and replaces dirty and
+> towrite by the writeback mark.
+>
+> With wait, for every inode with the writeback mark, it calls
+> write_inode_for_sync(), which also hands over the timestamps that lazytim=
+e
+> has deferred, and waits for the data, whoever has started to write it.
+>
+> Both end with sync_fs_and_bdev(), which is what sync_filesystem() does
+> after the inodes.  Do the same for unmount and for a read-only remount.
+>
+> A sync tags once, so tasks that modify files do not keep it going.  The
+> marks are shared by all syncs that are running, so it also writes and wai=
+ts
+> for what another one tags ahead of it.  A walk only goes up, so it ends.
+>
+> In the page cache the completion of the I/O clears the writeback mark.
+> Here whoever has waited does, and another sync may have started the inode
+> again meanwhile.  So the mark only goes if the upper inode is seen clean.
+> Until then every sync sees the inode and waits for it as well, so they do
+> not have to wait for each other.  Otherwise the inode is marked dirty
+> again, which also covers an upper inode that is open for writing: stores
+> through a shared mapping do not call into overlayfs.
+>
+> That does not cover pages that are pinned through such a mapping.  A dire=
+ct
+> read into it that completes after the last munmap() and close() dirties
+> them when the inode may have left the set, and the next syncfs() does not
+> write them.
+>
+> syncfs() now also returns the error of writeback that the flusher of the
+> upper filesystem has done before, which it did not do so far.  It compare=
+s
+> the wb_err of the upper mapping with what it was when the inode entered t=
+he
+> set.  Unlike the error flags of the mapping, nobody can take that away, a=
+n
+> fsync() for one.  The error is recorded in the superblock of the overlay
+> under the lock that protects the cursor, so another syncfs() that runs at
+> the same time gets it as well.
+>
+> A read-only remount of the overlay syncs it the same way, so it now fails
+> with such an error, once.
+>
+> Keep a freeze and a read-only remount of the upper filesystem out while a=
+n
+> inode is handed over.  If one has already begun when ->sync_fs() is to
+> wait, sync the whole upper filesystem, like before.  If one kept it from
+> starting an inode and has gone away since, start that inode then.
+>
+> Upper inodes that have no overlay inode, like whiteouts and the work
+> directories, are not tracked.  It is up to ->sync_fs() and the block devi=
+ce
+> to get them to disk.  ext4, xfs and btrfs log all metadata, and ext4
+> without a journal keeps it in the buffers of the block device.
+>
+> With many containers on one upper filesystem, stopping one of them no
+> longer writes out the dirty data of all the others.
+>
+> Signed-off-by: Chengguang Xu <charliecgxu@tencent.com>
+> [josef: everything after the first paragraph]
+> Signed-off-by: Josef Bacik <josef@toxicpanda.com>
+> ---
+>  Documentation/filesystems/overlayfs.rst |   7 +-
+>  fs/overlayfs/overlayfs.h                |   1 +
+>  fs/overlayfs/params.c                   |  14 +--
+>  fs/overlayfs/super.c                    |   3 +
+>  fs/overlayfs/sync.c                     | 217 ++++++++++++++++++++++++++=
+++++++
+>  5 files changed, 230 insertions(+), 12 deletions(-)
+>
+> diff --git a/Documentation/filesystems/overlayfs.rst b/Documentation/file=
+systems/overlayfs.rst
+> index 8a007fbc5257..00e2cba65e2c 100644
+> --- a/Documentation/filesystems/overlayfs.rst
+> +++ b/Documentation/filesystems/overlayfs.rst
+> @@ -830,7 +830,12 @@ Traditionally, syncfs(2) and unmount of an overlay s=
+ync the entire upper
+>  filesystem, including the dirty data of other overlays that share it.
+>  Overlayfs can be told to only write back the files that were modified
+>  through the overlay, and then ask the upper filesystem to commit its
+> -metadata.
+> +metadata and write its block device.
+> +
+> +In that mode syncfs(2) also returns the error of writeback of such a fil=
+e
+> +that has failed earlier, like fsync(2) on the file does.  As after fsync=
+(2),
+> +a file that is opened on the upper filesystem later does not get that er=
+ror
+> +any more.  A read-only remount of the overlay fails with such an error o=
+nce.
+>
+>  On traditional local filesystems with a single journal (e.g. ext4, xfs),
+>  fsync on a file also persists the parent directory changes, because they
+> diff --git a/fs/overlayfs/overlayfs.h b/fs/overlayfs/overlayfs.h
+> index f4770b4c0222..63200551a7d0 100644
+> --- a/fs/overlayfs/overlayfs.h
+> +++ b/fs/overlayfs/overlayfs.h
+> @@ -899,6 +899,7 @@ void ovl_forget_inode(struct inode *inode);
+>  void ovl_drop_tracked(struct ovl_fs *ofs);
+>  long ovl_nr_cached_objects(struct super_block *sb, struct shrink_control=
+ *sc);
+>  long ovl_free_cached_objects(struct super_block *sb, struct shrink_contr=
+ol *sc);
+> +int ovl_sync_tracked(struct super_block *sb, int wait);
+>
+>  /* vfs fileattr flags read from overlay.protattr xattr to ovl inode */
+>  #define OVL_PROT_I_FLAGS_MASK  (S_APPEND | S_IMMUTABLE)
+> diff --git a/fs/overlayfs/params.c b/fs/overlayfs/params.c
+> index 370dd6341392..90111c480440 100644
+> --- a/fs/overlayfs/params.c
+> +++ b/fs/overlayfs/params.c
+> @@ -774,22 +774,14 @@ static int ovl_reconfigure(struct fs_context *fc)
+>  {
+>         struct super_block *sb =3D fc->root->d_sb;
+>         struct ovl_fs *ofs =3D OVL_FS(sb);
+> -       struct super_block *upper_sb;
+> -       int ret =3D 0;
+>
+>         if (!(fc->sb_flags & SB_RDONLY) && ovl_force_readonly(ofs))
+>                 return -EROFS;
+>
+> -       if (fc->sb_flags & SB_RDONLY && !sb_rdonly(sb)) {
+> -               upper_sb =3D ovl_upper_mnt(ofs)->mnt_sb;
+> -               if (ovl_should_sync(ofs)) {
+> -                       down_read(&upper_sb->s_umount);
+> -                       ret =3D sync_filesystem(upper_sb);
+> -                       up_read(&upper_sb->s_umount);
+> -               }
+> -       }
+> +       if (fc->sb_flags & SB_RDONLY && !sb_rdonly(sb) && ovl_should_sync=
+(ofs))
+> +               return sync_filesystem(sb);
+>
+> -       return ret;
+> +       return 0;
+>  }
+>
+>  static const struct fs_context_operations ovl_context_ops =3D {
+> diff --git a/fs/overlayfs/super.c b/fs/overlayfs/super.c
+> index 7f7d3993bc7a..a2d527f62d75 100644
+> --- a/fs/overlayfs/super.c
+> +++ b/fs/overlayfs/super.c
+> @@ -287,6 +287,9 @@ static int ovl_sync_fs(struct super_block *sb, int wa=
+it)
+>         if (!ret)
+>                 return ret;
+>
+> +       if (!ovl_should_sync_upper_fs(ofs))
+> +               return ovl_sync_tracked(sb, wait);
+> +
+>         /*
+>          * Not called for sync(2) call or an emergency sync (SB_I_SKIP_SY=
+NC).
+>          * All the super blocks will be iterated, including upper_sb.
 
-Applied to
-
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
-
-Thanks!
-
-[1/1] ASoC: max9860: Register the supply notifier after initializing regmap
-      https://git.kernel.org/broonie/sound/c/6bceb2fc2402
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+Maybe also move ovl_sync_fs() to sync.c makes this
+a very nice finale ;)
 
 Thanks,
-Mark
-
+Amir.
