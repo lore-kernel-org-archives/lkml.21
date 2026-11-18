@@ -1,61 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.251.229.89
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795022200;
-	b=1EReR1UHMTyGj9eYQFNNpBQsL7iGr0vKnxgGiuvo4QQGfO6S+BcDJIRNBe0NfS6eWLnh
-	 UBpY60FRMdTnahCLUyr/YGKbGZKnAesWdqUG5z+0wrHgp+fCTBzOOyR/ZtmpGEiRYu+pM
-	 5ZH/DX1LH3sSNyVSg6goq94uh/Dd1HfTlxn0erJZmnVwa0Vd5CUPyQglnCSyo89yEkA8u
-	 eqZz+mjHbP9jKaiT0+dgG/CMiYETZePSUFJExnj4q4w2HgmzT6rHO/dtbBfbuDTYs/4Dw
-	 58Sb4XlX7GcL9kn7rpsDg/6cV7g8H3G5Bz0QA8esqimwkoBas5U6RUJX7fXf5AGO20g==
+	t=1795022232;
+	b=0/ius5zOCgi3imuDoH2Vgv8zpOt8U1727SturCJU2p+b7pH3Q2QNxyfRYCCPwIhS9Y5I
+	 HnGvEa0Slfrk++kQe4hkZh3FMS7WCmR6ihJyts80N1kJsgg6FXrPQeBU/VCBKETpXnQ7q
+	 Wef+3nu13XIJqxPG0cbKMmgIRqzi/ttPJACQo/jmqJKgLpcjwXYy6me9jacZv8rD+jbEf
+	 IOt96O8d0bWDGk2Am+hGVzEflal14EUjAckvgjZeBx3dYHtZ9g/PRrv1bKHzAXXOrPKX+
+	 IuAz6DrWJC+hlpD4u3yw5RR3LqEDzGNnAh0PvKeS/zT1TeS/jfPjUmE/aVOuUxHfetA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795022200;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=SAzJmY4FCeji/qIKXkz3wy9NVv0twgE5M8r/Ajd4Jqk=;
-	b=vSokR6NYMvDo8LVDEJbgSWyVvBUDoVrcxwLxhhzyDtOD/YYwnU7ghRwRS1fQFIlXux0/
-	 KPmYlMNzwDOIAUa3JzFYH1AKwrGeFR50/vSfDhqDlKo8M8afO5DWY8hhpWfmOMbGzIBSr
-	 hii7RvgzsRYuFJjc+qY6JaOzUA7oxBWG9wkUkO9huV6vTIoQp6yB7GeExLqNGtnH7TD+h
-	 /tuKnybRtS9rhYPkYbVSCiuuvDOI22G06s3SI91U4sI5eLmbJ3xuerVhXn9WUCjTpQXuK
-	 D5xitLw0YdtEaCDLPwIpTVGApJ6OkA43/jQW65s3FBwB8ikiS398iH62E3elnhzvy0A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795022232;
+	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Last-TLS-Session-Version;
+	bh=JwzpYCQn/l6SzPxUmJU+YOvPOIewTFubouB7LMjAbDw=;
+	b=F3d3f+5PkgybUGU/GEmVZN4iSogDAsk4mLQDkriPdnXGuUpgAa0+uKh0poUK6Ebir6GA
+	 30LGVxhXSMrhW9mJ+SvJjOvwhtrypqknI2Ed9JE+l45LYZbJRIOM2ZE9efUvCAjn5d9mR
+	 PyL8UuCvw5iNSdvyB0KOwXKvT/ObfnpNIfz3Gu5b9LnkOhEY6L8qDQjU34r+CBCbQU3E+
+	 tVBBfrZ36j3KzINNCl81XIDok6bwLF7Krep5W8ROOWXhWvc1CMUOpTFYA3J5bDbA4Vdfj
+	 hmC+qYuzdtN4rih8P7Nhj2rlKfQuH436aZvhdrVzuYhQPxrdth02kqYWFAlebE5gzqg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GSY98f4K;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=nabladev.com;
+	spf=pass smtp.mailfrom=nabladev.com;
+	dkim=pass header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=Aqj4Nd3U;
+	arc=none smtp.remote-ip=178.251.229.89
+Received: from mx.nabladev.com (mx.nabladev.com [178.251.229.89])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9DD9606A325;
-	Wed, 18 Nov 2026 17:16:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40155606A325;
+	Wed, 18 Nov 2026 17:17:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 40155606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nabladev.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nabladev.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GSY98f4K
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA67C1F000C9;
-	Wed, 18 Nov 2026 17:16:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795022200;
-	bh=SAzJmY4FCeji/qIKXkz3wy9NVv0twgE5M8r/Ajd4Jqk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GSY98f4Ki8nRSlVBffIV0exkJgfRM+bfH+yHeRlifszVzSumzm3erhIwdDMLB/7fj
-	 WYuGsz1NZdAkTUpBQDVls9xrw/8a/b2zIh2E9iwDTSk/UdaOZ6G4RAu4okEn0/Iu3N
-	 PJK36e3rQ6ZMubzstA7P42bQv4InxsVDiwfyLcrkXDLMTLJsa1f2OdGsiuFs/eK8cc
-	 0xDRMW5MlS7weCJc+GkV9gA0+XTylYdYwIWF+9JpPxZ8uChYBQFDHWx430nhbIh/aM
-	 nvv3ELf1bpOhmGuYgnz+6ZywpXW9x8G7RX8orGBpDFxfyco7VwG5X2VR5hlL8SaClI
-	 VJ9UXFPiPAtFw==
-Date: Wed, 18 Nov 2026 17:16:36 +0000
-From: Lee Jones <lee@kernel.org>
-To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>
-Cc: Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Mikko Perttunen <mperttunen@nvidia.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Sandipan Patra <spatra@nvidia.com>, linux-pwm@vger.kernel.org,
-	linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH 1/8] pwm: tegra: Prevent 32-bit period truncation and
- division by zero
-Message-ID: <20261118171636.GD98456@joneslee-macbookpro.roam.internal>
-References: <20261105143847.2559586-1-lee@kernel.org>
- <20261105143847.2559586-2-lee@kernel.org>
- <auykeNit2S4e7axg@monoceros>
+	dkim=pass (2048-bit key) header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=Aqj4Nd3U
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9139410F9C1;
+	Wed, 18 Nov 2026 18:17:04 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1795022226;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=JwzpYCQn/l6SzPxUmJU+YOvPOIewTFubouB7LMjAbDw=;
+	b=Aqj4Nd3UXK6bUXOvekAurpfgjdH9vJkpCCH9Bi4tIJmpUPYZrCpfhCLd8XpNIqI/ggVwlK
+	hXVg+6Fee6pK/KuQUUpLlW5+AMQPoft6PVMlzHj+RZZ386dkRxO09ExAgUjRDcKhtLgwXd
+	LvmVfYZ5tXLERMBkiOFeO0T/KDzHIknZuTrRdVhDdGRgk66HlouamyWlU+otR0Tzozjas8
+	OU+FZERbZ0O+DlLmxt2MAxD4oYrHep2W3DcGSPJBBlWXL5UXaSHUne8NhiEi3VhtCmciqJ
+	y2lDlYyfVzUl0oTJUuis2dHJyqKOidmKq2Ux8oRCvELUAw4BZgYcp3phFUNqkQ==
+Date: Wed, 18 Nov 2026 18:17:02 +0100
+From: Pavel Machek <pavel@nabladev.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: stable@vger.kernel.org, patches@lists.linux.dev,
+	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
+	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
+	patches@kernelci.org, lkft-triage@lists.linaro.org,
+	pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com,
+	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
+	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
+	sr@sladewatkins.com
+Subject: Re: [PATCH 7.3 0000/2651] 7.3.6-rc1 review
+Message-ID: <av3djrju6lGWQD9K@duo.ucw.cz>
+References: <20261118150247.972732815@linuxfoundation.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,37 +67,100 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: multipart/signed; micalg=pgp-sha1;
+	protocol="application/pgp-signature"; boundary="H5QXGylTV+YzbXtC"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <auykeNit2S4e7axg@monoceros>
+In-Reply-To: <20261118150247.972732815@linuxfoundation.org>
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Thu, 05 Nov 2026, Uwe Kleine-König wrote:
 
-> Hello Lee,
-> 
-> On Thu, Nov 05, 2026 at 02:38:03PM +0000, Lee Jones wrote:
-> > tegra_pwm_apply() passes the 64-bit state->duty_cycle and state->period
-> > values into tegra_pwm_config(), which accepts signed 32-bit int
-> > parameters and performs DIV_ROUND_CLOSEST_ULL(c, period_ns) before
-> > validating period_ns against pc->min_period_ns.  If a consumer requests
-> > a period that is a non-zero multiple of 2^32 nanoseconds, period_ns
-> > truncates to zero and triggers a divide-by-zero panic.
-> > 
-> > Widen duty_ns and period_ns to u64 and validate that period_ns lies
-> > within [pc->min_period_ns, U32_MAX] prior to dividing by period_ns.
-> > 
-> > Fixes: 1d7796bdb63a ("pwm: tegra: Support dynamic clock frequency configuration")
-> > Fixes: fd3ddd4355c0 ("pwm: tegra: Implement .apply() callback")
-> > Closes: https://sashiko.dev/#/bug/linux-5c5b97d6-4da6-4d06-9dc7-957419dcd832
-> > Cc: stable@vger.kernel.org
-> > Signed-off-by: Lee Jones <lee@kernel.org>
-> 
-> This is already addressed in
-> 9ad5602d4943 ("pwm: tegra: Fix value discarding for duty and period")
-> which is next-20261102 and later.
+--H5QXGylTV+YzbXtC
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Would you like me to resubmit the set without this or can you omit it?
+Hi!
 
--- 
-Lee Jones
+> This is the start of the stable review cycle for the 7.3.6 release.
+> There are 2651 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
+
+We see a build failure here.
+
+https://gitlab.com/cip-project/cip-testing/linux-stable-rc-ci/-/pipelines/3084792704
+https://gitlab.com/cip-project/cip-testing/linux-stable-rc-ci/-/tree/linux-7.3.y
+
+Best regards,
+									Pavel
+
+
+In file included from ./include/linux/device.h:31,
+1965
+16:37:20
+                 from ./include/linux/pci.h:38,
+1966
+16:37:20
+                 from drivers/pci/controller/pcie-iproc-bcma.c:8:
+1967
+16:37:20
+drivers/pci/controller/pcie-iproc-bcma.c: In function 'iproc_bcma_pcie_probe':
+1968
+16:37:20
+drivers/pci/controller/pcie-iproc-bcma.c:72:45: error: 'devm_pci_alloc_host_bridge_release' undeclared (first use in this function); did you mean 'devm_pci_alloc_host_bridge'?
+1969
+16:37:20
+   72 |         ret = devm_add_action_or_reset(dev, devm_pci_alloc_host_bridge_release,
+1970
+16:37:20
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1971
+16:37:20
+./include/linux/device/devres.h:181:41: note: in definition of macro 'devm_add_action_or_reset'
+1972
+16:37:20
+  181 |         __devm_add_action_or_reset(dev, action, data, #action)
+1973
+16:37:20
+      |                                         ^~~~~~
+1974
+16:37:20
+drivers/pci/controller/pcie-iproc-bcma.c:72:45: note: each undeclared identifier is reported only once for each function it appears in
+1975
+16:37:20
+   72 |         ret = devm_add_action_or_reset(dev, devm_pci_alloc_host_bridge_release,
+1976
+16:37:20
+      |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1977
+16:37:20
+./include/linux/device/devres.h:181:41: note: in definition of macro 'devm_add_action_or_reset'
+1978
+16:37:20
+  181 |         __devm_add_action_or_reset(dev, action, data, #action)
+1979
+16:37:20
+      |                                         ^~~~~~
+1980
+16:37:20
+make[5]: *** [scripts/Makefile.build:290: drivers/pci/controller/pcie-iproc-bcma.o] Error 1
+1981
+16:37:20
+make[5]: *** Waiting for unfinished jobs....
+1982
+16:37:20
+  CC      net/core/net-traces.o
+
+Best regards,
+							Pavel
+
+--H5QXGylTV+YzbXtC
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iF0EABECAB0WIQRPfPO7r0eAhk010v0w5/Bqldv68gUCav3djgAKCRAw5/Bqldv6
+8t3IAJ4gVZa3TvIWdbjNlHQPDinSgvZDZQCdFLuooXCOwJRDwnLV9vG60+uD/qI=
+=LORK
+-----END PGP SIGNATURE-----
+
+--H5QXGylTV+YzbXtC--
