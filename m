@@ -1,82 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.212
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795014969;
-	b=1MztOJome2HG7D4DQVb5U9xp7r82vf3YZkcaO4kdMFuJxDPy+56ki+prBeHSPh8b4vVM
-	 OeppxtiDiTyLfbVMEOQ5wMN02ZM+/Vu8VIA6UDq+RfEB0EvGaLWQKyjpRHLt6DdQuXAkX
-	 musel8sBhchnv4GnR4PgZCDvSU5KgWjIdAEdrbpyi5BysQOGAunybY7ShgDoNCJx4GDGk
-	 u2m1oJmJ6XsIGhTrPwQ1XoAYFlZn2el+M/SkgMuoeAQHtcqGj3CFTdle/zVfwqKfjlp1U
-	 3XVVdyTrQfTfAf8RtpjWEcGzZUhVG9Q8Ztlm0qvi68v6U9JsTxNbm5cLa/E4uw6xEnw==
+	t=1795015005;
+	b=xfPmDLq6NA7kvQOLmuYMBXIdOUfdICi9RQvFtB1Kpituh0pzLLnp8+wTblUfvwXSphQZ
+	 vdOBP0EsRMRi0ugc+hwYE/lZa61+jZ+emoFeMT1HNAnT/xEZ97+BrI3WypFg6l3qD/k5J
+	 gKKIDHsgxpzkaajjJUZLDqmYLOhKXcDbOMRt8jBFnT7GVRINm2X1xY/eE7MMY3X1y4Y7D
+	 rSMS3mkk1Pwj8PKj/GdH7+xUJuSX8sa7T4bnqOc3ofaG7Yt4vAZ3df8P3JoB6goyfw8Ra
+	 b+aIgBa9CDtaqRpWAIcAUz6VUNqvAUrCm1kEtYqeeNa4/ikLbL5wig3+o1ndWdGKsPg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795014969;
-	h=Received:DKIM-Signature:Received:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:User-Agent;
-	bh=VJRW+Ov1+hJWYf0GjjALdvkeKgyKhKIHCpws0o2fknE=;
-	b=JjmTaWPzzZRSkdbhDvyRrNGHMWHvq6Cm9QAAivPz214NS+FrGPckFyVXks961ayY8GB8
-	 w89z+FLjIHnqDqMuVmLkD3sDcd0Q0jh0dhHcqU52NOIOW5Fj/R3Hafq2xj8wxEASNs/KI
-	 PEkI53FB7q/RkS3P255xUurhQJYjvqncsmSXxKO76SLPoM86V5peiB6CwHZ7u3voq2Uw3
-	 muS0cGrDK/fUPfTnba+s4pMBZ3sAhwlbMFwM1hxaaoR0ZXa5bhvM7+jKeXNavauVymCgD
-	 h+u6VMUTMMX03pHpG34A+ACEoIRxmEGZR2xOHbSjvlJ66ZtINbi5R5XzkttrCI/88tw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795015005;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type;
+	bh=k5VQE3knwQrnmwo+9jJf7WpJcK1ieoPOD0FVY0qZ3L4=;
+	b=4DeQDoCv4vQE9oci1Tlh0gNFYe70bjcaAZTSCFPlJT3eWXVX7k7RnvGeZPl/KOQ7n4e6
+	 UodQB+FPvFSDYvetKBhaXry5SRJZWuFFbK8hHfvsPUaLHKFY6H+6jajjB/uNxzJaIs5oa
+	 zcWGRhnmQ41fR6luo5H/nYf4StcVxz4hBVYBy+iK5G3qlcOX5AFhUN0a3OA+PAaChjH0+
+	 dXoSLLmjvavIoOfDYVkK492zPxZYDGVbXl3ZRWiq9VbQEexY9d430A7/OG71UY6YqfYl2
+	 RO5jbAuYYMxA39iBSTYomp/X3KhpEt/ZbmbOhaK17iVPAFcyTqD7m7rsGpMCRy383LQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TSlE7NJ2;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="md4tj/mq";
+	arc=none smtp.remote-ip=91.218.175.212
+Received: from mta0.migadu.com (out-212.mta0.migadu.com [91.218.175.212])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98318606A31C;
-	Wed, 18 Nov 2026 15:16:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C66F2606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:16:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C66F2606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TSlE7NJ2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1D381F000C5;
-	Wed, 18 Nov 2026 15:16:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795014969;
-	bh=VJRW+Ov1+hJWYf0GjjALdvkeKgyKhKIHCpws0o2fknE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=TSlE7NJ24ZHrQjqby7BRumprQ+X4+8LqupeU9Ic0A3522Ds17DPzXVFZwe0JBd6ho
-	 GubLLYFIVNsVAPkFJEvH648kigG7kxnWoxItJWVuGvXDtAx4ld9RpbXs2YF/i/pHvg
-	 IoJDOWDprbfsVrCrmYBi1JtGbscpSjFHgPu7D9ywJ1hYx1lAHMMhOR3mSl4KulHKpe
-	 fhpajsplHwzdx8QTl+uVQSdbOq7HlfNFgYkCBr2s9W1RH2pLT9VZRBVaMQu/2EN3Lh
-	 S10sgG+OG9bMfh1RookXtJuizdsgEup+XRBW62lyyeePfaTh9PHAuvEFSXv7+XdBtx
-	 FZ53ZvVrlCnDQ==
-Received: by pali.im (Postfix)
-	id 9787F846; Wed, 18 Nov 2026 16:16:05 +0100 (CET)
-Date: Wed, 18 Nov 2026 16:16:05 +0100
-From: Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>
-To: koraynilay <koray.fra@gmail.com>
-Cc: David Sterba <dsterba@suse.com>, Namjae Jeon <linkinjeon@kernel.org>,
-	Sungjong Seo <sj1557.seo@samsung.com>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>,
-	Trond Myklebust <trondmy@kernel.org>,
-	Anna Schumaker <anna@kernel.org>, Chuck Lever <cel@kernel.org>,
-	Jeff Layton <jlayton@kernel.org>,
-	Konstantin Komarov <almaz.alexandrovich@paragon-software.com>,
-	Paulo Alcantara <pc@manguebit.org>, Chris Mason <mason@kernel.org>,
-	Yuezhang Mo <yuezhang.mo@sony.com>, Jan Kara <jack@suse.cz>,
-	NeilBrown <neil@brown.name>,
-	Olga Kornievskaia <okorniev@redhat.com>,
-	Dai Ngo <Dai.Ngo@oracle.com>, Tom Talpey <tom@talpey.com>,
-	Ronnie Sahlberg <ronniesahlberg@gmail.com>,
-	Shyam Prasad N <sprasad@microsoft.com>,
-	Bharath SM <bharathsm@microsoft.com>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	ChenXiaoSong <chenxiaosong@chenxiaosong.com>,
-	"Darrick J . Wong" <djwong@kernel.org>,
-	Sean Smith <defendthedisabled@gmail.com>,
-	Andrey Albershteyn <aalbersh@kernel.org>,
-	Pedro Falcato <pfalcato@suse.de>,
-	Amir Goldstein <amir73il@gmail.com>, linux-btrfs@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	exfat@lists.linux.dev, ntfs3@lists.linux.dev,
-	linux-cifs@vger.kernel.org, linux-nfs@vger.kernel.org,
-	linux-api@vger.kernel.org
-Subject: Re: [RFC PATCH v4 00/10] add provenance time (ptime)
-Message-ID: <20261118151605.lqtn5fz423kuswk5@pali>
-References: <20261115180343.576773-1-koray.fra@gmail.com>
- <20261118142613.be3r3s6kobkkxnz4@pali>
- <DMYFBDIV4Y08.35ZKR5G86U1H7@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=md4tj/mq
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=k5VQE3knwQrnmwo+9jJf7WpJcK1ieoPOD0FVY0qZ3L4=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795015002; v=1; x=1795619802;
+ b=md4tj/mqstB1cQECov39e9j92RxNmjOIKsjr3NZBW0dx41F2cO3ecQkUCGEbAmqcEMpOpkyR
+ r+NHhQ40/J/J9qDAWFqTtSartaTyUqWEaiqj4bXs385HiQC6hxUDzJyJPxD1nzJnLFl6np7gi6o
+ nHUSXnirVFJyKx15bdhqPXcY=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 1f8844d2fbce481b;
+	Wed, 18 Nov 2026 15:16:42 +0000
+X-Mizu-Trace-ID: 1f8844d2fbce481b
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5c00d7ac49dso7294e87.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:16:38 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHdF7tXk/gUFduBilxiq05fkjyS2YTQnycw2qNL3ENOYGlK6WbAhJ4bJjib+z3kXu/LyOaacKYYVX8GnOU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8uRd9tGUT65gZEVZbrK4nxhX45kYJD6/QF7B20kAsxjBF6bCvZ
+	PTRkxIiHYdU/tOpEGtXgEh0raCMUKQcqrZumIyw2tK8oEYmf9TB6KgQYV5iNvPo0UNTk1vTQaup
+	tWPqVxz+MvQb5mkQaLAGnMPThnrncx/DGyVI974Yb
+X-Received: by 2002:a05:6512:ba9:b0:5c1:26d6:ef64 with SMTP id
+ 2adb3069b0e04-5c1aac83c11mr178614e87.13.1795014997643; Wed, 18 Nov 2026
+ 07:16:37 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,93 +66,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <DMYFBDIV4Y08.35ZKR5G86U1H7@gmail.com>
-User-Agent: NeoMutt/20180716
+References: <20261104-host_gicv5_fixes-v2-0-e47ad20ea3c8@arm.com>
+ <20261112145814.853424-1-fuad.tabba@linux.dev> <avrzusx1g1ZICo0Q@red-moon>
+ <CA+EHjTyGQbS7zcHSRg50c5xVN2AY4AmMc7JqNAvrc=_UhPQ+kg@mail.gmail.com>
+ <avsN0E-6_7kU3pTk@red-moon> <ea064380-ad7b-4f79-ac17-1174555ed10a@arm.com>
+In-Reply-To: <ea064380-ad7b-4f79-ac17-1174555ed10a@arm.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Wed, 18 Nov 2026 15:16:01 +0000
+X-Gmail-Original-Message-ID: <CA+EHjTwei41=zCQakSk-mBS9L+vp_jtjRJ=eKAwWXyaC1mXsQw@mail.gmail.com>
+X-Gm-Features: AclHuK-LwFI0bEYoy4wIHT2mQsw-X3kab-SBMiVRWf5BC3IdE6u4b5Ur5BWr4jw
+Message-ID: <CA+EHjTwei41=zCQakSk-mBS9L+vp_jtjRJ=eKAwWXyaC1mXsQw@mail.gmail.com>
+Subject: Re: [PATCH v2 00/10] irqchip/gic-v5: Fix misc IRS and ITS host driver issues
+To: Sascha Bischoff <sascha.bischoff@arm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, Timothy Hayes <timothy.hayes@arm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Jonathan Cameron <jic23@kernel.org>, 
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Will Deacon <will@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 
-On Wednesday 18 November 2026 15:58:02 koraynilay wrote:
-> On Wed Nov 18, 2026 at 3:26 PM CET, Pali Rohár wrote:
-> > Hello,
+Hi Sascha, Lorenzo,
+
+On Wed, 18 Nov 2026 at 14:59, Sascha Bischoff <sascha.bischoff@arm.com> wrote:
+[...]
+> I'm more than happy to include "irqchip/gic-v5: Clean a level 2 device
+> table before making it valid" in v3!
+
+Thanks.
+
+> >>>
+> >>> The latter, though freeing memory on timeout wasn't a good idea given
+> >>> that there is no way to cancel the respective, pending, mapping.
+> >>
+> >> Thanks, that answers it. If you'd like a patch that doesn't free the
+> >> memory on a timeout, let me know and I'll send one.
 > >
-> > I have just one issue with the userspace API. It does not allow me to
-> > figure out what is the source of statx btime field. If it is fs ptime or
-> > fs btime because this RFC implementation is mixing both fs ptime and
-> > fs btime into the statx btime field.
-> >
-> > I have feeling that this is quite a mess in API and I would like to see
-> > a clear distinguish between btime and ptime in the API, like there is a
-> > difference in the fs storage.
-> >
-> > If the btime is used for forensic analysis then somehow I would expect
-> > that the statx would not report / not fill changeable ptime value into
-> > the statx btime.
-> 
-> Hi, for native linux filesystems it will report ptime as PTIME and btime
-> as BTIME (also semnatically).
+> > Thanks. Again, if that timeout expires I think we have more serious
+> > problems than the IST mapping but I do agree that freeing memory
+> > is not the answer; not urgent - please send a patch given that
+> > you spotted it, can obviously do it too.
+>
+> I've got some patches addressing the ITT and IST mapping issues in the
+> host driver, which I can include in v3 if you haven't already started
+> working on these. I'll make sure to include the appropriate Reported-by
+> tags, of course!
+>
+> I'll post a fix for the VMT separately as it doesn't belong in this series.
 
-That is fine.
+I haven't started on anything, so I'll leave this with you then.
 
-> for the windows-like ones that only have
-> ptime (semantically) I think it's reasonable to not expect btime to be
-> immutable, since they are meant to be used with other OSs who lack btime
-> semantics.
-
-The problem is here that the RFC statx API does not provide this
-information that the fs lacks btime semantics and instead it fills
-non-immutable ptime value there.
-
-I'm pointing only about this inconsistency.
-
-> > It would be really helpful if the statx API on inode can differ between:
-> >
-> > 1. btime is present and its value is ..., ptime is not supported
-> > 2. btime is not supported, ptime is set to value ...
-> > 3. btime is present and its value is ..., ptime is set to value ...
-> > 4. both btime and ptime are not supported
-> >
-> > This should cover all cases of different filesystems and also allows
-> > userspace to do proper backup of both ptime and btime fields (if it want
-> > to do forensic analysis or anything else).
-> 
-> These should already all be covered by STATX_BTIME/PTIME and their
-> fields in struct statx, the only problems are windows-like filesystems,
-> which IMO shuold be handled as mentioned above.
-
-Exactly, I pointed out about these problems. I somehow expect that the
-new API would be generic and uniform across filesystem. IMHO it does not
-matter if the filesystem is windows-like or not (there are also FreeBSD
-fs and also others which allows to modify that time). So better
-description is fs belongs to category 2. from my above description.
-
-> Of course, as in the other discussion, I'm open to changing ptime
-> NTFS/exFAT/... support to remove btime altogether and only use ptime for
-> their own crtime if that's what wanted (I'm fairly impartial on this
-> specific issue).
-
-I'm giving some ideas how to possible handle this situation:
-
-1. do not fill btime it at all when it is not available (remove btime
-   altogether - the case like you wrote above)
-
-2. when userspace ask both ptime and btime, then do not fill btime
-   (remove btime altogether - but only for that new case)
-
-3. fill btime with ptime value, but add a new output flag indicating that
-   the btime is not present at all and instead kernel filled ptime value
-   into the statx btime field
-
-4. let statx btime as currently is, and add two new statx fields:
-   immutable_btime and ptime. immutable_btime would be filled only if the
-   fs supports real btime (so not for ntfs/extfat crtime) and ptime would
-   be what is currently in RFC
-
-Ideas 2. 3. and 4. should be fully backward compatible as it would
-affect statx output only when called with new flags.
-
-> Thanks,
-> koraynilay
-> 
-> >
-> > Pali
+Cheers,
+/fuad
