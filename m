@@ -1,63 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.251.229.89
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795022100;
-	b=vIwkpzXjjoSiq9r9jSZIY0bUjcML1vZPG6iY8efuRYh0I8/Wfo2ylK2xR2aEfN2rdRpA
-	 9usDkqA32QqdrNNX9fJqZ4UZ22mpT08cCinp47aUcnCeD0IzQuhYpUQUOu8A2aUsaIqEm
-	 pI0ueggJ8A4eS4bmNhCWqt818WKX8PqKpXb8dBp5somLPt8sx0f5zhw258+VRrRqRmMkh
-	 op1Ej175elFGx+RrzeYUgsCKJu4ozEPyksLQw9uSRN5TnswhuCGT3PZhfTyQtJFTLgrzb
-	 sxD48JHtH5E1Hu/fIWxRBVFmlQOpyAACl+ppxZ8NvsaVjoUgVZipeSC3wcyoZJvqLeg==
+	t=1795022099;
+	b=KTk76smaWovhrgGCZW0XQlnmu/TmVkh0xkZ7LNkStYyC7MU4Bcjy6SizWFJNxjeoRN6Q
+	 bb0kMxsEeS+lzmXzU1xBhAIU6mxWNlLbMm3MvwBTdGCp6/VT7yDhOC255p+72J5RwV6LT
+	 SkJsX4FBCFSahrJWuDEQh+xEm8A/SMVWPh5yjKmRUZd+ZKjNGknJwj7lIhbQd3tYRjk/Q
+	 1b8yTshneGBMYFkFnO4IhMj9MdmYZIPdeBz8pUQ2994WFZ9B8vfQAGLwaKB0q/V68jVGp
+	 LX6TATbqOGXjyiVkJg00lX4j+Q4HhC3BX1NVlUgADDMkwaQ2jwyLfBk3Csv0Bz8tr1w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795022100;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=gX24UlkehAbyugxYOTBhxkmtprZYy49+19QytOdeMto=;
-	b=XrJcRPPKHB6txEYlw6bck+DMsrOo+BEmyYu9U/K5cUDerNApcS7CgcGg2IzVp3jOnaH5
-	 CrSTH/uHi4MyKEpLa+EeIyy9AcWpZHc2mCJeU3+gy6AdiO+0zViDNjrqN4jSqD7OyUVCf
-	 M4RS0eDOBmFTicIex8JzC5KCHVCQb/jsYJ5l7ttcjTTaTjWYrWtVFNqVT7mZUmrxf/gck
-	 1YQJf9mqsgrMFXGLn5h/h6DAGSGlXBNkyaM14oabzfERDeIrfa8HQncU5JGIpqmn6V08J
-	 5a5Aj0c/HnruSCb+1RVqYBx6iUuC1MkuoOEeF3gCOVPaDcTx87F3Ncv2M56F1ZfQEAg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795022099;
+	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Last-TLS-Session-Version;
+	bh=bbgtcDoVMF/QPbHUExOaFjNAJPWnnDdKtqU2UAqaUzg=;
+	b=iOk5hZym/7A2JNle/ftaAYA8m2TkL5aeODvVsQTEhJRZfherdYEcV04CIduauZ+wUk0N
+	 tXG+0CXB9OQWNNYQLfTFiPmeXgnslFLCBnC1cT1HP8rbYttjyepbAu5uHgbreo3QoiXPD
+	 ZlfpvocyrGeka4X30hAI6tOJvm+y8gL0uBFKbqxYV0aavu3YpRqHRIg7rvYQtAUKUcGhM
+	 IUURC37sbSwCRawPpYcHzE8maqgEMABw6RZtv4gzfaXvuHky4qv8DEt+HO+fsSB2MMGU7
+	 sqU1Wt3n7Qdu/M+4MwGvlajif60lp3w5lDep4O+T8BK2BHyec+mNe2o8rS7giDiOaZg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="E/+vJZDo";
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id DE5B9606A32F
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:14:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DE5B9606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=nabladev.com;
+	spf=pass smtp.mailfrom=nabladev.com;
+	dkim=pass header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=jRZe7mGY;
+	arc=none smtp.remote-ip=178.251.229.89
+Received: from mx.nabladev.com (mx.nabladev.com [178.251.229.89])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76F7E606A320;
+	Wed, 18 Nov 2026 17:14:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76F7E606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nabladev.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nabladev.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=E/+vJZDo
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9459F1596;
-	Wed, 18 Nov 2026 09:14:56 -0800 (PST)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 603573F632;
-	Wed, 18 Nov 2026 09:14:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795022099; bh=YhZWMU2wfiNBJL8lajkRtTzt8g9FwIp0WP7TV6KuxmY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=E/+vJZDoIknDKiVOE54ix103UrqX6vGzX3Cs/DWxZ6xKR03TsPMPUzk6+9Cm6cYNZ
-	 m630MRvBVyYrCIBy27/azkL2irePALActhdOYM1tXEXVgJn37LTU6d4Y7J5cH4hswP
-	 n4w93RTh9CsSB3nnZ/9/V5ouSNqLBErersKxK87w=
-Date: Wed, 18 Nov 2026 17:14:51 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Ard Biesheuvel <ardb+git@google.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>
-Subject: Re: [PATCH v2 1/2] arm64: module: Emit BTI veneers for cross-section
- calls
-Message-ID: <av3dC9SRzdZc6REO@arm.com>
-References: <20261005110511.157016-4-ardb+git@google.com>
- <20261005110511.157016-5-ardb+git@google.com>
- <autdMwEbDqF2u0Wr@arm.com>
- <536669c0-1e59-4d9c-9601-2691689da8bf@app.fastmail.com>
+	dkim=pass (2048-bit key) header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=jRZe7mGY
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 16F6A10DF33;
+	Wed, 18 Nov 2026 18:14:50 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1795022092;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=bbgtcDoVMF/QPbHUExOaFjNAJPWnnDdKtqU2UAqaUzg=;
+	b=jRZe7mGY5T09x3UEc6+VkrkQoNarfY/lMyIxTYzWTHpRB90AUtpBaMyWORHiG2xycoukmC
+	XGPUrdIBBuPRt9ib6n2sNoCIrkuTYBim3IVR3F43Z0GMXYWQAH8qOWAAA9fhohL1mWggy+
+	QjdChAZFHJGhRODh4QxGynnU3rMCrNvDjihVziCc44IM1SG+hQU6dgFTSNi5Vgvp2sJhF6
+	Y/IMgSZ2zcCBF5el1hzsVYIAVdQEWfd80ul7cbEdXIQKupIcWfT9AX/W9olmX/YpFesEnM
+	uLitjjje2p0o60dZyHzipYrg8Ja68PNFaEnMqFka7jHNSY5eH0alIG9SboXZRQ==
+Date: Wed, 18 Nov 2026 18:14:49 +0100
+From: Pavel Machek <pavel@nabladev.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: stable@vger.kernel.org, patches@lists.linux.dev,
+	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
+	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
+	patches@kernelci.org, lkft-triage@lists.linaro.org,
+	pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com,
+	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
+	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
+	sr@sladewatkins.com
+Subject: Re: [PATCH 5.15 0000/2214] 5.15.226-rc1 review
+Message-ID: <av3dCX_jikgUH0oz@duo.ucw.cz>
+References: <20261118150009.797899913@linuxfoundation.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,41 +67,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha1;
+	protocol="application/pgp-signature"; boundary="R9UF4ktUmYBpCif0"
+Content-Disposition: inline
+In-Reply-To: <20261118150009.797899913@linuxfoundation.org>
+X-Last-TLS-Session-Version: TLSv1.3
+
+
+--R9UF4ktUmYBpCif0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <536669c0-1e59-4d9c-9601-2691689da8bf@app.fastmail.com>
 
-On Thu, Nov 12, 2026 at 12:11:02PM +0100, Ard Biesheuvel wrote:
-> On Wed, 4 Nov 2026, at 17:28, Catalin Marinas wrote:
-> > Apart from those, I don't have other technical objections to the patch
-> > but I wonder whether we'll find alternative options going forward that
-> > make this fix redundant. E.g. allocating .init.text and .text together
-> > (you had an RFC) or a new execmem_alloc_near() to try to place them
-> > nearby.
-> >
-> > In the meantime, would something like the following work for us instead
-> > of the veneers? We won't free the .init.text module section but this
-> > should be small. There's the ppc64 precedent.
-> >
-> > bool module_init_section(const char *name)
-> > {
-> > 	if (system_supports_bti_kernel() && strstarts(name, ".init.text"))
-> > 		return false;
-> >
-> > 	return strstarts(name, ".init");
-> > }
-> >
-> 
-> I've done an experiment to simply combine these unconditionally, and the
-> impact on module .text footprint on a typical config is negligible (~10k
-> per 100 loaded modules). That would make this change unnecessary, and would
-> allow the init PLTs and init ftrace trampoline to be dropped as well.
+Hi!
 
-I forgot about this thread. Thanks for testing. That's fine by me to
-make it unconditional. Would you mind respinning with the above? I guess
-we still need the Kconfig checks.
+> This is the start of the stable review cycle for the 5.15.226 release.
+> There are 2214 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
 
-Thanks.
+We see build failures here, similar to ones already reported.
 
--- 
-Catalin
+https://gitlab.com/cip-project/cip-testing/linux-stable-rc-ci/-/pipelines/3084761653
+https://gitlab.com/cip-project/cip-testing/linux-stable-rc-ci/-/tree/linux-5.15.y
+
+Best regards,
+								Pavel
+
+--R9UF4ktUmYBpCif0
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iF0EABECAB0WIQRPfPO7r0eAhk010v0w5/Bqldv68gUCav3dCQAKCRAw5/Bqldv6
+8uXnAJ9v+lNPNAwhYU+fLAshiMgRsdEpqwCdFBek2LBMMzK2+YkkSuanNn8Cw4E=
+=rNBx
+-----END PGP SIGNATURE-----
+
+--R9UF4ktUmYBpCif0--
