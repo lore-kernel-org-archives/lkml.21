@@ -1,52 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.125
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.243.244.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794972759;
-	b=SX75BIUMQmVgat0CbP37J5QBPZN8CdJctNRRnVHvKfP5O8eh7Iw06focas46jEfOnug9
-	 qzzlfsEI+SVNiEqxrSKkrhPAHJXJ27vtW9gcJsiMLKDCkjIAW2s8/G7QM3FFuSkkyn1g3
-	 dxOYzcf7mMQyRXxpqSF5tEcCKQGz8tUiZfWiBb4zfWPjASfqbl2u5YI4lbugMm3uNGDIl
-	 92UW86ttpKup99tRWvJ6jYepswoTGHl/r/HzckvD6CqAlzfme6OsTNJvUCMRWZKV8NZe2
-	 0uDeSxKFNQhjaTbUzS4OE/r5Ul0bceiuydpA3aEj1lneeZVPOSsanuxaqscEyVyFAAQ==
+	t=1794972789;
+	b=bppM2A/EVtePY81JimJ1w2YlfhrLzOuhKWNUxxVg8mzG4jnI0tDK/d1dIf+sdtQI6B4D
+	 874CW6T5jFeyQsBueanKhcRpUg6dUKxJ6nhjGfKo9uv0HsoWtp7NRT7tlR3YssD9vM8IO
+	 FL0FBRpGWeWlo8xpyNjxO5o5tnbQqGrmzK7iR1EmwzRF35EEO/b3LYrG0HtfxfU0I+MsA
+	 Ufk18I6VQ9ggD3FU54/IZm0AcW2XFgTkkMvDGGbutVtiQZ7N/ZsMqwrDJwLZ8Bgqzn+/N
+	 t+7I2ovAVaUaWHTYpBLTVexTzU7cO+ePc4MciNXOPY1S94El2XuusQiWknvfWE7yAzw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794972759;
-	h=DMARC-Filter:X-Alimail-AntiSpam:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=JMsEoh9unEObzZlKKNgSl3NBs0hCf3pS2PdnFg6mbtY=;
-	b=EY/+oBNlrWL+o+Hz1ARgdrOtIwcymxcgMRKRfaGK5pnQalBbCn3/tO341u6JlCmp6ab9
-	 8GSOrtOnhbC9x0AqcPjjTgvbQ93WVwPNzPMWx0CcYsJYPU54VnK1ohEn3XrixpCqmgE4O
-	 xPStenR93ZRRBra6mBeAxT7e5iGmbQ3G+efnXhF0OvZbzFmFaZwTOXhSaiHf+A/cCTVkN
-	 i43E5i8wIKRZHPgHjVXhpEyN7+eqXYbCPnP6ObU0hs2VZ6h98fDuyTi+m5kKnZEFOt86M
-	 tefJ1mViUEZUkduRF0BXugiyDHufLPp8VxPusDeMEEQOSTaVEbLbyLpR5yMXhmagAwQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794972789;
+	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
+	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
+	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=kZ4Qj45/nVhw+wEM+ObjY6ynwG6t9Cb17VAEzM7ECRs=;
+	b=lMbbHMtEVpc2SbZMhAR427pVmQch+MiWIo3qEIyZlT+bWM9tMJsIGvRiFotSOdBTYm2v
+	 o3WDL4In6F70jLtlu/+/+93LuOWih6odSE1xdGOavFIf9ukqj1tX0fSFIA4anotZOyQOM
+	 m4/WWvSb/A/aZ8ociq/FCbag2SUSmUrtMeyIga0Z3oIVbCGq0AvyRp09tZTAAe8Qom+Ic
+	 OJqssplyDURG5VTEohz7gBOk41SaFghxzI1bYFRTil7ZHqYWlczsF8oJ+FxpsVSDjxLDV
+	 yezlzaPvTPEISMZESo7n+fTu2tbgY8E+9U21dosuw+0dACeLQjrXyUfIVcn2LXTZ3lg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kaihong.com;
-	spf=pass smtp.mailfrom=kaihong.com;
-	arc=none smtp.remote-ip=115.124.28.125
-Received: from out28-125.mail.aliyun.com (out28-125.mail.aliyun.com [115.124.28.125])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=uniontech.com;
+	spf=pass smtp.mailfrom=uniontech.com;
+	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=EvrG5hEB;
+	arc=none smtp.remote-ip=54.243.244.52
+Received: from smtpbguseast3.qq.com (smtpbguseast3.qq.com [54.243.244.52])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D8CE606A325;
-	Wed, 18 Nov 2026 03:32:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7D8CE606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kaihong.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kaihong.com
-X-Alimail-AntiSpam:AC=CONTINUE;BC=0.0673776|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.00507667-0.000490795-0.994433;FP=14242939606164800247|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033045038069;MF=wangxiaolei01@kaihong.com;NM=1;PH=DS;RN=9;RT=9;SR=0;TI=SMTPD_---.k4Lvy.H_1794972746;
-Received: from nj-vm-261.pxvirt.local(mailfrom:wangxiaolei01@kaihong.com fp:SMTPD_---.k4Lvy.H_1794972746 cluster:ay29)
-          by smtp.aliyun-inc.com;
-          Wed, 18 Nov 2026 11:32:27 +0800
-From: Xiaolei Wang <wangxiaolei01@kaihong.com>
-To: ulfh@kernel.org,
-	cw9316.lee@samsung.com,
-	avri.altman@sandisk.com,
-	wangxiaolei01@kaihong.com,
-	shawn.lin@linux.dev,
-	linusw@kernel.org
-Cc: linux-mmc@vger.kernel.org,
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3762606A31C;
+	Wed, 18 Nov 2026 03:33:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3762606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=EvrG5hEB
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1794972736;
+	bh=kZ4Qj45/nVhw+wEM+ObjY6ynwG6t9Cb17VAEzM7ECRs=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=EvrG5hEBm7nyHplPFHKkRNi9Is9MA1A10r7VixEaXzmvH22wvQF7UW1wilJ9El1UB
+	 NihiLqRmJ11Q//zyTXyxa6XTUlKnFQvui9RP7kyIG72zEjHWdUA011EqEIrBqkC8q3
+	 4P1z/6LTjsGOaS8DYhv/KrWSePpxxZIYsGxZfXYs=
+X-QQ-mid: esmtpgz10t1794972720t90f23719
+X-QQ-Originating-IP: qbeV1AKGN9RpP899OZoSsXcI9sL6Pb84dNgTbM8l/hs=
+Received: from PEC004119 ( [113.57.152.160])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 18 Nov 2026 11:31:58 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 14367264520237322865
+EX-QQ-RecipientCnt: 8
+From: Haowen Tu <tuhaowen@uniontech.com>
+To: broonie@kernel.org
+Cc: peda@lysator.liu.se,
+	lgirdwood@gmail.com,
+	perex@perex.cz,
+	tiwai@suse.com,
+	linux-sound@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH] mmc: core: use GFP_NOIO for SD cache flush buffers
-Date: Wed, 18 Nov 2026 03:32:25 +0000
-Message-Id: <20261118033225.1212442-1-wangxiaolei01@kaihong.com>
-X-Mailer: git-send-email 2.34.1
+	Haowen Tu <tuhaowen@uniontech.com>
+Subject: [PATCH] ASoC: max9860: Register the supply notifier after initializing regmap
+Date: Wed, 18 Nov 2026 11:31:56 +0800
+Message-ID: <BF435C6BC6FC2868+20261118033156.3845276-1-tuhaowen@uniontech.com>
+X-Mailer: git-send-email 2.50.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,79 +73,75 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:uniontech.com:qybglogicsvrsz:qybglogicsvrsz3b-0
+X-QQ-XMAILINFO: NIUeOSCg5F579AqUo6IpBoajuRETgnAzykTAdbg0yqVdDJGeW3Z/PVdV
+	P1j/JgA4PFAC0dW0GyygZMLBOz2gax7zG2xemXdJlRA8C+oBnlOEnqINPMFvIxm2A9oEWAn
+	WjzjclSrv2tz0iA+SHDRBpUV7difXPuy/o+rx5vcAJEUuFGHeDDiuvP97Qw4TCtxTQ9o3cS
+	0fHOtwCOThmKS/6Xy8ymAKLtBB2Sibm/UubSTTltHIzvLD1IKp53v301Ke0b6k8havwRdrk
+	yssNlVi8Xye42OkuEsj6n+8WS4SZZ+YXqP6uwpJHG6cooKglyUVz4qpAkYFHVkBYSJbq5Sx
+	obceK6Mj/Dmhkr/bfXffVQJJVuNbenVzRpEWkdCLS0Pt2I9UQUQwpO9lp685yk9GcapRYDN
+	Xv0cPoNAgROeorcOAKYGtzY0fXfdeT5i5MWnE5TbC0nSPhNP3yiXyuYFyKqHxiyPj9sGzfO
+	mbKx8t7P5fU84R7xzQvKkkoeju5AAMIlbDhoWYkcUIHssikNZeNO6x0/Ez670OAmmHTQXTO
+	EgjeQWOM6y7eejMRK2ZxLUXOm7iQQicr465ZO5NXpWmourvvHiOER1HOIe1idWoeGjBLGwO
+	fvdJy6+wLRp2w6UBUUuH2rus72Hbe5CaAM6Q81AkkbUfmC8p0RlVEdYItnELs+q6sOt/R+/
+	mPHKsqqTmtoic64o7RWH32W5r0m+q2iODFjW6KSuqBag6gladZ4/4XTaH327BGz2f7XyKvn
+	wHnI8idw9HH/J3Uabjb5/7VFzfWjOnVqrHCAL0h9Omo5oW6ydRCE1hUIsqi/k1JqknUNLLN
+	bwwvgSaP2U0DabvGk0HwP6uz9Nle3ojZ8XG++Iks3th7fXB6qOk/t6wHx1aD99uvpaW26AL
+	VlUntPe/pE1vTNA2+cehph5pnzHrXaW1Og+rJ6gvxVE5vkW5yxNIMaXtwWmTTP1IYYeMzYH
+	PQuTenQegYtMZRjCO6flS0c1GGebuHCa6sSkdkuVhE5PIg+AmYLF7ipsJ+Tvq4gWnvXflob
+	ldTPGMviKUy7V5v6Zc18b0cxRtTls=
+X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
+X-QQ-RECHKSPAM: 0
 
-sd_flush_cache() is called from mmc_blk_mq_issue_rq()'s REQ_OP_FLUSH
-branch, which runs in the block layer dispatch path with the queue usage
-counter held.  Both it and sd_write_ext_reg(), which it calls, allocate
-a 512-byte buffer with GFP_KERNEL.  Under memory pressure that
-allocation enters filesystem reclaim, and reclaim may submit I/O back to
-the same request queue, closing a cycle against queue freeze:
+The DVDDIO notifier accesses max9860->regmap when the supply is disabled,
+but probe registers it before initializing the regmap. If
+devm_regmap_init_i2c() fails, the error path disables DVDDIO with an error
+pointer stored in max9860->regmap. When the supply is switched off, the
+notifier passes this pointer to the regcache helpers.
 
-      CPU0                              CPU1
-      ----                              ----
-  lock(&q->q_usage_counter(io));
-                              lock(fs_reclaim);
-                              lock(&q->q_usage_counter(io));
-  lock(&q->elevator_lock);
+Register the notifier only after regmap initialization has succeeded.
+This also makes devres unregister the notifier before releasing the
+regmap, so the callback cannot outlive the resource it accesses.
 
-lockdep reports it on an arm64 Raspberry Pi 5 that boots from an SD
-card, with the flush dispatched by blk_mq_requeue_work and the elevator
-switch in another thread:
-
-  -> #2 (fs_reclaim):
-       fs_reclaim_acquire <- __kmalloc_cache_noprof <- sd_flush_cache
-       <- mmc_blk_mq_issue_rq <- mmc_mq_queue_rq
-       <- blk_mq_dispatch_rq_list
-
-blk_alloc_queue() declares this ordering explicitly and teaches lockdep
-about it:
-
-  /* Teach lockdep about lock ordering (reclaim WRT queue freeze lock). */
-  fs_reclaim_acquire(GFP_KERNEL);
-  rwsem_acquire_read(&q->io_lockdep_map, 0, 0, _RET_IP_);
-  rwsem_release(&q->io_lockdep_map, _RET_IP_);
-  fs_reclaim_release(GFP_KERNEL);
-
-Taking q_usage_counter(io) and then entering reclaim is the reverse of
-that contract.  GFP_NOIO drops __GFP_FS and __GFP_IO, so neither the
-lockdep dependency nor the writeback that could resubmit to this queue
-can happen any more.
-
-sd_write_ext_reg() is also called from sd_enable_cache() (probe) and
-sd_poweroff_notify() (suspend).  NOIO costs nothing on those paths: the
-allocation is order-0 and 512 bytes, and reclaim without writeback is
-still available.  Keeping a single gfp flavour in the helper makes its
-semantics independent of the caller.
-
-Fixes: 130206a615a9 ("mmc: core: Add support for cache ctrl for SD cards")
-Cc: stable@vger.kernel.org
-Signed-off-by: Xiaolei Wang <wangxiaolei01@kaihong.com>
+Fixes: 3b2af7f79968 ("ASoC: max9860: new driver")
+Signed-off-by: Haowen Tu <tuhaowen@uniontech.com>
 ---
- drivers/mmc/core/sd.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ sound/soc/codecs/max9860.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/mmc/core/sd.c b/drivers/mmc/core/sd.c
-index c763efb10f64..88d0ddfe007a 100644
---- a/drivers/mmc/core/sd.c
-+++ b/drivers/mmc/core/sd.c
-@@ -1041,7 +1041,7 @@ static int sd_write_ext_reg(struct mmc_card *card, u8 fno, u8 page, u16 offset,
- 	struct scatterlist sg;
- 	u8 *reg_buf;
+diff --git a/sound/soc/codecs/max9860.c b/sound/soc/codecs/max9860.c
+index a25f6891fe2f..f05f26d477c7 100644
+--- a/sound/soc/codecs/max9860.c
++++ b/sound/soc/codecs/max9860.c
+@@ -630,13 +630,6 @@ static int max9860_probe(struct i2c_client *i2c)
+ 		return dev_err_probe(dev, PTR_ERR(max9860->dvddio),
+ 				     "Failed to get DVDDIO supply\n");
  
--	reg_buf = kzalloc(512, GFP_KERNEL);
-+	reg_buf = kzalloc(512, GFP_NOIO);
- 	if (!reg_buf)
- 		return -ENOMEM;
+-	max9860->dvddio_nb.notifier_call = max9860_dvddio_event;
+-
+-	ret = devm_regulator_register_notifier(max9860->dvddio,
+-					       &max9860->dvddio_nb);
+-	if (ret)
+-		dev_err(dev, "Failed to register DVDDIO notifier: %d\n", ret);
+-
+ 	ret = regulator_enable(max9860->dvddio);
+ 	if (ret != 0) {
+ 		dev_err(dev, "Failed to enable DVDDIO: %d\n", ret);
+@@ -649,6 +642,13 @@ static int max9860_probe(struct i2c_client *i2c)
+ 		goto err_regulator;
+ 	}
  
-@@ -1335,7 +1335,7 @@ static int sd_flush_cache(struct mmc_host *host)
- 	if (!sd_cache_enabled(host))
- 		return 0;
++	max9860->dvddio_nb.notifier_call = max9860_dvddio_event;
++
++	ret = devm_regulator_register_notifier(max9860->dvddio,
++					       &max9860->dvddio_nb);
++	if (ret)
++		dev_err(dev, "Failed to register DVDDIO notifier: %d\n", ret);
++
+ 	dev_set_drvdata(dev, max9860);
  
--	reg_buf = kzalloc(512, GFP_KERNEL);
-+	reg_buf = kzalloc(512, GFP_NOIO);
- 	if (!reg_buf)
- 		return -ENOMEM;
- 
+ 	/*
 -- 
-2.34.1
+2.50.1
 
