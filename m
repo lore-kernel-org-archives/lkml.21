@@ -1,49 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.97
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794982649;
-	b=Cr2+iws+rcHsr6KEjxhryjpU6nAImDPkiShuxlLfeK/sRNhpmExni7e5sIGSIwMdTy2G
-	 COgztB+OAuO7Y8J2v29yLBayGpu57TyqY3ra3oPx4SV0c9sC3N/0VIV8ZqdrMuGhoSg1G
-	 Zaw14KPftui3WkEy6dN+vKFGd1Wt9KpWN3TjX3fOLsXscyBqNDQMDDMPbqw1pkCBZf6WK
-	 cHdFncB6tc9PObmrOr6xp4e7uPcsigUeWTC/xDhoZorgWHSwVRjTQHipjxEyP9w9yFkmg
-	 MCjyXYOpRHojJdyGW4rmB4w5fz2W988gym/7fid+0Evq9mmypJPzYeO26uInee0fqIw==
+	t=1794982652;
+	b=aG0RUrmpMGWFyohYSf62SihY/ZRadd9M+Z7zAUnejby65bksGvyltkAS62VIixxzIbqF
+	 IQDyYn1EBGR/mCpFOg9reUkZzb6OGBJCMgjO9e8AfpSrZ+Zvh0LMdGVwYLVwki9l8RmFK
+	 Bx/MB4rXOXh/yIGM3xFM6BAAFvorFWCpX1Ansfa6wtNmd0BAKmJ5l2WTq4uW2I3fnLAph
+	 ct89NFbyshngj6R8bQGfpvJpWcTCkstxcenuhq/PjmTeg4aFUWmGPrgM1V9PFF4QZqlLY
+	 b7tSiROfdinHp8VHnk1Ox5U5LiFMSztoA9S88mBX0hGj1QpDmUYibO9ljGXCeVhItsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794982649;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=n9fOIxOwET96uC8roh03DOKW3+w63/lkWzkOzpEHPkw=;
-	b=wykArgNeAGM5z9Ol/ooYl2F3osr+enSrrYt9eTH2pvgf//ZNaadRgUJQL33kn8JHXkME
-	 5xevJtZGhRBnMYZhCUT7MZjldFlfEFbaN3lPdAm7A3SSclEQ+ZKAqwK4vcq9NWZRgB5sC
-	 g2ft1zPD2fkyfy7DLPjoGc8aJw2KyuJ6oggQdcc1tAk+UuzhmQL4Pd4pz6lLRVTTUYunF
-	 RbwH7KnJ6ZlGUaSGLJg6Fvq8+mgYn4gFp73X8170RQ779OxSbKIg9BktJHKt9nZBCPsf+
-	 7K98loCHup571CT9aW+5+WjF+ykCD2lJ6hYcuI37h3k7KYo/q4SwcukC5tSoct7QiFg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794982652;
+	h=DMARC-Filter:X-Alimail-AntiSpam:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=/6E6EWPmB6dLJDBOnn3wrvadZ55eZzkgnB2dErotCA0=;
+	b=PdX++jDhP1URpyBJOGCfGhgOZt1IC/ei3e8x/hPlYQuMyO/PmKPGQ/ONcugSd7n/jy/d
+	 bTncyXQoOjroFURHTq581CGN98K0xKKajBYSdZbNrvooBjhQQGgb5+xz/mwQv71C4scHl
+	 ZXrH1nzwsnYldZRKlhP6UAlSaiITtjDH8OLirpwhKoJa9eRWMjytxdUnVMK2wdN7YI/Nu
+	 fE54RpvEewmicWDl6d6yfIgpH1kuPVPO+L8H9mjqeKBI28JERJHDGKiqNeVZXiZ6GJU28
+	 3GUQ0uRAYWJr5wFhiquijMmtyjPLEviIKwlUgcVfaR1zrL746UFkenc2kPA9cZLaV5w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.alibaba.com;
-	spf=pass smtp.mailfrom=linux.alibaba.com;
-	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=BjUkOhsx;
-	arc=none smtp.remote-ip=115.124.30.97
-Received: from out30-97.freemail.mail.aliyun.com (out30-97.freemail.mail.aliyun.com [115.124.30.97])
+	dmarc=none header.from=open-hieco.net;
+	spf=pass smtp.mailfrom=open-hieco.net;
+	arc=none smtp.remote-ip=115.124.28.124
+Received: from out28-124.mail.aliyun.com (out28-124.mail.aliyun.com [115.124.28.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04BD4606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:17:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 04BD4606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=BjUkOhsx
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1794982638; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=n9fOIxOwET96uC8roh03DOKW3+w63/lkWzkOzpEHPkw=;
-	b=BjUkOhsxibtOHntEP80wZvqrf7BlR5gSSaiB3Fx+Ih2lldjz63JktpXeJIwtJCVwngaM3cei/Q5d3k/9W0hbq/OF6vlBJm32pNNKh++7oC7bEuvS59G2h47099vaYHouBzKjCiuCOsugQCCG7xgXcA0KAfbGQt17oiT6RCcoj+g=
-X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R281e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=baolin.wang@linux.alibaba.com;NM=1;PH=DS;RN=14;SR=0;TI=SMTPD_---0XF.fYJZ_1794982636;
-Received: from 30.74.144.134(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0XF.fYJZ_1794982636 cluster:ay36)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8353606A335
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:17:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8353606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=open-hieco.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=open-hieco.net
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.0748736|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_enroll_verification|0.0154472-2.97058e-05-0.984523;FP=13494324110916486646|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033032065030;MF=likunyu@open-hieco.net;NM=1;PH=DS;RN=12;RT=12;SR=0;TI=SMTPD_---.k4eF9PO_1794982645;
+Received: from localhost.localdomain(mailfrom:likunyu@open-hieco.net fp:SMTPD_---.k4eF9PO_1794982645 cluster:ay29)
           by smtp.aliyun-inc.com;
-          Wed, 18 Nov 2026 14:17:17 +0800
-Message-ID: <1001fb37-5db0-4b25-9807-0cc39d9ba03a@linux.alibaba.com>
-Date: Wed, 18 Nov 2026 14:17:16 +0800
+          Wed, 18 Nov 2026 14:17:26 +0800
+From: Li kunyu <likunyu@open-hieco.net>
+To: mingo@redhat.com,
+	peterz@infradead.org,
+	juri.lelli@redhat.com,
+	vincent.guittot@linaro.org,
+	dietmar.eggemann@arm.com,
+	rostedt@goodmis.org,
+	bsegall@google.com,
+	mgorman@suse.de,
+	vschneid@redhat.com,
+	kprateek.nayak@amd.com
+Cc: linux-kernel@vger.kernel.org,
+	Li kunyu <likunyu@open-hieco.net>
+Subject: [PATCH 1/2] sched/fair: Convert rq_lock_irqsave() to guard()/scoped_guard()
+Date: Wed, 18 Nov 2026 14:17:11 +0800
+Message-ID: <20261118061712.14503-1-likunyu@open-hieco.net>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,191 +59,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] mm: use memory barriers for non PMD-sized folios to
- sync
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: akpm@linux-foundation.org, david@kernel.org, riel@surriel.com,
- liam@infradead.org, vbabka@kernel.org, harry@kernel.org, jannh@google.com,
- lance.yang@linux.dev, rppt@kernel.org, surenb@google.com, mhocko@suse.com,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org
-References: <6274e62645b9f176dd10d7a79e86b900a39cec5f.1794898535.git.baolin.wang@linux.alibaba.com>
- <avxb050XeV895evT@gremlin>
-From: Baolin Wang <baolin.wang@linux.alibaba.com>
-In-Reply-To: <avxb050XeV895evT@gremlin>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
+Convert three straightforward rq_lock_irqsave()/rq_unlock_irqrestore()
+pairs in fair.c to the modern guard()/scoped_guard() helpers. This
+removes the now-unnecessary struct rq_flags variables and makes the
+locking scope explicit in the code structure.
 
+sched_balance_rq() is deliberately left unchanged: it releases the rq
+lock before restoring IRQs so that attach_tasks() runs without the
+busiest rq lock held but with interrupts disabled. A scoped guard
+would fold both steps into a single unlock_irqrestore() and change
+that semantics.
 
-On 11/17/26 9:53 PM, Lorenzo Stoakes (ARM) wrote:
-> On Tue, Nov 17, 2026 at 03:00:30PM +0800, Baolin Wang wrote:
->> Commit 243cf1f67b36 ("mm: memory: fix truncation removing mapped folios")
->> uses PMD lock via sync_with_folio_pmd_zap() to synchronize when a cleared
->> PMD is found while unmapping a folio.
->>
->> However, for non PMD-sized folios, the only PMD clear that can race with
->> this unmap is PTE table reclaim, which clears the PMD only after the rmaps
->> for the table have been removed. This is plain message passing, and taking
->> the PMD lock is more than needed, like I did in the previous patch[1].
-> 
-> But it doesn't automatically mean that you _have_ to use fragile memory
-> barriers?
-> 
-> Correctness and robustness in the future are important right? You need to
-> justify this properly.
+Signed-off-by: Li kunyu <likunyu@open-hieco.net>
+---
+ kernel/sched/fair.c | 49 +++++++++++++++++++--------------------------
+ 1 file changed, 21 insertions(+), 28 deletions(-)
 
-Sorry, I wasn't clear. The point of this patch is to avoid a possible 
-performance regression from taking the PMD lock to sync for non 
-PMD-sized folios. So using memory barriers can avoid this.
+diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+index 0c8af1cac2d5..1e128214f2e9 100644
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -14747,11 +14747,9 @@ static void _nohz_idle_balance(struct rq *this_rq, unsigned int flags)
+ 		 * do the balance.
+ 		 */
+ 		if (time_after_eq(jiffies, rq->next_balance)) {
+-			struct rq_flags rf;
+-
+-			rq_lock_irqsave(rq, &rf);
+-			update_rq_clock(rq);
+-			rq_unlock_irqrestore(rq, &rf);
++			scoped_guard (rq_lock_irqsave, rq) {
++				update_rq_clock(rq);
++			}
+ 
+ 			if (flags & NOHZ_BALANCE_KICK)
+ 				sched_balance_domains(rq, CPU_IDLE);
+@@ -15764,16 +15762,14 @@ static int __sched_group_set_shares(struct task_group *tg, unsigned long shares)
+ 	for_each_possible_cpu(i) {
+ 		struct rq *rq = cpu_rq(i);
+ 		struct sched_entity *se = tg_se(tg, i);
+-		struct rq_flags rf;
+ 
+ 		/* Propagate contribution to hierarchy */
+-		rq_lock_irqsave(rq, &rf);
++		guard(rq_lock_irqsave)(rq);
+ 		update_rq_clock(rq);
+ 		for_each_sched_entity(se) {
+ 			update_load_avg(cfs_rq_of(se), se, UPDATE_TG);
+ 			update_cfs_group(se);
+ 		}
+-		rq_unlock_irqrestore(rq, &rf);
+ 	}
+ 
+ 	return 0;
+@@ -15818,34 +15814,31 @@ int sched_group_set_idle(struct task_group *tg, long idle)
+ 		struct cfs_rq *grp_cfs_rq = tg_cfs_rq(tg, i);
+ 		bool was_idle = cfs_rq_is_idle(grp_cfs_rq);
+ 		long idle_task_delta;
+-		struct rq_flags rf;
+ 
+-		rq_lock_irqsave(rq, &rf);
++		scoped_guard (rq_lock_irqsave, rq) {
+ 
+-		grp_cfs_rq->idle = idle;
+-		if (WARN_ON_ONCE(was_idle == cfs_rq_is_idle(grp_cfs_rq)))
+-			goto next_cpu;
++			grp_cfs_rq->idle = idle;
++			if (WARN_ON_ONCE(was_idle == cfs_rq_is_idle(grp_cfs_rq)))
++				continue;
+ 
+-		idle_task_delta = grp_cfs_rq->h_nr_queued -
+-				  grp_cfs_rq->h_nr_idle;
+-		if (!cfs_rq_is_idle(grp_cfs_rq))
+-			idle_task_delta *= -1;
++			idle_task_delta = grp_cfs_rq->h_nr_queued -
++					  grp_cfs_rq->h_nr_idle;
++			if (!cfs_rq_is_idle(grp_cfs_rq))
++				idle_task_delta *= -1;
+ 
+-		for_each_sched_entity(se) {
+-			struct cfs_rq *cfs_rq = cfs_rq_of(se);
++			for_each_sched_entity(se) {
++				struct cfs_rq *cfs_rq = cfs_rq_of(se);
+ 
+-			if (!se->on_rq)
+-				break;
++				if (!se->on_rq)
++					break;
+ 
+-			cfs_rq->h_nr_idle += idle_task_delta;
++				cfs_rq->h_nr_idle += idle_task_delta;
+ 
+-			/* Already accounted at parent level and above. */
+-			if (cfs_rq_is_idle(cfs_rq))
+-				break;
++				/* Already accounted at parent level and above. */
++				if (cfs_rq_is_idle(cfs_rq))
++					break;
++			}
+ 		}
+-
+-next_cpu:
+-		rq_unlock_irqrestore(rq, &rf);
+ 	}
+ 
+ 	/* Idle groups have minimum weight. */
+-- 
+2.47.3
 
-The description below explains why memory barriers are enough here.
-
->> Without barriers, the walker can observe the cleared PMD but a stale
->> mapcount on weakly ordered architectures:
-> 
-> You mean without the PMD lock?
-
-Yes, will make it clear.
-
->> CPU 0 (unmap folio)                 CPU 1 (MADV_DONTNEED, full PMD)
->> ================================    ================================
->> folio_lock()
->>                                      lock(ptl)
->>                                      clear PTEs
->>                                      remove rmaps   /* W mapcount */
->> [mapcount load satisfied early,
->>   folio still mapped]
->>                                      pmd_clear()    /* W pmd */
->>                                      unlock(ptl)
->> pmdp_get_lockless() -> none         /* R pmd */
->> skip the PMD
->> folio_mapped() -> true              /* R mapcount, stale */
->> unmapping assumed to have failed
->>
->> Pairing an smp_wmb() before the PMD clear with an smp_rmb() after the
->> PMD read forbids this outcome:
->>
->> CPU 0 (unmap folio)                 CPU 1 (MADV_DONTNEED, full PMD)
->> ================================    ================================
->>                                      remove rmaps   /* W mapcount */
->>                                      smp_wmb()
->>                                      pmd_clear()    /* W pmd */
->> pmdp_get_lockless() -> none         /* R pmd */
->> smp_rmb()
->> folio_mapped()                      /* R mapcount */
->>
->> If R pmd observes W pmd, R mapcount must observe W mapcount, so
->> folio_mapped() no longer reports the removed mappings.
-> 
-> This is insufficient IMO, you need to explain firstly why acquire/release isn't
-> feasible (presumably because you can't synchronise the clear properly that way).
-
-Sure. Using the PMD lock (with its implicit acquire/release semantics) 
-would also work. However, as I mentioned above, the concern is the 
-potential performance regression.
-
->> Pass a 'folio' parameter to sync_with_folio_pmd_zap(), allowing us to
->> skip those pfn walkers: pfn_mkclean_range and mapping_wrprotect_range,
->> which don't need synchronization.
->>
->> Similarly, skip sync for page_mapped_in_vma() since the subsequent
->> operations don't check the folio's mapcount.
->>
->> No changes for PMD-sized folios unmapping.
->>
->> [1] https://lore.kernel.org/all/542c97482eae84f86704bcee56482633d1b32321.1791616645.git.baolin.wang@linux.alibaba.com/
->> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
-> 
-> This replaces an easy-to-reason about lock with a very-hard-to-reason about
-> memory barriers that are fragile and could easily break resulting in subtle data
-> race bugs.
-> 
-> And you don't seem to have provided any perf numbers or anything to justify it
-> unless I'm missing something?
-
-Yes. Performance measument for this race path may be tricky, but I'll 
-try to see whether I can show a measurable benefit with memory barriers.
-
-> I'm a little uneasy about it honestly.
-> 
->> ---
->> Changes from v1:
->>   - Pass in a folio for sync_with_folio_pmd_zap(), per David.
->> ---
->>   include/linux/rmap.h |  2 ++
->>   mm/internal.h        | 26 ++++++++++++++++++++++----
->>   mm/memory.c          | 12 ++++++++++--
->>   mm/page_vma_mapped.c |  4 ++--
->>   4 files changed, 36 insertions(+), 8 deletions(-)
->>
->> diff --git a/include/linux/rmap.h b/include/linux/rmap.h
->> index 74cca0e3c726..62e7341de179 100644
->> --- a/include/linux/rmap.h
->> +++ b/include/linux/rmap.h
->> @@ -862,6 +862,7 @@ struct page *make_device_exclusive(struct mm_struct *mm, unsigned long addr,
->>   #define PVMW_PGTABLE_CROSSED	(1 << 16)
->>
->>   struct page_vma_mapped_walk {
->> +	struct folio *folio;
->>   	unsigned long pfn;
->>   	unsigned long nr_pages;
->>   	pgoff_t pgoff;	/* Only meaningful if nr_pages > 1 and not a KSM walk */
->> @@ -876,6 +877,7 @@ struct page_vma_mapped_walk {
->>
->>   #define DEFINE_FOLIO_VMA_WALK(name, _folio, _vma, _address, _flags)	\
->>   	struct page_vma_mapped_walk name = {				\
->> +		.folio = _folio,					\
->>   		.pfn = folio_pfn(_folio),				\
->>   		.nr_pages = folio_nr_pages(_folio),			\
->>   		.pgoff = folio_pgoff(_folio),				\
->> diff --git a/mm/internal.h b/mm/internal.h
->> index cd3675c044e0..ad7e051cb198 100644
->> --- a/mm/internal.h
->> +++ b/mm/internal.h
->> @@ -592,6 +592,7 @@ void pmd_install(struct mm_struct *mm, pmd_t *pmd, pgtable_t *pte);
->>    * sync_with_folio_pmd_zap - sync with concurrent zapping of folios
->>    * @mm: The mm_struct.
->>    * @pmdp: Pointer to the pmd that was found to be pmd_none().
->> + * @folio: The folio being zapped.
->>    *
->>    * When we find a pmd_none() while unmapping a folio without holding the PTL,
->>    * zap_huge_pmd() may have cleared the PMD but not yet updated the folio
->> @@ -600,13 +601,30 @@ void pmd_install(struct mm_struct *mm, pmd_t *pmd, pgtable_t *pte);
->>    * against later mapcount reads. Skipping the PMD without synchronization
->>    * could make folio unmapping code assume that unmapping failed.
->>    *
->> - * Wait for concurrent zapping to complete by grabbing the PTL.
->> + * Wait for concurrent zapping to complete by grabbing the PTL for PMD-sized
->> + * folios, otherwise smp_rmb() is sufficient.
->>    */
->> -static inline void sync_with_folio_pmd_zap(struct mm_struct *mm, pmd_t *pmdp)
->> +static inline void sync_with_folio_pmd_zap(struct mm_struct *mm,
->> +		pmd_t *pmdp, struct folio *folio)
->>   {
->> -	spinlock_t *ptl = pmd_lock(mm, pmdp);
->> +	if (folio_test_pmd_mappable(folio)) {
->> +		spinlock_t *ptl = pmd_lock(mm, pmdp);
->>
->> -	spin_unlock(ptl);
->> +		spin_unlock(ptl);
->> +		return;
->> +	}
->> +
->> +	/*
->> +	 * For non PMD-sized folios zapping, concurrent zap_empty_pte_table()
->> +	 * may clear the PMD after the rmaps for the table have been removed,
->> +	 * but later mapcount reads could still be observed before the PMD
->> +	 * read, making the folio appear to be still mapped after unmapping.
->> +	 * Order the PMD read before later mapcount reads, so that observing
->> +	 * the cleared PMD implies observing the rmap removals.
->> +	 *
-> 
-> This also makes me very uneasy, complicated reasoning like this is asking for it
-> to break.
-> 
-> Also could this be smaller and clearer?
-
-OK. Let me try.
-
-Thanks.
