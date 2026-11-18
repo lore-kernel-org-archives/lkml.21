@@ -1,50 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=83.166.143.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=83.166.143.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795013552;
-	b=fdfNbB6zEPiStdYZOfgvNEFxFTRqkuXWKp3FiSFqrAWVgwmcY5fRiX8ovQSQD+f5Du6t
-	 yYVXlIIdyQyjPeWpf32X8X2kGPrxrVCfafMWv1FFeDWukUAimcTkUD05niG8KpM78sxQv
-	 bkGxZsqzOAf/F6kP/frYBO471SboKdTMVZpvJuACpTiYNynecDKIM0OL/v7tjv7Le4MH5
-	 x98X2nXt9QWD9CcqRzsZSIIKNxzyfMOnQNFM4fpiQekYN3A6dOs5MnWaJc/9iYeI0dAde
-	 c84tuq95ieAJUX/938352uavJNPJ1ZFcu4DlqG0DNg+dDh0qb5B0I8C3MjirPis7AYg==
+	t=1795013553;
+	b=CL3G3M+3mMkFswl4nNOxZ6oFmUpIsECDhtP4hDg4/Ro0JpqBIjaGVpxu0XrHwNWksGuJ
+	 wV2E+TmPrvkFJqRc/AE18vOGg/L3frRL2ezh3IiHpNdhxYmPHSBwzXdfN9bpibwAQ/EE2
+	 ojf1AEIbrLKDDs4RsC5tfTwVfYrky+yEeKSvD18u8qnvJL7pBgzFHFzunFyBMd1JbvT5v
+	 7Eub3D2gpdpcX95JLtL4h7zp1Cb10eX8PS/O7OQhelGfIcr73wqO55zKB52UZ+fBhJXDV
+	 3pYv9LFFj5RElwimhnwtx3KQtnyZWEfiQoEWpy0Za5CQdt6P7WB/8yg9JUihWgtTQxQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795013552;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795013553;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:From:To:Cc:Subject:
 	 Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:X-Infomaniak-Routing;
-	bh=/aiNYGgyuWnsvGFztgtB90Y0bNp9E0nMWbyIXMfAW8k=;
-	b=v7CTZ4LwLwlTUuWVrcGjMJ7edp1DsSGMt1tt55j/QEonbjyD8/MFX5iGzkhK8Yh5wTY+
-	 kzkvocZNjOKIyB6CDkQ13Bma1GGGQvT+PawsJKy3y745ulgd/8xBGdEjlfTH5237YZAlf
-	 HFV+dLXGtJTbhLrxeqdpuFa+E2b+PhXi+mk1us5GAOklw4igG/g5AGYLYISMg7p4Ao8JM
-	 H+mYLa61Vro0nAi1L96fLbgXHTsNinXCdzmvWgE514MPfzZ4xyLrC/ldpxMRucrt2bQPK
-	 +XdRy5W1BP+IWUeND16ST4E9uggb7NswqiERhGqkLs6E4BUe+dj7UguhyrNFiYUmi/g==
+	bh=zsBSk8e6/oJkNLn1IpP5IhtxydcFdIX1KS4HiB1G6KE=;
+	b=sV+IVSDvX6VZJRgrolaztffBRvMzbyebzjU5ntQxpIdaWcJ6rzl4A9LsCFGtBIITTdsm
+	 Z5msKwED1F3IUOdAMjBYFijPHSeIJ5lceroEJ8EqT9qMfzmku5lhA3i90MTWF9LawMreS
+	 BLwd1SB+DZ77CgSi/bCRJXxSkEaQYEnqU2OJVeK09hTsvB7S5tQswb8ed9BvS5ovC74jJ
+	 OJZimZW3wUkGsnFhsr4j7oZ0GTRzyul6BvoEFuezI2oboVDR8s3w3oabUdHf92uQlIuEv
+	 HjUTRg68xHOi1jaAZ7nN50xdvg+n7HcHbdKplyC+5pRNdVHwjr4U0kQEoxaZwveL37Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=digikod.net;
 	spf=pass smtp.mailfrom=digikod.net;
-	dkim=pass header.d=digikod.net header.i=@digikod.net header.a=rsa-sha256 header.s=20191114 header.b=MdjHt7CH;
-	arc=none smtp.remote-ip=83.166.143.175
-Received: from smtp-8faf.mail.infomaniak.ch (smtp-8faf.mail.infomaniak.ch [83.166.143.175])
+	dkim=pass header.d=digikod.net header.i=@digikod.net header.a=rsa-sha256 header.s=20191114 header.b=LpkpSkR6;
+	arc=none smtp.remote-ip=83.166.143.169
+Received: from smtp-8fa9.mail.infomaniak.ch (smtp-8fa9.mail.infomaniak.ch [83.166.143.169])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB3C060A2608
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:52:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB3C060A2608
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8641160A2635
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:52:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8641160A2635
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=digikod.net
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=digikod.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=digikod.net header.i=@digikod.net header.a=rsa-sha256 header.s=20191114 header.b=MdjHt7CH
-Received: from smtp-3-0001.mail.infomaniak.ch (smtp-3-0001.mail.infomaniak.ch [10.4.36.108])
-	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4jV4MK4fbszwqf;
-	Wed, 18 Nov 2026 15:52:29 +0100 (CET)
+	dkim=pass (1024-bit key) header.d=digikod.net header.i=@digikod.net header.a=rsa-sha256 header.s=20191114 header.b=LpkpSkR6
+Received: from smtp-3-0000.mail.infomaniak.ch (smtp-3-0000.mail.infomaniak.ch [10.4.36.107])
+	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4jV4MF0VYNzvKM;
+	Wed, 18 Nov 2026 15:52:25 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=digikod.net;
-	s=20191114; t=1795013549;
-	bh=/aiNYGgyuWnsvGFztgtB90Y0bNp9E0nMWbyIXMfAW8k=;
+	s=20191114; t=1795013544;
+	bh=zsBSk8e6/oJkNLn1IpP5IhtxydcFdIX1KS4HiB1G6KE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MdjHt7CHaXwkK2ooAfe7ZvaEE6GZC8MmwRKrvIpKlg2YuAzNvrefHFTOGaMAiwqRy
-	 F/SIdFdLKSbDW61KePxEPRt+7EHWbuLin1DoMxioC3wohEk/4M6xpbPAMYwOrJYZLy
-	 ifMC2b2yXU0Y5o4v9LKBGyhdUchf19aJ4eCt8t+w=
-Received: from unknown by smtp-3-0001.mail.infomaniak.ch (Postfix) with ESMTPA id 4jV4MJ3W3rzV3w;
-	Wed, 18 Nov 2026 15:52:28 +0100 (CET)
+	b=LpkpSkR6tcqCTea4pKrBlm5GqRev244ELMGAWibEyMmjzTTvd3K7zKeKLztonIoGB
+	 Lnwl1NdXU+F+x9t4aZP+WwiCOppiO/h2481+wTZJhipRXmGJ6wJx3DsqUdZ7WGsAHU
+	 bGT8WvK4n7ZhJOqqC+2EsruNZbNH6mDOl7CG+Kdk=
+Received: from unknown by smtp-3-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4jV4MC4jNDzcHb;
+	Wed, 18 Nov 2026 15:52:23 +0100 (CET)
 From: =?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?= <mic@digikod.net>
 To: =?UTF-8?q?G=C3=BCnther=20Noack?= <gnoack@google.com>
 Cc: =?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?= <mic@digikod.net>,
@@ -58,9 +58,9 @@ Cc: =?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?= <mic@digikod.net>,
 	kernel-team@cloudflare.com,
 	linux-kernel@vger.kernel.org,
 	linux-security-module@vger.kernel.org
-Subject: [PATCH v3 6/6] landlock: Fix capability restriction documentation
-Date: Wed, 18 Nov 2026 15:52:10 +0100
-Message-ID: <20261118145217.2551053-7-mic@digikod.net>
+Subject: [PATCH v3 3/6] landlock: Mediate CAP_SETPCAP for inheritable capabilities
+Date: Wed, 18 Nov 2026 15:52:07 +0100
+Message-ID: <20261118145217.2551053-4-mic@digikod.net>
 In-Reply-To: <20261118145217.2551053-1-mic@digikod.net>
 References: <20261118145217.2551053-1-mic@digikod.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -76,9 +76,17 @@ Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-Infomaniak-Routing: alpha
 
-Some documented claims about LANDLOCK_PERMISSION_CAPABILITY_USE do not
-hold for every capability check.  Remove them instead of listing their
-exceptions, and stop calling this permission a hook.
+cap_capset() checks CAP_SETPCAP with cap_capable() (through
+cap_inh_is_capped()), which skips the capable hook, so a domain denying
+CAP_SETPCAP cannot prevent adding capabilities outside of the old
+inheritable and permitted sets to the inheritable set.  Without
+no_new_privs (possible when a task with CAP_SYS_ADMIN enforced the
+domain), file inheritable capabilities can then grant permitted
+capabilities on execve().
+
+Add a Landlock capset hook that checks CAP_SETPCAP against the domain
+under the same condition, as SELinux checks its own setcap permission in
+this hook.
 
 Cc: Günther Noack <gnoack@google.com>
 Cc: Paul Moore <paul@paul-moore.com>
@@ -90,98 +98,68 @@ Signed-off-by: Mickaël Salaün <mic@digikod.net>
 ---
 
 Changes since v2:
-https://patch.msgid.link/20261117101157.2520463-7-mic@digikod.net
-- Describe the permission as only reducing the capabilities that
-  processes can use (suggested by Günther Noack).
+https://patch.msgid.link/20261117101157.2520463-4-mic@digikod.net
+- Describe the hook's condition from cap_capset()'s point of view in its
+  comment (suggested by Günther Noack).
+- Shorten the commit message.
 - Add Günther Noack's Reviewed-by.
 
 Changes since v1:
-https://patch.msgid.link/20261110202436.2408244-7-mic@digikod.net
+https://patch.msgid.link/20261110202436.2408244-4-mic@digikod.net
 - Add Serge Hallyn's Acked-by.
 ---
- Documentation/security/landlock.rst      | 8 ++++----
- Documentation/userspace-api/landlock.rst | 8 ++++----
- include/uapi/linux/landlock.h            | 7 +++----
- 3 files changed, 11 insertions(+), 12 deletions(-)
+ security/landlock/cap.c | 31 +++++++++++++++++++++++++++++++
+ 1 file changed, 31 insertions(+)
 
-diff --git a/Documentation/security/landlock.rst b/Documentation/security/landlock.rst
-index d81f1c2cd236..98c2e7139e8d 100644
---- a/Documentation/security/landlock.rst
-+++ b/Documentation/security/landlock.rst
-@@ -8,7 +8,7 @@ Landlock LSM: kernel documentation
- ==================================
+diff --git a/security/landlock/cap.c b/security/landlock/cap.c
+index 10e1ca772b9c..cdb95b979eaa 100644
+--- a/security/landlock/cap.c
++++ b/security/landlock/cap.c
+@@ -91,6 +91,36 @@ static int hook_capable(const struct cred *cred, struct user_namespace *ns,
+ 	return check_cap(cred, cap, opts);
+ }
  
- :Author: Mickaël Salaün
--:Date: October 2026
-+:Date: November 2026
++/**
++ * hook_capset - Restrict inheritable capability changes
++ *
++ * @new: New credentials (unused).
++ * @old: Current credentials.
++ * @effective: New effective set (unused).
++ * @inheritable: New inheritable set.
++ * @permitted: New permitted set (unused).
++ *
++ * cap_capset() denies a new inheritable set that is not a subset of the old
++ * inheritable and permitted sets, unless cap_inh_is_capped() finds CAP_SETPCAP.
++ * This check uses cap_capable(), which skips hook_capable().  commoncap runs
++ * first, so such a set reaching this hook means that commoncap granted
++ * CAP_SETPCAP: check it against the domain.  capset(2) discards @new if this
++ * hook fails, so nothing is committed.
++ *
++ * Return: 0 if allowed, -EPERM if CAP_SETPCAP use is denied.
++ */
++static int hook_capset(struct cred *new, const struct cred *old,
++		       const kernel_cap_t *effective,
++		       const kernel_cap_t *inheritable,
++		       const kernel_cap_t *permitted)
++{
++	if (cap_issubset(*inheritable,
++			 cap_combine(old->cap_inheritable, old->cap_permitted)))
++		return 0;
++
++	return check_cap(old, CAP_SETPCAP, CAP_OPT_NONE);
++}
++
+ /**
+  * hook_mmap_addr - Restrict mappings below dac_mmap_min_addr
+  *
+@@ -113,6 +143,7 @@ static int hook_mmap_addr(unsigned long addr)
  
- Landlock's goal is to create scoped access-control (i.e. sandboxing).  To
- harden a whole system, this feature should be available to any process,
-@@ -359,9 +359,9 @@ framework in ``log.c``, compiled under ``CONFIG_SECURITY_LANDLOCK_LOG``
- (automatically selected by ``CONFIG_AUDIT`` or ``CONFIG_TRACEPOINTS``).
+ static struct security_hook_list landlock_hooks[] __ro_after_init = {
+ 	LSM_HOOK_INIT(capable, hook_capable),
++	LSM_HOOK_INIT(capset, hook_capset),
+ 	LSM_HOOK_INIT(mmap_addr, hook_mmap_addr),
+ };
  
- Audit records respect audit configuration, the domain's Landlock log
--flags, and ``LANDLOCK_LOG_DISABLED``.  Tracepoints fire unconditionally,
--independent of these settings.  The denial counter (``num_denials``) is
--always incremented regardless of logging configuration.
-+flags, and ``LANDLOCK_LOG_DISABLED``.  Tracepoints fire independently of
-+these settings.  The denial counter (``num_denials``) is
-+incremented regardless of logging configuration.
- 
- Each denial tracepoint carries a ``logged`` field reporting the
- audit-logging verdict: whether the denial would be written to the audit
-diff --git a/Documentation/userspace-api/landlock.rst b/Documentation/userspace-api/landlock.rst
-index 3d45b956b640..d00e94d8ed37 100644
---- a/Documentation/userspace-api/landlock.rst
-+++ b/Documentation/userspace-api/landlock.rst
-@@ -8,7 +8,7 @@ Landlock: unprivileged access control
- =====================================
- 
- :Author: Mickaël Salaün
--:Date: October 2026
-+:Date: November 2026
- 
- The goal of Landlock is to enable restriction of ambient rights (e.g. global
- filesystem or network access) for a set of processes.  Because Landlock
-@@ -532,7 +532,7 @@ acquisition via :manpage:`open_tree(2)` / :manpage:`fsmount(2)`.  Namespaces
- the process is already a member of when the domain is enforced are implicitly
- allowed (the process could not continue running otherwise); rules describe
- which new namespace types the process may acquire.
--``LANDLOCK_PERMISSION_CAPABILITY_USE`` gates every exercise of a capability
-+``LANDLOCK_PERMISSION_CAPABILITY_USE`` gates the exercise of capabilities
- after the domain is enforced, regardless
- of how the capability was obtained (inherited credentials, ``CLONE_NEWUSER``
- grant, ``setuid``/file-cap-bearing :manpage:`execve(2)`, etc.).  Configuring
-@@ -641,9 +641,9 @@ after a domain is enforced through user namespace entry or :manpage:`capset(2)`;
- privileged sandboxes that did not set ``PR_SET_NO_NEW_PRIVS`` may also gain
- capabilities through :manpage:`execve(2)` of binaries with file capabilities.
- In all cases, :manpage:`capget(2)` will report the credential's capability sets,
--but any denied capability will fail with ``EPERM`` when exercised.  Do not rely
-+but any denied capability will fail when exercised.  Do not rely
- on :manpage:`capget(2)` to determine whether the policy permits a given
--capability; only the actual operation will return ``EPERM`` upon denial.
-+capability.
- 
- Truncating files
- ----------------
-diff --git a/include/uapi/linux/landlock.h b/include/uapi/linux/landlock.h
-index 24510e5d8479..558a610baea5 100644
---- a/include/uapi/linux/landlock.h
-+++ b/include/uapi/linux/landlock.h
-@@ -622,10 +622,9 @@ struct landlock_capability_attr {
-  * - %LANDLOCK_PERMISSION_CAPABILITY_USE: Restrict the use of specific Linux
-  *   capabilities.  A process in a Landlock domain that handles this permission
-  *   is denied from exercising capabilities that are not explicitly allowed by a
-- *   %LANDLOCK_RULE_CAPABILITY rule.  This hook is purely restrictive: it can
-- *   deny capabilities that the kernel would otherwise grant, but it can never
-- *   grant capabilities that the kernel already denied.  Support added in
-- *   Landlock ABI version 12.
-+ *   %LANDLOCK_RULE_CAPABILITY rule.  Landlock only reduces the capabilities
-+ *   that processes can use: it does not let them use capabilities that they
-+ *   would not have without Landlock.  Support added in Landlock ABI version 12.
-  */
- #define LANDLOCK_PERMISSION_NAMESPACE_USE			(1ULL << 0)
- #define LANDLOCK_PERMISSION_CAPABILITY_USE			(1ULL << 1)
 -- 
 2.56.0
 
