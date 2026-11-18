@@ -1,84 +1,121 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795012435;
-	b=JQ0kORTjginTLYSxK1wXz+ym/HsU+PgJNeHP5B0JDAlIXMmKp/zE73RxB9BNQTzvN/WZ
-	 QhlkGVmai5t8XoQt4mydQ52gIDf3cLgFq+nV7jaAU57Q+6hZNX7WJwe9c/iw9DcaBYL6W
-	 2+2woOrfslbAAJxt2+NMtRZnV4PjPbOD9geCNF4GNBiMD47tTlFC5x0A2m/O03KstTDpC
-	 lPRXE9AVFoLNWgBnEwdQKW9m0rcNTiyRvrIZE+CFSIdzD/MDCpR8wUTBs1dGG8LlU6etQ
-	 bK6mx8dczi3IXULCGYd818mci717o7BWKgInb7CVQhYoTfEPcG92dSgjg7e5A+KhK0w==
+	t=1795012455;
+	b=wrr0m+sJHr0VHY2qsJGfhfdN4Zv1HdfsswCcVfElSox30BeTKJBld54cDBQ7M3q06nqI
+	 A6MgEjfNy6UMrPGyMKKqcFMtr91JFrgUtztCWrUyB1A0sHZVJaMkx0FFG2ZMRtr2u5PXo
+	 dFYu4aIAQdrmv7PlpawvBeuwaqtQyNKMQsNDQ3t5MJShClhm07U/mwRH66l51zm3hltqn
+	 Kzu58qk0wjfcOlPRCvdxo4zwxRpGsmb0bWKQbl/bLL0s4GMj2i9SY3cNMbVYic+nDBZSN
+	 GLPFeLZDyUrr8PCIyWgY0e7Tx7Ra7rQr0Rz9Sh52uo122nZV6hgycUC6nnb8d3nR00Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795012435;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=r0M7bUtZEofsoW8E6XLzL0ND8blGJ4WCG6thjd+0hTw=;
-	b=ESHZhkFOEBVEWho2o+4M9AJyhAT76DcMv07dGDRlQMyRRI2dCQyYQkT32Wm4kJ0xEU/K
-	 AvDA4UUo4p782Y4Ypt3+nzYFjOSVE76OgkN9VYUYF1JO02v1dBkImZVw5LDEU7+2VOhBW
-	 nX9XNreAwSxkzWj0KluUVeslfXoS5a11mWU8VOtnv+jUZ7c6HDe0GCslAXSXc3Laocw0G
-	 4Sxt29tJuqXGMiiMwLqQncyOWo2TB+C8W7yOXqn0vIHPgLXbM69a2XsIGnOVjdDOdfm/4
-	 chdnsAlJ55/0zdN8o+H/rDiiR6+iiSE1QZtktR7aNbFi9VSPl+IuCOVTiJtEIuXNmFg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795012455;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
+	 X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=haPwdd7A48YpDgke39xoby/moRx8yUA2nSI3P8bc7KM=;
+	b=mDYQQPAwK17qdFdxtpDlN10sLDy48XPtons0SDiOjJrT8B4Gc2XA23Qkwg6neaeV5DMi
+	 oarVoxPcMN0YnplT/Mu/e5/lRiecCfuPoRIiE+kJ88LKyU2/Vz8Of31NDb0RXtdtH0l4D
+	 3xTqg8oqcBehEZtPHhT5zfcWg3X9BhMFKHylrzyEqoEu+O88n9uhTZECTulGM/Ed8Rt0S
+	 9X6Uf6q36XlkagP9g3PdLvvh5WlSLdwFkcSiccpQIi3Kb0FUJslvA33pe8CCIcGydqn1H
+	 7pgp6iXsPrOhNw0DK1oPCnyqQkvp8az5H91R8RobrZwilEQjiJoDD9OdHCkZYX7kI5g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Kp9aWV9V;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=WPUPpxr3;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=fUvxuxd1;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 397B2606A31C;
-	Wed, 18 Nov 2026 14:33:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D746606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:34:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D746606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Kp9aWV9V
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D43D1F000C4;
-	Wed, 18 Nov 2026 14:33:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795012434;
-	bh=r0M7bUtZEofsoW8E6XLzL0ND8blGJ4WCG6thjd+0hTw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Kp9aWV9VMOCglS7T1p8dI1UFHOj3QgFUQWE27OP4HKp8U3+jjxoxZ5MiJj4la/XvM
-	 5g271rkeXZHxD1RQZeYy9sJtGReqx/Wu2njRPkXusfpMZXxCGIR5ZzMv8YoTGpm6hg
-	 Z6tgqCBkZgIcFlZSz6035WSZxIeGPy+JrC1PJGNpvJDd48S1qhJk/hFuZsiCPChbpz
-	 cbipzUh3C8OOrW/AvXUuXYqzav1/ZSNl5r9u80mpnTju6Ee+vMAghVK8OCjuuDA05S
-	 HY68vn5JPr7XXFHUq32yMMFYFnOyzSscbzp0r5NSgcm81ZAyPEr+jLZrZyeSuycfOU
-	 fAGNDFU01uI8Q==
-Date: Wed, 18 Nov 2026 16:33:41 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Tal Zussman <tz2294@columbia.edu>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Peter Xu <peterx@redhat.com>,
-	James Houghton <jthoughton@google.com>,
-	Andrea Arcangeli <aarcange@redhat.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Balbir Singh <balbirs@nvidia.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>,
-	Pedro Falcato <pfalcato@suse.de>,
-	David Hildenbrand <david@kernel.org>,
-	Michal Hocko <mhocko@suse.com>,
-	=?utf-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>,
-	Andrei Vagin <avagin@gmail.com>,
-	Muhammad Usama Anjum <usama.anjum@arm.com>,
-	Stephen Rothwell <sfr@canb.auug.org.au>,
-	Arnd Bergmann <arnd@arndb.de>, Zi Yan <ziy@nvidia.com>,
-	Matthew Brost <matthew.brost@intel.com>,
-	Joshua Hahn <joshua.hahnjy@gmail.com>,
-	Byungchul Park <byungchul@sk.com>,
-	Gregory Price <gourry@gourry.net>,
-	Ying Huang <ying.huang@linux.alibaba.com>,
-	Alistair Popple <apopple@nvidia.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Nico Pache <nico.pache@linux.dev>,
-	Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
-	Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>,
-	Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	Oscar Salvador <osalvador@suse.de>,
-	=?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>,
-	linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v3 2/9] userfaultfd: refuse UFFDIO_MOVE into a
- non-present huge destination PMD
-Message-ID: <av23RfHuKjWeeEnN@kernel.org>
-References: <20261117-uffd-state-fixes-v3-0-b617009d1a4a@columbia.edu>
- <20261117-uffd-state-fixes-v3-2-b617009d1a4a@columbia.edu>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=WPUPpxr3;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=fUvxuxd1
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIE4dMB3648065
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:34:14 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=haPwdd7A48YpDgke39xoby/moRx8yUA2nSI
+	3P8bc7KM=; b=WPUPpxr3uQL+rRWpzEY7sSkIS710GUkyTcc8ApwZZ639QTSYTck
+	ErtIYqdtzVAahItynOuZD+UwokgG/nQUldGvvA0tRJTi8Efleyt3a9PRdEHDJY76
+	tTkSabUHUtcKrhi8KyF2jyP/qBDQ+PW9vNSaRReBFz8ST3aqTb83kJmxvHcJqNiO
+	r/4eh0uaA+RQIcq//7mDeumIBdhwk24rLg9ymuCG1oqVBTyCn3VdFYb1ooPw9gZF
+	IrgF6piCE1rCpcLEPCrQ3vZbc8IFmw1DYJO8AZ/PNMjdRalZ0LhSqIAWrT4Hx5v+
+	nEdasrlzWs6Q/Pt152SRwLKV2O+6fZOt30w==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j1dfcr4eu-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:34:13 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2eaf8ea208bso9887825ad.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:34:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795012453; x=1795617253; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=haPwdd7A48YpDgke39xoby/moRx8yUA2nSI3P8bc7KM=;
+        b=fUvxuxd1eWme5/TavmVlNpqp1AaKL8rtZRysGzGusf1QbsVvjDBUwqNoeQRl/fSmPn
+         HFJSGt2i+fuCvsUo5TRE9moGZZfBP/mx8WibFP4WB4Z0qD1esbCUv7htVM83h4+fykCY
+         Rqu8FTON4tazROpjpNLWzqY/vi5AvYhUo++8rVyDQYTUoekCwoFxWkZXWNHGAvlDtVyc
+         /WZPmcOobLJINN95UQDSvdVOl27V/WaJtAObr5vzPzKG7CxM6hlIkQjXt0xnDmcnXBr9
+         JlZN7rMlZ2ZeBh3LCUNCJlX89lRlwLMluQKURUQZ2Bbm9CNl4W4Plam1Hiiub6y1EUzH
+         czUg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795012453; x=1795617253;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=haPwdd7A48YpDgke39xoby/moRx8yUA2nSI3P8bc7KM=;
+        b=dMxTX7J95ljIbtK4laxQql4QAzDZft07LrZkK+2gPf+us1XLQhMku95bvCI0U2vmWW
+         0Y9nyEOaHowwV1wnqc7sPZeyjTOlTxgrnJgUuX0BJAUGxY1FX+eLnmIeXCOF6Zs78cwY
+         Pq/KKFRKOnDsaH53IBFxdyt0dm3ZOGdwutf0U6C0A08uioO10kkL6TuNvK2bXviHFxi1
+         Y1eBbY3xq9C8fG8ZrL6Ja+AwAGC6DJPl2Qnc1DN14FofrtY+Rfip80DaCPz2bx5cu+Z1
+         pUxXQ473ZrOnincQXBVsfWEmkwPnOpw56wiLLhm+2H6xPPtZngROExLJQJLxhI6EMc4A
+         6Yow==
+X-Forwarded-Encrypted: i=1; AL+hErHCu/WQquNDniK/XGUDj7/um+Brk7L3VFD0PylncEKmyqTHIHsvQxIKq4DASA20ytNdCaPT1uxknorPPnY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/FR3S4klPG+x/ipKaiDIkw2QRI4sB5vjGN5jF9/TqLFMGvPlCr
+	a6edmvbp1cVIV9/uI3DqPraP5BtrPidU+YShVp4UBoRZDT+9dQXU3TDuKlFIWq4F91AkMGh/EVI
+	R+1xz6HM1m/BVDVGeCjkOqaiY6FqnL2+DdxMylc+NOUblZI+QX6EDs/B2XTwJE9lS6bM=
+X-Gm-Gg: AZFdTZcbJNlD9ulwIoML557Pcf+U/BuHIfnxlAcnsC9OtvS1ie5SZWOSqSfyo+Qgt5m
+	VfYhkk0G082BbkFbiFYRAbaU/m9yWkhZGN3+/Qm3Djkr9n9t47Msmf3nqL/U8R610F+drI4PPVT
+	Kj1cN4iUx02Zh6AMxjtXPZ9KUOFj4/sdO9vVLGN44nUyPRu9O8YLGwa+Sz8rFFSC1CmURsdtswN
+	zq+5lwhh2rxQH7HAJAYxBCagUBN3AA4Yqc1JjdQRE5n59XPEsChsazD7GWM5HdD9pP4hmNiloDJ
+	gL01Z7PO4ZIOyUq1ZA8k5yHxiD+pXmq4mgYH0IYVDwP5IJUhVISSUmTTgXsfrjSMbwvYDZ9qssV
+	yWS4MymFoHrBdCe4tXfeVGHahLWtSIbY9G9GLWq7k5QIPjj4WeV2zRgqmEmSjaTKahQV4eBWK7V
+	ItLg==
+X-Received: by 2002:a17:903:2303:b0:2ed:391c:1de1 with SMTP id d9443c01a7336-2eff7100c4fmr28398865ad.1.1795012452841;
+        Wed, 18 Nov 2026 06:34:12 -0800 (PST)
+X-Received: by 2002:a17:903:2303:b0:2ed:391c:1de1 with SMTP id d9443c01a7336-2eff7100c4fmr28398475ad.1.1795012452346;
+        Wed, 18 Nov 2026 06:34:12 -0800 (PST)
+Received: from hu-taparana-hyd.qualcomm.com ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff5ed0d2esm15326095ad.10.2026.11.18.06.34.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 06:34:11 -0800 (PST)
+From: Tapas Rana <tapas.rana@oss.qualcomm.com>
+To: Vinod Koul <vkoul@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+        Manivannan Sadhasivam <mani@kernel.org>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Wesley Cheng <wesley.cheng@oss.qualcomm.com>,
+        Elson Serrao <elson.serrao@oss.qualcomm.com>,
+        Krishna Kurapati <krishna.kurapati@oss.qualcomm.com>,
+        Prashanth K <prashanth.k@oss.qualcomm.com>,
+        linux-phy@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, Tapas Rana <tapas.rana@oss.qualcomm.com>
+Subject: [PATCH] phy: qcom: m31-eusb2: Add register XCFGI_199_192 for HS disconnect mask
+Date: Wed, 18 Nov 2026 20:04:05 +0530
+Message-ID: <20261118143406.2351999-1-tapas.rana@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,47 +125,95 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117-uffd-state-fixes-v3-2-b617009d1a4a@columbia.edu>
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-GUID: P4CROlWySJIHDI7J__P6mqJsdQ92Wr2a
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA1NyBTYWx0ZWRfXz8vsoTk1z6iH
+ WPPw79JRYopH6Vs/g5ilUAvNWs5jX4k5H78MiLaaDaAjbgs/iAW+5AKtvBTXD9OF28OIcCmp7Eq
+ 2xNbvLBDIfFNy4f1J8bf14VAh4Xu0ug=
+X-Authority-Analysis: v=2.4 cv=CdSdd7rl c=1 sm=1 tr=0 ts=6afdb765 cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=EUspDBNiAAAA:8
+ a=LxLwC_4Rt_vGV6uIXdcA:9 a=uG9DUKGECoFWVXl0Dc02:22
+X-Proofpoint-ORIG-GUID: P4CROlWySJIHDI7J__P6mqJsdQ92Wr2a
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA1NyBTYWx0ZWRfX1924OSJp1ACg
+ IRQuCR/TZD7zzDkUVbSqHaO82KtOHUy9IhVvPfcGbjx0oHc7upoZjnTQqht1yDBLIons8+SqFhO
+ N9nEZvzwDCZXc7P4ztPIJP2QRgdgQr9t/ghilNGZO+SMFTB7RFr3VuZ4o7KLEDxvZ1Sv1nLeVtY
+ XlZx0WcJmHWog5H/IDJTqKvNOKZPXXxGc2vZyz3JwXd6ydkLg08FW63afGSWoBp1V6DhymUljSW
+ eeZq0DKpPOP/nGk1njHOw3lsrgb4WZlucDqTN4hFbnLOvhAqaHeCchyi/Xc8xTJiyvVn+FJVjro
+ cmsw/4r6Rkff7BU9O0jp/kIObTZua5X7CNXZZ7KsorhDLxL34+McrVAe6OnFIOqK23WYXudCERH
+ ouGw+mD3PA3zGUETtKOIBbN87NNPFsbVSadnBUo4P4t92XIarD7QEXgH0gQU3Dna03XDRIkeSZ2
+ SCBAQJww9PgdANC2fvQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-18_04,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 impostorscore=0 phishscore=0 adultscore=0 clxscore=1015
+ lowpriorityscore=0 suspectscore=0 priorityscore=1501 malwarescore=0
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611180057
 
-On Tue, Nov 17, 2026 at 11:28:42PM -0500, Tal Zussman wrote:
-> move_pages() refuses to move into a destination PMD that already maps a
-> THP, but checks for that with pmd_trans_huge(), which is only true for a
-> present THP. A device-private THP or a THP under migration is a PMD
-> softleaf entry and is not refused.
-> 
-> The destination PMD is then treated as if it pointed to a PTE table. It
-> is not empty, so pte_alloc() leaves it alone, and move_pages_ptes()
-> fails to map a PTE table from it and returns -EAGAIN. move_pages()
-> retries on -EAGAIN, with both VMA read locks held. If the source is a
-> THP, it is split first for nothing.
-> 
-> For a THP under migration, the loop ends once the migration finishes.
-> A device-private THP can remain in device memory indefinitely, so the
-> caller of UFFDIO_MOVE hangs until it receives a fatal signal, and
-> anything in the mm that needs to write-lock one of the VMAs blocks along
-> with it. This requires a driver that migrates THPs to device memory.
-> 
-> To fix it, check the destination with pmd_is_huge(), which is true for
-> a present THP and for a PMD softleaf entry. UFFDIO_MOVE now fails with
-> -EEXIST in these cases, as it already does for a present THP.
-> 
-> Fixes: adef440691ba ("userfaultfd: UFFDIO_MOVE uABI")
-> Fixes: a30b48bf1b24 ("mm/migrate_device: implement THP migration of zone device pages")
-> Cc: stable@vger.kernel.org
-> Acked-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> Tested-by: Gregory Price (Meta) <gourry@gourry.net>
-> Reviewed-by: Gregory Price (Meta) <gourry@gourry.net>
-> Acked-by: David Hildenbrand (Arm) <david@kernel.org>
-> Signed-off-by: Tal Zussman <tz2294@columbia.edu>
+In USB 2.0 High-Speed, a device disconnect is detected by the host PHY's
+analog HS disconnect envelope detector: it watches the differential line
+amplitude and flags a disconnect when the amplitude exceeds a threshold
+during the bus idle/EOP window (a disconnected cable reflects the host's
+own drive back, roughly doubling the observed amplitude).
 
-Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+While the host itself is transmitting, the line is already driven hard,
+and trace reflections / signal-integrity overshoot can momentarily push
+the measured amplitude above that threshold even though the device is
+still attached. With the detector honoured during TX, the M31 PHY latches
+a spurious HS disconnect mid-transfer, showing up as false
+disconnect/reconnect events, re-enumeration and transfer stalls under
+host-TX-heavy load (e.g. bulk OUT to mass storage). The failure is
+signal-integrity dependent, so it is intermittent and board/cable
+specific.
 
-> ---
->  mm/userfaultfd.c | 11 ++++++-----
->  1 file changed, 6 insertions(+), 5 deletions(-)
+Program the XCFGI_199_192 register to set XCFG_HS_DISCONNECT_EN_TX
+(bit 196), which makes the PHY ignore the host disconnect status while in
+TX mode; disconnect detection continues to work normally when the host is
+not transmitting, which is when a real disconnect must be observed. This
+register was not programmed previously, leaving the envelope detector
+active during TX. Add this bit to the reset sequence to suppress the
+spurious TX-time disconnects.
 
+Fixes: 9c8504861cc4 ("phy: qcom: Add M31 based eUSB2 PHY driver")
+Signed-off-by: Tapas Rana <tapas.rana@oss.qualcomm.com>
+---
+ drivers/phy/qualcomm/phy-qcom-m31-eusb2.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/drivers/phy/qualcomm/phy-qcom-m31-eusb2.c b/drivers/phy/qualcomm/phy-qcom-m31-eusb2.c
+index 275df38256de..4e7ea41720d7 100644
+--- a/drivers/phy/qualcomm/phy-qcom-m31-eusb2.c
++++ b/drivers/phy/qualcomm/phy-qcom-m31-eusb2.c
+@@ -56,6 +56,9 @@
+ #define USB_PHY_XCFGI_7_0		(0x15c)
+ #define PLL_LOCK_TIME			GENMASK(1, 0)
+ 
++#define USB_PHY_XCFGI_199_192		(0x1bc)
++#define HS_DISCONNECT_EN_TX		BIT(4)
++
+ #define M31_EUSB_PHY_INIT_CFG(o, b, v)	\
+ {				\
+ 	.off = o,		\
+@@ -100,6 +103,15 @@ static const struct m31_phy_tbl_entry m31_eusb_phy_reset_tbl[] = {
+ 	M31_EUSB_PHY_INIT_CFG(USB_PHY_UTMI_CTRL0, SLEEPM, 1),
+ 	M31_EUSB_PHY_INIT_CFG(USB_PHY_HS_PHY_CTRL_COMMON0, SIDDQ_SEL, 1),
+ 	M31_EUSB_PHY_INIT_CFG(USB_PHY_HS_PHY_CTRL_COMMON0, SIDDQ, 0),
++	/*
++	 * Set XCFGI[196] to make M31 ignore the HS disconnect status
++	 * while the host is transmitting. This prevents trace reflections
++	 * and signal-integrity overshoot during TX from being latched as a
++	 * spurious HS disconnect. Disconnect detection stays active while
++	 * the host is not transmitting, which is when a real disconnect
++	 * must be observed.
++	 */
++	M31_EUSB_PHY_INIT_CFG(USB_PHY_XCFGI_199_192, HS_DISCONNECT_EN_TX, 1),
+ 	M31_EUSB_PHY_INIT_CFG(USB_PHY_UTMI_CTRL5, POR, 0),
+ 	M31_EUSB_PHY_INIT_CFG(USB_PHY_HS_PHY_CTRL2, USB2_SUSPEND_N_SEL, 0),
+ 	M31_EUSB_PHY_INIT_CFG(USB_PHY_CFG0, UTMI_PHY_CMN_CTRL_OVERRIDE_EN, 0),
 -- 
-Sincerely yours,
-Mike.
+2.43.0
+
