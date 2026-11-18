@@ -1,80 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.159.188.251
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795016153;
-	b=i5obx8YVDr1z1oseKIj6Ksi2tiSCHhJjrytnY0y2oxi4AMFApEY6kW7T19eOrkXrLJEc
-	 lHj34DNTPQZL5yZQ3jvi1eBLGdkE/T2i/6ESiDd/MEkr0vbM8tF+3kXkRsrVtA7IO3Vsa
-	 AAOlvkmlfslUL85Ev+WTbcFpT7lClHQvC+lZxOnwmflQhAyx32pkIQLCaMywJ/WWdtUXQ
-	 e/+kMtLObtkGnA7WTTkhFmMdWiTaIWqiDJBRGPhYIypisiZzfIpEKEYEHFZWco/wxzC17
-	 xMphBnWJssDdkrS93ZRdone6k+pzBjiUa7ssH1GMJfr9BhN4pGv5o7A9IkldDrm6XxA==
+	t=1795016220;
+	b=Bzn0IsRn2X8+NH9bI0Hk1vDUd+d2jB7ck3PM+NcYu66ahgSBuHAEtMATsSo9yJXK0yVn
+	 2/RASo8zLILNVL4Igoj093PxpZDFN0AM8zjuLqeKC7ENOyeDJmQwBQe25UCrdp0yxmY9g
+	 f/Ve6vS02JpC2topGDu/kYvtzbHUd/FZaEIssvWVRkPQMFLHPYo4x+x0bchoP8XBhyaYK
+	 uDi3EwqFkzlFw1VKkDGKx2VxvpWzuft7ODRFkfbahK44UMEBG8SbQrmxU1b0iCbm0yXok
+	 p+t073Elc8/DhaIL4YyetCPtrZNbdhyoCqTAXXWpjShaZRTGzm5YbLYn7ghNtdY5ltQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795016153;
-	h=Received:DKIM-Signature:Received:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
-	 X-SA-Exim-Connect-IP:X-SA-Exim-Rcpt-To:X-SA-Exim-Mail-From:
-	 X-SA-Exim-Scanned;
-	bh=PhnMB43dmhhOP+uEehjfYbWyisR+iluGA4pbiWpu2q0=;
-	b=oYlkJgsDpX+kh6FGSKUYt+2vs70RaG++5xmHuIef8wjKNV1UuiqbCh1OSWfjEaMyrnLU
-	 sFr1IaWa1Ly3/TuGwz8tbUGK1juMiSp+LZJ0MPVcXbMNfZuTOVraDFhcyLDYscIubWgVl
-	 2sV5NrdLIPhJ/8eQ7u3mXUyPebOB1SSVXhKrYeKC0Hv/wkqnsuYBJsOJI4V3YrVdpAmDu
-	 /SvqJ6MpSP6v0YGxv0MEMFThpFia/tDph0BN/+TLDm7nLlggTDQCKdz8RUaaVAaB7pvq+
-	 4ovCOqv2V6HEDwvzeHJwtUsMRWMP3/vFFpKdRGzaSRhM4Rd3I7zy9MtJlEukBGuCcvQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795016220;
+	h=DMARC-Filter:DKIM-Signature:Received:MIME-Version:Date:From:To:Cc:
+	 Subject:In-Reply-To:References:User-Agent:Message-ID:X-Sender:
+	 Content-Type:Content-Transfer-Encoding:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-Get-Message-Sender-Via:
+	 X-Authenticated-Sender:X-Source:X-Source-Args:X-Source-Dir;
+	bh=RgWtSxLmAhtYhLG2BvNwj3rhsazutaU7Zjd615Xs2tU=;
+	b=Lv0VcbMAXNolJGttkWGIQZTvYCUCACSOpVYIVXlGUjqQHSYH1mGdaSCwjwwTfTbss5Sd
+	 t5/Pq4J4dvBgtujxF6/yXI2Oe5UjOQc5+9s061T147MqAvG8ojs7UxQTMtUvjU6bD2Qz8
+	 K+0qLsF34Lw+fvWsEgEcAlL4j7renoF1v5eUtKz8LUWmQEQmJVi1dWhFa8H74QbByt2Pq
+	 SJCB/JopzGKiey0tO4BKCMRssLkDX0bG/UdYgAWyOLdOxQIVC/b8YoD0j+Henr14fhAa7
+	 Zk7KH8UTIk7I6C78g5gb7/CvRAYOTBTGljw+xYxOjcvaLdv3f+rbfA50u4E1fQqud3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YEiwg4VY;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.cyber.gouv.fr;
+	spf=pass smtp.mailfrom=oss.cyber.gouv.fr;
+	dkim=pass header.d=oss.cyber.gouv.fr header.i=@oss.cyber.gouv.fr header.a=rsa-sha256 header.s=default header.b="Y0E/Bo1F";
+	arc=none smtp.remote-ip=51.159.188.251
+Received: from oss.cyber.gouv.fr (oss.cyber.gouv.fr [51.159.188.251])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83D72606A335;
-	Wed, 18 Nov 2026 15:35:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEF7E606A320;
+	Wed, 18 Nov 2026 15:36:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BEF7E606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.cyber.gouv.fr
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.cyber.gouv.fr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YEiwg4VY
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D4D01F000C6;
-	Wed, 18 Nov 2026 15:35:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795016153;
-	bh=PhnMB43dmhhOP+uEehjfYbWyisR+iluGA4pbiWpu2q0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=YEiwg4VYtGuqGQJP5AIPXvqqK8mL8uNE+40MF1Ru0rtQdXp4Xd4OzqIn6c3xS/zz9
-	 Tj24RvH6VjLdr9XTcDeGOKiexcgoAP3L3NGDGjhbmlmlubZq3ytpi2LJUp6Qi8cdqX
-	 uxiMy4jgVMCaDWY5OOUDlx2vkx1rMTEt/YycTBdLzayKz/LYgULi9ApJ17qghFnQ8Q
-	 WfCBGXbeJBGzc1d9OGXfDB7+wUSZgw1ypZS+7uJPXhXLpJtmeXMqC60z7h59GKVlos
-	 W0yxzBWnuGgX7UKaWOw05nuX4ZdwPYXr/IJGp/zkHNKDAafpU4vlR799d26p8xbRup
-	 O/e8Y8TTy3IAg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xThhP-000000000We-1Pzi;
-	Wed, 18 Nov 2026 15:35:51 +0000
-Date: Wed, 18 Nov 2026 15:35:50 +0000
-Message-ID: <8633sy17ah.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Myria Sarvay <myrialsarvay@gmail.com>
-Cc: Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev,
-	Yuvan Shen <yuvanshen09@gmail.com>,
-	Nick Chan <towinchenmi@gmail.com>
-Subject: Re: [PATCH v2 03/15] drivers/perf: apple_m1: Support per-implementation event tables
-In-Reply-To: <av2p17j8AglpTSAz@macbookair>
-References: <20261107-m3-plus-pmu-events-v2-0-acf1e78da039@gmail.com>
-	<20261107-m3-plus-pmu-events-v2-3-acf1e78da039@gmail.com>
-	<864ide1hb1.wl-maz@kernel.org>
-	<av2p17j8AglpTSAz@macbookair>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+	dkim=pass (2048-bit key, unprotected) header.d=oss.cyber.gouv.fr header.i=@oss.cyber.gouv.fr header.a=rsa-sha256 header.s=default header.b=Y0E/Bo1F
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=oss.cyber.gouv.fr; s=default; h=Content-Transfer-Encoding:Content-Type:
+	Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:MIME-Version:
+	Reply-To:Sender:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=RgWtSxLmAhtYhLG2BvNwj3rhsazutaU7Zjd615Xs2tU=; b=Y0E/Bo1FwWCrAQ8ELPOv3Z76JB
+	mYA/1ubdl0gmNA6CdqfKAG3CJdLN2G6EObpOZUST+sEc0LBPzw1lyyg+zIdqd6QxNKEQ3MuFm5DMS
+	4REYs2mXLcLS0nviJSb70VKrebdOdg/nhvYGaDdrRzqgWXJD0Zq/HRrn5MymtUJ1NvLoqpxbCAaab
+	4TNEAuH069jyZrewelGQoAFMpCsE0mFuv7HIXRUgCIEVjapT392zOD0ndmydGDpMozEvsepjgIlvd
+	ZLcE2LCLQUEw2afJM1dsHhhSA+KLWIXCu4Z6vMdEuGf3GdLh/ICbQuWW62feoU5yqRnCqOjIpMdZ+
+	S4E5K2gA==;
+Received: from [::1] (port=57880 helo=pf-012.whm.fr-par.scw.cloud)
+	by pf-012.whm.fr-par.scw.cloud with esmtpa (Exim 4.100.1)
+	(envelope-from <jeremy.jean@oss.cyber.gouv.fr>)
+	id 1xThiQ-0000000EZro-0eDB;
+	Wed, 18 Nov 2026 16:36:51 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,69 +59,75 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: myrialsarvay@gmail.com, will@kernel.org, mark.rutland@arm.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, sven@kernel.org, j@jannau.net, neal@gompa.dev, linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, asahi@lists.linux.dev, yuvanshen09@gmail.com, towinchenmi@gmail.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+MIME-Version: 1.0
+Date: Wed, 18 Nov 2026 16:36:50 +0100
+From: =?UTF-8?Q?J=C3=A9r=C3=A9my_Jean?= <jeremy.jean@oss.cyber.gouv.fr>
+To: Simon Horman <horms@kernel.org>
+Cc: netdev-bot+sashiko@kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH net v2] udp_tunnel: fix GRO callback mismatch during setup
+In-Reply-To: <20261118153221.GG860048@horms.kernel.org>
+References: <20261111214622.2482547-2-Jeremy.Jean@oss.cyber.gouv.fr>
+ <179478310543.3136.4977357785981182737@kernel.org>
+ <20261118153221.GG860048@horms.kernel.org>
+User-Agent: Roundcube Webmail/1.6.20
+Message-ID: <1d7deb845ffc57994cfc86c317d9958d@oss.cyber.gouv.fr>
+X-Sender: jeremy.jean@oss.cyber.gouv.fr
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - pf-012.whm.fr-par.scw.cloud
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - oss.cyber.gouv.fr
+X-Get-Message-Sender-Via: pf-012.whm.fr-par.scw.cloud: authenticated_id: jeremy.jean@oss.cyber.gouv.fr
+X-Authenticated-Sender: pf-012.whm.fr-par.scw.cloud: jeremy.jean@oss.cyber.gouv.fr
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 
-On Wed, 18 Nov 2026 13:36:23 +0000,
-Myria Sarvay <myrialsarvay@gmail.com> wrote:
+On 2026-11-18 16:32, Simon Horman wrote:
+> On Sun, Nov 15, 2026 at 10:51:45PM +0000, netdev-bot+sashiko@kernel.org 
+> wrote:
+>> Thank you for your contribution! Sashiko AI review found 4 potential
+>> issue(s) to consider.
+>> 
+>> Critical: 0 · High: 1 · Medium: 2 · Low: 1
+>> 
+>> If you believe none of the issues are legitimate, please reply to each
+>> issue of Medium severity or higher and explain why the AI is wrong.
+>> If any of them are legitimate and you plan to respin, please let 
+>> patchwork
+>> know by including "pw-bot: cr" as a separate line at the end of your 
+>> reply
+>> (one such reply per series is enough).
+>> 
+>> - [High] The fix still lets receive and completion use different 
+>> tunnel
+>>   parsers on the same packet, so the out-of-bounds write the commit…
+>> - [Medium] udp_tunnel_gro_count only describes how the head skb of a 
+>> GRO
+>>   entry was parsed, not the packets merged into it, so packets in the…
+>> - [Medium] The Fixes: tag blames only 5d7f5b2f6b93 ("udp_tunnel: use
+>>   static call for GRO hooks when possible", v6.16), but part of what 
+>> the…
+>> - [Low] The new synchronize_net() in udp_tunnel_update_gro_rcv()
+>>   (net/ipv4/udp_offload.c:139) runs with the global…
+>> 
 > 
-> On Wed, Nov 18, 2026 at 11:59:30AM +0000, Marc Zyngier wrote:
-> >
-> > Looking at the following patches, I feel that this series is taking
-> > the long route to get to a relatively clear point: most of the
-> > invariant that we relied on for M1, slightly relaxed for M2 (counter
-> > width), are even more relaxed for M3+ (event width). We therefore need
-> > to indirect things. The way you do it is to mirror the current setup,
-> > with a whole set of callbacks per implementation and a bunch of
-> > additional helpers.
-> > 
-> > But instead of having a set of helper functions, one per
-> > implementation, with an ever increasing set of parameters, it really
-> > feels like we could do with a more data-centric approach where we have
-> > a single data structure describing an implementation, containing all
-> > the relevant data (pointer to the event mapping table, flags, bit
-> > indices for the user/kernel/guest/host attributes, and so on. We could
-> > then have a single set of callbacks that work on everything.
-> > 
-> > You could convert M1/M2 to that, then just add the relevant
-> > descriptions for M3+, which should just add data and the init
-> > functions, nothing else.
-> > 
-> > Does this make sense to you?
+> Hi Jérémy,
 > 
-> Hi Marc,
-> 
-> It does make sense, and should reduce duplicated code, I'm just not
-> confident I have the right idea as to how to implement it. I don't want
-> to duplicate a lot of the generic arm_pmu code, so it looks like it'd
-> probably have to be modified to allow passing a hardware specific detail
-> struct to all the callbacks, likely stored as a new field (void *) in
-> the arm_pmu struct itself. Does that vaguely sound right to you?
+> I would appreciate it if you could provide feedback on
+> the concerns raised in this AI-generated review.
 
-I'm not sure we really need an extra field. arm_pmu already has a
-pointer to the platform device (pmu->plat_device, also as
-pmu->dev.parent). It means you can use dev_{get,set}_data() on the
-attached device. That's a bit of pointer chasing, but nothing that we
-can't easily swallow if placed behind a convenient macro.
+Hello,
 
-> 
-> Also, with this rewrite, if we're going to make the code a whole lot
-> more generic, and take hardware specific data from a static struct,
-> would it make sense to rename the driver/all the callbacks while we're
-> at it, now that we're adding a lot more than just M1/M2 pmu events?
+I intend to do this at some point, but I have been busy with other
+non kernel things recently. I hope to get back to this at some point 
+when
+I find time.
 
-I don't think names matter much. If I had my way, all variables and
-functions would be called "bob". I'd suggest you look into the
-refactoring without worrying about the naming, and if that's the last
-problem we have to solve, we'll be in a remarkably good place! ;-)
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Regards,
+Jérémy
