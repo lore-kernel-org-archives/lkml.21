@@ -1,38 +1,39 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.123
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794982652;
-	b=aG0RUrmpMGWFyohYSf62SihY/ZRadd9M+Z7zAUnejby65bksGvyltkAS62VIixxzIbqF
-	 IQDyYn1EBGR/mCpFOg9reUkZzb6OGBJCMgjO9e8AfpSrZ+Zvh0LMdGVwYLVwki9l8RmFK
-	 Bx/MB4rXOXh/yIGM3xFM6BAAFvorFWCpX1Ansfa6wtNmd0BAKmJ5l2WTq4uW2I3fnLAph
-	 ct89NFbyshngj6R8bQGfpvJpWcTCkstxcenuhq/PjmTeg4aFUWmGPrgM1V9PFF4QZqlLY
-	 b7tSiROfdinHp8VHnk1Ox5U5LiFMSztoA9S88mBX0hGj1QpDmUYibO9ljGXCeVhItsA==
+	t=1794982668;
+	b=JNEd9M4H0DCWfpT3QOegnUbDqKY38xI7Nzri+IfPWZfqFpn+CZyQ1wzp6V8AapZWwPJo
+	 IWRSfQMhrR7LxGedQTYFwvDtBkRBo2iECFklL0auteEUlZ6JblEatb7DZIeXtSVvzJbZ2
+	 E2W4OVkR7YdAbDIq1hpAW1y23cfYcjC25onp2Kx5NO/4oN7s/gKLom2JMnu96P5rShsKX
+	 0IJdUS727z5MQ04igRYjtCEN6Ro+0PVI9dk8Vj8zb9HTJA7jRpg8DKu8v381MG5r0bzzf
+	 wt6zvWzAQ8msAdfnbA2S4nlFGEIl0yatxY12tGhf4UK5NDTg/q4Qs9zLilUQfhcWZow==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794982652;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794982668;
 	h=DMARC-Filter:X-Alimail-AntiSpam:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=/6E6EWPmB6dLJDBOnn3wrvadZ55eZzkgnB2dErotCA0=;
-	b=PdX++jDhP1URpyBJOGCfGhgOZt1IC/ei3e8x/hPlYQuMyO/PmKPGQ/ONcugSd7n/jy/d
-	 bTncyXQoOjroFURHTq581CGN98K0xKKajBYSdZbNrvooBjhQQGgb5+xz/mwQv71C4scHl
-	 ZXrH1nzwsnYldZRKlhP6UAlSaiITtjDH8OLirpwhKoJa9eRWMjytxdUnVMK2wdN7YI/Nu
-	 fE54RpvEewmicWDl6d6yfIgpH1kuPVPO+L8H9mjqeKBI28JERJHDGKiqNeVZXiZ6GJU28
-	 3GUQ0uRAYWJr5wFhiquijMmtyjPLEviIKwlUgcVfaR1zrL746UFkenc2kPA9cZLaV5w==
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=fckA3DKXrs9Uw6LV7Il/0uk/nh2afhWPXRFjaKb8A+s=;
+	b=rWPjfxMJdHe2HeV7bs4zIri08mpZ79+twLbclslNbN6TYXQn1Rnj0p/OUIC60zIIDJgf
+	 QM2vO02tIbgdrKsdPEMfGEbozT+bY5znSICjejP/MtmfttOn2A4Quiqw2MPY0j5GIRJun
+	 96dgtN11+jIcLvMQH1O9xe2PZA295j2CSW2IVRzuCNk14wuO3X3ygOrDmTqYXa9keL0dU
+	 zsaFIeSlx9sX8CmAyRri1ZKQGXhPNIUkEjCKFKGXfn8YpqswbJAf0VhdsMuK8tegcIRs7
+	 o95+LURRGlx1ebVJatDag7NM5z7uAe3XVY6bmXBXajKbcA7iH01TKycEi8xL0vnNp6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=open-hieco.net;
 	spf=pass smtp.mailfrom=open-hieco.net;
-	arc=none smtp.remote-ip=115.124.28.124
-Received: from out28-124.mail.aliyun.com (out28-124.mail.aliyun.com [115.124.28.124])
+	arc=none smtp.remote-ip=115.124.28.123
+Received: from out28-123.mail.aliyun.com (out28-123.mail.aliyun.com [115.124.28.123])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8353606A335
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:17:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8353606A335
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 004AC606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:17:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 004AC606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=open-hieco.net
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=open-hieco.net
-X-Alimail-AntiSpam:AC=CONTINUE;BC=0.0748736|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_enroll_verification|0.0154472-2.97058e-05-0.984523;FP=13494324110916486646|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033032065030;MF=likunyu@open-hieco.net;NM=1;PH=DS;RN=12;RT=12;SR=0;TI=SMTPD_---.k4eF9PO_1794982645;
-Received: from localhost.localdomain(mailfrom:likunyu@open-hieco.net fp:SMTPD_---.k4eF9PO_1794982645 cluster:ay29)
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.08028008|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.0405672-0.00122434-0.958209;FP=13818829576831189238|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033037033194;MF=likunyu@open-hieco.net;NM=1;PH=DS;RN=12;RT=12;SR=0;TI=SMTPD_---.k4eF9Qh_1794982647;
+Received: from localhost.localdomain(mailfrom:likunyu@open-hieco.net fp:SMTPD_---.k4eF9Qh_1794982647 cluster:ay29)
           by smtp.aliyun-inc.com;
-          Wed, 18 Nov 2026 14:17:26 +0800
+          Wed, 18 Nov 2026 14:17:44 +0800
 From: Li kunyu <likunyu@open-hieco.net>
 To: mingo@redhat.com,
 	peterz@infradead.org,
@@ -46,10 +47,12 @@ To: mingo@redhat.com,
 	kprateek.nayak@amd.com
 Cc: linux-kernel@vger.kernel.org,
 	Li kunyu <likunyu@open-hieco.net>
-Subject: [PATCH 1/2] sched/fair: Convert rq_lock_irqsave() to guard()/scoped_guard()
-Date: Wed, 18 Nov 2026 14:17:11 +0800
-Message-ID: <20261118061712.14503-1-likunyu@open-hieco.net>
+Subject: [PATCH 2/2] sched/fair: Convert rq_lock_irq() to guard()
+Date: Wed, 18 Nov 2026 14:17:12 +0800
+Message-ID: <20261118061712.14503-2-likunyu@open-hieco.net>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261118061712.14503-1-likunyu@open-hieco.net>
+References: <20261118061712.14503-1-likunyu@open-hieco.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,111 +64,44 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Convert three straightforward rq_lock_irqsave()/rq_unlock_irqrestore()
-pairs in fair.c to the modern guard()/scoped_guard() helpers. This
-removes the now-unnecessary struct rq_flags variables and makes the
-locking scope explicit in the code structure.
+In fair.c, convert the rq_lock_irq()/rq_unlock_irq() pair in
+online_fair_sched_group() to guard(rq_lock_irq)(rq). This removes the
+now-unnecessary rq_flags local, as the guard helper manages the rq_flags
+storage automatically.
 
-sched_balance_rq() is deliberately left unchanged: it releases the rq
-lock before restoring IRQs so that attach_tasks() runs without the
-busiest rq lock held but with interrupts disabled. A scoped guard
-would fold both steps into a single unlock_irqrestore() and change
-that semantics.
+In __active_load_balance_cpu_stop(), the rq_lock_irq() call is left as
+open-coded, since its unlock path is interleaved with IRQ state
+management and does not align cleanly with a scoped guard.
 
 Signed-off-by: Li kunyu <likunyu@open-hieco.net>
 ---
- kernel/sched/fair.c | 49 +++++++++++++++++++--------------------------
- 1 file changed, 21 insertions(+), 28 deletions(-)
+ kernel/sched/fair.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
 diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-index 0c8af1cac2d5..1e128214f2e9 100644
+index 1e128214f2e9..2d9927ef8479 100644
 --- a/kernel/sched/fair.c
 +++ b/kernel/sched/fair.c
-@@ -14747,11 +14747,9 @@ static void _nohz_idle_balance(struct rq *this_rq, unsigned int flags)
- 		 * do the balance.
- 		 */
- 		if (time_after_eq(jiffies, rq->next_balance)) {
--			struct rq_flags rf;
--
--			rq_lock_irqsave(rq, &rf);
--			update_rq_clock(rq);
--			rq_unlock_irqrestore(rq, &rf);
-+			scoped_guard (rq_lock_irqsave, rq) {
-+				update_rq_clock(rq);
-+			}
+@@ -15671,18 +15671,16 @@ int alloc_fair_sched_group(struct task_group *tg, struct task_group *parent)
+ void online_fair_sched_group(struct task_group *tg)
+ {
+ 	struct sched_entity *se;
+-	struct rq_flags rf;
+ 	struct rq *rq;
+ 	int i;
  
- 			if (flags & NOHZ_BALANCE_KICK)
- 				sched_balance_domains(rq, CPU_IDLE);
-@@ -15764,16 +15762,14 @@ static int __sched_group_set_shares(struct task_group *tg, unsigned long shares)
  	for_each_possible_cpu(i) {
- 		struct rq *rq = cpu_rq(i);
- 		struct sched_entity *se = tg_se(tg, i);
--		struct rq_flags rf;
- 
- 		/* Propagate contribution to hierarchy */
--		rq_lock_irqsave(rq, &rf);
-+		guard(rq_lock_irqsave)(rq);
+ 		rq = cpu_rq(i);
+ 		se = tg_se(tg, i);
+-		rq_lock_irq(rq, &rf);
++		guard(rq_lock_irq)(rq);
  		update_rq_clock(rq);
- 		for_each_sched_entity(se) {
- 			update_load_avg(cfs_rq_of(se), se, UPDATE_TG);
- 			update_cfs_group(se);
- 		}
--		rq_unlock_irqrestore(rq, &rf);
+ 		attach_entity_cfs_rq(se);
+ 		sync_throttle(tg, i);
+-		rq_unlock_irq(rq, &rf);
  	}
+ }
  
- 	return 0;
-@@ -15818,34 +15814,31 @@ int sched_group_set_idle(struct task_group *tg, long idle)
- 		struct cfs_rq *grp_cfs_rq = tg_cfs_rq(tg, i);
- 		bool was_idle = cfs_rq_is_idle(grp_cfs_rq);
- 		long idle_task_delta;
--		struct rq_flags rf;
- 
--		rq_lock_irqsave(rq, &rf);
-+		scoped_guard (rq_lock_irqsave, rq) {
- 
--		grp_cfs_rq->idle = idle;
--		if (WARN_ON_ONCE(was_idle == cfs_rq_is_idle(grp_cfs_rq)))
--			goto next_cpu;
-+			grp_cfs_rq->idle = idle;
-+			if (WARN_ON_ONCE(was_idle == cfs_rq_is_idle(grp_cfs_rq)))
-+				continue;
- 
--		idle_task_delta = grp_cfs_rq->h_nr_queued -
--				  grp_cfs_rq->h_nr_idle;
--		if (!cfs_rq_is_idle(grp_cfs_rq))
--			idle_task_delta *= -1;
-+			idle_task_delta = grp_cfs_rq->h_nr_queued -
-+					  grp_cfs_rq->h_nr_idle;
-+			if (!cfs_rq_is_idle(grp_cfs_rq))
-+				idle_task_delta *= -1;
- 
--		for_each_sched_entity(se) {
--			struct cfs_rq *cfs_rq = cfs_rq_of(se);
-+			for_each_sched_entity(se) {
-+				struct cfs_rq *cfs_rq = cfs_rq_of(se);
- 
--			if (!se->on_rq)
--				break;
-+				if (!se->on_rq)
-+					break;
- 
--			cfs_rq->h_nr_idle += idle_task_delta;
-+				cfs_rq->h_nr_idle += idle_task_delta;
- 
--			/* Already accounted at parent level and above. */
--			if (cfs_rq_is_idle(cfs_rq))
--				break;
-+				/* Already accounted at parent level and above. */
-+				if (cfs_rq_is_idle(cfs_rq))
-+					break;
-+			}
- 		}
--
--next_cpu:
--		rq_unlock_irqrestore(rq, &rf);
- 	}
- 
- 	/* Idle groups have minimum weight. */
 -- 
 2.47.3
 
