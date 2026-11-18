@@ -1,49 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.110
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794972607;
-	b=stJ1SlfXZT8C3ojMJU/RLfHOzRZdiNZK2Yt2DSU9pvEKbOvI7PGObGrnkF/bL4+YhqpS
-	 Q9PlF+WM0xAWPMRQz98NhCQu9LYPfR8BFoIMbboOdMW+LjdbisWNVB6rUB6bOIjQd6byA
-	 yfuX+n5lckvrRmD5AwSd/qc+FkI7sNnvM87icaZUJCJvMnKPHOr3XzcJ8KPMSRLsMNR+I
-	 /D2SHSCASF7vwy1mFid4C5RcqJ8CuTSB33ZkVEP+FOsjvstAlQI+YNiP8EUY8O2wWdrn6
-	 UeSBEPPkmzZWuPM/0W+QM0fO/dRfOvrSX9TWC+LUamWn3X2hCOjpPVsJjGFAWgCbt1Q==
+	t=1794972651;
+	b=y86JeSWPC2mGvBW9wDuopiPqa2FQ3NXboXWQ170f7QIie87QvXgekYF7rt/mOCcAA2oe
+	 wOYUl9Y9pwrgoJ5KAMazltC5Bd5El+GCeInNPqa0r5P1+T/yMv3/baybJeB1XAoSGCBRX
+	 MKgH/FUnOlh82TXwEMno6Vzo7sle/HhejM177o4PpbT1Lex5UIU1TnLBiD0tpwNNNF6NK
+	 zL38y3asE7tFlCB/EmiYZeV5b5hoPvwEf+EqScqpvDz7sXelmplXjwu9Idf1pgAsac8mM
+	 ixOPPaP7JRFHbRUjXwqEukmN/HdBs+qrgV7oSTZtzXe3fzngImr9+MY3jQ25hvrL7hA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794972607;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=AGMAhnXtc43b9IR2967bQRs6CtgqCl1Ghq4YYDHir44=;
-	b=KY6cy7C3ddm2yV1v8sjKv/B2Vgbn7aCobxDn3jb7VWN86Sg/ax8bfxbHPQ8kYv/dZquK
-	 /pq95a0MM5h8uRIepC5djaHav5x6hHwhw/mDLpFLmj0bd4UXG4mxot3WYcBzggahYdrkz
-	 TYGb6pBeIQw+j+I1bf2CukazvAuj/Ty0w82BdOchIHlQdJgL+ITM0GvhnaDUEfneEhtWN
-	 X22SzECA177c6NnYJcO8SUX7VSqLEPg/xVScj0HRicPjzMGG/BYCLGEL8gCQVS+23A3ZI
-	 m2Q+DyjUZG7dgsjdbCpiYpjXRZ3CaAK/+FEiHYW1qy3ZpmWkRTJnvERMIUoadHCKb6g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794972651;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=APG9sCSTr31Qk5e5LlTF3oLTJAVZT+6WIuV88gEjZIE=;
+	b=g04Sc31WDhzRZXdwggjEmlWiBlQkIWxM+zGaeANqCcPCk6CINn6IiwX8AMaYoAkivrPk
+	 hPTdg75m585JVlZHX16Ypt+I30HFJzb5DGGUm3hm9+znnseWIBSvSqJ5r7XHQUho4QYJ2
+	 /WuoRiUMhl7GtA3UhWDKTgFVOIIZpjEf+Xd8BZAdnR85O4/gveGlZkDUNfr4sm1gEXNBG
+	 pqs5iwe54wrle3eAvRuIFuFIcbw3enntCjTznpF5kI9vujp8QQqm5h0ddrl1+9JqgrR1d
+	 05860ZV5SZigeEAhbj0Bj2ME8FQyXWXfW/EBAj/wo/HNIyq9L8zq2IQZriz1gcJYpHA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bmQYkYcT;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linux.alibaba.com;
+	spf=pass smtp.mailfrom=linux.alibaba.com;
+	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=GkkHMI4b;
+	arc=none smtp.remote-ip=115.124.30.110
+Received: from out30-110.freemail.mail.aliyun.com (out30-110.freemail.mail.aliyun.com [115.124.30.110])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ABBD6606A31C;
-	Wed, 18 Nov 2026 03:30:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FA1E606A31C;
+	Wed, 18 Nov 2026 03:30:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9FA1E606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bmQYkYcT
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 823AD1F000C4;
-	Wed, 18 Nov 2026 03:30:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794972607;
-	bh=AGMAhnXtc43b9IR2967bQRs6CtgqCl1Ghq4YYDHir44=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=bmQYkYcTxwXsV7jVqj7xtKLQBbp8bJtz2Rvd6sUGtG7m+YALLuHG1EQvH8LgRtuR9
-	 qfLPJzz8nlFbtLxIMRoUGdLHLw6/Gw7Wo3v81IqtJNYhAFRtHzIViUXuLI1SR2SlZz
-	 CPekOnA7AFxlZ7v/Pwn69PdyQY0a1W8FmXvBR/dTDzRf1RCo8y8Vfn51FetnphWb5J
-	 h+b5vHdRmBjPNCDkMpWFGp8inI8dRE66H28ENPUqIp+Dy0nX/9sOd/0ZAwFNLJ/qS3
-	 9R9q+KDVeL+IwfEOH712q0Osa/D+5EMDROTqrNhFVPaCoH5EaBr6WV9MtCM4fmywLR
-	 aZKg/yVacdvZw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7732A392E982;
-	Wed, 18 Nov 2026 03:30:07 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (1024-bit key) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=GkkHMI4b
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1794972639; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=APG9sCSTr31Qk5e5LlTF3oLTJAVZT+6WIuV88gEjZIE=;
+	b=GkkHMI4brIkg/t2A3Ic7bT6pq3K8ePRiO6/VKOgCjaYnr3DP10gTSyI9ihWvoyjOFX63w8UqMOioy9oowWkbKUK/MIvFjJN1lZC3Y29dlQ5DAte5xhfrR8VhNTuuZBY85TEa7ZdqHIxf+ibybu7nUZ9+5kGGpUmx4w2WCIFBicE=
+X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R181e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=chengyou@linux.alibaba.com;NM=1;PH=DS;RN=7;SR=0;TI=SMTPD_---0XF.Gjmt_1794972638;
+Received: from 30.221.96.70(mailfrom:chengyou@linux.alibaba.com fp:SMTPD_---0XF.Gjmt_1794972638 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 18 Nov 2026 11:30:38 +0800
+Message-ID: <9c049865-1ac4-553f-d894-ca4868bd4e4c@linux.alibaba.com>
+Date: Wed, 18 Nov 2026 11:30:37 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,50 +54,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0)
+ Gecko/20100101 Thunderbird/102.15.1
+Subject: Re: [PATCH 6.6.y] RDMA/erdma: Use IRQ-safe XArray helpers for QP and
+ CQ tables
+To: Sasha Levin <sashal@kernel.org>, stable@vger.kernel.org
+Cc: linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org,
+ leon@kernel.org, jgg@ziepe.ca, kaishen@linux.alibaba.com
+References: <20261117022839.23186-1-chengyou@linux.alibaba.com>
+ <2026-11-17-1-daily-reply-0002@kernel.org>
+Content-Language: en-US
+From: Cheng Xu <chengyou@linux.alibaba.com>
+In-Reply-To: <2026-11-17-1-daily-reply-0002@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v3 0/2] af_unix: Fix scm_stat.nr_fds leak in
- unix_dgram_disconnected()
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179497260640.1442014.622308386192174457.git-patchwork-notify@kernel.org>
-Date: Wed, 18 Nov 2026 03:30:06 +0000
-References: <20261114162632.16346-1-sidchintamaneni@gmail.com>
-In-Reply-To: <20261114162632.16346-1-sidchintamaneni@gmail.com>
-To: Siddharth Chintamaneni <sidchintamaneni@gmail.com>
-Cc: kuniyu@google.com, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, shuah@kernel.org,
- tkhai@ya.ru, apais@microsoft.com, hargar@linux.microsoft.com,
- rlmenge@gmail.com, egoriluk@gmail.com, netdev@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
 
-Hello:
 
-This series was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
 
-On Sat, 14 Nov 2026 16:26:30 +0000 you wrote:
-> This series fixes a u->scm_stat.nr_fds accounting leak in
-> unix_dgram_disconnected() when purging queued skbs from
-> sk->sk_receive_queue on disconnect, along with a selftest:
+On 11/18/26 8:19 AM, Sasha Levin wrote:
+>> Use IRQ-safe XArray helpers for all QP and CQ create-path updates,
+>> including the GSI QP store and error paths.
 > 
-> - Patch 1 splices sk->sk_receive_queue onto a local list in
->   unix_dgram_disconnected() and calls scm_stat_del() before freeing each
->   purged skb.
-> - Patch 2 adds dgram_disconnect_fdinfo to scm_rights.c verifying scm_fds
->   in /proc/self/fdinfo/<fd> across connect(AF_UNSPEC) and dead-peer
->   send() disconnects.
+> Queued for 6.12 and 6.6, thanks.
 > 
-> [...]
+> 6.1 has the same bug and is not covered. If you want it there, please send a
+> 6.1.y backport.
+> 
 
-Here is the summary with links:
-  - [net,v3,1/2] af_unix: Fix scm_stat.nr_fds leak in unix_dgram_disconnected().
-    https://git.kernel.org/netdev/net/c/2c0d5e36aaf3
-  - [net,v3,2/2] selftest: af_unix: Test scm_fds on dgram disconnect.
-    https://git.kernel.org/netdev/net/c/c550cea62c1e
+Thanks. I have sent the 6.1.y backport.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Cheng Xu
