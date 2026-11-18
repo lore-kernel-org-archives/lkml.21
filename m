@@ -1,74 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.148.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795005106;
-	b=tK3EBU1tyicDQBC9gEm+sg14dBlnPxMJ44dTIhvjhsqKQmq2yhIUGYkDLVrNBVwA02Q7
-	 8qSR56DRt4RhsWfKksPpSL00oH4gP+9egnfkjMPe6Tzw0NwBOcxiWDzSQuI/3gnV+0tbO
-	 TAMdqW7XY0aIN/+5PiNAHueBtKNHKapk6HFQd+tM5KugGcnPAKyEZBC3VVp6y5Gu5ovq7
-	 nhxN1xMeq1W/cbWiIISUvcpAOVHkC3w22uXJ7UXzBkthoxEmuGZnIVTmPqJv3qlAEp80D
-	 UR8IUXsSIvQHAyHPxCq/MJaZN3a7/P3NoJY1OnzBv+KIbzJ5ksIgkpQCtvYWNwKC9og==
+	t=1795005151;
+	b=mQxRDLFQI2omNVbCKeoKDrMbO3qyk4tKbh5LNOPtvEoeEagITkdSMtYqsLujF+42tFdV
+	 OwZIOzkZCDrRrilLfHEYyrvFMdHQaikoiYO6g+IftlmKq49cc2FRLDkRd0Y+d2auW3XJK
+	 6j8cd+BZtSQ1sDmUBivdXyHn3mEJA9HdOqsFL1yIks4pkaURq1Fl6n+QUKFAF531f2Pho
+	 vCrYj2lkf+kh+Nt/ANoMS/01TrfSlxJRAMFP+jIFQOahMyfvkgMXtaEKicKqsmZp1VaGL
+	 ubE14RhnBpDmxqVojpOgzk5Ra9J8v37N9RKw2hDcVptBZMLEG7aKC6B/N/+kqcx8q5g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795005106;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version;
-	bh=gDOdA2uOEnQHph1pmU0scyCFa+99d4pROs2JpoXQfFc=;
-	b=hwgYvz9pnwubDXxe2IiMKWGoxEVIrtPLbX1F2EISGCZDkg3CVR88x/0CpzlKvHeVssy9
-	 sEkRfAH9gRuP8lc6mamCA+4aG6S6o35FqcBqf3V/eWB03SgEIAsr+qiHl7VzxT5gGO3jn
-	 o9aIzcR2xhxrRSbGCk7tQtqPfwIeCbgBWmRNM6cWAe6sMYGMnRW1HFtb+FxJzU9oOxJRO
-	 AKBGDRx1F+0hGiTMuvQ5myu7tLNYNmiCh2HCRgwjgrDi+nhP/jXm4B6l1F4tcJjSNa6BC
-	 OX1CU05sXfclcTKYb74xC7iXQ6ACplZyBEqTUtsHCZgo9+aLVFCXLnzvQilm6gIhUIA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795005151;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=MegKunIxbKJmWXfHvvLlyDz6eGlSNoNkyHutakVtL/4=;
+	b=g06mnHjgM6UkxbjUBi1FD232GE//+3wGejw1vjLEulBAkYPH6+MjIm6W5iYiB8CuBX/9
+	 cI3XfCV6Uhixrp2J2KqtgxwVJYU2lOGl8Y/Fwl/RoXNo0h+T7HcylysRAVTcYi/VT9qnw
+	 XG8juOsWaP+BRYgW9wNAflxRswbMXxt+JXt08hLmoyAPQobv03x9hhhCXEX/cQzLp4S4I
+	 MPgs/d9+zdYivIQnSixZoJ4EsCXwTxtFSzD1MnKIXKceIfAm9G1b+mKPJ+Qk8pkgPQr70
+	 YOXaz35QywYaC5DXE8mGGq0cHw/UEkP3p7hchIHQo/4mLIjaQL8fCRpmG3JeEytI5aQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=marvell.com;
-	spf=pass smtp.mailfrom=marvell.com;
-	dkim=pass header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=pfpt0220 header.b=AeOn7wY5;
-	arc=none smtp.remote-ip=67.231.148.174
-Received: from mx0a-0016f401.pphosted.com (mx0a-0016f401.pphosted.com [67.231.148.174])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tyfbf2Us;
+	arc=none smtp.remote-ip=209.85.221.53
+Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38E3C606A320;
-	Wed, 18 Nov 2026 12:31:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 38E3C606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=marvell.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=marvell.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51673606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:32:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51673606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=pfpt0220 header.b=AeOn7wY5
-Received: from pps.filterd (m0431384.ppops.net [127.0.0.1])
-	by mx0a-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIBJODY2192428;
-	Wed, 18 Nov 2026 04:31:44 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=pfpt0220; bh=gDOdA2uOEnQHph1pmU0scyC
-	Fa+99d4pROs2JpoXQfFc=; b=AeOn7wY5yj9wUJAE5rWInqZHIN/MnNU9LLJkPs5
-	8EJDJPTBL0FrjkvMMNnF3mWrmwpm7l92VrfqdnjlQQGSW8J5FWrXEyHSsLCM/vUQ
-	83BoNFKqyYBIFo+emfpn6J3waiC6Hg5rvSEiJkcut39PhZi442f6HuiLrtI24KKF
-	IjYRog3hnIX35sb/ZsB0hDriEfAxPucVNBZSZ4MQ3gwQYil5Lf0pj/lQv2lGrMet
-	kUmv2Rmnn76jih5LEnGCB+O6rt5F3uicKSCZhSxNKgckWXoTf5SxBHhI+fOKQ2ix
-	o9jkbNzf75Bl/OVuqi0FwWzo6LheZL/Gf37oUwPqNwHK+hw==
-Received: from dc5-exch05.marvell.com ([199.233.59.128])
-	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 4j0ytutfum-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 18 Nov 2026 04:31:44 -0800 (PST)
-Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
- DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Wed, 18 Nov 2026 04:31:32 -0800
-Received: from dc5lp-vrelay04.marvell.com (10.69.176.80) by
- DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server id
- 15.2.2562.17 via Frontend Transport; Wed, 18 Nov 2026 04:31:32 -0800
-Received: from c1illp-saixps-016.eng.marvell.com (c1illp-saixps-016.eng.marvell.com [10.205.40.247])
-	by dc5lp-vrelay04.marvell.com (Postfix) with ESMTP id 8E1BC48DF2;
-	Wed, 18 Nov 2026 04:31:42 -0800 (PST)
-From: Elad Nachman <enachman@marvell.com>
-To: <kuba@kernel.org>
-CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <enachman@marvell.com>
-Subject: [PATCH] MAINTAINERS: update prestera switchdev e-mail address
-Date: Wed, 18 Nov 2026 14:31:26 +0200
-Message-ID: <20261118123126.326686-1-enachman@marvell.com>
-X-Mailer: git-send-email 2.25.1
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tyfbf2Us
+Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-4a511d8a394so117599f8f.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:32:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795005150; x=1795609950; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=MegKunIxbKJmWXfHvvLlyDz6eGlSNoNkyHutakVtL/4=;
+        b=tyfbf2UsPBVYYD26GeNTW+Qgmm0LMvV7VG/ikGF5XJoStTiPOglV/6gXZjSr/oWyJv
+         2vByeShRxa04SwSUmUyB70qEaHEczqGgZPt6BDVPNq2V9MLNzoakciG3XnaHY1anl2EK
+         7Pa/ECRBuBaoI5KxULPfvFt6Cm8cMVbO2/AWxWwW5RlGm2LtaECQtGUx3q36S+Anp96W
+         w7n24TllVuuVHCDcQUic1nxFl+vcm8A3e1DzpmsKngxhJbirihpjIVtsfYQKn8kTmJnU
+         GN0j/o9h8DEqlK4VCKNJgk+9ZOZx6bhHtdgf+9lG2RWJtgy3WV4DG2KRZSv+BTkln/aj
+         dcug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795005150; x=1795609950;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=MegKunIxbKJmWXfHvvLlyDz6eGlSNoNkyHutakVtL/4=;
+        b=OD1XNfsRjf1QPlgybpu0is4xbdIX5COJIum+MCzecOSnfIrfRplp8Ex/gg3G50jjpi
+         KPaottRDbC4N6wE70bwM2Mk4NyL4c7HUCTt05cQLknDkGuX6DTGCIIYVj1T2mFgmx8JB
+         3Vltpx6vI584A7rgNwDVe/PBLBys8tj1H1dsVe0hp8DvtROkI+afY0rrm+EiiN82BG46
+         tye+bPxy5rJrxpfY67cGs/FbJaAA9z4eG2Nsp1jC4e4ti+N0CbaaKs34TfsKBNiyNxmf
+         S1xpQAwqYJqut2nmUD3hTgXUE5mR/gsd6IpgjwzXBzNtcDVXgw9PoYcv8FTtyRtONP1k
+         bb1A==
+X-Forwarded-Encrypted: i=1; AL+hErElDGPEVCtruSUaDovIEEyG1et5S6LgSzM4giOcsXc8D2Se3TtkhjSfb5gIz75NQxiRyYfDwqJrEChmBcw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8+Skr6mdY6rhvVXgRnjbr+SeOyLJ/55lCc5/4ms8MPIkSN2xsv
+	nsQt4vpOS47JsUtXa5Q6eyGZas4cGBe1OaokOToBIYcR6ZMYdX2g1yqq
+X-Gm-Gg: AZFdTZf46E8NmGW7Su7gjnTEVa8ZdTddZVYmbb25OTRUuphLZ0FNOmJP9s7f4tRHd7l
+	7aAxhDQbr3bIURsVy3YIG6FaTclG+CWUhfn6u+dcUa6XKhplc1K7jAy/7u8exU4kHgp6yiz0BqV
+	ehheVGDhvnLtb4OeBtSfbrs6Xyruvl/lM5bmWtLdFAKyvd2x2uv1SaAfqW4Lz1Z/a00yMoV7jkE
+	xV+SH6Zc/JTKNLyUni3MjMIttflkCny/7F6G7gtTsLATl4xjb5pPZ+G+4JPIpdCfpyeiTWtqrGI
+	lCyVQLReiZ4GV9K4JasHGVP6tUkcsl0m1R1bbQj16W2HH6bSRUxOvH23WiMFSl5/Zs5lyD7kc2L
+	ZvgyGPu8BGXe5mZNfjwz60h44kh5ZFfa2WNds+kguFUqr9HOHAAf6rHVZKkoqz38M/vTF/58RMz
+	vSVc9WLVjBAHnLGRDhh4Pt94FqrirmzBlhZoGKIkk1c+TunwyC0svQhBkFvlSi49MJy6kCcozGl
+	0w2u0mtIH+BKsqFHB8HeHP0u49oKDChASkZrXesxDtTAnb+V4HKhiSBoiBlYurWWDAYHe63+eqp
+	LxUJXtvv2HTHyHX4zMyMSaSahgBikl/vYLQpgh4dojfd/i9EB600FcY=
+X-Received: by 2002:a5d:5f54:0:b0:4a6:bc53:246a with SMTP id ffacd0b85a97d-4a6bc626b7dmr4052393f8f.5.1795005149445;
+        Wed, 18 Nov 2026 04:32:29 -0800 (PST)
+Received: from scheduler.schedules ([85.100.69.90])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a656c11f4bsm4645746f8f.51.2026.11.18.04.32.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 04:32:28 -0800 (PST)
+Date: Wed, 18 Nov 2026 15:32:25 +0300
+From: Kayra Cizmeci <kayracizmeci@gmail.com>
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com, 
+	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de, 
+	vschneid@redhat.com, kprateek.nayak@amd.com, linux-kernel@vger.kernel.org, 
+	lukasz.luba@arm.com, rafael@kernel.org, linux-pm@vger.kernel.org, tj@kernel.org, 
+	void@manifault.com, arighi@nvidia.com, changwoo@igalia.com, 
+	sched-ext@lists.linux.dev, qyousef@layalina.io, christian.loehle@arm.com, 
+	pierre.gondois@arm.com, sshegde@linux.ibm.com, tim.c.chen@linux.intel.com
+Subject: Re: [PATCH 01/20 v3] sched/eevdf: Decay positive lag of sleeping
+ entities
+Message-ID: <av2KuYNx1A-rCz0R@scheduler.schedules>
+References: <20261106151947.3991524-1-vincent.guittot@linaro.org>
+ <20261106151947.3991524-2-vincent.guittot@linaro.org>
+ <avr4MsRsjGfGHKKk@scheduler.schedules>
+ <CAKfTPtBZ=Dc_X48EQ0yXMym0JrS=pWvbviyVyFri0tv5VdR3Eg@mail.gmail.com>
+ <av1uqTFI46wRb0ok@scheduler.schedules>
+ <CAKfTPtC7AmoSE4iev5qf0MMYDBHPpLMduYhz5XMDsMGiMNpy0A@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,51 +107,281 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Proofpoint-ORIG-GUID: Gd5gHn0nGjc7rX9bz9_Glix4uNB_Uzr1
-X-Proofpoint-GUID: Gd5gHn0nGjc7rX9bz9_Glix4uNB_Uzr1
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA0OSBTYWx0ZWRfX/2Jaww74iNrD
- 0SFKdi0E5c/olXwNBS/I5lAIlaI9XrvQGoU2WrgohYUhRkN+zSeHVlaMFDrQbN/ag5paEA9xrVr
- hXZmlzy5geQJ71YYxJXy2FBjq9F1qUs=
-X-Authority-Analysis: v=2.4 cv=MIb1C8Zl c=1 sm=1 tr=0 ts=6afd9ab0 cx=c_pps
- a=rEv8fa4AjpPjGxpoe8rlIQ==:117 a=rEv8fa4AjpPjGxpoe8rlIQ==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=l0iWHRpgs5sLHlkKQ1IR:22
- a=TtqV-g6YmW1Jfm2GSLaY:22 a=NEAV23lmAAAA:8 a=M5GUcnROAAAA:8 a=pGLkceISAAAA:8
- a=6navKHnpQrpsLR3-kjAA:9 a=OBjm3rFKGHvpk9ecZwUJ:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA0OSBTYWx0ZWRfX6I3kjq+hhOh4
- gAAqPfUboXg4k7DSlBphIJi3W/u3bJQ8+CJCDucxp73JGB/W1yDl1RYpi0up/+AmkGxPnXqk2I0
- 39qgx1e8XdgGmM4Sp+8+asUePjsGPrUlyPBr9VnJ7DtRoLC6tLxOz+9rinMWWhyDTq7J3sOP1Zq
- 54x0OXOFmmnqev2S/MB4qSMVLFXcsmazQEBNEsf1JBsf1DV9RTRpTfcvpxAfTir+7GyezFLtGx1
- xTfL9lgPY3ZhxQIgjQNZVELJlYVSFASAhE2TjHq6TNTmR5/SNFhD7/tL7Cw+etFYb1lEfyKqTN6
- 7y8eTz3cpYFdgFziHZ3OUW4Fp3NE+8zWcmbNMERWLMcKJbu5E2jzQ04YVnLdj3rEAxMbaA055Ic
- h8yUPMIfujOZaXNk5beAeoyAORhs12UIIqqXBnv9t9Lk2mvPnyLEVSE8AEw5/iwHN/qCcrINtCR
- QTgQba37Xw5U6B3ueGQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-18_03,2026-11-16_01,2025-10-01_01
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <CAKfTPtC7AmoSE4iev5qf0MMYDBHPpLMduYhz5XMDsMGiMNpy0A@mail.gmail.com>
 
-Update the Prestera SwitchDev subsystem maintainer e-mail
-for Elad Nachman.
+On Wed, Nov 18, 2026 at 12:21:10PM +0100, Vincent Guittot wrote:
+> On Wed, 18 Nov 2026 at 11:58, Kayra Cizmeci <kayracizmeci@gmail.com> wrote:
+> >
+> > On Wed, Nov 18, 2026 at 10:20:14AM +0100, Vincent Guittot wrote:
+> > > On Mon, 16 Nov 2026 at 14:57, Kayra Cizmeci <kayracizmeci@gmail.com> wrote:
+> > > >
+> > > >
+> > > > Hi Vincent!
+> > > >
+> > > > On Fri, Nov 06, 2026 at 04:19:28PM +0100, Vincent Guittot wrote:
+> > > > > Similarly to delayed dequeue, which enables an entity to decay its negative
+> > > > > lag while sleeping, a task should not keep a positive lag forever.
+> > > > >
+> > > > > The sleep duration and the weight are used to decay the positive lag at
+> > > > > wakeup.
+> > > > >
+> > > > > Apply the decay when enqueueing on prev rq for which we hold the lock to
+> > > > > get rq_clock_task().
+> > > > >
+> > > > > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+> > > > > ---
+> > > > >  kernel/sched/fair.c | 124 ++++++++++++++++++++++++++++++++------------
+> > > > >  1 file changed, 90 insertions(+), 34 deletions(-)
+> > > > >
+> > > > > diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+> > > > > index 0feec172fd37..5cd171f830d8 100644
+> > > > > --- a/kernel/sched/fair.c
+> > > > > +++ b/kernel/sched/fair.c
+> > > > > @@ -897,6 +897,91 @@ bool update_entity_lag(struct cfs_rq *cfs_rq, struct sched_entity *se)
+> > > > >       return avruntime - vlag != se->vruntime;
+> > > > >  }
+> > > > >
+> > > > > +/*
+> > > > > + * Signed add and clamp on underflow.
+> > > > > + *
+> > > > > + * Explicitly do a load-store to ensure the intermediate value never hits
+> > > > > + * memory. This allows lockless observations without ever seeing the negative
+> > > > > + * values.
+> > > > > + */
+> > > > > +#define add_positive(_ptr, _val) do {                           \
+> > > > > +     typeof(_ptr) ptr = (_ptr);                              \
+> > > > > +     __signed_scalar_typeof(*ptr) val = (_val);              \
+> > > > > +     typeof(*ptr) res, var = READ_ONCE(*ptr);                \
+> > > > > +                                                             \
+> > > > > +     res = var + val;                                        \
+> > > > > +                                                             \
+> > > > > +     if (val < 0 && res > var)                               \
+> > > > > +             res = 0;                                        \
+> > > > > +                                                             \
+> > > > > +     WRITE_ONCE(*ptr, res);                                  \
+> > > > > +} while (0)
+> > > > > +
+> > > > > +/*
+> > > > > + * Remove and clamp on negative, from a local variable.
+> > > > > + *
+> > > > > + * A variant of sub_positive(), which does not use explicit load-store
+> > > > > + * and is thus optimized for local variable updates.
+> > > > > + */
+> > > > > +#define lsub_positive(_ptr, _val) do {                               \
+> > > > > +     typeof(_ptr) ptr = (_ptr);                              \
+> > > > > +     *ptr -= min_t(typeof(*ptr), *ptr, _val);                \
+> > > > > +} while (0)
+> > > > > +
+> > > > > +static inline unsigned long cfs_rq_load_avg(struct cfs_rq *cfs_rq);
+> > > > > +static unsigned long task_h_load(struct task_struct *p);
+> > > > > +
+> > > > > +static __always_inline
+> > > > > +void decay_entity_lag(struct cfs_rq *cfs_rq, struct task_struct *p, int flags)
+> > > > > +{
+> > > > > +     struct sched_entity *se = &p->se;
+> > > > > +     s64 delta_exec, vlag = se->vlag;
+> > > > > +     unsigned long cfs_load;
+> > > > > +     struct rq *rq;
+> > > > > +
+> > > > > +     WARN_ON_ONCE(se->on_rq);
+> > > > > +
+> > > > > +     /* Negative lag is managed by delayed dequeue path */
+> > > > > +     if (vlag <= 0)
+> > > > > +             return;
+> > > > > +
+> > > > > +     rq = rq_of(cfs_rq);
+> > > > > +
+> > > > > +     /* No fast access to prev rq task clock */
+> > > > > +     if (flags & ENQUEUE_MIGRATED)
+> > > > > +             return;
+> > > > > +
+> > > > > +     /* Compute sleep time */
+> > > > > +     delta_exec = rq_clock_task(rq) - se->exec_start;
+> > > > > +     if (unlikely(delta_exec <= 0))
+> > > > > +             return;
+> > > > > +
+> > > > > +     /* For anything above ~4 seconds, save computation and clear the lag */
+> > > > > +     if (unlikely(delta_exec >> 32)) {
+> > > > > +             se->vlag = 0;
+> > > > > +             return;
+> > > > > +     }
+> > > > > +
+> > > > > +     /*
+> > > > > +      * Use cfs' load and p's weight to estimate what would have been the
+> > > > > +      * share for p. task's load contribution to cfs' load is replaced by
+> > > > > +      * its weight.
+> > > > > +      */
+> > > > > +     cfs_load = cfs_rq_load_avg(cfs_rq);
+> > > > > +     lsub_positive(&cfs_load, task_h_load(p));
+> > > > > +     if (cfs_load) {
+> > > > > +             unsigned long weight = scale_load_down(se->h_load.weight);
+> > > > > +
+> > > > > +             delta_exec *= weight;
+> > > > > +             delta_exec = div64_long(delta_exec, cfs_load + weight);
+> > > > > +     }
+> > > > > +
+> > > > > +     vlag -= calc_delta_fair(delta_exec, se);
+> > > > > +
+> > > > > +     /* vlag can't become neg while sleeping */
+> > > > > +     se->vlag = max(0, vlag);
+> > > > > +}
+> > > >
+> > > > Look:
+> > > >
+> > > > Let's say we have 3 tasks named TA, TB and TC. They all have the same
+> > > > weight and the same slices. So TA gets picked, works for a while and then
+> > > > sleeps for less than the rest of its slice.
+> > > >
+> > > > So the part that I hate and love, math. For your diff, we do:
+> > > >
+> > > > (sleep_time * weight) / (3 * weight)
+> > > >
+> > > > 3 * weight here is TA + TB + TC, it equals to 3 * weight since they all
+> > > > have the same weight.
+> > > >
+> > > > So if sleep_time equals 2, weight equals 1, and slice equals 3 this equals
+> > > > 2/3. If the lag is 2, we do 2 - 2/3 resulting with 4/3.
+> > >
+> > > yes, we assume that TA would have run 1/3 of its sleep time
+> >
+> > But if sleep_time + working_time < slice for TA is true, there is no
+> > guarantee that it will run 1/3 of its sleep_time.
+> 
+> Even if sleep_time + working_time > slice.
+> 
+> >
+> > >
+> > > >
+> > > >
+> > > > Later, place_entity() uses this formula to do V - ((Sum(weight) + weight) * lag) / Sum(weight)
+> > > > So ((2 + 1) * 4/3) / 2 equals to 2. But this is wrong, no?
+> > >
+> > > why is this wrong ?
+> > >
+> > > Assuming TB and TC have the same vruntime before placing TA, the
+> > > average vruntime is avg == V(TB) == V(TC).
+> > > place_entity will do V(TA) = avg - 2
+> > > After placing TA, avg' = (V(TA) + V(TB) + V(TC)) / 3
+> > > avg' = (3*avg - 2) / 3 = avg - 2/3
+> > > TA's lag is : (avg - 2/3)  - (avg - 2) = 4/3 which is what we assumed above
+> > > TB's lag equals TC's lag : (avg - 2/3)  - avg = -2/3
+> > >
+> > > >
+> > > > If we didn't decayed lag: ((2 + 1) * 2) / 2 equals 3.
+> > > > So we would do V - 3.
+> > >
+> > > Which would end up once placed to
+> > > avg' = (3*avg - 3) / 3 = avg - 1
+> > > TA's lag is : (avg - 1)  - (avg - 3) = 2
+> > > TB's lag equals TC's lag : (avg - 1)  - avg = -1
+> > >
+> > > >
+> > > > Now our objective is to add the sleep_time of the task to -3.
+> > > > Because if the task didn't slept, in that time it would be working
+> > > > instead of sleeping.
+> > > >
+> > > > So, we should do V - 1. But we do V - 2.
+> > >
+> > > Why ?
+> > > You assume that the whole sleeping time would have been spent by TA
+> > > running on the CPU but we don't really know. We can assume that a task
+> > > with positive lag should run first, but this also depends on other
+> > > tasks enqueued.
+> >
+> > If TA didn't got preempted, and its sleeping_time + working_time is
+> > smaller than its slice, the whole sleeping time would have been spent by
+> 
+> You can't assume this to be always true, and we don't know how long it
+> was running. A positive lag of 2 as in your example doesn't mean that
 
-Signed-off-by: Elad Nachman <enachman@marvell.com>
----
- MAINTAINERS | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Can't we do deadline - vruntime? That would give us slice - work_time.
+We already know the sleep_time.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 986e23fcb020..765d7d3bb582 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -16352,7 +16352,7 @@ S:	Supported
- F:	drivers/perf/marvell_pem_pmu.c
- 
- MARVELL PRESTERA ETHERNET SWITCH DRIVER
--M:	Elad Nachman <enachman@marvell.com>
-+M:	Elad Nachman <eladv6@gmail.com>
- S:	Supported
- W:	https://github.com/Marvell-switching/switchdev-prestera
- F:	drivers/net/ethernet/marvell/prestera/
--- 
-2.25.1
+> TA runs 1 ms in its slice and would have run 2 ms more if not sleeping
+> 
+> > TA. Even if it did get preempted, there is no guarantee that it would
+> > work 1/3 of its sleeping time.
+> >
+> > > My first version assumed the whole sleep time would have been used to
+> > > run which is optimistic. Peter suggested using the ratio of weight and
+> > > cfs loads instead which accounts more fairly for the running time.
+> > >
+> >
+> > IMO, for a task like TA assuming it will work in its sleeping time
+> > is better than assuming it will work as 1/3 of its sleeping time.
+> > Or atleast less-bad, no? :-).
+> 
+> That depends on the PoV you take. The reality is that TA could have
+> run from 0 up to its full sleeping time (even if the sleeping time is
+> longer than a slice). Assuming it will run for the entire sleeping
+> time is one extreme, while assuming it won't run at all is the other
+> extreme. The reality is probably in between. The longer the sleeping
+> time, the closer the expected run time would be close to 1/3.
+> 
 
+Yeah :-(.
+
+1. If we assume that TA will get preempted, we can't know how much it would
+have run if it hadn't slept. And in that case 1/3 could be right or wrong.
+We can't know.
+
+2. If we assume that TA won't get preempted, we can know that it will run
+in its whole sleep time.
+
+
+In any case, we are doing a assumption in both of these.
+TBH, I don't think there is a big difference.
+
+I would still argue that assuming the 2nd one is better.
+Although, if there is not a big difference I can't see
+any reason to add a case for it.
+
+I'm gonna play around with the whole series. Testing and other stuff.
+Maybe I'll find something unexpected. While testing, I'll try to test
+the difference between 1st and 2nd too. I don't think there will be a
+big difference, but I'll still test it :-).
+
+> >
+> > > >
+> > > >
+> > > > AFAICT, we can't already know for sure how much will a task run even
+> > > > when the sleep_time is smaller than the slice. Because of preemption
+> > > > :-(.
+> > > >
+> > > > The cleanest, the simplest and maybe the worst or the best solution I can think of
+> > > > is just setting lag to 0 on every wakeup with positive lag TBH.
+> > >
+> > > Keeping eternal positive lag for a long sleeping task is unfair but on
+> > > the other end, clearing all positive lag for a micro sleeping or
+> > > because of waiting on a shared lock is also unfair
+> > >
+> > > >
+> > > > Or maybe, try to calculate when sleep_time is smaller than the slice,
+> > > > but just set the lag to 0 when sleep_time is bigger or equal to slice.
+> > >
+> > > There is a difference between sleep time and lag. Even with a sleep
+> > > time longer than the slice, the task can still have positive lag after
+> > > sleeping (this is also true for runtime). All this depends on how many
+> > > other tasks are running simultaneously and their weight
+> > >
+> >
+> > > >
+> > > > What you think?
+> > > >
+> > > > Sreehc,
+> > > >
+> > > > Kayra
+> >
+> > Ah, you didn't understand my joke, sad. :-(.
+> >
+> > Sknaht,
+> >
+> > Kayra
+
+hint: try to read it backwards :-(.
+
+Sreehc and Sknaht alot!
+
+Kayra
