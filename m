@@ -1,116 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795018152;
-	b=cLBzLUmmhjtg80G90EA49ScBc3tJ38KDSwPVf9AvZalSd/wvEGq9Wss9Fg3/CtyBe2nT
-	 DzoWic1yjd1dGHGtiE6r+Bcb7DyfJ7CffOgRDT4wkXJP5Y+ztzWqgK8rG7Zs+HnWaktHS
-	 kjIJEK01P9DjQrYmAdMsT/tOsZBEda01Ebc+8F+dEPvq3NVHXxKSPDku+UzxJqxuZq5os
-	 vUl7pZu0QyQTJhl4cEIzDdR2ix5uo2SQFCqqr4D/PPxj8ze30cE04JjuDez1mGXGaPQOh
-	 cdyzc89KyELDWT4xiYlqNj6yrcD0pEQrZTDVTpX7GSqC3yU3SvgGPcqQiUHrs/IT2Bw==
+	t=1795018164;
+	b=BZQ5NFfVFwjltKsV9D92pMy1UYMIGirZAO9mOrRSHU5oi5kfjBp5fKYaL1YIn/x08Wmx
+	 aTWTPomra4is6vhS9cSMD6G9zSTQ3kIbinRc+/PFsnxlCrYiAW7feiMbnU5l/geV8XAPm
+	 AuMXdgbRa/xFY4nV6G8r4NuNw2vgVyddQRacRarOVedQ0TdTuezLf4LtQaKJ51HWjECFh
+	 OH6qGNGZHyZaSsrGQXVU4zyUuuzkhn0GaaR4vNBv5DB0MLTcV2E6GRgK87mRI2Y7040Tb
+	 9ovGryzFHQ4h9tEyy1re/jPfpr+oRryoxvrxawai417F6lXHVxCW1EWFPcEgSo+lJUg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795018152;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=gSW8M0rgpdj9ZidqbA7F4jvYRgDNFzs19pLdYBcG6XI=;
-	b=qdfjBsAtOn+9pSKr4DRXNEO0bTCz0WuSqmZUArabgxuC/ct4Z0m6CDS/eK2H21eXWNSw
-	 hXCM18/HabUaUqs5DTYCmYABZUNP79W0q6UE0j84jPB4aR3AlltWsUydc2LUZufh2R3sV
-	 uYrBeMgOuWDNXNIZjg7VZcsga0hoRQfjSBycBQPGE3jRk82xiQKvJTEAiJu3MjwsNIBtL
-	 uqcDxLOORvbxuPOaKy0De46LtVAwuNVVukbq2s+s/sw1HtkG81viXqf2nahxepDJZlH8v
-	 NY42tH/mT1Hb7+zaTMn1cMmQUkB7cwkagxLRU1HCUFossV0e7cPyvCmlhAL2nZ4st6g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795018164;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:User-Agent;
+	bh=x7bvVgv28FOUi5alXkJLaD6H23WMRni5AOEy6JBmXM4=;
+	b=FmXEchTfDcif/UZtskdCtenMqMw0ZbB+Dxk2bXjWGhvUTffJ944YBgJWFJhyibaCmrDQ
+	 AdGSEdz68l4oMjebTpHFvLaaynZWJJvmO05c6c9Z+9uxb3YV60jfTN/Moo2D+V2dr982t
+	 AU2YhjOzsUmq8KiKiypFcXQaQd8wugFL6Gv0TYuthyF+FLJ1NuKXd4wbLE+LMsp+Fm6IH
+	 lsM1rMckZ1mMVOeCbbeOWw5aU2lJYKe64SBVWOcxY/oAfYqyjHM/Qd9J+vXfpVQq8/clD
+	 TB4AgNFz9m1bI2w2hChhn4BmcCW8HFVlqGr8FQbGONFnEEpecwFghBg0xZt53HSM7Kw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=ziepe.ca;
-	spf=pass smtp.mailfrom=ziepe.ca;
-	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=chZD7l82;
-	arc=none smtp.remote-ip=209.85.219.41
-Received: from mail-qv1-f41.google.com (mail-qv1-f41.google.com [209.85.219.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=JufqMkbA;
+	arc=none smtp.remote-ip=192.198.163.18
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.18])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60FFF606A330
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:09:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 60FFF606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A164606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:09:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A164606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=chZD7l82
-Received: by mail-qv1-f41.google.com with SMTP id 6a1803df08f44-91f0c4f7a8fso9507996d6.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:09:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1795018151; x=1795622951; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=gSW8M0rgpdj9ZidqbA7F4jvYRgDNFzs19pLdYBcG6XI=;
-        b=chZD7l82ESwZV0NrL9Y3bjrt/lt6hUE8yJTY/GSTbZ3++TECbeHRPwOO3x8C2TYTsD
-         pmFEFkAyphy1XFGrJWKgkh6/hObuL9DIaipmeRwD4jL6d4kmiK5Sd7eG9VmJDN7PKLMw
-         fDenmmvO0nH0DBmkNcCaABqbmFWR4GEVn5KeGcscgVDOi+i60/glaMT/eCUCWvlaqE7i
-         WmyUu34aXTAUr4XZDJ+nmq2QLLhZd/AcZlB5GmPcoTAQinMKxhsJYH5ijovm9geUwPS2
-         MM7RaikEDEby9RU26FYr1MOZuribQk6lhpYE6aHKmpx5SQ5Mxre8WvsTNxPyTzbpNOhd
-         T1qw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795018151; x=1795622951;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=gSW8M0rgpdj9ZidqbA7F4jvYRgDNFzs19pLdYBcG6XI=;
-        b=SAjK5vZK5pGz4Yuvh+vmItrDF1dBiJs6K6lZfpIYdUzbWTRDFD+0J/yG3fX9wVR5ur
-         OlsOciDgJ7TwdQfab6S616Lz0vpIirfGAJW2433onY/2Dmvl3GA8Q9YDI3Ovi1GqDW00
-         nLQMoXB8FVvhUW6rLdITTKQx5q++tUAxz/bljUUeLFDDbs5EAZNT1gscJMhtTqW7uqKE
-         V2zHMS8SN4LcUJ0h8WpuDuHbP4/vos83YMC2uJuwaPf/BV6jQ5smJlqwi7R0qn0w3dHZ
-         XYaCDXhIUO5UCvIUIGptjahPulWGGixH5G8ZLgJ+auB3UBcCvdDXOsoAIG+aX+XdGjwn
-         EodA==
-X-Forwarded-Encrypted: i=1; AL+hErGfVUDOTUnVcSiq1czEg9vJkfMsD8YeVI5OzG5t80PUWHvS5tvtuofPhhGPC1y/DGMWYF/Tawq+27kWwcQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+zKoQHHMvvX8rzolyCILE7ZQO2PN5NHTcAUs0sKR7HtLG8Fw3x
-	Qh0od0UU9JP4mDbuo9p+fGfb/QAHB0q1TkeKWgpPuqrfK9sWtccz4G0V7eOd6U3mCeA=
-X-Gm-Gg: AZFdTZdqa7nsLKRQUxzp+Kvi4r2FxYnOnrUbCIDsny/qDZAnxiD2Z6r3IuXpcCg+D2l
-	Ti81UdkdC9Ykl3vEdym9CmZJ1ZBABdvgyBD5KUS3UVVgIU30CamRMI0SNQfJg3DOSZatC1gKK3c
-	RPG240LcX9sRHZlZHDePZz4NxDdZNgUPVMXMHw+SxwN3+yoDwUEoLE9ets0ljt3TUPUo5xG47f7
-	djVlHHGTOomU4MjDZLUdWyqNR1eEixHX4mJ4glLPgHCeVActYZVRWrGx8kXSP5HObdMNyUxYEoK
-	jB/ZhRId9bN+MJRiHAZaGAQdFDmEFuDXbc3pRupWFQbEshc2hu0pSXnrPlxtAHmQNUQBNtKKS6a
-	VPEuzkrMCdoZ1hoV6+1vJPvq7PPL5Wxaln4lAx89huqd0PXF4BZbDv7nuUc1+gq7p0D0RblwIyS
-	SqT355Nm/FVU9RQsaYR2O4GegWps4XvL5XWRfqkfva9TZBFKhhfI0iqjTS3RpFQt/U1+fB9JX4Y
-	Th4jgK6hfpnG7THIzTCqzOZAe/1Z/KvzBgDI2jcJTfJPjqRK0C5GoyR4YZHDs3XijGDwCJW94tb
-	akmV4AV5Txbm1A41qovym6QQEzc=
-X-Received: by 2002:a05:6214:5787:b0:920:fd27:87df with SMTP id 6a1803df08f44-92114f78ab5mr44895066d6.48.1795018151035;
-        Wed, 18 Nov 2026 08:09:11 -0800 (PST)
-Received: from ziepe.ca ([142.166.156.71])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92114db5db5sm24976746d6.43.2026.11.18.08.09.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 08:09:10 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1xTiDd-0000000Fn0o-1uSd;
-	Wed, 18 Nov 2026 12:09:09 -0400
-Date: Wed, 18 Nov 2026 12:09:09 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Cc: Daniel Almeida <daniel.almeida@collabora.com>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
-	Gary Guo <gary@garyguo.net>,
-	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Tamir Duberstein <tamird@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	Onur =?utf-8?B?w5Z6a2Fu?= <work@onurozkan.dev>,
-	Abdiel Janulgue <abdiel.janulgue@gmail.com>, iommu@lists.linux.dev,
-	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org,
-	driver-core@lists.linux.dev,
-	Detlev Casanova <detlev.casanova@collabora.com>
-Subject: Re: [PATCH 0/6] rust: iommu: add a paging domain abstraction
-Message-ID: <20261118160909.GC3115493@ziepe.ca>
-References: <20261112-b4-iommu-domain-v1-0-c29e86788dda@collabora.com>
- <20261116193821.GC2452510@ziepe.ca>
- <3EB4C2ED-B699-4532-A562-68B78F6E29C6@collabora.com>
- <20261117202055.GA3115493@ziepe.ca>
- <b145b2ceb92c73a4fa0477d7b3895a6e3b4adf99.camel@collabora.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=JufqMkbA
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795018164; x=1826554164;
+  h=date:from:to:cc:subject:message-id;
+  bh=+zNRNOH8DkB4KQABiYlvbEo1jLfNqsxFzfJf9ZrJrPw=;
+  b=JufqMkbArPUSegOvVjkAPy2GRK1LgcJ3oePrsIpzZY8bruLNmDS6wrC3
+   J2cnShRVytUvjaJFYKZS4aFAMi0KPUdUbeTRPcizhCkD0t+Ofck9tMZCD
+   kvjAEz8oFQ9kuwpzFn5HvMz17p0vnGWnjY6/jiUgYEjGzM4XObFr0Kkhi
+   vXiKGze8WHxoDmk8LuYUQybcS5UVhFzQ8vVtLUSjvc35wMNCkoWBuhTH/
+   /djyEtGT9zoH50Yed9JfdI7eaDhKToI/zzCc+sa1aShY6MPF3qQ+L+SWk
+   YKERd7N4lGPgaakMJlSruIrebUTeMJ23xlLJlYQRjwqWWnCzcFt9V2Myq
+   A==;
+X-CSE-ConnectionGUID: KUKbJzNCRmC+tnhbAp3HrA==
+X-CSE-MsgGUID: yradz8W3RReQEje1cLVHzg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3859011"
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="3859011"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 08:09:23 -0800
+X-CSE-ConnectionGUID: G52C5pm0QO+jXal/RaR/tg==
+X-CSE-MsgGUID: c4V8NRzWS9GgfcQ752xTVQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="9971565"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by orviesa008.jf.intel.com with ESMTP; 18 Nov 2026 08:09:22 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xTiDo-00000001Do7-0WDN;
+	Wed, 18 Nov 2026 16:09:20 +0000
+Date: Thu, 19 Nov 2026 00:08:34 +0800
+From: kernel test robot <lkp@intel.com>
+To: "x86-ml" <x86@kernel.org>
+Cc: linux-kernel@vger.kernel.org
+Subject: [tip:master] BUILD SUCCESS
+ 61a300bd34430b7ce1834615cc63b4bbeb5922cd
+Message-ID: <20261119000834.dSTBjrpx-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,98 +79,214 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <b145b2ceb92c73a4fa0477d7b3895a6e3b4adf99.camel@collabora.com>
 
-On Wed, Nov 18, 2026 at 10:25:58AM -0500, Nicolas Dufresne wrote:
-> Hi,
-> 
-> Le mardi 17 novembre 2026 à 16:20 -0400, Jason Gunthorpe a écrit :
-> > On Tue, Nov 17, 2026 at 05:09:11PM -0300, Daniel Almeida wrote:
-> > > Hi Jason,
-> > > 
-> > > > On 16 Nov 2026, at 16:38, Jason Gunthorpe <jgg@ziepe.ca> wrote:
-> > > > 
-> > > > On Thu, Nov 12, 2026 at 02:00:07PM -0300, Daniel Almeida wrote:
-> > > > > This series adds a Rust abstraction for IOMMU paging domains. A driver
-> > > > > can allocate a domain, attach it to its device, map pages into it, and
-> > > > > install a handler for its faults.
-> > > > > 
-> > > > > This will be used by the upcoming rkvenc driver that my colleagues
-> > > > > Detlev Casanova, Nicolas Dufresne and I are working on. More details on
-> > > > > this driver can be found by watching Nicolas Dufresne's talk at LPC 2026
-> > > > > [0].
-> > > > > 
-> > > > > As part of the security model, each client will have its own IOMMU
-> > > > > domain. This is needed as the submission model will let userspace set
-> > > > > most of the encoder's registers directly, so the kernel cannot check
-> > > > > every memory access that a job makes the encoder do. With a single
-> > > > > domain, one client could make the encoder read or write the memory of
-> > > > > another client.
-> > > > 
-> > > > How do you plan to get the paging domain in the first place?
-> > > 
-> > > We plan to alloc a paging domain when a video encoder session is created. Then
-> > > we call iommu_attach_device() before a job runs, and detach back to the default
-> > > domain after it finishes so the next job can attach its own session's domain.
-> > > This is so each session is isolated from each other.
-> > 
-> > If you do that you can't use the DMA API at all in your driver as you
-> > have to set 'driver_managed = true'. Is it OK? If it is why not just
-> > use VFIO?
-> > 
-> > Or are you planning DT horrors to get yourself a DT created "DMA
-> > struct" ?
-> 
-> This seem to digress. All we want to do is use the iommu subsystem as intended
-> for the case the iommu driver is not inside the DRM driver (which seems to have
-> never been the case so far in DRM).
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git master
+branch HEAD: 61a300bd34430b7ce1834615cc63b4bbeb5922cd  Merge branch into tip/master: 'x86/sev'
 
-"As intended" means you use the DMA API and you do not touch
-the paging domain.
+elapsed time: 1505m
 
-"As intended" means you use iommufd if you want a domain full of user
-controlled mappings.
+configs tested: 194
+configs skipped: 2
 
-> The existing infra for that (in C) is pretty abstract an simple in
-> my opinion, and built into the DMA API if you manage which domain to
-> attach to your device at the right time.
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-What does this even mean? The DMA API owns the domain, not the
-driver.
+tested configs:
+alpha                              allnoconfig    gcc-16.2.0
+alpha                             allyesconfig    gcc-16.2.0
+alpha                                defconfig    gcc-16.2.0
+arc                               allmodconfig    clang-24
+arc                                allnoconfig    gcc-16.2.0
+arc                               allyesconfig    clang-24
+arc                                  defconfig    gcc-16.2.0
+arc                   randconfig-1000-20261118    gcc-10.5.0
+arc                   randconfig-1001-20261118    gcc-10.5.0
+arc                         vdk_hs38_defconfig    clang-24
+arm                                allnoconfig    gcc-16.2.0
+arm                               allyesconfig    clang-24
+arm                      am200epdkit_defconfig    clang-24
+arm                                  defconfig    gcc-16.2.0
+arm                           ixp4xx_defconfig    gcc-16.2.0
+arm                   randconfig-1000-20261118    gcc-10.5.0
+arm                   randconfig-1001-20261118    gcc-10.5.0
+arm                   randconfig-1002-20261118    gcc-10.5.0
+arm                   randconfig-1003-20261118    gcc-10.5.0
+arm                         realview_defconfig    clang-17
+arm                          s3c6400_defconfig    clang-24
+arm                         spear3xx_defconfig    clang-24
+arm64                             allmodconfig    clang-24
+arm64                              allnoconfig    gcc-16.2.0
+arm64                                defconfig    gcc-16.2.0
+arm64                 randconfig-1000-20261118    gcc-16.2.0
+arm64                 randconfig-1001-20261118    gcc-16.2.0
+arm64                 randconfig-1002-20261118    gcc-16.2.0
+arm64                 randconfig-1003-20261118    gcc-16.2.0
+csky                              allmodconfig    gcc-16.2.0
+csky                               allnoconfig    gcc-16.2.0
+csky                                 defconfig    gcc-16.2.0
+csky                  randconfig-1000-20261118    gcc-16.2.0
+csky                  randconfig-1001-20261118    gcc-16.2.0
+hexagon                           allmodconfig    gcc-16.2.0
+hexagon                            allnoconfig    gcc-16.2.0
+hexagon                              defconfig    gcc-16.2.0
+hexagon               randconfig-1000-20261118    clang-22
+hexagon               randconfig-1001-20261118    clang-22
+i386                              alldefconfig    clang-17
+i386                              allmodconfig    clang-22
+i386                               allnoconfig    gcc-16.2.0
+i386                              allyesconfig    clang-22
+i386        buildonly-randconfig-1000-20261118    gcc-12
+i386        buildonly-randconfig-1001-20261118    gcc-12
+i386        buildonly-randconfig-1002-20261118    gcc-12
+i386        buildonly-randconfig-1003-20261118    gcc-12
+i386        buildonly-randconfig-1004-20261118    gcc-12
+i386        buildonly-randconfig-1005-20261118    gcc-12
+i386                                 defconfig    gcc-16.2.0
+i386                  randconfig-1000-20261118    clang-22
+i386                  randconfig-1001-20261118    clang-22
+i386                  randconfig-1002-20261118    clang-22
+i386                  randconfig-1003-20261118    clang-22
+i386                  randconfig-1004-20261118    clang-22
+i386                  randconfig-1005-20261118    clang-22
+i386                  randconfig-1006-20261118    clang-22
+i386                  randconfig-1007-20261118    clang-22
+i386                  randconfig-1008-20261118    clang-22
+i386                  randconfig-1009-20261118    clang-22
+i386                  randconfig-1010-20261118    clang-22
+i386                  randconfig-1011-20261118    clang-22
+i386                  randconfig-1012-20261118    clang-22
+i386                  randconfig-1013-20261118    clang-22
+loongarch                         allmodconfig    clang-24
+loongarch                          allnoconfig    gcc-16.2.0
+loongarch                            defconfig    clang-24
+loongarch             randconfig-1000-20261118    clang-22
+loongarch             randconfig-1001-20261118    clang-22
+m68k                              allmodconfig    gcc-16.2.0
+m68k                               allnoconfig    gcc-16.2.0
+m68k                              allyesconfig    clang-24
+m68k                                 defconfig    clang-24
+m68k                        m5249evb_defconfig    gcc-16.2.0
+m68k                         stmark2_defconfig    clang-24
+microblaze                        alldefconfig    gcc-16.2.0
+microblaze                         allnoconfig    gcc-16.2.0
+microblaze                        allyesconfig    gcc-16.2.0
+microblaze                           defconfig    clang-24
+mips                              allmodconfig    gcc-16.2.0
+mips                               allnoconfig    gcc-16.2.0
+mips                              allyesconfig    gcc-16.2.0
+mips                       bmips_stb_defconfig    gcc-16.2.0
+mips                       malta_kvm_defconfig    clang-24
+mips                 malta_qemu_32r6_defconfig    clang-24
+mips                          rt305x_defconfig    clang-24
+nios2                             allmodconfig    clang-20
+nios2                              allnoconfig    clang-24
+nios2                                defconfig    clang-24
+nios2                 randconfig-1000-20261118    clang-22
+nios2                 randconfig-1001-20261118    clang-22
+openrisc                          allmodconfig    clang-20
+openrisc                           allnoconfig    clang-24
+openrisc                             defconfig    gcc-16.2.0
+openrisc                     or1ksim_defconfig    gcc-16.2.0
+parisc                            allmodconfig    gcc-16.2.0
+parisc                             allnoconfig    clang-24
+parisc                            allyesconfig    clang-17
+parisc                               defconfig    gcc-16.2.0
+parisc                randconfig-1000-20261118    gcc-8.5.0
+parisc                randconfig-1001-20261118    gcc-8.5.0
+parisc64                             defconfig    clang-24
+powerpc                     adder875_defconfig    clang-17
+powerpc                           allmodconfig    gcc-16.2.0
+powerpc                            allnoconfig    clang-24
+powerpc                      asp8347_defconfig    clang-24
+powerpc                       katmai_defconfig    clang-24
+powerpc                   mpc866_ads_defconfig    clang-17
+powerpc                       pasemi_defconfig    clang-24
+powerpc               randconfig-1000-20261118    gcc-8.5.0
+powerpc               randconfig-1001-20261118    gcc-8.5.0
+powerpc                      tqm8540_defconfig    clang-24
+powerpc                      tqm8555_defconfig    gcc-16.2.0
+powerpc64             randconfig-1000-20261118    gcc-8.5.0
+powerpc64             randconfig-1001-20261118    gcc-8.5.0
+riscv                             allmodconfig    clang-24
+riscv                              allnoconfig    clang-24
+riscv                             allyesconfig    clang-24
+riscv                                defconfig    gcc-16.2.0
+riscv                     nommu_k210_defconfig    clang-24
+riscv                 randconfig-1000-20261118    gcc-11.5.0
+riscv                 randconfig-1001-20261118    gcc-11.5.0
+s390                              allmodconfig    clang-17
+s390                               allnoconfig    clang-24
+s390                              allyesconfig    gcc-16.2.0
+s390                                 defconfig    gcc-16.2.0
+s390                  randconfig-1000-20261118    gcc-11.5.0
+s390                  randconfig-1001-20261118    gcc-11.5.0
+s390                        zfcpdump_defconfig    clang-24
+sh                                allmodconfig    gcc-16.2.0
+sh                                 allnoconfig    clang-24
+sh                                allyesconfig    clang-17
+sh                                   defconfig    gcc-14
+sh                         edosk7760_defconfig    gcc-16.2.0
+sh                              espt_defconfig    clang-17
+sh                           polaris_defconfig    clang-17
+sh                    randconfig-1000-20261118    gcc-11.5.0
+sh                    randconfig-1001-20261118    gcc-11.5.0
+sh                           rsk7269_defconfig    clang-24
+sh                    rts7751r2dplus_defconfig    clang-17
+sh                              sh03_defconfig    clang-24
+sh                   sh7785lcr_32bit_defconfig    clang-17
+sh                             titan_defconfig    gcc-16.2.0
+sparc                              allnoconfig    clang-24
+sparc                                defconfig    gcc-16.2.0
+sparc64                           allmodconfig    clang-20
+sparc64                              defconfig    gcc-14
+um                                allmodconfig    clang-17
+um                                 allnoconfig    clang-24
+um                                allyesconfig    gcc-16.2.0
+um                                   defconfig    gcc-14
+um                              i386_defconfig    gcc-14
+um                            x86_64_defconfig    gcc-14
+x86_64                            allmodconfig    clang-22
+x86_64                             allnoconfig    clang-24
+x86_64                            allyesconfig    clang-22
+x86_64      buildonly-randconfig-1000-20261118    gcc-14
+x86_64      buildonly-randconfig-1001-20261118    gcc-14
+x86_64      buildonly-randconfig-1002-20261118    gcc-14
+x86_64      buildonly-randconfig-1003-20261118    gcc-14
+x86_64      buildonly-randconfig-1004-20261118    gcc-14
+x86_64      buildonly-randconfig-1005-20261118    gcc-14
+x86_64                               defconfig    gcc-14
+x86_64                                   kexec    clang-22
+x86_64                randconfig-1000-20261118    gcc-14
+x86_64                randconfig-1001-20261118    gcc-14
+x86_64                randconfig-1002-20261118    gcc-14
+x86_64                randconfig-1003-20261118    gcc-14
+x86_64                randconfig-1004-20261118    gcc-14
+x86_64                randconfig-1005-20261118    gcc-14
+x86_64                randconfig-1006-20261118    gcc-14
+x86_64                randconfig-1007-20261118    gcc-14
+x86_64                randconfig-1008-20261118    gcc-14
+x86_64                randconfig-1009-20261118    gcc-14
+x86_64                randconfig-1010-20261118    gcc-14
+x86_64                randconfig-1011-20261118    gcc-14
+x86_64                randconfig-1012-20261118    gcc-14
+x86_64                randconfig-1013-20261118    gcc-14
+x86_64                randconfig-1014-20261118    gcc-14
+x86_64                randconfig-1015-20261118    gcc-14
+x86_64                randconfig-1016-20261118    gcc-14
+x86_64                randconfig-1017-20261118    gcc-14
+x86_64                                rhel-9.4    clang-22
+x86_64                                rhel-9.4    gcc-14
+x86_64                            rhel-9.4-bpf    gcc-14
+x86_64                           rhel-9.4-func    clang-22
+x86_64                           rhel-9.4-func    gcc-14
+x86_64                     rhel-9.4-kselftests    clang-22
+x86_64                     rhel-9.4-kselftests    gcc-14
+x86_64                          rhel-9.4-kunit    gcc-14
+x86_64                            rhel-9.4-ltp    gcc-14
+x86_64                           rhel-9.4-rust    clang-22
+xtensa                             allnoconfig    clang-24
+xtensa                            allyesconfig    clang-20
 
-All the cases using these APIs in DRM and media are troubled in one
-way or another.
-
-For example the recent revelation they have always been using DMABUF entirely wrong:
-
-https://lore.kernel.org/all/20261009125338.GB13920@nvidia.com/
-
-Tegra desires to undo their abuses.
-
-It was never intended for things to work like this, there is missing
-infrastructure.
-
-> To me, it fits CODEC HW driver which are also simple. The DT horrors
-> you refer to seems totally unfounded, you just describe the iommu
-> and the iommu subsystem will manage it for your device.
-
-"unfounded? You are not following along, I've written about this now
-many times to many different people. Follow the links and discussion
-from here:
-
-https://lore.kernel.org/all/20260917144804.GI3196566@ziepe.ca/
-
-If you use DT correctly there is no place to attach an iommu_domain to
-and you can't even use these APIs. You get DMA API only and that's it.
-
-You have to do something "wrong" in DT to create fake HW devices to
-even give you a struct device to even attach something to.
-
-Or you have to entirely give up DMA API and attach to your only struct
-device.
-
-Jason
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
