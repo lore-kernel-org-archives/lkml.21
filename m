@@ -1,85 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794996206;
-	b=GeMYKQc5aWFIC8APksbM6ywQvIPpWLkZc6CPr8zjmAuvGCqEMTpPDCzbR4IRAhWtKrDU
-	 nJx78bvotdAnsDjsTnS4YQJGPMaDiL/euhx1HDPAf0VK5CHhq/MVkLPYYKH+xTPXJ8Hv9
-	 mjoX87rnCcoq3EVXfM22KiM7Ee7Zj71E+BPKoMOje+ZPEbdtl6kAEW66pLxMDi7O4kP+9
-	 A1zpDQbGsu47zihQRN955TF0YWITxKz65MBKCMSN2gHNa76Qr/iCJNTUVcWruA2u+MnrZ
-	 1BqpJHrTVbkpY4H6keOL9AqWIO98y75LrVe5IHPRHbGNMOO/SP9ZWQ2Mof0CaQRZpvg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794996206;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=Qg+3Jru4AhL9lqIWeA0Ptdw+DO4BjaXZQxOSqwuUPTo=;
-	b=AWhf1I47zYAZPhe7/9xlEavdn/HA8wpiExixeWRCAJlsflkgwP3KFVy6VqJ2vh+vmZVF
-	 HljeUma76d+76oz6jZzsUGBlJoOs1eWb8rxi62H02Rymov+TV1cOP7sdzIUtJ6dQKOHW7
-	 6P3DhW5mowEwp3gntxA3bd8vALcpZDeu09IIJ3rTVdPJqOUfmXg0y8vzaT8KFZBp8TnNG
-	 C+XzqP6sC9Tmx9ixcC1YaT6WJbXIIxwQExUeVsnIGKalRn9+VXFrcZScvSXNfe3gXi9w0
-	 EM+5gncbdICCzQ0loQEDIKJnyPVBn+qJ2qbOWCUi8fYYfVWxbDwWkAcxf8gyfheL2Rg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KgSQGD48;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794996238;
+	b=wOwDjH1mJ+8BEU1QHykZcYsjONZ3+MzRK8mdKHWPLRIRZDwvPg53cgHPvhtuctO1brwy
+	 /ocp3736PVC21qk+FnglayFfCs9akPmc8cc8gkNjzK6viiqHJkpqPpjJwyNvpZbwUryiw
+	 CyyTrmAxzV99T0pATdw5yq472NfAGGecuLCgMbvMvIlx43gU+w8JCcyG0aOAxKPd1XD2I
+	 +sYL7eSLqPjdNRJQRp7ebq3qOeZyMBET2C7aU1nVdENFgAjqN+GPp1+4oqYoZyFWng/4A
+	 Mgl0wKMTp5CHchn8KE+9iGJ9LXl5jOdym/rORLQrq5+rl8zoRqiATwZXlkzQSYxRYsQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794996238;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=j+Y2FiNk9Wl9qy2Tngasbxd4q3UxkbbYUIzjyrrCkFc=;
+	b=verYQZUp2L1FlifBJbTVZcNqb7Fd5ZObqKwmQHGEtTSqaALWFFJ/bMJ1R4Bupq6wdcGR
+	 1ZptHmC1G93kjQExWBAzmJ186gqCYBIDB8tFTWNx0bx7OddOtdO1F5ziTG0rfMqv0Ojmg
+	 nrx6KFEut5/KpW+xxMrBWzZNmvsOhoCxQyBh5i0pD04F2af9d3FjuKP7aaRS/r+ZZGTRc
+	 XSTJv+fa/p1jS1xGg/YyzhysBGTOjQSZxQ+mLATp8OpyCCg/3iRIYkReGbxqBOi+ngDtj
+	 POXWgj9sEbuKjHX8C6YFx/2466JDRhsXpnJdDmh3XQlH0FvKBZcYdQII5KmE8S+9n9w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="PjwvOV/H";
+	arc=none smtp.remote-ip=209.85.128.42
+Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D36BA606A31C;
-	Wed, 18 Nov 2026 10:03:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4BA13606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:03:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4BA13606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KgSQGD48
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=90.182.112.124
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794996206;
-	b=bNZ/lhvKHh0YLHvOMb7deZGzcK6vhuy8DGVorJnijJrHfZdREI/BE4IkUcW20aVXysol
-	 xgFfGNbyp8rIt8cpOWlAJUh4aq2djY61i+UPEel0NDNz4kTROCc94ZylGl2XMdKz9os4N
-	 MK2HRliYy0J2wka05+e0NDXPEU/XswXJbQ5fk0x7b7h1uyK3zY1v/UU+Ha2M4a6wEZFGg
-	 HqBPvgAbWxFsRLtN5/kj1Ecz5fsZ2Ezw06N36J87l+ovhN4JGneMUXovDOTKwUB9OwRMo
-	 eOS+WK7ZcmOcQAZmatdcMWuY5bs9x7WJmfIAzivBdzIPIkWpD0OMiAOR6Qw/FU6L+bQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794996206;
-	h=DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:In-Reply-To:
-	 References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=Qg+3Jru4AhL9lqIWeA0Ptdw+DO4BjaXZQxOSqwuUPTo=;
-	b=qJ6ctkP9aiSimUxm42T/pvTFWRX8V0Jikk8nSq/+8Sgqdp42CgJZcg91oWYSccq5eESz
-	 aP8zVKeNLPQfGjetCRjV4MOqPxUjrXej0zrhlj8B7ELxBAjHh+Rk3JG7ax8KbMrX2FOc5
-	 anQN2b8/fk2MSsxGfyksGpI/rhEQMc0m8p3U/mecpkUfh20heUFSBdlzTuToK7DpqcRKb
-	 CEYAI3zhUIRgBNLT2wk2Il3Y+Mrt2VKtzcckPFM6B02/cOmGk3PYOqCsxUQk7fS1cLD5o
-	 yl0m1wqehTRMb69L+JtvsJtwZXzDbBnz3yig8xnC6xGfN089CgnJvczroRiIdDo6beQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=90.182.112.124
-Received: from localhost (90-182-112-124.rcp.o2.cz [90.182.112.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPSA id 6750A1F000C4;
-	Wed, 18 Nov 2026 10:03:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794996206;
-	bh=Qg+3Jru4AhL9lqIWeA0Ptdw+DO4BjaXZQxOSqwuUPTo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=KgSQGD48L9H4lgzgeLu1d8ZWJYzgh9dsRC2vaN6oBiZaSZ0X+143NqeVdNT7HQ3Fx
-	 DHlVhznSC0PaN3UtfOqdwz8kQbd297M96u7WuS64R2axs5Cm/Hw2euXD75AHHncpAY
-	 uf3k29LYghNiKjXbngZWz+35t43JNU/ngevBEvF9YmNP6kuMRETrFh8ZXz7hXP0zf8
-	 4oHohEJ3hem/MhgFufpEXIt8GWPVJnBaHwDqn5ga64/VWCUOqaRy5zAj6ql7GI/3Ql
-	 +OR85ZMA7JtoKwx0YC5d5xaXyt+OeZ35QMvGPW/u+2NUaA9fHjLi4pKHODQRaTTX9K
-	 5z/A/g9kc8HVA==
-Date: Wed, 18 Nov 2026 11:03:18 +0100
-From: Joshua Crofts <crofts@kernel.org>
-To: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Cc: rva333@protonmail.com, Jonathan Cameron <jic23@kernel.org>, David
- Lechner <dlechner@baylibre.com>, Nuno =?ISO-8859-1?Q?S=E1?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 4/4] iio: light: stk3310: add stk3337 support
-Message-ID: <20261118110318.000003c8@kernel.org>
-In-Reply-To: <20261117-6768-stk3337-v2-4-92f4c7be3bc6@protonmail.com>
-References: <20261117-6768-stk3337-v2-0-92f4c7be3bc6@protonmail.com>
-	<20261117-6768-stk3337-v2-4-92f4c7be3bc6@protonmail.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PjwvOV/H
+Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4a2000d5fb1so4055955e9.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:03:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794996237; x=1795601037; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=j+Y2FiNk9Wl9qy2Tngasbxd4q3UxkbbYUIzjyrrCkFc=;
+        b=PjwvOV/HB9EDAmJ0beGEqqeUTsLrkVZhdcux9SGuDKjQHS5B4RUgDr661ySi2v2Kwk
+         gHvkIN6DsB80jYxUljZo6dl+OHc7Bsijpy5mbgqi31+5esopKrJ9HGYR4/xtWRUuWJMn
+         i/lJBKM/QepPOrMeoJ6UHC9k3KwvliFRGGYZnElTKH+gcnv+bAqTExxdEI9K5vkmu+np
+         lK/Iud4Vv2i3MnVNbPx4bQLeyUNbKclzrHyxf3mu4an7rsI9VMokDAMqdoGgJaTpqKbM
+         xyo0J9JgVQNVADkNzzm5GXe5vWZXo0UVgkyNwzNO+NOFpkDgRMgrAtFpy01JTQ+G3M7j
+         0Xew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794996237; x=1795601037;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=j+Y2FiNk9Wl9qy2Tngasbxd4q3UxkbbYUIzjyrrCkFc=;
+        b=o0MtAKXHUbnXg9KasDYk8YFTdoYrGSTszUtwBBQtxYSJYsgQMisc3bofpq3NBvWxFI
+         YWI6Gk5HqRgKVRnbhyahUZcgo9ROWoBFEqf7e5dZbp0yXVjwcY6IdBI46cUJrqowiDN0
+         PTr7A5PNTt0rpg5KJGyiL/MNC/NzhfrRPWAenfxTqJnWyueyMBqt8ZHj45prK21cxikH
+         ZXVOoKYJgyACbD+TxGq8Mf501PKN5f4oLH5beHR71Ah4hNl+391+e2XgJkenvb8fe7a3
+         etohWnGGcon2p/apXQn4Ori8bSqUYQHcRHQlnF3nfMfFFw+b2WBzDYb1CzJbeRgDZW01
+         V6JQ==
+X-Forwarded-Encrypted: i=1; AL+hErHgNg0d4hxdhXeDO2JcvDLvHYTz8A90os2+3LKgJxnhRqHJ7/tIc+BPh6o1BSWtPlBE9H+SsX+yw+FLnho=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/iBEmJGXnUwEVQDETRJkoTO78CeLqi9KaMXDKqDFkaEYikv0+p
+	n8JNTsvaFOldsN2eIc0NAnnx6AZruiBPkWiy7rQdMEvBYJFz16/VTWqR
+X-Gm-Gg: AYBFou0RBZcd1leLOLGeE/OBllJ1nr/A1atGRDkfz65O+WY5gfZcrhLSUz1tFRlj8d2
+	AnNTNtmnspdLnSgQHB7duX/M6dRqDnbfXUam2lS5aemFpuGwuMQmrCvyNUtijfDssPQs5//cqN8
+	4fZ6eaIpyQVWHZy/n9ShUU1j6eXqUOdlG06xA/v/Ou0lKJDeHobDRzkHJYMeU0wpCC0LuV0wPM7
+	JUotFcCDXPYrJbhnavL4SuX/V2Bxpn0ZHQjy+BOOPfWYFLMe+fsQh5S+j3PzKwZDXqPkIK9+rgp
+	W23sa9LXyoRswaz8QN6L+N1bS4HmamMo98saSqnw184Zf1dZOum/feu3YOX/iu4XAfHB2OjaJRO
+	kM/mJuZIy9g6FkXZggH/gw5z+TnxBM4l9NkAhzTCZzNYP1okqk9z0T8Bx0Rk4MCInRh0M/FPhvX
+	J+nmUvs5lqu1xptmJxb0kl5k/Wx7L20nh1Ob5oDmef/fYPAS+BIlXAx59hiGXKcUKoa0EWNj8Hl
+	pIJGPI4MBbnFD9AIM69lZcxU3/iVFoXJn8TphJtYLaa42y5/1LRrs/YOdIvyI73s0hvzSSE82Ld
+	365H7MOoS63I5p4NV6rupgWFwLkEpOaWrSmuNaOI4q4XS+EU8Og0CsZLOrVfu4FSSw==
+X-Received: by 2002:a05:600c:800f:b0:4bb:5bf3:8ee9 with SMTP id 5b1f17b1804b1-4bb7da4ec63mr37351435e9.31.1794996236390;
+        Wed, 18 Nov 2026 02:03:56 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb783f7eecsm242389095e9.3.2026.11.18.02.03.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 02:03:55 -0800 (PST)
+Date: Wed, 18 Nov 2026 10:03:54 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Nathan Chancellor
+ <nathan@kernel.org>, Ingo Molnar <mingo@redhat.com>, Juri Lelli
+ <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt
+ <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman
+ <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, K Prateek
+ Nayak <kprateek.nayak@amd.com>, linux-kernel@vger.kernel.org,
+ llvm@lists.linux.dev, stable@vger.kernel.org
+Subject: Re: [PATCH v2] sched/topology: Avoid unsequenced accesses to
+ jiffies in sd_init()
+Message-ID: <20261118100354.495fda73@pumpkin>
+In-Reply-To: <CAKwvOd=9pjhCnreMvoAH_0PegYg60ouaZL=BAjB242bE48J23g@mail.gmail.com>
+References: <20261116-topology-wunsequenced-v2-1-54611119172b@kernel.org>
+	<20261117183043.GK1813469@noisy.programming.kicks-ass.net>
+	<CAKwvOd=9pjhCnreMvoAH_0PegYg60ouaZL=BAjB242bE48J23g@mail.gmail.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,27 +107,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 
-On Tue, 17 Nov 2026 20:08:38 +0200
-Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org> wrote:
+On Tue, 17 Nov 2026 10:39:15 -0800
+Nick Desaulniers <ndesaulniers@google.com> wrote:
 
-> From: Roman Vivchar <rva333@protonmail.com>
-> 
-> Add support for the stk3337 sensor, found in the Xiaomi Redmi Note 9
-> phone.
-> 
-> The stk3337 is a subset of the stk36c61. It provides the stk3310 ambient
-> light and proximity channels along with the clear intensity channel from
-> the stk36c61, but lacks the red, green, and blue intensity channels.
-> 
-> Datasheet: https://www.bestmodulescorp.com/en/amfile/file/download/file/1699/product/1048/
-> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
-> ---
+> On Tue, Nov 17, 2026 at 10:30=E2=80=AFAM Peter Zijlstra <peterz@infradead=
+.org> wrote:
+> >
+> > I don't speak enough C legal to actually understand the Changelog, but
+> > the actual change seems daft. Is this really needed? =20
 
-Reviewed-by: Joshua Crofts <crofts@kernel.org>
+A better description might be saying something about ensuring the two
+jiffies values are the same.
+As coded they can be different with either larger.
 
--- 
-Kind regards,
-Joshua Crofts
+> I would imagine a delta of the disassembly here before/after the
+> change would make it more obvious (one less volatile access, which be
+> have arbitrary ordering between initializing other members).
+>=20
+> But I guess I'm also curious why jiffies is defined as volatile
+> anyway? I thought the usual guidance was to use
+> cast-to-volatile-qualified pointer during access, rather than declare
+> as volatile?
+
+I'm sure that guidance was based on the fact that not all accesses needed
+to be volatile.
+But now the tools are getting picky and needing WRITE_ONCE() as well as
+READ_ONCE() and bleating about plain accesses maybe it is less relevant.
+So if all access have to be volatile why not make the variable volatile?
+
+Doesn't this initialiser also generate 'really crap code'?
+IIRC it is likely to generate an on-stack structure and then do a memcpy().
+
+David
