@@ -1,76 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794965958;
-	b=hwiarABKe/QLlg8Daxl52RHYt7edDaxdbQ/QbWseNrZUmasSGq936NU0ki2HHAjgPJDU
-	 /j0qaMswzaqPAA9WDsAgYztLNA6o9AGg9I4GqFs1wGZGp2Nlff6Na/CYGndmo9K5OC5aA
-	 HsJpPXEkx/+QFCvF24aj7WswpVnpKseZCM2AdU5mFU+DUzyPAcCsRse1nir3u7jh8Fwnd
-	 AEsj8fYeosP5Gii6pJD555x4yAN3anKm9JbGPaSLmZ0pxInM/6CYx9rhTIAFVDzwTOcpq
-	 shKkLSL9oe9PG0JD9PU77q2TnsF3qBTxyUT5r2QlaK61N79l2gnQOTijYtIINAvoSLg==
+	t=1794965985;
+	b=FNRIDPeEz+z918ujF0Rg5LLN6xB4f9pcEOp07cP340+wznpfW9xtWEY/7MbbkCg/Xydy
+	 hYEoZa9Ozj32f3e+ygHdXhIQ2v43Fpixb1S45KUvkZpr/PpwG29wkMhAtiCMHVgoFn6H8
+	 HttGpmgZc+ybbzLs293mpApyywP+p8AdyJBPGhcpMXlUuLq6jbPrVkoel3+lYcXoY2C/E
+	 HXqbkWmwFzJvTHP5gXha0pdIzv+a02Y/ikgzqyywZU7FPF1GKieHg8cgw4pMvJNR3A40i
+	 ivZ1MNP5ArCV5lGRIQA1r58CStKm/UKNLXjCZMoQ+NQdJcR4aO+xz4w9Cx9KgDzYT3Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794965958;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=sSpSJ5wXnKKj4djOodlY+VVOZugZ41sTNKQIxuJGolI=;
-	b=i2QpDrzd7KX6hxFuQbg0r/t+pnT1nODnVXGbf4xhBVkia3+OpLmfmipc7lfjJ22bIY9T
-	 eaq9aHqcOu1AB8r+qjrlcq1xdoYQQ1AW/iD/0UEet9thClgif7Mhm5UJDWu8JNB6/VlcC
-	 fVYOOyeJ/hEh5yDmpQK1vpubwqeg1tmysMAyPYRYCxMMnIEqc3K+uT/khjU9ZhEZuyZwT
-	 fObXw+S+L4Y5yO4UIObrq6Qk1QS0UygKfr1n4+0eLsioK2B5V0C05Z636ljfJ5FuyvgdT
-	 io+2hPZMozcmHTuUI14k+rSxZ7ftJpXD/OcvnIBL9SZbwfVMVSSLRZUCtAuZEz2660A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794965985;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=CfZGs2YcSTDTCe3bXA/FH9z9mPCB5kV5LoM+XXlDKaQ=;
+	b=B/9BsZOc6ltlp7FZML3dGRfMc3NjUE6Xz51UzhkSNEq2H2Eb97Wl3DUMmcW0IetSSGjG
+	 2CdSuE9WtqMpvYaGT9/TRNCwZe7f7ZK/Hpcb1+J0HgSwe9iKqNQD0v8JXKAI5dK1k6ADO
+	 MvnQrYS/NKlOwfjRfdQN3RzdIAiKMy9BNYw01TPelQWb54cklgy6OKytrYWGR8G3BxH0f
+	 4aOgypJs6CU9WX1GYuo20YDjiJIRwYCOaYIwB49n6Eysk6H0pgAk6TuuaiyUfk86I7Bj8
+	 rQFqylueqmZGcgcwc4hIhVnmGf080JRW/7WhHWGzBkPicnoTW0BMfHXrhpn/pBLweCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=igorsousa.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	arc=none smtp.remote-ip=209.85.128.180
-Received: from mail-yw1-f180.google.com (mail-yw1-f180.google.com [209.85.128.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 108B1606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:39:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 108B1606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=igorsousa.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Received: by mail-yw1-f180.google.com with SMTP id 00721157ae682-8b4e04eda5aso3412897b3.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:39:17 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794965957; x=1795570757;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=sSpSJ5wXnKKj4djOodlY+VVOZugZ41sTNKQIxuJGolI=;
-        b=zVLGYORzja/vMDjgCiHVPF/9Iue1VWsile7uSw+LTqqM9k5g9gziprRKnv97ramiOY
-         F66gHwH9zbdzRXnDIbvJKcR0QSmvDAHrIfdSLhQwgztGwW8HeA6em3aoGUOGjhCJRZJ5
-         ST2e5O1Pwj8huKPZEL87xdJ8fDBacwpy66/dmgH3YQtx7sai69WZ7tGwG0xvBIMpTip+
-         TmiR3Jj1lkkEneKaWwwy3MxLValICpqiVK9lcGbnZk5DCA9O9X3AQock+IOhMpXER8Z4
-         ksPP0vKjnWjFZXDNUSGUUDIH/3GVO3fplAz7RMSCbs4h3d9Ob11PeT4HYk8J/ctK7mWn
-         reLA==
-X-Forwarded-Encrypted: i=1; AL+hErGyG55YvpaZXTXgEsP+WzkmAW1ljoApNJ8OFRU9X3Pnjjgb6PiW1ztU7ElX2iEg9KG3jsp+uOfnYGSO+wI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/H1rCuk/PrCzXod7IJKdLN/PNdXXuhXPi3RmliduccjD4qxdw4
-	2MJxa/UwkQlPyA2Tzqq8uj7BwhPbIGX+UXkSCDg35/71b5CuQTO1qxkt
-X-Gm-Gg: AZFdTZf+yrh3T7RXAPhSfD5LrONaddUfUOflaZU5QPdv0sJe5X3XCebumUTdedyqDGd
-	k6DHSrZY3Qt6Zkdf3hmQHcCVB73MxT6yYmO2H3clInDvA8NjxJfcSwSpajTmQ31t0dj0ZLpGkZE
-	DCpk06FNTilrAC1lkDCoHG4wXNwVI0y4cyupfpjQdGNnzMqYoMGyjxt5a6mVnrlWvwKLaB6mEY1
-	o0sv1zT4sS8zlGKZysWp5gn0jcV4UZmVNpTAj8q51xOZHpkBJTly/oMnCx4jWagLoqJM0RztYIo
-	BBkzUxSuTgC7bTUQoqltGO6r7hr+w/xsmnFO14sv5B42LAiXUyp1LvknKZx8/qz5vqjy3ApjsOq
-	Af1gyN+YtjsTp1otlet+Jib3MfVvkZ6ZDwKYYe12YCT0tAldBCHJcmHReWrefwSW2OUuC/zWnNy
-	vVUUVSbEv1lRFSmrhFwveK1gzM8g4Ty5qfpAmwMgf0x8MIWrmOotYaoskicGDqf1aYM/C3S7UYC
-	KLT3QqO1npDdoKWnIaTKn9u2jkKGx1KNO7naGCzL1OOiFxmFB3B+BA97Fmjbjvo5P+xPIMO47Yt
-	1/KOctNST7v11cyBchA/G2IEF3g=
-X-Received: by 2002:a05:690c:4d09:b0:8b3:5451:3702 with SMTP id 00721157ae682-8b4fed89ebamr5728487b3.37.1794965956872;
-        Tue, 17 Nov 2026 17:39:16 -0800 (PST)
-Received: from fedora ([2804:d59:8687:a500:6418:f958:e1ad:d4b8])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b4fe031343sm10314287b3.9.2026.11.17.17.39.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 17:39:15 -0800 (PST)
-From: Igor Sousa <contato@igorsousa.com>
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Cc: linux-input@vger.kernel.org,
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=P4+RC438;
+	arc=none smtp.remote-ip=111.22.67.139
+Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 7D120606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:39:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7D120606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=P4+RC438
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=P4+RC4382pHkEn8BJ4cBTMWJw3WTCszmqHyUrmC8mRnBxxiQPIkHNjntNOrAwTv9OXU5UmLE4GsYM
+	 dPC7gK1vadki3pj1KZU+79FmVqyOXVQfI+B8/atYddRaUJWgL6oYH651xh9g+aicoLOeNBt/Y3J796
+	 HiJNa4cqWfrz9sv4=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app01-12001 (RichMail) with SMTP id 2ee16afd01d7fe1-e99bc;
+	Wed, 18 Nov 2026 09:39:36 +0800 (CST)
+X-RM-TRANSID:2ee16afd01d7fe1-e99bc
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.97])
+	by rmsmtp-syy-appsvr03-12003 (RichMail) with SMTP id 2ee36afd01d7c61-c2393;
+	Wed, 18 Nov 2026 09:39:36 +0800 (CST)
+X-RM-TRANSID:2ee36afd01d7c61-c2393
+From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+To: bleung@chromium.org,
+	lee@kernel.org,
+	tzungbi@kernel.org
+Cc: groeck@chromium.org,
+	jthies@google.com,
+	chrome-platform@lists.linux.dev,
+	mfd@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Igor Sousa <contato@igorsousa.com>
-Subject: [PATCH] Input: atkbd - skip deactivate for Lenovo IdeaPad Slim 3 15IWC11 (83WA)
-Date: Tue, 17 Nov 2026 22:39:02 -0300
-Message-ID: <20261118013902.10467-1-contato@igorsousa.com>
-X-Mailer: git-send-email 2.56.1
+	Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+Subject: [PATCH] mfd: cros_ec: Drop OF node reference in ec_device_probe()
+Date: Wed, 18 Nov 2026 09:39:34 +0800
+Message-ID: <20261118013935.1573-1-laixiangwu@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.50.1.windows.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,40 +75,48 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The Lenovo IdeaPad Slim 3 15IWC11 (DMI code 83WA) requires skipping
-keyboard deactivation in atkbd, similar to the existing "83RR" variant,
-otherwise the internal keyboard won't work unless the
-i8042.dumbkbd=1 option is passed.
+ec_device_probe() calls of_find_compatible_node() only to check
+whether a "google,cros-ec-ucsi" node exists in the device tree, but
+the reference held by the returned node is never dropped.
 
-Added a DMI quirk for the "83WA" variant using atkbd_deactivate_fixup.
-Tested on the hardware without i8042.dumbkbd=1.
-Fixes typing and keyboard LEDs even after suspend/resume.
+Keep the node pointer in a local variable and release the reference
+with of_node_put() right after the lookup.
 
-Cc: stable@vger.kernel.org
-Signed-off-by: Igor Sousa <contato@igorsousa.com>
+Fixes: 17f95281839d ("mfd: cros_ec: Don't add cros_ec_ucsi if it is defined in OF or ACPI")
+Signed-off-by: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
 ---
- drivers/input/keyboard/atkbd.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ drivers/mfd/cros_ec_dev.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/input/keyboard/atkbd.c b/drivers/input/keyboard/atkbd.c
-index 019cfa855..8de262d8a 100644
---- a/drivers/input/keyboard/atkbd.c
-+++ b/drivers/input/keyboard/atkbd.c
-@@ -1943,6 +1943,14 @@ static const struct dmi_system_id atkbd_dmi_quirk_table[] __initconst = {
- 		},
- 		.callback = atkbd_deactivate_fixup,
- 	},
-+	{
-+		/* Lenovo IdeaPad Slim 3 15IWC11 (83WA) */
-+		.matches = {
-+			DMI_MATCH(DMI_SYS_VENDOR, "LENOVO"),
-+			DMI_MATCH(DMI_PRODUCT_NAME, "83WA"),
-+		},
-+		.callback = atkbd_deactivate_fixup,
-+	},
- 	{
- 		/* Xiaomi Book Pro 14 (TM2424) */
- 		.matches = {
+diff --git a/drivers/mfd/cros_ec_dev.c b/drivers/mfd/cros_ec_dev.c
+index 529a23b80..593297df5 100644
+--- a/drivers/mfd/cros_ec_dev.c
++++ b/drivers/mfd/cros_ec_dev.c
+@@ -184,6 +184,7 @@ static int ec_device_probe(struct platform_device *pdev)
+ 	struct device *dev = &pdev->dev;
+ 	struct cros_ec_platform *ec_platform = dev_get_platdata(dev);
+ 	struct cros_ec_dev *ec = kzalloc_obj(*ec);
++	struct device_node *np;
+ 	struct ec_response_pchg_count pchg_count;
+ 	int i;
+ 
+@@ -269,10 +270,12 @@ static int ec_device_probe(struct platform_device *pdev)
+ 	 * the required nodes. On PDC systems without FW nodes for cros_ec_ucsi,
+ 	 * the driver should be added as an mfd subdevice.
+ 	 */
++	np = of_find_compatible_node(NULL, NULL, "google,cros-ec-ucsi");
++	of_node_put(np);
++
+ 	if (cros_ec_check_features(ec, EC_FEATURE_USB_PD) &&
+ 	    cros_ec_check_features(ec, EC_FEATURE_UCSI_PPM) &&
+-	    !acpi_dev_found("GOOG0021") &&
+-	    !of_find_compatible_node(NULL, NULL, "google,cros-ec-ucsi")) {
++	    !acpi_dev_found("GOOG0021") && !np) {
+ 		retval = mfd_add_hotplug_devices(ec->dev,
+ 						 cros_ec_ucsi_cells,
+ 						 ARRAY_SIZE(cros_ec_ucsi_cells));
 -- 
-2.56.1
+2.50.1.windows.1
+
+
 
