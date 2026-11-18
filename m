@@ -1,53 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.121.94.183
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795009218;
-	b=49XZwZJAwWdyaUjznsl8+j58STCptXt4qSFKVyfQR0yHhPUIOhlMk7XcWqX/mwmkv17Y
-	 hrSrR1VS5qf19tJlEBG5y8Kj1VexmxapXofTi1xOj3BIKN7t7OAsE82C6Oxyi2O1NSzCv
-	 Qdg522KNFY0/tOLIZsX4Xy/nII/2V9VaPdM4onJ4zNczTMRFDPJMxacjcrwH38nqxyQT5
-	 d/Stwwt7+kGt1uSF5NPKcPPhCPUPVG8RIxnVABcZyujjraUF8AyCtF2prnuE1iiDVoiAp
-	 lBGhBJOAgxnBj05CaObUFumP/hcbQdu8eA2ViLUovNllRmvtdoBPo2r1X4P7bQMZpCA==
+	t=1795009231;
+	b=JWm9HoXoSOg9f9jSXu4pxkXNwOBmYJytiYMOzcOWagoWz4yOB+0bUvY68SDR0lcZBdvk
+	 zh/SqjTeWOjLLNSYmmwt9iZ6/QtaPAMKcmlR9rB1QnPlxZ1m68/8SGVHYlrIZwhNPvdmh
+	 vCCHYX3nMf+FAarzfDe4+BbxLF+ZOHFuGmCQ8eGhAEl2EPeSxWQMkR0bMpVdrUMmPTUzA
+	 k55pEM4Zcyq3ZVUnv2rn9we4BUF5e6RtdYoqNh88HSUapYjhj25LjBGyorBxsXIqd8tH0
+	 haeF6JUxUBB7amgjnQSFhqBcTHkdAuvp1s4ybfxwbpZRcrK68+BsMfaU1Qpc7aOIaEw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795009218;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=8kRkG7rwaQ8HsV3efBCaTcjLSOaMztnW8Cr6fnSooFk=;
-	b=XV8fsESr6JNYkqg0q97kkPqW6K2cbdiXtUf9B2Tq5YdqXqZF3MTaQ+FXf7ikPsGWRxUb
-	 6X32Aq5NFPqGM0AjTz8NRpsS7Nuvc4j13g1CTEi8+4X30UK1koBIpwp70cU8SeKKuApy3
-	 P47Rv8W5fVZUS6MdAHuc9K5WAc9gk5NRefPnl7YHEUFtemhiiZiT7JSIIa4YEeDk5OlI/
-	 eB+yIxXbcYiBeIS38mUV/hD5XsnNwO/WkFqAKCANzow/Fgm4Z2hlNFh8DgbIBDmkWET1O
-	 25j6rVXelv9TJqe/4jY4KS8L2fjY0VnsrRDUrM2fykb5apbXiC/AhgNNQg2PKyNq1bA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795009231;
+	h=DMARC-Filter:X-KPN-MessageId:Received:DKIM-Signature:X-KPN-MID:
+	 X-KPN-VerifiedSender:X-CMASSUN:X-Originating-IP:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
+	bh=ffGGHNKWCSxETLkGONbiTEwq2aMq5a8fFt/dO+LE6XA=;
+	b=3CQhoJhTT4HfWBuV3d+MqgT1pIjFpkXeAhZpvB+y6u+8siOlt0DahyBJESWsDE5Oc9F2
+	 +C76Epex8F9cdXk9bXZeV75OrUdzB2tkMk2MeByDqnZ00xBlOMZpPRWgDf0eEqH/adqvT
+	 eKa1gkUhdbF5j9RKugAs+bMFFpx3vxU87IkAeMLGZRoIjw+KGMhBsHpV74J2stDxyOup9
+	 i3NNQsJ8cN+ByT8FCcmVA3NEaw99UrbW7K4rbw/aR2NRbxhnfbnZgdP4JmRWW40fDFHii
+	 TFGGq2pK0GyBWuYTSce7j75dzNbczLqKhWUEXCO2/XuhSirS17KZUGeb+6xu2tSml9w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RoSwZZ97;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=xs4all.nl;
+	spf=pass smtp.mailfrom=xs4all.nl;
+	dkim=pass header.d=xs4all.nl header.i=@xs4all.nl header.a=rsa-sha256 header.s=xs4all01 header.b="IPh/vKHJ";
+	arc=none smtp.remote-ip=195.121.94.183
+Received: from ewsoutbound.kpnmail.nl (ewsoutbound.kpnmail.nl [195.121.94.183])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8CF0606A31C;
-	Wed, 18 Nov 2026 13:40:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D0FE606A330
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:40:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D0FE606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=xs4all.nl
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xs4all.nl
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RoSwZZ97
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 716001F000C7;
-	Wed, 18 Nov 2026 13:40:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795009218;
-	bh=8kRkG7rwaQ8HsV3efBCaTcjLSOaMztnW8Cr6fnSooFk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=RoSwZZ97smTJZdBQCqxDPN2fRKZIozS+b0YQFjq7O5Av5n2PVdztrs/WyXbw/g2gY
-	 B/s1hhXIju9/dCNxPEqUxpyK4atcrHn9aQbSESYLqTeyy5HcYPghp00XwIjlEL2FKM
-	 ghgOFDdBFqWB93BAguq+noQNevjfiB+b2wkncbVMx1HmcgPQQtOc5h4BXMSyAHqxqS
-	 6C7Ca3obyln0/wNaO2JkEiN1tv/oukTBsUXvHPVed/oCoaW0CXGxxsdjQAOsSRelch
-	 z1SSMxgwwDgNJFPpp+ssUuUZOygLDH4erIp6S4KgF/CaRrDWzZTWC8lCPp2Zu4FMyx
-	 5Tv/2OLJurmAw==
-Date: Wed, 18 Nov 2026 14:40:14 +0100
-From: Christian Brauner <brauner@kernel.org>
-To: Guikun Yang <yangguikun19@qq.com>
-Cc: linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] ufs: bound the cluster summary index in
- ufs_clusteracct()
-Message-ID: <20261118-besungen-fingiert-festnageln-9233af206caa@brauner>
-References: <patch-ufs-contigsumsize-20261118@qq.com>
- <tencent_ABAAD2B7E6C8BB138AE97AD4BF0F49145F06@qq.com>
+	dkim=pass (2048-bit key, unprotected) header.d=xs4all.nl header.i=@xs4all.nl header.a=rsa-sha256 header.s=xs4all01 header.b=IPh/vKHJ
+X-KPN-MessageId: 9aa99447-e355-11f1-92b2-005056992ed3
+Received: from smtp.kpnmail.nl (unknown [10.31.155.6])
+	by ewsoutbound.so.kpn.org (Halon) with ESMTPS
+	id 9aa99447-e355-11f1-92b2-005056992ed3;
+	Wed, 18 Nov 2026 14:40:23 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=xs4all.nl; s=xs4all01;
+	h=to:message-id:content-type:mime-version:subject:date:from;
+	bh=ffGGHNKWCSxETLkGONbiTEwq2aMq5a8fFt/dO+LE6XA=;
+	b=IPh/vKHJDPRXXlexcXIDYI8Qid0WiTIuqOb3egGNBUu41c5voP7EAb7bJYF6K4Byq2+W5WAUKNLJp
+	 CJIXV51kQwkaCNxaI+3cbbdMPIRSGe7Q1YbjNs2/PUqoL9EeFC1f8wMf3wD6HFaDx/ebpS51w0q4/k
+	 M60VUzswfpA23BfkilD+wyW2EUNdJNeHeVGGi1W4lx4V3eEECc9z0QOzsbVwNmMaURqI91/aQh/K7J
+	 xYNP+XJYCJU3+r0gIkgvWQcGTQ6/Nx+G3/AMONrg9Rf/qEJj6FiSAoMi+iMPM2JpxQLxfpB6uiXJu3
+	 ubtTwivtPKE/DlhweJCTbK1KxMW//bQ==
+X-KPN-MID: 33|b7sY4Pp07GmT6N/UT6poXYD4KxTJk3GtwJE+RgemeIdGNG7rDB4bZbp50csDiom
+ w1bEv9R8cyebfEi6ZGK9WVV2d5GRlw1Lnk0y7Lui3BAQ=
+X-KPN-VerifiedSender: Yes
+X-CMASSUN: 33|yGa9M+T+n+0+j2+go80d4/Rg/ot9voV/6enMeQvwKVEl8YyKU6BZzJTrIP7NnXh
+ WBJTHDWaIJRrFAH7t8EJpng==
+Received: from [192.168.122.1] (unknown [178.226.154.85])
+	by smtp.xs4all.nl (Halon) with ESMTPSA
+	id 9a9120bd-e355-11f1-a6ee-00505699772e;
+	Wed, 18 Nov 2026 14:40:23 +0100 (CET)
+From: "Jori Koolstra (CIQ)" <jkoolstra@xs4all.nl>
+Date: Wed, 18 Nov 2026 08:40:10 -0500
+Subject: [PATCH 2/3] selftests: pass the timeout override to tests run in a
+ netns
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,28 +70,48 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <tencent_ABAAD2B7E6C8BB138AE97AD4BF0F49145F06@qq.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261118-kselftest-run-timer-v1-2-53a838b2d62b@xs4all.nl>
+References: <20261118-kselftest-run-timer-v1-0-53a838b2d62b@xs4all.nl>
+In-Reply-To: <20261118-kselftest-run-timer-v1-0-53a838b2d62b@xs4all.nl>
+To: Shuah Khan <shuah@kernel.org>, David Ahern <dsahern@kernel.org>, 
+ "David S. Miller" <davem@davemloft.net>, 
+ Hangbin Liu <hangbin.liu@linux.dev>, 
+ =?utf-8?q?Ricardo_B=2E_Marli=C3=A8re?= <ricardo@marliere.net>
+Cc: linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ "Jori Koolstra (CIQ)" <jkoolstra@xs4all.nl>
+X-Mailer: b4 0.14.3
 
-On Wed, Nov 18, 2026 at 04:00:00PM +0800, Guikun Yang wrote:
-> In a valid FFS layout the cluster summary array sits immediately
-> before the cluster bitmap, so c_clustersumoff + 4*(i+1) must fit below
-> c_clusteroff.  Check that invariant before the update and skip the
-> accounting otherwise.
+When run_kselftest.sh is invoked with -n, each test is run by in_netns()
+in a new bash process, which sources runner.sh again and then calls
+run_one(). Sourcing runner.sh resets its global settings, which is why
+in_netns() explicitly passes on logfile. kselftest_override_timeout is
+not passed on, so -o/--override-timeout is silently ignored for tests
+that are run in a network namespace and they use the timeout from their
+settings file or the default instead.
 
-Meh. That's just pluggin the immediate hole. Two things:
+Pass kselftest_override_timeout to the netns shell as well.
 
-(1) c_clusteroff comes straight from the cylinder group header as well.
-    A large enough c_clusteroff passes your check and we still index
-    past ubh->bh[]. And bailing out after ubh_setbit()/ubh_clrbit()
-    leaves the bitmap and the summary out of sync.
+Fixes: 9d0b4ad82d61 ("kselftest/runner.sh: add netns support")
+Signed-off-by: Jori Koolstra (CIQ) <jkoolstra@xs4all.nl>
+---
+ tools/testing/selftests/kselftest/runner.sh | 1 +
+ 1 file changed, 1 insertion(+)
 
-(2) If c_nclusterblks < start forw goes negative. Then i passes your
-    check while c_clustersumoff + (back << 2) still writes out of
-    bounds. With back == 0 and forw == -2 you write at
-    c_clustersumoff - 4.
+diff --git a/tools/testing/selftests/kselftest/runner.sh b/tools/testing/selftests/kselftest/runner.sh
+index 9b1dad5441ea..06748af6fcf7 100644
+--- a/tools/testing/selftests/kselftest/runner.sh
++++ b/tools/testing/selftests/kselftest/runner.sh
+@@ -174,6 +174,7 @@ in_netns()
+ 		BASE_DIR=$BASE_DIR
+ 		source $BASE_DIR/kselftest/runner.sh
+ 		logfile=$logfile
++		kselftest_override_timeout=$kselftest_override_timeout
+ 		run_one $DIR $TEST
+ 	EOF
+ }
 
-Both reported by Sashiko.
+-- 
+2.56.1
 
-Please validate this where it's read instead.
