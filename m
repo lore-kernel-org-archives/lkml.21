@@ -1,100 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.175
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795038996;
-	b=yMOMNFtcRWOpqcNGcDPtnoAOs1vqShEF533MNa5eU9Bf1w/b8eLMPKotg3ZXYpj+/uj0
-	 pZ61oalwZexZhzxM14Llq2Nl65/mwHjVeZgSOntN02RWBK4b6hqzutSprG6My51sjiy70
-	 Fjfw50yMMn7gnLfUqPv6MjrU3gGpKyRUmdPch66WT6TU4VOLXBjfat9YkOgUU41rPQR8x
-	 JtqmiyTX60VIrbFouBPt8OAouauYonZj3eqFtyDJ3vwnEwOe4jWax0+aOm7Wz8re/oz6U
-	 YXRv1MvfR2GsIuEzijHl24V3zD18L8q+2ldgvpPJSnaFzy7fGCeZuJz4lHaPQXEv/hA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795038996;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=ziTJP7HwMkyh3D0f36moJR65SHyfyGHbTUuUtQiBDOk=;
-	b=zTmI4ezvntHdNjuKH4uIbYB4aHIdWOI2wM9FP+xqrAoKk9pW7b2J+fyuVU8uej5ZEkrK
-	 sT5DFcnn2qyDTuaMeHV1Nt+b5yqpQOVjAWWBCTaztB3Vca3X9cwKoqJ3oHSvMas+4pYGO
-	 7GdeeQKmw4kuqelbkd+dexOfdNiqkfh97Nqjygx4yqO/AMhFg5B5fDA7Uk6xiQRSvO53D
-	 n3YoYgtcxNh24cTSW/3UmOPw48T0jbgSnhbTaSH7OcgDMNpzePoPDbEuubwMkvdr2MbN5
-	 2l/l1D9uk75FJC6srHKTJd/PyqXguBbtA51gBAssolGz7CcJIgT7xJtItmPu6dL9Qpg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wzFOOmSv;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.175
-Received: from mail-dy1-f175.google.com (mail-dy1-f175.google.com [74.125.82.175])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795039007;
+	b=ZQDvjZsWWqZ2UvlwDn1Q9vBGxoI6gAX6j8vJWFSFsU1Qu7wSzA18giVr+YxxhVvCVhK7
+	 WHFgFt/d5JqkyMGVxz4Yt8M1opbdkobY9A4UHJXpYcMKyffxrAXVB2lbhgp2wK3m9yaIv
+	 W2tFl9WhgR9UoEVbh3JKmj153GmnVPjtWhqZZO/JCB5OHK7rjuGIKhVGcTOK1k96Mkl+Y
+	 Z1s5W/P54NU6PQSz/iBcAPr7pQ/PAEQqggMMDPDA5hMtFlXAsLyJm+SpfGgeq2GPE6rNh
+	 iv/EMYmsSJ8CaPbnqa1d1BEpXeSd76w3ctA5A2qnnrJ3EZmRQbqc+4G6rp4xB5DkNgw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795039007;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
+	 User-Agent:MIME-Version;
+	bh=xxQ6PY+rfdV7jtvsJF4r/gSnP8FbOcab8QDdlt/1Mi0=;
+	b=y1QRfyICg0I6kX4PEUbOqtDD+Rv+dENfr1LvQJWZgVk3x/6ujLwcyoAk6BK7DU6TK7NC
+	 a1T5yW5snJi/vAP1CaVtKSZdBHz5aJWMJf/l6qt0lDEP4qZSngJnh0+eJ0YWAaFALGDmT
+	 /Z87oFv6FJ6sbBhxIar6dfJM8t+n4fLTTGnGKIPL/Rv0CJtG9yXNwE3+PU9VSGsTp58Jj
+	 TlCHk+M0V8n053apeL2aP0fmdQDf5D3uph1wXHbzWyBl/dzIuyHDPaktLXpVc0pXpUL2R
+	 XfO9hGqA9ggn4AzJ8scRebNbHT+RFTXMUI7svXFCD0UsZQUudUa13sItujTfqYQqLtg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=TD3df0AC;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96629606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:56:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 96629606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C7D5606A320;
+	Wed, 18 Nov 2026 21:56:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C7D5606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wzFOOmSv
-Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-36f8cdd30beso1729077eec.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:56:36 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795038996; cv=none;
-        d=google.com; s=arc-20260327;
-        b=lOgZ/iTtDSv7OofY6Shjyj68t+Q0k92melfk8VbEvYM9McrN2SGoWbFKnqksLM5mY/
-         eXV7LJKJLsXVDE0ckzPhtdusVnNZw1FYveeuSwsJFjmuQ8tt9jsFIQACpG/LpRTxgPLE
-         xcllFkGZCRozgyvmY+8zKpUhJZ1E6Ntf062RgpcPK6t3xtOjugivyT4T8ckT8Zua570C
-         tBwMGDMaJ2n1Ffh4ihhzjCZldos+msm9mUY/UpEEUgMOo37kXkvmGSn/vcjdt1k+FOoI
-         IpDs8/cafifi4EQc+dYNbL+iDVdApNlsPeJ85936RAuDaJmxWvZmcO6G0gX5ND/sHT6f
-         sCIQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=ziTJP7HwMkyh3D0f36moJR65SHyfyGHbTUuUtQiBDOk=;
-        fh=X/WHJZMYOdH8XX3fAa+mCSL3avAnwRQg6Ztz32xmvVQ=;
-        b=M/+1L2s6VHXc9Pp/qbxQFglBHEkxsL5rTF5CHI2caPDPC59ZKaV1ObVw9GaqCXBA9E
-         K/CSWuiMzaxwa6Klvbp0dMxtPiSbqVaF2oVviBs6DO57Wd4jDyY7TTrBsOhl6NTaDlyh
-         MHs6tQhJAwGBLGEh05jFVHEDJcBsCSyXsZg3TKUVnPYM8Qlv5S5JXyR7b3oDdKvc1a5a
-         0ZRJvHEVhJG8pqVafSbt28/9NxIPb5IwhSuYGxH4D/sU4OkcusSB2OtLa9dDrlVe6iIR
-         X1MaDPr0961YolygC5jsLQSBVW14YlgTJNT0tP1J3heIS9qZ2tiOcrdgBrJ1EOof8bnh
-         Ycng==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795038996; x=1795643796; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ziTJP7HwMkyh3D0f36moJR65SHyfyGHbTUuUtQiBDOk=;
-        b=wzFOOmSveXu8HuiVzCIMGW7OP0GoYf2SnRjJ9Dkjrf2+WvUPWZwaJ/L9yscUEhaVsx
-         chJo+GeNVFybPEDBryX6BYtsMHtFpmRKcbDI/8TjsTB/2EgBmt+FD+Z8p1CR70Ugdk3r
-         wzfq5a2svAb/Lm5Vuckw0Hvln7eYCWw4ahKHQvCf/Cm924mCAxt3pOe5tyY38PkEd09H
-         CPz86mmr18fVq7pR/jH/F5f1hDAU2tJn2KvfyIXDCOsMdQ7HaTq8OfMP/P023MDzZmX/
-         xZdncSfyR+s0TeyuEUD+6fqlcskr/iGNft1oGF2dugvjdHlPeNRqOioj/vEARpLCDGP6
-         4uLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795038996; x=1795643796;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=ziTJP7HwMkyh3D0f36moJR65SHyfyGHbTUuUtQiBDOk=;
-        b=om2eEyfsqZTQCMaNToKMB2GM0sxURTi7JXj4TRdTF018R9BtChwweXy10kqiMxG4ua
-         HcNxAeqQ70zLceqtZg808NVevAnnXhtqWMQdCgVUf3m1J2Yb4z5BKu3SRRMCJ7mQwUms
-         /k0ZFajW5jYFJ16PpOkqkQfOlU8zFa0JLrZJYRVlcZQmsEoEZOzDkifZYBAjjSunBSUB
-         UuEbrGznXLq9LMjAZ0I/yCcosKe3GKshXInpUAxfkQ24FJaRgMlOFNDJf77G9VbU6rRE
-         x6p2e1kLagJISWsvunY2S03zOrLVazrn9D2qC+xY9MHvCw4UJz9VXRNRoEK+seCibdrj
-         lLng==
-X-Forwarded-Encrypted: i=1; AL+hErGNjH8yHAI82fyCM/HxhOB9F3iF7R+1Dq79i6pUkMRtjgmk0HvjCFJd1/1fuZlzFmoOnFiqfMGJAmuZxOM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9rmJRNE6QxC3/X2fU9/r7kgTiQLsncMIWuHL7UvQtaZI3XSU+J
-	69aliiMuMWdxTmg4AvhCPXPo/8OTWmTT/ntqTlww9WnHantdw8iSjeL1yVGhy0uIOHtyJo15feN
-	5EqzhiwbHUihTZL1ucknShEC4m1z0wMg=
-X-Gm-Gg: AZFdTZcwJ4g8HIztvpCJ2qDI5IDieCbhs71owemnxyAk7HbIBJgTNRgBge8rmhqwnSr
-	PKbFJiUB/6dH0gvbFNGFwAtSpZoOctWQR5SypGmgYiH2pCPuajyczWtg2TQsbYtdzm83quKICe2
-	ytVJext+b92GIQrRt3QfDwEjhg3rKyzD6TaAQB1KWrrASRJLEf42n+mLygSP+ft+gMbQOhipzp9
-	sV9+RMqLENrHzRbzov0Aiuf/TBdADNe02BJEeLhcIPBkBb6BktskEl3kjveTtlJ+JL6F1wW0PRq
-	JTqJmBe3w2UpMZkfs+UsNIWQU3pTY7YiVlG+UNNUADocGQ7gtA3O8Bf4k08s2abH6fJglOm8Wmq
-	za65hZ5N7vY69gaEOzZ79yTc6CepLcIwgzo/k61Rgkf5wZQqINkefSxN0PoYW9JuONoCzWDKYHS
-	2OegumGCgchNOcbUrM
-X-Received: by 2002:a05:7300:dc05:b0:36a:7bb7:4609 with SMTP id
- 5a478bee46e88-38281cf2d27mr4946077eec.34.1795038995589; Wed, 18 Nov 2026
- 13:56:35 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=TD3df0AC
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795039004;
+	bh=pgHuQ1HVyLgR9CsAiARcDsEuwXoOXy5E0ScCU9fZ9sY=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=TD3df0ACGoRlHtp9q44ZYPKQZ6UcmkINiKCv911AU5uMWca8dEO20sT6nX49FFj0z
+	 ffdnbvwTJHFkWPOWJEmx+3OHgXc1VUD6ESCF/DQhLp9EJ9jQ8fS0m2BuP0xAg0gOHL
+	 7/GXNT43ah2WCGsLSTbDiet9BYYD+ArPaoFKd+F0wVrrRZHWkian3eC88hOMXGNweu
+	 F/xunel1sV19mUR/HNK7MqcxWDM1oZQQtZjuBfRsDELMVsUqHUfciI+6e6k6R3DhKg
+	 iG2MPWstYgopvq/XQgFsbXgYxtHEvqt31eYxLGab+FBpoZMGiB3OLxlj+AwFU4yIbI
+	 7NbEbgycJJwcQ==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2E83417E06BF;
+	Wed, 18 Nov 2026 22:56:42 +0100 (CET)
+Message-ID: <70ed0df5a04b11d8dcfe41d91e86fc28dedcb132.camel@collabora.com>
+Subject: Re: [PATCH 0/6] rust: iommu: add a paging domain abstraction
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Daniel Almeida <daniel.almeida@collabora.com>, "Joerg Roedel (AMD)"	
+ <joro@8bytes.org>, Will Deacon <will@kernel.org>, Robin Murphy	
+ <robin.murphy@arm.com>, Miguel Ojeda <ojeda@kernel.org>, Boqun Feng	
+ <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, =?ISO-8859-1?Q?Bj=F6rn?=
+ Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
+ Andreas Hindborg	 <a.hindborg@kernel.org>, Alice Ryhl
+ <aliceryhl@google.com>, Trevor Gross	 <tmgross@umich.edu>, Danilo Krummrich
+ <dakr@kernel.org>, Tamir Duberstein	 <tamird@kernel.org>, Alexandre Courbot
+ <acourbot@nvidia.com>, Onur =?ISO-8859-1?Q?=D6zkan?=	 <work@onurozkan.dev>,
+ Abdiel Janulgue <abdiel.janulgue@gmail.com>, 	iommu@lists.linux.dev,
+ rust-for-linux@vger.kernel.org, 	linux-kernel@vger.kernel.org,
+ driver-core@lists.linux.dev, Detlev Casanova	
+ <detlev.casanova@collabora.com>
+Date: Wed, 18 Nov 2026 16:56:40 -0500
+In-Reply-To: <20261118195130.GE3115493@ziepe.ca>
+References: <20261112-b4-iommu-domain-v1-0-c29e86788dda@collabora.com>
+	 <20261116193821.GC2452510@ziepe.ca>
+	 <3EB4C2ED-B699-4532-A562-68B78F6E29C6@collabora.com>
+	 <20261117202055.GA3115493@ziepe.ca>
+	 <b145b2ceb92c73a4fa0477d7b3895a6e3b4adf99.camel@collabora.com>
+	 <20261118160909.GC3115493@ziepe.ca>
+	 <ede3b421d419a35c115ed584e60e74bfd6b91dff.camel@collabora.com>
+	 <20261118195130.GE3115493@ziepe.ca>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-ZJcI0aBBaUP96hypVc6s"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,45 +103,234 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118052116.3901761-1-lcy8047@gmail.com> <CAFEp6-1h0iwXtPr0HXVMceSDdQ09KPYomt58Nme_AzXy+V043Q@mail.gmail.com>
-In-Reply-To: <CAFEp6-1h0iwXtPr0HXVMceSDdQ09KPYomt58Nme_AzXy+V043Q@mail.gmail.com>
-From: Changyul Lee <lcy8047@gmail.com>
-Date: Wed, 18 Nov 2026 16:56:24 -0500
-X-Gm-Features: Aa3M54paIcao6XUjgvQroGOuSTezaTatALtRBeHgZB-rqUe0NegT6OT5B_ER2ss
-Message-ID: <CAKefsHuNpdkSG4m90qavkXD+80TyuX89gTVR-WhBsWX4m7-3Qg@mail.gmail.com>
-Subject: Re: [PATCH ath-next] wifi: ath10k: free msdu_id and skb reference
- when HL TX fails
-To: Loic Poulain <loic.poulain@oss.qualcomm.com>
-Cc: Jeff Johnson <jjohnson@kernel.org>, Wentao Liang <vulab@iscas.ac.cn>, 
-	linux-wireless@vger.kernel.org, ath10k@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+
+--=-ZJcI0aBBaUP96hypVc6s
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi Loic,
+Le mercredi 18 novembre 2026 =C3=A0 15:51 -0400, Jason Gunthorpe a =C3=A9cr=
+it=C2=A0:
+> On Wed, Nov 18, 2026 at 02:31:28PM -0500, Nicolas Dufresne wrote:
+> > > > This seem to digress. All we want to do is use the iommu subsystem =
+as intended
+> > > > for the case the iommu driver is not inside the DRM driver (which s=
+eems to have
+> > > > never been the case so far in DRM).
+> > >=20
+> > > "As intended" means you use the DMA API and you do not touch
+> > > the paging domain.
+> > >=20
+> > > "As intended" means you use iommufd if you want a domain full of user
+> > > controlled mappings.
+> >=20
+> > As discussed at LPC, we believe its pointless for this type of device t=
+o give
+> > any direct page choices to userspace. Can you explain why you believe
+> > differently?
+>=20
+> This is what was asked for a few messages back?
+>=20
+> > I'm not sure how this applies to our work. But since they are all broke=
+n
+> > according to you, let me give example of cores/iommu mapping we are usi=
+ng, and
+> > perhaps you'll be able to explain us correctly? I've picked the Rockchi=
+p video
+> > decoder, which is upstream but expose through V4L2 stateless API, but f=
+rom a
+> > hardware point of view is pretty much identical:
+> >=20
+> > The DT (which I read you must be broken and in violation of everything,=
+ yet all
+> > reviewed by DT maintainers):
+> > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
+/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi#n1400
+>=20
+> You linked to a clocks line, I have no idea what I'm supposed to look
+> at in this file. Can you explain what parts of the DT apply to what
+> you are intersted in?
 
-Thanks for the review.
+No, I linked to the four nodes, 2 decoders, 2 iommus.
 
-On Wed, Nov 18, 2026 at 9:53 AM Loic Poulain wrote:
-> The above message looks too verbose and confusing for a somewhat
-> simple issue. Maybe this should be split properly in two fixes.
+>=20
+> > The multi-core support proposal, its not doing process isolation, its n=
+ot
+> > strictly needed in higher level abstraction (though could be better), b=
+ut its
+> > using domains so that each core can actually see the same memory:
+> > https://lore.kernel.org/all/20260810-rkvdec-multicore-v2-0-986f89d22cdc=
+@collabora.com/
+>=20
+> IIRC This is the driver that had the weird not-quite-an-iommu issue and
+> there were many complaints about it doing things with the API that
+> make no sense because it's HW is bad.
+>=20
+>                 /*
+>                  * To rewrite mapping into the attached IOMMU core, attac=
+h a new empty domain that
+>                  * will program an empty table, then detach it to restore=
+ the default domain and
+>                  * all cached mappings.
+>                  * This is safely done in this interrupt handler to make =
+sure no memory get mapped
+>                  * through the IOMMU while the empty domain is attached.
+>                  */
 
-I originally wanted to fix the msdu_id leak. ath10k_htt_tx_hl()
-allocates an msdu_id in htt->pending_tx, but leaves the entry there
-if ath10k_htc_send_hl() fails.
+We are aware of this, someone have to find the time to go back to it and sp=
+end
+another year in discussion to try and fit the need to re-program the rkiomm=
+u
+after a decoder fault.
 
-I also noticed that the same error path doesn't drop the extra skb
-reference taken by skb_get(), so I included both fixes in v1. I think
-I could have explained this more clearly when covering both fixes
-together. Sorry for the confusion.
+Our best guess of the hardware problem is that its "self reset" mechanism o=
+n
+fault spill over the mmio of the iommu. It pretty hard to create a rkiommu
+function that does not look like a bigger hack. And until we had an agreeme=
+nt,
+this made it work for the users.
 
-> If this is a fix you should not target 'ath-next'.
-> Two fixes tag looks weird, what are you fixin exactly?
+>=20
+> But that doesn't excuse this:
+>=20
+>   As each core has its own IOMMU core, buffers must be mapped in each
+>   core's IOMMU so that any run() call can use any core without having to
+>   remap everything.
+>=20
+>   To do that, we use rockchip iommu domain's iommu devices list.
+>   With that, one IOMMU domain can be mapped on multiple devices, meaning
+>   that each call to iommu_map() will flush the new mapping on all devices
+>   in the list.
+>=20
+> We have DT for this already, you use iommus=3D[] and list all your
+> iommus and it sets everything up for you. Going around and changing
+> domains behind the scenes when the core already attached DMA API
 
-I Cc'd Wentao Liang because he had already posted a patch for the skb
-reference leak [1], but I left that explanation out of v1. Would it be
-okay if I sent a v2 that only fixes the msdu_id leak?
+Mind linking examples and doc? No one mentioned this, maybe the DT maintain=
+er
+need to be educated, you guys don't participate when these bindings are mad=
+e.
 
-[1] https://lore.kernel.org/all/20260917120112.2150211-1-vulab@iscas.ac.cn/
+Can we group the iommus from driver instead of DT ? (these DT predates us t=
+rying
+to use the HW unfortunatly, so backward compatibility is kind of needed). N=
+ote
+that appart from the hack above the v4l2 mutli-core case has completely sta=
+tic
+domain, just that there is N device with the same domain. It is less safe, =
+since
+it does not do process isolation.
 
-Thanks,
-Changyul
+>=20
+> Then WTF is this:
+>=20
+> -                       ret =3D iommu_map(iommu_get_domain_for_dev(core->=
+dev),
+> -                                       virt_addr, phys_addr,
+>=20
+> Seriously? You cannot directly map to a DMA API owned domain. It is
+> fully illegal.
+
+I guess I should fix that one, suggested change below (I'll make a patch la=
+ter).
+We should drop iommu_map() from any bindings. But that leaves us with no wa=
+y to
+use the rkiommu and do process isolation, which basically defeat the purpos=
+e of
+an iommu no?
+
+
+RFC:
+---
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c b/drivers/=
+media/platform/rockchip/rkvdec/rkvdec-rcb.c
+index fdcf1f1773797..37d5677e4c8f9 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
+@@ -9,7 +9,7 @@
+ #include "rkvdec.h"
+ #include "rkvdec-rcb.h"
+=20
+-#include <linux/iommu.h>
++#include <linux/dma-mapping.h>
+ #include <linux/genalloc.h>
+ #include <linux/sizes.h>
+ #include <linux/types.h>
+@@ -44,7 +44,6 @@ void rkvdec_free_rcb(struct rkvdec_ctx *ctx)
+ {
+        struct rkvdec_dev *dev =3D ctx->dev;
+        struct rkvdec_rcb_config *cfg =3D ctx->rcb_config;
+-       unsigned long virt_addr;
+        int i;
+=20
+        if (!cfg)
+@@ -58,11 +57,11 @@ void rkvdec_free_rcb(struct rkvdec_ctx *ctx)
+=20
+                switch (cfg->rcb_bufs[i].type) {
+                case RKVDEC_ALLOC_SRAM:
+-                       virt_addr =3D (unsigned long)cfg->rcb_bufs[i].cpu;
+-
+-                       if (dev->iommu_domain)
+-                               iommu_unmap(dev->iommu_domain, virt_addr, r=
+cb_size);
+-                       gen_pool_free(dev->sram_pool, virt_addr, rcb_size);
++                       dma_unmap_resource(dev->dev, cfg->rcb_bufs[i].dma,
++                                          rcb_size, DMA_BIDIRECTIONAL, 0);
++                       gen_pool_free(dev->sram_pool,
++                                     (unsigned long)cfg->rcb_bufs[i].cpu,
++                                     rcb_size);
+                        break;
+                case RKVDEC_ALLOC_DMA:
+                        dma_free_coherent(dev->dev,
+@@ -125,29 +124,19 @@ int rkvdec_allocate_rcb(struct rkvdec_ctx *ctx,
+                                                        SZ_4K);
+                }
+=20
+-               /* If an IOMMU is used, map the SRAM address through it */
+-               if (cpu && rkvdec->iommu_domain) {
+-                       unsigned long virt_addr =3D (unsigned long)cpu;
++               if (cpu) {
+                        phys_addr_t phys_addr =3D dma;
+=20
+-                       ret =3D iommu_map(rkvdec->iommu_domain, virt_addr, =
+phys_addr,
+-                                       rcb_size, IOMMU_READ | IOMMU_WRITE,=
+ 0);
+-                       if (ret) {
++                       dma =3D dma_map_resource(rkvdec->dev, phys_addr, rc=
+b_size,
++                                              DMA_BIDIRECTIONAL, 0);
++                       if (dma_mapping_error(rkvdec->dev, dma)) {
+                                gen_pool_free(ctx->dev->sram_pool,
+                                              (unsigned long)cpu,
+                                              rcb_size);
+                                cpu =3D NULL;
+-                               goto ram_fallback;
+                        }
+-
+-                       /*
+-                        * The registers will be configured with the virtua=
+l
+-                        * address so that it goes through the IOMMU
+-                        */
+-                       dma =3D virt_addr;
+                }
+=20
+-ram_fallback:
+                /* Fallback to RAM */
+                if (!cpu) {
+                        cpu =3D dma_alloc_coherent(ctx->dev->dev,
+
+--=-ZJcI0aBBaUP96hypVc6s
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCav4fGAAKCRDZQZRRKWBy
+9FqhAP4pY0JMdUIZJr/LhHtvb6DsQm54XOOj6JgdlKQ2E+itcwD/Vm7FSFzr0alW
+F+xXlxvgDMiEUu59Utc6C6/8cilSAws=
+=LlMs
+-----END PGP SIGNATURE-----
+
+--=-ZJcI0aBBaUP96hypVc6s--
