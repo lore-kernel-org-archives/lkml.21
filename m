@@ -1,60 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795022243;
-	b=FpbqoEzkbBT0ca37lnz72W9V0eSFZevGIndvcqwgd991PWEFFGtbY22dhSv41mb9vxR7
-	 S88U0bSXQ9JDXAGZdudPZBK2G/YpZiTUOjwRCmDNOHAmV5RO6oiLvPNJ4N1sPzLVc19f2
-	 AyUIovaCp6lWO+8LZuehw8amguRCO3uH4LgPwHyqorJ9F0EZqIoozbhuhRyRZbJhVa5p1
-	 h8TtB53u3XPi1ZFSXfU0XdSeL1aSBwR92lFQgx2Q9+/VXElnNSTSlQ/0oyiXYbZO3ILjm
-	 nk2j8MX8uZm+RLWtBM7ySNMEhj3lzLn9aM7OxqkCMqd7YiFxaHCAkMyZTRyEHGiJigw==
+	t=1795022381;
+	b=VeoknhDigfUA6cRVanybI0q0DGHbtmBxxE1ECuE6bgCNHaZLkxdJ9c0t9RHML7KJrnce
+	 fp/4ZQ9z1Ogb29/6zHbJHhUXNJhWx8IHzN1JDxaJb5AdHvgCbTljKIpLMx+SPCitkN6Nj
+	 +ZLZQT9bWrDNLId0qLMvZbY0JjpGT5dtPG834EZGj6UZPhivswPimxtuM+sx/vpfwiuaQ
+	 WG6rmua8Br8BPlAw7Vv2cTnu7BrdyEtJeeNTbWt+3He38V6FpjZ6T7h+owndaUeam0aLt
+	 7dJKqA2G2bhznYxtw0jKca8z7b0uMj+wWDzbpY+0OZq0Biz8d6WOa+FZFwj9ITlIlSA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795022243;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=28XEaP/ltV/ETk9fcENFl2aQLFUd74IdM6wgYvIduOw=;
-	b=NcUv1nf1BT2lBcv4BwKtfjL+MyUQTpc+FjJH+evKHMJGwTZ1WpRjFYqoRRFkGcz9HVhC
-	 BenmLsE3NkLDWhmPpx1/Ogg85vtyPVwN/jHTVXuGIpsGB+ANjzSQo6m/g5Z/6cjvhZhK5
-	 vl2tfp1n494ijrbnP6ugqjswTImcCH7GYX0I0z1llZFFqDfsmQip7ys3p5pxV6pNHC3CU
-	 R74WGW3wX3ARhuE9eYnbkI3CczgTv/81x/3/yBMApcqcAMkLr5Sa3dOND10Q22yHy6a5y
-	 wjEYb4at7AF1S6V8UQk6ydhLbJO1klydm0RyrDe63qZptCtiWZnzk6ukSlo4uZHq26g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795022381;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=6gP6svfhzOhB+3p01vqjLTOkJSkqMxk4Z3G7OPboewU=;
+	b=uLCuWph6B0atAWrICPRR/5A0iqjudNHTeNORiw6yhlGzprtPKejL67Qv88eKupGanZSh
+	 uykO1cqhAcpfXu7+i0lxnfH7Sme2ZwGSE0vVLX8Dkmj4m/k1Uk1a2fLIhj8ZYrggmcTQc
+	 AfEKColQinGsvHRpkBCEaeQbMPvJOhkXZ2Ns3n/5ObYLwYO3VM2XayR6MepE1rn3PJUkd
+	 0Y7MFYH4Z8JOb/CFOSxFaFJtD+K0T+EgFp9qx79X9c8CySUmFXBbJ4BbKJ4PGoQxHBEo2
+	 0m7jGtlc+W0lhdAnpzW2M0Rja2DmYr5koTWAfJuq8uco+hSSlIVJgA3aXYmr95RBBNQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I3m51p1y;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ySryMbre;
+	arc=none smtp.remote-ip=209.85.161.53
+Received: from mail-oo1-f53.google.com (mail-oo1-f53.google.com [209.85.161.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D528606A32C;
-	Wed, 18 Nov 2026 17:17:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50BBD606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:19:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 50BBD606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I3m51p1y
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 910DD1F000C4;
-	Wed, 18 Nov 2026 17:17:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795022243;
-	bh=28XEaP/ltV/ETk9fcENFl2aQLFUd74IdM6wgYvIduOw=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=I3m51p1yxSCa+XRhyxBrIPFQediyExc5Zl82Subm6rC9snVZkpaSkqD9McVYcqQF8
-	 pFGoVFbnn9iZ6/HPJZFEPA3uQ/wODAHWITb98jbHtx2w2NtO9bZESF30Tqz97yF1fT
-	 oV8F2Vno4OBPUzU6W6bxntO4a6QqgOKEYWrqx/QQle9Q/FnZjiiNHO5JxiTGYs/y4W
-	 0CKOU0sgnZb8S6S/4u0Yx49srfvleH0YZuvMs0cTL8f/E3eGi35DUbwUyk4v2BrnuU
-	 ygFqurvKnKZOMjOe4aS36sqebvLKddv5xbtRtaoxERF7jTpLJH07z7LnKY7A/9acBD
-	 qABu+hqO6ZTew==
-Subject: Re: [PATCH net-next v4] net: phy: aquantia: Poll global status
- register for provision ID
-From: netdev-bot+sashiko@kernel.org
-To: hongmei.xu@oss.qualcomm.com
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- sagar.cheluvegowda@oss.qualcomm.com
-Date: Wed, 18 Nov 2026 17:17:22 +0000
-Message-ID: <179502224211.3136.8031848811478345993@kernel.org>
-In-Reply-To: <20261116-aquantia-poll-global-status-register-v4-1-1b44fe85db5a@oss.qualcomm.com>
-References: <20261116-aquantia-poll-global-status-register-v4-1-1b44fe85db5a@oss.qualcomm.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ySryMbre
+Received: by mail-oo1-f53.google.com with SMTP id 006d021491bc7-716d052dc23so678867eaf.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:19:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795022379; x=1795627179; darn=vger.kernel.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=6gP6svfhzOhB+3p01vqjLTOkJSkqMxk4Z3G7OPboewU=;
+        b=ySryMbrerU2OL5LMFOG00781tRrBu4NNWGf6VTub9ChTa3BRCTAIfRf25dhoc/5vkn
+         Zp1s5aI4rfuyxXxA89jB9pmB7gE8VDz5zp0Ox2v/vwC9Qqq9Bshc+jssSsdnfOPUCkFY
+         lN3kCayeLN5tu3X4g9+DFj1m3r/sATfyaRm6E8FWlgTRA7fwzFg4Nnu1a4yt5Y7QBkeQ
+         EZlBADO3E+48yoWXnhjaFLfx7CBnrCuhBO2f0VC54T62hC24JdYIIRXQy5lOFCANjyL4
+         5t0J4kJn0HpR30ic0AOGIcdKOfBxxB7vwsUrionTKEyrm6kOcVOFIKETsR663vRwRcOy
+         3WfQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795022379; x=1795627179;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=6gP6svfhzOhB+3p01vqjLTOkJSkqMxk4Z3G7OPboewU=;
+        b=w21a3up0tW6aAWx8FRPZ7HXozgQQcrGVQB8ATOyKiRSNrEaZbIPQ8d7F+os0SMgzJB
+         WofwxT9Esxgb7F8AcgfWM8X38BfLN9jNE/xN2y0PeY2IFE4UdOd3C3MwxyUf4DjIGbU7
+         X4ymTYrT5vl0hBuL1zn1JSpOh2GotelQsptWI0khEbK3TGQF683i1rNFT8TZYcLpGphJ
+         JmtEjReAKLxjRw/77iC+RbmfksHCR8Fwq/0iYDReh9I42NGz2wyuFQkbCMpHOJOasFlU
+         xbw1WIWGAtVgXjlFf5anSASNGW4cGRP+H8JSKRSIUvwd5J8A1+kZiH1B82b4a6TH9H2B
+         RQqQ==
+X-Forwarded-Encrypted: i=1; AL+hErEGrFxVSM3a2lrAGIUOfc9JiEOvkrivt2wBytGtdC7ZpHgNBc4pqjRHtd1hOc/uit2YCC2BjnYflUca/7E=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8K2uStjuVJX4rZnnmFTx8g39Kdzp+fMzCnAeDbe9vzPNDB6c1I
+	7l8MriLMvrd1J1+KFKozDd+Jpv9xRA3RFcjj2XaexxtlEXSWiwqOU1UtfUe5A0wW
+X-Gm-Gg: AYBFou3sN94Q5ENsgQWKFGlhxtKUcMDrj8v5JjBwUYDMz0Rl7DNRdQmTpXLk3HNNYvO
+	uWiqHG4ir5A+bRXK3GDtyoGsCOefqdFML2iVq3vySGx+3r+rZMY721K/DPVqxx3KWsTNwYrJ8dj
+	VGWNm86R5IIlekyzmx9W8NTYoTegEALVmh10foB/eDcUwsobrNqXKXxA7KLF3iQ2ToFhZSoS5Sm
+	J8IC/JWg6lPbJL+XlGOH00rc/j2D6guNa9HNw4wEFioKc7GMnCxiaRIU9yU6uxEx6W4gv9s7Z70
+	nua867puEhkILewx201wbKMwgFncGD+4+qooHLRtXRG/X75nR5YFP+YPPCKtlHpXawb1BaQTwcs
+	nIAxmDzIwfNGt8jrbOTv34qtbkCafDhdfI+3+FDWodN4C9GzkCktLbbwjYPUhsusjMxiVBIv2yz
+	UzpPr9BcO4hU/HIA0vAu9N8pwGNGKL7mFqh8NPKV1PhwoOSOQXqGPX2mjXco6Luebaij1L+Z69a
+	En6TsT+EmdCUv1xUmP9vrQeEumz9QqMbR2i6PKGn4riiPdevzy4RlD6W65rAeFDUkVuPN8Qkilt
+	UQUAC3Ls35v0qpt7Zu/XpkChj3NZQfR8Htqb439sPvZY2w9KTeMwsSkXWpthZ37RyjmlzEeeTJZ
+	+fvCIfqfEm2u9I4OZvnWsN31AoZlVvVvGsRHiQB0jR2FpCx8Vd8FfpdDOAW/K/ecwTrl6MY93kq
+	ak90cDwWAJPx2eZYeITVKCERX1bEuJmFHPIdQwfEYS4RM/4Fqr10I=
+X-Received: by 2002:a05:6820:c3c8:b0:6f5:217:b0a2 with SMTP id 006d021491bc7-71b1827bc1fmr1617469eaf.12.1795022379086;
+        Wed, 18 Nov 2026 09:19:39 -0800 (PST)
+Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-862f021298dsm2495575a34.16.2026.11.18.09.19.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 09:19:38 -0800 (PST)
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Wed, 18 Nov 2026 10:18:36 -0700
+Subject: [PATCH v2] mtd: core: skip empty read and write requests
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,179 +92,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261118-submit-mtd-empty-io-v1-v2-1-b980927931ef@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WNQQ6CMBBFr0K6dgxTmmpceQ/DopQBxlhK2kokh
+ Ltb8AAmf/OS//5fRaTAFMWtWEWgmSP7MYM8FcIOZuwJuM0sZCk1YqkgvhvHCVxqgdyUFmAPM4I
+ 2pW6bq1ZYocjyFKjjzzH8qH+czSfZtK/tjYFj8mE5nmfce39PchCqTje2UxdF0tx7Z/h1tt6Je
+ tu2L/6wvzPOAAAA
+X-Change-ID: 20261104-submit-mtd-empty-io-v1-6a06db864131
+To: Miquel Raynal <miquel.raynal@bootlin.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Boris Brezillon <bbrezillon@kernel.org>
+Cc: linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, James Hilliard <james.hilliard1@gmail.com>
+X-Mailer: b4 0.17-dev
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
+When mtd_read() and mtd_write() became wrappers around the OOB helpers,
+they lost their zero-length checks. An empty read at the end of a raw
+NAND device can then compute a die index one past the last die and hit
+the WARN_ON() in nand_select_target().
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 3
+Return success from the common helpers without calling the driver when
+the request is valid but has neither data nor OOB bytes to transfer.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Fixes: 2431c4f5b46c ("mtd: Implement mtd_{read,write}() as wrappers around mtd_{read,write}_oob()")
+Cc: stable@vger.kernel.org
+Link: https://lore.kernel.org/r/sashiko-outbox-198544@kernel.org
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+---
+Changes in v2:
+- Clarify that the invalid die index triggers a warning at EOF.
+- Link to v1: https://patch.msgid.link/20261104-submit-mtd-empty-io-v1-v1-1-3f6bcf474e2a@gmail.com
+---
+ drivers/mtd/mtdcore.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-- [Medium] The new poll in aqr_wait_reset_complete()
-  (drivers/net/phy/aquantia/aquantia_main.c, lines 720-734) treats…
-- [Low] The commit message says the patch fixes a user-visible defect in
-  existing AQR113 support ('Starting subsequent firmware operations…
-- [Low] aqr_need_provision_id_check() (aquantia_main.c:684-690) limits
-  the new wait to PHY_ID_AQR113 and PHY_ID_AQR113C.
-- [Low] When the new PROV_ID poll times out, aqr_wait_reset_complete()
-  logs a warning and returns 0 (aquantia_main.c:732-736).
+diff --git a/drivers/mtd/mtdcore.c b/drivers/mtd/mtdcore.c
+index b170c3144ca8..ea21dc1bb5de 100644
+--- a/drivers/mtd/mtdcore.c
++++ b/drivers/mtd/mtdcore.c
+@@ -1805,6 +1805,9 @@ int mtd_read_oob(struct mtd_info *mtd, loff_t from, struct mtd_oob_ops *ops)
+ 	if (ops->stats)
+ 		memset(ops->stats, 0, sizeof(*ops->stats));
+ 
++	if (!ops->len && !ops->ooblen)
++		return 0;
++
+ 	if (mtd->flags & MTD_SLC_ON_MLC_EMULATION)
+ 		ret_code = mtd_io_emulated_slc(mtd, from, true, ops);
+ 	else
+@@ -1849,6 +1852,9 @@ int mtd_write_oob(struct mtd_info *mtd, loff_t to,
+ 	if (!master->_write_oob && (!master->_write || ops->oobbuf))
+ 		return -EOPNOTSUPP;
+ 
++	if (!ops->len && !ops->ooblen)
++		return 0;
++
+ 	if (mtd->flags & MTD_SLC_ON_MLC_EMULATION)
+ 		return mtd_io_emulated_slc(mtd, to, false, ops);
+ 
 
---
+---
+base-commit: 760d2efe91a84363d25c1051a10572242e75fe86
+base-tree: git://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git mtd/fixes
+change-id: 20261104-submit-mtd-empty-io-v1-6a06db864131
 
-net: phy: aquantia: Poll global status register for provision ID
+Best regards,
+--  
+James Hilliard <james.hilliard1@gmail.com>
 
-On AQR113 and AQR113C, aqr_wait_reset_complete() now goes on to poll the
-PROV_ID field of VEND1_GLOBAL_RSVD_STAT1 until it is non-zero, after the
-firmware ID check. A read error is returned to the caller. A poll timeout
-only logs a warning, and the function still returns 0.
-
-> Starting subsequent firmware operations before the provision ID is
-> valid leads to steady link failures; this has been observed during
-> AQR113 PHY bring-up.
-
-[Severity: Low]
-This describes a link failure with the existing AQR113 support. That
-support already goes through aqr_gen4_config_init()->
-aqr_gen1_config_init()->aqr_wait_reset_complete().
-
-Should this carry a Fixes: tag and possibly Cc: stable? Is it meant for
-net or net-next?
-
-> diff --git a/drivers/net/phy/aquantia/aquantia_main.c b/drivers/net/phy/aquantia/aquantia_main.c
-> index e95d391a6dc23..a5bba9be0d069 100644
-> --- a/drivers/net/phy/aquantia/aquantia_main.c
-> +++ b/drivers/net/phy/aquantia/aquantia_main.c
-> @@ -681,12 +681,24 @@ static int aqr107_set_tunable(struct phy_device *phydev,
->  #define AQR_FW_WAIT_SLEEP_US	20000
->  #define AQR_FW_WAIT_TIMEOUT_US	2000000
->  
-> +static bool aqr_need_provision_id_check(struct phy_device *phydev)
-> +{
-> +	return phy_id_compare(phydev->drv->phy_id, PHY_ID_AQR113,
-> +			      phydev->drv->phy_id_mask) ||
-> +	       phy_id_compare(phydev->drv->phy_id, PHY_ID_AQR113C,
-> +			      phydev->drv->phy_id_mask);
-> +}
-
-[Severity: Low]
-This isn't a bug, but AQR114C, AQR115, AQR115C and AQR813 also go
-through aqr_gen4_config_init() and aqr_wait_reset_complete(), and they
-won't get this wait. The v4 changelog says the narrower scope is
-intentional.
-
-Were those parts checked for the same provisioning behaviour? If so,
-could the commit message say so?
-
-> +
->  /* If we configure settings whilst firmware is still initializing the chip,
->   * then these settings may be overwritten. Therefore make sure chip
->   * initialization has completed. Use presence of the firmware ID as
->   * indicator for initialization having completed.
->   * The chip also provides a "reset completed" bit, but it's cleared after
->   * read. Therefore function would time out if called again.
-> + *
-> + * On AQR113 and AQR113C, additionally wait for the provisioning ID to
-> + * become non-zero, indicating that firmware provisioning is complete.
-> + * Without this polling, link issue can be seen after phy boot.
->   */
->  int aqr_wait_reset_complete(struct phy_device *phydev)
->  {
-> @@ -702,7 +714,26 @@ int aqr_wait_reset_complete(struct phy_device *phydev)
->  		return val;
->  	}
->  
-> -	return ret;
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (aqr_need_provision_id_check(phydev)) {
-> +		ret = read_poll_timeout(phy_read_mmd, val,
-> +					val < 0 ||
-> +					FIELD_GET(VEND1_GLOBAL_RSVD_STAT1_PROV_ID, val),
-> +					AQR_FW_WAIT_SLEEP_US, AQR_FW_WAIT_TIMEOUT_US,
-> +					false, phydev, MDIO_MMD_VEND1,
-> +					VEND1_GLOBAL_RSVD_STAT1);
-
-[Severity: Medium]
-Is PROV_ID a reliable sign that provisioning is done? Elsewhere in the
-driver it looks like a fixed identifier of the firmware image. It sits
-next to FW_BUILD_ID and has no validity bit:
-
-drivers/net/phy/aquantia/aquantia.h:
-#define VEND1_GLOBAL_RSVD_STAT1_FW_BUILD_ID	GENMASK(7, 4)
-#define VEND1_GLOBAL_RSVD_STAT1_PROV_ID		GENMASK(3, 0)
-
-aqr_build_fingerprint() reads it only as one part of the image
-fingerprint:
-
-	build_id = FIELD_GET(VEND1_GLOBAL_RSVD_STAT1_FW_BUILD_ID, val);
-	prov_id = FIELD_GET(VEND1_GLOBAL_RSVD_STAT1_PROV_ID, val);
-
-The v4 changelog also says some PHYs use PROV_ID=0 as a valid value.
-
-aqr_need_provision_id_check() decides from the silicon ID. The PROV_ID
-value, though, comes from whichever image gets loaded, whether from flash,
-nvmem or the filesystem.
-
-What happens if an AQR113/AQR113C runs an image with provisioning ID 0?
-
-The poll could then never succeed. Every call would poll MDIO for the
-full AQR_FW_WAIT_TIMEOUT_US (2 seconds) and log "Firmware provisioning ID
-not ready". aqr_wait_reset_complete() is called from:
-
-aqr107_probe()->aqr_firmware_load()->aqr_wait_reset_complete()
-
-phy_init_hw()->aqr_gen4_config_init()->aqr_gen3_config_init()->
-  aqr_gen2_config_init()->aqr_gen1_config_init()->
-  aqr_wait_reset_complete()
-
-Would bring-up then take at least 4 seconds per PHY, plus 2 seconds on
-every attach and resume?
-
-The commit message also seems to contradict itself. It says that starting
-operations before the provision ID is valid "leads to steady link
-failures", but also that a timeout "does not necessarily prevent link
-establishment".
-
-It also says a timeout "indicates a hardware-level provisioning failure".
-Nothing in the driver appears to support that.
-
-The driver already polls readiness signals tied to hardware state. One is
-the wait_on_global_cfg poll of VEND1_GLOBAL_CFG_100M in
-aqr_gen2_fill_interface_modes(). Another is
-VEND1_GLOBAL_GEN_STAT2_OP_IN_PROG. Would one of those work for AQR113
-instead?
-
-> +		if (val < 0) {
-> +			phydev_err(phydev, "Failed to read VEND1_GLOBAL_RSVD_STAT1: %pe\n",
-> +				   ERR_PTR(val));
-> +			return val;
-> +		}
-> +		if (ret)
-> +			phydev_warn(phydev, "Firmware provisioning ID not ready\n");
-> +	}
-> +
-> +	return 0;
->  }
-
-[Severity: Low]
-This isn't a bug, but the new comment above aqr_wait_reset_complete()
-says the function waits for the provisioning ID, "indicating that
-firmware provisioning is complete". On timeout it only warns and
-returns 0, so callers cannot tell that provisioning did not finish.
-
-Returning 0 here looks right. aqr_firmware_load() treats -ETIMEDOUT as
-"no firmware loaded" and would load a new image over the running one.
-Also, aqr_gen1_config_init() does the downshift, MDI and LED writes
-whatever this returns.
-
-Could the comment say that the provisioning wait is best effort? Could it
-also say that the link failure described in the commit message can still
-happen after a timeout?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116-aquantia-poll-global-status-register-v4-1-1b44fe85db5a%40oss.qualcomm.com
