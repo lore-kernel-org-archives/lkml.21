@@ -1,84 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795012770;
-	b=CTa3sPER14R3X66Eww+5kdOjvO7lQc5No9p911d5Pm3a4PKh+9o9+jwphiIbuAaFEqBy
-	 OV4Egu0bLUP6eTSyqI3IXBbcxSVsiSIDIRYn1o67up27uFEViljf5BI9iidgge58axPZ/
-	 P11aFNqhHE8g6TS6xo3yVdBeQCXnrWwi4E2Za7VoJHIep9Zm499HrPcN345N5CIRxl0li
-	 CiQiDQPJvtc+wU+Erww/jH05X4l7NkvTSV0SIyQY6c2BaN37rMFWl9GK3lySuPAo5eHuY
-	 Dum+aRoDKXra/rPRqKHPz6Tl9hGf9/kym98knc4I+hld3/xWcGsE0RhJsi5h872MLPg==
+	t=1795012811;
+	b=ErJ6fwKLnF5+LvqvGo+bn1RYtnGtEcHrl7CFGEJgBIosPcOZBHvZaA/kBVZgAblXPO70
+	 RDRSwUgwkwJqCOdV/LOCf1XqfaGkW7grb2oblm6q8EPe59giNuoaiC9rMw2y9V8YgNWZX
+	 iE7ApLDzv3dZzqvrVL3cm+30nYsJoiQBFzhUw2AxLHp34GeJFRyItfaZ3rdzDhcWXug53
+	 SdYRASxeatczc1d4m1YMmn5Jf/8wO4KVwpuZhtTmaHFIl9F7esjWhRlhuwhuW7VdswPOM
+	 f8vnqsG8v/PthqbV+eKCiSbp+C3QX5fiG9XF1CLCwXo8a0cVHalgdScPMHuXPnDB+6Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795012770;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
-	bh=wn4w1sOHDWq6Q/CcG6uXsFLBxtrAmn/giQOE7FW30EM=;
-	b=kBqoH0/+9/kOcdxxloTFuB8hPkc3M1vP2AWfFfuh7n85elc36pRj4Uink7SQ1ptKahaa
-	 gioDRpcT399jYgmB4A8i2b+Pv1rmBTW1PH/T7r3SfEls6alyH0ioHkzFOnpRCTq4agMN9
-	 C4lasCB21hI+VpC6dXptJiIlz43ToeuEZKW+bXc2ONtt3zIhcdXhqR+n+UD5eQPOFKM1P
-	 zglivfyj6gXV8WbQ9C93fePKqSIbqVvVEWSWJbssMSK5vdQCXBrPQPSpjwNkmrTSyvkMn
-	 g0TkJF7udIZF2YWDdJ8Nb3bBnmVs6z0YjG0Pcd85i//yynpXgYWF/NlTyeOQGrY/HIQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795012811;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=o9zNTrCs5ck/1o3RCSKW2VT8r4JHp1JK8lZkVLfXYGM=;
+	b=FxGpITM7f95gI1IZpRGteJ1bPTlopq/JmKF1O3aN9Z32ft6wE6EQ2Qpf7OEf5+ss8TKU
+	 tclY+Xpiyds+lvCZzKF2eO5TlXPMIhZM1riJWtfPba551g+N+dOujI0wXerYY/P0FZJcD
+	 6TcQ3S+NuJi3gIVu+yMKIkFVluZm8YWHdeSyvt3XCGwRMd78gAJXp30rzjDBhfUQsAA4g
+	 QSa3wKkKi8tkYTxuQo6/Ax1WZO7g40uhtDdjmQYp+/yhZTeVPLgx+WD7UHqpFOEYLNk/n
+	 rWLPABYybvQDqoipGkFbd88bAGkY9rV9ldobPF1MhUxzMUuFGU42HGG7a/7AEYXfsIQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mandelbit.com;
-	spf=pass smtp.mailfrom=mandelbit.com;
-	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=KmgreEfP;
-	arc=none smtp.remote-ip=195.10.208.55
-Received: from mout-b-110.mailbox.org (mout-b-110.mailbox.org [195.10.208.55])
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=Hxw+3jK2;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b="z9dCV9/L";
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09C86606A31C;
-	Wed, 18 Nov 2026 14:39:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 09C86606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F037606A32A;
+	Wed, 18 Nov 2026 14:40:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F037606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=KmgreEfP
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-b-110.mailbox.org (Postfix) with ESMTPS id 4jV4476MzKzNlh1;
-	Wed, 18 Nov 2026 15:39:19 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
-	s=MBO0001; t=1795012759;
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=Hxw+3jK2;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=z9dCV9/L
+Date: Wed, 18 Nov 2026 15:40:06 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795012808;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=wn4w1sOHDWq6Q/CcG6uXsFLBxtrAmn/giQOE7FW30EM=;
-	b=KmgreEfPcAsLsbdiBVPG/VXlTgRvTe57B+qJ5QP6cJSLTU1LROF5xfHfikHbjpf4bsICZ6
-	Qt9nfB8Jji9lyJEPw59kCqxzkyK1pXG+8zSO4PVxvEhj8lnwE5I6Tl51QQPT4009VL9Coe
-	RUD6ZwL+q39DNXOIIH42YrOPBYvKfqLHt2AGi1UdNQSzkfQEHoqvE6CZZ1+WG2yz+MvQ6z
-	z3guxZkhq7S5AYEEczYmWkUdVeakzvfM+YwvgxBga/n48ZH36fnEykD8ZOpnHTIX4nOAb8
-	MLvt2MbSAmOgV/NTTep/vOkp1T7Cf2l+41AQ1Opi8unM7ALktO546jDHrpYEVA==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=none;
-	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
-From: Ralf Lici <ralf@mandelbit.com>
-To: Xia Yan <yanxia@cmss.chinamobile.com>
-Cc: netdev@vger.kernel.org,
-	David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Neal Cardwell <ncardwell@google.com>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Florian Westphal <fw@strlen.de>,
-	Sabrina Dubroca <sd@queasysnail.net>,
-	Antonio Quartulli <antonio@mandelbit.com>,
-	linux-kernel@vger.kernel.org,
-	yana06070@163.com
-Subject: Re: [PATCH net-next v3 2/3] ipv6: add ip6_dst_lookup_flow_cookie
-Date: Wed, 18 Nov 2026 15:39:08 +0100
-Message-ID: <20261118143909.115729-1-ralf@mandelbit.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <1794991714000.1115021.7710558447771708161@cmss.chinamobile.com>
-References: <1794991714000.1115021.7710558447771708161@cmss.chinamobile.com>
+	bh=o9zNTrCs5ck/1o3RCSKW2VT8r4JHp1JK8lZkVLfXYGM=;
+	b=Hxw+3jK2/k2u2O3CKhECYZkMY5C1OWMxtlf2QBhY6TDkaiBTw/BnRslwUxpFzhIB1rghqZ
+	WdaV6Uf9hkBrTfUT6WGqE/dBgr6kYlg4JiQP/B1PwvwdMba0KkcIEoHm5rrzqbp0upS/eJ
+	wxNqxqAtwuzD+FH1xcFk95zTAayGVcrWLldXfqqCGz07hyzl5zHbb71alV63C603+tIDux
+	t27jM1+cUPvsucTEGHEm547VFvbiztOoR5XieLR8tztrq0JROaNCEKxU3mg+K86jSgLfSi
+	Mt/4YpWDMf9kA1gtBLw/JIxE5vhCS+QFkEWYwcSpDshD1JdfsrhcI5UwN0IxsA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795012808;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=o9zNTrCs5ck/1o3RCSKW2VT8r4JHp1JK8lZkVLfXYGM=;
+	b=z9dCV9/LLwfZ/WJUCNkWRDcS94wXIj2YymCvzLINZIqZYOT8lnxmLGaPjBAiDrErtDdc5i
+	TDvDcearZiD+nhDA==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Cc: peterz@infradead.org, tglx@kernel.org, mingo@redhat.com,
+	linux-kernel@vger.kernel.org, will@kernel.org, boqun@kernel.org,
+	longman@redhat.com, rostedt@goodmis.org, clrkwllms@kernel.org,
+	dvhart@infradead.org, dave@stgolabs.net, andrealmeid@igalia.com,
+	shuah@kernel.org, juri.lelli@redhat.com,
+	linux-rt-devel@lists.linux.dev, linux-kselftest@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2 2/5] locking/rtmutex: Initialize the ww_mutex context
+ of a waiter
+Message-ID: <20261118144006.ms1fvDv1@linutronix.de>
+References: <20261108141347.1525532-1-mathieu.desnoyers@efficios.com>
+ <20261108141347.1525532-3-mathieu.desnoyers@efficios.com>
+ <20261116135857.5t9HGji5@linutronix.de>
+ <de727dc6-cd11-4a7e-a853-aecd895685a9@efficios.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,110 +82,128 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 4jV4476MzKzNlh1
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <de727dc6-cd11-4a7e-a853-aecd895685a9@efficios.com>
 
-Hi Xia,
+On 2026-11-16 13:37:09 [-0500], Mathieu Desnoyers wrote:
+> Hi Sebastian,
+Hi Mathieu,
 
-On Wed, 18 Nov 2026 16:48:34 +0800, Xia Yan <yanxia@cmss.chinamobile.com> wrote:
-> I traced the race and the fix against current net-next.
->
-> On the writer side, xfrm_policy_insert() links the policy and then calls
-> rt_genid_bump_ipv6(), which resolves to fib6_flush_trees(). A fresh serial
-> is allocated from the namespace counter first, then every node is
-> restamped under tb6_lock. A late rt6_get_cookie() can pick up that
-> post-insertion serial for a dst whose lookup ran before the insertion,
-> and the pair keeps passing dst_check until the next flush. Sampling the
-> cookie between two generation reads closes the in-lookup window. A
-> policy inserted after the helper returns is still caught later, because
-> the restamp changes fn_sernum itself and the stored pre-insertion cookie
-> stops matching. fib6_new_sernum() never returns 0, so the fallback
-> cookie always fails fib6_check().
->
+> > I *think* this is unrelated because the futex caller shouldn't end up
+> > here. The __rt_mutex_slowlock() -> rt_mutex_handle_deadlock() should be
+> > different for the futex and ww_mutex case.
+>=20
+> The futex caller does not go through __rt_mutex_slowlock(). It gets to
+> the chain walk through the proxy lock:
+>=20
+>   futex_lock_pi()
+>     rt_mutex_init_waiter(&rt_waiter)
+>     __rt_mutex_start_proxy_lock()
+>       task_blocks_on_rt_mutex(..., RT_MUTEX_FULL_CHAINWALK)
+>         rt_mutex_adjust_prio_chain()
+>=20
+> rt_mutex_adjust_prio_chain() reads waiter->ww_ctx in two places:
+>=20
+> 	if (IS_ENABLED(CONFIG_PREEMPT_RT) && waiter->ww_ctx && detect_deadlock)
+> 		detect_deadlock =3D false;
+> 	[...]
+> 		if (IS_ENABLED(CONFIG_PREEMPT_RT) && orig_waiter && orig_waiter->ww_ctx)
+> 			ret =3D 0;
+>=20
+> Both tests are under IS_ENABLED(CONFIG_PREEMPT_RT), not under
+> build_ww_mutex(). So the futex build of the chain walk has them too.
 
-Yes, that's a pretty good summary of the change with the small
-correction that a newly linked node holds fn_sernum 0 until fib6_add
-stamps it. So a cookie-0 dst can pass a check in that window, and fails
-as soon as the stamp lands.
+Yes, this part. I realised this later=E2=80=A6
 
-> 1/3 checks out as well. The old code kept writing -1 into the node, so a
-> second failure changed nothing and the namespace generation never moved.
-> The fresh allocation under tb6_lock matches the discipline the
-> fib6_ifup()/fib6_ifdown() paths already get from __fib6_clean_all().
-> The conversion boundary in 3/3 also matches the tree: rawv6 does not
-> cache the dst, and the accepted-socket and refill stores in tcp_ipv6.c
-> are listed as follow-up.
->
+> > Is this really the case?
+> > You have a lock chain where the ww_mutex and a regular rtmutex interact?
+>=20
+> No ww_mutex is needed. Two PI futexes are enough. Both waiters come from
+> rt_mutex_init_waiter() in futex_lock_pi(), so both hold the 0x11 poison
+> in ww_ctx with CONFIG_DEBUG_RT_MUTEXES. The chain walk takes them for
+> ww_mutex waiters.
+>=20
+> The deadlock case of futex_lock_pi_inherit (patch 4) is that ABBA. With
+> PREEMPT_RT and CONFIG_DEBUG_RT_MUTEXES, it fails without this patch: the
+> second FUTEX_LOCK_PI blocks. It passes with it.
 
-In fact there are many users of cached IPv6 dsts that will need
-conversion and this series is mainly here to introduce the new API.
+right. That is an issue.
 
-> One thing I could not fully work out is the ordering behind the
-> generation checks. When the lookup misses a change, the reader relies on
-> the two generation reads to notice it. My understanding is that this
-> needs the change visible before the counter advance, and the counter
-> advance visible before the node restamps. I could not establish either
-> hop, though I may well be missing something.
->
-> In xfrm_policy_insert(), the policy is linked into the hash and
-> rt_genid_bump_ipv6() runs within the same critical section. As far as I
-> can tell, the linking stores and the cmpxchg on fib6_sernum are all
-> relaxed, with no barrier between them. Could a reader read the advanced
-> generation in gen0, miss the policy during the lookup, sample a
-> restamped fn_sernum, and still read the same generation in gen1?
->
+> > I would argue that the full-chainwalk depends now
+> > on a random stack value _and_ __waiter_less() might access the random
+> > value if ww_mutex is enqueued and a regular mutex exists in the lock
+> > chain.
+>=20
+> Yes, those are the two effects. I reproduced the first one only. The
+> second one is from reading the code, which is why the changelog says
+> "would dereference".
 
-Both hops are covered by fib6_new_sernum. It allocates the serial with
-atomic_try_cmpxchg, which is fully ordered when it succeeds, so it acts
-as an smp_mb before and after the update of fib6_sernum.
+The deference _shouldn't_ happen because those two a different. However,
+we could have a mix of those two and which point it becomes relevant.
 
-For the first hop, the policy (or route) is linked before
-fib6_new_sernum runs, which gives message passing against the smp_rmb
-after gen0: a reader that reads the advanced generation in gen0 also
-finds the policy.
+> You are right that the changelog is confusing. It starts with the futex
+> symptom, and only then says where the value is read. In the planned next
+> version, I would put the mechanism first, with the call path above. Does
+> this read better?
+>=20
+>     rt_mutex_init_waiter() does not set waiter->ww_ctx. Only
+ rt_mutex_waiter::ww_ctx please
 
-> In fib6_flush_trees(), the serial is allocated before __fib6_clean_all()
-> takes tb6_lock, and fib6_clean_node() stamps the nodes with a plain
-> WRITE_ONCE(). spin_lock() is an ACQUIRE, and my reading of
-> memory-barriers.txt is that operations issued before an ACQUIRE may
-> complete after it. So a reader could sample the restamped fn_sernum
+>     __rt_mutex_slowlock_locked() sets it. So the waiters of PI futexes
+>     and rtlocks keep the 0x11 poison of CONFIG_DEBUG_RT_MUTEXES. Without
 
-For the second hop, every fn_sernum write follows a successful
-fib6_new_sernum on the same CPU: fib6_update_sernum,
-__fib6_update_sernum_upto_root, and fib6_clean_node in the flush case.
-The full barrier orders the counter update before the tb6_lock
-acquisition and the stamps, so the ACQUIRE semantics of spin_lock don't
-matter here. A reader that samples a restamped fn_sernum reads the
-advanced generation in gen1 after the smp_rmb, and the helper returns
-cookie 0.
+or random garbage which.
 
-> between two reads that both still return the old generation. The only
-> pairing I found written down here is fib6_get_cookie_safe()'s smp_rmb()
-> against the smp_wmb() in __fib6_update_sernum_upto_root().
->
+>     that option, they keep what was on the stack, unless the compiler
+>     zeroes it.
+>=20
+>     With PREEMPT_RT, ww_mutexes are built on rtmutexes. They can create
+>     a cycle in the lock graph legitimately, and the wound/die logic
+>     resolves it. So rt_mutex_adjust_prio_chain() turns deadlock
+>     detection off when it finds a waiter with a ww_ctx. It also drops
+>     the -EDEADLK of a walk that started from such a waiter. Both tests
+>     are under IS_ENABLED(CONFIG_PREEMPT_RT), so every build of the chain
+>     walk has them.
 
-Right, this isn't documented. The barrier comments in
-ip6_dst_lookup_flow_cookie should name fib6_new_sernum as the pairing
-side, and fib6_new_sernum should state that its full ordering is relied
-upon.
+I would strip that paragraph because *I* think it is more important to
+mention the FUTEX case which no longer does proper chainwalk regardless
+of PREEMPT_RT. Yes, ww_mutex has=20
 
-I also checked both hops with an LKMM litmus test: the outcome you
-describe is forbidden with atomic_cmpxchg and becomes reachable with
-atomic_cmpxchg_relaxed.
+>     FUTEX_LOCK_PI gets there with no ww_mutex in the chain:
+>=20
+>       futex_lock_pi()
+>         rt_mutex_init_waiter()
+>         __rt_mutex_start_proxy_lock()
+>           task_blocks_on_rt_mutex()
+>             rt_mutex_adjust_prio_chain()
+>=20
+>     The chain walk takes its waiters for ww_mutex waiters. With
+>     PREEMPT_RT and CONFIG_DEBUG_RT_MUTEXES, FUTEX_LOCK_PI then reports
+>     no deadlock. Two threads that each block on a PI futex the other
+>     holds sleep forever. Without PREEMPT_RT, the second one gets
+>     EDEADLK. FUTEX_LOCK_PI also blocks on a chain deeper than
+>     max_lock_depth, instead of returning EDEADLK.
+>=20
+>     The ww_mutex build of the chain walk can also requeue such waiters.
+>     On two of them with equal priority, __waiter_less() would
+>     dereference the poison.
 
-While going through the writers I also noticed that xfrm_policy_insert
-unlinks a replaced policy only after rt_genid_bump_ipv6, so a lookup
-after the bump can still match the old policy. That is a writer-side
-ordering issue independent of this series, and it affects the current
-late cookie sampling in the same way. I'll send a separate fix.
+The futex code for PI_LOCK performs a RT_MUTEX_FULL_CHAINWALK during
+locking. rt_mutex_adjust_prio_chain() then wrongly assumes that it is a
+ww_mutex (due to random garbage in rt_mutex_waiter::ww_ctx) and does not
+report a deadlock but expects the caller to handle it.
 
-Does this explanation address your concern? If so, I'll carry your
-Reviewed-by. I'm waiting for the Sashiko review of v3: if it reports
-anything that needs a respin, I'll add the barrier comments in v4,
-otherwise I'll send them as a follow-up.
+>     Fix this by clearing waiter->ww_ctx in rt_mutex_init_waiter().
+rt_mutex_waiter::ww_ctx
 
-Thanks for the careful review!
+This, Fixes: and=20
 
--- 
-Ralf Lici
-Mandelbit Srl
+Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+
+> Thanks,
+>=20
+> Mathieu
+
+Sebastian
