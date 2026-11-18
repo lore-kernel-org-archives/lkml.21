@@ -1,91 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=83.166.143.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795013546;
-	b=BiMZMoSj/BzcH7aIRciOhvT1dYf8fXFd2hqDGRLesjHqO4vX7lVmgpysKE36piAQKJBu
-	 +yyM6D8oWxhsvOfRgmoecfwzYcr5tek1hOalTn5svXZhTqsZpbgkA4U4+hfVAACTGC+Iq
-	 ChG0tcG3st3DEAgeFzVqVTpxu690XcRd72/pHi2MOaeD/UXDjTbupZliIYGLoCPQOr24u
-	 RSAQU0sD6D1nOTt4ZNeYopMxT2KHriWSg3wFl5fHJnVOKlfiIhTMeulntJGvC6N68GjM6
-	 Gy1Z402PhQcI8eAj/u8LFL9nCrpu3HcCHH0pFhH/3bYzW1GOcnhw/Tt64pCcYbhCa+A==
+	t=1795013552;
+	b=fdfNbB6zEPiStdYZOfgvNEFxFTRqkuXWKp3FiSFqrAWVgwmcY5fRiX8ovQSQD+f5Du6t
+	 yYVXlIIdyQyjPeWpf32X8X2kGPrxrVCfafMWv1FFeDWukUAimcTkUD05niG8KpM78sxQv
+	 bkGxZsqzOAf/F6kP/frYBO471SboKdTMVZpvJuACpTiYNynecDKIM0OL/v7tjv7Le4MH5
+	 x98X2nXt9QWD9CcqRzsZSIIKNxzyfMOnQNFM4fpiQekYN3A6dOs5MnWaJc/9iYeI0dAde
+	 c84tuq95ieAJUX/938352uavJNPJ1ZFcu4DlqG0DNg+dDh0qb5B0I8C3MjirPis7AYg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795013546;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=u4fw6wH7cRG89Xgv9DmNPTYzRhO7v7keamB5liM55x0=;
-	b=fQgBUoegVnBxTT7PUkcvTP4yKU37CnaONROlG4bu1RK/oy3IEeBCwZtds0xtZ3wVQY71
-	 EYMp+L3Hsai0AnxVR4CGheQTmaY5CHSUq6HsU0VkvI/GCMCI7REf+bxtgV/+D0uw4fu4v
-	 9AfGjW+x+RCYKmaJP2JpIEZzj0a8Z+7pHjdVaOXogVrkcAjOiLE/1VdQaUJc2IwfPcYsA
-	 fwEqA/9iV1tHtpnB2OPYR3NJcjItCKR+1M3LY6KYhuLQYfsk5I1FWe47gDZ3Imzct0z1F
-	 lzjyrSbsPGEaY+HWZdNT/8fw2ZcNNd/7U5P4ajrUjnwsIrp+NaI9BDGcH6K7G3NmvIQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795013552;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:From:To:Cc:Subject:
+	 Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Infomaniak-Routing;
+	bh=/aiNYGgyuWnsvGFztgtB90Y0bNp9E0nMWbyIXMfAW8k=;
+	b=v7CTZ4LwLwlTUuWVrcGjMJ7edp1DsSGMt1tt55j/QEonbjyD8/MFX5iGzkhK8Yh5wTY+
+	 kzkvocZNjOKIyB6CDkQ13Bma1GGGQvT+PawsJKy3y745ulgd/8xBGdEjlfTH5237YZAlf
+	 HFV+dLXGtJTbhLrxeqdpuFa+E2b+PhXi+mk1us5GAOklw4igG/g5AGYLYISMg7p4Ao8JM
+	 H+mYLa61Vro0nAi1L96fLbgXHTsNinXCdzmvWgE514MPfzZ4xyLrC/ldpxMRucrt2bQPK
+	 +XdRy5W1BP+IWUeND16ST4E9uggb7NswqiERhGqkLs6E4BUe+dj7UguhyrNFiYUmi/g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dmMB1JqZ;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=digikod.net;
+	spf=pass smtp.mailfrom=digikod.net;
+	dkim=pass header.d=digikod.net header.i=@digikod.net header.a=rsa-sha256 header.s=20191114 header.b=MdjHt7CH;
+	arc=none smtp.remote-ip=83.166.143.175
+Received: from smtp-8faf.mail.infomaniak.ch (smtp-8faf.mail.infomaniak.ch [83.166.143.175])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4BED606A33B;
-	Wed, 18 Nov 2026 14:52:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB3C060A2608
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:52:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB3C060A2608
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=digikod.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=digikod.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dmMB1JqZ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A35461F000C4;
-	Wed, 18 Nov 2026 14:52:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795013546;
-	bh=u4fw6wH7cRG89Xgv9DmNPTYzRhO7v7keamB5liM55x0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dmMB1JqZH1zCDAONsrZJ5AXpbtBhioXa5f2XoqUI4Tl4ece9yzguQMNNy7LcKcbU/
-	 SFXKxhz60iY7aZB/cKWhVkx2kI3mvr9wpdq5vhKxwcGSYKWzyPIkU95mFq6dr4X2C5
-	 8tVA+8eO+zY1sJU/8a3biSSof6aItdm5RnJ++Q3LbsjRB+MXCn4VBH0ycBgldRitLK
-	 TGKrEbeTSrAOAqVWJtDMKtfqbC7gQt794hyCBK6KLy4pjGdTSqKxfTn6assRS7ijQh
-	 IeipmuUfsmYzdar26x9qGw0mPzJfuqLKDdQ7mu2oIcFU5WCAbmwqAccEBhhK5qzqky
-	 CIG+yJLR4jpPQ==
-Date: Wed, 18 Nov 2026 16:52:10 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Tal Zussman <tz2294@columbia.edu>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Peter Xu <peterx@redhat.com>,
-	James Houghton <jthoughton@google.com>,
-	Andrea Arcangeli <aarcange@redhat.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Balbir Singh <balbirs@nvidia.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>,
-	Pedro Falcato <pfalcato@suse.de>,
-	David Hildenbrand <david@kernel.org>,
-	Michal Hocko <mhocko@suse.com>,
-	=?utf-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>,
-	Andrei Vagin <avagin@gmail.com>,
-	Muhammad Usama Anjum <usama.anjum@arm.com>,
-	Stephen Rothwell <sfr@canb.auug.org.au>,
-	Arnd Bergmann <arnd@arndb.de>, Zi Yan <ziy@nvidia.com>,
-	Matthew Brost <matthew.brost@intel.com>,
-	Joshua Hahn <joshua.hahnjy@gmail.com>,
-	Byungchul Park <byungchul@sk.com>,
-	Gregory Price <gourry@gourry.net>,
-	Ying Huang <ying.huang@linux.alibaba.com>,
-	Alistair Popple <apopple@nvidia.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Nico Pache <nico.pache@linux.dev>,
-	Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
-	Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>,
-	Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	Oscar Salvador <osalvador@suse.de>,
-	=?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>,
-	linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org,
-	Thomas =?iso-8859-1?Q?Hellstr=F6m?= <thomas.hellstrom@linux.intel.com>,
-	Lyude Paul <lyude@redhat.com>, Danilo Krummrich <dakr@kernel.org>,
-	Felix Kuehling <Felix.Kuehling@amd.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>,
-	dri-devel@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
-	nouveau@lists.freedesktop.org, amd-gfx@lists.freedesktop.org
-Subject: Re: [PATCH v3 8/9] mm/migrate_device: do not migrate a
- uffd-protected zero page
-Message-ID: <av27miMZrEyB5egZ@kernel.org>
-References: <20261117-uffd-state-fixes-v3-0-b617009d1a4a@columbia.edu>
- <20261117-uffd-state-fixes-v3-8-b617009d1a4a@columbia.edu>
+	dkim=pass (1024-bit key) header.d=digikod.net header.i=@digikod.net header.a=rsa-sha256 header.s=20191114 header.b=MdjHt7CH
+Received: from smtp-3-0001.mail.infomaniak.ch (smtp-3-0001.mail.infomaniak.ch [10.4.36.108])
+	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4jV4MK4fbszwqf;
+	Wed, 18 Nov 2026 15:52:29 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=digikod.net;
+	s=20191114; t=1795013549;
+	bh=/aiNYGgyuWnsvGFztgtB90Y0bNp9E0nMWbyIXMfAW8k=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=MdjHt7CHaXwkK2ooAfe7ZvaEE6GZC8MmwRKrvIpKlg2YuAzNvrefHFTOGaMAiwqRy
+	 F/SIdFdLKSbDW61KePxEPRt+7EHWbuLin1DoMxioC3wohEk/4M6xpbPAMYwOrJYZLy
+	 ifMC2b2yXU0Y5o4v9LKBGyhdUchf19aJ4eCt8t+w=
+Received: from unknown by smtp-3-0001.mail.infomaniak.ch (Postfix) with ESMTPA id 4jV4MJ3W3rzV3w;
+	Wed, 18 Nov 2026 15:52:28 +0100 (CET)
+From: =?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?= <mic@digikod.net>
+To: =?UTF-8?q?G=C3=BCnther=20Noack?= <gnoack@google.com>
+Cc: =?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?= <mic@digikod.net>,
+	Ada Smith <adasmithgt@gmail.com>,
+	Hungyu Lin <dennylin0707@gmail.com>,
+	James Morris <jmorris@namei.org>,
+	Josef Bacik <josef@toxicpanda.com>,
+	Paul Moore <paul@paul-moore.com>,
+	Serge Hallyn <serge@hallyn.com>,
+	Serge Hallyn <sergeh@kernel.org>,
+	kernel-team@cloudflare.com,
+	linux-kernel@vger.kernel.org,
+	linux-security-module@vger.kernel.org
+Subject: [PATCH v3 6/6] landlock: Fix capability restriction documentation
+Date: Wed, 18 Nov 2026 15:52:10 +0100
+Message-ID: <20261118145217.2551053-7-mic@digikod.net>
+In-Reply-To: <20261118145217.2551053-1-mic@digikod.net>
+References: <20261118145217.2551053-1-mic@digikod.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,50 +72,116 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261117-uffd-state-fixes-v3-8-b617009d1a4a@columbia.edu>
+X-Infomaniak-Routing: alpha
 
-On Tue, Nov 17, 2026 at 11:28:48PM -0500, Tal Zussman wrote:
-> Device migration replaces a PTE that maps the zero page with a new PTE
-> that is built only from the VMA flags, so its userfaultfd WP or RWP
-> protection is lost. The same applies to the huge zero PMD. Writes and
-> accesses to the page are then no longer reported to userfaultfd.
-> 
-> To fix it, do not migrate a uffd-protected zero page. Skip it during
-> collection, and check again under the page table lock before inserting,
-> as another thread can protect the page after it was collected.
-> 
-> The alternative would be to carry the uffd state over to the new entry,
-> but a uffd-protected zero page in a range that a driver migrates should
-> be rare.
-> 
-> While at it, read the PMD once with pmdp_get() in
-> migrate_vma_collect_huge_pmd().
-> 
-> Fixes: 292924b26024 ("userfaultfd: wp: apply _PAGE_UFFD_WP bit")
-> Fixes: a30b48bf1b24 ("mm/migrate_device: implement THP migration of zone device pages")
-> Cc: Thomas Hellstr�m <thomas.hellstrom@linux.intel.com>
-> Cc: Lyude Paul <lyude@redhat.com>
-> Cc: Danilo Krummrich <dakr@kernel.org>
-> Cc: Felix Kuehling <Felix.Kuehling@amd.com>
-> Cc: Jason Gunthorpe <jgg@ziepe.ca>
-> Cc: Leon Romanovsky <leon@kernel.org>
-> Cc: dri-devel@lists.freedesktop.org
-> Cc: intel-xe@lists.freedesktop.org
-> Cc: nouveau@lists.freedesktop.org
-> Cc: amd-gfx@lists.freedesktop.org
-> Reviewed-by: Alistair Popple <apopple@nvidia.com>
-> Signed-off-by: Tal Zussman <tz2294@columbia.edu>
+Some documented claims about LANDLOCK_PERMISSION_CAPABILITY_USE do not
+hold for every capability check.  Remove them instead of listing their
+exceptions, and stop calling this permission a hook.
 
-Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Cc: Günther Noack <gnoack@google.com>
+Cc: Paul Moore <paul@paul-moore.com>
+Cc: Serge Hallyn <serge@hallyn.com>
+Acked-by: Serge Hallyn (AMD) <sergeh@kernel.org>
+Reviewed-by: Günther Noack <gnoack@google.com>
+Fixes: 97c8386f1d74 ("landlock: Enforce capability restrictions")
+Signed-off-by: Mickaël Salaün <mic@digikod.net>
+---
 
-> ---
->  include/linux/userfaultfd_k.h | 24 ++++++++++++++++++++++++
->  mm/migrate_device.c           | 34 ++++++++++++++++++++++++++--------
->  2 files changed, 50 insertions(+), 8 deletions(-)
+Changes since v2:
+https://patch.msgid.link/20261117101157.2520463-7-mic@digikod.net
+- Describe the permission as only reducing the capabilities that
+  processes can use (suggested by Günther Noack).
+- Add Günther Noack's Reviewed-by.
 
+Changes since v1:
+https://patch.msgid.link/20261110202436.2408244-7-mic@digikod.net
+- Add Serge Hallyn's Acked-by.
+---
+ Documentation/security/landlock.rst      | 8 ++++----
+ Documentation/userspace-api/landlock.rst | 8 ++++----
+ include/uapi/linux/landlock.h            | 7 +++----
+ 3 files changed, 11 insertions(+), 12 deletions(-)
+
+diff --git a/Documentation/security/landlock.rst b/Documentation/security/landlock.rst
+index d81f1c2cd236..98c2e7139e8d 100644
+--- a/Documentation/security/landlock.rst
++++ b/Documentation/security/landlock.rst
+@@ -8,7 +8,7 @@ Landlock LSM: kernel documentation
+ ==================================
+ 
+ :Author: Mickaël Salaün
+-:Date: October 2026
++:Date: November 2026
+ 
+ Landlock's goal is to create scoped access-control (i.e. sandboxing).  To
+ harden a whole system, this feature should be available to any process,
+@@ -359,9 +359,9 @@ framework in ``log.c``, compiled under ``CONFIG_SECURITY_LANDLOCK_LOG``
+ (automatically selected by ``CONFIG_AUDIT`` or ``CONFIG_TRACEPOINTS``).
+ 
+ Audit records respect audit configuration, the domain's Landlock log
+-flags, and ``LANDLOCK_LOG_DISABLED``.  Tracepoints fire unconditionally,
+-independent of these settings.  The denial counter (``num_denials``) is
+-always incremented regardless of logging configuration.
++flags, and ``LANDLOCK_LOG_DISABLED``.  Tracepoints fire independently of
++these settings.  The denial counter (``num_denials``) is
++incremented regardless of logging configuration.
+ 
+ Each denial tracepoint carries a ``logged`` field reporting the
+ audit-logging verdict: whether the denial would be written to the audit
+diff --git a/Documentation/userspace-api/landlock.rst b/Documentation/userspace-api/landlock.rst
+index 3d45b956b640..d00e94d8ed37 100644
+--- a/Documentation/userspace-api/landlock.rst
++++ b/Documentation/userspace-api/landlock.rst
+@@ -8,7 +8,7 @@ Landlock: unprivileged access control
+ =====================================
+ 
+ :Author: Mickaël Salaün
+-:Date: October 2026
++:Date: November 2026
+ 
+ The goal of Landlock is to enable restriction of ambient rights (e.g. global
+ filesystem or network access) for a set of processes.  Because Landlock
+@@ -532,7 +532,7 @@ acquisition via :manpage:`open_tree(2)` / :manpage:`fsmount(2)`.  Namespaces
+ the process is already a member of when the domain is enforced are implicitly
+ allowed (the process could not continue running otherwise); rules describe
+ which new namespace types the process may acquire.
+-``LANDLOCK_PERMISSION_CAPABILITY_USE`` gates every exercise of a capability
++``LANDLOCK_PERMISSION_CAPABILITY_USE`` gates the exercise of capabilities
+ after the domain is enforced, regardless
+ of how the capability was obtained (inherited credentials, ``CLONE_NEWUSER``
+ grant, ``setuid``/file-cap-bearing :manpage:`execve(2)`, etc.).  Configuring
+@@ -641,9 +641,9 @@ after a domain is enforced through user namespace entry or :manpage:`capset(2)`;
+ privileged sandboxes that did not set ``PR_SET_NO_NEW_PRIVS`` may also gain
+ capabilities through :manpage:`execve(2)` of binaries with file capabilities.
+ In all cases, :manpage:`capget(2)` will report the credential's capability sets,
+-but any denied capability will fail with ``EPERM`` when exercised.  Do not rely
++but any denied capability will fail when exercised.  Do not rely
+ on :manpage:`capget(2)` to determine whether the policy permits a given
+-capability; only the actual operation will return ``EPERM`` upon denial.
++capability.
+ 
+ Truncating files
+ ----------------
+diff --git a/include/uapi/linux/landlock.h b/include/uapi/linux/landlock.h
+index 24510e5d8479..558a610baea5 100644
+--- a/include/uapi/linux/landlock.h
++++ b/include/uapi/linux/landlock.h
+@@ -622,10 +622,9 @@ struct landlock_capability_attr {
+  * - %LANDLOCK_PERMISSION_CAPABILITY_USE: Restrict the use of specific Linux
+  *   capabilities.  A process in a Landlock domain that handles this permission
+  *   is denied from exercising capabilities that are not explicitly allowed by a
+- *   %LANDLOCK_RULE_CAPABILITY rule.  This hook is purely restrictive: it can
+- *   deny capabilities that the kernel would otherwise grant, but it can never
+- *   grant capabilities that the kernel already denied.  Support added in
+- *   Landlock ABI version 12.
++ *   %LANDLOCK_RULE_CAPABILITY rule.  Landlock only reduces the capabilities
++ *   that processes can use: it does not let them use capabilities that they
++ *   would not have without Landlock.  Support added in Landlock ABI version 12.
+  */
+ #define LANDLOCK_PERMISSION_NAMESPACE_USE			(1ULL << 0)
+ #define LANDLOCK_PERMISSION_CAPABILITY_USE			(1ULL << 1)
 -- 
-Sincerely yours,
-Mike.
+2.56.0
+
