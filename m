@@ -1,95 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.46.47
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795001111;
-	b=vEy9EEgORDFCc50Jztrsk+xZreCvcxWhl/zZDHOUqIlGIdpl6++y+BvH51kcwnYN4zYV
-	 4SSz63xlFfGUNAKAaWV/CLKkxHjVr/whr7Jh1Zu+RzGwxyLf69RXUkiSp5A4LOvRV03TF
-	 MrpP3c55ix6rDp+/Wm6lG85WafRxgUwRUFqispCnfk6DS6z3wYYltCg4N0sfD24h02DGv
-	 Gj611hZDT06z5JCqCGSrjrdGSOTIqGNytpYw9mRrIY6zMHrG4GwhGD3Nhvq0iQc9jTOc7
-	 QVH70SlYwTaQ6JnqbW0PZyNx7bf8eOSWtRjaOh7YA0LMjeQ0gWAG+oU+CnvNey82qdQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795001111;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=zM3k/2WCvMrCdMm27K8Fi760CqD+YE5EovKRW6Oi8RA=;
-	b=fuBllJ3GP1sksME4m+o1xHu436jSuM5YY0x+ye5mx1HDPpHpf77tfOIfJVavqoTru5Km
-	 E61tWM+osBbmkBaQdeBlUP1Oe/ZaA9bVNa9TKqfoM7g+3bl+d+be6Bw5RoLRrZaO+RUVp
-	 jWTK5hp75FaflqhG0lxj2clLbeF8ismbI8q38QjpawwkOk45cjbqxFwFmv5pbhfGVppz+
-	 NUo3oCxWilS4PKoE/8e1XbqkCocKeBNyW/p5z++xMzrC7owOVfyUKFXtU7rNUHJfR+wkp
-	 BCq/eEBtecvDydWTnDdRndn5+eTbijP6V855Fhv4L+Sr1NwKnw1HPVd2wWYXOg5N7Yg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=citrix.com;
-	spf=pass smtp.mailfrom=citrix.com;
-	dkim=pass header.d=citrix.com header.i=@citrix.com header.a=rsa-sha256 header.s=selector1 header.b=qLd2n2SV;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.46.47
-Received: from CO1PR03CU002.outbound.protection.outlook.com (mail-westus2azon11010047.outbound.protection.outlook.com [52.101.46.47])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.182
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795001131;
+	b=pnQtmupYrnD10e+9gbCUOgbGui+K+H/gNRtjhXmOFDXn5JQWhTBTZdMPdV/iwZJ1Gypi
+	 /T/Vbv6LgZ4vtJ7HgjnHpxNUvVMB1FtTvfzskwWbDrEl2LXGTpact0+jf4hWRAQ8FkONP
+	 VZdQQhZHyiJJ53eH/ki9klCDZPt78dpvX57J7ZVa/ZjU67RYF0D9aNpcQCaWHNCcq51lH
+	 uqMp3cgrxE8XbZWOYjZ8cHpomrAmTIzvVuc2M7jhl+OeEHaNQ2YQOrP0Essd4jDDId71o
+	 qtwy1MkB5Zl+NdphoURp1qct5dXtN3rLJXWJZW6WXSFeOQGtL/ZHsBeQ3WwBcEsZUsA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795001131;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=YoWmRHzC0ZELuZ7/SC3fVKMECkRMqpESbzYlx1qsT7E=;
+	b=C7/Oe21BUIJFrlMo8VALhR4P9KJHFkVGH1rrBL2tePMh+lWRDmFLh5xy4LYFI156ntfA
+	 OUEyVEG/JFwhDHBV8KogO9Qsf2PyYpU9VmbnBEQYTxDJcV3WTUhhkClP17/0S8K9XnmqP
+	 7WPHdVuay0itgdMks6N2+fOLMJjBlSt1mDUw9WkRN1ZhB/W+1xPsAcOsy8nRiEQKxe+fb
+	 Emi7Sun6/uZHlzFg/D4MgHSZ3jcpnvBLCN4JJZpQ/2LYMGRWFH/opfcjsc5gihVihmwCE
+	 DeulSq2ZAN/w514ftaXimhO+MN89WIbeyX9FYsqiP22UZnu7Vgop7h1IGCVf7n5SAhw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BhHhSd8J;
+	arc=none smtp.remote-ip=209.85.214.182
+Received: from mail-pl1-f182.google.com (mail-pl1-f182.google.com [209.85.214.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6E76606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:25:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6E76606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=citrix.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=citrix.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5AEDA606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:25:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5AEDA606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=citrix.com header.i=@citrix.com header.a=rsa-sha256 header.s=selector1 header.b=qLd2n2SV
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vJgKLig6WnslawOZfsuMRvdo23gTnsuta62R4N3FJIVavCfLLIJeWvj/+hKy9nrFJBr5ykFCtnFxXMF5pNrjmgU3qvERASh4AD3o1HHNd+sA+xkZ1z0Dgrn39vXThfaoDHCURfEf+j/iAfMcoqIXzCrHjyGPAMyaPpjmOYvk7UBiOc9uucfL7yASfoagu88bj9e5mAJh5jPtWPb94bWc0l/PSZ8jP3lbubPsGt0cTfqLfxAAhG1745zaXbNqcXUiWYBwb5Zd6Mq9Q84ept2+TQFvgUlt5AcWtZuyi9mNXdZumPfMgN31Yi7x5Cwudv26u/QSzuXlyAiOpjMg8qDe5Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zM3k/2WCvMrCdMm27K8Fi760CqD+YE5EovKRW6Oi8RA=;
- b=i6vWGs2LH90jfHBwDZLypd1ubIiFjGbKc3D5yDCot8iIpR5qgKa1N+C7mube300eoDkzE/iG7AU7etPtKxDPrQIUpp/EDizxhO+75iQJGx1dvucnMnmyGPwZ85YMP6Dx0LJkOqZaHaB85eEyJ1ytBRKy6mpuI9svRwCpCYH6+ss5hC1f69Eb1o4K7GiOaV2VhevJRPRfkcwijAXXAHodRFyCX++hvsYvCJ+XtfI6vBic8x7EXM0kLe8ZlpQR21+AvnCe/WZAlV+n67tYeFL+u6PkRg2cwaLykE94nZJnrz594q7KtUrCJla0W+ebF2sGVhro2CSjkIG0/Z8jer+31Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=citrix.com; dmarc=pass action=none header.from=citrix.com;
- dkim=pass header.d=citrix.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=citrix.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zM3k/2WCvMrCdMm27K8Fi760CqD+YE5EovKRW6Oi8RA=;
- b=qLd2n2SVmH/37PqLRraugs6QsZTLE3chLZ/6aS8gqviro951JXCAE8kdjax/wri2US74zXv/0avoaLZOafycRtthFbmou+xp51v/SdfAVb4+yoQLxiu6jB5rqBtvb4KRwFYkXyCt4AB4iq6IOzVrUv+XB+jGpvlfTwcL0BHwPn8=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=citrix.com;
-Received: from CH8PR03MB8274.namprd03.prod.outlook.com (2603:10b6:610:2ba::5)
- by SJ2PR03MB7166.namprd03.prod.outlook.com (2603:10b6:a03:4f8::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.13; Wed, 18 Nov
- 2026 11:25:09 +0000
-Received: from CH8PR03MB8274.namprd03.prod.outlook.com
- ([fe80::ebe2:32c1:d2be:a096]) by CH8PR03MB8274.namprd03.prod.outlook.com
- ([fe80::ebe2:32c1:d2be:a096%4]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 11:25:08 +0000
-Message-ID: <75f37608-f3ef-48db-8e7b-4a1ba13a9ee0@citrix.com>
-Date: Wed, 18 Nov 2026 11:25:04 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] xen/swiotlb: Check the segment boundary in
- range_straddles_page_boundary()
-To: Lin Liu <lin.liu01@citrix.com>, jgross@suse.com, sstabellini@kernel.org
-Cc: oleksandr_tyshchenko@epam.com, andrew.cooper3@citrix.com,
- xen-devel@lists.xenproject.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <807c3b040b02d7d89f1cac76eb137afbee91015d.1794573814.git.lin.liu01@citrix.com>
-Content-Language: en-US
-From: Ross Lagerwall <ross.lagerwall@citrix.com>
-In-Reply-To: <807c3b040b02d7d89f1cac76eb137afbee91015d.1794573814.git.lin.liu01@citrix.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO4P123CA0218.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:1a6::7) To CH8PR03MB8274.namprd03.prod.outlook.com
- (2603:10b6:610:2ba::5)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BhHhSd8J
+Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-2eff722a480so4385285ad.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:25:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795001131; x=1795605931; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=YoWmRHzC0ZELuZ7/SC3fVKMECkRMqpESbzYlx1qsT7E=;
+        b=BhHhSd8Jqwqaq+ZpO72sN5yxdyMAYiIVo/1PbavN/9YSm1mLO++iVhA7k2Udt0uv9N
+         i6acSDn7tj3qkYtH900QKBWJFouCFLttP0SKwwGll7Kc7A/Nw9/V/lWRCpGCSY480gsU
+         qfmFsQHeegbR84dlAEYHFJ9EmaIOWQQMpYufu+vMN1p+HbBZqq3JhMezwDiZio1mPBH7
+         7s8PnLsYF5CDIjUjhE9eT2yJ4kbRV+zg/t8dU04AG8MS8iZUIEuA8OWkb3wyZ+zy8U1r
+         mpvmtgguowT7hirXMXeY/HjNfEzTV4piCLpP5rMxMMPvY++/63hE1c1cS5bWsIiO20Ea
+         oBgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795001131; x=1795605931;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=YoWmRHzC0ZELuZ7/SC3fVKMECkRMqpESbzYlx1qsT7E=;
+        b=H8G1XYTZsjnNFscYxlX720mEU8VW3kr4IGwvKqQ8EZpKKyHgF018uuq9rBYzsRNtZu
+         0J80/jQbZXwrchyMY2jDzT7GM/xybYkqF+4ZPwwkigCGs3x+bwaQFSkKj1bEkeZySfP3
+         9qwUtnkmrkli9vWPdECzDTQmpTlB9isAJuKjqCiccNXk5+pse/lDBMg3JX6CI2GKJsp3
+         4S3zA4iS8kUNXzCEKw5Xs340Yb6AFYorotVPb9BJKRKpct51o80Hz1FKdfVtPXOyNkH8
+         ITi/1VGF9np6o5OyWIPJ68KOb3u2dHkzwDEiIRXf6RiGBJdLIfJymvdVoEvz6w3sJduI
+         rtWg==
+X-Forwarded-Encrypted: i=1; AL+hErHYVHf9MOnQ8w2xz84eiZDueTEf03HaLDRzK26oL0sTwP9zwgRFZi2F64ZCatQuDAEfUJ10zupVQC9fMT4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+7+NQcf6sSyqbDUshYTjsUqHKoTGFHRuwq7u1jrlsumSLKkng/
+	wJ9IKavMtQ26kkHAWpC8HmVGQu3EiqRzeL8+qg53YwWFSGA1IRHK+kjJ
+X-Gm-Gg: AZFdTZejrH06KCI7WfGymba65O0jdAnAue3QexU/alv2PPDn0HT5GjgU0DDiPNbWIoV
+	i3hdZONxqNVOD/x/7Ui2meJxah8dqHuCaAz5nA8wvNBvKO5uo12c6731yGu4pIJ05NXoSQLXDcv
+	S42hv56roBCMXFyvLPR7tJmBFjH3Yb2NBoMmJ8JDlhdDHgcJfMYgzvBWYV/HOR5mA9WpSESKof0
+	PIRgzALTayWTDMz3h05CeJE3DaHsyCZQYSiNzLooQFbnl2NSAs3lLjBImgsfHsnZufEfvv2oGwe
+	8BRl8sZZUixVYJWzJqOb9QB1Ey8Fh/2JMsEHVkJKVklfjnoiSCnjGhPOTTGmk30G2OCwwhY/iu0
+	JWy7VHCB5X6nDv1UPCzhchmISEGjztJg3MMsJTEDw+qMIIab8aIiBpPfTkkJ4V3AJ/itwTZIuJS
+	O55sWojxCzFJGIPM2NFn+PV0Ug9p6p2yGI7AArjCzPL9ppKxSJBu+icnb9KjwA2XUzM6vZEelOW
+	+ngJm3Er0RK6zD90bO5Q3d6IxzrT5+s7BQ94XgSx6/wwuIue0DbY3hzQRgmu0Mwj13cG91xhipx
+	EVpsk7V/EqhNkgiH4VJtvlAd1szD9QRtCQ==
+X-Received: by 2002:a17:903:384d:b0:2e8:95d8:6423 with SMTP id d9443c01a7336-2efd9eeba96mr39665665ad.38.1795001130590;
+        Wed, 18 Nov 2026 03:25:30 -0800 (PST)
+Received: from server225.. ([39.170.101.209])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff6183f8csm11702945ad.31.2026.11.18.03.25.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 03:25:29 -0800 (PST)
+From: Ping Li <leeonion.muyu@gmail.com>
+To: xiang@kernel.org,
+	chao@kernel.org
+Cc: linux-erofs@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	zbestahu@gmail.com,
+	jefflexu@163.com,
+	dhavale@google.com,
+	hongbohbli@tencent.com,
+	guochunhai@vivo.com,
+	Ping Li <leeonion.muyu@gmail.com>
+Subject: [PATCH] erofs: preserve unspecified options on remount
+Date: Wed, 18 Nov 2026 19:25:23 +0800
+Message-Id: <20261118112523.3824782-1-leeonion.muyu@gmail.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,134 +101,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH8PR03MB8274:EE_|SJ2PR03MB7166:EE_
-X-MS-Office365-Filtering-Correlation-Id: e5621488-14b5-407a-63e0-08df45669a47
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|23010399003|1800799024|366016|18002099003|22082099003|6133799003|261009223027099003|261021121427099003|11063799006|56012099006|261028144727099003|261102123227099003|261021123027099003|261026121527099003|261022105027099003|261026140227099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	3hZTY/xAtJzjw/fFN09V3W/BtquT6aHipIx0FfBLebbSxgeJXfd5pPmfIlmI2qFDa+7VnPfHWdkUt0JFonFZnF1rb05do+VTJZ1wmLJVKgoKFqhAQS36cmfdd6XxfJvJqBR8vUSvXqzHJG5M3BB48/RraeTXEgv9GWxaQMyo1y4nSElokxdDjBxalgnBtigRgoHt6CwdMVnAf1RNXQDy7yKwUX15lmuutOU0Dre1PPF6ZviEN+KbD6a14EgCRikqRPt8V1agjc9Jy0kU1K6F2PYPDMJzGUT7qLot1EYeu6GyzIJKxxquSLbnHQXMTT5Nl/a7YwDKlNUxds4dgSSrsOJN5OIL2LypXa71byWH9HsNlgoVOGN4Cmbo1jQxRzPlxKbG1yjIMjb3RtxuodgCfPPeQ4G9pIRnfXAaV8Dkbr6Zp+lOrCWSxpmK7+FqCee5LvAEWByDO3LNu2ZGHQN5j9LVxtNcLJZWU4S0KWEsCs3kJSEkfVWQ1JNTRN6dHBI0YRsn5ExERJjJ5boSQvTqjMg3mPmkY32U519pJ6rSpqr3B699oZxzeqKBA02OSDCrYeAbi4mPJyv5QzpFF0xnWJiuVtqaJgECTggx1qcegSRzXRSsKFYxA/OkRMkTKOCZgrwEU6id93huKNCOoDXoS4trshD5shbgeX/JzNZFkes=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH8PR03MB8274.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(1800799024)(366016)(18002099003)(22082099003)(6133799003)(261009223027099003)(261021121427099003)(11063799006)(56012099006)(261028144727099003)(261102123227099003)(261021123027099003)(261026121527099003)(261022105027099003)(261026140227099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?U0pMUmtSQ3o0MjVaVzR3elhPdDhTSjFVdXZDRC9kNGRIVWdlYi9LVUUxc05P?=
- =?utf-8?B?VEkwUDFqUjd5L1E0Z01xbnpvOFliTVR0MnY3L01tY1ZYK052eEVMNUFXM09Q?=
- =?utf-8?B?S3g1RWVndnE2d0I2ckNDZGJWN0k1VUZNUjJrTWYwN3F4RHZsWnVFM3JZaHlM?=
- =?utf-8?B?VWZrZFlIaFNzMjVNbXhxVEpTNnZCVHVSbkEzZVR1MXQwa1ZzWG5nQzlYS1ps?=
- =?utf-8?B?MmpqUEdkSXNyT1BXeVVhbGJySWhhRlcyTEFBenU5d2ZISitITktvVXpGUld1?=
- =?utf-8?B?VCttRzFzY2czdFh4WWN3dXRYUGxrSDRGR3hDTjZKSWdtbHBjRDhvKzlBZGIx?=
- =?utf-8?B?MVJEWDhCS2Nvb1lHbTRmVGNES1ZSOFV2K0hGMHFUZkYxbXVoY1NTYU1ob1Vq?=
- =?utf-8?B?VGpvd2hGMVM3ZENYbTNHYkpDbWxmb2VRMHdwbEY0OVNTbHJPNDE2ZHhyNlpr?=
- =?utf-8?B?Z2hOcnExV0NHN2FLWVVwWDhRRGlWQTlsWDg3b2pxSnlqVHVKNW5BdWF5VVVE?=
- =?utf-8?B?YTN5Vk5rTHlPczNHQ0xCYmRPU0U1L0R2cVYrWGlVWXlQeEJEMnZlZFdjYVVM?=
- =?utf-8?B?bkJHZGZvRTFhNi9EWUhuV2tUaHFlNmhDWEVnTlhVNUtsZGZJV1h4RnB6cjhH?=
- =?utf-8?B?TStSc3IvKzM3VEVJN0ZOSXhQT2NsQk1GQVNoWUZrUTVBMXJodG1IMVFod2Yx?=
- =?utf-8?B?RWRlTEZPbFphVGM0NUVXOXlyU1BPQUx1bnJ0a05QOUVMSTRJRzhsT1MyZGMr?=
- =?utf-8?B?VkJ6aVNCbUlXeDJURE4xcW9hd0lZckR3dmN5TVVRQ3FnOFEvSmoyQ1FJSzcw?=
- =?utf-8?B?dERTWkdUMXpTNVdJTy9nbEZ1N0pCWEdYay92eE1sRXBTMk84cURMSnRLbUdK?=
- =?utf-8?B?S2ZEZVk0UVBwb0pZSjdxVS9WZ1BWN2FVUGJpYTgwb2tSUlhZZkpOeUpXTml4?=
- =?utf-8?B?dHNLaVYxb21TdHB2OTdWSC9FSmtNR3hrMlBZaTR2NFdPa3UxV29kYUdIYjF4?=
- =?utf-8?B?Q1JTbzEwUVpVTm8yOGZ2SnE3VjVoQlQ2bHpzUlBHWGs1MDc5TmcvNDg3dDhu?=
- =?utf-8?B?eEJmK0JCYUtzWTRjejFWSFc3MTZnc0VTQU9vQWxqZW9Id3hKRkNPYnpCRHdB?=
- =?utf-8?B?RWFtWGZMRENxOFpmTUpzK0VFUFRzZVRwQjNHNU1vN0JUc29HVk5sZTlJUVFY?=
- =?utf-8?B?WkpneVlTMUY0dVVTeXlwaUdJMkt0K1VzV2xTa2NzSVhkZ1JNSTJuZ2toRnN6?=
- =?utf-8?B?NmhiQm5CRFN5RVU3UFJ0dW15SUNLWjFUNDJkb1RPZDlmRDdyVVdzUEo0dVhj?=
- =?utf-8?B?T1FVcTJSQVRiWHpwellGUFBCVGZienhkbEYrYngybmxRSU5Nbjh0SERveTVQ?=
- =?utf-8?B?YzZ1TFlRRldyRlQ5NmY2c1hFclpXNmxDVFVva0U4NVNRb0wyanNLYU5hY2ZG?=
- =?utf-8?B?aVZmZGMyRlU5L1JWUHpkK1ZPVVlCZTI4dGZ5cVgrREZyQ3Fsd3RVSXhlT0R4?=
- =?utf-8?B?QmZidXpnTHdadVAvZ1VMc20yYUE3bEN0WFk5UmlIZ3IyQWlmK1RYck02VGM2?=
- =?utf-8?B?ckpXOThVQVF2em9SQVhoRzh2bXRLYldUd1g0NDdqcUpsenJiY2I4V0JQVkVS?=
- =?utf-8?B?OWhNanVwYzREamJNK1JhcHJZRUpRbmhKQ1oxN2FKNGM2aXovZ00wcjkxRHIx?=
- =?utf-8?B?Q1VaSUd3MGYyeUZVclJRNXgvZ1NRUHdoZnBzaDJTcXh1OGg3WXJjdFVMWXVL?=
- =?utf-8?B?bWdUZ2FnT1A2L0xFT1hDbTJXcWluOS9VWGdQMHpMR3IvbkQrZzdBNlhZWHFN?=
- =?utf-8?B?RUQ2UXBMdkRSWC8yOGN4RUc5TSt2ak1za3dlNzFZdEswQVNuc2pQcXl3VTZv?=
- =?utf-8?B?QlhLS3pkTWhwazdGQi91R2E1dVFYVDBQbEh4OEwrcHN3Qk1rdHJXV2hMK1ZX?=
- =?utf-8?B?Wm5XU0hFV3NqN3BWNjVkY0JJWUdBYkVVZVl4ZXlXb0dUMktPVEdteFNyenFt?=
- =?utf-8?B?ZEFON0IvQ2gzZUVEVnR6Rm5yNm00UTdCYzF1Qm5NemRzVWFiUmluRm9tdjVh?=
- =?utf-8?B?eWxJcGZneVE1N0p0aEJjdEhJK2FJRjVoNUFhZWRENWVic2Z2Lzc0ZHl0Tzlo?=
- =?utf-8?B?WVBIck5TUXJYSGtFUkwwTEpCNUllWE9kVHBONWFTRUVOcDV2YzR3OWo5RnVj?=
- =?utf-8?B?VVhNS1FOdjJ3U1NrQVFCdlp2a29WM2hwS3dVQVBSdXRraG9xd09UVzg4ekdL?=
- =?utf-8?B?UHR4TGtoNHZmOGs5Y3VHQ1BrRlc2ci80eTZ1MnJ3WDZGOEYzNDFidXJXdnpn?=
- =?utf-8?B?elk4ZElpZnRHWHZaWEUrZmpHb0I1cENzVk1oUEZSRkpGRUY1Mk5MZDlwUFpM?=
- =?utf-8?Q?PUw60wuOdxgGqqe8=3D?=
-X-OriginatorOrg: citrix.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e5621488-14b5-407a-63e0-08df45669a47
-X-MS-Exchange-CrossTenant-AuthSource: CH8PR03MB8274.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 11:25:08.7997
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 335836de-42ef-43a2-b145-348c2ee9ca5b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: QljWTFRXLpqFRTDBEbDkjF57PWOS1jfDIIv3TLJ6ToqMMJbSRrCo2fKToj2DFvvohIntyvY1FVaxAUn7g5stKZ8fhabtYAhpXff5Wg0f/1I=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR03MB7166
+Content-Transfer-Encoding: 8bit
 
-On 11/13/26 12:47 PM, Lin Liu wrote:
-> The block layer applies a device's DMA segment boundary to
-> pseudo-physical addresses, but in a Xen PV domain the bus address is the
-> machine address.  A range that is contiguous in both spaces can still
-> cross the boundary in machine space and reach the device.  AHCI declares
-> a 4 GiB boundary, and controllers that do not carry across it (e.g.
-> Marvell 88SE9230) then DMA the tail of the transfer 4 GiB too low.
-> 
-> Make range_straddles_page_boundary() also reject a contiguous range that
-> crosses the device's segment boundary in bus space, so all its callers
-> cover it.  Streaming mappings are bounced; coherent allocations are
-> already naturally aligned via range_requires_alignment().
-> 
-> Signed-off-by: Lin Liu <lin.liu01@citrix.com>
-> ---
->   drivers/xen/swiotlb-xen.c | 16 +++++++++++-----
->   1 file changed, 11 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/xen/swiotlb-xen.c b/drivers/xen/swiotlb-xen.c
-> index e2538824e..181f8cef2 100644
-> --- a/drivers/xen/swiotlb-xen.c
-> +++ b/drivers/xen/swiotlb-xen.c
-> @@ -82,10 +82,13 @@ static inline bool range_requires_alignment(phys_addr_t p, size_t size)
->   	return IS_ALIGNED(p, algn) && !IS_ALIGNED(bus_addr, algn);
->   }
->   
-> -static inline int range_straddles_page_boundary(phys_addr_t p, size_t size)
-> +static inline int range_straddles_page_boundary(struct device *dev,
-> +						phys_addr_t p, size_t size)
->   {
->   	unsigned long next_bfn, xen_pfn = XEN_PFN_DOWN(p);
->   	unsigned int i, nr_pages = XEN_PFN_UP(xen_offset_in_page(p) + size);
-> +	unsigned long mask;
-> +	dma_addr_t dma;
->   
->   	next_bfn = pfn_to_bfn(xen_pfn);
->   
-> @@ -93,7 +96,10 @@ static inline int range_straddles_page_boundary(phys_addr_t p, size_t size)
->   		if (pfn_to_bfn(++xen_pfn) != ++next_bfn)
->   			return 1;
->   
-> -	return 0;
-> +	/* Contiguous, but may cross the segment boundary in bus space */
-> +	mask = dma_get_seg_boundary(dev);
-> +	dma = xen_phys_to_dma(dev, p);
-> +	return size - 1 <= mask && ((dma ^ (dma + size - 1)) & ~mask);
->   }
->   
->   static struct io_tlb_pool *xen_swiotlb_find_pool(struct device *dev,
-> @@ -158,7 +164,7 @@ xen_swiotlb_alloc_coherent(struct device *dev, size_t size,
->   
->   	*dma_handle = xen_phys_to_dma(dev, phys);
->   	if (*dma_handle + size - 1 > dma_mask ||
-> -	    range_straddles_page_boundary(phys, size) ||
-> +	    range_straddles_page_boundary(dev, phys, size) ||
->   	    range_requires_alignment(phys, size)) {
->   		if (xen_create_contiguous_region(phys, order, fls64(dma_mask),
->   				dma_handle) != 0)
+Before the fs_context conversion, erofs_remount() parsed the new
+options on top of the live option set, so an option not mentioned
+in the remount data kept its current value.  After the conversion,
+erofs_fc_reconfigure() swaps in a freshly parsed option set, so
+every option left unspecified is silently reset to its default.
 
-Is the change actually needed for alloc_coherent / free_coherent?
-The allocation from __get_free_pages() is naturally aligned and
-range_requires_alignment() requires it has the same alignment so it is
-naturally aligned in bus space. I don't think that it can cross a
-segment boundary then.
+In practice util-linux and busybox mount paper over this by
+re-sending the options shown in /proc/mounts, but any caller doing
+a mount(2) remount with NULL or partial data silently loses e.g.
+cache_strategy or, on a filesystem mounted with inode_share, the
+page cache sharing feature itself -- memory usage then silently
+grows once new inodes stop deduplicating.  It can be observed on a
+mount of "-o domain_id=test,inode_share" followed by:
 
-Ross
+    mount(NULL, mnt, NULL, MS_RDONLY | MS_REMOUNT, NULL);
+
+which returns 0 while "inode_share" disappears from /proc/mounts.
+
+Fix it by seeding the reconfigure option set from the live one,
+in the same spirit as ext4 (fc->s_fs_info = EXT4_SB(sb)) and
+tmpfs (only "seen" options applied).
+
+Fixes: f57a3fe44995a ("erofs: convert to use the new mount fs_context api")
+Signed-off-by: Ping Li <leeonion.muyu@gmail.com>
+---
+ fs/erofs/super.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/fs/erofs/super.c b/fs/erofs/super.c
+index c2c652522fad..305b2daa343f 100644
+--- a/fs/erofs/super.c
++++ b/fs/erofs/super.c
+@@ -1000,6 +1000,13 @@ static int erofs_init_fs_context(struct fs_context *fc)
+ 	idr_init(&sbi->devs->tree);
+ 	init_rwsem(&sbi->devs->rwsem);
+ 	erofs_default_options(sbi);
++	/*
++	 * On remount, start from the current option set so that options
++	 * left unspecified this round keep their existing values rather
++	 * than being silently reset to defaults.
++	 */
++	if (fc->purpose == FS_CONTEXT_FOR_RECONFIGURE)
++		sbi->opt = EROFS_SB(fc->root->d_sb)->opt;
+ 	fc->ops = &erofs_context_ops;
+ 	return 0;
+ }
+
+base-commit: 79f9e56d1bbf598503b240b8119624602e7ef3d2
+-- 
+2.34.1
+
