@@ -1,124 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794998457;
-	b=iDdhRiy/dVJQ9mKan1ehPeL42Urhrspj11H+j3HOZaBYu0siIixTJ082NuxW8ZnTZJzc
-	 6LVoyGpr2uTgqZqwklpUmBV9oQQWv8EXJZ05pWX9H4OIKJ9If++gfW6qDyi3ZexaBAkBz
-	 OHT3ComSiyAInxJgi7GIWFSILQpEqDrQXmysuhN7womY5PqrHsX7w9ss46xDJ2HPg4X1l
-	 fyUcVbAOxgDaL/kDlH2BvsZFDIyI5mKO3+nn3p1dI77TZQU5CwosHHNlDp9qVTQdPG+UN
-	 RMbdTBYfOKc0h1/OrR0kEqP7kZjIjdwWTK/+eGyRpnuW975HaE+yb6TqQVJ8+tsRO4w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794998457;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
-	 References:In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
-	 Cc:Content-Type:Content-Transfer-Encoding:X-Authority-Analysis:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=CHdy8G/VmSlmnltk7VvbR0Z9AZlUAUVMzK00aWXmoUU=;
-	b=RCJ8iwwwbJNqFMmCB6CQYvVEBiHr3VLqgQL5IwZr40nBNcidMMGoctA8B+SnVvbag0Lj
-	 F0GNI8Y11DmD31jd04PguSEYechnvjkIaDLhKDl2yruwddfx2WmT3d4GHArltE+pirLVY
-	 h6gSAj05VJjJlPOebEhdXfrhRxgvQfLs3LLXx2SMF48wx/5uMS4L8+K3yGSl4iQky+Vpv
-	 AoJSLo7kMKmcZIxlRx3dh0QC3t/iONL6eP0zZcX/W8COLu3bma5xFrllUfIxaL2CAUv4r
-	 ew08iuCMNq/8jk3I9Obvg0dGnsYswvzPFxVy6ITPFTabYB6qzbgS9AMehJEv7I16+Vw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="j/ybjMYZ";
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=J29wasXH;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794998469;
+	b=NchVC6SNDS9JZbHaKcuyxy/ENi9S0fo7AzDrojCf5a5ln4pK4U5XTZXgPR7wisnJ0ifJ
+	 MGKmNRxu8YANu+9odgrkBXyZO3N2eJIBhn3v/IzxQPvbVB158Z2cOPN1x+AaevYLpQ4NK
+	 /u8mEEYFTGSg4ydhxWw9XM7e0qpxbF6j4tQduLRFvLPxMjfrTYvMHwf81OBj9Ab8tr/PP
+	 PXS4aNRLPhqgEgId2tS3ggp3cnE45lFuZVWtTeAG69ypfqRLH6T34XBATzis6Sf+kQApx
+	 rLQTDdo2VmIYi2cfRyUIwIm0KAXp171vZzDFzfeA9sNu3TlXqpazSbD5V6RWwLo6CZw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794998469;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=kS3cX612MipxE0CFdz557euZvfmxBpX6YeWo0Z1H5i4=;
+	b=A63SRCuU0AhorkiEmJEtHPYzNCeveFCyJebtAtpxBBfaE5h/4mTgjApU/BJZaihE/Ozn
+	 qXH7UiAlI3DCIeN9DEk0mS3Nx8yxJBbPEUr6SKh1wM9SUOf4iLWSschiRJtBtascwuV2O
+	 5gbJskwqQNYRgd9n2DUik8cPJVsf1M6owqn41BunSV03mjGC3z4L+JU5ALATorAMNAZ9+
+	 sgjHSfWH3dgztb8PibRuG4ClzZCD/CM6zYI1I/onWrcoXf5usO0T3VAezHSvzYtJQUpST
+	 reB3tDL5oFClo4OdBCnf+pSGy6bZqMzWKb8PEJzcaVA01DYDj4QDPb1FvSGgujhH+Tg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zuNab1o8;
+	arc=none smtp.remote-ip=209.85.221.47
+Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 745B4606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:40:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 745B4606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1B32606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:41:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C1B32606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=j/ybjMYZ;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=J29wasXH
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI9kdHw2931403
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:40:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	CHdy8G/VmSlmnltk7VvbR0Z9AZlUAUVMzK00aWXmoUU=; b=j/ybjMYZre/ILIML
-	M7NzlJXQ6554KatR3DUAICoHEr9nyzyi3yWKwug8MrN5O5zwBpwdn48YBC5GC0RR
-	hY6pFXHBgwmF3lpxeoJG0e0BxeTV+PZX2s6baNmOe9aIpEjVZ9QDvAzFKGKSqW8s
-	5e2J3q0wcdvrOT2nxRpuc2a13x/0AfL1umSpHZTPV0D3EsTqqddvDi1JBuQg85ES
-	BnlIvM/R+R6fS/enzDvRzjyNxbq0hdsWLxNUXum8JumSMtXYivf/H+EyuwRyXGWy
-	J+S31BFYPDgWRW3NNXGH3a6bKtVNAGBLo8iEnwCWvSZkR6F4b253396Bl0qfUZmM
-	s4kpWA==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yv9jk55-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:40:56 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93f559420f3so105175685a.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:40:56 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794998456; cv=none;
-        d=google.com; s=arc-20260327;
-        b=PkqgOFeOxJcYt0tOJesEolYQFjvv+ifV50zKR/JhVFO246lEocDIAr3W+bT0557KLT
-         RTncP4Vo4OipIBj2bfT/OmA77YujY3MLuB3ss8+sYofmeZIYNDPORJlhnJ7BfGS+03xJ
-         1X2o8JsH8S3XzJMb7nZ/bsI8HjPvvIxGWJCmfkWgTBBdnk12Len26KUA9KYMsNfsWcU6
-         r+mJZeBFrIkXj5ptqYdI5c+E/0phYRtngZQkarE6YX3TO0ZpzwTUAQMfdN0aO62wwCd7
-         ROWKw4c8M3naPjRrfeGooiLSOtlyEkxmSEMR5TIw/xru65H+qowEk1+R8ojWAJlov5m7
-         EdSg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=CHdy8G/VmSlmnltk7VvbR0Z9AZlUAUVMzK00aWXmoUU=;
-        fh=LdrQt0WZBUvtvTFZdoli1Q4+pQaOdEr9n9LV78nfm6g=;
-        b=U8gzUXhz4ILNaiar9ndfFmSx8U4m50V4N8bb1KH+F1VqlqFCG2KUYoqO+W1jW0vl+K
-         5xDiZQ1pH4OJ8EOcZf6umcP/5kLDxmqNw7Y2y2SBs1k9aC0UJ8c/ORXq5AuyqChlyMvR
-         UEbu9G2WfSLYw13fHqmoqlPRP//WCYxigXmoDXKVTyL9edbcVyqW0duQau7D0Wp/D9AV
-         ioCZ5B/OkYNmQLybB9KG9RwXBV8gxlTD+7kTvqzoD7Etn94XEczE/eSrB0D3bmGAA/xq
-         Y/GG+dcTCdRwKylLEfxqblykojMiKVP5Mu8nZ729QisapH/3wqm5ocJ7v7IY+R4Towne
-         C24w==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zuNab1o8
+Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-4a2f4ca0dcfso376304f8f.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:41:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1794998456; x=1795603256; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=CHdy8G/VmSlmnltk7VvbR0Z9AZlUAUVMzK00aWXmoUU=;
-        b=J29wasXHQGetZIju1fjZ9QLD6otcW7h9vZ5FUN0K7cypTidVpYtO67xM5kuGh+y3l0
-         rSnM1ojC84om46l+VyvyXVKg+i+NL3tzwZ1BVm8Zzc+y9teT325cEicke0L1wXgNAgbf
-         hC8lvA9qqH9z5fUEi3CL6pKaBgb3eeTKzoro6QbAfvFzzvgeFEsH99SIo4Rh/HR4JCdq
-         120wwX/JvZ3uZz2uAwGqOeYWsl/voHs1fJB6kTYs+B01eMneuZs7/DHgGjCq0IMbv82k
-         s5ISNXhgO7vjjC9Y4fX2pgkf/4b7Rjx9spT5tHPPPVl1oi8rZP74/iP6P9775HOleSVM
-         tnNA==
+        d=gmail.com; s=20260707; t=1794998467; x=1795603267; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=kS3cX612MipxE0CFdz557euZvfmxBpX6YeWo0Z1H5i4=;
+        b=zuNab1o80s/NsAmT7vCIB+Kwdfv2a70k3ZFq+IjcWRnkoUsgdlds39GvM+lmMuJf2L
+         /d+wlh3bgTA0ynZsyXPTo2cKgjuhOmrtJ+XhbvcQyLcUIEP4WB4Yh4Ou8HB1lDe1ShYu
+         hqKLvsuy0wr3jtVBZGFpff4hvlmViJj40X8/kBvFlqy8PsJqhVsg93DVb07a5HFFIX0U
+         eKg8gCH6c3CL0AniupIMQ14VYg54T21o+SA1glQgMo6OsrLHx9dzBS570PlIm/eZj8OV
+         Lm8XsPMMgzT3uW+McmQBkZjvbW65/fSJDCRDd94dIujd48W7XnXKJ6N9DjDSZr9nskAo
+         uf5w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794998456; x=1795603256;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=CHdy8G/VmSlmnltk7VvbR0Z9AZlUAUVMzK00aWXmoUU=;
-        b=on8QONXWVhA9+nErIz7g4dxGEOepzdtB3IKbH90ObQjiwaBEikejt2Ra7qO96Etj9z
-         c/GTPcG4foidkh7UATpm3a+Ut5uk94NLir12fAqDMQ3E43Z9Ppno8KiVOWwDAvi6iubK
-         PF+wD5OAYcHeddK/nigUd5MAD7gDYpX2JE5PPHaI/J/eWvOjEE6DXF66HtaWNRPlXsVz
-         /endRRpAs12ZRtOVNj0L2xP762U+VkvinrF9yS2/xCDs8U82lScXZ7EsfzOOuDH8/rKa
-         ILUWR98dmlf+mq5zjh/ACH/Tm76+6C6WFTNECRmkBp7FhZYi5PiQNP89bVNiRK9sDhef
-         Nhkw==
-X-Forwarded-Encrypted: i=1; AL+hErEiggEDBvDkPsfFZN15gbnJaUCPEzL3Bf+WGwZHCG1VZYw0Mv2F6V8j3846lM/+3qjaVMQ0N7rSvaRjBwk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/hQV+OhjMPmpONrxd/5VkQoyn476Ekkxk74B4XptjaJuTvDVz1
-	ngxm1hxWdajv8sxOyq3RvltHhkTCWqjmvlpYUKttwOEFWRdo5VO7KiLUAfvSWz+ZuATWmGcCuoc
-	iNJ5m1K487M752SahaJBkuyV4eKY/FKdt0gjLJKseIAjcZzudxuEesFxI2y14Xn3/r/I/hK3fSe
-	5QBJHrAqf3QgXdNb0H6QaJuoBa9GV4hAvBOZOoYCDJ/A==
-X-Gm-Gg: AYBFou1gqhQbefbJURwhIUL3Ow/qkxqCPpkQ+5hXytxjGXzSPaocTKwJosNjgEKdmhr
-	QYak6DNDKR/BKau+f9Cx2tjXL7Ao7Iyl09kgKG3ncED2sJ6+oBple38OGzNGkESvNYVPaTpdNlq
-	5UOY6UsXtZIxPTVgzYInzWMO2/lOoZBVIHNjmtErLsq8pRT0McUuGCcT8IO4yICMQWkNRvK5bwb
-	1PC9FmQMiGxDFQ7C0Wi1Qv3vLMjd/Nww6szJI0papHj/vDAh6ynUq/rv9C/565cHDDUzceD9gbi
-X-Received: by 2002:a05:620a:838a:b0:93e:78b7:fa4e with SMTP id af79cd13be357-949995d052cmr388638585a.37.1794998455545;
-        Wed, 18 Nov 2026 02:40:55 -0800 (PST)
-X-Received: by 2002:a05:620a:838a:b0:93e:78b7:fa4e with SMTP id
- af79cd13be357-949995d052cmr388635585a.37.1794998455024; Wed, 18 Nov 2026
- 02:40:55 -0800 (PST)
+        d=1e100.net; s=20260707; t=1794998467; x=1795603267;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=kS3cX612MipxE0CFdz557euZvfmxBpX6YeWo0Z1H5i4=;
+        b=cCrOs8sS6QjTHaygcTLNgYxTOYgH4SAlGOjvbxK7v9aeONQLQ0XFDmR4dAeQPXq7kR
+         CdHkuzcBr4X0brJg9M15JtFfMtwCvrWYymKQBN844KQCfUT9n2h8aTj2F1pmBbOpfTdp
+         D0Xu1K6h4Oj0kUKvQtgbzH6vtYlOUZUXQyr1JkaRgoWjxQIMQp4HpUtwcfaoAbYtdLrP
+         8FRSJndw3CiEoBKQ883P0+v9eI5gTtb8ELGfkMUF4hHcFrxkBZmLUfwKmAFnqsaa1WdY
+         Optq/UiuVsHoF4Au9NQfHZVqjTWdngvTeD6PnlTuWsKrI8kol1mMrGvCpuk1vJ8uzUYq
+         Y0bQ==
+X-Forwarded-Encrypted: i=1; AL+hErGVGaw6hefzZEJb2uQg2oX4DMEPF3HuYe+41YJTro8vytlfQlhZDkHIMbbxCfiaS7Gqu4wIKoOmmytnf7g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+XB3x6sqeqemvL874KTU84GadGO9qzUCQvuIV5fmcOaae7Y5OM
+	b3bBxyF6GIR6G50oxDtx5ZonEyEU1fmCSZJ/9dAZcT0Bl1M7YiALOD7W
+X-Gm-Gg: AZFdTZcjQWy9vflA0aZ9DGPJw7jkWxKaDI0AxTemRZodazUL5ubQRUZzvc1qGUZgAzV
+	cRlWnQ9l74CpMgEa6Lljqb3lmzZ7cr47y+cYD+NYIbzPh7g4b6x+b2N4DpwXBlBQojJoITge/JP
+	zDokbdau3VOrnFyXMCJ1I3U36KO1YnL+Z7kYH9liHiZPy94TAFkSelfG3307bhIl44OP6Mp+a7k
+	CKPEie0DaFTmV17td2xRJy3/e1YNvp8NmV9uQxmcR1wNK7E6dlSO1WusZ4RGuA0WVi8PUDpvd4Z
+	HD11wSxdi9sQS+duJmmBAjhCzIi0z+E304Tr/vu01FbWnlyoLw5nizd5YlyfnrnZW5D0eQiL6C4
+	QGkvrUdcaM9z3j/Z0cpuZTBjOUHokcUAFCs2nl/kSrhIUjdxupOZYcB6jP1xK3kBXd9I2GGtn/V
+	NxzjhIYzBEf0r8IZ7NSiUXOu8yNERa6/NDu8HMkXzYnclN6SkR6dQfIf29jhRCrB9bzqeSpbSN3
+	onuKPw+W4RQ07t8xuA5gSCpyTHN0sc1gcuXLeXiCq9F8PmpFf+4zv8LxAXnIqAQAIV75c2WAE5p
+	BzeEqHjkhSPsdGXVM/59j8XO67A6Nzq6G8n4ihBVVsASMwt7WengUH87SEJCxNpv8YqsW90hUBC
+	UIotjsAiXe5XbCg==
+X-Received: by 2002:a5d:6f06:0:b0:4a6:d298:832c with SMTP id ffacd0b85a97d-4a6d2988596mr2974121f8f.31.1794998466847;
+        Wed, 18 Nov 2026 02:41:06 -0800 (PST)
+Received: from VivoBook-ASUS-X712UA-M712UA.lan (user-46-112-114-48.play-internet.pl. [46.112.114.48])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a6573ba95csm4320525f8f.56.2026.11.18.02.41.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 02:41:06 -0800 (PST)
+From: Stanislaw Pal <kuncy7@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>
+Cc: "David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Yongzhao Chen <yongzhao.derek@gmail.com>,
+	Alexey Immoreev <luixo-public@luixo.me>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v3 0/4] net: dsa: qca8k: fix the MIB autocast and management frame handlers
+Date: Wed, 18 Nov 2026 11:41:00 +0100
+Message-ID: <20261118104104.26684-1-kuncy7@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,105 +103,100 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261109110352.1621-1-xing1989093@163.com> <CAFEp6-1TrCaeP8DtHvUFnPYQw5+B=gRa2=ogjqCC+fKy9AXbKw@mail.gmail.com>
- <20261118092814.2275-1-xing1989093@163.com>
-In-Reply-To: <20261118092814.2275-1-xing1989093@163.com>
-From: Loic Poulain <loic.poulain@oss.qualcomm.com>
-Date: Wed, 18 Nov 2026 11:40:42 +0100
-X-Gm-Features: AclHuK-FT1CuXYUdW7m-nWwmIULm18l1osWT533MIe5VVPgbaeB-OtNzu3MF4w0
-Message-ID: <CAFEp6-1pJd_==NodGfp1X=P=wsxbBowezg07DJpJfd6GtB_=pw@mail.gmail.com>
-Subject: Re: [PATCH] bus: mhi: host: pci_generic: Add per-device ACPI reset
-To: Hongxing Xu <xing1989093@163.com>
-Cc: Manivannan Sadhasivam <mani@kernel.org>,
-        Jeff Hugo <jeff.hugo@oss.qualcomm.com>, mhi@lists.linux.dev,
-        linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Authority-Analysis: v=2.4 cv=QenzLcbv c=1 sm=1 tr=0 ts=6afd80b8 cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=_K5XuSEh1TEqbUxoQ0s3:22 a=Byx-y9mGAAAA:8 a=9cDAomjR_99duVTWh8cA:9
- a=QEXdDO2ut3YA:10 a=NFOGd7dJGGMPyQGDc5-O:22
-X-Proofpoint-ORIG-GUID: oJk2JLyZqJY2YzoQt-umTMMWdbRdlTS2
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA0MiBTYWx0ZWRfXzHmcFwP9ekKa
- ky3D5338TodDxQZVoH5qHago9JJta+tVyv6RYv0yr4G2chYGAxCOW5lxn+S/hGADSm3VmgOiB3K
- R4mAopmeQTD7E3TgUrUqKirN1KOEIDPBNaE/+2QvFab5LSEU+YPAwIl5/CKVjql54BB0OFg0lAN
- yBlWIiAfqOUVJMnfvOGoCN8XJY/BnOaLCRfa/+els5XfVQRxucDOfBRefiW60tgubJqZgNbkAJZ
- tQ4Lbq3VBUMCkbwZXzMXHIrt5Knw+8iGbZeHwM/o8L9zF+66Es1dG7nGTLB6lKsGWrg95gTC6hC
- /V1T/7zqolZz/aSM80Djd78IxxSZlhlf7xQ9XoPZdIyeS8n19CUOHexLumNkuOVvZ3a3pKDDn1N
- NyGknj5Py+UXPig56a/RNtCPOuCgBolfbxTdEdhURh7/4c7hmwKGn7rQvEOgOQY5fCQWJVExcbD
- F09oIBqyEKM5B10uRqQ==
-X-Proofpoint-GUID: oJk2JLyZqJY2YzoQt-umTMMWdbRdlTS2
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA0MiBTYWx0ZWRfX4DLC/Ms1JCkx
- IhxYbYQgAhfCOk2YWVpOYAgMDvEyEfz7n14GfmNa9lyMy4ogdoUV70FnE7yemf7ukVrf6AUIKeP
- xrOCkVal00oCKIPhb07wEofJ+jkMYiE=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-18_02,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 phishscore=0 clxscore=1015 suspectscore=0 impostorscore=0
- bulkscore=0 priorityscore=1501 lowpriorityscore=0 adultscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180042
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 18, 2026 at 10:29=E2=80=AFAM Hongxing Xu <xing1989093@163.com> =
-wrote:
->
-> Hi Loic,
->
-> Thanks for the review. Let me check that I read your two points correctly=
-:
->
->   - The reset method should not live in mhi_pci_dev_info, because whether=
- an
->     ACPI method exists depends on the host the device is plugged into, no=
-t on
->     the device itself.
->   - The driver should instead walk a list of methods and take the first o=
-ne
->     that is present, from the most generic to the most platform specific.
->
-> I agree with the first point, and with the idea of a list. But I would li=
-ke
-> to suggest the opposite order: platform specific first.
->
-> The two entries are not two ways of doing the same thing, they are two
-> different kinds of reset, and the spec keeps them apart on purpose:
->
->   - _RST under a device scope is a function level reset. It must affect o=
-nly
->     that device, and it must leave the device visible on the bus, so OSPM=
- does
->     not re-enumerate it.
->   - MRST, referenced through _PRR, is a platform level reset. It power cy=
-cles
->     the device, so the device comes back as if it had been removed and
->     re-inserted.
->
-> The spec says a device should use _PRR when its platform reset cannot sat=
-isfy
-> the function level and bus requirements, and that a device may expose bot=
-h.
-> That is exactly the situation here.
->
-> On our current board, both are present. The function level _RST succeeds,=
- so a
-> generic-first walk stops there. But it only drives the link reset signals=
-; it
-> never removes power from the module, so the part is not really reset. The=
-re
-> is nothing on the host side that can tell the difference afterwards, so t=
-he
-> walk never reaches MRST. A method that exists but does not do the job is
-> worse than no method, because it hides the failure.
->
-> So: would you be OK with trying the platform specific entry first? That i=
-s
-> my suggestion, but if you prefer to keep generic-first I would rather hea=
-r
-> your reasoning now than write v2 the wrong way.
+The netdev AI review of the MIB statistics series [1] found bugs in
+the qca8k handlers of the Ethernet management and MIB autocast frames,
+and its review of v1 of this series [2] found two more. None of them
+has been seen in production, so as Andrew asked for the related MTU
+series [3], this goes to net-next rather than net. All four keep their
+Fixes tags.
 
-Yes, from specific to generic method sounds good.
+1. qca8k_bulk_read() falls back to MDIO when the management path is
+   not available, but stores register i at val_buf + i with val_buf a
+   void pointer, so every multi-register read is garbage: the FDB dump
+   and the MDB add/del write the wrong port mask back into the ATU.
 
-Regards,
-Loic
+2. An ethtool MIB request over Ethernet (autocast) that times out
+   leaves the caller's buffer published; late frames write into it
+   after ethtool has freed it, and extra frames underflow the frame
+   counter. v2 also handles the frames of an earlier autocast arriving
+   during the next request.
+
+3. The autocast handler reads up to 164 bytes of counters without
+   checking the frame length.
+
+4. The management ack handler trusts the frame for both the length and
+   the layout: up to 32 bytes into a 16-byte buffer, read from
+   skb->data without checking that the frame has them.
+
+Changes in v3:
+- Rebase on current net-next; the code is unchanged.
+- 1/4: the description said that the last three bytes of a
+  three-register read are never written; it is the last six (Alexey
+  Immoreev) [5].
+
+Changes in v2:
+- Drop "let regmap serialize register access" (v1 1/3): Yongzhao Chen
+  carries it, unchanged, as 1/2 of his net-next v8 "preserve port state
+  across MTU changes" [4]; this series does not depend on it.
+- New 1/4: the MDIO fallback of qca8k_bulk_read() (review of v1 1/3).
+- 2/4: poll MIB_BUSY before the next autocast, as qca8k_mib_init()
+  does after a flush, and track the ports seen as a bitmap instead of
+  a countdown (review of v1 2/3). The description now says that a
+  frame of the previous autocast still queued on the host can serve the
+  next request, with counters one autocast old, instead of claiming
+  that every late frame is dropped.
+- 3/4 unchanged (v1 3/3).
+- New 4/4: bound the data of a management ack frame (review of v1
+  3/3).
+- Target net-next; describe the LLM assistance here and in the commit
+  messages instead of an Assisted-by tag.
+
+Testing: the affected objects build with W=1 on arm64 on this base.
+The hardware test is the one of v2, the code being the same: on a
+QCA8337 behind an IPQ5018 (GL.iNet GL-B3000), kernel 6.18.60 with
+these four patches, under tag_qca with the management conduit on port
+0, counted on the conduit: one ethtool -S costs 3 management frames up
+and 10 down (the MIB_BUSY poll, the cast, the 7 autocast frames and
+acks); with the request timeout forced to 0 by a test-only module
+parameter it costs 50 up and 57 down, i.e. the register fallback over
+management frames plus the 7 late autocast frames, which the handler
+drops. The counters stayed monotonic over 2000 such reads and over
+5x200 reads under iperf3 in both directions while toggling the
+timeout, with no memory growth and no splat. Under a tagger without
+management frames (qca-8021q, OpenWrt) the MDIO fallback of 1/4 was
+checked by the FDB dump.
+
+LLM assistance: Claude Code (Claude Opus 5.5 for v1, Claude Fable 5.1
+for v2, Claude Fable 5.2 for the v3 rebase) drafted the code and the
+descriptions from my analysis and the review findings, and helped work
+out the race in 2/4. I reviewed every line, built the series and ran
+the tests above. The review findings themselves came from Sashiko, the
+netdev AI review bot.
+
+[1] https://lore.kernel.org/netdev/20261019191137.307514-1-kuncy7@gmail.com/
+[2] https://lore.kernel.org/netdev/179304303832.3134.328719975361344250@kernel.org/
+[3] https://lore.kernel.org/netdev/47e9713f-815e-4caf-8928-a7ec12d0087b@lunn.ch/
+[4] https://lore.kernel.org/netdev/20261104120130.48455-1-yongzhao.derek@gmail.com/
+[5] https://lore.kernel.org/netdev/20261107031005.2525-1-luixo-public@luixo.me/
+
+v2: https://lore.kernel.org/netdev/20261104210757.467964-1-kuncy7@gmail.com/
+v1: https://lore.kernel.org/netdev/20261022192933.384898-1-kuncy7@gmail.com/
+
+Stanislaw Pal (4):
+  net: dsa: qca8k: read each register into its own word over MDIO
+  net: dsa: qca8k: drop MIB autocast frames once the request is over
+  net: dsa: qca8k: check the length of MIB autocast frames
+  net: dsa: qca8k: bound the data of a management ack frame
+
+ drivers/net/dsa/qca/qca8k-8xxx.c   | 81 ++++++++++++++++++++++++++----
+ drivers/net/dsa/qca/qca8k-common.c |  2 +-
+ drivers/net/dsa/qca/qca8k.h        |  9 ++--
+ 3 files changed, 77 insertions(+), 15 deletions(-)
+
+
+base-commit: d6816d9a93b66a12bf01e10037e377f3333ad6cc
+-- 
+2.43.0
+
