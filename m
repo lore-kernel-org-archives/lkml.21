@@ -1,85 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795015189;
-	b=kRBRY88PtwC2J7z2jnNLz+T3KQtPUhrEV9LiK3uRTszeibv41F+brXlhO7qlkEEL7ThW
-	 +vUJRVFssjv1kJF+PlG4XGzMwsk0Uz4rIUMmXGLWlLcoUKHE4LsFsYSYFmoofaTIVEZLG
-	 WBKcqk1qw+cbA7U7vI3ehfdIoZgcpAXUyaVR3BiY8MNhCcZL+NqDlibCS+TK0v9lHXvGn
-	 Upgw6pDX6KbsnaCHlPoBNVQXOE8YUnw/3UdQvkdZjhbleLPiLOYNs3eUfgYOq7icsdRAY
-	 8VIA+pFV/AGVtnKAjEB+Kjsp8lthCbk9Wc3LJn/bPomwhK3PUXz3QVM77J3+dVcMfKQ==
+	t=1795015196;
+	b=e3/fODHTy68c+FKeyuhP9x4/GwizIt2J6TILxM7BwO+6kCwRh8jMOgEX3n4iACK3G6jq
+	 xNLNmRqmnTy4pcIHqJv8O88bdMwdI2afeBFys2r+JcoZiEK7/cqUfiouxt8c2j/vhs/Y1
+	 yv4CHnCO9tj8mXU1JXzpYbuNgawmRd9CebBMmvxfQo7rhMB4mknx+eVI8gMgixuAAejHM
+	 UXJMMA6VYa7hdNlYUkMddpvPtiroO9KCvvT8CIec/l2jpt9PrpbYyUJSfH4Fb65jL18Ic
+	 f/KISuipIng3XqEK/l02JhWn8RHh8yczeINBX3M1UDRoMxXVb1ylnczf8nUqakSa1PQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795015189;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=LeU/DxXcV0ry5yYe0LgqD+dUS+pwnrp+dk5INqwKWBw=;
-	b=HtrjRMf0yy56NpX3Xb2MsiDrzD9ErFuXupFo7FuqSI53FTuTOdg+rKDNbjAhC3EI/gGJ
-	 qi40Q9pZ75sPYzBwsMXP7OSg/weaJRYz3bi0LsB3h469L+chwZfXpIi7N0+5CU/Nx11hO
-	 918p9bs4jrMmgZxFNDKi+v0IkHC48ZhAm2h8Tb8sHc+Y9YxSdMhWog2W4QLR+FvBHji4o
-	 cHL+X/YfqV8cUTbU0yb+lyl7BiNrfVZSXCdpkTTcko2AOy0jY9JdANmGSfQoLwM62K5Q7
-	 OkGy5CE5qQeGin25wev8ZmfGPR+qY9pUVa7fZswOIeLKg09jw9by4enj7nNBcwFpOnw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795015196;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=3q3WBayPBlbewt1E1eNRkQsJMusptNxG4L6m1LCm1Ic=;
+	b=DdpGc7OjT7yPg7J38ijwoZ0DUqpm4ybJhvyTI3xHNVjk4WVd3PLDgATqz4QFT2CPzW2v
+	 JMwEN/s3jXPNxVSE9J3L3hMRVETAkS3FI5xomh85Hj3eQqGSrMfOIcMkgiAgBpOmTsSKS
+	 bmBuZ2D2014/8lPyju4mpNXRSGE1FTz5hn+vlA7LeZGh3TPfB1dfU+2A4a/XLi4Bninzj
+	 mBuRoWzc2w7uc7Jtc8efCY/xDOZGqNT7DYif6KZruIciwMsOrPiM85cK2FSpXM7QMb3Ml
+	 oJ1D3qEbhebcHdIgOrGiDj8bSpUqPn8u8SlyCWF3v7OUgf0oMEi2ZXMFYVceKxHh4Ng==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WhY5kEms;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zs7LmXjb;
+	arc=none smtp.remote-ip=209.85.215.173
+Received: from mail-pg1-f173.google.com (mail-pg1-f173.google.com [209.85.215.173])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B3B360A2622;
-	Wed, 18 Nov 2026 15:19:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65B00606A32F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:19:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65B00606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WhY5kEms
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2AF61F000C4;
-	Wed, 18 Nov 2026 15:19:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795015188;
-	bh=LeU/DxXcV0ry5yYe0LgqD+dUS+pwnrp+dk5INqwKWBw=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=WhY5kEmsWtbqCPSBFQ2nQaxXboUG96EQPOcrbrxf3sO4BB8Tm19kr7KE+iG4TB6T7
-	 PIfvCftf6yhI0z/gSSuVSWelQ+KcojCemjhXmawQHN4M8lm9G59rJWiePg41ZCfjrN
-	 PTiXDg0szsr0RvvEzTrfcZRDRdJB+saYvIzHKu+1KiMaphpaZRxL/B8C17nK4lXIND
-	 5W5iL5YyG94DwOrXeT6A6n1Sje0lSSyR5xqPs+kpFEYkwTWmDT12f9kXD3kAkufpQI
-	 6gnmw6UhyvmYKom5DY7ECNpupaFbP0vtsHy/hz2LwtgAFS8e/x4LMVKaqoN8FbGJ3G
-	 dYN3/OHJyRueA==
-From: David Hildenbrand <david@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>, 
- Mike Rapoport <rppt@kernel.org>, Peter Xu <peterx@redhat.com>, 
- James Houghton <jthoughton@google.com>, 
- Andrea Arcangeli <aarcange@redhat.com>, 
- Suren Baghdasaryan <surenb@google.com>, Balbir Singh <balbirs@nvidia.com>, 
- "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>, 
- Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>, 
- Pedro Falcato <pfalcato@suse.de>, David Hildenbrand <david@kernel.org>, 
- Michal Hocko <mhocko@suse.com>, 
- =?utf-8?q?Micha=C5=82_Miros=C5=82aw?= <mirq-linux@rere.qmqm.pl>, 
- Andrei Vagin <avagin@gmail.com>, Muhammad Usama Anjum <usama.anjum@arm.com>, 
- Stephen Rothwell <sfr@canb.auug.org.au>, Arnd Bergmann <arnd@arndb.de>, 
- Zi Yan <ziy@nvidia.com>, Matthew Brost <matthew.brost@intel.com>, 
- Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>, 
- Gregory Price <gourry@gourry.net>, 
- Ying Huang <ying.huang@linux.alibaba.com>, 
- Alistair Popple <apopple@nvidia.com>, 
- Baolin Wang <baolin.wang@linux.alibaba.com>, 
- Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, 
- Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
- Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
- Kiryl Shutsemau <kas@kernel.org>, Muchun Song <muchun.song@linux.dev>, 
- Oscar Salvador <osalvador@suse.de>, 
- =?utf-8?q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>, 
- Tal Zussman <tz2294@columbia.edu>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
- linux-fsdevel@vger.kernel.org, stable@vger.kernel.org, 
- Breno Leitao <leitao@debian.org>, 
- =?utf-8?q?Thomas_Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>, 
- Lyude Paul <lyude@redhat.com>, Danilo Krummrich <dakr@kernel.org>, 
- Felix Kuehling <Felix.Kuehling@amd.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
- Leon Romanovsky <leon@kernel.org>, dri-devel@lists.freedesktop.org, 
- intel-xe@lists.freedesktop.org, nouveau@lists.freedesktop.org, 
- amd-gfx@lists.freedesktop.org
-In-Reply-To: <20261117-uffd-state-fixes-v3-0-b617009d1a4a@columbia.edu>
-References: <20261117-uffd-state-fixes-v3-0-b617009d1a4a@columbia.edu>
-Subject: Re: (subset) [PATCH v3 0/9] userfaultfd: assorted fixes (part 1)
-Message-Id: <179501517242.13206.4721668826806594112.b4-ty@b4>
-Date: Wed, 18 Nov 2026 16:19:32 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zs7LmXjb
+Received: by mail-pg1-f173.google.com with SMTP id 41be03b00d2f7-cdb684859cbso754607a12.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:19:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795015195; x=1795619995; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=3q3WBayPBlbewt1E1eNRkQsJMusptNxG4L6m1LCm1Ic=;
+        b=zs7LmXjbJJyrhsOYi1q0qRCWWCdJwIcDe+eiKHneA78MjWz0VV07ZhMOj9t7QNlM4X
+         2QAufcprS1mvpQrZ/7E16kUFUO9P+fodQeCb3QukEpyIagjsQgcBxX2R4NqhKsvawslP
+         iQ3qAdPlDmFd1abX7L8ICL25D1/T7LOgB8MM7ItYM9ciKr2b2x+mFITTSQmMFLB0mU2X
+         gGhV1xd9VDUFf2MJzQWEFeyhktJPrq35+b3bSAg4UQ9ltXg72FxQu/Vm3412oHMm2Tx9
+         Z6XiYfxc0uko53KcWTrAOPfsTKFwKnRSAL0o6pQYJ3HV72WN8CAAERULYXJ847Q1/maK
+         HHzg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795015195; x=1795619995;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=3q3WBayPBlbewt1E1eNRkQsJMusptNxG4L6m1LCm1Ic=;
+        b=GT2ey/cTwK8YSwJc150fGUl8uKnZeYvd/oIoGCtnnuC80KbHNwBsvqGuc0LcLxV4AA
+         HnmLLgS2a6bFV6W8B7slSrrQ297orMRAgjW9vU5gSWZ42PmckY8qOUtPppgWHvVFITVH
+         zj9ZYXCLJ57/XgLBb42fWDQ+zq2fUK8VK3LaJ5VbDBEHjaAvPCSJ0bb0AMWtCZgXsS71
+         T2rgvaQ5vaONbdc6XCk7TIbdpVsXi9OzXhLU6OFOSpeFz8xd4AaxrSkgRpS6y8vb03h/
+         fsyY1osOKVRVk6B6cjVLm6jId+D7RQtY5amKmEErMVo1YOW9642b0S9kcuE3ST1wq9WX
+         6C0w==
+X-Forwarded-Encrypted: i=1; AL+hErHUtqzPfGT3n3VJZjWC1dJbs6lCB8d/T/A4+NqUr2H59j4Uof/2HIKnDUeyMubvU1nRTn3hI9cNzLt1Mpo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9ElZow6OmNHTm+zGl62n9fa90p9zPdmuRojASol+UmhdJYoTmg
+	DKHcXUBhRs1wGSLGamgWX4BPSKZu8kZPyxyoneC8hNGRqGSw6G0wIn8j
+X-Gm-Gg: AYBFou0yybw2LFG2N458N0eQvujZmWNu2bByU3n5wdyc0rQeTzQRo6BUAq7zAS8g479
+	wSmVFT2aADrgp7A8oyY6ExPSoMCH6GjGywagNu44xbeCD8zY3FZtz4bjuFZUSr0yAvlqWCAYFGn
+	jjxfm4THsIlVCfD8Lj2ZJ2ZkCQtmP/1Rp2Ertdrfawm88USzr+XZLlJ84uhTa2WEqAC47VWoeHW
+	yyiQBmf/0QVR1cbrBUxeoIBnJE9x28Fjsj7dC1yPNyV+8iBzRSAFfRfp2xQcVbxShK+aNWhrj8s
+	jtP9gwMWcK+Op7t8qSjjgel6zLHUJuGzjSUDDmJEo5mPBpYBjkM2cWuBhjPJKY6V1ElsF1/H6Qx
+	pQyaHGuUbsZlBKUObpqA+74XC3ZcP3g96WBla4LZCBKKOeFQLQ7TsVvKw8TilzvYBJRQwTzlUSL
+	AQakpBvidh5frqjVEGBdGSAJCgUnJrE9ahmufCDQGi5CvMGzJe61h8Fsp00G7xMj4TcyCCD7GuQ
+	rjNcU/swe3Jdlq4F2xk5S5k9Lrw8VS75Hb9XdZJa0sPiw+cx/b4+amz49Q+NZQTMiv/36uPetSL
+	LnXN3SZhyoHagA191cL9janvnS3JFyBGzZSDOqnmaBzQl+pqZbAxVMm+QP6KttwfaqWTNA==
+X-Received: by 2002:a05:6a21:32a2:b0:3eb:98d2:cd89 with SMTP id adf61e73a8af0-3fe892fd694mr3439498637.25.1795015194581;
+        Wed, 18 Nov 2026 07:19:54 -0800 (PST)
+Received: from eric-N-A (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5ca7aa27dsm1408559b3a.19.2026.11.18.07.19.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 07:19:54 -0800 (PST)
+From: Eric Yun Lin Chiang <ericyunlinchiang@gmail.com>
+To: Stefan Schaeckeler <sschaeck@cisco.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Tony Luck <tony.luck@intel.com>
+Cc: Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Ryan Chen <ryan_chen@aspeedtech.com>,
+	Billy Tsai <billy_tsai@aspeedtech.com>,
+	linux-edac@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	Eric Yun Lin Chiang <ericyunlinchiang@gmail.com>
+Subject: [PATCH] EDAC/aspeed: do not fail probe when ECC is disabled
+Date: Wed, 18 Nov 2026 23:19:07 +0800
+Message-ID: <20261118151907.3949719-1-ericyunlinchiang@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,48 +103,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16.0
+Content-Transfer-Encoding: 8bit
 
-On Tue, 17 Nov 2026 23:28:40 -0500, Tal Zussman wrote:
-> This is a first batch of userfaultfd fixes, with more to come.
-> 
-> These were found by a mix of regular old LLM review and by having an LLM
-> write a TLA+ model of uffd interactions with PTE bits and other state
-> and seeing what issues fell out.
-> 
-> Most of these fix places where mm code loses uffd-wp or RWP protection
-> while moving or migrating an entry. Userspace then either misses writes
-> and accesses, or gets pages reported that nobody touched.
-> There is also a hang in UFFDIO_MOVE, and UFFDIO_ZEROPAGE modifying a
-> file through a private mapping.
-> 
-> [...]
+The AST2600 memory-controller EDAC node is enabled by default in
+aspeed-g6.dtsi (it has no status property), so aspeed_edac binds on
+every AST2600 board. aspeed_probe() reads the memory-controller
+configuration and, when DRAM ECC was not turned on by firmware,
+prints an error and returns -EPERM:
 
-Applied, thanks!
+  aspeed-edac 1e6e0000.sdram: ECC mode is not configured in u-boot
+  aspeed-edac 1e6e0000.sdram: probe with driver aspeed-edac failed with error -1
 
-tree: mm/core.git
-branch: migrate-7.5.misc
+Running without DRAM ECC is a normal platform choice, not a failure.
+-EPERM is both the wrong errno (this is not a permission problem) and
+one the driver core reports as a probe error, so every non-ECC AST2600
+board logs a spurious "failed with error -1" at boot.
 
-Applied patches will appear soon in mm-next, followed by linux-next.
+Return -ENODEV instead, which the driver core treats as "no device to
+bind" and does not log as an error, and lower the message to dev_info so
+the reason EDAC did not register is still visible once without looking
+like a fault. The AST2500 node is disabled by default, so only boards
+that explicitly enable it are affected there. No other error path is
+changed.
 
-Please report any outstanding bugs that were missed during review, so we
-can either drop the patch series or decide how to fix it up.
+This change was prepared with the help of an AI coding assistant, which
+analysed the probe path and drafted this changelog; the author has
+reviewed it and stands behind the change.
 
-It is encouraged to provide Acked-bys, Reviewed-bys, and Tested-bys even
-though the patches have already been applied. If possible, patch trailers
-will be updated.
+Fixes: 9b7e6242ee4e ("EDAC, aspeed: Add an Aspeed AST2500 EDAC driver")
+Signed-off-by: Eric Yun Lin Chiang <ericyunlinchiang@gmail.com>
+---
+Tested: the pre-fix "failed with error -1" was reproduced on an AST2600
+(Facebook Bletchley) BMC by triggering the aspeed-edac probe over sysfs;
+the fixed driver builds (W=1, no new warnings) and passes checkpatch,
+and the resulting behaviour -- aspeed_probe() now returns -ENODEV, which
+the driver core does not log as an error -- was confirmed by disassembly
+of the built object. NOT boot-tested on hardware (the kernel was not
+booted).
 
-Note that commit hashes shown below are subject to change due to rebase,
-trailer updates or similar. Further, this is not a guarantee that the
-patches will go upstream. If in doubt, please check the listed branch.
+ drivers/edac/aspeed_edac.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-[4/9] mm/migrate: warn on a writable migration entry with the uffd bit set
-      https://git.kernel.org/mm/core/c/ec53fccd
-
+diff --git a/drivers/edac/aspeed_edac.c b/drivers/edac/aspeed_edac.c
+index 6e069b255..e6f8cf78a 100644
+--- a/drivers/edac/aspeed_edac.c
++++ b/drivers/edac/aspeed_edac.c
+@@ -295,8 +295,8 @@ static int aspeed_probe(struct platform_device *pdev)
+ 	/* bail out if ECC mode is not configured */
+ 	regmap_read(aspeed_regmap, ASPEED_MCR_CONF, &reg04);
+ 	if (!(reg04 & ASPEED_MCR_CONF_ECC)) {
+-		dev_err(&pdev->dev, "ECC mode is not configured in u-boot\n");
+-		return -EPERM;
++		dev_info(&pdev->dev, "ECC mode is not configured in u-boot\n");
++		return -ENODEV;
+ 	}
+ 
+ 	edac_op_state = EDAC_OPSTATE_INT;
 -- 
-Cheers,
-
-David
+2.53.0
 
