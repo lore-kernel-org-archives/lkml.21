@@ -1,63 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.128.210.58
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795020914;
-	b=SwdVgXymKToBmkgnGC9CP0ocBsrc3JurS/6F+pntNyFDCRruT7uXllETlvZfVhkmcvQh
-	 WrCpUnvmNKczDuz1JcVEVaPAPOmm5d8s8rGNN9q7TduIbo04TUSPim2OdOgkMiyzhl+6v
-	 t0vcn4PQmp3TWU7X24DZ2j+3ZzRE8mbI+WaKX9Xxe4DULSCrVXSbJmh0YEOxXcUcQJkA7
-	 8RBHWxzkElrdQIl9jUPVCgQriASQkICl9jshM28iAvKcFm6XdvczB/ON25PWBSEiGyIx9
-	 zuD/MzNnIp/R1Jkk3PfTX8E7vbDtlQWZF1WUv0BCtkZl/U/zDFmGnnitUobVgKNP86A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795020914;
-	h=DMARC-Filter:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=ZLM3s8d8UDzrM9sfjMtb4usIGUWvbcJkqCBFK/uTBxo=;
-	b=QsApUsJWXzDO/m+ikjPdNisNkDxvnH7+mmIeK0I3yoJb55VwnbNYuxukGbsLk15IA46Q
-	 wF6YkLEqOaBtYD6p49OhQnuhKzYt3S3mjNt3p6ZdO/3dD4dvAn1M/qDPaxgxv4yt4h+Qp
-	 TUY1EfJDDz19ymznEP8kMp2ti1rw1sDFeFXeb6FRB3l5UJ5X8FVWPxgl8ceRqOUyHiwAj
-	 oNRKOJzNTxyEa0fwHaTOstw0lolunDhoX5lrlBRuL+DtgxlaTscWmKZE1NcB2KSvgo5CX
-	 J3npGiLeiQv54DbvBp3rvMc/Vkb34NvDh2iXtqY4tEBqsosaQESnDL1JBaLwbzhkB2g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=librecast.net;
-	spf=pass smtp.mailfrom=librecast.net;
-	dkim=pass header.d=librecast.net header.i=@librecast.net header.a=rsa-sha256 header.s=2026110900 header.b="Z1Wj3+L/";
-	arc=none smtp.remote-ip=185.128.210.58
-Received: from bregans-0.gladserv.net (bregans-0.gladserv.net [185.128.210.58])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.66.44
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795020931;
+	b=XjVCdWuES4Z7uTD09QenDLpISXQbpmX/ktHUaR5bvCZoBtY6/kVecWJ/EdWBjagO4xER
+	 pOsV/KjFbbxrmRymymInsahXIfqdkLXmc+OKRNTFuzmBfNN9rwY2b81NvDBSBpe4LPWc+
+	 nyrQhHq1iGYBZrQenD9vRIMiRYrIkaD7f6Ri9QOeTUoMGrtUD0+0TmWC8HJRHod0+/O86
+	 bkHwsndQhgu5jvwKUncsw+lZBv3IALMmJKHhyKQLIFYyWKYiaHpaT7BkcCkaInWvXQ4od
+	 B04NjZy3kIpz7+sevBWfs9vNDlJVLqQ1sVwBiIG6nuSDR0wcgacvwvfqfxz1yrEjIFQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795020931;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=oEmcUOZ6oTmdBhzwmdzqe3dX5//jbL7OnVF9gBVmUTk=;
+	b=HvXPUbbOVHPOsm+ndsw/CSXqbGaFKXMleQS+4VaXMwwy53Ukb21fOFXSn2ehNkCQUvDq
+	 jWFIEBnj+DvNeZTf423boBrse6MwbnalTOtrl8hTiCDDT1CVMacd1CIjODCWaq7pTQsJu
+	 XTiE6YxAOjc/CMeYYXb8Xzx2CZ8ORH2S+04ipl34IQxvyHzkcCbDJ87BUKqaOefvzkDy8
+	 +WDLuKvkG6AbT6XuNjDqFMxVMWE3ah3qK06feOJLP7I5GTR9LuvM9ZENCJ0hZnvPH8CwX
+	 j9awf5xrVPEbKC1ghN3yzVT3SEt2Zg8VT/FFUGr6uDgwJHJexlBBHSm/VUAhZ6OX5bQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b="FvYbA7H/";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.66.44
+Received: from DUZPR83CU001.outbound.protection.outlook.com (mail-northeuropeazon11012044.outbound.protection.outlook.com [52.101.66.44])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD357606A31C;
-	Wed, 18 Nov 2026 16:55:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CD357606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=librecast.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=librecast.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E73A606A320;
+	Wed, 18 Nov 2026 16:55:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E73A606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=librecast.net header.i=@librecast.net header.a=rsa-sha256 header.s=2026110900 header.b=Z1Wj3+L/
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=librecast.net; s=2026110900; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ZLM3s8d8UDzrM9sfjMtb4usIGUWvbcJkqCBFK/uTBxo=; t=1795020913; x=1795884913; 
-	b=Z1Wj3+L/fBH0smUe3N/4DWjZswp6mIRxDNziMdaQwG7Pcn4NLfGPrZ4K3IiNMKLQG6OY6yxnahZ
-	IwwSNbVOHfRNRZdaa6cPzcrkjvw+0jsHH9lxyj3PDhGf94oh45wCqO8HeeMJr14A1ZKszGFzubk1V
-	vCcfQA+3G0uNIL2AcoGzcIMIUOlyNnly3JMckeFQubb+2KhoLzp1Uo7u+jpFSLSNkZVL/16HAEtxW
-	IYTjDPGO45g8CFqmLZFUMuf3p3VQXJ+/miG7ff0zaWEedR1QyYl6iXmPOtuy3XBmcHQBK6Cx32ojN
-	dDAODXVUU+shGG2wlnZKBeXUNiCIx0M6DOyQ==;
-Date: Wed, 18 Nov 2026 17:46:26 +0100
-From: Brett A C Sheffield <bacs@librecast.net>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: stable@vger.kernel.org, patches@lists.linux.dev,
-	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
-	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
-	patches@kernelci.org, lkft-triage@lists.linaro.org,
-	pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com,
-	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
-	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
-	sr@sladewatkins.com
-Subject: Re: [PATCH 6.1 0000/2857] 6.1.193-rc1 review
-Message-ID: <av3WYtoFXmHPM8uk@karahi.librecast.net>
-References: <20261118150201.293410965@linuxfoundation.org>
+	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=FvYbA7H/
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=J9Wsv+3nKs2jK4rfwOyHtZA5OVfF5WmiTQdix5CzbxJaX2tWBdxu8BmJj00iWt+sbyqwYeT8hfBUn+I0iyyEVeHaLH3kunhb/DrIwQCj/fwEGLhgL5X0L5vtf9mErvc2ELW5XWfuW3kyogPso4PhWXEancmJ07NE0bhB/EyJ4HGfAHw/34tVq2V+YufFmJ7DPFRWqTSwLeaK39/rCvJ6ySDOdmMn4qWSf+OvF/bKIqLunfY2yaMHdmbnploqKVtJBWEGKRYVQ20P1OUM5gWnDf1t2K1nlHOtuGNnq5IQ2cqaIwYK9hS/IPjBkLBJXsVvRBdOqVrZmFTryIxV/6d9+g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=oEmcUOZ6oTmdBhzwmdzqe3dX5//jbL7OnVF9gBVmUTk=;
+ b=LvWT97yIGQfC3Bqw3O8nBkKrQdHzO4qr1uj6MtQT7i+t3Z8IFuTotjhG+SD5CeL0LSrKHezPNUiJ/mkGSlkdFifgWqXZED8G4/Xuz4Fuq8TII+QW7b/9NeewrRo0O7II+PqcRYgBnu00iZl9AhlZ8h6dJhbgtdjltml/a/tPpKyO/C6Nrdh2fFelAaHAWK/5R+wE5WY646xG8rTmp+wPPTxcJEREtvg/kS13hxjnO6eRuEoK9+tG4/TU0JiUFCJxqFpLCjxKll5Maxsvm+y/X9D+XtBm4LShTCmTUE3VoQ1K8LqxBz1poTc6/lb5PnsBZOZohVGxfhWV5wtY5dJ42A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=oEmcUOZ6oTmdBhzwmdzqe3dX5//jbL7OnVF9gBVmUTk=;
+ b=FvYbA7H/7gT9rvVTsJSNY0qKGnH2sHrNR7xsM4bfI1Lb1ePkdmEkc1UFm8QeOGYu4E+UPetbaDelTmPUcKHpkbi7N6Z1Pr9uwecxagWS8T/M+jH/znQsX0PiTLjGbSQU2W6gjJm9ZgQFGCkEkabU9TZO3zEjHB2y+2E7DkrV74l/CwuRWFc5UrOh/5yq9WpR8ROWJX7RNPmkXe576W244O7sNCD9oHd+Bx956QH2ZAcG5cZUmPx85Dgxus97C3X0+mGyMfjF3Uwu/MYI6dRCaVdxyYQ16YTuM7+G985kSA/RtQE8vBnGPPdgx1uC9QdEz8bQvAa6uC13CfDoeCtznw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by AMBPR04MB015018.eurprd04.prod.outlook.com (2603:10a6:20b:7d8::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.16; Wed, 18 Nov
+ 2026 16:55:28 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
+ 16:55:28 +0000
+Date: Wed, 18 Nov 2026 10:55:20 -0600
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Logan Gunthorpe <logang@deltatee.com>
+Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.li@nxp.com>,
+	Sashiko <sashiko-bot@kernel.org>
+Subject: Re: [PATCH v3 6/6] dmaengine: plx_dma: don't invoke client callbacks
+ with ring_lock held
+Message-ID: <av3YeAbHSUdVowUJ@SMW015318>
+References: <20261117165135.746241-1-logang@deltatee.com>
+ <20261117165135.746241-7-logang@deltatee.com>
+ <avyrd_b0yQ4Nqk-O@lizhi-Precision-Tower-5810>
+ <c2df58c9-6ddb-4125-aa1f-897e90b33e9d@deltatee.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c2df58c9-6ddb-4125-aa1f-897e90b33e9d@deltatee.com>
+X-ClientProxiedBy: PH8P223CA0011.NAMP223.PROD.OUTLOOK.COM
+ (2603:10b6:510:2db::23) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,26 +100,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118150201.293410965@linuxfoundation.org>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|AMBPR04MB015018:EE_
+X-MS-Office365-Filtering-Correlation-Id: 83bacc90-9036-43c7-a493-08df4594bf74
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|19092799006|1800799024|376014|23010399003|366016|18002099003|22082099003|6133799003|261009223027099003|5023799004|11063799006|56012099006|4143699003|261028144727099003|261102123227099003|261026121527099003|261026140227099003|261021121427099003|261022105027099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	uzi/7MnfALb2ts9cgRz5J2r58XSxD0JTXZoxO3WJoUyzTkG27+5t3ys8qKB+oVvwA+Qm6LBVsoOU4F6nW0jhrzX8aolHAtjsdj2VmHRNZne4LQV7iNwQ+2Y1XPHDVPp63uadqZvi/2g2OknYGVMLhKsp36bsKnavKeVb6VHMQqlRsdim6XbsztSZ4RCkuI09umBvhNbF7XWpTXDAlJpgjOqUeCdT5oc0m6LElCqta1a8qJ3ON4rBaTz5LfxgUqpzZYdNSlogSHm1W9ENtcgkWU06LtRAlOS5zZT40LMOwkzIUb6h7rGHbl3zbqkax9vsdLqY1s8GAcLobKMhBw9Tp6H/wsrxSosDvTTVgEbSidLZuPG9Yuu8cvEUA0mQ/jpn9a7vyd2bmkG86S3Bedpbl0NFWctr777xZ6yjIS+j/EJOljWllCeOe3M5/edgpcAS30ywAR3AiO/5rgHoar4zcZP49lmZUTEckvM+EYrtaStp3o8zxGEm9Cd+XwaKS4E9voK2Z3lYz97JrRK90XBRucceV0Bb5ZU3ZMdV0VAoANIFBiGqmHe7TNiMdYklFI1Wj+xuk4cDRQ1whPwuIcd/N9n0n66pUac74K8ZDmZtXSgPisy8O9cHlLM9AsDF8Jy+yfxKESXSgts3nh7xYVBYEOJd44KyuB/ZGE8Tb3F1zGg=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(376014)(23010399003)(366016)(18002099003)(22082099003)(6133799003)(261009223027099003)(5023799004)(11063799006)(56012099006)(4143699003)(261028144727099003)(261102123227099003)(261026121527099003)(261026140227099003)(261021121427099003)(261022105027099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?xcshL/CA8+O19T4VM5sfUCNi5y6OLOCz02BzAp9/ynuXWhGAk0UeNWauSg2B?=
+ =?us-ascii?Q?yNwg7IAV7K2MgcKUZwdqZkd6D/t2luOE4rw6viBHLAXnsIO5VJIh4IU0Izm+?=
+ =?us-ascii?Q?xRwt+jz6XHPawkiQnsq9mVsWaYfqrAnW5Gja7zLHkao2geio5PDt3470NQNx?=
+ =?us-ascii?Q?sQdQcO0x+MDixHa6R5qWwAgn3vJrgrvDwU1p47SyEGqB0q6akpIwoUpy2Qc+?=
+ =?us-ascii?Q?gNzFeoaVJaxMa9XkxJjhj7MhJSG6x2j9HchiLFFsljG++iTcPw1ii7+hs8aK?=
+ =?us-ascii?Q?auTtB1MHYrkGZR9vfHYPi9jjTGKJKqrDR2QVEvVSGsF5h4qIYmQ6pMpvxDKu?=
+ =?us-ascii?Q?W3eFSXdal3Q8VcH1SuTtE1I53BpPXobA32lkWk3BfeJWKiUodQmTM6umS5Kn?=
+ =?us-ascii?Q?9M6b9olrRDkpqzIwPFrpUYMekSaDX/4HLK7BhdBqJmYQDdylxd7JEYSHmBWp?=
+ =?us-ascii?Q?F5+qHsmnxgral4y2mbkbYHzFvz98UIe6W2/eXb+Of2Ef+0e5NVYp/BR/RNr3?=
+ =?us-ascii?Q?lV3NrncqKcn/9ZZhL0OfY+r7dVT/yGEWqD2aK/VOTy1Ie0UPs/7J7+4ebgLm?=
+ =?us-ascii?Q?qAiLwBmE95Mi4kq+ApAqeTifJgKtXe6j4H6ersFkJT8Mx0ySTI7rPWaUPU3j?=
+ =?us-ascii?Q?WF+voCtLKzXx1Kc9sJ4BPRaHiznGvieTDFwh13m4UxiN7xuU54pMff+LijMd?=
+ =?us-ascii?Q?cRV9PcRMf7kbQCJWNNZyT9vtIRc7YcbKmY4GVQZXDdkjMNvPLwQ2bU9wogUF?=
+ =?us-ascii?Q?LT7wKQgVuar97R5Fu1OCuJlj6oLwCMXlkRWqQTHRSuOdI/Q5M4NA7Njc30Kr?=
+ =?us-ascii?Q?9KH9j8Fw0C6t33fEKwEy126FTIQeFRxvL2a+oCiYCFvDFaUrqc6b0Lv7Cenv?=
+ =?us-ascii?Q?MnSUlBwvolg5aK7tkWS+tDSl33AnFBw2H50U8MFlK9C2Uiz9QXuyu/ZivbpB?=
+ =?us-ascii?Q?oaV8/mxCdG2xmw27p5lAAJWHm1G3c6+J+9WT7N2Kl4nJfEr79dwZbGo7gS6V?=
+ =?us-ascii?Q?KMyOk+UrBjaG/Xe+7bU+2J8AxdkGvVJIzbnNwK/iZgNdlO/zSioWbPXFFXoG?=
+ =?us-ascii?Q?Z8FpLXzeeV+MkMnKauhYGp4is3HOsnzDZ5aT6Gb8oPWrqho8S/wpxUf7MzBa?=
+ =?us-ascii?Q?DVdHXhpU6Dg5+t3XAosKpJMMgZRBZTjWbqulqTfh41vZM1Rrqp59/YhhBEv0?=
+ =?us-ascii?Q?7nemeqd3ZypUItwDoJC47gRNuuQnY2QwIgXbcYwgdj8pJSWxq91z+oFq8Tck?=
+ =?us-ascii?Q?5pjdVAYbqaiYPCOp/zgO2Xx6h551S1S4x3SqK+B4ZkvXzFqLpc1/uZBCJeQc?=
+ =?us-ascii?Q?Tmb/9FO1BnQMfcVtiipVwyTI/DZ0SpGsYxU5yqKbwXvpitTysI/tnU1fkoEW?=
+ =?us-ascii?Q?VYCOPOwdj6W+GNkkcEEuz31HUQzfFGcc2g03NdTVH6hCpPSdTmb+f2Rt34SZ?=
+ =?us-ascii?Q?RoULUlvCAXH+E6Qgn0r8P5bFW6z6bl2FR/BrLjzKKEQYRMLzLc3cwCGrzIfG?=
+ =?us-ascii?Q?YpFtmfLbGLSOjRo+eWPZn4Jhn9rabNNy310nsMSG/njl72UwgZ41SeiwmhbW?=
+ =?us-ascii?Q?PUcsXdp2XDkvwqRU9V1eP5njjybgNO1jEUoNncM//LBPlQi/Giv58i3HqnnS?=
+ =?us-ascii?Q?qIunSbta9sa+HvERCVFO6Kko7rjfbmBQhMYTacUF3gWF1Mr8VA+6BJ4Yl1g3?=
+ =?us-ascii?Q?nvIC/xboMiNL5GW+0TbU6CtgEP74jwJqhfqYL2WnPegfN7REddMOHJx3V2nF?=
+ =?us-ascii?Q?VOLFoHLze605QM6OdlKOlCgGuDTF59MowE4a0RE83f6A5oRU40fh?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 83bacc90-9036-43c7-a493-08df4594bf74
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 16:55:28.1545
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZdfNyQ7Aoxl2PrbG/ldX6y2eBUQ6v8T9GSIsvrxNyWwN9vxsFyp0ms9PuL5jx/M9PHdLjX6DU2NATdU2SuKDQ5tj63Y2rjIZehZYD+WbjsCQpJhdE59R2pgfLvSXCqIS
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMBPR04MB015018
 
-On 2026-11-18 15:17, Greg Kroah-Hartman wrote:
-> This is the start of the stable review cycle for the 6.1.193 release.
-> There are 2857 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
-> 
-> Responses should be made by Fri, 20 Nov 2026 14:55:40 +0000.
-> Anything received after that time might be too late.
-> 
-> The whole patch series can be found in one patch at:
-> 	https://www.kernel.org/pub/linux/kernel/v6.x/stable-review/patch-6.1.193-rc1.gz
-> or in the git tree and branch at:
-> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-6.1.y
-> and the diffstat can be found below.
+On Tue, Nov 17, 2026 at 04:46:36PM -0600, Logan Gunthorpe wrote:
+>
+>
+> On 2026-11-17 13:31, Frank Li wrote:
+> > On Tue, Nov 17, 2026 at 10:51:35AM -0600, Logan Gunthorpe wrote:
+> >> @@ -166,22 +171,35 @@ static void plx_dma_process_desc(struct plx_dma_dev *plxdev)
+> >>
+> >>  		dma_cookie_complete(&desc->txd);
+> >>  		dma_descriptor_unmap(&desc->txd);
+> >> -		dmaengine_desc_get_callback_invoke(&desc->txd, &res);
+> >> +		dmaengine_desc_get_callback(&desc->txd, &cb);
+> >>  		desc->txd.callback = NULL;
+> >>  		desc->txd.callback_result = NULL;
+> >> -
+> >>  		plxdev->tail++;
+> >> +
+> >> +		spin_unlock_bh(&plxdev->ring_lock);
+> >> +		dmaengine_desc_callback_invoke(&cb, &res);
+> >
+> > Common method is slice to local complete queue in ring_lock. Then unlock
+> > ring_lock after while loop. Then invoke cb in complete queue.
+> The PLX driver has no software queue. The hardware queue is large enough
+> that having a software queue would have been wasted overhead. So the
+> virt-dma pattern doesn't apply here. I'd really rather avoid adding a
+> whole other software queue just to fix this issue that isn't that complex.
 
-Same build failure on amd64 as reported for 5.{10,15}.y
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
--- 
-Brett Sheffield (he/him)
+>
+> Logan
