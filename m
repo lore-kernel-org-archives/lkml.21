@@ -1,56 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795012117;
-	b=5D7Afi6TOqah6PZ/cL2R5KgK1llXOHOxS4N/AlWpSh//N0Ua/rR1AMQXBI1BuTdxhPH3
-	 m8m0+TdFWIC9DRvzu0+51wALbRzJXVrrckUO9SxhL4538juxwJd32s0ZQi1Kriqzw6ITD
-	 1tMcm8dKnfSdCihQyvLvD9r6PmdRt5woy0b17D+tUJqsXkBDuSdhDp5vLrHXvnMJP0/cJ
-	 xw9UsnAFj1VslnqCopmwO3WniClcqPVnljC9ycq5GVDMBA2w4htBcd9j4jz3hL5v3UgwM
-	 h3+MdnomLOFosw+a24TFQxEJeqzsg2yBcvRCmy05xGEvQHk725ihf/C8GNeW2MUePwA==
+	t=1795012264;
+	b=K0HICX9pjPNJIruDE6EYXZGcexeoU3WBhzCRRj42EyUDI2T2jIdd/UfyZESnjoyERORt
+	 afKQA1kt0P3dIPOgw0uP6V57MMf4hWjk6GpRBGvF0xC30+W4dYZm1R+Xj1NC5tjceATPT
+	 4zi1rDr2JbBqa02h71jIIY1p6K1gw8OiQRg+hxgDYtUJ/5pVe58vfrX7Q8flxns/Yv1WU
+	 MLJahSlkF7X3DwTMkL/kCNCOAmKtxginBS2qnrHjTPyDdsjSbFYICh83c2OYa624ytoRD
+	 SnpFpK/Czgl49b12AUJRSB541vteO7SvvfDwnMCLZtv+oK3uOG0thExLBwrr/vZo4Ew==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795012117;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=GUT52vgyJgPuz0uybFsuYJgMVSReQWxsEW446+mnG/c=;
-	b=ZRvZVDzT/44hu1RsciX7uaVIZo7QVoWJ5Ditq2T2idp4Wqm21ggZ8rpZVDYRiU/80p0Y
-	 QpF/+PAsyg07MbO4ReJ3CC1ECNLXgygKyGauQ8A+ZnK8TB6Y5TGfoPnN59mF8Hw9V3kQ7
-	 4dgbuOri9i8OOm9/YJvBDv/YVo/b9SU1RA0vO0B5x9oVXAkbZgMOm6gVS884CC+wlDekI
-	 NgRTnloqurC+sOtv5RE6XwmFl+je3rCLesvfD8O5vBWhE0hNElER+b6c9UBB3DjU+kOEV
-	 X1WQ8J+WX22TBYBeO3h7+mkf0e7YJkwuTNoaRCOGpf8iiqP9jSTAT3P8GTbQIR6OGeQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795012264;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=392Hdswd6RPVgoARz97n2rCwM4IdCSNMtjJg6BE/bLM=;
+	b=x+ldTKbXiSs8Cox4Uqz4Er6/WWsgduGRMyXM74IEMI6DoMsB+lTbdsWUTHAJbhAzhsfl
+	 tBmKvHGZqR4Ih7s6z12svg8ELq31z3VBmZrPei6MNVff9Nbm1ZyccWoM6m75omvtEhhPh
+	 v5YT8ugvA7marTFG0JSH85KtTXVrLPgyGjSkgNCnVgyIEG1VpuC4c8nGgJEwmPrDdkpKE
+	 CZnbkAPtZEO+s7uH2he1zvHUIhVHz6Ls67YkYAXCGMmD3RPZChpHi8bKc8hWQPAqDAtL6
+	 QeLvTOohF2bivTIiwWielTGn8WzDZDxjL6R7EE334pQFntInU0G1eFoxIldmiaEW1gg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Kog+7qaZ;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Ew2XsXLk;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ACAFB60A2600;
-	Wed, 18 Nov 2026 14:28:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2FD1606A32C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:31:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2FD1606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Kog+7qaZ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E1881F000C5;
-	Wed, 18 Nov 2026 14:28:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795012117;
-	bh=GUT52vgyJgPuz0uybFsuYJgMVSReQWxsEW446+mnG/c=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Kog+7qaZykWYE2vmZ/oH75pfch5xTnHflU8PorPT1BHhJGz7cxBdAf4dIILq/VQgq
-	 Hit16GWSGZjpiJxNbNDcRNaXe0uZj7X9F/UwdTcUXH0+V3En5Hk21w5dxkSXxAnwvL
-	 rwrk+GinlXzbEaFMRyUodCXQCnPz1OGSvdemf2P/q6uiJfNYmb27xjRhzUrv7H6W+g
-	 OXVohld2oiuFRgPx5r6mO7wm3Tt3oSomxX0dZymKO6RvQMXWyEIQIACJu1eZP7zk2u
-	 uI0yMdf0idyVkZagkDkHqKqAF/Gw5yq3jlnLeGMf7NgZM2FK6kQnsw4rSrpO3hFEaZ
-	 fo71rGJpydlIA==
-From: SJ Park <sj@kernel.org>
-To: Sailesh Nandanavanam <saileshnandanavanam@gmail.com>
-Cc: SJ Park <sj@kernel.org>,
-	damon@lists.linux.dev,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] mm/damon/tests/core-kunit: add test for damon_call()
-Date: Wed, 18 Nov 2026 06:28:29 -0800
-Message-ID: <20261118142830.90113-1-sj@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261118063755.37749-1-saileshnandanavanam@gmail.com>
-References: 
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Ew2XsXLk
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 60D444E41636;
+	Wed, 18 Nov 2026 14:31:02 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 2C79D5FE9B;
+	Wed, 18 Nov 2026 14:31:02 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5D73911BC1D28;
+	Wed, 18 Nov 2026 15:30:51 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795012256; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=392Hdswd6RPVgoARz97n2rCwM4IdCSNMtjJg6BE/bLM=;
+	b=Ew2XsXLkqtUOpCPT12pc1hvd84aXYM7wHSOTaA+EnsN0dNFY3Ua2doiE0ZnT3/UMkbkIPE
+	H1jB6j9Php5QHjUMbNW0pUBIx3QVZBlHFCWxIke3VinNVOJhoDfe9aUgbhd75IJfBBU0LN
+	TBNmaFLMOWHoy02XumJqjJNTlxGk8PKr6CUNoLchmsl39lHvnqmF+gQ7aduTJmQ8Bw5AY5
+	pSb4V4gvxIVY3rGJAAWcyOGqAoyUAnP4MtXuHSASvcjDRxKEzX7iyb4EFmp52iNpahDQvN
+	io7gsIQses3V8zw4i8cjH8zrcQbeXMhat7BBtn62CrJT2tsWaaQZ40jIjx9mRA==
+Message-ID: <a520c744-3578-4d2d-8d88-72cd4facab7b@bootlin.com>
+Date: Wed, 18 Nov 2026 15:30:50 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,50 +62,87 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 01/12] drm/vkms: rename VKMS_LUT_SIZE to
+ VKMS_GAMMA_LUT_SIZE
+To: Leandro Ribeiro <leandro.ribeiro@collabora.com>
+Cc: airlied@gmail.com, alex.hung@amd.com, daniel@fooishbar.org,
+ hamohammed.sa@gmail.com, harry.wentland@amd.com,
+ maarten.lankhorst@linux.intel.com, melissa.srw@gmail.com,
+ mripard@kernel.org, pekka.paalanen@collabora.com,
+ robert.mader@collabora.com, simona@ffwll.ch, tzimmermann@suse.de,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
+References: <20261106201813.129911-1-leandro.ribeiro@collabora.com>
+ <20261106201813.129911-2-leandro.ribeiro@collabora.com>
+From: Louis Chauvet <louis.chauvet@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20261106201813.129911-2-leandro.ribeiro@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-Hello Sailesh,
 
-On Wed, 18 Nov 2026 12:07:55 +0530 Sailesh Nandanavanam <saileshnandanavanam@gmail.com> wrote:
 
-> A newly allocated damon_ctx has call_controls_obsolete set, meaning no
-> kdamond is available to handle call requests.  damon_call() should
-> return -ECANCELED in that case instead of queueing the request and
-> waiting forever.  When call_controls_obsolete is unset and
-> damon_call_control->repeat is set, damon_call() should return 0
-> without waiting for kdamond.  Add a kunit test for the two cases.
+On 11/6/26 21:18, Leandro Ribeiro wrote:
+> This is the size of the CRTC gamma LUT size. So let's specify this
+> in the name.
 > 
-> Signed-off-by: Sailesh Nandanavanam <saileshnandanavanam@gmail.com>
+> Reviewed-by: Robert Mader <robert.mader@collabora.com>
+> Tested-by: Robert Mader <robert.mader@collabora.com>
+> Signed-off-by: Leandro Ribeiro <leandro.ribeiro@collabora.com>
+
+Reviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>
+
 > ---
-> Changes from v1
-> (https://lore.kernel.org/20261117172219.26725-1-saileshnandanavanam@gmail.com,
->  https://lore.kernel.org/20261117174834.29182-1-saileshnandanavanam@gmail.com)
-> - Merge the two tests into damon_test_call().
-> - Drop the list_empty()/call_controls.next expectations.
-> - Drop list_del() on the stack-allocated control.
-> - Post as a single patch.
+>   drivers/gpu/drm/vkms/vkms_crtc.c | 4 ++--
+>   drivers/gpu/drm/vkms/vkms_drv.c  | 2 +-
+>   drivers/gpu/drm/vkms/vkms_drv.h  | 2 +-
+>   3 files changed, 4 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/vkms/vkms_crtc.c b/drivers/gpu/drm/vkms/vkms_crtc.c
+> index fe17f49305a9..019d7bc90cdc 100644
+> --- a/drivers/gpu/drm/vkms/vkms_crtc.c
+> +++ b/drivers/gpu/drm/vkms/vkms_crtc.c
+> @@ -222,13 +222,13 @@ struct vkms_output *vkms_crtc_init(struct drm_device *dev, struct drm_plane *pri
+>   
+>   	drm_crtc_helper_add(crtc, &vkms_crtc_helper_funcs);
+>   
+> -	ret = drm_mode_crtc_set_gamma_size(crtc, VKMS_LUT_SIZE);
+> +	ret = drm_mode_crtc_set_gamma_size(crtc, VKMS_GAMMA_LUT_SIZE);
+>   	if (ret) {
+>   		DRM_ERROR("Failed to set gamma size\n");
+>   		return ERR_PTR(ret);
+>   	}
+>   
+> -	drm_crtc_enable_color_mgmt(crtc, 0, false, VKMS_LUT_SIZE);
+> +	drm_crtc_enable_color_mgmt(crtc, 0, false, VKMS_GAMMA_LUT_SIZE);
+>   
+>   	drm_crtc_attach_background_color_property(crtc);
+>   
+> diff --git a/drivers/gpu/drm/vkms/vkms_drv.c b/drivers/gpu/drm/vkms/vkms_drv.c
+> index 5a640b531d88..86a8a95694fd 100644
+> --- a/drivers/gpu/drm/vkms/vkms_drv.c
+> +++ b/drivers/gpu/drm/vkms/vkms_drv.c
+> @@ -113,7 +113,7 @@ static int vkms_atomic_check(struct drm_device *dev, struct drm_atomic_commit *s
+>   			continue;
+>   
+>   		if (new_crtc_state->gamma_lut->length / sizeof(struct drm_color_lut *)
+> -		    > VKMS_LUT_SIZE)
+> +		    > VKMS_GAMMA_LUT_SIZE)
+>   			return -EINVAL;
+>   	}
+>   
+> diff --git a/drivers/gpu/drm/vkms/vkms_drv.h b/drivers/gpu/drm/vkms/vkms_drv.h
+> index dea6cad3f1b9..34b855431af3 100644
+> --- a/drivers/gpu/drm/vkms/vkms_drv.h
+> +++ b/drivers/gpu/drm/vkms/vkms_drv.h
+> @@ -25,7 +25,7 @@
+>   
+>   #define NUM_OVERLAY_PLANES 8
+>   
+> -#define VKMS_LUT_SIZE 256
+> +#define VKMS_GAMMA_LUT_SIZE 256
+>   
+>   /**
+>    * struct vkms_frame_info - Structure to store the state of a frame
 
-From the next time, please ensure all discussions on the previous version is
-done.  You could do so by giving more time before posting a new version, since
-the last message to the previous version thread is added.
-
-[...]
-> base-commit: 20eef29b7c8465ac98d7dd6d6f2ac07a8d8056ca
-
-Seems this is the mainline.  Please use mm-new [1] as the baseline of DAMON
-patches from the next time.
-
-Other than those,
-
-Reviewed-by: SJ Park <sj@kernel.org>
-
-This patch is applied to damon/next [1] tree.  I will repost it soon (~1 week)
-as an mm.git merge request.  So, no action from your side is needed for now.
-
-[1] https://origin.kernel.org/doc/html/latest/mm/damon/maintainer-profile.html#scm-trees
-
-
-Thanks,
-SJ
-
-[...]
