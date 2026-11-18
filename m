@@ -1,51 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.119.170.32
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.224
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794993218;
-	b=q2+b50lVSzSAn8H0+uDLMYve+nnHg68FRb/iJK4NMKceZGEsffHbVjJnoyUE+sjFuSx3
-	 ARpLCs4MO47cNyQM/kHh9ZQJWBaREuafC+wjunAfjaMk6KKplO1BLNjQhDERA86f4QiEv
-	 Dvx43frE218qa0mbQPLZRV4zZif9lPRgpcuK4Q9X4VY4jx/vPz7gPy9FCrNyZmXSuldIj
-	 zrexvKnOwgtVGM116PlAozKvWAQsEXDA2pv4FG1gG7Oa7Gciq0yevEvFRkNITWO1geA1o
-	 AM2O/bbjaQNvzVUfyOsJh7O12DLdg9g4XAzRW4toi3x/9LMKaZVIExhPMS1v8ZLDSqg==
+	t=1794993223;
+	b=ouYoLaIkyQk96IUstm+X2QO4RdLuUajOMYKIcdoOqKGtvLApMr7ODAq7Ai8w2TGJ15Au
+	 y3a5kicmhV55e5jvggxZCuKSZUox9WChYp3K/ZVd64UjSbpP/nrJ5ruxuXxy+8zAobcjj
+	 B87pudA7SJUkkeQMEooGhbKX0fKQd582rNWwFoE/9Vy09rJ8WjUesAf6QvRNn1wf1Ba9s
+	 q6DdW4kt1uc98L+x6pQVdhHEW3KM6LX6nOLj+ix6Oj7OcA9RjgV0Eeqqpu4J7urpVgmc3
+	 uJDoTkCZN+oBHRyh0Q17OlTf0a3Omo6RnOtfY/uRt/J8FWDP84gBQoAhub+PvX+nlDw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794993218;
-	h=DMARC-Filter:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
-	 References:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=MvvizZ9JHQIxNGSNp585ypBtXBMQ2aCpYxufJnPDzVU=;
-	b=rcYsnR4ca4KDHJ+D9FQhJQzs+ZspAM9+CBJClju/ojcVLKnfDWiLWDC9sBB+PFxMpbFD
-	 gpIoMTN62rUgBKcih3fkdMz5BJdW08RTdwF9vemb5dNBrSDlZB1BN32TOzy3CBgIQCyuU
-	 fr6tAAxL2p5m0hyK0+d2HtIVeXqqtSZV1xUaW4LA62asIBFLeRBNz2B6tqVtyFsJP2Fpx
-	 QKKgpF/OqBkeDA+tLpe96Oqm6wCgE1nj+ormqbp7diYl6SlLMLnY2JM35iVPJPpzt718G
-	 QalBi++2jA79sjJzmHf6yzYszKwG8sZo7d1kZUOmURPyViJADBQ7frITF9GLSHC3XRg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794993223;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:CC:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy;
+	bh=gqPBU5vSzctPXUMsg32k86Yb/Qp3EYKKyTavFdf5sH8=;
+	b=cq8NLcIpxDrs6FZXJ9TmlxhEruIKvkgPI1uREp7kORsNKvIzr7w6MNgcrrT96NxzcYuO
+	 UdxiG0DqjmtyfxWX9acvL98DQxDQfV6MfYrunjlHx+rLiZ5Oq8tAV0Pxr9PyVzaD9fiuz
+	 7+iwMIHDotrBwpcQox45wAdZI+9yUyUjf8+kHf0tOJmfSb1I6llmNroVY8DoLLmGhL8w5
+	 XKXixs+alpq1dCuozqBfVN//awQAAf/IOCuWeMZQRDzwPuP5dMncRxpelRBZJIpr0KTZt
+	 yXZbkJYVUHkOyQHQMho/01zCDgA6hQZ7fcTeroPzT0xxZepZ8CSKhWAonW57cJLwLkQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=crapouillou.net;
-	spf=pass smtp.mailfrom=crapouillou.net;
-	arc=none smtp.remote-ip=185.119.170.32
-Received: from aposti.net (aposti.net [185.119.170.32])
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=u7vlY2Tx;
+	arc=none smtp.remote-ip=113.46.200.224
+Received: from canpmsgout09.his.huawei.com (canpmsgout09.his.huawei.com [113.46.200.224])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B720C606A88E;
-	Wed, 18 Nov 2026 09:13:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B720C606A88E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=crapouillou.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=crapouillou.net
-Message-ID: <eb60698d243da29c61b3ffded6acca90dfcb3475.camel@crapouillou.net>
-Subject: Re: [PATCH v3 2/7] pinctrl: ingenic: Fix hardware dual-edge
- interrupts on X1600
-From: Paul Cercueil <paul@crapouillou.net>
-To: "H. Nikolaus Schaller" <hns@goldelico.com>, Linus Walleij	
- <linusw@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Bartosz
- Golaszewski	 <brgl@kernel.org>
-Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, 
-	letux-kernel@openphoenux.org
-Date: Wed, 18 Nov 2026 10:13:31 +0100
-In-Reply-To: <29961993f8fdc1db97854f940ecf3883c2d32cf6.1794987700.git.hns@goldelico.com>
-References: <cover.1794987700.git.hns@goldelico.com>
-	 <29961993f8fdc1db97854f940ecf3883c2d32cf6.1794987700.git.hns@goldelico.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 615CE606A336;
+	Wed, 18 Nov 2026 09:13:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 615CE606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=u7vlY2Tx
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=gqPBU5vSzctPXUMsg32k86Yb/Qp3EYKKyTavFdf5sH8=;
+	b=u7vlY2TxckHQP+tYQthSmXBs8/AgddjDNh8bkjwDxaHhPAcGONyr849lvDagg0uq2tPODQr+O
+	RNkZ/GSkSnHrw23pVJBgD4eBpcXClBJwejVje/VjYL1bZHv0QSts4KMpbezyGFZ04qUx8679+NR
+	1cZfatNyiz6HsIFs9LF+vZQ=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4jTwr04b2Pz1cyPH;
+	Wed, 18 Nov 2026 17:13:20 +0800 (CST)
+Received: from whupemk100010.china.huawei.com (unknown [7.152.184.41])
+	by mail.maildlp.com (Postfix) with ESMTPS id 6D73B40561;
+	Wed, 18 Nov 2026 17:13:40 +0800 (CST)
+Received: from [10.67.110.140] (10.67.110.140) by
+ whupemk100010.china.huawei.com (7.152.184.41) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Wed, 18 Nov 2026 17:13:33 +0800
+Message-ID: <32b8d9c9-27d2-4da9-8618-ccfc44dee7a3@huawei.com>
+Date: Wed, 18 Nov 2026 17:13:31 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,109 +62,81 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH -next -v4 01/17] fs: pass struct path to notify_change()
+To: Al Viro <viro@zeniv.linux.org.uk>
+CC: <mic@digikod.net>, <gnoack@google.com>, <paul@paul-moore.com>,
+	<brauner@kernel.org>, <jack@suse.cz>, <amir73il@gmail.com>,
+	<andrii@kernel.org>, <apparmor@lists.ubuntu.com>, <ast@kernel.org>,
+	<axboe@kernel.dk>, <bpf@vger.kernel.org>, <casey@schaufler-ca.com>,
+	<cel@kernel.org>, <cem@kernel.org>, <chenxiaosong@chenxiaosong.com>,
+	<code@tyhicks.com>, <corbet@lwn.net>, <Dai.Ngo@oracle.com>,
+	<dakr@kernel.org>, <daniel@iogearbox.net>, <dhowells@redhat.com>,
+	<dlemoal@kernel.org>, <dmitry.kasatkin@gmail.com>,
+	<driver-core@lists.linux.dev>, <dsterba@suse.com>,
+	<ecryptfs@vger.kernel.org>, <eddyz87@gmail.com>, <emil@etsalapatis.com>,
+	<eric.snowberg@oracle.com>, <exfat@lists.linux.dev>,
+	<georgia.garcia@canonical.com>, <gregkh@linuxfoundation.org>, <hch@lst.de>,
+	<hirofumi@mail.parknet.co.jp>, <hyc.lee@gmail.com>,
+	<ihor.solodrai@linux.dev>, <jlayton@kernel.org>, <jmorris@namei.org>,
+	<johan@kernel.org>, <john.fastabend@gmail.com>,
+	<john.johansen@canonical.com>, <jolsa@kernel.org>, <kpsingh@kernel.org>,
+	<linkinjeon@kernel.org>, <linux-api@vger.kernel.org>,
+	<linux-block@vger.kernel.org>, <linux-btrfs@vger.kernel.org>,
+	<linux-cifs@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+	<linux-fsdevel@vger.kernel.org>, <linux-integrity@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+	<linux-nfs@vger.kernel.org>, <linux-security-module@vger.kernel.org>,
+	<linux-trace-kernel@vger.kernel.org>, <linux-unionfs@vger.kernel.org>,
+	<linux-xfs@vger.kernel.org>, <liubaolin12138@163.com>,
+	<martin.lau@linux.dev>, <mason@kernel.org>, <mathieu.desnoyers@efficios.com>,
+	<matt@bobrowski.net>, <memxor@gmail.com>, <mhiramat@kernel.org>,
+	<miklos@szeredi.hu>, <neil@brown.name>, <netfs@lists.linux.dev>,
+	<ntfs@lists.linux.dev>, <okorniev@redhat.com>, <omosnacek@gmail.com>,
+	<penguin-kernel@i-love.sakura.ne.jp>, <rafael@kernel.org>,
+	<rdunlap@infradead.org>, <roberto.sassu@huawei.com>, <rostedt@goodmis.org>,
+	<selinux@vger.kernel.org>, <senozhatsky@chromium.org>, <serge@hallyn.com>,
+	<sj1557.seo@samsung.com>, <skhan@linuxfoundation.org>, <song@kernel.org>,
+	<stephen.smalley.work@gmail.com>, <takedakn@nttdata.co.jp>, <tom@talpey.com>,
+	<yonghong.song@linux.dev>, <yuezhang.mo@sony.com>, <zohar@linux.ibm.com>,
+	<utilityemal77@gmail.com>, <lujialin4@huawei.com>
+References: <20261117150542.1169451-1-caixinchen1@huawei.com>
+ <20261117150542.1169451-2-caixinchen1@huawei.com>
+ <20261117183059.GP989762@ZenIV>
+Content-Language: en-US
+From: Cai Xinchen <caixinchen1@huawei.com>
+In-Reply-To: <20261117183059.GP989762@ZenIV>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ whupemk100010.china.huawei.com (7.152.184.41)
 
-Hi Nikolaus,
+On whether we want the mount references at all: they are not for NTFS.
+The path-based LSM hooks need them - Landlock's check walks the hierarchy
+up from the object with path->mnt->mnt_root and follow_up(), for every
+layer, and the idmap we pass has to be the one of the mount the path was
+checked in.  NTFS is only the reason for ia_path/notify_change_target():
+->setattr() has no path argument, so a change forwarded to the base inode
+would otherwise lose the mount.
 
-Le mercredi 18 novembre 2026 =C3=A0 08:41 +0100, H. Nikolaus Schaller a =C3=
-=A9crit=C2=A0:
-> Use the hardware dual-edge detector on X1600 and X2000.
->=20
-> Set PAT1 when configuring both edges and program EDG on X1600.
-> Keep software edge switching for older SoCs without EDG.
->=20
-> Tested on X1600 and X2000 using GPIO buttons and register readback.
->=20
-> Fixes: 943e0da15370 ("pinctrl: Ingenic: Add pinctrl driver for X2000.")
-> Fixes: 4da56f9c6f14 ("pinctrl: ingenic: add x1600 support")
+On 11/18/2026 2:30 AM, Al Viro wrote:
+> That needs a bit along the lines of "path MUST be consistent - don't combine
+> a dentry from one filesystem with mount of another".  All in-kernel callers
+> might have appropriate struct mount references on hand, but for out-of-tree
+> code that might be not true and we'd better be upfront about the headache
+> we are inflicting.
+>
+> I'm not sure we really want to provide those mount references, TBH - it does
+> add a constraint not just on out-of-tree callers, but upon the future uses
+> in the kernel.  If NTFS is the only reason... ugh.
 
-You'll have to decide, I don't think you can have two Fixes: lines.
+ok, I will change in v5
 
-You also need to add:
-Cc: stable@vger.kernel.org
+> BTW, why not something like
+>
+> 		notify_change(&nop_mnt_idmap,
+> 			      &(struct path){.mnt = path.mnt, .dentry = dentry},
+> 			      &newattrs, NULL);
+> instead of that named local?  Same question for other places like that...
 
-> Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com>
-> ---
-> =C2=A0drivers/pinctrl/pinctrl-ingenic.c | 19 +++++++++++--------
-> =C2=A01 file changed, 11 insertions(+), 8 deletions(-)
->=20
-> diff --git a/drivers/pinctrl/pinctrl-ingenic.c b/drivers/pinctrl/pinctrl-
-> ingenic.c
-> index 88c5edeaaddcc..dc5d38c16e18d 100644
-> --- a/drivers/pinctrl/pinctrl-ingenic.c
-> +++ b/drivers/pinctrl/pinctrl-ingenic.c
-> @@ -3622,6 +3622,10 @@ static void irq_set_type(struct ingenic_gpio_chip
-> *jzgc,
-> =C2=A0		break;
-> =C2=A0	}
-> =C2=A0
-> +	if (type =3D=3D IRQ_TYPE_EDGE_BOTH &&
-> +	=C2=A0=C2=A0=C2=A0 is_soc_or_above(jzgc->jzpc, ID_X1600))
 
-That actually fits in one line of 80 chars.
-
-But you can do even better and move that to the switch above, and replace t=
-he
-val1 =3D val2 =3D false;
-
-with:
-val1 =3D false;
-val2 =3D is_soc_or_above(jzgc->jzpc, ID_X1600);
-
-> +		val2 =3D true;
-> +
-> =C2=A0	if (is_soc_or_above(jzgc->jzpc, ID_JZ4770)) {
-> =C2=A0		reg1 =3D JZ4770_GPIO_PAT1;
-> =C2=A0		reg2 =3D JZ4770_GPIO_PAT0;
-> @@ -3635,15 +3639,13 @@ static void irq_set_type(struct ingenic_gpio_chip
-> *jzgc,
-> =C2=A0		return;
-> =C2=A0	}
-> =C2=A0
-> -	if (is_soc_or_above(jzgc->jzpc, ID_X2000)) {
-> -		ingenic_gpio_shadow_set_bit(jzgc, reg2, offset, val1);
-> -		ingenic_gpio_shadow_set_bit(jzgc, reg1, offset, val2);
-> -		ingenic_gpio_shadow_set_bit_load(jzgc);
-> -		ingenic_gpio_set_bit(jzgc, X2000_GPIO_EDG, offset, val3);
-> -	} else if (is_soc_or_above(jzgc->jzpc, ID_X1000)) {
-> +	if (is_soc_or_above(jzgc->jzpc, ID_X1000)) {
-> =C2=A0		ingenic_gpio_shadow_set_bit(jzgc, reg2, offset, val1);
-> =C2=A0		ingenic_gpio_shadow_set_bit(jzgc, reg1, offset, val2);
-> =C2=A0		ingenic_gpio_shadow_set_bit_load(jzgc);
-> +
-> +		if (is_soc_or_above(jzgc->jzpc, ID_X1600))
-> +			ingenic_gpio_set_bit(jzgc, X2000_GPIO_EDG, offset,
-> val3);
-
-The minimal diff would have been to change the check for ID_X2000 to ID_X16=
-00
-above. But the code does look better this way so I take it.
-
-> =C2=A0	} else {
-> =C2=A0		ingenic_gpio_set_bit(jzgc, reg2, offset, val1);
-> =C2=A0		ingenic_gpio_set_bit(jzgc, reg1, offset, val2);
-> @@ -3718,7 +3720,7 @@ static void ingenic_gpio_irq_ack(struct irq_data *i=
-rqd)
-> =C2=A0	bool high;
-> =C2=A0
-> =C2=A0	if ((irqd_get_trigger_type(irqd) =3D=3D IRQ_TYPE_EDGE_BOTH) &&
-> -	=C2=A0=C2=A0=C2=A0 !is_soc_or_above(jzgc->jzpc, ID_X2000)) {
-> +	=C2=A0=C2=A0=C2=A0 !is_soc_or_above(jzgc->jzpc, ID_X1600)) {
-> =C2=A0		/*
-> =C2=A0		 * Switch to an interrupt for the opposite edge to the one
-> that
-> =C2=A0		 * triggered the interrupt being ACKed.
-> @@ -3758,7 +3760,8 @@ static int ingenic_gpio_irq_set_type(struct irq_dat=
-a
-> *irqd, unsigned int type)
-> =C2=A0		irq_set_handler_locked(irqd, handle_bad_irq);
-> =C2=A0	}
-> =C2=A0
-> -	if ((type =3D=3D IRQ_TYPE_EDGE_BOTH) && !is_soc_or_above(jzgc->jzpc,
-> ID_X2000)) {
-> +	if (type =3D=3D IRQ_TYPE_EDGE_BOTH &&
-> +	=C2=A0=C2=A0=C2=A0 !is_soc_or_above(jzgc->jzpc, ID_X1600)) {
-
-Keep it on line line.
-
-Cheers,
--Paul
