@@ -1,72 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.147
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795020151;
-	b=WHpTKVkaZiSLXDqOLYk/wY9ufwuGcA8Q2fr8xizBvFohyUN3Jlc5GS8NSEp2aXHl7mXJ
-	 MQLd51ljBhn7KbOIsvNmnfVhN4ourx3Ib5mdw5zB2bcSxa+jWSfi69VYN0vYxG2bQ00+t
-	 EyDm8y6XVl8i8gmToNn1mG7G6jJDJ/9PE48DDuhYok28rezq6NlIbyXRBDhyNjKOKMMDd
-	 7V7s/rNoxveLnIsjFUMp3uNW6IKDjUtB32u6UQ0X8jF174FJ/Cou90m9t3sazqiBawRmc
-	 GRUPoFkaXelYvZYEvLXGRZ6c52O/hF1vtBV4JIzYtaaZmDYl1tiwHgB7nT0Bo65OHhQ==
+	t=1795020174;
+	b=oi5tZ39K70/tfm3r70+SfFoHWxcKGdtjdodDbl2g4A5VoApYJyROQ/7ItP3HPjccKhrW
+	 3XdbAGC3Y9CO2tA0/PxJ85ZyohmF0ZgzWGSt5O5E9xKY7yoNMjXpFf42k5w2IuWitMIEG
+	 hxQQe/q4+pBws5SUteyhdGw1AlnCwUbwC+Lwb3JUbZ9FyzTybEsK5Sqe0dydcBp6t0dON
+	 t2GMKD5amV0oihZH+SrRk/jHLcjTVOEdo0chEDZOjljYUqK9OwsbIrxBb9M63bwXzQCBd
+	 IMk+DPagNUOIMk6nhB1V7wUnXOp0xzORn2oY/M8j0+THa4AXlSf44z/NNSvmyrA23Hg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795020151;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795020174;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=+lTaRiyl+AR7PaEBfcfzeHvNkcZq06BPtocMWKpDA8c=;
-	b=0z6Kxx5A4C9AolyfGnj82yNNL1CK++LwQ/vvugKiEhguAOGadnp1h2eyQkPsMR1WheWN
-	 Mj8ltrlIYxNYKv/X6332J1S1x9v8AfjzBsdn1B1+P5gfeExCh+8DpDkPY7+fV79DfUd/v
-	 SW+Aw/DlM3PdBNIucbfaz+opBsDp7vscIH8GOunbn+CDfktlvMBWGWzVOxMVIe1GzRFtn
-	 sEHPlJW1+4k4+vnXrCYZYs79z6LxetoW5I8WpFv0fHsG87baQtHvcp4GoOeHRJS0MrX0Z
-	 kMCKh6/dzAk2ungt3WiaZ6jpBTT5APtBJrVANsLcuBLlELMNJkZDgfhzJACfshPY2mQ==
+	bh=7E/QsT9QWiIWigkzY3GnhIN6sWFx6TjW+7rGa5ugqL8=;
+	b=IwHLHPmbLsLf7kKGYpCGSYZGzXqXEZ8qJSL8/FcfYODINuOhlUk3F2aVRoPgAUcCk7N3
+	 M1jfhiSRxGYG03O/LC2wuObBsFODdR4G7VjHm7pVMwSri8CLFFhT5ibjSXjKIDdPdo6YA
+	 yDMnfg0HTp9keKuPTXPIcZWYBIUinqvC1ctFnDETGRTC9qmWUmMWIDHmpXZ7du2xYAU2V
+	 lQpm0C3P9rB681BVrjWefkdxl8zHVKW8V5SMKHoLds3sC/Rc0kzDR2r06uz0OhL+dPfCN
+	 uDlB1gEHmOAnKTCqFTgxAO2aP7Q9cG5tsmASN6+aac1+l7gE6KSeuNygYRidYKm+hdw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X1IPDzps;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="sA6AMe/s";
+	arc=none smtp.remote-ip=95.215.58.147
+Received: from mta1.migadu.com (out-147.mta1.migadu.com [95.215.58.147])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68B3E60A2605;
-	Wed, 18 Nov 2026 16:42:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6D0E606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:42:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E6D0E606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X1IPDzps
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6FB71F000C8;
-	Wed, 18 Nov 2026 16:42:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795020151;
-	bh=+lTaRiyl+AR7PaEBfcfzeHvNkcZq06BPtocMWKpDA8c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=X1IPDzpsRLjI+mItmBK63WBmOYqn9+4paqR9Wyi7wO8CdxA+d3aF4tLYbG1sIpSVz
-	 CYJczH7Px0BGTJ1nxRTp7y7QmaQycIl1/1JLHB/jGpKc3DzBCsY5NeShtm0h9EJpyj
-	 YSVIMAqA+vj423PnilZxzi+KZWnvlDxh0/Y/O91bKjk6tVi8XhzjMcrFGcBhRhG335
-	 LDiF5WCZwfGX4Y05iUztiYezBqIvqpYHn5E8Nc9/70wxcOZxSA7gTUepzlYlSD/KTt
-	 nHhmGYHsxKagjY0t0j+5qsY9GbyJAxk74kbBzhIKJzgPqMnL4B48vXC6xtXptMZ4eF
-	 VQQ8JRBmUL+xQ==
-Date: Wed, 18 Nov 2026 10:42:29 -0600
-From: Rob Herring <robh@kernel.org>
-To: Luca Weiss <luca.weiss@fairphone.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Laxman Dewangan <ldewangan@nvidia.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Hans de Goede <hansg@kernel.org>,
-	Jens Reidel <adrian@mainlining.org>,
-	Casey Connolly <casey.connolly@linaro.org>,
-	Val Packett <val@packett.cool>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v4 2/5] dt-bindings: thermal: generic-adc: Document
- #io-channel-cells
-Message-ID: <20261118164229.GA2892053-robh@kernel.org>
-References: <20261117-bat-temp-adc-v4-0-14d5d309ebfa@fairphone.com>
- <20261117-bat-temp-adc-v4-2-14d5d309ebfa@fairphone.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sA6AMe/s
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=WhH+lGJmylbRzpwv6d+3XXqSEIVk+9KTPphJKUKXHw8=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795020171; v=1; x=1795624971;
+ b=sA6AMe/st26ecsfr1T8gTlltQIIsEmoEsrj9RDv2bzjBiAmmrn/cpFMHZBhtrU4tHAW5cFVu
+ B1lP7AIQlVccf2P//cf2hA4iPcboIZ2eXjrcV6T+V/UK3WtcneF+uNg5u80/jaA6uqSutwKh3RS
+ xXMkOAC4lJnydxeJvlkSzpYk=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 018c4da21ca3f567;
+	Wed, 18 Nov 2026 16:42:50 +0000
+X-Mizu-Trace-ID: 018c4da21ca3f567
+X-Migadu-Flow: FLOW_OUT
+Date: Wed, 18 Nov 2026 08:42:47 -0800
+From: Shakeel Butt <shakeel.butt@linux.dev>
+To: Christian Brauner <brauner@kernel.org>
+Cc: Jori Koolstra <jkoolstra@xs4all.nl>, viro@zeniv.linux.org.uk, 
+	jack@suse.cz, neil@brown.name, cyphar@cyphar.com, jlayton@kernel.org, 
+	amir73il@gmail.com, gregkh@linuxfoundation.org, tj@kernel.org, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v8 00/12] vfs: add O_CREAT|O_DIRECTORY to open*(2)
+Message-ID: <av3U2jLO8Q01swyg@linux.dev>
+References: <20261024213539.1307600-1-jkoolstra@xs4all.nl>
+ <20261118-moment-gehhilfe-gefangen-ce4618af6b54@brauner>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,22 +68,44 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261117-bat-temp-adc-v4-2-14d5d309ebfa@fairphone.com>
+In-Reply-To: <20261118-moment-gehhilfe-gefangen-ce4618af6b54@brauner>
 
-On Tue, Nov 17, 2026 at 09:23:12AM +0100, Luca Weiss wrote:
-> Document the property to allow using this sensor with io-channels.
+On Wed, Nov 18, 2026 at 05:30:20PM +0100, Christian Brauner wrote:
+> On Sat, Oct 24, 2026 at 11:35:27PM +0200, Jori Koolstra wrote:
+> > This series implements new semantics for the O_CREAT|O_DIRECTORY flag
+> > combination for open*(2): perform a mkdir and open the resulting
+> > directory; return a pinning fd (which mkdir does not).
 > 
-> This means that the output of generic-adc-thermal can be used as an
-> input into a different node.
+> I've applied this to vfs-7.5.directory and folded a bunch of fixes into
+> it. Each fixup is attached as a git note to the commit I folded it into
+> so you can see what I massaged:
 > 
-> As a specific example, generic-adc-thermal takes in an ADC io-channel in
-> Volt, outputs temperature in degC, which can then be consumed by a fuel
-> gauge driver to provide the battery temperature readings to user space.
+> git fetch https://git.kernel.org/pub/scm/linux/kernel/git/vfs/vfs.git \
+>     +vfs-7.5.directory:refs/remotes/vfs/vfs-7.5.directory \
+>     +refs/notes/vfs-7.5.directory:refs/notes/vfs-7.5.directory
+> git log --notes=vfs-7.5.directory v7.4-rc1..vfs/vfs-7.5.directory
+> 
+> The biggest change is kernfs. kernfs_iop_mkdir() now just looks up the
+> new node by name so the kernfs_syscall_ops change is gone and cgroup and
+> resctrl aren't touched at all anymore.
+> 
+> The kernfs patches are in vfs-7.5.kernfs as "kernfs: instantiate the
+> dentry in kernfs_iop_mkdir()". I'll sent that out soon.
+> 
+> I split out of 09/12, your kernfs_iattr_rwsem fix and the kernfs part of
+> 11/12. vfs-7.5.directory is based on the first one.
+> 
+> I dropped "vfs: move ->create check in lookup_open() to before
+> try_break_deleg()". vfs_create_no_perm() does that check itself now.
+> 
+> Let me know if I messed something up.
 
-But this is already a thermal-sensor provider, why wouldn't the fuel 
-gauge use that provider? 
+Just a heads up from my side. I will be sending couple of kernfs series over the
+next couple of weeks. First one will be removing kernfs_iattr_rwsem from
+mkdir/rmdir paths and later ones will be trying to make open, lookup, stat and
+readdir operations lockless for kernfs.
 
-Seems like this is letting current Linux driver design dictate the 
-binding.
+The kernfs_iattr_rwsem one, I will send out later today.
 
-Rob
+thanks,
+Shakeel
