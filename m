@@ -1,47 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=180.76.5.236
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794982711;
-	b=34TSejITFuaXP6ngRYJpUwtMQDv22lB6D88OtWgVkqvb57+nIdzFJawGQuLsW3nwcykL
-	 H7V/cBu8W0E+LHuasa1apqa6lZ8S9hMUu5x9PKVsVfG/OnMITir8qjgKC9aFSC0OEnxbI
-	 kbvzSzM4WVyFuWaCzYciyfoNjMq/umx5CgjMkqFLrtobpSpDzci5/8S6pm9ruWgJsS2Ha
-	 P7pMlUai9vqlPf6qXIjKGx0mxwGDj+SHzZ5Xqo9Npv8E88TPBiLFfDe/T2Ld7K++dft9A
-	 1GhfMFZ7qC6kAw1M/L251sU3cT8jlgT/TCYuEUTnpGOPEApW3hAJKBKNLnDBrn23NcA==
+	t=1794982744;
+	b=3piD/V9r3LIftCFfeGpDGmL85l608Xj34YdwSzsrLNtd3aQ6mi/qwNLRlB6wlrGFcbrH
+	 /ZZAB2dCDeely9uCyx/YHHGLmg6vhxmtKPLc8y/dPbY5rpAgBNIyksI0vTOtnzIrxmb1G
+	 0p9h9dY0WBXmynZJj+CoCS0N/ZMoQaNM+bv4EIrwVRWfX/CceA7uviaprb/E1mENLYoPD
+	 5XR9ADxYplfaESyovyVXD0oxvBWGNpjYDgWeVs193eZiy/NfuNgbfaBX7PJoImAvLvY/Z
+	 dVs+h2ELTULrJA+YGG6Y0dqG6NSmotF3cXoPNdjtlVLV69kPFbLDvFaG5YhbCfwsfcg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794982711;
-	h=DMARC-Filter:X-MD-Sfrom:X-MD-SrcIP:From:To:CC:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy:DKIM-Signature;
-	bh=uEnmGGl3sStC4ImWMaSe2Cwf+nQEkrs9yJ4nIOWSnLc=;
-	b=EfmMbMMABdxRnHATK+HBUGuqwXotFuaF+CxxIrIKyyLfqxG1MEgx1h0q+fFt0/KpfpoD
-	 QsXJfw6tRz8a0SwKniEopd8cUo4sYc2BA8LEyRVHa1xA8jIb+lIwsha1Gid636uC0YW3H
-	 qEk8JSPvvABxxjKF05QhwBfzCe+6XcYVCmXAi4131+C+TtGNWcK7ThWtFkC9kQL0xg+qk
-	 CT25rQPvOWzaTf5g2I+EJH4PwIzYCHTI6giSMolmU06X0X9cGQ7vgnQyHnjcZG9/zgQZ4
-	 erhwTFcHBB4y2gPpHyxXr1QaQF/hlallCJyql/Q0HOfq4XW+wKh6N2fvYj66vTFuQPA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794982744;
+	h=DMARC-Filter:X-UUID:X-CTIC-Tags:X-CID-P-RULE:X-CID-O-INFO:X-CID-INFO:
+	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:
+	 Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding;
+	bh=ytZr4giVmUwDVQwf7pQ4PjUJk/AgiGIqWa27GNbLrRQ=;
+	b=jJi6wMEG5GK6JPmM1aBfEdqwK4lA4ypyulHqVACLnmKeug4nr0CaMyYy2DEcxs9/Dt/r
+	 rxBoiiKwvn8234zSvZk3nyUZ/VDZTCTIM+YGE/l4uzEdlINF18Xn/wb1ijDuX/odBht8L
+	 FSmAQzACklM25JdqMEFOwBxmW0xRncT+un9VXbkQZ/Gj9VsGzibtnRS+SKo7cbY2wdCRb
+	 MkprUvswRemCIg1wTFa/eWeV7gIu/FCsDsMzUlJN4zYkuU/PpN8HN3PiHKMeY1N9G/9DO
+	 k2+Ous5HA8YlFkw8lsBQJ++Z4JaA82QaR4B5zq7CdgJ3Z8L/wIog2AE/cNN+eXqLbxA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=baidu.com;
-	spf=pass smtp.mailfrom=baidu.com;
-	dkim=pass header.d=baidu.com header.i=@baidu.com header.a=rsa-sha256 header.s=selector1 header.b=YsVQNZh+;
-	arc=none smtp.remote-ip=180.76.5.236
-Received: from outbound.baidu.com (outbound.baidu.com [180.76.5.236])
-	by smtp.subspace.kernel.org (Postfix) with SMTP id 14FFE606A32F;
-	Wed, 18 Nov 2026 06:18:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14FFE606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=baidu.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baidu.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=baidu.com header.i=@baidu.com header.a=rsa-sha256 header.s=selector1 header.b=YsVQNZh+
-X-MD-Sfrom: lirongqing@baidu.com
-X-MD-SrcIP: 172.31.50.47
-From: lirongqing <lirongqing@baidu.com>
-To: Bjorn Helgaas <bhelgaas@google.com>, Philipp Stanner
-	<pstanner@redhat.com>, =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?=
-	<kwilczynski@kernel.org>, <linux-pci@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-CC: Li RongQing <lirongqing@baidu.com>
-Subject: [PATCH v2] PCI: Fix pcim_iomap_regions() error path rollback and leak
-Date: Wed, 18 Nov 2026 14:18:09 +0800
-Message-ID: <20261118061809.2327-1-lirongqing@baidu.com>
-X-Mailer: git-send-email 2.17.1
+	dmarc=none header.from=kylinos.cn;
+	spf=pass smtp.mailfrom=kylinos.cn;
+	arc=none smtp.remote-ip=124.126.103.232
+Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8945E606A31C;
+	Wed, 18 Nov 2026 06:19:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8945E606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
+X-UUID: ea16d9e6e31711f19a56ed5b684f684d-20261118
+X-CTIC-Tags:
+	HR_CC_COUNT, HR_CC_DOMAIN_COUNT, HR_CC_NO_NAME, HR_CTE_8B, HR_CTT_MISS
+	HR_DATE_H, HR_DATE_WKD, HR_DATE_ZONE, HR_FROM_DIGIT_LEN, HR_FROM_NAME
+	HR_SJ_DIGIT_LEN, HR_SJ_LANG, HR_SJ_LEN, HR_SJ_LETTER, HR_SJ_NOR_SYM
+	HR_SJ_PHRASE, HR_SJ_PHRASE_LEN, HR_SJ_PRE_RE, HR_SJ_WS, HR_TO_COUNT
+	HR_TO_DOMAIN_COUNT, HR_TO_NO_NAME, IP_TRUSTED, SRC_TRUSTED, SA_TRUSTED
+	SA_EXISTED, SN_TRUSTED, SN_EXISTED, SPF_NOPASS, DKIM_NOPASS
+	DMARC_NOPASS, CIE_BAD, CIE_GOOD, CIE_GOOD_SPF, GTI_FG_BS
+	GTI_RG_INFO, GTI_C_BU, AMN_GOOD, ABX_MISS_RDNS
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:89038ce9-32b1-43b5-8458-64b25057a19d,IP:10,
+	URL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:5
+X-CID-INFO: VERSION:1.3.19,REQID:89038ce9-32b1-43b5-8458-64b25057a19d,IP:10,UR
+	L:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:5
+X-CID-META: VersionHash:7db8b62,CLOUDID:bba54efc50fc7d3f375c66ed782fe959,BulkI
+	D:261111000658N3C0QPTK,BulkQuantity:1,SF:17|19|66|78|81|82|83|101|102|127|
+	136|153|850|865|898,TC:nil,Content:0|15|50|99,EDM:-3|-100,IP:-2,URL:0,File
+	:nil,RT:nil,Bulk:40,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR
+	:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_FAS,TF_CID_SPAM_FSD
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: ea16d9e6e31711f19a56ed5b684f684d-20261118
+X-User: liuzhe1@kylinos.cn
+Received: from localhost.localdomain [(114.244.3.119)] by mailgw.kylinos.cn
+	(envelope-from <liuzhe1@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 219582194; Wed, 18 Nov 2026 14:18:47 +0800
+From: Zhe Liu <liuzhe1@kylinos.cn>
+To: tj@kernel.org
+Cc: axboe@kernel.dk,
+	cgroups@vger.kernel.org,
+	josef@toxicpanda.com,
+	linux-block@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	liuzhe1@kylinos.cn,
+	yukuai@fygo.io
+Subject: Re: [PATCH 0/3] blkcg: decouple cgroup v1 I/O accounting from throttling
+Date: Wed, 18 Nov 2026 14:18:42 +0800
+Message-Id: <20261118061842.525120-1-liuzhe1@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <avNBFpWArSrjv6Qv@slm.duckdns.org>
+References: <avNBFpWArSrjv6Qv@slm.duckdns.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,69 +87,16 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
-X-ClientProxiedBy: bjhj-exc13.internal.baidu.com (172.31.4.11) To
- bjkjy-exc3.internal.baidu.com (172.31.50.47)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=baidu.com;
-	s=selector1; t=1794982699;
-	bh=uEnmGGl3sStC4ImWMaSe2Cwf+nQEkrs9yJ4nIOWSnLc=;
-	h=From:To:CC:Subject:Date:Message-ID:Content-Type;
-	b=YsVQNZh+fvpdg4iF+IfpczmuazA729tum4HACgKQaJ1SkMOdDpWgGgMDE22mr/pC2
-	 8Pck755bo5bhkL8QtUL2jUKk5uEzXKhjU33w5bqb2iyFVVpbAzfjBccGHh0N3nTUbs
-	 lrf4y5Pi7jQJL8zYuHTB91OyXX8ofKVOw8C8rgb0+r+QZ6T4DZvEivPfNeTatLdDvf
-	 f3ROqF3W6WReuxiixjWqIi85cueHxHNa5339A3j7P7GMmfO9wwPYcd+6eU/mz5s0Bc
-	 mgbzGPopxn0BBCaaYPHQPv+mUGyqc8IRHY12cgJxvAs/RRmBzz7cql7QsEdzEm7pS5
-	 8OAc1uCDHvJhQ==
+Content-Transfer-Encoding: 8bit
 
-From: Li RongQing <lirongqing@baidu.com>
+Hi Tejun,
 
-pcim_iomap_regions() has two problems in its error path.
+On Tue, Nov 10, 2026 at 06:06:46AM -1000, Tejun Heo wrote:
+> Maybe just add a module option or sth to blk-throtl to initialize eagerly?
+> I don't think it makes sense to update cgroup1 significnatly at this point.
 
-First, the rollback loop walks every BAR index below the failing one
-and unmaps it, regardless of whether that BAR is in the mask this call
-was asked to map. pcim_iounmap_region() matches devres entries by
-(type, bar) only, so it can release a mapping that an earlier
-pcim_iomap_region()/pcim_iomap_regions() call made. The driver is then
-left with an __iomem pointer that has been unmapped and a legacy table
-entry cleared. Restrict the rollback to bars in mask.
+Thanks for the suggestion. I'm reworking the approach along these lines and
+will send an updated patch after testing.
 
-Second, when pcim_add_mapping_to_legacy_table() fails, the current
-bar's mapping is not released: the rollback loop starts at --bar, so
-the failing BAR itself is skipped, and the mapping stays registered
-until the driver detaches. Release it on this path as well.
-
-Fixes: bbaff68bf4a4 ("PCI: Add managed partial-BAR request and map infrastructure")
-Signed-off-by: Li RongQing <lirongqing@baidu.com>
----
-Diff with v1: s/bar/BAR/
-
- drivers/pci/devres.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/pci/devres.c b/drivers/pci/devres.c
-index f075e78..9bdb4de 100644
---- a/drivers/pci/devres.c
-+++ b/drivers/pci/devres.c
-@@ -689,14 +689,18 @@ int pcim_iomap_regions(struct pci_dev *pdev, int mask, const char *name)
- 			goto err;
- 		}
- 		ret = pcim_add_mapping_to_legacy_table(pdev, mapping, bar);
--		if (ret != 0)
-+		if (ret != 0) {
-+			pcim_iounmap_region(pdev, bar);
- 			goto err;
-+		}
- 	}
- 
- 	return 0;
- 
- err:
- 	while (--bar >= 0) {
-+		if (!mask_contains_bar(mask, bar))
-+			continue;
- 		pcim_iounmap_region(pdev, bar);
- 		pcim_remove_bar_from_legacy_table(pdev, bar);
- 	}
--- 
-2.9.4
-
+Thanks,
+Zhe
