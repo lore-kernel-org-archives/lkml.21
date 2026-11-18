@@ -1,97 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795001076;
-	b=jarZ9ec9lSHm0uudLcz2OIyLEmySTx3Nb0CCrPf6vU+jmeXAjAMbb1dpe9JjYHe2WPTz
-	 HB6sSYa5HNMEcGHEXwbDhshKI59eW2bulrmSwpDXRoBFOoMm8fAdfs5l3hv/4T9aPK21s
-	 iqzB8tk8B0on7vEvDZVrjG7XzNKSHfpdbrCq9vvMAb3Vx21/AmFdp8xfDfBud9yYAd6wp
-	 2Ff2EwQ00uTmO8tww/FrfwcrHnxu2rqyqT+TDLCD9l5vO/2H/x9RFwhLJDGXL1HvL/TWJ
-	 v9oUBsnjSl0FhzBL377XdazCMFwSfbCAn9Ih2KfUOT/LDHv6qiXCjVvM0RevAuAv6Ow==
+	t=1795001075;
+	b=pcgIEe2Kem6ClqjOmJLzw6Cf6TNDV3zDddz78PsnnN6cxIo30ti6ejN4sE0tnYNHv7N2
+	 dK+ekUwNOHLJnF574PahzWoke1exjDmegRHLvq2FZyR8cx+P8c7FZOO/pb2m2gjwkGYK0
+	 feG0Ii7H2nEU7EugwcJVZxzjL1iii4gY8g45FNw+WL9AXzD6+v1jrsK89uToPlksi5ZEp
+	 3I7rZ1dntEnCqoWpOyCGetIftrrZ3lxTbBo4TkmEF+YdphtxK+7Cn33gARB8l9NGxuVI1
+	 L+V7NMElyz3ftANYKCB/8O88urbfWsdk/dtjNdkRy9yIrLRXk/+D1l6waALvdX8chmA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795001076;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795001075;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=CTu2kT6vY540i2vTNL/lOCMqwCzR7YfsabNtoI8JhQ4=;
-	b=z7pOL3ho9nRyXGBF5c4A/W5aedo2NzrwOq7UP+iGRiPDZWLi/8OTWoQVY7a+9bC+/dTx
-	 k5u45NRCJc+YWdKJBWQTjSs0AdYGGPIi1ZziIUp3cg3r96SWHpVzPOVNeVTG0MrsFA4a8
-	 IfBWHPUB51uw8x3WMREDE6aNODhpBZy0d9nJL6rAlHd+NQOHXAAgrZhy9gaAnouANFQAd
-	 tZSoE9G6d1VdEy8WsfLOSpc+1DkZl3OrfELkBtDQ7UNW4uEqTPzU0JPcD2J5/yBF30xoy
-	 NPYL2g1sv3NdobNfEjYqAzURBce/YYY8gXWiMmqYeIPY7hGsl9x8tEl1DJZSS3H6C8g==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-B4-Tracking:X-Change-Id:X-Developer-Key:X-Developer-Signature:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=NgxcydZ7W7diTZLrEW7mmD64GYiEJTtactewUU2r9BU=;
+	b=GoTwE5k6SysGCNhS7cBFi26sJA85wNugiO8eP4h2dOgHgEmyPFuxaPXJurk7G3t27NIj
+	 /2A95Livi9/AoKoPu/pB3DOPoDLws11en6oKQG/j+QXXqH6WwYyreRzA9mmzYnQZV9W7Y
+	 Y0nllauIS/q5qa6vtmw0Vqkm6gxvo1HosPNux/KlbKEgpcoWZezKIjGvY1a1eQArIUKf6
+	 JEuJ03g7jIF63ljkaild87onzQ57vGO36q1aozr3uEcyIyjfJxWSYFMYENThkhbckfmGD
+	 ZkBLFnPRzmYKc5aRZyWCK8Lj8wv81auglP2QZB4joh3X1euSv6ppr7rUz2Tb1s5oNhA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=twWyIZ55;
-	arc=none smtp.remote-ip=209.85.216.50
-Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com [209.85.216.50])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=nTYKR7vS;
+	arc=none smtp.remote-ip=209.85.221.70
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com [209.85.221.70])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61C0A606A33A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:24:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 61C0A606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D880606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:24:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D880606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=twWyIZ55
-Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-3ae7626d14aso437792a91.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:24:36 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=nTYKR7vS
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-490d2ac331bso898792f8f.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:24:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795001076; x=1795605876; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=CTu2kT6vY540i2vTNL/lOCMqwCzR7YfsabNtoI8JhQ4=;
-        b=twWyIZ559njProg2yWQj/3Vnd7aqnM2sEXWgZyP1xXIqbTU31t8H7KzEvl28llhVKc
-         ZFa7PVyLz1MXv5/5aGiqXyGo4cRMUZWeNXl/0rbfp06StiW2GeeNOLz2visK6L3oFktZ
-         y5nGEPhOWPDIosfB1XftFmA+9BGwMwQOxh9p9jUfb6D6esytjhvblQx1Z4Q4L2huomFn
-         bf5kfH0bb8rwnnRn192bXYWHfwwoXX7OnlQkui+GxuThTd9Ph4NnmcUhjN5kIcWs3yKQ
-         Q5BokV3DTjDsk1XVrA4LcbNI5jzmrAsgsaz06u0XONnfABazZhKRXRstyoGrJn58XhIp
-         MsVA==
+        d=google.com; s=20260707; t=1795001073; x=1795605873; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=NgxcydZ7W7diTZLrEW7mmD64GYiEJTtactewUU2r9BU=;
+        b=nTYKR7vSpmKhR0Ssct/nW+P9T+b621hzUsbStNf5cIUdGf5KKRDXanH0lgGuqHHc4q
+         8pLVSBHj0W6WuX6nG1UR0s49rfRBqocVJ5vxatLU5NG2qdVRRNt8pTocYZvE4Zf8697o
+         uuuKUOsSwQ8NXC8aTTtAXN0qfkkug4m+Jy3TNcVyaCvq4Wz1HQzYvAQYbx5ClmMXPxPf
+         Of4kXO5JFsIZssgaXv0hkJP4Vhn4pbaz7L32Fumg1gQVL2aFbIqwebA2Hpz3IsG9xaAY
+         NwLNyJUm7Ie0m7ccBlkQIdrTmjimOJJxznjQqL7DhuyskKymiEOn9Zyyxh+wZumNfM8m
+         al8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795001076; x=1795605876;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=CTu2kT6vY540i2vTNL/lOCMqwCzR7YfsabNtoI8JhQ4=;
-        b=lTozG7ohPLFm8pyvoH4zu5wGwEwsxhw8erKfxEuZOQeJ30EJ52sUj2yD1MqWsJWqsK
-         LsK/L0Ebl5eAYtx7Hj36k8jsSp3aVBKAMXWqs6f02nMsRb6pO18yjGSbShWYm0hR6Kew
-         RnzA7NFCPWAsMp/715PnxEJn4/gk0nAykbr2itOHFmjQTH40HxyehzvdQkoDuct7vtvE
-         TaanVCeCm0FMq7Ute9zdsBfcKj8SJ9ml8sGWEiYgtNFkfISWCDYQz/jVCf9gPhUJeJYT
-         xtHY2BWKrY0kbqtBn/R8a8ziav9TASkMOYS3Ca9wTzDf1b4grDcm7YzktHTrUgxZbX9X
-         QCbA==
-X-Forwarded-Encrypted: i=1; AL+hErGL6mzYYyYDV8PFooCEhF9ag4e3wQmshcmkOi9FP88OSwhBBQqw0oBsyyoCIKyzTzJ28CmfGdh6EhvB8O0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Uqv2nX2gUVucdAzfOxATBZoSh/LhExOOUhzqrjt0NjY2pP9SB
-	+dJn6D5UpzpsCxDS8fuTqiVsXJzUbtPVsxKQJnUMbajHv3gxHMT4Jqku
-X-Gm-Gg: AZFdTZd4FRKyTlRyMIJd1zCV9G2GJZJ1e8XFmpcsCbNypbPMRnOCnsOo3N6wqIztpCQ
-	KKEIrl8oFfSQ4OOSLPcnJX2qnkYLTrTS3Zs/G9XqYIb0m4KTqKNA6ogArmbSXlyAEM7rgR7Z0+Y
-	VgK+9tP7szvvrbx3YjSwLiHpLwbOC1HQyWIWoTkgU4EsTmnv2ePXsMr3jOWkxeQ+Kk+W3b+oy2k
-	b51kZPo5XRfcJQi00Vuycekq+RQx1b4XzJpoE+GC8OcZzmwf7LhUgV1k86YbJCTZreGZ7q3aNZ5
-	ZqgLmX/CkZvUcHYojwdtj3kdpKHR2tOr3sAK+onwM8BBBGM38dLsjAbhmuYQ2/wHDb0ygnHtJud
-	0CjHJitfwPlmeuFQ3c5wNkKEo0AhIaPncZivRR2M6PEcs5opInsT1KmRT1WazvLTZcofg+GjHcJ
-	c3rofBxarcpSM1kXFRUkn2jQ8lFhJiePk91HdVMafe3O6sHm1xVPQFJIOyxYzbBZAck1+E1ojuV
-	4bwMxtDujlluy1QLHu36Sa5ggdaj+mBzf/OeDakQJ9fbcR+GWnGKebe4BdWgCnXinKKDojiaWU4
-	bOjttZAeRDQkfl4BNHsyKr3NcT/JjYQEu8jwjE55s/kKNAtcCg==
-X-Received: by 2002:a17:90b:4d04:b0:3ac:8af9:4a77 with SMTP id 98e67ed59e1d1-3b3d07597a9mr1914378a91.10.1795001075580;
-        Wed, 18 Nov 2026 03:24:35 -0800 (PST)
-Received: from hj.. ([163.239.22.29])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff62842b6sm11510395ad.60.2026.11.18.03.24.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 03:24:35 -0800 (PST)
-From: Hyunjung Ko <hj351016@gmail.com>
-To: Peter Huewe <peterhuewe@gmx.de>,
-	Jarkko Sakkinen <jarkko@kernel.org>,
-	Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	linux-integrity@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Hyunjung Ko <hj351016@gmail.com>
-Subject: [PATCH] tpm: ibmvtpm: don't call tpm_ibmvtpm_resume() under rtce_lock
-Date: Wed, 18 Nov 2026 20:24:18 +0900
-Message-ID: <20261118112418.1009785-1-hj351016@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        d=1e100.net; s=20260707; t=1795001073; x=1795605873;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NgxcydZ7W7diTZLrEW7mmD64GYiEJTtactewUU2r9BU=;
+        b=GZ6HxO0KmxbJenyQf1nCUauV3V0w3ppJodxo9gVB7mqfmtSdmLSkVcQ6cKZGiPVfQk
+         JuG7q780CKSWtrepssUMO26bXyktt3FcylWzPU8L2qPs34mlBwAwKMWavgFqWOfIqqhB
+         YTg0vs1xaGYw+0j+G43ltGOpLWFJwN1bc61L0fcVN9+OsTYj51HKsu1Lk2DHVUdcVU31
+         5uDuWHqOhl34u9Wytv2//oJkATdaqvkWYGvtITDzuyBKLgI4LddmIBsxoLkIRe/MfO29
+         1/OrwU6U5QqeKhrlgNot8PY7D7A344NWp9l0ZL+4XOwvZtDNG779bNrk/7g48l5B3gqs
+         7ndA==
+X-Forwarded-Encrypted: i=1; AL+hErGHcRW2XI4h/fhx2M5PgZI5gLBD4lwWupKYLDXI4rxLdhvJ9aQx3kypWQOrfvwWULQYEnal16ACoVnX9Ms=@vger.kernel.org
+X-Gm-Message-State: APuU4Z89oixEjTDPwl4Ta1SbHhSmoaT8ThNzWWTh8NX0MtA/s/xhvxfD
+	I8jqdtQUQtQAZp4b5h0cy9N0cqDsnHR/MqNNft1+rUD/sMJcplH13u1M6MlBI9b50lR3eC4SATU
+	daw1Zlb6V1pKcVLhG0Q==
+X-Received: from wrud4.prod.google.com ([2002:a5d:4f84:0:b0:48f:beda:6924])
+ (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6000:2383:b0:490:f98f:addd with SMTP id ffacd0b85a97d-4a6331c6cdamr5728890f8f.4.1795001072496;
+ Wed, 18 Nov 2026 03:24:32 -0800 (PST)
+Date: Wed, 18 Nov 2026 11:24:25 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,45 +76,75 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAOiK/WoC/x3MQQqDMBBG4avIrB3IBFpMryJdaPLXzCaVGSiCe
+ HdDl9/ivZMcpnB6DScZfur6bR0yDpTr0jawlm6KIT4lxMSrtgJjuOXK6lywFJ4kpIw1iTwy9XQ 3fPT4b+f3dd2c6z16ZgAAAA==
+X-Change-Id: 20261029-binder-esrch-is-dead-8109ceb9115c
+X-Developer-Key: i=aliceryhl@google.com; a=openpgp; fpr=49F6C1FAA74960F43A5B86A1EE7A392FDE96209F
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1396; i=aliceryhl@google.com;
+ h=from:subject:message-id; bh=wZRKSXn6TR6MdqwykIO/PARHCDKLEFWKsF5C3d2QD3c=;
+ b=owEBbQKS/ZANAwAKAQRYvu5YxjlGAcsmYgBq/YrrtJoXrIaXn2dfYFATxfXU8esNx7i83ho1K
+ IYauU+mWy6JAjMEAAEKAB0WIQSDkqKUTWQHCvFIvbIEWL7uWMY5RgUCav2K6wAKCRAEWL7uWMY5
+ RvvbD/9NEP5A+vzaHatKFT8hAu+P+BohRZ9ddIu5EuKxN7Dv8TP7AV1tBovrhxsLz2yCbz6jPgM
+ 5xkhKoW9gjX0BD4Uum6GqgXa5LJgTpNJeGYaxZ4KhL22x5ACHnepNqGq1CWX/LZXpHUJni0nbwA
+ YdOdcm2YzqiVWtl4fQf7Tlrjm4/nON3eyV9W1mLrgHabPsSB7VrHqxgi0Egj6ZuyLMwfRJTwK/p
+ 1HKXmyOGt4K71MxmiuJC8jsd5tqhwPH8wDyY0nGF5+LP09xgvhXC01fjYj9vKM67l0iuhPrA4SS
+ YuUsP2UfGpIbFuzL3UeXs29VgtMUJ4iG/sydfYUp2kPDBCT13MZqkRoGo9QB2wXdofhk/fjxd4N
+ dDxh8tSx+r3/A3NN8TEoGhNTVdsgAr+nuqFtrS46yyntbqMv+RKy5kcRVCO+6bmtY9TEjJy06KK
+ wuuOuw6Y5855Of0qTGbV6rPH+FyxDFGCIMpz/qIJ22oLdQpZIqV0XVgPF0rfZV6ktSqaaQekDim
+ RyBjlOWn0J63yRt4WWfH82cfie6lvMkdAKpKOK3Q4oml0JeVGPbPx+yLTXyGlRbbR9ngoZMVKsy
+ p+a7/qiSy0KMp1N9PoCKiK0ffiK8ptzeVo1dBgnU9CeOLBFIfRXy4z8B3hNA06CFLBWLVzq3o9w KO8LOTm+X6DoDDQ==
+X-Mailer: b4 0.14.3
+Message-ID: <20261118-binder-esrch-is-dead-v1-1-a45bb951fd14@google.com>
+Subject: [PATCH] rust_binder: treat ESRCH as BR_DEAD_REPLY instead of BR_FAILED_REPLY
+From: Alice Ryhl <aliceryhl@google.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Carlos Llamas <cmllamas@google.com>
+Cc: Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+	"=?utf-8?q?Bj=C3=B6rn_Roy_Baron?=" <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
+	Daniel Almeida <daniel.almeida@collabora.com>, Tamir Duberstein <tamird@kernel.org>, 
+	Alexandre Courbot <acourbot@nvidia.com>, "=?utf-8?q?Onur_=C3=96zkan?=" <work@onurozkan.dev>, rust-for-linux@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="utf-8"
 
-tpm_ibmvtpm_send() holds rtce_lock (a spinlock) and, when the hypervisor
-call returns H_CLOSED after a Live Partition Migration, calls
-tpm_ibmvtpm_resume() to re-enable the CRQ before retrying.
-tpm_ibmvtpm_resume() sleeps (msleep()), so calling it under the spinlock
-sleeps in atomic context.
+When sending a message concurrently with it exiting, the transaction may
+fail with ESRCH if the timing is right. Since this is delivered to
+userspace as BR_FAILED_REPLY, userspace thinks that something went wrong
+with the transaction, but actually the target process just died. This
+usually leads to the sender aborting.
 
-The in-flight command is already serialized by tpm_processing_cmd (other
-senders wait on ibmvtpm->wq), so the rtce buffer stays valid without the
-lock. Drop rtce_lock around the resume and retry.
-
-Fixes: eba5cf3dcb84 ("tpm: ibmvtpm: retry on H_CLOSED in tpm_ibmvtpm_send()")
 Cc: stable@vger.kernel.org
-Signed-off-by: Hyunjung Ko <hj351016@gmail.com>
+Fixes: eafedbc7c050 ("rust_binder: add Rust Binder driver")
+Signed-off-by: Alice Ryhl <aliceryhl@google.com>
 ---
- drivers/char/tpm/tpm_ibmvtpm.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+ drivers/android/binder/error.rs | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/char/tpm/tpm_ibmvtpm.c b/drivers/char/tpm/tpm_ibmvtpm.c
-index 51c7e2add3d2..e06c4db2e138 100644
---- a/drivers/char/tpm/tpm_ibmvtpm.c
-+++ b/drivers/char/tpm/tpm_ibmvtpm.c
-@@ -247,7 +247,14 @@ static int tpm_ibmvtpm_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
- 		 * ibmvtpm_send_crq() once before failing.
- 		 */
- 		if (rc == H_CLOSED && retry) {
-+			/*
-+			 * tpm_ibmvtpm_resume() re-enables the CRQ and sleeps,
-+			 * so it must not run under rtce_lock. The in-flight
-+			 * command is already protected by tpm_processing_cmd.
-+			 */
-+			spin_unlock(&ibmvtpm->rtce_lock);
- 			tpm_ibmvtpm_resume(ibmvtpm->dev);
-+			spin_lock(&ibmvtpm->rtce_lock);
- 			retry = false;
- 			goto again;
- 		}
+diff --git a/drivers/android/binder/error.rs b/drivers/android/binder/error.rs
+index acf0aa09c555..00f1519a8d77 100644
+--- a/drivers/android/binder/error.rs
++++ b/drivers/android/binder/error.rs
+@@ -78,8 +78,12 @@ pub(crate) fn new_frozen_oneway() -> Self {
+ impl From<Error> for BinderError {
+     #[track_caller]
+     fn from(source: Error) -> Self {
++        let reply = match source {
++            ESRCH => BR_DEAD_REPLY,
++            _ => BR_FAILED_REPLY,
++        };
+         Self {
+-            reply: BR_FAILED_REPLY,
++            reply,
+             source: Some(source),
+             line: ErrorLocation::caller(),
+         }
+
+---
+base-commit: 20eef29b7c8465ac98d7dd6d6f2ac07a8d8056ca
+change-id: 20261029-binder-esrch-is-dead-8109ceb9115c
+
+Best regards,
 -- 
-2.43.0
+Alice Ryhl <aliceryhl@google.com>
 
