@@ -1,62 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795015110;
-	b=p6AAkTdOHH00d/f3YHVhMnLt+wF83GNbZhoEwswO6ROm/haRG5/Py+azkCyEWCtLil+J
-	 wR1gkzHW746dmaSJB/q0NhNBpHe2kiAObLiX/0D6QKVxbnukX7ok733+WEqblJqNNdJkD
-	 UVLLfyhtTCbbv37e2+pnaJ0ck3C0lTgi/ePqnpR7wT38nlwqxe+UGYhMjBCM1hFtTblEZ
-	 fS4XR242D5D/Yv1S6ymnovi4m8uigdtXzj48+wN/OIyAfUdTxBawmKWsMRShBUUbrKhx2
-	 xCaIr4+Oc/nbJx1cMmU28WQbMujhzayz4xtNmlZtPa2/LIhsZ+tefMIJqCAh8M1ehcQ==
+	t=1795015123;
+	b=S7TPGYCcTTq8h7SUnoVJKNcCt8pb2GiuUvQv5gm1lxXbmQSoYO0XSd+3QA/II4P0m/DA
+	 Ikoaloov9E2jh9VMJh0Nf37EszAtptI35pJQuxrqXT/r68ejvZi1kvcaA5az1WJgn2I9H
+	 Svc2x9UX352AjB8SL1b9GfkM4lh48Hp4WtH10I12NS3OK3VGFJnt3pt+JOC5vfLrcufee
+	 emnaukTmeIIfz3ead+Rc8jkOL/XA19F/mFwB47iQILrGYSR06/zQ+1mUciI1VMc9VHF34
+	 TiXqFGPhA/ug/5AUdZAWGLkPgyqP580XPhyJ9p7iGCk2MkvqwLa2Z+wQppKDCZxTGhA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795015110;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=nm+pIoUJ8TTRUkgOKw5KoR6JySMRRG8kUBelF7F2uNY=;
-	b=pKrSZBeOGb/fZht0Jfz91CBKFs9Hv/g5G9lZfhVuxfoi4R6iuFLkzuN2g6Mvg2nKrMqa
-	 N0WhOQGQw0eZ7BI74VaGEBSsQenQP7e3slFaBojaHfBWPwP8nvcgdSxc5nd59t3qFqj1x
-	 hSHCbrwkJ1H0a1DFMLn14VFU8zSl0d3MrhlmyaXKkZwqNkN+8FoY/IMOfBX5iqZ6JIKiw
-	 mIPI62BdSZ9tUxgJ9iAiKtNAhUgKEo0JlvNWprIfZ7ri/HFqb1vQA2cpcUw4bB96zDrQk
-	 ggt0fIHCQ5QyReVJN4sc4UIo9/ZAcsjIgIzkSkm86VCX4Sw02BJdOqI9tDEZ0rhdEMA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795015123;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Content-Type:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To;
+	bh=y2Daclv3pL9H+Z77v1N/YFpOGh7HbXy37WIqhvkcADA=;
+	b=ulp3YIB8y9s46hld5V4uWdnYAO6zkhMeR6nuOopVp79MIZuVcCo6o/Uv5W5CiOvSSe8U
+	 O7TQc57Ez5SwGslIpKiRjDGzvzFbeIXEBEbxSwigz453o9IY6L7w16GtjmK7JXAWe8Haa
+	 yMiy2dBUKN48b9KesZirGzCvGWlIiNYpyfwPv1MtjeI9mkZU11wYnV8UN3MuXyxjTSW2p
+	 YJCM7AT2OcydSOZGqT+jEeXbmzfjYMeT+10dB5CycsYna2Xgapv/AfyXtvF4GKcGSgMb0
+	 JN0YQ/IHbmJ77OIc2ktt3si04ahydABSWgHMW+841Sbdj7oRdDxCDHPv8GY6IxYaWXg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=SMWRRlLR;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A693160A2609;
-	Wed, 18 Nov 2026 15:18:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A693160A2609
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="a/CjEp/l";
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 3C3AC60A2602;
+	Wed, 18 Nov 2026 15:18:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3C3AC60A2602
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=SMWRRlLR
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=nm+pIoUJ8TTRUkgOKw5KoR6JySMRRG8kUBelF7F2uNY=; b=SMWRRlLR8ICvzFKpOnWWERsBVI
-	TPHxhsnkr1whTHMqLtiNlN0t1SYjzl5Q2rULUAw2WB0iz6HIkzxRPqutcXyQtGKcPOmys8Hav5qKh
-	Yk2xnc8h+brDJkpiD0hFI+74yZ4KmXjvzpfxR1swVE8mImmF+ouRd1aorRxtTRHRZcBw=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xThQO-00HRwl-4j; Wed, 18 Nov 2026 16:18:16 +0100
-Date: Wed, 18 Nov 2026 16:18:16 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Elias Pukari <elias.pukari@gmail.com>
-Cc: netdev@vger.kernel.org, Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v3] net: phy: et1011c: don't write an error code
- to the config register
-Message-ID: <1d316b00-bdb1-4e82-aaa4-543990319daa@lunn.ch>
-References: <20261118150718.16924-1-elias.pukari@gmail.com>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=a/CjEp/l
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A28B21655;
+	Wed, 18 Nov 2026 07:18:39 -0800 (PST)
+Received: from [10.57.62.206] (unknown [10.57.62.206])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C9A9D3F632;
+	Wed, 18 Nov 2026 07:18:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795015122; bh=w8XDtw7u6zTGcD/Dwtz8Nec/j+mFGkTq9Cwd9QWx4y0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=a/CjEp/lWJU4QLjpelP/JTZv2ruOnbBbt+JLSbKpYAP4VCqrHHdtlgkcAWih3sdxj
+	 WYJKvmin5k2Qjivd13tyo7baEd5InyOwxPHvleh83xiTrhEYXBsYsilr0DlLJongQ1
+	 fQ7iiucy60FJx40w9DUaxvWafVfHMCNzI7k8LEzc=
+Content-Type: multipart/mixed; boundary="------------DUFNbHBbvPDY00EhsT6K87G7"
+Message-ID: <cc27e6a8-6bfa-4c82-92a7-33175baf6803@arm.com>
+Date: Wed, 18 Nov 2026 15:18:35 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,47 +54,117 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118150718.16924-1-elias.pukari@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 01/11] KVM: arm64: guest_memfd: Check mmap support when
+ preparing memslot
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, Fuad Tabba <tabba@google.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Kohei Enju <enju.kohei@fujitsu.com>
+References: <20261116164358.142785-1-steven.price@arm.com>
+ <20261116164358.142785-2-steven.price@arm.com>
+ <CA+EHjTy5xBmavNWSYPjqU9qXtssV3ZHzsUr1s_4bVOt1GnDLVg@mail.gmail.com>
+ <6bb490cd-ebbe-41d7-adf3-d6eaf0e53478@arm.com>
+ <b1ef7241-54b0-4a17-83b6-0008e722f2f6@arm.com>
+ <8a095a42-662a-416d-a5d7-79e10161201c@arm.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <8a095a42-662a-416d-a5d7-79e10161201c@arm.com>
 
-> +static int et1011c_probe(struct phy_device *phydev)
-> +{
-> +	phydev->priv = devm_kzalloc_obj(&phydev->mdio.dev, int);
-> +	return phydev->priv ? 0 : -ENOMEM;
+This is a multi-part message in MIME format.
+--------------DUFNbHBbvPDY00EhsT6K87G7
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Look at other kernel code. And in look mostly at phy drivers. How
-often do you see this sort of return code?
+On 18/11/2026 12:04, Suzuki K Poulose wrote:
+> On 18/11/2026 11:14, Steven Price wrote:
+>> On 18/11/2026 10:34, Suzuki K Poulose wrote:
+>>> Hi Steven
+>>>
+>>> On 17/11/2026 14:05, Fuad Tabba wrote:
+>>>> Hi Steven,
+>>>>
+>>>> On Mon, 16 Nov 2026 16:43:47 +0000, Steven Price
+>>>> <steven.price@arm.com> wrote:
+>>>>> Check the guest_memfd backing file when deciding whether an arm64
+>>>>> memslot has mappable memory rather than checking whether the slot is
+>>>>> gmem only. A public helper function is added to be able to reuse the
+>>>>> static kvm_gmem_supports_mmap() function.
+>>>>
+>>>> nit: could the message say why this is needed? It's a no-op until
+>>>> patch 8 defines kvm_arch_has_private_mem(), which makes every
+>>>> guest_memfd slot gmem-only.
+>>>
+>>> I still don't understand why this is needed. For arm64 we have always
+>>> prevented guest_memfd without MMAP, in kvm_arch_prepare_memory_region().
+>>
+>> Fuad is correct, this isn't really needed until patch 8. Patch 8 defines
+>> kvm_arch_has_private_mem() - that means that gmem_in_place_conversion
+>> becomes true (see include/linux/kvm_host.h). That in turn means that
+> 
+>> every guest_memfd slot is KVM_MEMSLOT_GMEM_ONLY including slots backed
+>> by a file without mmap support.
+> 
+> But we dont support slots without MMAP anyways even without this series.
+>  So, does it really matter for arm64 ?
 
-You want your code to look like all the other code.
+So ChatGPT produced the attached test. It creates a non-mappable gmem
+and tries to add it to a normal (non-realm/non-pkvm) VM. With v7.4-rc1
+it is rejected. However without this patch it succeeds.
 
-Also, how often do you see a priv which is not structure?
+The issue is that gmem_in_place_conversion changes the behaviour for
+normal VMs.
 
->  static int et1011c_config_aneg(struct phy_device *phydev)
->  {
->  	int ctl = phy_read(phydev, MII_BMCR);
-> @@ -60,25 +66,33 @@ static int et1011c_config_aneg(struct phy_device *phydev)
->  
->  static int et1011c_read_status(struct phy_device *phydev)
->  {
-> -	static int speed;
-> +	int *configured_speed = phydev->priv;
-> +	bool was_up = phydev->link;
-> +	int val;
->  	int ret;
-> -	u32 val;
->  
->  	ret = genphy_read_status(phydev);
-> +	if (ret < 0 || !phydev->link) {
-> +		*configured_speed = SPEED_UNKNOWN;
-> +		return ret;
-> +	}
+Thanks,
+Steve
 
-Look at other users of genphy_read_status(). How many have code like
-this? If you are doing something which no other driver does, it is
-likely to be wrong.
 
-    Andrew
+--------------DUFNbHBbvPDY00EhsT6K87G7
+Content-Type: text/x-csrc; charset=UTF-8; name="guest_memfd_nommap_repro.c"
+Content-Disposition: attachment; filename="guest_memfd_nommap_repro.c"
+Content-Transfer-Encoding: base64
 
----
-pw-bot: cr
+Ly8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAtb25seQovKgogKiBSZXByb2R1
+Y2UgdGhlIG5vbi1SZWFsbSBndWVzdF9tZW1mZCBtZW1zbG90IHJlZ3Jlc3Npb24uCiAqIEJ1
+aWxkIGZyb20gdGhlIGtlcm5lbCByb290IHdpdGg6CiAqIGNjIC1XYWxsIC1XZXh0cmEgLU8y
+IC1JdG9vbHMvaW5jbHVkZSAtSXRvb2xzL2luY2x1ZGUvdWFwaSBcCiAqICAgIHRvb2xzL3Rl
+c3Rpbmcvc2VsZnRlc3RzL2t2bS9hcm02NC9ndWVzdF9tZW1mZF9ub21tYXBfcmVwcm8uYyAt
+byAvdG1wL2dtZW0tcmVwcm8KICovCiNpbmNsdWRlIDxlcnJuby5oPgojaW5jbHVkZSA8ZmNu
+dGwuaD4KI2luY2x1ZGUgPGxpbnV4L2t2bS5oPgojaW5jbHVkZSA8c3RkaW50Lmg+CiNpbmNs
+dWRlIDxzdGRpby5oPgojaW5jbHVkZSA8c3lzL2lvY3RsLmg+CiNpbmNsdWRlIDxzeXMvbW1h
+bi5oPgojaW5jbHVkZSA8dW5pc3RkLmg+CgppbnQgbWFpbih2b2lkKQp7Cglsb25nIHNpemUg
+PSBzeXNjb25mKF9TQ19QQUdFU0laRSk7CglzdHJ1Y3Qga3ZtX2NyZWF0ZV9ndWVzdF9tZW1m
+ZCBnbWVtID0geyAuc2l6ZSA9IHNpemUgfTsKCXN0cnVjdCBrdm1fdXNlcnNwYWNlX21lbW9y
+eV9yZWdpb24yIHJlZ2lvbiA9IHsKCQkuZmxhZ3MgPSBLVk1fTUVNX0dVRVNUX01FTUZELAoJ
+CS5tZW1vcnlfc2l6ZSA9IHNpemUsCgl9OwoJaW50IGt2bSwgdm0sIGZkLCByZXQsIGVycm9y
+OwoJdm9pZCAqaHZhOwoKCWlmIChzaXplIDw9IDApCgkJcmV0dXJuIDE7Cglrdm0gPSBvcGVu
+KCIvZGV2L2t2bSIsIE9fUkRXUiB8IE9fQ0xPRVhFQyk7CglpZiAoa3ZtIDwgMCkgewoJCXBl
+cnJvcigib3BlbiAvZGV2L2t2bSIpOwoJCXJldHVybiAxOwoJfQoJdm0gPSBpb2N0bChrdm0s
+IEtWTV9DUkVBVEVfVk0sIDApOwoJaWYgKHZtIDwgMCkgewoJCXBlcnJvcigiS1ZNX0NSRUFU
+RV9WTSIpOwoJCXJldHVybiAxOwoJfQoJZmQgPSBpb2N0bCh2bSwgS1ZNX0NSRUFURV9HVUVT
+VF9NRU1GRCwgJmdtZW0pOwoJaWYgKGZkIDwgMCkgewoJCXBlcnJvcigiS1ZNX0NSRUFURV9H
+VUVTVF9NRU1GRCIpOwoJCXJldHVybiAxOwoJfQoJaHZhID0gbW1hcChOVUxMLCBzaXplLCBQ
+Uk9UX1JFQUQgfCBQUk9UX1dSSVRFLAoJCSAgIE1BUF9QUklWQVRFIHwgTUFQX0FOT05ZTU9V
+UywgLTEsIDApOwoJaWYgKGh2YSA9PSBNQVBfRkFJTEVEKSB7CgkJcGVycm9yKCJtbWFwIik7
+CgkJcmV0dXJuIDE7Cgl9CglyZWdpb24udXNlcnNwYWNlX2FkZHIgPSAodWludHB0cl90KWh2
+YTsKCXJlZ2lvbi5ndWVzdF9tZW1mZCA9IGZkOwoJcmV0ID0gaW9jdGwodm0sIEtWTV9TRVRf
+VVNFUl9NRU1PUllfUkVHSU9OMiwgJnJlZ2lvbik7CgllcnJvciA9IGVycm5vOwoJaWYgKHJl
+dCA9PSAtMSAmJiBlcnJvciA9PSBFSU5WQUwpIHsKCQlwdXRzKCJQQVNTOiBub24tbWFwcGFi
+bGUgZ3Vlc3RfbWVtZmQgbWVtc2xvdCByZWplY3RlZCIpOwoJCXJldHVybiAwOwoJfQoJZnBy
+aW50ZihzdGRlcnIsICJGQUlMOiBLVk1fU0VUX1VTRVJfTUVNT1JZX1JFR0lPTjIgcmV0dXJu
+ZWQgJWQgKGVycm5vICVkKVxuIiwKCQlyZXQsIHJldCA8IDAgPyBlcnJvciA6IDApOwoJcmV0
+dXJuIDE7Cn0K
+
+--------------DUFNbHBbvPDY00EhsT6K87G7--
