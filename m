@@ -1,114 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795009082;
-	b=Du91Q572jDnTUWr11GZG79RGQukPS0pIg8sII930nqEL6gGI8XZkaLI66mLuGl26DUYh
-	 nRUfzJ/nKrmv9WXxqAPFb3liM16Gk4qMVDyCIlU2WeW7rtU69qaicOL9SDLJCcbpsB7iP
-	 SJ/PQmWNwblFx9LSj0PIO/elD4SyIFU1wsHf1c+IPPBDcOX/ZIyqGqxAGz+lK7jQgdkYl
-	 dOdCD8diMc3YQTjUdQcSfnLX/cdIctbmK4icRLFiqHMXsQPQo16/mYcsQ5NSidtnzYMKt
-	 F6llUY7CU2xTqDLFhZnK7wI9OoPQd+UnKzyJX6d3OhDavC1kWusVkOG5E3wCquX/DcA==
+	t=1795009085;
+	b=fpIcmUNhGj49yWZp4TAT4MvofnNItF7gBk2o7YFgfC0GnqUXNL2+VXU9guSJ6rPyrY1L
+	 8oNYtWQqLinCDC3SMk3yu8/Jr2qzuqsf/UGkBCv0ALio2MaUB5p5liQ9NuLlDW35HcuOw
+	 KnQaDIdafHK0uZ4eW6YXRqZzVX5NjDeOSO+ziKAvs0cBqaF3gBK2sS6Z7jWoYvp/qNgFR
+	 KYjCwPU8aGjiTwVfu18rHbbEf3nPc3X3WOfd7WJWsi/BUyPYQbX8gaCrXZ3hfdqCzNRWa
+	 1ZRRkLqr3oahsLx0G7hM3j74b2FrudZkQfv/+c83ZI8X9HSgsqWkwLtuVHtJnryoxzA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795009082;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795009085;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
 	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Authority-Analysis:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=+pJUAQhkPRmzRygX+MTs82PgeId4074s5NzyBrzdQeg=;
-	b=eamlfjJNXsPtduGE2SPez1gd8+2eiQ9JhMgQt7iYz1oRsilVuttMykIpXeK+QSF16pAV
-	 lxuzEDR7qDrk8Vtk7ETuMp4eCxZoJ8YMwIKY0UShDRkfXXfHt/df8LOPy2bPWwks9peR0
-	 z8P+5lwN5ofZVcsxMuFusfyEcS7oyvFAvQp+ock3ViVP4PxASSq+twIPj56Ib/JIsrXWC
-	 tE6z1TEVGa1v++332qhzAsUg1RRLcNfLUyOW7BWbcS7t7nP8Tv5EEzSPXqIB4DaM91QCt
-	 VkpkBsm1fcI2irj76JTwrjOmQfh8FBTVuu4k0cVRlMwUkEuyFgYUqOicd0yD4jjmHCw==
+	 X-Last-TLS-Session-Version;
+	bh=tNm/SwW+deuh3qOQbYKTkzTQ1pQ18KAYE+YbPhmoUIk=;
+	b=1GYn28PqvpUJE691GhVnKudPE8Rk6uzF5UkR038cT5O3zP1nEq+L6q4RnTR1CFLL9npP
+	 1eJrzeJQU7J9KdvT5Qpnu8MqDgZKW8NgXoAWIGuMotA5Ow9mAAB50EzoDgfzSjpVDhu3B
+	 bneqHdEwYmnFgX3vm/AvSGu+jVZgq/ZCQDuFX+WIJ8XLuDSZxUZu+vGg9YlCN8qwOhxAO
+	 ti7iv4SCXR+BLChajB4B/nhM4wQufJDg7FKgB9eF244WY+ZdI/pgk7K1EOtXVjEmeFmMB
+	 jChoNpyL3c7Dd4MRHtKEJiy0dCCR4TuPeuU0JHyB6YwaeGARrJTy3gDydQFwEnR/FFw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ove0LSi1;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=OWlEXgvw;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=pZmpb281;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B354606A32F
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:38:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B354606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 318CE606A325;
+	Wed, 18 Nov 2026 13:38:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 318CE606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ove0LSi1;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=OWlEXgvw
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIDQ3GN2892563
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:38:01 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	+pJUAQhkPRmzRygX+MTs82PgeId4074s5NzyBrzdQeg=; b=ove0LSi1/fHH5Uxb
-	mmuxrKcc832X0fScAPleZYGJHzwsQbbno98vaimk4L9Bj4YBc3TI82R2m+NWeJO7
-	o14HzG6U8AEA7qfGAfxuuvxNXhSxNMV7MyAfN+Nyk5DgL/bvOc3lIene26REsaDY
-	P8JQlkdtDeP9/kXfPRYtTOfDmd2t2NbA8NEvdcYofu42Pyk7v9nztHi6I7BBis/g
-	ClZrIJye489ma40ZHp5EewJn2MWaH9TiQas3Dh+sGP9suIqwzcr33FFKmWr3jDFt
-	u8EvEZpBJc7/kMb5PLHSQgpe9yyI/9SBjDTWqldp0lKpYEpC8Ty3fjxpsKH3zoRS
-	hf8iXw==
-Received: from mail-ua1-f72.google.com (mail-ua1-f72.google.com [209.85.222.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yv938gw-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:38:01 +0000 (GMT)
-Received: by mail-ua1-f72.google.com with SMTP id a1e0cc1a2514c-99859876e19so162587241.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:38:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795009080; x=1795613880; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+pJUAQhkPRmzRygX+MTs82PgeId4074s5NzyBrzdQeg=;
-        b=OWlEXgvwMxEPRNs+dcndM0YcKmFuMjL2KOk5RtbTas8WhEKp3nehjgRAsb50QOj9qe
-         85YnG2RHL2slF+Lm31xlexg+SBltAV6JtPcESlJiIu3r64TzS5fIB4Q0nGi5aXLFXfjN
-         bQP5h2VsyA9+qI7V4MwAQj5ZNrPoQ7KBG9/T1xsl8P0GMAYXN90/K33HkH30+skCVs20
-         q0LLsSzIonYPG1oW1WMOc3r4i+oe5P1zR2vrlWKwFBDB+sxcENjA5yPlriFwY54Ic1Kr
-         90r8oYZNPrSwMj7ZBxwjGEWZRH1kEkUudP57mKnqfWOWCrYRhVyK91xROHTUOVZQBQEo
-         wZlA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795009080; x=1795613880;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+pJUAQhkPRmzRygX+MTs82PgeId4074s5NzyBrzdQeg=;
-        b=Pu2harhy7E5fEOH35B4Hx2h+Tgryzvt7sAHmw0rHFPgyEvjhcxAHKvC4QCq8S9MsS6
-         NAQN1F5LhAM0kr/29KDiJDujoJ87gG9cBY+cshDE8rzwwVhK8Eb2AqwvqKn4D+0V1jRd
-         1v5pEssPNMKH00LwSOtoEAUGngUZP/6domKBoqJxWwOEfiu9PAJUhAlugOHWoqb1uJ2h
-         o7aZlF4+Z0xgn8udJSxVNSAu6SNlvC9zqiscAL17mSghaq1Bdd3KVrq4pqDLvuDf/WHc
-         TzW5wCWxDzw+qtLaogTj28yl0+yUybYo7DWZj+lx+kIQTPx7c5tIz8LQqo4aC4fisjm4
-         MULg==
-X-Forwarded-Encrypted: i=1; AL+hErECV1Z3TC2C9p9LwQt02NhtQ1Ritoefj7uL6pTVhr0fGqnWriT79oUeFxOTMe45raiA/iJQU2BPBqQPURI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8UZP2bXwL7hlKdKALGi1kBk2ZKKia80WjvU7EExeC9x+9aUQ+E
-	N+tMLaGsPHC7UOwVDVn6ANWI1y3ZYajrHZ8lWk8s4Sr1Dhf/8iURosSDt2qJqfTjoK0tZYj+IYd
-	Gyys/H2/klGuMoCYiL41ch1kyk+alK/YZQikiSNFo1DF4PZbkCvBkQE7+A+Se5Ued1P003RcYLG
-	c=
-X-Gm-Gg: AYBFou0nAOzXz3EvbJ+tTvFxe5wnjsrAlZwXP8Zge45Zdfiv3O/f5hlkaL1zP+1WG65
-	3ypcNF18hhjIOWTC/SLPn6QNyJLv0OtMiQ3WxQLBm+FUJH8QCnHNSSRTjp+kCjcxhF25GmSXfPy
-	Kpt8D8hd05YGkAGyGZhAHKrgeNflYrGcJhMhvial5WnurJReGEHjDc2yXPOzqhCXU4BnIdoXib8
-	DKqU63cOYiIkeg68QP9kucKguXjVjUl7WTbLpp3mBawhYPE4CzKMzkmc2KzfR2OoiRj3h5M/iNN
-	J1Af4X/dnKXuPkjap9hAHxctBkv4c4FwtYNGMJ5MYOEi+c8T3xQZoRvlZrJqXOpayx6Kh6bqChM
-	34Mn2vrbqj8TcsL/TskTHquRM/sh4bAf+Z9hl9vp3ph+UfXjFfuDMKT9mWgW6/KtKc8u2j4RDRR
-	SLVKU=
-X-Received: by 2002:a05:6102:50a3:b0:7c1:75c5:c4c with SMTP id ada2fe7eead31-7d6ba44f266mr709697137.25.1795009079901;
-        Wed, 18 Nov 2026 05:37:59 -0800 (PST)
-X-Received: by 2002:a05:6102:50a3:b0:7c1:75c5:c4c with SMTP id ada2fe7eead31-7d6ba44f266mr709678137.25.1795009079283;
-        Wed, 18 Nov 2026 05:37:59 -0800 (PST)
-Received: from hyd-e160-a52-3.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-99e4a1b61eesm1809090241.3.2026.11.18.05.37.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 05:37:58 -0800 (PST)
-From: Gopi Chandra Sekhar Reddy Kanala <gopi.kanala@oss.qualcomm.com>
-Date: Wed, 18 Nov 2026 19:07:30 +0530
-Subject: [PATCH v2 1/2] pinctrl: qcom: lpass-lpi: Move dev_pm_ops to the
- common driver
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=pZmpb281
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id C30294E41627;
+	Wed, 18 Nov 2026 13:38:02 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 8719B5FE9B;
+	Wed, 18 Nov 2026 13:38:02 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2C61211BC2073;
+	Wed, 18 Nov 2026 14:37:50 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795009076; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=tNm/SwW+deuh3qOQbYKTkzTQ1pQ18KAYE+YbPhmoUIk=;
+	b=pZmpb281qGFVhpZ5uuf+H5+lx1cEO6YSaxm7MgXHSfK473kF1ATl0CnElHdZOqeIjFfboE
+	KAHosgggNFsJmqLQyGjeW20jNoXD+z235i7R8W9Kpqhq6jyfByymNpnhurWdyb9EdFVYdW
+	07LUlw/fFaX02A3H8dZwNzDaHCzeJw7mJNS5eNzmDsuV6O9/R+OsZ6ppZiJxlFnCbMoqED
+	PC6202352GdXvBNM9OxqLPhMp9xKluVyizw9J3Xnmy4dFNv8vlHAogwtlFMEGajRqScQNO
+	CRW5x4PkLd3HknjM1XXLKaktwoF17yIy4vmiVKYpr6CLQ1g7A6Ndp5cqMbus6g==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+Date: Wed, 18 Nov 2026 14:37:09 +0100
+Subject: [PATCH v11 02/10] clk: nuvoton: ma35d1: Use clk_hw pointers as mux
+ parents
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -120,430 +66,1064 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-lpass-lpi-system-sleep-v2-1-a6ec7f2ba424@oss.qualcomm.com>
-References: <20261118-lpass-lpi-system-sleep-v2-0-a6ec7f2ba424@oss.qualcomm.com>
-In-Reply-To: <20261118-lpass-lpi-system-sleep-v2-0-a6ec7f2ba424@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Bartosz Golaszewski <brgl@kernel.org>,
-        Linus Walleij <linusw@kernel.org>
-Cc: Srinivas Kandagatla <srini@kernel.org>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        linux-arm-msm@vger.kernel.org, linux-gpio@vger.kernel.org,
-        linux-kernel@vger.kernel.org,
-        Gopi Chandra Sekhar Reddy Kanala <gopi.kanala@oss.qualcomm.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795009070; l=13998;
- i=gopi.kanala@oss.qualcomm.com; s=default; h=from:subject:message-id;
- bh=jE15Q0P0dBodKbNo7JkIOCzUcqfeanI/3hLSz1WHMPk=;
- b=EoQ7V9LlTqrIBD439HNyXfUOcVRWs5AbQYAuMiJGL0jDnXQ1xUT1fhEefI/4qlPwrXgoYPI2t
- xl9HmBJ7TmDDaj/6M+1lZ5NZEJX1LQWahWL7oPimZp5xLVRUPnZFRPU
-X-Developer-Key: i=gopi.kanala@oss.qualcomm.com; a=ed25519;
- pk=4bCmbkbT6dfZt13k29qAL6yx8zUQ6p+yOdkRBH8lzXQ=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA1NCBTYWx0ZWRfX46/3JKYosmkb
- 01+5FSKkJDd3PCT9P+1wWWjWwMER+wXXInNmY15h6qlX+hCJsIJL9NArmJtA+Pub3llLond7Hvf
- 6yH5vrnrRhI35QBujCNxEOaA0tZ35D3buV9fEaj9UOw7xZaBtKdmJAWnQWuclHvJzoob+B+eTR2
- ZjqPXKy6Lu0ndm2di8YNPpRM9IJk9mlkqBB7eeunfLmlPlxhGtRMAAd2lsD/9mb7bQmLpf5rJXm
- ifdkCLiChLb//D6tuiNJBuYXIAGfT259PusmXx7ODjrJt9IyGrbdR5q0tGMje9X+loYvWOqd2eR
- Dpm7XDiW3K+Cr8J0A0riuKRUzhn+XaOsEQsN+w+dMMX4KB/ecSOZQWg3FynE6V01inLeaAaufGr
- Nax6Ys4Lrk6JaIAVYPKERdz8abz5MDdTSt3oukKSBRbLkPnbE4Os9+SsQtfhlt/B+iZbWYB+QPl
- CqHtV4/k7d6n6KUsZEQ==
-X-Proofpoint-GUID: TtS9ahD9SHmzc-_KYSqkgZJbQfSFmjVt
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA1NCBTYWx0ZWRfX6c8tO9alPA1j
- ROIoEDUIxS0DSAV67omW8AoTP1TGIpzDDemA+h3PSGXlhi+i54ZmAxXgPYthJ5IXo2rt4Y3l4qi
- aUhsoKmFda0EhitdJYrD3GYjY/Gfaps=
-X-Authority-Analysis: v=2.4 cv=LuQHWXdc c=1 sm=1 tr=0 ts=6afdaa39 cx=c_pps
- a=ULNsgckmlI/WJG3HAyAuOQ==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=EUspDBNiAAAA:8 a=69SmcKYM6GwwC-r1KZAA:9 a=QEXdDO2ut3YA:10
- a=1WsBpfsz9X-RYQiigVTh:22
-X-Proofpoint-ORIG-GUID: TtS9ahD9SHmzc-_KYSqkgZJbQfSFmjVt
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-18_04,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 impostorscore=0 malwarescore=0 suspectscore=0 clxscore=1015
- adultscore=0 lowpriorityscore=0 spamscore=0 priorityscore=1501 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180054
+Message-Id: <20261118-perso-ma35d1-upstream-clk-v11-2-bd1d1e060926@bootlin.com>
+References: <20261118-perso-ma35d1-upstream-clk-v11-0-bd1d1e060926@bootlin.com>
+In-Reply-To: <20261118-perso-ma35d1-upstream-clk-v11-0-bd1d1e060926@bootlin.com>
+To: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Richard Cochran <richardcochran@gmail.com>, 
+ Arnd Bergmann <arnd@arndb.de>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
+ Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
+ Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Steam Lin <STLin2@winbond.com>, linux-arm-kernel@lists.infradead.org, 
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
+ openbmc@lists.ozlabs.org, Miquel Raynal <miquel.raynal@bootlin.com>, 
+ stable@vger.kernel.org
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 
-All the SoC-specific LPASS LPI drivers probe through the common
-lpi_pinctrl_probe(), which sets up pm_clk and runtime PM, and each of
-them defines the same dev_pm_ops with only the pm_clk runtime callbacks.
+The MA35D1 clock provider registers its muxes with parent data
+structures filling .fw_name. This is not the ideal approach since that
+would require a massive amount of internal clock names declaration in
+the DT. Since the DT does not play the game of exposing all these names,
+none of the parent lookups performed when instantiating the muxes
+succeed. As a result, these muxes get registered as root clocks, leading
+to a sadly flat clock tree and no frequency assigned to most of the
+peripheral clocks:
 
-Define the dev_pm_ops once in the common driver, next to the code that
-sets up pm_clk and runtime PM, and export it for the SoC-specific
-drivers, so the PM callbacks only need to be changed in one place. Drop
-the pm_clock.h and pm_runtime.h includes from the SoC-specific drivers,
-as nothing there uses them anymore.
+                                 enable  prepare  protect
+   clock                          count    count    count        rate
 
-No functional change.
+ usbphy1                             0       0        0        480000000
+ usbphy0                             0       0        0        480000000
+    husbh1_gate                      0       0        0        480000000
+    husbh0_gate                      0       0        0        480000000
+    usbh_gate                        0       0        0        480000000
+    usbd_gate                        0       0        0        480000000
+ syspll                              0       0        0        180000000
+ lirc                                0       0        0        32000
+    lirc_gate                        0       0        0        32000
+ hirc                                0       0        0        12000000
+    gtmr_gate                        0       0        0        12000000
+    hirc_gate                        0       0        0        12000000
+ lxt                                 0       0        0        32768
+    rtc_gate                         0       0        0        32768
+    lxt_gate                         0       0        0        32768
+ hxt                                 0       0        0        24000000
+    vpll                             0       0        0        1224000000
+       dcup_div                      0       0        0        612000000
+    epll                             0       0        0        6000000000
+       epll_div8                     0       0        0        750000000
 
-Signed-off-by: Gopi Chandra Sekhar Reddy Kanala <gopi.kanala@oss.qualcomm.com>
+       epll_div4                     0       0        0        1500000000
+       epll_div2                     0       0        0        3000000000
+          emac1_gate                 0       0        0        3000000000
+
+          emac0_gate                 0       0        0        3000000000
+
+    apll                             0       0        0        6048000000
+    ddrpll                           0       0        0        266460000
+       ddr_gate                      0       0        0        266460000
+       ddr6_gate                     0       0        0        266460000
+       ddr0_gate                     0       0        0        266460000
+    capll                            0       0        0        2400000000
+    hxt_gate                         0       0        0        24000000
+ clk_hxt                             0       0        0        24000000
+ spi3_mux                            0       0        0        0
+    spi3_gate                        0       0        0        0
+ spi2_mux                            0       0        0        0
+    spi2_gate                        0       0        0        0
+ spi1_mux                            0       0        0        0
+    spi1_gate                        0       0        0        0
+ spi0_mux                            0       0        0        0
+    spi0_gate                        0       0        0        0
+ i2s1_mux                            0       0        0        0
+    i2s1_gate                        0       0        0        0
+ i2s0_mux                            0       0        0        0
+    i2s0_gate                        0       0        0        0
+...
+
+Apart from the wrong clock tree representation, it means that none of
+the device drivers (spi & i2c in the excerpt above) can actually query
+their clock rate, or they would get 0Hz.
+
+Instead of declaring the parents in the clk_parent_data structure, use
+the actual HW clocks to lookup the parents directly: parents are
+described by an array of indices into the controller's main clock table
+(like in other clock controller drivers), which the "new" mux helper now
+resolves.
+
+The WDT and WWDT muxes list the /4096 children of PCLK3 and PCLK4 among
+their possible parents. Those two clocks are now registered by the
+previous commit, so their entries in the parent tables are restored
+instead of being turned into invalid slots.
+
+                                 enable  prepare  protect
+   clock                          count    count    count        rate
+
+ usbphy1                             0       0        0        480000000
+ usbphy0                             0       0        0        480000000
+    husbh1_gate                      0       0        0        480000000
+    husbh0_gate                      0       0        0        480000000
+    usbh_gate                        0       0        0        480000000
+    usbd_gate                        0       0        0        480000000
+ syspll                              1       1        0        180000000
+    dbg_mux                          0       0        0        180000000
+    sdh1_mux                         0       0        0        180000000
+       sdh1_gate                     0       0        0        180000000
+    sdh0_mux                         0       0        0        180000000
+       sdh0_gate                     0       0        0        180000000
+    sysclk1_mux                      2       2        0        180000000
+       pclk4                         0       0        0        90000000
+       pclk3                         0       0        0        90000000
+          sspcc_gate                 0       0        0        90000000
+          ssmcc_gate                 0       0        0        90000000
+       hclk3                         0       0        0        90000000
+       pclk2                         0       0        0        180000000
+          eadc_div                   0       0        0        90000000
+             eadc_gate               0       0        0        90000000
+          qei1_gate                  0       0        0        180000000
+          ecap1_gate                 0       0        0        180000000
+          spi3_mux                   0       0        0        180000000
+             spi3_gate               0       0        0        180000000
+          spi1_mux                   0       0        0        180000000
+             spi1_gate               0       0        0        180000000
+          epwm1_gate                 0       0        0        180000000
+          i2c5_gate                  0       0        0        180000000
+          i2c2_gate                  0       0        0        180000000
+       pclk1                         0       0        0        180000000
+          qei2_gate                  0       0        0        180000000
+          qei0_gate                  0       0        0        180000000
+          ecap2_gate                 0       0        0        180000000
+          ecap0_gate                 0       0        0        180000000
+          spi2_mux                   0       0        0        180000000
+             spi2_gate               0       0        0        180000000
+          spi0_mux                   0       0        0        180000000
+             spi0_gate               0       0        0        180000000
+          epwm2_gate                 0       0        0        180000000
+          epwm0_gate                 0       0        0        180000000
+          i2c4_gate                  0       0        0        180000000
+          i2c1_gate                  0       0        0        180000000
+       pclk0                         1       1        0        180000000
+          adc_div                    0       0        0        90000000
+             adc_gate                0       0        0        90000000
+          qspi1_mux                  0       0        0        180000000
+             qspi1_gate              0       0        0        180000000
+          qspi0_mux                  1       1        0        180000000
+             qspi0_gate              1       1        0        180000000
+
+          i2c3_gate                  0       0        0        180000000
+          i2c0_gate                  0       0        0        180000000
+
+Note: while switching the API, let's use the devm_ alternative to manage
+the clock registration automatically.
+
+Fixes: f50a000b4219 ("clk: nuvoton: Use clk_parent_data instead of string for parent clock")
+Cc: stable@vger.kernel.org
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/pinctrl/qcom/pinctrl-hawi-lpass-lpi.c     | 6 ------
- drivers/pinctrl/qcom/pinctrl-lpass-lpi.c          | 4 ++++
- drivers/pinctrl/qcom/pinctrl-lpass-lpi.h          | 3 +++
- drivers/pinctrl/qcom/pinctrl-milos-lpass-lpi.c    | 6 ------
- drivers/pinctrl/qcom/pinctrl-sc7280-lpass-lpi.c   | 6 ------
- drivers/pinctrl/qcom/pinctrl-sc8280xp-lpass-lpi.c | 6 ------
- drivers/pinctrl/qcom/pinctrl-sdm660-lpass-lpi.c   | 6 ------
- drivers/pinctrl/qcom/pinctrl-sdm670-lpass-lpi.c   | 6 ------
- drivers/pinctrl/qcom/pinctrl-sm4250-lpass-lpi.c   | 6 ------
- drivers/pinctrl/qcom/pinctrl-sm6115-lpass-lpi.c   | 6 ------
- drivers/pinctrl/qcom/pinctrl-sm6350-lpass-lpi.c   | 6 ------
- drivers/pinctrl/qcom/pinctrl-sm8250-lpass-lpi.c   | 6 ------
- drivers/pinctrl/qcom/pinctrl-sm8450-lpass-lpi.c   | 6 ------
- drivers/pinctrl/qcom/pinctrl-sm8550-lpass-lpi.c   | 6 ------
- drivers/pinctrl/qcom/pinctrl-sm8650-lpass-lpi.c   | 6 ------
- 15 files changed, 7 insertions(+), 78 deletions(-)
+ drivers/clk/nuvoton/clk-ma35d1.c | 626 +++++++++++----------------------------
+ 1 file changed, 177 insertions(+), 449 deletions(-)
 
-diff --git a/drivers/pinctrl/qcom/pinctrl-hawi-lpass-lpi.c b/drivers/pinctrl/qcom/pinctrl-hawi-lpass-lpi.c
-index 7036bf4c6692..de7f28129012 100644
---- a/drivers/pinctrl/qcom/pinctrl-hawi-lpass-lpi.c
-+++ b/drivers/pinctrl/qcom/pinctrl-hawi-lpass-lpi.c
-@@ -6,8 +6,6 @@
- #include <linux/gpio/driver.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
--#include <linux/pm_clock.h>
--#include <linux/pm_runtime.h>
+diff --git a/drivers/clk/nuvoton/clk-ma35d1.c b/drivers/clk/nuvoton/clk-ma35d1.c
+index c914079cee2d..ba3550c083ac 100644
+--- a/drivers/clk/nuvoton/clk-ma35d1.c
++++ b/drivers/clk/nuvoton/clk-ma35d1.c
+@@ -63,300 +63,49 @@ static DEFINE_SPINLOCK(ma35d1_lock);
+ #define PLL_MODE_FRAC           1
+ #define PLL_MODE_SS             2
  
- #include "pinctrl-lpass-lpi.h"
+-static const struct clk_parent_data ca35clk_sel_clks[] = {
+-	{ .fw_name = "hxt", },
+-	{ .fw_name = "capll", },
+-	{ .fw_name = "ddrpll", },
+-};
++#define MA35D1_MUX_MAX_PARENTS	10
  
-@@ -225,10 +223,6 @@ static const struct of_device_id lpi_pinctrl_of_match[] = {
- };
- MODULE_DEVICE_TABLE(of, lpi_pinctrl_of_match);
- 
--static const struct dev_pm_ops lpi_pinctrl_pm_ops = {
--	RUNTIME_PM_OPS(pm_clk_suspend, pm_clk_resume, NULL)
+-static const struct clk_parent_data sysclk0_sel_clks[] = {
+-	{ .fw_name = "epll_div2", },
+-	{ .fw_name = "syspll", },
 -};
 -
- static struct platform_driver lpi_pinctrl_driver = {
- 	.driver = {
- 		.name = "qcom-hawi-lpass-lpi-pinctrl",
-diff --git a/drivers/pinctrl/qcom/pinctrl-lpass-lpi.c b/drivers/pinctrl/qcom/pinctrl-lpass-lpi.c
-index 02f678fa75b1..1f1635ec53d7 100644
---- a/drivers/pinctrl/qcom/pinctrl-lpass-lpi.c
-+++ b/drivers/pinctrl/qcom/pinctrl-lpass-lpi.c
-@@ -611,5 +611,9 @@ void lpi_pinctrl_remove(struct platform_device *pdev)
+-static const struct clk_parent_data sysclk1_sel_clks[] = {
+-	{ .fw_name = "hxt", },
+-	{ .fw_name = "syspll", },
+-};
+-
+-static const struct clk_parent_data axiclk_sel_clks[] = {
+-	{ .fw_name = "capll_div2", },
+-	{ .fw_name = "capll_div4", },
+-};
+-
+-static const struct clk_parent_data ccap_sel_clks[] = {
+-	{ .fw_name = "hxt", },
+-	{ .fw_name = "vpll", },
+-	{ .fw_name = "apll", },
+-	{ .fw_name = "syspll", },
+-};
+-
+-static const struct clk_parent_data sdh_sel_clks[] = {
+-	{ .fw_name = "syspll", },
+-	{ .fw_name = "apll", },
+-};
+-
+-static const struct clk_parent_data dcu_sel_clks[] = {
+-	{ .fw_name = "epll_div2", },
+-	{ .fw_name = "syspll", },
+-};
+-
+-static const struct clk_parent_data gfx_sel_clks[] = {
+-	{ .fw_name = "epll", },
+-	{ .fw_name = "syspll", },
+-};
+-
+-static const struct clk_parent_data dbg_sel_clks[] = {
+-	{ .fw_name = "hirc", },
+-	{ .fw_name = "syspll", },
+-};
+-
+-static const struct clk_parent_data timer0_sel_clks[] = {
+-	{ .fw_name = "hxt", },
+-	{ .fw_name = "lxt", },
+-	{ .fw_name = "pclk0", },
+-	{ .index = -1, },
+-	{ .index = -1, },
+-	{ .fw_name = "lirc", },
+-	{ .index = -1, },
+-	{ .fw_name = "hirc", },
+-};
+-
+-static const struct clk_parent_data timer1_sel_clks[] = {
+-	{ .fw_name = "hxt", },
+-	{ .fw_name = "lxt", },
+-	{ .fw_name = "pclk0", },
+-	{ .index = -1, },
+-	{ .index = -1, },
+-	{ .fw_name = "lirc", },
+-	{ .index = -1, },
+-	{ .fw_name = "hirc", },
+-};
+-
+-static const struct clk_parent_data timer2_sel_clks[] = {
+-	{ .fw_name = "hxt", },
+-	{ .fw_name = "lxt", },
+-	{ .fw_name = "pclk1", },
+-	{ .index = -1, },
+-	{ .index = -1, },
+-	{ .fw_name = "lirc", },
+-	{ .index = -1, },
+-	{ .fw_name = "hirc", },
+-};
+-
+-static const struct clk_parent_data timer3_sel_clks[] = {
+-	{ .fw_name = "hxt", },
+-	{ .fw_name = "lxt", },
+-	{ .fw_name = "pclk1", },
+-	{ .index = -1, },
+-	{ .index = -1, },
+-	{ .fw_name = "lirc", },
+-	{ .index = -1, },
+-	{ .fw_name = "hirc", },
+-};
+-
+-static const struct clk_parent_data timer4_sel_clks[] = {
+-	{ .fw_name = "hxt", },
+-	{ .fw_name = "lxt", },
+-	{ .fw_name = "pclk2", },
+-	{ .index = -1, },
+-	{ .index = -1, },
+-	{ .fw_name = "lirc", },
+-	{ .index = -1, },
+-	{ .fw_name = "hirc", },
+-};
+-
+-static const struct clk_parent_data timer5_sel_clks[] = {
+-	{ .fw_name = "hxt", },
+-	{ .fw_name = "lxt", },
+-	{ .fw_name = "pclk2", },
+-	{ .index = -1, },
+-	{ .index = -1, },
+-	{ .fw_name = "lirc", },
+-	{ .index = -1, },
+-	{ .fw_name = "hirc", },
+-};
+-
+-static const struct clk_parent_data timer6_sel_clks[] = {
+-	{ .fw_name = "hxt", },
+-	{ .fw_name = "lxt", },
+-	{ .fw_name = "pclk0", },
+-	{ .index = -1, },
+-	{ .index = -1, },
+-	{ .fw_name = "lirc", },
+-	{ .index = -1, },
+-	{ .fw_name = "hirc", },
+-};
+-
+-static const struct clk_parent_data timer7_sel_clks[] = {
+-	{ .fw_name = "hxt", },
+-	{ .fw_name = "lxt", },
+-	{ .fw_name = "pclk0", },
+-	{ .index = -1, },
+-	{ .index = -1, },
+-	{ .fw_name = "lirc", },
+-	{ .index = -1, },
+-	{ .fw_name = "hirc", },
+-};
+-
+-static const struct clk_parent_data timer8_sel_clks[] = {
+-	{ .fw_name = "hxt", },
+-	{ .fw_name = "lxt", },
+-	{ .fw_name = "pclk1", },
+-	{ .index = -1, },
+-	{ .index = -1, },
+-	{ .fw_name = "lirc", },
+-	{ .index = -1, },
+-	{ .fw_name = "hirc", },
+-};
+-
+-static const struct clk_parent_data timer9_sel_clks[] = {
+-	{ .fw_name = "hxt", },
+-	{ .fw_name = "lxt", },
+-	{ .fw_name = "pclk1", },
+-	{ .index = -1, },
+-	{ .index = -1, },
+-	{ .fw_name = "lirc", },
+-	{ .index = -1, },
+-	{ .fw_name = "hirc", },
+-};
+-
+-static const struct clk_parent_data timer10_sel_clks[] = {
+-	{ .fw_name = "hxt", },
+-	{ .fw_name = "lxt", },
+-	{ .fw_name = "pclk2", },
+-	{ .index = -1, },
+-	{ .index = -1, },
+-	{ .fw_name = "lirc", },
+-	{ .index = -1, },
+-	{ .fw_name = "hirc", },
+-};
+-
+-static const struct clk_parent_data timer11_sel_clks[] = {
+-	{ .fw_name = "hxt", },
+-	{ .fw_name = "lxt", },
+-	{ .fw_name = "pclk2", },
+-	{ .index = -1, },
+-	{ .index = -1, },
+-	{ .fw_name = "lirc", },
+-	{ .index = -1, },
+-	{ .fw_name = "hirc", },
+-};
+-
+-static const struct clk_parent_data uart_sel_clks[] = {
+-	{ .fw_name = "hxt", },
+-	{ .fw_name = "sysclk1_div2", },
+-};
+-
+-static const struct clk_parent_data wdt0_sel_clks[] = {
+-	{ .index = -1, },
+-	{ .fw_name = "lxt", },
+-	{ .fw_name = "pclk3_div4096", },
+-	{ .fw_name = "lirc", },
+-};
+-
+-static const struct clk_parent_data wdt1_sel_clks[] = {
+-	{ .index = -1, },
+-	{ .fw_name = "lxt", },
+-	{ .fw_name = "pclk3_div4096", },
+-	{ .fw_name = "lirc", },
+-};
+-
+-static const struct clk_parent_data wdt2_sel_clks[] = {
+-	{ .index = -1, },
+-	{ .fw_name = "lxt", },
+-	{ .fw_name = "pclk4_div4096", },
+-	{ .fw_name = "lirc", },
+-};
+-
+-static const struct clk_parent_data wwdt0_sel_clks[] = {
+-	{ .index = -1, },
+-	{ .index = -1, },
+-	{ .fw_name = "pclk3_div4096", },
+-	{ .fw_name = "lirc", },
+-};
+-
+-static const struct clk_parent_data wwdt1_sel_clks[] = {
+-	{ .index = -1, },
+-	{ .index = -1, },
+-	{ .fw_name = "pclk3_div4096", },
+-	{ .fw_name = "lirc", },
+-};
+-
+-static const struct clk_parent_data wwdt2_sel_clks[] = {
+-	{ .index = -1, },
+-	{ .index = -1, },
+-	{ .fw_name = "pclk4_div4096", },
+-	{ .fw_name = "lirc", },
+-};
+-
+-static const struct clk_parent_data spi0_sel_clks[] = {
+-	{ .fw_name = "pclk1", },
+-	{ .fw_name = "apll", },
+-};
+-
+-static const struct clk_parent_data spi1_sel_clks[] = {
+-	{ .fw_name = "pclk2", },
+-	{ .fw_name = "apll", },
+-};
+-
+-static const struct clk_parent_data spi2_sel_clks[] = {
+-	{ .fw_name = "pclk1", },
+-	{ .fw_name = "apll", },
+-};
+-
+-static const struct clk_parent_data spi3_sel_clks[] = {
+-	{ .fw_name = "pclk2", },
+-	{ .fw_name = "apll", },
+-};
+-
+-static const struct clk_parent_data qspi0_sel_clks[] = {
+-	{ .fw_name = "pclk0", },
+-	{ .fw_name = "apll", },
+-};
+-
+-static const struct clk_parent_data qspi1_sel_clks[] = {
+-	{ .fw_name = "pclk0", },
+-	{ .fw_name = "apll", },
+-};
+-
+-static const struct clk_parent_data i2s0_sel_clks[] = {
+-	{ .fw_name = "apll", },
+-	{ .fw_name = "sysclk1_div2", },
+-};
+-
+-static const struct clk_parent_data i2s1_sel_clks[] = {
+-	{ .fw_name = "apll", },
+-	{ .fw_name = "sysclk1_div2", },
+-};
+-
+-static const struct clk_parent_data can_sel_clks[] = {
+-	{ .fw_name = "apll", },
+-	{ .fw_name = "vpll", },
+-};
+-
+-static const struct clk_parent_data cko_sel_clks[] = {
+-	{ .fw_name = "hxt", },
+-	{ .fw_name = "lxt", },
+-	{ .fw_name = "hirc", },
+-	{ .fw_name = "lirc", },
+-	{ .fw_name = "capll_div4", },
+-	{ .fw_name = "syspll", },
+-	{ .fw_name = "ddrpll", },
+-	{ .fw_name = "epll_div2", },
+-	{ .fw_name = "apll", },
+-	{ .fw_name = "vpll", },
+-};
+-
+-static const struct clk_parent_data smc_sel_clks[] = {
+-	{ .fw_name = "hxt", },
+-	{ .fw_name = "pclk4", },
+-};
+-
+-static const struct clk_parent_data kpi_sel_clks[] = {
+-	{ .fw_name = "hxt", },
+-	{ .fw_name = "lxt", },
+-};
++/* Mux parent selection, by index into the controller's clock table */
++static const int ca35clk_parent_idx[] = { HXT, CAPLL, DDRPLL };
++static const int sysclk0_parent_idx[] = { EPLL_DIV2, SYSPLL };
++static const int sysclk1_parent_idx[] = { HXT, SYSPLL };
++static const int axiclk_parent_idx[] = { AXICLK_DIV2, AXICLK_DIV4 };
++static const int ccap_parent_idx[] = { HXT, VPLL, APLL, SYSPLL };
++static const int sdh_parent_idx[] = { SYSPLL, APLL };
++static const int dcu_parent_idx[] = { EPLL_DIV2, SYSPLL };
++static const int gfx_parent_idx[] = { EPLL, SYSPLL };
++static const int dbg_parent_idx[] = { HIRC, SYSPLL };
++static const int timer0_parent_idx[] = { HXT, LXT, PCLK0, -1, -1, LIRC, -1, HIRC };
++static const int timer1_parent_idx[] = { HXT, LXT, PCLK0, -1, -1, LIRC, -1, HIRC };
++static const int timer2_parent_idx[] = { HXT, LXT, PCLK1, -1, -1, LIRC, -1, HIRC };
++static const int timer3_parent_idx[] = { HXT, LXT, PCLK1, -1, -1, LIRC, -1, HIRC };
++static const int timer4_parent_idx[] = { HXT, LXT, PCLK2, -1, -1, LIRC, -1, HIRC };
++static const int timer5_parent_idx[] = { HXT, LXT, PCLK2, -1, -1, LIRC, -1, HIRC };
++static const int timer6_parent_idx[] = { HXT, LXT, PCLK0, -1, -1, LIRC, -1, HIRC };
++static const int timer7_parent_idx[] = { HXT, LXT, PCLK0, -1, -1, LIRC, -1, HIRC };
++static const int timer8_parent_idx[] = { HXT, LXT, PCLK1, -1, -1, LIRC, -1, HIRC };
++static const int timer9_parent_idx[] = { HXT, LXT, PCLK1, -1, -1, LIRC, -1, HIRC };
++static const int timer10_parent_idx[] = { HXT, LXT, PCLK2, -1, -1, LIRC, -1, HIRC };
++static const int timer11_parent_idx[] = { HXT, LXT, PCLK2, -1, -1, LIRC, -1, HIRC };
++static const int uart_parent_idx[] = { HXT, SYSCLK1_DIV2 };
++static const int wdt0_parent_idx[] = { -1, LXT, PCLK3_DIV4096, LIRC };
++static const int wdt1_parent_idx[] = { -1, LXT, PCLK3_DIV4096, LIRC };
++static const int wdt2_parent_idx[] = { -1, LXT, PCLK4_DIV4096, LIRC };
++static const int wwdt0_parent_idx[] = { -1, -1, PCLK3_DIV4096, LIRC };
++static const int wwdt1_parent_idx[] = { -1, -1, PCLK3_DIV4096, LIRC };
++static const int wwdt2_parent_idx[] = { -1, -1, PCLK4_DIV4096, LIRC };
++static const int spi0_parent_idx[] = { PCLK1, APLL };
++static const int spi1_parent_idx[] = { PCLK2, APLL };
++static const int spi2_parent_idx[] = { PCLK1, APLL };
++static const int spi3_parent_idx[] = { PCLK2, APLL };
++static const int qspi_parent_idx[] = { PCLK0, APLL };
++static const int i2s_parent_idx[] = { APLL, SYSCLK1_DIV2 };
++static const int can_parent_idx[] = { APLL, VPLL };
++static const int cko_parent_idx[] = { HXT, LXT, HIRC, LIRC,
++				      AXICLK_DIV4, SYSPLL, DDRPLL,
++				      EPLL_DIV2, APLL, VPLL };
++static const int smc_parent_idx[] = { HXT, PCLK4 };
++static const int kpi_parent_idx[] = { HXT, LXT };
+ 
+ static const struct clk_div_table ip_div_table[] = {
+ 	{0, 2}, {1, 4}, {2, 6}, {3, 8}, {4, 10},
+@@ -375,24 +124,20 @@ static struct clk_hw *ma35d1_clk_fixed(const char *name, int rate)
+ 	return clk_hw_register_fixed_rate(NULL, name, NULL, 0, rate);
  }
- EXPORT_SYMBOL_GPL(lpi_pinctrl_remove);
  
-+EXPORT_GPL_DEV_PM_OPS(lpi_pinctrl_pm_ops) = {
-+	RUNTIME_PM_OPS(pm_clk_suspend, pm_clk_resume, NULL)
-+};
+-static struct clk_hw *ma35d1_clk_mux_parent(struct device *dev, const char *name,
+-					    void __iomem *reg, u8 shift, u8 width,
+-					    const struct clk_parent_data *pdata,
+-					    int num_pdata)
+-{
+-	return clk_hw_register_mux_parent_data(dev, name, pdata, num_pdata,
+-					       CLK_SET_RATE_NO_REPARENT, reg, shift,
+-					       width, 0, &ma35d1_lock);
+-}
+-
+ static struct clk_hw *ma35d1_clk_mux(struct device *dev, const char *name,
+ 				     void __iomem *reg, u8 shift, u8 width,
+-				     const struct clk_parent_data *pdata,
+-				     int num_pdata)
++				     struct clk_hw **hws,
++				     const int *parent_idx, int num_parents)
+ {
+-	return clk_hw_register_mux_parent_data(dev, name, pdata, num_pdata,
+-					       CLK_SET_RATE_NO_REPARENT, reg, shift,
+-					       width, 0, &ma35d1_lock);
++	const struct clk_hw *parent_hws[MA35D1_MUX_MAX_PARENTS] = {};
++	int i;
 +
- MODULE_DESCRIPTION("QTI LPI GPIO pin control driver");
- MODULE_LICENSE("GPL");
-diff --git a/drivers/pinctrl/qcom/pinctrl-lpass-lpi.h b/drivers/pinctrl/qcom/pinctrl-lpass-lpi.h
-index 056c4a774389..fc6aa5f552e6 100644
---- a/drivers/pinctrl/qcom/pinctrl-lpass-lpi.h
-+++ b/drivers/pinctrl/qcom/pinctrl-lpass-lpi.h
-@@ -11,6 +11,7 @@
- 
- #include "../core.h"
- 
-+struct dev_pm_ops;
- struct platform_device;
- 
- struct pinctrl_pin_desc;
-@@ -145,4 +146,6 @@ struct lpi_pinctrl_variant_data {
- int lpi_pinctrl_probe(struct platform_device *pdev);
- void lpi_pinctrl_remove(struct platform_device *pdev);
- 
-+extern const struct dev_pm_ops lpi_pinctrl_pm_ops;
++	for (i = 0; i < num_parents; i++)
++		parent_hws[i] = (parent_idx[i] >= 0) ? hws[parent_idx[i]] : NULL;
 +
- #endif /*__PINCTRL_LPASS_LPI_H__*/
-diff --git a/drivers/pinctrl/qcom/pinctrl-milos-lpass-lpi.c b/drivers/pinctrl/qcom/pinctrl-milos-lpass-lpi.c
-index cb4934cd6f75..2a9f8d1c6cf3 100644
---- a/drivers/pinctrl/qcom/pinctrl-milos-lpass-lpi.c
-+++ b/drivers/pinctrl/qcom/pinctrl-milos-lpass-lpi.c
-@@ -7,8 +7,6 @@
- #include <linux/gpio/driver.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
--#include <linux/pm_clock.h>
--#include <linux/pm_runtime.h>
++	return devm_clk_hw_register_mux_parent_hws(dev, name, parent_hws, num_parents,
++						   CLK_SET_RATE_NO_REPARENT, reg, shift,
++						   width, 0, &ma35d1_lock);
+ }
  
- #include "pinctrl-lpass-lpi.h"
+ static struct clk_hw *ma35d1_clk_divider(struct device *dev, const char *name,
+@@ -515,22 +260,17 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
+ 	hws[EPLL_DIV4] = ma35d1_clk_fixed_factor(dev, "epll_div4", "epll", 1, 4);
+ 	hws[EPLL_DIV8] = ma35d1_clk_fixed_factor(dev, "epll_div8", "epll", 1, 8);
  
-@@ -245,10 +243,6 @@ static const struct of_device_id lpi_pinctrl_of_match[] = {
- };
- MODULE_DEVICE_TABLE(of, lpi_pinctrl_of_match);
+-	hws[CA35CLK_MUX] = ma35d1_clk_mux_parent(dev, "ca35clk_mux",
+-						 clk_base + REG_CLK_CLKSEL0, 0, 2,
+-						 ca35clk_sel_clks,
+-						 ARRAY_SIZE(ca35clk_sel_clks));
++	hws[CA35CLK_MUX] = ma35d1_clk_mux(dev, "ca35clk_mux", clk_base + REG_CLK_CLKSEL0, 0, 2, hws,
++					  ca35clk_parent_idx, ARRAY_SIZE(ca35clk_parent_idx));
+ 	hws[AXICLK_DIV2] = ma35d1_clk_fixed_factor(dev, "capll_div2", "ca35clk_mux", 1, 2);
+ 	hws[AXICLK_DIV4] = ma35d1_clk_fixed_factor(dev, "capll_div4", "ca35clk_mux", 1, 4);
  
--static const struct dev_pm_ops lpi_pinctrl_pm_ops = {
--	RUNTIME_PM_OPS(pm_clk_suspend, pm_clk_resume, NULL)
--};
--
- static struct platform_driver lpi_pinctrl_driver = {
- 	.driver = {
- 		.name = "qcom-milos-lpass-lpi-pinctrl",
-diff --git a/drivers/pinctrl/qcom/pinctrl-sc7280-lpass-lpi.c b/drivers/pinctrl/qcom/pinctrl-sc7280-lpass-lpi.c
-index a61df10d46cb..fd448b6dbb6d 100644
---- a/drivers/pinctrl/qcom/pinctrl-sc7280-lpass-lpi.c
-+++ b/drivers/pinctrl/qcom/pinctrl-sc7280-lpass-lpi.c
-@@ -7,8 +7,6 @@
- #include <linux/gpio/driver.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
--#include <linux/pm_clock.h>
--#include <linux/pm_runtime.h>
+-	hws[AXICLK_MUX] = ma35d1_clk_mux(dev, "axiclk_mux", clk_base + REG_CLK_CLKDIV0,
+-					 26, 1, axiclk_sel_clks,
+-					 ARRAY_SIZE(axiclk_sel_clks));
+-	hws[SYSCLK0_MUX] = ma35d1_clk_mux(dev, "sysclk0_mux", clk_base + REG_CLK_CLKSEL0,
+-					  2, 1, sysclk0_sel_clks,
+-					  ARRAY_SIZE(sysclk0_sel_clks));
+-	hws[SYSCLK1_MUX] = ma35d1_clk_mux(dev, "sysclk1_mux", clk_base + REG_CLK_CLKSEL0,
+-					  4, 1, sysclk1_sel_clks,
+-					  ARRAY_SIZE(sysclk1_sel_clks));
++	hws[AXICLK_MUX] = ma35d1_clk_mux(dev, "axiclk_mux", clk_base + REG_CLK_CLKDIV0, 26, 1, hws,
++					 axiclk_parent_idx, ARRAY_SIZE(axiclk_parent_idx));
++	hws[SYSCLK0_MUX] = ma35d1_clk_mux(dev, "sysclk0_mux", clk_base + REG_CLK_CLKSEL0, 2, 1, hws,
++					  sysclk0_parent_idx, ARRAY_SIZE(sysclk0_parent_idx));
++	hws[SYSCLK1_MUX] = ma35d1_clk_mux(dev, "sysclk1_mux", clk_base + REG_CLK_CLKSEL0, 4, 1, hws,
++					  sysclk1_parent_idx, ARRAY_SIZE(sysclk1_parent_idx));
+ 	hws[SYSCLK1_DIV2] = ma35d1_clk_fixed_factor(dev, "sysclk1_div2", "sysclk1_mux", 1, 2);
  
- #include "pinctrl-lpass-lpi.h"
+ 	/* HCLK0~3 & PCLK0~4 */
+@@ -556,41 +296,41 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
+ 	hws[DDR6_GATE] = ma35d1_clk_gate(dev, "ddr6_gate", "ddrpll",
+ 					 clk_base + REG_CLK_SYSCLK0, 5);
  
-@@ -141,10 +139,6 @@ static const struct of_device_id lpi_pinctrl_of_match[] = {
- };
- MODULE_DEVICE_TABLE(of, lpi_pinctrl_of_match);
+-	hws[CAN0_MUX] = ma35d1_clk_mux(dev, "can0_mux", clk_base + REG_CLK_CLKSEL4,
+-				       16, 1, can_sel_clks, ARRAY_SIZE(can_sel_clks));
++	hws[CAN0_MUX] = ma35d1_clk_mux(dev, "can0_mux", clk_base + REG_CLK_CLKSEL4, 16, 1, hws,
++				       can_parent_idx, ARRAY_SIZE(can_parent_idx));
+ 	hws[CAN0_DIV] = ma35d1_clk_divider_table(dev, "can0_div", "can0_mux",
+ 						 clk_base + REG_CLK_CLKDIV0,
+ 						 0, 3, ip_div_table);
+ 	hws[CAN0_GATE] = ma35d1_clk_gate(dev, "can0_gate", "can0_div",
+ 					 clk_base + REG_CLK_SYSCLK0, 8);
+-	hws[CAN1_MUX] = ma35d1_clk_mux(dev, "can1_mux", clk_base + REG_CLK_CLKSEL4,
+-				       17, 1, can_sel_clks, ARRAY_SIZE(can_sel_clks));
++	hws[CAN1_MUX] = ma35d1_clk_mux(dev, "can1_mux", clk_base + REG_CLK_CLKSEL4, 17, 1, hws,
++				       can_parent_idx, ARRAY_SIZE(can_parent_idx));
+ 	hws[CAN1_DIV] = ma35d1_clk_divider_table(dev, "can1_div", "can1_mux",
+ 						 clk_base + REG_CLK_CLKDIV0,
+ 						 4, 3, ip_div_table);
+ 	hws[CAN1_GATE] = ma35d1_clk_gate(dev, "can1_gate", "can1_div",
+ 					 clk_base + REG_CLK_SYSCLK0, 9);
+-	hws[CAN2_MUX] = ma35d1_clk_mux(dev, "can2_mux", clk_base + REG_CLK_CLKSEL4,
+-				       18, 1, can_sel_clks, ARRAY_SIZE(can_sel_clks));
++	hws[CAN2_MUX] = ma35d1_clk_mux(dev, "can2_mux", clk_base + REG_CLK_CLKSEL4, 18, 1, hws,
++				       can_parent_idx, ARRAY_SIZE(can_parent_idx));
+ 	hws[CAN2_DIV] = ma35d1_clk_divider_table(dev, "can2_div", "can2_mux",
+ 						 clk_base + REG_CLK_CLKDIV0,
+ 						 8, 3, ip_div_table);
+ 	hws[CAN2_GATE] = ma35d1_clk_gate(dev, "can2_gate", "can2_div",
+ 					 clk_base + REG_CLK_SYSCLK0, 10);
+-	hws[CAN3_MUX] = ma35d1_clk_mux(dev, "can3_mux", clk_base + REG_CLK_CLKSEL4,
+-				       19, 1, can_sel_clks, ARRAY_SIZE(can_sel_clks));
++	hws[CAN3_MUX] = ma35d1_clk_mux(dev, "can3_mux", clk_base + REG_CLK_CLKSEL4, 19, 1, hws,
++				       can_parent_idx, ARRAY_SIZE(can_parent_idx));
+ 	hws[CAN3_DIV] = ma35d1_clk_divider_table(dev, "can3_div", "can3_mux",
+ 						 clk_base + REG_CLK_CLKDIV0,
+ 						 12, 3, ip_div_table);
+ 	hws[CAN3_GATE] = ma35d1_clk_gate(dev, "can3_gate", "can3_div",
+ 					 clk_base + REG_CLK_SYSCLK0, 11);
  
--static const struct dev_pm_ops lpi_pinctrl_pm_ops = {
--	RUNTIME_PM_OPS(pm_clk_suspend, pm_clk_resume, NULL)
--};
--
- static struct platform_driver lpi_pinctrl_driver = {
- 	.driver = {
- 		.name = "qcom-sc7280-lpass-lpi-pinctrl",
-diff --git a/drivers/pinctrl/qcom/pinctrl-sc8280xp-lpass-lpi.c b/drivers/pinctrl/qcom/pinctrl-sc8280xp-lpass-lpi.c
-index 27c47710365e..cd350a1cde2f 100644
---- a/drivers/pinctrl/qcom/pinctrl-sc8280xp-lpass-lpi.c
-+++ b/drivers/pinctrl/qcom/pinctrl-sc8280xp-lpass-lpi.c
-@@ -6,8 +6,6 @@
- #include <linux/gpio/driver.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
--#include <linux/pm_clock.h>
--#include <linux/pm_runtime.h>
+-	hws[SDH0_MUX] = ma35d1_clk_mux(dev, "sdh0_mux", clk_base + REG_CLK_CLKSEL0,
+-				       16, 2, sdh_sel_clks, ARRAY_SIZE(sdh_sel_clks));
++	hws[SDH0_MUX] = ma35d1_clk_mux(dev, "sdh0_mux", clk_base + REG_CLK_CLKSEL0, 16, 2, hws,
++				       sdh_parent_idx, ARRAY_SIZE(sdh_parent_idx));
+ 	hws[SDH0_GATE] = ma35d1_clk_gate(dev, "sdh0_gate", "sdh0_mux",
+ 					 clk_base + REG_CLK_SYSCLK0, 16);
+-	hws[SDH1_MUX] = ma35d1_clk_mux(dev, "sdh1_mux", clk_base + REG_CLK_CLKSEL0,
+-				       18, 2, sdh_sel_clks, ARRAY_SIZE(sdh_sel_clks));
++	hws[SDH1_MUX] = ma35d1_clk_mux(dev, "sdh1_mux", clk_base + REG_CLK_CLKSEL0, 18, 2, hws,
++				       sdh_parent_idx, ARRAY_SIZE(sdh_parent_idx));
+ 	hws[SDH1_GATE] = ma35d1_clk_gate(dev, "sdh1_gate", "sdh1_mux",
+ 					 clk_base + REG_CLK_SYSCLK0, 17);
  
- #include "pinctrl-lpass-lpi.h"
+@@ -606,14 +346,14 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
+ 	hws[HUSBH1_GATE] = ma35d1_clk_gate(dev, "husbh1_gate", "usbphy0",
+ 					   clk_base + REG_CLK_SYSCLK0, 22);
  
-@@ -175,10 +173,6 @@ static const struct of_device_id lpi_pinctrl_of_match[] = {
- };
- MODULE_DEVICE_TABLE(of, lpi_pinctrl_of_match);
+-	hws[GFX_MUX] = ma35d1_clk_mux(dev, "gfx_mux", clk_base + REG_CLK_CLKSEL0,
+-				      26, 1, gfx_sel_clks, ARRAY_SIZE(gfx_sel_clks));
++	hws[GFX_MUX] = ma35d1_clk_mux(dev, "gfx_mux", clk_base + REG_CLK_CLKSEL0, 26, 1, hws,
++				      gfx_parent_idx, ARRAY_SIZE(gfx_parent_idx));
+ 	hws[GFX_GATE] = ma35d1_clk_gate(dev, "gfx_gate", "gfx_mux",
+ 					clk_base + REG_CLK_SYSCLK0, 24);
+ 	hws[VC8K_GATE] = ma35d1_clk_gate(dev, "vc8k_gate", "sysclk0_mux",
+ 					 clk_base + REG_CLK_SYSCLK0, 25);
+-	hws[DCU_MUX] = ma35d1_clk_mux(dev, "dcu_mux", clk_base + REG_CLK_CLKSEL0,
+-				      24, 1, dcu_sel_clks, ARRAY_SIZE(dcu_sel_clks));
++	hws[DCU_MUX] = ma35d1_clk_mux(dev, "dcu_mux", clk_base + REG_CLK_CLKSEL0, 24, 1, hws,
++				      dcu_parent_idx, ARRAY_SIZE(dcu_parent_idx));
+ 	hws[DCU_GATE] = ma35d1_clk_gate(dev, "dcu_gate", "dcu_mux",
+ 					clk_base + REG_CLK_SYSCLK0, 26);
+ 	hws[DCUP_DIV] = ma35d1_clk_divider_table(dev, "dcup_div", "vpll",
+@@ -625,14 +365,14 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
+ 	hws[EMAC1_GATE] = ma35d1_clk_gate(dev, "emac1_gate", "epll_div2",
+ 					  clk_base + REG_CLK_SYSCLK0, 28);
  
--static const struct dev_pm_ops lpi_pinctrl_pm_ops = {
--	RUNTIME_PM_OPS(pm_clk_suspend, pm_clk_resume, NULL)
--};
--
- static struct platform_driver lpi_pinctrl_driver = {
- 	.driver = {
- 		.name = "qcom-sc8280xp-lpass-lpi-pinctrl",
-diff --git a/drivers/pinctrl/qcom/pinctrl-sdm660-lpass-lpi.c b/drivers/pinctrl/qcom/pinctrl-sdm660-lpass-lpi.c
-index 7b5aacaae7d7..9742bb5bb39a 100644
---- a/drivers/pinctrl/qcom/pinctrl-sdm660-lpass-lpi.c
-+++ b/drivers/pinctrl/qcom/pinctrl-sdm660-lpass-lpi.c
-@@ -10,8 +10,6 @@
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/platform_device.h>
--#include <linux/pm_clock.h>
--#include <linux/pm_runtime.h>
- #include <linux/pinctrl/pinctrl.h>
+-	hws[CCAP0_MUX] = ma35d1_clk_mux(dev, "ccap0_mux", clk_base + REG_CLK_CLKSEL0,
+-					12, 1, ccap_sel_clks, ARRAY_SIZE(ccap_sel_clks));
++	hws[CCAP0_MUX] = ma35d1_clk_mux(dev, "ccap0_mux", clk_base + REG_CLK_CLKSEL0, 12, 1, hws,
++					ccap_parent_idx, ARRAY_SIZE(ccap_parent_idx));
+ 	hws[CCAP0_DIV] = ma35d1_clk_divider(dev, "ccap0_div", "ccap0_mux",
+ 					    clk_base + REG_CLK_CLKDIV1, 8, 4);
+ 	hws[CCAP0_GATE] = ma35d1_clk_gate(dev, "ccap0_gate", "ccap0_div",
+ 					  clk_base + REG_CLK_SYSCLK0, 29);
+-	hws[CCAP1_MUX] = ma35d1_clk_mux(dev, "ccap1_mux", clk_base + REG_CLK_CLKSEL0,
+-					14, 1, ccap_sel_clks, ARRAY_SIZE(ccap_sel_clks));
++	hws[CCAP1_MUX] = ma35d1_clk_mux(dev, "ccap1_mux", clk_base + REG_CLK_CLKSEL0, 14, 1, hws,
++					ccap_parent_idx, ARRAY_SIZE(ccap_parent_idx));
+ 	hws[CCAP1_DIV] = ma35d1_clk_divider(dev, "ccap1_div", "ccap1_mux",
+ 					    clk_base + REG_CLK_CLKDIV1,
+ 					    12, 4);
+@@ -670,13 +410,13 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
+ 	hws[TRA_GATE] = ma35d1_clk_gate(dev, "tra_gate", "hclk0",
+ 					clk_base + REG_CLK_SYSCLK1, 11);
  
- #include "pinctrl-lpass-lpi.h"
-@@ -147,10 +145,6 @@ static const struct of_device_id sdm660_lpi_pinctrl_of_match[] = {
- };
- MODULE_DEVICE_TABLE(of, sdm660_lpi_pinctrl_of_match);
+-	hws[DBG_MUX] = ma35d1_clk_mux(dev, "dbg_mux", clk_base + REG_CLK_CLKSEL0,
+-				      27, 1, dbg_sel_clks, ARRAY_SIZE(dbg_sel_clks));
++	hws[DBG_MUX] = ma35d1_clk_mux(dev, "dbg_mux", clk_base + REG_CLK_CLKSEL0, 27, 1, hws,
++				      dbg_parent_idx, ARRAY_SIZE(dbg_parent_idx));
+ 	hws[DBG_GATE] = ma35d1_clk_gate(dev, "dbg_gate", "hclk0",
+ 					clk_base + REG_CLK_SYSCLK1, 12);
  
--static const struct dev_pm_ops lpi_pinctrl_pm_ops = {
--	RUNTIME_PM_OPS(pm_clk_suspend, pm_clk_resume, NULL)
--};
--
- static struct platform_driver sdm660_lpi_pinctrl_driver = {
- 	.driver = {
- 		.name = "qcom-sdm660-lpass-lpi-pinctrl",
-diff --git a/drivers/pinctrl/qcom/pinctrl-sdm670-lpass-lpi.c b/drivers/pinctrl/qcom/pinctrl-sdm670-lpass-lpi.c
-index 0a31f7ad2e0d..20277990c2cc 100644
---- a/drivers/pinctrl/qcom/pinctrl-sdm670-lpass-lpi.c
-+++ b/drivers/pinctrl/qcom/pinctrl-sdm670-lpass-lpi.c
-@@ -7,8 +7,6 @@
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/platform_device.h>
--#include <linux/pm_clock.h>
--#include <linux/pm_runtime.h>
- #include <linux/pinctrl/pinctrl.h>
+-	hws[CKO_MUX] = ma35d1_clk_mux(dev, "cko_mux", clk_base + REG_CLK_CLKSEL4,
+-				      24, 4, cko_sel_clks, ARRAY_SIZE(cko_sel_clks));
++	hws[CKO_MUX] = ma35d1_clk_mux(dev, "cko_mux", clk_base + REG_CLK_CLKSEL4, 24, 4, hws,
++				      cko_parent_idx, ARRAY_SIZE(cko_parent_idx));
+ 	hws[CKO_DIV] = ma35d1_clk_divider_pow2(dev, "cko_div", "cko_mux",
+ 					       clk_base + REG_CLK_CLKOCTL, 0, 4);
+ 	hws[CKO_GATE] = ma35d1_clk_gate(dev, "cko_gate", "cko_div",
+@@ -714,181 +454,169 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
+ 	hws[GPN_GATE] = ma35d1_clk_gate(dev, "gpn_gate", "hclk0",
+ 					clk_base + REG_CLK_SYSCLK1, 29);
  
- #include "pinctrl-lpass-lpi.h"
-@@ -153,10 +151,6 @@ static const struct of_device_id sdm670_lpi_pinctrl_of_match[] = {
- };
- MODULE_DEVICE_TABLE(of, sdm670_lpi_pinctrl_of_match);
+-	hws[TMR0_MUX] = ma35d1_clk_mux(dev, "tmr0_mux", clk_base + REG_CLK_CLKSEL1,
+-				       0, 3, timer0_sel_clks,
+-				       ARRAY_SIZE(timer0_sel_clks));
++	hws[TMR0_MUX] = ma35d1_clk_mux(dev, "tmr0_mux", clk_base + REG_CLK_CLKSEL1, 0, 3, hws,
++				       timer0_parent_idx, ARRAY_SIZE(timer0_parent_idx));
+ 	hws[TMR0_GATE] = ma35d1_clk_gate(dev, "tmr0_gate", "tmr0_mux",
+ 					 clk_base + REG_CLK_APBCLK0, 0);
+-	hws[TMR1_MUX] = ma35d1_clk_mux(dev, "tmr1_mux", clk_base + REG_CLK_CLKSEL1,
+-				       4, 3, timer1_sel_clks,
+-				       ARRAY_SIZE(timer1_sel_clks));
++	hws[TMR1_MUX] = ma35d1_clk_mux(dev, "tmr1_mux", clk_base + REG_CLK_CLKSEL1, 4, 3, hws,
++				       timer1_parent_idx, ARRAY_SIZE(timer1_parent_idx));
+ 	hws[TMR1_GATE] = ma35d1_clk_gate(dev, "tmr1_gate", "tmr1_mux",
+ 					 clk_base + REG_CLK_APBCLK0, 1);
+-	hws[TMR2_MUX] = ma35d1_clk_mux(dev, "tmr2_mux", clk_base + REG_CLK_CLKSEL1,
+-				       8, 3, timer2_sel_clks,
+-				       ARRAY_SIZE(timer2_sel_clks));
++	hws[TMR2_MUX] = ma35d1_clk_mux(dev, "tmr2_mux", clk_base + REG_CLK_CLKSEL1, 8, 3, hws,
++				       timer2_parent_idx, ARRAY_SIZE(timer2_parent_idx));
+ 	hws[TMR2_GATE] = ma35d1_clk_gate(dev, "tmr2_gate", "tmr2_mux",
+ 					 clk_base + REG_CLK_APBCLK0, 2);
+-	hws[TMR3_MUX] = ma35d1_clk_mux(dev, "tmr3_mux", clk_base + REG_CLK_CLKSEL1,
+-				       12, 3, timer3_sel_clks,
+-				       ARRAY_SIZE(timer3_sel_clks));
++	hws[TMR3_MUX] = ma35d1_clk_mux(dev, "tmr3_mux", clk_base + REG_CLK_CLKSEL1, 12, 3, hws,
++				       timer3_parent_idx, ARRAY_SIZE(timer3_parent_idx));
+ 	hws[TMR3_GATE] = ma35d1_clk_gate(dev, "tmr3_gate", "tmr3_mux",
+ 					 clk_base + REG_CLK_APBCLK0, 3);
+-	hws[TMR4_MUX] = ma35d1_clk_mux(dev, "tmr4_mux", clk_base + REG_CLK_CLKSEL1,
+-				       16, 3, timer4_sel_clks,
+-				       ARRAY_SIZE(timer4_sel_clks));
++	hws[TMR4_MUX] = ma35d1_clk_mux(dev, "tmr4_mux", clk_base + REG_CLK_CLKSEL1, 16, 3, hws,
++				       timer4_parent_idx, ARRAY_SIZE(timer4_parent_idx));
+ 	hws[TMR4_GATE] = ma35d1_clk_gate(dev, "tmr4_gate", "tmr4_mux",
+ 					 clk_base + REG_CLK_APBCLK0, 4);
+-	hws[TMR5_MUX] = ma35d1_clk_mux(dev, "tmr5_mux", clk_base + REG_CLK_CLKSEL1,
+-				       20, 3, timer5_sel_clks,
+-				       ARRAY_SIZE(timer5_sel_clks));
++	hws[TMR5_MUX] = ma35d1_clk_mux(dev, "tmr5_mux", clk_base + REG_CLK_CLKSEL1, 20, 3, hws,
++				       timer5_parent_idx, ARRAY_SIZE(timer5_parent_idx));
+ 	hws[TMR5_GATE] = ma35d1_clk_gate(dev, "tmr5_gate", "tmr5_mux",
+ 					 clk_base + REG_CLK_APBCLK0, 5);
+-	hws[TMR6_MUX] = ma35d1_clk_mux(dev, "tmr6_mux", clk_base + REG_CLK_CLKSEL1,
+-				       24, 3, timer6_sel_clks,
+-				       ARRAY_SIZE(timer6_sel_clks));
++	hws[TMR6_MUX] = ma35d1_clk_mux(dev, "tmr6_mux", clk_base + REG_CLK_CLKSEL1, 24, 3, hws,
++				       timer6_parent_idx, ARRAY_SIZE(timer6_parent_idx));
+ 	hws[TMR6_GATE] = ma35d1_clk_gate(dev, "tmr6_gate", "tmr6_mux",
+ 					 clk_base + REG_CLK_APBCLK0, 6);
+-	hws[TMR7_MUX] = ma35d1_clk_mux(dev, "tmr7_mux", clk_base + REG_CLK_CLKSEL1,
+-				       28, 3, timer7_sel_clks,
+-				       ARRAY_SIZE(timer7_sel_clks));
++	hws[TMR7_MUX] = ma35d1_clk_mux(dev, "tmr7_mux", clk_base + REG_CLK_CLKSEL1, 28, 3, hws,
++				       timer7_parent_idx, ARRAY_SIZE(timer7_parent_idx));
+ 	hws[TMR7_GATE] = ma35d1_clk_gate(dev, "tmr7_gate", "tmr7_mux",
+ 					 clk_base + REG_CLK_APBCLK0, 7);
+-	hws[TMR8_MUX] = ma35d1_clk_mux(dev, "tmr8_mux", clk_base + REG_CLK_CLKSEL2,
+-				       0, 3, timer8_sel_clks,
+-				       ARRAY_SIZE(timer8_sel_clks));
++	hws[TMR8_MUX] = ma35d1_clk_mux(dev, "tmr8_mux", clk_base + REG_CLK_CLKSEL2, 0, 3, hws,
++				       timer8_parent_idx, ARRAY_SIZE(timer8_parent_idx));
+ 	hws[TMR8_GATE] = ma35d1_clk_gate(dev, "tmr8_gate", "tmr8_mux",
+ 					 clk_base + REG_CLK_APBCLK0, 8);
+-	hws[TMR9_MUX] = ma35d1_clk_mux(dev, "tmr9_mux", clk_base + REG_CLK_CLKSEL2,
+-				       4, 3, timer9_sel_clks,
+-				       ARRAY_SIZE(timer9_sel_clks));
++	hws[TMR9_MUX] = ma35d1_clk_mux(dev, "tmr9_mux", clk_base + REG_CLK_CLKSEL2, 4, 3, hws,
++				       timer9_parent_idx, ARRAY_SIZE(timer9_parent_idx));
+ 	hws[TMR9_GATE] = ma35d1_clk_gate(dev, "tmr9_gate", "tmr9_mux",
+ 					 clk_base + REG_CLK_APBCLK0, 9);
+-	hws[TMR10_MUX] = ma35d1_clk_mux(dev, "tmr10_mux", clk_base + REG_CLK_CLKSEL2,
+-					8, 3, timer10_sel_clks,
+-					ARRAY_SIZE(timer10_sel_clks));
++	hws[TMR10_MUX] = ma35d1_clk_mux(dev, "tmr10_mux", clk_base + REG_CLK_CLKSEL2, 8, 3, hws,
++					timer10_parent_idx, ARRAY_SIZE(timer10_parent_idx));
+ 	hws[TMR10_GATE] = ma35d1_clk_gate(dev, "tmr10_gate", "tmr10_mux",
+ 					  clk_base + REG_CLK_APBCLK0, 10);
+-	hws[TMR11_MUX] = ma35d1_clk_mux(dev, "tmr11_mux", clk_base + REG_CLK_CLKSEL2,
+-					12, 3, timer11_sel_clks,
+-					ARRAY_SIZE(timer11_sel_clks));
++	hws[TMR11_MUX] = ma35d1_clk_mux(dev, "tmr11_mux", clk_base + REG_CLK_CLKSEL2, 12, 3, hws,
++					timer11_parent_idx, ARRAY_SIZE(timer11_parent_idx));
+ 	hws[TMR11_GATE] = ma35d1_clk_gate(dev, "tmr11_gate", "tmr11_mux",
+ 					  clk_base + REG_CLK_APBCLK0, 11);
  
--static const struct dev_pm_ops lpi_pinctrl_pm_ops = {
--	RUNTIME_PM_OPS(pm_clk_suspend, pm_clk_resume, NULL)
--};
--
- static struct platform_driver sdm670_lpi_pinctrl_driver = {
- 	.driver = {
- 		.name = "qcom-sdm670-lpass-lpi-pinctrl",
-diff --git a/drivers/pinctrl/qcom/pinctrl-sm4250-lpass-lpi.c b/drivers/pinctrl/qcom/pinctrl-sm4250-lpass-lpi.c
-index 75bafa62426a..3d71aa65e22a 100644
---- a/drivers/pinctrl/qcom/pinctrl-sm4250-lpass-lpi.c
-+++ b/drivers/pinctrl/qcom/pinctrl-sm4250-lpass-lpi.c
-@@ -7,8 +7,6 @@
- #include <linux/gpio/driver.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
--#include <linux/pm_clock.h>
--#include <linux/pm_runtime.h>
+-	hws[UART0_MUX] = ma35d1_clk_mux(dev, "uart0_mux", clk_base + REG_CLK_CLKSEL2,
+-					16, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
++	hws[UART0_MUX] = ma35d1_clk_mux(dev, "uart0_mux", clk_base + REG_CLK_CLKSEL2, 16, 2, hws,
++					uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
+ 	hws[UART0_DIV] = ma35d1_clk_divider(dev, "uart0_div", "uart0_mux",
+ 					    clk_base + REG_CLK_CLKDIV1,
+ 					    16, 4);
+ 	hws[UART0_GATE] = ma35d1_clk_gate(dev, "uart0_gate", "uart0_div",
+ 					  clk_base + REG_CLK_APBCLK0, 12);
+-	hws[UART1_MUX] = ma35d1_clk_mux(dev, "uart1_mux", clk_base + REG_CLK_CLKSEL2,
+-					18, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
++	hws[UART1_MUX] = ma35d1_clk_mux(dev, "uart1_mux", clk_base + REG_CLK_CLKSEL2, 18, 2, hws,
++					uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
+ 	hws[UART1_DIV] = ma35d1_clk_divider(dev, "uart1_div", "uart1_mux",
+ 					    clk_base + REG_CLK_CLKDIV1,
+ 					    20, 4);
+ 	hws[UART1_GATE] = ma35d1_clk_gate(dev, "uart1_gate", "uart1_div",
+ 					  clk_base + REG_CLK_APBCLK0, 13);
+-	hws[UART2_MUX] = ma35d1_clk_mux(dev, "uart2_mux", clk_base + REG_CLK_CLKSEL2,
+-					20, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
++	hws[UART2_MUX] = ma35d1_clk_mux(dev, "uart2_mux", clk_base + REG_CLK_CLKSEL2, 20, 2, hws,
++					uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
+ 	hws[UART2_DIV] = ma35d1_clk_divider(dev, "uart2_div", "uart2_mux",
+ 					    clk_base + REG_CLK_CLKDIV1,
+ 					    24, 4);
+ 	hws[UART2_GATE] = ma35d1_clk_gate(dev, "uart2_gate", "uart2_div",
+ 					  clk_base + REG_CLK_APBCLK0, 14);
+-	hws[UART3_MUX] = ma35d1_clk_mux(dev, "uart3_mux", clk_base + REG_CLK_CLKSEL2,
+-					22, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
++	hws[UART3_MUX] = ma35d1_clk_mux(dev, "uart3_mux", clk_base + REG_CLK_CLKSEL2, 22, 2, hws,
++					uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
+ 	hws[UART3_DIV] = ma35d1_clk_divider(dev, "uart3_div", "uart3_mux",
+ 					    clk_base + REG_CLK_CLKDIV1,
+ 					    28, 4);
+ 	hws[UART3_GATE] = ma35d1_clk_gate(dev, "uart3_gate", "uart3_div",
+ 					  clk_base + REG_CLK_APBCLK0, 15);
+-	hws[UART4_MUX] = ma35d1_clk_mux(dev, "uart4_mux", clk_base + REG_CLK_CLKSEL2,
+-					24, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
++	hws[UART4_MUX] = ma35d1_clk_mux(dev, "uart4_mux", clk_base + REG_CLK_CLKSEL2, 24, 2, hws,
++					uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
+ 	hws[UART4_DIV] = ma35d1_clk_divider(dev, "uart4_div", "uart4_mux",
+ 					    clk_base + REG_CLK_CLKDIV2,
+ 					    0, 4);
+ 	hws[UART4_GATE] = ma35d1_clk_gate(dev, "uart4_gate", "uart4_div",
+ 					  clk_base + REG_CLK_APBCLK0, 16);
+-	hws[UART5_MUX] = ma35d1_clk_mux(dev, "uart5_mux", clk_base + REG_CLK_CLKSEL2,
+-					26, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
++	hws[UART5_MUX] = ma35d1_clk_mux(dev, "uart5_mux", clk_base + REG_CLK_CLKSEL2, 26, 2, hws,
++					uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
+ 	hws[UART5_DIV] = ma35d1_clk_divider(dev, "uart5_div", "uart5_mux",
+ 					    clk_base + REG_CLK_CLKDIV2,
+ 					    4, 4);
+ 	hws[UART5_GATE] = ma35d1_clk_gate(dev, "uart5_gate", "uart5_div",
+ 					  clk_base + REG_CLK_APBCLK0, 17);
+-	hws[UART6_MUX] = ma35d1_clk_mux(dev, "uart6_mux", clk_base + REG_CLK_CLKSEL2,
+-					28, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
++	hws[UART6_MUX] = ma35d1_clk_mux(dev, "uart6_mux", clk_base + REG_CLK_CLKSEL2, 28, 2, hws,
++					uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
+ 	hws[UART6_DIV] = ma35d1_clk_divider(dev, "uart6_div", "uart6_mux",
+ 					    clk_base + REG_CLK_CLKDIV2,
+ 					    8, 4);
+ 	hws[UART6_GATE] = ma35d1_clk_gate(dev, "uart6_gate", "uart6_div",
+ 					  clk_base + REG_CLK_APBCLK0, 18);
+-	hws[UART7_MUX] = ma35d1_clk_mux(dev, "uart7_mux", clk_base + REG_CLK_CLKSEL2,
+-					30, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
++	hws[UART7_MUX] = ma35d1_clk_mux(dev, "uart7_mux", clk_base + REG_CLK_CLKSEL2, 30, 2, hws,
++					uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
+ 	hws[UART7_DIV] = ma35d1_clk_divider(dev, "uart7_div", "uart7_mux",
+ 					    clk_base + REG_CLK_CLKDIV2,
+ 					    12, 4);
+ 	hws[UART7_GATE] = ma35d1_clk_gate(dev, "uart7_gate", "uart7_div",
+ 					  clk_base + REG_CLK_APBCLK0, 19);
+-	hws[UART8_MUX] = ma35d1_clk_mux(dev, "uart8_mux", clk_base + REG_CLK_CLKSEL3,
+-					0, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
++	hws[UART8_MUX] = ma35d1_clk_mux(dev, "uart8_mux", clk_base + REG_CLK_CLKSEL3, 0, 2, hws,
++					uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
+ 	hws[UART8_DIV] = ma35d1_clk_divider(dev, "uart8_div", "uart8_mux",
+ 					    clk_base + REG_CLK_CLKDIV2,
+ 					    16, 4);
+ 	hws[UART8_GATE] = ma35d1_clk_gate(dev, "uart8_gate", "uart8_div",
+ 					  clk_base + REG_CLK_APBCLK0, 20);
+-	hws[UART9_MUX] = ma35d1_clk_mux(dev, "uart9_mux", clk_base + REG_CLK_CLKSEL3,
+-					2, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
++	hws[UART9_MUX] = ma35d1_clk_mux(dev, "uart9_mux", clk_base + REG_CLK_CLKSEL3, 2, 2, hws,
++					uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
+ 	hws[UART9_DIV] = ma35d1_clk_divider(dev, "uart9_div", "uart9_mux",
+ 					    clk_base + REG_CLK_CLKDIV2,
+ 					    20, 4);
+ 	hws[UART9_GATE] = ma35d1_clk_gate(dev, "uart9_gate", "uart9_div",
+ 					  clk_base + REG_CLK_APBCLK0, 21);
+-	hws[UART10_MUX] = ma35d1_clk_mux(dev, "uart10_mux", clk_base + REG_CLK_CLKSEL3,
+-					 4, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
++	hws[UART10_MUX] = ma35d1_clk_mux(dev, "uart10_mux", clk_base + REG_CLK_CLKSEL3, 4, 2, hws,
++					 uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
+ 	hws[UART10_DIV] = ma35d1_clk_divider(dev, "uart10_div", "uart10_mux",
+ 					     clk_base + REG_CLK_CLKDIV2,
+ 					     24, 4);
+ 	hws[UART10_GATE] = ma35d1_clk_gate(dev, "uart10_gate", "uart10_div",
+ 					   clk_base + REG_CLK_APBCLK0, 22);
+-	hws[UART11_MUX] = ma35d1_clk_mux(dev, "uart11_mux", clk_base + REG_CLK_CLKSEL3,
+-					 6, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
++	hws[UART11_MUX] = ma35d1_clk_mux(dev, "uart11_mux", clk_base + REG_CLK_CLKSEL3, 6, 2, hws,
++					 uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
+ 	hws[UART11_DIV] = ma35d1_clk_divider(dev, "uart11_div", "uart11_mux",
+ 					     clk_base + REG_CLK_CLKDIV2,
+ 					     28, 4);
+ 	hws[UART11_GATE] = ma35d1_clk_gate(dev, "uart11_gate", "uart11_div",
+ 					   clk_base + REG_CLK_APBCLK0, 23);
+-	hws[UART12_MUX] = ma35d1_clk_mux(dev, "uart12_mux", clk_base + REG_CLK_CLKSEL3,
+-					 8, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
++	hws[UART12_MUX] = ma35d1_clk_mux(dev, "uart12_mux", clk_base + REG_CLK_CLKSEL3, 8, 2, hws,
++					 uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
+ 	hws[UART12_DIV] = ma35d1_clk_divider(dev, "uart12_div", "uart12_mux",
+ 					     clk_base + REG_CLK_CLKDIV3,
+ 					     0, 4);
+ 	hws[UART12_GATE] = ma35d1_clk_gate(dev, "uart12_gate", "uart12_div",
+ 					   clk_base + REG_CLK_APBCLK0, 24);
+-	hws[UART13_MUX] = ma35d1_clk_mux(dev, "uart13_mux", clk_base + REG_CLK_CLKSEL3,
+-					 10, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
++	hws[UART13_MUX] = ma35d1_clk_mux(dev, "uart13_mux", clk_base + REG_CLK_CLKSEL3, 10, 2, hws,
++					 uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
+ 	hws[UART13_DIV] = ma35d1_clk_divider(dev, "uart13_div", "uart13_mux",
+ 					     clk_base + REG_CLK_CLKDIV3,
+ 					     4, 4);
+ 	hws[UART13_GATE] = ma35d1_clk_gate(dev, "uart13_gate", "uart13_div",
+ 					   clk_base + REG_CLK_APBCLK0, 25);
+-	hws[UART14_MUX] = ma35d1_clk_mux(dev, "uart14_mux", clk_base + REG_CLK_CLKSEL3,
+-					 12, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
++	hws[UART14_MUX] = ma35d1_clk_mux(dev, "uart14_mux", clk_base + REG_CLK_CLKSEL3, 12, 2, hws,
++					 uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
+ 	hws[UART14_DIV] = ma35d1_clk_divider(dev, "uart14_div", "uart14_mux",
+ 					     clk_base + REG_CLK_CLKDIV3,
+ 					     8, 4);
+ 	hws[UART14_GATE] = ma35d1_clk_gate(dev, "uart14_gate", "uart14_div",
+ 					   clk_base + REG_CLK_APBCLK0, 26);
+-	hws[UART15_MUX] = ma35d1_clk_mux(dev, "uart15_mux", clk_base + REG_CLK_CLKSEL3,
+-					 14, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
++	hws[UART15_MUX] = ma35d1_clk_mux(dev, "uart15_mux", clk_base + REG_CLK_CLKSEL3, 14, 2, hws,
++					 uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
+ 	hws[UART15_DIV] = ma35d1_clk_divider(dev, "uart15_div", "uart15_mux",
+ 					     clk_base + REG_CLK_CLKDIV3,
+ 					     12, 4);
+ 	hws[UART15_GATE] = ma35d1_clk_gate(dev, "uart15_gate", "uart15_div",
+ 					   clk_base + REG_CLK_APBCLK0, 27);
+-	hws[UART16_MUX] = ma35d1_clk_mux(dev, "uart16_mux", clk_base + REG_CLK_CLKSEL3,
+-					 16, 2, uart_sel_clks, ARRAY_SIZE(uart_sel_clks));
++	hws[UART16_MUX] = ma35d1_clk_mux(dev, "uart16_mux", clk_base + REG_CLK_CLKSEL3, 16, 2, hws,
++					 uart_parent_idx, ARRAY_SIZE(uart_parent_idx));
+ 	hws[UART16_DIV] = ma35d1_clk_divider(dev, "uart16_div", "uart16_mux",
+ 					     clk_base + REG_CLK_CLKDIV3,
+ 					     16, 4);
+@@ -900,8 +628,8 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
+ 	hws[DDR_GATE] = ma35d1_clk_gate(dev, "ddr_gate", "ddrpll",
+ 					clk_base + REG_CLK_APBCLK0, 30);
  
- #include "pinctrl-lpass-lpi.h"
+-	hws[KPI_MUX] = ma35d1_clk_mux(dev, "kpi_mux", clk_base + REG_CLK_CLKSEL4,
+-				      30, 1, kpi_sel_clks, ARRAY_SIZE(kpi_sel_clks));
++	hws[KPI_MUX] = ma35d1_clk_mux(dev, "kpi_mux", clk_base + REG_CLK_CLKSEL4, 30, 1, hws,
++				      kpi_parent_idx, ARRAY_SIZE(kpi_parent_idx));
+ 	hws[KPI_DIV] = ma35d1_clk_divider(dev, "kpi_div", "kpi_mux",
+ 					  clk_base + REG_CLK_CLKDIV4,
+ 					  24, 8);
+@@ -921,49 +649,49 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
+ 	hws[I2C5_GATE] = ma35d1_clk_gate(dev, "i2c5_gate", "pclk2",
+ 					 clk_base + REG_CLK_APBCLK1, 5);
  
-@@ -223,10 +221,6 @@ static const struct of_device_id lpi_pinctrl_of_match[] = {
- };
- MODULE_DEVICE_TABLE(of, lpi_pinctrl_of_match);
+-	hws[QSPI0_MUX] = ma35d1_clk_mux(dev, "qspi0_mux", clk_base + REG_CLK_CLKSEL4,
+-					8, 2, qspi0_sel_clks, ARRAY_SIZE(qspi0_sel_clks));
++	hws[QSPI0_MUX] = ma35d1_clk_mux(dev, "qspi0_mux", clk_base + REG_CLK_CLKSEL4, 8, 2, hws,
++					qspi_parent_idx, ARRAY_SIZE(qspi_parent_idx));
+ 	hws[QSPI0_GATE] = ma35d1_clk_gate(dev, "qspi0_gate", "qspi0_mux",
+ 					  clk_base + REG_CLK_APBCLK1, 6);
+-	hws[QSPI1_MUX] = ma35d1_clk_mux(dev, "qspi1_mux", clk_base + REG_CLK_CLKSEL4,
+-					10, 2, qspi1_sel_clks, ARRAY_SIZE(qspi1_sel_clks));
++	hws[QSPI1_MUX] = ma35d1_clk_mux(dev, "qspi1_mux", clk_base + REG_CLK_CLKSEL4, 10, 2, hws,
++					qspi_parent_idx, ARRAY_SIZE(qspi_parent_idx));
+ 	hws[QSPI1_GATE] = ma35d1_clk_gate(dev, "qspi1_gate", "qspi1_mux",
+ 					  clk_base + REG_CLK_APBCLK1, 7);
  
--static const struct dev_pm_ops lpi_pinctrl_pm_ops = {
--	RUNTIME_PM_OPS(pm_clk_suspend, pm_clk_resume, NULL)
--};
--
- static struct platform_driver lpi_pinctrl_driver = {
- 	.driver = {
- 		.name = "qcom-sm4250-lpass-lpi-pinctrl",
-diff --git a/drivers/pinctrl/qcom/pinctrl-sm6115-lpass-lpi.c b/drivers/pinctrl/qcom/pinctrl-sm6115-lpass-lpi.c
-index 05435ea6e17a..d092bd838c3d 100644
---- a/drivers/pinctrl/qcom/pinctrl-sm6115-lpass-lpi.c
-+++ b/drivers/pinctrl/qcom/pinctrl-sm6115-lpass-lpi.c
-@@ -7,8 +7,6 @@
- #include <linux/gpio/driver.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
--#include <linux/pm_clock.h>
--#include <linux/pm_runtime.h>
+-	hws[SMC0_MUX] = ma35d1_clk_mux(dev, "smc0_mux", clk_base + REG_CLK_CLKSEL4,
+-					28, 1, smc_sel_clks, ARRAY_SIZE(smc_sel_clks));
++	hws[SMC0_MUX] = ma35d1_clk_mux(dev, "smc0_mux", clk_base + REG_CLK_CLKSEL4, 28, 1, hws,
++				       smc_parent_idx, ARRAY_SIZE(smc_parent_idx));
+ 	hws[SMC0_DIV] = ma35d1_clk_divider(dev, "smc0_div", "smc0_mux",
+ 					   clk_base + REG_CLK_CLKDIV1,
+ 					   0, 4);
+ 	hws[SMC0_GATE] = ma35d1_clk_gate(dev, "smc0_gate", "smc0_div",
+ 					 clk_base + REG_CLK_APBCLK1, 12);
+-	hws[SMC1_MUX] = ma35d1_clk_mux(dev, "smc1_mux", clk_base + REG_CLK_CLKSEL4,
+-					 29, 1, smc_sel_clks, ARRAY_SIZE(smc_sel_clks));
++	hws[SMC1_MUX] = ma35d1_clk_mux(dev, "smc1_mux", clk_base + REG_CLK_CLKSEL4, 29, 1, hws,
++				       smc_parent_idx, ARRAY_SIZE(smc_parent_idx));
+ 	hws[SMC1_DIV] = ma35d1_clk_divider(dev, "smc1_div", "smc1_mux",
+ 					   clk_base + REG_CLK_CLKDIV1,
+ 					   4, 4);
+ 	hws[SMC1_GATE] = ma35d1_clk_gate(dev, "smc1_gate", "smc1_div",
+ 					 clk_base + REG_CLK_APBCLK1, 13);
  
- #include "pinctrl-lpass-lpi.h"
+-	hws[WDT0_MUX] = ma35d1_clk_mux(dev, "wdt0_mux", clk_base + REG_CLK_CLKSEL3,
+-				       20, 2, wdt0_sel_clks, ARRAY_SIZE(wdt0_sel_clks));
++	hws[WDT0_MUX] = ma35d1_clk_mux(dev, "wdt0_mux", clk_base + REG_CLK_CLKSEL3, 20, 2, hws,
++				       wdt0_parent_idx, ARRAY_SIZE(wdt0_parent_idx));
+ 	hws[WDT0_GATE] = ma35d1_clk_gate(dev, "wdt0_gate", "wdt0_mux",
+ 					 clk_base + REG_CLK_APBCLK1, 16);
+-	hws[WDT1_MUX] = ma35d1_clk_mux(dev, "wdt1_mux", clk_base + REG_CLK_CLKSEL3,
+-				       24, 2, wdt1_sel_clks, ARRAY_SIZE(wdt1_sel_clks));
++	hws[WDT1_MUX] = ma35d1_clk_mux(dev, "wdt1_mux", clk_base + REG_CLK_CLKSEL3, 24, 2, hws,
++				       wdt1_parent_idx, ARRAY_SIZE(wdt1_parent_idx));
+ 	hws[WDT1_GATE] = ma35d1_clk_gate(dev, "wdt1_gate", "wdt1_mux",
+ 					 clk_base + REG_CLK_APBCLK1, 17);
+-	hws[WDT2_MUX] = ma35d1_clk_mux(dev, "wdt2_mux", clk_base + REG_CLK_CLKSEL3,
+-				       28, 2, wdt2_sel_clks, ARRAY_SIZE(wdt2_sel_clks));
++	hws[WDT2_MUX] = ma35d1_clk_mux(dev, "wdt2_mux", clk_base + REG_CLK_CLKSEL3, 28, 2, hws,
++				       wdt2_parent_idx, ARRAY_SIZE(wdt2_parent_idx));
+ 	hws[WDT2_GATE] = ma35d1_clk_gate(dev, "wdt2_gate", "wdt2_mux",
+ 				       clk_base + REG_CLK_APBCLK1, 18);
  
-@@ -143,10 +141,6 @@ static const struct of_device_id lpi_pinctrl_of_match[] = {
- };
- MODULE_DEVICE_TABLE(of, lpi_pinctrl_of_match);
+-	hws[WWDT0_MUX] = ma35d1_clk_mux(dev, "wwdt0_mux", clk_base + REG_CLK_CLKSEL3,
+-					22, 2, wwdt0_sel_clks, ARRAY_SIZE(wwdt0_sel_clks));
+-	hws[WWDT1_MUX] = ma35d1_clk_mux(dev, "wwdt1_mux", clk_base + REG_CLK_CLKSEL3,
+-					26, 2, wwdt1_sel_clks, ARRAY_SIZE(wwdt1_sel_clks));
+-	hws[WWDT2_MUX] = ma35d1_clk_mux(dev, "wwdt2_mux", clk_base + REG_CLK_CLKSEL3,
+-					30, 2, wwdt2_sel_clks, ARRAY_SIZE(wwdt2_sel_clks));
++	hws[WWDT0_MUX] = ma35d1_clk_mux(dev, "wwdt0_mux", clk_base + REG_CLK_CLKSEL3, 22, 2, hws,
++					wwdt0_parent_idx, ARRAY_SIZE(wwdt0_parent_idx));
++	hws[WWDT1_MUX] = ma35d1_clk_mux(dev, "wwdt1_mux", clk_base + REG_CLK_CLKSEL3, 26, 2, hws,
++					wwdt1_parent_idx, ARRAY_SIZE(wwdt1_parent_idx));
++	hws[WWDT2_MUX] = ma35d1_clk_mux(dev, "wwdt2_mux", clk_base + REG_CLK_CLKSEL3, 30, 2, hws,
++					wwdt2_parent_idx, ARRAY_SIZE(wwdt2_parent_idx));
  
--static const struct dev_pm_ops lpi_pinctrl_pm_ops = {
--	RUNTIME_PM_OPS(pm_clk_suspend, pm_clk_resume, NULL)
--};
--
- static struct platform_driver lpi_pinctrl_driver = {
- 	.driver = {
- 		.name = "qcom-sm6115-lpass-lpi-pinctrl",
-diff --git a/drivers/pinctrl/qcom/pinctrl-sm6350-lpass-lpi.c b/drivers/pinctrl/qcom/pinctrl-sm6350-lpass-lpi.c
-index 946b23084304..1d009aac892e 100644
---- a/drivers/pinctrl/qcom/pinctrl-sm6350-lpass-lpi.c
-+++ b/drivers/pinctrl/qcom/pinctrl-sm6350-lpass-lpi.c
-@@ -6,8 +6,6 @@
- #include <linux/gpio/driver.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
--#include <linux/pm_clock.h>
--#include <linux/pm_runtime.h>
+ 	hws[EPWM0_GATE] = ma35d1_clk_gate(dev, "epwm0_gate", "pclk1",
+ 					  clk_base + REG_CLK_APBCLK1, 24);
+@@ -972,12 +700,12 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
+ 	hws[EPWM2_GATE] = ma35d1_clk_gate(dev, "epwm2_gate", "pclk1",
+ 					  clk_base + REG_CLK_APBCLK1, 26);
  
- #include "pinctrl-lpass-lpi.h"
+-	hws[I2S0_MUX] = ma35d1_clk_mux(dev, "i2s0_mux", clk_base + REG_CLK_CLKSEL4,
+-				       12, 2, i2s0_sel_clks, ARRAY_SIZE(i2s0_sel_clks));
++	hws[I2S0_MUX] = ma35d1_clk_mux(dev, "i2s0_mux", clk_base + REG_CLK_CLKSEL4, 12, 2, hws,
++				       i2s_parent_idx, ARRAY_SIZE(i2s_parent_idx));
+ 	hws[I2S0_GATE] = ma35d1_clk_gate(dev, "i2s0_gate", "i2s0_mux",
+ 					 clk_base + REG_CLK_APBCLK2, 0);
+-	hws[I2S1_MUX] = ma35d1_clk_mux(dev, "i2s1_mux", clk_base + REG_CLK_CLKSEL4,
+-				       14, 2, i2s1_sel_clks, ARRAY_SIZE(i2s1_sel_clks));
++	hws[I2S1_MUX] = ma35d1_clk_mux(dev, "i2s1_mux", clk_base + REG_CLK_CLKSEL4, 14, 2, hws,
++				       i2s_parent_idx, ARRAY_SIZE(i2s_parent_idx));
+ 	hws[I2S1_GATE] = ma35d1_clk_gate(dev, "i2s1_gate", "i2s1_mux",
+ 					 clk_base + REG_CLK_APBCLK2, 1);
  
-@@ -137,10 +135,6 @@ static const struct of_device_id lpi_pinctrl_of_match[] = {
- };
- MODULE_DEVICE_TABLE(of, lpi_pinctrl_of_match);
+@@ -986,20 +714,20 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
+ 	hws[SSPCC_GATE] = ma35d1_clk_gate(dev, "sspcc_gate", "pclk3",
+ 					  clk_base + REG_CLK_APBCLK2, 3);
  
--static const struct dev_pm_ops lpi_pinctrl_pm_ops = {
--	RUNTIME_PM_OPS(pm_clk_suspend, pm_clk_resume, NULL)
--};
--
- static struct platform_driver lpi_pinctrl_driver = {
- 	.driver = {
- 		   .name = "qcom-sm6350-lpass-lpi-pinctrl",
-diff --git a/drivers/pinctrl/qcom/pinctrl-sm8250-lpass-lpi.c b/drivers/pinctrl/qcom/pinctrl-sm8250-lpass-lpi.c
-index 454de788be21..26fb78e493ca 100644
---- a/drivers/pinctrl/qcom/pinctrl-sm8250-lpass-lpi.c
-+++ b/drivers/pinctrl/qcom/pinctrl-sm8250-lpass-lpi.c
-@@ -7,8 +7,6 @@
- #include <linux/gpio/driver.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
--#include <linux/pm_clock.h>
--#include <linux/pm_runtime.h>
+-	hws[SPI0_MUX] = ma35d1_clk_mux(dev, "spi0_mux", clk_base + REG_CLK_CLKSEL4,
+-				       0, 2, spi0_sel_clks, ARRAY_SIZE(spi0_sel_clks));
++	hws[SPI0_MUX] = ma35d1_clk_mux(dev, "spi0_mux", clk_base + REG_CLK_CLKSEL4, 0, 2, hws,
++				       spi0_parent_idx, ARRAY_SIZE(spi0_parent_idx));
+ 	hws[SPI0_GATE] = ma35d1_clk_gate(dev, "spi0_gate", "spi0_mux",
+ 					 clk_base + REG_CLK_APBCLK2, 4);
+-	hws[SPI1_MUX] = ma35d1_clk_mux(dev, "spi1_mux", clk_base + REG_CLK_CLKSEL4,
+-				       2, 2, spi1_sel_clks, ARRAY_SIZE(spi1_sel_clks));
++	hws[SPI1_MUX] = ma35d1_clk_mux(dev, "spi1_mux", clk_base + REG_CLK_CLKSEL4, 2, 2, hws,
++				       spi1_parent_idx, ARRAY_SIZE(spi1_parent_idx));
+ 	hws[SPI1_GATE] = ma35d1_clk_gate(dev, "spi1_gate", "spi1_mux",
+ 					 clk_base + REG_CLK_APBCLK2, 5);
+-	hws[SPI2_MUX] = ma35d1_clk_mux(dev, "spi2_mux", clk_base + REG_CLK_CLKSEL4,
+-				       4, 2, spi2_sel_clks, ARRAY_SIZE(spi2_sel_clks));
++	hws[SPI2_MUX] = ma35d1_clk_mux(dev, "spi2_mux", clk_base + REG_CLK_CLKSEL4, 4, 2, hws,
++				       spi2_parent_idx, ARRAY_SIZE(spi2_parent_idx));
+ 	hws[SPI2_GATE] = ma35d1_clk_gate(dev, "spi2_gate", "spi2_mux",
+ 					 clk_base + REG_CLK_APBCLK2, 6);
+-	hws[SPI3_MUX] = ma35d1_clk_mux(dev, "spi3_mux", clk_base + REG_CLK_CLKSEL4,
+-				       6, 2, spi3_sel_clks, ARRAY_SIZE(spi3_sel_clks));
++	hws[SPI3_MUX] = ma35d1_clk_mux(dev, "spi3_mux", clk_base + REG_CLK_CLKSEL4, 6, 2, hws,
++				       spi3_parent_idx, ARRAY_SIZE(spi3_parent_idx));
+ 	hws[SPI3_GATE] = ma35d1_clk_gate(dev, "spi3_gate", "spi3_mux",
+ 					 clk_base + REG_CLK_APBCLK2, 7);
  
- #include "pinctrl-lpass-lpi.h"
- 
-@@ -136,10 +134,6 @@ static const struct of_device_id lpi_pinctrl_of_match[] = {
- };
- MODULE_DEVICE_TABLE(of, lpi_pinctrl_of_match);
- 
--static const struct dev_pm_ops lpi_pinctrl_pm_ops = {
--	RUNTIME_PM_OPS(pm_clk_suspend, pm_clk_resume, NULL)
--};
--
- static struct platform_driver lpi_pinctrl_driver = {
- 	.driver = {
- 		.name = "qcom-sm8250-lpass-lpi-pinctrl",
-diff --git a/drivers/pinctrl/qcom/pinctrl-sm8450-lpass-lpi.c b/drivers/pinctrl/qcom/pinctrl-sm8450-lpass-lpi.c
-index 834eee8dcce9..76bff5854f03 100644
---- a/drivers/pinctrl/qcom/pinctrl-sm8450-lpass-lpi.c
-+++ b/drivers/pinctrl/qcom/pinctrl-sm8450-lpass-lpi.c
-@@ -6,8 +6,6 @@
- #include <linux/gpio/driver.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
--#include <linux/pm_clock.h>
--#include <linux/pm_runtime.h>
- 
- #include "pinctrl-lpass-lpi.h"
- 
-@@ -204,10 +202,6 @@ static const struct of_device_id lpi_pinctrl_of_match[] = {
- };
- MODULE_DEVICE_TABLE(of, lpi_pinctrl_of_match);
- 
--static const struct dev_pm_ops lpi_pinctrl_pm_ops = {
--	RUNTIME_PM_OPS(pm_clk_suspend, pm_clk_resume, NULL)
--};
--
- static struct platform_driver lpi_pinctrl_driver = {
- 	.driver = {
- 		.name = "qcom-sm8450-lpass-lpi-pinctrl",
-diff --git a/drivers/pinctrl/qcom/pinctrl-sm8550-lpass-lpi.c b/drivers/pinctrl/qcom/pinctrl-sm8550-lpass-lpi.c
-index 875e04e5d2b9..7a36370238a4 100644
---- a/drivers/pinctrl/qcom/pinctrl-sm8550-lpass-lpi.c
-+++ b/drivers/pinctrl/qcom/pinctrl-sm8550-lpass-lpi.c
-@@ -6,8 +6,6 @@
- #include <linux/gpio/driver.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
--#include <linux/pm_clock.h>
--#include <linux/pm_runtime.h>
- 
- #include "pinctrl-lpass-lpi.h"
- 
-@@ -212,10 +210,6 @@ static const struct of_device_id lpi_pinctrl_of_match[] = {
- };
- MODULE_DEVICE_TABLE(of, lpi_pinctrl_of_match);
- 
--static const struct dev_pm_ops lpi_pinctrl_pm_ops = {
--	RUNTIME_PM_OPS(pm_clk_suspend, pm_clk_resume, NULL)
--};
--
- static struct platform_driver lpi_pinctrl_driver = {
- 	.driver = {
- 		.name = "qcom-sm8550-lpass-lpi-pinctrl",
-diff --git a/drivers/pinctrl/qcom/pinctrl-sm8650-lpass-lpi.c b/drivers/pinctrl/qcom/pinctrl-sm8650-lpass-lpi.c
-index bc7889c993d0..c98d6748560d 100644
---- a/drivers/pinctrl/qcom/pinctrl-sm8650-lpass-lpi.c
-+++ b/drivers/pinctrl/qcom/pinctrl-sm8650-lpass-lpi.c
-@@ -6,8 +6,6 @@
- #include <linux/gpio/driver.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
--#include <linux/pm_clock.h>
--#include <linux/pm_runtime.h>
- 
- #include "pinctrl-lpass-lpi.h"
- 
-@@ -219,10 +217,6 @@ static const struct of_device_id lpi_pinctrl_of_match[] = {
- };
- MODULE_DEVICE_TABLE(of, lpi_pinctrl_of_match);
- 
--static const struct dev_pm_ops lpi_pinctrl_pm_ops = {
--	RUNTIME_PM_OPS(pm_clk_suspend, pm_clk_resume, NULL)
--};
--
- static struct platform_driver lpi_pinctrl_driver = {
- 	.driver = {
- 		.name = "qcom-sm8650-lpass-lpi-pinctrl",
 
 -- 
-2.43.0
+2.56.0
 
