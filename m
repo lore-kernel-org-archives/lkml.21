@@ -1,74 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795028261;
-	b=Wq477i1G7s9f75fjTn5XOKWF17k2SBBIX/Z0/La9D+5LyLozhsqsLymxMkanOwuMtDZS
-	 5jdAG1wKaK3KHHVKVaE3CJr74dcD8BShtuq/6zIGPNzgzNI16feHh4wBWH3vO4bO1ZsS6
-	 INfQFgpc/KGLIUjSJdRIrDpKv3RUahe4ul+K0F3LHvbrO5RZSIyJSk4+/a+wrKYv8ZpVP
-	 a6Z+3PFv9Kze360e3KKxgVfaq1tzMOD6SOdN1Si8Dn1xkEMjnvk1QtEUcbpxEy5OKq9rk
-	 2hB8HRQ36G7rXs/OFwee4anb+9Q59y0bUC/xQ34uLq14mfx3znaeEVzeOGXmyPEQCEA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795028261;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=wtLQxfMRtrekLd+atuTLxz0xh/VLPsXiZh9Wc00ROy0=;
-	b=qXbIbmW7Pn1Dif3ZLgFclCMY/bLy1ACh7gsDq+F+ADlU7IDiBhMaxz+5wzAchpLs4cZE
-	 8ZUChS2/R5xv6S+lvMAbVD4QpgfvUgTNisaTknfdP5hZseFYCT5FuUofO2JpQFq6JPa7K
-	 qf+HB/LJGo9soofREm7U5dL8bN/Ul3k+8YaVxcqPeDMOq52NarfhLAUo+aR9uNk2RLbwc
-	 2aynK0BCJ5pTRjehiXkcJ+vemg/beX3c4jqNIF+QAztR+jo3XVjE0SxY4/iaUGYKBsJDp
-	 0lWywSlThHc9kgjj4MMSkFXwo150ky8f/6RtH5+JoHnkUrt2SWCSQjX2pEA+G7JmogA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LuK7hCqB;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.53
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795028316;
+	b=Hke7xotdJ7xVad9CCm0x58Ug0R//eDgz0/aDu8RP54g9Gg534gbUq1hlHDoAg4rggdAx
+	 VBi45qVBIhCM2xzWv50Gi23nCyIjOP7ZErFDTXp1vHwN04YL9nbT5Pu/L2f+LNQBUH3je
+	 +IvrxRgGKdaUMs6y3DEPReT8yF5KSA6BIjFolUVns4t/V1k1jFL+xpgQ8zzBiHX+X/2XY
+	 P1Cyx9yYErC2XqaBWtpRluvbNvRH0fSe6Usy1IkjK2s5UVAWkuEiuGX30tKKAD1+CHLUG
+	 5z5KH+Ec858b+2YtE4RLdwb8+SB8MMPlQJY2kkpLyoZomfZwG/AzJUo9RZnh+RUEPXQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795028316;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=sANgHflY4l/Fe7eOmc9nVUukAbjG9FRan2mAzBkUStg=;
+	b=2Mdz8TVlgI0pc92qPzVF6E7j36bPu6tvhp4VJNd7NQtOPNs+YAo0QzILElXbH05BwXSg
+	 HOILwcrD4S3uzBC8N85iIGF7Im1hD1C3vEXGkcUuEUCIqFdXr8ywIFCJyZC6Ovpvz+YZ4
+	 tuR+wGQDcc6rvIhy2MhDplZcvnCSIeSqA9mGSdhHl/o5JyLfohs/W81RudlQEbDDxHrXf
+	 GtpDeHZCcZhYIzvu/bqpWFOzT5fCRZlBhdcpj++xHAjDlpyNid1zDhF4Q52J+Reb03y7F
+	 W47Gby2qQJ3UteAGVQfpSY903rYo+gvXKrduuTs8Zw50MXefCqINOd0DwEMHM2GfA0Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=F9We98XN;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.53
+Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19655606A31C;
-	Wed, 18 Nov 2026 18:57:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34908606A335
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:58:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34908606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LuK7hCqB
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A66A11F000C5;
-	Wed, 18 Nov 2026 18:57:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795028260;
-	bh=wtLQxfMRtrekLd+atuTLxz0xh/VLPsXiZh9Wc00ROy0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=LuK7hCqBsWO5Cipeg3+rarR8Ul56thvo1icX282u2Yrw9tPr1sW27gfa7QmNrUKhd
-	 VX7RACiX99M+VjFrFyVC09R7g/0PZak5M2u1SiUExVC8tfQEdxZfA7+/pcB0hbwDDk
-	 QRD+m5Zx6BqDtSscym6xKDP9SaYQrFtvLGE/GWIIm7lIIdVf7J7W7AP+raXqGndq0c
-	 XVbi2vVWqNVSs5KQhfa7Zf8KKvyuk6IQbdpi76SAX2L/OznyEhu8qjEu4xPLkcp5ws
-	 94lXHDqPwhp04HXyGjmM6u27nyAcMKX/GnhkRiABcQhyDBrWxixSt19N8gKqfFXhEf
-	 N0ch+X6AzXtig==
-Date: Wed, 18 Nov 2026 18:57:21 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Pierre Gondois <pierre.gondois@arm.com>
-Cc: linux-kernel@vger.kernel.org, Ashok Raj <ashok.raj@oss.qualcomm.com>,
- James Morse <james.morse@arm.com>, Mark Brown <broonie@kernel.org>, Thomas
- Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
- <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Len Brown <lenb@kernel.org>, Tony Luck <tony.luck@intel.com>, Hanjun Guo
- <guohanjun@huawei.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Shuai
- Xue <xueshuai@linux.alibaba.com>, Mahesh J Salgaonkar
- <mahesh@linux.ibm.com>, "Oliver O'Halloran" <oohall@gmail.com>, Bjorn
- Helgaas <bhelgaas@google.com>, Maciej Wieczor-Retman
- <maciej.wieczor-retman@intel.com>, Pawel Chmielewski
- <pawel.chmielewski@intel.com>, Yazen Ghannam <yazen.ghannam@amd.com>,
- Avadhut Naik <avadhut.naik@amd.com>, Dave Jiang <dave.jiang@intel.com>,
- "Fabio M. De Francesco" <fabio.m.de.francesco@linux.intel.com>, Kai-Heng
- Feng <kaihengf@nvidia.com>, Breno Leitao <leitao@debian.org>, Dan Williams
- <djbw@kernel.org>, Terry Bowman <terry.bowman@amd.com>,
- linux-acpi@vger.kernel.org, linux-edac@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org,
- acpica-devel@lists.linux.dev
-Subject: Re: [PATCH v1 02/19] x86/APEI: Report Memory Error Section 2
- through MCE
-Message-ID: <20261118185721.11639b38@jic23-hlaptop>
-In-Reply-To: <20261117111444.4185512-3-pierre.gondois@arm.com>
-References: <20261117111444.4185512-1-pierre.gondois@arm.com>
-	<20261117111444.4185512-3-pierre.gondois@arm.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=F9We98XN
+Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4bb62d40736so4235e9.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:58:36 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795028314; cv=none;
+        d=google.com; s=arc-20260327;
+        b=W8yDZUnRUQU7LfsYTMQ5uxx8eY3ay62oVkXpyuUSQ7aLUAQtZoQsLOyJIz6czS0BcI
+         KQ113rg9p5KmLsViqGnJCVhfnX+Q8NVbl49ghstgNkGDVC/OMIGPy6FCd1DYGjBlSpYC
+         OMoB6KeJJKI6pq5CfGtFifrNIGGRGf8Bp+osy2zqpqxw7iMh2AF2zOBnB5AJvtv5VuoJ
+         QN2l775S+xT2RY/d/0ByHIOv/Ro8OcNTslZTOa/Xsjq6TaAJqnw33YJDxeflh1CfbUW1
+         gMrb373NLkWalxBzsKVRnxUMpYos83ATP4xb4vWqllBDCPRrbd8seIGLGJFDGCwgP2/g
+         CvpA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=sANgHflY4l/Fe7eOmc9nVUukAbjG9FRan2mAzBkUStg=;
+        fh=UfkMsvk6ybAvT5MB/tMu7ZzcNle1byS/TlPam8AvqoY=;
+        b=fsgZLmXs+84Hqp9XXOCtwwYcfInkvLsoWPEjpsffTMa8qxhafhpE+uXpFowQeKboex
+         B1KtBrP9ym5+jWQRp7HZti6TBn+zBbw+KxA89+xsCjmqaANsixgx2uVdTnVYlDRGdtbq
+         4TFB2b74jtmRYm9ugOSqxSs2l5vOtTKmbfiaFTWK0Iw92gcx+KMVjXEZO5l1OE1Jm9iJ
+         H4BQ8twUpdmRMFpTo2OHf49MCyAZuc2EN2BzvzUQPSDjr1CcwpZpOuY4LLXHJYN12B4m
+         psvzrCnWJGmRI8JQu7XT4SzeA+9NiR9dXkF4bUbwF3vul4KPeBPM2lHji1BCc5FFSpyK
+         3T9Q==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795028314; x=1795633114; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=sANgHflY4l/Fe7eOmc9nVUukAbjG9FRan2mAzBkUStg=;
+        b=F9We98XNxwEBIks/3AYeT70ES1muTwDULsZ3smWcjmbyi68BeNmCoE5UKaa+QP20IU
+         idVv3Ly9x+C69lvE4uQnSg9efmRha+lnASsrXtxS4zwprkmt0yKozwHmfe8KUIlEEM1F
+         MmNxuNKQbY7AvJzbXzeOT9p+l+2Xgb9QUPSuHSU2buIZybf4nsmFs5Si3KkhQiS/ROQO
+         KEOygG+Nfq+3axzLPY+SMkV+ZUmjt5GMPFLwJieAzlUp8kFR9eiOtLj1FUmg1UMn1spb
+         JKU6l3MlsNypoBwoz/NLDr9bLqZf87p6NhGjXigdQktEnh4jGshBesGgYHJ4+q8nrB12
+         sS5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795028314; x=1795633114;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=sANgHflY4l/Fe7eOmc9nVUukAbjG9FRan2mAzBkUStg=;
+        b=jz+wMMh2+MQNLpx7B9jMyo6Ke0jAJOtrFXuBX9FZxc3nYK8hmNwEeULyFnun2pUeGQ
+         O2BQxNU/35YHWsm9/W2PTnp2jrbIux73LJJLf4G1cqDwPhpQkqDLHtdbaL2Pw82O4HvF
+         Dl0+/F3PqSD8fXOWXrrAq5d9XqrDu/PoVjkqE/F7EyXacZKqsIjdzPtRcJaUCpkZj8fI
+         4oPmT3AG3W9l7o/zw22Fu1Q8T/VL/Y5j+7aSlQQC01Is3aHcMgX8iGD3g2rMYLo5ZkIT
+         W5t9tmsaps5Sj+8C347plqmtCnXduIp9GAc5Vfj9uW1qUOtXqtdcHuE0J00uvVVlYiW+
+         bDIQ==
+X-Forwarded-Encrypted: i=1; AL+hErHN6n7F1Qn1ZS7TicOuVfmB+OooYSGIq6iHHpL/QL9oFvhR6moAxHmTGJgHYewE0ZwKh/F1rRy/pOwVx80=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Vf5QPaoU/5fD63Eb04TXWr/+Cg260IxXa31hLrzqwTYc8MhUs
+	znDJ12Z8eFdk7QznnnO+bAzzctGFFiiYubkU3w/d42mVyDDcx8f2puIc7ihN322S6RpoLgLJlsi
+	jFQk1M3i4W4hLKJYGu5VUGkXSutq71GeEWoAUpgO0
+X-Gm-Gg: AYBFou2SnXv3v+qC2z3xu5cPLC3eaKa+9ZUsIl5n0qVXxBKsLmUsegFDUSg7cpqSAT4
+	eidwA7jIL66iNAcPjrPYHsxyhsel8u3fJhSRL5bX9cAkRK506Dpsn22WWdtkLOm25uSyh06GOKM
+	KTO9c0f6TZYXH4el2VkEl7gXKH4kzophh26nEOhbW2dScYzhD8k53NkK+JQJkn1ufiwMMtrzy4a
+	4fMZ/D++BA8ACgxAigC554b8VZkbWLrRvmzAVohEK+lCCF+t25wDvZQNOQ0WBpheg4ODb37xN0z
+	4ysFSLGydUKHRi2UDNrDcaJDtnCHItw/qpFi7pkQg8JouJfAOdD1qXRPAaf6kbNCd+jp2UaaooZ
+	qVb03ra3AXPTRXwB+nH0UmIcY0NjbAb6fuyeg+he2a+XHoyJSM+qSi9+PxKfySRJlu7St9Y7P24
+	S9+n/TaMaXZm2I
+X-Received: by 2002:a05:600c:840c:b0:49f:ddcf:45b7 with SMTP id
+ 5b1f17b1804b1-4bb83c9025emr23355e9.10.1795028313968; Wed, 18 Nov 2026
+ 10:58:33 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,53 +105,128 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+References: <20261026-rust-drm-gem-shmem-imported-sgt-v1-0-36f15ace04b1@jannau.net>
+ <20261026-rust-drm-gem-shmem-imported-sgt-v1-1-36f15ace04b1@jannau.net> <20261118114102.490384-1-aliceryhl@google.com>
+In-Reply-To: <20261118114102.490384-1-aliceryhl@google.com>
+From: Sami Tolvanen <samitolvanen@google.com>
+Date: Wed, 18 Nov 2026 10:57:56 -0800
+X-Gm-Features: Aa3M54rtfthEgFiAPOcV53y3ZwydiRtVUQnZ06u4pa0OMeOurh1hyDTgkerw9LE
+Message-ID: <CABCJKudrDOu3sD6J5LN4o3XF9JrU85pZK4DUXNH4d9iC363bEA@mail.gmail.com>
+Subject: Re: [PATCH 1/3] rust: drm: gem: shmem: implement gem_create_object
+ for prime imports
+To: Alice Ryhl <aliceryhl@google.com>
+Cc: Janne Grunau <j@jannau.net>, Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
+	Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
+	Daniel Almeida <daniel.almeida@collabora.com>, Tamir Duberstein <tamird@kernel.org>, 
+	Alexandre Courbot <acourbot@nvidia.com>, =?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Lyude Paul <lyude@redhat.com>, 
+	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, nova-gpu@lists.linux.dev, 
+	stable+noautosel@kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Tue, 17 Nov 2026 12:10:12 +0100
-Pierre Gondois <pierre.gondois@arm.com> wrote:
+On Wed, Nov 18, 2026 at 3:41=E2=80=AFAM Alice Ryhl <aliceryhl@google.com> w=
+rote:
+>
+> On Mon, Oct 26, 2026 at 12:14:08PM +0100, Janne Grunau wrote:
+> > From: Sami Tolvanen <samitolvanen@google.com>
+> >
+> > For a prime-imported BO with no `gem_create_object` callback,
+> > `__drm_gem_shmem_create()` allocates `kzalloc(sizeof(struct
+> > drm_gem_shmem_object))`, which is smaller than the Rust `Object<T>`
+> > wrapper. A later `container_of!()` from a `drm_gem_object` back to
+> > `Object<T>` then runs past the allocation and corrupts the heap.
+> >
+> > Provide a `gem_create_object` callback that allocates the full
+> > `Object<T>` via `KBox::pin_init`. Move `obj` to the first field so the
+> > returned pointer is at offset zero, satisfying the `kfree()` on the
+> > init-failure path. This is now compile-checked with `const_assert!`.
+> >
+> > Imported BOs have no userspace creation arguments, so extend
+> > `DriverObject` with a `create_imported(dev, size)` constructor and
+> > implement it for Tyr's `BoData`, Nova, and the in-tree KUnit driver.
+> ...
+> > +    /// Create a new driver data object for a GEM object that is being=
+ imported
+> > +    /// from another driver (e.g. via dma-buf).
+> > +    ///
+> > +    /// Imported objects are allocated by the importing helper, which =
+only
+> > +    /// provides the device and size. There is no driver-supplied
+> > +    /// [`DriverObject::Args`], so drivers must initialize the per-obj=
+ect
+> > +    /// state without those arguments.
+> > +    fn create_imported(dev: &drm::Device<Self::Driver>, size: usize) -=
+> impl PinInit<Self, Error>;
+> ...
+> > +        // SAFETY: We never move out of `self`. Ownership of the alloc=
+ation is transferred to the
+> > +        // C side, which will run `__drm_gem_shmem_init()` next and la=
+ter free us via
+> > +        // `free_callback` (or `kfree()` on the `__drm_gem_shmem_init(=
+)` error path, matching the
+> > +        // C kzalloc fallback contract).
+> > +        let new =3D KBox::into_raw(unsafe { Pin::into_inner_unchecked(=
+new) });
+> > +
+> > +        // SAFETY: `new` was just produced by `KBox::into_raw` and so =
+is a valid pointer to an
+> > +        // initialized `Self`. `obj.base` is the embedded `drm_gem_obj=
+ect` the caller expects.
+> > +        unsafe { &raw mut (*(*new).obj.get()).base }
+> > +    }
+>
+> I ran this through a review agent, and it found these two things. As far =
+as I
+> can tell, these are valid concerns.
+>
+> 1. On the `__drm_gem_shmem_init()` failure path, `__drm_gem_shmem_create(=
+)`
+>    calls `kfree(obj)` directly rather than reconstructing `KBox<Self>`.
+>    Having `obj` at offset 0 ensures `kfree(obj)` frees the start of the s=
+lab
+>    allocation, but it skips running `Drop` on `Object<T>` and `inner: T`.=
+ If a
+>    driver's `T` owns any fields with non-trivial `Drop` implementations
+>    initialized in `T::create_imported()`, they will be leaked if
+>    `__drm_gem_shmem_init()` fails (e.g. if `drm_gem_create_mmap_offset()`
+>    fails).
 
-> Add support for CPER Memory Error Section 2 through MCE, allowing
-> to emit an mce_record trace event. The implementation follows
-> the existing CPER Memory Error Section (1) implementation.
-> 
-> Fix the mismatch between the parameter definition/declaration
-> of apei_mce_report_mem_error().
+I agree, this looks like a valid issue.
 
-Do that separately.  Trivial but shouldn't be buried in a patch
-doing anything else.
+> 2. `Object<T>::ALLOC_OPS` also sets:
+>
+>        dumb_create: Some(bindings::drm_gem_shmem_dumb_create),
+>
+>    `drm_gem_shmem_dumb_create()` calls `drm_gem_shmem_create()` ->
+>    `__drm_gem_shmem_create(dev, size, false)` -> `gem_create_object_callb=
+ack()`,
+>    and `DRM_IOCTL_MODE_CREATE_DUMB` only checks `dev->driver->dumb_create=
+`
+>    (not `DRIVER_MODESET`). So `T::create_imported()` can also be called t=
+o
+>    create a non-imported dumb buffer (`obj.is_imported() =3D=3D false`).
+>
+> Instead of implementing `gem_create_object`, what do you think about
+> exporting a `private =3D true` counterpart to `drm_gem_shmem_init()` (sim=
+ilar to
+> commit e3f4bdaf2c5b ("drm/gem/shmem: Extract drm_gem_shmem_init() from
+> drm_gem_shmem_create()")), implementing a Rust `gem_prime_import_sg_table=
+`
+> callback on `shmem::Object<T>` directly, and setting `dumb_create: None` =
+in
+> `Object<T>::ALLOC_OPS`? That way `new: Pin<KBox<Self>>` stays owned by Ru=
+st
+> across `__drm_gem_shmem_init()` just like in `Object::new()`, so `Drop` r=
+uns
+> normally on error and `obj` does not need to sit at offset 0 for `kfree(o=
+bj)`.
 
-Otherwise seems fine to me but I'll defer to x86 folk on whether
-this is the approach they prefer.
+A later commit in tyr-dev lets drivers opt out of dumb_create, which
+addresses this part. However, your proposal sounds cleaner and fixes
+both issues, so let's go with that.
 
-With the trivial change split out, for both of them.
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-
-> 
-> Signed-off-by: Pierre Gondois <pierre.gondois@arm.com>
-
-> diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
-> index 07306af5a54b9..703f3b7f700a6 100644
-> --- a/drivers/acpi/apei/ghes.c
-> +++ b/drivers/acpi/apei/ghes.c
-> @@ -1030,6 +1030,7 @@ static void ghes_do_proc(struct ghes *ghes,
->  			}
->  
->  			atomic_notifier_call_chain(&ghes_report_mem2_chain, sev, mem_err);
-> +			arch_apei_report_mem_error2(sev, mem_err);
->  			queued |= ghes_handle_memory_failure2(gdata, sev, sync);
->  		} else if (guid_equal(sec_type, &CPER_SEC_PCIE)) {
->  			ghes_handle_aer(gdata);
-> diff --git a/include/acpi/apei.h b/include/acpi/apei.h
-> index dc60f7db5524f..a92174793d9c2 100644
-> --- a/include/acpi/apei.h
-> +++ b/include/acpi/apei.h
-> @@ -52,6 +52,7 @@ int erst_clear(u64 record_id);
->  
->  int arch_apei_enable_cmcff(struct acpi_hest_header *hest_hdr, void *data);
->  void arch_apei_report_mem_error(int sev, struct cper_sec_mem_err *mem_err);
-> +void arch_apei_report_mem_error2(int sev, struct cper_sec_mem_err2 *mem_err);
->  
->  #endif
->  #endif
-
+Sami
