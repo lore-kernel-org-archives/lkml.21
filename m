@@ -1,96 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.229.135
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794969246;
-	b=mAXrkztuXkoVQmxJrcZqJVvlCZ0/NF4yffEqDxDg6wqu9fBLEaeXFqLBw/vYq3P3lZAe
-	 ONIDuqCtpLKeTi7ITce7fY1bdv5ZAg/qDBUyZB4CdDOKZIaJXBZ+VnQOoDy8IGMjgIkEW
-	 udC44B4Bz+IUCBsFWIs3XugmUI8qn0BoAJs3xQMBMCNSF2FTTG2aiRSj8xRHRV2bWEKVq
-	 YVPjkbiVx+7xvlzVJoxNqaaCvsDV+xfMGJ4kZ87DWIj4+eCq+YCO+j37YR/hg7zZtqo9h
-	 udqcrY7WqzeKKSNO6s4Ye7a5+00OK0zLK4I5a3V2fYETxDy5cERQyQ7v4RPpQQKoaTg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794969246;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.47
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794969301;
+	b=aXUVi2fE7GtMnDEkbSRYeegQzZkXtPaXkzFT7IfmMyGAT/AYjkIeugHUuez1FLJcWb0h
+	 nGkLfbhZqRKzoFLkccB80xgCytUG4Pm99lZIgKMtGfhLJFSySASfQ0ElMiLtw6KyhHy6v
+	 l8/eGtvFQgY2H2jqMrPtOuKnHIqtFMjlBErbg2y4fLpITz2pRugVFgak2828x6Ej9XBvO
+	 T4PgNmtTn9ygftOAAkDDY6n1DF0t2y028k+SBv6td+YCtsRFgS+96dB4VOFfgQPE6jPSu
+	 TcjhDoBN87uimLfYFCfq3CEd6B5VnZtzk2fQ4g4junsOqOUKY0nCj8I2slqRzvdmrOg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794969301;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:From:Date:
-	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type;
-	bh=vfERvSbLKQVx2/pRS1U49cTa/EfH2SnyGAp5xqkhniI=;
-	b=hxCJIloZCcUkOEJ5Sfh0YYZQ8GaqxW04v7B9/Whsgd8UKXMisN4MnKUanIqKXjI4ovxF
-	 c7PM3hTm1QZOhSlYSAmU5lErF5paOJBwpMJHMUt63/Sl7+bK12uh6xDjk1wsqXJY3cACk
-	 I6FgPdPFtdD6c5b3osArCy5XWcU1o3+dywBgc0qXwYq09WwSyCvhA2V8bPKNAxO7/Q8u9
-	 p7JSSsywZhvBfwl/zLQOi6foFAeuwN34uO4Wm0lQUkzB1h5SxjcUzr7eLmNQAC4CfjRqs
-	 hg6jDgOuGGajStCpuXk7DsOvecyOtgmxdKOyEaav83mpJTXOlEdZUl0RJsTNKS8ahkg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=mHWggqLpnauq8V0f/6VAUKeVELzCOKPOXIB0IXf4NPc=;
+	b=nU2G24kNAjzBwtM1optqEHhAvuL26mwgRSB7sni1QUR+MxX19n3Ke72gA/3XWTDrvKah
+	 G5WF7gJDmrR2NeAdg/sYYeIxLiW+eyWWXz0AzlGXkowHrgRZ+bBrG01tywsiwUhx5CQwx
+	 l+OSPRT6PuLUyW/W8a0RA5dP1NxZPVjz8GXT2Nxzhb62Kj2DD0xi0ImKeX7i226wMrF09
+	 xAIAnjhea91Xo4h30aspO0imr9O7km/i8cOiU9bWKgElBjCBsxQf+EGCiyTpBBUyFGRrp
+	 NSZeOCWI3WEx7SCrfvAzwTUPsMtmHOGo5Ti9nZ+KHMIHs+mNEhElj3lqyQdJQamqNlA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gac3E7di;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.229.135
-Received: from mail-dl2-f7.google.com (mail-dl2-f7.google.com [74.125.229.135])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hgBopbYG;
+	arc=none smtp.remote-ip=209.85.216.47
+Received: from mail-pj1-f47.google.com (mail-pj1-f47.google.com [209.85.216.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08366606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:34:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08366606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23740606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:35:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 23740606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gac3E7di
-Received: by mail-dl2-f7.google.com with SMTP id a92af1059eb24-13985f8229aso278286c88.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:34:05 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794969245; cv=none;
-        d=google.com; s=arc-20260327;
-        b=PkhDAOWnRLgTU4mlmm+RlWXLspzNRcH+YJOaHVPs+OAhoZJgsMUMoXGisKwncBGxuD
-         QjvMpMpeMrx672hDn8tJ+NTCaaz77whuk+902EqT+nkiTGiQzHRgNbZFRbopBSDkF3cB
-         Ci3c6Auk8Vd+ePKj1DDm8E4tDQP9J05esN8lMe9XJ8lgtgfR2OWkAGsH5OK2XbuW3zT2
-         a9WKJf1km2bLcLwUVPzFO1moxyb8/w2BgU20wn787xKslJ94Znreg4klkT7JVMc//zb2
-         E/m5pWT0ikDbEqO/K0Jiov4X1/Czhj9gmr6Z5PHMqJYDKGGXOlbXJB3FJCdeNsK11DZQ
-         Mmow==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=vfERvSbLKQVx2/pRS1U49cTa/EfH2SnyGAp5xqkhniI=;
-        fh=+kT/Xrv19FyZSJDN+clPnX0NaPUgFHxaD+n+mwaMUws=;
-        b=oxMelldXwOngbpZ6GQSa0fOnmD1bLj5flckAr/wwrWaMkalQyvnGjjrxrqzDlLkMIy
-         FnlirXnY2tHmmEFbpL4Ka6t5L4IQyVQf1D0jrSN/wZEaizmst5t7JdzCMoBFmVJwfDVA
-         zqVTRRKPSLl4DZ2lhxYMxoAttLHZiJ3bWBCA/kAcF36gRzuEqLbfcrhmKGkjE573UbDi
-         4JofsQVydPpUXnmS0zePKUWsfIqtJDAXjP594FAfiCb+pcgKMxznT1IpotBsTTxkW3t8
-         AkaiTzzEFsvUOLk/s08xR4QI0IfbHNTTGFJn+RLJh6R1QS0RyULAKr6iQeZy8ukfh3DV
-         F/pA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hgBopbYG
+Received: by mail-pj1-f47.google.com with SMTP id 98e67ed59e1d1-3b3b3c072eeso223154a91.3
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:35:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794969245; x=1795574045; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=vfERvSbLKQVx2/pRS1U49cTa/EfH2SnyGAp5xqkhniI=;
-        b=gac3E7diDhI77CxrnWcaVxp7A7V8hA9gpeDzoYEZ0mJicCqSfy434UiqYwr6OYe9aa
-         6B1Ku+sBIR94H9U1Rd5+OOIdCBBXMvSOkvMQa7AmsPX6gdIvOW/gv/+4ea3A1ImuMetf
-         FYBuFTwMW4SP1vGUp3xBt7r9zmZN71XQ4UxaJccPomuWW3+6Bj6YiH+v4Pl6q3wZG28G
-         ZCzRX3r8xLVfBJ9Fz4GEuv7Il08oCIhLAtd4zjoI1C+xsWafy7VL0422ov0h2mZtUnzV
-         h8UAwojKNui9gVJCCbQCSnJazMYyVgloTMHbs6PZ2J1m5vIy2yvZ78a/UqiM1ylaSU8b
-         1Zzg==
+        d=gmail.com; s=20260707; t=1794969300; x=1795574100; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=mHWggqLpnauq8V0f/6VAUKeVELzCOKPOXIB0IXf4NPc=;
+        b=hgBopbYGPttjpizSBDDYLhvsVhl19nNbpKHW5AW/Yfr/sBuasj5k4pRrIKLeV+BfL4
+         rDt3WruEU/azl5Z0oit/bX/h6eCf7jow4fA/So0yFOxi6mwHa6GDG2jK/Bk8brCufwEF
+         VOK21i4s+CY48i2mCzF7EsWM8jwN0+2bgKuOyDQvJlUCmUYetA0+kuy1BVWfkcFv0NHW
+         TZG9aMGVMVhr3SQvYxQv9xQOFuCVoCOTKbQMD+jY4eOipypgAHPSEGO9mrPfvBLNElie
+         l8iWjMftgdX23LqnzsfIHTikxC6MlgCUeItHVZxMPBFQTWrQhhAIM3dxlMTpXLgWE8MR
+         uShQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794969245; x=1795574045;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=vfERvSbLKQVx2/pRS1U49cTa/EfH2SnyGAp5xqkhniI=;
-        b=GdsjhDVlzZKQvTXhs0iboGBOx8SpO5LXeY2LbSJS4cDDrOIrsYh6UOj8J8LgonCuTy
-         EuGdZuXAaFHMb9zbuS8Z/ZGGoHZKyQ7RuecyTs8mn/oy5Uq5182fxWVR5Cugpu1kepoN
-         RterA9wHuJw9p1MJPKEVnFD/bAuqqNiTfbC2scsnDD3WexT8Jy30ulh17aqWTTLBiLRK
-         OWvI7y638LU6QPLEk0bkx9pZQPaHn37pmyUQZ904pcRYXaKJ9E2mETPgqDWCsFK2LDa+
-         uWYzKMARCxrH8piA1u91x9vs1zvBG2XqUzbceRv4Y7fEZcGlFXw4b6Q623HMXHZIEuRY
-         0eEw==
-X-Gm-Message-State: APuU4Z/7yDn9BqZ65UIvi3bdQaAGpFiVWVihGYoLfGE6vPwdRp+EAxVX
-	7U//RSuVQGUD4IMNAI5bAHpgnIv+GbU5jW558au+E45LwlmN7RZqQdwGveM/t2IZkteouL/PIgd
-	b42AtS4SW0s/2aMYLxnkM3u2JsNj+eLLbtRh45Vr5a2Ti6bE+Zg==
-X-Gm-Gg: AYBFou2AdYwlbpiV4qI8E2xZFdEJD04HdxGHQUCwjAnbjn4lz9NIM+CIEsJ1ZGo9K3z
-	mbf1YkT9vg+0PUZbjJILTad5t2CBkXME54T8aGso/6fIjLIJLAwq3RqpNIbwiKS7Kb3EV6NSFIz
-	z/SBbK5z0dKYGFpOVWOUq+esrFSViCaebT10Mv4OVOJTlkM83WHEeSruogs5wwYeIm5cgT6hlvA
-	BrtZ4/KSGsJPO9f3H14Dlzmv+R7WI8w8y5m3iilj3jcxpFYmwRgpE3u48xRDS9sv0jMO+XZotn2
-	lAiPaGXrYcvqQODdas1ekUDit99PPHer62vYTM5nDkseCynfl+XXix4mAlyv+AdmdKJcOtn2tRL
-	oRZIivr9kxB9GVd01Y8AXv3OqvEzKFgWFasAbYlXK4/oxDIVORYba1gMGDKyYmsBJ9Ch2/pc5v+
-	n/YZqbPc5Xyg==
-X-Received: by 2002:a05:7022:ea44:b0:1b2:3e9b:3dcd with SMTP id
- a92af1059eb24-1b543be9924mr1290293c88.10.1794969244871; Tue, 17 Nov 2026
- 18:34:04 -0800 (PST)
+        d=1e100.net; s=20260707; t=1794969300; x=1795574100;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=mHWggqLpnauq8V0f/6VAUKeVELzCOKPOXIB0IXf4NPc=;
+        b=pSiNZQppO09xRwRUx+5YrORb8XH6JhZNfiLttHEKIcAlq85G+c5HXq1yTjhd22/WLD
+         BO9h+SGHx6KcQXJALHjIB+03vlaViPMBkbz/EVoDpKS9JdMOIb9YQJVRaZkonEEmhU5U
+         oJOu6hL8FdCk3FUYe6AY353/dA2FH2f4gjEBWF8erQa0CaJwsvLf3zVGg8RzpRbynmBj
+         1Xa2oD7xCm3Iw+YA/s8yMv/gWbliwiPW7070VolIvqHphCbJnDm33RtwccuzFdWegorV
+         xFCDWuar+a3Tj7IcZcfLH3OFzyyQNg4EJziZnTJn6hTTYLxYD4jK63O9bAC8GvJRCu2e
+         NI6Q==
+X-Forwarded-Encrypted: i=1; AL+hErEMDGdy3W1+hVmkEl+tbABm5lYvYl2N/BTG46q2/C8eYLdK1ZZgBfF2BbG1Ao9Gwt341fRNkVgPnDAX9tg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9+99Nf0m9utQP6wS+7Zt9eccYaXlYIAe+v/EjQTTOAd8axbTXb
+	zMHau1PvcixtOKfz1Rk6Y1PBCbYCqHBhj/uIozaDkVl6AQQKbqduMb9N
+X-Gm-Gg: AZFdTZcS0BEyUnyXlk5pwo2TqbmMG33MboJ4/MlrIhZWZYrfRa3oD6YK08TjlYURaTG
+	JAPPF/f0Mr9209Ff9XsgPDMmi5PDUIOA48ZCVkMbY1xsVQM9c0QdZqt+gsGnemAcX5FMdqd1mJP
+	FAGfGXO9ei/5YPTdjsjhFS5rlLjTQB/gE4oPYtKweAKyvrkBLYtbfk+SdmjijpM+yiCSCH4dOjC
+	mTCGbAYpF0aDG2AFmQOCzg6Hgd1LJILp/gInKdOZSG+VwLs/+iGY2hteionpipIhIflTd9X8vCa
+	fuOf3sVlAJ2aCauTEFxoOB8IXmFmuvm+efV93948YU9rlo/eGxqvxP5RopmHCdD/rjbVeKm/DZ0
+	kwIepWnarnAJRfCkfq9lPMl+FaAmH4nQyi47PQYMCcmn/+5zS1xgjGoEvGEjLPNARp0WIm9wVFK
+	t1LuizSbPCmPkASN2yRGAgHch40Ax84KjbB3en8sixJ+04KrcthlIK0yzLaTk2OMFI7D1iOChwV
+	9Gnib0t+q1S0FkGALMOnKDLvIaRPR+POd+HQ68ArHcILa+JCamDmqX1lLr8O9cC+zDePNtJClpQ
+	qvJtS+jtepX/sHA+J+3dolcU8G1NK9ALiR//KFvy/yR97l+W9alSRg==
+X-Received: by 2002:a17:90b:4a48:b0:3ab:c80:9365 with SMTP id 98e67ed59e1d1-3b3d07d8066mr1199082a91.42.1794969299849;
+        Tue, 17 Nov 2026 18:34:59 -0800 (PST)
+Received: from G7XWH7K1F3 ([2408:8256:2e80:7371:90a:5f11:9056:5eea])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d56c9c2csm426127a91.3.2026.11.17.18.34.46
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 17 Nov 2026 18:34:59 -0800 (PST)
+From: Zhao Li <enderaoelyther@gmail.com>
+To: Joshua Washington <joshwash@google.com>,
+	Harshitha Ramamurthy <hramamurthy@google.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: Willem de Bruijn <willemb@google.com>,
+	Jordan Rhee <jordanrhee@google.com>,
+	Ankit Garg <nktgrg@google.com>,
+	Ziwei Xiao <ziweixiao@google.com>,
+	Jeroen de Borst <jeroendb@google.com>,
+	Praveen Kaligineedi <pkaligineedi@google.com>,
+	Tim Hostetler <thostet@google.com>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+	Matt Olson <maolson@google.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net] gve: clear flow rule cache state when freeing its buffers
+Date: Wed, 18 Nov 2026 10:34:29 +0800
+Message-ID: <20261118023429.29330-1-enderaoelyther@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,101 +109,48 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: Kelvin You <weyou.dev@gmail.com>
-Date: Wed, 18 Nov 2026 10:33:53 +0800
-X-Gm-Features: AclHuK8FXhROSfHW6A7v44ubXBT7WqwXtcReM8OlPtWd9atny8fMmkX3zCEXpBc
-Message-ID: <CABqFBbCA+S_pcKmxqbQtjZOELudcBHK+=wTEngk5Kz5c08BPzQ@mail.gmail.com>
-Subject: [BUG] Bluetooth: ISO: BIG creation with 1M PHY fails on 0x203e and
- leaks active ext adv handle
-To: linux-bluetooth@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 
-Hi,
+Freeing the flow-rule cache clears its pointers but retains the cached
+counts and synchronization flag. A successful rule-reset command
+invalidates the cache, but a failed reset does not. Recovery can then
+allocate zeroed buffers while retaining a nonzero count and synced flag,
+causing a later flow-rule query to return zeroed rules as if they were a
+synchronized cache.
 
-I ran into two related issues when creating a broadcast ISO stream
-(BTPROTO_ISO) with 1M PHY (BT_ISO_PHY_1M) on Linux 7.0.0-34-generic,
-and checked that the same logic is still present in current upstream
-net/bluetooth/hci_conn.c and net/bluetooth/hci_sync.c.
+Clear the complete cache state after freeing its buffers so reallocation
+always starts unsynchronized with zero cached entries.
 
-1. create_big_sync() triggers legacy advertising PDUs for 1M PHY
+Found by code review. Compile-tested with W=1.
 
-When setting up a BIG via BTPROTO_ISO with out.phys = BT_ISO_PHY_1M
-(0x01), create_big_sync() in net/bluetooth/hci_conn.c only sets
-MGMT_ADV_FLAG_SEC_2M when out.phys == BIT(1), leaving flags = 0 for 1M:
+AI assistance was used.
 
-    if (qos->bcast.out.phys == BIT(1))
-        flags |= MGMT_ADV_FLAG_SEC_2M;
+Fixes: 57718b60df9b ("gve: Add flow steering adminq commands")
+Cc: stable@vger.kernel.org
+Signed-off-by: Zhao Li <enderaoelyther@gmail.com>
+---
+No new W=1, sparse or smatch warnings.
 
-That flags = 0 is passed into hci_start_per_adv_sync() ->
-hci_start_ext_adv_sync() -> hci_setup_ext_adv_instance_sync().
-Because (flags & MGMT_ADV_FLAG_SEC_MASK) is 0 and the advertising set
-is non-connectable and non-scannable, hci_setup_ext_adv_instance_sync()
-sets cp.evt_properties to LE_LEGACY_NONCONN_IND (0x0010).
+ drivers/net/ethernet/google/gve/gve_main.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-The controller accepts LE Set Extended Advertising Parameters (0x2036)
-with Properties=0x0010 and enables Handle 0x01 via LE Set Extended
-Advertising Enable (0x2039), then rejects the immediately following
-LE Set Periodic Advertising Parameters (0x203e) with Invalid HCI Command
-Parameters (0x12), since periodic advertising is not allowed with
-legacy advertising PDUs:
+diff --git a/drivers/net/ethernet/google/gve/gve_main.c b/drivers/net/ethernet/google/gve/gve_main.c
+index 35cf0f06a0f2..747f5229d7ef 100644
+--- a/drivers/net/ethernet/google/gve/gve_main.c
++++ b/drivers/net/ethernet/google/gve/gve_main.c
+@@ -189,9 +189,8 @@ static void gve_free_flow_rule_caches(struct gve_priv *priv)
+ 	struct gve_flow_rules_cache *flow_rules_cache = &priv->flow_rules_cache;
+ 
+ 	kvfree(flow_rules_cache->rule_ids_cache);
+-	flow_rules_cache->rule_ids_cache = NULL;
+ 	kvfree(flow_rules_cache->rules_cache);
+-	flow_rules_cache->rules_cache = NULL;
++	memset(flow_rules_cache, 0, sizeof(*flow_rules_cache));
+ }
+ 
+ static int gve_alloc_rss_config_cache(struct gve_priv *priv)
 
-  < HCI Command: LE Set Extended Advertising Parameters (0x08|0x0036)
-      Handle: 0x01
-      Properties: 0x0010 (Use Legacy PDUs)
-      Primary PHY: LE 1M (0x01)
-      Secondary PHY: LE 1M (0x01)
-      SID: 0x00
-  > HCI Event: Command Complete (0x0e) - 0x2036: Success (0x00)
-  < HCI Command: LE Set Extended Advertising Enable (0x08|0x0039)
-      Enable: 0x01, Handle: 0x01
-  > HCI Event: Command Complete (0x0e) - 0x2039: Success (0x00)
-  < HCI Command: LE Set Periodic Advertising Parameters (0x08|0x003e)
-      Handle: 0x01, Min/Max interval: 10 msec (0x0008), Properties: 0x0000
-  > HCI Event: Command Complete (0x0e) - 0x203e: Invalid HCI Command
-Parameters (0x12)
+base-commit: a2239d5dbbda3a61b6323df8836f605921a29f7f
+-- 
+2.56.1
 
-dmesg logs:
-  Bluetooth: hci0: Opcode 0x203e failed: -22
-  Bluetooth: hci0: Unable to create BIG: -22
-
-Using BT_ISO_PHY_2M on the same host and controller works as expected
-because MGMT_ADV_FLAG_SEC_2M sets MGMT_ADV_FLAG_SEC_MASK and produces
-Properties=0x0000 (extended non-connectable non-scannable).
-
-2. hci_start_per_adv_sync() error path leaves ext adv handle enabled
-
-After 0x203e fails above, hci_start_per_adv_sync() jumps to:
-
-  fail:
-      if (added)
-          hci_remove_adv_instance(hdev, instance);
-
-Since hci_start_ext_adv_sync() already ran hci_enable_ext_advertising_sync(),
-removing the in-kernel adv_info without disabling the advertising set in
-the controller leaves Handle 0x01 active. Any subsequent attempt to create
-a BIG (including with BT_ISO_PHY_2M) then fails on 0x2036 with Command
-Disallowed (0x0c):
-
-  Bluetooth: hci0: Opcode 0x2036 failed: -16
-  Bluetooth: hci0: Unable to create BIG: -16
-
-until an HCI reset.
-
-Reproducer summary:
-- Open an AF_BLUETOOTH / BTPROTO_ISO SOCK_SEQPACKET socket.
-- setsockopt(SOL_BLUETOOTH, BT_ISO_QOS) with bcast.out.phys = 0x01
-  (BT_ISO_PHY_1M), interval = 10000, sdu = 600, rtn = 2, latency = 256.
-- bind() to local BD_ADDR with bc_sid = 0, bc_num_bis = 1, bc_bis[0] = 1,
-  then connect() to BDADDR_ANY.
-
-Expected behavior:
-- create_big_sync() should set MGMT_ADV_FLAG_SEC_1M when 1M PHY is
-  requested (or when neither 2M nor Coded is selected) so
-  hci_setup_ext_adv_instance_sync() uses extended non-connectable PDUs
-  instead of LE_LEGACY_NONCONN_IND.
-- hci_start_per_adv_sync() fail path should disable the extended
-  advertising instance before removing adv_info.
-
-Regards,
-Kelvin You
