@@ -1,90 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.17
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795009605;
-	b=b7L5fIIS1qPxZ0IGwzqWdf4DAyLMqj0sB22ApiWliQTTo8CTfAztf05wiNmCUHMuANKI
-	 +qeXFiGBNY9RQCnmy1jlK2DU9f019PpwrNHROKTB6IA5H26PfW8XAOIvRTRBoA0NSMb2l
-	 73lOEH5bwTZ8/O2jQPCiH69aygOH1duELAEGEYEON9WQndmkHPbyjNhqkyQwWuorOLpsM
-	 VLF1h+UHASWHgUY7M4u2Fk6op3KP0TdKIj3I8Z/4b3cMmf2fCpjF/yq3UEXRg2u01W5tZ
-	 kfx8/TthXJrEzP77QYjIzMGt8vZ94cIMAPtK1ACUCk4oCftqmB49SBypC7TwXPJMQDg==
+	t=1795009612;
+	b=FZJj7WvLH/fjQQNNwldyrtjOSq2noebpdelL3lFHScA1ls/ynC9mTuQQYlq1vPM0yVUm
+	 MSli3z81HC9pOMaDPxkzq0dZkRgwJ1jyymA7xd0GB9BK6Ek4Po0Xz0IzJbZ57WAZ1FaXb
+	 tCEtIVnYf3S/tCVEW1MaUECXGYB9DCHGlXPy41wZzlE+wFvwK932CX2YuZuXMlKfqIiiw
+	 wES3L5uYxa7me7elEPPZi26DV+6oue665603RSnLroQ/pnPWasQGxV5a/wQRBXbtruiQT
+	 1F/POCBte8/uXPJ7eqwvMc7IFkq6GZ0N1LMQjcmEmaih3pxADZAC0RFmCkWcxEOBYDg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795009605;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 In-Reply-To:Organization:References:Date:Message-ID:MIME-Version:
-	 Content-Type;
-	bh=RTRXrgUDRN4WllXEKGJkIuBrZihs7fSTHuNdUxMmeCM=;
-	b=eA0nQgAtzoYskLGXN1GaDjvCcELfpQ0tWgPqc8zHtd9fYMXVWxieKcMKLNN8xQLQF932
-	 HZRMwqKcz0/QoMRWABeIE6KwlUj2XvuNY3fgr/FgcaFCd0dn2q8ivnaZ5tJLPVrTYvvP/
-	 1NLlF6owMtVj0MdysEPRo/JPrAzFL3+28A80WPbzoO9TiZKIJHF0Vdd5OneYeBH8I/B0w
-	 IM9AlsXW16wZoAEZTgCySGzThLEx2zfkuWATlrdc5IXMkEVqhhQgMuO0L4+WGRBz3uTwr
-	 HzWiUie1+W8Flvc2RBDTAYJnetnIrTNoMU0XLZTLst51FJtkwkJJ8KPgnNsyoIzyEzw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795009612;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=t7NeEPLoYnvjcxVnE1Z3D99rPFDU6XaQdSpEyou6UBY=;
+	b=J1iEC8FXtr39uHqNbcb89OpzrZi0cuzNYwhRKcOD62voj35Z1sczoXs7X0v1hdGBxEZD
+	 Jciix4ZV9SldYuYYxk7gtC1VjJ8PIHO/stbxUDAza9u04bRhnB+YZtlCobWV2W9BxzjNQ
+	 occl3C/7v87eCI22TtV6KhmG+J9cJAtvxj6VC3imeQEvZRxHhiPJSojfRC9rJNr0sVGZl
+	 603iBEkviw2L278FBLJvemqvTFv1ve+cnqdLzlaWr6xF4+wgRTFb20i53fsv1R6d8Qnnt
+	 hgLfVCYgy1P9tr2CtH9NJqhTkHaf5Nhg2o6wAdcnYHsEHVFM3EiwAgyXVzvYC0b6Bsg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=c+HPaTxE;
-	arc=none smtp.remote-ip=198.175.65.17
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=126.com;
+	spf=pass smtp.mailfrom=126.com;
+	dkim=pass header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=Cq9pSZ4v;
+	arc=none smtp.remote-ip=117.135.210.9
+Received: from m16.mail.126.com (m16.mail.126.com [117.135.210.9])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B6C2606A32F
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:46:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B6C2606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2DC8606A331;
+	Wed, 18 Nov 2026 13:46:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2DC8606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=126.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=126.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=c+HPaTxE
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795009604; x=1826545604;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version;
-  bh=2nnrO4vW63S4GPqF/HfHgssdOyQWdoQo7DzmIusuWfA=;
-  b=c+HPaTxEsNoLs28n8g1ouM/f1382um3gFBDANvHcB4zVM7qe4kNp3Cwd
-   V0tz0jzY3eeSdpCwOs1EuK1d95B6V0cy7WVeeqMyh+gQOrXhJ5K+MpBoD
-   uFaoaoIap+75EytyNVsT8Y84+cwOu0sd1Uv/ZOwZKlKcLLQocIz6TvJeG
-   NsVEolmxbyFHgkdMCGf3IkeDcZeyOONJORpqcEduxWFtHb8I/XpwoLizV
-   ysLQs4vJpX3BniEkr5zTMxZpjsZ2A32NsW4EoIPDs0gHYd63kLQiBhJsV
-   NW9T2MQgOCgl6CzeSvMjC4fxH4C3ADZZB7C8m8Sd0WoqQzWlQgszxCI6g
-   A==;
-X-CSE-ConnectionGUID: Q0ootBL3TXKSSWD7VqDpGg==
-X-CSE-MsgGUID: 28w/G3MNQ4a9KuZ33pk+QA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3832561"
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="3832561"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 05:46:43 -0800
-X-CSE-ConnectionGUID: +4Irg2mMRy+xLgtdAm7AVg==
-X-CSE-MsgGUID: FTsun9RMTbO3UigHOLuUAQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="10287359"
-Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.187])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 05:46:38 -0800
-From: Jani Nikula <jani.nikula@linux.intel.com>
-To: Xin Ji <xji@analogixsemi.com>, Xin Ji
- <anx-upstream@analogixsemi.com.cn>, Andrzej Hajda
- <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
- Robert Foss <rfoss@kernel.org>, Laurent Pinchart
- <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
- <luca.ceresoli@bootlin.com>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>
-Cc: Bernie Liang <bliang@analogixsemi.com>, Qilin Wen
- <qwen@analogixsemi.com>, "fshao@chromium.org" <fshao@chromium.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH] drm/bridge: anx7625: switch to drm_edid_read_custom()
-In-Reply-To: <DM6PR04MB697059DAFCE167EB7CAE9B43C77C2@DM6PR04MB6970.namprd04.prod.outlook.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park,
- 6 krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
-References: <20261116023740.2257699-1-anx-upstream@analogixsemi.com.cn>
- <d1553faf45c5651feefd667a3decb454fc596415@intel.com>
- <DM6PR04MB697059DAFCE167EB7CAE9B43C77C2@DM6PR04MB6970.namprd04.prod.outlook.com>
-Date: Wed, 18 Nov 2026 15:46:36 +0200
-Message-ID: <6fab6bf1beef0c38b95f0b3e628237ef2142f5b8@intel.com>
+	dkim=pass (1024-bit key) header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=Cq9pSZ4v
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=t7
+	NeEPLoYnvjcxVnE1Z3D99rPFDU6XaQdSpEyou6UBY=; b=Cq9pSZ4vHpK3SQyFOj
+	JgYDsDrxRP5dKoq221IiOwNJWiiSSOu2v2MaZLQmzhBt3hpRuDVR0hhRmavEF/5X
+	ZKHbddxO94+51U7Y7NtsgZ9hV12I4944NLu4WZ5lAA1IbPiCPSbjj/A1GkrwL9Cp
+	PqqZQJ1sOHHMjT+xfNgDAfhss=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wD37yb9q_1qGwFIDg--.29240S4;
+	Wed, 18 Nov 2026 21:45:36 +0800 (CST)
+From: Jinvas <jinvas@126.com>
+To: saeedm@nvidia.com,
+	tariqt@nvidia.com,
+	mbloch@nvidia.com,
+	leonro@nvidia.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	jinvas@126.com
+Cc: netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	horms@kernel.org,
+	alexious@zju.edu.cn
+Subject: [PATCH net v3 0/1] net/mlx5e: fix NULL pointer dereference in arfs_create_groups()
+Date: Wed, 18 Nov 2026 21:45:13 +0800
+Message-Id: <20261118134514.1765-1-jinvas@126.com>
+X-Mailer: git-send-email 2.28.0.windows.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,310 +71,172 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wD37yb9q_1qGwFIDg--.29240S4
+X-Coremail-Antispam: 1Uf129KBjvJXoW3Xr1xAw4kCw1xGr1kur48WFg_yoWxGrW3pF
+	43X3ZrKrs5JrW7Gws7Aw1Yqry8AF4fAay5C3W3K3yFkFs8Cr1xtFWIg3yrZFy7CFZ5J342
+	qr15XryYyFyDAaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UUsqAUUUUU=
+X-CM-SenderInfo: xmlq4tbv6rjloofrz/xtbBpQBF22r9rACS0QAA3D
 
-On Mon, 16 Nov 2026, Xin Ji <xji@analogixsemi.com> wrote:
->> > From: Xin Ji <xji@analogixsemi.com>
->> >
->> > Currently, sp_tx_get_edid_block() only reads the base block extension
->> > count at 0x7e and ignores CTA-861 HF-EEODB overrides in block 1. On
->> > displays using HF-EEODB, the driver only reads 2 blocks, which
->> > drm_edid_valid() then rejects due to the size mismatch.
->> > Switch to drm_edid_read_custom() with a per-block read callback so DRM
->> > core handles block count discovery (including HF-EEODB and >4 blocks)
->> > and validation automatically.
->> 
->> Yay!
->> 
->> It warms my heart that the work I put in drm_edid.c to handle HF-EEODB still
->> keeps paying off, and people can enable the complexity of it by
->> *simplifying* the driver code. :)
->
-> Yes, thanks! The HF-EEODB handling in drm_edid.c has been very helpful.
-> It's great to see it paying off.
->
->> 
->> > Signed-off-by: Xin Ji <xji@analogixsemi.com>
->> > ---
->> >  drivers/gpu/drm/bridge/analogix/anx7625.c | 172 +++++-----------------
->> >  drivers/gpu/drm/bridge/analogix/anx7625.h |   4 -
->> >  2 files changed, 33 insertions(+), 143 deletions(-)
->> >
->> > diff --git a/drivers/gpu/drm/bridge/analogix/anx7625.c
->> > b/drivers/gpu/drm/bridge/analogix/anx7625.c
->> > index c3af88e14f8b..eb503be005e0 100644
->> > --- a/drivers/gpu/drm/bridge/analogix/anx7625.c
->> > +++ b/drivers/gpu/drm/bridge/analogix/anx7625.c
->> > @@ -1022,27 +1022,6 @@ static int sp_tx_aux_rd(struct anx7625_data *ctx,
->> u8 len_cmd)
->> >       return (ret | wait_aux_op_finish(ctx));  }
->> >
->> > -static int sp_tx_get_edid_block(struct anx7625_data *ctx) -{
->> > -     int c = 0;
->> > -     struct device *dev = ctx->dev;
->> > -
->> > -     sp_tx_aux_wr(ctx, 0x7e);
->> > -     sp_tx_aux_rd(ctx, 0x01);
->> > -     c = anx7625_reg_read(ctx, ctx->i2c.rx_p0_client, AP_AUX_BUFF_START);
->> > -     if (c < 0) {
->> > -             DRM_DEV_ERROR(dev, "IO error : access AUX BUFF.\n");
->> > -             return -EIO;
->> > -     }
->> > -
->> > -     DRM_DEV_DEBUG_DRIVER(dev, " EDID Block = %d\n", c + 1);
->> > -
->> > -     if (c > MAX_EDID_BLOCK)
->> > -             c = 1;
->> > -
->> > -     return c;
->> > -}
->> > -
->> >  static int edid_read(struct anx7625_data *ctx,
->> >                    u8 offset, u8 *pblock_buf)  { @@ -1123,18 +1102,16
->> > @@ static int segments_edid_read(struct anx7625_data *ctx,
->> >       return ret;
->> >  }
->> >
->> > -static int sp_tx_edid_read(struct anx7625_data *ctx,
->> > -                        u8 *pedid_blocks_buf)
->> > +static int anx7625_get_edid_block(void *data, u8 *buf, unsigned int
->> > +block, size_t len)
->> >  {
->> > +     struct anx7625_data *ctx = data;
->> >       u8 offset;
->> > -     int edid_pos;
->> > -     int count, blocks_num;
->> > -     u8 pblock_buf[MAX_DPCD_BUFFER_SIZE];
->> > -     u8 i, j;
->> > -     int g_edid_break = 0;
->> > -     int ret;
->> > +     int ret, i;
->> >       struct device *dev = ctx->dev;
->> >
->> > +     if (len != EDID_LENGTH || block > 255)
->> > +             return -EINVAL;
->> > +
->> >       /* Address initial */
->> >       ret = anx7625_reg_write(ctx, ctx->i2c.rx_p0_client,
->> >                               AP_AUX_ADDR_7_0, 0x50); @@ -1147,85
->> > +1124,18 @@ static int sp_tx_edid_read(struct anx7625_data *ctx,
->> >               return -EIO;
->> >       }
->> >
->> > -     blocks_num = sp_tx_get_edid_block(ctx);
->> > -     if (blocks_num < 0)
->> > -             return blocks_num;
->> > -
->> > -     count = 0;
->> > -
->> > -     do {
->> > -             switch (count) {
->> > -             case 0:
->> > -             case 1:
->> > -                     for (i = 0; i < 8; i++) {
->> > -                             offset = (i + count * 8) * MAX_DPCD_BUFFER_SIZE;
->> > -                             g_edid_break = edid_read(ctx, offset,
->> > -                                                      pblock_buf);
->> > -
->> > -                             if (g_edid_break < 0)
->> > -                                     break;
->> > -
->> > -                             memcpy(&pedid_blocks_buf[offset],
->> > -                                    pblock_buf,
->> > -                                    MAX_DPCD_BUFFER_SIZE);
->> > -                     }
->> > -
->> > -                     break;
->> > -             case 2:
->> > -                     offset = 0x00;
->> > -
->> > -                     for (j = 0; j < 8; j++) {
->> > -                             edid_pos = (j + count * 8) *
->> > -                                     MAX_DPCD_BUFFER_SIZE;
->> > -
->> > -                             if (g_edid_break == 1)
->> > -                                     break;
->> > -
->> > -                             ret = segments_edid_read(ctx, count / 2,
->> > -                                                      pblock_buf, offset);
->> > -                             if (ret < 0)
->> > -                                     return ret;
->> > -
->> > -                             memcpy(&pedid_blocks_buf[edid_pos],
->> > -                                    pblock_buf,
->> > -                                    MAX_DPCD_BUFFER_SIZE);
->> > -                             offset = offset + 0x10;
->> > -                     }
->> > -
->> > -                     break;
->> > -             case 3:
->> > -                     offset = 0x80;
->> > -
->> > -                     for (j = 0; j < 8; j++) {
->> > -                             edid_pos = (j + count * 8) *
->> > -                                     MAX_DPCD_BUFFER_SIZE;
->> > -                             if (g_edid_break == 1)
->> > -                                     break;
->> > -
->> > -                             ret = segments_edid_read(ctx, count / 2,
->> > -                                                      pblock_buf, offset);
->> > -                             if (ret < 0)
->> > -                                     return ret;
->> > -
->> > -                             memcpy(&pedid_blocks_buf[edid_pos],
->> > -                                    pblock_buf,
->> > -                                    MAX_DPCD_BUFFER_SIZE);
->> > -                             offset = offset + 0x10;
->> > -                     }
->> > -
->> > -                     break;
->> > -             default:
->> > -                     break;
->> > -             }
->> > -
->> > -             count++;
->> > +     DRM_DEV_DEBUG_DRIVER(dev, "Read EDID block %u, len %zu\n",
->> > + block, len);
->> >
->> > -     } while (blocks_num >= count);
->> > +     for (i = 0; i < len; i += MAX_DPCD_BUFFER_SIZE) {
->> > +             offset = (block & 1) * EDID_LENGTH + i;
->> > +             if (block < 2)
->> > +                     ret = edid_read(ctx, offset, &buf[i]);
->> > +             else
->> > +                     ret = segments_edid_read(ctx, block / 2, &buf[i],
->> > +                                              offset);
->> >
->> > -     /* Check edid data */
->> > -     if (!drm_edid_is_valid((struct edid *)pedid_blocks_buf)) {
->> > -             DRM_DEV_ERROR(dev, "WARNING! edid check fail!\n");
->> > -             return -EINVAL;
->> > +             if (ret < 0)
->> > +                     return -EIO;
->> >       }
->> >
->> >       /* Reset aux channel */
->> > @@ -1235,7 +1145,7 @@ static int sp_tx_edid_read(struct anx7625_data
->> *ctx,
->> >               return ret;
->> >       }
->> >
->> > -     return (blocks_num + 1);
->> > +     return 0;
->> >  }
->> >
->> >  static void anx7625_power_on(struct anx7625_data *ctx) @@ -1958,37
->> > +1868,6 @@ static ssize_t anx7625_aux_transfer(struct drm_dp_aux *aux,
->> >       return ret;
->> >  }
->> >
->> > -static const struct drm_edid *anx7625_edid_read(struct anx7625_data
->> > *ctx) -{
->> > -     struct device *dev = ctx->dev;
->> > -     u8 *edid_buf;
->> > -     int edid_num;
->> > -
->> > -     if (ctx->cached_drm_edid)
->> > -             goto out;
->> > -
->> > -     edid_buf = kmalloc(FOUR_BLOCK_SIZE, GFP_KERNEL);
->> > -     if (!edid_buf)
->> > -             return NULL;
->> > -
->> > -     pm_runtime_get_sync(dev);
->> > -     _anx7625_hpd_polling(ctx, 5000 * 100);
->> > -     edid_num = sp_tx_edid_read(ctx, edid_buf);
->> > -     pm_runtime_put_sync(dev);
->> > -
->> > -     if (edid_num < 1) {
->> > -             DRM_DEV_ERROR(dev, "Fail to read EDID: %d\n", edid_num);
->> > -             kfree(edid_buf);
->> > -             return NULL;
->> > -     }
->> > -
->> > -     ctx->cached_drm_edid = drm_edid_alloc(edid_buf, edid_num *
->> ONE_BLOCK_SIZE);
->> > -     kfree(edid_buf);
->> > -
->> > -out:
->> > -     return drm_edid_dup(ctx->cached_drm_edid);
->> > -}
->> > -
->> >  static enum drm_connector_status anx7625_sink_detect(struct
->> > anx7625_data *ctx)  {
->> >       struct device *dev = ctx->dev;
->> > @@ -2647,10 +2526,25 @@ static const struct drm_edid
->> > *anx7625_bridge_edid_read(struct drm_bridge *bridge  {
->> >       struct anx7625_data *ctx = bridge_to_anx7625(bridge);
->> >       struct device *dev = ctx->dev;
->> > +     const struct drm_edid *drm_edid;
->> >
->> >       DRM_DEV_DEBUG_DRIVER(dev, "drm bridge get edid\n");
->> >
->> > -     return anx7625_edid_read(ctx);
->> > +     if (ctx->cached_drm_edid)
->> > +             return drm_edid_dup(ctx->cached_drm_edid);
->
-> The patch will return with drm_edid_dup() if ctx->cached_drm_edid is not null.
->
->> > +
->> > +     pm_runtime_get_sync(dev);
->> > +     _anx7625_hpd_polling(ctx, 5000 * 100);
->> > +     ctx->cached_drm_edid = drm_edid_read_custom(connector,
->> > +                                                 anx7625_get_edid_block,
->> > +                                                 ctx);
->> > +     drm_edid = drm_edid_dup(ctx->cached_drm_edid);
->> 
->> Consider deduplicating?
->
-> No need to check it again as the patch checked it before.
+The following patch fixes a NULL pointer dereference in the mlx5e aRFS
+code, which oopses the kernel during NIC bring-up.
 
-Obviously you'd remove the check before. Point is, you'd only have *one*
-instance of drm_edid_dup(ctx->cached_drm_edid); and use it on both code
-paths.
+The bug was introduced by commit 3c6d5189246f ("net/mlx5e: fix a
+double-free in arfs_create_groups", in v6.8) and is still present in
+v7.4-rc2.
 
+1. What happens
 
->
->> 
->>         if (!ctx->cached_drm_edid) {
->>                 // ...
->>                 ctx->cached_drm_edid = drm_edid_read_custom();
->>                 // ...
->>         }
->> 
->>         drm_edid = drm_edid_dup(ctx->cached_drm_edid);
->> 
->> 
->> BR,
->> Jani.
->> 
->> > +     pm_runtime_put_sync(dev);
->> > +
->> > +     if (!drm_edid)
->> > +             DRM_DEV_ERROR(dev, "Fail to read EDID\n");
->> > +
->> > +     return drm_edid;
->> >  }
->> >
->> >  static void anx7625_bridge_hpd_enable(struct drm_bridge *bridge) diff
->> > --git a/drivers/gpu/drm/bridge/analogix/anx7625.h
->> > b/drivers/gpu/drm/bridge/analogix/anx7625.h
->> > index 957d234ec07c..55615ad274f2 100644
->> > --- a/drivers/gpu/drm/bridge/analogix/anx7625.h
->> > +++ b/drivers/gpu/drm/bridge/analogix/anx7625.h
->> > @@ -424,10 +424,6 @@ enum audio_wd_len {
->> >
->> >  #define MAX_DPCD_BUFFER_SIZE 16
->> >
->> > -#define ONE_BLOCK_SIZE      128
->> > -#define FOUR_BLOCK_SIZE     (128 * 4)
->> > -
->> > -#define MAX_EDID_BLOCK       3
->> >  #define EDID_TRY_CNT 3
->> >  #define SUPPORT_PIXEL_CLOCK  300000
->> 
->> --
->> Jani Nikula, Intel
+arfs_create_groups() creates up to two flow groups in ft->g[], and
+increments ft->num_groups for each group that was created successfully.
+If creating the second group fails, the error path frees ft->g and sets
+it to NULL, but leaves ft->num_groups at 1.
 
+The only caller, arfs_create_table(), calls mlx5e_destroy_flow_table() on
+the error path, which calls mlx5e_destroy_groups():
+
+	for (i = ft->num_groups - 1; i >= 0; i--) {
+		if (!IS_ERR_OR_NULL(ft->g[i]))
+			mlx5_destroy_flow_group(ft->g[i]);
+		ft->g[i] = NULL;
+	}
+
+ft->g is NULL at this point, so ft->g[0] is a NULL pointer dereference.
+Note that only a failure of the *second* group triggers this; if the
+first group fails, num_groups is still 0 and the loop body never runs.
+
+The same error path also leaks the flow group that was created
+successfully before the failure, since ft->g is freed without the group
+being destroyed.
+
+2. How this was introduced
+
+Commit 3c6d5189246f fixed a double free of ft->g between
+arfs_create_groups() and its caller. Before that commit, the group
+failure path did not touch ft->g at all:
+
+	err:
+		err = PTR_ERR(ft->g[ft->num_groups]);
+		ft->g[ft->num_groups] = NULL;
+	out:
+		kvfree(in);
+		return err;
+
+so the caller destroyed the flow groups that had been created and then
+freed the array. That commit fixed the double free in the allocation
+failure path by freeing ft->g here as well, and in doing so changed the
+group failure path too:
+
+	err_clean_group:
+		err = PTR_ERR(ft->g[ft->num_groups]);
+		ft->g[ft->num_groups] = NULL;
+	err_free_in:
+		kvfree(in);
+	err_free_g:
+		kfree(ft->g);
+		ft->g = NULL;
+		return err;
+
+The reset of ft->num_groups that would have prevented this was
+suggested during review, but deferred ("it is a better idea to leave it
+to a refector patch one day"), and that patch never landed.
+
+3. The oops
+
+Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
+Oops [#1]
+epc : mlx5e_destroy_groups+0x38/0x6c
+ ra : mlx5e_destroy_flow_table+0x10/0x30
+status: 0000000200000120 badaddr: 0000000000000000 cause: 000000000000000d
+[<ffffffff80843604>] mlx5e_arfs_create_tables+0x44c/0x5d8
+[<ffffffff80815bd6>] mlx5e_create_flow_steering+0x42/0x6bc
+[<ffffffff808043e4>] mlx5e_init_nic_rx+0x84/0x14c
+[<ffffffff80808a4c>] mlx5e_attach_netdev+0xb8/0x2e8
+[<ffffffff8080f36e>] mlx5e_probe+0x48e/0x81c
+Code: 89b3 40f9 e052 098e 7a7d a011 84be 3783 0109 97a6 (6398) 853a
+Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+
+The register dump shows a5 = 0, i.e. ft->g was read as NULL. Offset 16
+of struct mlx5e_flow_table is ft->g, and the faulting instruction loads
+from the address in a5, so the faulting access is the ft->g[0] read.
+
+Note that the bug itself is not architecture specific. It is a plain
+error path in C, and it is reachable on any architecture; the register
+dump above is only from the machine on which it was hit.
+
+4. How this was hit
+
+This was found while testing a virtual mlx5 device whose firmware
+answers host mailbox commands. The device took longer than the
+firmware's own timeout to answer one CREATE_FLOW_GROUP command, so the
+firmware reported the command as failed even though the device had
+completed it. The host then took its error path, and the bug above
+turned a command failure into a kernel panic.
+
+That is only the trigger though, not the cause: the host oopses on any
+error returned by CREATE_FLOW_GROUP, no matter where the error comes
+from (a device that rejects the command, a resource shortage, a command
+timeout, ...). A firmware that returns an error for the second
+CREATE_FLOW_GROUP is enough to reproduce it.
+
+A minimal reproduction is therefore: enable aRFS, and make the second
+CREATE_FLOW_GROUP of one of the aRFS flow tables fail. The kernel
+then calls mlx5e_destroy_flow_table() with ft->num_groups == 1 and
+ft->g == NULL, and dereferences the NULL array.
+
+5. The fix
+
+The patch leaves the free of ft->g to the caller:
+mlx5e_destroy_flow_table() frees ft->g exactly once, and also destroys
+the flow groups that were created. This fixes the NULL pointer
+dereference and the leak, while keeping the double free fixed.
+
+For the three error paths of arfs_create_groups():
+
+  ft->g     num_groups  what the caller does
+  --------  ----------  ----------------------------------------
+  NULL      0           kfree(NULL), no group to destroy
+  non-NULL  0           kfree(ft->g), no group to destroy
+  non-NULL  1           destroy the created group, then kfree(ft->g)
+
+ft->g is therefore freed exactly once in all three cases, so the double
+free that 3c6d5189246f fixed stays fixed.
+
+The patch also makes the error handling of this function consistent
+with the rest of the driver, e.g. mlx5e_create_l2_table().
+
+6. Scope
+
+The patch was reviewed against v7.4-rc2 and applies cleanly. The crash
+itself was reproduced on a virtual mlx5 device; the patched kernel was
+not booted, so this patch is not marked as tested.
+
+---
+v3:
+  - Rework the commit message as suggested by Tariq Toukan: describe how
+    the bug was found, on which device it was hit, that the fix is not
+    tested, and add a trimmed oops.
+  - Drop the sentence claiming consistency with mlx5e_create_l2_table().
+    That was wrong: the L2 path frees ft->g itself, the opposite of
+    what this patch does.
+  - Return -ENOMEM directly when the allocation of "in" fails, instead
+    of jumping to a label that frees a NULL "in".
+v2:
+  - Cc Simon Horman and Zhipeng Lu, who last touched the code being
+    modified here. The netdev CI "cc_maintainers" check pointed this out.
+    No change to the patch itself.
+v1: https://lore.kernel.org/netdev/20261114144325.816-1-jinvas@126.com/
+
+--
+
+Jinvas (1):
+  net/mlx5e: fix NULL pointer dereference in arfs_create_groups()
+
+ drivers/net/ethernet/mellanox/mlx5/core/en_arfs.c | 9 ++-------
+ 1 file changed, 2 insertions(+), 7 deletions(-)
+
+base-commit: 20eef29b7c8465ac98d7dd6d6f2ac07a8d8056ca
 -- 
-Jani Nikula, Intel
+2.28.0.windows.1
+
