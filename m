@@ -1,82 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.99
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795096357;
-	b=d1pI9QYKAyQisBMHmonMf6q7SaoitoJt213/4IlfoOKEgEpxQAnGezCnvJYVS3NQQpkh
-	 vlHHT2ZyvUl8t71HL30PFnAp8hcByO7bS/IMIbJFNjAPHrpbBC838b+dyaZIcy+PnstMD
-	 MVJtoH9+R0oHEsh6gC+s3UlrUYwPcbFkPfg2xGHS9An2Vdk5mf7vwDvZ/binMmgimVOjd
-	 fKTeY9Bk3321gc26F+xKetw6HIDsLtMlkzHp8w3ZZX5Vkjp4DuOIhL512RgPuGhR+nCyo
-	 KGocowjOaOIJLNxUjc3sZ33S0u8zXA7NOFLTkgui/YcJeqrDk5KPDnvSAnZDk5jdrrQ==
+	t=1795096364;
+	b=1LTd0mPgT1vEgNUigu+BCJQwRd9/p+pPYk+HyvwJGfWEv0zIArCgd4u3Qw2iJkc4IxOG
+	 WehxPn7dzwGXE+U2do/sidvldg/f2p9oEs87x6KZlw3uPJAJakhYd1rsMuWAqUoO0y6yg
+	 z8nk0jucHOf13MLr5WD2GoZ7F/WV8pyYycQmoqsnqI/VNR1N2wwmAv+z2eks9Fjrzrulm
+	 2Jq8JtkGyRM/9bSvPNDtYkvJQquuUZNJpyHiOvOSHLBgdHUq0wdvfly5ttzY6YKWXNqT9
+	 1jVTyo0EGh2xNdkEq9aOAcSz9uO1x14mcpHBaiZEIlnBXIk8J4XB49onXkC7UCJ/3Ww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795096357;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=H3giZ1HYF1OcJ1XjNTKZ+B+MBp99vdaKlXFDCF5Fp3w=;
-	b=QBA4C+qDQacegXSQuoAA07LiqsZgwPeoBEN81d5nNWb01ZBJEt9TyvzY57bH8eIspEZe
-	 siL8NqXXXhq2hhu49sjmj3GndFLdElPAehjuqOQjWZYEfZt4WavbYuOsJ957yz6b96rAI
-	 lzkQOUmEofuB1bXbANGL6b6JLTY1ZocAcxNj1VCR082zoJVzZWIUtng5a8kG3G1ulGMoN
-	 cCMQwLtn92AaHrN9/rkVcTXEZYrR3D7UcqjgD06RjdUR6HEI+DOPFpJvK4gzQQ+wG0yf1
-	 Nk+dk2oT6i67eBMXDGnZKDPwiYj3mbiZ6fhrl501WHdq3h8W6aWXVMJa/HsuRVsGYDw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795096364;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=1v+GQzZBBpe+D+JaaeUD+TTuTBjrxr3SvBnBix+qMDA=;
+	b=zMZnng0IO4RSCzKhW9ZpT9BevpqWqy7jY+caEoSIvZOgMc7lf+zQCl/khDwcW+Cd+v5J
+	 L/QNxfJ1HSuHtv+erMFDfb3CcvbNOCgeHkxLalksSMMAiLicfqwAi9MRHS3SV5SIi8gWd
+	 YSdib0hZejCsplBETLlfgGyvYgxjKEKxlaS9wxSvzLVT+FXiCNmYym8CWhozLQxeC8UYs
+	 0Ulo/IH/yNuPQf45/9rmEyTeIy2kdUSXkY/yjo+gIJUkU0XJW1IJlkas8xAkZOR+bOl67
+	 VYOsSf1rUEZVJiusFmsCx/AI0e50jkVrr8pxkysoFSX4kdsM24SfzEgyq/LUK4wjmMw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.alibaba.com;
-	spf=pass smtp.mailfrom=linux.alibaba.com;
-	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=E045uqEM;
-	arc=none smtp.remote-ip=115.124.30.99
-Received: from out30-99.freemail.mail.aliyun.com (out30-99.freemail.mail.aliyun.com [115.124.30.99])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=StApwT8g;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0CE0606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:52:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0CE0606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91EA7606A33B;
+	Thu, 19 Nov 2026 13:52:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=E045uqEM
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1795096352; h=From:To:Subject:Date:Message-Id:MIME-Version:Content-Type;
-	bh=H3giZ1HYF1OcJ1XjNTKZ+B+MBp99vdaKlXFDCF5Fp3w=;
-	b=E045uqEMps4TARFM9nLeOUNIOS677uB0UKq4ABZ0JQqb63QT1rtPLzD53QYzXoLhQwk5yOPH1rLXqZPnGjJQwz26z4697u5ol9UhP6/ZW/IQ9Qobpnqr0yKoKdvzjXZkPu1NNW0bdL3cYXVMyG97oLbRYWcD0ZQ/fYBv0+PhaG4=
-X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R801e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0XF3fKam_1795096347;
-Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XF3fKam_1795096347 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 19 Nov 2026 21:52:29 +0800
-From: fangyu.yu@linux.alibaba.com
-To: gong.shuai@sanechips.com.cn
-Cc: alex@ghiti.fr,
-	andrew.jones@linux.dev,
-	anup@brainfault.org,
-	aou@eecs.berkeley.edu,
-	atish.patra@linux.dev,
-	baolu.lu@linux.intel.com,
-	fangyu.yu@linux.alibaba.com,
-	guoren@kernel.org,
-	iommu@lists.linux.dev,
-	jgg@nvidia.com,
-	jgg@ziepe.ca,
-	joerg.roedel@amd.com,
-	joro@8bytes.org,
-	jroedel@suse.de,
-	kevin.tian@intel.com,
-	kvm-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	pjw@kernel.org,
-	robin.murphy@arm.com,
-	skhawaja@google.com,
-	tanchi25@mails.ucas.ac.cn,
-	tomasz.jeznach@linux.dev,
-	vasant.hegde@amd.com,
-	will@kernel.org,
-	zong.li@sifive.com
-Subject: Re: [PATCH v7 00/10] iommu/riscv: Add hardware dirty tracking for second-stage domains
-Date: Thu, 19 Nov 2026 21:52:22 +0800
-Message-Id: <20261119135222.55990-1-fangyu.yu@linux.alibaba.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
-In-Reply-To: <20261118061848.184844-1-gong.shuai@sanechips.com.cn>
-References: <20261118061848.184844-1-gong.shuai@sanechips.com.cn>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=StApwT8g
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED8741F000C6;
+	Thu, 19 Nov 2026 13:52:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795096364;
+	bh=1v+GQzZBBpe+D+JaaeUD+TTuTBjrxr3SvBnBix+qMDA=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=StApwT8gS9h4KHXEBoSfFOAEIO3phFzwFCfKHw0qTHseCh6otpDeUGLM3Y01CKMCH
+	 5/FenZDSqZX+PBuJ2tFrdI7Q3QAn7omygD+Di4VyvqEgpb7YxFVtKxeRrQC3I+URvl
+	 MBfJ/yHR5zjBwb52Hcd5IAcreO5SsH4MZH8jGCjfsq3NWuwnsmaoQlvCjq5ALT4uHB
+	 LUg5BlNd3kp7n2+v9Bik1HvA6vInW/gevjRBAmEA0YOGiCWzjSYhgTMb3sumWKGBdR
+	 auNnTkbb3TIdqIGbhTohTwRbTpVoozpLPaGsf/THf+3ZkJSzn9revGAWOiIqgAswur
+	 eaJwa0kTixIEQ==
+From: Mark Brown <broonie@kernel.org>
+To: Oder Chiou <oder_chiou@realtek.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Myeonghun Pak <mhun512@gmail.com>
+Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org
+In-Reply-To: <20261118014051.75468-1-mhun512@gmail.com>
+References: <20261118014051.75468-1-mhun512@gmail.com>
+Subject: Re: [PATCH v2] ASoC: rt5663: Stop jack work on probe failure and
+ unbind
+Message-Id: <179501032459.349622.3483721498990164229.b4-ty@b4>
+Date: Wed, 18 Nov 2026 13:58:44 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,24 +61,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1131; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=zQ6CEuGqYxjIKoqS/jaygijZeCEmZEO9DicDe4ml1hw=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLL+/desee8RWiEcrnFJRPRnqae0TkHo4oKfD2OuihuzG
+ BfJOL/qKGVhEONikBVTZInL4n5ZX/J6Dd/BhW0wc1iZQIYwcHEKwEROlzL8TxfYJNUrei2CT3jG
+ KV5Tk2BR496/UivC1qTwTBR32DpnDSPDolLXJKn2EJfmJa+/3L7sf2HatcnpwgYfX+V8zFi8l7e
+ cCwA=
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
->Hi Fangyu,
->
->We should add "select IOMMUFD_DRIVER if IOMMUFD" in
->drivers/iommu/riscv/Kconfig to enable IOMMU_HWPT_GET_DIRTY_BITMAP,
->otherwise it always returns -EOPNOTSUPP. I guess it belongs in the dirty
->tracking patch.
+On Tue, 17 Nov 2026 20:40:51 -0500, Myeonghun Pak wrote:
+> ASoC: rt5663: Stop jack work on probe failure and unbind
 
+Applied to
 
-Hi Shuai,
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
 
-Thanks for the catch — good point. I'll fold this fix into
-the next version.
+Thanks!
+
+[1/1] ASoC: rt5663: Stop jack work on probe failure and unbind
+      https://git.kernel.org/broonie/sound/c/8a20b9963c66
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
 Thanks,
-Fangyu
+Mark
 
->Thanks,
->Shuai
