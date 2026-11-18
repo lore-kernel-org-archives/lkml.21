@@ -1,96 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.169
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794966249;
-	b=r6BjkvKtCKzJbn2tOFYc4CnJLJsDl5I3eyHZfEcI+UBLBHRWzrORe/ihHSV1Ao3Zmuwc
-	 JdtbNrzpvPMJYwCyRBnVyHsuVYnfZL42kZd9PNqhU3TnN+DfxYrb5cN4D01HzI4BQSZxZ
-	 +h9wedzCPCWjkuLP24EYYnYBpEp25/aVwoZcT9x68hYTIn0OizqtKYov793WrBOhpWH3T
-	 KES3QL035ahMnadeuhOIxw9XYyjMFSMGd7OXtQ+tWFEapWuTtphZ+gJ+v+yEOCTMqlOAk
-	 5kCi2kV78COpQptq0Ih4NezVR3hFncHQ8Ylvk+FKGLmiOVpISUBJ848vEqeuvdQOouA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794966249;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Jigjp+fj5LXEgFrf+eIYUR/gBYQiXZlMSZoHeYqq3yY=;
-	b=v4AyaWxnPLPeNQ0i1i6+kTVGMjrgvAF4kGtZAWN5B2FXNNhSRckZLbEY22zO4Enr0/RN
-	 HEGlElYjR4QPDyQ4YQA6w1UzbJZ3uAxhYi7yLnqJhj4+CqF7ricj4C+pej5vRk8bXRj4x
-	 t2KRqebh2kxfYnlKezOEsOTHO8XcIHokYXRYyRVUXnlhjFnV95tikfvXPei4uUMyUlKbx
-	 qUthDM/SURsfoHAarcZsCou4Bcc2NgkriLrk4JhbQFNNyjk/qDrhIHusCc8TBJz0GADaq
-	 YzNTmlEyF+1+gkMFBh7HeRIxTwoDg2uqGxzrA11Yt90yLU0h8xTuU3b1p2r25Yk3hgw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="srOS/ykz";
-	arc=none smtp.remote-ip=74.125.82.169
-Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com [74.125.82.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.44.128
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794966280;
+	b=oRn8UHGvI7MhNwiHJcwpL0PiMyhy9EnGPMdgxIsiPRsvdIezddg4gvIsgrugAvVmvjV4
+	 ArWCKPFKFaz4n6gqq4MFK0RHIHHFLXe1oDwPMNRpMakHbv0nzeV8ebZ2fPwi/gTNeYOhm
+	 22dc/jsJin0j/tyOsJwxz9m9Z9KMSVwZPi18fZxkTxF/8Ugb8IgOkyK6ksPypT8N7il9w
+	 Da10l1Evc5bZ1+tYw+B+accUQfX7EKF9U1OkFPjB6oiMC5MR6YLQ845Gqqi/h0LV7ciSv
+	 vzuheR6VNRTok6lRk+s22ALsMb3vnpccgHDJn3AJU4jjtOUQcmjsMfGStCvTVmExPVw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794966280;
+	h=DMARC-Filter:Received:Received:X-MS-Exchange-Authentication-Results:
+	 Received-SPF:Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:Content-Type:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=IK47gmLXjQYtR3QPjuBqimLTbqJ+3Tf6AL6xgIEzRt0=;
+	b=jFc7NBv4OozGVv25muIbWK12mP80pwWrb7Bx1/Pr8BLUh5ztng3UxW5X6PG5jW3lgfA6
+	 oGKBC9iwd9imzqp52jwhzhUqVRKE0mA554/0bAcvssgr1bBP7e8eZEoqfTd5gUH9dEKcM
+	 4YsieMeCUcPhKCdH0TNkvvNd+2y/WZCkIT81u2WVhIftUIRQyNYwVw1irCVFHqbg8G1La
+	 1sGkNYjd/VB8VnddvIdrrCDBSAo1c2/VwcFXydGYn1mxTPW3Ll4K1IuM3ZYyiaNn5Cwmo
+	 15oAKix2c4OT1U6ANmLopiPr3Bt9BS0ud/MKEYpWej6hF8mX1mP2URDPXb44XpyhnTw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=cixtech.com;
+	spf=pass smtp.mailfrom=cixtech.com;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.44.128
+Received: from SEYPR02CU001.outbound.protection.outlook.com (mail-koreacentralazon11023128.outbound.protection.outlook.com [40.107.44.128])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA943606A330
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:44:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA943606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=srOS/ykz
-Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-381d542bc29so961574eec.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:44:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794966248; x=1795571048; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Jigjp+fj5LXEgFrf+eIYUR/gBYQiXZlMSZoHeYqq3yY=;
-        b=srOS/ykz3dSNDqloWipBs4oVtUh28EAQMJKnKgDd8CzAWxxgw3VwmpdbwuV9izrH6V
-         EKmeofezDel53zYmFKIqBqqOEzRzUq+PnqQ6WMkJs7V2XP6JQ9f0xUUaALoCFIcrzoou
-         1Lu+daVcNyTQn4EkZE5eGAXVLINlUevDoKNJtt6haz6dV5XeyjHBww3zJqFap4bfFAfJ
-         GyzqbsJB+0H6sn0ZNbl8oQlmd/B+C1QLHM3qCio5Zzmdpl5uKQgtBAycq9PqCDCwgMYF
-         spSih4ZD/vogfvA1WTsHH+XaSn1eg0FGnxph46w6uyGDS52CwwGTTJ+iMPdc5QkuoaGq
-         PNJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794966248; x=1795571048;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Jigjp+fj5LXEgFrf+eIYUR/gBYQiXZlMSZoHeYqq3yY=;
-        b=BybEDZnaetDTYPVguYEg2VWGYCd8zEbPyzePewTraZIi+PeC+ayIXPyFthZLL3Avdp
-         0bYM1avGYU19RSED0rWUDeuOLQsFQQOeY/TfR+RnbhyC7nw8XEeC3/4O3E337tqr9gRN
-         pKvd2+pcqniVqEVH3F52mvEcf+8H+KJ5At5Issom7twkGEChMeaEiTyolyijc3a+GRU+
-         +oy6MzIAh7hrWUjjRXBFUPGMZHFqF9KoKN8kbBTFk0IVVxlWP0nWnCQ14dyeVsOtMZEi
-         alOPWeKN6v8JRZKLAdu+7AX9YlpJVIAJ2lTwItVIT6fB6yAgad/sVHo8oFmCYqqMXO9w
-         w9WQ==
-X-Forwarded-Encrypted: i=1; AL+hErEP81hAKqjB2N26MVyee97oU4jjEEsoq20dlKZYvucc4HSqNRMLS3I13Wd8t1p8GAOjfcBy39XjQO4W6A8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8VjpDtMw7bzVrVhzWUob3hX3spNVF9lX1MJiXHc8ANg1HwFNQM
-	BGTi3dBkkbyb3IGdIS3SDNo+hXctHKq3MKvJlOnAYAo+XSfregothS6d
-X-Gm-Gg: AZFdTZe7/Hij4RNlmYLpXsKUYfqXM2L1R9d7dKzASIAttSEyof1uDQUnyrOcR+pdl3F
-	jOMpRs7qo80lVeyUJlMKLwDVkiouPEoHa/SJg2gLqOPHYAT4ujuJyLfWRCsJ9rNbJKB1oBQcDn6
-	NG9HxbFXSN6gAUs/g3mr3EPYu1sq/CVM0EAY5jpNw8SUyQLQtX5E9KjScgdJr3Fdyohqpq+Br/I
-	DEg6hr/ckhds7M0SXCdcMfpfDY+nA4WRGft5gu9iz7g7FC0McGlZwR6ZWWb4TfvsesFvmBm1Teb
-	zHGDksyu0BBEPQgicyb/vSErvto5ghbdqR2ka2u6HxD7tS5kSLgozUJvUAF0GcJbOO+EseIgsJV
-	JZb6xHL4ow6qS9L5NzbdPIU1sV9b4MgvSqFRI3ry0W7+/xf1g1zcmB3F+pwADlXszbBi6BqFXWe
-	+rnh6YzvUbz+zNApgobSpknQNITEiwebQ5E/f4nWtnKxBdqxuOcDwp7kDgN+Y+aGwCc6q6IuenM
-	rhz7/EE5YgIYOUzeNkEzDi0R+58JJ8wARqexRDUhlpI1X00bHyYcUW6Woc67wbA4n+RSoQoizCz
-	3MM5MThcFMIhS+mD8EzQamgiB5CrXP5r5uoFWVRfNmwsMZWmZtT0ui+1Sow=
-X-Received: by 2002:a05:693c:69c2:b0:369:1401:c5c2 with SMTP id 5a478bee46e88-3828141dcdfmr960224eec.26.1794966247812;
-        Tue, 17 Nov 2026 17:44:07 -0800 (PST)
-Received: from cachyos ([2804:214:64:aaf:eb0:6704:6a19:ed25])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a79c96b2sm2157822eec.24.2026.11.17.17.44.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 17:44:07 -0800 (PST)
-From: Paulo Ravazzano <paulo.ravazzano@gmail.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: Biren Pandya <birenpandya@gmail.com>,
-	linux-media@vger.kernel.org,
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF374606A31C;
+	Wed, 18 Nov 2026 01:44:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF374606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=cixtech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cixtech.com
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xXzgN6Gd2ECq7NND9/rV8DX2iX/M21NqgNkLu3EY+0l+Ws6lpBgqD3AHgSoFyU/NvqBjdzVais4jdOOUVE64W8YD2ZdDYGSHd80WwJroEHvZabNIJF3PHuXNK6PCZsDCDY87AqoNfh8ddIj6eRWNI2qZ4BHKsp/sZGK4WIvigqfK5tQhh0giKoRAsyDh++BNN0k6a9jMBsIPa9EITNoZAWcVJAP/h+GWzIsEzLZ6BLwFX1Mp9P0Hoh2nsDCCrwq0Ir41RumLj7NE4Hqx8LkYUTZnuFXHvyQeFow/1aKOjLgrAOtHZGWM4lolA5Cs2J3wZPXZHvdvEPCPwyuNy1Ahpg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IK47gmLXjQYtR3QPjuBqimLTbqJ+3Tf6AL6xgIEzRt0=;
+ b=xRBy2LYSQdTPYBkXQ5pdk7JX02zAogOhfm8l/TpdwXH6KYXfWCVZbyYdXXOApEMF7nScLEZQozw9PZqg+0IHQoQYbTG/NHPBgOJM3pvg6bZWzs52qhUOn0B92oSe9auXUbdECyJ4/S1Aumzlb28gLHAZJNDYU2D8NKM8RmsMpMYb5f4b2kK5RLjU0HCiVMm8A21LNOwYa6Pf6r6ZLyZtWp6e606z31r8Nz3dpFyfnSBuncnh0U+t/iHaa2MucVwZ3zDdgpI1k/QAyesICr8avOn30h1ofsJBXrYXybCN80mFs9ok/9Cu6mEuRimSP2lX5+2ZxJwAyUKZA30eBTJPBA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=cadence.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from TY4P286CA0107.JPNP286.PROD.OUTLOOK.COM (2603:1096:405:380::7)
+ by TY0PR06MB5458.apcprd06.prod.outlook.com (2603:1096:400:329::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.8; Wed, 18 Nov
+ 2026 01:44:34 +0000
+Received: from TY2PEPF0000AB83.apcprd03.prod.outlook.com
+ (2603:1096:405:380:cafe::ad) by TY4P286CA0107.outlook.office365.com
+ (2603:1096:405:380::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.14 via Frontend Transport; Wed,
+ 18 Nov 2026 01:44:34 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ TY2PEPF0000AB83.mail.protection.outlook.com (10.167.253.4) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.4 via Frontend Transport; Wed, 18 Nov 2026 01:44:33 +0000
+Received: from hongliang-System-Product-Name (unknown [172.20.64.180])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id AF7D5427EFC6;
+	Wed, 18 Nov 2026 09:44:31 +0800 (CST)
+From: Hongliang Yang <hongliang.yang@cixtech.com>
+To: linux-usb@vger.kernel.org
+Cc: gregkh@linuxfoundation.org,
+	peter.chen@kernel.org,
+	pawell@cadence.com,
+	rogerq@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	p.zabel@pengutronix.de,
+	Gary.Yang@cixtech.com,
+	fugang.duan@cixtech.com,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Paulo Ravazzano <paulo.ravazzano@gmail.com>
-Subject: [PATCH v2 2/2] media: i2c: saa7115: Guard media_entity_cleanup() calls
-Date: Tue, 17 Nov 2026 22:42:35 -0300
-Message-ID: <20261118014235.419385-2-paulo.ravazzano@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261118014235.419385-1-paulo.ravazzano@gmail.com>
-References: <20261118014235.419385-1-paulo.ravazzano@gmail.com>
+	cix-kernel-upstream@cixtech.com,
+	Hongliang Yang <hongliang.yang@cixtech.com>
+Subject: Re: [PATCH v9 2/2] usb: cdns3: Add CIX Sky1 glue driver
+Date: Wed, 18 Nov 2026 09:44:31 +0800
+Message-ID: <20261118014431.3405198-1-hongliang.yang@cixtech.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <sashiko-outbox-218132@kernel.org>
+References: <20261117021705.2202892-1-hongliang.yang@cixtech.com> <20261117021705.2202892-3-hongliang.yang@cixtech.com> <sashiko-outbox-218132@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,46 +111,63 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB83:EE_|TY0PR06MB5458:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 6a1fac70-3cca-4e3f-4e47-08df45157eed
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|36860700016|23010399003|82310400026|1800799024|376014|7416014|261028144727099003|261026140227099003|261026121527099003|4143699003|261022105027099003|56012099006|10067099003|18002099003|261009223027099003|22082099003;
+X-Microsoft-Antispam-Message-Info:
+	Z5lZR5EGuU+HLUYA9YGptiqYGHkwLmWPGrKZz85GC85q0H3pG5mcRyNCzxO7VIhMMtl3EbH2Weru88fCTh2O3JLewBLynhTbfwfvczArqpV82IRzpGUYSgz3iAzuI3S0M+DzAmBmJGr7GauDPturNBO+4BJMGwhI3aFHZSNtZbn1LLEVuXopxpfmE+ZNfXQsgZEUWuVV0JT0lCkPEoln0arvxzcKIRnY6q8UpE/nFnWhhA0pwFdk1Td4AV3rO9iewpXU37dcJ6vJ18aHCCyeSNCxpu4RnOQ3sAzTP8D1CMKO+svZ39es528OWYTGH7/X/GAWOwB2EnK5Bz5wJd+95hMdyzyWxuHrR/qyskukh6usRlCZiRCAtuElnkrZLLckQNgHSTx5pDRcCoEhl/L2KbwadtLHmjeir9wF35gcDYxcTL3X+yPxG2bAecjYKzX1wMTB9TQit8LIUGQRxnMtn9dg1oxyOR3sJiUi/8EJs/RK1XiyQ1SIQCr5eF3Hqd5BRSdsEceOFfasql2UDcKmVPCvEQQlCoGwLpBMuabC5XsGe4D/DMC69mHoue3XkBRALV2oc3NadTFtmsB1p904WX9dMExZnHRO1SnWDaApmFEFK0EOnGclm93O4msdPHBCqw4IJ/TI0JfWggLf2HnVC91KgMB2eayGRmNhAozz2ikpYL0zWtFzrFAiOsoDkyffTbJRvz2CDOri0ZiFdPSxBA==
+X-Forefront-Antispam-Report:
+	CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(82310400026)(1800799024)(376014)(7416014)(261028144727099003)(261026140227099003)(261026121527099003)(4143699003)(261022105027099003)(56012099006)(10067099003)(18002099003)(261009223027099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	A89+EZXZcYUTuBccOXOiDzLNA1NEuyES7LhpatZUPA21PVkWGX0sGPTsPfiSMA/QJxbWyfzw+RXEpgopQrZ8EhdmfThEgLo5Iedvn1PDjVCYRQwrSVRLy7DtIzU4MGeb8v7wmyZN8GYYWysrQarJOWfkMbB2SfdyHEY5L/fTt6W2v0rg1EgZlRRfg6E8G3ezQ9/JIPgdxyk3J4I06/T8AADMiuq1n/16j74GTDyucYW9spz3PKaMJokC4SRqUqtLMx9QmseugQz1F2CjQqi0D1LlG84wtpt08nrWj2DaLdeKhKgPO2g/gOsLDD0HDbj0imKlHfX6rRtKOifh5BxNqqBsz6w79v+zrhESAQ9nVZxKQjWNH0U0TW505yGPsQj45qGzXErxQa2kbdAsLGybp/b1nHx8VlNzduVV0uHc17zPRwxK25jCd75USNE5RLq2
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 01:44:33.3547
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6a1fac70-3cca-4e3f-4e47-08df45157eed
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	TY2PEPF0000AB83.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR06MB5458
 
-The entity member of struct v4l2_subdev is only defined when
-CONFIG_MEDIA_CONTROLLER is enabled, so the unconditional
-media_entity_cleanup(&sd->entity) calls added by commit 6787d5189e32
-break the build when CONFIG_MEDIA_CONTROLLER is disabled.
+Both halves are real.
 
-Guard both calls with #if defined(CONFIG_MEDIA_CONTROLLER).
+> Can this leak cdns_sky1_pdata and silently succeed when creating the child
+> device fails?
 
-An AI agent was used to find the bug. The correction was done manually.
+Yes. With matches == NULL of_platform_populate() always returns 0:
+of_platform_bus_create() returns 0 as soon as
+of_platform_device_create_pdata() returns NULL. That function also returns
+before it stores platform_data when the node is unavailable, when
+OF_POPULATED is set, or when of_device_alloc() fails, and only the
+of_device_add() failure path frees the buffer, through
+platform_device_release(). With the child checked by
+cdnsp_sky1_check_children(), the reachable cases are the two -ENOMEM ones.
 
-Fixes: 6787d5189e32 ("media: i2c: saa7115: Add missing media_entity_cleanup()")
-Signed-off-by: Paulo Ravazzano <paulo.ravazzano@gmail.com>
----
- drivers/media/i2c/saa7115.c | 4 ++++
- 1 file changed, 4 insertions(+)
+v10 checks the result instead of the return value:
 
-diff --git a/drivers/media/i2c/saa7115.c b/drivers/media/i2c/saa7115.c
-index f4015f113..32c526df1 100644
---- a/drivers/media/i2c/saa7115.c
-+++ b/drivers/media/i2c/saa7115.c
-@@ -1868,7 +1868,9 @@ static int saa711x_probe(struct i2c_client *client)
- 		int err = hdl->error;
- 
- 		v4l2_ctrl_handler_free(hdl);
-+#if defined(CONFIG_MEDIA_CONTROLLER)
- 		media_entity_cleanup(&sd->entity);
-+#endif
- 		return err;
- 	}
- 	v4l2_ctrl_auto_cluster(2, &state->agc, 0, true);
-@@ -1927,7 +1929,9 @@ static void saa711x_remove(struct i2c_client *client)
- 
- 	v4l2_device_unregister_subdev(sd);
- 	v4l2_ctrl_handler_free(sd->ctrl_handler);
-+#if defined(CONFIG_MEDIA_CONTROLLER)
- 	media_entity_cleanup(&sd->entity);
-+#endif
- }
- 
- static const struct i2c_device_id saa711x_id[] = {
--- 
-2.56.1
+	core = of_find_device_by_node(core_np);
+	if (!core) {
+		dev_err(dev, "failed to create the cdns3 child device\n");
+		ret = -ENODEV;
+		goto err_quiesce;
+	}
 
+probe fails rather than returning 0 with the clocks and the resets still
+active, and the buffer is freed where of_platform_populate() itself returns
+an error.
+
+The one case the caller cannot see is of_device_add() failing after the
+buffer was handed over: it returns NULL like the of_device_alloc() failure
+and has already freed the buffer. The two are indistinguishable, so the
+buffer is left alone there - a one-off 16-byte leak under OOM rather than a
+double free.
