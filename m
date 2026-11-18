@@ -1,76 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=101.71.155.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795011505;
-	b=QpPsdG/8uHVNulCa+qrGuqQpQzj1w+nUmE8u08IyyVGl12IVwrxUGrtUHYrvICIZM47z
-	 jEVasIBy02mUbQQa6L5dqBiDIFnNQvlB5OVUW0McNRVbbChvYPAMd86fDHH/GxUuMFzWL
-	 SGBrwiPjdSicwsrRKuiKf8dkaI0GK2Dsv6WOuQoOFUouPJxEHvmTMFljCKbfz9hAI+Z+y
-	 f1Fmnvug/M6I9Z9OznvDY2ctNn4ZfwOzLb53tMNTt7Q+5eBhuzdXU3mVzYsSdxY4/Mdkh
-	 IzINAZnr4xZtFC4iNTU+Qe60eIAnlnujrLB+FWvXNFx1ZV0/PkohKR13qmsnb9wg0jQ==
+	t=1795011520;
+	b=mo0WkzICEE3J4CFc39rp5Q59cji/yg6md4hm04mgQfG8jW6gBTizZbmoxF0Cmc3sfUu9
+	 hsByWHTvZXqQIXoN+QPXnuqCQigcZ8dNqaoaiTjTIH7DXs6LNoEf/kvcoJneIMu0G/Im4
+	 zSvIZ58RQcn73WArUpsL/d7QFl5Ifwll6dLXy2jTVqRu8cn5yw1tp8V6yITf2WVh8kf9h
+	 JQ0SDHTJ1z29wkOiXcEB6yBHD7IW6AtZn3mzCg2YczekTL2Ql02nl1pICtIDWggkch38M
+	 khKDEywumfMWLhtCsF4kHxojaBTim3c/D8L4/vChf+6NSYavKzYqSJSDUwwyzrlU4lQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795011505;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 Reply-To:MIME-Version:Content-Type:Content-Disposition;
-	bh=kofXl9sfPgdsXpZZh7yZNeD40yowoASdG4wWjI17JYE=;
-	b=K0fKdUD/43qKy3W1kTgKZ+u1VJr3VOrHF58foMj8uBiTW1JC19iryh8/R8DsJkFmaUk/
-	 PN45kOcHnObQy/RGMd9319tNZ20/xG6kMwnQ9f/CqLGrGCD7ehdigvJPTbKVZiJ63dnSn
-	 tVyBakG+/5VjwGHAIAtuSo7yj1n0PZIARR+A+eoN+A8znWvBDL+i7bxyEPj2mnB8BAxG5
-	 c3N77Ru7kO57KQKldvOUZEcWq87Xdupoo4hDapr70dWkbRtX/fEF6zlitJuTy8vA8uyj8
-	 0g9lTgSCVkY9rJbEO0KDWodYtuC09OpbK1g8YVCpxQDhlm4eJoiqDxLDtb/JRcfGmxg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795011520;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-HM-Tid:
+	 X-HM-MType:X-HM-Spam-Status:DKIM-Signature;
+	bh=PM8GC4O0D6ai6QoDJ1GdgTbrRAjYwDPST4RLoXxC2Ug=;
+	b=bzwjPABr5N7LhajqwKbP7YGyAEcnh4GS2J41LhrOOfQX77wkMJkV1K8nG1XCqwGu/OoL
+	 Ehb5qQRxv8rxjAQ7HCt0hnM2fKAxjQin2F2NYw2VWR/EWLqwEXeUuu/vOGGUK/m9Lg6vF
+	 iswuJeZo2iRHbBqkBSxqtzvEYI+Pp5v2S/dvQtR44MF9cScyuLGpKnXii3BbFRQWHnbZm
+	 SImrZNN4Z+MW7fjjbPT/nh1AlcDGDjK3+9EiSo+1uFrMvkI+F8CZYr+HknuWh2MX9LmAG
+	 Wf/UlySUulTIjYJIRsjDyKZ5VnRkm6uUyLHHs3wy+8NLzBcZvlNA1mCqFggl32zHLeA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=wMZNvL2H;
-	arc=none smtp.remote-ip=91.218.175.137
-Received: from mta0.migadu.com (out-137.mta0.migadu.com [91.218.175.137])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=mail.sdu.edu.cn;
+	spf=pass smtp.mailfrom=mail.sdu.edu.cn;
+	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b="gIKJfK4/";
+	arc=none smtp.remote-ip=101.71.155.101
+Received: from mail-m155101.qiye.163.com (mail-m155101.qiye.163.com [101.71.155.101])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0004A60A261B
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:18:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0004A60A261B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFE6C606A33A;
+	Wed, 18 Nov 2026 14:18:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CFE6C606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sdu.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sdu.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=wMZNvL2H
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=06NfiT2PWSzdUdLH0HbkzXx1yJzNQf3tCv9WaBw5u7s=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795011502; v=1; x=1795616302;
- b=wMZNvL2HyVnyrMCVw0CUk6nA/1xti78MGBNNcO0ICMjpYXZtrcpav1pSz3MDcjgUnlVkHaBs
- T4ILoeHaBwyknR3JJomLKMET4n5te3R9Z/VYO8Xd+aGQdD3O9SZhaQ+hsKGeMlleTi+QJTPVDAM
- y2JszwnBophh5L8UaCRcctBE=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta12.migadu.com with ESMTPS id d8b0edf9b3c18121;
-	Wed, 18 Nov 2026 14:18:21 +0000
-X-Mizu-Trace-ID: d8b0edf9b3c18121
-X-Migadu-Flow: FLOW_OUT
-Date: Wed, 18 Nov 2026 16:18:17 +0200
-From: Matti Vaittinen <matti.vaittinen@linux.dev>
-To: Matti Vaittinen <mazziesaccount@gmail.com>,
-	Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
-	Matti Vaittinen <matti.vaittinen@linux.dev>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matti Vaittinen <mazziesaccount@gmail.com>,
-	Marcelo Schmitt <marcelo.schmitt@analog.com>,
-	Joshua Crofts <joshua.crofts1@gmail.com>,
-	Radu Sabau <radu.sabau@analog.com>,
-	Janani Sunil <janani.sunil@analog.com>,
-	Salih Erim <salih.erim@amd.com>,
-	Jishnu Prakash <jishnu.prakash@oss.qualcomm.com>,
-	Antoniu Miclaus <antoniu.miclaus@analog.com>,
-	Jakub Szczudlo <jakubszczudlo40@gmail.com>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	dkim=pass (1024-bit key) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=gIKJfK4/
+Received: from lgs.. (unknown [101.76.249.61])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 5526d78fc;
+	Wed, 18 Nov 2026 22:18:24 +0800 (GMT+08:00)
+From: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+To: =?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/2] Support ROHM BD79111 ADC/GPIO
-Message-ID: <cover.1795009599.git.mazziesaccount@gmail.com>
-Reply-To: Matti Vaittinen <mazziesaccount@gmail.com>
+Subject: [PATCH net] net: bgmac: Fix potential MDIO use-after-free during removal
+Date: Wed, 18 Nov 2026 22:18:23 +0800
+Message-ID: <20261118-324f82bd41-net-bgmac-0@mail.sdu.edu.cn>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,51 +59,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="TNVHFlqT3YsTnebr"
-Content-Disposition: inline
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa1ef05e9c303a1kunm49a18c861a0fcc
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCTE1IVkxMSEpNTk1NH09MTlYeHw
+	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKS0pVTE1VSU9CVU1KWVdZFhoPEhUdFFlBWU9LSFVKS0lCQ0
+	NMVUpLS1VLWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=gIKJfK4/A2ZL3N5O2DgWKubTDX4fouTdIqqH8fCMJgryh4ww0EuyMHUv8aQmtd6Sl5sCpUhAojPNRceUsfrBdoH01YVJlGPhNJBxE4R91IEfMqRL7jq0ceUIhirsAmWNxMxqEckXi7wifpmfMHPXcKSLEsSPyDExrsPjhh20FTQ=; c=relaxed/relaxed; s=default; d=mail.sdu.edu.cn; v=1;
+	bh=PM8GC4O0D6ai6QoDJ1GdgTbrRAjYwDPST4RLoXxC2Ug=;
+	h=date:mime-version:subject:message-id:from;
 
---TNVHFlqT3YsTnebr
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The BCMA remove callback destroys its MDIO bus before
+bgmac_enet_remove() disconnects the attached PHY. The PHY detach path
+still accesses that bus.
 
-Support ROHM BD79111 ADC/GPIO
+Remove the netdev and disconnect the PHY before unregistering the MDIO
+bus.
 
-The ROHM BD79111 is a 12-bit, 16 channel SAR ADC / GPIO IC. Or, a "Signal
-Monitor Hub IC" as data-sheet describes it. The key difference compared
-to already supported BD79112 is the reduced number of channels (16,
-BD79112 had 32) and halved sampling rate (500 KSPS when BD79112
-data-sheet stated 1 MSPS).
+This issue was found by our static analysis tool under development.
 
-Matti Vaittinen (2):
-  dt-bindings: Support ROHM BD79111
-  iio: adc: rohm-bd79112: Support ROHM BD79111
+Fixes: f6a95a24957a ("net: ethernet: bgmac: Add platform device support")
+Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+---
+ drivers/net/ethernet/broadcom/bgmac-bcma.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
- .../bindings/iio/adc/rohm,bd79112.yaml        |  72 +++++++----
- drivers/iio/adc/Kconfig                       |   9 +-
- drivers/iio/adc/rohm-bd79112.c                | 113 ++++++++++++++----
- 3 files changed, 148 insertions(+), 46 deletions(-)
+diff --git a/drivers/net/ethernet/broadcom/bgmac-bcma.c b/drivers/net/ethernet/broadcom/bgmac-bcma.c
+index 36f9bad28e6a..e9229d86c7d0 100644
+--- a/drivers/net/ethernet/broadcom/bgmac-bcma.c
++++ b/drivers/net/ethernet/broadcom/bgmac-bcma.c
+@@ -329,8 +329,8 @@ static void bgmac_remove(struct bcma_device *core)
+ {
+ 	struct bgmac *bgmac = bcma_get_drvdata(core);
+ 
+-	bcma_mdio_mii_unregister(bgmac->mii_bus);
+ 	bgmac_enet_remove(bgmac);
++	bcma_mdio_mii_unregister(bgmac->mii_bus);
+ 	bcma_set_drvdata(core, NULL);
+ }
+ 
 
-
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
---=20
-2.56.1
-
-
---TNVHFlqT3YsTnebr
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEIx+f8wZb28fLKEhTeFA3/03aocUFAmr9s6kACgkQeFA3/03a
-ocW70wgAt9BuKdVVM1GiPi2QDGyuymxNiq0qDqLuzbDjYAtEU7I2QW7ld67yd408
-cmIsgE3orhlxgrUse2/zh+TQbEYgIGYnG+4DxTqNfCTz1XFGSc1S0jp3Y8vrqzg0
-p1cjrDmiQYYCzTbJcUWiCquG2jW90eianATptR/oEhTp6Q2O2tDgsMiNLhp1et41
-vho8ZsZK4UfeJVESvBMjurh9gOJqPVe804mVGOfMfjbC1EAxaGXqeZHM1a8lEwLy
-Ttzd1iOlWaTxFtoVX5PBm/UlWIkJf8Y5SJQ3iCkwxJqVsSOvVDb3hdb9jubM5zJ3
-5/lIYhPUNFAV8taDKUMbPTArLjxGyw==
-=hON0
------END PGP SIGNATURE-----
-
---TNVHFlqT3YsTnebr--
+base-commit: 2e54b3e187300893688c2c7517894f5d96732e05
