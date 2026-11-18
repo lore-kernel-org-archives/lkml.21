@@ -1,61 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=57.103.87.181
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795017709;
-	b=t4tjWrzMskYqKTjSVIX2uf0vUDwnUnrQOjoVzDErPxD+h9MuQ0P8DwJkPdrn+yTj/fSB
-	 B3Wpbf98B/IGHdJ+is6EmnP/i8m5S9Kcv77k8Zbi7mipKYNl8L/+skfLo1ZB6LeUYlPGu
-	 4hRavxSVlugGstxluT92Wu0Tca4f8ddjtEOuZ+JKfG1LrUf2z8WkhHw0+E9hy+JsmLNLd
-	 RoVMVS84iuE5jLT1DitVbc/AD5omTc+2ZL4M4m5cOnLT7R2CYqaLoY9J6IIk+TAof0YY3
-	 51F9y8cQQa43GV8KDCPDnQihe8AIRIZAUF3oOvoJID5K5DlY+I+w7gRQc9DHTxJVxQA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795017709;
-	h=DMARC-Filter:Received:X-ICL-RepId:Dkim-Signature:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Authority-Info-Out:
-	 X-Proofpoint-Spam-Details-Enc:X-JNJ;
-	bh=J4x7vG2kgvMTwSisv2CKrXIxEnzvTohn05JwlURcXCo=;
-	b=RTC+o70/rwG6Exo8dt7n3tfpr7KEiePQLphjADQ1+JwR0eKC4DQKHVtyEVgVtHF8QQ8C
-	 PBoi0p6Dkk7OGMkoJJ1YD01aad5mz3CL9iMNLc6MSyisVmK3INU+75TuvdKiNiAcIotSu
-	 QHLwq1QqMGUTcOyV8hZPRY4x+uGRpmqR8fFoggMcoxa8oq3TXio6/CLmZJKhg4voaaKPW
-	 VhiMVh2TDKTtJN+OIGqwfT/P9E+836fbtL0UjuwfP/YhC1+5YU/JBx24qeFVxDCeicG0o
-	 3uCqOop1kjagxPZ0081RPmlpeUnTxiZjgbiiXr69nzyVBOmFu2KnXj9244xUhq8lP5w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=icloud.com;
-	spf=pass smtp.mailfrom=icloud.com;
-	dkim=pass header.d=icloud.com header.i=@icloud.com header.a=rsa-sha256 header.s=1a1hai header.b=Ne4oErZJ;
-	arc=none smtp.remote-ip=57.103.87.181
-Received: from outbound.qs.icloud.com (qs-2002e-snip4-11.eps.apple.com [57.103.87.181])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.179
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795017720;
+	b=Ud3UumIauYSL1ER8S0YukXAjiB58hxxI+crpnIzYMvNcWQwpfOgOFKX91fwbwyMhvnyb
+	 AvYfc0PqcCWvkNANLweWO9rS/u4t5/HkbqJCcmumI2+LuoU7q9/Zd3Kbizf2lgTuUPzDY
+	 DJ1pa212j1vW7XOcWcyCW/1j5OxysEYkV2mYRuUGqcSZx9fMR6hjPUcRbFQAmy1UIF+Ex
+	 Wb1w2Sbb12Cx2iS/1JaF/G20JmOwuQyjHvSjCpm8CGuzWW9xqCmtVrv+hdeySuYbSVw4s
+	 5GKk/Vp4TlFp4lLYuOpb663576y4TsoE86GDFES0AEJ+nON6R6Tl7up+8EV7RRUeTHg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795017720;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=qWeur32sDG2NOrrqdHK9VIUZ28NlMpK0IoLZt7fvp/Y=;
+	b=lE0CjYBiMYqx8792+Mgo25O4Vw3fVD5bG7KM03lY0SEnqDtcM7WZ0SJjvBFDEOZpG0Wg
+	 bW+25pkz5/EcyYdlg/Jwvurt6THNQaaeEA8fwBRr+jyGTAGz2eR3K6KlmWGHgiAhe73b2
+	 tUDLbEJ2lHu3FkJaTliQ9IQkaFfhBB+TVCutZuFBgbNXyZNMq6cMzmTRVa9A35DsDJ7NH
+	 TlhUb5O96jYdIkaFFaQ8U+ykuh8eKKKOQdc0QXcvLnzCwjrL8De+sabGwz0ggzqAAbcOw
+	 bhNr1UFyKP60r8KL+csgHvWFoZBuumJXUL/AQIZ++jHjoxQeWuJ4K3doKk+nb1xV8ow==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0t2HT1IL;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.179
+Received: from mail-lj1-f179.google.com (mail-lj1-f179.google.com [209.85.208.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0D64606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:01:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D0D64606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=icloud.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=icloud.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79F42606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:02:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 79F42606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=icloud.com header.i=@icloud.com header.a=rsa-sha256 header.s=1a1hai header.b=Ne4oErZJ
-Received: from outbound.qs.icloud.com (unknown [127.0.0.2])
-	by p00-icloudmta-asmtp-us-east-2d-100-percent-3 (Postfix) with ESMTPS id BD27C18001F4;
-	Wed, 18 Nov 2026 16:01:46 +0000 (UTC)
-X-ICL-RepId: 01a1ef64-8cc4-787a-a372-8a9489bfca27
-Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=icloud.com; s=1a1hai; t=1795017707; x=1826553707; bh=J4x7vG2kgvMTwSisv2CKrXIxEnzvTohn05JwlURcXCo=; h=From:To:Subject:Date:Message-ID:MIME-Version:x-icloud-hme; b=Ne4oErZJVllgniKkEZqqeI3i5oHtxbwR0j3gnBM1iBbaS3WOZouB/hu3ZSwm/j1hjDycLHzd8wrpjFvdYEM03ViPfDgwX/DKACt+w4B8uh8BJXwRJhYsj7fsI15O/6snbJjEOZQhJkGPgAXlS4Uz/7cn8DEtdC9pg5XHQHdwcK8pV+pNwvPIS95Q1LyqbhpgvpEBnrXq56P8Vvbls8ef7ynozAj8+xdIGd7YF7x7PNLEamFcy3NZws6WA7wgc3gZY4VpLpp7FDtuUV5S6V9brHlgGma5tYhMqcwtgm5HCdzcfB/1pc2GskVx3C6mbvDN0DCzjuKbvamOz5h/YAxHoA==
-Received: from archlinux (unknown [17.57.155.37])
-	by p00-icloudmta-asmtp-us-east-2d-100-percent-3 (Postfix) with ESMTPSA id 5BD481817E9A;
-	Wed, 18 Nov 2026 16:01:45 +0000 (UTC)
-From: Philipp Prell <philipp.prell@icloud.com>
-To: dtwlin@gmail.com,
-	johan@kernel.org,
-	elder@kernel.org,
-	gregkh@linuxfoundation.org
-Cc: greybus-dev@lists.linaro.org,
-	linux-staging@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Philipp Prell <philipp.prell@icloud.com>
-Subject: [PATCH] staging: greybus: uart: convert from IDR to XArray
-Date: Wed, 18 Nov 2026 17:01:41 +0100
-Message-ID: <20261118160141.341572-1-philipp.prell@icloud.com>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0t2HT1IL
+Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-3ae2ab35d82so10718861fa.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:02:00 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795017719; cv=none;
+        d=google.com; s=arc-20260327;
+        b=HtKmtuB1/hOLP6bMeF2jJVXeJajEkoQDEJ4BGJdUZLqqPUH0WKmAoZWD5Gzhto8gb2
+         ZVxd7c4u69/hbJuQhGPtt561X0+nI6CY9vmb3f7fDu0aqhYDj9WCXvIRkd3ZR7tRgzfE
+         MplFo6e7wCsCJjic+p+CiQ38loHC9+fXiz129nitbhZXF5HrResfYBgX/6XLEL2ogfbR
+         5Zw5aWTbXcgjpCCkgAYOaXMbzMxLCwAXs+YQZYRp55Ka+1KF6tBgWKTuU1a6bdzz1yQq
+         /c3AK+CZkWaSBElg7BmPlP/fWxWLfPwE0+5GP1fMNY3RjahLEkULyYmUFj2Q2MBlmC/u
+         R2pQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=qWeur32sDG2NOrrqdHK9VIUZ28NlMpK0IoLZt7fvp/Y=;
+        fh=f0IZoqL1pckYZIzCCxVXMiaNEDM1eCv+Ll0y8OEyIEg=;
+        b=Ld/iay/zA7BM/UeG8r0jYMSlOLmBNhE1rqTw4tbOjQNLYRDqI+IKOlJqVJHn2Imrx+
+         WC+pdvONzW8+qWHe+a0uxL9Pp2h3CRRRZuuN15S4MjaYO6uFRpCsaRQNjtLg3tgc9uVJ
+         e8p2d1KrNphAl1T72Gu4LWb/+WbpGOPBAFzaYNe9MiLQqZab12BBD4YMReuuTdTkwrbk
+         2muCcE5159vqHDnQttm6lpaAPglz+m+VmLNumJ274CeUzYoEv3F82Oz7JGxId5xNfVn6
+         F6hazt/expxCH5Y2iCkEwnrpwXyqET/rY0HSVZ7SOln1IziivXWOkE1SGsiGfTsslHLD
+         k/zQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795017719; x=1795622519; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=qWeur32sDG2NOrrqdHK9VIUZ28NlMpK0IoLZt7fvp/Y=;
+        b=0t2HT1ILVORRjbNJ3cA8tlSHBgrO6VSW9rUhRGFmQyrhQmD2w5QcmUqXRcWVtF+NNM
+         4WAAabROuibG6Ig2IK0N4/wlG4YoZqXOXWnHwUsULHOy3aIeZX/P50wacMjucdZsWOlc
+         lt2Je6T0VWHeHfJQoBOyUoTp2Qd0RyUvfSfRvfnakGsCp9o6311bfuklZYWRhBBgoTAl
+         V24ZFvETltbgQIv+GyMMDhqiwbJw4tR6R8NcbAa9qXBDdoC8eWnetouYFRqBhnBRkXEp
+         Njj8KKn2D2wAl0SHEHGQZy32qOx+N11jldJqO77TGGW9tNuUKArl7DAEnErjZ3cYcEHc
+         u/Bw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795017719; x=1795622519;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=qWeur32sDG2NOrrqdHK9VIUZ28NlMpK0IoLZt7fvp/Y=;
+        b=e2Yzo3e3/hHv7K3d18FO3Q5RKaLg5vG6BjWyM9vXvzKMDqmGwl3p2tifxkgalFQWxy
+         QNxVYubXhIjx424XJR7kJBp9ZGN+IbAhxgjwgH24BRt7IU4K970lrb8zXqwWLiPaakh0
+         F7zgFk2xWhKkaDrHvK/EN4mDsZmPdpz15qkifUu7cpkzoLEQyTVfmo8ULH2VLouIiPGF
+         R67NLl2LIZ32m8LS0DDHTDUvWwmlZwpPGGqSz6Img4ag8rxFyKb24lWER7G2wZne44Mz
+         ZQRsPbbAIFHdFDusfxqzcOjlSUplWwLK7pp5BkLz851musAiBUlli7wpq8SG80dgq5UI
+         8vZg==
+X-Forwarded-Encrypted: i=1; AL+hErFWsSt5a6Dr7hn+yXasiP0sAs3FShyp/xepZp7RVv7/N3+r83Mzb2BmFiMuOI5f6Cctp1dfD+4S3CgFzbM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8uvSd3prHk+IIJ0+Y3uCuvRam8SUfK/iag/AHC7SM4PD2qBS3e
+	L9lm3CvJDM/9xTyoBCuRdVelPlYB7IdiETUPO8VOzED7GFGYKA1l1L1CfRlwFea/gR7mnI0+5hD
+	PgYolEsNzlYQgBoOt8jls0Wy3ThCV1hE=
+X-Gm-Gg: AYBFou1QvGk47Yq4+foFgaHc4DjcjQPDb1DQ3X/FZRrkh1wyUkwtFZNJZwzlsZ5lBS9
+	cKKDE2D0bLWr9Ba0CMnTvBzDfGhD7GDJpT84csIoq0fO9AgUIOSZuBLC4A4/PbsxSkvnOKC7BwP
+	f3FzP6DQxUb078QF44nPxbF1JFJTr+aSuYY5NBZb+aWHSqk+aimCcGx1AApQSlzbkcjBXoo/qlz
+	rqj2UVpQ2rlVUR2sKajKG0+Fv1E8kUnLTSfZyt+22wt0pLPj7J2VmZyl00pKexyFLf9PAmEChIz
+	brbxt+BtRGe4IDv623dvI/i/GWRKQlD1clU1vhWQ5gm8/l5daBkdgxJt1TwJtcukt7033Hq4Mie
+	LdcP3qHRR/9Pr6Fn4QSzYA661nEe/Q8E8NaesLfxj2AmanowP9dNILtVsqejI+/0c05pATKqTOE
+	Ih2AQwPDrz/mMZ13YgB4bVDiq9baslxpG6LYDJ9Mo0/k81uZ8=
+X-Received: by 2002:a05:651c:50d:b0:3ac:ddf0:f91 with SMTP id
+ 38308e7fff4ca-3ae670d17a3mr10433301fa.15.1795017718248; Wed, 18 Nov 2026
+ 08:01:58 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,151 +105,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA2MyBTYWx0ZWRfX2VVr9tfHB6WA
- xPjjeTs8LLrbOlq1VpzCatu+xX72uu8saRICRC5F8wrfmt9wrFW0HmcISCSTm7CNOtHZo3ybmn7
- PuGEKpfVvZBhkgkUv2JSo4h1k9wjBLw=
-X-Proofpoint-GUID: zpouYMdnh7fsXqy3pQeu1wojZ1_-jmPP
-X-Proofpoint-ORIG-GUID: zpouYMdnh7fsXqy3pQeu1wojZ1_-jmPP
-X-Authority-Info-Out: v=2.4 cv=b5QncdGx c=1 sm=1 tr=0 ts=6afdcbeb
- cx=c_apl:c_pps:t_out a=bsP7O+dXZ5uKcj+dsLqiMw==:117
- a=bsP7O+dXZ5uKcj+dsLqiMw==:17 a=zJRp6_cAMcgA:10 a=x7bEGLp0ZPQA:10
- a=BXpT7KiN_MIA:10 a=VkNPw1HP01LnGYTKEx00:22 a=kibvr5HLtuNvmma_iept:22
- a=EmTZQha9bAnfYDchpHGQ:22 a=v3ZZPjhaAAAA:8 a=159dhF2HwaxKWhnN5oEA:9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA2MyBTYWx0ZWRfXxeBgeLv0fVcX
- oUlXFMAIP/y11rtSG9oNtvT6UrD81fmBubkKDW7Iawn3l+DhLq+QQ/bjdTm3xCT3EZaqzBnbUZn
- +gTqCc1GGWpQAMhq41ol7JLgbBck414wYR9S4pyQh8oFxLDpobxxRvUr6uYUq00FAH/kVjWcKIF
- 80IbBaGDtKYO0vVnxwx175XXk0F8yaBwB8HwGyXIbnjs7kRDhvMdSd3Jj+SN/zjuItAWkE3QRPK
- vKPFAifDy15OhwTNEwdYgLRZsEQXbQL5Q5P8z3thEb4Aj6YuYqn9Rk0jccwKUk3hqphkPhcFD6L
- MWIkCwxa/zUeFzGx5xbod9DbSlD3cyToFf7+YiDhAufIXce5MrYPW0vpQVslDo=
-X-JNJ: AAAAAAABy/kXVw5OtEtl1t3Kimj6KzQPlcY5KEyITMdpz7aVa9LhprsjjjbBaJnyniA1U6
- IZgvKKJ8U6ccqv8FPE4ixUvZgTNGcvEqJSjcv8Z0+nktYfC2ytqsVlM0ypbiAASR6lSaCo
- xmNnjqbi+fUMyE5LuhZvoML/a1S279a+VKc5koQDy302i+Jk26jQbbVXhWZYozJZdR4A5s
- l10gON4+CDhDyGi8GQFP5TamqCaHoVl7dGXuFUA3jm2ELEI28UC/xT/6SwMieMYxH4JCwm
- p3Ol5xPXWjEm5yvbluxVATHLotRUE5oJC6iR2c3WyRFK5DnduQyLWw2aeJa4DjZeb6H1Tr
- MyX3jWztueIxYL2PE810tSJfhiihx0W2qvzHN9N437OHXePSz727AVf7T1QykcRCRk4NFy
- qX4igZ7GO8PddOl0HQS4eo2AT1UMmmTUniPLD+wi0Dzr2waHjc1YOVDC6RqTVVwQOMr8mZ
- lOeuDUYqeIJimJ2h4/E8eFkZiXbkmLUTw6ygidWQEvc37SsiFjcv7dHY2OfMo5lkZwFghx
- TrlG/mT97EjUgjVdKgfTqAj1tHCbdPWYe1/bd+TQOXalhXJeOfo14Ua7KSHuZv1mveuHAD
- +C5/jcpozzuufB4vJCRkSNY6JJKH+uPQVEOQIkbFKkMLqnWSTac3C/i/SynMUr38/V8bwr
- 3txfCmw7CfVe3ins/1DWtmZF57YjxiGWj3YY57kUDYomzjqupkxL26VvjBlAD6uZHzHOc1
- PK47MImPWD3MOG5eCtEj94S+hHfy7T4UuNvdVX7tTdOtSROhaF/IpqEQfL69tyExhG1+it
- AFZRu8OXprL2KPt5zNwMzDbUJUbTsjm2WHNMa2xpJNMPmQqzZ3qEVCei12saltwOv6HD+1
- QuPx6UD2hJAn4rbMKvvhF5IgJORZebpSRDVkORq7engF4VoNBSG/veVigMHRuCPSF7nu/L
- 5ZonatHE436ZU0ieIJp942su+fVY9zyuMOR61O7iWfIeIv643fuZ+lRyBW8GqI0ntpWc+9
- ghU+pRde7JOW7Ob3KA71GvCDDNXiGr1c4PWcPxD7tjXvxLElc3XYX8uIDnoWNQFh4T+ay5
- 6gzp3qkKJJ1AmUN+o0MI9H+xn16cqC/5f6jwaAXIue66vc9kCtgssivU/vKi6pQPHIBEtj
- KNPRxWBGy7ZG+NgVVttJ9dZUGHsVswazooOoq3f2Wcaapiis9Bf6hTA/xNoJqWR04Jr8l1
- Pv7GRh1eFBSz12kXQFRmqGpjw6r9KWm5KK7uynXN76Ua7OOdJpRfVA+pEC96PnsqoOBr
+References: <20261117-ppc32-perf-v2-0-2072e9b90009@gmail.com>
+ <20261117-ppc32-perf-v2-7-2072e9b90009@gmail.com> <53a68daf-e694-4c88-b99e-fb8a4c17c1a7@linux.ibm.com>
+In-Reply-To: <53a68daf-e694-4c88-b99e-fb8a4c17c1a7@linux.ibm.com>
+From: Matt Turner <mattst88@gmail.com>
+Date: Wed, 18 Nov 2026 11:01:46 -0500
+X-Gm-Features: AclHuK_8SbeIetAuAxVk5cUH8H6DpVcwuDu7-4JcvC6SDnui_bzwIAqMlYKvZ6M
+Message-ID: <CAEdQ38HmRZUwkh2TKSW8_Vg_O8yW8JdcEbj2j-EJtq2_u4zprQ@mail.gmail.com>
+Subject: Re: [PATCH v2 7/8] powerpc/perf: Use SIAR for sample addresses on 32-bit
+To: Tanushree Shah <tshah@linux.ibm.com>
+Cc: Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, Shrikanth Hegde <sshegde@linux.ibm.com>, 
+	Paul Mackerras <paulus@ozlabs.org>, linuxppc-dev@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-The IDR API is deprecated in favour of XArray, see
-Documentation/core-api/idr.rst. Convert the
-minor table accordingly.
+Thank you for the review!
 
-XA_LIMIT is inclusive, so the upper bound becomes
-GB_NUM_MINORS - 1 in alloc_minor(). xa_alloc()
-returns -EBUSY instead of -ENOSPC when full;
-adjust the check in gb_uart_probe().
+On Wed, Nov 18, 2026 at 8:20=E2=80=AFAM Tanushree Shah <tshah@linux.ibm.com=
+> wrote:
+> Thanks, v2 looks right. One concern: the rule infers user vs kernel
+> from SIAR's address, but a real-mode address (translation off) is also
+> low, so it can look like a user address. The 0xc00 samples in the
+> results come out right only because the regs are kernel there. If a
+> real-mode SIAR ever pairs with user regs, the rule would trust a bogus
+> address.
 
-table_lock is kept: it prevents the entry from
-being freed, while get_gb_by_minor() uses it,
-whereas the XArray lock only protects the array
-itself.
+It does pair with user regs. On the hash MMU CPUs, a DSI or ISI for a
+page whose PTE is present but not in the hash table goes to
+hash_page_dsi/hash_page_isi, which call hash_page() with translation
+still off and return to user space from fast_hash_page_return. EE is
+clear the whole way, so if a counter overflows in there, the exception
+is taken at the first user instruction with SIAR holding the real
+address of the hash code.
 
-Signed-off-by: Philipp Prell <philipp.prell@icloud.com>
----
-Compile-tested only (W=1, C=1); I do not have the Greybus hardware.
+I reproduced it on the 7448 with a loop that mprotect()s 2048 pages
+read-only and back, which flushes their hash PTEs, then reads one word
+from each page. With -c 10007, 1674 of 2659 user samples landed on the
+real addresses of DataAccess, hash_page_dsi, hash_page, create_hpte and
+fast_hash_page_return. My syscall test couldn't have caught this, since
+it counted those as user addresses in user mode.
 
-An AI assistant (Claude) was used to review my changes and to point
-out bugs in earlier drafts and to help with the wording of the commit message.
-The code changes were written by me.
+> This rule avoids it and still fixes the interrupts-off case:
+> regs->result =3D siar && !user_mode(regs) && is_kernel_addr(siar);
+> User samples then use regs->nip, which loses little (SIAR was only ~4
+> instructions closer in your table).
 
- drivers/staging/greybus/uart.c | 25 +++++++++++++++----------
- 1 file changed, 15 insertions(+), 10 deletions(-)
+Agreed. With that, the same test has no user samples at kernel
+addresses, and 99.9% of the kernel samples still get their address
+from SIAR. I'll use it in v3 with your Suggested-by.
 
-diff --git a/drivers/staging/greybus/uart.c b/drivers/staging/greybus/uart.c
-index e1b73db6a17c..ff33991562f5 100644
---- a/drivers/staging/greybus/uart.c
-+++ b/drivers/staging/greybus/uart.c
-@@ -22,7 +22,7 @@
- #include <linux/serial.h>
- #include <linux/tty_driver.h>
- #include <linux/tty_flip.h>
--#include <linux/idr.h>
-+#include <linux/xarray.h>
- #include <linux/fs.h>
- #include <linux/kdev_t.h>
- #include <linux/kfifo.h>
-@@ -66,7 +66,7 @@ struct gb_tty {
- };
- 
- static struct tty_driver *gb_tty_driver;
--static DEFINE_IDR(tty_minors);
-+static DEFINE_XARRAY_ALLOC(tty_minors);
- static DEFINE_MUTEX(table_lock);
- 
- static int gb_uart_receive_data_handler(struct gb_operation *op)
-@@ -341,7 +341,7 @@ static struct gb_tty *get_gb_by_minor(unsigned int minor)
- 	struct gb_tty *gb_tty;
- 
- 	mutex_lock(&table_lock);
--	gb_tty = idr_find(&tty_minors, minor);
-+	gb_tty = xa_load(&tty_minors, minor);
- 	if (gb_tty) {
- 		mutex_lock(&gb_tty->mutex);
- 		if (gb_tty->disconnected) {
-@@ -358,13 +358,18 @@ static struct gb_tty *get_gb_by_minor(unsigned int minor)
- 
- static int alloc_minor(struct gb_tty *gb_tty)
- {
--	int minor;
-+	u32 minor;
-+	int ret;
- 
- 	mutex_lock(&table_lock);
--	minor = idr_alloc(&tty_minors, gb_tty, 0, GB_NUM_MINORS, GFP_KERNEL);
-+	ret = xa_alloc(&tty_minors, &minor, gb_tty,
-+		       XA_LIMIT(0, GB_NUM_MINORS - 1), GFP_KERNEL);
- 	mutex_unlock(&table_lock);
--	if (minor >= 0)
--		gb_tty->minor = minor;
-+
-+	if (ret)
-+		return ret;
-+
-+	gb_tty->minor = minor;
- 	return minor;
- }
- 
-@@ -374,7 +379,7 @@ static void release_minor(struct gb_tty *gb_tty)
- 
- 	gb_tty->minor = 0;	/* Maybe should use an invalid value instead */
- 	mutex_lock(&table_lock);
--	idr_remove(&tty_minors, minor);
-+	xa_erase(&tty_minors, minor);
- 	mutex_unlock(&table_lock);
- }
- 
-@@ -860,7 +865,7 @@ static int gb_uart_probe(struct gbphy_device *gbphy_dev,
- 
- 	minor = alloc_minor(gb_tty);
- 	if (minor < 0) {
--		if (minor == -ENOSPC) {
-+		if (minor == -EBUSY) {
- 			dev_err(&gbphy_dev->dev,
- 				"no more free minor numbers\n");
- 			retval = -ENODEV;
-@@ -991,7 +996,7 @@ static void gb_tty_exit(void)
- {
- 	tty_unregister_driver(gb_tty_driver);
- 	tty_driver_kref_put(gb_tty_driver);
--	idr_destroy(&tty_minors);
-+	xa_destroy(&tty_minors);
- }
- 
- static const struct gbphy_device_id gb_uart_id_table[] = {
-
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
--- 
-2.56.0
-
+Thanks,
+Matt
