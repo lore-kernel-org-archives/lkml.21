@@ -1,67 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.10
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795025830;
-	b=l9H6eHxP0YuY8OOzcsMSyEjN/qZFTVTX4EZfZI0HMWB27Whf0mIVHUwqM8rARaEmwW3p
-	 73Y0SpaLUHJpVvUqh6PObmLcfC25QoHIB+8sc14FFov5uxHeRMiVCFYqwHLgeeOy3nP5P
-	 d634OXGczfK+V8ZV7BDel2KX5scIBCUCsTfUAjGijFvaBR0ruSn+579dWxyQ2rClly3Z3
-	 JJO62VHTt7KMD7pY391CqrsczDX3ZFJT+o0GNo/qDVXzUOG8w0Z6N69FdNmCFns16x5S+
-	 eAL8wHdxQ4huu4q0VEnr6TblaAKe3klKQrhuJZxrtK2xds6B+4u9i5YxRiBFOZUtKYQ==
+	t=1795025842;
+	b=gkmLaMg4HmeL25ZeztfaQJbobj28EJF42vVDLP9ObRXCVOadRcH2xFlpA1npftiBwB+p
+	 psQmd5ZXlPvl+thuvm9LWdHhSEqmylQrUgApa0NPt9cS3YnA0utQOHH9QZ9OWPaVIJnHe
+	 qLacVrrbG6gb5qQsyXNMX87hpoFZrtRoD1FvlIl0jHrDJxscQrKTr1iUl/+R4QsRmpP/z
+	 sBpAUjbS/bnoD/+UFDorHAT0K+NbiQvLdyhjcpEbOXgDwxhk5HvEPQbcMVf+0qSSxqdt9
+	 3u79+0/bCxgSnhwFRPWqSKIh+SioeqLzk6PKD+8ZBNSxXyTX7T6L13lHg7sg9MagS8Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795025830;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=43NE97/+suR2lvMlOlQq/OVozCS12mum69E+yjyBLwU=;
-	b=N5vM4n41nYQ9ztR9cntYd0CakmXz623sDQtInVgmds93ZVi3u0WPHDrzd3SSOfKDrXPz
-	 N1nxnyW0gPryUq+7PbLAe0tAS23XcrB0wxCSH5q2KkADiQyCeQGZb7qEDFB9vwlju0ViZ
-	 zKD/MUCsaET8b2xH6E0umsUXW7K0bqY9OpDb9n4WAzEIl0Q+iwCVHmWYvLU0dpQ4JMKfT
-	 gRclPEFqUPixNpBqV56tFdeJFV+BO33ZcKzzzSh5PjBYFDJmGaW9pS97+MbeyEMppGcK7
-	 eOmN0ix9WwQyMRwl9C6IAScZrdfRC3oX9N+pFPktgF0aDuLf0OZF2fonxXTNlMbnBFQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795025842;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=PbFLxNHjDnaUS0KL3r5kObCQqqZERx9HU4X7ztNYR6Q=;
+	b=uSawyjp17zm1YjaNM9e2x5fcZgJ46CdjOxH0uaLJYjXZwtbiFM+WaCkrarY0o4nx1vjN
+	 kWeB/usN94C60OG3YCO4CHfPxFtpPtIDN9/1lv9bhSptWhgZKyqXRUNrFJXuvMBoztYRq
+	 T7Gn7fHV1a1XE+zGYY37meodLIQWsUw70O3pB8rgdP+t2ypARIX5AFzx+wTAWmuqomXXQ
+	 yLxdOn/yNBr8bxU7d8fzV8BqnuvHPveI1eFX3sxxtXtk8UATtmN9SXuGHLH8LdBfcPoIK
+	 gISv+lVE0+lT0wISISYR5cWuxZfSOqaRvdu/D4OSkGNK21xdJ9Z33mM7UCy38GBR+uw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ESzuzTBO;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=T2EoKEqZ;
+	arc=none smtp.remote-ip=192.198.163.10
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.10])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5C28606A32C;
-	Wed, 18 Nov 2026 18:17:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 88596606A32F;
+	Wed, 18 Nov 2026 18:17:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 88596606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ESzuzTBO
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A8931F000C6;
-	Wed, 18 Nov 2026 18:17:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795025829;
-	bh=43NE97/+suR2lvMlOlQq/OVozCS12mum69E+yjyBLwU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ESzuzTBOdkG4ZukOFhNH6zujywousEuGxMY42b71Y6toogP16WegXnUnOOwAu2xZM
-	 94LZk5i9vZhTnQXMXusP42QNdAlAe9KShFKOVk+B+6bhewI2T+RxcPnL/YG8kc0AXz
-	 2CM5e3dLzcfJeAeLi4ajfCEs0OgeRZdhvp0phDi97Jad8vI5sdxu2UG2Veh0u6eDEi
-	 EixE7c/90DvlK3vM7prJB2HR0cHe/IPJOWqcXbDCf5E3++orBQyflIVHoTC3fDAJD5
-	 Qx4f8tr5ICkQEvJf4wnJbU21ZSvJhLcYj8DtScqMT/nkgLgm7ZWIzbis6+ubU2ux/A
-	 MzFijBjpm1v4Q==
-Date: Wed, 18 Nov 2026 18:17:03 +0000
-From: Conor Dooley <conor@kernel.org>
-To: John Crispin <john@phrozen.org>
-Cc: Lorenzo Bianconi <lorenzo@kernel.org>, Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Ahmed Naseef <naseefkm@gmail.com>,
-	Benjamin Larsson <benjamin.larsson@genexis.eu>,
-	Christian Marangi <ansuelsmth@gmail.com>,
-	devicetree@vger.kernel.org, lei.dong@airoha.com,
-	Linqi.zhang@airoha.com, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	mfd@lists.linux.dev,
-	Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
-	Rajeev.kumar@airoha.com, upstream@airoha.com, Weifeng.xu@airoha.com,
-	zhengping.zhang@airoha.com
-Subject: Re: [PATCH v3 6/9] dt-bindings: pinctrl: airoha: add AN7589
-Message-ID: <20261118-refried-storm-d43378dd6a28@spud>
-References: <20261116174854.342912-1-john@phrozen.org>
- <20261116174854.342912-7-john@phrozen.org>
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=T2EoKEqZ
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795025842; x=1826561842;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=BB8Sidxy7tdBD0g99PmK8mzdJjQX6+rwLLTFK6AaG0g=;
+  b=T2EoKEqZToejj99u+lHAAhkAJWzybts/kdEs49zI6165O1uaMLrwpVXZ
+   VOSPSl+Ri9vcMILUmHSBHV7MRa9YN1cTixTFvru/MphW+Z5NYLkt1HPrY
+   Klk+wJhYbM65+eFMPiDDuj9K7XO0A+YpsT3yQiR0R0WQ9ncEW8Vqb7cU6
+   /9CKe2dphPe3T9bkzDoogsqXc2zTjxTod+GU92hzscxHmCwZ+yK2pIiyI
+   PifT/cEmGbgprnujXmXqiV6V3A8IcSBl1yWgWWwHvpd5gXsVQCCLF0frE
+   Q/Rml2+roB+K3D/FVd/nxAHpp9wTXEqMQxbt1v18OaWfildQZ+AC1ikkJ
+   w==;
+X-CSE-ConnectionGUID: ptnbU6oJTz+iNgICsrO+dQ==
+X-CSE-MsgGUID: TUKBn/DBSy2sj8V2EQFBzw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3744933"
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="3744933"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 10:17:20 -0800
+X-CSE-ConnectionGUID: 6AOb6tGyTwWZiinje3dcVw==
+X-CSE-MsgGUID: JTzWZnuFSnCifa+0vr3zbQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="10087018"
+Received: from skuppusw-desk2.jf.intel.com ([10.165.154.101])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 10:17:20 -0800
+From: Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel.com>
+To: Bjorn Helgaas <bhelgaas@google.com>
+Cc: Lukas Wunner <lukas@wunner.de>,
+	Yazen Ghannam <yazen.ghannam@amd.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
+	Oliver O'Halloran <oohall@gmail.com>,
+	Len Brown <lenb@kernel.org>,
+	linux-pci@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 0/6] PCI/DPC: Decide DPC ownership with host_bridge->native_dpc
+Date: Wed, 18 Nov 2026 10:17:12 -0800
+Message-ID: <20261118181718.3907441-1-sathyanarayanan.kuppuswamy@linux.intel.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,59 +84,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Nod0t4s8ldmFfdkU"
-Content-Disposition: inline
-In-Reply-To: <20261116174854.342912-7-john@phrozen.org>
+Content-Transfer-Encoding: 8bit
 
---Nod0t4s8ldmFfdkU
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+This series makes host_bridge->native_dpc the single decider for whether
+Linux uses DPC, as Bjorn asked during the review of "Simplify PCIe native
+ownership".
 
-On Mon, Nov 16, 2026 at 06:48:51PM +0100, John Crispin wrote:
-> Document the AN7589 pin controller. It lives under the GPIO system
-> controller and selects functions through a separate IOMUX syscon,
-> referenced by the airoha,iomux phandle. Every pin is a GPIO in mode 0.
->=20
-> The AN7589 has no chip SCU dependency and the vendor SDK carries no pull
-> or drive registers for it. Groups follow the SDK naming without its _grp
-> suffix. As in the other Airoha pin controller bindings, a function names
-> a block type, such as uart or i2c, and the group selects the instance. A
-> node selects one group, except for pcm_spi and pcie, whose groups carry
-> different signals of one device. The PON groups keep the working mode
-> only: the SDK encodes the driver reset sequence as extra pinctrl states,
-> which belongs in the consumer driver.
->=20
-> The pwm function routes a PWM channel to one of GPIO0 to GPIO15, with
-> one group per pin. The pin also needs its GPIO output enabled, so conf
-> nodes allow the GPIO direction and output level. Pull and drive
-> properties are not allowed, as no registers for them are known.
->=20
-> Signed-off-by: John Crispin <john@phrozen.org>
-> ---
-> Changes in v3:
-> - Move the IOMUX syscon compatible and the GPIO system controller to
->   patches of their own (Lee, Conor).
-> - Allow one group per node, except for pcm_spi and pcie, whose groups
->   carry different signals of one device (Conor).
-> - Fix the uart5 example, which listed uart5 and uart5_full together.
+  https://lore.kernel.org/r/20261001221408.GA2731929@bhelgaas
 
-As discussed elsewhere,=20
-pw-bot: changes-requested
+Today the DPC service binds on host_bridge->native_aer, AER availability
+and "pcie_ports=dpc-native".  host_bridge->native_dpc is only consulted
+by pci_dpc_recovered().  After this series, native_dpc is the end result
+of everything that decides DPC ownership, and portdrv binds the DPC
+service on it.
 
-Thanks,
-Conor.
+Patches 1-2 are the two DPC patches from v2 of Lukas's "Error reporting
+for AER-incapable devices", which are included here directly.
 
---Nod0t4s8ldmFfdkU
-Content-Type: application/pgp-signature; name=signature.asc
+  https://lore.kernel.org/r/34c9ee153876bac953135b4518035194b7c07c6c.1794997749.git.lukas@wunner.de
+  https://lore.kernel.org/r/58d8a99cc6c2ecba6dadc450ecb4501d47816732.1794997749.git.lukas@wunner.de
 
------BEGIN PGP SIGNATURE-----
+Patch 1 keeps the DPC driver from accessing a non-existent AER
+capability.
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCav3rnwAKCRB4tDGHoIJi
-0mgMAQCtXqMjFyJDkPv8x2z7GuoGiMd4YO4oxN1j6Y64gK6v7wD/ctkEr5B5wNU4
-UN8LKSfygbDfpSW3r7urO7YQwtw7bAQ=
-=apU9
------END PGP SIGNATURE-----
+Patch 2 drops the AER ownership check from dpc_probe(), so DPC also
+works on ports without an AER capability.
 
---Nod0t4s8ldmFfdkU--
+Patch 3 builds EDR whenever DPC is enabled on ACPI, so CONFIG_PCIE_EDR
+is no longer a separate knob in deciding whether to request DPC control.
+
+Patch 4 stops requiring pci_aer_available() to bind the DPC service,
+since the DPC driver does not depend on MSI or on the AER driver.
+
+Patch 5 requests DPC control only together with AER control, as PCI
+Firmware r3.3, sec 4.5.2.4, requires.
+
+Patch 6 binds the DPC service on host_bridge->native_dpc and logs a
+message when the OS assumes DPC control that _OSC did not grant.
+
+Changes since v2:
+
+  - Pick up v2 of Lukas's two DPC patches.  Patch 1 now uses the AER
+    capability to find the error severity when the port has one.
+
+  - Keep CONFIG_PCIE_EDR as a hidden option instead of removing it, and
+    remove the pci_dpc_recovered() check that becomes dead (Yazen).
+
+  - Fold the PCI Firmware spec reference into the existing comment in
+    calculate_control() (Yazen).
+
+  - Shorten the comment in acpi_pci_root_create() (Yazen).
+
+  - Rebase on v7.4-rc1 and add Reviewed-by and Acked-by tags.
+
+v2: https://lore.kernel.org/r/20261020181924.3003553-1-sathyanarayanan.kuppuswamy@linux.intel.com
+v1: https://lore.kernel.org/r/20261007165840.1604136-1-sathyanarayanan.kuppuswamy@linux.intel.com
+
+Kuppuswamy Sathyanarayanan (4):
+  PCI/EDR: Build EDR whenever DPC is enabled on ACPI
+  PCI/portdrv: Don't require AER to bind DPC service
+  PCI/ACPI: Request DPC control only together with AER control
+  PCI/portdrv: Bind DPC service based on host_bridge->native_dpc
+
+Lukas Wunner (2):
+  PCI/DPC: Avoid access to non-existent AER capability
+  PCI/DPC: Reinstate support for AER-incapable ports
+
+ drivers/acpi/pci_root.c    | 19 +++++++++++--
+ drivers/pci/pcie/Kconfig   |  8 +-----
+ drivers/pci/pcie/dpc.c     | 58 +++++++++++++++++++++-----------------
+ drivers/pci/pcie/portdrv.c |  7 +----
+ 4 files changed, 51 insertions(+), 41 deletions(-)
+
+
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+-- 
+2.43.0
+
