@@ -1,100 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795002028;
-	b=MsmldENyoquVUtl+SRaIIXV+GUFzh9B6+XuCFFC/KarjdAsiDdgQLolIh/kuKvkNk58C
-	 8Ubwb1lJlKGbepW0CKHdl8qc/FT/Jltnf/fn71J6sdFOpt/rAR1TYZo/HnR8KoJuJdVAE
-	 nJia8JwHlAj7MlSrFtGDZJM/B0LPCNhqrgGj33Ke93mC8IbbnHNw2K7TuKO0qvui0/p3w
-	 iomeTy56kHPYlZlwdt7zfGLfX1qmDn3ZklntEf5V4zjj05xMdSJxcj/z2RMtknWVyWkQh
-	 5gXMnJ4gh0rKTDJxXULASGb0WGWh+LqMYulT5RnypQ7qnyDJuxNqORqg8biW6Eg85oA==
+	t=1795002038;
+	b=KJt26jFYydxfiTZ8NprAK7Kcbz8epqevvcXOlnQ8196vxaMSWK4k6HmJtLhB4grJkbuB
+	 HvieJG2uIluuCdmCAtpmtQdFzZV5OH8/Wwamzw7+4wdpbSkHGKhpfJeoiy191QsY9+qv6
+	 IDsNEFT/wmM5wCfrKffy35wbpVN2td+CkS1mXK3YovmKt/UIGZKPJcU2pUNwJd8OFZiAA
+	 MBD5BEm6fUF6XCKZ3iLZxJSmUVQVC7gjxpdBU4wBekOmzWpjLfULmcUsFBGqAownFCa4m
+	 +UU0pAWJF4bqk8wRCh9tD/zqtjfORF7NT3iBbTQp4ViFNwXRfhQCitRZrJiAluKXI1Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795002028;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=joKPrh60l9RacrgiLaA7oi1DDDf9ZOY+t9J3WM0zaLk=;
-	b=ivcHnctJ4MB/j1+UkAGKWwANzJ5sFlPgzt4901rIrTT3/f/YwGxk2aPwCFhqJMP8WzVG
-	 tADP5PPKdWtbvZK6bqCScWlJBnNRtgUWMinPe2jIpCoBW1AjJIHVCouyEMRJUl3tt+wdH
-	 wiAhXGC9dpwpfAuDFMIa7Wht9+x3RRRtFvvr4qiG3BMjZJsewieId6mRGEMpgxx18nHxD
-	 jwFEgQ1F5sFqCACWFi/NQ4TaTR9WRXQzop3lZebqeRepFRnzgf+9f3bA8TsMkCmjK/ZLT
-	 pGpOqsTncZsZGMAofoe4gn7gMTvHRUQDADVDUN6ysfuzUFgXajKI9hb9ZPOL2xOW5BQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795002038;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Rspamd-Queue-Id:X-Spam-Level:X-Rspamd-Server:
+	 X-Rspamd-Action:X-Spam-Flag:X-Spamd-Result:X-Spam-Score;
+	bh=/jusEW8MbjxMqC7NChUXoiR0Wnd+3pEn500MQ5TYY6M=;
+	b=zoJyJnpswUuPyBhhZM1/qR6FthNmf9my1FUPD9j4OAkU8U+peJbIctRkgFjMUwR7F5kN
+	 6XVfVTAE3UdiWJRVUyx6ZlZcgN+bO5b1IJlkgtx6VTzv8aqoD5dcyF5TccBkc+kdv7YZf
+	 XUP2WkW1/rNHjka6EaXRRIazS1Sfk3cvDFYP4CZvppK+PcODl3TvFhJP/aHyYJ+ijlOZv
+	 O9Dbi/nkEok31fMt6qAio6ejAYUjamG0xySqlh0j+wf5AGACQXbl8LipDmEtUF8YRWnJ3
+	 v5c+XVC7XCiBhVNxzw+QTi6JWePjzVqPTeTwsMA/Xhwev1QWQdA5TItMljbGPCE3nqg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=isslab.korea.ac.kr;
-	spf=none smtp.mailfrom=isslab.korea.ac.kr;
-	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Ri4FMxE0;
-	arc=none smtp.remote-ip=209.85.210.179
-Received: from mail-pf1-f179.google.com (mail-pf1-f179.google.com [209.85.210.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=suse.cz;
+	spf=pass smtp.mailfrom=suse.cz;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=OEzEsxUe;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b="/GC5I8d1";
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=tBOYjrHj;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=qYlNhwvv;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E542606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:40:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E542606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7AF8F606A31C;
+	Wed, 18 Nov 2026 11:40:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7AF8F606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Ri4FMxE0
-Received: by mail-pf1-f179.google.com with SMTP id d2e1a72fcca58-8a058315c79so434501b3a.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:40:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795002028; x=1795606828; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=joKPrh60l9RacrgiLaA7oi1DDDf9ZOY+t9J3WM0zaLk=;
-        b=Ri4FMxE0ENmt5ExlIpMFuucBbg8Ff7sKAf10q/8ianryZQyKtbi3YXq+ktSfczLSfu
-         IctLlAj/ddfPqpMpLdJSQfghV9HsCVBQXGWEkWXn72XaqMlG1/eCJwwmgrY6/N3rntfN
-         ZfpbOVhacSiGr87oYY/VR6SGrjRQ6qgHuYNfoBwiKRW/cuRuT2NWrM5Mu7Gx4VZAQNMu
-         gxJRzVDdgVqV3Xko6LFK3vws1WamrlKSqKm9s8WgCUZWPHAPe/9bwG6Cn6uK0NqjWDH0
-         EzCBn00mfADqxTRlXynqAz78TtowHCugr1TZsMaq4UJcPOVvGtmybUrhGNu/nFBP3gme
-         pEEA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795002028; x=1795606828;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=joKPrh60l9RacrgiLaA7oi1DDDf9ZOY+t9J3WM0zaLk=;
-        b=xlz3IPsQze/8YTtClmQCe3i3G7Ocz7EtaTA4TnwRsUXM6+r+Us5/TQlovTLyp7msd8
-         KuU/S6LiSTBkco7yfEE1gtnTFveWgG/n36xwZezd3RFON3KPQsGJP1gGpy3IfB1qmAkc
-         T4BAwMQKLBLvS13D63/4EAOSvnLesyw0Gdb/RYbE9gw9ecX7+PrGNRKG9rNaOhHSffWQ
-         +t6ei+KduYnD92yasNNfhhJjn8PVaqKDTK2fT90n9sLMO+jQi6PtsqmvXplDkM0hHBRF
-         S8vyPDWE7lve76iXYyu9OCPQskqaFHlp09R1tSm0Yj4OVWeoksAco72OaLgvRe7WO9gC
-         u/9g==
-X-Forwarded-Encrypted: i=1; AL+hErH/fBqU2wC5bKF/dqRrkHqFgQ1kQEXAiLv7AWPWgtjjanqgSi27uERtnoHTgS6ACksjMa2Fa3DWUcoCxtk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9SnFnTPSAcAoTppP2o/tPE4F6UredM1VSHNEKVmM6tkOvN9II1
-	oIYvGKbDlbRfDTfErWG2gSmQH8Tu0o1atdtqM+whvoyTXt+yuCMStljmaUtWiSm/5HZmT03nKnw
-	IIeYmuiY=
-X-Gm-Gg: AYBFou192cST4bglDtYrm61TA2+2iuaw0FCxmGY0PxGP4QfkF+CSGij5gdh0V/lqMn+
-	AUTj6zDKEXngOcd6+pjBMNr5Ymp8z74p8ucvZu9fYMiDpaVIzbIyGshbel+9v+NDtd8tuZMp3pD
-	i0z+xRaiQawcHBBMXc55fnROoBDnEg/k1zH0R3poIfPDacb70/DwkgZ5df6Q+4pL55//F9RlINm
-	Ga398Y8ZjHQeKQA73+vNKSTVFCtBVWuulsRIcyM20uL06ONzqHlSjJ9QajDlqnkMCXXN0SrYUmD
-	KGucScomIZEH4312+rgKGC4WJl91s2h2ErSFC+MO2w+j+rv6v+S6UhKsNib8DijYBoLNogIsW4y
-	6CFGMqsTq1gL5ikNWX4ps9Ik5HPUp/neraMsxN7pNQj3F20i/DU3PiVVcUC7Vtt23QyUbtXQt84
-	BhJN4He4BRcO08TSCwrcKjRFPtiJVF/M1mGfZSP/DKaAenHNlZVgh7MJgZ9g7ceyLooP35EhKvF
-	8lNj+NNeevTCmdVCUJKRJtGFrnGSAz/xylaosmnSUB0BGmGgLbUbT9Vv5tfZOg1f7yBWRJqa3cM
-	7nerRQKQOznOBZ/9eJubqu8L0Lc7N2zZsv9Tx/1epbEmAZAc3FxBlEW3XkssopkwvmTqqaYAAJR
-	rjBoWEXC+8fjsw7BDGPNeJIozJNHtcjCiEQGH3g==
-X-Received: by 2002:a05:6300:6690:b0:3fa:988:1ba7 with SMTP id adf61e73a8af0-3fe86bdc721mr2207986637.11.1795002027791;
-        Wed, 18 Nov 2026 03:40:27 -0800 (PST)
-Received: from localhost.localdomain ([2406:5900:1044:110c:e78e:f7f0:2120:34e7])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5cb35db4esm1038189b3a.35.2026.11.18.03.40.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 03:40:27 -0800 (PST)
-From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
-To: sagi@grimberg.me,
-	jgg@ziepe.ca,
-	leon@kernel.org
-Cc: linux-rdma@vger.kernel.org,
-	target-devel@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] IB/isert: finish a Reject the target core allocated itself
-Date: Wed, 18 Nov 2026 20:40:19 +0900
-Message-ID: <20261118114019.2362132-1-yhlee@isslab.korea.ac.kr>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261116101108.1650132-1-yhlee@isslab.korea.ac.kr>
-References: <20261116101108.1650132-1-yhlee@isslab.korea.ac.kr>
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=OEzEsxUe;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=/GC5I8d1;
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=tBOYjrHj;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=qYlNhwvv
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 357A722383;
+	Wed, 18 Nov 2026 11:40:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795002035; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/jusEW8MbjxMqC7NChUXoiR0Wnd+3pEn500MQ5TYY6M=;
+	b=OEzEsxUe0oXh5Ksh33U4er9nMgpOnZYAF51A5LB7QScubJMjJmmreKZuu+03kCCf5vDI3A
+	jBodPefZYV6UHF59U/CjOv1zTJycIZS3r+7R4eWjXcCFzeGGhaCO4wzMQsXaqUZhzGyEAC
+	Gk0xaSOl1i/bUT5N5gC00TkNdUQGbA0=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795002035;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/jusEW8MbjxMqC7NChUXoiR0Wnd+3pEn500MQ5TYY6M=;
+	b=/GC5I8d1pTl3XEpgGj8vZX9DuR0qnXvgcJjMRno2mFTh9YgQ8YY7FK/I3cxFwg8BHtA+wP
+	dTe6GK4jjwSmLGCA==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b=tBOYjrHj;
+	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=qYlNhwvv
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795002034; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/jusEW8MbjxMqC7NChUXoiR0Wnd+3pEn500MQ5TYY6M=;
+	b=tBOYjrHjmr6qWxt68l4LrD1VTvYyylwdALGC7wHuSGvPqetzg/uO8hB4VhhT3cbcgndcsY
+	1xvsOyGaaBNblmz9vNig+0RPztf4CEkBHKZxSbx8swkCY3XE1jEixXtRUlVqKGCrFCfZth
+	eRMlQebzAHAnOffy7009I5zYaHSXA/8=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795002034;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/jusEW8MbjxMqC7NChUXoiR0Wnd+3pEn500MQ5TYY6M=;
+	b=qYlNhwvvRsUw5X+3UeuxGP2qkUVd0mEietHTOJvMgxhYrxgvrct7X0RC8GMI0Hcy5PXFs5
+	Hyae9Xupjk8YhkCA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 0B0F51334C;
+	Wed, 18 Nov 2026 11:40:34 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id YmhFKrGO/WphDAAAD6G6ig
+	(envelope-from <jack@suse.cz>); Wed, 18 Nov 2026 11:40:34 +0000
+Received: by quack.suse.cz (Postfix, from userid 1000)
+	id 72D562501B; Wed, 18 Nov 2026 12:40:29 +0100 (CET)
+Date: Wed, 18 Nov 2026 12:40:29 +0100
+From: Jan Kara <jack@suse.cz>
+To: Hungyu Lin <dennylin0707@gmail.com>
+Cc: tytso@mit.edu, adilger.kernel@dilger.ca, libaokun@linux.alibaba.com, 
+	jack@suse.cz, ojaswin@linux.ibm.com, ritesh.list@gmail.com, 
+	yi.zhang@huawei.com, namjae.jeon@samsung.com, a.sangwan@samsung.com, 
+	linux-ext4@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ext4: check RLIMIT_FSIZE in insert range
+Message-ID: <ikuv23k7bxucr6itc73yu3xavmzsgmlgxzbhb7ialnvsydvoru@irjhteshrokf>
+References: <20261116185810.82581-1-dennylin0707@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,11 +113,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261116185810.82581-1-dennylin0707@gmail.com>
+X-Rspamd-Queue-Id: 357A722383
+X-Spam-Level: 
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Action: no action
+X-Spam-Flag: NO
+X-Spamd-Result: default: False [-11.51 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	RCVD_COUNT_THREE(0.00)[3];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	MIME_TRACE(0.00)[0:+];
+	URIBL_BLOCKED(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.com:email,suse.cz:dkim,suse.cz:email];
+	FREEMAIL_TO(0.00)[gmail.com];
+	RCPT_COUNT_TWELVE(0.00)[12];
+	ARC_NA(0.00)[];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	RCVD_TLS_LAST(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	TO_DN_SOME(0.00)[];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	TAGGED_RCPT(0.00)[];
+	MISSING_XM_UA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FREEMAIL_CC(0.00)[mit.edu,dilger.ca,linux.alibaba.com,suse.cz,linux.ibm.com,gmail.com,huawei.com,samsung.com,vger.kernel.org];
+	DKIM_TRACE(0.00)[suse.cz:+];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.cz:dkim,suse.cz:email,suse.com:email]
+X-Spam-Score: -11.51
 
-This is superseded by v2:
-  https://lore.kernel.org/all/20261118113905.2361969-1-yhlee@isslab.korea.ac.kr/
+On Mon 16-11-26 18:58:10, Hungyu Lin wrote:
+> ext4_insert_range() grows the file by len bytes but only checks the new
+> size against s_maxbytes. FALLOC_FL_INSERT_RANGE can therefore make a
+> file larger than RLIMIT_FSIZE allows, while ftruncate() and the
+> fallocate() modes that extend a file fail with -EFBIG and SIGXFSZ. xfs,
+> f2fs and ntfs3 already refuse to insert a range past the limit.
+> 
+> Fix this by validating the new size with inode_newsize_ok(), as
+> ext4_do_fallocate() and ext4_zero_range() do.
+> 
+> Fixes: 331573febb6a ("ext4: Add support FALLOC_FL_INSERT_RANGE for fallocate")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Hungyu Lin <dennylin0707@gmail.com>
 
-Best regards,
-Yehyeong Lee
+Looks good! Feel free to add:
+
+Reviewed-by: Jan Kara <jack@suse.cz>
+
+								Honza
+
+> ---
+>  fs/ext4/extents.c | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/fs/ext4/extents.c b/fs/ext4/extents.c
+> index ad0d80e33f60..94b9e091ef5f 100644
+> --- a/fs/ext4/extents.c
+> +++ b/fs/ext4/extents.c
+> @@ -5803,6 +5803,9 @@ static int ext4_insert_range(struct file *file, loff_t offset, loff_t len)
+>  	/* Check whether the maximum file size would be exceeded */
+>  	if (len > inode->i_sb->s_maxbytes - inode->i_size)
+>  		return -EFBIG;
+> +	ret = inode_newsize_ok(inode, inode->i_size + len);
+> +	if (ret)
+> +		return ret;
+>  
+>  	/*
+>  	 * Persist the pending zeroed EOF block to ensure i_disksize
+> -- 
+> 2.43.0
+> 
+-- 
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
