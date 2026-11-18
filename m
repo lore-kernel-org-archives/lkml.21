@@ -1,79 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795014471;
-	b=i7xHja6TX4k2vyKVkTIxxZGJ9X9lDgKZeyQUGHeWihz2Ayxl0RJZBmawedv75lma9zWN
-	 8i/Nk7u7ojiSdk3GT8y0gnfvysRsokmn528PV12JIq+d2SOzFlk0CZoezrMWTTfN6FRuK
-	 vsfzB9qbFbMRUBrzKJVi/dmZyWZyELWSvdLB62kRJDEue3TVxZ/JCW3qac0Q9HblL9/jO
-	 3foVhJi/A85J1O5Pcq+u4VywX2CUOwbX13s7CvOzuoRz753TDtiI0OGLXgeI63Y/6olKy
-	 PKGUmYuJ/Q59N+5GbZUsj9c7DFu70rOHiIN2gjpWhMV45L8rQRiod4SvfDAVWgN3/8g==
+	t=1795014480;
+	b=y6ugjwwrZo8rx/mHUWCl85BMO5oWof57+tMd4PYLgDoC6DGrpv7BFwSAglBtsfw/N1Ci
+	 uWIpKPokq+njuU9Gn2vUJxggjUOo8QeMjiPoWv5hegTptKNl6RQxjMyW5aElPmGGIQ5I/
+	 GqEe29UgQ5zjt5P2E/a5Rigp1zWfqk47z+R3FLAkukH2xzXEN63O6e4Ji8C0N6ortkULJ
+	 5CMsChqEwpo2yfI96zA+6mtxv6cCd0EUh2kA1zaAtiapzhNj8t32HkHzXhtSfF3k+U1OT
+	 F7dR8Im1Ron80feVyrCGUrTFMTTlz26eaBl69wx2YRpyuI0HJ9+hqAnbdAxBK8c4c9Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795014471;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=WpNvKlvQgWs4nlBDzrAzqY0K1wpz+T9bN3CMOunjYys=;
-	b=Fl/TV1qL8pXXYwQtwzaPISgKZqc9cgUbzPKdsyvhlL1vaPsX09DGzchUesLj8AqWekO6
-	 grFoSgSx3PEW1Fl6fN/1K/CPXsrj6jsXmYVQ7FDfex42qBz/4g+jxeIAR1LRyK34Po7oL
-	 fZ2sLD+g02DwI/Upn28HXV4tzv65YR46g6RHkGKIpiXoKRHjJhFXxC7FY217hpK5Dcm3D
-	 JoMIbttbo/E/0gTy+AF6FxrPQVHA5mqr8ePxveg9SGM7+R/7MSIUk4UsxVQXGmbkKV6vA
-	 wuPiyahEJTeeRXqrJM2HPCneGJbfJK0ubTpu0UZHZblMXQBLFKkSVJZzUf1T5PRfLyA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795014480;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=KOAjgx6Zer7vIvv4MB7qnnpefygiP8K8bu1p1D5WY1s=;
+	b=sDSdULiiiG/mTGiXFWOKcQmWBW5fshiHVqy496ux1ZpMoqkz9Z+harR0hp82Gu8pgzP8
+	 YpiNwOnBOOEa3ws+tG8vKOFN1pFqcZOIGNWWm9MWVSbwfHaUnBL+kv6YBoihcRlctOy11
+	 ActtZ6OTIXfKUYoT0BSw3QmRv0zuhlVAkm2kqM50B9nWAFO0saOeIgbR7cjVeqHg7z9cc
+	 srRGoy7xCMbs8s+f7KFdi2R9Og+QfHr8o1ViOWX1yKpHQ5Mab+AunKcKK7E2dufbv1cAg
+	 TOsbvt1RUfUMvJRVJGq87pZjW+TdisBScheVGiB2nc2bVJu/IKMA5ibVyosJVIRPaLA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ik0wB+4P;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="MywSp9/M";
+	arc=none smtp.remote-ip=209.85.208.176
+Received: from mail-lj1-f176.google.com (mail-lj1-f176.google.com [209.85.208.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id CE5E0606A32A;
-	Wed, 18 Nov 2026 15:07:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB23C606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:07:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB23C606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ik0wB+4P
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id C01C41F000C4;
-	Wed, 18 Nov 2026 15:07:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795014471;
-	bh=WpNvKlvQgWs4nlBDzrAzqY0K1wpz+T9bN3CMOunjYys=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ik0wB+4PWOYL2hmQiNwFTeBBvupZ2nUcJiZ54iyfaa2tU77mnLlpFifyj8n1RAoxc
-	 JiFr1whbKGn9jctVHgQHsWlXlRxqGaOAejYgryvppYJ1hYUJPmJajsbl1RZNJZ2urH
-	 fAR3taWBeKxDwuMnnlsPRwbWW5GR06M9hA5dv1M1pEA51yEPNLWXKWfBsoGOA85JWU
-	 RdSwiNfRnISgDS/zRQ8IFyTjSctGJRDAEhTnp4ENDN8HwGtDmIypnNR9Lro8os8drC
-	 gH5m26+2mcTSgygYysYIO2BPjm0gAz6kctoO3OxBWgeB2Wg89nS8C+lhRUQ+5galCW
-	 RrUE6ZrvqIprA==
-Date: Wed, 18 Nov 2026 17:07:46 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Marco Felsch <m.felsch@pengutronix.de>
-Cc: Rodolfo Giometti <giometti@enneenne.com>,
-	David Howells <dhowells@redhat.com>, keyrings@vger.kernel.org,
-	Herbert Xu <herbert@gondor.apana.org.au>,
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MywSp9/M
+Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-3acf82fdcdbso11101821fa.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:07:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795014478; x=1795619278; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=KOAjgx6Zer7vIvv4MB7qnnpefygiP8K8bu1p1D5WY1s=;
+        b=MywSp9/Mu/NivggbV4jAQ5W8/LXE0Ed8J53gf4pnkttSPOLxuM78HZzLgCGMwkHe3R
+         xgZHV1t/NOhWTH4CSOwf3J2m4bznULlYw1uO3XRaE9ksMH0/bZedatN9G4tjwq0xUAx+
+         PpeaTgrCx30rOXCTNiZ/cqDOvc9YhFLLdr8QMQnV5cKwt2qFfMx770cSVahuJJXrUKDi
+         QXGXkwljhfBEQHErIYgGky1wxqJzmooYhedu2LR46oCkFPtFsLZLlOYclgtzTt2JDtdy
+         JIWR88mo9/znTAjmaevBS3cx6nEBpMsGVE4jWDaqMV9Oec71NhNag5Hs0ej1l9YrrQ4M
+         HbMw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795014478; x=1795619278;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=KOAjgx6Zer7vIvv4MB7qnnpefygiP8K8bu1p1D5WY1s=;
+        b=CqWhnyA6kchAIDkrAbwPg3XNWjnodIHAMzuH+ZxQhy1YO9p1qRPRHyUIJZrucaag5U
+         tvcgynqQ5cQl4rAJOkv65+q0kzfWnmRvWexjvoR8ux/32Pca3wWRyCyXlPfUWSOBobao
+         il7d8vqkxsO62zcDbKS3w+n4lkAtThb/rQx8iS0Z1sEqbOg7CC/2ulXfFfkDgj/nGuwU
+         pMhL5wVRV9FjRib41+8Bu7yFZOWpuVFgg1o3jH88lfkfCFBSBCbqWa5yVuHbQn6NOq3S
+         tXqbUnbdCqfbFKUw1wEeX/Mxl13u8qGs6sPnB9Lj9ab0GPj1z7cqgdBBIclskLvVAJZS
+         dM4A==
+X-Forwarded-Encrypted: i=1; AL+hErEVFwtG41rd/ZqDzGwyG2dZSgfz2N7YzGwDVKuJbVAKbbU9nub0R5wux2JVcb3l4JKsYnTXytkxdYa8RPo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+QCLvZ2XY7r/MAb31WL6IVFXc3NBSREQGNm0WY+MOFLl586UwQ
+	UKe3t6iITySwXLnG1YEhKlFYLDWNEbvEXnxViu6v8rXHSmlYGLJ/HX5tEDfOJkvz
+X-Gm-Gg: AYBFou3qsDdMAEv0UOPeRPxWgtXr2nTP+cfGL8inxWfQwZd35PJDUAWmuCrgC4XAGuO
+	6p5nct/jTMGbiEj1feAPxblTBJ0ydvCpxX1TMopBxk6Sn1ER1gmAgCtbqfQaYr6UJT3VZ3ZASMT
+	BRNtCuzuyQlkRaCrfmh7ZK0To9UVbQbXC40BqO76ylosJAdw7M5hfbjUax9r2+mghKZz0QdKaS/
+	jse2n1Vr1FulxKX0iSMq7vhMGDPdan+r4NKmtp0XVT+rDP+OTyMO9ewA3TK0574IuiA75cgElji
+	bdUZjHZGLAUipJCiiqRXSO/m7rw9Zc/6UPCB+xtaNWyScSUcHwy4IzdW3sP41RZmFApboYfrXdI
+	4F32PVLr1ia8yRshUrxiJYEhs6tObAkzUy5W0UPh5mTtPj2cGvjxwDJl8n2lS8o1vXkFdZUxF3i
+	5dw0VmaOidP7CgWCPjobJMikNhBo9IID+Z0kcs72A/NW0rvhYkCg2hmWyKh9cy9IUW5ouD3BZWg
+	brcy5tbt94/EOoASvumyf3kiKr8jGCd3+5WIxd76Qwrv0QcmvXd7kV9HZaaPKmvTz69viu0Z+qq
+	T/0B/wAozJjMOEFppgx5nZ90BWxwP0nUtA3Nq1POiQMfILzQOsRRGHlYYJJ0ugCWharRofq6Dv1
+	RemGh/TI=
+X-Received: by 2002:a05:651c:a18e:b0:3a9:a2fd:5931 with SMTP id 38308e7fff4ca-3ae670b66eamr11800721fa.6.1795014477838;
+        Wed, 18 Nov 2026 07:07:57 -0800 (PST)
+Received: from DESKTOP-93012OO.tail8ac4f7.ts.net ([83.245.241.247])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3ae6eb98beasm420771fa.18.2026.11.18.07.07.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 07:07:56 -0800 (PST)
+From: Elias Pukari <elias.pukari@gmail.com>
+To: netdev@vger.kernel.org
+Cc: Elias Pukari <elias.pukari@gmail.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
 	"David S. Miller" <davem@davemloft.net>,
-	Jens Wiklander <jenswi@kernel.org>,
-	Sumit Garg <sumit.garg@kernel.org>,
-	op-tee@lists.trustedfirmware.org,
-	Horia =?utf-8?Q?Geant=C4=83?= <horia.geanta@nxp.com>,
-	Pankaj Gupta <pankaj.gupta@nxp.com>,
-	Sahil Malhotra <sahil.malhotra@nxp.com>,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>,
-	Richard Weinberger <richard@nod.at>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Eric Biggers <ebiggers@kernel.org>,
-	Demi Marie Obenour <demiobenour@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>, Paul Moore <paul@paul-moore.com>,
-	James Morris <jmorris@namei.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>, linux-crypto@vger.kernel.org,
-	linux-integrity@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-api@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-	kernel@pengutronix.de
-Subject: Re: [RFC PATCH 0/9] KEYS: keycrypt: keys that user space can use but
- never read
-Message-ID: <av2_QoJHp1gMTFMp@kernel.org>
-References: <20261118140421.584086-1-giometti@enneenne.com>
- <mvyqqjhvfka3kkumztixzozrthutkq6mfakkonxqbpm5gvzb62@eitzzleeyioe>
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v3] net: phy: et1011c: don't write an error code to the config register
+Date: Wed, 18 Nov 2026 17:07:18 +0200
+Message-ID: <20261118150718.16924-1-elias.pukari@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,28 +102,94 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <mvyqqjhvfka3kkumztixzozrthutkq6mfakkonxqbpm5gvzb62@eitzzleeyioe>
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 18, 2026 at 03:57:27PM +0100, Marco Felsch wrote:
-> These are basically the trusted-key purpose.
+et1011c_read_status() can write a read error to the config register.
+Return MDIO errors and cache each PHY's speed only after configuration
+succeeds.
 
-This is it.
+LLM helped
 
-If I was adding something like this, I would at least:
+Found by code inspection. Tested with MDIO error injection in KUnit
+under QEMU/KASAN. No hardware or kselftest run.
 
-1. Discuss the solution that would extend trusted keys to the level
-   that makes it crystal clear that this is won't work out too
-   well.
-2. Then show how the new thing addresses all of this.
+Signed-off-by: Elias Pukari <elias.pukari@gmail.com>
+---
+Full builds unverified due to warnings on the unpatched base.
+https://lore.kernel.org/netdev/20261115180735.649299-1-elias.pukari@gmail.com/
 
-If there is any gist this should not require whole a lot of text
-dump.
+ drivers/net/phy/et1011c.c | 37 ++++++++++++++++++++++++++-----------
+ 1 file changed, 26 insertions(+), 11 deletions(-)
 
-AI assistance should not be really even mentioned the cover letters in
-my opinion. It's equal to text editor; or smoke signals. It does not
-level down anything i.e., I'm equally dissatified however this was
-produced :-) 
+diff --git a/drivers/net/phy/et1011c.c b/drivers/net/phy/et1011c.c
+index 6cd8d7758..77a6e8dcf 100644
+--- a/drivers/net/phy/et1011c.c
++++ b/drivers/net/phy/et1011c.c
+@@ -44,6 +44,12 @@ MODULE_DESCRIPTION("LSI ET1011C PHY driver");
+ MODULE_AUTHOR("Chaithrika U S");
+ MODULE_LICENSE("GPL");
+ 
++static int et1011c_probe(struct phy_device *phydev)
++{
++	phydev->priv = devm_kzalloc_obj(&phydev->mdio.dev, int);
++	return phydev->priv ? 0 : -ENOMEM;
++}
++
+ static int et1011c_config_aneg(struct phy_device *phydev)
+ {
+ 	int ctl = phy_read(phydev, MII_BMCR);
+@@ -60,25 +66,33 @@ static int et1011c_config_aneg(struct phy_device *phydev)
+ 
+ static int et1011c_read_status(struct phy_device *phydev)
+ {
+-	static int speed;
++	int *configured_speed = phydev->priv;
++	bool was_up = phydev->link;
++	int val;
+ 	int ret;
+-	u32 val;
+ 
+ 	ret = genphy_read_status(phydev);
++	if (ret < 0 || !phydev->link) {
++		*configured_speed = SPEED_UNKNOWN;
++		return ret;
++	}
+ 
+-	if (speed != phydev->speed) {
+-		speed = phydev->speed;
++	if (!was_up || *configured_speed <= 0 ||
++	    *configured_speed != phydev->speed) {
++		*configured_speed = SPEED_UNKNOWN;
+ 		val = phy_read(phydev, ET1011C_STATUS_REG);
++		if (val < 0)
++			return val;
++
+ 		if ((val & ET1011C_SPEED_MASK) ==
+ 					ET1011C_GIGABIT_SPEED) {
+-			val = phy_read(phydev, ET1011C_CONFIG_REG);
+-			val &= ~ET1011C_TX_FIFO_MASK;
+-			phy_write(phydev, ET1011C_CONFIG_REG, val |
+-					  ET1011C_GMII_INTERFACE |
+-					  ET1011C_SYS_CLK_EN |
+-					  ET1011C_TX_FIFO_DEPTH_16);
+-
++			ret = phy_modify(phydev, ET1011C_CONFIG_REG,
++					 ET1011C_TX_FIFO_MASK, ET1011C_GMII_INTERFACE |
++					 ET1011C_SYS_CLK_EN | ET1011C_TX_FIFO_DEPTH_16);
++			if (ret < 0)
++				return ret;
+ 		}
++		*configured_speed = phydev->speed;
+ 	}
+ 	return ret;
+ }
+@@ -88,6 +102,7 @@ static struct phy_driver et1011c_driver[] = { {
+ 	.name		= "ET1011C",
+ 	.phy_id_mask	= 0xfffffff0,
+ 	/* PHY_GBIT_FEATURES */
++	.probe		= et1011c_probe,
+ 	.config_aneg	= et1011c_config_aneg,
+ 	.read_status	= et1011c_read_status,
+ } };
 
-Br, Jarkko
+base-commit: d6816d9a93b66a12bf01e10037e377f3333ad6cc
