@@ -1,72 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795037331;
-	b=lgTMJu/HTZEoShAMTyXtfjIhJN0HIv3+Tf5e7wYmpn6tXRsjmw7HWE8q6O51b6cK4Kc/
-	 KVoa6+wstWw1zvrufUER1XdZZU72ONpCEm/DvYxEupH5YqhGW3B1FzgaL69P2Sif7XfU6
-	 Blk8IpjzKTaL+ZoOD7M3+8DGUTPetrS/iFMrHgi6DZn22txSb4oZdlS455ZhAOe8MhhET
-	 SrTBE0TmgPRPPgzb4JysEg/ghMGnsHutkR4NnO0EMMkIKwuNf0vrRhZSS8vu5Mn0Q4dJX
-	 bZwziSutS0im4MU9WqpktPTVLTI7Yceo8XqCX08S9YpIuog3/omSymJNb95FW+ezdDg==
+	b=20ZjNJMqn15ZeHXZaQDXpiwedBgAuhixTDGxTtRqBX+UXLGrrBpkFpWZXbxpEdZLWDuT
+	 eJlFqxZLfJdmdf9Xoc+Dng+J3jImP6CftfHDPV6Bi5KnPm8RLs9XY54e1fUyhiiqQ79UH
+	 rmO3YDFJLo13gfjEiXxOvq9oz2eh8dY1P6Ccu6iivGM4QDfEiZ61lDg86QNrwTvxywv/n
+	 SV6axQ/Eb7rpT8fRlz5YSDx11/W5jq7j2WBSMGvjtPf/cJ5fPoy6YMxr+RH/fK6/odvuN
+	 1w+a7p2Y1HeCxsLi9Rg9kdyJjZGYxkX0zwCLbfyzL4zSx8Z4hkxT+N5ObVx5LauLbTA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795037331;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=wFYUOJj2+7G2v/k9lLyOgh0sZkoos/zK1jWHhTk0qZ4=;
-	b=R8VmWcDU/pk2BkUNC4xCO42RhNj8AGvSARu3uRZrSYWs7fTcNI3SeXUtMapyzqPK5PTa
-	 XbS8W6e158ZuDVyfwarS/oFNHbF3gRMttzeCjiRsVg7v+gzOkGlxH6Tpc+crSRDwzhr2e
-	 FewPowZZb24A54ZZc7eN/43FbZc+g/t8u+kujVafUO1kCV8I9oWPk8AtWR0XxazW2m4ud
-	 w/p75nfmLHhJczXyv5uS7xXSnHIHNCO19icjMz8wbCb6G4pz491RSFbiKkRjtzn8xofkZ
-	 qr+YhR70Hr1S2MTzT0f/AytDcCsVTu4Nl0bJNZR+i2nR9/kqueAyDKsXQje8+4pBtqw==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=hq4FetZ9TbMuXfM2xTa4nRWlSTgcNRWAkocFboOGKak=;
+	b=4Yxq42LNEyuX34JGluNV1c24Hh1asqTJYPcySkaxY0M3HJu59iQs42EYXP35gwc1bHjX
+	 y3OwadJvOu4a2JfW/X8L0EUtoqM7YEHQI9PvXbAIQCe92inQ7JKn5ui+LfE5LN9RKXezY
+	 z5pF2BrP6wpomGsDXvQWGjkTHkYynu2CDbKcIW4T7a8eNx/nv0jbcHcfztCf+9WB/3ziV
+	 1suuqemEdzxQaFWrieLIrZmw0/4NcycV7KKw+zkv53YcHde4rrFY5Jp8a97umO1uTjafE
+	 8J0+n31JxuNMb3Ce2i9Ds5QkQRcNTV7w7LGdwSMmz0RlhP2B1vuf1LbYh0MDolaNljQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--nilayvaish.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=i0+5sRpk;
-	arc=none smtp.remote-ip=74.125.82.72
-Received: from mail-dl1-f72.google.com (mail-dl1-f72.google.com [74.125.82.72])
+	dmarc=pass header.from=soleen.com;
+	spf=pass smtp.mailfrom=soleen.com;
+	dkim=pass header.d=soleen.com header.i=@soleen.com header.a=rsa-sha256 header.s=google header.b=PU6hBncs;
+	arc=none smtp.remote-ip=209.85.221.177
+Received: from mail-vk1-f177.google.com (mail-vk1-f177.google.com [209.85.221.177])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69EF2606A331
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8713660A2605
 	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:28:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69EF2606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--nilayvaish.bounces.google.com
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8713660A2605
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=soleen.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=soleen.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=i0+5sRpk
-Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-1b3b45597c7so2687796c88.1
+	dkim=pass (2048-bit key) header.d=soleen.com header.i=@soleen.com header.a=rsa-sha256 header.s=google header.b=PU6hBncs
+Received: by mail-vk1-f177.google.com with SMTP id 71dfb90a1353d-5ead9f60e26so242008e0c.1
         for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:28:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795037330; x=1795642130; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=wFYUOJj2+7G2v/k9lLyOgh0sZkoos/zK1jWHhTk0qZ4=;
-        b=i0+5sRpkohQP+5U7vrew4LDud8Dd2jcenAJMqpPRkaPjg7EI4socU7IdcqcoMCFlux
-         KeoOGznqTqeDv1AWJX/5yRNzpQBlKpHfATY21bSjCPumofg6Zv3i/U5jYfyEAwqI9EH2
-         6xyLsT2mOHHn6NYsrRAxcmEYKXLZ+cfZAEEo8xOw6gs1fNuRyVgTwf6kckFg3hgx6M4f
-         95913Vb4GBf1DW1w96HP+7W7v6YnwyRvCXM0Ltwr9TDkmdS15bQcaklFfOExOM7yfGmj
-         eYpPiVe7lHct0MuX/O3KdxRWHMoiO0m4a1Lo8EJPtKuTB1BBfe2LrNk25OCMsmMpbAnO
-         M7Cg==
+        d=soleen.com; s=google; t=1795037330; x=1795642130; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=hq4FetZ9TbMuXfM2xTa4nRWlSTgcNRWAkocFboOGKak=;
+        b=PU6hBncsvDrJaRz44/8QtEy0YBcK8b/Doh2iSeX+EDnmZuLUgTHlmFmrppRNBbBt/+
+         3Lm6engsCRZRg1wMX+q2hy4OkG04YLPglB1wTDgHqs1fNy5Q7NlpSpBebzsn6G9+BBhi
+         WYonvBgDqUR+FbxzMv0HWjLd/1DUuInhPrKLJTxku9za8x+UneTXek5xRcor5MEKcZXs
+         W8u0MylrMu6KRxtI4ebke+bbt54UKw67ew7ILCkQDKRdrRhlMgYsI6+SCVdkN1+5GUiz
+         qXPvCTk6RrsaVWLXWojHqCmDsccIssZiuH9XQh9xmqzeftbELRJIVGM+FBWzoKO+Y1v4
+         mAFA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1795037330; x=1795642130;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=wFYUOJj2+7G2v/k9lLyOgh0sZkoos/zK1jWHhTk0qZ4=;
-        b=JUksJCSb4mEqTtm58bv1wU5XMrPr9o6AIr4bd0TR2GDsGqC8yJ5fDzYGmHXoyjI6rV
-         bnBgBj6nsEs/pKEsLPKBzSARDasptCB4szHdFVzB+3pc2BYX9OBlLyAfpylwhDua/JFL
-         hLUzqtR4ifd+1Nk1JyqxOOQPt4+hSwjktxpsKMHNlSiwJXpBDn1u8QB22FFF4DKc9hWa
-         vlo66/wE88exRMiM7Gbh3nqx1GIhv5sRJ3LxaRi9/WDkxhxX/BxVfInTQesnbxiA4v/R
-         W7tB+0KvwFn11el/cT7F4XjLv8HLnjuWaLU6h1HrtmMMVTI4lzCrIX2IpJlJgdMYznMu
-         9AFw==
-X-Forwarded-Encrypted: i=1; AL+hErE25rSW2Qepcum3bOk8D0Ryw6Y9lxEbpt5tskCCJE553GFki9775LI60G1CufX458hCdT8qzOohBTFPgQw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8uhCwl4LGJkORXly8DOospGubmrAnfCm0bvPE69R8X9ywFN4Nd
-	XX/GAtHrLUXkxSSS6LPChssaEJavjcfzWg8xuWRejHWa/WgpeaiYhhWIYA+oR6637aiUS2OwGS6
-	Vhe0u4JfW+DWRlc0X5DS7rQ==
-X-Received: from dlcio6.prod.google.com ([2002:a05:7023:c006:b0:196:8199:c26c])
- (user=nilayvaish job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:7022:7f02:b0:18c:e014:6f1d with SMTP id a92af1059eb24-1b543c38731mr3242553c88.1.1795037330212;
- Wed, 18 Nov 2026 13:28:50 -0800 (PST)
-Date: Wed, 18 Nov 2026 13:28:19 -0800
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=hq4FetZ9TbMuXfM2xTa4nRWlSTgcNRWAkocFboOGKak=;
+        b=I3kc5obbb2C4lW/C0x0wog/TvBINQhDFHuE/uCj+dKKxQe0graOVSRN+jkuq0potud
+         ucaSF3IhWdEGHfh0XCXEAHQxm6BIHP8xIK8Rvqcx8H/B1QnsTGGlT2shmWS2pv96TvzB
+         fSAxF51NnoM4lbZM4yjivI9KELQdNLlZ7KXEB9rVJRUlgHG/7/TOn1pug282w/snu6GM
+         QcLp7L7YxkXVDiBxxTVT0aSlV/WAzTPOmd3+zYo1js4bqQHfqw3cyo1NZi56xhF7LTOY
+         3HuHBij/Wa5GUGAPwElRWNe70hVnrI2iCqgiCmyavbMISBXeVfKvBfNZqCIy+2jOB5Hs
+         PtXw==
+X-Forwarded-Encrypted: i=1; AL+hErEjLlxXIe3M1QfETr1dUpR/+5xfIKMkJxnRwZz7KQfTkDAo5r+nu2H65hf7vakAWOT/HJqN6hfjSh/BKyI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z94sAbNY1y5xluyzm0dHvQ3buoqatCOSnIrpl/SkN1/kGil6ezK
+	jGjqdZ9QzifIN967HeaAptXb7xAIDmfxmkXG6y7rYKDgrWOolSYhoS/mx7OYvvA4Wec=
+X-Gm-Gg: AYBFou0ubZH7u1vGnoC3j+u+L3LWwc5G9bFOg3Rwyy40vLtt+Nm117a2FccyQsMC2W0
+	aT3oy0056kXdhmV9CX8BVKQsDimMm6xeCOani2d5+DUvyr53Aar0e88PzgXSoJW6SUOg947h3OL
+	Hw9ksSNX0jOBCanwGpB2asPZKiZTZGPY7ViJR/CFWRx4WLQ9/lQ9DtmpYtLC4cfAvXQ2VIL0Gkm
+	m40ugG75nKMBBm1liAdgI2nr/peetKRdtU84hBmfx/GhmofG4CktKX7C6f9Ey5QczZnXCAsCmEK
+	SDHgANiD6z2HYnx0aILPFL1uhPX5hY8RecV0SJ0JEoVBDCcW1IzxM/4fIn+hqT5aSUnU28/q57L
+	cRkDtp8RDHpPAEZMgQSKKWZgy2uQqD0ohJ+4JUv1hiIK0llaquDS9MbPxolGcxpiI0phkaYvVmq
+	mcffXl2zJoxG1ZDe6/wkyXibarXdO61/TMNK3ce09A9ggVMPy0DRl1/w/nq6rhdTp/Dzr+DS+9R
+	vcoNpZgEWEhMjQdoyjWSgC5vx7p5kT/M5/biiebP1+xOB9UapgLFAiMBcFoHrbL74P3p2d+ya0t
+	y8uP5eA/SgG6fjFN/XoTIxVrjjXKS3pm1JWT4axkV2ah37Ig6su6SIfmLU00robTmXtznn8sxPk
+	uv1iQbqlo1QUu4qRNKvHvuErLRS0bmoalHuX6omZqkQqSKhOt+za4
+X-Received: by 2002:a05:6102:548e:b0:7ba:b5ea:c4b8 with SMTP id ada2fe7eead31-7d6cb42f39emr262542137.1.1795037330488;
+        Wed, 18 Nov 2026 13:28:50 -0800 (PST)
+Received: from soleen.c.googlers.com.com (57.233.150.34.bc.googleusercontent.com. [34.150.233.57])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6b9185bc3sm2724635137.5.2026.11.18.13.28.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 13:28:50 -0800 (PST)
+From: Pasha Tatashin <pasha.tatashin@soleen.com>
+To: linux-kselftest@vger.kernel.org,
+	rppt@kernel.org,
+	shuah@kernel.org,
+	skhan@linuxfoundation.org,
+	linux-doc@vger.kernel.org,
+	vipinsh@google.com,
+	linux-kernel@vger.kernel.org,
+	corbet@lwn.net,
+	linux-api@vger.kernel.org,
+	pasha.tatashin@soleen.com,
+	dmatlack@google.com,
+	kexec@lists.infradead.org,
+	pratyush@kernel.org,
+	rdunlap@infradead.org,
+	graf@amazon.com
+Subject: [PATCH v6 2/7] kho: link outgoing blocks lazily in kho_block
+Date: Wed, 18 Nov 2026 16:28:37 -0500
+Message-ID: <20261118212845.2855249-3-pasha.tatashin@soleen.com>
+X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
+In-Reply-To: <20261118212845.2855249-1-pasha.tatashin@soleen.com>
+References: <20261118212845.2855249-1-pasha.tatashin@soleen.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,112 +109,148 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261118212819.403059-1-nilayvaish@google.com>
-Subject: [PATCH] mm/page_owner: fix double decrement of stack count on unpoison
-From: Nilay Vaish <nilayvaish@google.com>
-To: Andrew Morton <akpm@linux-foundation.org>, Vlastimil Babka <vbabka@kernel.org>, 
-	Oscar Salvador <osalvador@suse.de>
-Cc: Johannes Weiner <hannes@cmpxchg.org>, Suren Baghdasaryan <surenb@google.com>, 
-	Michal Hocko <mhocko@suse.com>, Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>, 
-	Marco Elver <elver@google.com>, Andrey Konovalov <andreyknvl@gmail.com>, 
-	Miaohe Lin <linmiaohe@huawei.com>, Naoya Horiguchi <nao.horiguchi@gmail.com>, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, Nilay Vaish <nilayvaish@google.com>, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-page_owner counts, for each allocation stack, how many pages allocated
-from that stack are still in use. The count is incremented when a page
-is allocated and decremented in __reset_page_owner() when it is freed.
+Currently, kho_block_add() links each preallocated block onto the
+serialized chain immediately, even while it is still empty. This
+assumes all preallocated blocks are populated together before the
+chain is referenced by KHO.
 
-A page that is hwpoisoned while in use and later unpoisoned passes
-through free_pages_prepare() twice:
+When sessions are serialized incrementally ahead of reboot, extra
+blocks may be preallocated for sessions that have not been serialized
+yet. Keeping those blocks linked leaves empty trailing blocks on the
+KHO chain.
 
-  1. On poisoning, the last reference is dropped. free_pages_prepare()
-     calls reset_page_owner() but, because the page is PageHWPoison(),
-     keeps it off the free lists.
+Keep preallocated outgoing blocks unlinked in kho_block_add() and link
+each block lazily in kho_block_set_it_reserve_entry() when advancing
+into it. Also unlink blocks in kho_block_set_clear() and stop at
+unlinked blocks in kho_block_set_it_read_entry().
 
-  2. On unpoisoning, unpoison_memory() drops the poison reference and
-     free_pages_prepare() calls reset_page_owner() again, this time
-     really freeing the page.
-
-__reset_page_owner() decrements the stack count both times, although
-the page was allocated only once. The first call clears
-PAGE_EXT_OWNER_ALLOCATED, but the second call never checks it.
-
-If this drives the count to zero while the stack is still in use,
-stackdepot treats the record as freed and warns on every later
-allocation or free that uses the same stack:
-
-  dec_stack_record_count: refcount went to 0 for 92274844 handle
-  WARNING: lib/stackdepot.c:517 at depot_fetch_stack+0x5c/0x70
-  Call Trace:
-   __set_page_owner+0x110/0x290
-   get_page_from_freelist+0x1225/0x1440
-   __alloc_frozen_pages_noprof+0x1fc/0x1b00
-   __folio_alloc_noprof+0x12/0xa0
-   alloc_migration_target+0x81/0x1e0
-   migrate_pages_batch+0x1f2/0x14c0
-   migrate_pages+0x9c3/0xca0
-   soft_offline_page+0x189/0x570
-
-A single soft offline followed by an unpoison is enough to trigger it,
-because the migration-target stack that the offlined page is accounted
-to usually has very few pages.
-
-Fix it by decrementing the stack count only if PAGE_EXT_OWNER_ALLOCATED
-was still set, i.e. only the first time the page is freed.
-
-To reproduce, boot with page_owner=on and CONFIG_HWPOISON_INJECT, soft
-offline anonymous pages with madvise(MADV_SOFT_OFFLINE), and unpoison
-each old PFN through debugfs hwpoison/unpoison-pfn. Without this patch
-the first cycle prints the message above and 2200 cycles produce 6597
-warnings. With it, the same run is clean and all stack counts return
-to their initial values.
-
-Fixes: 217b2119b9e2 ("mm,page_owner: implement the tracking of the stacks count")
-Cc: stable@vger.kernel.org
-Signed-off-by: Nilay Vaish <nilayvaish@google.com>
+Signed-off-by: Pasha Tatashin <pasha.tatashin@soleen.com>
 ---
- mm/page_owner.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ kernel/liveupdate/kho_block.c | 38 +++++++++++++++++++++++------------
+ 1 file changed, 25 insertions(+), 13 deletions(-)
 
-diff --git a/mm/page_owner.c b/mm/page_owner.c
-index 02bb304b53cf..0793a460d615 100644
---- a/mm/page_owner.c
-+++ b/mm/page_owner.c
-@@ -320,11 +320,13 @@ void __reset_page_owner(struct page *page, unsigned short order)
- 	depot_stack_handle_t alloc_handle;
- 	struct page_owner *page_owner;
- 	u64 free_ts_nsec = local_clock();
-+	bool allocated;
+diff --git a/kernel/liveupdate/kho_block.c b/kernel/liveupdate/kho_block.c
+index 0d2a342ef422..21cee45fa1cc 100644
+--- a/kernel/liveupdate/kho_block.c
++++ b/kernel/liveupdate/kho_block.c
+@@ -16,6 +16,11 @@
+  * array of serialized entries. Multiple blocks are linked together via a
+  * physical pointer in the header, forming a linked list that can be easily
+  * traversed in both the current and the next kernel.
++ *
++ * Outgoing blocks preallocated via kho_block_set_grow() remain unlinked until
++ * entries are reserved via kho_block_set_it_reserve_entry(). This allows
++ * entries to be serialized incrementally without exposing empty trailing blocks
++ * on the physical chain.
+  */
  
- 	page_ext = page_ext_get(page);
- 	if (unlikely(!page_ext))
- 		return;
+ #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
+@@ -79,7 +84,7 @@ static struct kho_block_header_ser *kho_block_alloc_ser(struct kho_block_set *bs
+ static int kho_block_add(struct kho_block_set *bs,
+ 			 struct kho_block_header_ser *ser)
+ {
+-	struct kho_block *block, *last;
++	struct kho_block *block;
  
-+	allocated = test_bit(PAGE_EXT_OWNER_ALLOCATED, &page_ext->flags);
- 	page_owner = get_page_owner(page_ext);
- 	alloc_handle = page_owner->handle;
- 	page_ext_put(page_ext);
-@@ -339,7 +341,7 @@ void __reset_page_owner(struct page *page, unsigned short order)
- 	__update_page_owner_free_handle(page, handle, order, current->pid,
- 					current->tgid, free_ts_nsec);
+ 	if (bs->nblocks >= KHO_MAX_BLOCKS)
+ 		return -ENOSPC;
+@@ -89,15 +94,11 @@ static int kho_block_add(struct kho_block_set *bs,
+ 		return -ENOMEM;
  
--	if (alloc_handle != early_handle)
-+	if (allocated && alloc_handle != early_handle) {
- 		/*
- 		 * early_handle is being set as a handle for all those
- 		 * early allocated pages. See init_pages_in_zone().
-@@ -348,6 +350,7 @@ void __reset_page_owner(struct page *page, unsigned short order)
- 		 * their refcount either.
- 		 */
- 		dec_stack_record_count(alloc_handle, 1 << order);
-+	}
+ 	block->ser = ser;
+-	last = list_last_entry_or_null(&bs->blocks, struct kho_block, list);
++	if (list_empty(&bs->blocks))
++		bs->head_pa = virt_to_phys(ser);
+ 	list_add_tail(&block->list, &bs->blocks);
+ 	bs->nblocks++;
+ 
+-	if (last)
+-		last->ser->next = virt_to_phys(ser);
+-	else
+-		bs->head_pa = virt_to_phys(ser);
+-
+ 	return 0;
  }
  
- noinline void __set_page_owner(struct page *page, unsigned short order,
+@@ -144,9 +145,9 @@ static void kho_block_set_shrink_one(struct kho_block_set *bs)
+  * @bs:    The block set.
+  * @count: The target number of valid entries to accommodate.
+  *
+- * Dynamically preallocates and links preserved memory blocks if the target
+- * entry count exceeds the current total capacity of the set, ensuring they
+- * are available during serialization/deserialization.
++ * Dynamically preallocates preserved memory blocks if the target entry count
++ * exceeds the current total capacity of the set, ensuring they are available
++ * during serialization/deserialization.
+  *
+  * Context: Caller must hold a lock protecting the block set.
+  * Return: 0 on success, or a negative errno on failure.
+@@ -312,12 +313,15 @@ void kho_block_set_destroy(struct kho_block_set *bs)
+ /**
+  * kho_block_set_clear - Clear all serialized data in a block set.
+  * @bs: The block set to clear.
++ *
++ * Resets entry counts, unlinks blocks, and zeroes all entry payloads.
+  */
+ void kho_block_set_clear(struct kho_block_set *bs)
+ {
+ 	struct kho_block *block;
+ 
+ 	list_for_each_entry(block, &bs->blocks, list) {
++		block->ser->next = 0;
+ 		block->ser->count = 0;
+ 		memset(block->ser + 1, 0, KHO_BLOCK_SIZE - sizeof(*block->ser));
+ 	}
+@@ -340,14 +344,16 @@ void kho_block_set_it_init(struct kho_block_set_it *it, struct kho_block_set *bs
+  * @it: The block iterator.
+  *
+  * Reserves a slot in the current block during state serialization to add a new
+- * entry, advancing the internal index. If the current block is full, it
+- * automatically moves to the next block in the set.
++ * entry, advancing the internal index. If the current block is full, it moves
++ * to the next preallocated block and links it onto the serialized chain via
++ * the previous block's header.
+  *
+  * Return: A pointer to the reserved entry slot, or NULL if the block set's
+  * capacity is fully exhausted.
+  */
+ void *kho_block_set_it_reserve_entry(struct kho_block_set_it *it)
+ {
++	struct kho_block *prev = NULL;
+ 	void *entry;
+ 
+ 	if (!it->block)
+@@ -356,12 +362,16 @@ void *kho_block_set_it_reserve_entry(struct kho_block_set_it *it)
+ 	if (it->i == it->bs->count_per_block) {
+ 		if (list_is_last(&it->block->list, &it->bs->blocks))
+ 			return NULL;
++		prev = it->block;
+ 		it->block = list_next_entry(it->block, list);
+ 		it->i = 0;
+ 	}
+ 
+ 	entry = kho_block_entry(it, it->i++);
+ 	it->block->ser->count = it->i;
++	if (prev)
++		prev->ser->next = virt_to_phys(it->block->ser);
++
+ 	return entry;
+ }
+ 
+@@ -381,7 +391,9 @@ void *kho_block_set_it_read_entry(struct kho_block_set_it *it)
+ 		return NULL;
+ 
+ 	if (it->i == it->block->ser->count) {
+-		if (list_is_last(&it->block->list, &it->bs->blocks))
++		if (!it->block->ser->next)
++			return NULL;
++		if (WARN_ON_ONCE(list_is_last(&it->block->list, &it->bs->blocks)))
+ 			return NULL;
+ 		it->block = list_next_entry(it->block, list);
+ 		it->i = 0;
 -- 
 2.56.1.708.g77570a6a1d-goog
 
