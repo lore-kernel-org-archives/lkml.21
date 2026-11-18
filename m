@@ -1,99 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794997832;
-	b=fb3c1aAK1cklj/mGtjebZZye3PWCBcbAoiIkNiZ/9fwVj1KjXwRj3G+mHqZhUHCojMs1
-	 tZW0WZnNNBqhy/FDnAEJFROS6yweI+wykBLqDHYV+D5OkDl4YSOHTZvCdVhQZmx5ryBRt
-	 VMPw5EOlMolLLh0tAxkLgrZb015wgLyVcGxv02qb8HARGj2i2/kjbOVD9oAotRrAfo6iB
-	 MOtfxaDhsw84y5R1t9LRak95rr/OpfOXvZa5kR/pdqoyQDMmmnc5pf2JlO3PZx2NpC0iH
-	 OtFoQuNG/STQ5T9IZhwXIjZie5cXMQD9Oi478bPpi+qSa5Lp2UvppzWRmN18QB2rF+g==
+	t=1794997847;
+	b=kZqJ3AWHsiX+1F2vfhXTJwzHKJQN0FftehScStUc2M1K5sBmzIhPNFusH1veXAM4G9Q/
+	 7HU24ZKZ2GJ1x0Z0WPhPiaNyTK4OEr9v3F/7SHgEsjuJbLdjOVpPRkhmFGP1rljNwQTyS
+	 ah93FyECbFoAD8+HvCiRMnKDmAPCBsjtDbOCoSbzAYuzAhh3Lr1mgBFoS9VkBa0p7lqlA
+	 PrJDJI/1r2VQw4+rYGZhxQijh4vzsDVtRL4W/BAI8Yr+Uv19fa/X+L2BWH8VQA6cWHcWw
+	 EOauRoDHIH7rWskJg1vqbTmE2iY/8hilw9niy8KDc7tOnsAaP5uKaSSkt33cnHvjshw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794997832;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=ZFYle6KblLp4pMRurRVbM9XAwT6FbRg7IQe5ICogpZc=;
-	b=fYLmVcXOqgcK1zOmEMxWoaCEN39th0oYRuP/ul3MYMaCde1amo+E9D/MAkxwogRFY7Io
-	 tVwegfGdiMMvPs7/Gi5SVVII8kGibILJstaoL289YLSKXUxbM5WEd9PoLDILLgqxf7Vx4
-	 gcecW2s6+gIfpm2zt+WIosdnLJBZotABBmiFte9gOPCOhuSUL1ImvMw43A0CzyGRyY7wa
-	 cpcLFdHGN7CYAc0/sFJbE9+wSXSny0WqEYQSts5eoydTgUhfB90LbogQz3QwMVjFiAqFb
-	 y+6nmUyyd1nXw1LUTDOFaGGV7C0W/QSplhzZANjM4nRXx5feex9N0Mgc9vB94xKGi5w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794997847;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
+	 Organization;
+	bh=nH5gEdl3D5/4uObgUP9+ggGHh8o+1reBAcP3hqYWwcI=;
+	b=RLbjG/629PcfhIZIiAgI81y3ueWQYBsADCZuOMZqoLsnTUGE2umH8r3k6qA2YzNHFtsi
+	 nPGGnzlWFA5WiFySuI8/cpNhfVrqDd4YzD6dGN8LZcZhBXK7HQakSd51llGoCbk+Huh76
+	 2ZyjLnsaZmM6qSjtybQlvuPgL1VKcg2ErUR5azajyAvJteulBQiyeb933RCr2fQR4fzHx
+	 EiT1Hb+/xA2eFsNBfyr1tbFveYQoA985Ooj+JKHgkzSvkSh32bXFuA0Q54R/mHyayaxTx
+	 OciSTSPkbnork69SCFF9XEwocD3JM/fp3dZTnSLHYeTUd1f9fjql3Tj/vbKr+dxtsqg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uAatVS1p;
-	arc=none smtp.remote-ip=209.85.128.47
-Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=EF+Hzi+X;
+	arc=none smtp.remote-ip=192.198.163.12
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB412606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:30:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EB412606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B710C606A320;
+	Wed, 18 Nov 2026 10:30:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B710C606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uAatVS1p
-Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4b79502c27aso7586665e9.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:30:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794997830; x=1795602630; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ZFYle6KblLp4pMRurRVbM9XAwT6FbRg7IQe5ICogpZc=;
-        b=uAatVS1pICWhh2yIqaUAXDLIMc0ZHMlELMNRzwjpIclFx+LoC0ohfCo361ezZ80LY4
-         zE1nA2S40seW4kNMmjBAtGig/Dg5XUJ2ahF3n/kL7AyqndKfaazJm01QBoIEEfYXmC9N
-         bioFHuBMHolD/d09iFTxxHKp9fZHXBbs2OgQFcPDuto4aOl6CrK3Pn179NMaifdFlPPw
-         K0jSgeZUUT1ZwFLZ6pW5OAXEJ5NasznwsoiYqgtkrh/WDtqdscPt0XwF+LXqrS66q01B
-         4mJw7APgVFOJE7+H9vDF6lC6tl5E0ybadmBZo17H71LJcezN+J4r6LS+2GfJVMNSwJBQ
-         TVEg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794997830; x=1795602630;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ZFYle6KblLp4pMRurRVbM9XAwT6FbRg7IQe5ICogpZc=;
-        b=Xiigsi1Eblt8bU7AFIBOGRSmqpI1eQfV/MJXlGFLwwdutpqiAEH5YhkI/XxsKOjmrc
-         cRo9+TelUoIo3KClC4NC7YI/UvGbkdqu8vEghB9p9M1CrERj07jY0cS7ooGkmnT4/Lni
-         sMrlmfHmFFJ8JjM3TEml16qmUcFzHOCGBwAFNsI/uXsmaJ02n/nCy+NZiydqfKCGnEON
-         IhBnUDH010CufZFRNkZyGoE+bbk3B9CQ6BhK7pKmyrGlR8T7I5xyVJA+BnHcmYr95eqx
-         tOuxHCdNZxr+zSmABVSAdm+S6EI9r3+om8Y2E2/ucSimS+oIewbFILhBSmUGTV1gZgZs
-         ErlQ==
-X-Forwarded-Encrypted: i=1; AL+hErG9N92uNiVLOMNCd11w3Joo+g+Ea4hRXXRF3qVmkBHrSP8cHLhhH0g60ImJ2qtuyM/cmyQYML88yfWDqAs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/d1LJ7IvNxxyly7AZa+WvsHg+pSUKDawtC3Cwy5r32EuYngU67
-	H/oqdmxeUR/Fud1+295mKCtNHhEQO6u2XvKqwvPDQQ6rQ61D82LUbFIZ
-X-Gm-Gg: AYBFou0lutDL/mwjBHcqH0dBo0h1zrLLlpbbBLeWaBm70pGrClXcGPYBnPfs5k4iQJw
-	CmZCEQenFI9TSv+WDgZMfd9VseJEdncO3Brb6C36Oq+fMo0IET8c20AQzgAyf6ufvwZin0X0dDE
-	Rtam+81iZP4pJlXTI9MiEDPTzOYUwBiUjP9CUCzp6qR6vko5QJw5I1H7uA+nsaYI09S1L2ToOdG
-	8rgxsLjYROgm22ruNYfOxt3Vt17w+ZxARqJ0YNzCHQDtb70LiQ8iC1+p+Vaw3cObIYi4hjNNTBc
-	RuVSTSpZjuskRMifX9/tO0jAPheydTCU6Qo8F4TE4jm6YnKTa6/WefvfxLGRFmAa/QSARPe/IwJ
-	c5o7PoIUi/VO4R+Qi0+osq0EvuiV8pn1svpppHwOf2dkHLJMYBp4f5Oi+baNB4syPdWFuvStJWw
-	zrGHT0X0LzIvzf5akrlb88PXN3MhR+S47jjbm250alMy++a6DxU71X4t/DsYyQYDkiMxiRBtMtE
-	MuTy30qQEo55z9PCJ63eoS08ssaggzsSxb2cQrMeXRvEvNuQ2Tsivloj+XzgRh+eORDrdS9aQoz
-	J95b42rT6o+i16VUTmW3x5OefaJk+C3C0WDtTZ7SHFm8syBIKyxPvMsALfXATQNKmbr1zUbzFY+
-	oKsNTeplXEZs=
-X-Received: by 2002:a05:600c:b99:b0:4ba:6d8:dfad with SMTP id 5b1f17b1804b1-4bb7da1aa22mr38586795e9.14.1794997830101;
-        Wed, 18 Nov 2026 02:30:30 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7d257112sm49503835e9.2.2026.11.18.02.30.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 02:30:29 -0800 (PST)
-Date: Wed, 18 Nov 2026 10:30:27 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Thorsten Blum <blum@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, "Masami Hiramatsu (Google)"
- <mhiramat@kernel.org>, "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
- Christian Brauner <brauner@kernel.org>, Breno Leitao <leitao@debian.org>,
- Ryan Roberts <ryan.roberts@arm.com>, Sang-Heon Jeon
- <ekffu200098@gmail.com>, Wilson Felipe Pereira <wfelipe@google.com>,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] init: Use scnprintf() to simplify setup_command_line()
-Message-ID: <20261118103027.33256f2b@pumpkin>
-In-Reply-To: <20261117234805.551734-2-blum@kernel.org>
-References: <20261117234805.551734-2-blum@kernel.org>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=EF+Hzi+X
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1794997847; x=1826533847;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=Uowatdy9kwN6q0cDgYxR39/boEiV8TiNmIQ/16Ndc6c=;
+  b=EF+Hzi+Xx/XNUJu03mgc+SsUdTC9x6zh7j4u+X7CL/Hnv3fFKjJ7BoEX
+   2Zl/0WQW/RAmAtSi/aQOrFIIrbkc8Ap2JeTnpEbTp+7Vs3PHWdedzIhW0
+   r0OZeeQoOKUlF9/4pMDsgF9/Ns5MhWoeCOLgBPiUF+xGyRwgJEkXAGsTl
+   DE5tZDDJ38PujTY3cjWbvMz8HE/+znsbhT/ahVh5qpVA8WFeIiwKeDSA6
+   Vld/6BCauOkqYgQm54v8q4LkN2oirmyGamhVaXkHzomRuRjH8uo2UwyFt
+   Efdy2x1sGmFYup6LhfPuNmHvk8hEcTTpYxV7v7zWV+ai9vz8J96qL3yfb
+   w==;
+X-CSE-ConnectionGUID: wzOp00OsQvaLBsnarlN6Gg==
+X-CSE-MsgGUID: 4UcHLOhoTWCdNsPT6Wqgxw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3701492"
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="3701492"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 02:30:46 -0800
+X-CSE-ConnectionGUID: jSpDPBd2RUuwCG2wexdIbg==
+X-CSE-MsgGUID: sgEv5KGrQ3SzCnCFRq3NGw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="10351746"
+Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.157])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 02:30:42 -0800
+Date: Wed, 18 Nov 2026 12:30:40 +0200
+From: "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>
+To: Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: "jk@codeconstruct.com.au" <jk@codeconstruct.com.au>,
+	Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v33 0/5] Add ASPEED AST2600 I2C controller driver
+Message-ID: <av1-UNzN0bwW2Oo6@ashevche-desk.local>
+References: <20260623-upstream_i2c-v33-0-6d5338fc56ed@aspeedtech.com>
+ <TYZPR06MB79202A00572E81CBC29399F4F27A2@TYZPR06MB7920.apcprd06.prod.outlook.com>
+ <av1mTEtWCf8zFbjp@ashevche-desk.local>
+ <TYZPR06MB7920EE43F93A37A61E139CD4F27A2@TYZPR06MB7920.apcprd06.prod.outlook.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,122 +94,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <TYZPR06MB7920EE43F93A37A61E139CD4F27A2@TYZPR06MB7920.apcprd06.prod.outlook.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On Wed, 18 Nov 2026 00:48:04 +0100
-Thorsten Blum <blum@kernel.org> wrote:
+On Wed, Nov 18, 2026 at 08:53:36AM +0000, Ryan Chen wrote:
+> > On Wed, Nov 18, 2026 at 08:14:51AM +0000, Ryan Chen wrote:
+> > >
+> > > This patch series has been stable in our testing on AST2600 hardware,
+> > > and we have also received positive feedback from customer testing.
+> > > The issues identified by Sashiko have also been addressed.
+> > > I plan to rebase the series onto the latest upstream kernel and submit v34.
+> > > Before doing so, I would appreciate your feedback on whether there are
+> > > any remaining concerns or blockers that we should address.
+> > >
+> > > If there are no outstanding issues, I hope the series can be
+> > > considered for merging after the next review.
+> > >
+> > > Thanks for your time and support.
+> > 
+> > Are you asking me or Andi Shyti?
+> > If it was to me, I have no time for this right now, sorry.
+> 
+> Thanks for your response.
+> Would you happen to know anyone else who might have time to review it?
 
-> strcpy() has been deprecated [1] because it performs no bounds checking
-> on the destination buffer, which can lead to buffer overflows.
-> 
-> Use scnprintf() to format the saved and static command lines while
-> taking their buffer sizes into account. Use scnprintf()'s return value
-> to keep track of saved_command_line_len and avoid extra strlen() calls.
-> 
-> No functional change.
-> 
-> Link: https://www.kernel.org/doc/html/latest/process/deprecated.html#strcpy [1]
-> Signed-off-by: Thorsten Blum <blum@kernel.org>
-> ---
->  init/main.c | 54 +++++++++++++++++++++++------------------------------
->  1 file changed, 23 insertions(+), 31 deletions(-)
-> 
-> diff --git a/init/main.c b/init/main.c
-> index 8a6c3b4f1d5e..0c3bc7efe0f4 100644
-> --- a/init/main.c
-> +++ b/init/main.c
-> @@ -669,36 +669,31 @@ static inline void smp_prepare_cpus(unsigned int maxcpus) { }
->   */
->  static void __init setup_command_line(char *command_line)
->  {
-> -	size_t len, xlen = 0, ilen = 0;
-> +	size_t xlen = 0, ilen = 0;
-> +	size_t saved_cmdline_size;
-> +	size_t static_cmdline_size;
->  
->  	if (extra_command_line)
->  		xlen = strlen(extra_command_line);
->  	if (extra_init_args) {
-> -		extra_init_args = strim(extra_init_args); /* remove trailing space */
-> -		ilen = strlen(extra_init_args) + 4; /* for " -- " */
-> +		extra_init_args = strim(extra_init_args);
-> +		ilen = strlen(extra_init_args) + strlen(" -- ");
->  	}
->  
-> -	len = xlen + strlen(boot_command_line) + ilen + 1;
-> +	/* Keep bootconfig kernel parameters before any "--" separator. */
-> +	saved_cmdline_size = xlen + strlen(boot_command_line) + ilen + 1;
-> +	saved_command_line = memblock_alloc_or_panic(saved_cmdline_size, SMP_CACHE_BYTES);
-> +	saved_command_line_len = scnprintf(saved_command_line, saved_cmdline_size, "%s%s",
-> +					   extra_command_line ?: "", boot_command_line);
+Not of my knowledge. The general practice is to help maintainers to review
+their queue(s) and in response somebody else hopefully reviews yours. If you
+completely rely on maintainer to allocate a time to review your stuff, you
+might wait for months these days (mostly because tons of AI slops attacking
+the LKML). I might be mistaken, but I haven't seen match of @aspeedtech.com
+in the Reviewed-by: tags. Probably that's what you should do better?
 
-I think all the lengths are known (and used for the alloc) so the
-code might as well uses memcpy().
-	blen = strlen(boot_command_line);
-	...
-	if (xlen)
-		memcpy(saved_command_line, extra_command_line, xlen);
-	memcpy(saved_command_line + xlen, boot_command_line, blen + 1);
-(etc)
+That's what I got for the entire history of Linux kernel
 
-David
+$ git log --no-merges --oneline --grep 'Reviewed-by:.*@aspeedtech.com'
 
->  
-> -	saved_command_line = memblock_alloc_or_panic(len, SMP_CACHE_BYTES);
-> -
-> -	len = xlen + strlen(command_line) + 1;
-> -
-> -	static_command_line = memblock_alloc_or_panic(len, SMP_CACHE_BYTES);
-> -
-> -	if (xlen) {
-> -		/*
-> -		 * We have to put extra_command_line before boot command
-> -		 * lines because there could be dashes (separator of init
-> -		 * command line) in the command lines.
-> -		 */
-> -		strcpy(saved_command_line, extra_command_line);
-> -		strcpy(static_command_line, extra_command_line);
-> -	}
-> -	strcpy(saved_command_line + xlen, boot_command_line);
-> -	strcpy(static_command_line + xlen, command_line);
-> +	static_cmdline_size = xlen + strlen(command_line) + 1;
-> +	static_command_line = memblock_alloc_or_panic(static_cmdline_size, SMP_CACHE_BYTES);
-> +	scnprintf(static_command_line, static_cmdline_size, "%s%s",
-> +		  extra_command_line ?: "", command_line);
->  
->  	if (ilen) {
-> +		size_t len;
-> +
->  		/*
->  		 * Append supplemental init boot args to saved_command_line
->  		 * so that user can check what command line options passed
-> @@ -708,19 +703,16 @@ static void __init setup_command_line(char *command_line)
->  		 */
->  		if (initargs_offs) {
->  			len = xlen + initargs_offs;
-> -			strcpy(saved_command_line + len, extra_init_args);
-> -			len += ilen - 4;	/* strlen(extra_init_args) */
-> -			strcpy(saved_command_line + len,
-> -				boot_command_line + initargs_offs - 1);
-> +			len += scnprintf(saved_command_line + len, saved_cmdline_size - len, "%s%s",
-> +					 extra_init_args, boot_command_line + initargs_offs - 1);
->  		} else {
-> -			len = strlen(saved_command_line);
-> -			strcpy(saved_command_line + len, " -- ");
-> -			len += 4;
-> -			strcpy(saved_command_line + len, extra_init_args);
-> +			len = saved_command_line_len;
-> +			len += scnprintf(saved_command_line + len, saved_cmdline_size - len,
-> +					 " -- %s", extra_init_args);
->  		}
-> -	}
->  
-> -	saved_command_line_len = strlen(saved_command_line);
-> +		saved_command_line_len = len;
-> +	}
->  }
->  
->  /*
-> 
+51d0f5020dee crypto: aspeed - Use memcpy_from_sglist() in aspeed_ahash_dma_prepare()
+dba7567c2fbb usb: gadget: aspeed_udc: fix device address configuration
+aba59ce109de peci: aspeed: Clear clock_divider value before setting it
+4dc44aec28c8 crypto: aspeed-hace - Use device_get_match_data()
+9ee8fbc05ef0 spi: aspeed: Use helper function devm_clk_get_enabled()
+eb33108858b6 crypto: aspeed - Fix modular aspeed-acry
+7484a5bc153e drm/ast: Fix start address computation
+aaf16cdca641 crypto: aspeed - change aspeed_acry_akcipher_algs to static
+f104b2169e68 crypto: aspeed - Replace zero-length array with flexible-array member
+83045e19feae usb: gadget: aspeed: fix buffer overflow
+70513e1d6559 crypto: aspeed - Fix check for platform_get_irq() errors
+dc377e013bec crypto: aspeed - fix return value check in aspeed_hace_probe()
+efc96d43ec38 crypto: aspeed - Fix sparse warnings
+31b39755e325 crypto: aspeed - Enable compile testing
+9deb10cf160e ARM: dts: aspeed: ast2600-evb: Update I2C devices
+70cdb930f7e9 usb: gadget: aspeed_udc: fix handling of tx_len == 0
+3d393f0303b5 usb: gadget: aspeed_udc: fix missing spin_unlock_irqrestore in ast_udc_ep_queue
+6fd45e79e8b9 net: ftgmac100: Disable hardware checksum on AST2600
+fea289467608 ARM: dts: aspeed: Add secure boot controller node
+8812dff6459d soc: aspeed: socinfo: Add AST2625 variant
+d0ec795c8c27 ipmi: kcs_bmc_aspeed: Optionally apply status address
+
+But even them are "aspeed" cases, so you looked at the code written inside your
+company which does NOT count as help to the maintainers with their queues
+(okay, it counts, but with low priority as these are not 3rd party reviews).
+
+
+> > > > This series adds support for the AST2600 I2C controller “new register set”
+> > > > implementation.
+> > > >
+> > > > The AST2600 I2C controller introduces a revised register layout
+> > > > which separates controller and target functionality into distinct
+> > > > register blocks, and extends clock divider configuration and
+> > > > packet-based transfer support compared to the legacy mixed register
+> > layout used on earlier ASPEED SoCs.
+> > > >
+> > > > The current driver implementation for the AST2600 I2C peripheral is
+> > > > through the hardware's "compatibility mode", which exposes a
+> > > > register set that matches the previous generation hardware (AST2500 and
+> > earlier).
+> > > >
+> > > > Instead, add a driver that works in new-register-set mode, to allow
+> > > > the new features, and will provide support for future hardware that
+> > > > will not implement compatibility mode.
+> > > >
+> > > > In order to support the new mode, we need a DT binding change to
+> > > > reflect the reference to the global register set. Since the binding
+> > > > still represents the same
+> > > > (AST2600 SoC) physical hardware, we continue to use the existing
+> > > > compatible string of "aspeed,ast2600-i2c-bus".
+> > > >
+> > > > However: since we're changing semantics for an existing binding, we
+> > > > allow backwards compatibility by selecting on presence/absence of
+> > > > the newly-added properties, and fall back to the old driver (ie., in
+> > > > compatibility mode) when we detect a DT using the old binding spec.
+> > > >
+> > > > Specifically:
+> > > >
+> > > > - ast2600-i2c-bus nodes that provide the `aspeed,global-regs` property
+> > > >   (present in the new binding and absent in the legacy binding) will be
+> > > >   successfully probed by the new driver
+> > > >
+> > > > - ast2600-i2c-bus nodes without `aspeed,global-regs` continue to use the
+> > > >   existing driver (in legacy register mode), ensuring that platforms
+> > > >   with the current DTBs remain functional
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
 
