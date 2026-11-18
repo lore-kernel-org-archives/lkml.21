@@ -1,111 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.152
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794978844;
-	b=1ACiQ0ws8KaR9XK1cNKBpbSHBkmKY7B6u81kyYKuiV5cL2Kdj693XyL/ciZM6w4mEIKD
-	 L1Fjgs8G8R/jHMR0rxTSYsK3n870YrEo9zKYR2QmyUaTutMwZhURryZqP8E4224VwKwYm
-	 Fxe+xXyEM8z+Rlc03EPWtg3DX85LQAVvwgduDplB1/ztKzU+pxeQZj5YU3FG3HuXqCzjH
-	 pYv51Gy5oGdEFslBwonKoQaVFJkBWPTKU7qdLvFRnvoVUBLBcpqi/R9ppD0V0XHZyIl4E
-	 XsQSO8u8LN0BqtGcfvdLNyNQJM1N6knE7z/MSBKWl/SUT7+UlnnHI9dzfchapufzw5w==
+	t=1794978892;
+	b=ZttXMXXMT21y2ZQK+ZeGbzf9cQ/+AujZCxMFeRS2NRnc9doSy6826yjYIaztUVS19d2o
+	 tXA+pQCvODk6OBoYD+mWIETopMTXSS2Q7Rqfw4O5Rjpp+DSMVBAQVxqP32L5BkfRBWvYi
+	 nU+HvO8DWZ8vT+9Hn7Te5U4zFbdotPaI6gEMyGOvag0o7vKXgwdhakzXjc0N+Lxbiu38J
+	 gQQWYwj0oK2oa/TPO3SRYeWVP+TGD5IHQVEIAFTwQ/wNtHOOaY1D8LeUcNdD9cRUHDLzB
+	 JnbA5vb+myDZ94X1dQB42dG10Oh9CO6eoulje9UfQv3Vx09B50e0Ke3bXUEOGsDHhrQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794978844;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=+W/ni9L0RBizArBj6WZVfrSfA+j0sVZBhYaquLUBeLw=;
-	b=2kA5EZ4xgM7ym7Ya7+pHQiFJIBi01q6Wh6M40xOzx0nIzbCYf8pz9brT60LMQq2a5wYI
-	 c3YDkDTb/mJ8kdqXE06eJ6Qc8SnN6uBV4+f6uWpCuQbkIHnZpjmVRFNqTVLmtdcoTgMeS
-	 K9w3NsBxbG9T1bNWefjQiQcRYOdYZxOK64dVlSYUc0DWVzu78tUVtJ2+zc7vu6wAZcQQx
-	 hNVGqjhpaG5pyIrbiHxsfIKCE+grBNNjMnccpj2dzEAELeRq4YrN3DNMz6Ep0ELfzFCbC
-	 HoZy95aZdYl8UZkdyYqEAnPW4J0qvm8aT69Fdjpsz1kGAAIb3DA7yz8ArNMt4gf77SA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794978892;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-TM-AS-GCONF:X-Proofpoint-Reinject:X-Authority-Analysis:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=ComRRml0ZzynV3ARoUry0O9EESmxNStjxfOKpHuXfew=;
+	b=VpeXMjdcCnvwXVp9tY+YqfVHbmh+CBovLwjY/rTy44KfAyxZiB7BkKc16t1bob4uJnZN
+	 /2UQCb0i4nF1stvigpAPZQOTyjlDnC3dowRqVehqDumX5tjsXSEYSFZwP8U2M0JEA4Y0d
+	 ohmAoH+7U1Enb5KWo1IxsqRZ9VWXbKGBxztr0JUrfbTTVS0ajSeO1n6r4YvDYStUgE49/
+	 Hc/1TdkPTHh3sDQ55m1YeypZkhEIV330FSfAcHj2u8ptK1GrWBp2rnc7OgAloEJ4zcNPS
+	 ABS5ya2qEPootoQNOSnfWH9mnkDNdKCDkXwDwdVh0nITn5JNoZ/cZBGnFOpvnK5N4Cw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=timdoug.com;
-	spf=pass smtp.mailfrom=timdoug.com;
-	dkim=pass header.d=timdoug.com header.i=@timdoug.com header.a=rsa-sha256 header.s=fm3 header.b=hLS27fB3;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=1cJGVGbQ;
-	arc=none smtp.remote-ip=103.168.172.152
-Received: from fhigh-a1-smtp.messagingengine.com (fhigh-a1-smtp.messagingengine.com [103.168.172.152])
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b="on/4JbEu";
+	arc=none smtp.remote-ip=148.163.156.1
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6783606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:14:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B6783606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=timdoug.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=timdoug.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FC95606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:14:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5FC95606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=timdoug.com header.i=@timdoug.com header.a=rsa-sha256 header.s=fm3 header.b=hLS27fB3;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=1cJGVGbQ
-Received: from stl-compute-04.internal (stl-compute-04.internal [10.204.2.64])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id A81791400197
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:14:02 -0500 (EST)
-Received: from stl-imap-13 ([10.204.2.104])
-  by stl-compute-04.internal (MEProxy); Wed, 18 Nov 2026 00:14:02 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=timdoug.com; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1794978841;
-	 x=1795065241; bh=+W/ni9L0RBizArBj6WZVfrSfA+j0sVZBhYaquLUBeLw=; b=
-	hLS27fB3KFDyf2i8lBu77JC5NcrNOt4QWttWBCXwjuMNP3aw5IdVkCGCVBB2H5gg
-	YD5ndgPz3BYzPDB3d/OkPmyQC+9u5YvZB/UbEsABY6dDAWp9UC4JCZ4EIW/+FlMk
-	iXShhTiiral3oiTVnH1oHGTPCXj01VPGkC0/RfKxhRz1eqC9AfLQa5aGoptzXFh2
-	1xhI7gWd2KimRiCId/3L3YJkyUR+VYf34ICNSa6bs+gshWEiyk/lGhHDwDbovKPr
-	E2q16SxMU+YOxrhwfzjtj/nvBtkP0xv/M6XnjcmQY/tm41hJAmTTRXWHQTNpMdU2
-	B+wIP0Iyzv4/tCT0VbpKpA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1794978841; x=
-	1795065241; bh=+W/ni9L0RBizArBj6WZVfrSfA+j0sVZBhYaquLUBeLw=; b=1
-	cJGVGbQYAB/u+yaQJUOPo0Ae1OyE0lu2WF0uLgo9/vhpJlN8RNFuw67aPr9fKA+V
-	QQYouDLdOSJqMWK3v/H9RCNe/jVKI2nmznX9NP4Zq9hCDSiffQbF9mc6WAsVgsdo
-	1KWrWDHFiE22ZHoI5SdTO4TVcBOOh5VoiMNuuzxTOLTlau8D0AxMJ/wUkGADwMC/
-	r9Dju3seia/7+/nfe6hpscownJP70t5sU4JnkVjl9g3uVy4L99txAZGPbAc8NLcK
-	jPyGhFCchTpwJPpvI2j6RlNOOpVOfkh97yfP/BR7rnCnevS0daB7L3/o1fDZ2kBE
-	XqRerlx+nRrhjF0sFP4xQ==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=timdoug.com a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1794978841; d=timdoug.com;
-	mf=PG1lQHRpbWRvdWcuY29tPg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:TCxHVzyBCo4oayZpANiF3eHx94fQqGAX2QOdRVXGlI0nmcC
-	6qyOK2D/9P2mce4ljkuOua1X5MomyPzdRPTeN4PlaH5HdwUYORU5j3qb9WKlFTfC
-	laje1pO5DMhY2EpMi2deQXjTtsoabb1l0oy+JaKfr+nCbY9Eaqv++bJrEUBxI3dx
-	Y/2e5ThYqRX1DOA6AyNSju712WiKuQPCkCrOOhH37FTn8oUzBM5uhoI5LSzSaixs
-	XARB+5hFwDHSkWqSMQHfhz65Bzr8zZupGbytg1XZo2azVszbc7Ixrv9SV3eYD+P2
-	v6y6f+t8spvIdO/Cu8jnnvyS9dTQmupKNMs9zMg==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:zPhCh9cRt9n1329fKxc92DFlpza0jyPGqzGUOnafzxQ=:+W/ni9L0RBizArBj6WZVfrSfA+j0sVZBhYaquLUBeLw=;
-X-ME-Sender: <xms:GTT9akwUwUuUJFuVmiByo8aePz7fJdTUkHueTdBZFDeYUFI110iW5Q>
-    <xme:GTT9ajHAEDP0bSicI_-v37pqyVypuyjcL7bphVdFZMg8-3qZIVAG3nfkyWayvg-lt
-    heWGci-63EHDr-kGJiF2qtzs-R7YoNcBGoZGk7oVqrZJgdZiIZ5bA>
-X-ME-Proxy-Cause: dmFkZTG3+SfvxaV0VpNohAinF1ZSequkxKFmnQqZ/6qU3k6uLmRRUbQqVaAAW7ysf/k2Hh
-    0tHliQyqZ3FRwCQpEXQYLIj+R2O4b1bNMOJhwwOZ5ZeCkxvDTJO5d+J9mSo4tBLp5C2yn4
-    9WNoD+H5v5/JlATc32KLoFybqbJeRWR/N2P8x+6bXrBeg8CZAD1sDDp2PFp4G3GKl8deb4
-    JQshhXXRs9ZC7HbOq2WWgN4cDpVP6lGt091Tkdv8vgGf8w11H3z2AEwedDIx0sAhIeKjwr
-    tYmRG+2Sf4xwArjcaoMNfIcrCOLt1GEBrolX6gK04TfgfpY0nqMng/662nGIM6I4/maWAd
-    ZIGs/tkPRyF8wTaAUgMFkMsHyhEuQZh5j7756f3jmnASRz8++Xb5wOV91o+qw/+BYAAf0s
-    7q4JeHKQRCU+7UNN3qncwkokjGtNH9+k0Z/Ovhhejwz4CwfqRVh9IYk3Ro6BT/vYeMF49W
-    jAuWl6et0vusdjYKeIzkmCEfj66DnSD0kQ9n5SO4bb7fbfat2rdWlFcR+fndQ9AF4n417N
-    +RoQSMmONaiBj4XosggrebEjjssDOQduij7P2fKUOKa56mr+5PnRkY9+BM7zX7FjfMHAuP
-    Pye4zdk/yoFd0Ayx0GzTT1kI7o7CwgkSR0r7cq1vcyWbX4BappykWAbBoHsQ
-X-ME-Proxy: <xmx:GTT9an9kSspLjrn8lhDaT2f4foHbu8Itip9vxJbK0cX9zZw_L-q50g>
-    <xmx:GTT9aso9B8P83_N7BBmk5TZ6XcBc2aVVC1RY1EHHoqf9PVuO3fOJmw>
-    <xmx:GTT9agkTCgSO6sgGnOc02zcGAB8HV0I4gvXykGocjvJw_OJ8KIZTQg>
-    <xmx:GTT9ajhyIRdU6SxVAx0kXeOTUXXURkTtkQQvfhKsWwze6-4XPLb1rA>
-    <xmx:GTT9agvxtZFvqKZOF9xchXm3y5H6sZxkOQeV3TsK4belwlt8pChm0yf_>
-Feedback-ID: i12bc4175:Fastmail
-Received: by mailuser.stl.internal (Postfix, from userid 501)
-	id 11E2EF60084; Wed, 18 Nov 2026 00:14:01 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=on/4JbEu
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI2RuAW4062985;
+	Wed, 18 Nov 2026 05:14:34 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=pp1; bh=ComRRml0ZzynV3ARoUry0O9EESmxNStjxfOKpHuXf
+	ew=; b=on/4JbEuoL/+CjWlEo00BA0nJGe7N0+ZWo3zhzBU6ObdwxoHmv+sks8I0
+	gUW/4jVNnK6l98F/UFyXOVaUeALJ8uN/nPnL42/uJNIWycugL7BwU67sIJ8NdVuf
+	xcsjCb875XAS225Jlu3wHLYJMSyXdAfI193vV274rv8F9oqkaZ3eR5NNA8lMDGTM
+	LHFDqjphg+OPk62C2WbwHf7+sR4yC1RyIk8847p/ufL5NCPI/BthrN0NPg3jJ/5+
+	e/lXIl3zGEXlKYlZEQOvJs6SmdRvJpmUlqJskF3mqz8+oLz1OfQ3FXtzesm2Oxhy
+	VGImPISD/Z/S3Zsp8RwNPoZPFr6fg==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105t0yp1-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 18 Nov 2026 05:14:34 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI2nt6M680839;
+	Wed, 18 Nov 2026 05:14:33 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4hy2bvgugx-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 18 Nov 2026 05:14:33 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AI5ESLC39059904
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 18 Nov 2026 05:14:29 GMT
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id D10AB20043;
+	Wed, 18 Nov 2026 05:14:28 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id CB59120040;
+	Wed, 18 Nov 2026 05:14:23 +0000 (GMT)
+Received: from li-7bb28a4c-2dab-11b2-a85c-887b5c60d769.ibm.com.com (unknown [9.39.20.10])
+	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 18 Nov 2026 05:14:23 +0000 (GMT)
+From: Shrikanth Hegde <sshegde@linux.ibm.com>
+To: maddy@linux.ibm.com, linuxppc-dev@lists.ozlabs.org, chzigotzky@xenosoft.de
+Cc: sshegde@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com,
+        christophe.leroy@csgroup.eu, linux-kernel@vger.kernel.org,
+        msuchanek@suse.de, ritesh.list@gmail.com, harshpb@linux.ibm.com,
+        gautam@linux.ibm.com, amachhiw@linux.ibm.com, venkat88@linux.ibm.com,
+        nnmlinux@linux.ibm.com, mkchauras@gmail.com
+Subject: [PATCH v5 0/3] KVM: PPC: BookE: Fix boot hang on preemptible kernels
+Date: Wed, 18 Nov 2026 10:44:16 +0530
+Message-ID: <20261118051419.783878-1-sshegde@linux.ibm.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,30 +93,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: A1SLg5mlGAe3
-Date: Wed, 18 Nov 2026 00:13:40 -0500
-From: "Tim Douglas" <me@timdoug.com>
-To: "Finn Thain" <fthain@linux-m68k.org>
-Cc: mkp@kernel.org, James.Bottomley@hansenpartnership.com,
- linux-scsi@vger.kernel.org, linux-kernel@vger.kernel.org
-Message-Id: <322e7882-b45a-4503-a1a2-7926f1722889@app.fastmail.com>
-In-Reply-To: <ee193416-6116-7656-e984-5a556490997e@linux-m68k.org>
-References: <20261118003746.61659-1-me@timdoug.com>
- <ee193416-6116-7656-e984-5a556490997e@linux-m68k.org>
-Subject: Re: [PATCH] scsi: esp_scsi: report the residual byte count
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=IouL47/g c=1 sm=1 tr=0 ts=6afd343a cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=U7nrCbtTmkRpXpFmAIza:22 a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8
+ a=4M4rjlPIC_omUXLxwSAA:9
+X-Proofpoint-ORIG-GUID: _FAZnjFIzeN-a8vdkVqegOlU-Q2ZS0UB
+X-Proofpoint-GUID: AWPUZCe4tdD6RDAW4nXxPz1YetxgyF0d
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAxOSBTYWx0ZWRfX/4cOi/7WqLDI
+ DoA813Z8croph3KK8Po1k4KC32DNEpAx9sACtFZW6unOpdg8XCyKEFpggIm2VINjNF4xmzP0wIr
+ yJuR3+UGs8H94ZNBrvXMcJXwBPaL6Swb25PDrd6QHJGxkuwr4X61MuQdtVsWqbB8PzJGae4+C2v
+ ECoGWVAubGV5TwqebemkXhNWhu1CG/fkJYuxCRckPb8ltkj++NGnQ1vudBf+QOpqTcVXDsyJWwR
+ p3n/by5ADr1vgUT9KgfarwkSSJD/20p2qE6ObJekRzmsobm3bd9hvkEe+qNMb3PAs1Bq9Nx2jgl
+ SXNd2nH/5oB7og0BPLjBKS9GzWr5RID334oL0Lvszx/Dlt92cNWbCM/fd1t/LqIng7B8nYt5pCU
+ prAgSrHpdT7/Ga2L5nPP6EpxjE+L114UYE1tAZmjTRJhMnm5oylBz1At+hlrHKJPSlhfK+g2nBH
+ r2H4sZV+WEKFTpbvtsw==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAxOSBTYWx0ZWRfX2vs4yp0Hw8Gy
+ tmc7RygorD/sn3Tgt7fmSsxUXmQHGOqzqmRIA8zm7MkypBIkh9wF85KZDjpOHBh0Y4PvxhetJIL
+ LwfDTy7kl5bvox1urOIe/sBvp8TZlK4=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-18_01,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 spamscore=0 adultscore=0 priorityscore=1501
+ lowpriorityscore=0 suspectscore=0 phishscore=0 clxscore=1015 malwarescore=0
+ bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611180019
 
-On Tue, Nov 17, 2026, at 11:11 PM, Finn Thain wrote:
-> Regarding that front-end for the esp_scsi driver, do you think it can=20
-> replace the mac53c94 driver? Has your driver been published yet?
+Christian Zigotzky had reported that preemptible kernels don't boot on
+his FSL Cyrus+ board. The board freezes on running either full/lazy
+preemption and has been an issue for a while now (years!).
 
-Thanks for testing! Probably not. The front end uses PrimeTime
-pseudo-DMA like mac_esp, and a replacement for mac53c94 would need
-DBDMA support. (The "cordyceps" Performa 52xx/62xx family is a bit of
-an odd duck, essentially a PowerPC bolted onto Quadra-style IO.)
+https://lore.kernel.org/all/b897b0fd-90f2-4215-bcd4-3714e497d773@xenosoft.de/#t
+More details in cover-letter of v2[1]
 
-The driver is still in my local tree, happy to share the patch if
-you=E2=80=99d like to take a look.
+v4->v5:
+- Removed fixes tag for patch 1 as backports could be
+  complicated and added stable instead.
+- Collected tags.
 
--Tim
+v3->v4:
+- Modify hard_irq_disable for PPC32 to simply call
+  local_irq_disable which does tracing/lockdep in addition
+  to actually disabling the EE bit. (Ritesh Harjani)
+- Modify the guest entry code to use the above (Ritesh Harjani)
+- Collected tags. Thanks to Ritesh Harjani, Narayana Murty N.
+
+v2->v3:
+- Comment removal (Mukesh Kumar Chaurasiya)
+- Add missing booke change (Sashiko)
+- Collect tags (Thanks to Mukesh Kumar Chaurasiya, Christian Zigotzky)
+
+v1->v2:
+- Re-order to avoid preempt count dance (Narayana Murty N)
+- Do only hard_irq_disable on PPC64 to avoid second warning. On PPC32
+  use local_irq_disable to acheive the same. (Ritesh Harjani)
+
+v2: https://lore.kernel.org/all/20261110053238.3794500-1-sshegde@linux.ibm.com/#t [1]
+v4: https://lore.kernel.org/all/20261117131612.707038-1-sshegde@linux.ibm.com/
+
+Apologies in case any nitpicks are missed.
+I'm surviving on half a night's sleep these days.
+
+As said in v2, remaining usecases of hard_irq_disable will be taken up
+later, which are in:
+arch/powerpc/kexec/core_64.c
+arch/powerpc/kvm/book3s_hv.c
+arch/powerpc/platforms/85xx/smp.c
+
+Shrikanth Hegde (3):
+  PPC32: Fix hard_irq_disable to follow tracing and lockdep state
+  KVM: PPC: BookE: Load FP and Altivec before enabling the interrupts
+  KVM: PPC: Hard disable interrupts before guest entry
+
+ arch/powerpc/include/asm/hw_irq.h | 2 +-
+ arch/powerpc/kvm/booke.c          | 4 +---
+ arch/powerpc/kvm/powerpc.c        | 8 --------
+ 3 files changed, 2 insertions(+), 12 deletions(-)
+
+-- 
+2.54.0
+
