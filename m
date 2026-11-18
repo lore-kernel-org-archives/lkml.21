@@ -1,97 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794973706;
-	b=e9yH2prPRlUXSAFs74uyTqMjsvNbjvJWhroYSGPegiXLSedK/q13z025i2nNmp+NeWNf
-	 umaEP1jqb9wUkDdWvGPi4YS+nxJzLUoZ9XEXB6k6Z6Mb6a0TblMJZAND1Yt6hE4OCPmmT
-	 M6MESCaiXNwPHGkh7gIITn2Ewqc8vR8JGD0t9FbLyuWk0ZOZ/fPofs1x8o81BcYfNGmPG
-	 59laE/nJCPkzJ5sw2lL7+pqyePiF2d+LRsD0W2qBEdE3NWUAtzclwEK8x0rz2dqIVtFGG
-	 mzpxnXSpPX+Q8dt+DTll4jKJmB5OGwQTr92Uw3GT5lUBVPzuXUWGC42J//V46RU+Qhw==
+	t=1794973747;
+	b=l/+Y16eR3PcGi0J8bpvb7O6lLPYc+ddWdE0PpxraLW2KT1fS2LY6cYAN8yX66RWK0GbV
+	 BmpoaLEd22oMJOivbXSZnNxwSzhjCeuzfJ4/Tx82KYgw8gQ+x9OZEjw8dYCnhHfNCjPCk
+	 yEEHeVQDdXLYsPuNlKXTUERIdUkKZu7w57Xcd9GEFj1aAIlIUmTZg/NxeXY32MqWcqgQT
+	 tEQbPEmOTDTsAmD+s5P56kiF2PvB86kLA00JPaabC3MTzNt60xgzf7zI7YvRkFkSAgzbX
+	 HXUWHmWdcsGV0DHUfTQI/T5huvg1xOBR1LXiMv8fNt2OGSc8vpUc+yXJc7nxdovBtxw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794973706;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794973747;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Sender:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=kOOQLfeBwDY0iWXFrU8Q51s+d5tc2TqUDyd6PHmR+Fs=;
-	b=jSKM+nKtx5SEDaCUfnfjAv9dvkGTII9H6cVdMixMceLhZdAln0al7GrHmEIScUQPbPcG
-	 uCEiJoMslw2SMaFK+2wN+R0LfS36WtiVBr1WkpSAtgl0z4OrJUbzDELuvQTINhLibJeaC
-	 V0/BhEDNlf7Ao23JIGJ5qt+3Odwh4AMjcs1b3iv3tH+8MwkwiALq/65OnnPQ6uEQWIGDK
-	 +rZJG1P4mRrzdgAYqgcZCaTp7moOw5K2uXu+/lzB/fWhZ/tsQsfjKqQT26OwV7Txd4Ex3
-	 0+GngNpIj2D0X1EHigDkzrC7OTmfLxGuScdq6EnoJWasxDCghOxcQ9zq4X8yjZEemDg==
+	 Content-Type:Date:Message-Id:From:To:Cc:Subject:In-Reply-To:
+	 References:Content-Transfer-Encoding:MIME-Version;
+	bh=IGZ1LY0R7muEviWN7fb4euvV9psptmj/QGERpFprukU=;
+	b=iNQGmfYLjepwjZdGtcr/JwDW5Rx4wr7mK8xg1W0QMOTYf1jVVpp0Oq2QqFWIq2be/BJj
+	 4ROoa2Yc4/SG+qZQfC5Pc0PKX1xl3oBygmsCUPBcfVA5uOnFaEC4NY+ina5hrRHSpYuvp
+	 7bK7s5u7D9nGziRFu1K0GVBX7nyGyUrvY9YMYI24Pn8jOYOcM7EW7S0AZLojHtRO7Gf4b
+	 3bXfvH/ry8ruosZEPLIpE6dK2FkS/9D62AQt/Rn+iKzHPfWLRoUzjH2U461kK2uE+meGd
+	 aHQM/4g6JUsI7x/oGZa30P0L8dgPazxj2yGDOY5PWF4vs7zd5OJwM4dguKF4RnneSEA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=chromium.org;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="Qud/GwRZ";
-	arc=none smtp.remote-ip=209.85.210.175
-Received: from mail-pf1-f175.google.com (mail-pf1-f175.google.com [209.85.210.175])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mPeUg6R9;
+	arc=none smtp.remote-ip=209.85.216.47
+Received: from mail-pj1-f47.google.com (mail-pj1-f47.google.com [209.85.216.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AF14606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:48:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3AF14606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 88A56606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:49:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 88A56606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Qud/GwRZ
-Received: by mail-pf1-f175.google.com with SMTP id d2e1a72fcca58-8a06e79e152so295112b3a.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:48:26 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mPeUg6R9
+Received: by mail-pj1-f47.google.com with SMTP id 98e67ed59e1d1-3ace1f3897cso294580a91.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:49:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794973705; x=1795578505; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=kOOQLfeBwDY0iWXFrU8Q51s+d5tc2TqUDyd6PHmR+Fs=;
-        b=Qud/GwRZ/iB29w4vbbnsZrdA2yX2zWH58PtoorHYag7lRaQwP4PXkhdejkBhS23+nw
-         +FKq8MMj9y675G8I1OoEZkOHK5dj2Nt8BlNhH4rXamxiVaUyX/SWdwyV2pjlx6mUT4a9
-         ZHp9gDgjXPBhj0veDMAjYHVLUYZaU/xHubdD8pjKDbXm8a2qkg1Fv11tqHI11AaDnBjz
-         YiArPH1OclWtekzUtxkVx9nhde5xFCXJLT+oolH5xa6k0LrIiIqDNk+SGW/hV1lE22MC
-         m55AWsvJ6GtaUBk36r+7QqBRFOMzDSeEYyg8U2QA+u1spCiImLNNXb4kKuMcGn0s2C1a
-         jQRQ==
+        d=gmail.com; s=20260707; t=1794973747; x=1795578547; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:references:in-reply-to
+         :subject:cc:to:from:message-id:date:content-type:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=IGZ1LY0R7muEviWN7fb4euvV9psptmj/QGERpFprukU=;
+        b=mPeUg6R9421yjKq8HMJfXGFNR/USS3ajLsGgaBCPa0Q8VD7nlR8WjXM7Z0LUUEYO5b
+         zlu1yzTVKPYq0F4/VffGAv7KubezEqz7lZxCe7VznHjTq9Mq7O8DAHujtwQm6COtW2aV
+         9YR0hsFNVrx8akhxKC3YqjyEJq36tFpF+fweqCJy4jfb8exhV6O7P6Jd3zVYk1CSIuTy
+         IBIfd4mp44R6kJ9u2l7R3+H3QHsKPE32fiClZIWvfmkwDo6U5Idx3aulU1TrFCWdoC4i
+         nwST+zuFxDOdrUK2FjQ96XHNxlkLjyZnVV/eUhz51A1LJdz3gwQEWTXKHNraRj8ZXxuP
+         ieSQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794973705; x=1795578505;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:x-gm-gg
+        d=1e100.net; s=20260707; t=1794973747; x=1795578547;
+        h=mime-version:content-transfer-encoding:references:in-reply-to
+         :subject:cc:to:from:message-id:date:content-type:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=kOOQLfeBwDY0iWXFrU8Q51s+d5tc2TqUDyd6PHmR+Fs=;
-        b=QaPpXKeXoiwnZzpoHJU6JirHOhiAcEXPD3uVlYFoNu5il/J20MawcWplsJwkFbkWlh
-         lcE+Jy1pbVw/m4pTJBeAxO3VdIRXiWwgfH+qW+LDovnfFP+kWDA/L6Kn7w4iqPjOjI6r
-         Nwrok2SNfbU30ODxN6te0ySgCukote2KXpPHtEUn93ozx66AvKZViNJwMdEkgweSWT7C
-         hai3BW78prbfvP1YN6OY9agicvk/Jbd1yIlVoeJbl4JDS/46d2ai7yYf+/Iwx5o5/XeN
-         6DbCuZvoOctiR9IwHwKS2qewYOjCW/aGxTDVUtlPyj19EMVRvw7raKR8IqFy3Ot7+dru
-         XYJw==
-X-Forwarded-Encrypted: i=1; AL+hErF6Iel6oBXQNzBoVZYL+97NWQc1WooZ5qFaaO/ST8/NFXEjNNZw6zvx1mE+V27sTyoXk362EqA8nuU1b2s=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/5EQEExjtVPqc14rpXL5QIgj8uFiccuJeFBXDUec7BBRR5abIx
-	HA9misOOH79I5nM+Fto578Xnj6AYSqkZMMUIyVFUJ8pFCoTZ4ouZGMNq9Xyjz96Tnw==
-X-Gm-Gg: AYBFou1uym9yk95hhOt/fSJzP+ViuC7EodDexr3dZ2kwrjIrTxHQge/Y/9F5BCL0QBM
-	tXQ5SEXyhbKnjIzQVciK5Ytt5/NFthr/FZ5W4DyLYFBsK5/iZb9OqzEQsnCrtS6OJCw7rf06/TQ
-	rUEzn2lw/sAjCVYA3TgkmEYiCXtIBkK0Ro0THgv8QjS4y8PReygsyucTMAZnMIfoio0+tTkyDGi
-	YzeKUtaKWoQOFBqHESVb9NFUmPtwabaG26is4gOeM7p8XiJ9C9/a4XgrQ7QYvJRs/4hwxDApNQA
-	1G+PHDtTBhfEmj682Wvw/so+brewLpFjZjmtOkIsNE0R6374dxxb1xqfNk1HvQ7oYbbIYk6gpyD
-	FsXanHSxQDGZ7hgeVHuvCyaVY03p9y5jYaVKChRhG9rfYax1leZj+/fpM2fnL7WdwRuD7HubktX
-	cV4o5lfbiXYim6snl6WNeF5IW+K5nf5jFDJDkhskGOvjKTMggKvckRB79T0DFHsnpG35yQHXSH8
-	+XXQndfC5ATjqb6IHGKd1NoEDVNoBpnJ6dHcS49n7UfjLbhOAPXVeStqOMbU1+kWQ5eqkj2UxKi
-	9sddmU1pMJqFQUy6kSI1a7aPmSYYjlIvdHikhm7GjUMq/ttVCIyYi4wIK02unPaWUT665FIL07W
-	ktbR3H2k6yu/+nKSVDeZSrcSbO6K8KSoeZDNzaFXsf2VGaM5RRgAj32RrqWZI3SfU4VlFc45C7C
-	zzCcy4ahuMUDEd
-X-Received: by 2002:a05:6a21:8210:b0:3e1:885f:b4ab with SMTP id adf61e73a8af0-3fe872c98b9mr1476685637.8.1794973704719;
-        Tue, 17 Nov 2026 19:48:24 -0800 (PST)
-Received: from google.com (196.126.197.35.bc.googleusercontent.com. [35.197.126.196])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde3bb9f3e4sm380752a12.13.2026.11.17.19.48.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 19:48:22 -0800 (PST)
-Sender: Benson Leung <bleung@google.com>
-Date: Tue, 17 Nov 2026 19:48:20 -0800
-From: Benson Leung <bleung@chromium.org>
-To: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-Cc: bleung@chromium.org, lee@kernel.org, tzungbi@kernel.org,
-	groeck@chromium.org, jthies@google.com,
-	chrome-platform@lists.linux.dev, mfd@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] mfd: cros_ec: Drop OF node reference in ec_device_probe()
-Message-ID: <av0gBCp63QZ2F8gy@google.com>
-References: <20261118013935.1573-1-laixiangwu@cmss.chinamobile.com>
+        bh=IGZ1LY0R7muEviWN7fb4euvV9psptmj/QGERpFprukU=;
+        b=C7Zs0mZw4pKd9U2k2SE5th07vz4+GOm4vX/9c/CgsWEr3bi3TZYZa3ER539r+Drlyk
+         5IlomUGtxSckFl2koZHMy+BVuv/OuuvQvi7BqTEJeVoBRp13ofx115aULgeqLB09R61r
+         TFYEwUXWNk5c88R3yZLAITHAMxmvn7GFO+Of9tB/29cpK3lwei1yYM4Jbf0cItIW1nPk
+         aeohbPgyB7CZwcfhKV124DHY0B1tm2iD052s2bbXcWVkH0UJEztRXBdNuD68FdBBpQ5/
+         UB/vqC9OKTmFinFOdGSZWCtfTA3vhe7eF2dt5VVpq4v+gPzKCm320Wui1GfmSYKZUr69
+         RhBg==
+X-Forwarded-Encrypted: i=1; AL+hErHCW12jhZWFC8/cVmraYi81sJYwgkthLIP4unPkJVwRp7atRUw+UpMZMazKiDjF7KerYms5x4KAvfYKdH8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+4dbMa7BOmbmbBtGbNVFbWp5eYN+u1kRsZJ606ptvQxUl900mp
+	/3SbIgi9UIiJdSUO0xxfvFXJFJu6f/7LPZZsx0fHi95xODNUXYagchYo
+X-Gm-Gg: AZFdTZf4k1b32+oh6f/zFq7JWONPjNIXSVjzGH20c+d7iQPxgRfeJRyRkqlJIWqkp9Z
+	do9t1cdUYoye8yMTLFFh/4fXDfiCydxfLpHxNtH90QrtOn8+5RXmAYuxSeVb4LUBu6SPNNiy3LJ
+	wiSL6+WXtPcKc3HZp/mHkWruLk/yROD0Sc3YDniPLrQRK1yFbX/t47Tu0gUjBZdFv1qvYQ+MUOU
+	7LLun8g3TTvOO59WqQdQWjtCJJYhLF1Z99eJkVg3NUH6sgw+pmiVcByZWBCtXh4XlSgG4P1qjA8
+	I/wFyqGsKfsh7fhsG/BRMjk+TvVKEoG30ocIEomiiY+sWukhaqi71Np2ppsP3Zb9y5LOXmPdg1W
+	mRGtnWRzPH4jnDvz5CZYq5IDI1bL6p81mU71yC6Tk8RZ/z/0z0N9ZardWU/LDcG6aD4mi2F1Wbh
+	BvCaBUXJ/vCwaQZNlUzPRruztVkTBtG0knBxc1znA8uOQ/5wF+gc6F41t8ZGoMVRMCz86BKaF5j
+	QjDSrp1N6b/OU6ydVzJi7GLKBHGMK6VViO8gbv53fqseRviKwlnxG/T2h6fSzh2jUk2TvNKqzYU
+	XxYfd2X1h1g9agPcgbneLQ7D3cnMp5D+QwVJpWdBQHNJr8VQogSkDjJUNmpih0q8KQ6akUar4Zc
+	ZXYQ5Onj1jaCGTdE3hSbudJVLeAGBmkBOHPI=
+X-Received: by 2002:a17:90b:384b:b0:3b3:be94:8ddc with SMTP id 98e67ed59e1d1-3b3d074d683mr1339461a91.12.1794973746755;
+        Tue, 17 Nov 2026 19:49:06 -0800 (PST)
+Received: from localhost ([153.61.198.252])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff62930a5sm5279125ad.66.2026.11.17.19.49.05
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Nov 2026 19:49:05 -0800 (PST)
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 18 Nov 2026 03:49:05 +0000
+Message-Id: <DMY136RTAL9Q.2WQSZ57W1YLV2@gmail.com>
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+To: "Kurt Lin" <lylin1023@gmail.com>, "Hui Zhu" <hui.zhu@linux.dev>, "Hui
+ Zhu" <zhuhui@kylinos.cn>, "Kumar Kartikeya Dwivedi" <memxor@gmail.com>,
+ <bpf@vger.kernel.org>
+Cc: "Daniel Borkmann" <daniel@iogearbox.net>, "Andrii Nakryiko"
+ <andrii@kernel.org>, "Martin KaFai Lau" <martin.lau@linux.dev>, "Eduard
+ Zingerman" <eddyz87@gmail.com>, "Song Liu" <song@kernel.org>, "Yonghong
+ Song" <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>, "Ihor
+ Solodrai" <ihor.solodrai@linux.dev>, "Emil Tsalapatis"
+ <emil@etsalapatis.com>, "Barry Song" <baohua@kernel.org>, "Shuah Khan"
+ <shuah@kernel.org>, <linux-kselftest@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH bpf-next v2] selftests/bpf: Fall back when
+ memcg_proactive_reclaim data lands in shmem
+In-Reply-To: <20261117170704.1146730-1-lylin1023@gmail.com>
+References: <20261117170704.1146730-1-lylin1023@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,125 +109,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="4fjyoe2kkllcO+TQ"
-Content-Disposition: inline
-In-Reply-To: <20261118013935.1573-1-laixiangwu@cmss.chinamobile.com>
 
+On Tue, Nov 17, 2026 at 09:07 AM Kurt Lin <lylin1023@gmail.com> wrote:
+> After writing the file, check memory.stat and move on to the next
+> candidate directory if most of the data was charged as shmem; skip only
+> when none is left. Give each candidate its own cgroup so that stale
+> stats from a previous attempt cannot interfere, and poll memory.stat
+> until the write shows up, as reading it does not force a stats flush.
+> Fail the test if memory.stat cannot be read or never shows the write.
 
---4fjyoe2kkllcO+TQ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+This is overkill.
 
-Hi Xiangwu,
+>     To exercise the polling, FILE_SIZE was temporarily cut to 2 MiB in a
+>     128-vCPU guest, which keeps the write below the flush threshold.
 
-Thanks for catching this OF node reference leak problem. A few comments bel=
-ow.
+So the test with 32 MiB didn't hit it.
+Pls don't add code just because a bot said so.
 
-On Wed, Nov 18, 2026 at 09:39:34AM +0800, Xiangwu Lai wrote:
-> ec_device_probe() calls of_find_compatible_node() only to check
-> whether a "google,cros-ec-ucsi" node exists in the device tree, but
-> the reference held by the returned node is never dropped.
->=20
-> Keep the node pointer in a local variable and release the reference
-> with of_node_put() right after the lookup.
->=20
-> Fixes: 17f95281839d ("mfd: cros_ec: Don't add cros_ec_ucsi if it is defin=
-ed in OF or ACPI")
-> Signed-off-by: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-> ---
->  drivers/mfd/cros_ec_dev.c | 7 +++++--
->  1 file changed, 5 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/mfd/cros_ec_dev.c b/drivers/mfd/cros_ec_dev.c
-> index 529a23b80..593297df5 100644
-> --- a/drivers/mfd/cros_ec_dev.c
-> +++ b/drivers/mfd/cros_ec_dev.c
-> @@ -184,6 +184,7 @@ static int ec_device_probe(struct platform_device *pd=
-ev)
->  	struct device *dev =3D &pdev->dev;
->  	struct cros_ec_platform *ec_platform =3D dev_get_platdata(dev);
->  	struct cros_ec_dev *ec =3D kzalloc_obj(*ec);
-> +	struct device_node *np;
->  	struct ec_response_pchg_count pchg_count;
->  	int i;
-> =20
+Here is what I mean. I didn't compile it:
 
-ec_device_probe() already has a "struct device_node *node;" declared
-immediately before this context. Please don't add another device_node point=
-er
-here just for this. Instead, scope it to the block below using
-"__free(device_node)".
+diff --git a/tools/testing/selftests/bpf/prog_tests/arena_memcg.c b/tools/testing/selftests/bpf/prog_tests/arena_memcg.c
+index c76a7eb..334bfa6 100644
+--- a/tools/testing/selftests/bpf/prog_tests/arena_memcg.c
++++ b/tools/testing/selftests/bpf/prog_tests/arena_memcg.c
+@@ -53,8 +53,12 @@ static int alloc_pagecache(size_t size)
+ 	fd = open(".", O_TMPFILE | O_RDWR | O_EXCL, 0600);
+ 	if (fd < 0)
+ 		return errno == EOPNOTSUPP ? -EOPNOTSUPP : -1;
+-	/* tmpfs hands out shmem pages, which are not reclaimable without swap */
+-	if (fstatfs(fd, &stfs) || stfs.f_type == TMPFS_MAGIC) {
++	/*
++	 * tmpfs hands out shmem pages, which are not reclaimable without swap.
++	 * overlayfs hides the type of its upper layer, which can be tmpfs.
++	 */
++	if (fstatfs(fd, &stfs) || stfs.f_type == TMPFS_MAGIC ||
++	    stfs.f_type == OVERLAYFS_SUPER_MAGIC) {
+ 		close(fd);
+ 		return -EOPNOTSUPP;
+ 	}
+diff --git a/tools/testing/selftests/bpf/prog_tests/memcg_proactive_reclaim.c b/tools/testing/selftests/bpf/prog_tests/memcg_proactive_reclaim.c
+index c22dcfa..2ba0791 100644
+--- a/tools/testing/selftests/bpf/prog_tests/memcg_proactive_reclaim.c
++++ b/tools/testing/selftests/bpf/prog_tests/memcg_proactive_reclaim.c
+@@ -30,7 +30,8 @@ struct reclaim_args {
+  * being available, and a read-only mount cannot host the file at all (EROFS
+  * applies to root too). /tmp is tmpfs on many systems, and test_progs is
+  * routinely run from a tmpfs working directory, so both candidates need the
+- * check.
++ * check. overlayfs hides the type of its upper layer, which is tmpfs for /tmp
++ * in virtme-ng guests.
+  */
+ static const char *workload_dir(void)
+ {
+@@ -40,7 +41,8 @@ static const char *workload_dir(void)
 
-> @@ -269,10 +270,12 @@ static int ec_device_probe(struct platform_device *=
-pdev)
->  	 * the required nodes. On PDC systems without FW nodes for cros_ec_ucsi,
->  	 * the driver should be added as an mfd subdevice.
->  	 */
-> +	np =3D of_find_compatible_node(NULL, NULL, "google,cros-ec-ucsi");
-> +	of_node_put(np);
-> +
->  	if (cros_ec_check_features(ec, EC_FEATURE_USB_PD) &&
->  	    cros_ec_check_features(ec, EC_FEATURE_UCSI_PPM) &&
-> -	    !acpi_dev_found("GOOG0021") &&
-> -	    !of_find_compatible_node(NULL, NULL, "google,cros-ec-ucsi")) {
-> +	    !acpi_dev_found("GOOG0021") && !np) {
->  		retval =3D mfd_add_hotplug_devices(ec->dev,
->  						 cros_ec_ucsi_cells,
->  						 ARRAY_SIZE(cros_ec_ucsi_cells));
+ 	for (i = 0; i < ARRAY_SIZE(dirs); i++)
+ 		if (!statfs(dirs[i], &st) && st.f_type != TMPFS_MAGIC &&
+-		    st.f_type != RAMFS_MAGIC && !access(dirs[i], W_OK))
++		    st.f_type != RAMFS_MAGIC &&
++		    st.f_type != OVERLAYFS_SUPER_MAGIC && !access(dirs[i], W_OK))
+ 			return dirs[i];
 
-Moving the of_find_compatible_node() to before the "if" condition breaks
-the short-circuit evaluation, causing every ec_device_probe() call (includi=
-ng
-secondary MCUs such as FP/ISH/SCP/TP and non-UCSI Chromebooks) to walk
-the entire Device Tree unnecessarily looking for "google,cros-ec-ucsi".
+ 	return NULL;
 
-We want to only run this search if we passed the other 3 checks in the if.
-
-Also, testing "!np" after calling of_node_put(np) evaluates a pointer after
-its reference has already been dropped.
-
-Instead, please look into using the automatic cleanup attribute
-__free(device_node) added in:
-9448e55d032d ("of: Add cleanup.h based auto release via __free(device_node)=
- markings")
-
-Scope the device_node pointer inside of the block (so we keep the short cir=
-cuit)
-and the cleanup will automatically drop the reference when leaving scope.
-
-Something like this:
-	if (cros_ec_check_features(ec, EC_FEATURE_USB_PD) &&
-	    cros_ec_check_features(ec, EC_FEATURE_UCSI_PPM) &&
-	    !acpi_dev_found("GOOG0021")) {
-		struct device_node *np __free(device_node) =3D
-			of_find_compatible_node(NULL, NULL,
-						"google,cros-ec-ucsi");
-		if (!np) {
-			retval =3D mfd_add_hotplug_devices(ec->dev,
-							 cros_ec_ucsi_cells,
-							 ARRAY_SIZE(cros_ec_ucsi_cells));
-			if (retval)
-				dev_warn(ec->dev,
-					 "failed to add cros_ec_ucsi: %d\n",
-					 retval);
-		}
-	}
-
-Thanks!
-Benson
-=20
-
---4fjyoe2kkllcO+TQ
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQQCtZK6p/AktxXfkOlzbaomhzOwwgUCav0gBAAKCRBzbaomhzOw
-woP9AQCyMO9vyhePX5Mo6ySbyd6lVvlJLWQmBZ/JkBQ5++mtEgD9Fn8urRODY8Dl
-tKHn5MQbfnC2KA+qSjaW58BRnL5tUgg=
-=LNBZ
------END PGP SIGNATURE-----
-
---4fjyoe2kkllcO+TQ--
+pw-bot: cr
