@@ -1,64 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.164.201.207
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795027675;
-	b=xY3uUc33VvpfKKxVwb4LJKntwShYRTWBlNlY4VfD7WqInPHrkLgKVAv3i+5+DSq1maEb
-	 KOOjTRuuRuUSZJPIv/hy73o5sbWHCmdNVZlk9p0JIRRbVO7ojFT01pGQ5Uh1IJngBSSAC
-	 O5tXMG+AZi/dvYMaNG/ZaAQ8Sq6GDAXHdk9/ttJZBKG0o4B4WEyhn36wA6tvULuvgoSJ2
-	 h1nDTqSDSs6ugmAKyCLIWDG6DFWfTUcVdKeho3kIq01r20WI/AS/LbGsQCON9pdQtD6Ut
-	 8VXcHb8NiOYBZ35RApiB+yRM5hNtLOtpaiHrIh6jaBLjVEGfuyBqzXNNPn0VPHA6/cw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795027675;
-	h=DMARC-Filter:Received:DKIM-Signature:DomainKey-Signature:Received:
-	 Date:From:To:Cc:Subject:Message-ID:MIME-Version:Content-Type:
-	 Content-Disposition;
-	bh=Igr8KPwgdLdnvvnM9g3DoqbOn6kPzCyE1PQJ7U4ulvc=;
-	b=ibanzmuKhAMcm98frBNCo+A8hfOhYSGuqAC1ErwRShSt6thKsSEj7f4zH0HRbjHm7Ea2
-	 LF/4yMivGnVaX+yLbnadaxtlF4DtBucjzacWJHJeqnMs0LepqYsjavB0U2ge+PsILpfCk
-	 Db/JT/x5T37tCrD9Oxz8lCaavPc7ZLT4eoWXnn5nmCIvQQTvfmkV+WP8MASOrp2pyreJl
-	 n7pb353T/Mzltq/yjUKZcNdVfGRDMB92ucb7NOg/AkLkyS0sN+ScNNLXYxbwohrCP3U6O
-	 43DJj3IPaCp3Mkqza0H1Ryj1k4gLucNy4ZXNEaSu9rG1BAOhaATr1tNwpmW3KEfRiMg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=tagirov.ch;
-	spf=pass smtp.mailfrom=tagirov.ch;
-	dkim=pass header.d=tagirov.ch header.i=@tagirov.ch header.a=rsa-sha1 header.s=feb22 header.b=WMiXMh80;
-	arc=none smtp.remote-ip=109.164.201.207
-Received: from tagirov.ch (207.201.164.109.static.wline.lns.sme.cust.swisscom.ch [109.164.201.207])
-	(using TLSv1.3 with cipher TLS_CHACHA20_POLY1305_SHA256 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.174
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795027698;
+	b=bJUCiNCBSUBcH1yebneDLXuhbhGWD6C+ir89HS0PfEW5x/R69VbSzgzC2KxsvH8yhpZV
+	 RBYrPa8OGCfo30m9eN3ppyjJTydL/8i4ALvE0uqgy2s1eccBf2cra5LTvUayKYLuGXCRz
+	 1ZjjNPkmXpnP5ugshccEs4cpLT6uUCB4R81W8fWM+4Rl939uzLv4JydNrftVy61B2c/pz
+	 SWrni1E7nO3iPyLaXP4GQZR3Hp/fa21d9A0kt8Ob6DARb7A2Tw3FmtA7flTHzl2XoTlky
+	 iygsZAnAiKmzp9v1uYv+hSf425rox9VvJQYL437ocxo2Kiwk1oGXLt1G5+6kmBMKbpQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795027698;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=rg+q1/RynRFA/mSQSm/xnUfAGG7AFja2CbcItDrmjKI=;
+	b=bIpjDpmkujF/5e3a1m4vRcprmMUtFeEPBNUkN3NHZ0GFCHNcAIQBPrONncO054qca+K9
+	 FEW0q2bN86YvIfQ2OqewUnYRrCBPl3J8MpKf4pLGWvX/o42vClxV9N3/FWT9qv0pxdRPe
+	 6WyMIOYjoDN2ZcCXk1PZxB1KrV+My8OkNGiighcPY6dFRx4jZ9KhFRUx0ONuGavri7Ar8
+	 gGthTtCAOtDzVOGLiOiJ8gasL4tpQPBR5zvkH7uWdf5sQ5//a3aciw39n1Xh/ujG5pf9k
+	 PH7annntTYTtO9GPKb0HTFc3J8V6oXDbaQOjrRDgyn5vixnwpAeWSTfvFbFPvnjNpJQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Y5DKVP5R;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.174
+Received: from mail-qt1-f174.google.com (mail-qt1-f174.google.com [209.85.160.174])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EFFCD60A2606;
-	Wed, 18 Nov 2026 18:47:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EFFCD60A2606
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tagirov.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tagirov.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA76A606A335
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:48:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA76A606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=tagirov.ch header.i=@tagirov.ch header.a=rsa-sha1 header.s=feb22 header.b=WMiXMh80
-Received: from mail.tagirov.ch (localhost [127.0.0.1])
-	by mail.tagirov.ch (OpenSMTPD) with ESMTP id fd25c820;
-	Wed, 18 Nov 2026 19:48:07 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha1; c=relaxed; d=tagirov.ch; h=date:from:to
-	:cc:subject:message-id:mime-version:content-type; s=feb22; bh=1p
-	3rdD8qGIQmUkKZDc2yUhLaQV0=; b=WMiXMh80w6UlRDloDoMbWDpn35j+d6qZCT
-	CgT+i79JnN+bQN3dVt916syT5YSxCZY0naG4nhh69mbu7h66McFKJWozuM6Nj7a8
-	o7jiSbcFWJlqq1Mg7+9O1hRVCc9X6VpRuidVKs3n3yB9YYcHM4BiCUR1kOZdO4K5
-	dVX9/jB6Y=
-DomainKey-Signature: a=rsa-sha1; c=nofws; d=tagirov.ch; h=date:from:to
-	:cc:subject:message-id:mime-version:content-type; q=dns; s=feb22; b=
-	E6Q7wTxLdntM8VE8Rzz/aKmbg+pBYkmcOH6WqxelCUb6iJEx1c1B4nUSne+616YD
-	lu7wulQHD6Uf1dRviSx/l8b4LuunlKx9KJjgJKAP3oZ3CGpzK/x1f26G6g4LR+6g
-	sXG6JrH4ses1jBDVBsL52eqqrWMn97YbTHj8HsHcXCk=
-Received: from localhost (109-203-63-142.dhcp.voenergies.net [109.203.63.142])
-	by tagirov.ch (OpenSMTPD) with ESMTPSA id 7d3e5ec1 (TLSv1.2:ECDHE-RSA-CHACHA20-POLY1305:256:NO);
-	Wed, 18 Nov 2026 19:48:07 +0100 (CET)
-Date: Wed, 18 Nov 2026 21:47:42 +0100
-From: Erik Tagirov <erik@tagirov.ch>
-To: robin.clark@oss.qualcomm.com, lumag@kernel.org, 
-	abhinav.kumar@linux.dev, jesszhan0024@gmail.com, sean@poorly.run, 
-	marijn.suijten@somainline.org, airlied@gmail.com, simona@ffwll.ch
-Cc: linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	freedreno@lists.freedesktop.org, linux-kernel@vger.kernel.org
-Subject: [RFC] drm/msm/dpu: set possible_crtcs on cursor planes
-Message-ID: <av4OfY5sML97l2F_@oasis>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Y5DKVP5R
+Received: by mail-qt1-f174.google.com with SMTP id d75a77b69052e-5366ae57896so12166941cf.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:48:17 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795027696; cv=none;
+        d=google.com; s=arc-20260327;
+        b=PxDwEcmanKYQcEOg2CsD5fvgf3/8loboDYN17IniGjF3zgf3zn9l4HaNz5jUttWOng
+         Z5m+aX7+lYHMWZANMz6LigksoI3/4JLYLknc2rWU66UZhNwrFn5dhSJLybbSWNFjpLUL
+         +DxMcq5Ocp+z16XfFX8CsD9ry5uJE/QiaYwWujXP8XK1iC6Ts422HZRMCeqZoFh+Htcy
+         Wxa6iihqNaIyPzamzEQC5iPsqQms58H4DlZHu13UEuACQm+xwJ8v8wqK02DgorYqhvi7
+         PF4VVEnXex5nB5tR1aJpJxZJEBLK53+1C6/iexUeT+cm/N8DLo8EdSSQeApE6wbvPneO
+         KPhg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=rg+q1/RynRFA/mSQSm/xnUfAGG7AFja2CbcItDrmjKI=;
+        fh=C63OEj/WphwFUWPqtHbllvB9/9Ced5Rr9Uq28iNUhkI=;
+        b=RYqLuzqCykPN/SGdej9ddkI3ELCxDkhkuKyW0XsHupyeCdn3yWt5sw9rPV/KbEUVUl
+         kejalj1+dzw4qOFjudn8Jk9EofUhjeMph7YQuwKXsPnOgZPoMTAp5H5FCTYqTOiHZ+oZ
+         sK4g8kJCNd/3qVma7tBqvSu8aVyq6nwrRcHa7YaLWNMguwwTpG5GxCi9rFc/i8Ph8Scw
+         NVUBnmcwa2QYnh6N+ciWiKsipGTPb6JQKVhLpazD7qT5jgVIv5GhrT9yNIksvlZijuv0
+         KNa1wWAwEzguwZIU2YrPZ389p+g/AtLY4AiuT9IME3mFYqemYaxmnJohaI8otquExVlN
+         Z70A==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795027696; x=1795632496; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=rg+q1/RynRFA/mSQSm/xnUfAGG7AFja2CbcItDrmjKI=;
+        b=Y5DKVP5RYJ9NwBjijNbHdxwLhf+SWV8yYHXl0QpNjIi7CAGVRfua7XGif4vhqz1KpG
+         SXGY9z/Z+BIYS+vAEbzqPjSX4bjozccdkkR7PqE3ogMKG1gGcND/PRFabM4RZtK9479b
+         Byxr4QJgIDPYL6Su4zTN3VIEYGh1QCQe6xjgRmjvMAUn8OYHdOPguogqeWeTm57fQ5Cf
+         XEElrHohGWYjkrZypFHPFn5OOUJcE31jGqNzwkdv7scPhqUX/ojC0bPGzK+QdFTtB704
+         GmxpUdMPTQH/hl/wLUpllgQUCxlb+Uilbnzasq8HTQJhtW+H8yZ8M/vywz5NdTSvQNYD
+         fWPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795027696; x=1795632496;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=rg+q1/RynRFA/mSQSm/xnUfAGG7AFja2CbcItDrmjKI=;
+        b=vZV/lUMa1GNUfDDazf1qLPPAhTIftl0A1FB+7tw55jpn8FfMQbJtvdomzO4eYQ7oUH
+         AwNESjFozZ0/W7RPLVMmnoUFtoaiwiO9FQ/ijAd38pbM94h0PtLCV7KHbnKaiMaNxM2a
+         fIQrUydfMEv334k6Q6nIDQ5pGEwx1YZoomX6884NPGQzYRTIg5mThxwQ4zEsEfrwdG1y
+         ekNbwb+YzfLNh8CLT3RpYqEadEllKkpNzheI+gsZx9ulSc2DFulW4dpzR80emapLCkrS
+         ZSY3P19hYXCG9b1x2opqqHlMLmDx22BsLy2ht0+a4VH+QaDAG8uKVE2JaLUanIcC59PD
+         G/nQ==
+X-Forwarded-Encrypted: i=1; AL+hErGViczJGsuACraMBah14KrWSCQ2vQlqbFoJybnNBFWb1+GcZ92o5/K4fu0c430Qeu29fCPTVSLmtFFfeaU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/2/wpkVKEKaqTt0rJMJk9mkF1NP+zXDkEpy223s9NgvB40GDIS
+	deSYrXtst7LCz1nR6w+D2Z2gRSGWUIxn0Kd/TfKjYPYivQEM2apNVIiHBPu3V4bQcAY5uFsYjSG
+	XxrTCoK8OxNK5yc1C8UZ9MimKnjRci0TAqX0/Wx1A9ySsIB1tMeY5XE5YDBs=
+X-Gm-Gg: AYBFou2nWd6nS1Ybo9xWn1glVY6bc1IL0OeCHczkrfX9WlAxPdjp7eivedYG3TwW/Jv
+	lau8dbxUlCcOX7s1tRLXI7lfyr9f3oqhdnZNjeB78oIa7joa0aV6r8eo6UlQ1sYSdNGNo5WsXdi
+	lmztmGEFTxUy09H53wcMl8RVNxlLQC8OteUStDpn0jCa5EcVE7cQVDggPatOEnMHh7AUh5A/mng
+	OwW4RNftuVm38nvkP+zpMiTLIzvEmDtyXjOt7asPp4rfEQF18gDBqQHeT2i59c1OyjIFtzBW3Ty
+	BxodtZKRTfy2xv9yGaUA1Qs+tkeJPZMzyiVitJ9P9bag3aQibJiEocbbSxlIyn/3AcxCk+FArTw
+	/lPeUeoEfkPH9VgZgfb04uLKqZ3/S9gdDafUSrISI0M5V7tsg3dLle2yvdk5xSptgq9QYQw==
+X-Received: by 2002:a05:622a:2507:b0:533:2ef6:d98a with SMTP id
+ d75a77b69052e-55d5a590732mr57265741cf.29.1795027695990; Wed, 18 Nov 2026
+ 10:48:15 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,45 +104,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+References: <20261117220522.904290-1-elsk@google.com> <2c7b026955f5519faf7fc8672bf9ac4fd3c6c4fb.camel@perches.com>
+In-Reply-To: <2c7b026955f5519faf7fc8672bf9ac4fd3c6c4fb.camel@perches.com>
+From: "Hong, Yifan" <elsk@google.com>
+Date: Wed, 18 Nov 2026 10:47:39 -0800
+X-Gm-Features: Aa3M54rORApQ44d6YWSpzp-mAkRGMg5W3a2ikz8KvVCZsm1MgHKt82EKjCsQdvM
+Message-ID: <CAABy=s3VB20eCpdDAH0jhk-HMLAakWsUS4YhutCpoLiKbOwVuw@mail.gmail.com>
+Subject: Re: [PATCH] checkpatch: recognize FIXTURE_DATA() and
+ FIXTURE_VARIANT() as types
+To: Joe Perches <joe@perches.com>
+Cc: Andy Whitcroft <apw@canonical.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	linux-kernel@vger.kernel.org, kernel-team@android.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-I am using a lesser known wayland compositor that uses the possible_crtcs field of a plane to detect
-which one to use for the cursor. On the Lenovo T14s two cursor planes are created, each with possible_crtcs set
-to 0xff. Which from my understanding means that they can be used with any crtc.
+On Tue, Nov 17, 2026 at 5:37=E2=80=AFPM Joe Perches <joe@perches.com> wrote=
+:
+>
+> On Tue, 2026-11-17 at 22:05 +0000, HONG Yifan wrote:
+> > tools/testing/selftests/kselftest_harness.h defines FIXTURE_DATA() and
+> > FIXTURE_VARIANT() to expand to struct type specifiers
+> > ("struct _test_data_##datatype_name" and
+> > "struct _fixture_variant_##fixture_name").
+>
+> NAK.  This sort of stuff needs to be externalized.
 
-However, the compositor picks the wrong cursor plane which results in a lag of ~17ms
-on each DRM_IOCTL_MODE_SETPLANE call. Making the cursor movements sluggish.
+Thanks for the review. By "externalize", I assume you mean the pattern in
+https://lore.kernel.org/all/e5a8da43e7c11525bafbda1ca69a8323614dd942.147266=
+4220.git.joe@perches.com/
+commit bf1fa1dae68e ("checkpatch: externalize the structs that should be co=
+nst")
+so that I should put an autoloaded file listing function-like macros
+that expand to types. Is that what you mean?
 
-After some investigation, I found out that this is due to the legacy_cursor_update flag not being set
-in drm_atomic_helper_update_plane() which has an impact in msm_atomic_commit_tail() where the fallback branch
-is taken.
-
-The lag is solved with the patch below.
-
-Best regards
-- Erik Tagirov
-
-The cursor plane must be used with the correct crtc to ensure an
-asynchronous commit
----
- drivers/gpu/drm/msm/disp/dpu1/dpu_kms.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/drivers/gpu/drm/msm/disp/dpu1/dpu_kms.c b/drivers/gpu/drm/msm/disp/dpu1/dpu_kms.c
-index da3556eb6ecc..4e0e9c2d8062 100644
---- a/drivers/gpu/drm/msm/disp/dpu1/dpu_kms.c
-+++ b/drivers/gpu/drm/msm/disp/dpu1/dpu_kms.c
-@@ -877,6 +877,9 @@ static int _dpu_kms_drm_obj_init(struct dpu_kms *dpu_kms)
- 			ret = PTR_ERR(crtc);
- 			return ret;
- 		}
-+		/* Ensure that cursor planes are commited asynchronously */
-+		if (cursor_planes[i])
-+			cursor_planes[i]->possible_crtcs = drm_crtc_mask(crtc);
- 	}
- 
- 	/* All CRTCs are compatible with all encoders */
--- 
-2.49.0
-
+Assuming that's the case, I'll prepare a v2 of the patch.
