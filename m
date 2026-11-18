@@ -1,58 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794977418;
-	b=UIwo0/Xvr2sEShSp9wh+bqbXaVWlcIIvmSOwOaa2r73wBhHqyc/PkEDhTiA17Kcd0Tof
-	 yn4rGunwzdF+v8jFvoknKKJS2GySbjIvGVIkEaI/0dXzLEn/eU9J5niA+6T6R0Fs3zTNL
-	 tARmeOQnqSri7hPY2t47VMlDszRsif7U3Rh/hxFRSj8dLelKEk6G5hhrrbEx7bFvG4Hub
-	 rdeW23gt2uT4GZt1cyvSzUtnLgILQqMsaRBCMJ4OpYJQiubP50eaV8LsBq+88GhjKrlJZ
-	 fvH4J5PP6NHRQwbHUdgkU2lzGj7zUCoMa7NkpFrwE3tY4dTht0ftXby7BER8buB/Eog==
+	t=1794977421;
+	b=YBev9PXSuRd6im9D72BnvFNPUNG8ParV+Fhq3AlVM1xelLLFcU46DlE0FMwLG1K14iEi
+	 HR85i7vU8gJSIrv9PMhxs7z3F+1WrNOJug3CY1Vuggzpfp1OCnOSc0hL+m5Ho1yONngEy
+	 0KkAA2S8r5by9edyC++ygeWl904/kmkuAzbEbt7OBccIguZtEDq7rfh/0sb8SA2ZeemoF
+	 siGXjAoU2oLommPK8oDynJGdHGULqBhp32sD7MTXQ4Ph1Oy4/PUWABSB6iptaON6c86Bx
+	 WrJr9uFgX0F3jtdFAYvS0uPlVRVUxdUxR1R2UosErIlvv4MjESU6grpUhLUOUQWyxEw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794977418;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794977421;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=+2jvL4JNKlSe8jf1OkMiuLniWO2CLDkzaNhl1C3qeaM=;
-	b=3lQ1WoPUZwOO8yWgKzJh3dOPsz1qTSwfrF7nSgZyaaioQ/JKKfEuVhzQZdeP6bBRvKKt
-	 PqxsjqBZNX2M9ROV7/w4CPqHnGvdPjBPu0pNjhUfla+PrFNYIdfrrnqq6VleemMeNVQSl
-	 4axNNdqI2RvfWYV3aPyLGjpCEkFKxRpOQPi+l9AN07CEBw7c/bWLdH4h+icJQGUGX6O7s
-	 tbw6h9R32RbCdFe3O4Jpot1+xU3CHUnp+3dI+lClcjPb4TZ773Csv0DtmmBcUASMvGTwc
-	 8FajwIKiZKtPAHqbiiRKplnGKlCFgPSmE7n0GGbK06j86eNaKKaZe9q1rUmXnYVjCnA==
+	bh=+gTPs2gIcbJEREtIe8DXIYHJes4gsHULFHdrFUgIMCU=;
+	b=amwr5dlX+bnyyh+2mPO8MPug/5RcMRHEozMaZEnusUdwuD8NAWVBO5X1VLU+zT5LLjUk
+	 n8FA+TDxcJfYEMqgmBs0jR668GaP/1C55MoDeNgbqSway2V8Ye556GOaDLBENItMFK42j
+	 UNgHZwgxvAG6ENi0AF7lk44UpbGRvJDaMSkHQHl5nj7kTNIyvSiz0vtQZpIoug0Me370g
+	 y1No9P1+yZH+kpE550eVtx/1NsU+uNW/UgKXI5rGlMHzgxbWF3jtT8A2ovy3IGQsAVtMf
+	 kYxFP401TPHbAUnm8rgPEsBQVlQHOdf25ryHbesLd/Bj0EALurDH2jn1dJh5l4H4WvA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HA9Ei5yP;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ibUa44CP;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB3D6606A31C;
-	Wed, 18 Nov 2026 04:50:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6AA55606A337;
+	Wed, 18 Nov 2026 04:50:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HA9Ei5yP
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFFCD1F000C4;
-	Wed, 18 Nov 2026 04:50:17 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ibUa44CP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D43241F000C5;
+	Wed, 18 Nov 2026 04:50:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794977418;
-	bh=+2jvL4JNKlSe8jf1OkMiuLniWO2CLDkzaNhl1C3qeaM=;
+	s=k20260515; t=1794977421;
+	bh=+gTPs2gIcbJEREtIe8DXIYHJes4gsHULFHdrFUgIMCU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=HA9Ei5yP5vxe5bhMUHZf66sS8Wv1eUpl/20MYdF/zyB1Db9lg4oY3r7/DM5gUcj0B
-	 HFV3XpCO8rHhn4JU0xyxEUjqAnFmG4To1H0mY9W6HAATIh23wHfJBVzxUjYvEN78Qx
-	 KqXXe6UOqcOwDwz/+WK4my1BXemQ093Q0uviA8ehdgy2xjkXZVt6HbNe2vRSwCt761
-	 dvwucAbOkpTQuJyJzAQ3IC8jqBdsCOxraFhZjVjVjD3BoyQQzLvpzxAcrYGzwBOs6+
-	 U2iZP7oRJVVZNGconJ/sW6RVVBLdV1EpMs6x8QHJ/Ldw+woY1taBDcLYgjYfwTuhtv
-	 /oWUfP45j7fnA==
+	b=ibUa44CP1nZO8V2a0bM73em8R/F0LIGwvnDAYU7y9GE3zxNN/vGLb5f8grThc/vqd
+	 vA8RImNDI0kh9qh1kg9h5JNX5hUNQk3Z512gHRbTISICqj7owIEoFshstKdTmWh58t
+	 lm4C+L5Ev+4JjbTiHLNywzPjhFdS5NbY+3MhvWGZ+rqDCaHXEvfFwJKHKLDysnI6sy
+	 ILplUJb7z5GWoColahhgre1Aa41xH3O1Bhp67VADDFiSlUKxNfvyB8eC7Wl1QgG9mG
+	 LYyWwQDnKnwipGV5cxiqGMfAVMlAPfeZWsxyN5cjQJVx6gpyKYQpJ+MCdW2vX3aEkI
+	 k51hj2Quc+nnA==
 From: "Martin K. Petersen (Oracle)" <mkp@kernel.org>
-To: linux-scsi@vger.kernel.org,
-	"James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
-	Brian Bunker <brian@purestorage.com>
-Cc: "Martin K . Petersen" <mkp@kernel.org>,
-	Bart Van Assche <bvanassche@acm.org>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/1] scsi: core: Restart the queue when unblocking a device set running
-Date: Tue, 17 Nov 2026 23:50:09 -0500
-Message-ID: <179485091819.1479907.9990858567236462228.b4-ty@b4>
+To: "Martin K. Petersen" <mkp@kernel.org>,
+	Jesse Taube <jtaubepe@redhat.com>
+Cc: linux-scsi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Nimal Prabudoss I <nprabudo@redhat.com>,
+	jmeneghi@redhat.com,
+	Nilesh Javali <njavali@marvell.com>,
+	Manish Rangankar <mrangankar@marvell.com>,
+	GR-ETH-Storage-Upstream@marvell.com
+Subject: Re: [PATCH] scsi: qedf: Remove unesseary function call
+Date: Tue, 17 Nov 2026 23:50:11 -0500
+Message-ID: <179485091819.1479907.5322794943255337313.b4-ty@b4>
 X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261030175721.24379-1-brian@purestorage.com>
-References: <20261030175721.24379-1-brian@purestorage.com>
+In-Reply-To: <20261029160443.904468-1-jtaubepe@redhat.com>
+References: <20261029160443.904468-1-jtaubepe@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,27 +69,16 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
-On Fri, 30 Oct 2026 10:57:19 -0700, Brian Bunker wrote:
+On Thu, 29 Oct 2026 12:04:43 -0400, Jesse Taube wrote:
 
-> A SCSI device can be left in SDEV_RUNNING with its request queue stopped
-> for good. The task that put it there hangs holding the device lock, and
-> anything else that takes the lock hangs behind it.
-> 
-> This was seen with iSCSI when a session drops again just after
-> recovering. The error handler offlines a device while its transport has
-> it blocked, which leaves the queue stopped. iscsid then writes "running"
-> to the device's state attribute and store_state_field() moves it to
-> SDEV_RUNNING without restarting the queue. The rescan it starts sends an
-> INQUIRY that can never be dispatched. When the transport later unblocks
-> the device, scsi_internal_device_unblock_nowait() rejects it with
-> -EINVAL because it is already running, so nothing restarts the queue.
-> 
-> [...]
+> The result of `skb_transport_header` was unused. Calling this function
+> warned when `skb_transport_header_was_set` returned false causing a
+> panic on debug kernels.
 
 Applied to 7.5/scsi-queue, thanks!
 
-[1/1] scsi: core: Restart the queue when unblocking a device set running
-      https://git.kernel.org/mkp/scsi/c/dc7ba60d45b1
+[1/1] scsi: qedf: Remove unesseary function call
+      https://git.kernel.org/mkp/scsi/c/dd86dc1d86c8
 
 -- 
 Martin K. Petersen
