@@ -1,73 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.58.211
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794997327;
-	b=v+29KtQlzNHRczSotZV4gYMFzkqzd9x5no8upeqo4ripaWP5JyprGi2PqWBUoiwfHUFu
-	 89nRtwKz9vGHgwrncdKkyFL8LeRorrOai6gW9vliwGe4XDA4ztuWIy8yQt62nS/b7mlL+
-	 g0jduY5TsWmaosJomi5rOH51hNAuAWNqUKXQgmfgVe8HjQ0DT1ZfBdkebvYl4qNa7Z6x9
-	 YiMcMb9MtrqAZvw2TzTe4DbJeEOSn/ZchPvCjXhcPAc/KLUD8Hf2djRwWTRldxdRxtxB2
-	 qzspC2Riv6H62ygvYAs/0qDSy2k9i7EnTrmkM08FPLVp0hAp4aOcYd+2iDJsSkOsGwQ==
+	t=1794997341;
+	b=GA3LHyJFHdImf6/hNDBWbuKqp9+sustgvHFIxeTKo2iCecjWeUlmtDGoFN3b0trJsW7t
+	 iwez4IcgYXTNR9Gq++kZOYc12ZzzX4gwAHtJAn54OFqMt9O0ZCiyZ4bmgaAcaZLGfARaU
+	 ARxmcETW6/oQnUdDx+iaNkNcQWTnBmlPGoQzyVmsnhOoC0nGtO6q5ZXeogabcdxCR8ZXV
+	 rTU8Q0J0DWpbj/QbJdkI39+o7hSvV6bUhi3oXWP6ozYfWXSvkQhYnGZjmKsfqBHiKbrLw
+	 MZXV9YEiXyaSONXqUcqhz78VMX1PuhdA6jZy/HBByXAh9LVg8I+kYprjWv1ASLCd3Vw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794997327;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=VyI0JOmPAdt2iJBvWvYtuzWRsKEvaX39Ad8ehcsibZM=;
-	b=g47+mTQWA8Eo9Gcv5ITfOqz6bN4XPVjrZIJy6DGqVPi4QrkHD4QyJQe0IJvZoagk0zKA
-	 PuuPIEPXFQjuNPccaRADDFOt4HuP+gol7rTxvW+eDRNXbWaTVhzR33gv1oEKzQrpMZi46
-	 EZsds7WDhA179vyIZi8//oq/qSRJxIJH1KcNjc9eKAjswZpHZynVtk36r9LmB4UpnHv7M
-	 shLbX0rwdborJTNjCNyHJ0dGeNR5V1iVQ0OA9LMJPSUyYZdWkzd7sMSi18aAHUPiYGWoH
-	 X1dW7fHqEGGPU6DtlNGIGVghcNqU2O7g0RsFoMRUPisNaMfGdC8XaAUTraScJ+84XtQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794997341;
+	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=so/CeAH0TndbVbEBeoF4tkF3aB19pcuqXJXgWV3BUF8=;
+	b=o7OxN4viN5Ifm4ii+ETUFigbNt9js6L72KTSGANFjA4tyLHnjB6b48k/LKSBvJ2JAE4Y
+	 vbYqJrqEGlWvK5pDkB6zKUzOHFT2EdBjnyE+zashovJ39Ne72eB41+aZ1nO5LRwD7G+zQ
+	 YyMJbuP7cd6ErlTjYldiOzt0NYCBELk3GHP3320NMydm8WNwhutOkU4fTdANFD+1dXCtx
+	 HtYGHQIy9ZEI1z+E3ArM6imErsgOYU81q8lci6agHvqb7sm4uclchwPLlevIIw9gSNhOj
+	 R6iW5qXa/hW20EOtnVH3B6ixwk0Bo7WoAXMRd2IzmzLVKJvRMyOJ+4LLFZM1j0jypqg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HXjwcxoa;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=LjRCyMWy;
+	arc=none smtp.remote-ip=162.62.58.211
+Received: from out162-62-58-211.mail.qq.com (out162-62-58-211.mail.qq.com [162.62.58.211])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2A87606A31C;
-	Wed, 18 Nov 2026 10:22:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DCB62606A31C;
+	Wed, 18 Nov 2026 10:22:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DCB62606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HXjwcxoa
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB1211F000C4;
-	Wed, 18 Nov 2026 10:21:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794997326;
-	bh=VyI0JOmPAdt2iJBvWvYtuzWRsKEvaX39Ad8ehcsibZM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=HXjwcxoaSOqZABRPB3fK3y+dBLkJc2kHYfI8Rg/t9SmJ48QgGuPd+Yqk42/FM6LJ+
-	 csz56INbPTFK9D2mECMKVo2BHstGNMdWQfQ6/PMZbtAeGo65QNM5zggzAFU5obGwIy
-	 2MgM/c69qnedcr5vKGGaeumvvOrHQ6W6NI2sFiHXKaCNxkvH8nAtjxrHn3P56Jcycg
-	 Y+4dT78FzjgUrtAGGmV3ZFNz1WiqBqPYJXSp3qJSdPEPVlAoDlE0zK11ZMJHrvOPyM
-	 fPOgQT0/HuzxnFRaKdfqhPEmLd5mId6joM3PBtgr4pY3GS39ZDFFDpelDANMqBs8PD
-	 Az7JoNEqqNw9A==
-Date: Wed, 18 Nov 2026 11:21:57 +0100
-From: Christian Brauner <brauner@kernel.org>
-To: Andy Lutomirski <luto@amacapital.net>
-Cc: "Hallgrimur H. Gunnarsson" <halg@google.com>, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Paul Moore <paul@paul-moore.com>, 
-	Serge Hallyn <sergeh@kernel.org>, Kees Cook <kees@kernel.org>, 
-	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Jan Kara <jack@suse.cz>, 
-	James Morris <jmorris@namei.org>, Simon Horman <horms@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Randy Dunlap <rdunlap@infradead.org>, Jann Horn <jannh@google.com>, 
-	=?utf-8?Q?G=C3=BCnther?= Noack <gnoack@google.com>, KP Singh <kpsingh@kernel.org>, 
-	Jonathan Calmels <jcalmels@3xx0.net>, Casey Schaufler <casey@schaufler-ca.com>, 
-	linux-fsdevel@vger.kernel.org, linux-security-module@vger.kernel.org, linux-api@vger.kernel.org, 
-	containers@lists.linux.dev, netdev@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/8] userns: per-namespace capability bounding set and
- opt-in netns loopback
-Message-ID: <20261118-stapeln-eckpunkte-lesbar-ee73537f474d@brauner>
-References: <20261028221705.3915340-1-halg@google.com>
- <CALCETrW9ygriu54gxiHFLEd5+hJminQo0r8Jwd63wR69Dj4W7w@mail.gmail.com>
- <20261106-befreien-addieren-eislauf-e09212803534@brauner>
- <CALCETrWa1SBLcb5oWjqjgzZvKvCoHjmYFk=Lf5ytEM9uqm5jYA@mail.gmail.com>
- <avM41a80aig2de-R@google.com>
- <20261111-behagen-faktisch-entgegen-e2e714373895@brauner>
- <CALCETrUjW=kXxyggDUvEN+Pxc-pE98eVbdW8XBU8JzfqXj_voA@mail.gmail.com>
- <20261117-rational-ohnehin-unbeugsam-e5c04759a156@brauner>
- <CALCETrWhuOnBy0N0KznmczD4S2XEK0fbr0C=1KFQqTnoTJbQbg@mail.gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=LjRCyMWy
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1794997335; bh=so/CeAH0TndbVbEBeoF4tkF3aB19pcuqXJXgWV3BUF8=;
+	h=From:To:Cc:Subject:Date;
+	b=LjRCyMWyuk8MxwA/B3/ayfIdZC8zf6ptOd1a0CgD49+DOJ3aTCyFSsvCpETmI/8hg
+	 OQzUL8QYArGCM6J5F4LmYnAH50y02A3RnukQdmBIhWw3PJ4BXHl+Qh/anG34ZWFbZs
+	 /hBJA/DsSZ8nvQS2hSvpSDPcFXgtMVsGO0wxG1Zc=
+Received: from DESKTOP-6LNKCJL.localdomain ([111.199.66.152])
+	by newxmesmtplogicsvrsza63-0.qq.com (NewEsmtp) with SMTP
+	id 588170B0; Wed, 18 Nov 2026 18:22:08 +0800
+X-QQ-mid: xmsmtpt1794997328tz8vz7byo
+Message-ID: <tencent_69A761EE2ABA6F15B942EBF0EE686B2DE608@qq.com>
+X-QQ-XMAILINFO: NDD+ZwUaH+mrqhv6ZaLC/66xueoPLPA/oVmOv751sEPd2/kh/9Xt/3/ISsXNxf
+	 KzHY9jjguRCdyQtuTSP7Y9GXvlO9waSUth8Gqe2r/r9y+3BB0itmtirWhupkQweIWtSRDfMauXf+
+	 gT3WpoDT62+58tcsjC1OQDeMdnBICWqG16xASD1okoWkBn1JYpO1wbTpoMPz06abKPY19JVzo71a
+	 AXW6i8dkw5S2nwho28OY/gKasuRY8d1syX9T7/m9JF3sV9+r94xjqV9l1knyFuQocDPVOVa4h4iM
+	 Oj+G43pd80CBK9x09bqO/zI6iFtAL5OovnqihwujezbuJsnEBeIUPfP4uVaRwxOt1Ezq4BWLjFP0
+	 m8SHnAKazSDg2LcNaPjanEfKQMZr4fWo8SNxWQ3W04WBvf9f3MVhBPZY9rFZHClu1+gfPt8oTsg3
+	 MhR+HiDux+UH+bnZyVHlghIYPolSBgT+n0DBNGFUzM8GrZ6NIWSxJ5rglOqrGizgFOtKp6IQKaVB
+	 RcnrXgSMGloT8lesM6x7b9MB67IIToVZG64zXnjb/FX1/EDPV6bh7FLEXEeuU5sb4kQCmqnB4cNG
+	 JxuTeDA42YOoCOMBwdUdwQ7XOMJq5hAM1F2zQube/0bUX7h8iqUPaKktBIT8kvHvsVvwW9WmmRVR
+	 R2iRTjJW6dkke5IXN34iIshc4uJ12ayua8+YMjrRUbRA4ti3J/6Svsrc+ZMv5PqRiGQFtkxFhmio
+	 aSJ6LEsRhyVI4FJEPXFvjwzZzvLfDe+xK2Dnxq30/YM+4b0j2fe/dnwGghlY5QBactIxyy4RX0ow
+	 H8Z0yUFc/c7cD8ODUGmqf2Tijp69CTpXIxh3NunfuVrhIRoYPb4jEIeLWCfqS0bry+UOP3hPxuyk
+	 /NGmswsrQwHotY3JvrvKAEd7/1LV+94UniSv9DRlQtvE3MsY0obzkauMiafDvW98YQOK1kN6bi5Q
+	 SRs6i4vnA4gEtDeyPrMKKI1NVL0yjlrGPzCWE7a+kHocSnpbmD+2GkBOd6CJu/81RXHW86HlOWqc
+	 m/0vcIkq0ceGyT39C0oI60MYBuBm6SNIiOhlW/W/KmXK63nLg5A0S3I614SYs0Zkks0vPo7EN/5Y
+	 v/ZJ8LYDmS8uRQWFb/pRVwU23nNza10YHSvFmZ
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
+From: Jingyi Sun <1045704958@qq.com>
+To: Hugh Dickins <hughd@google.com>,
+	David Hildenbrand <david@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>
+Cc: Baolin Wang <baolin.wang@linux.alibaba.com>,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Luiz Capitulino <luizcap@redhat.com>
+Subject: [PATCH v3] mm: shmem: limit forced anonymous shmem huge orders to MAX_PAGECACHE_ORDER
+Date: Wed, 18 Nov 2026 18:22:07 +0800
+X-OQ-MSGID: <20261118102208.751-1-1045704958@qq.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,197 +82,95 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CALCETrWhuOnBy0N0KznmczD4S2XEK0fbr0C=1KFQqTnoTJbQbg@mail.gmail.com>
 
-On Tue, Nov 17, 2026 at 09:37:19AM -0800, Andy Lutomirski wrote:
-> On Tue, Nov 17, 2026 at 9:10 AM Christian Brauner <brauner@kernel.org> wrote:
-> >
-> > On Mon, Nov 16, 2026 at 09:15:18AM -0800, Andy Lutomirski wrote:
-> > > On Wed, Nov 11, 2026 at 7:20 AM Christian Brauner <brauner@kernel.org> wrote:
-> > > > * a task that setns()es in later gets
-> > > >   ns->cap_bset & (cred->cap_userns | cred->cap_permitted)
-> > >
-> > > I'm not sure this is ideal.  If a task has cap_userns & CAP_NET_ADMIN,
-> > > then there is no attack surface issue with allowing it to enter a
-> > > namespace and be NET_ADMIN there even if the namespace itself has
-> > > CAP_NET_ADMIN cleared from cap_bset.  But any exemption here would
-> > > need to be a new API so that it isn't used by accident.
-> > >
-> > > I'm mostly saying this because container managers might want to
-> > > restrict cap_userns within their containers but still have it
-> > > themselves for management.  But maybe there isn't any need to enter
-> > > the userns for this purpose.
-> >
-> > I don't think there is. A manager that holds the capabilities itself can
-> > just do most things from the outside. I think it's nice that once you're
-> > inside a namespace you're bound by its capabiltiy set. Otherwise the set
-> > isn't a property of the namespace anymore. If someone comes up with a
-> > real need to enter we can add an explicit opt-in later?
-> 
-> Fair enough.  Also you've written infinitely more nontrivial container
-> managers than I have (I've written container managers, too, but
-> they're all special-purpose things that don't do much in the way of
-> actual managing).
+When the top-level shmem_enabled knob is set to "force",
+shmem_allowable_huge_orders() returns huge_shmem_orders_inherit for
+anonymous shmem without masking it with THP_ORDERS_ALL_FILE_DEFAULT,
+unlike the other return path at the end of the same function.
 
-So I think this is another instance where we're bitten by the complexity
-of the whole namespace api. In a perfect world our answer would be "Yes,
-the owner of the userns is definitely capable of performing all relevant
-actions from outside the userns.". But we're actually not able to say
-that because there's so many different ways how some <object> is set up
-or configured for a container and nobody ever sat down and defined the
-model how a container and it's various resoures are set up.
+huge_shmem_orders_inherit defaults to BIT(HPAGE_PMD_ORDER). On arm64
+with 64K base pages HPAGE_PMD_ORDER is 13, while MAX_PAGECACHE_ORDER
+is 11 because of the xarray split limit. With shmem_enabled=force, an
+anonymous MAP_SHARED mapping can therefore get a 512M (order-13) folio
+in the page cache. Splitting it later, e.g. on swap-out from
+shmem_writeout(), triggers
 
-So once again, here we are guessing our way to a decent decision...
-Thanks for helping with thinking this through.
+  WARNING: lib/xarray.c:1051 at xas_split_alloc
 
-> > > > * Root in a container has caps as well so for containers the exemption
-> > > >   would be wrong.
-> > > >
-> > > >   So here we need a a lockable SECURE_NO_USERNS_CAP_RAISE bit thingy.
-> > > >   This turns off the exemption and prevents raising the mask.
-> > > >
-> > > >   Docker lowers the mask, sets and locks the bit, and
-> > > >   unshare(CLONE_NEWUSER) in the container doesn't hand out CAP_NET_ADMIN
-> > > >   anymore.
-> > >
-> > > Can you clarify this part a bit?  I'm not seeing why Docker should be
-> > > special.  Shouldn't the inside of a Docker container work as much like
-> > > a normal non-container system as possible?  What's the use case?
-> >
-> > I picked Docker because you brought it up, and your goal of allowing
-> > user namespaces even in Docker is kinda the use case. Docker can only
-> > drop the CLONE_NEWUSER block from its seccomp profile if nested user
-> > namespaces can't get more caps than root/Docker wants to give them.
-> >
-> > But the bit isn't at all Docker specific. Any privileged task that wants the
-> > mask to apply to itself would benefit. With just the exemption this wouldn't be
-> > possible:
-> >
-> > (1) A runtime that holds full capabilities gives a
-> >     user namespace it creates all bits.
-> >     It can just set the bit before creating it.
-> >
-> > (2) In a container without a user namespace container root has host-level
-> >     capabilities. Any user namespace it creates gets them through this
-> >     exemption thing. So it can also add them back to its mask. And the mask is
-> >     inherited. So every process it starts can then create user namespaces with
-> >     them.
-> >
-> >     by raising the bit we stop both. The locked bit keeps container root which
-> >     also has CAP_SETPCAP from clearing it.
-> >
-> 
-> I'm still not 100% sure I'm following this.  By "exemption" are you
-> talking about the cred->cap_premitted term here?
+and the split fails, so the folio can never be swapped out.
 
-Yes.
+This is the same problem that commit 9fd154ba926b ("mm/shmem: disable
+PMD-sized page cache if needed") and commit b66b1b71d7ff ("mm: shmem:
+avoid allocating huge pages larger than MAX_PAGECACHE_ORDER for shmem")
+fixed for the other paths; the force branch was left out. Mask it with
+THP_ORDERS_ALL_FILE_DEFAULT as well.
 
-> ns->cap_bset = parent->cap_bset &
->                        (cred->cap_userns | cred->cap_permitted);
-> 
-> (As as aside, as formulated, the parent->cap_bset term should be
-> irrelevant, no?  cred always refers to a task in parent, and this
+Reproduced on v7.3-rc2 in QEMU (arm64, 64K pages, -cpu cortex-a72,
+4G RAM, zram swap): with shmem_enabled=force, a PMD-aligned
+MAP_SHARED|MAP_ANONYMOUS mapping of one PMD size got a single
+PMD-mapped folio (ShmemPmdMapped: 524288 kB) and MADV_PAGEOUT
+triggered the warning above in 3/3 runs. With this change: 0/3.
+shmem_enabled=always and 4K pages did not show the warning. The code is
+unchanged in v7.4-rc3 and in mm-unstable, but the test has not been
+re-run on those trees.
 
-(
-I don't think it i.s
-cap_userns is full by default. Entering a namespace doesn't change it.
-A task inside a namespace with a reduced cap_bset still has the full
-mask. Without the term a child namespace gets more caps than its parent
-had.
+The issue was found with a research static analyzer for
+cross-architecture dependency bugs and confirmed with the QEMU
+reproducer described above.
 
-cap_permitted can grow through a setuid-root exec in the parent
-namespace. And that exec is bounded by the tasks bounding set and not
-by the namespace bounding set.
+Fixes: e7a2ab7b3bb5 ("mm: shmem: add mTHP support for anonymous shmem")
+Cc: stable@vger.kernel.org
+Cc: Luiz Capitulino <luizcap@redhat.com>
+Reviewed-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+Signed-off-by: Jingyi Sun <1045704958@qq.com>
+---
+Changes in v3:
+- In the force branch, set mask and jump to the common return at the
+  end of the function instead of masking in place (David). No
+  functional change from v2; kept Baolin's Reviewed-by.
+- Re-ran the reproducer with this version on v7.3-rc2: 0/3 with the
+  change, 3/3 without.
 
-So that term ensures that the namespace bounding set shrinks
-monotonically by construction.
+Changes in v2:
+- Dropped the Assisted-by tag (Baolin).
+- Collected Reviewed-by from Baolin.
+- Dropped the note about the overlap with Luiz's mTHP series; Luiz
+  confirmed his series will land after this patch.
 
-I think it would only be redundant if exec would be clamped by cap_bset.
-I'm not sure if the patchset does this.
+v2: https://lore.kernel.org/all/20261118024517.21812-1-1045704958@qq.com/
+v1: https://lore.kernel.org/all/20261117121626.1058-1-1045704958@qq.com/
 
-/me looks...
+ mm/shmem.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-Ah, ok... this patch series already clamps exec to the namespace
-bounding set. So yes, you're right.
-)
+diff --git a/mm/shmem.c b/mm/shmem.c
+index 10cef89b00b0..6d6b4a7e024a 100644
+--- a/mm/shmem.c
++++ b/mm/shmem.c
+@@ -2113,8 +2113,10 @@ unsigned long shmem_allowable_huge_orders(struct inode *inode,
+ 	 * Only allow inherit orders if the top-level value is 'force', which
+ 	 * means non-PMD sized THP can not override 'huge' mount option now.
+ 	 */
+-	if (shmem_huge == SHMEM_HUGE_FORCE)
+-		return READ_ONCE(huge_shmem_orders_inherit);
++	if (shmem_huge == SHMEM_HUGE_FORCE) {
++		mask = READ_ONCE(huge_shmem_orders_inherit);
++		goto out;
++	}
+ 
+ 	/* Allow mTHP that will be fully within i_size. */
+ 	mask |= shmem_get_orders_within_size(inode, within_size_orders, index, 0);
+@@ -2125,6 +2127,7 @@ unsigned long shmem_allowable_huge_orders(struct inode *inode,
+ 	if (global_orders > 0)
+ 		mask |= READ_ONCE(huge_shmem_orders_inherit);
+ 
++out:
+ 	return THP_ORDERS_ALL_FILE_DEFAULT & mask;
+ }
+ 
 
-> whole thing is defined so that cap_userns and cap_permitted are always
-> subsets of parent's cap_bset, right?)
-> 
-> I think I agree that there needs to be a way to turn the cap_permitted
-> thing on and off (and I'm also not sure whether cap_permitted is
-> better than cap_effective), but I'm not convinced that an inheritable
+base-commit: 666539eecdf4db623f5e3c3e55cf9f2dfad24aa4
+-- 
+2.43.0
 
-The effective set can be raised from the permitted set at will. So I
-think permitted is just more correct.
-
-> and lockable bit is necessary or wise.
-> 
-> How about changing the rule to:
-> 
-> child->cap_bset = parent->cap_bset & soft_cap_userns &
-> (cred->cap_userns | cred->cap_permitted)
-> 
-> a) (ugly but easier) A non-inheritable prctl-controlled mask
-> soft_cap_userns, changing the rule to parent->cap_bset &
-> soft_cap_userns & (cred->cap_userns | cred->cap_permitted).
-> soft_cap_userns would be reset to all ones on on fork and exec to
-> avoid creating new inheritable security-relevant state.
-
-So both let the creator pick. But the bit is for the creator when it
-wants to self-restrict: container-root without a user namespace.
-
-It's the same reason that securebits and no_new_privs are inheritable
-and lockable. Afaict, a) is reset on exec so it doesn't control the next
-exec. b) covers namespace creation but not unsharing a user namespace.
-
-> b) A whole new create-a-namespace API where the caller chooses
-> soft_cap_userns at the time they create the namespace.
-> 
-> > On the host none of that matters as the mask is root's own policy there.
-> 
-> I'm still not seeing how there's a difference between host vs
-> init-userns-container vs separate-userns-container.  After all, in
-
-I think the difference is simply whether the restricting task holds the
-capabilities itself. Unprivileged users on the host don't and so they're
-not subject to the exemption. The bit is for that case where the task
-holds the caps.
-
-But ok, if we really don't want to bother with container without user
-namespaces the bit vs a) thing can also go into a follow-up series.
-
-> Unfortunately we don't live in this world, and I'm not convinced that
-> can credibly even approximate it, because people really like their
-> setuid programs working inside a userns.  It still bugs me that we're
-> designing permission systems designed to work in the POSIX model that
-> I think we all kind of agree is fundamentally rather messed up.
-
-I don't think all hope is lost. We have slowly been pushing in this
-direction. systemd allows to set NoNewPrivileges= in it's global config
-so it's possible to enable it for the whole system easily.
-
-There's been a ton of work to get rid of classic setuid-exec stuff:
-
-* run0 instead of sudo (with sudo compat), and systemd-ptybrokerd for
-  interactive shells
-* nsresourced for user namespaces with delegated ranges, mountfsd for
-  unprivileged image mounts
-* outside of systemd: pwaccessd/pwupdd/newidmapd replacing unix_chkpwd,
-  passwd and newuidmap/newgidmap, polkit without a setuid helper, and
-  su/sudo/pkexec wrappers on top of ptybrokerd
-
-But yes, containers are the sore spot. no_new_privs inherited from PID
-1 breaks setuid inside of containers.
-
-My idea has been to make this dynamic:
-
-* deny privilege gain on exec in the initial user namespace and allow it
-  in nested ones. I mused about this in
-  https://github.com/uapi-group/kernel-features/pull/38
-
-Also, since v7.1 there's CLONE_NNP to spawn a child without no_new_privs
-set.
