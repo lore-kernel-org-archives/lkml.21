@@ -1,67 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=128.30.2.78
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795015257;
-	b=TaDgoKEfRdGSbdE+CnQ6O/k/5DvlG9B8Bdd8VvELhME4Ml7a0GxbkF1rxo4BzEmsf4H/
-	 xzAAQn1F1DxiuRVq4Npp0cNKsCvtgMQJzM+Kuign5D51L2Bzc6HpyfzY6Q4RkYYh6j8Ca
-	 +UtUIRAmEsT/hjk2i4jdsjmhtc4Z3NnQcegyDoE0fFmbu+o+f/sfYOqQNSe3WBURaCL1j
-	 n8l7cdmdNDoDHF1h2vIILlrfn6BzeW5k4Kgf6bDgInLoYypwz3xMENhs/HRPlTvQZRchG
-	 az75bllv4IsnbuXCeK0VbRhY2Mas3VdZXUYB3wWbX2dm3rvEwY7u4eyBUyMwyLxTJ9Q==
+	t=1795015260;
+	b=gNzuWs9eiul4++C0TtVbWAwOCyOWFEEXVqhG7zk0/1zaxz34qQa94orbuVkBIBnbwlzN
+	 6z5ZuVJViKHvG6QwEOlAPUz3IvJV9qP0tyWv5EhaZgospeI/0NaylaeeSoVSwD1fTk4qe
+	 lMOHQjxn1gzm9hb2uPBQ3R/mdYMSpUW5CCSnIaqUztz1HmvuEeI3gBlXw68T2lJMtxo3k
+	 uBH39EpcbuH3cGH9TXXJ8g8uiAarOm1eyAbccgnFqK7FNgXDzRz5r8S20dB+uv4euO3ei
+	 6wRwYfFLJuB/MjjWV1zSN4eWodCyh4JAsAqrHeTx1vKuL2wOmn4jSTSbMEnYMx0Hsmg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795015257;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=PR3hub99Xsm//k1e56CFmuZA9rCDR5FKEPlC2s2rAkk=;
-	b=RepuFJ8pEjkvopXIUv1agT1JFMa1IraFfl5yC0t78+RC0OEqtbRk4MfGP28S+GM6UX0O
-	 l+4dPcs/FZ7ufSIRXM4n5jAgToMQhMgcV/BBLLeZ0WNynejnEiigDk0kDh+3zQbpJDE7l
-	 g5VavOsUmP9lW+12Ja2DInKNRxX7B5olxoBIHPA2xVVzyxnkvtg/b5d5OX22X+iN/EcHC
-	 Bh8Bf9FINeDY4TKtlcs60ldThBLf+d6QfdAiO2nkcyV8YRljqN0jHXZTq93u6ZFn6MAAj
-	 7DVJk7vDlBLQfv66EeHd4tDyk/79qyna97LgaF19fxUHAPHwKFi4uiuAFxwSoOOOl+Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795015260;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
+	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer;
+	bh=2f1/3qPELFtVfaXBFluo86ffYBKVD1HppO+tx/i4yJA=;
+	b=e5uD8kg9RvmNI6C8Q+efO5Qm9McjQ3EtIYO3DEYfWj0BWnmRS2HS7U+duLoIkrKJwxCb
+	 M+WC82kKGY5G6VO79arIyony6g2IbJ83rSFchRB5AQl6fTPflOWMvZ9CpC8H2LotWNjXq
+	 cN8suDTgZrDosuTyZ0y+FlOiU67MFCET/AHkIaTanWGF9MEFnWOzs4m4EjyU1d/Sigw1B
+	 n2kFvN8qJaKwXcceX8VmOf17o7WCu45rqrZGv2LI6rLuzJHVvChRXW1UVk3NdI5QhNZFZ
+	 XubeddoqFtsuksPcbjIsFZjk18jZ66MqU/Oqf+M+gs33PflcNZpZvJM+5zgNLnpcQWg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=csail.mit.edu;
-	spf=pass smtp.mailfrom=csail.mit.edu;
-	dkim=pass header.d=outgoing.csail.mit.edu header.i=@outgoing.csail.mit.edu header.a=rsa-sha256 header.s=test20231205 header.b=jfqkTBkA;
-	arc=none smtp.remote-ip=128.30.2.78
-Received: from outgoing2021.csail.mit.edu (outgoing2021.csail.mit.edu [128.30.2.78])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=gourry.net;
+	spf=pass smtp.mailfrom=gourry.net;
+	dkim=pass header.d=gourry.net header.i=@gourry.net header.a=rsa-sha256 header.s=google header.b=RcYjlh9r;
+	arc=none smtp.remote-ip=209.85.160.171
+Received: from mail-qt1-f171.google.com (mail-qt1-f171.google.com [209.85.160.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DCDC606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:20:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7DCDC606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=csail.mit.edu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=csail.mit.edu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFB2A60A2601
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:20:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CFB2A60A2601
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=gourry.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gourry.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=outgoing.csail.mit.edu header.i=@outgoing.csail.mit.edu header.a=rsa-sha256 header.s=test20231205 header.b=jfqkTBkA
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=outgoing.csail.mit.edu; s=test20231205; h=Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Sender:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=PR3hub99Xsm//k1e56CFmuZA9rCDR5FKEPlC2s2rAkk=; t=1795015256; x=1795879256; 
-	b=jfqkTBkAXFgGkLbq78phVv1yTWwGEMtywuRMkOWkGD9gtG+vuxxQmd2veuW/HOTXR+azZnW7Zmy
-	Am0WEC1yieuD4JNXZ6Y38CJd8JzURuuq/Irt+oXNbWoIqnuzQIHvDL6fiOx+pXjVQGe/hfRlX4AOZ
-	dyJBI7W5r165egUEmWG7PFCnKZi7HRdcpRlTaGXaq6vyHsspO/76HuTX5IbXPGWKVF+MQ0Adr2fXZ
-	e8a9pZUNF/zO17cDCP74HGmHamWAb4MdnM3JWpc/hILBHSIAX/HmNaw1y/sn6VSBBwa556KVRELKH
-	QR5+Ftbd2wZAnB+za3ac4RT6QESBzW8v+G0w==;
-Received: from mail-dl1-f52.google.com ([74.125.82.52])
-	by outgoing2021.csail.mit.edu with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.95)
-	(envelope-from <nickolai@csail.mit.edu>)
-	id 1xThSx-00GiKY-EQ
-	for linux-kernel@vger.kernel.org;
-	Wed, 18 Nov 2026 10:20:55 -0500
-Received: by mail-dl1-f52.google.com with SMTP id a92af1059eb24-14394530ec6so1743491c88.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:20:55 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFPC0Lxl2dZ4U+FoJ6S5fU8vLNMFQzkYLG/8JZs60takrGph/Sp6piBFmFnxg5cJz1FBwFWJLoIDq4PnKU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+JY9MCTEsFl/vqizsA7BywZLqIx//fF/bowHyV02YvTdoOMdQE
-	Nl9L1Mwpmh7Dj+rKADrmxx9lrMOS77zhlp76ll4d1AuNXJHB4ZO5JOg1aZSu4rcNl8gpqoncwUa
-	sKU9irD9euwK1enrzppjmVIvo6RnZf8Q=
-X-Received: by 2002:a05:7022:e0d:b0:1b3:8814:8383 with SMTP id
- a92af1059eb24-1b543bb6158mr3662263c88.9.1795015254429; Wed, 18 Nov 2026
- 07:20:54 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gourry.net header.i=@gourry.net header.a=rsa-sha256 header.s=google header.b=RcYjlh9r
+Received: by mail-qt1-f171.google.com with SMTP id d75a77b69052e-55d2d380f6aso11815821cf.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:20:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gourry.net; s=google; t=1795015259; x=1795620059; darn=vger.kernel.org;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=2f1/3qPELFtVfaXBFluo86ffYBKVD1HppO+tx/i4yJA=;
+        b=RcYjlh9r4IRGrafd+j2HLcUekeO369jG4cJ8dDVzoBY8gvpxzJeyqK3ozNZlwuaNe+
+         dX9eTN+iN1SLvDXv6ZqfqHOE77V1vdoVQpS9x5MRrqE0S7mvRfL6sw/ErTChduS84etH
+         nS7jQ1GGdAXlIAaPdld5HxgPrnOoIx1uTeL6PFILkkDVhQvjQ1L/cdSpt//oQ3Sg56BU
+         7DACo0lblGCgiebYjG3dsltULlbJRKP6YYtH3AIXL4Ytr8g/kCuFnCukKTYSpuqs6WLs
+         H7LrxeAzRj7uQcJe5AdxVin1iIq0eKGTVLMXmX4R0D0sv+hVEZxbt0IeTxFEciavpACF
+         rBBw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795015259; x=1795620059;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=2f1/3qPELFtVfaXBFluo86ffYBKVD1HppO+tx/i4yJA=;
+        b=Wz6mKJEZoL8I0+j0vhafaUJzztocy6qni79cb0yz08H3DEheJFojtJwMFmCBb91Jnk
+         3wgj2vlBbXf045d5D4RbvO29eWoN3P92cXhnr6R4eAJKbVrN6m6IywVQeZoNhUQCNmp7
+         zCUm+vSHXh+Qj3/7SMsvaDDqlTNk0T6kzpaS809T9R/DqWatWFTVM59ncOgmJhyZLK7Y
+         lWZRXvSNZgsO8j0Wvfj2BSgJRbS0+Fm00wFwEgg6bmXxJhAKZclY5L1bKiMIfYK16vZv
+         E4XjcJ7J2i9pFkv8lKQO/xGZXKsQPhqcZrPW8Js2gA+CjqOec4KoXtpAEKwMKGd2semi
+         zJAw==
+X-Forwarded-Encrypted: i=1; AL+hErGl6ght9i6GAAKeM+7LsJUO2PkzMyxjpMX1ml8URFjYPNvPwqYJWwRnRRBhU0c4TBo6KLibhM+HDzvZNiw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9rCVHz4xr8WLWshegDYJXYKr6tk2/wurPYktrqNt1mHT3LfzkS
+	x8iNeHH50yshOV3iGpJQJr0kmr6+7gHUDFt7Jh9t7asUIWaCJREzILdM+6emNR1Iw3U=
+X-Gm-Gg: AYBFou3o9W+jksrRupog2/HDYL9eCAqz6/OudPmMCy0PGJH+YImbl5HndtguXbbwLpy
+	L3v1pT2P5dFse84tsXFi1hMxTSwwCCOju9a9jtEGQMbkaJB5daqyYkYwZOaEHmTWLdqwyFuMTej
+	QfPfdg8lCR0gzRXZiwFHK5tZZfmcogDjSiWIboaua9olHk0qJel87PHVUN46YXioqleR6n7zMp2
+	wQ7EI8UBDTfQIsuZJtOYRPjB1vO/0t2dYk08GvwWYlxAbBj2tkiFlOrhuPapLcxLVKLoGiwvOkx
+	1I0URf959WNGB/MKL5zRu/Aw4td+M2lqzz3cOblHBeG1ZzHyPkKBFdtnodIlRCGkoW7a8Yx5rt3
+	kycjWTWkNdJjADEEg9EuieFwchQXs/8UX/eL+txn0K0N9sDhX5aK9PGRJRGrkFfDxfBW6hxD2Bs
+	pkCVF7Z04Npfmk38YO1+B3AqGUxE9TvobjyT+yeLpCSkLO9cJCTP5WBg4isGqwvC7jqllEOM3xp
+	0aIpz0ki6k8Hc7GjNLV2hA4fUGqDrMWrHfdMSIDVbBJC7HPHxp1x4TU9DUXrlV7J08bcS/iiTK+
+	s66XEGlmVvHuMnp6Wt5PxjtqDCr6Y+JtSXO/BPVCh8GCshx5D0fcV3hwVeKK3MTP9AVzNlhLIAv
+	MlkegsQs=
+X-Received: by 2002:a05:622a:a0a:b0:55c:66f0:5bf0 with SMTP id d75a77b69052e-55d5a656766mr42047121cf.39.1795015258621;
+        Wed, 18 Nov 2026 07:20:58 -0800 (PST)
+Received: from [192.168.50.231] (pool-71-191-145-202.washdc.fios.verizon.net. [71.191.145.202])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921167f4725sm19632976d6.44.2026.11.18.07.20.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 07:20:58 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,92 +89,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117170328.56738-1-nickolai@csail.mit.edu> <d7179bdf-daa3-4ed2-a45e-ef2b99d116f1@amd.com>
-In-Reply-To: <d7179bdf-daa3-4ed2-a45e-ef2b99d116f1@amd.com>
-From: Nickolai Zeldovich <nickolai@csail.mit.edu>
-Date: Wed, 18 Nov 2026 10:20:41 -0500
-X-Gmail-Original-Message-ID: <CADGQE7EDJHu9F41ZGKfP92M7kbbw7A-FGYzX1kaemjXmkuW5Wg@mail.gmail.com>
-X-Gm-Features: AclHuK-XtrrvqYPPygdcx8gUT8Gu0j85-P6irS7Octs2KttgRf_mGWk5jg1-ewk
-Message-ID: <CADGQE7EDJHu9F41ZGKfP92M7kbbw7A-FGYzX1kaemjXmkuW5Wg@mail.gmail.com>
-Subject: Re: [PATCH v1] drm/radeon: stop the GPU before kexec
-To: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
-Cc: Alex Deucher <alexander.deucher@amd.com>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, amd-gfx@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH 02/22] mm: publish and clear node memory states via
+ helpers
+From: "Gregory Price (Meta)" <gourry@gourry.net>
+To: Richard Cheng <icheng@nvidia.com>
+Cc: "Gregory Price (Meta)" <gourry@gourry.net>, linux-mm@kvack.org, 
+ linux-kernel@vger.kernel.org, kernel-team@meta.com, 
+ linux-doc@vger.kernel.org, driver-core@lists.linux.dev, 
+ linux-serial@vger.kernel.org, linux-pm@vger.kernel.org, 
+ damon@lists.linux.dev, linux-cxl@vger.kernel.org, akpm@linux-foundation.org, 
+ david@kernel.org, liam@infradead.org, vbabka@kernel.org, rppt@kernel.org, 
+ surenb@google.com, mhocko@suse.com, corbet@lwn.net, 
+ skhan@linuxfoundation.org, rdunlap@infradead.org, 
+ gregkh@linuxfoundation.org, rafael@kernel.org, dakr@kernel.org, 
+ johan@kernel.org, jirislaby@kernel.org, kasong@tencent.com, 
+ qi.zheng@linux.dev, shakeel.butt@linux.dev, baohua@kernel.org, 
+ axelrasmussen@google.com, yuanchu@google.com, weixugc@google.com, 
+ baoquan.he@linux.dev, baolin.wang@linux.alibaba.com, yury.norov@gmail.com, 
+ linux@rasmusvillemoes.dk, pavel@kernel.org, lenb@kernel.org, 
+ hannes@cmpxchg.org, brendan.jackman@linux.dev, ziy@nvidia.com, 
+ sj@kernel.org, muchun.song@linux.dev, osalvador@suse.de, 
+ nico.pache@linux.dev, ryan.roberts@arm.com, dev.jain@arm.com, 
+ lance.yang@linux.dev, usama.arif@linux.dev, kas@kernel.org, 
+ xu.xin@linux.dev, chengming.zhou@linux.dev, joshua.hahnjy@gmail.com, 
+ rakie.kim@sk.com, ying.huang@linux.alibaba.com, matthew.brost@intel.com, 
+ byungchul@sk.com, apopple@nvidia.com, rientjes@google.com
+In-Reply-To: <av1ZBTpLpJC6DJqA@MWDK4CY14F>
+References: <20261114070959.3490008-1-gourry@gourry.net>
+ <20261114070959.3490008-3-gourry@gourry.net> <av1ZBTpLpJC6DJqA@MWDK4CY14F>
+Date: Wed, 18 Nov 2026 10:20:56 -0500
+Message-Id: <179501525661.1206716.17622543796948053737.b4-reply@b4>
+X-Mailer: b4 0.17-dev
 
-On Wed, Nov 18, 2026 at 7:11=E2=80=AFAM Christian K=C3=B6nig
-<christian.koenig@amd.com> wrote:
-> On 11/17/26 18:03, Nickolai Zeldovich wrote:
-> > Suspend the GPU in radeon_pci_shutdown() on kexec, as PPC64 and Loongso=
-n
-> > already do on every shutdown. Normal shutdown and reboot are unchanged:
-> > commit 8d13c187c42e ("Revert "drm/radeon: Fix EEH during kexec"")
-> > removed the same call there because it hung some HD 5770 systems.
+On 2026-11-18 15:53 +0800, Richard Cheng wrote:
+> >  	/*
+> > -	 * Check whether we are adding normal memory to the node for the first
+> > -	 * time.
+> > +	 * Publish this node's memory states, including any newly-normal zone.
+> > +	 * Hotplug never adds highmem.
+> >  	 */
+> > -	if (!node_state(nid, N_NORMAL_MEMORY) && zone_idx(zone) <= ZONE_NORMAL)
+> > -		node_set_state(nid, N_NORMAL_MEMORY);
+> > +	node_set_memory_state(nid, false, zone_idx(zone) <= ZONE_NORMAL);
+> > 
+> 
+> Um, so I am not sure how much cache pressure this will add, I assume it's small ?
+> 
+> Just want to point out that the old code only wrote these bits for a node's first
+> memory. THis now does up to 3 set_bit() calls on node_states[] for every onlined block.
+> The result is the same, but node_states[] is __read_mostly. A test-before-set in the helper
+> would keep the old behavior, or if you would like to keep it, please address in commit message.
 >
-> Yeah that is clearly not the right approach.
->
-> The kexec is often done to switch to a new kernel because the old one has=
- encountered some severe problem, doing a HW suspend in such a situation is=
- not guaranteed to work.
->
-> What should be done instead is to fix the initialization order and/or dis=
-able GART before the bus mastering is enabled again.
 
-Thanks, that makes sense. I tried disabling the IH at the start of
-evergreen_startup(), before the MC programming raises the page-flip
-interrupts. I also had to clear IH_WPTR_WRITEBACK_ENABLE when disabling
-the IH; otherwise resetting the write pointer writes it back through
-the stale GART, which is one more stray write. With both changes, I
-see no stray writes (no canary-page corruption, and successful kexec reboot=
-s).
+Hotplug isn't on a particular hot path, but I can test N_MEMORY before
+setting any new state and just early-out.  That would keep the behavior.
 
-On disabling the GART: the new GART is already enabled before bus
-mastering, so, as far as I can tell, the stray writes were translated
-through the old one earlier, during the MC programming.  Disabling the
-old GART before that would also keep the stray writes out of system
-memory, but evergreen_pcie_gart_disable() and its counterparts also
-unpin the GART BO, which is not pinned at that point, so disabling the
-IH seemed the more direct fix.
+-- 
+~Gregory
 
-Before I send a v2, a quick question about scope.  R600, RV770,
-Cayman, SI and CIK have the same IH, and their *_startup() functions
-program the MC before their irq_init() in the same way, so the same
-two-line change (see below; disable the IH at the start of
-*_startup(), and clear the writeback enable in the corresponding
-*_disable_interrupts()) should apply to all of them.  But I can only
-test Evergreen: my card is a Caicos (HD 6450), which runs
-evergreen_startup().  Would you prefer I just fix Evergreen, or all 6
-families (the other 5 only compile-tested)?
-
-Nickolai.
-
-For reference, the Evergreen version without comments (with apologies
-for the loss of tabs):
-
---- a/drivers/gpu/drm/radeon/evergreen.c
-+++ b/drivers/gpu/drm/radeon/evergreen.c
-@@ -5010,6 +5010,8 @@ static int evergreen_startup(struct radeon_device *rd=
-ev)
-        int r;
-        struct drm_device *ddev =3D rdev_to_drm(rdev);
-
-+       r600_disable_interrupts(rdev);
-+
-        /* enable pcie gen2 link */
-        evergreen_pcie_gen2_enable(rdev);
-        /* enable aspm */
-
---- a/drivers/gpu/drm/radeon/r600.c
-+++ b/drivers/gpu/drm/radeon/r600.c
-@@ -3604,7 +3604,7 @@ void r600_disable_interrupts(struct radeon_device *rd=
-ev)
-        u32 ih_rb_cntl =3D RREG32(IH_RB_CNTL);
-        u32 ih_cntl =3D RREG32(IH_CNTL);
-
--       ih_rb_cntl &=3D ~IH_RB_ENABLE;
-+       ih_rb_cntl &=3D ~(IH_RB_ENABLE | IH_WPTR_WRITEBACK_ENABLE);
-        ih_cntl &=3D ~ENABLE_INTR;
-        WREG32(IH_RB_CNTL, ih_rb_cntl);
-        WREG32(IH_CNTL, ih_cntl);
