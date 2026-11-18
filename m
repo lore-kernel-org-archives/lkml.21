@@ -1,116 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=128.30.2.78
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794983615;
-	b=Y8fH4usWjYJvnKgj5lKZHgnUUq1QSf9p+x++ZczDDedqetcNCxjuSXYqdfqhMIv6ppfH
-	 bUM2SwD2ogMmkksE15meWCYdKONRRdXR5caHMNPo/1GnYd89F6m9GeBz/phV6duPoYNK9
-	 uDJQvNcNDUqrTXhEOYN7OBtFi52qAdzHy/BcSvERhxYjX15qJuad+THtJeWvt9a5Qhe8B
-	 /99sm9frXYlui6uQSbPqlQ4b3dzS/Ha3RibPA3C/QoIW0fF9OPEddgK6WjqigPyV1RqOY
-	 F/6q2HC0KrbDPjtuhNrgMSf7oqT10LijWLDchB/B2gFm1WiG0zsiKcQ7n/9xSekcZsA==
+	t=1794983639;
+	b=1TKzazPouE00ljxTeFj7lUdrMTuJKhueGKJgdvjzuaBXmfMZoTA3/xUN/Zf9Va3p7nvC
+	 GLJL6fNzMUealz6d9mic7NaB8BZZofCp1y+w1VFO+WlLuE0parw+IwHc4EyRgpu6o/l+o
+	 SQYsTjpf+NzqJ+Szy9DoLweAl57a8y9A1LyRqr5ylu2Fl7uzlIjl5U0Mt1nitrSefI9iO
+	 mS2asqYMOKLvauiVsiMFRJSWtg94XubxZ9gnQH+Eh+KgUkiS4QU4naT5C32p8eQgV6jJv
+	 FrEarJkyeTd8t8GKK0kSnSOSp9Ld4sTS5Khp+G+cMQh6kZETrNk93qQR8ILA+R1jQZg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794983615;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=jm9UtSkj5qTjc2aQp3GV2uLJyBITV/apzUIo7FVG7gI=;
-	b=AqnffawiIb2FdJuR5NxLPLGxAk6LD5AmvvV1+BbUJrrUm7XRFlLVC9siSJQxokbCo0jz
-	 DKu6rlIb5mROETlcJXTW7kwMqLq8TJYvZAgXQQ87OJgQ8Z948dmS/C3JmtwolKaK177T7
-	 hUyXoMh37rgurlTyxbSk5hHIpeOjeQJjXlI//ti7CrNEeG5mfnLhCzbxxi2xqizauWgaT
-	 4VGthChbrLyrDTDyjUo/RhQotd0JO2oVsXuel0XQomN9R79aZbfWm5lnTZtnOK0rcwj8A
-	 4ghLlmWI5fI4FStnUC/59hO98+J1eSPfLuim0lL/tyzWvJeyVaT8ex7HuUlMvKvSI0A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794983639;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=+LkSY5GlXR1Cv2REFbi0XBAyEkYgGEsqiwtvr/sPn20=;
+	b=Lh3xZiBrt76Gf7eYymWff+b8jzGUxOnjwqrLQp0IXMLt8tz3GeEwC13J7U5zgfM9aNgy
+	 u7b1iPf31nrzj6MGrc7slccjc0N4Hj454DODcKPvGmh2ChUztzy2vignMgFpKPRGgSoHB
+	 oqohAt7dBYMguu2Hvh7yqsvjtczYkTd2/TwcY6qfhkY7oONELEhZSognMdUqp6bykrGip
+	 kxmCDWNKtF4lUNsYaLUq5Hy4opCurGGjzpV71iX/fYB213zmMknHFTw8cxiZDxwzYeRGx
+	 T0cxIGB75jD7eRDf6behFLksaf1T1NGB14pvsuScbS3RNPssCcwL0PqsmRVc1DF7Q1g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=ivQghRHa;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=Fp4fJ3jX;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dmarc=pass header.from=csail.mit.edu;
+	spf=pass smtp.mailfrom=csail.mit.edu;
+	dkim=pass header.d=outgoing.csail.mit.edu header.i=@outgoing.csail.mit.edu header.a=rsa-sha256 header.s=test20231205 header.b=nAKa9CPq;
+	arc=none smtp.remote-ip=128.30.2.78
+Received: from outgoing2021.csail.mit.edu (outgoing2021.csail.mit.edu [128.30.2.78])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80C04606A32C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:33:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80C04606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9157E606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:33:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9157E606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=csail.mit.edu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=csail.mit.edu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=ivQghRHa;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=Fp4fJ3jX
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1794983613;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jm9UtSkj5qTjc2aQp3GV2uLJyBITV/apzUIo7FVG7gI=;
-	b=ivQghRHa7aHXycTCAk13nbpBx5z3W1dNgH+vQvlGMON2X+QF8CBPBJYbgBV97RbUwDRtir
-	exKvSiGE3g88NUClB4MN3HXn5hqkE0eHVgrayFvP8p0bUp39vPsN01tn3Pl+j+4cRTPjmT
-	esvnfSTamqwBk1Sndn3g4AOGQaE90ak=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-625-XTjLNstQPEa8JAzq4L6qRA-1; Wed, 18 Nov 2026 01:33:31 -0500
-X-MC-Unique: XTjLNstQPEa8JAzq4L6qRA-1
-X-Mimecast-MFC-AGG-ID: XTjLNstQPEa8JAzq4L6qRA_1794983610
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-4901562b819so439939f8f.3
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:33:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1794983610; x=1795588410; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=jm9UtSkj5qTjc2aQp3GV2uLJyBITV/apzUIo7FVG7gI=;
-        b=Fp4fJ3jX8fL3RkP2MYtSO/q5wVOjCaqut2mwdt3VSNCGIWBmalQYnQEsH/v/Wp7w36
-         ppoCCpu6jqoQWcmpIKe6gsQnZUMBvAzBMk+W71ojaWP9ncG6lGw10PhcK8nDDi9gcukU
-         8Xce9Ujz27J7Nr2MYnUTyRls4WOCxuIfejnwF+RLNtpsMWAjeDrWOXEfombtByHcmuAc
-         O52cL4ND9OMyLIYVc5jvbt1NjWIeAjHn2noPkhTb+vstAcWbNJypjGOPXDNkxhVCbL4I
-         /OU8BKWNVeCeLR44YJJsrBPcx7A7FoNv+frcRCsKviZfdVJBvdyooV1r7cUcUUNE/ycW
-         7zHQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794983610; x=1795588410;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jm9UtSkj5qTjc2aQp3GV2uLJyBITV/apzUIo7FVG7gI=;
-        b=zPXQFXnYkcqvt/knxUhKI7SkSNV/IrBbQO60xB3xCCeupO3WgOvh9H4GegnpuawyZA
-         9zkcVkmWLthXHfoNAgxLNxSE41YU6mumtwv9TYE7djONIGYrHH50+m/QKJxZz79qcELB
-         0ZiSoqTU5FG72ml5Gzurojg/dNKxjyO/i/17gAOC1ptma1r3PdS4O1fdXMwh4IHjJlgA
-         ZIi0YJklbsIJ3L7RVrh7KgwFzpYCJB1hlvSe+sZ9i+aV6CmKzK6RJYvfJJUImyxm2VfY
-         RO5TRyZP/DtWtuHNFq9yOXfxpgQ2H1Y53WwGMFa6ioUoCYNCkUvtLnPSLvkG8gkGrg9T
-         kn6g==
-X-Forwarded-Encrypted: i=1; AL+hErGCtVjnWWPpLEGsEmUWc+qWLbdwt4H392vAogGYBsVn0KRUClH8I6v1LdK4PhgNH/G/HBKMAAlr6ybaWcQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/4UtA5+cnfMU07XNgB/Cn+SbmnRdU88qa2/gTPs5VCksJgCSym
-	I/2WfsejhAq7mb/wIzyK4QC4eZclcbpcXkGVJUdZPbHZ2vMt7MSzS9ofexV5e/H+wHbaXi9Wg4L
-	M4pogwl1e08XOIfD21Vh4kjbsJ7pXiXDYsDbDuBj5XtF0OgccHIBxmK+7pwUzYWecZA==
-X-Gm-Gg: AZFdTZeZN7hupBcvBiAmd1ntUEsEYLdgkzr31yo7iu5iiyN4IVmoZaatKk370VZJG1C
-	61bdL/WR2KM0AGPfWiH0KoUU1v20fjHJLLyMcPiSVNaDQ1629uhBOYEeTI0i88+lfQM7oWISp1N
-	DFCNTE48KiGXVm2Et+lgbmFof8Nm58FZqS7Yn85owqGB+ccr8HGHbcWd9H3b9RxXczKCVxHVA/b
-	nNFCHYeEog9Qo5dtP0g+bFvfpq5OfE57t79cGCyU1zOfkBYEumUQGqWW6EU181G12fJczAF9fV6
-	YcZvGAQs6G4sxObDhpvbHG5CyuWvvNJiI7olH/OarZuhcW0qXsJaz4Grruj9/Z8jDVysVg6I3ek
-	7JpZlpTj7vyk4V9iUQc9iD8SqSvGQjXD6/iOs1U7vLw4=
-X-Received: by 2002:a5d:5d0d:0:b0:4a7:9630:7b5a with SMTP id ffacd0b85a97d-4a7963080e7mr331956f8f.47.1794983610321;
-        Tue, 17 Nov 2026 22:33:30 -0800 (PST)
-X-Received: by 2002:a5d:5d0d:0:b0:4a7:9630:7b5a with SMTP id ffacd0b85a97d-4a7963080e7mr331922f8f.47.1794983609777;
-        Tue, 17 Nov 2026 22:33:29 -0800 (PST)
-Received: from redhat.com ([2a0d:6fc0:1520:4400:d78d:7b2d:2f5d:e08f])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65560b5f1sm2935743f8f.21.2026.11.17.22.33.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 22:33:28 -0800 (PST)
-Date: Wed, 18 Nov 2026 01:33:26 -0500
-From: "Michael S. Tsirkin" <mst@redhat.com>
-To: Nguyen Dinh Phi <phind.uet@gmail.com>
-Cc: Stefan Hajnoczi <stefanha@redhat.com>,
-	Stefano Garzarella <sgarzare@redhat.com>,
-	Bobby Eshleman <bobbyeshleman@meta.com>,
-	Jason Wang <jasowangio@gmail.com>,
-	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
-	Asias He <asias@redhat.com>, kvm@vger.kernel.org,
-	virtualization@lists.linux.dev, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] vhost/vsock: annotate lockless accesses to guest_cid
-Message-ID: <20261118012321-mutt-send-email-mst@kernel.org>
-References: <20261117164916.2332953-1-phind.uet@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=outgoing.csail.mit.edu header.i=@outgoing.csail.mit.edu header.a=rsa-sha256 header.s=test20231205 header.b=nAKa9CPq
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=outgoing.csail.mit.edu; s=test20231205; h=In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=+LkSY5GlXR1Cv2REFbi0XBAyEkYgGEsqiwtvr/sPn20=; t=1794983638; x=1795847638; 
+	b=nAKa9CPql0z+1sMynzYMl8vekukgptl7utHFq5cKufEkBl/0vDkjijQJqZn6KgpgsQymqtpmM0q
+	vw2xaH7w9B83apDnI3EjxYxL3BsAzXqzTDVB6yJpLraDtAd7yl6B9Qv5jjjYhD6p4yoFtUnCxF0Si
+	/pA8yceNqqcdsMDEZlHGX6hTW5HKQM9+W8+WrGqqNXYM+/bnYT/SExyBsCXUkd9ZZakQxjoi5CM7U
+	2j55xEuXZW5oIP98+aH7uiJ2AFRU2U/W4seAMrVbLiPAd7XX5MUXzNVDeoxsqKh68OVmUPuPw5FPE
+	6wA0ILMQKg1Qpt5K7vdNoIAnikC+zjo8BnLg==;
+Received: from [167.220.238.88] (helo=csail.mit.edu)
+	by outgoing2021.csail.mit.edu with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <srivatsa@csail.mit.edu>)
+	id 1xTZEw-00EuZP-Ef;
+	Wed, 18 Nov 2026 01:33:54 -0500
+Date: Wed, 18 Nov 2026 12:03:46 +0530
+From: "Srivatsa S. Bhat" <srivatsa@csail.mit.edu>
+To: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
+Cc: tgopinath@linux.microsoft.com, ssengar@linux.microsoft.com,
+	michal.simek@amd.com, rajan.vaja@xilinx.com, tejas.patel@xilinx.com,
+	abhyuday.godhasara@xilinx.com, gregkh@linuxfoundation.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	tglx@linutronix.de
+Subject: Re: [PATCH 2/2] soc: xilinx: Fix event manager CPU hotplug state
+ cleanup
+Message-ID: <av1GyoUdnxMV_C2p@csail.mit.edu>
+References: <20261103062051.676519-1-ptsm@linux.microsoft.com>
+ <20261103063515.679043-1-ptsm@linux.microsoft.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -122,87 +75,87 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261117164916.2332953-1-phind.uet@gmail.com>
+In-Reply-To: <20261103063515.679043-1-ptsm@linux.microsoft.com>
 
-On Wed, Nov 18, 2026 at 12:48:43AM +0800, Nguyen Dinh Phi wrote:
-> vhost_vsock.guest_cid is written by vhost_vsock_set_cid() under
-> vhost_vsock_mutex, but It is also read without that mutex in
-> vhost_vsock_handle_tx_kick(), and vhost_vsock_get().
+On Mon, Nov 02, 2026 at 10:35:15PM -0800, Prasanna Kumar T S M wrote:
+> On driver removal, the event manager removes the CPUHP_AP_ONLINE_DYN
+> CPU hotplug state instead of the its actual state. This can leave the
+> event manager callbacks dangling. Use the actual CPU hotplug state
+> during driver removal.
 > 
-> KCSAN will report data-race if we issue VHOST_VSOCK_SET_GUEST_CID
-> ioctl while the device has TX traffic. For example:
+> Hotplug registration failures are also ignored, allowing probe to
+> succeed without the callbacks needed to enable event interrupts on
+> CPUs brought online later.
 > 
->  write to 0xffff88810f1596ac of 4 bytes by task 7914 on cpu 1:
->    vhost_vsock_dev_ioctl+0x25f/0x720
->    __x64_sys_ioctl+0xc2/0x110
->    x64_sys_call+0x299/0x20a0
->    do_syscall_64+0xc9/0x510
->    entry_SYSCALL_64_after_hwframe+0x76/0x7e
-> 
->   read to 0xffff88810f1596ac of 4 bytes by task 7910 on cpu 3:
->    vhost_vsock_handle_tx_kick+0x41b/0x740
->    vhost_run_work_list+0x97/0xc0
->    vhost_task_fn+0x98/0x1f0
->    ret_from_fork+0x2e2/0x3c0
->    ret_from_fork_asm+0x1a/0x30
-> 
->   value changed: 0x0000004d -> 0x00000032
-> 
-> Both readers load the CID once and works correctly with either the
-> old or the new value.
-> 
-> Mark the store with WRITE_ONCE() and the two lockless loads with
-> READ_ONCE(), so KCSAN knows the race is intentional.
-
-You make it sounds like it is just KCSAN false positive.
-Is it?
-if yes, this should be data_race. If no, document why.
-
-
-
-> 
-> Fixes: 433fc58e6bf2 ("VSOCK: Introduce vhost_vsock.ko")
-> Signed-off-by: Nguyen Dinh Phi <phind.uet@gmail.com>
+> Fixes: c7fdb2404f66 ("drivers: soc: xilinx: add xilinx event management driver")
+> Signed-off-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
 > ---
->  drivers/vhost/vsock.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
+>  drivers/soc/xilinx/xlnx_event_manager.c | 14 ++++++++++----
+>  1 file changed, 10 insertions(+), 4 deletions(-)
 > 
-> diff --git a/drivers/vhost/vsock.c b/drivers/vhost/vsock.c
-> index 88a310390eb0..f26c59013075 100644
-> --- a/drivers/vhost/vsock.c
-> +++ b/drivers/vhost/vsock.c
-> @@ -78,7 +78,7 @@ static struct vhost_vsock *vhost_vsock_get(u32 guest_cid, struct net *net)
+> diff --git a/drivers/soc/xilinx/xlnx_event_manager.c b/drivers/soc/xilinx/xlnx_event_manager.c
+> index f733dc42b3b1..2d8bfeab4190 100644
+> --- a/drivers/soc/xilinx/xlnx_event_manager.c
+> +++ b/drivers/soc/xilinx/xlnx_event_manager.c
+> @@ -24,6 +24,7 @@ static DEFINE_PER_CPU_READ_MOSTLY(int, dummy_cpu_number);
 >  
->  	hash_for_each_possible_rcu(vhost_vsock_hash, vsock, hash, guest_cid,
->  				   lockdep_is_held(&vhost_vsock_mutex)) {
-> -		u32 other_cid = vsock->guest_cid;
-> +		u32 other_cid = READ_ONCE(vsock->guest_cid);
+>  static int virq_sgi;
+>  static int event_manager_availability = -EACCES;
+> +static enum cpuhp_state hp_state;
 >  
->  		/* Skip instances that have no CID yet */
->  		if (other_cid == 0)
-> @@ -572,7 +572,7 @@ static void vhost_vsock_handle_tx_kick(struct vhost_work *work)
->  		hdr = virtio_vsock_hdr(skb);
+>  /* SGI number used for Event management driver */
+>  #define XLNX_EVENT_SGI_NUM	(15)
+> @@ -625,8 +626,6 @@ static int xlnx_event_init_sgi(struct platform_device *pdev)
 >  
->  		/* Only accept correctly addressed packets */
-> -		if (le64_to_cpu(hdr->src_cid) == vsock->guest_cid &&
-> +		if (le64_to_cpu(hdr->src_cid) == READ_ONCE(vsock->guest_cid) &&
->  		    le64_to_cpu(hdr->dst_cid) ==
->  		    vhost_transport_get_local_cid())
->  			virtio_transport_recv_pkt(&vhost_transport, skb,
+>  static void xlnx_event_cleanup_sgi(struct platform_device *pdev)
+>  {
+> -	cpuhp_remove_state(CPUHP_AP_ONLINE_DYN);
+> -
+>  	on_each_cpu(xlnx_disable_percpu_irq, NULL, 1);
+>  
+>  	irq_clear_status_flags(virq_sgi, IRQ_PER_CPU);
+> @@ -660,8 +659,13 @@ static int xlnx_event_manager_probe(struct platform_device *pdev)
+>  	}
+>  
+>  	/* Setup function for the CPU hot-plug cases */
+> -	cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "soc/event:starting",
+> -			  xlnx_event_cpuhp_start, xlnx_event_cpuhp_down);
+> +	hp_state = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
+> +			"soc/event:starting", xlnx_event_cpuhp_start,
 
-Will prevent compiler from hoisting the reads out of the loops.
-Does it matter?
+Let's change :starting to :online as per convention, as this is
+associated with the ONLINE_DYN state.
 
+Can we also edit the callback names for symmetry similar to the
+suggestion for patch 1/2?
 
-> @@ -859,7 +859,7 @@ static int vhost_vsock_set_cid(struct vhost_vsock *vsock, u64 guest_cid)
->  	if (vsock->guest_cid)
->  		hash_del_rcu(&vsock->hash);
+> +			xlnx_event_cpuhp_down);
+> +	if (hp_state < 0) {
+> +		xlnx_event_cleanup_sgi(pdev);
+> +		return hp_state;
+> +	}
 >  
-> -	vsock->guest_cid = guest_cid;
-> +	WRITE_ONCE(vsock->guest_cid, guest_cid);
->  	hash_add_rcu(vhost_vsock_hash, &vsock->hash, vsock->guest_cid);
->  	mutex_unlock(&vhost_vsock_mutex);
+>  	ret = zynqmp_pm_register_sgi(sgi_num, 0);
+>  	if (ret) {
+> @@ -670,6 +674,7 @@ static int xlnx_event_manager_probe(struct platform_device *pdev)
+>  		else
+>  			dev_err(&pdev->dev, "SGI %d registration failed, err %d\n", sgi_num, ret);
 >  
-> -- 
-> 2.53.0
+> +		cpuhp_remove_state(hp_state);
+>  		xlnx_event_cleanup_sgi(pdev);
+>  		return ret;
+>  	}
+> @@ -704,6 +709,7 @@ static void xlnx_event_manager_remove(struct platform_device *pdev)
+>  	if (ret)
+>  		dev_err(&pdev->dev, "SGI unregistration over TF-A failed with %d\n", ret);
+>  
+> +	cpuhp_remove_state(hp_state);
+>  	xlnx_event_cleanup_sgi(pdev);
+>  
+>  	event_manager_availability = -EACCES;
 
+It looks like this patch 2/2 doesn't have the kind of bugs in the
+cleanup path that affected patch 1/2, so that's good.
+
+Regards,
+Srivatsa
