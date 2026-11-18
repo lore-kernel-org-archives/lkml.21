@@ -1,47 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794994284;
-	b=14yJkkn1RnbX9uM/PmipdjM1AmqamPhANm2gjmmIm4T6EFlg5/UDAn7bJOVVlk1emLFC
-	 xrngKkHqKvzsBU9MpLPWgpdpHjCU87ZuXqhTltMgcFVG60I+NNUTRyyXdn4k55Drgfdop
-	 XObKwVhPoNCCjyALc0Hjw/VJaGMdOgxxGxOmckEGWnNFVSdliZddxaCe2eAHIqTMLhLV4
-	 BOWaLcPGyGQ7Us6IANRIXZCTT/Wy4uqKo1uGATbT4lhfo6oe35YpYqr20yLmF/aSELggD
-	 +V8Dfs+kGN871+zIubrFc4NyZQWFuc98Qch8Ph5Tc5a+tnWi51g8RrqQqZHH7gl+MmQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794994284;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=XF8GKc/X0VLcHzIBVmGS1CVeRJx2Wgr4tpTpsERNcqI=;
-	b=0WijYKc9NnCAOdIvvvvjGwBmUAhNTdWApH4JFBoS7+Zq1MnWCungylOkTdbEpVYWDQYx
-	 T0/RqUqVh/iQ8s9cQIDV4KQjvkcTOwb3s3bbjlpDHYFL0iGduW6h0f7kLHS9z6VRb5mlV
-	 z4HBH7f61oyPNqX6b0ZR2MsVfd80FtHJ1t4WQjGsiew3VFqICPzlGG/0LajRH/SEia5oc
-	 PWpaOAyfeCgSQiMu2CBC6jIDE/0F9gNMjCIxCbGqNOhrDAyyojvSviBi2l+aL+h/14QYy
-	 /FylSLYclqUloc7WF84bqGKPa83FZT5HXVnwY0puOpMVy0rm58Cq4MaBQwSqt9kwXvg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q1HWPlap;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.44
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794994353;
+	b=SD4KY1xvPdPpcEJqvmqowld9DilgDYPcuiJsJmSH/Q4rlGU6kZokP9aiEyuXYoykstOX
+	 zAtCUPIWbjEt4ruYRZgiX0FcskapEZkrKd84qSdwiJaX4cQUXD5XH1qanoa/DWfIV5qx3
+	 O4X3EENcq843KV934pOVZA0BRjQJyk/cooaBuf/cAFkkJbbf1nkbd0tEvKAREVoM2cW0o
+	 eOfJ42v8+LO41n9ynA12D1PvGIWcqTmpQ1tfgA4Nxd5DO1Ir9GEo4DQUoupuXgBmf7tKQ
+	 EMESAw3k+5jz+hn1wk/HvDthRLQFVO2Ellltu/YQ0cMdtuqpKngm70NAB1MM7ojF4Og==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794994353;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 X-Developer-Signature:X-Developer-Key:Content-Transfer-Encoding:
+	 Content-Type:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=I/6mm1o7qjQIUn6gsPTWrGOhPJjBiJCqIIybSRFefDc=;
+	b=bGJuKGzF2+jkYOF14N2RcfDO8e9ZDGiRi1XV7biH4r+8D6qbDedr2T3wb80wxt2YNaK7
+	 vwKkVVYSSlmTLu4/3sxN4mD4fpFWR5MaiOwkC8DVyNA/aLCMI7bdjrGyhxCSSpInW0x1t
+	 CrNbN+yldaMs53ze0+vtRVgQaVIV/jAng5FrGKpsjDDRqbReYjlWkd6OXAR5fvddx8TpS
+	 DFrXIZiXa5R/3nnV29qGqE3Q9xZWCLrxhz/1BtZGJUKdxMne6xvDYDxZ5PzMhbPv+G1+m
+	 ulqdun3vUDXoGUYN9YSaqx9m/fQKNC/8Li7LRR41QEOe/u2btiddKKQjd82OiGXpRJw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=5nZGPYqY;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.44
+Received: from SN4PR0501CU005.outbound.protection.outlook.com (mail-southcentralusazon11011044.outbound.protection.outlook.com [40.93.194.44])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E1A1606A31C;
-	Wed, 18 Nov 2026 09:31:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF667606A31C;
+	Wed, 18 Nov 2026 09:32:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AF667606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q1HWPlap
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8D6D1F000C5;
-	Wed, 18 Nov 2026 09:31:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794994284;
-	bh=XF8GKc/X0VLcHzIBVmGS1CVeRJx2Wgr4tpTpsERNcqI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Q1HWPlapjpRCmieyRfIWLeE1Gqlm26as4yTq4bwNmdEjsKQuKb9BWZ490H7B0FwXr
-	 cpIYolkQNJKuKBleITXdl1CKDnnawzei53EGY99yEvDFSrocoPYyWHrDltPyTGTWf/
-	 eojg2mTjFwX7e2QgE2qMkjNxL9CWYooG+pXrpT2liNBBrp43gy8qqcZWgDmEQ46L/c
-	 SLbP53dGMaa0mdaBe5yP9FBqK6E4AQ+rU65JZcug9qACXbHLJ2leae/ysZFB6kxIID
-	 k0DoFioSSY4cZFoMJaRlz0Ae/CbTnF7IA3pfnOk+ubsnT08BZcBR5k5dUtNLN61y4n
-	 a0vnAMNIujwNA==
-Message-ID: <29bca989-c3ce-4995-ab1f-1e2c49b93e48@kernel.org>
-Date: Wed, 18 Nov 2026 10:31:18 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=5nZGPYqY
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UStRO4LvnBDTaB+DPgytsM47cSw5Cn0jZ9VedIEcDlqME6ZB7hBvHLalmWEu6QD3QFJWNVP/OnyE3lucx6hxzNj9njvH+u9HugdUMBi3r2tVnmScGHjUTZLLiDEJJ4V1+XeUlp+YxCJ4GJ3VJYUw5mTvTktYSV8N5DTuu2HjoxluHnnsirvOYMGiPBU51LpvOrB36aL+MKf6/7gyh+m/i+9KIwRYNdlj8EyOpuur8vmvJwxNu2ZtOu5CCbjY1aCFgaSbdywCDI0lepQvymlnp/sHOtW7YrroDWUjsWqgHTkUpeUMBcs54S+C31/2pLsGE4d55UkEIAt8Du8RpGNAGQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=I/6mm1o7qjQIUn6gsPTWrGOhPJjBiJCqIIybSRFefDc=;
+ b=FDsLnj1bQOAJzD+DkLgG/WUcaAa/qcf4h0zMoelaBKtOf9jsQ6Wc2JAl12Xth7hB7qIMuCFNbF+T8/iPROL/Sx0JBX+l35GdGTRTRUTjBg/HVigBevtoyOJfA4zROEE0F/rl59CcA5ux5rr0T5+RJgFGPyJb/xmiY1L0Y0cOYQcZXC2l9WrdQfkz7V9ZloIPedZNdBCqkyLuDx1yRgF0IGpBziRBcTos4quQna1+C6ySxuX5uhLC6m2zktieCKvGe+q9C6ysmUXtCzOvBMWMNi8SGgjzhs+c5TEIM4YmTw519a3hFQhuCJj1rorvKLv8k9FV02RQQItWljk7VS1wkw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=I/6mm1o7qjQIUn6gsPTWrGOhPJjBiJCqIIybSRFefDc=;
+ b=5nZGPYqYoarjoH8zu8sHg0174D3Hu3MO9H1Nk1Ffo65CAtTEIRRuPmfPxpD09/MNkFB99jBjReuFdIXYXjYYTI8nFLVkjMopV2yiB/5njTm1R/kMUx7CXAds/2s3rjCZY9rxTDet9ez93PxqwuSll4baXpo6JGDkepZUw6BYgNk=
+Received: from BN9PR03CA0471.namprd03.prod.outlook.com (2603:10b6:408:139::26)
+ by PH7PR12MB6468.namprd12.prod.outlook.com (2603:10b6:510:1f4::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.10; Wed, 18 Nov
+ 2026 09:32:21 +0000
+Received: from BN7PEPF000000A8.namprd05.prod.outlook.com
+ (2603:10b6:408:139:cafe::4b) by BN9PR03CA0471.outlook.office365.com
+ (2603:10b6:408:139::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.13 via Frontend Transport; Wed,
+ 18 Nov 2026 09:32:21 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ BN7PEPF000000A8.mail.protection.outlook.com (10.167.245.232) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.4 via Frontend Transport; Wed, 18 Nov 2026 09:32:20 +0000
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
+ 2026 03:32:00 -0600
+Received: from localhost (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57 via Frontend
+ Transport; Wed, 18 Nov 2026 03:31:58 -0600
+From: Michal Simek <michal.simek@amd.com>
+To: <linux-kernel@vger.kernel.org>, <monstr@monstr.eu>,
+	<michal.simek@amd.com>, <git@amd.com>
+CC: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, "Mauro Carvalho
+ Chehab" <mchehab@kernel.org>, "moderated list:ARM/ZYNQ ARCHITECTURE"
+	<linux-arm-kernel@lists.infradead.org>, "open list:XILINX VIDEO IP CORES"
+	<linux-media@vger.kernel.org>
+Subject: [PATCH] media: xilinx: vip: Make use of the devm_clk_get_enabled()
+Date: Wed, 18 Nov 2026 10:31:32 +0100
+Message-ID: <abfe9f93f9f93d256b0d60d081e6111d7169c08f.1794994290.git.michal.simek@amd.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,141 +111,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] mm: shmem: limit forced anonymous shmem huge orders to
- MAX_PAGECACHE_ORDER
-To: Jingyi Sun <1045704958@qq.com>, Hugh Dickins <hughd@google.com>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: Baolin Wang <baolin.wang@linux.alibaba.com>, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org,
- Luiz Capitulino <luizcap@redhat.com>
-References: <tencent_FCBAE9157D42FFF00E681A2D5EA72CEEDF08@qq.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <tencent_FCBAE9157D42FFF00E681A2D5EA72CEEDF08@qq.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1079; i=michal.simek@amd.com; h=from:subject:message-id; bh=qnkFrtFK2uCKIF4TN99wCvhwAHaOrhfl+HFx0m3diYY=; b=owGbwMvMwCG2mv3fB7+vgl8ZT6slMWT9LagP/Kswf+tUjsf/JNU7rmycLWdy9o3X+vnSb22TK tTq7u6o6yhlYRDjYJAVU2SZzqTjsObbtaViyyPzYeawMoEMYeDiFICJ5K9jZDiZscU92J/p9izj A9PddrPqfSx4YZi81GnvjIUHjDY7XrzC8L8mTWFFE9sfLb/9vw657xFTFS5+2u70MXxOx6TSBzP FL/ADAA==
+X-Developer-Key: i=michal.simek@amd.com; a=openpgp; fpr=67350C9BF5CCEE9B5364356A377C7F21FE3D1F91
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN7PEPF000000A8:EE_|PH7PR12MB6468:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1f1fa80a-7bb2-4c0b-c97c-08df4556d7f9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|82310400026|36860700016|1800799024|376014|18002099003|11063799006|56012099006|261021121427099003|10067099003|261021123027099003|261102130727099003|261009223027099003|261102123227099003|261026121527099003;
+X-Microsoft-Antispam-Message-Info:
+	oBzjrXQI+Bvx8rxYxGm+kSYs01B8NE1/aiJ5tHGCNMA3j2zk0JdDSyX2HDK1F8yWC17HLuJA6EYY1+92NYFWHsvmMHy15fnSc7pSJ+SnBiEzyBqARVeEtVkVP6RTCcGOdf20FcK3G0ozygZ17U5SSSTK87LKn13ChmSN60PPgFhF4lkoacat1xj9h7j2Kn219IFkm1bEr0reLMuE5PCL6FoYoUaKl4RDcTr3eTStWBoDIylouSe1rZA1hjP5X7MatBS6UP2kpltUWGGIQ8sgnCthU8sE1EmbFgpawTCyIUgx8OCQNfM43E/ZsgYj0mKxv38R0NR+BJQAm45WBiFC02bL2lHMHoXbqYXn0SLzQarHOuSXpVTGb9Ey1afmpmgcbvJMzA/3sR/uG5Py41Nm2tAkYClyqlhaTB8mwSEY8wnpKUy8nhGJuONk1dlZyJ18JnvgG/3A9DaiJg95cy8/hC1bttLF2DQOitCAhQKumi65ZKciSi09WIsxQIOnSQ3cuahTo2Q3W4ke3VOL/pQkLsW43L0FSvze902pKLOTej4Kg//Su27wZJN6wxqWa1/48dvM6QBVVt9c0yrHIf5jSm+kveq2U9y2l7WfnCXluQh0oocnEUbku4kQ9JHTTX/SEEXIw21YVJef9rnQHsuGwbZjRf9WlqvmzgwhFa/ItYF87X0yadWv240MJziG4at7zi2Lvt4hDOXth8KeO+7gcw==
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(1800799024)(376014)(18002099003)(11063799006)(56012099006)(261021121427099003)(10067099003)(261021123027099003)(261102130727099003)(261009223027099003)(261102123227099003)(261026121527099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	BhFIKlz8limnEBRRPwv2r5MwYevuyhk5+dlSx09wdSVY7sEVIH6ThNFm0vpM08UvfifPN3su+5IkBF3jU1ela+hsd4EUxEBFKrW7RsjZutWkS1kL5dMCQztqzyGEA4zsbjhsxwzkCI3MZ1XOtwZD0/yKFVXqvJKD8QP6HIaXqcZXyZuhAZgDcBWruFVctpz5yoPJ5dD6LegMT2DKBZE5CjNQS0mcYDzSfcwd30QvQ7bp8ISVsDrM2YRbG1ghR38hTCyH6VuEFVZZuZN9vMd2JbcG3c5x9UpDK5KhG4X0O5Zv/zYRhDMOVKhjycu1f9mWdd2r04wU3L4QPif6aDT3uqSVBR6ie9hJscpcrwnwateQBVXyJnqwcvcpj923RdmYhIp7dvstuWMz0GciwLc3dOf6+OiUGAbT6Mlq9gsnvqzbwKW0FRhAYaU789KXQt9a
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 09:32:20.2452
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1f1fa80a-7bb2-4c0b-c97c-08df4556d7f9
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	BN7PEPF000000A8.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6468
 
-On 11/18/26 03:45, Jingyi Sun wrote:
-> When the top-level shmem_enabled knob is set to "force",
-> shmem_allowable_huge_orders() returns huge_shmem_orders_inherit for
-> anonymous shmem without masking it with THP_ORDERS_ALL_FILE_DEFAULT,
-> unlike the other return path at the end of the same function.
-> 
-> huge_shmem_orders_inherit defaults to BIT(HPAGE_PMD_ORDER). On arm64
-> with 64K base pages HPAGE_PMD_ORDER is 13, while MAX_PAGECACHE_ORDER
-> is 11 because of the xarray split limit. With shmem_enabled=force, an
-> anonymous MAP_SHARED mapping can therefore get a 512M (order-13) folio
-> in the page cache. Splitting it later, e.g. on swap-out from
-> shmem_writeout(), triggers
-> 
->   WARNING: lib/xarray.c:1051 at xas_split_alloc
-> 
-> and the split fails, so the folio can never be swapped out.
-> 
-> This is the same problem that commit 9fd154ba926b ("mm/shmem: disable
-> PMD-sized page cache if needed") and commit b66b1b71d7ff ("mm: shmem:
-> avoid allocating huge pages larger than MAX_PAGECACHE_ORDER for shmem")
-> fixed for the other paths; the force branch was left out. Mask it with
-> THP_ORDERS_ALL_FILE_DEFAULT as well.
-> 
-> Reproduced on v7.3-rc2 in QEMU (arm64, 64K pages, -cpu cortex-a72,
-> 4G RAM, zram swap): with shmem_enabled=force, a PMD-aligned
-> MAP_SHARED|MAP_ANONYMOUS mapping of one PMD size got a single
-> PMD-mapped folio (ShmemPmdMapped: 524288 kB) and MADV_PAGEOUT
-> triggered the warning above in 3/3 runs. With this change: 0/3.
-> shmem_enabled=always and 4K pages did not show the warning. The code is
-> unchanged in v7.4-rc3 and in mm-unstable, but the test has not been
-> re-run on those trees.
-> 
-> The issue was found with a research static analyzer for
-> cross-architecture dependency bugs and confirmed with the QEMU
-> reproducer described above.
-> 
-> Fixes: e7a2ab7b3bb5 ("mm: shmem: add mTHP support for anonymous shmem")
-> Cc: stable@vger.kernel.org
-> Cc: Luiz Capitulino <luizcap@redhat.com>
-> Reviewed-by: Baolin Wang <baolin.wang@linux.alibaba.com>
-> Signed-off-by: Jingyi Sun <1045704958@qq.com>
-> ---
-> Changes in v2:
-> - Dropped the Assisted-by tag (Baolin).
-> - Collected Reviewed-by from Baolin.
-> - Dropped the note about the overlap with Luiz's mTHP series; Luiz
->   confirmed his series will land after this patch.
-> 
-> v1: https://lore.kernel.org/all/20261117121626.1058-1-1045704958@qq.com/
-> 
->  mm/shmem.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/mm/shmem.c b/mm/shmem.c
-> index 10cef89b00b0..41bb3f2c6b63 100644
-> --- a/mm/shmem.c
-> +++ b/mm/shmem.c
-> @@ -2114,7 +2114,8 @@ unsigned long shmem_allowable_huge_orders(struct inode *inode,
->  	 * means non-PMD sized THP can not override 'huge' mount option now.
->  	 */
->  	if (shmem_huge == SHMEM_HUGE_FORCE)
-> -		return READ_ONCE(huge_shmem_orders_inherit);
-> +		return THP_ORDERS_ALL_FILE_DEFAULT &
-> +		       READ_ONCE(huge_shmem_orders_inherit);
+There is missing return value check from clk_prepare_enable(). Fix it by
+using devm_clk_get_enabled() macro.
 
-could we instead set
+Signed-off-by: Michal Simek <michal.simek@amd.com>
+---
 
-	mask = READ_ONCE(huge_shmem_orders_inherit);
+ drivers/media/platform/xilinx/xilinx-vip.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-And sue a goto to the end of the function  where we have
-
-	return THP_ORDERS_ALL_FILE_DEFAULT & mask;
-
-Avoiding the goto means more churn I guess.
-
+diff --git a/drivers/media/platform/xilinx/xilinx-vip.c b/drivers/media/platform/xilinx/xilinx-vip.c
+index f1574edd2b43..b8a06328b8bb 100644
+--- a/drivers/media/platform/xilinx/xilinx-vip.c
++++ b/drivers/media/platform/xilinx/xilinx-vip.c
+@@ -212,18 +212,16 @@ int xvip_init_resources(struct xvip_device *xvip)
+ 	if (IS_ERR(xvip->iomem))
+ 		return PTR_ERR(xvip->iomem);
+ 
+-	xvip->clk = devm_clk_get(xvip->dev, NULL);
++	xvip->clk = devm_clk_get_enable(xvip->dev, NULL);
+ 	if (IS_ERR(xvip->clk))
+ 		return PTR_ERR(xvip->clk);
+ 
+-	clk_prepare_enable(xvip->clk);
+ 	return 0;
+ }
+ EXPORT_SYMBOL_GPL(xvip_init_resources);
+ 
+ void xvip_cleanup_resources(struct xvip_device *xvip)
+ {
+-	clk_disable_unprepare(xvip->clk);
+ }
+ EXPORT_SYMBOL_GPL(xvip_cleanup_resources);
+ 
+---
 -- 
-Cheers,
+2.43.0
 
-David
