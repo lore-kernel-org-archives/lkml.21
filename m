@@ -1,106 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.17
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.58
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795015346;
-	b=erJsioAh4nkEr2lDidPTOINlC/TJjePlF2a35ViEBgz/+S4lOXY5WPiTkuwZdw9ANuc+
-	 33oz/0/3EbPsYq/udwPKm6PL3LDfAZcQ93m9YJG8SxTFHZ9W/ovIp5c/rBvxLlVObhQ2v
-	 P78Nu73OwJyylzZc83C7TyAfvQwnWX8wf3lX1iWcoAmSrwj/HA1LaAqsaiRJlKXL7oACg
-	 8jFhFjwKx8RlXv3FdvdCTkxlBA/FfTQ6sRXZPSlhNUcy+gZvGOUqhK3N8oMGDpBL5o/Qh
-	 LkxHjw60XEvxAtOQCfYyYaQdCjkaoM/X2RBhZ2MIaJr0q3CaF7DzgBp01NErQyVq43Q==
+	t=1795015415;
+	b=X3kjXuT3HQFwbFxxMuOHtFQdV5644UJcI8rcy5LFPvvewz+ee+D5Mwtf4do7DvJgsEST
+	 1sboKEoHKxf8rg4RmXuovblpX+RcC0ntBSvfH8fr40Xo31+3h0cUqxfU95+d5DV0FO2Gd
+	 nYc5RUhniZjjD3lzeT+KbclbZzT8/mlAHnRJpcf1OOdRQ5DmjETEKgZez+5aA36ECHg0g
+	 Lri1SghCQimNFO6X9ZcqvOMM6e7Y2QVAUQzdF/whVM4gva9MVDvNVNgEb3esbzAKmDBt1
+	 dgKsMy4I1s08zuuXo4ilDojUve9HZ1lZiikAtnLWLVFjNvv5iHXZb8VAK1WtRYLkVSw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795015346;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:Content-Type:
-	 Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-Exchange-MessageSentRepresentingType:X-MS-PublicTrafficType:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795015415;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
+	 Content-Type:X-EOPAttributedMessage:X-MS-PublicTrafficType:
 	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SharedMailbox-RoutingAgent-Processed:
 	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
 	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
 	 X-Forefront-Antispam-Report:
 	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
 	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=D2cLZOqdvrlt3XeVxFVBtQtt4ldeXIPxeTyOiv5FfAU=;
-	b=pysyVXssHN+qjNF/m6FLhsIJz0o6ndklZZWQzwuLOBEnjUwRLBIPdcwovPoYKiHZByWc
-	 hi2FkcPzWdOBd+0hxYYgValGHrecBduI0QOOWlFCcvsOvUtxNu3otbOhjX9xXNRUX8GnY
-	 mzNrWPqnuxOez6qxTX2kJEkTDxVFXUt8joDZTmiXLCIIAKiP6pPNWPS87YhVAH5DU/qjB
-	 KOR88pRRKxzVC8eTfhtl2HPWetBOHfmbbdrx3TVDQpkeC6AevcWxCvIqZnctBpNX9ShNx
-	 bwMep2p1DICj4g0N8kiBJ7J8VIc6bU5TCiz5MywaSY6AsoqKP0ghWEcgmvQX3TmdVuQ==
+	bh=6IFDaLKXh/5Q5C5rJ7nprQti3MkdNGqfgqMvJaBZ+vk=;
+	b=HVxDN9Oi0E1GZuQ4tuywCryZMS+5AMRmRn2lEAaPPx3m71y3PbzcI2xAdfLyOvrdwsN2
+	 miJFzLyjHyRgbQydSUWytIjyQz7WEckOy4HOhqAgFlu0/OwRLbK1GZ9O2xJKPaysi/FD2
+	 LW9C854FDNvRN7MlCIVWC15PWr3HFwGyQGX+/YxIYSa72OQAudjt4pZyCA+Y2weNKMwpN
+	 ymRMIfozNKY8xDqU5nsRPhRkX+R6at4jw10bmp/bVjg1uw0f74xXM2BSowccBA3aY2iOG
+	 bctraAua1bJqRBn+opD0xkDrIaIB+vqdQlMwaFWwIUa0PGzSl5Wri4qwMxxkxh/SObw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=YFxbepJ5;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.17
-Received: from OSPPR02CU001.outbound.protection.outlook.com (mail-norwayeastazon11013017.outbound.protection.outlook.com [40.107.159.17])
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=no+S0o0E;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.58
+Received: from BL2PR02CU003.outbound.protection.outlook.com (mail-eastusazon11011058.outbound.protection.outlook.com [52.101.52.58])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13D4E60A260F;
-	Wed, 18 Nov 2026 15:22:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13D4E60A260F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13570606A320;
+	Wed, 18 Nov 2026 15:23:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13570606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=YFxbepJ5
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=no+S0o0E
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CTmMCJVFoJTa/d1/SmHOAQmHiIHTe4A4UsyJDD8i/E2r0Xak5J/wYfwhaJIOtTPGq9QWSdZumDsrQlxxfneYoFRbSHlUqspA0TlQUtSDZ9kESwQreXW6Ftrk7jeEnq6nEKZGggcZCgRkmY0rG8GSWEp9p/M7u3qAR+mclsPOyccfgC0rztYH8FuMZLmgVB2FVTpLK5zygQyx5mj9QNsITbuQB7hfsNIrLm3esebQ5Jz9WClBuMOWoTjPBxpa16XJqTSX5t8+65uB+zDmJeIRySPbDWH+JDKjW/oL3lcWx8VijONdCvYqYPbxnMhVfTHyzoRQvutfzkzlXJPquAgm8w==
+ b=Ug3YN5J6GFd5lXBbkDhi31CNiyd2PwhPriUJSseod4DdtQJ152zalYsQsxQODaZNpWUrcs+GC6fRNkDMt6Sw0AT5HXtRY1tj3ZTluEJ3xc6M9em3aUd+y+QPBuaYVZ4Kgmjq38U4yIFXI33pnWIKR07+oBYzSBQIIyRDNrbIzlEYsui0INzQ+Gvm/NJu3g+Wc5Pf/qrX/ZwsvBkFyiylcxE0e4mNdSoCJVD2h4JOBA3tpC9Wkz4Pfj9GRGkkRJhzk0VHZj6afWKOOVJVUYc+1ZKP5EIAU+dhSPOI4ky+y8+ehcSH4yJSOpLQWVCvmkN4LDN/rcqAYW9dJBcADvMi3w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=D2cLZOqdvrlt3XeVxFVBtQtt4ldeXIPxeTyOiv5FfAU=;
- b=gwcxI9h5a7ZDSlH0ttnqoOVJOxMHc4KLkp/wdTBQGAsM6UMgfk+uMd49yvexZNaSb142AniJ6+arW6VKe6F8cLFHu3tK89e9j3LlCjpmV2DPjqdUG+FF7/MFkhdOichfsUgoaaV/N4Dye7yhsaCq+6s77hANAfIqvmYv+d6YcJluS5tLVFnxFDCSVOZ+thTvchiShAJJ2Taxlwn/Hkiaj7iw5jl2EwF0de0eDtjNQMZ4+9VT9jc3qaUtfhtXNxNxybZS010WOIt0/+uBOIfhC8c6OTyJuXpREQSV/sPRdMxM0pazmhhcZvi1Mtp//YjAhZM5Lo+KY4f5Cu1mP9iwVg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ bh=6IFDaLKXh/5Q5C5rJ7nprQti3MkdNGqfgqMvJaBZ+vk=;
+ b=ldgO0yCqfFpiV+R9dWYnK78Ztcsgcf1xSaidcQ4+FnZGnfEXk2tU4qr8p8oMX0CMhv466V1ApZbm+l+0KXsZblQ0VrXzHyOa+3ny+cE/gJWuEtBg9mDi8lyPvBYyU5ckLNK/Jx/HwCOC2AvvBr7U86DkySLnNpC85nv6+YVBLkSClWgiNExrdZN6Fn6ZmGDaZJdcYRUiz2tbqCKZOt5++D61gmxP/5FekImQnGLq923E1LHYjdyuXRiNPVV/ZWAtCtwXhN3Fxm3tzOfk7W1TT45aUf6M5x+EyRV8XFfZgmohaZqLGADjKBVBMgqJwwtUtnXKGO+y5uT381uDat5fOw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=ziepe.ca smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=D2cLZOqdvrlt3XeVxFVBtQtt4ldeXIPxeTyOiv5FfAU=;
- b=YFxbepJ5/f8iQdxbviwa49vBaftcFopcbW8hzjInqo0DahlAhJzwpOne2DSEo2md12+C6o6O+MtCrmZYPXuFDeKEjw3AH2WIqi8V99KTxu5ovmcE3G35eMU07Y+Y9AqQQeQmXjUO6yw5wm6qvJ+gBXAokYPJYAQnDJOOt0kEsTlx62VajjchayrEGLLDnCT+8h1JOQ/YuEt3uLQqXFUuToWdqT6mtN7/j4cz/mt1Xq87fJVIiUuWm1b1yg5WNZTx0JEZG7IPsQm3yZkpSVUfCOz4sJkHR7Cg8nZ2MM5oLeomZwoGUXQ2f9znoGQbmU4IbkSz7E7FSnqNJ+Yk+Op4Uw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB12318.eurprd04.prod.outlook.com
- (2603:10a6:150:32b::19) by AM0PR04MB6977.eurprd04.prod.outlook.com
- (2603:10a6:208:189::23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.10; Wed, 18 Nov
- 2026 15:22:20 +0000
-Received: from GV2PR04MB12318.eurprd04.prod.outlook.com
- ([fe80::a498:2b5a:cbdb:d6fa]) by GV2PR04MB12318.eurprd04.prod.outlook.com
- ([fe80::a498:2b5a:cbdb:d6fa%3]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 15:22:20 +0000
-From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
-	linux-clk@vger.kernel.org,
-	imx@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org
-Subject: [PATCH v12 5/5] arm64: dts: imx943-evk: Add display support using IT6263
-Date: Wed, 18 Nov 2026 15:21:56 +0000
-Message-ID: <20261118-dcif-upstreaming-v12-5-29b35e27a1cc@oss.nxp.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261118-dcif-upstreaming-v12-0-29b35e27a1cc@oss.nxp.com>
-References: <20261118-dcif-upstreaming-v12-0-29b35e27a1cc@oss.nxp.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AS4P189CA0045.EURP189.PROD.OUTLOOK.COM
- (2603:10a6:20b:5dd::17) To GV2PR04MB12318.eurprd04.prod.outlook.com
- (2603:10a6:150:32b::19)
+ bh=6IFDaLKXh/5Q5C5rJ7nprQti3MkdNGqfgqMvJaBZ+vk=;
+ b=no+S0o0EGPHgWaZeyqMQjcMtRc3VckC+AS/3Q5lLZj3xLdiBQA54oBOY28aWE8dlIqYQ/W4cnDnFyCUkFWxOBFHKWcL/Fv/9KiwT522XDlCdZZnilsLyAt4sFVbJbVzgYLuQJYKigzv7MlqZfl0rw1t2tzLW8oVpOauFpIzcvog=
+Received: from PH8PR21CA0005.namprd21.prod.outlook.com (2603:10b6:510:2ce::21)
+ by SA1PR12MB8163.namprd12.prod.outlook.com (2603:10b6:806:332::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 15:23:29 +0000
+Received: from SJ1PEPF000026C3.namprd04.prod.outlook.com
+ (2603:10b6:510:2ce:cafe::97) by PH8PR21CA0005.outlook.office365.com
+ (2603:10b6:510:2ce::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.1 via Frontend Transport; Wed, 18
+ Nov 2026 15:23:29 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ SJ1PEPF000026C3.mail.protection.outlook.com (10.167.244.100) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.4 via Frontend Transport; Wed, 18 Nov 2026 15:23:28 +0000
+Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
+ 2026 09:23:27 -0600
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
+ (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
+ 2026 09:23:26 -0600
+Received: from xhdipdslab46.xilinx.com (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
+ Transport; Wed, 18 Nov 2026 09:23:24 -0600
+From: Abhijit Gangurde <abhijit.gangurde@amd.com>
+To: <jgg@ziepe.ca>, <leon@kernel.org>
+CC: <allen.hubbe@amd.com>, <nikhil.agarwal@amd.com>,
+	<linux-rdma@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Abhijit
+ Gangurde" <abhijit.gangurde@amd.com>
+Subject: [for-next v1 2/2] RDMA/ionic: Accept QP SQ and RQ rings as ioctl umem attributes
+Date: Wed, 18 Nov 2026 20:53:13 +0530
+Message-ID: <20261118152313.113714-3-abhijit.gangurde@amd.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261118152313.113714-1-abhijit.gangurde@amd.com>
+References: <20261118152313.113714-1-abhijit.gangurde@amd.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,214 +114,258 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB12318:EE_|AM0PR04MB6977:EE_
-X-MS-Office365-Filtering-Correlation-Id: aa7a0a44-8a45-401c-a7e2-08df4587bcff
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000026C3:EE_|SA1PR12MB8163:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3df16cf1-2861-46c6-036f-08df4587e5f8
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|19092799006|1800799024|7416014|376014|23010399003|366016|22082099003|18002099003|6133799003|261009223027099003|11063799006|261026140227099003|260925022911599003|260925021911599003|260925021311599003|56012099006|10067099003|261021121427099003|261028144727099003|261022105027099003|261022075727099003|261102123227099003;
+	BCL:0;ARA:13230040|36860700016|1800799024|82310400026|376014|23010399003|22082099003|18002099003|261009223027099003|11063799006|56012099006|261026121527099003|261021121427099003|261021135927099003|261021123027099003|261102123227099003|10067099003;
 X-Microsoft-Antispam-Message-Info:
-	UXW2gyXsSksxYUssKSmKq9MQZk0iBfVmNmzoUgIMu1VnlMmHPkhMo8SwBXTbgMfeTZsBjYuX0Njr9ABjFSd6bur4xLnq4KIr8x4ORYNU1y/nsN2HY1/F1fUHpGYwpVoTXKi+HgQE/zrtjuNVbdVmukB3pyHbyejjrO0aPS/9GD8vdw/TaI5Jy9cZiiG5jxd5v/SaVoBlK5ArKhNTOs0HybbFltot4fNQIJcE2C6xZl7x9DfysEWQVQLCtJQFBz5erZaJYR4yQ4YzlMcHaxP6MRfLzaavr8bAWLv7aVg8E9OcPW7yDoF4P4NaJp9Cnupe8rc/H/A7h9U39TYX1jJ7bOu4sZR5SHseug4pQG3+CHHkK0xzqk4fr5RKKTHukZpzWGgzECSDbRTnEUex8wRHLikgsfpmvaK2Oaj/KKap73UOOul6DHyln4CaguvIUgn/ZJ6N+avCNvqGBUqe+QIQrfSxcTPLYDdRs8Ay05kBsl6yVEC+ZWW6xlINdA+mZ+iaicdz0pT/WkilnwPPM5XF2E4rwka/2cJydBr6cb9xmU7+zqGc5FehPx278XH4E4G6bouRYM2SikwpobBiC23WzMY5FOuo8JeKcrTVSHQtWpFU0xhzVdafRF9vvXtFh9xh2gEFmigsA/+QGAhd8V/YEjdyJCXKkQ+O1yUnY96jn1Q=
+	U2Axuqrs4So6Ar75SVR0AgjWv63+Dfi8PDOO4SWhN9sv8KOneXxyBLk7mQi/M5S7D5uuGHLypOr4aGIgNOjjMEM8QE9jJPpM6aqeT+p8q0lQ2uL3J1RfcsSifZ2MsNTtJYXgyb3dZwnuiQWEErJmX10+N3W5Vi2E5sih9K0bVWdjfo79/eR/O/bY4OLvwZkuL3ppjqL6vuFjiepa/6euZ6WNqmTFEzkTUzm8zWp2nf2/p9fBI+QBslhX170zw/eCddokCWXmfBwhxLW85O3HAsydBQgF8RagAEbVGALk4ZhXdwlkjs7BnwIhhmhUHn8Apq5b7YfQ0/P+YgCeTwPHdwHhMNW3pq3LwyjS7cboWVXa2W3dde7us/W4vPBGjLotEv9KZGCjtpA6lMTgjuwA8cXUOnrbM+UC2J5DsSBdbQZD05tIUPiqLY2nS21WAnOGgephuwj9CCGB6Wrza6KmGNrAXUZC0kPW/cQFVikoWsQO4T5NUKKAcmQoYJUoHRf0rUPm224GKhmm/8MrjFJw4HKJiagSLOb80N7FKWqIaRj3eSKI/B9vTZ0Q35MoSaZP/QfNcgpzsgf9YuVQW0QHXQktGmiqoC8eRVFGSq7gxWImdim5VhTXwjyhZaalcqKS2zxQlNTr+9xF2J6F6ROhk6qQYJvvU2F1qe/oVKxmCIRDrHbmU1TFS/vnsrlesu8e+r1q1eqKbkxdoD/PMqaBPw==
 X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12318.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(7416014)(376014)(23010399003)(366016)(22082099003)(18002099003)(6133799003)(261009223027099003)(11063799006)(261026140227099003)(260925022911599003)(260925021911599003)(260925021311599003)(56012099006)(10067099003)(261021121427099003)(261028144727099003)(261022105027099003)(261022075727099003)(261102123227099003);DIR:OUT;SFP:1101;
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(82310400026)(376014)(23010399003)(22082099003)(18002099003)(261009223027099003)(11063799006)(56012099006)(261026121527099003)(261021121427099003)(261021135927099003)(261021123027099003)(261102123227099003)(10067099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?THVKWmlYc2hYY3hQbWNUWkpHeFNtcVpkUGJjUStDaEx4SHZEWllQTmU4ZGp6?=
- =?utf-8?B?QXZBT0Z1S2szY0lVbS9aWlR1WEE2RUoxcllaTGZGaytuT2M5R3ArOGI1OFNv?=
- =?utf-8?B?aG9XSUMvdkV4QTE5R2VIZ3JSQ3BMSkMvbUl2VFFlb2xWck9VTDZ5VEkvTFhN?=
- =?utf-8?B?VThzcUVTa0pNRysrY2RGZWthS2J6bFZHTFZQNXpLNlpWVWx0TUhLZHU3Tm42?=
- =?utf-8?B?cjJGN21icWU3TlRNaHFGdXd6L2pGcFVxby9oU3Nqc25mZzNIb1l2Z3ZFOXlY?=
- =?utf-8?B?eXFNWVFud2ZKSjlEeWJRS2lzelhqVzFWazBMNFBXMTVVMDNTOXJhRDVERGE0?=
- =?utf-8?B?V05rbVZrQnhMYXZjNkZNUmxjcGN6MjNUODRqSGF1VGFKY3RNZ3lmZDNPVzZt?=
- =?utf-8?B?Q0Fwb3c3TTUxQWx1MDA3d1BIZ2JxYXdpaEJkcTZ4REpDVU96cFRpZVRhemFH?=
- =?utf-8?B?T3Mwem16LzJLZ0xXWXpkU2xhcWp4MDcwZmt1YjJYY3dkUzdsQnVVWnpqZ09Y?=
- =?utf-8?B?cG5SZVlkdXlYM1BlUy9wNUU4alptZWxRakY4Y0JNZDVXQkM3NVA3Zzc2Tnhi?=
- =?utf-8?B?V3NMb3VEa2JiQjd5RjUrTkdhdUpxVUh5Q01wYTdjU2cxRUwzam1qMXI3TytO?=
- =?utf-8?B?VTd1TWZzcGhZVjZXYkpGbTVkTnJzU0FTS2paRzBIcW1Ta3VJUG9YY242ZWNE?=
- =?utf-8?B?aVBuWUNqbWQxbGxtbTB4bkhuWjVGNllzQlI3Z0NxUk93QXpuZDkrSVBSQVNq?=
- =?utf-8?B?MkdKTE9DdTBqSUZyY3Q4NVduanEvYWc5VjF6dHY0ZDFrdEt0cTdCSDRCMzhF?=
- =?utf-8?B?NkM0eFRsbSt0bjlLRU9xMlgvUzdZTGVqNUhMMit3RUhxMkZHVDVlK3hqQ1Jx?=
- =?utf-8?B?bUV2clpLNjlDOWFiQzcwTnd2RU1DQ1VkanJhK0JkQVBOTjNjNEx2YlBJVGZD?=
- =?utf-8?B?amJyT1piMVVacU16YndHajhkRURYbE5SamFkVkpTZkp2TTJzZjNSUkFkWHoy?=
- =?utf-8?B?dEhUc2o1VnIyKzU0N2lVaVNVVWRsRUxiT2NOWjdSOElaNmRwK21BWFAwOG1r?=
- =?utf-8?B?ZFN5eGFGclMvTGNlSElubXJSTDE1Uk5LNVpuNENOZEE5ZWJSUVd0aXh3V0hF?=
- =?utf-8?B?TWR5Z29MMEkwZ3F4Zk02bmd6eUQrTmludzJTU1o1dFhlQk5HMlNXYktrK1Jt?=
- =?utf-8?B?MjhHY09jRDI1QnBXakowM3k2bGpKQnNEcjRXZEhHbkxJZXc2QmJ1dmJnMUtq?=
- =?utf-8?B?K3VHMTZqQS9JVUhFbWJKTCtBa3lpSW96VkNkWkZQWnhGRXBQaEIrQmlvd3k1?=
- =?utf-8?B?SG0xbDk2WExFYlRZT0dNR2hRT3dsdnZraENFaG9FVnpmR1BzNVE5TEFtTXpW?=
- =?utf-8?B?aWh1ZE5sZE12VkwwYnVLenpNOFppTDlCd2NEckJXdWQvYWdRODcrTmNGdG9T?=
- =?utf-8?B?d0QzZUFIUUxJekxENTJmeXZKNnVaMnFYNXhYLytOMkU4N3o5anVkZUJXK2Y5?=
- =?utf-8?B?V1BDY1htNldXcEk3UHJ2WXMzMTdtRnhJRkJ2SjQ5WmVleFMvejZSc05KL0wv?=
- =?utf-8?B?eVQ2UXZtamtvWkpXWjlDWE5yYnRMMHRoRjFQdDJzUWt3TzlHNGRlUHYrcW8x?=
- =?utf-8?B?SkYyMmVqTjlsRTNTWFdzZzBpdlVjcnllWXBlbGVMS3BHemRIU1hOR3J4Zlk3?=
- =?utf-8?B?QjU1c0tRdU9SZEhPZDVGSW9LWS9CVmorZWk1QXN4VzBJWkt5cjhxK0pURVNX?=
- =?utf-8?B?NCt6RFNSVFNnbTFLRGRuZmRYcmJqUkJxSEhGKzBRTENCVVYySFhqODIvVGt2?=
- =?utf-8?B?Q2FFMS81RjJSUlJZZmRHa1JxQks2Sk5SeDgrT0lhcmNsRTdIMmFOWVNmcXJs?=
- =?utf-8?B?WHVhVmx2SDEya25sS3ZMRlh1OVJFL1p1WWdzeDFvUVhQMnRzbHV4ZWZvR3J4?=
- =?utf-8?B?NzNCT1FtOXVSVnZsOGM5YkNHTFdvelZ6RytnT0M3MWk3c3JJU1dPTFp6K2F6?=
- =?utf-8?B?dE04NUhRWU15UkdaLzJZU3VFdnM3ai9vVW55ZmpmZnJudFlDRlVpZkcrY2dw?=
- =?utf-8?B?UFZvMTlDZXJTNjNXWWwweE95TllFQzh6U0tvK3NoNVM3Nk56M3kraHpCK3FB?=
- =?utf-8?B?aEhOd29kc0JJdzBSY0V6YmFMSjR4clRIbUhrcTdnZnFMano1Y1U3MEwzQmsv?=
- =?utf-8?B?TWtqT3ZoYjY0VVVDMk1NbUNmT3I5VmFlOVJDV0lPNWJJaGtvemJCR2k2ZlVB?=
- =?utf-8?B?dXRxUmpQcHY3VU1tbnR4UWFxVy90RmJ5NHNUS2JFdkNZU0RSbWxza0pVUjNE?=
- =?utf-8?B?ZFQvcTh4VWV6Nnh3aUlwWE4vUk5mK2l0S01uUjBsMmtpY3JSRnJ3a3ZPRjhM?=
- =?utf-8?Q?HCxq0XRj40IVrDX8=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: aa7a0a44-8a45-401c-a7e2-08df4587bcff
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12318.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 15:22:20.5162
+	Bercxbb09m7NCwsvpdIiDfvqZqdQEkBzC7JS6QD6gans/LheUDxZ9MbxIur4f9fxHUnS17WC8q1h5UrWQCo5bSQPpBvtZSWKYt5PjdQ8KJ09ygx/pz4rZcNu/Shpg9A/IivNf4nqFmZHwCbLomzn+KIcczhcr4q1B7FolKsV1CBHVxVtS30R1u8hAf5Nvw9FQMDZy8THMGZ6XCpBLadj3GLOl7wkVdEa7mGw9Y9UJ+pkMhMfMGKnj2+h9BK5XuzDqknFknFT4dRtaTu4feQ5k0lzKpAnVw6PCm4D0y7/w/VEfzeT2SLepQaRtdsXFNmmX9K21p2wbtJLOZ7hQl+i9UWWmzLiXveLJXtrzOfdwYhyR09Aw5sFgvjJdRYzUNFBVtnI64j4IdP1QIJsP1tVOAQFVnVNg74JsMpdrVvLR/XA1JGmqGOxqD5m/wkrWVMZ
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 15:23:28.9590
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: f6YpTBZUr75nJnJkIlgHR9pjAi4F19CmMGg2hdYGotE0OIbfFq0qAqqBcYSUzXbRAoh0mfshaMHqGkrX8xrSTw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6977
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3df16cf1-2861-46c6-036f-08df4587e5f8
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	SJ1PEPF000026C3.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB8163
 
-The ITE IT6263 based NXP LVDS to HDMI converter can be attached to the
-i.MX943 EVK board LVDS port using the mini-SAS connector. Since this is
-the default configuration for the EVK, add support for it here.
+Userspace passes each QP ring to create_qp as a
+struct ib_uverbs_buffer_desc on the core attributes
+UVERBS_ATTR_CREATE_QP_SQ_BUF_UMEM and
+UVERBS_ATTR_CREATE_QP_RQ_BUF_UMEM. Those attributes are already
+optional on UVERBS_METHOD_QP_CREATE. The get_context bit
+IONIC_CTX_CMASK_CQ_QP_BUF_UMEM tells userspace it may send them.
 
-Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+ionic_get_user_q_umem() resolves one ring:
+
+- No attribute: validate the qdesc address and pin it with
+  ib_umem_get_va, as before.
+- VA descriptor: length equals the qdesc size and the address matches
+  the qdesc; pin through ib_umem_get_attr_or_va.
+- DMABUF descriptor: qdesc.addr is zero. Check queue geometry only,
+  require a page-aligned dma-buf offset, and pin through
+  ib_umem_get_attr_or_va.
+
+Any other descriptor is -EINVAL. Access is 0, so the VA mapping
+direction stays DMA_TO_DEVICE. SRQ creation passes no attribute
+bundle and keeps ib_umem_get_va. An SRQ QP still only checks that
+the RQ qdesc is zero.
+
+ionic_qp_req is not changed, so a provider that does not send the
+attributes still creates a QP on the write path.
+
+Signed-off-by: Abhijit Gangurde <abhijit.gangurde@amd.com>
 ---
- arch/arm64/boot/dts/freescale/imx943-evk.dts | 86 ++++++++++++++++++++++++++++
- 1 file changed, 86 insertions(+)
+ .../infiniband/hw/ionic/ionic_controlpath.c   | 94 ++++++++++++++-----
+ 1 file changed, 73 insertions(+), 21 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx943-evk.dts b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-index 39e819c536cc8..36b1d42a44454 100644
---- a/arch/arm64/boot/dts/freescale/imx943-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-@@ -117,6 +117,18 @@ dmic: dmic {
- 		#sound-dai-cells = <0>;
- 	};
+diff --git a/drivers/infiniband/hw/ionic/ionic_controlpath.c b/drivers/infiniband/hw/ionic/ionic_controlpath.c
+index 11458262f280..02f1972126ed 100644
+--- a/drivers/infiniband/hw/ionic/ionic_controlpath.c
++++ b/drivers/infiniband/hw/ionic/ionic_controlpath.c
+@@ -14,13 +14,9 @@
+ #define ionic_set_ecn(tos)   (((tos) | 2u) & ~1u)
+ #define ionic_clear_ecn(tos)  ((tos) & ~3u)
  
-+	hdmi-connector {
-+		compatible = "hdmi-connector";
-+		label = "hdmi";
-+		type = "a";
-+
-+		port {
-+			hdmi_connector_in: endpoint {
-+				remote-endpoint = <&it6263_out>;
-+			};
-+		};
-+	};
-+
- 	m2_connector: m2-connector {
- 		compatible = "pcie-m2-e-connector";
- 		vpcie3v3-supply = <&reg_m2_pwr>;
-@@ -148,6 +160,15 @@ m2_e_uart_ep: endpoint@0 {
- 		};
- 	};
+-static int ionic_validate_qdesc(struct ionic_qdesc *q)
++static int ionic_validate_qdesc_geom(struct ionic_qdesc *q)
+ {
+-	if (!q->addr || !q->size || !q->mask ||
+-	    !q->depth_log2 || !q->stride_log2)
+-		return -EINVAL;
+-
+-	if (q->addr & (PAGE_SIZE - 1))
++	if (!q->size || !q->mask || !q->depth_log2 || !q->stride_log2)
+ 		return -EINVAL;
  
-+	reg_1p8v_ext: regulator-1p8v-ext {
-+		compatible = "regulator-fixed";
-+		regulator-name = "+V1.8_EXT";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
- 	reg_3p3v: regulator-3p3v {
- 		compatible = "regulator-fixed";
- 		regulator-max-microvolt = <3300000>;
-@@ -155,6 +176,15 @@ reg_3p3v: regulator-3p3v {
- 		regulator-name = "+V3.3_SW";
- 	};
+ 	if (q->mask != BIT(q->depth_log2) - 1)
+@@ -32,6 +28,14 @@ static int ionic_validate_qdesc(struct ionic_qdesc *q)
+ 	return 0;
+ }
  
-+	reg_3p3v_ext: regulator-3p3v-ext {
-+		compatible = "regulator-fixed";
-+		regulator-name = "+V3.3_EXT";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
++static int ionic_validate_qdesc(struct ionic_qdesc *q)
++{
++	if (!q->addr || (q->addr & (PAGE_SIZE - 1)))
++		return -EINVAL;
 +
- 	reg_m2_pwr: regulator-m2-pwr {
- 		compatible = "regulator-fixed";
- 		regulator-name = "M.2-power";
-@@ -401,6 +431,10 @@ memory@80000000 {
- 	};
- };
++	return ionic_validate_qdesc_geom(q);
++}
++
+ static u32 ionic_get_eqid(struct ionic_ibdev *dev, u32 comp_vector, u8 udma_idx)
+ {
+ 	/* EQ per vector per udma, and the first eqs reserved for async events.
+@@ -1993,10 +1997,57 @@ static void ionic_qp_sq_destroy_cmb(struct ionic_ibdev *dev,
+ 	ionic_put_cmb(dev->lif_cfg.lif, qp->sq_cmb_pgid, qp->sq_cmb_order);
+ }
  
-+&dcif {
-+	status = "okay";
-+};
++static int ionic_get_user_q_umem(struct ionic_ibdev *dev, struct ionic_qdesc *q,
++				 const struct uverbs_attr_bundle *attrs,
++				 u16 attr_id, struct ib_umem **umem_out)
++{
++	struct ib_uverbs_buffer_desc desc;
++	struct ib_umem *umem;
++	int rc;
 +
- &enetc1 {
- 	clocks = <&scmi_clk IMX94_CLK_MAC4>;
- 	clock-names = "ref";
-@@ -439,6 +473,21 @@ &flexcan4 {
- 	status = "okay";
- };
++	if (attrs && uverbs_attr_is_valid(attrs, attr_id)) {
++		rc = uverbs_get_buffer_desc(attrs, attr_id, &desc);
++		if (rc)
++			return rc;
++
++		if (desc.length != q->size)
++			return -EINVAL;
++
++		if (desc.type == IB_UVERBS_BUFFER_TYPE_DMABUF) {
++			if (desc.addr & (PAGE_SIZE - 1))
++				return -EINVAL;
++
++			rc = ionic_validate_qdesc_geom(q);
++		} else if (desc.type == IB_UVERBS_BUFFER_TYPE_VA &&
++			   desc.addr == q->addr) {
++			rc = ionic_validate_qdesc(q);
++		} else {
++			rc = -EINVAL;
++		}
++		if (rc)
++			return rc;
++
++		umem = ib_umem_get_attr_or_va(&dev->ibdev, attrs, attr_id,
++					      q->addr, q->size, 0);
++	} else {
++		rc = ionic_validate_qdesc(q);
++		if (rc)
++			return rc;
++
++		umem = ib_umem_get_va(&dev->ibdev, q->addr, q->size, 0);
++	}
++	if (IS_ERR(umem))
++		return PTR_ERR(umem);
++
++	*umem_out = umem;
++	return 0;
++}
++
+ static int ionic_qp_sq_init(struct ionic_ibdev *dev, struct ionic_ctx *ctx,
+ 			    struct ionic_qp *qp, struct ionic_qdesc *sq,
+ 			    struct ionic_tbl_buf *buf, int max_wr, int max_sge,
+-			    int max_data, int sq_spec, struct ib_udata *udata)
++			    int max_data, int sq_spec, struct ib_udata *udata,
++			    const struct uverbs_attr_bundle *attrs)
+ {
+ 	u32 wqe_size;
+ 	int rc = 0;
+@@ -2040,7 +2091,9 @@ static int ionic_qp_sq_init(struct ionic_ibdev *dev, struct ionic_ctx *ctx,
+ 		return rc;
  
-+&ldb {
-+	assigned-clocks = <&scmi_clk IMX94_CLK_LDBPLL_VCO>,
-+			  <&scmi_clk IMX94_CLK_LDBPLL>;
-+	assigned-clock-rates = <4158000000>, <1039500000>;
-+	status = "okay";
-+
-+	ports {
-+		port@1 {
-+			lvds_out: endpoint {
-+				remote-endpoint = <&it6263_in>;
-+			};
-+		};
-+	};
-+};
-+
- &lpi2c3 {
- 	clock-frequency = <400000>;
- 	pinctrl-0 = <&pinctrl_lpi2c3>;
-@@ -522,6 +571,43 @@ i2c@3 {
- 			reg = <3>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
-+
-+			hdmi@4c {
-+				compatible = "ite,it6263";
-+				reg = <0x4c>;
-+				data-mapping = "jeida-24";
-+				reset-gpios = <&pcal6416_i2c3_u171 8 GPIO_ACTIVE_LOW>;
-+				ivdd-supply = <&reg_1p8v_ext>;
-+				ovdd-supply = <&reg_3p3v_ext>;
-+				txavcc18-supply = <&reg_1p8v_ext>;
-+				txavcc33-supply = <&reg_3p3v_ext>;
-+				pvcc1-supply = <&reg_1p8v_ext>;
-+				pvcc2-supply = <&reg_1p8v_ext>;
-+				avcc-supply = <&reg_3p3v_ext>;
-+				anvdd-supply = <&reg_1p8v_ext>;
-+				apvdd-supply = <&reg_1p8v_ext>;
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+
-+						it6263_in: endpoint {
-+							remote-endpoint = <&lvds_out>;
-+						};
-+					};
-+
-+					port@2 {
-+						reg = <2>;
-+
-+						it6263_out: endpoint {
-+							remote-endpoint = <&hdmi_connector_in>;
-+						};
-+					};
-+				};
-+			};
- 		};
+ 	if (udata) {
+-		rc = ionic_validate_qdesc(sq);
++		rc = ionic_get_user_q_umem(dev, sq, attrs,
++					   UVERBS_ATTR_CREATE_QP_SQ_BUF_UMEM,
++					   &qp->sq_umem);
+ 		if (rc)
+ 			return rc;
  
- 		i2c@4 {
-
+@@ -2054,10 +2107,6 @@ static int ionic_qp_sq_init(struct ionic_ibdev *dev, struct ionic_ctx *ctx,
+ 
+ 		qp->sq_meta = NULL;
+ 		qp->sq_msn_idx = NULL;
+-
+-		qp->sq_umem = ib_umem_get_va(&dev->ibdev, sq->addr, sq->size, 0);
+-		if (IS_ERR(qp->sq_umem))
+-			return PTR_ERR(qp->sq_umem);
+ 	} else {
+ 		qp->sq_umem = NULL;
+ 
+@@ -2260,7 +2309,8 @@ static void ionic_rq_destroy_cmb(struct ionic_ibdev *dev,
+ static int ionic_rq_init(struct ionic_ibdev *dev, struct ionic_ctx *ctx,
+ 			 struct ionic_rq *rq, struct ionic_qdesc *qdesc,
+ 			 struct ionic_tbl_buf *buf, int max_wr, int max_sge,
+-			 int rq_spec, struct ib_udata *udata)
++			 int rq_spec, struct ib_udata *udata,
++			 const struct uverbs_attr_bundle *attrs)
+ {
+ 	u32 wqe_size;
+ 	int rc = 0;
+@@ -2278,7 +2328,9 @@ static int ionic_rq_init(struct ionic_ibdev *dev, struct ionic_ctx *ctx,
+ 		return rc;
+ 
+ 	if (udata) {
+-		rc = ionic_validate_qdesc(qdesc);
++		rc = ionic_get_user_q_umem(dev, qdesc, attrs,
++					   UVERBS_ATTR_CREATE_QP_RQ_BUF_UMEM,
++					   &rq->umem);
+ 		if (rc)
+ 			return rc;
+ 
+@@ -2291,10 +2343,6 @@ static int ionic_rq_init(struct ionic_ibdev *dev, struct ionic_ctx *ctx,
+ 		rq->q.stride_log2 = qdesc->stride_log2;
+ 
+ 		rq->meta = NULL;
+-
+-		rq->umem = ib_umem_get_va(&dev->ibdev, qdesc->addr, qdesc->size, 0);
+-		if (IS_ERR(rq->umem))
+-			return PTR_ERR(rq->umem);
+ 	} else {
+ 		rq->umem = NULL;
+ 
+@@ -2380,6 +2428,7 @@ int ionic_create_qp(struct ib_qp *ibqp, struct ib_qp_init_attr *attr,
+ 	struct ionic_qp *qp = to_ionic_qp(ibqp);
+ 	struct ionic_ctx *ctx =
+ 		rdma_udata_to_drv_context(udata, struct ionic_ctx, ibctx);
++	const struct uverbs_attr_bundle *attrs = NULL;
+ 	struct ionic_qp_resp resp = {};
+ 	struct ionic_qp_req req = {};
+ 	struct ionic_cq *cq;
+@@ -2388,6 +2437,8 @@ int ionic_create_qp(struct ib_qp *ibqp, struct ib_qp_init_attr *attr,
+ 	int rc;
+ 
+ 	if (udata) {
++		attrs = rdma_udata_to_uverbs_attr_bundle(udata);
++
+ 		rc = ib_copy_validate_udata_in(udata, req, rsvd);
+ 		if (rc)
+ 			return rc;
+@@ -2466,7 +2517,8 @@ int ionic_create_qp(struct ib_qp *ibqp, struct ib_qp_init_attr *attr,
+ 
+ 	rc = ionic_qp_sq_init(dev, ctx, qp, &req.sq, &sq_buf,
+ 			      attr->cap.max_send_wr, attr->cap.max_send_sge,
+-			      attr->cap.max_inline_data, req.sq_spec, udata);
++			      attr->cap.max_inline_data, req.sq_spec, udata,
++			      attrs);
+ 	if (rc)
+ 		goto err_sq;
+ 
+@@ -2485,7 +2537,7 @@ int ionic_create_qp(struct ib_qp *ibqp, struct ib_qp_init_attr *attr,
+ 		qp->rq.qid = qp->qpid;
+ 		rc = ionic_rq_init(dev, ctx, &qp->rq, &req.rq, &rq_buf,
+ 				   attr->cap.max_recv_wr, attr->cap.max_recv_sge,
+-				   req.rq_spec, udata);
++				   req.rq_spec, udata, attrs);
+ 	}
+ 	if (rc)
+ 		goto err_rq;
+@@ -3092,7 +3144,7 @@ int ionic_create_srq(struct ib_srq *ibsrq, struct ib_srq_init_attr *attr,
+ 
+ 	rc = ionic_rq_init(dev, ctx, &srq->rq, &req.rq, &buf,
+ 			   attr->attr.max_wr, attr->attr.max_sge,
+-			   req.rq_spec, udata);
++			   req.rq_spec, udata, NULL);
+ 	if (rc)
+ 		return rc;
+ 
 -- 
-2.53.0
+2.43.0
+
