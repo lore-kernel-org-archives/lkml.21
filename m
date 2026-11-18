@@ -1,99 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.95.132
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795006237;
-	b=vtdQDQS/jCLeev5JVgcnNUCNJiMu08MSzD2d/opr1Tg0ua/d8Rujm5XHOqGd4maZrPU4
-	 co9Eac0jsza5abRt2tCph8vGDYmkpG5C+cC+h9aICSMTvWXKgcdoFJyyOrzWGOBFW387J
-	 jXF5a1DRVRGQ5vRTYKUpQHKV/QKqRiAbG4aOK8F8mfozow3Ieu6sizHmkMoYNlQbRCxzR
-	 XACHsBIR9cyc5Ahy4AnV8MIiI/zCuFD8hmS5tbc3SnECaRG42jL6N2jFYUYNeg1sG+4nl
-	 UCRXhuX1UyFUmJ7qzXgMzRGyhwZvN4hUJFiiOWhQTKbd2+BvzHNkeSgeO5njDo9neGg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795006237;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
-	 From:To:X-Mailer:References:In-Reply-To:X-ClientProxiedBy:
-	 MIME-Version:X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=TjEY/mOugVpF374negzHtihdQMtG+74pVKvlNnGIc1k=;
-	b=fXC0jDrTsIvm51n1LOI/yXQ7uNMlh5I4AQH0DEDyqr/1g7V+yIm8W/3heS585p3Amo3G
-	 OFG4HZK79E8aMMN4S1g7hnGV0SnU7LHrLJXNCYgq3k5lbgqGNI8ON+40NOteYv3/nyc/w
-	 Is8qaORwKVwyFGZzlG5gmYCL1LgUprqJjzLYuTOyD/vbUU6DbNfj2Pu8a89UUNWcuUiMy
-	 LqpAByEu2rO2QJ9USUQfgp3Yx9Z5tOgwK8onsEbn9xN3a6mclkpLnxSklQjE9GMYc5Yza
-	 d3PSKdQYsrroqcdlp+RWdGga/c55z8T0kDXOqhnibcBrq7OfqRE5NAn+2GNY4NIyi/w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=garyguo.net;
-	spf=pass smtp.mailfrom=garyguo.net;
-	dkim=pass header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=aMmRyiwE;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.95.132
-Received: from LO2P265CU024.outbound.protection.outlook.com (mail-uksouthazon11021132.outbound.protection.outlook.com [52.101.95.132])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.17
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795006285;
+	b=auPeQS/nbM+Zui4zK6tnA4T8IwrXEoEE/tjWGLKWd2jVHS7NxtDHZFSYylwGzeH+QDEG
+	 vZRG4YT34waYROi4gBUc6GS14ZG+nZMQXBg93gXQqJgadVswj7n2U+vHykfAcLTTfsk6Q
+	 yN4JbMs4I2uLR+EElw3gs3KuuHaoyG5Rua40Roq0fKaYb49njcIEG2lWhQ9f5ckEnXymU
+	 OVN5zWWEXgbGI3K0A78PHN4xI1Jz6LXx9LC4Qa0oHJDf00+NIqby/e4CFAX1/8ZCqyLu7
+	 aSwtzr8LArOkHengzDOlYNMuVIIuaPodAkSWrkSe6EgKpKDXXQXEYX9N6U9Zm3jo4Kw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795006285;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=nYuOjm8xQJMsBWaOOrKGxnekKQWVnD5kRNJ5Ku24pwI=;
+	b=A6NM+ulMkdzFey4S6Na6tTsyG/xb9OZ8aLVS44gVmqUYkTGTxt+zua4KW3PfV5O6hUW5
+	 i/i3tZgUH2tBho/NGc/Otysa4lSUhUNzHgAWcf+Oeaf+4q68D0iv+QA7JVnC9gzCfobBp
+	 7bFKzkB2cDsmqlI6GvB99Vs7GJK2d6kIHj02b1J+8WTAyqDpSKyyloXIbdhtlANywaqDF
+	 bIVI6SGYLXwg1TZHQzbwbXTaeqWz17edbdxxhJTGQcDzEF0jj7YogcPLK5PC3gMwHQwra
+	 L0q3wM8WXwanJQiCNFql5qFYqdVwR5Z394o0aAgB062F5NzLbX2/l7b9H734AhrwBow==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=IVNLBgFz;
+	arc=none smtp.remote-ip=95.215.58.17
+Received: from mta1.migadu.com (out-17.mta1.migadu.com [95.215.58.17])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA6AC606A335;
-	Wed, 18 Nov 2026 12:50:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA6AC606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=garyguo.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=garyguo.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D4C0606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:51:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4D4C0606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=aMmRyiwE
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FQFVo+99BRiezgwcNGsPOZiFuFXlPTAkmLoMnT0pjl2R+9Ob+oV2IXYL+xLU6QGkej0vE7vfnV13wtdWsv+UuyPk4Q4Y1od6GRxN7oiDtj57aAdhsokf3oEGlTf1TjhZM23ZkuxJDcJeiEdJIsaCi291cRFWxQdMAzWt5M8usBgzpYyy6sZPsGHWzRokHS3fERpkyD/9ywcVPMNPNfTABPHX7qrEGzBpUpFAlSRod7iCZAEqgQ52DosUHMMqcFtDWp8w/XvYFlYbibmc0LnNpp88ZFPxYqubQqCHYkaxFuCaywJWO9Bg04b75O1+6K6ffY7Sj2HVpZ9QM91Q8o0BmA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TjEY/mOugVpF374negzHtihdQMtG+74pVKvlNnGIc1k=;
- b=knGaPCVRsHp2qLD8cNMQqDMy++EDbrDkopT9fQ3xrkO/il9I5ZbeO4918LQ0z7tTyE5+vgQ2eO9GyebgIvyieGjPzcMzd5re0Qby1nZZR5sQjJx1jrv2T4A+IGUaT/jNE6NAzBSVBpxml+2LHnaxt1GNoWU7nUCWfGk99/fIORSBh2I9ycLGC0d6b3zYrCVGv43Q3wwxuMKaquWb/jme4RFhS46uyDXKR6vdSPBa6szg7w8Kd+cTMsg0hqgSxdVdpMiALonTQaxrCnMaXY/45TXwKzck210eAT1Cq9Djy+3DnzHWPposeC+oMZU2AIq42LgtmjKH1gLXt0CRjiYR4A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
- dkim=pass header.d=garyguo.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TjEY/mOugVpF374negzHtihdQMtG+74pVKvlNnGIc1k=;
- b=aMmRyiwE1f/hhiJBfBYFJkdVn0GIGnm+w3BHriosZGwRJ32mYBRjpL47Ntyt/T4uJKyfce66BOIUFbbVgSc1pbLlMPw0qv8bXv10klnD9p7/uQywv/1C2cTirxhG+9wwngQeb3tm+qZdC+HOlJluNjZrxoFSlC/yYY4/16lItOA=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=garyguo.net;
-Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1cb::9)
- by LO0P265MB6438.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:2cb::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 12:50:33 +0000
-Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- ([fe80::55f6:f98b:7fad:c6e3]) by CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- ([fe80::55f6:f98b:7fad:c6e3%2]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 12:50:33 +0000
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 18 Nov 2026 12:50:33 +0000
-Message-Id: <DMYCLRJZ1JW7.2J89O4SBS6UF7@garyguo.net>
-Cc: <linux-kernel@vger.kernel.org>, <rust-for-linux@vger.kernel.org>,
- <linux-fsdevel@vger.kernel.org>
-Subject: Re: [PATCH v3 4/5] rust: sync: condvar: use
- task::schedule_timeout()
-From: "Gary Guo" <gary@garyguo.net>
-To: "Danilo Krummrich" <dakr@kernel.org>, <boqun@kernel.org>,
- <gary@garyguo.net>, <aliceryhl@google.com>, <lyude@redhat.com>,
- <daniel.almeida@collabora.com>, <work@onurozkan.dev>, <ojeda@kernel.org>,
- <bjorn3_gh@protonmail.com>, <lossin@kernel.org>, <a.hindborg@kernel.org>,
- <tmgross@umich.edu>, <tamird@kernel.org>, <acourbot@nvidia.com>,
- <viro@zeniv.linux.org.uk>, <brauner@kernel.org>, <jack@suse.cz>
-X-Mailer: aerc 0.22.0
-References: <20261117001507.1611984-1-dakr@kernel.org>
- <20261117001507.1611984-5-dakr@kernel.org>
-In-Reply-To: <20261117001507.1611984-5-dakr@kernel.org>
-X-ClientProxiedBy: LO4P265CA0219.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:33a::17) To CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:400:1cb::9)
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=IVNLBgFz
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=S4tIs0eXTP8/ESlTI3EDlKJDy7qEJ4aWifgLG6CtFzY=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795006282; v=1; x=1795611082;
+ b=IVNLBgFzmRuyK7s18N4RsxnDzheqIxrl0fZ9T2nZNi5FOD5Q9zBdnc2YDgdZY1E336446/ny
+ +jBxgZoZAumntV9/mRzfLpWHoVOkIwt0E11iG2oJdfRGPXzqgM/Nkarlc/ya/b+WRxKRVdBT0hB
+ aOo+87CphSW7QQyhCTwb1vKk=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id f2a36f7fe13e4e18;
+	Wed, 18 Nov 2026 12:51:22 +0000
+X-Mizu-Trace-ID: f2a36f7fe13e4e18
+X-Migadu-Flow: FLOW_OUT
+From: Jiayuan Chen <jiayuan.chen@linux.dev>
+To: mptcp@lists.linux.dev,
+	matttbe@kernel.org,
+	stable@vger.kernel.org,
+	pabeni@redhat.com
+Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
+	Mat Martineau <mathew.j.martineau@linux.intel.com>,
+	Matthieu Baerts <matthieu.baerts@tessares.net>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 5.15.y v1 0/1] minimal mptcp UAF fix for 5.15
+Date: Wed, 18 Nov 2026 20:50:30 +0800
+Message-ID: <20261118125032.200934-1-jiayuan.chen@linux.dev>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,81 +71,118 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CWLP265MB6051:EE_|LO0P265MB6438:EE_
-X-MS-Office365-Filtering-Correlation-Id: 90b270db-c8a1-4285-9877-08df45728904
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|366016|1800799024|10070799003|376014|7416014|921020|261021123027099003|10067099003|261022075727099003|56012099006|4143699003|261026140227099003|261028144727099003|261021121427099003|261022105027099003|261102123227099003|261009223027099003|22082099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	q42hfJe51/ZPWqTcoZ11k2gxX93tiPPFdCYdSjfq5FlCd974mdQobXpypw8uTDRjzN/H+zyKdINYXNAkBpYr7Z8HZ1s4is3pjeaIJAgT+IvoTvV4mx3VzBYm9PG3nOhegMAS+qP6S/UUx/eH3g5ak/ilLm/r7s3M3bRYWy4q3qI8g23Bj4qsXVEgrvI2XmydfN6iXiGx6VUPJVC66qbvy7CiTgaI0p2mVsjVD7LnBMUJGesVyO6MT3nOpuj7vzD9LrX5rOX9FFY25VyWhFI4Cow+hKjC5T6TrLcO8Ko0NFlJMlR/EqoQnNBKBYGq1wUSpubGT02xTAOvsEsx1nsyVRD/dnxjLBW8K1b2nKCIPs6e6JdtmY4fUKJNkPbnIy3lArfjA63zaCCuUS3DPBtK+68MkaQh4RSQzWcEFAz20MNHALvM2hGO1Ab6fzIEMBU7w5747Y9IUq/PTERgG6wDmTXPTZxzU6nSkgtbdOXmO08XkEQPFlyMFJsiiqKQvOevhsIaYAI5f67+MujJ2P2pOX0KaLhz5G1YSrquB7WZs7u/FLQ5urec53iFWUKMUaz3/CCCZpvhkImQHA7Wc0kZ0vHxBsAwl12wK2uB9AU9h/PZ3jVI1BCFvHKQDovjEMLZV3r0ao55G2+W2nRyvFrUOeka5w/bqwUdImLLSPyftZ/w8FrRdIcmBCFQCZ3kaCqUtMHtxNsjgx8VlY7MSeTZiw==
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(10070799003)(376014)(7416014)(921020)(261021123027099003)(10067099003)(261022075727099003)(56012099006)(4143699003)(261026140227099003)(261028144727099003)(261021121427099003)(261022105027099003)(261102123227099003)(261009223027099003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?blpuc0VVczJTUzVlbUhScW8yb1V2dmNwWUhPK3Z0Ym1xbnZwa0ErMUtIckNy?=
- =?utf-8?B?RGdncHB2TFpleVUvRWZIN2kxYVU4YWJKUWdhaG40T3g1bnhCSlhtb2hIK2hz?=
- =?utf-8?B?ZU9KVTVYcEVzSE1oanJpOFpRc1BFVUI2NmtEd1hFUVgrS1dMN3VseSt1R2Uz?=
- =?utf-8?B?SlJaeGUrRE9uN2dKYXhTSkZ5L1Bpc1luUlB5OW9OUW1VRlRZbjhYYW1wQUVa?=
- =?utf-8?B?YzJqZGJ6bWtRbndoM3BBNVBwYkFZV0FUMlZpRDd2eXBXcGFRd1J4MWR4dVBq?=
- =?utf-8?B?V3k4Rm45SVVLRjh2ZW1taENYRU9UeEtieitOOVYxcWpCWlI5OEp3T1FjRjRt?=
- =?utf-8?B?RzJsOW9RM1R1Tjc3Q0svanVsUzJWN1NDZFhOcWdXdUV6SGtLMEpwOEV6UG1h?=
- =?utf-8?B?MENlZDZqQjlvdXlzeGtWeEJlM3EvTmprbE9sUm9KOUxpY0VpWmJIdk5BNnh4?=
- =?utf-8?B?RnY3Q05zZWFGbGI1Nm05Z1U5RVoyYzJSU09WSEpxM20rT0lTbHRzaENnR2k5?=
- =?utf-8?B?bW5JQW1OaWVRK1cxOTBBVnc0YlFKZUpsQitvUzZtUjdsZFZZV3N4bENYWUd6?=
- =?utf-8?B?emlvRHRQTk1MdXRpYnlZN3g5OUVqeXhGWUExTTNIQmZZM053dVgxQXVpcm0r?=
- =?utf-8?B?MXVacEJWSHNUSFEydVFEaGFkYTNWaXJ1QzcrYVNJbHpDYVJWU2UreWJXNjZW?=
- =?utf-8?B?aXNTL2Ntd3RFUGVDc09mcm03cnMwNFFweTVBTUhhWVZ6TjZKR2hlNEJiRitj?=
- =?utf-8?B?Ym9ueGEyb08vNXoxcWp5am1kZWlwZ2p0K0RuQmlHdHU3MUJlVzhWN0lpNFFq?=
- =?utf-8?B?aWJGRjAvZnpJRVdaYUJzZVFiVUU5Qkh4b2NodThhamU0T1pPOTlvWDg3eXlS?=
- =?utf-8?B?c3NlekE1T1p3YkphendVeENGWEFVcllKTEFPcEQrbWt0WWJQUWJLTlhEbTBn?=
- =?utf-8?B?V3RSTHBjRXI4RVVTQTIrTEFMclNFQ0c4Qm43Q0JPdUNJcmxJalhWaG1TWUdM?=
- =?utf-8?B?RGNkMElkR0NnczJuNG8rL0FCN3BkZE8wUE9pcEFMOUNieTZNaGNnWkNPZGlY?=
- =?utf-8?B?NFIxc0tJOUtBUGhBcW1KOVFMc3duSE1odnZPTUNWNUJFNzlaRUllNXRFQkIr?=
- =?utf-8?B?bVM2RHNYclNJRFdjUG9naVNTOVBtVkxzUlBxOEw5cHIrc2ZrRTUxSDc5L2VP?=
- =?utf-8?B?Tk1JMzJQQ0tQcUtWUTNLTGttejkzdGt4RUFYOU9MRmlwU3dQd2l4bE5aaldV?=
- =?utf-8?B?VW1hbkVQM1BBSVFIU3l5RXFPSlllUVJva3BMdnBiOWtSZEtieUQ3UDl0UTNB?=
- =?utf-8?B?VlhsWVBJR04wZWJyakdhWEdjNlBtZ1VvcHptdnZwYSt0eEJieGh4amlSTVFi?=
- =?utf-8?B?YTJENG9rUENuWWhRbEQ2MUdXZFpEd3ZGbUtEaHQ1ZVdxRTl5TTZ1MStBWWlD?=
- =?utf-8?B?MnU0eTNZbnM2ajBRVGxoK1NHWUdLR0VGb2R3Q3VTc1QxT011dmdhZ3ZSdTdG?=
- =?utf-8?B?dGlYbm5tY0hHS3JOZHUrdElBbEI5ZndSMkwxVHR3Y3AyVDhVY2JyTTJvYXRK?=
- =?utf-8?B?Q01ndnE3OHlMZ1ZNWHRVcUF6SnRmTk1nNXpXQ3c5bXQ2RFBSTUw1UUFoZE1v?=
- =?utf-8?B?YlIyNEZ3T0hCeTNDZ1AyeWRKQWl3NHlPYTBBdnEwVWFWbTk3YW9Ja1JxTk1i?=
- =?utf-8?B?SkZlTElDa2Y5dmJwZmtIbFQzdnBrME5DUXMwSXQyUkFjMFRCeVpCakt3MVQ0?=
- =?utf-8?B?UmxUVXdlOTdkVUlSY1NjZm5lYVdLVGN1WWtpNHdPZTZKRjZwcGNMcU9SM1JC?=
- =?utf-8?B?S1RuRFl6dE5GeHJvcC9xSU1jTW9YZEF6Qi92ZW9LRzdpNkJqY00wMURkZTVr?=
- =?utf-8?B?ZHNDWXJ5OHkvaDhHSHVhU3Jibm10K0pvQVFVTnNzR3EzZmF0M2lqbWc4djJ2?=
- =?utf-8?B?YXhXV3BqYTZUQVVvRTBqdWxSUmRWSVl3UThxYkZ4cHpMYVo1TGRFTjZzQzNr?=
- =?utf-8?B?eFlTamFpVUtQYSs3TmlhZVhNWFN5L20wTWJQTXpZM0JTZnlYaU16bFh6YWFL?=
- =?utf-8?B?dU1POEVGeU1PQ3RWZHJ0eWR1RFhaYU4yVXBDcmZYRGNXY0FDRHprRitlL29W?=
- =?utf-8?B?S0NzakNpZENtdG9LYk5lSFA3NGJpNktkekRkVEF6YnVGU0xUNThLNmRPS3Jq?=
- =?utf-8?B?T0hmWS9pV291QmNqVUlDbE95Q0dUR0U1dDduNTd6eXFZWkNrZ3NjVjJLZlBr?=
- =?utf-8?B?Zk5zMkd2cWRYVnlCU29PbStqOW5TUTVibVZKUGx1SFA0Y0xzZ0UzQ21rVVZR?=
- =?utf-8?B?a3RNNjNsRFYvenA1MXV3NjRZSDVmdkozZGNURTVYbW5UNUNYcXJoUT09?=
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: 90b270db-c8a1-4285-9877-08df45728904
-X-MS-Exchange-CrossTenant-AuthSource: CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 12:50:33.8037
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DIZPScfnGsT4qKAPI/SI5804aEBkJBkdadg1Yt1LrZfn5IOjfM2iBY0yj8bBMi//PmdblF1gIhrC78CzZb1gug==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO0P265MB6438
+Content-Transfer-Encoding: 8bit
 
-On Tue Nov 17, 2026 at 12:14 AM GMT, Danilo Krummrich wrote:
-> Convert CondVar::wait_internal() from calling
-> bindings::schedule_timeout() directly to using the safe
-> task::schedule_timeout() wrapper. This removes the unsafe call from
-> CondVar.
->=20
-> Signed-off-by: Danilo Krummrich <dakr@kernel.org>
+We encountered an MPTCP-associated use-after-free in kernel 5.15. The
+affected applications do not enable MPTCP on purpose: Go turns MPTCP on
+for listening sockets by default, so any Go service that calls Listen()
+ends up with an MPTCP listener without the application opting in, and even
+when the client speaks plain TCP.
 
-Reviewed-by: Gary Guo <gary@garyguo.net>
+In mptcp_close() the listener subflow is orphaned (marked SOCK_DEAD) before
+__tcp_close() -> inet_csk_listen_stop() runs on it. A connection whose 3-way
+handshake completes in that window is cloned from the already SOCK_DEAD
+listener subflow and inherits SOCK_DEAD; a following RST then frees that child
+via tcp_done() -> inet_csk_destroy_sock() while it is still linked in the
+listener accept queue, and inet_csk_listen_stop() later walks onto the freed
+socket.
 
-> ---
->  rust/kernel/sync/condvar.rs | 42 ++++++++++++++++++-------------------
->  1 file changed, 20 insertions(+), 22 deletions(-)
+
+time line:
+close(listen_fd):                            3-way handshake & rst (plain TCP client)
+
+mptcp_close
+  // mark ssk as SOCK_DEAD
+  sock_orphan(ssk);
+  __mptcp_destroy_sock
+    // ssk in conn_list is listen sk
+    __mptcp_close_ssk
+                                             // in 3-way handshake
+                                             tcp_v4_syn_recv_sock
+                                               // inherit SOCK_DEAD state from listen ssk
+                                               inet_csk_clone_lock
+                                             // process RST
+                                             tcp_reset
+                                               tcp_done
+                                               // sk is SOCK_DEAD
+                                               inet_csk_destroy_sock
+                                                   sock_put(sk); // freed
+      __tcp_close(ssk, 0)
+        // free child
+        inet_csk_listen_stop()
+            process child        <==== process freed sk
+
+
+
+
+Upstream closed this window with commit 57fc0f1ceaa40 ("mptcp: ensure listener
+is unhashed before updating the sk status"), so that would be the one to
+backport. But it does not fit 5.15 well:
+
+1. It calls mptcp_subflow_queue_clean() and mptcp_event_pm_listener(), which
+   are not in 5.15.
+2. Its mptcp_disconnect() hunk relies on commit b29fcfb54cd7 ("mptcp: full
+   disconnect implementation"), which is not in 5.15 either. Without it,
+   shutdown(SHUT_RD) on a listener leaves the msk in TCP_LISTEN with the
+   subflow already in TCP_CLOSE, and the WARN_ON_ONCE() in
+   mptcp_check_listen_stop() fires on close().
+3. It needs the follow-up commit 3fffa15bfef4 ("mptcp: ensure subflow is
+   unhashed before cleaning the backlog") to get the unhash order right.
+
+The simplest fix for 5.15 is this patch: in mptcp_close(), unhash the listener
+subflow and drain its accept queue before it is orphaned. A better backport is
+welcome.
+
+This may become much easier to hit once services move to a newer Go.
+
+A reproducer (written by an LLM) is at:
+https://gist.github.com/mrpre/053f1849b5accec13c0fe9c569739fd7
+
+
+------------[ cut here ]------------
+refcount_t: addition on 0; use-after-free.
+WARNING: CPU: 59 PID: 404175 at lib/refcount.c:25 refcount_warn_saturate+0x12e/0x150
+RIP: 0010:refcount_warn_saturate+0x12e/0x150
+RSP: 0018:ffffad3c8a2d7b68 EFLAGS: 00010246
+RAX: 0000000000000000 RBX: 0000000000000000 RCX: 0000000000000000
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: ffffad3c8a2d7b70 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000000 R12: ffff88f3421c2300
+R13: ffff88d43e13b508 R14: ffff88f3421c26f0 R15: ffff88d3df5d4900
+FS:  0000000000000000(0000) GS:ffff89127fd40000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000000c04e5f8000 CR3: 00000005dfaba004 CR4: 00000000007706e0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ inet_csk_listen_stop+0x3e1/0x530
+ __tcp_close+0x3bc/0x440
+ __mptcp_close_ssk+0xb9/0x210
+ __mptcp_destroy_sock+0x11c/0x280
+ mptcp_close+0x25d/0x3b0
+ inet_release+0x44/0x90
+ __sock_release+0x42/0xb0
+ __fput+0x98/0x270
+ ____fput+0xe/0x20
+ task_work_run+0x6d/0xb0
+ do_exit+0x1e7/0x3c0
+ do_group_exit+0x3b/0xb0
+ get_signal+0x17a/0x940
+ arch_do_signal_or_restart+0xba/0x130
+ exit_to_user_mode_loop+0xae/0x160
+ exit_to_user_mode_prepare+0xad/0xc0
+ irqentry_exit_to_user_mode+0x9/0x20
+ irqentry_exit+0x21/0x40
+ exc_page_fault+0x93/0x190
+ asm_exc_page_fault+0x27/0x30
+
+
+Jiayuan Chen (1):
+  mptcp: fix UAF of child socket on listener close
+
+ net/mptcp/protocol.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+-- 
+2.43.0
 
