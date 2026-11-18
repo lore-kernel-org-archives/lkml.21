@@ -1,82 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.86
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795015240;
-	b=5Y6KRCzwbcViFMS/RVgCquT9r7Y5j9gvslY2PQR8uFrsxDy4jYzopirw8uJkrSNkhxbK
-	 Ib+6LoUmJLZFWrrWrw+t7+9Jw6pIzLXS2Q9JuSgS3p+m9cKFfTDIlm1xtcxo2krFmJUaJ
-	 zV0GpiXByDA489kYBnUIFc0YoYd6hLAHrrHKPGPzOOCrVZzPbcmTACutEElZJS7Cy+W6U
-	 +VKuQ8wTv6OzIc0Jg8vtNhjy7F7L1WwtV2bjiGpa5qSr+1Odsnt8On2XnrB6hmCj5BMs5
-	 zIX8Kx6P1ShMOz5mqENRJtpaNhLw/oXMEBSiaESdzMLTw0EIzntn6amwrVNQ1UqPjGw==
+	t=1795015244;
+	b=t0Lb38CsQsjz+Ef81byIu/7y4iugXvnh/CZddRYV2/HZ71afZY9DNGNPXs1xk35UgwEW
+	 s/fVDtWS28OAjQ/CtA51V1+xK5Q1Y+vQ6BGLajkPWKmTojp9dWqdzhW1K9/0tST440a2u
+	 Pvuz4OZ3/cxAGfOSJXD14BGGzaZqs5gutriid5ECMrOq3fanI4tn83cuZBRhHOmibgadY
+	 rIGgBMNZk+jaY7S0lozINy2TB23YDd+iCUglv7gzom1IscajlBCONPIlfdimiie2P5rQ8
+	 gbfYXrm4reVy7NkKXN3bRIHiqCnaEC1iJCAnHTk+bamqhrc3jILnn6eqDXlrCx4g9yQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795015240;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=oQ7/76fO2leskAhxJa0tMmqKEgvrv4+HDmHvOOSZhVQ=;
-	b=Mr7laOdkBRT5EBQ7LQDBpbeg91qnPV7KtIyaq20YK0HICVU5DtkfeZlADmYyX8ezOg7+
-	 IDlwvXdgnNupq7402v5mbvUb1r28zW9NpOxEqyRLDpPGZF7DFx/HGIwDFqon4v2Xn/J1N
-	 khwn/ZyfALPPsQLDw5CeMc9ljybVeRrIhihccG8WOsXgkEooU4nOGBzMONQXve+6tkdJc
-	 9h2VugAWkwZFy5GevgUgRktd2pZDGxQCgJLbmMcdpEJpd8/X9BvUtdJfXy9G3DiwOMfHm
-	 Y0KHnctv61s4FnNnBnuEQeKFPbHAKS5z8oRntKIq6UuAXazhLFWLohFkr3cKww9EOJg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795015244;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=K4NkyNQl55qkbJjnFAwd9jt86qI8on7Uk9yqZAYyTso=;
+	b=HZlz/QPdHqx4bMTkvalFOqg4mcrTWCiJQXPlVMoJHx7+cisOA/7DgSLJ3OdP9bMuWdqE
+	 R9Z705tYZLTHmYXYC4bn1efxaVSxIfgGOzm58ERMBts3M0nwzFj7h8QzJ84zBToa7NZoW
+	 1+10NfA8RJ34g1APkfoerhIHrCvW1F6li7frI9fhHB/iAUAwG8AqzyWHvWP8QtGGx1WBl
+	 2fHf+AJHTjsTONi6sT4ZbRzCUcW+natOkIpkNTAecbR/aa+1nRa8mKOWHwJKggZxNavPO
+	 gr/tISsIdfKBQadLXofzQqytCCsbAVjmNsXZ41sXTNmJPRwVAyx/u/pAlXn8N4m1RzA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=SjwbzFPk;
-	arc=none smtp.remote-ip=91.218.175.86
-Received: from mta0.migadu.com (out-86.mta0.migadu.com [91.218.175.86])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC3F8606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:20:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CC3F8606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=JJ2dafGg;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 8FCA4606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:20:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8FCA4606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=SjwbzFPk
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=47gIjtTcGEzXpA6nYjzGeB64WTHu7X3hRByD7TlCFJY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795015238; v=1; x=1795620038;
- b=SjwbzFPknTs+Hn3tb1UxiEarCGdkHpVTfQnFmIiPuTzjwJvwJDhFnAOPZ83uVwajM/rtvTKp
- WliARal8mTpNbfIUoDD69XQ2/IyEfNL/c55EXjk9GM6oSH7/AQvi7mT5uCbi5R3AnATBQvSwRY6
- AwlmGkS4S70QusoKWEWChQds=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id c3287a313e6c4790;
-	Wed, 18 Nov 2026 15:20:26 +0000
-X-Mizu-Trace-ID: c3287a313e6c4790
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>
-Cc: Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Sebastian Ene <sebastianene@google.com>,
-	=?UTF-8?q?Bart=C5=82omiej=20Grzesik?= <bgrzesik@google.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Vladimir Murzin <vladimir.murzin@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Zenghui Yu <zenghui.yu@linux.dev>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Radu Rendec <radu@rendec.net>,
-	Fuad Tabba <tabba@google.com>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 13/13] Documentation: KVM: arm64: Describe the ITS hardening
-Date: Wed, 18 Nov 2026 15:19:04 +0000
-Message-ID: <20261118151904.4099560-14-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261118151904.4099560-1-fuad.tabba@linux.dev>
-References: <20261118151904.4099560-1-fuad.tabba@linux.dev>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=JJ2dafGg
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 087701477;
+	Wed, 18 Nov 2026 07:20:40 -0800 (PST)
+Received: from [10.0.136.98] (M0PRX50XMG.cambridge.arm.com [10.0.136.98])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4412B3F632;
+	Wed, 18 Nov 2026 07:20:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795015242; bh=EJfYRN3LhwoQl9ywZq/dF+WYhcJd4c60aePueCvbsdE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JJ2dafGgTzsI7JTe1SkpTkjx+Vpbr8HbUCX61I8vnoAtrWkQA0XJkt51FdkasQTpX
+	 KEuyMVkiahZ8/nQYlkTTFiZmEVw3xr5rL2MaWWhSlcZsDCnatIpJ742Tdt79z8pDzE
+	 XNnSfdyloiEsCdIMJUixnRQRvFN0jmlqJ0D/QS8I=
+Message-ID: <66c8de52-298d-4772-892d-3e43d9e7e7eb@arm.com>
+Date: Wed, 18 Nov 2026 15:20:39 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,61 +53,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 00/10] irqchip/gic-v5: Fix misc IRS and ITS host driver
+ issues
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, Marc Zyngier <maz@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
+ Timothy Hayes <timothy.hayes@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Jonathan Cameron <jic23@kernel.org>,
+ "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Will Deacon <will@kernel.org>
+References: <20261104-host_gicv5_fixes-v2-0-e47ad20ea3c8@arm.com>
+ <20261112145814.853424-1-fuad.tabba@linux.dev> <avrzusx1g1ZICo0Q@red-moon>
+ <CA+EHjTyGQbS7zcHSRg50c5xVN2AY4AmMc7JqNAvrc=_UhPQ+kg@mail.gmail.com>
+ <avsN0E-6_7kU3pTk@red-moon> <ea064380-ad7b-4f79-ac17-1174555ed10a@arm.com>
+ <CA+EHjTwei41=zCQakSk-mBS9L+vp_jtjRJ=eKAwWXyaC1mXsQw@mail.gmail.com>
+Content-Language: en-GB
+From: Sascha Bischoff <sascha.bischoff@arm.com>
+In-Reply-To: <CA+EHjTwei41=zCQakSk-mBS9L+vp_jtjRJ=eKAwWXyaC1mXsQw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Describe in pkvm.rst why the hypervisor emulates the host's ITS, and how
-protected mode differs from non-protected mode as a result.
+On 18/11/2026 15:16, Fuad Tabba wrote:
+> Hi Sascha, Lorenzo,
+> 
+> On Wed, 18 Nov 2026 at 14:59, Sascha Bischoff <sascha.bischoff@arm.com> wrote:
+> [...]
+>> I'm more than happy to include "irqchip/gic-v5: Clean a level 2 device
+>> table before making it valid" in v3!
+> 
+> Thanks.
 
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- Documentation/virt/kvm/arm/pkvm.rst | 34 +++++++++++++++++++++++++++++
- 1 file changed, 34 insertions(+)
+No, thank you!
 
-diff --git a/Documentation/virt/kvm/arm/pkvm.rst b/Documentation/virt/kvm/arm/pkvm.rst
-index b75bb8ad6f26d..c1b1b8089ff72 100644
---- a/Documentation/virt/kvm/arm/pkvm.rst
-+++ b/Documentation/virt/kvm/arm/pkvm.rst
-@@ -89,6 +89,40 @@ DMA isolation using an IOMMU
- 
- Status: **Unimplemented.**
- 
-+GICv3 ITS hardening
-+-------------------
-+
-+Status: Host accesses to the ITS control registers are trapped and
-+emulated by the hypervisor. The LPI configuration and pending tables
-+remain under host control.
-+
-+The ITS reads and writes memory at addresses programmed by the host, so
-+the hypervisor emulates the ITS control registers and command queue to
-+ensure that the host cannot point the ITS command queue or tables at
-+hypervisor or pVM memory. The hypervisor owns the command queue and
-+the ITS tables for as long as the ITS can access them, and it owns each
-+device's interrupt translation table from the device's first mapping
-+onwards.
-+
-+This gives rise to some user-visible differences when compared to
-+non-protected mode:
-+
-+* Protected mode requires the hypervisor to take control of every ITS
-+  that the host uses. KVM does not initialise with more than 8 ITSes, and
-+  if the takeover fails the host is not deprivileged and
-+  ``KVM_CREATE_VM`` returns ``-ENODEV``.
-+* An ITS command or register access that the hypervisor rejects is
-+  delivered to the host as a data abort.
-+* The number of device IDs used through each ITS since boot is limited
-+  by the hypervisor, and MSI allocation fails with ``-ENOMEM`` beyond
-+  that limit.
-+* Interrupt translation tables are page-aligned and are not freed when
-+  a device is removed, so each device ID used since boot holds at least
-+  one page.
-+* GICv4 is disabled. Direct injection of LPIs is not available to
-+  non-protected guests, and restoring a guest migrated from a host with
-+  ``GICD_TYPER2.nASSGIcap`` set fails with ``-EINVAL``.
-+
- Proxying of Trustzone services
- ------------------------------
- 
--- 
-2.47.3
+> 
+>>>>>
+>>>>> The latter, though freeing memory on timeout wasn't a good idea given
+>>>>> that there is no way to cancel the respective, pending, mapping.
+>>>>
+>>>> Thanks, that answers it. If you'd like a patch that doesn't free the
+>>>> memory on a timeout, let me know and I'll send one.
+>>>
+>>> Thanks. Again, if that timeout expires I think we have more serious
+>>> problems than the IST mapping but I do agree that freeing memory
+>>> is not the answer; not urgent - please send a patch given that
+>>> you spotted it, can obviously do it too.
+>>
+>> I've got some patches addressing the ITT and IST mapping issues in the
+>> host driver, which I can include in v3 if you haven't already started
+>> working on these. I'll make sure to include the appropriate Reported-by
+>> tags, of course!
+>>
+>> I'll post a fix for the VMT separately as it doesn't belong in this series.
+> 
+> I haven't started on anything, so I'll leave this with you then.
 
+Perfect - I was trying to avoid the duplication of work :)
+
+> 
+> Cheers,
+> /fuad
+
+Sascha
