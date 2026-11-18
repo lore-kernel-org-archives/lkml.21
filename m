@@ -1,88 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795020806;
-	b=LmBf8dSKUm1wcWE4rwRnb8yzud1UgGcJfVshdim8yRfXSHYKF+IqsrsI8ctc4a1m9FQP
-	 zmbp4Qpy8cF2pEY9gr9Q+7TYtbRPVD+3gz26JRX0AS96PlZUbOjq7svmsboaaocaXycIC
-	 r/6qaRjJj2pdoBQWsZQ7MHyi5n08sm1H4Xhd0UzrkYgikJyJ+PwtfT6YLiDWkuqoWTPB+
-	 UGI6p8VJn9A4vGRWOSSWDwqA4B8bkvGeVY3bOS4jOOyr2M0AgApFjOVo/FUEh8DXtQi2F
-	 m7B6QoU6i0hdfd4BaRIdZKvxyaJo8VIstJKdQ5meUrY5Eso00J3Mn5GC3ChJ0MmEvNw==
+	b=Plqc6xCY6E1ZEPUES4SMJZVPKL0126zr2q/yK/q4RA2CP3y8MZjryAArldvbh0JIGJtf
+	 DZf1S865ZpYAcnbkHWSzkBb438/eOpMyrSsqz7Di8mzGTJJKnmlJBLb25vDP7jyQeg33j
+	 1GrBEbRSpT3skgyDpFFrS5mWXpMkU1z6soCXXrfLhZomUFL+je7BiegAUpNtdM4xtAIln
+	 njJlbxV2EA/F4mTN6ZnYMxCrlj0bwwCGJfL1IcYxurCNUgGc1IRlNUkhw04HWiRXw022U
+	 GEmEDk+E5cY+4x4pJYSbrz0GmqDmqGqPn8Dm5zx6KP/b43F+JAaVJiggXiWFyPhhZeQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795020806;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=y5uS4wiSy3bifvFb2xGvxqzue+H9klMv+96lcGTLuv8=;
-	b=Lmo/wZfz6NeWrEU0gzxhPm8nQitoNYnxLBbEXAb5z3mJWL6wqbdHkhFmL5nnEzFTnoCQ
-	 KdkBzu9Hj33BNope8VCkAgaw5wd2ktOPGK3wstU4qa4J427I5zYXbDVNGQ5KBBcnYBHsu
-	 zqMCbg6v8hOm1cvL27KMhk7dKeLA9Gd2ahfFEKYd+Zg4zwrFjQogjb25wEHwamZRDjZQS
-	 j/5ALqr2MptJXf43klXHyVvvMK/Im9FSGL3KxZ50cKiLg0nOk83zkYS46Sqr1i5tWOIXN
-	 ZWRUQTK/sMEsNMV2fXOocHcifu8FZqStutjOHIlGgH8jgAZSDvb2IiwxRMWcOGNTEsA==
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Last-TLS-Session-Version;
+	bh=VcG30sa+93pw9ClhwzPfhT8lh5QnjKv4zrX533cn6l0=;
+	b=ZV/1U631KlwPPYyPwPTVr7BessROUifX+Fbgposfwtv371mHWn+NekjmdMUNnoGUqkQm
+	 yPQQtw5fJxDmlwC28Js+ZUuWKog+1HdfTQw8fb/i3OmffUceyJUNtyqUB0UYsc9nxg1LE
+	 /CqnIsoh0Z63cw9xECf65jse6NS6ECQrSUGWevVq8HTA7oL2CQ7deARfIjEPM/g0L/k8H
+	 kab+mIrMIsFGGvCd0ZpeJgJKkLDiiXh4CeacfWr64+9q6+4gmgevm1MlFGMakoAkVLh0b
+	 C6Jl/3NUmn5RDiMqGJ+NIPanIKjf3RP0z2rR7CmBy3sCm52dMgvS+i3G2OO2QHcDwNQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=nEGVL220;
-	arc=none smtp.remote-ip=209.85.221.50
-Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com [209.85.221.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b="aM/xKKxj";
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E894A60A2622
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB92160A261D
 	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:53:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E894A60A2622
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB92160A261D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=nEGVL220
-Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-48dfc0421d9so1101910f8f.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:53:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795020804; x=1795625604; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=y5uS4wiSy3bifvFb2xGvxqzue+H9klMv+96lcGTLuv8=;
-        b=nEGVL220sfvKHpHVupJv0jxhxCebvL2jxDBbW8UkZJNi38UG1MqpwWxLJpkaTFk8jf
-         yoMp5c3ohCqo98+xlcn8svMM0KBv60PSSi56ryiL8ZNHHP4mCfXkdsjmLQNvo6EbwYtZ
-         wvXiBynOK+LeZAhK3C8TgzBM7c/3zYyD+fPPYEZNCxS7Ihd4pOYiw9qU+0KfzsG4towM
-         9EdJy1NvJoia6VPa7+JOmdNNn65fBtaB79hP6RsB9Bp42ETC7YnmXa8cKnvG+qGZWpqe
-         HmVd5F86zSmrgC+9aqF76vNC5DCiom+yHoZKIBZydhfwIYM1UIMt5C0qV4QS/epVwGFz
-         c2Fg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795020804; x=1795625604;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=y5uS4wiSy3bifvFb2xGvxqzue+H9klMv+96lcGTLuv8=;
-        b=ujU7Yjo+zqMgL00BawCeduPun9tpUI/2pnZtKi8dF/OViqF9/dGVF/9/y7ComcwYRd
-         f1XJrWHTfTp9KITon6BpvvUEFxYku18ppb8XaqOX4+7i5P+OlZwkAgAaRYVWnMwV2xZY
-         YutdfDrH/lHYvnWhy6siZVI8C3dtXyBtGmFXYCYQWK8muUQIJGx/KwizDvn5V5VBuIj9
-         g3yc06arbbLhWvsCbrZbdoFFyTmWcwi55g1914eMotPv+8ResNmjhBdklQfmdp3mkUBw
-         B8eDB03zuwwhllW+jpkwef3HnCAOUVA40vfhMKnZSeIlA5o/E3SOEb9nMIUytf4BQPHy
-         R3JQ==
-X-Forwarded-Encrypted: i=1; AL+hErE79TnPLGEekML3GN02oGPPldboHUjbmdtgNKm5j5m7jLKTzQHvS9UUt70eYik7t1lwIVUhVROy2isERk8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+kID9pURI45fdzzxM370sdw4QNVQ2RncU9mH4b2CLENAqPeAWv
-	0Q2yOJjpWrUMISl9UCWqSwwL7I4g3mdHXsq3sgOkLbmQdTrqVZVCUO9Um0q2PU+RiKw=
-X-Gm-Gg: AZFdTZe6zKEUM5ltAdn3Qtx0Hj/YV3caTqyQZVLqxgVc2dHsLZhxk6gLPrLf5UkfZBp
-	WH9QG/3O+i6s+UbR/C10swqyRnut7SQR6EmB7eMoWrTX2nG7OV9N0acpFFHbV1Kcgq5z52sEXK1
-	OtTJCjwvdQrJyKbsihgRsBURRXv6XCrJa1Zn5Z/smXNmkDrDKkieVe5GkBjbJ6PbB+JAVoHzdH7
-	cUQk2nH+UHIJnbEcr+UNDf3XZp4bfVTkp+45EnMCANCqHAfNRS0HTlGpSHQwX8wNTd1is7qYJYp
-	/g6FQr5dqWL9zZ0BECA6Qx2KH4JhdpjlU8M5k2epgmU9TDSMKPYUbFr9OxECr6QZm0bCrpfylmN
-	eP/TOlGijKB3OgWYknAarjU22J/G76UkZhQiFBQXymnsV1W+lNLjesDzSeRW5W6qg58VVPFNGwg
-	mKuwrgh4JSAYCAMlMJu+FCZzsIfDsmw+dGsiurRi5FXvuem/IOk9p5+ZgUTEjZ81Mz9JPyNJT2n
-	8H4SJAGK9IA77j0DZD8uMLU9H0irh7xB33IWcJoY2swZIxjOETO0FTOagoUfH9CFM4xs0Cwl3FL
-	pkWN16ZQf9w5NiJdwCQCNjSwfqtI5QHTkQ==
-X-Received: by 2002:a05:6000:46ce:b0:4a4:856b:3503 with SMTP id ffacd0b85a97d-4a639d16f78mr4817368f8f.34.1795020804143;
-        Wed, 18 Nov 2026 08:53:24 -0800 (PST)
-Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a654a8c39bsm5886133f8f.17.2026.11.18.08.53.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 08:53:23 -0800 (PST)
-Message-ID: <0e81b599-a2fd-40d6-85dd-841bb012f18e@linaro.org>
-Date: Wed, 18 Nov 2026 16:53:22 +0000
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=aM/xKKxj
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id A3A7A4E40546;
+	Wed, 18 Nov 2026 16:53:24 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 72B275FE9B;
+	Wed, 18 Nov 2026 16:53:24 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D321711BC2937;
+	Wed, 18 Nov 2026 17:53:13 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795020798; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=VcG30sa+93pw9ClhwzPfhT8lh5QnjKv4zrX533cn6l0=;
+	b=aM/xKKxjopE+Un5pt3rwL4bpxQPJBEFkuGVgKiqIOb6YhHHag/yNUmZvbYEenYPRG+3XuS
+	rHvbA+f2lEzwesExwsKoOgYlQKez5kYzTwmyTr2IpUAlg7gPaS89LogdlBPwBqqAXRBhxr
+	X9mJJC6w2ZcI1XLqR1FCqxndSFDuj6bMYSDLyAg/O+Kqelo9TBdXBJEsINJJ6Z0ZOmuraN
+	Rc8oWhcPQ8y9nnbs7Yn16lCGOD4MH9LHnC1dIkgvNTyxWlfU0RgTNO2XNS0GzI+epE/LXA
+	ltVhAceUE/E/nOyNvzvq0pWVa6fZsgIeBTKjvGBTueDyNn4uvsbjahWtlkmeVg==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Date: Wed, 18 Nov 2026 17:50:13 +0100
+Subject: [PATCH RFC v3 30/31] drm: drm_hotplug_helper: new helper to
+ implement bridge hotplug
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,65 +64,481 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 03/10] coresight: etm-perf: Serialize AUX topology
- access
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@arm.com>, Suyash Mahar <smahar@meta.com>,
- Yeoreum Yun <yeoreum.yun@arm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Qi Liu
- <liuqi115@huawei.com>, Junhao He <hejunhao3@huawei.com>,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Jonathan Cameron <jic23@kernel.org>
-References: <20261016-james-cs-multiple-per-threads-v4-0-dedf961aca0e@linaro.org>
- <20261016-james-cs-multiple-per-threads-v4-3-dedf961aca0e@linaro.org>
- <20261112180920.GM9176@e132581.arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20261112180920.GM9176@e132581.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261118-drm-bridge-hotplug-v3-30-44bb3b4a828f@bootlin.com>
+References: <20261118-drm-bridge-hotplug-v3-0-44bb3b4a828f@bootlin.com>
+In-Reply-To: <20261118-drm-bridge-hotplug-v3-0-44bb3b4a828f@bootlin.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Inki Dae <inki.dae@samsung.com>, Jagan Teki <jagan@amarulasolutions.com>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Jessica Zhang <jesszhan0024@gmail.com>, 
+ Douglas Anderson <dianders@chromium.org>, Marek Vasut <marex@denx.de>, 
+ Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
 
+Add a new helper to support cards implementing hotpluggable drm_bridges.
 
+drmm_hotplug_helper_init() registers to get notified of relevant events and
+react by creating a bridge (if the pipeline is complete in the hardware)
+and destroying it on bridge removal.
 
-On 12/11/2026 18:09, Leo Yan wrote:
-> On Fri, Oct 16, 2026 at 11:46:13AM +0100, James Clark wrote:
->> Perf AUX setup walks the CoreSight connections to select a sink, build
->> paths and acquire references to the devices and their helpers. Unlike
->> sysfs tracing, it does not hold coresight_mutex. Driver registration and
->> removal can therefore change or free connections while setup walks them.
->> Adding a CTI helper can also reallocate an existing device's output
->> connection array even when the device is already referenced by a path.
-> 
-> I agree that bus traversal and devices acquisition need protection.
-> 
->> Hold coresight_mutex from sink selection through buffer allocation.
->> The allocation must also be protected because ETR buffers can look up a
->> connected CATU. Release the mutex before calling etm_free_aux() on error.
-> 
-> However, my concern is about the locking semantics. We should clearly
-> identify the races that coresight_mutex is intended to protect and
-> limit its usage accordingly. My understanding is that coresight_mutex
-> primarily protects CoreSight bus operations.
-> 
-> Holding it across the entire perf AUX setup might silence AI review
-> warnings, but it may abuse the lock and hide synchronization issues in
-> the CoreSight core APIs. OTOH, I'd say SysFS mode should not acquire
-> such a big lock as well.
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
-Suzuki already merged this because I had to move it into the small 
-sashiko fixes patch set as a dependency. I agree it might not be the 
-correct fix, but it's a small change and it's likely the correct fix 
-would look very similar to this. We can always undo it or re-work it in 
-the future, it's pretty harmless.
+---
 
-> 
-> BTW, I think this change is a distraction from the per-thread fixes.
+Changes in v3:
+- Do not require the first bridge is non-hotpluggable
+- Support non-DSI bridges too
+- Add callback to report connector add/remove
+- Do not store the drm_device pointer, get it from the encoder
+- use new v3 notifier API name
 
-Yes and no. This set adds additional traversals to the tree to determine 
-if a sink is shared or not, so it increases the chance of hitting the 
-issue which is why I thought it made sense to fix it.
+Changes in v2:
+- Add callback to report connector addition/removal
+- Sanity-check drmm_hotplug_helper_init() parameters
+- Reformat kdoc comment
+---
+ MAINTAINERS                                  |   8 +
+ drivers/gpu/drm/display/Kconfig              |   7 +
+ drivers/gpu/drm/display/Makefile             |   2 +
+ drivers/gpu/drm/display/drm_hotplug_helper.c | 325 +++++++++++++++++++++++++++
+ include/drm/drm_hotplug_helper.h             |  30 +++
+ 5 files changed, 372 insertions(+)
 
-> My understanding is that this series aims to fix multithreading with
-> a shared sink, so we can address device lifetime issues separately.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index fc404918c938..86a08dc33a16 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -8218,6 +8218,14 @@ F:	Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-core.yaml
+ F:	drivers/accel/rocket/
+ F:	include/uapi/drm/rocket_accel.h
+ 
++DRM BRIDGE HOTPLUG HELPER
++M:	Luca Ceresoli <luca.ceresoli@bootlin.com>
++S:	Maintained
++T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
++F:	Documentation/devicetree/bindings/display/bridge/
++F:	drivers/gpu/drm/display/drm_hotplug_helper.c
++F:	include/drm/drm_hotplug_helper.h
++
+ DRM COMPUTE ACCELERATORS DRIVERS AND FRAMEWORK
+ M:	Oded Gabbay <ogabbay@kernel.org>
+ L:	dri-devel@lists.freedesktop.org
+diff --git a/drivers/gpu/drm/display/Kconfig b/drivers/gpu/drm/display/Kconfig
+index df09cf9a8ca1..e086e2fd08a4 100644
+--- a/drivers/gpu/drm/display/Kconfig
++++ b/drivers/gpu/drm/display/Kconfig
+@@ -22,6 +22,13 @@ config DRM_BRIDGE_CONNECTOR
+ 	help
+ 	  DRM connector implementation terminating DRM bridge chains.
+ 
++config DRM_HOTPLUG_HELPER
++	bool
++	depends on OF
++	select DRM_BRIDGE_CONNECTOR
++	help
++	  Helper code to implement a card supporting hotpluggable bridges.
++
+ config DRM_DISPLAY_DP_AUX_CEC
+ 	bool "Enable DisplayPort CEC-Tunneling-over-AUX HDMI support"
+ 	select DRM_DISPLAY_DP_HELPER
+diff --git a/drivers/gpu/drm/display/Makefile b/drivers/gpu/drm/display/Makefile
+index 0ff4a1ad0222..ce6dbd65833b 100644
+--- a/drivers/gpu/drm/display/Makefile
++++ b/drivers/gpu/drm/display/Makefile
+@@ -5,6 +5,8 @@ obj-$(CONFIG_DRM_DISPLAY_DP_AUX_BUS) += drm_dp_aux_bus.o
+ drm_display_helper-y := drm_display_helper_mod.o
+ drm_display_helper-$(CONFIG_DRM_BRIDGE_CONNECTOR) += \
+ 	drm_bridge_connector.o
++drm_display_helper-$(CONFIG_DRM_HOTPLUG_HELPER) += \
++	drm_hotplug_helper.o
+ drm_display_helper-$(CONFIG_DRM_DISPLAY_DP_HELPER) += \
+ 	drm_dp_dual_mode_helper.o \
+ 	drm_dp_helper.o \
+diff --git a/drivers/gpu/drm/display/drm_hotplug_helper.c b/drivers/gpu/drm/display/drm_hotplug_helper.c
+new file mode 100644
+index 000000000000..ea32bdb0af8f
+--- /dev/null
++++ b/drivers/gpu/drm/display/drm_hotplug_helper.c
+@@ -0,0 +1,325 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Copyright (C) 2026 GE HealthCare
++ * Author: Luca Ceresoli <luca.ceresoli@bootlin.com>
++ */
++
++#include <linux/of.h>
++#include <linux/of_graph.h>
++
++#include <drm/drm_bridge.h>
++#include <drm/drm_bridge_connector.h>
++#include <drm/drm_hotplug_event_notifier.h>
++#include <drm/drm_hotplug_helper.h>
++#include <drm/drm_managed.h>
++#include <drm/drm_print.h>
++
++struct drm_hotplug_helper {
++	/**
++	 * @encoder: The encoder at the start of the bridges chain
++	 */
++	struct drm_encoder *encoder;
++	/**
++	 * @event_cb: Callback to report connector addition/removal
++	 */
++	drm_hotplug_helper_event_cb event_cb;
++	/**
++	 * @drm_event_nb: Notifier to receive DRM hotplug-related events
++	 */
++	struct notifier_block drm_event_nb;
++	/**
++	 * @connector: The drm_connector added/removed on plug/unplug
++	 */
++	struct drm_connector *connector;
++	/**
++	 * @event_mutex: Protect entry points (init, fini, event notifier)
++	 * from concurrent attach and connector creation or destruction
++	 */
++	struct mutex event_mutex;
++	/**
++	 * @first_bridge_ep: Device tree node of the encoder endpoint
++	 * connected to the first bridge
++	 */
++	struct device_node *first_bridge_ep;
++};
++
++/*
++ * True if the encoder bridge chain is complete, i.e. the last bridge in
++ * the chain is the last bridge expected in the hardware (e.g. a panel).
++ */
++static bool drm_hotplug_helper_bridge_chain_is_complete(struct drm_hotplug_helper *hotplug_helper)
++{
++	struct drm_bridge *last_bridge __free(drm_bridge_put) =
++		drm_bridge_chain_get_last_bridge(hotplug_helper->encoder);
++	struct drm_device *drm = hotplug_helper->encoder->dev;
++
++	/* We expect at least one bridge */
++	if (!last_bridge) {
++		drm_dbg_driver(drm, "no bridges in pipeline (yet)\n");
++		return false;
++	}
++
++	struct drm_bridge *next_bridge __free(drm_bridge_put) =
++		drm_bridge_get_next(last_bridge);
++
++	/* No next bridge expected, pipeline is complete */
++	if (!next_bridge) {
++		drm_dbg_driver(drm, "pipeline complete\n");
++		return true;
++	}
++
++	/* Next bridge expected but not there now, pipeline incomplete */
++	if (next_bridge == ERR_PTR(-ENODEV)) {
++		drm_dbg_driver(drm, "pipeline not (yet) complete\n");
++		return false;
++	}
++
++	/* Unexpected error */
++	if (IS_ERR(next_bridge))
++		drm_warn(drm, "%s error %pe\n", __func__, next_bridge);
++
++	/* next_bridge is valid, but not (yet|anymore) in chain */
++	return false;
++}
++
++/**
++ * drm_hotplug_helper_connector_add - add the drm_connector
++ * @hotplug_helper: drm_hotplug_helper to add the drm_connector to
++ *
++ * Returns 0 on success or a negative error otherwise.
++ */
++static int drm_hotplug_helper_connector_add(struct drm_hotplug_helper *hotplug_helper)
++{
++	struct drm_device *drm = hotplug_helper->encoder->dev;
++	struct drm_connector *connector;
++
++	if (drm_WARN_ON(drm, hotplug_helper->connector))
++		return -EBUSY;
++
++	connector = drm_bridge_connector_dynamic_add(drm, hotplug_helper->encoder);
++	if (IS_ERR(connector))
++		return PTR_ERR(connector);
++
++	hotplug_helper->connector = connector;
++	hotplug_helper->event_cb(DRM_HOTPLUG_HELPER_CONNECTOR_ADDED, connector);
++
++	dev_dbg(drm->dev, "added bridge connector\n");
++
++	return 0;
++}
++
++/*
++ * Removes the connector, which must be present.
++ *
++ * Must be called with the hotplug_helper->event_mutex locked.
++ */
++static void drm_hotplug_helper_connector_remove(struct drm_hotplug_helper *hotplug_helper)
++{
++	struct drm_device *drm = hotplug_helper->encoder->dev;
++
++	if (drm_WARN_ON(drm, !hotplug_helper->connector))
++		return;
++
++	dev_dbg(drm->dev, "removing bridge connector\n");
++
++	hotplug_helper->event_cb(DRM_HOTPLUG_HELPER_CONNECTOR_REMOVING, hotplug_helper->connector);
++	drm_bridge_connector_dynamic_remove(hotplug_helper->connector);
++	hotplug_helper->connector = NULL;
++}
++
++/*
++ * Propagate the attach chain and possibly add a drm_bridge_connector after
++ * a new drm_bridge is hot-plugged.
++ *
++ * The connector is added only if the pipeline is now complete. This could
++ * not be the case for various reasons:
++ *
++ * - the new bridge is just unrelated to our encoder
++ * - the new bridge is not the next one in the pipeline
++ * - the new bridge is the next in the pipeline but the pipeline is not yet
++ *   complete
++ *
++ * All these cases are normal, not an error.
++ *
++ * Must be called with the hotplug_helper->event_mutex locked.
++ */
++static void drm_hotplug_helper_try_complete(struct drm_hotplug_helper *hotplug_helper)
++{
++	struct device *dev = hotplug_helper->encoder->dev->dev;
++	int err;
++
++	WARN_ON(!mutex_is_locked(&hotplug_helper->event_mutex));
++
++	/*
++	 * drm_connector already present, the new bridge must be for
++	 * another card
++	 */
++	if (hotplug_helper->connector)
++		return;
++
++	struct drm_bridge *last_bridge __free(drm_bridge_put) =
++		drm_bridge_chain_get_last_bridge(hotplug_helper->encoder);
++
++	if (last_bridge) {
++		/*
++		 * Some bridge(s) already in the chain, propagate the
++		 * attach call chain from the current chain tail to newly
++		 * hotplugged bridge(s)
++		 */
++		dev_dbg(dev, "propagate attach after %ps\n", last_bridge->funcs);
++
++		err = last_bridge->funcs->attach(last_bridge, hotplug_helper->encoder,
++						 DRM_BRIDGE_ATTACH_NO_CONNECTOR);
++		if (err)
++			return;
++	} else {
++		/* Bridge chain still empty, find first bridge and attach */
++
++		const struct device_node *first_bridge_node __free(device_node) =
++			of_graph_get_remote_port_parent(hotplug_helper->first_bridge_ep);
++		if (!of_device_is_available(first_bridge_node))
++			return;
++
++		struct drm_bridge *first_bridge __free(drm_bridge_put) =
++			of_drm_find_and_get_bridge(first_bridge_node);
++		if (!first_bridge)
++			return;
++
++		dev_dbg(dev, "attach chain starting at %ps\n", first_bridge->funcs);
++
++		err = drm_bridge_attach(hotplug_helper->encoder, first_bridge, NULL,
++					DRM_BRIDGE_ATTACH_NO_CONNECTOR);
++		if (err)
++			return;
++	}
++
++	/* Add the connector if the encoder chain is now complete */
++	if (drm_hotplug_helper_bridge_chain_is_complete(hotplug_helper))
++		drm_hotplug_helper_connector_add(hotplug_helper);
++}
++
++static int drm_hotplug_helper_handle_event(struct notifier_block *nb,
++					   unsigned long event, void *data)
++{
++	struct drm_hotplug_helper *hotplug_helper =
++		container_of(nb, struct drm_hotplug_helper, drm_event_nb);
++	struct device *dev = hotplug_helper->encoder->dev->dev;
++
++	guard(mutex)(&hotplug_helper->event_mutex);
++
++	dev_dbg(dev, "received event %lu\n", event);
++
++	switch (event) {
++	case DRM_BRIDGE_ADDED:
++	case DRM_MIPI_DSI_ATTACHED:
++		/*
++		 * A bridges hot-plugged, try adding the
++		 * drm_bridge_connector
++		 */
++		drm_hotplug_helper_try_complete(hotplug_helper);
++		break;
++	case DRM_BRIDGE_DETACHED:
++	{
++		/*
++		 * A bridge was unplugged, remove the drm_bridge_connector
++		 * if it's part of the same pipeline
++		 */
++		struct drm_bridge *bridge = (struct drm_bridge *)data;
++
++		if (hotplug_helper->connector &&
++		    bridge->encoder == hotplug_helper->encoder)
++			drm_hotplug_helper_connector_remove(hotplug_helper);
++		break;
++	}
++	default:
++	}
++
++	return NOTIFY_DONE;
++}
++
++static void drmm_hotplug_helper_fini(struct drm_device *dev, void *res)
++{
++	struct drm_hotplug_helper *hotplug_helper = (struct drm_hotplug_helper *)res;
++
++	guard(mutex)(&hotplug_helper->event_mutex);
++
++	if (hotplug_helper->connector)
++		drm_hotplug_helper_connector_remove(hotplug_helper);
++
++	of_node_put(hotplug_helper->first_bridge_ep);
++}
++
++static void drmm_hotplug_helper_notifier_unregister(struct drm_device *dev, void *res)
++{
++	struct notifier_block *nb = (struct notifier_block *)res;
++
++	drm_hotplug_event_notifier_unregister(nb);
++}
++
++/**
++ * drmm_hotplug_helper_init - Initialise the hotplug helper for an encoder
++ * @encoder: the encoder where the bridge chain starts; must be already
++ *           associated to the drm_device (e.g. by drm_encoder_init())
++ * @event_cb: callback invoked when a drm_connector is added or removed
++ * @first_bridge_ep: device tree node of the encoder endpoint connected to
++ *                   the first bridge
++ *
++ * Register to receive hotplug-related events and react to them:
++ * - when a new bridge appears: tries to attach the whole bridge chain,
++ *   then checks if the pipeline is now complete, and if it is it adds a
++ *   drm_bridge_connector (which in turn will add a drm_connector)
++ * - when a bridge disappears, remove the drm_bridge_connector (which in
++ *   turn will remove the drm_connector)
++ *
++ * When a connector is added or removed, the @event_cb will be called.
++ *
++ * The caller does not need to attach the bridge(s) anymore because the
++ * hotplug_helper will do it, including at init time in case all bridges
++ * are present already.
++ *
++ * Returns a pointer to the new &drm_hotplug_helper on success, or a
++ * negative error pointer otherwise.
++ */
++struct drm_hotplug_helper *drmm_hotplug_helper_init(struct drm_encoder *encoder,
++						    drm_hotplug_helper_event_cb event_cb,
++						    struct device_node *first_bridge_ep)
++{
++	struct drm_hotplug_helper *hotplug_helper;
++	int ret;
++
++	if (!encoder || !event_cb || !first_bridge_ep)
++		return ERR_PTR(-EINVAL);
++
++	struct drm_device *drm = encoder->dev;
++	if (WARN_ON(IS_ERR_OR_NULL(drm)))
++		return ERR_PTR(-EINVAL);
++
++	hotplug_helper = drmm_kzalloc(drm, sizeof(*hotplug_helper), GFP_KERNEL);
++	if (!hotplug_helper)
++		return ERR_PTR(-ENOMEM);
++
++	mutex_init(&hotplug_helper->event_mutex);
++	hotplug_helper->encoder = encoder;
++	hotplug_helper->event_cb = event_cb;
++	hotplug_helper->drm_event_nb.notifier_call = drm_hotplug_helper_handle_event;
++	hotplug_helper->first_bridge_ep = of_node_get(first_bridge_ep);
++
++	ret = drmm_add_action_or_reset(drm, drmm_hotplug_helper_fini, hotplug_helper);
++	if (ret)
++		return ERR_PTR(ret);
++
++	ret = drm_hotplug_event_notifier_register(&hotplug_helper->drm_event_nb);
++	if (ret)
++		return ERR_PTR(ret);
++
++	ret = drmm_add_action_or_reset(drm, drmm_hotplug_helper_notifier_unregister,
++				       &hotplug_helper->drm_event_nb);
++	if (ret)
++		return ERR_PTR(ret);
++
++	guard(mutex)(&hotplug_helper->event_mutex);
++	drm_hotplug_helper_try_complete(hotplug_helper);
++
++	return 0;
++}
++EXPORT_SYMBOL_GPL(drmm_hotplug_helper_init);
+diff --git a/include/drm/drm_hotplug_helper.h b/include/drm/drm_hotplug_helper.h
+new file mode 100644
+index 000000000000..ba14d547f8ff
+--- /dev/null
++++ b/include/drm/drm_hotplug_helper.h
+@@ -0,0 +1,30 @@
++/* SPDX-License-Identifier: GPL-2.0+ */
++/*
++ * Copyright (C) 2026 GE HealthCare
++ * Author: Luca Ceresoli <luca.ceresoli@bootlin.com>
++ */
++
++#ifndef __DRM_HOTPLUG_HELPER_H__
++#define __DRM_HOTPLUG_HELPER_H__
++
++/**
++ * enum drm_hotplug_helper_event - DRM hotplug helper connector events
++ */
++enum drm_hotplug_helper_event {
++	/** @DRM_HOTPLUG_HELPER_CONNECTOR_ADDED: A drm_connector has just been added */
++	DRM_HOTPLUG_HELPER_CONNECTOR_ADDED,
++	/** @DRM_HOTPLUG_HELPER_CONNECTOR_REMOVING: A drm_connector is about to be removed */
++	DRM_HOTPLUG_HELPER_CONNECTOR_REMOVING,
++};
++
++/**
++ * drm_hotplug_helper_event_cb - Callback to report connector addition and removal.
++ */
++typedef void (*drm_hotplug_helper_event_cb)(enum drm_hotplug_helper_event event,
++					    struct drm_connector *connector);
++
++struct drm_hotplug_helper *drmm_hotplug_helper_init(struct drm_encoder *encoder,
++						    drm_hotplug_helper_event_cb event_cb,
++						    struct device_node *next_bridge_ep);
++
++#endif /* __DRM_HOTPLUG_HELPER_H__ */
+
+-- 
+2.56.1
+
