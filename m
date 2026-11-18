@@ -1,69 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=188.68.63.102
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795029019;
-	b=Lr5/+hWIQOTmoG6jNjznjPb76dyTIJWgaF/3noRkIiL0iWQnC8aJeXQuG0RCAE7q0y4x
-	 IkAeYuOzwOaaeaGiXEztemzyUFtDDIsM6IFcB7gAB4vp/4jaMipZk+xJGwWUjzvkWuzkd
-	 YMfmnrV+Y9v+9f+i5gVu6nX/6l7N+lJbEDM3Z1xyde5A/CYWNIH6LQz/w/EI0aRj7lyhf
-	 p9zftZ/2NbJGBAyHyjlUq7j/IKEzT+X8ZwzEdQAts8ltbSXsThiJ7fLM347ysDJ3wqnkg
-	 d4wwmZvywe2tF7hwt2kP3DvF+tx0y3bmyvRQykz1Vz02zswEV3qnVGXcfsSbR0o6cqA==
+	t=1795029033;
+	b=F0rVcX/rlX32d58eNPC3d5D8C7G//nNEL3Un5OT7NH5o4JtIrwPoLXH4XR0u2Arbmy1Q
+	 GSgRyiSOLATqfbHultoO0tvihmlcATj74zz3Oz7WhlyXAorg+oCfAIIWTzlgtu4kNA0Dv
+	 PaExcYtWC56iMMLIYKM0i5FVNYGczxDsCAW9z86gFurt6xU6Qfmx4SsS/gjv8H2FmpxMC
+	 xqpOj24oLzOueqNGB7guuFEgV+6i7W0/FJJZK8XrLOuivh68CMHd9S3NjGP5rcx0vgHVF
+	 AqT/eM2HrGnX5vyc0J6vh3F81pG0+n7/xLoogc+xPyDGUEbfox0UaH8gIE7clEoyC3A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795029019;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received-SPF:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:From:Content-Language:Autocrypt:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-PPP-Message-ID:X-NC-CID;
-	bh=jApJlOTkuKeHJz3p62IcHr0IeJBDXHk0vWL/IDLkBn0=;
-	b=i1G3djhz6CQ9XKwsvAJkvBuCbck081I+GxZIgrKspdeuSBCFxA2L/e+gkCjm1JweTm5d
-	 8ng8eqYHhbFQDFb28nc3j1B6QvV4mjwfbBm69TrjlYmaUpj/QdERUVvHF+PaBdMJaG7YG
-	 a6+Vz4JMZPFmpWl7KpnE9rXDPe/2nbdFNxqEG+WuC8a1DZWldUNjAjQXW+Wlud2GKCPcF
-	 Agp0rxfnN7uhsgWjKegT6ncFb/xg/6mHItXF0aQG7mOQmyyLuS4TQ1ase2LO9qtXAvxvO
-	 MuD4w9D0UzIQaa8wT30DOi1yBIUl9ql8mWRjyNEZm4keGBzc2QnPIceNQlFZeqbZnhQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795029033;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:X-Google-Original-From:Date:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=iVQ48tYQcgbZ0/KEDLqaISGszEZvhwKB3BC0TwvqE4M=;
+	b=5btosBwNGH5QzoINk+J07bUELR2VpTwahdmCAQSOGmdMmR5Sfa9EbPl48VZEiPxePzAg
+	 3SIdSECCsl/mHfpRTkRbWIW495z0eoMRbdwD8fnxndjVZm87mGjv/UxzX8ZLsbpF14SZJ
+	 nvYRxIIYfgucjt/Xv5SpxfuQzOWfGL7iNumClJBv4UUiWEPkASJ+GzTW81ZwvGcXzO4Y9
+	 qXbJcuWGgr4UV3vyVqR7WopePF4xn1jPi9jJE6gC23lUwU5lQFP+9CE0+gIYQrDDxPD+9
+	 D9VXTZmcoWef37Lmc9pTJq+sSP2OvACEd6sDo8mdufl0qonAcZ4adZf6nDNJhSW+3rw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=leemhuis.info;
-	spf=pass smtp.mailfrom=leemhuis.info;
-	dkim=pass header.d=leemhuis.info header.i=@leemhuis.info header.a=rsa-sha256 header.s=key2 header.b=UQvpLUzR;
-	arc=none smtp.remote-ip=188.68.63.102
-Received: from relay.yourmailgateway.de (relay.yourmailgateway.de [188.68.63.102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xZL7zUDf;
+	arc=none smtp.remote-ip=209.85.208.41
+Received: from mail-ed1-f41.google.com (mail-ed1-f41.google.com [209.85.208.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 547B7606A32C;
-	Wed, 18 Nov 2026 19:10:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 547B7606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=leemhuis.info
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=leemhuis.info
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4566E606A33B
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:10:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4566E606A33B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=leemhuis.info header.i=@leemhuis.info header.a=rsa-sha256 header.s=key2 header.b=UQvpLUzR
-Received: from mors-relay-2502.netcup.net (localhost [127.0.0.1])
-	by mors-relay-2502.netcup.net (Postfix) with ESMTPS id 4jVB3V6wF3z6JMQ;
-	Wed, 18 Nov 2026 20:09:10 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=leemhuis.info;
-	s=key2; t=1795028951;
-	bh=GrzZZYKpfkJx7R979hMX2CR+LPFVTbn1bMxjDHP1ITU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=UQvpLUzRYIW2/4HlygR06QuNz/Hy0DhxGy/INRunHX0fUlLw3Rm38FHfBGH94eIL6
-	 IwP7mZY4rcgG6SAUXo8k/gNvik/wA+EhU6q4bWEMm4qR4iuPFxHZ4AWlz9ePOk2HpZ
-	 kdP8H6HIB7eirP5NrhalrCTx1IPRmCcRG6NffNFzUlFtEpLBCFg4KZaf5v7wrHRqNj
-	 hOCSGyPXdljxLv5ovbK/iwSYNDlOiCAPRr5ZDkBVDE7mtifFCt0Wn2gM4WotDqIG1g
-	 XmY3kRb99xOfNM/8kVq3q7a1NfTlWfrpROcQp/y4ZcJF3Irt5R4Tm6k4/AwHkqzU0/
-	 cKDQOUJJ6OZXw==
-Received: from policy02-mors.netcup.net (unknown [46.38.225.35])
-	by mors-relay-2502.netcup.net (Postfix) with ESMTPS id 4jVB2w5LLbz521W;
-	Wed, 18 Nov 2026 20:08:40 +0100 (CET)
-Received: from mxe9fb.netcup.net (unknown [10.243.12.53])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by policy02-mors.netcup.net (Postfix) with ESMTPS id 4jVB2t4rRyz8sb3;
-	Wed, 18 Nov 2026 20:08:38 +0100 (CET)
-Received: from [IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f] (unknown [IPv6:2a02:8108:8984:1d00:a0cf:1912:4be:477f])
-	by mxe9fb.netcup.net (Postfix) with ESMTPSA id B2F935F9E7;
-	Wed, 18 Nov 2026 20:08:19 +0100 (CET)
-Authentication-Results: mxe9fb;
-        spf=pass (sender IP is 2a02:8108:8984:1d00:a0cf:1912:4be:477f) smtp.mailfrom=linux@leemhuis.info smtp.helo=[IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f]
-Received-SPF: pass (mxe9fb: connection is authenticated)
-Message-ID: <f44f88e3-5d0c-4001-89d0-306d9d2aad04@leemhuis.info>
-Date: Wed, 18 Nov 2026 20:08:19 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xZL7zUDf
+Received: by mail-ed1-f41.google.com with SMTP id 4fb4d7f45d1cf-6a642495d81so2526196a12.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:10:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795029031; x=1795633831; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=iVQ48tYQcgbZ0/KEDLqaISGszEZvhwKB3BC0TwvqE4M=;
+        b=xZL7zUDfbIFzDWI/sXPrHwkRH2Pzzf+jcGBJ/WiqqQUZ89MMw6eV78LOkyVNyKQT1B
+         919+HvLfjo3coRTrm7CmZUxiOjd91R1ocP0w3uLkrcraww7VjdXEXBVJdkmRzjQmeYyc
+         VXDIukR2K2Gg5BuZVZMoErDp5DOeW/sdJbzGZcChWu5Y1twgPoCaBNCvfftBrUgUBtMg
+         8/K2WfXXWENJU0wSK/0M+s4d5Wh6GonnKGhOrak8i99pgfl7XMSFUQmYyOL4SPENen42
+         XmSXuY319Jp4iyAFskF/H5QIqO1K2vCCtgCDGxSXHi3Mo23E4Y0cyOplh603a+uB2Lkk
+         5H4g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795029031; x=1795633831;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=iVQ48tYQcgbZ0/KEDLqaISGszEZvhwKB3BC0TwvqE4M=;
+        b=IYac9Bi1dLmXvjsDxc2SDuksieKNhq80pBGUCdxX+KdM2tIHdkantEh8pp8WMOTHV3
+         Gq7hqYklCw0Lu47JALShQ4zF2ag9ywRUL+64AywwN1Jz6rVLhg/6hYqdYApc8iyyfSLf
+         V7c8MF1d4KkTy6aFxq/e9DgraeiYSN8cwtP9PYum6IL9wZ3OwRFEIXHV/ftVl8xA5mmE
+         I5FxyKsNNLybtzHS2DV7cRAiLqVq4MuAiEJNppil+DNdyHRZ132PFBhvI6VUYKbFyrCP
+         VwqEj2yYvPf00IB9k+C1C3nPSKijAkdYS+fXH3UCm8QoMtYGdPLtVGFAR0Ldx+LyCVxH
+         ohwA==
+X-Forwarded-Encrypted: i=1; AL+hErG8hoGpIyB5vlb5n2rNO4UhgKSOMBRKbaZLkYKs4zU3zYQ70zOVm4Atg5bfOafCfEjxo5HSeJjyjegk2eg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/5K4QekFWIZs6ummBqMrmecILRk4zbiwAdVpBeuBW3f2X/nPrk
+	y/DIia/oqz8DIvbHWSp3AEzX1Hp6YyZ8UYdNS5gFPWBPmZrBaez/V0wr
+X-Gm-Gg: AYBFou1jJI6fdeq400gnE6/OPPp6HcGVmoZZUch7mthVBJr6Qg8kEdNDYLvGQtj/50h
+	EgoUcizF+SpCXpqvpn7BSb76AkI0MbBc+HNpTZ0WEjP2Z3+auiseOvCccbuk/GStV9gtlMIzM3h
+	3gCUX+iEHDM/Z/JDQvQXqsSq7L46x1agnCCjY1bES+eDwEi4/1RcfEqUOsnQKNNJR4uavs32KtE
+	BD1js7N90wwoALhhNTzE2YqqgxoFMNWRYTq5n0ucIPX0klsi99yOo0fGHrfBcocJpgxc52y8GI/
+	jWSF+awcGECavHecOWzsV3Tw4bYtuktv0kYt+ZScyz1k3Shwc8Llu7tYxe86m1f3d0DR2pObLQQ
+	QstObey+hLZXRQKoBsvhC0r/mMVK7ppvEuZ5v1HbJRxSPOPAKK6X8zyMpNa7zHOxpiUc7ZcuiBN
+	W6sxPde8jFUaOw2Y1b9iC9BS/H5SklojrD6n1k05CTffg3PLXsk5vDyQYnvj1eNqJoxM4QAZBa/
+	DZd8EbWScH2gFcbTHfBzE1yEWULBQo0pgcph9yIh80JM3A1F5BOemzaopxQGKvBQMLrnw==
+X-Received: by 2002:a05:6402:1d4b:b0:6b8:80e3:d58a with SMTP id 4fb4d7f45d1cf-6b887eb1272mr2966644a12.23.1795029031397;
+        Wed, 18 Nov 2026 11:10:31 -0800 (PST)
+Received: from milan ([2001:9b1:d5a0:a500::24b])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b888ef9423sm1460511a12.3.2026.11.18.11.10.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 11:10:30 -0800 (PST)
+From: Uladzislau Rezki <urezki@gmail.com>
+X-Google-Original-From: Uladzislau Rezki <urezki@milan>
+Date: Wed, 18 Nov 2026 20:10:28 +0100
+To: Hao Ge <hao.ge@linux.dev>
+Cc: Suren Baghdasaryan <surenb@google.com>,
+	Uladzislau Rezki <urezki@gmail.com>, Dev Jain <dev.jain@arm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Alexander Potapenko <glider@google.com>,
+	Marco Elver <elver@google.com>, Dmitry Vyukov <dvyukov@google.com>,
+	Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Christoph Lameter <cl@gentwo.org>, linuxppc-dev@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com,
+	linux-mm@kvack.org
+Subject: Re: [PATCH v5 03/11] mm/vmalloc: reject an unaligned range in
+ vmap_page_range()
+Message-ID: <av34JPIcIOVdF0kL@milan>
+References: <20261116071325.263682-1-hao.ge@linux.dev>
+ <20261116071325.263682-4-hao.ge@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,123 +111,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7.3 0000/2651] 7.3.6-rc1 review
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
-Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
- torvalds@linux-foundation.org, akpm@linux-foundation.org,
- linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
- lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
- f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
- conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
- achill@achill.org, sr@sladewatkins.com,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>
-References: <20261118150247.972732815@linuxfoundation.org>
-From: Thorsten Leemhuis <linux@leemhuis.info>
-Content-Language: de-DE, en-US
-Autocrypt: addr=linux@leemhuis.info; keydata=
- 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 MEK4
-In-Reply-To: <20261118150247.972732815@linuxfoundation.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-PPP-Message-ID: <179502890049.2814386.299617666781807517@mxe9fb.netcup.net>
-X-NC-CID: 2Oo+gn2tGsdaLGlgtVObaWNaizbSu8muMQTAJevp1q2ohR3HVzk=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261116071325.263682-4-hao.ge@linux.dev>
 
-On 11/18/26 15:20, Greg Kroah-Hartman wrote:
-> This is the start of the stable review cycle for the 7.3.6 release.
-> There are 2651 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
+On Mon, Nov 16, 2026 at 03:13:17PM +0800, Hao Ge wrote:
+> commit a739e6b557af ("mm: vmalloc: WARN_ON if mapping size is not
+> PAGE_SIZE aligned") put the check in vmap_pte_range(), which is too
+> late, because the upper levels may already have installed page tables
+> for a range that is rejected anyway.
 > 
-> Responses should be made by Fri, 20 Nov 2026 14:55:47 +0000.
-> Anything received after that time might be too late.
+> The pte loop maps whole pages and stops only when addr lands exactly
+> on end. An unaligned end lets addr jump over it and the loop keeps
+> mapping past the range. An unaligned start maps the page below the
+> range and usually misses end too. Such a range is never a legitimate
+> request.
 > 
-> The whole patch series can be found in one patch at:
-> 	https://www.kernel.org/pub/linux/kernel/v7.x/stable-review/patch-7.3.6-rc1.gz> [...]
+> vmap_range_noflush() has a single caller, vmap_page_range(). Warn on
+> addr and end there and bail out with -EINVAL before any page table is
+> installed, and drop the check from vmap_pte_range().
+> 
+> Suggested-by: Suren Baghdasaryan <surenb@google.com>
+> Suggested-by: Dev Jain <dev.jain@arm.com>
+> Signed-off-by: Hao Ge <hao.ge@linux.dev>
+> ---
+>  mm/vmalloc.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+> index 3c0d9e69b886..a168f6f20f4f 100644
+> --- a/mm/vmalloc.c
+> +++ b/mm/vmalloc.c
+> @@ -125,9 +125,6 @@ static int vmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
+>  	unsigned long size;
+>  	unsigned int nr_pages;
+>  
+> -	if (WARN_ON_ONCE(!PAGE_ALIGNED(end - addr)))
+> -		return -EINVAL;
+> -
+>  	pfn = phys_addr >> PAGE_SHIFT;
+>  	pte = pte_alloc_kernel_track(pmd, addr, mask);
+>  	if (!pte)
+> @@ -369,6 +366,9 @@ int vmap_page_range(unsigned long addr, unsigned long end,
+>  {
+>  	int err;
+>  
+> +	if (WARN_ON_ONCE(!PAGE_ALIGNED(addr) || !PAGE_ALIGNED(end)))
+> +		return -EINVAL;
+> +
+>  	err = vmap_range_noflush(addr, end, phys_addr, pgprot_nx(prot),
+>  				 ioremap_max_page_shift);
+>  	flush_cache_vmap(addr, end);
+> -- 
+> 2.25.1
+> 
+LGTM,
 
-This failed to build for me on s390x while building tools/perf/:
+Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
 
-> util/annotate-data.c: In function ‘global_var__collect’:
-> util/annotate-data.c:785:30: error: implicit declaration of function ‘die_get_type_die’; did you mean ‘die_get_typename’? [-Wimplicit-function-declaration]
->   785 |                         if (!die_get_type_die(dwarf, pos->die_off, pos->die_tag,
->       |                              ^~~~~~~~~~~~~~~~
->       |                              die_get_typename
-> util/annotate-data.c:785:71: error: ‘struct die_var_type’ has no member named ‘die_tag’
->   785 |                         if (!die_get_type_die(dwarf, pos->die_off, pos->die_tag,
->       |                                                                       ^~
-> util/annotate-data.c:786:50: error: ‘struct die_var_type’ has no member named ‘from_alt’
->   786 |                                               pos->from_alt, &type_die))
->       |                                                  ^~
-> util/annotate-data.c:792:44: error: ‘struct die_var_type’ has no member named ‘from_alt’
->   792 |                                         pos->from_alt);
->       |                                            ^~
-> util/annotate-data.c: In function ‘get_global_var_type’:
-> util/annotate-data.c:849:26: error: implicit declaration of function ‘die_same_file’ [-Wimplicit-function-declaration]
->   849 |                         !die_same_file(cu_die, type_die));
->       |                          ^~~~~~~~~~~~~
-> util/annotate-data.c: In function ‘update_var_state’:
-> util/annotate-data.c:905:42: error: ‘struct die_var_type’ has no member named ‘die_tag’
->   905 |                                       var->die_tag, var->from_alt, &mem_die))
->       |                                          ^~
-> util/annotate-data.c:905:56: error: ‘struct die_var_type’ has no member named ‘from_alt’
->   905 |                                       var->die_tag, var->from_alt, &mem_die))
->       |                                                        ^~
-> make[4]: *** [/builddir/build/BUILD/kernel-7.3.6-build/kernel-7.3.6-rc1/linux-7.3.6-0.rc1.400.vanilla.fc45.s390x/tools/build/Makefile.build:96: util/annotate-data.o] Error 1
-> make[4]: *** Waiting for unfinished jobs....
-> make[3]: *** [/builddir/build/BUILD/kernel-7.3.6-build/kernel-7.3.6-rc1/linux-7.3.6-0.rc1.400.vanilla.fc45.s390x/tools/build/Makefile.build:158: util] Error 2
-> make[2]: *** [Makefile.perf:573: perf-util-in.o] Error 2
-> make[1]: *** [Makefile.perf:283: sub-make] Error 2
-> make: *** [Makefile:76: all] Error 2
-
-Full log:
-https://download.copr.fedorainfracloud.org/results/@kernel-vanilla/fedora-rc/fedora-45-s390x/11350094-stablerc-fedorarc-releases/builder-live.log.gz
-
-Maybe other archs are affected as well, those builds failed earlier for
-me due to the rust problem I reported a few minutes ago.
-
-Have to run, so not time to look at where this is coming from right now,
-sorry.
-
-Ciao, Thorsten
+--
+Uladzislau Rezki
