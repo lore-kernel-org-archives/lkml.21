@@ -1,67 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.117.254.33
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794997508;
-	b=gRbCarQQOdWs6ax2Ql+rojbVrORErU9jLr56CmKc2+VV5SI3+CLN//dlExzQe8lxL4C5
-	 cUwp394ZSElzTg9GEyEvIIMaGwC6RBaKm7OFzxn7fXLkbnVgcqKO4uHCu8PGn2FNnZQLB
-	 boQf8J52+SD39XKk4W2Dv0bk7TC3xSol8pGLlfWFOYgvKHknnL+Gr7ikLEviFMya0lutC
-	 uS9ZB+ZuiMFtpjB7nFSOH6jXdTEJ9PBX6/xbdAJsp47jjqho2EieiZqg11Bzd2gaGVl7n
-	 QfObNZmQ89IQgS1dX9HyiGIpLNqLM2ZKFqFS/1fb+EQnrscSOjwyL30Qbbq/vNV+wyQ==
+	t=1794997559;
+	b=Rbm7yYkU6K12syklmhSgAsIGQJVpwIxA8xODG7v3BPsaqv4be5EGutMewUDIbnn2Dnfd
+	 GNe8QsazzlzKLnB1Zk0kBnmNfK7ih7g57MATSb552VbMH2D67n0DcrkOsUSOsS+zymWDy
+	 4j5nL1mGQIvcku6tsIL2Uyf8FmLPRfllmx2Rqy5nRewey3fODegN0V9ERL5597GU93sX+
+	 B6jIfUw3shCeQ/WfyeHfW/SxZhmbenxFb3eXhQiYgh/tqrgGu3OniVxhZBqtkWWw7SuN3
+	 k5goiD0TP9ChwBx47T4/MsJi0Jasv6LseGrxSma/598ExlVkcEIJLcikIzBLcpUhQZQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794997508;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Date:Message-ID;
-	bh=Yhigk21UeHnX3LFKE02WJlX+yu75OJpAsHrP2ixijWE=;
-	b=HqYQ6EWeygH/NdAgslriO1hR+8z+Ul6cAONddagCiyVDxf9gFPLhmcw/J5ycyRUyD+Su
-	 qCuJMUUMym+imliswpJH827zOIXpOL5keK3JmRogpsX0Ohlq02Dwg1G20igWLcPJv/2cN
-	 5SF4lPfaplucprWSRwG9TkmQ2JbSe/0neyGhTyM7D/MR0eOIE9yRTkGoNvgnaYO6MEIaw
-	 YO8d0Co6M3Sy7ftJZ14/w2i6Sn33DNHOQg6TZLQ9Z3iFvGin+xtuGijnfzjVGsMGHreyy
-	 KPoAQU58SG3zBavD278wrSogMoCF/9cq2V8/6OLFt4L+58E/ErxHEa5x343iP737DBQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794997559;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:X-UD-Smtp-Session:Date:
+	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=5+A/JE9HHMD6dVa1CZzmW3mLu2nIXMpf4wNuwenC3+U=;
+	b=gdgesuIAFg4f2+Lm392KBht+P2tRjo+/k0m97o4eLAWIdAqFrukVtMP3wjLomIjXp9TS
+	 EF1ZSbvK4JDpyFDt80SGyJnOPPD43EFYfsstQyrOyfPvovWd5YJZsNv/EJLI9OA1PteRW
+	 hsLqlc0/8JM49HnpCaVltoYSQji9Iw0wGxudnUP1D5JknQGlI/0MaCZ7fEh/ZZWbSpNs8
+	 Co+CjxfTwjOLxMx5N4Ym9ueLJy5iuIfRCPYoG+MYtoZGvDXAJY/9aT6wq0+Pe5JIr/qWN
+	 LY/QJCAvcZFSMH1lGYsetntA2mRPJKXq+slOM4lT9r+LA0aUyXi3ZHe46Q5sq+Jytaw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=NefQZF7j;
-	arc=none smtp.remote-ip=111.22.67.139
-Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id CF2E1606A32A;
-	Wed, 18 Nov 2026 10:25:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF2E1606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dmarc=none header.from=sang-engineering.com;
+	spf=pass smtp.mailfrom=sang-engineering.com;
+	dkim=pass header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=GxTQyBaS;
+	arc=none smtp.remote-ip=194.117.254.33
+Received: from mail.zeus03.de (zeus03.de [194.117.254.33])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68E11606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:25:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 68E11606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=sang-engineering.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sang-engineering.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=NefQZF7j
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=NefQZF7jCQieaZJKEurUuZjqrM6zvK+V0mrRU1WNN7RnvWkzTp6RQeG1rjS4vzG/5dgEgy9ybc58f
-	 WyZTRRu7kbrprdKGZ2jc2Ikh56P7UsNaBqibH8jNJas2S+m6OViJrZyj1FjBVFWAqnbGOlpOtE9k8m
-	 kNXYlzfzuiCxbvEo=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app05-12005 (RichMail) with SMTP id 2ee56afd7cff391-10eb7;
-	Wed, 18 Nov 2026 18:25:04 +0800 (CST)
-X-RM-TRANSID:2ee56afd7cff391-10eb7
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from [198.18.0.131] (unknown[223.108.79.102])
-	by rmsmtp-syy-appsvr09-12009 (RichMail) with SMTP id 2ee96afd7cfedfd-d3b0d;
-	Wed, 18 Nov 2026 18:25:04 +0800 (CST)
-X-RM-TRANSID:2ee96afd7cfedfd-d3b0d
-From: Xia Yan <yanxia@cmss.chinamobile.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, linux-kernel@vger.kernel.org, kuniyu@google.com,
- xeb@mail.ru, yana06070@163.com
-Subject: Re: [PATCH net-next v3] ip6_gre: fix changelink conflict checks for
- L2 tunnels
-In-Reply-To: <179489968486.3136.18372818760197436344@kernel.org>
-References: 
- <179455350258.84965.17518172977020586093.ip6gre-v3@cmss.chinamobile.com>
- <179489968486.3136.18372818760197436344@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=GxTQyBaS
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=5+A/
+	JE9HHMD6dVa1CZzmW3mLu2nIXMpf4wNuwenC3+U=; b=GxTQyBaSgKQuxxOenLFT
+	O84dJiQJBpcVrYoxyFGunEe+EqcW1TheaLc1BQWC+xBwFjJ2LpOtIOq+wvm2BFzH
+	bKKJZ9qjN9FRSbQ/Zvlc207xaTyTcnZtgcmvAsPYsiKap7lbde0Rpo9PsSu6ZyNv
+	TwrWjDnT7UyankInaIMJFf63BOUGe0E5AMWv7nxpBnze5To7ZNfyCKfwMLjhyA0l
+	G546ZGw5rULm6VfXgJJyLiuIKvcA8o4V3ZmgL3Djn+AYCYDQsAD400X5mi5YxqGg
+	omAXhygeDTQjxgjEZ65HveExb8xWXHMzl/K7mkQs3k+Z7qgBOnw8Vlr7AwIWVPju
+	iw==
+Received: (qmail 613206 invoked from network); 18 Nov 2026 11:25:53 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 18 Nov 2026 11:25:53 +0100
+X-UD-Smtp-Session: l3s3148p1@ocuBb4pgPqYujnsi
+Date: Wed, 18 Nov 2026 11:25:52 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Paul Louvel <paul.louvel@bootlin.com>
+Cc: Borislav Petkov <bp@alien8.de>, Tony Luck <tony.luck@intel.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, linux-edac@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Herve Codina <herve.codina@bootlin.com>
+Subject: Re: [PATCH v8 0/3] Add Renesas RZ/N1x EDAC driver
+Message-ID: <av19MPAXUdBRWyup@shikoro>
+References: <20261118-paul-v7-3-rc1-edac-v8-0-ed791084cc19@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,34 +72,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Date: Wed, 18 Nov 2026 18:24:57 +0800
-Message-ID: <179499749739.1141732.10101346678312526903.ip6gre-v4-followup@cmss.chinamobile.com>
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="NCYSeN1R4nBIFoOa"
+Content-Disposition: inline
+In-Reply-To: <20261118-paul-v7-3-rc1-edac-v8-0-ed791084cc19@bootlin.com>
 
-Hi,
-
-I reproduced both cases and addressed them in v4:
-https://lore.kernel.org/netdev/179491056935.741041.1816208847037703396.ip6gre-v4@cmss.chinamobile.com/
-
-Metadata updates now go through the duplicate check when their receive
-parameters change. Moving one onto an existing ordinary tunnel returns
-EEXIST, including for L3 GRE.
-
-Updates that keep the receive parameters unchanged skip that lookup.
-They also keep the hash entry in place, so updating either device in an
-existing ordinary/metadata overlap does not change the receive priority.
-Both GRE and ERSPAN changelink paths do this.
-
-UML tests passed for all three kinds, including received-packet checks.
-
-On Fixes, Ido asked to drop Fixes/stable and target net-next:
-https://lore.kernel.org/netdev/20261030151629.GA85001@shredder/
-I've kept that for v4.
-
-Thanks,
-Xia Yan
-
-pw-bot: cr
+--NCYSeN1R4nBIFoOa
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
 
+> Changes in v8:
+> - After discussion with Wolfram and Geert, the driver have no reason to
+>   be disabled by default. Remove the status property in patch #3.
+> - Reparent on next-20261116.
+> - Link to v7: https://patch.msgid.link/20261019-paul-v7-3-rc1-edac-v7-0-84c76c6d7595@bootlin.com
+
+Added Tested-by for patch 2 ;)
+
+
+--NCYSeN1R4nBIFoOa
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmr9fTAACgkQFA3kzBSg
+Kbaz2A//ZFr9og+NfiSjf3BkKGwKvg29uJAcd5HTu1pehLA6BcyBojdxor7SjFRp
+kXz4KHXpvxs770gBwMM6QGN2QiLofED8gMGIg/wY9tqMh8ibtBheacty9tBg5Kha
+1/XIjuG6zn78jqEYWLAhNZbruRPVSdF3MUjQR8cgdmHKelLaOofyRXuWt9au6a3b
+hS3MRaWpI+lymMZKJu2yckVt6r5OfpAknbKLusuCDTtLGfFV8iFUfHkREmeR5ANI
+CxgbZxbAhes5cxdYlRDSssMG83Pr1Ppj1FR+xOd7Qy0gyW2p+OO5eoy2D+01eSam
+V5GTy2g06V9shiroZijB6cfuIEbStIfWGEd+SXAOTENzQPCcyRGGaBNcwwzTG1Gn
+HHZOfnjg7tBtNHVXeHgJZGmccYYmPHrMpQ30Uz8U0VcGUGssuqMWqJx4WKoe2ljp
+IaaeX13IcuoK4tfA6SD5gjlK+Gx97Epq+RWscHZoDsnzLQGWyqqFk449MF7cnD8/
+Z8dPq2JPnOO7tktGM5Y962ckmHjFERXRujNlq0HBAtshuwoUDW79my/9AUrlIHuq
+iuKPT87Ztfqqcj7vrb+yReC0liWcfSP22dSGDs2C2NvuiStY77rbHQZUEUmGWEHh
+ENJwlNKZfRTsnIkYIzmrNT44OoRmr7Ha25f3C6EQfkNmHhIgNoQ=
+=vTIW
+-----END PGP SIGNATURE-----
+
+--NCYSeN1R4nBIFoOa--
