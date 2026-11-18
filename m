@@ -1,47 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795015555;
-	b=YOCJd6FudHIHxav36k5nHlcq874ed19zhzdB3OtYN3mOpjNzTjYl1J7apQsBNhMLJqLO
-	 /4q3whvrV8qyweJqY0LZ9KjKr0ffBUA4fKwR+zFxlljw+1U4+d7hUWjNguXMz1Bw4wYK3
-	 HZnQ0k4bqW5dI0PpeJQtgMEsgDgBgNclTtD4gVLxK5fnYMmU1G6EbwITgA51q71KYwmdm
-	 j1fm1JQuZHma9KyHnXq4aepWcwdhGsAYJ4Vhv8tQAWlKosBnJ/X9uZ/OwyzYaQKBf7tRL
-	 BHtgoiZH3j/6VOtIrp5HXfYY42HuPAQxPAi1GT1yOBMpsW7r37mtNPB1e21bfGqYUuA==
+	t=1795015565;
+	b=DW+yKCob2yLnhLJbBFmWtx5guibd0fQvqTjmqZJy6swQbiXmvJfm5Bpgbd7+Rod1aoFv
+	 DwYcTxcGnx7Pnh8+YAklPzDGGISXnp0wSKtHhJpDRSUOXZtxTpSOv0HXBcovVmInR8hx4
+	 bqb0NyZznftOyF5Md3d0Ae6qRCOl+oEKyqemW9jjr1eKxVBq1mlhl2M0MONmku6HrPnQa
+	 2GHozAYh0cSNVopyz/ENr0eBo9dfngRuJvtEN4QJ1aM7v5RRcdrrYVcDlYs2sC3Zr33gg
+	 /i/6hXER5hc0raHpyv6BKyOgjQcRAPZIFydDarZsVdH6nr0l8fZ4vHhwIOK3Ls+YLzQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795015555;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=viOmGIbmx5OWxYgiQI8AAjcCw6I5GVsUWS896dl4i7E=;
-	b=unKnwayWpxS5h1LyfmV/Dq+lqKetoiJ/pa13Yg4jLlT7YP1vTvxdBzn7MjG9BdhlQCjs
-	 Suw3pUI7r3AtXjoZUA42f+OK2S93Zb5tcdy4j8bADroNo2bGswIZOmo6Gq0HE1rO8q2BY
-	 4AjAABJJht3OqLycH5hZFM+BmtIQWA0pODnfTlBW0Yqyak6mS2C8tu1NZYTnSZqEwM/HD
-	 HuT66OxBXdtTbAg04/qI7a1t9UM/WLcda8k+G7+np24aKbJFlOxTnb1dOFf2X7jamPgaX
-	 rNszf52OK+0Y4ALL14U+5LrUXjVAkwgJun2khisn7kciN+MlpkhSFj0XJ7bWIy3fyjA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795015565;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
+	 User-Agent:MIME-Version;
+	bh=Jj7CHtLt62pLL7MMim1REZseI1Ujb3pinwo7e+2pg+M=;
+	b=r46916WSV9Y7e1XmfLz6RAg7COK7eR9r2e0W3w9TQAOOKyjBQpx3KJXzfjuOCEOG+ejW
+	 ZUB9W+NrEN0s7ievWJdoh3dXyD+9AaKxb8NoZapEL29hfwd0lrW25MiNS0aa62CuQ0uEK
+	 LG9mHpVVlRwzA2Y926ixq3SWLxdaWeTQEv8k8Ra25SQiqJ0EDUCL0QAXKROYePUxA11ii
+	 vYQlE2Av6eJJjLMU+280/uS9Tu9oUHB9zkprxTpWHjmduMGAOFbgR+ImV6gV9jDkHKY6X
+	 vxLd5Xh8Eq52onjDoP2sTmshrzjuse0J6j0vW7Wyby6PULBKqmCXrPhQ7opWY/yGo6g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oAAqXijU;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=Y0fe9G03;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 729C7606A325;
-	Wed, 18 Nov 2026 15:25:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02D3B60A2601;
+	Wed, 18 Nov 2026 15:26:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02D3B60A2601
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oAAqXijU
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20B621F000C5;
-	Wed, 18 Nov 2026 15:25:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795015555;
-	bh=viOmGIbmx5OWxYgiQI8AAjcCw6I5GVsUWS896dl4i7E=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=oAAqXijUGF+2PFzvTnj06fvcFXXyypTuKLw0i/g1yVr/eJ7BQi6WUbccC8igKJAeM
-	 ITT6SP3I7cKodQ4GcqGJ9ooZ2eKHc6DhTL7en+cAqO9HKaynWMAG4k9dbjrGGTDEEQ
-	 X3/GtJlQNVOxz/eyjZaKDKbwFaSPwHoEG4Ahqrgw8BdIbiM9x5hOGizTBrwwhMPtiy
-	 ip9XNQ49aNN9T2sspAB2QDAofx0QRXg2VvjZ8p0zmAgJwdxAg7hRPQf0yqknDmpPYn
-	 0UsKgNRgrf6iF6KOtzIYikRM+8JBCnkHbsL5424FGpQhQAiRgIne1CTfKh/HfuppYa
-	 hsfuGD3pJQxcA==
-Message-ID: <ab0c29ff-804f-45e3-b3e2-756a8c81adaa@kernel.org>
-Date: Wed, 18 Nov 2026 16:25:40 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=Y0fe9G03
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795015563;
+	bh=Jj7CHtLt62pLL7MMim1REZseI1Ujb3pinwo7e+2pg+M=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=Y0fe9G03H0jsbGazwKmLkXR08FJJloc5QZKZiNTuNRmkB9eGrWBNAywPj0KzVjlLW
+	 VJqOv2obWrRbvhf4aQdf0snXWLR3nKFoDggtAu/L57Bfwn0VWS36cupd615hf0z/ZE
+	 /Qk9zhCbjoNaURDnpFZlQAKhbE9rpjZskRDAnAwGOEF+hx88uZiWnMU40n8vFelIRE
+	 QmQPCf4ASWQlCqkcUs88o4VizwEFL2QKl06lMjAvJTdJjV8i55+yorSxqrHeu7lX0G
+	 p3/p+rVyiJLIVnODQjw1cITkXIFuLt9Nz7Djr3Gh5fmgrXvpWvF2mdu6sdzv0fr93t
+	 PNyHblA8aWz3g==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4E3F617E0B1E;
+	Wed, 18 Nov 2026 16:26:00 +0100 (CET)
+Message-ID: <b145b2ceb92c73a4fa0477d7b3895a6e3b4adf99.camel@collabora.com>
+Subject: Re: [PATCH 0/6] rust: iommu: add a paging domain abstraction
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>, Daniel Almeida
+	 <daniel.almeida@collabora.com>
+Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>, Miguel Ojeda <ojeda@kernel.org>, Boqun
+ Feng <boqun@kernel.org>, Gary Guo	 <gary@garyguo.net>,
+ =?ISO-8859-1?Q?Bj=F6rn?= Roy Baron	 <bjorn3_gh@protonmail.com>, Benno
+ Lossin <lossin@kernel.org>, Andreas Hindborg	 <a.hindborg@kernel.org>,
+ Alice Ryhl <aliceryhl@google.com>, Trevor Gross	 <tmgross@umich.edu>,
+ Danilo Krummrich <dakr@kernel.org>, Tamir Duberstein	 <tamird@kernel.org>,
+ Alexandre Courbot <acourbot@nvidia.com>, Onur =?ISO-8859-1?Q?=D6zkan?=	
+ <work@onurozkan.dev>, Abdiel Janulgue <abdiel.janulgue@gmail.com>, 
+	iommu@lists.linux.dev, rust-for-linux@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, driver-core@lists.linux.dev, Detlev Casanova	
+ <detlev.casanova@collabora.com>
+Date: Wed, 18 Nov 2026 10:25:58 -0500
+In-Reply-To: <20261117202055.GA3115493@ziepe.ca>
+References: <20261112-b4-iommu-domain-v1-0-c29e86788dda@collabora.com>
+	 <20261116193821.GC2452510@ziepe.ca>
+	 <3EB4C2ED-B699-4532-A562-68B78F6E29C6@collabora.com>
+	 <20261117202055.GA3115493@ziepe.ca>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-IJcHGH9mSee+VxCb9BnL"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,124 +99,116 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 04/13] mm/migrate_device: allocate THP deferred split
- heads
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>, David Rientjes <rientjes@google.com>,
- Shakeel Butt <shakeel.butt@linux.dev>,
- Andrew Morton <akpm@linux-foundation.org>, Jann Horn <jannh@google.com>,
- Pedro Falcato <pfalcato@suse.de>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>,
- Nhat Pham <nphamcs@gmail.com>, Johannes Weiner <hannes@cmpxchg.org>,
- Zi Yan <ziy@nvidia.com>, Matthew Brost <matthew.brost@intel.com>,
- Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>,
- Gregory Price <gourry@gourry.net>, Ying Huang
- <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>,
- Usama Arif <usama.arif@linux.dev>, Kairui Song <kasong@tencent.com>,
- Balbir Singh <balbirs@nvidia.com>, =?UTF-8?B?SsOpcsO0bWUgR2xpc3Nl?=
- <jglisse@redhat.com>, Kiryl Shutsemau <kas@kernel.org>,
- Yu-cheng Yu <yu-cheng.yu@intel.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, Dennis Zhou <dennis@kernel.org>,
- Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@gentwo.org>,
- Peng Fan <peng.fan@nxp.com>, Josef Bacik <jbacik@fb.com>,
- Chris Mason <mason@kernel.org>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, "Borislav Petkov (AMD)" <bp@alien8.de>,
- Mark Brown <broonie@kernel.org>,
- "Dennis Zhou (Facebook)" <dennisszhou@gmail.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Josef Bacik <josef@toxicpanda.com>, stable@vger.kernel.org
-References: <20261113-mason-migrate-et-al-fixes-v2-0-50a2ed382b61@kernel.org>
- <20261113-mason-migrate-et-al-fixes-v2-4-50a2ed382b61@kernel.org>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
- dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
- QZLQMzNE74ap+GDK0wnacPQFpcG1AE9RMq3aeErY5tujekBS32jfC/7AnH7I0v1v1TbbK3Gp
- XNeiN4QroO+5qaSr0ID2sz5jtBLRb15RMre27E1ImpaIv2Jw8NJgW0k/D1RyKCwaTsgRdwuK
- Kx/Y91XuSBdz0uOyU/S8kM1+ag0wvsGlpBVxRR/xw/E8M7TEwuCZQArqqTCmkG6HGcXFT0V9
- PXFNNgV5jXMQRwU0O/ztJIQqsE5LsUomE//bLwzj9IVsaQpKDqW6TAPjcdBDPLHvriq7kGjt
- WhVhdl0qEYB8lkBEU7V2Yb+SYhmhpDrti9Fq1EsmhiHSkxJcGREoMK/63r9WLZYI3+4W2rAc
- UucZa4OT27U5ZISjNg3Ev0rxU5UH2/pT4wJCfxwocmqaRr6UYmrtZmND89X0KigoFD/XSeVv
- jwBRNjPAubK9/k5NoRrYqztM9W6sJqrH8+UWZ1Idd/DdmogJh0gNC0+N42Za9yBRURfIdKSb
- B3JfpUqcWwE7vUaYrHG1nw54pLUoPG6sAA7Mehl3nd4pZUALHwARAQABzS5EYXZpZCBIaWxk
- ZW5icmFuZCAoQ3VycmVudCkgPGRhdmlkQGtlcm5lbC5vcmc+wsGQBBMBCAA6AhsDBQkmWAik
- AgsJBBUKCQgCFgICHgUCF4AWIQQb2cqtc1xMOkYN/MpN3hD3AP+DWgUCaYJt/AIZAQAKCRBN
- 3hD3AP+DWriiD/9BLGEKG+N8L2AXhikJg6YmXom9ytRwPqDgpHpVg2xdhopoWdMRXjzOrIKD
- g4LSnFaKneQD0hZhoArEeamG5tyo32xoRsPwkbpIzL0OKSZ8G6mVbFGpjmyDLQCAxteXCLXz
- ZI0VbsuJKelYnKcXWOIndOrNRvE5eoOfTt2XfBnAapxMYY2IsV+qaUXlO63GgfIOg8RBaj7x
- 3NxkI3rV0SHhI4GU9K6jCvGghxeS1QX6L/XI9mfAYaIwGy5B68kF26piAVYv/QZDEVIpo3t7
- /fjSpxKT8plJH6rhhR0epy8dWRHk3qT5tk2P85twasdloWtkMZ7FsCJRKWscm1BLpsDn6EQ4
- jeMHECiY9kGKKi8dQpv3FRyo2QApZ49NNDbwcR0ZndK0XFo15iH708H5Qja/8TuXCwnPWAcJ
- DQoNIDFyaxe26Rx3ZwUkRALa3iPcVjE0//TrQ4KnFf+lMBSrS33xDDBfevW9+Dk6IISmDH1R
- HFq2jpkN+FX/PE8eVhV68B2DsAPZ5rUwyCKUXPTJ/irrCCmAAb5Jpv11S7hUSpqtM/6oVESC
- 3z/7CzrVtRODzLtNgV4r5EI+wAv/3PgJLlMwgJM90Fb3CB2IgbxhjvmB1WNdvXACVydx55V7
- LPPKodSTF29rlnQAf9HLgCphuuSrrPn5VQDaYZl4N/7zc2wcWM7BTQRVy5+RARAA59fefSDR
- 9nMGCb9LbMX+TFAoIQo/wgP5XPyzLYakO+94GrgfZjfhdaxPXMsl2+o8jhp/hlIzG56taNdt
- VZtPp3ih1AgbR8rHgXw1xwOpuAd5lE1qNd54ndHuADO9a9A0vPimIes78Hi1/yy+ZEEvRkHk
- /kDa6F3AtTc1m4rbbOk2fiKzzsE9YXweFjQvl9p+AMw6qd/iC4lUk9g0+FQXNdRs+o4o6Qvy
- iOQJfGQ4UcBuOy1IrkJrd8qq5jet1fcM2j4QvsW8CLDWZS1L7kZ5gT5EycMKxUWb8LuRjxzZ
- 3QY1aQH2kkzn6acigU3HLtgFyV1gBNV44ehjgvJpRY2cC8VhanTx0dZ9mj1YKIky5N+C0f21
- zvntBqcxV0+3p8MrxRRcgEtDZNav+xAoT3G0W4SahAaUTWXpsZoOecwtxi74CyneQNPTDjNg
- azHmvpdBVEfj7k3p4dmJp5i0U66Onmf6mMFpArvBRSMOKU9DlAzMi4IvhiNWjKVaIE2Se9BY
- FdKVAJaZq85P2y20ZBd08ILnKcj7XKZkLU5FkoA0udEBvQ0f9QLNyyy3DZMCQWcwRuj1m73D
- sq8DEFBdZ5eEkj1dCyx+t/ga6x2rHyc8Sl86oK1tvAkwBNsfKou3v+jP/l14a7DGBvrmlYjO
- 59o3t6inu6H7pt7OL6u6BQj7DoMAEQEAAcLBfAQYAQgAJgIbDBYhBBvZyq1zXEw6Rg38yk3e
- EPcA/4NaBQJonNqrBQkmWAihAAoJEE3eEPcA/4NaKtMQALAJ8PzprBEXbXcEXwDKQu+P/vts
- IfUb1UNMfMV76BicGa5NCZnJNQASDP/+bFg6O3gx5NbhHHPeaWz/VxlOmYHokHodOvtL0WCC
- 8A5PEP8tOk6029Z+J+xUcMrJClNVFpzVvOpb1lCbhjwAV465Hy+NUSbbUiRxdzNQtLtgZzOV
- Zw7jxUCs4UUZLQTCuBpFgb15bBxYZ/BL9MbzxPxvfUQIPbnzQMcqtpUs21CMK2PdfCh5c4gS
- sDci6D5/ZIBw94UQWmGpM/O1ilGXde2ZzzGYl64glmccD8e87OnEgKnH3FbnJnT4iJchtSvx
- yJNi1+t0+qDti4m88+/9IuPqCKb6Stl+s2dnLtJNrjXBGJtsQG/sRpqsJz5x1/2nPJSRMsx9
- 5YfqbdrJSOFXDzZ8/r82HgQEtUvlSXNaXCa95ez0UkOG7+bDm2b3s0XahBQeLVCH0mw3RAQg
- r7xDAYKIrAwfHHmMTnBQDPJwVqxJjVNr7yBic4yfzVWGCGNE4DnOW0vcIeoyhy9vnIa3w1uZ
- 3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
- CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
- qIws/H2t
-In-Reply-To: <20261113-mason-migrate-et-al-fixes-v2-4-50a2ed382b61@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+
+--=-IJcHGH9mSee+VxCb9BnL
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi,
+
+Le mardi 17 novembre 2026 =C3=A0 16:20 -0400, Jason Gunthorpe a =C3=A9crit=
+=C2=A0:
+> On Tue, Nov 17, 2026 at 05:09:11PM -0300, Daniel Almeida wrote:
+> > Hi Jason,
+> >=20
+> > > On 16 Nov 2026, at 16:38, Jason Gunthorpe <jgg@ziepe.ca> wrote:
+> > >=20
+> > > On Thu, Nov 12, 2026 at 02:00:07PM -0300, Daniel Almeida wrote:
+> > > > This series adds a Rust abstraction for IOMMU paging domains. A dri=
+ver
+> > > > can allocate a domain, attach it to its device, map pages into it, =
+and
+> > > > install a handler for its faults.
+> > > >=20
+> > > > This will be used by the upcoming rkvenc driver that my colleagues
+> > > > Detlev Casanova, Nicolas Dufresne and I are working on. More detail=
+s on
+> > > > this driver can be found by watching Nicolas Dufresne's talk at LPC=
+ 2026
+> > > > [0].
+> > > >=20
+> > > > As part of the security model, each client will have its own IOMMU
+> > > > domain. This is needed as the submission model will let userspace s=
+et
+> > > > most of the encoder's registers directly, so the kernel cannot chec=
+k
+> > > > every memory access that a job makes the encoder do. With a single
+> > > > domain, one client could make the encoder read or write the memory =
+of
+> > > > another client.
+> > >=20
+> > > How do you plan to get the paging domain in the first place?
+> >=20
+> > We plan to alloc a paging domain when a video encoder session is create=
+d. Then
+> > we call iommu_attach_device() before a job runs, and detach back to the=
+ default
+> > domain after it finishes so the next job can attach its own session's d=
+omain.
+> > This is so each session is isolated from each other.
+>=20
+> If you do that you can't use the DMA API at all in your driver as you
+> have to set 'driver_managed =3D true'. Is it OK? If it is why not just
+> use VFIO?
+>=20
+> Or are you planning DT horrors to get yourself a DT created "DMA
+> struct" ?
+
+This seem to digress. All we want to do is use the iommu subsystem as inten=
+ded
+for the case the iommu driver is not inside the DRM driver (which seems to =
+have
+never been the case so far in DRM). The existing infra for that (in C) is p=
+retty
+abstract an simple in my opinion, and built into the DMA API if you manage =
+which
+domain to attach to your device at the right time. To me, it fits CODEC HW
+driver which are also simple. The DT horrors you refer to seems totally
+unfounded, you just describe the iommu and the iommu subsystem will manage =
+it
+for your device.
+
+>=20
+> > The fault handler is used in the same way it is used in GPU drivers: to=
+ kill
+> > sessions if they fault. This way the driver can simply refuse further w=
+ork from
+> > a misbehaving client, for example. It is also the natural place to enqu=
+eue a
+> > reset if the codec hardware is frozen as a result of the fault.
+>=20
+> IIRC no GPU driver does that, they hook the obsolete fault handler not
+> supported in new iommu drivers not the new PRI based one... IDK we
+> have even wired this up to work this way.
+>=20
+> It is nicer if the HW can tell you it faulted rather than expect the
+> iommu to do it.
+
+We most likely don't need that, and should drop it from this series. We hav=
+e
+never used the fault handler in any linux-media codec in the past, the HW w=
+ould
+always endup producing an IRQ with a error or a timeout. Using the fault ha=
+ndler
+would probably be a bit racy too. Pausing work from a faulty source though =
+isn't
+a bad idea, but more of a nice future addition, assuming it can work in a n=
+on-
+racy way.
+
+Nicolas
+
+--=-IJcHGH9mSee+VxCb9BnL
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
 Content-Transfer-Encoding: 7bit
 
-On 11/13/26 22:45, Lorenzo Stoakes (ARM) wrote:
-> From: Josef Bacik <josef@toxicpanda.com>
-> 
-> A THP that device migration maps into an empty PMD can end up on the wrong
-> deferred split list when it is later queued for a deferred split.
-> 
-> This occurs if the memcg has no heads yet (resulting in a warning if
-> CONFIG_DEBUG_VM is set), where deferred_split_folio() will then queue the
-> folio on the parent's list.
-> 
-> Once a later THP fault in the same memcg allocates the heads,
-> __folio_unqueue_deferred_split() and the split path resolve folio_memcg()
-> to the memcg's own, now existing, list and take its lock.  They then
-> list_del_init() a folio that is linked on the parent's list, racing with
-> anything holding the parent's lock, and both lists' nr_items counts go
-> wrong.
-> 
-> Resolve the issue by calling folio_memcg_alloc_deferred() after the charge
-> in migrate_vma_insert_huge_pmd_page() and falling back like a failed charge
-> if that fails, as __do_huge_pmd_anonymous_page() does.
-> 
-> This was originally discovered by code inspection.
-> 
-> Fixes: fafaeceb89a5 ("mm: switch deferred split shrinker to list_lru")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Josef Bacik <josef@toxicpanda.com>
-> [ ljs: tweak commit message, remove unnecessary comment ]
-> Tested-by: Gregory Price (Meta) <gourry@gourry.net>
-> Acked-by: Balbir Singh <balbirs@nvidia.com>
-> Tested-by: Andrew Morton <akpm@linux-foundation.org>
-> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> ---
+-----BEGIN PGP SIGNATURE-----
 
-Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCav3DhgAKCRDZQZRRKWBy
+9DUJAP4x+G6i8V/mCJNB0vLdcr/oloJeHb9XQjPQTymPNu+lDQEA7nyMQLSBGku5
+VljshCPKu96vUzI4tKRMkP9UWePglwg=
+=PT9b
+-----END PGP SIGNATURE-----
 
--- 
-Cheers,
-
-David
+--=-IJcHGH9mSee+VxCb9BnL--
