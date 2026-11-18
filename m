@@ -1,90 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794960481;
-	b=isN+KlX/88UQBL7gTxgQqWwJOS9PBCd3+keNKiRSrI+IZa48vHbptmmNl7jrsBGMy9Vr
-	 QOz2oV3v0hDsZQTvBKVNOXIPn2raA208s/c9+XNEBSGmL/p79A8omFrWBt+t1FeBFTC0c
-	 cpgJ56AE1lcR8LBO+Ekkgcj9Go3420EV/xWdUBoeuS9Rwhh8bgQPvt5ogsA/WTmrUtkO7
-	 9quJQLN1hcn5D8AsG5UJtapo35KxrRklUkcfg+j4dRGppZw61IDcCo/PqkEaU2+WVy/ts
-	 Qv070la0xMYKUcQ/mhzKQxw1IvnLHPVqOAVjheF1Cc3Cdq4LbZa6dxsTKtlvqeVwhiw==
+	t=1794960534;
+	b=qapnm3deg6qM5A11l30jDG7e+b/JlI8oaa7ad3jnpbQNewB9MbJFqI131LR4fLT5JbfZ
+	 AS6l3qHD0KklCiTIrZOKZeb5qV+ree6gjmlsystgUKaO/yDw3ChHhx4RDM63WTuCVovag
+	 SeIdqx7xxIi7uBCEYMERlaWrwvx2IR6HQ8qfcmn3wlgCp+6J8AGKjVzmD6QBrqvLCr3Cb
+	 Kcza4SoRPk25ssI85+Fif07U/oWQD0rtY9/zKRmWepoyMb8CFsknZ6l/3GpI72bBwDDnn
+	 lp7T8/Xvh2qDeAB7JNcL/WRYs73CahEoARhk4KC3kMwCmCdMrwUHxAB/7rJ7xg8RleA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794960481;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=xD7v+KKjqUXGmD+jDRuPUvviwA8dBJ4NF/bEGvBPM4E=;
-	b=UtQeqonQXiZi75OQb4zgCJhoi4bQHJc7LcTJf8g8MwrvJcoG0F9qujetNipxf2hIZKpq
-	 4xWNoYwa4hFVv8y/hUNZ0F/BZv0DGHtXKcid97hueH+ROo8zEA9dXfJVRbdavX+8AFY//
-	 sOIK5M1o9Whh5I3uzGT1CpFVBL2WOE2/eXrDM6w5I49Cafv1hAG+yuKri8PaGkiUH9gGg
-	 gNFqa5qBrhnrYAbA48dVN6D1/SPjJbWeXgO0iCcoS1ddKtRiPNaQCeFMrdLKeNgBiTQUo
-	 WQMqPrl5CGI9g00+6OyA3rLuEeWdKMvXJGB0sVJrFLod7rp62MOIBlPT8wPp09H+1ug==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794960534;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=JuTLbTugfbF+YGTGMHC13Lp2sz+DJ69DPTAGTG1eCEQ=;
+	b=f9APaawStAVHmw+ecBCpblmknznzzIVxkx3Z7rHCaP23tbg1LXqkZABe38PgxHl4VNdG
+	 NtKDC6saQpYpY0DLvnpAa0330/muhRVfz1Ho/uDKPo5JuNqRJkWwDrW6YHThFMrzA3aP6
+	 1r2hJ+zY3dtdGFW4zXmGbrP2fPmsU8872jZdlyMDyqYYyS4tCnFRC5LuaZc5Nopnxui93
+	 OBacb2R8A/omh9SiG/Z5hcvov05Xs1GWqTLM+Lq/3Lx4iWNHQqLKUkiALgI7skLDpcwfq
+	 PCjIfJqgUcg7MAPWHtfnO2VCgYpwkCX7VLnj0nYc4GV+q2yivgrZ7cyqylnn429o3bw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kUcQOdld;
-	arc=none smtp.remote-ip=209.85.167.176
-Received: from mail-oi1-f176.google.com (mail-oi1-f176.google.com [209.85.167.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=A4Q5O9bK;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=KrmCNKQ7;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A744606A8AB
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:08:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A744606A8AB
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E1B4606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:08:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E1B4606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kUcQOdld
-Received: by mail-oi1-f176.google.com with SMTP id 5614622812f47-53dbe9b8d6eso203663b6e.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 16:08:00 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=A4Q5O9bK;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=KrmCNKQ7
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AHMer5c4171927
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:08:52 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	JuTLbTugfbF+YGTGMHC13Lp2sz+DJ69DPTAGTG1eCEQ=; b=A4Q5O9bKjDBiw6Yi
+	ddl0tRxJT8Au6jdyHYTBtKwFCMqX85wHHAh1311Z/Vx9TGJ41gEJS8fvjPdMTTW8
+	/+xIIRv/JWt3+wxPxfT+Rtg/T/wK25Q4pVDRMK8/LdHE6jqIMxJY0eIErib7DKwt
+	PNPJbjzcWGf6U7M/DAEwA7pMlUse3e/O9h6NvV1lBJwyFsYeblw7map8t8xC4Zpy
+	KtswgHyEXTKkYWs1km48IuQ6mx5wfumcaEmBSliVJMZPUyk6VYC1RmFbw+N74Yc+
+	s6Kb5q4H/0C336WVhTuShkR+dklD7F1Ba8jzgxZeI54CPpok2Y1lYvJn1YVZQDl3
+	C2LC3g==
+Received: from mail-dl1-f71.google.com (mail-dl1-f71.google.com [74.125.82.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yv8899y-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:08:52 +0000 (GMT)
+Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-1b3a348a6dbso796195c88.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 16:08:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794960479; x=1795565279; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=xD7v+KKjqUXGmD+jDRuPUvviwA8dBJ4NF/bEGvBPM4E=;
-        b=kUcQOdldx6FtaRZ69fFki6qYp7CE+SuktCKhBUpux+hWsjZTosye5KbrTH6OB4Sd0S
-         yxFE2R6U/HWirN7othhiVhPZ8Hnfr1GZot7ddFSDtfA0D9bbaF2c2ffKk94uLyWcgMXl
-         rkC7CH6aYlfvlBg24OySAFKNqYPqIrUu6uUoRhlK2t3XvvMY5GlqI5qRDtDSYfFKRotZ
-         E2Qs20Tz/Pp231EOMs8hX5qLReDuPcAqUDrK+gYG7LREgKx165VbC9WHmUmIrzki1CuC
-         VCQGMRWcTjqEjnDPoQUgZeEFK2vI/8f5xnWjVr+5MJXN4ZQ68BNzfO9MR2mYoJlNKp0l
-         ICVw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794960479; x=1795565279;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=oss.qualcomm.com; s=google; t=1794960532; x=1795565332; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=xD7v+KKjqUXGmD+jDRuPUvviwA8dBJ4NF/bEGvBPM4E=;
-        b=A9AMuFH5w0Gm8N6fiOSGj08xLshYMFxDqvHjWQTNpzuKzJZFgPUSoVzw6E65xOFJnM
-         z4xhftIucXD5s0e1VUqQNOxTXdue743B06qrkconxdxnQQxKvtgJhUzBDKj5JE6GZjwL
-         J8fbIPklacNLHGf8aB6V2UIt1IbTB3MhPiMXEyHuBkv7NtPXUswya7yz343gS/T/2phs
-         SC1hjt0DTubz3JclSzkXl6w3M3V4GL8Kjfly5eExtnhMrV5tc3zcQKQ3nKb7qosXFLes
-         HaU00qJwkIsyXenMY7dMsynKdwyiBHvKmjrftg3GqsBFLIW79EXDCW2jsqFAMqPHGUj/
-         YJSw==
-X-Forwarded-Encrypted: i=1; AL+hErFqkFCGpw4SVAjproM1ExVxYQpALHbxyg/K0lZGVsymbg1VKYfCyPa6vlDGET77DwdB3deaoCSteLdTvWs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+IjX/eBAu8lT26OeMwxkcGE4wwojMomLEn9L52EvJNwxPepFHb
-	dr9lgkJNEAxBudj0Jpl0Psxvnt+Bm1SnLwds7NmwXPpKHBKT2gTqiBKG
-X-Gm-Gg: AYBFou0Et6MPBgRzKIvwPH8OO+mNZEK/9TR7lbZmGMvN1J2Ya4wugFtUHYQh8MFFkbJ
-	Rovi1+qvv6zbgpZLoLmOR/YMXArF3xsbR3WYj1McjI0z6Rq760iz9pv9pOeyzjxAFAqtjXjh3r5
-	fDsljBv5PH1jmFg8kHKFOSS0dNkYX5FMJ6SkYCXUKbWr410iKnMMvgUfeTmO0h4UGVuvgUTlPxA
-	kStTwhIloPdbkgKCg16U/ieiTP5KLD2F7WErFkWpAGRH6QoFeAKDiQwh6VSCe+fdJfZAr+nrtkH
-	dF3zZJGffGPLBF1wGEJkoJ/sqXMppIJ4dJJfQlYOvLIL0mFTiVUoa1rFJX9giRe0GHK7yeBHVdh
-	fgcNyrmyLtTFUhCEP+8tBWtkQ75jW78xG1fWL9NVefD+ptUFfsG1CyyJfIhH5m9uyZr0t+uKH03
-	Ox29ygC/M/1h6FIHdfDrPAtNsmkWX+X2OQVv6/s9Hdch/Sc2l4BzfAjNoyJ13qK5swDffJxz7xK
-	mMCW6iG+r+ESzm92hldfHsyfW+AtJAg7ULtrzVFhAa/tFX/0RtoOIpvZ4c0C3lZp3ze0U9GzWi0
-	UlUqJVvLfoBwgkBs7XHJ6Be8u3BEZd++SN7QWUSKEYQvfc7HgWMIhGoCl1swh71ibDWOh4oPq1i
-	GYBCnmnJYjXv6ooVsL+7u8dmbB3jeX088oEjzRubD8aZXJViipShjtYz6dQwWUzIDI3J3C83H/l
-	HqCYJ+cbYnEpFliLsCBvwlPXdZZ5AMmUDH0rK/cv6jPVUKXXroNVU=
-X-Received: by 2002:a05:6808:1a0a:b0:4a4:64b0:bf5e with SMTP id 5614622812f47-5773b4331bcmr1020619b6e.2.1794960479597;
-        Tue, 17 Nov 2026 16:07:59 -0800 (PST)
-Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-5777b393d40sm434954b6e.17.2026.11.17.16.07.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 16:07:59 -0800 (PST)
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Tue, 17 Nov 2026 17:07:44 -0700
-Subject: [PATCH v7 5/8] dmaengine: dw-axi-dmac: preserve pending pause
- requests
+        bh=JuTLbTugfbF+YGTGMHC13Lp2sz+DJ69DPTAGTG1eCEQ=;
+        b=KrmCNKQ7cl/vxw+rQHnRd1OpBMDjHCdtf7t14w3U+alFXQN556cxHH5t97e+nCfmP7
+         vIu0SYTI+ZvavbPP5NzmVYxloPge/wJbZLuL/u3Q6TNYCm2MtRrcfIFDxybCPmFGmukf
+         3su949cMq4XYmqZzwhWEfWy8sm0qh6Z2FIoJ8pAT81xoxZ19U93aROWg9C3QQzkocTh/
+         4n7ojqjnc4/WKs4xGd9XqHk142k/9j+rvRHU5BrrsB3kpGpr/WJw/edJvhH5JKI+AA8r
+         OgACGe6Nxbyt+k+wraPf9hnjmnbKQz0WdidMYLRdxXtKTvirZkaVaT8IF0UkZ1q3S4BM
+         5sKA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794960532; x=1795565332;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=JuTLbTugfbF+YGTGMHC13Lp2sz+DJ69DPTAGTG1eCEQ=;
+        b=GfOD/OwETxlG2ncCwEeRLYIz9P0LIv+Q8vtzSE7F1lfkfotaDyUotlAWRoG04WTsQ6
+         DK45e1jmUwmlRvUTOoc2wzBVxlO3Y3qp86gvOBUxCBoj+Fb9WDlMgKriNV40pKo12dyq
+         hRnHfhVBDrNphB8MOHuO5cqT3kvkzjF1k9BateO2darb77ZAsDF1LmqNpNBrPY0hqlZi
+         cVWR0J10gTdHCvGEyQOYJgC3OFTLG60cihe3ohXuxywVoQfV9oBDVNqtH/MSOVUphVHC
+         eEuechE+XKHy/Xd/RMFhwyzOdnfZ+cmPltWlZrsRjUittEc8XpIGeAHj7y4ammJlHCoJ
+         TYHw==
+X-Forwarded-Encrypted: i=1; AL+hErGVHwFEl1NRPU8JF+CXDY1IO5SC90tArvib3b3mFqrEFK8Zo3pXgvb79W8N4lH/HoKtkJPAZuQt4t2gPIs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/IdSGAb/2BNshBUWPDQ484zv8afRYrXjDlG8iUt333Zr99i55a
+	nleIcV8VZHWU/UqW5fluOTljBY9uWgK66YDrkO9LZamTPGbBdx2BWlvaxUFWPP3cw7024QYaaBV
+	kA/nZin1Cq4E6IKCvkByCif66az2qxkCk5r+AGQDX4sGvHvwT7XnIfrF0NzrVGowfBvM=
+X-Gm-Gg: AYBFou0WG0vdwzjtoZN1v1POHMovyUwnSeloIMUNK+0PJahXXuYwr4xLm2RaYSe3arc
+	o/BSl3BCbhle9PReNcOqqJpPawO2tdFOxJYPcO7qjbn4DHDJXAPavKigkZNlfCWsqnVEeabHTb0
+	kAw+IRNYzOALVAFpqyVWMmpSDiRnYdc+Z+G6J20/b/z+xUK6v3wKRVjyyYiMClPVp5uPqBDd8Ca
+	YJktw+c9GxgavKEBUPT4Rl88L2O2JFk3CsC6z0gZ+e6O9j+H6vnVqt/n3BZPZ6PP/ChwFfJf3Kw
+	aF/TDJlQaCl6wnwWUCr/7Wim7RR1cukX/aF5I5bX1FHiMkosg/sdnFMtr601bNFA9hx0tWqr/ba
+	J7qJpzOTC8ljHntnYxZYcaMduTMNoTH00QqmmVd0WvgSG4MtZWuPs+13mqLwFL1BLQgrr+zJjpK
+	iKEpRSV0qadCIVu70AifCqxJy9wTRX8w==
+X-Received: by 2002:a05:7022:7e83:b0:1b5:23c0:4f15 with SMTP id a92af1059eb24-1b543c3fd9amr1137363c88.39.1794960531466;
+        Tue, 17 Nov 2026 16:08:51 -0800 (PST)
+X-Received: by 2002:a05:7022:7e83:b0:1b5:23c0:4f15 with SMTP id a92af1059eb24-1b543c3fd9amr1137340c88.39.1794960530842;
+        Tue, 17 Nov 2026 16:08:50 -0800 (PST)
+Received: from [10.71.178.189] (i-global254.qualcomm.com. [199.106.103.254])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447dc5e9sm2262069c88.11.2026.11.17.16.08.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Nov 2026 16:08:50 -0800 (PST)
+Message-ID: <39bcdc68-1925-44f0-9958-e1253452c113@oss.qualcomm.com>
+Date: Tue, 17 Nov 2026 16:08:49 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,283 +116,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 0/8] Improve Qualcomm EUD driver and platform support
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Rob Herring <robh@kernel.org>, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-usb@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+References: <20260929213513.2401005-1-elson.serrao@oss.qualcomm.com>
+ <57c5aa78-a116-45d4-ab32-772cd970e6f6@oss.qualcomm.com>
+ <2026111740-florist-conflict-eb96@gregkh>
+Content-Language: en-US
+From: Elson Serrao <elson.serrao@oss.qualcomm.com>
+In-Reply-To: <2026111740-florist-conflict-eb96@gregkh>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261117-submit-dw-axi-dma-stop-pause-v1-v7-5-d5f2309afd72@gmail.com>
-References: <20261117-submit-dw-axi-dma-stop-pause-v1-v7-0-d5f2309afd72@gmail.com>
-In-Reply-To: <20261117-submit-dw-axi-dma-stop-pause-v1-v7-0-d5f2309afd72@gmail.com>
-To: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, 
- Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
- Sergey Khimich <serghox@gmail.com>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- Sia Jee Heng <jee.heng.sia@intel.com>
-Cc: Mitch Barnett <mitch@accuratesound.ca>, dmaengine@vger.kernel.org, 
- linux-kernel@vger.kernel.org, James Hilliard <james.hilliard1@gmail.com>, 
- stable@vger.kernel.org
-X-Mailer: b4 0.17-dev
+X-Proofpoint-ORIG-GUID: ES9IEqIIu4RsZt1waWOdcZ4CF0V8eX0E
+X-Authority-Analysis: v=2.4 cv=N9u8hG9B c=1 sm=1 tr=0 ts=6afcec94 cx=c_pps
+ a=JYo30EpNSr/tUYqK9jHPoA==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=VfwtAWXQdzgZiewqWO8A:9 a=QEXdDO2ut3YA:10 a=QYH75iMubAgA:10
+ a=Fk4IpSoW4aLDllm1B1p-:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAwMCBTYWx0ZWRfX8tnxPQ2AIQrf
+ wXNNnHqHLlUfMwEFZeeBG5XGvilTweHvDWwWlQ5hxCSL4k90jTtGt3s+A1xFoAI4J3XjBIo/grF
+ ES3HejBlkx1dwFxIRbz0xx7G5rDDjO7PKLjn+GpM0lrm1FlSdLYggflUIV0eNraYkYNHEyMFIdl
+ zGOMtflGXqd0GgVUvpHZM3ZDZPh+AOCiYXSa0aCh9WBFk/7I38q7qKaGDhi5vrImeFAjDMM9m1i
+ ZdfMatRjPqAhHN8cdF8UTKAeztxnATsBD4lmX2eakI8PVjVbwj/4BbX8bIAQliXvOGqyHXYpcRA
+ 8SQZxcNMxlNchoYBoKYCCxh03G4qWKZwxQ97oHLHvWNf0JEa9oZA/bHpX03Q+9+rI3gsUfEXZoK
+ 7BDW3rCWui2DZYNtNrwtmQ3qg/+O3+tffcfqXwOkyiEeazYdETnqphUutHnI6YVry2jMnT87D2w
+ 0d9mTUyd/I5m6qVuCpg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAwMCBTYWx0ZWRfX2mWpVveXINFw
+ 1ub+FrW8LVAGOqPhCLCeCrgouxHBFWNFAQ07Keb5b4/EAYcMKEszbLb1cKXodqgLE+2twl+wkPI
+ 6CLPlMCHqFK9z0O/ZaHgKdutDJRiWj4=
+X-Proofpoint-GUID: ES9IEqIIu4RsZt1waWOdcZ4CF0V8eX0E
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-17_05,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 phishscore=0 suspectscore=0 clxscore=1015 impostorscore=0
+ priorityscore=1501 malwarescore=0 lowpriorityscore=0 bulkscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180000
 
-dma_chan_pause() clears SUSPENDED even when polling times out. Hardware
-can set that status after the last poll, and the unconditional clear then
-discards an acknowledgment the caller never observed. Another channel's
-interrupt can also consume the status because the shared IRQ handler
-clears every channel's status before taking its lock.
 
-Leave SUSPENDED to the pause and resume paths. Track the suspend request
-separately from its acknowledgment so a timeout can be followed by either
-a pause retry or a resume. Wait for acknowledgment before clearing the
-hardware request, since hardware ignores an earlier clear. If that wait
-also times out, return -EAGAIN with the request still pending.
 
-A completed transfer is also quiescent, but its completion handler may
-still need to advance a cyclic descriptor. Defer that restart while a
-pause is pending, and resume it without reprogramming the first LLI.
-Track the active descriptor until its completion handler runs so that
-resume and issue_pending cannot restart a completed cyclic segment or
-reissue a completed noncyclic descriptor while its IRQ is pending.
-Start queued work after the active descriptor is retired, respecting the
-pause request.
+On 11/16/2026 9:21 PM, Greg Kroah-Hartman wrote:
+> On Mon, Nov 16, 2026 at 04:06:52PM -0800, Elson Serrao wrote:
+>> Hi Greg,
+>>
+>> When you get a chance, could you please pick up patches 1-7 for the USB tree if everything looks good on your end? 
+> 
+> We do not just pick parts of patch series, our tools don't like that :(
+> 
+> And why top-post?
+> 
+Sorry about the earlier top-posting.
 
-Clear stale suspension status at the start of a new descriptor rather
-than at each cyclic restart. Reset the software state after successful
-termination and when allocating a channel for a new client.
+Understood. I will send a v10 consisting of patches 1-7 only.
 
-Store the lock-protected pause flags as bitfields in existing padding.
+Thanks,
+Elson
 
-Fixes: 1fe20f1b8454 ("dmaengine: Introduce DW AXI DMAC driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
----
- drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c | 98 ++++++++++++++++++++++----
- drivers/dma/dw-axi-dmac/dw-axi-dmac.h          |  8 ++-
- 2 files changed, 90 insertions(+), 16 deletions(-)
-
-diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-index 1a53fbc951a9..cd9a5b45d295 100644
---- a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-+++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-@@ -481,6 +481,8 @@ static void axi_chan_block_xfer_start(struct axi_dma_chan *chan,
- 	irq_mask |= DWAXIDMAC_IRQ_SUSPENDED;
- 	axi_chan_irq_set(chan, irq_mask);
- 
-+	axi_chan_irq_clear(chan, DWAXIDMAC_IRQ_SUSPENDED);
-+	chan->desc = first;
- 	axi_chan_enable(chan);
- }
- 
-@@ -489,6 +491,9 @@ static void axi_chan_start_first_queued(struct axi_dma_chan *chan)
- 	struct axi_dma_desc *desc;
- 	struct virt_dma_desc *vd;
- 
-+	if (chan->desc || chan->pause_requested)
-+		return;
-+
- 	vd = vchan_next_desc(&chan->vc);
- 	if (!vd)
- 		return;
-@@ -543,6 +548,10 @@ static int dma_chan_alloc_chan_resources(struct dma_chan *dchan)
- 		pm_runtime_put(chan->chip->dev);
- 		return -ENOMEM;
- 	}
-+	chan->desc = NULL;
-+	chan->pause_requested = false;
-+	chan->is_paused = false;
-+	chan->cyclic_restart = false;
- 	dev_vdbg(dmaengine_chan_dev(dchan), "%s: allocating\n", axi_chan_name(chan));
- 
- 	return 0;
-@@ -1087,6 +1096,8 @@ static noinline void axi_chan_handle_err(struct axi_dma_chan *chan, u32 status)
- 	vchan_cookie_complete(vd);
- 
- 	/* Try to restart the controller */
-+	chan->desc = NULL;
-+	chan->cyclic_restart = false;
- 	axi_chan_start_first_queued(chan);
- 
- out:
-@@ -1134,11 +1145,18 @@ static void axi_chan_block_xfer_complete(struct axi_dma_chan *chan)
- 			}
- 		}
- 
--		axi_chan_enable(chan);
-+		if (chan->pause_requested) {
-+			chan->is_paused = true;
-+			chan->cyclic_restart = true;
-+		} else {
-+			axi_chan_enable(chan);
-+		}
- 	} else {
- 		/* Remove the completed descriptor from issued list before completing */
- 		list_del(&vd->node);
- 		vchan_cookie_complete(vd);
-+		chan->desc = NULL;
-+		axi_chan_start_first_queued(chan);
- 	}
- 
- out:
-@@ -1160,6 +1178,8 @@ static irqreturn_t dw_axi_dma_interrupt(int irq, void *dev_id)
- 	for (i = 0; i < dw->hdata->nr_channels; i++) {
- 		chan = &dw->chan[i];
- 		status = axi_chan_irq_read(chan);
-+		/* Leave suspension status for the pause and resume paths. */
-+		status &= ~DWAXIDMAC_IRQ_SUSPENDED;
- 		axi_chan_irq_clear(chan, status);
- 
- 		dev_vdbg(chip->dev, "%s %u IRQ status: 0x%08x\n",
-@@ -1206,6 +1226,11 @@ static int dma_chan_terminate_all(struct dma_chan *dchan)
- 
- 	vchan_get_all_descriptors(&chan->vc, &head);
- 
-+	axi_chan_irq_clear(chan, DWAXIDMAC_IRQ_SUSPENDED);
-+	chan->desc = NULL;
-+	chan->pause_requested = false;
-+	chan->is_paused = false;
-+	chan->cyclic_restart = false;
- 	spin_unlock_irqrestore(&chan->vc.lock, flags);
- 
- 	vchan_dma_desc_free_list(&chan->vc, &head);
-@@ -1215,16 +1240,49 @@ static int dma_chan_terminate_all(struct dma_chan *dchan)
- 	return 0;
- }
- 
-+static bool axi_chan_is_suspended(struct axi_dma_chan *chan)
-+{
-+	if (axi_chan_is_hw_enable(chan))
-+		return axi_chan_irq_read(chan) & DWAXIDMAC_IRQ_SUSPENDED;
-+
-+	/* A completed transfer cannot acknowledge a new suspend request. */
-+	axi_chan_disable(chan);
-+	return true;
-+}
-+
-+/* A timed-out request can still be acknowledged. */
-+static int axi_chan_wait_for_suspend(struct axi_dma_chan *chan)
-+	__must_hold(&chan->vc.lock)
-+{
-+	bool suspended;
-+	int ret;
-+
-+	if (chan->is_paused)
-+		return 0;
-+
-+	ret = readx_poll_timeout_atomic(axi_chan_is_suspended, chan,
-+					suspended, suspended, 2, 40);
-+	if (ret)
-+		return -EAGAIN;
-+
-+	axi_chan_irq_clear(chan, DWAXIDMAC_IRQ_SUSPENDED);
-+	chan->is_paused = true;
-+	return 0;
-+}
-+
- static int dma_chan_pause(struct dma_chan *dchan)
- {
- 	struct axi_dma_chan *chan = dchan_to_axi_dma_chan(dchan);
- 	unsigned long flags;
--	u32 status;
- 	int ret;
- 	u64 val;
- 
- 	spin_lock_irqsave(&chan->vc.lock, flags);
- 
-+	chan->pause_requested = true;
-+	if (chan->is_paused || !axi_chan_is_hw_enable(chan))
-+		goto wait;
-+
- 	if (chan->chip->dw->hdata->nr_channels >= DMAC_CHAN_16) {
- 		val = axi_dma_ioread64(chan->chip, DMAC_CHSUSPREG);
- 		if (chan->id >= DMAC_CHAN_16) {
-@@ -1251,17 +1309,11 @@ static int dma_chan_pause(struct dma_chan *dchan)
- 		}
- 	}
- 
--	ret = readx_poll_timeout_atomic(axi_chan_irq_read, chan,
--					status, status & DWAXIDMAC_IRQ_SUSPENDED,
--					2, 40);
--
--	axi_chan_irq_clear(chan, DWAXIDMAC_IRQ_SUSPENDED);
--
--	chan->is_paused = true;
--
-+wait:
-+	ret = axi_chan_wait_for_suspend(chan);
- 	spin_unlock_irqrestore(&chan->vc.lock, flags);
- 
--	return ret ? -EAGAIN : 0;
-+	return ret;
- }
- 
- /* Called in chan locked context */
-@@ -1295,6 +1347,8 @@ static inline void axi_chan_resume(struct axi_dma_chan *chan)
- 		}
- 	}
- 
-+	axi_chan_irq_clear(chan, DWAXIDMAC_IRQ_SUSPENDED);
-+	chan->pause_requested = false;
- 	chan->is_paused = false;
- }
- 
-@@ -1302,15 +1356,31 @@ static int dma_chan_resume(struct dma_chan *dchan)
- {
- 	struct axi_dma_chan *chan = dchan_to_axi_dma_chan(dchan);
- 	unsigned long flags;
-+	int ret;
- 
- 	spin_lock_irqsave(&chan->vc.lock, flags);
- 
--	if (chan->is_paused)
--		axi_chan_resume(chan);
-+	ret = 0;
-+	if (!chan->pause_requested)
-+		goto out;
-+
-+	/* Hardware ignores resume until the suspend request is acknowledged. */
-+	ret = axi_chan_wait_for_suspend(chan);
-+	if (ret)
-+		goto out;
-+
-+	axi_chan_resume(chan);
-+	if (chan->cyclic_restart) {
-+		chan->cyclic_restart = false;
-+		axi_chan_enable(chan);
-+	} else {
-+		axi_chan_start_first_queued(chan);
-+	}
- 
-+out:
- 	spin_unlock_irqrestore(&chan->vc.lock, flags);
- 
--	return 0;
-+	return ret;
- }
- 
- static int axi_dma_suspend(struct axi_dma_chip *chip)
-diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac.h b/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
-index 3c86e5d468ea..b18c9880711a 100644
---- a/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
-+++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac.h
-@@ -42,6 +42,12 @@ struct axi_dma_chan {
- 	void __iomem			*chan_regs;
- 	u8				id;
- 	u8				hw_handshake_num;
-+
-+	/* Protected by vc.lock. */
-+	bool				pause_requested:1;
-+	bool				is_paused:1;
-+	bool				cyclic_restart:1;
-+
- 	atomic_t			descs_allocated;
- 
- 	struct dma_pool			*desc_pool;
-@@ -50,8 +56,6 @@ struct axi_dma_chan {
- 	struct axi_dma_desc		*desc;
- 	struct dma_slave_config		config;
- 	enum dma_transfer_direction	direction;
--	/* these other elements are all protected by vc.lock */
--	bool				is_paused;
- };
- 
- struct dw_axi_dma {
-
--- 
-2.53.0
 
