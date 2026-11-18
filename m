@@ -1,47 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795031313;
-	b=N3eQ3anMgHn32Zyxuj0ZniyznDNw9gjYXd2VUcaRXs31sGSa34E8GCBnH3OudcVi4HTU
-	 lnYuwkEbNQwMEh7I2K2MilwAmutSlF5ajoG3jtebq4p5+DUHPRSJ04N+SvWYVvipDdTQs
-	 4kIoKAywDmtVEGbOvZQSYAo6QZawQVfUERt/lZ+QvoJYHmyhc6x+Y/8Lx3V+mBSjUDAjm
-	 Wxvy/ZspwMG48mz5MCzhMLcJxRq7SMjoKiFD4U9YWbBWJYTat8hQHCSlTULfghPKoaq1I
-	 UkRhLxrS9b9mpWOQ+KLUyeOFTOBZzvPTKCsRTno1BdFDebyRkzoXYC/w7xRSKCUkOnw==
+	t=1795031321;
+	b=5OyxTyx6+Dh5Ql3Ee7Y+DBmZyAtedC5ZCeVmQ/c+apdN/p9fJMC9yVh/WaH2JRoDxC65
+	 P0xE7uZJ26ucHB0MbWwFpzVqpJTMtFQkjRRGcub9CUyWRqdpxPBRtOpVd1nHdz32ZVOz1
+	 79iLlUXjUgC7VOrAuVUa9Rg5pzRrh2mZzADv7UUXJdr5W7Cl70PANqDIf8oNaifgb6LL5
+	 ek27hFktwDJIdnOBDe4pBdesDSt51fvR09CZ7R1wPDlL7epBgvI/p9R1GRfzsEWXIwihn
+	 2AWq2y+/hL3ZPa6FvIkkZdlkCteYvYhjv+fbZuxHDjljh95ePuYQ0V56pXwG393kl9g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795031313;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=tpVV0Wh5WoFLGZ7/rqKsEhPXGxv7oClSM+KH+MM8Q9Y=;
-	b=Q15E+sJNV9aQdFSO68Mkdi4SnH16Zhze8C4QEStclmv9elIIJ8p+ic2jtdKPu3yQnO+W
-	 paUINs7TO99u1N6IHiqHHo58W++VEax6AJZ8zXHSeGL/WCalIGeNZZzBczEkI4+zOzPda
-	 Mg6gfWaPG5HTq8UHQZyWA4Kbp2XD6e9kyoRZsBn/FAUfTfJB+5a0g+har4G7JI+hNl3ES
-	 m2wPbeASlXEBxywSGFHIF8mnBu7Rcbej475FH63Da2J4UJbrjyOqJDfAwBaCt8+/8xBGN
-	 033kJstgW8v876w7X/FouEIW1/TIQTTyDZVbT7bSs5+5zOAwFTssXSb1aFo5RAXbIKQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795031321;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=ZVZcTuEkVl19Sk9hoXJWLHXnpH2fDYQZ47U/6HO+JBA=;
+	b=xeP90asoOfd7RO79Z4YSZcY7OtLiyZN4i1mUvejpvKpcJ9N5fkV4aCkYqkOpatimPA3T
+	 Y0WpO4xDM4pLihm0zxUSIWW1GrvTpvC6TCz6+qyouDJSTokrN5Z9v4yqrxJhYue/X/38B
+	 mkFM0i+A2RAxsCCV1XyBbxmm3UaHQmWJFBfa4ABWaiu0gTlEGBSWyY/pepBZ2CJTvjfKL
+	 rsY7/D8t21uxhYqq3go2ZKvEEbVPvML14Al6ETquU6Wex6ZHvVQb8K6MBnP/S0Jt060Bh
+	 bwyzNEaJ1cvoKFCPc+zyGbf82skYt4JSoG86VMZ4lwjH8PuGq4yVWsDlK+3cs5wYnJQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IkTGmCAA;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D3T5HMez;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD325606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:48:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5C0D606A320;
+	Wed, 18 Nov 2026 19:48:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IkTGmCAA
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A95611F000C4;
-	Wed, 18 Nov 2026 19:48:30 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D3T5HMez
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D0A11F000C4;
+	Wed, 18 Nov 2026 19:48:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795031313;
-	bh=tpVV0Wh5WoFLGZ7/rqKsEhPXGxv7oClSM+KH+MM8Q9Y=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=IkTGmCAAKxevgO+sQ+K2meWp6L/aI+OlhWH+HGMM19YYkOWJfV5h0TpW0Wdi9hUS7
-	 vtTRNCq70nVfxloRxfCJH+tklnj3/DccbeQz7G/MEAS4/RBQ5UK78FOob8WuVctCHq
-	 J58u2SsdE0qDScMCgjJ3R1Rfr8rCdMw5oIqpx8GW6BH4xEmdSyFPk53BlBtl6XmkWI
-	 6cY2DeD0ukLnU3MnlF4B6rkwMzDM8x1NzYR2UM0VdqOvLXw10CvpXg4Tx6d+GGUYGp
-	 G/mnkmEAwWGeTJTzO2eWprKmJNAPdcdxShUoF8TlqugSdTSGTlgg9qElXtaaGH6Q7y
-	 mkA2SeYXPzlcQ==
-Message-ID: <31865531-9a2f-4ffa-8ff2-a1bed0cfd41c@kernel.org>
-Date: Wed, 18 Nov 2026 20:48:28 +0100
+	s=k20260515; t=1795031320;
+	bh=ZVZcTuEkVl19Sk9hoXJWLHXnpH2fDYQZ47U/6HO+JBA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=D3T5HMezjl0O7dtrU2l5yGkb+SOCimj6DoTg+Y/+5ZG3hc0j6ONmiKh6BgvzZvhOR
+	 0zqtCvBqm8ntn4w1K91GV4vQIhQMppt3V3ZDlXu9Y+mNCkAUv0lYtSvMyhMR6itKyg
+	 fDZ8EeomY/EH1DVDXMO3dsXn9S6o+i2Ws7snv4A+ssP/W7B2NZTt4KQiF5ZVtofjkB
+	 NwDIczacZZAQIt6Xdoe+kAkLlw/QWjM/Qh3GIIkWR+Naqyo3WMkKhukTt8K69TtFzg
+	 IoHQkqrDQVBWM89hd4y8yV8ly38iqseYNbOp9nwzLj24AvgD1YnlZJfYP96Q4YTFV+
+	 eeMWUU5KFx1gg==
+Date: Wed, 18 Nov 2026 19:48:36 +0000
+From: Lee Jones <lee@kernel.org>
+To: Daniel Balint <dbalint@google.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, Benson Leung <bleung@chromium.org>,
+	Tzung-Bi Shih <tzungbi@kernel.org>, linux-iio@vger.kernel.org,
+	chrome-platform@lists.linux.dev, mfd@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 3/3] mfd: cros_ec: load cros_ec_pwrmon on supported ECs
+Message-ID: <20261118194836.GJ98456@joneslee-macbookpro.roam.internal>
+References: <20261106193129.43493-1-dbalint@google.com>
+ <20261106193129.43493-4-dbalint@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,105 +59,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] MAINTAINERS: consolidate the memory mapping entries into
- a VMA entry
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- "Liam R. Howlett" <liam@infradead.org>,
- Suren Baghdasaryan <surenb@google.com>, Vlastimil Babka <vbabka@kernel.org>,
- Shakeel Butt <shakeel.butt@linux.dev>, Pedro Falcato <pfalcato@suse.de>,
- Jann Horn <jannh@google.com>, Mike Rapoport <rppt@kernel.org>,
- Michal Hocko <mhocko@suse.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org
-References: <20261118-maintainers-consolidate-vma-entry-v1-1-8019b0e9928f@kernel.org>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20261118-maintainers-consolidate-vma-entry-v1-1-8019b0e9928f@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261106193129.43493-4-dbalint@google.com>
 
-On 11/18/26 19:22, Lorenzo Stoakes (ARM) wrote:
-> Memory mapping entries were kept in three different sections in order that
-> those maintaining/reviewing each distinct part would be made responsible
-> for/cc'd on only those parts.
+On Fri, 06 Nov 2026, Daniel Balint wrote:
+
+> Load cros_ec_pwrmon driver when the ChromeOS EC advertises
+> EC_FEATURE_PWRMON.
 > 
-> However this creates confusion as to what files belong to which component,
-> so simplify things by consolidating them into one.
-> 
-> Expand Suren's maintainership to the entire component, as he is a trusted
-> and valued member of the VMA kernel team and very much deserving of the
-> position.
-> 
-> Additionally, drop Suren's core and misc reviewerships in order to focus
-> upon VMA.
-> 
-> As David is receiving pull requests directly, make him a reviewer, purely
-> as an administrative change.
-> 
-> Also specify the new tree location in preparation for the tree being
-> established for next cycle, and remove the link to the not so regularly
-> updated linux-mm website.
-> 
-> Given that, from next cycle, the tree will sit outside of Andrew's current
-> process, remove his entry, also purely as an administrative change.
-> 
-> With that said, I'd like to take the opportunity to express gratitude for
-> Andrew's huge contribution to mm, and for his being both generous and
-> gracious throughout this period of change in the subsystem.
-> 
-> Co-developed-by: Suren Baghdasaryan <surenb@google.com>
-> Signed-off-by: Suren Baghdasaryan <surenb@google.com>
-> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> Signed-off-by: Daniel Balint <dbalint@google.com>
 > ---
+>  drivers/mfd/cros_ec_dev.c | 9 +++++++++
+>  1 file changed, 9 insertions(+)
 
-Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+I can pull this in when Jonathan is happy.
+
+> diff --git a/drivers/mfd/cros_ec_dev.c b/drivers/mfd/cros_ec_dev.c
+> index 529a23b804f7..9cf85636b7f9 100644
+> --- a/drivers/mfd/cros_ec_dev.c
+> +++ b/drivers/mfd/cros_ec_dev.c
+> @@ -115,6 +115,10 @@ static const struct mfd_cell cros_ec_charge_control_cells[] = {
+>  	{ .name = "cros-charge-control", },
+>  };
+>  
+> +static const struct mfd_cell cros_ec_pwrmon_cells[] = {
+> +	{ .name = "cros-ec-pwrmon", },
+> +};
+> +
+>  static const struct cros_feature_to_cells cros_subdevices[] = {
+>  	{
+>  		.id		= EC_FEATURE_CEC,
+> @@ -151,6 +155,11 @@ static const struct cros_feature_to_cells cros_subdevices[] = {
+>  		.mfd_cells	= cros_ec_charge_control_cells,
+>  		.num_cells	= ARRAY_SIZE(cros_ec_charge_control_cells),
+>  	},
+> +	{
+> +		.id		= EC_FEATURE_PWRMON,
+> +		.mfd_cells	= cros_ec_pwrmon_cells,
+> +		.num_cells	= ARRAY_SIZE(cros_ec_pwrmon_cells),
+> +	},
+>  };
+>  
+>  static const struct mfd_cell cros_ec_platform_cells[] = {
+> -- 
+> 2.56.0.455.g6c5a503b38-goog
+> 
 
 -- 
-Cheers,
-
-David
+Lee Jones
