@@ -1,85 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794969673;
-	b=V4iM/aGev3pjry8FKWtVkWwBTbbEpHMc2Sq4ZoUkVwlsQv+dr0QHM5MhFeZBilcHSJpu
-	 rQwDPVEQV86UN/8ofP0slkgMCK5lV0NTYgDiiZBRbweYX6dO1XiXbEfzIU4nr4+MjfdA8
-	 KEZ/1house30HDrClMpXYDPvHv5S1xxRAgHUyDqjUyGc+aDpWSSfCP0aYrVrT1W9u8150
-	 21o+6nImTjzPwEhByw1nkBeL6TG7wyvTn1wIYeUfxYmMoIY5gTW/mKtZ0tVS9TfkGfNEU
-	 +g7R8L+fWz7ri6yxl2C0+3YIbriHvCZqgnIBk+0t2eG/onB1dbXdABj2sTEZ0wqs9Ow==
+	t=1794969674;
+	b=q/d+NqTEwfLKVJK207JCbjFeXujIWG58J4+SBRH2Z/SlkdURX3QJusMub+m3hmHWqe9p
+	 0X7njoyjBu2+rFFiuePhe6OoofHXgR8CwQ/QX3ZfEGudEuJbEAQYiGRNm/DFUjxG178zE
+	 iyTDaiXSvY5GJ4AH9APwooMcp79o/JSjEuwI3k1/iB8jIz1VhQti4yvJFJlS+OIgY5tQG
+	 BDnCPp1kUd2Ovj8DGDmsB+5W4ShXMTD/NYdFBuq4FmilXwI6V/2CJy6D8sWpUNz3Drgcp
+	 J6d0ePu3Ri6ePnEHeoM9LqywrPBfQwVwxnRdBP32yfweBAWgJi67moZKR4+z6pLqa9A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794969673;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=6HDuddZYxiwPfkHKMQex0JGzsZG+GFTKn8vdoWJavzo=;
-	b=xMOQ9x2KfJb4pHywkkWbi1qyTGzLrs6Cx338pbpehtM5o18MsHrWN9yHDNOee8p4Uibz
-	 N0cjmtXkWgsZygrtTSE0vlkL8r1RV6S/OOOoFc61rdNb9nXsaZvvUFvlzP2mRhQ0t8Z2J
-	 mnFOGBg6w7oeBI4lUMsMKQqlkFllbr6CXRFd2QoBGj/YlW/7KxVeA/gJlKXwxyt/OAl9F
-	 r/IBp2v8NE0O4QLWgh+Kt9Dj8XUMBELklNCXZn5GxDZaJkNo2t1UdS5rmrAmNZa0sQGIR
-	 sAjfzcF9wqdPFkS9v2tKBMlrvuhkFCLihqe+zTpFxA4xCIlbTQ4gPIzCfisMgl0quWw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794969674;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:From:
+	 Content-Language:To:Cc:Subject:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=YMqOGT3MjcC3nQRptIcEAaa3EXNPCJFAg8JEY31Ow8Y=;
+	b=3M8fVdNIPw8JZC0xhOWSCQwdn/1N3AKcmq10G2/xdScVZubEN5i1SrkAcLnnp1+LTaLz
+	 pK0+TvDqP/gsT6Du4pJzuq0hVzntAms7s29CMIbrKdj4kWZ+8THCgJdxZkEgsd6LATtbJ
+	 IQJB4iiEV5lgFpYOD3SSXODsBsm2FkYH1LJTAwgdSiRT1lFX+2c5aGQCC4KkqjN99MW0V
+	 RjEjeRJguPv0PJkUQQtFlEE0DdwYMraeUZSptOs7UKuJBB6YbQOQ4Qdt/IHNYhlRqw7cG
+	 rOIg5vebLfdd3nBaB5ID5Q9TXgdArDzGbLxzYR3MldHIE/gi/hnT3w1Ww12y82Zzzug==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lG+nRkcP;
-	arc=none smtp.remote-ip=198.175.65.18
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.18])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AAmhAhLl;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6E1F606A325;
-	Wed, 18 Nov 2026 02:41:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6E1F606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F0DD606A335
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:41:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lG+nRkcP
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1794969673; x=1826505673;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=JMg6iADw9dsIPCjld7o8lZ1JKOgyBIjUEuX7ENSGD2w=;
-  b=lG+nRkcP3P+3Yz7EbWLgZfF4BB0AbXKKMwt0qorG6Udj3l1BRfZLmFQP
-   146u5zpNIyDW7rwCBGGj+tcnHKsLaVxC18LL2oXZnhUjw/lb3v3bPtzuV
-   QxFd5LTRZLBPaUySI9/3be5y+ky8fVh97afihQdVrw6i3Oo3Y4pZ47t+Y
-   5feN3QMRUFcIZonBtB9bt4CffQWkW6zTiihDrooA+V36kH5geDv9OUcA5
-   2kUPz2sfrWh8DLUGvXVOrZBmQtb4EqG4EyRtKMAK1wkSin6B8IyUjEQSt
-   NrC+vVZB+GKk5p127BXAa5kGKRliL6Hag3VnUhP5JGcNWAQ0cxknmP+ws
-   A==;
-X-CSE-ConnectionGUID: uWJOA1P7QgGm1f1sQY0HNw==
-X-CSE-MsgGUID: aoqTmTKbSFuA2/RVsU80IQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3783765"
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="3783765"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 18:41:12 -0800
-X-CSE-ConnectionGUID: cTXYupeARFiSheAMT5+C9A==
-X-CSE-MsgGUID: ZbebIHEUTF2aQGTzdp8fWg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="10370005"
-Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.47.46])
-  by fmviesa007.fm.intel.com with ESMTP; 17 Nov 2026 18:41:08 -0800
-Date: Wed, 18 Nov 2026 10:32:13 +0800
-From: Xu Yilun <yilun.xu@linux.intel.com>
-To: Alexey Kardashevskiy <aik@amd.com>
-Cc: x86@kernel.org, linux-coco@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Kiryl Shutsemau <kas@kernel.org>,
-	Rick Edgecombe <rick.p.edgecombe@intel.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>, dave.hansen@intel.com,
-	kvm@vger.kernel.org, yilun.xu@intel.com, xiaoyao.li@intel.com,
-	sohil.mehta@intel.com, adrian.hunter@intel.com,
-	kishen.maloor@intel.com, tony.lindgren@linux.intel.com,
-	peter.fang@intel.com, baolu.lu@linux.intel.com,
-	zhenzhong.duan@intel.com, chao.gao@intel.com,
-	artem.bityutskiy@linux.intel.com, nik.borisov@suse.com
-Subject: Re: [PATCH v5 3/6] x86/virt/tdx: Add extra memory to TDX module for
- the extensions
-Message-ID: <av0OLVB/PMjYz5cS@yilunxu-OptiPlex-7050>
-References: <20261111-tdx-module-ext-v5-0-c74f764abc3d@linux.intel.com>
- <20261111-tdx-module-ext-v5-3-c74f764abc3d@linux.intel.com>
- <3c82411b-dfec-4b26-9e7f-777c8f1ecb6d@amd.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AAmhAhLl
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C64881F000C5;
+	Wed, 18 Nov 2026 02:41:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794969674;
+	bh=YMqOGT3MjcC3nQRptIcEAaa3EXNPCJFAg8JEY31Ow8Y=;
+	h=Date:From:To:Cc:Subject;
+	b=AAmhAhLlRnDDMtI8DH9jmgWbXXRQSTjtRUmNzcbv+N4joGbc1CsAW219IlF0dF+uS
+	 2TSTLQQfGFm4FvCGWFZemJtq6DRoqTJtkD1k2KDUindfzG2cIJ1oazO1/U8WnZs0/o
+	 vcK8K7vhajrmJL+7VORWO7CJmfPlSTvHXh/kdRaAFSr626+gW5UMBD4jAogi5Ay+yq
+	 N6OFlYCq8NC0MwoGve2EtyFig/Clk2bVl9f8avxNv/uiJQNW2qGgQ2L8ML4ZmUauX2
+	 JCE1QDeWy7cOTO1/P9UvbCQAnXF/osN0NsHHifYT1TnRljBI8fotfMLwFmQoqkaS3I
+	 1wttlk9cTcVrQ==
+Message-ID: <62e47ef1-060f-41a2-b7f4-5c80a5c2f7d9@kernel.org>
+Date: Tue, 17 Nov 2026 18:41:12 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,77 +51,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <3c82411b-dfec-4b26-9e7f-777c8f1ecb6d@amd.com>
+User-Agent: Mozilla Thunderbird
+From: Vineet Gupta <vgupta@kernel.org>
+Content-Language: en-US
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: lkml <linux-kernel@vger.kernel.org>,
+ arcml <linux-snps-arc@lists.infradead.org>,
+ Michiel Derhaeg <michiel@derhaeg.be>
+Subject: [GIT PULL] ARC fixes for 7.4
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 17, 2026 at 02:06:47PM +1100, Alexey Kardashevskiy wrote:
-> On 11/11/26 14:48, Xu Yilun wrote:
-> > TDX module extensions need memory for their execution environment to
-> > serve SEAMCALL leafs. The TDX architecture implements the extensions
-> > in such a way that they use the memory outside of SEAM range, so the
-> > kernel should add the memory upfront at initialization time.
-> > 
-> > Introduce a new memory adding process backed by a new SEAMCALL leaf
-> > TDH.EXT.MEM.ADD. The kernel queries TDX module how much memory needed,
-> > allocates it, adds it to the module, and never gets it back. Note that
-> > the process requires Dynamic PAMT backing. A subsequent patch adds the
-> > support. This doesn't break bisectability cause the extensions can't be
-> > enabled yet without a feature that uses them.
-> > 
-> > The TDX module accepts the memory in the form of an HPA array. This
-> > array is passed via a single 64-bit SEAMCALL leaf parameter, which
-> > encodes two values: the PFN of the container page holding the array, and
-> > the number of entries in the array. Create a helper to encode this
-> > format and name it after the TDX module term: HPA_LIST_INFO.
-> > 
-> > TDX module extensions consume tens of megabytes memory that will never
-> > be returned to the host. Use contiguous page allocation to isolate these
-> > large blocks entirely. This is a simple way to avoid permanent memory
-> > fragmentation: requiring the full size to be contiguous is more
-> > expensive than needed but should be good during the boot time. Print the
-> > allocation amount on TDX module extensions initialization for
-> > visibility.
-> > 
-> > The TDX module provides a metadata field "required_pages" to indicate
-> > the required memory size. This metadata is meaningful only after the
-> > add-on feature configuration. Don't read and cache the metadata in
-> > tdx_sysinfo. Instead read it right before allocating memory for the
-> > extensions, when it is guaranteed to be valid.
-> > 
-> > The original changelog was written by hand. AI was used to help correct
-> > grammatical errors and polish individual sentences for better
-> > readability.
-> > 
-> > Signed-off-by: Xu Yilun <yilun.xu@linux.intel.com>
-> > Reviewed-by: Tony Lindgren <tony.lindgren@linux.intel.com>
-> > Reviewed-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
-> > Reviewed-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
-> > ---
-> > An alternative solution is to use a loop that gives memory on a memory
-> > error code - TDX_EXT_MEMORY_POOL_REQUIRED, add one page per iteration
-> > until TDH.EXT.INIT succeeds. Something like:
-> > 
-> > 	do {
-> > 		ret = tdh_sys_init();
-> > 		if (ret == TDX_EXT_MEMORY_POOL_REQUIRED)
-> > 			tdh_ext_mem_add(); //single page
-> > 	} while (ret == TDX_EXT_MEMORY_POOL_REQUIRED);
-> > 
-> > This approach is slightly simpler as we don't have to query the module
-> > for the total memory, no memory pre-allocation or segmentation math.
-> > But allocating a single 4K page per iteration may cause permanent memory
-> > fragmentation.
-> 
-> Why not allocating new memory in 2MB chunks, reducing fragmentation? Thanks,
+Hi Linus,
 
-Allocating & adding 2MB by 2MB reduces fragmentation. But we would end up
-trying to add more memory than needed, then have to deal with extra error
-handling about "memory pool full in the middle of the page list", which
-defeats the purpose of "simpler".
+Workaround for a long standing issue with ARC, please pull !
 
-An earlier discussion about the exact concern:
+Thx,
+-Vineet
 
-https://lore.kernel.org/all/e05f49c28a78de961130655a76f415b01774016e.camel@intel.com/
+--->
+The following changes since commit 7475ea8b58616b33c04afb976cf0fbaad9dd63fb:
 
-Thanks.
+   Linux 7.4-rc2 (2026-11-08 16:22:20 -0800)
+
+are available in the Git repository at:
+
+   git://git.kernel.org/pub/scm/linux/kernel/git/vgupta/arc.git/ 
+tags/arc-fixes-7.4
+
+for you to fetch changes up to 603b4fd69b4e77770761ea03451e2164186f8590:
+
+   ARC: io: work around GCC PR127718 in __raw_write{w,l}() (2026-11-13 
+21:21:13 -0800)
+
+----------------------------------------------------------------
+ARC fix for 7.4
+
+  - workaround a GCC bug which has been causing upstream build fails
+
+----------------------------------------------------------------
+Vineet Gupta (1):
+       ARC: io: work around GCC PR127718 in __raw_write{w,l}()
+
+  arch/arc/include/asm/io.h | 13 +++++++++----
+  1 file changed, 9 insertions(+), 4 deletions(-)
