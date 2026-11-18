@@ -1,60 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794986858;
-	b=l0UY0rF9RZmGL9y3Ij6BCqYNNd41QTzKFhn5HpxuD0n8SCWdS04xy068yNFYfAhm1EJD
-	 2fn/btY4Qvw473rfYCfkI9JR/QlnAJH8WBPWSi4Y3SisQiraRHbdXfith0U3KIfmq+Owf
-	 cWzRrwxg315d/RUv3JAYSSZqxw4E0wroB1PaBMIbDAOhlg9FoIj49Eblc0UKJBHWvLIWs
-	 Kuw92MjIZ4odP3f+rbmeqJcNuYsHV3eNVAXyKsXiUZ6axBZHl5wdMKN3lymEmzD46LNPU
-	 n/MIRXpiStm0aCwU735kG0Xw7qkNtl3HbU4VZvGlYMUJZiqGT7FnqkqkS0PkxIZDs2w==
+	t=1794986933;
+	b=RdIV0/sLMiAoj+bTFDz2UXvwK4480fzss7Sg9uHl4AjkIvMM7dqWN3nvqx8lyAb+LmHF
+	 dPNXtc84QrfBhD4nTPgfZaPECSpgRdw4w1LIq/eWy0DwDWDD95LoSkUwcs7zFHHFhTQx2
+	 KZKUO8PzHy/mh5dZ5Z5bTVhtG/z1wbTUEGxAhJUZMdbXe46VQqEt08x0vNMuvQKG8s0h5
+	 ymyJC95HpCbMIOanJ1alsFmRpSE46NpCrnby4YMe3vs8HpSKrL+cJY9wEc546AyhuLb0R
+	 D3HWaJTumAlC4QRjkDLPi+dDp4v8puUCLkmJvIqRHSTGFsriJG7YOon18+yG/oZDPsw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794986858;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-Id:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=6NFuvRQXEVaZaifvR5yHZ1oEsO0k01+oXCkFBU190Z4=;
-	b=zZJGdu1sWGOQfxaQosN6r7iaJTA8yOIUAiX+1fVVUWxt8vgUTOd5JOGTvk/YyFR+0g7W
-	 TCUSi6OqwTbZr0dGlWqKRAlzP5FEl3CPMmuJZbcveIXi+swjnT74MM+e1Dak6F/pKcOp7
-	 q5pZyHx4f94zlNmw/ehE9HsgltKdJFRKXaqR5IXe9OibVl+H1rrvk/eGfnxrd6UT+7H0W
-	 yAmWWd4KinllA3CoBPldA/haB+OFvS28gPx7rYJ3VdlhzKIwgwGnEiD70O2bc4C47tOms
-	 IO546DmrJ6UZL8ZO4cgeSROspasI3WzzuHeFlQvYyiewQusCGISrArXvvJOp0QhFUnA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794986933;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=vsqpXrvhFD7jKsDFlhV8QKdSwNCeLB3Iu8VGRA5Wd20=;
+	b=Q39VQ/AN7QrsXCYamX5HQoCbdF6yhVSZjky4KXmKwOX93syJU5K4vdfe0+vK8NXNfVbY
+	 5vp+D76Le56OQQ5RylGMaIR17KXk4mFHR27SQ3e49Yc1fow6rgcBI3tQ+ZPVWxpv0YN0a
+	 urdmKrKXIr0x5KdEo2rnRJ5zGMYLxd3LYYIoFir6aqm5pnu8G9q7rTmOXORkRPs9JjB2w
+	 SEiJv3k/1GAnpVpDmqzyLz1Owq9sqAbhW/+m0XvFbpABSOhzX6c6EuBcLdjFAc0BIkzYv
+	 dkpVcoNVBZ+1KLP8HaoUY1OIpfojXcQY3MZscxP9vwflVjrC5nne8WtwyDgyXcKWf5w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=p80ELF+G;
-	arc=none smtp.remote-ip=91.218.175.137
-Received: from mta0.migadu.com (out-137.mta0.migadu.com [91.218.175.137])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iXrceJhF;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39AC6606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:27:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39AC6606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B31B5606A31C;
+	Wed, 18 Nov 2026 07:28:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=p80ELF+G
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=crEvFMuqUZJcoHCiGFm0hJ7qztU/AIfHT6iDjJCMEjw=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1794986855; v=1; x=1795591655;
- b=p80ELF+GWPoiq2IA4yzCyiZTh7GRxhd1xK9HGI3EjW7t+f+AOE1oHtqXRPp4leitguYCOSwF
- io+RKHDH5+5bcj1bJMWAK/S9O+jckuQh8Zjs1sy8848edC72IVwMmgNe3cn3BDT9sf8LOz0SZ53
- dg5w+qto7WeRHhdTKoGMPkho=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta11.migadu.com with ESMTPS id 99982917e0ed9034;
-	Wed, 18 Nov 2026 07:27:35 +0000
-X-Mizu-Trace-ID: 99982917e0ed9034
-X-Migadu-Flow: FLOW_OUT
-From: Fushuai Wang <fushuai.wang@linux.dev>
-To: sshegde@linux.ibm.com,
-	yury.norov@gmail.com
-Cc: wangfushuai@baidu.com,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] virt/steal_governor: Remove redundant delay filed
-Date: Wed, 18 Nov 2026 15:27:22 +0800
-Message-Id: <20261118072722.1052-1-fushuai.wang@linux.dev>
-X-Mailer: git-send-email 2.39.2 (Apple Git-143)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iXrceJhF
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A23BC1F000C4;
+	Wed, 18 Nov 2026 07:28:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794986933;
+	bh=vsqpXrvhFD7jKsDFlhV8QKdSwNCeLB3Iu8VGRA5Wd20=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=iXrceJhFerACI6Ppd4V83Dg+h+bRoQAe0orBgaIV5N6gUPDgFioE0P24lCO9kPcSf
+	 ZNTU3zMyboNMS8DM25MvrYMyDBTZDksQenxIa4OEw907B5xTS/VN1KOVp3UsinqqsW
+	 IFVW6YuRC1BecqbwVb/WzlcGzBANewOKibF8fZhZTcKo+Jn+WhL+tgSACuxZ1gP1w9
+	 UUos1EZBM0TGU4U3+oTw2/xF8KFZyIwyDLrx5mRK1gIfOOsaxR2WtNgj6+vGQTRXen
+	 ZGV/dn6m2qK9MYdf5SgjiLekU/+iTmsjbLep2eT3OLvd44bteozKEAGc/4AxZtyLOP
+	 W+KN73HLlkaSA==
+Date: Wed, 18 Nov 2026 00:28:48 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: David Laight <david.laight.linux@gmail.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+	Ingo Molnar <mingo@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-tip-commits@vger.kernel.org,
+	"Borislav Petkov (AMD)" <bp@alien8.de>, stable@vger.kernel.org,
+	x86@kernel.org
+Subject: Re: [tip: x86/urgent] x86/build: Do not allow X86_NATIVE_CPU to be
+ enabled when compile testing
+Message-ID: <20261118072848.GA325225@ax162>
+References: <179480914308.3191731.6125228756396043444.tip-bot2@tip-bot2>
+ <avrPcQ4sOkgJPbkZ@gmail.com>
+ <20261116130159.GA1327949@ax162>
+ <CAHk-=wgmkoWHWwaQ6nsGoCiBp0hrpJuiwmoVbQ=Efun8JyUNKw@mail.gmail.com>
+ <20261116223628.5a6139a7@pumpkin>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,54 +64,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261116223628.5a6139a7@pumpkin>
 
-From: Fushuai Wang <wangfushuai@baidu.com>
+On Mon, Nov 16, 2026 at 10:36:28PM +0000, David Laight wrote:
+> I don't even remember a check that the compiler is right for the architecture.
+> I'm sure I've got strange errors when I've forgotten I need to specify the
+> compiler for a cross build - and then forgotten where I'd put the compiler,
 
-The 'delay' member in struct steal_governor is just a cache for
-msecs_to_jiffies(interval_ms). The duplicate state is confusing
-and adds no value. Use msecs_to_jiffies() directly at the schedule
-site and remove the 'delay' field.
+Yeah, I guess having some internal check that the correct compiler is
+being used could be useful/user friendly but given how fast things
+explode otherwise, I am not sure it is worth the additional complexity.
 
-Signed-off-by: Fushuai Wang <wangfushuai@baidu.com>
----
- drivers/virt/steal_governor.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+> Oh and forgotten all the things you need to set to get clang to do a
+> cross compile.
 
-diff --git a/drivers/virt/steal_governor.c b/drivers/virt/steal_governor.c
-index 6e31f9923dea..8af6c02c7e77 100644
---- a/drivers/virt/steal_governor.c
-+++ b/drivers/virt/steal_governor.c
-@@ -38,7 +38,6 @@
- struct steal_governor {
- 	ktime_t			time;
- 	u64			steal;
--	unsigned long		delay;
- 	unsigned int		interval_ms;
- 	unsigned int		high_threshold;
- 	unsigned int		low_threshold;
-@@ -252,7 +251,7 @@ static void steal_governor_loop(struct work_struct *work)
- 	}
- 
- requeue_work:
--	schedule_delayed_work(&sg_ctx.work, sg_ctx.delay);
-+	schedule_delayed_work(&sg_ctx.work, msecs_to_jiffies(sg_ctx.interval_ms));
- }
- 
- static int __init steal_governor_init(void)
-@@ -270,11 +269,10 @@ static int __init steal_governor_init(void)
- 		return -EINVAL;
- 	}
- 
--	sg_ctx.delay = msecs_to_jiffies(sg_ctx.interval_ms);
- 	INIT_DELAYED_WORK(&sg_ctx.work, steal_governor_loop);
- 	sg_ctx.steal = get_system_steal_time();
- 	sg_ctx.time = ktime_get();
--	schedule_delayed_work(&sg_ctx.work, sg_ctx.delay);
-+	schedule_delayed_work(&sg_ctx.work, msecs_to_jiffies(sg_ctx.interval_ms));
- 	pr_info("enabled. interval: %ums, high_threshold: %u, low_threshold: %u\n",
- 		sg_ctx.interval_ms, sg_ctx.high_threshold, sg_ctx.low_threshold);
- 
+  $ make ARCH=... LLVM=1
+
+is generally all you need to do nowadays.
+
 -- 
-2.36.1
-
+Cheers,
+Nathan
