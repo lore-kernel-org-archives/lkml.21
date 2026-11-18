@@ -1,109 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.56
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794998884;
-	b=lB5gdEXKfCqRYBKyQ1ZdHKDUaVhez91Uqy+lyRfvdInh/+EP4IX5D27z9UrNF7e9+cZl
-	 WcMSH7KE0ghi2iHViXVZk1nvuLpIMGtS4EKfZairvvz13qOUZb72lzfuhrDk1qj6phssx
-	 xFtaipXEQxiwSPee3DXxrNYIpjdrYe3jZUsFWjo/p1PRZJz0mxapy+Zj2pxdq3QFhNL1q
-	 V03jZA7cREMSZQhLpq6sqWDVtJaO7OcDL4/0kQxzYSAFMwFLUduB1ht3bIGb2tAYqmPta
-	 IeFPvqlubj+jPyEzyFf/FDJPX1sxfh3nSb7KHjbIL9JveWxfh2CRJyhsPWZFG7J1hWA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794998884;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:Content-Type:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=2vX7B+CavSUSUwFuXn0aXdB3GkKzX7meG0bqHCYIhLI=;
-	b=OfvYD9MVjTlLUDBV9akH/JxLJqpIgFRwHbJinyTl5EqMfQx/ldRnDQRygFbC3c29yWWv
-	 etXqY6SbtEkWeWeg9yeD3Bm0Q6yr231pxyedteiSCJpe/C0IU1kWHBJzdYPMNX05oQLGh
-	 Q9mE/8Nb0paRmIWqMbcACcTo0NEK9kPZQTipAYX7Jqu2hSW7qDTzZ+k151vOcJu+ssXUJ
-	 WAidv3YZ55m8Sg9QCtVy8PCLCVc6Q765cZ+G6TXkrEhxsO9bE4l99nrNLitvKbYQkX2Wq
-	 dvP6qKYS906KgxsJkkQkfbTrS5QgkxhRA3SVWYy0k7mgxhzgae/lXJKVxHuI5gMUJWw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=qIjS4nz5;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.56
-Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010056.outbound.protection.outlook.com [52.101.201.56])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.175
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794998887;
+	b=QPy+dKNp7hUNbqb0J84c7l+OM6k9Hel7ZncywwgzN5HgOIOCDGs8oIxSGYegLOAMtu8v
+	 kb66p6tr27sjgJfXv+R06r/K2buFcvbpuJokFEi51PLsVaEdjNfrwkK3/64EnuQGWbGc2
+	 P5M5wyzQl0VLO5bmuao/T+LMX9qj3F226d2/oWcKAV+PqOwuw+jAcCunQDNb1MB/FHuGZ
+	 2/qLtQaAzcpe2vjBp/A/OFsoVNVKdkOp6xgl2VqoifiqvgsyfVIF+CF8wzWGwRb4fVxJv
+	 g8d4+0P13mW16b1KJAoQZRiYlrVwpIjXCkcFbeHHOklBg59zmWrUo5isSt9z8AL+0WQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794998887;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=T3M9PHT8VcodX9FFubZKxlabIlXO6c08/++71eKYdKI=;
+	b=M29cjSLS6qP9eYrcCXtzyTePpNO+Kkbiz99HXjSNtDjAA66YMJQeeJnhBnExH72ACLtk
+	 kxXe8EAzmspjDbvnFpzkAkYEXeL6OlvVht5iK6lNHBxRkHBSKKLsWefKlfWotyQ60F0ny
+	 aBXy8Dn++BPMi7KomHinSuw6AOKlWljlbcKf0pDNpcKOT1IW68ddcgWQrAV8R/2R1/7M3
+	 xJExqyywaOqWTYuiIjZORyB0NKVC71+zuiH7ZEeq2kKMmieXMu5n6+CAw3Hci2kexnLCN
+	 nM1Mbq4tPVffgMSypSRyFvczlJ9wHAOJHAMmsenpfbA6VBZCEf5mjBG+s7zX8QXqSXQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="RS/JFt8K";
+	arc=none smtp.remote-ip=74.125.82.175
+Received: from mail-dy1-f175.google.com (mail-dy1-f175.google.com [74.125.82.175])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA77F606A33B;
-	Wed, 18 Nov 2026 10:48:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CA77F606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2C9960A2606
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:48:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2C9960A2606
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=qIjS4nz5
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=X4Y9uekNNWifOGYu4R5vg26qWJVJiimOv280Vb9cGtHw2QqsTQ9dNcQlU+bTtU63ULq/MFqYxL7z144kigG9CfBPHegLdOjjRstl/XxT3Xr+CCs0rObRE/h/DhLA/vYUyJeZldEQKxx7KklyQqfNP3GH9mHMqKjkqDpn3JDHvGs/8VXZbOg8HffhCU41sH+xLTXwqvlAe9Txm3X4ibEIaSpXNBQKrl7w7iRKa/TRosaExlmbV639cuMg5wLIeq7Wr3le9ykXori9skkt/cFhZDeB3xegmji9tjC2XubFZjbqvO4+FY5YrvMBy0/wxlhMGpVVDEg1PevYZWVz8pwpiA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2vX7B+CavSUSUwFuXn0aXdB3GkKzX7meG0bqHCYIhLI=;
- b=HSO5odNNApIc8xNMKfLfDREaqsWYQKBH4yf/ESXSarjybqc62pF4hgY4xlM0VFCO46spLzkjKycSx6XnGc7WtrYaoHjygJjYHdLupErE3VQHihcbf73OX1FTCBc04lnGSeoWb0xBAfrgl+KXQTMGFhWCa7TJSWQpF6hXJXctEyUHSrQeUpwcpqONxblsRdInFy2I+IsztYtU+h1exl/0wR3B3MnB4uPClnC+mb9ZA2V1hxmwEihJ9DCTiPxaKXemEC4Qu4rLUvJ4I3LriJco2bzOqrkUzThKDqzOEXCpSpRN9R7b1OEJY6iGu+FLG6aQGN0oOLk+du23D1Qb/7xyiQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2vX7B+CavSUSUwFuXn0aXdB3GkKzX7meG0bqHCYIhLI=;
- b=qIjS4nz5ZzWdIotu7Nq5FzGjnyBXsdyz9DJyioboN7h18ACKXGZzJ4sw62C0jsTrp2gjmbb6Ud1HtCGeIHE0GBC69AGjlBgtascbiasR7WqcqfDLAmMznnufJQCXNi277+atJGF9DkWiowPazWtLRTF0MhK9mGthT99nkgcw6no=
-Received: from PH1PEPF0001330F.namprd07.prod.outlook.com (2603:10b6:518:1::a)
- by SJ0PR12MB7457.namprd12.prod.outlook.com (2603:10b6:a03:48d::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 10:45:58 +0000
-Received: from PH7PEPF0000000A.namprd04.prod.outlook.com
- (2a01:111:f403:c95d::5) by PH1PEPF0001330F.outlook.office365.com
- (2603:1036:903:47::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.14 via Frontend Transport; Wed,
- 18 Nov 2026 10:45:58 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- PH7PEPF0000000A.mail.protection.outlook.com (10.167.243.41) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Wed, 18 Nov 2026 10:45:58 +0000
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
- 2026 04:45:35 -0600
-Received: from amd-System-Product-Name.amd.com (10.180.168.240) by
- satlexmb07.amd.com (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.57
- via Frontend Transport; Wed, 18 Nov 2026 04:45:32 -0600
-From: Vijendar Mukunda <Vijendar.Mukunda@amd.com>
-To: <vkoul@kernel.org>
-CC: <yung-chuan.liao@linux.intel.com>, <pierre-louis.bossart@linux.dev>,
-	<Basavaraj.Hiregoudar@amd.com>, <Sunil-kumar.Dommati@amd.com>,
-	<venkataprasad.potturu@amd.com>, <Syed.SabaKareem@amd.com>,
-	<Mario.Limonciello@amd.com>, <Richard.Gong@amd.com>, <Poojitha.N@amd.com>,
-	<lee@kernel.org>, <linux-sound@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Vijendar Mukunda <Vijendar.Mukunda@amd.com>
-Subject: [PATCH v7 05/23] soundwire: amd: fix missing wake interrupt and group wake-arming calls in runtime suspend
-Date: Wed, 18 Nov 2026 16:12:24 +0530
-Message-ID: <20261118104353.331556-6-Vijendar.Mukunda@amd.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261118104353.331556-1-Vijendar.Mukunda@amd.com>
-References: <20261118104353.331556-1-Vijendar.Mukunda@amd.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RS/JFt8K
+Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-381d542bc29so1607979eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:48:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794998886; x=1795603686; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=T3M9PHT8VcodX9FFubZKxlabIlXO6c08/++71eKYdKI=;
+        b=RS/JFt8K59/zOdN6NCR0mfGRxKEH9aljpQYrzR2KEv3M9T2bdKrslF/LfKfU8DRxYd
+         Vugaxahjv9Y5ixoyo83phJy0ihiWqKsI7LhyQXpBqz8v9PD3/BJBWkN9mDdIPgU6wfgS
+         E/VEKocHxWGGfZCh0oL112cGtWZ6p7/LIL/WpIFjlwuYBTOlT+WaHxYskXuSrAyJGugt
+         655GPZK7bCXU/tn9YyCypyUxnUWQmsF2wxaoIXz/H2/MlNUt1XxJwX4N0MB4E4MaVTLb
+         5s5ZG9XACra3xfZvpaQwLMrJiwktT2np3tywRw22atOLU/P54+lTvZna3KviuXxKn33D
+         u5Wg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794998886; x=1795603686;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=T3M9PHT8VcodX9FFubZKxlabIlXO6c08/++71eKYdKI=;
+        b=v12QcyGkpDO5NEuskeNNQSfx7rAFx97j9hk1yjo9DOa/TXMIlUqw2YO3XOcz1kDgYF
+         rRcpIPulO1qf+Nbcklqa/abOyjP1elmqKtAY34DqTWJW8lvRTQZNwyL5jgoQGihqxsxU
+         XbUNMbEZ/LAp84Tjwu/xi2JZlTfpucI2jnCXWlPYeL/Od6xUzetGsiWo5Pd/C+4TgkGW
+         fGaY1SFi5oxmRt/tPbr+/1Kk2dYafvriSj0QdB23jSQh/U5qe6ulgrxJsiHwPAbgXp4x
+         M/O1WvoPz/kj7hiN1gc+NZYYW06fWh4FSey2JgJHq8vGNZBwpoWHJhKzlarSHSP4CWns
+         Z6xw==
+X-Forwarded-Encrypted: i=1; AL+hErHCm7AzBD+OjsQk8x61OCZPmxEHMNPVc3uNeloQ8PSx6lwIow0j9mZtMxMEc5JOjnAyZmV517wRBCtZZbU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9WjXIdSV94W/dv5iidhV1VTCFQbdoLNxYULzWZRyK9814ztOE4
+	LepyX9a8NN4PEc62/reJeg0PHh3LV0aRkg+uPHlBIAbmGY9u+Yq7PMvg
+X-Gm-Gg: AZFdTZdSVVA5yQrkx0g0vzGbsi98PoQDmlixi3FENGJIJ725jbJm76cwOmh0D37PAh6
+	ir0JXiyOMvXqY6Sf8JW8Rpu9NxSextDsaMh6aIjWCO2NO+5AjHdj+s2CCLYjcv/gOxjuQFVgkn2
+	prYytYZJiSAfmmUWtyRvzvnX5iNdBcTevtalLKryoI0jO+9wY4+3BF2zTaatmLB2lvLPQFuyEBv
+	U3eo6EkAMA4Yz7DMwr2ivH9fU7m9Uoch93iAShaJe+75nrqXh9PrDrJUwe5XyjmVNqd2HEP4S5B
+	35KuaVlMKKlVD8mwsOoMi8zLn0JYQ2Bfhv31qoz4zObz3ufKPGTecEL6DaZPgXYVOOoM2DVlLiL
+	B3VHRbm+fBHrHlH2l6nUgRWd+FNjucQbNslwcLz6kqnSxQjnE1mYfiRnzQXi3V97uGB+mZEnTK7
+	VSiyZ3WsoibHKSLDwwu6CIVZ1XzcaDkk6fuFLDhmcQ4mW1u0AETb3N2FPneMMYM51oQ+Lk1lu3l
+	bqTHK8bUqWPF9CVvvbjFsMGsL2HNP0/OBSQzjFcMDARbvKQN+0ja8UHAhodUXB6ukd7j2cb+WoQ
+	1S++BJc6oG/3oUyBw7dOeQLxo2So2tQ3Bcoe27lnod7MIhF2xhc+HzC2kR5y06RK/eIl1TdV+dW
+	UfGzlIx196ym7hiIyRn/ZUuPSt5GQPeWJlTbGu1hyO9tVlGEkeioXVdd5kFYmPbW9hB0lrGcD36
+	mW+PmLp0EqReFHibRe8z9j+3ukRpWT+/3ipvpCepYlvoOSjR39Tx2IZ4uG2XqEC9bO6ymED3oBU
+	YDRQ5I=
+X-Received: by 2002:a05:7301:430c:b0:36a:1f8:a56e with SMTP id 5a478bee46e88-38280f1effemr2183532eec.23.1794998885835;
+        Wed, 18 Nov 2026 02:48:05 -0800 (PST)
+Received: from FT6N242TWK ([223.181.117.48])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a6800366sm6783131eec.12.2026.11.18.02.48.01
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 18 Nov 2026 02:48:05 -0800 (PST)
+From: Shashank Mohan Jain <jain.sm@gmail.com>
+To: Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Alexei Starovoitov <ast@kernel.org>
+Cc: Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH bpf-next v2] rqspinlock: Keep claiming the lock while the queue head is still the tail
+Date: Wed, 18 Nov 2026 16:17:58 +0530
+Message-ID: <20261118104758.98620-1-jain.sm@gmail.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,88 +108,122 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PEPF0000000A:EE_|SJ0PR12MB7457:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2ca67ea3-6115-4b2b-7904-08df45612160
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|36860700016|82310400026|1800799024|376014|18002099003|22082099003|261009223027099003|5023799004|11063799006|56012099006|261026140227099003|261028144727099003|261102123227099003|261021121427099003|261022075727099003|261021123027099003|261022105027099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	/x2cGbFT1yrtjN2SPMGrVq4d04a9ayfTvAkJucYszk5IzNprSkeAvWL/2/jxrI/SZ66KiAHNm1BWKmihALuWRFbUk9EHg8gXnGXQnLUVDLKWTcl6jpc2NQCS9BQboAggYAlvI7llo8X92Cv5XWvYbJkvk88zxXXWUpnA2koj1mRt79MOUkIRBnHImCC94JbpRkC8drbT6CODV2k0B/EzeNx2dOY2Pai7wqsA9rRXHyRij43c6TOYofI2mmSSMNNyddzenbWNyUkwNu2KHEIoQ+kwILgy8dc9IlxmOfKQZ88daJrHRN4j6TidgSHjWG8QRzabGLW1DujB6YisU8VaY3V71h8YwmzgOkHeKwBHDj+SsOOCR6C5Ti6ueAGwTQv/J3pV4UMKNxzaNGj1j3wPA/BGVeWb/1viCYCUEwBkQzYHb/ycpLPG+ZEo/a4YcmiO9jbevrmWxxw17UBNOfXb9NBWLj2uvZ/EXbtcIiayptS+w5ouBhKbiy3rKOBJ+INNeU0hoxEKJIrJWC3ehVPGnRMXG/nLr6YjpbK8NgJT9IyO7atoAzqqEgB0DFsVqFPgoNgLERx3ye3sCRm856oOt5AXnC7ec5LPrA06bnnNlUbRwhcsyuVpl6JWyjLmBSWn9WZqySDFdXVoStnalpmnExmrw9vj95ubK8FigqmadbrswtoktG37wiRHwjBkkxSIKXFV//9K1RjD5Ouc6Nfhrg==
-X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(1800799024)(376014)(18002099003)(22082099003)(261009223027099003)(5023799004)(11063799006)(56012099006)(261026140227099003)(261028144727099003)(261102123227099003)(261021121427099003)(261022075727099003)(261021123027099003)(261022105027099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	N5/GPlc39fFWwJiLd9IRAcFu8Yk9q/sTl1DOfqDx5sC9J9r/2b/uf/qVzX5nbZSZoEw1X6EKYjZ7GiKeUsJfTklyzrF7Ml7yHNzEIH8Z4p86No+ZT1cQTvVVtlySb3muD/yeuCWSfw143gX29mY4ZUuWRzDFNxSTuVHpb+T/niIbP3X+iibuQHgzxt1O1901t16Ics7JUtGgIEL6LEYmAc3lhT2QZ77TfmwYwthuScSVpt5nruGnAAxLKErzdZc6yMHo+jAANPIpNwRdqqkVGQtZpx5Duj5+UdSuvsLu7eaNjU++w8z/AbIQOyibJhpbCl7p5SfPShWgY9xLRE63v7T0I7KC/m7TmuTsmZEMVC4kj60o8lGMvnjuFs8QYqKLv7kM1zJ71fN+/fcFY033ZUJfac84vbi8GxDvQ8G+rL77BDygXDah0/9Cr4p8b/5D
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 10:45:58.3247
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2ca67ea3-6115-4b2b-7904-08df45612160
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	PH7PEPF0000000A.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB7457
 
-In amd_suspend_runtime() POWER_OFF_MODE, amd_sdw_wake_enable() was called
-before amd_deinit_sdw_manager(), causing the wake IRQ mask to be silently
-overwritten.
+When the head of the wait queue claims the lock and its cmpxchg from
+n,0,0 to 0,0,1 fails, it sets the locked bit and waits for node->next,
+with no timeout. The comment, taken from qspinlock, says the cmpxchg
+can only fail if somebody queued behind us, or if a waiter set PENDING,
+which will then see our tail and queue behind us.
 
-amd_deinit_sdw_manager() calls amd_disable_sdw_interrupts() which writes
-0x00 to ACP_SW_STATE_CHANGE_STATUS_MASK_8TO11, wiping
-AMD_SDW_WAKE_INTR_MASK (BIT(16)) set by amd_sdw_wake_enable(). Move
-amd_sdw_wake_enable() to after amd_deinit_sdw_manager() so the wake mask
-is armed after the interrupt-disable sequence and cannot be clobbered.
+In rqspinlock that waiter does not always queue. After clear_pending()
+it goes to queue:, and two paths return -EDEADLK there before
+xchg_tail():
 
-Move amd_sdw_host_wake_enable() after amd_deinit_sdw_manager() as well,
-grouping both wake-arming calls together after the interrupt-disable
-sequence.
+ - the trylock fallback for an NMI waiter whose per-CPU node is busy
+   (in_nmi() && idx > 0), or when idx >= _Q_MAX_NODES;
+ - check_deadlock_AA(), when this CPU already holds an entry for the
+   lock.
 
-If amd_deinit_sdw_manager() fails (timeout waiting for ACP_SW_EN_STATUS),
-the hardware is in an indeterminate state and wake IRQ delivery cannot be
-expected to function; the early return before the wake-arming calls is
-correct in this case.
+For example, with the queue head H alone in the queue:
 
-Fixes: dcc48a73eae7 ("soundwire: amd: change the soundwire wake enable/disable sequence")
-Signed-off-by: Vijendar Mukunda <Vijendar.Mukunda@amd.com>
+  CPU 0 (H, head)                    CPU 1 (NMI, idx 1 on another lock)
+  reads lock->val == H,0,0
+                                     queued_fetch_set_pending_acquire()
+                                       sees tail H
+  try_cmpxchg(H,0,0 -> 0,0,1) fails
+  set_locked()          -> H,1,1
+                                     clear_pending()   -> H,0,1
+                                     in_nmi() && idx > 0, trylock fails
+                                     return -EDEADLK
+  waits for node->next ...
+
+H now owns the lock and spins until another context queues on the same
+lock. For a lock that is rarely taken, such as a hash map bucket lock,
+that can be a long time, with interrupts disabled. The same happens on
+v6.17 and v6.18 for any NMI waiter, as the trylock fallback was used
+for all of them. The AA path needs the interrupted context to have
+taken its entry for the lock and not to try the lock again, so it is
+much narrower.
+
+Only a different tail shows that a waiter did xchg_tail() and will
+link into our node. So while the tail is still ours, retry the claim
+and keep the PENDING bit of a waiter that may still be backing out,
+and set the locked bit and wait for node->next only once the tail has
+moved. The loop that waits for node->next is unchanged.
+
+Found with a TLA+ model of the slow path. With this change the model
+has no violation in the configurations where the head hangs without
+it (an NMI waiter using the trylock fallback, and the AA bail-out). A
+userspace port of the slow path, driven through the interleaving
+above, hangs without this change and completes with the lock word
+clean with it. I have not reproduced the hang on a running kernel.
+
+Fixes: 0d80e7f951be ("rqspinlock: Choose trylock fallback for NMI waiters")
+Fixes: 087849cca31d ("rqspinlock: Precede non-head waiter queueing with AA check")
+Suggested-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Assisted-by: LLM
+Signed-off-by: Shashank Mohan Jain <jain.sm@gmail.com>
 ---
- drivers/soundwire/amd_manager.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+Changes in v2:
+- Use Kumar's approach: retry the claim while the tail is still ours,
+  keeping PENDING, instead of resetting the tail in the loop that waits
+  for node->next, so that loop is not slowed down for this rare case.
+  The diff is Kumar's from the v1 review.
+- Target bpf-next and drop Cc: stable (Kumar).
+- Checked the new approach in the TLA+ model (no violation in the NMI
+  trylock and AA configurations that hang without a fix) and in the
+  userspace replay of the interleaving (completes, lock word clean).
 
-diff --git a/drivers/soundwire/amd_manager.c b/drivers/soundwire/amd_manager.c
-index 28f5dbe131dc..3d60bea82792 100644
---- a/drivers/soundwire/amd_manager.c
-+++ b/drivers/soundwire/amd_manager.c
-@@ -1454,18 +1454,18 @@ static int __maybe_unused amd_suspend_runtime(struct device *dev)
- 		if (ret)
- 			return ret;
- 	} else if (amd_manager->power_mode_mask & AMD_SDW_POWER_OFF_MODE) {
--		amd_sdw_wake_enable(amd_manager, true);
--		if (amd_manager->acp_rev >= ACP70_PCI_REV_ID) {
--			ret = amd_sdw_host_wake_enable(amd_manager, true);
--			if (ret)
--				return ret;
--		}
- 		ret = amd_sdw_clock_stop(amd_manager);
- 		if (ret)
- 			return ret;
- 		ret = amd_deinit_sdw_manager(amd_manager);
- 		if (ret)
- 			return ret;
-+		amd_sdw_wake_enable(amd_manager, true);
-+		if (amd_manager->acp_rev >= ACP70_PCI_REV_ID) {
-+			ret = amd_sdw_host_wake_enable(amd_manager, true);
-+			if (ret)
-+				return ret;
+v1: https://lore.kernel.org/all/20261117225023.36660-1-jain.sm@gmail.com/
+
+Prepared with Claude Code (Anthropic), model Claude Opus 5.5
+(claude-opus-5-5).
+
+Based on bpf-next 32b66b94c86f.
+
+ kernel/bpf/rqspinlock.c | 23 +++++++++++++----------
+ 1 file changed, 13 insertions(+), 10 deletions(-)
+
+diff --git a/kernel/bpf/rqspinlock.c b/kernel/bpf/rqspinlock.c
+index 111ec80..f6a938e 100644
+--- a/kernel/bpf/rqspinlock.c
++++ b/kernel/bpf/rqspinlock.c
+@@ -624,20 +624,23 @@ waitq_timeout:
+ 	 * Otherwise, we only need to grab the lock.
+ 	 */
+ 
+-	/*
+-	 * Note: at this point: (val & _Q_PENDING_MASK) == 0, because of the
+-	 *       above wait condition, therefore any concurrent setting of
+-	 *       PENDING will make the uncontended transition fail.
+-	 */
+ 	if ((val & _Q_TAIL_MASK) == tail) {
+-		if (atomic_try_cmpxchg_relaxed(&lock->val, &val, _Q_LOCKED_VAL))
+-			goto release; /* No contention */
++		u32 new = _Q_LOCKED_VAL;
++
++		for (;;) {
++			if (atomic_try_cmpxchg_relaxed(&lock->val, &val, new))
++				goto release; /* No queued successor */
++			if ((val & _Q_TAIL_MASK) != tail)
++				break;
++			/* A pending claimant can abandon before publishing a tail. */
++			new = _Q_LOCKED_VAL | (val & _Q_PENDING_MASK);
 +		}
- 		/*
- 		 * For ACP 7.0/7.1/7.2: disable OE only; keeper and schmen remain
- 		 * enabled unconditionally so that wake-capable devices can detect
+ 	}
+ 
+ 	/*
+-	 * Either somebody is queued behind us or _Q_PENDING_VAL got set
+-	 * which will then detect the remaining tail and queue behind us
+-	 * ensuring we'll see a @next.
++	 * A different tail proves that a successor will publish node->next.
++	 * Preserve pending while installing ownership; a racing claimant may
++	 * still be undoing its speculative reservation against this queue.
+ 	 */
+ 	set_locked(lock);
+ 
+
+base-commit: 32b66b94c86f009b49668de7340f2ed65aad2dc5
 -- 
-2.53.0
+2.54.0 (Apple Git-157)
 
