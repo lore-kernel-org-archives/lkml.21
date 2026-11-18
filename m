@@ -1,95 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795020073;
-	b=LT1qV3jmvGyNidxanXcQxgKYw5BLqcmAJhrdTUyn3+s0XXF2cDaS2WwRX4faibDbk1zx
-	 jHwHVdnancaF5N1ayAG+DGsl9kb5xk4UYpnuZz0YTkfI1JAhrfa6voQmL+Spm4iLVIDoG
-	 H1qtVW9716J0bP5TpnxJn/RPTx9fewvncazn6Zs+LWfQrkF0M+URuVPhm2rAuNcOzW7PP
-	 u2DxmNon+sNhPgpE033ZzQb2U19n0UpKb5sNDghmmWZPQNxz9kdDK4noXIM0X6q1SGhOk
-	 yLjRn2aY8Ye09bXilK1hGbBianiOK+SllPdKoA/YgiU3RnmSnLznlPVaa8XlSi7wE5Q==
+	t=1795020092;
+	b=0mzdvtV8NxT9y4m7PS4y5eGAkJLNiboYhdtbU8Nznb+Rlzn+6Wxw0o1F+KUHxW3s5ioh
+	 rFbYV7i276vzh6Vjltkom+BtqVNQc1/NMdz/G1sviAqQ1ppSKLCbXJkixXyuFjPMIIk1W
+	 vZLTKDt02nxO4l6BtknX3U68N7Bj544aSCvjghE+8S7zZKljxt4pO2muW6gXORx27KAnl
+	 kUuJGQ/5793rwa2BfKbde8rP1QvN7t3aeBVQQAcNSJIS/0eiSP2s/Qjg1euL159e3q/s6
+	 7JWzIAR9A077aXND//L7YQ36vdUxqIEyKn21uKwk0yH5ZIP+eOyNXkv7mMMi2tQQpIQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795020073;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=dvAzJc66WDQmGpxUAtDLCtw0eHNkjSaLiA8bjaXpai0=;
-	b=aS2Uv50lRjj6gRPamIbQMsuae4Jcv6p7fBBeJ+EYx0BZVXif5I4Vcb8E/CjWD7q233tR
-	 vk5IpO9O2s9Uim2tLMXkjS22B5EDAEdIyAJDqqJHLMCwG6ddUwphRirhpamatzbsXPdyj
-	 PS2eGA3eLoDWRFb7lOOVGDP/JjH9C6muoNuPzwAzSANGiiZcpvbRoZXC3T3XMguQuyUZm
-	 KcQ6KTM/whKP1THv/E6SxpQf11SG7RPDwma1sPB5VedJ31xA1AostDLOlF9F3iblwY8uP
-	 x3qlC5Vwwm6xg3GbS+VHA0a2AwTWK6uLklDpbRf8VWN5AIHmSAQIMaR1jjajpAIXKWQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795020092;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=KpCOWgYItNRFdCHLthVjrjZj9hh3G9ExdOPVMRYpXJw=;
+	b=eExjBAljpbvf3g/N8hhVAkzy1DLHXIT8uGVz+B8nOeAGwHJEEOEOURJNRRIaS9x5CJQK
+	 NgXKkaQl9UVZFibuIqIW44AgKmO8M2qfYTpCEDZx2Z/ssWvwWHPKkvS1XcQQ3M/SfVVtC
+	 JQU9T7NSMde589/RCLKCMS7bE6X3BWYaI4hD0KPINxTpLYBJ9//mrx+qGtkBFVHpEzp+2
+	 rhiDcqt2c/CyvKYm/oNtWiT7JoKMh3u5Orx7XCIZmNQ3YXl/ALCn9dPkGzpV48nqJlPqd
+	 cU/6dskUBSgjUTORUSURE+XOWyNn7uCwTYpMuCpU+TA8d9VzIEULS/h2Je2cSOoiUZg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rXhvMG6C;
-	arc=none smtp.remote-ip=74.125.82.42
-Received: from mail-dl1-f42.google.com (mail-dl1-f42.google.com [74.125.82.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=etms+rmi;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8703606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:41:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C8703606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AFEF8606A320;
+	Wed, 18 Nov 2026 16:41:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rXhvMG6C
-Received: by mail-dl1-f42.google.com with SMTP id a92af1059eb24-1b546061d58so1797274c88.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:41:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795020072; x=1795624872; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=dvAzJc66WDQmGpxUAtDLCtw0eHNkjSaLiA8bjaXpai0=;
-        b=rXhvMG6Cyh05y9uIqxkR4ZKq0h0kgeiEZTS34LWaJ1SvJAdSsoHB+zIpzHEF+wSb1n
-         kWRg4AQwFTDq5s2oPEXpuxQlFYjZVd0OpllFBW6/hcKNWMDdxGATPpktI2m6gTRhd9tR
-         BdYMrhJI1I2TrB05zND+Xmb/thS/NbLA83tL6jam2JouBd+f6c/ue1D9R3CIpx8/Uk0j
-         2uNmm6D/CBTz8jPnPbuv/CU5sp8clNXEQ0qIPTqClGhsHyCgcUJwKeE16kVr8Cu8ooNF
-         8uj6cN+sldH3DO0noqZiLvOcjFbfbPAZQvR0W6zJR7vriCsCDOiBTC79yk8qXHK9fLj4
-         J/uw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795020072; x=1795624872;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=dvAzJc66WDQmGpxUAtDLCtw0eHNkjSaLiA8bjaXpai0=;
-        b=d/bYXOxHkVwftwixvWUDWukwuGH0fil4pZpTeVWyRkAmALiUbNQgXmuYhfZEYD9NOy
-         mhmD3MjuJT67aYY4rbJtId5pHggYRBmoNmDrte1Q3fDYNJK36KLcnss/AXf3xZMN6/Kc
-         J1N04VG9+ibvkKT8RnUrzJV/yCpz2mCdE+X85NtjTbsZrJ8hoUSEeiQSTArg4+RNBcY2
-         lPbR0BttHwX6wi/GIFl9qsznWkp2FVUFk2yBytA47zI4jctena+D3wRHWBYAHHhwDc7J
-         znOBkjKcGPRqcn7qeF3e+C4n8faCztCUkLGjWSZb7fdqf8oPx4FfoEuEtbxeo/eobk4W
-         tVng==
-X-Forwarded-Encrypted: i=1; AL+hErEHAKSqt8SLK05aRlBxLGVv1T0ZxLSIneyVuScQ3/WF5qNBNj5VNJIGBNOefCBfr12GBLYWW/WZMrsx7BQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/lBe0keS2Qb67tqNaF8VWBtu3SjnkOV+ITaqqGPm40Zu7w7L0t
-	IWtX4dEb8JytdTrDF0LdBhR1IgzXPK8BuS/zjmH3bdlHLTNdKlAOvEbH
-X-Gm-Gg: AYBFou1l3S3PUTa8gK15BBjrU4cgNerh3AvcQKpbFOl9qxrPNG6k+XJXPGyjUe5cQON
-	BI8EuGAMuhfiYHyTLnDdiS08tbu6zZQSZqSQ08rZyTAFPe4x7GaKUEoqABXb3RsIQvmGHmJBBFX
-	5z4YJn3JL7y1PGkX7EpMrQxXltkrtYsXYy6qqCUKzZoKUm4qzFneAkLxEAF50CfzuqifnTFuXfK
-	4QYpM/Gw5LpkTVepu3eDu/ZoSoQhcGWC8BW2NOP7dh77yduLnG/6v9H4KzZE3y911t6xs097H7W
-	UyO71Ny2u3SJpJXDVdBRcq9qaYPBsM8k67DALUtnAtE8vyVTfOpF8/PTnhSJt2Z+kvp7VFbN9O7
-	eEWLRSe+YAarciLvQbh0aPPq/jGgDpcCXnxcw8tyYok1rSicjCRcwvelSPR2HYCnJ1B/dgqtggb
-	T1On+iPpBmy7n5uKpUT/D/d6zW1zHKyJgtF6tkzEcbePDjw/vxGVaPOaqQEehHhA70etlxQL26p
-	8AZU+DRFGYU/0DNPyGW4vx8UFxb1IDK/FKzzBgwAj4Xr4WHZN1hw1onHhdxxP2oA5e0f1UXxmqg
-	27UXzkPRa+qlPS3LR0iv8+R9XyE0fR76ggZ6D3X7yJ83oUG60RG+TQ==
-X-Received: by 2002:a05:701a:c961:b0:1b5:2bcb:8691 with SMTP id a92af1059eb24-1b543c447e7mr2952861c88.42.1795020071657;
-        Wed, 18 Nov 2026 08:41:11 -0800 (PST)
-Received: from csl-conti-dell7858.ntu.edu.sg ([155.69.195.57])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447dc5e9sm11140414c88.11.2026.11.18.08.41.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 08:41:10 -0800 (PST)
-From: Maoyi Xie <maoyixie.tju@gmail.com>
-To: Jonathan Cameron <jic23@kernel.org>,
-	Song Qiang <songqiang1304521@gmail.com>
-Cc: David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Praveen Kakkolangara <praveen.kakkolangara@aumovio.com>,
-	linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] iio: magnetometer: rm3100: check TMRC in rm3100_get_samp_freq()
-Date: Thu, 19 Nov 2026 00:41:06 +0800
-Message-Id: <20261118164106.4108794-1-maoyixie.tju@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=etms+rmi
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34E0B1F000C4;
+	Wed, 18 Nov 2026 16:41:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795020092;
+	bh=KpCOWgYItNRFdCHLthVjrjZj9hh3G9ExdOPVMRYpXJw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=etms+rmi+8L/OLERxU+EOMiH1yzh7QvrCedbLLFvfyOXftr1190X213cLfSMIdQhc
+	 xktDkWAsGluc5sjs6Q+0xPnu0cRRv8WL1LtgbH7hhvypFoq0KCjcNGSmDaySPjxe57
+	 KSVCR2Ief3MVz6qMcEC3A89jIrfeeEJz4Oisdraf0VRAKp9ACtii9Nc+6p0hWsiOHC
+	 cOA3QRG4XS4ZJ0/KN+/71smKz//P77MiR2wPC2xQXa/VFXn7cC4W+hKsihDTtUOf3q
+	 FbeaJe4k0/kwhoD/wk2H7C/C6O6Lmm8fqXI0k6UkmMQ6tQVBRU1FPwwdFAJCOA/i5u
+	 /z3SJ8YKVa3QA==
+Date: Wed, 18 Nov 2026 17:41:26 +0100
+From: Christian Brauner <brauner@kernel.org>
+To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+Cc: Amir Goldstein <amir73il@gmail.com>, linux-fsdevel@vger.kernel.org, 
+	Chris Down <chris@chrisdown.name>, Miklos Szeredi <mszeredi@redhat.com>, 
+	linux-unionfs@vger.kernel.org, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
+	linux-trace-kernel@vger.kernel.org, linux-integrity@vger.kernel.org, 
+	linux-security-module@vger.kernel.org, linux-mm@kvack.org
+Subject: Re: [PATCH v2 03/13] tracing/uprobes: handle errors from resolving
+ the real inode
+Message-ID: <20261118-beenden-wirken-halsschlagader-00aa2083c904@brauner>
+References: <20261116-work-ovl-d_real-v2-0-90564c4ae347@kernel.org>
+ <20261116-work-ovl-d_real-v2-3-90564c4ae347@kernel.org>
+ <undine-1794965448776121119-595ee1289c37e7d3@undined.local>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,63 +62,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <undine-1794965448776121119-595ee1289c37e7d3@undined.local>
 
-rm3100_get_samp_freq() reads TMRC from the sensor and uses the value
-minus RM3100_TMRC_OFFSET as an index into rm3100_samp_rates[] without a
-check. A value outside 0x92 to 0x9f reads outside the table. The driver
-only writes values in that range, so this needs a chip or bus that
-misbehaves after probe.
+On Wed, Nov 18, 2026 at 10:30:48AM +0900, Masami Hiramatsu (Google) wrote:
+> On Mon, 16 Nov 2026 10:44:00 +0100, Christian Brauner <brauner@kernel.org> wrote:
+> > d_real() is about to be able to fail for D_REAL_DATA. So switch
+> > trace_uprobe from d_real_inode() to d_real_data_inode() and deal with
+> > the error.
+> >
+> > Currently, nothing checks whether the data can be resolved when a uprobe
+> > is created. The first resolution happens in validate_ref_ctr_offset()
+> > under event_mutex and the last one when the event is enabled. If the
+> > data of a metacopy file in an overlayfs data-only layer can't be found
+> > the event is created just fine and enabling it fails later with an -EIO
+> > from uprobe_register() because the overlayfs inode has no
+> > ->read_folio().
+> >
+> > Instead, resolve the inode hosting the data once in
+> > __trace_uprobe_create() right after kern_path(). That happens outside
+> > of event_mutex and if it fails the write to uprobe_events or
+> > dynamic_events fails with the actual error and a new NO_FILE_DATA entry
+> > in the error log. The resolved inode is passed down to
+> > validate_ref_ctr_offset() and trace_uprobe_has_same_uprobe() so we don't
+> > resolve it again under event_mutex.
+> >
+> > Both functions still resolve the existing probes they compare against.
+> > If that fails the existing probe can't be on the same inode so we just
+> > skip it. For validate_ref_ctr_offset() that's fine because
+> > uprobe_register() refuses a mismatching reference counter offset for the
+> > same uprobe anyway.
+> >
+> > trace_uprobe_enable() returns the error and probe_event_enable()
+> > already unwinds the probes that were enabled before.
+> >
+> > While at it, resolve the data in create_local_trace_uprobe() as well.
+> > perf_event_open() of a uprobe PMU event registers the probe right away
+> > so it would fail in trace_uprobe_enable() anyway. But this way the first
+> > resolution happens before perf_uprobe_init() takes event_mutex just like
+> > for uprobes created through tracefs.
+> >
+> > This is a no-op until d_real() can actually fail.
+> >
+> 
+> Looks good to me.
+> 
+> Acked-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+> 
+> However, since this conflict with commit 72d3a5cb0cd7 ("tracing/probes:
+> Enable newly appended probe when target event is enabled"), please
+> rebase it on v7.4-rc3.
 
-Commit 792595bab492 ("iio: magnetometer: rm3100: add boundary check for
-the value read from RM3100_REG_TMRC") added the check to
-rm3100_common_probe() after a crash on failing hardware. Do the same
-here and return -EINVAL.
-
-Found with a CodeQL-based static analysis tool that we are developing.
-Reproduced in a userspace harness under ASan and UBSan, which report
-nothing with this patch. Not tested on hardware, only compile-tested
-with W=1 on next-20261116.
-
-Fixes: 121354b2eceb ("iio: magnetometer: Add driver support for PNI RM3100")
-Co-developed-by: Praveen Kakkolangara <praveen.kakkolangara@aumovio.com>
-Signed-off-by: Praveen Kakkolangara <praveen.kakkolangara@aumovio.com>
-Signed-off-by: Maoyi Xie <maoyixie.tju@gmail.com>
----
-I used an LLM to help write the harness and this patch.
-
- drivers/iio/magnetometer/rm3100-core.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/iio/magnetometer/rm3100-core.c b/drivers/iio/magnetometer/rm3100-core.c
-index 46fce2978d76705..2fec02e5679eaf7 100644
---- a/drivers/iio/magnetometer/rm3100-core.c
-+++ b/drivers/iio/magnetometer/rm3100-core.c
-@@ -279,6 +279,7 @@ static int rm3100_get_samp_freq(struct rm3100_data *data, int *val, int *val2)
- {
- 	unsigned int tmp;
- 	int ret;
-+	int samp_rate_index;
- 
- 	guard(mutex)(&data->lock);
- 
-@@ -286,8 +287,12 @@ static int rm3100_get_samp_freq(struct rm3100_data *data, int *val, int *val2)
- 	if (ret < 0)
- 		return ret;
- 
--	*val = rm3100_samp_rates[tmp - RM3100_TMRC_OFFSET][0];
--	*val2 = rm3100_samp_rates[tmp - RM3100_TMRC_OFFSET][1];
-+	samp_rate_index = tmp - RM3100_TMRC_OFFSET;
-+	if (samp_rate_index < 0 || samp_rate_index >= RM3100_SAMP_NUM)
-+		return -EINVAL;
-+
-+	*val = rm3100_samp_rates[samp_rate_index][0];
-+	*val2 = rm3100_samp_rates[samp_rate_index][1];
- 
- 	return IIO_VAL_INT_PLUS_MICRO;
- }
-
-base-commit: 7e1392a42ea288d70a266f6553fe06f57f8647ea
--- 
-2.34.1
-
+Yeah, I had already done that.
