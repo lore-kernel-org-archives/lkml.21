@@ -1,68 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795035059;
-	b=wUs0f6TanTTctTZLG9jaAiob6QkJfOh4umzuvumZc5hU9mTdpMfYJw7EQPEAxGAhASyo
-	 hUWpGSIulByy6I13HIF+xABrtYcruby2jTsYlZS9/bpNEACjQ+yfQlWRhu4fTnOYHpySi
-	 gSiZm06xbS4WPmnJV46RdQTT/nGnRLBE9IVHbF8fjSYcw645vj/9fuffrSoW9OK+4Awq9
-	 RishGLuuIW0Zhtvnbp87apggvmnWjEYh9X/pmy7ENJ7cxl1F+ZSVILTzGwiV5rub+uCA0
-	 H0XBoVWLLcIyUlKwN9kbJXwRddT7TZVDFuLTA5TKJEdcV9CyBOHKgLLzhbYxdt+Agbw==
+	t=1795035145;
+	b=hlSiR+NIknQ6ORQzZVYFoA2Ru/A9WvpcbVvjMXY1y4813Y3UEwTBlIlI84vC4pK+1R2+
+	 FIUT+ObvrQbSkDa/HVr6RfdENAqEa5W+G/bawaADuF9gtaxVGc/o1gOIV3vqA2x+7jWOZ
+	 k0wx4IcrDAECpIoavrhW/6ziU+1j6CkcDlUc9xz/2ysrkiNziEXw5ats7rmxxUSq7gKID
+	 UwHnU4Lmr/yOkEMDHjPS0tnbJm0cUenNKufCtQRgCm+FBohdvjryO7yiMTA67N9YrfmWh
+	 ro8YNxZOnR54sPpASa2O9gIlw5UBQW2zCRkzL89pm+FcuZspFUa+Z1nI/T1OwVkx55g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795035059;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=0aMgbQQmw1MPLXYBpDbUKS5IgiG3zEQxMu5gz/miA1Y=;
-	b=Pr9VeHX8XlGwvPQFaPrtFjETimeGTIMz16EneEn0IbvxW3upSApEz1/+UloMlAt7y/gk
-	 tVKU4HgTB5PfM0WYlB8lNfHe9Ygs+Np2Z2oBOaV+hzW3Ghb1doh4Yzq+aDy29WG1+Mv1h
-	 yq7E0r/2htzy3qjGxJoIb7iiLuWsW+yEgbtqXqdri5x4wZAfw7ytqguQzEKXu3AABYNj6
-	 7eK8c4nkzNJRR5rEUMuagHBHX2z9l4slr4FS2yHrlyyx5G47sqYvQ5ZyHFFVUnOyRu9eu
-	 BM/LImaqCaSFRm6X++zQrt3iH9iyGWHArwkrNZzNLt+B3ifidJeM/9MrJvtR+jPkj5Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795035145;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Content-Type:Date:Message-Id:Subject:From:To:Cc:In-Reply-To:
+	 References:Content-Transfer-Encoding:MIME-Version;
+	bh=dxmySTmEZ3hib+9H5pqVDEDQRI3wIZljNjzSSTwZn7w=;
+	b=eJo+1XhZcBg65Bgi0watj7yZI/Jq/8bGPxI+MNFp1oz+BPMAnu3Jw1evxvWaT3+XcE1b
+	 aVMOsgOnQCSalBN/zswY0iN2QOVbmxvy1COLtzuwKfukxBVINrZvUbSzO1S68AoLx85s5
+	 SSZFwI/kj7CC+uMDZGZlrVUpFOo4vfuPPWXUDMsvG8OIA78V2kTqK6C3EZPeevePyzuyG
+	 jwWMW5bl0Zu+vu7/dwXqkrsvJdx8FgZPKXs4S3hhnjhVWQFtf9e8HYjHK8O04J9hnJCZW
+	 5IsxdCJnl8UIRaesoaZuQL0NBqf0z6r57VXL6nLr8lkH4XgyjQXFQNoWxszjuY2czNQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D9H2bQLM;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SqHUcWGu;
+	arc=none smtp.remote-ip=209.85.215.178
+Received: from mail-pg1-f178.google.com (mail-pg1-f178.google.com [209.85.215.178])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C2F0606A320;
-	Wed, 18 Nov 2026 20:50:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43A3E606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:52:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43A3E606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D9H2bQLM
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 212241F000C4;
-	Wed, 18 Nov 2026 20:50:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795035059;
-	bh=0aMgbQQmw1MPLXYBpDbUKS5IgiG3zEQxMu5gz/miA1Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=D9H2bQLMpNjY6yIUL4eRNe9xtgDcK4QHGxXWLYzlvB1bmUo8C+4C6H57Z6jg9sUA4
-	 KI2MfNZWHMF0hbxVFAJ4MbtoVerLZ8UCGf2jV4yN0WNM83SnHWTl5kcf6+9BmecA9C
-	 IR0ruJ0M3TZlseY9cOHVO+iRxj4W52ZhRlcTe1jTuvyyFF4rkiRGxbwbj80laq823k
-	 sOcXFUIbefvYS3SiHJo54xS8UrUoQKer4+6ur1h7Ye26LX07X6NmyiPvizyO0GovtJ
-	 ElEuzkCk84eFx59EadSVPsP+OrgTdyY+X8s8oUb5aHLo4Pf+umJYh0Ni2alCtb4A1m
-	 PeHU9oYDdRbqg==
-Date: Wed, 18 Nov 2026 14:50:56 -0600
-From: Rob Herring <robh@kernel.org>
-To: Gaurav Kohli <gaurav.kohli@oss.qualcomm.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Amit Kucheria <amitk@kernel.org>,
-	Thara Gopinath <thara.gopinath@gmail.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Abel Vesa <abelvesa@kernel.org>, linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	Amit Kucheria <amit.kucheria@oss.qualcomm.com>
-Subject: Re: [PATCH v3 1/6] dt-bindings: thermal: thermal-zones: add
- hardware-binning trip properties
-Message-ID: <20261118205056.GA839455-robh@kernel.org>
-References: <20261113-thermal_bin-v3-0-878df6eef8bc@oss.qualcomm.com>
- <20261113-thermal_bin-v3-1-878df6eef8bc@oss.qualcomm.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SqHUcWGu
+Received: by mail-pg1-f178.google.com with SMTP id 41be03b00d2f7-cde0daf3a2aso868555a12.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:52:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795035144; x=1795639944; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:cc:to
+         :from:subject:message-id:date:content-type:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=dxmySTmEZ3hib+9H5pqVDEDQRI3wIZljNjzSSTwZn7w=;
+        b=SqHUcWGuBJ5iPjwuoExkJaVT/UVpfdPBxDUFOXh6mpiQuWiJKjjQrPeuXpWMmMwI/u
+         soWYK+E2+ktGyN0Mz0Y/0hREtps/a3j0GpYhuBoacNC49w4L3fbdbfPmwLRrhgBUxom/
+         zsFLmibB8/aUwOgVfsoKnxJ48Wg/ZX8wwMZkIxFkXgN/13l5erXTN1NQchLap+467x4c
+         LCR3snF+qsFzpxzJx547CpICfIsqqVjRXbemsyTJ97tlHu3vMXz0w3VotAin2HXQMLVk
+         F9I4XGQ2sfHYLYsTlk2h/KNSgRqNnjIIIS8lmZtgsWecH4GG6FpElOb4rFYA1+uwN4pm
+         irLg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795035144; x=1795639944;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:cc:to
+         :from:subject:message-id:date:content-type:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=dxmySTmEZ3hib+9H5pqVDEDQRI3wIZljNjzSSTwZn7w=;
+        b=XyOazaNIvuezOWWaqHePmANOuPkDJ0jQZfeYKmUZUoNMOBV37kGagWJDc7eTa0yUhs
+         VnddeZm9eRnzQWXqvlb/hKew82faj7S6zU5fBtb2OZ44ciepnDEFGrUOffWnh/nGyjqv
+         Bw1i01pIQQGUnBVsn2+uFCPcHUUBpniy3VaGpKQIavOE8/fTE4ON9meIZ5poPqRvW1qu
+         Z587XBGwq17HDBZu7vl+emMIG77RgaiQifJuXyMt40MaBSmh3NU2taiCTK2vD5ttn/ka
+         JfmMoqBOboTN60xC9s+khWEGv7PdPfpA9B89oQq3hWWUIibh46FDdbNOWnUuhBGAx08p
+         21QA==
+X-Forwarded-Encrypted: i=1; AL+hErHw01TmLZua7gQrxweSz6aQEeY2BX9UzdoFMkmoOcyN+RMMRRq8H+5ZHynD9pGp+xGysMDcys3Fb32ESrQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+Y5lf5MtMUMz7iHhWRlwzwiTAppjc4Cxfr9hKbpiYgRnukdaJI
+	1IL1kmJZ1BYVu0EeIgDcax6qNLsMJkRReXPnWpMHgmC5+/6C6aDST+kZ
+X-Gm-Gg: AZFdTZdWRqf39YQS9FTGG0Xulg3oKiPbY8ZAtCqBYF4iZQHshMhMVDTlOzSxFnividX
+	f9vStriZmDxC1DtN2MLhjYTYTRzDRzawBPXFFWoQeyCgBk2b7LkoYuuC0hPR8IEfEjQnUcFTwyq
+	8eeIRzQ9yjbj9xNYl1pUEtv/OHTJIwfIJxhqeUaaLREJfk6bxsyOykRHyh+F7EAm3OTsmzDQq4B
+	kcyFmKEpyixF9gNAAOqAl+22w3kdKuxtToQ6uVCRJPcu7XWtiHZH4YeesG5xsUiIdXY/8qfiSOs
+	F8SV9GCchxxCFpEh5e1TLE7OBnoqCpM4clltbwzdaKK91R6F0ktVqgfGGgw4ULA0sJXJhC1dwEZ
+	y72blCD8iG1ncyWfCg7xPe1GxrmPXQvOLNxbNCfxZSy9Zefg8qFlLhWsDbx136sVySyJ1XE1P+G
+	YdhTIf6F+4/TvKc2ZrQkpVkAzqD5lyTTXO3GYnm0rWpMxDzBB+jaHQWgiubZCZtX3gMhAWeNUGu
+	93lhrxJjM/nRwC1UPRsFxaFe3v9pjLw/Ulj/8fnXEjwV/181Q1ZQXNJBpxqDjvxM643ylTKM1EM
+	bJhEDcX7SDNFxSsNwTIiZidqCXCsFwGIWBfokjtK2ebrLoMsodHn0gCg8Alg4LIjXxD+NNR+K83
+	WvSqVfTTq2DU/NWWUcc9kYPFM9qLbyx9fbA==
+X-Received: by 2002:a17:90b:17ca:b0:3b3:c00e:56a7 with SMTP id 98e67ed59e1d1-3b3d07d458bmr3354393a91.42.1795035144417;
+        Wed, 18 Nov 2026 12:52:24 -0800 (PST)
+Received: from localhost ([153.61.198.241])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d56a3f93sm2644508a91.2.2026.11.18.12.52.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 12:52:24 -0800 (PST)
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 18 Nov 2026 20:52:23 +0000
+Message-Id: <DMYMUOTUYZIC.3CG88B0ZSFU7E@gmail.com>
+Subject: Re: [PATCH] bpf: Fix cgroup link update after a failed effective
+ array rebuild
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+To: "J4f J4f" <shlomojune6@gmail.com>
+Cc: <bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <stable@vger.kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>, "Andrii
+ Nakryiko" <andrii@kernel.org>, "Eduard Zingerman" <eddyz87@gmail.com>,
+ "Kumar Kartikeya Dwivedi" <memxor@gmail.com>, "Martin KaFai Lau"
+ <martin.lau@linux.dev>, "Song Liu" <song@kernel.org>, "Yonghong Song"
+ <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>, "Emil
+ Tsalapatis" <emil@etsalapatis.com>, "Ihor Solodrai"
+ <ihor.solodrai@linux.dev>, "Tadeusz Struk" <tadeusz.struk@linaro.org>
+In-Reply-To: <CAE_LbwmtogEFvk5jDUcYhjSaX7_5bsHy-OWxCKPxmiBVDcjj_w@mail.gmail.com>
+References: <20261112134942.288831-1-shlomojune6@gmail.com> <DMTHXFS504S9.2BU4PDLEWG3PX@gmail.com> <CAE_LbwmtogEFvk5jDUcYhjSaX7_5bsHy-OWxCKPxmiBVDcjj_w@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,53 +107,16 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261113-thermal_bin-v3-1-878df6eef8bc@oss.qualcomm.com>
 
-On Fri, Nov 13, 2026 at 02:13:44PM +0530, Gaurav Kohli wrote:
-> From: Amit Kucheria <amit.kucheria@oss.qualcomm.com>
-> 
-> Differences in SoC packaging can be used to provide multiple SoC SKUs at
-> different thermal and performance characteristics. The underlying SoC
-> remains the same except for how much heat the packaging can dissipate,
-> thereby influencing the critical trip point at which an SoC SKU needs to
-> be throttled. This SKU-specific data is typically burned into fuses
-> during manufacturing and can be read back at runtime.
-> 
-> Add two optional trip-point properties to describe this:
-> 
->   - 'temperature-bin': an array of per-bin trip temperatures, used
->     instead of 'temperature' when the trip depends on the hardware
->     revision encoded in fuses.
-> 
->   - 'thermal-hw-bin': one or more bitmask groups describing the hardware
->     revisions for which a trip point is valid, modeled on the
->     'opp-supported-hw' property of the OPP framework.
-> 
-> Signed-off-by: Amit Kucheria <amit.kucheria@oss.qualcomm.com>
-> Signed-off-by: Gaurav Kohli <gaurav.kohli@oss.qualcomm.com>
-> ---
->  .../devicetree/bindings/thermal/thermal-zones.yaml | 60 +++++++++++++++++++++-
->  1 file changed, 59 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/thermal/thermal-zones.yaml b/Documentation/devicetree/bindings/thermal/thermal-zones.yaml
-> index 999ad40a20d5..cb9a8c96d053 100644
-> --- a/Documentation/devicetree/bindings/thermal/thermal-zones.yaml
-> +++ b/Documentation/devicetree/bindings/thermal/thermal-zones.yaml
-> @@ -152,6 +152,58 @@ patternProperties:
->                  situation where the trip gets constantly triggered soon after
->                  cooling action is removed.
->  
-> +            temperature-bin:
+On Wed, Nov 18, 2026 at 06:41 AM J4f J4f <shlomojune6@gmail.com> wrote:
+> I reproduced it on f66469d9905b39 (7.4.0-rc1).
+>
+> [    4.307527] BUG: KASAN: vmalloc-out-of-bounds in
+> cgroup_bpf_prog_query+0xdf1/0x10a0
+> [    4.307589] Read of size 8 at addr ffffc90000073050 by task exp/74
 
-Use the standard unit suffix. 
-
-> +              $ref: /schemas/types.yaml#/definitions/int32-array
-> +              items:
-> +                minimum: -273000
-> +                maximum: 200000
-
-minItems: 2
-maxItems: 32 ?
-
+That's the last step of the scenario.
+How did the alloc in compute_effective_progs() fail 4 seconds after boot?
+It's a small kmalloc with GFP_KERNEL.
+I think it fails only for an OOM victim or with failslab.
+So it's still wont-fix.
