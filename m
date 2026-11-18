@@ -1,58 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795013097;
-	b=0lJvkGut+I9x7EoCX4tNxAJWudT2XnpTsNqg3iT6vZbjr4mXHSETUSzmbYUqOMiowSTh
-	 CqHyjZCn/eW2XqsT+0xXHB+2fO9YJSyh7WsJUpFPmu3NflJVtLC/XwJlKKrbHmhNApd6y
-	 0eDQQz22I3n4zGd/FcDZZABopWzYv1SEFxUvxCIAVSxJAvA30k9FAm7DM3QRprh/dTilf
-	 liI5rb2IV3o0lcJbAum4ZahEtkWbC/qJJnkmBjwTWi6/gQ6fzYqJqD4weOUqePCCgJkmA
-	 A/aoJCBOlzDUIqNiyNyMTzw4qRtgCYF7amMfRUjGYkeWQRZa2qPNgzD9tpZSMybuGdA==
+	t=1795013134;
+	b=S5i9+D/gdiGo11IfDt5VwrVjzdii85VUBW/e4UuYVR7l6LXTXv1KtLlWl2R7m8tJTZJB
+	 eUXuOiiNeqNHoITdGXDrMVaVTH0kcYbqIhi5IHtos3H10/S2VXFoF+iTGbOgXL+pt2ejB
+	 s7zjwVs/kmZxBZEFEd9u2lY9nZaIByEuJIWDfi9efnA9Z0Df9zeGw5467d8D1x3a1yVfA
+	 h94DL2SXSClJz6KDtd+ViHzTH6hS3vmyjmf13m8k+kmNxjgrAMChu7e6vE+CFuXLqccuX
+	 1YK/yoEYGS3QbBWdtuSWZZbVdKFO6nMHsa8E1MRQc6ytrRrj1Mx73P+Qz6d864kf7kw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795013097;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=a+x1/c9WXV+iW4qvMYQqYnNelxitH7p/E+9HgmQlRn0=;
-	b=wkiA85iVuLsef3hQ9joKWy3WebfDU7ahXtIXHnTcydAVBfiNg0CjZrC7BvPQjYynYacw
-	 kj5kL5A3DHejqVbxAdZBOfAbH2qguULNcR2ybe415+Sckjz0Jrszzyx+vmtgbcldgRh+E
-	 BYAHTn6CZHAaOSa+2++blUN1nFd70iXKfX7tZUsDVnAWSHaYDymvOQYIWDM8uw5Mu5j7a
-	 IP45n1uzoEkW5FWN4d+Muqkv1L1dS2khTehW/WL1aKU1RaKTu/nnpOYjIpIcFlXq3K7tc
-	 HQgX8+cp9ADi44ucmyayPqbKjzL5oQVGb5+nv/wigBOudaVdJvIYlHsUSuoNNQJv35A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795013134;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=dW8jz8AGPYPy5zw3TfeSNEgxlfsTPgtxmP0tja/c/ok=;
+	b=Sy+tcce/Xi43uXq9CX7qHs83DobgcF9JZO2G/FUWK4jlSBV/iXTNyKPsyfgz8525jAcu
+	 oK0ZOqmvqp8y5nyEkT4TyqGTiSVRNMb0w/G6Vb1CT/sLW6XetOBuvtrpr7u7QM6Nz0tvu
+	 m3Nb2OpEQSedaU5k0uF6FlfgpCaBE22tpFebPeVSvN+wpncaEc3Kpmi4mGqPrci5HxnYa
+	 J/DsVNWVjalarbRVJRXnZRnxC7H/8H9DvYMj2rxHmMbaIsFfbWDmGJDX3UI8PYZXqf37Y
+	 e1xz+khiaNDbeOHTUAE4ZFDqC+VE+i7p8Kch2fxgJBZm9sTpwb+9oQkfb6p/aG8PVWg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=fwCrutfr;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b="h/V3GnQq";
+	arc=none smtp.remote-ip=209.85.128.48
+Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75EF2606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:44:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75EF2606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F5F2606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:45:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F5F2606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=fwCrutfr
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 25D0F4E40B00;
-	Wed, 18 Nov 2026 14:44:55 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id DEF625FE9B;
-	Wed, 18 Nov 2026 14:44:54 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 96F2B11BC22E9;
-	Wed, 18 Nov 2026 15:44:47 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795013089; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=a+x1/c9WXV+iW4qvMYQqYnNelxitH7p/E+9HgmQlRn0=;
-	b=fwCrutfr5vVeuRZ/8Zs+QY4fx/3ikoIb7X06p1iZG3NgatPLGs1fYxfnmAWrdH0B0gcufQ
-	dtdpctYWeRka399Nqrx1oXcOj8KErMDBBjUkH5nALL2o8HXcgXUE9alrAopW9nb/0iDefv
-	7BTs/pqmqA959eY53M2VjcOB4vNfNioxMS+OQ3NpjOPxOzght0Mksfex6wm+spp/xgX7Xm
-	6TnDqO5znD/6zMUNJZJFPY7d8pfa8zH7ME4WBbczWltxlgyTYI1sNEhqyBG7hVTZYULmE5
-	Dx/rpXPmxBrvv87oFynEDG60Vj/aecqNRAGLD58XAhf6seSEY7RM36WDdvTs4Q==
-Message-ID: <6c9dcddb-6ae9-4b90-968b-79c81f7e75f9@bootlin.com>
-Date: Wed, 18 Nov 2026 15:44:46 +0100
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=h/V3GnQq
+Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-49d05d51553so7328725e9.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:45:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795013132; x=1795617932; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=dW8jz8AGPYPy5zw3TfeSNEgxlfsTPgtxmP0tja/c/ok=;
+        b=h/V3GnQqzDYq2+Ocl+djVXBVuyWbqmvHG+OGYyfMN89qcxr7EWLd11cyani+5hjlv1
+         WLNecqE7293/zllCuLdsKFoIFMM8fcNJhcpMs9c+7mypY5kOnCv1FIDJ+YaUg1Xmxldp
+         xTrQX5ZC55Zklzxax1U7EhQWJSm+Yroo0mTyRZqMN29tezP9MUxPsKYS4KpzSHzOm8yX
+         6pn/YAWEWzVXbVG2bLDqsqQxO8aZammeB8kymZOGTipwM1P7qrkPXfJBGBeXaJ7kSOL4
+         upQU6siI/bA+SESuz/5YB89xWVFNdnooK7OWh86cdfYljPk/Pxoe1NRaJDHI9bGm3I5u
+         JPuw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795013132; x=1795617932;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=dW8jz8AGPYPy5zw3TfeSNEgxlfsTPgtxmP0tja/c/ok=;
+        b=2QSYArZsmL3YWTan2/Yt+6Qs5VVIVzzL+DDAWjLnS2FEGZN3ZAwdEcW633zdZL3eet
+         5uapYlTog+K6g3De7Ab8UqZv++ilZJpOk1lcJz3V1yFoLDybCEvfNYHW5/LUlfCMwRy5
+         tXPT0LweotVF5B07S3YokxJa8PvpXX5+QOzMt38Jn0OsiYPO/sskufaeqRs2RX5yaEVJ
+         xqvYUVdBXMiwcz6VA7QcJAlTjyJgJL3cADCna07CHUYypC21PVmH3jhGICmpqHziuJi4
+         QIuMJF6Jq3c7vS3pk5tdIKpQ3jpnBG+mSqA9BhT9GRPvEoWgWLGZT4iH38+NSSr84YD9
+         dAnQ==
+X-Forwarded-Encrypted: i=1; AL+hErHPFRWfdmBp4Ts+LbTO4AVcEiIkoD3NTMSVoiLq0oZfPYfNbMSeNDLM8GTxjhOK6mG8tflNBqLWks1t+OA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z84YenVBckBsTvHJnBUI/hGjuAP1f+sPD6YqnVS/uUmVHgYKyZZ
+	s2+XhPiebKVNipKDhW1lNoQW5lVf+I8PVTCrbRrU0lTa9qtNHbnGmKUDtfBpHTGz+y8=
+X-Gm-Gg: AYBFou2meq2l7D/4nm5J4XrugejY8dp4A34eG8/m/XJNY9unOfr2Soi1JTHcDq6D2Na
+	v21g8DJnqSh+/piFZmTJ4cVU1IXZwizO1WZ6CPGHBxAMMo8KTuR1LTMtUZcIkqpSM/3/Nvnb7LJ
+	spiCH1vbRgW0nkNABDn3nvIakRa7RWiQV8ZNEZAOD8b6upudiQaPh7i0aJHufMH5BBi9UcUX5Ic
+	DUV3mCRFSlG6BzAN9MkYgzUnkdmD/mx1K30/oeayLFKLB5EfZHkjEZeiWB95IMknpaba1DEqbwy
+	r3SR3xWCFCnjNiw0Y1z+ED9LM7XSAjhHlfrgCzWS/1vohjhbWoRcnS+3+voB9qRGFBuzQ+6N9U8
+	D3Rcu4w3ZfB2jAiN/B9HCnSnyUmPqIqcO26fzc+k+J4Pp+URJqIbVIao0qwaGFwCiekVIu0g+SP
+	9l0WCzYreutvzTxSJLpeJN0DAVxc2O+nVQj9EIHMOPOrRfVCkBQrFoiSNl3nYTOcIk8LZI1akaN
+	UCf6e+h44n3bGz6oItQI+DvKYhF/gVUt7OmKcVzhC+ckg6NwWvu9x0m+jFaMm4eEwtn31odxF6r
+	f0breQlbzY+t8AihTwJNtzDwcWanRqpz7egL5/Q=
+X-Received: by 2002:a05:600c:8b51:b0:4a4:fc8c:cfd9 with SMTP id 5b1f17b1804b1-4bb7da3a65fmr52309385e9.25.1795013132472;
+        Wed, 18 Nov 2026 06:45:32 -0800 (PST)
+Received: from [192.168.0.252] ([82.76.204.26])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a6560962adsm5382230f8f.41.2026.11.18.06.45.31
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 06:45:32 -0800 (PST)
+Message-ID: <ee73f5ce-906f-4411-9449-d17c3abfa11d@linaro.org>
+Date: Wed, 18 Nov 2026 16:45:30 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,138 +93,89 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 08/12] drm/vkms: rename get_lut_index() to
- get_uniform_lut_index()
-To: Leandro Ribeiro <leandro.ribeiro@collabora.com>
-Cc: airlied@gmail.com, alex.hung@amd.com, daniel@fooishbar.org,
- hamohammed.sa@gmail.com, harry.wentland@amd.com,
- maarten.lankhorst@linux.intel.com, melissa.srw@gmail.com,
- mripard@kernel.org, pekka.paalanen@collabora.com,
- robert.mader@collabora.com, simona@ffwll.ch, tzimmermann@suse.de,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-References: <20261106201813.129911-1-leandro.ribeiro@collabora.com>
- <20261106201813.129911-9-leandro.ribeiro@collabora.com>
-From: Louis Chauvet <louis.chauvet@bootlin.com>
+Subject: Re: [PATCH v2 1/3] dt-bindings: thermal: gs101-tmu: add Exynos850
+ compatible
+To: Alexey Klimov <alexey.klimov@linaro.org>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Juan Yescas <jyescas@google.com>
+Cc: Mateusz Majewski <m.majewski2@samsung.com>,
+ Thomas Turner <tturner@lineageos.org>,
+ Peter Griffin <peter.griffin@linaro.org>, linux-pm@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261118-acpm-tmu-e850-support-v2-0-19848c0d97e5@linaro.org>
+ <20261118-acpm-tmu-e850-support-v2-1-19848c0d97e5@linaro.org>
 Content-Language: en-US
-In-Reply-To: <20261106201813.129911-9-leandro.ribeiro@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20261118-acpm-tmu-e850-support-v2-1-19848c0d97e5@linaro.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
 
 
 
-On 11/6/26 21:18, Leandro Ribeiro wrote:
-> In the next commits we'll add non-uniform LUTs, and this function will
-> be used exclusively by uniform LUTs. So rename it to make this clearer.
+On 11/18/26 3:51 PM, Alexey Klimov wrote:
+> Document the `samsung,exynos850-tmu-top` compatible string for the
+> Exynos850 SoC.
 > 
-> Reviewed-by: Robert Mader <robert.mader@collabora.com>
-> Tested-by: Robert Mader <robert.mader@collabora.com>
-> Signed-off-by: Leandro Ribeiro <leandro.ribeiro@collabora.com>
+> Unlike the GS101, where the ACPM firmware handles most of the TMU
+> initialization and threshold configuration, the Exynos850 firmware
+> implements a significantly smaller subset of TMU IPC commands.
+> Consequently, the Application Processor requires broader direct
+> MMIO access to initialize the thermal unit, configure thresholds,
+> clear interrupts and collect calibration data.
+> 
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
 
-Reviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>
+Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 
 > ---
->   drivers/gpu/drm/vkms/tests/vkms_color_test.c | 28 ++++++++++----------
->   drivers/gpu/drm/vkms/vkms_composer.c         |  6 ++---
->   drivers/gpu/drm/vkms/vkms_composer.h         |  2 +-
->   3 files changed, 18 insertions(+), 18 deletions(-)
+>  .../bindings/thermal/google,gs101-tmu-top.yaml     | 26 +++++++++++++++-------
+>  1 file changed, 18 insertions(+), 8 deletions(-)
 > 
-> diff --git a/drivers/gpu/drm/vkms/tests/vkms_color_test.c b/drivers/gpu/drm/vkms/tests/vkms_color_test.c
-> index c223797a542a..06cec3591c5c 100644
-> --- a/drivers/gpu/drm/vkms/tests/vkms_color_test.c
-> +++ b/drivers/gpu/drm/vkms/tests/vkms_color_test.c
-> @@ -86,31 +86,31 @@ static const struct vkms_color_lut test_linear_lut = {
->   	.channel_value2index_ratio = 0xf000fll
->   };
->   
-> -static void vkms_color_test_get_lut_index(struct kunit *test)
-> +static void vkms_color_test_get_uniform_lut_index(struct kunit *test)
->   {
->   	s64 lut_index;
->   	int i;
->   
-> -	lut_index = get_lut_index(&test_linear_lut, test_linear_array[0].red);
-> +	lut_index = get_uniform_lut_index(&test_linear_lut, test_linear_array[0].red);
->   	KUNIT_EXPECT_EQ(test, drm_fixp2int(lut_index), 0);
->   
->   	for (i = 0; i < test_linear_lut.lut_length; i++) {
-> -		lut_index = get_lut_index(&test_linear_lut, test_linear_array[i].red);
-> +		lut_index = get_uniform_lut_index(&test_linear_lut, test_linear_array[i].red);
->   		KUNIT_EXPECT_EQ(test, drm_fixp2int_ceil(lut_index), i);
->   	}
->   
-> -	KUNIT_EXPECT_EQ(test, drm_fixp2int(get_lut_index(&srgb_eotf, 0x0)), 0x0);
-> -	KUNIT_EXPECT_EQ(test, drm_fixp2int_ceil(get_lut_index(&srgb_eotf, 0x0)), 0x0);
-> -	KUNIT_EXPECT_EQ(test, drm_fixp2int_ceil(get_lut_index(&srgb_eotf, 0x101)), 0x1);
-> -	KUNIT_EXPECT_EQ(test, drm_fixp2int_ceil(get_lut_index(&srgb_eotf, 0x202)), 0x2);
-> +	KUNIT_EXPECT_EQ(test, drm_fixp2int(get_uniform_lut_index(&srgb_eotf, 0x0)), 0x0);
-> +	KUNIT_EXPECT_EQ(test, drm_fixp2int_ceil(get_uniform_lut_index(&srgb_eotf, 0x0)), 0x0);
-> +	KUNIT_EXPECT_EQ(test, drm_fixp2int_ceil(get_uniform_lut_index(&srgb_eotf, 0x101)), 0x1);
-> +	KUNIT_EXPECT_EQ(test, drm_fixp2int_ceil(get_uniform_lut_index(&srgb_eotf, 0x202)), 0x2);
->   
-> -	KUNIT_EXPECT_EQ(test, drm_fixp2int(get_lut_index(&srgb_inv_eotf, 0x0)), 0x0);
-> -	KUNIT_EXPECT_EQ(test, drm_fixp2int_ceil(get_lut_index(&srgb_inv_eotf, 0x0)), 0x0);
-> -	KUNIT_EXPECT_EQ(test, drm_fixp2int_ceil(get_lut_index(&srgb_inv_eotf, 0x101)), 0x1);
-> -	KUNIT_EXPECT_EQ(test, drm_fixp2int_ceil(get_lut_index(&srgb_inv_eotf, 0x202)), 0x2);
-> +	KUNIT_EXPECT_EQ(test, drm_fixp2int(get_uniform_lut_index(&srgb_inv_eotf, 0x0)), 0x0);
-> +	KUNIT_EXPECT_EQ(test, drm_fixp2int_ceil(get_uniform_lut_index(&srgb_inv_eotf, 0x0)), 0x0);
-> +	KUNIT_EXPECT_EQ(test, drm_fixp2int_ceil(get_uniform_lut_index(&srgb_inv_eotf, 0x101)), 0x1);
-> +	KUNIT_EXPECT_EQ(test, drm_fixp2int_ceil(get_uniform_lut_index(&srgb_inv_eotf, 0x202)), 0x2);
->   
-> -	KUNIT_EXPECT_EQ(test, drm_fixp2int_ceil(get_lut_index(&srgb_eotf, 0xfefe)), 0xfe);
-> -	KUNIT_EXPECT_EQ(test, drm_fixp2int_ceil(get_lut_index(&srgb_eotf, 0xffff)), 0xff);
-> +	KUNIT_EXPECT_EQ(test, drm_fixp2int_ceil(get_uniform_lut_index(&srgb_eotf, 0xfefe)), 0xfe);
-> +	KUNIT_EXPECT_EQ(test, drm_fixp2int_ceil(get_uniform_lut_index(&srgb_eotf, 0xffff)), 0xff);
->   }
->   
->   static void vkms_color_test_lerp(struct kunit *test)
-> @@ -392,7 +392,7 @@ static void vkms_color_ctm_3x4_bt709(struct kunit *test)
->   }
->   
->   static struct kunit_case vkms_color_test_cases[] = {
-> -	KUNIT_CASE(vkms_color_test_get_lut_index),
-> +	KUNIT_CASE(vkms_color_test_get_uniform_lut_index),
->   	KUNIT_CASE(vkms_color_test_lerp),
->   	KUNIT_CASE(vkms_color_test_linear),
->   	KUNIT_CASE(vkms_color_srgb_inv_srgb),
-> diff --git a/drivers/gpu/drm/vkms/vkms_composer.c b/drivers/gpu/drm/vkms/vkms_composer.c
-> index 640a1a03f06f..faf4515f024c 100644
-> --- a/drivers/gpu/drm/vkms/vkms_composer.c
-> +++ b/drivers/gpu/drm/vkms/vkms_composer.c
-> @@ -93,19 +93,19 @@ static inline u16 lut_channel_value(const struct drm_color_lut *lut,
->   	return 0;
->   }
->   
-> -VISIBLE_IF_KUNIT s64 get_lut_index(const struct vkms_color_lut *lut, u16 channel_value)
-> +VISIBLE_IF_KUNIT s64 get_uniform_lut_index(const struct vkms_color_lut *lut, u16 channel_value)
->   {
->   	s64 color_channel_fp = drm_int2fixp(channel_value);
->   
->   	return drm_fixp_mul(color_channel_fp, lut->channel_value2index_ratio);
->   }
-> -EXPORT_SYMBOL_IF_KUNIT(get_lut_index);
-> +EXPORT_SYMBOL_IF_KUNIT(get_uniform_lut_index);
->   
->   VISIBLE_IF_KUNIT u16 apply_lut_to_channel_value(const struct vkms_color_lut *lut, u16 channel_value,
->   						enum lut_channel channel)
->   {
->   	const struct drm_color_lut *lut_y_floor, *lut_y_ceil;
-> -	s64 lut_index = get_lut_index(lut, channel_value);
-> +	s64 lut_index = get_uniform_lut_index(lut, channel_value);
->   	u16 floor_channel_value, ceil_channel_value;
->   
->   	/*
-> diff --git a/drivers/gpu/drm/vkms/vkms_composer.h b/drivers/gpu/drm/vkms/vkms_composer.h
-> index 04dd5646f672..fa003af12f85 100644
-> --- a/drivers/gpu/drm/vkms/vkms_composer.h
-> +++ b/drivers/gpu/drm/vkms/vkms_composer.h
-> @@ -19,7 +19,7 @@ enum lut_channel {
->   
->   #if IS_ENABLED(CONFIG_KUNIT)
->   u16 lerp_u16(u16 a, u16 b, s64 t);
-> -s64 get_lut_index(const struct vkms_color_lut *lut, u16 channel_value);
-> +s64 get_uniform_lut_index(const struct vkms_color_lut *lut, u16 channel_value);
->   u16 apply_lut_to_channel_value(const struct vkms_color_lut *lut, u16 channel_value,
->   			       enum lut_channel channel);
->   void apply_3x4_matrix(struct pixel_argb_s32 *pixel, const struct drm_color_ctm_3x4 *matrix);
+> diff --git a/Documentation/devicetree/bindings/thermal/google,gs101-tmu-top.yaml b/Documentation/devicetree/bindings/thermal/google,gs101-tmu-top.yaml
+> index 75560ebca48d..bea208cd4619 100644
+> --- a/Documentation/devicetree/bindings/thermal/google,gs101-tmu-top.yaml
+> +++ b/Documentation/devicetree/bindings/thermal/google,gs101-tmu-top.yaml
+> @@ -15,17 +15,27 @@ description:
+>    both direct register-level access and firmware-mediated management
+>    via the ACPM (Alive Clock and Power Manager) firmware.
+>  
+> -  On these platforms, the hardware is managed in a hybrid fashion. The
+> -  Application Processor (AP) maintains direct memory-mapped access
+> -  exclusively to the interrupt pending registers to identify thermal
+> -  events. All other functional aspects - including sensor
+> -  initialization, threshold configuration, and temperature acquisition
+> -  - are handled by the ACPM firmware. The AP coordinates these
+> -  operations through the ACPM IPC protocol.
+> +  On these platforms, the hardware is managed in a hybrid fashion, though
+> +  the distribution of responsibilities between the Application Processor
+> +  (AP) and the ACPM firmware varies by SoC.
+> +
+> +  On the GS101, the AP maintains direct memory-mapped access exclusively
+> +  to the interrupt pending registers to identify thermal events. All other
+> +  functional aspects - including sensor initialization, threshold
+> +  configuration, and temperature acquisition - are handled by the ACPM
+> +  firmware. The AP coordinates these operations through the ACPM IPC protocol.
+> +
+> +  On the Exynos850, the ACPM firmware implements a smaller subset of TMU IPC
+> +  commands (mainly temperature querying, basic TMU initialization, and power
+> +  state management). Consequently, the AP is responsible for register-level
+> +  access to initialize the thermal unit, configure thresholds and handle
+> +  interrupts via MMIO.
+>  
+>  properties:
+>    compatible:
+> -    const: google,gs101-tmu-top
+> +    enum:
+> +      - google,gs101-tmu-top
+> +      - samsung,exynos850-tmu-top
+>  
+>    reg:
+>      maxItems: 1
+> 
 
