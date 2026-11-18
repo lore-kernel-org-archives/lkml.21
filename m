@@ -1,100 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.46
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795019816;
-	b=do3Qlj2Ll95smlYWhK3vqUJqpLhBOp8cQnyTjsouEIaoZfpjfPc95jVcDkFcdFHXRT33
-	 Ti9jXMUWGPHfrdZkr3dEMdOZvUIFhUMujy6YfEnYTheYONBpHSC2xZdvLU5gE5Ub/4YER
-	 Ta3EuKNIXUtDBuiXY7lrFpASWXMtbtWROwmMS5ATiUNSX0IrcUpAtO9oLJ+4hMNivroiF
-	 aXrJVM2RLk6UInfm1eorEbsx9TK9Nrc2QscUXn5bA58zre1OD/TrKBVzsPn48xRHD7zRg
-	 lVJjHbTFBqMAXf5BfHogMP1Y+YYa0Xryh+0gXr9C8TfLP4PYWxFrD9OrFQMh8ef80wQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795019816;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=ThJWWn15R7JIY3hayjLwOhu3LzqQd50Rds3OyAm+UpI=;
-	b=WjioADXgTvWzcBOeg0O9MIRVgvs/pfx46S1JvBg0q30YIxA1Uky6nnTsmuF4ZJmz/NRW
-	 jQTetFrXoUxgQMAo4Op/gphVJmV87wVGPps7C0UfQQVPdVfHZnH2JRQCmd4iy0Ihi60x+
-	 Ua5detmEH6HtmXzlpiXCu3SAEcX64E5GUgzkCXQAWZV2liq2Xfoac9mR13vroDalpllZW
-	 wNA4ogupuv3FI1YzvEJWCzPupFNiGff3qNNJ/66I3ypviuL7+TJqC/ocecZ/Phsu1ckxp
-	 f/8zvyfyxz7mFbXBEsEb/g2cOMT9K+OUpOVFTfiy6G0FwQWB7QPxidOvRH1dOBeyKCQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Q928FUfp;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.46
-Received: from mail-ed1-f46.google.com (mail-ed1-f46.google.com [209.85.208.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795019825;
+	b=tNdsh67DybocDwoQjWX9SKLhoe6RpJZFF487L9Ih/VVIbc8xZVqo5cG+6kElT3dRyDjL
+	 ll5Ob0x7gjYIjdjyxW5fTSzbvURU9BMHWiMt/wU2jK870KAZkpe0UI6Z0CLHRu17xhmrz
+	 +DmyGPMjwmz++9CY3KRcGX72g4FxWEYhg5SHELWtcmOiUNhe/ZX1dXRCRZCEXpFbxvDJ9
+	 /KTTzcjXPq72+D+7ptezsRCgR1J6Mq2EnnFvuKWOYoe7Tzn1sJFwkRanMG7oIfeS9MMOr
+	 XenSyIyaC6OdCxq0cmuvT2bBsEQxEv9VMkjrOl8nFXxZFaMSMCMEHBEOusLHJT41WdQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795019825;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-TM-AS-GCONF:X-Proofpoint-Reinject:X-Proofpoint-Spam-Details-Enc:
+	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=TmmYz49EZYskwqE2evp0C5eWLTGphEa9ppDYNdOJLXI=;
+	b=nKxCPfsoffgB3G6n3jIRVSyCv9WMtGNYlbcmBiwZrZzMbB+yVmMXFq372KBQO1RqvYM2
+	 i3q7A/nlsTZCynZr6JqLLYJv1ag/ejiLA8r2ZJLnJ/uA8SHN/FpLbbtGURcSuTIZksuUt
+	 hHti5Or6Pzt969EhP2lEi83w4H+s+4DUDQCy0PwOyqcR1HXu3dOQupdW4UgJE+iNLpfXk
+	 xmsQlruHV/SX2Hjd1TIziwUbJt4We/rThmsCwrdGe6cvtVc3jECe4lMjeVCh7mZeaxwqv
+	 K+mjiQbGOAVu4arlK2/GLsKZcFI8hP8eeJ1Z4pnbAToEVlJU0paA6eBDrvOYyMzxyxA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=ZiOIRg+Z;
+	arc=none smtp.remote-ip=148.163.156.1
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DF0F606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:36:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2DF0F606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16854606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:37:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16854606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Q928FUfp
-Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-6b8a2518f7cso1093024a12.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:36:55 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795019814; cv=none;
-        d=google.com; s=arc-20260327;
-        b=RYGQ5JYE8BiZd1peSSNno/VBphx/DX1jtRMuz9EjDneIebfC0VsyBgbHotT/ty7Gm1
-         A2xmlDFZHzALRXKt1TMTdfFel667MKfDC4LRioBgAJBJbGzHBgnQF+PJ5VpF+QiK58uw
-         ixwNKeygwp8d6sj/2BxaZHbAV9n6iTkyXTCC3wVAu1LoX+mrOxWD1FgcqryfJWWW8HhN
-         /sGif4ctQegITR86qulcZuPsXQkMF6+ap3oAaJbolFM+n37bObwlBH/ShBZ1EM/0mlpX
-         IG8/R34Mn6vPy5uF2VaCzUHrp4S6UhfyZAZqXeUN0MSliGKs7ob9A2TpzhKbOanqhaxf
-         NtJg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=ThJWWn15R7JIY3hayjLwOhu3LzqQd50Rds3OyAm+UpI=;
-        fh=w8C2bc1abOkLJ3QS5zl3pJN7NODAE/utgsXGUxI1NbY=;
-        b=aJ/2PL6LxQiCF5+sDdD8jQDn17MO1ir1aUoJu5KwKbwJg+wK/ZZK/2Voqfw80qRqLX
-         NCl6oe2HPc3O0l+xwG+jrjoHjVZLNe1pnm6Ocey8QSIyQDOEl1Rc6XqZbJ3i4SiL0qy8
-         dZ8sllgs6ec5ZnZZ+uFJHZs3ZUyUjMoqjL7ONu/V+gH7O4PB4FfIKun8ziTrQFHm7blc
-         gIOf4e+hpjIcLkOEcSvBh3qJeMHuIoeiEF2W9AqqX0VdL23G+BzsKqkRf5viNWYk8Y/K
-         fbyljwxJKbeFHCLc0O0tcvpern9vDELzG0daYHhOPLZhxQDKWVMNFyS4NijdTZBvlnzd
-         kkKw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795019814; x=1795624614; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ThJWWn15R7JIY3hayjLwOhu3LzqQd50Rds3OyAm+UpI=;
-        b=Q928FUfp2LnQkjGEnKMIMu+nIXWPV8Mw0HjVjFDQa7MZUVLuYPLFwnsc7iiHqC360u
-         Kp8IRabh9aATlCbBIrXYC8LB4ujsA2WowQnPl0onFZOSJ5rVYhQ50HD2q0pTUJXyKimM
-         OUL77cTMfVDMrYjz/NQW0TKyEQpYRFMt7Ju+HVxVGfRQjrSAY87Mpzq+C/2x9bC6NTow
-         OtYFWyMzdvLEcoERGP5aXpJZMZOJljjkWPd07rML7zS6cDn/RnBxJCXaYM/7fpaXHvui
-         3d3div9gMzI9ed77/rJrBt7B9+fw7rgFDQ4NESvylFpmE6QFtWC5GnB6Lj4Ro4sGb6Nt
-         AJ7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795019814; x=1795624614;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ThJWWn15R7JIY3hayjLwOhu3LzqQd50Rds3OyAm+UpI=;
-        b=taPOjUE5noeN4UijEhN8LuUnzr19H2WH8y8YgqFwosaiBEEH2JsnW+P8DUvNGggZX7
-         D1n48DEn70TopOG+z/iG/CRmwPjexiOhzDfiAnX3kdltQfQCLmdo4L2Hs+x4WRnLfD5E
-         jkYE0dcClE5bZ13X4omUx2xxQGUrMAZcphvY2YI15J4FlxEaX3TF3GB0/83ssKKaXQ07
-         ABNTnfHBmYvv0NrwwdZzZgoUQkBPoERu7kKayI0j9ay6uduWaXHpFSHcLq1dyxzSTAYM
-         GiCpDmzSae2cDZkz2QEUEIYQrOhp3tmO6sYG8jvwIZsGN9NNFCN/BK3Tp0ML0jhRZjOt
-         sKKw==
-X-Forwarded-Encrypted: i=1; AL+hErHbEKmqsAqHK3kxpzKW2Ie7eejmkZXms7fFY02wWwvzJql1UN+vSAvoUh/gfe4M6cMdzwhzDiUUFqAxpag=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/HG3ShkOk3Paq4g0emoP3A+hOIFQ1vv7zeaWHy3A2N+BNKQVUS
-	ABLH6PW6n3CTBIiIpzffYrrwgzt6b3H23aHnhl66wj/Mi9j94CWoLXgpdZTZ4KerPjCmOImVj4M
-	SyjYU8dj+jt4B5eLa2C83Fn15HNxyw3E=
-X-Gm-Gg: AYBFou0gj2JezdE5K41RdL2E6S9UxMI8a3+4oNwxV+8/c+p5fuvgjwhSDNYIiYlnBE/
-	FxXiWUFoYXb++o8yh/YBK4YMbEYpCVpHa93HmHMsEyV7irxBG6aCk+Jrz3w4vekgZ//gCCw6O90
-	dZk7B+RQEaZQZrLusFmEGUSGaRJIEG4BiZBdDI1cVK4mgLVSRw4yU2xYUTd8Msqtx1Pn9I0mK6R
-	gUWAXBhidEVqlwPCVBPFZIcWM2bjdIpt49Kwq8KGmNjASrQ/u9Iymrjn8CijBdcqAV6tdn6wYlM
-	56LyWbZws+aCnxZ4Z0bVZAzM7aDPoLNBVDbPQSCXEZSFzBSdpky6l+HICP7rtq9cqLzDQ7s5jGt
-	q5+AmieKCSexVQpXxo8qoyY2XSeeLNIs4UI0FtDx6zbHyagSIdVTC2K06J/qLI7MHgZZqcQ==
-X-Received: by 2002:a05:6402:c711:20b0:6b7:b12e:1638 with SMTP id
- 4fb4d7f45d1cf-6b887effc26mr1999145a12.37.1795019814317; Wed, 18 Nov 2026
- 08:36:54 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=ZiOIRg+Z
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIDQBHE1373026;
+	Wed, 18 Nov 2026 16:36:53 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=pp1; bh=TmmYz49EZYskwqE2evp0C5eWLTGphEa9ppDYNdOJL
+	XI=; b=ZiOIRg+ZJsiPTpDzqzLVlKc58MLHpAFj2+0GQtRm8uI+7TNdWT5BZaDNF
+	bSiVuiFWbaBFNcjOWqSs8ohjp5Khql/bo5wdLOSIUF8BEvsaaWvG1IgskKFssI4M
+	4QOFtDLOiOv7SJmKzpRGM4sFZFB3mh2ZZsjKYlh5Ipp1ydB4OcXX73+uSDsrD729
+	cbjWNoaOPSNHUmJXdi8tsLKJaFUC5vEhnCv9fY4FrVzk7loXNddN5BKj+SNkfYZu
+	MXcsCjJnGdiP4ZbmSaTNACqKkiKzHM7ecrM6RC8UoiFjeYVgogDAQJOrZ07miOaM
+	5CUOl4yAm3LJ9cth9Hdw5afngDaAw==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105nbef8-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 18 Nov 2026 16:36:52 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIDZGCC3180338;
+	Wed, 18 Nov 2026 16:36:51 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j02jugw5m-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 18 Nov 2026 16:36:51 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AIGalL341222648
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 18 Nov 2026 16:36:47 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 99F742005A;
+	Wed, 18 Nov 2026 16:36:47 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id C647A20040;
+	Wed, 18 Nov 2026 16:36:42 +0000 (GMT)
+Received: from li-7bb28a4c-2dab-11b2-a85c-887b5c60d769.ibm.com.com (unknown [9.39.19.105])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 18 Nov 2026 16:36:42 +0000 (GMT)
+From: Shrikanth Hegde <sshegde@linux.ibm.com>
+To: linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+        driver-core@lists.linux.dev
+Cc: sshegde@linux.ibm.com, christophe.leroy@csgroup.eu, maddy@linux.ibm.com,
+        gregkh@linuxfoundation.org, rafael@kernel.org, dakr@kernel.org,
+        johan@kernel.org, sudeep.holla@kernel.org, ritesh.list@gmail.com,
+        tim.c.chen@linux.intel.com, yu.c.chen@intel.com
+Subject: [PATCH 0/5] cacheinfo, powerpc: Move powerpc to generic cacheinfo
+Date: Wed, 18 Nov 2026 22:06:34 +0530
+Message-ID: <20261118163639.890546-1-sshegde@linux.ibm.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,118 +93,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261115180343.576773-1-koray.fra@gmail.com> <20261115180343.576773-8-koray.fra@gmail.com>
- <f297d9ea-ebd7-47f4-ab7b-de5c45980000@app.fastmail.com> <CAOQ4uxhpMARO_ZMJDeoa044BwufLVnS0o4Fv0abBF=tjaZmtWQ@mail.gmail.com>
- <cd49ce48-58d7-4341-b4fc-34e63daf3c52@app.fastmail.com>
-In-Reply-To: <cd49ce48-58d7-4341-b4fc-34e63daf3c52@app.fastmail.com>
-From: Amir Goldstein <amir73il@gmail.com>
-Date: Wed, 18 Nov 2026 17:36:41 +0100
-X-Gm-Features: AclHuK_Wot5qcfi8_9CAebWCtd31KyKZ5gW_T2w6JAANm_7TsCfaaSyfxQBsTLM
-Message-ID: <CAOQ4uxjme9sJ5LGNDnP6rEKZLTJzX_ZdcMohgu2iLULK96GPOA@mail.gmail.com>
-Subject: Re: [RFC PATCH v4 07/10] nfsd: add provenance time (ptime) via FATTR4_TIME_CREATE
-To: Chuck Lever <cel@kernel.org>
-Cc: koraynilay <koray.fra@gmail.com>, David Sterba <dsterba@suse.com>, 
-	Namjae Jeon <linkinjeon@kernel.org>, Sungjong Seo <sj1557.seo@samsung.com>, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, 
-	Trond Myklebust <trondmy@kernel.org>, Anna Schumaker <anna@kernel.org>, Jeff Layton <jlayton@kernel.org>, 
-	Konstantin Komarov <almaz.alexandrovich@paragon-software.com>, 
-	Paulo Alcantara <pc@manguebit.org>, Chris Mason <mason@kernel.org>, Yuezhang Mo <yuezhang.mo@sony.com>, 
-	Jan Kara <jack@suse.cz>, NeilBrown <neil@brown.name>, Olga Kornievskaia <okorniev@redhat.com>, 
-	Dai Ngo <Dai.Ngo@oracle.com>, Tom Talpey <tom@talpey.com>, 
-	Ronnie Sahlberg <ronniesahlberg@gmail.com>, Shyam Prasad N <sprasad@microsoft.com>, 
-	Bharath SM <bharathsm@microsoft.com>, Sergey Senozhatsky <senozhatsky@chromium.org>, 
-	ChenXiaoSong <chenxiaosong@chenxiaosong.com>, "Darrick J. Wong" <djwong@kernel.org>, 
-	Sean Smith <defendthedisabled@gmail.com>, Andrey Albershteyn <aalbersh@kernel.org>, 
-	Pedro Falcato <pfalcato@suse.de>, =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
-	linux-btrfs@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, exfat@lists.linux.dev, ntfs3@lists.linux.dev, 
-	linux-cifs@vger.kernel.org, linux-nfs@vger.kernel.org, 
-	linux-api@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA2NSBTYWx0ZWRfXxTZLB/nkfKdu
+ 9ahc/7cym+FTt5RSBrwRmJXIXqkmv51RthaStlHFtD6cZA9eSezGO4m97Yzg/dBMBzFYmP9M3+Y
+ 44zrMrKcNByhN5rk0AgJ7aWWys+DDfNj5t1S1Hej626ZjLpP9Ac/qX4XRVSrYqrcaXhqKuPsIrp
+ d3xs3faJ68HGbwU8zVhVBWLvEdr4ccGufRPnbi7ktGOHfWc0M8cx+bCQ2qQCHJRLX2zAnFaj3mM
+ aIkHtsqca7jIsL96wqkotJQ6QvhmTNCXv/Zd59+9Cz3yCjO7PdXw2dZktWGytcFOoC0kCnVTXnD
+ GP68CecHsDx8M/B2+A80ZX/+C2UQ0iSaUqp9FizLs2/0vPg6UkDZrbzM7Gs16e/2BRT3Ou3LG2j
+ AtVlD3dp1J3pLQEgch4hOjFMTMOEljNeMbjUci+I3P6hJSG/tQXwdbrGxKBJDMcl0p3agohH+1x
+ mVbw4qQFfmeU39gYsCw==
+X-Authority-Analysis: v=2.4 cv=HN9WhYtv c=1 sm=1 tr=0 ts=6afdd425 cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=iQ6ETzBq9ecOQQE5vZCe:22 a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8 a=VnNF1IyMAAAA:8
+ a=B9_qJ1oztFEBON1DZfwA:9 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-GUID: SR1mgnAxcme0IsEfMeOJtnII3aOt2ed0
+X-Proofpoint-ORIG-GUID: HYttsEp0gA57szudWeTroFnngXI5AFGB
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA2NSBTYWx0ZWRfX8pA414+6GV9j
+ 4WKFLZ7WX0a9Fo9HrJaOnb6Z6zbCMnwY5zrNRGU5xykWUApcLhrHrNQaCptmPsVwLNzviQfYX7I
+ Mp70m814xR+IgeMawGDc6yTnjp6KkP4=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-18_04,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 priorityscore=1501 impostorscore=0 suspectscore=0 malwarescore=0
+ adultscore=0 phishscore=0 lowpriorityscore=0 clxscore=1015 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180065
 
-On Wed, Nov 18, 2026 at 5:09=E2=80=AFPM Chuck Lever <cel@kernel.org> wrote:
->
->
->
-> On Wed, Nov 18, 2026, at 2:44 AM, Amir Goldstein wrote:
-> > On Tue, Nov 17, 2026 at 11:02=E2=80=AFPM Chuck Lever <cel@kernel.org> w=
-rote:
-> >>
-> >>
-> >>
-> >> On Sun, Nov 15, 2026, at 1:03 PM, koraynilay wrote:
-> >> > Implement provenance time (ptime) in NFSD, as introduced in a
-> >> > previous commit ("vfs: add provenance time (ptime)").
-> >> >
-> >> > Map ptime to FATTR4_TIME_CREATE, allowing clients to set it across
-> >> > CREATE, OPEN and SETATTR compounds.
-> >> >
-> >> > If the underlying filesystem supports it, use __vfs_fileattr_set_loc=
-ked()
-> >> > to set it, returning -EOPNOTSUPP in case it's not supported (i.e. wh=
-en
-> >> > __vfs_fileattr_set_locked() returns -ENOIOCTLCMD).
-> >> >
-> >> > When querying FATTR4_TIME_CREATE, request both STATX_PTIME and
-> >> > STATX_BTIME, preferring ptime over btime if available, and advertise
-> >> > FATTR4_TIME_CREATE support if either ptime or btime is available.
-> >> >
-> >> > Assisted-by: Gemini:3.8-flash-high antigravity-cli-1.5.7
-> >> > Signed-off-by: koraynilay <koray.fra@gmail.com>
-> >>
-> >> > @@ -3646,7 +3649,14 @@ static __be32
-> >> > nfsd4_encode_fattr4_time_access(struct xdr_stream *xdr,
-> >> >  static __be32 nfsd4_encode_fattr4_time_create(struct xdr_stream *xd=
-r,
-> >> >                                             const struct nfsd4_fattr=
-_args *args)
-> >> >  {
-> >> > -     return nfsd4_encode_nfstime4(xdr, &args->stat.btime);
-> >> > +     const struct timespec64 *ts;
-> >> > +
-> >> > +     if (args->stat.result_mask & STATX_PTIME)
-> >> > +             ts =3D &args->stat.ptime;
-> >> > +     else
-> >> > +             ts =3D &args->stat.btime;
-> >> > +
-> >> > +     return nfsd4_encode_nfstime4(xdr, ts);
-> >> >  }
-> >>
-> >> I have trouble with this approach.
-> >>
-> >> We've already established that, for the Linux in-kernel NFS server
-> >> implementation, FATTR4_TIME_CREATE reports a file's birth time and
-> >> does not permit NFS clients to modify that.
-> >>
-> >> After this patch is applied, the server reports the ptime instead
-> >> of the btime on some filesystems but not others.
-> >
-> > In other words, for some server filesystems FATTR4_TIME_CREATE is
-> > settable and for others it is not.
-> >
-> > Isn't the NFSv4 protocol equipt to deal with this complexity?
->
-> Not a question of whether NFSv4 _can_ do it. It's whether it _should_
-> and whether opaquely choosing a settable vs. an immutable timestamp
-> on the server is the right design.
->
->
-> >> Essentially this changes the semantics of existing files that have
-> >> a btime set -- technically that's a regression.
-> >
-> > I fail to see in what situation this is a regression. Please explain.
->
-> Any consumer that depends on btime being read-only is now screwed.
->
+This is another attempt to move powerpc towards generic cacheinfo
+framework. This is spiritual successor to earlier attempts by Sudeep
+Holla [1]
 
-Who is the consumer in this context?
-An NFS client?
+The context around this time was, when trying to enable Cache Aware
+scheduling on powerpc using a llc_override kernel parameter[2], it was
+pointed out that the llc_bytes which is retreived using
+get_effective_llc_bytes fails and hence the cache aware scheduling is
+effectively a NOP, moment the process has a visible footprint.
 
-Can't an NFS client be connected to another NFS server
-implementation which does allow this?
+Instead of adding more hacks around with custom arch_llc_bytes, this is
+an attempt to move powerpc to generic cacheinfo instead. This removes
+the powerpc maintaining a separate sysfs entries for all caches.
+A few modifications to the generic code is necessary due to some of the
+conventions followed in the device tree specifications. The details are
+in the respective patches.
 
-I can't wrap my head around the problem.
+If this approach does not work, then I am afraid we might have to fallback to
+arch_llc_bytes.
 
-Thanks,
-Amir.
+Note that initial draft of the work[code,changelog] was carried out by LLM.
+Provided the device tree blob and both powerpc,generic cacheinfo code.
+With few iterations, LLM did generate the right code with few tweaks.
+Only the cover-letter and Patch 5 are completely from me. Thanks to
+LLM, this series is in shape in few days otherwise would have taken
+more time. 
+
+Tested the values compatibilty on Power11 Dedicated and Shared LPAR's.
+All the values are same, except id and uevent which was not there
+before. That should help rather than hurt any tool.
+
+This may need more broader checks on different boards/configuration
+to ensure it is same. Also DLPAR CPU add/remove is not tested yet.
+Please test and report if your board/platform shows up any different
+values in those cache entries.
+
+[1]: https://lore.kernel.org/all/1424715500-21725-1-git-send-email-sudeep.holla@arm.com/#t
+[2]: https://lore.kernel.org/all/20261023131646.2907938-1-sshegde@linux.ibm.com/
+
+This series is needed llc_override patch[2] series to work. A subsequent
+version of that will be sent out soon.
+
+PS: I am working with 90% coffee and 10% sleep.
+
+Shrikanth Hegde (5):
+  cacheinfo: Allow architectures to provide custom cache IDs
+  cacheinfo: Support unified caches described by d-cache properties
+  cacheinfo: Add teardown and rebuild helpers
+  powerpc/cacheinfo: Move to generic cacheinfo
+  sched/topology: Remove stale comment around llc_bytes on powerpc
+
+ arch/powerpc/kernel/cacheinfo.c           | 994 +++-------------------
+ arch/powerpc/kernel/cacheinfo.h           |  13 -
+ arch/powerpc/kernel/sysfs.c               |   3 -
+ arch/powerpc/platforms/pseries/mobility.c |   2 +-
+ drivers/base/cacheinfo.c                  | 111 ++-
+ include/linux/cacheinfo.h                 |   3 +
+ kernel/sched/topology.c                   |   7 -
+ 7 files changed, 194 insertions(+), 939 deletions(-)
+ delete mode 100644 arch/powerpc/kernel/cacheinfo.h
+
+-- 
+2.54.0
+
