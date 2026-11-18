@@ -1,108 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.82
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795022745;
-	b=t43Gk8FaLhfOee4z8MpSnQeK9ySy369ZM14PMBoJZpWjbSAdpSPl729THtZ5rjRWZPhB
-	 d9C6RlZwJpjYxO/lJJi8ssN6G6G3Qb0rHmsTSrcoRvf8+TxHJMTQoXaWZG5SSgKiR5j31
-	 Ht5saeL4ZBrICpBPQknJ7Tl/mUb73dwZuSrnV5Kmjjt4i6ba+Uip69L/2Yr2t1sTQBvR9
-	 s45aEGCYXVnqylscH81pArTE3wWyW/yS1x7yn8Z21kJ7NSxeQjChUq6E26I6Z391WEk7d
-	 qw8g0mUDgZ47s0m5aExxakiH+1R+PA+UFlx1aCWrF4LG1+VrMPeMc/tj5vITdQMksBQ==
+	t=1795022746;
+	b=E7ZiDDBXN8qzGzdE51x8ncBQaoh/8EVRQhz8WaQf/x5ESnRbT53TxbNC7XPcYhyiM3C2
+	 IaLMBuxcaj9UBQ8Hy242X4REDmEoEjPUY0OTbj/olDxV+sZ2lvu0GXDlz5/todytq35vw
+	 VtXzGliHFsatz5YGJrFMRrFxbofmccoySruNYQNYrRsKZvnjiSPbe9WZrrgB1vfxZE7Uq
+	 S7aAjiC4ZU9wY4eeJvR6qAkyYcVWgV+GP1+LCHk9A6e4XyvrymTYJSeGmz2zs8PKbUOpr
+	 iJpkXnRtPpcJCFAAC5yraF5fbtIz/D0dEJtAWInnzoOusTpB/KG4mGpvwKwHNbt9S5w==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795022745;
-	h=DMARC-Filter:X-RZG-CLASS-ID:DKIM-Signature:DKIM-Signature:X-RZG-AUTH:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:Content-Type;
-	bh=N+ZLUTfEpjO5oUNCth3iHY0m+60IhVuCjuhmSxCyjJg=;
-	b=GZSvJQ21ltr77OzsmNWbTIvKt+zfqOVSvID1kkK6e1SSBe7thaVzz4Nz2IwjBNgJ3wVS
-	 GZwhTSnQ1caRwutW9yM3Aqcc1834NvTe+muIu8TRi7EI52wX2CeFVk+0cvyQa6L4ATvut
-	 WnSgj5bhNUgGi81X9vyZBST/uQxacXe0vzAZ3huuoW7ktN/oyEjaxasmpxrAyjIaFTZPP
-	 7S5bpNc70yFm0rWdtRyQwbxfa4iEZ23AAvfvfktIG1C8VVytJxELpp/mnUTN74GCOmjdi
-	 sXtYHIvTJCluql3XiSDg8AyV26iHFYyepBdyismU2h3S4lGhATaFp8rEixgR3bn3sow==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795022746;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=rboQuHxOmmu88XioB4K1KS/EAzIsj/yoeukyg9V2m3Y=;
+	b=aoF3HRbspQxVnShrFN1Zuzd3ONua2G07Yzq4AOES/o961pCvn4xGM16u3tlaqtZ1+RiP
+	 azT+hfBDfiWQrKrJADjrXGzjNWBlYVxpyV8nPmBfb3UBbucx3j7Xo5QHjXX+s8PBy9ysx
+	 QRGjCi5GE9mrfbeUqq4MUMnlD7sq0T1oma9y8g0LBhM4iDjCpF5iLF0iUJVw/Wr4FWrpo
+	 Uyudh9LzxJs+PQoWliyN+fbu9KrpWIESKQIuZ0ImCOWVLQA8K+OKCBUCVwxl5c+n7lZlE
+	 /8KTjuXLTkuOLyoUUYvoMs2aKe8uD70XMVtjBrzwcXT0U47BqW6jeOoyWU9Ym2d0QXw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=goldelico.com;
-	spf=pass smtp.mailfrom=goldelico.com;
-	dkim=pass header.d=goldelico.com header.i=@goldelico.com header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=JHhRuAT+;
-	dkim=pass header.d=goldelico.com header.i=@goldelico.com header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=5DD7sqL7;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.82
-Received: from mo4-p02-ob.smtp.rzone.de (mo4-p02-ob.smtp.rzone.de [85.215.255.82])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iO3RnXWu;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FAFE60A2602;
+	Wed, 18 Nov 2026 17:25:46 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iO3RnXWu
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795022746;
+	b=N+Km3deuiTmxD1yUfBFifXa3u3SUabpgu8fSpTeKI/LZyioF1Ah+3W3LoC3JpVy60op7
+	 E08eYLJi9KnwEoduvF/Z3sst4oy9/6RQAl481IblRPuWYv+W25XUCShzpQM8t9AB1w/9B
+	 7MNPXQbEH+SnZm5NT3P4FL+pohjI9LLUr+ZWXSxp5AAvriSA1NbgGXmO6/wyg5AuHawuS
+	 5KFFESgNaFoqxW7lTP040JnMIik3IkLTSGng3eYsqsfRDU8tSrLr4v/Lwli/ZuSDnB7fL
+	 W4VNk/8CeH3pxUFJxGo/wN5PsVAI4HwWFkuD721xCFJN6Pw2PvVVw0ndibkPhOvZG6Q==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795022746;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=rboQuHxOmmu88XioB4K1KS/EAzIsj/yoeukyg9V2m3Y=;
+	b=UvjlMeOV6/w8Ge+5E0WTPkojuFvYHVGODxshBfslYqW9Gk2zO24cXlxFLqKuLR4eGLsI
+	 6gab45dJB5yTOg8qxC2ezD/jJhHUqYzXmA5/nSi1Dblc5iYA9AmWbJQvrhq5knA7lWeie
+	 4fhYZBQp1XwOytwQz//5Qzf3YMxxqFUvOE223hYsQs1+JmMADRuiWLU+9uF8+fOOVy4t9
+	 4UcvHn7QzsFESY7eucXVbQi3kpia2ODr9j5RVeSOTs5SEJVKA3HgFxS+pVCfa0A7DuD+8
+	 tH6e/7PYi9tHB1bNQqOCJzSdAzLIHkKWOL31lQPaFgQ1ubwPiFW4blNydMCikYmwAhw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12C5C606A31C;
-	Wed, 18 Nov 2026 17:25:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 12C5C606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=goldelico.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goldelico.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=goldelico.com header.i=@goldelico.com header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=JHhRuAT+;
-	dkim=pass header.d=goldelico.com header.i=@goldelico.com header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=5DD7sqL7
-ARC-Seal: i=1; a=rsa-sha256; t=1795022740; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=MbKJMsphile9weZ+pK1vUkLFTRnbQyJMdp+1CQrcDcRawmP9XBigR6T4AmvQmerJ0o
-    3AmoPO3m53YWMo9eMrXtHTHlFVB56eWzCgjTU/IXTSu3VitzUbyQwLzidRIihsXLSaK7
-    6O3qwofefRiYsUxsVsXmeeQYFsYwlN+h4wtKIU40MrF8Cmw4kLZndkMhGaHaBxjSU6kS
-    PBtKTcNCF7G/FG81xvic46xFBKcv8SFioyia8hL7zAhf5LyB06OZnI22FnArdDM77y7h
-    EubwfBWl4M0RrOVSsmeRZf9jzm1JvbyFIUMs5HX/OFvaomZIrK5kEjdkyBBpw8jRKNX2
-    gNNA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1795022740;
-    s=strato-dkim-0002; d=strato.com;
-    h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
-    From:Subject:Sender;
-    bh=N+ZLUTfEpjO5oUNCth3iHY0m+60IhVuCjuhmSxCyjJg=;
-    b=KBxATpE7lUZZUBUPP7e3T5Kkfdl1+nNnZkZPysRMvKg4KU43+4BTqxZeqDBLs93wdE
-    mMNz5wl7C5p0HmEpIHWsxYYRLUpD3+JaSvYpNiYlKhxKojjsmgMEp0ViJVD56LH/PPPO
-    3GoB60AZXqYc0HXY3NyBdKarufgW0Yyp9pB4ASMRGQfAxUlzSUk0rCv76s2cy4ppRPO4
-    7z5k0z2Zp7etprfLX0Aj8FQZOHh7Fr/6Dxwclp+RngRIEREvUNa9IGkRJCQxkRabht8J
-    JUkZnRqmUj6ROYPVeuBqPYDlrqw9X4Ol2dxJnJf3XFvIzat52z8KqbTJgRK5He+EDGaV
-    5rbQ==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo02
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1795022740;
-    s=strato-dkim-0002; d=goldelico.com;
-    h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
-    From:Subject:Sender;
-    bh=N+ZLUTfEpjO5oUNCth3iHY0m+60IhVuCjuhmSxCyjJg=;
-    b=JHhRuAT+AAdU5kOcMr4OmJ75TpvcwdZa9RRzki+gFKzMsiCnUiUFgje0uaiStyaH3p
-    8kv9H4VSk7VyopJSgSQ8s8q5DBSvYbJD0LvtxcWaA3YarKbdtgglew4BrUwIlBarq3TM
-    hQ6NVqyTn+Zq73CCOawbAO8gs/K6V5D3sToRCoV8c00d1f4Z50XCQ7u0NTVfUgnHhKxT
-    0MjFsKGttu+w4ye1hDVy9vOShAdoD3j8D+w47bHY8n1dtdDu2eA+l2K82CIYypKgWvFj
-    e1dvzg9Cb4l4qCYzCyBPbphi/eJ0QjadUSgk8HRpMQ/Lx9J1CcCh8ao97iBxhqJsHX62
-    nkAQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1795022740;
-    s=strato-dkim-0003; d=goldelico.com;
-    h=References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Cc:Date:
-    From:Subject:Sender;
-    bh=N+ZLUTfEpjO5oUNCth3iHY0m+60IhVuCjuhmSxCyjJg=;
-    b=5DD7sqL7flN3HAglVVBF37wTpZvIqG1k8Wpnl88U3rioEEvQeqiWHhJhL93C2lq1VH
-    pqVWYQxAp9VKJ2TWJ+BQ==
-X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9qVpwcQVkPW4I1HrV2Jpcm8iNZLZ2IBizV+3wFb55dglUeZzcEX9J"
-Received: from iMac.fritz.box
-    by smtp.strato.de (RZmta 55.6.3 AUTH)
-    with ESMTPSA id Qb56a22AIHPddiV
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
-	(Client did not present a certificate);
-    Wed, 18 Nov 2026 18:25:39 +0100 (CET)
-From: "H. Nikolaus Schaller" <hns@goldelico.com>
-To: Linus Walleij <linusw@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Cercueil <paul@crapouillou.net>,
-	Bartosz Golaszewski <brgl@kernel.org>
-Cc: linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	letux-kernel@openphoenux.org,
-	"H. Nikolaus Schaller" <hns@goldelico.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v4 2/7] pinctrl: ingenic: Fix hardware dual-edge interrupts on X1600
-Date: Wed, 18 Nov 2026 18:25:32 +0100
-Message-ID: <12e66f571e8765b1eefeab5939c2c874b71b28af.1795022736.git.hns@goldelico.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <cover.1795022736.git.hns@goldelico.com>
-References: <cover.1795022736.git.hns@goldelico.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id 64A601F000C4;
+	Wed, 18 Nov 2026 17:25:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795022745;
+	bh=rboQuHxOmmu88XioB4K1KS/EAzIsj/yoeukyg9V2m3Y=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=iO3RnXWuNwcRO0+YfaFjZiooCexjcZ6+UMHmwuLGe24LB56pW3Iztr6Hf/4Nssm/x
+	 8vCmuPmim/X6SNXrMmS/LYnaxbtxlxorjwk46EFpeFxf8tif3cZASGWLOJhPH49AKe
+	 4ex95uESkq3h1qQox8z2i2AGO06DB6vCepwtqilwo07/1UNcKAyKWIS0dV8iI31uOd
+	 0bfoOumba7VZedCGgm9/PP357DNRgo8d83ro/Co4S9SgyLajYUi2SFP2IMMtrxsshW
+	 lbWUryFHqqZtZ9mdRlqv1OTNnSmhGBwnqd8X+2HdP2cxkLYWx1jJfy8Z0CGm9U3t3N
+	 oCH0bkg61eO6w==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id D38AD4AEC9;
+	Wed, 18 Nov 2026 17:25:44 +0000 (UTC)
+From: David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
+Date: Wed, 18 Nov 2026 18:25:34 +0100
+Subject: [PATCH v2 01/12] regulator: qcom_usb_vbus: Fix the
+ MODULE_LICENSE() string
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,87 +83,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261118-pmi8998-vbus-v2-1-3c77a72b280a@ixit.cz>
+References: <20261118-pmi8998-vbus-v2-0-3c77a72b280a@ixit.cz>
+In-Reply-To: <20261118-pmi8998-vbus-v2-0-3c77a72b280a@ixit.cz>
+To: Alexey Minnekhanov <alexeymin@minlexx.ru>, 
+ Robin Snyders <robin@snyders.xyz>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Wesley Cheng <quic_wcheng@quicinc.com>, 
+ Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>, 
+ Casey Connolly <casey.connolly@linaro.org>, 
+ Sebastian Reichel <sre@kernel.org>
+Cc: Richard Acayan <mailingradian@gmail.com>, linux-arm-msm@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ linux-pm@vger.kernel.org, phone-devel@vger.kernel.org, 
+ David Heidelberg <david@ixit.cz>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1232; i=david@ixit.cz;
+ h=from:subject:message-id;
+ bh=6MCm0tUZg6K77qclXj7MxDYC5mznSlasM+gfjuaMpWY=;
+ b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBq/d+WCvmEc49O+Y7h/zvw8H8UpZW+GqBBvKKzK
+ lbCjsxOyYCJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCav3flgAKCRBgAj/E00kg
+ crfpD/9hYzqBBAGwbfwHsX3WZ2LNhqt+/S6RTU/pqZmHLxXub/7XKXdB4B3BxavgdSqQchMplIc
+ mIBZ9/pOGqb64x957Hb6uOAuiBNzNFg3Hs8wwS40ardiAsvSxXpDwOowr6wGylJv6S3sAcoDm5/
+ WhZxhd8nqdnqwI3y6ZG0deEOnggo4JbjAbVv3bwCz/5OXzsCin8uuo+UFZb/M8hNWaBpBycBvaS
+ 2pcYwd5r8/ViKiEljpXP/12ARctl2prH2vs2kUfhjKwj+Y/2eFDaJctvl/CgzkwtAFatP/aW93g
+ 1UMYvd+2H7FzrQqLObHg0Mf2iT92h3ASePHjbg4bJyQ7PWvJWRm9wYk19xvvziFvOmVcPaDucym
+ evyibJ9eDrHo3cdF0cdOoCYCkA5hEmgKfTH4rLZQZAqd/H2W5FqWEq7HV63bRG4IhYBev8VCDQ4
+ xjXuZUDt7dqqESbofr6mySdSbJVD3cSPQVR1pjxLyyXvT12cpND3cjeK5G64HcsB058VMlAHotN
+ cpmy55WLTC2uV7tqx+WJK0QHaQajM+1ZWB8FJeiQS2RV8VgOthvJdTjtERbXQwWFHxWwUZnoyZe
+ f3sxcWPvFs1q2oGxeIKyIw9RA+7UI+Ip0xDQekP3Fmcc+QXk+CxvXkPH3bGW0gw7CnDdc6uG18W
+ 8OLxT6zqmi1x5AA==
+X-Developer-Key: i=david@ixit.cz; a=openpgp;
+ fpr=D77A09CFEEDC2BBD53A7047460023FC4D3492072
+X-Endpoint-Received: by B4 Relay for david@ixit.cz/default with auth_id=355
+X-Original-From: David Heidelberg <david@ixit.cz>
+Reply-To: david@ixit.cz
+Content-Transfer-Encoding: 7bit
 
-Use the hardware dual-edge detector on X1600 and X2000.
+From: David Heidelberg <david@ixit.cz>
 
-Set PAT1 when configuring both edges and program EDG on X1600.
-Keep software edge switching for older SoCs without EDG.
+Replace the bogus "GPL v2" with "GPL" as MODULE_LICNSE() string. The
+value does not declare the module's exact license, but only lets the
+module loader test whether the module is Free Software or not.
 
-Tested on X1600 and X2000 using GPIO buttons and register readback.
+See commit bf7fbeeae6db ("module: Cure the MODULE_LICENSE "GPL" vs.
+"GPL v2" bogosity") in the details of the issue. The fix is to use
+"GPL" for all modules under any variant of the GPL.
 
-Fixes: 4da56f9c6f14 ("pinctrl: ingenic: add x1600 support")
-Cc: stable@vger.kernel.org
-Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com>
+Signed-off-by: David Heidelberg <david@ixit.cz>
 ---
+ drivers/regulator/qcom_usb_vbus-regulator.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Notes:
-    Changes V4:
-    - Fix Fixes: and stable Cc trailers.
-      (suggested by Paul Cercueil and Sashiko-Bot)
-    - Merge the common shadow-register paths and simplify EDG handling.
-      (suggested by Paul Cercueil)
-    - Retested hardware dual-edge interrupts on X1600/X2000 after the
-      shadow-register refactoring. Verified both button transitions
-      with evtest and confirmed via devmem2 that PAT1, PAT0 and EDG
-      remain unchanged across GPIO input transitions.
+diff --git a/drivers/regulator/qcom_usb_vbus-regulator.c b/drivers/regulator/qcom_usb_vbus-regulator.c
+index d909a6f2b7f14..88f5a6ba79e6e 100644
+--- a/drivers/regulator/qcom_usb_vbus-regulator.c
++++ b/drivers/regulator/qcom_usb_vbus-regulator.c
+@@ -176,9 +176,9 @@ static struct platform_driver qcom_usb_vbus_regulator_driver = {
+ 		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
+ 		.of_match_table = qcom_usb_vbus_regulator_match,
+ 	},
+ 	.probe		= qcom_usb_vbus_regulator_probe,
+ };
+ module_platform_driver(qcom_usb_vbus_regulator_driver);
+ 
+ MODULE_DESCRIPTION("Qualcomm USB vbus regulator driver");
+-MODULE_LICENSE("GPL v2");
++MODULE_LICENSE("GPL");
 
- drivers/pinctrl/pinctrl-ingenic.c | 17 ++++++++---------
- 1 file changed, 8 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/pinctrl/pinctrl-ingenic.c b/drivers/pinctrl/pinctrl-ingenic.c
-index 88c5edeaaddcc..7f65f3abf05f5 100644
---- a/drivers/pinctrl/pinctrl-ingenic.c
-+++ b/drivers/pinctrl/pinctrl-ingenic.c
-@@ -3601,7 +3601,8 @@ static void irq_set_type(struct ingenic_gpio_chip *jzgc,
- 
- 	switch (type) {
- 	case IRQ_TYPE_EDGE_BOTH:
--		val1 = val2 = false;
-+		val1 = false;
-+		val2 = is_soc_or_above(jzgc->jzpc, ID_X1600);
- 		val3 = true;
- 		break;
- 	case IRQ_TYPE_EDGE_RISING:
-@@ -3635,15 +3636,13 @@ static void irq_set_type(struct ingenic_gpio_chip *jzgc,
- 		return;
- 	}
- 
--	if (is_soc_or_above(jzgc->jzpc, ID_X2000)) {
--		ingenic_gpio_shadow_set_bit(jzgc, reg2, offset, val1);
--		ingenic_gpio_shadow_set_bit(jzgc, reg1, offset, val2);
--		ingenic_gpio_shadow_set_bit_load(jzgc);
--		ingenic_gpio_set_bit(jzgc, X2000_GPIO_EDG, offset, val3);
--	} else if (is_soc_or_above(jzgc->jzpc, ID_X1000)) {
-+	if (is_soc_or_above(jzgc->jzpc, ID_X1000)) {
- 		ingenic_gpio_shadow_set_bit(jzgc, reg2, offset, val1);
- 		ingenic_gpio_shadow_set_bit(jzgc, reg1, offset, val2);
- 		ingenic_gpio_shadow_set_bit_load(jzgc);
-+
-+		if (is_soc_or_above(jzgc->jzpc, ID_X1600))
-+			ingenic_gpio_set_bit(jzgc, X2000_GPIO_EDG, offset, val3);
- 	} else {
- 		ingenic_gpio_set_bit(jzgc, reg2, offset, val1);
- 		ingenic_gpio_set_bit(jzgc, reg1, offset, val2);
-@@ -3718,7 +3717,7 @@ static void ingenic_gpio_irq_ack(struct irq_data *irqd)
- 	bool high;
- 
- 	if ((irqd_get_trigger_type(irqd) == IRQ_TYPE_EDGE_BOTH) &&
--	    !is_soc_or_above(jzgc->jzpc, ID_X2000)) {
-+	    !is_soc_or_above(jzgc->jzpc, ID_X1600)) {
- 		/*
- 		 * Switch to an interrupt for the opposite edge to the one that
- 		 * triggered the interrupt being ACKed.
-@@ -3758,7 +3757,7 @@ static int ingenic_gpio_irq_set_type(struct irq_data *irqd, unsigned int type)
- 		irq_set_handler_locked(irqd, handle_bad_irq);
- 	}
- 
--	if ((type == IRQ_TYPE_EDGE_BOTH) && !is_soc_or_above(jzgc->jzpc, ID_X2000)) {
-+	if (type == IRQ_TYPE_EDGE_BOTH && !is_soc_or_above(jzgc->jzpc, ID_X1600)) {
- 		/*
- 		 * The hardware does not support interrupts on both edges. The
- 		 * best we can do is to set up a single-edge interrupt and then
 -- 
-2.56.0
+2.55.0
+
 
