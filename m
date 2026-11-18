@@ -1,108 +1,95 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795020014;
-	b=bs1inamxvivmdZMCkujLr4O1FmuSqyq+lK3xrOnTgscCHlAnDU/cVIyObEBhwk/CMATl
-	 Uvhyq5/qz97pFxoo6t3RolIIGP0dlaHiJ2yeSOlbyJVNjet4Lz0DSsx32QhOvKbOjmviC
-	 gOFBMrxqnGtVI6JxsT6weP7EytGfn213DJpzT5LnxZ0ey4hZp3w8jDS8qd94OG0ARHi6e
-	 b7Y+AT8T40k4DAsFvHsA7mpR/bIHJzaK3nfmPp47WMRe1t3XGfQxodeMcpkloB+WV9bvW
-	 PCV1t770ANwZxEcSQhlcjxG3Ff5BfAT9/FwuDS5OziXUcZLfvg/0akWRrtPT9fj3Chg==
+	t=1795020035;
+	b=az0U0PhXy2khkMGyvi3GSRQFESqFb4DmLhcMGGiemooFpMU2iyW+cBD82hSsiqnMNsax
+	 EjWwwcV1+Kk0pQ5k0oYXCOV4M/TXOF7Q0HV8kqaK1mBq5OjLLaiRHF3W70gXgwh7MY0Ay
+	 5z1axjgg6MG+tgvXdaTfD70CPcDcR7QAXtnmUpcopq1yDU8EbJAP5uwL5N9nSV+sltZow
+	 CJ4boByZU6fHpmfj9RiBN67oPaP1T5fJ/nLIeHIBLJ/eSEtPEmY123Di+Tp76VyxjCYCE
+	 RqsWEIPUigZfpQak6isVId4bq43TTvFbtU0zw8U8n79j7YfNNpezbgVkXrbeaiwAeAA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795020014;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795020035;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=i+3+UkuuTd3PtMb87HnGpsXm1NEacz3pju9b62z1nDU=;
-	b=V+CCzDDY1IaAfI73VHwBDJ4WCMlcWLc75nNSohvq+oBgV6fuG5IRPlOBMvTnS25ktSky
-	 6K+JlNT4CRxMJa01uiDKxWcWdBlcq+7NiPZ2xYVcP3EEgh2/Fbu0jpAly+2K7nIkID1k+
-	 5TnQ+Jlw7Am1pqbEkMiZSC9keeBwolc0Ybv0OpUrE0X31/qEx0U0Fou0WXh3EuKB7xAD0
-	 J4Aq0Y1q4uMBculCARjkjz8owLjeC8bXXcDXxz6sgD0qgzM2BFA4A1q34DydDepfm61Ju
-	 cyGq2w0MudFikYmNXUir2pUB+ZrP3xEOROvS0nA1eBSGne45ZlT/yDSC1SASEPGL82Q==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=U+JDjr70NfmoYuAwDWLUcR7/Nq7waWVnmWm8ckIRrMA=;
+	b=0jqy0WMAGZR8wc/FiVsYrvHYDgJMtmeX6XomOG51inILIBBc/uQ8AtgbUQyxRltV52zn
+	 eH8q64HwwfdTUv2gvffkFB0M0/nAnp3Ct3N8S4rZfUIEaxvXLHWTlZ/xqM2xYCQ6G+pmz
+	 RR5kpxLwk+QuoEf6F5p/b5PsxGqw8A31liEZbsuUvWfXwXZZtzbsWTdiwuLSDDivy/a44
+	 jjGgtLlJ8INkJbXawnQ+jWne1yroUgaNt63TleAbyKun8puSFgriYj6a2V+VG8LVqHsLk
+	 g6gdvJcQVhKhLAP6N5+/oyuvDYTTfr9h52zL+tEmGY943tkdwk70g99hdGXDRz+iQQg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=E4U9mTZD;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KooeQABl;
 	arc=none smtp.remote-ip=209.85.128.54
 Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35C0A60A2601
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:40:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35C0A60A2601
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3DB8C606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:40:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3DB8C606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=E4U9mTZD
-Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4bb6adaf0f1so11458315e9.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:40:13 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KooeQABl
+Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4af52002471so861595e9.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:40:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795020012; x=1795624812; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=i+3+UkuuTd3PtMb87HnGpsXm1NEacz3pju9b62z1nDU=;
-        b=E4U9mTZDlIksJjVDWFzuHLbz7qz+H6X/WuZ+ANBvE5aFdUKR8wGJnCGbI38Iz/2/Am
-         DcYffqId9bYDRaceSRCjX0vLa8N2I1YNW8Nj1qZQ3GuZ73h9A9UTkhDsV3iQxJvUqloo
-         1qMFUUlT9Uexndc0moK7CkwofIBYGR4tJyD+emRsHapyfy2d+KrUNsMeTIWGDmfsN9A8
-         n0Sr1ChhOkJCtqcwuL0MKUD9rqm1bq+5vNOmBkoyrmnodDxhRqx2TCVJVvvt7P3+SNGo
-         Wu5SygkvVbJnpy7Ekh/QhM6Qt7MKP3IelqkgrWCVRnNLdHHFr4gSD62k/UvxKTiQFyLW
-         u3aA==
+        d=gmail.com; s=20260707; t=1795020034; x=1795624834; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=U+JDjr70NfmoYuAwDWLUcR7/Nq7waWVnmWm8ckIRrMA=;
+        b=KooeQABlnsFPB+pXl6aegjdP2HIyyI+1ZhMfztnKdV6MPD+vvhY1z74e1WkkEHV1bu
+         nB6jim1X4HzPl+1MhbEhK+2uoM9b0CeSek2GPq9YXiATs1lgYA/rDz37dWFQe+C6AMRK
+         Z53B1wOw26IjOQcmJ9wcNvJ7VCfvhxw+5I9w37alTS3nqhvCowgw/IPC1Y7Bm4MaDwlo
+         12vF1Be1WvS1ImEcWVQdJ1EHJqaSPNs+RTXQQieXUQZmVIU1HPHpGLLNIg78V0jYcHuG
+         rtBJ7dhwpOTGCgJ/bSIts0JvRK9nURv8If47+RCHcQ2njOweAqZYr3TjQ0SwDO5Xd2x2
+         K3tA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795020012; x=1795624812;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=i+3+UkuuTd3PtMb87HnGpsXm1NEacz3pju9b62z1nDU=;
-        b=GLCWpOMBzO1aifFB/s8SCyvCmtGRYrBZOG1nrehouOCH07XaGRudLmZd/pjrzroEri
-         L+acfCJQn09w2li7BgKqxPt5ox8zVB3li78TJfDmIlFBPWVv3JBhMqy18Nogelcs73F2
-         bk1TQyeBrbpPH4ZA+gY9yqZo2J1YsNQnBGT785LkhBInox1WYGHwa/Rj7s88zzJJZKEY
-         Afa7snwjtqBNbJc1KqxCrIqWjCT+2eSM0Fe93gN78k+eX87D35b9FolsQbEKS7hWKvGU
-         QrRD9S2poYNL/SBq+zXH58XFAAlbuL0vVZQ4C/b6ZLbsXZoleT7v389LK+C0mYiEXtOU
-         6sNQ==
-X-Forwarded-Encrypted: i=1; AL+hErEWsD2hyYZfSqNG0f7ESx+uBYBWcK7mRaWxkqO7BkFY08oHTCjNL/qLJiE8zOVCh9cFKl3sMrwMS0p5GC4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9YVBJCiKAxQCFa7vl8hc4OZf2zvJ04UdRmqtDZqochr32Iw84b
-	nT079WoGYM1j3kXabWmjhCOq/ieq779ymVsSZjVBYFEYPyPSedSJ0u5B
-X-Gm-Gg: AYBFou1eAtLOzBLIM4JEyt2N7LSP8217P3IQ0gjYZVycCbCIQtLTngM+u74nBNFHPBc
-	AKU0CTwYi44cesDK+/4rK231uO43I5TvVSz+QuEj32YVwmyD8AiMxz0zKdLDf52H0ZcafOr8LB7
-	ixEjI41jbF/8q0Ocj0C82O827qEMfmnagW1nK2cc3rCvL7ekdLeOB8dRH3EMIs7ZnJbcQWfIxTP
-	0/uOG3VVwfygHVpN5kmVDJusOI0+Fuzcz6wEF7Qxj2+Ne8GIf2amwAWxMl+2UB4W/zjVsEuNRWJ
-	yeeN87FxAfhnQd6fVuSQNvuo43l1kvVSPev4am5zGaBdn8+0fp6VqErxpuSAhOGRzesKceZIXND
-	HZAoWzhYCXFPN0WdvWgZ/H2qHE/WYIk5nBSL91Js/8VHVMiRnjGGgmIuWjlPi8wQtiN3FKPxFSp
-	7I0OCYHBx+AzbwKiUUa7MkU74aI7SIfrG99QfENjr/6tBh1bRSOsBHD2tnU17H9BgTR7VXZqdoD
-	FjBM39ikuclC1Rw2Pvaws6keJxT1KoUMch0DckTbXQoPl5DT3/2s4Ltv9jrHQ7I7LaYO+fDsPWO
-	aZLEBolW3GILs6IJRGmbtbvnzB3a
-X-Received: by 2002:a05:600c:4715:b0:4bb:76d9:f81a with SMTP id 5b1f17b1804b1-4bb7da3d288mr60167565e9.34.1795020012419;
-        Wed, 18 Nov 2026 08:40:12 -0800 (PST)
-Received: from m2.. ([37.142.154.208])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4bb78430918sm137986135e9.13.2026.11.18.08.40.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 08:40:12 -0800 (PST)
-From: Michael Zaidman <michael.zaidman@gmail.com>
-To: Maarten Brock <Maarten.Brock@sttls.nl>
-Cc: Michael Zaidman <michael.zaidman@gmail.com>,
-	Jiri Kosina <jikos@kernel.org>,
-	Benjamin Tissoires <bentiss@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Raman Varabets <kernel-linux-20260610-80b7ab08@raman.v1.sg>,
-	Germain Hebert <germain.hebert@ca.abb.com>,
-	Christina Quast <contact@christina-quast.de>,
-	Rio Liu <rio@r26.me>,
-	Bruno Giacomazzi <brunoceg1@gmail.com>,
-	linux-input@vger.kernel.org,
-	linux-serial@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	linux-i2c@vger.kernel.org,
+        d=1e100.net; s=20260707; t=1795020034; x=1795624834;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=U+JDjr70NfmoYuAwDWLUcR7/Nq7waWVnmWm8ckIRrMA=;
+        b=tdcN0VwTNasaEMWVQ30MPO0V4LFrECXvySFDqmT7oIQQ73g3+mrflTjSIp7pjJtxi6
+         ciUHDqzvv33XAYRsFROFUeoi2By31FC5o456j5R8dRfQroJyH6pkJKoK6O0DgWZPIyiE
+         v2Faya1DRNJ7Vy4IuUfoMCrJJ5jayozWv4lBHcIpGtb4i0GOATRhovE06AK4YTGjeG7n
+         lzHQ3AOSliNcfExUxP/CD5/5X4I8RLmn8WPAd1Ro1gvKJgCwG5+kNXw6T5sxjB7pw7sF
+         4D1y1Pr2ODONA7XVRxm1jcDYNFKLSaiyTzW0eeZva6W3TBVjBui8m4vi5vgKxr78rfmI
+         lhUQ==
+X-Forwarded-Encrypted: i=1; AL+hErHoELth32Q4ZS2eubuvQwDWkok4fuVwBr8B6KXkDbuCn/gP3/D3FM+3GgankF7fW+A9NOpg9551KUv28e4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9+AvNuXQuC+O3YfIis/qDuAyVz5j9lemXFQhHgD/0g3bEjUTKr
+	+BLd4C5KV47gpO4D7VA1aOlZrxBnwVFjSwNZrhP6Vj8df632md4qZtC/
+X-Gm-Gg: AYBFou0rdCNuX9aWh6NosjSdsHbDRFONVbN2oEB43oJ3VLNuAIMG5pi2saeHIyL+Kk5
+	zmsY6eZy3SgoCO4c9YkgQB7aydEpYEts51g0pfecoYZlAxDTNQmuE4LaGaHz5k8sFRllopUgxJ6
+	rKeQfX932zpeDCMLkgO/AptBD3CvIQ+r7NTt8ecT+whQPAUItSYp25utGhTjPk+eJ79G9ZrnqFz
+	ThQOcvH0kK9qg73C9YmLLgddbAsc28AnalEBe0O6e1Oo0bvycEl8hkZfY9t+f+B//JUdOUT8NE0
+	DQ78VeJKX2GpfUun+gcv8TnM5PcXfwbmH08Uw+rZ2+dN5z/jx/85rEWhmrUrgiPBmbV+SyTH0qp
+	8dqyWaMhavPqQ+fmN49CvkoNZR1AjpqXXAw6qwaUZWn9lOsa1791tyR9+xKGEUYKQS4/iSdWbYA
+	si2TU8cOPQUieLGL6dPTGMVfFdMb3NzrvJ0gs2XduuutYbZStpAKV6y0G6c2leln8XvBHdMpcdj
+	xN4WAylZggxGxOAyzitrGhJrWdBCzh1AO3rtdZqnu4xvBiylxUQGBgLXTeERpBmKBkmujbpuMQ5
+	IWdkGBw2Ra2hwy+Odc4s5AgqJGmx/Q0UloBcmmjoyXuCnPrlR45oRN+R4k+417Z24w3bsLk0FAD
+	o7rmZnYtzjgoOIg71
+X-Received: by 2002:a05:600c:8012:b0:4ad:5ec2:d3b3 with SMTP id 5b1f17b1804b1-4bb7d7167d1mr54707545e9.1.1795020033418;
+        Wed, 18 Nov 2026 08:40:33 -0800 (PST)
+Received: from localhost.localdomain ([191.40.25.5])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8325b779sm623115e9.9.2026.11.18.08.40.30
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 18 Nov 2026 08:40:32 -0800 (PST)
+From: Qihang <q.h.hack.winter@gmail.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>,
+	Kevin Tian <kevin.tian@intel.com>
+Cc: Joerg Roedel <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	iommu@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 08/16] HID: ft260: uart: add modem pins control via ioctl
-Date: Wed, 18 Nov 2026 18:40:03 +0200
-Message-ID: <20261118164004.28739-1-michael.zaidman@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <BR0PR05MB0491322068606AA1720DCE14C0837B2@BR0PR05MB049132.eurprd05.prod.outlook.com>
-References: <BR0PR05MB0491322068606AA1720DCE14C0837B2@BR0PR05MB049132.eurprd05.prod.outlook.com>
+Subject: [PATCH] iommufd: Unmap the failing batch before releasing its pins
+Date: Thu, 19 Nov 2026 00:40:26 +0800
+Message-ID: <20261118164026.54455-1-q.h.hack.winter@gmail.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,24 +101,71 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 17, 2026 at 11:56:36PM +0000, Maarten Brock wrote:
->> +		if (value)
->> +			gpio->vals |= !!value << offset;
->
-> Odd choice of asymmetry: !!value == true, then converted to int and shifted up.
->
->> +		else
->> +			gpio->vals &= ~BIT(offset);
->
-> And here you choose to use BIT().
+iopt_area_fill_domains() maps the PFNs of one batch into every domain
+and only then moves on to the next batch. If batch_to_domain() fails
+for one domain after an earlier domain has already installed the batch,
+the unwind path calls pfn_reader_release_pins() at the top of
+out_unmap. That unpins the pages of the failing batch while the
+domains that did install it still translate those IOVAs, and only the
+loop below removes those mappings. For the duration of that loop a
+device can DMA to a page that is no longer pinned, so it can be freed
+and reused while the translation remains live.
 
-Thank you, you are right. Inside "if (value)" the !!value is always
-1, so the set is BIT(offset). In v5 both branches use BIT(), here and
-for ex_vals.
+The release also cannot simply be delayed to pfn_reader_destroy():
+the last domain in the unwind loop is the only one that unpins, and
+the unpin ends in update_unpinned(). When an earlier batch was fully
+installed before the failure, pages->npinned still counts the pins
+the reader holds, while pages->last_npinned still has its pre-fill
+value, so update_unpinned() warns about npinned being above
+last_npinned.
 
-ft260_gpio_set() from patch 3 has the same two lines. v5 changes them
-too, so the driver sets these bits in one way, as ft260_gpio_pin_set()
-already does.
+Release the pins inside the else branch of the last domain instead,
+right before iopt_area_unfill_partial_domain(). No domain maps the
+failing batch by then: the earlier domains were just unmapped by this
+loop, the failing domain rolled back its partial mapping in
+batch_to_domain(), and the later domains never installed the batch.
+The release also precedes the last domain's unpin and its
+update_unpinned(), so the pin accounting stays consistent. The
+single-domain variant iopt_area_fill_domain() already unwinds in this
+order.
 
-Thanks,
-Michael
+Fixes: 8d160cd4d506 ("iommufd: Algorithms for PFN storage")
+Cc: stable@vger.kernel.org
+Signed-off-by: Qihang <q.h.hack.winter@gmail.com>
+---
+ drivers/iommu/iommufd/pages.c | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/iommu/iommufd/pages.c b/drivers/iommu/iommufd/pages.c
+index 2f6153108add..a99f4efbffd9 100644
+--- a/drivers/iommu/iommufd/pages.c
++++ b/drivers/iommu/iommufd/pages.c
+@@ -1962,7 +1962,6 @@
+ 	return 0;
+ 
+ out_unmap:
+-	pfn_reader_release_pins(&pfns);
+ 	xa_for_each(&area->iopt->domains, unmap_index, domain) {
+ 		unsigned long end_index;
+ 
+@@ -1982,6 +1981,18 @@
+ 					area, domain, iopt_area_index(area),
+ 					end_index - 1);
+ 		} else {
++			/*
++			 * The last domain is the only one that unpins, so the
++			 * reader's pins must be released before the unpin and
++			 * its update_unpinned(): npinned still counts them
++			 * while last_npinned predates the fill. No domain maps
++			 * the failing batch any more: the earlier domains
++			 * were just unmapped by this loop, the failing domain
++			 * rolled back its partial mapping in
++			 * batch_to_domain(), and the later domains never
++			 * installed it.
++			 */
++			pfn_reader_release_pins(&pfns);
+ 			iopt_area_unfill_partial_domain(area, pages, domain,
+ 							end_index);
+ 		}
+-- 
+2.54.0 (Apple Git-157)
