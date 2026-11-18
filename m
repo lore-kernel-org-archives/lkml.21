@@ -1,54 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.186
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794974957;
-	b=vgDEbdg5vpnGrQ2mWOJYW583k8nR1uZ5K15qLTtwbGW9TJwKcFr4nihtEZZ+ACv5vEHu
-	 SO/dlhD6xvc0HJBmKhlEn2dIcp/xO/M/QSfGQL642WoYpzQejoi6zJ0gMCIdkBQo7lNLD
-	 S1xC0H9mgdA5er99JqNlJOjDuv9fZ52DXWUxJA+7JMDR1dwr88aDF3RUrg1Vb83ibd+Ej
-	 hyBAzc9o68qv3w4QCwN4A1Lr3/ts13/Q+qtms3ka/26LnCSYvMVmShZet9KZZ0RYrfYVt
-	 48XeOetlE1igjtjyuQB2SQhWtHrnpMP+6E98VbT3HDNyBN29KEtFvQvzQ6IymX/hhOw==
+	t=1794975017;
+	b=mMDKHNEMQN3Mw/ORBzLMbliwrO8i/GR4n1HqbirAHlJQXUesgHwqwKQ81bTnwAm1Q0S4
+	 KYTeMnDVaaMOA/wloaXfrPiTdm6rn+yPoJngeHIMhwLR1UNCXreh+q1Wqhwh+UzBP1xCB
+	 USSyoVUCj0ir6ROKNY7TaTIuS/1FfIpMYJJKOxDinZNBwHBCV2CC2tOi62ovMguqXeoDp
+	 jyCjWYO/F2OMxp5ofRmrWNUcCHnrkW/mn1YaHhgv4u7tUqSOYpB9TD2Tr8RQceGMwjUxV
+	 L90LhTqygvPACMsBQ2ekoAO2QAV9J02F23dx+y6DkLMmpS9b0J/VfELRtqn4LdneVOw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794974957;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=gO/JIfcgvTrlBo/baVGaxSVMIPH4zI1FEGs1Iqz/bPA=;
-	b=OYZzWiWXJ8dkIjauxocWl6M0gbUoWRMbtVRj8le0UrhGKj9uitJ5Z9RIW19RyyM9pm0g
-	 2PxBqjnn2ueT+xdV8yxmsXmcNolDS3OC89Z8LEN4yYjSayfxiMKwlgbybFwwebNyy6kA+
-	 oUO2yxxvefB4zuiNgwJPaMauhFxZDxAQHPXxW1o8qN0yo2MTPGbW5Lu+TOOnxy06SZENs
-	 /Q0RIC+kzYCQkJ6SvBfDzfUgFL3zj+zRoN0ibiOqx2tXpQXkpSZFry2zrSY2l/17RiI8o
-	 lZIlOyVyCuqgfny5LyI2KdYBQiamX5cbv7BN9tPhEeIFJ0UaGoYTz4izlpPtZzVXcEA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794975017;
+	h=Received:DKIM-Signature:To:Cc:Subject:From:In-Reply-To:Message-ID:
+	 References:Date:MIME-Version:Content-Type;
+	bh=IuVBrJy3IT9uGscS88OHXyn0c9PxaMdAypLaDZCyPiQ=;
+	b=3AG2O1LPA0ShFoDANPX1s84RUdZHl/NNir5zHSsPAK57+S1W08FlQVoZbxlTbF63DnHy
+	 +xVSLz5FWB25St2IL1KevBQHlCOcf+jnCVZhSF142soE7KG+GVMQ2iLy+QmshlvX0x70f
+	 1P+QXSoeVYiUFs17LBuTbYU6hJRHhtqSoweGYtE6f2i7Hs0GKKHzsrVDO2X54ULxZvSAf
+	 ynPVueZLTOD0j0imM1DMdjkrMZrzysEIw42vVC5ogfb9MOZsblNHItwYmO5hTUOlWk44f
+	 gLIShyKtZOjiDtlpOuhOhC1+XePslOjahz4XgXRW1a4t1GfN6LDnbUe6U/1CMf8aEvA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=aUlNQ8fD;
-	arc=none smtp.remote-ip=91.218.175.186
-Received: from mta0.migadu.com (out-186.mta0.migadu.com [91.218.175.186])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OkjmENBC;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2D87606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:09:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2D87606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2572F606A31C;
+	Wed, 18 Nov 2026 04:10:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=aUlNQ8fD
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=kKP1J72ZJeOQfMxDWBKM+TEV898mVVp1LwfsakS8ddk=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1794974953; v=1; x=1795579753;
- b=aUlNQ8fDSTm6yVezvnyz8/frbGAzn3IEaGWblRIw4JmRsujNkcnqkn5j2cC0P+QJ0DxA9EvE
- aBXh+QBS6wklViFxgUIkJBahCQAWCsTJt0H9Sinn9bcc2m2VxOqs4/EQlBDN/bPxCkL4fV0/8TB
- yMWOnrmNT9wThxo6MUKqGnz8=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 29c80f066480eadb;
-	Wed, 18 Nov 2026 04:09:13 +0000
-X-Mizu-Trace-ID: 29c80f066480eadb
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <38118330-5cd6-4f32-9098-a3d07cc7b3cf@linux.dev>
-Date: Wed, 18 Nov 2026 12:09:01 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OkjmENBC
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A0501F000C4;
+	Wed, 18 Nov 2026 04:10:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794975016;
+	bh=IuVBrJy3IT9uGscS88OHXyn0c9PxaMdAypLaDZCyPiQ=;
+	h=To:Cc:Subject:From:In-Reply-To:References:Date;
+	b=OkjmENBCcxWY/6zKwEp/3tzin90bgfBVNIpxl8afMQCUR3QQe+4/o2ZmzYHisP+F7
+	 zX9P5pnbXIDXiygqECj93faHPyjsdYRfg2G7Nx6pqaDkkbkmFoFhBKFLjhSrE8c8Ud
+	 xPEs/1Trjs/YQKpmZasnRI6/8a7gTPBGpqKVOFud2Cs7BbG0zTOnBV8NwVD+beXwkq
+	 xhpsaXcnsXpYLHP44FeR6M0INDIxvfW+C1C/nR2748JdATxm0mG2Vus0Cj4L6P4iIg
+	 HJTS7UrgwADDUZD9HmpDJYcQtl2mza8elB66qgdqfkZ4hhb9F5BOxb6zzx+A4yZbrp
+	 GtL/V+0wcoarg==
+To: mail@andrewgigena.dev
+Cc: Abel Vesa <abelvesa@kernel.org>,  Herbert Xu
+ <herbert@gondor.apana.org.au>,  "David S. Miller" <davem@davemloft.net>,
+  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,
+  Conor Dooley <conor+dt@kernel.org>,  Manivannan Sadhasivam
+ <mani@kernel.org>,  Alim Akhtar <alim.akhtar@samsung.com>,  Bart Van
+ Assche <bvanassche@acm.org>,  Bean Huo <beanhuo@micron.com>,  Stanley Jhu
+ <stanleyjhu@google.com>,  Bjorn Andersson <andersson@kernel.org>,  Andy
+ Gross <agross@kernel.org>,  Konrad Dybcio <konradybcio@kernel.org>,
+  linux-arm-msm@vger.kernel.org,  linux-crypto@vger.kernel.org,
+  devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org,
+  linux-scsi@vger.kernel.org
+Subject: Re: [PATCH v4 2/3] dt-bindings: ufs: qcom: classify sm8150-ufshc as
+ standalone ICE
+From: "Martin K. Petersen" <mkp@kernel.org>
+In-Reply-To: <20261111-sm8150-ice-rfc-v4-2-0311eac35609@andrewgigena.dev>
+Message-ID: <yq1h5hesru0.fsf@mail.kernel.org>
+References: <20261111-sm8150-ice-rfc-v4-0-0311eac35609@andrewgigena.dev>
+	<20261111-sm8150-ice-rfc-v4-2-0311eac35609@andrewgigena.dev>
+Date: Tue, 17 Nov 2026 23:10:15 -0500
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,63 +68,21 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] selftests/mm: allocate nr_pages based on pmd size for
- uffd pmd_move tests
-To: "John J. Coleman" <jocolema@redhat.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- akpm@linux-foundation.org, david@kernel.org, liam@infradead.org,
- ljs@kernel.org, mhocko@suse.com, peterx@redhat.com, rppt@kernel.org,
- surenb@google.com, vbabka@kernel.org, audra@redhat.com
-References: <20261113040045.1439391-1-jocolema@redhat.com>
-Content-Language: en-US
-From: Zenghui Yu <zenghui.yu@linux.dev>
-In-Reply-To: <20261113040045.1439391-1-jocolema@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
 
-Hi John,
 
-On 11/13/26 12:00 PM, John J. Coleman wrote:
-> When executing the uffd-unit-test, the "move-pmd on anon" test will fail
-> on aarch64+64k with a segmentation fault because the initial allocated
-> memory region is too small.  This only happens with the move-pmd* tests
-> because the architecture base page size is still utilized even though the
-> memory region is specific to the size indicated by the pmd.
-> 
-> Patch 9f5c2aec3388 ("selftests/mm: fix uffd move-pmd test crash on 64K
-> base page systems") implements an initial fix to the segmentation fault
-> by skipping the test if the allocated memory region is not large enough
-> for the number of pages x page size requested.  Since this will skip over
-> the aarch64+64k pmd tests, this patch is intended to resolve the problem
-> with 64k pages by pre-allocating the memory region with 2x the pmd page
-> size (for area_src and area_dst) for only the move_pmd tests by using the
-> uffd_test_case_ops pre_alloc hook.
-> 
-> Link: https://lore.kernel.org/all/20261103202049.499206-1-jocolema@redhat.com
-> 
-> Fixes: a2bf6a9ca805 ("selftests/mm: add UFFDIO_MOVE ioctl test")
-> 
-> Signed-off-by: John J. Coleman <jocolema@redhat.com>
+Andrew,
 
-Thanks for chasing it. I've tested mm-new (which already contains this
-patch) on my 64k-page-size box.
+> SM8150 UFS uses a standalone ICE node, so its compatible belongs to
+> the standalone-ICE binding rather than the embedded-ICE one.
+>
+> This tightens the schema for qcom,sm8150-ufshc: the standalone-ICE
+> binding allows one reg entry and eight clocks, while existing DTs
+> still use the embedded-ICE layout. This causes a transient,
+> validation-only dtbs_check warning until those DTs are converted
+> (sm8150.dtsi follows in the next patch); existing DTBs still boot.
 
-Before this patch:
+Applied to 7.5/scsi-staging, thanks!
 
- ok 14 # SKIP move-pmd on anon (chunk size does not fit in the test area)
- ok 15 # SKIP move-pmd-huge-zeropage on anon (not enough pages for one PMD-sized move)
- ok 16 # SKIP move-pmd-split on anon (chunk size does not fit in the test area)
-
-After this patch:
-
- ok 14 move-pmd on anon
- ok 15 move-pmd-huge-zeropage on anon
- ok 16 move-pmd-split on anon
-
-So,
-
-Tested-by: Zenghui Yu (Huawei) <zenghui.yu@linux.dev>
-
-Thanks,
-Zenghui
+-- 
+Martin K. Petersen
