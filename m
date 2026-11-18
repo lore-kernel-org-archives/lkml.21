@@ -1,113 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.150.240
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794962246;
-	b=iyAoHcGqujps2vbuEHXGuvu4v4uoex8ZDRd5jmo2dTbW2RIefNZPq5yQ3Fr3PIOfMi4V
-	 Z5mCIULe0jJv7hEre7AvdjNu0JRaFZIP7+NOWTL/qzscd7iGNz9zbO8jxeD95zjzi99bJ
-	 9Fa3A7kVCtnmc3wKhObpaCMkrzR3jBy6wfS14oYtrei+TQtW5DRSMSrDLoLtKZKZdyGYp
-	 b7rByVg8Ch4E1DQnXq+90MD5IU6ndCDEk0LLezaBDFi/zPgtGeK0sXF1piRWfjZYiIRyK
-	 SLCvmbjAzzy3Tq2rg29GDY7ZdK14PPYlsiY1L0S8DykJSylB6FvxR1g1w9VcIZBJ3fA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794962246;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Orig-IP:X-Proofpoint-Spam-Details;
-	bh=BmH2HJBNU7g56YAYVpbKo3jnFN4guXcX8zC5qVeFtW8=;
-	b=epUzwAftVgwNwN9JjR9Qi3+JLstxpJdnwf7ofweRfQft/3YJ36/DifZxxcsL4jsY2u/y
-	 DDlQn05mN443Wh98Vbn1qUZ6PWukG9FfKvVvSTqISehZ+O/Rd/9KRpTv90qO6EkZrqueG
-	 YdipUvZywUWn2ZFT1hGzNrvTha56BR22uMNRPn46h2E4dxxBvgx/20Q0ndm2eTYd04djL
-	 fyqw68IFOzic7eC5/FOK8KmGF+Wx7UxwDgJ5t2Bap/KZo2NVVFz0uO2TKLQm753zHkXln
-	 1AxjERh5B64nMZs6yYk948p9hyLZh964N1rCCSngCox/UCV0xWFwZMux5Ww4Dt8bXZA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nyu.edu;
-	spf=pass smtp.mailfrom=nyu.edu;
-	dkim=pass header.d=nyu.edu header.i=@nyu.edu header.a=rsa-sha256 header.s=20180315 header.b=e13sx5Uo;
-	dkim=pass header.d=nyu.edu header.i=@nyu.edu header.a=rsa-sha256 header.s=nyu-googleapps1 header.b=UjE3mKJ2;
-	arc=none smtp.remote-ip=148.163.150.240
-Received: from mx0a-00256a01.pphosted.com (mx0a-00256a01.pphosted.com [148.163.150.240])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.32
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794962258;
+	b=g3m212n0OqzosSyREgXEz0F41GScTlQfbksCk/g5iIC3qsJ2RibZ29hIJYDw3wHYyZVq
+	 wEAnxNnDFTdpBE4gfvmFDs4BIw1vTWzFjUK2JGJR8FFRwomYG76ggh6dC7ak3oHauKQqt
+	 ZhyHCvfWiBa2Yw5coRJksZhxScmvXiY2+w7KHkuPtIOkzaw0lzCUFhpsNlwLPU09rRkN8
+	 TORzOV6WqQIMITwvRaNhOklYcMjZaGBz13pgNpMJ/ViDtFCRySBeAiwbb3yVRQL1ZJ1x9
+	 y4q4rT1Lv2/vJ15CNG6EEHK+RsGGvjMMLKd0As80zUuX5iwpqO1SqYCmJUcO/1FmfrQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794962258;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:Date:Subject:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:
+	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=Ib1V5kNdPfeYCUhpA8KwCUAOo8sdSJ96aTl1EwWdqXg=;
+	b=pEVp6zaGkhzm9ZyhLO/z7dY2B6F5HZgP1V2R12y9jqePkdcgoyqO6vnEyMhl+3U3x/z2
+	 5M4AP5SuagEWy/AiCVkqLnbX0ajtJmIKeoRP2qxTHOnbjYVbO9EQyAbQjQE2Wx5UwQ3w7
+	 5OcQEkoAf23vJFcngRvlxsOvIvID6SmDwc4JSibIljwkFFHAGXh77bsM0Uf5NrikKO7D1
+	 J/s92Povo3nj2ZQrxk7WEVlSiQbQNKDJ/+WmQHrD+3qRIXDnfq5ik2pFSb2Pk0o5Wwih+
+	 kgWvHwmA2/ZUKLuFB4U7eDubQfDNz8IOwMYB4gGTVebYbf8MLaXyfZDkOtUQ+DPY1wA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=eEifpNtV;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.32
+Received: from DM1PR04CU001.outbound.protection.outlook.com (mail-centralusazon11010032.outbound.protection.outlook.com [52.101.61.32])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 747DF606A883
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:37:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 747DF606A883
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nyu.edu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nyu.edu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EBB5606A882;
+	Wed, 18 Nov 2026 00:37:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7EBB5606A882
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=nyu.edu header.i=@nyu.edu header.a=rsa-sha256 header.s=20180315 header.b=e13sx5Uo;
-	dkim=pass (2048-bit key) header.d=nyu.edu header.i=@nyu.edu header.a=rsa-sha256 header.s=nyu-googleapps1 header.b=UjE3mKJ2
-Received: from pps.filterd (m0355795.ppops.net [127.0.0.1])
-	by mx0b-00256a01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AHMY5ux2070044
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:37:18 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nyu.edu; h=cc
-	:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=20180315; bh=BmH2HJBNU7g56YAYVpbKo3jnFN4guXcX8zC5
-	qVeFtW8=; b=e13sx5UoG1M+/4I/Kpj1YUj79oDw7obH6vaHjTYyK3KmH82/XEJY
-	gg/bedyw3LVVo13zGNQfSmtSj5M9+ZoDnNJAuqaK/eQUr9AYRLq18QLe1jtV16Xb
-	1gCm7QXQry3nQaN9mvJyY/QibdEZI4MdNCorzd0ayi4Voj85rIlMQiLOfdzMgw2X
-	rYHHbziKuLoCouPnajw6E1DHeYrMzDszhygp4w2rIbEXaz4g+893GsY/zLEEj85m
-	uXR3nzsbs7oYVM6LV+JXCmbLYWSZtDS3MmP0iS77V3F4vBsV7rsYgBFYyK71NkES
-	j4g9gXDLvd4h1ZYZvfgGU59S5XRpEshReQ==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0b-00256a01.pphosted.com (PPS) with ESMTPS id 4j0yu6sgqq-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:37:18 -0500 (EST)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-93f2373e9b4so62846785a.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 16:37:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nyu.edu; s=nyu-googleapps1; t=1794962237; x=1795567037; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=BmH2HJBNU7g56YAYVpbKo3jnFN4guXcX8zC5qVeFtW8=;
-        b=UjE3mKJ2KHDLQgcUEQPAtKB8x2CYc26FXgPieugBwPcEHKwyr20qbxc8CPaQOWOzuQ
-         4vZNcIJZSVJoc8btUD2OvCKyPR/Hl4MG/ENrEAB+3y5RnMgVupm/J9J6ikoGoK7IlCUL
-         zULIOnoUpWPIXCFnY7rK0B48d/Un8DfQoCi3cALZ/UzBNeS9x2AeOyf5hIRoKKB7Osjn
-         nLtL4QVoXSLypPtV8l+PgDVtYh4oTtD6JtcDTI/8dM1iALxLa1vK6D5Nhw+4Gm5i0zNy
-         z9LnR/FIucETI9ojKvRuA16c7hpxHZohHk5kPXvbbv3ISO/uASZQ+Qubox+yBdddnqJh
-         E1wg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794962237; x=1795567037;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=BmH2HJBNU7g56YAYVpbKo3jnFN4guXcX8zC5qVeFtW8=;
-        b=UmOWGOZqw84W0+bKFx42lJN3nA6t+o2PveFJ6BdUEhT+1yEUbltEXuVFpP749Nmema
-         FiYljQ/hNw/8Tk33HAtcfs/ayqOj2cxwCBWK3kukzVK2LHET3Pk3x2OQOdfoRcWm0bHs
-         mSpU1hHkzUTLT/OISFcXloruJkPc6ic2M/yCBbMaCYKnds2Absai1SutGPHLhJh189jR
-         3VKHWGkJKXewMNTVJcXOqtQVZBy2EN1RfNtwC8bqFhCrz6X6fzPFMFBJA4gZOqgDdSn+
-         TgC8f0R/dsyEMS9046p06rdM9gKa/cXJm5b3uMxtEtbHKz1ZSa5cYlOps5bJjTTmd7eY
-         VDVQ==
-X-Forwarded-Encrypted: i=1; AL+hErEQGWnhzXHnkCBh8F0T4mClgHufiFQjia0WJRev8aqUIWbikPObSRzik629ysqa1dyZYpVR37IVe+PxHrQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9AE07BojLdqzNQTeIj90YHo1LLNWjxr6DUrfCH6yp0qmzIV4Oz
-	j/vJQPrIhLLUMJNFW+cucS/n3sheh1XyhZl6nKniDLx0Ev6f+pD2RhmAC++ZhC38OSfJvEo1jFF
-	+AUEjMlnY7lMgS9eecVtH80Aze1o2vsDINsSt6eiShrTBXLHbqKfxH2wyg0lwwVk=
-X-Gm-Gg: AYBFou0cX10Dv8wtBp2zDJSXOLguwRBTCjO1BGdV7Hlg/2A5xIqxmTQu3dK5KTtDv4A
-	WggcxJyKCrsYJ6b7JuM3dpUG47io4aP6tqNr5yvtb80d4xy683XzUwmpYruZGz5j0SuCWVhNILc
-	LytLwL8NliepvnvXNe4jGllhLWYajucNYDoV10H0U6kwQaGzWNefLUqBP1TIMm66eQ1C5fJ+ijp
-	74qKFG7cP4rTtixFLfDtOUgU0SskxC5iEq28bga0LI9vdfbt93sCS9uXlyN3OxKsRgQBQ8xYohW
-	kPw9wCly7ircYn4+ihxrIndauM0z5Zzw3+S2R57uh09vIwfYRXuXyO7CGERZx8rcqPOKP+IP+kS
-	PJ3dLd2d/Zl1vrKpMo9VOHJSOBVWuyEu1Z77E98NYpROYZS4OEUgogEoh34PDMulzZPONQgAGJM
-	Q4gF5U+AQohw==
-X-Received: by 2002:a05:620a:700e:b0:949:698f:8be8 with SMTP id af79cd13be357-94999648996mr248098685a.64.1794962237293;
-        Tue, 17 Nov 2026 16:37:17 -0800 (PST)
-X-Received: by 2002:a05:620a:700e:b0:949:698f:8be8 with SMTP id af79cd13be357-94999648996mr248094985a.64.1794962236622;
-        Tue, 17 Nov 2026 16:37:16 -0800 (PST)
-Received: from jerrythepro.nyu.edu (216-165-95-155.natpool.nyu.edu. [216.165.95.155])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-9499b7475b8sm51691785a.18.2026.11.17.16.37.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 16:37:16 -0800 (PST)
-From: Kaho Jiang <kj2864@nyu.edu>
-To: idryomov@gmail.com, amarkuze@redhat.com, slava@dubeyko.com
-Cc: ceph-devel@vger.kernel.org, linux-kernel@vger.kernel.org,
-        co+a9f1a2fc804a2921@bugs.sh, Kaho Jiang <kj2864@nyu.edu>,
-        stable@vger.kernel.org
-Subject: [PATCH v1] libceph: replace undersized receive middle buffers
-Date: Tue, 17 Nov 2026 19:36:42 -0500
-Message-ID: <20261118003641.1069010-2-kj2864@nyu.edu>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=eEifpNtV
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=p3wEZLEdf9HD4d6SC4xP3mpiIcPmvnYl7/rVZ0RkFiSdlAHJheDWYw6P6HnxkhPzhH9KHO9BTuSRUyjr/L8KjLkBzzBEYJDg6Ei78P+FCAd4Pe1lHwOV1Cf0HxGYBDQFYZkQMSCxBBH2lSPMiZQHpDLmrg9czSl8+7CPa2rFoseStuGFXBdqlCRgQPkf2ZaQWoqTLhCuCJL4ZMvwQfYJiMv5DapmDijc/4aTFXq0hQeDVN7LiQhifcqNgjQoAnX5sScmZ6iS7fwZIc0QsOZ2ht0Rzc5T7dM3Sr2y9Yxb5QwLaLRUWclEbHhZU0yxtSpEAg4db882mwW27x33cNEpsw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ib1V5kNdPfeYCUhpA8KwCUAOo8sdSJ96aTl1EwWdqXg=;
+ b=aY7SY+tAoU/2iQU5S25v4sWkbLrLlbTOebSU8tAXKKeissEVz5BbtS2n5vYTK3e8d5HMGi6H8JsKpFX3C+hkxDlkfgXGMpvylu3YgB5wEuvocKbMoR6wRTLJCGJQjJ7TpunbOrfy7xT4giDMpzsySMfXaRb0xaaFK/IGtIlAxIJxNR2Mw/4o0cpg9bORmiwbyF2qli9f+XBhOPzSpipU9ug2nuL/ldKxtiYa+Rj5l5e0cGU6YM7xTTSQiFscPyLUxTbLqAIFKcEZuFBXiRiCK6FRgPa7859vhb6qr4kF1hyydBhoETSmDfcKeoJDsfG99WahQ8XUMRbl9earOmv3+A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ib1V5kNdPfeYCUhpA8KwCUAOo8sdSJ96aTl1EwWdqXg=;
+ b=eEifpNtVfHnd5Vgx21mhblBRxMhUCpFWUD1mMtFoVA050eFM4PsVgW9wn7+YIJSbyBv5AKaGfhQ0PRaoTq+6g+M7xkll9fmvKxOmalDF/feCSYgoWcQQlt2d3U6W/5ydCekrpcnIGVwJZLj+sosSu/Sdr2FkuZ/54K6QqK0RLm2HFs0JnJmIYEj9VBpxpd4fwRNPyd4R0NT7gZ7kneKmkA7aXCLEacSk2pRdTu7Iw/pDDfeg0LMw8Cuychj2jhyY+b+tBzNJWTBuOI3huiCKazwxrRYLyoheu11OXubsW8DgDlApHieNuh6HI9DrOMnHnnOFiGMWY4PbN41g6+QokQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20)
+ by SJ1PR12MB6289.namprd12.prod.outlook.com (2603:10b6:a03:458::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 00:36:44 +0000
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017]) by SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017%5]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
+ 00:36:43 +0000
+From: Mikko Perttunen <mperttunen@nvidia.com>
+Date: Wed, 18 Nov 2026 09:35:18 +0900
+Subject: [PATCH v4 09/12] drm/tegra: Fix device parameter to
+ dma_get_sgtable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261118-b4-arm32-iommu-dma-cookie-v4-9-0c5561288e22@nvidia.com>
+References: <20261118-b4-arm32-iommu-dma-cookie-v4-0-0c5561288e22@nvidia.com>
+In-Reply-To: <20261118-b4-arm32-iommu-dma-cookie-v4-0-0c5561288e22@nvidia.com>
+To: Robin Murphy <robin.murphy@arm.com>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+ Russell King <linux@armlinux.org.uk>, Heiko Stuebner <heiko@sntech.de>, 
+ Thierry Reding <thierry.reding@kernel.org>, 
+ Mikko Perttunen <mperttunen@nvidia.com>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Jonathan Hunter <jonathanh@nvidia.com>, 
+ Krishna Reddy <vdumpa@nvidia.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Peter Griffin <peter.griffin@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Yong Wu <yong.wu@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Rob Clark <robin.clark@oss.qualcomm.com>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>, iommu@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ dri-devel@lists.freedesktop.org, linux-tegra@vger.kernel.org
+X-Mailer: b4 0.16-dev
+X-ClientProxiedBy: TYCP286CA0091.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:2b4::13) To SJ2PR12MB9161.namprd12.prod.outlook.com
+ (2603:10b6:a03:566::20)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,95 +114,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAwMSBTYWx0ZWRfXxBTO6zLkSzTk
- ksMyIAIM14wGRqyYkq4PC477HKDo14kELMvSxeMZv/BHUenJS8w/9RK0gw+suyJZGVLLtkfU7hX
- TCAdVyfXDYbXXDXMFkbluZMndi0twOA=
-X-Authority-Analysis: v=2.4 cv=IOCXmQvG c=1 sm=1 tr=0 ts=6afcf33e cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=DJxkqqoNvFVJFTNdoq0VCA==:17
- a=zJRp6_cAMcgA:10 a=x7bEGLp0ZPQA:10 a=S0S_EcBMpFAA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Se5WoFf3ZZRiLcel0nel:22 a=Lu3rmdZLeA08KL8VqJdF:22
- a=VwQbUJbxAAAA:8 a=6fTL0N-4C1eZiWn3T4sA:9 a=IoWCM6iH3mJn3m4BftBB:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAwMSBTYWx0ZWRfX5HkFb5zj080T
- DqkpoCAK7+/Cjvs98WzNJTf4w87SeKBjJzHavTttjYBQkbjZQvTy5J8aBMbp5KGGoi7wqBqdQGc
- H1Fx7dVBqFr44rvSXIUeWtttGlWaH9tiz1YyYyIB0DWVGLxJQL2zfhq4V/crrgY4FYBExBqwYXe
- xb0Zewedb8Kb2l1A6uPZlwp1qy6aKycTQM8Mw9bFg/ubmfw0RA0QUIS/4hsVzzJUoXrT9vyHmbZ
- JO1w+AsD3b1xI5lZzAZfrd99hgcZg4fdiK/lh9Bnxzj11aVD54dTa3lwgPdJDbTPAIU33S09RkD
- npJWzGEIQkJObqbo5fzqrPqs+ONJ5NUko6lXyTM+d6ExHr/k91JilU27Ra8DxVHOW4QXnAvnrl6
- M3mMwKec2upkF0ope35vIJQOmWG0Qn/U58sxQVNmKLbhKCoEFNsd3w1MdkvSVFV3dW+QqVQvUS0
- 4YCggSapFEDse9o6z+Q==
-X-Proofpoint-ORIG-GUID: 4p2p2AyIZRWgyPX_ui0UNqI7t5CV_inR
-X-Proofpoint-GUID: 4p2p2AyIZRWgyPX_ui0UNqI7t5CV_inR
-X-Orig-IP: 209.85.222.197
-X-Proofpoint-Spam-Details: rule=outbound_bp_notspam policy=outbound_bp score=0
- spamscore=0 clxscore=1015 bulkscore=0 adultscore=0 lowpriorityscore=0
- priorityscore=1501 suspectscore=0 impostorscore=0 phishscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180001
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR12MB9161:EE_|SJ1PR12MB6289:EE_
+X-MS-Office365-Filtering-Correlation-Id: 16fc35b0-c372-44ec-3ee0-08df450c0514
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|10070799003|366016|18002099003|22082099003|261009223027099003|921020|11063799006|56012099006|261102123227099003|261028144727099003|10067099003|261026140227099003|261021121427099003|261022105027099003|261021123027099003;
+X-Microsoft-Antispam-Message-Info:
+	Hm04O6xdXN3Il5i9BsL3YMiB95vo1HCWSd8CSnCxDyYFL9CZFqzSSQOI2+5xpRJ6jyl/vuUrVyw5I354miPBo+b+lqIfPrPqvnqXdSlsCV9si+RNuRMBU9JFY3XQxuQOYu3Ook/pj0XFyr8L1N08S9n25Rvl8vpOHdU/0hd4FlfoLE5XJ3a6D9aQoXTOEbQmjnjfMnua1jEIKCRqqi58+Yni47MjPhLULpFSQpbCt2BUvRiVZ3zf5k5nEF62a9kXs8Q5AB3vWccX+D4t3qg/ZVbFPu7lIWct8i8rfn/+m+EnJmud5fYl1UdL2wqm0Y6B/WuVQe3DWLNmY36D7o6NBvKL6Gv+i5aFyBKdfMJ9D69NW6140xgezJCyIhmxTCjWp9njVXZjouLNdNUXZHbS1ir5R3xUujC1ZxzJX88CHQoi77eE1fQTPIeMEhirik2oS0v7lWDCesEVxe8tLYQGTjBm/cI+gBos2Iwgt++S1D4merO2dz/C4laaXb3u86A9a8r3ISRhKYOi1y/FzIpz7Zgc9qAcWOcb/4jViTwWjnXxMNV5D6E8ucikMRMHS0dEn8d5wy57AYlOJFTSJlj3sByqmgnjE6++Z/cJKBRAKR7DzAqS+Af3tK3b08bFjg0G3GI5EmweeIIXFIsFh4whURR7sQ3D1kN5nZC0jcxXEU8JXyzhYF8SxPvPuseWwHxM92kaFHrnUWjMbgcvTLPDiw==
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB9161.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(10070799003)(366016)(18002099003)(22082099003)(261009223027099003)(921020)(11063799006)(56012099006)(261102123227099003)(261028144727099003)(10067099003)(261026140227099003)(261021121427099003)(261022105027099003)(261021123027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?anpySU05aVlVQlByM2RNdnMxSlJRc3hzdWY5cUVLeFpVQXFyZDFxYzFqYnAy?=
+ =?utf-8?B?ZTN6Z1NWOU1xNUY1VkVpcE9zMDZGeVZnLzl3Vyt4T1VDM2dyWDdrMlp4YXkw?=
+ =?utf-8?B?QVppWjJ4cURVTDlyMTVuYmdzTW9HbjcyRGYyRjA4bXBGVldlTndUb1JvN2RR?=
+ =?utf-8?B?UlNaSm5wMzRGcUFxWnQwT0pod3NBVmN6UlRPRkZ5ZEVlYjFuTVVnVTlpUzUy?=
+ =?utf-8?B?QXlGbm93S25tN0JoY1V3VXZEMEl4SE01Vm9KbVIrU2c4dUZqRllBU1l6NjJx?=
+ =?utf-8?B?YTg3QTMxU1dnT1hPM2RwcE1ya0VSQ2dUNHpsL2JQZVFpV2hBdmZwdno2RGVC?=
+ =?utf-8?B?cDBZajhVeXBVVmpWYUozWkxsT1B3dFkrS1FxVWU0UGpaVjJRdGs1Tk9vN1VV?=
+ =?utf-8?B?ZUp2WkI5OHVIRnRGalpXU0U3ek5QbmF0d0NZWThyTGE4WEpnUCt2MFdrT2tj?=
+ =?utf-8?B?KzNBSGcrN3ZBaXJJN2NrdmwzTWU3TnhwUTVOczVNTi9ZWi9vTkFTZjhvYm9E?=
+ =?utf-8?B?QXNqbTh2RWRGWG01VEVqb3k1dTRBZFNBbmpBaVhBdE5aOWRuKzVIbEdLY2R5?=
+ =?utf-8?B?UWt3bUhabFhwakczN2ltdUFjNXY0VXlnVE43SE1aN2l0Q0ROVWxpbExCUGQr?=
+ =?utf-8?B?bkVudTUxN1N2RGgzdEt3U0pJazVwWGF4UUZLR01jZlpYQm9vNWJaU3Z3eis0?=
+ =?utf-8?B?dStmcmkyazFqSWhFUmhiZHJBbzJZdnFOYUFuRWhWV3ZIZU51Zy9sbEk3VlFa?=
+ =?utf-8?B?NlFaclFnOWZLSWRTMUpVZThnRTU1Vk1tNEMwaEhJYTR2bEhTWjlvc3VSd01H?=
+ =?utf-8?B?WEgxZ0NtRmorS2RQK1pjcUFQSDhyb3p0ckJYQUdRZWpiYU9JZFMzdU1sRmNV?=
+ =?utf-8?B?OTUxWVNmS3FQV255b1ZueFFXOHpxVnVnOXRabXdsSkVtVVNIWjlFeWtHdDNG?=
+ =?utf-8?B?Mjk5c3U5TVBBazlVVHJIcS8xSWE1TG9ZeThZU0tsU3lodmFyYXlOSjRhRDA0?=
+ =?utf-8?B?Uk9NWlJnZVdFWUFzdTNHdVc1NVdaaG00VWJ4OFE3N3FYSHNBMkdXeTlGZ3Na?=
+ =?utf-8?B?L3B2SmdKcU9Cd1hOVkR2NUJJNXB6Vk83VFAzcU85K29PMTBVQUFnYk5GMkZy?=
+ =?utf-8?B?ckI4aEVqRTJiQWVZeVBXZmc4QjdQN1Y4L2RON0s5Qk9xbUUxSWNCNnJvVGhm?=
+ =?utf-8?B?UmRSZ2hCQ2U0OHUrNmtEdTZob0JRUkE5ckVuME1xcXpsV3F3ZXIrYW1TVHU0?=
+ =?utf-8?B?MzNqdjJyUmhidk1BNEdEYWI2dXU4NzVTbHJHZXFtbmR0cnAwa1RYMDBlTFQw?=
+ =?utf-8?B?T0xFU2VsUzFuMjlkSC9FekYrdjhXOGU2cWhsWWFzMnBmZEozc3luUjlBWVJt?=
+ =?utf-8?B?VDFxb1Zic09SYWpBVWZyWWN5YXVZU0pWc3B1ajdoVnRrMi9kU29IQ1VFdUJC?=
+ =?utf-8?B?RG1DYTV2VXVHNWVud2Z3ejZVOFpCaDdKTWVBSkt5eFJoaFJodGlOWG9rZHdP?=
+ =?utf-8?B?QWZUOFZpTWhnQXhUeG9YYythNjV4YXVURUtldndnVHFERDBFUjhtTmtlbTFM?=
+ =?utf-8?B?eGhxdktvQWtsK2JYdE1wczdOWHR4MU41SlkwVUhjV1FwVWdrWndWR3hranNU?=
+ =?utf-8?B?dXVYdm1oc2d6TkdNZHMvSmtRRFRtWDMxenNMRTFXZkRaNzFNMmd2MUJQYVJG?=
+ =?utf-8?B?bWNWRDB5ajBpTDN2bVlwMUlsQUlYK2dOUlBCc3licnpNaWFxeW1KM1I4QXJk?=
+ =?utf-8?B?UEkwaUFwdEdZVkh6Ujg5QXgyRnQ5NFJWRnU2ZStSNTlHWGIxT0JBamRjRjVi?=
+ =?utf-8?B?Tk1kWmphdWVEZWlERWRBL0VBc2dSR21uRUQ5SUpreno4akE0UFB0Ym04ZDBI?=
+ =?utf-8?B?Y1RhaGFEVTVGTFRkRnNlWkpSa2hKNytSUkFadzkyVUx6Tk40bHBlWmZYWXZm?=
+ =?utf-8?B?azBRVWdiN3J1ZzQwSnVSdFpncmFNOFcwb0tsTGM3Z1o5dm1uSkdCNG9WNDBV?=
+ =?utf-8?B?UnY5T0FOZDdHS3hTZnhKbERTZm02a2VFSnphSFRoWGxMOGNrWVdKRFl6aFFB?=
+ =?utf-8?B?b2IrTGVmUFRyNHloUEY4M3RMeU9nUmt6N2tXcTdGVlB4VXFQQzQ1cWhHdDNn?=
+ =?utf-8?B?Skh1Zzc0Zi8vRmdiUG9ScGxWMU5obFdCK0RlWnhHbG5kaWpNcTRDeDFMOEow?=
+ =?utf-8?B?RUtHaFhib1RpdFF5b0RnVDF3TVRkZEJDaXI3aUM0NFAxOEx3SXlzaXJ3UXVB?=
+ =?utf-8?B?VlBRMlFBWjFtWktQdThZeFJRWXFXRWFSRVBwYmNJRW1HM3Fxbm51VXVGOTRv?=
+ =?utf-8?B?TTEwd2tMb0R2U0Q1a2E1NEVzOTlpZ2EwK2I1b3VHMEFnbkdhaTRUTVl5cGdM?=
+ =?utf-8?Q?GGTipnZEA12lYGl1U8dmWI5N0ThhORNwhAE/mJkBgN6IM?=
+X-MS-Exchange-AntiSpam-MessageData-1: 8dFXEEfJNzZ6sA==
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 16fc35b0-c372-44ec-3ee0-08df450c0514
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB9161.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 00:36:43.8053
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 9Scr3LoP/mdtz38J5Xx4uVDHS6+qVbXdfDg8mBOsoemg4VgNk8RmIj8LB0VdYyh1E8N6/9XYx1aQ1+KwAcYwlg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR12MB6289
 
-ceph_con_in_msg_alloc() can reuse a message whose middle buffer is too
-small for the incoming middle length. The receive path copies that
-many bytes into the buffer, causing a slab out-of-bounds write.
+The device parameter to dma_get_sgtable should match the allocating
+device, not the consuming device. Fix the calls.
 
-BUG: KASAN: slab-out-of-bounds in _copy_to_iter (lib/iov_iter.c:77 ./include/linux/iov_iter.h:86 ./include/linux/iov_iter.h:308 ./include/linux/iov_iter.h:332 lib/iov_iter.c:197)
-Write of size 4096 at addr ffff888023765000 by task kworker/1:3/4983
-CPU: 1 UID: 0 PID: 4983 Comm: kworker/1:3 Not tainted 7.4.0-rc3-g666539eecdf4 #1 PREEMPT(full)
-Hardware name: QEMU Ubuntu 24.04 PC v2 (i440FX + PIIX, arch_caps fix, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
-Workqueue: ceph-msgr ceph_con_workfn
-Call Trace:
- <TASK>
- dump_stack_lvl (lib/dump_stack.c:94 lib/dump_stack.c:120)
- print_report (mm/kasan/report.c:378 mm/kasan/report.c:482)
- kasan_check_range (mm/kasan/generic.c:186 mm/kasan/generic.c:200)
- __asan_memcpy (mm/kasan/shadow.c:106 (discriminator 1))
- _copy_to_iter (lib/iov_iter.c:77 ./include/linux/iov_iter.h:86 ./include/linux/iov_iter.h:308 ./include/linux/iov_iter.h:332 lib/iov_iter.c:197)
- simple_copy_to_iter (./include/linux/uio.h:228 net/core/datagram.c:521)
- __skb_datagram_iter (net/core/datagram.c:435 (discriminator 1))
- skb_copy_datagram_iter (net/core/datagram.c:535)
- tcp_recvmsg_locked (./include/linux/skbuff.h:4268 net/ipv4/tcp.c:2851)
- tcp_recvmsg (net/ipv4/tcp.c:2955)
- inet_recvmsg (net/ipv4/af_inet.c:894 (discriminator 1))
- sock_recvmsg (net/socket.c:1154 (discriminator 1) net/socket.c:1176 (discriminator 1))
- ceph_tcp_recvmsg (net/ceph/messenger_v1.c:34)
- read_partial_message_chunk (net/ceph/messenger_v1.c:975 net/ceph/messenger_v1.c:964)
- ceph_con_v1_try_read (net/ceph/messenger_v1.c:992 net/ceph/messenger_v1.c:1245 net/ceph/messenger_v1.c:1417)
- ceph_con_workfn (net/ceph/messenger.c:1576)
- process_one_work (kernel/workqueue.c:3495)
- worker_thread (kernel/workqueue.c:3578 kernel/workqueue.c:3659)
- kthread (kernel/kthread.c:436)
- ret_from_fork (arch/x86/kernel/process.c:158)
- ret_from_fork_asm (arch/x86/entry/entry_64.S:245)
- </TASK>
-Kernel Offset: disabled
-
-Release the existing buffer if its capacity is smaller than the
-incoming middle length, then allocate a new buffer through the
-existing allocation path.
-
-Fixes: bb257664f748 ("ceph: simplify ceph_msg_new")
-Cc: stable@vger.kernel.org
-Reported-by: co+a9f1a2fc804a2921@bugs.sh
-Assisted-by: LLM
-Signed-off-by: Kaho Jiang <kj2864@nyu.edu>
+Signed-off-by: Mikko Perttunen <mperttunen@nvidia.com>
 ---
- net/ceph/messenger.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/gpu/drm/tegra/gem.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/net/ceph/messenger.c b/net/ceph/messenger.c
-index 212e7797f9e4..ccb650708663 100644
---- a/net/ceph/messenger.c
-+++ b/net/ceph/messenger.c
-@@ -2098,6 +2098,10 @@ int ceph_con_in_msg_alloc(struct ceph_connection *con,
+diff --git a/drivers/gpu/drm/tegra/gem.c b/drivers/gpu/drm/tegra/gem.c
+index f76af733ea79..c4241ce8f71c 100644
+--- a/drivers/gpu/drm/tegra/gem.c
++++ b/drivers/gpu/drm/tegra/gem.c
+@@ -125,7 +125,8 @@ static struct host1x_bo_mapping *tegra_bo_pin(struct device *dev, struct host1x_
+ 		 * not imported, it had to be allocated with the DMA API, so
+ 		 * the DMA API helper can be used.
+ 		 */
+-		err = dma_get_sgtable(dev, map->sgt, obj->vaddr, obj->iova, gem->size);
++		err = dma_get_sgtable(gem->dev->dev, map->sgt, obj->vaddr,
++				      obj->iova, gem->size);
+ 		if (err < 0)
+ 			goto free;
  	}
- 	memcpy(&con->in_msg->hdr, hdr, sizeof(*hdr));
- 
-+	if (con->in_msg->middle && middle_len > con->in_msg->middle->alloc_len) {
-+		ceph_buffer_put(con->in_msg->middle);
-+		con->in_msg->middle = NULL;
-+	}
- 	if (middle_len && !con->in_msg->middle) {
- 		ret = ceph_alloc_middle(con, con->in_msg);
- 		if (ret < 0) {
+@@ -643,7 +644,7 @@ tegra_gem_prime_map_dma_buf(struct dma_buf_attachment *attach,
+ 					      0, gem->size, GFP_KERNEL) < 0)
+ 			goto free;
+ 	} else {
+-		if (dma_get_sgtable(attach->dev, sgt, bo->vaddr, bo->iova,
++		if (dma_get_sgtable(gem->dev->dev, sgt, bo->vaddr, bo->iova,
+ 				    gem->size) < 0)
+ 			goto free;
+ 	}
+
 -- 
-2.43.0
+2.56.1
 
