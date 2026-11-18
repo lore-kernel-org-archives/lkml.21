@@ -1,78 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795004512;
-	b=k2MoVmbTlyCPoCryadleLRfgAizmW5bO/NJ2L5uhSt7gUfWnqDYrreRfk1oeYplmiLUc
-	 uAAG71g3SFWl9Lqw5w3z+1bVx0br2S+SlsfvwL0/ZldTneYG+If4JCUXbrIfB/RCijqqj
-	 /EcKPJReolOQnlqMYsV4qlnc5WoOi+hv+Y/wMsMSgyQ1ceq1rKOn7ouesR6uA45Loa+nL
-	 6kLmeHviFiKJFWPgWYT5X9jrJk/WaLd7HdFNbTsgTnX33fWsMwHXy4VO5CZDPv74oemar
-	 FG+LqLnlSSeA2gA73tpPFyHRqv+yD4NqrhodTlKv2dUXqA+AUJ7EG3JwqvB+ANlYmnA==
+	t=1795004524;
+	b=buTs8UWt6AuIUBXb9+TZxqrojhO813H5go5+3xPzwffeqxNg1WwucmbrGMO4r5Sp/1ox
+	 Fj/uy2RUA5LUMpATZQ+nM3adKS5+NaQgVyoT90EHGBzeMFLXVlvjwtefL6+BOo9w3KMjW
+	 i1tK9/z+PhMCf2UMNYQgjmLJO/skFF57JqgM7iYrjMMfPYUp8XCs5bfDGXl/WaiM1fd0r
+	 3P6Tf96NoUNYiiYZR7+GIXzFYdK2WXYlv3y/WAKhhAnK0sa9XkXi2zgPa73n21lZr06/6
+	 ChWzfUPU0CYhr6NbR1NJZnOX6dzkn51ZpF7AfxmSianeo1eyOdD8W78DSMWACHbp6DQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795004512;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
-	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
-	bh=g1Oq09voSMXtT76rVmtjCavzCQ+naUA8sJkAcnRGf4g=;
-	b=IWrD1c4QfkCgizo8LR/WLhWaf2Eumld3cct+5qQC9RafUiNFxpZjuAHdLN0LIEo997M+
-	 QWqVMkf05G/Rvtf4uBQaVWP6nfi8FBKFC45psuaKy4PLgnAdMFPfGOc4E3l0rYJZQ/plV
-	 apDJapZXYeMnM5N9gRoqqYGwBW3GdyyFV20XulYtMsSV8FLYWJYOBTZfa/oT5W/b15FDT
-	 v4KAary8SRP3ACCHy3W2MN1WEAjUlINuwjjjFwJW8VAc87mVaePfyYXS1euF8kDVdYf6E
-	 sJkpP0/zjnyFiayN2LBVkoXkYkmY6qekiBcgnSAcCMV/YRi1uoYAA0t0WiZQJQIA/hA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795004524;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=yVl1P/S8CqE+KnNB3DCTb4bcglzeYdTS6qKSH1zjmsk=;
+	b=yRf8H44LIxzA3Oy/3RmnxJ5zvT2vG1YujKUxdSLyWBSY19uqaN0FxYSQW3O0XyiqNtiq
+	 t/LOzUD3JmRs4PJ/K8K2AeGB7dMckT/uLwJNNWGjphhmhiYhbwpEDsovYqi1qfVro6pLY
+	 xaLK1utvnVRp/2/Rn7AE09jwiLRd8jaQnsAi9P9DhX6kn20jjipQhus8BhLxLzpGCxpSX
+	 iuDyh7RYBpSKRfoty2Pa3KniUEibXn+ufOjJ6DN4pPIAnBnOd3oW1Es4drHKNoZ9e5oV8
+	 e0J6MCA4ywMqZWTsaSsQjwEXL/jFKnQdVJToJ67fA8kuZZ35CST9uFnLmgLpx27gs5w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=I7+ownV7;
-	arc=none smtp.remote-ip=198.175.65.16
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.16])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=method-b.uk;
+	spf=pass smtp.mailfrom=method-b.uk;
+	dkim=pass header.d=method-b.uk header.i=@method-b.uk header.a=rsa-sha256 header.s=google header.b=H+3If0X+;
+	arc=none smtp.remote-ip=209.85.221.54
+Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BFBD3606A334;
-	Wed, 18 Nov 2026 12:21:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BFBD3606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B99B3606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:22:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B99B3606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=method-b.uk
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=method-b.uk
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=I7+ownV7
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795004512; x=1826540512;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=Le3Nv5BuozPjdcpHLBUrefH84avTr4K5dyapktWDHXQ=;
-  b=I7+ownV7DMk80yMNFXTFHZAwvEcfB/FzxpLXUk4QU2WM4c4dNxtMxvsY
-   5vZykm7t1AakuNt8GfF2EDzU2I76tJVEmwyOQ+BaMFlYI4jyMMpkkRTO5
-   HslPWC/PEbsfuuTRmfl1eHsv3HqTHr5DYm6Mee4y1JFHNa4F27mK6n2pD
-   S1BKX4zUwiqucKr+o4HEOwpwys/bPPFzjhAh9sbAeCjuSCcXz5B0d4N3R
-   QSYC3kdk3Z9SgI9DzVdW6V+lSEdvXrm1y8gp05YXK2fldvoJzE0rGU0V6
-   y3uzoIQY71ogFyWyNjQGIbv3Tjg3AxGFAWYZElL2tJcKWarOqkdlBMsFR
-   A==;
-X-CSE-ConnectionGUID: 0yLuz04GQO2zOUfWxU6wCQ==
-X-CSE-MsgGUID: NAk0/NDUTSW6dSSczx7OgA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3803204"
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="3803204"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 04:21:41 -0800
-X-CSE-ConnectionGUID: 0A7PRLF4S+6HnzgTkWVT7A==
-X-CSE-MsgGUID: m/TXeOeJToiAd2FylLHDOw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="10274181"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.239])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 04:21:38 -0800
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Wed, 18 Nov 2026 14:21:34 +0200 (EET)
-To: Rong Zhang <i@rong.moe>
-cc: Aaron Ma <aaron.ma@canonical.com>, 
-    Mark Pearson <mpearson-lenovo@squebb.ca>, 
-    "Derek J. Clark" <derekjohn.clark@gmail.com>, 
-    Hans de Goede <hansg@kernel.org>, platform-driver-x86@vger.kernel.org, 
-    LKML <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v4] platform/x86: lenovo-wmi-other: Deconflict battery
- with thinkpad_acpi
-In-Reply-To: <1acc12bacafe9d454b284d095709ed0d90dd465e.camel@rong.moe>
-Message-ID: <8f0225a2-2fbb-db6b-a4e7-bed783de5088@linux.intel.com>
-References: <20261118063058.157862-1-aaron.ma@canonical.com> <1acc12bacafe9d454b284d095709ed0d90dd465e.camel@rong.moe>
+	dkim=pass (1024-bit key, unprotected) header.d=method-b.uk header.i=@method-b.uk header.a=rsa-sha256 header.s=google header.b=H+3If0X+
+Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-492f0a1b685so599289f8f.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:22:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=method-b.uk; s=google; t=1795004522; x=1795609322; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=yVl1P/S8CqE+KnNB3DCTb4bcglzeYdTS6qKSH1zjmsk=;
+        b=H+3If0X+O5GPi1x1cpnVfQTPmh5VijckEpNRjcXQdgvZtIWzdEY+1P4EwZe2cNLLIZ
+         LWvDsz1EjIpXK/nGSMSwXkGhlV73mjzSTsiPe6cjhMxDSg6B0GGkhOBXP5HKbXcxQlKE
+         /wuJ1xF2qmW3YaXq5CeGaUSoPydoSK9qYWZqw=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795004522; x=1795609322;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=yVl1P/S8CqE+KnNB3DCTb4bcglzeYdTS6qKSH1zjmsk=;
+        b=BHw4BVzt9XeMykZJFw4ap06CxFVvReUOw20GzeyK8yu751gy7j/iUMyckY2M7jnhPZ
+         c/a3ZYZh9viywYSrWQczjmoxlZJNZtn6hk6C2ozNL2e+DFoTggGWEIyKsRjQkSFh9Wg3
+         sF3jeOAXLwbldAU0cjkdVrnMs6+mOb5BmScPBDVEYnCCtKLaYjuzqqHX6ReUnVco1EJc
+         i/M49sdiqCjtDyYlHuvX6hlJTzeR7o8xM2R+mhY+1tCppMo6ABnCUrPqquNqg+98C4ZS
+         f//JsepeNu1mGw0qR13qoOeB9fogvoVW20NSEMnsnJCYG125eOqPyFT6liZMQJlpy9mK
+         6wdg==
+X-Forwarded-Encrypted: i=1; AL+hErH/FexnFV/LcgLoosD0z2jA4keBuqidgmGgt+U6lLlqc8K04rEnLWlNIjn/eGSNdwmcZeiUTpmSCMELSbw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+DwEvotd1YzVBcTUQtsOpzXs4Yz1bzeSqEsh2dki4dvMpJ3/ij
+	Q1jtzZn+Puqg7HsktrKdd2mjWMlAI72u9jly1HQ5ceCdVdmSAlQzjZPF1AE2Ef1XkX0=
+X-Gm-Gg: AZFdTZcbkOyzAF6/WX74sPuSblLwatY2LNuQxxsTh0jNgF/ISbYmucQiAoTgl3gjRZZ
+	QqPGo/KZoNsfCKzwPDXLDWDh8imykEeLCh/zRAz9Y8ta2NFo6aTbI8vrTTMdm409ukbelc/pRI0
+	kkUGH1SF/ChcKGakrz4g95NwzhFyhkAITt/kZinaXumDEPdTp9u/H+HDPrchrCptpFMou2svE4Q
+	3Xmea2JeVKmptsuCcjsQ+c6e4lNW5F18oXv5V7GUHCI0OUXXBhdjCpNWG1g9+HQXtzWz24lyH5N
+	lCAi0STfy+lDnwhFZWC6eJD7W36y2cgTl4JQDl61dR+2beQ+Lp37G5+Ff14MkkgcyQsyeuuD+05
+	Tp2KQ3MeMnkqcbylpdDmhQ2FwtgwvfJdl0pGlr5TYZZ5Y62sPhczEBo+08JrziB25hPmfjjvGrL
+	gbbTvi+N5HTBIIVsuvHn/UK0scC7LEWogdyMHaLw92EcekbjvkpLzYhHbCsyTQoYUs/pDKJ8Jlg
+	djI221/fi0ASKnWgMFfncNAT+pjZ4vFTHWW3F+1ZOMWFUIgl2mMrJEbVjmLAFr10lDot/3dLTh9
+	CVASaCJ9Xy2sfkcNXXDBYu2aYaH7lP9Ls12vF1b+8+7s0w8+ieplzSVJ8SEEPo5pANxaHz8gX04
+	EEMO2pMETeeWXjesIuuPCFPcgaHMOyA8BNnABr3BW1dA=
+X-Received: by 2002:a05:6000:2f85:b0:491:92e5:b5c2 with SMTP id ffacd0b85a97d-4a63947578dmr5837947f8f.15.1795004522038;
+        Wed, 18 Nov 2026 04:22:02 -0800 (PST)
+Received: from [192.168.1.182] ([193.9.15.111])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a655f9f53dsm4302059f8f.35.2026.11.18.04.22.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 04:22:01 -0800 (PST)
+Message-ID: <e2c960ca-7b29-45e1-b650-849fc357f8b0@method-b.uk>
+Date: Wed, 18 Nov 2026 12:22:00 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,255 +90,135 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="8323328-1446424806-1795004494=:1169"
-
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
-
---8323328-1446424806-1795004494=:1169
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] 9p: fix data corruption with writeback caching during
+ concurrent stat
+To: David Howells <dhowells@redhat.com>, Pierre Barre <pierre@barre.sh>
+Cc: ericvh@kernel.org, lucho@ionkov.net, asmadeus@codewreck.org,
+ linux_oss@crudebyte.com, v9fs@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20251227083751.715152-1-pierre@barre.sh>
+ <1667424.1771432276@warthog.procyon.org.uk>
+Content-Language: en-US
+From: Michael Mulqueen <mike@method-b.uk>
+In-Reply-To: <1667424.1771432276@warthog.procyon.org.uk>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: QUOTED-PRINTABLE
+Content-Transfer-Encoding: 7bit
 
-On Wed, 18 Nov 2026, Rong Zhang wrote:
+Hi,
 
-> Hi Aaron,
->=20
-> On Wed, 2026-11-18 at 14:30 +0800, Aaron Ma wrote:
-> > ThinkPads expose battery charge thresholds and charge_behaviour through
-> > thinkpad_acpi's ACPI battery hook using raw sysfs attribute groups. The
-> > Lenovo WMI "Other Mode" driver also registers a power_supply_ext for
-> > charge_behaviour and charge_types on systems advertising those WMI
-> > capabilities.
-> >=20
-> > When lenovo-wmi-other registers first, thinkpad_acpi fails to create a
-> > duplicate charge_behaviour sysfs attribute and unregisters its battery
-> > extension. Conversely, registering or updating any power_supply_ext on
-> > the same battery runs sysfs_update_groups(), which removes standard
-> > power-supply attributes not owned by power_supply_core and wipes out
-> > thinkpad_acpi's charge_control_start_threshold,
-> > charge_control_end_threshold, and charge_behaviour files.
-> >=20
-> > Deconflict both ideapad_laptop (VPC2004 with GBMD and SBMC) and
-> > thinkpad_acpi (LEN0268, LEN0068, or IBM0068 with BDSG and BICG) via a
-> > per-driver table guarded by IS_ENABLED() in Kconfig, and update the
-> > force_load_psy_ext description accordingly.
-> >=20
-> > Fixes: 9ca8fc065b88b ("platform/x86: lenovo-wmi-other: Add WMI battery =
-charge limiting")
-> > Reviewed-by: Derek J. Clark <derekjohn.clark@gmail.com>
-> > Co-developed-by: Rong Zhang <i@rong.moe>
-> > Signed-off-by: Rong Zhang <i@rong.moe>
-> > Signed-off-by: Aaron Ma <aaron.ma@canonical.com>
-> > ---
-> > Changes in v4:
-> > - Make hids const char * const * with separate HIDs and methods macros,
-> >   as noted by Ilpo J=C3=A4rvinen.
-> > - Move HID lookup and method checks into lwmi_acpi_device_has_methods()=
-,
-> >   as suggested by Ilpo J=C3=A4rvinen.
-> >=20
-> > Changes in v3:
-> > - Wrap deconfliction table entries in #if IS_ENABLED(CONFIG_*) and drop
-> >   driver_enabled, as suggested by Rong Zhang.
-> > - Group deconfliction entries per driver (HIDs list + methods list).
-> >=20
-> > Changes in v2:
-> > - Consolidate IdeaPad and ThinkPad deconfliction into a table of ACPI
-> >   device IDs, method pairs, and driver configuration checks, as suggest=
-ed
-> >   by Derek J. Clark.
-> > - Check GBMD and SBMC for IdeaPads, and BDSG and BICG for ThinkPads,
-> >   instead of relying only on ThinkPad ACPI device presence.
-> > - Check whether the corresponding driver is enabled before looking up
-> >   its ACPI device, including for ideapad_laptop.
-> > - Update the force_load_psy_ext description to cover both drivers.
-> >=20
-> > v3: https://lore.kernel.org/platform-driver-x86/20261113055726.952551-1=
--aaron.ma@canonical.com/
-> > v2: https://lore.kernel.org/platform-driver-x86/20261112074823.853819-1=
--aaron.ma@canonical.com/
-> > v1: https://lore.kernel.org/platform-driver-x86/20261111083529.727285-1=
--aaron.ma@canonical.com/
-> >=20
-> >  drivers/platform/x86/lenovo/wmi-other.c | 84 ++++++++++++++++++++-----
-> >  1 file changed, 70 insertions(+), 14 deletions(-)
-> >=20
-> > diff --git a/drivers/platform/x86/lenovo/wmi-other.c b/drivers/platform=
-/x86/lenovo/wmi-other.c
-> > index bd64e7b44669d..485e9a9e4afbd 100644
-> > --- a/drivers/platform/x86/lenovo/wmi-other.c
-> > +++ b/drivers/platform/x86/lenovo/wmi-other.c
-> > @@ -189,10 +189,10 @@ MODULE_PARM_DESC(relax_fan_constraint,
-> >  static bool force_load_psy_ext;
-> >  module_param(force_load_psy_ext, bool, 0444);
-> >  MODULE_PARM_DESC(force_load_psy_ext,
-> > -=09"This option will skip checking if the ideapad_laptop driver will c=
-onflict "
-> > +=09"This option will skip checking if the ideapad_laptop or thinkpad_a=
-cpi driver will conflict "
-> >  =09"with adding an extension to set the battery charge behavior and ba=
-ttery charge "
-> >  =09"control end threshold. It will also skip checking if the BIOS repo=
-rts that "
-> > -=09"those features are fully supported. It is recommended to blacklist=
- the ideapad "
-> > +=09"those features are fully supported. It is recommended to blacklist=
- the conflicting "
-> >  =09"driver before using this option.");
-> > =20
-> >  /* =3D=3D=3D=3D=3D=3D=3D=3D HWMON (component: lenovo-wmi-capdata 00 & =
-fan) =3D=3D=3D=3D=3D=3D=3D=3D */
-> > @@ -905,19 +905,69 @@ static acpi_status lwmi_acpi_match(acpi_handle ha=
-ndle, u32 lvl,
-> >  =09return AE_CTRL_TERMINATE;
-> >  }
-> > =20
-> > +struct lwmi_psy_deconflict {
-> > +=09const char * const *hids;
-> > +=09char * const *methods;
-> > +};
-> > +
-> > +#if IS_ENABLED(CONFIG_IDEAPAD_LAPTOP) || IS_ENABLED(CONFIG_THINKPAD_AC=
-PI)
->=20
-> The #if did not exist in my original patch. Please don't increase the
-> maintenance burden simply because of a W=3D2 warning.
->=20
-> See also my reply to v3.
->=20
-> > +#define LWMI_PSY_DECONFLICT_HIDS(...) \
-> > +=09((const char * const[]) { __VA_ARGS__, NULL })
-> > +#define LWMI_PSY_DECONFLICT_METHODS(...) \
-> > +=09((char * const[]) { __VA_ARGS__, NULL })
->=20
-> My original patch safely dropped the const qualifier with cast when
-> calling acpi_has_method(). If you really don't want to introduce new
-> cast, please refactor acpi_has_method() instead of abusing the .data
-> section.
->=20
-> > +#endif
-> > +
-> > +static const struct lwmi_psy_deconflict lwmi_psy_deconflict_list[] =3D=
- {
-> > +#if IS_ENABLED(CONFIG_IDEAPAD_LAPTOP)
-> > +=09{
-> > +=09=09.hids =3D LWMI_PSY_DECONFLICT_HIDS("VPC2004"),
-> > +=09=09.methods =3D LWMI_PSY_DECONFLICT_METHODS("GBMD", "SBMC"),
-> > +=09},
-> > +#endif /* IS_ENABLED(CONFIG_IDEAPAD_LAPTOP) */
-> > +#if IS_ENABLED(CONFIG_THINKPAD_ACPI)
-> > +=09{
-> > +=09=09.hids =3D LWMI_PSY_DECONFLICT_HIDS("LEN0268", "LEN0068", "IBM006=
-8"),
-> > +=09=09.methods =3D LWMI_PSY_DECONFLICT_METHODS("BDSG", "BICG"),
-> > +=09},
-> > +#endif /* IS_ENABLED(CONFIG_THINKPAD_ACPI) */
-> > +};
-> > +
-> > +/**
-> > + * lwmi_acpi_device_has_methods() - Check if an ACPI device has all me=
-thods
-> > + * @hid: ACPI hardware ID to match
-> > + * @methods: NULL-terminated array of required ACPI method names
-> > + *
-> > + * Return: true if a matching ACPI device is present and exposes all @=
-methods,
-> > + * or false otherwise.
-> > + */
-> > +static bool lwmi_acpi_device_has_methods(const char *hid, char * const=
- *methods)
-> > +{
-> > +=09acpi_handle handle =3D NULL;
-> > +=09int ret;
-> > +
-> > +=09ret =3D acpi_get_devices(hid, lwmi_acpi_match, &handle, NULL);
-> > +=09if (ret || !handle)
-> > +=09=09return false;
-> > +
-> > +=09for (unsigned int i =3D 0; methods[i]; i++) {
-> > +=09=09if (!acpi_has_method(handle, methods[i]))
-> > +=09=09=09return false;
-> > +=09}
-> > +
-> > +=09return true;
-> > +}
-> > +
-> >  /**
-> >   * lwmi_om_psy_ext_init() - Hooks power supply extension to device bat=
-tery
-> >   * @priv: Pointer to the lwmi_om_priv drvdata.
-> >   *
-> > - * Checks if the ideapad_laptop driver is going to manage charge attri=
-butes first,
-> > - * then if not, hooks the battery to our WMI methods if they are suppo=
-rted.
-> > + * Checks if the ideapad_laptop or thinkpad_acpi driver is going to ma=
-nage
-> > + * charge attributes first, then if not, hooks the battery to our WMI =
-methods
-> > + * if they are supported.
-> >   */
-> >  static void lwmi_om_psy_ext_init(struct lwmi_om_priv *priv)
-> >  {
-> > -=09static const char * const ideapad_hid =3D "VPC2004";
-> > -=09acpi_handle handle =3D NULL;
-> >  =09unsigned int props =3D 0;
-> > -=09int ret;
-> > =20
-> >  =09if (lwmi_psy_prop_is_supported(priv, POWER_SUPPLY_PROP_CHARGE_BEHAV=
-IOUR))
-> >  =09=09props |=3D LWMI_PSY_PROP_BEHAVIOUR;
-> > @@ -928,14 +978,20 @@ static void lwmi_om_psy_ext_init(struct lwmi_om_p=
-riv *priv)
-> >  =09if (force_load_psy_ext)
-> >  =09=09goto load_psy_ext;
-> > =20
-> > -=09/* Deconflict ideapad_laptop driver */
-> > -=09ret =3D acpi_get_devices(ideapad_hid, lwmi_acpi_match, &handle, NUL=
-L);
-> > -=09if (ret)
-> > -=09=09return;
-> > +=09for (unsigned int i =3D 0; i < ARRAY_SIZE(lwmi_psy_deconflict_list)=
-; i++) {
-> > +=09=09const struct lwmi_psy_deconflict *entry =3D &lwmi_psy_deconflict=
-_list[i];
-> > =20
-> > -=09if (handle && acpi_has_method(handle, "GBMD") && acpi_has_method(ha=
-ndle, "SBMC")) {
-> > -=09=09dev_dbg(&priv->wdev->dev, "ideapad_laptop driver manages battery=
- for device\n");
-> > -=09=09return;
-> > +=09=09for (unsigned int j =3D 0; entry->hids[j]; j++) {
-> > +=09=09=09const char *hid =3D entry->hids[j];
-> > +
-> > +=09=09=09if (!lwmi_acpi_device_has_methods(hid, entry->methods))
-> > +=09=09=09=09continue;
->=20
-> Flip the branch to drop the `continue'.
+I've encountered this bug and have spent some time confirming it and
+writing a minimal reproducer script for it.
 
-No, continue is preferred if there's no work to do with the current entry=
-=20
-and we want to look the next entry. It's more obvious (analoguos to handle=
-=20
-error early with return) than nesting if construct that would require=20
-looking what comes after it.
+I've bisected it with my reproducer script and found it was introduced
+in v6.4, specifically commit d9bc0d11e33b. I wasn't sure about the
+etiquette of jumping straight into a discussion and tagging regzbot, so
+I haven't, but I'm pretty confident that this is where the regression
+was introduced. That is the commit that adds the writeback path -
+before it, cache=mmap did not buffer writes through the page cache, so
+a stale getattr had no unsent data to zero.
 
---
- i.
+I cannot reproduce it on cache=readahead, only on the writeback path
+that cache=mmap uses.
 
->=20
-> Thanks,
-> Rong
->=20
-> > +
-> > +=09=09=09dev_dbg(&priv->wdev->dev,
-> > +=09=09=09=09"ACPI device %s manages battery for device\n",
-> > +=09=09=09=09hid);
-> > +=09=09=09return;
-> > +=09=09}
-> >  =09}
-> > =20
-> >  load_psy_ext:
->=20
+The reproducer writes with O_APPEND in one thread while another thread
+stats the file and then reads the server copy back at the end. It
+writes for a fixed period of 5 seconds, which is why the number of
+records in the output differs, but it reproduces reliably on every run.
+It needs diod installed and has to be run as root. Here's the output on
+the current v7.3 release:
 
---8323328-1446424806-1795004494=:1169--
+cache=mmap: appending for 5s while a reader stat()s the file...
+  -> 689268 NUL bytes in the server's copy, 13897 of 16642 records lost
+cache=readahead: appending for 5s while a reader stat()s the file...
+  -> 0 NUL bytes in the server's copy, 0 of 10179 records lost
+
+I have tried the fixes (Pierre Barre's v1 and v2, 27 December 2025, and
+David Howells' sketch, 18 February 2026) discussed in this thread and
+they appear to resolve it in the basic case. Pierre's apply cleanly to
+v7.3; David's I rebased by hand (its step 5 is already present as
+c60ae98c5aa6). My reproducer is too minimal to address all the points
+raised in this thread, it only confirms that it's still present in the
+latest kernel and that it regressed from v6.3 to v6.4. I'll try to find
+some more time in the next couple of weeks to test the patches 
+comprehensively, but I wanted toshare what I already have in case it is
+useful to anyone else looking into this.
+
+--- repro-b.py --------------------------------------------------------
+
+#!/usr/bin/env python3
+import os, re, shutil, socket, subprocess, tempfile, threading, time
+
+base = tempfile.mkdtemp(prefix="p9b.")
+exp = base + "/export"
+mnt = base + "/mnt"
+os.mkdir(exp)
+os.mkdir(mnt)
+
+port = 5700 + os.getpid() % 200
+srv = subprocess.Popen(
+    ["diod", "-f", "-n", "-l", f"127.0.0.1:{port}", "-e", exp],
+    stderr=subprocess.PIPE)
+for _ in range(100):
+    try:
+        socket.create_connection(("127.0.0.1", port), 0.2).close()
+        break
+    except OSError:
+        time.sleep(0.05)
+else:
+    srv.terminate()
+    raise SystemExit("diod failed to start:\n"
+                     + srv.stderr.read().decode())
+print(f"diod up on 127.0.0.1:{port}", flush=True)
+
+
+def run(mode, seconds=5):
+    opts = (f"trans=tcp,port={port},version=9p2000.L,cache={mode},"
+            f"aname={exp},uname=root,access=any,ignoreqv")
+    subprocess.run(["mount", "-t", "9p", "-o", opts,
+                    "127.0.0.1", mnt], check=True)
+    log = mnt + "/app.log"
+    open(log, "w").close()
+    print(f"cache={mode}: appending for {seconds}s while a reader "
+          f"stat()s the file...", flush=True)
+
+    stop = threading.Event()
+
+    def poll():
+        while not stop.is_set():
+            try:
+                os.stat(log)
+            except OSError:
+                pass
+
+    threading.Thread(target=poll, daemon=True).start()
+
+    fd = os.open(log, os.O_WRONLY | os.O_APPEND)
+    n = 0
+    end = time.time() + seconds
+    while time.time() < end:
+        os.write(fd, b"%08d " % n + b"x" * 90 + b"\n")
+        n += 1
+    os.fsync(fd)
+    os.close(fd)
+    stop.set()
+
+    data = open(exp + "/app.log", "rb").read()
+    nul = data.count(0)
+    intact = len(set(re.findall(rb"(\d{8}) x{90}", data)))
+    subprocess.run(["umount", "-l", mnt], stderr=subprocess.DEVNULL)
+    print(f"  -> {nul} NUL bytes in the server's copy, "
+          f"{n - intact} of {n} records lost", flush=True)
+
+
+try:
+    run("mmap")
+    run("readahead")
+finally:
+    srv.terminate()
+    srv.wait()
+    shutil.rmtree(base, ignore_errors=True)
+
+--- end repro-b.py ----------------------------------------------------
+
+Cheers,
+Mike
