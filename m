@@ -1,96 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.51
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795043986;
-	b=McoBy+jhMbHn9DXfuCbVi3nhdX13OwGyXB6t6OnOc96REmTFKkQkAhps2fKoBoRuGoR8
-	 8oxIat3EfgdpUXxjMCIrwTb3b/F4BrFwZrg3rdYhRRBl1Q/rlTaT0smE2OBg1CE5oC/kX
-	 JlOHSLYvIsny1KZS2mF8CfgLyv7Qku5lxL2SugWX7p0QCpmIZx1cCcyIxytHauyZm8TFr
-	 Ter5Jfo+FocwEmReaUPSUM++pnF8bNVw5s5o4u2qTECvJLEX2+LsBRGflil19vKfz5CvY
-	 EGIpE+CFGXhDwqOQxQ9R2ZCJuq6A+mbhDz7/mCNE4+r323+e0I2hlIU3ThxWjXGku5w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795043986;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=EDv2l3x/+/bJooCz9/4bolko6run+difC3F3jifyoyQ=;
-	b=Dm765HqK9uQvgAr6Cue4L6ZvBPW6qw1EgkYli0hAf59aRifV25+3KiYz5nxkpw3nAoXf
-	 NQR/U7iMVylP0QmvzQPkYL+A/UfrX56Ls6iSj1PcBK7Ri6znw3G1pjGk8Q0mmLEqex6dp
-	 zxBUT7LfEX9Hwgyw16Da142MD0SK5d2/K+bo9c+S3pa/evzowJvTaVzYGJN93St1YShiC
-	 u0YiKhUd1ZwlO4cC85qthxhsC0oSJBJ2Ou/roWp42HIW6dgUuateNobJ8RtDE6uyg+NtK
-	 q4gWWsipW6R5DhhuKbBRp6Hz7qFxYLxKr2W6VOcpwngxDJ1xgLzlF1q/9AsmHL/HBeA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JEGhF70U;
-	arc=none smtp.remote-ip=209.85.221.51
-Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795044007;
+	b=zCh2Ozuv5i3I49eiTiWMl/q/6nGYPIYCoYuqIPINZc2Yst1tj9tOuHp/hxlUnZpiMC7o
+	 Pm+ejvKx9pLl2T6N2V72X/n3+NSU3gqeV1HB0en+jKFFiM6HnM6rIVk/uxyddYCil+Gji
+	 U0FhGyTJ+C3K7Hzeut/tKuF3EKkQHELojFxBGLQcuRh5K9RkNXIwmXAnJ5V6mwGM2oJST
+	 HsVYAWYY2oK8fZA+28X+TaJsx1DO3OUmJb0qWineT476ZiuScwqAhLb+T0ZlVizneckrx
+	 mrcnuoRr8Yw24pj4GXrk1xHL6KLZKBGd1kPbYbA6LVBg2pFEsec0ilQlOG38vwV/f0w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795044007;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=KuzSUeKTvu0n86QvwvTTzILivYz+E3C9v4A9dUNMtTA=;
+	b=Z8tRFQ/MI6oUocpLWn41mqGuH8oTPZqieV6VKfmW2VN6d+1WZseYqdCTGBU0sNAbmpJp
+	 bSTjyUaT2JO5eTSfCzB55zBMnokATRmKL48vCuXwax3Fm0lmeM5thKo8zJmZnUS+fa4IA
+	 ZhdjW6iYtKPtSUsfPOIoLVb2hYAFmdeqAOkxp86dKmmYFrzWdZOfL/j8mX73FpGdFkpUK
+	 G6430lpQvWQdelDJM5cOHdJkFexNnKgp0w8m5hjrceUBAiCOAL/VzrHYm0W8Br4X/e418
+	 zr9JhUVvViAWAc3dIfhTxAWAcMzTPoQehVacfeh1Ahrv5sKNmE6pdeJUJmV645KbM7Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="iT/OSNJL";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 270FE606A338;
+	Wed, 18 Nov 2026 23:20:07 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iT/OSNJL
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795044006;
+	b=UUU4ESAt/SHVKBB5X8EWvlsf5HDtrrWK2WEZmZZpfDhyVJg70zX7VgtH2bR1vO/NX/4K
+	 z1Sg/RdVO9ZGoEFAJ2Foz9orb2R3Qe6sCQ/JJGG0Ffetk6n95FoU9ROsJsQy7yX9lFPYC
+	 S1T7X5IHonzJe0i0jHhVjLbbo1OuzJrhPoWhY+bLXctgF39eyhjqcQzHCGjdNQU00kGLz
+	 /xeYH9UqIF8aiFNkrMKN+WF/AnyN8vrjpTB963dSRkdE5DjvwPGapIWbZZANl58eWDH2n
+	 TxkpebKaK2WKAXguVdGShpgWrq+0jNO1NfaSCrSJpLfghTvwZETXrSx/9zT+gMAf4QQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795044006;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=KuzSUeKTvu0n86QvwvTTzILivYz+E3C9v4A9dUNMtTA=;
+	b=jo+0Vczz8YZOxGgT6qzKTVnJ+GjYlnT0q6mdTFtFwmHOA1v6v40xkSTnYjSCPeKzQMCQ
+	 AZOrx/7FILJoW+zMT7KnwCd2w/J/MxwKnAMrUY+tnFroAbTWcUmiR3KwaZuzW/LOtNI7H
+	 R/rbT+vdsYXzJRPZV8bBzuQp65L8cZfgG7aE+/xdRrR+roKDkNyGike2mzp43qrSsAuxb
+	 ka730ACazRh4BakMVKoUkMp1Ps+9nCj92nBbd18aUb+Ic1nPYR8KwOUs3eTX8DmocB8h8
+	 bYL5LGfdvntVa+zeymMH/qkUjsa3vUX5v4KXF0zl7BmLOJMjYAQTqsmRXea1GGl69+Q==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0378360A2616
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:19:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0378360A2616
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JEGhF70U
-Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-492fcbfaa88so1038649f8f.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:19:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795043984; x=1795648784; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=EDv2l3x/+/bJooCz9/4bolko6run+difC3F3jifyoyQ=;
-        b=JEGhF70UA8X5U8Mu04Ib9fsgeTLW8FZL1lGDk6MUdcJdYNQohwvHZb8j5Hi100Nyr4
-         elCK4t7HEsTjWjqeLcPd3FniMJ2zsnjq1ekZa360i79pForQ1qleQA+g37nVusVSxhCh
-         2IUFr8mmNwRMwdbxJPBhaRaiJ5d5u8+R3c5y8fRAWrIU0m13pd468xiYTQ+Np54ma1zD
-         8GGUeWgmOyc//yBDPEVZlfKPl0R9zC2XSEQJEs9VC/IGZYlx5ccIOKg32tyYMS04TGie
-         aRkT54RK2IFWM35fgb9YMiEdjO2vYivs3N/ti9dD3zyDMQ9uWCAWeHdltppmwp3nVADo
-         vUNA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795043984; x=1795648784;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=EDv2l3x/+/bJooCz9/4bolko6run+difC3F3jifyoyQ=;
-        b=nn4Sq26159J55GJ8jU0+f842VubghgmFL3lo71QX1c8LIN5y7642riDc4Qk+RP57sR
-         hGfvVAZ7lZZw+BoTcLP+uy0ijWe4DSLBXdDwEdN7XAsamU8J89AV3sJBLJlqCHS4uDob
-         MOpeLaGFsZJsmmKYdcopD/ZRFzTq3M6nAKtR8EkIA+6D+xfImDR+XCAo9X2eDYpOE3jZ
-         0pehUfv/d1YnuXs4YgG4kvklMFm8eKCw5BK6iDmvX8h0jCdm/1e/QIe7ErHp2OTK94jq
-         +kA8/x038fVHKaonc+HghuZ0HB8TwoDC/vKKA4W2dadyKxtgo+xeZxfw2toF6mNPvdkM
-         Le1A==
-X-Forwarded-Encrypted: i=1; AL+hErECeq1FxQLtr4QjFrv2UqaEgzOpBm2MY0I9Q47g+JL0ORpcigOns11V+lGF5byWHMW/VxchIbRfXHhw/U4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8+dZYe4Bu9UM1udMbrd2hNXQgSiv2UxBtyIeDYZonhWLNNB5Hu
-	+QLYw8+vwInkEoh8gaxBXBPqRTdaKJWg7hu0mqUiLG+e2Jz3Q8jHQUO2myrv0xMZ
-X-Gm-Gg: AYBFou2WvLR1bNtcG8cocXGt5PRfGEUenN3FO6HjK9UR7JGJsy/frVBvUUiaRQlqpsG
-	qRc+UKBL0xPl2hSat9DOAlwJMKsohjripDES9NHsOtFctsyZVi8s7zBu4qZ7ZIr/rYqwv/FEYAL
-	Tlm2ntfdrmFV1HN4YKfG+sQIjsmx0A+Kpl2OhAaJHlizSxeUd5yJzMJ9hrUJRNcC5DJZ+r7tmny
-	6ZtVkJSYf1Gn0m5/q9MSLXqQ9K1ZTXx/ICzQUM2qfIaejHObRJDJjq+HX6lqHwLWJ8B/ROJdcav
-	uPCQOmZcyyL3ahB8bfXdYwwn+wIQYuEAEi2M89gNCwAVHzkY5IdWAr8T0zxf3sKpeoh221WKFBl
-	hKCQqLlmKjUeb3MEma6oDnQpK36GMisMke4ZDno/+SgKDNFHuMgJbrsbfV3lO+OLoCaq+dd1Utq
-	74TZZEBUNFYaXOqzbobJ0fOh62aJEpfu0TKXEXhE8GB65l3UuPIxS5tU3Gq3KY8hXsDf8HEGmuB
-	UzdHay0oCNkpGXgXHgR1JRV12rZeKIlKAcPtPqc02PdfotrEtyAV7zBPXIVTcjQwvbiu9Osui+L
-	LQM/hwxpnXd2b6tYP5XUiCENBNRK6ZfMvgE=
-X-Received: by 2002:a05:600c:3509:b0:4a3:59ee:86b with SMTP id 5b1f17b1804b1-4bb7d5d66efmr85375575e9.4.1795043984377;
-        Wed, 18 Nov 2026 15:19:44 -0800 (PST)
-Received: from deb05.proceq.com ([213.160.61.66])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb842f9348sm5966095e9.8.2026.11.18.15.19.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 15:19:43 -0800 (PST)
-From: Mehmet Fide <mehmet.fide@gmail.com>
-To: Ping-Ke Shih <pkshih@realtek.com>
-Cc: Luka Gejak <luka.gejak@linux.dev>,
-	Bitterblue Smith <rtl8821cerfe2@gmail.com>,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	mehmet.fide@screeningeagle.com
-Subject: [PATCH rtw-next v13 3/3] wifi: rtw88: time the countdown downloads from the TBTT
-Date: Thu, 19 Nov 2026 00:19:40 +0100
-Message-ID: <20261118231940.3950-4-mehmet.fide@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261118231940.3950-1-mehmet.fide@gmail.com>
-References: <20261118231940.3950-1-mehmet.fide@gmail.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id 579071F000C4;
+	Wed, 18 Nov 2026 23:20:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795044006;
+	bh=KuzSUeKTvu0n86QvwvTTzILivYz+E3C9v4A9dUNMtTA=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=iT/OSNJLfvzQYzlpS9/SsgFtHeTOu+r5hw27SVJFmRlE3ojGKlzlMvwY2giRErmZd
+	 qFd6Ny++FdgcFiAVvmzhwe2S0Q1RTT9t0hO0eP9+qWjb8eKt6Thwfn+zKJICk9HMRd
+	 atKYDDnaKN3kOhI5URJTIuBtgp9JxilpgiWyD2FmHPFR1xr1IYdBscDeW+CmKQRZSc
+	 jTVLqpl2fj2sTyWJ/FTPM2CFC4uWwr3v8UL2lk2o6qyFROUvUvYLCUg9WFPftMk1Fo
+	 015AZBykGI85CGk5KlhJ4p0jGeWk7SzalwH/ERhDbbQIv73F8q8/wGUbqukZk/co1y
+	 OmQuNnasyrRUw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id CB3C44B01B;
+	Wed, 18 Nov 2026 23:20:05 +0000 (UTC)
+From: Florian Bauckholt via B4 Relay <devnull+florian.bauckholt.cispa.de@kernel.org>
+Subject: [PATCH v2 0/2] KEYS: two fixes for the asymmetric keyctl
+ operations
+Date: Thu, 19 Nov 2026 00:19:27 +0100
+Message-Id: <20261119-keyctl-pkey-fixes-v2-0-9e2d1c7db7ec@cispa.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,213 +84,87 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32NTQ6CMBCFr0Jm7ZhStEVX3sOwKGWUUQOkg0RCu
+ Lst7n2byZd5PwsIBSaBc7ZAoImF+y6C3mXgW9fdCbmJDFppk0fhk2Y/vnCIF2/8IUFtimPpSqt
+ sbSDmhkDbI8au1Y/lXT/Ij6koOVqWsQ/zNjrlyfevf8pR4ak4UO2cNtbZi2cZ3L4hqNZ1/QJbd
+ XROwwAAAA==
+X-Change-ID: 20261111-keyctl-pkey-fixes-26358a8707b6
+To: David Howells <dhowells@redhat.com>, 
+ Jarkko Sakkinen <jarkko@kernel.org>, Lukas Wunner <lukas@wunner.de>, 
+ Ignat Korchagin <ignat@linux.win>, Herbert Xu <herbert@gondor.apana.org.au>, 
+ "David S. Miller" <davem@davemloft.net>
+Cc: Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
+ "Serge E. Hallyn" <serge@hallyn.com>, Hui Peng <benquike@gmail.com>, 
+ Stefan Berger <stefanb@linux.ibm.com>, 
+ Rodolfo Giometti <giometti@enneenne.com>, keyrings@vger.kernel.org, 
+ linux-crypto@vger.kernel.org, linux-security-module@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+ Florian Bauckholt <florian.bauckholt@cispa.de>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795044005; l=1979;
+ i=florian.bauckholt@cispa.de; s=20261105; h=from:subject:message-id;
+ bh=FDAmoObBsHQBGQ+MetdjiLo0kYxapT4Ogq4Y3JdbTA8=;
+ b=Wk1rAO/meq+r3f/pjo64iqVGKoS19pmqMHM9xPsXpyGDnVlWCtUdfEuvhLovt1cvaysJFtuQL
+ tCvradrixlqCEdT2Je4d9Jncgq1EAGoPrSv0Mn4NmON56/1No+Asitb
+X-Developer-Key: i=florian.bauckholt@cispa.de; a=ed25519;
+ pk=n9klXQ+dI45FWy0qWLrGpQfXU5ylIA0SN+uWSmOx3ok=
+X-Endpoint-Received: by B4 Relay for florian.bauckholt@cispa.de/20261105
+ with auth_id=1420
+X-Original-From: Florian Bauckholt <florian.bauckholt@cispa.de>
+Reply-To: florian.bauckholt@cispa.de
 
-From: Mehmet Fide <mehmet.fide@screeningeagle.com>
+Hi,
 
-The countdown downloads are queued one beacon interval apart, with no
-relation to the TBTT. A download that runs late past the next TBTT
-leaves a count out of the air.
+two small fixes for KEYCTL_PKEY_VERIFY and KEYCTL_PKEY_DECRYPT that I
+ran into while doing differential testing of crypto implementations
+with the kernel hooked up via UML:
 
-Read the TSF after each download and queue the next step 10 ms after the
-first TBTT that is at least 10 ms away. Every count that was downloaded,
-the first one too, then has a TBTT to go out at; a download that runs
-late delays the switch by a beacon interval instead of taking a count
-off the air, and stations that took the time of the switch from an
-earlier count then switch up to that interval before the AP. As with a
-driver that fetches each beacon with ieee80211_beacon_get(), the first
-CSA beacon carries the count after the first step.
+Patch 1 fixes a regression from commit cb481e59ea6c ("KEYS: fix overflow
+in keyctl_pkey_params_get_2()"), which was tagged for stable:
+KEYCTL_PKEY_VERIFY ignores the signature length passed by the caller.
+It also is a prerequisite for making the x962 ECDSA template reject
+signatures that are not DER-encoded, which I posted separately to
+linux-crypto [2].
 
-The first count is downloaded the same way, not when mac80211 changes
-the beacon: a download close to a TBTT keeps beacons off the air. On an
-RTL8821CU and an RTL8822CU a TBTT during the download sent no beacon or
-the old one. On an RTL8822CE a TBTT up to about 100 us before the
-download sent none and the next beacon stayed out too, and with a count
-of 2 no CSA beacon went out. A step, the one that finishes the switch
-too, that would run less than 5 ms after a TBTT or less than 10 ms
-before one waits until 10 ms after that TBTT instead; with a beacon
-interval of 20 ms or less there is no room for that and the steps are
-not held. The switch completes up to one beacon interval later. The
-replay after a hardware restart still downloads at once.
+Patch 2 fixes PKCS#1 decryption of an empty message returning the
+ciphertext.
 
-The USB chips raise no TBTT interrupt, so the TSF register is read. The
-beaconing interface is always on port 0: rtw_core_port_switch() moves
-an AP there, an IBSS runs alone.
+Both changes were part of a patch posted by Hui Peng in September that
+did not get a reply [1]. That patch also changed the out_len checks in
+keyctl_pkey_params_get_2(), which is not included here.
 
-Signed-off-by: Mehmet Fide <mehmet.fide@screeningeagle.com>
+Thanks!
+
+[1] https://lore.kernel.org/all/20260919221742.3709658-1-benquike@gmail.com/
+[2] https://lore.kernel.org/all/20261112-ecdsa-x962-der-v1-1-36b24c5f5e11@cispa.de/
+
 ---
- drivers/net/wireless/realtek/rtw88/fw.c       | 70 ++++++++++++++++---
- drivers/net/wireless/realtek/rtw88/mac80211.c |  9 ++-
- drivers/net/wireless/realtek/rtw88/main.h     |  1 -
- drivers/net/wireless/realtek/rtw88/reg.h      |  1 +
- 4 files changed, 66 insertions(+), 15 deletions(-)
+Changes in v2:
+- Rebased onto jarkko/linux-tpmdd.git for-next-keys (141b164bbe18).
+  Patch 1 no longer applied after commit bab48a104447 ("KEYS: Protect
+  pkey method checks against type removal"). The code change itself is
+  the same.
+- Patch 1: the commit message now mentions that a truncated RSA
+  signature can be accepted (Rodolfo Giometti).
+- Patch 2: unchanged.
+- Link to v1: https://patch.msgid.link/20261111-keyctl-pkey-fixes-v1-0-934ebaa267a7@cispa.de
 
-diff --git a/drivers/net/wireless/realtek/rtw88/fw.c b/drivers/net/wireless/realtek/rtw88/fw.c
-index 9d5df3e65b97..c24932d00e14 100644
---- a/drivers/net/wireless/realtek/rtw88/fw.c
-+++ b/drivers/net/wireless/realtek/rtw88/fw.c
-@@ -3,6 +3,7 @@
-  */
- 
- #include <linux/iopoll.h>
-+#include <linux/math64.h>
- 
- #include "main.h"
- #include "coex.h"
-@@ -1824,16 +1825,54 @@ bool rtw_fw_csa_active(struct rtw_dev *rtwdev)
- 	return !!rtwdev->csa_vif;
- }
- 
--/* paced from the first download: a late one does not delay the next */
-+#define RTW_CSA_TBTT_MARGIN_US	10000
-+
-+static u64 rtw_fw_read_tsf(struct rtw_dev *rtwdev)
-+{
-+	u32 hi, lo, tmp;
-+
-+	hi = rtw_read32(rtwdev, REG_TSFTR + 4);
-+	lo = rtw_read32(rtwdev, REG_TSFTR);
-+	tmp = rtw_read32(rtwdev, REG_TSFTR + 4);
-+	if (tmp != hi) {
-+		hi = tmp;
-+		lo = rtw_read32(rtwdev, REG_TSFTR);
-+	}
-+
-+	return ((u64)hi << 32) | lo;
-+}
-+
-+/* how long to wait so that a step does not run next to a TBTT */
-+static u32 rtw_fw_csa_hold(struct rtw_dev *rtwdev, u32 interval)
-+{
-+	u32 rem;
-+
-+	if (interval <= 2 * RTW_CSA_TBTT_MARGIN_US)
-+		return 0;
-+
-+	div_u64_rem(rtw_fw_read_tsf(rtwdev), interval, &rem);
-+	if (rem < RTW_CSA_TBTT_MARGIN_US / 2)
-+		return RTW_CSA_TBTT_MARGIN_US - rem;
-+	if (interval - rem < RTW_CSA_TBTT_MARGIN_US)
-+		return interval - rem + RTW_CSA_TBTT_MARGIN_US;
-+
-+	return 0;
-+}
-+
-+/* after the first TBTT that can send what was downloaded last */
- static void rtw_fw_csa_queue(struct rtw_dev *rtwdev, struct ieee80211_vif *vif)
- {
- 	u32 interval = ieee80211_tu_to_usec(vif->bss_conf.beacon_int);
--	s64 delay;
-+	u32 delay, rem;
-+
-+	div_u64_rem(rtw_fw_read_tsf(rtwdev), interval, &rem);
-+	delay = interval - rem;
-+	if (delay < RTW_CSA_TBTT_MARGIN_US)
-+		delay += interval;
- 
--	rtwdev->csa_due = ktime_add_us(rtwdev->csa_due, interval);
--	delay = ktime_us_delta(rtwdev->csa_due, ktime_get());
- 	ieee80211_queue_delayed_work(rtwdev->hw, &rtwdev->csa_beacon_work,
--				     usecs_to_jiffies(max(delay, 0)));
-+				     usecs_to_jiffies(delay +
-+						      RTW_CSA_TBTT_MARGIN_US));
- }
- 
- void rtw_fw_csa_start(struct rtw_dev *rtwdev, struct ieee80211_vif *vif,
-@@ -1848,7 +1887,6 @@ void rtw_fw_csa_start(struct rtw_dev *rtwdev, struct ieee80211_vif *vif,
- 	rtwdev->csa_vif = vif;
- 	rtwdev->csa_retry = retry;
- 	rtwdev->csa_count = ieee80211_beacon_cntdwn_is_complete(vif, 0) ? 1 : 0;
--	rtwdev->csa_due = ktime_get();
- 	rtw_fw_csa_queue(rtwdev, vif);
- }
- 
-@@ -1884,6 +1922,7 @@ void rtw_fw_csa_beacon_work(struct work_struct *work)
- 	struct rtw_dev *rtwdev = container_of(work, struct rtw_dev,
- 					      csa_beacon_work.work);
- 	struct ieee80211_vif *vif;
-+	u32 hold;
- 	u8 count;
- 
- 	mutex_lock(&rtwdev->mutex);
-@@ -1892,12 +1931,21 @@ void rtw_fw_csa_beacon_work(struct work_struct *work)
- 	if (!vif || !vif->bss_conf.csa_active)
- 		goto out;
- 
--	if (!rtwdev->csa_retry) {
--		if (rtwdev->csa_count == 1) {
--			ieee80211_csa_finish(vif, 0);
--			goto out;
--		}
-+	hold = rtw_fw_csa_hold(rtwdev,
-+			       ieee80211_tu_to_usec(vif->bss_conf.beacon_int));
-+	if (hold) {
-+		ieee80211_queue_delayed_work(rtwdev->hw,
-+					     &rtwdev->csa_beacon_work,
-+					     usecs_to_jiffies(hold));
-+		goto out;
-+	}
-+
-+	if (!rtwdev->csa_retry && rtwdev->csa_count == 1) {
-+		ieee80211_csa_finish(vif, 0);
-+		goto out;
-+	}
- 
-+	if (!rtwdev->csa_retry) {
- 		count = ieee80211_beacon_update_cntdwn(vif, 0);
- 		if (!count)
- 			goto out;
-diff --git a/drivers/net/wireless/realtek/rtw88/mac80211.c b/drivers/net/wireless/realtek/rtw88/mac80211.c
-index c9ac2685437e..beafa562ca19 100644
---- a/drivers/net/wireless/realtek/rtw88/mac80211.c
-+++ b/drivers/net/wireless/realtek/rtw88/mac80211.c
-@@ -392,7 +392,7 @@ static void rtw_ops_bss_info_changed(struct ieee80211_hw *hw,
- 	struct rtw_coex *coex = &rtwdev->coex;
- 	struct rtw_coex_stat *coex_stat = &coex->stat;
- 	u32 config = 0;
--	int ret;
-+	int ret = 0;
- 
- 	mutex_lock(&rtwdev->mutex);
- 
-@@ -452,8 +452,11 @@ static void rtw_ops_bss_info_changed(struct ieee80211_hw *hw,
- 
- 	if (changed & BSS_CHANGED_BEACON) {
- 		rtw_set_dtim_period(rtwdev, conf->dtim_period);
--		ret = rtw_fw_download_rsvd_page(rtwdev);
--		rtw_send_rsvd_page_h2c(rtwdev);
-+		/* the countdown downloads its beacons after a TBTT */
-+		if (!conf->csa_active || changed & BSS_CHANGED_BEACON_ENABLED) {
-+			ret = rtw_fw_download_rsvd_page(rtwdev);
-+			rtw_send_rsvd_page_h2c(rtwdev);
-+		}
- 		/*
- 		 * A beacon with CSA starts the countdown, also when a restart
- 		 * replays it. A beacon without CSA ends it.
-diff --git a/drivers/net/wireless/realtek/rtw88/main.h b/drivers/net/wireless/realtek/rtw88/main.h
-index 0444fd46028e..dc3f6d05ac44 100644
---- a/drivers/net/wireless/realtek/rtw88/main.h
-+++ b/drivers/net/wireless/realtek/rtw88/main.h
-@@ -2098,7 +2098,6 @@ struct rtw_dev {
- 	struct delayed_work csa_beacon_work;
- 	struct ieee80211_vif *csa_vif;
- 	struct ieee80211_vif *csa_wow_vif;
--	ktime_t csa_due;
- 	u8 csa_count;
- 	bool csa_retry;
- 
-diff --git a/drivers/net/wireless/realtek/rtw88/reg.h b/drivers/net/wireless/realtek/rtw88/reg.h
-index 877b82640e91..3a2255422d78 100644
---- a/drivers/net/wireless/realtek/rtw88/reg.h
-+++ b/drivers/net/wireless/realtek/rtw88/reg.h
-@@ -507,6 +507,7 @@
- #define REG_USTIME_TSF		0x055C
- #define REG_BCN_MAX_ERR		0x055D
- #define REG_RXTSF_OFFSET_CCK	0x055E
-+#define REG_TSFTR		0x0560
- #define REG_MISC_CTRL		0x0577
- #define BIT_EN_FREE_CNT		BIT(3)
- #define BIT_DIS_SECOND_CCA	(BIT(0) | BIT(1))
--- 
-2.56.0
+---
+Florian Bauckholt (2):
+      KEYS: fix signature length passed to KEYCTL_PKEY_VERIFY
+      KEYS: asymmetric: Fix PKCS#1 decryption of an empty message
+
+ crypto/asymmetric_keys/public_key.c | 6 +++---
+ security/keys/keyctl_pkey.c         | 2 +-
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+---
+base-commit: 141b164bbe186423e295b139e40e8e2d11cf1341
+change-id: 20261111-keyctl-pkey-fixes-26358a8707b6
+
+Best regards,
+--  
+Florian Bauckholt <florian.bauckholt@cispa.de>
+
 
