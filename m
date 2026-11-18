@@ -1,89 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795041471;
-	b=YVvPvMw+avzkOCn+sAEJzE3kLalcIASVHYKz24tl0B+HNeX7cS+fzwLsqIWfKS+k4eNb
-	 h0H2JFvBenuMEYigJsS6PWWQTtWm73i2aEOPCFwgFxUlrX2d9FJ4uI8xUkkpXqRpOKiOI
-	 qxfJf8uLwR99ZsqcEYm7aF9VxHV/Ez2hYTquGqQTmB5Ubw8t0j6n6gYc5rIkfqdxivSGY
-	 jMclcehIwcqqZjDaUGU/5Bet4ypJkZEgtdHBeEKJ5Fh8Aftqq+XjOwk5dFNxqXyHzG6TY
-	 G1vy52YdmkhOPFFV19MLgftPvdSNCC9squsoPw2vxMGWZxellNx9Xwxct/LHUxIez1A==
+	b=BJYyzSdeXSuQnq2U5A3qPn/pkahT61Gr9okM4tUdYl99GCZUtkN/YLv+qXYl3JFDRSqV
+	 +R/Y3xQrPImWNBQExd1qoe/veoVZg5qVU+/QTZ9clk1JKk3gpg+sdYTMD6l7lQRCAfUKX
+	 PB2N3KWmg/FHGzGc+8hID3IpNXqCjqLzTLHRjdsIbSmoDLHmKWHkjjjnqqfUZU0nNdILs
+	 gY7YzQEjpvX/h4fYvQx/FHdPadDi8fu77pNP5nZxEC8AY63svPy4kg8jbOw2Y1gBv6+kD
+	 PlkDw52opZl1B5sPppnhBz3RfjjV8YZDlftH/w0ZBW63S4UbjsiUBj9hKs+v1L5Q/WA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795041471;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=xJNIC+XAAVcr/CztaFeU02IRxIHoFPYFIKJwLxr6OIU=;
-	b=FcBjJ6PuQxVc88WFd47HF2oI0kyv7O63SW3Q/lBiVx5MWnWdWDA1t4YOFiucJqejDiSp
-	 U8i599W6wrtsoSvD03l6Zf5ngdVAopdLsvWDTwdqerGjPuXkiHgWD8yfeAGR0F8GFDa+h
-	 ToibkHwspuZ1z7uJLZ/VNcPfkggrKCe3FyH4KK69VaTwZ69uoj499Q5yXTTyp0VihQmy8
-	 ho1v/kmZB70O5EhVUdlpurhxByl63D4FD5QjPnha1vlcdlhNg9yi/M0/Zbxm9oig+Mdz7
-	 Bb7aVU7WcEEjAAVAO5vdQrW0tR59OlD7pVqIg3IvKGq2PrFbdvAzs7X9ZO3RfKHNMfw==
+	bh=6TgutIL7BgsbRU4qg8O8DnW8JEzmtPqzVnoavDOV/cs=;
+	b=yyctS3VbwU8Rkpb9EWcKvq7rs9RcpcNB7mPliI1UbabraE/oJMKtDkjbIoU3kc1IwGM7
+	 3aGIxRdsrzY+Adt5L7lfzFgVviQkXh5NB4mD9iTdsqx9hnaF3gE4ew8beYR7jm5R+ZC0P
+	 URZJPQPYLsZbdlvn7P73YtZkVSDf7FWrBSiX60GU/kbbaSWJdEOsmeA+amSDeHsBDXu1t
+	 jjNmzAly0bTrO4mJhfOjWqpL3EJ9XdvwzIcY0IEpL53jp3aXtK7tfCkP2hyw815sRC1hm
+	 WaU/P0vq0LlrZWnKBcl0AW7mUou8EYFkX0KCV02HJkbHxaXhxlPWvIoYP4Qrd3hXaoQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=chromium.org;
 	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=LQTv85WR;
-	arc=none smtp.remote-ip=209.85.210.42
-Received: from mail-ot1-f42.google.com (mail-ot1-f42.google.com [209.85.210.42])
+	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=Z7a4V9y3;
+	arc=none smtp.remote-ip=209.85.210.45
+Received: from mail-ot1-f45.google.com (mail-ot1-f45.google.com [209.85.210.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9A9660A5BD0
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:37:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D9A9660A5BD0
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A15760A5BD7
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:37:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A15760A5BD7
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=LQTv85WR
-Received: by mail-ot1-f42.google.com with SMTP id 46e09a7af769-8629fc8ad64so876096a34.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:37:50 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=Z7a4V9y3
+Received: by mail-ot1-f45.google.com with SMTP id 46e09a7af769-843cf077f10so2017078a34.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:37:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=chromium.org; s=google; t=1795041470; x=1795646270; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=xJNIC+XAAVcr/CztaFeU02IRxIHoFPYFIKJwLxr6OIU=;
-        b=LQTv85WRHO4T3nNzY18rtF44XpGsvKWtAxXELAqXUFBdlGVOcN3cn2vDIs7fvN/UKT
-         5FfKbJGN41hT/j/Srk4RieQbOswkDQek6vTWomW6tOAbfb2wHxZ111EO10gJY69K9eVV
-         13uJjpQX0lGWh+k6K5S0Is/eRsm1jqJAY5cpk=
+        bh=6TgutIL7BgsbRU4qg8O8DnW8JEzmtPqzVnoavDOV/cs=;
+        b=Z7a4V9y3XHhykqUAn50uEjLkC/2YbFaqfY/M5tN4H31Rq6vGiPbwiu3OjxoIihxHnl
+         c9/fzNtq2f7AVtyUyn8IM59XeW84PMK1/yxbC+RD5fqwc3Z0xJrxyi5w0+8bvmG3CqwL
+         FWmX62GPWMsLmU0HGPfuQW8pZve8zM5rPV9xU=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1795041470; x=1795646270;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xJNIC+XAAVcr/CztaFeU02IRxIHoFPYFIKJwLxr6OIU=;
-        b=OAiAK38+1ZZcyR7aYnVzkcDRHxr+DRQ19bG3gsQVka9Kg0YXswVNU9arKpWBbX94eP
-         7KmyIxiYO+XxyyfxlJ3T82FzFL40elkgX+6dOuadrpoUdo5Uz5Txh898Ntx2BQogGQve
-         qMKuF83avgnYL4A1wFAc6d+O3NdQu7nWqahDvQyQpJHd8X4xdNJbH2nNbimroLASb0XF
-         9NZEI2WkXYbWJhUoxdEhriGy8wqDazdBtiVIsBIuZo7pS6QMzdY8t0lyMeAlacEQc0fX
-         mHEF1wBFz0+lWr5M8YEc2+BOvmqcSjbaWKy/s4uEfcr70FuSYLAr+aWDMqEkMtxZIagg
-         zsKA==
-X-Gm-Message-State: APuU4Z+H8SyYSPNQgIBpZ1qvJg2SjbC+H+FrYXGHWAokT09PMssUN+ga
-	fUkEnbG6dcUG+4hzb1rQyG9I0rCHSi/H9ION93bAuzkHNXomdQul40cAQCrBp/+OAQ==
-X-Gm-Gg: AYBFou3cTXWqNp7CLGoEE7Lk8TZNjhJGo6Voen8fYeUizmhlDYfP4uuDVI5JUlRtFqa
-	dCvxQ+3auq7w5Zt1/QtJdta7jU7UgFpQ1vuFSTsTT2mXqOGgTpMKcGIHyAFJFSSfGcSrNDEBgH2
-	+yJ2kqlry6aKxrtvT7cLw8p1hjr+CzjnkZSJKk2nl/BHna6gpaDK5qLzY17TRHoX/T/eBAK8048
-	5xd71sHAaZw/H2/tHMkKabJvOb7V3WNw/ZeKIbDzFKobMT+Fm+ru3OoEzrnIyJgATPFFsiyObhJ
-	XLn5T3hzXXhArol4RolHVrlcJrEjGkTs0UQ6U3htwfpSOjv/fNzR/UnMC/1TSrsABBKoMol1jts
-	m90yK5iIosVaRw3gCSICR+ePoZLNKBETd0+d1BUeWo18aMEMAY24MlPh+uSG9AGq7VSW4hl3X7B
-	ABt/tGK8UYYzVEZNlecYX3wYzuHICFJ+BGRP8Vhl1MnBBfuDdeebQ0709oE9yQRXqSnQMwuuWYW
-	PTEnYjWVGI96F88JwriaqmtwpX3Cd+YFspZ8sQXl9EusJDuy+1DGvqcIYLc30j/Fb84UVN4JOef
-	5hX7yybgtIiO2FRjrgz6TGXrSd1diwq/unXQW1gVNcuXyfmVfPROXZGSz3GNyXTKzAxbM2yGC9Y
-	y
-X-Received: by 2002:a05:6830:a159:20b0:81e:b506:592d with SMTP id 46e09a7af769-862f08c9cf4mr3177128a34.27.1795041469735;
-        Wed, 18 Nov 2026 14:37:49 -0800 (PST)
+        bh=6TgutIL7BgsbRU4qg8O8DnW8JEzmtPqzVnoavDOV/cs=;
+        b=CHqaoULnRkaQ0w0lpJgHX+7GsYl3wAgNUyLivHTwpzhJ37gkgEjuzIjdgF6e3DrkQf
+         8f23pFQCxgGJRhHXhwgk1u8X/EAz74Eumi8M4p9TpNrGkT4Nm1izzWc2TmgF4XPYjqei
+         6UxG1BI7nkcHhc7Ey6HtiqpWJCikYE2wvuGz+y6D00C6h/dRUPUIRvwYltM56ZrovyL2
+         3iCZSnciYCg4jBFmdmi0ynCQw4yaI2Igiyr4GAUPDtn6fl8yPUUJWGGEtPJ9BkYZUBDO
+         5D65J/xKDLL4CQq5J3WHX/CLNc7LS0kz79lKDIPAmTKA97BAwi306izXGcOP9sGTasWJ
+         4hvw==
+X-Gm-Message-State: APuU4Z/fg+tbWe7mpFm1oOnzcLxoSBd9G55lOWuHW3PFjVjnM6nsc8Fv
+	ZCRSvFAqrqomycWGz4K7jcE2VszAoqVtfQADNkDlNMlz9fq5PwS05PU83e3m2HMTsQ==
+X-Gm-Gg: AYBFou1DmFste0tJBKtMKgB6jRpijPK7x94fo0PwoOLpsydFmiMN1OkdlPADbsm93GF
+	sEIvKOMsOvfzGhf+RIthxyOj7/zcYqWX16OJ5DiEta2biWl7/yVX6HLtbizfA+aH5qPApb0+1Un
+	CbYoBkLM+6YjB8g7FEdrRcfjczb3YWK7TMVrn1z0JcZmL8LbrKcMNlUWSEml5WabqkrDNOhgKMU
+	g4eqSh1/zH0+kj+ZCSOqgQf2DoRYIzezGwK096d1s63wYbWy3rf5p2XfzVX2U12D0AS/1PIK2Iq
+	wcpf+35A/fZmSjy2tqJEozqU2wccKWbX8G6ZDv6As3K1vow6o9TrFWI71BrYdkQgIJx8UW7ECf9
+	MlJS3vAtFstqFJcntwp7TWUr2dvoOG+dgnW5BJf3YevXb6HbHYi1hAtETO6dKc+hJFe2meBKoV+
+	Urw8jMiM9/h7Nxpda83E6TruDjL761gQIYFpKuZ2Gxf3eAGrvF0Iv9AqYobeiBfKYqb47pixVEo
+	YeC1TsoQf0ZI2lWMucEDhEGQxd35o0zPGxZpY8VSOFyBtZyaPOpHk1V2BlEF3fFWhGZ2LjI8M2/
+	o3dB3WGqgusLPugHnVn/9dW+Y9Chi+qEHMhe/7UFycZ1fjr05hhAL+LGYiQTzun/Omw1jwpjDlB
+	TS0/7FBx3U8ZW7ck=
+X-Received: by 2002:a05:6830:92a:b0:862:3cf:519e with SMTP id 46e09a7af769-862f09488damr5836907a34.12.1795041470598;
+        Wed, 18 Nov 2026 14:37:50 -0800 (PST)
 Received: from rrangel.c.googlers.com.com (212.56.236.23.bc.googleusercontent.com. [23.236.56.212])
         by smtp.gmail.com with ESMTPSA id 46e09a7af769-862f01d4737sm2948762a34.7.2026.11.18.14.37.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 14:37:49 -0800 (PST)
+        Wed, 18 Nov 2026 14:37:50 -0800 (PST)
 From: Raul E Rangel <rrangel@chromium.org>
 To: Kees Cook <kees@kernel.org>,
 	Tony Luck <tony.luck@intel.com>,
 	"Guilherme G . Piccoli" <gpiccoli@igalia.com>
 Cc: linux-kernel@vger.kernel.org,
 	Raul E Rangel <rrangel@chromium.org>
-Subject: [PATCH 1/2] pstore/ram: Clear *prz on persistent_ram_new() failure
-Date: Wed, 18 Nov 2026 15:37:45 -0700
-Message-ID: <20261118223746.2251358-2-rrangel@chromium.org>
+Subject: [PATCH 2/2] pstore/ram: Fix region bounds check wrap
+Date: Wed, 18 Nov 2026 15:37:46 -0700
+Message-ID: <20261118223746.2251358-3-rrangel@chromium.org>
 X-Mailer: git-send-email 2.56.0.212.g129ede20d9-goog
 In-Reply-To: <20261118223746.2251358-1-rrangel@chromium.org>
 References: <20261118223746.2251358-1-rrangel@chromium.org>
@@ -98,32 +98,68 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-If persistent_ram_new() fails in ramoops_init_prz(), *prz is left
-holding an ERR_PTR while ramoops_probe() jumps to fail_init and calls
-persistent_ram_free(), which only checks for NULL and crashes
-dereferencing the error pointer.
+ramoops_init_przs() checks whether a region fits only after dividing by
+record_size, so an oversized region can fail with a misleading record
+count error instead of reporting that there is no room. Both
+ramoops_init_przs() and ramoops_init_prz() also add the region size to
+the current address when checking bounds, which can wrap and accept an
+out-of-bounds region.
 
-Clear *prz on persistent_ram_new() failure before returning the error.
+Check the remaining space before dividing by record_size, and subtract
+from the total size instead of adding to the address so the bounds
+check cannot wrap.
 
-Fixes: 3219122b8cdd ("pstore/ram: Consolidate kfree() paths")
+Fixes: c628937803c6 ("pstore/ram: Fix bounds checks for mem_size, record_size, console_size and ftrace_size")
+Fixes: de83209249d6 ("pstore: Make ramoops_init_przs generic for other prz arrays")
 Signed-off-by: Raul E Rangel <rrangel@chromium.org>
 ---
 
- fs/pstore/ram.c | 1 +
- 1 file changed, 1 insertion(+)
+ fs/pstore/ram.c | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
 
 diff --git a/fs/pstore/ram.c b/fs/pstore/ram.c
-index 2eb0d4fa2186..aa056d0395a4 100644
+index aa056d0395a4..651f79f3187a 100644
 --- a/fs/pstore/ram.c
 +++ b/fs/pstore/ram.c
-@@ -604,6 +604,7 @@ static int ramoops_init_prz(const char *name,
- 	if (IS_ERR(*prz)) {
- 		int err = PTR_ERR(*prz);
+@@ -500,6 +500,14 @@ static int ramoops_init_przs(const char *name,
+ 		return 0;
+ 	}
  
-+		*prz = NULL;
- 		dev_err(dev, "failed to request %s mem region (0x%zx@0x%llx): %d\n",
- 			name, sz, (unsigned long long)*paddr, err);
- 		return err;
++	if (mem_sz > cxt->size - (*paddr - cxt->phys_addr)) {
++		dev_err(dev, "no room for %s mem region (0x%zx@0x%llx) in (0x%lx@0x%llx)\n",
++			name,
++			mem_sz, (unsigned long long)*paddr,
++			cxt->size, (unsigned long long)cxt->phys_addr);
++		goto fail;
++	}
++
+ 	/*
+ 	 * If we have a negative record size, calculate it based on
+ 	 * mem_sz / *cnt. If we have a positive record size, calculate
+@@ -523,14 +531,6 @@ static int ramoops_init_przs(const char *name,
+ 		}
+ 	}
+ 
+-	if (*paddr + mem_sz - cxt->phys_addr > cxt->size) {
+-		dev_err(dev, "no room for %s mem region (0x%zx@0x%llx) in (0x%lx@0x%llx)\n",
+-			name,
+-			mem_sz, (unsigned long long)*paddr,
+-			cxt->size, (unsigned long long)cxt->phys_addr);
+-		goto fail;
+-	}
+-
+ 	zone_sz = mem_sz / *cnt;
+ 	zone_sz = ALIGN_DOWN(zone_sz, 2);
+ 	if (!zone_sz) {
+@@ -590,7 +590,7 @@ static int ramoops_init_prz(const char *name,
+ 	if (!sz)
+ 		return 0;
+ 
+-	if (*paddr + sz - cxt->phys_addr > cxt->size) {
++	if (sz > cxt->size - (*paddr - cxt->phys_addr)) {
+ 		dev_err(dev, "no room for %s mem region (0x%zx@0x%llx) in (0x%lx@0x%llx)\n",
+ 			name, sz, (unsigned long long)*paddr,
+ 			cxt->size, (unsigned long long)cxt->phys_addr);
 -- 
 2.56.1.708.g77570a6a1d-goog
 
