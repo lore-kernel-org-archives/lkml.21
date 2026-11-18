@@ -1,89 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794997878;
-	b=bJLbe+bNa9mTEIiOlGQlS19JenUJt8aW1RS+ommjkJ1L7oFaywXGJ+Tv+uYP7D54+Wsp
-	 ABO3l7K6ewxRaWLrAcH0JikvrH64EYW18WHBykbCU+R7z3xvY2ZF09n9UIYn2p5oFEHNu
-	 HwpPOQiKloJCxlLJHeW9209EFhT+0JrhXn6gdFQBD7WJkCJreMpLPkZw9JllWWFNcfQPr
-	 uVXNXyqEfTOctilaHagnHtHMHiVsFm8l6iEv/5UESA6yVhjzoNNxgv49kse0RH+Fiw0i+
-	 POnM9FkO6uMHAKfnhb0N8ZqJkBVXFs29aAqT2s7gUqRGXJCXztOGf9PvdXbnRF+mn3w==
+	t=1794997899;
+	b=CaqFA/ljnctE8Ap1atU19oIOprnb2KAC5w7xZn08QhjESBFeydNl1shG+GUAasF/+d7n
+	 BNWBM3rNp5cALSpLrXBg2bkt4eORJwH5hCHUPmmawTEPffElEH7SMLYiKSxXiSZCICzh9
+	 wrTr9IRdF9I8NMV3xZKpTngLzF6c7UiG6qJtp6maLWF7QFaWf1IMaScxeld6OnY1BhH4A
+	 9OEwwZAUiMe5j/qNsew+509zmcao72s6VTthbm/J3di4dJhLqSjkU/0ZhT/79Zibs+N3a
+	 IHqflt78S8CGiM3s+9E4AS0Qziw8ROj3XOL0tQ1Q7azRit/MGf5vrwEuAHiETIkud/A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794997878;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794997899;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=RNaYfzqeD2INqtazwHcQmd57GXTu5xCWhu4vIapt7gM=;
-	b=u4vhRuiHZsOZJa4iTHJ/p2XlihnHCUySo39mobhrsYXI2MKXYRjVTY3z230xb7lSP6kH
-	 JWWwvgIv2bL/y4NZrW6Z6EGemLGbAnInepu1hihYt613LP2437LzFiCBAjcGthAmNSg5V
-	 YYS+FBxMW0kCoFT1O91c3/gjZs49Y78cstk55XncSCfSaWG01IdnAJTUMTMGmbbS1+Gr6
-	 R+80gL+MI+Xqrb3xmHfE/iNWT3VyhwIRuKCh4nUiTk4Um8LuogUBrodXe7XNXupgDPq6L
-	 t4e/DTXGzWeCAZp3AwQO4clTKR4aUKbHiLhw/VZohHkJq2Hs5IMo+whBoxGUxtwKK5w==
+	bh=bnztXEWVlq0WgNonumco/L8/aGkUW12SZEgErtiCgMU=;
+	b=YsD5nG76uUF5+QzTrzEqbQiEbLcSNgYf7ZjKZ0XMbf7LsvAvDbGxDIJRzf4xX5WnV2R0
+	 wUaEW7ijM+ElLYf9daEDlQ4dln1mA0Cl7SxpeLNl7hTqEKjxkyIetnBc5Fva5puaAenZ5
+	 4XqnBOio6mzHWqrTr4AxSYLkomFlx/SQJ0CDuJWkPbtJR9ZpgjmIjAQ12WMA2DueDJc/C
+	 ATWuNkUGISnklk/rqSxMnX5QTE2A3nb7RtydJQlldNI5TM2oWR8aXEpPD9Efig89RE2TW
+	 HViOm71UBK976pHvhXKxrOSnPHCYQRONGg0JM9nEotNGrCVLOEcLqqbe6bEYecKedWA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=owm1zLg0;
-	arc=none smtp.remote-ip=209.85.167.45
-Received: from mail-lf1-f45.google.com (mail-lf1-f45.google.com [209.85.167.45])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GNs4ryqq;
+	arc=none smtp.remote-ip=74.125.82.178
+Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D563606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:31:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D563606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59D9C606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:31:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59D9C606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=owm1zLg0
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5c126f80426so638047e87.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:31:17 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GNs4ryqq
+Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-37198ed3727so2281134eec.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:31:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794997876; x=1795602676; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=RNaYfzqeD2INqtazwHcQmd57GXTu5xCWhu4vIapt7gM=;
-        b=owm1zLg0VzYFmDdfm336JH/9bvcMfVg5N5R7J3bsi4HiUKpzL+6sCLOkWIwkPYCbMV
-         UdAaZ9AVS1itm0VjYjLte2phA1r0VNW0wsggScBPXp2mNVaygoFzxOLr25NmEnebyMJt
-         xp+ORVMt+ygOaD2zyIkYCYGqQ+ziH8XY9DswtnW4t9ZRd2jSkvNG407ofM1sHtyTn7al
-         22JdLD6YyqYmnc9HY+zwPURAl1GUA2FbyBM8SAMRBr9bVD9yEcWwAQp2z/3yE24ad5+r
-         nsSYBfq6iSWuqj5MtOXPNGP4HJqP8RKXhP4f7l/3251v3mr+6rObHBAAT34hCKtf5lDj
-         fvUg==
+        d=gmail.com; s=20260707; t=1794997898; x=1795602698; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=bnztXEWVlq0WgNonumco/L8/aGkUW12SZEgErtiCgMU=;
+        b=GNs4ryqq9Fh0bDczmFrsxEM2JwcDs8PglmVanfJqBX3ZMpBAFo4DBKHdXqmVQsO2bh
+         paQaIv9vUu69JBYgYJIvtt+gmiWHLdTyz2IJChL571JIRzIxAdTlz+mq8o1Sa3lrAjWI
+         fmZN5yrQdzPtJOfbqPFKBVCW3VuQx34YyBMTknIC+nHS7x+mqOTtlcYRxl6AaCssol7P
+         ubYp2wUy83Vnj+X/r1C6uIThyDoiTZeEisAH4BTBE/XXFzqBShUwPZyyNY4y75dNJh7c
+         UEd5xCg3VspLk3KisY6FKtNSuP/1SuFlQKgHCfwPJ2zuvBVjhSUbOUc8QlNYeDLIgKxF
+         qevw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794997876; x=1795602676;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1794997898; x=1795602698;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=RNaYfzqeD2INqtazwHcQmd57GXTu5xCWhu4vIapt7gM=;
-        b=gaVgbjubnW017z328+H/duBUW9A0p4CRXUqRsONmYsfEbrEhCQNt+pi/VSWdyB8OLa
-         gv/Jpb98jofvRgyhi/p/qs5Mk5vV02dhKX8TveFBsWgvpnJ/rful5AmVg2qP180lwDXg
-         WLSOHbKZQm+DmYfpHjDAC14uHsGpxv13tkZbbuedqGH4KU5PidFYo6HgvHlQisYc75F8
-         7SBFZry5EZO+2mM90pjQFed9jwS3Zy4G1Cvj+Sunv1JCk8XbbtfxlFDj7o32O7YJAjIi
-         v1Hk/E4pilS4wzD8AXOvk2sZO5WsGdA1vyf+c18Ghntno9rNGBC54hR7xqZ2DKE+5Ah7
-         DnLw==
-X-Forwarded-Encrypted: i=1; AL+hErGHbgu2naUAoz+gRAKZTG31gKKMTgOH0cTqUocr6v0aCf3UySDtJFOLPx3H486N8Tuw4FctA2/uf7/n4s0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8DYvevD6hAnWfVd3lwiCDsscC4LVp0jkN0Wg0jAx3APrJ/aPlM
-	wghbNio1ExIvq5EJBOmC4FpAsXcAUHxVpXPDdqPDXrdJ/zUF6u8Jxjz8
-X-Gm-Gg: AYBFou0vhrahNWc8ff0k/8AACVnicFyKJpzSa+XrYzQtpCfwYX8LC6DGOACQ6kHqHzx
-	HVxSX9VCmM0kpQn2/VFkL3WbmBrWkkpL+ZttYh0//m8eeK7u2ckx9EW6yh26gN0CsMHN2vtWieE
-	rkNmYHjexcpPpFpfF7ZTO40cZdvBmJsqmMfVtAKvG4ItikWdvVcNHETnGOy2XnjtoQ2J7Piiscr
-	aW+QHaBXPR1kLeuMH3ieml026A/epC9vwUsSrSPNHuZzMws+hUEQFiawWYPKseafWTnK8CRXf9L
-	KgVzR0aaiivpu2Neio9Q5YRDBJSL9EYDm3IaFb0EeL7NUsIn/zKzg39AQK+AEafo621HNM44AZC
-	tXFEGWKsvWbOJuZFWNiB9YRW1QF7NxpLs4eBP/scuxMu7hwblzVd4DXG9UQGimCJr106En8j/OO
-	FownR8vWXcpUlruEP4b3UuFFeF+iI9cq/Vahph7NV0Ryvu7h1e02PHXW8AHaqHlgspTDlGd/afW
-	tvkAHAz0b9LAHmC/2vj0gIHGI/bketA8rA6RZYnZbzfYzJkhbwOvsl0+Oq0iXyfY0tE2S3/sIPJ
-	GIdgBchVI3I2Iqi0wx2+lWevYoEVhcyBMvm2yNa4oA8xf0LrOTJ7mAJ3QucrsBJ8EemE1/2isd/
-	9UkWIaCYnvQ==
-X-Received: by 2002:a05:6512:31ce:b0:5bf:b999:91ad with SMTP id 2adb3069b0e04-5c1a9c17fa9mr645391e87.20.1794997875982;
-        Wed, 18 Nov 2026 02:31:15 -0800 (PST)
-Received: from ?IPV6:2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703? ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3ae67b0cac2sm5223771fa.22.2026.11.18.02.31.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 02:31:15 -0800 (PST)
-Message-ID: <c2e9261c-2906-457c-a6c5-8a81d87e3375@gmail.com>
-Date: Wed, 18 Nov 2026 12:31:14 +0200
+        bh=bnztXEWVlq0WgNonumco/L8/aGkUW12SZEgErtiCgMU=;
+        b=hPpUgAo4IzOLHixwknwOE7Is2O8/ihn/S/CMwt4dK8V358MP/5I/uMqpg4VO/L8oSi
+         +80tZKfTqa2ci+LyoEXEQkqm7CHrV7KS5gR0o00Rj1jcd5SFChSzxOjKELZVVVh4KTvi
+         JQqJSrHGEgdWmR8V1Ky0oLEBnYe/RTnicOzjGEx7W9rrNIphAM5yfFCqhFzVEwcHNUBb
+         GtDcjwSU9k8r4giBhRNSUsh5SAVt9Mz9yq6UZ8Em6jPjjf8On1zIztC5TEGN/N7F+Rtm
+         aNhv2Z6eRoU5PCBIMABbDkqzMUWmxftHdCtxHOjtx/fRWPsq0NSEin6496zrL8oHx1sT
+         wP6Q==
+X-Forwarded-Encrypted: i=1; AL+hErERBjpoiNMdwe4lbEaKLQNHm1iqPmU4K9QFi2ToRWQk9ExRrXOvWXOQvRw4evBsLCkA4WQBSnsF4Tk9MEU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ofi51MI4C34a6sV5CNogapJ/A0wZ5182GWo1AK/j/bpCkO7n+
+	UapdQHRr+FmyX+veDRWfUPhEfe7M/hN8WNJPJrGXitbDFYRvQjxr0qmn
+X-Gm-Gg: AZFdTZdWb6ray+Npc7yo/7rY0l07erJ5k4bn6KABEVCuz8IkAF9UIbde8qiY2J1OWUX
+	pdA1DREVTQBaE2tOOn+pkbnpsvQvBU0zxvGxVuqNAX6LaE/MggYXraAAIi2WVi8RF0GTrLSg4Hj
+	zscDdAIiTUgs1nVaE91HW2J4dowZcYXJgh01RHGQcQgCJ62/hFuuQIlAKEGXM66YVrxdNxwwLbp
+	iF8OsEYOqugf3+3Hr+E7JVdbXV5ANIU7wuy9crzanDJx8aNCb9mY7ng87CkIiy2gkahJyXPVh0x
+	Gr8l3JVhEV5KJwLEFLARbIlFqFYDqVG82kOrYH5Wug4CW8pucse8VaR0PehfFlca+c7ez/X+aIi
+	fzbDWB+uWBhvUSjbee4ObIzAqsBqvpUgRRXcY0aw60+/QpiSlbc7p6PfEvE2mmgajKUQtxgjf+9
+	izZgXrQ6xY5BDqcI4nQu4gKL6dfIy04XmSMlDgB+W7fGIWY4bg5YuBxMqSDEILskEDD7V1fwUOw
+	OwWEf4Pe7WhEoqrXMe4yfC52DPC0SclO2l2o2Z1QcPLBTYyIa7PX7HN77SRSzWaZebiSaaEDcJW
+	K5WiumnKSp9h43+ocicHiWIfmkH224idIRSuO4zs4sjPYdUOljpKi4fW9kGmDxe9mQGYS+uK4gF
+	sJAxRq0Lo5nlOsD/5UKqVhnd0HB7r/t+P803/0MXzdCfRcQtv/XdYS10hKoYBcuSHJurvg3xtwu
+	/xcZ6vTUYXnsazKS9u0K+Bmgu+Nbd5n1rX23T+bPO4VA==
+X-Received: by 2002:a05:7300:8283:b0:36d:be15:2dd6 with SMTP id 5a478bee46e88-3828161e0bfmr1974309eec.11.1794997898243;
+        Wed, 18 Nov 2026 02:31:38 -0800 (PST)
+Received: from kapoor.iiserb.ac.in ([203.18.51.239])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a45260a8sm11457702eec.3.2026.11.18.02.31.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 02:31:37 -0800 (PST)
+From: Arnav Kapoor <kapoorarnav43@gmail.com>
+To: Mark Brown <broonie@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
+	Bard Liao <yung-chuan.liao@linux.intel.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>
+Cc: Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
+	Kai Vehmanen <kai.vehmanen@linux.intel.com>,
+	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	HyeongJun An <sammiee5311@gmail.com>,
+	sound-open-firmware@alsa-project.org,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Arnav Kapoor <kapoorarnav43@gmail.com>
+Subject: [PATCH v2] ASoC: SOF: control: reject out-of-range enum values
+Date: Wed, 18 Nov 2026 16:01:27 +0530
+Message-ID: <20261118103129.113970-1-kapoorarnav43@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,56 +108,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] iio: light: bh1745: fix 16-bit register accesses
-To: Arnav Kapoor <kapoorarnav43@gmail.com>,
- Jonathan Cameron <jic23@kernel.org>
-Cc: Mudit Sharma <muditsharma.info@gmail.com>,
- Andy Shevchenko <andriy.shevchenko@intel.com>,
- David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261117110327.198084-1-kapoorarnav43@gmail.com>
-Content-Language: en-US, en-AU, en-GB, en-BW
-From: Matti Vaittinen <mazziesaccount@gmail.com>
-In-Reply-To: <20261117110327.198084-1-kapoorarnav43@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 17/11/2026 13:03, Arnav Kapoor wrote:
-> The 16-bit colour data and threshold registers are little-endian
-> LSB/MSB pairs, but the driver accesses them through regmap_bulk_read()
-> and regmap_bulk_write() with an int or u16 buffer and no byte-order
-> conversion:
-> 
-> - bh1745_read_raw() reads 2 bytes into an uninitialised int, so the
->    upper 16 bits returned to user space are stack contents.
-> - bh1745_read_thresh() reads 2 bytes straight into *val, which the IIO
->    core leaves uninitialised, with the same result for the event
->    threshold attributes.
-> - bh1745_write_thresh() writes the first 2 bytes of an int, which are
->    the upper (zero) bytes on big-endian.
-> - bh1745_trigger_handler() pushes the raw register bytes, which are
->    little-endian, in a u16 to a buffer whose scan type is IIO_CPU, so
->    user space gets the samples byte-swapped on big-endian.
-> 
-> Use an __le16 buffer for all of them and convert with le16_to_cpu() /
-> cpu_to_le16().
-> 
-> Fixes: eab35358aae7 ("iio: light: ROHM BH1745 colour sensor")
-> Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
-> Signed-off-by: Arnav Kapoor <kapoorarnav43@gmail.com>
+snd_sof_enum_put() passes the item indexes from user space to the IPC
+enum_put() op unchecked, and the IPC3 and IPC4 ops store them as they
+are and send them to the DSP. With the IPC4 sof-hda-generic-2ch.tplg on
+a Tiger Lake laptop, "Dmic0 Capture TDFB angle set enum" has 13 items
+but accepts 13 and 0xffffffff, and reads them back. The ALSA mixer-test
+selftest reports this as a write_invalid failure.
 
-Reviewed-by: Matti Vaittinen <mazziesaccount@gmail.com>
+Reject indexes past the last item, as snd_soc_put_enum_double() does.
 
-Thanks a lot for hunting down and fixing this Arnav!
+Fixes: c3078f539704 ("ASoC: SOF: Add Sound Open Firmware KControl support")
+Signed-off-by: Arnav Kapoor <kapoorarnav43@gmail.com>
+---
+Changes in v2:
+- Only this patch (patch 4 of v1) is left.
+- Drop the volume and switch range checks (v1 patches 1 and 2), which
+  HyeongJun An's series covers:
+  https://lore.kernel.org/all/20261118093840.3514408-1-sammiee5311@gmail.com/
+  This patch doesn't depend on that series.
+- Drop "report volume changes in mixer steps" (v1 patch 3). Its commit
+  message was wrong: the mixer-test event_spurious failures come from
+  the out-of-range writes the test makes being accepted, so the range
+  checks fix them. Writing back a volume right after the driver loads
+  doesn't generate an event on this laptop with IPC3 or IPC4, so I have
+  no case that needs that patch. Thanks to Mark for the review.
 
-Yours,
-     -- Matti
+v1: https://lore.kernel.org/all/20261117105953.188645-1-kapoorarnav43@gmail.com/
 
+Tested on a Lenovo V14 G2 ITL (Tiger Lake, 7.0.14 kernel, IPC4
+sof-hda-generic-2ch.tplg): "Dmic0 Capture TDFB angle set enum" now
+rejects 13 and 0xffffffff with -EINVAL, and its mixer-test write_invalid
+failure is gone.
+
+ sound/soc/sof/control.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/sound/soc/sof/control.c b/sound/soc/sof/control.c
+index 74d997a4f620..625a17624f41 100644
+--- a/sound/soc/sof/control.c
++++ b/sound/soc/sof/control.c
+@@ -120,6 +120,11 @@ int snd_sof_enum_put(struct snd_kcontrol *kcontrol,
+ 	struct snd_soc_component *scomp = scontrol->scomp;
+ 	struct snd_sof_dev *sdev = snd_soc_component_get_drvdata(scomp);
+ 	const struct sof_ipc_tplg_ops *tplg_ops = sof_ipc_get_ops(sdev, tplg);
++	unsigned int i;
++
++	for (i = 0; i < scontrol->num_channels; i++)
++		if (ucontrol->value.enumerated.item[i] >= se->items)
++			return -EINVAL;
+ 
+ 	if (tplg_ops && tplg_ops->control && tplg_ops->control->enum_put)
+ 		return tplg_ops->control->enum_put(scontrol, ucontrol);
+
+base-commit: fcfcd6db32adbdfe81c1ded257200e3ea6815d9a
 -- 
-Matti Vaittinen
-Linux kernel developer at ROHM Semiconductors
-Oulu Finland
+2.53.0
 
-~~ When things go utterly wrong vim users can always type :help! ~~
