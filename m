@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.2
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794992867;
-	b=YT2p/QyY0Bxo6NIJy6W/BHpWnIqEsg2VAbNyUxDnXf1sv0KtVlsetB3ZX44uwVb99W4s
-	 +7jd19CojNnn6w58fri8JJ/zKS6QxyUgu2F/l7td5N/yvd+T9hvqGHFnB781Js4+OIGBo
-	 tlN3wTqW3OOkZzHCmtilo1NEAOP3G3+8twhQwPIW+jfWRSq/d0GGPp2YD0aNwBTPXHcQn
-	 B3qJwR/3qz1gI86v4cxpWj/bULICVshnTjfwybN89Iw1Y4k2j6+QzFI/DJ7MGti9NfCjP
-	 sxxxitRbHn0L9zwpGmVemd9B0t05rCp/st9RkogRMNTmir/WPZwAiaztag72ZtF8bMQ==
+	t=1794992868;
+	b=rgzXwhgb4hTEjO51A48SIVm3H+YCzSM3WZD6/jY4iN1XqeLOi+SDuThwA9L1gTCeaqVb
+	 NpVj7T+eMSlv7M2JQficNOFUbmRnVl8W7F2j/bs9Z2/ohU1p9fe9aw+4HeXa2Dw+3SvZg
+	 /Zkj5iydKe5AShk0p5IGv2WushMl2OnbE6imeP8hM8EXurE1S+nkfomt3A6QGIT5zIJ7/
+	 zLnfrxQh9PpJnggZ1E90cyc34H1t1Dm3eVuSEvLffn9u8qQdP3HnRbLHkvgmEh1OHOr6q
+	 O+Dkear4GNUAIYLx7RDl4l65ot4HmhsdjJq4KMySH6MYqg9eRCUqwPE60bM/tD+j4ww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794992867;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794992868;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
 	 X-CM-SenderInfo;
-	bh=MFoFqOsxsF0mMxP5c38fD1pVJRD+Yn/OA3ZdUReG7Uk=;
-	b=IoVR/S8h0jzs5DOCbH1pwlxZFlRLxMPh264gaK7kH/gmdSpc2JW4VwKlRGC5g7Kx0twK
-	 tDtZM0HnRKF1LUyZ4PCUywJ8KPgfdM4J3MnY0Y+duedyUYuXXre3DwltBY4mFudnO7rDi
-	 HlIKwKGJ1BXUSNWeozn0/CZGTGXb304SZngqYjjRpKCsCElWWM86o4Bnyk8bxILuelG9X
-	 /xb4Tlg0tUova3gHxWZWtVPRD0ctLjYIQ2igpAuvxgTLLCvuL2r20+lGaJBuO9Sf3O2na
-	 h1aP6SYG0qYNlEUFx0R+CZ4zDKIAXOImkaQRXM44sqdnPgUlWZxowHPVYfwUaH2ztwA==
+	bh=2Oyu1LNp3shrdkOkrJoMwhNcFXaJKWO77Sr2rmrk81U=;
+	b=z+8IOH23FT7gNMqABXNn7hyeW4bVhwtmyQozeYcbLgQGjFJFC6YRH08Yx7ueknQuOIOc
+	 NP1a94VrqbOFHfh4z6vRe93O9pD+Im5E0enda504MzFxyzdP6EET+6DSVckmAkV723AlB
+	 4B5nEfDSbu6fxFYwNQTZUdp+8/qZHsHANoOrdYnnow8oKzbyBPVNkM7eNhpNLzVT1aB8O
+	 s0WqnJMKUmcGj1a+mEC+i9jIOnbxui13ZhtJ67RR8q3PFkUjWfssbnoyMOmK62D/pw+VU
+	 ES5TR84kCuq4bimiti7EVlK+S1Fd04ZCsq2JLidqeSLTjTlb97k1tv7PT6Z/zt0M38A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=163.com;
 	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=oYnK8x0H;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=Y1L7tUJh;
 	arc=none smtp.remote-ip=220.197.31.2
 Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04C46606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:07:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 04C46606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1975606A338
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:07:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1975606A338
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=oYnK8x0H
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=Y1L7tUJh
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=MF
-	oFqOsxsF0mMxP5c38fD1pVJRD+Yn/OA3ZdUReG7Uk=; b=oYnK8x0HS/O49Ya6h7
-	9jCXvpn2PVLsorH1AZ1W23J1Ad0Abhb24T//6Gadpe8SObT1KMF8tNTLT2SYsxuV
-	IklMBao+3kvFJKGmqR36u/H7WWPzvZdBYzbc5THH/BN+PpAo4vHMGaBMHMwgAoGm
-	8jRl99mKuqmABZZXUOqIE0eT8=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=2O
+	yu1LNp3shrdkOkrJoMwhNcFXaJKWO77Sr2rmrk81U=; b=Y1L7tUJhusrSnrda+M
+	gQgSNqakWHUcbtKTHo+6HJOoPkZ4KjujPDyIVcAqhvHTfsonoM7khD7/qW24VA/f
+	LNqoteGsDutP5cyScq1l0BUK/rgx1lovGLk+1IlkQfn0kLP19qTsq7g4y+LUW3As
+	x4/pa7nlZtGXTtgz1CoSKGPmM=
 Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wDn7yTNav1qnmzWIQ--.7895S3;
-	Wed, 18 Nov 2026 17:07:26 +0800 (CST)
+	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wDn7yTNav1qnmzWIQ--.7895S7;
+	Wed, 18 Nov 2026 17:07:28 +0800 (CST)
 From: Xuewen Wang <wangxuewen_ky@163.com>
 To: linkinjeon@kernel.org,
 	hyc.lee@gmail.com,
@@ -51,9 +51,9 @@ Cc: ntfs@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Xuewen Wang <wangxuewen@kylinos.cn>,
 	Baolin Liu <liubaolin@kylinos.cn>
-Subject: [PATCH v6 01/37] ntfs: propagate mapping-pairs update errors from inode writeback
-Date: Wed, 18 Nov 2026 17:06:25 +0800
-Message-Id: <20261118090701.1858849-2-wangxuewen_ky@163.com>
+Subject: [PATCH v6 05/37] ntfs: preserve synchronous buffered read errors
+Date: Wed, 18 Nov 2026 17:06:29 +0800
+Message-Id: <20261118090701.1858849-6-wangxuewen_ky@163.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20261118090701.1858849-1-wangxuewen_ky@163.com>
 References: <20261118090701.1858849-1-wangxuewen_ky@163.com>
@@ -67,49 +67,80 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wDn7yTNav1qnmzWIQ--.7895S3
-X-Coremail-Antispam: 1Uf129KBjvJXoWrZFW3Aw4ruF48GFW3uF15Arb_yoW8Jry5p3
-	9xCryDK3yDJFyDKrs2kF4agF1I9a4kK3yUJF1UKw12qwn8KF1vqFWFya18Xr1kCrZ7ta4a
-	qF1UuwsruryUZFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UFAp8UUUUU=
-X-CM-SenderInfo: pzdqw5pxhzv0xbn1qiywtou0bp/xtbC8A7n0Gr9as6IcwAA3B
+X-CM-TRANSID:_____wDn7yTNav1qnmzWIQ--.7895S7
+X-Coremail-Antispam: 1Uf129KBjvJXoW7Cr18Cr1kWryDWrW7XFW5Jrb_yoW8try8pF
+	Z8Cas8Ka18Gr47urn5tFW5A3WSkry8JayUWFW8uw4Sk3WYy3s0gas5K3WYyF1rG348Gw45
+	Wr4rtrWkWF1UAFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UcyCJUUUUU=
+X-CM-SenderInfo: pzdqw5pxhzv0xbn1qiywtou0bp/xtbC7xDo0Wr9atC0cQAA3u
 
 From: Xuewen Wang <wangxuewen@kylinos.cn>
 
-__ntfs_write_inode() overwrites a failed mapping-pairs update with the
-result of syncing standard information. fsync() can then report success
-while the mapping pairs remain dirty.
+iomap_read_folio() discards errors from the mapping callback. Returning
+success from ntfs_read_folio() then makes the page-cache reader report EIO
+instead of the original allocation or metadata lookup error.
 
-Check the update result after releasing the runlist lock and take the
-existing error path. Preserve the errno and retry handling for ENOMEM.
+Capture a negative mapping result through the iomap iterator's private
+pointer and return it from read_folio. Keep asynchronous completion and
+partial-read handling unchanged.
 
-Fixes: af0db57d4293 ("ntfs: update inode operations")
 Reviewed-by: Baolin Liu <liubaolin@kylinos.cn>
 Signed-off-by: Xuewen Wang <wangxuewen@kylinos.cn>
 ---
 Changes in v6:
-Keep the existing standalone writeback fix ahead of reporting helpers.
+Extract buffered-read error propagation from v5 patch 9 and adapt it
+to the current iomap callback interface.
 
 Validation:
 - Compiled and linked the NTFS module object with W=1 at this stage.
 - No undefined references to ntfs_report_* or fserror_report_*.
 
- fs/ntfs/inode.c | 2 ++
- 1 file changed, 2 insertions(+)
+ fs/ntfs/aops.c | 18 ++++++++++++++++--
+ 1 file changed, 16 insertions(+), 2 deletions(-)
 
-diff --git a/fs/ntfs/inode.c b/fs/ntfs/inode.c
-index 6a9f488e2775..ba1f78fc8c66 100644
---- a/fs/ntfs/inode.c
-+++ b/fs/ntfs/inode.c
-@@ -2974,6 +2974,8 @@ int __ntfs_write_inode(struct inode *vi, int sync)
- 		if (!err)
- 			NInoClearRunlistDirty(ni);
- 		up_write(&ni->runlist.lock);
-+		if (err)
-+			goto unm_err_out;
+diff --git a/fs/ntfs/aops.c b/fs/ntfs/aops.c
+index d0d1a8402bc4..d02d8dde833e 100644
+--- a/fs/ntfs/aops.c
++++ b/fs/ntfs/aops.c
+@@ -49,6 +49,18 @@ static const struct iomap_read_ops ntfs_iomap_bio_read_ops = {
+ 	.submit_read		= ntfs_iomap_bio_submit_read,
+ };
+ 
++static int ntfs_read_folio_iomap_next(const struct iomap_iter *iter,
++				      struct iomap *iomap, struct iomap *srcmap)
++{
++	int *error = iter->private;
++	int ret;
++
++	ret = ntfs_read_iomap_next(iter, iomap, srcmap);
++	if (ret < 0)
++		*error = ret;
++	return ret;
++}
++
+ /*
+  * ntfs_read_folio - Read data for a folio from the device
+  * @file:	open file to which the folio @folio belongs or NULL
+@@ -73,6 +85,7 @@ static int ntfs_read_folio(struct file *file, struct folio *folio)
+ 		.cur_folio = folio,
+ 		.ops = &ntfs_iomap_bio_read_ops,
+ 	};
++	int err = 0;
+ 
+ 	/*
+ 	 * Only $DATA attributes can be encrypted and only unnamed $DATA
+@@ -104,8 +117,9 @@ static int ntfs_read_folio(struct file *file, struct folio *folio)
+ 			return ntfs_read_compressed_block(folio);
  	}
  
- 	err = ntfs_inode_sync_standard_information(vi, m);
+-	iomap_read_folio(ntfs_read_iomap_next, &ctx, NULL);
+-	return 0;
++	/* iomap_read_folio() otherwise discards synchronous mapping errors. */
++	iomap_read_folio(ntfs_read_folio_iomap_next, &ctx, &err);
++	return err;
+ }
+ 
+ /*
 -- 
 2.51.0
 
