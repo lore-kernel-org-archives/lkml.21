@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794960368;
-	b=PaZ2+jgfvipBfKqBkxjRdnQYcAf3c8t7sxP/kXxLxoQ9W6FbWuMs20qMGZePH5X6N1oU
-	 lnHrhVam3mwe/Cc27We1esx+NxKPW4ERIC5bdzY6SG1sf7+U3XcMArA+YdRtl5VKn6VlU
-	 AMH5qWRjgPycFOVu8SJ/S+QF/jXADOA1qftZOzWe7i5e7LUEEsEuFUeHqHlNfyf8ezPDl
-	 2H6adavg472Bn+cKZhMlDgIoa2PWEywF70Ekg61PINaCr4XPp0zkmQQgOgWs66Y8mCy5z
-	 DBS6qCDbhS6+dkGkjavCp0/mrnnkBpBPI6BPI6B0MWHQlZfFW8t9MLIyArW3COvmGFw==
+	t=1794960365;
+	b=ZEIINs7bGS43p24RcSTaIYgaRwM5Ss0wk3kryiNgN5kunym4Cjgu7iqfBnHLTVVgOrs4
+	 sfpRKAzqhfAfr/MnkPJeZ12r1l2unkFqiMcFV7Mk8lBbrBW444zP09g2dmfeM7Uqrt5kP
+	 yfvxfFXCn6hFSffx1tN4HMIm8m3zWQwry4vEGyMrJDRoYcsiObUADKUPn4nSEzZnDtYo6
+	 MXK+3oFVi3JUBUKOM4HabLq4wNx4kuyOEVAME1xqsEpOWEPQ1OHrn6Ts7lYiMRyPPzil2
+	 EwtGREGmia3exwkIq8/HaJT0GsG572UG/Ne+C5yYHDgYhA8H/Ar327WAIzNQaJ2rA8A==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794960368;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794960365;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Sh41BKaEFqu40VZCFAZtZ2re9360uoXZkICjD6gYqTs=;
-	b=wpFfG4+RZSeD0FPDaWoxeqKqaz3YTiolvilEmT6A1VhhzNbason9l5vdA+sCKvS6JPoE
-	 ovPNqtIK6p1APSgC5scb4YNw75Oz/k66mI6aOeU9J0W51Vq5CCC0NQn7hOL1m0YJbVSsF
-	 uqRPspJ6PIKK+eunGzHN4dFCpPZ3mHBa7OtTBJq7BeqXNTznKMYEJDCe8cZbqU6gW9txT
-	 YRfqqFdVmwUCi+MHUObEF+ywp13jMsboCDKyWjYYtefyrHgCPS3HgFHTpgGh+tyzZSOs0
-	 DJzFkT7xIPTXU+pE5mhN8X3T54wFmT6cpezv64lic4CfiKhVvQg/Gl8zJuz767TGQpA==
+	bh=unrS287i9FwKkDsWayC0w5UfBJ3WFgvs3n9HcLvX0gc=;
+	b=UmrnlRBVoVDIE/pnZjmXoQkIA+O+0tO2Y54qHSfYN0QwouVryTHJAV7CE3mmeH8w5ba+
+	 rp1YjbNe35ue37aLahyM45KGwmPfG29uOeGEmI5BXSThdaCXr5tx78W7D7wOrn0Vg9tBs
+	 KqmOgEv/bScrR6dDm2G+7vpPsDoy2GWe9y/nUaH+Q+mr+Qy2bfv+R+6/RrDOWK4PTVoc2
+	 6w6SRyxVGCUejV7J393C3P5wmdGEIsmmwcmI/X9j+xqloPWCBhX0PdnDTTRenEtfvWad+
+	 MnS8noF9AXopwOI5UxJr+H+ztzoLOp1PUw+I8bvJwnktXnepohrnpGAI7oCrqUr5V/g==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XYxX3ALS;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=abvdB7Gn;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52FA9606A32A;
-	Wed, 18 Nov 2026 00:06:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A852606A31C;
+	Wed, 18 Nov 2026 00:06:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XYxX3ALS
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=abvdB7Gn
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794960367;
-	b=FdqUTD0wj+GlkMx3WsuJFvm6h0aQv0t6+8sPq3640JZKzifxtW4ZNIgL777jQ4feLQTv
-	 IO1XntPfkGM8twfDcTyy4LnLvB0O+T3rJZXScnaidZmDcD7xZTZ8M9l0a5FbujrjgWgiM
-	 773OOo5A31q0ggU+EqL25Z/ruhrG4CFI+p+jhN01NKqX3QWw5erbGZvIatr4kp0apc9kP
-	 4n/JAKRFzoSZwuaSvkWkbekMd1u07lSyyds76yTVvI5hLBBOabalCAKs/EIJljqTlZc3C
-	 BKBY7+qBU9Do+jk68Bs2jL2EcNKQ2t74v/CWOrwr3bLM1V9MzprS9L3ITG+kOG0xaeQ==
+	t=1794960365;
+	b=dX3epUhSbn4Jp3m74+IFKMmqMYPyL9ddjoLdZSnifXDAp+HUfGgfqShnFDM1ddMUjhso
+	 3EAbQXHcwLWg1rTLhioX6UiCBBOxzf0aaTh2Sx2YdWmByNXqpT3HYs3l1vZLXwcOgNQ8W
+	 Wb0RkylgOqtt4icq5uqWg9X0EbA5JvmKS6FU0PZPmee4eztb/eUvQiQfm/T4qDUP6zzyZ
+	 wK8ssvDjTC344U+9n4USbI1hFMj1Dh+RntqLe8JIcC08ufc7JMa94Fo157vm4wb8ei67E
+	 QfJGaz1puowm285q6qodLpqMZzvCvCGc/FPGZQmCLZBk3mZqOry6oORvsUbZ36CQ8AA==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794960367;
+	c=relaxed/relaxed; t=1794960365;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Sh41BKaEFqu40VZCFAZtZ2re9360uoXZkICjD6gYqTs=;
-	b=Oka17lkNKTu1aE0ugyfr37ydXFk5FvPR+cCAfKYlI9IxqOSXlL/IgD8Ty18ibfzO9jbh
-	 3bQX+wBlo9Dj6IYMAGfUUrcySwxUxCLagtalnzyux1bFyWzERwVvddCllO1T9hwV3WHD9
-	 K/HqHueT+afcKPMGzxDpz156zMNSOC57RXUSwX70ZLmNLXTi51yncVPoP9+vCNTD3yntJ
-	 Dz8BcY9aNd40tpECbOvx5tFZBpTm+m/kH7Nsn6oq0sB5tFH308CD6x22h/nbq+y/KTVlU
-	 pwu1U2nUK/+bGY3kqQgnFcUxLJge+PZX/F2Y6KQkTmz73dOPYQwsLqUg06zyhldYbJQ==
+	bh=unrS287i9FwKkDsWayC0w5UfBJ3WFgvs3n9HcLvX0gc=;
+	b=uVYlDb+RFypOeeejfGlrG5TsZcVCxOOWqKhYHBxqwxUKF43Gy74/ieq6SawuO3en2ZF3
+	 U7ElifLycAhSeMQg17ZuY44rOvkJGw8O+gdS+YAUbv1otbece3fy3nBE/RUYW26vduVV2
+	 FVKAY7Snxq1mTDQWGT/A7+nJjm9RkvuHgDciYJ9XV748jcyZY5Rfk6RbRqXCHoLt334mx
+	 dK28fvtADYIOMC9HCCPhAKegmdU8tsq1xCaf3gA42d8AWYFc2Q8wy2CeEu9Mjrx7CO+XG
+	 HI9e5GtC13OS3/Bu0YlAT5b41Cyhmg7jUhU5r8Hbcql0jYAaKDkI6zUk0ovxkZh8Hxw==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 0BF6F1F000C6;
-	Wed, 18 Nov 2026 00:06:07 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 2C5911F000C4;
+	Wed, 18 Nov 2026 00:06:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794960367;
-	bh=Sh41BKaEFqu40VZCFAZtZ2re9360uoXZkICjD6gYqTs=;
+	s=k20260515; t=1794960365;
+	bh=unrS287i9FwKkDsWayC0w5UfBJ3WFgvs3n9HcLvX0gc=;
 	h=From:Date:Subject:To:Cc:Reply-To;
-	b=XYxX3ALSDLdil9S02lCrJttjPEnjkuQfsp5RaM4PU7y0owIzwdhvKNP8EEJChkYHW
-	 1HYu8wMmGgByQx3yaMo1Xv3uZGW7+y69J1piZ6qw122jRFgDNn9DHbuvsToY96etsQ
-	 iOC2VVPC8T4A6nVqauHUaMyXrBTOG+rF+1VYlN+TbawXvkaxAf6MeyQ6hHalls2MCu
-	 5Bvaun2Tqpyc6Q/vzIxI0oMaLh39zR4ElpK/vxvodp0SpFBeilVF4dC1C9Heei4hPo
-	 G5pj7euQpXy0JJpiVSWupYcb4030dZz8sFjZUXsWbm3QUVEBfTJ6VyyY9hSsxCkm/n
-	 MaoqFE5NOnZhA==
+	b=abvdB7GnEEJEfaNSa3T8TxLLBlROi7b+SQz4cV84FPx+M82JFKdHnUwc/1EDHp7go
+	 xSmbrWL6BoW0rgkkv2kEmfRdOieJ+rKbRZolL2pB0vJlQXR9HBWxWNFV0DyTsHJcAN
+	 5kAQ6IrfBwd+/Zhcuv/Ue0SocO5hb/L1vWQnlCqqNLEzmYkg9UA0FpJ0soBxrfyaBr
+	 N40eNK3QxELb6kcnZp2AVbSFc45sgZaBCxycS10LDHt7wc3PfdsYtklzaCsI5CG4GV
+	 QLhLC4DpUDOlCK45SRWHwzsiLOKaHCqSm+WTEABC3eC4JaIAw0U4kRKELoyUkKCHDs
+	 QXmtb1OCGayTw==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 8D1FC4790C;
-	Wed, 18 Nov 2026 00:06:06 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 70FFC4790C;
+	Wed, 18 Nov 2026 00:06:03 +0000 (UTC)
 From: Maximo Manriquez Lizarraga via B4 Relay <devnull+DelaySystem.tubot.lat@kernel.org>
-Date: Tue, 17 Nov 2026 16:06:06 -0800
-Subject: [PATCH v2] staging: most: dim2: use atomic_t for channel state
- counters
+Date: Tue, 17 Nov 2026 16:06:03 -0800
+Subject: [PATCH v2] staging: iio: adc: ad7816: use dev_err_probe() for GPIO
+ lookups
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,26 +84,25 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261117-staging-dim2-atomic-v2-1-a550f0518043@tubot.lat>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32NQQ6CMBBFr0Jm7RhatTauvIdhMcAUxgglbSEaw
- t0F3Lt8yfvvzxA5CEe4ZTMEniSK71fQhwyqlvqGUeqVQefaKJVfMSZqpG+wlk4jJd9JhcaSvTj
- rmJyBdTkEdvLeq4/ix3Esn1ylLbUZrcTkw2e/ndTm/X+YFCo0XJ7ZOuXMie5pLH06vihBsSzLF
- 2q0klzIAAAA
-X-Change-ID: 20261107-staging-dim2-atomic-68a85f8feaf6
-To: error27@gmail.com, shyamsunderreddypadira@gmail.com, 
- marusik.adamenko@gmail.com, rajveer.chaudhari.linux@gmail.com, 
- parthiban.veerasooran@microchip.com, christian.gromm@microchip.com, 
- gregkh@linuxfoundation.org
-Cc: linux-kernel@vger.kernel.org, linux-staging@lists.linux.dev, 
+Message-Id: <20261117-batch1-s3-warn-v2-1-17f4e541123b@tubot.lat>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WNQQ6CMBBFr0Jm7RimJVJceQ/Doh2L1Bggbakaw
+ t2luHb5kvffXyBY72yAc7GAt8kFNw4biEMB3OvhbtHdNgZRihNRWaPRkXvCIPGl/YBCNdworg2
+ Rgm00edu59x68tj8Os3lYjrmSjd6FOPrP/pgoe3/jiZCw6lgqWRFrqS5xNmM8PnWEdl3XL2mLE
+ V6+AAAA
+X-Change-ID: 20261107-batch1-s3-warn-289c98c7b118
+To: jic23@kernel.org, Michael.Hennerich@analog.com, dlechner@baylibre.com, 
+ gregkh@linuxfoundation.org, andy@kernel.org, nuno.sa@analog.com
+Cc: linux-iio@vger.kernel.org, krzk@kernel.org, linux@analog.com, 
+ linux-kernel@vger.kernel.org, linux-staging@lists.linux.dev, 
  Maximo Manriquez Lizarraga <DelaySystem@tubot.lat>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3418;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2256;
  i=DelaySystem@tubot.lat; h=from:subject:message-id;
- bh=DzVwGgJlaMAT/3SAIgdkmln9ovVSG2ZhjYnhV3aplks=;
- b=owGbwMvMwCH2SNl4+SzWXm/G02pJDFl/Xr/9uNDl6g6TFZyFb2+K2nkm9HqZsJYuUdnjs1Okr
- vxT6bKXHaUsDGIcDLJiiixiMjzv6+/rxFlbzTkBM4eVCWQIAxenAExkOwMjw7S0lCZeoSddMrvv
- tZVHaRq1VuRmi8R8VnGx+Tu9zeb/VEaG9kNmFzmvxIlmGJglyF0NcdiWG6g/9dImzUzTEydPHEt
- iAwA=
+ bh=zUcBktwXmCE4oXfyfd9Np1m8huOS/SaVtNAIrPt4qJg=;
+ b=owGbwMvMwCH2SNl4+SzWXm/G02pJDFl/Xr/+PSPHu2fBstdXOq22WfBt+3NoU++6/09nl4v4d
+ S09bnQ3oaOUhUGMg0FWTJFFTIbnff19nThrqzknYOawMoEMYeDiFICJLJFn+J8gJz5hQ/OaRV06
+ pvf/von+XL5yxk3R+Ik9FTeCtVfE/zJk+Ge8TWObqUHYEq4Wvnt8BaeVOdrOyL2cv/OvF9c8Ye3
+ eXawA
 X-Developer-Key: i=DelaySystem@tubot.lat; a=openpgp;
  fpr=161C0CEF7FDF2C5E3B3A9CC8E22333A79A058D4B
 X-Endpoint-Received: by B4 Relay for DelaySystem@tubot.lat/default with
@@ -114,101 +113,59 @@ Content-Transfer-Encoding: 7bit
 
 From: Maximo Manriquez Lizarraga <DelaySystem@tubot.lat>
 
-Replace the volatile int channel state counters with atomic_t and
-convert all access sites to the atomic API.
+GPIO lookups can return -EPROBE_DEFER.  Convert the rdwr and convert
+GPIO lookup failures in ad7816_probe() to dev_err_probe(), which
+suppresses the error message on deferral and records the deferral
+reason.  The busy-GPIO path is left untouched: its optionality is the
+subject of a separate proposed change.
 
-request_counter is incremented in the AHB interrupt handler
-(channel_service_interrupt) and read from task context
-(channel_service), while service_counter is updated in task context.
-Plain volatile provides neither atomicity nor ordering for such
-cross-context sharing, see
-Documentation/process/volatile-considered-harmful.rst.
+No functional change other than defer handling.
 
-Use atomic_set() at init, atomic_inc() for updates and atomic_read()
-for the comparison in channel_service().  No functional change is
-intended.  Unlike the earlier attempt that only dropped the
-qualifier, this converts the access sites as well.
-
-Compile-tested only; I don't have this hardware, so testing on real
-hardware would be appreciated.
-
-Link: https://lore.kernel.org/linux-staging/2026072515-domestic-cardboard-f657@gregkh/
 Signed-off-by: Maximo Manriquez Lizarraga <DelaySystem@tubot.lat>
 ---
 Changes in v2:
 - Resend under my real name (From/Signed-off-by: Maximo Manriquez Lizarraga).
-- Apologies for the wasted cycle; if the objection was technical rather than the sender identity, please say what to change.
-- Link to v1: https://patch.msgid.link/20261107-staging-dim2-atomic-v1-1-6eb4e8f1f63a@tubot.lat
+- Apologies for the improper sign-off on v1; no code change.
+- Link to v1: https://patch.msgid.link/20261107-batch1-s3-warn-v1-1-4fc38341ca38@tubot.lat
 ---
- drivers/staging/most/dim2/hal.c | 11 ++++++-----
- drivers/staging/most/dim2/hal.h |  5 +++--
- 2 files changed, 9 insertions(+), 7 deletions(-)
+ drivers/staging/iio/adc/ad7816.c | 18 ++++++------------
+ 1 file changed, 6 insertions(+), 12 deletions(-)
 
-diff --git a/drivers/staging/most/dim2/hal.c b/drivers/staging/most/dim2/hal.c
-index 4f137ef846a3..ca931782b06c 100644
---- a/drivers/staging/most/dim2/hal.c
-+++ b/drivers/staging/most/dim2/hal.c
-@@ -419,8 +419,8 @@ u16 dim_dbr_space(struct dim_channel *ch)
+diff --git a/drivers/staging/iio/adc/ad7816.c b/drivers/staging/iio/adc/ad7816.c
+index 2a15d7598abb..11292216dfb5 100644
+--- a/drivers/staging/iio/adc/ad7816.c
++++ b/drivers/staging/iio/adc/ad7816.c
+@@ -381,20 +381,14 @@ static int ad7816_probe(struct spi_device *spi_dev)
  
- static void state_init(struct int_ch_state *state)
- {
--	state->request_counter = 0;
--	state->service_counter = 0;
-+	atomic_set(&state->request_counter, 0);
-+	atomic_set(&state->service_counter, 0);
- 
- 	state->idx1 = 0;
- 	state->idx2 = 0;
-@@ -634,7 +634,7 @@ static bool channel_service_interrupt(struct dim_channel *ch)
- 		return false;
- 
- 	state->idx2 ^= 1;
--	state->request_counter++;
-+	atomic_inc(&state->request_counter);
- 	return true;
- }
- 
-@@ -682,8 +682,9 @@ static u8 channel_service(struct dim_channel *ch)
- {
- 	struct int_ch_state *const state = &ch->state;
- 
--	if (state->service_counter != state->request_counter) {
--		state->service_counter++;
-+	if (atomic_read(&state->service_counter) !=
-+	    atomic_read(&state->request_counter)) {
-+		atomic_inc(&state->service_counter);
- 		if (state->level == 0)
- 			return DIM_ERR_UNDERFLOW;
- 
-diff --git a/drivers/staging/most/dim2/hal.h b/drivers/staging/most/dim2/hal.h
-index 5d69a5e7d299..70b10793cf84 100644
---- a/drivers/staging/most/dim2/hal.h
-+++ b/drivers/staging/most/dim2/hal.h
-@@ -9,6 +9,7 @@
- #ifndef _DIM2_HAL_H
- #define _DIM2_HAL_H
- 
-+#include <linux/atomic.h>
- #include <linux/types.h>
- #include "reg.h"
- 
-@@ -34,10 +35,10 @@ struct dim_ch_state {
- 
- struct int_ch_state {
- 	/* changed only in interrupt context */
--	volatile int request_counter;
-+	atomic_t request_counter;
- 
- 	/* changed only in task context */
--	volatile int service_counter;
-+	atomic_t service_counter;
- 
- 	u8 idx1;
- 	u8 idx2;
+ 	chip->id = spi_get_device_id(spi_dev)->driver_data;
+ 	chip->rdwr_pin = devm_gpiod_get(&spi_dev->dev, "rdwr", GPIOD_OUT_HIGH);
+-	if (IS_ERR(chip->rdwr_pin)) {
+-		ret = PTR_ERR(chip->rdwr_pin);
+-		dev_err(&spi_dev->dev, "Failed to request rdwr GPIO: %d\n",
+-			ret);
+-		return ret;
+-	}
++	if (IS_ERR(chip->rdwr_pin))
++		return dev_err_probe(&spi_dev->dev, PTR_ERR(chip->rdwr_pin),
++				     "Failed to request rdwr GPIO\n");
+ 	chip->convert_pin = devm_gpiod_get(&spi_dev->dev, "convert",
+ 					   GPIOD_OUT_HIGH);
+-	if (IS_ERR(chip->convert_pin)) {
+-		ret = PTR_ERR(chip->convert_pin);
+-		dev_err(&spi_dev->dev, "Failed to request convert GPIO: %d\n",
+-			ret);
+-		return ret;
+-	}
++	if (IS_ERR(chip->convert_pin))
++		return dev_err_probe(&spi_dev->dev, PTR_ERR(chip->convert_pin),
++				     "Failed to request convert GPIO\n");
+ 	if (chip->id == ID_AD7816 || chip->id == ID_AD7817) {
+ 		chip->busy_pin = devm_gpiod_get(&spi_dev->dev, "busy",
+ 						GPIOD_IN);
 
 ---
-base-commit: a41e364995bbcfa627418a70fe913c35b7510728
-change-id: 20261107-staging-dim2-atomic-68a85f8feaf6
+base-commit: fa4ad798f6f681031775266044ba1b0cf3c670bd
+change-id: 20261107-batch1-s3-warn-289c98c7b118
 
 Best regards,
 --  
