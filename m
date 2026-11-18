@@ -1,49 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.231.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794992248;
-	b=qP76k8zUs2M3a8R1D3dbjjk0J/WKlr9M/BM8pHsGOHkAPSxGe6qXqdoiUjR2M1mv9H0V
-	 dkpxXLbT0chpAN5Q0ytSJC6ntZ5O/3a45pH3h+TbPULst3D/2SzhaDkaFDU4zdZ7Cndpr
-	 l3F0l5adb7npjEy1iZ/g7i2K6hxz/M2/cbmvEX3+WN+RZ3w3Iccma+kCYy38ioNj9mB+a
-	 RXDHpOXc3zUhfSGyBGqnF7R2arwODDFbPJ3i38mKFlB+yw5KjQO264lIycOmk8ocw/Km6
-	 eCZytqERYqcvJiPxuL7hZMKCc/RNBHT/o3CXOMnuhzVhusQRw1pY2ZIhsglBAao7ROw==
+	t=1794992278;
+	b=vooakbXxA0NnyW2odbbPGxpY6urMDCTeeEn00DVTcTk6S7qg2iltlcTXigdaHah5W+s/
+	 5UYVynDddm/2J3gb4PpAUSf46jU+j5kPYiVvqP4lSz6reUSZOKYZhGfPWF0O2CPbQ4wEf
+	 YFpNSwCbUsOklW8H2RLd/r03q4WZuNNmVAMYtU19gOhX/V5Jp2jCRi1aOA2PDKKHEI6iQ
+	 EP0oIa9MwI40VN3GXyZjpAR3CSqU//9uMn+Ry75jjBDvTWIsoap7YsiUtQTtG9hgcv3pD
+	 Rv3vCaV6qL1uTcd+l0QcIh9N09vxiXhIMWh26FNBZqDnpp6YZ2mUA0XIBafjTTBoDuw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794992248;
-	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-CM-SenderInfo:X-Coremail-Antispam;
-	bh=4vspbOJQP+sdLjL2yVd0umkyoFVaU+EqhynkFK0tfE4=;
-	b=g5xjZk2elUpKxVUKu2D4apsHr0TOCE3/lhGWM7F+MAV2Z1DaB4y4qUHuD25xKVrUqRqv
-	 93Bk6QXMDgyenAQCijmO7rAjDJGpley4wBEfF7t+Mky05IsM8/CpWqv3leZKoSEqyllaV
-	 uy7Lo4g3UHfcqRn2WPJPq+iYXVgJyeRsm9i4JEty3Q6vRGfqAnj/LHAmTZlDry4oytrG6
-	 stAT7hP+OlDSHc7+QyPC43Bk/NaLJdQx9m3udMrv1FBBEFsWRh7ZtH0rGfjeKVAgfcuDD
-	 7T2GYTBS07KmG49T+AYSUtPoU3a0dlbBpXAte3IEsG2etdyLR5bQgZf9CGGXR1ewYFg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794992278;
+	h=DMARC-Filter:DKIM-Signature:Cc:Date:Message-Id:X-Lms-Return-Path:To:
+	 From:Subject:Mime-Version:Content-Type:X-Mailer:
+	 Content-Transfer-Encoding:Received:X-Original-From;
+	bh=yOxzqLseFUYhYdIECMH6Pr89r6ogqLgHYA2LaD6ZQPI=;
+	b=tceICScXKX37Ji3fT9RKunQRIMUlKuo34nuaOwUezAjj3jy8Pt84TYx4AWB/+dt3CCrw
+	 CwmOlUAey5dDxo2G1HezEMRTrkeMWXKzllBps4RHfeTmboaa7jDQ36HOYmedP9LbCAFXZ
+	 iK8xXZefyfoCeVSX3LiS9y0vZcltOCTab/kuM+obKbwLF2T8jmOyNg+mSfeqV6vH7x8iG
+	 7VQ51nN3wN9O7/BL9DZp27A0ci4Am93OXqH+YS33dOt3bULg09g9r0n5QhqDWNI//tkYw
+	 QojdCvyuuftXQUZea5IaLksEIcs3LcklW/C1hnx6+u9HheRMQhG9FIFavYzrohOdvHw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=phytium.com.cn;
-	spf=pass smtp.mailfrom=phytium.com.cn;
-	arc=none smtp.remote-ip=162.243.164.118
-Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 6C959606A31C;
-	Wed, 18 Nov 2026 08:57:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C959606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=phytium.com.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=phytium.com.cn
-Received: from prodtpl.icoremail.net (unknown [10.12.1.20])
-	by hzbj-icmmx-7 (Coremail) with UTF8SMTP id AQAAfwBHT9NuaP1qRFFoBg--.2247S2;
-	Wed, 18 Nov 2026 16:57:18 +0800 (CST)
-Received: from phytium.com.cn (unknown [218.76.62.144])
-	by mail (Coremail) with SMTP id AQAAf8DwSHVtaP1qEDv8AA--.37704S3;
-	Wed, 18 Nov 2026 16:57:17 +0800 (CST)
-From: Li Mingzhe <limingzhe1839@phytium.com.cn>
-To: myungjoo.ham@samsung.com,
-	kyungmin.park@samsung.com,
-	cw00.choi@samsung.com
-Cc: linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	Li Mingzhe <limingzhe1839@phytium.com.cn>
-Subject: [PATCH 0/1] PM / devfreq: add SCMI performance protocol bridge
-Date: Wed, 18 Nov 2026 16:57:14 +0800
-Message-ID: <20261118085715.27400-1-limingzhe1839@phytium.com.cn>
-X-Mailer: git-send-email 2.43.0
+	dmarc=pass header.from=deepcomputing.io;
+	spf=pass smtp.mailfrom=deepcomputing.io;
+	dkim=pass header.d=deepcomputing-io.20200927.dkim.feishu.cn header.i=@deepcomputing-io.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=S1bK5FtW;
+	arc=none smtp.remote-ip=209.127.231.48
+Received: from va-2-48.ptr.blmpb.com (va-2-48.ptr.blmpb.com [209.127.231.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64871606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:57:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 64871606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=deepcomputing.io
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=deepcomputing.io
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=deepcomputing-io.20200927.dkim.feishu.cn header.i=@deepcomputing-io.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=S1bK5FtW
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=s1; d=deepcomputing-io.20200927.dkim.feishu.cn; t=1794992272;
+  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
+ reply-to:content-type:mime-version:in-reply-to:message-id;
+ bh=yOxzqLseFUYhYdIECMH6Pr89r6ogqLgHYA2LaD6ZQPI=;
+ b=S1bK5FtWYNSZHZNX0NmS/qx575+gxqKr0uU0DGZ6KoNSLjWC8AdMWE8i+M6rPVG5OVY2Bg
+ woP7owbnzdPKbrNZS1k0pIIYhfMFmaZR0yIdt9QXNJ1bUTTvQ2PXEd1avjQ8KYRW6xqtSt
+ fGJKjiKuOcw8rbFd+4bnXMJDTtQa+RRFMT9cty2VFkwYf0AK4u5AoMW5KNd0e++v/TJmJd
+ rHBM5Xg1oD1tdN3SpFanaXyF9YhOjhxHv1NlToTGKjesIjFEJk50LtLG9chwM/LDM2DRi3
+ 0kNVlBv2/SlBhmBr4qFtx0QYDhknD1bWZQEjV8JhRJgn3qGJ6LpSp1Ij6PjS0w==
+Cc: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>, 
+	"Tzung-Bi Shih" <tzungbi@kernel.org>, 
+	"Guenter Roeck" <groeck@chromium.org>, "Rob Herring" <robh@kernel.org>, 
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
+	"Conor Dooley" <conor+dt@kernel.org>, "Paul Walmsley" <pjw@kernel.org>, 
+	"Palmer Dabbelt" <palmer@dabbelt.com>, 
+	"Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, 
+	"Sandie Cao" <sandie.cao@deepcomputing.io>, <devicetree@vger.kernel.org>, 
+	<chrome-platform@lists.linux.dev>, <linux-riscv@lists.infradead.org>, 
+	<spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+Date: Wed, 18 Nov 2026 16:57:33 +0800
+Message-Id: <20261118085742.1817536-1-yang.wang@deepcomputing.io>
+X-Lms-Return-Path: <lba+26afd688e+ff5dca+vger.kernel.org+yang.wang@deepcomputing.io>
+To: "Yixun Lan" <dlan@kernel.org>, "Benson Leung" <bleung@chromium.org>
+From: "Wang Yang" <yang.wang@deepcomputing.io>
+Subject: [PATCH 0/9] Add SpacemiT K3 FML13V05 EC keyboard support
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,63 +67,104 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:AQAAf8DwSHVtaP1qEDv8AA--.37704S3
-X-CM-SenderInfo: polpx05j2kviaytzq15k1wx33pof0zgofq/1tbiAQAODWrwzdwA4wAGss
-Authentication-Results: hzbj-icmmx-7; spf=neutral smtp.mail=limingzhe1
-	839@phytium.com.cn;
-X-Coremail-Antispam: 1Uk129KBjvJXoW7AFyUGF1DXFy3Wr48tFy8uFg_yoW8CryrpF
-	Wqya4fZay5GrZ3tw1ayw48XryrAFs7uFW5KayxW3srAry5ZryUt3ZFyrW5GF9FkrZ7AFy2
-	vr48Jw1xGr18JrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUj1kv1TuYvTs0mT0YCTnIWj
-	DUYxn0WfASr-VFAU7a7-sFnT9fnUUIcSsGvfJ3UbIYCTnIWIevJa73UjIFyTuYvj4RJUUU
-	UUUUU
+Mime-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: 7bit
+Received: from ubuntu.. ([183.23.101.74]) by smtp.feishu.cn with ESMTPS; Wed, 18 Nov 2026 16:57:49 +0800
+X-Original-From: Wang Yang <yang.wang@deepcomputing.io>
 
-Hi,
+The DeepComputing FML13V05 uses a ChromeOS-compatible embedded controller
+connected through the SpacemiT K3 eSPI peripheral channel. Its internal
+keyboard is not available on linux-next without the controller and EC
+transport support described in this series.
 
-This patch adds a bridge module that owns the SCMI performance-protocol
-scmi_device binding on behalf of devfreq drivers, mirroring the design
-of drivers/cpufreq/scmi-cpufreq.c.
+The EC host command registers are exposed through a memory-mapped,
+non-linear peripheral window. This interface cannot use the ordinary
+cros_ec_spi message transport directly. Add a K3-specific controller and
+EC transport, and reuse the existing ChromeOS EC protocol, MFD and
+keyboard drivers. Existing EC core, LPC, SPI, protocol and keyboard C
+files and the google,cros-ec binding are unchanged.
 
-Motivation
-==========
+The series is based on next-20261116. Patches 1-2 document the controller
+and EC bindings; patch 3 adds the controller; patches 4-5 enable Chrome
+platform support on RISC-V and add the EC transport; patches 6-8 describe
+the pins, controller and board keyboard; patch 9 enables the drivers in
+riscv defconfig, with the EC transport and keyboard built as modules.
 
-A SoC may have several devfreq consumers (NOC/DMU interconnects, GPU,
-...) whose performance domains are managed by the SCMI performance
-protocol. Each consumer needs:
+The controller implementation is ported from the SpacemiT vendor BSP
+(revision 29b78afb484b, originally authored by goumin
+<min.gou@spacemit.com>). Controller programming and recovery remain
+separate from the EC client. The EC transport and compatible are scoped
+to K3 because the window layout and controller recovery API are specific
+to this hardware. Feedback on the transport split and recovery interface
+is welcome.
 
-  - the perf-domain id parsed from its DT "clocks" phandle
-  - the domain OPP table imported from PERFORMANCE_DESCRIBE_LEVELS
-  - PERFORMANCE_LEVEL_GET/SET wrappers for freq transitions
+Validation on an FML13V05 with its internal keyboard, 2026-11-18:
+- W=1 cross-build of Image, modules and the board DTB completed. No new
+  warnings came from the added drivers.
+- Both new bindings and their compiled examples passed schema validation;
+  the new examples passed strict DT style checks. The new EC, controller
+  and keyboard nodes in the board DTB also passed validation.
+- Cold boot and module autoload passed all 20 automatic checks.
+- 153 read-only EC queries and three EC module unload/reload cycles
+  succeeded. EC firmware was FML13V05-V01.06.
+- A/B/C/1/2/Enter, all four arrows and Fn+F1/F2/F7/F8 produced the expected
+  28 paired press/release events, with no dropped or held keys and no
+  new EC/eSPI errors in the kernel log.
 
-Binding the perf-protocol scmi_device in every driver would race and
-multiply the dummy-clock-provider workarounds needed by the OPP core.
-Instead, this single built-in bridge binds the scmi_device, registers
-the clock provider on the protocol node, and exposes a small public
-API in include/linux/scmi-devfreq.h:
+The running test kernel was
+7.4.0-rc3-next-20261116-fml13v05-k3-espi+.
+Booting the test system required a separate K3 PCIe test module and
+USB/NVMe DT additions, which are outside this EC series. Suspend/resume,
+EC restart fault injection, full-keymap coverage and long-duration
+stability were not tested. A previously observed UEFI reset_system()
+failure was not addressed or retested by this series.
 
-  scmi_devfreq_ready()         bound check for early probe deferral
-  scmi_devfreq_domain_id()     DT clocks phandle -> perf domain id
-  scmi_devfreq_opps_add()      import PERFORMANCE_DESCRIBE_LEVELS
-  scmi_devfreq_freq_get/set()  PERFORMANCE_LEVEL_GET/SET wrappers
+Checkpatch reports no errors or CHECK findings. Its four new-file
+MAINTAINERS reminders were reviewed: the existing SpacemiT N: pattern
+and Chrome EC/DT entries already cover the new paths, so no MAINTAINERS
+change is included.
 
-All functions return -EPROBE_DEFER until the bridge is bound, so
-consumers are retried automatically during probe.
+OpenAI Codex assisted the port, patch preparation, review analysis and
+test tooling. The work was developed through an iterative session to
+port the existing DC-linux/BSP support, keep the common EC implementation
+unchanged, use K3-specific naming and bindings, and verify the result on
+hardware. Human review was completed before submission; the numbered
+patches retain the submitter's existing DCO sign-offs.
 
-Tested on we platform with the NOC/DMU devfreq drivers, verifying
-that the OPP table is imported and freq_set transitions are applied.
+Wang Yang (9):
+  dt-bindings: bus: Add SpacemiT K3 eSPI controller
+  dt-bindings: embedded-controller: Add SpacemiT K3 EC window
+  bus: Add SpacemiT K3 eSPI controller support
+  platform/chrome: Allow ChromeOS platform support on RISC-V
+  platform/chrome: Add SpacemiT K3 eSPI EC transport
+  riscv: dts: spacemit: Add K3 eSPI pin group
+  riscv: dts: spacemit: Describe the K3 eSPI controller
+  riscv: dts: spacemit: Enable the FML13V05 EC keyboard
+  riscv: defconfig: Enable the FML13V05 EC keyboard modules
 
-Li Mingzhe (1):
-  PM / devfreq: add SCMI performance protocol bridge
+ .../bindings/bus/spacemit,k3-espi.yaml        | 146 ++++
+ .../spacemit,k3-cros-ec.yaml                  |  58 ++
+ .../spacemit/k3-deepcomputing-fml13v05.dts    | 137 +++
+ arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi  |  24 +
+ arch/riscv/boot/dts/spacemit/k3.dtsi          |  31 +
+ arch/riscv/configs/defconfig                  |   5 +
+ drivers/bus/Kconfig                           |  10 +
+ drivers/bus/Makefile                          |   1 +
+ drivers/bus/spacemit-k3-espi.c                | 804 ++++++++++++++++++
+ drivers/platform/chrome/Kconfig               |  13 +-
+ drivers/platform/chrome/Makefile              |   1 +
+ drivers/platform/chrome/cros_ec_spacemit_k3.c | 739 ++++++++++++++++
+ include/linux/spacemit-k3-espi.h              |  20 +
+ 13 files changed, 1988 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/devicetree/bindings/bus/spacemit,k3-espi.yaml
+ create mode 100644 Documentation/devicetree/bindings/embedded-controller/spacemit,k3-cros-ec.yaml
+ create mode 100644 drivers/bus/spacemit-k3-espi.c
+ create mode 100644 drivers/platform/chrome/cros_ec_spacemit_k3.c
+ create mode 100644 include/linux/spacemit-k3-espi.h
 
- drivers/devfreq/Kconfig        |   9 ++
- drivers/devfreq/Makefile       |   1 +
- drivers/devfreq/scmi_devfreq.c | 205 +++++++++++++++++++++++++++++++++
- include/linux/scmi-devfreq.h   |  30 +++++
- 4 files changed, 245 insertions(+)
- create mode 100644 drivers/devfreq/scmi_devfreq.c
- create mode 100644 include/linux/scmi-devfreq.h
 
+base-commit: 749a4de370409464cf8501ec5b2451df45c84eb4
 -- 
 2.43.0
-
