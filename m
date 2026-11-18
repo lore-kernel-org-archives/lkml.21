@@ -1,51 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.133
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.153
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795039333;
-	b=mYDYOwE9gDT5ORIFh7KtuxBZxlqYmei+VyKGv1Y0EyKJRD5gtVw0jxto+dhBo7CAG9Ot
-	 8Oz8cvYcm5GGMPu3VFFlfTgNY+MNJxG/eamYGHfJt8+wK30ItgkWBzTb7WWbTaIRlm4dk
-	 TjtTxy/vAmsxbzyfItLregaurMRZx1qJPhCuLayyZ0pA+CCo4ZCMovMmPtPvRaAluddV7
-	 v0ZYO96rKZUk84Y81/1rx6cvjd1I6m3pUnLloAZ7jfeHCoDcOhy2p0k2INEum8Z4h7EMQ
-	 CzbKtyYN2q9B1xBV22mVfBDBfODSXMVxq2vfuMo/nedq8/DDtgqfiycyFSzOJYIpb0A==
+	t=1795039335;
+	b=v+yQtYiLULKlDUzCh67HJQ5Euv69/ogi/y65/7POPz4/qq6Fk9tWTiRtD+bLR6B0tZw4
+	 3oNgaB3k0GMnFk2lQWV3M+XaYpX+jpPYrVhyKuK/aL1xOnrCaZHedMi0InbA55mCxu834
+	 Yd9ilPPvYiaA3fIdx9aY9rn1diEOrv2qOz0/X1kjWMxSnrwXZffanFOWJA3Y8Wn5d4rSo
+	 GXS+wTVQHSYqHV4VG4LqdR2mEPwHml37cC/L71Umaqko3CdPE5h6w17DXUMhYrbWIYWO2
+	 vTxUtqrlyQKxQjWWw301qn2CP2ZBuHC8Mw6V5/Xmou1/MxiizvixCYr7wHCJ6fkA2Qg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795039333;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795039335;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=1qf7uSDTfTPQk21efhm/tBhbA5RvbiTTxPmHSCVNVdY=;
-	b=RSNhS3NVHzybWc8GdY2iDyoD+hFx3JW+C2EjOPhcs1JVEa6Bzq7WGPfwA0QEmC/9fB5m
-	 RdOr+HUX2CznFayFbRQn+D53/sYcrMNIHlmJFIr8lU0QvbnMF6lLRQQ+1wBCKvUCEhKQP
-	 0aVHTGie4p4JcWf4XxTCmQql+/yETQ25rB69yW37QErxJ6eiO6rGH+lA1GVuerHrr1CuJ
-	 +o49btCQO5HyXvwEA1T5zHUgI7zjr3YJOXUKrcIrooBuNretEKBFyjToKpkTDrF03f5gf
-	 hmx9a+tCDbGAHaBtQrIlD1eZi/faLDWSl2cGvN+/0CDR8blfAIVz+v6iSzBP3Cv4SAQ==
+	bh=0XpQgPfzz91bC+Ytjlo7UbbBYusCW9hUg8wtpu39DmY=;
+	b=aUzYUNhH/QGch3AVFtAui2/qikxv8FdMSGoQcT8IBiw8CZPB3r0DFaUtUCoNrmGoKZB4
+	 2lnT3iuz8SejkR7gvAuboiQFBy/qah4/CunsgxjyZTlgX3OYvq0cU7r7iC4PwIO4mKiwV
+	 esrgCSV3PKtRRd33N8mY5jF6w2ljzID3NY2gXyQSwOqGwP6TSVa8FsMrOE5QTN/OD0sZa
+	 clnuAuLOi4gPSS/XAIFkWzrCvNrtaVKUUM+OYaypXH+Y4tF26KPljMpfF4IMuE3g7uO0c
+	 GwKtT//wqooS5CBWcrAfwP+6rPzikZI1AaN8AoiTGhf06o0ZgOphl2lIVJm1EWL4OJA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=hxHgjYM2;
-	arc=none smtp.remote-ip=91.218.175.133
-Received: from mta0.migadu.com (out-133.mta0.migadu.com [91.218.175.133])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="b+y/HyLK";
+	arc=none smtp.remote-ip=95.215.58.153
+Received: from mta1.migadu.com (out-153.mta1.migadu.com [95.215.58.153])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DFC060A260A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:02:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2DFC060A260A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9E7060A2621
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:02:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9E7060A2621
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=hxHgjYM2
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=b+y/HyLK
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=eU2UIWc/uDPlgdmNIZspsaWM4Vgx4y9vwFWYm84K9e4=;
+DKIM-Signature: a=rsa-sha256; bh=wPJFqCh3ssVP9dOgl/9TbS9is4kwh2hoieF8pl8/yRs=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795039331; v=1; x=1795644131;
- b=hxHgjYM2anoEq74CI9NwQcPpC6JjbuySHHxCHdrvnKt8whXC+LRgApCTd+8/Vc6L+z2zzkTO
- 1+qJ1dU/T2VRCYSfCn2jQi6m2N2qqUw73L2u1iwLoLWxw5BD4WY1KP6+AWxu8hnhkpq2hbL+Swq
- MOlBdYLYXEiBTWxwXVtliWi8=
+ t=1795039332; v=1; x=1795644132;
+ b=b+y/HyLKKhUGIdGGqYKrv1mzn/Cx+4N4SK93IZYmVjnmXkbGe9cQ6RCo4vYtCfWoehLoXS4f
+ tn/yZTT73kPlsd6g9n3wbkghlYSR7uNGwxznmTXceh+NoK5GfjPPbe4uMPmKYECcS+cVLrO6T+H
+ Qlc1fbPFrrK+a2bKioklXTPA=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id b8c0479c3466e940;
-	Wed, 18 Nov 2026 22:02:11 +0000
-X-Mizu-Trace-ID: b8c0479c3466e940
+Received: by smtp.migadu.com with ESMTPS id 9290b7ae36d3fbbe;
+	Wed, 18 Nov 2026 22:02:12 +0000
+X-Mizu-Trace-ID: 9290b7ae36d3fbbe
 X-Migadu-Flow: FLOW_OUT
 From: Shakeel Butt <shakeel.butt@linux.dev>
 To: Christian Brauner <brauner@kernel.org>
@@ -58,9 +58,9 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	linux-fsdevel@vger.kernel.org,
 	driver-core@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 4/6] kernfs: don't take kernfs_iattr_rwsem to publish KERNFS_REMOVING
-Date: Wed, 18 Nov 2026 14:01:51 -0800
-Message-ID: <20261118220154.2965621-5-shakeel.butt@linux.dev>
+Subject: [PATCH 5/6] kernfs: update a directory's times without kernfs_iattr_rwsem
+Date: Wed, 18 Nov 2026 14:01:52 -0800
+Message-ID: <20261118220154.2965621-6-shakeel.butt@linux.dev>
 X-Mailer: git-send-email 2.53.1
 In-Reply-To: <20261118220154.2965621-1-shakeel.butt@linux.dev>
 References: <20261118220154.2965621-1-shakeel.butt@linux.dev>
@@ -75,76 +75,243 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-__kernfs_remove() takes kernfs_iattr_rwsem for writing while it marks
-a subtree KERNFS_REMOVING, inside kernfs_rwsem.  Commit 507d8ce13f5b
-("kernfs: Don't set_nlink for directories being removed") added it so
-that a refresh would not set the i_nlink of a directory whose removal
-has started.  The refresh no longer sets i_nlink, so the lock is not
-needed.
+kernfs_add_one() and __kernfs_remove() update the parent's ctime and
+mtime under kernfs_iattr_rwsem for writing, inside kernfs_rwsem.  This
+is where cgroup mkdirs block on Meta fleet: the writer waits for every
+path walk's permission check while it holds kernfs_rwsem and
+cgroup_mutex.
 
-The flag is only set here, under kernfs_rwsem.  Inode setup reads it
-under kernfs_rwsem.  getattr reads it without and reports the old link
-count or 0, either of which is right for a stat() racing the removal.
+The lock keeps the times stable for getattr, now their only reader, and
+a timespec64 is too wide for a single store.  Give the three times a
+seqlock instead.  setattr takes it in addition to kernfs_iattr_rwsem,
+adding or removing an entry takes only the seqlock, and getattr retries
+if a write was in progress.  Adding or removing an entry reads the clock
+with the seqlock held, so updates store their times in the order they
+happen.  A racing stat() can see the new link count with the old times,
+or the reverse.
 
-Drop the lock, mark the store and the load, and read the flags once in
-kernfs_dir_nlink(), as the type bits share the word.
+A directory without iattrs still skips the update.  So that an update
+racing with setting up the iattrs is not lost, take the seqlock of new
+iattrs before publishing them and set their times after.  An update
+that found no iattrs ran before the times were set, and a writer that
+finds the new iattrs waits for them. mkdir no longer takes
+kernfs_iattr_rwsem for writing.
 
 kernfs_iattr_rwsem write acquisitions (lock_stat), before -> after:
 
-  5 dummy netdevs created and removed     1110 ->  740
-  100 cgroup mkdirs and 100 rmdirs        4500 -> 3000
+  5 dummy netdevs created and removed      740 ->  370
+  100 cgroup mkdirs and 100 rmdirs        3000 -> 1500
 
 Signed-off-by: Shakeel Butt <shakeel.butt@linux.dev>
 ---
- fs/kernfs/dir.c   | 10 ++++++----
- fs/kernfs/inode.c |  7 +++++--
- 2 files changed, 11 insertions(+), 6 deletions(-)
+ fs/kernfs/dir.c             | 26 ++----------
+ fs/kernfs/inode.c           | 85 ++++++++++++++++++++++++++++++-------
+ fs/kernfs/kernfs-internal.h |  2 +
+ 3 files changed, 75 insertions(+), 38 deletions(-)
 
 diff --git a/fs/kernfs/dir.c b/fs/kernfs/dir.c
-index ef23eac684c6..890aca5d8d70 100644
+index 890aca5d8d70..8686219b826f 100644
 --- a/fs/kernfs/dir.c
 +++ b/fs/kernfs/dir.c
-@@ -1604,15 +1604,17 @@ static void __kernfs_remove(struct kernfs_node *kn)
+@@ -825,7 +825,6 @@ struct kernfs_node *kernfs_find_and_get_node_by_id(struct kernfs_root *root,
+ int kernfs_add_one(struct kernfs_node *kn)
+ {
+ 	struct kernfs_root *root = kernfs_root(kn);
+-	struct kernfs_iattrs *ps_iattr;
+ 	struct kernfs_node *parent;
+ 	bool has_ns;
+ 	int ret;
+@@ -853,16 +852,7 @@ int kernfs_add_one(struct kernfs_node *kn)
+ 	if (ret)
+ 		goto out_unlock;
  
- 	pr_debug("kernfs %s: removing\n", kernfs_rcu_name(kn));
+-	/* Update timestamps on the parent */
+-	down_write(&root->kernfs_iattr_rwsem);
+-
+-	ps_iattr = parent->iattr;
+-	if (ps_iattr) {
+-		ktime_get_real_ts64(&ps_iattr->ia_ctime);
+-		ps_iattr->ia_mtime = ps_iattr->ia_ctime;
+-	}
+-
+-	up_write(&root->kernfs_iattr_rwsem);
++	kernfs_dir_update_times(parent);
  
--	/* prevent new usage by marking all nodes removing and deactivating */
--	down_write(&kernfs_root(kn)->kernfs_iattr_rwsem);
-+	/*
-+	 * Prevent new usage by marking all nodes removing and deactivating.
-+	 * KERNFS_REMOVING is only set here, under kernfs_rwsem.
-+	 * kernfs_dir_nlink() reads it without that lock.
-+	 */
- 	pos = NULL;
- 	while ((pos = kernfs_next_descendant_post(pos, kn))) {
--		pos->flags |= KERNFS_REMOVING;
-+		WRITE_ONCE(pos->flags, pos->flags | KERNFS_REMOVING);
- 		if (kernfs_active(pos))
- 			atomic_add(KN_DEACTIVATED_BIAS, &pos->active);
- 	}
--	up_write(&kernfs_root(kn)->kernfs_iattr_rwsem);
+ 	/*
+ 	 * Activate the new node unless CREATE_DEACTIVATED is requested.
+@@ -1635,20 +1625,12 @@ static void __kernfs_remove(struct kernfs_node *kn)
+ 		 * to decide who's responsible for cleanups.
+ 		 */
+ 		if (!parent || kernfs_unlink_sibling(pos)) {
+-			struct kernfs_iattrs *ps_iattr =
+-				parent ? parent->iattr : NULL;
+-
+ 			down_write(&kernfs_root(kn)->kernfs_iattr_rwsem);
+-
+ 			kernfs_clear_inode_nlink(pos);
+-
+-			/* update timestamps on the parent */
+-			if (ps_iattr) {
+-				ktime_get_real_ts64(&ps_iattr->ia_ctime);
+-				ps_iattr->ia_mtime = ps_iattr->ia_ctime;
+-			}
+-
+ 			up_write(&kernfs_root(kn)->kernfs_iattr_rwsem);
++
++			if (parent)
++				kernfs_dir_update_times(parent);
+ 			kernfs_put(pos);
+ 		}
  
- 	/* deactivate and unlink the subtree node-by-node */
- 	do {
 diff --git a/fs/kernfs/inode.c b/fs/kernfs/inode.c
-index 2f463c0354a5..ca234f69882b 100644
+index ca234f69882b..580095e0fad9 100644
 --- a/fs/kernfs/inode.c
 +++ b/fs/kernfs/inode.c
-@@ -165,9 +165,12 @@ static inline void set_inode_attr(struct inode *inode,
-  */
- static bool kernfs_dir_nlink(struct kernfs_node *kn, unsigned int *nlink)
- {
--	if (kernfs_type(kn) != KERNFS_DIR)
-+	/* KERNFS_REMOVING can be set concurrently; read the flags once. */
-+	unsigned short flags = READ_ONCE(kn->flags);
+@@ -24,6 +24,22 @@ static const struct inode_operations kernfs_iops = {
+ 	.listxattr	= kernfs_iop_listxattr,
+ };
+ 
++/* Copy the times of @attrs.  Writers hold ia_time_lock. */
++static void kernfs_iattrs_get_times(struct kernfs_iattrs *attrs,
++				    struct timespec64 *atime,
++				    struct timespec64 *mtime,
++				    struct timespec64 *ctime)
++{
++	unsigned int seq;
 +
-+	if ((flags & KERNFS_TYPE_MASK) != KERNFS_DIR)
- 		return false;
--	*nlink = (kn->flags & KERNFS_REMOVING) ? 0 :
-+	*nlink = (flags & KERNFS_REMOVING) ? 0 :
- 		 READ_ONCE(kn->dir.subdirs) + 2;
- 	return true;
++	do {
++		seq = read_seqbegin(&attrs->ia_time_lock);
++		*atime = attrs->ia_atime;
++		*mtime = attrs->ia_mtime;
++		*ctime = attrs->ia_ctime;
++	} while (read_seqretry(&attrs->ia_time_lock, seq));
++}
++
+ static struct kernfs_iattrs *__kernfs_iattrs(struct kernfs_node *kn, bool alloc)
+ {
+ 	struct kernfs_iattrs *ret __free(kfree) = NULL;
+@@ -41,16 +57,28 @@ static struct kernfs_iattrs *__kernfs_iattrs(struct kernfs_node *kn, bool alloc)
+ 	/* assign default attributes */
+ 	ret->ia_uid = GLOBAL_ROOT_UID;
+ 	ret->ia_gid = GLOBAL_ROOT_GID;
+-
+-	ktime_get_real_ts64(&ret->ia_atime);
+-	ret->ia_mtime = ret->ia_atime;
+-	ret->ia_ctime = ret->ia_atime;
++	seqlock_init(&ret->ia_time_lock);
+ 
+ 	simple_xattr_limits_init(&ret->xattr_limits);
+ 
++	/*
++	 * Publish with ia_time_lock held and set the times after.  An entry
++	 * added or removed while @kn had no iattrs is then covered, and a
++	 * writer that finds the new iattrs waits instead of being
++	 * overwritten.
++	 */
++	write_seqlock(&ret->ia_time_lock);
++
+ 	/* If someone raced us, recognize it. */
+-	if (!try_cmpxchg(&kn->iattr, &attr, ret))
++	if (!try_cmpxchg(&kn->iattr, &attr, ret)) {
++		write_sequnlock(&ret->ia_time_lock);
+ 		return READ_ONCE(kn->iattr);
++	}
++
++	ktime_get_real_ts64(&ret->ia_atime);
++	ret->ia_mtime = ret->ia_atime;
++	ret->ia_ctime = ret->ia_atime;
++	write_sequnlock(&ret->ia_time_lock);
+ 
+ 	return no_free_ptr(ret);
  }
+@@ -78,12 +106,16 @@ int __kernfs_setattr(struct kernfs_node *kn, const struct iattr *iattr)
+ 		attrs->ia_uid = iattr->ia_uid;
+ 	if (ia_valid & ATTR_GID)
+ 		attrs->ia_gid = iattr->ia_gid;
+-	if (ia_valid & ATTR_ATIME)
+-		attrs->ia_atime = iattr->ia_atime;
+-	if (ia_valid & ATTR_MTIME)
+-		attrs->ia_mtime = iattr->ia_mtime;
+-	if (ia_valid & ATTR_CTIME)
+-		attrs->ia_ctime = iattr->ia_ctime;
++	if (ia_valid & (ATTR_ATIME | ATTR_MTIME | ATTR_CTIME)) {
++		write_seqlock(&attrs->ia_time_lock);
++		if (ia_valid & ATTR_ATIME)
++			attrs->ia_atime = iattr->ia_atime;
++		if (ia_valid & ATTR_MTIME)
++			attrs->ia_mtime = iattr->ia_mtime;
++		if (ia_valid & ATTR_CTIME)
++			attrs->ia_ctime = iattr->ia_ctime;
++		write_sequnlock(&attrs->ia_time_lock);
++	}
+ 	if (ia_valid & ATTR_MODE)
+ 		kn->mode = iattr->ia_mode;
+ 	return 0;
+@@ -159,6 +191,29 @@ static inline void set_inode_attr(struct inode *inode,
+ 	inode->i_gid = attrs->ia_gid;
+ }
+ 
++/**
++ * kernfs_dir_update_times - set a directory's ctime and mtime to now
++ * @kn: the directory, kept alive by the caller
++ *
++ * Call after adding or removing an entry, with kernfs_rwsem held for
++ * writing.  Does nothing if @kn has no iattrs yet.
++ */
++void kernfs_dir_update_times(struct kernfs_node *kn)
++{
++	struct kernfs_iattrs *attrs = kernfs_iattrs_noalloc(kn);
++
++	lockdep_assert_held_write(&kernfs_root(kn)->kernfs_rwsem);
++
++	if (!attrs)
++		return;
++
++	/* Read the clock under the lock, so updates store times in order. */
++	write_seqlock(&attrs->ia_time_lock);
++	ktime_get_real_ts64(&attrs->ia_ctime);
++	attrs->ia_mtime = attrs->ia_ctime;
++	write_sequnlock(&attrs->ia_time_lock);
++}
++
+ /*
+  * Get a directory's link count: its subdirectories plus two, or 0 once
+  * its removal has started.  Return false for other nodes.
+@@ -208,11 +263,9 @@ int kernfs_iop_getattr(const struct mnt_idmap *idmap,
+ 	 * Report them from the node.
+ 	 */
+ 	attrs = kernfs_iattrs_noalloc(kn);
+-	if (attrs) {
+-		stat->atime = attrs->ia_atime;
+-		stat->mtime = attrs->ia_mtime;
+-		stat->ctime = attrs->ia_ctime;
+-	}
++	if (attrs)
++		kernfs_iattrs_get_times(attrs, &stat->atime, &stat->mtime,
++					&stat->ctime);
+ 	if (kernfs_dir_nlink(kn, &nlink))
+ 		stat->nlink = nlink;
+ 	up_read(&root->kernfs_iattr_rwsem);
+diff --git a/fs/kernfs/kernfs-internal.h b/fs/kernfs/kernfs-internal.h
+index 2e364b626c1e..9bba1fc8acfd 100644
+--- a/fs/kernfs/kernfs-internal.h
++++ b/fs/kernfs/kernfs-internal.h
+@@ -25,6 +25,7 @@ struct kernfs_iattrs {
+ 	struct timespec64	ia_atime;
+ 	struct timespec64	ia_mtime;
+ 	struct timespec64	ia_ctime;
++	seqlock_t		ia_time_lock;	/* protects the times above */
+ 
+ 	struct list_head	xattrs;
+ 	struct simple_xattr_limits xattr_limits;
+@@ -188,6 +189,7 @@ int kernfs_iop_getattr(const struct mnt_idmap *idmap,
+ 		       u32 request_mask, unsigned int query_flags);
+ ssize_t kernfs_iop_listxattr(struct dentry *dentry, char *buf, size_t size);
+ int __kernfs_setattr(struct kernfs_node *kn, const struct iattr *iattr);
++void kernfs_dir_update_times(struct kernfs_node *kn);
+ 
+ /*
+  * dir.c
 -- 
 2.53.1-Meta
 
