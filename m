@@ -1,65 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=83.166.143.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.146
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795021916;
-	b=1PCoJ2KUg6shSYmt1JJ84vABlJaUHoDeXjHJdjDqIQZd1MC1SssmUItN0swJMcCGh6eA
-	 MmTOwsjiMqDKnDvfUDLGk605VhbufA7A5z8tLi2U9NGWDAat/kIBKVLwW0J/CqPg6TecD
-	 tRoQVpNy9UZYDrr+UW7p2jU7Y/7zU6Z1SSyKM98MQl+8MB6Xuc23R0ekYGa66wS/TQ6gg
-	 iIPanv4GDgpBP/YcZ1S9NtDj1Tr6mo+oxNJBrkh9bfReHnRJPh+Q+fZ8Y2hevbWrFcJMu
-	 b8GwwG60fg/o3fXOthq47mpjvmZNcC7/prSkhzZdLcpRqIRE5k2nvYlWjQ2/id+PpBg==
+	t=1795021957;
+	b=Q77jiVfGwY0jV9459tafVBoUTBaGVNxMXekHiVLCSz49mXVAmnYG2tClRFa3zYWr4R9E
+	 3PS3m9vhBCSu5QknNE3gWn7rEwyFnNcrbRxbW5B3rfRQ+2xGOZbMb9endxNM7AcM3ed3C
+	 nauwEIrVPKJ1j5eaJisWaKMjfUuc+cMYCX68eJGm5Oo3LPP3YzHy4Mya9yHU3Pow8etA5
+	 d+7pMyBqG7oopIl7seFIpWK/5h/4gNQZpcM/mkd5WkAcSzcaPGjHxZ91FjBu5ZNCWbD+i
+	 MhutiP1VPr3xD4sPRNGaYDCx3USxwFL6FopxUCQixlnTu1Jt5l0OUxS1K6yRM+Ul9MQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795021916;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
-	 X-Infomaniak-Routing;
-	bh=XxW92djECJRuYZFdZuU9F5ByEp0SJlJUFMuiB6GV5zQ=;
-	b=U9IY00qhkhG6TkCub+Oyc9498SumuNWuY6xzJ695D237ieJu3jOukhjZFyo3qOQS0x/Y
-	 SVQBx5cdC/uIav2FunMw2lQ56FyqwujdmjAafjoLB5/It0DGaV+oRgGNdROMroXhGQqXR
-	 j11MbqR5zjYLsFtcwib7B/gMb4V7+pDoI0JkG+wfBoGsWy30xLw74Uim/hYioXaJ/K05Q
-	 QBZnUkl33Jz1aaXBdS7pIjfnfM31ui+UMqAm6uQoxtGoXbMNS+667M8dvJNEeRb3WbRXu
-	 LV/QuPY56yFr+GaHhrexw9YlOC9JOk4FfS6yziluw2pHZnsN09smjEqBKSmheLzSxfA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795021957;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=2LHhB3YdVOtFDH2OYkTj4jFKvnyNs9u2Zn5BtRaQPXw=;
+	b=5LVZvbrTePqR3fLFcD0VJo2hyaO+3qHlEF5HMaa08BYKSHxmwJZ5lMQPhlqvX6YU6B0C
+	 XiuSh1iSO17cR0h1CgDGcCjC5AGDxH2EHquwwUoZPBGIUKggfBp6XHPkJBNUUZOjUAHnB
+	 pMb+woHRxZAeJLE61YDifpOj6I+5dPrL/NecyvqU/ETnHKNccQiE7RbYb6UG46GQUxpJ9
+	 Ic7icRVfhybz5+13S8cgzOFFLZNW/lZE47yGuVzWhyU9xwtyshypu2L67LQuCIk54GYlh
+	 xjYcGX21MHnz3jIhhOZwkdWmmgC3MskJsgajo2FOh08VebRZYwYxZQSbA7KGGOeKo1w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=digikod.net;
-	spf=pass smtp.mailfrom=digikod.net;
-	dkim=pass header.d=digikod.net header.i=@digikod.net header.a=rsa-sha256 header.s=20191114 header.b="QoL/G7sH";
-	arc=none smtp.remote-ip=83.166.143.175
-Received: from smtp-8faf.mail.infomaniak.ch (smtp-8faf.mail.infomaniak.ch [83.166.143.175])
+	dmarc=pass header.from=pobox.com;
+	spf=pass smtp.mailfrom=pobox.com;
+	dkim=pass header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=hbw+p5j8;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b="0DTRnGK/";
+	arc=none smtp.remote-ip=202.12.124.146
+Received: from fout-b3-smtp.messagingengine.com (fout-b3-smtp.messagingengine.com [202.12.124.146])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 859F5606A339
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:11:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 859F5606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=digikod.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=digikod.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F9A0606A32C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:12:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F9A0606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=pobox.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pobox.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=digikod.net header.i=@digikod.net header.a=rsa-sha256 header.s=20191114 header.b=QoL/G7sH
-Received: from smtp-4-0001 (smtp-4-0001.mail.infomaniak.ch [10.7.10.108])
-	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4jV7S84FsDzqCH;
-	Wed, 18 Nov 2026 18:11:52 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=digikod.net;
-	s=20191114; t=1795021912;
-	bh=XxW92djECJRuYZFdZuU9F5ByEp0SJlJUFMuiB6GV5zQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QoL/G7sHuGKwbDd7pYE1Uw2WsvsMAhMNn9ccBrBedSpUkJAAiHLpfOmSWvp3bJS6s
-	 CcfdNDyB3M+Oc+vekYtmDpb87LzE0ZL1IoQsA6QZXTnq9Vis2XfrUQOsB4eqMPQMQJ
-	 N9X95m0isCV3nJYrl1RoTBRSgI6OXrIEhadLxADk=
-Received: from unknown by smtp-4-0001 (Postfix) with ESMTPA id 4jV7S71Q1nz8hp;
-	Wed, 18 Nov 2026 18:11:51 +0100 (CET)
-Date: Wed, 18 Nov 2026 18:11:50 +0100
-From: =?utf-8?Q?Micka=C3=ABl_Sala=C3=BCn?= <mic@digikod.net>
-To: =?utf-8?Q?G=C3=BCnther?= Noack <gnoack@google.com>
-Cc: Ada Smith <adasmithgt@gmail.com>, Hungyu Lin <dennylin0707@gmail.com>, 
-	James Morris <jmorris@namei.org>, Josef Bacik <josef@toxicpanda.com>, 
-	Paul Moore <paul@paul-moore.com>, Serge Hallyn <serge@hallyn.com>, 
-	Serge Hallyn <sergeh@kernel.org>, kernel-team@cloudflare.com, linux-kernel@vger.kernel.org, 
-	linux-security-module@vger.kernel.org
-Subject: Re: [PATCH v2 5/6] selftests/landlock: Test capability checks
- outside the capable hook
-Message-ID: <20261118.eekieJebo8Ee@digikod.net>
-References: <20261117101157.2520463-1-mic@digikod.net>
- <20261117101157.2520463-6-mic@digikod.net>
- <avx8yncGLuzDFVEa@google.com>
+	dkim=pass (2048-bit key, unprotected) header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=hbw+p5j8;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=0DTRnGK/
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.stl.internal (Postfix) with ESMTP id B17CE1D0006A
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:12:36 -0500 (EST)
+Received: from phl-frontend-01 ([10.202.2.160])
+  by phl-compute-04.internal (MEProxy); Wed, 18 Nov 2026 12:12:36 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pobox.com; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795021955;
+	 x=1795108355; bh=2LHhB3YdVOtFDH2OYkTj4jFKvnyNs9u2Zn5BtRaQPXw=; b=
+	hbw+p5j8uCniXzTwZBVwHLm2nI0Nx3j908hlxx7CgbBltSRyoXEVUvQs1r3e4xQY
+	0Xh80JbvT0KN52ocCNz5ZFozGCvQ2ure3JvmFIDcHfXRqZ96M00txTC94N8UMjvJ
+	dlBzkNQ0vc4vpPPUvcxuNBsVeiENlltFIbgQI4gUbvYJUVapI+RU5VY692lF/2qa
+	Stkp27advSaUGCQ2nHIVYEZ2lTMoAkr4x6YFIMl2ugnVJmbcDmlx0q1X2oVKC2bM
+	iBJOse3iq3lk8+9b/a3LTHgG9qMUGxc3AD4KevQFJuKTjzzJVb0qh/LkUnD0MpQS
+	VZSt9gBUtibfgrvjysOalA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795021955; x=
+	1795108355; bh=2LHhB3YdVOtFDH2OYkTj4jFKvnyNs9u2Zn5BtRaQPXw=; b=0
+	DTRnGK/OwPNsgkF1r8OPQzJAVcljzU35VG7sK3pue5rS1Tip2f4TPLPTq4Wm+7+t
+	0S2UACK4+rflq70WFO5nfJGYnW/I0Bm4hhK61Yo28eLZDTNk5GefhGIrR4Ne6SS3
+	gLFE66w9DuQEmsnq9jontMYJuEiR6a5t7jbrrSeuIJ1EZl6gMLBh2VOiuTtzYrwy
+	KqVYbzfcVy18Jg7u7YugDiAIfRA0CDn2uCt4kpKhU8aRfh0wuxGlyywDBf03Om41
+	tbTv7qSIu6Ub/4d6TeErGOQ0qI1Y+xCmq6h2OTDTGFIRZKJ2nzbPjlAnhZdx6uEF
+	RJv9KYo1uJhwfZJfKDsSw==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=pobox.com a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795021955; d=pobox.com;
+	mf=PGJhcnJ5bkBwb2JveC5jb20+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:gICn6w/SOrJb+RiejsMBWbw4H9iGIJS/N++dbBkhICnSoW0
+	KSf0AzGaZtIW9l8t0w5AkIVf+qPF5GQ82goDdnV02+eDKJ6vuNKf5Dp42X57xyZx
+	8zC48i68bDSJ+cBYXi8NiGZMBPzkECJpqsNsnL73+ynv1gPkLaPLH7mprjD5j6Lw
+	ws/Ui+TAynm+d82VefPnJUYru28IeAWIouOwOh1QglK8Oqz1ccGjUXb0nRM+pJnf
+	Onv0Ff3JLE4RguRPks0/8w9WVL/eGkOD+PvaNJaGhfzRYFzidedCn+nB1lj5geTB
+	XL8K28zPW9XUzQDSmucFu9q25DFc2JnBSfIYYyA==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=14;
+	hn=cc,content-language,content-transfer-encoding,content-type,
+	date,feedback-id,from,in-reply-to,message-id,mime-version,
+	references,subject,to,user-agent;
+Message-Instance: m=1; h=sha256:baCs5u2x65MfB7EuP2LxxlHAVxlhMq0mQqUYADxt0Sw=:VhFRhgQhRFmNlSPVrsFgF5qRgZiDuZnoxFcsI51cxKI=;
+X-ME-Sender: <xms:gtz9ape6alkAv0DaisfCFR6AeKwA0N81jPihld0N1x3V8BICIIG6cg>
+    <xme:gtz9annQV7WAyKTN_3zXJrBoQw3SQ0V01fevgdOZjgFsfiaNAucj80WaDBxLunAQL
+    E-1V5MlDJx8oqo3JtzP1dhVYfzRklkIXh2g1CkLhsvSz3B3eB7opLU->
+X-ME-Received: <xmr:gtz9ajqH9rc3gIwZEWN9anl4kEMX_r2Tsflj84SbuuVYRfkT-Bb-GkCigOH9Ne0PPMJaOguFR5b4M46noTHTge2uSsemspCM>
+X-ME-Proxy-Cause: dmFkZTGGAnJBO+n1vOUtbyLvPCGeQXC4RB28NGw5muzoaRusgTBjyZ0YQav5jEh7CSeIin
+    ulZymGKGEkajcg6inrObbG5Ky/hGLALnxkjc6GTaRKPyIcXGltDk0c22Wjj9IbeL9AtzJO
+    mKJh9GpXEHAljhm7yg3vM4qW/w2vMVd39uk7BEE/o54Ql5Y+yBOrftHs+w9OM952t0ay+Q
+    bEK/YVxL1l7YwZ6bDklsmGOOCbjPtfJH2zRfEfedSgdeU2/mD05nkIWMfodbtr5iYpMsK3
+    v0TpnZydX9U1Oows+EfyuB9YkV+Vf0HresacICshOJ9hikt8dnyjV6kXjxsCI/MY/va0sa
+    /cB8Wv5BwJkx4e9Uwi6qPIIC4g+CqREVmEqDLS3tmzAo7gg2EokFFgMrL0kmstJ0r/jr65
+    hRjhK+Xy9e20NhezUC6pTB931MivQdOwN/v12vz8BOj9iyy3Gb0i1XhT/jljta5Wm1p9OR
+    GKqXgZnCHrKEEtHzc8I+E38vtLOkL01TdFQiyhBdOy0oFpXaJSpYlDJiiqN56aGuTd4r3k
+    S/GeMTY8iK/V/r8TqDOQXepdWtpu37ESxniHbD2FsaO3/QUNQdr55CrrwTNBmv5kNgc3UL
+    8WXw1yXuFBD+S22lTQTmvfKxIzg8lighJ4xk/1xJrx4ubpJLY5JkpQwt9zzg
+X-ME-Proxy: <xmx:gtz9au9gv2TjEEVxVKby3xf8uMz36AQtczBwLEiELV0VBAAXp6MC6Q>
+    <xmx:gtz9ak0EFhDUVKx-ed_ykr9VreWEwcVABGUL3WbuXTr_7S9EV6oxaA>
+    <xmx:gtz9apmq9Ai9aGwaL4I-nnP_tfpOZMvmwL3-utY-EoLmAalVDyICQg>
+    <xmx:gtz9ap22o9oFI9jtaX-19eJoaJWx552DIOjvICmEmvadrGABcwSeFA>
+    <xmx:g9z9anGju1KyJ5ml_rh1CBUkKBQaKNp2QV6b-D2GiGGDSNnGDbvK15SG>
+Feedback-ID: i6289494f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 18 Nov 2026 12:12:32 -0500 (EST)
+Message-ID: <e394ffc5-c69c-4aae-a974-d5e7a0461335@pobox.com>
+Date: Wed, 18 Nov 2026 09:12:31 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,499 +119,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <avx8yncGLuzDFVEa@google.com>
-X-Infomaniak-Routing: alpha
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5.10 0000/1848] 5.10.275-rc1 review
+To: Brett A C Sheffield <bacs@librecast.net>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: stable@vger.kernel.org, patches@lists.linux.dev,
+ linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
+ akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
+ patches@kernelci.org, lkft-triage@lists.linaro.org, pavel@nabladev.com,
+ jonathanh@nvidia.com, f.fainelli@gmail.com, sudipm.mukherjee@gmail.com,
+ rwarsow@gmx.de, conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
+ achill@achill.org, sr@sladewatkins.com
+References: <20261118145911.150052362@linuxfoundation.org>
+ <av3U6pDFzRL3k0m3@karahi.librecast.net>
+Content-Language: en-US
+From: "Barry K. Nathan" <barryn@pobox.com>
+In-Reply-To: <av3U6pDFzRL3k0m3@karahi.librecast.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-v3 should address your review.
+On 11/18/26 8:40 AM, Brett A C Sheffield wrote:
+> On 2026-11-18 15:33, Greg Kroah-Hartman wrote:
+>> This is the start of the stable review cycle for the 5.10.275 release.
+>> There are 1848 patches in this series, all will be posted as a response
+>> to this one.  If anyone has any issues with these being applied, please
+>> let me know.
+>>
+>> Responses should be made by Fri, 20 Nov 2026 14:55:32 +0000.
+>> Anything received after that time might be too late.
+>>
+>> The whole patch series can be found in one patch at:
+>> 	https://www.kernel.org/pub/linux/kernel/v5.x/stable-review/patch-5.10.275-rc1.gz
+>> or in the git tree and branch at:
+>> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-5.10.y
+>> and the diffstat can be found below.
+> 
+> Build failure on amd64 with amdgpu.
+> 
+> git bisect start
+> # status: waiting for both 'good' and 'bad' commits
+> # bad: [12d2575b30ab6dd7d0f61ef33860d08836347cbb] Linux 5.10.275-rc1
+> git bisect bad 12d2575b30ab6dd7d0f61ef33860d08836347cbb
+> # status: waiting for 'good' commit(s), 'bad' commit known
+> # good: [3a323bc22b881a5bdc1646080f93f5ecb22850bf] Linux 5.10.274
+> git bisect good 3a323bc22b881a5bdc1646080f93f5ecb22850bf
+> # good: [48be8a7d04b11bd8a2d641bfb8965ee037cab57b] xen/gntdev: Fix gntdev_dmabuf ref leak in dmabuf_exp_wait_released()
+> git bisect good 48be8a7d04b11bd8a2d641bfb8965ee037cab57b
+> # good: [7edc53e830e18e313c808faa4bc5d2e14d90aa34] iio: dac: ad5758: Fix the offset calculation
+> git bisect good 7edc53e830e18e313c808faa4bc5d2e14d90aa34
+> # good: [533ee956be520b32f60844a83d6b030ae2586849] sh: sh7785lcr: Register the PCA9564 controller as I2C bus 0
+> git bisect good 533ee956be520b32f60844a83d6b030ae2586849
+> # bad: [6c4061694ecb407f5d67421f35e7f550f98805df] ASoC: cs42l56: Remove the ADC Mute Switch control
+> git bisect bad 6c4061694ecb407f5d67421f35e7f550f98805df
+> # good: [5ed2a3e2073ef449d3f0c6d052dbfa8a55c2ff73] ASoC: soc-component: Fix return type of snd_soc_pcm_component_pointer()
+> git bisect good 5ed2a3e2073ef449d3f0c6d052dbfa8a55c2ff73
+> # bad: [a356793651fdb50e5b5bc0558357d578b8d405d3] selftests: netfilter: fix return value in zone subtest
+> git bisect bad a356793651fdb50e5b5bc0558357d578b8d405d3
+> # good: [e9e79589baa60f79c75823422974ef46fd619613] ARC: Strip libgcc debug information when generating BTF
+> git bisect good e9e79589baa60f79c75823422974ef46fd619613
+> # bad: [4428e62a30507763e58fb1bb017f273ec98457d5] bpf: Validate the SRH which End.DT6 uncovers in End.BPF
+> git bisect bad 4428e62a30507763e58fb1bb017f273ec98457d5
+> # good: [d0c3b85950d12e1808644f31f10a95461f254df0] ASoC: codecs: sta350: Fix definition of Ch2 and Ch3 Volume Bypass controls
+> git bisect good d0c3b85950d12e1808644f31f10a95461f254df0
+> # good: [1de066662fa2ef918a350698c90f873e803e61eb] gre: keep the UDP tunnel GSO type when completing GRO
+> git bisect good 1de066662fa2ef918a350698c90f873e803e61eb
+> # good: [51a5555c99ede3eed53b2999a4ab3245cf4a2e49] bpf: Fix verifier WARN on narrow read of bpf_tcp_sock u64 fields
+> git bisect good 51a5555c99ede3eed53b2999a4ab3245cf4a2e49
+> # first 'bad' commit: [4428e62a30507763e58fb1bb017f273ec98457d5] bpf: Validate the SRH which End.DT6 uncovers in End.BPF
+> 
+> Reverting 4428e62a30507763e58fb1bb017f273ec98457d5 fixes the build.
 
-On Tue, Nov 17, 2026 at 05:11:54PM +0100, Günther Noack wrote:
-> On Tue, Nov 17, 2026 at 11:11:55AM +0100, Mickaël Salaün wrote:
-> > Test the capability checks that commoncap makes from LSM hooks other
-> > than capable and that the previous commits make Landlock restrict:
-> > mapping below vm.mmap_min_addr (CAP_SYS_RAWIO) and adding inheritable
-> > capabilities outside of the permitted set (CAP_SETPCAP).
-> > 
-> > Each test first checks that the operation fails without the capability,
-> > so that it exercises the capability check, and then checks it with the
-> > capability effective in four variants: unsandboxed, in a domain that
-> > denies the capability, in a domain that allows it, and in a domain that
-> > does not handle capabilities.  The mmap_addr tests map the last page
-> > below vm.mmap_min_addr, and skip if the architecture rejects it before
-> > the mmap_addr hook (e.g. 32-bit ARM).
-> > 
-> > Audit tests check that these denials are logged, that the admin reserve
-> > check is not, and that allowed uses log nothing.  The admin reserve
-> > check has no functional test: it only has an effect with
-> > vm.overcommit_memory=2, a system-wide setting that a test cannot change
-> > without racing with other processes.
-> > 
-> > Add CAP_SETPCAP and CAP_SYS_RAWIO to the capabilities that the tests may
-> > raise, and drop the stale count from the comment of this list.
-> > 
-> > Without the mmap_addr and capset fixes, their denied variants and the
-> > denial audit test fail.
-> > 
-> > Cc: Günther Noack <gnoack@google.com>
-> > Cc: Paul Moore <paul@paul-moore.com>
-> > Cc: Serge Hallyn <serge@hallyn.com>
-> > Acked-by: Serge Hallyn (AMD) <sergeh@kernel.org>
-> > Signed-off-by: Mickaël Salaün <mic@digikod.net>
-> > ---
-> > 
-> > Changes since v1:
-> > https://patch.msgid.link/20261110202436.2408244-6-mic@digikod.net
-> > - Replace the admin reserve test, which changed system-wide overcommit
-> >   settings and was racy (e.g. with swap, as reported by Sashiko), with a
-> >   comment.
-> > - Map the last page below vm.mmap_min_addr instead of page 0, and skip
-> >   when the architecture rejects it, e.g. on 32-bit ARM (reported by
-> >   Sashiko).
-> > - Mention CAP_SETPCAP in the commit message (reported by Sashiko).
-> > - Add Serge Hallyn's Acked-by.
-> > ---
-> >  tools/testing/selftests/landlock/cap_test.c | 336 ++++++++++++++++++++
-> >  tools/testing/selftests/landlock/common.h   |   4 +-
-> >  2 files changed, 339 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/tools/testing/selftests/landlock/cap_test.c b/tools/testing/selftests/landlock/cap_test.c
-> > index 3d7fd02e21ed..39ef57a49dc9 100644
-> > --- a/tools/testing/selftests/landlock/cap_test.c
-> > +++ b/tools/testing/selftests/landlock/cap_test.c
-> > @@ -12,7 +12,9 @@
-> >  #include <linux/landlock.h>
-> >  #include <sched.h>
-> >  #include <stdio.h>
-> > +#include <stdlib.h>
-> >  #include <string.h>
-> > +#include <sys/mman.h>
-> >  #include <sys/mount.h>
-> >  #include <sys/wait.h>
-> >  #include <sys/xattr.h>
-> > @@ -738,6 +740,251 @@ TEST(cap_target_userns_independent)
-> >  	EXPECT_EQ(0, close(target_userns_fd));
-> >  }
-> >  
-> > +/*
-> > + * Capability checks that commoncap makes from hooks other than the capable
-> > + * hook.  Each test first checks that the operation needs the capability, then
-> > + * checks it with the capability effective.  Variants cover an unsandboxed
-> > + * baseline, a domain that denies the capability, a domain that allows it, and a
-> > + * domain that does not handle capabilities.
-> > + */
-> > +/* clang-format off */
-> > +FIXTURE(cap_other_hooks) {};
-> > +/* clang-format on */
-> > +
-> > +FIXTURE_VARIANT(cap_other_hooks)
-> > +{
-> > +	const bool is_sandboxed;
-> > +	const bool handle_caps;
-> > +	const bool is_allowed;
-> > +};
-> > +
-> > +/* clang-format off */
-> > +FIXTURE_VARIANT_ADD(cap_other_hooks, unsandboxed) {
-> > +	.is_sandboxed = false,
-> > +	.handle_caps = false,
-> > +	.is_allowed = true,
-> > +};
-> > +/* clang-format on */
-> > +
-> > +/* clang-format off */
-> > +FIXTURE_VARIANT_ADD(cap_other_hooks, denied) {
-> > +	.is_sandboxed = true,
-> > +	.handle_caps = true,
-> > +	.is_allowed = false,
-> > +};
-> > +/* clang-format on */
-> > +
-> > +/* clang-format off */
-> > +FIXTURE_VARIANT_ADD(cap_other_hooks, allowed) {
-> > +	.is_sandboxed = true,
-> > +	.handle_caps = true,
-> > +	.is_allowed = true,
-> > +};
-> > +/* clang-format on */
-> > +
-> > +/* clang-format off */
-> > +FIXTURE_VARIANT_ADD(cap_other_hooks, unhandled) {
-> > +	.is_sandboxed = true,
-> > +	.handle_caps = false,
-> > +	.is_allowed = true,
-> > +};
-> > +/* clang-format on */
-> > +
-> > +FIXTURE_SETUP(cap_other_hooks)
-> > +{
-> > +	disable_caps(_metadata);
-> > +}
-> > +
-> > +FIXTURE_TEARDOWN(cap_other_hooks)
-> > +{
-> > +}
-> > +
-> > +/*
-> > + * Creates a ruleset that handles capabilities and allows @cap if @is_allowed,
-> > + * or, if !@handle_caps, a ruleset that only handles a filesystem access right.
-> > + * Returns the ruleset FD, or -1 with errno set.
-> > + */
-> > +static int create_variant_ruleset(const bool handle_caps, const bool is_allowed,
-> > +				  const int cap)
-> 
-> Nit: Maybe rename "is_allowed" to "allow_caps", so that it's a bit
-> clearer that this only makes sense in the case where caps are also
-> handled.  Or maybe just guard it on "cap" being non-zero, and rename
-> that appropriately?
+I'm also having this build failure. It's the same one I had when
+testing the stable-queue yesterday, before 5.10.275-rc1:
 
-
-
-> 
-> > +{
-> > +	const struct landlock_ruleset_attr fs_attr = {
-> > +		.handled_access_fs = LANDLOCK_ACCESS_FS_READ_FILE,
-> > +	};
-> > +	int ruleset_fd, err;
-> > +
-> > +	if (!handle_caps)
-> > +		return landlock_create_ruleset(&fs_attr, sizeof(fs_attr), 0);
-> > +
-> > +	ruleset_fd = create_cap_ruleset();
-> > +	if (ruleset_fd < 0 || !is_allowed)
-> > +		return ruleset_fd;
-> > +
-> > +	if (add_cap_rule(ruleset_fd, cap)) {
-> > +		err = errno;
-> > +		close(ruleset_fd);
-> > +		errno = err;
-> > +		return -1;
-> > +	}
-> > +	return ruleset_fd;
-> > +}
-> > +
-> > +static void
-> > +enforce_cap_variant(struct __test_metadata *const _metadata,
-> > +		    const FIXTURE_VARIANT(cap_other_hooks) *const variant,
-> > +		    const int cap)
-> > +{
-> > +	int ruleset_fd;
-> > +
-> > +	if (!variant->is_sandboxed)
-> > +		return;
-> > +
-> > +	ruleset_fd = create_variant_ruleset(variant->handle_caps,
-> > +					    variant->is_allowed, cap);
-> > +	ASSERT_LE(0, ruleset_fd);
-> > +	enforce_ruleset(_metadata, ruleset_fd);
-> > +	EXPECT_EQ(0, close(ruleset_fd));
-> > +}
-> > +
-> > +static unsigned long read_sysctl(struct __test_metadata *const _metadata,
-> > +				 const char *const path)
-> > +{
-> > +	char buf[32];
-> > +	ssize_t len;
-> > +	int fd;
-> > +
-> > +	fd = open(path, O_RDONLY | O_CLOEXEC);
-> > +	ASSERT_LE(0, fd)
-> > +	{
-> > +		TH_LOG("Failed to open %s: %s", path, strerror(errno));
-> > +	}
-> > +	len = read(fd, buf, sizeof(buf) - 1);
-> > +	ASSERT_LT(0, len);
-> > +	EXPECT_EQ(0, close(fd));
-> > +
-> > +	buf[len] = '\0';
-> > +	return strtoul(buf, NULL, 10);
-> > +}
-> > +
-> > +/*
-> > + * Returns the last page below the vm.mmap_min_addr sysctl, or MAP_FAILED if
-> > + * there is none or if the architecture rejects it before the mmap_addr hook
-> > + * (e.g. below FIRST_USER_ADDRESS on 32-bit ARM).  The caller must not have
-> > + * CAP_SYS_RAWIO in its effective set.
-> > + */
-> > +static void *get_low_page(struct __test_metadata *const _metadata)
-> > +{
-> > +	const size_t page_size = sysconf(_SC_PAGESIZE);
-> > +	unsigned long min_addr;
-> > +	void *addr, *ret;
-> > +
-> > +	min_addr = read_sysctl(_metadata, "/proc/sys/vm/mmap_min_addr");
-> > +	if (!min_addr)
-> > +		return MAP_FAILED;
-> > +
-> > +	addr = (void *)((min_addr - 1) & ~(page_size - 1));
-> > +	ret = mmap(addr, page_size, PROT_READ,
-> > +		   MAP_PRIVATE | MAP_ANONYMOUS | MAP_FIXED, -1, 0);
-> > +	ASSERT_EQ(MAP_FAILED, ret);
-> > +	if (errno == EINVAL)
-> > +		return MAP_FAILED;
-> > +
-> > +	ASSERT_EQ(EPERM, errno);
-> > +	return addr;
-> > +}
-> > +
-> > +/*
-> > + * cap_mmap_addr() requires CAP_SYS_RAWIO to map below the vm.mmap_min_addr
-> > + * sysctl (dac_mmap_min_addr).
-> > + */
-> > +TEST_F(cap_other_hooks, mmap_min_addr)
-> > +{
-> > +	const size_t page_size = sysconf(_SC_PAGESIZE);
-> > +	void *low_page, *addr;
-> > +
-> > +	low_page = get_low_page(_metadata);
-> > +	if (low_page == MAP_FAILED)
-> > +		SKIP(return, "Cannot map below vm.mmap_min_addr");
-> > +
-> > +	enforce_cap_variant(_metadata, variant, CAP_SYS_RAWIO);
-> > +
-> > +	addr = mmap(low_page, page_size, PROT_READ,
-> > +		    MAP_PRIVATE | MAP_ANONYMOUS | MAP_FIXED, -1, 0);
-> > +	EXPECT_EQ(MAP_FAILED, addr);
-> > +	EXPECT_EQ(EPERM, errno);
-> > +
-> > +	set_cap(_metadata, CAP_SYS_RAWIO);
-> > +	addr = mmap(low_page, page_size, PROT_READ,
-> > +		    MAP_PRIVATE | MAP_ANONYMOUS | MAP_FIXED, -1, 0);
-> > +	if (variant->is_allowed) {
-> > +		EXPECT_EQ(low_page, addr)
-> > +		{
-> > +			TH_LOG("Failed to map below vm.mmap_min_addr: %s",
-> > +			       strerror(errno));
-> > +		}
-> > +		if (addr != MAP_FAILED)
-> > +			EXPECT_EQ(0, munmap(addr, page_size));
-> 
-> If you used ASSERT(low_page, addr) above, you would not need to check
-> for MAP_FAILED here.
-> 
-> I get the feeling that you are using EXPECT because you want to do the
-> munmap call?  Is that strictly necessary?  I believe that the tests
-> are running in a fork, so if they mess up their memory mapping, it
-> wouldn't be problematic?  (We already have many other cleanups that
-> don't get done properly if an ASSERT fails, e.g. FD closing)
-> 
-> 
-> > +	} else {
-> > +		EXPECT_EQ(MAP_FAILED, addr);
-> > +		EXPECT_EQ(EPERM, errno);
-> 
-> Same here.
-> 
-> errno is undefined unless the mmap failed, so the line checking for
-> MAP_FAILED should use ASSERT_EQ IMHO.
-> 
-> Compare my selftest cleanup commit for that at:
-> https://lore.kernel.org/all/20261104-selftests-refactor-v2-24-c52f23f7ce33@gmail.com/
-> 
-> > +		if (addr != MAP_FAILED)
-> > +			munmap(addr, page_size);
-> > +	}
-> > +	clear_cap(_metadata, CAP_SYS_RAWIO);
-> > +}
-> > +
-> > +static int add_inheritable_cap(const cap_value_t cap)
-> > +{
-> > +	cap_t cap_p;
-> > +	int ret, err;
-> > +
-> > +	cap_p = cap_get_proc();
-> > +	if (!cap_p)
-> > +		return -1;
-> > +
-> > +	ret = cap_set_flag(cap_p, CAP_INHERITABLE, 1, &cap, CAP_SET);
-> > +	if (!ret)
-> > +		ret = cap_set_proc(cap_p);
-> > +	err = errno;
-> > +	cap_free(cap_p);
-> > +	errno = err;
-> > +	return ret;
-> > +}
-> > +
-> > +/*
-> > + * cap_capset() requires CAP_SETPCAP to add an inheritable capability that is
-> > + * not in the permitted set.  CAP_NET_RAW is in the bounding set, but
-> > + * disable_caps() does not put it in the permitted set.
-> > + */
-> > +TEST_F(cap_other_hooks, capset_inheritable)
-> > +{
-> > +	enforce_cap_variant(_metadata, variant, CAP_SETPCAP);
-> > +
-> > +	EXPECT_EQ(-1, add_inheritable_cap(CAP_NET_RAW));
-> > +	EXPECT_EQ(EPERM, errno);
-> 
-> Ditto about errno checking and ASSERT.
-> 
-> > +
-> > +	set_cap(_metadata, CAP_SETPCAP);
-> > +	if (variant->is_allowed) {
-> > +		EXPECT_EQ(0, add_inheritable_cap(CAP_NET_RAW))
-> > +		{
-> > +			TH_LOG("Failed to raise CAP_NET_RAW: %s",
-> > +			       strerror(errno));
-> > +		}
-> > +	} else {
-> > +		EXPECT_EQ(-1, add_inheritable_cap(CAP_NET_RAW));
-> > +		EXPECT_EQ(EPERM, errno);
-> 
-> Also here (errno checking and ASSERT).  I'll refrain from commenting
-> on these further below to not spam you, but there are more instances
-> of it below.
-> 
-> 
-> > +	}
-> > +	clear_cap(_metadata, CAP_SETPCAP);
-> > +}
-> > +
-> > +/*
-> > + * cap_vm_enough_memory() lets CAP_SYS_ADMIN use the vm.admin_reserve_kbytes
-> > + * reserve, but only with vm.overcommit_memory=2.  The Landlock check of this
-> > + * reserve has no functional test: it would have to change these system-wide
-> > + * settings and set a tight commit limit, which could make allocations of other
-> > + * processes fail and would race with them.  cap_audit.other_hooks checks that
-> > + * this check is not logged.
-> > + */
-> > +
-> >  /* Audit tests */
-> >  
-> >  static int matches_log_cap(int audit_fd, int cap_number)
-> > @@ -828,6 +1075,95 @@ TEST_F(cap_audit, denied)
-> >  	EXPECT_EQ(0, records.domain);
-> >  }
-> >  
-> > +/*
-> > + * Denials in the capset and mmap_addr paths are audited like capable hook
-> > + * denials.  The vm_enough_memory hook only withholds the admin reserve, with
-> > + * CAP_OPT_NOAUDIT, so an accounted mapping made with CAP_SYS_ADMIN effective
-> > + * leaves no record.
-> > + */
-> > +TEST_F(cap_audit, other_hooks)
-> > +{
-> > +	const size_t page_size = sysconf(_SC_PAGESIZE);
-> > +	struct audit_records records = {};
-> > +	void *low_page, *addr;
-> > +	int ruleset_fd;
-> > +	__u64 domain_id;
-> > +
-> > +	low_page = get_low_page(_metadata);
-> > +	ruleset_fd = create_cap_ruleset();
-> > +	ASSERT_LE(0, ruleset_fd);
-> > +	/* Allow CAP_AUDIT_CONTROL for child-side audit cleanup. */
-> > +	ASSERT_EQ(0, add_cap_rule(ruleset_fd, CAP_AUDIT_CONTROL));
-> > +	enforce_ruleset(_metadata, ruleset_fd);
-> > +	EXPECT_EQ(0, close(ruleset_fd));
-> > +
-> > +	set_cap(_metadata, CAP_SETPCAP);
-> > +	EXPECT_EQ(-1, add_inheritable_cap(CAP_NET_RAW));
-> > +	EXPECT_EQ(EPERM, errno);
-> > +	clear_cap(_metadata, CAP_SETPCAP);
-> > +	EXPECT_EQ(0, matches_log_cap(self->audit_fd, CAP_SETPCAP));
-> > +	EXPECT_EQ(0, matches_log_domain_allocated(self->audit_fd, getpid(),
-> > +						  &domain_id));
-> > +
-> > +	if (low_page != MAP_FAILED) {
-> > +		set_cap(_metadata, CAP_SYS_RAWIO);
-> > +		addr = mmap(low_page, page_size, PROT_READ,
-> > +			    MAP_PRIVATE | MAP_ANONYMOUS | MAP_FIXED, -1, 0);
-> > +		EXPECT_EQ(MAP_FAILED, addr);
-> > +		EXPECT_EQ(EPERM, errno);
-> > +		clear_cap(_metadata, CAP_SYS_RAWIO);
-> > +		EXPECT_EQ(0, matches_log_cap(self->audit_fd, CAP_SYS_RAWIO));
-> > +	}
-> > +
-> > +	set_cap(_metadata, CAP_SYS_ADMIN);
-> > +	addr = mmap(NULL, page_size, PROT_READ | PROT_WRITE,
-> > +		    MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
-> > +	EXPECT_NE(MAP_FAILED, addr);
-> > +	clear_cap(_metadata, CAP_SYS_ADMIN);
-> > +	if (addr != MAP_FAILED)
-> > +		EXPECT_EQ(0, munmap(addr, page_size));
-> > +
-> > +	EXPECT_EQ(0, audit_count_records(self->audit_fd, &records));
-> > +	EXPECT_EQ(0, records.access);
-> > +	EXPECT_EQ(0, records.domain);
-> 
-> Similar problem: "records" is undefined if audit_count_records fails,
-> so audit_count_records should use ASSERT.  See
-> https://lore.kernel.org/all/20261104-selftests-refactor-v2-12-c52f23f7ce33@gmail.com/
-> which fixes this across all existing tests.
-> 
-> 
-> > +}
-> > +
-> > +/* Allowed capability uses in the capset and mmap_addr paths. */
-> > +TEST_F(cap_audit, other_hooks_allowed)
-> > +{
-> > +	const size_t page_size = sysconf(_SC_PAGESIZE);
-> > +	struct audit_records records = {};
-> > +	void *low_page, *addr;
-> > +	int ruleset_fd;
-> > +
-> > +	low_page = get_low_page(_metadata);
-> > +	ruleset_fd = create_cap_ruleset();
-> > +	ASSERT_LE(0, ruleset_fd);
-> > +	ASSERT_EQ(0, add_cap_rule(ruleset_fd, CAP_SETPCAP));
-> > +	ASSERT_EQ(0, add_cap_rule(ruleset_fd, CAP_SYS_RAWIO));
-> > +	/* Allow CAP_AUDIT_CONTROL for child-side audit cleanup. */
-> > +	ASSERT_EQ(0, add_cap_rule(ruleset_fd, CAP_AUDIT_CONTROL));
-> > +	enforce_ruleset(_metadata, ruleset_fd);
-> > +	EXPECT_EQ(0, close(ruleset_fd));
-> > +
-> > +	set_cap(_metadata, CAP_SETPCAP);
-> > +	EXPECT_EQ(0, add_inheritable_cap(CAP_NET_RAW));
-> > +	clear_cap(_metadata, CAP_SETPCAP);
-> > +
-> > +	if (low_page != MAP_FAILED) {
-> > +		set_cap(_metadata, CAP_SYS_RAWIO);
-> > +		addr = mmap(low_page, page_size, PROT_READ,
-> > +			    MAP_PRIVATE | MAP_ANONYMOUS | MAP_FIXED, -1, 0);
-> > +		EXPECT_EQ(low_page, addr);
-> > +		clear_cap(_metadata, CAP_SYS_RAWIO);
-> > +		if (addr != MAP_FAILED)
-> > +			EXPECT_EQ(0, munmap(addr, page_size));
-> > +	}
-> > +
-> > +	EXPECT_EQ(0, audit_count_records(self->audit_fd, &records));
-> > +	EXPECT_EQ(0, records.access);
-> 
-> Here as well.
-> 
-> > +}
-> > +
-> >  TEST_F(cap_audit, allowed)
-> >  {
-> >  	struct audit_records records = {};
-> > diff --git a/tools/testing/selftests/landlock/common.h b/tools/testing/selftests/landlock/common.h
-> > index e29406900c04..a6fdfb422fad 100644
-> > --- a/tools/testing/selftests/landlock/common.h
-> > +++ b/tools/testing/selftests/landlock/common.h
-> > @@ -36,7 +36,7 @@ static const char bin_wait_pipe_sandbox[] = "./wait-pipe-sandbox";
-> >  static void _init_caps(struct __test_metadata *const _metadata, bool drop_all)
-> >  {
-> >  	cap_t cap_p;
-> > -	/* Only these three capabilities are useful for the tests. */
-> > +	/* Only these capabilities are useful for the tests. */
-> >  	const cap_value_t caps[] = {
-> >  		/* clang-format off */
-> >  		CAP_AUDIT_CONTROL,
-> > @@ -44,9 +44,11 @@ static void _init_caps(struct __test_metadata *const _metadata, bool drop_all)
-> >  		CAP_MKNOD,
-> >  		CAP_NET_ADMIN,
-> >  		CAP_NET_BIND_SERVICE,
-> > +		CAP_SETPCAP,
-> >  		CAP_SETUID,
-> >  		CAP_SYS_ADMIN,
-> >  		CAP_SYS_CHROOT,
-> > +		CAP_SYS_RAWIO,
-> >  		/* clang-format on */
-> >  	};
-> >  	const unsigned int noroot = SECBIT_NOROOT | SECBIT_NOROOT_LOCKED;
-> > -- 
-> > 2.56.0
-> > 
-> 
+https://lore.kernel.org/stable/31a4ad36-33bd-4563-9eae-651e713adbdf@pobox.com/
+-- 
+-Barry K. Nathan  <barryn@pobox.com>
