@@ -1,125 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794964037;
-	b=llT9FY+gSEjO4Ti+/71YywBcSnKbws2ZGg+4r/IhkUykh+2MXuVpbELQx0Urlt5F6i9F
-	 v9qz9YnhbrRdYMdTDYvtDX3I26ULMqS+Amavrt+3J3dBztXwrM4N0yGpZd8NW0lcqRHYY
-	 2Sviwdi+S4xtpu/fEO4xQptL3ZsmQHLO9cbsslmj7SKbhVTx0Nhyt2/U3M9gairbG2iFw
-	 ZqBUokzyRgpU/XExS9VvRdXlwwCwN+TMOUC2NTnhAyBWqJoOTFfExbUkjSuTGsMAKgXsY
-	 uBhbbQuFxVDoWXwXLgDnWC6sFxHoE11GNp4oEgmGhZWrSqj2PkPhWMzo51VHKyPMCSw==
+	t=1794964155;
+	b=p1NN5aTIJs5NmuqDi4SIeK2j5yHnG6/jFqwjlrR7ebVPSYpvUQWLixbfFVBAIGFzBbq7
+	 uldowKs43RCWpo0cS5/d27LviBYkUhvtH0Kd8yzPFzofosj8Sfflr4oRZ+bYVjQWFBZLq
+	 rL4uXAWCv3dOZDfX/dvvBy2CV2ZC6K+bJ4eYyJiCD1Mo+Tp1LO2NsMWBh3RwEPZTs705A
+	 LuonCKKKk5fh0ErFZ1YRAn8KZ+qhBgikRmtiXaJttsVyd/LSLHVwfaQe9A9OqoYgZlPfu
+	 DJ/8C9Bag7jZZSOKp3o5SpI8VG5lHgl2cFiIpifZWnGeTTSbSOnG5njNostrhDnVN+w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794964037;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Gm-Message-State:X-Gm-Gg:
-	 X-Received:X-Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Organization:X-Mailer:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Info:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=dcTKtXZ3aPkAUgwqxkdywz0p3tJIPpV+oT5Yv4u3o7M=;
-	b=5inp+E/VY1gzl8UzsdhKtF3LDMMbm7DU9ZLbbqbr0z1ILa0fyEi1GIhXQ5BWsuzmrDdF
-	 xrkBxka7mmMvPapiI7DMNbyi/DwlxGsNXa+0L2yYYoFOiOnKgRNCclHBXoiD2r9zm6gui
-	 5ddW2Gkz0CEmKR3Z4mjJ+awsISW5cnDRudtIhTNB1lWZz4eO/9arXSWY7LxVMycXkRt88
-	 LQ/vxTArIHjL0QTxwaXh08K3DkYYg9a28OEMYjhQCJRuyVBXXWAtjEkbJIF/+U9uThHaY
-	 /mPN3bhnVaHUgsS/aNbCGd0pQW4ZjEOW6O+bO19p/lNGXb1R0Eea7eXLrIXfokGfNnw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794964155;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Type:Date:Message-Id:Subject:From:To:Cc:X-Mailer:
+	 References:In-Reply-To;
+	bh=PZ+3qJZoMU255+lkasu7qmvLXDM4HNJXEBMWPQ3TNF4=;
+	b=bR/NYeiJyaHpTdJsbRlkr1+KWhCZ5Q+r+iNNxCeB4JnXwB27MAsFZ7zxp0blMjLfXpMy
+	 lTvZ3EF7Znw/JBMjsC79cJpqwqPigLP8lvZjgGX3Hrcq7HoUUTZrksMlAFYcVYxygvKcS
+	 Q8b92ocYnogQfU9Y0CXJTXeE3qXiIVi1JlZfIPiabZiVEbv3hkOrueOC3hAz9n0t0BTlC
+	 eKCr+CDg1jOjbvWA5Nd2smCL872LyJ871UIR1b1M9sgIRkNBs9EGBvL7EZk/HOmthp9Qy
+	 sVn4D2pBdcKFJO/ytOmpMX460OA7qvC2zWLhuT19H1og7se7J7fqI9E5jB0WB1qj6Kw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=E0vFrXLK;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=SnMS6qEU;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VHAwCAgm;
+	arc=none smtp.remote-ip=209.85.128.54
+Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA974606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:07:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA974606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8718E606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:09:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8718E606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=E0vFrXLK;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=SnMS6qEU
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI0PYwQ1715995
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:07:15 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	dcTKtXZ3aPkAUgwqxkdywz0p3tJIPpV+oT5Yv4u3o7M=; b=E0vFrXLKHchFOKxN
-	ecQsM1ZRtXi0Ym6SsPb7jY1o5WiKjJH3ZSYYHxZYRHFZ9OI+gjScKS8IUSOxjr9I
-	CkRGyFvhUGTsghPY4aYuRNVbbD1wVcdHGTvsFGxwNLIkGrZ0bLc0qPZ4zgXUdTfN
-	70LfnKL458QRMf27y/T8m4066XpVDnpSmMezQ6wm9EXdSqkodGPQeLRPtTuU7jDc
-	8XQJHvsxD1i6T/bcMZ6xC+pXsA9BM/K1DuNW0G0iznp/wWbxbXLsYD1CIWClOcSP
-	1l02aOG641oFsNWQf4zaniM9hf5SlhcMKGaq8QzwvMrJZ0sJlq6JVFNSmh5cnsYx
-	o6BmTQ==
-Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yv8gf31-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:07:15 +0000 (GMT)
-Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-1a2af4c8cbaso393972c88.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:07:15 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VHAwCAgm
+Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4ac95761c85so3169735e9.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 17:09:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1794964034; x=1795568834; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=dcTKtXZ3aPkAUgwqxkdywz0p3tJIPpV+oT5Yv4u3o7M=;
-        b=SnMS6qEUIhsA1ZNPGX2d63ztD0osxhdZTzmcxrGI9jtu2ny83ZBbhlOGPqVAQkdo1C
-         +f6PRT4xuyPIPQgNKKchJuV8aP3tsZ8nWfcVGpcs2WTeukTJp2Vv96YhqqLfSjMB/Gob
-         eKHIwPJYt9ZTB5p184UG3b1o6N8AMohPRl8PNRJK1s8u9JTz7jnAGiZb39Ta43az5uLg
-         7/0X3F8TXWkOIOs66So/KXrvI+ycTnKpwk3CV0kaG+kCstX3+nnGPOJej/3S5UTntmkZ
-         bSGeiArNrtHDy/cZ6PgUZILWSxictyTlIGV/PC/yN+ZRs0bJLvAi7O9KEfRIwBFs4n6Z
-         X7yA==
+        d=gmail.com; s=20260707; t=1794964153; x=1795568953; darn=vger.kernel.org;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:mime-version:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=PZ+3qJZoMU255+lkasu7qmvLXDM4HNJXEBMWPQ3TNF4=;
+        b=VHAwCAgmRb/DGKYR9+ms8Cf5qCi3Gd0oKLrclEBf59rwhhv6AicK3WbCXcEYRh1w/j
+         TMeOENMtGAPul3mf5lYMHgFjNJZXDbiiHTTL2mbrYoQsOmyXjsOFJLM21gOrSmUQVi6V
+         xWuvUmFk6jZ5GwhXghxHEC33NVY6qFgeJY6mLRkJuSH1XofE2oM6y5qhOper74Z6DOfg
+         1YDGnIxC27pkz7PmkdpPTqtR7hQhw3QW7YJ2pcCKk0F1kc6Io4WAl3z+02G3DFU0NE5i
+         T1o+OR6jx8pAltoBpMCMU5pl9RosEDcMzv5mBY0yfqWhe+MQQ1d83BTZNl2aAy8fyDRk
+         I1Zg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794964034; x=1795568834;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=dcTKtXZ3aPkAUgwqxkdywz0p3tJIPpV+oT5Yv4u3o7M=;
-        b=fLoarhgChJcD97DzBDeooY8ACRF51bZOVgJZ59M44ZyXAFvN8I+LbzzTfAhDzs+nYx
-         0duwdoQ+rFZJUkraap16iukV13Gj0ggK0fEahdjNBj+P4anqLcYRkE6xoGAX7a/0vbT9
-         ssxIZeqSWIpDSZYDyQb4Fb4zvH2YrVK7Ps1efSCKIpSEZAJDPOPVYs+iYZYaBeMjrS6t
-         WgRp3L/5Ea+/3W68LayRDK997DskktxAW5NENQHqGzNgUqbvNushh5fU35PqIDpkHbo7
-         XwRnDB7vF3e8zgYl1PYfick9bK3Mwr3OFqcpDnmfNyf3sYLiTDDY+94PJRp1jkvZdI6X
-         UagA==
-X-Gm-Message-State: APuU4Z+yCYvw/oox3uymLCyUc9Wa8gGCWX6mwdqFNjf1HVZN0RXKgSw0
-	UoUfvgbF1MzK44RMKAPdBUb8z+1SXL1znsej83v0dxzyDdfQFKQTENmsQmquQRgm60dNBeDj2xN
-	CTRzE5V9+PnSMPSOdWbzX8cNrSWfoL5QT7JiyMVCl6ZNWNmG8rKAzwvlPQlQvOxTPfa8=
-X-Gm-Gg: AYBFou05ub4jDVZYy2QwDL1ymKI2AIG9hdJpQFfeluMHhgd4ZWoNK6F4VXoparOqQLe
-	iRLmqqhXrjsDTDRLNHksuoiDqyp8GyW+bOEYk0cdQ8NPj2XyTUTCvFoXwPsuguFukvG9u6VMQ4A
-	cV39FwhFn+rn70B4f7kbMrJ8ZwrLarEH2+j+SVqotVEpveDct+OgOKUjeEfCvVwasTJCQu2ca9D
-	Kd3cLj7/LLiNgwl8Kjvo8ao9zr4BAdLXg8WsNrCu8Q+fTcsZHbFLRKQwHbz0/SRFrJrZ8te7S5g
-	po8xSGndprjFPPMkHeS7KQizNU08KAeQ0njggUD0V3xfvm9qNz5uUKJPVmzOqDfnkQV6yf2JO90
-	9AlSKoXMTjlUcBWJy0DIkh9EMCH6yaQ4tqYaCUBxJ4/C904P94jR8FF8CmOgFjihFxvN+KGji9t
-	ggPKeKSH0ZYsHI6p4f7mbV/ZtMCDY=
-X-Received: by 2002:a05:701b:2901:b0:1b5:10cf:c458 with SMTP id a92af1059eb24-1b543d0daf5mr1270267c88.23.1794964034459;
-        Tue, 17 Nov 2026 17:07:14 -0800 (PST)
-X-Received: by 2002:a05:701b:2901:b0:1b5:10cf:c458 with SMTP id a92af1059eb24-1b543d0daf5mr1270241c88.23.1794964033945;
-        Tue, 17 Nov 2026 17:07:13 -0800 (PST)
-Received: from localhost (i-global254.qualcomm.com. [199.106.103.254])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b544830c99sm3101462c88.15.2026.11.17.17.07.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 17:07:13 -0800 (PST)
-Date: Tue, 17 Nov 2026 17:07:09 -0800
-From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        arm-scmi@vger.kernel.org, linux-doc@vger.kernel.org,
-        sudeep.holla@kernel.org, james.quinlan@broadcom.com,
-        f.fainelli@gmail.com, vincent.guittot@linaro.org,
-        etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
-        d-gole@ti.com, elif.topuz@arm.com, lukasz.luba@arm.com,
-        philip.radford@arm.com, david@kernel.org, souvik.chakravarty@arm.com,
-        leitao@kernel.org, kas@kernel.org, puranjay@kernel.org,
-        usama.arif@linux.dev, kernel-team@meta.com
-Subject: Re: [PATCH v15 00/35] Introduce SCMI Telemetry support
-Message-ID: <20261117170709.00002088@oss.qualcomm.com>
-In-Reply-To: <20261109091221.2532706-1-cristian.marussi@arm.com>
-References: <20261109091221.2532706-1-cristian.marussi@arm.com>
-Organization: Qualcomm
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+        d=1e100.net; s=20260707; t=1794964153; x=1795568953;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=PZ+3qJZoMU255+lkasu7qmvLXDM4HNJXEBMWPQ3TNF4=;
+        b=yNC+/4gxa/w670tHnkFOUpUMUF/g2U6JUz8ewDXUUJmZDdrwa1ssb2500+UG2r0i70
+         PfSt0kadWID4wv6AW3xRZegrN3RdgiOK7Anij8b6fzgd2gWZ5A/N9o+C4IHZsc1z7quS
+         mQhgwWnDgUqKe39q61MXpKzO4WWL+ZG9HSgFzQd4z7tWva1c6dKA9/Rv1eIg9Jme7ORF
+         Xuhd9ogUhrkBSZK6KJyUnK7l+cfWvoKIgHOki2BK2bUcAFkLWeZDvxBeNQTMa7IaRJK0
+         i6Drtm8DVJlug3HOG3AbZlD968h7A3BBe0WpibZMkusYLYOwtr/V+ZPuk6XgjbzsZvFD
+         LRtQ==
+X-Forwarded-Encrypted: i=1; AL+hErGgn545Yq4BjP1vIMY/S8x58c99Pzlbr5R3eXTXyK0E8Ku7Wcfh2+Q2IZ6/O3SdKno11Oda6eza/gDErFQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+acof5AFOxFbr767AWRF0FgLhfKunyIrutDIWw8Fvb8a0Y7DGU
+	4YMks80z5H4Nice5BHDfqXJOklk58yEIVbCnAqP3Br5mpdsPOcj8H1Gp
+X-Gm-Gg: AYBFou0O0EimDl+YVYJ/Hf/rLoCqxdwAeL7jSXBFfhhOxVHAVDKEaxkdzvqpIdgeo/v
+	1jtTiO1PFFIVLeJ1nc35TEtmOn50EytPeMgbMKmJODEzp/Bsk2cFOm5TibL+I65Fl/U0Z+EDbhZ
+	xhyc6gtw27CByhGDBCEGtyixjXk6AzScB5pOJpWW7v58z0DqHvNq/gsfYRESBiyFE3pKV20TCNu
+	Vm9kXfsUcrGWDFPH7FcIVWUZNF31XjA2WJPO8bTX3+Na3VNbR4V/PEofFrURMsSaedausbovrFv
+	g0pFeUADf81eIKlmlrGu4JQik6gg00E5QOiW5YHe/WNvNow3NDw1G6GZLQgccnuf2GpYjH8Hcw5
+	Du5h1HAZhOdNwqQheyAlKocSalirMea2FGZ4liQ9D28EpKbFbNCAC6e3jNdISVlffndiOFhOwC5
+	yQeExMfIJ9w7cORV6VxL1+Yi+SkNX/KdO+HCROYwz2z+8GWThvAT5chvNOUA7xodbFVYMvFwDoD
+	dhlsf5PL+lN+eEMrZ9q2HVNyjichvUqhO1NGEn6RFfSUe/uTEFRIsPk6Pwb7xaZfePHu/0n7hEO
+	04sSS5IkfazvI21wUSENelpu/Q==
+X-Received: by 2002:a05:600c:474c:b0:4bb:6a2d:b426 with SMTP id 5b1f17b1804b1-4bb7d5d40fdmr17867305e9.1.1794964152741;
+        Tue, 17 Nov 2026 17:09:12 -0800 (PST)
+Received: from localhost ([2001:b07:5d26:7a6a:365a:60ff:fe0d:cfc6])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7d256f64sm23087625e9.1.2026.11.17.17.09.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Nov 2026 17:09:11 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,77 +86,296 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: nU0yn_kkFdokfcciunwLuV0SLABMjGjv
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAwNCBTYWx0ZWRfX53s4xNKHs9Rm
- HgvRS0IsxfLSLqZu4aax7SgcsZEEzx0S36c6ot9n/bf1LeVw1TznMONq/AVEosH+MAFIjkGCuqJ
- gD1YacYK3x0ajI2X6kWuv9HJkdkR9E4=
-X-Authority-Analysis: v=2.4 cv=c60+0h9l c=1 sm=1 tr=0 ts=6afcfa43 cx=c_pps
- a=SvEPeNj+VMjHSW//kvnxuw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=7CQSdrXTAAAA:8 a=FHltUQ19mvutv370iQ0A:9 a=CjuIK1q_8ugA:10
- a=Kq8ClHjjuc5pcCNDwlU0:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAwNCBTYWx0ZWRfX94umYHD6yHtq
- C6h1puH+e1o2+aqIuW40Eo7+bzOlngxaGbF0Py9bK3BwsE/fp6axZJN0EOwGagcCl+gYwEzN07K
- ZYuz9GDFJDJAzI7WmG82UXg1qkQum1q3me6hYaGxvT7bKoOez/UxTfKgZAXsTVgxOZ7igGKCLBi
- fdOSW29N9QLRZ57h13zqm6FZrFh4YpiyTpN/8F+4Q80CiEYKL0ggIyWUmFR47VcXAfIuSIhmfzG
- 1rhWkEmBBzA9uslBayWviNKUsa9Fi8nreU7B15EN1aBGagtHvUQFM2/VUTxQzD09ulb51UWetGc
- q9s5LVIg7BwHJWlJclcuuCtumwkwFLcK9QTWQbqMST/IMBl3xiv7hFLgWUDlZZll/WtysC/O7l3
- HYEF16eB1Cf+X2VLh1TOEZx9tMiRD3xs77n5jaTYC9L+EbtWg5X6Iswd+3Qph6VhNYNG5x0RXql
- CL7oZUzEc0R1zeNwhMw==
-X-Proofpoint-ORIG-GUID: nU0yn_kkFdokfcciunwLuV0SLABMjGjv
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-17_05,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 clxscore=1015 impostorscore=0 bulkscore=0 phishscore=0
- adultscore=0 malwarescore=0 suspectscore=0 priorityscore=1501 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180004
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=b1a8dff5fd09ce748c6816739f5ee431ea78e5cf3134c99d90e2f9bc2bde;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Wed, 18 Nov 2026 02:09:06 +0100
+Message-Id: <DMXXOPD9UDNP.2YP9ROMHFLM9E@gmail.com>
+Subject: Re: [RFC PATCH v4 00/10] add provenance time (ptime)
+From: "koraynilay" <koray.fra@gmail.com>
+To: "Jeff Layton" <jlayton@kernel.org>, "koraynilay" <koray.fra@gmail.com>,
+ "David Sterba" <dsterba@suse.com>, "Namjae Jeon" <linkinjeon@kernel.org>,
+ "Sungjong Seo" <sj1557.seo@samsung.com>, "Alexander Viro"
+ <viro@zeniv.linux.org.uk>, "Christian Brauner" <brauner@kernel.org>, "Trond
+ Myklebust" <trondmy@kernel.org>, "Anna Schumaker" <anna@kernel.org>, "Chuck
+ Lever" <cel@kernel.org>, "Konstantin Komarov"
+ <almaz.alexandrovich@paragon-software.com>, "Paulo Alcantara"
+ <pc@manguebit.org>
+Cc: "Chris Mason" <mason@kernel.org>, "Yuezhang Mo" <yuezhang.mo@sony.com>,
+ "Jan Kara" <jack@suse.cz>, "NeilBrown" <neil@brown.name>, "Olga
+ Kornievskaia" <okorniev@redhat.com>, "Dai Ngo" <Dai.Ngo@oracle.com>, "Tom
+ Talpey" <tom@talpey.com>, "Ronnie Sahlberg" <ronniesahlberg@gmail.com>,
+ "Shyam Prasad N" <sprasad@microsoft.com>, "Bharath SM"
+ <bharathsm@microsoft.com>, "Sergey Senozhatsky" <senozhatsky@chromium.org>,
+ "ChenXiaoSong" <chenxiaosong@chenxiaosong.com>, "Darrick J . Wong"
+ <djwong@kernel.org>, "Sean Smith" <defendthedisabled@gmail.com>, "Andrey
+ Albershteyn" <aalbersh@kernel.org>, "Pedro Falcato" <pfalcato@suse.de>,
+ "Amir Goldstein" <amir73il@gmail.com>, =?utf-8?q?Pali_Roh=C3=A1r?=
+ <pali@kernel.org>, <linux-btrfs@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
+ <exfat@lists.linux.dev>, <ntfs3@lists.linux.dev>,
+ <linux-cifs@vger.kernel.org>, <linux-nfs@vger.kernel.org>,
+ <linux-api@vger.kernel.org>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261115180343.576773-1-koray.fra@gmail.com>
+ <fc53ec55d315a4b96ec1e6f250ad3763f2189755.camel@kernel.org>
+In-Reply-To: <fc53ec55d315a4b96ec1e6f250ad3763f2189755.camel@kernel.org>
 
-On Mon,  9 Nov 2026 09:11:46 +0000
-Cristian Marussi <cristian.marussi@arm.com> wrote:
+--b1a8dff5fd09ce748c6816739f5ee431ea78e5cf3134c99d90e2f9bc2bde
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-> Hi all,
-> 
-> [TLDR Summary]
->  [V15 highlights]
->  - general cleanup and hardening driven by reviews
->  - improved TDCF access routines to minimize lost samples under load
->  - completed ABI docs
-> 
->  [V16 TODO]
->   - address any remaining V15 outstanding Sashiko/reviewers issues
-> 
-> The upcoming SCMI v4.0 specification [0] introduces a new SCMI protocol
-> dedicated to System Telemetry.
+Hello and thanks for replying,
 
-This is one from the family of issues you find when reviewing ones own
-(well LLM generated) emulation, realizing it doesn't match the spec,
-and yet works.
+On Wed Nov 18, 2026 at 12:53 AM CET, Jeff Layton wrote:
+> On Sun, 2026-11-15 at 19:03 +0100, koraynilay wrote:
+>> This is an initial implementation of a new timestamp to indicate the
+>> time when a file/directory was initially created.
+>>=20
+>> This patch series takes inspiration from the one by Sean Smith
+>> <defendthedisabled@gmail.com> [1], but using
+>> file_setattr()/file_getattr() as suggested by Darrick J. Wong
+>> <djwong@kernel.org> in [2].
+>>=20
+>> The semantics of this new timestamp should be at least these:
+>> - it should be the same as btime on a newly created file
+>> - it's user-settable, so it can be preserved for backups, filesystem
+>>   conversions, archives and any similar operation
+>> - it should be preserved every time mtime gets preserved
+>>=20
+>> and the correspondence with the other timestamps is as follows:
+>>=20
+>> ctime <-> btime
+>> mtime <-> ptime
+>>=20
+>
+> I'm not sure how to interpret the correspondence above.
 
-This works fine without the required SCMI protocol property in ACPI.
-2.2.2 of ACPI for System Control and Management Interface 1.0
-Platform Design Document. 111115A 1.0
+  |-----\_-----------------|-----------|
+  |       \_      change/  |   birth/  |
+  |         \_ modification|  creation |
+  |           \------------|-----------|
+  | inode time |   ctime   |   btime   |
+  |------------|-----------|-----------|
+  | file time  |   mtime   |   ptime   |
+  |------------|-----------|-----------|
+ =20
+("file" as in "the concept of this file", I'd say "file content" but
+that would be incorrect for symlinks)
 
-Now, in here is an informative statement...
+so ctime is "inode change time", btime is "inode birth/creation time",
+while mtime is "file content change/modification time" and ptime would
+be "file content creation time" (same as Window's or MacOS's creation
+time).
 
-Protocols not listed using a property may not be enumerate by the operating system.
+Does this make more sense?
 
-But they are... 
+>
+>> Examples:
+>> 1) a .zsh_history file created in 2019, then after a few years the user
+>>    decides to switch to another filesystem, copying the .zsh_history to
+>>    the new home, in that case btime would have the timestamp of the copy
+>>    and ptime would have the 2019 timestamp (just like mtime would have
+>>    been preserved)
+>> 2) a symlink created in 2020 from the home directory to a /path going
+>>    through the same process as the .zsh_history, in this case it would
+>>    also make sense to sync the ptime to the 2020 timestamp instead of
+>>    keeping only the btime (so the inode creation time).
+>>=20
+>> The proof-of-concept code (for testing) for stat(1) and cp(1) is
+>> available at https://github.com/koraynilay/coreutils (master branch)
+>> (Note: these coreutils code changes are a prototype and won't be
+>> submitted upstream as-is, but they work as expected in simple stat and
+>> cp -a/--preserve=3Dptime tests)
+>>=20
+>> Lastly, the name "provenance" and "ptime" are not final, I personally
+>> don't have a strong opinion on any name, but while testing with stat(1)
+>> I noticed that "Provenance" is definitely too long for the normal
+>> output, so another option which would fit well is "Origin time",
+>> abbreviated as "ntime" (OrigiN time) and not as "otime", as that would
+>> conflict with btrfs' internal naming and create confusion.
+>>=20
+>> v2 changes:
+>> - fix permission bypass leading to ptime update on immutable and
+>>   append-only files (found by sashiko[3])
+>> - normalize ptime timestamp as done in fs/attr.c:notify_change() (found
+>>   by sashiko[3])
+>> - fix wording in vfs patch to be like the cover-letter
+>>=20
+>> v3 changes:
+>> - vfs: reject setting ptime with -EOPNOTSUPP on filesystems that do not
+>>   support it instead of silently ignoring it (found by sashiko[4])
+>> - vfs: fix not being able to clear immutable and append-only on files
+>>   with ptime, and allow updating immutable/append-only atomically along
+>>   with ptime (found by sashiko[4])
+>> - btrfs: validate on-disk ptime nanoseconds and reset to otime if
+>>   invalid (found by sashiko[4])
+>> - btrfs: avoid re-assigning ptime on unrelated chattr calls (found by
+>>   sashiko[4])
+>> - add ntfs3 and exfat support as suggested by Amir Goldstein[5], but no
+>>   vfat, smb, or nfs4 yet as they are a bit more complex
+>> - move the introduction of fileattr_has_fsx_mask() from the btrfs patch
+>>   to a standalone patch in the series
+>> - btrfs: add fileattr_[gs]et to symlink and special file operations
+>>=20
+>> v4 changes:
+>> - vfs: implement fsx_xflags_mask as suggested by Amir Goldstein[6];
+>> - add SMB (ksmbd/cifs) and nfs (nfsd/nfs) support as requested in
+>>   previous threads;
+>>=20
+>> Note:
+>> to apply this patch 2 previous patches[7][8] from the ksmbd/cifs
+>> subsystem are needed.
+>>=20
+>> New Question:
+>> should I rename fileattr_has_fsx_mask() to something like
+>> fileattr_has_unsupported_fsx() and keep its code as-is, or should I add
+>> the fsx_xflags_mask & ~allowed check in it and keep the name as-is? (or
+>> both?)
+>>=20
+>> Thanks.
+>>=20
+>> [1]: https://lore.kernel.org/20260405195007.1306-2-DefendTheDisabled@gma=
+il.com
+>> [2]: https://lore.kernel.org/20260407014129.GC6192@frogsfrogsfrogs
+>> [3]: https://sashiko.dev/#/patchset/20261027220532.736352-1-koray.fra%40=
+gmail.com
+>> [4]: https://sashiko.dev/#/patchset/20261028134728.294127-1-koray.fra%40=
+gmail.com
+>> [5]: https://lore.kernel.org/CAOQ4uxiuy0VwZj+3M-zRqQ49WTpHZpiaQ+6MZ8z8Wd=
+LjyQM_zA@mail.gmail.com/
+>> [6]: https://lore.kernel.org/CAOQ4uxjtuTDT63vJdYaq+RHQEQFLTksp66e46OMN99=
+WhJz3SbA@mail.gmail.com/
+>> [7]: https://lore.kernel.org/linux-cifs/20261112111637.184045-2-koray.fr=
+a@gmail.com/
+>> [8]: https://lore.kernel.org/linux-cifs/20261115155308.415734-1-koray.fr=
+a@gmail.com/
+>>=20
+>>=20
+>> koraynilay (10):
+>>   vfs: add provenance time (ptime)
+>>   vfs: add fileattr_has_fsx_mask()
+>>   ntfs3: make crtime user-settable using ptime
+>>   exfat: make crtime user-settable using ptime
+>>   btrfs: add provenance time (ptime)
+>>   vfs: add __vfs_fileattr_set_locked() for inode_lock()'d callers
+>>   nfsd: add provenance time (ptime) via FATTR4_TIME_CREATE
+>>   nfs: add provenance time (ptime) via FATTR4_TIME_CREATE
+>>   ksmbd: add provenance time (ptime) and map it to CreationTime
+>>   cifs: add provenance time (ptime) and map it to SMB's CreationTime
+>>=20
+>>  fs/btrfs/btrfs_inode.h          |   4 +
+>>  fs/btrfs/delayed-inode.c        |   6 ++
+>>  fs/btrfs/inode.c                |  29 +++++-
+>>  fs/btrfs/ioctl.c                |  24 ++++-
+>>  fs/btrfs/print-tree.c           |   1 +
+>>  fs/btrfs/tree-log.c             |   3 +
+>>  fs/exfat/exfat_fs.h             |   2 +
+>>  fs/exfat/file.c                 |  42 ++++++++-
+>>  fs/exfat/namei.c                |   1 +
+>>  fs/file_attr.c                  | 156 ++++++++++++++++++++++++++------
+>>  fs/nfs/inode.c                  |  27 +++++-
+>>  fs/nfs/internal.h               |   2 +
+>>  fs/nfs/nfs4proc.c               |  56 +++++++++++-
+>>  fs/nfs/nfs4xdr.c                |  19 ++--
+>>  fs/nfs/symlink.c                |   1 +
+>>  fs/nfsd/nfs4proc.c              |   9 ++
+>>  fs/nfsd/nfs4xdr.c               |  40 +++++---
+>>  fs/nfsd/vfs.c                   |  17 ++++
+>>  fs/nfsd/vfs.h                   |   4 +-
+>>  fs/nfsd/xdr4.h                  |   3 +
+>>  fs/ntfs3/file.c                 |  20 +++-
+>>  fs/ntfs3/frecord.c              |   8 +-
+>>  fs/smb/client/cifsfs.c          |   8 ++
+>>  fs/smb/client/inode.c           |   7 +-
+>>  fs/smb/client/ioctl.c           | 109 ++++++++++++++++------
+>>  fs/smb/server/smb2pdu.c         |  37 +++++---
+>>  fs/smb/server/vfs.c             |  43 ++++++++-
+>>  fs/smb/server/vfs.h             |   1 +
+>>  fs/stat.c                       |   2 +
+>>  include/linux/fileattr.h        |  29 +++++-
+>>  include/linux/nfs_xdr.h         |   3 +
+>>  include/linux/stat.h            |   1 +
+>>  include/uapi/linux/btrfs_tree.h |   3 +-
+>>  include/uapi/linux/fs.h         |   9 +-
+>>  include/uapi/linux/stat.h       |   7 +-
+>>  35 files changed, 614 insertions(+), 119 deletions(-)
+>>=20
+>>=20
+>> base-commit: 3bc1fb9c3b20cd478c83496ab16addecb401770d
+>> prerequisite-patch-id: 049ae0eba275b5be35a238833107e0b251a55aa2
+>> prerequisite-patch-id: 614f0bc9411391403d4e9702bafeb31b0ec04ec1
+>> prerequisite-patch-id: ddf636b9d33d82ea206ce265d817371350bf8858
+>
+> I think this is going to be very hard to do properly, because the
+> kernel can't really manage this on its own. Something in userland is
+> going to have to set this value if you want to update it to something
+> other than the original inode instantiation time (aka btime).
+>
+> It really sounds like what you want is the ability to make the btime
+> settable. Personally I think the decision to forbid that was wrong-
+> headed and that it should have been settable from userland from the
+> beginning. Maybe we should just revisit that decision.
 
-So, obviously we can ignore informative spec lines but that is a pretty strong
-sentence. I can't immediately think of what would go wrong if we ignored it
-- maybe we'd not pick an exclusive PCC and fallback to a common one the firmware
-doesn't want us to use?  But if it doesn't want us to use it why make Telemetry
-discoverable on it.
+Originally I just wanted to have btime settable, yes, and if btime was
+settable I wouldn't have made this RFC PATCH either, but after reading
+the already existing discussions about it, I can understand having an
+"immutable inode creation time", like ctime exists, so even after making
+btime settable, a new timestamp would be necessary anyway (e.g. for the
+people who want btime to exist as a forensics timestamp).
 
-Should that be wired through from the ACPI parsing code?
+> Failing that, why not just track this in an xattr of some sort, since
+> this is really just an opaque blob once you allow it to be settable. If
+> the xattr isn't present, then you can just use the value of the btime
+> as-is. FWIW, I think samba does this today, so you could try to sync
+> with its behavior here.
 
-Anyhow, not something I care that much about but thought I'd call it out
-as an oddity.
+(This is copied and adapted from [2])
 
-Jonathan
+I actually have been using fully userspace xattrs[1] for a few months,
+mostly for backups, and it "works"; but last month I wanted to merge 2
+FSs (and have another merge I have to do), so I ran [1] on all files and
+then compared all metadata/data between source and destination and
+noticed there were quite a lot of files that didn't have the xattr set.
+So I looked online and learned that xattrs only work on regular
+files/directories, not on symlinks or anything else (and the missing
+ones were of symlinks).
+This is what prompted me to search more if anyone had already proposed a
+new timestamp (instead of making btime settable) and found the email
+thread from april linked in the cover letter, which gave me the excuse
+to finally work on a proper patch.
+
+> That seems a lot simpler than adding an entirely new inode timestamp
+> that is always going to be a copy of the btime, except in rare cases.
+> Having to patch all of the on-disk filesystems with a new per-inode
+> field is a lot more work.
+
+> This patch is quite simple, but changing btrfs, then ext4, xfs, etc is a
+> mess, and inevitably you can't get these timestamps until you upgrade you=
+r
+> filesystems.
+
+So yeah while I do agree it touches a lot of code that could create
+problems, IMO this is the best solution and it would complete files'
+timestamps like other OSs have (and this, I think, is necessary for
+both backup/archival and migrations).
+
+Thanks,
+koraynilay
+
+[1]: https://github.com/koraynilay/btime-to-xattr
+[2]: https://lore.kernel.org/DMGS4KQLY24Q.14MUTR6U93GIC@gmail.com/
+
+--b1a8dff5fd09ce748c6816739f5ee431ea78e5cf3134c99d90e2f9bc2bde
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSgVimKafU5DQMcjcDmj22qf5IGXAUCavz6sgAKCRDmj22qf5IG
+XJc2AQDEw3DLWknN6hhurcFZrcIQwXM4vVkKq7ZARVMraoydvAEAstnUK3kjAUAY
+kVmRWWr3a9czwpWam0GcL2q7iV+QsgE=
+=OJC6
+-----END PGP SIGNATURE-----
+
+--b1a8dff5fd09ce748c6816739f5ee431ea78e5cf3134c99d90e2f9bc2bde--
