@@ -1,113 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.139.74
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794976164;
-	b=kMzlJtn+Ic8/AaF8CavpjDtIKj8/WEtecUuI2P2GghDDlr+ApD80eEJmqAXB2EzflnFa
-	 volFzQxZWfmw/IroXuRtSpD8lz9zmiDUgfSNDOREzIUnGLWg6ipxPA2e/EmHmXbjRUgWe
-	 wCei2oK9PJcJZo4MRPkgYtaUMpZUPMTaii34SGMh9vNfbIFfghwOvh9vG/FQ/LBhHVrDP
-	 JCl6hmQbGSpURDXKu771S82rjUV18Qsh9nwR+IVo7gH0CsnCun5jX/Zw3hjwh8rvuelQY
-	 +un0lxkRuEAsKZgqhlBn2U/mau+Cr4dngBaYwGDwyh3HhEQDLIKPqAdP1aYxYFRDFKg==
+	t=1794976197;
+	b=Q2kwJOwJ66PeXaXHvrj3IPOyliY/SucQx3RWn3+ANML4f31eO8re9Ca1w09z2VSSnObA
+	 W2p9xk8WkrsAWtZuErDud1yjObuJD2l3a1pGCsc8h5PZ9KsVID8bpu6PaxN4KxY4lVdRK
+	 1csEv6+U4jiVfRYoQPQkK4dbXOIbwLihIPRiM8dc1b2LCkBWL4oF6TxnEFEW5ZuqYDMdo
+	 3gwpskqUXHnQmNQ0CbusIe8eDeFzT2aeTNV1IBQICuYaMnStDxDw1bODFLxLbBPlnS2Lk
+	 jkQ9Q+SfpOn7uFOQQtnicV94vR5b3qapDMGSISuwhxu+BPl04R+aOA5SNX5+A+At8LA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794976164;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=i5zpFBIp+1LdT2GGZLD5EjnwLjNrouTOus3Kut6TC8c=;
-	b=Ny1hAs6wD9mrZz79v1zSC+CBeahrRShF3r2uh8flvI8rZUCecOt9qj6/WxkRyal29EZb
-	 o4oNxh3a2dXwPNcnvbx9OuRyzV6CivxKk6cr88vB27QOe5Tn/TZ6HjT//jxHJljc1GtfZ
-	 kblYR+h6HIy3ekhignijwGIj++/v8Lis4z9Nbe/Xv+gO89hPsN72uBFARkjFBXFiejdS6
-	 XXyL56SxAgjTodqKcE1x6uEcdsNSqqSYCRxrOi6GG6QLCcoTdRgveisLJBNl7PaVa2CQS
-	 GI1LVZp7UR1cIUM9/E6sagfqyvNoCDu2iNwoXoZiabZmo4cnaHehYEYCNgwyjAq4sAA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794976197;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=LJ9gCj2jGGmLVFKvuakf/3ErIiC4ZxE44mtjMvsbMAw=;
+	b=EZ7QZCtsgwV1cU6v3ZxIbHO9Gkn7cpK0sydj1ftISZWL1/+cIc9HOfjhuAK59QyBu/F9
+	 jz6gzXvw44WKgkfmiu9IH2CIkuMX3NyXP6OYu5iLdm0l99L525HX+AWbSEPd6wrywHZS1
+	 0PuM+b6WC71Q1Qij7YKbKlMRKBVfbpwcjM8u4DV3RmUvkmAZV6Dsp29QiXmvdRbnmzcTu
+	 FIjNDohRyV2rsD9lWzwiqqU7X09DXL7Ou6vQO8I24K12rmkBijl91E08E7UvHI30ZIUnk
+	 LFe01gt06Xiw78euAi1LCFoWEdwMQp0RcmGUuEEuuB1Gr+eDQhfEGuMSUhvQZaVP9Jw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=columbia.edu;
-	spf=pass smtp.mailfrom=columbia.edu;
-	dkim=pass header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=pps01 header.b=ifCaGtTp;
-	dkim=pass header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=lionmail header.b=yUZUNM85;
-	arc=none smtp.remote-ip=148.163.139.74
-Received: from mx0b-00364e01.pphosted.com (mx0b-00364e01.pphosted.com [148.163.139.74])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KX6CghMX;
+	arc=none smtp.remote-ip=74.125.82.180
+Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com [74.125.82.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEA1F60A3820
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:29:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BEA1F60A3820
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=columbia.edu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=columbia.edu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B797A606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:29:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B797A606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=pps01 header.b=ifCaGtTp;
-	dkim=pass (2048-bit key) header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=lionmail header.b=yUZUNM85
-Received: from pps.filterd (m0167076.ppops.net [127.0.0.1])
-	by mx0b-00364e01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI1XpFC465991
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:29:22 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=columbia.edu; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pps01; bh=i5zp
-	FBIp+1LdT2GGZLD5EjnwLjNrouTOus3Kut6TC8c=; b=ifCaGtTp+RHPKmxjiwYp
-	EhQqRIfb8+M4e/v9xIOPeSPRLvrH6ccqH/QNbR5MXC0mG2x2/ZQml4DTHdtqMm6G
-	EnyUsKTHmA+jYG+kmv2zphD/5Qnaz5S7sd1SPPkFKG6J6Urpsyd1kI/FBRP/KjS+
-	ZTdBbzic85Gnqwst3K67EvTlgRIAkXAieYWf+WRTQ7f85JXSFZ3GGJT4AoZbf4w4
-	QQc+ElIVfaNenz2v8OIodjgk76SpCThp6OCF4C3kHZI11dzm8sLwTYXlO4QvNuve
-	z99CdSGJlN7fVewyRMoNqh2J92GGgpSCEG6PCSuHq4nacnXY2iZ1fBiG638z5Sjt
-	EQ==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0b-00364e01.pphosted.com (PPS) with ESMTPS id 4j0yu61g6m-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:29:22 -0500 (EST)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93e92aad34aso116466485a.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:29:22 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KX6CghMX
+Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-3704d30b84fso872852eec.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:29:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=columbia.edu; s=lionmail; t=1794976162; x=1795580962; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=i5zpFBIp+1LdT2GGZLD5EjnwLjNrouTOus3Kut6TC8c=;
-        b=yUZUNM85r2tCDggczEfG4xe66I1cC3EPCoUfUTMZ9R7+FgejdMLhd1epB/y7sF23vQ
-         o7dej7Mi7yIPEQc/VWEUTDsBMSGyQzJ2ButuQV7RZ+Wq1fSrSZ84+N0mZpRyB0/yh0g6
-         gB8gdU0PsseXNTd9iMxumGPzL+S27qitd1Gy/y1VJTF9/Hpxx2Shd1+o9WDiRN2I9fWn
-         PXFC3JnngpyLbn2+2PWeEYsknbOpB3RlWe4vGQ4J/pCnJU+OK3VH6Hs3y9TdVXWRYliy
-         yLfNE9vKpU53A0VA2PITEqnzWd9m9MXm90+uMkwYtLUz/SkK7o5SEc0mnk62npMtxg1D
-         bEBw==
+        d=gmail.com; s=20260707; t=1794976196; x=1795580996; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=LJ9gCj2jGGmLVFKvuakf/3ErIiC4ZxE44mtjMvsbMAw=;
+        b=KX6CghMXtqwmXH+k2x/YLE7ck2w8PI3LkWfSrobtdaskFNDxfHjRjdQHJwSlA2lp3v
+         M2Lma+VM5Mvr2z4dHyaAPidQnBDGfDc0BzaIz57a/eAz57BrEnOY4Cw1kjjsJdJk6cBk
+         i4DjvGrvP+HoXxsx9ANrheHnFYwYxTnAWJPoXSRzVQCGBx2OaY/aLQP7+3z8xscMCYa5
+         o0E/xqMWa3vPnUq5p8PMF7vAkaa8FVy8z7qKC0Ur5llGkwwywXPNqZuYg1lXYqyEj9mI
+         H1rWSWz5uaQoszbm2uVYFp/yzLrfBwZ+bTbROX9Xe07+AGtBOS78t3g/KhHB1OL8AsiO
+         xpuw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794976162; x=1795580962;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=i5zpFBIp+1LdT2GGZLD5EjnwLjNrouTOus3Kut6TC8c=;
-        b=jq6D+QwE++5ObvjScTJuybNIri1Ew37974W7ZXCODz5/AhqBDJf5rCvuOt+urhpW+5
-         Bo5LapQuQsYt8PiSOAdBcHDgjcfvtXw1s8IAF+VWbJNoPuSEbVTBYvq0gmX+oC0H/hiU
-         kLA9hlj/s4pGrqzOS7LA8EqX8LkxU3tChee62xbdjXOCPronzaF6qvEUwdbvguocr+ks
-         D8wLdODT/RyV14bPq5eipBGoD0B1n4vkvtOA5WBhPdtlye0XeIY84OPEecOoPxzZdVE9
-         GuCge0EuOlGLN2p2ijWGxTuoY4FURnXCgHSUoRNCR+r6Tvquz1bRKzZKuxWkcgB57UDU
-         sctQ==
-X-Forwarded-Encrypted: i=1; AL+hErE1HtCbuCC9Tmd/3OQsGLyQm+xTmm0W/IiECcKfrjGFnwOnoR0cMduleN55N6itzhGtt+j44pPM4r6zlE0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9JwiKmicS8LKBMmiIPmN/o7P6CRqEJC8D6eBf/Kude+EQbpHDO
-	DBQ36CuOBiGLEXPsYRI0SwfQkn4ld8pFZCtCvmqjPhMbA/9CpV4/eKEE6WuUBTmeqQZDQS/PRVa
-	+BlFOS6MZTC6f4QHBKP/b80kuLGSZV2QEFlez4S91OPusW0nWwQuvBNo5G80RFw==
-X-Gm-Gg: AYBFou2AZWc1bucCo/Uo26fIjWXqbBeLQv8yVIvytvEWxmFeAZrwCm9IvyJgUpkw1tr
-	yWuWHQ5TTLBrqfeGL/ttUmRRmulzXp2xw/kE+6OXHJkFl3eBD4HyqiNvg4UHL+o8qaiDDPODCx1
-	rF0Val7SKCmXjzSdc12Iq3bzgqaWMsh9+DtYbTgYeWYqgKFr+KU6c/IFqTcAYwAts0J0xluAibr
-	ZoRZaeCdjtHzhg6i5HXSzCYOvyTRreYWYKWLDyMCVOzvCYBo1ymt1y5OcuWYfgwGtxqbQEL0Apa
-	zaISHDPH1zaNML/ODdeWgglMpL5W6ROggr3fBZgWelYyeWQiYlJB10+Ssrx2gzYp/WlaMCmgX/U
-	18Rji+ge3PAd86o5MFc/J0VXo/5q/XZH/+khJeQtnEzp4RlaMVbjRYN3QAkGX9Oi7bNYy8RONY2
-	lH9GLULT2Uv9Be4MigHQ==
-X-Received: by 2002:a05:620a:2906:b0:945:fcd7:7823 with SMTP id af79cd13be357-949995ee5bdmr310934785a.63.1794976162000;
-        Tue, 17 Nov 2026 20:29:22 -0800 (PST)
-X-Received: by 2002:a05:620a:2906:b0:945:fcd7:7823 with SMTP id af79cd13be357-949995ee5bdmr310928285a.63.1794976161125;
-        Tue, 17 Nov 2026 20:29:21 -0800 (PST)
-Received: from [127.0.1.1] (dyn-160-39-33-242.dyn.columbia.edu. [160.39.33.242])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-9499b743a8bsm89678085a.17.2026.11.17.20.29.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 20:29:20 -0800 (PST)
-From: Tal Zussman <tz2294@columbia.edu>
-Date: Tue, 17 Nov 2026 23:28:49 -0500
-Subject: [PATCH v3 9/9] mm/userfaultfd: check the hugetlb alignment of
- every VMA in the pre-scan
+        d=1e100.net; s=20260707; t=1794976196; x=1795580996;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=LJ9gCj2jGGmLVFKvuakf/3ErIiC4ZxE44mtjMvsbMAw=;
+        b=0wOn/GiFV5wjGG+rNszhBd+pJNylUm4Nf3gW2LABqaqzKXPgT8PcuRwIDOxSIPFjpy
+         QmsQ8rQAnAxrQ9hwZ0zudtT9iQhHY5Pisy2elcNxEYEjCHv6KJ0SVe9CHxp715BFvvyZ
+         rSP3rKC8CV2E/7Sn0D83ynGZCwY1cSuvkZYzY/ZEjxYATm8o6ZBP2IhAbNA1dU1PJcf1
+         WBA3nIZ5EIX/HWTNWKP2domX65SQZsbWff3zqm+BszvP0Zs8bxp5XBW0hpzti5lrAcqO
+         aVp+iriSVNxqDIqZnQPX2Ur8WmAF5GixUgE8YkNEKQWrzkQbeA3VMShTh2IHTrf1dF3u
+         dihw==
+X-Forwarded-Encrypted: i=1; AL+hErGMPY7Xk3EmenEQ8qG1yxNeS6XJsT8PYh8ot2ZeKSvDFu8jv8yp+5TeSAVNLj4aVzMVJEOAoxYsYrjsIH4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z99hY/TnwUeS94D6/H1ZqxnxdZD9dFLLDDEmwC9DXOxrpbrrNHO
+	9aXOlG01wVpm0SaJTDgp5FCmjnjxqOPP4j+MbKdO6TFond90n1rnFxmk
+X-Gm-Gg: AZFdTZdl35KCfq7pOpfWIihnY74tNXfEuN6hx+OrYb/RH/UpTD8HZEmeeySE872K+Zn
+	v5EeoaxwrjZ9znFnR8vC75k5hXtyKqrEHK98S3q5+HoRKkjtE0zgRauqoB4nzI3c1lt+QQg95BP
+	ApBpfR+O0pLRpnAtoIJ3oJ/JtApg7FF8A8fc/b0QucqYOUhXsUImST8wbgTKsEbi1kBSufbO+4Y
+	SztKGl5/39D152EMbrpNvXpaAKawlut16tDy+98M1uxsYIGXn7EUs3Mt+8ZZ/vw+S4IRpUYT/70
+	E47TM8KrodjL9EYqYL7JGO/0CKgd9CdOrSKaPxgOTkrIAt3sn1YE7jk7bSbuoB11BsvTdLycfwt
+	MPcJ4iFBpKg7p10evumV3mMYm2sBSkkPOK1Mh69PdPh4NR9TqgNZxZD6Cm51y6MRynJo+KZ96kc
+	u6GZ7imezj04cfjHWz1gJz2zHu5cLKWLOQpJtXE5EmLmj/Dw+XI5lQE5rL2XLJtqEfYZH05jxBV
+	38XealnoJjQazYgLcETD4KXgMaZ9AtSmrcQ7I76X/1NQ+NHeB9WCMZKBX2zzyqHNxC0NAsNmlD/
+	eYvTkxNJ+04IKpBDqfF/7+ZJNuSx7JqJuc4kF9qKiBXEXq1vG1rV/gCCB72jxmV+ddUNb+FadjP
+	Nz3nsyVktaeOowIjXxDbm3T3NMiKHgeiFgbUTPsX+cnw4nvsRSaDkaoXfW0m3faV6FZxanK/fEg
+	D8QuwHYs0Q1hD/9vYBkgIYgKo8cVOmmde/8S4lFZ56L1+e1X6iGTnXLP+rVBWUdbUNh7+LbIbEV
+	N6uWg7bVD09G0MwGoBt52j32o5o
+X-Received: by 2002:a05:7301:1823:b0:379:3c04:2cdd with SMTP id 5a478bee46e88-3828181119cmr1441606eec.31.1794976195799;
+        Tue, 17 Nov 2026 20:29:55 -0800 (PST)
+Received: from FT6N242TWK ([223.181.117.48])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a6304efbsm5273447eec.7.2026.11.17.20.29.52
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 17 Nov 2026 20:29:55 -0800 (PST)
+From: Shashank Mohan Jain <jain.sm@gmail.com>
+To: Pablo Neira Ayuso <pablo@netfilter.org>,
+	Florian Westphal <fw@strlen.de>
+Cc: Phil Sutter <phil@nwl.cc>,
+	netfilter-devel@vger.kernel.org,
+	coreteam@netfilter.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH nf] netfilter: ctnetlink: apply port filters to SCTP and GRE entries
+Date: Wed, 18 Nov 2026 09:59:50 +0530
+Message-ID: <20261118042950.83129-1-jain.sm@gmail.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,212 +101,60 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261117-uffd-state-fixes-v3-9-b617009d1a4a@columbia.edu>
-References: <20261117-uffd-state-fixes-v3-0-b617009d1a4a@columbia.edu>
-In-Reply-To: <20261117-uffd-state-fixes-v3-0-b617009d1a4a@columbia.edu>
-To: Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
-        Peter Xu <peterx@redhat.com>, James Houghton <jthoughton@google.com>,
-        Andrea Arcangeli <aarcange@redhat.com>,
-        Suren Baghdasaryan <surenb@google.com>,
-        Balbir Singh <balbirs@nvidia.com>,
-        "Liam R. Howlett" <liam@infradead.org>,
-        Lorenzo Stoakes <ljs@kernel.org>, Vlastimil Babka <vbabka@kernel.org>,
-        Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>,
-        David Hildenbrand <david@kernel.org>, Michal Hocko <mhocko@suse.com>,
-        =?utf-8?q?Micha=C5=82_Miros=C5=82aw?= <mirq-linux@rere.qmqm.pl>,
-        Andrei Vagin <avagin@gmail.com>,
-        Muhammad Usama Anjum <usama.anjum@arm.com>,
-        Stephen Rothwell <sfr@canb.auug.org.au>, Arnd Bergmann <arnd@arndb.de>,
-        Zi Yan <ziy@nvidia.com>, Matthew Brost <matthew.brost@intel.com>,
-        Joshua Hahn <joshua.hahnjy@gmail.com>,
-        Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>,
-        Ying Huang <ying.huang@linux.alibaba.com>,
-        Alistair Popple <apopple@nvidia.com>,
-        Baolin Wang <baolin.wang@linux.alibaba.com>,
-        Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>,
-        Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>,
-        Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>,
-        Kiryl Shutsemau <kas@kernel.org>, Muchun Song <muchun.song@linux.dev>,
-        Oscar Salvador <osalvador@suse.de>,
-        =?utf-8?q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-        linux-fsdevel@vger.kernel.org, Tal Zussman <tz2294@columbia.edu>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794976146; l=4876;
- i=tz2294@columbia.edu; s=20250528; h=from:subject:message-id;
- bh=EAxjBdGKjmNBZwoH8jlh/pcqgFCSerjkNK/wjow3uGE=;
- b=KUR+7ad8tDe+EylRan8+qSxOeisLzBXY9hPHmeOwVFnG4dxe7Ag2XQ64KOhMu4e5hqw3d5kCe
- +LFkOdORmnhCXD+Pe/H5JBozZJ60NMLg61evwFPO4+4kCv/tJJ5n0m1
-X-Developer-Key: i=tz2294@columbia.edu; a=ed25519;
- pk=BIj5KdACscEOyAC0oIkeZqLB3L94fzBnDccEooxeM5Y=
-X-Authority-Analysis: v=2.4 cv=NItAaE6g c=1 sm=1 tr=0 ts=6afd29a2 cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=GaPK54s0Se3oFqK5NkZy0g==:17
- a=sktC-jyAyf29sAdH:21 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=x7bEGLp0ZPQA:10
- a=A0y_DWxS2BwA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Da8U98TiO7q1upZEImrf:22
- a=Qm0qsxP7aFY2tkT6R2MF:22 a=VwQbUJbxAAAA:8 a=9qlVvB6YTzTb8WvwRWkA:9
- a=QEXdDO2ut3YA:10 a=NFOGd7dJGGMPyQGDc5-O:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAxNyBTYWx0ZWRfX75jRnvYbdYE+
- 8HL5p7AE0TbV2knnf1fxmGz3Ps6b5vQEFOFpQJxAagVE6RxweugZN4dbLVU/kXxFm0211kYQEL6
- sNRNCTaItvqx4/JEPS4NDjfLSUgVyWuR3ndkzzn6FkSQeP+8MpHQ
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAxNyBTYWx0ZWRfX1TPaT1JPkE8p
- zg/txZcZh2eMGoSCWhqtmZVZZL6tTtq5h8eFxRtnZUpkWkTpz0Op88hrrtQt3x264yLl87LCZWN
- GrAgMT0KeBOeRyTyj3EDFVFmtc4ZaO5OYqo9jEIMpBFLnebZ2X2iOYIuNGoCJcPOV2Hjc1yIEjI
- 68hu5bRcQ6hvfLUY6fik9NaGgvit2UQMNdz6TOuD9Zqlwwj0Z01QxNiv1LtT3/C7OLh49anFva9
- 2CR/F5eK8Q294R72PhccHGNVWAhu9ZpkMDXU0sbcjcWJXpzIFSr+4DU/TGLV4JGo3/rNtN9x5T1
- dl1DR41rk2M0pxBbltE7vRe63LE4VHfC4/WfWfVVBEwV0gEDHb2kf3y8P6VZXIQz/NDbQMNp1kr
- xMXDuXf9uyADZmTdf1LER9CBVWLZhnZ2J36CLxiWGIKNchrfKDOenODWvVk0kLH29fdQ4MOws1L
- dscYy+FweGVAp5DkR3w==
-X-Proofpoint-GUID: XZa7RB0OxZA1Hx8VeaiPA5Xil4HW84Ko
-X-Proofpoint-ORIG-GUID: XZa7RB0OxZA1Hx8VeaiPA5Xil4HW84Ko
-X-Proofpoint-Virus-Version: vendor=nai engine=6900 definitions=11969
- signatures=596817
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=10 malwarescore=0 phishscore=0 spamscore=0 lowpriorityscore=10
- clxscore=1015 priorityscore=1501 impostorscore=10 suspectscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180017
+Content-Transfer-Encoding: 8bit
 
-UFFDIO_REGISTER and UFFDIO_UNREGISTER both scan the VMAs of the range
-before changing anything. For a hugetlb VMA, userfaultfd_register()
-rejects a range whose start or end is not huge page aligned there.
-However, userfaultfd_unregister() only checks the start.
+ctnetlink_filter_match_tuple() only compares CTA_PROTO_SRC_PORT and
+CTA_PROTO_DST_PORT for TCP and UDP. SCTP and GRE also parse these
+attributes into the filter tuple (both use nf_ct_port_nlattr_to_tuple()),
+so a filter such as "protonum SCTP, src port X" is accepted, but the
+port part is then ignored and every SCTP entry matches.
 
-An unaligned end only fails later, when vma_modify_flags_uffd() cannot
-split the VMA there. At that point, userfaultfd_clear_vma() already
-cleared the WP or RWP protection. The ioctl returns -EINVAL and the VMA
-stays registered, but accesses to its pages are no longer reported. This
-requires a caller passing a misaligned range.
+CTA_FILTER is also honoured by IPCTNL_MSG_CT_DELETE
+(ctnetlink_flush_conntrack()), so a filtered flush that asks for one
+SCTP port deletes all SCTP conntrack entries in the netns, and a
+filtered dump returns all of them. The same applies to GRE keys.
 
-To fix it, move the alignment checks into vma_uffd_range_aligned() and
-call it for every VMA in the pre-scan of both ioctls. UFFDIO_UNREGISTER
-still returns -EINVAL for such a range, but no longer unregisters the
-VMAs before the misaligned one first.
+The port and the GRE key share the same offset in
+nf_conntrack_man_proto and in the dst union, so the existing
+comparison works for both.
 
-Checking every VMA the same way also changes the following:
+Found by reading the code with LLM assistance. Tested on x86_64 under
+QEMU: with three SCTP and three GRE entries, a delete filtered on one
+source port (or GRE key) removed all three entries of that protocol
+before this change and only the matching one with it. Filtered dumps
+show the same difference.
 
-- UFFDIO_UNREGISTER now returns -EINVAL if the end is not huge page
-  aligned in a hugetlb VMA that is not registered. It used to skip that
-  VMA and succeed.
-
-- Both ioctls now accept a start that is not huge page aligned if it is
-  not inside any VMA and the first VMA of the range is a hugetlb one.
-  They used to return -EINVAL, although such a range covers that VMA
-  from its start, which is always huge page aligned.
-
-- UFFDIO_REGISTER now returns -EINVAL rather than -EPERM if the end is
-  not huge page aligned in a hugetlb VMA without VM_MAYWRITE.
-
-Fixes: cab350afcbc9 ("userfaultfd: hugetlbfs: allow registration of ranges containing huge pages")
-Fixes: f369b07c8614 ("mm/uffd: reset write protection when unregister with wp-mode")
-Suggested-by: David Hildenbrand (Arm) <david@kernel.org>
-Signed-off-by: Tal Zussman <tz2294@columbia.edu>
+Fixes: cb8aa9a3affb ("netfilter: ctnetlink: add kernel side filtering for dump")
+Cc: stable@vger.kernel.org
+Assisted-by: LLM
+Signed-off-by: Shashank Mohan Jain <jain.sm@gmail.com>
 ---
- mm/userfaultfd.c | 54 ++++++++++++++++++------------------------------------
- 1 file changed, 18 insertions(+), 36 deletions(-)
+Prepared with Claude Code (Anthropic), model Claude Opus 5.5
+(claude-opus-5-5).
 
-diff --git a/mm/userfaultfd.c b/mm/userfaultfd.c
-index ada841a9cb2a..b80bcc1e03d0 100644
---- a/mm/userfaultfd.c
-+++ b/mm/userfaultfd.c
-@@ -3692,6 +3692,20 @@ static __always_inline int validate_range(struct mm_struct *mm,
- 	return validate_unaligned_range(mm, start, len);
- }
- 
-+static bool vma_uffd_range_aligned(struct vm_area_struct *vma,
-+				   unsigned long start, unsigned long end)
-+{
-+	unsigned long size;
-+
-+	if (!vma_is_hugetlb(vma))
-+		return true;
-+
-+	/* A hugetlb VMA can only be split at a huge page boundary. */
-+	size = huge_page_size(hstate_vma(vma));
-+	return IS_ALIGNED(max(start, vma->vm_start), size) &&
-+	       IS_ALIGNED(min(end, vma->vm_end), size);
-+}
-+
- static int userfaultfd_register(struct userfaultfd_ctx *ctx,
- 				unsigned long arg)
- {
-@@ -3770,17 +3784,6 @@ static int userfaultfd_register(struct userfaultfd_ctx *ctx,
- 	if (!vma)
- 		goto out_unlock;
- 
--	/*
--	 * If the first vma contains huge pages, make sure start address
--	 * is aligned to huge page size.
--	 */
--	if (vma_is_hugetlb(vma)) {
--		unsigned long vma_hpagesize = vma_kernel_pagesize(vma);
--
--		if (start & (vma_hpagesize - 1))
--			goto out_unlock;
--	}
--
- 	/*
- 	 * Search for not compatible vmas.
- 	 */
-@@ -3797,6 +3800,8 @@ static int userfaultfd_register(struct userfaultfd_ctx *ctx,
- 		ret = -EINVAL;
- 		if (!vma_can_userfault(cur, vm_flags, wp_async))
- 			goto out_unlock;
-+		if (!vma_uffd_range_aligned(cur, start, end))
-+			goto out_unlock;
- 
- 		/*
- 		 * RWP uses protnone as an access-tracking marker. PROT_NONE
-@@ -3820,20 +3825,6 @@ static int userfaultfd_register(struct userfaultfd_ctx *ctx,
- 		ret = -EPERM;
- 		if (unlikely(!(cur->vm_flags & VM_MAYWRITE)))
- 			goto out_unlock;
--
--		/*
--		 * If this vma contains ending address, and huge pages
--		 * check alignment.
--		 */
--		if (vma_is_hugetlb(cur) && end <= cur->vm_end &&
--		    end > cur->vm_start) {
--			unsigned long vma_hpagesize = vma_kernel_pagesize(cur);
--
--			ret = -EINVAL;
--
--			if (end & (vma_hpagesize - 1))
--				goto out_unlock;
--		}
- 		if ((vm_flags & VM_UFFD_WP) && !(cur->vm_flags & VM_MAYWRITE))
- 			goto out_unlock;
- 
-@@ -3943,17 +3934,6 @@ static int userfaultfd_unregister(struct userfaultfd_ctx *ctx,
- 	if (!vma)
- 		goto out_unlock;
- 
--	/*
--	 * If the first vma contains huge pages, make sure start address
--	 * is aligned to huge page size.
--	 */
--	if (vma_is_hugetlb(vma)) {
--		unsigned long vma_hpagesize = vma_kernel_pagesize(vma);
--
--		if (start & (vma_hpagesize - 1))
--			goto out_unlock;
--	}
--
- 	/*
- 	 * Search for not compatible vmas.
- 	 */
-@@ -3982,6 +3962,8 @@ static int userfaultfd_unregister(struct userfaultfd_ctx *ctx,
- 		 */
- 		if (!vma_can_userfault(cur, cur->vm_flags, wp_async))
- 			goto out_unlock;
-+		if (!vma_uffd_range_aligned(cur, start, end))
-+			goto out_unlock;
- 
- 		found = true;
- 	} for_each_vma_range(vmi, cur, end);
+Based on nf.git main 734bef548a96. Tested with a small raw ctnetlink
+program in a busybox initramfs under QEMU (x86_64, TCG). It adds three
+SCTP, three GRE and three TCP entries, then sends dumps and
+IPCTNL_MSG_CT_DELETE requests with CTA_FILTER set to protonum plus
+source port. TCP behaves the same before and after. Also built for
+i386; W=1 shows no warnings for nf_conntrack_netlink.c before or after.
 
+ net/netfilter/nf_conntrack_netlink.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/net/netfilter/nf_conntrack_netlink.c b/net/netfilter/nf_conntrack_netlink.c
+index 1f8d94a05..5e8e0b93b 100644
+--- a/net/netfilter/nf_conntrack_netlink.c
++++ b/net/netfilter/nf_conntrack_netlink.c
+@@ -1127,6 +1127,8 @@ static int ctnetlink_filter_match_tuple(struct nf_conntrack_tuple *filter_tuple,
+ 	switch (ct_tuple->dst.protonum) {
+ 	case IPPROTO_TCP:
+ 	case IPPROTO_UDP:
++	case IPPROTO_SCTP:
++	case IPPROTO_GRE:
+ 		if ((flags & CTA_FILTER_FLAG(CTA_PROTO_SRC_PORT)) &&
+ 		    filter_tuple->src.u.tcp.port != ct_tuple->src.u.tcp.port)
+ 			return 0;
 -- 
-2.39.5
+2.43.0
 
