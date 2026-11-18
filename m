@@ -1,68 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794992116;
-	b=GKSot6ctpyB2BicqLYc94mRGASVWpJqmPKMQHHmDbxSUGmZ3WoCKMiTd717kSP/TTFzn
-	 l61Ydjg2BixS3fLph6vZOBxKirWrVKjFpmILpzsBTDyGOknlbBwgepz5bitgmPhQ1hSEU
-	 3QRIJ8Q46ie2SiUEWgLI2dAk8TRCeEQp+o0xwdH7qeaBwPI+RobDlvUlGsI+HbE5PMgN7
-	 kWfxCkE13eeZDNRocGEPiTM/Zm58/aoxaixyg3swWQQc1DW4abmeowg3jEtxgp/UCJG/N
-	 2S8sy68UmJMB2yIdmjtVFDrzR88Ndbz5NzWOpBfim/YdjaPLMG43fEHrPWrWmlB7MwQ==
+	t=1794992127;
+	b=BBdReX2u32fTUS4FL/J5Orao0xhNC91ZabNqPInG0ST4zw7qPHVA0HRbJ5G9dj9gYgWM
+	 6B7ULL8k377dH2D+UBKe34v09FhM52OlAW3TyYIF5cSvRe0eTzqzOy7ZHDpFcfBcXR7iJ
+	 7PM/CZ+MUZScyh41c+FCFVABRP5Rq9rgWDcm32FszhRZcApl6CpFAOJ5e+47gvkULDszG
+	 gYVVEprenDMduXLgHMtb3rEQfxhudqZJrVB+3Ek3JFFa9hqbF+SSSxdM7VqHT0bC/obRm
+	 OvWHVYZYTWYfQngGNc4qP2FLzHr0i/C9WrBtQyJMjwkUbchyOFm5hVQibkMM9et3lsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794992116;
-	h=DMARC-Filter:X-UUID:X-CID-P-RULE:X-CID-O-INFO:X-CID-META:X-CID-BVR:
-	 X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:Received:From:To:Cc:
-	 Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=fo4zGbknT06eWfnAhh1J7rc7bQjqMVN64q0sdPHY7FY=;
-	b=F2rI5Oqoct7R+W7K5FaI7gRi+tLUxgHDxN9YPet0Dqi3VavAVK214HtE3f6XMqGwWZNu
-	 qVA+q3HOi/oP7l/AIqzG/PpzKE35IAlVPyjbUqUzqpAn1bv6jZfzJdBQVb0yiSi5ivfzK
-	 CvGkMHhCfiuab+CCGY2wtQQ+8BybSkJU1eK7pC3AAI5+DrMP+bY5fsvTX0wLI7Juxu2ae
-	 VW8a3Z4+fnCGIATJJQHTAY0xmnIMTJbdv0wIJC5Yb90aku7vKEFwpI1MP/fbrOi4gQYt1
-	 ySybl946V4ECRX9zhxjKAWCZ6qEXcFRXsPB+kiis0LSRGdooZ9sfGxAu/fL20x7tM8w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794992127;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=sdWZuaGLpzVJrXvF7W52XeKg9YlJvmOJLlOUHYiqWro=;
+	b=RCUwlsMf8izl8sfuQvsedrczF5iCFznzr/e+uOcmEV5n9JWr31B8iUYTgpKkiVuADKgC
+	 LGUlNWrFbD+l+NanGHS/BODsr2xeFtgW/RZBl7q1p0N3pf6No3aeA83YlU9Faq0tuK4ls
+	 48JaIMAHdibSZANYsKd3+5k4yIbaTwjb009OZ32uaR5c8Cy+PBrC2VMLh9FAvvxE8H9Sw
+	 r80iyA5qgq/PM70bUPw1ZPa4q5NIBKGk4X3jP6eLzWvImNA8lh8X7a3NpG9hdHLh4V9Da
+	 AMDSEUZUSNUhbNtVhDUf74XiNYrENtK42k9XvplJUsNVrshUZrzUAXxN/sQxEXoboMA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kylinos.cn;
-	spf=pass smtp.mailfrom=kylinos.cn;
-	arc=none smtp.remote-ip=124.126.103.232
-Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=x70HA1Dg;
+	arc=none smtp.remote-ip=209.85.221.50
+Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com [209.85.221.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D024606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:55:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D024606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
-X-UUID: bfabcda4e32d11f19a56ed5b684f684d-20261118
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:a8f6efcf-226f-4d48-831e-3dc98a10beef,IP:0,U
-	RL:0,TC:0,Content:0,EDM:-20,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-20
-X-CID-META: VersionHash:7db8b62,CLOUDID:4db1f5e7feaddf4bbc4f6c2c005fc0ad,BulkI
-	D:nil,BulkQuantity:0,SF:102|123|136|850|865|898,TC:nil,Content:0|15|50|99,
-	EDM:-19|2|-100,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,
-	OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: bfabcda4e32d11f19a56ed5b684f684d-20261118
-X-User: yaolu@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <yaolu@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 504405037; Wed, 18 Nov 2026 16:55:05 +0800
-From: yaolu@kylinos.cn
-To: matthew.brost@intel.com,
-	thomas.hellstrom@linux.intel.com,
-	rodrigo.vivi@intel.com
-Cc: michal.wajdeczko@intel.com,
-	intel-xe@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	Lu Yao <yaolu@kylinos.cn>
-Subject: [PATCH] drm/xe/gt: Abort GT init on LMTT initialization failure
-Date: Wed, 18 Nov 2026 16:54:53 +0800
-Message-Id: <20261118085453.198348-1-yaolu@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8FA3606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:55:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8FA3606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=x70HA1Dg
+Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-4a5506f09f5so403099f8f.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:55:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794992125; x=1795596925; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=sdWZuaGLpzVJrXvF7W52XeKg9YlJvmOJLlOUHYiqWro=;
+        b=x70HA1DgtnpmGR1m7sA+GrsO+ZrKeNqJXFLfS1g3OWNz1tQ+qbQJXvy3op40dvOLIy
+         J1cFK9SdTJUPl1iYwWPZRnhV4PBV0nhfVxbhhC+MTWr5/3VuuoVHHfvDyt1691vmuNVO
+         bfHyZvW95LrkNSsVQpJAVZVKVUxGLi+Clsto8pNI60v30uzgKFWnyFXYiH1Z3L6fnxIR
+         TtmhIjbLEPL9h2g8pDEqnLnA8434yegE8Yh2iup0PyC5QiYIJ8QzVZMGGpGhexnOuAHS
+         /ktQFGxvibQU7mrX1ZldNHhFlTsj7Q5iX6+fgl5mo+DOcM5w3hfVwuxDA2fxiuaYM8K/
+         JsWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794992125; x=1795596925;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=sdWZuaGLpzVJrXvF7W52XeKg9YlJvmOJLlOUHYiqWro=;
+        b=YraRtB7lx0Xus/metocKTyX2OYqnML4jQpsSu2RU20m2OdN/rV+CYml0xisc5dGlIu
+         QFOPoCCHLT9xKAoGNNPzhoPfdI3Mw0J/SvG6wLuk5bX+Q8UHyAifsJbCWaFsUcsz92FE
+         z4p5fy4qvj5T3vgCPhwyJ/vA9ylO6Zc2ffCiNcnMzo4BKFa4szO3ROCL+Up42IZJpSBt
+         JXAru8bd5hk/D4cBdzy7uGFQ3hyA4ijwFn+DcNmzYZoHppt3Y2DXOJUjUZ5gUE2VN+LJ
+         92D+++im76vUgCeGxtJQmgzVo/OwwTJR+Mm+HjAPkdPCSn2r/A59GrLGe3p22+al35tZ
+         uuEA==
+X-Forwarded-Encrypted: i=1; AL+hErFF52KoMsL/UpUIRyuFdiy0u0CJfAVqKBmDGsBu/ylDu4TOZ/0iHWaiZ3o5I7qCbu9JurLl23W/3Ij3qQE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+LI7Voim4Ahbe+J8ylxiQ+/f1xPSSy6oePXuRjo7jXBg5RLRQb
+	yyXbaX8A3mxwFB2gh7SoxkQFprfBqqyPDY5Ka/SHO4vGzs6j/sgzsFtl
+X-Gm-Gg: AZFdTZduqvxPP94HcstrC/ZqFKmlzeal69OiRG22BK9w6QCwR1BBN8LjxUy/w2GukfY
+	b/7fBtcSKwssAapz5dUAgFvfmXwRHAPgIVowXEbSu5xDcznCMXgqQKkHY+eMz2sCo8oQigrp7RG
+	NNtT4NZl6de+ySiI18D8Nxti5SRnFzoawZhDskO0sxoJFmprKHtBBvwVfSazyiQHSNezHSC4zFg
+	b/1UU8g9JiS8jKivT5X7j/KLjmiwYQ1A6vuVpm2/qfAGr0DOZYI6ec3IN16EjIZ5AoV9Gd7hPH6
+	Kt4Nx4bW9YYPrjCvgbwCyJsa+adQSZwa42GJNWDpQXIXpMZY7MjsMJ/C4fQ2pToKIh4LQ9HdaBi
+	ix36sUhzaADS4RSLcOdChn+pCeUhoViNBDQ5x/JE2O9YJKaT96EebZV+J4hSLh8l3uMBm7cYXNl
+	CVXkqfRnF/EgO2AU9ztyclZ7s3JsrtwEiZtH9ZpRRsIsP9P973gc8JAg1cpF8h1Ys7DBW7FDA/5
+	cVz4wmJDlMKSIHRtob4cFP/CYDivDMLtK5ykyT44mqEYf6nAaDxBP1NyxBoUPorAipFUfr0mnjW
+	1/MdJL/1D2fxRDmAzHK3rFL4YhWahjmGMVVL9PVKq+yWDv7PwyAeCNISohLLjgSTLK9qIXrlinC
+	YRlG0uJJ1I+t81JHTs8EMp6iWP36TfV+Wu7GKH5IGxdSFj4ecfICiiaTULePlMx2FlUNawk3lsL
+	OEEHtk8Pk2FG3V
+X-Received: by 2002:a05:6000:46ce:b0:4a4:856b:3503 with SMTP id ffacd0b85a97d-4a639d16f78mr2630507f8f.34.1794992124965;
+        Wed, 18 Nov 2026 00:55:24 -0800 (PST)
+Received: from localhost ([2c0f:3d00:6be:8900:ce5e:9212:ea4b:f30])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a654a8c39bsm3571713f8f.17.2026.11.18.00.55.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 00:55:24 -0800 (PST)
+Date: Wed, 18 Nov 2026 11:55:19 +0300
+From: Dan Carpenter <error27@gmail.com>
+To: Chhabilal Dangal <yogeshdangal66@gmail.com>
+Cc: Vaibhav Agarwal <vaibhav.sr@gmail.com>,
+	Mark Greer <mgreer@animalcreek.com>,
+	Johan Hovold <johan@kernel.org>, Alex Elder <elder@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	greybus-dev@lists.linaro.org, linux-staging@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] staging: greybus: audio_manager_module: add terminating
+ newlines to sysfs output
+Message-ID: <av1n9wRjlQ5VaYAi@stanley.mountain>
+References: <20261117171015.218177-1-yogeshdangal66@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,43 +103,23 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117171015.218177-1-yogeshdangal66@gmail.com>
 
-From: Lu Yao <yaolu@kylinos.cn>
+On Tue, Nov 17, 2026 at 10:55:15PM +0545, Chhabilal Dangal wrote:
+> The sysfs show callbacks for name, vid, pid, intf_id, ip_devices and
+> op_devices print their value without a trailing newline, so a read
+> from userspace runs into the next line.  Other sysfs attributes end
+> with a newline.
+> 
+> Add the missing newlines.  No functional change beyond the output
+> format.
 
-xe_lmtt_init() can fail, but gt_init_with_gt_forcewake() ignores its
-return value. On a PF the probe then continues with a half-initialized
-LMTT: lmtt->pd is never set (and lmtt->ops is cleared), so
-xe_lmtt_init_hw() returns early and the VF local memory is left without
-a translation directory while the driver still reports success.
+The output format is a functional change and since it's somethng that
+user space sees it's an ABI change.  Just ignore the tools which give
+wrong advice.  checkpatch is just a perl script.
 
-Return the xe_lmtt_init() error and abort GT init instead, as required
-by the documented LMTT contract ("Any LMTT initialization failure
-should block VFs enabling").
-
-Fixes: b1d204058218 ("drm/xe/pf: Introduce Local Memory Translation Table")
-Signed-off-by: Lu Yao <yaolu@kylinos.cn>
----
- drivers/gpu/drm/xe/xe_gt.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/gpu/drm/xe/xe_gt.c b/drivers/gpu/drm/xe/xe_gt.c
-index 286aee5775c0..1239cbb7c84c 100644
---- a/drivers/gpu/drm/xe/xe_gt.c
-+++ b/drivers/gpu/drm/xe/xe_gt.c
-@@ -582,10 +582,10 @@ static int gt_init_with_gt_forcewake(struct xe_gt *gt)
- 
- 	if (xe_gt_is_main_type(gt)) {
- 		err = xe_ggtt_init(gt_to_tile(gt)->mem.ggtt);
-+		if (!err && IS_SRIOV_PF(gt_to_xe(gt)))
-+			err = xe_lmtt_init(&gt_to_tile(gt)->sriov.pf.lmtt);
- 		if (err)
- 			return err;
--		if (IS_SRIOV_PF(gt_to_xe(gt)))
--			xe_lmtt_init(&gt_to_tile(gt)->sriov.pf.lmtt);
- 	}
- 
- 	/* Enable per hw engine IRQs */
--- 
-2.25.1
+regards,
+dan carpenter
 
