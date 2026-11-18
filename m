@@ -1,102 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.181
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795036369;
-	b=3xgQgvsDdOs28OkJUAPR1QDP5EFaij5eeDTK2IfYyk8ynxNQImc8o7RbMMnb4e9ITbOe
-	 pyrrRC1ZP51qyvwOXu7tApaivkg6Gv9zhaDU+aqQM4wxJEh58ev1ZRLzbc0V584J1GUb9
-	 SafiRmwtrnm2GT8wIqIF4gTpwe/Rg12BzbAjKlRiTXikCjic2Bd7k5U32aXMQCMABnt51
-	 OPgj3veFDOZkP8Jp9z3J+9nBXo2V362N7OWtE5p8r9E38yRIgjI9quHy++OfH7HuhePuk
-	 qjBG35Xy4PLzb9ew2oWXsJK8SaU8a6262NSBPLADo6tCoKOJ9gL8074YZPhJ4FWIg1Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795036369;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.44
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795036385;
+	b=o2l64OO9R7yg1tfhmJ8jZQbeAIvEZWMa7CluLB5yFbCb0zP062GrI7NGZHRHMZKHuTRV
+	 7BOLOTOTj8TWkFPSFVhx+w6JG7wYZ9E+62mAeha/goSAcidQ+G3pei3zL8SlUk3QjSjnS
+	 Ybk+OwdsXZbkCzw1zFOrVyxdgnWzO6B0i297BgBM3f/czo4Ek46f5opiY89JYALRzAR5M
+	 thvKwKGP9xwA4P9ISkG7VaWXnwSjMblltBRodOTC5CAF0kuxlZcKsm6EbrP2Fq6QaA9/O
+	 QQLzwMDfhBv4eo4YPDljOW3u70gB8LnGuMBdBGsISSIK3C143bpD9KEHlXWBfMBb4aQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795036385;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:
-	 Content-Type:Content-Transfer-Encoding:User-Agent:MIME-Version;
-	bh=1e/TvLg+e+Z3bp3zIHk3TfdEQA+k1gn8aVFItKGNB84=;
-	b=cpM7F3SYjPE3c1bqo0BQ4PKZKvEk/gy2jw1gvbrjMC4GivWyTZ2tgprx0ZKknArVsYCM
-	 4bOYohBJ6BxMd0M0Yw73HZ3EEDI1ZXNwhR3WSh/1X5LiXo/MqvvNq+gNASiqdb9Ae1ipA
-	 Ep9BuldB78u2neVLrAh3TUF/Pxc5ioA9ikpwnEh6VcLehdKr+N2NMKOMBAi4c2yY6VUuR
-	 3wMiYapxBENaMsRPuySw3EckDy4PXNT5DF5DnWVwVPYgbJtopkNtbM5j0q0zbtUu8IkRJ
-	 LsvMJr2ed21B/ytVe6680Ry3TueFaTiBVKTK/NYNal95QVYCJ+D+e/4SNG4e6rHbXZA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=C2zY5yEh;
-	arc=none smtp.remote-ip=209.85.210.181
-Received: from mail-pf1-f181.google.com (mail-pf1-f181.google.com [209.85.210.181])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=UWi6aWIYE+fT8OrBO2DRorgL1+pOEdt+mwu8bkfCsP8=;
+	b=TflsS9m4zHpQmTFOJ/EsN0b920UGt3rD36Z8m6PsnD1aO9qlJ48lYyinP5YTRVLAFNbn
+	 4jt1V8sKwccFi97PYNtmgKcbgh/ifEH14WsQVofeFumFrvOjb/Vm+8r92Vkp63CCSy3Jp
+	 4N3LG0slUK82lQxnBH3rbyurS6cdq5glBJu5NZwfPC3Az7B8SimCDryMqeyl3wNYAO57v
+	 gvHkXfvQKpcZvIzyMvGKI1w3xLfPMJNR4OwBGaGgCKyIoGNBCD4aFjxbQrzMlYZd1oJ4M
+	 2QqkEKQuqLikA0qDxVyRZEqGy1r218U40VDW18Inc+Br29ofHiBsd3oSNjCUHEy3sHA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=amacapital.net;
+	spf=pass smtp.mailfrom=amacapital.net;
+	dkim=pass header.d=amacapital-net.20260707.gappssmtp.com header.i=@amacapital-net.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=kgM+94wM;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.44
+Received: from mail-lf1-f44.google.com (mail-lf1-f44.google.com [209.85.167.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6530606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:12:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6530606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9314E606A334
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:12:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9314E606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=amacapital.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amacapital.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=C2zY5yEh
-Received: by mail-pf1-f181.google.com with SMTP id d2e1a72fcca58-8a05b210703so918881b3a.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:12:48 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=amacapital-net.20260707.gappssmtp.com header.i=@amacapital-net.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=kgM+94wM
+Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5c14f7768acso1129996e87.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:12:59 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795036378; cv=none;
+        d=google.com; s=arc-20260327;
+        b=p6kDizFtlbvJgJ7hR0WWhDugNC5hbmHWPFceUH78GgO/cG9eGc3ULU7VobjgFTCuWq
+         En+IY/kJ6wH5mMop7vq/G06ixIbSpufGWs5gpKdMLk4FNswEP+n5rFBYuyBKhGoH4Zqx
+         knaPT84R3o/HejHPIioB197OhdzoEhvJmrTXgGC1WDu8NoQx+jll9cFVKiDgjLiAFdCp
+         3sk7ZCgk14hA+xfDWkjXuLYT21nO2rtzjji9sfXseXRMUAo/vhLc3+Eejg703yBR5lVd
+         6+0ukpzk812TifQlRMU8wM6L0GR9j2Ht5CP+NWtbvJbHT1b46Irk+hhtm7dgPS2sWP7g
+         yVEw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=UWi6aWIYE+fT8OrBO2DRorgL1+pOEdt+mwu8bkfCsP8=;
+        fh=8SQOhCS19efG/0TE28q81imabXNNol1V5320kMWSzsw=;
+        b=N8QmnqK2mywyo5bOl/tB6rVygMPjwzAw0FncfPPuCw7TfSSbyihX/N/ftR9qBFT0fy
+         yIL2V4Yn86748YYaPHGpmf2OW3YDic+ovmGKqo3clemcZnoaDgI5D0n4+q95ROvWPivD
+         wiaFtypZ9rb4nyzdEcfRM3J93HOUxFaHVcWJ0s70ils8S+Jj6tB+Z9TD4H8/pKlECMpr
+         5D9IZWeYiuYiyqy69jpIQX0i28AoKc9xyIlBLCxVJGkzBsSbTFCxwwEGO9k0mkciHxJ8
+         Zab8NG2mfgQklBUMj1jPUEdUypXS1lepPfT2dAGGC1ad0AZs7EKyM8afj2TBFiBCsMT1
+         UTfA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795036368; x=1795641168; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=1e/TvLg+e+Z3bp3zIHk3TfdEQA+k1gn8aVFItKGNB84=;
-        b=C2zY5yEhV0jVQa5Es4QLgNKBGwQt5BR94udPyNfmkDm+V05flNM8YhTf+QIt2XRj6B
-         56Q8j7JOInZWEyEwyEL7G7G1ZsUnrujxZri83UvI4dVnpWiNLyhE8LdNEJpLjh6W0TrC
-         DyA1/cgmArj4XvejyCEaLIzYYS6E1fwWAMjtJH7mMbgFud/TBleVSKCDZpMwVI0ZU9pv
-         p3Y0ebhVSbhT8awd0Wdg8gqgE8CIXSwB9Pi3x1UzuJBzh00WgqIHd53gtT+ZCDwP55Zm
-         v2uGfUDvrBoGCNBNk1RZ5ZywB4goCyfEsKvsxMVVuPdDQ1kLq9C34JWblm19J/p/ktHw
-         LCuA==
+        d=amacapital-net.20260707.gappssmtp.com; s=20260707; t=1795036378; x=1795641178; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=UWi6aWIYE+fT8OrBO2DRorgL1+pOEdt+mwu8bkfCsP8=;
+        b=kgM+94wMeRVtqQuKMf2voBlp/7mmBGB0wg6RbakCJoZIUyenSlHL3LjFrlxAtFmRFC
+         S8KP6bDmaJ7+KmKrve9oF+DO15q0bbfeomzd2ANxZbMI9Wp5wEKb9CT/PHzw6w7N6PcZ
+         GWqEGss6hqHZ6qOh4V5IDyC8g4dQFp55046Gobv711dFigyzVlHjLWJxvrwr4Q6yCm7l
+         rXKICef3dz7+oPENdL0yQHlDHryjcIFh5nBw5N/VbP4d6AEEi/4vp9fZgJ5mH/3XitRH
+         0F8PFxwchkMjqaIbMoygjydckD09A1fliBgC9Y1ht0h3X+h9AJLtWZf4e+6lb1uNuTx/
+         xa1w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795036368; x=1795641168;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+        d=1e100.net; s=20260707; t=1795036378; x=1795641178;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=1e/TvLg+e+Z3bp3zIHk3TfdEQA+k1gn8aVFItKGNB84=;
-        b=P9f7ZBY8CC5t8nkMGR5eoYo+aAEe6h5w64Am1IMHfwS7Mz1qtJ+21WD+h6xUf6lhc9
-         EkueV+aa1R9wraExlDqyDm9MYvBRFpI0Ufjxyny70gvQ8mTbl8cC05mtdQo5AnkUZ6PA
-         dmvQxUcMFwRPFuzrpIF2CghMKZcOOBkmygGSAx7exYuiN1US3BTK3YWq1v1YWrdzTtjz
-         M9xEWD7DTWnuXiwmJXkqItyaV6DpDaHQd8Bl+iuDIdQehjbCJtEjKwqou5YBaXvLR/lK
-         JceYmk9pXTxTWzShC5QWcroY0w6Eu+Zsm8jU+YD/h9BDENzOY0T9RGtoiD5R2IcG8qhh
-         W2RA==
-X-Forwarded-Encrypted: i=1; AL+hErGx4WucZeGIghbVy2yIaIVsWz2uBVtQsRPVhWaRQ2SugdVMAgZ5eTay1UxzIlVBtvVxKavwqae4a7dgYII=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/K/8dZlIA1e/qub4EpB4T2hJuoc/v/ngRVj7Pk2N9xzEF3W3Ek
-	mtd3nCZfJDFEMWZUymqZqdsSb7gcUCRlVOCyHVWJTNa7jtor50cnaLlU
-X-Gm-Gg: AYBFou0kbMLYfKAQT0O1I1diaSS56e4tYO/xhNp3y/AS2p5ClVyDLTlztrLMaAlrdTl
-	9HgfpU5DAl9LsFHGkRkbqrf2n2Uxqh4SoSDlvWDKvp7iTvl+aWvhT+ptVpatMN/Y+ei/zBD3pAc
-	A4BNtRRoqH8Wt8+llVhmiJpGovHg4yvj9Gn+JXRsLDD0R9MziLa0Tv7SS6brckdfT2V1wNBHZNL
-	WM8HqNfYHvvHcRGvI5MqKVhcESrmgJ+QZyej6O3niu/tBHURzChKE+ZN+hWAkD18cMyCuMRnFrS
-	q6vgFfU+ycUikJy+E24Z377QTsLu0gET+4tq3b6BoIZbDzJ85545cy0BlDYrXZe93HZKi8YArrh
-	Fwz+kp4lRIyWxF2MBTqSdBuuZLv22WyR+VdwvwaZrIAT+94KPMm57UrxfJ5mRx5xtrCeo4s+Q7H
-	k/T+37Qfg2eLXRePZcxNyeNskWorgZiK6oCQr3r8wz3ih+GEV0hOdVjzR4NKGToPR+vZ0ERkwey
-	0+OGGurzwSp3sFo4fxkiH+L2G3OG3hFrI/G6Ce71vQbve6TIcmpzHW/Azx3FUJksW1b6goy8XPO
-	GNNXwYDoSx34IqsVPHG/JFOsm2IRcdKf6U0vGUWMGrjUk/nJPs8tyROy
-X-Received: by 2002:a05:6a21:880a:b0:3f9:9114:8045 with SMTP id adf61e73a8af0-3fe980f701emr3110108637.43.1795036367942;
-        Wed, 18 Nov 2026 13:12:47 -0800 (PST)
-Received: from [192.168.0.13] ([38.34.87.7])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5cb35da49sm1732055b3a.38.2026.11.18.13.12.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 13:12:47 -0800 (PST)
-Message-ID: <df72a9ab1ebcebff573485a808e45cd493665e75.camel@gmail.com>
-Subject: Re: [PATCH bpf-next v1 0/4] libbpf: Support kernel-side kfunc
- flavors
-From: Eduard Zingerman <eddyz87@gmail.com>
-To: Ihor Solodrai <ihor.solodrai@linux.dev>, Alexei Starovoitov
- <ast@kernel.org>,  Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann
- <daniel@iogearbox.net>, Kumar Kartikeya Dwivedi	 <memxor@gmail.com>
-Cc: Alan Maguire <alan.maguire@oracle.com>, Emil Tsalapatis	
- <emil@etsalapatis.com>, Jiri Olsa <jolsa@kernel.org>, Song Liu
- <song@kernel.org>,  Tejun Heo <tj@kernel.org>, Yonghong Song
- <yonghong.song@linux.dev>, bpf@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, sched-ext@lists.linux.dev
-Date: Wed, 18 Nov 2026 14:12:45 -0700
-In-Reply-To: <20261117192153.3384031-1-ihor.solodrai@linux.dev>
-References: <20261117192153.3384031-1-ihor.solodrai@linux.dev>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-10+b1 
+        bh=UWi6aWIYE+fT8OrBO2DRorgL1+pOEdt+mwu8bkfCsP8=;
+        b=ov+cX72xgoayae/9z0R6ZACFjcpECIJXttvwYljgOjBGKytGyqnVSKDbUrUWImDbAo
+         wqtHFrPjsuNlMRhDJ7IRqqe3Iy4w0Fu3CS4vVE0IbFS1NSNrIX6m+bC3tYSIfoIs3hF3
+         WVLFa7mN7WJTrmv+9ZcxbTZPEHyEv3uBrpe41K3QFVcR2k9rc+be63zcoNld915tWBVa
+         FC+J31xGRC4cwfrGjHh4UPLMdbBAfEdIVauXC43robLPAZClyrQbDq0WqFM7caXxo9CS
+         9dnq0dln3WJvFu9EnkESZoztOs6MYapNSmLMEYaR3zSEloVqZwhCbyaGWl/YN6mHxGcB
+         Zv1w==
+X-Forwarded-Encrypted: i=1; AL+hErEZickmxg9dmsfgqo9vDvrQFW51qrikPvXJAnuXQEMCc50l61Tuocwu2PiS5GQA+6s0BxmTCB/EdEAIWQE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8HWKqCD1vSk/MThAARMzkNOcJy1+maccRJ19UQ6+bYPNLd0v5V
+	orDmn1IUjrVMplq9EwEBAN3fGfnm7zYFKPQhmXV08omEsPG2LNcADtEhOf17mg3psc/6sdMz5iT
+	P26YOzpBp0VWjmuu59FthZnymVv/YAtKADYJzXrJ9
+X-Gm-Gg: AYBFou2sZjKijmGCJsQw2Od+elbb2hlUAzzdxfmIqbgrAJTO0cID6pG3z8zldqMK8O2
+	3XRmfyz8ZcNX5N4Sv89Z4oV7byQjyDRyGr+hsevsFkNF3gC19zpp8j/R/0NjfAPzyEPaxlShvv1
+	IRwfeVVc6SiDjr+oIv6gw+yUCEb8aXRntejHZwstTiiR3sU97UesEgQUeAYjeJrfOO0VzCtN0Wa
+	KvoJjVCulYCfLQvThaXwSqZadV9i7XCM4j8OKQxIQjcVbrqVBaOQmvM73N8g9SkRnAS1hfvbLSG
+	+7njecPX2DuJ4PaBQtG7j54dQrI1BUdeNrEw+veHjSekr9u4RIsaX3IHxiPOg183g9RlNgWVljm
+	4F7YHOw9pjeN5J287ohbkSwGHpKiGthkUDA==
+X-Received: by 2002:a05:6512:2387:b0:5c0:209:a85f with SMTP id
+ 2adb3069b0e04-5c1a9c1b551mr1282932e87.25.1795036377561; Wed, 18 Nov 2026
+ 13:12:57 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,48 +104,304 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261028221705.3915340-1-halg@google.com> <CALCETrW9ygriu54gxiHFLEd5+hJminQo0r8Jwd63wR69Dj4W7w@mail.gmail.com>
+ <20261106-befreien-addieren-eislauf-e09212803534@brauner> <CALCETrWa1SBLcb5oWjqjgzZvKvCoHjmYFk=Lf5ytEM9uqm5jYA@mail.gmail.com>
+ <avM41a80aig2de-R@google.com> <20261111-behagen-faktisch-entgegen-e2e714373895@brauner>
+ <CALCETrUjW=kXxyggDUvEN+Pxc-pE98eVbdW8XBU8JzfqXj_voA@mail.gmail.com>
+ <20261117-rational-ohnehin-unbeugsam-e5c04759a156@brauner>
+ <CALCETrWhuOnBy0N0KznmczD4S2XEK0fbr0C=1KFQqTnoTJbQbg@mail.gmail.com>
+ <20261118-stapeln-eckpunkte-lesbar-ee73537f474d@brauner> <20261118-zufahrt-baubeginn-gutsbetrieb-c09004227e8f@brauner>
+In-Reply-To: <20261118-zufahrt-baubeginn-gutsbetrieb-c09004227e8f@brauner>
+From: Andy Lutomirski <luto@amacapital.net>
+Date: Wed, 18 Nov 2026 13:12:45 -0800
+X-Gm-Features: Aa3M54o7fZB1Cpe0ST_SUtYpCXQerdKYt_ETG0v-G2QE_rfSU2Am1PRKK-TPOCc
+Message-ID: <CALCETrUMNr=32ENT6VBKPzoyJDfaX6nzZsjMVxuz9O3z+6LRhw@mail.gmail.com>
+Subject: Re: [PATCH 0/8] userns: per-namespace capability bounding set and
+ opt-in netns loopback
+To: Christian Brauner <brauner@kernel.org>
+Cc: "Hallgrimur H. Gunnarsson" <halg@google.com>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Paul Moore <paul@paul-moore.com>, Serge Hallyn <sergeh@kernel.org>, Kees Cook <kees@kernel.org>, 
+	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Jan Kara <jack@suse.cz>, 
+	James Morris <jmorris@namei.org>, Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
+	Jann Horn <jannh@google.com>, =?UTF-8?Q?G=C3=BCnther_Noack?= <gnoack@google.com>, 
+	KP Singh <kpsingh@kernel.org>, Jonathan Calmels <jcalmels@3xx0.net>, 
+	Casey Schaufler <casey@schaufler-ca.com>, linux-fsdevel@vger.kernel.org, 
+	linux-security-module@vger.kernel.org, linux-api@vger.kernel.org, 
+	containers@lists.linux.dev, netdev@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Tue, 2026-11-17 at 12:21 -0700, Ihor Solodrai wrote:
-> An incompatible change to a kfunc's prototype, such as an added
-> parameter, breaks BPF programs built against the old one. libbpf
-> ignores the ___<flavor> suffix of a kfunc declared in a BPF program,
-> but makes an exact name look up on the kernel side, so the kernel
-> can't keep the old prototype available under the kfunc's name.
->=20
-> sched_ext ran into this. cded46d97159 ("sched_ext: Make
-> scx_bpf_dsq_insert*() return bool") kept the old prototype as
-> scx_bpf_dsq_insert___compat, expecting libbpf to bind old binaries to
-> it, and broke them. 2dbbdeda77a6 ("sched_ext: Fix scx_bpf_dsq_insert()
-> backward binary compatibility") reversed the naming. A ___v2 kfunc
-> declared as vmlinux.h spells it doesn't bind: 56bbc91219c0
-> ("sched_ext: Fix scx_bpf_dsq_move_to_local___v2 compat detection")
-> fixed a compat macro that silently dropped enq_flags because of this.
+On Wed, Nov 18, 2026 at 1:06=E2=80=AFPM Christian Brauner <brauner@kernel.o=
+rg> wrote:
+>
+> On Wed, Nov 18, 2026 at 11:21:57AM +0100, Christian Brauner wrote:
+> > On Tue, Nov 17, 2026 at 09:37:19AM -0800, Andy Lutomirski wrote:
+> > > On Tue, Nov 17, 2026 at 9:10=E2=80=AFAM Christian Brauner <brauner@ke=
+rnel.org> wrote:
+> > > >
+> > > > On Mon, Nov 16, 2026 at 09:15:18AM -0800, Andy Lutomirski wrote:
+> > > > > On Wed, Nov 11, 2026 at 7:20 AM Christian Brauner <brauner@kernel=
+.org> wrote:
+> > > > > > * a task that setns()es in later gets
+> > > > > >   ns->cap_bset & (cred->cap_userns | cred->cap_permitted)
+> > > > >
+> > > > > I'm not sure this is ideal.  If a task has cap_userns & CAP_NET_A=
+DMIN,
+> > > > > then there is no attack surface issue with allowing it to enter a
+> > > > > namespace and be NET_ADMIN there even if the namespace itself has
+> > > > > CAP_NET_ADMIN cleared from cap_bset.  But any exemption here woul=
+d
+> > > > > need to be a new API so that it isn't used by accident.
+> > > > >
+> > > > > I'm mostly saying this because container managers might want to
+> > > > > restrict cap_userns within their containers but still have it
+> > > > > themselves for management.  But maybe there isn't any need to ent=
+er
+> > > > > the userns for this purpose.
+> > > >
+> > > > I don't think there is. A manager that holds the capabilities itsel=
+f can
+> > > > just do most things from the outside. I think it's nice that once y=
+ou're
+> > > > inside a namespace you're bound by its capabiltiy set. Otherwise th=
+e set
+> > > > isn't a property of the namespace anymore. If someone comes up with=
+ a
+> > > > real need to enter we can add an explicit opt-in later?
+> > >
+> > > Fair enough.  Also you've written infinitely more nontrivial containe=
+r
+> > > managers than I have (I've written container managers, too, but
+> > > they're all special-purpose things that don't do much in the way of
+> > > actual managing).
+> >
+> > So I think this is another instance where we're bitten by the complexit=
+y
+> > of the whole namespace api. In a perfect world our answer would be "Yes=
+,
+> > the owner of the userns is definitely capable of performing all relevan=
+t
+> > actions from outside the userns.". But we're actually not able to say
+> > that because there's so many different ways how some <object> is set up
+> > or configured for a container and nobody ever sat down and defined the
+> > model how a container and it's various resoures are set up.
+> >
+> > So once again, here we are guessing our way to a decent decision...
+> > Thanks for helping with thinking this through.
+> >
+> > > > > > * Root in a container has caps as well so for containers the ex=
+emption
+> > > > > >   would be wrong.
+> > > > > >
+> > > > > >   So here we need a a lockable SECURE_NO_USERNS_CAP_RAISE bit t=
+hingy.
+> > > > > >   This turns off the exemption and prevents raising the mask.
+> > > > > >
+> > > > > >   Docker lowers the mask, sets and locks the bit, and
+> > > > > >   unshare(CLONE_NEWUSER) in the container doesn't hand out CAP_=
+NET_ADMIN
+> > > > > >   anymore.
+> > > > >
+> > > > > Can you clarify this part a bit?  I'm not seeing why Docker shoul=
+d be
+> > > > > special.  Shouldn't the inside of a Docker container work as much=
+ like
+> > > > > a normal non-container system as possible?  What's the use case?
+> > > >
+> > > > I picked Docker because you brought it up, and your goal of allowin=
+g
+> > > > user namespaces even in Docker is kinda the use case. Docker can on=
+ly
+> > > > drop the CLONE_NEWUSER block from its seccomp profile if nested use=
+r
+> > > > namespaces can't get more caps than root/Docker wants to give them.
+> > > >
+> > > > But the bit isn't at all Docker specific. Any privileged task that =
+wants the
+> > > > mask to apply to itself would benefit. With just the exemption this=
+ wouldn't be
+> > > > possible:
+> > > >
+> > > > (1) A runtime that holds full capabilities gives a
+> > > >     user namespace it creates all bits.
+> > > >     It can just set the bit before creating it.
+> > > >
+> > > > (2) In a container without a user namespace container root has host=
+-level
+> > > >     capabilities. Any user namespace it creates gets them through t=
+his
+> > > >     exemption thing. So it can also add them back to its mask. And =
+the mask is
+> > > >     inherited. So every process it starts can then create user name=
+spaces with
+> > > >     them.
+> > > >
+> > > >     by raising the bit we stop both. The locked bit keeps container=
+ root which
+> > > >     also has CAP_SETPCAP from clearing it.
+> > > >
+> > >
+> > > I'm still not 100% sure I'm following this.  By "exemption" are you
+> > > talking about the cred->cap_premitted term here?
+> >
+> > Yes.
+> >
+> > > ns->cap_bset =3D parent->cap_bset &
+> > >                        (cred->cap_userns | cred->cap_permitted);
+> > >
+> > > (As as aside, as formulated, the parent->cap_bset term should be
+> > > irrelevant, no?  cred always refers to a task in parent, and this
+> >
+> > (
+> > I don't think it i.s
+> > cap_userns is full by default. Entering a namespace doesn't change it.
+> > A task inside a namespace with a reduced cap_bset still has the full
+> > mask. Without the term a child namespace gets more caps than its parent
+> > had.
+> >
+> > cap_permitted can grow through a setuid-root exec in the parent
+> > namespace. And that exec is bounded by the tasks bounding set and not
+> > by the namespace bounding set.
+> >
+> > So that term ensures that the namespace bounding set shrinks
+> > monotonically by construction.
+> >
+> > I think it would only be redundant if exec would be clamped by cap_bset=
+.
+> > I'm not sure if the patchset does this.
+> >
+> > /me looks...
+> >
+> > Ah, ok... this patch series already clamps exec to the namespace
+> > bounding set. So yes, you're right.
+> > )
+> >
+> > > whole thing is defined so that cap_userns and cap_permitted are alway=
+s
+> > > subsets of parent's cap_bset, right?)
+> > >
+> > > I think I agree that there needs to be a way to turn the cap_permitte=
+d
+> > > thing on and off (and I'm also not sure whether cap_permitted is
+> > > better than cap_effective), but I'm not convinced that an inheritable
+> >
+> > The effective set can be raised from the permitted set at will. So I
+> > think permitted is just more correct.
+> >
+> > > and lockable bit is necessary or wise.
+> > >
+> > > How about changing the rule to:
+> > >
+> > > child->cap_bset =3D parent->cap_bset & soft_cap_userns &
+> > > (cred->cap_userns | cred->cap_permitted)
+> > >
+> > > a) (ugly but easier) A non-inheritable prctl-controlled mask
+> > > soft_cap_userns, changing the rule to parent->cap_bset &
+> > > soft_cap_userns & (cred->cap_userns | cred->cap_permitted).
+> > > soft_cap_userns would be reset to all ones on on fork and exec to
+> > > avoid creating new inheritable security-relevant state.
+> >
+> > So both let the creator pick. But the bit is for the creator when it
+> > wants to self-restrict: container-root without a user namespace.
+> >
+> > It's the same reason that securebits and no_new_privs are inheritable
+> > and lockable. Afaict, a) is reset on exec so it doesn't control the nex=
+t
+> > exec. b) covers namespace creation but not unsharing a user namespace.
+> >
+> > > b) A whole new create-a-namespace API where the caller chooses
+> > > soft_cap_userns at the time they create the namespace.
+> > >
+> > > > On the host none of that matters as the mask is root's own policy t=
+here.
+> > >
+> > > I'm still not seeing how there's a difference between host vs
+> > > init-userns-container vs separate-userns-container.  After all, in
+> >
+> > I think the difference is simply whether the restricting task holds the
+> > capabilities itself. Unprivileged users on the host don't and so they'r=
+e
+> > not subject to the exemption. The bit is for that case where the task
+> > holds the caps.
+> >
+> > But ok, if we really don't want to bother with container without user
+> > namespaces the bit vs a) thing can also go into a follow-up series.
+> >
+> > > Unfortunately we don't live in this world, and I'm not convinced that
+> > > can credibly even approximate it, because people really like their
+> > > setuid programs working inside a userns.  It still bugs me that we're
+> > > designing permission systems designed to work in the POSIX model that
+> > > I think we all kind of agree is fundamentally rather messed up.
+> >
+> > I don't think all hope is lost. We have slowly been pushing in this
+> > direction. systemd allows to set NoNewPrivileges=3D in it's global conf=
+ig
+> > so it's possible to enable it for the whole system easily.
+> >
+> > There's been a ton of work to get rid of classic setuid-exec stuff:
+> >
+> > * run0 instead of sudo (with sudo compat), and systemd-ptybrokerd for
+> >   interactive shells
+> > * nsresourced for user namespaces with delegated ranges, mountfsd for
+> >   unprivileged image mounts
+> > * outside of systemd: pwaccessd/pwupdd/newidmapd replacing unix_chkpwd,
+> >   passwd and newuidmap/newgidmap, polkit without a setuid helper, and
+> >   su/sudo/pkexec wrappers on top of ptybrokerd
+> >
+> > But yes, containers are the sore spot. no_new_privs inherited from PID
+> > 1 breaks setuid inside of containers.
+> >
+> > My idea has been to make this dynamic:
+> >
+> > * deny privilege gain on exec in the initial user namespace and allow i=
+t
+> >   in nested ones. I mused about this in
+> >   https://github.com/uapi-group/kernel-features/pull/38
+> >
+> > Also, since v7.1 there's CLONE_NNP to spawn a child without no_new_priv=
+s
+> > set.
+>
+> Forgot:
+>
+> https://www.thkukuk.de/blog/no_new_privs/
+>
+> has an overview of where we're currently at.
 
-Please prefer examples to prose in cover letters.
-Also, please de-Claude the included prose.
+Nice!
 
-> With this series, if the kernel's bpf_foo kfunc is missing or its
-> prototype is incompatible with the declaration, libbpf binds the
-> bpf_foo___<flavor> that has a compatible prototype. So a changed kfunc
-> can keep its name, and the old prototype stays available as foo___v1.
->=20
-> resolve_btfids fails the build if two of bpf_foo and its flavors have
-> compatible prototypes, unless both have foo's exact prototype
-> (aliases), so the fallback finds at most one match.=C2=A0 This ensures at
+I commented in the uapi-group issue:
 
-Why is an exception for kfuncs with identical prototypes necessary?
+I think there may be a rather more direct solution to this problem. I
+seem to recall advocating for clearing no_new_privs when entering a
+userns way back when, and IIRC I dropped this as part of the extensive
+negotiation to get NNP into the kernel in the first place. (I think
+dropping it was probably the right decision to keep the final patch
+simple.)
 
-> kernel / module build time that no ambigous kfunc flavors exist.
-> Documentation/bpf/kfuncs.rst describes the rules.
->=20
-> Compatibility is determined by bpf_core_types_are_compat(), the check
-> libbpf already applies to kfuncs. Of the 70 same-name kfunc prototype
-> changes between v6.6 and bpf-next, it finds 8 incompatible (arity,
-> return kind, callback prototype). The other 62 (const, typedefs,
-> parameter names, integer widths, pointee struct names, annotation
-> suffixes) were made in place without breaking old callers.
+But I think I would still advocate for an option to let clone, unshare
+and setns callers turn no_new_privs off. The logic is that, if you own
+a userns, you already have all capabilities in it. If you enter it,
+you get to keep those by having them raised in cap_permitted. Being
+able to clear NNP and thus drop and subsequently regain them does not
+let you do anything you couldn=E2=80=99t already do.
 
-Do you mean that without this series programs referring old prototypes
-are broken?
+An LSM hook for this would be needed because this argument does not
+apply to non-namespace-scoped LSM-based privileges. But the LSM hook
+would just be a "may this caller enter this userns and clear
+no_new_privs while doing so" query. In the absence of LSMs, the
+operation would be allowed.
 
-...
+This would allow a fully no_new_privs host to run an ordinary
+container that runs, in the ordinary way, without no_new_privs, and
+without hitting any new LSM calls after it's started.
+
+The API could be as simple as a CLONE_CLEAR_NNP bit.
+
+
+--=20
+Andy Lutomirski
+AMA Capital Management, LLC
