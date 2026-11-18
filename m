@@ -1,62 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=23.90.104.144
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795019062;
-	b=QYRhaLeGAdOLvS7wFKChSB3Lg+Gy6ppg3Os9pUcBXcDDexsXlRF5KqD4H9B8Uas7NH4r
-	 ZGYEudMOpkEtIXiSkF7eoLbyDvz4ITIj/MuSuaEA45WO09C4hgzhJ0xXhwBF7MOzsq5jv
-	 OiwFEcMoEb4GEikwyZittsnvwE7DAmauKLfKfYajazagu9Y8YjvY80GJRehrWxdMyG8Zk
-	 OhEo5mYqLFwJFjNSFvwl1TWNO04S+x4lz+S9AmfknbH6rv/tHVMddxg833+TzTiiAJCc1
-	 zPRb6R/yThXWDb9j6e57MiJxgdxcZwdi3rS6K36+z/K2D+HNqAR6KN1Nd3VEPaL2Q2Q==
+	t=1795019065;
+	b=q/DV42IJUXPiMuk9x6yA3/DRSiNvNwDeWWRlIDdZ308l3D4RfDd553u1jxd2NU0SLxB1
+	 6qvAag/sF/JqJPg7XCeelHJoZuDTHmbenzNMfvVm7jMaQXXLe70s8DlKkLWugjrt8hi32
+	 rBSOGrbjRzSegC+GrTe2SlBGlGia4LvSpXYo/b9eBKhmp2TGANpRKxTcpC40SCbiPcVir
+	 Nma/AhqotnqThpTzveKZfC7V7wozvz83V1jg1Y/p4M1ugDutR4Yqbqy1fd65jTQ+AnV4t
+	 l4y8VvkwyvXOc7cofXry9WgC6xDq9YPLCicLfbMRVBxMZZEN3f88Sc2FjC0MHEEOV0A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795019062;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-Amp-Result:X-Amp-File-Uploaded:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:Received:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer;
-	bh=Hc+GRQf85ac47RtK8OhCLnptL/mAmCv9Je5+UXZVi14=;
-	b=ntB5jeLTD9/zB5D0VFnDGh8C3puj7Z0OjAIhKx+2Di/Ya9Fa+u3kAGqtReahkMQttkun
-	 R2mOgGFSYX8DpIifXOduosrNwUUIrHjvI8K5OZQ3D0+aeYlxM4cTB9ij/7XU2X4WYHE0d
-	 h3mtIlJUUvqvjkd3hEGXtrVHoAcrViWmiFnB0KOk78Mg+FRArR5CYOQCHz+WOdu/lL+wJ
-	 etdN8klwLwEwyMQeUnv1CijWj9OFQofkMrgB1YldLEPRYM54W8lSG/pnNErZ5M9M2/NaS
-	 uga2Gbg/Zlw3SleNtkCL0jo6cz5/oFfkY+JoELugMbAjLnS33lacahVyw8kNNajJOcw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795019065;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:Content-Language:To:Cc:References:From:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=hyyvwqh0yUCrKvJZHku7usPSuKgxk7/6YeOVXPVE234=;
+	b=NLdgR1mvsI8RRFQtNDpOOzATRxUlteMp13nF1FTpFl2H1hUpZ0k29qC+bCzf2oBO1CvV
+	 kWvEhcz45JCjgo0FLPQtCN6CRDFJKUw5I1pajfGvJTEVDEkdTMaGr34g/TNW9TXTQwrU5
+	 7dleW19z8xbNeLCasB7jyqaPXw2wdXLOKetbFQFQB6bVzjBpDb5M/pEWqcuQKl+gQg/Rw
+	 MeMQx+hd0uhiC7kp/NnxS7GBlRRKhHK82wC3KO1cCFUcuoJjb7X96iQ+YFj1fsK3MNNMR
+	 bX23YWf6wBHoXX1oeyu6CTNodP4ep/kaTfsA6FCI0ZBi+tMlr7vgSzP+DfJn+xOAUnA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mobileye.com;
-	spf=pass smtp.mailfrom=mobileye.com;
-	arc=none smtp.remote-ip=23.90.104.144
-Received: from esa1.hc555-34.eu.iphmx.com (esa1.hc555-34.eu.iphmx.com [23.90.104.144])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id C70C1606A331;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VYQ6iK1v;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2581060A262E;
+	Wed, 18 Nov 2026 16:24:24 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VYQ6iK1v
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDEF51F000C5;
 	Wed, 18 Nov 2026 16:24:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C70C1606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mobileye.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mobileye.com
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1795019061; x=1826555061;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=Y2NXF97jr/EMfkddUR0y1/iyEyI2iou2lHNRhWG3x9A=;
-  b=fXKb9ZETq50qYrA1FkWEuwVIfeL2pswvIG+CTWT+97ZQvsRn2y2LIZUu
-   PTnJTHM4c1ObCxQigQV+NzhcCpbFHyZ0EUI/knt0YmmlhyU01C5uS9GNm
-   9WfobxJfBUIx7Hzk2YTFY13KQot8Kpp7asgqMifJ8vqsIXsRikRvtWRqy
-   pvGx5jR7Mw+MrXFxb5TBOZlP8jKQ8YvZKrBOebVutIiUfSaGt2WnbIO9s
-   cPDsL9v9j2j8i4xqjl2lIlwiaFx3LykH12pIwsnORQ/Sq7LUnD2iY4ecl
-   sfXdPj4rMGEiz0afNJPSXida6LxfByalKJPXF1Zs4iT+eVEcZAkXr+Ugy
-   A==;
-X-CSE-ConnectionGUID: hvdSMKaJR56I2tA7APiISg==
-X-CSE-MsgGUID: 2iwMGUxQRsi1E5zz/LHXQQ==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from unknown (HELO ces04_data.me-crop.lan) ([146.255.191.134])
-  by esa1.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 18:24:12 +0200
-X-CSE-ConnectionGUID: knD40QT9QMWt1KzuzQos8Q==
-X-CSE-MsgGUID: eHI3YtK0SuKlMyZPPZY9ow==
-Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.2])
-  by ces04_data.me-crop.lan with SMTP; 18 Nov 2026 18:32:25 +0200
-Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Wed, 18 Nov 2026 18:24:11 +0200
-From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-Date: Wed, 18 Nov 2026 18:23:59 +0200
-Subject: [PATCH v7 3/6] riscv: report the A extension when Zaamo and Zalrsc
- are both present
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795019064;
+	bh=hyyvwqh0yUCrKvJZHku7usPSuKgxk7/6YeOVXPVE234=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=VYQ6iK1vi6FHFW84MrhdkFONbt4aEau9XczusyK5CLhQaKISBgiYb9QEf+pMVSAZC
+	 7CS7yb2kyDszUaZVo4m6EjIIYx0AgTpRIGFoJqZ2l0THzAAC7tCdolmeWTJk0hVT+j
+	 vLYFsbBA1lZ173kFzYIBhEhmgyd0/XlKq8bTr3s8YbxDYXdRv/ou8P1BCjbckSoiqw
+	 6YroToxg40CQAFHKtUr5oGvZ+98pujuxWDEuGK11S2xMJtqrCBH0GV7397ngf3xNC9
+	 vtzs8fYfKBNXsug2DAwNIrwmN+t1++HWGwVk/IO/HD+jAyxv+l2X3Hmymi/9B8sNn0
+	 mWvWbR9ojFiVQ==
+Message-ID: <02c600ac-c968-4143-9e70-ccd2da858e09@kernel.org>
+Date: Wed, 18 Nov 2026 17:24:19 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,92 +51,172 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH for-next v3 4/7] mm/slab: fix a deadlock in
+ memcg_alloc_abort_single()
+Content-Language: en-US
+To: "Harry Yoo (Meta)" <harry@kernel.org>,
+ Johannes Weiner <hannes@cmpxchg.org>, Michal Hocko <mhocko@kernel.org>,
+ Roman Gushchin <roman.gushchin@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Muchun Song <muchun.song@linux.dev>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Alexei Starovoitov <ast@kernel.org>, Hao Li <hao.li@linux.dev>,
+ Christoph Lameter <cl@gentwo.org>, David Rientjes <rientjes@google.com>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>
+Cc: kernel-team@meta.com, cgroups@vger.kernel.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev,
+ Sashiko <sashiko-bot@kernel.org>
+References: <20261115-kmalloc-nolock-fixes-v3-0-9034dd4ecaab@kernel.org>
+ <20261115-kmalloc-nolock-fixes-v3-4-9034dd4ecaab@kernel.org>
+From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
+Autocrypt: addr=vbabka@kernel.org; keydata=
+ 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
+In-Reply-To: <20261115-kmalloc-nolock-fixes-v3-4-9034dd4ecaab@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-lrsc-only-v7-3-602dcf4c1921@mobileye.com>
-References: <20261118-lrsc-only-v7-0-602dcf4c1921@mobileye.com>
-In-Reply-To: <20261118-lrsc-only-v7-0-602dcf4c1921@mobileye.com>
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Mark Rutland <mark.rutland@arm.com>, Gary Guo <gary@garyguo.net>, 
- Yury Norov <yury.norov@gmail.com>, 
- Rasmus Villemoes <linux@rasmusvillemoes.dk>, 
- Chao-ying Fu <chao-ying.fu@globalfoundries.com>, 
- Conor Dooley <conor.dooley@microchip.com>, torvalds@linux-foundation.org, 
- olof@lixom.net, aleksa.paunovic@htecgroup.com, arikalo@gmail.com, 
- Boqun Feng <boqun@kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
- Eduard Zingerman <eddyz87@gmail.com>, 
- Kumar Kartikeya Dwivedi <memxor@gmail.com>, 
- Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
- Emil Tsalapatis <emil@etsalapatis.com>, 
- Ihor Solodrai <ihor.solodrai@linux.dev>, 
- Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, 
- =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>, 
- Pu Lehui <pulehui@huawei.com>, Puranjay Mohan <puranjay@kernel.org>, 
- Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, 
- Miguel Ojeda <ojeda@kernel.org>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
- Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
- Danilo Krummrich <dakr@kernel.org>, 
- Daniel Almeida <daniel.almeida@collabora.com>, 
- Tamir Duberstein <tamird@kernel.org>, 
- Alexandre Courbot <acourbot@nvidia.com>, 
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, 
- Andrew Jones <ajones@ventanamicro.com>, Boqun Feng <boqun@kernel.org>
-Cc: Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Vladimir.Kondratiev@mobileye.com, 
- bpf@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
- linux-doc@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>, 
- Charlie Jenkins <thecharlesjenkins@gmail.com>, 
- Nam Cao <namcao@linutronix.de>, rust-for-linux@vger.kernel.org, 
- Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-X-Mailer: b4 0.16.0
 
-A hart may describe its atomics as "a", or as "zaamo" and "zalrsc".
-The two are the same thing: the A extension is defined as Zaamo plus
-Zalrsc. The kernel already expands "a" into both sub-extensions, but
-not the other way round, so a hart that lists the sub-extensions ends
-up without RISCV_ISA_EXT_A. /proc/cpuinfo then shows rv64imfdc... and
-the A bit is missing from ELF hwcap, although the hardware is the
-same as one that lists "a".
+On 11/15/26 16:09, Harry Yoo (Meta) wrote:
+> When kmalloc_nolock() successfully grabs a slab object but memcg aborts
+> the allocation, the object is freed via __slab_free(). Calling
+> __slab_free() in unknown context is not allowed and can lead to a
+> deadlock.
+> 
+> Free the object via defer_free() when spinning is not allowed.
+> 
+> While at it, try freeing the object to the percpu sheaves first in both
+> contexts, as kmem_cache_free_bulk() already does for bulk allocations.
+> This also avoids queueing an irq_work for every failed charge when
+> spinning is not allowed.
+> 
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Closes: https://sashiko.dev/#/patchset/20260610-slab_alloc_flags-v2-0-7190909db118%40kernel.org?part=9
+> Fixes: af92793e52c3 ("slab: Introduce kmalloc_nolock() and kfree_nolock().")
+> Signed-off-by: Harry Yoo (Meta) <harry@kernel.org>
 
-Set A in the source ISA bitmap when both Zaamo and Zalrsc are there,
-before the bitmap is resolved, so that hwcap and cpuinfo do not depend
-on how the firmware spelled it. This covers the "riscv,isa" string and
-ACPI as well as "riscv,isa-extensions".
+Reviewed-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
 
-Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
----
- arch/riscv/kernel/cpufeature.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+nit (not worth respinning just for that)
 
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 7329792978cc..45684e129be1 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -682,6 +682,15 @@ static void __init riscv_resolve_isa(unsigned long *source_isa,
- 	int max_loop_count = riscv_isa_ext_count, ret;
- 	unsigned int bit;
- 
-+	/*
-+	 * "a" is exactly Zaamo plus Zalrsc. A hart that lists both has A,
-+	 * however the firmware spelled it, so report it the same way in
-+	 * ELF hwcap and /proc/cpuinfo.
-+	 */
-+	if (test_bit(RISCV_ISA_EXT_ZAAMO, source_isa) &&
-+	    test_bit(RISCV_ISA_EXT_ZALRSC, source_isa))
-+		set_bit(RISCV_ISA_EXT_A, source_isa);
-+
- 	do {
- 		loop = false;
- 		if (max_loop_count-- < 0) {
+> ---
+>  mm/slab.h |  8 ++++++++
+>  mm/slub.c | 22 +++++++++++++++++-----
+>  2 files changed, 25 insertions(+), 5 deletions(-)
+> 
+> diff --git a/mm/slab.h b/mm/slab.h
+> index 15b0d98ae1d4..fb80a72ad952 100644
+> --- a/mm/slab.h
+> +++ b/mm/slab.h
+> @@ -37,6 +37,14 @@ static inline unsigned int to_alloc_flags(unsigned int free_flags)
+>  		return SLAB_ALLOC_DEFAULT;
+>  }
+>  
+> +static inline unsigned int to_free_flags(unsigned int alloc_flags)
+> +{
+> +	if (alloc_flags & SLAB_ALLOC_NOLOCK)
+> +		return SLAB_FREE_NOLOCK;
+> +	else
+> +		return SLAB_FREE_DEFAULT;
+> +}
+> +
+>  static inline bool alloc_flags_allow_spinning(const unsigned int alloc_flags)
+>  {
+>  	return !(alloc_flags & SLAB_ALLOC_NOLOCK);
+> diff --git a/mm/slub.c b/mm/slub.c
+> index 7c0adc104988..8252c0b681cc 100644
+> --- a/mm/slub.c
+> +++ b/mm/slub.c
+> @@ -2531,7 +2531,8 @@ static inline void slab_obj_ext_has_codetag_init(void)
+>  
+>  #ifdef CONFIG_MEMCG
+>  
+> -static void memcg_alloc_abort_single(struct kmem_cache *s, void *object);
+> +static void memcg_alloc_abort_single(struct kmem_cache *s, void *object,
+> +				     unsigned int alloc_flags);
+>  
+>  static __fastpath_inline
+>  bool memcg_slab_post_alloc_hook(struct kmem_cache *s, gfp_t flags,
+> @@ -2549,7 +2550,7 @@ bool memcg_slab_post_alloc_hook(struct kmem_cache *s, gfp_t flags,
+>  		return true;
+>  
+>  	if (likely(size == 1)) {
+> -		memcg_alloc_abort_single(s, *p);
+> +		memcg_alloc_abort_single(s, *p, ac->alloc_flags);
+>  		*p = NULL;
+>  	} else {
+>  		kmem_cache_free_bulk(s, size, p);
+> @@ -6647,18 +6648,29 @@ void slab_free(struct kmem_cache *s, struct slab *slab, void *object,
+>  #ifdef CONFIG_MEMCG
+>  /* Do not inline the rare memcg charging failed path into the allocation path */
+>  static noinline
+> -void memcg_alloc_abort_single(struct kmem_cache *s, void *object)
+> +void memcg_alloc_abort_single(struct kmem_cache *s, void *object,
+> +			      unsigned int alloc_flags)
+>  {
+>  	struct slab *slab = virt_to_slab(object);
+> -	unsigned int free_flags = SLAB_FREE_DEFAULT;
+> +	bool allow_spin = alloc_flags_allow_spinning(alloc_flags);
+> +	unsigned int free_flags = to_free_flags(alloc_flags);
+>  
+>  	if (slab_want_init_on_free(s))
+>  		free_flags |= SLAB_FREE_INIT;
+>  
+>  	alloc_tagging_slab_free_hook(s, slab, &object, 1);
+>  
+> -	if (likely(slab_free_hook(s, object, free_flags)))
+> +	if (unlikely(!slab_free_hook(s, object, free_flags)))
+> +		return;
+> +
+> +	if (likely(can_free_to_pcs(slab)) &&
+> +	    likely(free_to_pcs(s, object, allow_spin)))
 
--- 
-2.43.0
+I think it could be a single likely(x && y)
+
+> +		return;
+> +
+> +	if (likely(allow_spin))
+>  		__slab_free(s, slab, object, object, 1, _RET_IP_);
+> +	else
+> +		defer_free(s, object);
+>  }
+>  #endif
+>  
+> 
 
