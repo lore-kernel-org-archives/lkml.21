@@ -1,79 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=131.188.11.21
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795012060;
-	b=2gv1jxDStlSkyf2IDcvrtoeCHSSU5MdojkSoJcXwdQ/W5kqEcxsZ/dgrc+YA9xHrcJ4Q
-	 qSD8LAsrxpDUPrjaGljaoZ+HiEdnNcHB8RjwCNOZupmFw5go7/SHhwBwKqai5wBig7rOT
-	 8ELQgiKiORrlCmZeOGbkzALWCOJcnrJybrRsAMEeq9pqMJIq5sle0botZFgfimrj2o/04
-	 RXkxR4nFoctiwJyyL6dMKT989uR2OVvsM2McfxNAIug14EMJwiS6GCfhATdEAhLfmKlAH
-	 IHj0yaD72ZYke1hj5/f7WhAJ7a+1kuP/vAgXlc6my1zOWK+4iojAPm+9bVezPTqlMVg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795012060;
-	h=DMARC-Filter:DKIM-Signature:Received:X-Virus-Scanned:X-RRZE-Flag:
-	 X-RRZE-Submit-IP:Received:From:To:Cc:Subject:In-Reply-To:References:
-	 User-Agent:Date:Message-ID:MIME-Version:Content-Type;
-	bh=nV1O6jvV7LY84nmyWvTeb3FZb9IncqxS3F8jpRloohk=;
-	b=NyY5PxrxDZqnhDl3hRxCVv09Vjbm+c0vmBEKTdO0zhO44AqI10zx1CA8+2apdOeArPPD
-	 Y1DgcYWwBWO5BJiDNrXnnQ/BSKpYyADrd7OXmsm+0h4ydWcIeXBVBQChjar6Hm8AtMfTh
-	 Bz8OaviZSTJAQwpO+Gj4Km26qHKAk1v2BXlmCnnYcIazLjkYCbTfv/3g+jg6jRUSJiX+1
-	 5VwGJ/fsi5F7lVpFbqURHfrR8fR3vMCXuae18snMGHPzEo2L9oQWqUxG0Wa2w3hT6WgVt
-	 7fsxG8p2o3o+r6jVNJcZV8+eFlm8Bh7eOYJs4wLUbzcRr6NwJ1/B8G+tohvrlq+S9XQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fau.de;
-	spf=pass smtp.mailfrom=fau.de;
-	dkim=pass header.d=fau.de header.i=@fau.de header.a=rsa-sha256 header.s=fau-2021 header.b=XVzbMVpL;
-	arc=none smtp.remote-ip=131.188.11.21
-Received: from mx-rz-2.rrze.uni-erlangen.de (mx-rz-2.rrze.uni-erlangen.de [131.188.11.21])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795012049;
+	b=Y7lttD+kwOoCKggj+jBBX4uqKXJzgc67pjwp+Vc5M/E+fL+Gtej5pEdXbSbOBWSTyD3/
+	 LqBzYgYrvphE9klgCZmjFBeNXRk77L8aRvDE2KYE9xZQPyM1+gyhHD5Dy67LesCcGw44z
+	 MYLqMy+yGQGctGQC1z4suW5ojZnWxBc+sqNV4vrJV224AkVCiHfJVfaa4tBe4PFV2J+VY
+	 r8KauB3uy54Aiv9SHwdVbQH811YIEiwHXTmSRt5Q9eNPhz3otqgLTRn/YvocHBZ2kxYnK
+	 AQkfEPb8LpCBq5VcxQHhjoC5I4mZx9NOuQib7VC2JLnJ9PCJ3QzW+/OnsA2jFuzxzog==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795012049;
+	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:From:Subject:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
+	bh=xMp3FYu46+6069H+eeh9xe9hJqU7BcZ6oUpQKIuSBzI=;
+	b=27wjrDYfuRDty/bpUTnBEEPvABDZVIOKvZ1HuG523qQKu18cx5SgnASPJe2WefuDCD1w
+	 EtPUfqh7GIs+c/H2JqHpQKaCM/z3QwBndbuZ7E9xUPpFNGY85o9IkDU4XcVgGn+iv5EoJ
+	 ZOVsGHA52mOkt/iTBeX3FHNqKcSqQ1tUu98IL2pmKQjSCYOmSEZuf8Jkpas/R1Ei8Teum
+	 l7NfTDFq6JvkbYLwUkDa8fA+fZII7spCMUhnO0xxI/RQZKnekkrdp++t845F/bRgouAv7
+	 tjYX2y2m3uPktzjFGEg2lWYHlYm8sRsOCJ3I5zF/7ZKMeCvBuB6IQ15BVV9Vw15iTbg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=pengutronix.de;
+	spf=pass smtp.mailfrom=pengutronix.de;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b="Me85+vo/";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC5D060A2608;
-	Wed, 18 Nov 2026 14:27:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC5D060A2608
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=fau.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fau.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3160606A33F;
+	Wed, 18 Nov 2026 14:27:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3160606A33F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=fau.de header.i=@fau.de header.a=rsa-sha256 header.s=fau-2021 header.b=XVzbMVpL
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fau.de; s=fau-2021;
-	t=1795012049; bh=nV1O6jvV7LY84nmyWvTeb3FZb9IncqxS3F8jpRloohk=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From:To:CC:
-	 Subject;
-	b=XVzbMVpLS0l21PdU1UrLo6qa5n5nJURXRUjkvdjgVEmnHTJFU8iodHSziacY9VHGS
-	 t2HmIyq98BqtfM7s6ch/h15TFlHdNMEnOLmFl91exGNxTrEWsgWkrM6gO8nH54aeUi
-	 DxD6G+yAbzkoSDOcVm7phlcBbl3uEnmZP4bi02nCkBlYmsWwQzMYrnUSTPlVSqoDXb
-	 LeCMCEs4St4+v119DuF24wHaIh5tMhdoLgYaegoKVAnAdoM0JxtfZJMu+EqVT2L80i
-	 avoZMyImbN4EqJhKWX/wGHNhGIxpxCFP8K5W+Wm6dqDbCIngYMen31tvxBIpoy6SOL
-	 WLcEuB7zQOOXg==
-Received: from mx-rz-smart.rrze.uni-erlangen.de (mx-rz-smart.rrze.uni-erlangen.de [IPv6:2001:638:a000:1025::1e])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-rz-2.rrze.uni-erlangen.de (Postfix) with ESMTPS id 4jV3pT4tyFzPjlr;
-	Wed, 18 Nov 2026 15:27:29 +0100 (CET)
-X-Virus-Scanned: amavisd-new at boeck4.rrze.uni-erlangen.de (RRZE)
-X-RRZE-Flag: Not-Spam
-X-RRZE-Submit-IP: 2001:620:618:5b8:2:80b3:0:385
-Received: from localhost (unknown [IPv6:2001:620:618:5b8:2:80b3:0:385])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: U2FsdGVkX18FgheTGs5bb6/Cj/sYgy4rpAX9+EqkDi0=)
-	by smtp-auth.uni-erlangen.de (Postfix) with ESMTPSA id 4jV3pQ4jwyzPjjf;
-	Wed, 18 Nov 2026 15:27:26 +0100 (CET)
-From: Luis Gerhorst <luis.gerhorst@fau.de>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,  Will Deacon
- <will@kernel.org>,  Mark Rutland <mark.rutland@arm.com>,  Alexei
- Starovoitov <ast@kernel.org>,  Daniel Borkmann <daniel@iogearbox.net>,
-  John Fastabend <john.fastabend@gmail.com>,  Andrew Morton
- <akpm@linux-foundation.org>,  Alexander Viro <viro@zeniv.linux.org.uk>,
-  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org,
-  bpf@vger.kernel.org,  stable@vger.kernel.org
-Subject: Re: [PATCH v1] arm64: Mitigate Spectre v1 in the BPF interpreter
-In-Reply-To: <20261117172341.3152407-1-ryan.roberts@arm.com>
-References: <20261117172341.3152407-1-ryan.roberts@arm.com>
-User-Agent: mu4e 1.12.12; emacs 31.1
-Date: Wed, 18 Nov 2026 15:27:25 +0100
-Message-ID: <871p8ib4fm.fsf@fau.de>
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=Me85+vo/
+Received: from [127.0.0.1] (unknown [IPv6:2a02:560:5d79:c700:9ebf:dff:fe00:fdb5])
+	(Authenticated sender: sha@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 974E4200467;
+	Wed, 18 Nov 2026 15:27:21 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795012041;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xMp3FYu46+6069H+eeh9xe9hJqU7BcZ6oUpQKIuSBzI=;
+	b=Me85+vo/f/nhQM61h7rSJ5PPBlV8oD7W9uZoIuFV7DZt+a+nSry9WHf0WeIXJUW72WpSp1
+	pZ3j512U+5drZmnS9kpvHitgtItEfuwwS4CHCz780c/Qn+NtoHd/XUYyOkZr22lDo04KvN
+	dkFXso2iT3oXuEQEmW2r7hWoW9lhSJK+DxbyafO80RVb0iZnJYABEmcjbEwnPAyjX8MpbL
+	shPqt4fR5xk55wOSWQ6lTa+Zwx5ZEAWN+P8t46fxQw3PLdFYPtCPy+hPiwWeh7Mq0n+V8V
+	pb8J6xiieVupVvRgYpBDbQMAMBVpCc+92dvzxKA/mFt0HIo3eN2eoc+JOtb37w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795012041;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xMp3FYu46+6069H+eeh9xe9hJqU7BcZ6oUpQKIuSBzI=;
+	b=R1CTktpI/kcm1o0kpUr6Vf4xk65GzoczI0OOivAob8oGWg6WoU2s4C5C5CVyfHNK+wMxL6
+	GRQdT+u5gA2FYiM02w3s5iJRS11rVckYYoLDluZ+tRPqFm+DU0gdHxjO6ZDBI+IANEAeOC
+	oHG7a5qHQFYdfyECVb1WsmdYavyNE0N5kzH1eeZgkZyLG+KiWjuk/EkhcUGAkEIcqYT38G
+	whREQHXMzEENeUCO8xgEM2XCGGQL8yPUfKZJb8ShNUUdw25lplmnrpt2uHb/6V8W5R4Ajp
+	1J60u36r8D5y2umasqNR7lFf+JeL17cDGS2/TvCTR34b8sgWRsL6HccpolVF0w==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795012041; a=rsa-sha256;
+	cv=none;
+	b=DWYDpM32y+fWfnZgEaZzIGJmWONZ9jWLYXZGBOtgRvjx+MrMuJWUmg+Mou3TLBXoTaq4kh
+	+6fgA4kb5kcKfwqDiQ2ALD6asMmATMi/zXdLK1IzE7aZh+oSmdWVvXr74cCdJSkYhTE+Gm
+	gQSGCAsd4qA52uVlhipFPYw0ypBI5QUk3nO7Jmi9SJJV8+a++gmEdoKLZEJY8W8oD5JVsA
+	/Qe/ZdoKucq+uzcGyoijWVSD3w9QG4DsvBStDjNrGazsowC3BEY8muIMrewUnw3foksDk6
+	N1S79cC4KI1E1BoYR14Tw3SSFM3ZFVMuux3ZDm3UQwQt+EiMQ1wPTGRmvIfoww==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=sha@pengutronix.de smtp.mailfrom=s.hauer@pengutronix.de
+Message-ID: <85353f59-52a0-446d-ace3-65e2d03d0d0b@pengutronix.de>
+From: "Sascha Hauer" <s.hauer@pengutronix.de>
+Subject: Re: [PATCH v7 2/4] media: rockchip: Add JPEG decoder driver
+To: "Sergei Khomenkov" <shomenkow@gmail.com>
+Cc: "Sascha Hauer" <s.hauer@pengutronix.de>, "Lucas Sinn" <lucas.sinn@wolfvision.net>, "Mauro
+ Carvalho Chehab" <mchehab@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Heiko
+ Stuebner" <heiko@sntech.de>, "Philipp Zabel" <p.zabel@pengutronix.de>, linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <596F6C9E-4A5D-4AE8-8D26-7A7247050D7D@gmail.com>
+References: <20261022-rockchip-jpegdec-v7-0-3fd7dd55f408@pengutronix.de>
+ <20261022-rockchip-jpegdec-v7-2-3fd7dd55f408@pengutronix.de>
+ <596F6C9E-4A5D-4AE8-8D26-7A7247050D7D@gmail.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Wed, 18 Nov 2026 14:27:20 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,153 +93,49 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain
 
-Ryan Roberts <ryan.roberts@arm.com> writes:
+Hi Sergei,
 
-> The BPF verifier can accept programs with unsafe speculative paths by
-> inserting BPF_NOSPEC instructions instead of rejecting them. It relies
-> on those instructions to prevent execution of the unsafe paths.
->
-> The arm64 JIT implements BPF_NOSPEC with a speculation barrier, but the
-> interpreter calls barrier_nospec(), which falls back to a no-op on
-> arm64. Programs executed by the interpreter therefore lack the
-> Spectre-v1 barriers assumed by the verifier. Contrary to the code
-> comment, kernel-wide SSBD does not provide this protection, since it
-> mitigates Spectre v4 rather than Spectre v1.
->
-> Rename spec_bar() to barrier_nospec() so that the interpreter and other
-> callers receive SB if supported, or DSB NSH followed by ISB otherwise.
->
-> Defining barrier_nospec() would also add barriers to the generic
-> copy_from_user() and copy_from_user_iter() paths. These are unnecessary
-> on arm64: its uaccess primitives mask user pointers so that they cannot
-> address kernel memory even when an access_ok() check is mispredicted.
->
-> Introduce user_access_may_speculate_kernel_addr(), defaulting to true,
-> and have arm64 return false. Then update the uaccess sites to call
-> barrier_nospec() conditionally on the macro.
->
-> Cc: stable@vger.kernel.org
-> Fixes: d6f1c85f2253 ("bpf: Fall back to nospec for Spectre v1")
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+On 2026-11-07 15:38, Sergei Khomenkov wrote:
+> Hi Sascha,
+>=20
+> > +/* Bytes per pixel used to size a coded buffer for a given resolution.=
+ */
+> > +#define RKJPEGD_CODED_MAX_DEPTH	2
+>=20
+> A valid JPEG can be larger than 2 bytes per pixel. libjpeg-turbo sizes
+> its worst case in tj3JPEGBufSize() at 3 bytes per pixel for 4:2:0, 4
+> for 4:2:2 and 6 for 4:4:4, plus 2 KiB. Quality 100 noise comes close:
+> 2.75 bytes per pixel at 4:2:0, both from libjpeg and from the Hantro H1
+> encoder on an RK3026. Such a frame does not fit the default buffer; by
+> your commit message a truncated one fails through BUF_EMPTY, so the
+> client gets an ERROR buffer for a valid picture. I can't run the VDPU720
+> to confirm.
+>=20
+> The default only matters to clients that pass sizeimage 0. GStreamer
+> 1.26 asks for max_width * max_height / 2 of the enumerated range; at
+> 65528x65528 that wraps in its 32-bit calculate_max_sizeimage() to about
+> 255 MiB, which the driver keeps, so 1.26 is not affected. Its main
+> branch (08ea5bc9fab9) asks for width * height bytes of the stream,
+> which the driver keeps too, so these frames would not fit. Both are
+> from reading the code; I did not run them on this driver.
+>=20
+> Would 3 bytes per pixel be acceptable as the default, and as a floor
+> for smaller requests, like the 2 bytes per pixel floor in 6/7 of your
+> hantro-based v1? 4:4:4 at quality 100 would still not fit, but the
+> subsampling is not known before the header is parsed.
 
-Thanks! Tested that this prevents the attack (just recovery of OOB
-value, did not aim for real secret) on Cavium ThunderX2 (no FEAT_SB) as
-expected.
+I haven't been affected by this issue lately, but saw it when the series
+was still based on the hantro driver. Yes, I'll change to 3 bytes per
+pixel next round and make that the floor of sizeimage. Would be nice to
+have a proper solution for this rather than either wasting tons of
+memory or risk having too small buffers.
 
-Tested-by: Luis Gerhorst <luis.gerhorst@fau.de>
+Sascha
 
-> ---
->  arch/arm64/include/asm/barrier.h | 6 +++---
->  arch/arm64/include/asm/uaccess.h | 3 +++
->  arch/arm64/kernel/proton-pack.c  | 2 +-
->  include/linux/uaccess.h          | 7 ++++++-
->  kernel/bpf/core.c                | 9 +--------
->  lib/iov_iter.c                   | 3 ++-
->  6 files changed, 16 insertions(+), 14 deletions(-)
->
-> diff --git a/arch/arm64/include/asm/barrier.h b/arch/arm64/include/asm/barrier.h
-> index 9495c4441a46..088ee29d36f4 100644
-> --- a/arch/arm64/include/asm/barrier.h
-> +++ b/arch/arm64/include/asm/barrier.h
-> @@ -40,9 +40,9 @@
->   */
->  #define dgh()		asm volatile("hint #6" : : : "memory")
->
-> -#define spec_bar()	asm volatile(ALTERNATIVE("dsb nsh\nisb\n",		\
-> -						 SB_BARRIER_INSN"nop\n",	\
-> -						 ARM64_HAS_SB))
-> +#define barrier_nospec() asm volatile(ALTERNATIVE("dsb nsh\nisb\n",		\
-> +						  SB_BARRIER_INSN"nop\n",	\
-> +						  ARM64_HAS_SB) : : : "memory")
->
->  #define gsb_ack()	asm volatile(GSB_ACK_BARRIER_INSN : : : "memory")
->  #define gsb_sys()	asm volatile(GSB_SYS_BARRIER_INSN : : : "memory")
-> diff --git a/arch/arm64/include/asm/uaccess.h b/arch/arm64/include/asm/uaccess.h
-> index 9f5bd9c69c24..6fd03dc1ae76 100644
-> --- a/arch/arm64/include/asm/uaccess.h
-> +++ b/arch/arm64/include/asm/uaccess.h
-> @@ -174,6 +174,9 @@ static inline void __user *__uaccess_mask_ptr(const void __user *ptr)
->  	return safe_ptr;
->  }
->
-> +/* __uaccess_mask_ptr() prevents speculative accesses to kernel addresses. */
-> +#define user_access_may_speculate_kernel_addr() false
-> +
->  /*
->   * The "__xxx" versions of the user access functions do not verify the address
->   * space - it must have been done previously with a separate "access_ok()"
-> diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
-> index 3bcf86154d95..c96e93eca3b9 100644
-> --- a/arch/arm64/kernel/proton-pack.c
-> +++ b/arch/arm64/kernel/proton-pack.c
-> @@ -559,7 +559,7 @@ static enum mitigation_state spectre_v4_enable_hw_mitigation(void)
->  	 * could mis-speculate branches and bypass a conditional barrier.
->  	 */
->  	if (IS_ENABLED(CONFIG_ARM64_ERRATUM_3194386))
-> -		spec_bar();
-> +		barrier_nospec();
->
->  	return SPECTRE_MITIGATED;
->  }
-> diff --git a/include/linux/uaccess.h b/include/linux/uaccess.h
-> index 67cdb0a4f583..5a1fa4f48c77 100644
-> --- a/include/linux/uaccess.h
-> +++ b/include/linux/uaccess.h
-> @@ -50,6 +50,10 @@
->   #define mask_user_address(src) (src)
->  #endif
->
-> +#ifndef user_access_may_speculate_kernel_addr
-> +#define user_access_may_speculate_kernel_addr() true
-> +#endif
-> +
->  /*
->   * Architectures should provide two primitives (raw_copy_{to,from}_user())
->   * and get rid of their private instances of copy_{to,from}_user() and
-> @@ -179,7 +183,8 @@ _inline_copy_from_user(void *to, const void __user *from, unsigned long n)
->  		 * lead to nasty side effects *after* the copy is
->  		 * finished:
->  		 */
-> -		barrier_nospec();
-> +		if (user_access_may_speculate_kernel_addr())
-> +			barrier_nospec();
->  	}
->  	instrument_copy_from_user_before(to, from, n);
->  	res = raw_copy_from_user(to, from, n);
-> diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
-> index 0b8456f2dce9..abd938d310bb 100644
-> --- a/kernel/bpf/core.c
-> +++ b/kernel/bpf/core.c
-> @@ -2250,14 +2250,7 @@ static u64 ___bpf_prog_run(u64 *regs, const struct bpf_insn *insn)
->  	/* ST, STX and LDX*/
->  	ST_NOSPEC:
->  		/* Speculation barrier for mitigating Speculative Store Bypass,
-> -		 * Bounds-Check Bypass and Type Confusion. In case of arm64, we
-> -		 * rely on the firmware mitigation as controlled via the ssbd
-> -		 * kernel parameter. Whenever the mitigation is enabled, it
-> -		 * works for all of the kernel code with no need to provide any
-> -		 * additional instructions here. In case of x86, we use 'lfence'
-> -		 * insn for mitigation. We reuse preexisting logic from Spectre
-> -		 * v1 mitigation that happens to produce the required code on
-> -		 * x86 for v4 as well.
-> +		 * Bounds-Check Bypass and Type Confusion.
->  		 */
->  		barrier_nospec();
->  		CONT;
-> diff --git a/lib/iov_iter.c b/lib/iov_iter.c
-> index fa4fe2e92383..abd27189beff 100644
-> --- a/lib/iov_iter.c
-> +++ b/lib/iov_iter.c
-> @@ -60,7 +60,8 @@ size_t copy_from_user_iter(void __user *iter_from, size_t progress,
->  		 * lead to nasty side effects *after* the copy is
->  		 * finished:
->  		 */
-> -		barrier_nospec();
-> +		if (user_access_may_speculate_kernel_addr())
-> +			barrier_nospec();
->  	}
->  	to += progress;
->  	instrument_copy_from_user_before(to, iter_from, len);
+--=20
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+
