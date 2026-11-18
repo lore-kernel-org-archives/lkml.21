@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794991945;
-	b=qGfWVX0YIY73xLMOFp+qfEvxksO0r9ionTwb08NDbpuj6zFr9kvoTXJnvN5Cvv5J9+Ec
-	 eZdlg62IltLWvuMnfqYmyqLsl2LCSbOeC7dlfmvOm/jaat31IeyWj40D4AOz+p+0bjdTS
-	 YBKRgtOyRz7hmXjLTps4W6FbRNczzPrkLtzA/mpqsOd97BxheJSj6ixCV/kS1VY2tkiXr
-	 YFWMJmkkE6IZoSjTU40Lx0yUDQj7scIOeOsX1i8uj8fsETauGgQnjZGz1ZwgFFsJRI8jp
-	 0u+A9bGP1syMt1MN4cXPpfMMr6963CTPeiB7LQwSjbcO+yZhZnJPq1TureYRCljMlmQ==
+	t=1794991950;
+	b=NciyZpDkqMQRq5WviN2jkF04v+NDDPn233pJqfuCvT+/dx6R2bZXA+RCJ3ptDVweWhVp
+	 4WQgz7mfkHLSXwnLx7hh3Trcgs9jj20Ou0Y/4o4aOIsP6OfbHn8KxrQv5erP5PjZ2AGLD
+	 DGtWB4SUGsE+grCQcRcte8UxikeOqMUSs8FBwRy+av3+FBMcOXmo3wNStbqGaFSwVMKQh
+	 dZtnvw8g+Iu7HJCO4Zqj0N9OW80F/T2PClfL6ExV6B495YBxP/Bh/gxDRTdWBTQtKN6OF
+	 cx4PwRUIRmBYg03tBxhYQKezV8ci22sb8vDrCyvwQBwqnaDNFFw2V3wqV36qS7hIDXA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794991945;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794991950;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=eZUgNvRThSBkygn279XE/ZK5ImQQ93aCcXD2XI/JzgA=;
-	b=jjS0BiaNWyWH7mr4JFi/HjCPl+tQOhXJHjneXgpigeWEGbP3PZ5gqX9+/BeJp3kJUzix
-	 NC4U2shmCM7WMgmJcMkeA/o/IFf1YfsPF3GdmDSThZZVzaf0xPUAvz8PF8KmdX8Yn48IN
-	 WhBDdbhPeXqMEq9Pd0doX1K3loHpkES+4MkXip7EY7Xkb/h/o2t52a8gCNR78t3h2HsFT
-	 r2CSDfq0MRCGHQO8pBZygWxViQCDdnK3NjDxbAD/+EEvXi3T2tvX4Q1yz+/m9MmnH2/QM
-	 8/biRRMsdsm8WziFDejFn5HFxtu56BfRozVg1UsgsxCCLD+2MFvAcT7WwsnaAsAnqHA==
+	bh=K2VXvsE8Kb9V+lDeqW1cFDtziuGBumC83nZx9hEEydA=;
+	b=JINTtIcS2KMsWh5ODpufT5qEPkBIWtbfzunkWo7ZGEYaRs6htyesgxr0xX3LFNT3H+HG
+	 Wcwh5hK6NjXN5VvlWFerc4hpZvi7XBokpxy3alPvEK9GcZH1wNh8SvGhYnztlEjLNMfRG
+	 HIEK7WpBalRdgCJqaKDHSDWWsUy3p+ECjAxpSX3KnxRBWVLxfHji8Mgy00HX14xG3aZF/
+	 XDqq5mojvZg8SYwRKn5NP7OW0oVh8lY2jMb0WD0xY/CCs5CyGVTaV7W0trEpWbs7I6l5x
+	 CJ1Yyv1dnWI1p5FryWI12PJeXwGR86RdKI8By11gLRNU0GNAj0JeMJnwpq9+Tn77yPA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=He9IaW+M;
-	arc=none smtp.remote-ip=209.85.218.42
-Received: from mail-ej1-f42.google.com (mail-ej1-f42.google.com [209.85.218.42])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tDy2jNQ3;
+	arc=none smtp.remote-ip=209.85.218.48
+Received: from mail-ej1-f48.google.com (mail-ej1-f48.google.com [209.85.218.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D0C8606A333
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:52:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D0C8606A333
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3B16606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:52:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3B16606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=He9IaW+M
-Received: by mail-ej1-f42.google.com with SMTP id a640c23a62f3a-c50abd5b4fcso77401166b.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:52:25 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tDy2jNQ3
+Received: by mail-ej1-f48.google.com with SMTP id a640c23a62f3a-c50a2efbe1dso106893166b.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:52:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794991944; x=1795596744; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794991948; x=1795596748; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=eZUgNvRThSBkygn279XE/ZK5ImQQ93aCcXD2XI/JzgA=;
-        b=He9IaW+MibL+q/d8FrlanbAiok3rByNCBQVzaihfOKod1yX1q4GUBOpKmwNRIjJRTM
-         xqw5ELx4J5BDIT8DeIxu3RHEGEGJC63ipJhyPv/BzEoPVCh0QOuRZe/r/Bzl8+bX7Eur
-         ADFWO9IcXU7ozunE7frmOJ3oDWqZ+QnpNulWT1D0Z8ecl+R0TGpmeGjAf/HxzO90hMNy
-         7vjvXlvQNnfF0MBEgvKhcK8TkWp64l2yAtI4/Iw2du8kGWem0txt6naabgdMrs/4ELFG
-         HRqgTfO2yEPA7FmVaB+VoM658abNZfYRGLmC+AV2bJO/5u0CdRsBwEPuNtbAu7miiFeT
-         LTMQ==
+        bh=K2VXvsE8Kb9V+lDeqW1cFDtziuGBumC83nZx9hEEydA=;
+        b=tDy2jNQ3+6CLAJF6z69RMjECpGI/Ixk+1Y3e/Tof0O6Z/b0xKNIjN8MNFLJhculQdN
+         XTu0n2WIFXEfgoNYuuJE3LVR+E7sD21U+frCl+JkCWNvPuwEMRuUeyusrtpwsLPnJNUL
+         /AcR+h4nth5whXbjITZUB+UtH6mPMk3AzJnQt+ViHqbtNi7C0xNqwRhhdKpr+1ckGdSG
+         8gIJAeqTvaWiFk0AuYM04VVpNFjZL5rlISvoz16r63uq+rk8uMcxS4BmynBMGcpXGgOF
+         /2uLdrRKLegTs8FScfC2lxs7CbwZfNsv5Hfr143eo6iSX8+Fa3JMEMBlTwlA24vPcQS0
+         6VVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794991944; x=1795596744;
+        d=1e100.net; s=20260707; t=1794991948; x=1795596748;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=eZUgNvRThSBkygn279XE/ZK5ImQQ93aCcXD2XI/JzgA=;
-        b=FCRL9ZiKNhYucdPuJosf95Fy/27H2xtRvUWlHxFqe1mWu+ZYVU+c+L7ZzvQuHauR5V
-         9oAyyzT4MZ4ofc3X0aoFjGW+y/7mHEOWqeM9MplHBu5RFJw7ROAUz3JNmtDIaa1TRuEK
-         d5WxWp/1QFFuQo0SlbpvHlpJMXjxlJD0iMZSGHTVqbzLFovBbFfo/uz1YZFyaeEYzZS6
-         J5XSzeU2C6N04ireUYdXbsc6s9tfYnLTZCtzX8EsKBPktFtUBiR1qE9ykYx9rrchGoF2
-         0R4LLR+VrQRcbN8u6AahXzlz3+syvDOa9FhUDPd9Fm4W3jAMerMhQOCwtxyQvn8CQrvH
-         GkkQ==
-X-Forwarded-Encrypted: i=1; AL+hErGR2cNKfsIjNM5C9XcJCp5WU2gFll4bXmqARCt44d9SNoOjWnkA6F3AfnGi0P3sUPxn7Lzvcj0YP2J9cSQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z++rBQmgytRSVSu5tQJKUWtWgVzGIisSUIvX2pwWyxX9EHLL3p6
-	cla7z830h9cnGWLIwgQH3c+PB+RQkPqEKSPlT85LuQQOvdgw7LENmsc9
-X-Gm-Gg: AYBFou3y9nTV9C82NY6JfmxP4+zJ2bD+WLyDF377oaJZvpD4rTDNV2CL/tQahpxAL0e
-	FIeIXxziBXsgymuRTusQvS6x7bkg0K/SYv/KzlVmoL6XJza33Fvl5ILZ9rxsdYoib8PXaXbgRgn
-	c3+Bv+jCQonN4Rs0L4I7MSUtjh5456aZmfS+fk4hu4Eu9/fwaDW3tI7fvQe2uXDGS/wVpdVkMYB
-	QEYx/vHg3ETWrok8BMFaOkUV7nwoodji7OJ+rw6ABlM/JanMolzdF22FEwI8onkHKfmzbwH5gbj
-	blTjY9aJHrJAiDubN6eQdjmVwEXVzgvwMAWLqTyYPoyo8zvwHu+4wUv6idNqz6sDp4HzAOLZyp6
-	fyHh9xyP4vSSQ0/lJ5UYBLtSOTipIc3AjM8nNwpdeqrrcF2HGGFWKdj9DckR58SU5EbRJrMtrjK
-	8pIrk9n8n8nWPMVXw3vzI4EjepLSbHaAR7oXrDnvIM/B3svRSCa1eNohC9PAsT1+CKs/cszI+Oj
-	8LIX+kAtj7gTeeXVvYvFejJKOc3u6AloiIDdzncNkITQElDKqeOxQwq8T0ShmTWpkc2XJjLfTnX
-	iLrwzLgE56TdkYVXXFyJJJZYM5eJPoYn45OZ
-X-Received: by 2002:a17:907:2d9f:b0:c4d:5820:325e with SMTP id a640c23a62f3a-c510e159e89mr150966266b.13.1794991943191;
-        Wed, 18 Nov 2026 00:52:23 -0800 (PST)
+        bh=K2VXvsE8Kb9V+lDeqW1cFDtziuGBumC83nZx9hEEydA=;
+        b=zGtLgphj1AdLI3N5YpaKi/bnP89GU+VQZiNrXU0hyTFwHVNoIWU5KEB0curkUf+CW4
+         ufX821rG/PXA8OL17lU8PQDyhCTLUGdVNje7FkQvtiKPXcsaC4nOEHoc0KwY5fB2Q/kL
+         vurd0fcbmxqfKsz0hQnR6xV2rxJDgnqazRkszIVOn+uUTLCu6pzZ5n1aDkdi5BhgwNDF
+         7QLhz0MauTympaGAOR+V4II9oV0yltdi4PHVq4NnwAoq11zIb/4Bkp3NzekejT93qJDD
+         sJraTSD1gJSdk2RxRfJUxMD9P15zaKccJQECgw55r/PQVv8r19cO+3QWXKRPj+5Bl3e0
+         EOGw==
+X-Forwarded-Encrypted: i=1; AL+hErG5If2k3AOUN+14LaVeUuWbOc/eJ9CyZW0g0Nvq6WoFBxGHm+14678p48MXoPySd33oRqESAvmWtyuW8kM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9oML/4qjzUrGSLf6bcugqmdMWbbjaHFwsLwGqeS5KiVeoogEUi
+	9QtZb41V0lwVA5Llg05teTJAmJnxPYyyQip0+mrxajFzNRoSA6XWLxW6
+X-Gm-Gg: AYBFou18GQBa/m1OxFqmdajzEMSR3Q3dPLobhALOLGKpyDrpcnLNf5oU+WgsnGWXEKF
+	uWiHT/vD34TEyF0/gkargJ22CzMwwI0elmQiiKNv8DCAN5i5IPUC8aAQ9Yee2SJGxc6AZKS1UMD
+	HJ3BGva00JcyR9K0HTr8JaNQDGJ7S7S1+9R4vw+zMMyXetHHaOJdBrRZWVfB9I/+pdinmohOyAX
+	RKLIDG634+9hFou1i6o7jCMWGzBFMCtqI30R6QkgldWMPjocrlpp68apCan5fDQg9Rhk4+/9TMr
+	6QeGtAZ+7+LEvlK0A37VyysQvN3+L6ZmBJG4KAJspGnA3Wcgz+QIs4oFEJpXBv1i7AgNklxACBz
+	/h7icQsH0NBRjx4W3CCvC+NoFZYUhT9F4TerDLp/FOfu/Bd2PsrBBVY1vv57RQ38C4RIUwxMF7j
+	jKzw3mGWQQ+KdFPn1jBhxOX49TtXOVU2fgF1quhYXDFKaEu0SxkAllTGpUfEa6JPg9XLG3pvzxz
+	gAay5jCYY3eCOHi0DzmwkIh71qnhsB4NHhqTImviRU57ufA0lZBTjCBk7qpG9YiomzduYDbRscr
+	Q6GE/bz7q5fwdlwoWcRU5Fk2GbOL1aZqW2taqnJVnAQj7aENbyVrofhshw==
+X-Received: by 2002:a17:907:6eab:b0:c46:9d7b:37d with SMTP id a640c23a62f3a-c510e2a8771mr156578166b.17.1794991947373;
+        Wed, 18 Nov 2026 00:52:27 -0800 (PST)
 Received: from kernel.. ([191.40.25.13])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c510c83f31csm71077266b.10.2026.11.18.00.52.19
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c510c83f31csm71077266b.10.2026.11.18.00.52.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 00:52:22 -0800 (PST)
+        Wed, 18 Nov 2026 00:52:27 -0800 (PST)
 From: Kunwu Chan <kunwu.chan@gmail.com>
 To: dave@stgolabs.net,
 	paulmck@kernel.org,
@@ -95,9 +95,9 @@ Cc: rostedt@goodmis.org,
 	rcu@vger.kernel.org,
 	Kunwu Chan <kunwu.chan@gmail.com>,
 	Kunwu Chan <chentao@kylinos.cn>
-Subject: [PATCH v2 2/7] rcutorture: Require debug_objects flag for debug-objects test
-Date: Wed, 18 Nov 2026 16:51:42 +0800
-Message-ID: <20261118085147.1668598-3-kunwu.chan@gmail.com>
+Subject: [PATCH v2 3/7] rcutorture: Test duplicate call_rcu_tasks() callback enqueue
+Date: Wed, 18 Nov 2026 16:51:43 +0800
+Message-ID: <20261118085147.1668598-4-kunwu.chan@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261118085147.1668598-1-kunwu.chan@gmail.com>
 References: <20261118085147.1668598-1-kunwu.chan@gmail.com>
@@ -112,41 +112,28 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-rcu_test_debug_objects() checks for missing callback and barrier
-operations only when ->debug_objects is set.  With the flag clear,
-execution falls through to the test even if those operations are
-missing.
+Enable the existing duplicate-callback test for RCU Tasks by
+setting ->debug_objects.
 
-With CONFIG_DEBUG_OBJECTS_RCU_HEAD=y and rcutorture.object_debug=1,
-the trivial flavor can therefore call a NULL function pointer.
-
-Skip the test for flavors that do not set ->debug_objects.
-
+Suggested-by: Zqiang <qiang.zhang@linux.dev>
+Cc: Kunwu Chan <kunwu.chan@gmail.com>
 Signed-off-by: Kunwu Chan <chentao@kylinos.cn>
 ---
- kernel/rcu/rcutorture.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+ kernel/rcu/rcutorture.c | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/kernel/rcu/rcutorture.c b/kernel/rcu/rcutorture.c
-index 968343be4e0d1..caa550095705a 100644
+index caa550095705a..3dcc3d4318ad1 100644
 --- a/kernel/rcu/rcutorture.c
 +++ b/kernel/rcu/rcutorture.c
-@@ -4603,8 +4603,13 @@ static void rcu_test_debug_objects(void)
- 		return;
- 	}
+@@ -1221,6 +1221,7 @@ static struct rcu_torture_ops tasks_ops = {
+ 	.get_gp_data	= rcu_tasks_get_gp_data,
+ 	.irq_capable	= 1,
+ 	.slow_gps	= 1,
++	.debug_objects	= 1,
+ 	.name		= "tasks"
+ };
  
--	if (WARN_ON_ONCE(cur_ops->debug_objects &&
--			(!cur_ops->call || !cur_ops->cb_barrier)))
-+	if (!cur_ops->debug_objects) {
-+		pr_alert("%s: %s does not support debug-object testing\n",
-+			 KBUILD_MODNAME, cur_ops->name);
-+		return;
-+	}
-+
-+	if (WARN_ON_ONCE(!cur_ops->call || !cur_ops->cb_barrier))
- 		return;
- 
- 	struct rcu_head *rhp = kmalloc_obj(*rhp);
 -- 
 2.43.0
 
