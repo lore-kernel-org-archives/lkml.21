@@ -1,88 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795001216;
-	b=MBSAre+pOET+udY8rQNe50M2Hen+bHHaxre5PZROzTj+rdbBSECFd/eGqZwZ+Nme5m+V
-	 qadMPI6glHCAWk8lM7GgVnVeObRjPWoaKH90as3UvfYvsbeDcjQAVcBTdwUvdNyiJ8bg3
-	 eGosk9s3ZKoejPiri0vvUy+OrQy5jJidnV+3qnRqbwgHA4xBr84sim2WejQsWIMG1TC7D
-	 9xihOrwVmpv+Q58GLzcAIUEW2lYo3BK3ot6M7kClMIZMxaaoQGezUmodPX/yufPhTr8HZ
-	 FyjKOI/ca6X8moeWoJaXqwfl6Ti2483ltOoCljh9ho8MMPK+j4/rEPjIJgDvht7EODA==
+	t=1795001266;
+	b=sHEVL8Cp4l0SRjaL6hYXAPsNlqau2uER7lhHkRMCinCXvvSGuk8BDNMaWWnz9jJ574TW
+	 S5bcR3P4sbSe1rCjO5r2ixtq8xkNV9MTnf7xOOv1n12cWPFz+kBfT9fKsKQneaK7k3/WN
+	 4yAcFfKZ1P5xDu1WJgXOv8hUPuFiVd4n0fSmT765ACQgKscZw4P0RSo3c+Ku4Hj4wHTtl
+	 FG2KPKKetYU24+/k0wTvBt7e5UaZDCED1ILsCl4R3wQ4DmjFYNIud0Io5pn2EsCq1iXxc
+	 ZHC1FDInYmIbEKwz2r7Es3P3uFLK9tjQTOwlcmAJaDeQddrV8wyjH3V9ig9TM2ypziw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795001216;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=msXJndjH6JzkweLBaiGxmBinT8C/Wtkx/0H1bh3p3rU=;
-	b=4c0YhzDIwezY1B0QU6Vpp2aPus+qPJRj9k7GoKiGTI6tjUhBH1fGeNtEtEEEuqg1n5CO
-	 E/ppuZvp62/aFQCiFImw9Ov5g9CrCQRBSgnULW7Q7jxFz5i5eO/kbO1hvpi6Huw8aTRjo
-	 7aXb5DTQeXSa1QkQyo3RI5bnMZyw8PjXK39PtIo50B5UaQ84nvnkpNuEXVXF82BGM4YDZ
-	 exnZwNaxDqFX9NQkPBcFigG48z2kwuUF70aGyWsLMHMJsCqKYyP4aWl4icDCifm/8XgEP
-	 PB/8jEagQDrMTQHg/zl0nYw5vC9E2IR9V955slXEw60QrKdxkTE73m6XGp572o23a1Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795001266;
+	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
+	 In-Reply-To:References:Subject:From:To:Cc:Date;
+	bh=ml8UQRnupsBXChpdLQ8z+bnOgucCiDf6uIjptkI/ug8=;
+	b=1ynpWaNhs08irGj1ndF/1OnlzSnOyXMXkx9zwkRVuAT+VN1Ez6fEKM+SMmEjRPXuO1GL
+	 9Yt3Cp0IBx28XXKqRuoiJ0C+FjiRkuYgdWL2wJwE7lyYwPwzG0qpbb+GVhMkVH+vNORix
+	 W4ixyOcq7jUG63MusNpjMf3/+eQnmSscYul5JyqcK+0fc14N94aFCf/bxxbJ2sbcPYvDw
+	 M/mldb7vfMkqOwVGPCW4t9JbBD5EOzSCPHDMWNsaLVOyFE/6mv6HdogbNADPnBXEwoZVj
+	 lOjdwkO/XDBU2PeAuDC5i1T5GM3cbI5e43Y7R7er3SLlrwAfUTTdpP06hrTln6s5Hrg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=P5otasT3;
-	arc=none smtp.remote-ip=209.85.215.170
-Received: from mail-pg1-f170.google.com (mail-pg1-f170.google.com [209.85.215.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e9MGFOzP;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52E7060A261D
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:26:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 52E7060A261D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6DAF5606A31C;
+	Wed, 18 Nov 2026 11:27:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=P5otasT3
-Received: by mail-pg1-f170.google.com with SMTP id 41be03b00d2f7-cd6028ff33fso592832a12.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:26:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795001210; x=1795606010; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=msXJndjH6JzkweLBaiGxmBinT8C/Wtkx/0H1bh3p3rU=;
-        b=P5otasT3x0KiFi3TS4Vwf6vtcEOMgiVWP29dcN/e9s7NBmiEG7HdrHGZImmidMDo5o
-         5xU+BvlKcj0+KXFWFEC6gq77MtAhKse1eou1ji4Zd3lSWe8x2gQiVXGBx0eaaDdXC3I3
-         wD/SMzHcbNyQGxuokrJROPQ7UU26BYymJf6lubkRav7AWx7Vn2P5Vi6z94wCSxUojU+s
-         +xApZYHKHYnFFfeCQ7t+Q6hM32sj+uTaXL5J+NtlmYzf2R1JsVDdgFZqZiRmPH4jyDNX
-         TVXJxEdQW6qA8P98NZx6jAwMpmvFTLN8U3ybDvWsif3nBIrOCjLrCqyesYadO329VCr+
-         tBpw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795001210; x=1795606010;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=msXJndjH6JzkweLBaiGxmBinT8C/Wtkx/0H1bh3p3rU=;
-        b=STWwyJNlDUKpC46kjTdJLHXqzn3pASX3niEx/p6PVjOAEbEmWMUrTHXw+Yhf78QHx4
-         cytZjqzTQmSkn1JIv/ljoo321jT6NzdIU4BeDuWxDCTBi30wW/GgsSMaB5pPNiAHMmOb
-         QyJidgZpgGfzK997I8hV/DQyt6E8NeGSxgT2sZo8YHBv1Ch2efSu3EhYg337HPPqXuxA
-         n1GorSlN5gQ9OfB0SkjNq5zdzb7GfMsTKWwvr3GeRyTbI9K6tYZSdwRgmneIo7evM9aj
-         +CUXqfyMV42fVEm/JUoOZRKbcdOzdHE5D/Kl+mQrM3QcQp5iqHQvppaG8tZ3iodldCcp
-         7b0g==
-X-Forwarded-Encrypted: i=1; AL+hErGrb579/IbYQ0DgZUtCPBhChVXtz2zxi/VNSwCnLYsdwd95powDtNksKU5LLdZFgrLBIMvi7/mOGmt18gY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8fNcyvJM9ZAZLBsyFWw3Lc2YaNiDw2nqsKTjdcwCQUO5vToSkG
-	cWOZThvKs6ZYISc3DxiiSD26Wmbse83MO3lNVN3JxLmTm+YqcfD2ZLUL
-X-Gm-Gg: AZFdTZcu3KiE6FDGnFZvYJqHKq/lNadnFyJR3tdsG6hCM97j8qOInp5r1iYg4JIp8g6
-	AHZKSSauvTYycCbR0fuQ1ztxsFnIxMyzvaJzwQMviOcCHcHG1S3cEs3Fus++1SHuzx+b4op6ULU
-	u1hs+P3Gju+fYJg7achxWVQvGH2BStC8gJfLX9VM4g7bIPl3ip8GVYcWIiFSfgzxfm5awfm/vdJ
-	sCZPC2w6OGwtIU2QK3Y1ixuQxI3zhbZ6+gKFvpefwOBTp47ITmwtQ4PC7dmuncpcIIXd4hbwNu1
-	OpMSqLFST2f2LlJmTrLEu7bJN6HnBh1poqr7CY7aJ88fG/4lJXL4rkjLhqrBCGLH/h7D1Dy1rQh
-	1EmkAW86xj66PtNCo/MyKMv3TJR7xlgriVY4/mK/7ZW/+Z9NsJtjE8XuIJiPEiA8k1NWal3RYLG
-	iyo8vR53oq0Lv5xz6xeaa4XChxMAe0p06vTinODcaE4wVHKBGntULjL19Tj3is/6cD2Qv2FJ0Mp
-	aQimqD2Jd9ieiXBa+XKVIG4VXg58a6gAnGqW2Vh1DtJ1ZF+FSrL4zXoIhjIzZ64LS5sqskWxOko
-	t0KEZ2nm8GPY1UcQKb6YER2Kxyvd4lfKsLJfPSjRj8hB2N83IVtVTf6x4fURU0yvbOWK
-X-Received: by 2002:a17:90b:440b:b0:3a6:f1d2:57f3 with SMTP id 98e67ed59e1d1-3b3d07e3950mr2232429a91.58.1795001208717;
-        Wed, 18 Nov 2026 03:26:48 -0800 (PST)
-Received: from ?IPV6:2401:4900:1c43:8cbf:33a7:8ddc:7a9c:40f7? ([2401:4900:1c43:8cbf:33a7:8ddc:7a9c:40f7])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d1acd118sm3997301a91.12.2026.11.18.03.26.43
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 03:26:48 -0800 (PST)
-Message-ID: <fe93e84a-1876-4416-b3cc-547b9816c865@gmail.com>
-Date: Wed, 18 Nov 2026 16:56:41 +0530
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e9MGFOzP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 423C91F000C5;
+	Wed, 18 Nov 2026 11:27:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795001266;
+	bh=ml8UQRnupsBXChpdLQ8z+bnOgucCiDf6uIjptkI/ug8=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=e9MGFOzP2HUIQZi9v7TkvhV0pgEeVupUV47yOGoPmj4yP6vd3UtT07u0RmITJ4yHD
+	 ma3VgSTHBAu5RLfRmbvEcehFeY3x8jLE+9GcIxrX3Olb4iTSYTpdX+ljyipO/8Edgc
+	 FBuuUJUzr40pcpJz7pYpVWJvmK3ELKK6pcStmRMRyrFEtFUaeEVCh5b/pczf4/oAo3
+	 7fAW8lbxnXfeOSeIszAvPRMbJ2AgOJnZBalKSHtyyeMM4o2ioX8viEA0iKBh8z4lSW
+	 jwsprIGOpnP5HamafE7Oe3M3gi0NyDbgk3MI9TCLbrXkpgRxA2fzB9XmOKLgPpNyZC
+	 HLCjYtT4vQxKQ==
+Content-Type: multipart/mixed; boundary="===============0628549358835958140=="
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,71 +49,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/4] openrisc: Add unit tests for KProbes on branch
- instructions
-To: Stafford Horne <shorne@gmail.com>
-Cc: jonas@southpole.se, stefan.kristiansson@saunalahti.fi, naveen@kernel.org,
- davem@davemloft.net, mhiramat@kernel.org, pjw@kernel.org,
- wangruikang@iscas.ac.cn, namcao@linutronix.de, kees@kernel.org,
- linux-openrisc@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260930202744.50489-1-sahilcdq0@gmail.com>
- <20261026201240.107462-4-sahilcdq0@gmail.com> <avAsy43KVO-7Nm9z@antec>
- <dbfe2a41-c99d-4f00-ac0d-2b2b31a72986@gmail.com> <avkQctt0CKt3YcsH@antec>
-Content-Language: en-US
-From: Sahil <sahilcdq0@gmail.com>
-In-Reply-To: <avkQctt0CKt3YcsH@antec>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Message-Id: <5c75ee187165e77ac4a71e59084adaa793051388b57dd217f63430c2c8ebdbca@mail.kernel.org>
+In-Reply-To: <20261118104758.98620-1-jain.sm@gmail.com>
+References: <20261118104758.98620-1-jain.sm@gmail.com>
+Subject: Re: [PATCH bpf-next v2] rqspinlock: Keep claiming the lock while the queue head is still the tail
+From: bot+bpf-ci@kernel.org
+To: jain.sm@gmail.com,memxor@gmail.com,ast@kernel.org
+Cc: daniel@iogearbox.net,andrii@kernel.org,eddyz87@gmail.com,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,ihor.solodrai@linux.dev,bpf@vger.kernel.org,linux-kernel@vger.kernel.org,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
+Date: Wed, 18 Nov 2026 11:27:44 +0000 (UTC)
+
+--===============0628549358835958140==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
 
-On 11/15/26 7:22 AM, Stafford Horne wrote:
-> On Fri, Nov 13, 2026 at 10:45:03PM +0530, Sahil wrote:
->> On 11/8/26 1:33 PM, Stafford Horne wrote:
->>> On Tue, Oct 27, 2026 at 01:42:39AM +0530, Sahil Siddiq wrote:
->>>> Tests already exist lib/tests to verify the generic functionality of
->>>> KProbes. Add unit tests to verify that KProbes work on instructions
->>>> that require simulation in the OpenRISC ISA, and that the corresponding
->>>> delay slots are handled correctly.
->>>>
->>>> Signed-off-by: Sahil Siddiq <sahilcdq0@gmail.com>
->>>> [...]
->>>> +
->>>> +SYM_FUNC_START(test_kprobes_j)
->>>> +test_kprobes_j_addr1:
->>>> +	l.addi	r11,r0,0
->>>> +	l.j	2f
->>>> +	l.nop
->>>
->>> Just a tiny comment here about indenting the delay slots.
->>
->> Got it, I'll indent this.
->>
->>> You could also use the delayslots here, for example:
->>>
->>> 	l.j	2f
->>> 	 l.addi	r11,r0,0
->>
->> I initially thought of that too. But then I thought by keeping l.addi
->> before l.j, I would also be able to test this for the case when
->> there are no delay slots. I can reshuffle the instructions if that
->> test isn't required. Please let me know what your thoughts are.
-> 
-> I don't think it matters either way since these are tests.  But, it would be good
-> to note that in a comment at the top of the files where you want to maintain
-> that convention.
-> 
-> However, thinking a bit further that may be hard to enforce down the line just
-> for a handful of files.  We should assume the kernel code uses delayslots.
+> rqspinlock: Keep claiming the lock while the queue head is still the tail
 
-I agree. Since "head.S" and "entry.S" already use delay slots, I don't think the
-kernel will work with a CPU config that has delay slots disabled. Also, there
-should now be no need to have a static key for "delay_slot".
+TL;DR: Nits only: two comments in rqspinlock.c (queue-head claim and pending
+undo path) still describe the old behaviour and could be updated to match the
+new retry loop.
 
-> 
-> -Stafford
-> 
+> diff --git a/kernel/bpf/rqspinlock.c b/kernel/bpf/rqspinlock.c
+> --- a/kernel/bpf/rqspinlock.c
+> +++ b/kernel/bpf/rqspinlock.c
 
-Thanks,
-Sahil
+[ ... ]
 
+> @@ -624,20 +624,23 @@ int __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val)
+>  	 * Otherwise, we only need to grab the lock.
+>  	 */
+>  
+> -	/*
+> -	 * Note: at this point: (val & _Q_PENDING_MASK) == 0, because of the
+> -	 *       above wait condition, therefore any concurrent setting of
+> -	 *       PENDING will make the uncontended transition fail.
+> -	 */
+>  	if ((val & _Q_TAIL_MASK) == tail) {
+> -		if (atomic_try_cmpxchg_relaxed(&lock->val, &val, _Q_LOCKED_VAL))
+> -			goto release; /* No contention */
+> +		u32 new = _Q_LOCKED_VAL;
+> +
+> +		for (;;) {
+> +			if (atomic_try_cmpxchg_relaxed(&lock->val, &val, new))
+> +				goto release; /* No queued successor */
+> +			if ((val & _Q_TAIL_MASK) != tail)
+> +				break;
+> +			/* A pending claimant can abandon before publishing a tail. */
+> +			new = _Q_LOCKED_VAL | (val & _Q_PENDING_MASK);
+> +		}
+>  	}
+
+This isn't a bug, but the comment block just above this hunk still
+describes the old behaviour:
+
+  * If the queue head is the only one in the queue (lock value == tail)
+  * and nobody is pending, clear the tail code and grab the lock.
+
+The new loop also clears the tail when pending is set, keeping the
+pending bit (the n,1,0 -> 0,1,1 transition).  Could that comment be
+updated?
+
+Similarly, the comment on the pending claimant's undo path still says:
+
+  * Undo and queue; our setting of PENDING might have made the
+  * n,0,0 -> 0,0,0 transition fail and it will now be waiting
+  * on @next to become !NULL.
+
+With this change the head no longer waits on @next in that case while the
+tail is still its own.  Could that comment be adjusted in this patch as
+well?
+
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/44290867653
+--===============0628549358835958140==--
