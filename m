@@ -1,87 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795019410;
-	b=lKuxzTM4BfKvJpWbQY5U8rRf6nLelt/ggqqoiO3jh72B2pMjjiNOlVYsZE6TFBeexGhj
-	 HAYxs/FM4bCzUjdc4QPNFcLd5gxzAMmookL4i8Zz8mLhOb0NXVaAfrQB9te87DLo9l655
-	 qKf1GSizrTiw3A5OiRKYRXkfP4qSK8Aud/UJmNDdvnL9VWU98FPtobUmyDpQcVnqkK1BN
-	 sF7PFk8o6AJ7s0+Lbc8VbaUgL2wNpyXADS+HzvlH05pd+pu8q9yu6P9ZUysAHJ/BOIWfP
-	 15I3hrryXSIsy/TXsd3ZW3TugmDPCPyQk1Zwjwze6JiexCuWxqSjJ9IH2OZL7pK/k7Q==
+	t=1795019400;
+	b=D5iZ7fxi16ubFjMeYuqZdAXCGKyiU3ddLJfFvvUtbsKKHcO2DW507NKSW9++JQzGK/tG
+	 l332tIbTtd7azvziQx+e+t8TsYX6Kd8zXzzznjtyc8JTIwfXcYz8U6AqGrktp7sHlacKq
+	 goPeF32PeCm5CPGHOuBF/QU9OQOVni1xRH4maZBvsiVUr4yEdlUkrUyY6AjxKjOH+1YFe
+	 YnEXfii2Au3UWGhfAmmKnlqXx82NBhq6iv5wWbRCaT5Rz2Tr1GE/t6YwLduFclmOHCgus
+	 4i0Ac2X+6q9vLEH3b5Gze2AZs85UUUwvIrB2D6kOvBbPetPJAYOo4u8Q3SVVhx1Nktw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795019410;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795019400;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=sxVhElAnpgNRNsgHcnjSLsgUsNEXWfsZYegUDnlKrMw=;
-	b=sl5Y9vK1JZWPbl2kT+Qio48K6yzKH1FRZf8ZtprNIDUqmcseR6GptulSkUPbGWop44HZ
-	 sfucC55PIleR9hRLRSJb+BRmod4KZq7RHjlhfIjJMqwccUg+5pzSOKcBdxTRxq7mtSbEB
-	 zURp/DJZYEo+WZSclNIPuuzblvoXIlR5e2SX4IhxdHiWstlaSnmAH77z7fCT3jS6RkW8S
-	 yBzJbRl8aYTzWLrrziz+GnrP9iy3DMvw4v3D2u1jRdCKEZaKEApWQs1l9aqBG81hrTyHf
-	 jxxe0c93ZUoNTblz561lZamAWN4i8dcxBBKuza3cU8+t30l/EqQLoVp0VAhTG2q+EGw==
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=iyz12xtbU90FsJpLymbYPQjt0B7C+A1RErrcfWx+fUo=;
+	b=xj4ji3kjDkVZLniArsYIwHNbz8vgmWswbvhAX9Q9lM3EDVLEvGb0wb5g4Ls08nlGS/Np
+	 ddMly3/tWQ61TZ+bJ1jFfSQXsQMFdFivWUyal509N1AIY3CMo/mtCKY2ZUoTSxrFPkETp
+	 00OkHCX40unkZLyvO9i39XQEy8tww7lj8rlnlV9SxASoSnvDgLTIiEgQmpKaqsHewGEoe
+	 NRKMRkBfWC6p8q1EWuQl9TL/Wr0cDCH1QT8fsVqaHkBCxSNlIcCqE9usoNT7Jyd+kjNUt
+	 9ihdM+rWI+Ju5wsq502mdj703apcA4gN3CSbS7BdVd9WHI6JuWr9V603JCcVAN8IhTw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linaro.org;
 	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=E34WSuG9;
-	arc=none smtp.remote-ip=209.85.221.47
-Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=QDUAJ7wL;
+	arc=none smtp.remote-ip=209.85.221.50
+Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com [209.85.221.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F55360A5BD7
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:30:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F55360A5BD7
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 983C360A2615
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:29:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 983C360A2615
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=E34WSuG9
-Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-497614c95f0so736513f8f.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:30:06 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=QDUAJ7wL
+Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-4a2f4ca0dcfso629801f8f.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:29:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795019405; x=1795624205; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=sxVhElAnpgNRNsgHcnjSLsgUsNEXWfsZYegUDnlKrMw=;
-        b=E34WSuG9U8KH96kE8aaoTzieK8VvmnzjmfI4+oBJ7zMcD0C9b263uWaNeJjJavDeXu
-         MiVwyWuqfr/VbPJm+thYD22MfIIiONJa/TMqjluIjqZ1vIBZRiuQa2hPY9GQP4TjsZo4
-         h4xcLwppjM6XPnxRC5/GGWB1aa/pzuYNCkg7edSRKlTCoL4H3mL8DcZj4znshqujkFtu
-         +hnkAboPsReXxdI7e2GbhaXzz7zmB0YiSU9iKkNbiu8X9CXVdSRHoGKy7+Fdq8oF4WWa
-         MrOHdZVZmktOtW06w7HWGF1LAId+gLCYF+7SXPeZKpsrCSwShl80pP5jieXuRIureDuu
-         8hxQ==
+        d=linaro.org; s=google; t=1795019388; x=1795624188; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=iyz12xtbU90FsJpLymbYPQjt0B7C+A1RErrcfWx+fUo=;
+        b=QDUAJ7wLTW4KcBSvxAWObf0SSkrnLIZbr6LwYdW57ldJrDoEEb7JifQeqfuz/BV+cs
+         FRdB3GwpVpc7KnfWNisU1WDTAF4+6GICgJGjTqvOF9tgqIsnzP5ClXgVAbwhOevlowK/
+         AHsQVDRu/h2kreP8obxIyUyQ5WJTltYFgzmgvTpMKiamgqfFRNkFrmZxSEQ/x3pBEUDT
+         thFoSO0Yf+sTsL12txowHffIKc7wsgMvEn5CCXdm05Vddy4TsbwXuRR3qsjcQfewTR4J
+         QJ9J47kJ2Hh2lWTw5XW4Hl0g2wFd+3CjJYOT/r/qI+oXARqToG4ej0Lp7gfJ/hSt4dpl
+         vTqA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795019405; x=1795624205;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=sxVhElAnpgNRNsgHcnjSLsgUsNEXWfsZYegUDnlKrMw=;
-        b=Q6AhaSbJL1x8exlvfopxh3xJ42Lm9HpaCS1OLSfFq0zN7mJlfT7riO3wdxh4ExYlwM
-         RAGKWWnUNOwzMxQr3Ir/Sbp86bde+GE6fy0gugbyvshCY3NFDwy+xkjk3Wndw/Ga9aCj
-         10ICUVLdWnhhfosy4B/AuJ5ovrjVrGaWvHOhKPka+0VBt7Eu8wKhZSXBKdO1E7SXkhG4
-         Jvt+s0g12E0Vy0qYfBBb1h7DrmPnwraxr5aMLh4CawQ0HhA8tYsNK7WDSdmtV1xLKAWM
-         D7V2xvppJ+Oc8ViOwfcc88/RRaeaoxrRMO+GwsmNS8RIz2ZoZWCA/yLKYLxcsgKT9whv
-         4Hqw==
-X-Forwarded-Encrypted: i=1; AL+hErHeQQfplRL1cI88TjNFTf8gRH64u+xlh6aC/Gtx2uDmqPtkn6Cw2tw84QHelY01LBnL50cVnehY/ZR2uAs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9bCGc50ENTZQZUptRuQptHh28Dd2PCGCr463pYyGfqbM74CQ72
-	5o16LKqlsTAJzQXgTXWtLeQYsYxUwcvzlXj+0r+FzzZFmuVQhREq3bb7/jjIubSusXs=
-X-Gm-Gg: AZFdTZfTXSEHtbLpS8eybV6XOMt2ZsEBDJTlEnBKHG1TnEdK4MLt3sISh1hoMyFDikW
-	6UqQ6gTw/eTdiBMgErhon71TP2mxMl3ytQIZjrVrsdDsAln+bQrd83ZczIbOsK/iOM/kUnwJwA+
-	hFRwBA4FBQ8cmHLmRRQp8w0MriNU3FwplhysNA6YikK2YvIOIHVMxVXypH/GRFN4LyBAP1EepKQ
-	spcrl2E6Stj5bIWCJ3VxgNY6Hj3lXMQoy19RwwD0szZhCYgNKi9bTNolvHEyHqBGmqW/CqKtRlM
-	yIVy38dIIVOJDXmDQ9phiLdp+UhXlaoWTuunnQ30Oymx1jBU4a2cqtJ1b65ZBaXgdSpo1r+q5GR
-	Xt7YTmat1grOO8JqNR4fENlNlpxNKvzemxbRrcr3yIG3emkt1vEfC+ph4D6HYpcIOVwyBRrbhfR
-	9JfM7O8zwaPXAB4pdmcPDpMJ17QupTFJ51+KsZ1f5PKk77CIPp8nJglDNCyIVK3UcU9YdP2temE
-	AbhWoYzknxCha3QXfHagrd2Nn+7NCLiqMO+Mw5LCji59vNNIGWvxv6Gl4xlkpDIN7EDDPx1ujxd
-	ZNThaZDTFX58bsEZEwIVFVPPDZ83Mi2S
-X-Received: by 2002:a05:6000:27d2:b0:491:8462:20b6 with SMTP id ffacd0b85a97d-4a63ac6bc12mr4817915f8f.38.1795019404507;
-        Wed, 18 Nov 2026 08:30:04 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795019388; x=1795624188;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=iyz12xtbU90FsJpLymbYPQjt0B7C+A1RErrcfWx+fUo=;
+        b=U6CgbXoZoR8ajiHZHln7aTHkQnBYkxbfcC6rLIv4oP0MF1iIw54tW0rpYnizFIrYQk
+         CJQnkydlfCixCUktvXRkT5fO4bM7EhLgjSAtCmFYJtNwlMYvn3EeQK9jidLfRzZaFhbn
+         gmv7LSpML463FCp+K0afUa8RSlhmyV0yQNib0FiThYFkCM3eNMF8FkFMqx7mYas/pkjl
+         21tf0y7oAzVqKj16GWeyp07VxFhSaW1KzaT7YD5hk5qavX7NkJS9YZvARQHqCqF01exy
+         rIrhJEqgHIER2rTQTSV8a4JrJ/S20LSp6uCC26IKcwRqXk+hlIagYeQ43KqCKHrnmxSQ
+         0yYg==
+X-Forwarded-Encrypted: i=1; AL+hErF/6cKONGmZXdcmZc92Sz/WMVH34wRERtPZp53rgPFfe8DqYdbFaORtCEaWurc3Q/RzOTbDp2G+Bj5UOY0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8sgNYQvjt7vc6e3cIKnqq96eu001N5v8IozUGxgDdQC6AE3avy
+	AYUQxJv8yZc8MccMW3+mzzxna5c0H9A+XWQbuKCrvB5clw5SYO5pz8X/PPtD0TK2JDc=
+X-Gm-Gg: AZFdTZfwjpm1CojrBJIY2MeqvjSFy1TP7DnVZpUYVnE0l4NJ8aqm10CfKwykw5Jd3EJ
+	lG/GDfsT7Afd8mN7cCvjpvERhSlA+c9X0Ti6y5vVepOcgQyzYYsceYa9D181x0QFzHUKy/ZV0fz
+	rXn0ZioYPIZBoRaxCelaR7BQnLfJ1SvsC2VkjuoSy2xkCeyerIr1fAv9UN4bAJX5QQBQ7i98Fn+
+	YkTiBIrR876pUFS2iEzydDR6X8k9KHapUygFDWIuKu8iYN/zVs3aijkFA6zyCOTDrvHl3JUrC/V
+	XZ5I+Lgfa78LKQ48qD1S0vUiQN68odHVmtZ249NsscdtbwTASFhuvWZwbdmcQddy2Tszs8T1gbx
+	Ih475t+6iThlShFKwqw5MrE14o1hH7eGJK1Vcs3xcJZ/aZ3dsrJfjs7M7lqzyXyt/03C1QgSqvQ
+	b98pGX5ZDyhJ+gLotfIOYwEirax9wi35HrBNWfNcxHXkaQiGxmCQjWPEMu6wB4IACn9yqvQ5ZFk
+	Phwznw4AvWOGl6qrU3YAbCzQp30hi/GaeAdgkDWoskrwpkXeK2qDu1E2DfzMJkGBJKT8ArerYHR
+	OX/kpx6zc9QawDYAWwsvG09mbpwYKcO/
+X-Received: by 2002:a5d:5d01:0:b0:48e:720a:ccaf with SMTP id ffacd0b85a97d-4a63658254amr7372877f8f.5.1795019387957;
+        Wed, 18 Nov 2026 08:29:47 -0800 (PST)
 Received: from pop-os.local ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a654a8c23bsm4980927f8f.12.2026.11.18.08.30.03
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a654a8c23bsm4980927f8f.12.2026.11.18.08.29.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 08:30:03 -0800 (PST)
+        Wed, 18 Nov 2026 08:29:47 -0800 (PST)
 From: James Clark <james.clark@linaro.org>
-Date: Wed, 18 Nov 2026 16:29:37 +0000
-Subject: [PATCH 15/34] perf cs-etm: Use time from Perf samples
+Subject: [PATCH 00/34] perf cs-etm: JIT decoding support
+Date: Wed, 18 Nov 2026 16:29:22 +0000
+Message-Id: <20261118-james-coresight-jit-v1-0-dad4d90747f6@linaro.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,9 +93,12 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-james-coresight-jit-v1-15-dad4d90747f6@linaro.org>
-References: <20261118-james-coresight-jit-v1-0-dad4d90747f6@linaro.org>
-In-Reply-To: <20261118-james-coresight-jit-v1-0-dad4d90747f6@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAGPS/WoC/zWOQW7DIBBFr2Kx7lQDhjpYVZR7VFlgGGys2KSAo
+ 0pR7l6ctMsn/Xlv7ixTCpRZ39xZolvIIa4V+FvD7GTWkSC4ykyg+MCDkDCbhTLYmCiHcSowhwJ
+ Coee6RU2tYvXymsiHn6f16/zivA0z2bKr/haJvreaK68Zq9Zsnrm++dxrnKP6r2XYVh/TYkohB
+ 1dKUKZExkHNwE0CQtcpTWhJSKlPl7CaFN9jGo97bDCZ6sfLEkrfDJ33HAftHNmDM51qUVqJnqQ
+ ZPCeSXns0smXnx+MXuTt/sR4BAAA=
+X-Change-ID: 20260824-james-coresight-jit-250f19309e35
 To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
  Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
  Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
@@ -107,391 +110,130 @@ Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
  James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.15.2
 
-The time from the AUX record that's associated with a chunk of data can
-be used as a time for the generated samples when there is no virtual
-trace timestamp. This replaces 'latest_kernel_timestamp'.
+Restructure the Coresight decoder to decode trace in order with the Perf
+events. This improves decoding accuracy all workloads, but particularly
+with JIT code when instructions at the same addresses are re-written.
 
-Invert 'timeless_decoding' to 'has_timestamps' so that it's easier to
-use and initialize it and 'has_virtual_ts' taking --itrace=Z into
-account. That way the same codepaths can treat the trace as if it didn't
-have timestamps, even if they exist in the trace.
+The resulting decode loop structure is simplified to
+cs_etm__insert_heap() and cs_etm__pop_heap(), which work in the same way
+for all of the timeless/per-thread/per-cpu etc modes.
+
+For every Perf event, we pop from the heap while the packet's timestamps
+are before the current Perf event. When a packet is popped, the next
+packet is decoded and re-inserted.
+
+The same path works for timeless mode because we can just assign the
+timestamp of the AUX record to all trace from that buffer. This also
+improves timeless decoding accuracy because now we don't use the
+timestamp from the very last AUX record for all samples.
+
+In Coresight trace, timestamps come after their associated atoms and
+Perf uses a single decoder for both searching forwards for a timestamp
+and decoding. It does this by caching decoded packets into
+packet_buffer[] and replaying them once a timestamp is received.
+Unfortunately this does't work for strict ordering with Perf events
+because while searching for the timestamp the decoder will decode trace
+using previously seen mmap which is incorrect.
+
+To fix this, add a "packet only" decoder for each queue. This is used
+for searching for the next timestamp after a discontinuity and not for
+decoding trace. Once it's found, the backend re-orders that timestamp
+and the previous packet before delivering them to the frontend so that
+we can be at the correct Perf event before processing context packets or
+ranges. Excluding the tests, this patchset results in similar total
+lines of code but if we updated OpenCSD to return timestamps and
+discontinuities in the correct order, then it would be a significant
+reduction in code and complexity.
+
+This series depends on https://lore.kernel.org/linux-perf-users/20261105-james-cs-unformatted-per-thread-fix-v4-0-7759e0ce2449@linaro.org/
 
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- tools/perf/util/auxtrace.h                      |   2 +
- tools/perf/util/cs-etm-decoder/cs-etm-decoder.c |  15 +--
- tools/perf/util/cs-etm.c                        | 162 +++++++++++++-----------
- tools/perf/util/cs-etm.h                        |   2 +-
- 4 files changed, 98 insertions(+), 83 deletions(-)
+James Clark (34):
+      perf jit: Support JITDUMP_USE_ARCH_TIMESTAMP on arm64
+      perf jit: Add name of clock in error message
+      perf jit: Add address ranges to DWARF compilation units
+      perf libdw: Don't look up the module by ELF address
+      perf cs-etm: Use the exception level to tell kernel from user
+      perf cs-etm: Don't read past the end of the map
+      perf build-id: Cache the vDSO in build ID mmap mode
+      perf cs-etm: arm-spe: Use arch timestamp in HW tracers
+      perf cs-etm: arm-spe: Report error if default clock isn't used
+      perf cs-etm: Remove old pipe mode support
+      perf cs-etm: Track threads in timeless mode
+      perf cs-etm: Track sched out events
+      perf cs-etm: Handle PERF_RECORD_SWITCH events
+      perf cs-etm: Always enable Perf event timestamps
+      perf cs-etm: Use time from Perf samples
+      perf cs-etm: Don't buffer non-timestamped packets
+      perf cs-etm: Decode in order of Perf samples
+      perf cs-etm: Don't special case per-thread mode
+      perf cs-etm: Decode one packet at a time and don't estimate timestamps
+      perf cs-etm: Remove the decoded packet ring buffer
+      perf cs-etm: Fold packet state into the trace ID queue
+      perf cs-etm: Rename trace ID queues to trace ID contexts
+      perf cs-etm: Rename tidq variables to tidc
+      perf cs-etm: Share the thread ctxt between frontend and backend
+      perf cs-etm: Consume each OpenCSD packet immediately
+      perf cs-etm: Split base and packet decoder state
+      perf cs-etm: Add packet-only timestamp decoder ops
+      perf cs-etm: Create timestamp decoders
+      perf cs-etm: Find timestamps by searching ahead
+      perf cs-etm: Invalidate OpenCSD's cache on MMAPs
+      perf test cs-etm: Add a Java JIT source-line test
+      perf test cs-etm: Test trace is ordered with context switch records
+      perf test cs-etm: Test decoding of kernel modules
+      perf test cs-etm: Add an HHVM JIT call stack test
 
-diff --git a/tools/perf/util/auxtrace.h b/tools/perf/util/auxtrace.h
-index 980acb2dc687..c0f971b09b24 100644
---- a/tools/perf/util/auxtrace.h
-+++ b/tools/perf/util/auxtrace.h
-@@ -248,6 +248,7 @@ struct auxtrace {
-  * @buffer_nr: used to number each buffer
-  * @use_size: implementation actually only uses this number of bytes
-  * @use_data: implementation actually only uses data starting at this address
-+ * @time: PERF_SAMPLE_TIME associated with the trace
-  */
- struct auxtrace_buffer {
- 	struct list_head	list;
-@@ -266,6 +267,7 @@ struct auxtrace_buffer {
- 	u64			buffer_nr;
- 	size_t			use_size;
- 	void			*use_data;
-+	u64			time;
- };
- 
- /**
-diff --git a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
-index f133e11ccc7b..d260d89453ef 100644
---- a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
-+++ b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
-@@ -292,6 +292,10 @@ cs_etm_decoder__do_hard_timestamp(struct cs_etm_queue *etmq,
- 	u64 converted_timestamp;
- 	u64 estimated_first_ts;
- 
-+	/* Ignore trace timestamps when unavailable or disabled by --itrace=Z. */
-+	if (!cs_etm__has_timestamps(etmq))
-+		return OCSD_RESP_CONT;
-+
- 	/* First get the packet queue for this traceID */
- 	packet_queue = cs_etm__etmq_get_packet_queue(etmq, trace_chan_id);
- 	if (!packet_queue)
-@@ -326,10 +330,9 @@ cs_etm_decoder__do_hard_timestamp(struct cs_etm_queue *etmq,
- 		 * underflow.
- 		 */
- 		packet_queue->cs_timestamp = 0;
--		if (!cs_etm__etmq_is_timeless(etmq))
--			pr_warning_once("Zero Coresight timestamp found at Idx:%" OCSD_TRC_IDX_STR
--					". Decoding may be improved by prepending 'Z' to your current --itrace arguments.\n",
--					indx);
-+		pr_warning_once("Bad Coresight timestamp found at Idx:%" OCSD_TRC_IDX_STR
-+				". Decode in order of trace collection by prepending 'Z' to your current --itrace arguments.\n",
-+				indx);
- 
- 	} else if (packet_queue->instr_count / INSTR_PER_NS > converted_timestamp) {
- 		/*
-@@ -472,10 +475,6 @@ cs_etm_decoder__buffer_range(struct cs_etm_queue *etmq,
- 
- 	packet->last_instr_size = elem->last_instr_sz;
- 
--	/* per-thread scenario, no need to generate a timestamp */
--	if (cs_etm__etmq_is_timeless(etmq))
--		goto out;
--
- 	/*
- 	 * The packet queue is full and we haven't seen a timestamp (had we
- 	 * seen one the packet queue wouldn't be full).  Let the front end
-diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index 4252d25c991d..ca3878a3b74e 100644
---- a/tools/perf/util/cs-etm.c
-+++ b/tools/perf/util/cs-etm.c
-@@ -49,14 +49,8 @@ struct cs_etm_auxtrace {
- 	struct perf_session *session;
- 	struct perf_tsc_conversion tc;
- 
--	/*
--	 * Timeless has no timestamps in the trace so overlapping mmap lookups
--	 * are less accurate but produces smaller trace data. We use context IDs
--	 * in the trace instead of matching timestamps with fork records so
--	 * they're not really needed in the general case. Overlapping mmaps
--	 * happen in cases like between a fork and an exec.
--	 */
--	bool timeless_decoding;
-+	/* Trace timestamps are available and not disabled by --itrace=Z. */
-+	bool has_timestamps;
- 
- 	/*
- 	 * Per-thread ignores the trace channel ID and instead assumes that
-@@ -66,12 +60,11 @@ struct cs_etm_auxtrace {
- 	 */
- 	bool per_thread_decoding;
- 	bool snapshot_mode;
--	bool has_virtual_ts; /* Virtual/Kernel timestamps in the trace. */
-+	bool has_virtual_ts; /* Trace timestamps can be used as kernel time. */
- 	bool use_thread_stack;
- 	bool use_callchain;
- 
- 	int num_cpu;
--	u64 latest_kernel_timestamp;
- 	u32 auxtrace_type;
- 	u32 branches_filter;
- 	u64 branches_sample_type;
-@@ -588,7 +581,19 @@ void cs_etm__etmq_set_traceid_queue_timestamp(struct cs_etm_queue *etmq,
- 	etmq->pending_timestamp_chan_id = trace_chan_id;
- }
- 
--static u64 cs_etm__etmq_get_timestamp(struct cs_etm_queue *etmq,
-+/*
-+ * Timestamp used to order sample generation between queues.
-+ *
-+ * This can either be a virtual or non-virtual CoreSight timestamp value, or the
-+ * kernel time from the AUX record if there are no timestamps. The only
-+ * requirement is that it's the same timebase between queues so comparisons
-+ * work, the absolute value isn't important.
-+ *
-+ * This is not the same as the timestamp assigned to synthesized samples
-+ * (cs_etm__resolve_sample_time()) and may be zero before a timestamp is
-+ * received, at which point sample generation is still un-ordered.
-+ */
-+static u64 cs_etm__etmq_get_sort_timestamp(struct cs_etm_queue *etmq,
- 				      u8 *trace_chan_id)
- {
- 	struct cs_etm_packet_queue *packet_queue;
-@@ -607,6 +612,13 @@ static u64 cs_etm__etmq_get_timestamp(struct cs_etm_queue *etmq,
- 	/* Acknowledge pending status */
- 	etmq->pending_timestamp_chan_id = 0;
- 
-+	/*
-+	 * If there are no timestamps, use the TS from the AUX records to sort
-+	 * in order of trace collection.
-+	 */
-+	if (!etmq->etm->has_timestamps)
-+		return etmq->buffer->time;
-+
- 	/* See function cs_etm_decoder__do_{hard|soft}_timestamp() */
- 	return packet_queue->cs_timestamp;
- }
-@@ -961,7 +973,7 @@ static int cs_etm__flush_events(struct perf_session *session,
- 	if (!tool->ordered_events)
- 		return -EINVAL;
- 
--	if (etm->timeless_decoding) {
-+	if (!etm->has_timestamps) {
- 		/*
- 		 * Pass tid = -1 to process all queues. But likely they will have
- 		 * already been processed on PERF_RECORD_EXIT anyway.
-@@ -1355,7 +1367,7 @@ static int cs_etm__queue_first_cs_timestamp(struct cs_etm_auxtrace *etm,
- 		 * Function cs_etm_decoder__do_{hard|soft}_timestamp() does all
- 		 * the timestamp calculation for us.
- 		 */
--		cs_timestamp = cs_etm__etmq_get_timestamp(etmq, &trace_chan_id);
-+		cs_timestamp = cs_etm__etmq_get_sort_timestamp(etmq, &trace_chan_id);
- 
- 		/* We found a timestamp, no need to continue. */
- 		if (cs_timestamp)
-@@ -1572,9 +1584,9 @@ int cs_etm__etmq_update_decode_context(struct cs_etm_queue *etmq,
- 	return 0;
- }
- 
--bool cs_etm__etmq_is_timeless(struct cs_etm_queue *etmq)
-+bool cs_etm__has_timestamps(struct cs_etm_queue *etmq)
- {
--	return !!etmq->etm->timeless_decoding;
-+	return etmq->etm->has_timestamps;
- }
- 
- static void cs_etm__copy_insn(struct cs_etm_queue *etmq,
-@@ -1625,10 +1637,14 @@ static inline u64 cs_etm__resolve_sample_time(struct cs_etm_queue *etmq,
- 	struct cs_etm_auxtrace *etm = etmq->etm;
- 	struct cs_etm_packet_queue *packet_queue = &tidq->packet_queue;
- 
--	if (!etm->timeless_decoding && etm->has_virtual_ts)
-+	if (etm->has_virtual_ts)
- 		return packet_queue->cs_timestamp;
--	else
--		return etm->latest_kernel_timestamp;
-+
-+	/*
-+	 * Timestamps were disabled or no virtual TS. All samples are assigned
-+	 * the kernel time from when the trace block was emitted.
-+	 */
-+	return etmq->buffer->time;
- }
- 
- static bool cs_etm__packet_has_branch(struct cs_etm_packet *packet)
-@@ -1897,10 +1913,7 @@ static int cs_etm__synth_events(struct cs_etm_auxtrace *etm,
- 	attr.sample_type = evsel->core.attr.sample_type & PERF_SAMPLE_MASK;
- 	attr.sample_type |= PERF_SAMPLE_IP | PERF_SAMPLE_TID |
- 			    PERF_SAMPLE_PERIOD;
--	if (etm->timeless_decoding)
--		attr.sample_type &= ~(u64)PERF_SAMPLE_TIME;
--	else
--		attr.sample_type |= PERF_SAMPLE_TIME;
-+	attr.sample_type |= PERF_SAMPLE_TIME;
- 
- 	attr.exclude_user = evsel->core.attr.exclude_user;
- 	attr.exclude_kernel = evsel->core.attr.exclude_kernel;
-@@ -2935,7 +2948,7 @@ static int cs_etm__process_timestamped_queues(struct cs_etm_auxtrace *etm)
- 		if (ret)
- 			goto out;
- 
--		cs_timestamp = cs_etm__etmq_get_timestamp(etmq, &trace_chan_id);
-+		cs_timestamp = cs_etm__etmq_get_sort_timestamp(etmq, &trace_chan_id);
- 
- 		if (!cs_timestamp) {
- 			/*
-@@ -3062,7 +3075,7 @@ static int cs_etm__process_event(struct perf_session *session,
- 		 * for flush so that events from different threads are interleaved
- 		 * properly.
- 		 */
--		if (etm->per_thread_decoding && etm->timeless_decoding)
-+		if (etm->per_thread_decoding && !etm->has_timestamps)
- 			return cs_etm__process_timeless_queues(etm,
- 							       event->fork.tid);
- 		break;
-@@ -3076,15 +3089,6 @@ static int cs_etm__process_event(struct perf_session *session,
- 	case PERF_RECORD_SWITCH:
- 		return cs_etm__process_switch(etm, sample);
- 
--	case PERF_RECORD_AUX:
--		/*
--		 * Record the latest kernel timestamp available in the header
--		 * for samples so that synthesised samples occur from this point
--		 * onwards.
--		 */
--		if (sample->time && (sample->time != (u64)-1))
--			etm->latest_kernel_timestamp = sample->time;
--		break;
- 
- 	default:
- 		break;
-@@ -3122,23 +3126,6 @@ static int cs_etm__process_auxtrace_event(struct perf_session *session,
- 	return 0;
- }
- 
--static void cs_etm__setup_timeless_decoding(struct cs_etm_auxtrace *etm)
--{
--	/* Take first ETM as all options will be the same for all ETMs */
--	u64 *metadata = etm->metadata[0];
--
--	/* Override timeless mode with user input from --itrace=Z */
--	if (etm->synth_opts.timeless_decoding) {
--		etm->timeless_decoding = true;
--		return;
--	}
--
--	if (metadata[CS_ETM_MAGIC] == __perf_cs_etmv3_magic)
--		etm->timeless_decoding = !(metadata[CS_ETM_ETMCR] & ETMCR_TIMESTAMP_EN);
--	else
--		etm->timeless_decoding = !(metadata[CS_ETMV4_TRCCONFIGR] & TRCCONFIGR_TS);
--}
--
- /*
-  * Read a single cpu parameter block from the auxtrace_info priv block.
-  *
-@@ -3287,6 +3274,7 @@ static int cs_etm__queue_aux_fragment(struct perf_session *session, off_t file_o
- 		/* Old per-thread files have no CPU (before v6.4) */
- 		int queue_idx = sample->cpu == (u32)-1 ? 0 : sample->cpu;
- 		struct cs_etm_queue *etmq = cs_etm__get_queue(etm, queue_idx);
-+		struct auxtrace_buffer *buffer;
- 
- 		if (!etmq)
- 			return -EINVAL;
-@@ -3306,10 +3294,12 @@ static int cs_etm__queue_aux_fragment(struct perf_session *session, off_t file_o
- 		pr_debug3("CS ETM: Queue buffer size: %#"PRI_lx64" offset: %#"PRI_lx64
- 			  " tid: %d cpu: %d\n", frag_size, frag_start, sample->tid, sample->cpu);
- 		err = auxtrace_queues__add_event(&etm->queues, session, &auxtrace_fragment,
--						 file_offset, NULL);
-+						 file_offset, &buffer);
- 		if (err)
- 			return err;
- 
-+		buffer->time = sample->time;
-+
- 		format = (aux_event->flags & PERF_AUX_FLAG_CORESIGHT_FORMAT_RAW) ?
- 				UNFORMATTED : FORMATTED;
- 		if (etmq->format != UNSET && format != etmq->format) {
-@@ -3568,6 +3558,51 @@ static int cs_etm__create_decoders(struct cs_etm_auxtrace *etm)
- 	return 0;
- }
- 
-+static void cs_etm__timestamp_opts_init(struct cs_etm_auxtrace *etm)
-+{
-+	/*
-+	 * Take first ETM for has_timestamps because record options are the same
-+	 * for all ETMs.
-+	 */
-+	u64 *metadata = etm->metadata[0];
-+
-+	/* Leave both timestamp flags clear with --trace=Z */
-+	if (etm->synth_opts.timeless_decoding)
-+		return;
-+
-+	if (metadata[CS_ETM_MAGIC] == __perf_cs_etmv3_magic)
-+		etm->has_timestamps = metadata[CS_ETM_ETMCR] & ETMCR_TIMESTAMP_EN;
-+	else
-+		etm->has_timestamps = metadata[CS_ETMV4_TRCCONFIGR] & TRCCONFIGR_TS;
-+
-+	if (!etm->has_timestamps)
-+		return;
-+
-+	if (etm->synth_opts.use_timestamp) {
-+		/*
-+		 * Prior to Armv8.4, Arm CPUs don't support FEAT_TRF feature,
-+		 * therefore the decoder cannot know if the timestamp trace is
-+		 * same with the kernel time.
-+		 *
-+		 * If a user has knowledge for the working platform they can
-+		 * specify itrace option 'T' to force the decoder to use the
-+		 * traced timestamp as the kernel time.
-+		 */
-+		etm->has_virtual_ts = true;
-+	} else {
-+		/* Use virtual timestamps if all ETMs report ts_source = 1 */
-+		etm->has_virtual_ts = cs_etm__has_virtual_ts(etm->metadata, etm->num_cpu);
-+		if (!etm->has_virtual_ts) {
-+			ui__warning(
-+				"Virtual timestamps are not enabled, or not supported by the traced system.\n"
-+				"The time field of the samples will not be set accurately.\n"
-+				"For Arm CPUs prior to Armv8.4 or without support FEAT_TRF,\n"
-+				"you can specify the itrace option 'T' for timestamp decoding\n"
-+				"if the Coresight timestamp on the platform is same with the kernel time.\n\n");
-+		}
-+	}
-+}
-+
- int cs_etm__process_auxtrace_info_full(union perf_event *event,
- 				       struct perf_session *session)
- {
-@@ -3733,29 +3768,8 @@ int cs_etm__process_auxtrace_info_full(union perf_event *event,
- 	etm->metadata = metadata;
- 	etm->auxtrace_type = auxtrace_info->type;
- 
--	if (etm->synth_opts.use_timestamp)
--		/*
--		 * Prior to Armv8.4, Arm CPUs don't support FEAT_TRF feature,
--		 * therefore the decoder cannot know if the timestamp trace is
--		 * same with the kernel time.
--		 *
--		 * If a user has knowledge for the working platform and can
--		 * specify itrace option 'T' to tell decoder to forcely use the
--		 * traced timestamp as the kernel time.
--		 */
--		etm->has_virtual_ts = true;
--	else
--		/* Use virtual timestamps if all ETMs report ts_source = 1 */
--		etm->has_virtual_ts = cs_etm__has_virtual_ts(metadata, num_cpu);
--
--	if (!etm->has_virtual_ts)
--		ui__warning("Virtual timestamps are not enabled, or not supported by the traced system.\n"
--			    "The time field of the samples will not be set accurately.\n"
--			    "For Arm CPUs prior to Armv8.4 or without support FEAT_TRF,\n"
--			    "you can specify the itrace option 'T' for timestamp decoding\n"
--			    "if the Coresight timestamp on the platform is same with the kernel time.\n\n");
--
--	cs_etm__setup_timeless_decoding(etm);
-+	/* Set etm->has_timestamps and etm->has_virtual_ts */
-+	cs_etm__timestamp_opts_init(etm);
- 
- 	etm->tc.time_shift = tc->time_shift;
- 	etm->tc.time_mult = tc->time_mult;
-diff --git a/tools/perf/util/cs-etm.h b/tools/perf/util/cs-etm.h
-index bf0e0f5a9711..9e842f1be9fc 100644
---- a/tools/perf/util/cs-etm.h
-+++ b/tools/perf/util/cs-etm.h
-@@ -269,7 +269,7 @@ enum cs_etm_pid_fmt cs_etm__get_pid_fmt(struct cs_etm_queue *etmq);
- int cs_etm__etmq_update_decode_context(struct cs_etm_queue *etmq,
- 				       u8 trace_chan_id, ocsd_ex_level el,
- 				       pid_t tid);
--bool cs_etm__etmq_is_timeless(struct cs_etm_queue *etmq);
-+bool cs_etm__has_timestamps(struct cs_etm_queue *etmq);
- void cs_etm__etmq_set_traceid_queue_timestamp(struct cs_etm_queue *etmq,
- 					      u8 trace_chan_id);
- struct cs_etm_packet_queue
+ tools/perf/Makefile.perf                           |    4 +-
+ tools/perf/arch/arm/util/cs-etm.c                  |   21 +-
+ tools/perf/arch/arm64/util/arm-spe.c               |   11 +
+ tools/perf/jvmti/jvmti_agent.c                     |    5 +
+ tools/perf/tests/genelf.c                          |   70 +-
+ .../tests/shell/coresight/context_switch_thread.sh |   20 +-
+ tools/perf/tests/shell/coresight/hhvm-jit.sh       |   89 ++
+ tools/perf/tests/shell/coresight/java-jit.sh       |   65 +
+ tools/perf/tests/shell/coresight/kernel_module.sh  |   54 +
+ tools/perf/tests/shell/coresight/lib/PerfJit.java  |   82 ++
+ tools/perf/tests/shell/coresight/per-thread.sh     |   45 +-
+ tools/perf/tests/workloads/jitdump.c               |    7 +-
+ tools/perf/util/auxtrace.h                         |    2 +
+ tools/perf/util/build-id.c                         |   12 +
+ tools/perf/util/cs-etm-decoder/cs-etm-decoder.c    |  790 ++++++----
+ tools/perf/util/cs-etm-decoder/cs-etm-decoder.h    |   28 +-
+ tools/perf/util/cs-etm.c                           | 1515 ++++++++------------
+ tools/perf/util/cs-etm.h                           |   56 +-
+ tools/perf/util/genelf.c                           |    2 +-
+ tools/perf/util/genelf.h                           |    3 +-
+ tools/perf/util/genelf_debug.c                     |   22 +-
+ tools/perf/util/jitdump.c                          |    2 +-
+ tools/perf/util/libdw.c                            |   16 +-
+ 23 files changed, 1643 insertions(+), 1278 deletions(-)
+---
+base-commit: b7ff10b9ddec8da75304c40fe4abf1ee4f9f0a43
+change-id: 20260824-james-coresight-jit-250f19309e35
+prerequisite-message-id: <20261105-james-cs-unformatted-per-thread-fix-v4-0-7759e0ce2449@linaro.org>
+prerequisite-patch-id: 9c49b9ffb75309e9187eb2e3ef84026118fcfdb5
+prerequisite-patch-id: 4ce0ba0ab1302c9043f0d0734d9cf6a35298bc47
+prerequisite-patch-id: 5e69770fbaf94296da5c474ce09539a1993bc61e
+prerequisite-patch-id: 41d797af2aba7e97ff4435ae2659629e026d36ec
+prerequisite-patch-id: d5f67b3b704f4f4b3d9e39c4299d13a086b29363
+prerequisite-patch-id: a99348cc2065af31840f652286f840f23395892f
+prerequisite-patch-id: aa90408e69dedf9e68d7158f2499bd9fbc7b0b40
+prerequisite-patch-id: cd31a650f8dd3e7a9795fa641eee2415b126ad29
+prerequisite-patch-id: 922a7fe2937a575beb8d0e7777fd869a11023eb2
+prerequisite-patch-id: b0436630e22fd92803e277cd08d782c50f135be6
+prerequisite-patch-id: e136ff402ddf5121c63c1393b7fc00a826f60a69
+prerequisite-patch-id: 8a2674fa45e40848742e8b8472003e2b9706211d
+prerequisite-patch-id: df905386a100ac4b8b047328de08da86b3adf241
+prerequisite-patch-id: 44ee88eeafd54c0148ed2332dc5e33f1ba6dfce4
+prerequisite-patch-id: b9622164f99682ca6b813b9d38ced3e95170653e
+prerequisite-patch-id: 2f22df1738caf5af3a631851d8a57fc3bfea7742
+prerequisite-patch-id: afe679ea285ddc6cd281f697ce504b7a18888999
+prerequisite-patch-id: f507254858995051e8e1b96fb9fd95506228c5e6
+prerequisite-patch-id: 6fe822580ea330633f8a23260aa7b2c7de834ab3
 
--- 
-2.43.0
+Best regards,
+--  
+James Clark <james.clark@linaro.org>
 
