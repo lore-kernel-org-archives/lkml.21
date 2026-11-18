@@ -1,79 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795013613;
-	b=139L2oZyvGxJGYPo07ptwrNkP1Nfg1PfJE9n/B9+BicliCgzv3Q61YDmYopjFChYZinX
-	 kXLjs469OCMWxjFsuenH+PX++B9lhJ6ldUkKu53r8d6SaEVY14tUYCGpv1X5GYF/yusQg
-	 Lla8ygNjVCjPbETeafLhfLy5PrPmzIDCXOizc6mtsEEGHMCNprt86GEp73+ST3trAXeY+
-	 qjPNHq8rgvsOhLXT2sG0PNfsqtkVjdzxdH6glNGNPymPfPnmVP32uee5deq8yXPMWRNHl
-	 2atfEuzp3lnqHYWvKyFWxUTPh8Z9QWbEFEzJ+r+z6mHPaLyXNIRmZWfVPVS8S0z+TqQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795013613;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=JhqkB8+ikY0EQHy0mFR/yHf+TqnBEpjGFQ+Trl/H16U=;
-	b=EVreaDoeiYClLn6KT4Ct8qS2Sssqj18qC1pQOadvSabRvddATGD3KJgE1jePLAcRQpYj
-	 miSP0bUYbV/wbZgCFfCR1f5FbPntIQIWH8kqDyakf5XMKHFICTWGwLjtyGA8vOG4bYzy3
-	 XvpoVjMmi8vnJPQp/M0PAgJIPhv9xxU8B3G4zSq2guIvIjy70gS6flxJtz8tlfMvJC7WY
-	 NpSA449MPBEcHOToPXLYjEbVZJz7K2mKzXlL6so/zt0ThalV/dA2yqpi1+ShLz9iDgf/F
-	 B9FsRzCLXoKk1exXfpoRlYpqFlJpJEGpWNxoV4+n+C6FciP8MhXs09KW0cqdtVhX9Rg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D2572sYO;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795013616;
+	b=xnAs7f3iQaV5hi+7lpgEnLFTzuU9fY3TuWlq1RV55H5GPB/dvXHqwVfcjMwEooyk8TbE
+	 F6zbNAS0ZY+8/2/s17NmTmdowZnrJiOIRBG/pWX6st2G9P30IiLBuGOtgBDSxtA5Y/t9j
+	 jfVlJWSmA+IbMCjgM64K9mounUgKuaJnxoqIwG+3g3jCbqTYY5EEeIeMwbjbAc+2ISfCW
+	 0sikmSZpdZOMNCXMjVdzu93rQyvzK0DSbF5WVWRCZfO436C1N/OMIFQ/PiRctXzdo9Zog
+	 vr2Q6i8iNaqMuOaL/5YSnU3HRz3Eja7Mkb+Lgoy9SNguK0f/FNoX5ZBhIToFWDmMSgA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795013616;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition;
+	bh=Vq6Uc4LoemS8TszUP6FSImYRhqqMJpFIYXQIww4FHYQ=;
+	b=K5RoqUgGFXxyTwXZs2Rd3T5gcBepl68yc9sJEOrPiz+iH9teIfqU/z75ZAjeQSiS55RG
+	 gYXFlgNGPbIPwEqHCng5Ky/Y6WlWwXKB1QXhqtITyfh7JMvxeMBJb2WQodoATc/a/OYo0
+	 hE8S9ZRfWgQ9o6EDoxt7l7qHK3UWWZlFA6mZYRaulqBUB6gdugqXkyuIbfpqCahPnmw4n
+	 0NBkVVEYEwTJszPLIRqiDzkgQ3wN0v8A+1k82rp/abmhmV7lYG2nk4KCBdnV8sJBxgLCk
+	 wW+KVoakW5TN7SLWmzMgA+6TRr9R+1VmngyLrktINENbeFmnM/J+DpYqnUZJUrOZ7Xw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="TSKty5/x";
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2F39606A330
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:53:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B5DC606A33D;
+	Wed, 18 Nov 2026 14:53:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D2572sYO
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795013612;
-	b=oGKtrIkr2Wv9BIdul9AeXXL/7AUJRYdXSPS3zAV1K9x8pOQptpFXrGZcmojnfDDQkSP+
-	 fg52RYyL6E0ulGHomVvugDkwn4yxd3Mer0+f/nW3HyI8tWirFJ0TTXgwT0PTDQ0EtfUJK
-	 SX/oW4fgkbR2QXxoBMcDgwucKP5BiAH0zB5XOU5Ika1qDB0zOsqel7BTNATbMqcQpmYV2
-	 /8FHO3lewJn4yu7/1/kxuN/g7Oh1+j8byTQ+L0ZPu1/CVaHZi6r0zNYNkG8WNvO4J1cam
-	 ziA1DEkn07QdNm3bMU6X+UcmBsJrbkTnjJT47zB2Gt9RvCv5fvDZBf2TcFeKzX3GYog==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795013612;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=JhqkB8+ikY0EQHy0mFR/yHf+TqnBEpjGFQ+Trl/H16U=;
-	b=Sef5YFaPiNY9XIJ3KtqBbqW7W7u2RdSbkkrhfxw3xspkq+O793RyUove+h9c4rXp3WL5
-	 snC+uAPOjkjEFjWVhIsW86BZYyYKYSSPVqiEfem5qj6omIc3A9Gpgt5v3BNafvvMdfR+x
-	 BSdbRDFUUmJZHwbv/XerhMKDtKGOvGDL9F7CO/zSUxLVrEGKzJEZeUjQ4VFueVIDEJQOL
-	 +RWyf8DykIs7Z1fvDoNHxmioAoCJwfw/VwbOa+1+yc/kcfmk7/qpfZEKRHw2t3hRtitIc
-	 K+26OaAzV/AjIq+RqRUTHe9LoGGIMQhmT/AWTBeegzu+aUMHSN5YGPKSH6VHygYPvNg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 678C31F000C4;
-	Wed, 18 Nov 2026 14:53:32 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TSKty5/x
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CF1D1F000C4;
+	Wed, 18 Nov 2026 14:53:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795013612;
-	bh=JhqkB8+ikY0EQHy0mFR/yHf+TqnBEpjGFQ+Trl/H16U=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=D2572sYOZOK3dO6DNHGR87m9WtzeiRfoNpMb4s+g3TzpORhBgYihQEU3Y5dOy6XI5
-	 LQDe9PoOEQqeLmQDl8wQ9h/pCtRM4csAGtc9Jc7P5dJsdbO7YYzdP7x4E00s+PP8KV
-	 IgqPQubm44A1KWorJMmEy/c/OQEdDAHLdMUUhg6NzEZFyVHZCHIdEn0k6hzow00pUl
-	 o7rqgnsMAU4bHHTlDQznz5QrD/pWopIb8BlGilPfdiJ/SHhuo2Cj8qYol0xmCAAcEx
-	 caT9+mMjhvSRJWij8MjhC22rjP0Mf0SxSYG1pMCp6JRGk4pIm97DmokvtysYKI/t4F
-	 G8EKxg3LmJu2Q==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id ECFD04ADF5;
-	Wed, 18 Nov 2026 14:53:31 +0000 (UTC)
-From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
-Date: Wed, 18 Nov 2026 14:53:31 +0000
-Subject: [PATCH] xen/pvcalls: return -EINTR from recvmsg when the wait is
- interrupted
+	s=k20260515; t=1795013616;
+	bh=Vq6Uc4LoemS8TszUP6FSImYRhqqMJpFIYXQIww4FHYQ=;
+	h=Date:From:To:Cc:Subject;
+	b=TSKty5/xPEdFYYn23XD33khOaGLNsuxdO5s689SWSKMnEexyMc0RMCARtWFKOz3I4
+	 kO3VbCUKI/m5gp8eXTkn18Q9MkoV3L8aXVLawK/DMfuj+SkDOGdyqsZDKwcSZrcmQ7
+	 3tNjB4JD7wV6zO9O5kCPmxkFUCDjR5hbRdoSBDkjGhs7+wy6B2Ri6RAFtFS6h/XcOB
+	 pANtf+prZftG3l4FZ8enauKf1jAk+yNGK/rGpysocTse6v+TpMyF9+eD3EsG84EqeV
+	 UgOgUyaPK3oEuZVuidm+rH0v0q2cG54hjPDDewdmXB/LG0Hl3TCu2Xk51Wd9LDmoaD
+	 L7OzoUW9/dwmQ==
+Date: Wed, 18 Nov 2026 14:53:32 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Dave Airlie <airlied@redhat.com>, DRI <dri-devel@lists.freedesktop.org>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	Intel Graphics <intel-gfx@lists.freedesktop.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Linux Next Mailing List <linux-next@vger.kernel.org>,
+	Simona Vetter <simona.vetter@ffwll.ch>,
+	Tomeu Vizoso <tomeu@tomeuvizoso.net>,
+	Triet Hoang <triet.hoang.dev@gmail.com>
+Subject: linux-next: manual merge of the drm tree with the drm-misc-fixes tree
+Message-ID: <av27642L7XkY-L2E@sirena.org.uk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,95 +60,277 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-xen-pvcalls-v1-1-5e9d662900a0@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAOq7/WoC/yXMQQqDMBBG4avIrBvIBBHxKtKFib86ElLJtCKId
- 29ql9/ivZMUWaDUVSdl7KLySgX8qCgsQ5phZCwmZ13DzK05kMy2hyFGNfCTr4Mdwd5RKbaMSY7
- 71j//1o9fEd6/BV3XF046lM9vAAAA
-X-Change-ID: 20261118-xen-pvcalls-ebfb4c0de1b2
-To: sstabellini@kernel.org, jgross@suse.com
-Cc: oleksandr_tyshchenko@epam.com, xen-devel@lists.xenproject.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795013611; l=2573;
- i=shyckless@gmail.com; s=default; h=from:subject:message-id;
- bh=JS0N2by4izL7XI6U/P5YKixzFBa9rEd0luLKdyK1x98=;
- b=8hmEpcRcMvT3FgZ8jhjQzuy6IWqP2SSP25b2VY+7+Za5wAoI5L6TaM8tQaT4ccyBoc61ubOsj
- qWwMBB2oqy8CsaiwHbH+gXaG7fcVtJyGssZTqMFDNLJySiPErW/J6DP
-X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
- pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
-X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
- auth_id=1498
-X-Original-From: Suyuan Wang <shyckless@gmail.com>
-Reply-To: shyckless@gmail.com
-
-From: Suyuan Wang <stevewong@hust.edu.cn>
-
-pvcalls_front_recvmsg() waits for data in a loop and ignores what
-wait_event_interruptible() returns:
-
-    while (!(flags & MSG_DONTWAIT) && !pvcalls_front_read_todo(map)) {
-            wait_event_interruptible(map->active.inflight_conn_req,
-                                     pvcalls_front_read_todo(map));
-    }
-
-Once a signal is pending, wait_event_interruptible() returns
--ERESTARTSYS right away without sleeping, and the loop calls it again.
-The caller then spins with map->active.in_mutex held until data arrives
-or the backend reports an error. The signal can't be handled while it
-spins, so the task can't be killed either, and other readers of the
-socket block on in_mutex.
-
-Return -EINTR when the wait is interrupted, as pvcalls_front_accept()
-already does for its interruptible waits. Jump to the end of the
-function so that in_mutex is released and pvcalls_exit_sock() is
-called.
-
-Found with a static analysis tool and checked by hand.
-
-Fixes: ae0d04052e07 ("xen/pvcalls: implement recvmsg")
-Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
----
-There are no in-tree callers of pvcalls_front_recvmsg(), so this only
-matters to code built on the exported frontend API. That's why I left
-out Cc: stable.
-
-Compile tested only (x86_64 with CONFIG_XEN_PVCALLS_FRONTEND=y, W=1 and
-sparse show no new warnings). I haven't run it in a Xen guest.
----
- drivers/xen/pvcalls-front.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/xen/pvcalls-front.c b/drivers/xen/pvcalls-front.c
-index 3e7aa807c317..5d6c8ba66849 100644
---- a/drivers/xen/pvcalls-front.c
-+++ b/drivers/xen/pvcalls-front.c
-@@ -693,8 +693,11 @@ int pvcalls_front_recvmsg(struct socket *sock, struct msghdr *msg, size_t len,
- 		len = XEN_FLEX_RING_SIZE(PVCALLS_RING_ORDER);
- 
- 	while (!(flags & MSG_DONTWAIT) && !pvcalls_front_read_todo(map)) {
--		wait_event_interruptible(map->active.inflight_conn_req,
--					 pvcalls_front_read_todo(map));
-+		if (wait_event_interruptible(map->active.inflight_conn_req,
-+					     pvcalls_front_read_todo(map))) {
-+			ret = -EINTR;
-+			goto out;
-+		}
- 	}
- 	ret = __read_ring(map->active.ring, &map->active.data,
- 			  &msg->msg_iter, len, flags);
-@@ -706,6 +709,7 @@ int pvcalls_front_recvmsg(struct socket *sock, struct msghdr *msg, size_t len,
- 	if (ret == -ENOTCONN)
- 		ret = 0;
- 
-+out:
- 	mutex_unlock(&map->active.in_mutex);
- 	pvcalls_exit_sock(sock);
- 	return ret;
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="KLNgp1zSBCEYXc2u"
+Content-Disposition: inline
 
 
+--KLNgp1zSBCEYXc2u
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+Hi all,
 
+Today's linux-next merge of the drm tree got a conflict in:
+
+  drivers/accel/rocket/rocket_job.c
+
+between commits:
+
+  9bca2b5f1a4fa ("accel/rocket: Keep scheduler allocation in rocket_file_pr=
+iv")
+  d341ef030f3ce ("accel/rocket: Check allocations before use")
+
+=66rom the drm-misc-fixes tree and commits:
+
+  be22e979c18f5 ("accel/rocket: Check allocations before use")
+  91c7da1f42cad ("drm/rocket: Keep scheduler allocation in rocket_file_priv=
+")
+
+=66rom the drm tree.
+
+I fixed it up (see below) and can carry the fix as necessary. This
+is now fixed as far as linux-next is concerned, but any non trivial
+conflicts should be mentioned to your upstream maintainer when your tree
+is submitted for merging.  You may also want to consider cooperating
+with the maintainer of the conflicting tree to minimise any particularly
+complex conflicts.
+
+diff --combined drivers/accel/rocket/rocket_job.c
+index 7b798a90bc492,b2a00992c8894..0000000000000
+--- a/drivers/accel/rocket/rocket_job.c
++++ b/drivers/accel/rocket/rocket_job.c
+@@@ -201,13 -201,12 +201,13 @@@ static int rocket_acquire_object_fences
+ =20
+  static void rocket_attach_object_fences(struct drm_gem_object **bos,
+  					int bo_count,
+ -					struct dma_fence *fence)
+ +					struct dma_fence *fence,
+ +					enum dma_resv_usage usage)
+  {
+  	int i;
+ =20
+  	for (i =3D 0; i < bo_count; i++)
+ -		dma_resv_add_fence(bos[i]->resv, fence, DMA_RESV_USAGE_WRITE);
+ +		dma_resv_add_fence(bos[i]->resv, fence, usage);
+  }
+ =20
+  static int rocket_job_push(struct rocket_job *job)
+@@@ -215,7 -214,7 +215,7 @@@
+  	struct rocket_device *rdev =3D job->rdev;
+  	struct drm_gem_object **bos;
+  	struct ww_acquire_ctx acquire_ctx;
+- 	u32 bo_count;
++ 	int bo_count;
+  	int ret =3D 0;
+ =20
+  	if (check_add_overflow(job->in_bo_count, job->out_bo_count, &bo_count))
+@@@ -231,28 -230,27 +231,30 @@@
+  	if (ret)
+  		goto err;
+ =20
++ 	ret =3D rocket_acquire_object_fences(job->in_bos, job->in_bo_count,
++ 					   &job->base, false);
++ 	if (ret)
++ 		goto err_unlock;
++=20
++ 	ret =3D rocket_acquire_object_fences(job->out_bos, job->out_bo_count,
++ 					   &job->base, true);
++ 	if (ret)
++ 		goto err_unlock;
++=20
+  	scoped_guard(mutex, &rdev->sched_lock) {
+  		drm_sched_job_arm(&job->base);
+ =20
+  		job->inference_done_fence =3D dma_fence_get(&job->base.s_fence->finishe=
+d);
+ =20
+- 		ret =3D rocket_acquire_object_fences(job->in_bos, job->in_bo_count, &jo=
+b->base, false);
+- 		if (ret)
+- 			goto err_unlock;
+-=20
+- 		ret =3D rocket_acquire_object_fences(job->out_bos, job->out_bo_count, &=
+job->base, true);
+- 		if (ret)
+- 			goto err_unlock;
+-=20
+  		kref_get(&job->refcount); /* put by scheduler job completion */
+ =20
+  		drm_sched_entity_push_job(&job->base);
+  	}
+ =20
+ -	rocket_attach_object_fences(job->out_bos, job->out_bo_count, job->infere=
+nce_done_fence);
+ +	rocket_attach_object_fences(job->in_bos, job->in_bo_count,
+ +				    job->inference_done_fence, DMA_RESV_USAGE_READ);
+ +	rocket_attach_object_fences(job->out_bos, job->out_bo_count,
+ +				    job->inference_done_fence, DMA_RESV_USAGE_WRITE);
+ =20
+  err_unlock:
+  	drm_gem_unlock_reservations(bos, bo_count, &acquire_ctx);
+@@@ -268,7 -266,7 +270,7 @@@ static void rocket_job_cleanup(struct k
+  						refcount);
+  	unsigned int i;
+ =20
+ -	rocket_iommu_domain_put(job->domain);
+ +	rocket_vm_put(job->vm);
+ =20
+  	dma_fence_put(job->done_fence);
+  	dma_fence_put(job->inference_done_fence);
+@@@ -349,7 -347,7 +351,7 @@@ static struct dma_fence *rocket_job_run
+  	if (ret < 0)
+  		goto err_put_fences;
+ =20
+ -	ret =3D iommu_attach_group(job->domain->domain, core->iommu_group);
+ +	ret =3D iommu_attach_group(job->vm->domain, core->iommu_group);
+  	if (ret < 0)
+  		goto err_put_pm;
+ =20
+@@@ -373,56 -371,39 +375,56 @@@ static void rocket_job_handle_irq(struc
+  {
+  	pm_runtime_mark_last_busy(core->dev);
+ =20
+ -	rocket_pc_writel(core, OPERATION_ENABLE, 0x0);
+ -	rocket_pc_writel(core, INTERRUPT_CLEAR, 0x1ffff);
+ +	scoped_guard(mutex, &core->job_lock) {
+ +		/*
+ +		 * Stopping the block belongs under the lock. hw_submit() writes
+ +		 * OPERATION_ENABLE too, and outside the lock this zero can land
+ +		 * after that one and stop a task that has only just started.
+ +		 */
+ +		rocket_pc_writel(core, OPERATION_ENABLE, 0x0);
+ +		rocket_pc_writel(core, INTERRUPT_CLEAR, 0x1ffff);
+ =20
+ -	scoped_guard(mutex, &core->job_lock)
+  		if (core->in_flight_job) {
+  			if (core->in_flight_job->next_task_idx < core->in_flight_job->task_cou=
+nt) {
+  				rocket_job_hw_submit(core, core->in_flight_job);
+  				return;
+  			}
+ =20
+ -			iommu_detach_group(NULL, iommu_group_get(core->dev));
+ +			iommu_detach_group(NULL, core->iommu_group);
+  			dma_fence_signal(core->in_flight_job->done_fence);
+  			pm_runtime_put_autosuspend(core->dev);
+  			core->in_flight_job =3D NULL;
+  		}
+ +	}
+  }
+ =20
+  static void
+  rocket_reset(struct rocket_core *core, struct drm_sched_job *bad)
+  {
+ +	bool put_job_ref;
+ +
+  	if (!atomic_read(&core->reset.pending))
+  		return;
+ =20
+  	drm_sched_stop(&core->sched, bad);
+ =20
+ +	scoped_guard(mutex, &core->job_lock) {
+ +		if (pm_runtime_get_if_active(core->dev) > 0) {
+ +			rocket_pc_writel(core, INTERRUPT_MASK, 0x0);
+ +			rocket_pc_writel(core, INTERRUPT_CLEAR, 0x1ffff);
+ +			pm_runtime_put_autosuspend(core->dev);
+ +		}
+ +	}
+ +
+ +	synchronize_irq(core->irq);
+ +
+  	/*
+  	 * Remaining interrupts have been handled, but we might still have
+  	 * stuck jobs. Let's make sure the PM counters stay balanced by
+ -	 * manually calling pm_runtime_put_noidle().
+ +	 * dropping the job's reference once the core has been reset.
+  	 */
+  	scoped_guard(mutex, &core->job_lock) {
+ -		if (core->in_flight_job)
+ -			pm_runtime_put_noidle(core->dev);
+ +		put_job_ref =3D core->in_flight_job;
+ =20
+  		iommu_detach_group(NULL, core->iommu_group);
+ =20
+@@@ -432,9 -413,6 +434,9 @@@
+  	/* Proceed with reset now. */
+  	rocket_core_reset(core);
+ =20
+ +	if (put_job_ref)
+ +		pm_runtime_put_autosuspend(core->dev);
+ +
+  	/* NPU has been reset, we can clear the reset pending bit. */
+  	atomic_set(&core->reset.pending, 0);
+ =20
+@@@ -572,7 -550,7 +574,7 @@@ int rocket_job_open(struct rocket_file_
+  				    DRM_SCHED_PRIORITY_NORMAL,
+  				    scheds,
+  				    rdev->num_cores, NULL);
+- 	if (WARN_ON(ret))
++ 	if (ret)
+  		kfree(scheds);
+  	else
+  		rocket_priv->scheds =3D scheds;
+@@@ -584,8 -562,8 +586,8 @@@ void rocket_job_close(struct rocket_fil
+  {
+  	struct drm_sched_entity *entity =3D &rocket_priv->sched_entity;
+ =20
+- 	kfree(rocket_priv->scheds);
+  	drm_sched_entity_destroy(entity);
++ 	kfree(rocket_priv->scheds);
+  }
+ =20
+  int rocket_job_is_idle(struct rocket_core *core)
+@@@ -608,6 -586,11 +610,11 @@@ static int rocket_ioctl_submit_job(stru
+  	if (job->task_count =3D=3D 0)
+  		return -EINVAL;
+ =20
++ 	/* GEM lookup takes a signed object count. */
++ 	if (job->in_bo_handle_count > INT_MAX ||
++ 	    job->out_bo_handle_count > INT_MAX)
++ 		return -EINVAL;
++=20
+  	rjob =3D kzalloc_obj(*rjob);
+  	if (!rjob)
+  		return -ENOMEM;
+@@@ -615,7 -598,7 +622,7 @@@
+  	kref_init(&rjob->refcount);
+ =20
+  	rjob->rdev =3D rdev;
+ -	rjob->domain =3D rocket_iommu_domain_get(file_priv);
+ +	rjob->vm =3D rocket_vm_get(file_priv);
+ =20
+  	ret =3D drm_sched_job_init(&rjob->base,
+  				 &file_priv->sched_entity,
+@@@ -691,8 -674,11 +698,11 @@@ int rocket_ioctl_submit(struct drm_devi
+  	}
+ =20
+ =20
+- 	for (i =3D 0; i < args->job_count; i++)
+- 		rocket_ioctl_submit_job(dev, file, &jobs[i]);
++ 	for (i =3D 0; i < args->job_count; i++) {
++ 		ret =3D rocket_ioctl_submit_job(dev, file, &jobs[i]);
++ 		if (ret)
++ 			goto exit;
++ 	}
+ =20
+  exit:
+  	kvfree(jobs);
+
+--KLNgp1zSBCEYXc2u
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmr9u+sACgkQJNaLcl1U
+h9BW0Qf/VsJcaTY8Psv1i1TYBMay9B0cQYxYvz+PaGwb32ZHSoyGHPsS5PdwTjXp
+iVzmjIUaR27P/cp1AX+1hLV2x0LqxsTEVAO1wPaVOotVYIIR3axubnliqHNHwpB+
+RvINw4b5oMZdfhl/HdVFahprpXdcPBfAJF+vnbTWDzDLRwkYzEUUclix+IlrYvIe
+Idn26zDGcosHS13PjyBCJSyXU0eu0YvfX896oeh8Ij+JSYB4Y/HeqEWzgT77OQEh
+lehoxdYs+nGClfu2L1YJcRXMNx5fqGnf8HRPSjDGDwarAQjJEHOywxJ1BMOTlay7
+XeRoYe5lKlUXxwxEHLxSOlSvy38tjQ==
+=VPdv
+-----END PGP SIGNATURE-----
+
+--KLNgp1zSBCEYXc2u--
