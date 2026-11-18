@@ -1,100 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.179
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.39
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795046131;
-	b=iTAVOFygLZtLzLRSyajatk4z9iYQEZOqkaXNFD8gHZqGnXvNy3NDen3a3qqzZ/vrJSjV
-	 6nITA9DQfGCVIYfmrwETx0BmAMnVLWcIN6XPqBlP0YbQnWAIPm7BZg7Sr142I/nyfLixA
-	 bFPvEW1KDDg9UEzmBXDi9iLa3vLK/OrWJ9Za4IAgXd+E50X1ZbtQYzdLiiEv84uEbnOc3
-	 3naOycv2cSyQ3p14gC9SYY9uxcUFgDnEosBotAvZT/TMecWU9Rny70k3A4m8NP3jTC2/6
-	 kX1ecpbu9UDshR2lJ++OrnbrmqUvDuWtw2hVUnvVTOKGROHrlRSs48Mcy5NMGhD+bKA==
+	t=1795046202;
+	b=fK/K1P7CP7dS90Dd33WEylm6bj3f73L8dLkkCEhPMehuujOHUf0PPCZI9t1B2P4ppn3R
+	 SXJ6sEoBRy0Oh/j4jJpW/wCfeZBgma7KAcyZ9VHl+AtZ8WL5M/SvD2GYnFQzI1r627cJ4
+	 ngxCdZxdmidzQBD7dXvN9xxcLNu56E6640lK1+yMwXpEPtwuUpIrmRD8/7ArYkyA/k3Pr
+	 fGbJPxaaeC4sJVm0MkaEwFqmsOjEzLdkbah5ZRn9jH3XezYIYA2T+Fu9p6Xa1cN8gfRtQ
+	 mpTkGfmQXew3kUnWb/H0tgDv+5bAkCUrvnoi7XsktWYQce03bLTiqSf+tPAAbaShM/A==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795046131;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=63Ce5k5KgJ7kCxdquHv1PxDcyB7zPmX8ddeWZ4cRjbg=;
-	b=BnEPKFTApFNxT1bA5Ki4kYz5H/m9hvauRrj4GLtApJVkst6/k+9XVhozjrnTPSO7vuRz
-	 o9e/hSYLWseMT1XMcB7nDKW+mEkF4PfNILKQ3pZ2+G4f+HhiKR5j6BdkQb8tNGi7w+DQ3
-	 SZP6qIQFVkXGPh+Yw9jBAFnd0S1+zWFAeG3TE/OnMt9jCAibSj+vzDLu+UbHd/QT1DOir
-	 3Zzb3dwkGtkUab5V7Q3+LlJRJdMIvIaBaPzBM+klqHcGa7BQIXaWfB94AnfHJ9fU+0yKV
-	 3HVpPtrfAM3ok49lIPvs9+ijOlepnJaflz0a3thOzdbOTuZKCutNsR3JYT5g5xegVPg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795046202;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=gy7//yMxaWvv7C+aFAPpXUHRrmg6qOgFJmGgOvc2Tig=;
+	b=chtv6azlfoB/UIDacZ0E90mDzEA9DjMAT12HJ5ItPm1KwL1JCsiLp3mxKRk1LCtcfkHX
+	 1x5H++/+VeB1FsnoRwyCzWx9ioefBuMBHyyiEj709s97Pzfs2Ok7EnIOJExB8IZ7htspB
+	 BRXscTIW4k5p+yh52C5/9fPwH5ssppAp6tUMrcGHMM9u1RlOUE/8oMNwcIp2m65RvgxFa
+	 dWwthnd9RVgj2WD7Okhf2ZENR511sa9gZm4gKtHz3ZbP7OpF1B9EsV4+uwNlpA+vyRrXF
+	 F06zPvfYpSNCEN0fl69MUcJItpOVMkA5mtLdrsgnzRxEAaLUBTEKNtwOruEaT0MvJNQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yivZrPCk;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.179
-Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=gNFmT6Yv;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.39
+Received: from BN8PR05CU002.outbound.protection.outlook.com (mail-eastus2azon11011039.outbound.protection.outlook.com [52.101.57.39])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 736B3606A32F
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:55:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 736B3606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8DA29606A325;
+	Wed, 18 Nov 2026 23:56:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8DA29606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yivZrPCk
-Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-380b40312e2so4438667eec.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:55:31 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795046130; cv=none;
-        d=google.com; s=arc-20260327;
-        b=YDWnhldMUYYvbokX/MatX9BPoZrAHJbBPPAa1YtXgMo+3PJ7kiKHSXZa+BZHmNqAb9
-         mSp8jhfkUVLySm8sXUYZG573fWDOVd9aCALfzNpYsqHLDyliw8t8ONDqVgw36DV6t1Tw
-         Xeq59tPoD3x7aBYKIMcm19CQHlrbgOz2eCVtpAJ2x9jwcpJw9qNKkRUsQUCECGXET7I6
-         qYMPHCBFgwJgsb7J+99Gr1ZkqXGMjx0qpobcjLT+bHGFXUQ170aRr58LPGg8D3Qg7hmh
-         PI2vWlTEsYYQ1yzRjupq2yD7M8QdsiZGjeWTf9WN3OVXrhy1NhzcyDtmu/63P78poTZe
-         1y6w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=63Ce5k5KgJ7kCxdquHv1PxDcyB7zPmX8ddeWZ4cRjbg=;
-        fh=B47/0uCZztL+8rLVBW5SXeUYBqmW1S3oAQvM7j4N2XI=;
-        b=WZsMDklgW1JSBhzwggDXw+o81RrxvZqs2phMeVRw9fuUzAGob1SzTrmXD5V0lNrvxW
-         Begat+O0qjw9FFiZaFXpFTdU80O4PN9bt7LCl9N0pZSOeRhlUD7svgZi4WgV49WQcmcZ
-         kW+90SjtCPgZv+HGOxI286+GXAeckx3Yg2o9ST+tKzw8FHQTlnnLkmIGqQoUq2TTGvE2
-         +WvUs7yxVGgz9slaNSc7CgoikSrYbsHrzBjpeHlRD7DKXN+iRV7o3czZmYtwbn6374P4
-         3qx91EV/ITu8p8Oxg7fv1wHtYNUaVKiGu/TX/0wnOhpniJ8+akONMAmZHXChOyDI4PEI
-         S84g==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795046130; x=1795650930; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=63Ce5k5KgJ7kCxdquHv1PxDcyB7zPmX8ddeWZ4cRjbg=;
-        b=yivZrPCk5f/OCozIaNGp55SaUe35b+G21+zGNvZrVV2d79vuBlttIhK0LTV8Nwr9Vz
-         qTNhTU2649T3vwoKcLo1xMZnpjoP6C/ZktdwmeNgPxzRqHoOX7RpvCj3CyUINJXKzkgw
-         7vIwPqahDh7WyA+4EpeQFvCjsmXO/UW0rXTNtKI77qhvwNkgFUXRv74xC/56xvY7gFZR
-         oWjr11oR243nekAXJYPNL/HXx4KgiZxiYWU+CPLIPHaA5FpyBvh6kmWbaNftuTXHh+vl
-         zMZgB6gePOw06Qi7lRXsMuWy/ySzxPY9It4HKOKKFpO6AOQZmWpaQknlWbKOOankx5u8
-         Aj2A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795046130; x=1795650930;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=63Ce5k5KgJ7kCxdquHv1PxDcyB7zPmX8ddeWZ4cRjbg=;
-        b=LUx4J6ybFJbrbtdijVLd5Xa7wlD4MtoKVmv95U6vlSrXHPGPiWFEr9aqu0VBMNi6xN
-         pAZMMKBhOyMzE1r5RbcIZ1y5eoz8P2A0wp+m6q3O4nAfd4mZotNIBiqmdDe8dOqDXTos
-         AxP8lAvfZpsaqCEcklL6GBz0F7tgbNXAmpVTKCGAPpUr74gb1W62RGBrVg6LE2jvtUZr
-         DCnXWFijbQF0yB67yW3cytv9Jl4L85YJruVy0f8GVDmaSeLIY2R0q9I1qebC1+z1lT0U
-         zr9AiTDAWk69+iU4JOZt4btCZS+ONrwI/wV5VHvyCrTFkZ1eisS2a8u9kXZreLOsK8AU
-         lKYA==
-X-Forwarded-Encrypted: i=1; AL+hErEUetesIZ8FLSKTUTn62ZEZ7nehu8DlfBs4FyiFS0lT+EY7DbCcyDYwXUCRed8D7oYQ9sntcC7Ld337j3c=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/falTwFzoROsS60cglEucOVVNFTVMvp48N0ncQX2WYTSdK/hL6
-	485H8q+jnprFha954b8jNEVq0oqACr2FoNc4oT1BgWYZcGJKYqe1Cec3JaRCsSeaPFCykK0BUZX
-	ejo/ebRgslMQxJJnfG77LCFfNF4rEX0o=
-X-Gm-Gg: AZFdTZc6wCNpRgrfIAeDeoo/u2gaItjq0Oj5dRZ4+ZKQ2+TyaNlGl4SVx66qg/M/ErP
-	89qN+51FLE1EZTUVQ/RLfmFtCCGPt43Mw3h5KcJKt7eC6ZkobprevXorkJvg1XswzoVTVe+PjvX
-	JPkOC33qClwP5eofM5dNO5+R3Kit3xV0NeJ1ZOeRsuiz7gY+KkUQsGv+cjS6eQ+W7XY/ENJ/KtX
-	nAgAQ2cpTnm3wZq9kidKr8p4PLbrfSp/GTfj2lKeq7Knlc9r8lEV28KONiaoWnNOGlrWJ0Bca0+
-	X2/k29GTEaHq0qxaa5/yqsymb+QXBt/sLbAMN40LMQewO1LVHCAem359QSBLjZBz02/mN/Gndi3
-	MsfWFlnEXQ56lVt2FbMqpEx0GQpH/a/QMdASAGzArPAsu55Adcgl2kkW1koob
-X-Received: by 2002:a05:7301:32cd:b0:375:c862:34e with SMTP id
- 5a478bee46e88-3828093e35cmr3846344eec.20.1795046130285; Wed, 18 Nov 2026
- 15:55:30 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=gNFmT6Yv
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Bhmfko3Z7OzO3FzpKq/MX23MVgf3yUzjjfrwcjEHFjlpbI0xF7x9/pTA2FnVKEEth9hMo9nS0q/QvwM8AP+U5cu1hyhnvDCcHXEaL5orvf1m7kJuSBNmUsvb7sI+JMjpXMY2GkT7hyqpzfuCxp1YHaVpLmN9ccvrgL6UWi6w1nRyVYQSGWzyhtXALW1QfZ8Ct29FDQ9Nwqld3HjWfoi2ZNCcAcVOTM9u7SUZ02T67wt5i+fgRegEsbYTZ+5euU8j3Kjp6ngXor6AdWj5R1EqTzVgaMdWBthsGiQDLSEnJTwEbAkGJPBBoYU6jQDAqGMIGnzTVbZQcS1QCXADznPs2A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gy7//yMxaWvv7C+aFAPpXUHRrmg6qOgFJmGgOvc2Tig=;
+ b=bFVzDbkKsuxJCvWhWQ2GPh/OcTPts62DC5L3ZUVSxbyakxRmRsHpcU+77MAQDLuDmzGKeSfw473i3Bnrl2eirJN5K8Sk2mHum73YcNGpsrhzdv+QmkIXIZb2pxcnH1JHojYgpuLXlpRekiUKKzxRHdy5aO7ESZYhDx6Q2m57Br5wUyRTSVte+pEbIxYLOKYWUI8DK0BTH0n4uVkjYbn1/UTCt2YLsn5kVf+EDUm9aEC0fArqWnsHm3Vf5HBNcKySXSkajVpikDqLKDAxzL1Qm81BaLdciat6wIoWuuZDLNfGpHF5XQfoVyZzGCcy2JG5qOxtD9Ocdw9+fcTGhweBCg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=gy7//yMxaWvv7C+aFAPpXUHRrmg6qOgFJmGgOvc2Tig=;
+ b=gNFmT6YvPv/sLn9z1fU4zxsvsYrIaIpUsit19bRu26cw/pcIr2yMM+bKICO4Ncjj7tJhs6k/AZ7/vRBmbqczpc8BZx909m1ijbjgZbuyzShv/yXV3psi8NqpwJg+6dEOvJGQJtwHJOzfDnEmRHOtcRJ/81eyXJZBggS9IBpkwyI=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from MN2PR12MB3485.namprd12.prod.outlook.com (2603:10b6:208:c9::22)
+ by SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 23:56:35 +0000
+Received: from MN2PR12MB3485.namprd12.prod.outlook.com
+ ([fe80::7ac:5acc:f8b7:65c9]) by MN2PR12MB3485.namprd12.prod.outlook.com
+ ([fe80::7ac:5acc:f8b7:65c9%7]) with mapi id 15.21.0615.009; Wed, 18 Nov 2026
+ 23:56:35 +0000
+Message-ID: <cd29a3c1-445e-46a9-99fa-131983ce7a72@amd.com>
+Date: Wed, 18 Nov 2026 15:56:31 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2 3/3] ionic: add devlink param for command
+ timeout
+To: netdev-bot+sashiko@kernel.org, nikhil.rao@amd.com
+Cc: brett.creeley@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ abhijit.gangurde@amd.com, allen.hubbe@amd.com, jgg@ziepe.ca,
+ leon@kernel.org, jiri@resnulli.us, horms@kernel.org, corbet@lwn.net,
+ skhan@linuxfoundation.org, rdunlap@infradead.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org,
+ linux-doc@vger.kernel.org, eric.joyner@amd.com, ArunKumar.Prakash@amd.com
+References: <20261105-b4-ionic-cmd-timeout-v2-3-35a9a2aa48b1@amd.com>
+ <179431289941.994134.11663452629837334156@kernel.org>
+Content-Language: en-US
+From: "Rao, Nikhil" <nikhirao@amd.com>
+In-Reply-To: <179431289941.994134.11663452629837334156@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PH0P220CA0015.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:d3::26) To MN2PR12MB3485.namprd12.prod.outlook.com
+ (2603:10b6:208:c9::22)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,66 +103,182 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261028164539.3471833-1-henryzhang62@gmail.com>
- <20261028164539.3471833-6-henryzhang62@gmail.com> <CAPY8ntD7UqYwGfSOp4XW5V6574e7o_bq_hnzNfVoq8y92-3awA@mail.gmail.com>
-In-Reply-To: <CAPY8ntD7UqYwGfSOp4XW5V6574e7o_bq_hnzNfVoq8y92-3awA@mail.gmail.com>
-From: Henry Zhang <henryzhang62@gmail.com>
-Date: Wed, 18 Nov 2026 15:55:19 -0800
-X-Gm-Features: Aa3M54q8rC9hdRr05t6wi4III9tiHqZZwbdjk1rChRebknqJVFK6FeLFd7oXKKg
-Message-ID: <CANTW0yq8H8WO4kg3kZru7oZ58wnd0go=8F+RtSi4GL3SsXW8Dg@mail.gmail.com>
-Subject: Re: [PATCH v4 5/5] drm/vc4: dsi: Recover from a timed-out transfer
-To: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Cc: Maxime Ripard <mripard@kernel.org>, =?UTF-8?B?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN2PR12MB3485:EE_|SJ2PR12MB9161:EE_
+X-MS-Office365-Filtering-Correlation-Id: 508c711d-0aa0-4c57-6a4d-08df45cf93b9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|7416014|376014|1800799024|366016|23010399003|261026140227099003|261022105027099003|261026121527099003|261028144727099003|56012099006|4143699003|261021123027099003|11063799006|10067099003|261021135927099003|261009223027099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info:
+	aUF1LOrfR5+d6RPbqIYXxsFMH9XBZJ4RzvomjwDisP+7VkuO+Ez7/9hLvjI5P4SJnGHeT9SZezSsCBv6qHGrX+dmzyul7Xno4uMMp8UL3sgpRLNUmGMJL4GZQbTojiUxcOGcxxBKK7p+U/5CSlWvfB3a5IUHtjrBv/Nov0qMRjiSm5iCJu1xEXPFu5HWfqQBwU9HTQ44EJzdeDHQvuqaNrpN5f2CG7qqzl6em8WGkRPTddNKHTKsaSHtERLIaX1EQ/+srUNkpho2f+IXOw9yEMd+XvsD+oQ8KkrBwk1Kwf97I1BDO4tthohdERlq8ywj+aBXVUoHT90Td+6oDTP1pGbqg6xigi0qlqfMVxYOUt8dAN5VE0F7sU+tupvMxaI7jlEgBQr8U+LWoL/loP99DBlkW8NNQ/sMLzj1uLucnZIi90L8lu45Ajnp0Pcte6M5FaG9afb0QmBpiL9bC+CHy80CRB6Ntu3HGFBVV2ZwznEhyAOxypLzA9VTrzHzjbu5daS6KCwqq/bt5KVu243gGLHWzzu0GVvgpmWz/YRa9HuzXpYOlOEZnzN3OFczDKmYVQUi15HVnLclSSpNTqgAI/WDCY3nYSV8GcBWI3uA0C/nwsu40ZkOKxi/TIfZqZK/LUSY814bpe65f8ddEBB337fEcMh2wL71mcLgiu4dBzA=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB3485.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(23010399003)(261026140227099003)(261022105027099003)(261026121527099003)(261028144727099003)(56012099006)(4143699003)(261021123027099003)(11063799006)(10067099003)(261021135927099003)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?VVE4TlBkc0JMUXlCWTJSYzBaTDhZcDBnMG82aUNNb1o1MTEvVHdPMHFEdFhZ?=
+ =?utf-8?B?MkxUSTBXL1g3UlNHU2NzNEdaN1BRL2lKZmJ2cHVtaFpXYnBhRU11d1VXTngw?=
+ =?utf-8?B?bkp1eDg4dHJqK1V5V3dCR082aFNpUGlKTEdmVUN6UkJzTXNra0MxVWxYVC9I?=
+ =?utf-8?B?NDhhZSt6aUFOcUZ3VkJXUlNBUDVZL1lMdjQ1SU1FN1hKR2loWTN5bmQwUFhx?=
+ =?utf-8?B?SnRaelkxSWUrejY1QmlqMkhUMGFGVGtRejJIS0pvWGdSbG8ybFVWRlFESXUw?=
+ =?utf-8?B?eXROZHRRRmZZeW00V0xkVFNadzVoMUIwYmpqRDNoVTV4dzh5dEIxM1BlbTIv?=
+ =?utf-8?B?ZjFVNFZvV09GVDdPSEU3cU1kbVdMS1dCNkJSY1pJU282ZGxta2Y0SGpTMnpJ?=
+ =?utf-8?B?KzFYZGxzRmw0RUU4RWJGYzZkRmNIVVdmclJCMld4ZlRpVWVhWmJHelBSSkk4?=
+ =?utf-8?B?V0dVRjhzOVR0QnFnOUtZaHllVVlnNTRId3dGMWxjc2ZVQkVUeDdLMGNibDcr?=
+ =?utf-8?B?Y2lrQWhSYUt0UXI4L2JreExTTVA2VXdLRE9aWTREMVlaWFVKRDBaWXJyeHhI?=
+ =?utf-8?B?NEZtV2d2Z0lnK0M3Q0hIek5ETHhwRlpKZmJMejM5NTFKTVZibkxpY0NiWXFU?=
+ =?utf-8?B?ZUVtTDdGeXgyc3dFRy9oWHVFNXhERXFPbGVibWZiaW5HSlk2VndyRWRYK0p3?=
+ =?utf-8?B?TnF6bXpQdlZvOWNGM011VEwzYTUwZGp4d3djK3lXZE16L2UyTUhQdkZNaXZO?=
+ =?utf-8?B?blZUblNDVktjQlZlclJjamh5dW9wb2dyT0o1WnMzak9EUWhJbnM5bXpWQWVp?=
+ =?utf-8?B?WjArZVRDTjNTQlVrTzVmMVFjM1Bub0x5alMzS2RQbEt3d2hYTUNoclFvejhi?=
+ =?utf-8?B?aHBqL3JNd082TnZrWmdqQ041ejMya3Rqbkx1eU9SN1ZXKzd0VkRIZWgyU29G?=
+ =?utf-8?B?QXVoK1JjMitYSjBVKzdVaUZYMlB2UnBlcm51cXVhd2RGWVRGaXVQTzk3cTBk?=
+ =?utf-8?B?Sjlzdzc5R1FDbnVmU2xRYU5udDg1MWpNNG5wMjk0dDM3SWJDamNBWlVRWGZ2?=
+ =?utf-8?B?MW9QMmJtUURZelhISURFeFNnUjVuUlREcnNLNVlVS0JYclcrZHliZ01DcWR0?=
+ =?utf-8?B?eVZFTWR6cUd6UzlNWEZzNENZMkxnUUZlSnY0WnVHeFhFK1phUUdhQ25EaUYr?=
+ =?utf-8?B?aTQwZlJWdWtzNXJaSXcydCticGtPMjR6cEpLdml6UzBWdlVtc0pEWHBnRUtj?=
+ =?utf-8?B?MFE4VFBkNStOUW9od0FuR0VFdEJPT3lJcWliV1BzcnNraWdsdkhwUUE0MTd5?=
+ =?utf-8?B?TlpNV1hoemxPUzIxZlVxUDlRN1RNSjlaMGp6NDJTSUFvZEROZHI5dHdSKzN5?=
+ =?utf-8?B?bkVZdnRpYjNNcmMwN2lKMHBBcDdpVTlzZEJsSUNxeUVWYkVXbTd4eWIzZ08x?=
+ =?utf-8?B?SWphN2E2RTVBelNIZmprMjRzK0ZBd3AvWjEwS09tTGJYNVZiVHJsQmVleFRk?=
+ =?utf-8?B?Skh0NXQwK2JwTHZKN01GVjMwODcxbDFROHZZTjlwem41MExUU09BcXRLU2hy?=
+ =?utf-8?B?ZGlEU3FrTng2VHl0MHRmMTFWN25aL3BmTnhxWmNyZXZMZ2tNbDFOZFYxTjMr?=
+ =?utf-8?B?Ly9BZDhTbzZwQ0xrYjVwRk1EZm9DT2JPRFU5TjBUR3hBOUdXMkYrNUtnNWZE?=
+ =?utf-8?B?NnFPclR2WEhzMEdXNWFhdVByeGRQcEpnK1ZzTFNyNzk0STBNTExHdDF1amY3?=
+ =?utf-8?B?R2FSUnZYdlA2M0x3bFFnTWRwZ1ZlNldJRnF6UG9RYjVxTm5oR3FHdzBTQy9J?=
+ =?utf-8?B?SHFtYVAyTnJ1QXVzaXlEbk5TdHpuRFIvTGhCNG5NajVrMFhGUWxBME1xVnhP?=
+ =?utf-8?B?OTd6bXRXNHlyZ0VPTkxFVXEzSnByQVc0aUd3TFV0cVl4cGRCREtKS0FJTFZz?=
+ =?utf-8?B?VG4xQ21wNGl2STdlSEduZlVLSksyOGdwKzV1WGNKbWp1bDhNRmpPT1pwT2Vu?=
+ =?utf-8?B?Q3J5aW5VSGRVbXRXK1NCUGZNNU0zSFNRdHY3VTNobkFHOHpUTXNWY2dBWFMy?=
+ =?utf-8?B?MzZncTNOek1VNGcvWFpYNXpybGZscGZwbWJ1eFVSUDE2MlBheHZvV2J3N0di?=
+ =?utf-8?B?d09VK1Y1amYweU5zR3Q0dERma3gzSHpzN3oxdDBzSGFBcnl4TUFya1hIWDVB?=
+ =?utf-8?B?Nmw4Q2xpZzRnWHJzS29FTkFCTVNZb3BqVktmVmVkS0RrNFUzekg4SlA0eTFn?=
+ =?utf-8?B?T3hRdVl1MkM5UFhYNVNkMS91REk2Y3B1aHlsOWtWUDZCMlk0VDE5QTRZdTBY?=
+ =?utf-8?B?WXMvODRRTEFuOUNFRkZkOXpBWVNZRCtFcEMyeXF6S0tHWURQT1Zudz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 508c711d-0aa0-4c57-6a4d-08df45cf93b9
+X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3485.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 23:56:35.0772
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qQuX2GKhqLRyWvAQkiW2pcUUylyE2p3cJM34VsOxWdBqQM59F9gKLmMGBf+WUu8o++71VmYoPI1hcdR0BxP1Ww==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB9161
 
-On Wed, Nov 18, 2026 at 1:11=E2=80=AFPM Dave Stevenson
-<dave.stevenson@raspberrypi.com> wrote:
-> Whilst it's a belt and braces approach to work around the issue, I'll
-> have a dig next week to see if I can reproduce it and see what is
-> going on.
 
-Thanks, that would help. In case it saves you time, this is how we hit
-it, on a Pi 4 with the panel on DSI1 in video mode, display on:
 
-- It starts with a DCS read whose bus turnaround the peripheral does
-  not complete, so the read gets the LP receive timeout.
-- From then on, every transfer times out with no interrupt and STAT
-  reading back 0, writes included, until the next modeset.
+On 11/10/2026 4:14 AM, netdev-bot+sashiko@kernel.org wrote:
+>> +static int ionic_dl_cmd_timeout_get(struct devlink *dl, u32 id,
+>> +                                 struct devlink_param_gset_ctx *ctx,
+>> +                                 struct netlink_ext_ack *extack)
+>> +{
+>> +     struct ionic *ionic = devlink_priv(dl);
+>> +
+>> +     /* devlink fills PARAM_DEL with this on PCI reset; no FW_RESET check */
+>> +     return ionic_dev_getattr_cmd_timeout(ionic, &ctx->val.vu8);
+> 
+> [Severity: Medium]
+> Is the comment above accurate for every caller that reaches this getter
+> through PARAM_DEL?
+> 
+> When a devlink monitor is listening, the unregister path calls this getter
+> to fill the notification:
+> 
+> ionic_lif_handle_fw_down()
+>    ionic_devlink_params_unregister()
+>      devl_params_unregister()
+>        devlink_param_unregister()
+>          devlink_param_notify(DEVLINK_CMD_PARAM_DEL)
+>            devlink_nl_param_fill()
+>              devlink_param_get()
+>                ionic_dl_cmd_timeout_get()
+>                  ionic_dev_getattr_cmd_timeout()
+> 
+> On the watchdog path, ionic_lif_handle_fw_down() only runs after fw_status
+> has lost IONIC_FW_STS_F_RUNNING. ionic_reset_prepare() is also reached from
+> ionic_pci_error_detected() for io_frozen, where MMIO reads return 0xff. In
+> both cases the firmware cannot answer the GETATTR.
+> 
+> __ionic_dev_cmd_wait() then prints the warning and returns -ENXIO. do_msg
+> does not gate this warning, so the _nomsg variant still prints it:
+> 
+>          if (!done && !fw_up) {
+>                  ionic_dev_cmd_clean(ionic);
+>                  dev_warn(ionic->dev, "DEVCMD %s (%d) interrupted - FW is down\n",
+>                           ionic_opcode_to_str(opcode), opcode);
+>                  return -ENXIO;
+>          }
+> 
+> devlink_param_notify() drops the message on that error:
+> 
+>          err = devlink_nl_param_fill(msg, devlink, port_index, param_item, cmd,
+>                                      0, 0, 0, NULL);
+>          if (err) {
+>                  nlmsg_free(msg);
+>                  return;
+>          }
+> 
+> So no PARAM_DEL is sent, but ionic_restart_lif() sends PARAM_NEW again on
+> FW-up. Monitors would see two PARAM_NEW events with no PARAM_DEL between
+> them, and a spurious warning is logged on every FW-down.
+> 
+> There is also the case where FW-down starts while fw_status still reads
+> running (a generation change, or IONIC_EVENT_RESET) and the restarted
+> firmware does not complete the command. Could the getter then block the
+> deferred FW-down work for up to ionic->cmd_timeout? This patch raises that
+> limit to as much as 255 seconds.
+> 
+Fixed in v3: the parameter is registered once at probe and no longer
+unregistered on FW-down or PCI reset, so no PARAM_DEL is sent on reset,
+and get no longer sends a device command
 
-I don't have a reliable way to trigger the first failed read. I have
-not tried a peripheral that never answers a read, so I don't know if
-that alone is enough to get the block stuck.
+> [Severity: Medium]
+> Can an unprivileged user use this getter to tie up the device command
+> mailbox?
 
-> There are very few use cases that have a need for sending DCS commands
-> whilst transmitting video, so it's a bit niche. The reset stopping
-> video isn't nice although I guess it should be fairly brief.
+Fixed in v3: get returns the value read at the last probe or reset,
+or stored by a later set, without a device command.
 
-I understand it is niche in general, but for us it is a requirement: we
-need reads (with the bus turnaround) in both video mode and command
-mode. In video mode our test tools read panel registers only when no
-video content is being played, but the display is still on, so the
-host is still sending video frames during the reads. The same reads
-have to work with the panel in command mode. So a stuck block hurts us
-in either mode.
+> [ ... ]
+> 
+>> +void ionic_devlink_params_unregister(struct ionic *ionic)
+>> +{
+>> +     struct devlink *dl = priv_to_devlink(ionic);
+>> +
+>> +     devl_lock(dl);
+>> +     if (ionic->dl_params_registered) {
+>> +             devl_params_unregister(dl, ionic_dl_params,
+>> +                                    ARRAY_SIZE(ionic_dl_params));
+>> +             ionic->dl_params_registered = false;
+>> +     }
+>> +     devl_unlock(dl);
+>> +}
+> 
+> [Severity: Low]
+> This adds devl_lock to two paths that did not take it before:
+>
+Fixed in v3: the reset paths no longer register or unregister the
+parameter
+> [ ... ]
 
-I checked both today, on our downstream kernel with this series and
-some local changes: 1000 reads in video mode (display on, static
-picture) and 1000 in command mode all completed. We did not reproduce a
-timeout in this run, so it did not exercise the recovery. That does not
-change the failure described above, which we did capture earlier; we
-still have no reliable way to trigger it.
+> [Severity: Low]
 
-I haven't measured how long video stops during the reset. It is only
-done after a timeout, when the link is already unusable for commands.
+> The new documentation only says:
+> 
+>    The value is stored in device NVM and takes effect on the next driver
+>    probe or device reset. Only available when the device firmware supports
+>    it.
+> 
+> The design may be reasonable, since the capability can change after a
+> firmware update. Should the commit message and ionic.rst say that the
+> parameter is absent while a reset is in progress, and stays absent if
+> recovery fails?
+> 
+In v3, the parameter is registered once at probe and not unregistered on 
+reset, so a reset, including one whose recovery fails,
+does not remove it. While a reset is in progress or after it failed,
+set returns -EBUSY and get reports the last value read.
 
-If you find the cause and a fix that avoids the stuck state, I am happy
-to drop this patch, or rework it, and test whatever you have on our
-setup. Until then I'll hold 5/5 in v5 as it is.
-
-Thanks,
-Henry
+Nikhil
