@@ -1,63 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.251.229.89
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795021691;
-	b=l+pcYnowt4X3vOiIuzKvt+FVS8ZlzehsL2dzuA7rfyRuajCwQ3gFTDjRuk1+/QIbEMH/
-	 5dZD7YPCXPP1PsKKZfLf7AW7DFfJ3Im//U4BImvS3nvX/vDkA8bIOUIpBM8VSuNmh2xc4
-	 cU87vDH2lY5JCOQ8QdwgA5IvJBUS6qu1VvCzqpvtGFW2vRkKzFnnqhRywRD6DBwdNyypn
-	 ZIFyv6aMt5GxkIq0jjnHrBK9ztn2a4PD6ttDZykAfol5zKg8eSHPh1U5g7k0uJiLeF5np
-	 ZCXvs+/Zi+kgiB5jfMIGldZUTwf7VuaUNAwX4qnCGsTmcQYKdWQbjfTAsS1R957fe2w==
+	t=1795021699;
+	b=YBaCcSzx/AV6jgYERdpToHHQU9ZewCrMltkuAG5NUU2oPtIO7w3Ied5SxeTxHA/e9HUE
+	 4VNcvhtaVsI4vukc3CUgGCaXqnKQlOPIMoPSXyHcgLvixgcQTFPvg++SjDBsoYZp5nRYq
+	 AWHrTtv/E2MOs92M53uL8p7nXF05pvasENFVjWIJNSXjscaAuLJhyDdkysVLZ7PFPaI4G
+	 FrnDizpQoXejZEk1q/2Eay/6i+hIgh7+Igvy3PsFv/qaU5dcvW0sJ8HYUWLla/EPWTGHK
+	 FaSJE2FzHd0Zr19E8uBybxqhvBIoqB+BlRHaT8bjUaWhZ7qfavSLxir93Y7W4fIdHNg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795021691;
-	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Last-TLS-Session-Version;
-	bh=aseNCq+n+5bjQaW0Vanm4zTvexhRPXNbk5ZXU5gkWPg=;
-	b=fZVX29BJepdAc/BJJxpqgExDzCQyPy6X/lfV1VLeMQCyGYGei4uij1ssvBbbNpvsQ1sa
-	 ggujO9Yn/27gl0x8vtqlFR4a6+ZbZS9JCvyfqxzCmrRNEg0mkPzrN144OcX5zo5kJUbLp
-	 lN8n6CsCvekVuyY2gLjo62nWrtx3Tz6m1jskrCUSSh0Wik5G3NWhVWFYLGQdpltJICmys
-	 3fNoKU4UJGZ6iAYqOwAHzXd+iKmzKjsKjo1nC6NGOvVw+EO/6JMP9aCjE9Yeyr25hI9NK
-	 xYTH+Hlrb5ZK1IdIOh3dTrEAoPkzZXfCKOZlmJQ9ODXJBWhEE2hvBF8aaYGNrXrDuWA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795021699;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=7azEG4KUAyB1sP7mjOcSqRsl7y5AO0uY6cBUlzfxq4A=;
+	b=3Y2XwZ8SzBIE4yqIAJCOxiba2Yw+Af5d34dNERSNOY9RKQ4Vlgiht5X6BQWJowv2fG9p
+	 fcAu/8hve/IVp4hsFW6HEeu1xNfB4VheFC2VB+4iiwvWnkaEWUAE0m12rPMLKiVBp0UN+
+	 SYlj3/rTKge+aJtsMEc1aTOVcDN/x434mFfePRt/pehzjv3q6cgMFyTa7ec/KFIgSim00
+	 bLl5/xe1wzqNatmTKHEqO62ABM2gRIMIL4Dhnr3+kzbbZ/yz1vOhDyuQh3WouEslBG6FZ
+	 hWek6w+pv/pBnoLKZGaGozhV837yq5uyh8SnU6ZpbTqw4C5i5S7EHMW/wcMvs1349Cg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nabladev.com;
-	spf=pass smtp.mailfrom=nabladev.com;
-	dkim=pass header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b="Xye/kTc9";
-	arc=none smtp.remote-ip=178.251.229.89
-Received: from mx.nabladev.com (mx.nabladev.com [178.251.229.89])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YzLiQr3N;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8F71606A330;
-	Wed, 18 Nov 2026 17:08:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8F71606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nabladev.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nabladev.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8710F606A32C;
+	Wed, 18 Nov 2026 17:08:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=Xye/kTc9
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C6D7310E048;
-	Wed, 18 Nov 2026 18:08:03 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1795021684;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=aseNCq+n+5bjQaW0Vanm4zTvexhRPXNbk5ZXU5gkWPg=;
-	b=Xye/kTc9O2lTy9sT0HMZ6Hacufu66cq+QObbWSfDMP3YKMYVLhNsEYW5sGb1oXGLv9fL4f
-	bFk0MqOOOGtcbQghKUpV3YLxH1rxhXAC0rKwCLg3aaSDA1Iq3bZR+pAtoDshMTOiU0VVOs
-	T3lZG0l4S2XNtuOtzTZhjq3Zn+b8SZzS2nj7m/QBA2Ru/WovNsWNWySHVSSLJlOBiEsPHB
-	IvrRdr4TMaFYVSCsnx0Wp8uInHVNzDO8EFyym0v4f8ZRoP/X1q8+2KbF44ZUk8gyvOlcTl
-	ZuozZIm/FPX/UURubRRH259GzGzw+zHJ0ur8Jxvo1vOF3cEaEtuI92aUBxtZow==
-Date: Wed, 18 Nov 2026 18:08:02 +0100
-From: Pavel Machek <pavel@nabladev.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: stable@vger.kernel.org, patches@lists.linux.dev,
-	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
-	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
-	patches@kernelci.org, lkft-triage@lists.linaro.org,
-	pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com,
-	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
-	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
-	sr@sladewatkins.com
-Subject: Re: [PATCH 6.1 0000/2857] 6.1.193-rc1 review
-Message-ID: <av3bctJT9Ubq2j8q@duo.ucw.cz>
-References: <20261118150201.293410965@linuxfoundation.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YzLiQr3N
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1E581F000C5;
+	Wed, 18 Nov 2026 17:08:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795021699;
+	bh=7azEG4KUAyB1sP7mjOcSqRsl7y5AO0uY6cBUlzfxq4A=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=YzLiQr3NKs/FdPe9YkBNn2yrMmEl9lA5sDBWfGqQMcxfR6LfC+/HlARUMsQJIDrgs
+	 H3V7T79tpzQIsSIN2b6f/vv1mG/nljpt8jsRLbAIMm6UpwNTKEm+hzpjQ8BhwYap16
+	 NZfycQvYCHab7ml7xb2uddCkBMvwtiU5nz+WBBV1rtjNWHTmJH15I56BB5FdwRqeiT
+	 qeG4CYMKTOiT1LqbbT/kJ3PrWKZOVuInsvmM90fEca75W2JQG8aWA9L49m66Rn+o53
+	 GEe9DwZhjgpaM2EoYR3G7ex01IJ588P3T0e6y32/QhcMfZrrdPxE3JN4eBUWCoWnst
+	 X4DAspsvFtxBw==
+From: Lee Jones <lee@kernel.org>
+To: Lee Jones <lee@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ David Rhodes <david.rhodes@cirrus.com>, 
+ Richard Fitzgerald <rf@opensource.cirrus.com>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+ Mika Westerberg <mika.westerberg@linux.intel.com>, 
+ Zha Qipeng <qipeng.zha@intel.com>, Qunqin Zhao <zhaoqunqin@loongson.cn>, 
+ Thomas Richard <thomas.richard@bootlin.com>, 
+ Andy Shevchenko <andy@kernel.org>, 
+ Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
+Cc: mfd@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ linux-sound@vger.kernel.org, patches@opensource.cirrus.com, 
+ linux-crypto@vger.kernel.org, 
+ Charles Keepax <ckeepax@opensource.cirrus.com>
+In-Reply-To: <20261104-acpi-mfd-v2-0-64b9dee3baaf@thegoodpenguin.co.uk>
+References: <20261104-acpi-mfd-v2-0-64b9dee3baaf@thegoodpenguin.co.uk>
+Subject: Re: [PATCH v2 0/2] mfd: use designated initializers for
+ acpi_device_id
+Message-Id: <179502169643.55369.12852293397895853310.b4-ty@b4>
+Date: Wed, 18 Nov 2026 17:08:16 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,69 +69,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha1;
-	protocol="application/pgp-signature"; boundary="H/qvEaJ/bP24KPwm"
-Content-Disposition: inline
-In-Reply-To: <20261118150201.293410965@linuxfoundation.org>
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.16-dev-ad80c
 
+On Wed, 04 Nov 2026 16:09:29 +0000, Pawel Zalewski wrote:
+> This series is converting lists that contain the acpi_device_id struct,
+> which is defined in the include/linux/device-id/acpi.h to make use of named
+> initializers (which they do not use currently). This work is part of the on
+> going effort in the kernel associated with device-ids [1]
+> 
+> The plan is to convert acpi_device_id::driver_data to have an anonymous
+> union, similarly to what was introduced for PCI and I2C device ID tables.
+> The goal is to increase type-safety (most of the existing casts are gone),
+> to improve readability and to make use intent a bit more clear:
+> 
+> [...]
 
---H/qvEaJ/bP24KPwm
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Applied, thanks!
 
-HI!
+[1/2] mfd: intel-lpss-acpi: Use named initializers for acpi_device_id
+      commit: 88e9107ee8adf111b7b8e13b009eb78db9044140
+[2/2] mfd: Use named initializers for acpi_device_id
+      commit: 9f3af17b87120ec1aa6bf0fa8121e3bfef687cb3
 
-> This is the start of the stable review cycle for the 6.1.193 release.
-> There are 2857 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
+--
+Lee Jones [李琼斯]
 
-We get build failures here:
-
-https://gitlab.com/cip-project/cip-testing/linux-stable-rc-ci/-/pipelines/3084767168
-https://gitlab.com/cip-project/cip-testing/linux-stable-rc-ci/-/jobs/18149480104
-
-mm/mremap.c: In function 'move_huge_pud':
-1175
-15:43:14
-mm/mremap.c:395:19: error: implicit declaration of function '__pud_trans_huge_lock'; did you mean 'pud_trans_huge_lock'? [-Werror=implicit-function-declaration]
-1176
-15:43:14
-  395 |         old_ptl = __pud_trans_huge_lock(old_pud, vma);
-1177
-15:43:14
-      |                   ^~~~~~~~~~~~~~~~~~~~~
-1178
-15:43:14
-      |                   pud_trans_huge_lock
-1179
-15:43:14
-mm/mremap.c:395:17: warning: assignment to 'spinlock_t *' {aka 'struct spinlock *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
-1180
-15:43:14
-  395 |         old_ptl = __pud_trans_huge_lock(old_pud, vma);
-1181
-15:43:14
-      |                 ^
-1182
-15:43:15
-  CC      fs/ext4/migrate.o
-1183
-15:43:15
-cc1: some warnings being treated as errors
-
-Best regards,
-							Pavel
-
---H/qvEaJ/bP24KPwm
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iF0EABECAB0WIQRPfPO7r0eAhk010v0w5/Bqldv68gUCav3bcgAKCRAw5/Bqldv6
-8vjWAJ9X09ClZ7hI+kH6TC0PWf9aMBdgMgCgu6mIxCPLwtFrdxWFgv1+zfBzrPU=
-=uBS5
------END PGP SIGNATURE-----
-
---H/qvEaJ/bP24KPwm--
