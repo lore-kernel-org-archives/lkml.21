@@ -1,91 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.148.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794975909;
-	b=Z5B/O3RkflS5sqdBF5U3tNna4pUPFx47gBXhGbX7Vwe/4jKcyT/3aMD5Hj/uioDlaJOW
-	 vv/fMeG7/a6ADxFaDUlKPHZmVHWMZqXZ7eFCErzHxQ3ItweGXxy7q7KTCvb0K0AJlN8qv
-	 9Id4zCJzR67JuxztRYWm17GCMyWQ5oK/VMGLn3MBYCEeUk1f1WcCTovVDIeFD1Y0iONl+
-	 WCmHd3DgnaA/aT6nEqrjHpnDbezglI2jjLlM3d6amk3aoCbkT4CW5PvkuKg1B03ngZI7C
-	 rcNJssIt42PW88+YYvSmLpVCn0Jb9qYgY6hHaAkLMHZDC8XIXgdW+WIo74i5gABlchQ==
+	t=1794975992;
+	b=AWStuBczr8iOrjJY/4FSJI7QVEjMsJq85s6KlF7vw4sLGa6abcDXRQ9luhUQo+of+eI0
+	 d3DoYGBfRQ8ALMv/BgmYsxmq/Oevna5lqJdoRhOZ9MeO4j0lhDLWarMzOiuIgOCNvntxu
+	 g5Jvt+RA96L+RmE2eNI9Iethp56dvrmZTdmTqAd1gwXQ9WOjuaZP4zgp44iYGSTRLBeQW
+	 sjb8Qu9YWwoIy8Yzox10XK1tZmKOArew084zqbRsaEXhiDK7WwjTt78/GOowoMepiaVe6
+	 5BTT1Y1Y3kEBo9WBr4a2G/Mo0UL/VWXWsW7XomMPTlAEYXxSMp0evsprTDuI428IavQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794975909;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:X-Forwarded-Encrypted:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=g/y0SanlVtgObYSEwLsEUV68JNF5YijD2dEdh3NZmus=;
-	b=Dd4YUd4xtia0Ea8QPjhuhhuovZhETIaEd1boXl3q72k1UyWwEIBZt8WQgte66HDGsFq5
-	 zQ9seVGKub1mSqfqPmXLp9YP1VhCWjXffZk6jkUZoqrUMAm/7jTol2jQpweVW0CGMwRAJ
-	 poeSikcfnhihy9uOFDAimgssK59u2y/82ogrxYuUrkxh3u0D0/UJ8P6pt0Ye5y721tfrN
-	 6+heNCCtD9DuXgIwxaIDBIk6+bzJaDPb7fiTSDgdmOqE//gadymvxvUFK0CvAvfnbf20w
-	 0VNSyL3ZQx9/rMyCqhBhRurEhNx085zt79U3TGX00KEV0zd4xrsEbl7u9CPPh6paErA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794975992;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version;
+	bh=0WqMk/9EjOE02syakNUAMPGrm2R4TgLrNy35QNB61ww=;
+	b=mnizf9r36XU1feVYIV6z/C3SyGNCB6tMjc7njeGpoq4UQIa48PmLWVep7GW47fOHhMAD
+	 GBjiRiwQ2YSY9/5WopHJEo53256gnTEUOjcF63AEgOh/pp1yfTU4/ij966dEPl/Q1P7pp
+	 bVCuUg6sJwb95rSH3onlNcXITSCX4ery5HfMMfxhQEOT3K9M228EsviiM8UyQshCKHWr+
+	 5Pfau84jieYP6m9JC68O3wbnemd9Thp00TXmfYrXNzacvFkQfLi2vtX6tAwhMZuJDzFJ6
+	 R2j/Kv2JSoTiqLAhDCBy09F2AWJLxdVEyK7OtU9umWcXgn8Qo1DChDXuLx8GZeivXCA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=UfeD+++R;
-	arc=none smtp.remote-ip=209.85.218.42
-Received: from mail-ej1-f42.google.com (mail-ej1-f42.google.com [209.85.218.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=marvell.com;
+	spf=pass smtp.mailfrom=marvell.com;
+	dkim=pass header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=pfpt0220 header.b=RgXZClWx;
+	arc=none smtp.remote-ip=67.231.148.174
+Received: from mx0a-0016f401.pphosted.com (mx0a-0016f401.pphosted.com [67.231.148.174])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70DBF606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:25:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70DBF606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A95F9606A31C;
+	Wed, 18 Nov 2026 04:26:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A95F9606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=marvell.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=marvell.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=UfeD+++R
-Received: by mail-ej1-f42.google.com with SMTP id a640c23a62f3a-c4395d31228so70425166b.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:25:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1794975908; x=1795580708; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=g/y0SanlVtgObYSEwLsEUV68JNF5YijD2dEdh3NZmus=;
-        b=UfeD+++RusFADgBHQ3a7+DiNrW9C/C596dXdE+2xb6rr9RHt+hmeyvoaJK/OKO+x0n
-         V91e1gZzMC4LaBikKu3K1Xr4CCcMM/454Lw4WNbbu54ejHueEH/iDxMU4SFt4+qIxb6v
-         xfnsaukiQNN3GTnb546XQ+h5LSvPNs/+WNGmk=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794975908; x=1795580708;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=g/y0SanlVtgObYSEwLsEUV68JNF5YijD2dEdh3NZmus=;
-        b=FCWN3AK9tnF9xFP4vBwthi99XvZg7EpyKQQTaF/r+hf+a9flcNZn8JIdSi+wJwyyjt
-         O4cC4FEeWhxSVY2ewmJmxF8fNEUdv4m/k3eeYjFdvTgZsTd32cgrkmlhNKq5jNsjZvu8
-         /fdLn6Ybe7/vNd+7yqeE6skFG2BfuYnOUs2gl5twHTRW1lyCuHNBO6NVFqKhM1wLODCD
-         w4CVjny1c59vDOJImbQ5i0F3WYgBEpOHraI0dFiPE+HEXhB2gwNOSP2myPYvP/PuL5k1
-         4hsJiUeZMvpe6il6wrLlKWGPApPc1yrwh+oNjuS5fF31aXYoWkrJlxWqa/zBfcmZITT/
-         KLiw==
-X-Forwarded-Encrypted: i=1; AL+hErG7KnKj9yYmE2SvMlbNU0fTNn6jkpqB0cFT7/HUB2ucfmUg+sFRo3ZQqL3bI2i1haMg/vzsG8YH+9W1A8E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9yGPDQMPAB/QDxLuDmjYFqcTYzcpyg7ffZMtTkrNeIpmNBDCXq
-	UjywaZpaM3MSN35CcZ/+Rx/mgKlQFVAtHh7e5Cxj8edq9iaoP1ZgfoGWnmLlc536rXdK8ZlQjw3
-	gDeNoLn29
-X-Gm-Gg: AYBFou3xKYav11TXMY006TzIvskPLfJz7RKk+sQP+IQc6uXmBGWcEB3N49d9wJh3ObQ
-	uBfmmRghXYXzfakohWHjy0yp5WTEc4ep3jAT86ofa3+Wu3RGg64POO6Owi9hxvSsUA93CNSK4Xq
-	p9SpZdcc8+uuD6KVUH2u/KIzbSp+ukTlaSnIZKj2t5M+m5HRkTtwKSmkVtGiZDCmsXOkOaZF+8Y
-	J+uJTIb/GThLZNDj3QvpwUaGWGlj2W0ktMUgIaIBECn8bD9Q358XEKpzD1y1YZrn4rh8A1iKzls
-	cjYdmueM8avZn0lNPgQaqNFgQWX6murv8ZWa7kEmakehZu3r2nFWCOqToOvdqGt0i+tF62SJmpf
-	GGWo5NJxY5aVkzJzM35WztS3Mk2yK9VG2xLwNSMCbZHzOTQd+1lHC2R72CH6IxjRA3vU2eWTHHz
-	Nn2RFWQCZsppyLDwK1F1z6mJdfSAQWEK7bG7ob8ZZg24lWckvLNgNXMBCKowJvShG2t6iUOEK9I
-	6QFPSil9Id2QnkTHj6geBSYar0N4xmbluqu4hbiT0Q/k1Armq6DH8tynlfOJFPpsc6FTDPy8UqO
-	3gELPJQZypsHaT1TOyJ3ZKHBaBlCcGfBeAV+jJXpM8E+LfquYdtRFbpnaEUY8lPnepQjwDkH0Si
-	U6Ad3TRVBMZK7SA==
-X-Received: by 2002:a17:907:a805:b0:c41:4c20:5a80 with SMTP id a640c23a62f3a-c510e57d441mr105086666b.44.1794975907840;
-        Tue, 17 Nov 2026 20:25:07 -0800 (PST)
-Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com. [209.85.128.44])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c510cb404f7sm53085366b.82.2026.11.17.20.25.06
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Nov 2026 20:25:07 -0800 (PST)
-Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4a207b02a2cso3334165e9.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:25:06 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErF5MxSLwkT7pI2dT6E6JmGdu/exMag+p6ku5HFDW11eHDMSeRGMvcLbKrWoC/xuD2pQJ0lLxFQ0uF0fsxA=@vger.kernel.org
-X-Received: by 2002:a05:600c:a303:b0:4a2:84c:52f3 with SMTP id
- 5b1f17b1804b1-4bb7da13acdmr20021395e9.6.1794975905159; Tue, 17 Nov 2026
- 20:25:05 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=pfpt0220 header.b=RgXZClWx
+Received: from pps.filterd (m0431384.ppops.net [127.0.0.1])
+	by mx0a-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI2SRNr1183034;
+	Tue, 17 Nov 2026 20:26:18 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=pfpt0220; bh=0WqMk/9EjOE02syakNUAMPG
+	rm2R4TgLrNy35QNB61ww=; b=RgXZClWx5n4sDHOf6/lJpTaGDP/7MgjOQWQlZJ/
+	gGxuE0RfE54jwNQcmk6WFUHaYKs4YdiKzV7SgSClByXUItSoPkElj+xGXiL1cKOD
+	RsL3iVfmJ/fdm9uqP/Cbcusl+71dT+rlQ92JJYLCh+7Z1KCJ049cfpSG2ByHTJLH
+	8gN3aNYhR2mIWbAICCC/hkyfpRY9m6wNNI9QzgHA0hJkooBwSru/EVEDWLajaok5
+	PVTj6XfW/nOMs76xANUnGmt3gR6cuwxAmx2BCir7ejNF3BvvT+bXhOezg7VEQ2S/
+	8GLyEte6U+Jkdet8ihQE2i+bvI+6bL+jg4EWqx8kpLkmgdQ==
+Received: from dc5-exch05.marvell.com ([199.233.59.128])
+	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 4j0ytus0s1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 17 Nov 2026 20:26:18 -0800 (PST)
+Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
+ DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Tue, 17 Nov 2026 20:26:06 -0800
+Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
+ (10.69.176.209) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Tue, 17 Nov 2026 20:26:06 -0800
+Received: from localhost.localdomain (unknown [10.110.24.192])
+	by maili.marvell.com (Postfix) with ESMTP id B9DE83F7071;
+	Tue, 17 Nov 2026 20:26:17 -0800 (PST)
+From: Vadluri Mukunda <vmukunda@marvell.com>
+To: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+CC: Sunil Goutham <sgoutham@marvell.com>,
+        Ratheesh Kannoth
+	<rkannoth@marvell.com>,
+        Geetha sowjanya <gakula@marvell.com>,
+        "Subbaraya
+ Sundeep" <sbhatta@marvell.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S
+ . Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>,
+        "Jakub
+ Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+        Satha Rao
+	<skoteshwar@marvell.com>,
+        Vadluri Mukunda <vmukunda@marvell.com>
+Subject: [PATCH net v2] octeontx2-af: widen TX scheduler queue index to 11 bits
+Date: Wed, 18 Nov 2026 04:26:14 +0000
+Message-ID: <20261118042614.878448-1-vmukunda@marvell.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,58 +91,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20260716132334.1565183-1-johan@kernel.org> <anx_MPm2Y0RVwZ9h@hovoldconsulting.com>
- <avw_XKo3EzosfyIh@hovoldconsulting.com>
-In-Reply-To: <avw_XKo3EzosfyIh@hovoldconsulting.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Tue, 17 Nov 2026 20:24:53 -0800
-X-Gmail-Original-Message-ID: <CAD=FV=X5DTqanxUBt9KoVh_93u9EUQm8_B2mnej=+-nxpA81gw@mail.gmail.com>
-X-Gm-Features: Aa3M54og-zJOYzu0vMfj1XrR0iPAewvsqdZk6M931gUhwaCa4nfWXvCzQ92vVVo
-Message-ID: <CAD=FV=X5DTqanxUBt9KoVh_93u9EUQm8_B2mnej=+-nxpA81gw@mail.gmail.com>
-Subject: Re: [PATCH] drm/panel-simple: take i2c adapter module reference
-To: Johan Hovold <johan@kernel.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <jesszhan0024@gmail.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Proofpoint-ORIG-GUID: s6SJakT3sxQzQghWifN-PwscKYqn09D0
+X-Proofpoint-GUID: s6SJakT3sxQzQghWifN-PwscKYqn09D0
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAxNyBTYWx0ZWRfXyNuSxU3uesdC
+ ZKQ7j9RgfEuBx/ODaGN3CHTVu6LGpoR26XzrjMoc/vNo4Wvz8LORCuMXvpeZ7FF15Baill0/vG6
+ sVvXTuNVytoxXX3tIldr4Zx4GhM1EYk=
+X-Authority-Analysis: v=2.4 cv=MIb1C8Zl c=1 sm=1 tr=0 ts=6afd28ea cx=c_pps
+ a=rEv8fa4AjpPjGxpoe8rlIQ==:117 a=rEv8fa4AjpPjGxpoe8rlIQ==:17
+ a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=l0iWHRpgs5sLHlkKQ1IR:22
+ a=TtqV-g6YmW1Jfm2GSLaY:22 a=VwQbUJbxAAAA:8 a=M5GUcnROAAAA:8
+ a=EuGbU4x2D8lrRcO57msA:9 a=OBjm3rFKGHvpk9ecZwUJ:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAxNyBTYWx0ZWRfXzisoyrD0DDvt
+ Q4+pmoIXdh92dXFN1A/WjQQ/xDbILcMFZRvwMnHl7GxE5F+buj7D+lfe0z7w96d23ekweA9KD6v
+ U9MCYmjrqsm/1/hv8gJC9NlRwqJ5OrfZwUybyI0KEKE/k02BaW7L1tJmjeliGkm0qXjXDtObtqG
+ XBnfI0DAyD4dX0ZcieZX3VMe5UwdGh93Qf0bm23fia/OUMT37hAaHhdvq2WgJ6AmvAPcPeOXutg
+ 5+bpTyOOF4LqBTFrYrbTEDoPb0RC/TQyKAuwI0XXdJYwywaCRQXbCyCdgNtVMipPeH2y24vMk9E
+ R59aYxkwtC7rRANIZvoluxWmAUJLf0Qu0BLsEYVzQYtCgD/ObfhdwsdM3hrN9hUKF06j9mUkoES
+ jK2UdNCQL+8+LAtHtJbWOGD9Ae6/N4DC5GhGCIcbXQkduEK4ZHEk4FR1ELLhVIaueBQCffmS4+F
+ vRLueptkAtqVpHnaNLA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-18_01,2026-11-16_01,2025-10-01_01
 
-Hi,
+From: Satha Rao <skoteshwar@marvell.com>
 
-On Tue, Nov 17, 2026 at 3:49=E2=80=AFAM Johan Hovold <johan@kernel.org> wro=
-te:
->
-> On Wed, Aug 12, 2026 at 04:12:00PM +0200, Johan Hovold wrote:
-> > On Thu, Jul 16, 2026 at 03:23:34PM +0200, Johan Hovold wrote:
-> > > The i2c subsystem currently blocks during adapter deregistration
-> > > whenever there are consumers holding a reference.
-> > >
-> > > Switch to using of_get_i2c_adapter_by_node() which also takes a
-> > > reference to the adapter module so that an attempt to unload the modu=
-le
-> > > while in use fails gracefully instead of blocking uninterruptibly.
-> > >
-> > > Signed-off-by: Johan Hovold <johan@kernel.org>
-> >
-> > Can this one be picked up for 7.3-rc1?
->
-> This one is still not in linux-next. Can I get one more ack or whatever
-> is needed for this to move forward?
->
-> Also adding Doug who merged a corresponding patch for panel-edp back in
-> July. [1]
->
-> Johan
->
->
-> [1] https://lore.kernel.org/all/20260717143119.1815106-1-johan@kernel.org=
-/
+The scheduler queue number packed above the 16-bit register offset
+was masked to 10 bits ([25:16]). Queue indices of 1024 and above
+were truncated, so configuration and readback used the wrong TX
+scheduler queue. The queue number is 11 bits ([26:16]).
 
-I took a quick gander. One thing I notice is that earlier in the
-thread there is a Sashiko review [1]. It seems to point out a valid
-problem here. I'd imagine that if I land this patch, I'll get a
-nastygram from Arnd and his RANDCONFIG testing. Am I confused? Is
-Sashiko wrong in its analysis?
+The SMQ field of the CN20K SQ context is 11 bits wide, so queue
+indices of 1024 and above first became reachable with the CN20K NIX
+contexts.
 
-[1] http://lore.kernel.org/r/20260716134901.05E221F00A3E@smtp.kernel.org
+Widen TXSCHQ_IDX_MASK to 11 bits and NIX_TX_SCHQ_MASK through bit 26.
+
+Compile tested only; not tested on real hardware.
+
+Fixes: b5dcdde074d5 ("octeontx2-af: Add cn20k NIX block contexts")
+Signed-off-by: Satha Rao <skoteshwar@marvell.com>
+Signed-off-by: Vadluri Mukunda <vmukunda@marvell.com>
+---
+v2:
+  - Fixes tag now points to an upstream commit
+  - Use full name in Signed-off-by
+  - Add test status to the commit message
+v1: https://lore.kernel.org/netdev/20261026062316.754904-1-vmukunda@marvell.com/
+
+ drivers/net/ethernet/marvell/octeontx2/af/mbox.h    | 2 +-
+ drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/net/ethernet/marvell/octeontx2/af/mbox.h b/drivers/net/ethernet/marvell/octeontx2/af/mbox.h
+index cece197d1074..1b62f9d7f00a 100644
+--- a/drivers/net/ethernet/marvell/octeontx2/af/mbox.h
++++ b/drivers/net/ethernet/marvell/octeontx2/af/mbox.h
+@@ -1164,7 +1164,7 @@ struct nix_txschq_config {
+ 	u8 lvl;	/* SMQ/MDQ/TL4/TL3/TL2/TL1 */
+ 	u8 read;
+ #define TXSCHQ_IDX_SHIFT	16
+-#define TXSCHQ_IDX_MASK		(BIT_ULL(10) - 1)
++#define TXSCHQ_IDX_MASK		(BIT_ULL(11) - 1)
+ #define TXSCHQ_IDX(reg, shift)	(((reg) >> (shift)) & TXSCHQ_IDX_MASK)
+ 	u8 num_regs;
+ #define MAX_REGS_PER_MBOX_MSG	20
+diff --git a/drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c b/drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c
+index 153eb57bad06..68cf730a8372 100644
+--- a/drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c
++++ b/drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c
+@@ -2850,9 +2850,9 @@ static void nix_tl1_default_cfg(struct rvu *rvu, struct nix_hw *nix_hw,
+ }
+ 
+ /* Register offset - [15:0]
+- * Scheduler Queue number - [25:16]
++ * Scheduler Queue number - [26:16]
+  */
+-#define NIX_TX_SCHQ_MASK	GENMASK_ULL(25, 0)
++#define NIX_TX_SCHQ_MASK	GENMASK_ULL(26, 0)
+ 
+ static int nix_txschq_cfg_read(struct rvu *rvu, struct nix_hw *nix_hw,
+ 			       int blkaddr, struct nix_txschq_config *req,
+-- 
+2.25.1
+
