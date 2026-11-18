@@ -1,64 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.250.60.165
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.250.60.162
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795020846;
-	b=mIwJrUfewzAkX0JJMwylhVXQGtjYGNtt7ojPgLmNUkVEu8HIwVZ5SB3i9dmGITlDeFdL
-	 xJeh4jOdDXx9xaYTE0Ev/i0GTcE6MUmkF2QWv35gUDJnbmLye4HZ2OBQKGJJ4s3j9OD2z
-	 TVhYdSA/VYjBYrooOkCjTTaNsbDZmYtkcnaePHtla2ff1XUxB2I1TdNoKVyDZEKcQvql/
-	 PgQMO8qkHXD4hvKsJIWXSysox7nG64TxLW/YN0tJhHXpwCVkDYFI6xbitIQCrHmVww1MG
-	 DyyxCF4z5NmHAIhBjY9MiIFaS88riU0UQUoRfsgBQdxebz/4URF2BqhRVwTXahmwIEw==
+	t=1795020855;
+	b=XCiRffsQrlH9IJ0PQneGjcjctz2rj9iZ94UOg8x7gDeFXVHFgn0qXD30Q1H++kvyLuFJ
+	 KpP2STpq1coy99dAMX5vbhPQRB7Eq3jgqTnTw5Zto8l38UfmFJTgoyjrOhjpy1giVYyad
+	 nGvZpuZU4AWIYnowPM7LERAa+N/SRrX3BZZJ9b18K4sYKieuMPtaHCs43+Ja+HavDUIW0
+	 iRsyu4bS6VZYtBUXv4KWR9tM+OxKUfDWMi1h1/fUnFaAul6V7ph/hSNnXN4Mn6pGxnY1b
+	 ks9aQDNRN9+2QVLV4UfMOhySez46l43omNErA/pGbLg3PuhQyE7Zxto1JTK7Smy8tGw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795020846;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795020855;
 	h=DMARC-Filter:Received:Received:X-Yandex-Fwd:DKIM-Signature:From:To:
 	 Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=EOJ8Sv/YlC8vz0y+8TQ4TF7t2l9IIfJq2FXNg6WSXn8=;
-	b=Jlj5RWynKkCi0Yc5g/rxnM7n+sQ5h29pKccRQu5ZLJiwAe9SijJ1529hD7VKdF9+kvKy
-	 gVu4KHM4KrjbDZAgca97G16ulY6RNqUbovkVBKcBiag4Rz3BF4VM8zN1E64dYy36esDoi
-	 l2k2acha9rCXnmZW4gSA182m8geyPVg177+joF7PUho1BTiRNc/Ie9rDcFXwNH2LBnXon
-	 qxho1/MYWqnIEAhtad/2DqCMH0UgW60pj1PBIupKlfSENb3FQE53B8Ze51+kOQBdsInVn
-	 DIW1uLtIMWamjWoHdM0qHyF02Iac6DCzearFj8zdR0Tx4GC03srr0ZOaniUdhV3Ab6w==
+	bh=yD1/OR6ajdIF7WPOaJ7OQK9lcxiyH/vK4kcEYe1fozU=;
+	b=UDYSAH7ztyfXWD5PgFFJHIa2v3DdDC/HIXw94RxBajLth67fYYq/VDk8ohfiX3ttHis/
+	 A88LlTtnGGGsLkr4qwXaAFzy89FaoMibncpubEaGgvn5iR1VaJI17+2CAhEq7UJbqZvK0
+	 /E3W1q5sREOMEjBGFEjnAyGluCqu6fXhyqmdrzSw1wqVrz3C5gUykjB0XkNE5R2KdB4tY
+	 CV51TTlOauwcztoQZoDzcTwAY7KvV6SF1WRqfdaoOAvJ/qIfqPOeJDc3L8SWYdVjL+YZh
+	 h/aoWAt/Kj0QEsEsxNQbeXX8sJRtv7OXdK0tvcBAQ+6CBurCp8E0+PjoKBOrjxoNrfQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=yandex.com;
 	spf=pass smtp.mailfrom=yandex.com;
-	dkim=pass header.d=yandex.com header.i=@yandex.com header.a=rsa-sha256 header.s=mail header.b="IoPwM4/+";
-	arc=none smtp.remote-ip=51.250.60.165
-Received: from forward105d.mail.yandex.net (forward105d.mail.yandex.net [51.250.60.165])
+	dkim=pass header.d=yandex.com header.i=@yandex.com header.a=rsa-sha256 header.s=mail header.b=BadVSQLR;
+	arc=none smtp.remote-ip=51.250.60.162
+Received: from forward102d.mail.yandex.net (forward102d.mail.yandex.net [51.250.60.162])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B56560A260E
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:54:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4B56560A260E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1F49606B587;
+	Wed, 18 Nov 2026 16:54:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1F49606B587
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=yandex.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yandex.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=yandex.com header.i=@yandex.com header.a=rsa-sha256 header.s=mail header.b=IoPwM4/+
-Received: from mail-nwsmtp-smtp-production-main-66 (mail-nwsmtp-smtp-production-main-66.yp-c.yandex.net)
-	by forward105d.mail.yandex.net (postfix) with ESMTPS id 37EBB100036;
-	Wed, 18 Nov 2026 19:53:55 +0300 (MSK)
-Received: by mail-nwsmtp-smtp-production-main-66 with ESMTPSA id YrdcVw0j54Y0-vlfv0vrV;
-	Wed, 18 Nov 2026 19:53:54 +0300
+	dkim=pass (1024-bit key) header.d=yandex.com header.i=@yandex.com header.a=rsa-sha256 header.s=mail header.b=BadVSQLR
+Received: from mail-nwsmtp-smtp-production-main-94 (mail-nwsmtp-smtp-production-main-94.yp-c.yandex.net)
+	by forward102d.mail.yandex.net (postfix) with ESMTPS id C9819C00C6;
+	Wed, 18 Nov 2026 19:54:11 +0300 (MSK)
+Received: by mail-nwsmtp-smtp-production-main-94 with ESMTPSA id 6sdtri0d1Ko0-vPZdlYXj;
+	Wed, 18 Nov 2026 19:54:11 +0300
 X-Yandex-Fwd: 1
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex.com; s=mail;
-	t=1795020834; bh=EOJ8Sv/YlC8vz0y+8TQ4TF7t2l9IIfJq2FXNg6WSXn8=;
+	t=1795020851; bh=yD1/OR6ajdIF7WPOaJ7OQK9lcxiyH/vK4kcEYe1fozU=;
 	h=Message-ID:Date:In-Reply-To:Cc:Subject:References:To:From;
-	b=IoPwM4/+G6iuBYnsqs6wPD1Mec6CqC38mgXduK3ckxC8/7q2aZJEurdTHiHuxi43S
-	 PpK2fLEqUxSU7yojJa8TJAlERPg8rM5Zt0ywQL9DBGpyB91anpM61xuQURfBl7gi0E
-	 bqJV+oqtUGAb4P1MSObTvsB9m3TPvvSRqJVfvJiM=
-Authentication-Results: mail-nwsmtp-smtp-production-main-66; dkim=pass header.i=@yandex.com
+	b=BadVSQLR+kBn5498Kt1JFpF1P9/hCWn312ACxj1yA1JxmYjRVTBPBOe9cuZqQAuHy
+	 yHX048ViUFKo72m+HcxA+EUoyExYlmEyhScZc0Naj5D0ZQEy85Ty85BpJEI/yWIv0s
+	 oVrViHJ0AEgbHEpoEbQ5FpENkKkaLvc/6KAAeiBI=
+Authentication-Results: mail-nwsmtp-smtp-production-main-94; dkim=pass header.i=@yandex.com
 From: Alex <xnderv@yandex.com>
 To: Lyude Paul <lyude@redhat.com>,
 	Danilo Krummrich <dakr@kernel.org>
 Cc: dri-devel@lists.freedesktop.org,
 	nouveau@lists.freedesktop.org,
 	linux-kernel@vger.kernel.org,
+	Martin Roukala <martin.roukala@mupuf.org>,
+	stable@vger.kernel.org,
 	xnderv@yandex.com
-Subject: Re: [PATCH v2] drm/nouveau: idle the channel before destroying an engine object via abi16
-Date: Wed, 18 Nov 2026 19:53:28 +0300
-Message-ID: <20261118165328.53341-1-xnderv@yandex.com>
+Subject: Re: [PATCH v2] drm/nouveau/therm: mask the update bit when reading back the fan PWM duty
+Date: Wed, 18 Nov 2026 19:54:02 +0300
+Message-ID: <20261118165402.53610-1-xnderv@yandex.com>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261023152332.9420-2-xnderv@yandex.com>
-References: <20261023152332.9420-2-xnderv@yandex.com>
+In-Reply-To: <20261029130012.21738-1-xnderv@yandex.com>
+References: <20261029130012.21738-1-xnderv@yandex.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,11 +74,9 @@ Content-Transfer-Encoding: 8bit
 
 Hi,
 
-Gentle ping on this one. v2 addresses the review comment on v1 (wait for
-the scheduler job queue to drain before idling the channel). It still
-applies cleanly to current mainline (checked today, 2026-11-18).
-
-Is there anything else you would like me to change?
+Gentle ping on this one. v2 trims the commit message as Martin asked
+and carries his Acked-by. It still applies cleanly to current mainline
+(checked today, 2026-11-18).
 
 Thanks,
 Alex
