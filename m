@@ -1,102 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.195.21
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795013387;
-	b=hG8vExoesi2aeZauNtmr2v4og4jWOHEKQXsLr8Lwaj1CoGkc3/MAQxZK/oVIkhzxi/66
-	 zngqQjLExwmP8x4DYfqlvgSoWG8YTMX3RNZwbrUaIzHynzOl43JvqcM19J7j4ZImF5FJE
-	 EIZ8zeufSZvEQ8glkE4EfkYh8KMOk3Y83+RIfGyO4y1E/XOdnfTSHYLetPvO0GoNDTy0I
-	 Pfg+e3w1ztn5HNZP5uV8f7ENVU3S3OlDdThLBzgg4wmeDFaQp3HO+5pFVRysnRp+KA/H3
-	 Urn7LNas+/DAyq+aunDHI85JC5KqxKQCq7Cy3JUaOEllPcg610wvD/ooViT/foM0NVQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795013387;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy:X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=VlKg3D4fFbSwzdyJI9bQLHAmJpxgP2OcFfGXBZsm5/w=;
-	b=ENm9PiH+ntQV11N718ObMDPNmHQTwxTMks/51COD/J616LwO76ZAr1LjNeqLCewbIsiR
-	 265uiJ/Vq6wxr0EJjBcES/I6zGd8elkZ80z+9N8dRVGPuSNvZYcPTuXbVjVid6iAW4lV2
-	 8oIMHZIEaKUy0gPEpXUtTm8gE2YVc3DlGmQxVo9zkuW7HCjPnRh4zd5GQidEaqI9+AJBh
-	 BybOLQskkxM1Qdwly65eLBTU1wV6ip0+I/NVIq7p0k6qV3xIEZZ2FkXc56xk0uSQp2xwU
-	 pwFaXi4EvzPJHGk0RtWtBMr5o7O/Xq0rK3+KMKidLJCEl9OyE61PafwYrBvcfalTnqA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=5C6Hft2H;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.195.21
-Received: from SN4PR2101CU001.outbound.protection.outlook.com (mail-southcentralusazon11012021.outbound.protection.outlook.com [40.93.195.21])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795013481;
+	b=ut8uGGYsdasX+d6m6xHjKJKYVpVUSgzEc5VCU53ksuoaIpbBj417ofQSjTKrcDpij67N
+	 cWUjqMZH/CFzXHCIKksEq5Lt7KLLS3MM1p48aeYAWJEG97SH5d2fPPcafbmnCsWnpUr0g
+	 atL7jB99jq207bX3clcNeEkUGhyHYpxSDAcTrACqsoUMjjOKmI1fmr3dZoCOb9l3BLn+7
+	 tkB/hcA7Tf8UTSE1YFSer4SNHLxlMC+qxJJb2/j1Kre2kkhjXOb5VYyn4VALoLmP49ZWu
+	 Qv4tCfUXuL+wuONtMqiWMDCNBbST8tmlmTm1GdADCOCNTV64LkTijQxwfvi1TCUIJeA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795013481;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=XNfcKxtjE3WyApHOpNrRRQwr1Y2c1MZAzNhEcwdN+qo=;
+	b=H5ZKSylx1RSB0co42lu/YA4Ab96g/672wlwSnl9xh2Zap8dAgkniH0lAmPPkIYa4gYLV
+	 gikSNnPROOvc00u2uadJmi12fbel+X0/2xdIWN/fI0HgnvMIGiS+VwCWTs3z1kSW3mBNl
+	 0Wd+cWWUsB0wiSKdwI6NuPP0U3BJBv4dORLaD8cwAu5vev9Tupf3jBVLkWoSUFu3mC/Yp
+	 S8xHUp7QHAQ5nuMWwMP9MY63AIqUOYupurDfqJ7hMs5t8G9aIg4w+nH24T0JkfwrV9zyf
+	 xFlwdicBc+kuVnR8uB1c2I2zvHmjSgWpSFyOcbI5vnIGg3z5j2Pqiw+YLqrRzAJpC0g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=egqQAmIn;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E745606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:49:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E745606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 880C0606A31C;
+	Wed, 18 Nov 2026 14:51:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=5C6Hft2H
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ytAaxHV09biIlRddyG1gADAgzLqrV0YVN6zKP73rextPWekW3ZgVozgMXZO71w6aRuxwuN1z1zbOh5IWKac5PsqWiOqFCnumPPHyY8OOC92mmwHlP4GOKrkAyaDU3+WpFlk3rsDwDEV+fqHvG5vlSHN6pABp/ogs1/VKn8guKS4daVpnMVqHfDglS+KAoBY9Uz/D0S0uB84u75I8FkKVKHTTP40QBLucx5gACpqvG6KteEuJp/AP1QHdpl2Gx8jl8JYw1tWARXVhIGgrkgdAnAkJ0tqkxR5YPHjeVsSuBtnlrfo6ADOddyplJhP5EXxKX8yEwnw9oQJO4pfEIsXviw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VlKg3D4fFbSwzdyJI9bQLHAmJpxgP2OcFfGXBZsm5/w=;
- b=JIzQ+CJr/wToyJNWIB39OXkq5knTWfpvQpasWpPpnGqU3phLWE5lfPmtEWH54+z84fJvouEBIAq102BzSUAqyFpIGyDkIkC5kYBWwXP0tv73jsfuKeGcchXkRGlCiePoGC8SXkeNl+9ixaQzLS/N7u5pzAy9/qXDb8EFuvd5JHxSfMOJ7BGYyzdGIFQXIpaj0YV9LOkOzl7cwfJohI/B7R4CSDvEFJXKYzZ9Ku1O62w49+QMKVjB2Xu0zWXfA+IGJdfmsFauzbiJg/nh4buiBZDe0zMSDXyyUEZMRkG6zwRuhxAnDSdoHsYpGaCu7PK3t6YrNirjh6GVGXlPvA5udw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=gmail.com smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VlKg3D4fFbSwzdyJI9bQLHAmJpxgP2OcFfGXBZsm5/w=;
- b=5C6Hft2HACtcY56roNBFlvlekeSnizEeMiQHJKNhzl2HYM6kAU4DxQJO/hT7ueglORgTD0Y4sqf9DKPk+n91e1rh9uOxcSX/ADztwWUp3s9iMAamJ0z+eXMOr1oIi2b+/8S3hv1xW/CdqiIeI2DF1FP6yV1GYBORsE9V/uuS9XY=
-Received: from DS7P220CA0122.NAMP220.PROD.OUTLOOK.COM (2603:10b6:8:25f::6) by
- DM4PR12MB6010.namprd12.prod.outlook.com (2603:10b6:8:6a::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.14; Wed, 18 Nov 2026 14:49:43 +0000
-Received: from CH2PEPF000166BC.namprd04.prod.outlook.com
- (2603:10b6:8:25f:cafe::2e) by DS7P220CA0122.outlook.office365.com
- (2603:10b6:8:25f::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.14 via Frontend Transport; Wed,
- 18 Nov 2026 14:49:43 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- CH2PEPF000166BC.mail.protection.outlook.com (10.167.252.6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Wed, 18 Nov 2026 14:49:43 +0000
-Received: from FRAPPELLOUX01-WSLPUB.amd.com (10.180.168.240) by
- satlexmb07.amd.com (10.181.42.216) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Wed, 18 Nov 2026 08:49:41 -0600
-From: Pierre-Eric Pelloux-Prayer <pierre-eric.pelloux-prayer@amd.com>
-To: Alex Deucher <alexander.deucher@amd.com>,
-	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>, David Airlie
-	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
-CC: Pierre-Eric Pelloux-Prayer <pierre-eric.pelloux-prayer@amd.com>,
-	<amd-gfx@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v1] drm/amdgpu: use a single clear entity on some chips
-Date: Wed, 18 Nov 2026 15:49:22 +0100
-Message-ID: <20261118144923.1100-1-pierre-eric.pelloux-prayer@amd.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=egqQAmIn
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4631E1F000C8;
+	Wed, 18 Nov 2026 14:51:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795013481;
+	bh=XNfcKxtjE3WyApHOpNrRRQwr1Y2c1MZAzNhEcwdN+qo=;
+	h=From:To:Cc:Subject:Date;
+	b=egqQAmIn0hLtgYrwMl0jV2JGZCG0rFiJWz6fvECPwSIcn4tcBeyTKI76TjVPgyAht
+	 YYAh7T5iXLt+6vdhHgukEblEmUisyPuBYv6+bhDJMynhpk6D8DtpHXVWSRffsh31SA
+	 4DD4DLCuxgDNo1C9U5JO9J/59+CnZ3KKuCKnJi4NIMUf0xb3uwNt40qWoE9us/vMh4
+	 irG9ZVyMKmlB9zPT6YLp2MU6g9pO45HxgkUkNvgrBZ5ZI/QWXRqRenGXIpVx8Ow9Ww
+	 tSvmYXAmXkyO4wrkK/EdetTZpDqBGGuhMpZqy1uPWePuWVKQ28T+oqR6csmvlMvLO3
+	 kiswOlWCnbx3g==
+From: Philipp Stanner <phasta@kernel.org>
+To: Sumit Semwal <sumit.semwal@linaro.org>,
+	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
+	Philipp Stanner <phasta@kernel.org>,
+	Tvrtko Ursulin <tvrtko.ursulin@igalia.com>
+Cc: linux-media@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] dma-buf/dma-fence: Remove dma_fence_later()
+Date: Wed, 18 Nov 2026 15:50:27 +0100
+Message-ID: <20261118145026.1755441-2-phasta@kernel.org>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,62 +61,86 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
- (10.181.42.216)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF000166BC:EE_|DM4PR12MB6010:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9d22a2a8-1d78-4973-deb0-08df45832e97
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|36860700016|376014|23010399003|82310400026|1800799024|11063799006|56012099006|261026140227099003|261028144727099003|261022105027099003|10067099003|261021121427099003|261102123227099003|261009223027099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	ExuoEjkwjvjxJMhtMxewxKsmnnAr5HLfypeu7SEffG08Lvzfq2WUvl5r3vaNiG94PKlyHPwLM44JzDhCgpXlCYt6hcTto9BMja+HAtG6IxEQIkE04zO9sKXONNkYqnY+ypEDgLidsV++fWuQt7WjjLjLickGPC5PK4zAK0rmlEUWlbyyHcgmjJ4osh10ZwvBK5bSkaxYN3dFjgBdgKZixK3iqEHX711beYO0hROQUZeB99PTFRryfsjuJCoj+PF4SlX9wD+BnCYIFBRdPZThQ21CuEom1/D78PwIDeXIUrRwznGcslhXREi6Wgvo0TO6Iz+RqlzFKHl4tdDUskTkg/gxkW3ulW8PPDpV9S1Cff0ki1A01Ykt3RM8bQ0+EQ5c0j+EWP68N9E1xRJskemqqmpCr+aTxSVm8r4UlJxsn/3Yttl0rZV7gfjpk4Z4CadgNpAcDskmXmk+hDrnkzRzQp6FEEgVqmUAK6Y6h7oyirzQq+EHbyWeIXEPuk4tHIi070MAaZvwVcEkYXlcuJtMkz27GAW3EWBXqvxwKCkNcgT7pgJu5Q/RBaqBa7wiLv/5pe78g2M78lqMpdZAqR6bwdQPdzFRKsbDqnkF72nALPuINiEb/RY8gsVQGjvbxyDu3gADbsL5IXKwFt9aCwsx7wX3c4w82YtHg/2FXyPi+O8egRHjVcbiF8CV7St4WqEI0bxFZ1cmdR+ncHscJLgTSQ==
-X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(23010399003)(82310400026)(1800799024)(11063799006)(56012099006)(261026140227099003)(261028144727099003)(261022105027099003)(10067099003)(261021121427099003)(261102123227099003)(261009223027099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	aUCoUb8yhcH7AZYJ1H2M2zoWHr+Jb8mEbMicax5EGDAly7c6tDmSMOP/JWjKNyFd5PjpE8mCrfCYGT+jwxWWqwnYtftvJKUr4nepZShaTSe0X6vXaAqoCKw60vZfat9AogQnLAVc7lk38SkdHtjyLHRAcra5CqVRaxKd/AYwXGohqVOSEdtLhOXiA/E+bxh9cLG2NrmvvyaiM35LaoL1jzAOgj0Xjvd47M+6mF7R2ztyGVI64rb97rOsqncjP9Kurv2qWs2edzMuHPndkzLMVgPJgCWFw7VQzbO0104sUTSDDVCZ3DKZqJItDqxpV5YaqOXnboPdRR38iz+YdqyPws8T4nimVplVfVjGug0Z2vqhZvscIB9dzGlnRG0HGyzLc1wxCJWy36XF5hN1A81hDDrli9NpvuuYfsJPNl+lcl+btWuyZmWiZ+hQ1xbMgTMu
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 14:49:43.4044
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9d22a2a8-1d78-4973-deb0-08df45832e97
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	CH2PEPF000166BC.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6010
 
-Workaround to fix failing tests until the root cause is
-understood and fixed.
+dma_fence_later() does not have any in-tree users anymore.
+dma_fence_is_later() is available as an alternative.
 
-Signed-off-by: Pierre-Eric Pelloux-Prayer <pierre-eric.pelloux-prayer@amd.com>
+Remove the surplus function.
+
+Signed-off-by: Philipp Stanner <phasta@kernel.org>
 ---
- drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+No idea why we have two such functions.
 
-diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c
-index 8dfa92967b63..d5c1d044403e 100644
---- a/drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c
-+++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c
-@@ -2411,6 +2411,13 @@ void amdgpu_ttm_enable_buffer_funcs(struct amdgpu_device *adev)
- 	sdma_ip_version = amdgpu_ip_version(adev, SDMA0_HWIP, 0);
- 	if (sdma_ip_version == IP_VERSION(7, 0, 0) || sdma_ip_version == IP_VERSION(7, 0, 1))
- 		num_move_entities = 1;
-+	if (amdgpu_ip_version(adev, GC_HWIP, 0) == IP_VERSION(9, 4, 1) ||
-+	    amdgpu_ip_version(adev, GC_HWIP, 0) == IP_VERSION(9, 4, 2) ||
-+	    amdgpu_ip_version(adev, GC_HWIP, 0) == IP_VERSION(9, 4, 3) ||
-+	    amdgpu_ip_version(adev, GC_HWIP, 0) == IP_VERSION(9, 4, 4) ||
-+	    amdgpu_ip_version(adev, GC_HWIP, 0) == IP_VERSION(9, 5, 0) ||
-+	    amdgpu_ip_version(adev, GC_HWIP, 0) == IP_VERSION(12, 1, 0))
-+		num_clear_entities = 1;
+dma_fence_later() seems to be older, coming from a big-bang commit in
+2014. Yet Christian added dma_fence_is_later() in 2015.
+
+*shrug*
+---
+ drivers/dma-buf/dma-fence.c |  6 ------
+ include/linux/dma-fence.h   | 26 --------------------------
+ 2 files changed, 32 deletions(-)
+
+diff --git a/drivers/dma-buf/dma-fence.c b/drivers/dma-buf/dma-fence.c
+index bd58688b81a7..2f805b788f8f 100644
+--- a/drivers/dma-buf/dma-fence.c
++++ b/drivers/dma-buf/dma-fence.c
+@@ -1099,9 +1099,6 @@ __dma_fence_init(struct dma_fence *fence, const struct dma_fence_ops *ops,
+  * refcount after committing with this fence, but it will need to hold a
+  * refcount again if &dma_fence_ops.enable_signaling gets called.
+  *
+- * context and seqno are used for easy comparison between fences, allowing
+- * to check which fence is later by simply using dma_fence_later().
+- *
+  * External locks are a relic of legacy use cases that needed a shared lock
+  * to serialize signaling when no out-of-order signaling was possible through
+  * &dma_fence_ops.signaled. Drivers have abandoned this concept since the
+@@ -1129,9 +1126,6 @@ EXPORT_SYMBOL(dma_fence_init);
+  * refcount after committing with this fence, but it will need to hold a
+  * refcount again if &dma_fence_ops.enable_signaling gets called.
+  *
+- * Context and seqno are used for easy comparison between fences, allowing
+- * to check which fence is later by simply using dma_fence_later().
+- *
+  * New users MUST NOT use external locks. Check the documentation in
+  * dma_fence_init() to understand the motives behind the legacy use cases.
+  */
+diff --git a/include/linux/dma-fence.h b/include/linux/dma-fence.h
+index a3fa1341765e..e11e65b916f1 100644
+--- a/include/linux/dma-fence.h
++++ b/include/linux/dma-fence.h
+@@ -633,32 +633,6 @@ static inline bool dma_fence_is_later_or_same(struct dma_fence *f1,
+ 	return f1 == f2 || dma_fence_is_later(f1, f2);
+ }
  
- 	adev->mman.clear_entities = kcalloc(num_clear_entities,
- 						sizeof(struct amdgpu_ttm_buffer_entity),
+-/**
+- * dma_fence_later - return the chronologically later fence
+- * @f1:	the first fence from the same context
+- * @f2:	the second fence from the same context
+- *
+- * Returns NULL if both fences are signaled, otherwise the fence that would be
+- * signaled last. Both fences must be from the same context, since a seqno is
+- * not re-used across contexts.
+- */
+-static inline struct dma_fence *dma_fence_later(struct dma_fence *f1,
+-						struct dma_fence *f2)
+-{
+-	if (WARN_ON(f1->context != f2->context))
+-		return NULL;
+-
+-	/*
+-	 * Can't check just DMA_FENCE_FLAG_SIGNALED_BIT here, it may never
+-	 * have been set if enable_signaling wasn't called, and enabling that
+-	 * here is overkill.
+-	 */
+-	if (dma_fence_is_later(f1, f2))
+-		return dma_fence_is_signaled(f1) ? NULL : f1;
+-	else
+-		return dma_fence_is_signaled(f2) ? NULL : f2;
+-}
+-
+ /**
+  * dma_fence_get_status_locked - returns the status upon completion
+  * @fence: the dma_fence to query
 -- 
-2.43.0
+2.56.0
 
