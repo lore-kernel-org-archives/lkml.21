@@ -1,61 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=82.195.75.108
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794980403;
-	b=40ed+PjwOsfy9yVT9fKbdIwsDDCB7lEdMrZcbdF7IR7rnOCQQ1/Cb9PZ9ILJmaPOHnum
-	 vleKpkw37vh4YlBDuX/k1DRHUSXmNh/dOMj8QXTKlY3wfpOUJlV4lCfQBcjLJ7x3hlmwH
-	 WaNZBaitZHOYcychE91T0u77TlZIfsQOIBqkZ1iQghms9Ytjdl+qqF9L9AxKnKILGAJEL
-	 7uh8Cc8077HQAHsJju++KNUHNMaZFi1bWlxojWSXmmKkBCVg9LZeJC1uFnXypj6tTDYiA
-	 6ky29+6W8Rw84NWlmbzwbmNgyro53NPapHflUmyCksBvYqU6gQ62jAs5mbY+vDPDgLQ==
+	t=1794980417;
+	b=uY61DzfB2zHY/jXyhSCyF8tL+jKACms0vRNaj/+L5Nssyb1ZTAk9d7ZJcmpXc43fCJgF
+	 T+HbCC4UJ3s1gXETI2Xiv9F3t9g3lnehwhMeffBTLN2uWHhbWyvlwPhBAwJ36/qvbi4mT
+	 aMr48FCScFv6GIEQkvSyazOSnwOGze/UAGNfWuboQEa9gRY1WhUhp4kVasI1aUhB2cfCx
+	 HhU83x9HESmeKvMBHMyPXbFj6PRAZvBdveGEwt2l64dtF6Pe9GUdsYplIM60B+jJJSWwf
+	 h/kPuNUKGO++bA58d5qMOl+jvqvXrzAI7Zba10jmppJZ4bQ1uxJbMqWBKCFEjYw7SDA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794980403;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=lq08pXz2oO1mnLEMAJoPp9lNJOytVldSqHeb3gUuNIk=;
-	b=oASKs32XneasbO4/cOM3btSteopxVF6hyKV6cIDuh5j2nzXPkyQfNX9VMYLJ9DUvce3m
-	 H/uxmMJELEwrS7MEaoB73N23n9hdfGbxwykz0jKhRNT9geRbyjJKOV7+DCQ6J7CtIRmvr
-	 VjdWYZQqP4YQfYpJzNz5RQJsGDSrlwbnsuUVseI/ktyeIGebdxEAiRhRxH1WKrmriWscM
-	 bHV29A534SjtDOdfE9PfY3RYCwCsT09MHs8Y21SJoU1wCpWlkEGQho2TRj5rk32N7yDPw
-	 P9GKk4Gg30HY4KOaEgRQu2DjlS3Q8Mk9fetZyq45lIOOqYpjhYYzQLTrd+mM47NIjUw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794980417;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-Debian-User;
+	bh=GqV/HuIUXYu3NJal3ATCEuPQ0viX5TerGyzwkL7k/e0=;
+	b=cy+AzKOJiVv7DLzfrDkQdrvoiIgDCO7x/1swVh9n04WgPB3RrI2gy8kZTxhrgtjTyOCa
+	 +98esnJJS69yrFKdsZ4DgQ+uDKk2ThfdvqP4/IVLWmo+4/Sy9cbt2abNj1q9P2MAV+UFF
+	 ZGOKymmX4TAtmtkXHsuFeMlcHkE5UcOJUrI+ANMqUWgh8jEB01SsgMXPyUJfohjoIEdKk
+	 TWl+xXbBb2yDWVLcvvEB1nh5mc3WPqdnFkyMnl9Q6D/Ii4D83PAAT3FwZJF2BxPQQQckR
+	 pOonW3vEjxFfWdtAXgpMrxWYr02l/UdXkR1/lDt2Zsc0TsvA+5WgHw1l+/ahIYfOctw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GCwso30C;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=debian.org;
+	spf=pass smtp.mailfrom=debian.org;
+	dkim=pass header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=kfFEGjCr;
+	arc=none smtp.remote-ip=82.195.75.108
+Received: from stravinsky.debian.org (stravinsky.debian.org [82.195.75.108])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6CC82606A325;
-	Wed, 18 Nov 2026 05:40:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91639606A31C;
+	Wed, 18 Nov 2026 05:40:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91639606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=debian.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=debian.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GCwso30C
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18C3F1F000C4;
-	Wed, 18 Nov 2026 05:40:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794980403;
-	bh=lq08pXz2oO1mnLEMAJoPp9lNJOytVldSqHeb3gUuNIk=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=GCwso30CaIdinJYmEMlvk8ij9ndvkk+OCwQOJpn6kV2K4PmITwg9hDMg/KKzDid2u
-	 ANEt5xl5bwpceVMb9WHW7nkgXaqyrgdNlTVeffxK+GyyIBe+UjysR5yGhy/CcHsxKP
-	 lQa5oLrKsgHTKMUbuRZ9pZowe/IaKyHJu3WLnp5uE6OPvGEoP+2YH2ypyXqSHaC4cP
-	 isOTFrSVyBN3EGlPBveJL/ugB6iT10tSVxYS3ntEKhPrIzi08hUAtAPIwIumf5Ri7h
-	 l0Ee8pBBMFUo9hkk9Ojx7UMysmCzOYdese6rmYSfU4NVRM7daGp2nHZOVoqnauJdhq
-	 EdypvLcuScBqQ==
-Subject: Re: [PATCH net v2 2/2] tcp: accecn: initialize AccECN fields in
- syncookie path
-From: netdev-bot+sashiko@kernel.org
-To: thaisonphan@google.com
-Cc: edumazet@kernel.org, ncardwell@google.com, kuniyu@google.com,
- davem@davemloft.net, dsahern@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, ij@kernel.org, olivier.tilmans@nokia.com,
- chia-yu.chang@nokia-bell-labs.com, stani@google.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Wed, 18 Nov 2026 05:40:01 +0000
-Message-ID: <179498040151.3136.12001610371899379772@kernel.org>
-In-Reply-To: <20261116023709.132684-3-thaisonphan@google.com>
-References: <20261116023709.132684-3-thaisonphan@google.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=kfFEGjCr
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=GqV/HuIUXYu3NJal3ATCEuPQ0viX5TerGyzwkL7k/e0=; b=kfFEGjCrO+Zc+GHniNt/fhEXA2
+	1VoGoNwaqgae2D0LdvowfO2TCuvHRVgFooHPebPi3qDIrTx0IQvwiI41s5kBQMT9Sxd0Pl3s1UF4t
+	eUCLJH+7HT7rVhIHQhEpObURh76aMaMHl0uDA2U7zg7PtSfAdnopuK9GIYiGtBDAig1udQ/CGvtWG
+	Zc/+LNJhVd1kx9aDgzOVegJZ64B2q9LHM1G3BP07akH9OmL+RiAQfg49m7nvDYW0buuUw08pwdhLH
+	hOBEKStgtUpT9YnhxuPhEsvSJorWO+fJZMbi4suKYnyol7Jp6dzTBj2uPNiPx0ndV15vB6ZW54e1u
+	NaFs0IrA==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <emfox@debian.org>)
+	id 1xTYOv-0015JH-1S;
+	Wed, 18 Nov 2026 05:40:10 +0000
+From: Emfox Zhou <emfox@debian.org>
+To: Even Xu <even.xu@intel.com>,
+	Xinpeng Sun <xinpeng.sun@intel.com>,
+	Jiri Kosina <jikos@kernel.org>,
+	Benjamin Tissoires <bentiss@kernel.org>
+Cc: linux-input@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v7 0/5] HID: intel-thc-hid: intel-ipts: support THC IPTS ports
+Date: Wed, 18 Nov 2026 13:39:59 +0800
+Message-ID: <20261118054004.363766-1-emfox@debian.org>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,157 +69,106 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Debian-User: emfox
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+The THC ports on Tiger Lake, Lakefield, Alder Lake and Raptor Lake run in
+IPTS mode: plain SPI with a private framing instead of HIDSPI, which is
+all intel-thc-hid handles today. This adds a backend for them next to
+intel-quickspi and intel-quicki2c, on top of the same core.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 0
+It is based on v7.4-rc3 with two core fix series applied, both still
+under review:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+  https://lore.kernel.org/r/20261118053132.253448-1-emfox@debian.org
+  https://lore.kernel.org/r/20261117105420.318995-1-emfox@debian.org
 
-- [Medium] On the BPF custom-syncookie path, the new syn_ect_snt
-  assignment in cookie_v4_check() (net/ipv4/syncookies.c:508) and…
-- [Medium] tcp: accecn: missing option init on 3rd ACK in syncookie path
+One gives the DMA engines a lifetime, the other keeps a PRD table from
+overrunning after a reset, and the recovery path here relies on both.
+They overlap in intel-thc-dma.c: apply the first, then the second.
 
---
+Register, DMA and interrupt work goes through the exported intel-thc API,
+except in four places where the core has no call for it: the reset,
+port-supported and quiesce-state bits of THC_M_PRT_CONTROL are accessed
+directly. Nothing outside the new directory changes except Kconfig and
+Makefile.
 
-tcp: accecn: initialize AccECN fields in syncookie path
+The hardware facts - port IDs, configuration block layout, frame codes and
+header sizes - come from the ithc driver linux-surface ships, at
+https://github.com/quo/ithc-linux 6d53c9c (dual licensed GPL-2.0 /
+BSD-2-Clause); no code is taken from it. The layout, the frame format and
+the ordering between quiesce, interrupt configuration and the DMA engines
+are the parts most likely to need scrutiny; each is argued in the commit
+message that relies on it. All of it was confirmed on a Surface Pro 8 with
+a 045e:0c37 controller.
 
-This commit initializes saw_accecn_opt, accecn_fail_mode and syn_ect_rcv
-in cookie_tcp_reqsk_init() so they match tcp_openreq_init(). It also sets
-syn_ect_snt from the listener's tos/tclass in cookie_v4_check() and
-cookie_v6_check(), so the child socket's AccECN validation knows which ECN
-codepoint the cookie SYN-ACK carried.
+The first four patches each leave a state that builds and loads: port
+bring-up, DMA and interrupts, HID registration, system sleep. The fifth
+documents the frame format and the IPTS handshake.
 
-> diff --git a/net/ipv4/syncookies.c b/net/ipv4/syncookies.c
-> index 4e0ff3b820627..1a837ed6efa00 100644
-> --- a/net/ipv4/syncookies.c
-> +++ b/net/ipv4/syncookies.c
+Link to v6: https://lore.kernel.org/r/20261117073554.11557-1-emfox@debian.org
 
-[ ... ]
+Changes in v7:
 
-> @@ -502,6 +505,7 @@ struct sock *cookie_v4_check(struct sock *sk, struct sk_buff *skb)
->  		ireq->rcv_wscale = rcv_wscale;
->  	ireq->ecn_ok &= cookie_ecn_ok(net, &rt->dst);
->  	treq->accecn_ok = ireq->ecn_ok && cookie_accecn_ok(th);
-> +	treq->syn_ect_snt = READ_ONCE(inet_sk(sk)->tos) & INET_ECN_MASK;
+  - A reset no longer races the threaded handler: the port is masked,
+    synchronize_irq() waits for a run already inside, and only then is the
+    engine reset. A run that acknowledged the end of a frame the reset had
+    just re-armed the engine for would lose the interrupt announcing it
+    again. The two flags are cleared in an order that cannot turn away a
+    run which found the reset finished.
 
-[Severity: Medium]
-Is the AccECN option on the third ACK ever looked at on the syncookie
-path? With cookies the listener kept no state, so the client's first
-AccECN option arrives on the same ACK that cookie_v4_check() and
-cookie_v6_check() turn into a child. On the normal SYN_RECV path,
-tcp_check_req() records it before the child is created:
+  - A request that cannot complete is refused instead of sent: one issued
+    from inside the threaded handler, which is the thread that has to
+    deliver its completion, and one issued while a reset is queued or
+    running, where the write would wait out its timeout holding the bus
+    lock the reset needs. The descriptor path retries both a reset's
+    refusal and a write that lost its completion to one, since a
+    descriptor request carries nothing a late answer could spoil.
 
-net/ipv4/tcp_minisocks.c:tcp_check_req() {
-    ...
-	if (tcp_rsk(req)->accecn_ok && tmp_opt.accecn &&
-	    tcp_rsk(req)->saw_accecn_opt < TCP_ACCECN_OPT_COUNTER_SEEN) {
-		u8 saw_opt = tcp_accecn_option_init(skb, tmp_opt.accecn);
+  - The waits happen outside the lock, which now covers only the write.
+    The handler calls into the HID core on its way to a report, so a
+    request issued there would wait for a lock its own thread holds. A
+    queued reset leaves the line open for the same reason, and reports an
+    overrun once instead of once per frame.
 
-		tcp_rsk(req)->saw_accecn_opt = saw_opt;
-    ...
-}
+  - The feature gate is released by the caller that takes the answer, not
+    by the frame that brings it, and the check and the copy happen under
+    one lock hold. Only a timeout shuts the channel: an answer dropped by
+    a reset was never left out there.
 
-Here cookie_tcp_reqsk_init() sets saw_accecn_opt to
-TCP_ACCECN_OPT_NOT_SEEN. Nothing between cookie_tcp_check() and
-tcp_ecn_openreq_child() calls tcp_accecn_option_init(), even though
-cookie_tcp_check() already parses the options into tcp_opt.accecn.
-The child therefore starts with tp->saw_accecn_opt ==
-TCP_ACCECN_OPT_NOT_SEEN.
+  - The port is masked before the interrupt handler is registered, so an
+    enable left by firmware cannot make the shared level line assert with
+    nothing to acknowledge it. Teardown keeps the line open until the
+    write already inside thc_dma_write() gets its completion, and waits
+    for the handler once more after the buffers are gone.
 
-The tcp_child_process() -> tcp_rcv_state_process() -> tcp_ack()
-pass on the same skb does not fix this. snd_una already equals
-ack_seq, and ts_recent was copied from req->ts_recent. So neither
-FLAG_FORWARD_PROGRESS nor FLAG_TS_PROGRESS is set, and
-__tcp_accecn_process() returns before it reaches
-tcp_accecn_process_option().
+  - Smaller ones: a descriptor larger than HID_MAX_DESCRIPTOR_SIZE is
+    rejected before it reaches hid_parse_report(); the SPI timing comment
+    says fastest, not slowest; the DEVRST comment says which way the bit
+    goes; the two comments that disagreed about masking are one.
 
-With saw_accecn_opt stuck at zero:
+  - The documentation names the two steps that precede the first
+    configuration read, gives the bit positions it had only described in
+    words, points at ipts.h for the offsets it restates, and says what
+    system sleep does to the hidraw node.
 
- - tcp_established_options() never emits AccECN options, even though
-   accecn_opt_demand is set.
- - A zeroed option on the third ACK is not caught as
-   TCP_ACCECN_OPT_FAIL_SEEN.
- - TCP_INFO reports tcpi_accecn_opt_seen as 0.
- - Later processing in tcp_accecn_process_option() can flag
-   TCP_ACCECN_OPT_FAIL_RECV on a connection where the peer did send
-   the option.
+Emfox Zhou (5):
+  HID: intel-thc-hid: intel-ipts: bring up the port
+  HID: intel-thc-hid: intel-ipts: receive reports
+  HID: intel-thc-hid: intel-ipts: add the HID device
+  HID: intel-thc-hid: intel-ipts: handle system sleep
+  HID: intel-thc-hid: intel-ipts: document the IPTS mode
 
-This patch is aligning the cookie path with tcp_openreq_init(), so
-should cookie_v4_check() and cookie_v6_check() also do the equivalent
-of the tcp_check_req() block once accecn_ok is known? The parsed
-tcp_opt is local to cookie_tcp_check() and is not available on the
-cookie_bpf_check() path. Would you prefer to re-parse the options
-there or plumb them through? Or is this meant as a separate fix?
+ Documentation/hid/intel-thc-hid.rst           | 109 +-
+ drivers/hid/intel-thc-hid/Kconfig             |  14 +
+ drivers/hid/intel-thc-hid/Makefile            |   4 +
+ drivers/hid/intel-thc-hid/intel-ipts/ipts.c   | 975 ++++++++++++++++++
+ drivers/hid/intel-thc-hid/intel-ipts/ipts.h   | 200 ++++
+ .../hid/intel-thc-hid/intel-ipts/pci-ipts.c   | 193 ++++
+ 6 files changed, 1494 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/hid/intel-thc-hid/intel-ipts/ipts.c
+ create mode 100644 drivers/hid/intel-thc-hid/intel-ipts/ipts.h
+ create mode 100644 drivers/hid/intel-thc-hid/intel-ipts/pci-ipts.c
 
-[Severity: Medium]
-Does this assignment also apply to requests that come from
-cookie_bpf_check()? On that path the kernel never sent the SYN-ACK. A
-TC/XDP program built it, and bpf_sk_assign_tcp_reqsk() only gets an
-ecn_ok bit from struct bpf_tcp_req_attrs:
 
-net/core/filter.c:bpf_sk_assign_tcp_reqsk() {
-    ...
-	ireq->ecn_ok = !!attrs->ecn_ok;
-    ...
-}
-
-So the program has no way to report which ECN codepoint it put on the
-SYN-ACK, and the listener's tos/tclass is only a guess here.
-
-The in-tree reference program sends Not-ECT for both families, in
-tools/testing/selftests/bpf/progs/test_tcp_custom_syncookie.c:tcp_handle_syn():
-
-	ctx->ipv4->tos = 0;
-    ...
-	*(__be32 *)ctx->ipv6 = bpf_htonl(0x60000000);
-
-When the listener runs DCTCP or another TCP_CONG_NEEDS_ECN CC, its
-tos/tclass carries ECT(0), so syn_ect_snt becomes ECT(0) here.
-
-An AccECN client that receives the Not-ECT SYN-ACK reflects it in the
-third ACK through tcp_accecn_reflector_flags(), giving ACE=0b010.
-cookie_accecn_ok() then sets accecn_ok, and the child setup does:
-
-tcp_get_cookie_sock()
-  ->syn_recv_sock()
-    tcp_ecn_openreq_child()
-      tcp_accecn_third_ack(sk, skb, treq->syn_ect_snt)
-        tcp_accecn_validate_syn_feedback()
-            if (!tcp_ect_transition_valid(sent_ect, ect)) {
-                tcp_accecn_fail_mode_set(tp, TCP_ACCECN_ACE_FAIL_RECV);
-
-Would this set a false TCP_ACCECN_ACE_FAIL_RECV, the same failure the
-commit message describes, on every BPF syncookie connection to an
-ECT-marking listener? Before this patch the field was uninitialized. On
-zeroed memory it read as 0, which happened to match the Not-ECT SYN-ACK
-from that program.
-
-The same applies to the IPv6 line below, which uses np->tclass.
-
-Could the listener's tos/tclass be skipped for BPF-validated requests
-(req->syncookie set by the kfunc)? Alternatively, struct
-bpf_tcp_req_attrs could carry the SYN-ACK ECN codepoint.
-
->  
->  	ret = tcp_get_cookie_sock(sk, skb, req, &rt->dst);
->  	/* ip_queue_xmit() depends on our flow being setup
-> diff --git a/net/ipv6/syncookies.c b/net/ipv6/syncookies.c
-> index b33011b71fff6..7435ebcc366cd 100644
-> --- a/net/ipv6/syncookies.c
-> +++ b/net/ipv6/syncookies.c
-> @@ -276,6 +276,7 @@ struct sock *cookie_v6_check(struct sock *sk, struct sk_buff *skb)
->  		ireq->rcv_wscale = rcv_wscale;
->  	ireq->ecn_ok &= cookie_ecn_ok(net, dst);
->  	tcp_rsk(req)->accecn_ok = ireq->ecn_ok && cookie_accecn_ok(th);
-> +	tcp_rsk(req)->syn_ect_snt = READ_ONCE(np->tclass) & INET_ECN_MASK;
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116023709.132684-1-thaisonphan%40google.com
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
