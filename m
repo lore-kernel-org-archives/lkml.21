@@ -1,55 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795003978;
-	b=qRa5oR10plPcSeksQzdgRE6ml+xlv/arrzWQjWIS2DKaUXNu/y0SnhFEVd8yuY1Nh7sJ
-	 tcraUQ+Jbedhrsr+14p+0cgOw+BHfxqi27d0uMrNCk4vH8iOKq1BlcIAqJEKp9VfWu/BW
-	 oXE0pP4YwxbPlLeKj2DcCIPvmqNsxscDTZQ0y6w+UHby81QPc1VmLhn5aSPatcjm0t6wW
-	 MzjL8NdVk/zPnons7ooKLLg29LlPaxdeEtcYg4UcMPZJ8NdniPLlA5kUeUyviE6v38EKH
-	 ImVyPxKMkzmEiLVuX6hhc+noNpkKlcWwjMAUlOUkB17iWY2mBpTMhlW6w63Ogaf/Cug==
+	t=1795003979;
+	b=F9vzczRel+zd/ICOB+r651BEt/wFoNPiOgVPy5hdr0tdZPyvn+MyeQeBh6ByR4Y7cU0d
+	 ER8nYnv/dRWf3XnbBQVRFM7IIhiFihuZFfvccUPV/+V4IQbLcKj0g5JeQ2eI5+GU+8Y0X
+	 Ox8HLsQkMBD2yjy32Y4xf6FVLeW2iD3cvnWsUZX0DnVmVr6cKOVVRPrEwmILVah+N7lfL
+	 lhb8BLNBqgugbiNSCmfv6XpbwPWOUvHzLgq8pnVg/fm5oGnFfjp4ykRI/odprzqt7qdUh
+	 SPcsJF44J/CF+bVGOVM+qcbgdVdM16s0sj34kITuQHy8XQcv/AxSUP6GdGARcdSfPCw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795003978;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=o6NkUixIaGIxhWVtX5vLgTJsl5Rt9R4mlOjq/LvWRRU=;
-	b=mb1jDQHwNwQB0xvdwF714e6wTLMZJSvJqcaViiszeRkoRWvSnQLLv/YoptuVp9htz1AZ
-	 0pU4evRZFEdCWhGlEnQ2FZpXSbyH8M5Uh1tpPA7qUXvvpTyppVhLHUI/ZaTtNo+/AEaio
-	 GnvAtpzyaPTpEBpvd2/m+D8UbKxJADPPQJsPS9igPWvhL+/6tbgwvxBpSiOXqU/AQ7F0a
-	 VVzLvLCQoiY253ShqaBB4gWluJx5NOCnY2HXW802zgtfpB56q6XFs36RPhgWg4CzMdqdZ
-	 5NMV5RMxHfpkQJklKmyeX2zcUb+vCSU/fcP0cFYW/P7m7Ja4igxDxv6MWfE3tqQuk5w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795003979;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=VToF9amWTCrNW1AvfVMc3RB1WXmBdknEErgNhEgj6zw=;
+	b=FarP3/REmX7vQEgknvEJvFek8kcdxR9wpY4I8Ti/W0SV9cvXfxjHHWv3N2Lsd/lrG884
+	 tUEnjU0gHoCpOxhwG6TrNiDyuT+o42CXDEWhKWvl/0640PpLOtpLS+hAyp7QFPVLNsSe5
+	 Fj9R+9+lVGQOv15j04Q8bE/vkC6307ODtfOjM6pZh6jExYQmpvgaoUuARP60bRh5Zdgmm
+	 IfLBlmwJp1YbcGzXuCXwzF6hb7R5FMP6CKTpEcC/Lk/F3eg/yP+NfiadhZwxDC/yDyJk4
+	 Ct9Zlms33jqlc7MDEuKysIulU2EEz6iZ6nZ5VpyxDQGMPoVU1EbIoc1xMFASWRAHkGA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DNYQIi4k;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=F5XNLxSp;
+	arc=none smtp.remote-ip=209.85.216.52
+Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B195606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:12:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83849606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:12:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83849606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DNYQIi4k
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E80C71F000C7
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:12:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795003977;
-	bh=o6NkUixIaGIxhWVtX5vLgTJsl5Rt9R4mlOjq/LvWRRU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=DNYQIi4kPqDgK3BJL8BQkHE1hN7kKYWgIOTohmEDmhhloQACdNKkJMT2PvJv0THGy
-	 FRKQmh2n4s25WOPOiGELPIkhvpQNiA4oKMP3tFagKXe80bJRzDfkWzcLdjM3cjLO1C
-	 X2vdo4t38OyzqqUxdwFqPXHu0vZ/5zVzIKp1VYjW7je8iVBi8/xuS24SP61LOaw3cV
-	 BrndyT8YaRL/8cVpW08kHNblEvJW7gJZjRa6cJ2Fj7mHnzArZRgB4AdlNqrgTdY/gv
-	 vtWpB+oE3XxyDV8tmutClLnvN50taKsj2Yk+l6pA+ZikN1Duv6nEo6cCKaqQAK1LnZ
-	 a/pa9RgqHJkdg==
-Received: by mail-ot1-f42.google.com with SMTP id 46e09a7af769-86156cf8a7eso1391782a34.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:12:57 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFVvUSa4AWNtQ9frztkGkMCJasK/jDa2gRJZd0vJKocEMRvaJRvVagidqs6CatK/nKUbK9eG81WKi0omV8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/acZgO4CNKOtK9uLaYF/GtS9DoBT7NIckekmkLuWVtV1PqaSsR
-	czQiLiquUtDPozMZNQjpdVfrW4DzSiJf1jPwUSysYkJ+S7+/n3cB9AG0HDsSz1qJyvamC+AqaR1
-	q65hCE0odjf2n3qhtLeoEfj9VMTY6OG0=
-X-Received: by 2002:a05:6820:1907:b0:6d9:4131:5035 with SMTP id
- 006d021491bc7-71b02944507mr3515423eaf.43.1795003977008; Wed, 18 Nov 2026
- 04:12:57 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=F5XNLxSp
+Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-3b155f50c24so713136a91.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:12:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795003978; x=1795608778; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=VToF9amWTCrNW1AvfVMc3RB1WXmBdknEErgNhEgj6zw=;
+        b=F5XNLxSpHySTF+ld3i9RFIcPWLa1BLVpQca8ENIgXFtCD+DgnIKR1q7WV1SqX5rkcE
+         yZB+VicZ7r8xKwIsaNkjfDeY3vyPoGRMZ63139IofXj8hJw3VPd7HVHN2JVkmJgTrW5G
+         i68SXrVRISqis0XYmUHaOxfy7OhXl8TyOJa+K+oIffqJVoz3qSLJr5zTB+9wRkVshVgK
+         mtM26jqrhVR1gtFP3W8qdFQq27JnHS8vXF7I+gnLz4XUHgJaAOTTGGetS+I2c4te5j6M
+         QtAkOc1qaDXpvLZrMOqyjPVoEiJbqq43h8Hi0/g+oOT7jZhf/SvEWmY3XTq3cc+H3eP7
+         X+NA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795003978; x=1795608778;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=VToF9amWTCrNW1AvfVMc3RB1WXmBdknEErgNhEgj6zw=;
+        b=NHBk9Rd5dg4DwM4Aaf3DT4WIl66EBeBr1v/zZcru7aO1IYGPyGIeV8gRxiBmZ2Tqt4
+         jW4Yo+KZYTKDsnltqhwBm/CkTD6VTNImIC3vUw7lrY5noM/2/Twn/GmOYOK+/C95G2gB
+         ZhY3XjNTEEC1MFwTWo+wBs9+5MJeX7BMxMbKVE9iOaOedHYFX6UVZlI0hcpb3pAv07UY
+         wXHeX84O+Qxx++Uae3PJkIuPmE+5tLIcwPUazdrHC/1pQOEghQxx0qTvLfdl7VclzGWK
+         iBv6yWn8esR+ETdoR26ipXRMnLbuMORzazyVtCR7dihfs/NMiKI8HeKkHZnWYtqPW08+
+         VECw==
+X-Forwarded-Encrypted: i=1; AL+hErHu7EqLeXCL/BLVvo6fG8PE6bbZMr1wPOBVguM/DWb6YPnXP9GAT/Xr6jHyg8iIL/ixZo187C3JjO5zl5M=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8JhOfOEBtyQqiDDBoJGvMuUxAyWKESzeCgFHqcG4J4tV0zvFxe
+	GT7wEJxMnVcTi8CruLfGNf7jDFRtr1YrgQaRnXySbHkQuSF2PKqU9XN5ugzo/w==
+X-Gm-Gg: AZFdTZdfe1oWywk8Dzvt/IPhNLcMLqGRUuiorIQJNnH9TP4//y6s8RuMXfWYswLuqrM
+	ZpFNdlsJhmAH3ScBC1SQ/+zKF6QQ/qU24xHZ86Q5ptFiJvWr+8eAYA+iFPf8C6AcjHvQLqhHsjb
+	CavtK7qrA8EH4I1l1w/oo602Vk5ftS9jjdPHrOzRgPLQIyOCDEb7rjFpaw6aC/Jo5whmQ7suElb
+	6nVx7hURuiuGhYUTQi7GFaqSrFby8HALO+0faH2IU2s33U4UBDqSsbkDRsR1NdIpS3PVjL+E+QW
+	PJ1Racis346zre6m/idkvrv2GYtddDA6hneXuP7+Ua0DXMj7MNyZPFUfu+TGq+Mi1X8uMnA3zMd
+	uOMLFMeI9/YBF30JkBGZphUcaZ3zopGrMNq99ZH7RcM1TOj2DGPv9XKq+Tu6hqfJBrtf5mrRMz7
+	pbsSolBJxFduwac8pZe6CO4qbyjAWo1vA3BNbVjvXM1EGenWpoEwICNYY7eFSeM3RqCL6aP9Srx
+	cv6wRJE8n2Zt1SlcUN7uGvvi3Z5k4Um6QNKvrv+poUcOenk5odmSxaKI4eT8QdZCVMnSYCU9eBP
+	Ym4f/kEIFJPSqt3a5XW6DtpP1iuqRsfBpRdoigdQTbAn+42di1zgCw==
+X-Received: by 2002:a17:90b:558e:b0:3b3:b453:2453 with SMTP id 98e67ed59e1d1-3b3d07c842cmr2806712a91.37.1795003978466;
+        Wed, 18 Nov 2026 04:12:58 -0800 (PST)
+Received: from csl-conti-dell7858.ntu.edu.sg ([155.69.195.57])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d1c03e04sm4095609a91.15.2026.11.18.04.12.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 04:12:58 -0800 (PST)
+From: Maoyi Xie <maoyixie.tju@gmail.com>
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: linux-input@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH] Input: cyapa - check the panel scan response against its length
+Date: Wed, 18 Nov 2026 20:12:14 +0800
+Message-Id: <20261118121214.3571621-1-maoyixie.tju@gmail.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,78 +95,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <179499954853.1440581.6627074959099619480@gmail.com>
-In-Reply-To: <179499954853.1440581.6627074959099619480@gmail.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Wed, 18 Nov 2026 13:12:45 +0100
-X-Gmail-Original-Message-ID: <CAL4WiiouZZ46QRp5K6MYK=vevKXYLzd_p049qVVf=w+9L8d96Q@mail.gmail.com>
-X-Gm-Features: AclHuK-hXcrZxctniMtIHyC9pOLLCSZJDsVh-XhX04k9Pj10EP6n6DQMf1hKW4o
-Message-ID: <CAL4WiiouZZ46QRp5K6MYK=vevKXYLzd_p049qVVf=w+9L8d96Q@mail.gmail.com>
-Subject: Re: [BUG] tcp: shift-out-of-bounds in inet_csk_rto_backoff() for an
- orphaned zero-window probe
-To: Kyuwon Cho <kyuwoncho18@gmail.com>, Jiayuan Chen <jiayuan.chen@linux.dev>
-Cc: Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
-	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Simon Horman <horms@kernel.org>, Cambda Zhu <cambda@linux.alibaba.com>, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Le mer. 18 nov. 2026 =C3=A0 11:59, Kyuwon Cho <kyuwoncho18@gmail.com> a =C3=
-=A9crit :
->
-> Hi Eric, Neal,
->
-> While testing v7.4-rc3 with an LLM-guided test generator that we are
-> developing as a research prototype, we found that an orphaned socket
-> that keeps sending zero-window probes makes inet_csk_rto_backoff()
-> shift by 64 or more. An unprivileged user can set this up in its own
-> user and network namespace:
+cyapa_gen5_read_panel_scan_raw_data() takes the element count and the
+element size from the trackpad's response. It walks read_elements *
+data_size bytes of resp_data[] without checking that length against
+resp_len. A large count reads past the 256-byte buffer on the stack,
+and an element size of 0 divides by zero.
 
-Thanks for the report and the reproducer.
+Return -EINVAL when the elements do not fit in the received bytes or
+the element size is 0.
 
-This is a known issue, a fix is under review:
+Found with a CodeQL-based static analysis tool that we are developing.
+Both reproduce in a userspace harness under ASan and UBSan, which
+report neither with this patch. Not tested on hardware, only
+compile-tested with W=1.
 
-[PATCH net v2 2/2] tcp: fix shift-out-of-bounds in inet_csk_rto_backoff()
-https://lore.kernel.org/netdev/20261026123244.239766-2-jiayuan.chen@linux.d=
-ev/
+Fixes: 6499d390a166 ("Input: cyapa - add gen5 trackpad read baseline support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Maoyi Xie <maoyixie.tju@gmail.com>
+---
+I used an LLM to help write the harness and this patch.
 
-It limits the shift to 32 in inet_csk_rto_backoff() itself, so it
-covers both callers: tcp_ld_RTO_revert(), which is where Jiayuan hit
-the splat, and the orphan check in tcp_probe_timer() from your report.
+I have no PIP data sheet. I assumed that the element count of a
+response covers only the elements in that response.
 
-> We found no earlier report of this call site.
+ drivers/input/mouse/cyapa_gen5.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Searching lore for the function name would have found it:
+diff --git a/drivers/input/mouse/cyapa_gen5.c b/drivers/input/mouse/cyapa_gen5.c
+index 59f6e97d54827de..c346f16961cc97a 100644
+--- a/drivers/input/mouse/cyapa_gen5.c
++++ b/drivers/input/mouse/cyapa_gen5.c
+@@ -2265,6 +2265,11 @@ static int cyapa_gen5_read_panel_scan_raw_data(struct cyapa *cyapa,
+ 			break;
+ 
+ 		data_size = (resp_data[9] & GEN5_PWC_DATA_ELEMENT_SIZE_MASK);
++		if (!data_size ||
++		    read_elements * data_size >
++		    resp_len - GEN5_RESP_DATA_STRUCTURE_OFFSET)
++			return -EINVAL;
++
+ 		offset += read_elements;
+ 		if (read_elements) {
+ 			for (i = GEN5_RESP_DATA_STRUCTURE_OFFSET;
 
-https://lore.kernel.org/netdev/?q=3Dinet_csk_rto_backoff
+base-commit: 7e1392a42ea288d70a266f6553fe06f57f8647ea
+-- 
+2.34.1
 
-Please do this before sending a report, especially for findings
-coming from automated tools.
-
-Note that the netns sysctls are not needed. tcp_retransmit_timer()
-increments icsk_backoff without any limit, so TCP_USER_TIMEOUT and
-TCP_RTO_MAX_MS on a socket with a silent peer are enough to get
-icsk_backoff above 63, then an ICMP unreachable reaches the shift
-from tcp_ld_RTO_revert().
-
-> On x86 the shift count is masked, so from 64 on alive can come out true
-> again and the orphan keeps probing instead of being aborted.
-
-Right, and this starts before 64: with icsk_rto =3D=3D 200, the u64
-is already zero when icsk_backoff reaches 61.
-
-Jiayuan, I have not seen a v3 addressing Neal's feedback.
-
-When you send it, could you please add:
-
-Reported-by: Kyuwon Cho <kyuwoncho18@gmail.com>
-Closes: https://lore.kernel.org/netdev/179499954853.1440581.662707495909961=
-9480@gmail.com/
-
-and mention the zero window probe path in the changelog ?
-
-Kyuwon, it would be nice if you could test Jiayuan's patch with your
-reproducer and send a Tested-by: tag in that thread.
-
-Thanks.
