@@ -1,74 +1,118 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795035969;
-	b=JW76Ee5/pBFfD2W//0zI7FEMSRzf7fSjBgc8UnsRdUZuIWmrgXqktOyFNxWNzfWoQNKf
-	 8yHLBIAmnY6+xF6jf4GeA2cBbL1wjDSe/K8oMXdCu3s3GQuu9Z5mb0VjguvWKvAvbd7cb
-	 cZE5CmhVO/eTi16zQTbdWRfRR3Q+8PWQqdLuSQoD4xSoJD2Wq8e3WdarzXJopN6+zxnqW
-	 YW0ly3WRV+3DttUbEFW6qEtLudW521HMJejfrNfkDoyu3Isul3pOthiAynV2KtHF546xc
-	 3xh427z8fyCxSlH6kfS05GO0BUSAWmi7pFx0QWAPF0ZT9shHAm5sxm4DuYbsgQE1WkA==
+	t=1795035989;
+	b=cddIIIugsJD98lxky6njli6KHFjEeKjzlxrHUN/Ke4GGL291CJ9MCee5nFIBpxDnudBD
+	 hJYwQamSTXzt444dwRmuu+tfJJGRhF6pWSpWdR63ULY0ufZz5MHkFPOxIHpDkfRi+dppP
+	 krnV5GMtmEbQtzfYrP3xAWS3kLLd0i2UQRf1ilKKlSqxKtZ9A4ylgPmKclS5E4Iq/9X1W
+	 n5gVFug8EtYKR549sdDBqbh14XPB7GVhN9JXlpKRVRoPFafI+C9znhkjY6bYpMfipcC86
+	 2kyvtrW4nfm+9pqfxX3wGCpRlwciJIVEdAmNMxvfNxGUL2f1Llh0OweY0ZPfAParAgA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795035969;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=OFOAizb0lscpHZmsQNMwCZciIP7qYn5PXudpLFxhVjo=;
-	b=o1YWrk9tb6GpZ8RUejOJGf25s22UG2nCs+Nx6iyFaGR3STdCfZGwyvakC3L1R7P+hrLz
-	 uBh9BEUgQGd4EOM8wOFOHu8h0IaT28CC/lr+E+3LGSawTwwzV/OTLtNm/PW8Pkw5bl+EQ
-	 CEi+frbL5ixQjXcbQjUdDJdEtprFuSDnZhvHUAw261JasHYQnA8N9CXUzd54gAZHtECRU
-	 DIaLsXQAfDiEV2saAK3LelFtYNgBOytAJKDVdWUH1cM+1uWbXkCVG1zgbtdNHK5EZCg1A
-	 kFwLujQPTrLlqzsea1WWvwXw7oyA7ZOZPu1SK3O35wg6uB2ju3Nh2dsHgLtlZdz5+TQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795035989;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To;
+	bh=pZ3JtacZcjsrcECbYipQCJ4gvP+CBNK95VHZ3UWM6ww=;
+	b=ePTgb4RjnUTk2ua7JwkAg6HQmd7VFAI9Zg82h/gBVKZpdnY54/7i7GJMpczkgoFpw2uF
+	 BbL8qPY9yqM0HNbVlgdXxwVfkFUzCCXS7WqlPrAIMVH3YpRk0MaJpikfalQgRXFJdLU+o
+	 g64DJYW/wjRp2Zqp4fcLCKj+wEHDAT8xpG+BXbEg5bCUk1b8wIlNTMy5/KlYyaxBfQmys
+	 9GwwAth2wuKqLf/YtipdhM4dUd6M9SLvveeOwbHOWG2ex+RJrZOR4bTPJCVUDDbqL1nB4
+	 hPZxU3ukh1oZhXy02GKYTtM3qDvawSLIFIyxWO8GzpPP0Mct+rA/3quFXOf8lOFv5pw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Oxumkmff;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=ziepe.ca;
+	spf=pass smtp.mailfrom=ziepe.ca;
+	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=KaGPGf7q;
+	arc=none smtp.remote-ip=209.85.222.169
+Received: from mail-qk1-f169.google.com (mail-qk1-f169.google.com [209.85.222.169])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D46CC606A320;
-	Wed, 18 Nov 2026 21:06:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47AF7606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:06:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 47AF7606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Oxumkmff
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A49971F000C5;
-	Wed, 18 Nov 2026 21:06:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795035969;
-	bh=OFOAizb0lscpHZmsQNMwCZciIP7qYn5PXudpLFxhVjo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Oxumkmffd22oHF7wJW38hIMU17Z8IDsp3bMe2LRsEkvKCXjg3EAdR8hPO1RQygJxX
-	 maa5Wr2sBhJ4g2+11YmKbgX1CxHGiDyr6SpBJi8FP9+RJV4Z4B6qbftOvJFBgmLysR
-	 owiAp9FuVPl7j8bbomdobonegaudOenFoENCgYs+PObtVvqEdOYsO094XPzCkyx0Aa
-	 0NhDxKrCswLGZUL3UN8PjPwyHamn6Dsyzd1ccHi86BpQAR79X/74tFKQAKUlD+2YMV
-	 7GSXq6skor2xtMKDlym1bnHUCqYvIF0PbepUdlyQUc/0OpB+U7doxUnbUix1DanUfk
-	 BdoMvC6ASRZrg==
-Date: Wed, 18 Nov 2026 22:06:01 +0100
-From: Christian Brauner <brauner@kernel.org>
-To: Andy Lutomirski <luto@amacapital.net>
-Cc: "Hallgrimur H. Gunnarsson" <halg@google.com>, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Paul Moore <paul@paul-moore.com>, 
-	Serge Hallyn <sergeh@kernel.org>, Kees Cook <kees@kernel.org>, 
-	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Jan Kara <jack@suse.cz>, 
-	James Morris <jmorris@namei.org>, Simon Horman <horms@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Randy Dunlap <rdunlap@infradead.org>, Jann Horn <jannh@google.com>, 
-	=?utf-8?Q?G=C3=BCnther?= Noack <gnoack@google.com>, KP Singh <kpsingh@kernel.org>, 
-	Jonathan Calmels <jcalmels@3xx0.net>, Casey Schaufler <casey@schaufler-ca.com>, 
-	linux-fsdevel@vger.kernel.org, linux-security-module@vger.kernel.org, linux-api@vger.kernel.org, 
-	containers@lists.linux.dev, netdev@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/8] userns: per-namespace capability bounding set and
- opt-in netns loopback
-Message-ID: <20261118-zufahrt-baubeginn-gutsbetrieb-c09004227e8f@brauner>
-References: <20261028221705.3915340-1-halg@google.com>
- <CALCETrW9ygriu54gxiHFLEd5+hJminQo0r8Jwd63wR69Dj4W7w@mail.gmail.com>
- <20261106-befreien-addieren-eislauf-e09212803534@brauner>
- <CALCETrWa1SBLcb5oWjqjgzZvKvCoHjmYFk=Lf5ytEM9uqm5jYA@mail.gmail.com>
- <avM41a80aig2de-R@google.com>
- <20261111-behagen-faktisch-entgegen-e2e714373895@brauner>
- <CALCETrUjW=kXxyggDUvEN+Pxc-pE98eVbdW8XBU8JzfqXj_voA@mail.gmail.com>
- <20261117-rational-ohnehin-unbeugsam-e5c04759a156@brauner>
- <CALCETrWhuOnBy0N0KznmczD4S2XEK0fbr0C=1KFQqTnoTJbQbg@mail.gmail.com>
- <20261118-stapeln-eckpunkte-lesbar-ee73537f474d@brauner>
+	dkim=pass (2048-bit key, unprotected) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=KaGPGf7q
+Received: by mail-qk1-f169.google.com with SMTP id af79cd13be357-94958650b09so141192385a.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:06:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1795035988; x=1795640788; darn=vger.kernel.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=pZ3JtacZcjsrcECbYipQCJ4gvP+CBNK95VHZ3UWM6ww=;
+        b=KaGPGf7qgbbucEYYgFiUG5ZMe+M+gxnIXYiye9EMd1ek0LBcp2J66fBc1Xzcclgaba
+         zhk0t//rnYpdXx8D/U3P7c04aRbXHsc9p3gEu88aSdAFhG4CEesns7D25iI4aQ16pZtt
+         S8snp761ySTocbmda8A/bjeZUWhM4lmsYOdbHlMPMAFDbpHtvMrvkrDKiVxOVAZRUsvN
+         Ck6cFrhc+RDzjS8Tnw61iA+u2C76JaHcGvQbNPUjKr+2NIe0xkAh5MJ1LaNq/A37hCrg
+         KhR0K+8sfg5nW4TVrjBBI8NXO19e4+0rDt0MXr8pnneeprrVvtUm9UOtPBm4K7/59349
+         yQkg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795035988; x=1795640788;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=pZ3JtacZcjsrcECbYipQCJ4gvP+CBNK95VHZ3UWM6ww=;
+        b=EwqGAcWgIat9/wFivdMghd8OkzXTNbzAVh/McLAfmjY3bQwSEM8cZCjbYaFtOY97pG
+         lro4jLfRTi8fo5W13kEyg0NiT9wDLibkMYE9CNqKeM9HC0AARMfHO4EwC/5YAFT96/Vz
+         2ohO8Jgg8GxrEKpaHspJvbz1aKlwrQpyynz/KHntcz4WI4sTH0AH85mCXKT59a/rHVL0
+         aVsDlNF1+xh6vop3tZ+O/EFXvAth7oxxefHHLIPEIfjAXrheUE7GQ/u/N03ji+K7Azpa
+         UWqAxY4OTGQg5cSm9U/EyoQxlvQSwW2a1j0HMfsvW0WG1mPrLj3ftKLtbMZFNw37Rj/b
+         lQFg==
+X-Forwarded-Encrypted: i=1; AL+hErHxML9xpVI56eT6DOJmzsxMrK3OrCPfbFBv6xKf4BKQvoBEX9R73k/Jlh8HQVUqv3AT0ZUcwDg9bf5bgsM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+95DtoRYT+MkehUQxqW5f2z4v319AtY3ADZ0Fh5iMqGotr+65o
+	DS1Uvl9aRSai2xJg1Lg17pgjEZEqCkt3NOdnSiz+JYHoGFmex/VK7/y4UIvv1i8/DW0=
+X-Gm-Gg: AYBFou1xiXjF7q9fELN/mcwCl1WIGkS2rt0wB9PxGCVppEAU/2dvA6KZBQZKsl6ILPf
+	9cyjpCbo0XdigXhkVrWL5R0e6Tgv3dtovcTtBvH0f/NnfbPxC4QDfYq6BTy1XmX0S+j5CcJytNN
+	1uPHIF/DbdhU8om8mAA0v1w7OVGzleAKTKXmihTWAPtckzxgkC8eT1FBucr4gVUGmKalsuyrCGU
+	RGKyVuvo+3eFOfVQjb8VJlbMkcideq8CcBm+U3MKtxGjfoK/jjIK6AYDwGvSiBwZvAaHNcLZ/1l
+	F9gZpVaUORIb3DnNzaD2caD/3vGSTMx8oZTtnFVZ4wrRZxk1ux30IA24y2nM5un7j2URGyvGtJj
+	yOzDpFuBdPLFQXGvJe7PX9wrh3kr78i/l6ZGBSbGM+LxGzFiD6CgrRLZDwxNOJscxRzpt2ZxD+O
+	YoDRGXc/ck9uL2lsWCMbTAGiCWgfrXK3ELN1sOeMiPWmCohdwGdS/M9Qe43XP4Z0+StlGTisINU
+	OTkwjQQC1Wj34pzRppwJlIcC+qnuVc5YJmH6rKmtBGkRDRUdq8T4HA76wwmf4O5xjZyPWCG8HdU
+	gufAPLQkdm64KkkWec+qpeNwmM4=
+X-Received: by 2002:a05:620a:4556:b0:93e:c12c:f121 with SMTP id af79cd13be357-9499964526bmr691694185a.77.1795035988208;
+        Wed, 18 Nov 2026 13:06:28 -0800 (PST)
+Received: from ziepe.ca ([142.166.156.71])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-9499b8182dbsm271138185a.41.2026.11.18.13.06.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 13:06:27 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1xTmrK-0000000GRJU-0IJL;
+	Wed, 18 Nov 2026 17:06:26 -0400
+Date: Wed, 18 Nov 2026 17:06:26 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Cc: Daniel Almeida <daniel.almeida@collabora.com>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	Onur =?utf-8?B?w5Z6a2Fu?= <work@onurozkan.dev>,
+	Abdiel Janulgue <abdiel.janulgue@gmail.com>, iommu@lists.linux.dev,
+	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org,
+	driver-core@lists.linux.dev,
+	Detlev Casanova <detlev.casanova@collabora.com>
+Subject: Re: [PATCH 0/6] rust: iommu: add a paging domain abstraction
+Message-ID: <20261118210626.GF3115493@ziepe.ca>
+References: <20261112-b4-iommu-domain-v1-0-c29e86788dda@collabora.com>
+ <20261116193821.GC2452510@ziepe.ca>
+ <3EB4C2ED-B699-4532-A562-68B78F6E29C6@collabora.com>
+ <20261117202055.GA3115493@ziepe.ca>
+ <615C3DA2-4C02-4A8B-AEC4-70D498672559@collabora.com>
+ <20261118193521.GD3115493@ziepe.ca>
+ <457fe01cc1fbc5b6e2d7b5c9c167012b56fe86b2.camel@collabora.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,209 +125,52 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261118-stapeln-eckpunkte-lesbar-ee73537f474d@brauner>
+In-Reply-To: <457fe01cc1fbc5b6e2d7b5c9c167012b56fe86b2.camel@collabora.com>
 
-On Wed, Nov 18, 2026 at 11:21:57AM +0100, Christian Brauner wrote:
-> On Tue, Nov 17, 2026 at 09:37:19AM -0800, Andy Lutomirski wrote:
-> > On Tue, Nov 17, 2026 at 9:10 AM Christian Brauner <brauner@kernel.org> wrote:
-> > >
-> > > On Mon, Nov 16, 2026 at 09:15:18AM -0800, Andy Lutomirski wrote:
-> > > > On Wed, Nov 11, 2026 at 7:20 AM Christian Brauner <brauner@kernel.org> wrote:
-> > > > > * a task that setns()es in later gets
-> > > > >   ns->cap_bset & (cred->cap_userns | cred->cap_permitted)
-> > > >
-> > > > I'm not sure this is ideal.  If a task has cap_userns & CAP_NET_ADMIN,
-> > > > then there is no attack surface issue with allowing it to enter a
-> > > > namespace and be NET_ADMIN there even if the namespace itself has
-> > > > CAP_NET_ADMIN cleared from cap_bset.  But any exemption here would
-> > > > need to be a new API so that it isn't used by accident.
-> > > >
-> > > > I'm mostly saying this because container managers might want to
-> > > > restrict cap_userns within their containers but still have it
-> > > > themselves for management.  But maybe there isn't any need to enter
-> > > > the userns for this purpose.
-> > >
-> > > I don't think there is. A manager that holds the capabilities itself can
-> > > just do most things from the outside. I think it's nice that once you're
-> > > inside a namespace you're bound by its capabiltiy set. Otherwise the set
-> > > isn't a property of the namespace anymore. If someone comes up with a
-> > > real need to enter we can add an explicit opt-in later?
+On Wed, Nov 18, 2026 at 02:41:32PM -0500, Nicolas Dufresne wrote:
+> Jason,
+> 
+> Le mercredi 18 novembre 2026 à 15:35 -0400, Jason Gunthorpe a écrit :
+> > > No, not OK :/ We want to use GEM shmem, which calls into the DMA API internally
+> > > through drm_gem_shmem_get_pages_sgt() -> dma_map_sgtable().
 > > 
-> > Fair enough.  Also you've written infinitely more nontrivial container
-> > managers than I have (I've written container managers, too, but
-> > they're all special-purpose things that don't do much in the way of
-> > actual managing).
+> > You cannot continue to use DMA API once you start touching a paging
+> > domain directly. It is why driver_managed exist.
 > 
-> So I think this is another instance where we're bitten by the complexity
-> of the whole namespace api. In a perfect world our answer would be "Yes,
-> the owner of the userns is definitely capable of performing all relevant
-> actions from outside the userns.". But we're actually not able to say
-> that because there's so many different ways how some <object> is set up
-> or configured for a container and nobody ever sat down and defined the
-> model how a container and it's various resoures are set up.
-> 
-> So once again, here we are guessing our way to a decent decision...
-> Thanks for helping with thinking this through.
-> 
-> > > > > * Root in a container has caps as well so for containers the exemption
-> > > > >   would be wrong.
-> > > > >
-> > > > >   So here we need a a lockable SECURE_NO_USERNS_CAP_RAISE bit thingy.
-> > > > >   This turns off the exemption and prevents raising the mask.
-> > > > >
-> > > > >   Docker lowers the mask, sets and locks the bit, and
-> > > > >   unshare(CLONE_NEWUSER) in the container doesn't hand out CAP_NET_ADMIN
-> > > > >   anymore.
-> > > >
-> > > > Can you clarify this part a bit?  I'm not seeing why Docker should be
-> > > > special.  Shouldn't the inside of a Docker container work as much like
-> > > > a normal non-container system as possible?  What's the use case?
-> > >
-> > > I picked Docker because you brought it up, and your goal of allowing
-> > > user namespaces even in Docker is kinda the use case. Docker can only
-> > > drop the CLONE_NEWUSER block from its seccomp profile if nested user
-> > > namespaces can't get more caps than root/Docker wants to give them.
-> > >
-> > > But the bit isn't at all Docker specific. Any privileged task that wants the
-> > > mask to apply to itself would benefit. With just the exemption this wouldn't be
-> > > possible:
-> > >
-> > > (1) A runtime that holds full capabilities gives a
-> > >     user namespace it creates all bits.
-> > >     It can just set the bit before creating it.
-> > >
-> > > (2) In a container without a user namespace container root has host-level
-> > >     capabilities. Any user namespace it creates gets them through this
-> > >     exemption thing. So it can also add them back to its mask. And the mask is
-> > >     inherited. So every process it starts can then create user namespaces with
-> > >     them.
-> > >
-> > >     by raising the bit we stop both. The locked bit keeps container root which
-> > >     also has CAP_SETPCAP from clearing it.
-> > >
-> > 
-> > I'm still not 100% sure I'm following this.  By "exemption" are you
-> > talking about the cred->cap_premitted term here?
-> 
-> Yes.
-> 
-> > ns->cap_bset = parent->cap_bset &
-> >                        (cred->cap_userns | cred->cap_permitted);
-> > 
-> > (As as aside, as formulated, the parent->cap_bset term should be
-> > irrelevant, no?  cred always refers to a task in parent, and this
-> 
-> (
-> I don't think it i.s
-> cap_userns is full by default. Entering a namespace doesn't change it.
-> A task inside a namespace with a reduced cap_bset still has the full
-> mask. Without the term a child namespace gets more caps than its parent
-> had.
-> 
-> cap_permitted can grow through a setuid-root exec in the parent
-> namespace. And that exec is bounded by the tasks bounding set and not
-> by the namespace bounding set.
-> 
-> So that term ensures that the namespace bounding set shrinks
-> monotonically by construction.
-> 
-> I think it would only be redundant if exec would be clamped by cap_bset.
-> I'm not sure if the patchset does this.
-> 
-> /me looks...
-> 
-> Ah, ok... this patch series already clamps exec to the namespace
-> bounding set. So yes, you're right.
-> )
-> 
-> > whole thing is defined so that cap_userns and cap_permitted are always
-> > subsets of parent's cap_bset, right?)
-> > 
-> > I think I agree that there needs to be a way to turn the cap_permitted
-> > thing on and off (and I'm also not sure whether cap_permitted is
-> > better than cap_effective), but I'm not convinced that an inheritable
-> 
-> The effective set can be raised from the permitted set at will. So I
-> think permitted is just more correct.
-> 
-> > and lockable bit is necessary or wise.
-> > 
-> > How about changing the rule to:
-> > 
-> > child->cap_bset = parent->cap_bset & soft_cap_userns &
-> > (cred->cap_userns | cred->cap_permitted)
-> > 
-> > a) (ugly but easier) A non-inheritable prctl-controlled mask
-> > soft_cap_userns, changing the rule to parent->cap_bset &
-> > soft_cap_userns & (cred->cap_userns | cred->cap_permitted).
-> > soft_cap_userns would be reset to all ones on on fork and exec to
-> > avoid creating new inheritable security-relevant state.
-> 
-> So both let the creator pick. But the bit is for the creator when it
-> wants to self-restrict: container-root without a user namespace.
-> 
-> It's the same reason that securebits and no_new_privs are inheritable
-> and lockable. Afaict, a) is reset on exec so it doesn't control the next
-> exec. b) covers namespace creation but not unsharing a user namespace.
-> 
-> > b) A whole new create-a-namespace API where the caller chooses
-> > soft_cap_userns at the time they create the namespace.
-> > 
-> > > On the host none of that matters as the mask is root's own policy there.
-> > 
-> > I'm still not seeing how there's a difference between host vs
-> > init-userns-container vs separate-userns-container.  After all, in
-> 
-> I think the difference is simply whether the restricting task holds the
-> capabilities itself. Unprivileged users on the host don't and so they're
-> not subject to the exemption. The bit is for that case where the task
-> holds the caps.
-> 
-> But ok, if we really don't want to bother with container without user
-> namespaces the bit vs a) thing can also go into a follow-up series.
-> 
-> > Unfortunately we don't live in this world, and I'm not convinced that
-> > can credibly even approximate it, because people really like their
-> > setuid programs working inside a userns.  It still bugs me that we're
-> > designing permission systems designed to work in the POSIX model that
-> > I think we all kind of agree is fundamentally rather messed up.
-> 
-> I don't think all hope is lost. We have slowly been pushing in this
-> direction. systemd allows to set NoNewPrivileges= in it's global config
-> so it's possible to enable it for the whole system easily.
-> 
-> There's been a ton of work to get rid of classic setuid-exec stuff:
-> 
-> * run0 instead of sudo (with sudo compat), and systemd-ptybrokerd for
->   interactive shells
-> * nsresourced for user namespaces with delegated ranges, mountfsd for
->   unprivileged image mounts
-> * outside of systemd: pwaccessd/pwupdd/newidmapd replacing unix_chkpwd,
->   passwd and newuidmap/newgidmap, polkit without a setuid helper, and
->   su/sudo/pkexec wrappers on top of ptybrokerd
-> 
-> But yes, containers are the sore spot. no_new_privs inherited from PID
-> 1 breaks setuid inside of containers.
-> 
-> My idea has been to make this dynamic:
-> 
-> * deny privilege gain on exec in the initial user namespace and allow it
->   in nested ones. I mused about this in
->   https://github.com/uapi-group/kernel-features/pull/38
-> 
-> Also, since v7.1 there's CLONE_NNP to spawn a child without no_new_privs
-> set.
+> You are building a strong argument around something that is not what we intent
+> this binding to be used for. If you had cared about the context you'd know we
+> don't want to touch paging from userspace in this type of drivers. 
 
-Forgot:
+Go re-read Daniel's answer and perhaps you can understand my confusion:
 
-https://www.thkukuk.de/blog/no_new_privs/
+https://lore.kernel.org/all/3EB4C2ED-B699-4532-A562-68B78F6E29C6@collabora.com/
 
-has an overview of where we're currently at.
+If you want to
 
-Some tools are in:
+   "We plan to alloc a paging domain when a video encoder session is created. Then
+    we call iommu_attach_device() before a job runs"
+ 
+You cannot use the DMA API.
 
-https://github.com/thkukuk/account-utils
+You absolutely CANNOT attach a brand new driver controlled domain, use
+the DMA API to populate it, and then detach it.
 
-and Thorsten also gave a talk at All Systems Go in September:
+Then we have the issue that the rust bindings expose iommu_map, which
+cannot even be used on any non-coherent arch due to lack of cache
+flushing.
 
-https://www.youtube.com/watch?v=MKG_WMAypDY
+Further, from a Rust binding perspective all these unsafe things I
+talked about have to be blocked by the Rust compiler:
+ 1) You cannot attach a domain to a driver_managed_dma=false device
+ 2) You cannot call DMA API functions on a driver_managed_dma=true device
+ 3) I object to exposing iommu_get_domain_for_dev()/etc to Rust
+    due to how unsafe it is, but if you were to do it then the
+    returned pointer must never be used with attach or iommu_map/unmap
+    functions.
+ 4) Since there is no cache flushing a non-coherent arch must never be
+    allowed to call iommu_map(), since it is unsafe to create memory
+    incoherence.
+
+Thus, what exactly is the plan here? Do you see my concern?
+
+Jason
