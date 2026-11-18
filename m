@@ -1,91 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795037120;
-	b=SdvMFt1I4VrixEylvl/Uw4vl+LzcdFgyB6wmP/ebCvVnkjxsATghT5Al5egl2G2BJPSq
-	 pfjhVLn1eMo463LneyNxbcicX9JS3DkDrgdF+SlhdUi3v7rjCfe5kTqM3bAqpX2BeZpIQ
-	 H2fXbDmKvGEoqHR1Hw+j6wPfAvuABdioFWiUhRCAE7NsjdmcjL/DEzLLoOkj96m719dlU
-	 C/GYf0Rt68Y/nkV4huq6T/F+IXHWV4W9MvmZcQS2vsYM9l5pHxdJlNK9+xbFznSFnkULZ
-	 7ozJoJXbmmfTl8oH9LhS8oUPRK6aGPNh7btPFBJhK3PbBVTBjn6Xj6pd1wxKgF5iCAg==
+	t=1795037220;
+	b=5qsXeqcqxyCGyKny36hmIsYyNZ5fZ6lz4j8xOQTggfbxy38/kFShBxRgRyqRW2e/YGxQ
+	 jSlIE8YTsCFcjUWBdt/oz/Nbtt6/ZlA588lRyc7r1C8l0mTeghY6Dueu7IhWCuXdgsE7R
+	 U2Q2I7/qgDRO6OO2/KVrBSmE+IQ1+7mRYxJ4T3mtb2/fxNYY3yFC6UIUGQDbJf5o8JxpO
+	 BGz4Oju4uj1thOMUmjv9tm+DwH/8HdQXYdvSAVKPc3jpISvBWPr8LEmxxrFlSeFiRX6E7
+	 NiguhWueZk11ffo/JiAqGbQqQ0fpBrdID3uOtM6+YrniMDGIZbjhC2ZrD9a2d3f/rUQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795037120;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=J+xqGM/XTVoLXbet9Pqsqr3DEOW4nOHD7WQm9LFTgGg=;
-	b=apGQDhWE47FRPS4xB0xy/GwJC/RpxdYcPMZwKIe0VbAFquK5zVsdR+HgURXWBF49Jpt4
-	 pxu69FuaZhtTb3fsu/v5q2wymBCAOFfzV/9oJT1TKXH3Mra2Am1X9+qa1+7AzJbdZl0JV
-	 7AtHOZELQBN1C9Ym+19ZABsc1XmmLoH7KYPJ9DUBWCed1FfhTXRHmic99/EoRmYFiIg+C
-	 R7KIMWWgX1OuOUhilX3dYbfOtT4gXCJlExRchsEjqvhF/KTBFU5qIZgNiRpaDXRaANrty
-	 exbGxDCMOYmhk7CI5g6wnUAMb4uS3Ya1H/H/0xPl/BVL0BuN8hL2rF4mt8jzTqkSQQQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795037220;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=1bS4ZwGQg8uJ+f7Y+a2FFJOJtfKOuwyuAYnXgPVM07A=;
+	b=S/hf2ByZvK+KeblJEPcOBRozvoYc+9PTphl/8Ft+X+UHsch1jkg7bBXcKYR3I4TqO0Al
+	 mDUSsfgWFUlDeW7+KWx5joBD7INDqhXHAb6B3/bqEiPYUtzDU3rxdLvC7rtAHMSnNWjGj
+	 Fr+ojl/vOwn94nXElrKE3ItOfPO+koILfLt0FxTe2hMHxSBuP4DGrcOWWmo5RpAhNT5j6
+	 cG+ogIbCcT0xEfGZZ6r7WM1gXtQxdxRSCRjkcGk8ZAGnKQKxRIFDefvRwzMBIG10YPJ3d
+	 ntj7MNUZhCV7D1/Z0XQ9Nu+bBfBR529LLmOLJ3g/Zi5KxMw5hWqQefMzf4RC12QOF+Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=YLWSUiuq;
-	arc=none smtp.remote-ip=158.69.130.18
-Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--ctshao.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="ae4s22r/";
+	arc=none smtp.remote-ip=209.85.210.72
+Received: from mail-ot1-f72.google.com (mail-ot1-f72.google.com [209.85.210.72])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A600260A5BD0;
-	Wed, 18 Nov 2026 21:25:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A600260A5BD0
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B29C4606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:26:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B29C4606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--ctshao.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=YLWSUiuq
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
-	s=smtpout1; t=1795037117;
-	bh=J+xqGM/XTVoLXbet9Pqsqr3DEOW4nOHD7WQm9LFTgGg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=YLWSUiuqAsATC2i9PlFa/HyO5Byq6yQlwPOh5UBhDpGX2QWEaM4V0W7kMCbCdb6Tp
-	 ieDT68BahlKSXJmhMTyizmn8GmSZaSI9FQwDpelTo6xRnKRKqm2GOTfCIuELJ96J+f
-	 3l+DsRGMXo7vOQqTjWzdXEdNGmO2j5PADJ+a62owVeyMnS/+xxWWH14+flKZQOef1R
-	 fNXFZb6AOE3hN20Px4C2PHqWdj6VxSFeOPJmCtTAUfdmKyjjFi7mwE48NZnF0gK/2Q
-	 Ar4d0AYgTIupHKWKUueORwJVC8Ax9UiyRd6C1J+AhapaAfiDMChe11FNkRNoTZsDxb
-	 jG3pIt8vYkp7w==
-Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jVF4Y65nBzRVR;
-	Wed, 18 Nov 2026 16:25:17 -0500 (EST)
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-To: juri.lelli@redhat.com,
-	peterz@infradead.org,
-	mingo@redhat.com,
-	vincent.guittot@linaro.org
-Cc: linux-kernel@vger.kernel.org,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	tglx@kernel.org,
-	will@kernel.org,
-	boqun@kernel.org,
-	dietmar.eggemann@arm.com,
-	rostedt@goodmis.org,
-	bsegall@google.com,
-	mgorman@suse.de,
-	vschneid@redhat.com,
-	kprateek.nayak@amd.com,
-	luca.abeni@santannapisa.it,
-	mathieu.poirier@linaro.org,
-	longman@redhat.com,
-	ridong.chen@linux.dev,
-	tj@kernel.org,
-	hannes@cmpxchg.org,
-	mkoutny@suse.com,
-	shuah@kernel.org,
-	bigeasy@linutronix.de,
-	clrkwllms@kernel.org,
-	parri.andrea@gmail.com,
-	m.szyprowski@samsung.com,
-	kayracizmeci@gmail.com,
-	weihengqiuu@gmail.com,
-	cgroups@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev,
-	stable@vger.kernel.org
-Subject: [PATCH v2 13/16] sched/deadline: Check SCHED_DEADLINE affinity under the rq lock
-Date: Wed, 18 Nov 2026 16:25:09 -0500
-Message-Id: <5b0e698d12772886d395d7a887a05fbff51ade16.1795037078.git.mathieu.desnoyers@efficios.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <cover.1795037078.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795037078.git.mathieu.desnoyers@efficios.com>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ae4s22r/
+Received: by mail-ot1-f72.google.com with SMTP id 46e09a7af769-8488f31d754so1060141a34.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:26:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795037218; x=1795642018; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=1bS4ZwGQg8uJ+f7Y+a2FFJOJtfKOuwyuAYnXgPVM07A=;
+        b=ae4s22r/sYFADCDDv5hLEpMhWoeb3vC1D05D1SQWEfBl5Gel9c3/eFlDModFC5YHur
+         jaevPBUbV1ZcUZBw7ReRyGa5KA6uMp4+lstqkC/NPiUfmY2HhqEi1sntbJqgo30RVmrl
+         3ubUfXfNMzSiOAjZZ83J5bM55CmOQejgAL20XkPgCx5EyUGVZUveKCXQNQKjAd0nL1So
+         YrX+a38Qe79kE1yLCrkJB63HQiA8XlZ48Zwjg2cMGGchZFE9SI9uqERafx/vLv5wdNuA
+         OeO93vuC0KgBL6JMEGXDwIVe2a8W4gBL2N8TMACu/Kbbyv54UaHe1HarjlzmJ8Xisx2u
+         Woqg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795037218; x=1795642018;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=1bS4ZwGQg8uJ+f7Y+a2FFJOJtfKOuwyuAYnXgPVM07A=;
+        b=DzDf9Uc6jQ8i8ECceREyTZlheSoPLsAFFZIQDNSuiQHKl4cnMFgvqT8eFWlsQU6eK3
+         EMmRkI0s9gIJYC2DFAPM5ObwBw+i3BFtCbZPaSW6cuyLx3jYGBo9vn5zXmZX8vkSebKT
+         0dCd4VNI8iFTzpVJsdFhDqdTl/Hs7wJImZUE3aRtQhbWgmALmVU0lG+U+rvAbCZiAP9u
+         GQe+e7gHfocYw6bUCJxdPjxQ8yfCZY8FFmAcn8biUOlCoF5s6lKYegxyMJiHyyKu0xxw
+         ywJf37j64V/0VSnnDpo56DhwNK3Q85sLxuk/U7HWnzhrGYud7Qj29ii6Tu2MSWuVshej
+         0iVQ==
+X-Forwarded-Encrypted: i=1; AL+hErEgyVDjj7tjRymP6kGQzdICLsi3D5w+SQySYUE5fNWx3tc8q304dsrzJmG5F3u9bIaPX20O1C3UELd1JXo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9FeqApWdPgabTzWzXsgBIyCu7jgenUhPy1niKLUTBBAckLs6KR
+	evSQMLX8NV6y731bsiSMagk09j3TOhuHGZCbpWc75/v7ElC1zFuCVjH4E/WPypvs8IXYFKAWRHf
+	8Kgaf6g==
+X-Received: from iocre7-n1.prod.google.com ([2002:a05:6602:87c7:10b0:9e8:de6c:a5a3])
+ (user=ctshao job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6808:87d1:b0:571:a186:d6b9
+ with SMTP id 5614622812f47-57740b4759cmr4859253b6e.13.1795037218323; Wed, 18
+ Nov 2026 13:26:58 -0800 (PST)
+Date: Wed, 18 Nov 2026 13:26:52 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,141 +75,72 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
+Message-ID: <20261118212655.2262601-1-ctshao@google.com>
+Subject: [PATCH v1 0/3] perf vendor events intel: update
+From: Chun-Tse Shao <ctshao@google.com>
+To: peterz@infradead.org, mingo@redhat.com, acme@kernel.org, 
+	namhyung@kernel.org
+Cc: mark.rutland@arm.com, alexander.shishkin@linux.intel.com, jolsa@kernel.org, 
+	irogers@google.com, adrian.hunter@intel.com, james.clark@linaro.org, 
+	dapeng1.mi@linux.intel.com, thomas.falcon@intel.com, 
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Chun-Tse Shao <ctshao@google.com>
+Content-Type: text/plain; charset="UTF-8"
 
-From: Andrea Parri <parri.andrea@gmail.com>
+Sync Intel PMU JSON event files with the latest Intel perfmon repository
+(https://github.com/intel/perfmon/commit/1e224c0fd9d9):
+- Add Diamond Rapids (DMR) v1.00 events
+- Update Lunar Lake (LNL) events from v1.26 to v1.27
+- Update Nova Lake (NVL) events from v1.04 to v1.05
 
-A task can end up SCHED_DEADLINE with an affinity narrower than its root
-domain when sched_setaffinity() and sched_setattr() race on it. Both
-calls succeed, although each fails when made after the other:
-sched_setattr() with -EPERM, sched_setaffinity() with -EBUSY.
+Chun-Tse Shao (3):
+  perf vendor events intel: Add diamondrapids v1.00 events
+  perf vendor events intel: Update lunarlake events from 1.26 to 1.27
+  perf vendor events intel: Update novalake events from 1.04 to 1.05
 
-__sched_setaffinity() calls dl_task_check_affinity() before
-__set_cpus_allowed_ptr() takes task_rq_lock(), whereas
-__sched_setscheduler() runs its admission test and switches the policy
-under a single task_rq_lock(). So both calls can pass their checks:
+ .../arch/x86/diamondrapids/cache.json         |  952 +++++++++++
+ .../arch/x86/diamondrapids/counter.json       |   52 +
+ .../x86/diamondrapids/floating-point.json     |  419 +++++
+ .../arch/x86/diamondrapids/frontend.json      |  458 ++++++
+ .../arch/x86/diamondrapids/memory.json        |  295 ++++
+ .../arch/x86/diamondrapids/other.json         |  777 +++++++++
+ .../arch/x86/diamondrapids/pipeline.json      | 1423 +++++++++++++++++
+ .../arch/x86/diamondrapids/uncore-cache.json  |  292 ++++
+ .../arch/x86/diamondrapids/uncore-cxl.json    |   22 +
+ .../diamondrapids/uncore-interconnect.json    |  218 +++
+ .../arch/x86/diamondrapids/uncore-io.json     |  386 +++++
+ .../arch/x86/diamondrapids/uncore-memory.json |  939 +++++++++++
+ .../x86/diamondrapids/virtual-memory.json     |  266 +++
+ .../pmu-events/arch/x86/lunarlake/cache.json  |    2 +-
+ .../pmu-events/arch/x86/lunarlake/memory.json |   27 +-
+ .../pmu-events/arch/x86/lunarlake/other.json  |   19 +
+ .../arch/x86/lunarlake/pipeline.json          |   44 +-
+ tools/perf/pmu-events/arch/x86/mapfile.csv    |    5 +-
+ .../pmu-events/arch/x86/novalake/cache.json   |   13 +-
+ .../pmu-events/arch/x86/novalake/counter.json |    5 +
+ .../arch/x86/novalake/floating-point.json     |    4 +-
+ .../pmu-events/arch/x86/novalake/memory.json  |   39 +-
+ .../pmu-events/arch/x86/novalake/other.json   |   84 +
+ .../arch/x86/novalake/pipeline.json           |   75 +
+ .../arch/x86/novalake/uncore-cache.json       |   11 +
+ 25 files changed, 6814 insertions(+), 13 deletions(-)
+ create mode 100644 tools/perf/pmu-events/arch/x86/diamondrapids/cache.json
+ create mode 100644 tools/perf/pmu-events/arch/x86/diamondrapids/counter.json
+ create mode 100644 tools/perf/pmu-events/arch/x86/diamondrapids/floating-point.json
+ create mode 100644 tools/perf/pmu-events/arch/x86/diamondrapids/frontend.json
+ create mode 100644 tools/perf/pmu-events/arch/x86/diamondrapids/memory.json
+ create mode 100644 tools/perf/pmu-events/arch/x86/diamondrapids/other.json
+ create mode 100644 tools/perf/pmu-events/arch/x86/diamondrapids/pipeline.json
+ create mode 100644 tools/perf/pmu-events/arch/x86/diamondrapids/uncore-cache.json
+ create mode 100644 tools/perf/pmu-events/arch/x86/diamondrapids/uncore-cxl.json
+ create mode 100644 tools/perf/pmu-events/arch/x86/diamondrapids/uncore-interconnect.json
+ create mode 100644 tools/perf/pmu-events/arch/x86/diamondrapids/uncore-io.json
+ create mode 100644 tools/perf/pmu-events/arch/x86/diamondrapids/uncore-memory.json
+ create mode 100644 tools/perf/pmu-events/arch/x86/diamondrapids/virtual-memory.json
+ create mode 100644 tools/perf/pmu-events/arch/x86/novalake/uncore-cache.json
 
-  CPU 1: sched_setaffinity(p, cpu0)    CPU 2: sched_setattr(p, DEADLINE)
-
-  dl_task_check_affinity()
-    !task_has_dl_policy(p): return 0
-                                       task_rq_lock()
-                                       admission test passes
-                                       p->policy = SCHED_DEADLINE
-                                       task_rq_unlock()
-  __set_cpus_allowed_ptr()
-    task_rq_lock()
-    p->cpus_mask = cpu0
-
-The window includes CPU 1 spinning on task_rq_lock() while CPU 2 holds
-it. With one thread narrowing a sleeping task to CPU 0 while another
-makes it SCHED_DEADLINE, 923514, 959547 and 983997 of 1000000 rounds
-ended with both calls succeeding on three boots of a 4-CPU guest.
-
-Move the check into __set_cpus_allowed_ptr_locked(), next to the
-PF_NO_SETAFFINITY re-check, under the same lock as the admission test.
-Whichever call takes task_rq_lock() second then sees the other's
-result: sched_setaffinity() fails with -EBUSY if p is already
-SCHED_DEADLINE, and sched_setattr() fails with -EPERM if p's affinity
-is already cpu0.
-
-A new SCA_DL_CHECK flag selects the check, and only
-__sched_setaffinity() sets it, so sched_setaffinity() and
-relax_compatible_cpus_allowed_ptr() keep the check and other callers
-stay unchecked. restrict_cpus_allowed_ptr() already does its deadline
-check this way.
-
-__sched_setaffinity() clears SCA_DL_CHECK before the second
-__set_cpus_allowed_ptr() call it makes after racing with a cpuset
-update, so the cpuset mask still wins there, as it does when
-cpuset_update_tasks_cpumask() narrows a deadline task. SCA_CHECK stays
-set for the PF_NO_SETAFFINITY re-check.
-
-With this applied, the same test ends with both calls succeeding in 0
-of 1000000 rounds on each of three boots, and sched_setaffinity()
-fails with -EBUSY whenever it loses.
-
-The race was reported by Sebastian. The fix was written with the help
-of an LLM.
-
-Fixes: 332ac17ef5bf ("sched/deadline: Add bandwidth management for SCHED_DEADLINE tasks")
-Reported-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Closes: https://lore.kernel.org/20261103081149.DuyWNhVe@linutronix.de
-Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
-Cc: stable@vger.kernel.org
-Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
----
- kernel/sched/core.c     | 11 +++++++++++
- kernel/sched/sched.h    |  1 +
- kernel/sched/syscalls.c | 12 +++++++-----
- 3 files changed, 19 insertions(+), 5 deletions(-)
-
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 5ed660f099a5..32fe889e02fb 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -3195,6 +3195,17 @@ static int __set_cpus_allowed_ptr_locked(struct task_struct *p,
- 		goto out;
- 	}
- 
-+	/*
-+	 * Check under the same lock that __sched_setscheduler() holds for
-+	 * its admission test, so that p cannot become SCHED_DEADLINE
-+	 * between this check and the mask update below.
-+	 */
-+	if (ctx->flags & SCA_DL_CHECK) {
-+		ret = dl_task_check_affinity(p, ctx->new_mask);
-+		if (ret)
-+			goto out;
-+	}
-+
- 	if (!(ctx->flags & SCA_MIGRATE_ENABLE)) {
- 		if (cpumask_equal(&p->cpus_mask, ctx->new_mask)) {
- 			if (ctx->flags & SCA_USER)
-diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
-index 92134ce326a4..20ad13f388cb 100644
---- a/kernel/sched/sched.h
-+++ b/kernel/sched/sched.h
-@@ -2972,6 +2972,7 @@ extern struct task_struct *pick_task_idle(struct rq *rq, struct rq_flags *rf);
- #define SCA_MIGRATE_DISABLE	0x02
- #define SCA_MIGRATE_ENABLE	0x04
- #define SCA_USER		0x08
-+#define SCA_DL_CHECK		0x10
- 
- extern void update_group_capacity(struct sched_domain *sd, int cpu);
- 
-diff --git a/kernel/sched/syscalls.c b/kernel/sched/syscalls.c
-index b87b878be63f..5983232476a9 100644
---- a/kernel/sched/syscalls.c
-+++ b/kernel/sched/syscalls.c
-@@ -1225,11 +1225,7 @@ int __sched_setaffinity(struct task_struct *p, struct affinity_context *ctx)
- 	cpumask_and(new_mask, ctx->new_mask, cpus_allowed);
- 
- 	ctx->new_mask = new_mask;
--	ctx->flags |= SCA_CHECK;
--
--	retval = dl_task_check_affinity(p, new_mask);
--	if (retval)
--		goto out_free_new_mask;
-+	ctx->flags |= SCA_CHECK | SCA_DL_CHECK;
- 
- 	retval = __set_cpus_allowed_ptr(p, ctx);
- 	if (retval)
-@@ -1258,6 +1254,12 @@ int __sched_setaffinity(struct task_struct *p, struct affinity_context *ctx)
- 			if (empty)
- 				cpumask_copy(new_mask, cpus_allowed);
- 		}
-+
-+		/*
-+		 * The cpuset mask must win here, as it does when
-+		 * cpuset_update_tasks_cpumask() sets it on a deadline task.
-+		 */
-+		ctx->flags &= ~SCA_DL_CHECK;
- 		__set_cpus_allowed_ptr(p, ctx);
- 		retval = -EINVAL;
- 	}
 -- 
-2.47.3
+2.56.1.708.g77570a6a1d-goog
 
