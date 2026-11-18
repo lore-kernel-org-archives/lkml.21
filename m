@@ -1,77 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.15.15
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795029635;
-	b=NINoXYztIhL5we7oeGC7+lqbj6eP/4oYI5IHsMTYA/qzPJa1CgQy7l40p6dHCiSXYR1I
-	 2gPduN2hsdB8jecigd88XAHMlWXth6Z5qUP+RTvhn11NfrMMOirhBMB8seM7HUwipopF5
-	 NRSjQHygfpnYsaP2prtdVuXPajRBujJdizogtomlx+xRXazeluOhzAUI9MgqpxO3cWOer
-	 7VddOxPNb6xT7nqUipnRr5U0Qebnkm6E98DZZiuPNVSYeubNWwX2/v85dNZ2MSf0nyXvA
-	 Su/Mua2UL15GVhkYInPCEl+Qmn3ARLJtVrOwErFjuYDBSVCoTfsZ/+ZILufu4qGAYtw==
+	t=1795029715;
+	b=edpSZtpZgg70kPaNqDLTab12NYqChN+TTJNYRohNKpXPIEhbOYqwm+hUBxPnorDNRcCD
+	 JpTh801iaVeFuRNfLQA5VTa4IVUTd6v2BgXqtrw4/WznmufWoqwSou0I/Ux9kgKz66NQ0
+	 vQOWdmIcy79/dR6flQsuBv0Pc5dVCP9kfHV68PU4ObcvBCYUtOSYNk6n+HRlhpW4hWABJ
+	 pNVTDDau9ItW2vzfxEM5W4XmTqWHtraNn2hVcAdi92QAxO8GE39t4jI4J9czQXfpca09Y
+	 Cbnlf9htoPmlX5eg/sUQ6YddU6080IXjpHcmuUQlNhLJOE2vPAuVL3q/yCernwmSH0A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795029635;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
-	 UI-OutboundReport;
-	bh=pc7g3WC4BYe4x291n/AR3A60XIByGkjtz4cqxRT34aU=;
-	b=t0sqM25nfIzWUUi3XVzjsgPufKcms+eOnwAwZvRusEOPbF1RplATEGsve4TiLbkoT4Jd
-	 KjVD00pm3FjivZRCzRASQDtGUaCI+cJwclE0QMYcD1lq+xIjWuTOHFYS+8xmKpYAec059
-	 CKavuqU/A41/MSNut2jFObvmzCmg0spdRw3Hq0j2DebUZJKnnU8lxL2lQaf7HaQkx+1UI
-	 EZGF/8CPKOXlpgkW5zc/fhVHzkfUTOejpJ/LR2SacmiMGvolrY7CrvfoAqPXeHa2AMAF6
-	 cUHq9pLKsj1ys0OvvBmX/CsPAWkPoO/RNgKXHoeeJrlvoMsWk0fBRSxE1CU6Xj7Wygg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795029715;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=XfCY0YxI9o+32ShywolfpfCq150S3JR8ZD2syCrWnV8=;
+	b=uWtvV1xJ097IXBN/nG4+cuEqWiFCUsIwxPAxTH7g6/2pmXZgqTHqDRuEL50LjDiTFuCI
+	 70inwD/POGD/NUthdj3xMs+3wA7nMkUUkW8svib4Qji+nlgx9iMtqzrTBJjLwaMd+AsU7
+	 a4kOwA2j4ncF2DpfR8XOXzJdFyDM9+FKgPvq3afWAVvEzNu9RaFfsF8RrLy6JE2J8uWkz
+	 2kH0FMiojR440fIt/6oHyLEHP6iJeaoomKyDdQWHodSkHLbc/mO9oNbOp8LdyOhrwMgfM
+	 KvuFi35zuzyaArKl9R9INdR9E1ENDxVJiTK+Bl3zYslCtN3LsxHPOIv3K7qi1UFT0yg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmx.de;
-	spf=pass smtp.mailfrom=gmx.de;
-	dkim=pass header.d=gmx.de header.i=deller@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=qiqAD0XI;
-	arc=none smtp.remote-ip=212.227.15.15
-Received: from mout.gmx.net (mout.gmx.net [212.227.15.15])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XhG0kODF;
+	arc=none smtp.remote-ip=209.85.161.41
+Received: from mail-oo1-f41.google.com (mail-oo1-f41.google.com [209.85.161.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0404606A32C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:20:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C0404606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gmx.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmx.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B583B606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:21:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B583B606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmx.de header.i=deller@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=qiqAD0XI
-DKIM2-Signature:  i=1; m=1; t=1795029631;
- mf=PGRlbGxlckBnbXguZGU+;
- rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
- d=gmx.de;
- s=s31663417:rsa-sha256:UvtjuJ2lGbnFGDi2QJAY14xwzhvP
-   oGrIaB7zyu7zUwM4CbJgPvDlGlvDuGedLwR1Urg/GmE/ZPXGKGS7B981moF07li9wSqLSi19t4r
-   hsukpFpc/n1XbFPK3Bd8Vf2cT8Ry59gO9iv+Uc6cl9pAGkqkKGkL0/nE2VrI/GTjB3b2UqtZgpu
-   7IwJ6DTExeR0xPWSQtqEtnVpwRVTb6Eh79iUwef85gkT0vUgyIcucfkLC900dGJyG2fZxB3gLQd
-   QT1dKTmaXDb2oH39Z1j+7+3qT5ErTGrnEiY6vysdbNVsmzGCuA94zHpdFj9Zh/48FH7EeZX6O5E
-   xoV4Ym4plWz96Q==;
-Message-Instance:  m=1;
- h=sha256:
-   GOZCEb1dZfQ04fOTM2mId8ErWINtSj77dsn/cdIk8g8=:
-   N8zy4yt1Jlnj/ho1CuBf7IG4WX26uOj9ad7VuF+cfkI=,
-  sha512:
-   UJoCFXF4a0+4oz0yHOE4QAgyBWl6RLQBPTldi88SGHxGfY0WjMKkvHIGTYDyCHsR+aOkgPhW0PAWsQwCDyTb7w==:
-   4OFuwBaiiRFLdxXcjj4ayeJzz55iSGvfuW7NaJ7Eok8aBBlEVYrr5g+RKoo3MhnqweWyfSuA3iQ6JFTWgcAKSA==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
-	s=s31663417; t=1795029562; x=1795634362; i=deller@gmx.de;
-	bh=pc7g3WC4BYe4x291n/AR3A60XIByGkjtz4cqxRT34aU=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=qiqAD0XI+GJ6aeKfAh/yEG0rR1PpNd0lcFt0PbsmrPfhGTYy60R7b+UIJBiqxELV
-	 VsmMPfQbQZyIPjN2rmLWIOtd4FQxaTm/NfEjD5in/v6Dw38VT9OUuQSFEhnMHNHNr
-	 9i8Ln3Bb6o7AL+YbFcHpvSHXhsPpxpPtBeWFv84a13SQV58zTTswD6g0X1J61rFlW
-	 qk12CsX7W9XkK1/+JqdJSlslE2vXd5aPmnI6BuWtciVizuWdDmlEDHFe3l9hHRUuq
-	 n8yb6SKExxEPXuVDTZcDeGDAmk+gLkLtKu7bEzrHQNlxil3BHRgRnRDEC5PjqyFtU
-	 VIHxWCY0wV6nZPYi8A==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx005
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MxUnz-1wVrIh07Nh-00sQck; Wed, 18
- Nov 2026 20:19:22 +0100
-Message-ID: <633ab4d8-fb7f-435b-9052-fd0a51bfb47f@gmx.de>
-Date: Wed, 18 Nov 2026 20:19:15 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XhG0kODF
+Received: by mail-oo1-f41.google.com with SMTP id 006d021491bc7-705cb6ceebaso1172147eaf.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:21:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795029714; x=1795634514; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=XfCY0YxI9o+32ShywolfpfCq150S3JR8ZD2syCrWnV8=;
+        b=XhG0kODFgIge3YT+uZxRbeQzqh5GLCJcI/501iQVfQWj40icyssFW7nIYWTsFSffS2
+         JuIFYivkc8vYpm8+IZbNOwGc8HCLG7Dk97i+8wbREkqj0NINQi1x4ATn/BFbFlKFqtUR
+         xyDZsleZqBOGl1dpG45l+Qh0OeXEv09/xsiikHAk7Pp/WAyHRkalGzTPy4cV7wQIW5nM
+         /zfh6MZeSeJFGyvRhybjl9wD4VSbpIitxu2IpG2VNy6RVLzJvaXyScI0as82LV5uP/cZ
+         O+pYgFvL5fzZwnLlvXIFXdvqVn0GF8qEec7udxXO3h2f3D19RVarzgqynbGxSvQzJ46u
+         hkYw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795029714; x=1795634514;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=XfCY0YxI9o+32ShywolfpfCq150S3JR8ZD2syCrWnV8=;
+        b=1Ezsyg44bz3NwOEWTDiT7hUCZKLzsMsw0+7uaeI4E1hVf4fwRhekXNJ8q0V4UuPuTg
+         iMStKHXtIHKvv4W0bgGf+d+xJ183wKwpy/Ma55c3J5N9k3o3z57IJh0VyX1jq2rw1gXA
+         06r4qkbP0YMf3Z5WLh4ies4xRzUKBvCP1JPpzBMowgg++rDoWtWscHVSbYXPl7phd3BX
+         y7WWinheSdRNw6aysi5t7tMExLrK7kToM/nmq4TYeYWTXCaiZ76/DDS/KtAra1YU8GQA
+         rafVFqZKQWf7jA+j+vioKMO/RluYbDSIWm5ASDBqgLZ4G0uHbIID9H7HdYZAfgeyb+Jt
+         U95A==
+X-Gm-Message-State: APuU4Z8S1J104SStY9cM0uXX//9EBm09nPpyLWw8iS81YlFOSXUXlnQi
+	bCvYGPbaTobkxNRZbIckZWw6stByb6HaYVg27i0lm9DFOmE4MlfMJJI=
+X-Gm-Gg: AYBFou046JTugXuGh1LunRtW/2lq04nY2w//5EUAhbHhgcmr3ql6VWPyxNr/EqcQgss
+	191/zy+FMAmgWYKT+pmLfHE2IKuv+G8F1bSM8ObZdfoxsAI0YXDWmU3TnCSg+B24ICvqXxWbnOq
+	ySfARMOb67BoyIvUPJhUakv5jZ8AuFKwq7cjuMuM+p+VJIDHwXREEJZeIFmAvx159MH7OH1a2eY
+	mKmTnwfjhBZw2QDsqoTReD3v1w3XkZBujjH8UTXRb5BMtxfCm1WKtuFREnH9qdOc+nkopmYT3YR
+	dG48wnOavB3V49UlKoWHjCRSBDw9dC/fTtmKhG+B1S1kWY9trcb03rcBFmfL5FVEzGQDY16/M2P
+	RNydt8ZC3ME1zPXgs497oJpHbDpo6Ezd3mPd6WO7wKR6p99lEHl7OT5tdZjq2W0QNbhEpfsV3Gs
+	03p4R7zPLJ1pD0a9Vbsi/S5IwYn6Jhd8Ct6OIK69ToHzXnkMnMhEFhMrmDH6qdE1sOO40GEAj2V
+	6AIVDoAin6OOXC49aBJk1jlUZ3BbuuJNVR4AZ9ZN60jOfq8d9Gy62KKz28ovrKYyir6YroF8d/Z
+	mglVXEh1UfB3iKiQOSQbFqgMiNYqPCQKAgBTWhv0/mHJoYhiR1v/UH2p
+X-Received: by 2002:a05:6820:c5d4:10b0:71a:fb85:d063 with SMTP id 006d021491bc7-71b18618ca9mr2045803eaf.80.1795029713272;
+        Wed, 18 Nov 2026 11:21:53 -0800 (PST)
+Received: from miso.lan ([136.62.61.36])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b195c0bafsm2376912eaf.14.2026.11.18.11.21.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 11:21:52 -0800 (PST)
+From: Matthew Laux <matthew.laux@gmail.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Mehdi Djait <mehdi.djait@bootlin.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	Matthew Laux <matthew.laux@gmail.com>
+Subject: [PATCH v5 0/8] Add driver for StarTech USB3HDCAP capture device
+Date: Wed, 18 Nov 2026 13:21:16 -0600
+Message-ID: <20261118192124.23330-1-matthew.laux@gmail.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,222 +95,350 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] fbdev: radeonfb: reject a zero pixclock in
- radeonfb_check_var()
-To: Zou Jianqiang <jq.zou@outlook.com>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>
-Cc: "linux-fbdev@vger.kernel.org" <linux-fbdev@vger.kernel.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "byu@xidian.edu.cn" <byu@xidian.edu.cn>,
- "25181214217@stu.xidian.edu.cn" <25181214217@stu.xidian.edu.cn>,
- ONE Zeroiser <zeroisere@outlook.com>
-References: <20261101104107.33909-1-jq.zou@outlook.com>
-Content-Language: en-US
-From: Helge Deller <deller@gmx.de>
-Autocrypt: addr=deller@gmx.de; keydata=
- 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
-In-Reply-To: <20261101104107.33909-1-jq.zou@outlook.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:8l0VICtKPh/D3Ja5DI1pKeGhT/aEtvMNHF3GV4zCweHZDYowllD
- pCl8SxkzdSAzAqIG/mOY4uXJtBicmg8TWf8frYfPoJvS49aq0/hC/2xrGtYRA8Ae+247tbI
- LjjmQvIPnP5yY1/l8L8HYv+zvQAZnMj6KKRejbPp/+pGesAjzpSBYTE5o49oL9zwgUEGeoW
- fUvpgWrj1sV6HMHYiGGFA==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:W6fwUkbMUxw=;suieIM+0y5KN5cCMlkHwgt6TSfO
- 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
+Content-Transfer-Encoding: 8bit
 
-On 11/1/26 11:41, Zou Jianqiang wrote:
-> From: Jianqiang Zou <jq.zou@outlook.com>
->=20
-> radeonfb_set_par() derives the dot clock from the user supplied
-> struct fb_var_screeninfo:
->=20
-> 	dotClock =3D 1000000000 / pixClock;
->=20
-> where pixClock is copied from mode->pixclock.  A zero pixclock
-> bypasses the existing validation and makes the kernel divide by zero
-> in radeonfb_set_par().
->=20
-> The driver does have a check for this: fb_validate_mode() returns
-> -EINVAL when pixclock is 0, but radeon_match_mode() only calls it when
-> the output has no scaler and an EDID-derived mode database is
-> available:
->=20
-> 	if (has_rmx =3D=3D 0 && rinfo->mon1_modedb)
-> 		if (fb_validate_mode(...))
-> 			return -EINVAL;
->=20
-> mon1_modedb is only filled in when an EDID is read, so when no
-> EDID-derived mode database is available the validation is skipped and
-> the invalid mode reaches radeonfb_set_par().
->=20
-> Reject a zero pixclock in radeonfb_check_var() before matching the
-> mode.  fb_set_var() calls it on the FBIOPUT_VSCREENINFO path before
-> ->fb_set_par(), so the invalid value is rejected before the mode is
-> applied.  This is the same check other fbdev drivers use (i740fb,
-> arkfb, s3fb).
->=20
-> Reproduced on Linux 7.3.0 using a custom QEMU PCI stub device with
-> vendor/device ID 1002:5955; no physical Radeon hardware was used.  A
-> single FBIOPUT_VSCREENINFO with pixclock =3D 0 is enough to trigger the
-> divide error.
->=20
-> Signed-off-by: Jianqiang Zou <jq.zou@outlook.com>
-> ---
->   drivers/video/fbdev/aty/radeon_base.c | 3 +++
->   1 file changed, 3 insertions(+)
-applied.
+Add a V4L2/ALSA driver for the StarTech USB3HDCAP (and Micomsoft
+XCAPTURE-1 variant), a USB 3.0 video capture device based on the
+MST3367 HDMI receiver, TW9900 composite decoder, and CS53L21 audio codec.
 
-Thanks!
-Helge
+The driver supports composite, S-Video, component, and HDMI inputs,
+including audio capture.
+
+Tested on all four inputs at various resolutions. All v4l2-compliance
+tests pass, including streaming tests, with these two v4l2-compliance bugs
+patched:
+
+https://lore.kernel.org/linux-media/20261116214655.6979-1-matthew.laux@gmail.com/T/#u
+https://lore.kernel.org/linux-media/20261116214755.7040-1-matthew.laux@gmail.com/T/#u
+
+The first 6 patches are changes to the existing upstream tw9900 driver to
+prepare for my driver. The 7th is a driver for the MST3367 chip. The 8th
+is the bridge device driver and "everything else".
+
+I tried to use patterns from existing drivers wherever possible and
+welcome all feedback. This is my own work. I accepted two small PRs to my
+out-of-tree in-development version on GitHub that were LLM-assisted, for
+a total of 4 lines. I am committed to sticking around to make any
+improvements required.
+
+Thanks,
+Matthew
+
+Changelog:
+
+v5: refactor to use subdevices, so it's no longer targeting staging.
+    support HDMI on the XCAPTURE-1
+    detect HDMI timings from the chip instead of using a fixed table
+    fix (valid) Sashiko automated review feedback
+    fix composite/S-Video audio on the XCAPTURE-1
+
+v4: add USB to Kconfig "depends on"... oops. fixes randconfig
+
+v3: fix truncation warnings in (u8) casts >= 0x80, static-ify mode table
+
+v2: remove unused CSC matrix control, remove version.h include,
+    fix all remaining `check`-level checkpatch issues, update TODO
+
+v4l2-compliance 1.33.0-5524, 64 bits, 64-bit time_t
+v4l2-compliance SHA: 485c038f10ae 2026-10-30 13:45:36
+
+Compliance test for usb3hdcap device /dev/video0:
+
+Driver Info:
+	Driver name      : usb3hdcap
+	Card type        : StarTech USB3HDCAP
+	Bus info         : usb-0000:00:14.0-2
+	Driver version   : 7.0.0
+	Capabilities     : 0x85200001
+		Video Capture
+		Read/Write
+		Streaming
+		Extended Pix Format
+		Device Capabilities
+	Device Caps      : 0x05200001
+		Video Capture
+		Read/Write
+		Streaming
+		Extended Pix Format
+
+Required ioctls:
+	test VIDIOC_QUERYCAP: OK
+	test invalid ioctls: OK
+
+Allow for multiple opens:
+	test second /dev/video0 open: OK
+	test VIDIOC_QUERYCAP: OK
+	test VIDIOC_G/S_PRIORITY: OK
+	test for unlimited opens: OK
+
+Debug ioctls:
+	test VIDIOC_DBG_G/S_REGISTER: OK (Not Supported)
+	test VIDIOC_LOG_STATUS: OK
+
+Input ioctls:
+	test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+	test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+	test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+	test VIDIOC_ENUMAUDIO: OK (Not Supported)
+	test VIDIOC_G/S/ENUMINPUT: OK
+	test VIDIOC_G/S_AUDIO: OK (Not Supported)
+	Inputs: 4 Audio Inputs: 0 Tuners: 0
+
+Output ioctls:
+	test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+	test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+	test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+	test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+	test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+	Outputs: 0 Audio Outputs: 0 Modulators: 0
+
+Input/Output configuration ioctls:
+	test VIDIOC_ENUM/G/S/QUERY_STD: OK
+	test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK
+	test VIDIOC_DV_TIMINGS_CAP: OK
+	test VIDIOC_G/S_EDID: OK (Not Supported)
+
+Control ioctls (Input 0):
+	test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK
+	test VIDIOC_QUERYCTRL: OK
+	test VIDIOC_G/S_CTRL: OK
+	test VIDIOC_G/S/TRY_EXT_CTRLS: OK
+	test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK
+	test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+	Standard Controls: 8 Private Controls: 0
+
+Format ioctls (Input 0):
+	test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+	test VIDIOC_G/S_PARM: OK
+	test VIDIOC_G_FBUF: OK (Not Supported)
+	test VIDIOC_G_FMT: OK
+	test VIDIOC_TRY_FMT: OK
+	test VIDIOC_S_FMT: OK
+	test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+	test Cropping: OK (Not Supported)
+	test Composing: OK (Not Supported)
+	test Scaling: OK (Not Supported)
+
+Codec ioctls (Input 0):
+	test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+	test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+	test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+
+Buffer ioctls (Input 0):
+	test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+	test CREATE_BUFS maximum buffers: OK
+	test VIDIOC_REMOVE_BUFS: OK
+	test VIDIOC_EXPBUF: OK (Not Supported)
+	test Requests: OK (Not Supported)
+	test blocking wait: OK
+
+Control ioctls (Input 1):
+	test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK
+	test VIDIOC_QUERYCTRL: OK
+	test VIDIOC_G/S_CTRL: OK
+	test VIDIOC_G/S/TRY_EXT_CTRLS: OK
+	test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK
+	test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+	Standard Controls: 8 Private Controls: 0
+
+Format ioctls (Input 1):
+	test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+	test VIDIOC_G/S_PARM: OK
+	test VIDIOC_G_FBUF: OK (Not Supported)
+	test VIDIOC_G_FMT: OK
+	test VIDIOC_TRY_FMT: OK
+	test VIDIOC_S_FMT: OK
+	test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+	test Cropping: OK (Not Supported)
+	test Composing: OK (Not Supported)
+	test Scaling: OK (Not Supported)
+
+Codec ioctls (Input 1):
+	test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+	test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+	test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+
+Buffer ioctls (Input 1):
+	test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+	test CREATE_BUFS maximum buffers: OK
+	test VIDIOC_REMOVE_BUFS: OK
+	test VIDIOC_EXPBUF: OK (Not Supported)
+	test Requests: OK (Not Supported)
+	test blocking wait: OK
+
+Control ioctls (Input 2):
+	test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK
+	test VIDIOC_QUERYCTRL: OK
+	test VIDIOC_G/S_CTRL: OK
+	test VIDIOC_G/S/TRY_EXT_CTRLS: OK
+	test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK
+	test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+	Standard Controls: 8 Private Controls: 0
+
+Format ioctls (Input 2):
+	test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+	test VIDIOC_G/S_PARM: OK
+	test VIDIOC_G_FBUF: OK (Not Supported)
+	test VIDIOC_G_FMT: OK
+	test VIDIOC_TRY_FMT: OK
+	test VIDIOC_S_FMT: OK
+	test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+	test Cropping: OK (Not Supported)
+	test Composing: OK (Not Supported)
+	test Scaling: OK (Not Supported)
+
+Codec ioctls (Input 2):
+	test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+	test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+	test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+
+Buffer ioctls (Input 2):
+	test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+	test CREATE_BUFS maximum buffers: OK
+	test VIDIOC_REMOVE_BUFS: OK
+	test VIDIOC_EXPBUF: OK (Not Supported)
+	test Requests: OK (Not Supported)
+	test blocking wait: OK
+
+Control ioctls (Input 3):
+	test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK
+	test VIDIOC_QUERYCTRL: OK
+	test VIDIOC_G/S_CTRL: OK
+	test VIDIOC_G/S/TRY_EXT_CTRLS: OK
+	test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK
+	test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+	Standard Controls: 8 Private Controls: 0
+
+Format ioctls (Input 3):
+	test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+	test VIDIOC_G/S_PARM: OK
+	test VIDIOC_G_FBUF: OK (Not Supported)
+	test VIDIOC_G_FMT: OK
+	test VIDIOC_TRY_FMT: OK
+	test VIDIOC_S_FMT: OK
+	test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+	test Cropping: OK (Not Supported)
+	test Composing: OK (Not Supported)
+	test Scaling: OK (Not Supported)
+
+Codec ioctls (Input 3):
+	test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+	test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+	test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+
+Buffer ioctls (Input 3):
+	test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+	test CREATE_BUFS maximum buffers: OK
+	test VIDIOC_REMOVE_BUFS: OK
+	test VIDIOC_EXPBUF: OK (Not Supported)
+	test Requests: OK (Not Supported)
+	test blocking wait: OK
+
+Test input 0:
+
+Streaming ioctls:
+	test read/write: OK
+	test MMAP (no poll, REQBUFS): OK
+	test MMAP (select, REQBUFS): OK
+	test MMAP (epoll, REQBUFS): OK
+	test MMAP (no poll, CREATE_BUFS): OK
+	test MMAP (select, CREATE_BUFS): OK
+	test MMAP (epoll, CREATE_BUFS): OK
+	test USERPTR (no poll): OK
+	test USERPTR (select): OK
+	test DMABUF (no poll): OK (Not Supported)
+	test DMABUF (select): OK (Not Supported)
+
+Test input 1:
+
+Streaming ioctls:
+	test read/write: OK
+	test MMAP (no poll, REQBUFS): OK
+	test MMAP (select, REQBUFS): OK
+	test MMAP (epoll, REQBUFS): OK
+	test MMAP (no poll, CREATE_BUFS): OK
+	test MMAP (select, CREATE_BUFS): OK
+	test MMAP (epoll, CREATE_BUFS): OK
+	test USERPTR (no poll): OK
+	test USERPTR (select): OK
+	test DMABUF (no poll): OK (Not Supported)
+	test DMABUF (select): OK (Not Supported)
+
+Test input 2:
+
+Streaming ioctls:
+	test read/write: OK
+	test MMAP (no poll, REQBUFS): OK
+	test MMAP (select, REQBUFS): OK
+	test MMAP (epoll, REQBUFS): OK
+	test MMAP (no poll, CREATE_BUFS): OK
+	test MMAP (select, CREATE_BUFS): OK
+	test MMAP (epoll, CREATE_BUFS): OK
+	test USERPTR (no poll): OK
+	test USERPTR (select): OK
+	test DMABUF (no poll): OK (Not Supported)
+	test DMABUF (select): OK (Not Supported)
+
+Test input 3:
+
+Streaming ioctls:
+	test read/write: OK
+	test MMAP (no poll, REQBUFS): OK
+	test MMAP (select, REQBUFS): OK
+	test MMAP (epoll, REQBUFS): OK
+	test MMAP (no poll, CREATE_BUFS): OK
+	test MMAP (select, CREATE_BUFS): OK
+	test MMAP (epoll, CREATE_BUFS): OK
+	test USERPTR (no poll): OK
+	test USERPTR (select): OK
+	test DMABUF (no poll): OK (Not Supported)
+	test DMABUF (select): OK (Not Supported)
+
+Total for usb3hdcap device /dev/video0: 167, Succeeded: 167, Failed: 0,
+Warnings: 0
+
+Matthew Laux (8):
+  media: tw9900: Disable regulator on runtime resume failure
+  media: tw9900: accept the TW9910 chip ID
+  media: tw9900: add saturation, hue and sharpness controls
+  media: tw9900: use runtime PM autosuspend and power down on suspend
+  media: tw9900: allow board-specific register tables via platform data
+  media: tw9900: add S-Video input and progressive source detection
+  media: Add subdevice driver for the Mstar MST3367 HDMI receiver
+  media: add driver for StarTech USB3HDCAP
+
+ MAINTAINERS                                   |   14 +
+ drivers/media/i2c/Kconfig                     |   11 +
+ drivers/media/i2c/Makefile                    |    1 +
+ drivers/media/i2c/mst3367.c                   | 1085 ++++++++++++++++
+ drivers/media/i2c/tw9900.c                    |  256 +++-
+ drivers/media/usb/Kconfig                     |    1 +
+ drivers/media/usb/Makefile                    |    1 +
+ drivers/media/usb/usb3hdcap/Kconfig           |   15 +
+ drivers/media/usb/usb3hdcap/Makefile          |    8 +
+ drivers/media/usb/usb3hdcap/usb3hdcap-audio.c |  323 +++++
+ .../media/usb/usb3hdcap/usb3hdcap-composite.c |  209 ++++
+ drivers/media/usb/usb3hdcap/usb3hdcap-core.c  | 1107 +++++++++++++++++
+ drivers/media/usb/usb3hdcap/usb3hdcap-hdmi.c  |  202 +++
+ drivers/media/usb/usb3hdcap/usb3hdcap-video.c |  525 ++++++++
+ drivers/media/usb/usb3hdcap/usb3hdcap.h       |  239 ++++
+ include/media/i2c/mst3367.h                   |   27 +
+ include/media/i2c/tw9900.h                    |   38 +
+ 17 files changed, 4030 insertions(+), 32 deletions(-)
+ create mode 100644 drivers/media/i2c/mst3367.c
+ create mode 100644 drivers/media/usb/usb3hdcap/Kconfig
+ create mode 100644 drivers/media/usb/usb3hdcap/Makefile
+ create mode 100644 drivers/media/usb/usb3hdcap/usb3hdcap-audio.c
+ create mode 100644 drivers/media/usb/usb3hdcap/usb3hdcap-composite.c
+ create mode 100644 drivers/media/usb/usb3hdcap/usb3hdcap-core.c
+ create mode 100644 drivers/media/usb/usb3hdcap/usb3hdcap-hdmi.c
+ create mode 100644 drivers/media/usb/usb3hdcap/usb3hdcap-video.c
+ create mode 100644 drivers/media/usb/usb3hdcap/usb3hdcap.h
+ create mode 100644 include/media/i2c/mst3367.h
+ create mode 100644 include/media/i2c/tw9900.h
+
+
+base-commit: aa0f4c41d4870a18e65772a1817af16427200371
+-- 
+2.47.3
+
