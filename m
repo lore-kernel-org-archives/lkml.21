@@ -1,97 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795026154;
-	b=sILPfzx9M70cMUFhIbnyFvubIw1Dcc8WNEt6hJ4Ts66ezU4TsiQfdd4UbrIv/0VRjtW2
-	 oemwV44Q7aEAOgXzjSAarkxsVuLEXZFS1W/AhN51bp5h4PJLZ2Vyw4mzHncHv4eROhsBz
-	 uDUIWVf2ynTN00EVBO8zTvGOGVlk3+KXhE7XUTx3ucDbaPsqiEuoLEvgxdnhqDqMssWpO
-	 uLB8hlsuwYlu7wTcV4Cwo83eJdoKc4fWUoyFJXK5Hu5z6znRp1rUxNuSP7/svea8srH1d
-	 RbaXIjrdPAXrTRGGCmCuMYBW9BbVzXyi6SIdrAzvzoYklC+iTwH6JX/uENFJsvRlDsA==
+	t=1795026161;
+	b=rdlix3op5DCqg0xHvrO2Aapmzy1KuEIzKwXx4pmX13z/Ds0FBjsIeN/bcEViOzeNdPUm
+	 VP7gKN+/DhzpY2+DoOAWx2+5C6QMXtrochopsCAz2zxpAoUf7wXQ0tS5rS46ViDi2nVbs
+	 a0JZe7Ln7K/6J8tpWjlQV2dYg+6PssFDZRCZYc3xLG3JXf6GfNCIRxzyYk8JIfFmBQWJn
+	 yDwGKOdlt4OQ3CKsLp93ZSjD8n5m7p4V3Wf30/7ZsSiCI2lqZ5TlOHfQ4QZ377v9z/YxW
+	 xIlIyRS3rfPimhLqkK8ctHybXEKxRRBmSiP7mHo0T24yf93qCFr6iYJeliTFPc580iA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795026154;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=vMKQOV/DxCkrPHKAtfr//ClygiL+UWH95ly6S/Oee6o=;
-	b=YsLoKCKwKagtgLpJA7PPNyaOwayV9xXEp6NmdQ8rTp+KBF+chgiPhZKFqyXa2PUx8RNf
-	 FfyhC/xYKPCsUPOQ68RYqm0E8QO7JxoMX1J8Ftisw532pCEGoEYPxCDyNKfi480n4iFkE
-	 gFAlOkuDtnKQm7Pql9jOcBAJ4TRr/0WycdDtdl90dEHd6wgXNSheunzLUSWoc2jYbq2oC
-	 u7QR8bgFXuTE1kD6XBHgEqCspXfH+uONiljQdkTJ3O2F6JaZ8YVQ7ESW6D+Xy+QxEDCkr
-	 HRCRv1Uxua3xrN644I6Q+8A+i0jYWOMmK2G92HEtGKDNFazNFOq8SE3mEwHEpTDwybw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795026161;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=xvB8IhYRPSnbnj2uCIAQHzMiYpbNgO0dDpgbm6C1Dps=;
+	b=Xav1Fd4yj/LjlowY1zZWblMpcwMOfNkPdAAVHUAXGjOMzyM7Xv1pcTT3jowGo7cs7iX/
+	 1FN3XCenSL43YQYZPUjgaPJrLaiDx4t1WVgWKu0BWrfqK/iHvskq3cMz7E2YX3kdnQCyd
+	 OrlDgCx1yKvM6rjlTskCVsHYlY9ITy3RHx36xREEW4e9KFCjrxHzNlSd3bH2Xj9h2rbym
+	 9bLkfCIPuB6555GlwLN3BKDBSJic0s2cYBy0WYo3uKwpKfHAEMQP5xRJbrA4oowjLI0WT
+	 HjNtK7ahFP0AhgkIt2FDkpuPvXR8S8wP92ux8cLfE6e4Hb2DqHX3dA5vpz4dBdZ6R/Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rowland.harvard.edu;
-	spf=fail smtp.mailfrom=g.harvard.edu;
-	dkim=pass header.d=rowland.harvard.edu header.i=@rowland.harvard.edu header.a=rsa-sha256 header.s=google header.b=cnXGQc4f;
-	arc=none smtp.remote-ip=209.85.222.178
-Received: from mail-qk1-f178.google.com (mail-qk1-f178.google.com [209.85.222.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ODZK9b7w;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0BE1E606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:22:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0BE1E606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rowland.harvard.edu
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=g.harvard.edu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 544A7606A32C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:22:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=rowland.harvard.edu header.i=@rowland.harvard.edu header.a=rsa-sha256 header.s=google header.b=cnXGQc4f
-Received: by mail-qk1-f178.google.com with SMTP id af79cd13be357-9497a167a6aso10341485a.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:22:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rowland.harvard.edu; s=google; t=1795026153; x=1795630953; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=vMKQOV/DxCkrPHKAtfr//ClygiL+UWH95ly6S/Oee6o=;
-        b=cnXGQc4fX2GKsWf2r8Qtk5ghyw0cgOyRGxVeq6PSdtK1Mit8DixMVGBAztBwq1SYyv
-         Nh2ZxIn5/Jb2AH+7Lwu6eBwhI+h1l2aDdnqm58QsUmqbOis8XxNoLg9TYN0c1GiBlFUz
-         3/vpM/zyeOwZvchrtfsful8LjthcUANs1ocWGSY0hVVSwfM6eFi6cS0bAUnDQKZ1zoK7
-         Oci7ZXeXmKBV0n46NGoNgGbQOskzNVRKd//mXimvXDhj+U43XHR7Gyls57Y+x4RLz5Z7
-         qPICM3Cg0qxwDjeHJjM79Gk3Lu6KfDU5TLhQtwXow16Fae1+VOEAyvE/TCtPhPd8jNkI
-         zGeQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795026153; x=1795630953;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=vMKQOV/DxCkrPHKAtfr//ClygiL+UWH95ly6S/Oee6o=;
-        b=PihcKsU4T6a7TbcSngw4OtGbUt+kfOtxH5Evnmid/uV1nqUvr7hPk82zuYfZakBC8F
-         g+zkzrnk/5o54ghFWCN6f931xpq5ZJDgiVnn0DT8A5bVIE4JI741yEXDQ0335K28oHmw
-         23q1w0eyhZXxwZRLNQp1ZYpYxtKcdeHjEgxtWVJk/x9s9YQAvB2l0qSZRLHPlZDsJiZi
-         Et80+I/VEVQ+rXSeQGapqW6uOYZYZdw9VFmmyT7ZfNS5c8b7WYsBIMJbhJj+8xIcQqxe
-         otxMDVoJG4RW+HiLWZdI5CXWxrCpYZsh5mS5/RA5rguf638iXrWG/zx0KDAPxa9p13vq
-         L9Dg==
-X-Forwarded-Encrypted: i=1; AL+hErGA6nJ5sfj4ZsQCuC+qPLCRsullwfpw0YAd9StpFdEoRq/sAbe0D14XOc8BnD1w/BGPDpgPQZDNv8mDhRk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9dAK/vQARrQkuSrXpsO+Ixggsaq3ocrjEv3+wQU13LUigFdKEt
-	OoAmo/5xLuAfrGy633gj0qHxErdOe3D6UQA/Vaz0eiShe4rGcOlslqSJfF8APBeRhQ==
-X-Gm-Gg: AYBFou3BmQuLlJeWw52MaaZZ1EjhIGLQpGJhGCAlhnFyP3WY5Wpl64aJ5y1HU+3JIvM
-	QxyldY2IDpQFORhAjk1+FzYQrhxnu5PEp/kC0LJycGSHQ3UF7E1LNRrRb2wYot1rEBG6Vw/XQ+a
-	y5tw46V5JlVyDrjV6c2Fi5PXZ+kfzLcneOGc6qQNMjDNL/PLfgI1EnpH/6jj7xxvZhUFYkUnaj+
-	9L80Gz6wVMXflAYrh6uwjRAs+k1XQxnlCzjodIZ7cJPzii/2sBiuAo7pOn89WvCBqOkwuo475mG
-	LuqErqDYDyVlTtNpKDjBDfRvaJD2cO9dsfh22f7rGW2uu6gkK2WYrTfuHOrz1NiICG8aa9IZvSb
-	rQZc/hhfdLYiAD9tctOhbt5RqIMRWS37MYJp/tGTIyMTJO/yGXqNzNIPfdW8LAiuEFQ5qKVnpbc
-	+FMIOaNB++0HnmuNnK80DMEGI8k/pDubFUi68Up/29G8KcKCcO0Csy6Mk/IpRonbVxnfe6LK3Lf
-	Z3P+/ilsO3Ib8jITyKaYK6ioMRvebpBJ41ScvjTtnO0z7/v83nLA8MUHdo+6wtSk740viNFaWXl
-	VSuRGGeXCcHyWRofAB07C4qN7Vae9IVNxZffJwByeW7Eugkjolw=
-X-Received: by 2002:a05:620a:2988:b0:949:5cb8:6bd8 with SMTP id af79cd13be357-949a8bafce3mr60524085a.22.1795026152815;
-        Wed, 18 Nov 2026 10:22:32 -0800 (PST)
-Received: from rowland.harvard.edu ([2607:fb60:1011:2006:2008:aeb7:73d7:d8ff])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-9499b767dd6sm242351385a.24.2026.11.18.10.22.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 10:22:31 -0800 (PST)
-Date: Wed, 18 Nov 2026 13:22:28 -0500
-From: Alan Stern <stern@rowland.harvard.edu>
-To: Alexey Charkov <alchark@flipper.net>
-Cc: Neill Kapron <nkapron@google.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Xu Yang <xu.yang_2@nxp.com>, linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Sebastian Reichel <sebastian.reichel@collabora.com>
-Subject: Re: [PATCH v3 3/3] usb: gadget: udc: Decide on connecting in one
- place
-Message-ID: <0790eebe-a009-4617-a62a-e1a6578446a1@rowland.harvard.edu>
-References: <20261117-udc-connect-v3-0-9413b491d213@flipper.net>
- <20261117-udc-connect-v3-3-9413b491d213@flipper.net>
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ODZK9b7w
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED6571F000C4;
+	Wed, 18 Nov 2026 18:22:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795026161;
+	bh=xvB8IhYRPSnbnj2uCIAQHzMiYpbNgO0dDpgbm6C1Dps=;
+	h=From:Date:Subject:To:Cc;
+	b=ODZK9b7wAy+7knSx5IdGq47OxYc/w6wlve6EX4WhEEofAft1dtcexWSkfUhq+/7G4
+	 xmHel7e0ZkMNcepri9ctwPko4OE+uDGGjVIYfa2U+quHtXGNo2RzkoIjTHs8v4TrHZ
+	 wbxiD2HbDSz+7T3SJOokPcpXsQ5lpMkV5wjMPxaOK6kAVKFZ7mU1jDM9ts/W+/YWYB
+	 T7CIeqSyM8ze/TXw3XTE1O8tR8Iv1D8gFU6OoEWDX0vfFmPcvwFpFkk3gzrDPTHXaG
+	 OodFbQOhiT1Pe6x+nj3Da+6fhoTZ+jz1NWCxQCN1iHGeWlTszHrrbantqG6LozlYGL
+	 Zk6q0tBAEH31w==
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Date: Wed, 18 Nov 2026 18:22:10 +0000
+Subject: [PATCH] MAINTAINERS: consolidate the memory mapping entries into a
+ VMA entry
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,82 +53,173 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117-udc-connect-v3-3-9413b491d213@flipper.net>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261118-maintainers-consolidate-vma-entry-v1-1-8019b0e9928f@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2NMQrDMAwAvxI0V2CnYJp8pXRQE7kRJHKRTGgJ+
+ XtNhxtuuTvA2YQdxu4A411cijaJlw6mhfTFKHNz6EOfYow33Ei0Ntgcp6JeVpmpMu4bIWu1L+a
+ c6JoCPUMaoHXexlk+/8f9cZ4/533uRHMAAAA=
+X-Change-ID: 20261118-maintainers-consolidate-vma-entry-ff6a360ab069
+To: "David Hildenbrand (Arm)" <david@kernel.org>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ "Liam R. Howlett" <liam@infradead.org>, 
+ Suren Baghdasaryan <surenb@google.com>, Vlastimil Babka <vbabka@kernel.org>, 
+ Shakeel Butt <shakeel.butt@linux.dev>, Pedro Falcato <pfalcato@suse.de>, 
+ David Hildenbrand <david@kernel.org>, Jann Horn <jannh@google.com>, 
+ Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, ljs@kernel.org
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5075; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=avC9Gd6INiMLB87wWgBdV52PLjJojmtRdMkvf72D52E=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLL+vnmgWPR1cTCT+oFt7iIvN3LJGa0y+FnwPdTQ7MAll
+ YJd+WpNHaUsDGJcDLJiiizPv4jvDxIJm9d5wd8NZg4rE8gQBi5OAZiIhyPDP8O/pyP+sR7RfHg4
+ x5l7ncSVSU5yLSnfazdPuMCqeFxszQ9GhkuPDsx8nJ1QHFfockovemI1U/pe3ZCHvledC3ZKrpg
+ 4hxEA
+X-Developer-Key: i=ljs@kernel.org; a=openpgp;
+ fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 
-On Tue, Nov 17, 2026 at 04:48:09PM +0400, Alexey Charkov wrote:
-> The UDC core connects or disconnects the gadget on bind and unbind, on
-> VBUS events, in usb_gadget_{de,}activate() and through soft_connect,
-> each by its own rules. gadget->connected means both "the pullup is on"
-> and "turn it on once possible", so the paths misread each other's state.
-> soft_connect also starts and stops the UDC behind the gadget driver's
-> back, and its "connect" overrides VBUS and deactivation.
-> 
-> Allow the gadget to connect only while a driver is bound, VBUS is
-> present, the driver hasn't deactivated it and userspace hasn't
-> disconnected it, and re-evaluate that in one helper whenever any of
-> these changes. Let gadget->connected track only the pullup, as UDC
-> drivers already assume, and clear it at unbind even if the pullup
-> refuses to switch off, so that the next driver starts clean. That
-> supersedes the clearing on UDC start from the previous patch.
-> 
-> Reduce soft_connect to a disconnect request that is forgotten at unbind
-> like the deactivation, and leave the controller alone: the attribute is
-> documented to control the pullup. Keep the request if the pullup fails
-> to follow, so that the next update retries it, and warn about such
-> failures, as nothing else tells the user.
-> 
-> Treat a UDC without a pullup control as having nothing to switch.
-> Binding one has most likely failed with -EOPNOTSUPP since
-> commit 0ea39e030a80 ("usb: gadget: udc: Handle gadget_connect failure
-> during bind operation"), but I have no affected hardware to confirm it.
-> 
-> Suggested-by: Alan Stern <stern@rowland.harvard.edu>
-> Signed-off-by: Alexey Charkov <alchark@flipper.net>
-> ---
+Memory mapping entries were kept in three different sections in order that
+those maintaining/reviewing each distinct part would be made responsible
+for/cc'd on only those parts.
 
-Reviewed-by: Alan Stern <stern@rowland.harvard.edu>
+However this creates confusion as to what files belong to which component,
+so simplify things by consolidating them into one.
 
-> @@ -766,26 +773,20 @@ static int usb_gadget_disconnect_locked(struct usb_gadget *gadget)
->  {
->  	int ret = 0;
->  
-> -	if (!gadget->ops->pullup) {
-> -		ret = -EOPNOTSUPP;
-> -		goto out;
-> -	}
-> -
->  	if (!gadget->connected)
->  		goto out;
->  
-> -	if (gadget->deactivated || !gadget->udc->started) {
-> -		/*
-> -		 * If gadget is deactivated we only save new state.
-> -		 * Gadget will stay disconnected after activation.
-> -		 */
-> -		gadget->connected = false;
-> +	if (!gadget->ops->pullup) {
-> +		ret = -EOPNOTSUPP;
->  		goto out;
->  	}
->  
->  	ret = gadget->ops->pullup(gadget, 0);
->  	if (!ret)
->  		gadget->connected = 0;
-> +	else if (ret != -EOPNOTSUPP)
-> +		dev_warn(&gadget->udc->dev, "failed to disable the pullup: %d\n",
-> +			 ret);
->  
->  	mutex_lock(&udc_lock);
->  	if (gadget->udc->driver)
-> @@ -809,6 +810,10 @@ static int usb_gadget_disconnect_locked(struct usb_gadget *gadget)
->   * Following a successful disconnect, invoke the ->disconnect() callback
->   * for the current gadget driver so that UDC drivers don't need to.
+Expand Suren's maintainership to the entire component, as he is a trusted
+and valued member of the VMA kernel team and very much deserving of the
+position.
 
-I wonder if we need to look at this.  The current code and the code in 
-this patch both invoke the ->disconnect() callback following 
-unsuccessful disconnects as well as successful ones.  This seems like a 
-topic for another patch.
+Additionally, drop Suren's core and misc reviewerships in order to focus
+upon VMA.
 
-Alan Stern
+As David is receiving pull requests directly, make him a reviewer, purely
+as an administrative change.
+
+Also specify the new tree location in preparation for the tree being
+established for next cycle, and remove the link to the not so regularly
+updated linux-mm website.
+
+Given that, from next cycle, the tree will sit outside of Andrew's current
+process, remove his entry, also purely as an administrative change.
+
+With that said, I'd like to take the opportunity to express gratitude for
+Andrew's huge contribution to mm, and for his being both generous and
+gracious throughout this period of change in the subsystem.
+
+Co-developed-by: Suren Baghdasaryan <surenb@google.com>
+Signed-off-by: Suren Baghdasaryan <surenb@google.com>
+Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+---
+ MAINTAINERS | 51 +++++++++++++--------------------------------------
+ 1 file changed, 13 insertions(+), 38 deletions(-)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 222b7fc2c3aa..59496dd1d11e 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -17509,7 +17509,6 @@ R:	Lorenzo Stoakes <ljs@kernel.org>
+ R:	Liam R. Howlett <liam@infradead.org>
+ R:	Vlastimil Babka <vbabka@kernel.org>
+ R:	Mike Rapoport <rppt@kernel.org>
+-R:	Suren Baghdasaryan <surenb@google.com>
+ R:	Michal Hocko <mhocko@suse.com>
+ L:	linux-mm@kvack.org
+ S:	Maintained
+@@ -17680,7 +17679,6 @@ R:	Lorenzo Stoakes <ljs@kernel.org>
+ R:	Liam R. Howlett <liam@infradead.org>
+ R:	Vlastimil Babka <vbabka@kernel.org>
+ R:	Mike Rapoport <rppt@kernel.org>
+-R:	Suren Baghdasaryan <surenb@google.com>
+ R:	Michal Hocko <mhocko@suse.com>
+ L:	linux-mm@kvack.org
+ S:	Maintained
+@@ -17974,30 +17972,37 @@ F:	rust/kernel/mm.rs
+ F:	rust/kernel/mm/
+ F:	rust/kernel/page.rs
+ 
+-MEMORY MAPPING
+-M:	Andrew Morton <akpm@linux-foundation.org>
+-M:	Liam R. Howlett <liam@infradead.org>
++MEMORY MANAGEMENT - VMA
+ M:	Lorenzo Stoakes <ljs@kernel.org>
++M:	Liam R. Howlett <liam@infradead.org>
++M:	Suren Baghdasaryan <surenb@google.com>
+ R:	Vlastimil Babka <vbabka@kernel.org>
+-R:	Jann Horn <jannh@google.com>
++R:	Shakeel Butt <shakeel.butt@linux.dev>
+ R:	Pedro Falcato <pfalcato@suse.de>
++R:	David Hildenbrand <david@kernel.org>
++R:	Jann Horn <jannh@google.com>
+ L:	linux-mm@kvack.org
+ S:	Maintained
+-W:	http://www.linux-mm.org
+-T:	git git://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm
++T:	git git://git.kernel.org/pub/scm/linux/kernel/git/mm/vma.git for-next
+ F:	Documentation/core-api/protection-keys.rst
+ F:	Documentation/filesystems/mmap_prepare.rst
++F:	Documentation/mm/process_addrs.rst
+ F:	Documentation/userspace-api/mseal.rst
+ F:	fs/proc/task_mmu.c
+ F:	fs/proc/task_nommu.c
+ F:	include/linux/mman.h
++F:	include/linux/mmap_lock.h
+ F:	include/linux/pkeys.h
+ F:	include/trace/events/mmap.h
++F:	include/trace/events/mmap_lock.h
++F:	include/uapi/asm-generic/mman-common.h
+ F:	include/uapi/linux/mman.h
+ F:	mm/char-mem.c
++F:	mm/madvise.c
+ F:	mm/mincore.c
+ F:	mm/mlock.c
+ F:	mm/mmap.c
++F:	mm/mmap_lock.c
+ F:	mm/mprotect.c
+ F:	mm/mremap.c
+ F:	mm/mseal.c
+@@ -18011,36 +18016,6 @@ F:	mm/vma_internal.h
+ F:	tools/testing/selftests/mm/merge.c
+ F:	tools/testing/vma/
+ 
+-MEMORY MAPPING - LOCKING
+-M:	Andrew Morton <akpm@linux-foundation.org>
+-M:	Suren Baghdasaryan <surenb@google.com>
+-M:	Liam R. Howlett <liam@infradead.org>
+-M:	Lorenzo Stoakes <ljs@kernel.org>
+-R:	Vlastimil Babka <vbabka@kernel.org>
+-R:	Shakeel Butt <shakeel.butt@linux.dev>
+-L:	linux-mm@kvack.org
+-S:	Maintained
+-W:	http://www.linux-mm.org
+-T:	git git://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm
+-F:	Documentation/mm/process_addrs.rst
+-F:	include/linux/mmap_lock.h
+-F:	include/trace/events/mmap_lock.h
+-F:	mm/mmap_lock.c
+-
+-MEMORY MAPPING - MADVISE (MEMORY ADVICE)
+-M:	Andrew Morton <akpm@linux-foundation.org>
+-M:	Liam R. Howlett <liam@infradead.org>
+-M:	Lorenzo Stoakes <ljs@kernel.org>
+-M:	David Hildenbrand <david@kernel.org>
+-R:	Vlastimil Babka <vbabka@kernel.org>
+-R:	Jann Horn <jannh@google.com>
+-L:	linux-mm@kvack.org
+-S:	Maintained
+-W:	http://www.linux-mm.org
+-T:	git git://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm
+-F:	include/uapi/asm-generic/mman-common.h
+-F:	mm/madvise.c
+-
+ MEMORY TECHNOLOGY DEVICES (MTD)
+ M:	Miquel Raynal <miquel.raynal@bootlin.com>
+ M:	Richard Weinberger <richard@nod.at>
+
+---
+base-commit: 0c524518413094607a6178c53a65815762bc9c45
+change-id: 20261118-maintainers-consolidate-vma-entry-ff6a360ab069
+
+Cheers,
+-- 
+Lorenzo Stoakes (ARM) <ljs@kernel.org>
+
