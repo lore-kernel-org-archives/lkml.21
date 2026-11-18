@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794968906;
-	b=fgynFf4TvcVDTHzuRQ9IcfJz8koBXAVsT+elHnXIrQMza1zQzQ/jRKh6U3CaBgpFHLfy
-	 diqWmzocAtZbnxPD+ofzWqZAnz8J4xz8StdmLNZ+nNsK4KJ/GddK7dcH8pPOXX1osa6kv
-	 9N9z0Xd7jYjHU9+we4o3886pbGBj9YqbUckIbgaWz5aSEhunuJGowm6bzBQwg3Jb7hp9c
-	 luPdyz7ZLtoEdrEfygjxM612esmnFT8pMpWwdCZ8yFhRSMqvuSwEd5pVdYPLmd22uoJJO
-	 OSow3LUSg+rRgpCktwqASsALSA7Rm5uf7ta8/fIOpiUVPvMIPfwpG504mcYlJd1JKCw==
+	t=1794968913;
+	b=i2I6imZYXvOFI8iEs+2kGCyLxFj/wJTUu87ezxGf1pHStKbyS2ZUwTX0NvtJeh2AGr/E
+	 yNssgPQInJGnp3aYgX30XCGjUbzDHxA2bPnWahkVKv4XK39MnTgcm5sw6NZ1t+7dzrVd0
+	 C5hZ8K0J0ZlDh/b90GsNwNDUJvRwCNxtuwOaQTpleHpXS4IrfMN0U2cueKxhp5VqNnpl0
+	 +4COvKT4Mon2e/wuchF0TbAnUzVdgHkN03VlWfpn3+A9OLVYs/Nx49Qw5Z3kE1FzclZ5A
+	 SCHSU7WL3/eLmoviQHEbNlFjwBluErYk4+23ClINxYpjA38N5ywvGkGKTJW+ryQHzWQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794968906;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794968913;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=+vta/0qgav/rUrht9WwF12uEPKYQmyrrbFSNEVdW8o0=;
-	b=FhJmEuU/7Q5O+YL2bUFX9gc/FVP/ScGgUZDhVBeNNHMb/TE/dBy7TELdmA4S0bj2KQTl
-	 vN70vFONf7QwIBrruhHAkVzFgtnjyacqaNHQUMHdFnI7Zd1eOtNJIQYpWaExV7/UNh/W2
-	 27lpmY5TCdXb4O/f7If1U/fwc3telfrnwEBlPuYYaJL8k59q5Uf3SjsuYXgGYqmwMuk9E
-	 vyFmLchI4bOrsXCtMi859wiiaQIrcjCDdYDhpL/7gkLozwWGVlI28/ZQ0qKm+GdH1717x
-	 WQpGXmEn7ONNevUUW2JIiGWoml1cVGOn31G9U15HeY6wuEh/ImnaxIr9s8HBgaAU9Vg==
+	bh=Ho54TYF6nZjSAVceuh96jk4faWMez+7R+0ZdE7pbCeo=;
+	b=p33zlDGIxx8vgmed6y3fDmz/CAkvPU5vMHWZCIHfRbOOF7q1yF4Vc5FCi2RDy7WTA1Qj
+	 KsfQ6mu6hBgoePEWW+fpIG3NEDZuwFvplWFtTIaX6HwrfCeNYG8pAqI+8GkjUp6LUHbK/
+	 Ryib2ElHapSY3Ez0wLGMZjUAbR5hgumTUpzbXipcOikozYIOB1oPoKF42Ky5hV36Wgw34
+	 tBg00BG+4PR6F5ErqjVaDcXd1/auShOhpF9OCVC4PAqQL7kN+zu9xHhRBp8cthbIgb58n
+	 uq3zbRxKJA1MjcMtOGz6CGiHnWOxwUxLXGZcnIg8RqoNkYU6M65viHMRdv7E++tdmVQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cy2Q+Xkl;
-	arc=none smtp.remote-ip=209.85.214.171
-Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com [209.85.214.171])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=noSpeQOW;
+	arc=none smtp.remote-ip=209.85.216.51
+Received: from mail-pj1-f51.google.com (mail-pj1-f51.google.com [209.85.216.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76C23606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:28:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76C23606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9835E606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:28:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9835E606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cy2Q+Xkl
-Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2e987a2ba0cso3088495ad.3
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:28:26 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=noSpeQOW
+Received: by mail-pj1-f51.google.com with SMTP id 98e67ed59e1d1-3b16896b8ceso193370a91.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:28:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794968906; x=1795573706; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794968912; x=1795573712; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=+vta/0qgav/rUrht9WwF12uEPKYQmyrrbFSNEVdW8o0=;
-        b=cy2Q+XklQ5KqHJHhh/oFJkmh2mqiS/bMvFmsez1b8zvlbdGO1ZLx7dgOmdH7qom5Dr
-         kh226ubwjOb6PxOYf68rstZZ1Q2z3P3dyvyIKJnUR3VlFSdRAYXxsoPehePvwxdkhRXs
-         DeUEDiCP34ccd7e8hDOHxOS1UfC6z4vlOiBL4j5VrgtcS7XUyUFDo50v3kcsDj7N7KfB
-         y1NNU42aTxX7sssOs3AhlJ0viv+klJfxsw4nVVyXxMIi0doOelpjrq1dr6dZoEvBhAZM
-         dOuYgQCT1igPRWXDkb8hbj3fKv4+6JCtr4xtv+/khzeHnNepF8f/tYk+kSCentJ9/A3U
-         9sMQ==
+        bh=Ho54TYF6nZjSAVceuh96jk4faWMez+7R+0ZdE7pbCeo=;
+        b=noSpeQOWMnvjMUB6qRG1XQ4bNW0CovOzR4Vock8d8sRNJybt3HCHGEScStRD4rHXQw
+         qz60TaqJL5yaoG7l01VvNRfzP3YN1ZG4Ockxhic+KD7NCdgifN0nu/W7rTvARuUm+j9C
+         UugLhefh86fBh9EFvt56DLVHm0/6KtbPyKrdZnZU/3dCWq9T3EsNpZrQ6Clhh2VZlC5k
+         KmVIaN5kugqEK8xGHodYrAaBq1/LBqURUOvPksHiVpUHVG2HvrVOnxzo90Jl0G6pqXxG
+         n4fKFxn90Ayht0MnfjGbVYXAbHSCi0CKmZx0uhpL91VZy6+0RCBtcqznu8iF5PWcVAf3
+         eSZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794968906; x=1795573706;
+        d=1e100.net; s=20260707; t=1794968912; x=1795573712;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=+vta/0qgav/rUrht9WwF12uEPKYQmyrrbFSNEVdW8o0=;
-        b=PxjFNHJsfX/G41CpdinTnuLpvQq2dxI2W+SYbdsh3aCSk4gOiuJDhTvPIbxRJ6xMKn
-         HB+9sKYlhYTAagRV79vkOsugANR2i+LXP0HVJT7G6r/1T3rQ6pXj8LEzVUknfxuXeisQ
-         W1fGx6o2Wrl83wFJnka98Hl64QyVJYS8RAHYZcHcTUPlNZcYa0D2TywTWle7ybGxRy/H
-         r6/vCa0pEGXpW7UVf2LKtDyhEoi77jMjmkKId1p5KEOzym7H7wZtnypTlSSH9JyVzsfY
-         GsvMpFjxO+d0e4k9RfD4L+BB0JiocjdG20LNv+pWRciILEC/yfQpdq0+bAk6LS/lSWXx
-         xgxg==
-X-Forwarded-Encrypted: i=1; AL+hErFZb8y7e7yA+e0vL1iZRcJxgMgoEw7JB5FR82TbizY7YTdpUow5oYXV84eVgYp+yew2f5FmYbQPZCrmSGY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8r8ZgXseyjf9eHa+Hgy7jfW03Lc4MVU50k0WXUGUbc8YOhA/V7
-	EqMpKhVIe8r0IkaE9ZXlFdZMfhohs/e9Y0Ub1Q27CfRM0HcHcj5ZXzN6
-X-Gm-Gg: AZFdTZeG4zVJYmQ/PmhJ4sXgS9w8n1b5CYuhfMJY9qc/AYH+MMFLRZnF1QdU53IRjJV
-	I6rGLQET8PT4rplBj36/OQkRwh3jfELhP416biiqFvyfInqmqhgMQQWSV2q3Isk7XVjd2FJIe4t
-	zCQDkeO7w15WQImh9TCNg6ql++Bf3yf7MhbCBMyHvYiyZeOUAJAJaMmLdbR1S8ji96T9fEkBpvE
-	Gl+abmzifaFqJaerpMzxEpcX0vRIqjzCrQ4Jgv4qYRn0Otc45iCSv0tKGE4uUgRWV9XPS7HP3FP
-	JesL2wm8ADXEKibasm1AwGGMsh93VS3X+krIkdFB+X8Tzm5P31z+C300XwXmSKQShS+UYC3m3eR
-	BtH126VDM2RNoZy//4xhlFil7p4lgAh0IeLlzi+ER4S7HHwlD6uzrg0kmMfUW4Ulwkig7B6lQED
-	fHOyY4+Pirv+L8LAAG6qAmAvzd4279pGBZqLOHavHB1ph5ZAkJPgHhYHKsxNO7F5N//oNAnwQEM
-	TxEGmcUoNt2d5bmUeE/YLsfoQ+UN+dXx8Gj2kSyVSUbk14h8s6NozGkOGOqtdjiTRhXKYwDCHxp
-	QAjas/zqbH/pqv2z8t0IUqY3jNt3fBnD/Tf+6Ymrq9P1KC2n43AQidZ/2BnKiZgBZ4v57bFI3yw
-	/1T8gWt0NoTgdx3z92q1AwO0=
-X-Received: by 2002:a17:902:cec3:b0:2ef:f3fc:e610 with SMTP id d9443c01a7336-2eff754e4d0mr12461425ad.57.1794968905750;
-        Tue, 17 Nov 2026 18:28:25 -0800 (PST)
+        bh=Ho54TYF6nZjSAVceuh96jk4faWMez+7R+0ZdE7pbCeo=;
+        b=EmRQRJMdwUNkNbmjdydvH4ZyAhyojmUjxQW2DdrYCIu1r7j2/S8IjgAKalHSL2qeZm
+         TQQ8FcWi5Q6/UIX0kzRfCKX60lUGvLS7tLZN4XMgK0pSlGjeTjqqHNBRpFsPGbX23poR
+         NeYlwpqFm9xYE+wBSNaghM8eINGKyZ3yUG1nDe+cbpCSUAmF5nqz9wUynuLo5lhPzMg5
+         Jok/JdNj+ur7cgHz+CTeWzxWYHPsvLFsalaS+67rgpr7jAyA20OyvOcatY1E2v6D1Eg4
+         IQ6+nnt9PSkQsPyWvgUS3op3aU+Ihv15tNtXeidP+CqbbK5y5m3PvkrqHF7JTPbwICMW
+         hiEg==
+X-Forwarded-Encrypted: i=1; AL+hErEjE8XV7NfYciwCYHeEfmm2Vqw01ui50w1YUaoPIVOKVwaqJvRZLzCcLCJUi3VfUX421JDTR5AzKqWMf9g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/KL67fjteaX09Lt/PPUL5/7GmwUDfDt3bNwLl85zmjwZhdE9cH
+	rK2S/6ugI0HpiVGZbe8C7Cxm3g3GbmYV2ps0djde4oWxuDHgIFlbnXbH
+X-Gm-Gg: AZFdTZd/7ngM1uOxjNyzsqiimVVOB0R81yQzryxLKXpWtBJzo9JXNmnIfrIyQanBfI/
+	aKVnNfS+76tY/3dyZO8UgIEuph1ZUO7PGxoq3eN92TQ08JlfmV81sardZBPSWbpmANPOyyiWVzJ
+	xoYKl75djZRwByiZY78HlrLEUpSfy/h1SJFTYH7YjqQq1MhTcFVj2SBEQaCgrJKs90B0fiBqwjK
+	9UOQTToqcCCMfwAUP99Z/S0mLrJ4gxG6Qxed2ILe7lWWCGbtXzGj/T5btlyR5HGnUcEGCbPu5XP
+	iQQo4z72ty0m19vySc/hV3v5U/QCW5WFiSeC8uzPXwF6Jj+joJWB4ACV3b8RhU1cMNINGxmCZmD
+	F0tX2qngsXZi38DP/WP1FDXnNrzS+TTWgfFXLAGJSJgtd3n6PpvvMQKZs5h0OzQwjBTZMXX7Rmd
+	RzEIq8it/g9zXwYSZni4eWZ7+BR4aw0VbP67TKxr/Dy+WZ80J4ZvHuK3Z+8RwzJliNj3g9yTK10
+	JWJfEo/Cdgj4JMHTMfMRJVot8xMhb5KcUI1mHBo2SiDUuF/QRMGcc+5lbBtcvOjKXl8nvfNlay1
+	hHwwSU6WPU/Z/qUyKVqCqC1TELP7Y1+h7UqTq+tdlopnOtBFBrTShiW37OOayTvain8AuTqzYud
+	AI+qBg6gsgWPEwA3ce2kidbw=
+X-Received: by 2002:a17:90a:dfc8:b0:3b0:9cc6:62ba with SMTP id 98e67ed59e1d1-3b3d07d410cmr1041938a91.38.1794968911769;
+        Tue, 17 Nov 2026 18:28:31 -0800 (PST)
 Received: from message.eml ([2a09:bac1:76e0:450::21f:e8])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff6181423sm4715605ad.32.2026.11.17.18.28.22
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3ac2b5ec6sm6700682a91.10.2026.11.17.18.28.28
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 17 Nov 2026 18:28:25 -0800 (PST)
+        Tue, 17 Nov 2026 18:28:31 -0800 (PST)
 From: Zhiqi Zhang <zhiqizhangg@gmail.com>
 To: Eric Dumazet <edumazet@kernel.org>,
 	Neal Cardwell <ncardwell@google.com>,
@@ -93,9 +93,9 @@ Cc: Kuniyuki Iwashima <kuniyu@google.com>,
 	netdev@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net v2 1/2] tcp: roccet: do not restart from idle on RTO retransmission
-Date: Wed, 18 Nov 2026 10:28:12 +0800
-Message-ID: <20261118022813.9778-2-zhiqizhangg@gmail.com>
+Subject: [PATCH net v2 2/2] selftests: net: packetdrill: add ROCCET RTO test
+Date: Wed, 18 Nov 2026 10:28:13 +0800
+Message-ID: <20261118022813.9778-3-zhiqizhangg@gmail.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20261118022813.9778-1-zhiqizhangg@gmail.com>
 References: <20261118022813.9778-1-zhiqizhangg@gmail.com>
@@ -110,59 +110,111 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-roccet sets .cong_control, so tcp_slow_start_after_idle_check() returns
-early and roccet implements the idle restart in cwnd_event_tx_start().
+Add a packetdrill test for the ROCCET idle restart on RTO.  TLP is
+enabled, so the first RTO is affected; the test asserts that
+tp->snd_ssthresh stays at the prior cwnd (20) across the first and
+second RTOs.
 
-An RTO retransmission also raises CA_EVENT_TX_START: tcp_enter_loss()
-marks the outstanding packets lost, which drains the in-flight count
-while tp->packets_out stays non-zero.  If delta >= icsk_rto,
-roccet_cwnd_event_tx_start() then takes the idle restart and overwrites
-tp->snd_ssthresh with tcp_snd_cwnd() == TCP_INIT_CWND.
+The test fails at the first RTO without the preceding fix
+(snd_ssthresh == 10) and passes with it.  A variant with
+tcp_early_retrans=0 (no TLP) fails at the second RTO only.
 
-When a TLP probe was sent, the RTO timer is rearmed for a full icsk_rto
-at that point and the probe is the last transmit, so the first RTO is
-affected.  Without TLP, the first RTO can escape: the timer is armed
-when the first packet of the flight is sent, and pacing spreads the
-following ones, so now - tp->lsndtime < icsk_rto.  The second RTO is
-always affected, since it fires one backed-off icsk_rto after the first
-RTO retransmit.
+CONFIG_TCP_CONG_ADVANCED and CONFIG_TCP_CONG_ROCCET are added to the
+packetdrill config; ROCCET is only visible when advanced congestion
+control is enabled.
 
-roccet_state(TCP_CA_Loss) calls roccet_reset(), which clears the private
-state; ca->state is already LAUNCH and last_max_cwnd is already 0 when
-roccet_cwnd_event_tx_start() runs, with or without this fix.  The only
-field the idle restart breaks is tp->snd_ssthresh: it overwrites the
-value preserved by roccet_state() with TCP_INIT_CWND.
+Test written by Eric Dumazet.
 
-Skip the idle restart while packets are outstanding.  The packetdrill
-test in the next patch fails at the first RTO without this fix
-(snd_ssthresh == 10) and passes with it.
-
-Fixes: 819d59638796 ("tcp: Add TCP ROCCET congestion control module.")
-Link: https://lore.kernel.org/all/179179785248.434549.16829837649351382748@kernel.org/
+Suggested-by: Eric Dumazet <edumazet@kernel.org>
 Signed-off-by: Zhiqi Zhang <zhiqizhangg@gmail.com>
 ---
- net/ipv4/tcp_roccet.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+ .../testing/selftests/net/packetdrill/config  |  2 +
+ .../net/packetdrill/tcp_roccet_rto.pkt        | 63 +++++++++++++++++++
+ 2 files changed, 65 insertions(+)
+ create mode 100644 tools/testing/selftests/net/packetdrill/tcp_roccet_rto.pkt
 
-diff --git a/net/ipv4/tcp_roccet.c b/net/ipv4/tcp_roccet.c
-index 04b9e52466..1769e4bbe3 100644
---- a/net/ipv4/tcp_roccet.c
-+++ b/net/ipv4/tcp_roccet.c
-@@ -1144,8 +1144,12 @@ static void roccet_cwnd_event_tx_start(struct sock *sk)
- 			ca->epoch_start = now;
- 	}
- 
--	/* After idle periods, go into LAUNCH with slow start */
--	if (READ_ONCE(sock_net(sk)->ipv4.sysctl_tcp_slow_start_after_idle) &&
-+	/* After idle periods, go into LAUNCH with slow start.
-+	 * We are not idle if packets are outstanding (e.g. RTO retransmit),
-+	 * see tcp_slow_start_after_idle_check().
-+	 */
-+	if (!tp->packets_out &&
-+	    READ_ONCE(sock_net(sk)->ipv4.sysctl_tcp_slow_start_after_idle) &&
- 	    delta >= inet_csk(sk)->icsk_rto) {
- 		tp->snd_ssthresh = tcp_snd_cwnd(tp);
- 		tcp_snd_cwnd_set(tp, min(TCP_INIT_CWND, tp->snd_cwnd_clamp));
+diff --git a/tools/testing/selftests/net/packetdrill/config b/tools/testing/selftests/net/packetdrill/config
+index b7df8bf309..6e012141d5 100644
+--- a/tools/testing/selftests/net/packetdrill/config
++++ b/tools/testing/selftests/net/packetdrill/config
+@@ -6,6 +6,8 @@ CONFIG_NET_SCH_FIFO=y
+ CONFIG_NET_SCH_FQ=y
+ CONFIG_SYN_COOKIES=y
+ CONFIG_SYSCTL=y
++CONFIG_TCP_CONG_ADVANCED=y
+ CONFIG_TCP_CONG_CUBIC=y
++CONFIG_TCP_CONG_ROCCET=y
+ CONFIG_TCP_MD5SIG=y
+ CONFIG_TUN=y
+diff --git a/tools/testing/selftests/net/packetdrill/tcp_roccet_rto.pkt b/tools/testing/selftests/net/packetdrill/tcp_roccet_rto.pkt
+new file mode 100644
+index 0000000000..dabaf07f32
+--- /dev/null
++++ b/tools/testing/selftests/net/packetdrill/tcp_roccet_rto.pkt
+@@ -0,0 +1,63 @@
++// SPDX-License-Identifier: GPL-2.0
++// Test that ROCCET does not take its "restart after idle" path on RTO.
++//
++// An RTO retransmit raises CA_EVENT_TX_START, because all outstanding
++// packets were just marked lost (tcp_packets_in_flight() == 0) while
++// tp->packets_out is not zero. If (now - tp->lsndtime) >= icsk_rto,
++// roccet_cwnd_event_tx_start() used to overwrite the snd_ssthresh
++// that tcp_enter_loss() had just set with TCP_INIT_CWND.
++//
++// TLP is enabled here. The RTO timer is rearmed for a full icsk_rto when
++// the loss probe is sent, and the probe is the last transmit, so the
++// very first RTO is affected.
++
++`./defaults.sh
++./set_sysctls.py /proc/sys/net/ipv4/tcp_slow_start_after_idle=1`
++
++    0 socket(..., SOCK_STREAM, IPPROTO_TCP) = 3
++   +0 setsockopt(3, SOL_SOCKET, SO_REUSEADDR, [1], 4) = 0
++   +0 setsockopt(3, SOL_TCP, TCP_CONGESTION, "roccet", 6) = 0
++   +0 bind(3, ..., ...) = 0
++   +0 listen(3, 1) = 0
++
++   +0 < S 0:0(0) win 65535 <mss 1000,sackOK,nop,nop,nop,wscale 7>
++   +0 > S. 0:0(0) ack 1 <mss 1460,nop,nop,sackOK,nop,wscale 8>
++  +.1 < . 1:1(0) ack 1 win 511
++   +0 accept(3, ..., ...) = 4
++
++// ROCCET paces its packets: do not expect precise outgoing packets,
++// rely on TCP_INFO instead.
++   +0 write(4, ..., 10000) = 10000
++  +.1 < . 1:1(0) ack 10001 win 511
++   +0 %{ assert tcpi_snd_cwnd == 20, tcpi_snd_cwnd }%
++
++// RTT is 100ms, RTO is ~300ms. Nothing is acked from now on.
++   +0 write(4, ..., 20000) = 20000
++
++// TLP fires ~250ms after the write.
++  +.4 %{
++assert tcpi_ca_state == TCP_CA_Open, tcpi_ca_state
++assert tcpi_total_retrans == 1, tcpi_total_retrans
++}%
++
++// First RTO, ~300ms after the TLP probe.
++// ROCCET is still in LAUNCH state: ssthresh is set to the prior cwnd.
++  +.3 %{
++assert tcpi_ca_state == TCP_CA_Loss, tcpi_ca_state
++assert tcpi_backoff == 1, tcpi_backoff
++assert tcpi_total_retrans == 2, tcpi_total_retrans
++assert tcpi_snd_cwnd == 10, tcpi_snd_cwnd
++assert tcpi_snd_ssthresh == 20, tcpi_snd_ssthresh
++}%
++
++// Second RTO, ~600ms after the first one.
++  +.6 %{
++assert tcpi_ca_state == TCP_CA_Loss, tcpi_ca_state
++assert tcpi_backoff == 2, tcpi_backoff
++assert tcpi_total_retrans == 3, tcpi_total_retrans
++assert tcpi_snd_cwnd == 10, tcpi_snd_cwnd
++assert tcpi_snd_ssthresh == 20, tcpi_snd_ssthresh
++}%
++
++// Reset sysctls
++`/tmp/sysctl_restore_${PPID}.sh`
 -- 
 2.54.0 (Apple Git-157)
 
