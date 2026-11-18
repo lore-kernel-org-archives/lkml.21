@@ -1,54 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795018498;
-	b=UGgKj+VWiJxbbpCylwGUxk8nFrXFHft0GowcGVe/YkxcFvigm7+OuxtOStnmkqXlYIfw
-	 nCDnm0paVyWT1cxAxw+n394hV1v8vgHt8AUQkYoXJL3b4UoBG5xghSg3bgIl2fZgtFOX1
-	 4EdOV7dI93ChDHeNhrutKoPJj9+Ycv5ZjJJo+phm0M9P7nA1t3jZbb33JRUcWTw7vtMWS
-	 SyVUUtJJqG03aj+fbs8hsuSN/amso5YOr/KOuR5WwD1mGQ4NRGzi5zNI2TJiVlOwJgRuD
-	 LLb9+X49Lz8ZhJDOPpaKbc9A6HVR4qGzcix0kE/emgSRaZMWVeelie1tVqneUVEK9fA==
+	t=1795018504;
+	b=5Lz36yPC/LE4XrZB11QTh0df4c1vu5bgamECqyUvrAPtuisu6EwbL4wic9mu3dbbnhBV
+	 WcVhJWPhNakF6O29TuH7IjAw76uao0UGZY5n9WPxDAkG32qShWvn/Px4RAFVdcT6L3rmu
+	 275UCfddJ/R2KSJXKcDrVzowZgxR11Ub5P9tz9FC566C40ge80TKv/08E2OXhxT4jd3T3
+	 B7VA4ydjdZHUaCEtm9ZOzxUXomXV9GEv3FpmxV8aztYL6A6CGh0jgtnT2IJX++cnqk6cK
+	 47H9U/kmPV+t30UB7idbRu3s0pM+qJjumm/RVvr2bW2lUSkvMuJm2YIEl24+IgN4H6w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795018498;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=aO88IJ7z5BBCK3aO82ObI6LwPt3VLY3xqkcUcJTRk4E=;
-	b=RX3ZLaRr8WGroyPmrNXymxDd5Mqo9SKrnyqaDi1hf4Ku67bhx2L80707h78UVI4K5M1+
-	 O0T0Vh80ECt9L3xxr5XPYj09ft6WcidW7AwnMMqLJJgOHjXhfL6U/EF/gF74lyE8/Plee
-	 1GEfCjDl4Xebx+sZMbQNVK/pFNo72zuHh8vt1+G0dVZ3fG5S45uPpMk/ebBs6pA2am7YE
-	 rAZFuoDeUEAB6/0ChvKXLp+kBPMXmfrjA7BJwTadU9e/+VPmbLzVO9pBI0OFNL7Sd17Yl
-	 KMnnDAKzN8lUi8W4WbxhJQwzitEq74POZHk6rOFTv2sO6W6JSQpfLzRUfmzkDF9BFBw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795018504;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=8BTsj7xQZG7PduAVaPvxu5YiA218HiWcfmYrYcf3JnM=;
+	b=dRKs5R055rpb0NrMqUhqhZ6+sfpN4//LD7adDrm9J8tJnJFh2BX62d8gkeuvDyI1W3KM
+	 3B88CGV9EPZ2mQRE0B7wuXnZOtXZ2V8o+TYj/TSVxmdblddTaZbyMJnt3RQCh7LztBvdD
+	 XFia6o6kXQhwL24iPZsKVT5SUuG124c3UZtDPh6vh2ZOT5EEglKNLWu7qMgdQTRji85gN
+	 lOIRUnroIE4rRCnYZ1f92apaiU7VK3zTMNxIc9FcV86i0cIW0D16bUU3Z3L6HZnNmBdBj
+	 Y/wx3x0vrDKPgwgFmVSmEZFRWebJg3vJzljtXoio1z89f8DtvS4aEGfvbt95/R9TjTw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.199
-Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com [209.85.167.199])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ArV1+vK0;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E056606A330
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:14:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E056606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-571bc0b66d7so978618b6e.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:14:58 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795018497; x=1795623297;
-        h=content-type:to:from:subject:message-id:date:mime-version
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=aO88IJ7z5BBCK3aO82ObI6LwPt3VLY3xqkcUcJTRk4E=;
-        b=yvADWBo8NGT0ak6dRgD9dk+Wb5b/BL3fljHIpbdYcHREFTjcPDWtKXDVJKG3aVYbAX
-         b942nVZVBOTUc7ttR8/GTjE3ncmZ9P8n81Lt22HF+wNwsCAWVkVQwC2s4Advedg68LRc
-         TpF+IRC81oUfUr4RslsUNK9YpPtVeNXL85OSR1bvse5WCL3cvLqQHpw0tw89cMO3kOuw
-         GCilVnkIs/+ETwLH83aX/8AH4HdKNMVJWv/rw50odqDgTbOuw2DTR7l2C/VVKZKQWW6S
-         8OpePyqMiMU6bJsJMzL/6J/siyTDwPnLhBqHwTd8J2xPPIyljgGNORq4bInl7+JjfwJZ
-         R6lA==
-X-Forwarded-Encrypted: i=1; AL+hErFDMm+8ZvxwI+rjgSPZgZovy6JXAXNVFhZEOsq0OJVec6BCtjy+060ZKLY4jfwwrbkVy22/r3zHxD2aisc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/NHHzAHieL4Ad00FCeoYCj5vyNDdlxHkf0EsPWkbPAeFRClusl
-	Op84BmqqcO3laSnTH3KISp5Dp8CrF9Nfa8IodgAeYytELtAGr5KHwi2Ra4+aTR+aK3czDfjpRb3
-	UIqbThXACvZWFp8a7xCUVcI0EUtvY23XM7bBMBqtHGk+92wEU3M0lXiAKLBs=
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35DBE606A32A;
+	Wed, 18 Nov 2026 16:15:04 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ArV1+vK0
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BDA51F000C6;
+	Wed, 18 Nov 2026 16:15:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795018504;
+	bh=8BTsj7xQZG7PduAVaPvxu5YiA218HiWcfmYrYcf3JnM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ArV1+vK0hQeWyt57BCYJmQWRzFdH2n8f4JlwdFiZGs0XPrqqRrucVSpBsAi409yr0
+	 AeKYpCZYHuXBTX7GW5GQHXIfV8uKPl48x/tDqWmzYH5z/YdBeI3LUuEGq12Yt9Cxu7
+	 g1Y7esNqtwrk9t+LTfs4iFhrswaKKtS70RAwrcm6sJPfPMyXSMIy7Wop3A7AuUcODP
+	 qxdMaXhiEHSoV7ijhGgVWw60u9DSuVrzJJIcRlM5qvg4v8tMBtaIeX+/iTEnKI98G8
+	 2Y31j47XVkmtQ9D3/hQ293tzCMpCG9Bt6cgW0FND70eNxG+l97FYIFfZdh8QKXMaBg
+	 tbHej1N0yQFOw==
+Date: Wed, 18 Nov 2026 13:15:00 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Namhyung Kim <namhyung@kernel.org>
+Cc: Ingo Molnar <mingo@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	James Clark <james.clark@linaro.org>, Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Clark Williams <williams@redhat.com>, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	Arnaldo Carvalho de Melo <acme@redhat.com>
+Subject: Re: [PATCH v6 03/13] perf annotate: Handle absolute addressing in
+ data type profiling
+Message-ID: <av3PBLtZQ0mYf-1V@phoenix2>
+References: <20261117200433.45174-1-acme@kernel.org>
+ <20261117200433.45174-4-acme@kernel.org>
+ <av1O-I_uLOoY0u5r@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,126 +64,124 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:198d:b0:4d6:9283:1df2 with SMTP id
- 5614622812f47-5773e055ebfmr4168074b6e.61.1795018497186; Wed, 18 Nov 2026
- 08:14:57 -0800 (PST)
-Date: Wed, 18 Nov 2026 08:14:57 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6afdcf01.ca6cd63e.174a34.0001.GAE@google.com>
-Subject: [syzbot] [net?] WARNING in xfrmi_xmit
-From: syzbot <syzbot+d29af9ef5c96a3f5e96c@syzkaller.appspotmail.com>
-To: davem@davemloft.net, edumazet@kernel.org, herbert@gondor.apana.org.au, 
-	horms@kernel.org, ipsec@lists.linux.dev, kuba@kernel.org, 
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org, pabeni@redhat.com, 
-	steffen.klassert@secunet.com, syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <av1O-I_uLOoY0u5r@google.com>
 
-Hello,
+On Tue, Nov 17, 2026 at 11:08:40PM -0800, Namhyung Kim wrote:
+> On Tue, Nov 17, 2026 at 05:04:21PM -0300, Arnaldo Carvalho de Melo wrote:
+> > From: Arnaldo Carvalho de Melo <acme@redhat.com>
+> > 
+> > 32-bit x86 accesses globals with absolute addresses, like
+> > "movl %eax,0x8c73448", but the operand parser only recognized the
+> > offset(reg) forms, so the operand had no memory reference, the resolver
+> > saw a zero data address and resolved nothing.
+> > 
+> > Parse a bare "0x" number as an absolute memory operand, leaving jumps,
+> > calls, loop* and the 64-bit movabs* out, use the address in the resolver,
+> > and let the instruction tracking record the type of an absolute global
+> > load in the destination register.  The displacement is sign extended for
+> > 64-bit objects, as the CPU does, and zero extended for 32-bit ones.
+> > Values that do not fit the int offset, zero, and the operands of
+> > relocatable objects, which are unrelocated addends, are skipped.
+> > 
+> > With bare numbers being memory operands, a frame base register of -1,
+> > "none", would also compare equal to the -1 "no register" of an absolute
+> > operand and take it for a stack access, so guard those comparisons.
+> > Operands left with no register, like a user space "%gs:imm", are no
+> > longer looked up as variables, which can change the data type stats of
+> > those samples.
+> > 
+> > Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
+> > ---
+> >  tools/perf/util/annotate-arch/annotate-x86.c | 52 ++++++++++++++++++--
+> >  tools/perf/util/annotate.c                   | 25 +++++++++-
+> >  tools/perf/util/annotate.h                   |  7 +++
+> >  3 files changed, 79 insertions(+), 5 deletions(-)
+> > 
+> > diff --git a/tools/perf/util/annotate-arch/annotate-x86.c b/tools/perf/util/annotate-arch/annotate-x86.c
+> > index e38a4e7a54d5585c..adb52d148cba6001 100644
+> > --- a/tools/perf/util/annotate-arch/annotate-x86.c
+> > +++ b/tools/perf/util/annotate-arch/annotate-x86.c
+> > @@ -230,6 +230,11 @@ static bool vtable_get_rettype(Dwarf_Die *class_die, int offset,
+> >  	return die_get_real_type(&func_die, type_die) != NULL;
+> >  }
+> >  
+> > +static bool is_stack_or_fb_reg(struct type_state *state, int fbreg, int reg)
+> > +{
+> > +	return (fbreg != -1 && reg == fbreg) || reg == state->stack_reg;
+> > +}
+> > +
+> >  static void update_insn_state_x86(struct type_state *state,
+> >  				  struct data_loc_info *dloc, Dwarf_Die *cu_die,
+> >  				  struct disasm_line *dl)
+> > @@ -437,7 +442,7 @@ static void update_insn_state_x86(struct type_state *state,
+> >  		invalidate_reg_state(tsr);
+> >  
+> >  		/* Case 1: Based on stack pointer or frame pointer */
+> > -		if (sreg == fbreg || sreg == state->stack_reg) {
+> > +		if (is_stack_or_fb_reg(state, fbreg, sreg)) {
+> >  			struct type_state_stack *stack;
+> >  			int offset = src->offset - fboff;
+> >  
+> > @@ -626,7 +631,7 @@ static void update_insn_state_x86(struct type_state *state,
+> >  
+> >  retry:
+> >  		/* Check stack variables with offset */
+> > -		if (sreg == fbreg || sreg == state->stack_reg) {
+> > +		if (is_stack_or_fb_reg(state, fbreg, sreg)) {
+> >  			struct type_state_stack *stack;
+> >  			int offset = src->offset - fboff;
+> >  
+> > @@ -741,6 +746,29 @@ static void update_insn_state_x86(struct type_state *state,
+> >  				     insn_offset, addr, dst->reg1);
+> >  			pr_debug_type_name(&type_die, tsr->kind);
+> >  		}
+> > +		/* Or an absolute address, as used by 32-bit code */
+> > +		else if (annotated_op_loc__is_abs(src, map__dso(dloc->ms->map))) {
+> 
+> Then shouldn't it check if it's actually 32-bit code?
 
-syzbot found the following issue on:
+After some more rounds of local reviews and trying to answer your
+question:
+                        /*
+                         * Keep only what fits the int, as disp32 or as a u32;
+-                        * movabs*, the 64-bit form, is left out.
++                        * a 64-bit absolute value is left out.  The LLVM
++                        * disassembler prints a disp32 that does not fit an
++                        * int as a negative number.
+                         */
+                        if (offset != 0 && (offset <= UINT_MAX ||
+                                            (s64)(int)offset == (s64)offset)) {
+-                               /* Absolute address, as used by 32-bit code */
++                               /* An absolute address: 32-bit code, or a 64-bit disp32 */
+                                op_loc->mem_ref = true;
+                                op_loc->offset = offset;
+                        }
 
-HEAD commit:    666539eecdf4 Merge tag 'assoc-array-fixes-v2'
-git tree:       upstream
-console output: https://syzkaller.appspot.com/x/log.txt?x=170dce4d580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=3cc6a7ee2d24d208
-dashboard link: https://syzkaller.appspot.com/bug?extid=d29af9ef5c96a3f5e96c
-compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
-syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=105b5755580000
-C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=10136803580000
+It is not 32-bit specific, the comment was wrong.
+ 
+> > +			struct map_symbol *ms = dloc->ms;
+> > +			u64 ip = ms->sym->start + dl->al.offset;
+> > +			u64 addr = annotated_op_loc__abs_addr(src, map__dso(ms->map));
+> > +			int offset;
+> > +
+> > +			if (!get_global_var_type(cu_die, dloc, ip, addr, &offset,
+> > +						 &type_die) ||
+> > +			    !die_get_member_type(&type_die, offset, &type_die)) {
+> > +				invalidate_reg_state(tsr);
+> > +				return;
+> > +			}
+> > +
+> > +			tsr->type = type_die;
+> > +			tsr->kind = TSR_KIND_TYPE;
+ 
+> I'm not sure if it's _TYPE at this point.  Probably _POINTER instead?
 
-Downloadable assets:
-disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/d900f083ada3/non_bootable_disk-666539ee.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/57b04345f38e/vmlinux-666539ee.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/127bf2b14452/bzImage-666539ee.xz
+Why do you think so?
 
-AI-generated root cause summary:
-In AF_XDP generic transmit, xsk_build_skb() and xsk_build_skb_zerocopy()
-allocate an sk_buff and advance skb->data using skb_reserve(skb, hr) without
-subsequently resetting the network header via skb_reset_network_header().
-Because skb->network_header remains 0 (relative to skb->head),
-skb_network_offset(skb) returns a negative value equal to -hr (e.g. -64). When
-transmitting over devices whose ndo_start_xmit checks pskb_inet_may_pull() (such
-as xfrm interfaces), this negative offset is converted to a large unsigned
-integer when added to the network header length (0xffffffc0 > INT_MAX),
-triggering a DEBUG_NET_WARN_ON_ONCE assertion in pskb_may_pull_reason().
+This is just duplicating to some degree what is right before, that uses
+a TYPE for a global, no? But please check v7, there is a change in this
+area.
 
-full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=d29af9ef5c96a3f5e96c
-
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+d29af9ef5c96a3f5e96c@syzkaller.appspotmail.com
-
-------------[ cut here ]------------
-len > ((int)(~0U >> 1))
-WARNING: ./include/linux/skbuff.h:2856 at pskb_may_pull_reason include/linux/skbuff.h:2856 [inline], CPU#0: syz.0.17/5560
-WARNING: ./include/linux/skbuff.h:2856 at pskb_network_may_pull_reason include/linux/skbuff.h:3286 [inline], CPU#0: syz.0.17/5560
-WARNING: ./include/linux/skbuff.h:2856 at pskb_inet_may_pull_reason include/net/ip_tunnels.h:483 [inline], CPU#0: syz.0.17/5560
-WARNING: ./include/linux/skbuff.h:2856 at pskb_inet_may_pull include/net/ip_tunnels.h:488 [inline], CPU#0: syz.0.17/5560
-WARNING: ./include/linux/skbuff.h:2856 at xfrmi_xmit+0x1844/0x1eb0 net/xfrm/xfrm_interface_core.c:534, CPU#0: syz.0.17/5560
-Modules linked in:
-CPU: 0 UID: 0 PID: 5560 Comm: syz.0.17 Not tainted syzkaller #0 PREEMPT(full) 
-Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
-RIP: 0010:pskb_may_pull_reason include/linux/skbuff.h:2856 [inline]
-RIP: 0010:pskb_network_may_pull_reason include/linux/skbuff.h:3286 [inline]
-RIP: 0010:pskb_inet_may_pull_reason include/net/ip_tunnels.h:483 [inline]
-RIP: 0010:pskb_inet_may_pull include/net/ip_tunnels.h:488 [inline]
-RIP: 0010:xfrmi_xmit+0x1844/0x1eb0 net/xfrm/xfrm_interface_core.c:534
-Code: db e9 ef fd ff ff e8 bb 47 23 f7 49 8d b4 24 20 01 00 00 48 c7 c7 80 9b 54 8d e8 77 d2 81 f6 e9 c8 f8 ff ff e8 9d 47 23 f7 90 <0f> 0b 90 e9 38 ea ff ff 89 df 44 89 ee e8 9a 49 23 f7 44 39 eb 0f
-RSP: 0018:ffffc90001be7300 EFLAGS: 00010293
-RAX: ffffffff8aa5f033 RBX: 00000000ffffffc0 RCX: ffff88803050a580
-RDX: 0000000000000000 RSI: 00000000ffffffc0 RDI: 0000000000000000
-RBP: ffffc90001be7490 R08: ffffc90001be7417 R09: 0000000000000000
-R10: ffffc90001be73c0 R11: fffff5200037ce83 R12: 0000000000000000
-R13: 1ffff9200037ce74 R14: ffff8880136f5358 R15: ffff8880136f5280
-FS:  00005555787d1500(0000) GS:ffff88808a9f1000(0000) knlGS:0000000000000000
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 0000000000000000 CR3: 000000001f9fc000 CR4: 0000000000352ef0
-Call Trace:
- <TASK>
- __netdev_start_xmit include/linux/netdevice.h:5457 [inline]
- netdev_start_xmit include/linux/netdevice.h:5466 [inline]
- __dev_direct_xmit+0x4b6/0x730 net/core/dev.c:5164
- __xsk_generic_xmit net/xdp/xsk.c:1288 [inline]
- xsk_generic_xmit+0x27d8/0x47a0 net/xdp/xsk.c:1344
- xsk_poll+0x326/0x670 net/xdp/xsk.c:1472
- sock_poll+0x341/0x460 net/socket.c:1517
- vfs_poll include/linux/poll.h:82 [inline]
- do_pollfd fs/select.c:877 [inline]
- do_poll fs/select.c:920 [inline]
- do_sys_poll+0x98f/0x1150 fs/select.c:1015
- __do_sys_ppoll fs/select.c:1112 [inline]
- __se_sys_ppoll+0x209/0x2b0 fs/select.c:1092
- do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
- do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-RIP: 0033:0x7fa010ba94d9
-Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 e8 ff ff ff f7 d8 64 89 01 48
-RSP: 002b:00007fff5b713048 EFLAGS: 00000246 ORIG_RAX: 000000000000010f
-RAX: ffffffffffffffda RBX: 00007fa010e25fa0 RCX: 00007fa010ba94d9
-RDX: 0000000000000000 RSI: 0000000000000001 RDI: 0000200000000800
-RBP: 00007fa010c38136 R08: 0000000000000000 R09: 0000000000000000
-R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
-R13: 00007fa010e25fac R14: 00007fa010e25fa0 R15: 00007fa010e25fa0
- </TASK>
-
-
----
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
-
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
-
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
-
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
-
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
-
-If you want to undo deduplication, reply with:
-#syz undup
+- Arnaldo
