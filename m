@@ -1,70 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.21
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795006296;
-	b=1SHuNffPpNMIDE6/rjkqujOtO7v24vJNjdqgqd0HPGz4AbYLE9AAfIjlUtLyhwCrij4N
-	 ay92y8MqCjezPmiDVvNUA8IHnwHL8+TSInO3xFm436J26c5kKHH6qWqulq9GFzAfqKYQG
-	 Jx1AEcBY/djoSpzPmJqFNsW1fBbnLuQMUENAYmJQ8XU6o3wNPFDY2Woxo4GOgoHxpI2+v
-	 9dyY7TXg/s2F97CN1bPC5KIcf8sfYLkGD3DdXOgonPfgKui3b3EG5FQkLunbXLiRnBIvT
-	 C6vCWAelKVPd0VoYkftV6T7ZFAhn5aGwBwvCUWRchfpWv0IpHsg4NSmUN/kW/IVhiow==
+	t=1795006305;
+	b=3FmAjXkqG4j1U46enCyR2gsfOwxg0fMoqnzsz+QfpX4keLA2kb5mgBFeMkIlDqbw+jHH
+	 /AhRQJubwLZgZnTWtKi+4OmJ49wVlDLxayVQyfKBywJOz28aFGfJ7hCwEc6yoKB+WOEOJ
+	 VyvuXav1FITMzJjhd6UNu9/JQ35sjuKXtygh8H9TwJ9A5CJd7r5k5eYEH2QbT5hbbzCsW
+	 xQn8ZHK2nC+aWOX25ZlQeoaNjxwqsqSjTR9E1X7dKIZ3uWj1Gbge2zQlsqG6xkruUS1av
+	 nsja0irtRb0YHiAeLzaA+CyB79WxhHMLvpnUgeiJ3H3KX27psZ7YKZVxFOfehA50J5w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795006296;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=gEG1LchJUYxB00ZriwlkYxRrrJAQDC7vzdIFJhfY1CM=;
-	b=qmJVSFuRpoGp2GQWhcXMizdh81Oc8QIH3YShRTLT627wQnBv28BDxdAmTfaiDGnePgJA
-	 8ACK1hk/zjwk5ALeqk8rzGZH+3NVumXTBxcDP2/cp/WRw1jJsSuOo0HR3f1l0VT26BTAY
-	 jLW78W2gZQhPQ0fwypdTy75ynN8+72ETTmnLKK8eb9WKIlRSy4Wl0tbEgLJrKsbXYrcE9
-	 VfEhTbNwc302TsQsG2esbjIyVPI6VXZSQQFi/1dP5hBu121njnNVxxC+eShzoULJgPbqW
-	 9l+cITTizKw9q11W5JUeIVAIfRDv4tcRNGD/PeCrrplzl/ORwa6cM9Dw2+Km5TCYc2g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795006305;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=1Yx3bStzxWZo1rxtm2K8qXh4OTe3FaMWmM4IKC0CO7M=;
+	b=dYKokmpiGB+luMkfc3UC64EviwP6Cc94BD3g9yXzYvOS0Hw7z0YYdS0E+lldq3OeOkT1
+	 BNIwmFoJio5wUU8j85VKLHBTkzR2eH5rKoffDJFSOZwuCmVEZYa35CHj6Y6dn54pWmDg7
+	 nPMU6q4oePiQaysD6Hph5v2U3I5ZgaRZPTt5BjzM5QP8BWsCwUTfvsxNvab9RD5ys0yNM
+	 ynVKQ0E+s5bKDfWpuGTso1ditSK4NWdTAQhkVeItIAp62P81xrhdwTiOlQndxFPEyX5SU
+	 5BtT0ncNoWcRbx9kQIaVaj+0QBBvlCZymo9Rq4FIjy8X2Umn7pdHhd4/njv+4V0THMw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="pXj/PJgm";
-	arc=none smtp.remote-ip=91.218.175.21
-Received: from mta0.migadu.com (out-21.mta0.migadu.com [91.218.175.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y526emDJ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E659606A32C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:51:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E659606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 14544606A320;
+	Wed, 18 Nov 2026 12:51:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=pXj/PJgm
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=Yygq9mcJfKxqI8xXeG8WYqVlDUJnZZM9AFiq2bI6S5g=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795006294; v=1; x=1795611094;
- b=pXj/PJgmCAjAqqg6rtZXrljx2AsfARXdFumguOXE02OrZr6gerXsd4T2E/R5tL+XKWPc3zxp
- LsHUezXlFy4vjuN0m0l3vNX+iwqqPqej26IFNOfshPx2dmYhhrOin4e8Ow7EQlHwYt4yxVs3Tsm
- 9LrXXg08ynnlnE+hrcAKzLd4=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id c61f9ec1859cff73;
-	Wed, 18 Nov 2026 12:51:34 +0000
-X-Mizu-Trace-ID: c61f9ec1859cff73
-X-Migadu-Flow: FLOW_OUT
-From: Jiayuan Chen <jiayuan.chen@linux.dev>
-To: mptcp@lists.linux.dev,
-	matttbe@kernel.org,
-	stable@vger.kernel.org,
-	pabeni@redhat.com
-Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
-	Mat Martineau <mathew.j.martineau@linux.intel.com>,
-	Matthieu Baerts <matthieu.baerts@tessares.net>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 5.15.y v1 1/1] mptcp: fix UAF of child socket on listener close
-Date: Wed, 18 Nov 2026 20:50:31 +0800
-Message-ID: <20261118125032.200934-2-jiayuan.chen@linux.dev>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261118125032.200934-1-jiayuan.chen@linux.dev>
-References: <20261118125032.200934-1-jiayuan.chen@linux.dev>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y526emDJ
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 2B9D51F000C4;
+	Wed, 18 Nov 2026 12:51:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795006304;
+	bh=1Yx3bStzxWZo1rxtm2K8qXh4OTe3FaMWmM4IKC0CO7M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Y526emDJs4OqmzMDD9aY+7lbVaNXBU+tDsbRZw9ZnEq2dartvGH8RplMRQtU+NSgb
+	 MW4XODZAQCifseGQ7E5rhhchBOhvEDg+X0HwHkM4Qd9dow/sT2ju7n0hpJjdf4YrmA
+	 rbGG/NiHd1pNgVTcaHeWuY6SIOcLqjJVgSBNw3sHbaPda74ygZNe3JmDaXth+ZFfZB
+	 RODlED1owxUqX8X01W6o2YFGJA4UPesMz8vowsizuF3Rfcif7ZTdpZOCxdx5Y3kSH8
+	 7QIxziRlVUIQy5/sd6mjY8Z41qNrRyIG+ZY5VcC14sMlkyV2IJ1CF142HxQ3aXuttw
+	 ODfZp1GXokiFQ==
+Date: Wed, 18 Nov 2026 13:51:41 +0100
+From: Bartosz Golaszewski <brgl@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shengchao.guo@oss.qualcomm.com>, linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: defconfig: enable the SerDes PHY for Qualcomm
+ SA8255p
+Message-ID: <zcqjdhqvdieq7kwbhfbw6s74q35xedzuzcsffsugqgz7yzfs7q@dynjfs6njtix>
+References: <20261118-qcom-scmi-sgmii-phy-defconfig-v1-1-d0c7d2e881c7@oss.qualcomm.com>
+ <c20a2a9f-f40d-4ef0-9aa3-f6eee24ed2b1@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,95 +61,34 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c20a2a9f-f40d-4ef0-9aa3-f6eee24ed2b1@kernel.org>
 
-mptcp_close() orphans the listener subflow before inet_csk_listen_stop()
-runs on it. A child created in that window inherits SOCK_DEAD, so a
-following RST frees it while it is still in the accept queue:
+On Wed, Nov 18, 2026 at 01:42:57PM +0100, Krzysztof Kozlowski wrote:
+> On 18/11/2026 11:31, Bartosz Golaszewski wrote:
+> > Enable the SGMII/SerDes PHY driver for the firmware-managed variant of
+> > the Lemans platform. This module is required for ethernet to work on
+> 
+> Which Lemans? This is a generic defconfig, not vendor specific.
+> 
 
-close(listen_fd):                            3-way handshake & rst (plain TCP client)
+SA8255p as per the subject line. In order to not repeat myself, I called
+it "firmware-managed variant of Lemans". I feel like this is
+nit-picking. It's pretty clear on which platform requires that driver.
 
-mptcp_close
-  // mark ssk as SOCK_DEAD
-  sock_orphan(ssk);
-  __mptcp_destroy_sock
-    // ssk in conn_list is listen sk
-    __mptcp_close_ssk
-                                             // in 3-way handshake
-                                             tcp_v4_syn_recv_sock
-                                               // inherit SOCK_DEAD state from listen ssk
-                                               inet_csk_clone_lock
-                                             // process RST
-                                             tcp_reset
-                                               tcp_done
-                                               // sk is SOCK_DEAD
-                                               inet_csk_destroy_sock
-                                                   sock_put(sk); // freed
-      __tcp_close(ssk, 0)
-        // free child
-        inet_csk_listen_stop()
-            process child        <==== process freed sk
+> > sa8255p-ride.
+> > 
+> 
+> `git grep` gives me only piece of a compatible, not even DTS. There is
+> no such board simply. We don't take changes for non-upstream boards.
+>
 
-refcount_t: addition on 0; use-after-free.
-WARNING: CPU: 59 PID: 404175 at lib/refcount.c:25 refcount_warn_saturate+0x12e/0x150
-RIP: 0010:refcount_warn_saturate+0x12e/0x150
-Call Trace:
- <TASK>
- inet_csk_listen_stop+0x3e1/0x530
- __tcp_close+0x3bc/0x440
- __mptcp_close_ssk+0xb9/0x210
- __mptcp_destroy_sock+0x11c/0x280
- mptcp_close+0x25d/0x3b0
- inet_release+0x44/0x90
- __sock_release+0x42/0xb0
- __fput+0x98/0x270
- ____fput+0xe/0x20
- task_work_run+0x6d/0xb0
- do_exit+0x1e7/0x3c0
- do_group_exit+0x3b/0xb0
- get_signal+0x17a/0x940
- arch_do_signal_or_restart+0xba/0x130
- exit_to_user_mode_loop+0xae/0x160
- exit_to_user_mode_prepare+0xad/0xc0
- irqentry_exit_to_user_mode+0x9/0x20
- irqentry_exit+0x21/0x40
- exc_page_fault+0x93/0x190
- asm_exc_page_fault+0x27/0x30
+What do you mean? The full compatible is "qcom,sa8255p-ride", I dropped
+the vendor prefix as this is a commit message and I mentioned it's
+Qualcomm in the previous paragraph.
 
-Unhash the listener subflow and drain its accept queue before it is
-orphaned. No new child can be queued after the unhash, and the ones
-already queued are not SOCK_DEAD.
+The .dts is now in next as:
+  arch/arm64/boot/dts/qcom/lemans-sa8255p-ride.dts
 
-Upstream fixed this in commit 57fc0f1ceaa4 ("mptcp: ensure listener is
-unhashed before updating the sk status"), which does not fit 5.15.
-
-Fixes: e16163b6e2b7 ("mptcp: refactor shutdown and close")
-Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
----
- net/mptcp/protocol.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
-
-diff --git a/net/mptcp/protocol.c b/net/mptcp/protocol.c
-index 2f18dcb8d..f1122038d 100644
---- a/net/mptcp/protocol.c
-+++ b/net/mptcp/protocol.c
-@@ -2834,6 +2834,16 @@ static void mptcp_close(struct sock *sk, long timeout)
- 	sk->sk_shutdown = SHUTDOWN_MASK;
- 
- 	if ((1 << sk->sk_state) & (TCPF_LISTEN | TCPF_CLOSE)) {
-+		struct sock *ssk = mptcp_sk(sk)->first;
-+
-+		if (ssk) {
-+			lock_sock_nested(ssk, SINGLE_DEPTH_NESTING);
-+			if (ssk->sk_state == TCP_LISTEN) {
-+				tcp_set_state(ssk, TCP_CLOSE);
-+				inet_csk_listen_stop(ssk);
-+			}
-+			release_sock(ssk);
-+		}
- 		inet_sk_state_store(sk, TCP_CLOSE);
- 		goto cleanup;
- 	}
--- 
-2.43.0
-
+Bart
