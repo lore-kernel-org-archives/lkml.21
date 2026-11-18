@@ -1,75 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795003607;
-	b=YQ4uzgbicW+EPdzEo0N1+hhVhWuPKBz6NlJw7VLVLaapN8pWdD/430YPfxatQjkxwgcI
-	 OvUgKormrwlr57kzA8oW8pT10UU6y9402zM2/PHdjdUwx++BuvAERwqWhP35hiUkMTp0X
-	 eCzLTKbbpRaQkMevOpCJQeHR/Ek4p6C/CMVT9X6FTyrDT5/ZL+x/2V+8/liRa5qL5VPsC
-	 /d9PAymihqtgDFX3osnDKJE8eMqJI12Q0MiXJZIrbr/9kWRqmDWUFkKOE5g7x61fghQ9d
-	 lT9LztlFU7oTjGKiTZ4C6r3ZsiCPiafj9bvrr7PtcbSiaDhIrUuxfsGWrT9FSASuOsQ==
+	t=1795003613;
+	b=a2GeE3MkYkNNDXmT4/+R80e0Kk+/gRlMqUiMqIrjNgZXk+m89RMBXwzfiy8aeZ7hqiTa
+	 Ck8sfUEcnTcHiSffnO2zcb+djsdvhnRDB0KbqQcRH2SvWJ8xqLLIcCyPE85IcvcH45LA0
+	 082FWTEW4nB3LkFS4Th3gxTfC8Ez2L2q/dT7nOXCt5bim8TSWl3G5A3YquTiCM4NpJfZD
+	 ZSGupcE/rJQaGQW8JTw/bJwA+Gd6sjh8MHc4w9qnFB4G0kmnu49AWV+JLkNH62JiBFaaY
+	 ngfXYmJ4+nJsEnR/FZ0XTEEams2gz9sCFf6F9orutqCyAkatOOk2gjftWi/JwZZTMCA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795003607;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Received:Date:In-Reply-To:Mime-Version:
-	 References:Message-ID:Subject:From:To:Cc:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=kp5w5RDq527SICD8D5Xw9eo93/nbQAeR3FOsszsY3AY=;
-	b=1MoJLPbVDOOitmfCXoj/74S2rE49Ob6tPH9u5bJi1bElzingW77LAK1qIKgg7W08dX6u
-	 Nrx+zUvNt759Pr3pFyp7HY2uqi2RRQGupi3B0My650KNpsXwFEzLhOdlCj4YHvGiUqFDV
-	 aHHdWgWu1A+4n0gvxuFaI7jzVMbcdrga+k41JRAavDzdwdTfjImc2b+c8C3tBx/7FoTen
-	 U6zLYR+ZhxWSAoBKa2z9A3x6i2psp0OlvzSOGc4EO4mbtefC1s3Cvcrov44DdGAhHLMAX
-	 jyRbhRCZYiFFn0bQaPavnF0BQX298ulOHbu1Pf94NCEbP3Am1n1RGOHBXNwmT8fHzAA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795003613;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:From:To:Cc:References:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=x8TBlHiLxfZKxBfM5S1Kv9DsVFJwwHw4bapMNTFW3cw=;
+	b=TmNXTfnXL0dcK5/XyFNc3kWHNfO36lGecceFytujwOiY67MYD1y7hd0fjKB/N1AzmOuq
+	 2uKDc7d3b3FAuXCgiXlxIQjkr1w2OW/+7QBlXs2Dr7UWAuFi/JaEvEVG4uHJjX1ZE2QI0
+	 EXMSOwelKE6x818SZfn52cPST92Vpmy3rFoIyKpNIV9O7lngr0FhlDhJqMJNlUrEqH2qE
+	 Jl0hqc4PbvQbk2fo09lyWf1TD6vP1YISzeJNbuPk3wCnUbxh4k/29J+NEadQkYDOOM7og
+	 7Il3LUT+lhSoOIzXATXogv+CpT53A1OKfGsvqEyu5hBZfAQbRmdRF4fKxGHGPlBT9kw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=JKXd2vEC;
-	arc=none smtp.remote-ip=209.85.221.72
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com [209.85.221.72])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 910CF606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:06:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 910CF606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=kHfVc9JC;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 2C4CC606A333;
+	Wed, 18 Nov 2026 12:06:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C4CC606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=JKXd2vEC
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-49337a224a8so627502f8f.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:06:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795003606; x=1795608406; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:from:subject
-         :message-id:references:mime-version:in-reply-to:date:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=kp5w5RDq527SICD8D5Xw9eo93/nbQAeR3FOsszsY3AY=;
-        b=JKXd2vEC/2EgcPBcdZPiioMfmgmnXvAQtXNKU7KZj8KXVavvRTaWwERFzNxL/euf9A
-         wb9wdYJxkkK9pVMcFhfhYnOnWbBq0xbmGJZ51PuoHdYFz3Bb1sPT8t4zBd2FklxZWHWe
-         WEukuTJtJAZqL4SKF2Gk2VRBuLKE75Rn0DD8qbKQVSt8eb7ZIZozBpt17jUsHcLwOZMf
-         x43tBv6r9daMXqH7vbjRKE8H8X/qxvNlRWpOnciOxxTNrAxoPqOTe/mi8GC7hN/5JmO4
-         uyaZJXKoe33qCW1QnMOhshO+1rxFcWUSh+vhuPZSvJE9X6to1Tua6YJRysi7XntV5nVo
-         U03Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795003606; x=1795608406;
-        h=content-transfer-encoding:content-type:cc:to:from:subject
-         :message-id:references:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=kp5w5RDq527SICD8D5Xw9eo93/nbQAeR3FOsszsY3AY=;
-        b=zj6FtMXQvRhK08pZ9u5S1z98B86SoYUepThW0u3xd8g3CUmZabVmSQylOG3fLYxZrF
-         s+Wka5TodMVTsmXPNPAVWLIjRGTeCdIZgu0ZDo/IWNxW/95QeGdjsQGtQ5dFDaLqKOuq
-         JD5cT2m6w7STjRykHcycXslpytKyi+0Jv7927ZmeJI0G0Es5rRs8q5AjqPxQiBYon2Cb
-         pEpLiZlkLMnVOG5yGLMgVBHxu/cdJEEt4zrxxVkhj8rpQ+0ldK4+Jhcvp8jS36RObSP+
-         Yu81PI+1KfeJSw8luNfpUylb+DQrfD9zcA/o69Or3mRZ0A+d+kRpfI+7rCXt/yBzZQYE
-         Pu0w==
-X-Gm-Message-State: APuU4Z9pW8DyXlKJuu/kzkBQ5MWAmN/7HkLhyJl6JjeZE/5KzZTydTwd
-	Wa766BpIq8FKV4XgeZduNPrLMcTrJq9SP1SvmpK4piSG9s7kOebiyglLAZjwVi18WQJeRD2ZE6F
-	smNQo/uz1y+3QIj2voQ==
-X-Received: from wmih2.prod.google.com ([2002:a05:600c:1442:b0:4ae:7292:22a7])
- (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:4513:b0:4bb:68e5:b952 with SMTP id 5b1f17b1804b1-4bb7da187c2mr43604775e9.16.1795003605603;
- Wed, 18 Nov 2026 04:06:45 -0800 (PST)
-Date: Wed, 18 Nov 2026 12:06:44 +0000
-In-Reply-To: <20261113-tyr-reset-impl-v8-1-2ee298ac9808@onurozkan.dev>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=kHfVc9JC
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A57DF1596;
+	Wed, 18 Nov 2026 04:06:49 -0800 (PST)
+Received: from [10.0.130.226] (e127648.arm.com [10.0.130.226])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8ADF23F632;
+	Wed, 18 Nov 2026 04:06:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795003612; bh=Beuqlbaer5+8H8ptgr354z6QOfqcZDfnqmKGpJmZOxE=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=kHfVc9JCvkTel5iRe4pA9xN/dDjox06VeOcGvY792EM3akEY4lLvj5Fp1SAQeiafb
+	 A/MZo29i9OWRft8xRM4Lf7pmDGhpJWp62X+808OfxZasWRgaS4xvhwY10CFjLEKxbo
+	 cbsesCkzTWMEYOa9Ubn5f8vaVPc0aNDEzNVvU31g=
+Message-ID: <b2b0ddc6-964f-4d8d-86d4-a0bc24d9022e@arm.com>
+Date: Wed, 18 Nov 2026 12:06:47 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,32 +52,83 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261113-tyr-reset-impl-v8-0-2ee298ac9808@onurozkan.dev> <20261113-tyr-reset-impl-v8-1-2ee298ac9808@onurozkan.dev>
-Message-ID: <av2U1FflKT1mEotg@google.com>
-Subject: Re: [PATCH v8 1/3] drm/tyr: clear stale IRQ state before soft reset
-From: Alice Ryhl <aliceryhl@google.com>
-To: "Onur =?utf-8?B?w5Z6a2Fu?=" <work@onurozkan.dev>
-Cc: linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, dakr@kernel.org, 
-	daniel.almeida@collabora.com, airlied@gmail.com, simona@ffwll.ch, 
-	ojeda@kernel.org, boqun@kernel.org, gary@garyguo.net, 
-	bjorn3_gh@protonmail.com, lossin@kernel.org, a.hindborg@kernel.org, 
-	tmgross@umich.edu, boris.brezillon@collabora.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] thermal: samsung: acpm-tmu: Fix spurious CPU throttling
+From: Christian Loehle <christian.loehle@arm.com>
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, bzolnier@gmail.com
+Cc: krzk@kernel.org, rafael@kernel.org, daniel.lezcano@kernel.org,
+ lukasz.luba@arm.com, linux-kernel@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, linux-pm@vger.kernel.org,
+ Juan Yescas <jyescas@google.com>
+References: <20261117083442.830549-1-christian.loehle@arm.com>
+ <3ea5d94b-6913-4534-816a-3935c689225b@linaro.org>
+ <56a7a762-7667-4186-973c-ca0fcb399ecc@arm.com>
+Content-Language: en-US
+In-Reply-To: <56a7a762-7667-4186-973c-ca0fcb399ecc@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Fri, Nov 13, 2026 at 05:32:26PM +0300, Onur =C3=96zkan wrote:
-> Previous reset may leave the reset completed IRQ set which can make the
-> poll return too early.
->=20
-> Clear the IRQ first so the driver waits for the current reset to
-> complete.
->=20
-> Reviewed-by: Daniel Almeida <daniel.almeida@collabora.com>
-> Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
-> Signed-off-by: Onur =C3=96zkan <work@onurozkan.dev>
+On 11/17/26 16:41, Christian Loehle wrote:
+> On 11/17/26 15:37, Tudor Ambarus wrote:
+>> Hi, Christian,
+>>
+>> Thanks for the patch!
+>>
+>> On 11/17/26 10:34 AM, Christian Loehle wrote:
+>>> acpm_tmu_set_trips() supplies two thresholds, but the ACPM command
+>>> writes all eight slots, zero-filling the rest. On GS101, slot 7
+>>> controls autonomous CPU throttling even when its interrupt is masked.
+>>> Programming it to 0 C limits all three CPU clusters to about 200 MHz
+>>> on Pixel 6, while cpufreq continues to report the requested
+>>> frequencies.
+>>
+>> Could you share how you discovered this? I don't have access to the
+>> ACPM firmware sources, and the downstream driver doesn't state it
+>> either.
+> 
+> Neither do I, I discovered this randomly through running regression tests
+> on Energy-Aware Scheduling on the Pixel6 and acpm-tmu (7.4-rc1) causes a
+> massive energy regression (+~1000%) for the same workloads.
+> The reason is this DVFS throttling.
+> 
+>>
+>> How did you measure the actual CPU frequency, given that cpufreq
+>> keeps reporting the requested one?
+> 
+> PMU counters CPU_CYCLES
+> 
+>>
+>> Do you know whether slots 2-6 have any side effects as well?
+> 
+> I hadn't discovered any.
+> 
+>>
+>> Also note that Daniel has already queued a set of acpm-tmu fixes in
+>> thermal/linux-next, so this patch will need to be reworked on top of
+>> them.
+> 
+> will rebase then!
+> 
+>>
+>>>
+>>> Program slot 7 from the zone's critical trip before enabling the
+>>> sensor and preserve it when updating the low/high interrupt window.
+>>> Cache the three temperatures so a writable critical trip can update
+>>> the hardware without changing that window.
+>>
+>> I think this can be handled with a smaller change: look up the
+>> critical trip in .set_trips() itself. The zone lock is held there, so
+>> for_each_thermal_trip() can be used. That avoids caching
+>> low/high/critical, the .set_trip_temp() callback and the probe changes.
+> 
+> Ah yep you're right, will fix and resend.
+> Thanks!
 
-Do you want me to merge this now, without waiting for the other patches?
-
-Reviewed-by: Alice Ryhl <aliceryhl@google.com>
+Okay, maybe I'm missing something but AFAICS we have to do the set_trip_temp
+because thermal core looks only at min/max and may skip set_trips() in case
+these are unchanged, missing a critical update.
+So the minimal I see working is making 'critical' (again, this is my
+interpretation of the value, if you want it named anything else, just shoot)
+non-writable by failing it's set_trip_temp()?
+Or is there another way?
