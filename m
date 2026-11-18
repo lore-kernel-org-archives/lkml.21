@@ -1,64 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.205
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794970961;
-	b=SiJhdfcQCOntgwMlw/mDgCcQyb5DJw/x3t18C1hvuiQsirvL3qcJ33eGHavCbCTwsR0u
-	 ffsReOTL8RP+OHHwFq3JucraK12QurwyR7lJ6paJZUa+K2pJlgCPAaG3YaFgYTDmLpoFh
-	 wijQzrovbpN0V8TWd2Hz5gldWreQDxbV/+sZyECG0VI0bT/mG5N6/QvNZCG6q4f2EoCwL
-	 xRdWwrosj1mF4oRZ5lPCgrlGzolU4s97zYCBG1XTjeiLwM1qvTQT51Eg/unHIe+B/YSvD
-	 gWv+oUOBWLKhW/TC1VOZgbkdGKLwuHhPSqVy44tKJBx81got9maO4oT/BqoEAhkMdXw==
+	t=1794971045;
+	b=xgEyoqh3glekXG/LOg9HhiI+6syeDJCebu8BhdTNxC/n44yzixCXdC4reutN6l6j8eII
+	 fuhMEjhYi/mz3Em+HgOfxKtP0i4ja98a8YZlXSoSNonybqBUauSt6LaXkI8Qaf10zfzB6
+	 6DhTdOvvOp7HyUo/QdpkR0tLKjtKjt+/1hv8xqmGh2+u+TcV9w7pcw9R6d/J9S6mGzJiP
+	 V/VSqtd7guM5R3NUjaWnN5qoba0fjwgfvKPR6fpsrg17+gCAaLYHsL5mmRRP/nA54kfxA
+	 I6Y+wRLgHDDyxSMzUJvl4Uno/wpup3S6WElmSYnUCVDN6EAEVB0kthbgwkudOzwEXdQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794970961;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=QBDyWzDsJEXBE+HUMN83GaHrQvFEUg2tZXZUzLfc4I8=;
-	b=OLCdbxIlRgRwuTQ/QLN4ELdebRez8wRCi8RvywJy+OWD9+x6M5tDHrYZbvGo0OZe065u
-	 RbXu1WYFpqo0x3Nja/vcu1KJ4BKwzg0FgylmRuo7adZcePxBZ2ZMllK5sRDI0yuih+tex
-	 yTnfBXSRwiYdhkkwrdyTFSS3x7mg2FWJU6vIdkLVMEfZdTi4eijmBg36dqkmSX/MokzsR
-	 HauGHjoLpB16wZukrctvhMcGzuya0r22YRfaAW4/1RAhJJzp49ceacOV0VDa5+o3dthgq
-	 3VBr7cMNJb4Ic8iPbYvT+V7g5cpKuK6Y5x5Cch5epNjFlFGVwhL+ktYCn51KCSSD9Rw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794971045;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=w7i4mPEqWkPnR7/WFET/ZBgXt1DQ1x4fbHvdPQWGd3Q=;
+	b=cZR0KHvK14FfCf7pr4jJqRm9txfJFnGsFRaz+ey5XmcXoxE0rMoWXfIilTP/lW595d7T
+	 x9m7huZlsXuheCySWJpZK9k5ErLLDoHZ4n5SGT7gQrPzCj7al5Y3t01aGseOBEWMe112H
+	 YXfVqHGn3y3RSqt9YV4Q/VTz9xiPNcECjWJAkFqgA970KqcFlbFvcwf5NefEsZyzhmk8r
+	 7G1VKBL1IqrAaDypH9TL3izKfv/gCz7+dq+Ia0Mo9GKbN9gSO9LHfleHTXpG/n/6cqzBe
+	 YFjNu6qpMfMxEgfhJeBbuLTgiMYFFFLi4FAhbDPplV+lsdw3VHAb+rTXYIonpWdGoMw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=mbCXTH6K;
-	arc=none smtp.remote-ip=91.218.175.205
-Received: from mta0.migadu.com (out-205.mta0.migadu.com [91.218.175.205])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b="Wb/Lh0c+";
+	arc=none smtp.remote-ip=220.197.31.4
+Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43B23606A330
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:02:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43B23606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3026A606A31C;
+	Wed, 18 Nov 2026 03:04:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3026A606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=mbCXTH6K
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=RfydaBjTvqp0ShnNlaeJnvlPZ3CZOLNGFmInsl50U98=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1794970959; v=1; x=1795575759;
- b=mbCXTH6KEBNLQKqghEfJNW//WuPDRk1gq3mzbVQiepxryrwR19BTZbpaD+yrrTaGWbVxez/L
- PBU62/HDuLzCtPgN/9spIe1eEC5v7Zcch5tiZ9OQpmJjGxvZmUODNshuumHfZDQaTfe302Z4NDj
- 4JvP4u9e7V2t1UqQsZ98L7ig=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 18f3657c6622a384;
-	Wed, 18 Nov 2026 03:02:39 +0000
-X-Mizu-Trace-ID: 18f3657c6622a384
-X-Migadu-Flow: FLOW_OUT
-From: George Guo <dongtai.guo@linux.dev>
-To: chenhuacai@kernel.org,
-	yangtiezhu@loongson.cn
-Cc: hengqi.chen@gmail.com,
-	guodongtai@kylinos.cn,
-	bpf@vger.kernel.org,
-	loongarch@lists.linux.dev,
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=Wb/Lh0c+
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=w7
+	i4mPEqWkPnR7/WFET/ZBgXt1DQ1x4fbHvdPQWGd3Q=; b=Wb/Lh0c+7TQBxJ0CLY
+	6k0fX1cRfGhzKSXpIC5A839zAFeEu1kLWDSa8Vakm5+BhOb8tiFfFLhCibxm/r/k
+	F3NWsmAshucxEz3Iom0YZMZkBLcMPvtjOlEzIDHWSkY3wPLEGIoXjoymacPAiXvP
+	FEg8xNOPmwzbmgg7naXv3AMAA=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g0-0 (Coremail) with SMTP id _____wD3f_mEFf1qQ+OhIw--.17654S3;
+	Wed, 18 Nov 2026 11:03:37 +0800 (CST)
+From: Qunqin Zhao <zhaoqunqin@163.com>
+To: bp@alien8.de
+Cc: tony.luck@intel.com,
+	linux-edac@vger.kernel.org,
+	chenhuacai@kernel.org,
+	zhaoqunqin@loongson.cn,
 	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH] LoongArch: BPF: Fix the offset of stptr.w and stptr.d stores
-Date: Wed, 18 Nov 2026 12:02:18 +0900
-Message-ID: <20261118030219.6230-1-dongtai.guo@linux.dev>
-X-Mailer: git-send-email 2.53.0
+	Huacai Chen <chenhuacai@loongson.cn>
+Subject: [PATCH v8 1/4] EDAC/loongson: Rename driver-local symbols
+Date: Wed, 18 Nov 2026 11:03:27 +0800
+Message-Id: <20261118030330.25779-2-zhaoqunqin@163.com>
+X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20261118030330.25779-1-zhaoqunqin@163.com>
+References: <20261118030330.25779-1-zhaoqunqin@163.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,117 +67,137 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wD3f_mEFf1qQ+OhIw--.17654S3
+X-Coremail-Antispam: 1Uf129KBjvJXoWxGw43uF4DCr1xXFy3JFWDurg_yoWrXw4fpF
+	13Aw4Y9r45Kr1jk393trZ8ZF1ay34Sq3sFqF47A3yI93s8Cw1UXFyfKa17ArZxAr95Kr47
+	Z3y8Kr48CF47CrUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07U_9N-UUUUU=
+X-CM-SenderInfo: 52kd01pxqtx0i6rwjhhfrp/xtbC7QmBwGr9FYl4GgAA3M
 
-From: George Guo <guodongtai@kylinos.cn>
+From: Qunqin Zhao <zhaoqunqin@loongson.cn>
 
-When testing bpf selftests "jit_insns" and "jit_insns_blinded", the
-"ldst_offsets" subtest fails for word and doubleword stores:
+Remove the "edac_" prefix from driver-local definitions to keep the
+edac_ namespace reserved for EDAC core functions.
 
-  store_offsets:FAIL:stx size=24 base=r9 src=r0: byte at offset -16384
-  unexpected ... actual 255 != expected 67
-  ...
-  #197/11  jit_insns_blinded/ldst_offsets:FAIL
+Rename edac_check(), edac_probe() and edac_remove() to
+loongson_check(), loongson_probe() and loongson_remove(), respectively,
+and rename struct loongson_edac_pvt, loongson_edac_driver and
+loongson_edac_acpi_match to loongson_pvt, loongson_driver and
+loongson_acpi_match, respectively. The shorter names are unambiguous
+since they are all file-local.
 
-This is because the JIT emits stptr.w or stptr.d for store offsets
-that do not fit a signed 12-bit immediate but fit a signed 14-bit
-immediate, and passes the byte offset directly to the instruction
-encoder. However, these instructions scale their signed 14-bit
-immediate by 4 when calculating the memory address. For example, a
-store at offset -4096 writes at offset -16384 instead, outside the
-memory range checked by the verifier.
-
-Pass the offset in units of 4 bytes when emitting stptr.w and stptr.d
-for both immediate and register stores. Use these instructions only
-for offsets that are multiples of 4 in the range [-32768, 32764], and
-keep the register-offset fallback for other offsets that do not fit
-the signed 12-bit immediate of st.w or st.d.
-
-With this patch, both "ldst_offsets" subtests pass:
-
-  $ sudo ./test_progs -t jit_insns -t jit_insns_blinded
-  ...
-  #196/26  jit_insns/ldst_offsets:OK
-  ...
-  #197/11  jit_insns_blinded/ldst_offsets:OK
-
-Cc: stable@vger.kernel.org
-Fixes: 5dc615520c4d ("LoongArch: Add BPF JIT support")
-Signed-off-by: George Guo <guodongtai@kylinos.cn>
+Signed-off-by: Qunqin Zhao <zhaoqunqin@loongson.cn>
+Reviewed-by: Huacai Chen <chenhuacai@loongson.cn>
 ---
- arch/loongarch/net/bpf_jit.c | 16 ++++++++--------
- arch/loongarch/net/bpf_jit.h |  9 +++++++++
- 2 files changed, 17 insertions(+), 8 deletions(-)
+ drivers/edac/loongson_edac.c | 32 ++++++++++++++++----------------
+ 1 file changed, 16 insertions(+), 16 deletions(-)
 
-diff --git a/arch/loongarch/net/bpf_jit.c b/arch/loongarch/net/bpf_jit.c
-index 15af1abb5cb6..16e59722620f 100644
---- a/arch/loongarch/net/bpf_jit.c
-+++ b/arch/loongarch/net/bpf_jit.c
-@@ -1400,8 +1400,8 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx, bool ext
- 			move_imm(ctx, t1, imm);
- 			if (is_signed_imm12(off)) {
- 				emit_insn(ctx, stw, t1, dst, off);
--			} else if (is_signed_imm14(off)) {
--				emit_insn(ctx, stptrw, t1, dst, off);
-+			} else if (is_ptr_off(off)) {
-+				emit_insn(ctx, stptrw, t1, dst, off >> 2);
- 			} else {
- 				move_imm(ctx, t2, off);
- 				emit_insn(ctx, stxw, t1, dst, t2);
-@@ -1411,8 +1411,8 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx, bool ext
- 			move_imm(ctx, t1, imm);
- 			if (is_signed_imm12(off)) {
- 				emit_insn(ctx, std, t1, dst, off);
--			} else if (is_signed_imm14(off)) {
--				emit_insn(ctx, stptrd, t1, dst, off);
-+			} else if (is_ptr_off(off)) {
-+				emit_insn(ctx, stptrd, t1, dst, off >> 2);
- 			} else {
- 				move_imm(ctx, t2, off);
- 				emit_insn(ctx, stxd, t1, dst, t2);
-@@ -1460,8 +1460,8 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx, bool ext
- 		case BPF_W:
- 			if (is_signed_imm12(off)) {
- 				emit_insn(ctx, stw, src, dst, off);
--			} else if (is_signed_imm14(off)) {
--				emit_insn(ctx, stptrw, src, dst, off);
-+			} else if (is_ptr_off(off)) {
-+				emit_insn(ctx, stptrw, src, dst, off >> 2);
- 			} else {
- 				move_imm(ctx, t1, off);
- 				emit_insn(ctx, stxw, src, dst, t1);
-@@ -1470,8 +1470,8 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx, bool ext
- 		case BPF_DW:
- 			if (is_signed_imm12(off)) {
- 				emit_insn(ctx, std, src, dst, off);
--			} else if (is_signed_imm14(off)) {
--				emit_insn(ctx, stptrd, src, dst, off);
-+			} else if (is_ptr_off(off)) {
-+				emit_insn(ctx, stptrd, src, dst, off >> 2);
- 			} else {
- 				move_imm(ctx, t1, off);
- 				emit_insn(ctx, stxd, src, dst, t1);
-diff --git a/arch/loongarch/net/bpf_jit.h b/arch/loongarch/net/bpf_jit.h
-index 2bd0dc5b911c..5207ad30fade 100644
---- a/arch/loongarch/net/bpf_jit.h
-+++ b/arch/loongarch/net/bpf_jit.h
-@@ -52,6 +52,15 @@ do {										\
- #define is_signed_imm52(val)	signed_imm_check(val, 52)
- #define is_unsigned_imm12(val)	unsigned_imm_check(val, 12)
+diff --git a/drivers/edac/loongson_edac.c b/drivers/edac/loongson_edac.c
+index 3ed4d34a33..5dfa41e877 100644
+--- a/drivers/edac/loongson_edac.c
++++ b/drivers/edac/loongson_edac.c
+@@ -13,7 +13,7 @@
  
-+/*
-+ * ldptr.{w,d} and stptr.{w,d} take a 14-bit signed immediate in units of
-+ * 4 bytes: they reach a multiple of 4 in [-32768, 32764], passed as off >> 2.
-+ */
-+static inline bool is_ptr_off(int off)
-+{
-+	return !(off & 3) && is_signed_imm16(off);
-+}
-+
- static inline int bpf2la_offset(int bpf_insn, int off, const struct jit_ctx *ctx)
+ #define ECC_CS_COUNT_REG	0x18
+ 
+-struct loongson_edac_pvt {
++struct loongson_pvt {
+ 	void __iomem *ecc_base;
+ 
+ 	/*
+@@ -27,7 +27,7 @@ struct loongson_edac_pvt {
+ 
+ static int read_ecc(struct mem_ctl_info *mci)
  {
- 	/* BPF JMP offset is relative to the next instruction */
-
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+-	struct loongson_edac_pvt *pvt = mci->pvt_info;
++	struct loongson_pvt *pvt = mci->pvt_info;
+ 	u64 ecc;
+ 	int cs;
+ 
+@@ -41,9 +41,9 @@ static int read_ecc(struct mem_ctl_info *mci)
+ 	return cs;
+ }
+ 
+-static void edac_check(struct mem_ctl_info *mci)
++static void loongson_check(struct mem_ctl_info *mci)
+ {
+-	struct loongson_edac_pvt *pvt = mci->pvt_info;
++	struct loongson_pvt *pvt = mci->pvt_info;
+ 	int new, add;
+ 
+ 	new = read_ecc(mci);
+@@ -74,13 +74,13 @@ static void dimm_config_init(struct mem_ctl_info *mci)
+ 
+ static void pvt_init(struct mem_ctl_info *mci, void __iomem *vbase)
+ {
+-	struct loongson_edac_pvt *pvt = mci->pvt_info;
++	struct loongson_pvt *pvt = mci->pvt_info;
+ 
+ 	pvt->ecc_base = vbase;
+ 	pvt->last_ce_count = read_ecc(mci);
+ }
+ 
+-static int edac_probe(struct platform_device *pdev)
++static int loongson_probe(struct platform_device *pdev)
+ {
+ 	struct edac_mc_layer layers[2];
+ 	struct mem_ctl_info *mci;
+@@ -98,7 +98,7 @@ static int edac_probe(struct platform_device *pdev)
+ 	layers[1].size = 1;
+ 	layers[1].is_virt_csrow = true;
+ 	mci = edac_mc_alloc(0, ARRAY_SIZE(layers), layers,
+-			    sizeof(struct loongson_edac_pvt));
++			    sizeof(struct loongson_pvt));
+ 	if (mci == NULL)
+ 		return -ENOMEM;
+ 
+@@ -112,7 +112,7 @@ static int edac_probe(struct platform_device *pdev)
+ 	mci->ctl_page_to_phys = NULL;
+ 	mci->pdev = &pdev->dev;
+ 	mci->error_desc.grain = 8;
+-	mci->edac_check = edac_check;
++	mci->edac_check = loongson_check;
+ 
+ 	pvt_init(mci, vbase);
+ 	dimm_config_init(mci);
+@@ -128,7 +128,7 @@ static int edac_probe(struct platform_device *pdev)
+ 	return 0;
+ }
+ 
+-static void edac_remove(struct platform_device *pdev)
++static void loongson_remove(struct platform_device *pdev)
+ {
+ 	struct mem_ctl_info *mci = edac_mc_del_mc(&pdev->dev);
+ 
+@@ -136,21 +136,21 @@ static void edac_remove(struct platform_device *pdev)
+ 		edac_mc_free(mci);
+ }
+ 
+-static const struct acpi_device_id loongson_edac_acpi_match[] = {
++static const struct acpi_device_id loongson_acpi_match[] = {
+ 	{ .id = "LOON0010" },
+ 	{ }
+ };
+-MODULE_DEVICE_TABLE(acpi, loongson_edac_acpi_match);
++MODULE_DEVICE_TABLE(acpi, loongson_acpi_match);
+ 
+-static struct platform_driver loongson_edac_driver = {
+-	.probe		= edac_probe,
+-	.remove		= edac_remove,
++static struct platform_driver loongson_driver = {
++	.probe		= loongson_probe,
++	.remove		= loongson_remove,
+ 	.driver		= {
+ 		.name	= "loongson-mc-edac",
+-		.acpi_match_table = loongson_edac_acpi_match,
++		.acpi_match_table = loongson_acpi_match,
+ 	},
+ };
+-module_platform_driver(loongson_edac_driver);
++module_platform_driver(loongson_driver);
+ 
+ MODULE_LICENSE("GPL");
+ MODULE_AUTHOR("Zhao Qunqin <zhaoqunqin@loongson.cn>");
 -- 
-2.53.0
+2.47.2
 
