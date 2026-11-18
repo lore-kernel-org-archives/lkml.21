@@ -1,55 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=23.251.234.59
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794992336;
-	b=P+SMtsUaVd4+I5hA4hZfVgR516rr+JjGQBChz3MK6Kz1HbMeZWRSzPxQeq1b86jWog4I
-	 AxXm0nsdWhPQmHBYN8S99eU7qvo9XHMcYG2bu0bkqZRZH6bZcu9hlQYhaUnOzg1xDvuhq
-	 VcIQL1sEpLxYXfr4Qn3i5a9eaNHfw77FmL4LNviuvEGmTMqQd/b6YAwbESK+7Ssgai5N+
-	 hOUhdb2/Qc9h812ELdiPI9rOnOxxBFRJFjpGip49MYGgcvak/CTAa7RdpgsZYcxNBYe9y
-	 jF1MaE/zwLanF/kFMqTPgrgirq2lvG7coDcROkKif3xDPv5SGyJkwvsq2oh+ToCyBbg==
+	t=1794992332;
+	b=HjE2c9WiJ/QaixnL7ha9YdfMSihIunefMIRwWno3AYUDcgZSYwxKicOnzWrVUKKTEdRj
+	 Ip/q7Hg0TmdeLAHOK/HvkIB7Ds4whTjZqaI9Tar+7ZY6/6OMnUnaTWZdyMb31grpYkANG
+	 bHbnyRoCWnqcNyHJ3siGfDzBaROyCwuE8GQfE7rIcDIHMfXcJxU2D/XynKzx0WhQfb9C6
+	 nb+poH3vz7FPV5SquhqUTIH3mCifGoAC/8tlk/iXtmwufAqQIAvvOWNjbH6q4O4MUHT1U
+	 5fth8+PJADBqqWBh6vR/FBIp6ZVDWjdirEgQM3u8M0W88pvD7gBGSWa574ibUk7cG7g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794992336;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=qGnnEq0WJPJtLNLMoz7uGL9Hpss9KQfixaOo9i4hrZ8=;
-	b=ikfK91ky0jtUU8Kn1AykNdwjyqkh2nd36mD3PQj6uaGIR5V/WRgBVn5JGM6YKvtw2AxI
-	 x/9NVmX4mpqeUdgEcehWnKOFy70kJdgvRGOsv7v/5yNfoONCMD3zsiE2NmVs5O2wsLvhw
-	 qxHQi0yJHi/b8uxiwuBwZRey9kS1tsU0iuRA1ozCAdtoIO89uBl17grIMxJ8X8iA9lJnC
-	 3F7MTQ0TJckMPY+LmBNvxkrWNusZwU5jRwUNxYkkPbZFvtXBV6eRc3poic0w2vX5+Q6iT
-	 AE4DrfLEVWhbc/vmYj8epoRLk6oaX+t3FXAMyW6fMoU9Jj5OWVbGuZ/m2mBtcfdKubw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794992332;
+	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:In-Reply-To:Message-ID:
+	 References:X-Pmail-ID:From:To:Cc:Subject:Content-Transfer-Encoding:
+	 Date:MIME-Version:Content-Type:Feedback-ID:X-SES-Outgoing;
+	bh=jVVXS/jnDco2P/3gCjkpEAukeO5Fs2fg9YH9GXORFA4=;
+	b=lyvVBq3ZPdpUY1vzuEw7ySenjCQcbTqr4zXtLWmDKWS6vofrEXxqVhTVqgayBjp8rvNh
+	 jmXWG+a60dpIECCdx5BtcUFIZ2bqIGrpR/SLeEmGKj2yU+4h3WUZwtv3eTGBo7scQefVY
+	 laMxrEzWCel9rsHetXoheVFkYTKfHLJylpwcmhSgp/XhcnWrLaBUHfW33uEQYa0m6W+gX
+	 ygRwPtM0DqmQAkWTjMTDXoatA7N/KV1xzTc53xnGPOyt7qoWiRhE3n18AAWS4VWA7agvf
+	 1YUZdwiTbDDBbmncbZmeG7j0ACJU4LZ8CFChDSXkuBwBlQ2RKh/vUWmFWCPWhaLyKpg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RPQnWzhR;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=brar.si;
+	spf=pass smtp.mailfrom=rsend.brar.si;
+	dkim=pass header.d=brar.si header.i=@brar.si header.a=rsa-sha256 header.s=resend header.b=hjpjwlBm;
+	dkim=pass header.d=amazonses.com header.i=@amazonses.com header.a=rsa-sha256 header.s=zh4gjftm6etwoq6afzugpky45synznly header.b=V9PT4V0S;
+	arc=none smtp.remote-ip=23.251.234.59
+Received: from e234-59.smtp-out.ap-northeast-1.amazonses.com (e234-59.smtp-out.ap-northeast-1.amazonses.com [23.251.234.59])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 208E8606A332;
-	Wed, 18 Nov 2026 08:58:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B80C3606A336;
+	Wed, 18 Nov 2026 08:58:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B80C3606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=brar.si
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rsend.brar.si
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RPQnWzhR
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 322581F000C4;
-	Wed, 18 Nov 2026 08:58:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794992335;
-	bh=qGnnEq0WJPJtLNLMoz7uGL9Hpss9KQfixaOo9i4hrZ8=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=RPQnWzhRxAlX6eWMB7GszdWozwJmjVeoNXvKDAMw5AMfBn4h211VrKiTjO9TTsLPi
-	 2rCgPAwDaw9hzmPpo0W+5ECtft5IcciK6N3l2/YhhcS7ynbl334rjKIDw44jLu+9vD
-	 rNju4WAOekO0tx170iEFGh5qmcNIT6c3b4J3h6ZnuOMWEutbkCTUn/35LMgSB6aI74
-	 V8XOnrt3r7y22OfGVQFrPw1PPRW7opntAbyNjvmtEUCUcGvgG1z6T1f8YyIwzYiStN
-	 1FTqXqx0uXI5QlsPxPw8D+Bs2ZuKbxYPFjNI0KqEFqe1JKoP3DHa/+MfvF3fnI3UVv
-	 R1HvNrH5IaK2Q==
-From: Carlos Maiolino <cem@kernel.org>
-To: linux-xfs@vger.kernel.org, Daejun Park <daejun7.park@samsung.com>
-Cc: Christoph Hellwig <hch@lst.de>, Dave Chinner <david@fromorbit.com>, 
- "Darrick J. Wong" <djwong@kernel.org>, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org
-In-Reply-To: <20261110-xfs-swapext-dio-wait-v1-1-b8ccc5d5ef3c@samsung.com>
-References: <20261110-xfs-swapext-dio-wait-v1-1-b8ccc5d5ef3c@samsung.com>
-Subject: Re: [PATCH] xfs: wait for direct I/O before swapping extents
-Message-Id: <179499233390.5574.1088700355736623145.b4-ty@kernel.org>
-Date: Wed, 18 Nov 2026 09:58:53 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=brar.si header.i=@brar.si header.a=rsa-sha256 header.s=resend header.b=hjpjwlBm;
+	dkim=pass (1024-bit key, unprotected) header.d=amazonses.com header.i=@amazonses.com header.a=rsa-sha256 header.s=zh4gjftm6etwoq6afzugpky45synznly header.b=V9PT4V0S
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple; s=resend;
+	d=brar.si; t=1794992330;
+	h=In-Reply-To:Message-ID:References:From:To:Cc:Subject:Content-Transfer-Encoding:Date:MIME-Version:Content-Type;
+	bh=97yb+XIW0xH5i2iuGi731NFZ8TW93don90Pf7fYJALw=;
+	b=hjpjwlBmzHy2vy3M7hV2FvwX2hIiNGdIWg+iubTHkFn4I0zpytsYwEJwwxibpMuy
+	R6p/L5eItZAZ+RUWsjLRhP7cZRP8OEIQ63sGFbC0S5UQGHYaff9vWCwECK3yxAR3cHq
+	XUZi9idEm4H+ZNcD7oYN4X6r4PdoSgUPPidH6TXM=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=zh4gjftm6etwoq6afzugpky45synznly; d=amazonses.com; t=1794992330;
+	h=In-Reply-To:Message-ID:References:From:To:Cc:Subject:Content-Transfer-Encoding:Date:MIME-Version:Content-Type:Feedback-ID;
+	bh=97yb+XIW0xH5i2iuGi731NFZ8TW93don90Pf7fYJALw=;
+	b=V9PT4V0SC74g8fWZ0KowtlTtnbORYLbuX2gE/b6VhOxHzkWnT6uG4JViDZ0/l/4O
+	/798JE9ySI/q/gYAUrYSme+RZAdj+3lqAclXl29hsxEkgbqRHX/qNrZMjzK2UfPswe7
+	RixYk5iVpJ5PjwueQ8VYD0H4GoFmjIt7oRGGTBeU=
+In-Reply-To: <20261116-furious-powerful-nightingale-8adcad@quoll>
+Message-ID: <010601a1ede155ce-82682568-1b1f-4897-8096-50a959f8a483-000000@ap-northeast-1.amazonses.com>
+References: <20261116-icc-sm7250-v5-0-506be082a3c5@brar.si>
+ <20261116-icc-sm7250-v5-1-506be082a3c5@brar.si>
+ <20261116-furious-powerful-nightingale-8adcad@quoll>
+X-Pmail-ID: <1794992329438.f8b425439611@brar.si>
+From: Ishu Brar <patches@brar.si>
+To: krzk@kernel.org
+Cc: djakov@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, linux-arm-msm@vger.kernel.org, 
+	linux-pm@vger.kernel.org, konradybcio@kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 1/2] dt-bindings: interconnect: qcom: Add SM7250
+ RPMh NoC
+Content-Transfer-Encoding: quoted-printable
+Date: Wed, 18 Nov 2026 08:58:50 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,26 +74,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=utf-8
+Feedback-ID: :1.ap-northeast-1.5YL5VvZ+qZ0e19wo5UdMspzrKjMAjMWs/SlfuwHJq77JVCQWpVGwyETo7FaXf+sztO4bYMxF6WHssrYHSY+K7X2T1EZhOskwm44pQQStdKG0Jdj3d5ybzIXFkMTcPBXllY63oWIrFhJN26LFqLzTuHiXuqj9UCHxIuFhxi7IM0GCfceBHtKocmWdFsR9dK9X:1.ap-northeast-1.TOS0vxEE3Ar6ai29fkp2i/jb+l2iigajCGeLfF7S3sk=:AmazonSES
+X-SES-Outgoing: 2026.11.18-23.251.234.59
 
-On Tue, 10 Nov 2026 09:38:17 +0900, Daejun Park wrote:
-> An AIO direct write drops the iolock before its bios complete.
-> XFS_IOC_SWAPEXT does not wait for it. The write can land in blocks that
-> the swap moved to the temporary file. Once xfs_fsr frees them, the
-> write corrupts whatever reuses them.
-> 
-> Wait for direct I/O first, as exchange-range does.
-> 
-> [...]
+On Mon, 16 Nov 2026 12:03:41 +0100, Krzysztof Kozlowski wrote:
+> On Mon, Nov 16, 2026 at 11:58:00AM +0530, Ishu Brar wrote:
+>  +
+>> +  clocks:
+>> +    items:
+>> +      - description: aggre UFS PHY AXI =
+clock
+>> +      - description: aggre USB3 PRIM AXI clock
+>> +
+>> +  interconnect:
+>> +    type: object
+>> +    description:
+>> +      The interconnect providers do not have a separate QoS register =
+space,
+>> +      but share parent's space.
+>
+> Sashiko claims these do not =
+share address space.
 
-Applied to for-next, thanks!
+Right, the description is wrong for two of the three =
+children. Only
+compute-noc (under aggre2-noc) has QoS registers, and they =
+are inside
+the aggre2-noc register space. mc-virt (under gem-noc) and =
+qup-virt
+(under system-noc) are virtual BCM voters with no registers at all=
+.
 
-[1/1] xfs: wait for direct I/O before swapping extents
-      commit: 844bc1167f1b2d19d9495a556599af24dc4468bd
+v6 will describe it like that, allow each child only under its own
+parent, and also add the IPA clock to aggre2-noc, which the second
+Sashiko point is right about (the IPA port QoS registers need it).
 
 Best regards,
--- 
-Carlos Maiolino <cem@kernel.org>
-
+Ishu
