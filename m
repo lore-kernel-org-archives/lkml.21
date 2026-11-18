@@ -1,54 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.157
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794966942;
-	b=JNpwQq1vOiL3v5Z772WRxmMC0uy8T5Yg19OuOpXEqOsuP2dtFHVMHYci9uCT2BNFEHAG
-	 5VtxuwOPMDwehtqqMotS/ewiWr5jox11o2EmV7hnfK6dhdoCeOxYrwtxBKSJhZEBl5t0k
-	 ehANoyTPhA5s0Sxq4LUKYVhBMZYHBaq7B9BifJQDI7Anudn3t+tZqlW9u/q1UjsXTca7c
-	 NAsk7MuyQM5FUpNelm5cECjGe2YCuaxdIGpYrHIwrG/TdPyiyhRL1HzG73B5pWS5ASUNC
-	 V6sm+S/PBWija5FFBuIpspmsdh9qLiajQBpiJAZjyLVqmVco7K2Fm4egmS2bkmANpJA==
+	t=1794966967;
+	b=hfXjMjNBmOBcqiIhOYb5eu3uu4v2dYp3AWxNxmUcSvvszJ1RBezJBlmvi0ARoienuD+L
+	 2Rg274mUzXfsyqDsPJstoLblzQ9kG08VW/rD+KUOj3qYiU/Mk693jQIBP6058qbTXmHSO
+	 5EfclvIk+ggq8B+U+0bhTxvxfoIh0j29SlATjPB8IZTmpLr9tQVEFRZPsvrJX3iwFafWU
+	 gE+NSLlWL73uYtgIozGgglz+vkgY5JJzkXY6jY2PNlwmbP1LIefWPVblntqoae4nbZrvD
+	 c5yM/k2o5GkgRsCEZw3WsC2jYyadSEtf0agWGY4/xy/79Rdu5jRkHPyDx2+LTP/hb5w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794966942;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=n6+eDFFvL/Wsk0eeysYpdGNLwTPv8Y7kp0pCYvn78f0=;
-	b=SgjSEltJa4QFxLIRdkpPsytLYuWO/ttt0yUpR8i++cQ8I1uKlyK8ebSPyK/hjcNyizcx
-	 uW5FljZocf8DJiGaTVg66WddBLX9hC76fxlhKhZhFj7mYQAP3AjHKco+1mcOAPstKr6if
-	 TgePolYHFySA5uPEgf66ra+WSNpTNVQat0DoE5xwy/cbnJKHH9OuAECP8jCNFC9yt9q0m
-	 PGVahlW1cnYK/bUH/qQ50w4yYHcVZnjA15wIqlB0cLdFMy1lG+cxZLi1kVQLo4uNva+m/
-	 o5s5vOD7l/kUA0CkOL8tMR3rP/N3eZUY5Wbh7aaaP0uh8Hf4ipqr+rqivJWOb003GOQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794966967;
+	h=DMARC-Filter:X-UUID:X-CID-P-RULE:X-CID-O-INFO:X-CID-META:X-CID-BVR:
+	 X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:Received:From:To:Cc:
+	 Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=OR9TAxh60Mqjj2QSH10+6ZRys7dtedWAPNFZmLM98PI=;
+	b=gezV3W+xK8IkIn1kD1+04c8LQJa/p7V9PqKQac7Rk8bnbfo7WQnm3mFhtzrwjO+/ffeT
+	 rq1IpmLx9modPvQ4V98JWWBJWhnFM9AKHSXVc7nAOwZ1SZ6jaQsAecuxFvZFG2H9Yb2Bq
+	 xPntn5fK+WDTgyHHhKcA7hRAbC3X9EhS3+LskVreuGH+cN71AWVTwtb+evvIg6gGzekyF
+	 OW+U8f/RSqZG9NTx2HubU6k4WS7Bt59+8JrmG/OpegL/6xVmjEApsBAWn26sIEJT2D0tP
+	 LNj3sQA7dVmfXtSPyPdctk9bqFMcZR36L2q6x7Jp7TMM01vhfkFzoM4+KIHhOX1TfTg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=GgIYDdkN;
-	arc=none smtp.remote-ip=91.218.175.157
-Received: from mta0.migadu.com (out-157.mta0.migadu.com [91.218.175.157])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=kylinos.cn;
+	spf=pass smtp.mailfrom=kylinos.cn;
+	arc=none smtp.remote-ip=124.126.103.232
+Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5197260A2636
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:55:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5197260A2636
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=GgIYDdkN
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=inCj9hgFOM+3wUeyAcIWcO42wDOsOp5Vk/7hHTYE1G8=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1794966938; v=1; x=1795571738;
- b=GgIYDdkN89LjuVdl5y8CJdY0zGpkAa8UTyK6HGJFRvf99H8IWLM7mkVZsmfh+Eg3cgfUDG9x
- WdZR1txON9onqNfbhIEmx6STjl2UXJUGQfWkoNvDfNWDs13QGX6I+IVmeLLTTvKndio+lzR+4Yo
- pAYRcctm4kqK/9yL9LXBJqMs=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 0ae421e0b46adfb2;
-	Wed, 18 Nov 2026 01:55:23 +0000
-X-Mizu-Trace-ID: 0ae421e0b46adfb2
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <8922213b-d734-4f43-9648-97b3fce1cfc6@linux.dev>
-Date: Wed, 18 Nov 2026 09:55:17 +0800
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F95A606A325;
+	Wed, 18 Nov 2026 01:56:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0F95A606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
+X-UUID: 32974dece2f311f19a56ed5b684f684d-20261118
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:f5026ab9-9a15-43a2-8ded-32f146621802,IP:0,U
+	RL:0,TC:0,Content:0,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:25
+X-CID-META: VersionHash:7db8b62,CLOUDID:0ac217b6f54e897d0842801b925a3db2,BulkI
+	D:nil,BulkQuantity:0,SF:102|850|865|898,TC:nil,Content:0|15|50|99,EDM:5,IP
+	:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
+	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 32974dece2f311f19a56ed5b684f684d-20261118
+X-User: zhangheng@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <zhangheng@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 598819670; Wed, 18 Nov 2026 09:55:57 +0800
+From: Zhang Heng <zhangheng@kylinos.cn>
+To: tiwai@suse.com
+Cc: perex@perex.cz,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Zhang Heng <zhangheng@kylinos.cn>
+Subject: [PATCH v2 0/4] ALSA: hda/realtek: Add codec quirk entries
+Date: Wed, 18 Nov 2026 09:55:48 +0800
+Message-Id: <20261118015552.201306-1-zhangheng@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,69 +69,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v2 1/9] bpf: Add log support for tracing
- link_create
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>, bpf@vger.kernel.org
-Cc: Daniel Borkmann <daniel@iogearbox.net>,
- John Fastabend <john.fastabend@gmail.com>,
- Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
- Emil Tsalapatis <emil@etsalapatis.com>,
- Ihor Solodrai <ihor.solodrai@linux.dev>, Steven Rostedt
- <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- KP Singh <kpsingh@kernel.org>, Matt Bobrowski <matt@bobrowski.net>,
- Shuah Khan <shuah@kernel.org>, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- netdev@vger.kernel.org
-References: <20261114150610.84507-1-leon.hwang@linux.dev>
- <20261114150610.84507-2-leon.hwang@linux.dev>
- <DMX8G01GB597.2KEEFI12YK9V0@gmail.com>
-Content-Language: en-US
-From: Leon Hwang <leon.hwang@linux.dev>
-In-Reply-To: <DMX8G01GB597.2KEEFI12YK9V0@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 17/11/26 13:22, Alexei Starovoitov wrote:
-> On Sat, Nov 14, 2026 at 07:06 AM Leon Hwang <leon.hwang@linux.dev> wrote:
-> 
-> tldr: pls use uapi names where possible:
-> 
->> +		bpf_log(log, "tgt_prog_fd and btf_id must be both set or both unset.\n");
-> 
-> The uapi fields are target_fd and target_btf_id.
-> tgt_prog_fd and btf_id are arguments of this function.
-> Patches 2, 3 and 4 say target_fd for the same field.
-> 
->> +			bpf_log(log, "Only allow re-attach for tracing and lsm progs.\n");
-> 
-> I think this one misleads. A freplace prog can re-attach.
-> It has to pass target_fd and target_btf_id.
-> The comment above the check says so.
-> 
->> +			bpf_log(log, "Invalid attach_btf.\n");
-> 
-> attach_btf is a field of bpf_prog_aux. The user never set it.
-> NULL means that the prog was loaded with attach_prog_fd.
-> Such a prog can't re-attach at all.
-> 
->> +		bpf_log(log, "Invalid kprobe_write_ctx.\n");
-> 
-> Another bit of bpf_prog_aux.
-> The rule is that both progs write to pt_regs, or none.
-> 
->> +			bpf_log(log, "Invalid tracing attach_type.\n");
-> 
-> LSM progs get here too.
+This series fixes four laptops by adding the corresponding codec quirk
+entries: a THUNDEROBOT Gravity16G2Pro that loses speaker output after
+S3 resume, an HP Pavilion 15-cw1xxx with silent internal speakers, a
+Lenovo Yoga Pro 7 14ASP9 whose bass speaker is not bound due to a PCI
+SSID collision, and an HP Laptop 15-fd1xxx with non-working mute and
+mic-mute LEDs.
 
-Ack. Will update the log messages.
+v2: Drop patch 1/4 (cs35l41 UX582ZM). Stefan Binding pointed out that
+10431A8F uses internal boost, and Slaton Christie already sent the
+correct configuration for this SSID on 30 Oct. Add a quirk for the HP
+Laptop 15-fd1xxx mute/mic-mute LEDs instead. The other three realtek
+quirks are unchanged.
 
-Thanks,
-Leon
+Zhang Heng (4):
+  ALSA: hda/realtek: Add quirk for THUNDEROBOT Gravity16G2Pro
+  ALSA: hda/realtek: Add quirk for HP Pavilion 15-cw1xxx
+  ALSA: hda/realtek: Add quirk for Lenovo Yoga Pro 7
+  ALSA: hda/realtek: Enable mute LEDs on HP Laptop 15-fd1xxx
 
-> [...]
+ sound/hda/codecs/realtek/alc269.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+-- 
+2.25.1
 
