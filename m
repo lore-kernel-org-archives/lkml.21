@@ -1,75 +1,121 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=165.173.182.15
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795017500;
-	b=FaYcNpPcpjb3qFN0A2/CiXKOz3UlSdX5wWFBat/ExS0CtH3axYdhOWGNCdfzGKJGuxfS
-	 lxttLZuIiUo+IvmL+0UeR00vHoyNOJ8A7Wjq0ONrmc06iYWRJ8sQyA0He3NFqxj3iS3rS
-	 gwsowkkA8yCxEXiR/OVCStsCz0jL2aem4mVC042lmzqZgeM1x0YyEFj0j9GeRbZhjHaE0
-	 p+ubb0P+Ew2wUtvDi64QXjjXb2EcuFktDUcNnTM+gN7o0Be/+U0l0ad6cAdx53zJKBH0o
-	 CYwVKmAgYxJyWpChZL0UAWKzogbnnUESg+cZwuX8NILb7RzX0QCWUaPhuNGix+T7K5A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795017500;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:X-Zoho-Virus-Status:
-	 X-Zoho-AV-Stamp:X-ZohoMailClient;
-	bh=Usg8X43Ws7OPUhBE58OKMyvzlPQGZ0CY7Z/mpX0bURc=;
-	b=A9lQcSj7besrOoraEzaOiQauBsOvxNKmAhU7RTYocUYsK94QbpxiD6ET8ouhSwygWK6i
-	 /UraGkDSgTcfu3WdNl/O0XfmG523PX4445sLc3x/0i9kLSdMXrn4xxSh2O9Xz7dESe40S
-	 O8C7zWXAMkdZLbKLrdsmgc5SpJykjsxb8Meoqk1Thu7HPBMs3dhd4Wi5JIrnb2gJlqgiF
-	 atepGSzkyt+WyrMeiZUa7/Lzb3hYlmnUrnRQ4ZKU7KUNx5qUSUv5NUXmzf7IVsx2Y9mUo
-	 aQ9Y1Puueh04E2YxWZAYJQ6zOdJPSNv9j/xfpbHWt4LOZOD1Hqw33IMM3gJcTfINagA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ziyao.cc;
-	spf=pass smtp.mailfrom=ziyao.cc;
-	dkim=pass header.d=ziyao.cc header.i=@ziyao.cc header.a=rsa-sha256 header.s=zmail header.b=mXGxqpWZ;
-	arc=fail smtp.remote-ip=165.173.182.15
-Received: from sender5-op-o15.zoho.com (sender5-op-o15.zoho.com [165.173.182.15])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.159
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795017505;
+	b=3c3ZREU3yk0WE8fgyqF3B/wF/G8A7FarF/S1+Zz45O+G/D9vKDiQjP0dvXitAJEIG3eH
+	 1VHNN2IydZCtOvyS8+YX9eBFfbC291wFXl91dzNn0a3LkTXFIfZwgZVGpfPcHzIIrMfUV
+	 fGllXn6vkO8aJNOjpQoghvHhf3o+RLEzTN4VpIZhrWuD4oVEts+oH3fHjW6uvcn6R1NVU
+	 mwsvYjpZhY+RfI3bBzR3Vw0woYs8UZfqteP0v4JjuHS/DF6SDApSfPwtkzL8wxfoFrePa
+	 GWUGO5MDcu0vsB9igXraW/sKrIEmTBAH65HHUZxDhJaM3pDtj6imb+Z3G+M3pRuLZ9g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795017505;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=tmZ+lh9571Vlds0QrPGYojBFXpoxRFH+tRyrL8fP1OU=;
+	b=PvyIgxsMhj64YqBSXVLqAP00YWaVO1SsVyx9hLxOKkiTjKsVnrkk3o/NDVITw9eNnLS4
+	 c2aL5bcP7yn3IKNm2WSWpEcLR8m/QxtmyKmcvfQdhL0Mo0UqWFr4nyNZW8+kbxZXveEIG
+	 3+NHhtJtb7vdf7GwUc6MS0FR8c0gy1v73k2jjPbfHqFTDWjLHwtqFG+ZKrpRhGx/YRBWj
+	 zb3kOWOlURRKVQxXT6q7rf3/4xpMIsEsmm9/pTcsoUWo8V+5m9QIy8IDyZlg7BOnpwhos
+	 gNymnxr4uI3LYwvDdh4BPtRMYD4iFSAlGs83vqgu4p40O/qwElTrScqOrzdiQBhTHKw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=fastmail.org;
+	spf=pass smtp.mailfrom=fastmail.org;
+	dkim=pass header.d=fastmail.org header.i=@fastmail.org header.a=rsa-sha256 header.s=fm3 header.b=Dlty34gy;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=hSlAucXp;
+	arc=none smtp.remote-ip=103.168.172.159
+Received: from fhigh-a8-smtp.messagingengine.com (fhigh-a8-smtp.messagingengine.com [103.168.172.159])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2663606A32C;
-	Wed, 18 Nov 2026 15:58:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2663606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=ziyao.cc
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziyao.cc
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 180EC606A336
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:58:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 180EC606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=fastmail.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fastmail.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=ziyao.cc header.i=@ziyao.cc header.a=rsa-sha256 header.s=zmail header.b=mXGxqpWZ
-ARC-Seal: i=1; a=rsa-sha256; t=1795017478; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=aKZyVK/iul+awmkjrZ4kuKN+OjodgmfQHc1HR5F/rOku5wpVcBcGoNgE6xS6qEYjmpalvWBkcRTs6nHxmVTHCt7QU7A1xazObShsDMcV3AG2rifwZ/4KVqKwal8wx9TRNx2wQJvc3rQfpnEgm4boXPeyh2XZ52Wd43uFWjIIJoE=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795017478; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=jz/3H3A3oChBMYXVW8k3ME6DCqxX/fivj94e4R405A8=; 
-	b=Gksh+Ce5o5nrckoOiOmG43DdjBFNHTT8gI4YnDCHhmIFxgkVLuStLR/Lz+XsPcxIkgCqTlzcQhETZEp/TJ0RAP5tefuMrsaUZmKoIqA13CVVd3UyS1+u9JPzeHE4fJFXiuxljjXYhAfJ3NcThvKRfVLS7CpkFWLSRlSddHVb6Go=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=ziyao.cc;
-	spf=pass  smtp.mailfrom=me@ziyao.cc;
-	dmarc=pass header.from=<me@ziyao.cc>
-DKIM-Signature: a=rsa-sha256; b=mXGxqpWZsXT6I8C5aBcHiUxgAzoAL9pA3MtLq4B/joxYe8Bl4z8ZJlHLifcX0H3KKu8mEv0fwDQTJzPMHMTTLjzv61m/Y95MATStaMAcf4A5Oz/dxCNXNr9e5qZhCzsWqXAJ2mN7L5ag++9GRahDBCLdceN/1O4zuAh+q6+rIdI=; c=relaxed/relaxed; s=zmail; d=ziyao.cc; v=1; bh=Usg8X43Ws7OPUhBE58OKMyvzlPQGZ0CY7Z/mpX0bURc=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 17950174745448.173778142830997;
-	Wed, 18 Nov 2026 07:57:54 -0800 (PST)
-Date: Wed, 18 Nov 2026 15:57:44 +0000
-From: Yao Zi <me@ziyao.cc>
-To: Yixun Lan <dlan@kernel.org>,
-	=?iso-8859-1?Q?Fr=E9d=E9ric_Mah=E9?= <frederic.mahe@cirad.fr>
-Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.co>,
-	Haylen Chu <heylenay@4d2.org>,
-	Hung-Chun Tseng <alan.tseng.cs@gmail.com>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Yao Zi <me@ziyao.cc>
-Subject: Re: [PATCH 2/6] clk: spacemit: k1: Keep pll1_aud_245p7 enabled
-Message-ID: <av3K-MIfagKY1CcV@pie>
-References: <20261117205951.140146-1-frederic.mahe@cirad.fr>
- <20261117205951.140146-3-frederic.mahe@cirad.fr>
- <20261118111528-GKD156369@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=fastmail.org header.i=@fastmail.org header.a=rsa-sha256 header.s=fm3 header.b=Dlty34gy;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=hSlAucXp
+Received: from phl-compute-10.internal (phl-compute-10.internal [10.202.2.50])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 49C84140015E
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:58:23 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-10.internal (MEProxy); Wed, 18 Nov 2026 10:58:23 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.org; h=
+	cc:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=fm3; t=1795017503; x=1795103903; bh=tmZ+lh9571Vlds0QrPGYo
+	jBFXpoxRFH+tRyrL8fP1OU=; b=Dlty34gyQGVwU87TR76947oQbDCUp7yuExtX1
+	FjnTnexKQRfue9T+V8ruvh3xYbyOAvCwIies5b7hgkeK5ZeofFmRMNG1o19x627I
+	Iluu1R3mgHKSHvpBkjTbjHmjHo0pYD8Wh0cCcJo6g+Jt/DbLjUCCn5J49g9PMBCq
+	PCEZclYamR3sioeDX7JMXbSTW0KFKm7wmTLFRANifiqesZLYrY21s/ACkapQG+eF
+	H6eO7LcVAzK8UqrH+01Ast/Vm95n94nf4LN61AYd7Lnn7+vjmX/99dj0sJyNBHD6
+	lhmgSsIrdqHFJw7351rYSb30Ry3L0/NJPcv129srJW7HW+hLg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1795017503; x=1795103903; bh=tmZ+lh9571Vlds0QrPGYojBFXpoxRFH+tRy
+	rL8fP1OU=; b=hSlAucXpmZpVTVfs92zqpc+dMhI/TfzbRGwTxtu/1DRq2SApsM3
+	VxtcaY4uEmsE8CBgNoGCW0VSMLGkry4eaoNdDznlG6i5Fj4N0uhnLhwvfArYX3qq
+	gluJfRPb9cSHexGFrJ2o70xxoEbTiaBKqCHLaHo8GezJDmNsIeFotc9IlEHLihuV
+	8Gr94jPEzaa1C8/YXH7XCueTLxjTHYiQMHve2h66MrLobwfychy1fkkSsh2C/Zo4
+	RAX9AZJMqWf0TeKBwsAKzVs/qgwjvdbylt+/wD7UN2chjecfuM9y3ONivnPdWxgW
+	5PbEzIAbYtLxDQs5GpuW674RxU95vRC/jPg==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=fastmail.org a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795017503; d=fastmail.org;
+	mf=PGljYkBmYXN0bWFpbC5vcmc+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm3:rsa-sha256:sXat0xW5unUGpuBGzEnCLbuwUN0H+yX0m8jLxr99vZrV+7R
+	VYCP8AtEzFG49OWSKkFTayqZ0KC9gr6he6FVW+s4RddvMhoPfOIWjH110y0rE5Oq
+	sef1xYBsVCoIOWCFYxutSm15XxHQlitIJCAm5+OJlQ695oASMdDG6a9yO0Smqpgb
+	P1U73kOWZOSB+nxjd3HXr1794D/I50UeZwF1mxmHvGiLcW8GU5zPCbZk8Ojsz2GT
+	Q32uWozA8uPqQUmSrbsYSfICztBvw2pbWH15y7O2XITNEzU2zy4+/LsbJbRI0IAA
+	LBFSiio1J7IlriXYTKMUtKzK2FZRowPOGUliaqw==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=9;
+	hn=cc,content-transfer-encoding,date,feedback-id,from,
+	message-id,mime-version,subject,to;
+Message-Instance: m=1; h=sha256:LO/ETnXj2HgP0r2HrilzaIGma0kHzcTarKoIJkjwxFw=:DQ8eEkJ3zSz2wDEhZ5nPp3BPh92NGDBGTnEfeREFXx4=;
+X-ME-Sender: <xms:H8v9as5dOGH3WV4cRdqCQp6XUYhvRFlANVpMYEuYcLxIPnobxSoVYA>
+    <xme:H8v9auly3rXVgz3f66I9msrM5nHqGALa_-XdiEJQTVQnB81Qj3P9Pa8ceaeJmxgic
+    44o0wTjRqU_VONUdfFsRy3L5QXHMlaf7nli3fb_vKz30ozJr5JNBD0f>
+X-ME-Received: <xmr:H8v9apoXdY8JrTReB4aQ0vA_KKpQZZwXWqrMFgB6iTh8z2dGvZ1MEx1J9S7a2Z2Q>
+X-ME-Proxy-Cause: dmFkZTEUNiVHQkD/tEk2Vljs5KgjTZfSUXf8g4zJ0Q3MSLZSMiiKW69CG49nC3D1ntDard
+    5FWKTKns2qDfRmw/AJnhYvjPhZ8LANOGSyoiyThOh8rek7RCJmpvd3IKjsHdwZglEdVNnl
+    Y97kNcDIj9R0QgJ6F8swyVKidsMU+K00GnTQyhF18/5Lb+nY+WkcQVQI2g/8S8HaBTTbZP
+    5i8a9QgS88W75rzx2dwpIjZ9F8edlgdZ+J9yMRth8Q/ZZUVGOLS05aIH3DSma7cTZ+01nK
+    37E0XByGtTPe5/dOLTzRaa6YlEo0Ifc1bnpH7A4BTl1LG88IptCcJ+Q+fQCALUkqgG2RWO
+    Q3z5s9kPyGZshShEfAEHbEff3tgiy9umtTKkYYYilCSvoEcpLZyahsIibSRpm3HL4gbcxu
+    tsb5wJfzTlhjWr/ScsoMU5owVWjB8Eh6yXPn6pKDeR4GGbOyBD8o00/RCpucXs5minKm8G
+    ZP3kLgDsSo0JHaL7cvvBXi/is0cidKLcgp5IT/Dyni8P7QuzB/BBwOu3GiJ0yjNjzBQkC0
+    b1P/UUz4V/tYf2D0TDJKRmWpNA+iO1CHLejDMKHD70Ikl5qgi2IkS5oc9OuPU5EESpiYxK
+    6jPa5p3YDMkahJ0mx5Tpsr2a4D/ebO80IDDHTj8mgxvNMJ/C99tKa3hFX3Gw
+X-ME-Proxy: <xmx:H8v9alvIVOiJy74i0aez9E0gOrkzyMdFRYpTeA6gKaxD3wgtNhdiVA>
+    <xmx:H8v9amFs2SmPLpGQPq0_SIdaUGPEJp_tmaWEdphvPy9DzHz3aIJsxw>
+    <xmx:H8v9amZGx75imP5sDSES-ln9TrCXkDNoTW_HbjE0EpREklWUTilgrA>
+    <xmx:H8v9amVbrTFRC29P5BrjDLNPBLUvakO2CP1bDiYIXJMbIczNPtCDdA>
+    <xmx:H8v9aoeWSobY2k4SFY892Q30Nm71kZX8lewhIpgqnNWYDnNO0UKP6iUX>
+Feedback-ID: ib53e4b78:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 18 Nov 2026 10:58:22 -0500 (EST)
+From: Ian Bridges <icb@fastmail.org>
+To: linkinjeon@kernel.org
+Cc: senozhatsky@chromium.org,
+	tom@talpey.com,
+	chenxiaosong@chenxiaosong.com,
+	linux-cifs@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Ian Bridges <icb@fastmail.org>
+Subject: [PATCH] ksmbd: rate limit the log for a failed security descriptor store
+Date: Wed, 18 Nov 2026 09:58:18 -0600
+Message-ID: <20261118155818.70792-1-icb@fastmail.org>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,52 +125,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261118111528-GKD156369@kernel.org>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/294.994.34
-X-ZohoMailClient: External
 
-On Wed, Nov 18, 2026 at 11:15:28AM +0000, Yixun Lan wrote:
-> Hi Frédéric,
-> 
-> I will forward to SpacemiT people, and ask them to clarify..
-> 
-> On 21:59 Tue 17 Nov     , Frédéric Mahé wrote:
-> > Accesses to the RCPU2 block (0xc0888000) hang once pll1_aud_245p7 is
-> Access which register? is the PWM register in RCPU2?
-> 
-> > gated: the CPU stops responding, even to NMIs. Nothing claims this
-> > clock in mainline, so clk_disable_unused() turns it off at boot, and
-> > probing an RCPU2 PWM afterwards hangs the board. The RCPU2 clock and
-> > reset registers live in the same block.
-> > 
-> Usually access IP block with clock gated off will cause system bus hang,
-> exactly the same scenario as you see here..
-> 
-> > Mark it critical, as was done for the K3 RCPU clock.
-> > 
-> It just happen to fix the issue, but doesn't sound like a correct fix,
-> usually, it can be fixed with correct clock topology 
-> 
-> > Tested on a BPI-F3: without this, probing an RCPU2 PWM hangs the
-> > board; with it, no hang, also with no PWM in use.
-> > 
-> ..
-> > Written with help from Claude (Anthropic); reviewed and tested on hardware.
-> > 
-> maybe just "Assisted-by: LLM"
+ksmbd_vfs_set_sd_xattr() logs every failed store with pr_err(), with no
+rate limit and without the file name. A client can make the store fail
+at will. It only has to send a descriptor larger than the xattr space
+the filesystem has for the file. On the ext4 filesystem with 4 KiB
+blocks used in testing, a DACL of 86 ACEs was already too large. Each
+SET_INFO or CREATE that carries such a DACL then writes an error line
+to the kernel log.
 
-I think this tag has been deprecated in commit 1e035297ffda ("docs:
-remove Assisted-by references"), but mentioning code origin is still
-required by process/generated-content.rst.
+When smb2_open() stores the default security descriptor of a new file,
+it logs the same failure a second time.
 
-The notice could indeed be moved to the cover letter instead.
+Log the failure with pr_warn_ratelimited() and include the file name.
+Drop the second message in smb2_open().
 
+Signed-off-by: Ian Bridges <icb@fastmail.org>
+---
+
+smb2_open() also logged two early returns of ksmbd_vfs_set_sd_xattr()
+that the new message does not cover. One is a length shorter than the
+descriptor header. That cannot happen here, because smb2_open() builds
+the descriptor itself. The other is a failed copy of the descriptor,
+which this path no longer logs. Callers do not usually log allocation
+failures, so the patch adds no message for it.
+
+Tested on ksmbd-for-next 267029b35ad1 with KASAN. A run of forty
+SET_INFOs whose DACL does not fit now logs the first ten failures and
+reports the rest as suppressed. Each line names the file. smb2_open()
+no longer logs the failure a second time. smbtorture results match the
+base.
+
+This patch was developed with LLM assistance.
+
+ fs/smb/server/smb2pdu.c | 10 ++--------
+ fs/smb/server/vfs.c     |  3 ++-
+ 2 files changed, 4 insertions(+), 9 deletions(-)
+
+diff --git a/fs/smb/server/smb2pdu.c b/fs/smb/server/smb2pdu.c
+index 29750970f8da..987049a52e54 100644
+--- a/fs/smb/server/smb2pdu.c
++++ b/fs/smb/server/smb2pdu.c
+@@ -5271,15 +5271,9 @@ int smb2_open(struct ksmbd_work *work)
+ 						goto err_out;
+ 					}
+ 
+-					rc = ksmbd_vfs_set_sd_xattr(conn,
+-								    idmap,
+-								    &path,
+-								    pntsd,
+-								    pntsd_size);
++					ksmbd_vfs_set_sd_xattr(conn, idmap, &path,
++							       pntsd, pntsd_size);
+ 					kvfree(pntsd);
+-					if (rc)
+-						pr_err("failed to store ntacl in xattr : %d\n",
+-						       rc);
+ 				}
+ 			}
+ 		}
+diff --git a/fs/smb/server/vfs.c b/fs/smb/server/vfs.c
+index 83b0bf783886..39bbe6aad629 100644
+--- a/fs/smb/server/vfs.c
++++ b/fs/smb/server/vfs.c
+@@ -1767,7 +1767,8 @@ int ksmbd_vfs_set_sd_xattr(struct ksmbd_conn *conn,
+ 				XATTR_NAME_SD, sd_ndr.data,
+ 				sd_ndr.offset, 0, true);
+ 	if (rc < 0)
+-		pr_err("Failed to store XATTR ntacl :%d\n", rc);
++		pr_warn_ratelimited("failed to store the security descriptor of %pd: %d\n",
++				    dentry, rc);
+ 
+ out:
+ 	kfree(sd_ndr.data);
 -- 
-Thanks,
-Yao Zi
+2.47.3
 
-Meow-mrrp-mrow, I'm a cat.
