@@ -1,87 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795007432;
-	b=HFEPotFt1Y4y/Jk0YK252sEQ9LGSN4Mg9qGrQlIT/FKZJimjfo2APpub1lOL0jDtzKSP
-	 HLeNmovXt0vf/4VJJm0lcq8dlvzGltsFoJMPG2+ek9Z44KKFlAoLWgR+QRAzpyjC4gx48
-	 k9R39IpD73eZ1CMFmU1MmDWpJIVFsJbRt1sxWC2GjYev+oFDOwy5k+AmVwLmXGGoYDl5R
-	 sgjjlTQNrb+IziOi25zoEAHMJfzyBMNgUxWU+YCEmSySO9kux/z+3NPmxKUfgvRvuPoRE
-	 UukuWx7dLAqoSi6007Wl+KDfvbsEX+6A5GpXKiMm4sdEEhW1bO6C9ZXoA19EqqTDHwg==
+	t=1795007441;
+	b=gwd7sUe0HDzPofDYZ0mzBoRIJ8DHoqUXOn2dx2gaOIvyy9rwoMZjFHjlqr/NvGqhJTaD
+	 6cipnOGlDvh8MTza1mzDgHLS59d8xdkU1yEgZ+SUP3kNJciio0qkUDxGkenvJfnBpWMM1
+	 w/wF6xlFwXlmWmbIPaxfhrscoGMnScESP4AfjxDI5FrLfD1zqu4fkTXiYb0CUBrbJ2kJH
+	 v/gm6ji6NKdLTv5XqveW7kt0utipCQw0D5dgVQHxYTmc7CX/41WPcfWtiI4zqqbmjxrgP
+	 lU9IhdtWQBKnCMNz5c762uVhW7UAEWCPTruVSlwaUwUGgrKYH4RKTg77p3gmSOvYv1Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795007432;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Scanned-By;
-	bh=SW1SgyAqJZMhz2Qvs3jWCWx5VKPPmPyNUr3G/FpCRlc=;
-	b=fUZrl/jocyD/COURaT+cir7cvTT8NHs6dOh79zorLhQeKLX5916Q5cz11RZpqkW2SgIr
-	 /PFXfNdjahEz124AIwsVDLlKcVbiI8w+vC8wHaXdamBbLCBf3iAKrFz6x03naFRa7xOiE
-	 uws7tWCwYXFwCH+ivXul2UshS/eTCHas75F2WsKic/qFiIYpmgtAlc71gBNlmyP/1CgcM
-	 eqINIV7CdLcdaeAaBxDBN5BA7by6/aC/zx9MIaNagjdGymdWdLlcYzivBI9Bkl07RoCNE
-	 2H/XyxYKFLvGe35a2liAlqjl+weBC4wvOmgeKFMUWUhLudc9iiV1AA+7//8avANQYhg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795007441;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Date:From:To:
+	 Cc:Subject:Message-ID:In-Reply-To:References:Organization:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=OV06CLl8OOdgdpg8BFRH5p75zlrKtpNqJrmClfjwDec=;
+	b=IHSI+ytZUxwR3yWzKbEhmvCWx3AUSNSSmc490NcEfq+dxR4O1KNyQ4tiw6/2dkaQmw5y
+	 YdVTnYvSoDuYF1Yre8gtxwwx+squ426lsYRgS43ZPFJS1K+VBKVNOlphoId/0MbnL6YSi
+	 DhsNL2ryR3t2hFTUxxgPUlLrwjf6sAN12gh8JrTlHif2EDtVPfIFPWaYtH6xdn6/n70fJ
+	 UvOI3kn/QBJ4ATIEuiWK/gKIvCJ4BrMMkH1PN8Je7qVZWHm5YiJ81amdM0L4jyHtnWkEq
+	 e5wyav/Raa/PtoDtiExV/A8ozwa6em4b8lBajgrU33HXOIVT8Af+6TZ7ofihkH82OoQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=h4s7KK0R;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=c6mW8uTi;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0B1D606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:10:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0B1D606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B16C606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:10:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B16C606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=h4s7KK0R
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795007430;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SW1SgyAqJZMhz2Qvs3jWCWx5VKPPmPyNUr3G/FpCRlc=;
-	b=h4s7KK0RCx+PuC97Hu3C1mZXDsj4pFnluYSW1iihMSu+ngzU54griv7hsy+TBx2cXQMn6E
-	gzCBhwfJd5/0P9IUPssQ3sqpl9WrxE5vfMRa47MM+4+PFXgB+quT9a1kKDWlYQNTVY0tnY
-	lhxzA6tood17aV3Thooi3hf3HItu75U=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-520-PSY9HXz-MPSmoDPTNZ-_8Q-1; Wed,
- 18 Nov 2026 08:10:25 -0500
-X-MC-Unique: PSY9HXz-MPSmoDPTNZ-_8Q-1
-X-Mimecast-MFC-AGG-ID: PSY9HXz-MPSmoDPTNZ-_8Q_1795007423
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 1105919560B1;
-	Wed, 18 Nov 2026 13:10:23 +0000 (UTC)
-Received: from onestero-thinkpadp1gen7.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id 4D8A23000223;
-	Wed, 18 Nov 2026 13:10:18 +0000 (UTC)
-Received: by onestero-thinkpadp1gen7.tpbc.csb (nbSMTP-1.00) for uid 13628
-	oleg@redhat.com; Wed, 18 Nov 2026 14:10:22 +0100 (CET)
-Date: Wed, 18 Nov 2026 14:10:17 +0100
-From: Oleg Nesterov <oleg@redhat.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Mani Tofigh via B4 Relay <devnull+mt4022.columbia.edu@kernel.org>,
-	Breno Leitao <leitao@debian.org>,
-	Christian Brauner <brauner@kernel.org>,
-	Mateusz Guzik <mjguzik@gmail.com>,
-	Alexander Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>,
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
-	tz2294@columbia.edu, stable@vger.kernel.org,
-	Mani Tofigh <mt4022@columbia.edu>
-Subject: Re: [PATCH] pipe: keep per-write wakeups for EPOLLEXCLUSIVE consumers
-Message-ID: <av2juQijIISJAgyf@redhat.com>
-References: <20261111-pipe-epollexclusive-wakeup-v1-1-0af6283e9fda@columbia.edu>
- <avxWKI795DthE8Sb@redhat.com>
- <CAHk-=wjOq+G=6gte4vX_YxOD_VfE1uZh7=+KHs8N0wU75xyHEg@mail.gmail.com>
- <avyODoFhZ_M7YDU5@redhat.com>
- <CAHk-=wgcBSBtHE+3ceKGjq1jyF64OyoEqf5JPpixowAa80GqNQ@mail.gmail.com>
- <avyVwg-5ef-pXZkG@redhat.com>
- <CAHk-=wjJF8uZLfVbbqei9-fhs9K70i2OnVreCV-rQF9EGKAxJg@mail.gmail.com>
- <CAHk-=wjqParwoB8wb9KfGVpbwUwvKvObpLOo=XPM0GGfkn3ibw@mail.gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=c6mW8uTi
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 84C5F4E4063D;
+	Wed, 18 Nov 2026 13:10:37 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 388B05FE9B;
+	Wed, 18 Nov 2026 13:10:37 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0D01C11BC1F63;
+	Wed, 18 Nov 2026 14:10:30 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795007436; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=OV06CLl8OOdgdpg8BFRH5p75zlrKtpNqJrmClfjwDec=;
+	b=c6mW8uTijMvY1u+q/ndfIhhb1kDgwTGQw2FcUjppnSMBuU++Xyt+psPM2vuszpV7hwFXWK
+	I5RwxPdHuYq43NJ6pEeVd2DYl+TKpKOsgSLnEbW7tVys7CSltQlLejZTJpmwh3EG8MNs13
+	0gdjarX5VrBwBquZaTbTgPfJeZAXnRooX9mEvXkjT6xXZ0bkHP3zERS8EWC5fLZ0gVrMTk
+	8W/QC4VxdJeH8j+8NRemoF/5XoYlNyfuPTDA7EFPflNOFJcocbAQ/U6SqIKrXkaD2NnUv0
+	pw9ZpSEOHJqWIpEnr4HTnDA0+IA4u7IQH0Lnm22uWR9DfgXe3Iy1wbLADdr5qw==
+Date: Wed, 18 Nov 2026 14:10:28 +0100
+From: Herve Codina <herve.codina@bootlin.com>
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: Svyatoslav Ryhel <clamor95@gmail.com>, Rob Herring <robh@kernel.org>,
+ Luca Ceresoli <luca@lucaceresoli.net>, Andi Shyti <andi.shyti@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Peter Rosin <peda@axentia.se>, =?UTF-8?B?TWljaGE=?=
+ =?UTF-8?B?xYIgTWlyb3PFgmF3?= <mirq-linux@rere.qmqm.pl>, Jonas
+ =?UTF-8?B?U2Nod8O2YmVs?= <jonasschwoebel@yahoo.de>,
+ linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 0/2 RESEND] i2c: muxes: Add GPIO-detected hotplug I2C
+Message-ID: <20261118141028.24179f5c@bootlin.com>
+In-Reply-To: <av2Nb_likDLz1u2c@shikoro>
+References: <20251013060018.43851-1-clamor95@gmail.com>
+	<w3bn5bqxqjhf4uvxov47rwlvmnbic6xnlk25xbpnbmi2eyup7q@tjuiu7pl3mmo>
+	<CAPVz0n1-jN5WLFq4e0CZrneExrN_A=GNeGTwGHTCj14NAta+jQ@mail.gmail.com>
+	<aPCfiJxyKOXsgNJe@shikoro>
+	<20251021132529.GA4133357-robh@kernel.org>
+	<CAPVz0n3jt04xEwGr1aiDTJ7OonYYgOy3QneteLXgdGruXGMP_A@mail.gmail.com>
+	<20261118091334.3d51a5f0@bootlin.com>
+	<CAPVz0n3=rL9jVc7DtG9FmcH0zs11+LXg1+HRRf9aagUqZf=+_g@mail.gmail.com>
+	<av2Nb_likDLz1u2c@shikoro>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,78 +85,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAHk-=wjqParwoB8wb9KfGVpbwUwvKvObpLOo=XPM0GGfkn3ibw@mail.gmail.com>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-On 11/17, Linus Torvalds wrote:
->
-> That header isn't _horrible_, but some of it was uglier than needed,
-> and adding WQ_FLAG_PRIORITY would have been a huge pain because the
-> code unnecessarily special-cases WQ_FLAG_EXCLUSIVE.
+On Wed, 18 Nov 2026 12:35:15 +0100
+Wolfram Sang <wsa+renesas@sang-engineering.com> wrote:
 
-Yes. See also below.
+> Hi Svyatoslav, and Hervé, and all,
+> 
+> > > > > > So, if you want upstream supported I2C hot-plugging, you need to wait
+> > > > > > for Luca's and Herve's work being accepted. Or provide a superior
+> > > > > > solution. Or, if you want, join the ride. You already have experience in
+> > > > > > this field (and hardware plus use case), you would be a very welcome
+> > > > > > contributor, I would say.  
+> > > > >
+> > > > > Agreed.
+> > > > >
+> > > > > What really slows things down is when there is only 1 user of a new
+> > > > > binding. Too many times have I accepted one only for the 2nd user to
+> > > > > show up right after accepting it and wanting something different. So
+> > > > > now I just require more than 1 user and it is on the submitter(s) to do
+> > > > > that. After all, it is their itch, not mine.  
+> 
+> For completeness, let me emphasize the above paragraphs again.
+> 
+> > > No new advancements. I moved on a prerequisite: Having support for addon
+> > > format in dtb in order to have support for a list of exported symbols
+> > > resolution when an dtb is applied on a live devicetree.  
+> 
+> Well, I would consider advancements in prerequisites also advancements.
+> 
+> > > Anyway, the v3 series [1] need to be updated and a new iteration need to be
+> > > sent. Also, same operations need to be done on the SPI version [2].  
+> 
+> Hervé, is that the next planned step or are there prerequisites needed
+> still?
 
-> NOTE! Entirely untested. Comments?
+I think this is a planned step. Is it the next one, I don't know.
 
-I tried to check it line-by-line, see nothing wrong. FWIW,
+Support for addon dtb format is a huge topic and I need to move forward on this
+topic before switching back to i2c-bus-extension.
 
-Reviewed-by: Oleg Nesterov <oleg@redhat.com>
+Even if we could avoid the need for i2c-bus-extension for I2C with addons, IHMO
+decoupling things and having devices that belong on a extension board clearly
+identified in a devicetree is a good thing to keep, i2c-bus-extension provides
+this decoupling.
 
----------------------------------------------------------------------------
-And this reminds me. Please look at __wait_event_interruptible_locked(),
-it is buggy.
+On SPI, no way to do without a spi-bus-extension. Chip selects must be translated
+between chip select numbers provided by a base board SPI bus, wired to the connector
+and chip select numbers seen from the extension board (i.e. chip select numbers at
+connector level).
 
-do_wait_intr() and do_wait_intr_irq() use __add_wait_queue_entry_tail()
-regardless of WQ_FLAG_EXCLUSIVE (reported by Mani in another thread).
+Having extension bus for both I2C and SPI make sense and keep things consistent
+between both busses.
 
-Plus another problem: exclusive waiter must not fail if it was selected
-by wakeup, see the comment in prepare_to_wait_event().
+Working on extension busses can be done without addon dtb feature. I am just
+too busy to work on both topics in parallel.
 
-What if we add, say, WQ_FLAG_LOCKED and change prepare_to_wait_event()
+Best regards,
+Hervé
 
-	--- x/kernel/sched/wait.c
-	+++ x/kernel/sched/wait.c
-	@@ -274,7 +274,8 @@ long prepare_to_wait_event(struct wait_q
-		unsigned long flags;
-		long ret = 0;
-	 
-	-	spin_lock_irqsave(&wq_head->lock, flags);
-	+	if (!(wq_entry->flags & WQ_FLAG_LOCKED))
-	+		spin_lock_irqsave(&wq_head->lock, flags);
-		if (signal_pending_state(state, current)) {
-			/*
-			 * Exclusive waiter must not fail if it was selected by wakeup,
-	@@ -299,7 +300,8 @@ long prepare_to_wait_event(struct wait_q
-			}
-			set_current_state(state);
-		}
-	-	spin_unlock_irqrestore(&wq_head->lock, flags);
-	+	if (!(wq_entry->flags & WQ_FLAG_LOCKED))
-	+		spin_unlock_irqrestore(&wq_head->lock, flags);
-	 
-		return ret;
-	 }
+> 
+> > Rob, Wolfram, since the DT Addon framework is not mature yet, may
+> > i2c-hotplug-gpio be accepted in some form? Maybe a staging driver or  
+> 
+> I vote against it. Accepting intermediate solutions will slow down the
+> proper solution even more.
+> 
+> > with notes that ABI may be changed and are unstable or maybe as a
+> > device specific driver only for transformers like
+> > "asus-transformer-dock" etc?  
+> 
+> Which kernel are you using? Can't you use your driver downstream instead
+> of upstream unless Herve's work is usable?
+> 
+> Happy hacking,
+> 
+>    Wolfram
+> 
 
-?
 
-Yes, finish_wait() needs to check WQ_FLAG_LOCKED too... perhaps just
 
-	if (WQ_FLAG_LOCKED) list_del_init(...);
-
-at the start.
-
-Then we can trivially redefine all users of __wait_event_interruptible_locked()
-on top of ___wait_event/etc.
-
-Say, wait_event_interruptible_exclusive_locked(wq, condition) can use
-___wait_event(wq, condition, TASK_INTERRUPTIBLE,
-	WQ_FLAG_EXCLUSIVE | WQ_FLAG_LOCKED,
-	spin_unlock(&wq->lock); schedule(); spin_lock(&wq->lock))
-
-Will you agree with this hack? If yes, I'll try to make the patch on top of
-your cleanup.
-
-Oleg.
-
+-- 
+Hervé Codina, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
