@@ -1,56 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.13
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795033946;
-	b=YKS4vMDc+bAByx/DWBYLR5Az/cfVdLRwLJuO/4/+ViVmGaojaf/2rzGPmS+GHReUAkCm
-	 choiMcNXW4Mrnp2rGQHAtg+T76JutzKSLLVbNWCldx5MkexgzPnzHg9zVRUusLRrVyf6P
-	 V1gac6GmAtuTGyZGKClMYsWtwpQkNGYO6wiEFdwhO2/JTmlvny7qL2rzpem+uUqsBxeS1
-	 oPuWAF3iVcUfcuCmGE7zLaGSg1OJCvONrqWzbPilPm5OJQo2eVr26aSpvt5oYYxUa0oJj
-	 8MfimsAXFMTWrPiI082epAqR2KHX38jTUn1nfy8GdHMQG1zCx8N+Mvpj85iDysgNRIw==
+	t=1795033954;
+	b=vQBnJe9U03WEe6ONr8HxMRI91K/ghTKAxssCiThZawT/pr8s3eKf+Jawg+0JP2UgGLQ1
+	 cF04LeGnZOjLUKUVxMbJsTcGj2u12H6HWeshD+yVckutNKGZxxzks3zIf0gxDB/NW6dSe
+	 vmjGzVo5F/Td0OpO96Ui1hyMPQLCesOqhT/4uHGdshXSGdDtNblOm5k/367BXhTznp8x9
+	 OKhiQ52baIyjUpS5bkj2I8MAPPHF3zyLWSch8Q0/AZUECe9wIZ0eYpBFBux5cwQiaWsRH
+	 frIlAScWeRHXCwR8rtH7962pBDYpsujyaHOwqss8g08/oqxCEOqZI7x+yg/l/6vWiVg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795033946;
-	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Rspamd-Server:X-Rspamd-Queue-Id:
-	 X-Stat-Signature:X-Spam-Status:X-Session-Marker:X-Session-ID:
-	 DKIM-Signature:X-HE-Tag:X-HE-Meta;
-	bh=oKvaPy0lIh3ckFW6p5LBHOOwcup0EIqtLrLFD9khroo=;
-	b=1pjv6VcjZvj6rOWZE+k9G5kTkjP73ARJTpPcHQXf+QvrnmK6Cs/3a4RvIju0py7DxiII
-	 UzSpMfpLHfqYzNMJwg0pAr6B9y4zx3hvN/RyIX5DsIYf6cPcaw4RrzWqgpfsJiudaSfDV
-	 XZtwVcDa7B9NTm/d42NMRWEbdhocqTs8KkuEee1IPZpkmwtceimmA/ZQc4WYzJdiNUXvo
-	 q2+xVoO3zFTCXo4h4CujKmqri+Spa2gZ5E2XNRJN+Mt4sstNqyBLVrChzbzaYvK9+7Ly7
-	 WqFHBXTNa3w/GF4qWoxbfG4So296DrPXPer/D7WohDXjaxg286W6Z0w8lebTpFSG3VA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795033954;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=pGpLdb5gpDH1q/lbCHvkH2QZ8VkIM3M73qtVnlaA1S4=;
+	b=i3X+SkqKqJO2rs3a1TaLFHtoLzVfjE76a3nKr8N1C3Zmng3cp/2pFP/S9WMbKLIGgRnU
+	 CfbDx6dpM3hOr5rmClbVLKvyas3K9thZbqomxy/JUc7aFZdAG6IKJ1GcH1l/xmNPv21SW
+	 OLUfylicTTU+XX6DrjO4VC5QC76xuWOzYfUEI+mzqN2KJj9iXfhzN5HNjRfVSOCAKpYu3
+	 wYy3MnudPfteQ71x50TMrE2Jpcp/0bDutWhscSCHTfhU00Xaqn3pNQ3TgQzK7GF3qKirk
+	 B9cSsayyvu8HZTpIWzATi+rJ1mJjAXZXNZd095DhGrCyb4lZq/Khs1y3lUdYNmY0JXQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=goodmis.org;
-	spf=pass smtp.mailfrom=goodmis.org;
-	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=h8EKwDq7;
-	arc=none smtp.remote-ip=216.40.44.13
-Received: from relay.hostedemail.com (smtprelay0013.hostedemail.com [216.40.44.13])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OXhxVe+t;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C16E606A31C;
-	Wed, 18 Nov 2026 20:32:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C16E606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47CA4606A320;
+	Wed, 18 Nov 2026 20:32:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=h8EKwDq7
-Received: from omf18.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay05.hostedemail.com (Postfix) with ESMTP id 8410C4086E;
-	Wed, 18 Nov 2026 20:32:23 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf18.hostedemail.com (Postfix) with ESMTPA id B1A7833;
-	Wed, 18 Nov 2026 20:32:21 +0000 (UTC)
-Date: Wed, 18 Nov 2026 15:32:20 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: David Carlier <devnexen@gmail.com>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, linux-trace-kernel@vger.kernel.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] tracing: Reject .function on the function trace event
-Message-ID: <20261118153220.15542786@gandalf.local.home>
-In-Reply-To: <20261114195914.2678414-1-devnexen@gmail.com>
-References: <20261114195914.2678414-1-devnexen@gmail.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OXhxVe+t
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1734F1F000C4;
+	Wed, 18 Nov 2026 20:32:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795033954;
+	bh=pGpLdb5gpDH1q/lbCHvkH2QZ8VkIM3M73qtVnlaA1S4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=OXhxVe+tRpWy+neZ4/JusyIIL0FmKk+grrKbtY7gYcfwZvNir+3zYm6fopyUwtGzM
+	 TdCvK/ZBqetDVlakNPx1uQadLinBNsCdrgR5kXuAjDA483TPcNuTFqIMvzFj4O7Ib2
+	 V+SSi6/hzGYYCLcJF9mtsuG4kub9LbaJALS0TnCxrpKGnIxRxQJd1KYP6sFj1GAf3F
+	 zT0tiDFBSL9j/2D0+bkOnuX/+/aASQhXhFIzls0RKsjR3R2vSS6lsfZtoLlrnLMTPS
+	 BbfBreOnZD6nbYtLlCni2DK/E+SgdqItoCiB/QOSr3o6Ww3MzqzE+TASUIWMPH3APu
+	 FNaoKoLPDblUQ==
+Date: Wed, 18 Nov 2026 20:32:30 +0000
+From: Lee Jones <lee@kernel.org>
+To: Brian Masney <bmasney@redhat.com>
+Cc: linux-arm-msm@vger.kernel.org, mfd@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/2] mfd: convert to subsys_platform_driver()
+Message-ID: <20261118203230.GK98456@joneslee-macbookpro.roam.internal>
+References: <20261106-mfd-subsys-v1-0-1c3e755d37a6@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,70 +56,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Rspamd-Server: rspamout03
-X-Rspamd-Queue-Id: B1A7833
-X-Stat-Signature: q9faisecotch4ibgz7tjniy1wnrgd7ko
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX1/AM9kBChS00RDKpvMDzSCB8eK9Xxc9hgk=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=oKvaPy0lIh3ckFW6p5LBHOOwcup0EIqtLrLFD9khroo=; b=h8EKwDq73i9O4XxvjwmIisd2ObSMhM/rCdn2aNwHMwiaUBUVzd1xnIYak7UjweEGnrw9AB964qLOmc172QNEB3tE11E9FSkk98njsbGZPQs1ARZS6hNvl6Fmy+QUk7M5EdPHLcRh8LX/SI40JU7btkc2DhyrykM1SodiaVyVmfk=
-X-HE-Tag: 1795033941-994633
-X-HE-Meta: U2FsdGVkX18+9pwbS/sGlAPJpJbi0SLDIvZuhM7I8xhRlVTz292KWaqeIr2lUnAb5eEZQT0JqEo8i//AakzknduJOD3KTyvskFDnzHEJWQZBBn6AoxR4wI3NLt/maduHUMOUpWRP8y4EIKTv9rNYKrpPmcWUXajl2SM0nmWoW1ivc1ebwUXXHx7Sn2DZvsJllRepfhBWqCuOpKGj71ZiF6K4D1cTE9enzEvruWQRHv5YuY3uBIwg7kWHJu4hJopxMjgargA72phWfYX6afM76rNvJj7ReZZsQgsQbt5AvhJzAYj3Fr8VRWUxNghDggTQvKEce+i1qyitC2LizOfq8S+eU5x8vAUGQ7iELSx+UtJoMw9qaW7ZV7ggrA/6k2X+KIFbnMTiBCs=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261106-mfd-subsys-v1-0-1c3e755d37a6@redhat.com>
 
-On Sat, 14 Nov 2026 19:59:14 +0000
-David Carlier <devnexen@gmail.com> wrote:
+On Fri, 06 Nov 2026, Brian Masney wrote:
 
-> For the function event, parse_pred() handles the .function suffix
-> before the ftrace_event_is_function() case, so "ip.function == schedule"
-> builds a predicate with no regex. Setting it through perf then
-> dereferences the NULL pred->regex in ftrace_function_set_filter_pred().
+> Reduce boilerplate code in these drivers and convert them over to use
+> the macro subsys_platform_driver().
 > 
-> The "ip" field of that event already takes a function name, so reject
-> the suffix there.
-> 
-> Fixes: e6745a4da964 ("tracing: Add a way to filter function addresses to function names")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: David Carlier <devnexen@gmail.com>
+> Signed-off-by: Brian Masney <bmasney@redhat.com>
 > ---
->  kernel/trace/trace_events_filter.c | 6 ++++++
->  1 file changed, 6 insertions(+)
+> Brian Masney (2):
+>       mfd: qcom-pm8xxx: convert to subsys_platform_driver()
+>       mfd: tps65911-comparator: convert to subsys_platform_driver()
 > 
-> diff --git a/kernel/trace/trace_events_filter.c b/kernel/trace/trace_events_filter.c
-> index c10951bcfc5f..11bb751c4388 100644
-> --- a/kernel/trace/trace_events_filter.c
-> +++ b/kernel/trace/trace_events_filter.c
-> @@ -1743,6 +1743,12 @@ static int parse_pred(const char *str, void *data,
->  	pred->op = op;
->  
->  	if (function) {
-> +		/* Function events already take a function name on 'ip' */
-> +		if (ftrace_event_is_function(call)) {
-> +			parse_error(pe, FILT_ERR_ILLEGAL_FIELD_OP, pos + i);
-> +			goto err_free;
-> +		}
-> +
->  		/* The field must be the same size as long */
->  		if (field->size != sizeof(long)) {
->  			parse_error(pe, FILT_ERR_ILLEGAL_FIELD_OP, pos + i);
+>  drivers/mfd/qcom-pm8xxx.c         | 12 +-----------
+>  drivers/mfd/tps65911-comparator.c | 12 +-----------
+>  2 files changed, 2 insertions(+), 22 deletions(-)
+> ---
+> base-commit: ddfe51b0a0f5dc9e415cc2c8ad8db17532dd426b
+> base-tree: git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+> change-id: 20261106-mfd-subsys-63dc5bb82f83
 
-Instead of rejecting it, why not just ignore it?
+Looks like you were beaten to it.
 
-diff --git a/kernel/trace/trace_events_filter.c b/kernel/trace/trace_events_filter.c
-index a1c298210059..e64c44ab3ee5 100644
---- a/kernel/trace/trace_events_filter.c
-+++ b/kernel/trace/trace_events_filter.c
-@@ -1742,7 +1742,9 @@ static int parse_pred(const char *str, void *data,
- 
- 	/* See if the field is a kernel function name */
- 	if ((len = str_has_prefix(str + i, ".function"))) {
--		function = true;
-+		/* Ignore if event is already a function */
-+		if (!ftrace_event_is_function(call))
-+			function = true;
- 		i += len;
- 	}
+Please rebase and see if these issues still exist.
 
-The above fixes the issue as well, and allows things to work as expected. 
-
--- Steve
+-- 
+Lee Jones
