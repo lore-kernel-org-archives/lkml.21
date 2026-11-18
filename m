@@ -1,54 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794996310;
-	b=IzLu+w/2eRntjnZXek8tTQfc0cB51rUFCJio+oSwIBFKpdtXGxBGRISIt5OuY9Qg3rTN
-	 CN5h8clEFjjVWvgNhYQg8ifUFI5K2/YhJwF+4htRWx6ETusBt18pPGfooykhiXdKtoSvq
-	 ddiWR+6Z4By71CzR5MmaL02VbnPIYDSSg0OSsgYcKgkutzKnCgjrIQrdtDOz/FJvJNJoy
-	 /0S+UW6oupzpqYmRop9Qd1TldWB+bcSUOiQDZYH1bjfR2PdI/7FEo3R2eo164UL+aG0aZ
-	 8VNXWaY3g874pdlnXILeJ18rMgiUQ4dYsuSYxdHoQFDhU4VDIuccUacVNwKPxB6JlpQ==
+	t=1794996311;
+	b=eBUcXCvCe+hxvlGIZF8n8cdy4VAWuaxt0DYc1WiU56oux/Fk4DMsYdvyXgb/qP6Ga+H8
+	 Wt9sr/cyD2+NSRNvWXabfBYwsqehaZXNR/oFmXr3ysZVbUogQqKctRfNzkWPA92yQkSQ8
+	 HeYKSJadI0PyDigy5mHAXgpVSOHRpN4fcWAS0YThu3qOsdgcEmGGTq/TbQ7R4FmJlac3B
+	 SLIvKilHPZo0THNlEXYJ6wmhf4jztYekYjRdM9I6ZwUzWow4pW1pdOihKJTrtKKAOzNTZ
+	 bqpoKJAIH3AnWI3aJpQ0A3zLjE4dXVuXDqKX8LsE6Os6DeVg1U8HrL78qW8+rEOBZmw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794996310;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=9CUfMcOWf/ySS4QRwsQRGf/yO85yR43VJtR79G/UDeU=;
-	b=iTBrWIzQmDzOTLx6vF9mYCw3cIamgDqCK+HyDD3/ApR7nV/0v66hJySi9fOqsvFKtgjF
-	 +udlGGTRg545DNtC4s6EncwnoBuZCT2ZuBT192CPcw7uhIsLBViX5FIZf3O2Le07pHmgz
-	 K6TEZhYygrTaPqxuZEEOYGAMoc8+O5vPi1d6sTq5hi2UGWmjK3BsltFYnXnRA1qFZWfC3
-	 oSKddwA47nYW0Glg1U7Ps3Cs7ku+/OK8Spf7PJtS4ybbWIZAdpmW0LMzwKY1E619f7vuc
-	 ESQf3GHQa4ZM221Bn3zqPFahdvjdSL62ICk6AzPvc28BxDzPz4tbgLaGxdwMwMgJtTA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794996311;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:
+	 Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=i+6tpym98MAYAOwimK86ni0rb2mcq3dJimT4WgymRsI=;
+	b=bIYKZZwE/QH8hNLPpVr5uz3tq6R/uGSbsOAYkn6wkPAEC979Lagvr0gpPFnM41coFhMi
+	 bmTd55oy0gLzX+xcgsi3MpR63iqSRF/V8IMt2ibWPzuHp1hSY/hoeQLGfbxftBIjjUvSd
+	 w1t/FzUTSVhSAil4WyhYdw+2b3UbL0Cp1YhwjV5PV+cToPu9lD2ZK7ZM7uWV5351o76Hc
+	 PJcqoagBdXSOl/XuKQGpmDEFDACRo4hImM0VY4PZTljLF56cZx7+ATobZQsErLZ4/Yixi
+	 ozhUORSgcbGjtzl/cnpXrF67yiy1lM51dxMO0VyMHZcCQX7JbM3yZzuMLjfVz6WZQFg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cotHS17t;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=K042lPMI;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=EexNY1JF;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B49AB606A31C;
-	Wed, 18 Nov 2026 10:05:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA00E606A32C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:05:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA00E606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cotHS17t
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A9611F000C4;
-	Wed, 18 Nov 2026 10:05:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794996310;
-	bh=9CUfMcOWf/ySS4QRwsQRGf/yO85yR43VJtR79G/UDeU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=cotHS17tDk8ESqd+ambByDtxQFvyc8PHtid4yZuQ1cInxZUY0CHB/+19XYLhRujUE
-	 WilRsY107GHFLf/2TK/eQjfE1K45NxIGaDMgeIbe7GRPiUNRbjXxxjF2McY4BBPDSm
-	 KPKFvgCo4MefIX/v0a8mqGCK+rFve1WUOcfIfIEr4KHDBDubUDT+aCPeykbHeEohiR
-	 op2C+lF1BNYSwunExNPtVdgVq90JdXhWvrPmzPjtaNSeFqBmdvcAG6tPIOrHkSwpoB
-	 TKJOLjEZon/KSJ1/M13d6//AigXviqLVA8h+cj+nlOmkUKJ9Z7Wp0eRo+GNHq6Qlrl
-	 jyBGSVGwWLH+Q==
-Date: Wed, 18 Nov 2026 10:05:06 +0000
-From: Simon Horman <horms@kernel.org>
-To: joasantonio108@gmail.com
-Cc: david@ixit.cz, krzk@kernel.org, oe-linux-nfc@lists.linux.dev,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v3 1/2] nfc: st21nfca: add spinlock to serialize SE
- APDU request state
-Message-ID: <20261118100506.GB860048@horms.kernel.org>
-References: <20261112-st21nfca-v2-v3-0-c81702269e01@gmail.com>
- <20261112-st21nfca-v2-v3-1-c81702269e01@gmail.com>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=K042lPMI;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=EexNY1JF
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI9kIqB4082325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:05:10 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=i+6tpym98MAYAOwimK86ni
+	0rb2mcq3dJimT4WgymRsI=; b=K042lPMI33MpMUHNBF3KLatffLSuRSL4VYpPm1
+	b08sNZILcJKNZGEUijYcfx9byNa5n7HLX6ECacVuXQf1JlrGVFzyB9G76vR7m6KF
+	NU6ZGipaxzFmi4IawW54JAWcjpqhN/pLW1X3+6n4DDFJYAqFdRTdgNTvBIyaKybc
+	jvLuihZWlT2Kp3eOSDcg88J8XnKOXFaOcL3MtYR6I3TaV5sMgEVlhk0jCG24oURN
+	bAwNJidg6X7GKieaZh1tqU6FJ317X9op78xKCZTui1FAhRLMqZIP/4arjWSPARDI
+	PvB20h9KCYC77FY8KNx5Y3X1Xdhnaj6VR/cFO7BhtTiccDJQ==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yv9jdr7-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:05:09 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-9496ff065bcso120644185a.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:05:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1794996309; x=1795601109; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=i+6tpym98MAYAOwimK86ni0rb2mcq3dJimT4WgymRsI=;
+        b=EexNY1JFAFcSrnsCX3oqihqw2h621KYC74UObL+3en5FgTKOsFlnVPj+jL3IBXW6Gx
+         tyJIxFHWt9YVgJ3BXzpjyHLaGwfCztJexXG0LlgVbRnKuReO6u5aA1+mp47RFTsjb2og
+         Ho8kxruDBDratuBemcV24lCf7g0nf5H00T9s1hG/QJXiJGK6lzHMvpeN01du1zqBMu7q
+         a0OBgLP1dIMUGZNdHmDZyjAi47lAuxOHFK8QaS1WO+NMLUTXCXzoK3RD2Mg3ZJtcaOnR
+         oFsAwicSoA20vfjyK2vbatoMXmPEaPCuywt6W7tbnqGmtiZPIFms+sfjXiD1q55F1MT3
+         RZaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794996309; x=1795601109;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=i+6tpym98MAYAOwimK86ni0rb2mcq3dJimT4WgymRsI=;
+        b=PAVFbJ1PV0lQXoHO+Ic35JaXr/sBh9A3C7BO4sbNNkev9bW3fppQ/+cS76wSVZzrlp
+         vtjFCouIiBpNKbDhOLDileB+Kg8l2h1OFivLFxIxGBF5PQt6YUYVPpq8rTnAJ/PSdB40
+         KxDgapCe1/F1G3D1reXqCk75robVRG4OQuX9j++yUXy5/u67CXYGhcmgcvCLXwdxiLou
+         PR7FvBWSOXsfvI9+GNQgkmrr8HZx8ijjYkFbUhWzkkBa2LH+3ddupXjLD3d1aMUxc/yu
+         VgFk7+gr+r5IjkwJtMgnB9xUMgNjqemdKPHREL5vPsyJMBM9QO25QgbRtu2VSIu/NxYz
+         1NKg==
+X-Forwarded-Encrypted: i=1; AL+hErFkdsIJ9p0oVaKv4MAdMjmRMFVVTPMu+9+KETnJpNtUUp45CxxAh02buV9kmDV6WbKgFPZZXlXhoxRCv34=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+8OHS/Qcw0Z4oQL+wMJGCkKLea7/IWECiTaCnjJ3GdcYL4Wj1S
+	6QcnMU9xfIfWQxZsT8/RtuWY8qj9nyfbNTTcIAu99Kx1A5PQPZcI+xMr2DxeLIlnYvWxO+Blh+B
+	Ee61xxo0Jr/MDFLDMJwW/vof/b/J2hqRnbw0W7kW6ytpSjW8zthSTVOnOOZJ7CflJWfY=
+X-Gm-Gg: AYBFou3b62iEOBUA/e/rUZeJtwUOeHRprBRHS1oFClnJn+MyAWUZqxf6DHyYWbTb2Ub
+	WSUAVTKPi8Bp0+lx7eakASKv1HrD45zZWsGuS6ivoAevzN+oi0kksaT9p69Az2pTX9MrbYz/2r+
+	Wlio8a/DOmEJ5uVbqJXplloai75ADoTABxa23D5eotRFg6AZKhHQdPmDFU1rAyl4TbfdvxDMSoI
+	lnxeyQsagBJn8TZZdrPEq5G+JLbc21TR0abttoQmyGIPhiuEpoMr1O/A9LK6kezRJotZlHZV5Q6
+	NdEe7tjtGI3tic3PIAyowoVkWKY3nj4Rf0LzfUkzwq8O91qtGXFd0AmRZcUuI6gja6cBGUzJvtH
+	fm8A/haQZZBuCs0PkwECGVBDsopJUK09ACYMWa6CFjDziQ6o8MLdeNgrVgQNdLIt8sEpreEqAky
+	Y=
+X-Received: by 2002:a05:620a:6e8b:20b0:949:a254:706a with SMTP id af79cd13be357-949a2549880mr58799985a.14.1794996308895;
+        Wed, 18 Nov 2026 02:05:08 -0800 (PST)
+X-Received: by 2002:a05:620a:6e8b:20b0:949:a254:706a with SMTP id af79cd13be357-949a2549880mr58795985a.14.1794996308217;
+        Wed, 18 Nov 2026 02:05:08 -0800 (PST)
+Received: from brgl-qcom.local ([195.50.164.66])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65609389dsm3735509f8f.37.2026.11.18.02.05.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 02:05:07 -0800 (PST)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: [PATCH v3 0/2] arm64: dts: qcom: sa8255p: add ethernet nodes
+Date: Wed, 18 Nov 2026 11:05:01 +0100
+Message-Id: <20261118-sa8255p-emac-dts-v3-0-e2c365d95a0b@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,99 +115,117 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261112-st21nfca-v2-v3-1-c81702269e01@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAE14/WoC/23NTQ6DIBAF4KsY1sXAIP501Xs0XVDASlJFQUkb4
+ 92LNo2LupnkvWS+NyOvndEenZMZOR2MN7aLgZ0SJBvRPTQ2KmYEBHJKALAXJXDeY90KidXosbp
+ LDjQDCkWO4lvvdG1eG3m9fbPTwxTlcS8b40fr3ttsoGv7W2D/C4FiggXLVFGUUldCXqz36TCJp
+ 7Rtm8aDVjPA7lBy5EB0CK8rxrmqqzw/cJZl+QD14GueFAEAAA==
+X-Change-ID: 20261022-sa8255p-emac-dts-dbc521421276
+To: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Shawn Guo <shengchao.guo@oss.qualcomm.com>,
+        Andrew Halaney <ahalaney@redhat.com>,
+        Richard Cochran <richardcochran@gmail.com>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1947;
+ i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
+ bh=SYilKXB3pqBPaa42ESLbf2vTCnrWgL4ec3Gduqh6u7Y=;
+ b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBq/XhQReghUUWGHHaRMvfcY+ooGv2Ptz8UU2OgF
+ flsn+Tnc/6JAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCav14UAAKCRAFnS7L/zaE
+ w6/ZEACGblRXOtYlsin++5GIgERHGsqoBOGVAIz/VBA7uFy0IW4M60FZvIltZAPVMiFxg/wsTmq
+ Z0x7FiErlNYMpGpLxlDMiVUzdVYXdLqKYMOONDB6ydzHzQhNVBgC0nPqF1aTf2ZigUSuVCb436/
+ Tq1Ki+/3qKERA1g+t9m+oQpx+wfeti+8FJPj4W/xfKGBrfG7WeQJhhseJpGLeH7onh/2MGJ9dSa
+ 4BGgzfRdFzYGKaYgtYgjRYJ8PCHsfbiHFvifbE28Q0wbn6E7ASZCUivP4JGchG65fxwigzu2Fxt
+ ecgiF7Vlt7UsdJWYvVHdfQytdf+eKoujPaY0d0yQttt0E1KBS3JGPaEfjtLouqOiaKtkE2ZGaq3
+ D+mdUWBUYWTm1w1yaJ57C46qc9uKZj5rgyKk9j7f6pt81Y6kzkd5DtaD78CXbpPwaPBXyuJRK/N
+ hEgFviYuOnCfsrYuht10LwyLMqvV0DjGj2Nited4VyHbP2DSW2tj7Or8I/WQOKAYm2WxR9dy2T4
+ O0Kaus34hmZBcBbPyIEDAS5gCdF4V6jz3WndfPyOz/haSbF+t4dZAKn5tyzqxC8KdCXTCyW3rUx
+ I4Iz7z0EisOjZkbohOUUZ2z8nufEbjRWc4VtfsRltiIeisGAre+M7sHMu5b0NW5rBxuNRLMNjA6
+ x/LfoQTsnnpEnwQ==
+X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
+X-Proofpoint-GUID: w8U3AGXvTCSj8pbfhSMwBg2FEXqoy_Yc
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAzOSBTYWx0ZWRfX1jT+5DI4VrZx
+ jTMeqDFvFIgPOfW5unnlPNnQo7kN3mF4LUfGDLf9qf8ArLMoowqvqaJJIj+yU7rG5cx20kpSAux
+ BLxnIVWvRobk1BEy35AHnx0XW9odqHI=
+X-Proofpoint-ORIG-GUID: w8U3AGXvTCSj8pbfhSMwBg2FEXqoy_Yc
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAzOSBTYWx0ZWRfX5ryvL2H0hisf
+ 8RBfOKAhlY702lB1VrbMIva4TZlnbzY5TswJrN/c9IkPxaQzU+EeVi0mAg1wHDESXSrFAqTcQOT
+ 1QvIUl6V0zGgbEj7p2efYL+b0U/wThkKqjnv2mb2lvE+c22Y2Fs4Duz2EUXnHtZSFEnDC9cYJyk
+ ZM3LurvVwkiaYDak8LTddeOrmH8WoL3rVemyUImlbbFMm19xe/irZN/6bPQi4r293dyUjT0ewiT
+ 0UB7e2SYo9RFXlbOX7StJWZz2o3qCJgKAfqbWGnjpcUBdB4u/YsYPj4+1xjwsPgPiTJcDpJ+Ube
+ 5mbpc/bfSjgEmEdjCBT8S91//O8t6HIvlof76eGCKbO4Z4aea5V2YW2lj4dt1knwXmUNgRYw/DS
+ Z0kLLbb7LZyGDR/T3Jp5S0ive0ZXFxTjTDsoDRXchS9kAJ6akhI2qmD4C09CarqRVA08Gn5m8Jf
+ hk0uyIGk7TJoo+0eI+g==
+X-Authority-Analysis: v=2.4 cv=RYIFmFtv c=1 sm=1 tr=0 ts=6afd7855 cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=Jk2/TV77q6/E6wQq2oQJxQ==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=bC-a23v3AAAA:8 a=EUspDBNiAAAA:8 a=Tejp0hr6YFsyB7xwJ1IA:9 a=QEXdDO2ut3YA:10
+ a=bTQJ7kPSJx9SKPbeHEYW:22 a=FO4_E8m0qiDe52t0p3_H:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-18_02,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 spamscore=0 priorityscore=1501 phishscore=0 impostorscore=0
+ adultscore=0 suspectscore=0 bulkscore=0 lowpriorityscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180039
 
-On Thu, Nov 12, 2026 at 01:39:29PM +0000, Joas Antonio dos Santos via B4 Relay wrote:
-> From: Joas Antonio dos Santos <joasantonio108@gmail.com>
-> 
-> The bwi_active flag, callback pointer (cb), and callback context
-> (cb_context) in st21nfca_se_info are accessed concurrently from
-> multiple contexts without synchronization:
-> 
->  - st21nfca_hci_se_io() sets them from the netlink path
->  - st21nfca_se_wt_work() reads/clears them from the timeout workqueue
->  - st21nfca_apdu_reader_event_received() reads/clears them from the
->    HCI rx path
-> 
-> Add a spinlock (se_lock) and take it around the accesses in these
-> three paths.  The callback pointer and context are copied under the
-> lock and invoked after releasing it, since both the callback and
-> nfc_hci_send_event() may sleep.
-> 
-> Also move the bwi_active = true assignment before mod_timer() so that
-> the flag is always set before the timeout handler could observe it.
-> 
-> st21nfca_se_deinit() is not changed here.  It still accesses
-> bwi_active without the lock; the teardown ordering has problems of its
-> own which need a separate fix.
-> 
-> Found by LLM-assisted manual code review.
-> 
-> Fixes: 2130fb97fecf ("NFC: st21nfca: Adding support for secure element")
-> Cc: Simon Horman <horms@kernel.org>
-> Signed-off-by: Joas Antonio dos Santos <joasantonio108@gmail.com>
+This series adds the ethernet nodes for the gearvm variant of lemans and
+enables them on the ride development board.
 
-Hi Joas,
+The first patch is a fix to the iommu SID mask - it was wrong all along
+but only triggered a crash with recent firmware. This should be queued
+for v7.4 and backported to stable branches.
 
-sashiko.dev has provided an AI-generated review of this patch,
-which seems to raise issues not covered so far.
+The second adds the ethernet nodes for the sa8255p SoC and enables them
+for the Ride platform.
 
-  Can releasing se_lock before mod_timer() leave bwi_timer armed while
-  bwi_active is false?
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+---
+Changes in v3:
+- Move power-domains and power-domain-names properties for ethernet
+  nodes into the gearvm variant .dtsi
+- Fix sort order for nodes
+- Fix PHY label naming for ethernet nodes
+- Rebase on top of current linux-next where all dependencies are already
+  available
+- Link to v2: https://patch.msgid.link/20261103-sa8255p-emac-dts-v2-0-05f9355df966@oss.qualcomm.com
 
-  CPU0                                    CPU1
-  st21nfca_hci_se_io()
-    spin_lock(&se_lock)
-    bwi_active = true
-    spin_unlock(&se_lock)
-                                          st21nfca_apdu_reader_event_received()
-                                            timer_delete_sync(&bwi_timer)
-                                            ...
-                                            spin_lock(&se_lock)
-                                            bwi_active = false
-                                            spin_unlock(&se_lock)
-    mod_timer(&bwi_timer, ...)
-                                          st21nfca_hci_remove()
-                                            st21nfca_se_deinit()
-                                              /* bwi_active is false, skips
-                                               * timer_delete_sync() */
-                                            kfree(info)
-  <softirq>
-    st21nfca_se_wt_timeout()
-      schedule_work(&info->...)  <-- use-after-free
+Changes in v2:
+- Fix node extension ordering
+- Move hard-wired serdes phy references to the gearvm .dtsi
+- Rebase on top of v7.4-rc1 and v3 of Shawn's series reworking the dts
+  layout for lemans
+- Adjust dt nodes for dropped power-domain-names property
+- Drop patch 2/3 in favor of overwriting the compatible property for
+  the sa8255p variant
+- Link to v1: https://patch.msgid.link/20261023-sa8255p-emac-dts-v1-0-a34d778ce9ac@oss.qualcomm.com
 
-  The ST21NFCA_EVT_WTX_REQUEST branch in st21nfca_apdu_reader_event_received()
-  also calls mod_timer(&info->se_info.bwi_timer, ...) without holding se_lock or
-  checking bwi_active, which likewise re-arms bwi_timer after a timeout or on an
-  unsolicited event while bwi_active is false.
+---
+Bartosz Golaszewski (2):
+      arm64: dts: qcom: lemans: fix iommus SID mask for ethernet nodes
+      arm64: dts: qcom: lemans-sa8255p: add ethernet nodes
 
-  In addition, st21nfca_se_deinit() reads and clears bwi_active without se_lock,
-  only calls timer_delete_sync(&info->se_info.bwi_timer) when bwi_active is
-  true, and leaks cb_context if it cancels an in-flight request:
+ arch/arm64/boot/dts/qcom/lemans-gearvm.dtsi      |  34 ++++
+ arch/arm64/boot/dts/qcom/lemans-sa8255p-ride.dts | 201 +++++++++++++++++++++++
+ arch/arm64/boot/dts/qcom/lemans.dtsi             |   4 +-
+ 3 files changed, 237 insertions(+), 2 deletions(-)
+---
+base-commit: 7cfbf79c66c63e807ea452abf0546e6f6d6833a6
+change-id: 20261022-sa8255p-emac-dts-dbc521421276
 
-  drivers/nfc/st21nfca/se.c:st21nfca_se_deinit() {
-  	if (info->se_info.bwi_active)
-  		timer_delete_sync(&info->se_info.bwi_timer);
-  	if (info->se_info.se_active)
-  		timer_delete_sync(&info->se_info.se_active_timer);
-  	cancel_work_sync(&info->se_info.timeout_work);
-  	info->se_info.bwi_active = false;
-  	info->se_info.se_active = false;
-  }
-
-  These gaps are not addressed in the follow-up commit "nfc: st21nfca: prevent
-  double completion of SE APDU request" either.
-
-  Link: https://sashiko.dev/#/patchset/20261112-st21nfca-v2-v3-0-c81702269e01%40gmail.com?part=1
-
-I actually think there are two issues here.
-
-1. The headline issue relating to races in teardown. This strikes me as
-   a pre-existing problem. And suitable for follow-up.
-
-2. This part: " In addition, st21nfca_se_deinit() reads and clears
-   bwi_active without se_lock". And it seems to me it would be worth
-   addressing that in an updated version of this patch for completeness.
+Best regards,
+-- 
+Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
