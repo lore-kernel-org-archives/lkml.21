@@ -1,88 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.154
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794995522;
-	b=3MAtLcryHig8PwIrWB3eYJnaErPkKY1XgMwDbnLE71nMeVs3+5nCa0dVswBaJLXBbHpM
-	 v7MGULnVmPrNjwMiZEt3HyXGE9kehfVYYRQ7pDprH99Zi/bRgXRFgigm5pavz4QlEqiwc
-	 xZ0w0Fvqu9JTelv+z/ufiQ7qDlFTsqPAkJHcIbzRHpl9EL71K9lauAM/g/kJfJgcEk9v3
-	 cmHyajsL9zqAiGbjF4GpY3agFoU7YaI0lT7OgVRRrW6GNW8uq2iogI5c4zPwQz4aaItLB
-	 65m5UcKT121XnNM299UAGmi+KjDNF2+Ejl0K6Bl0IYmhyTuusvKuBuvK4Un0E0fHPEQ==
+	t=1794995552;
+	b=zvN8Fg4cf2cOUxtpaFzqjcHPKoE9Nlbq2HU83Rh1wKBgk8+szV+QAD8iFk98OJSfT7kn
+	 Et1COjTy7rYlUHzl2wbjMVo+9/14cr95hOfOCOtCVac5RsP5GagZGueQwGQd3Qkhi+gl0
+	 02d9auic0qhjD1TbDCWvqPk6lHJBTserN5eiRgSWIdSY8HKuH2fVVFlcxl1AqeumNsws+
+	 UllDLJ6WUtBCdyH8449/5yxK+kbHXQKneHyjHn7TVjHk81u+GwPwIYdpVSl+QyLByIDAS
+	 lwFEqianeoYFU9qcC+cDXk5fCmgNO3yhimFee/HRxJRH5ev5eY7qjiIspDOCRHz5Xzw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794995522;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:
-	 X-Proofpoint-Reinject:X-QCInternal:X-QCInternal:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=Ui7XMRu1eCK/S/p5ooPjZ5tVl6e4CsIVwRS7ksMmBH4=;
-	b=VpqGn/rD9m4b0OK4o4gTBIiRIHmdmqSb9/0pbwTSk2OBOUvwQHJjLWUmnR3/tksv3lhy
-	 BUG6RMcuMTUThuZmnMRQDkoEcdouzGXyJRrWrOL1VO07Trc8ebTwakhDCCC2yXBBzAKas
-	 FZWCV8iWTbIJOVaIHOGldU3tS28zpWHfrFjz0NgG7VNwjQqPwi4Gga9UL0uZDjwkdOHsn
-	 pN+yPraykmuTZXZJKsIoeFVIwKEr17xwj3EdnjMhPJCcvKoW7swCdU9QqmlOHXvscg3sg
-	 7QgvP2kOvrNHIWufaZCC5bmT7sKgEbMqc5HLfPx16oAo5iatfI8A4nZciHrF1hcx6gg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794995552;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:X-ME-Sender:
+	 X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:Date:
+	 From:To:cc:Subject:In-Reply-To:Message-ID:References:MIME-Version:
+	 Content-Type;
+	bh=08GNxqqcutlPCHrAJDR+Yvcn0JpVtFjAgWOb3wtjwsY=;
+	b=BP7JKOo8XoaSXE15StKuhOdo1jDZB1g1ohrgpou1NX1a8VmIbEL625YoXZ8gh/swkXXy
+	 tHWIv8YLDWcqY1HCZQCrzEaOJcEDGbI8k3UHQ48GCLeZR8AQ3gclKi657exCqTZ9jvH+V
+	 QWVCcsb6cr8Fv6UxfSLTh27xTVv1FEjLV96RxNG6x4trPrLM7BOkq/rdny9US1j9HhUU2
+	 BAca+FfqAUBpAKqSQsa6MuuT/UgGsX5xGUCG+bVAsOJMlqXph9OCzgQ7nOxtNrDr0VxIx
+	 qgJ1s+GfYiM10XDHW+Or2NwT/2YwzoPzF6K0pec1mR4eReJVnpvZSLcbPF7sGojz4WA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=laVN3zJs;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dmarc=fail header.from=linux-m68k.org;
+	spf=none smtp.mailfrom=linux-m68k.org;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=CZeDPVBK;
+	arc=none smtp.remote-ip=202.12.124.154
+Received: from fhigh-b3-smtp.messagingengine.com (fhigh-b3-smtp.messagingengine.com [202.12.124.154])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9089606A32C;
-	Wed, 18 Nov 2026 09:52:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D9089606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C800F606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:52:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C800F606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux-m68k.org
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=linux-m68k.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=laVN3zJs
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI9k5xQ3578089;
-	Wed, 18 Nov 2026 09:51:17 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=Ui7XMRu1eCK
-	/S/p5ooPjZ5tVl6e4CsIVwRS7ksMmBH4=; b=laVN3zJskZLszkuKyiDbKPql+yY
-	vyu0NRTWKWhhyzv7G0XyTm1wQ9tMmcDSJF3UoEW6p8p1Tq+9OowMK1DeZhREAymO
-	n91tiVXDg5l5XZ5vH/cgpvjBN7wMjWX5TIFL9WEtDeRFg3YVBzIbn760RR/jFP+7
-	XEek5itD5w6LDpQa0vzyZOm65SmxV8QS3haGmdPSBqJb48otgknSA36cbey3kg2j
-	8Ug29u2oA+An7Z3pE7xj7FQnlGOo1eTIHxrGO1nQE1ZGlvW8BrP14Eo2LtlCBWA3
-	RrymG3vezqm/+lWtMrw9/j9Zz/s+yOYhXvt0A3Zyy4o93no+GldnKeWozDQ==
-Received: from apblrppmta02.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yv72fc8-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 18 Nov 2026 09:51:17 +0000 (GMT)
-Received: from pps.filterd (apblrppmta02.qualcomm.com [127.0.0.1])
-	by APBLRPPMTA02.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI9pE00375990;
-	Wed, 18 Nov 2026 09:51:14 GMT
-Received: from hu-devc-blr-u24-a.qualcomm.com (hu-vikrsi-blr.qualcomm.com [10.190.111.249])
-	by APBLRPPMTA02.qualcomm.com (PPS) with ESMTPS id 6AI9pEMM375980
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 18 Nov 2026 09:51:14 +0000 (GMT)
-Received: by hu-devc-blr-u24-a.qualcomm.com (Postfix, from userid 4853235)
-	id E9D5C24881; Wed, 18 Nov 2026 15:21:13 +0530 (+0530)
-From: Vikram Singh <vikram.singh3@oss.qualcomm.com>
-To: peterz@infradead.org, mingo@redhat.com, acme@kernel.org,
-        namhyung@kernel.org, mark.rutland@arm.com,
-        alexander.shishkin@linux.intel.com, jolsa@kernel.org,
-        irogers@google.com, adrian.hunter@intel.com, paul.walmsley@sifive.com,
-        palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-        atishp@rivosinc.com, anup.patel@oss.qualcomm.com, will@kernel.org,
-        robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-        beeman@rivosinc.com
-Cc: Vikram Singh <vikram.singh3@oss.qualcomm.com>,
-        linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-        Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org,
-        Rajnesh Kanwal <rajnesh.kanwal49@gmail.com>,
-        Anup Patel <anup@brainfault.org>
-Subject: [PATCH v5 3/7] riscv: Add Control Transfer Records extension parsing
-Date: Wed, 18 Nov 2026 15:20:49 +0530
-Message-ID: <20261118095053.3871267-4-vikram.singh3@oss.qualcomm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261118095053.3871267-1-vikram.singh3@oss.qualcomm.com>
-References: <20261118095053.3871267-1-vikram.singh3@oss.qualcomm.com>
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=CZeDPVBK
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id F1A267A0033;
+	Wed, 18 Nov 2026 04:52:30 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-04.internal (MEProxy); Wed, 18 Nov 2026 04:52:31 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1794995550; x=1795081950; bh=08GNxqqcutlPCHrAJDR+Yvcn0JpVtFjAgWO
+	b3wtjwsY=; b=CZeDPVBKmFsYWo5rOcms9u/XhMwfGlcpOsqtkxV13VQsVqq4Ji4
+	9h7MbqERyDCtpkOe/0UgjQShFtvhyEy9gIM7+P8vxPqi68d9SjF0+FX1pmliet8g
+	/BlbNwaW0AVS6g61epOJ/6VhmyZYg0L0FZrBpDbCKpGdHFOOrssP1xf6bWuwbMd1
+	6QYPLqEv1oWTJehamUD7DdT9nEMP4CwT2n74YcBCQouIGyO05BDxYoRoWn6wZ0Zp
+	8+343rPUi+pAKow8iNMVQZWYNdRYeQxAsWoi2dbbxl/lWC1PmUGCeYSz17vmIlKG
+	fzTceHrgDHNzcyYJXXKKsZHZFo/YUMJbRmw==
+X-ME-Sender: <xms:XnX9auYEqCNMnmh0RdtfEZXFB9L111362E3bKSTAlr19L_BJxJ82hw>
+    <xme:XnX9avPHGPTKei-j1BqVhRe11J2n0umOalj_3pNhCJTxc19C20EkPz8IGU30fdR5E
+    xOUo4AzGWTa5BytbSDcSRsorcJ6HMXGtuDGkDxFr-xcnzbh519Lmx-7>
+X-ME-Received: <xmr:XnX9ajaqdu1wJ2sZU7SXzN9Xh1SgEgwN2tKSfUmZqzX9RBXqD67jvN5SYNzK>
+X-ME-Proxy-Cause: dmFkZTGR4I22bLJwTwt2FWJhq+VEuyYwDblgcFrUmwnBJBinx2IsuzNOeMg5ScpVIFQLkD
+    dCX/Htnj6gduANGrr29dLqPLoA/sqWleUgQbcBnI46vXFeeHWPbpWG/uh4lXKUPdxrw7UE
+    TonLtq6N26xm0S5drgwXeI0l7IfrVmc96dzfQHOtgijMbj+2wH5JSTKHBcnN0m1YkXn50B
+    32YY3dNmrkbpeJ1eh0IxIiXEY3+vYfo6A1eiLaxcPDm7Ui8Ago9wkjNnhnpV8o8PC88I1S
+    R/enjdUceHxvOO9AkRW91IEkvwc8NPwchpDsGkPX/bN8AITx+sGeaIkoFyeyDpAGMXIiJ3
+    Nvt6fUpmvPPc/Zj0YhfNvLkTiXgu7sGbfOvqFE6L1vNUxneQd+CFI/0CoqNSGbBALW8QnV
+    M05xJ6XaHmH2eTqz9tLKboBP0BhR5aFolGmLGrdB4oyepjtHmE/0zAoJdDd7eoa7Vv0doE
+    ZrObc8QwxRX8IFmsSbuji576pcbJBdDRMblnfFXq81Pek7FvOucrQHjj9cSSWXQNIkj7/v
+    2PAOw2+k/Fn0VfOjQw3xH6S61CSm7rU8DoaRorWL5dfAomF+M0Z0xwTqZg7tshpHQ6yebS
+    oyIgv5GNK/kWbNLhwMYOAmN9q7eGNIxaMLBoAc+Z7a+KHCs9rVlPz+DXqixg
+X-ME-Proxy: <xmx:XnX9at1K0cR6oQfDNVBz_sCyXyWQqOq_meofSWU2_ecjaoGiDOgvbw>
+    <xmx:XnX9apeBBghT4A7WyX_76md47K60Qshvre3mbve0oIBWGNnmtZJU9Q>
+    <xmx:XnX9auG9k8fR6DTS7wdX4RtSIv-iIluOlHevT_WQzOWj2aAGWd56cA>
+    <xmx:XnX9aq2R_oJJhqXf-xC2dEO4H9wKM8fBD2qMcCcFeqkhSgOAJdJE_A>
+    <xmx:XnX9arq-pAxmiND6S4avF2n4EFu4rD4F_M00XKJMd8yy1q3Y3k2SfV7G>
+Feedback-ID: i58a146ae:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 18 Nov 2026 04:52:28 -0500 (EST)
+Date: Wed, 18 Nov 2026 20:52:16 +1100 (AEDT)
+From: Finn Thain <fthain@linux-m68k.org>
+To: Graeme Harker <graeme.harker@gmail.com>
+cc: geert@linux-m68k.org, linux-m68k@lists.linux-m68k.org, 
+    linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] m68k: delay: Fix rounding of short udelay() and
+ ndelay()
+In-Reply-To: <20261113143832.168233-1-graeme.harker@gmail.com>
+Message-ID: <ae768ed3-a517-3223-5c86-a1599ff6c8e5@linux-m68k.org>
+References: <20261113143832.168233-1-graeme.harker@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,98 +92,136 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-QCInternal: smtphost
-X-QCInternal: smtphost
-X-Proofpoint-GUID: L9bidKamvHgPUBbJBmzyqHE8pf1tSJEv
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAzOSBTYWx0ZWRfX9ad3WICbwmLb
- rxe4MEp6TfcWBAaDMRqHyRJHlmjLU5K8s3u2x/yo8v0T6p68uW/LOq8f8iQz7bs/E3n1B40jaKY
- 0hp6mYBTd7ufOSVfqkeFNANvYZdIqyvQVq8sx3nF4irKs7yVhs5ZTN5kZUVx3UzQuAqi+ATsMqX
- VNeqcXS7TE2c7WyK9ewuToqlc+aydNayRcojKoH8O8wQx0bvg8fK3AwOY6OONGbslni7U0NibQw
- 2ttgUqzwFBl27bdgwyDZw5PjU9GanXogAvIYVxBsGhtxV/yabwTNTpWAISGqum5Ktw4/dX5m8wO
- lld4PFlBHQKeTIG1U2+mdjWbufd2XrALqegqNRCfB4aEGSLG0Mnk9l3lQQCZCKiwh1V6valnn94
- MW/rK1d5WqOTClcfZXt5r3t/U2t7HnipW9Z9tAQBBx1wK/V96oxELPgRkLzUC9aBqiXBA/h1At5
- dsJpJ2N5Im59MXsc9Rg==
-X-Proofpoint-ORIG-GUID: L9bidKamvHgPUBbJBmzyqHE8pf1tSJEv
-X-Authority-Analysis: v=2.4 cv=H8xOUOYi c=1 sm=1 tr=0 ts=6afd7515 cx=c_pps
- a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=Um2Pa8k9VHT-vaBCBUpS:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=pGLkceISAAAA:8
- a=W-_n0kkjAAAA:8 a=tUtPt1BIteo8AfM-IXUA:9 a=qeNa2pbTr82C0GpJEZFS:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAzOSBTYWx0ZWRfX36oC45Vhgxq/
- NACFVaO13C6vc7YewqPAtJEXEvHS0KuvHlfrE2rqPHaRAfGxpyqPvYBW+lcsB55y2NLYdqyGh+o
- X3xMdC2e2SdEXOY/0sw5rSqT+vGDDeQ=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-18_02,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 phishscore=0 suspectscore=0 impostorscore=0 spamscore=0
- bulkscore=0 clxscore=1015 adultscore=0 lowpriorityscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180039
+Content-Type: text/plain; charset=us-ascii
 
-Adding CTR extension in ISA extension map to lookup for extension
-availability.
 
-Co-developed-by: Rajnesh Kanwal <rajnesh.kanwal49@gmail.com>
-Signed-off-by: Rajnesh Kanwal <rajnesh.kanwal49@gmail.com>
-Signed-off-by: Vikram Singh <vikram.singh3@oss.qualcomm.com>
-Link: https://lore.kernel.org/r/20261106173942.3175069-4-vikram.singh3@oss.qualcomm.com
-Signed-off-by: Anup Patel <anup@brainfault.org>
+On Fri, 13 Nov 2026, Graeme Harker wrote:
+
+> __xdelay() takes the high word of xloops * loops_per_jiffy and only then
+> multiplies by HZ, so the loop count is truncated to a multiple of HZ.
+> On a 16 MHz 68030 (loops_per_jiffy 17792, HZ 100) every udelay() below
+> 57 us becomes __delay(0): measured on such a machine, udelay(10),
+> udelay(20) and udelay(50) all take the same 8 us, the call overhead,
+> and udelay(100) takes 67 us.
+> 
+> Multiply by loops per second instead and keep the high word, which
+> truncates by less than one loop; __delay() runs one more loop than it
+> is given, so the delay is never short.  As on x86, a factor of 4 is
+> moved from loops per second to xloops, so that the product
+> loops_per_jiffy * HZ only overflows above 2**34 loops per second
+> (34000 BogoMIPS).
+> 
+> ndelay() works out loops per microsecond from loops_per_jiffy rounded
+> down to a multiple of 2048, which on this CPU is 1 instead of 1.78.
+> With a 64-bit multiply available, use __xdelay() as udelay() does,
+> with 5 (2**32 / 10**9 rounded up) as on x86.  The CPU_HAS_NO_MULDIV64
+> variants are unchanged.
+> 
+> Measured on the 68030 (1 s of each, timed by jiffies, interrupts on),
+> time per call before -> after:
+> 
+>   udelay(10)     8.0 us ->   18.2 us
+>   udelay(20)     8.0 us ->   29.0 us
+>   udelay(50)     8.5 us ->   61.5 us
+>   udelay(100)   67   us ->  114   us
+>   udelay(1000) 1020  us -> 1070   us
+>   ndelay(400)    1.8 us ->    7.9 us
+> 
+> About 8 us of each is the call and the 64-bit multiply on this CPU.
+> ndelay() now pays for that multiply too, so very short ndelay()s cost
+> more; they are no longer short when loops_per_jiffy is small.
+
+It's hard to measure anything accurately with interrupts enabled,
+without CPU isolation, NO_HZ, HIGH_RES_TIMERS, GENERIC_CLOCKEVENTS etc.
+
+(BTW, I notice that m68k and RISCPC are the last remaining users of
+LEGACY_TIMER_TICK...)
+
+Which clocksource driver are you using for jiffies?
+
+I did some measurements with your patch on a Motorola 68040 (Mac LC 630).
+This build does not set CONFIG_CPU_HAS_NO_MULDIV64.
+
+My method was a bit different than yours (code is given below): nominal
+40ms of each call, measured with a VIA timer, with interrupts disabled.
+(The jiffies clocksource on this platform uses the same VIA clock.)
+
+Here's what I measured:
+
+udelay(10)   9.94E-06 -> 10.3E-06 seconds
+udelay(20)   19.0E-06 -> 20.1E-06 seconds
+udelay(50)   46.2E-06 -> 49.4E-06 seconds
+udelay(100)  91.6E-06 -> 98.3E-06 seconds
+udelay(1000)  972E-06 ->  978E-06 seconds
+ndelay(400)   536E-09 ->  239E-09 seconds
+
+You were right about the delays being short, and you've certainly improved
+upon that for udelay(). But ndelay() appears to have regressed in my test.
+
+There is a lot of overhead in my ndelay() measurement so I'm surprised to
+see it measure low. I would have expected the opposite. Maybe my method
+is just not accurate enough.
+
+Thanks for working on this.
+
 ---
- arch/riscv/include/asm/hwcap.h | 6 ++++++
- arch/riscv/kernel/cpufeature.c | 2 ++
- 2 files changed, 8 insertions(+)
 
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index b5952db9259f..ee200d8cfccb 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -126,6 +126,10 @@
- #define RISCV_ISA_EXT_ZIC64B		116
- #define RISCV_ISA_EXT_SV48		117
- #define RISCV_ISA_EXT_SV57		118
-+#define RISCV_ISA_EXT_SSPESA		119
-+#define RISCV_ISA_EXT_SSPLCOFI		120
-+#define RISCV_ISA_EXT_SMCTR		121
-+#define RISCV_ISA_EXT_SSCTR		122
+diff --git a/arch/m68k/mac/config.c b/arch/m68k/mac/config.c
+index b745cf20a71f..bc1da6ee014a 100644
+--- a/arch/m68k/mac/config.c
++++ b/arch/m68k/mac/config.c
+@@ -65,6 +65,54 @@ static void __init mac_sched_init(void)
+ 	via_init_clock();
+ }
  
- #define RISCV_ISA_EXT_XLINUXENVCFG	127
- 
-@@ -136,10 +140,12 @@
- #define RISCV_ISA_EXT_SxAIA		RISCV_ISA_EXT_SMAIA
- #define RISCV_ISA_EXT_SUPM		RISCV_ISA_EXT_SMNPM
- #define RISCV_ISA_EXT_SxCSRIND		RISCV_ISA_EXT_SMCSRIND
-+#define RISCV_ISA_EXT_SxCTR		RISCV_ISA_EXT_SMCTR
- #else
- #define RISCV_ISA_EXT_SxAIA		RISCV_ISA_EXT_SSAIA
- #define RISCV_ISA_EXT_SUPM		RISCV_ISA_EXT_SSNPM
- #define RISCV_ISA_EXT_SxCSRIND		RISCV_ISA_EXT_SSCSRIND
-+#define RISCV_ISA_EXT_SxCTR		RISCV_ISA_EXT_SSCTR
- #endif
- 
- #endif /* _ASM_RISCV_HWCAP_H */
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 72bce616491f..b3e3c30f4c8b 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -652,6 +652,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
- 	__RISCV_ISA_EXT_DATA(smmpm, RISCV_ISA_EXT_SMMPM),
- 	__RISCV_ISA_EXT_SUPERSET(smnpm, RISCV_ISA_EXT_SMNPM, riscv_xlinuxenvcfg_exts),
- 	__RISCV_ISA_EXT_DATA(smstateen, RISCV_ISA_EXT_SMSTATEEN),
-+	__RISCV_ISA_EXT_DATA(smctr, RISCV_ISA_EXT_SMCTR),
- 	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
- 	__RISCV_ISA_EXT_DATA_VALIDATE(ssccfg, RISCV_ISA_EXT_SSCCFG, riscv_ext_ssccfg_validate),
- 	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
-@@ -659,6 +660,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
- 	__RISCV_ISA_EXT_SUPERSET(ssnpm, RISCV_ISA_EXT_SSNPM, riscv_xlinuxenvcfg_exts),
- 	__RISCV_ISA_EXT_DATA(ssqosid, RISCV_ISA_EXT_SSQOSID),
- 	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
-+	__RISCV_ISA_EXT_DATA(ssctr, RISCV_ISA_EXT_SSCTR),
- 	__RISCV_ISA_EXT_DATA(svade, RISCV_ISA_EXT_SVADE),
- 	__RISCV_ISA_EXT_DATA_VALIDATE(svadu, RISCV_ISA_EXT_SVADU, riscv_ext_svadu_validate),
- 	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
--- 
-2.43.0
-
++#define GET_VIA2_TIMER2() \
++({ \
++	u8 low, high; \
++	do { \
++		high = via1[vT2CH]; \
++		low = via1[vT2CL]; \
++	} while (via1[vT2CH] != high); \
++	1 + low + (high << 8); \
++})
++
++#define DELAY_LOOP(n, cmd) ({ \
++	u32 i, I = n / 40; \
++	u16 t1, t2; \
++	int d; \
++	t1 = GET_VIA2_TIMER2(); \
++	for (i = 0; i < I; ++i) { \
++		cmd; cmd; cmd; cmd; cmd; cmd; cmd; cmd; cmd; cmd; \
++		cmd; cmd; cmd; cmd; cmd; cmd; cmd; cmd; cmd; cmd; \
++		cmd; cmd; cmd; cmd; cmd; cmd; cmd; cmd; cmd; cmd; \
++		cmd; cmd; cmd; cmd; cmd; cmd; cmd; cmd; cmd; cmd; \
++	} \
++	t2 = GET_VIA2_TIMER2(); \
++	d = t1 - t2; \
++	printk("%10d invocations, %20s, %10d timer2 cycles\n", I * 40 , #cmd, d); \
++	})
++
++static int __init measure_delays(void)
++{
++	unsigned long flags;
++
++	via1[vACR] &= ~0x20; // free running T2 with no port B output
++
++	// Given eclk is 783360 Hz, the 16 bit counter can measure up to 80 ms.
++
++	local_irq_save(flags);
++	DELAY_LOOP(4000,   udelay(10));
++	DELAY_LOOP(2000,   udelay(20));
++	DELAY_LOOP(800,    udelay(50));
++	DELAY_LOOP(400,    udelay(100));
++	DELAY_LOOP(40,     udelay(1000));
++	DELAY_LOOP(100000, ndelay(400));
++	local_irq_restore(flags);
++
++	return 0;
++}
++
++subsys_initcall(measure_delays);
++
+ /*
+  * Parse a Macintosh-specific record in the bootinfo
+  */
