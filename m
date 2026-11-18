@@ -1,92 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795041471;
-	b=BJYyzSdeXSuQnq2U5A3qPn/pkahT61Gr9okM4tUdYl99GCZUtkN/YLv+qXYl3JFDRSqV
-	 +R/Y3xQrPImWNBQExd1qoe/veoVZg5qVU+/QTZ9clk1JKk3gpg+sdYTMD6l7lQRCAfUKX
-	 PB2N3KWmg/FHGzGc+8hID3IpNXqCjqLzTLHRjdsIbSmoDLHmKWHkjjjnqqfUZU0nNdILs
-	 gY7YzQEjpvX/h4fYvQx/FHdPadDi8fu77pNP5nZxEC8AY63svPy4kg8jbOw2Y1gBv6+kD
-	 PlkDw52opZl1B5sPppnhBz3RfjjV8YZDlftH/w0ZBW63S4UbjsiUBj9hKs+v1L5Q/WA==
+	t=1795041473;
+	b=AaT+Mv+jTYhaOsOqm19tmbKm5gfx2T+8/tRIuViIznrI6gZfK3pRsLJTrfkN3ZeTWSr5
+	 VytXyi0IDFDPdFjnPWrmLtSuXPltKaJcfmCjpEj8QDCNzSWrNmTr8i2QbRgWL9p+hQPqM
+	 yJDB9mtna1gsOOcuPvK9AXb/snKma8Qbo0FTzzE7vJ1jekZQANxra9tx4X1QMsmhN9bnD
+	 M3a/1lyi//yoTEm2tVQRbdpNFAJv+83TjIGsfs0i5NjqGLpd1RZa5aWYH7hnZDFpYmqGg
+	 y/6rF+g1icDmlqB2hfIrNiS2iNJeCviy+EvDukaslwzPNT98h2me3ZEcPnVxcCoLRMQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795041471;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=6TgutIL7BgsbRU4qg8O8DnW8JEzmtPqzVnoavDOV/cs=;
-	b=yyctS3VbwU8Rkpb9EWcKvq7rs9RcpcNB7mPliI1UbabraE/oJMKtDkjbIoU3kc1IwGM7
-	 3aGIxRdsrzY+Adt5L7lfzFgVviQkXh5NB4mD9iTdsqx9hnaF3gE4ew8beYR7jm5R+ZC0P
-	 URZJPQPYLsZbdlvn7P73YtZkVSDf7FWrBSiX60GU/kbbaSWJdEOsmeA+amSDeHsBDXu1t
-	 jjNmzAly0bTrO4mJhfOjWqpL3EJ9XdvwzIcY0IEpL53jp3aXtK7tfCkP2hyw815sRC1hm
-	 WaU/P0vq0LlrZWnKBcl0AW7mUou8EYFkX0KCV02HJkbHxaXhxlPWvIoYP4Qrd3hXaoQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795041473;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=+DidzRndy8SnEdiJMyRemUfq4fLOu5hhSqyneuFb1w4=;
+	b=KtK4R6GZYts96FybLREFBLmSXXmnczYMUtRlvP5Bjum6Ile8zp3YkAP5tWuM173Ls73s
+	 GDSB+adSwXCe7DQwHppzyCgJICbiMeHPDxxErYpNDzahmpHpmrRUmMDVMPwMGdb9DZqnk
+	 dMaR/S09WUi4FeCXuMnGJ0UJ3yOO4gpmEmFjGuVjPRdjmk9vWrTRJHyfaUZiTyD6Asnp1
+	 GxX7WYSYERX2FRmJek7nqFGxjVz7JqBly8yXtdkQQBAc8IijmXK/yyrrtNoUG6WGyyS7I
+	 +q+MX8wOmVEN1OZ5QpI7COpktaITK64CZijjFkhrBDgr1+m7CnWrz1LPOt5EG8//OGQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=Z7a4V9y3;
-	arc=none smtp.remote-ip=209.85.210.45
-Received: from mail-ot1-f45.google.com (mail-ot1-f45.google.com [209.85.210.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O8LzaItF;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A15760A5BD7
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:37:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A15760A5BD7
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 287BB606B614;
+	Wed, 18 Nov 2026 22:37:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=Z7a4V9y3
-Received: by mail-ot1-f45.google.com with SMTP id 46e09a7af769-843cf077f10so2017078a34.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:37:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795041470; x=1795646270; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6TgutIL7BgsbRU4qg8O8DnW8JEzmtPqzVnoavDOV/cs=;
-        b=Z7a4V9y3XHhykqUAn50uEjLkC/2YbFaqfY/M5tN4H31Rq6vGiPbwiu3OjxoIihxHnl
-         c9/fzNtq2f7AVtyUyn8IM59XeW84PMK1/yxbC+RD5fqwc3Z0xJrxyi5w0+8bvmG3CqwL
-         FWmX62GPWMsLmU0HGPfuQW8pZve8zM5rPV9xU=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795041470; x=1795646270;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6TgutIL7BgsbRU4qg8O8DnW8JEzmtPqzVnoavDOV/cs=;
-        b=CHqaoULnRkaQ0w0lpJgHX+7GsYl3wAgNUyLivHTwpzhJ37gkgEjuzIjdgF6e3DrkQf
-         8f23pFQCxgGJRhHXhwgk1u8X/EAz74Eumi8M4p9TpNrGkT4Nm1izzWc2TmgF4XPYjqei
-         6UxG1BI7nkcHhc7Ey6HtiqpWJCikYE2wvuGz+y6D00C6h/dRUPUIRvwYltM56ZrovyL2
-         3iCZSnciYCg4jBFmdmi0ynCQw4yaI2Igiyr4GAUPDtn6fl8yPUUJWGGEtPJ9BkYZUBDO
-         5D65J/xKDLL4CQq5J3WHX/CLNc7LS0kz79lKDIPAmTKA97BAwi306izXGcOP9sGTasWJ
-         4hvw==
-X-Gm-Message-State: APuU4Z/fg+tbWe7mpFm1oOnzcLxoSBd9G55lOWuHW3PFjVjnM6nsc8Fv
-	ZCRSvFAqrqomycWGz4K7jcE2VszAoqVtfQADNkDlNMlz9fq5PwS05PU83e3m2HMTsQ==
-X-Gm-Gg: AYBFou1DmFste0tJBKtMKgB6jRpijPK7x94fo0PwoOLpsydFmiMN1OkdlPADbsm93GF
-	sEIvKOMsOvfzGhf+RIthxyOj7/zcYqWX16OJ5DiEta2biWl7/yVX6HLtbizfA+aH5qPApb0+1Un
-	CbYoBkLM+6YjB8g7FEdrRcfjczb3YWK7TMVrn1z0JcZmL8LbrKcMNlUWSEml5WabqkrDNOhgKMU
-	g4eqSh1/zH0+kj+ZCSOqgQf2DoRYIzezGwK096d1s63wYbWy3rf5p2XfzVX2U12D0AS/1PIK2Iq
-	wcpf+35A/fZmSjy2tqJEozqU2wccKWbX8G6ZDv6As3K1vow6o9TrFWI71BrYdkQgIJx8UW7ECf9
-	MlJS3vAtFstqFJcntwp7TWUr2dvoOG+dgnW5BJf3YevXb6HbHYi1hAtETO6dKc+hJFe2meBKoV+
-	Urw8jMiM9/h7Nxpda83E6TruDjL761gQIYFpKuZ2Gxf3eAGrvF0Iv9AqYobeiBfKYqb47pixVEo
-	YeC1TsoQf0ZI2lWMucEDhEGQxd35o0zPGxZpY8VSOFyBtZyaPOpHk1V2BlEF3fFWhGZ2LjI8M2/
-	o3dB3WGqgusLPugHnVn/9dW+Y9Chi+qEHMhe/7UFycZ1fjr05hhAL+LGYiQTzun/Omw1jwpjDlB
-	TS0/7FBx3U8ZW7ck=
-X-Received: by 2002:a05:6830:92a:b0:862:3cf:519e with SMTP id 46e09a7af769-862f09488damr5836907a34.12.1795041470598;
-        Wed, 18 Nov 2026 14:37:50 -0800 (PST)
-Received: from rrangel.c.googlers.com.com (212.56.236.23.bc.googleusercontent.com. [23.236.56.212])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-862f01d4737sm2948762a34.7.2026.11.18.14.37.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 14:37:50 -0800 (PST)
-From: Raul E Rangel <rrangel@chromium.org>
-To: Kees Cook <kees@kernel.org>,
-	Tony Luck <tony.luck@intel.com>,
-	"Guilherme G . Piccoli" <gpiccoli@igalia.com>
-Cc: linux-kernel@vger.kernel.org,
-	Raul E Rangel <rrangel@chromium.org>
-Subject: [PATCH 2/2] pstore/ram: Fix region bounds check wrap
-Date: Wed, 18 Nov 2026 15:37:46 -0700
-Message-ID: <20261118223746.2251358-3-rrangel@chromium.org>
-X-Mailer: git-send-email 2.56.0.212.g129ede20d9-goog
-In-Reply-To: <20261118223746.2251358-1-rrangel@chromium.org>
-References: <20261118223746.2251358-1-rrangel@chromium.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O8LzaItF
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F21041F000CB;
+	Wed, 18 Nov 2026 22:37:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795041472;
+	bh=+DidzRndy8SnEdiJMyRemUfq4fLOu5hhSqyneuFb1w4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=O8LzaItF/JmOMTcTgpwOnYrYci0XOI6h5yZyAEE6bES11hO59RnQsjRCFH1t8SCaL
+	 g3kMfWMbcm+omhQEKrSKVngHtuC/dbyfX12S8mmWZ3HGw0DA5rPKtvM6uLyiFSIQsc
+	 N31NaSrt1W/6Bryb6q8/5R7tnd1bSxc3zGdehfFLsnRur17w7x3fYOFvpDy8i3H5tt
+	 B3/kOs9THdQZUGn7XrvyJCoeyJLigSv/l2ASuJpUA5tmEk3zePxjlKdziu+BWC1IIB
+	 AIAG1N5P91ily0E01wd8hLLE6ANwKQOtlJyJ70tt9eTjy1+Gfubib2rR94Go134z6g
+	 VAgx8QjRnEJhA==
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Namhyung Kim <namhyung@kernel.org>
+Cc: Ingo Molnar <mingo@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	James Clark <james.clark@linaro.org>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Clark Williams <williams@redhat.com>,
+	linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	Arnaldo Carvalho de Melo <acme@redhat.com>
+Subject: [PATCH v8 06/13] perf annotate-data: Count flexible array accesses for the whole struct
+Date: Wed, 18 Nov 2026 19:37:17 -0300
+Message-ID: <20261118223725.121500-7-acme@kernel.org>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261118223725.121500-1-acme@kernel.org>
+References: <20261118223725.121500-1-acme@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,68 +68,191 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-ramoops_init_przs() checks whether a region fits only after dividing by
-record_size, so an oversized region can fail with a misleading record
-count error instead of reporting that there is no room. Both
-ramoops_init_przs() and ramoops_init_prz() also add the region size to
-the current address when checking bounds, which can wrap and accept an
-out-of-bounds region.
+From: Arnaldo Carvalho de Melo <acme@redhat.com>
 
-Check the remaining space before dividing by record_size, and subtract
-from the total size instead of adding to the address so the bounds
-check cannot wrap.
+The per-member percentage sums the histogram entries in the member's
+own [offset, offset + size) range.  A flexible array member is resolved
+past the end of its struct, so the struct row only covered its declared
+size and showed 0.00% while the member row showed 100.00% and the
+header said N samples.
 
-Fixes: c628937803c6 ("pstore/ram: Fix bounds checks for mem_size, record_size, console_size and ftrace_size")
-Fixes: de83209249d6 ("pstore: Make ramoops_init_przs generic for other prz arrays")
-Signed-off-by: Raul E Rangel <rrangel@chromium.org>
+Take a member's extent as the end of its furthest child as well, so the
+struct counts what was resolved past it.  Union members all start at
+offset 0, so a plain union keeps its size; a member that is itself a
+struct with a flexible array extends the union too.  The TUI browser
+accounts the members the same way, use the extent there as well.
+
+Extend tests/shell/data_type_flex_array.sh to check that the accesses
+count for the struct in the percent, samples and period columns.
+
+Fixes: aaca646915a1bb53 ("perf annotate-data: Adjust type offset for flex-array")
+Reviewed-by: Ian Rogers <irogers@google.com>
+Cc: Namhyung Kim <namhyung@kernel.org>
+Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
 ---
+ .../perf/tests/shell/data_type_flex_array.sh  | 42 ++++++++++++++++++-
+ tools/perf/ui/browsers/annotate-data.c        |  7 ++--
+ tools/perf/util/annotate-data.c               | 25 ++++++++++-
+ tools/perf/util/annotate-data.h               |  8 ++++
+ 4 files changed, 75 insertions(+), 7 deletions(-)
 
- fs/pstore/ram.c | 18 +++++++++---------
- 1 file changed, 9 insertions(+), 9 deletions(-)
-
-diff --git a/fs/pstore/ram.c b/fs/pstore/ram.c
-index aa056d0395a4..651f79f3187a 100644
---- a/fs/pstore/ram.c
-+++ b/fs/pstore/ram.c
-@@ -500,6 +500,14 @@ static int ramoops_init_przs(const char *name,
- 		return 0;
- 	}
+diff --git a/tools/perf/tests/shell/data_type_flex_array.sh b/tools/perf/tests/shell/data_type_flex_array.sh
+index 620c28ec24059661..6adbb556f0e48921 100755
+--- a/tools/perf/tests/shell/data_type_flex_array.sh
++++ b/tools/perf/tests/shell/data_type_flex_array.sh
+@@ -67,5 +67,45 @@ if ! grep -Fq "# data-type: struct flex +0x4 (data)" "$perfout"; then
+ 	exit 1
+ fi
  
-+	if (mem_sz > cxt->size - (*paddr - cxt->phys_addr)) {
-+		dev_err(dev, "no room for %s mem region (0x%zx@0x%llx) in (0x%lx@0x%llx)\n",
-+			name,
-+			mem_sz, (unsigned long long)*paddr,
-+			cxt->size, (unsigned long long)cxt->phys_addr);
-+		goto fail;
+-echo "flexible array member resolved"
++# The accesses to the flexible array are resolved past the end of the
++# struct: they must count for the struct, not only for the member.
++if ! perf annotate --data-type -i "$perfdata" --stdio > "$perfout"; then
++	echo "FAIL: perf annotate --data-type"
++	cleanup
++	exit 1
++fi
++
++if ! awk '
++	$1 + 0 == 100.00 && /struct flex/ { struct_ok = 1 }
++	$1 + 0 > 0 && /char\[\]/ && /data;/ { data_ok = 1 }
++	END { exit !(struct_ok && data_ok) }
++' <(sed -n "/^Annotate type: 'struct flex' in/,/^Annotate type: /p" "$perfout"); then
++	echo "FAIL: --data-type does not count the flexible array accesses"
++	tail -n 30 "$perfout"
++	cleanup
++	exit 1
++fi
++
++# Same with the samples and period columns, the other two display modes.
++for mode in --show-nr-samples --show-total-period; do
++	if ! perf annotate --data-type -i "$perfdata" --stdio "$mode" > "$perfout"; then
++		echo "FAIL: perf annotate --data-type $mode"
++		cleanup
++		exit 1
++	fi
++
++	if ! awk '
++		$1 + 0 > 0 && /struct flex/ { total = $1 + 0 }
++		/int/ && /len;/ { len = $1 + 0 }
++		/char\[\]/ && /data;/ { data = $1 + 0 }
++		END { exit !(total > 0 && data > 0 && total == data + len) }
++	' <(sed -n "/^Annotate type: 'struct flex' in/,/^Annotate type: /p" "$perfout"); then
++		echo "FAIL: --data-type $mode does not count the flexible array accesses"
++		tail -n 30 "$perfout"
++		cleanup
++		exit 1
++	fi
++done
++
++echo "flexible array member resolved and counted"
+ cleanup
+diff --git a/tools/perf/ui/browsers/annotate-data.c b/tools/perf/ui/browsers/annotate-data.c
+index 0f778788df4a934b..e4047e97e8a943a4 100644
+--- a/tools/perf/ui/browsers/annotate-data.c
++++ b/tools/perf/ui/browsers/annotate-data.c
+@@ -53,12 +53,11 @@ static int get_member_overhead(struct annotated_data_type *adt,
+ 			       struct evsel *leader)
+ {
+ 	struct annotated_member *member = entry->data;
+-	int i, k;
++	int i, k, end = annotated_member__extent(member);
+ 
+-	for (i = 0; i < member->size; i++) {
++	for (i = member->offset; i < end; i++) {
+ 		struct type_hist *h;
+ 		struct evsel *evsel;
+-		int offset = member->offset + i;
+ 
+ 		k = 0;
+ 		for_each_group_evsel(evsel, leader) {
+@@ -69,7 +68,7 @@ static int get_member_overhead(struct annotated_data_type *adt,
+ 				continue;
+ 
+ 			h = &adt->histograms[evsel->core.idx];
+-			if (hashmap__find(&h->samples, offset, &hist))
++			if (hashmap__find(&h->samples, i, &hist))
+ 				update_hist_entry(&entry->hists[k], hist);
+ 			k++;
+ 		}
+diff --git a/tools/perf/util/annotate-data.c b/tools/perf/util/annotate-data.c
+index 2332d465f9751ef3..19c1de5c29853f69 100644
+--- a/tools/perf/util/annotate-data.c
++++ b/tools/perf/util/annotate-data.c
+@@ -2208,6 +2208,26 @@ static void print_annotated_data_value(struct type_hist *h, u64 period, int nr_s
+ 		color_fprintf(stdout, color, " %7.2f", percent);
+ }
+ 
++/*
++ * A flexible array member is resolved past the end of its parent, so the
++ * parent's samples are not bounded by its size.  A GNU extension non-last
++ * member with a flexible array can overlap the next member and double-count.
++ */
++int annotated_member__extent(struct annotated_member *member)
++{
++	struct annotated_member *child;
++	int end = member->offset + member->size;
++
++	list_for_each_entry(child, &member->children, node) {
++		int child_end = annotated_member__extent(child);
++
++		if (child_end > end)
++			end = child_end;
 +	}
 +
- 	/*
- 	 * If we have a negative record size, calculate it based on
- 	 * mem_sz / *cnt. If we have a positive record size, calculate
-@@ -523,14 +531,6 @@ static int ramoops_init_przs(const char *name,
- 		}
- 	}
++	return end;
++}
++
+ static void print_annotated_data_type(struct annotated_data_type *mem_type,
+ 				      struct annotated_member *member,
+ 				      struct evsel *evsel, int indent)
+@@ -2215,6 +2235,7 @@ static void print_annotated_data_type(struct annotated_data_type *mem_type,
+ 	struct annotated_member *child;
+ 	struct type_hist *h;
+ 	int i, nr_events = 0, samples = 0;
++	int end = annotated_member__extent(member);
+ 	u64 period = 0;
+ 	int width = symbol_conf.show_total_period ? 11 : 7;
+ 	struct evsel *pos;
+@@ -2228,10 +2249,10 @@ static void print_annotated_data_type(struct annotated_data_type *mem_type,
  
--	if (*paddr + mem_sz - cxt->phys_addr > cxt->size) {
--		dev_err(dev, "no room for %s mem region (0x%zx@0x%llx) in (0x%lx@0x%llx)\n",
--			name,
--			mem_sz, (unsigned long long)*paddr,
--			cxt->size, (unsigned long long)cxt->phys_addr);
--		goto fail;
--	}
--
- 	zone_sz = mem_sz / *cnt;
- 	zone_sz = ALIGN_DOWN(zone_sz, 2);
- 	if (!zone_sz) {
-@@ -590,7 +590,7 @@ static int ramoops_init_prz(const char *name,
- 	if (!sz)
- 		return 0;
+ 		samples = 0;
+ 		period = 0;
+-		for (i = 0; i < member->size; i++) {
++		for (i = member->offset; i < end; i++) {
+ 			struct type_hist_entry *entry;
  
--	if (*paddr + sz - cxt->phys_addr > cxt->size) {
-+	if (sz > cxt->size - (*paddr - cxt->phys_addr)) {
- 		dev_err(dev, "no room for %s mem region (0x%zx@0x%llx) in (0x%lx@0x%llx)\n",
- 			name, sz, (unsigned long long)*paddr,
- 			cxt->size, (unsigned long long)cxt->phys_addr);
+-			if (!hashmap__find(&h->samples, member->offset + i, &entry))
++			if (!hashmap__find(&h->samples, i, &entry))
+ 				continue;
+ 
+ 			samples += entry->nr_samples;
+diff --git a/tools/perf/util/annotate-data.h b/tools/perf/util/annotate-data.h
+index 184262c7356213fa..6e0d410929651426 100644
+--- a/tools/perf/util/annotate-data.h
++++ b/tools/perf/util/annotate-data.h
+@@ -260,6 +260,9 @@ void global_var_type__tree_delete(struct rb_root *root);
+ /* Print data type annotation (including members) on stdout */
+ int hist_entry__annotate_data_tty(struct hist_entry *he, struct evsel *evsel);
+ 
++/* End offset of a member, including a flexible array's children */
++int annotated_member__extent(struct annotated_member *member);
++
+ /* Get name of member field at the given offset in the data type */
+ int annotated_data_type__get_member_name(struct annotated_data_type *adt,
+ 					 char *buf, size_t sz, int member_offset);
+@@ -316,6 +319,11 @@ static inline int hist_entry__annotate_data_tty(struct hist_entry *he __maybe_un
+ 	return -1;
+ }
+ 
++static inline int annotated_member__extent(struct annotated_member *member)
++{
++	return member->offset + member->size;
++}
++
+ static inline int annotated_data_type__get_member_name(struct annotated_data_type *adt __maybe_unused,
+ 						       char *buf __maybe_unused,
+ 						       size_t sz __maybe_unused,
 -- 
-2.56.1.708.g77570a6a1d-goog
+2.56.1
 
