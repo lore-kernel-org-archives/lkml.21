@@ -1,96 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.28
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795039107;
-	b=yBZq2DbNfp8vc8yJHWRwZRG0RnCE4loc5HGSbow8vk8c08DbgiekF0ixwjRLr/aukzEI
-	 jPSaLdn6LW/TNBm5BbuIWAL9Gd3NEiq3/Y2CrTGkBtn+KD3Xbfqbg6FFvcCzGC3/2f59R
-	 4UwpPFZCdDIs51e0EepQ0fJsIW9fG8YTwBbwe1Gib86XdLQEIbiCYco99EF0PFkshOGwV
-	 XgKWi/TXdsxyQsfIMYL9Z867rKzbZkzKzIJllcQpvLuE/3V4Zx8XgBZZIdp3CADhw5JDL
-	 t4QiT8HIKY+hLr1BemIdGCCLf+VcwQ3jvmGDfbhec4zh2XXaUB4aTSuOU63M0bpWdTg==
+	t=1795039166;
+	b=jLbV+pwp7owjXrS3bxVwtYat8x0UlxpSnhUNUP9mwEPlbjNmdApMWa19ycIaNMA5x/92
+	 tiKbUzWWcdpHKiWClsF+W34GtCu5yDcD7wLdRaV3G7pE8rLeHFXEZ8pR5guZGGVAt3ueT
+	 NKetn2hHN6onrBen84OCa04Cql4V/kIwvVmdlS/yLJS6CJMF8Nqrc2zFwmZMYxgSzdzVz
+	 NwlcOA+1ry8ZIOMrReBKIxArf4koboXDV+xwgJIBaP3YrAT10Y6CElkZPPVGZu3A3bCdR
+	 fkP/+Dtrx++kszp/WNQzFPUxg4bnMtExtbUH9gNwnJZxr8l8kWi1acmLvgE31p6a5Tw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795039107;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-ID:X-B4-Tracking:X-Change-ID:To:CC:X-Mailer:X-Originating-IP:
-	 X-ClientProxiedBy:X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=PJNYM50ryvR86Ur8YM1WyRrqZqveLVJTeWTW8/IQAfM=;
-	b=3Lw8aiGk+8JTFIABHVN0mtieZmICFJTYhX6nkDTvVfNa9xwZE/vlEWq6U+RjQbSe+ZbN
-	 P5XqtDbXCoykOw22GaQknKPMcMZ887rbRHC+aqLlvvZK4qI5qopFe9gqpaKem+r0D0G6J
-	 z0Uq7nq08vrHa+RvvEm3mUQgmbHrJ/L/pGPzIbjb7KKzgMhq1apQPUTfwhqPdqQlNXz2U
-	 zgdA/69IUg1tcAISbOVqQtIAsqYmOgHUfvaiKVzBti8VFo9M9YVJDcxcclJN3rEUX1ZWu
-	 wtvSkNx5RSU3U/2IeZ4ChCcG+yN701KaSDw/2zRg0phcQPWbVJuOUEuBMadz2K6rPqQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795039166;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=7Yl39mKeZgRaNqBdeDMDhKOdQAAgeoxYk2dFdGGo/q8=;
+	b=e/tyJG6SnCVbFJHQp/zk+xV1lxg92lfI05Xp+FOWNgBPtqjRm7rbXNRNu8DOIT7CuPSj
+	 NRIZrQfFOay/djtlya0K1HFgv08tpWzSQNf9yDJWbEJ6h5G/x5oTaZBAqc4BWwd2+bfCa
+	 Mte7lBoWfHqgv0k8PN1jNeJMfnfbW3u6GAQjM4ElUnppRskpolwb2oxVrRxXO2IoECM8M
+	 nvQt/2CQpIyHhkF4BLbw0UXbMgUvpSBMOo0w7KcORblfwszVKXRuecztkh9pyszlsgYqB
+	 WLk4FGyV/u6R5L8g/6tjh9XNYR7m4CtsCuPp58MSVJlgI3GdgOfpjgG/V+1BhfhS6og==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=hk6tFRlx;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.28
-Received: from BL0PR03CU003.outbound.protection.outlook.com (mail-eastusazon11012028.outbound.protection.outlook.com [52.101.53.28])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mlvMvSZT;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4821606A31C;
-	Wed, 18 Nov 2026 21:58:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4821606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 921AE606A331;
+	Wed, 18 Nov 2026 21:59:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=hk6tFRlx
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MJF1rhu9ePVvBLoUAVOf/qcS/oIT+tJ/u3VruoWN0aeMcigJKDcl6iE9xdF3q8LkS9lMntt2NGetKyGgAQx+6bAQ+XZgPOMHVNewj2yPgVOpEboGDMFY9eXNDbygjzk1AZATh35z1+0/ZRPbNNf7UYePPLK2CpFQ431TTCoDyjnGTP2TtV2mb87Yh8IyHnZO1TlQXdrxhlClLP67echJPDE5iXMS67BcJOU77W8uTxWzhSlk91790jK/g259MD6LQ2iQOibkWSSw/i8G6G+rVP05T3nqlEwPqQXEbg4h1i7R2me7x9uYaPxLiykWMkAwX6TtR963BXXsi4gYyHO1rw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PJNYM50ryvR86Ur8YM1WyRrqZqveLVJTeWTW8/IQAfM=;
- b=uTmwMNCum0RplAv++lKrO9HKhBzTJSctI0ZZbdAfVh7Ha7Rn9OykshzAx7Gw25dWY/N6i96D3YJWm2/O+UujAvw2C9yw8tTkijm0u07307alLArx47ioHleo65RmnDDNlNe/DGyVdwVAQknl2NN5UGqd8CJKpujGxVe/VA0EpH8k7RY/OTdZg+rTp8358Ph/P5zy/V/ADwub87bcG03oS896fN9RQdRw8IdiWyDgs5O32igMgoDXpxJ+EcPS+bNMXBJuKXde87t7C2+Gw6bxG5zrh10Az4F8pB59ig4hulioCo1MMFsGgPNYaEkv0bTnxon3Qc4V7bGz1BN/h+G5Zg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PJNYM50ryvR86Ur8YM1WyRrqZqveLVJTeWTW8/IQAfM=;
- b=hk6tFRlxyZ4e71rOlFi111uDzXEggxjVR/H/WS0Uc0JFZ4L1sJo4zULqgLY8LPXIMUUPYPc7hmJ4rKy9nmxirGTeBRX49PcS45SI1r7p6v5C0p8NWJW3GZ/N2S/0GNvFzAD4093e41wiFZU7lamHpdiUkHUwt2sqrYbNs9xCWlo=
-Received: from PH7PR17CA0036.namprd17.prod.outlook.com (2603:10b6:510:323::20)
- by DS0PR12MB6536.namprd12.prod.outlook.com (2603:10b6:8:d3::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 21:58:20 +0000
-Received: from MW3PEPF00001653.namprd21.prod.outlook.com
- (2603:10b6:510:323:cafe::39) by PH7PR17CA0036.outlook.office365.com
- (2603:10b6:510:323::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.13 via Frontend Transport; Wed,
- 18 Nov 2026 21:58:20 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- MW3PEPF00001653.mail.protection.outlook.com (10.167.249.197) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.2 via Frontend Transport; Wed, 18 Nov 2026 21:58:20 +0000
-Received: from [10.11.96.223] (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
- 2026 15:58:19 -0600
-From: "Nikhil P. Rao" <nikhil.rao@amd.com>
-Date: Wed, 18 Nov 2026 21:57:52 +0000
-Subject: [PATCH rdma-rc] RDMA/ionic: Wait the device command timeout for
- admin queue commands
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mlvMvSZT
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795039166;
+	b=d0KTLZSTibspKr15bCws7VgREFRHEi7tEOr70v7Gxl/rKVlTH6HsWhDRpndwVJmtAtp0
+	 yD4rPIQfhgaJp0exuFs3aiTw252ze9udvThiBgOanTXipi7EEZbzd/UYYMjVQVgvIajba
+	 tUR0MwLRohV6tvF/mX030wM1+e4tHyDx4+XZCPGoF2Jp5JA4Q5TsZZ5nHcNmhxX0LKpc/
+	 VMn9p8hzm1BEbib9Htuv17vyMp4y8tRH+zkThApQDUplCV3skhkpfu3s7QjciYTad/jp1
+	 1J7k2nTrnlFcy01MeIh6XmNvrQtNxBAwqHeDubmmjb/sO+jgh/hRffSYJG42ZIC+Blg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795039166;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=7Yl39mKeZgRaNqBdeDMDhKOdQAAgeoxYk2dFdGGo/q8=;
+	b=GI8popkSjjaeutV2buLEYWDK4og162o6zAMI856nnK64lqOJIWm5+R4oznhcBG1g2pn1
+	 NYwt+WwX8bKZ4qX80+XqnPm6ZA02WwANO8zPEV2h7G9Z1EMJpswHtXJ2F7ZOW6oZhxkZd
+	 LWSxJvG9STGxFXxNz6ila6ULNFrneNr4EY3aLRyqI4qLYXsgw2TyC3DDsvVe02x4pTQFo
+	 1ltq+L/X6ttvPLUdksSRMVN6yH6nLmGVYJOEOW3ryPBSaG2JICWGzUYmGw4U9HTfb6/mM
+	 OLozQW50QjY0uDo9Hj5qmaw3aeN1LBiqmlWmnI+wOO+G8H46cweFVvN7WWS3TuA4ISQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id B4B401F000C5;
+	Wed, 18 Nov 2026 21:59:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795039166;
+	bh=7Yl39mKeZgRaNqBdeDMDhKOdQAAgeoxYk2dFdGGo/q8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=mlvMvSZT24cCJl2E6beMO4A7kLIPyog5q/WP4XFBzI3A92eSYMYaIVpY3dHiwVuT4
+	 jMXqtPfOtSmJoED8A2bpJszsgvsHaAAdsTt7DPAL7TMOGLLI02/38eVjD2/VRdOzur
+	 Au49Fx5ZhMtsiI81DXJeAekvgfFbxSTomRB5LvceCjUgHIjO/hpF1sC1quTLCft0eo
+	 3i0x2e4Ut1sjZGYZkC1TrZNF7oJLuNRvQPjLlkHijHuanpORwpzuul/SkOBAeWjh3A
+	 cycp7I4GXoeUP3Iu+tyhbjsqXk74rE3YLuXgc6ziipLHNsYpDUh65dkg1ZY/xx7DJ1
+	 0FqX31mQhlQeg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 3C8324AFE7;
+	Wed, 18 Nov 2026 21:59:24 +0000 (UTC)
+From: Harrison Crosse via B4 Relay <devnull+harrison.crosse.dev@kernel.org>
+Date: Wed, 18 Nov 2026 16:56:42 -0500
+Subject: [PATCH 2/2] selftests/mm: add a test for populating a page that
+ cannot be read
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,80 +84,536 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261118-mmpop-populate-v1-2-9c561d178d11@crosse.dev>
+References: <20261118-mmpop-populate-v1-0-9c561d178d11@crosse.dev>
+In-Reply-To: <20261118-mmpop-populate-v1-0-9c561d178d11@crosse.dev>
+To: David Hildenbrand <david@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>, 
+ John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>, 
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+ Michal Hocko <mhocko@suse.com>, Shuah Khan <shuah@kernel.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+ linux-kselftest@vger.kernel.org, Josef Bacik <josef@toxicpanda.com>, 
+ Johannes Weiner <hannes@cmpxchg.org>, Jan Kara <jack@suse.cz>, 
+ Harrison Crosse <harrison@crosse.dev>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795039163; l=15821;
+ i=harrison@crosse.dev; s=20261117; h=from:subject:message-id;
+ bh=ozpf4+RjmEWsr6XVU7gtEDTBOVvOljQv4enrF13umZI=;
+ b=z5iQcgQhQloMXQM8vhSIzkjjnfSBQGFpYstK5hSaIVrlJgBaxIGDWxo3ahHhSUpqOrxRqVh5U
+ 4yRWa2VPjxxBSVwyb7lGNG2FVp2pNtGxF4IlfTAi4S2F2PjSSefjwpD
+X-Developer-Key: i=harrison@crosse.dev; a=ed25519;
+ pk=fwi/XME2YaW/BDBQ76FmKgF9xHZwRb+dxlVCbxuyojo=
+X-Endpoint-Received: by B4 Relay for harrison@crosse.dev/20261117 with
+ auth_id=1552
+X-Original-From: Harrison Crosse <harrison@crosse.dev>
+Reply-To: harrison@crosse.dev
 Content-Transfer-Encoding: 7bit
-Message-ID: <20261118-b4-ionic-rdma-admin-timeout-v1-1-39536999a3e4@amd.com>
-X-B4-Tracking: v=1; b=H4sIAF8f/moC/yWMywrCMBAAf6Xs2QUTg69fkR7SzUZXSCqbVAql/
- 95Yj8MMs0BhFS5w7xZQ/kqRMTcwhw7o5fOTUUJjsEd7NsZccXDYEiHUkDz6kCRjlcTjVPFEdIv
- OR7buAu3wUY4y7/cH7L0S9H9RpuHNVH9vWNcNKDd264gAAAA=
-X-Change-ID: 20261118-b4-ionic-rdma-admin-timeout-3cc9f4afe247
-To: Abhijit Gangurde <abhijit.gangurde@amd.com>, Allen Hubbe
-	<allen.hubbe@amd.com>, Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky
-	<leon@kernel.org>, Andrew Boyer <andrew.boyer@amd.com>
-CC: <linux-rdma@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Nikhil P.
- Rao" <nikhil.rao@amd.com>
-X-Mailer: b4 0.15.2
-X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
- (10.181.42.216)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW3PEPF00001653:EE_|DS0PR12MB6536:EE_
-X-MS-Office365-Filtering-Correlation-Id: a7165426-dd4f-4978-71e2-08df45bf0eff
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|82310400026|36860700016|1800799024|376014|23010399003|18002099003|261009223027099003|11063799006|261026121527099003|261026140227099003|56012099006|261021123027099003|261021135927099003|261022105027099003|261021121427099003|261028144727099003|10067099003|261102123227099003;
-X-Microsoft-Antispam-Message-Info:
-	iUlMywNnA7LOsUNSQOT65EBEylScnRscyL6bz2Efv3WKDxBGitEOJwVLwah3jZWbz7WhN5bMzdkewREzjRIO74Da1k/X4Sb+JVLUXT74uiCRuO/GreR5LkOETVJ56tIVHAFfl6954K2OOoT1eCw4YSsvjLqswHpgioOAmU7cMfyUAELuE3k6jTlgluDTB/E0S5D27F8Sn8tWcyUW9nf0V15Iw7QLrE5Oh34Wzgfb76jj2nc1OhhmLaPRUsDOB0Didl5zFL34VaWpxuO8DJkqWVnDM7EAhl74LN0DOHwrTC3JvQJxv2vwaKcOWgFxnFzOb+FUrG2ZwyDm0tKUtk/xt1zi6bVfTSNSaAeNGApQvIHWTn6i9FtdGKa9Jx/vBnYPffpDrwXSwAVoOYjUpS8t1k7ZTr7K9fSgX1b3i7zspdQhcE9bO0hvIfgeyWaO5ANTf+ou0Xpv/5CbVpEDcFA2xWCKbTEk+NuzVJ/Nq0qcpx95SmuMseOYqEPN1UPkgjapnpfLU4H4aaWh5cACeTCQjaSnfMlYYerSXWolKie2In9vkps/TU5AlmnZwN5SVXzt4IYKOTxzpW70BfFzrktmmuI/oHxYTaK7O9ORC6OyV5QFYnSMHLfdtcecxHx5/ygAGBtR8q4RWBUT0nlBdfBaNzueccwokyrufAxOXz4XRNMfEB+J7eJWPsxSFV/TGgXq6ITHxC+S8nEOhmkaJH+8pA==
-X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(1800799024)(376014)(23010399003)(18002099003)(261009223027099003)(11063799006)(261026121527099003)(261026140227099003)(56012099006)(261021123027099003)(261021135927099003)(261022105027099003)(261021121427099003)(261028144727099003)(10067099003)(261102123227099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	IsnkZvOKOXYV1XPVnqa5DE5osYjZLm94iEPS67sT6ipa/7y8+fSspQ1wK5ybrdpg03eVANXocEi9+Kj1ucIv6dw8GXuZ/0YUWBq2XXB6hXqyIAlahTs88gtQLACBCMCHay4viC5pH+MQ4wmr4g0TRzLoodwdypXIJbuVTV/68CzpVeAdTT/Ji29qFdRRgUW2SrU11Q77/FP7risMEcfV87m+CpglWFPc04DF21ZNF1EWDy//YRq8tgotJ3ZsXVrMKYPcwfP3NLYZ/ejr3X/eb2Lt4CMGuBlVUF5yRY4savm0oakdNEFUfEM4ylyhY17vKNDwFBDs9cMypcuwF1CerLPV24cMCEwLQuTQ3mZpToGGFuMU+1DK8NCZUm8U3lOVUkXPRX1Ie2q9I5YRf/4ld2Thhhg+Y6Mh4ra6U8XxzpgabyzS7RFOja1fs8YRZxSe
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 21:58:20.1791
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a7165426-dd4f-4978-71e2-08df45bf0eff
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	MW3PEPF00001653.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB6536
 
-Commit ec8ee714736e ("ionic: stretch heartbeat detection") notes that
-firmware can take more than 2 seconds to service a device or admin
-queue request, and is only expected to complete it within the ionic
-command timeout of 5 seconds. The RDMA admin queue watchdog gives up
-after 2 seconds, and a timeout resets the RDMA LIF, after which every
-verb fails with -ENODEV. Wait 5 seconds, as ionic does for its own
-admin queue.
+From: Harrison Crosse <harrison@crosse.dev>
 
-Fixes: f3bdbd42702c ("RDMA/ionic: Create device queues to support admin operations")
-Signed-off-by: Nikhil P. Rao <nikhil.rao@amd.com>
+Add populate_eio, which serves a FUSE file system from the test itself
+on /dev/fuse, without libfuse. Its one file has a page whose reads
+always fail with -EIO. FUSE handles faults on mapped files with
+filemap_fault(), so a fault on that page releases the mmap_lock for the
+read and, on a first attempt, returns VM_FAULT_RETRY whatever the
+result.
+
+The test checks that MADV_POPULATE_READ fails with EFAULT, that
+mmap(MAP_POPULATE) returns the mapping and that mlock() fails with
+ENOMEM. Each call runs in a child with a timeout, so a kernel that
+retries the read endlessly fails the test instead of hanging it.
+Without the previous patch, the mmap(MAP_POPULATE) and mlock() checks
+fail this way.
+
+The mlock() check is skipped if the test cannot lock an anonymous
+mapping of the same size, and the whole test is skipped if /dev/fuse
+cannot be opened or the file system cannot be created, for example
+without CAP_SYS_ADMIN. The file system is created with fsmount() and
+never attached to a mount point, so it goes away with the test's
+processes. If a child does not exit after SIGKILL because the server
+read its request and stopped, the test kills the server, which aborts
+the connection. CONFIG_FUSE_FS is added to the mm selftest config.
+
+This test and its changelog were prepared with the help of an AI coding
+assistant (Claude).
+
+Signed-off-by: Harrison Crosse <harrison@crosse.dev>
 ---
- drivers/infiniband/hw/ionic/ionic_admin.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Tested on x86_64 under QEMU (TCG), with 4K pages. On v7.4-rc3 without
+the previous patch, and on 6.12.117 with the test built with the
+v7.4-rc3 FUSE header, MADV_POPULATE_READ passes and the
+mmap(MAP_POPULATE) and mlock() checks fail with no return within 5 s;
+with the previous patch on v7.4-rc3, all three pass. Two faults were
+tried on v7.4-rc3 without the previous patch, and neither left a
+process or FUSE connection. With the server stopped by SIGSTOP after it
+read the bad page's read request, the test killed the server and ended
+in about 7 s. The other fault killed the test process with SIGKILL.
+Without CAP_IPC_LOCK and with RLIMIT_MEMLOCK at 0, the mlock() check is
+skipped. On arm64 v7.4-rc3 under QEMU (TCG), also with 4K pages, the
+three checks give the same results without and with the previous patch.
 
-diff --git a/drivers/infiniband/hw/ionic/ionic_admin.c b/drivers/infiniband/hw/ionic/ionic_admin.c
-index 0ccd869ad8e6..859893568538 100644
---- a/drivers/infiniband/hw/ionic/ionic_admin.c
-+++ b/drivers/infiniband/hw/ionic/ionic_admin.c
-@@ -19,7 +19,7 @@
- #define IONIC_ADMIN_BUSY_RETRY_MS	1
- 
- /* admin queue will be considered failed if a command takes longer */
--#define IONIC_ADMIN_TIMEOUT	(HZ * 2)
-+#define IONIC_ADMIN_TIMEOUT	(HZ * 5)
- #define IONIC_ADMIN_WARN	(HZ / 8)
- 
- /* will poll for admin cq to tolerate and report from missed event */
-
+Not tested: architectures other than x86_64 and arm64, other page
+sizes, unprivileged user namespaces, and kernels older than 6.12.
 ---
-base-commit: e7732ec135b501e87ab060d992b3b5f2ec4396c9
-change-id: 20261118-b4-ionic-rdma-admin-timeout-3cc9f4afe247
+ tools/testing/selftests/mm/Makefile       |   1 +
+ tools/testing/selftests/mm/config         |   1 +
+ tools/testing/selftests/mm/populate_eio.c | 410 ++++++++++++++++++++++++++++++
+ tools/testing/selftests/mm/run_vmtests.sh |   1 +
+ 4 files changed, 413 insertions(+)
 
-Best regards,
---  
-Nikhil P. Rao <nikhil.rao@amd.com>
+diff --git a/tools/testing/selftests/mm/Makefile b/tools/testing/selftests/mm/Makefile
+index 0ea72e997..2efb61d51 100644
+--- a/tools/testing/selftests/mm/Makefile
++++ b/tools/testing/selftests/mm/Makefile
+@@ -71,6 +71,7 @@ TEST_GEN_FILES += khugepaged
+ TEST_GEN_FILES += madv_populate
+ TEST_GEN_FILES += map_fixed_noreplace
+ TEST_GEN_FILES += map_populate
++TEST_GEN_FILES += populate_eio
+ ifneq (,$(filter $(ARCH),arm64 riscv riscv64 x86 x86_64 loongarch32 loongarch64))
+ TEST_GEN_FILES += memfd_secret
+ endif
+diff --git a/tools/testing/selftests/mm/config b/tools/testing/selftests/mm/config
+index 06f78bd23..08a5ba29b 100644
+--- a/tools/testing/selftests/mm/config
++++ b/tools/testing/selftests/mm/config
+@@ -14,3 +14,4 @@ CONFIG_UPROBES=y
+ CONFIG_MEMORY_FAILURE=y
+ CONFIG_HWPOISON_INJECT=m
+ CONFIG_PROC_MEM_ALWAYS_FORCE=y
++CONFIG_FUSE_FS=y
+diff --git a/tools/testing/selftests/mm/populate_eio.c b/tools/testing/selftests/mm/populate_eio.c
+new file mode 100644
+index 000000000..1099bd7ed
+--- /dev/null
++++ b/tools/testing/selftests/mm/populate_eio.c
+@@ -0,0 +1,410 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Populate a file mapping with a page whose reads always fail.
++ *
++ * A minimal FUSE server on /dev/fuse serves one file and fails every
++ * read of one of its pages with -EIO. MADV_POPULATE_READ must fail with
++ * EFAULT, mmap(MAP_POPULATE) must return the mapping and mlock() must
++ * fail with ENOMEM, rather than retry the read until the task is killed.
++ *
++ * The file system is created with fsopen() and fsmount() and never
++ * attached to a mount point, so it goes away with the test's processes.
++ */
++#define _GNU_SOURCE
++#include <errno.h>
++#include <fcntl.h>
++#include <linux/fuse.h>
++#include <linux/mman.h>
++#include <linux/mount.h>
++#include <signal.h>
++#include <stdint.h>
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++#include <sys/mman.h>
++#include <sys/prctl.h>
++#include <sys/resource.h>
++#include <sys/stat.h>
++#include <sys/syscall.h>
++#include <sys/uio.h>
++#include <sys/wait.h>
++#include <unistd.h>
++#include "kselftest.h"
++
++#define NR_PAGES	8
++#define BAD_PAGE	3
++#define FILE_INO	2
++#define TIMEOUT_S	5
++#define GRACE_S		2
++
++/*
++ * Kernels before FUSE 7.47 accept only this size of open reply; 7.47
++ * appended backing_id_64 and accepts the shorter reply as well.
++ */
++#define OPEN_OUT_SIZE	16
++
++/* child exit status: 0 if the call succeeded, its errno, or this */
++#define EXIT_SETUP	200
++
++/* run_call() results other than an exit status */
++#define RUN_TIMEOUT	-1
++#define RUN_SIGNALED	-2
++
++enum call { CALL_MADV_POPULATE_READ, CALL_MAP_POPULATE, CALL_MLOCK };
++
++static size_t page_size;
++static pid_t parent, server;
++
++static int sys_fsopen(const char *fsname, unsigned int flags)
++{
++	return syscall(__NR_fsopen, fsname, flags);
++}
++
++static int sys_fsconfig(int fd, unsigned int cmd, const char *key,
++			const char *value)
++{
++	return syscall(__NR_fsconfig, fd, cmd, key, value, 0);
++}
++
++static int sys_fsmount(int fd, unsigned int flags, unsigned int attr_flags)
++{
++	return syscall(__NR_fsmount, fd, flags, attr_flags);
++}
++
++/* Recheck getppid() in case parent exited before PR_SET_PDEATHSIG. */
++static void die_with_parent(void)
++{
++	if (prctl(PR_SET_PDEATHSIG, SIGKILL) || getppid() != parent)
++		_exit(EXIT_SETUP);
++}
++
++static void fuse_reply(int fd, uint64_t unique, int error,
++		       const void *arg, size_t len)
++{
++	struct fuse_out_header out = {
++		.len = sizeof(out) + len,
++		.error = error,
++		.unique = unique,
++	};
++	struct iovec iov[] = {
++		{ .iov_base = &out, .iov_len = sizeof(out) },
++		{ .iov_base = (void *)arg, .iov_len = len },
++	};
++
++	/* ENOENT: the request was interrupted or aborted */
++	if (writev(fd, iov, len ? 2 : 1) < 0 && errno != ENOENT)
++		ksft_print_msg("FUSE reply of %zu bytes rejected: %s\n",
++			       len, strerror(errno));
++}
++
++static void fill_attr(struct fuse_attr *attr, uint64_t ino)
++{
++	memset(attr, 0, sizeof(*attr));
++	attr->ino = ino;
++	attr->blksize = page_size;
++	if (ino == FUSE_ROOT_ID) {
++		attr->mode = S_IFDIR | 0755;
++		attr->nlink = 2;
++	} else {
++		attr->mode = S_IFREG | 0444;
++		attr->nlink = 1;
++		attr->size = NR_PAGES * page_size;
++		attr->blocks = attr->size / 512;
++	}
++}
++
++static void fuse_read(int fd, uint64_t unique, const struct fuse_read_in *read_in,
++		      const char *data)
++{
++	uint64_t size = NR_PAGES * page_size;
++	uint64_t bad = BAD_PAGE * page_size;
++	uint64_t start = read_in->offset;
++	uint64_t end = start + read_in->size;
++
++	if (start < bad + page_size && end > bad) {
++		fuse_reply(fd, unique, -EIO, NULL, 0);
++		return;
++	}
++	if (end > size)
++		end = size;
++	fuse_reply(fd, unique, 0, data, start < end ? end - start : 0);
++}
++
++static __noreturn void fuse_serve(int fd)
++{
++	size_t bufsize = FUSE_MIN_READ_BUFFER + page_size;
++	struct fuse_in_header *in;
++	char *data;
++	void *arg;
++
++	die_with_parent();
++	in = malloc(bufsize);
++	data = calloc(NR_PAGES, page_size);
++	if (!in || !data)
++		_exit(1);
++	arg = in + 1;
++
++	for (;;) {
++		ssize_t n = read(fd, in, bufsize);
++
++		if (n < 0 && (errno == EINTR || errno == ENOENT))
++			continue;
++		/* read() fails with ENODEV once the connection is gone */
++		if (n < (ssize_t)sizeof(*in))
++			_exit(0);
++
++		switch (in->opcode) {
++		case FUSE_INIT: {
++			const struct fuse_init_in *init_in = arg;
++			struct fuse_init_out init_out = {
++				.major = FUSE_KERNEL_VERSION,
++				.minor = FUSE_KERNEL_MINOR_VERSION,
++				.max_readahead = init_in->max_readahead,
++				.max_write = page_size,
++				.time_gran = 1,
++			};
++
++			if (init_in->minor < init_out.minor)
++				init_out.minor = init_in->minor;
++			fuse_reply(fd, in->unique, 0, &init_out, sizeof(init_out));
++			break;
++		}
++		case FUSE_LOOKUP: {
++			struct fuse_entry_out entry = {
++				.nodeid = FILE_INO,
++				.generation = 1,
++				.entry_valid = 3600,
++				.attr_valid = 3600,
++			};
++
++			if (in->nodeid != FUSE_ROOT_ID || strcmp(arg, "file")) {
++				fuse_reply(fd, in->unique, -ENOENT, NULL, 0);
++				break;
++			}
++			fill_attr(&entry.attr, FILE_INO);
++			fuse_reply(fd, in->unique, 0, &entry, sizeof(entry));
++			break;
++		}
++		case FUSE_GETATTR: {
++			struct fuse_attr_out attr_out = { .attr_valid = 3600 };
++
++			fill_attr(&attr_out.attr, in->nodeid);
++			fuse_reply(fd, in->unique, 0, &attr_out, sizeof(attr_out));
++			break;
++		}
++		case FUSE_OPEN: {
++			struct fuse_open_out open_out = { .fh = 1 };
++
++			fuse_reply(fd, in->unique, 0, &open_out, OPEN_OUT_SIZE);
++			break;
++		}
++		case FUSE_READ:
++			fuse_read(fd, in->unique, arg, data);
++			break;
++		case FUSE_FORGET:
++		case FUSE_BATCH_FORGET:
++			break;
++		default:
++			fuse_reply(fd, in->unique, -ENOSYS, NULL, 0);
++		}
++	}
++}
++
++/*
++ * do_mlock() can fail with ENOMEM from RLIMIT_MEMLOCK before reaching
++ * __mm_populate(), which would falsely pass CALL_MLOCK without CAP_IPC_LOCK.
++ */
++static bool can_mlock(size_t size)
++{
++	struct rlimit rlim;
++	bool locked;
++	void *p;
++
++	if (!getrlimit(RLIMIT_MEMLOCK, &rlim) && rlim.rlim_cur < size) {
++		rlim.rlim_cur = rlim.rlim_max;
++		setrlimit(RLIMIT_MEMLOCK, &rlim);
++	}
++	p = mmap(NULL, size, PROT_READ | PROT_WRITE,
++		 MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
++	if (p == MAP_FAILED)
++		return false;
++	locked = !mlock(p, size);
++	munmap(p, size);
++	return locked;
++}
++
++static __noreturn void do_call(enum call call, int mnt_fd)
++{
++	size_t size = NR_PAGES * page_size;
++	int flags = MAP_SHARED;
++	char *p;
++	int fd;
++
++	die_with_parent();
++	fd = openat(mnt_fd, "file", O_RDONLY);
++	if (fd < 0)
++		_exit(EXIT_SETUP);
++	if (call == CALL_MAP_POPULATE)
++		flags |= MAP_POPULATE;
++	p = mmap(NULL, size, PROT_READ, flags, fd, 0);
++	if (p == MAP_FAILED)
++		_exit(call == CALL_MAP_POPULATE ? errno : EXIT_SETUP);
++	if (call == CALL_MADV_POPULATE_READ && madvise(p, size, MADV_POPULATE_READ))
++		_exit(errno);
++	if (call == CALL_MLOCK && mlock(p, size))
++		_exit(errno);
++	_exit(0);
++}
++
++static bool reap(pid_t pid, int *status, int timeout_ms)
++{
++	int i;
++
++	for (i = 0; i < timeout_ms / 10; i++) {
++		pid_t ret = waitpid(pid, status, WNOHANG);
++
++		if (ret == pid)
++			return true;
++		if (ret < 0 && errno != EINTR)
++			ksft_exit_fail_perror("waitpid");
++		usleep(10000);
++	}
++	return false;
++}
++
++/*
++ * A caller whose request the server read but did not answer waits for
++ * the answer even after SIGKILL. Killing the server closes the last
++ * /dev/fuse file descriptor, which aborts the connection and ends such
++ * requests.
++ */
++static void stop_server(void)
++{
++	if (!server)
++		return;
++	kill(server, SIGKILL);
++	while (waitpid(server, NULL, 0) < 0 && errno == EINTR)
++		;
++	server = 0;
++}
++
++static int run_call(enum call call, int mnt_fd, int *sig)
++{
++	int status;
++	pid_t pid;
++
++	pid = fork();
++	if (pid < 0)
++		ksft_exit_fail_perror("fork");
++	if (!pid)
++		do_call(call, mnt_fd);
++
++	if (!reap(pid, &status, TIMEOUT_S * 1000)) {
++		kill(pid, SIGKILL);
++		if (!reap(pid, &status, GRACE_S * 1000)) {
++			ksft_print_msg("child alive %d s after SIGKILL, killing the server\n",
++				       GRACE_S);
++			stop_server();
++			while (waitpid(pid, &status, 0) < 0 && errno == EINTR)
++				;
++		}
++		return RUN_TIMEOUT;
++	}
++	if (WIFSIGNALED(status)) {
++		*sig = WTERMSIG(status);
++		return RUN_SIGNALED;
++	}
++	return WEXITSTATUS(status);
++}
++
++static void check(const char *name, enum call call, int mnt_fd, int expected)
++{
++	int sig = 0, ret;
++
++	if (!server) {
++		ksft_test_result_fail("%s: not run, the FUSE server was killed\n", name);
++		return;
++	}
++	ret = run_call(call, mnt_fd, &sig);
++	if (ret == RUN_TIMEOUT)
++		ksft_print_msg("%s: no return within %d s\n", name, TIMEOUT_S);
++	else if (ret == RUN_SIGNALED)
++		ksft_print_msg("%s: killed by %s\n", name, strsignal(sig));
++	else if (ret == EXIT_SETUP)
++		ksft_print_msg("%s: openat() or mmap() failed\n", name);
++	else if (ret >= 0 && ret != expected)
++		ksft_print_msg("%s: %s\n", name, ret ? strerror(ret) : "the call succeeded");
++	ksft_test_result(ret == expected, "%s\n", name);
++}
++
++static bool unavailable(int err)
++{
++	return err == ENOENT || err == ENODEV || err == ENXIO ||
++	       err == EPERM || err == EACCES || err == ENOSYS;
++}
++
++int main(void)
++{
++	char fd_str[16], uid_str[16], gid_str[16];
++	int fd, fs_fd, mnt_fd;
++
++	ksft_print_header();
++	page_size = getpagesize();
++	parent = getpid();
++
++	fd = open("/dev/fuse", O_RDWR | O_CLOEXEC);
++	if (fd < 0 && unavailable(errno))
++		ksft_exit_skip("cannot open /dev/fuse: %s\n", strerror(errno));
++	if (fd < 0)
++		ksft_exit_fail_perror("open /dev/fuse");
++	fs_fd = sys_fsopen("fuse", FSOPEN_CLOEXEC);
++	if (fs_fd < 0 && unavailable(errno))
++		ksft_exit_skip("cannot create a FUSE file system: %s\n", strerror(errno));
++	if (fs_fd < 0)
++		ksft_exit_fail_perror("fsopen");
++
++	snprintf(fd_str, sizeof(fd_str), "%d", fd);
++	snprintf(uid_str, sizeof(uid_str), "%u", getuid());
++	snprintf(gid_str, sizeof(gid_str), "%u", getgid());
++	if (sys_fsconfig(fs_fd, FSCONFIG_SET_STRING, "fd", fd_str) ||
++	    sys_fsconfig(fs_fd, FSCONFIG_SET_STRING, "rootmode", "40000") ||
++	    sys_fsconfig(fs_fd, FSCONFIG_SET_STRING, "user_id", uid_str) ||
++	    sys_fsconfig(fs_fd, FSCONFIG_SET_STRING, "group_id", gid_str))
++		ksft_exit_fail_perror("fsconfig");
++	if (sys_fsconfig(fs_fd, FSCONFIG_CMD_CREATE, NULL, NULL)) {
++		if (unavailable(errno))
++			ksft_exit_skip("cannot mount FUSE: %s\n", strerror(errno));
++		ksft_exit_fail_perror("fsconfig create");
++	}
++	mnt_fd = sys_fsmount(fs_fd, FSMOUNT_CLOEXEC,
++			     MOUNT_ATTR_NOSUID | MOUNT_ATTR_NODEV);
++	if (mnt_fd < 0 && unavailable(errno))
++		ksft_exit_skip("cannot mount FUSE: %s\n", strerror(errno));
++	if (mnt_fd < 0)
++		ksft_exit_fail_perror("fsmount");
++	close(fs_fd);
++
++	server = fork();
++	if (server < 0)
++		ksft_exit_fail_perror("fork");
++	if (!server) {
++		close(mnt_fd);
++		fuse_serve(fd);
++	}
++	close(fd);
++
++	ksft_set_plan(3);
++	check("MADV_POPULATE_READ fails with EFAULT", CALL_MADV_POPULATE_READ,
++	      mnt_fd, EFAULT);
++	check("mmap(MAP_POPULATE) returns the mapping", CALL_MAP_POPULATE,
++	      mnt_fd, 0);
++	if (can_mlock(NR_PAGES * page_size))
++		check("mlock() fails with ENOMEM", CALL_MLOCK, mnt_fd, ENOMEM);
++	else
++		ksft_test_result_skip("mlock() fails with ENOMEM: cannot mlock() %zu bytes\n",
++				      NR_PAGES * page_size);
++
++	close(mnt_fd);
++	stop_server();
++	ksft_finished();
++}
+diff --git a/tools/testing/selftests/mm/run_vmtests.sh b/tools/testing/selftests/mm/run_vmtests.sh
+index a1b45a3de..3ac9f9336 100755
+--- a/tools/testing/selftests/mm/run_vmtests.sh
++++ b/tools/testing/selftests/mm/run_vmtests.sh
+@@ -291,6 +291,7 @@ else
+ fi
+ 
+ CATEGORY="mmap" run_test ./map_populate
++CATEGORY="mmap" run_test ./populate_eio
+ CATEGORY="mmap" run_test ./droppable
+ 
+ CATEGORY="mlock" run_test ./mlock-random-test
+
+-- 
+2.56.1
+
 
