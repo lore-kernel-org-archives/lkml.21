@@ -1,65 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795033973;
-	b=y6vH5huvMdSEsz3dZpcf83Ip9/7vKG0lsSrbdx8WBO3xTGspwl6HHFPCYyT9i9HRJex8
-	 5Q759hHQ6k2uhhG+m+nnN/LQEim4j51t+4sjyHekK0kc2tOv9DTYd3ZS+HHA8lbIZue9T
-	 2L9Wsa+QXOfI92rqcRVfHI+Fgnj350JKSg/KmMTqpI3EL0i5vmA8NcY6n1+AnjTZKoY3g
-	 CTe5jVSLTKYei6AxllG2syXwu0cIQImWCsIokBctJHBZ2WgXqwidSjj65QaxmXgp0If4w
-	 I/r8xyCXceJO1ktU3xToN5ZPbDOpnMlQhufMEk2Vs3zbnLJ2MlWbS2VJcIdgNYh8Z7g==
+	t=1795033976;
+	b=Suf/fWKsnSlYq71GZSI/oIjw0q4ObQ8iqyerAxUQVS6svi57qR4nnW+9TM7uIHZM4D1l
+	 MKSBGhgecQ4iZeggmpIV7oAKAErp46d1uHG5ae8EQJQXbWqMgfwvJZ5VPdF7l1BHfg3Mc
+	 qEXNZnLpFEMEfinCUOt2G/ZAL9FFzd7BMvGfkrApuf9Q9zYQimYXae9RTfl3MjxCt/olV
+	 MS9+RiHGEe6/verxgrXs5NMW1Zv9Vf0+OtHdBfzH7JnwHP5bRw6euR+lJZvsL+j4Ypf4T
+	 iyqbm3QRVSvIu6dOT521tiqt0XUeHKkjjL40FHZneXhOVRBn4kd4/xGeqRIic7SNgDg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795033973;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=Ooh2Ut4OkXb4cnFIzK24GOQEm3EtxNlb5xhtxv/8OV4=;
-	b=jKAhNDo5AEcl359+U4QaM3l2nhzkYfgbunT/WNg2SCkTB8tODe870l45RXtoI/OZEYnA
-	 JP78ykeIc0QTjted26ZCxE1iJ2i10q6vVqbxMvshQaJERf/OhNN6aq5PLJLEayFgX7c1m
-	 Noh28JLxsDYGK9JYgjyjVtRFviPksqxHy2B8ltpKkFZikkmZx7QXteFgDMCN3LdN7c+Xv
-	 KRHl/cTThgX0Ixfq+yk7YMKGUROvjW4fkt3CwyAIAgRX3/xaO/QbCuKR1yMDhk0MZkOar
-	 sDB8N2kcD6uQG8VQOpo2eS3OxpnMgiWSiZLMvb3mJxIVuLZX3iNrnJ/mSbiVnCbt9Zw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795033976;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=CE9KX+XM7Bcw7+DivHRX4MOTdxHgdid3BtllF5iTvEE=;
+	b=GSiAK6KVjNUlMph947opsT3BhH+4bWVIYq+M+r9cpsDlEhC294YatxW+1ulYrURCbJTD
+	 I16nR/nhdnclPCigu8PCSYrCYmGAu4iYpGOYLKI5GJTxYGoSyv0fE8wLbbbBBnxGliAvF
+	 PYzROiTzYX4cmaYyuFuor+OaypuKqq0y5lY8+3Qv/rGPpCM5i5CmlCo86tu5Mzwozdc5q
+	 nl6ND/lGsjZdytFqLhoaknQul+LyKuA7lKIiB0D9i7tmnOSkP0/nPbNDb/fRBa3NRbmc9
+	 DWs8xQGzoTP27mSqebt02zSM2D90aMcBjn/onVgSo3LXMmBN8TMlyyoY4de89NDx9qw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iwUpONJa;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=BdWyfG1J;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0724606A320;
-	Wed, 18 Nov 2026 20:32:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7995606A33B;
+	Wed, 18 Nov 2026 20:32:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7995606A33B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iwUpONJa
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 433671F000C4;
-	Wed, 18 Nov 2026 20:32:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795033973;
-	bh=Ooh2Ut4OkXb4cnFIzK24GOQEm3EtxNlb5xhtxv/8OV4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=iwUpONJaUZJPm+lXfBmkJc0tKTinjGLkWtnilXXoN2c5fi4Cj/2nKIMegk74eoqwI
-	 S/9+rLm9GzfnB4NHfENFH/Lz0PrpvlBvocecRjvuNR5xNun/AxYylBQyPOJ3YU0c+5
-	 hzIE9sWbbGAF9xmHBgvni12CMMGL7heqcEvsP5XIMGHCLPUAI1OP3NfLBGh9QKhcpG
-	 +Di9hNVRs82vn+OjO6QWEBIYZtDMhJMkyRtT6+q4N9E9oQII6G58ZTMtei6KzYg1hn
-	 5BiQ+wU4nOzTfnfoMicgqiA4ryx1KIUKHTvPlgPCoXNmcV6E91OTWsJWAwVLAyk4Bi
-	 4PqgTqj5roQeA==
-Date: Wed, 18 Nov 2026 14:32:51 -0600
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Arun Iyengar <aiyengar1990@gmail.com>
-Cc: Simon Xue <xxm@rock-chips.com>,
-	Finley Xiao <finley.xiao@rock-chips.com>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Conor Dooley <conor+dt@kernel.org>, iommu@lists.linux.dev,
-	Pranjal Shrivastava <praan@google.com>,
-	Robin Murphy <robin.murphy@arm.com>, devicetree@vger.kernel.org,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Niklas Cassel <cassel@kernel.org>, linux-kernel@vger.kernel.org,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Heiko Stuebner <heiko@sntech.de>
-Subject: Re: [PATCH v3 1/3] dt-bindings: iommu: arm,smmu-v3: Allow a clock
- and a reset
-Message-ID: <179503397082.838785.14210006963521500308.robh@kernel.org>
-References: <20261113-smmu-v3-pcie-pd-v3-0-39eb4f919529@gmail.com>
- <20261113-smmu-v3-pcie-pd-v3-1-39eb4f919529@gmail.com>
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=BdWyfG1J
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=CE9KX+XM7Bcw7+DivHRX4MOTdxHgdid3BtllF5iTvEE=; b=BdWyfG1JUzpST0tcCcJLxlFxQI
+	+Fsz773xvsuO30/qnytndAkWZC9w1GKyQIxkoS/FgiJR6AoTNsBq+4z8E2Z5rmqa9v5aJLvj0Sg41
+	sFvwGgfQmwOgmjqIBWQRoVUBra5A5CHoLvlny4mYAG+88+03A4oQCgcX3VK7wPnnLxgk=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xTmKj-00HVff-2t; Wed, 18 Nov 2026 21:32:45 +0100
+Date: Wed, 18 Nov 2026 21:32:45 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: "icue.retsam.diman" <icue.retsam.diman@bumblecito.com>
+Cc: github@bumblecito.com, Russell King <linux@armlinux.org.uk>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v3 1/2] net: sfp: add 2500base-X quirk for ODI
+ DFP-34X-2C3
+Message-ID: <ed0f62db-f2fc-45ff-9ccf-5aa3e50c243b@lunn.ch>
+References: <20261118162323.436219-1-github@bumblecito.com>
+ <20261118162323.436219-2-github@bumblecito.com>
+ <e1584dcf-bb90-4e54-8f97-f52ea3da85dc@lunn.ch>
+ <4fb66a63-b483-4777-9fe4-b94ccbe733b3@SynologyNAS>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,20 +71,47 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261113-smmu-v3-pcie-pd-v3-1-39eb4f919529@gmail.com>
+In-Reply-To: <4fb66a63-b483-4777-9fe4-b94ccbe733b3@SynologyNAS>
 
+On Wed, Nov 18, 2026 at 02:08:44PM -0600, icue.retsam.diman wrote:
 
-On Fri, 13 Nov 2026 08:45:05 +0000, Arun Iyengar wrote:
-> The RK3588 PCIe MMU-600 has a clock (ACLK_MMU_PCIE) and a reset
-> (SRST_A_MMU_PCIE) in the CRU. When no PCIe controller holds the clock,
-> it is gated as unused and the SMMU stops responding. Allow one clock and
-> one reset.
 > 
-> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
-> ---
->  Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml | 8 ++++++++
->  1 file changed, 8 insertions(+)
+> Hi Andrew,
 > 
+> I tested the module without the quirk using an unmodified OpenWrt SNAPSHOT build (r38465-2ccaccdb98) for the GoodTop GT-SWTXG8FM (realtek/rtl930x).
+> 
+> The ODI DFP-34X-2C3 successfully establishes a 1000base-X link with autonegotiation enabled.
+> 
+> The  ethtool lan8  output confirms:
+> 
+> Advertised link modes: 1000baseX/Full
+> 
+> Link partner advertised link modes: 1000baseX/Full
+> 
+> Advertised auto-negotiation: Yes
+> 
+> Link partner advertised auto-negotiation: Yes
+> 
+> Speed: 1000Mb/s
+> 
+> Duplex: Full
+> 
+> Auto-negotiation: on
+> 
+> Link detected: yes
+> 
+> With the quirk, I was able to establish a 2500 Mb/s link with speed and duplex forced and autonegotiation disabled.
+> 
+> Therefore, the module works with 1000base-X autonegotiation without the quirk, while the quirk enables 2500base-X operation.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Thanks for testing. You could add a Tested-by: if you want. That will
+help get the change merge.
 
+What i was afraid of is that for some reason 2500BaseX is rejected by
+the other end, and it will only work at 1000BaseX. For a traditional
+SFP, that would be true if the SFP on the other end of the fibre could
+only do 1000BaseX. But this is not a traditional SFP, it is XPON. Can
+the OLT say no to 2500BaseX, or is this purely down to what the ONT
+can do?
+
+	Andrew
