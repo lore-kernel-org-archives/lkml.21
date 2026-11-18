@@ -1,83 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794992648;
-	b=qmWlQD6woUrzWEFutCRTMXrvPoeelRcL7sm5uM9wz0yC0zfUjRv5Yti0FwXsn79kruYY
-	 06poPN/QVWcN2abxZUra2yGdO/9huGhMRZewkFSOnSBMO0LoShLJtSDsR8KWAhPB/V/ih
-	 qn4q7K2RxD+UcDzHTKQXaZloKDl85Zf25zb8mZR9ZsfTB17YetyHWMV5Xm7pPKKvwoV3F
-	 Bivzsn8KkeEJAndIajzuJkd0vGni2g8XcwSop2yGWo/nm/wipR/P/mriLh9m+VgwYP7Ez
-	 2UdL2uunNeUcM7eYHOmRd/I/v/cHtEinDYmn3oxd1CavUfZaOtFCKzyhaFrwu6LiI5A==
+	t=1794992675;
+	b=yUnsp39h7m6gYfTXAXa/z30FaqiZ/X2HhGI771G6MAADc3rTSw9rMqfsJJvagEJluBzU
+	 DiQ/XvyIn9FfxSOm5N8etS9f91v726V0F249Z94V5hIfq3PbhuIP0oiZcjydDoV6A/Yb9
+	 maF4UA5mtbbxnajJj8q2+Fgx73r5yyt+XNgQNcZTDNw6uz1kwema8osMj4hxoV/1k28jt
+	 wGRn2vMZw9QL0LZh36BYWgQRyKTuUdNiVmnQO2EV0fQG21V5nFr6RQwm4U1FyF4O4lzJh
+	 j1v/VEcnmfdppyCo81jDVpNmqmuHnTnibIjsOiIx0qRkYCK6iBtlBkWz0pvj7YNIFqw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794992648;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=/ILw4EFux7bTkf5RNu3Ik+2UTxpkbYziGgraDHdKyo4=;
-	b=C6GXyioPCa1qq8jmosDq37gyRofZ/1TMDoYTzBBztStwUVrXzcX3CxV0Hzx4UZGlE8T9
-	 e0XKuKBJ6cIKVAug7KdSmDOYUe2L/R1+2efKjCyfma7h8i2+3VG1d/ooPIK4H73oYLuN+
-	 8518zDMqlt2FB1XlMZHNudoFUGNB3a3xcq6sChbbHVIV1hvSTs9Q7JVwmPbsl2iWvAWq+
-	 gj53wHKoA1JB49ZAKEg5l4jUCLLrGJ06bC66ujWps0mu60JxR+aOpKFX5A/I0p5VdChq4
-	 jwpXpwqYph8+cKqbtFB7EqZFv65R551A7bQgC8wtI6xPy8fjYBL3VkZJJ7wx+bIb//g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794992675;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
+	 X-Proofpoint-Reinject:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=Hs4znIYC2sMv00DW0RVgvQrNcl3o2x+Yd+uOO1tGCcs=;
+	b=CmLAADTUS2fwrYylm/TMZV6f5A+0HAoAaVa+0rQ+LdInsXiB7WU7wwVkdX+babRCCt4/
+	 5XqlB7fgcqOvBqLgpYdY8pVYZYaAwDyf8lsLk64n39455HffsbYqVR3TF7Sp2L2ejazdL
+	 qFQpHZ6aBFgsQSqLnEsTnQV47WNDKmTeG0scZltOaw5X7COqm8MUDUpfJ/FeVyOkocHar
+	 EkpiDk/X5uikfuei0ZCqwrqDHK2mKUfD+sikZFergoGeedMDjXBUfBF/gj7dNwHhg3nkF
+	 x+dzuZaR235MX1nWDegWQurrYai6P2XWt3YdHcfl13VbJGtk+uPtzK6wIx8Qe/pwt4A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GxLWD3N7;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=n5EQCCJ6;
+	arc=none smtp.remote-ip=148.163.156.1
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FB0F606A31C;
-	Wed, 18 Nov 2026 09:04:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21CE4606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:04:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 21CE4606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GxLWD3N7
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40C9E1F000CE;
-	Wed, 18 Nov 2026 09:03:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794992647;
-	bh=/ILw4EFux7bTkf5RNu3Ik+2UTxpkbYziGgraDHdKyo4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GxLWD3N73udbUDoNblg7Ifu79ktDf2tMPQZBPZqOeRhnEGWEZm7cUXVyjJ1dnGv5i
-	 l3BIwO3wcRqh/opIRo3nC8VYsRjIQHTV2Z4Wp8Fk3nsEgpEC9o77OtjcDP3eGFN7Fb
-	 n0MZW/am2GOXPaqhqQa+rFDYtnX3TblWDpKMk25PbbLNOINBG12hHwFhiI9ihwCobM
-	 VY5YhSvOPK+r9knEQz2YZCvaUHzkAa7KgIXsQ7UnIahtmy9PqzvnfJTtC767GGKR4j
-	 o18rv44b5AyfSff3CIXYD7OvaDKnLyI1Tg9wwp9KU2+/ayRnE1vvZxgnUG/oEapTsr
-	 jDapuh74AaHyA==
-Date: Wed, 18 Nov 2026 10:03:52 +0100
-From: "Oscar Salvador (SUSE)" <osalvador@kernel.org>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>,
-	Naoya Horiguchi <nao.horiguchi@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Mel Gorman <mgorman@suse.de>, Andy Whitcroft <apw@canonical.com>,
-	Miaohe Lin <linmiaohe@huawei.com>, Michal Hocko <mhocko@suse.com>,
-	Rik van Riel <riel@surriel.com>, Hugh Dickins <hughd@google.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Vivek Kasireddy <vivek.kasireddy@intel.com>,
-	Dave Airlie <airlied@redhat.com>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>, Peter Xu <peterx@redhat.com>,
-	Breno Leitao <leitao@debian.org>, Will Deacon <will@kernel.org>,
-	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
-	Nick Piggin <npiggin@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-	linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-	Gerd Hoffmann <kraxel@redhat.com>, linux-doc@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-s390@vger.kernel.org,
-	Josef Bacik <josef@toxicpanda.com>, stable@kernel.org,
-	Daehyeon Ko <4ncienth@gmail.com>
-Subject: Re: [PATCH v2 07/15] hugetlbfs: fix unmapping folios from private
- VMAs
-Message-ID: <av1p-MN1hMfZDuBL@localhost.localdomain>
-References: <20261116-fixes_hugetlb-v2-0-4dd9e94ea9ac@kernel.org>
- <20261116-fixes_hugetlb-v2-7-4dd9e94ea9ac@kernel.org>
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=n5EQCCJ6
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI2S2aw4063444;
+	Wed, 18 Nov 2026 09:04:30 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=Hs4znI
+	YC2sMv00DW0RVgvQrNcl3o2x+Yd+uOO1tGCcs=; b=n5EQCCJ6gwOfqrx9mnKdfc
+	cviPSGF8fhxcobIRJ+p5TESJRTt1gcLNfWHg7FNhg8UENdvzrh1iKzP9FaEWMuct
+	fNCUJ87mutV9Bn6mwyBTZWbmtzStSUguwpmZRPImrPBFZOtdgzOb0la1cfafrXth
+	ZyUGU1JeAWroC/hv0TPrZUfzgBAW6XNaLct/3eQKVY0PCigeuXoYV5JY68jK+fY+
+	NRTtUFpl2Q2i5gH0XWJcy5Ov9ah96jTVcHA6VmYorbZwsRdKDS4PnUtSZ6WazqOG
+	jaz2SGRt1I3UFklf9g7ik3FZkCHgC+PAldNTdUjlAh9znqFWB7LelqPLC5C9pTbg
+	==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105t1p21-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 18 Nov 2026 09:04:29 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI8SCnE274263;
+	Wed, 18 Nov 2026 09:04:29 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j067nf7hx-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 18 Nov 2026 09:04:28 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AI94RQ656492482
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 18 Nov 2026 09:04:27 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 349F22004E;
+	Wed, 18 Nov 2026 09:04:27 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A606220043;
+	Wed, 18 Nov 2026 09:04:25 +0000 (GMT)
+Received: from [9.39.20.135] (unknown [9.39.20.135])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 18 Nov 2026 09:04:25 +0000 (GMT)
+Message-ID: <c40ca6b2-a620-46ee-89e2-84a6a5313776@linux.ibm.com>
+Date: Wed, 18 Nov 2026 14:34:24 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,37 +86,100 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261116-fixes_hugetlb-v2-7-4dd9e94ea9ac@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] virt/steal_governor: Remove redundant delay filed
+To: Fushuai Wang <fushuai.wang@linux.dev>, yury.norov@gmail.com
+Cc: wangfushuai@baidu.com, linux-kernel@vger.kernel.org
+References: <20261118072722.1052-1-fushuai.wang@linux.dev>
+From: Shrikanth Hegde <sshegde@linux.ibm.com>
+Content-Language: en-US
+In-Reply-To: <20261118072722.1052-1-fushuai.wang@linux.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=IouL47/g c=1 sm=1 tr=0 ts=6afd6a1e cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VwQbUJbxAAAA:8
+ a=zuLzuavZAAAA:8 a=y7H06g3HElaTuPd7UWQA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: BdscqQRepzAaUb_sGh0NW0oLp0De0yUd
+X-Proofpoint-GUID: 1Se7RYf0qtaXBaiKU6QCoAjJk7wKva8G
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAzNSBTYWx0ZWRfX8EPGYuV4jIks
+ k+FRHNBPgXgl8dq7q3T1/JZUQHnQskOHHtUEAT0ev0LhacOYfnZlbcqw0+y56aHhlxqP44F/FiQ
+ h4ryy6y30o9RmPgzGPatYH8q4QoarOeR64cCa9f9fb1iABFcA69HNn3+DTaay5fc+42fbjfFF4q
+ U4T77eX4QU4E/fS3lwvQEL0RP8Ik+EYfBcVbe/+8wYb7DQKU+l3ilqp4HIQBjyAsgUtpDfhGMld
+ upK9RUlUJ95kDb3FNMoBQbqyLoQJ8mJAad14XZNeVhl+R8Vsee8z6qgJBl4yO+emM4Cf2bpZpfl
+ du59yLYZMblZzKUcXeVcJt5cb7nDNdKiCM0/nv2UpVP1gmfCTIrH15JPXNkEKr2SJpdCo4iE+dz
+ Hm3DtdEneu/tkLoZdVDr84lfSCMRNdMa2tl5AgIT8gYwxhZXGZXY7UhnkAbTDaNuOzdA8BTDLkP
+ 1+xhs8RTOV+D9FaKDBg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAzNSBTYWx0ZWRfX85NGUqgkYp0z
+ xKt4Oquuixi2x/TlFgDPBmCI8jfEECyKU2bVPNoaUhlwtAcwKL7ykdz+tiLCk2gcyWMOwLmuaN6
+ o8nCRODrwLEHJJmAWvTtQh1FiRuTjAc=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-18_01,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 spamscore=0 adultscore=0 priorityscore=1501
+ lowpriorityscore=0 suspectscore=0 phishscore=0 clxscore=1015 malwarescore=0
+ bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611180035
 
-On Mon, Nov 16, 2026 at 07:29:28PM +0100, David Hildenbrand (Arm) wrote:
-> From: Josef Bacik <josef@toxicpanda.com>
-> 
-> hugetlb_unmap_file_folio() assumes vm_private_data points to a struct
-> hugetlb_vma_lock when hugetlb_vma_trylock_write() fails. Since hugetlb VMA
-> locking was extended to private VMAs, this can also happen when
-> vm_private_data contains a resv_map pointer; treating it as a
-> hugetlb_vma_lock corrupts memory and can cause crashes or hangs.
-> 
-> Only take the VMA lock when a shareable lock exists, as additional locking
-> is only needed for PMD table sharing. The fault mutex and i_mmap_rwsem
-> already provide the required protection for private VMAs.
-> 
-> Fix generated by an LLM and sent by Josef Bacik in private.
-> 
-> Fixes: bf4916922c60 ("hugetlbfs: extend hugetlb_vma_lock to private VMAs")
-> Cc: stable@kernel.org
-> Tested-by: Daehyeon Ko <4ncienth@gmail.com>
-> Signed-off-by: Josef Bacik <josef@toxicpanda.com>
-> [ david: simplify description and comment ]
-> Acked-by: Muchun Song <muchun.song@linux.dev>
-> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+Hi.
 
-Acked-by: Oscar Salvador (SUSE) <osalvador@kernel.org>
+On 11/18/26 12:57 PM, Fushuai Wang wrote:
+> From: Fushuai Wang <wangfushuai@baidu.com>
+> 
+> The 'delay' member in struct steal_governor is just a cache for
+> msecs_to_jiffies(interval_ms). The duplicate state is confusing
+> and adds no value. Use msecs_to_jiffies() directly at the schedule
+> site and remove the 'delay' field.
+> 
 
- 
+I guess you haven't seen the below change which is in tip tree.
+https://lore.kernel.org/all/179421651800.2093942.14148413791803216183.tip-bot2@tip-bot2/
 
--- 
-Oscar Salvador
-SUSE Labs
+With that, we don't need the below change, since there is no more redundant field.
+
+
+> Signed-off-by: Fushuai Wang <wangfushuai@baidu.com>
+> ---
+>   drivers/virt/steal_governor.c | 6 ++----
+>   1 file changed, 2 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/virt/steal_governor.c b/drivers/virt/steal_governor.c
+> index 6e31f9923dea..8af6c02c7e77 100644
+> --- a/drivers/virt/steal_governor.c
+> +++ b/drivers/virt/steal_governor.c
+> @@ -38,7 +38,6 @@
+>   struct steal_governor {
+>   	ktime_t			time;
+>   	u64			steal;
+> -	unsigned long		delay;
+>   	unsigned int		interval_ms;
+>   	unsigned int		high_threshold;
+>   	unsigned int		low_threshold;
+> @@ -252,7 +251,7 @@ static void steal_governor_loop(struct work_struct *work)
+>   	}
+>   
+>   requeue_work:
+> -	schedule_delayed_work(&sg_ctx.work, sg_ctx.delay);
+> +	schedule_delayed_work(&sg_ctx.work, msecs_to_jiffies(sg_ctx.interval_ms));
+>   }
+>   
+>   static int __init steal_governor_init(void)
+> @@ -270,11 +269,10 @@ static int __init steal_governor_init(void)
+>   		return -EINVAL;
+>   	}
+>   
+> -	sg_ctx.delay = msecs_to_jiffies(sg_ctx.interval_ms);
+>   	INIT_DELAYED_WORK(&sg_ctx.work, steal_governor_loop);
+>   	sg_ctx.steal = get_system_steal_time();
+>   	sg_ctx.time = ktime_get();
+> -	schedule_delayed_work(&sg_ctx.work, sg_ctx.delay);
+> +	schedule_delayed_work(&sg_ctx.work, msecs_to_jiffies(sg_ctx.interval_ms));
+>   	pr_info("enabled. interval: %ums, high_threshold: %u, low_threshold: %u\n",
+>   		sg_ctx.interval_ms, sg_ctx.high_threshold, sg_ctx.low_threshold);
+>   
+
