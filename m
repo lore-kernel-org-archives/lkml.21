@@ -1,102 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.182
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795035349;
-	b=GO4c2LpERKdzrvaSGUdTyoTogVG6ZOOMvKNxXWQjhDzxOHRwyz5B3ltM5aeutxCue3tl
-	 4BAgtHDxuSiBXPVXYH0bBYTCt7Q1LQHlb2JL0g9w7We/2OMRUqr4ej1oJe38Gv6eZTGmK
-	 8tXz+DevpS3yHqvq/afb2xmiqxMz9hScJ4E17ZwuZ6LETpaLICkBlV/1qgb0m33k4xyEG
-	 nlFgBOgrPiNzXRKj50br5jMr6k9ZNsw//X9A8HILZtU7o7tfF+dgzoYk830DpeD1ipS6d
-	 XnCs++UUldICH8QTEmxFvx1NoqZjAE0vWdVuxikvwFs0nvD8I5nCBMrNjBXPmjn8ZIA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795035349;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=9QJl621iF3UbAv+4qSrysOcC68FhiDlj4uSYelJCLVw=;
-	b=WKjwn6F798Drf5EjM6sJkO2889NUjGY2Mh/DlthtBzE7BGWjkPc/cz81l18VQG6TkqpO
-	 hN0XHS5eMKm/+zuBNrqOE2O+BYPe76sllIfCiuLCNVFHvQIGD2GNPCiv81oBi3+rBYUzN
-	 azr0aqtt02xo63RHV3ulgbtxQ6flknL4OChx9j93uhDyZEPjEkspmQ/VYAPfW8huE9LCe
-	 m8a/SgeiMlGzgLsXTOao1r/dASeaJ84aw6dzZpcv7t4EFoXoX98omU3fvEbsQH4ENZuet
-	 MDyhKvdl5ERpAHZIAtgCCym4A33pTeEbfKpARq5ZkUvpl5Dk8jLQjOiiRtA+ENEME0g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pMvG3eK2;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.182
-Received: from mail-qt1-f182.google.com (mail-qt1-f182.google.com [209.85.160.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.12
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795035384;
+	b=GN522hLl9P3fodBPAj7ug4YBbKc09Z1q4vtohvM602xi12ocV8EuyQSGMyoTC2nozqad
+	 FBsJYbjroUkw+dswuwforZCNeAs23NC6hHbRL6Qk1pD8eQ2SqVdobCl3SHfsr8WAm0Lny
+	 O41WpO3thov//BbQ+n0B5RFoAGxPd1gQDW1Uaoy/Htcqa/NrqILkdTRVwDU6WaHA//HTv
+	 FTqLng03A7FC4CzNAGHxmbeeP+TybN+mv+MLrUi9LsALkJ0MxRIf2kEi1sTIeXx3WNmJy
+	 ydzLrwX8GQ77jd6yUMvZBXaokynwmAGWPPORnGYvbB35Ff0D+ZqAmtb9qjLXgybZXrw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795035384;
+	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Stat-Signature:X-Spam-Status:
+	 X-Rspamd-Server:X-Rspamd-Queue-Id:X-Session-Marker:X-Session-ID:
+	 DKIM-Signature:X-HE-Tag:X-HE-Meta;
+	bh=/w5gM9JlgSieIjqZ52kZRMIYLrdxxdSRHqJypDDCvPg=;
+	b=SHqhX97Wajtti3znm5Etqlcd1MIFmUkI15YpePTKTCh214LLhc75OB3+kyCtPP8dAo7h
+	 BENsX5/HDXQJAk/TOc9l5CisYv/kfdK8esIZPUwcByLhJIVVhEyLHkHWDuAtTrHxGsrR3
+	 YnGyj4hZtPfmPGdyj6BYWRSkOXuPxW0u7gNWl4jfMjHqOGeaX3anmbwyiUM8ol+qJHZY7
+	 kuXjn1XF3tHmQkygdp4ejn93XMcO6wANyLFJO246+3VD6kO6Ye3rTgW4BbbSv0fhZq4+E
+	 pQ9s9wxwLCG5lqllUDLnQ3ElEB6qsMTqG04iTQ0+uAJbgC8hWio7EIp1yPjTMHJ5s0Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=goodmis.org;
+	spf=pass smtp.mailfrom=goodmis.org;
+	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=xzENGHEz;
+	arc=none smtp.remote-ip=216.40.44.12
+Received: from relay.hostedemail.com (smtprelay0012.hostedemail.com [216.40.44.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20AF6606A32C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:55:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 20AF6606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 526F4606A31C;
+	Wed, 18 Nov 2026 20:56:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 526F4606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pMvG3eK2
-Received: by mail-qt1-f182.google.com with SMTP id d75a77b69052e-5366ae57896so13480921cf.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:55:48 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795035348; cv=none;
-        d=google.com; s=arc-20260327;
-        b=GtwKJvExk4xHhGN/ftlzLL+qpG2S4Vf/bZ54sywVZucD7y2kO9v/gTiVAoA7U/kPYW
-         vyTApuvAjuer7r/fEWu2cTg59BQcfKBjn3ERvZ1FVP7G5W7fDZUrJz0oQMLnVUOKDyty
-         2fhTDbAQKqW8Ccyl7OxdQYZEhdry69lBICfjVnmOX60XRW+Zbh9L+O73cgkfBqs9x3E6
-         VD5rDXTw36fx07CRqa3fmk6nE6Bts3q3UZLqLH817kCWKJkArI6YyohdRfY8ngUUbto5
-         jteUYNJDwH6MPDqql1tZ40KBEP374sj9AAEZKKw6bvXQPeygbjmvjO74Lj1hkR1RF/Ou
-         uUUA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=9QJl621iF3UbAv+4qSrysOcC68FhiDlj4uSYelJCLVw=;
-        fh=1usRH8oxMEIxWjnaz3zUJ1RlPnkpwlywfnyw5CH32m4=;
-        b=RANKsZT5Vo5Pek7JD4BXTNKLvcTk1NUmM+S6kqu2EwUm7F4aebeWkMWSONMjx2NlT6
-         EDDf6/PSC7jJwkfYC8QsubYiMLeA2RZS+u8tpXS7HwFYxgQwEv1y6InMyxE05dxufJAZ
-         qvccjfbbwSMcpcxrGua+wgGPcOzEmpATwjmht0E5p6UtIrNhoDzXeb4o7HnwF/Fm1X/H
-         kdBiv/9qtWWL9frryoGpc2ZR9emSGtjGbaGaVHF3zlVFTdJQm+qZsg1A+h1iMzWZacTg
-         Ab42q4izWgzklrjHQUwDvQX9bWfUd19nH/v99P5jytqMOYGH24eE+p2kUdj+7gDxhU+s
-         fDcQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795035348; x=1795640148; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=9QJl621iF3UbAv+4qSrysOcC68FhiDlj4uSYelJCLVw=;
-        b=pMvG3eK2aogC2094P8BxtFGVGw293e8DdAnCtmwV4/ccDI7oFw8bf27i1rafYOyEyH
-         UScSXoO37zMScoqsh8SFOSaoOg7T1R8UkmY4dEDC86Z9RHndvxy/MNb2aZjmHC2JgHVg
-         DJ2r2u/dbJmzln7n/h0b1p8ybAPbVEuiFCZO7MCfjOszY7+LzzVpOdR0WQUtG9g7t89d
-         JfFgn988ZtXxMY7AtF0SdLN5VmjKT5KEJX+qxBFUWSWmwZvebrWFMctLbr7K8E5iqWJM
-         i9YkA3Ix1P7fExqfh3TpsLAQ0QGONZqKAWlyWx4X5spRwqwaFV1J8NG1x1voh2Qaj1dU
-         /URQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795035348; x=1795640148;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9QJl621iF3UbAv+4qSrysOcC68FhiDlj4uSYelJCLVw=;
-        b=CkZfg69rG22eD9jh05opRxPf46depd21VxrDKYdoiUJpPn6VYzd3IqQo/Re1zOuhEe
-         GKRWmg9BrDUgo3FiTkHi4ESpjbKcXP94RncUjSlE3rOTjStd52uZAEAcJ0qTJKyga30C
-         dv0w+drGEDq5Hb+akyRIJAY6vZBrSsT1rBajeXEF8smHl4PHE8strxxEvAP6ABdNvonZ
-         kDnQ22Y9SAt597xaXv1og+V7fvFJd+Ma059Js/WRRT28XQjKJ2QdEZGMVQ1p+D48uayU
-         w6H1ogZE/sKW86AyExJUi5iW+fhsJSbfYvQbVf6v6AwaSxuV9MB0cknAn1ZwXA2rcQKQ
-         9DPw==
-X-Forwarded-Encrypted: i=1; AL+hErGc68dxKn1o+rrGPDKcKLWjXmM5cDztZQNXCYmhBK8Vz6C7kuJitwniz9cMEd4z/fRmreg3lAvGFwbyIm8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+3jxfG5R8Ak5lZlGd5i61pcOIRIMCQY42wYhMkNrmCLMgeGZyF
-	9dM1fdCZhND1ohcxcNv6LqoJ0S+dBWKeOkq3UzP58rQmrIxT1889iLsn6+9hJEsgOmLa4jnuUDu
-	iOM/XKgw3iYDprsuHekBtcjUyXVbMRF0=
-X-Gm-Gg: AYBFou3EoaK1c5oJNZjiWFQbHu90iAX0Yfao1rRrzWXZ9/P35ANdh1+dZWH9fYZvXAn
-	FWpF8OLYsI9iL0wlbj45+YXq8r9Dnm2j8QPqlwimmoDwSCPq6iBq+FwZX2EIt7EyPETKVm2nhH9
-	XBlbV2UANO8fLDoJ8tSuvs2LZwF6DHci6D1GmODK8tNA5AmDGRfFdRTN7u66r1ZwzgLvsbr2UZP
-	qT1CPCFkdh44OOT1EDtpQpFD0F8xpo9s8PX7wv7HBZ1V02tn8QMWY+71DO0FYFc/LcE069Dwejd
-	CvNY0HNHb7Mq6CgUfELT3fslRrvBOfHNvYAesHNOxARsIx9O8y/jsCjWkO0+OeNIEborB0JD2Ds
-	+B4C2ZAbVt9YtT7OQSGX7K84dlgFSAGzuKx41z65gCVk2WWdSb8Ay727FKHmmFTjGCFMXsPvOrP
-	nGG/AjFCuPizpBpOGcsuhPqzmfw/IGV/BG9HXHhZ3HMcX0uwO4S4nNc60QjbrPCmJw2BD8QWSev
-	M5Fb1p0x+9AbI+HOsxOoSoP
-X-Received: by 2002:a05:622a:40b:b0:55d:37d8:5037 with SMTP id
- d75a77b69052e-55d5a75b268mr57892941cf.77.1795035347887; Wed, 18 Nov 2026
- 12:55:47 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=xzENGHEz
+Received: from omf11.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay03.hostedemail.com (Postfix) with ESMTP id 06179A08C3;
+	Wed, 18 Nov 2026 20:56:21 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf11.hostedemail.com (Postfix) with ESMTPA id 4157E2002C;
+	Wed, 18 Nov 2026 20:56:20 +0000 (UTC)
+Date: Wed, 18 Nov 2026 15:56:19 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Yifan Feng <evanfengff@gmail.com>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland
+ <mark.rutland@arm.com>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ftrace: Do not WARN on a function probe glob that
+ starts with '!'
+Message-ID: <20261118155619.4d465f3c@gandalf.local.home>
+In-Reply-To: <20261118032637.80038-1-evanfengff@gmail.com>
+References: <20261118032637.80038-1-evanfengff@gmail.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,37 +61,60 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261115140631.70601-1-ic.gabrielribeiro@gmail.com>
-In-Reply-To: <20261115140631.70601-1-ic.gabrielribeiro@gmail.com>
-From: Daniel Pereira <danielmaraboo@gmail.com>
-Date: Wed, 18 Nov 2026 17:55:37 -0300
-X-Gm-Features: Aa3M54rVivx-ML4dxqs1VpuRKkdym9eRYRSCdvf3byQfdD2fvFb5_szmJ4VAN5U
-Message-ID: <CAMAsx6ftHy7DPPcDXXCaOsEFA-xyGtgLD079PmzJst7c+-YvCg@mail.gmail.com>
-Subject: Re: [PATCH v2] docs: translations: pt_BR: add researcher guidelines
-To: Gabriel Ribeiro <ic.gabrielribeiro@gmail.com>
-Cc: linux-doc@vger.kernel.org, corbet@lwn.net, skhan@linuxfoundation.org, 
-	rdunlap@infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Stat-Signature: t3obshratx3dt7edp8q6odctuzomtmtp
+X-Rspamd-Server: rspamout08
+X-Rspamd-Queue-Id: 4157E2002C
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1/G/b9WkT65oSjyk5g56uOSRgjldkM2Ep4=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=/w5gM9JlgSieIjqZ52kZRMIYLrdxxdSRHqJypDDCvPg=; b=xzENGHEzcRBTCyQMM3bxo+nGZ64M/ojZMxJOJVetXmdQkChnfgt7s/b44RrcSM+aDYWhGZkDPAkwHKRGC3hBId6vShCT1Ugxzp8ejWQqzEuQmSJZtZLvinY3TO09Amb2Z55HV0UCiD4gXPjMGpowYOurPbS4dLCU+S8rS42zNGk=
+X-HE-Tag: 1795035380-573014
+X-HE-Meta: U2FsdGVkX1/uFm17/g4Vz3c9gTo7yILL6XbPYwQocIHyEz1XnGo47Ch3gpWXN9VvIBMN6I6E8RdSUC3j02nDEMtC6P6iINw3BpuCH+v0TYsJXGMLwVz1jUp5Bo7WJeZ6musfi5jBP3Eyt0HecO3RQ1aNY9yH0qPX2qsLCRv/rKMDxX+mJ6JPa4gAzCdLjQt99s2VRFeLLOFqcD6teTRUIlhwaBSZSNpzqs+d2KNVVBLykRqg3F+xyVa3Bm3YZX/kfdW4RkfB3QoaOPvn+o4ooE2Q6wF9gKfQye8c7SaRW+xnB5pXcYjj9AyWwbHN07XG9kiW9JOv8vQ544aRQGJnxzaWu8kYF2QXbMobfsSVV07rLb+AnjpNPw==
 
-Em dom., 15 de nov. de 2026 =C3=A0s 11:07, Gabriel Ribeiro
-<ic.gabrielribeiro@gmail.com> escreveu:
->
-> Translate the kernel researcher guidelines into Brazilian Portuguese and
-> link the page from the pt_BR process index.
->
-> Signed-off-by: Gabriel Ribeiro <ic.gabrielribeiro@gmail.com>
+On Tue, 17 Nov 2026 19:26:37 -0800
+Yifan Feng <evanfengff@gmail.com> wrote:
+
+> Removing a function probe with a second '!' in front of the glob
+> triggers a WARN_ON() in unregister_ftrace_function_probe_func():
+> 
+>   # echo '!!vfs_read:traceoff' >> set_ftrace_filter
+>   WARNING: kernel/trace/ftrace.c:5675 at unregister_ftrace_function_probe_func+0x662/0x870
+> 
+> The callback strips the first '!' and filter_parse_regex() then reports
+> the second one as a negated glob. This is plain bad input from user
+> space, so return -EINVAL without the warning.
+
+I still want the warning because that should never happen.
+
+The real fix is to make "!!" return -EINVAL immediately.
+
+-- Steve
+
+
+> 
+> Fixes: 23b4ff3aa479 ("ftrace: add traceon traceoff commands to enable/disable the buffers")
+> Signed-off-by: Yifan Feng <evanfengff@gmail.com>
 > ---
-> Changes in v2:
-> - Preserve the existing toctree indentation when adding the new entry.
->
-Hi Gabriel,
+> Tested on v7.4-rc3 in QEMU: WARNING and taint before, -EINVAL only after.
+> Found and written with the help of an AI coding assistant.
+> 
+>  kernel/trace/ftrace.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
+> index c7d74b33d36d..04ea82a18601 100644
+> --- a/kernel/trace/ftrace.c
+> +++ b/kernel/trace/ftrace.c
+> @@ -5672,7 +5672,7 @@ unregister_ftrace_function_probe_func(char *glob, struct trace_array *tr,
+>  		func_g.len = strlen(func_g.search);
+>  
+>  		/* we do not support '!' for function probes */
+> -		if (WARN_ON(not))
+> +		if (not)
+>  			return -EINVAL;
+>  	}
+>  
+> 
+> base-commit: 7ccb044c27720d48175577080b851f047ddcfd1c
 
-Thanks for the translation. I compared it with the original and I'm happy
-with it as is.
-
-I'm working on a separate series to keep only the plain filenames in the
-pt_BR process index toctree. That doesn't need to block this patch, and we
-can standardize it in your next contributions.
-
-Reviewed-by: Daniel Pereira <danielmaraboo@gmail.com>
