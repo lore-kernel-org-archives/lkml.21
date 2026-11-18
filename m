@@ -1,95 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795039663;
-	b=YEFYYhevlN9K86RZ6inD+Y7zioZqbyeTfuN6RQz9TqLtkSn/ISIpV0W+YUHrEypTzf1v
-	 /apjkIxvXuS/wRIef7xjkpbr0tbR1P0kPjgVCsZ5U8eJAJeiLXwniefUkWSxP39JLts2n
-	 5qVjaOm2vdknnU4e/9f2ZUZSpnmW6HT2AAoTg2LHqTv1w+tQE4SfPOI9+vf9yxp0dT/Yo
-	 dOse/4uWSbyjUWALiy9buBsOpvGiIJmbauO+zfpoLWHmT/8JUdmNnd+KBOrnL1iDILOBh
-	 0pvHrLCM5zteV5g6IJpj2GLUVjWKH10ThuCaYrUpHkOppqcRvXxPi4DD2MhZhOeqeCg==
+	t=1795039664;
+	b=T4e1o+i89OSaZswt6RKyuhCkkzWp3W0ZOdxzIf8E+pUXZ15ya8Io9qdqOMiuUQWco88M
+	 N6yxHWgSrEaYi6JXrufeiF9GQE9l4bI2oL7WwPZzWG57OKrVdvXZ4LWjN9YAq5mEszBLI
+	 Mwqux/jqx4ATMOs90sKDA/uDVT6v/hEpcu0UzdXT/9WzzdJqVChLbMY3VzqS2nCE/Oc3w
+	 VZdDWdCn0g0AWQz6K8nZHf8sKEoRST++7Y/TccNXVkNLJGe/Z43TCK1pSCsA6Th7bwb6P
+	 7y/vN8/X8eoDrlBTiGLpLgg1qHo7R/XE9+n2diV8Q6O7DvKxn4xnthUE/GoeBT8v/0w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795039663;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795039664;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=mGGAH9zwZqlB4RSR5d8imk8M2AT/E+I9ZFv5C+97Tg4=;
-	b=uFVVOy9L8NdO6MxujiuZGPe/pPfYuOl9ywSa5xuLpybjPorJVWlX+il/Zw6PZ8YuHKji
-	 F5gc/8U4v6ymmnx/zVGiLSAFWdLhFq0ocAWJs3ER0YMsOaum2ICJUhNjzlEMYVfw10jfl
-	 twd+VypTqL3m8mrepbdYJl9m5yHfrx3XHGTbDsv+fYU5uPVDL85/w9fmMdKiaPrYfsSI2
-	 goJH70+qedM54cAWbUlSRV9zCb8GIBDErQ6ZdoNQMCpdw3orCh0h6YtkKnnPZudBLqnIq
-	 zzmyQvaVUINR8iVfWeh9UTMShb0jKwsqQuqEuLWKuXa7z9Jle8r55n26YRXyi6D6f7A==
+	bh=8aEHZB7EqKIg6JAblchur0wLhe4h5mRiTbmkDXl4jHo=;
+	b=ZQuBeib2GwTQhwkBn0kM7TQuI9aZ1edw4xaaK33/AkyLc/sJ5aPYx0oPwViqcgNzovhV
+	 NHEXQcPYdb9rp9y+RqAA7UsV0qyt3c+FFfA0t45hspVCB+4sNYfM9vBRIPiI434/FUPkN
+	 fw/Sx6AS3deIqsZraQp5NsUEAZYck+a1d0xU9kVFsxuDBM9kiXs+y47K1FvC9+rhoMpzb
+	 jM+lyLpco29EPCC9mKLLgTXWmU6H6C4/ChkJhh8+298Kf2jf8v3b0uFdQSSltyR22kwxq
+	 51adRLneuQMR/0iaVthoM/Eo7eoqMz8YvSh8u9aBvrOrbH7IjSFb1Ukq/FoEkTXyWTw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FoX7dFU3;
-	arc=none smtp.remote-ip=209.85.221.48
-Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=caKU6pmP;
+	arc=none smtp.remote-ip=209.85.221.54
+Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85521606A33B
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:07:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85521606A33B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB47760A2611
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:07:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB47760A2611
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FoX7dFU3
-Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-4a42b34e930so1257822f8f.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:07:42 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=caKU6pmP
+Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-48e3b22e971so901537f8f.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:07:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795039661; x=1795644461; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795039662; x=1795644462; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=mGGAH9zwZqlB4RSR5d8imk8M2AT/E+I9ZFv5C+97Tg4=;
-        b=FoX7dFU385w67J1ryrceOj3KbgzdpkBdi6EtKp1JZT2snD+6G2ckyl76WgIkgFNUGM
-         e2m6Ov41KgSqCwYGCxUY9K3CNvx+vIa/b8aDUC5MtzvNG80MLYK2IAHvCUzQgCmf6/D1
-         cfSTwqX5+uJhddEUAb9pJmJzZVFINv+xbwh4dWup9bJ+2YOAYHZmnBuIszpbV06JbJfw
-         WR3Ud4UJPUtS1rii8OsK4xSxhn1nOalf8ROIYJ+F1pmKXafqmtUCp81HJzhit6ywLX3y
-         X7bjTAdbSSji1kI4qgkjKbxT+/krlRscab2hRBpKjaVsbP+0bhVIhluFvwpfrx3q5OuD
-         /gvQ==
+        bh=8aEHZB7EqKIg6JAblchur0wLhe4h5mRiTbmkDXl4jHo=;
+        b=caKU6pmPXY5fhKk39Jp5MQNPtcDmypoXOlEKwE4dYEuo5oO1RlOvTjsJdmeyCs8ks5
+         Ce6vH1NmhW2q+8fW1yTtP5fzz4xH9jfsLa5RwKqxfccmOgbtoAVDxdtsUr41/mKa+8C8
+         ZWhqSp0QxG/RD3FqM61GwGWH46ztEd8KLLEh1XIfVX4IYzJ6gvHKI25o5fdu2akal/b2
+         VXPMHMHvCI5AjFEmg4bCz+EmXf8ES0iy2XzmVYKGvIjxIKliDTGXeQLn3PczkNxxwTsT
+         X9DKQSvTBrLczGhFYb8szVPY7W9zFnulLS8/ZZ78GZWBAup2rdNNOpHuWbgr8CrTFKUG
+         uWZg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795039661; x=1795644461;
+        d=1e100.net; s=20260707; t=1795039662; x=1795644462;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=mGGAH9zwZqlB4RSR5d8imk8M2AT/E+I9ZFv5C+97Tg4=;
-        b=n9bl0VEYUbDciu9t6841QpJKYYohvKyNY4f7RijWI+/XnN/FS/ncvhnMILaUoa1NCI
-         ov7NwdyYPcTbtO6zyaSYiEzkTJ0k41dMX9b3Q86ZZrJ2xBAoWujqjU6YLR7i0leBGngQ
-         v6FVLaaJw+2rJV0x4OLMcn+bktL1302d+s174iydjeRJKVJhvpQFRwrtVS6qJBYZbma2
-         xklNA4t45Stjdu856zWzPcXMn/r5nMRxIxP7nUVW4tD0RpM6qyysr/omi3T6oHoUF74K
-         z0HwbG2Gfq//OlqywuV/NMUFpAfIdLokBJgh2WfwL4N+qxr1qxctY8piAQSpbMSeSV6/
-         RZ9g==
-X-Forwarded-Encrypted: i=1; AL+hErE/Iu/x4XHzOajYM6sg6Y5WlYjM4k0XTeY+jNcTrdKgjLavmHjb5LWcwJsnGRnS/sajOYF0z5G770SKc/k=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+HNTWa2KWp4uU+32njDKg4p8vg0gizkTvoa4g2VNaee/UlVrou
-	DedSRWB/s0le0zP5ngtZIeMvja2FNuUPGUHNS14GKzJyBFlyQ/KYQG2j
-X-Gm-Gg: AZFdTZent+MZCu0dQ5NE0/6N9zNRJTbTXk/2jleeu/uB32aKylCzWAY7wF2MdflyhNR
-	f/0707QAk7KVmM87B8Mtbh+nSnk4aSFt8FkkO0RfFxmWJ9qLmAgGdawXAa82+vL9rj+ofpC4QBg
-	5H8Hn+ZL5ASJ4Az5UktGXcQIWWGzEv+UCCd8CWI2u1siXkchIL9XHQA4xDfg7j8HkHNJSREDrqJ
-	IWk+VFE3ETf+msLmxt8klStGgYroqVP2fW0Akqa3qP5pJDykObBcC8CisHrq6vnz2okXkn/mv6/
-	owysMVL3QMflXDuBltKTlQl1VBROX2kbXcu7CdFrHZUM/T1SzIvNGZdZ0gElQrq4SsMjhcuMcSE
-	2jrCAp3Abi/4gU3mJ/DMSd6XDaQm/s8oiPRZgtU4wJKYspwugMPRxPQYPAeGANmIo250pOMtGec
-	a2lrJl+UMFx0ZhHyqJ1FoRWluxMwsaBqTAknq+WnPoQhNrmP+zqkdUJ4LPRyui91vIv4XniahRL
-	Ld9t8y1NOJwus08RpCi6tG9cUoC45ETJqxwtlOWRLqAZ/FTPAP84RghRSWUHUc9/lMNDsbw29eM
-	Bz99izVGvZPjiJKkib6tHoSdyVvibVS6qGnqvdV2K2sv9y3C7RazK/JXp7yzsO3P5qx7gRb2+jf
-	ZsqevuTWOPlypWAqXWA==
-X-Received: by 2002:a05:6000:220f:b0:49f:800e:aefc with SMTP id ffacd0b85a97d-4a639475777mr9194709f8f.14.1795039660723;
-        Wed, 18 Nov 2026 14:07:40 -0800 (PST)
+        bh=8aEHZB7EqKIg6JAblchur0wLhe4h5mRiTbmkDXl4jHo=;
+        b=g/4aSP1JXuOVWEaLsfjicTOc3JBf4H4yClkOaaMUx2lL1fKwxrUix+SGR0PZuifrZ5
+         d7xVTWrDmntq/pFcJZCYVyEPPIB8GFY6dHZtN69rCo8sy31IJMWhUkFUSxeo+xPA7OZ0
+         m/Szv47OyiX3XlP8r3arxVrmYpB2WGiYyLkhiUkcnu7uVuDXRI23p8U0jsBdYfzoAzSu
+         U732IRX/jHwzopMc9QFpCb8+rmjYaRhZarMDN3y7A/1On0HdTbA86w3gk6YeALp9rQ5R
+         6S8hEY0h7WyDjfd3/K5oJ6L5gJWnPgeLjLP9o5qLu4XLGkHqx0MYAJSLMT0c83s0TGB7
+         NXeA==
+X-Forwarded-Encrypted: i=1; AL+hErGBUaoUk8W7PL9CsRR7jwVva2hg1eZTQLyH+DS31vwNc88DiDwGmH7xMG2nrrMoNKP+XjPg8lWdSoRmIjw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9bYTdHadUICoROpA7Ps1fBr2Dj9hHRBYxOKIzBKRzJc0e++ImF
+	7/Pp39B1r/cXz4ZqCgNST475LaBnawXluqzz43f5ZAXmuZBMCYS+uBPU
+X-Gm-Gg: AZFdTZdgDDCe56bC04ZlWPDLNP5eGdgcaQDy/dPG4/0xSzdG/0C1ZUyjQ+chXL3x7CR
+	HYFXO1abGnqmyYxHrPn551NrrssPV7+bQRaOxvWKB3Ze2IdYyVM4yuATTJ/NWRMBX9e6g+RW0kn
+	gsrrUaZCoZqRxdIUYuTBlO11abJegqh1RmJYM/npX/msqy1IPL3hbmto6WRgmetYh8cn1hCf0Zo
+	lfI9lhLO7i+kFis7Nw+1jRaRgV0frmFv4QIG6ip+pa+EY3DpLT65jOzF0YtBpfOUzCapjyo5IN/
+	3c0Ks/WTaVhExSPO3RiFc7gn3quQH/QXvRxKsimusS+yRZn7PB7JkZdBeeq+snuklCYZZQrmSDQ
+	tWrpXmQsz/JMnFnGsT8Wf97XsEc+cWVX4gxkm4J+tvpfT9hxjlcoCxDqbTkEn52c4OgtoP1TrWS
+	MfCAC0prZm9746+rrUekGUqt+5LaMYIu0EM0XGZ0ztOvF/geZeNWdqTpuRtwcnhXtUMByjEkWbN
+	eCpDAI4aWxrzPSVacO99fvrLWQsxAnalq2VF1iKdN4Da+xEx6GpAVIbniu+UnqV6Q/Ng5TZYJJq
+	r6t0wpnhAD0mWoq6bFGjPjy5NeMIsbkbth8FVE1QYZ1p42gKeMYctw2jlvEgneak/Ap4suRS
+X-Received: by 2002:a05:6000:2a88:b0:490:369b:f50e with SMTP id ffacd0b85a97d-4a63984c073mr7179459f8f.19.1795039662145;
+        Wed, 18 Nov 2026 14:07:42 -0800 (PST)
 Received: from Enricos-MacBook-Pro ([2a01:4b00:b82b:de00:c5e0:cc6:391:83e5])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65541f3f7sm7541073f8f.24.2026.11.18.14.07.40
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65541f3f7sm7541073f8f.24.2026.11.18.14.07.41
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 18 Nov 2026 14:07:40 -0800 (PST)
+        Wed, 18 Nov 2026 14:07:41 -0800 (PST)
 From: Enrico Lorenzoni <enricolorenzoni59@gmail.com>
 To: linux-media@vger.kernel.org,
 	Yasunari Takiguchi <Yasunari.Takiguchi@sony.com>
 Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
 	Hans Verkuil <hverkuil@kernel.org>,
 	linux-kernel@vger.kernel.org,
-	Enrico Lorenzoni <enricolorenzoni59@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH 2/3] media: cxd2880-spi: keep the TS thread alive until kthread_stop()
-Date: Wed, 18 Nov 2026 22:07:31 +0000
-Message-ID: <20261118220732.29246-3-enricolorenzoni59@gmail.com>
+	Enrico Lorenzoni <enricolorenzoni59@gmail.com>
+Subject: [PATCH 3/3] media: cxd2880: lower routine tune and L1 messages to debug level
+Date: Wed, 18 Nov 2026 22:07:32 +0000
+Message-ID: <20261118220732.29246-4-enricolorenzoni59@gmail.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20261118220732.29246-1-enricolorenzoni59@gmail.com>
 References: <20261118220732.29246-1-enricolorenzoni59@gmail.com>
@@ -104,68 +102,101 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-cxd2880_ts_read() is started with kthread_run() when the first feed is
-started, and cxd2880_stop_feed() calls kthread_stop() on it when the last
-feed goes away. The thread, however, returns as soon as an SPI command
-fails, both for the initial TS buffer clear and for the buffer info read
-in the main loop.
+cxd2880_set_frontend() logs two lines at KERN_INFO on every tune:
 
-Returning from the thread function ends the task just as kthread_exit()
-does, and the task can be freed before cxd2880_stop_feed() runs; the
-kthread_stop() call then uses a task_struct that may no longer exist.
-The kthread_stop() documentation asks the caller to make sure the
-task_struct cannot go away if the thread may exit by itself, and this
-driver does not hold a reference to it.
+	cxd2880: cxd2880_set_frontend: sys:16 freq:...
+	cxd2880: cxd2880_set_frontend: tune result 0
 
-Keep the thread in its loop until kthread_should_stop() is true: report
-SPI errors with a rate-limited message, wait for the same 10 ms that the
-loop uses when no data is ready, and retry.
+and cxd2880_set_ber_per_period_t2() logs at KERN_INFO when the DVB-T2
+L1 signalling, the PLP information or the BB header cannot be read yet,
+which is the normal state before the demodulator has locked.
 
-A change with the same loop behaviour (plus extra locking and counters
-not included here) has been running in an out-of-tree build of this
-driver on Raspberry Pi systems with TV HATs for several weeks; a 60 s
-full-mux stream (19.5 Mbit/s) with concurrent register reads showed no
-continuity errors. I do not have a reproducer for the use-after-free
-itself, which needs an SPI error at the right time; this fix is from code
-inspection.
+A channel scan, or an application that retunes often (for example a
+media server rotating its tuners through the muxes), therefore fills the
+kernel log with routine messages. None of them reports a problem the
+user can act on.
+
+Print them with pr_debug() so they remain available through dynamic
+debug.
+
+The two set_frontend messages have been at debug level in an
+out-of-tree build of this driver on Raspberry Pi systems for several
+months.
 
 The change and this changelog were prepared with the help of an AI coding
 assistant (Anthropic Claude). I have reviewed them.
 
-Fixes: bd24fcddf6b8 ("media: cxd2880-spi: Add support for CXD2880 SPI interface")
-Cc: stable@vger.kernel.org
 Signed-off-by: Enrico Lorenzoni <enricolorenzoni59@gmail.com> 
 ---
- drivers/media/spi/cxd2880-spi.c | 9 ++++-----
- 1 file changed, 4 insertions(+), 5 deletions(-)
+ .../media/dvb-frontends/cxd2880/cxd2880_top.c    | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/media/spi/cxd2880-spi.c b/drivers/media/spi/cxd2880-spi.c
-index 36207940b..8e31771ac 100644
---- a/drivers/media/spi/cxd2880-spi.c
-+++ b/drivers/media/spi/cxd2880-spi.c
-@@ -278,18 +278,17 @@ static int cxd2880_ts_read(void *arg)
+diff --git a/drivers/media/dvb-frontends/cxd2880/cxd2880_top.c b/drivers/media/dvb-frontends/cxd2880/cxd2880_top.c
+index 4daebb7ff..ca101b51b 100644
+--- a/drivers/media/dvb-frontends/cxd2880/cxd2880_top.c
++++ b/drivers/media/dvb-frontends/cxd2880/cxd2880_top.c
+@@ -825,20 +825,20 @@ static int cxd2880_set_ber_per_period_t2(struct dvb_frontend *fe)
+ 
+ 	ret = cxd2880_tnrdmd_dvbt2_mon_l1_pre(&priv->tnrdmd, &l1pre);
+ 	if (ret) {
+-		pr_info("l1 pre error\n");
++		pr_debug("l1 pre error\n");
+ 		goto error_ber_setting;
  	}
  
- 	ret = cxd2880_spi_clear_ts_buffer(dvb_spi->spi);
--	if (ret) {
-+	if (ret)
- 		pr_err("set_clear_ts_buffer failed\n");
--		return ret;
--	}
+ 	ret = cxd2880_tnrdmd_dvbt2_mon_active_plp(&priv->tnrdmd,
+ 						  CXD2880_DVBT2_PLP_DATA, &plp);
+ 	if (ret) {
+-		pr_info("plp info error\n");
++		pr_debug("plp info error\n");
+ 		goto error_ber_setting;
+ 	}
  
- 	start = ktime_get();
- 	while (!kthread_should_stop()) {
- 		ret = cxd2880_spi_read_ts_buffer_info(dvb_spi->spi,
- 						      &info);
- 		if (ret) {
--			pr_err("spi_read_ts_buffer_info error\n");
--			return ret;
-+			pr_err_ratelimited("spi_read_ts_buffer_info error\n");
-+			usleep_range(10000, 11000);
-+			continue;
- 		}
+ 	ret = cxd2880_tnrdmd_dvbt2_mon_l1_post(&priv->tnrdmd, &l1post);
+ 	if (ret) {
+-		pr_info("l1 post error\n");
++		pr_debug("l1 post error\n");
+ 		goto error_ber_setting;
+ 	}
  
- 		if (info.pkt_num > MAX_TRANS_PKT) {
+@@ -906,7 +906,7 @@ static int cxd2880_set_ber_per_period_t2(struct dvb_frontend *fe)
+ 						CXD2880_DVBT2_PLP_DATA,
+ 						&bbheader);
+ 	if (ret) {
+-		pr_info("bb header error\n");
++		pr_debug("bb header error\n");
+ 		goto error_ucblock_setting;
+ 	}
+ 
+@@ -925,7 +925,7 @@ static int cxd2880_set_ber_per_period_t2(struct dvb_frontend *fe)
+ 			(pre_ber_rate * kbch_tbl[plp.fec][plp.plp_cr] + 748) /
+ 			1496;
+ 	} else {
+-		pr_info("plp mode is not Normal or HEM\n");
++		pr_debug("plp mode is not Normal or HEM\n");
+ 		goto error_ucblock_setting;
+ 	}
+ 
+@@ -1087,8 +1087,8 @@ static int cxd2880_set_frontend(struct dvb_frontend *fe)
+ 
+ 	priv->s = 0;
+ 
+-	pr_info("sys:%d freq:%d bw:%d\n",
+-		c->delivery_system, c->frequency, bw);
++	pr_debug("sys:%d freq:%d bw:%d\n",
++		 c->delivery_system, c->frequency, bw);
+ 	mutex_lock(priv->spi_mutex);
+ 	if (c->delivery_system == SYS_DVBT) {
+ 		priv->tnrdmd.sys = CXD2880_DTV_SYS_DVBT;
+@@ -1112,7 +1112,7 @@ static int cxd2880_set_frontend(struct dvb_frontend *fe)
+ 	}
+ 	mutex_unlock(priv->spi_mutex);
+ 
+-	pr_info("tune result %d\n", ret);
++	pr_debug("tune result %d\n", ret);
+ 
+ 	return ret;
+ }
 -- 
 2.47.3
 
