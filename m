@@ -1,60 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.157.23.187
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=34.202.193.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795020462;
-	b=SZkLIo9IcTHDr6r1Bea0U9eCAagSM7Oj82cg4ubDJUi6Whv/0IKeOtFQrNMW47SLGQIg
-	 Wq2X13BWuTrbzB2SvcMnhqWUmVa+095nPU8fShSn9C/RxqMXBle2/9kKQ6HKRvdqnGQMD
-	 j3hIOWg1xd7ofJPWzISHpMZ0f9oTKr6+1FicuRk43LCz5LqCWm8Rn+zUIFSVp0hk1zxDS
-	 M5kIME3qvrn6Cg7RIY5MTjcGQu97Cg6SR6DPiinCTfwqG1KNokP+gXGIojUn4yNGyxQBb
-	 2jZnWr0DWvQyKTwr6PE2WDZak5WH11ZYDT7qXszFNAXgRWUqpWF2+JLgORraGms36JA==
+	t=1795020503;
+	b=Oz24sM9EIPq9yBi+bSWasbaYBa9X3jCIluos4JnHbwiPnNeBP1zfQz0C8HPWaH/6faJr
+	 qbKmQ4LSUonafYSk3OqnlnP4stX6WE5nkWiPd/meH9x+0Qeq8bh82adAEybaCMnPIpqS3
+	 Ciwp188swEHwVLpJUpKA4m7e00K+er3f2BNZQQc8wGLojEjUGFLDVqp7212x7hJCMJhy4
+	 ap4bo83Nv+w6ClGNC/DmAQV4NBhqlRSIbXF7aiMwgVnKGSDMQPA6tVeY/sLMWjnX4NJ1X
+	 LHzE4WaHYyz9Lw8cRNaHH+l4Ym6TC5FtRuICmBxGebtCa4wGhEBWvwaLAfZqUS3WcPA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795020462;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:CC:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy;
-	bh=5cYW0TR9tV134qZctJYpMdsgw91sglysq8a2/DPv0JE=;
-	b=Lq8eidC5KTkGtxMPbaG15/SmtHY1qPVTCvt15FmWDAkG7lMEwnuc8ZumcpDAwG0ofopC
-	 DrXpTv1Aa+JkgDBER5mlo4YoG15pFGGZka5OAtb6lzyekJ233JcMbtlN7KUr27TuUw5iI
-	 xxtWbxMSrrhqIdHwtTiE/im8Qpcw26shsJlbeFaF/TUnNXf6JZUmFF1wVcYxpMoMP00Fd
-	 1g9a8535JbsOgDNeT0wq/iHqGDCGhvod6vqdGOUNI0SQoRNqVL55BouTFJNt23VLDXq56
-	 bpuTBQYtlBtvkK4MrRFFC1lsr/lIMM6FJjw8OQJ+3Vy19/5Cm2lN3tqZKZ5fockhSvg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795020503;
+	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:Feedback-ID:
+	 X-Pm-Original-To:Received:Message-ID:Subject:From:To:Cc:Date:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
+	 User-Agent:MIME-Version;
+	bh=3GFJvAq6nIGqoHQdnUueliZjnKVhW3Nxe+pY+OXTGGI=;
+	b=QZUEIk6TQxsh3hOCkH8CcxFHLYoeNzLIeyRtjSLMoCS+W20puwIyU1Wqbje3s4p7yntX
+	 5ZXacXOyuiy7tm7lZdHVcTbm9IsMtMm/m64DO+4PQiM33gc/jA1oe/zU/yXgfiS2m1J6t
+	 0wLLxxdxvdNJ+9VU+TJv59Hx2stvTg3tc1KlQj5Dp2ZSNc2X8MS17f3uAFMU+/yLLZiL7
+	 WrU1SppXLsnsCV9ZFdBh7G63ugIt0UCtlAEpKNLJ8rD/cxE49xMWaK2bA6e3Hw4LsoDOO
+	 P3636eYJbEBVQ5PHn79bYlaBWrFQRDi1eVDkwxdmethEgFSeqJgA3KJSHGhkHCYMllg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=paragon-software.com;
-	spf=pass smtp.mailfrom=paragon-software.com;
-	dkim=pass header.d=paragon-software.com header.i=@paragon-software.com header.a=rsa-sha256 header.s=mail header.b=dBS6KRKv;
-	arc=none smtp.remote-ip=35.157.23.187
-Received: from relayaws-01.paragon-software.com (relayaws-01.paragon-software.com [35.157.23.187])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=sverdlin.org;
+	spf=pass smtp.mailfrom=sverdlin.org;
+	dkim=pass header.d=sverdlin.org header.i=@sverdlin.org header.a=rsa-sha256 header.s=purelymail1 header.b=I8bCTST9;
+	dkim=pass header.d=purelymail.com header.i=@purelymail.com header.a=rsa-sha256 header.s=purelymail1 header.b=BbUox9wp;
+	arc=none smtp.remote-ip=34.202.193.197
+Received: from sendmail.purelymail.com (sendmail.purelymail.com [34.202.193.197])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6534C606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:47:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6534C606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=paragon-software.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=paragon-software.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E42B8606A330
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:48:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E42B8606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=sverdlin.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sverdlin.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=paragon-software.com header.i=@paragon-software.com header.a=rsa-sha256 header.s=mail header.b=dBS6KRKv
-Received: from relayfre-01.paragon-software.com (relayfre-01.paragon-software.com [176.12.100.13])
-	by relayaws-01.paragon-software.com (Postfix) with ESMTPS id 1AACE1D42;
-	Wed, 18 Nov 2026 16:48:23 +0000 (UTC)
-Authentication-Results: relayaws-01.paragon-software.com;
-	dkim=pass (1024-bit key; unprotected) header.d=paragon-software.com header.i=@paragon-software.com header.b=dBS6KRKv;
-	dkim-atps=neutral
-Received: from dlg2.mail.paragon-software.com (vdlg-exch-02.paragon-software.com [172.30.1.105])
-	by relayfre-01.paragon-software.com (Postfix) with ESMTPS id AE3DB217F;
-	Wed, 18 Nov 2026 16:47:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=paragon-software.com; s=mail; t=1795020459;
-	bh=5cYW0TR9tV134qZctJYpMdsgw91sglysq8a2/DPv0JE=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=dBS6KRKv+UmEpl9O3r6L6/3oFdBJzJWpmN4GIWomQtrXIVwAmq4z87hUlnooidyXh
-	 PlQZUixN+UBKBiSMgQ3sbfv47EeaYb7uwjtdJM18P68EF5xk7xPA0KcgAzQ7silQdh
-	 1qyRLDJEgJJ3Hwd4YUCZszXrPFOKcZMqGlOJn7FE=
-Received: from [192.168.95.128] (172.30.20.220) by
- vdlg-exch-02.paragon-software.com (172.30.1.105) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.7; Wed, 18 Nov 2026 19:47:38 +0300
-Message-ID: <82a1d7b1-5eb9-43c9-a432-5c4054de330e@paragon-software.com>
-Date: Wed, 18 Nov 2026 17:47:36 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=sverdlin.org header.i=@sverdlin.org header.a=rsa-sha256 header.s=purelymail1 header.b=I8bCTST9;
+	dkim=pass (2048-bit key, unprotected) header.d=purelymail.com header.i=@purelymail.com header.a=rsa-sha256 header.s=purelymail1 header.b=BbUox9wp
+DKIM-Signature: a=rsa-sha256; b=I8bCTST92F3zmyAYodaEjsSLXsM5S9DByOnz4Gcsgh3Mth9Or7p9q9h5a73lbc0P/CSv8FENk6Ghix8Ho1Zj07NlsXpAOHEKizvWamr6eFj93n8SSvlnfAUJhYqzMUSBXvq8aPLl1wWayDrm15QI6tlcqv2Quc692ivy3MpTixI9xBIsKyk8AqU5/kKYTZ+diiQdOphV41Cmk/d0BonYfQEYYKPogeMcD01Zwi2bvd9iYZHupZ5qZoUJYTOEewZygu6n7zmbkqZlbAPCZYhXQOlU3jV0RPPlCI4BmevIW381XxH0D2dx3DOpysMB6N9KffYOwovvK6iZZUe/7WtBzQ==; s=purelymail1; d=sverdlin.org; v=1; bh=3GFJvAq6nIGqoHQdnUueliZjnKVhW3Nxe+pY+OXTGGI=; h=Received:Message-ID:Subject:From:To:Date;
+DKIM-Signature: a=rsa-sha256; b=BbUox9wpp4bm6ak0OZWnsFHsYcTYBHOImytaHxkA863ZfZFKXa7cjN3TCpW7ubl65E3u+PkHsraVdGOyfgSiOf3x5Z1VoeEc+aoZ8zd8Zd/ub2Gj+xtJHRHXFu3u9f6eY4Md5wBYsy2z/4g44qHjBAEf63LqzsXmXxvaFkQet1bfWjOb994yZWVRHI1oNCSZgTNxk4pYm3BrNl78B+MhQe+0/btTe6AX9/vWIdQV7y+kbMbImJ2TiHQmMbxtC0EcHEnvLHJMCtW2drdNiti5vB46xcKOmXTclWR5Ju7loj0qmKZhj4ty8mIG6AVkyUH91OydufNPF0XO6hGe901gNA==; s=purelymail1; d=purelymail.com; v=1; bh=3GFJvAq6nIGqoHQdnUueliZjnKVhW3Nxe+pY+OXTGGI=; h=Feedback-ID:Received:Message-ID:Subject:From:To:Date;
+Feedback-ID: 815097:39668:null:purelymail
+X-Pm-Original-To: linux-kernel@vger.kernel.org
+Authentication-Results: purelymail.com; auth=pass
+Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id -527604635;
+          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+          Wed, 18 Nov 2026 16:47:54 +0000 (UTC)
+Message-ID: <18a78cddfc3c28c011bb5d0c566c2f307773b235.camel@sverdlin.org>
+Subject: Re: [PATCH v3 2/3] arm64: dts: allwinner: add A733 SoC description
+From: Alexander Sverdlin <alex@sverdlin.org>
+To: Enzo Adriano <enzo.adriano.code@gmail.com>, andre.przywara@arm.com, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, 
+	jernej.skrabec@gmail.com, samuel@sholland.org
+Cc: Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Junhui Liu <junhui.liu@pigmoral.tech>, Jerome
+ Brunet <jbrunet@baylibre.com>, Pablo Mazzini <pmazzini@gmail.com>, Vinicius
+ Pedrosa	 <vinicius.eduardo.pedrosa@gmail.com>, Jun Yan
+ <jerrysteve1101@gmail.com>,  Lukas Schmid <lukas.schmid@netcube.li>
+Date: Wed, 18 Nov 2026 17:47:49 +0100
+In-Reply-To: <7c0ee4e609db5979d2a6598f46f40896b4f47a57.1794227241.git.enzo.adriano.code@gmail.com>
+References: <cover.1794227241.git.enzo.adriano.code@gmail.com>
+	 <7c0ee4e609db5979d2a6598f46f40896b4f47a57.1794227241.git.enzo.adriano.code@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.62.1 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,185 +72,121 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ntfs3: fix INSERT_RANGE for resident data
-To: <shakevsky@berkeley.edu>
-CC: <linux-kernel@vger.kernel.org>, <ntfs3@lists.linux.dev>
-References: <20260830-ntfs3-submission-v1-v1-1-08f61d390cd2@berkeley.edu>
-Content-Language: en-US
-From: Konstantin Komarov <almaz.alexandrovich@paragon-software.com>
-In-Reply-To: <20260830-ntfs3-submission-v1-v1-1-08f61d390cd2@berkeley.edu>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: vobn-exch-01.paragon-software.com (172.30.72.13) To
- vdlg-exch-02.paragon-software.com (172.30.1.105)
 
-On 8/30/26 10:59, Alon Shakevsky via B4 Relay wrote:
+Hi Enzo,
 
-> From: Alon Shakevsky <shakevsky@berkeley.edu>
->
-> attr_insert_range() grows a resident data attribute before creating the
-> hole. It then moves data with:
->
->    memmove(data + bytes, data, bytes);
->
-> The move starts at offset zero and copies the insertion length. It should
-> start at vbo and copy the bytes between vbo and the old end of the value. A
-> valid insertion can therefore write past the MFT record allocation. KASAN
-> reports a slab out-of-bounds write in attr_insert_range().
->
-> attr_set_size() also sets i_size to the expanded size. The resident path
-> adds the insertion length again after the copy. If attr_set_size() converts
-> the value to nonresident storage, attr_insert_range() shifts the cluster
-> mapping using the expanded size and then adds the length again. Both paths
-> grow the file twice. The conversion path also leaves the original data at
-> its old offset.
->
-> An unprivileged user who can create files on a writable NTFS3 mount can
-> reach the resident path by marking a file sparse while it is empty, writing
-> resident data, and calling FALLOC_FL_INSERT_RANGE.
->
-> Before resizing a resident value, check whether the expanded value will fit
-> in its MFT record. If it fits, move the data from vbo, clear the new range,
-> and keep the size set by attr_set_size(). Otherwise, return
-> E_NTFS_NONRESIDENT so ntfs_fallocate() converts the original value before
-> retrying the insertion.
->
-> The new conversion path can fail while writing the cached data through its
-> new mapping. Update i_blocks and mark the inode dirty in
-> attr_force_nonresident() so the converted attribute does not leave stale
-> inode accounting.
->
-> Fixes: aa30eccb24e5 ("fs/ntfs3: Fallocate (FALLOC_FL_INSERT_RANGE) implementation")
-> Cc: stable@vger.kernel.org
-> Assisted-by: Antiproof:GPT-5.6-Sol
-> Signed-off-by: Alon Shakevsky <shakevsky@berkeley.edu>
+On Mon, 2026-11-09 at 23:45 -0500, Enzo Adriano wrote:
+> Provide the SoC description needed for the Cubie A7S console, PMIC and
+> microSD support. Describe the CPUs, PSCI, architectural timers, GIC,
+> RTC, main and always-on clock/reset and pin controllers. Include the
+> main and R-domain UART/I2C instances and MMC0-2 with their pin groups.
+>=20
+> The GIC maintenance PPI 9 and ARMv8.2 EL2 virtual-timer PPI 12 follow
+> the A733 User Manual v1.00, section 12.2.3. The GICD/GICR/ITS windows
+> and noncoherent attributes follow Andre Przywara's public A733
+> reference and the A523 precedent. The CPUX interconnect diagram in
+> section 5.1.2 supports noncoherency as an integration inference. The
+> ITS stays disabled pending its clock/reset and MSI integration.
+>=20
+> The enabled console, R-I2C0/PMIC and MMC0 paths were exercised on a
+> Cubie A7S with vendor firmware in the November 4 RAM boot of DT v2.
+> EL2 interrupt delivery and ITS/MSI were not tested.
+
+Shall parts of this go below "---" as history/changelog?
+
+> Link: https://gist.githubusercontent.com/apritzel/60fd7379b9560a15b8b3529=
+86b69d39f/raw/efd9cdf8f26ba5b0c7e138f093af44a1cf322469/sun60i-a733.dts
+> Signed-off-by: Enzo Adriano <enzo.adriano.code@gmail.com>
 > ---
->   fs/ntfs3/attrib.c | 42 ++++++++++++++++++++++++------------------
->   fs/ntfs3/file.c   | 17 +++++++++++++++++
->   2 files changed, 41 insertions(+), 18 deletions(-)
->
-> diff --git a/fs/ntfs3/attrib.c b/fs/ntfs3/attrib.c
-> index b1c315206ffa..a16e0c259ab1 100644
-> --- a/fs/ntfs3/attrib.c
-> +++ b/fs/ntfs3/attrib.c
-> @@ -2589,35 +2589,37 @@ int attr_insert_range(struct ntfs_inode *ni, u64 vbo, u64 bytes)
->          down_write(&ni->file.run_lock);
->
->          if (!attr_b->non_res) {
-> +               char *data;
-> +               u32 used = le32_to_cpu(mi_b->mrec->used);
-> +               u64 dsize;
+> =C2=A0.../arm64/boot/dts/allwinner/sun60i-a733.dtsi | 601 +++++++++++++++=
++++
+> =C2=A01 file changed, 601 insertions(+)
+> =C2=A0create mode 100644 arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi
+>=20
+> diff --git a/arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi b/arch/arm64/=
+boot/dts/allwinner/sun60i-a733.dtsi
+> new file mode 100644
+> index 000000000000..d0b9f432e3ab
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi
+> @@ -0,0 +1,601 @@
+> +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
 > +
-> +               dsize = ALIGN(data_size + bytes, 8) - ALIGN(data_size, 8);
-> +               if (used + dsize > sbi->max_bytes_per_attr) {
-> +                       err = E_NTFS_NONRESIDENT;
-> +                       goto out;
-> +               }
+> +#include <dt-bindings/clock/sun6i-rtc.h>
+> +#include <dt-bindings/clock/allwinner,sun60i-a733-ccu.h>
+> +#include <dt-bindings/clock/allwinner,sun60i-a733-r-ccu.h>
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +#include <dt-bindings/reset/allwinner,sun60i-a733-ccu.h>
+> +#include <dt-bindings/reset/allwinner,sun60i-a733-r-ccu.h>
 > +
->                  err = attr_set_size(ni, ATTR_DATA, ni->file.ads.name,
->                                      ni->file.ads.len, run, data_size + bytes,
->                                      NULL, false);
-> +               if (err)
-> +                       goto out;
->
->                  le_b = NULL;
->                  attr_b = ni_find_attr(ni, NULL, &le_b, ATTR_DATA,
->                                        ni->file.ads.name, ni->file.ads.len, NULL,
->                                        &mi_b);
-> -               if (!attr_b) {
-> +               if (!attr_b || attr_b->non_res) {
->                          err = -EINVAL;
->                          goto bad_inode;
->                  }
->
-> -               if (err)
-> -                       goto out;
-> -
-> -               if (!attr_b->non_res) {
-> -                       /* Still resident. */
-> -                       char *data = Add2Ptr(attr_b,
-> -                                            le16_to_cpu(attr_b->res.data_off));
-> -
-> -                       memmove(data + bytes, data, bytes);
-> -                       memset(data, 0, bytes);
-> -                       goto done;
-> -               }
-> -
-> -               /* Resident file becomes nonresident. */
-> -               data_size = le64_to_cpu(attr_b->nres.data_size);
-> -               alloc_size = le64_to_cpu(attr_b->nres.alloc_size);
-> +               data = resident_data(attr_b);
-> +               memmove(data + vbo + bytes, data + vbo, data_size - vbo);
-> +               memset(data + vbo, 0, bytes);
-> +               if (vbo <= ni->i_valid)
-> +                       ni->i_valid += bytes;
-> +               goto out;
->          }
->
->          /*
-> @@ -2716,7 +2718,6 @@ int attr_insert_range(struct ntfs_inode *ni, u64 vbo, u64 bytes)
->                  attr_b->nres.valid_size = cpu_to_le64(ni->i_valid);
->          mi_b->dirty = true;
->
-> -done:
->          i_size_write(&ni->vfs_inode, ni->vfs_inode.i_size + bytes);
->          ni->ni_flags |= NI_FLAG_UPDATE_PARENT;
->          mark_inode_dirty(&ni->vfs_inode);
-> @@ -2807,6 +2808,11 @@ int attr_force_nonresident(struct ntfs_inode *ni)
->                                      le32_to_cpu(attr->res.data_size),
->                                      &ni->file.run, &attr, NULL);
->          up_write(&ni->file.run_lock);
-> +       if (!err) {
-> +               inode_set_bytes(&ni->vfs_inode, attr_ondisk_size(attr));
-> +               ni->ni_flags |= NI_FLAG_UPDATE_PARENT;
-> +               mark_inode_dirty(&ni->vfs_inode);
-> +       }
->
->          return err;
->   }
-> diff --git a/fs/ntfs3/file.c b/fs/ntfs3/file.c
-> index 2abf334bfa0c..e11b17f14087 100644
-> --- a/fs/ntfs3/file.c
-> +++ b/fs/ntfs3/file.c
-> @@ -617,6 +617,23 @@ static long ntfs_fallocate(struct file *file, int mode, loff_t vbo, loff_t len)
->                  ni_lock(ni);
->                  err = attr_insert_range(ni, vbo, len);
->                  ni_unlock(ni);
-> +               if (err == E_NTFS_NONRESIDENT) {
-> +                       ni_lock(ni);
-> +                       err = attr_force_nonresident(ni);
-> +                       ni_unlock(ni);
-> +                       if (err)
-> +                               goto out;
+> +/ {
+> +=09#address-cells =3D <2>;
+> +=09#size-cells =3D <2>;
+> +=09interrupt-parent =3D <&gic>;
 > +
-> +                       err = filemap_write_and_wait_range(mapping, vbo_down,
-> +                                                          LLONG_MAX);
-> +                       if (err)
-> +                               goto out;
-> +                       truncate_pagecache(inode, vbo_down);
+> +=09cpus {
+> +=09=09#address-cells =3D <1>;
+> +=09=09#size-cells =3D <0>;
 > +
-> +                       ni_lock(ni);
-> +                       err = attr_insert_range(ni, vbo, len);
-> +                       ni_unlock(ni);
-> +               }
->                  if (err)
->                          goto out;
->          } else {
->
-> ---
-> base-commit: 08dbfad3f5040f5bdb6c529da20d6d4e81fefd72
-> change-id: 20260830-ntfs3-submission-v1-922a1af22503
->
-> Best regards,
-> --
-> Alon Shakevsky <shakevsky@berkeley.edu>
+> +=09=09cpu0: cpu@0 {
+> +=09=09=09compatible =3D "arm,cortex-a55";
+> +=09=09=09device_type =3D "cpu";
+> +=09=09=09reg =3D <0x0>;
+> +=09=09=09enable-method =3D "psci";
+> +=09=09};
+> +
+> +=09=09cpu1: cpu@100 {
+> +=09=09=09compatible =3D "arm,cortex-a55";
+> +=09=09=09device_type =3D "cpu";
+> +=09=09=09reg =3D <0x100>;
+> +=09=09=09enable-method =3D "psci";
+> +=09=09};
+> +
+> +=09=09cpu2: cpu@200 {
+> +=09=09=09compatible =3D "arm,cortex-a55";
+> +=09=09=09device_type =3D "cpu";
+> +=09=09=09reg =3D <0x200>;
+> +=09=09=09enable-method =3D "psci";
+> +=09=09};
+> +
+> +=09=09cpu3: cpu@300 {
+> +=09=09=09compatible =3D "arm,cortex-a55";
+> +=09=09=09device_type =3D "cpu";
+> +=09=09=09reg =3D <0x300>;
+> +=09=09=09enable-method =3D "psci";
+> +=09=09};
+> +
+> +=09=09cpu4: cpu@400 {
+> +=09=09=09compatible =3D "arm,cortex-a55";
+> +=09=09=09device_type =3D "cpu";
+> +=09=09=09reg =3D <0x400>;
+> +=09=09=09enable-method =3D "psci";
+> +=09=09};
+> +
+> +=09=09cpu5: cpu@500 {
+> +=09=09=09compatible =3D "arm,cortex-a55";
+> +=09=09=09device_type =3D "cpu";
+> +=09=09=09reg =3D <0x500>;
+> +=09=09=09enable-method =3D "psci";
+> +=09=09};
+> +
+> +=09=09cpu6: cpu@600 {
+> +=09=09=09compatible =3D "arm,cortex-a76";
+> +=09=09=09device_type =3D "cpu";
+> +=09=09=09reg =3D <0x600>;
+> +=09=09=09enable-method =3D "psci";
+> +=09=09};
+> +
+> +=09=09cpu7: cpu@700 {
+> +=09=09=09compatible =3D "arm,cortex-a76";
+> +=09=09=09device_type =3D "cpu";
+> +=09=09=09reg =3D <0x700>;
+> +=09=09=09enable-method =3D "psci";
+> +=09=09};
 
-Hello,
+Do we need capacity-dmips-mhz, cpu-map and two PMUs here, similar
+to rk3588-base.dtsi? This in turn would mean ppi-partitions with
+#interrupt-cells =3D <4> in GIC?
 
-Sorry for the delay.
-The patch was applied, thank you.
-
-Regards,
-Konstantin
-
+> +=09};
+>=20
