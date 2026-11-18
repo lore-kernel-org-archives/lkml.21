@@ -1,85 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794993276;
-	b=0MHG2sdf/9TdGCKVoAb7RkwWENh8xKktX00ahswidPrqJnYmHYH14JNe36WRidl7Xvim
-	 toSzD9LmNg/7cKqYIFeSZFsZUJl/xyG/7kuTJgbphGCiOTV56dkdcX02Nt62DDEqo+wMI
-	 AAXy2nzV8EOcuZnBDsb7YELVRU97M0P2/BG3pNBYtF9dB2p1mWOUdN7EJRtK3EgMVwKsX
-	 GuCWYh0xMl8wr39n6LMGcY8sxfJy2w/ds8AV311307aoiwJ5+1E6nnfZeyIptqpzshWbD
-	 9V0BOL//Vc2nj86IhO+MZEUw5Odhv9fdvY2/BRBrRykWRLf8jlJ3NQ5kgf4mWQCu9BA==
+	t=1794993302;
+	b=PuhNT0utCxr8b3E0TIZPnUoPgscZxlxxJ1YdPtOC0c9YFXXxLRSdlOzP1oTVJlPU2GVu
+	 oO6X9Tfg0V118wtt+WJkqlY6ykmRpzPsCueSrPfOQjj9Euzsn7twhzdjeMUPFSeG7mW62
+	 hSM9DJwCk/rx9cjFa8KYYmeI0EvbsSkUYoWoXyLQqB8O+p17VxpcTxRNBUUFLTQ6vqt9o
+	 MNRUxemrPMRyxuH3h6PPndaPwyMWzoMbvHPz8V3vR09jHFRVTbovExUYR/z0a86ehh37u
+	 nktGIilKT3ePAlej6VONj0b8IkciNlHOcTOWL91EMBjntO2LYfWJ4lpjRthjAbS6Tzw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794993276;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:
-	 Message-ID:References:In-Reply-To:Accept-Language:Content-Language:
-	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=wpfKZ8NYHfJjBDEJIfAmHEAA+XABEcLHLhewUnnbptc=;
-	b=38+5Fsm/xIjbe6G4+B0YEWwkGh7VmCR4+uAFXIXCfPhN1ZgxIZ9nI28qDHYEoOrLQq8Z
-	 zWyeEfq2yJk0ielnkx3M1G0A5PZvFdIxlYZI5dsaUGQaQ5WG4zlojhhpuCARPo2z9bfUi
-	 aGfSm2JKL7R2HRI/F+mV1e0UwQjOYkP+V9HxwnnycuenjAykgcTJrTwILj89LRZvDPFTI
-	 8Ick9WfzkZq+zkSKVw4R7Uj1otY2bJejAgEkUHIEEM0xV5wee0V8aerELxcZpuow7e+o7
-	 Eb3PqAYsYyZMsOafvSAFGO+fu5LILc7VqQ2jqBFqd6oatVEkIybmVCF4XkhqmNg4ieA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794993302;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=g/9ZH6DNMENaUgvjOSvQCfo6co4d5atT2nU3ht73jxo=;
+	b=exzDdP0Mj8PRQEbxBAYfPf8wo+Nw/g3Nhmq6U2eB7uGKxGaAPwd5CVAn4s5kbS+MYsDQ
+	 gVj9ZJDxdmiZcMWsTQG7+Imq1yHP/+BUOhkg2wERqtDVzz4V/NMUW8o12RwHqoVKf0zqu
+	 wFMmJnQe9kxIXHx+i6BQ2gkk40n1mWcKPvPJe+8IZYlOxhrvZ7knqg5qGnnLbylnX9b6E
+	 YCOmNSCeveIzClg6ztpv0IaG5ujh30vr1hFtzyneebsrNvDB0CfbNZR6ePAERYgU7BL5Y
+	 +xUXzcSdnKjHoFiFnf9XE+DwjAcCy5raqSVxUR8xPDDajgQFUWPtZ3YZ8O8TwzpB3Xw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=atMBJ2nQ;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A701606A31C;
-	Wed, 18 Nov 2026 09:14:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A701606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=id5o74cC;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id E64DF606A32A;
+	Wed, 18 Nov 2026 09:15:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E64DF606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=atMBJ2nQ
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AI9EHaC41204479, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1794993257; bh=wpfKZ8NYHfJjBDEJIfAmHEAA+XABEcLHLhewUnnbptc=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=atMBJ2nQJ8BvwDsHKILWQPv267QNgtR6XMklgBHiB82YE/pYBEhSHaIy4/hqBu4lC
-	 nKnJnKeVZkw1st/EHzh0ndZhXND8o0VrCoOwHyMPetxnW6vkEeDaHcb7B5wJ5w3z6n
-	 G5cjMJJO3K929ESCzL5A5PQv+orUGdGsWKO6u8mDIaRpHZLZhM6GxMg7Osevewa5Ga
-	 3nLmg96/LpduWNw7Cso7GyudJzIA7cLj4RQseMBGZpJsv4T8FmK6rKJvDp1snPLi0z
-	 6PZPnLvN2beVNlAy+cbVilLiAmvZ6QJLj2jWGIoFC7ObphIAfWa6KNG3bxPqvTVdSE
-	 jEnAZ4d230jBQ==
-Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AI9EHaC41204479
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 18 Nov 2026 17:14:17 +0800
-Received: from RTKEXHMBS01.realtek.com.tw (172.21.6.40) by
- RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Wed, 18 Nov 2026 17:14:17 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS01.realtek.com.tw (172.21.6.40) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Wed, 18 Nov 2026 17:14:17 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
- 15.02.2562.056; Wed, 18 Nov 2026 17:14:17 +0800
-From: Ping-Ke Shih <pkshih@realtek.com>
-To: Mehmet Fide <mehmet.fide@gmail.com>, Luka Gejak <luka.gejak@linux.dev>
-CC: Bitterblue Smith <rtl8821cerfe2@gmail.com>,
-	"linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"mehmet.fide@screeningeagle.com" <mehmet.fide@screeningeagle.com>
-Subject: RE: [PATCH rtw-next v12 2/3] wifi: rtw88: support channel switch in
- AP mode
-Thread-Topic: [PATCH rtw-next v12 2/3] wifi: rtw88: support channel switch in
- AP mode
-Thread-Index: AQHddusUlFkb3JLAC0icESyq6ktwKbcy9ygAgAAD3QCAAJC3wA==
-Date: Wed, 18 Nov 2026 09:14:17 +0000
-Message-ID: <d55a09e0accd42f39f476d3abba1cdca@realtek.com>
-References: <9BC4FC13-5723-4711-9798-11E3C285C7F1@linux.dev>
- <20261118083328.1984956-1-mehmet.fide@gmail.com>
-In-Reply-To: <20261118083328.1984956-1-mehmet.fide@gmail.com>
-Accept-Language: en-US, zh-TW
-Content-Language: zh-TW
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=id5o74cC
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 300BC1596;
+	Wed, 18 Nov 2026 01:14:58 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 977943F673;
+	Wed, 18 Nov 2026 01:14:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1794993301; bh=hXuGwUcvD/JxHCPow69F+CSxS8aDisV0O4ydUJG851A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=id5o74cClBTwYA2qK9D22IG2CfqVOTH+tVR0uCcoXDwqhljGpYqufMaxuFWvI/Jc8
+	 uHq/NEp8JLsQM5PEOXTAIYZxhqiQs6g4fV6iXt2pXLq90vmDCWv49R0ziKh/zIUaJb
+	 q7vwdiFckE/oyB07oCYPbHuBDUSN2w7VAuh3ESK0=
+Date: Wed, 18 Nov 2026 09:14:55 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, linux-doc@vger.kernel.org,
+	sudeep.holla@kernel.org, james.quinlan@broadcom.com,
+	f.fainelli@gmail.com, vincent.guittot@linaro.org,
+	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
+	d-gole@ti.com, elif.topuz@arm.com, lukasz.luba@arm.com,
+	philip.radford@arm.com, david@kernel.org,
+	souvik.chakravarty@arm.com, leitao@kernel.org, kas@kernel.org,
+	puranjay@kernel.org, usama.arif@linux.dev, kernel-team@meta.com
+Subject: Re: [PATCH v15 00/35] Introduce SCMI Telemetry support
+Message-ID: <av1sj-UEhz_F7R44@pluto>
+References: <20261109091221.2532706-1-cristian.marussi@arm.com>
+ <20261117170709.00002088@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,24 +68,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117170709.00002088@oss.qualcomm.com>
 
-Mehmet Fide <mehmet.fide@gmail.com> wrote:
-> > I think the presence check is better fixed in
-> > rtw_core_check_sta_active(). Its callback only reads interface state, s=
-o
-> > could it use an atomic interface iterator without allocating entries?
->=20
-> Right, the callback does not sleep, so rtw_iterate_vifs_atomic() works
-> there. The check is older than this series: since commit 96fbb84de4ff
-> ("wifi: rtw88: handle station mode concurrent scan with AP mode") a
-> failed allocation also makes rtw_clear_op_chan() drop the operating
-> channel of an associated station, on BSS_CHANGED_BSSID and in
-> rtw_ops_stop_ap().
->=20
-> Ping-Ke, Luka: would you take that as a separate fix for rtw-next, or as
-> a patch before this one in v13?
+On Tue, Nov 17, 2026 at 05:07:09PM -0800, Jonathan Cameron wrote:
+> On Mon,  9 Nov 2026 09:11:46 +0000
+> Cristian Marussi <cristian.marussi@arm.com> wrote:
+> 
+> > Hi all,
 
-I think rtw_core_check_sta_active() is used under wiphy lock, we can
-migrate to use for_each_active_interface() with lockdep_assert_wiphy()
-as a separate patch.
+Hi,
 
+> > 
+> > [TLDR Summary]
+> >  [V15 highlights]
+> >  - general cleanup and hardening driven by reviews
+> >  - improved TDCF access routines to minimize lost samples under load
+> >  - completed ABI docs
+> > 
+> >  [V16 TODO]
+> >   - address any remaining V15 outstanding Sashiko/reviewers issues
+> > 
+> > The upcoming SCMI v4.0 specification [0] introduces a new SCMI protocol
+> > dedicated to System Telemetry.
+> 
+> This is one from the family of issues you find when reviewing ones own
+> (well LLM generated) emulation, realizing it doesn't match the spec,
+> and yet works.
+> 
+> This works fine without the required SCMI protocol property in ACPI.
+> 2.2.2 of ACPI for System Control and Management Interface 1.0
+> Platform Design Document. 111115A 1.0
+> 
+> Now, in here is an informative statement...
+> 
+> Protocols not listed using a property may not be enumerate by the operating system.
+> 
+> But they are... 
+> 
+> So, obviously we can ignore informative spec lines but that is a pretty strong
+> sentence. I can't immediately think of what would go wrong if we ignored it
+> - maybe we'd not pick an exclusive PCC and fallback to a common one the firmware
+> doesn't want us to use?  But if it doesn't want us to use it why make Telemetry
+> discoverable on it.
+> 
+> Should that be wired through from the ACPI parsing code?
+> 
+> Anyhow, not something I care that much about but thought I'd call it out
+> as an oddity.
+> 
+
+AFAICR, I think this is really down to some ambiguity elsewhere in the
+ACPI/PCC spec for SCMI, so the implementation deviates a bit from the
+behaviour we have on devicetree based SCMI systems where instead a non
+DT listed protocol is NOT activated even if provided by FW.
+
+Sudeep has more details on this.
+
+Thanks,
+Cristian
