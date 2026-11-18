@@ -1,53 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=83.166.143.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795013639;
-	b=lElp8/AuBTJQeItyEaKFzftpLX8//WxhsAOgxKldLIODhWPIRj35c4k24tjjlJAzvWci
-	 IpdeSg6vrMcKYYDqgxL4w/sn4mkG1jj/4zZx0CyauXuo3rC8ONk3qq0Xc6IVnm61YGjLL
-	 4qyS8xJ7R8jO++kWQXDLMlZdG554akBqAP/+XQ6Fc5DnZPceJTa8EoKdo+EKnQQveYPJl
-	 wN7FWEtKhAHbxnFVODosW0BbNNfrY/d670EJjBV2ouypvL2jul2tYLqUKRyUYrp5wn5/4
-	 u5/sDf61nY9CwGjSHRJgHXVrAtrjtARFKCr14JhpqDwgPd8ihFMibDCsYLz4bLTiBDw==
+	t=1795013677;
+	b=dRxczl62hmmLCEnHtHt/W+n68dgjXJB4qdEf/MT4dD6HVixZi2Iva2qJDg+yqbWNDpOU
+	 z5D7S8sIoZbni62x1XlQc03EbUNXcMCw0rbrB5btmgD7oWq9Y+qhkv/PRNy7wSiYoS8x9
+	 3y3Xpih0bcDDMz41/HYcXfyzXULie8KdbMGNvqSY5O9xarULheN+ShHAmuWQK8mEJQGzX
+	 aimrKwSXwcz7vU52slf81fSqglaIeqb3RT9ShekhRrT1bCb7Nf1BI4zTCNLcqsU9cC4Tu
+	 1BQ7j1mmldCWbZVUvJvLOayLdKeyXM5wn+V+mho/8vSURCBelDetLU+7uMrczzC9gzg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795013639;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition;
-	bh=AWLwsTpHtjgyhsjE8YjCOAaL8ahwBFmsReEUaaPVOfk=;
-	b=nFBjZEaCZ7Vm2a1+gerZuynhvCMLTuykqXEgGAliZntFwACuGaRr1OP0v1U+dmjWjTNP
-	 YAztRCebXbflXynj7Pcv/+tTEIrmvlrgEmw9P8VIw9jK2VuqVdRyly/jLh4rAVq0tC7pa
-	 eVKzmZ95MnWEQNzLgi2Hha+2fjGKGPvU14rXMl4BdHKsMGAzr1OfWy1mHmuDAyAmskRnx
-	 rrqL094G2ZaJlkxt657gffydLDQP6PSk9MNaMBUkHW0yGcsxR3IqQ2/1DlTdBG6y9RcfK
-	 /Y613ppQD/K1x/2apxFVgLy3HUHYNZFMDRbRlhM2YkH0eQ75aEZsCZYBWwZTTfC84PA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795013677;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:From:To:Cc:Subject:
+	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Infomaniak-Routing;
+	bh=QoNIQRmDnruBFm+8ezpcjoTWVmatcu6wXQo/1X8jjy4=;
+	b=m40db8zXp5AFO72vWGscpOBqRC1hCzn3QaxS1LK1qZNSXqjjq45XzwsiEjqHjDZyrjxR
+	 F7znAYoAlAfupKKrt7aF5PukBw85hNRvXJETbn7xZvOz7WVfz4bqsnH81YlAij5BH2HYE
+	 hVeXmaBQvNLimvKXUwBDxcuSRhPzoYWug6cYe5EKf0NMXXTXs9Bg+FA1j1RantDoXVWKI
+	 G5G+Wk+QKLUgjcqKfy6Itug1N0+nG3GmVr1ozg9+CZbCXIBzQX/W5AwtPi3zfw14PHjHh
+	 QJ41e/8mDQB8mAdYo13ytIrXSuAF6OwGphW+ZoL6LlC1IVv1RowCjoIql0VE7flcK+w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J412sb5l;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=digikod.net;
+	spf=pass smtp.mailfrom=digikod.net;
+	dkim=pass header.d=digikod.net header.i=@digikod.net header.a=rsa-sha256 header.s=20191114 header.b=czhPXa6I;
+	arc=none smtp.remote-ip=83.166.143.174
+Received: from smtp-8fae.mail.infomaniak.ch (smtp-8fae.mail.infomaniak.ch [83.166.143.174])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBCBA606A31C;
-	Wed, 18 Nov 2026 14:53:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C1F2606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:54:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3C1F2606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=digikod.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=digikod.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J412sb5l
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CB0C1F000C4;
-	Wed, 18 Nov 2026 14:53:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795013639;
-	bh=AWLwsTpHtjgyhsjE8YjCOAaL8ahwBFmsReEUaaPVOfk=;
-	h=Date:From:To:Cc:Subject;
-	b=J412sb5lvoRLv2pnJHcCalcKr1h+cxIstRgyRFjs6nP+bkUeffp2y2KN/lNOzxG70
-	 HifhpTF6v/M0ynz4Efpchi10SwmSB4EgIJ4foTIWh/s2DQpLDwsOp9Qlnv2pL3U4Iv
-	 /c7IIhsofHEYIr8Pkto7MHOdD5tFy9LYw4eFDPJgT9efdfojudyyztAROod5rP+cZF
-	 wETOW4wu/VKzjJu1ujuTmo5uvhCSup9nSu/xLTAmENRJbZbeL/DeaDp+qt97tpSJEw
-	 rZXGUlv+GawNdGr5tqdAYZbgPmu4JDJPEmZLlE7WEpaCc6QSztBoI8EvLQ0mP03yuW
-	 mwRRKGDebiP7Q==
-Date: Wed, 18 Nov 2026 14:53:55 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Jens Axboe <axboe@kernel.dk>
-Cc: Christian Brauner <brauner@kernel.org>, Keith Busch <kbusch@kernel.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>,
-	Shao Mingyin <shao.mingyin@zte.com.cn>
-Subject: linux-next: manual merge of the block tree with the vfs-brauner tree
-Message-ID: <av28A8BdSAcVJWk0@sirena.org.uk>
+	dkim=pass (1024-bit key) header.d=digikod.net header.i=@digikod.net header.a=rsa-sha256 header.s=20191114 header.b=czhPXa6I
+Received: from smtp-4-0000.mail.infomaniak.ch (smtp-4-0000.mail.infomaniak.ch [10.7.10.107])
+	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4jV4Pj3L6bzDfy;
+	Wed, 18 Nov 2026 15:54:33 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=digikod.net;
+	s=20191114; t=1795013673;
+	bh=QoNIQRmDnruBFm+8ezpcjoTWVmatcu6wXQo/1X8jjy4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=czhPXa6INRdnjumg6b5EconJzZT0hvLz2X94E+LQVPB7Io7QwQT/60psmG6LevnGD
+	 oeW6LwCU2EQPDN0F7tf3FqRci7xZ4X+UXg6M0p4gR++gjhzhslSAntx6F0a/pUIoOb
+	 GcnUJRt1rHT4M6tJnx1Agl7TJRZniWCjPXCG+j2Q=
+Received: from unknown by smtp-4-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4jV4Ph1YTzzdLF;
+	Wed, 18 Nov 2026 15:54:32 +0100 (CET)
+From: =?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?= <mic@digikod.net>
+To: Paul Moore <paul@paul-moore.com>,
+	Serge Hallyn <sergeh@kernel.org>
+Cc: =?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?= <mic@digikod.net>,
+	Ada Smith <adasmithgt@gmail.com>,
+	Christian Brauner <brauner@kernel.org>,
+	=?UTF-8?q?G=C3=BCnther=20Noack?= <gnoack@google.com>,
+	John Johansen <john.johansen@canonical.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Matt Bobrowski <matt@bobrowski.net>,
+	Stephen Smalley <stephen.smalley.work@gmail.com>,
+	apparmor@lists.ubuntu.com,
+	bpf@vger.kernel.org,
+	kernel-team@cloudflare.com,
+	linux-kernel@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	selinux@vger.kernel.org
+Subject: [PATCH v3 0/2] Fix LSM mediation of PR_SET_SECUREBITS
+Date: Wed, 18 Nov 2026 15:54:27 +0100
+Message-ID: <20261118145431.2551578-1-mic@digikod.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,84 +74,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="3jFE0u6TUvKpSya6"
-Content-Disposition: inline
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Infomaniak-Routing: alpha
+
+Hi,
+
+This is series 2 of 3:
+
+  1. fix Landlock mediation of commoncap's capability checks;
+* 2. fix PR_SET_SECUREBITS mediation and add focused Landlock tests;
+  3. fix Landlock mediation of capabilities guarding LSM policies.
+
+This series applies on top of series 1:
+https://patch.msgid.link/20261118145217.2551053-1-mic@digikod.net
+
+Since per-process securebits were introduced, PR_SET_SECUREBITS checks
+CAP_SETPCAP with cap_capable() instead of ns_capable(), so LSMs
+restricting capabilities through the capable hook (SELinux, AppArmor,
+Landlock and BPF LSM programs) cannot deny it.  A task with CAP_SETPCAP
+can therefore change privileged securebits, and thus how its
+capabilities evolve across UID changes and execve(), without the
+expected denial or audit record.
+
+Patch 1 uses ns_capable(), as PR_CAPBSET_DROP already does, for the
+changes that require CAP_SETPCAP; changes limited to the unprivileged
+securebits still do not check a capability.  It applies cleanly to the
+6.18 and 7.2 stable branches; older ones need a simpler adapted
+backport.  Patch 2 adds a Landlock audit test that fails without patch
+1.  It shares cap_test.c with series 1, which is the only reason for the
+ordering.
+
+Paul, John, Stephen, KP and Matt, please check the AppArmor, SELinux and
+BPF LSM implications of exposing this CAP_SETPCAP check to the capable
+hook.
+
+Changes since v2:
+https://patch.msgid.link/20261117101738.2523492-1-mic@digikod.net
+- Apply on top of series 1 v3.
+- Use ASSERT_EQ() in the test before checking errno (suggested by
+  Günther Noack).
+- Shorten the commit message of patch 2.
+
+Changes since v1:
+https://patch.msgid.link/20261110202811.2409395-1-mic@digikod.net
+- Shorten the commit message of patch 1 and check the non-change case
+  separately (suggested by Serge Hallyn).
+- Add Serge Hallyn's Reviewed-by.
+
+Regards,
+
+Mickaël Salaün (2):
+  capabilities: Check PR_SET_SECUREBITS with ns_capable()
+  selftests/landlock: Test PR_SET_SECUREBITS mediation
+
+ security/commoncap.c                        | 45 +++++++-------
+ tools/testing/selftests/landlock/cap_test.c | 69 +++++++++++++++++++++
+ 2 files changed, 92 insertions(+), 22 deletions(-)
 
 
---3jFE0u6TUvKpSya6
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+base-commit: 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
+prerequisite-patch-id: 365071039dd2be439f67707944d12edbe1422d60
+prerequisite-patch-id: 021705fb5147cdc8edcac9dbe53c06b854cf976a
+prerequisite-patch-id: ddc6687ae87f8f782ed8ad5b005834f242aec2fb
+prerequisite-patch-id: 0bf745b08b99168d266461ef5b0b943a2b71eceb
+prerequisite-patch-id: 03ec09be2416d4cc932b07dfb0e7450f15c22804
+prerequisite-patch-id: 383fa2ce8a4ed44e4b5c828c99c5be5ee75048af
+-- 
+2.56.0
 
-Hi all,
-
-Today's linux-next merge of the block tree got a conflict in:
-
-  drivers/nvme/target/io-cmd-file.c
-
-between commit:
-
-  054280c7786b6 ("nvmet: take freeze protection for writes to files")
-
-=66rom the vfs-brauner tree and commit:
-
-  bcd5316e708d4 ("nvmet: use overflow-safe range checks in the file backend=
-")
-
-=66rom the block tree.
-
-I fixed it up (see below) and can carry the fix as necessary. This
-is now fixed as far as linux-next is concerned, but any non trivial
-conflicts should be mentioned to your upstream maintainer when your tree
-is submitted for merging.  You may also want to consider cooperating
-with the maintainer of the conflicting tree to minimise any particularly
-complex conflicts.
-
-diff --cc drivers/nvme/target/io-cmd-file.c
-index 083f4ffb9bd6e,3098b902f5198..0000000000000
---- a/drivers/nvme/target/io-cmd-file.c
-+++ b/drivers/nvme/target/io-cmd-file.c
-@@@ -121,12 -117,19 +121,25 @@@ static void nvmet_file_io_done(struct k
-  	nvmet_req_complete(req, status);
-  }
- =20
- +static void nvmet_file_io_complete(struct kiocb *iocb, long ret)
- +{
- +	kiocb_end_write_iter(iocb);
- +	nvmet_file_io_done(iocb, ret);
- +}
- +
-+ static bool nvmet_file_check_lba_range(struct nvmet_req *req, u64 slba,
-+ 				       u64 len, loff_t *pos)
-+ {
-+ 	u64 pos64;
-+=20
-+ 	if (check_shl_overflow(slba, req->ns->blksize_shift, &pos64) ||
-+ 	    pos64 > req->ns->size || len > req->ns->size - pos64)
-+ 		return false;
-+=20
-+ 	*pos =3D pos64;
-+ 	return true;
-+ }
-+=20
-  static bool nvmet_file_execute_io(struct nvmet_req *req, int ki_flags)
-  {
-  	ssize_t nr_bvec =3D req->sg_cnt;
-
---3jFE0u6TUvKpSya6
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmr9vAIACgkQJNaLcl1U
-h9DWWAf5AUMG4Khb3k/efQAXP0L5ihowEoRloYQnNlBnr6SCfBWnJz2A2HkjkXc5
-PNqd+VyZvYxkImtW3YrXdAsoySUg6Ls0KWxy+G3qVQDS308Jn0K5Yq8/L5jYocZM
-Al4WP9fQOOgyw18xFnRjxj/KnjDSXKyg9SR35etiWKhomzbxXb9OGqmdAEOfGP9N
-9j63jTx+sB7azGRUIzqNaFJC9fZ5ZUJJVG7XBhZcEyEb+XBugRqqo4HidsBzruBs
-c7lrqFImW4Bds/mFWHqVlKAPqxawbov+5cxPxRWEAbbflv6c4hzSXkNrBeki+AG8
-njngHN3ieV3yiKECkAAi+82qpblKKw==
-=MxLY
------END PGP SIGNATURE-----
-
---3jFE0u6TUvKpSya6--
