@@ -1,44 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=47.88.81.140
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794995319;
-	b=DTJnW9L5K8ed2PZESRjgyh+mg41iPJSEV1u/qPnteWXt5neJTmjvs7mK8rQ62OjwBNpi
-	 vmJRXxjFsXJ3xA8ec3eWz3rgjpRLBVyOoCHKptyenOjOS/fWf/RwoLFyQ+NIIhwXIzkEU
-	 1NvJt2TQ4fJy9Bsf1pK7R/qqOgFOtzDSDhtpGee5Usdm7TvzU2U2xGX/OqyW5EYVXDpya
-	 ogshudRHOJuFPBFyTs7bVt58JFJmvcVUBKTWhwS/z7sNSW9w93Jvijvy94iZr7NSbwzef
-	 8RKDQRxlaF44BltOP43dGmL17uaVbQ2DawYsN6nGtTgdcOfeTPC3MfJ3wgvyfD13nEQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794995319;
-	h=DMARC-Filter:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
-	 X-HM-Spam-Status:DKIM-Signature;
-	bh=/PG22HUnpipGjaN800i0S6Qg/5eh4aaNl1rldurwMEw=;
-	b=NhH7HgXNetN+aHXBOI0jpCLppEaAWfhv4H9cKxcFYlRbwhMxheUADoCB+j3FjmPkX2qB
-	 oGOeb9ho9xsq+odVfpXPAI7iwI0JOzPZ1LFDZrCa/JjHNe2ORmfC6Fz2nmddcSXsSOoKX
-	 k5KbYAReU4+BbedPXdKrApSr7Ldjp5psQx1e2fOKD+LIAjLfuJglRtee3MWHtHbmGEpTe
-	 4pek+11ZSsCNjOBu2Rv5cOpqY1nDg4d8o46By1AoZqxv3jDJfAq66Xj9P+W2J5vxGEPoy
-	 omUDpPH8uDRG/DPxzCjTfVymXOCWt9iLL79kIFfljRlK+tPneuPPLK/1wyQbu0A70YA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rock-chips.com;
-	spf=pass smtp.mailfrom=rock-chips.com;
-	dkim=pass header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b="SD/4ffKk";
-	arc=none smtp.remote-ip=47.88.81.140
-Received: from mail-m81140.netease.com (mail-m81140.netease.com [47.88.81.140])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.179
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794995332;
+	b=kZjsKrCqiTxfubYki4NWh/AI4r9yIMEkP85eHVnrmrS+qS5BqKgDvf59NtN1tvKfl13p
+	 Fr3PblrGOM5LiunSuBY0rh+I7sPRax/ZZ75aaO5mheXxM1g75A+ObbnSuIBQyq1hR9RyV
+	 YgtFCcSoixWtcdVFXcRoMn0oSn6Z1/kwQ4jadu2KfyC9ZlMJpVe8Tf6tZnYCqdCea6wJ1
+	 C74wWd39rTfBC4lwNdHtQtmtBOeCw7RwINIguFK87gx1igfRTIdCuv8tXKWHtZSU64QSi
+	 QJ6AawRsCXFMY01MVWvdqT94dwBFr70qs/dL0AJ0gwangByhRco7D2p3Fw58CsiyBHw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794995332;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=/Sv2HxEY+lmdMQ/mit5Gq6AFEQxxU55cOeDrN9MID2E=;
+	b=eS5dSx0cJ3pyFwbz15lK8iDPXr0tCSlOgFanfpMx2zf3gJu0J0KEh24Q0m6vQT6U2eAf
+	 wDihktD7GbuusNB3R9EoaJJI77lyGgzH+JZfJSBXXBcTMbXpZkQVzXT5UyGrGXHVtWYPf
+	 wuUdKGuhzzx2wpmhZXmvzXyIZV94wlPI4TKRHg9IOTb/bsrtPqMGf6Z/+fS3uPfhjC2Wl
+	 23rOaOxPPs+fpvAeTECvwTzwXhlM0OdDMRxRLp4ebA9+dW9oXQQNdjoS6W9NYzuCGQwjK
+	 odw+OiW+DQcQl0XN5pSBdUCbdCh6w5ZB7OmutWEHabED56/izOwTQb5LSmD0l0bEyPg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Q6gRC7EV;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.179
+Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4F00606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:48:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C4F00606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rock-chips.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rock-chips.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50D53606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:48:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 50D53606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=SD/4ffKk
-Received: from [172.16.12.74] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 5520d7b24;
-	Wed, 18 Nov 2026 17:48:24 +0800 (GMT+08:00)
-Message-ID: <abc2d0e2-521c-4ae8-8a8b-e41c8f2bc482@rock-chips.com>
-Date: Wed, 18 Nov 2026 17:48:23 +0800
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Q6gRC7EV
+Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-37198ed3727so2240869eec.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:48:52 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794995331; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Gp+l+9veKcupRU6dJwWkd32C/wtiZEeAnzWAEbk9asJV5xAVDoIFiDV/MShivs4AGK
+         +m7Z/VhUFVId2eARfuUDCJcJJ1K3R9GzumXaU1jsYMtuyi0ETbGBHMcgEv2jr+/qbNXY
+         bd8psbEmuiPwblIrs2cDjInQLEfxe/89X4Q6GbKhGur7zr/9fSbIJJCNOp0QvbyfpAbi
+         dSawVh9O7x38Dln6UUwT/8KwqeQwZY6e+eE114xeUW+5mlH1LC8K9rGJq/6agUgei0/D
+         rNtkzzm6561gcHgxthbTHpMhaLLh/Gek16CRjsX1hOTP/s84KH32vaazGgPKTXFPhpUq
+         M6XQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=/Sv2HxEY+lmdMQ/mit5Gq6AFEQxxU55cOeDrN9MID2E=;
+        fh=+1CDPDq7UCPyF4VrMqP6iK/pjjo0ik6dGyy4DHT8klE=;
+        b=YI+ADAff3MKhkizZoZJMYZIUe7R1A3h5W2UAWSZZ9URyISFa8XCfZMerF0RwNCU+ge
+         DNzWh8AZDQLehw1ZV/mCNu7rJiyZ28LB/cm33mUzNuf9j119TDGSo38o/J6C2innp9a/
+         Bhb1dLyaxIPC9eqa55g+JBUSjT21FypSVHyuR8ZZNcY6OOvMzDbMioR65T5dvSyjzlWe
+         cO4LWgXpGSiuwn3nFc7tJfkW3q+eWaaaTKSu0Zj6nZldjA+twIplkcGGiHLvkvMLTaof
+         ElQeRhBfUsy/5+dXfPrq4DKwI5wYy97IJr9sYq7S/rRVQQ1i3jFZqI4bm+ZNCiGrA7i9
+         6lww==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1794995331; x=1795600131; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/Sv2HxEY+lmdMQ/mit5Gq6AFEQxxU55cOeDrN9MID2E=;
+        b=Q6gRC7EVTZhfpZ/7JOgPasWeBh0J+aWdxzLh1FRqaNqa7e5a778XYbWEHhJFIMva/O
+         R7ib68uw1WLPQlaNxRs7JoZF0qgMqWx01jMyY+ZeZjxVwY9yUpf4nHYrlvIeV4HAgjLW
+         c740bcgf7UFDv7dKhdeGMyRSquxyzqjMTjFlpJjO0bICd/L81lFCDtpC7UFtJ8rqNEbY
+         PSIwnwzHOK+Ko2pP2/tdHkotiHDo40PUcTxMqm530z7JPGCsdV9d9kVybGbplpsSbKNs
+         XYK//Am6oukUjkcvSzTi6o0umbKahn7aVFz0DSRyKaZvmB4vJCrqM0jOZiEPzzMWDkdR
+         VuhA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794995331; x=1795600131;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=/Sv2HxEY+lmdMQ/mit5Gq6AFEQxxU55cOeDrN9MID2E=;
+        b=Xl8LOG6rCigEfrr2IRMDelCP/BYLmCkwCcKkyxnQc+jsJ7359X6secTgfVMcO7dD/0
+         WXpVOc5SjELq76uYk7lUsWg1P8ME5jBfhCBb5sNp4UjnULVWOAhu/piBXlBhAxgyqK0Z
+         coUGp8flHYjh4DIzJoZWTz9FczVA+adxc4QtkGeJHA3RfcWFb/BifehXz85+quNWY8TI
+         p72MFGRspviqWDrUCF7RB0+i/CyLFTyDskEwWDZ2zyUodMRl5PmzVWYsw2wA1VQcLjDI
+         3gmZrs66YY2cecHPzQvWkNfppm70SkEFhiWBA1C5mNgZGvTxC0eMyVTfNJH+NtDJu/Gn
+         UqPA==
+X-Forwarded-Encrypted: i=1; AL+hErFfSkFKAnNx1/hou+06W+oxeedjiULWvzQ5WRdufu/dfsKXwaO71q8WqiP/c/smusXNGfDJBKiuhPl2DVs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9PuD1PUH5IQdxX3ZVK6g8yPoTLR43shnCBJXsgt3JGMIFZfAnf
+	uInj/umMU5tlhSUbo1V7cP6X9/UO6W1MGBoGto5nGEO2FRw0p+mMNs0YkpEU4Npn+eUzPsxymvQ
+	Z6NuRjps+fPyLYvwyRr9WDDKeIlrAxnR4CFG9fy67
+X-Gm-Gg: AYBFou1bCGF31d3C7JFFDsJmCsOedHVtZYjXW9NUTWricwcMMEhM+5Ww4kFGsSyPwCp
+	hYSkwuXbafasSbGFBz9HvBA1V6c75cgBqql1QnU4dwxTSsXK7tPmDae5i1Jl8Z+JnApAvF9DNoz
+	hJLVKPQXaykP2q6A8mVtmbDZbttITj3LGGUxTzJugpIJaz3ThgNfueFCFN4Qitm4NctN6Ktp39G
+	nc63V1144MDcxG1I8c9YmGwvm/dQApvzcMPOSmocuFjEZWhfDkYzcAsBJj17Qjioe0v7+sU6R78
+	GGXWJBUX+dm6VovNIvxzPxEkRU2jl64h1XUmCAHojZnV6A2u1TW7Bmoeuwyj1hDoZvBABI69kAu
+	GJlgF9APEQwGvfp+tlhCdaiYPEheUBJckSjiXizRAA1LLJVfaWRKSpvb7bjg4lI3lcuwG
+X-Received: by 2002:a05:701b:4590:10b0:145:ac96:3917 with SMTP id
+ a92af1059eb24-1b53a470bffmr4189203c88.21.1794995330669; Wed, 18 Nov 2026
+ 01:48:50 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -48,88 +103,66 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/8] drm/rockchip: vop2: Fix the HDMI sync polarity bit
- order on RK3588
-To: aiyengar1990@gmail.com, Sandy Huang <hjc@rock-chips.com>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, Andy Yan
- <andyshrk@163.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Piotr Zalewski <pZ010001011111@proton.me>,
- Chaoyi Chen <chaoyi.chen@rock-chips.com>, dri-devel@lists.freedesktop.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20261113-vop2-fixes-v3-0-08ae37e83b5c@gmail.com>
- <20261113-vop2-fixes-v3-4-08ae37e83b5c@gmail.com>
-Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <20261113-vop2-fixes-v3-4-08ae37e83b5c@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0aa1ee0eb96103a8kunmdffd083c34ef57
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaSUNJVkhDSk5CTU1KSE0dHlYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=SD/4ffKkoOL31/82SahftnhWFXNBC2jzLaHRzM6GbsP7Hbz3SM51Nc/ri1edybUEcvBM1vA6QZGVF2GKQEQxxlf/94JzVNKPVwCz54XpfMjMuHYMB7p5dV1v6A1h3RsDGFwHhPp1FIvUv9mwhNUdb1w6+7TO8NXhAb4sKHf6wsY=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=/PG22HUnpipGjaN800i0S6Qg/5eh4aaNl1rldurwMEw=;
-	h=date:mime-version:subject:message-id:from;
+References: <cover.1794869902.git.bvanassche@acm.org>
+In-Reply-To: <cover.1794869902.git.bvanassche@acm.org>
+From: Marco Elver <elver@google.com>
+Date: Wed, 18 Nov 2026 10:48:13 +0100
+X-Gm-Features: AclHuK8ambloCy9UjL-2iIAKWhaiq6LwjHSDeRQhyh2WGlPKJkHe9Y-ZzLWyMtI
+Message-ID: <CANpmjNM6uRoDb6Gi4Ycdof+jyqHr93VR8mDAhFbNR_JBC03G0w@mail.gmail.com>
+Subject: Re: [PATCH 0/3] Fix three Clang context analysis issues
+To: Bart Van Assche <bvanassche@acm.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Will Deacon <will@kernel.org>, Boqun Feng <boqun@kernel.org>, Waiman Long <longman@redhat.com>, 
+	linux-kernel@vger.kernel.org, "Paul E . McKenney" <paulmck@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 
-Hi Arun,
+On Tue, 17 Nov 2026 at 00:00, Bart Van Assche <bvanassche@acm.org> wrote:
+>
+> Hi Peter and Marco,
+>
+> This patch series includes three context analysis fixes:
+> - bit_spinlock: Surround the bitnum argument and macro expansion in
+>   __bitlock() with parentheses to avoid operator precedence issues.
+> - cleanup: Mark __free() helper functions generated by DEFINE_FREE() as
+>   __context_unsafe() because cleanup expressions that unlock trigger
+>   Clang thread-safety false positives.
+> - srcu: Move __srcu_read_lock_must_hold() out of
+>   srcu_dereference_check() and into srcu_dereference() and
+>   srcu_dereference_notrace() so update-side callers satisfying the
+>   lockdep condition do not fail context analysis.
+>
+> Please consider this patch series for the next merge window.
 
-On 11/14/2026 12:39 AM, Arun Iyengar via B4 Relay wrote:
-> From: Arun Iyengar <aiyengar1990@gmail.com>
-> 
-> In GRF_VO1_CON0 the HDMI vsync polarity bit comes before the hsync one
-> (bits 5 and 6 for HDMI0, 7 and 8 for HDMI1), but rk3588_get_hdmi_pol()
-> puts hsync first. Modes with mixed sync polarities go out with both
-> syncs inverted: the HDMI controller sees 1920x1080@144 +HSync -VSync
-> as -HSync +VSync in VIDEO_INTERFACE_STATUS0.
-> 
-> Fixes: 5a028e8f062f ("drm/rockchip: vop2: Add support for rk3588")
-> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
-> ---
->   drivers/gpu/drm/rockchip/rockchip_vop2_reg.c | 6 +++---
->   1 file changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-> index 3e654cb99ddf..6d08988d7007 100644
-> --- a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-> +++ b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-> @@ -1683,13 +1683,13 @@ static u32 rk3588_get_mipi_port_mux(int vp_id)
->   		return 0;
->   }
->   
-> -/* The sync polarity bits in GRF_VO1_CON0 are set for a negative sync */
-> +/* GRF_VO1_CON0: vsync bit below the hsync bit, each set for a negative sync */
->   static u32 rk3588_get_hdmi_pol(u32 polflags)
->   {
->   	u32 val;
->   
-> -	val = (polflags & BIT(HSYNC_POSITIVE)) ? 0 : BIT(HSYNC_POSITIVE);
-> -	val |= (polflags & BIT(VSYNC_POSITIVE)) ? 0 : BIT(VSYNC_POSITIVE);
-> +	val = (polflags & BIT(VSYNC_POSITIVE)) ? 0 : BIT(0);
-> +	val |= (polflags & BIT(HSYNC_POSITIVE)) ? 0 : BIT(1);
->   
->   	return val;
->   }
-> 
+Acked-by: Marco Elver <elver@google.com>
 
-Oh, this is a good catch. I verified the RK3588 HDMI sync polarity bits 
-are arranged differently from other interfaces.
+... modulo pending v2 that addresses the srcu patch's concerns from Paul.
 
-Would it make sense to add two macros for these bits under 
-RK3588_GRF_VO1_CON0 in rockchip_drm_vop2.h:
-
-#define RK3588_HDMI_VSYNC_INVERT	BIT(0)
-#define RK3588_HDMI_HSYNC_INVERT	BIT(1)
-
-rather than using raw BIT(0) and BIT(1)?
-
-Best regards,
-Damon
-
+> Thanks,
+>
+> Bart.
+>
+> Changes compared to v2:
+> - Split out only the three standalone context analysis fixes (v2 patches
+>   1, 2, and 4) into this series.
+> - Dropped the lockdep and RCU assertion behavior changes (v2 patches
+>   8-14: lockdep_assume_*(), lockdep_assume_in_rcu_*(), and removing
+>   context assumptions from lockdep_assert_held*() and
+>   lockdep_assert_in_rcu_*()), as agreed in the review discussion [2].
+> - Dropped the preparatory __must_hold*() annotation patches (v2 patches
+>   5-7) and the tracing branch profiling Kconfig patch (v2 patch 3) from
+>   this series.
+> - Updated the commit message of "cleanup: Disable context analysis for
+>   __free() helpers" with concrete examples of __free() unlock helpers
+>   in response to review feedback.
+> - Rebased onto current mainline.
+>
+> Bart Van Assche (3):
+>   bit_spinlock: Fix the __bitlock() definition
+>   cleanup: Disable context analysis for __free() helpers
+>   srcu: Remove check from srcu_dereference_check()
+>
+>  include/linux/bit_spinlock.h |  2 +-
+>  include/linux/cleanup.h      |  6 ++++--
+>  include/linux/srcu.h         | 20 +++++++++++++++-----
+>  3 files changed, 20 insertions(+), 8 deletions(-)
+>
