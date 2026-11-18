@@ -1,90 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795012049;
-	b=Y7lttD+kwOoCKggj+jBBX4uqKXJzgc67pjwp+Vc5M/E+fL+Gtej5pEdXbSbOBWSTyD3/
-	 LqBzYgYrvphE9klgCZmjFBeNXRk77L8aRvDE2KYE9xZQPyM1+gyhHD5Dy67LesCcGw44z
-	 MYLqMy+yGQGctGQC1z4suW5ojZnWxBc+sqNV4vrJV224AkVCiHfJVfaa4tBe4PFV2J+VY
-	 r8KauB3uy54Aiv9SHwdVbQH811YIEiwHXTmSRt5Q9eNPhz3otqgLTRn/YvocHBZ2kxYnK
-	 AQkfEPb8LpCBq5VcxQHhjoC5I4mZx9NOuQib7VC2JLnJ9PCJ3QzW+/OnsA2jFuzxzog==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795012049;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:From:Subject:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=xMp3FYu46+6069H+eeh9xe9hJqU7BcZ6oUpQKIuSBzI=;
-	b=27wjrDYfuRDty/bpUTnBEEPvABDZVIOKvZ1HuG523qQKu18cx5SgnASPJe2WefuDCD1w
-	 EtPUfqh7GIs+c/H2JqHpQKaCM/z3QwBndbuZ7E9xUPpFNGY85o9IkDU4XcVgGn+iv5EoJ
-	 ZOVsGHA52mOkt/iTBeX3FHNqKcSqQ1tUu98IL2pmKQjSCYOmSEZuf8Jkpas/R1Ei8Teum
-	 l7NfTDFq6JvkbYLwUkDa8fA+fZII7spCMUhnO0xxI/RQZKnekkrdp++t845F/bRgouAv7
-	 tjYX2y2m3uPktzjFGEg2lWYHlYm8sRsOCJ3I5zF/7ZKMeCvBuB6IQ15BVV9Vw15iTbg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pengutronix.de;
-	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b="Me85+vo/";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.49
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795012065;
+	b=vRClN5uQOQAQ9ymGs+02S0A+bu256cIFxAPrdF3RCcGsaJhqLcR1RSfgnx+qF+ZG8h04
+	 7okZP2qdi8cjp+noAVXN61RYT2d6HAohAnfbRCY+SQgxbvK01voz/xwwjNSQ4SBpbn6hw
+	 ME/FoOelSzMJAFeDk1goXnO3kYAK93vSz/2140f5jU76Jq2QCigHCxETyyeIMOhkXP9Lh
+	 doDQbQSIXP3YRs5+shNalCUam+ZZeE4TDmWrhCVA45HDjPngiTQwc6eZYgdZ18VjP7Lbg
+	 Yvbbd4B/SrIRnMurp1Hg7cZE6gu0fPUxAuNRDW8zrNWu9MU//cqESbOuhVn80OmuoWg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795012065;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=SzCtrb4I1oeIw2u+c9ts0iXdAzyI2eH808CNGZDafBc=;
+	b=TU3EoiydL57NmcVFnXd/uL9V9K+OqpVBBVkV7NL/ltSdyY5enx8+e1Yvdi/D/qNFS4XF
+	 tlmvqOx1OPhWNOrXBnghPEbVTdRODlDHWsumYrp5sCZIx29+pKwRyV4poy814hCFPFv4e
+	 k6JtPOAYLhLa7v5LSHjQyQKXr1JzOBDb17RIgqLoNd71HGgxVasrADJlzt2C2YX863HjF
+	 mZq3/9A6QsbwHavja533K510GKlq/kgD5afQahKg6Gbqj762G0NvSPZcynUCFw8IK9Tk3
+	 8v4WyJmbRU7cwpJzXaeOreclvvtnw+HQ50B6q1k0LXYfms1bnL7yf/MYWN2FiyG8U0w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=asseily.com;
+	spf=pass smtp.mailfrom=asseily.com;
+	dkim=pass header.d=asseily.com header.i=@asseily.com header.a=rsa-sha256 header.s=google header.b=C4YetAr+;
+	arc=none smtp.remote-ip=209.85.208.49
+Received: from mail-ed1-f49.google.com (mail-ed1-f49.google.com [209.85.208.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3160606A33F;
-	Wed, 18 Nov 2026 14:27:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3160606A33F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F46C60A2613
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:27:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F46C60A2613
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=asseily.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=asseily.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=Me85+vo/
-Received: from [127.0.0.1] (unknown [IPv6:2a02:560:5d79:c700:9ebf:dff:fe00:fdb5])
-	(Authenticated sender: sha@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 974E4200467;
-	Wed, 18 Nov 2026 15:27:21 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795012041;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xMp3FYu46+6069H+eeh9xe9hJqU7BcZ6oUpQKIuSBzI=;
-	b=Me85+vo/f/nhQM61h7rSJ5PPBlV8oD7W9uZoIuFV7DZt+a+nSry9WHf0WeIXJUW72WpSp1
-	pZ3j512U+5drZmnS9kpvHitgtItEfuwwS4CHCz780c/Qn+NtoHd/XUYyOkZr22lDo04KvN
-	dkFXso2iT3oXuEQEmW2r7hWoW9lhSJK+DxbyafO80RVb0iZnJYABEmcjbEwnPAyjX8MpbL
-	shPqt4fR5xk55wOSWQ6lTa+Zwx5ZEAWN+P8t46fxQw3PLdFYPtCPy+hPiwWeh7Mq0n+V8V
-	pb8J6xiieVupVvRgYpBDbQMAMBVpCc+92dvzxKA/mFt0HIo3eN2eoc+JOtb37w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795012041;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xMp3FYu46+6069H+eeh9xe9hJqU7BcZ6oUpQKIuSBzI=;
-	b=R1CTktpI/kcm1o0kpUr6Vf4xk65GzoczI0OOivAob8oGWg6WoU2s4C5C5CVyfHNK+wMxL6
-	GRQdT+u5gA2FYiM02w3s5iJRS11rVckYYoLDluZ+tRPqFm+DU0gdHxjO6ZDBI+IANEAeOC
-	oHG7a5qHQFYdfyECVb1WsmdYavyNE0N5kzH1eeZgkZyLG+KiWjuk/EkhcUGAkEIcqYT38G
-	whREQHXMzEENeUCO8xgEM2XCGGQL8yPUfKZJb8ShNUUdw25lplmnrpt2uHb/6V8W5R4Ajp
-	1J60u36r8D5y2umasqNR7lFf+JeL17cDGS2/TvCTR34b8sgWRsL6HccpolVF0w==
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795012041; a=rsa-sha256;
-	cv=none;
-	b=DWYDpM32y+fWfnZgEaZzIGJmWONZ9jWLYXZGBOtgRvjx+MrMuJWUmg+Mou3TLBXoTaq4kh
-	+6fgA4kb5kcKfwqDiQ2ALD6asMmATMi/zXdLK1IzE7aZh+oSmdWVvXr74cCdJSkYhTE+Gm
-	gQSGCAsd4qA52uVlhipFPYw0ypBI5QUk3nO7Jmi9SJJV8+a++gmEdoKLZEJY8W8oD5JVsA
-	/Qe/ZdoKucq+uzcGyoijWVSD3w9QG4DsvBStDjNrGazsowC3BEY8muIMrewUnw3foksDk6
-	N1S79cC4KI1E1BoYR14Tw3SSFM3ZFVMuux3ZDm3UQwQt+EiMQ1wPTGRmvIfoww==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=sha@pengutronix.de smtp.mailfrom=s.hauer@pengutronix.de
-Message-ID: <85353f59-52a0-446d-ace3-65e2d03d0d0b@pengutronix.de>
-From: "Sascha Hauer" <s.hauer@pengutronix.de>
-Subject: Re: [PATCH v7 2/4] media: rockchip: Add JPEG decoder driver
-To: "Sergei Khomenkov" <shomenkow@gmail.com>
-Cc: "Sascha Hauer" <s.hauer@pengutronix.de>, "Lucas Sinn" <lucas.sinn@wolfvision.net>, "Mauro
- Carvalho Chehab" <mchehab@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Heiko
- Stuebner" <heiko@sntech.de>, "Philipp Zabel" <p.zabel@pengutronix.de>, linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <596F6C9E-4A5D-4AE8-8D26-7A7247050D7D@gmail.com>
-References: <20261022-rockchip-jpegdec-v7-0-3fd7dd55f408@pengutronix.de>
- <20261022-rockchip-jpegdec-v7-2-3fd7dd55f408@pengutronix.de>
- <596F6C9E-4A5D-4AE8-8D26-7A7247050D7D@gmail.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Wed, 18 Nov 2026 14:27:20 +0000
+	dkim=pass (2048-bit key) header.d=asseily.com header.i=@asseily.com header.a=rsa-sha256 header.s=google header.b=C4YetAr+
+Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-6b167ffd132so1907217a12.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:27:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=asseily.com; s=google; t=1795012059; x=1795616859; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=SzCtrb4I1oeIw2u+c9ts0iXdAzyI2eH808CNGZDafBc=;
+        b=C4YetAr+YHIjc2/kUvXelgtBNjt9sT0Y/7cMGhiuYIvjD9INfpG2dZNd/caXXtl0zg
+         De/7JuA+pjifP5SvGgt0gnK+XDTSsg/2bXp5Vdn3mSQzeZ3ZqlOAxcI/1mp1B6FrQq/+
+         F9dDkmjUrNo9jEw//kbBgzIsPcXnBtYLWjG0z7/OXjFbWyAjLvCuHwQ6s+5W6FuO7jc/
+         iA8nTtqh31En3/anLweP3q88d773l8bClzZKTmGuWbZq3hD098dR6sSEoO7ja0KKvLO0
+         QpOQQQYWLTYm57+OZkylLuNJ6cdEq4mTL0dl/Yz8t+VtpGZFqu/NcV6HWpQ25fo2Yj9p
+         /cYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795012059; x=1795616859;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=SzCtrb4I1oeIw2u+c9ts0iXdAzyI2eH808CNGZDafBc=;
+        b=O8hlklrkUzbpjvrirsV3+pOhYh7FK1BialhBME09Q88B3IvuQ3EiKCnJTY4xMWkz33
+         18YIp2smPAz2I0OXY1N4DdjEv2IR18X8egfsp0tnB6yaa9z+0okG4mr1v6QIuViBTYXu
+         fODpKjJf++FveKhlJ86EVI8L0q5/E8c78qjlg3TCKKIPH9O0Rt4oFKgRSgYC9If7dsqD
+         Y3SIbwnr3i15wLHdI8Y682ORx9bzzOsVNABsXvv2mn32JIvLkBjyBNcpDFrazt45sAHq
+         UrNdXel80N6jm6LL0hQsFApjBjO+6C++DyJ56G6/umn6vXK/67iw2OOylqkOo8lqF4yS
+         /PUA==
+X-Forwarded-Encrypted: i=1; AL+hErFE33EWyl7YBMLRh0PgQI6OVJuTjg5fgqcDqHGGgp5N1OG92cg7CRt1NKmxdjsYgikVihwHizDWlCYUhII=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+e3RRt4ryxkXeQ2vMadXvWkPTevR5LTqWnFZjf29sUYGkEPP91
+	KNtGl1N9Rk1G9XjX9BWqsH9fZWQVwl2ftFj4j+ZN4I05Fqas3h4kcCDZZbQOtnS6/PE=
+X-Gm-Gg: AYBFou2ksWudmGw32ebOuxVgA6rKWR+P7jjwccC1Ofu2u2pf87xGV+ydaOzs1TkDnav
+	zdu16XrLO7k9NgppsUnYPdCuoogsXiE7JSdvmZIe0kJkdpC3WofdiFvAtbzpA99GdwhlviuPhnn
+	R/TZfVE3UXIwQpJ1V61p6J+VPRc5f99OoHvrTuAi+tZjPYJIxOsC6xNaqOYq2ZIFey4VfjykkkR
+	hH8UgRPT1UR5jXXhEK0oLO5Ys2c+lV+j+3K/YlFkWdK/gDISTC7IhXA0ktWYIKCpHG81iVa4B2u
+	a4K+66ZKz6pu68oqP9SMvv2MNjocsGksseMgLuS5jXWl8SJGqVUIcUgw/DFO00ULCXSClyWqav2
+	jPxEAJVmT4GGTmOvf8KbkKEpwFJdpePVvlqi8BTQxs4vEl/8ipGEJekjjbiSeUfxfcPng1pP8L6
+	uq7SqkFJuPTyWoRTf0VeJg2g9fXMW7pbw4GwJVkXBRaAJr3Gw2F8UpFW/vnxvR91Wjib91DCIJC
+	lRAj2BnLQGnEBl6BkhQ/qPEi9VrXettFh+HUMZgFtz9atUmtJ9Vqbv2ZxUMJNj3zx4hXIdU2JN2
+	zal85HhPOq6k2R1v62Om0e9JKkx+ydxnwTzW7L4S4Go=
+X-Received: by 2002:a17:907:6d07:b0:c42:102f:15d7 with SMTP id a640c23a62f3a-c510e275424mr242780866b.10.1795012059362;
+        Wed, 18 Nov 2026 06:27:39 -0800 (PST)
+Received: from localhost.localdomain ([178.135.21.157])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b88993e76bsm1100538a12.12.2026.11.18.06.27.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 06:27:38 -0800 (PST)
+From: Karl Asseily <karl@asseily.com>
+To: broonie@kernel.org,
+	lgirdwood@gmail.com,
+	perex@perex.cz,
+	tiwai@suse.com
+Cc: linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Karl Asseily <karl@asseily.com>
+Subject: [PATCH] ASoC: es9039q2m: Enable the DAC clock at component probe
+Date: Wed, 18 Nov 2026 16:27:27 +0200
+Message-ID: <20261118142728.101180-1-karl@asseily.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,49 +97,75 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Hi Sergei,
+es9039q2m_suspend() gates the part's internal clock tree by clearing
+ENABLE_DAC_CLK in register 1, bypassing the cache so that
+regcache_sync() sets it again on resume. The part keeps its registers
+through a warm reset - only removing power clears them - so a reset
+while the system is suspended skips the resume and leaves the bit clear
+for the next boot.
 
-On 2026-11-07 15:38, Sergei Khomenkov wrote:
-> Hi Sascha,
->=20
-> > +/* Bytes per pixel used to size a coded buffer for a given resolution.=
- */
-> > +#define RKJPEGD_CODED_MAX_DEPTH	2
->=20
-> A valid JPEG can be larger than 2 bytes per pixel. libjpeg-turbo sizes
-> its worst case in tj3JPEGBufSize() at 3 bytes per pixel for 4:2:0, 4
-> for 4:2:2 and 6 for 4:4:4, plus 2 KiB. Quality 100 noise comes close:
-> 2.75 bytes per pixel at 4:2:0, both from libjpeg and from the Hantro H1
-> encoder on an RK3026. Such a frame does not fit the default buffer; by
-> your commit message a truncated one fails through BUF_EMPTY, so the
-> client gets an ERROR buffer for a valid picture. I can't run the VDPU720
-> to confirm.
->=20
-> The default only matters to clients that pass sizeimage 0. GStreamer
-> 1.26 asks for max_width * max_height / 2 of the enumerated range; at
-> 65528x65528 that wraps in its 32-bit calculate_max_sizeimage() to about
-> 255 MiB, which the driver keeps, so 1.26 is not affected. Its main
-> branch (08ea5bc9fab9) asks for width * height bytes of the stream,
-> which the driver keeps too, so these frames would not fit. Both are
-> from reading the code; I did not run them on this driver.
->=20
-> Would 3 bytes per pixel be acceptable as the default, and as a floor
-> for smaller requests, like the 2 bytes per pixel floor in 6/7 of your
-> hantro-based v1? 4:4:4 at quality 100 would still not fit, but the
-> subsampling is not known before the header is parsed.
+Nothing in the driver sets it again. The register cache has no
+defaults, so the first access to register 1 at probe reads the gated
+value from the part and caches it, and every later suspend/resume cycle
+restores that same value. A stream then runs as far as ALSA can tell,
+but the part automutes both channels and the analogue output stays
+silent until power is removed. Boards that remove the supplies in
+suspend reset the part and are not affected.
 
-I haven't been affected by this issue lately, but saw it when the series
-was still based on the hantro driver. Yes, I'll change to 3 bytes per
-pixel next round and make that the floor of sizeimage. Would be nice to
-have a proper solution for this rather than either wasting tons of
-memory or risk having too small buffers.
+Set ENABLE_DAC_CLK at component probe, after the mute and before the
+datapath is enabled. Of the two writes the driver makes behind the
+cache, this is the one probe did not already repeat; the other is the
+mute at resume. On a part that came up from power the bit is already
+set and the write changes nothing.
 
-Sascha
+Tested on an RK3588 board whose ES9039Q2M is clocked by a fixed
+24.576 MHz oscillator: suspend, reset while asleep, then play a 1 kHz
+tone. Without this patch register 1 reads 0x35 where 0xb5 is expected,
+both Automute Active controls read 1, and nothing is heard; setting
+ENABLE_DAC_CLK by hand mid-stream clears both at once and the tone
+comes back. With this patch the same sequence reads 0 on both controls
+and the tone is heard, and a part left gated before the fix was
+installed recovers on the next warm boot without power being removed.
 
---=20
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+Fixes: 004e260a5475 ("ASoC: es9039q2m: add ESS Technology ES9039Q2M codec driver")
+Signed-off-by: Karl Asseily <karl@asseily.com>
+---
+
+Notes:
+    Tool use (Documentation/process/generated-content.rst): the cause was
+    traced, and this patch and its changelog written, with an LLM - Claude
+    Opus 5.5, in Claude Code. The fault was found, reproduced and the fix
+    tested on my board, as described above.
+
+ sound/soc/codecs/es9039q2m.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/sound/soc/codecs/es9039q2m.c b/sound/soc/codecs/es9039q2m.c
+index 2a451dfcc..e3f963909 100644
+--- a/sound/soc/codecs/es9039q2m.c
++++ b/sound/soc/codecs/es9039q2m.c
+@@ -1634,6 +1634,18 @@ static int es9039q2m_component_probe(struct snd_soc_component *component)
+ 	if (ret)
+ 		return ret;
+ 
++	/*
++	 * Turn the DAC clock on. It is set at power-up, but suspend clears it
++	 * and only resume sets it again, and a reset while asleep skips the
++	 * resume without resetting this part. It then comes back gated: the
++	 * stream runs, the part automutes, and the analogue output is silent
++	 * until power is removed.
++	 */
++	ret = regmap_update_bits(priv->regmap, ES9039_SYS_MODE,
++				 ES9039_ENABLE_DAC_CLK, ES9039_ENABLE_DAC_CLK);
++	if (ret)
++		return ret;
++
+ 	/*
+ 	 * Enable the datapath. SYSTEM_CONFIG[1] is clear at reset, so in
+ 	 * software mode nothing turns the DAC on at power-up: the analogue
+-- 
+2.47.3
 
