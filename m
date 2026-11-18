@@ -1,57 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.231.20
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.231.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794992298;
-	b=xqNy3KEop0UduHxSIhuhZsnO23jJ9DlIQGMCO5wHaGC2OtwtydIAgldC6b53a3eSwsjc
-	 Z/zgIs9vPPEb7xhmF+wsHOZtxccGOMciyK8rgVqwBUsJgz6/zRYEppB/3w/uTanuZFuAO
-	 EhR4houEphIuOLG5zkFK//fzjC1y9B/AcVsRLriCsa/5MG7YATWu0G0o+ThCC1NmXkf7m
-	 XQPHiOvhOS+fF2C4E12/YrVc3O5prUxXe4qubUduG1I2cQcHZENgBGLxe9lki1C/GHSYf
-	 2uM1MJwR61dicPeQCc9aEDNP5aVdg40fA9s/qWTIl0GIuI4CsoWcBlXoSWJ8UBiWkjA==
+	t=1794992301;
+	b=HomzWT17+y/t+C0dcCSGmKNQKqwEQfygROIC8SY2jEwWhIkyBsReI+AkSC2Selp+4lyL
+	 A9n5PMo2nT1bBIbp/pGuOBYkIjxl9l8kX2yRrYJx4WcMTY6PBeghJ1zXxGixDEBOYqFBA
+	 VCxKQ1h1y1KW8rWO7PvSJh7t8bnnHmZdDRm/r+5A7i8VK3kzsj70s3py4WloIOcZc/jFs
+	 wMo9aGYdyrgqDXmlZ6An2Kg4YaIL3NXHFwsvJKZ1EhmHuZjIsrtUYgt9pbkpm0DepvJnY
+	 be+mW8XX2pNSpQAdZS1Mem77zeBdHkoWWMN5Jk48BBPeYmTrFG8lzGKXA4GVpByCZxA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794992298;
-	h=DMARC-Filter:DKIM-Signature:Subject:Date:Content-Transfer-Encoding:
-	 To:In-Reply-To:X-Original-From:X-Mailer:From:Message-Id:Mime-Version:
-	 Received:Content-Type:Cc:References:X-Lms-Return-Path;
-	bh=D3l2PQch6BsluJL94AQiUY8vO2xjRk9xx637S8ppt6s=;
-	b=hzd+ThR36nPO1AiCIuhOKs3ZfsnA27mG+ab3m+EPBO9FTl4SBTLHu0IDRuy446oAN8RN
-	 nYqyd+saZaHbcBDFo5AZXbIyo/R2YkY7xGABwM1VXHYrmMPpv6PyBVezxZzG2VTB4wCCz
-	 T2D9xJe9Kna3arGTqL7VLN+8oWE8zyeIM5TMqmGJBcdNDTe48D4hxARjUxbtRAMOebHZA
-	 Med8AOQOdX9ergxCaJwmckETqVUR06C5A4YAMTCtsnJotIlHQBi7y/9oDW4bXjmkRPfbg
-	 c4/tdMBbPXgpKK/uRxlu3LNGc+UGLaWOg+jHp3/8yhAAxv6c6Ao1H5t6Gd0+5COHCLQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794992301;
+	h=DMARC-Filter:DKIM-Signature:To:From:Mime-Version:X-Mailer:
+	 X-Original-From:X-Lms-Return-Path:Message-Id:In-Reply-To:Content-Type:
+	 Received:Cc:Subject:Date:References:Content-Transfer-Encoding;
+	bh=sveQCqM0T8TQXebLs1ee5J0Akp/eUy4wpp9ckOQs5CU=;
+	b=TFKSiw1jFanbOVsxJLnGPTsUsiNsxgDksrA9ijTDR1XTiF1LWIZ0WR6/k7yVuZLZ2nTK
+	 N0BZtVhsISCFOwol3UTymdWsSDfeJjDGpSY5T4tzjVJ1pfyHRqW0O18v+axmsV1ReHf0R
+	 KyIEX37d5Li75EZaUel9quGuXhFBrjzDp3JPvlsdL9/NuZlJmNwxAAiSMvaNUWTIoHx8B
+	 SS/E8I6K5i85YWHoJO+3NvnKX7bMSQJIG7Vo0Odv1Kg8Y57LQHw4aOgjg+rARjVZ5bD/Y
+	 qT1dU7a1X6wMiDjz+4M2sBxwYzHXtvbyX2mX4kj7oaP2MP6V5A+VBEwkV5mpebIC7Lg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=deepcomputing.io;
 	spf=pass smtp.mailfrom=deepcomputing.io;
-	dkim=pass header.d=deepcomputing-io.20200927.dkim.feishu.cn header.i=@deepcomputing-io.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=sTyGVX8w;
-	arc=none smtp.remote-ip=209.127.231.20
-Received: from va-2-20.ptr.blmpb.com (va-2-20.ptr.blmpb.com [209.127.231.20])
+	dkim=pass header.d=deepcomputing-io.20200927.dkim.feishu.cn header.i=@deepcomputing-io.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=FsenHpfD;
+	arc=none smtp.remote-ip=209.127.231.46
+Received: from va-2-46.ptr.blmpb.com (va-2-46.ptr.blmpb.com [209.127.231.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DEC98606A887
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:58:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DEC98606A887
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A977606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:58:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6A977606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=deepcomputing.io
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=deepcomputing.io
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=deepcomputing-io.20200927.dkim.feishu.cn header.i=@deepcomputing-io.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=sTyGVX8w
+	dkim=pass (2048-bit key) header.d=deepcomputing-io.20200927.dkim.feishu.cn header.i=@deepcomputing-io.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=FsenHpfD
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=deepcomputing-io.20200927.dkim.feishu.cn; t=1794992293;
+ s=s1; d=deepcomputing-io.20200927.dkim.feishu.cn; t=1794992296;
   h=from:subject:mime-version:from:date:message-id:subject:to:cc:
  reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=D3l2PQch6BsluJL94AQiUY8vO2xjRk9xx637S8ppt6s=;
- b=sTyGVX8wF16lZWjgjpS/ah9Xty9Q6CPwVDeTxA33OM56iM0ZT94Y+hXCmFkI8CG+a7+D9l
- EJgKX4LioXEdMLqgk/eDNctYlFpcwyqRWHWRgBhSrfVQ8cQWTIll2++6QDWvt/OIGHl6zh
- OjREZER1Wec2ixEHjJNiJb2oH+pFWxE6LSgzt79N4dn3OKME2eiiDM+RJWLYsIK7zskxzv
- ZJyiGAgTcxjWTZBSFVQ4FlHA2kp4WR3yl9B3wLSqxR9wMk8PPTx765DCMjxwgcPF4Hqufo
- p3sSSPv9zwhihfgoqzXNIoDKy9j2vfE8m9GQcndnpSlZ2xVMtuHIFnlXcSf0bA==
-Subject: [PATCH 6/9] riscv: dts: spacemit: Add K3 eSPI pin group
-Date: Wed, 18 Nov 2026 16:57:39 +0800
-Content-Transfer-Encoding: 7bit
+ bh=sveQCqM0T8TQXebLs1ee5J0Akp/eUy4wpp9ckOQs5CU=;
+ b=FsenHpfDmPTX/Bv1PN4d8ayLPq6yaQTPA+iE+hEfIVLCTvRCgNYa5LUBuuY2vaDcnHI0gJ
+ GV1+cjVdoztYQdtEPb25qV7xfLKHvHsa+gaEERlaTA/bOVzhC4hn1a1rPnNGShnpAHwdZm
+ 5e+2Qxq3cRg6sLbkZX5vGnOWoz//Sdmy3Gtij7ujVc+5uChLpx7fVVUU9LuzHqfCtVNl3+
+ DC+sGKHKLBptjpexEYiXVwV0uwwO9CqsPv6k1DnXNyJ1EqmJi+TXpu+/7ycTUP/88mQc0E
+ azlPrY0qhUSJia6nkyLsZ5+/ZznzE29+a65v+IuT62di8c6ljAJcQ2zUDQ/sfg==
 To: "Yixun Lan" <dlan@kernel.org>, "Benson Leung" <bleung@chromium.org>
-In-Reply-To: <20261118085742.1817536-1-yang.wang@deepcomputing.io>
-X-Original-From: Wang Yang <yang.wang@deepcomputing.io>
-X-Mailer: git-send-email 2.43.0
 From: "Wang Yang" <yang.wang@deepcomputing.io>
-Message-Id: <20261118085742.1817536-7-yang.wang@deepcomputing.io>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,8 +54,13 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
-Received: from ubuntu.. ([183.23.101.74]) by smtp.feishu.cn with ESMTPS; Wed, 18 Nov 2026 16:58:09 +0800
+X-Mailer: git-send-email 2.43.0
+X-Original-From: Wang Yang <yang.wang@deepcomputing.io>
+X-Lms-Return-Path: <lba+26afd68a6+a873f6+vger.kernel.org+yang.wang@deepcomputing.io>
+Message-Id: <20261118085742.1817536-8-yang.wang@deepcomputing.io>
+In-Reply-To: <20261118085742.1817536-1-yang.wang@deepcomputing.io>
 Content-Type: text/plain; charset=UTF-8
+Received: from ubuntu.. ([183.23.101.74]) by smtp.feishu.cn with ESMTPS; Wed, 18 Nov 2026 16:58:13 +0800
 Cc: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>, 
 	"Tzung-Bi Shih" <tzungbi@kernel.org>, 
 	"Guenter Roeck" <groeck@chromium.org>, "Rob Herring" <robh@kernel.org>, 
@@ -73,54 +71,63 @@ Cc: "Troy Mitchell" <troy.mitchell@linux.spacemit.com>,
 	"Sandie Cao" <sandie.cao@deepcomputing.io>, <devicetree@vger.kernel.org>, 
 	<chrome-platform@lists.linux.dev>, <linux-riscv@lists.infradead.org>, 
 	<spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH 7/9] riscv: dts: spacemit: Describe the K3 eSPI controller
+Date: Wed, 18 Nov 2026 16:57:40 +0800
 References: <20261118085742.1817536-1-yang.wang@deepcomputing.io>
-X-Lms-Return-Path: <lba+26afd68a2+4e444d+vger.kernel.org+yang.wang@deepcomputing.io>
+Content-Transfer-Encoding: 7bit
 
-Describe the eSPI0 pin function on pads 91 through 98, including the
-separate clock pull configuration. The group is only applied when a
-board references it.
+Add the disabled eSPI controller with its memory window, clock and reset
+connections. Keep the board-specific EC child out of the common SoC
+description. Other K3 boards remain disabled by default.
 
 Prepared with Codex assistance from the existing DC-linux EC support.
 
 Signed-off-by: Wang Yang <yang.wang@deepcomputing.io>
 ---
- arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi | 24 ++++++++++++++++++++
- 1 file changed, 24 insertions(+)
+ arch/riscv/boot/dts/spacemit/k3.dtsi | 31 ++++++++++++++++++++++++++++
+ 1 file changed, 31 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
-index cb4f4f4e3..5bae382fa 100644
---- a/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k3-pinctrl.dtsi
-@@ -11,6 +11,30 @@
- #define K3_GPIO(x)	(x / 32) (x % 32)
+diff --git a/arch/riscv/boot/dts/spacemit/k3.dtsi b/arch/riscv/boot/dts/spacemit/k3.dtsi
+index e89d2cc5c..d859c84bb 100644
+--- a/arch/riscv/boot/dts/spacemit/k3.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k3.dtsi
+@@ -648,6 +648,37 @@ gmac1_axi_setup: stmmac-axi-config {
+ 			};
+ 		};
  
- &pinctrl {
-+	espi0_2_cfg: espi0-2-cfg {
-+		espi0-0-pins {
-+			pinmux = <K3_PADCONF(91, 4)>,	/* espi0 d0 */
-+				 <K3_PADCONF(92, 4)>,	/* espi0 d1 */
-+				 <K3_PADCONF(93, 4)>,	/* espi0 d2 */
-+				 <K3_PADCONF(94, 4)>,	/* espi0 d3 */
-+				 <K3_PADCONF(95, 4)>,	/* espi0 cs */
-+				 <K3_PADCONF(97, 4)>,	/* espi0 reset */
-+				 <K3_PADCONF(98, 4)>;	/* espi0 alert */
++		espi0: espi@cac8c000 {
++			compatible = "spacemit,k3-espi";
++			reg = <0x0 0xcac8c000 0x0 0x1000>;
++			ranges = <0x0 0x0 0x84000000 0x1000>;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			pr-mem-base0 = <0x84000000>;
++			pr-mem-base1 = <0xcac8c000>;
++			clocks = <&syscon_apmu CLK_APMU_ESPI_SCLK_SRC>,
++				 <&syscon_apmu CLK_APMU_ESPI_SCLK>,
++				 <&syscon_apmu CLK_APMU_ESPI_MCLK>;
++			clock-names = "sclk_src", "sclk", "mclk";
++			resets = <&syscon_apmu RESET_APMU_ESPI_MCLK>,
++				 <&syscon_apmu RESET_APMU_ESPI_SCLK>;
++			assigned-clocks = <&syscon_apmu CLK_APMU_ESPI_SCLK>;
++			assigned-clock-parents = <&syscon_apmu CLK_APMU_ESPI_SCLK_SRC>;
++			operating-frequency = <20>;
++			io-mode = "single";
++			alert-mode = "io1";
++			alert-type = "open-drain";
++			watchdog-timeout = <0xffff>;
++			crc-enable;
++			auto-gating-enable;
++			peripheral-channel-enable;
++			vwire-channel-enable;
++			oob-channel-enable;
++			flash-channel-enable;
 +
-+			bias-pull-up;			/* normal pull-up */
-+			drive-strength = <25>;		/* DS8 */
-+			power-source = <1800>;
++			status = "disabled";
 +		};
 +
-+		espi0-1-pins {
-+			pinmux = <K3_PADCONF(96, 4)>;	/* espi0 clk */
-+
-+			bias-pull-down;			/* normal pull-down */
-+			drive-strength = <25>;		/* DS8 */
-+			power-source = <1800>;
-+		};
-+	};
-+
- 	gmac0_rgmii_0_cfg: gmac0-rgmii-0-cfg {
- 		gmac0-rgmii-0-pins {
- 			pinmux = <K3_PADCONF(0, 1)>,	/* gmac0_rxdv */
+ 		eth2: ethernet@cac8e000 {
+ 			compatible = "spacemit,k3-dwmac", "snps,dwmac-5.40a";
+ 			reg = <0x0 0xcac8e000 0x0 0x2000>;
 -- 
 2.43.0
