@@ -1,69 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=128.30.2.78
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794983639;
-	b=1TKzazPouE00ljxTeFj7lUdrMTuJKhueGKJgdvjzuaBXmfMZoTA3/xUN/Zf9Va3p7nvC
-	 GLJL6fNzMUealz6d9mic7NaB8BZZofCp1y+w1VFO+WlLuE0parw+IwHc4EyRgpu6o/l+o
-	 SQYsTjpf+NzqJ+Szy9DoLweAl57a8y9A1LyRqr5ylu2Fl7uzlIjl5U0Mt1nitrSefI9iO
-	 mS2asqYMOKLvauiVsiMFRJSWtg94XubxZ9gnQH+Eh+KgUkiS4QU4naT5C32p8eQgV6jJv
-	 FrEarJkyeTd8t8GKK0kSnSOSp9Ld4sTS5Khp+G+cMQh6kZETrNk93qQR8ILA+R1jQZg==
+	t=1794983667;
+	b=Pyzy88CExMvTGWJ0mdwft4tX6DFlgdN3rgdTwY/E7+L5GP7TgRQoIYk5XideN9jlkQD5
+	 gwUk2m32/fJz0kW9S2M5TbQs6M+QbG+WY7gID1m4liph2bPGcYiTF8rtxpqFH8EUJT1rO
+	 aX3nOaQI9aFUOQRY5kY0pcZzCfuOd9eSGqFHF//pSyA2Zb8/wSjyR5GRCNhfXK+HDcNSS
+	 AbN41np9c2/wepERqhOhYAYbhx9dvP5Me/uoTqE9+iQzk4xBrW6OPOTyR86BERi70hQmY
+	 YmDBgxZXWJTICJy0C7NVg+I9DAoANL2byR5uYQ1Yrq0HhEWZIfmBuxa6x5gpNU5XNpw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794983639;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=+LkSY5GlXR1Cv2REFbi0XBAyEkYgGEsqiwtvr/sPn20=;
-	b=Lh3xZiBrt76Gf7eYymWff+b8jzGUxOnjwqrLQp0IXMLt8tz3GeEwC13J7U5zgfM9aNgy
-	 u7b1iPf31nrzj6MGrc7slccjc0N4Hj454DODcKPvGmh2ChUztzy2vignMgFpKPRGgSoHB
-	 oqohAt7dBYMguu2Hvh7yqsvjtczYkTd2/TwcY6qfhkY7oONELEhZSognMdUqp6bykrGip
-	 kxmCDWNKtF4lUNsYaLUq5Hy4opCurGGjzpV71iX/fYB213zmMknHFTw8cxiZDxwzYeRGx
-	 T0cxIGB75jD7eRDf6behFLksaf1T1NGB14pvsuScbS3RNPssCcwL0PqsmRVc1DF7Q1g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794983667;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=2fdla1NYjjCieel0GDgyV2h5zcu99JPKuhUzM+in2nI=;
+	b=U3qVpluuPBV3dQ3AMpNXq/rArWrB83jH4S92f6IollyCAuQC+1GmH0cpAgPOD+2uB+3e
+	 aRDHKC1oVkRBf657JzMIPsRPv5h8y4/yakEgbEYpnoKl1HOe3duN7K9XwOj765BfOQIKv
+	 yV32zhOLDfjzeKVeOoUI/IXlsz487eQTPL9Jv/HBTPxSPE0O4Y1o95yZWqTmE4B18Wh5Q
+	 hNFs1vu7z+GJ+xqruY/h+ik9KPk660WU0abcQ66iTFfzUHqc/0fsY5jkAM2JQCwB8JG30
+	 F/hDFYjimTmtDdeGy9ph66XpCq7AuB7pPAC12oZkCIwq6L8ye9dS9ibjcslJE0jOvCw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=csail.mit.edu;
-	spf=pass smtp.mailfrom=csail.mit.edu;
-	dkim=pass header.d=outgoing.csail.mit.edu header.i=@outgoing.csail.mit.edu header.a=rsa-sha256 header.s=test20231205 header.b=nAKa9CPq;
-	arc=none smtp.remote-ip=128.30.2.78
-Received: from outgoing2021.csail.mit.edu (outgoing2021.csail.mit.edu [128.30.2.78])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=E3CqjKIz;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9157E606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:33:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9157E606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=csail.mit.edu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=csail.mit.edu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC8C0606A325;
+	Wed, 18 Nov 2026 06:34:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=outgoing.csail.mit.edu header.i=@outgoing.csail.mit.edu header.a=rsa-sha256 header.s=test20231205 header.b=nAKa9CPq
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=outgoing.csail.mit.edu; s=test20231205; h=In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=+LkSY5GlXR1Cv2REFbi0XBAyEkYgGEsqiwtvr/sPn20=; t=1794983638; x=1795847638; 
-	b=nAKa9CPql0z+1sMynzYMl8vekukgptl7utHFq5cKufEkBl/0vDkjijQJqZn6KgpgsQymqtpmM0q
-	vw2xaH7w9B83apDnI3EjxYxL3BsAzXqzTDVB6yJpLraDtAd7yl6B9Qv5jjjYhD6p4yoFtUnCxF0Si
-	/pA8yceNqqcdsMDEZlHGX6hTW5HKQM9+W8+WrGqqNXYM+/bnYT/SExyBsCXUkd9ZZakQxjoi5CM7U
-	2j55xEuXZW5oIP98+aH7uiJ2AFRU2U/W4seAMrVbLiPAd7XX5MUXzNVDeoxsqKh68OVmUPuPw5FPE
-	6wA0ILMQKg1Qpt5K7vdNoIAnikC+zjo8BnLg==;
-Received: from [167.220.238.88] (helo=csail.mit.edu)
-	by outgoing2021.csail.mit.edu with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <srivatsa@csail.mit.edu>)
-	id 1xTZEw-00EuZP-Ef;
-	Wed, 18 Nov 2026 01:33:54 -0500
-Date: Wed, 18 Nov 2026 12:03:46 +0530
-From: "Srivatsa S. Bhat" <srivatsa@csail.mit.edu>
-To: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
-Cc: tgopinath@linux.microsoft.com, ssengar@linux.microsoft.com,
-	michal.simek@amd.com, rajan.vaja@xilinx.com, tejas.patel@xilinx.com,
-	abhyuday.godhasara@xilinx.com, gregkh@linuxfoundation.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	tglx@linutronix.de
-Subject: Re: [PATCH 2/2] soc: xilinx: Fix event manager CPU hotplug state
- cleanup
-Message-ID: <av1GyoUdnxMV_C2p@csail.mit.edu>
-References: <20261103062051.676519-1-ptsm@linux.microsoft.com>
- <20261103063515.679043-1-ptsm@linux.microsoft.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=E3CqjKIz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AEEE1F000C8;
+	Wed, 18 Nov 2026 06:34:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794983666;
+	bh=2fdla1NYjjCieel0GDgyV2h5zcu99JPKuhUzM+in2nI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=E3CqjKIz0iYatvK2Lmib4agpv8+7BNEEwdvY5jjKdnRn+vKgGa/P/jB2QQzQobRZY
+	 sk0NHrJWfxHUdPi1N2vdcZZXq6GakntsC1Uxk1N+zQsYIHoz9FmSNdvLlRWlaCVoWP
+	 TmCz4lq7ZPlwDt1jgzI8ubci12UNc2SkwuKmS5r6v4IvH9skvfJ3wx41C0tVF4aV3F
+	 X6vYOYo/SRFFxDUtfL6fMYFeV0vzhq+oif3UFMHxjJBt38QfjO2gPzNLe7LbhEGL4w
+	 IjW3+dlL3MsMNEXFT7BPrm8q2MKPem3pR4yeuotPmzmCjmCOdno6lHdsf7zoHi5B/8
+	 gPleBnCF0merQ==
+Date: Wed, 18 Nov 2026 06:34:24 +0000
+From: Yixun Lan <dlan@kernel.org>
+To: Sandie Cao <sandie.cao@deepcomputing.io>
+Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 0/3] Enable USB and SD for Deepcomputing FML13V05 board
+Message-ID: <20261118063424-GKA155714@kernel.org>
+References: <20261117054324.1048767-1-sandie.cao@deepcomputing.io>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,89 +61,19 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261103063515.679043-1-ptsm@linux.microsoft.com>
+In-Reply-To: <20261117054324.1048767-1-sandie.cao@deepcomputing.io>
 
-On Mon, Nov 02, 2026 at 10:35:15PM -0800, Prasanna Kumar T S M wrote:
-> On driver removal, the event manager removes the CPUHP_AP_ONLINE_DYN
-> CPU hotplug state instead of the its actual state. This can leave the
-> event manager callbacks dangling. Use the actual CPU hotplug state
-> during driver removal.
+On 13:43 Tue 17 Nov     , Sandie Cao wrote:
+> This series updates Deepcomputing FML13V05 Device Tree: Add P1 PMIC 
+> regulator tree, add USB controller and USB phy, Enable SD card.
 > 
-> Hotplug registration failures are also ignored, allowing probe to
-> succeed without the callbacks needed to enable event interrupts on
-> CPUs brought online later.
+> This series is rebased on next-20261116.
 > 
-> Fixes: c7fdb2404f66 ("drivers: soc: xilinx: add xilinx event management driver")
-> Signed-off-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
-> ---
->  drivers/soc/xilinx/xlnx_event_manager.c | 14 ++++++++++----
->  1 file changed, 10 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/soc/xilinx/xlnx_event_manager.c b/drivers/soc/xilinx/xlnx_event_manager.c
-> index f733dc42b3b1..2d8bfeab4190 100644
-> --- a/drivers/soc/xilinx/xlnx_event_manager.c
-> +++ b/drivers/soc/xilinx/xlnx_event_manager.c
-> @@ -24,6 +24,7 @@ static DEFINE_PER_CPU_READ_MOSTLY(int, dummy_cpu_number);
->  
->  static int virq_sgi;
->  static int event_manager_availability = -EACCES;
-> +static enum cpuhp_state hp_state;
->  
->  /* SGI number used for Event management driver */
->  #define XLNX_EVENT_SGI_NUM	(15)
-> @@ -625,8 +626,6 @@ static int xlnx_event_init_sgi(struct platform_device *pdev)
->  
->  static void xlnx_event_cleanup_sgi(struct platform_device *pdev)
->  {
-> -	cpuhp_remove_state(CPUHP_AP_ONLINE_DYN);
-> -
->  	on_each_cpu(xlnx_disable_percpu_irq, NULL, 1);
->  
->  	irq_clear_status_flags(virq_sgi, IRQ_PER_CPU);
-> @@ -660,8 +659,13 @@ static int xlnx_event_manager_probe(struct platform_device *pdev)
->  	}
->  
->  	/* Setup function for the CPU hot-plug cases */
-> -	cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "soc/event:starting",
-> -			  xlnx_event_cpuhp_start, xlnx_event_cpuhp_down);
-> +	hp_state = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
-> +			"soc/event:starting", xlnx_event_cpuhp_start,
+For the series, with
 
-Let's change :starting to :online as per convention, as this is
-associated with the ONLINE_DYN state.
+Reviewed-by: Yixun Lan <dlan@kernel.org>
 
-Can we also edit the callback names for symmetry similar to the
-suggestion for patch 1/2?
-
-> +			xlnx_event_cpuhp_down);
-> +	if (hp_state < 0) {
-> +		xlnx_event_cleanup_sgi(pdev);
-> +		return hp_state;
-> +	}
->  
->  	ret = zynqmp_pm_register_sgi(sgi_num, 0);
->  	if (ret) {
-> @@ -670,6 +674,7 @@ static int xlnx_event_manager_probe(struct platform_device *pdev)
->  		else
->  			dev_err(&pdev->dev, "SGI %d registration failed, err %d\n", sgi_num, ret);
->  
-> +		cpuhp_remove_state(hp_state);
->  		xlnx_event_cleanup_sgi(pdev);
->  		return ret;
->  	}
-> @@ -704,6 +709,7 @@ static void xlnx_event_manager_remove(struct platform_device *pdev)
->  	if (ret)
->  		dev_err(&pdev->dev, "SGI unregistration over TF-A failed with %d\n", ret);
->  
-> +	cpuhp_remove_state(hp_state);
->  	xlnx_event_cleanup_sgi(pdev);
->  
->  	event_manager_availability = -EACCES;
-
-It looks like this patch 2/2 doesn't have the kind of bugs in the
-cleanup path that affected patch 1/2, so that's good.
-
-Regards,
-Srivatsa
+-- 
+Yixun Lan (dlan)
