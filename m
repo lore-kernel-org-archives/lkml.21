@@ -1,84 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.69
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795001325;
-	b=Fp+1daG905p56vple0VLSEzXLe7zN/hmeppBoejOlah4T7MzsenMPMpumHZWrB6o77mT
-	 sLPSpBO+ZnUsjd0wEdqKiqUyEn3yKFbDlsA8Ik8WitkcMS2KBHTiGdZcHwzz9JFXxcKiv
-	 572rjslYf4iiAZKYdhvGO2LA3uuIh6viwvhRrZq2eyxnjYfStwtyyzRB85RkMyqume5XN
-	 JZGWm8gsWIQrpHucx4bUoXWxjixBYProtPHo8JTUwyn1pR/2PafUASkgJl895MfWwe/Tg
-	 zgroOZMlHWxaaHLElBJDTMJawI+HACMn0d3xNKiG4oIxNQPsthpRT+kVefwDu2vKwrA==
+	t=1795001376;
+	b=po2VT2RjOWnk6eyvOFwQXy5XllZ0PO/dXoSWNIATsr8bmRNb7HPymcsAkTwFJvFBl8sZ
+	 8mlnViK62FscyuzRpcqRXyZZ8BbXWAXh6mN3kagexhfGd5kjhO/Q3Z6jK53hv/VJcPlct
+	 xs2aubXJCjkgg5T5tpCSqAJ6pBTt5/ncghCMK99ZDZxjqv6M5lmlfoqGjweHCGFeoSkVm
+	 EMWzGhgHWRs3aN5WJGF1T7lisT+l/E91Hj5cZ7m66w03AIUgnWXWrl8zIWF7Vr8UmNdgx
+	 4ZUxkM78XYh8qxg5n4j5VVTjm+q92n0JGyQbeIqzpd2ALegqSnjbWj9WMVYIbnmoTRg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795001325;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795001376;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
-	 Subject:From:To:Cc:X-Mailer:References:In-Reply-To;
-	bh=PTE76i3nixm+phqU46XvEqvVLXQTlr+vsdjYP97MKXk=;
-	b=0uBNOQav0wDiBXtscO9FUGMonwCYd4Irrk92iB3T/MDmq0reRFxfDNyTyDWMKonREiTz
-	 trqUZTlWX5F7OKmFa3beM6u+Zt7xrd6SyNbZeuJR0WRZpTSl6ASfiyIUK76xaehut+AmK
-	 0M+ZljDL1XmGv5rqvkf0F19KL7i/II8Y6gyTbvt10NPxPp7b3wx6H98ZRfsBEqflMZ1Tq
-	 xUTBQK4caeOR6J/0ar5eoHzTr/6mSAImuRa4qKZS1zcXCOt6MtkP+rMIibwqxDx4Ay0uZ
-	 IC4eOQsGjfNdKfyDKU6qhGapIVVQ5X3lH2MtVo9wJVr9ESHbtl1r3frsEikLUtNEdZw==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=fiRXPitExg9c6g7UHC8j9HW4vMb1uaFTU/jha31fP2w=;
+	b=NlQmRA9ws6Q0izbaWhRotVbsC5NpfZqQxGnVE0DxGdKwk8TLQYcCUGg0xX92WTbC8i2J
+	 nBfkVjWix3/qhixs8wFq5dNYl+RP4tMJj2zErciubz0MyPtrDsmXPmBi1tAxiRiilFc06
+	 TVGAD3DU5olhn/O++qkcN7HNYrdKn5r4HOrUR39tQR8yUkQ9LaotsCVbHMYaezS3p5p8Y
+	 3J9tzHHlZZH/CD6wadyVxkyXK5O8ZVk+TyuC6N2BRedhtQemHK3plJ9VX49OngGL3qTLU
+	 pA0NgjPxDODp+9ZvnOpBbF0xZ0DngSggec20qSQgNP0ERZ2OT12dQp6u3jQDwx1WXOQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=J9D5OyQQ;
-	arc=none smtp.remote-ip=209.85.219.42
-Received: from mail-qv1-f42.google.com (mail-qv1-f42.google.com [209.85.219.42])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=FPxBJ7Fu;
+	arc=none smtp.remote-ip=209.85.128.69
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com [209.85.128.69])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7800A606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:28:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7800A606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A9FC606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:29:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1A9FC606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=J9D5OyQQ
-Received: by mail-qv1-f42.google.com with SMTP id 6a1803df08f44-91f30ff609eso7290676d6.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:28:45 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=FPxBJ7Fu
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4a359b714f8so5701345e9.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:29:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795001324; x=1795606124; darn=vger.kernel.org;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=PTE76i3nixm+phqU46XvEqvVLXQTlr+vsdjYP97MKXk=;
-        b=J9D5OyQQ7CtDJfGNBTDrS8xXQb1oxOlFHB2CwmcqpmdeGfNTXI0akJ0lAfAC8TqwEE
-         W50Zc7KjwtcLjWa64N2bJICEox+7cN8GZp6uc5A+aZVDr1EgOu+t+DzvVISOmYq2iAnP
-         PN/umpdWd49EvKjLiMbMTTDtc2chbXkrfAjgKwizy/4ebN+GLj6a8QG9/g9QGRq3LP2F
-         5aqm27u+smmz8Up+MD8FsgOPaxTto6ProUjm1Ki35/BNDk9qaIae2f3/ow6m/6yAcjKq
-         cLv7TJBXbB76xCs5dvWqFwpFu2U8Z1Q49AEo32dVZKR7hFJLipWw1HLWdgp89P5IDKk2
-         3zvA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795001324; x=1795606124;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20260707; t=1795001374; x=1795606174; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=PTE76i3nixm+phqU46XvEqvVLXQTlr+vsdjYP97MKXk=;
-        b=E7u8sDowLWWtX4PcYxxW4A1Hc88YpJDlIXPi7pGXSelOAKnDYUnel01Rwd63fRh1Hn
-         hSA8g3Yzs8jy60u5XdBIfxEs1+4XqL/9ypt6qjdw7XFd+jsIXbepRgXukQkczDwe5lEp
-         dAZmyRv6V1E6Vnl9T1a0WD2L6ULYlxt5dFd97qalIdu+3BQqgYtioAqgeiracJAtZzOY
-         Mo8MGupquXPhLr0vPVxaRIDesqEWIF/Mg6iNsvpQCdZwAnNPY+d1HoIYg1j2tfJ+Fp1r
-         leIfEis7vMeh2VYj+Rk8LLFW2tzeUzWZVHYWa0tGeM6CNLWRfbb0WQ9IMDczXZVRFLo8
-         3Xcw==
-X-Forwarded-Encrypted: i=1; AL+hErEKtYvbkRC6m2Xxovc6956LpsL5HKXRNat0pZHZ2N9rbVkVfVhUF6lupHh9kcKqr1AOV1Jd/gFkgpk/4fg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9r/sJKo65MWIl0JNvGtxPZYXGwLHeMym1xYypC98chQ6u2a1lR
-	Qhr0EltXn6Nzti2SEfn6SNhJVYaVQ5rPdMM+xoYbvEJYMvnjwc31+1FB
-X-Gm-Gg: AZFdTZc5zxvkN6UpqgpDb9QoudNYzQGHB/JR6EwBv4wHG9LgAymE5J8PgB13Zx4YhBN
-	O1hzleQDlY+Fq/8QuzGzGkBV+y/TxrBkWh98d0JgwA2GDZxqL/QXExF510iD+XfZym5eY1A/SIQ
-	gbFRdKAstM6vRFKxsvhpO3lwUQPDYMTQmbGtcG5LBzqSd1F5hdP0pFIKpX6wZCeYNaVz29vmDKs
-	LYp7rokHCAiuy1sFkOXhhqAaA1fYH5txuM+321hyjjJoZCVqZNY01bLlUefRQloVZ32xAmqGaHt
-	pgTL9KwFxzfIijiFy0k/XadlkeZXJQUmVoo7cBtMeV4Dyqn3CD3Onyt4CdKAYW9Yn/VmQ35GueS
-	ATR6UbU3FDZ4tKODrtAZkxXev/dGut9F4BPV8najsUF//0BaMZfjRlEl+W031924+vC+eAkskyf
-	F/XRPcp8NK92qK7b3ZaWnowelZDCnXr+jCB1RzajumBZqTRuzeQdI6RdWexaJhwze7mgy+LRNtg
-	EBntr03gCifxwUQEnAwYADKyYx5834D3v8CGCEeuPQfnifUhRaz/DfllFU+HTjyl6I8kRdfe8SB
-	qn0YRAiPxk+Nbj4T8zIPNE/n/Abq+g3YGQ==
-X-Received: by 2002:ad4:5aaf:0:b0:91f:329a:904 with SMTP id 6a1803df08f44-92114ee2ddcmr32476686d6.32.1795001324220;
-        Wed, 18 Nov 2026 03:28:44 -0800 (PST)
-Received: from localhost ([2600:4040:9399:4000:e553:72e5:7d37:c7ef])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92114d35dabsm19207126d6.17.2026.11.18.03.28.42
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 03:28:43 -0800 (PST)
+        bh=fiRXPitExg9c6g7UHC8j9HW4vMb1uaFTU/jha31fP2w=;
+        b=FPxBJ7Fu5862Z/MAJ89JmQqESgILChRBFEPRHJXgdjOUAJ82tKBBx+dhQsBub1mSZf
+         K8PxpT9Jr8OB98ieeoTXEaIAYgk4WyciMLMKwdB0eCiY49yA9VkjjJuhM4xRD09VSQST
+         jVPgczsN9FVE/ubT6oXp87EKTwOPjp1QfigXnh1RYQZcX+vkOnFCA9HoaM8Ubsjrc+os
+         q/0sT8bOkL2fZtR6iGi7sZmr/Wr9/N2MKMHi9QAto+HzmnbxAdoncJb27Jf+fm3QkTUQ
+         EG6I1kZCMlcw5SWjxrA4sUxGrA010fBBXZbYXYNEl+PcEvK+X3e5F6iPqIVq0OvexnJg
+         2qRw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795001374; x=1795606174;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=fiRXPitExg9c6g7UHC8j9HW4vMb1uaFTU/jha31fP2w=;
+        b=JaP/TZGQIo3/V4uXO0nIg0jDCUFboynQVuzZbpVS0Zohsgx2ZnEXotdOCeQI6sc69C
+         uRQ/MY77t8KSPmVutIK7DCxuFVP93Ys9/Xk6lqhGDGCVJNR51Yl+BMa01qttVj+uBp6p
+         4t6wj4dKq0WX4y2DIaVCan+2MlNzYcakYre44E/EZaIaIxMRlExk0+KvLxDVFDUHFJNS
+         zP7abkG4oEaezIZjNfH7R0w4583x0YzZXzGaAKDaBygk6K73TrX4XlyDUs2U8ImnFmPP
+         B7dzDvQQboq2JO+yEcUNQSPys067o4kLV6F2eUOmbXr+hFcLVn/JhZgS9aVjmaREncYR
+         KnEg==
+X-Forwarded-Encrypted: i=1; AL+hErFnsR0aiK+2ThY7v/3bBDQ22VpJvjp4NbB2g+P3ld6T+Q7OpqtqIzCtPA7QjqFCwVUOVqT0xGj2iNAR9lM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ozL9A9sRHtB1ba9l+B0BV6rnZgHbrUhsh0jc3adqiLRv831WM
+	fxhwHhn27aO6meSoo9n9Rx3RouVX/myptM4HHPL83TE9ocCLjQsqcfOoszrhGAZDdmTga14ia6s
+	LNl0s5u3wfdKKNzvdZQ==
+X-Received: from wmrn31.prod.google.com ([2002:a05:600c:501f:b0:4a1:f37f:7f0b])
+ (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:3494:b0:4a2:267:25b3 with SMTP id 5b1f17b1804b1-4bb7da4efd4mr41542225e9.35.1795001374269;
+ Wed, 18 Nov 2026 03:29:34 -0800 (PST)
+Date: Wed, 18 Nov 2026 11:29:32 +0000
+In-Reply-To: <20261117231927.2200674-1-cmllamas@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,160 +79,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 18 Nov 2026 06:28:42 -0500
-Message-Id: <DMYAV3MCA9T5.180N4MSVXNWT@gmail.com>
-Subject: Re: [PATCH net-next v4 3/5] psp: defer tx key deletions for SADB
- drivers
-From: "Daniel Zahka" <daniel.zahka@gmail.com>
-To: <netdev-bot+sashiko@kernel.org>, <daniel.zahka@gmail.com>
-Cc: <kuba@kernel.org>, <willemdebruijn.kernel@gmail.com>,
- <davem@davemloft.net>, <edumazet@kernel.org>, <pabeni@redhat.com>,
- <horms@kernel.org>, <corbet@lwn.net>, <skhan@linuxfoundation.org>,
- <rdunlap@infradead.org>, <donald.hunter@gmail.com>,
- <andrew+netdev@lunn.ch>, <shuah@kernel.org>, <netdev@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
- <linux-kselftest@vger.kernel.org>, <willemb@google.com>
-X-Mailer: aerc 0.21.0-threadmapfix
-References: <20261116-psp-v4-3-1a599df2aefa@gmail.com>
- <179498190614.3136.5698785790307751985@kernel.org>
-In-Reply-To: <179498190614.3136.5698785790307751985@kernel.org>
+References: <20261117231927.2200674-1-cmllamas@google.com>
+X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
+Message-ID: <20261118112933.477541-1-aliceryhl@google.com>
+Subject: Re: [PATCH] rust_binder: disallow binder fd transfers
+From: Alice Ryhl <aliceryhl@google.com>
+To: Carlos Llamas <cmllamas@google.com>
+Cc: Alice Ryhl <aliceryhl@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"=?UTF-8?q?Arve=20Hj=C3=B8nnev=C3=A5g?=" <arve@android.com>, Todd Kjos <tkjos@android.com>, 
+	Christian Brauner <brauner@kernel.org>, kernel-team@android.com, linux-kernel@vger.kernel.org, 
+	rust-for-linux@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On Wed Nov 18, 2026 at 1:05 AM EST, netdev-bot+sashiko wrote:
-> Thank you for your contribution! Sashiko AI review found 4 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 2 =C2=B7 Low: 2
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
->
-> - [Medium] The new PSP_ASSOC_DEFER_TX_KEY_DEL path in `psp_assoc_free()`
->   (net/psp/psp_sock.c:118-121) gives up its only psd reference before=E2=
-=80=A6
-> - [Medium] Removing the SADB check in `psp_sock_tx_rekey()` lets any non-
->   admin user who can reach the PSP device rekey one established TCP=E2=80=
-=A6
-> - [Low] The commit message never says that this patch turns on Tx rekey
->   for SADB devices.
-> - [Low] The patch adds a lock-context rule for SADB drivers that only the
->   commit message states: they must not call `psp_dev_unregister()` with=
-=E2=80=A6
->
-> --
->
-> psp: defer tx key deletions for SADB drivers
->
-> This commit adds a deferred deletion queue for Tx keys on SADB devices.
-> A key detached by a Tx rekey is removed from the device only after a
-> BQL-based descriptor grace period, which a delayed work item checks by
-> snapshotting per-queue num_queued and polling num_completed. It also
-> makes INET_PSP depend on BQL, requires ops-locked netdevs for SADB
-> drivers, and drops the check that rejected Tx rekey on SADB devices.
->
->> diff --git a/Documentation/networking/psp.rst b/Documentation/networking=
-/psp.rst
->> index 43f222b38d3d4..ceb1e232317fc 100644
->> --- a/Documentation/networking/psp.rst
->> +++ b/Documentation/networking/psp.rst
->> @@ -202,6 +202,48 @@ Drivers must use ``psp_skb_get_assoc_rcu()`` to che=
-ck if PSP Tx offload
->
-> [ ... ]
->
->> +* Before calling ``psp_dev_unregister()``, the driver must ensure that =
-all
->> +  outstanding Tx descriptors containing key references have been comple=
-ted
->> +  or discarded. PSP core deletes all remaining Tx keys during
->> +  unregistration without waiting for a grace period.
->
-> [Severity: Low]
-> Should this list also say that psp_dev_unregister() must not be called
-> with the netdev instance lock held? The commit message states that rule.
-> It is not in this list or in the psp_dev_unregister() kernel-doc, and
-> nothing asserts it.
->
-> psp_dev_unregister() now starts with:
->
-> psp_dev_unregister()
->   psp_deferred_del_stop()
->     disable_delayed_work_sync(&psd->tx_del.work)
->
-> and psp_deferred_del_work() takes the locks in this order:
->
-> 	mutex_lock(&psd->lock);
-> 	netdev_lock(psd->main_netdev);
->
-> Suppose a driver calls psp_dev_unregister() while holding
-> main_netdev->lock, and the work is blocked in netdev_lock(). Wouldn't
-> disable_delayed_work_sync() then wait forever?
->
-> Even with the work idle, the later mutex_lock(&psd->lock) in
-> psp_dev_unregister() would run under the netdev lock. That inverts the
-> lock order the work uses.
->
-> mlx5 complies today, because mlx5e_nic_disable() drops the netdev lock
-> before mlx5e_psp_unregister().
->
-> Could the rule go in this list with the other requirements? Something
-> like lockdep_assert_not_held(&psd->main_netdev->lock) in
-> psp_dev_unregister() would also match the ops-lock WARN_ON check in
-> psp_dev_create().
->
-> [ ... ]
->
->> diff --git a/net/psp/psp_sock.c b/net/psp/psp_sock.c
->> index d497f41c483e1..48bffe088c79b 100644
->> --- a/net/psp/psp_sock.c
->> +++ b/net/psp/psp_sock.c
->> @@ -114,8 +114,14 @@ static void psp_assoc_free(struct work_struct *work=
-)
->> =20
->>  	mutex_lock(&psd->lock);
->>  	if (psp_dev_is_registered(psd)) {
->> -		if (psp_assoc_needs_tx_key_del(pas))
->> +		if (psp_assoc_needs_tx_key_del(pas)) {
->> +			if (pas->flags & PSP_ASSOC_DEFER_TX_KEY_DEL) {
->> +				psp_deferred_del_queue(psd, pas);
->> +				mutex_unlock(&psd->lock);
->> +				return;
->> +			}
->
-> [Severity: Medium]
-> Once pas is on psd->tx_del.next, its psd reference belongs to the
-> deferred queue. This path keeps no reference of its own across
-> mutex_unlock(&psd->lock). Can psd be torn down while this thread is
-> still inside mutex_unlock()?
->
-> Documentation/locking/mutex-design.rst says mutex_unlock() may access the
-> mutex after releasing ownership, so the caller has to keep the mutex
-> alive until it returns. When there is a waiter, __mutex_unlock_slowpath()
-> releases ownership and then still takes lock->wait_lock and calls
-> debug_mutex_unlock(lock).
->
-> A possible sequence:
->
-> CPU1 (psp_assoc_free work)         CPU2 (psp_dev_unregister)
-> psp_deferred_del_queue(psd, pas)
-> mutex_unlock(&psd->lock)           mutex_lock(&psd->lock) succeeds
->   still in slowpath                psp_deferred_del_uninit()
->                                      psp_dev_put(psd)
->                                    mutex_unlock(&psd->lock)
->                                    psp_dev_put(psd)
->                                      psp_dev_free()
->                                        mutex_destroy(&psd->lock)
->                                        kfree_rcu(psd, rcu)
->   debug_mutex_unlock(lock)
->
+On Tue, Nov 17, 2026 at 11:19:26PM +0000, Carlos Llamas wrote:
+> @@ -182,6 +182,13 @@ pub(crate) fn info_add_fd(
+>          buffer_offset: usize,
+>          close_on_free: bool,
+>      ) -> Result {
+> +        // SAFETY: `file` is valid; read `f_op` with `READ_ONCE` semantics.
+> +        let f_op = unsafe { (&raw const (*file.as_ptr()).f_op).read_volatile() };
+> +        if core::ptr::eq(f_op, &crate::rust_binder_fops.0) {
+> +            // Binder FD transfers are not allowed.
+> +            return Err(EINVAL);
+> +        }
 
-Ah TIL. I was a bit naive that mutex_unlock() can still be running while
-the next waiter enters the critical section.
+We have moved to using atomic_load instead of a volatile read when the C side
+uses READ_ONCE. For example:
 
-pw-bot: cr
+	// SAFETY: `file` is valid, so `f_op` is valid and aligned, and any
+	// concurrent writes are atomic under LKMM.
+	let f_op = unsafe { atomic_load(&raw mut (*file.as_ptr()).f_op, Relaxed) };
+
+however the f_op field isn't read/modified with READ/WRITE_ONCE on the C
+side, so I think we can use a bare access.
+
+	let f_op = unsafe { (*file.as_ptr()).f_op };
+
+Alice
