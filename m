@@ -1,69 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.59.206.189
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795007656;
-	b=1qJ2PB7bztMmU/T98xXp9bvXrrNQu5Ay5CfbaPnkUNnEqgH7a3m1mbdzLyjluRQvdC6J
-	 GhxthlHNzzK0eLY2fV8XeULr18ZNbMmBjk8xVUebHJocRG/fyfFwqMVL+5LtTsWuOOuVC
-	 FLzOxRi7OHwR5JFMV3YZX3ppndVcP6E8GbAVdwy99RPPIYEXGqhXfZeDSCEbXAMKdXg9k
-	 H9eb44Bg2GIZa4wyjsGCIUCbuJu2sQjCxpk5+3PscVt0sV4bCiRZE74k69iNmT+1eddDz
-	 Z/X+E3mXsBecnGwRkl68nuFJlFbOaj109OTrAXgAVNtJf4Im4jylX2kRI9V04IzjPDg==
+	t=1795007678;
+	b=sUk9EEGwv26whw2pBgmhxHqS/LK/77bDaksWeiFFyBQ7vF4UanBmmv7cSlUlN+cLf9wY
+	 knWiImNKvxHha9FFA3AXf/gZlxs41XSX7n4XhxDhw7kWpEaqdIH38ZwoleGwg26I8EVtS
+	 1H8M5enVUi7KnPJV+Ggbob7axDcy8NYTIfMSChvBPVZIRCh3nuqoyWZHGPI3YXg5TJ1Xh
+	 6tJC2s5wfHUWKD1yYeJmXsPWuBHHvpi8hghMAVff6BHCawZtbdg/xpxmmrIRWTntGQTkY
+	 WL6kBxcdG3+UeEFbrrNqnO4b9Xdg/7q5fM3NY37kMET+5ZsDQdZWw3YzeHdtY7IMkPg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795007656;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received-SPF:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:From:Content-Language:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-PPP-Message-ID:X-NC-CID;
-	bh=jfqiFSSFUtLpubMeYazVtBiAKSCsMWfxFdymjZV2kbA=;
-	b=futmmKMxQUmTzBWmtPpl9pcTElpkSWwbjHlKVgcZrhWV/EtX9Eg2a8JFYWFDmtcFZEof
-	 nFaCidYyN73ErJNsOFsKq8KdmtArfKMHBqbYfkrpzYni+fTG81t6a+Pvcn0FQwggI7Nsq
-	 HFU7xw1BBGdmT4ldEYoqHTecSX0k6Hh8QQA6bgb8xEu44m4VMLsbjgP7LQXUwMPQ1T8JN
-	 3/AmEcWlINlVyRY9SSR5ZB1rL6x5Wz6MUbWIBU3RwKPPmlbYGzRG4+cdTBWIW9XB4Mqaq
-	 6Kx6AjB/Cyj2tGvccNbHdg4VpWpZXCn9HSDB0FuGz9yw9PgClS/WPrNXAfLlZxoIzEw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795007678;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=cIo+/pZhC0FkwDazTxDF5zOGTthw1UsxmcnM4VdO7ms=;
+	b=OTAGzyNT7CmsPVA5ErQxoJTWpb4K0nfF/sjK2pLBalRxkQA3M+B3ldHX+e3qpNQxzs+O
+	 K6hFnV220BaO2kL6ohI5elGRIeLpj3+2paZNZZZvGGl62dJ2ScAAQOxJY5qj/NsED7GxN
+	 nStAyPxCXkfFIyNHWiywELF8IsYLpKrANRzuvhKWtJW4tm/jRFHQZW6D/jnR4IEjBDmvT
+	 IK5bDnIW4lLTwn7Pbr96VvhamRejPm8reSymVlXB31O65winvON06p5NohM8rOYhUuecZ
+	 15NZ5kw46ms+RrF5NOhZNZdYfsO7OHT+10HchJh2UgyxEOHbH1Fg7VT5wAGZbYtkI2w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=leemhuis.info;
-	spf=pass smtp.mailfrom=leemhuis.info;
-	dkim=pass header.d=leemhuis.info header.i=@leemhuis.info header.a=rsa-sha256 header.s=key2 header.b="T9/RB7wO";
-	arc=none smtp.remote-ip=194.59.206.189
-Received: from relay.yourmailgateway.de (relay.yourmailgateway.de [194.59.206.189])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MLnG5V6U;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4255606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:14:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4255606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=leemhuis.info
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=leemhuis.info
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8672F606A31C;
+	Wed, 18 Nov 2026 13:14:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=leemhuis.info header.i=@leemhuis.info header.a=rsa-sha256 header.s=key2 header.b=T9/RB7wO
-Received: from relay02-mors.netcup.net (localhost [127.0.0.1])
-	by relay02-mors.netcup.net (Postfix) with ESMTPS id 4jV2970lzTz4Hx2;
-	Wed, 18 Nov 2026 14:13:31 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=leemhuis.info;
-	s=key2; t=1795007611;
-	bh=N97bBK4e1wdhkPXJ9UymJ0KcG94sTetJEBypKucc5a4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=T9/RB7wOAqq8VleQEublMKH3Pzu1I0KWWm6EBovTi4FuBsv2lMJSWzVj1KhASvNAk
-	 rL+BtpqhFbMBFSVHZhME4yi5CrpBsmWao8sjpN+NZvyCyn2jvWwszZGgs+6372AZ+0
-	 1Ii5wDncNOMGgcqSuh5kzVrx8Bh28We/ZoIFJaadmT7CruFbfQawOrVW2lA0ECJJeg
-	 SoObLy0ESGh5cJ83XbUOnysGtZt/9jwzcFIZrmOyUHY7d5S/OnzLBnEkFwgMiYcY8C
-	 ossdIX/0LI63S9wKlMysFEep2jSj6vzIGwQHLYH35/8IkB3Cv3SLw3n5w3uYBbO/3r
-	 LsWONk9wQJRgQ==
-Received: from policy02-mors.netcup.net (unknown [46.38.225.35])
-	by relay02-mors.netcup.net (Postfix) with ESMTPS id 4jV27S6NDPz7yQm;
-	Wed, 18 Nov 2026 14:12:04 +0100 (CET)
-Received: from mxe9fb.netcup.net (unknown [10.243.12.53])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by policy02-mors.netcup.net (Postfix) with ESMTPS id 4jV27Q6rhMz8tL0;
-	Wed, 18 Nov 2026 14:12:02 +0100 (CET)
-Received: from [IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f] (unknown [IPv6:2a02:8108:8984:1d00:a0cf:1912:4be:477f])
-	by mxe9fb.netcup.net (Postfix) with ESMTPSA id ABFA95FA08;
-	Wed, 18 Nov 2026 14:11:41 +0100 (CET)
-Authentication-Results: mxe9fb;
-        spf=pass (sender IP is 2a02:8108:8984:1d00:a0cf:1912:4be:477f) smtp.mailfrom=regressions@leemhuis.info smtp.helo=[IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f]
-Received-SPF: pass (mxe9fb: connection is authenticated)
-Message-ID: <80eace12-17a9-4bae-a923-67174c663fc6@leemhuis.info>
-Date: Wed, 18 Nov 2026 14:11:40 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MLnG5V6U
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FE261F000C4;
+	Wed, 18 Nov 2026 13:14:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795007678;
+	bh=cIo+/pZhC0FkwDazTxDF5zOGTthw1UsxmcnM4VdO7ms=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=MLnG5V6Uh5YrgtUtPK5169lW0+axPJ6jjSoP5QeoQFxiqvPmHVGm3EEVxl6XLsrTs
+	 Ajclqy1R9w0jm/SFVF2af1KK094Ef/HPucuL59GAp1ofzHaupSWvFCPDNgBneMks3r
+	 dMM7qbidMD/9KgFenV5RFUG9SfSBokWgA99mqMGPdBLFF7y8b9NiLd0LGNJBubbEZ3
+	 IN3ewijnTTZ+2teb+E2Mbb1kjhlJaxNRquHlrGEP2V/YG6Qzw0dZ8QsTmFWwVX3Kiw
+	 sD/w36oMp0N8Xduglf1cYmcUI9AHr/Cruxz0dZhdqldrnuEIzXEfvbwuBv6rC+nUT5
+	 TYQwOlNU61p1w==
+Message-ID: <b6b12988-7d36-4cbb-bdaf-1deb7203b9ac@kernel.org>
+Date: Wed, 18 Nov 2026 14:14:30 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,38 +52,101 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] 9p: fix data corruption with writeback caching during
- concurrent stat
-To: Michael Mulqueen <mike@method-b.uk>, David Howells <dhowells@redhat.com>,
- Pierre Barre <pierre@barre.sh>
-Cc: ericvh@kernel.org, lucho@ionkov.net, asmadeus@codewreck.org,
- linux_oss@crudebyte.com, v9fs@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20251227083751.715152-1-pierre@barre.sh>
- <1667424.1771432276@warthog.procyon.org.uk>
- <e2c960ca-7b29-45e1-b650-849fc357f8b0@method-b.uk>
-From: Thorsten Leemhuis <regressions@leemhuis.info>
-Content-Language: de-DE, en-US
-In-Reply-To: <e2c960ca-7b29-45e1-b650-849fc357f8b0@method-b.uk>
+Subject: Re: [PATCH v3 0/2] Semtech SX9xxx: add a reviewer entry and binding
+ maintainer
+To: Arnav Kapoor <kapoorarnav43@gmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Gwendal Grignou <gwendal@chromium.org>,
+ Daniel Campello <campello@chromium.org>,
+ Andy Shevchenko <andriy.shevchenko@intel.com>,
+ David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+ linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261117172612.25535-1-kapoorarnav43@gmail.com>
+ <bbdef966-c5dc-4101-9246-b668e00f62b7@kernel.org>
+ <20261118125450.12512-1-kapoorarnav43@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261118125450.12512-1-kapoorarnav43@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-PPP-Message-ID: 
- <179500750219.2145202.12078122543303060447@mxe9fb.netcup.net>
-X-NC-CID: 3htsrNuz0alture0GSC5CM6gSzXmyH3PNGuvJBarrD5ZcY2ImA0=
 
-On 11/18/26 13:22, Michael Mulqueen wrote:
+On 18/11/2026 13:54, Arnav Kapoor wrote:
+> On Wed, Nov 18, 2026 at 01:34:31PM +0100, Krzysztof Kozlowski wrote:
+>> I think it is premature. You just started contributing and your early
+>> submissions were clearly showing that you did not read kernel docs
+>> before posting.
 > 
-> I've encountered this bug and have spent some time confirming it and
-> writing a minimal reproducer script for it.
+> Hi Krzysztof,
+> 
+> In June I was still figuring out git send-email, and a problem with my
+> setup caused those repeated postings. It is also why I was not able to
+> reply to you at the time. I have since worked through the process
+> documentation and my setup.
+> 
+> Since then I have been working steadily on this subsystem, and 23 of
+> my commits are now in maintainer trees. I still make mistakes as I
+> learn: not grouping patches into a series, writing commit messages that
+> are too long, and sending new versions too early, as Andy pointed out
+> here. Changing MAINTAINERS is new to me as well, so there are mistakes
+> in this series too. I take those as part of the learning process.
+> 
+> I asked for this entry because I have become interested in these
+> drivers and want to keep working on them, and Jonathan agreed to an R:
+> entry. I understand your concern. If there is something specific you
+> would like to see before this entry is acceptable, please tell me and
+> I will work on it.
 
-Thx for this.
-> I've bisected it with my reproducer script and found it was introduced
-> in v6.4, specifically commit d9bc0d11e33b. I wasn't sure about the
-> etiquette of jumping straight into a discussion and tagging regzbot, so
-> I haven't, [...]
+You can review patches and follow them easily with lei or korgalore. You
+do not have to be listed as maintainer to do that.
 
-FWIW reg. regzbot: given that this is a regression that apparently
-happened years ago, there is nothing much regzbot or I can do for you,
-so I'd say it's not really worth telling regzbot about.
+I am sorry, but sending us LLM slop (so code which was never built) is
+very opposite to being a maintainer.
 
-Ciao, Thorsten
-
+Best regards,
+Krzysztof
