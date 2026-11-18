@@ -1,109 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.98
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795017668;
-	b=v9GfTC8sGqOt2cZjP1/W5kI7axKMAV/IK5Den81Yk8SgsclJXyO7Ru0ikZlm1kFKn46I
-	 3A3KFtPeXjF8CQh5Fly/jEnWtIanUubwmzhj4T0mMWLFmEN7SiOWao7zH9uJpKZXux1eX
-	 jeDoubdKRkXjW4aob08Rsj1EL1zHTkEDBRcadjvTEKV2Y+g5vMiI5gjTZy76N5egUzMxV
-	 wRGM3YVI4ME0IBvTve1BDiYbFuSvHe4vnYTqnuGxXPQYsHdKdPyNbJgoYAt1kAT17IzrC
-	 bGbvgUIo6XTEZloRtYOyh18modDEF9xVYbI25OrwxxYJX0w8y8WnR+QLA5tE0u0U9FQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795017668;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=CiXqUQZYouMNgPNGRQIxrM/PyjF7aZMYDgEmHwPJOkw=;
-	b=bLD/MMPFlvhUWT4FSvo0bENkzaEeB1QaxknzGi33nwfeixXeU1x6vqlRcWscKBpLJ6TZ
-	 RQkVFBVv+bkHRpl/0Zxz5Hx7HfT87Kpe3WQD8M63Z7tq1mhoBNRkv2yq20HUMGLkgF/BL
-	 AUbBpbaXM2Vo6F+ZliY2HxDTx93i8KLpGgkd5Zm0d4VS72GNwNikkzecan4gaBYd40zjb
-	 9k2x3tRJQ6wBDbugBjY8G8Kfz/hTLB0GVX9bhmC30tz4zq08oN/Xesf5hNHOisJlZl2Hr
-	 D66Rn1YV6ZAeNgeX3ZpFwXN/mxvgFu4ZjrBVcMM1kQ3Q2ORM09K4+imkMaFOhHaDwwQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kontron.de;
-	spf=pass smtp.mailfrom=kontron.de;
-	dkim=pass header.d=kontron.de header.i=@kontron.de header.a=rsa-sha256 header.s=selector1 header.b=rm2DMK9Q;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.98
-Received: from DB3PR0202CU003.outbound.protection.outlook.com (mail-northeuropeazon11020098.outbound.protection.outlook.com [52.101.84.98])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.173
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795017679;
+	b=K+Jj1sKSiCF2HFr0xNqq1gjsna8OVTCEFUAz9tcZWmU8kvsrGs31XgoeeAPFwGYTdk7Y
+	 URB5TiDU6xKBMvbd4KTLzqd144KaTXbukvg+zAjkMydYPXwPzM0tpCNhFHRhyTF4+P3fq
+	 dnhdSWRtwmTwY9/qMqIgG1WgY8+lHJXd4bBOEX1ODSURO8gBqHYhXI6eqOnYy52NIkIpn
+	 nuWjYBRXufbh/HQadGZFoSi0YHePGbmPwKWhUgc3qHV3MSBn9v+UwRf5H0G7Etl8kDWPV
+	 aPYrwGhRthp2j8jhX3mmeRnxzKHiVv+HN6Ok49KbSJtmbi6lGBKFOSqvetjOx6cumLg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795017679;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=U8C1CgvvgJkxuBAF5XlPlcDG9pCDTXTfhUIEI+I0GtI=;
+	b=LSmZrrmLAj+Qj+2n/dwqxECEZWv2KoWIyMQ2hZmynuNn5Wk/QgbzUNron6Z0oatRJZwx
+	 cwvuN8ex36/1hixUyTd4l8eVP+6kQ/Ak+PaTaCjWjOterB8sQQxijTBgo1deBw0NHNlG0
+	 uDzNweIaBMPRMxtL4A1Kxh9z8yHWR7ob9KS+ZUQOXVAvqyx2GmwUZwNIOguec+FBlLEyx
+	 IF1UCM6tMBruvQzbDpV5b7ZeqD2lJ4u2mcx8Vib/bo1LwK2LYXo/3sOt2kgr7gTL5dYYN
+	 yi0ZPvzgUDju2BJ8Nsi4aEQ1swmaP3erIE2m/qP4XDeN2k/eGQlmt6AW0mxoLWMqmnQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g370uabh;
+	arc=none smtp.remote-ip=209.85.167.173
+Received: from mail-oi1-f173.google.com (mail-oi1-f173.google.com [209.85.167.173])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0E32606A31C;
-	Wed, 18 Nov 2026 16:01:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D0E32606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kontron.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kontron.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE0B9606A32C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:01:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE0B9606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kontron.de header.i=@kontron.de header.a=rsa-sha256 header.s=selector1 header.b=rm2DMK9Q
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rsqEiiwDifT6ndvKOzdquiORfp2jFDtOJa4NUoi1qgbRiL+Qnysg6ykZKETRHI9pQehCQuKPMf/CXGqa0B2a67YK+xyh01PKK1k+m4/lguG9vRpR5mD/beqsq5n8LF/Ng6UKjaRc1i7SMj35cNouwdxdHeywqwDzWC0NiOiEyhA9/tOSRsDI33hbws+eDvLmrFxgWnYXczGLX5gfRyWSkaeYCaQWoq4+hx0XsgFqavEfWvrXm63hXAy0nIUROGG+n/IeVSBx06psLVn6vm0N8Z85pmdASluHPDH+NNo9tD9wDAktxkPnyFhacBT0z4XuQLCq6dF0R5hSgzedpoDS9w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CiXqUQZYouMNgPNGRQIxrM/PyjF7aZMYDgEmHwPJOkw=;
- b=DtHalefi3m6w+S7qM2mS1vtIhCriqTT3CFSU35xCocqNzFs13zePPfBV1fmlTks0qWeryoxceDgsqRD9xRUvKwIIvaeNSTeq0PB3OKpN03ZMN1vriCCl7p7QjyLQEyd2HrZxwD4VjrQxQIZnYZQf/f2jy6TiP9LuaBpRBv0lFlRBHWk5cbi4Wu+nsB0Ap+WzGqi1NLzqP9KBXm7QY7x0WqQUSNkU60qyfu3WlcOmus8b5/JyFvjixvNzcNCQf5V3GcUm8tTd9x3Fp8VAk4bxTHnmE+j4hP1ruuGpXyu8j4udqNJIp0ejisM5+J6opaN1/0RZZuJuqB0aaPxm7OcstQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
- dkim=pass header.d=kontron.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kontron.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CiXqUQZYouMNgPNGRQIxrM/PyjF7aZMYDgEmHwPJOkw=;
- b=rm2DMK9QtK8r/pwYKC3FLG6zXMrt+rQx8oElQdpAfHdsIgvXmO8JLr8UbeYXlwDGO/ouQ2ZP6HNjfndkird9h18VoaVvEZi9bpCgKyBoUSVbDOKsSA31gfrKdQLllteUuB7uzF3mMASxyE4+o5mnpG8Gv7h/HluyOyb9G6+8iQo0tIhkztURF54JTUiS8mvA3M1ViJIUcd1bq41tCUqHu5MCflr8MI+yd3zvvfLRHf9TfvMacfTN3iH2R6cRrQSkkkNhMXqgw3r2YgwdDpwlrQRYndH2P3wuLhf1pWwNLT+2EFNpfUjW/DKnzX2iE2iPQTZGhw3+5TsiTTV+Bv7cNQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=kontron.de;
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1fb::23)
- by AS4PR10MB5671.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:4f2::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.7; Wed, 18 Nov
- 2026 16:01:03 +0000
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22]) by AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22%3]) with mapi id 15.21.0639.006; Wed, 18 Nov 2026
- 16:01:02 +0000
-Message-ID: <a2d7056c-602b-4c6b-bb14-211843aa3183@kontron.de>
-Date: Wed, 18 Nov 2026 17:01:01 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v51 5/7] firmware: imx: adds miscdev
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, pankaj.gupta@oss.nxp.com,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>,
- Randy Dunlap <rdunlap@infradead.org>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- Peng Fan <peng.fan@nxp.com>
-References: <20260915-imx-se-if-v51-0-4a7dac612cb5@nxp.com>
- <20260915-imx-se-if-v51-5-4a7dac612cb5@nxp.com>
- <2034fb2f-f169-46a5-85e8-fa723ddb0360@app.fastmail.com>
- <aqqqDnOMmlfqit6u@SMW015318>
- <f3e1e3de-6abf-48cb-aba7-7b231c38ec5c@kontron.de>
- <180d2335-e328-48a4-b376-a90464279027@kontron.de>
- <3acc652b-d2e2-4a18-b70a-2656b309d798@kontron.de>
- <av3KA89WuUc5GdZj@SMW015318>
-Content-Language: en-US, de-DE
-From: Frieder Schrempf <frieder.schrempf@kontron.de>
-In-Reply-To: <av3KA89WuUc5GdZj@SMW015318>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR4P281CA0155.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:ba::9) To AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:1fb::23)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g370uabh
+Received: by mail-oi1-f173.google.com with SMTP id 5614622812f47-571eb508ebbso540316b6e.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:01:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795017678; x=1795622478; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=U8C1CgvvgJkxuBAF5XlPlcDG9pCDTXTfhUIEI+I0GtI=;
+        b=g370uabhDPxC5ljczIgZFx108Ve2rIBGsXWDAeBUoqdYv98TtS4GHX+yp9vRdhHTMe
+         61u6dWYD6+xs+1DEU28L2tav2cxucTbl6lqklZh5CALfHQo4SZijmvp8sczEImHkAOdO
+         5FzX3IPSwSdL1lq27m9DQAxc0ymW/kCe9LXOEidaM/7moCl29YZM4ug4V8Lj5cK1gvL0
+         aWJJrDjpR4+icksnbzsrv0p0Eyyjmb3zdRUg39Ehr0bo7uF+i9/nrLXGA/3obvBId0tb
+         //1mcSUEfSqzHAMPW1NTBe6D/uGufMj8NuGcumk/wvmR+8kh+Kkv9NM0fXijvjRF/VzT
+         4RYA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795017678; x=1795622478;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=U8C1CgvvgJkxuBAF5XlPlcDG9pCDTXTfhUIEI+I0GtI=;
+        b=WudKEd96E2mLNm5CBZlCpRUAkkuqS7WuAWccFu0TxcUKre6+Uo9N5MEr1b/6DQG/nA
+         84qzbPR4So8bR1zR6vV73R0OqmR0KljM4JcBCWoVPxzzUd/lQL6vDbashhp4HcYWrnJC
+         yUTREpHv84JuLtgtGvPRJJwVxdNCkwHOa5J9Wde4rVEvGSm/8mF347xXrXm2er83h/WI
+         yrE2X5YvPz5hCWCnPVHUgc17ZVdyrc4fqPtrneUDHvZPP1/+NMvyHhro3XNchKA5jdha
+         gvbjwjxnytFbRYZxCyUR2OjJ2xf28VZ8c96K4gREbYhBow1fe3VmIOOGCd4O2cEXvNV3
+         2N5g==
+X-Forwarded-Encrypted: i=1; AL+hErGE+dAwSQw+snTlYDdxfXK2givf3TuLbvii5BhI52Cr5TPsYFsgznyDqDrzfq7QNrAycb9DnE58DLZ0P6Q=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+BYwKgzexXt8NJaTBTeUvLm+CP19r9mEDLZABbzLnZrn4sHuAX
+	XdtlDkLxzTZy8ZnlxFoulRwboNYGw8gkjOgVOfmsyQN8TrGNRemeQsIb
+X-Gm-Gg: AYBFou1+xQAMnUZ1mPLVjVEjB8SfbxGtzYQX4MiKafCkanFtX2lyRagbhRiiu+WNjaW
+	yipY9inSid9s35YMCibguQgIkz7sN8FlP0C3931icc3SiEtSPw7aBil5a1SgZPRHPZ9HcizuvBw
+	JDyFAbkhf0zH2GaEfQs+VcRA0W1Hur1DUbSl/eKIxZg8XPqX0WtapgYJXRFNbplQIU6JXCEzn5V
+	PSULr97HdP7+IzCA2My/QL/OAeQy3L3E9+uzA8vAPM+0bAsCM8vrmZyaykZhXaeBumnhX8nSVfw
+	wOfjIrff/Cp6xQtEAg+WxJ5e2HFp+6t6Qz0D7XEQH17dLdXg+FFB6fD/L3L8BrQxZ1fIPOZJPuI
+	HOjywsWtsWK7SKZs0dqR3X6HVtQmTZW6e3E8ruzV6tKHoYzrGlJFldpYT57Iv7APRe4Et3QfFBp
+	CuiyZGDmAGAOQtE0LkRWC7hctgHuqIIZt+mI0/dZuG0GoAuEk1EUPIYigXfjUYyq9PiaiCJMAon
+	WowqOq7gtOiLTOY2uTTi5GlGun6zQpBl2hIhJYCRWKmzYlQ4jHz35WH2+YhLjlqWYDJCcvT5/HX
+	hT+TTyt7YefHYLqCKKwumuiph74qrw==
+X-Received: by 2002:a05:6808:c3ea:b0:572:86c8:6b4c with SMTP id 5614622812f47-5773a0086c5mr3318610b6e.6.1795017677466;
+        Wed, 18 Nov 2026 08:01:17 -0800 (PST)
+Received: from gentoo ([49.204.145.8])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-5777b39306asm1705822b6e.15.2026.11.18.08.01.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 08:01:17 -0800 (PST)
+From: Shreesh Adiga <16567adigashreesh@gmail.com>
+To: Eric Biggers <ebiggers@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Demian Shulhan <demyansh@gmail.com>
+Cc: linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] lib/crc: Add 4-way folding in NEON crc64_nvme implementation
+Date: Wed, 18 Nov 2026 21:31:00 +0530
+Message-ID: <20261118160110.1662470-1-16567adigashreesh@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,148 +96,227 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR10MB4277:EE_|AS4PR10MB5671:EE_
-X-MS-Office365-Filtering-Correlation-Id: 681ef51b-220c-4fef-34be-08df458d253b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|1800799024|7416014|366016|23010399003|10067099003|261028144727099003|11063799006|4143699003|56012099006|261022105027099003|261026121527099003|261022075727099003|261026140227099003|261021135927099003|261009223027099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info:
-	oWsxDq/x+2tjuiA+2vUupu4NsuvhdwhGjx7DAwWbBZrVxhBw2OxX7PgtNtPvilic0LxFHhVHali2gxvA2GxlL9UX0NUKCuc6Qgkt9gfrFucutNG7wjqWenh1Hp5HhudHn5JhpJjzUfqW32bejyK0Dtstn+ayGeN/ZW2yOu2Z3IHLzWgKtw9plCS26eA40oJaJkzk9rAiF63KzBXfktlVzR5WHJmHhUqOXMageWIweSS3vQwjZsEf78U+r7mH2arFzZyW10B/TCD5YTH2M6xGGSbRrop0nAgWVSHvHH2b78lNQPWxK8EnnEScjdA3zJSranS0FOKnTyIVVSAfCtsmONLLwu7j6BJIawJPRqd0SVnEAwLOzP6Y+qgQdLMAgxtMRYOwwzw1lFicAN1E86KlOz9fKnlFNx+AoIHYJ/j3daxTA64n7z8PhQ1nltIzMLNedZ0JoGmzP+MLOM4/3H8LlRlw9nT1ksaM8d5W4Siwzawii2gYfOf1+hziKuebfZJIDDHoJtfuL0t3cJ2Ckn82BOQ6h5YjbMxW0CI2aSYWkaQ1u7RhG0qIA4xHlfTsKMKbWeMhlyf0Dwku+x5VmYzalBaPUfN7KxwxwjWO5sOaefw51od9DcBbiUXVm2poZeUz
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016)(23010399003)(10067099003)(261028144727099003)(11063799006)(4143699003)(56012099006)(261022105027099003)(261026121527099003)(261022075727099003)(261026140227099003)(261021135927099003)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?blFLdGNQdkhJSmZFaUdBdjVTWXk4V2xlcXpHdy8zT2V6NEM3TDAxdlBLaVlE?=
- =?utf-8?B?a2VZUzVzOUNSSDB4c3lZWG83dVlmNVRheWNJeXBvdlgrdy8xK1l6Yzcxa0tM?=
- =?utf-8?B?eTVuTFl5ZFM5OTBSK0RhNGtMY0pZN05YemRyUW1LOFlmaHJscVVCMWE5Yk41?=
- =?utf-8?B?cGJ2em8zS09DUzJwc2VOckpWa1R1NzhTaU0vdENKSndFYkRobHY3bkZHSTVx?=
- =?utf-8?B?cGxBZzJYNmxicStRK2xpUnh3RWtDa05odEcxOURyS2pPclB2MVYyUGxuSk1U?=
- =?utf-8?B?TXFyc3NzU0F6cDFDdkdjUXgyL3kwaml3MzArL1RTcDVDamFPcnFrLy81N2xo?=
- =?utf-8?B?ZzMrdE5QWmpLaDhKdng4V0xablBtU2NKWE80MGxDaDdZU1B3Q0NhVGR3RWFW?=
- =?utf-8?B?OUpLbU9nMmdjNklrUmdFNjMyR05mQ0xWdmREUHNPRzB6TXlYSjNNSnRmZ3Ir?=
- =?utf-8?B?U01ETXRlR3FMc2I3K005NUdVNEFpOGdiMjVoYTl5cjRXWVNQL1d2VTFxMVY2?=
- =?utf-8?B?czVzbVNsRE14MmVoUFV4bHl3SGVRVGJkQTFCNVFyMEQrUm1sT254SnNHSmpp?=
- =?utf-8?B?SG9lTmZteE50L2wwc1pXQ1ZzcWFVRFpPelFuQkFmRkRwN3VEZWJ1RS9GdlBM?=
- =?utf-8?B?aVlWeXFTVWdMVmtqdzF0NHdpUDVMdlc2SEYxa3RoVStZZEZqZmhwS2xoWTBt?=
- =?utf-8?B?TEJlNWJPVlZ3S2hqMkNSVDdqbjQ3amtSRWdlb01YSnRlR1JjUkw4TzJPd3I5?=
- =?utf-8?B?THEyUWN4QUlubTZQQmxBUVBHZjhYckF6VC9nWldKdTdzczQ3MVI2MjdacTFx?=
- =?utf-8?B?eWluM0YwcmZROUZVQ1d2STV0MmtaZGdsTDg2YXAyLy9GUDZFaTF6bGxLekRI?=
- =?utf-8?B?elJlVmdwVFVsNFdQOE1UTC9LUjUwTUJVRFZZc29yWWI1Vko1dHNsSUlsSERj?=
- =?utf-8?B?aGl2TTRncHI1K2k4cnN4ZkcvSDhxdnJQdUNqbFFJM1Bzd1ZDdGZ2VXhmRGcy?=
- =?utf-8?B?aHJscDNCNnB3OHhNS25oV2NXZGVrZ0lhb0FzZWZncVptTjcvWjI0Skw2MXd6?=
- =?utf-8?B?aFdpWkVUbUpDNGZiRFNUQis2WUpudVRiT0tDd3Bka3g3bFZpcjVPcmVnNk15?=
- =?utf-8?B?WWo5c2xDcStwdE9ZaTlJNlVxZS9QSDJHaWpjTjY5eFlZeWorUjZTZjh0OE13?=
- =?utf-8?B?d1NOa1BUVXZ6OWwrYWN1d0FEUXc0cHA1QnFRRU1BWktLYUVQVkNES1NMQitZ?=
- =?utf-8?B?TENNQmdlTXhaSitTMUdDUDlGKytnVnB4dzE2WmhLTFJGRk1HQlgyVzNDRXBS?=
- =?utf-8?B?UkhuaUtRZW50SGJyelFPQmZ6T3lhRC8vZlVIZmVxUFJBTTkrbWh5bk82R0JM?=
- =?utf-8?B?YXVza3lSS1ppL0tRUkgzcGcwME1jR3YvR1ZndW9YNXpVTjFOMWN6ZE1OcldC?=
- =?utf-8?B?b3dtckI0TVRydm1wbzc4TjgvQ05NZ2FmU0JNUm0rS2UyRmlvMU5pTGEzdFRu?=
- =?utf-8?B?UHVLL29YY2hwT0RabHRtNGFGRXJhcVYzdFVMcTEyN0hRbEFQSVFlaUhPUWxN?=
- =?utf-8?B?MlVVbzl1cTd3STJtWHVoNHpWYmhEMmQ4K2JJNTNzVkwxbWFGZHRQM2dnYWQ2?=
- =?utf-8?B?K1hJLzR3d2V5bW1JUDFTcmkvV0lqeEl6L2dQWmVkOXJZK01IaHAzd05GRTQ4?=
- =?utf-8?B?dXEyVm5uQVVhQ0EzZDVVM2JFSkx5VFRpazlyVVc3QVRkdXRmYVhQZ0tTdXNZ?=
- =?utf-8?B?TjVpTmIyamdkTUhrQUI1NkhpY0N1eDBxY2Fjb0wyeW9xTzNxb2FNaHNlem1M?=
- =?utf-8?B?eUZBQTE3dGRLZnoyRkRIMmZmQXJya2xzM24zbVVnQVAyZC93aGsvR0drcmJE?=
- =?utf-8?B?Z2R5a0pjT01BZDNjbldNVVc4ZTlqYTdRS1VnUVFWRWdaQzdleXJhVlRJTHlV?=
- =?utf-8?B?djZ0OUdtL2JtdGMrMWloR0JsOHVnSXRuamhzQm92dHFRVitiQmE3alNWOFdJ?=
- =?utf-8?B?bWhkQ3FUZlhhNnFHRmwvZ3VyUWpPTHk1UkI3Zi9uZjlSVFVGaEdDY0gvR3Jq?=
- =?utf-8?B?ZGZtcUZ1dG80Q3RhZjNibnpjUTF3dThQYnl1Y05yMnhOMlN2UkF2N3lmei9C?=
- =?utf-8?B?Q2g5U3JkSDdMMDIvOXFpelBIeEZ1d2trbTQ4R3l6RHpSb1dZU3hMRVRSSkFN?=
- =?utf-8?B?Slg2U1FYV1BSOTJ3TDhFTFh4NVBvTlBlMFVEOE5kYmVXSFNyclRXNzRzaE1l?=
- =?utf-8?B?UlJTK1ZnNWpOMHJaTFBDUWFSRy92L0orVEtZTHhIWVBGSWY0WVBlRDVTZW14?=
- =?utf-8?B?aVJRYlZaSm1OeFA0UmcvQ0FNTjNKdThPOUJXSjI3Ym9Fb3FBMklJOXBpL3U4?=
- =?utf-8?Q?klv9YF8NNo8K2yP0=3D?=
-X-OriginatorOrg: kontron.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 681ef51b-220c-4fef-34be-08df458d253b
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 16:01:02.8696
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BPEiFLnIuJoQlaQ8YNf+N/bLM3YH+e12blvcRsM7/HPU6reC09HRqcGcprHMqKrabjE2S25nj2vm+XnBR3zY5DA4d8BZUpZZPFttzIq5GnM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR10MB5671
+Content-Transfer-Encoding: 8bit
 
-On 18.11.26 16:53, Frank Li wrote:
-> On Wed, Nov 18, 2026 at 03:43:28PM +0100, Frieder Schrempf wrote:
->> On 18.11.26 13:46, Frieder Schrempf wrote:
->>> +Cc: Peng
->>>
->>> Hi NXP developers,
->>>
->>> On 05.10.26 16:28, Frieder Schrempf wrote:
->>>> On 16.09.26 16:39, Frank Li wrote:
->>>>> On Wed, Sep 16, 2026 at 03:16:13PM +0200, Arnd Bergmann wrote:
->>>>>> On Mon, Sep 14, 2026, at 21:40, pankaj.gupta@oss.nxp.com wrote:
->>>>>>> From: Pankaj Gupta <pankaj.gupta@nxp.com>
->>>>>>>
->>>>>>> Adds the driver for communication interface to secure-enclave, that
->>>>>>> enables exchanging messages with NXP secure enclave HW IP(s)
->>>>>>> like EdgeLock Enclave, from:
->>>>>>> - User-Space Applications via character driver.
->>>>>>>
->>>>>>> ABI documentation for the NXP secure-enclave driver.
->>>>>>
->>>>>> I just saw this in linux-next, where it has caused a build failure
->>>>>> for a missing include of linux/slab.h. I hadn't see the series
->>>>>> before (even though it is a v51, which seems crazy), but I am
->>>>>
->>>>> It is in linux-next about v37, but build bot find many problems, I dropped
->>>>> it and request to fix it. And sashiko is online recently and also find many
->>>>> risk. I request to clean up it, and local AI environment have difference
->>>>> with sashiko, so bump to v51.
->>>>>
->>>>> I put to linux-next again to make sure that pass all build test.
->>>>>
->>>>> Other two problems, need more time to check whole review history. reply
->>>>> you later.
->>>>
->>>> So this is still in linux-next, but was not sent in the pull request for
->>>> 7.4. It's rather confusing to me that maintainers add stuff to
->>>> linux-next for build-testing and then leave it there, neither removing
->>>> it, nor continuing the mainlining process.
->>>>
->>>> Frank, what is the plan?
->>>>
->>>> I'm currently rebasing my work for the NVMEM driver onto linux-next, but
->>>> as there have been so many iterations and this whole thing took so long,
->>>> I want to make sure that this is not another dead end where I'm wasting
->>>> my time on.
->>>
->>> I need to ping here, again. What is the plan at NXP to move on with
->>> this? This is blocking multiple features that depend on ELE firmware
->>> support for i.MX9 and similar platforms from being upstreamed.
->> To be more constructive, here is a proposal: let's get the
->> kernel-internal part of this series merged first (patch 2-4, DT patches
->> 6-7, doc patch 1 reduced to kernel side). I currently don't see any
->> objections or issues with those.
->>
->> This would unblock drivers using the in-kernel API, such as the NVMEM
->> driver and this is also the part I already tested when working on [1].
->>
->> The somewhat more controversial uAPI in patch 5 can then be further
->> discussed until there is a consensus on it.
->>
->> Arnd, Frank, would that work for you?
-> 
-> It needs at least one user for the in-kernel API.
+Use 4-way folding in the shared NEON crc64_nvme for AArch64
+as well as AArch32. This improves performance by about 2x for 512 byte
+data size on Cortex-X925.
 
-I can provide the NVMEM driver as user. I just need to rebase my series
-on the new reduced firmware driver patchset once that has been posted.
+Add similar optimizations from x86 implementation like reducing
+the 4x to 2x and doing a tail (len >= 32) 2x fold as well as partial
+block handling to process lengths which are not multiple of 16 bytes.
 
-Or if you want to have this all in one series, maybe someone at NXP
-(Pankaj?) can provide the firmware driver as proposed above in a public
-git tree somewhere or send it as RFC. Then I will provide the NVMEM
-patches on top of this for you to pick up and send in a combined series.
+The partial block stage is enabled only for AArch64 as it needs the
+128-bit TBL instruction not available in AArch32.
+Modified the loop dispatch on AArch64 to allow any len >= 128 rather
+than just multiple of 16 bytes.
 
-Just let me know what works best for you.
+Modified the pmull intrinsics from crc64-neon.h to use inline
+assembly as the intrinsic usage was causing the compiler to
+generate the fold constants via mov+movk+fmov/dup which was about 10
+instructions for 16-byte constant instead of expected adrp+ld1.
 
->>
->> Pankaj, can you prepare such a reduced series?
->>
->> [1]
->> https://patchwork.kernel.org/project/linux-arm-kernel/cover/20260727-upstreaming-next-20260609-imx-ocotp-ele-v4-0-1a515de33093@kontron.de/
+Signed-off-by: Shreesh Adiga <16567adigashreesh@gmail.com>
+---
+ lib/crc/arm64/crc64-neon.h | 15 +++---
+ lib/crc/arm64/crc64.h      | 18 ++++---
+ lib/crc/crc64-neon.c       | 96 +++++++++++++++++++++++++++++++++++---
+ 3 files changed, 110 insertions(+), 19 deletions(-)
+
+diff --git a/lib/crc/arm64/crc64-neon.h b/lib/crc/arm64/crc64-neon.h
+index fcd5b1e6f812..700a3a8619f4 100644
+--- a/lib/crc/arm64/crc64-neon.h
++++ b/lib/crc/arm64/crc64-neon.h
+@@ -2,20 +2,21 @@
+ 
+ static inline uint64x2_t pmull64(uint64x2_t a, uint64x2_t b)
+ {
+-	return vreinterpretq_u64_p128(vmull_p64(vgetq_lane_u64(a, 0),
+-						vgetq_lane_u64(b, 0)));
++	uint64x2_t r;
++
++	asm("pmull %0.1q, %1.1d, %2.1d" : "=w"(r) : "w" (a), "w" (b));
++	return r;
+ }
+ 
+ static inline uint64x2_t pmull64_high(uint64x2_t a, uint64x2_t b)
+ {
+-	poly64x2_t l = vreinterpretq_p64_u64(a);
+-	poly64x2_t m = vreinterpretq_p64_u64(b);
++	uint64x2_t r;
+ 
+-	return vreinterpretq_u64_p128(vmull_high_p64(l, m));
++	asm("pmull2 %0.1q, %1.2d, %2.2d" : "=w"(r) : "w" (a), "w" (b));
++	return r;
+ }
+ 
+ static inline uint64x2_t pmull64_hi_lo(uint64x2_t a, uint64x2_t b)
+ {
+-	return vreinterpretq_u64_p128(vmull_p64(vgetq_lane_u64(a, 1),
+-						vgetq_lane_u64(b, 0)));
++	return pmull64(vextq_u64(a, a, 1), b);
+ }
+diff --git a/lib/crc/arm64/crc64.h b/lib/crc/arm64/crc64.h
+index c7a69e1f3d8f..06dd08a21dd6 100644
+--- a/lib/crc/arm64/crc64.h
++++ b/lib/crc/arm64/crc64.h
+@@ -10,19 +10,25 @@
+ 
+ u64 crc64_nvme_neon(u64 crc, const u8 *p, size_t len);
+ 
++static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_pmull);
++
+ #define crc64_be_arch crc64_be_generic
+ 
+ static inline u64 crc64_nvme_arch(u64 crc, const u8 *p, size_t len)
+ {
+-	if (len >= 128 && cpu_have_named_feature(PMULL) &&
++	if (static_branch_likely(&have_pmull) && len >= 128 &&
+ 	    likely(may_use_simd())) {
+-		size_t chunk = len & ~15;
+-
+ 		scoped_ksimd()
+-			crc = crc64_nvme_neon(crc, p, chunk);
++			crc = crc64_nvme_neon(crc, p, len);
+ 
+-		p += chunk;
+-		len &= 15;
++		return crc;
+ 	}
+ 	return crc64_nvme_generic(crc, p, len);
+ }
++
++#define crc64_mod_init_arch crc64_mod_init_arch
++static void crc64_mod_init_arch(void)
++{
++	if (cpu_have_named_feature(PMULL))
++		static_branch_enable(&have_pmull);
++}
+diff --git a/lib/crc/crc64-neon.c b/lib/crc/crc64-neon.c
+index 4753fb94a4be..03b46d0abcc4 100644
+--- a/lib/crc/crc64-neon.c
++++ b/lib/crc/crc64-neon.c
+@@ -10,6 +10,12 @@
+ 
+ u64 crc64_nvme_neon(u64 crc, const u8 *p, size_t len);
+ 
++/* x^575 mod G, x^511 mod G */
++static const u64 fold_consts_4x_val[2] = { 0x0c32cdb31e18a84aULL,
++					   0x62242240ace5045aULL };
++/* x^319 mod G, x^255 mod G */
++static const u64 fold_consts_2x_val[2] = { 0xb0bc2e589204f500ULL,
++					   0xe1e0bb9d45d7a44cULL };
+ /* x^191 mod G, x^127 mod G */
+ static const u64 fold_consts_val[2] = { 0xeadc41fd2ba3d420ULL,
+ 					0x21e9761e252621acULL };
+@@ -17,23 +23,101 @@ static const u64 fold_consts_val[2] = { 0xeadc41fd2ba3d420ULL,
+ static const u64 bconsts_val[2] = { 0x27ecfa329aef9f77ULL,
+ 				    0x34d926535897936aULL };
+ 
++static inline uint64x2_t fold_single_round(uint64x2_t fold, uint64x2_t temp,
++					   uint64x2_t consts)
++{
++	uint64x2_t temp1 = pmull64(consts, fold);
++	uint64x2_t temp2 = pmull64_high(consts, fold);
++
++	return temp ^ temp1 ^ temp2;
++}
++
++#ifdef CONFIG_ARM64
++/* vqtbl1q_u8 is not available on AArch32. */
++static inline uint64x2_t fold_partial_block(uint64x2_t fold, uint64x2_t consts,
++					    const u8 *p, size_t len)
++{
++	static const u8 crc_neon_shift_tab[32] = {
++		0xff, 0xfe, 0xfd, 0xfc, 0xfb, 0xfa, 0xf9, 0xf8,
++		0xf7, 0xf6, 0xf5, 0xf4, 0xf3, 0xf2, 0xf1, 0xf0,
++		0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
++		0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f
++	};
++
++	uint8x16_t last16, t1, t2;
++	uint64x2_t a, b;
++
++	last16 = vld1q_u8(p + len - 16);
++	t1 = vld1q_u8(crc_neon_shift_tab + len);
++	a  = vreinterpretq_u64_u8(vqtbl1q_u8(vreinterpretq_u8_u64(fold), t1));
++	t2 = vmvnq_u8(t1);
++	t2 = vqtbl1q_u8(vreinterpretq_u8_u64(fold), t2);
++	t1 = vcgezq_s8(vreinterpretq_s8_u8(t1));
++	b  = vreinterpretq_u64_u8(vbslq_u8(t1, last16, t2));
++
++	return fold_single_round(a, b, consts);
++}
++#endif
++
+ u64 crc64_nvme_neon(u64 crc, const u8 *p, size_t len)
+ {
++	/* Assumes len >= 64. AArch32 also assumes len is multiple of 16. */
+ 	uint64x2_t fold_consts = vld1q_u64(fold_consts_val);
++	uint64x2_t fold_consts_4x = vld1q_u64(fold_consts_4x_val);
++	uint64x2_t fold_consts_2x = vld1q_u64(fold_consts_2x_val);
+ 	uint64x2_t v0 = { crc, 0 };
+ 	uint64x2_t zero = { };
++	uint64x2_t v1, v2, v3;
++
++	v0 ^= vreinterpretq_u64_u8(vld1q_u8(p));
++	v1  = vreinterpretq_u64_u8(vld1q_u8(p + 16));
++	v2  = vreinterpretq_u64_u8(vld1q_u8(p + 32));
++	v3  = vreinterpretq_u64_u8(vld1q_u8(p + 48));
+ 
+-	for (;;) {
+-		v0 ^= vreinterpretq_u64_u8(vld1q_u8(p));
++	p += 64;
++	len -= 64;
++	while (len >= 64) {
++		uint64x2_t t0 = vreinterpretq_u64_u8(vld1q_u8(p +  0));
++		uint64x2_t t1 = vreinterpretq_u64_u8(vld1q_u8(p + 16));
++		uint64x2_t t2 = vreinterpretq_u64_u8(vld1q_u8(p + 32));
++		uint64x2_t t3 = vreinterpretq_u64_u8(vld1q_u8(p + 48));
+ 
++		v0 = fold_single_round(v0, t0, fold_consts_4x);
++		v1 = fold_single_round(v1, t1, fold_consts_4x);
++		v2 = fold_single_round(v2, t2, fold_consts_4x);
++		v3 = fold_single_round(v3, t3, fold_consts_4x);
++		p += 64;
++		len -= 64;
++	}
++
++	v0 = fold_single_round(v0, v2, fold_consts_2x);
++	v1 = fold_single_round(v1, v3, fold_consts_2x);
++
++	if (len >= 32) {
++		uint64x2_t t0 = vreinterpretq_u64_u8(vld1q_u8(p +  0));
++		uint64x2_t t1 = vreinterpretq_u64_u8(vld1q_u8(p + 16));
++
++		v0 = fold_single_round(v0, t0, fold_consts_2x);
++		v1 = fold_single_round(v1, t1, fold_consts_2x);
++		p += 32;
++		len -= 32;
++	}
++
++	v0 = fold_single_round(v0, v1, fold_consts);
++
++	if (len >= 16) {
++		uint64x2_t t0 = vreinterpretq_u64_u8(vld1q_u8(p));
++
++		v0 = fold_single_round(v0, t0, fold_consts);
+ 		p += 16;
+ 		len -= 16;
+-		if (len < 16)
+-			break;
+-
+-		v0 = pmull64(fold_consts, v0) ^ pmull64_high(fold_consts, v0);
+ 	}
+ 
++#ifdef CONFIG_ARM64
++	if (len)
++		v0 = fold_partial_block(v0, fold_consts, p, len);
++#endif
++
+ 	/* Multiply the 128-bit value by x^64 and reduce it back to 128 bits. */
+ 	v0 = vextq_u64(v0, zero, 1) ^ pmull64_hi_lo(fold_consts, v0);
+ 
+-- 
+2.56.1
 
