@@ -1,62 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.2
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794992950;
-	b=M0zB0n19R6H12c4+x37D1jhxb99lTW6IxVe1NJwDDOa5zJh0Njz+eCq1SlwjidNF+uWa
-	 Yms3OomPAoDnoROdujs5mnH4p/uBG3DwCDPwW6BPvSfu4pp8i9d0ac+AvQUArDvDYaQIY
-	 AgJQr7VkubF+Hth9M69SrcdnyyvHPyIyE4cHK5cqCU8VW30DgEfgfIgT74FlEr+ApFmpG
-	 tUFR46LGbYEFCy6q/5bqHflG4zXtLoxzW+9opzS3kIWayRzyHhwhaps4Ar/sOktSfQmCN
-	 /6tIZk03r1p94XKyhXG/lWPHLomrexxTP78AX9IN8q9Ujz1Jc8R6mir3IRe7TTcCBbg==
+	t=1794992964;
+	b=3ClTBJzNnE4NyrqBItHW2JMWrUvUrunYM1Sqdz4dRhUsx/1H44cKe0cVpcjhAJya6gDF
+	 KoyDVSat/S/hYJDqweNKusb9+v+0yiEHrO2WosducRf6JgXKjB0494bElyNSSf0xdaOzl
+	 i+fYtlmt2m6fTPIKAKZM5gu1NzFb4VtGHac0x7sWAwF/5VsDidY9alI29HKXxFxKnF7/3
+	 p9iSOduU3npqruRbTVkEhQHSe5SI9GipBvdWkLrF/0Bzfs8HGpqu6rEMeQERcfJmVr7nm
+	 IfvT3x+ofqQfSslTfE3FqFaF571bjEhECEJH82AwE8m5SZxXluh1VXDx5wdmwn6O1WA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794992950;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=dHtuWAtrj+xNhQpB4xrei+7wLFyasNoXtGo9DFiqG+M=;
-	b=O5duYZ2oLz3GI0woYCETPRc/Vlo/Yz/jNEWr/kMsaIxkDuhUFXM70V9B1UCd6HOrxPus
-	 wJUZ9cSMfeqRnOVwm9SsnZ5i38a2STsxhVMB4inrhWVnITB+FKWbYHBg99FOXI6eV2iYW
-	 B9tNGsFruWvxvrLJvyWkzzskTaxv8PJ5GLlCibS7Zad5c7rovHtwdzV08U6rIoR/d+P8P
-	 pWL/GAIcpH3ov5HLkNlkABt2XfC5M1IO+ga9ZvBslv+77Dh6jrW89iIZJNY8bB62xi1ls
-	 eAaEurm28GQvN3QtxH418GJbgFOXM+3Pyh2ZdQ6fNIA9oWNRHBl0sPOl/Mglx635s8A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794992964;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=cpTBG70GLztkppBlWDxA4zs5YJB3Ae5lFCFEvrLL98I=;
+	b=l+OSv3GRSVrFreOK0fZhsLAer619LnAdz0SrSixCBa43ANHh63Vfjy0sTfNp6fsCgGTd
+	 L8ZaPOumtfiJWgMW0TYrtuy2E9sOwSnS0ntkXvk10QnqyHHxjfI5OHb+uiuC6qeSnmIbL
+	 n5usLKuftQ8JoFQ+zYL+HcpoJW77lo58pX1cOkAzOkblzdQr/H93leB1auTVaShm9xrmm
+	 aYSRogIZnr+kn6jxxK04T9cFakATGyCwLAEsshQzVPnuHIFoEH0dxZisdVgAKaq2fHXzk
+	 8/lE2/WznRhrHKhvAqQBpHH7ddtfzF4cvgzsWDsyV1nKmzeJar/ZB6sAHxV4omCTz2w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=M39xBiBF;
-	arc=none smtp.remote-ip=117.135.210.2
-Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=konsulko.com;
+	spf=pass smtp.mailfrom=konsulko.com;
+	dkim=pass header.d=konsulko.com header.i=@konsulko.com header.a=rsa-sha256 header.s=google header.b="k/5CBHUF";
+	arc=none smtp.remote-ip=209.85.128.41
+Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AAC60606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:09:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AAC60606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8CED606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:09:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8CED606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=konsulko.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=konsulko.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=M39xBiBF
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=dH
-	tuWAtrj+xNhQpB4xrei+7wLFyasNoXtGo9DFiqG+M=; b=M39xBiBFBvDiq9w+HW
-	JVbnIKVf9XUaZUWgzjr6Nj5jULx4g4sBEfIh7VjDCBK1WCUljxi5w8MIZfjRfMr1
-	h3wDtWDXmWkSSa0LRrOIRRkdRinqcN7tKyBX+oZrHo5ER16m7iIYAB6pnZcRT6Sc
-	0YVpVfuY3dN/b9xTPVGgQNJf0=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wD3_+gOa_1qh6wGIA--.32884S2;
-	Wed, 18 Nov 2026 17:08:31 +0800 (CST)
-From: Xuewen Wang <wangxuewen_ky@163.com>
-To: linkinjeon@kernel.org,
-	hyc.lee@gmail.com,
-	liubaolin12138@163.com
-Cc: ntfs@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Xuewen Wang <wangxuewen@kylinos.cn>,
-	Baolin Liu <liubaolin@kylinos.cn>
-Subject: [PATCH v6 08/37] ntfs: preserve buffered fallback writeback errors
-Date: Wed, 18 Nov 2026 17:06:32 +0800
-Message-Id: <20261118090701.1858849-9-wangxuewen_ky@163.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261118090701.1858849-1-wangxuewen_ky@163.com>
-References: <20261118090701.1858849-1-wangxuewen_ky@163.com>
+	dkim=pass (1024-bit key, unprotected) header.d=konsulko.com header.i=@konsulko.com header.a=rsa-sha256 header.s=google header.b=k/5CBHUF
+Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4bb64ef5a00so4992525e9.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:09:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=konsulko.com; s=google; t=1794992962; x=1795597762; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=cpTBG70GLztkppBlWDxA4zs5YJB3Ae5lFCFEvrLL98I=;
+        b=k/5CBHUFtEKe8geT1DXvy29NoiBNG1Mt8Hy95ZhiTXcEoe+VIZgYMi2ugn+SYCpiax
+         Y9hbglI3IwiC+ioTHCqrsmqfhP7tcFCVNEK8Uc1vvdWvwgHEa5PvsW3HtK251xuO9+x8
+         /Xl1QLFbeSKJc9gLfsvsPzoyPYbC6wJEX2rYw=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794992962; x=1795597762;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=cpTBG70GLztkppBlWDxA4zs5YJB3Ae5lFCFEvrLL98I=;
+        b=aOL/GQBpXcdtQHF89oFxQb0SCtyslCRVJE76cmOy5DDCE3BteV8aV2qMgPr/XY8LRd
+         jnCoIPHy3M38JFBl9yobckHpaUYOlki1bjKLMNf7uvJbM7NCWqo/KgrF9aMyNpuCVjCa
+         V2gJrk5gGMuvnr+a3kqyuzbjp98Q9WD1sBAg5oyiPyQMJYaPhuabGugJ2U+4j9xf4go7
+         fZIoPwFJHvV9dlsYVZFg3YQCb55suatoujvseofsTno2Jfq4OGKmdkT3rOSThD3j+eyf
+         IyNr6YxHiHWxtSgdNpNtsJe1r4p+2dnd2sZn5y8k3FkfQEXE9ReCf1SqDHc0W1Je/wXv
+         CTJg==
+X-Gm-Message-State: APuU4Z8ka8BLtO8wDe+g3QdwDvqNDqocln05cjsC1LLZoL7r+NKJbx9c
+	5NMJxWFP80W8ThmcVVFuyHrCMAFMBCQbnNET9wdbjn2fq3e6pqfTmVh9lnp3JfT3YFK5Z3MIpyB
+	7VGdLydA=
+X-Gm-Gg: AYBFou2GjHeGSrAaPhxjHXX5tCllbhPDlw0D7AN4Y+0t6a6rDp/0cs8sd5ayFGUI0RU
+	T2ji4ztNTO9icoteN87g/X8/Jo+2r0YyXOFT08c2EPw8nj+6P/fL/5Y4zy6DLNJ5XezvtrFNoBF
+	Zu3D7LeS3wsZgFMmEZHqcTWmVXErFIAVlVfeoS1HD9qG3+VKsrd8uIDComtH5jn18BTkVX25ItA
+	CO5lgGnorxvoQNZ/OohdpeEYSFhbU8SH206DOVS+1aKpM3j92F0WFlV0n+YRVQSsUZSREfC8UKv
+	qJhFC50NA8qXD4SEpSIrFRlGmSD05esihz74/Ys3RODn+IbFmFNOBgnAubXW3Nec2EivMtMgI47
+	hCqHE073iiPz/fMlQ+MXOXRX/vLwSxQUhcZcQlMUpLrXAOzT/V3gk0W61dlRUrz8LGWkLrup7Nu
+	OxFC6OHcTCfzt8VQWTOLyIulz3uQ3ZarB+zL1L9koazGaQ9BqXbRKm8Ur0jpdxwZR9/cwi8DE3k
+	aGSAh6OsVIGAGmTi98u2LUGzwZnyTS/sqNo/6Ek+c26irnG/0RT4oJsY1qiVsBPFxxhYlkHFoFq
+	NnpTEK1TGp1Ew4CPUAM2BVd8x6bPQttKsNKSNKAsJv8L1w==
+X-Received: by 2002:a05:600c:8b34:b0:4bb:781f:6067 with SMTP id 5b1f17b1804b1-4bb7d6cd404mr33290135e9.1.1794992961833;
+        Wed, 18 Nov 2026 01:09:21 -0800 (PST)
+Received: from tone.k.g (lan.nucleusys.com. [92.247.61.126])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb78418853sm185770195e9.8.2026.11.18.01.09.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 01:09:21 -0800 (PST)
+From: Petko Manolov <petko.manolov@konsulko.com>
+To: linux-kernel@vger.kernel.org
+Cc: devicetree@vger.kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	arnemaximilian.richter@draeger.com,
+	martynas.grybauskas@draeger.com,
+	Petko Manolov <petko.manolov@konsulko.com>
+Subject: [PATCH v4 0/2] arm: dts: nxp: imx: add Draeger M48 CPU board
+Date: Wed, 18 Nov 2026 11:09:10 +0200
+Message-ID: <20261118090914.38082-1-petko.manolov@konsulko.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,49 +103,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3_+gOa_1qh6wGIA--.32884S2
-X-Coremail-Antispam: 1Uf129KBjvdXoWrtFWDCFW7CFWfGr4fWrWfZrb_yoWkKFc_Wr
-	yvy3409r1UCF1kGw1xCFnYyFs5tw4FgFWfXryFkF98J34kJwn8urs5AFs5CFZrWayqgFyr
-	Grs3u3y5XrnIkjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUUNBMtUUUUU==
-X-CM-SenderInfo: pzdqw5pxhzv0xbn1qiywtou0bp/xtbCzQ-34Gr9aw8hOQAA3+
 
-From: Xuewen Wang <wangxuewen@kylinos.cn>
+Adds the device trees for “Dräger M48 on NXP i.MX6 (Q|DL) and Intel/Altera
+SoCFPGA Cyclone V” board variant.  It has both (the SoC and FPGA) on the
+same carrier and they are cross-monitoring each other.  The SoCFPGA boots
+independently off qspi flash.
 
-The buffered fallback of a direct write waits for writeback before
-invalidating the written pages. It replaces any writeback failure with EIO,
-discarding more specific errors such as ENOMEM.
+This is the imx6 devicetree part.  There are two bindings as well as device
+trees, since M48 is using two parts: imx6q and imx6dl.
 
-Return the error from filemap_write_and_wait_range() through the existing
-cleanup path.
+new in v4:
+  - added the missing GPIO_OPEN_DRAIN definitions on I2C recovery GPIOs;
+  - fixed the halved LVDS pixel clock in split mode;
 
-Reviewed-by: Baolin Liu <liubaolin@kylinos.cn>
-Signed-off-by: Xuewen Wang <wangxuewen@kylinos.cn>
----
-Changes in v6:
-Extract buffered-fallback writeback errno propagation from v5 patch 23.
+new in v3:
+  - used LLM to cleanup most of the errors and warnings;
+  - proper use of dt-schema this time around;
 
-Validation:
-- Compiled and linked the NTFS module object with W=1 at this stage.
-- No undefined references to ntfs_report_* or fserror_report_*.
+new in v2:
+  - add the tag from Conor Dooley <conor.dooley@microchip.com>;
+  - it should be clarified that "draeger" vendor prefix is added in
+    my previous Draeger M48 patch series;
 
- fs/ntfs/file.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Petko Manolov (2):
+  dt-bindings: arm: fsl: add Draeger M48 dual-cpu board
+  arm: dts: nxp: imx: Add devicetree files for M48
 
-diff --git a/fs/ntfs/file.c b/fs/ntfs/file.c
-index 55c48d174b28..b1c6a84bf955 100644
---- a/fs/ntfs/file.c
-+++ b/fs/ntfs/file.c
-@@ -805,7 +805,7 @@ static ssize_t ntfs_dio_write_iter(struct kiocb *iocb, struct iov_iter *from)
- 		ret2 = filemap_write_and_wait_range(iocb->ki_filp->f_mapping,
- 				offset, end);
- 		if (ret2) {
--			ret = -EIO;
-+			ret = ret2;
- 			goto out;
- 		}
- 		invalidate_mapping_pages(iocb->ki_filp->f_mapping,
+ .../devicetree/bindings/arm/fsl.yaml          |   2 +
+ arch/arm/boot/dts/nxp/imx/Makefile            |   2 +
+ .../boot/dts/nxp/imx/imx6dl-draeger-m48.dts   |  16 ++
+ .../boot/dts/nxp/imx/imx6q-draeger-m48.dts    |  16 ++
+ .../boot/dts/nxp/imx/imx6qdl-draeger-m48.dtsi | 213 ++++++++++++++++++
+ 5 files changed, 249 insertions(+)
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6dl-draeger-m48.dts
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6q-draeger-m48.dts
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-draeger-m48.dtsi
+
 -- 
-2.51.0
+2.47.3
 
