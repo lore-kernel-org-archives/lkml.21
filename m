@@ -1,75 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794997171;
-	b=AkQrO9aTGkKPrORmsYRs8qxY0R3gUO4O97y2FJ9XXmuU4Zgi4HO/x60A9+wDp3fzJksv
-	 TBFMjjbyUkeZ6JrNiU1P0Q2HoA6/GSfRNt252lOOV4CM+7pMR1xev/4fRS1P+E5BQhRbt
-	 mqVmzFy4iMJUpOCltnjrhfAz8Uz5ta5RX6gXfRSnfm2jJ2ed0enexYZ+BTwOOGuXOYtpC
-	 6J42SHMxwDRtshlckgGZmT5K4oJJVsyHj/1FNQzVWnFQtyp6I4EYSD6fWIqReRA81R4z/
-	 GltYtlQKZXreWsWGX8ObBKexm3fC8GWzUt8xtV0Dw+6pMHWgnHjb7qxmQpbwH5fi8eA==
+	t=1794997176;
+	b=K5GzzOvio6v1Y+19qo5U2COXduH9xSS87jwxcR7oem6n65HKr+NiuR3Vjf4wEGriamQN
+	 Keific2rL+8zTfqaOCQ/WroC0RyINWi62cFQ7zuLUcEZnQofBgwFNlqGV9f3f8+6MMRDn
+	 cZz7Dr9DPf63pnG5oN2zN3/bHZ56GQTRxROSvCTVP+GGNb7GVDph5FCRxxGIL6KNULPsb
+	 vIkplaQRB539cTTodeAr6hy9mP26NSpJUkaum1pjmxuGUFehoV+s9Od4mipPoo9G3XD3N
+	 Nyf/qJFKCYOz1MeNdvaL1VIs4TxG2gzqOND4eu0WCy45Fyb77eBjHNOW8o1ch+WDdmQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794997171;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794997176;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=NjR9C+m/zvTfHbg5SMxjrHHBlgzBe0tcW4KYDDXsSd4=;
-	b=Gm6GxlGwLiKXGK25iZIve2PNnwal4W2laPoyW+BQRJY8vIBbUrF5pzLwZBEOvVkBqo5n
-	 LXKY77ZPicRrXzqg2Nv4L5SZKhsKhll3cNJ9c+1F6Fjg0Cfd36jnFY54Vyuuh6Ay6gPkG
-	 vCwkXsST2jJHV58SqOtsAlPH/oPb9iW5YqAX5TQKOZ7I8vMpQy4Ys0AECji3lakaCPrFV
-	 RGtZNfHT+rTypHh+Oj22Q8QpGVj7h1kHHhM/yJv/e/EhJEtePhfydLbIIJ1YpOaUI/EfO
-	 7x19HkC0Vg5G93zidmOcty7kZlCYExZBvJ+WtzjvGdLvDfCDCyJxyf9yEHQWbBPfSlQ==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=NLaIVuRrItq/K8XGKB3939YkOngM/rpDK9AY6I9hNIg=;
+	b=CF7RKp0fngrP1uuO1b6WLSjndchcCCekuZ2Ls1iPXvvph3u1kEHMBDnQMUI9RHP9+dsY
+	 gdZLzqXn5liQyyBI5Iq9UtQ88e2Age/8qKkwwdxCSjYGiTWgSG8R6voIu0/tng2abKMXh
+	 VTkGiSS98yLsHJZR/aMCH2A+wBLs+G88hSSbnTvgrjwlZfLFLGC1TmDFoiYSnICPYbnyt
+	 D20XFAgxOshPzA0YuQH/yQPW8pNyMPhGG3qsyxCqKK0iuIn2aTBQHTAr1U/lkmUSd/dkI
+	 iG/3db3TEhtEVwuakR+oFYTHjL0ASu/XHF+Hi7SNTjMhOyAwjRsgV8xEacnytZnEdyg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--amitamishra.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=fpwZlnO9;
-	arc=none smtp.remote-ip=209.85.215.199
-Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
+	dmarc=none header.from=tomeuvizoso.net;
+	spf=pass smtp.mailfrom=tomeuvizoso.net;
+	dkim=pass header.d=tomeuvizoso-net.20260707.gappssmtp.com header.i=@tomeuvizoso-net.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=BOTa00Xb;
+	arc=none smtp.remote-ip=209.85.128.44
+Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com [209.85.128.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B09C5606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:19:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B09C5606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--amitamishra.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C029606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:19:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4C029606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tomeuvizoso.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tomeuvizoso.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=fpwZlnO9
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-cd5fd34fee0so637762a12.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:19:30 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=tomeuvizoso-net.20260707.gappssmtp.com header.i=@tomeuvizoso-net.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=BOTa00Xb
+Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4b79502c27aso7470115e9.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:19:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794997170; x=1795601970; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=NjR9C+m/zvTfHbg5SMxjrHHBlgzBe0tcW4KYDDXsSd4=;
-        b=fpwZlnO9jilQtLL4DAJCq7YOqNOZGys57uTa9iQ0e/cUCnxXIZPnpxhkYZQnDF/xVh
-         7jQP4Fx3SpGgaxZ6nJMImICk4dfSLjcCl4Ve6eP0joRCfJN8eKX5iutyFFrH2rNkgLkr
-         V/aWw9RRz7VWisDY+TUexJS9Di7UGVrdg+ELsm8vXQCviDj/SuMqROi+MWx74ynjHyCq
-         ass1xoaurR7D/35+e1grHqtmcuI7Cb7N4Tu+fmgndjjm0RMnIJyJ+I1al4ilcgDrnjgq
-         FDFu5KOfqfNAx1/jtsIztYwHwYSnSykqar/YutAR6DUR5OEzVBL3/os23ezQvFXxZkud
-         Auww==
+        d=tomeuvizoso-net.20260707.gappssmtp.com; s=20260707; t=1794997174; x=1795601974; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=NLaIVuRrItq/K8XGKB3939YkOngM/rpDK9AY6I9hNIg=;
+        b=BOTa00XbIqmw9i5pJD/f+f8gmUcWdZ7Ur0snq3My/QFs9S0YCxmTzbrvtbeEx5Ua3x
+         AajQHg6onZJU7Z72kPj7aE/0dG/RfCJf9NCxuXxIbd9T8ZmGcoHoa5UXu3/JnQ213QaI
+         4gpHUUG56Q/I1M2pnhy/OpIRBUf957fN1WGpYAbsgAr9LhavkTUTRXKNHaEsRIJWW8k2
+         d05+n3U2+CTVz4hAz/uYxfvNKB8doLKgpPunOeJFCwZnos8uwdei2Etxbn+05BIgeFLq
+         wNpy9iQQz42yEV2KWMV/MEeQVmRymUzwcRzN3g6D2b3rVE+UMu80b1igCQjh23jB3xPA
+         uIbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794997170; x=1795601970;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1794997174; x=1795601974;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=NjR9C+m/zvTfHbg5SMxjrHHBlgzBe0tcW4KYDDXsSd4=;
-        b=wOJ7617QZ3LqWTi0R1ZiMdjRYsmdEOf/cS2XjFHIMVa7s98yhFgCjS272ztBeXHZH8
-         010dzD986uzOpTm5awOj8Tm1bEuQXXnksBTNxxTLI1MEeRG73OMUBK1nAmOko/h7XWmO
-         uUGeu33XFVF2OAM87TPoKJhnob5Rx+P6BUd66Ac4fH83fHmYLncDtA5Y+LAi/4pPDbMk
-         K8MIkTwPieCoRPdzV9KYwbmC0LBusFaYAwPa+SB3Nt1lnjA2klLeuegIi0gl3Ymy220J
-         HLtpdyJcibIw7WOm97Qc9kK6cv7S64hb5n4M0WpkjpUzytt+ToBh+SDHYvxTZ6TGRQPd
-         439g==
-X-Forwarded-Encrypted: i=1; AL+hErEw8g+7NzzVi0qfXhmw9XaX7OMV+DBrVDtyg6L2RKgxGMLMczBcwQugqtTnZyNvKmqZL6peYY56PF0bSy8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8cMIZtMOr5e8W7RA4R9Se5vqxFS9XyMUTuGMXsS91qEdwUzf22
-	fObjyiFRJ0WGfDVUQziiSwBwXt66hBL00OLcCgpIfYbW615V+eawQOUhCVdJ0LpbT6LMBnAypsW
-	L3UHookRwT0A3q88JztBsemY3Vw==
-X-Received: from pgbd17-n1.prod.google.com ([2002:a05:6a02:64d1:10b0:cdb:596a:2134])
- (user=amitamishra job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6372:a748:b0:3dd:a197:735a with SMTP id adf61e73a8af0-3fe8adfdd60mr1941662637.51.1794997169891;
- Wed, 18 Nov 2026 02:19:29 -0800 (PST)
-Date: Wed, 18 Nov 2026 10:19:12 +0000
-In-Reply-To: <20261118101913.3135869-1-amitamishra@google.com>
+        bh=NLaIVuRrItq/K8XGKB3939YkOngM/rpDK9AY6I9hNIg=;
+        b=Vb2PXGsoTiMxsYkqtoH/SkPSNSnTRgU7STTNPGRxHMF+gpB8pqpiSEaiEIKuH0tph+
+         kkxAL2IGRx9ZuSpYsNyLX1NQWoCusyzBZCf3lKdO3k68t83HMfbiW5GBGZldSy/S/d+K
+         Ic3KK7MXxzqlHEKX5GFSCZnc7EokLNaLOtIXK9GMLwxC8/lZCGZrViqbXzonusAHsqRD
+         rxekHE7ONfLx2zy5eCCg0X3xBWkZ5QuJKu6CBTsCt1ek72JeoL9BMDq2ElI7xBjFGRYr
+         28MPibQtAinRFKlgLZLmbvNxnTE3QzGD1qqbpJF94y4ovvQse+efBBFlUUsoY4mTqstU
+         WEdw==
+X-Forwarded-Encrypted: i=1; AL+hErFbLYlmQUfrIqoHmC7ZI95XfGTKBpp1wuK2zoAmJ0SoFSyIDFnVmK3IOqTWeJ0OHLS6L189fZsZlNyF224=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8xn1toTnDJHaKdNe46si8AVKat9QWIAApAOijYUa/1jIJ8WMyD
+	Dmz9h1USINBNwk1GCcurBqFgX5SHjjtW9mmBWhXLLwR6LFdk75XPtYKAWGbqZuCd1x0=
+X-Gm-Gg: AYBFou3XdXeQCzWmPpyHvcJShfr0PwH73vgXpxs9L+s8pAzfAK5F5s4Ls9t/dTeDdYt
+	G01sevPc71zLoafn2EGLeoeOuTf6/iNNuOwSymRHAXuytbLnVWPteaHrUIGmDGl5gRiyqvytmFV
+	zP0WugAEchAOFFtLxTI5kZSd7rvvtHxI2VI8lh+Y2gEFVyV26D+aI2veinD76DoqNfO54gL4aF7
+	YXiqNZpKbiwCASIAdukCohsGlITRwjH3uHyhFy5zQLs6fY7otDScC8JmBnK9fb8+qSrT9ITJAeZ
+	rvtxcFdABS3Y8oFYHH4skk9RRNnomJmXSWb+e6j2d8v/KvzGQTae1TjPpQ3XjPdP6IEYZOzJtTL
+	HipFG+4MGE1yc0OcoltsKgkEr5HLg1YgyS2FX8xtIEElNeuNVIXldVOvhLCrOc03S5LmyJHuk5c
+	icM13b/PIirYSdWorvLdJV6V1lK9GHewDqKFMYIffxMem3pspYRiCdOnSTvpyZeo4cQkxfjqUFm
+	no8/GwsiZiMmcI2mhKfwB6TaSxf+pn3BtcyU06f8Xe8491b5UtsJwCKdw5N5f801JBp0FxastGz
+	ZkYStZDhaA4ACBLNdQl49CDElpGIknAtywi5KVuJacMMUnsMMFFOgpONe/HvejzyxMo1YEW2uxs
+	rlbeLv1B4b9INNE5GWVnG+j+cSSaMXi7w9hWHmDNgo9HLoi78Ew==
+X-Received: by 2002:a05:600c:3ba3:b0:4bb:6991:2330 with SMTP id 5b1f17b1804b1-4bb7da349efmr45418205e9.22.1794997174425;
+        Wed, 18 Nov 2026 02:19:34 -0800 (PST)
+Received: from alcachofa.home (cst-prg-52-235.cust.vodafone.cz. [46.135.52.235])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb78430918sm118711585e9.13.2026.11.18.02.19.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 02:19:33 -0800 (PST)
+From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+To: Heiko Stuebner <heiko@sntech.de>,
+	Oded Gabbay <ogabbay@kernel.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>
+Cc: David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Triet Hoang <triet.hoang.dev@gmail.com>,
+	Sidong Yang <sidong.yang@furiosa.ai>,
+	Igor Paunovic <royalnet026@gmail.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] accel/rocket: Fix up sched array handling on open and close
+Date: Wed, 18 Nov 2026 11:18:58 +0100
+Message-ID: <20261118101901.253550-1-tomeu@tomeuvizoso.net>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,45 +103,64 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261118101913.3135869-1-amitamishra@google.com>
-X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
-Message-ID: <20261118101913.3135869-2-amitamishra@google.com>
-Subject: [PATCH 1/2] dt-bindings: perf: arm,smmu-v3-pmcg: Allow power-domains
-From: Amita Mishra <amitamishra@google.com>
-To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	amitamishra@google.com
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-On some SoCs, SMMUv3 Performance Monitor Counter Groups (PMCGs) reside
-in switchable power domains rather than an always-on domain.
+Don't WARN when drm_sched_entity_init() fails in rocket_job_open().
+It can return -ENOMEM, which is an allocation failure and not a
+driver bug, so it doesn't deserve a stack trace.
 
-Document the optional power-domains property so that runtime power
-management can manage the PMCG power state.
+Also free the scheduler array in rocket_job_close() only after the entity
+has been destroyed, so that entity->sched_list never points to freed
+memory.
 
-Signed-off-by: Amita Mishra <amitamishra@google.com>
+Fixes: d341ef030f3c ("accel/rocket: Check allocations before use")
+Fixes: 9bca2b5f1a4f ("accel/rocket: Keep scheduler allocation in rocket_file_priv")
+Suggested-by: Sidong Yang <sidong.yang@furiosa.ai>
+Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+Link: https://lore.kernel.org/all/20260826113538.42111-1-sidong.yang@furiosa.ai/
+Link: https://lore.kernel.org/all/20260826113538.42111-2-sidong.yang@furiosa.ai/
 ---
- Documentation/devicetree/bindings/perf/arm,smmu-v3-pmcg.yaml | 3 +++
- 1 file changed, 3 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/perf/arm,smmu-v3-pmcg.yaml b/Documentation/devicetree/bindings/perf/arm,smmu-v3-pmcg.yaml
-index a4b53a6a1ebf..aea6623bb98c 100644
---- a/Documentation/devicetree/bindings/perf/arm,smmu-v3-pmcg.yaml
-+++ b/Documentation/devicetree/bindings/perf/arm,smmu-v3-pmcg.yaml
-@@ -36,6 +36,9 @@ properties:
+This addresses a mistake I made when I missed the v6 of the
+"accel/rocket: Fix allocation handling and scheduler array leak" series
+and pushed v5 to drm-misc-fixes.
+
+With these changes, both drm-misc-fixes and drm-misc-next contain the
+same code in these functions and there should be no conflict when the
+two are merged.
+
+This is to apply to drm-misc-fixes only.
+
+---
+ drivers/accel/rocket/rocket_job.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/accel/rocket/rocket_job.c b/drivers/accel/rocket/rocket_job.c
+index 7b798a90bc49..454d465a39e3 100644
+--- a/drivers/accel/rocket/rocket_job.c
++++ b/drivers/accel/rocket/rocket_job.c
+@@ -572,7 +572,7 @@ int rocket_job_open(struct rocket_file_priv *rocket_priv)
+ 				    DRM_SCHED_PRIORITY_NORMAL,
+ 				    scheds,
+ 				    rdev->num_cores, NULL);
+-	if (WARN_ON(ret))
++	if (ret)
+ 		kfree(scheds);
+ 	else
+ 		rocket_priv->scheds = scheds;
+@@ -584,8 +584,8 @@ void rocket_job_close(struct rocket_file_priv *rocket_priv)
+ {
+ 	struct drm_sched_entity *entity = &rocket_priv->sched_entity;
  
-   msi-parent: true
+-	kfree(rocket_priv->scheds);
+ 	drm_sched_entity_destroy(entity);
++	kfree(rocket_priv->scheds);
+ }
  
-+  power-domains:
-+    maxItems: 1
-+
- required:
-   - compatible
-   - reg
+ int rocket_job_is_idle(struct rocket_core *core)
+
+base-commit: f9fc6da01a290609428d308033143f1d96ab658f
 -- 
-2.56.1.703.gf848ed807c-goog
+2.54.0
 
