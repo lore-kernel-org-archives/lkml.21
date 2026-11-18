@@ -1,44 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795009337;
-	b=eZ6rWOXRfExfACGORzsGDFDO7p/OM+ABTsdRflTtwHFcdkcSqsF2LSAr3EZ/Au10ZQGh
-	 MAcX0PWPd6rOtaX4zoBOh9VBhi68KNlU4Kq9Zp8YVEY6cI2z9+MgMkSxvQZ+agqQtoY4d
-	 CeFftVSROlaK52QcW0c7fzy9X44e6wD9UKX/pPCNMQMzTwZdifsSHkWj67HPWn7t3V4Rg
-	 loKNuxYTs/GajrPt6Jhrw/5mZyU4l1QcU3mm2RAne78iBPS6+XacKvvEtLAT9DBRU1MxX
-	 t5DTy6ga7TbD6CFFfmMTejupVD1+YPChs/RDwsE0LMqwc3OGxYVvh8/FQ9M1djyWgQA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795009337;
-	h=Received:DKIM-Signature:Mime-Version:Content-Type:Date:Message-Id:
-	 Subject:Cc:From:To:X-Mailer:References:In-Reply-To;
-	bh=Pdo9o/RZRwcXVuirKWXZb1r7laMUfwlqTIE6v9fJreg=;
-	b=Yf868lUwxREt7A9VayqbfIaEupk0OJJInb82diTufEa5x47Ap5+Ln/S//R7xh1vPBhg7
-	 e0ZfjzI6RsOB57sGRaBiRRs/6YwoMH6NMj1C/OQNixum2hlT4lNAk6hK41oLXQDWyCO7H
-	 4r7LGZP5DsJEbDxqrugrcUeLw39cX1mht8FG9pgSHHE9YpSmFCwDWlVw5xsJOuZfsxuts
-	 iJESVjCI5xmc5oXOyBZFTO7zgbd8jM35lKOFhL/B57759aL3luZWdzUwNPxjJmj4ltiWG
-	 7Dl6C6STlYDK7VvHodUJ4/CVc9ySIDTA28J3x5yUJ0vaTS2Dou3y0jZ9iXaHzye0+rg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jP1asxug;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.94
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795009338;
+	b=RxDbgF5JY9noQ8G27mhMZL+NRgfIX+hjOGiLM6batqipoZCfaOq9YgpimXCydoQupcJP
+	 ci9gFckxotmwBS/ft3ogWAERGz4JYu+vEQ4SqlTHAgptak/bDK3pcFxieUXhFR7o8qlpS
+	 UGTWP0YgfC8dQtdjH4SStkqb8Al7eG2tEY1mAoof0WhqpPNUZ86zp6VR6pOp2h95FpNjb
+	 yei8mZL0KMBhbHAqDxSODAzpl551Lj/qggRN3wulonD70xQIO4Xhg12sAWjsrn26Sj4FF
+	 FfCIwg6npBK+oBpxDO+d/n0g5qesVd6om8rwLevKbAMWnBG2wpLD/zxD1u6/N4WEvwg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795009338;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=7wiJPg0wfq/QpaHxvUEQmjmlFggT6S86Esd6iCYh9t4=;
+	b=hCHDLWYTawM/NhpeCld8/tpiVFXpypkDxo/IV0a1ZydFnIv4aI6M77xlKiuo4ZSs1afb
+	 uDRT08fyX0Q6jFc1wFOHf/2NtUm9fGH0aJBvpIX/cglqEJxvhAkWYUK7N0iAjotXFu41U
+	 LjFkaBkbL7AAYhgyRsQsGU1o5IpJjNauI3mTfquJHZjf6slqf4m+o9Vv29UyCiXE8TUhX
+	 3r2YVjzGTjfmyagn9wwLAHD6CiFDc2c3izcuuo5TbE1XAQjr2xgvFiC9N4s6PcBgcKGr6
+	 XT1nnTLcj+vzoxspnQcAgeY8+MEeLrDfw7PDjKyziJ6lEIttuw6Oieemncm8QhNJmSg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=efficios.com;
+	spf=pass smtp.mailfrom=efficios.com;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=ptM48ogD;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.94
+Received: from YT6PR01CU002.outbound.protection.outlook.com (mail-canadacentralazon11022094.outbound.protection.outlook.com [40.107.193.94])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 243BD606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:42:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C447A606A331
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:42:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C447A606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jP1asxug
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 37CC61F000C4;
-	Wed, 18 Nov 2026 13:42:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795009336;
-	bh=Pdo9o/RZRwcXVuirKWXZb1r7laMUfwlqTIE6v9fJreg=;
-	h=Date:Subject:Cc:From:To:References:In-Reply-To;
-	b=jP1asxugAZ70Ob8meTximYOcbzJUzYJBNmnnRp6yfHOtw0VFGwB4GsZCNqsN+6AJi
-	 8ivB9Wxird0Yh3caLcwwSZdiwbWPj7/t6ztDGuE6T68obcfrctJjuNnVsvlrJb5dHs
-	 hxLhZ2wgzBf2Rab/vx02BjYuDT7xQjZ/e/GuaK3ek6oh735fRTXNd9DL7kqgWSDn01
-	 PZi3KZY7bVIZwGrseohgkQx3iaLGpzc/VRgE/tyiDtX951I95EassIunh8KeWKEjOf
-	 2AH8WKTSdrGEprbCPOVMGeCf318VvEtCTlkcrtwUTsmD+FEnd5VN1FbaIpeKx6so0G
-	 GgZlCY8/xU13A==
+	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=ptM48ogD
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UwaaJhX45jjNqiqUCgrob8jk3fOJaSwlYdREpmofaebsDUWNH7vdSxANGGZRj0sigl1MV/xdH2g7fS/u1vAm3ZySXrO0W90p5q62ALL7t4+6Rao9+OXgM8WRGBMZTkFH51bbwlPjvIw4hm8/0lhjCz8FaXtXptlbuO/JVNtM0obNgEaYdvdOvrCcmPROsLk/Vlg26OlYFiN6gD45GROvo8yBunEdc1pLlNbtN6FgAk9t0x9n85BVMNfiC9pz/fukfjBoHBJULG9tEMcif2duvusTJNaRgz1909Lc/6XJVktaD4+jGxbun/D3L7YGWQfFBakZrmCx086jnHoeXMWdpA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7wiJPg0wfq/QpaHxvUEQmjmlFggT6S86Esd6iCYh9t4=;
+ b=UvoNMFgGIKcE2iL6ZQTykpJFzfsBwSANw45Ft5D1hN2zBHY2tf2dHR8kJ6BTyaPeOIKzScZ9ZdSn2EwCYAOupH3OHsBrEVP05DnNrG1GjK7uade/NGXk8zpiYpGdyYMt+HTro4wwZe4jovW8srh6Igg0TlsClfDAjVMitvp3CvjK6WaYUtoWGT4QE4vqKB7FXB9QR9z4O58K8dXN3RMhQYS/DmeWcF4uUTusfZgd04RY0WThlHIsThHkxhVqiNZlnwIX93qao0ABIqcz6ixo/ZdMpSfKeAMys6UeugV8E0bOLPquNWkBID555FT2caCyGkKv5xTffngWm+SXhPt7yg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
+ dkim=pass header.d=efficios.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7wiJPg0wfq/QpaHxvUEQmjmlFggT6S86Esd6iCYh9t4=;
+ b=ptM48ogDPLfq4ETfLEWEqrJ3EdHZiDph/FRFU+s+gWeL5vOyz/c1puF9usMgJvv3ZZE76KttbPPv1R6bsR+cddSXJKJvFN4czN5a/Oz24wTDIBbEmHzaUPnM4FrV/YQ2vppCceomWwM7AU3i0XHK2D0OKfIvkbuqVqk6W2z0EPISlfc/BRc/6BgXQbZZuvHeMD0e9jU1gGSI1hEDxFvV5+BBFj2hL2lXTWEZlk1bcJmQGctAK6fZ6vnCSkfvEKZLQxUUa6glFnu7qDS24aZ9JwFinZSRJFQbxZso1OyGEDFhRCWRpERdrq2CKvHuyuIxq2aPvl21j3nAyRvWm255+w==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=efficios.com;
+Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:1d0::10) by YT2PR01MB8248.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:b3::7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 13:42:14 +0000
+Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
+ 13:42:14 +0000
+Message-ID: <2c204d0a-842a-4e45-9354-a6e2343c079c@efficios.com>
+Date: Wed, 18 Nov 2026 08:42:13 -0500
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 33/40] sched/deadline: Start a period for a task that
+ enters the class blocked
+To: sashiko-reviews@lists.linux.dev
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org,
+ mkoutny@suse.com, linux-kernel@vger.kernel.org
+References: <cover.1794922146.git.mathieu.desnoyers@efficios.com>
+ <263b8e16915845e823712fd5feefa7b79205f7d1.1794922146.git.mathieu.desnoyers@efficios.com>
+ <sashiko-outbox-219105@kernel.org>
+Content-Language: en-US
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+In-Reply-To: <sashiko-outbox-219105@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: YQBPR0101CA0297.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:c01:6d::16) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:1d0::10)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -47,84 +99,121 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=d48a81596f444f649e66672f6e26c18772e0d7b92bdebf14f5d7829afc8d;
- micalg=pgp-sha384; protocol="application/pgp-signature"
-Date: Wed, 18 Nov 2026 14:42:13 +0100
-Message-Id: <DMYDPBNBU7IY.3956HW6C59693@kernel.org>
-Subject: Re: [PATCH v4] mtd: spi-nor: micron-st: Add support for is25wx01g
-Cc: "Pratyush Yadav" <pratyush@kernel.org>, "Takahiro Kuwano"
- <takahiro.kuwano@infineon.com>, "Miquel Raynal"
- <miquel.raynal@bootlin.com>, "Richard Weinberger" <richard@nod.at>,
- "Vignesh Raghavendra" <vigneshr@ti.com>
-From: "Michael Walle" <mwalle@kernel.org>
-To: =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
- <linux-mtd@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-X-Mailer: aerc 0.20.0
-References: <20261106-mtd-spi-nor-new-issi-chip-v4-1-7e2b6a361fe0@analog.com>
-In-Reply-To: <20261106-mtd-spi-nor-new-issi-chip-v4-1-7e2b6a361fe0@analog.com>
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YT2PR01MB8248:EE_
+X-MS-Office365-Filtering-Correlation-Id: 81f7fb8a-38d7-48a6-7637-08df4579c100
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|366016|376014|1800799024|10067099003|261022075727099003|5023799004|56012099006|4143699003|261026140227099003|261028144727099003|261021121427099003|261022105027099003|261026121527099003|261102123227099003|18002099003|22082099003|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	5CO/QFsFr2LfiFR09sZ2kXJpJbnAX7Df0VUnqFBG+OdjTFeCClTbJ0HkuAPZxm6MMvGb/ft+QQ2A7e17+uWD723vZ1Qig/TGnrjpDZoU/dnbZKwUESB2QQ6BSoVZaDMOVYCgqB42W9tEHt6me0CBdeEhfKICUoevSK3DWxdeOLS7OvdBl+7XXn7nGoX4fGjX0I6hS2qqu1/ND5zPzkkdHJGaJY2yFSQ7REyKIID80ayP1SCNG+kMk12ZkCfYvXjXXkEhJGlfOtNsYq8makaLr5rk0dGtPbbCHa24TtRChKYNRt0HrMXFjd1WC7eoOuixd6zFg+yo0x17WhG39wzwYiJyTReCFR5xavJJOAi3j02pbWx/Hf5UHn5yF9arTJrQ9efiXx5qKTM4NieCExq00MVRJRcRkDdVa21eMFo6wVzXx8XYST6JDlsnD8eVF4hJfr5UMswOehC06HCSwJKBMfrNFmpZVjwlazUeXks2gvKZoTw66K+cGRyvnP+7UeWEwGLBSWYC5Has3uzu59IKwilzdViCW57g8xH+mD0ryjTw5a12ut2z1vhjq2UY8mmscX8WsGn+ZkMrDvo7clXhhmGon5Opx2OE3jncTlb3KVM=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(376014)(1800799024)(10067099003)(261022075727099003)(5023799004)(56012099006)(4143699003)(261026140227099003)(261028144727099003)(261021121427099003)(261022105027099003)(261026121527099003)(261102123227099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?eTdBbXFyM3pVYTZSNWZsWUpQMWdJM0RXZThCRG92NzdZc3VyQjdsUGVTZUhG?=
+ =?utf-8?B?Q1hnbGhYd0ltcm1yRUpVaUxSSmRQOGZVR0JHbFJWc3NmRUtEeEZuSG9XL3M1?=
+ =?utf-8?B?VUllMDRxd0RSZXFOMk9LbnluRjhIQ1U1Qk1PZFVxWktwd0F0TEQwZWpnK2lw?=
+ =?utf-8?B?N0FwaUEzbU1NZ240dlpaVWZEaWQ4bVE1WlBIQzV2MEplMGlwYit4YlJSQjNk?=
+ =?utf-8?B?dHJvMjA3VzNtQ3Y5SXlLUFZnVTMwUEpvQWlIN3l0dDUvME1zQ21YOGtZM285?=
+ =?utf-8?B?UVczYTV4ZlVMa200L3hBSU8waElObW53c1BYTnNPcWdCZTV3di9BQjVxVUVl?=
+ =?utf-8?B?ZjN2L2VkOXBaT3dtcVBLQmJWY2ppMDJxL3cwdmNSVTJ3VVAyTjJwZEloV2ov?=
+ =?utf-8?B?Vllmb1UrSDFEeVo2WlZCOU9UWE5yU1dXR29hYU83MzJtTU5tcUJDTS9nek5W?=
+ =?utf-8?B?Q2FzVTJxYkh5MnYvZmJtUXhObHFjcEhKRUJwSnQ2dGV2c3J5WDZnc2ZVN2Fk?=
+ =?utf-8?B?K0QwYmhZT0theUJZS0Z4ZS91ck9tbklpVW5xUHZneDZjQkVMMlZ3Ync2d2JP?=
+ =?utf-8?B?OU8yZThGQTUydE5vN3pHdUVQSDE5WXUzc1o4TFVHbFhkc3J2WFJxTC8xcXZs?=
+ =?utf-8?B?aUNhZURDbjRKYWdFTUo2MDFiY3hLM2Iya1pMUWVEbmtFa3dTOGlWeWFaK2E5?=
+ =?utf-8?B?NHRxZTduaWtwc0dDRW1JRWd5ZDI4ZU9zTkZaYnJGMlRRbGliSm1POGtpSGdi?=
+ =?utf-8?B?VWtlU0thWVFlYXNEdm1PQW9hNWdNMW5sRTNLcE1ia0xaOXplVjd6ZzgyMmxt?=
+ =?utf-8?B?ZUpnSkRHQTJPMk1PWjJOd2VwK3JLV01IRjBUbE5MMCtJbGRNUkVrUzFacHd4?=
+ =?utf-8?B?RGxvSVhKTE5ncHhhd1hEYUpIMnpZRlJmcE5pWjQ2djZjOFJsVWU5OWVJVVV6?=
+ =?utf-8?B?Vm8rL05XczZPS1pVMm02dWFPSjZjbFFyNGpBQUdpSHpTQ0dCUWVYaE9lVlNx?=
+ =?utf-8?B?ZXB2M3NPQnd3bC90VEpLeUdXK1dCMG1QZCtTWEsrQjRXT3FMLzE5bzcvaHFM?=
+ =?utf-8?B?YnFIa3RScXZaMWFhVllJVXpXOXNZZWhEUFo2RThwR0h6RG5NYU5VWXEvOUJt?=
+ =?utf-8?B?NGVYKzBYZUtzQ3A3YUtjbGx6TU5iM1dQWGoxdEZmdERianJaSTd1MVFjRnlP?=
+ =?utf-8?B?MEYwREFXTy80anZjKzFuR25KREwyb1NSRDJpekJNVDI5N1Y1WGdkMURNRllP?=
+ =?utf-8?B?cGkyazlGcTNwd0ZTcUE1OEVzTzFiLzBhT0YxOVJyd2FLVmFmeWRYeElEeWJV?=
+ =?utf-8?B?MVJNeWhUelVBdVdDZDVuVExubTA0ODRLMUhQc2NnckdXYWMrcnJCNjhCTVI5?=
+ =?utf-8?B?VFh5Zlg4VlJHNnJVQXdaS0NhWXd5QTF1bGtpQXdpbkYzMEhhUHRva1p4U2hj?=
+ =?utf-8?B?blZpeVlxVXlZYVlZZCtkRStZUXJOUEdKMGVxazFjOFkrb3N5a0FhcXlreHNo?=
+ =?utf-8?B?eUYyUGJJSjBXK2h2OXRhbkE3cG9namR5U3Y1cTQ0M1BDb0pKK29uekFURmVG?=
+ =?utf-8?B?YUhXUDNKWnpzQTc5S0FTam5IU3VPemlVN3BWZ3VENE9RanpXaW1aZzlsYUN3?=
+ =?utf-8?B?a0xpNGM1WStUVkp3Z2huekZnVEVLQWJJN0V5R2pOaUFPSVM3OEs4K2lza1Rz?=
+ =?utf-8?B?UnY2SEFJbDczVTFJN01XaEczN1RVamxuei9PUGVYZHUzbU1vOElyZ0xhZThT?=
+ =?utf-8?B?RHpPSTkzMVhrWnZsZ3JQbFNGd0F0TEhWdTFrY0pOSWx6aE55Z3pTeXl4NHUy?=
+ =?utf-8?B?cWtHaVUxaGZ6aGprd3ZGZy84ckdXVWVLVUZybEpLdGkvaU9xVGF2ODdYcU9C?=
+ =?utf-8?B?T2M2Y2tFUGFXdlRDRnl6VFkyK1czaGJ3NXJ3Y1hmbXhZK3djSVEvTjJzRXo2?=
+ =?utf-8?B?ZnVqdlI5WGZkNXpzZHdGdy9KbDBIR1BqSnNRSGNjenBQNkhxR0xsMUFpSTha?=
+ =?utf-8?B?K0xHcEZ2cHRsNGkvVXdhaGRZVGg1Ly9XeGhXVUgyRHdhcS9pNWhTTm9oU1Q5?=
+ =?utf-8?B?eHZ0UWNMeDFSQVRjRUZHYWhsbWhVcjhDcjlzR0d1alFpcmJOZUFJaDBrUlcy?=
+ =?utf-8?B?b3QwNWxWRHRraHZtUGNCZGRNMDliWm5DdkZXNmd5ME10eUVuZGRJTkRYdGJa?=
+ =?utf-8?B?M1g0K2R5RHZvdGFQc1BSQlpOb3JpSWNWTTJQVEFuV3BjVWdScy9rSllLQ3FW?=
+ =?utf-8?B?SnhDQkJDbThVVlVKT3JhdlVNSzRhdmFyTkFNTU0ySGJPUzhrQTdzdTBTYkVI?=
+ =?utf-8?B?ajF4eXdWdXJNSC9IWU1uSzhEMUQvSm5OZTZqQjVUblFnc1E2d0psSHoxWG1h?=
+ =?utf-8?Q?0tnS5/Cpd82rjQN8Ea7rGvVjG1dazG7uxKiGV?=
+X-OriginatorOrg: efficios.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 81f7fb8a-38d7-48a6-7637-08df4579c100
+X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 13:42:14.2219
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: TJCaoJPOn2GUErd7AEjeeWMGGVkE7mJUrbY6AjoiGPxC7gWFQCEVrTzPjcrEGhNlqwCmYUcbPUkTbTomBHuqGfx4x3LFQcLisKUBiNk6bZA=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT2PR01MB8248
 
---d48a81596f444f649e66672f6e26c18772e0d7b92bdebf14f5d7829afc8d
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+> Can gating replenish_dl_new_period() on dl_task_pi_blocked(p) still
+> leave p->dl.deadline at 0 when a sleeping task participates in
+> rt_mutex priority inheritance before waking up?
 
-Hi,
+Yes, as on v6. Both cases are real, and upstream. But deadline 0 is one
+case of a wider behaviour. A deadline task that sleeps keeps the
+deadline of its last period. After a long sleep, that deadline is far in
+the past. It sorts first at a requeue_pi, and it blocks the boost of a
+sleeping owner, as 0 does. This happens with or without a class change.
 
-On Fri Nov 6, 2026 at 5:33 PM CET, Nuno S=C3=A1 wrote:
-> Add support for the ISSI IS25WX01G, a 1 Gbit (128 MiB) octal NOR flash.
-> The part is fully described by SFDP, so only the flash ID and small
-> post_bfpt and post_sfdp fixups are needed.
->
-> WRITE STATUS REGISTER (01h) takes a single data byte and only affects
-> status register bits 7:2, so the default 16-bit Write Status assumption
-> does not hold. Clear write_sr1_and_sr2 so that the single byte write_sr1
-> path is taken; write_sr1 is already set to 01h by the BFPT parsing.
->
-> The flash also has no Status Register 2. Configuration registers are read
-> with B5h/85h and written with B1h/81h, and the 35h Read Configuration
-> Register command does not exist, so clear read_sr2 as well.
->
-> Software write protection is done through the block protect bits in the
-> status register: BP0-BP2 at bits 4:2, BP3 at bit 6 and a Top/Bottom bit a=
-t
-> bit 5, which is exactly what SPI_NOR_HAS_LOCK, SPI_NOR_4BIT_BP,
-> SPI_NOR_BP3_SR_BIT6 and SPI_NOR_HAS_TB describe, so set those flags to ge=
-t
-> the generic locking support.
->
-> The flash also supports 8D-8D-8D, but this could not be tested. Since the
-> SFDP has no SCCR map, the core would select 8D-8D-8D on a capable
-> controller but never switch the flash into it. Hence, drop the 8D-8D-8D
-> capabilities in a post_sfdp fixup for now.
+This patch fixes the case where the task already waits on the rt_mutex
+when it enters the class. Refreshing the deadline of a sleeping task in
+the rt_mutex paths would be a separate change. The cover letter of the
+next version lists this under "Not changed". This was checked again by
+reading.
 
-Could you please test if one (or maybe both) makes a difference
-here and the fixups could possibly be dropped?
+> What happens when sched_setattr() changes the policy of a task
+> blocked on an rt_mutex that is already in dl_sched_class due to a PI
+> boost?
 
-https://lore.kernel.org/r/20261023-spi-nor-fix-v5-1-bb6e0ce21169@nxp.com/
-https://lore.kernel.org/r/20261013-winbond-master-spi-nor-w35t-v3-1-6dde1d5=
-13df8@bootlin.com/
+The class does not change, so switched_to_dl() does not run. The waiter
+keeps the deadline that the boost gave it. But a sleeping deadline task
+starts its own period only at its wakeup. This is the same wider
+behaviour as in the first point. At the deboost, the task starts a 
+period of its own. Upstream left a deadline of 0 here.
+
+> Conversely, when a blocked task leaves SCHED_DEADLINE
+> (!dl_policy(policy)) while remaining boosted in dl_sched_class
+> (dl_prio(newprio)), setting ENQUEUE_REPLENISH in
+> __setscheduler_dl_pi() has no effect while !scope->queued because
+> dl_boost_blocked() is not called.
+
+dl_boost_blocked() would do nothing there. It only acts for a task with
+no parameters of its own. A task that leaves the class keeps its
+parameters and its deadline until its 0-lag time. A queued task boosted
+back does the same. The new donor still reaches the next owner: pi_se
+changed, so the chain walk goes on.
+
+Both points were checked by reading.
+
+Apart from these points, the next version changes this patch. A blocked
+task starts a new period only when its donor changes. The reply on patch
+9 says why.
 
 Thanks,
--michael
 
-> Note that given that the Flag Status Register (FSR) handling is the same
-> as in some micron devices, we're adding the issi chip directly on the
-> micron-st driver.
->
-> Link: https://www.issi.com/WW/pdf/25LX-WX01GB.pdf
-> Signed-off-by: Nuno S=C3=A1 <nuno.sa@analog.com>
+Mathieu
 
---d48a81596f444f649e66672f6e26c18772e0d7b92bdebf14f5d7829afc8d
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCav2rNRIcbXdhbGxlQGtl
-cm5lbC5vcmcACgkQEic87j4CH/gfUwGAmsWQCdxnZoffctTLEcL3xEJIAczCdXuW
-1VqmTcfEGcITv7bnK3oc3q5ctSFlkQ/KAXoDRYSSQ/eAselPr9B9zdraAccV8Gjw
-suygvLcggxobzzHZVXwNC1cc1xaALkqwUuE=
-=SZ9S
------END PGP SIGNATURE-----
-
---d48a81596f444f649e66672f6e26c18772e0d7b92bdebf14f5d7829afc8d--
+-- 
+Mathieu Desnoyers
+EfficiOS Inc.
+https://www.efficios.com
