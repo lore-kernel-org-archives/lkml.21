@@ -1,124 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795007737;
-	b=CT6ONhbPw/UjO/juTWM4TG9c17Xska0flul22rGVB275AUpm3AILYLl9WT4HkRLVfpfI
-	 jTtUSyegctfrjlR0ZY0I1V1MRjPgz+zmjpLVkEGDN/+nRBGIGxhmINv0Y/P1j6WsJi49/
-	 2dTEJ9ckFgAfPz8LOCjxyI8svDKFsqktg+xQ1Fy6k9CB1hOm4aMxlTTAnLTiWg1tnJnvv
-	 77KE9fLgEoXaxUSw+3M1MOmhvE4ffr8f981tPBvyDOa13ZXqQelh69RU9tPOUOj7twvfy
-	 1fnFhgYLZr7KjWr6SC7RhXIRFWnhdTJAlrAm1U/i+iZG52UjN0yXkkLoSH2VqfFqxIQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795007737;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=GDBgSBwB9SZv912xAYmFSFm0+XZuKPzPjOZZNdWEPXQ=;
-	b=k01nXQ5jux+5KhjuHth5OvME2FVcmNPZ2/gkXi3q1231x2FqW9Ok80YQ4T2rqmHkqiwx
-	 U2+/4bja8p41FypEMVWPUgZ91V7wJLCaNeqyaBhKWpTYO5Tac1mGzaye0ihPdezSvvmDk
-	 TGIVyz5X8VjGAaZWFRxQO9CaeyeuXpCh9Ui6rusKPr6RTJ1be53HQhzF3uu5jNCL6qRsm
-	 ybG4bsWz/PKdAJWxG45oyN6bbRUtUAHTuZ8bRe7mEG9TJr5d5C3XLKYCCpIgpKu8THbH9
-	 VaWq1/P67djN1JDE3sVnfxmUdCnH+0VZ6Ck07v/0cC3hg3pWQNM3CKr79dU2SE6dsvg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=dw2tFieo;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=aZ71aw2n;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.96.99
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795007753;
+	b=L0T2nEm0e5yT4DD52DUkDcngEFVp2HvnsxvHyVH9iJclHZub7reKi0kht87ADzmaaJ3C
+	 WUh3ZHmmacIZqQ317AjlxNNc6mDHfFsyR8P2IFEXsZeVQVnXrgRcxH9DdfL+HmWjN4HPy
+	 /t8SiphexPh/jy0ZUg/XCqJ7W9I1nM3c74TEuyV3/ap9J0KHvSKD7jExy9gGNH7yf0T1A
+	 rEUeuC2tEySaX9CmnviCpoWcM4ukBbsU8+pT3FCPmn1K4A9bOu7urhSt7Mvx8xLPwVn7z
+	 Nw69Rz2AdBPO59bdgURTjVGl41RWZz4vOOOJZ7SoiqEd/y6i945i7wdnlRyle2Oexdg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795007753;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:To:Cc:Subject:
+	 From:X-Mailer:References:In-Reply-To:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=IBTW2QYj/Psia5swpWkFv+idj/v8sTnzeQ/86NpmGGk=;
+	b=GEkKueE8svniCtyCzn4OHONpM1wGjzLvKnBprxBcUH0h6MHD92htoikvi4TTInpFkdlv
+	 uw/ZEGvYHJ5aTy0qeHKdaP1c6wrKdEkn73sA6UNE6doQmE2wf4RtzMR81uYgu/Ywh2/pw
+	 VD8PU6XpYDXZGsZorSMD0Ux6vgH7cIRkk/z3BUuugu7avqLik0PtsXZIoLQZPk1EymFER
+	 r9jC0JrXAimgopZYK+yb/s66ZwYgFMl1QXLsILmLiufUbA36OzxZqw+7Pmv1i8o14Pa3L
+	 i1sqZc9mKbidT4LywYybdsu/TDjhuU9KBkrhspTl8HF5wmE2iMOZjTxoHclVe7p6+zg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=garyguo.net;
+	spf=pass smtp.mailfrom=garyguo.net;
+	dkim=pass header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=PKXSzVve;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.96.99
+Received: from LO0P265CU003.outbound.protection.outlook.com (mail-uksouthazon11022099.outbound.protection.outlook.com [52.101.96.99])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C15D606A32F
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:15:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C15D606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30043606A31C;
+	Wed, 18 Nov 2026 13:15:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 30043606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=garyguo.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=garyguo.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=dw2tFieo;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=aZ71aw2n
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795007735;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=GDBgSBwB9SZv912xAYmFSFm0+XZuKPzPjOZZNdWEPXQ=;
-	b=dw2tFieoV2fUktIlo0TDK4I8UddhaWCMjQ0RpJmBwGRrUxLeTyC9lJV2MMZi1yZ2WLP5dN
-	pYIHMhX/LR1ysEbldW1KdHlw3RLwaNPw0TzqV/TIiPnEsZUkO+pvdhAz3n0nYk9jaOC8r7
-	gfhq3iKct+gLMo+hhnQF3t0piot4PT8=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-388-J9Eik7G6PXKiYnodd98ClQ-1; Wed, 18 Nov 2026 08:15:34 -0500
-X-MC-Unique: J9Eik7G6PXKiYnodd98ClQ-1
-X-Mimecast-MFC-AGG-ID: J9Eik7G6PXKiYnodd98ClQ_1795007733
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-4a7c864000eso314187f8f.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:15:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795007733; x=1795612533; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=GDBgSBwB9SZv912xAYmFSFm0+XZuKPzPjOZZNdWEPXQ=;
-        b=aZ71aw2n8oHteORzK1U/UStkmYdaD98yxYzrW+hkEZQEEtPaFjB1Y6q4hV4xCJpCwx
-         cnsqw71jhW44xU/UIWFXJtPXRLw4bJe7KtTVNGUFrYhkQnPGngKWt/+mC5OstdzU++IZ
-         3esEFjloz3o/Os0RkoqXLx1TvuAQaBu/u2lN74HCh7hgrmNG/xNaJqA9FbFy0HgdA7nK
-         z7CBcJCq1Ij9WGdnNevbF+o45xuwfsprrcxTiqlKYd1kwpeDIUB1wezCjoL3DRNyTmcS
-         zbFa1C2XKYOstvughcn84NKIzTZKoeQ3bIV7C7lTMtIuXJRm1gWKJiRRKp8JxjYdbzRS
-         PNkQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795007733; x=1795612533;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=GDBgSBwB9SZv912xAYmFSFm0+XZuKPzPjOZZNdWEPXQ=;
-        b=QM8WaHRigEc5z/qXD4PiGJajtlWNuvWgB1CeTFAQaOv5LS6Q4OH+bBC+Q8JHlfAYso
-         sQ/wboB+c++buLH3fQwe99bL5Y1VipuCq/8S3vA5ahH2ssOcrp2lRaoh9qJvENeXJFbx
-         k0f6QL5tBpPLPlNRZ/QR6BBIGygPFVFB0sPbiMhYZKP2xXD3wfhd55Q6DkCV4qUWe6wd
-         Xxl1ouTMyL5N0AwKr6giIDOTONWjhGnbX9kKT9ZEOBJJ5tRTyj4Z4ekkABQexM1cn2W3
-         aequtLW1PWsBTmUMXUNH+Eq4MFovAlFTp2zoUxuD9CS501fCKnicOo/xW72CUslqPsyR
-         V1pA==
-X-Forwarded-Encrypted: i=1; AL+hErE/CbT1SrMEuqwk1s5IqTbNthc5b2QxYkPy6M84eHhxTqSmNPruqSA2E/6JroWsVmx5R5lVUdm0CtsDsiU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9n6CfMbhuUA+8yzVC+aSor4Rf3CZGdG1jxjGAIW/bnOY7ibEGL
-	bAqCMSlnrFMj8Rt1JQQyGhYXSHU4rV4isFvknzMIgMiJHr+maBooqQ4voX5EIy405uN6uGfZO1k
-	+Hl46+P/HHK00YABhcSjbpSkaatPr2KEBOvEMy60FvbFsalyH4C7zmSfxgBzzY7nN0Q==
-X-Gm-Gg: AZFdTZfAD9XXV/oAOvHRgHRYDMl/zik15RFo7UmDXGQj9RTABvADMJV8Sg6f1sQfVZI
-	bSWYmcKVM9E9EjOASAmwNSSuB6mN+tQpTpMqaIDzL02c/xpEKA6PizmwE5BG9OGf/qY9UbkURMS
-	jQgA/H/XyHgQPkiNnBB4WFLgIVi30wR1nGbQ/J8PAoO0E6CQtF5Pgx2xTuygvsfD+YLsPWFyq+O
-	z2I7YCDzMQADma0aRFjAfG8h6Hh1NU411NpxbNJ8zAfJSXIurhJQZ64+iBXGb19Ps1gbpzB7n+J
-	oqZwKOe+u3HOfQnbojoRfot+UI1gptMs91Fk/3K7K2uJrTEc+B9gKpzx7pd0s5fKxj+EyS1uggl
-	PKsoe2Ef6NtMXmqN6zK/sogNR0Wqok1Ptsi0WWadLRCckpox8y1S50QDRrT/svByRfKEe1NM7iE
-	Adqn4=
-X-Received: by 2002:a05:6000:1889:b0:4a8:714:7ad4 with SMTP id ffacd0b85a97d-4a807147c78mr1864897f8f.32.1795007733067;
-        Wed, 18 Nov 2026 05:15:33 -0800 (PST)
-X-Received: by 2002:a05:6000:1889:b0:4a8:714:7ad4 with SMTP id ffacd0b85a97d-4a807147c78mr1864799f8f.32.1795007732558;
-        Wed, 18 Nov 2026 05:15:32 -0800 (PST)
-Received: from jlelli-thinkpadt14gen4.remote.csb ([151.29.158.90])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a64b60940csm4651876f8f.0.2026.11.18.05.15.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 05:15:31 -0800 (PST)
-Date: Wed, 18 Nov 2026 14:15:28 +0100
-From: Juri Lelli <juri.lelli@redhat.com>
-To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Cc: peterz@infradead.org, mingo@redhat.com, vincent.guittot@linaro.org,
-	linux-kernel@vger.kernel.org, tglx@kernel.org, will@kernel.org,
-	boqun@kernel.org, dietmar.eggemann@arm.com, rostedt@goodmis.org,
-	bsegall@google.com, mgorman@suse.de, vschneid@redhat.com,
-	kprateek.nayak@amd.com, luca.abeni@santannapisa.it,
-	mathieu.poirier@linaro.org, longman@redhat.com,
-	ridong.chen@linux.dev, tj@kernel.org, hannes@cmpxchg.org,
-	mkoutny@suse.com, shuah@kernel.org, bigeasy@linutronix.de,
-	clrkwllms@kernel.org, parri.andrea@gmail.com,
-	m.szyprowski@samsung.com, kayracizmeci@gmail.com,
-	weihengqiuu@gmail.com, cgroups@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-rt-devel@lists.linux.dev,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v7 08/40] sched/deadline: Do not replenish a boost from
- cleared parameters
-Message-ID: <av2k8JlLvUcBBOhn@jlelli-thinkpadt14gen4.remote.csb>
-References: <cover.1794922146.git.mathieu.desnoyers@efficios.com>
- <cefacab5f1c0e7617f17e050af4ef5f6db01700a.1794922146.git.mathieu.desnoyers@efficios.com>
+	dkim=pass (1024-bit key, unprotected) header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=PKXSzVve
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EEIlKKAK61br212sCJmc+7AGQlONkpHK8Li8tlbg2PQgWwsby8lcb0UlohTeKTmiAc0Nk33b7S2sbQxezHw8IMo01GsyZgVSar25ktrgnM8DC+eAq6hbyU6jMoJTr9d5fyLU+b/lhADRrtqZfEEjGNurQr46M2USNvO3UT1OVBxvB4l7kLti12ZIluL+QtLnUf7tfpCh+dCI7YBFGH4+jM8ZG+/QqctHifroS5EuTbVtYUhLb3ZaKWOoXikBy+gPaMRRwMWTLvwP8DUXzhQ0zB0FxwcBBAq7rcbRGgTa/CIM9D2maX++hkP7YaoGEB8NXJ7WpwAWIhTN08h3/o19Vg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IBTW2QYj/Psia5swpWkFv+idj/v8sTnzeQ/86NpmGGk=;
+ b=f9WiIwp3hqmqrR7HE9iKNy+m7ZbhhyrvtYRkjsRke5cLxwIdI+LNBM/q1gZ3rnb30BtlfpqP+oG9Hi2nfIyTJTkRCtVvextZ884DOlpy4Oz/5nIfk2Gs8OuQav/2JN6dQOgb4+k3smm8c3ZzajDuaUAV0TzeeZt0F33Ko1Fp5pQcJiMsw0MyHwLKUZYq+yYHlXVBqPrVWVa3thgBD+nPXLlWIy9/Juq/rngGyNgxKqFEA1PBW9yemksIZJtAXUGT8JzbpM2Hvo6L6y7hUbkbP7AkXKk0BLGEGvLmla+Qbxl8vRFaq5HfplcWzvjAJIJ43N4LlnK7KvzIXYgQ1VCzHA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
+ dkim=pass header.d=garyguo.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IBTW2QYj/Psia5swpWkFv+idj/v8sTnzeQ/86NpmGGk=;
+ b=PKXSzVveJxCwxO3SpQMmRj3oZkP9dmzlBePBqZGlMm37uhRz1pNq9nKkqBHDeKA3fEpYx89swDA00qaH+HbHsF4SjyzAgSwJbzujUnPjxp+cQp+4Ia27d01EB1wSSIr53h7C0ExFVZ3cp9z7LSQdEIM4lFWVAdTJQdqg6xxhseQ=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=garyguo.net;
+Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1cb::9)
+ by CWLP265MB5971.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1d0::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 13:15:49 +0000
+Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::55f6:f98b:7fad:c6e3]) by CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::55f6:f98b:7fad:c6e3%2]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
+ 13:15:49 +0000
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 18 Nov 2026 13:15:48 +0000
+Message-Id: <DMYD53NKY6UM.M1A2EY4TRSA7@garyguo.net>
+To: "Alice Ryhl" <aliceryhl@google.com>, "Nathan Chancellor"
+ <nathan@kernel.org>, "Nicolas Schier" <nsc@kernel.org>, "Miguel Ojeda"
+ <ojeda@kernel.org>, "Boqun Feng" <boqun@kernel.org>, "Gary Guo"
+ <gary@garyguo.net>, =?utf-8?q?Bj=C3=B6rn_Roy_Baron?=
+ <bjorn3_gh@protonmail.com>, "Benno Lossin" <lossin@kernel.org>, "Andreas
+ Hindborg" <a.hindborg@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
+ "Danilo Krummrich" <dakr@kernel.org>, "Daniel Almeida"
+ <daniel.almeida@collabora.com>, "Tamir Duberstein" <tamird@kernel.org>,
+ "Alexandre Courbot" <acourbot@nvidia.com>, =?utf-8?q?Onur_=C3=96zkan?=
+ <work@onurozkan.dev>, "Nick Desaulniers" <ndesaulniers@google.com>, "Bill
+ Wendling" <morbo@google.com>, "Justin Stitt" <justinstitt@google.com>,
+ "Matthew Maurer" <mmaurer@google.com>, "Sami Tolvanen"
+ <samitolvanen@google.com>, "Masahiro Yamada" <masahiroy@kernel.org>
+Cc: <linux-kbuild@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <rust-for-linux@vger.kernel.org>, <llvm@lists.linux.dev>
+Subject: Re: [PATCH] kbuild: rust: disable function merging unconditionally
+From: "Gary Guo" <gary@garyguo.net>
+X-Mailer: aerc 0.22.0
+References: <20261118-rust-merge-functions-v1-1-fe86126522b9@google.com>
+In-Reply-To: <20261118-rust-merge-functions-v1-1-fe86126522b9@google.com>
+X-ClientProxiedBy: LO4P123CA0263.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:194::16) To CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:400:1cb::9)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,120 +108,94 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cefacab5f1c0e7617f17e050af4ef5f6db01700a.1794922146.git.mathieu.desnoyers@efficios.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CWLP265MB6051:EE_|CWLP265MB5971:EE_
+X-MS-Office365-Filtering-Correlation-Id: af85fa9c-3e23-4ea7-5858-08df45761034
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|376014|7416014|366016|10070799003|1800799024|921020|261021123027099003|261022075727099003|56012099006|10067099003|261021121427099003|261102123227099003|261009223027099003|22082099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	wyC6wZ9tp8ROgXbPQNb450w+QRLRhoIcytU3uSLQhDSipWMf4d5piy+0ixuHBSHeM0WsI1gwr30oFSXrvrFMd3pNoR/9UNkjNb5A0vjLRCWKx+ZXtK0hisvKXC+XBLbBkrgNGHN1MQxPne/gl6GNiYHRJQntQ2x19eNUGYsZ1X4Fr54tUD5zdKUlPUTMLcFKJRmw1be4Yn2vcsZsBCwZ+lltClEY2bvPoA9dTZWL22qJJHrofoNRm8ZGX+OlTrpYOSQO1SyRBDr6kFgzw6pmQY4Xx6qYhu6DoUqrrlHewhoR+OpTsiVE2HcQk1jUqbhLn89hp/mGXbeJJhJLNaa4JKndYwLKpXnlRLzMA7o6PIG95gyz212xXvNnD4NC39b4obQwu0XVpY96v7Z+r9ZdQNlrInfr/uArzyAwVYypxQF8nxM7e+v8q+IGTcgPgXEiiBkJUHbMnqPpEzamyazuOMmQX1JNvRLtSR1McdMwo05uRBiL8Y1qtHdSgmqbKXQNBjAW+aJda1lVDwrnNUqcyHdEQjeG+i4uknDmGNAvVO4Ht5LXf8cwCk6gNtSH0np8jqyPZsNjHPS52CMPWZkavG94z9pmikSuAKDgFOujH0RuUtL59ZZAy0EUfKeL+5ROxDv5NBHZAInelZPejGix5knj0EVjFaTI31FIMoDnchQ=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(366016)(10070799003)(1800799024)(921020)(261021123027099003)(261022075727099003)(56012099006)(10067099003)(261021121427099003)(261102123227099003)(261009223027099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?eVhDM2FVZGVkanVJYVkvcW5zbnJYRmMzcEUxOEUxYW5MMjM5TCs4eG8rcTcx?=
+ =?utf-8?B?VjJtL09hKzE1c2c0Q2Zmano4SHc5Z25SRG1QZFl3TzVvUUxFTHJNS2huWlhG?=
+ =?utf-8?B?cjNnVlRxbnlzTmRMenVLQ21TRlMvMTVMQ2wrcVpSaHlDYjd4NElCZW5udHVQ?=
+ =?utf-8?B?ZGlWYzZndm9uSlpUR2p4WkR3RUp5SThDTGlzRk1jQnFndlN3cFRkanhOQ28z?=
+ =?utf-8?B?V01RQ1JFb0w5dFlRcUFEdWhHWUJBODdkYnIyMCtFV3EvdFhyTmNrYmlKOWxu?=
+ =?utf-8?B?KzJDZHkrOTBGOS9zaTBkcDVPQVVhMGhOTFQvVjdZdDEwUGE0VkpUTjdxcXV5?=
+ =?utf-8?B?bUdPd0hPbWJXdmhBcE1uZFJ2b21EV1MzejZvTThUQkhpTDVkcTJQYi9Xa2Vr?=
+ =?utf-8?B?dDhmVVdjVmlwN3V1d3ZSRjJubkRxUTQrVTNYcmsyT2FpbFJ3dGJwTDRuN1pX?=
+ =?utf-8?B?T2ZtSXRMenkxbXhtR3NlT3B1LzdGM29PSzlNS3VQaGdMODNMczc4ek80OU1B?=
+ =?utf-8?B?c2pFcFVjemhGOExzRGZxcXlzZWZJaUFkVkhBdzBYTUFTMzNYcEwyTENvNU1t?=
+ =?utf-8?B?UVlCTWFva2oxWkFYbnBuT1g2SStTZlU0aDJsQTJXMGdMbUJqZzJkd0ZyY0RL?=
+ =?utf-8?B?eE5kV2d5WmQ2QlhnRTBBb3A5dVM2c2RDb2twaE0zbFNZRzVvdnM5QU5XQk1K?=
+ =?utf-8?B?YTY4TlB1eHBaNHVDNFBhR09Wcnpldi9RUjBZbTFwRW8xYXBQUkp1UGp4ZzI5?=
+ =?utf-8?B?TkEyZkhmR1FJQ3B4TFNKcFp3WDBob1BYOHZONmJYbWhYamREa3FTRm1LM093?=
+ =?utf-8?B?K0g4THU2cUJKaDAwWTc2VHJ4Y0htZVcvN2FUWXZRaHJxcEI1R05WOGRRRGhN?=
+ =?utf-8?B?QUVpMnB0Tk1oR0IxSm5QZkt1QlFIODRrNTN5VXJ3NG9qeEQ4VWFja3hMWWto?=
+ =?utf-8?B?K1NHamIzT2FoWVBJaU9zTG5LVGVLTVMveUxyVWxpRzh2MWorYnczM1V0MU5Z?=
+ =?utf-8?B?bWtKeG9iREU0NmNjL0s4QzYrZGoxdFkxdjB6blVENExPcndpSHpXVjNETHgr?=
+ =?utf-8?B?ZFErVml3N3pXTHJFQkoxc2VPODZNSjNvZW5NenZ3b0MyODZxTEdoYlJjMXF3?=
+ =?utf-8?B?ZGx4SzVXRGRTNHNzVzc3MjExVmdXTXhtYzV1Mkd4OG1OUTZNcXVVbGpXTjNx?=
+ =?utf-8?B?N3ZmeEFNUXQ4dXNmdXVxWHkzZ3FwUndEeWhlRnJrcVFzamxuY0k0VHpTeUFH?=
+ =?utf-8?B?eGZCdGpxWXFycFNrYm5jQnhJSEJWbVZzRlJkZjlZbS95enFZN1lHUUgyQnZ4?=
+ =?utf-8?B?QXhaNW5OZ0lTeDZDRmtwK2RqOUNDNkJaWEtmaW0zQ2Exd1M0L1FPYThiZTBr?=
+ =?utf-8?B?eElzR3kyUFVkLy9DdHk0NVlQS0U5ZzhyQUg4Qzd3elNSUHRtVlcyblRoSHhF?=
+ =?utf-8?B?dS9EZTBHZTdlaXVTK2E5TEQyL3BvOUlkZXNaaWtacFR1NHhZZWhKL1FaWkRV?=
+ =?utf-8?B?Uko2RDVFcjNhaldaclUxUkx0Z1djVHdVY0RjZnpjWU9XYXp1aTF3Q3lKaXkx?=
+ =?utf-8?B?U0RjcXluM2s1eVZDTkxDcHlmV0lUV1NROVRGQWZHOWl0ZDk2RkVVbHcvbFhP?=
+ =?utf-8?B?QnpRSS9BUTRBckZyWmFsaUVyR3I4cU5iZWlJN0xlbThYQmxzK2JGeVhIOWJo?=
+ =?utf-8?B?ZnZET1pNTi9SMzlGSEpuanI2Qkd0WXEySDBNVTRobVphd2JaM0dWcnFiQjZp?=
+ =?utf-8?B?OC9na2FlTmplQnBMS3VQbXpLN0p5UWtuTTZ4anl4M2VSWW9MNHBqNUgxZUkx?=
+ =?utf-8?B?WlJZTW4xQU5YbXE4QU82dHJ3YW9zaGlaQXhQSHdnTTlSQ1RIaVZKU3VPSmZ2?=
+ =?utf-8?B?Q3JldytCT0h3Zm53WE5jRGNBMGNXYnlkVXpRR1VEd3I1T1l2VWZTSHgwdXhP?=
+ =?utf-8?B?b21uN3FJZTA3dWp6WS9KZ1hPY0dDYjV2WWFXYW50ZzFLM0lhR3JxSmpqREFu?=
+ =?utf-8?B?RlFzcWl5bXJydHZ4ZWlGdm5lZmh1UXg1c1J5aVBna0dTajFmdmQ3L0FrVEhx?=
+ =?utf-8?B?VzZHeWN1QjlBQWE2Um56QjlIN2w0b2VsRzlqcXl6MC9rMVJPV0JranVlNTR0?=
+ =?utf-8?B?bjRaa0Q3djhJb1hITHlNMHlZOWxEQUJQak9ibnZvb2NRQVQ0RGt6MCsyeitO?=
+ =?utf-8?B?aEQrdlJDR2pGT0htdzJ6K0NRYUR4OFlyeGF5WHZQZWJLbng4aTk1aGdiYjB4?=
+ =?utf-8?B?cG1uMGs0UmlLblpsaHA1bEVla3l6d3VjTW02ZGlVWVB6STlFazJ4L3VBOWRI?=
+ =?utf-8?B?ZUJKQ1JvNUJLT2pWZUNGZllpWHkwZ0NuRTBRY2NGUkN2eS9jejRVZz09?=
+X-OriginatorOrg: garyguo.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: af85fa9c-3e23-4ea7-5858-08df45761034
+X-MS-Exchange-CrossTenant-AuthSource: CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 13:15:49.1402
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: hNW9ONJY95jc8XH9BMvAkHSGFeNMxGaKwURTRSvUuK3rwimGGKnULmHJEhJE1sDK3HqKQNnCN4bAUavBS9f1Dw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CWLP265MB5971
 
-Hello,
+On Wed Nov 18, 2026 at 1:09 PM GMT, Alice Ryhl wrote:
+> Function merging causes various different issues:
+>=20
+> * For CONFIG_CFI there's an LLVM bug causing functions with different
+>   CFI hashes to get merged. This can lead to crashes at runtime.
+> * For gendwarfksyms it causes functions with different CRCs to get
+>   merged. This leads to broken MODVERSIONS information if the function
+>   changes in the future so that it can no longer be merged.
+> * Wrong backtraces when a crash occurs in a merged function.
+> * Possibly also issues with pahole/BTF as the merged function's debug
+>   info is lost.
+>=20
+> These issues are new to Rust because in clang, function merging is off
+> by default, so these things have never come up before. Because of this,
+> turn this option off for all configurations.
+>=20
+> Link: https://lore.kernel.org/all/avy_9SPRaPSKD8b4@google.com/
+> Fixes: ac61506bf2d1 ("rust: Use gendwarfksyms + extended modversions for =
+CONFIG_MODVERSIONS")
+> Signed-off-by: Alice Ryhl <aliceryhl@google.com>
 
-On 17/11/26 09:10, Mathieu Desnoyers wrote:
-> When a SCHED_DEADLINE waiter boosts the owner of an rt_mutex, the owner
-> runs on the waiter's parameters, through dl.pi_se. Commit 2d3d891d3344
-> ("sched/deadline: Add SCHED_DEADLINE inheritance logic") calls this a
-> temporary solution. The owner is never throttled. When its runtime runs
-> out, replenish_dl_entity() refills it at once from the waiter's
-> dl_runtime.
-> 
-> The waiter can leave SCHED_DEADLINE before the chain walk deboosts the
-> owner. Its parameters can be cleared in between, at its 0-lag time.
-> replenish_dl_entity() then loops forever on a dl_runtime of 0. It
-> holds the rq lock with interrupts off, so the owner's CPU locks up.
-> 
-> O is a SCHED_OTHER task that holds the rt_mutex L. W is a SCHED_DEADLINE
-> task. T is any other task:
-> 
->   CPU 0 (O)                         CPU 1 (W)                     CPU 2 (T)
-> 
->   locks L
->                                     blocks on L
->                                       rt_mutex_setprio(O, W)
->                                         O->dl.pi_se = &W->dl
->                                     sleeps
->                                       task_non_contending()
->                                         arms W's inactive timer
->                                                                   sched_setscheduler(W)
->                                                                     W leaves SCHED_DEADLINE
->                                                                     task_rq_unlock(W)
->                                     <W's inactive timer>
->                                     inactive_task_timer()
->                                       __dl_clear_params()
->                                         W->dl.dl_runtime = 0
->   <tick>
->   update_curr_dl_se()
->     enqueue_task_dl()
->       replenish_dl_entity()
->         runtime += W->dl.dl_runtime
->         loops forever
->                                                                     rt_mutex_adjust_pi(W)
->                                                                       rt_mutex_setprio(O, W)
->                                                                         spins on O's rq lock
-> 
-> Fix this by reading the inherited runtime, deadline and period once, and
-> by not refilling from cleared ones. They are cleared under the waiter's
-> rq lock, not the owner's. So test all three. The owner stays runnable.
-> It gets no runtime. A negative runtime is reset to 0: the owner's own
-> reservation does not pay for the boost. An owner with no parameters of
-> its own gets a deadline of now. A deadline of 0 would mark its dl_rq as
-> empty. The wakeup of a boosted task already gives that deadline when its
-> donor is cleared. The owner runs until the chain walk deboosts it, or
-> until it releases the lock. That also covers sysrq-n:
-> normalize_rt_tasks() changes the waiter without a chain walk. The
-> warning stays for an entity that is not boosted.
+Reviewed-by: Gary Guo <gary@garyguo.net>
 
-The above paragraph is a bit hard to decipher. :)
-
-Maybe something like the below?
-
----
-Fix this by not refilling from cleared parameters. The donor's
-parameters are cleared under the donor's rq lock, not the owner's, so
-replenish_dl_entity() can see them change under it. Read dl_runtime,
-dl_deadline and dl_period once, and bail out if any of them is 0.
-
-On bailing out, the owner gets no new runtime, but stays runnable and
-unthrottled. It runs until the chain walk deboosts it, or until it
-releases the lock. Keeping it runnable also covers sysrq-n:
-normalize_rt_tasks() changes the waiter without a chain walk, so a
-throttled owner might never get to release the lock.
-
-The bandwidth the owner consumed while boosted belongs to the donor, so
-a negative runtime is reset to 0 rather than charged to the owner's own
-reservation. An owner with no parameters of its own gets a deadline of
-now. Its deadline must not stay 0: the dl_rq uses an earliest deadline
-of 0 to mean that no deadline entity is queued (see inc_dl_deadline()).
-
-Until the deboost (which should happen "soon enough"), such an owner
-sorts first on its CPU's dl_rq and runs ahead of the other deadline
-tasks there.
-
-The warning is kept for an entity that is not boosted.
----
-
-> The reset bounds the overrun. But a runtime of 0 still counts as
-> exceeded. So until the deboost, update_curr_dl_se() still requeues the
-> owner at each update. An owner with SCHED_FLAG_DL_OVERRUN still gets
-> SIGXCPU.
-> 
-> With a 300ms debug delay before rt_mutex_adjust_pi(), v7.4-rc2 locks
-> up in 8-CPU VMs. A kernel with this patch does not.
-> 
-> The Sashiko AI review of the third posting found the lockup. Juri Lelli
-> suggested this fix in place of a larger one.
-
-Also for other changelogs, I am not sure this kind of info adds much, as
-I fear it will be hard to track down in history anyway.
-
-> Fixes: a5e7be3b28a2 ("sched/deadline: Clear dl_entity params when setscheduling to different class")
-> Suggested-by: Juri Lelli <juri.lelli@redhat.com>
-> Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-> Cc: stable@vger.kernel.org
-> Link: https://lore.kernel.org/all/avL8oOtjKqVNR7-l@jlelli-thinkpadt14gen4.remote.csb/
 > ---
-
-For the implementation,
-
-Reviewed-by: Juri Lelli <juri.lelli@redhat.com>
-
-Thanks,
-Juri
+>  Makefile | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 
