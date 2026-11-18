@@ -1,47 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794989789;
-	b=tkREz5GXDmCJnh6Clg6wj2uNFdqLhZU/B1jZmS2KKhcNgTQkfJI/Rs+/zmRtN+XupkFx
-	 YmqYnaONDH/mIP/K75Jc4Qfxx6w+KzwlgPqv97BbvRXErVu2H9KLEdS1h/TPDbD8/Zi1y
-	 bTmtPZ8WblhYKUpIhVuzBr3PpdLaObcw6IdWAaoM1YhQmhSPLqJUmy7EnA9Vi5UDQ7Bcd
-	 c+XMkbNkpRJ3oFqjRA+gODDY2zhsM+BQP96vgaDQ57biVmtO/2ZI4Y0ha5wZm8G/OoiWv
-	 WSGvhuFMRYRyP23zbBpAmjiO2D36BFZbUAzndp1YxC3UGwAkU+CGFkhR3S01+BwUeaQ==
+	t=1794989793;
+	b=D04ZlXoQSClkDhWSzFpqa1IqcAn/WTHOXb5cZwd4XrJz02DGZtQm/cp7bCUVDnsby60b
+	 D1ixiolInLZ2xBx651wwEjjmk0b4Lx7hVYjP9pzZCaOmqbcoS0wOnKspAePujGCRUlelg
+	 j2ZmE/GJ0+IJmE60BwkyHQnNO/TEgTgAuMzSypQ9rRONJGmlfuahHfTR45zTQofz6LNq3
+	 HijBKMcJwds+m5Duzm2v2+4miaskrJ1qMat7H4weLxNeGiwwNE+B6QXWfcFEWBmxZNQMH
+	 jshG8mwRemPEhoZYGVaOxBAvafR40U/Dj5kDhFW0CiBdz0/3wWw2dK/mkh5Y5pCMnfg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794989789;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=3lhAlUNkS+D4HLJq1aM/fS656gTvYxUU+0mp+A/Baow=;
-	b=3yG0DlsMGyYBTnXqXgQ4a9yh/aJe2adlLJJdVFirA5XLJ/K/+0rOqqxljNd0u/+1rm+M
-	 Ad5k5bkUKwUwtgT4fzKcc5LMoH/mBAt1wmXsGcsVNnw/pOT37lyGKgzUOfoRZjAWJgVlZ
-	 nEvkFvsjuJ41awZJ55xcYUIvsZvSzyYI+lngied/eSiSPFQ7JEa/Ri/7WZMgFzNbUdwcj
-	 fFOUQiIxDbCR2cPya+OZ3DeKLkQ9EsEbE5p6jKl/nqtDfqYVnto8Wo5tSiRrvOGpbjeom
-	 C3kD7nZPWMp9HRmx5tmeR4dzvZSOQsfN5WzrfiX7Gwn8yI+JcHimi7B44a1ekHHDLmw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794989793;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=S7pEWQuD36aSY4tsDM7SLDt3J4Lqpe+VXP9rOttq+Dk=;
+	b=MvXkqchqHcP134PyMdQWAwWyaZyNZvqocJFHClBmPalbBYg6R7GhB6REOrACr8dx1fFm
+	 vvABr8Nobq/vGSNb1AL+IC1ZhT5+1PnfWsASXTT7jkxzpQPBL1UJuXxmNFvrkWVp0t3Ns
+	 KTtCHDjoNgQ9m/DPtrxmuTN+PmzQ1rcbLfy25Ic9qoCaFGNCMkSxmhOdW0LiencHeydOb
+	 cUfvcb49CqEyEfDHyUjsZpmwR2Mu7c3HE7pxWHFE57UPP3DycZWv+ePDZrjqS5gtN/BTp
+	 Z0dUuEgLboQwZKrH73vUPmhihSdSw//A3ULOkxZA0Y+QAoeDR9ttjaMLrR6BTGe6kQg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ciSYwUKz;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=GdmCrnPK;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=FbNQw2zM;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1AC8D606A339;
-	Wed, 18 Nov 2026 08:16:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA4D0606A336
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:16:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA4D0606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ciSYwUKz
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EE231F000C4;
-	Wed, 18 Nov 2026 08:16:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794989788;
-	bh=3lhAlUNkS+D4HLJq1aM/fS656gTvYxUU+0mp+A/Baow=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=ciSYwUKzslFlTGgflCx1EuNcb5k2uqINYbzORJn9lcIpz5qxIUOgBWxLA82t+WtDd
-	 sQl0cLnTAn0/vwD0cH1QosCPEdd/xZnQF6aBEC+0pnr1s1KX490KLSazQzHzPhhDFI
-	 mDja1T/QJNF2uKBVZa8M7p//aC2ketxVdeo2wUWhZjy/JzAIrJmAAz+U/xCcLKZAfY
-	 cVy9ED5OG3iOjzzZCbe+nXV9IGJqDFkCt6S5aF8BWRFMkd1vPJxr0AKi44OagQEPkO
-	 Mgt/01w/MPOkG4dOXH/n8umF/2DB79oLAwuOeZAJ5DjE0v5A5Y7ahMxWbhfTKF8xi6
-	 xjkLn/Lb2hgNQ==
-Message-ID: <29edd29a-c8a2-4f75-87df-ffe37154d008@kernel.org>
-Date: Wed, 18 Nov 2026 09:16:22 +0100
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=GdmCrnPK;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=FbNQw2zM
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI2UvXq3121699
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:16:30 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	S7pEWQuD36aSY4tsDM7SLDt3J4Lqpe+VXP9rOttq+Dk=; b=GdmCrnPKKKwwWIrZ
+	jN0LOsqs1btiRO/+PJeXpzOMBYe2WOtU2UOY5eR4Ond1nboGC9pJqqZdfcbfg7z2
+	Odbeo+NYdoVllmfb/NGbRRd5pUR17ZmDGDZYsyHNfeveFMk9houDCGbBjUXiaSLA
+	okjibfzQ5WNCrTARty63rSEVFkW4xUsbn+mcI+R1RNVdWikeAURflVfBbBh+Pdms
+	RGWwOkru+leLKJQeP7kOyHjQKQd02xpAbgn7NBEYG/DUZCQ9rkVzd5C/uRZ+9xX1
+	TcsZ1m9Y209cigq+tBzR5LXm64C4NeAurMmAK69x1VYAxzTZczhSuxbB2EOgnJiK
+	mBBPPQ==
+Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yv9hy2d-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:16:30 +0000 (GMT)
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-3b3b0ebd98cso728278a91.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:16:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1794989790; x=1795594590; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=S7pEWQuD36aSY4tsDM7SLDt3J4Lqpe+VXP9rOttq+Dk=;
+        b=FbNQw2zM9jkFpmGD2yzBMoHU1h2ulXE3G5CGcT8LUibAbU7sK4mfDbMVrM0Ba+9qcW
+         hbmiSzXNk/tSLYA7BZ/b54OK17H0remT6ICO2WkhobT066S81KzovXy+sJja+pvVn7t7
+         KeCF4Jq6TkDSQLdose/imCyXuDPjlLhEKPi8rQIfPehg0j4U+lWNvKufokcJA9X3h9x+
+         n0XFWtvTQclRfr/HMbl6HEKRjtoueT3Prvl4p+E4KPnpYdcf3d8xAvehKY6LEqy/JDQH
+         kdTBor0n2Kzd9yjH+w4L4SGi+otThp3C2brEnZOFlkXrwYgGlV9dndqgWdPm46VQTsoC
+         ojsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794989790; x=1795594590;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=S7pEWQuD36aSY4tsDM7SLDt3J4Lqpe+VXP9rOttq+Dk=;
+        b=bXMjsBC272xwzhKqSvP+BqgWlq0Ou6DkvNl8MMP/EXPu6+7pQFyQIQGN1kdeX/sYxU
+         PygTGRZpeC1jYPAJlCR6ONv76zKQfzDgutGpFIYZA2anwUd73Pkz+i9Kl5SpzHusTe6Q
+         mwBwMcPXnX7pUnfD3f0C9CZmIuT8r1jS/SViOMPhL06d0cK6b3Wb2KK5rCu06t68NWPb
+         pJiq7+rLmXv90RM7ln5yyMpiVrDio5ZdSYbRU+Q0S33XahZi+7v0rM9IsSYcKkZfVS8Y
+         tduBufjtAfkLGoufm/A7SvBuTxHenjl7fhP0U3uoymhFnOiehAI5QBvoir+VJIu2tr7d
+         RhWg==
+X-Forwarded-Encrypted: i=1; AL+hErHYngpr0pis9dJsVd2qgc5v9gwWyQUMsOE6CCdAuWVuKETUcLGrHkYb0GBCWryHZZ+CaTsiS3lXOqM4NRY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/cF8SMobq2lvbc7cXoLMjj7ropCDfh8HnrZh940wXjQygsAxsN
+	Fzv7Ji4G676LFnXKsW5VADUGpeAzqRe7DDFrjxNhhd63JV3u0y7KW/CnvvZqUGLDYg36Ke5Ys0K
+	ejU7yYIXGjbAnF2+a1VXlrM8etL2DeGk9BopgVj565k9CZIKvSVd0LgF9l8gd6MfRG4s=
+X-Gm-Gg: AZFdTZdSgJDRcqEu7m1yyd6urc/xYJJxoZBFwd+mh+aUqjEM9xDOYlKwrVocuWyYDOn
+	Vj5G3IFkgNnI9oeJ34sZfbT8mcEuVOn+pPpYhwD9CMVoSPWf8tMhPelRUCFGyrhxFrZnYzsg24h
+	l16PUlHoAIaO08awxnKGkgD0SjznDNoSykBzRqP5yH1okB1Ixa7xMQX5ayccBioEw9s96OvSP2L
+	FZRp7hLZhqjCjFLaojdSjgGHSUrHahvYFBosMbcisrDhJDBYVHvLgxWX6Aa1nzlxrrJstfa6u5n
+	9PZns0mE46/1FdIxJcfIeylSfLIqfk2UunpRiMQYbp0kXogkqGZIw43fnIhT+roj1q5ooMLkMi+
+	1N+sjKBqZ7Gm+9qEGvbNm7tT33OyiGDvtkD3paAfEnr/eG0Op0z+MapvjdqcIoLa19IhJXCwhAs
+	Rbb1fDv42gWcIJ86Hw8rHSex67sgE1PlM0tb4vW0sVHU2iq4jYFJwC8Ccm/rn3LS/k2ulm+3S/K
+	A==
+X-Received: by 2002:a17:90b:1dcf:b0:3a4:e735:b39d with SMTP id 98e67ed59e1d1-3b3d0815de0mr1695893a91.64.1794989789264;
+        Wed, 18 Nov 2026 00:16:29 -0800 (PST)
+X-Received: by 2002:a17:90b:1dcf:b0:3a4:e735:b39d with SMTP id 98e67ed59e1d1-3b3d0815de0mr1695859a91.64.1794989788648;
+        Wed, 18 Nov 2026 00:16:28 -0800 (PST)
+Received: from hu-madhgane-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d19b5e8asm3369181a91.8.2026.11.18.00.16.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 00:16:28 -0800 (PST)
+From: Madhavan Ganesan <madhavan.ganesan@oss.qualcomm.com>
+Date: Wed, 18 Nov 2026 13:45:34 +0530
+Subject: [PATCH ath-next v3 11/15] wifi: ath12k: add Wi-Fi 8 CE config and
+ service pipe map for QCN9575
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,100 +117,760 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/9] dt-bindings: phy: Add PHY_DIRECTION_TX/RX
- definitions
-To: Jason Yang <jason98166@gmail.com>, Vinod Koul <vkoul@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Guochun Huang <hero.huang@rock-chips.com>,
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Michael Riesch <michael.riesch@collabora.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Quentin Schulz <quentin.schulz@cherry.de>
-References: <20261118-dcphy-rx-v1-v7-0-8de1adac3a74@gmail.com>
- <20261118-dcphy-rx-v1-v7-1-8de1adac3a74@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261118-dcphy-rx-v1-v7-1-8de1adac3a74@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261118-wifi8_qcn9575_bringup-v3-11-9875d2a3953f@oss.qualcomm.com>
+References: <20261118-wifi8_qcn9575_bringup-v3-0-9875d2a3953f@oss.qualcomm.com>
+In-Reply-To: <20261118-wifi8_qcn9575_bringup-v3-0-9875d2a3953f@oss.qualcomm.com>
+To: Johannes Berg <johannes@sipsolutions.net>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Jeff Johnson <jjohnson@kernel.org>,
+        Nathan Chancellor <nathan@kernel.org>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        Bill Wendling <morbo@google.com>,
+        Justin Stitt <justinstitt@google.com>
+Cc: linux-wireless@vger.kernel.org, devicetree@vger.kernel.org,
+        ath12k@lists.infradead.org, linux-kernel@vger.kernel.org,
+        llvm@lists.linux.dev,
+        Madhavan Ganesan <madhavan.ganesan@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-Proofpoint-GUID: qZiSR1blG9uwcDjqwdHID0RtgRzJISVa
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAzMiBTYWx0ZWRfXwnagVud5HReV
+ xvD1ILpPl+7ePCIgK6dFEYCq1L+BCGJVO4VZ2OtEoVGN4QA8Bbt22rTImxdFpbcKaPhNPIbS5Lg
+ BjU79Z7ymFt2I44y1+TLhneqBReJyPU=
+X-Proofpoint-ORIG-GUID: qZiSR1blG9uwcDjqwdHID0RtgRzJISVa
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAzMiBTYWx0ZWRfX+c3tFMr807id
+ PA8rajwrpYoGx9CvuRepqpQVq07VIrg6MKz9YOCuokLrptIsh0lnowvbCAGqtWc1PzlQJMWHzFy
+ nMzRzYuFYaQUH4jFLge2RxcvLu51DBiKSN82B7uSDgWLDgsOigqNVHEnhqRcAhTb7u/GGfi+Jrr
+ LeJdQ3I8B/c3019W/sOzzy55wIEb+Nwkcp6nGC7KqBn3XT3vKKMM4SXvntbWWoJLeHQcWuMwjFF
+ /TFliT4eeEU2jpQoYBPkxzexxh7rPT8TxxiYSFWk9735s+mi+BQKoHCd2L/TRjvEBRridoGmDFT
+ J0EkrRACKfmgRpFh+2+j2LsihwoPPDB6B89qLG+gSMnlE2I/m1LIphBJaxD8J3YrRBDaOKrV7Pe
+ us7uOhFySu/jZ1tvtH84nrGHdx1Z8MV0e6btAITthQtKZK30sQH71SKWP6Nhg8IchBmixAnHLcP
+ 5vrJOG13jthXtOtrYQQ==
+X-Authority-Analysis: v=2.4 cv=RYIFmFtv c=1 sm=1 tr=0 ts=6afd5ede cx=c_pps
+ a=RP+M6JBNLl+fLTcSJhASfg==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=EUspDBNiAAAA:8 a=ve5JB-QzZkeB4WSZPW4A:9 a=QEXdDO2ut3YA:10
+ a=iS9zxrgQBfv6-_F4QbHw:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-18_01,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 spamscore=0 priorityscore=1501 phishscore=0 impostorscore=0
+ adultscore=0 suspectscore=0 bulkscore=0 lowpriorityscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180032
 
-On 18/11/2026 06:55, Jason Yang wrote:
-> A MIPI D-PHY or C-PHY can be a transmitter or a receiver. Some PHY
-> blocks have one of each and can use them at the same time, so one PHY
-> node offers two PHYs. The existing cell, PHY_TYPE_DPHY or
-> PHY_TYPE_CPHY, selects the mode of the whole block, not one of the two
-> PHYs.
-> 
-> Add PHY_DIRECTION_TX and PHY_DIRECTION_RX for a cell that selects the
-> transmitter or the receiver. The first user is the Rockchip RK3588 MIPI
-> DC-PHY, where the transmitter serves a DSI host and the receiver a CSI-2
-> host.
-> 
-> Suggested-by: Michael Riesch <michael.riesch@collabora.com>
-> Link: https://lore.kernel.org/r/7425ac83-f6d8-4443-a26e-a47f9306aa24@collabora.com
-> Signed-off-by: Jason Yang <jason98166@gmail.com>
-> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
-> Tested-by: Quentin Schulz <quentin.schulz@cherry.de> # RK3588 Tiger CSI1 2-lane IMX219, CSI0 2-lane OV5675+DSI
+Implement the CE and service-to-CE configuration for QCN9575. QCN9575
+uses 16 CE pipes and a service-to-CE map that includes additional HTT
+data service IDs not present in Wi-Fi 7.
 
-Please drop the tag, this did not happen. In the future, please add only
-applicable tags. Otherwise share how this code was executed and tested
-on the actual hardware (make process, like building code, is obviously
-not testing).
+Add QCN9575-specific CE configuration tables in wifi8/ce.c: host CE
+attributes, target CE pipes 0-8 and 12-15, and a service-to-CE mapping
+that includes HTT_DATA4 on CE15. Introduce HTT_DATA2-HTT_DATA5 service
+and endpoint enums in htc.h to match the HTT data service group
+numbering QCN9575 defines; only HTT_DATA4 is wired into the CE map by
+this patch, since it is the only one QCN9575 currently maps to a pipe.
+HTT_DATA2, HTT_DATA3, and HTT_DATA5 are added now so the service group
+is defined contiguously and are expected to be used by future CE/service
+map additions for QCN9575. Add name cases for all five in
+htc_service_name().
 
+QCN9575 also requires HTC endpoints 9 through 12, beyond the 9
+endpoints (0-8) existing Wi-Fi 7 targets use. Add ATH12K_HTC_EP_9
+through ATH12K_HTC_EP_12 to enum ath12k_htc_ep_id, raising
+ATH12K_HTC_EP_COUNT to 13 for the shared endpoint array. Since
+ATH12K_HTC_EP_COUNT is also used as the validation bound for eid
+values parsed from firmware (HTC rx headers, credit reports, and
+connect-service responses), raising it for every target would let an
+out-of-range eid for a Wi-Fi 7 device (9-12) pass validation and index
+an endpoint that was never connected to any service, where ep_ops is
+all-zero.
 
-Best regards,
-Krzysztof
+Add max_htc_eps to struct ath12k_hw_params so each target can specify
+its own HTC endpoint limit independent of the shared array size, set
+to 9 for all existing Wi-Fi 7 hw_params entries and 13 for QCN9575.
+Switch the eid bound checks in ath12k_htc_send(),
+ath12k_htc_process_credit_report(), ath12k_htc_rx_completion_handler(),
+ath12k_htc_reset_endpoint_states(), and ath12k_htc_connect_service()
+from ATH12K_HTC_EP_COUNT to hw_params->max_htc_eps, so Wi-Fi 7 targets
+keep rejecting eid >= 9 exactly as before.
+
+Update Wi-Fi 8 hw params to use the new CE config tables and build
+wifi8/ce.c from wifi8/Makefile.
+
+Tested-on: QCN9274 hw2.0 PCI WLAN.WBE.1.6-01243-QCAHKSWPL_SILICONZ-1
+Tested-on: WCN7850 hw2.0 PCI WLAN.HMT.1.1.c7-00108-QCAHMTSWPL_V1.0_V2.0_SILICONZ_UPSTREAM-3
+
+Signed-off-by: Madhavan Ganesan <madhavan.ganesan@oss.qualcomm.com>
+---
+ drivers/net/wireless/ath/ath12k/htc.c          |  18 +-
+ drivers/net/wireless/ath/ath12k/htc.h          |   8 +
+ drivers/net/wireless/ath/ath12k/hw.h           |   1 +
+ drivers/net/wireless/ath/ath12k/wifi7/hw.c     |   7 +
+ drivers/net/wireless/ath/ath12k/wifi8/Makefile |   3 +-
+ drivers/net/wireless/ath/ath12k/wifi8/ce.c     | 404 +++++++++++++++++++++++++
+ drivers/net/wireless/ath/ath12k/wifi8/ce.h     |  13 +
+ drivers/net/wireless/ath/ath12k/wifi8/hw.c     |  13 +-
+ 8 files changed, 454 insertions(+), 13 deletions(-)
+
+diff --git a/drivers/net/wireless/ath/ath12k/htc.c b/drivers/net/wireless/ath/ath12k/htc.c
+index 7227bed91ade..a9241d290534 100644
+--- a/drivers/net/wireless/ath/ath12k/htc.c
++++ b/drivers/net/wireless/ath/ath12k/htc.c
+@@ -82,7 +82,7 @@ int ath12k_htc_send(struct ath12k_htc *htc,
+ 	int credits = 0;
+ 	int ret;
+ 
+-	if (eid >= ATH12K_HTC_EP_COUNT) {
++	if (eid >= ab->hw_params->max_htc_eps) {
+ 		ath12k_warn(ab, "Invalid endpoint id: %d\n", eid);
+ 		return -ENOENT;
+ 	}
+@@ -158,7 +158,7 @@ ath12k_htc_process_credit_report(struct ath12k_htc *htc,
+ 
+ 	spin_lock_bh(&htc->tx_lock);
+ 	for (i = 0; i < n_reports; i++, report++) {
+-		if (report->eid >= ATH12K_HTC_EP_COUNT)
++		if (report->eid >= ab->hw_params->max_htc_eps)
+ 			break;
+ 
+ 		ep = &htc->endpoint[report->eid];
+@@ -264,7 +264,7 @@ void ath12k_htc_rx_completion_handler(struct ath12k_base *ab,
+ 
+ 	eid = le32_get_bits(hdr->htc_info, HTC_HDR_ENDPOINTID);
+ 
+-	if (eid >= ATH12K_HTC_EP_COUNT) {
++	if (eid >= ab->hw_params->max_htc_eps) {
+ 		ath12k_warn(ab, "HTC Rx: invalid eid %d\n", eid);
+ 		goto out;
+ 	}
+@@ -411,6 +411,10 @@ static const char *htc_service_name(enum ath12k_htc_svc_id id)
+ 	case ATH12K_HTC_SVC_ID_NMI_DATA:
+ 		return "NMI Data";
+ 	case ATH12K_HTC_SVC_ID_HTT_DATA_MSG:
++	case ATH12K_HTC_SVC_ID_HTT_DATA2_MSG:
++	case ATH12K_HTC_SVC_ID_HTT_DATA3_MSG:
++	case ATH12K_HTC_SVC_ID_HTT_DATA4_MSG:
++	case ATH12K_HTC_SVC_ID_HTT_DATA5_MSG:
+ 		return "HTT Data";
+ 	case ATH12K_HTC_SVC_ID_TEST_RAW_STREAMS:
+ 		return "RAW";
+@@ -430,7 +434,7 @@ static void ath12k_htc_reset_endpoint_states(struct ath12k_htc *htc)
+ 	struct ath12k_htc_ep *ep;
+ 	int i;
+ 
+-	for (i = ATH12K_HTC_EP_0; i < ATH12K_HTC_EP_COUNT; i++) {
++	for (i = ATH12K_HTC_EP_0; i < htc->ab->hw_params->max_htc_eps; i++) {
+ 		ep = &htc->endpoint[i];
+ 		ep->service_id = ATH12K_HTC_SVC_ID_UNUSED;
+ 		ep->max_ep_message_len = 0;
+@@ -667,7 +671,7 @@ int ath12k_htc_connect_service(struct ath12k_htc *htc,
+ 
+ setup:
+ 
+-	if (assigned_eid >= ATH12K_HTC_EP_COUNT)
++	if (assigned_eid >= ab->hw_params->max_htc_eps)
+ 		return -EPROTO;
+ 
+ 	if (max_msg_size == 0)
+@@ -754,10 +758,10 @@ int ath12k_htc_init(struct ath12k_base *ab)
+ 
+ 	spin_lock_init(&htc->tx_lock);
+ 
+-	ath12k_htc_reset_endpoint_states(htc);
+-
+ 	htc->ab = ab;
+ 
++	ath12k_htc_reset_endpoint_states(htc);
++
+ 	switch (ab->wmi_ab.preferred_hw_mode) {
+ 	case WMI_HOST_HW_MODE_SINGLE:
+ 		htc->wmi_ep_count = 1;
+diff --git a/drivers/net/wireless/ath/ath12k/htc.h b/drivers/net/wireless/ath/ath12k/htc.h
+index 05b3e593542d..1364eea56f70 100644
+--- a/drivers/net/wireless/ath/ath12k/htc.h
++++ b/drivers/net/wireless/ath/ath12k/htc.h
+@@ -207,6 +207,10 @@ enum ath12k_htc_svc_id {
+ 	ATH12K_HTC_SVC_ID_NMI_DATA	= SVC(ATH12K_HTC_SVC_GRP_NMI, 1),
+ 
+ 	ATH12K_HTC_SVC_ID_HTT_DATA_MSG	= SVC(ATH12K_HTC_SVC_GRP_HTT, 0),
++	ATH12K_HTC_SVC_ID_HTT_DATA2_MSG	= SVC(ATH12K_HTC_SVC_GRP_HTT, 1),
++	ATH12K_HTC_SVC_ID_HTT_DATA3_MSG	= SVC(ATH12K_HTC_SVC_GRP_HTT, 2),
++	ATH12K_HTC_SVC_ID_HTT_DATA4_MSG	= SVC(ATH12K_HTC_SVC_GRP_HTT, 3),
++	ATH12K_HTC_SVC_ID_HTT_DATA5_MSG	= SVC(ATH12K_HTC_SVC_GRP_HTT, 4),
+ 
+ 	/* raw stream service (i.e. flash, tcmd, calibration apps) */
+ 	ATH12K_HTC_SVC_ID_TEST_RAW_STREAMS = SVC(ATH12K_HTC_SVC_GRP_TEST, 0),
+@@ -227,6 +231,10 @@ enum ath12k_htc_ep_id {
+ 	ATH12K_HTC_EP_6,
+ 	ATH12K_HTC_EP_7,
+ 	ATH12K_HTC_EP_8,
++	ATH12K_HTC_EP_9,
++	ATH12K_HTC_EP_10,
++	ATH12K_HTC_EP_11,
++	ATH12K_HTC_EP_12,
+ 	ATH12K_HTC_EP_COUNT,
+ };
+ 
+diff --git a/drivers/net/wireless/ath/ath12k/hw.h b/drivers/net/wireless/ath/ath12k/hw.h
+index 9c11edd2b051..96776c6e2050 100644
+--- a/drivers/net/wireless/ath/ath12k/hw.h
++++ b/drivers/net/wireless/ath/ath12k/hw.h
+@@ -164,6 +164,7 @@ struct ath12k_hw_params {
+ 	} fw;
+ 
+ 	u8 max_radios;
++	u8 max_htc_eps;
+ 	bool single_pdev_only:1;
+ 	u32 qmi_service_ins_id;
+ 	u32 qmi_max_chunk_size;
+diff --git a/drivers/net/wireless/ath/ath12k/wifi7/hw.c b/drivers/net/wireless/ath/ath12k/wifi7/hw.c
+index 282a41980d98..7b2f54248fa6 100644
+--- a/drivers/net/wireless/ath/ath12k/wifi7/hw.c
++++ b/drivers/net/wireless/ath/ath12k/wifi7/hw.c
+@@ -416,6 +416,7 @@ static const struct ath12k_hw_params ath12k_wifi7_hw_params[] = {
+ 			.unified_fw_image = false,
+ 		},
+ 		.max_radios = 1,
++		.max_htc_eps = 9,
+ 		.single_pdev_only = false,
+ 		.qmi_service_ins_id = ATH12K_QMI_WLFW_SERVICE_INS_ID_V01_QCN9274,
+ 		.qmi_max_chunk_size = SZ_2M,
+@@ -514,6 +515,7 @@ static const struct ath12k_hw_params ath12k_wifi7_hw_params[] = {
+ 		},
+ 
+ 		.max_radios = 1,
++		.max_htc_eps = 9,
+ 		.single_pdev_only = true,
+ 		.qmi_service_ins_id = ATH12K_QMI_WLFW_SERVICE_INS_ID_V01_WCN7850,
+ 		.qmi_max_chunk_size = SZ_512K,
+@@ -612,6 +614,7 @@ static const struct ath12k_hw_params ath12k_wifi7_hw_params[] = {
+ 			.unified_fw_image = false,
+ 		},
+ 		.max_radios = 2,
++		.max_htc_eps = 9,
+ 		.single_pdev_only = false,
+ 		.qmi_service_ins_id = ATH12K_QMI_WLFW_SERVICE_INS_ID_V01_QCN9274,
+ 		.qmi_max_chunk_size = SZ_2M,
+@@ -708,6 +711,7 @@ static const struct ath12k_hw_params ath12k_wifi7_hw_params[] = {
+ 			.unified_fw_image = false,
+ 		},
+ 		.max_radios = 1,
++		.max_htc_eps = 9,
+ 		.single_pdev_only = false,
+ 		.qmi_service_ins_id = ATH12K_QMI_WLFW_SERVICE_INS_ID_V01_IPQ5332,
+ 		.qmi_max_chunk_size = SZ_2M,
+@@ -800,6 +804,7 @@ static const struct ath12k_hw_params ath12k_wifi7_hw_params[] = {
+ 		},
+ 
+ 		.max_radios = 1,
++		.max_htc_eps = 9,
+ 		.single_pdev_only = true,
+ 		.qmi_service_ins_id = ATH12K_QMI_WLFW_SERVICE_INS_ID_V01_WCN7850,
+ 		.qmi_max_chunk_size = SZ_512K,
+@@ -899,6 +904,7 @@ static const struct ath12k_hw_params ath12k_wifi7_hw_params[] = {
+ 			.unified_fw_image = false,
+ 		},
+ 		.max_radios = 1,
++		.max_htc_eps = 9,
+ 		.single_pdev_only = false,
+ 		.qmi_service_ins_id = ATH12K_QMI_WLFW_SERVICE_INS_ID_V01_IPQ5332,
+ 		.qmi_max_chunk_size = SZ_2M,
+@@ -992,6 +998,7 @@ static const struct ath12k_hw_params ath12k_wifi7_hw_params[] = {
+ 			.unified_fw_image = false,
+ 		},
+ 		.max_radios = 1,
++		.max_htc_eps = 9,
+ 		.single_pdev_only = false,
+ 		.qmi_service_ins_id = ATH12K_QMI_WLFW_SERVICE_INS_ID_V01_QCN6432,
+ 		.qmi_max_chunk_size = SZ_2M,
+diff --git a/drivers/net/wireless/ath/ath12k/wifi8/Makefile b/drivers/net/wireless/ath/ath12k/wifi8/Makefile
+index 051c6447d35c..3717b00741fd 100644
+--- a/drivers/net/wireless/ath/ath12k/wifi8/Makefile
++++ b/drivers/net/wireless/ath/ath12k/wifi8/Makefile
+@@ -1,6 +1,7 @@
+ # SPDX-License-Identifier: BSD-3-Clause-Clear
+ obj-$(CONFIG_ATH12K) += ath12k_wifi8.o
+-ath12k_wifi8-y += core.o \
++ath12k_wifi8-y += ce.o \
++		  core.o \
+ 		  hal.o \
+ 		  hal_qcn9575.o \
+ 		  hw.o \
+diff --git a/drivers/net/wireless/ath/ath12k/wifi8/ce.c b/drivers/net/wireless/ath/ath12k/wifi8/ce.c
+new file mode 100644
+index 000000000000..27bdb7a3b20d
+--- /dev/null
++++ b/drivers/net/wireless/ath/ath12k/wifi8/ce.c
+@@ -0,0 +1,404 @@
++// SPDX-License-Identifier: BSD-3-Clause-Clear
++/*
++ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
++ */
++
++#include <linux/bitfield.h>
++#include <linux/bitops.h>
++#include <linux/types.h>
++
++#include "../core.h"
++#include "../ce.h"
++#include "ce.h"
++
++/* Target firmware's Copy Engine configuration. */
++const struct ce_pipe_config ath12k_wifi8_target_ce_config_wlan_qcn9575[] = {
++	/* CE0: host->target HTC control and raw streams */
++	{
++		.pipenum = __cpu_to_le32(0),
++		.pipedir = __cpu_to_le32(PIPEDIR_OUT),
++		.nentries = __cpu_to_le32(32),
++		.nbytes_max = __cpu_to_le32(2048),
++		.flags = __cpu_to_le32(CE_ATTR_FLAGS),
++		.reserved = __cpu_to_le32(0),
++	},
++
++	/* CE1: target->host HTT + HTC control */
++	{
++		.pipenum = __cpu_to_le32(1),
++		.pipedir = __cpu_to_le32(PIPEDIR_IN),
++		.nentries = __cpu_to_le32(32),
++		.nbytes_max = __cpu_to_le32(2048),
++		.flags = __cpu_to_le32(CE_ATTR_FLAGS),
++		.reserved = __cpu_to_le32(0),
++	},
++
++	/* CE2: target->host WMI */
++	{
++		.pipenum = __cpu_to_le32(2),
++		.pipedir = __cpu_to_le32(PIPEDIR_IN),
++		.nentries = __cpu_to_le32(32),
++		.nbytes_max = __cpu_to_le32(2048),
++		.flags = __cpu_to_le32(CE_ATTR_FLAGS),
++		.reserved = __cpu_to_le32(0),
++	},
++
++	/* CE3: host->target WMI (mac0) */
++	{
++		.pipenum = __cpu_to_le32(3),
++		.pipedir = __cpu_to_le32(PIPEDIR_OUT),
++		.nentries = __cpu_to_le32(32),
++		.nbytes_max = __cpu_to_le32(2048),
++		.flags = __cpu_to_le32(CE_ATTR_FLAGS),
++		.reserved = __cpu_to_le32(0),
++	},
++
++	/* CE4: host->target HTT */
++	{
++		.pipenum = __cpu_to_le32(4),
++		.pipedir = __cpu_to_le32(PIPEDIR_OUT),
++		.nentries = __cpu_to_le32(256),
++		.nbytes_max = __cpu_to_le32(256),
++		.flags = __cpu_to_le32(CE_ATTR_FLAGS | CE_ATTR_DIS_INTR),
++		.reserved = __cpu_to_le32(0),
++	},
++
++	/* CE5: target->host Pktlog */
++	{
++		.pipenum = __cpu_to_le32(5),
++		.pipedir = __cpu_to_le32(PIPEDIR_IN),
++		.nentries = __cpu_to_le32(32),
++		.nbytes_max = __cpu_to_le32(2048),
++		.flags = __cpu_to_le32(CE_ATTR_FLAGS),
++		.reserved = __cpu_to_le32(0),
++	},
++
++	/* CE6: Reserved for target autonomous hif_memcpy */
++	{
++		.pipenum = __cpu_to_le32(6),
++		.pipedir = __cpu_to_le32(PIPEDIR_INOUT),
++		.nentries = __cpu_to_le32(32),
++		.nbytes_max = __cpu_to_le32(16384),
++		.flags = __cpu_to_le32(CE_ATTR_FLAGS),
++		.reserved = __cpu_to_le32(0),
++	},
++
++	/* CE7: host->target WMI (mac1) */
++	{
++		.pipenum = __cpu_to_le32(7),
++		.pipedir = __cpu_to_le32(PIPEDIR_OUT),
++		.nentries = __cpu_to_le32(32),
++		.nbytes_max = __cpu_to_le32(2048),
++		.flags = __cpu_to_le32(CE_ATTR_FLAGS),
++		.reserved = __cpu_to_le32(0),
++	},
++
++	/* CE8: Reserved for target autonomous hif_memcpy */
++	{
++		.pipenum = __cpu_to_le32(8),
++		.pipedir = __cpu_to_le32(PIPEDIR_INOUT),
++		.nentries = __cpu_to_le32(32),
++		.nbytes_max = __cpu_to_le32(16384),
++		.flags = __cpu_to_le32(CE_ATTR_FLAGS),
++		.reserved = __cpu_to_le32(0),
++	},
++
++	/* CE9, 10 and 11: Reserved for MHI */
++
++	/* CE12: CV Prefetch */
++	{
++		.pipenum = __cpu_to_le32(12),
++		.pipedir = __cpu_to_le32(PIPEDIR_OUT),
++		.nentries = __cpu_to_le32(32),
++		.nbytes_max = __cpu_to_le32(2048),
++		.flags = __cpu_to_le32(CE_ATTR_FLAGS),
++		.reserved = __cpu_to_le32(0),
++	},
++
++	/* CE13: CV Prefetch */
++	{
++		.pipenum = __cpu_to_le32(13),
++		.pipedir = __cpu_to_le32(PIPEDIR_OUT),
++		.nentries = __cpu_to_le32(32),
++		.nbytes_max = __cpu_to_le32(2048),
++		.flags = __cpu_to_le32(CE_ATTR_FLAGS),
++		.reserved = __cpu_to_le32(0),
++	},
++
++	/* CE14: WMI logging/CFR/Spectral/Radar */
++	{
++		.pipenum = __cpu_to_le32(14),
++		.pipedir = __cpu_to_le32(PIPEDIR_IN),
++		.nentries = __cpu_to_le32(32),
++		.nbytes_max = __cpu_to_le32(2048),
++		.flags = __cpu_to_le32(CE_ATTR_FLAGS),
++		.reserved = __cpu_to_le32(0),
++	},
++
++	/* CE15: host->target MSDU/MPDUQ */
++	{
++		.pipenum = __cpu_to_le32(15),
++		.pipedir = __cpu_to_le32(PIPEDIR_OUT),
++		.nentries = __cpu_to_le32(256),
++		.nbytes_max = __cpu_to_le32(2048),
++		.flags = __cpu_to_le32(CE_ATTR_FLAGS | CE_ATTR_DIS_INTR),
++		.reserved = __cpu_to_le32(0),
++	},
++};
++
++/*
++ * Map from service/endpoint to Copy Engine.
++ * This table is derived from the CE_PCI TABLE, above.
++ * It is passed to the Target at startup for use by firmware.
++ * Pipe direction:
++ *      PIPEDIR_OUT = UL = host -> target
++ *      PIPEDIR_IN = DL = target -> host
++ */
++const struct service_to_pipe
++ath12k_wifi8_target_service_to_ce_map_wlan_qcn9575[] = {
++	{
++		__cpu_to_le32(ATH12K_HTC_SVC_ID_WMI_DATA_VO),
++		__cpu_to_le32(PIPEDIR_OUT),
++		__cpu_to_le32(3),
++	},
++	{
++		__cpu_to_le32(ATH12K_HTC_SVC_ID_WMI_DATA_VO),
++		__cpu_to_le32(PIPEDIR_IN),
++		__cpu_to_le32(2),
++	},
++	{
++		__cpu_to_le32(ATH12K_HTC_SVC_ID_WMI_DATA_BK),
++		__cpu_to_le32(PIPEDIR_OUT),
++		__cpu_to_le32(3),
++	},
++	{
++		__cpu_to_le32(ATH12K_HTC_SVC_ID_WMI_DATA_BK),
++		__cpu_to_le32(PIPEDIR_IN),
++		__cpu_to_le32(2),
++	},
++	{
++		__cpu_to_le32(ATH12K_HTC_SVC_ID_WMI_DATA_BE),
++		__cpu_to_le32(PIPEDIR_OUT),
++		__cpu_to_le32(3),
++	},
++	{
++		__cpu_to_le32(ATH12K_HTC_SVC_ID_WMI_DATA_BE),
++		__cpu_to_le32(PIPEDIR_IN),
++		__cpu_to_le32(2),
++	},
++	{
++		__cpu_to_le32(ATH12K_HTC_SVC_ID_WMI_DATA_VI),
++		__cpu_to_le32(PIPEDIR_OUT),
++		__cpu_to_le32(3),
++	},
++	{
++		__cpu_to_le32(ATH12K_HTC_SVC_ID_WMI_DATA_VI),
++		__cpu_to_le32(PIPEDIR_IN),
++		__cpu_to_le32(2),
++	},
++	{
++		__cpu_to_le32(ATH12K_HTC_SVC_ID_WMI_CONTROL),
++		__cpu_to_le32(PIPEDIR_OUT),
++		__cpu_to_le32(3),
++	},
++	{
++		__cpu_to_le32(ATH12K_HTC_SVC_ID_WMI_CONTROL),
++		__cpu_to_le32(PIPEDIR_IN),
++		__cpu_to_le32(2),
++	},
++	{
++		__cpu_to_le32(ATH12K_HTC_SVC_ID_RSVD_CTRL),
++		__cpu_to_le32(PIPEDIR_OUT),
++		__cpu_to_le32(0),
++	},
++	{
++		__cpu_to_le32(ATH12K_HTC_SVC_ID_RSVD_CTRL),
++		__cpu_to_le32(PIPEDIR_IN),
++		__cpu_to_le32(1),
++	},
++	{
++		__cpu_to_le32(ATH12K_HTC_SVC_ID_TEST_RAW_STREAMS),
++		__cpu_to_le32(PIPEDIR_OUT),
++		__cpu_to_le32(0),
++	},
++	{
++		__cpu_to_le32(ATH12K_HTC_SVC_ID_TEST_RAW_STREAMS),
++		__cpu_to_le32(PIPEDIR_IN),
++		__cpu_to_le32(1),
++	},
++	{
++		__cpu_to_le32(ATH12K_HTC_SVC_ID_HTT_DATA_MSG),
++		__cpu_to_le32(PIPEDIR_OUT),
++		__cpu_to_le32(4),
++	},
++	{
++		__cpu_to_le32(ATH12K_HTC_SVC_ID_HTT_DATA_MSG),
++		__cpu_to_le32(PIPEDIR_IN),
++		__cpu_to_le32(1),
++	},
++	{
++		__cpu_to_le32(ATH12K_HTC_SVC_ID_WMI_CONTROL_MAC1),
++		__cpu_to_le32(PIPEDIR_OUT),
++		__cpu_to_le32(7),
++	},
++	{
++		__cpu_to_le32(ATH12K_HTC_SVC_ID_WMI_CONTROL_MAC1),
++		__cpu_to_le32(PIPEDIR_IN),
++		__cpu_to_le32(2),
++	},
++	{
++		__cpu_to_le32(ATH12K_HTC_SVC_ID_PKT_LOG),
++		__cpu_to_le32(PIPEDIR_IN),
++		__cpu_to_le32(5),
++	},
++	{
++		__cpu_to_le32(ATH12K_HTC_SVC_ID_WMI_CONTROL_DIAG),
++		__cpu_to_le32(PIPEDIR_IN),
++		__cpu_to_le32(14),
++	},
++	{
++		__cpu_to_le32(ATH12K_HTC_SVC_ID_HTT_DATA4_MSG),
++		__cpu_to_le32(PIPEDIR_OUT),
++		__cpu_to_le32(15),
++	},
++
++	{ /* must be last */
++		__cpu_to_le32(0),
++		__cpu_to_le32(0),
++		__cpu_to_le32(0),
++	},
++};
++
++const struct ce_attr ath12k_wifi8_host_ce_config_qcn9575[] = {
++	/* CE0: host->target HTC control and raw streams */
++	{
++		.flags = CE_ATTR_FLAGS,
++		.src_nentries = 16,
++		.src_sz_max = 2048,
++		.dest_nentries = 0,
++	},
++
++	/* CE1: target->host HTT + HTC control */
++	{
++		.flags = CE_ATTR_FLAGS,
++		.src_nentries = 0,
++		.src_sz_max = 2048,
++		.dest_nentries = 512,
++		.recv_cb = ath12k_htc_rx_completion_handler,
++	},
++
++	/* CE2: target->host WMI */
++	{
++		.flags = CE_ATTR_FLAGS,
++		.src_nentries = 0,
++		.src_sz_max = 2048,
++		.dest_nentries = 128,
++		.recv_cb = ath12k_htc_rx_completion_handler,
++	},
++
++	/* CE3: host->target WMI (mac0) */
++	{
++		.flags = CE_ATTR_FLAGS,
++		.src_nentries = 32,
++		.src_sz_max = 2048,
++		.dest_nentries = 0,
++	},
++
++	/* CE4: host->target HTT */
++	{
++		.flags = CE_ATTR_FLAGS | CE_ATTR_DIS_INTR,
++		.src_nentries = 2048,
++		.src_sz_max = 256,
++		.dest_nentries = 0,
++	},
++
++	/* CE5: target->host pktlog */
++	{
++		.flags = CE_ATTR_FLAGS,
++		.src_nentries = 0,
++		.src_sz_max = 2048,
++		.dest_nentries = 512,
++		.recv_cb = ath12k_dp_htt_htc_t2h_msg_handler,
++	},
++
++	/* CE6: target autonomous hif_memcpy */
++	{
++		.flags = CE_ATTR_FLAGS | CE_ATTR_DIS_INTR,
++		.src_nentries = 0,
++		.src_sz_max = 0,
++		.dest_nentries = 0,
++	},
++
++	/* CE7: host->target WMI (mac1) */
++	{
++		.flags = CE_ATTR_FLAGS,
++		.src_nentries = 32,
++		.src_sz_max = 2048,
++		.dest_nentries = 0,
++	},
++
++	/* CE8: target autonomous hif_memcpy */
++	{
++		.flags = CE_ATTR_FLAGS | CE_ATTR_DIS_INTR,
++		.src_nentries = 0,
++		.src_sz_max = 0,
++		.dest_nentries = 0,
++	},
++
++	/* CE9: MHI */
++	{
++		.flags = CE_ATTR_FLAGS | CE_ATTR_DIS_INTR,
++		.src_nentries = 0,
++		.src_sz_max = 0,
++		.dest_nentries = 0,
++	},
++
++	/* CE10: MHI */
++	{
++		.flags = CE_ATTR_FLAGS | CE_ATTR_DIS_INTR,
++		.src_nentries = 0,
++		.src_sz_max = 0,
++		.dest_nentries = 0,
++	},
++
++	/* CE11: MHI */
++	{
++		.flags = CE_ATTR_FLAGS | CE_ATTR_DIS_INTR,
++		.src_nentries = 0,
++		.src_sz_max = 0,
++		.dest_nentries = 0,
++	},
++
++	/* CE12: CV Prefetch */
++	{
++		.flags = CE_ATTR_FLAGS | CE_ATTR_DIS_INTR,
++		.src_nentries = 0,
++		.src_sz_max = 0,
++		.dest_nentries = 0,
++	},
++
++	/* CE13: CV Prefetch */
++	{
++		.flags = CE_ATTR_FLAGS | CE_ATTR_DIS_INTR,
++		.src_nentries = 0,
++		.src_sz_max = 0,
++		.dest_nentries = 0,
++	},
++
++	/* CE14: target->host dbg log */
++	{
++		.flags = CE_ATTR_FLAGS,
++		.src_nentries = 0,
++		.src_sz_max = 2048,
++		.dest_nentries = 512,
++		.recv_cb = ath12k_htc_rx_completion_handler,
++	},
++
++	/* CE15: host->target MSDU/MPDUQ */
++	{
++		.flags = CE_ATTR_FLAGS | CE_ATTR_DIS_INTR,
++		.src_nentries = 2048,
++		.src_sz_max = 2048,
++		.dest_nentries = 0,
++	},
++};
+diff --git a/drivers/net/wireless/ath/ath12k/wifi8/ce.h b/drivers/net/wireless/ath/ath12k/wifi8/ce.h
+new file mode 100644
+index 000000000000..222b8dddefda
+--- /dev/null
++++ b/drivers/net/wireless/ath/ath12k/wifi8/ce.h
+@@ -0,0 +1,13 @@
++/* SPDX-License-Identifier: BSD-3-Clause-Clear */
++/*
++ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
++ */
++
++#ifndef ATH12K_WIFI8_CE_H
++#define ATH12K_WIFI8_CE_H
++
++extern const struct ce_pipe_config ath12k_wifi8_target_ce_config_wlan_qcn9575[];
++extern const struct service_to_pipe ath12k_wifi8_target_service_to_ce_map_wlan_qcn9575[];
++extern const struct ce_attr ath12k_wifi8_host_ce_config_qcn9575[];
++
++#endif /* ATH12K_WIFI8_CE_H */
+diff --git a/drivers/net/wireless/ath/ath12k/wifi8/hw.c b/drivers/net/wireless/ath/ath12k/wifi8/hw.c
+index 428d6b2b4418..fa64b865b931 100644
+--- a/drivers/net/wireless/ath/ath12k/wifi8/hw.c
++++ b/drivers/net/wireless/ath/ath12k/wifi8/hw.c
+@@ -8,9 +8,11 @@
+ #include <linux/types.h>
+ 
+ #include "../core.h"
++#include "../ce.h"
+ #include "../debug.h"
+ #include "../hw.h"
+ #include "../mhi.h"
++#include "ce.h"
+ #include "hal.h"
+ #include "hw.h"
+ #include "mhi.h"
+@@ -28,6 +30,7 @@ static const struct ath12k_hw_params ath12k_wifi8_hw_params[] = {
+ 			.unified_fw_image = true,
+ 		},
+ 		.max_radios = 2,
++		.max_htc_eps = 13,
+ 		.single_pdev_only = false,
+ 		.qmi_service_ins_id = ATH12K_QMI_WLFW_SERVICE_INS_ID_V01_QCN9575,
+ 		.qmi_max_chunk_size = SZ_2M,
+@@ -36,12 +39,12 @@ static const struct ath12k_hw_params ath12k_wifi8_hw_params[] = {
+ 		.hw_ops = NULL,
+ 		.ring_mask = NULL,
+ 
+-		.host_ce_config = NULL,
++		.host_ce_config = ath12k_wifi8_host_ce_config_qcn9575,
+ 		.ce_count = 16,
+-		.target_ce_config = NULL,
+-		.target_ce_count = 0,
+-		.svc_to_ce_map = NULL,
+-		.svc_to_ce_map_len = 0,
++		.target_ce_config = ath12k_wifi8_target_ce_config_wlan_qcn9575,
++		.target_ce_count = 13,
++		.svc_to_ce_map = ath12k_wifi8_target_service_to_ce_map_wlan_qcn9575,
++		.svc_to_ce_map_len = 21,
+ 
+ 		.rxdma1_enable = false,
+ 		.num_rxdma_per_pdev = 0,
+
+-- 
+2.34.1
+
