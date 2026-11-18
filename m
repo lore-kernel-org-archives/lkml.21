@@ -1,57 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=159.226.251.25
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795016112;
-	b=zKncaLLN69m1hSmWKTrZ9+agn6MHRWc2VVOPCRS2A5TFT3UyCvJmU7N6fkDYT0X01s9c
-	 SFTgP7I6qYdASORy2WS2kVIeZoTXOHEO3PkZMFDqp4A8Kej8ITXEBVyxex+rE1exrJgx1
-	 cp+uZnTBuxV8liWaAiyrTfUm1dFXddjcK2OXcDSDXZsH8QSJVm9oX4R4OTdgcmF61HL+L
-	 IoViSdnR5K136R2ou6CwE/Wl1fwtaHGno1cfW5QEIwvoz4jcPT8s2XrFr1wiNPcQmvLis
-	 lc5wYGoFut7gpW4C1Onv/NCW6SFLFsQzEq5tuLz2SiJRG6vhdGa/Y0nFbHxAk5hfeaQ==
+	t=1795016135;
+	b=sP3GDknzANZETeHMIym9IW1fF/hvAfFglMYrP2DqE+P1uiOmnX5h6EQ9rpDxbmZDE+sN
+	 RWo67lpXe4hzoLz5t2zVO5Vk/Z7s35bZ5HZnL+C2jta8eajVGkMX451zz8mNdZJxMFMGk
+	 xjkRhPA7lWvvN5J9HKqaN/4zg3GZ1D/rKZ/EFFgL3vCGRpY7vs9DiBrKF8FkKjbvMPgi5
+	 AgHPBWayr5AyhOJO6kC4dci0hcUEq0KEkx6/RfMBr5EMPyIo89LuCBONKsuVtBcN0Az3q
+	 6Q5ORsZrYBIMAu/MtoU3GhX7WgcSskysSkZB3+yL01MMc57wkOknScAqYYZlUeyX5Dg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795016112;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
-	bh=lNjdkZvjIUxDtp/K3Gl1QC3YaKGTYA0HwrzGFVxBplQ=;
-	b=zVB3hwQ8L4HjuIu51JYF591KtP6WUkjxpbLXoKLnw1LE6ghLOFheptaQ+pOC9cMrgwg8
-	 IU5X9CGJIZzzraXN0d+Md+WyiPaPlQrDzaHKj8HkZeEAdcSBgbr/cNf7bn9w7Org/NrV8
-	 48hgxOkhylD+IA6Vcntrv1z53wcmnR8EbsQmlXd+GVBQfPcafsVyDy+tq7tXBzXV0nNv5
-	 ojj3X5adSXB+pa4jhckQ72a5YomJHVMcMkFv5dtI9Ke8UVwPeCuwb2GPR0IV6Dwhrb1Tj
-	 b2nl080QoFOYa7lp8/XWHb2R8p0NzCTTITIso8VPUrCqLNj5+rlQ2yGUSq6LOlOVP2A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795016135;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:X-Google-Original-From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=hHbDnBNXsMrfYdPN6XIU4dlwFEIvntxiBuLc1xN7+Vw=;
+	b=RohiIJiO94laTvkFEOcE8NYn2TPzYhECCv+NdesyrLaeGnR0Qq8EgE80w7o/FyXVjVjC
+	 vW9dVheP6N74lkVQol4suXSC71YqBm7kzfb9dY4JLJUcSG0xrsHxyBQkGKkY9knbBuzb4
+	 aHtdZXsNyvKCDttNGFJnHiAVnjrm5DG/zsuBB+OhmSab1oiSA45kBKveJ/baPXrkXCQhg
+	 1LUcdiYAfHzFv/A5ifdHxzzox2QKDBpZiB+OFqrn+VY+8k1+aWbvjJSdCoEx3QgYq74Yq
+	 YyOef3/N2AtAsKgtpiA39v34LIzvOHbrjVZEcbYaBk38VwiALddsPGE0YIAPMiVmu3A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iscas.ac.cn;
-	spf=pass smtp.mailfrom=iscas.ac.cn;
-	arc=none smtp.remote-ip=159.226.251.25
-Received: from cstnet.cn (smtp25.cstnet.cn [159.226.251.25])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yVsQdrqY;
+	arc=none smtp.remote-ip=209.85.219.53
+Received: from mail-qv1-f53.google.com (mail-qv1-f53.google.com [209.85.219.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93E59606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:35:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93E59606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iscas.ac.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iscas.ac.cn
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.102.23])
-	by APP-05 (Coremail) with SMTP id zQCowAB31bqdxf1qc3xpAQ--.6681S4;
-	Wed, 18 Nov 2026 23:34:57 +0800 (CST)
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Simona Vetter <simona@ffwll.ch>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Joey Lu <a0987203069@gmail.com>,
-	Han Gao <gaohan@iscas.ac.cn>,
-	dri-devel@lists.freedesktop.org,
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58AD0606A32F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:35:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 58AD0606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yVsQdrqY
+Received: by mail-qv1-f53.google.com with SMTP id 6a1803df08f44-91ebf4cd218so4185686d6.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:35:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795016134; x=1795620934; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=hHbDnBNXsMrfYdPN6XIU4dlwFEIvntxiBuLc1xN7+Vw=;
+        b=yVsQdrqYH0XxAxVWlxbiF/J5ajV38u5gfxDHPmjnyExLC584nFtzAsyWxOYf6uj2YP
+         hEqZb7NW3c0FzKUag7210xnrqp9J1gqEe+RnfqX4TSgpIgTvg3IsqscrTel+CLcWExbo
+         si5Pi7A3oUUQlU18E4T3Bafax0tRwb+YCFSCwr1nEvQTwXuX6/VKOfvLDzL9uOIB4hDg
+         +QtT6358St+kMyaciaG/+oEWAeredZsB4v0cw4wl4bPz6dnrc5vy6/0FDi6RJ9StFUZb
+         /47E27O4v1+B/YoefJBTGpKmuoy+RP8+aSXi3D8eyvHf1IjvQfHYfBm4TN5K4rigbQv7
+         wNtA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795016134; x=1795620934;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=hHbDnBNXsMrfYdPN6XIU4dlwFEIvntxiBuLc1xN7+Vw=;
+        b=Q03qnTf2CUuv6F+sO933HSE6hWIMAWzBrxP+25F0hO41MOt2z+0Sbc7hygQL3f1eat
+         jpFRHyQ12hFiOOfmvMg7okXi8SH6Uiip0iWGEhpv64iEnlijHgdS5xpzAwQXw4sn0766
+         T6QuaLvlz/w4gweaUzVXkDKtVrCpGWWJbf6onf0BXuFxvJnO9Nn2dCCJKKgiiqQ/8NvZ
+         fIgdPW+F2b1+mjwt6tsIlUzTLEY2HaWHTcqDp5M1YBFObJDFEts95HCcHEol+MgnfOHk
+         XQQhNbFmwdl5c58U/D+dRiit/d1BszZMY1JgnpoN/XAJ11d1Hd2Pl0BjlBNf0M+6P2i9
+         3frA==
+X-Forwarded-Encrypted: i=1; AL+hErElEJY+jvLy85D+0qbbgqunLtaV7vFADvjvF2uwwkzkmVOB8hB63x/azMsRL0rmLwnd4aB1wuNQTqrdUFU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/GTCMjqfK4UsU+eUs88aH7MbS8msLoy3ijumWjAb9tk0YUQseh
+	0Pyuhs8vtUWKAUWIydVIWNPPELSw03HaW+ewy3UYkGrGV4l/IPlGZMsH
+X-Gm-Gg: AZFdTZeD0E058KgPd40KCpuB4QWrsBeqsFTVxUejqbO8j11rYuRaS0A6lSfrq+92NVr
+	Syr8EinOp+sNXp/Wb656dba7bDC076zfYQB/j1vjAPpV6poaZqR3m2k1OfU8mnE1BxQTQlgMw6t
+	oRtwiFjWfvpex0RXOU3ox0bf7Wp0Mnf+iSF5Kyor4wHekm2IrW5gwDCIaFqBT9V3ujqYuEWQXoK
+	ZhGrh285/up4pT8v2fJ0pLXuzKVhvMHjnrqSrZZJL+1AaMKUuz9DFtOEIyFG+L7GuP+mc0Fg+eJ
+	r+CaVvaNhDHMs2OWn4rn+pRBvaxkcdoxh+G/aue640JlWshD65/itGHBcvvp3O1NGVMfqk9KwdQ
+	3dRFXlZ5r1zZcXNV84HAmcrX+kNtIQSQjCNrQJ8UANbUrG+dT3ulKTBM0mAB4t5/taS633OQM7+
+	oxiVfTsPybnca2LYQGM5mSKw8TQ7EiboIcfw5kcuqQqxTHl/I+0c1PTo4/KJfMYGw40Q51S54ys
+	rQvyDVbWIbVwmreLAEYHjpAMEnD7FpIF80TKU8WgaP6drLwhwP1mfmYk6lHTcpVj9KSm/qk63cC
+	OD9/YHIzAmnOrHqWZmUYC+eq9kju82f75huUkkyzT9ZS1bLl6hCSomeSHYn16lGbrI1ve10cRz6
+	VkAQI432l4h5gZoxdD29XHQBcbuGxKRK/GxRAHXQNwa8OZ6PjA88QvLm12VYIbfKZDy8pE7ED8q
+	5AzasKVmaZzH9rKzZaBcmxH7E9cJiPqZq3La4AAqwOvIZc+Zr0XMSAqGtwCRoJ356lTfYkcW+Al
+	ww8Xb5a3vnnB0r8h0d8iRbz5pM9eSEWwmIISXk=
+X-Received: by 2002:a05:6214:623:b0:921:47e:e053 with SMTP id 6a1803df08f44-92114edca2emr43364966d6.53.1795016134019;
+        Wed, 18 Nov 2026 07:35:34 -0800 (PST)
+Received: from coder-gsekar-hip-hyg-new-659c88f9fd-hs8wm.coder.svc.cluster.local (ec2-13-205-193-176.ap-south-1.compute.amazonaws.com. [13.205.193.176])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921148c261bsm24707266d6.0.2026.11.18.07.35.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 07:35:33 -0800 (PST)
+From: Gokulkrishna Sekar <gokulkrishnasr@gmail.com>
+X-Google-Original-From: Gokulkrishna Sekar <Gokulkrishna.Sekar@harman.com>
+To: linux-pci@vger.kernel.org
+Cc: bhelgaas@google.com,
+	mika.westerberg@linux.intel.com,
 	linux-kernel@vger.kernel.org,
-	Icenowy Zheng <uwu@icenowy.me>
-Cc: David Airlie <airlied@gmail.com>,
-	Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Subject: [PATCH v3 2/5] drm/verisilicon: fix DC8200 primary plane disable clearing FB_EN
-Date: Wed, 18 Nov 2026 23:34:45 +0800
-Message-ID: <20261118153448.375639-3-zhengxingda@iscas.ac.cn>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261118153448.375639-1-zhengxingda@iscas.ac.cn>
-References: <20261118153448.375639-1-zhengxingda@iscas.ac.cn>
+	Gokulkrishna Sekar <Gokulkrishna.Sekar@harman.com>
+Subject: [PATCH] PCI: Encode corrected PCIe port type with FIELD_PREP()
+Date: Wed, 18 Nov 2026 15:35:05 +0000
+Message-ID: <20261118153505.95686-1-Gokulkrishna.Sekar@harman.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,56 +101,56 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:zQCowAB31bqdxf1qc3xpAQ--.6681S4
-X-Coremail-Antispam: 1UD129KBjvJXoW7tw15uFWfGryxXrykZFW5KFg_yoW8GF15pr
-	4ayFW8Kr4rJ3yUtFyUtrWvqayak3W7J34Igr47Cws0vrnxtw1Uuay8KF9rGFyDXrZ7G3yS
-	gFsayF4ayr1xA3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPE14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
-	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1l84
-	ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s1le2I2
-	62IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcV
-	AFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG
-	0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI
-	1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_
-	Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17
-	CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0
-	I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I
-	8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73
-	UjIFyTuYvjfUOdgAUUUUU
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 
-From: Joey Lu <a0987203069@gmail.com>
+set_pcie_port_type() validates PCIe port topology and corrects
+invalid upstream/downstream port type information in the cached
+pcie_flags_reg value.
 
-vs_primary_plane_atomic_disable() calls regmap_set_bits() on
-VSDC_FB_CONFIG_EX_FB_EN instead of regmap_clear_bits(), so disabling
-the primary plane on DC8200-family hardware actually leaves the
-framebuffer enable bit instead of clearing it.
+When performing these corrections, the code clears the
+PCI_EXP_FLAGS_TYPE field but writes PCI_EXP_TYPE_UPSTREAM or
+PCI_EXP_TYPE_DOWNSTREAM directly into pcie_flags_reg. The
+PCI_EXP_TYPE_* values are decoded port type numbers, not values
+encoded for the PCI_EXP_FLAGS_TYPE bitfield, so the corrected type
+is stored in the wrong bit position.
 
-Fixes: dbf21777caa8 ("drm: verisilicon: add a driver for Verisilicon display controllers")
-Signed-off-by: Joey Lu <a0987203069@gmail.com>
-[Icenowy: rebased and reworked the commit message]
-Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+As a result, the cached port type may not match the corrected
+topology and subsequent users of pcie_flags_reg can observe an
+incorrect PCIe device type.
+
+Use FIELD_PREP(PCI_EXP_FLAGS_TYPE, ...) when updating the cached
+field so the corrected port type is encoded consistently with the
+format used in the PCI Express Capabilities Register.
+
+Fixes: ca78410403dd ("PCI: Get rid of dev->has_secondary_link flag")
+Signed-off-by: Gokulkrishna Sekar <Gokulkrishna.Sekar@harman.com>
 ---
- drivers/gpu/drm/verisilicon/vs_primary_plane.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/pci/probe.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/verisilicon/vs_primary_plane.c b/drivers/gpu/drm/verisilicon/vs_primary_plane.c
-index 95f4a06039e76..c12fe54096c33 100644
---- a/drivers/gpu/drm/verisilicon/vs_primary_plane.c
-+++ b/drivers/gpu/drm/verisilicon/vs_primary_plane.c
-@@ -89,8 +89,8 @@ static void vs_primary_plane_atomic_disable(struct drm_plane *plane,
- 	unsigned int output = vcrtc->id;
- 	struct vs_dc *dc = vcrtc->dc;
- 
--	regmap_set_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
--			VSDC_FB_CONFIG_EX_FB_EN);
-+	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
-+			  VSDC_FB_CONFIG_EX_FB_EN);
- 
- 	vs_primary_plane_commit(dc, output);
+diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+index 9a178e0e5f7f..7b09a4463097 100644
+--- a/drivers/pci/probe.c
++++ b/drivers/pci/probe.c
+@@ -1674,7 +1674,8 @@ void set_pcie_port_type(struct pci_dev *pdev)
+ 		if (pcie_downstream_port(parent)) {
+ 			pci_info(pdev, "claims to be downstream port but is acting as upstream port, correcting type\n");
+ 			pdev->pcie_flags_reg &= ~PCI_EXP_FLAGS_TYPE;
+-			pdev->pcie_flags_reg |= PCI_EXP_TYPE_UPSTREAM;
++			pdev->pcie_flags_reg |= FIELD_PREP(PCI_EXP_FLAGS_TYPE,
++							   PCI_EXP_TYPE_UPSTREAM);
+ 		}
+ 	} else if (type == PCI_EXP_TYPE_UPSTREAM) {
+ 		/*
+@@ -1685,7 +1686,8 @@ void set_pcie_port_type(struct pci_dev *pdev)
+ 		if (pci_pcie_type(parent) == PCI_EXP_TYPE_UPSTREAM) {
+ 			pci_info(pdev, "claims to be upstream port but is acting as downstream port, correcting type\n");
+ 			pdev->pcie_flags_reg &= ~PCI_EXP_FLAGS_TYPE;
+-			pdev->pcie_flags_reg |= PCI_EXP_TYPE_DOWNSTREAM;
++			pdev->pcie_flags_reg |= FIELD_PREP(PCI_EXP_FLAGS_TYPE,
++							   PCI_EXP_TYPE_DOWNSTREAM);
+ 		}
+ 	}
  }
 -- 
-2.56.0
+2.56.1
 
