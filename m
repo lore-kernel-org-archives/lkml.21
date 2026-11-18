@@ -1,55 +1,54 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794968560;
-	b=jQ19SVSGOBxuptrh3DjzjhBTDe5YzKRwBu6jcnHvyfxTBFoqOkqTw2ApidBlXeEEEc/x
-	 s0+1QJcvhqCtG8mzguVcomkAcd2VpGMwGJONmH1brcEt+BTJdeoQJDGoEbU7PZ2Aqv0uT
-	 ssga2iiw2D6B1obPzAq71QrP3bxsaGdbiCAhgJbTIRRZDl7YNOEkCN05aBMQw/BIRNWZh
-	 xAe703LKz4ZVn7pdTRe5rNSONQeA3cBw5FWrtAJhGBIKRQl9EljFhDwEmP57EW40bkEeC
-	 Ao62au9YQoNHNKPCHKfRMBji+sSpJmm5mIpwt3tHlMWidDITBDa+ZAORiDeEcKlqEpA==
+	t=1794968555;
+	b=G5IOiJfAmO/zQQKtNltiOQ83+gWzpql3ZvJcv9XCcs85sco9pKlWNuJiLybQkyMNyvMP
+	 iFY4eGtK5j9u4V82zlbdIrK1dM3qim8d5PMGAhtuDWEH9+DWf240k4iLYVvcygm0lGn7P
+	 fPTbt6SeyBo0cyPmXFYkaT1G0q4rOzZxXOHbiGEYZ4tcIhYb4SNzvl07VaicGqUUy5eJl
+	 o0XQuC4XJoKzuz5tLyYa31jW44KTN8SATp0YAHt5OkRWeDvfn0/60DiSpG6vGQwrWHwWK
+	 AyRc5KmLMIgqstRm0IMtgmjCkS02B7ifRGKur0Zh/am1assg1S8cbIpODcJEcaLteBQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794968560;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794968555;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=W6sgrGq/PIPvl2dUtr0MUNu6vsfTRiTVsaaYrgPkigI=;
-	b=fEWOxdzx+J2o65+EPSzlFzLzvCtoXrnZeKUwqI0j+hpgU6GMQ9NfwciC9O7g//k7P1Qj
-	 4Uy0PXE39Ve+BFbxyJVt8CkP7X59eqUb25MQu7+W4g/dVJQMcM6XYxrznSNeIf8KxECoi
-	 t3X496BV9ZHd1EVgGsyBKh+bJJBgMynUMxazZnLx6C4uBkQRqH+ERyziR6MxCxKHMGtNf
-	 fJI6bg8xWV0lSJAXnoPuVR5KfemkBqxsz8p68bZpwxgj5+14bkshlWZW0SrxRAJmfeLY4
-	 1bKWm8ZNWMDgD4+r39+kpOShdxfgPebiSBSDFtrnY3gYFUpt3KOjYszeZgg85RpBPYw==
+	bh=kHhnYqoQe1EhM4f5cyc2l4mme4lRuHhy4MnQ2nEOlUo=;
+	b=oTzx5SQbI7U71mC0L4xk5hRucfWp0NCUylXSAzW3+WBzX70HSfp3G0mwj9kBmypzrItW
+	 ANrQJ1ZETGEdJNSAAYI1Dxdb/LzzZDWggYzozWiSxu0A+0GFCwLlsqqY3FM1ELVofv0U7
+	 cbIaJeqRxh/zet8hZS4TvlNr6I/tUj2d3zWpMdho3I5JU2gCanOUflgZcjeUMzPmThF3/
+	 n/1jDJcMejIRTvKM71WNoeSZz9+DzaSdSn40MNfJ5ECu1Kw/6sfHFHWkrVt/0hQDGqQIe
+	 O7visR5xj7yjT2N82YoVuUfrFea2DaJJA6RLJenZsX88OfTXSeP6WlODY/hh9SDRrbw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nx1g8nk8;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dnEB0gVC;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D86A3606B566;
-	Wed, 18 Nov 2026 02:22:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61633606A8B3;
+	Wed, 18 Nov 2026 02:22:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nx1g8nk8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6765A1F0093B;
-	Wed, 18 Nov 2026 02:22:40 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dnEB0gVC
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AE091F000CB;
+	Wed, 18 Nov 2026 02:22:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794968560;
-	bh=W6sgrGq/PIPvl2dUtr0MUNu6vsfTRiTVsaaYrgPkigI=;
+	s=k20260515; t=1794968555;
+	bh=kHhnYqoQe1EhM4f5cyc2l4mme4lRuHhy4MnQ2nEOlUo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Nx1g8nk88w+k5bEx5XcdXAfwU+9OiWqJRGKxYuZmw0O53h5HDZbLdkvsj7gAgWvTA
-	 4PeHAObfpdNB0wTN9BCXw131W7TDlYQ+A2kA6gsAMXBf9/rf9umgorg+50rgTTRA81
-	 gdjI+9/mQs+LAjSPYmLXClCn/BbHfeZIaR4SV8hvNOpu+vZoaUjcIkHH4/FOW+WcMZ
-	 3HnpKMPi5TU/jXej9S1C4m3BNPpz/oRIU+LUUf4fHmgADhdr56kfoRIyb4gpDBPi3E
-	 Kou6Tde9TodAlqRDzff8jmYTiwgzwr/C1vigVzF9OBHgsGlm0UxIX+VhgJzMAd7xQf
-	 Kw8xcSnK3aCKA==
+	b=dnEB0gVC6et4IrG9LHg9PAvALWa7uIN5NdBb4F2A42PPeV0JpvH+Wpas86V5CKI8G
+	 ULD6oxqzsRL1n2tuCicc8G5fggKD5pE2xrxK3agzTTqx/JZuqT7ER8uovLb76rDd96
+	 fh4e2aX4wrFzUx0JDzzFkohUbl7WI0tIDQWn+Qr0r4pa/pKgWRUhNYg6n0ybWKgePu
+	 u27xAFrlV+GytjKdkTC1dWMBcS803rPFvhTnEEXJVddUI0RMAfeyJ8RzYvxz3t3o75
+	 c3mkxcx77NNOPtol/81BTYV0GssChMvHc2UR3OdgUqqoSt4ygjpo8d2pv1lRTq5qOs
+	 I9ZqPIfFPocEQ==
 From: SJ Park <sj@kernel.org>
 To: 
 Cc: SJ Park <sj@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
 	damon@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
 	linux-mm@kvack.org
-Subject: [RFC PATCH v2 24/27] selftests/damon/sysfs.sh: add basic tests for admin/reports/
-Date: Tue, 17 Nov 2026 18:22:19 -0800
-Message-ID: <20261118022225.100659-25-sj@kernel.org>
+Subject: [RFC PATCH v2 08/27] mm/damon/sysfs: implement report producer type and state files
+Date: Tue, 17 Nov 2026 18:22:03 -0800
+Message-ID: <20261118022225.100659-9-sj@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261118022225.100659-1-sj@kernel.org>
 References: <20261118022225.100659-1-sj@kernel.org>
@@ -64,83 +63,121 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Update sysfs.sh DAMON selftest to cover basic file operations for the
-sysfs files under the admin/reports/ directory.
+Implement report_type and producer_state files under the report producer
+directory.  The type file receives the type of the reports that the
+producer will generate and submit to DAMON.  The producer_state file
+enables and disables the producer.
 
 Signed-off-by: SJ Park <sj@kernel.org>
 ---
- tools/testing/selftests/damon/sysfs.sh | 52 ++++++++++++++++++++++++++
- 1 file changed, 52 insertions(+)
+ mm/damon/sysfs.c | 80 ++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 80 insertions(+)
 
-diff --git a/tools/testing/selftests/damon/sysfs.sh b/tools/testing/selftests/damon/sysfs.sh
-index 1cc7ab2d7e22f..577953ee4e631 100755
---- a/tools/testing/selftests/damon/sysfs.sh
-+++ b/tools/testing/selftests/damon/sysfs.sh
-@@ -510,6 +510,57 @@ test_kdamonds()
- 	ensure_dir "$kdamonds_dir/1" "not_exist"
+diff --git a/mm/damon/sysfs.c b/mm/damon/sysfs.c
+index 7c6bc30c12125..7cdbe2fedf7d8 100644
+--- a/mm/damon/sysfs.c
++++ b/mm/damon/sysfs.c
+@@ -2983,6 +2983,8 @@ static const struct kobj_type damon_sysfs_kdamonds_ktype = {
+ 
+ struct damon_sysfs_producer {
+ 	struct kobject kobj;
++	enum damon_report_type report_type;
++	bool enabled;
+ };
+ 
+ static struct damon_sysfs_producer *damon_sysfs_producer_alloc(void)
+@@ -2990,6 +2992,77 @@ static struct damon_sysfs_producer *damon_sysfs_producer_alloc(void)
+ 	return kzalloc_obj(struct damon_sysfs_producer);
  }
  
-+test_producer()
++struct damon_sysfs_report_type_name {
++	enum damon_report_type type;
++	char *name;
++};
++
++static const struct damon_sysfs_report_type_name
++damon_sysfs_report_type_names[] = {
++};
++
++static ssize_t report_type_show(struct kobject *kobj,
++		struct kobj_attribute *attr, char *buf)
 +{
-+	producer_dir=$1
-+	ensure_file "$producer_dir/report_type" "exist" "600"
-+	ensure_write_succ "$producer_dir/report_type" "user_report" \
-+		"valid input"
-+	ensure_write_fail "$producer_dir/report_type" "foo" "invlid input"
++	struct damon_sysfs_producer *producer = container_of(kobj,
++			struct damon_sysfs_producer, kobj);
++	int i;
 +
-+	ensure_file "$producer_dir/producer_state" "exist" "600"
-+	ensure_write_succ "$producer_dir/producer_state" "on" "valid input"
-+	ensure_write_succ "$producer_dir/producer_state" "submit" "valid input"
-+	ensure_write_succ "$producer_dir/producer_state" "off" "valid input"
-+	ensure_write_fail "$producer_dir/producer_state" "foo" "invalid input"
++	for (i = 0; i < ARRAY_SIZE(damon_sysfs_report_type_names); i++) {
++		const struct damon_sysfs_report_type_name *type_name;
 +
-+	ensure_file "$producer_dir/addr_start" "exist" "600"
-+	ensure_write_succ "$producer_dir/addr_start" 123 "valid input"
-+	ensure_write_fail "$producer_dir/addr_start" foo "uinvalid input"
-+	ensure_write_fail "$producer_dir/addr_start" "1.23" "uinvalid input"
-+
-+	ensure_file "$producer_dir/addr_end" "exist" "600"
-+	ensure_write_succ "$producer_dir/addr_end" 123 "valid input"
-+	ensure_write_fail "$producer_dir/addr_end" foo "uinvalid input"
-+	ensure_write_fail "$producer_dir/addr_end" "1.23" "uinvalid input"
++		type_name = &damon_sysfs_report_type_names[i];
++		if (type_name->type == producer->report_type)
++			return sysfs_emit(buf, "%s\n", type_name->name);
++	}
++	return -EINVAL;
 +}
 +
-+test_producers()
++static ssize_t report_type_store(struct kobject *kobj,
++		struct kobj_attribute *attr, const char *buf, size_t count)
 +{
-+	producers_dir=$1
-+	ensure_dir "$producers_dir" "exist"
++	struct damon_sysfs_producer *producer = container_of(kobj,
++			struct damon_sysfs_producer, kobj);
++	ssize_t ret = -EINVAL;
++	int i;
 +
-+	ensure_file "$producers_dir/nr_producers" "exist" "600"
++	for (i = 0; i < ARRAY_SIZE(damon_sysfs_report_type_names); i++) {
++		const struct damon_sysfs_report_type_name *type_name;
 +
-+	ensure_write_succ "$producers_dir/nr_producers" "1" "valid input"
-+	test_producer "$producers_dir/0"
-+
-+	ensure_write_succ "$producers_dir/nr_producers" "2" "valid input"
-+	test_producer "$producers_dir/0"
-+	test_producer "$producers_dir/1"
-+
-+	ensure_write_succ "$producers_dir/nr_producers" "0" "valid input"
-+	ensure_dir "$producers_dir/0" "not_exist"
-+	ensure_dir "$producers_dir/1" "not_exist"
++		type_name = &damon_sysfs_report_type_names[i];
++		if (sysfs_streq(buf, type_name->name)) {
++			producer->report_type = type_name->type;
++			ret = count;
++			break;
++		}
++	}
++	return ret;
 +}
 +
-+test_reports()
++static ssize_t producer_state_show(struct kobject *kobj,
++		struct kobj_attribute *attr, char *buf)
 +{
-+	reports_dir=$1
-+	ensure_dir "$reports_dir" "exist"
-+	test_producers "$reports_dir/producers"
++	struct damon_sysfs_producer *producer = container_of(kobj,
++			struct damon_sysfs_producer, kobj);
++
++	return sysfs_emit(buf, "%s\n", producer->enabled ? "on" : "off");
 +}
 +
- test_damon_sysfs()
++static ssize_t producer_state_store(struct kobject *kobj,
++		struct kobj_attribute *attr, const char *buf, size_t count)
++{
++	struct damon_sysfs_producer *producer = container_of(kobj,
++			struct damon_sysfs_producer, kobj);
++
++	if (sysfs_streq(buf, "on"))
++		producer->enabled = true;
++	else if (sysfs_streq(buf, "off"))
++		producer->enabled = false;
++	else
++		return -EINVAL;
++	return count;
++}
++
+ static void damon_sysfs_producer_release(struct kobject *kobj)
  {
- 	damon_sysfs=$1
-@@ -520,6 +571,7 @@ test_damon_sysfs()
- 	fi
- 
- 	test_kdamonds "$damon_sysfs/kdamonds"
-+	test_reports "$damon_sysfs/reports"
+ 	struct damon_sysfs_producer *producer = container_of(kobj,
+@@ -2997,7 +3070,14 @@ static void damon_sysfs_producer_release(struct kobject *kobj)
+ 	kfree(producer);
  }
  
- check_dependencies
++static struct kobj_attribute damon_sysfs_producer_report_type_attr =
++		__ATTR_RW_MODE(report_type, 0600);
++static struct kobj_attribute damon_sysfs_producer_producer_state_type_attr =
++		__ATTR_RW_MODE(producer_state, 0600);
++
+ static struct attribute *damon_sysfs_producer_attrs[] = {
++	&damon_sysfs_producer_report_type_attr.attr,
++	&damon_sysfs_producer_producer_state_type_attr.attr,
+ 	NULL,
+ };
+ ATTRIBUTE_GROUPS(damon_sysfs_producer);
 -- 
 2.47.3
