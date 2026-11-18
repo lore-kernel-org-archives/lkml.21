@@ -1,100 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.179
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795020062;
-	b=tyUKCznRD03+U6p90fVmCO+n4WQqStFXvMza0BrQRC635RFUedVGBYxMJqDKcGsJZXym
-	 Y8UBwk20M9qoUdBUqunZqrIzlGjjvSLLVhh14FpJM9miX79QeA7yjo36p2JloK8lvtHHd
-	 IocFPfMCZg4iC88J6NUqEw29sRSs3gEc2HyaaABEZepJn/JCyW5WBUw6ENYqtcqlea4vG
-	 ieRyRAutUUjV4zGCBqlIG9G/O9cJygF4YA0zA9QYiYIAYxob1NjcErqmPXWXm0KshKQ4Y
-	 oIR3t1gyjHEp49X6Bf2DF5aoORtICL3pPa7v6qtsKvciUDPlAUdOR2ZcF4HN3+nRung==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795020062;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.42
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795020073;
+	b=LT1qV3jmvGyNidxanXcQxgKYw5BLqcmAJhrdTUyn3+s0XXF2cDaS2WwRX4faibDbk1zx
+	 jHwHVdnancaF5N1ayAG+DGsl9kb5xk4UYpnuZz0YTkfI1JAhrfa6voQmL+Spm4iLVIDoG
+	 H1qtVW9716J0bP5TpnxJn/RPTx9fewvncazn6Zs+LWfQrkF0M+URuVPhm2rAuNcOzW7PP
+	 u2DxmNon+sNhPgpE033ZzQb2U19n0UpKb5sNDghmmWZPQNxz9kdDK4noXIM0X6q1SGhOk
+	 yLjRn2aY8Ye09bXilK1hGbBianiOK+SllPdKoA/YgiU3RnmSnLznlPVaa8XlSi7wE5Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795020073;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=zNj1ZiOii4huTkwwxrEikQoB6e6UFur9DfGbzo+0Afk=;
-	b=d7FBYeIF/23GMT/fdcvDYtQieiS9n+9C6Jpx4zHvmSETYXfqf6Do3JIPHGzwmba5YPqk
-	 CP+eNT+QygLpKAGhSoB6BiFQtpGDQW5e/hpO0iu9eV3mtKAV9e0BY+bp2sLf/dqqhPguD
-	 bvg1VRyUVUm1fIynDCctwKh7OX0OlY0f/CnMDuOxByUTvP2zcBybI7Zh4wt7yMPODAFQf
-	 jDT32unZ7wDXl1OThVNO5jCOY1PAgbBU7Lg3GbchWG/5EVPozKqWQeUYToKEhFTTYSX9I
-	 Qjhg32ZBjbdcYUqWeY8b865GLJ+/s84UmodgCkFGD+VFO1AlsInXe1D6bEiY2CtwXxg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=dvAzJc66WDQmGpxUAtDLCtw0eHNkjSaLiA8bjaXpai0=;
+	b=aS2Uv50lRjj6gRPamIbQMsuae4Jcv6p7fBBeJ+EYx0BZVXif5I4Vcb8E/CjWD7q233tR
+	 vk5IpO9O2s9Uim2tLMXkjS22B5EDAEdIyAJDqqJHLMCwG6ddUwphRirhpamatzbsXPdyj
+	 PS2eGA3eLoDWRFb7lOOVGDP/JjH9C6muoNuPzwAzSANGiiZcpvbRoZXC3T3XMguQuyUZm
+	 KcQ6KTM/whKP1THv/E6SxpQf11SG7RPDwma1sPB5VedJ31xA1AostDLOlF9F3iblwY8uP
+	 x3qlC5Vwwm6xg3GbS+VHA0a2AwTWK6uLklDpbRf8VWN5AIHmSAQIMaR1jjajpAIXKWQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jiCp4X7d;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.179
-Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rXhvMG6C;
+	arc=none smtp.remote-ip=74.125.82.42
+Received: from mail-dl1-f42.google.com (mail-dl1-f42.google.com [74.125.82.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF547606A33F
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:41:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF547606A33F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8703606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:41:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C8703606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jiCp4X7d
-Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-33bf40b0c8bso2901932eec.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:41:01 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795020061; cv=none;
-        d=google.com; s=arc-20260327;
-        b=aDiPOHx9W5aV4BbdFomw0Cc+RGqWUdYP6fOv/HnI+MVxnGfLUfmM3urrVw7UxOCIme
-         fUkg/BM2/PogtKQHjBXgPpF6LSF+8vs4SywUGHBVxRgK6Bi365peQ0jtb8HBZcHr3OEp
-         Vd3+VaUh3+Td3Ehd7E/8jUp3mmjF3F3KOJXbKL0+9+pFtu4plN7bt0yQwZji4V+kw8Tg
-         6qh1aqLioLudbZXg43BMLyspgSjDiitWCCFkRHUi8rpFQQO0bP+D19iYepoMrWhCkZJg
-         GS8fu8/hQRmBJhh1V7r495G45LufBVQKTBf3ZEmnlrL6fo9V4v9VYCWZh1gmQxU4MH0f
-         2LvA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=zNj1ZiOii4huTkwwxrEikQoB6e6UFur9DfGbzo+0Afk=;
-        fh=/lFgw2HikQQ3x7j17DUOJ1FD7Whqw4a4KS8kjI1HQ9w=;
-        b=S+bfuAbSlDTFRHdLkQO4LDD42eslFX8PmNAZIMCnxzzpumcOxM0IBx7B10Ewt+ubmY
-         EIS/zbFNSCHbVyUvLRLqTjGkKRm/RrR3p8OC++OeXZoq/jsBDhrAN3FinG9SOi8dWnsH
-         KnAm2XM+CKFMDzbahqYbjyKMUN8lID+iw8bPLrucRs5mMAmnMfAJABINqKB5jN8Two+w
-         ybeOvPBpAkmrWHhb+tlim7r3aGKPG2pHiiNKDAPswb256bEpdgMuPHOq5PM8faXRDuy8
-         ysTy7kVZtUXj3k6DwmBUrnmD0+g1x+/6OkubVamgU6yYU8/h6SYsn2JpPFeI5U8ysq5V
-         oUIw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rXhvMG6C
+Received: by mail-dl1-f42.google.com with SMTP id a92af1059eb24-1b546061d58so1797274c88.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:41:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795020061; x=1795624861; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=zNj1ZiOii4huTkwwxrEikQoB6e6UFur9DfGbzo+0Afk=;
-        b=jiCp4X7d/JQEMhM6ZkEZrAXPNUliV/kw+xXLCjjNzUEdURSYlpXUCoaxg47mgCuX1t
-         hhgmiC1Blo3JKGyuC7qafAC7ofVUDtKDgSGDT1j3ozlySq+RiEesBgU3FyEvCyDErAoY
-         yWC/jt2DpWMpgp/KdYkS7L0QNMWHss7lzApj3v4efvmXczOPfGMf6pUInvlnqR3cwjey
-         1hi/aQoIMZc1LIOSdM0Ys4cKAeeYi3sjz2/YY0omV2K/tZ9F4iDxsjRUmlo8/cXF9+Qr
-         I0K2QeER0T+0sIlT8wxIOn77bpWQjXWFOVO9/jMacjO4xnnE+iRAbtjxCKsFL9ER8AQu
-         hPXg==
+        d=gmail.com; s=20260707; t=1795020072; x=1795624872; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=dvAzJc66WDQmGpxUAtDLCtw0eHNkjSaLiA8bjaXpai0=;
+        b=rXhvMG6Cyh05y9uIqxkR4ZKq0h0kgeiEZTS34LWaJ1SvJAdSsoHB+zIpzHEF+wSb1n
+         kWRg4AQwFTDq5s2oPEXpuxQlFYjZVd0OpllFBW6/hcKNWMDdxGATPpktI2m6gTRhd9tR
+         BdYMrhJI1I2TrB05zND+Xmb/thS/NbLA83tL6jam2JouBd+f6c/ue1D9R3CIpx8/Uk0j
+         2uNmm6D/CBTz8jPnPbuv/CU5sp8clNXEQ0qIPTqClGhsHyCgcUJwKeE16kVr8Cu8ooNF
+         8uj6cN+sldH3DO0noqZiLvOcjFbfbPAZQvR0W6zJR7vriCsCDOiBTC79yk8qXHK9fLj4
+         J/uw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795020061; x=1795624861;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=zNj1ZiOii4huTkwwxrEikQoB6e6UFur9DfGbzo+0Afk=;
-        b=pl/qcJfGS2zW7xl+KelStecIdj8bbx3Mctk97wSoIehUYULeWpy9bvc5AXY0HDNrNx
-         /h/Okgl/HuU8akBplJU7qSxVSdlGME9PvCFInz/d0QP+Ttjjro6FzJ7Pf7imh+eo844V
-         L+feHD4Lc/KrXXwxwwbzygU45lWPTxV5xIbTILL8spx+sC0akFzHjRXcNEam3JPhrUUQ
-         3NXid6Uaps0gzsellMTv5+8WX+/S0vTaJn5Rv6Z0jmtAhXf6jSNCZ6ev8Yh8S5EUt0i5
-         W5LTntojAtLZurgazfYJnOhULD7eiY+5j4yH7B6LLoeIPaoTzEljRENx/VAmMh+1+Fv9
-         rJrQ==
-X-Forwarded-Encrypted: i=1; AL+hErFIOQV8b00RQSiWoo5JueeDvVk8zF04SPuwgz9PI1reD0vGhZevBAOg1Gu7g3G19Fjx4+rU8AqsGSqIajM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+E/H4cqwRxCHyVGN4sxNA49/LuI0clakJjCPs82/etioajIhhx
-	jP/OGhkRPr3sBSghiBgg+g5Z/dr1OGiV+Psahitr8SvdVLGhwMeLP+yjWT7znfQhDG70i7BX3h7
-	QaweBmdXrrEq9osEh0GRjsrArmrLSQcw=
-X-Gm-Gg: AZFdTZcFhB1hBkQn/gnjynwhb4GpN3svjYiKPBIAwoT54rDmrKlxFDpDWTd+2xpYFzg
-	PtLBJ1szxwmOqXp8+Jeyvxt2N2J9yXSM1JB8+l+TeZJJqXyy8L48gLdkeauho3nm3VIaKPZaBwX
-	CeBgxNm9Otv+G17Vu73TxiCFomLBNCN5pcWKEqWXrzvwSSftWADPCGy1FHar6dNCt+96zuNTcGA
-	6aUFggKLszesqxVHUN6qKAw0neVn5ZA+w04AB/ayw18LpzTv38yVW1fAK7rfePOqugkRVp7SAtm
-	n/HIj4YLHieko6g17ZK38ImJvQ13kGcQXzj8fWfxnQGC3/04I/SvkqPoSZPgo912nOur2jw4pBK
-	KKsE6bIOtT8Z4hFUxLT1Y9G0DUnhTl60tB4y/KmE=
-X-Received: by 2002:a05:7301:18a3:b0:378:314:4042 with SMTP id
- 5a478bee46e88-3828016fee6mr2937643eec.14.1795020060831; Wed, 18 Nov 2026
- 08:41:00 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795020072; x=1795624872;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=dvAzJc66WDQmGpxUAtDLCtw0eHNkjSaLiA8bjaXpai0=;
+        b=d/bYXOxHkVwftwixvWUDWukwuGH0fil4pZpTeVWyRkAmALiUbNQgXmuYhfZEYD9NOy
+         mhmD3MjuJT67aYY4rbJtId5pHggYRBmoNmDrte1Q3fDYNJK36KLcnss/AXf3xZMN6/Kc
+         J1N04VG9+ibvkKT8RnUrzJV/yCpz2mCdE+X85NtjTbsZrJ8hoUSEeiQSTArg4+RNBcY2
+         lPbR0BttHwX6wi/GIFl9qsznWkp2FVUFk2yBytA47zI4jctena+D3wRHWBYAHHhwDc7J
+         znOBkjKcGPRqcn7qeF3e+C4n8faCztCUkLGjWSZb7fdqf8oPx4FfoEuEtbxeo/eobk4W
+         tVng==
+X-Forwarded-Encrypted: i=1; AL+hErEHAKSqt8SLK05aRlBxLGVv1T0ZxLSIneyVuScQ3/WF5qNBNj5VNJIGBNOefCBfr12GBLYWW/WZMrsx7BQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/lBe0keS2Qb67tqNaF8VWBtu3SjnkOV+ITaqqGPm40Zu7w7L0t
+	IWtX4dEb8JytdTrDF0LdBhR1IgzXPK8BuS/zjmH3bdlHLTNdKlAOvEbH
+X-Gm-Gg: AYBFou1l3S3PUTa8gK15BBjrU4cgNerh3AvcQKpbFOl9qxrPNG6k+XJXPGyjUe5cQON
+	BI8EuGAMuhfiYHyTLnDdiS08tbu6zZQSZqSQ08rZyTAFPe4x7GaKUEoqABXb3RsIQvmGHmJBBFX
+	5z4YJn3JL7y1PGkX7EpMrQxXltkrtYsXYy6qqCUKzZoKUm4qzFneAkLxEAF50CfzuqifnTFuXfK
+	4QYpM/Gw5LpkTVepu3eDu/ZoSoQhcGWC8BW2NOP7dh77yduLnG/6v9H4KzZE3y911t6xs097H7W
+	UyO71Ny2u3SJpJXDVdBRcq9qaYPBsM8k67DALUtnAtE8vyVTfOpF8/PTnhSJt2Z+kvp7VFbN9O7
+	eEWLRSe+YAarciLvQbh0aPPq/jGgDpcCXnxcw8tyYok1rSicjCRcwvelSPR2HYCnJ1B/dgqtggb
+	T1On+iPpBmy7n5uKpUT/D/d6zW1zHKyJgtF6tkzEcbePDjw/vxGVaPOaqQEehHhA70etlxQL26p
+	8AZU+DRFGYU/0DNPyGW4vx8UFxb1IDK/FKzzBgwAj4Xr4WHZN1hw1onHhdxxP2oA5e0f1UXxmqg
+	27UXzkPRa+qlPS3LR0iv8+R9XyE0fR76ggZ6D3X7yJ83oUG60RG+TQ==
+X-Received: by 2002:a05:701a:c961:b0:1b5:2bcb:8691 with SMTP id a92af1059eb24-1b543c447e7mr2952861c88.42.1795020071657;
+        Wed, 18 Nov 2026 08:41:11 -0800 (PST)
+Received: from csl-conti-dell7858.ntu.edu.sg ([155.69.195.57])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447dc5e9sm11140414c88.11.2026.11.18.08.41.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 08:41:10 -0800 (PST)
+From: Maoyi Xie <maoyixie.tju@gmail.com>
+To: Jonathan Cameron <jic23@kernel.org>,
+	Song Qiang <songqiang1304521@gmail.com>
+Cc: David Lechner <dlechner@baylibre.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Praveen Kakkolangara <praveen.kakkolangara@aumovio.com>,
+	linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] iio: magnetometer: rm3100: check TMRC in rm3100_get_samp_freq()
+Date: Thu, 19 Nov 2026 00:41:06 +0800
+Message-Id: <20261118164106.4108794-1-maoyixie.tju@gmail.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,54 +99,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261028164539.3471833-1-henryzhang62@gmail.com> <d76571d7-6c5e-4a36-85e3-db5a5b0cc2aa@igalia.com>
-In-Reply-To: <d76571d7-6c5e-4a36-85e3-db5a5b0cc2aa@igalia.com>
-From: Henry Zhang <henryzhang62@gmail.com>
-Date: Wed, 18 Nov 2026 08:40:49 -0800
-X-Gm-Features: Aa3M54qe_yD0XNC9GaTofiJrDb-PQ0zcKl37JpPx5Zb8JNEkYSkgfuhaEqLV0WU
-Message-ID: <CANTW0yoj3VstRJ_omwyc=7xBk+VhovWH6wG9xJu5ObbE_nqk4g@mail.gmail.com>
-Subject: Re: [PATCH v4 0/5] drm/vc4: dsi: Make failed reads visible and recoverable
-To: =?UTF-8?B?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>
-Cc: Maxime Ripard <mripard@kernel.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 18, 2026 at 6:35=E2=80=AFAM Ma=C3=ADra Canal <mcanal@igalia.com=
-> wrote:
-> Applied the first patch (1/5) to drm-misc-fixes, thanks!
->
-> I'll leave the review of the rest of the patches for Dave, as he has
-> more expertise on the DSI side. Anyway, you should consider addressing
-> Sashiko's comment on 4/5.
+rm3100_get_samp_freq() reads TMRC from the sensor and uses the value
+minus RM3100_TMRC_OFFSET as an index into rm3100_samp_rates[] without a
+check. A value outside 0x92 to 0x9f reads outside the table. The driver
+only writes values in that range, so this needs a chip or bus that
+misbehaves after probe.
 
-Thanks, Ma=C3=ADra.
+Commit 792595bab492 ("iio: magnetometer: rm3100: add boundary check for
+the value read from RM3100_REG_TMRC") added the check to
+rm3100_common_probe() after a crash on failing hardware. Do the same
+here and return -EINVAL.
 
-Sashiko's comment is on 5/5. It concerns the single reg_dma_mem buffer
-used by the DMA write workaround on BCM2835 DSI1. The threaded
-interrupt handler writes INT_STAT through the same buffer as the
-transfer path, without serialization, so a concurrent write to CTRL in
-the timeout path can receive the wrong value.
+Found with a CodeQL-based static analysis tool that we are developing.
+Reproduced in a userspace harness under ASan and UBSan, which report
+nothing with this patch. Not tested on hardware, only compile-tested
+with W=1 on next-20261116.
 
-This race predates the series and also affects the existing timeout
-path. I sent a separate fix the same day:
+Fixes: 121354b2eceb ("iio: magnetometer: Add driver support for PNI RM3100")
+Co-developed-by: Praveen Kakkolangara <praveen.kakkolangara@aumovio.com>
+Signed-off-by: Praveen Kakkolangara <praveen.kakkolangara@aumovio.com>
+Signed-off-by: Maoyi Xie <maoyixie.tju@gmail.com>
+---
+I used an LLM to help write the harness and this patch.
 
-    [PATCH] drm/vc4: dsi: Serialize register writes through the DMA workaro=
-und
-    https://lore.kernel.org/all/20261028181720.3476629-1-henryzhang62@gmail=
-.com/
+ drivers/iio/magnetometer/rm3100-core.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
 
-That patch serializes the shared-buffer writes, while 5/5 keeps the
-interrupt handler out during the reset itself. The separate fix is
-compile-tested only; the RP4 tests do not exercise the BCM2835
-DMA-workaround path.
+diff --git a/drivers/iio/magnetometer/rm3100-core.c b/drivers/iio/magnetometer/rm3100-core.c
+index 46fce2978d76705..2fec02e5679eaf7 100644
+--- a/drivers/iio/magnetometer/rm3100-core.c
++++ b/drivers/iio/magnetometer/rm3100-core.c
+@@ -279,6 +279,7 @@ static int rm3100_get_samp_freq(struct rm3100_data *data, int *val, int *val2)
+ {
+ 	unsigned int tmp;
+ 	int ret;
++	int samp_rate_index;
+ 
+ 	guard(mutex)(&data->lock);
+ 
+@@ -286,8 +287,12 @@ static int rm3100_get_samp_freq(struct rm3100_data *data, int *val, int *val2)
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	*val = rm3100_samp_rates[tmp - RM3100_TMRC_OFFSET][0];
+-	*val2 = rm3100_samp_rates[tmp - RM3100_TMRC_OFFSET][1];
++	samp_rate_index = tmp - RM3100_TMRC_OFFSET;
++	if (samp_rate_index < 0 || samp_rate_index >= RM3100_SAMP_NUM)
++		return -EINVAL;
++
++	*val = rm3100_samp_rates[samp_rate_index][0];
++	*val2 = rm3100_samp_rates[samp_rate_index][1];
+ 
+ 	return IIO_VAL_INT_PLUS_MICRO;
+ }
 
-If you prefer, I can resend the remaining patches as v5 with the
-DMA-workaround fix first, making the dependency explicit and omitting
-the already-applied 1/5. I'll wait for Dave's review before doing so.
+base-commit: 7e1392a42ea288d70a266f6553fe06f57f8647ea
+-- 
+2.34.1
 
-Thanks,
-Henry
