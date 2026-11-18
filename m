@@ -1,71 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.133.104.62
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795026427;
-	b=bQPxbSprSxgq/RUTpsIBmbVuXoCaJHtT9Sn5Hg3gi/XBy7tleycoZ6agDsMqo/ThxGpL
-	 3Odcp0a+l+h/N3zoFK1sLeUclrjTUqX37lc6Lzk461hVDFiTfgVEni5AIxDE7/Yo8/DHv
-	 kvNBAtmiJkDX0FD0RbRLScuWlTRqmMr+mfeo7klnVVzH6tN+tE/rNFXN14i9Gu304sfNx
-	 aRZ02PEwe7x3veNgA355tHA/gZBBF8j17+7Eh2j7AF5ZuWoQSNnUYSjiRwOWr5qQcyBNv
-	 F2dwi/7D+Oy1hQNRuBj8Ry7/AoQCoVF1JMNLM+ceR6efeV87ALs+DQa9X+sVOmrCeIA==
+	t=1795026432;
+	b=0N35oAWhC4pVtaUakTVdTGRV85kl9jHfZM7VMHBU1yv+BHxFz0aFQ6ZOHwMLqdqg9pLk
+	 BdrGWZ7XI/+cQzXID4qWakGGwa6ADJ/OIDcilYb0jQG2+zr6qZIc3slWfXEq3tO+oAOBP
+	 MeRm0Nbpiva0fA/PPebwikqnM+7I+mUSI7vBRAky+kPoatGjwpM2PhQ/Gi4BjY2G/IHp0
+	 7y4yWZnygaswJClU9QRJSQ89IjEfrVUil4U9QYBcjSPWr7r+iUE1zkNPpt+O9i34/Z/Qa
+	 Aj1yaZ9zyEnAUfrGLUdf/tBB6cMfXu5ufP1pCKcq61llUOn6VW5Nxfa8M18vwJhe6WA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795026427;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=Z/lgf/GnvODHH2kSfd1ioOa/KiKtGaKkOea+zkHk+YI=;
-	b=loqeR4te4YFwecRqd8jAfsVIEchUiBCNFWJMGzEjDBr39CgT27ZA4t4TRZqm91ZXrFez
-	 roPKeJFMbOtG8PF2bkWmrVy/W5gDPJt9ILdJaEBX7TLGBzjXY9elBlmOjFWu+oF8/Uz66
-	 QpTwCggC2WSFkU8CTCSUP4WoHvO7Cg+YW5ZhSA+GkJAeeV/00oCbSBGlNf2bITKjm01KV
-	 v0QD7GBJPweFma+B/ivaD9dBdyoAzShrpkVA8mYN1bDyyPwqyV7TpY9Khg9oWbrZ1JZxS
-	 3wSCajnEdF9azPicHCogvZPxHMz192SFVMouskkX+HH5uTy0seumGAVVbTLVSbgsvLQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795026432;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Virus-Scanned;
+	bh=kQ8DyF1/v6HIM+JWWjYVxIs1gLifqeg4BwJopfCzUy8=;
+	b=kE2GRsv8QwhxMVuWWRtyBaRtD4bpJCcdKdBAAHbhIAEHY4TABf00xZJhNM6hWW+Rml54
+	 vaPUArVeGNBYYjmrn0pptHB7xQCIqz3WygG/9BySsa6yrpFLzhvHkqszcDT+InaKxlS7/
+	 5bPiqMDiW0OervUWebzdLGsMT+vggOa+lcrk4EsKI2RRtepvK2IXXyOpo6cuBWLr1YqgP
+	 Hi80qP7n262Sxy8lsemtPEqSLDNlrSTANEoQHt73Tt7RSYTqC+wXt/MqR4NNubp0Qej0n
+	 SLjTZt4MGB6h0xYT+Sftd0sHc4vf+t/FZSktwA2Gch0xtYTNqt+8VlFq5vKKmtLAWkw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=OdFPmX7Z;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id AA844606A331;
-	Wed, 18 Nov 2026 18:27:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA844606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=iogearbox.net;
+	spf=pass smtp.mailfrom=iogearbox.net;
+	dkim=pass header.d=iogearbox.net header.i=@iogearbox.net header.a=rsa-sha256 header.s=default2302 header.b=pcPNb8Ve;
+	arc=none smtp.remote-ip=213.133.104.62
+Received: from www62.your-server.de (www62.your-server.de [213.133.104.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BF44606A337;
+	Wed, 18 Nov 2026 18:27:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2BF44606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=iogearbox.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iogearbox.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=OdFPmX7Z
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E52071477;
-	Wed, 18 Nov 2026 10:27:02 -0800 (PST)
-Received: from gaia.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2BBFA3F673;
-	Wed, 18 Nov 2026 10:27:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795026425; bh=KD00H1LZROLiORUw7YDn6v/wgRaKM9BnTfzpbzUCeVo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OdFPmX7Z+SLEjJNH0jSOiiUGQ/J+Aol+4r8E/VTNF6DOQRuVpf4adrDYexah8mmF+
-	 4jDcYK8Wk7NsokRYoqRZ5Qw1H/1WTK2rN/deYIZVtBYReCe+v+Dclr7yWoC3bHHqXq
-	 xX5Rd+MsP0iG6Nw7Zw5AUKcb6i8eo2z7FBvm9dDE=
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Pavel Machek <pavel@kernel.org>,
-	Ben Cressey <ben@cressey.dev>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	Kees Cook <kees@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	kexec@lists.infradead.org,
-	llvm@lists.linux.dev,
-	Nathan Chancellor <nathan@kernel.org>,
-	Zhaoyang Huang <zhaoyang.huang@unisoc.com>,
-	Jeson Gao <jeson.gao@unisoc.com>,
-	stable@vger.kernel.org
-Subject: Re: (subset) [PATCH v2 0/2] arm64: use typed entries into copied code for kCFI
-Date: Wed, 18 Nov 2026 18:26:38 +0000
-Message-ID: <179502639864.2187887.8685436920018120058.b4-ty@b4>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261111-arm64-kexec-nocfi-v2-0-ddf0c4aa326f@cressey.dev>
-References: <20261111-arm64-kexec-nocfi-v2-0-ddf0c4aa326f@cressey.dev>
+	dkim=pass (2048-bit key, unprotected) header.d=iogearbox.net header.i=@iogearbox.net header.a=rsa-sha256 header.s=default2302 header.b=pcPNb8Ve
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=iogearbox.net; s=default2302; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=kQ8DyF1/v6HIM+JWWjYVxIs1gLifqeg4BwJopfCzUy8=; b=pcPNb8Ve0lfmKj5OjcQoE5P4F8
+	Wc3bdDQWed8zDgTEnKafoYEkUR8YDZrP4sVmPz62AWiOBALYxPbZshN2fpAbWqjcd0ujNh0WUg5Im
+	taBJOdHVWjUrOYSlRkuwGPtuoH3NArKN9ocuTwt1yVi59h8Gb8PvGlpgMi1dWwAvypaNQmAdPR+Dh
+	v93C+3chhfmjLoB9Zf+mN3BiSvIyIIDob8K2gwDeaD9/bPqoW9bNq5x4x176cUqh5X/NWxkdl/pYL
+	PclxpqOvNTkiTjNLR49M6XWYm/JOazfBHWZiylBcQHqXMqBT+bXm+MY+uq2oxbs9DIrOO1EtnTWJY
+	5EFpXrew==;
+Received: from sslproxy07.your-server.de ([78.47.199.104])
+	by www62.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <daniel@iogearbox.net>)
+	id 1xTkMx-0004Wo-1d;
+	Wed, 18 Nov 2026 19:26:55 +0100
+Received: from localhost ([127.0.0.1])
+	by sslproxy07.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <daniel@iogearbox.net>)
+	id 1xTkMw-000Hvj-08;
+	Wed, 18 Nov 2026 19:26:54 +0100
+Message-ID: <4d271539-b2f5-4fb9-a4dd-32becd02ce5e@iogearbox.net>
+Date: Wed, 18 Nov 2026 19:26:53 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,21 +68,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v1 07/15] bpf: don't redirect decrypted skbs from
+ egress to ingress
+To: Todd Bert Freed <toddfreed@meta.com>
+Cc: netdev@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@kernel.org>, bpf@vger.kernel.org,
+ Daniel Zahka <daniel.zahka@gmail.com>,
+ Donald Hunter <donald.hunter@gmail.com>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Jamal Hadi Salim <jhs@mojatatu.com>,
+ Jiri Pirko <jiri@resnulli.us>, John Fastabend <john.fastabend@gmail.com>,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-rdma@vger.kernel.org,
+ Martin KaFai Lau <martin.lau@linux.dev>, Paolo Abeni <pabeni@redhat.com>,
+ Saeed Mahameed <saeedm@nvidia.com>, Simon Horman <horms@kernel.org>,
+ Tariq Toukan <tariqt@nvidia.com>, Wei Wang <weiwan@google.com>,
+ Willem de Bruijn <willemdebruijn.kernel@gmail.com>
+References: <20261111005533.6436-1-toddfreed@meta.com>
+ <20261111005533.6436-8-toddfreed@meta.com>
+ <ea8a18e0-12cc-48e0-903e-325a8ece5a0f@iogearbox.net>
+ <CADh2yMxffQ3cywT3aNg3SkVfog5CFnUSp34F1esyun-xUBVa9g@mail.gmail.com>
+Content-Language: en-US
+From: Daniel Borkmann <daniel@iogearbox.net>
+In-Reply-To: <CADh2yMxffQ3cywT3aNg3SkVfog5CFnUSp34F1esyun-xUBVa9g@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Virus-Scanned: Clear (ClamAV 1.4.6/28187/Wed Nov 18 07:28:39 2026)
 
-On Wed, 11 Nov 2026 15:26:03 -0800, Ben Cressey wrote:
-> An arm64 kernel built with CONFIG_CFI=y oopses after "Bye!" on every
-> kexec that relocates the image. v1 [1] marked machine_kexec() __nocfi.
-> This version types the copied relocation code instead, as Kees Cook
-> suggested [2], and does the same for hibernate, as Mark Rutland asked
-> [3], so that swsusp_arch_resume() loses its __nocfi. Only kexec faults
-> today, and its fix does not depend on the hibernate patch. x86 follows
-> as a separate patch.
+On 11/18/26 6:46 PM, Todd Bert Freed wrote:
+>>> +     /* On transmit, decrypted asks the device to encrypt the packet. Sent
+>>> +      * to ingress, the packet would read as decrypted by the device.
+>>> +      */
+>>> +     if (unlikely((flags & BPF_F_INGRESS) && !skb_at_tc_ingress(skb) &&
+>>> +                  skb_is_decrypted(skb))) {
+>>> +             kfree_skb(skb);
+>>> +             return -EINVAL;
+>>
+>> This check should rather live in the bpf_redirect (and friends) helper e.g. after
+>> we check for invalid params, etc, rather than here which feels off. Also, it would
+>> probably make sense to refactor this condition into a small inline helper so you
+>> don't have to open code it multiple times.
 > 
-> [...]
+> Sounds good I will move this check into the two callers
+> (bpf_clone_redirect() and
+> skb_do_redirect()) under a helper.
 
-Applied to arm64 (for-next/fixes), thanks! The second patch is for 7.5.
+But why under skb_do_redirect? I meant just here:
 
-[1/2] arm64: kexec: use a typed entry to fix kCFI oops
-      https://git.kernel.org/arm64/c/b059e957d07b
+diff --git a/net/core/filter.c b/net/core/filter.c
+index 532405988fd9..ba112111de22 100644
+--- a/net/core/filter.c
++++ b/net/core/filter.c
+@@ -2471,6 +2471,8 @@ BPF_CALL_3(bpf_clone_redirect, struct sk_buff *, skb, u32, ifindex, u64, flags)
+  
+         if (unlikely(flags & (~(BPF_F_INGRESS) | BPF_F_REDIRECT_INTERNAL)))
+                 return -EINVAL;
++       if (...cond...)
++               return -EOPNOTSUPP;
+  
+         /* BPF test infra's convert___skb_to_skb() can create type-less
+          * GSO packets. gso_features_check() will detect this as a bad
+@@ -2563,6 +2565,8 @@ BPF_CALL_2(bpf_redirect, u32, ifindex, u64, flags)
+         if (unlikely(!bpf_net_ctx_get() ||
+                      (flags & (~(BPF_F_INGRESS) | BPF_F_REDIRECT_INTERNAL))))
+                 return TC_ACT_SHOT;
++       if (...cond...)
++               return TC_ACT_SHOT;
+  
+         ri = bpf_net_ctx_get_ri();
+         ri->flags = flags;
+
+> FYI this patch was moved to the net series "net: don't redirect
+> decrypted skbs to
+> ingress, psp time-wait validator", so you will see this applied to v3 there.
+> 
+> -Todd
+
