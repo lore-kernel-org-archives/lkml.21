@@ -1,101 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.48
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795019018;
-	b=hJpLolD9e8V3X1HKvWb6S/i/3FovjnG6E9uIOFJaYwIX4V46E1aE8gju4n1o1mOkfbJo
-	 2TDsESbupl8ecr+S2/0u98U+fIgrrJX4sRLbjsHy+i8L7H1MG5Pw3eUnzVpYrtlJT94Uf
-	 fP/9bWg+E1ZRUqLZUXctP1XdJoXsCMc94MMdKFHi6rQguwZfbsivcz9Xot8/G2cEY6TD4
-	 4BCn1BOAQ84PDva0OTd0tpbt+jpa6Z22CzCa/WvNHdorZB86F+ib7dsS0r47YAWs3hN52
-	 wc2bCN9wx6ED0MZ+Rek1JLgKKWxvkTz408sMwm9ryXV85VXdRXKFvADo4ktF5GrViiw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795019018;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=ZZL6VyLlbXFZof6UXR0IX4gvKyFon/J77+MT2G4Z9M0=;
-	b=kJhNYdgbJkO5IxuLm+7g+iBG2wt1T3QWgKjp6Ivfxf9vHcaHdN631aXl8wMiZevJKv7G
-	 UuBt8bnvykBl6iak1tYmpD/coxsII5fIyspE9wQopWsx77x5JKfQGWsgX25MPFyOGhy6R
-	 0KgoUrdtKbHfU8JlcAyaqBVhkd41SGh4Jm6o8dh7aqYQpHd/gGGrcPbNlkhcahXWDZT85
-	 T3qUut+GYBxg/OUGsAtHCpEwOL9OzLdXG0XYma10aZasUfKrjeYQ8KplCJd7AIHAcz/Kb
-	 4mrUHjFFE4tabB+RzhMjuCfTJmviz2aqK06TBgZ6UnOs8Fh/lW0HHTwC+JwDX4u0u/w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WHOIrJqz;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.48
-Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D5AA606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:23:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3D5AA606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WHOIrJqz
-Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4a210470b49so11391505e9.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:23:38 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795019016; cv=none;
-        d=google.com; s=arc-20260327;
-        b=ErGflKJbZpl48vjeQ5suWhwW4EHTdsn7pVNFvw2TnaUxf1hqgWKkeMAzdyV4yciqZa
-         pnTzcVdkHRtzflFcKUlBinwGRu2pfylWQV6kjJA1lAmL1LILEv6c06h8FzTUy7KQNSRQ
-         PcPCnIVm69IR8G18eG5JcglR5A/cVqIOXGmjLgHE1giebIlt32t24AMm4vrWMnXRadrU
-         mFNGdfO8Weegeqg567uD0Q1bSweGY+Wsoi1ltX4UqDcCNb31I3GzX6D4b0QcCnwCgnsc
-         f5TbgqcHiohAK6ETFiTlwbzFo7Tk87RrGvDqq//R3DtE0mEvwXufifyMM1OKebqVh7FS
-         iUxg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=ZZL6VyLlbXFZof6UXR0IX4gvKyFon/J77+MT2G4Z9M0=;
-        fh=GWx0HMjaJC9R//dglWUPOx6fyJIX7ai5/UQnB7KzQ7o=;
-        b=pksvTeYKRS7qDb2W6QGycSGG/wOrIEEGP1jWWOJBgkbEVDP/s6zv8aNQKYAukpJ8qv
-         c9nEic+59LmCwqo7TWqfX6qw/dT3381l7GuP25U/3L7rqGFpyW6NNmhPacXDvYdZqd7L
-         TzcHoESS0Aa5vEj7ySaMmA1jhl7Jl8GPe48H48J8k7EBGbXdE/96e8pClAFqWskaaA3n
-         BeKufsXgMjadjehamadrOLllxfMSoJXny3zpPEUyKL+KN6CsmwkzHyciVp/9z9pSYNEY
-         U70GDeHb2QKcjwKDgLH5oB2G83pj8bRjRfYQjH1dr43scBvcmCF99KQQKQvSMBQuInQI
-         MfIA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795019016; x=1795623816; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ZZL6VyLlbXFZof6UXR0IX4gvKyFon/J77+MT2G4Z9M0=;
-        b=WHOIrJqzbZ4onJn/wtW840vKnvsFlAgrptZhoxnYa/uYUYNd7ueyBmyorKWFor2yXU
-         4SQ4mgoh+xuXa2ZF8yBrIBC2voVxUIhx9BM+S+/ru8EWeam3FVzyJ2hczPI156otlCVJ
-         A8dAlNeiyJzJkY5whssv1EPDrrgAPEasfuknaQXKwHHA0Gc+TMbp2A2TgdHGrw4g6MaO
-         H/M5WtbkNh9PR29qlKiTTW/xS2hqv4tFXbzPyU/60j7H1Au6T2SGr4RJkH1kYdKlgrLe
-         BMs4Q23nohX26XfAPc0xPhh/65615tQpHFh4keZYTQjm4uy9sf4Lt1q5UExR1+kbmwoN
-         lu8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795019016; x=1795623816;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ZZL6VyLlbXFZof6UXR0IX4gvKyFon/J77+MT2G4Z9M0=;
-        b=dYxJEmMAsNCFLSFnXwu8V8yqHqIIt4EQE9LnNZR6QIGqe12Lz8KZUUXMSJxDYVleuG
-         +Z9/WV1LAdkEczNw/+oXGsqr8VF1oq6CUqnHpoAsu2SiVwhYD3jKdv2wir4CtmxZKlfR
-         81Ln6qDtzKDrWQ6CEpPRThFXdPkDbbYduFLBIrEpBrqFiymuoHy60t1wIZm1DCQAQCh8
-         mN3MTHo40aEwts2TizvFqvMQZiugF6PEGhoOnggvtODxfqgGNXOGsqIiZX1NrK9Te5NT
-         JH2x3LtJfcb4NqXrPtP6r9EoOw0cmnGz1WRYj1hh3FAM5fuYIrqhj7TeE6/txdz0f+h8
-         SR2g==
-X-Forwarded-Encrypted: i=1; AL+hErGB9X+b0xRxHZ1K4o1zvSax1VFGCOn28t8qc54mfwjtAioJsuwCg5xtwzk7SyENj+iOKB+kE5O6ciRd9SA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Jy8vQMU6QD9tY/6awXFnzpoVdAKni3PJw0cAMg8FTnyuD4ZJo
-	KTbmBDXQLxAS7kEq3jIGqkm+te2EKCJrBd6qV0VIZLbQ49KjWlfF2bCjHv2XypCMYtD3gW2kRxb
-	4Kcr1ivOY1ymgIOTRi2bUjGz7qaen2Go=
-X-Gm-Gg: AYBFou1FHnNev8dmL3braJR7rmvwaiLdMBbIkuFxiirsuHd+iQavRYzWShFDfxd0HEf
-	1/g+I1AcPjZp5ZExW2CwSeBkiuo1goe6a2iteE7MAVYNVJdraUIQKyyhzRBlTXARfqcX8XT2WZZ
-	cmQqq/kuQCRUh6J1S6+SlB4R6vBIledzNW44T/c9PCktKlIYfg+pnwXNQO4X+zuCUnpluB1327r
-	l5sELd0fSMzKAd0Ov4VwPaujLzDa8HR5HOCY6S6KWcR4YngJBtDrFUWVGQpC5nF+zmGSKNjVWNE
-	Erjk1nnYZGrH6w0qLohs40+rKyyhfOwyb3H1G45jM+aKslDAxJ/S2G3Ya9F+VzgdYzIR3d2FL8u
-	njeajlW4EwnduVkLz4xIjoIWQ55G7PRQWO9fDARh3moyevey2gUTiyj2O0qwmmrOqMpVeCOo9lv
-	wyzJ7jkbG9LiwfNtbIE466ysj6wHoyWGU+DQ+GqDPywenH4ca93zI05Y0=
-X-Received: by 2002:a05:600c:524a:b0:4a1:cd83:b23e with SMTP id
- 5b1f17b1804b1-4bb7d57f5ccmr65127875e9.0.1795019016429; Wed, 18 Nov 2026
- 08:23:36 -0800 (PST)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=207.54.77.50
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795019064;
+	b=jZdQY1DKNX2Bq5ECYPVlAwzjRUH853mb/7YThOEurGs3ebeGwiVdCiK9G17gS2uELA3s
+	 J9iTLaXno2hmY9Zj82TpFr/UdK426A+wdBmT6KhG91ukEgYDuhtMrVuyS87rbn5X+AYmW
+	 COODNfWyLdAT7nMrbUe+7UqgqJnmyx9vsDQLClIm2s/FsakTJWi3AslPTAJohjT3ZNP5s
+	 2sMd8ZZUwyDAN7l9Em/mnp5Im1X5P3129NMYnsKHQctymIjpUasvp3TJpKMmHZOgpmxhG
+	 LXO24UrnIQ7OtSGkqZkmmuiNyV9WET1rfcM826WOHT7Q7KLeLuH5nRfPaSLSOA+vw0A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795019064;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-Amp-Result:X-Amp-File-Uploaded:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:Received:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer;
+	bh=TOpAIDRHfeGWsCvBntmW2ZzFHVIXKzXNq/Dq3Yc2xZc=;
+	b=4evPIOTZO6ywnABzO5RAu2qcSmC+USBgYk3irZieAtjUHcXS1x8FavLXuHftUhVhabZB
+	 /dtMPjc23Inv+F2HTVgv++bHfPjoGXVc7rvcQ1qC0DvaqCX5k8HjkHMuegKcAb+ADUlZf
+	 EVQQzbxs0Hbwnikdad73A9iXAVCF1h3tSAfkDmFo8lOZJK9L1WZ6R44/M3u+XinwaCyCi
+	 J87UPRCkLVgD4oWpwkmH9p5a9a2KqsyR+ur/b1Q54n2qrHOBqzWOkh1pIPhFA9uGxD8It
+	 SXNQH6SmEVWZbRL9lgkc5niL6owiFARKoKWAv8Tzr3dnpxeQ+pJpp+c15dfG9MrNxCQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=mobileye.com;
+	spf=pass smtp.mailfrom=mobileye.com;
+	arc=none smtp.remote-ip=207.54.77.50
+Received: from esa3.hc555-34.eu.iphmx.com (esa3.hc555-34.eu.iphmx.com [207.54.77.50])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 566F960A260A;
+	Wed, 18 Nov 2026 16:24:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 566F960A260A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mobileye.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mobileye.com
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
+  t=1795019064; x=1826555064;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=f4l4UEm/mrbUezxJAL9dfH/maMLZVctdQGXwsByoKX0=;
+  b=azc/gaRz8bn5070tLzpttephpEFFo/rZ9zLTp4dlsHBMe16l86QCsP0/
+   zUFfa82RdZoKJmN68HJmAL7DZHDOeeztXjPmWuALNAwxRYonZYm/9ouqZ
+   3LvxIcCk8UF2YIYf1oy8dfaXKbbigDBO4Z1dHJDOQ4Wv+urv9Yzh/+oJe
+   L5JDzP5Jkb2VenkU02EbPRro02vOP83/DygDxYIl8tPBI8JW1kzgSgNMZ
+   WhD2M01Gdzo0u7tyVoWFbOfX22lU66KnUZDZMLYQLopjdRzImPwBCGd+/
+   /lmHMsHKnVXtmEV9OZb5OSNxIFu2UJxs/OLGyTd6gclUSqkneXtrUrAq7
+   Q==;
+X-CSE-ConnectionGUID: joeyww/ZSe6RT4uGfq4Akg==
+X-CSE-MsgGUID: cQTHJTYtSiiUbAKl8zsw9g==
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from unknown (HELO ces01_data.me-corp.lan) ([146.255.191.134])
+  by esa3.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 18:24:15 +0200
+X-CSE-ConnectionGUID: b2M2PZVoTS6e+msyh/iLpA==
+X-CSE-MsgGUID: x5y30ScKTtai8TFDxLfczw==
+Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.2])
+  by ces01_data.me-corp.lan with SMTP; 18 Nov 2026 18:32:35 +0200
+Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Wed, 18 Nov 2026 18:24:13 +0200
+From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+Date: Wed, 18 Nov 2026 18:24:01 +0200
+Subject: [PATCH v7 5/6] riscv: hwprobe: update the vDSO data after the
+ boot-time speed probes
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,32 +66,160 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117-unused-sym-mm-v2-0-2f845e94dd50@amd.com> <20261117-unused-sym-mm-v2-3-2f845e94dd50@amd.com>
-In-Reply-To: <20261117-unused-sym-mm-v2-3-2f845e94dd50@amd.com>
-From: Nhat Pham <nphamcs@gmail.com>
-Date: Wed, 18 Nov 2026 08:23:24 -0800
-X-Gm-Features: Aa3M54o1d3r4VOyC2nXueP0BXfHMpFVW1L51WNF9Ut6r4bdATy19jLSCJyr3yhE
-Message-ID: <CAKEwX=N5v3Kyarttmxfe9TRh-mf44hx2kqam0eFzg1KYQcaEgQ@mail.gmail.com>
-Subject: Re: [PATCH mm-new v2 3/5] mm/swap: remove unused folio_to_swp_tb()
-To: Shivank Garg <shivankg@amd.com>
-Cc: "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, 
-	Andrew Morton <akpm@linux-foundation.org>, Chris Li <chrisl@kernel.org>, 
-	Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>, 
-	Baoquan He <baoquan.he@linux.dev>, Barry Song <baohua@kernel.org>, 
-	Youngjun Park <youngjun.park@lge.com>, Minchan Kim <minchan@kernel.org>, 
-	Sergey Senozhatsky <senozhatsky@chromium.org>, "Liam R. Howlett" <liam@infradead.org>, 
-	Lorenzo Stoakes <ljs@kernel.org>, Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>, 
-	Pedro Falcato <pfalcato@suse.de>, linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261118-lrsc-only-v7-5-602dcf4c1921@mobileye.com>
+References: <20261118-lrsc-only-v7-0-602dcf4c1921@mobileye.com>
+In-Reply-To: <20261118-lrsc-only-v7-0-602dcf4c1921@mobileye.com>
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Gary Guo <gary@garyguo.net>, 
+ Yury Norov <yury.norov@gmail.com>, 
+ Rasmus Villemoes <linux@rasmusvillemoes.dk>, 
+ Chao-ying Fu <chao-ying.fu@globalfoundries.com>, 
+ Conor Dooley <conor.dooley@microchip.com>, torvalds@linux-foundation.org, 
+ olof@lixom.net, aleksa.paunovic@htecgroup.com, arikalo@gmail.com, 
+ Boqun Feng <boqun@kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+ Eduard Zingerman <eddyz87@gmail.com>, 
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>, 
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
+ Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
+ Emil Tsalapatis <emil@etsalapatis.com>, 
+ Ihor Solodrai <ihor.solodrai@linux.dev>, 
+ Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, 
+ =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>, 
+ Pu Lehui <pulehui@huawei.com>, Puranjay Mohan <puranjay@kernel.org>, 
+ Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, 
+ Miguel Ojeda <ojeda@kernel.org>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+ Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+ Danilo Krummrich <dakr@kernel.org>, 
+ Daniel Almeida <daniel.almeida@collabora.com>, 
+ Tamir Duberstein <tamird@kernel.org>, 
+ Alexandre Courbot <acourbot@nvidia.com>, 
+ =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>, 
+ Andrew Jones <ajones@ventanamicro.com>, Boqun Feng <boqun@kernel.org>
+Cc: Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Vladimir.Kondratiev@mobileye.com, 
+ bpf@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+ linux-doc@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>, 
+ Charlie Jenkins <thecharlesjenkins@gmail.com>, 
+ Nam Cao <namcao@linutronix.de>, rust-for-linux@vger.kernel.org, 
+ Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+X-Mailer: b4 0.16.0
 
-On Mon, Nov 16, 2026 at 11:17=E2=80=AFPM Shivank Garg <shivankg@amd.com> wr=
-ote:
->
-> Its last users were removed in commit 0d6af9bcf383 ("mm, swap: use the
-> swap table to track the swap count").
->
-> Signed-off-by: Shivank Garg <shivankg@amd.com>
+init_hwprobe_vdso_data() fills the vDSO copy of the hwprobe answers at
+arch_initcall_sync. The misaligned access speed probes run later, at
+fs_initcall_sync, so the vDSO keeps RISCV_HWPROBE_MISALIGNED_*_UNKNOWN
+for RISCV_HWPROBE_KEY_MISALIGNED_SCALAR_PERF and _VECTOR_PERF, and
+every hwprobe() call that the vDSO answers itself, which is the common
+"all CPUs" case, returns UNKNOWN where the syscall would return the
+measured value.
 
-Reviewed-by: Nhat Pham <nphamcs@gmail.com>
+This was handled by filling the vDSO data lazily on the first syscall,
+which commit 7e14e42edfaa ("Revert "riscv: hwprobe: Fix stale vDSO
+data for late-initialized keys at boot"") removed once the probes
+became synchronous; the ordering between the two initcalls was left
+as it was.
+
+Split the filling out of the initcall into
+riscv_hwprobe_update_vdso_data() and call it again at the end of
+check_unaligned_access_all_cpus(). That still runs before
+rootfs_initcall() enables usermode helpers, so no userspace can read
+the vDSO data before it is complete.
+
+Fixes: 7e14e42edfaa ("Revert "riscv: hwprobe: Fix stale vDSO data for late-initialized keys at boot"")
+Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+---
+ arch/riscv/include/asm/hwprobe.h           |  6 ++++++
+ arch/riscv/kernel/sys_hwprobe.c            | 16 +++++++++++-----
+ arch/riscv/kernel/unaligned_access_speed.c |  8 +++++---
+ 3 files changed, 22 insertions(+), 8 deletions(-)
+
+diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
+index 9b04377c0f98..1cc83cecbc05 100644
+--- a/arch/riscv/include/asm/hwprobe.h
++++ b/arch/riscv/include/asm/hwprobe.h
+@@ -43,4 +43,10 @@ static inline bool riscv_hwprobe_pair_cmp(struct riscv_hwprobe *pair,
+ 	return pair->value == other_pair->value;
+ }
+ 
++#ifdef CONFIG_MMU
++void riscv_hwprobe_update_vdso_data(void);
++#else
++static inline void riscv_hwprobe_update_vdso_data(void) {}
++#endif
++
+ #endif
+diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
+index 52c4c2085d0a..2c64a13c5155 100644
+--- a/arch/riscv/kernel/sys_hwprobe.c
++++ b/arch/riscv/kernel/sys_hwprobe.c
+@@ -534,17 +534,18 @@ static int do_riscv_hwprobe(struct riscv_hwprobe __user *pairs,
+ 
+ #ifdef CONFIG_MMU
+ 
+-static int __init init_hwprobe_vdso_data(void)
++/*
++ * Fill the vDSO data with the answers for the "all CPUs" case, to save a
++ * syscall in the common case. Called once the ISA is known, and again by
++ * the boot-time probes whose results feed some of the keys.
++ */
++void __init riscv_hwprobe_update_vdso_data(void)
+ {
+ 	struct vdso_arch_data *avd = vdso_k_arch_data;
+ 	u64 id_bitsmash = 0;
+ 	struct riscv_hwprobe pair;
+ 	int key;
+ 
+-	/*
+-	 * Initialize vDSO data with the answers for the "all CPUs" case, to
+-	 * save a syscall in the common case.
+-	 */
+ 	for (key = 0; key <= RISCV_HWPROBE_MAX_KEY; key++) {
+ 		pair.key = key;
+ 		hwprobe_one_pair(&pair, cpu_online_mask);
+@@ -568,6 +569,11 @@ static int __init init_hwprobe_vdso_data(void)
+ 	 * vDSO should defer to the kernel for exotic cpu masks.
+ 	 */
+ 	avd->homogeneous_cpus = id_bitsmash != 0 && id_bitsmash != -1;
++}
++
++static int __init init_hwprobe_vdso_data(void)
++{
++	riscv_hwprobe_update_vdso_data();
+ 	return 0;
+ }
+ 
+diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
+index 67f1a0371659..3a6f85e3f94c 100644
+--- a/arch/riscv/kernel/unaligned_access_speed.c
++++ b/arch/riscv/kernel/unaligned_access_speed.c
+@@ -393,13 +393,15 @@ static int __init check_unaligned_access_all_cpus(void)
+ 	modify_unaligned_access_branches(cpu_online_mask);
+ 	cpus_read_unlock();
+ 
++	/* The vDSO was filled before the probes ran; give it the results. */
++	riscv_hwprobe_update_vdso_data();
++
+ 	return 0;
+ }
+ 
+ /*
+  * Run after clocksource_done_booting() so measure_cycles() uses a stable
+- * clocksource, but before rootfs_initcall() enables usermode helpers. Those
+- * helpers can reach hwprobe and populate the vDSO cache, so async hwprobe
+- * probes must be registered first.
++ * clocksource, but before rootfs_initcall() enables usermode helpers, which
++ * can reach hwprobe and must see the results in the vDSO data.
+  */
+ fs_initcall_sync(check_unaligned_access_all_cpus);
+
+-- 
+2.43.0
+
