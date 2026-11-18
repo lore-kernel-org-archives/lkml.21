@@ -1,58 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794978558;
-	b=2ZhlhBb1GgYkIY7Z+lIb987RiceWLNYY+Ej1OYaf8QcC3Gw07+jnnlMqUF2nAKa1DrAp
-	 melf0K2lkoP3FAKFhuyWnPqk7h/PisZhbttOiAhSHk5h5blcH5XZu6fc/UBLRBqp4bqpl
-	 jSy6ihHIcKnJ/+7bH6lxN0O62mnUo5nwqv5vyDV3Wh6qnXUZ2aQRGTkPHRKPqrnnVm+tH
-	 lKt+gv98fGcXbJNDDPV1YnOKaPsTFe5362t3GK0qvUYOavhpxa4UZLj6QNnhEaCfnGBhH
-	 GC3mxrQzS1z6RvgDq0DkNMVXX5Z2z0Mgk6BpQWk4biU8biMtmarlK40Y8XHr5pZ0sBg==
+	t=1794978559;
+	b=4J70qMpIFN/p5a+hIzjzUvAHBQkLOv0K5N/uqM1J1pLWhgT1h+57xON7VF/yQ3QOJrCC
+	 jqba1oWgdjnvE1CkFEPHvMzx1l3uwBR78G2BgSvxNdAo/2ynkwNaDtsTEGvW8g+FjNYLO
+	 S1II87odu5o5HQIC4e5QQGFkcGHTRDl7E6jlimhSltpCoKs0q07SgXGkdTarZgdWUZSOg
+	 Na128SEv9LAPkCVdkEnwiJLRA37mhvmnJql4XmifjsBf5MoajzwNCUoSWAcIYwTT3+orY
+	 J74uZMqQkviEptqQcwW9cmi0HLs9W4LgXJHMsQXFO0Qc4cyuyOs3+tdbJRG09RsNauw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794978558;
-	h=Received:DKIM-Signature:Received:Date:From:To:Cc:Subject:Message-ID:
-	 Reply-To:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=fpWc9hELHB51C84PlD2yWzhLQPgr2lWImiEogCRjFzI=;
-	b=nvFq4+Qr0z95Jwtmb1mxw22fosXCyzc3bicTW/bm6jNepJTiM39Ts1wPI0h4ueyqr1K7
-	 DzYqrp3Ab2+CYkVJL0/joXOXbXQgfFNVSCEZSKftGMEBnO43RNhXIThu22Mk9EYCyXG+b
-	 WDDabgb5t3j9rOe/iNtfQPnXYTjGAq1WMZRmlkIadR4z/eP+cNTnW6XGnAw7hIRZzVgVn
-	 DveX3U0kCRBMTCucGr+SosdVwJzefTv2wt8XeshgHVt0kZVaLGV8W7ifRMIKYY2LFj+r3
-	 cATtcTg5G9SBkwf0kf3/t1309Z80N8NLNex/xC3qiglTNXmU9R4Lk2hr085I/DridFQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794978559;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Received:
+	 X-Forwarded-Encrypted:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type;
+	bh=GDWt7Xx8f2hrTHrvXOUqAMcvT8tyJ1b4aUv40Hj2kOI=;
+	b=qdtu7lyYXrTRVIz0V3DqYnQboYk3DYHMBCn1JTGATL9lRkRZQaPmdkkhBDyC8aQdz9y/
+	 ngNY0WsPaGEe7MWdA0KTspp/BUd4rfC0jY8ZE2erVchijdewBNjigZanCOF1WM5R0aw1U
+	 ke2S6s5AsBrqojePiiYZpJ84ozg0A+lOMEIPvDwdMJPUJe38wgNj7m/byAlFpTKkbMx/B
+	 DZvXpr8qqe/6a+6TY67zow0p4D6mUErmHQeBUD2wTdv0iJJ49oAfzDrzMbEZRJWF4BD4S
+	 lmHDLYkBCtmUnEw+f16qmFIycfVBKmA6bOGf/a2cj8qBqOVU5vzm2SJOxiYm33OEW8Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="d//ALsih";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=telaak.dev;
+	spf=pass smtp.mailfrom=gmail.com;
+	arc=none smtp.remote-ip=209.85.210.175
+Received: from mail-pf1-f175.google.com (mail-pf1-f175.google.com [209.85.210.175])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50A6D606A31C;
-	Wed, 18 Nov 2026 05:09:18 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d//ALsih
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4B231F000C4;
-	Wed, 18 Nov 2026 05:09:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794978557;
-	bh=fpWc9hELHB51C84PlD2yWzhLQPgr2lWImiEogCRjFzI=;
-	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To;
-	b=d//ALsih2yv4fcWzrqtlL+iWobbYQjq4eCIQtv+BiKEEDPx5KBehqZOhEsXITy1J1
-	 mXWN+Zw1ws5Y3d7oDnMIj3dRnCZxMFlV2q26h0ktYLWgfYpXsf/1FChCNDjfd7LZrO
-	 DPOUHRt8TJn7fFFUrOOwscfD/hAcuseVBMiqQU8Jbnb0/0RQfhcFUtLjcQ2H2xLz62
-	 p5RoVAgDykpfwZ8JQZxw6WJabhbqDE+uK3D1xRDMEQXsh95ldDlNlRp6sSb9HebOI/
-	 dqcKvOWSxbp/VE1J3Jz8iyXi5Ww4b/TDiweZJBk1Jlg7QoQDV3FZQmDxHBUocPoFS7
-	 v71kvWURDmyNg==
-Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
-	id ADC9ACE0C35; Tue, 17 Nov 2026 21:09:17 -0800 (PST)
-Date: Tue, 17 Nov 2026 21:09:17 -0800
-From: "Paul E. McKenney" <paulmck@kernel.org>
-To: Guikun Yang <yangguikun19@qq.com>
-Cc: rcu@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] srcu: Validate ___srcu_struct_ptrs entries against the
- module range
-Message-ID: <896b4a31-642a-453c-8a35-3dad576bb921@paulmck-laptop>
-Reply-To: paulmck@kernel.org
-References: <srcu-struct-ptrs-wildwrite-20261114@qq.com>
- <tencent_0836A27053A7BED946E49CE04D27A31E7D09@qq.com>
- <tencent_E038DD9BFA4429F88047A5A4367D578DB80A@qq.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09BE6606A331
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:09:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 09BE6606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=telaak.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Received: by mail-pf1-f175.google.com with SMTP id d2e1a72fcca58-8b67f25e6e1so352620b3a.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:09:18 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794978558; x=1795583358;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=GDWt7Xx8f2hrTHrvXOUqAMcvT8tyJ1b4aUv40Hj2kOI=;
+        b=Try0kK6HhJE1EzYmJ8Uox3xqCl/y5gVFjw9X7y+wFYDw+d6j4vcyzONVOzc2Cof/Vp
+         axJ0ZSViiLjyxNCLxjx+f4ZF4C61VyNieEa7GhkldI5O9+Y4nsIUWnabU2HBrJrxo6vp
+         n4UVGgAlq5ICzxhqFaStrz3tfKMVgKxX5R90dDSo3lW9uJzvZrK6wJkAYwBgE16xIZwk
+         st9rqLnNCzjA6EtEYDDCQtz8QgZZ0evddAX8OJiY/5fK8qc5IwHqG94LnYrBSmsI1f3f
+         Mz7eqAJBfUveG8n3FrBd/FEeFxLJwVAp6cigRaUuXNBJmR3XF+/21qGKR2lZUrH0rXWA
+         0URw==
+X-Forwarded-Encrypted: i=1; AL+hErHy53ZN/ZCHxDbnQNr5PCeGfUKYAU2jY86gSBKBvANvLYn0Sox333nDy5/MASdPerNXxoYRiSjYeQXtjTg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+dkues2P6RFv4PaR6WdzLXk8lcKu4hO3CIJKAWXYjjxRuoJgoA
+	CMLOdN1x2DITzr1BJ9miIlVCw/Aqehlcpot8LhheEdUGZAVIOJMHHGwXEJIKBMWn
+X-Gm-Gg: AYBFou0Gof/dxqUwL5upYiOC7kQj2d3/j2w/NycP85aDz0EyLhNVhlNkM2QIKXFUIe0
+	ogL5Oq06ingIdC71QiQQLF7s1F/MGLCHDOj1IGkmt9wih0ZScLDRwiD2xrJkCD2xdeRPXpYqp54
+	5nxZCDER2PwcPu8p9L2N0CZKcOsuTp8EBj0b6YG4LTQ4C0ik/Ex3sOUhspTQws4KSHdR+CuwtX5
+	aot4KCAQmGS9ws9g+jioR0cqfgOxwKCFGuxEZsX07JRkEDHFeLYiKt0/ZYL06rrdzL8o6KFtMlY
+	OAEvFxhkstALeI58ntPFqIZwFEl2jUBW/qARqVRd0P0fzxNoAZFICaaGJsdtBd/xDx2AeqrdT9Y
+	ug2PlFLBK1jQ8X5g3y4uRQaLG4wHvmNI0xuxT4+IuiQOFzkDqdxVBJAfyjxpIs5Me5T2HN1V40K
+	U13JGaMk8gAXEM0bQsZHjUVQ/ZqM9gyMmH5iZdgNOPEc5BYH2sZrAlw3dHeIeQoSk0eCn4PxfqR
+	Ctd9h7iJ1FqQnRbGr+WmYR2zd7sMarvGVN80D+sxAZyNbJhuOODwA/F/QpO8I5SapbmNlJS4ooj
+	JyYyVM8G3xE61JB6feeZIicILV7hKtu8BELsOGlYXgvc3fzbrDWX/rv6VDA7GApEHUuAbAMAxeM
+	cjVr+RfY592mAcaU93bI16LXZ83bjxHemcla6Qg9Z6znN
+X-Received: by 2002:a05:6a00:2da6:b0:8b6:59a:2aa with SMTP id d2e1a72fcca58-8c5d52a1a61mr1251888b3a.54.1794978558331;
+        Tue, 17 Nov 2026 21:09:18 -0800 (PST)
+Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com. [74.125.82.170])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5cb93d04bsm504711b3a.49.2026.11.17.21.09.17
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Nov 2026 21:09:17 -0800 (PST)
+Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-36eb1cb7aabso932922eec.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:09:17 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHkikkocIy511qr8JSgY3Zl2uNIKR6l6vrVBW9iUk1D3WhdXaLIHjWrOOj9DGsksrddI6imBG+JG6hu0wM=@vger.kernel.org
+X-Received: by 2002:a05:7301:710e:b0:36c:3b8a:8090 with SMTP id
+ 5a478bee46e88-3827db0e75bmr1699348eec.2.1794978557201; Tue, 17 Nov 2026
+ 21:09:17 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,82 +81,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <tencent_E038DD9BFA4429F88047A5A4367D578DB80A@qq.com>
+References: <20261116-omap-mcbsp-tdm-slot-v1-0-6c9f7aa45a29@telaak.dev>
+ <20261116-omap-mcbsp-tdm-slot-v1-2-6c9f7aa45a29@telaak.dev> <179495350668.2707353.9603940609466130588.b4-review@b4>
+In-Reply-To: <179495350668.2707353.9603940609466130588.b4-review@b4>
+From: Joseph Telaak <joseph@telaak.dev>
+Date: Wed, 18 Nov 2026 00:09:05 -0500
+X-Gmail-Original-Message-ID: <CAPY4CJ4QAvENNYMNz0vfjhwGPi8HMUJO8M3G0zBcxn6nBd1SrQ@mail.gmail.com>
+X-Gm-Features: Aa3M54rshe7OANZPuVP9PlNMTTXkt0PN_Sfmm0dIkeYRICbDlqlKakJADXPsyNc
+Message-ID: <CAPY4CJ4QAvENNYMNz0vfjhwGPi8HMUJO8M3G0zBcxn6nBd1SrQ@mail.gmail.com>
+Subject: Re: [PATCH 2/2] ASoC: ti: omap-mcbsp: Implement set_tdm_slot
+To: Mark Brown <broonie@kernel.org>
+Cc: Jarkko Nikula <jarkko.nikula@bitmer.com>, Sen Wang <sen@ti.com>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	linux-sound@vger.kernel.org, linux-omap@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On Tue, Nov 17, 2026 at 10:00:00AM +0800, Guikun Yang wrote:
-> As discussed, here is the formal patch. Exactly as you presumed:
-> srcu_module_going() needs the same check, because a module whose
-> coming() fails the validation still gets a MODULE_STATE_GOING
-> notification via the robust call in prepare_coming_module().
-> 
-> ---
+> Will this do the right thing with a card like simple card that sets
+> the sysclk dynamically?
 
-I have pulled this in for review and testing, thank you!  And with
-Bradley's Reviewed-by, however, Joel is doing the upcoming merge window,
-so its eventual disposition is up to him.
+No. A sysclk of 0 at open fails startup(), and later opens keep the
+last stream's rates. In v2 I'll only limit rates at open for a sysclk
+set outside a stream, as simple-audio-card does at init, and check the
+rest in hw_params().
 
-The next time you send a patch, please skip the first paragraph and
-the "---".  These cause the automation to keep the above paragraph
-and to throw away the real commit log below.
+> it'd be good to validate the params against the current slot
+> configuration
 
-Which I compensated for, so no harm done.  This time.  ;-)
-
-							Thanx, Paul
-
-> The entries of the ___srcu_struct_ptrs section are absolute pointers
-> emitted by DEFINE_SRCU() in module .data. load_info() hands the raw
-> section to RCU (kernel/module/main.c), and srcu_module_coming()
-> dereferences each entry and writes through it:
-> 
-> 	ssp = *(sspp++);
-> 	ssp->sda = alloc_percpu(struct srcu_data);
-> 	ssp->srcu_ctrp = &ssp->sda->srcu_ctrs[0];
-> 
-> A malicious or corrupted module image can point an entry anywhere in
-> the kernel address space; nothing on the load path validates it, so
-> this is an arbitrary-address write primitive (an 8-byte percpu
-> pointer at offset 8 of the target).
-> 
-> The static-key loader already handles the same shape of section with
-> a range check (kernel/jump_label.c):
-> 
-> 	if (within_module((unsigned long)key, mod))
-> 
-> Apply the same check to both module-notification paths. coming()
-> rejects the module load outright; going() skips the entry, because
-> going() runs even for modules that never passed coming(), and those
-> entries never got per-CPU data allocated.
-> 
-> Signed-off-by: Guikun Yang <yangguikun19@qq.com>
-> ---
->  kernel/rcu/srcutree.c | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
-> diff --git a/kernel/rcu/srcutree.c b/kernel/rcu/srcutree.c
-> index 2b0e2b2d2..412265757 100644
-> --- a/kernel/rcu/srcutree.c
-> +++ b/kernel/rcu/srcutree.c
-> @@ -2498,6 +2498,8 @@ static int srcu_module_coming(struct module *mod)
->  
->  	for (i = 0; i < mod->num_srcu_structs; i++) {
->  		ssp = *(sspp++);
-> +		if (WARN_ON_ONCE(!within_module((unsigned long)ssp, mod)))
-> +			return -EINVAL;
->  		ssp->sda = alloc_percpu(struct srcu_data);
->  		if (WARN_ON_ONCE(!ssp->sda))
->  			return -ENOMEM;
-> @@ -2521,6 +2523,8 @@ static void srcu_module_going(struct module *mod)
->  	srcu_defer_flush();
->  	for (i = 0; i < mod->num_srcu_structs; i++) {
->  		ssp = *(sspp++);
-> +		if (WARN_ON_ONCE(!within_module((unsigned long)ssp, mod)))
-> +			continue;
->  		if (!rcu_seq_state(smp_load_acquire(&ssp->srcu_sup->srcu_gp_seq_needed)) &&
->  		    !WARN_ON_ONCE(!ssp->srcu_sup->sda_is_static))
->  			cleanup_srcu_struct(ssp);
-> 
-> -- 
-> 2.34.1
-> 
+Will do. hw_params() will check the channels, width and rate against
+the slots and sysclk, and against the other direction, since both
+share the sample rate generator.
