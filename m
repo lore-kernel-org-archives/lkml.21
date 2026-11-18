@@ -1,101 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.46
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795043136;
-	b=IbS8Oqh2JgMijgi+5tjlbh9/GgLUmtB5Nr2BuiehNkLQ/p7Qljqh3laXT/+YdYQNH8tp
-	 AKYJ1UKyG9DthP3KnUIxLaZWn+MKnzWXXwzlZz0noaRdTdv2Qn7aWpa/pH/4W970N1lkw
-	 q9FXDP3rznh4cO2uYSuiumUymfDip10kJZDXP778spvElOmwbWHGzx+5SZ8tORwc2gaU4
-	 O1qUAPS6NvR0b//NlNDj3gUjiA0PvVVthyHjLlv80SZy4nbCF+YdTjirvTnwW7yGJ4rkC
-	 5Oh6bZHd8WHRdOaF+Wv0uBCIBQVORL0zdkjJJyALpjAOws0opADFHYjU3NG9QrHtPgg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795043136;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.54
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795043142;
+	b=hmCjrhvcDh7WnSF18z+DFJRYPVxvw+ACJOBEehwJYbHC1Grwa87xUkGfWgV5sNiQFtzh
+	 Z4QLxnlNz50b0ebz0Ejb+QFAI7EuLXdisn7NGM0m5Qm7h6f+oH9VZlKhUAN6xXQm4I7jq
+	 kJI7Z0RkS1k7Dd2ya8sR4m2BFElDS8/Nr+OSGM/g7wgdEd8IZJe6Dowgjh+QlpTSyKmwX
+	 mjQAbMR4jiliQRwacEupjVAEC3evcUWUnMu+IfXeZXz1b4mH5HP7296lsN9ZclZZp9mwi
+	 RhBquHWscYI7XukWJ8uUzxMtCGO/6PqPmpD60WDbT+DHc6NdVgSqb/HetYznsnCzZrQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795043142;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=vCTbNVFwomUfL+eJ/r9dTAbaG7zQETK5dcr4yzGJzlY=;
-	b=kXVW1nkNaghcEiMC5oySQmxsMWw1J39cNp3wAzMEddGPEhskqKxjsI8cNoiqI4JD/s2D
-	 9HAHtl7kfc05i+ZFbptWklCwd+vy9JmYUvQhr66hkOVqsdlIeqWv9R+wbpbF/ERZf1dkK
-	 lf6F3XR35g+G6m6DXEq/OHov2iTEGu/az9jxETpgQS+DZGablCdCTO5qDWPnlC9kVtiot
-	 FxVTQ9OJCrMIB85dyYtnJ9Xc11lXVz6lx+fL6/YkHHndnrWMnIWzxmHLkFy7Av1tgqBqB
-	 HwArCYx/BOxo9n8Iy5GXnIx8XCehHO+Zdae6aNMG6FHAIksM333kqk8uW2NVGVnNT4g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=GOh2VdA7;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.46
-Received: from mail-ed1-f46.google.com (mail-ed1-f46.google.com [209.85.208.46])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=CClaM17d8fZmvymfnrpm1hCIobp2fJDyOViMllLO/qU=;
+	b=LchJOZn/dNskBJzeJ4HGCXKWjGKqYOpeL8U9yWZnhSSNIc2LQE4keZstHEo/9Srsclpe
+	 nynu+dtPLC5anoSYcDEMRksudeKm5nEw0zYDuxCZkPkirYSNVIk52uxH4IACVg4VKG/RD
+	 UT/GRSUSIjtky2DaVo6w7Jak4QgfMGpHgYqoeDBCAvd6qmxRwHsRy9SEVUg3xrCoOtBwV
+	 8TIBlYjaSKFP9DrkCQFF0SwJDC+E3B5hDNLM/a4Ik/b+FuBoaLPCNeN/xoauvR3Nbul94
+	 F1yxfbrvo6YYVBV/hjLj+xhJ3zoBPiwOFkdVli5e43oxcUdDkHTPhBzznbF4qyDG3rg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YCqTSEFw;
+	arc=none smtp.remote-ip=209.85.161.54
+Received: from mail-oo1-f54.google.com (mail-oo1-f54.google.com [209.85.161.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75AED606A331
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:05:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75AED606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58901606A339
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:05:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 58901606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=GOh2VdA7
-Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-6b56c90b38eso5807a12.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:05:35 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795043134; cv=none;
-        d=google.com; s=arc-20260327;
-        b=NR6H5q/hAAnbDRyQvxEy9aOahHEE1sBLOxx1fGdMobjXQhT6Vl5Gp2GeVm0nGKrjJM
-         YGVzqeYkn/dl8TjNHJOWhVChUsRF2OM4F1vXuSgeDYKAWhCMP8umUS9FnJEwQcSZCc6c
-         5GkKphkv080oZp7iSjYsbQPMn+2wbDXyAaxVMe/+tVVcNvpPSP/MiVSFNpIe1bDcJGzy
-         RAMlDLvQGOyXWw4l4+kZXmLjUydsasUxj7mwUC970R0ic0E5fjhbuDH8/604cWS2U4Eu
-         ChqO4207IQpDX6bPiO91cOm/CmUzawX9H7y7vgaANcldkknm8B6VuNkyPaoZCPlO9Hfh
-         3rvQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=vCTbNVFwomUfL+eJ/r9dTAbaG7zQETK5dcr4yzGJzlY=;
-        fh=ZBNScHBljIfqXtvqSTs8Ip4hDRwiP3t0sqo76U+WDDU=;
-        b=TCMubh13IhFoGpjaUpCJGDLlzzGc0qvQu0S8p3v9mVHieL4BWdxvPTysrih4HasI3X
-         WwWDfhnk6cVzS5roW9c6xBc2JwVae+NdEHrSOVAWl8bf3mKDjjZUfVqpl7WI1lUQiFee
-         2mpFCjXhSobdE0he8SqYq40vOK3io+ER/eMasrIRT0jGaatCYZRzoSu4j7tFMFpAo7b7
-         YhgUpkneuzGjRZNTaGTrT2St1gVDJsL83+oT8znAyqRL+EQPFSHcUHfXjkJjYH+THrvi
-         QKrmIQdUVJLeohatozh+LNOee+9cCTkHL3p3UAj2LwmvomUXtIRI7PvwxL3u4HPOwtp+
-         njnA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YCqTSEFw
+Received: by mail-oo1-f54.google.com with SMTP id 006d021491bc7-70b875f6f1fso1379431eaf.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:05:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795043134; x=1795647934; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=vCTbNVFwomUfL+eJ/r9dTAbaG7zQETK5dcr4yzGJzlY=;
-        b=GOh2VdA7pX+eHuSnndG6XSsqBaH6971axHD5KjJBGKakl4wIINBs9QqMdI61sc1QjR
-         ZpRYMJmz44N1EEK3CYhslQdaq6cEwLIh26/7Kg5CrQwRo+QIdH3hphuHhB5v4JTAr2bo
-         sZCtZhUSBc33ZHRuuNljdr8c8OH5kIxriv7vEQe25fY1IcnE1yU6hEpJMRz1odPQix4g
-         esUE0KCKQEuFVsJeQiYqG7UCyGJEyG7zMWEV+Tw+u6YN5DDdq8af/tvGpP50e+Ys6j2G
-         /qcmO1ZoJFD9nk7sY8CBWP2qeQO2JnDDPdU9nGP51J8HoVerghxHSCiz4FOTE+NF1lkf
-         Ty4A==
+        d=gmail.com; s=20260707; t=1795043141; x=1795647941; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=CClaM17d8fZmvymfnrpm1hCIobp2fJDyOViMllLO/qU=;
+        b=YCqTSEFwMIYfKqA2diSnjjWk66XcUlNuSANHqRXX6XdX5D3xL8u+HMjifnjNIV9bIg
+         rLaOvEF8jxxppFx1qhLW433ECCC5REwh7Lrnwu1p88UTi7u+ugw6rmOQ7BO1Y0p7wvhv
+         BFhrMC7DOiTKVpGgxzeAMez9X/cTfwk/z803Jb4GxQlGxPBOYj9CRjXcVlDwDJi6szBF
+         Zb6mKFsEibtmTTmAzCnOFCdS8TIO4Hv6tRACjIL5PIlWP/LD35PgJnEMoIxUXTh0ujjp
+         VWqSe9mWIxEe4v/X9pmpmGYAfKPISlb0GJWDYROiC3OkxFCXI4GW/JRTtbSUcLTIX627
+         ICaA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795043134; x=1795647934;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=vCTbNVFwomUfL+eJ/r9dTAbaG7zQETK5dcr4yzGJzlY=;
-        b=dk3ENUO6epqRvO5jq4AsmWHNgeXlf7/4+T9QtFWQQc+pcMckPgvB50qxp/seLINMjS
-         gjxjF3ytdDaI+1CTZotPGosia/mBp5sScwk0oQdVKa5GRlPT3HnDmfzpbmiA+jexxqDw
-         c4r+3kNuMenhXJzHgMIA+VbOAS0TGAon/4zQRKvUOlNJxUuh7oLuv5GZETkeAh8tH1cV
-         QTaOzRzUr+dpvRvSy3+AkwpYvrLWUgkLaeVKBcXgJRbteuJma9hhA+Dk0ZtsgtDa01et
-         D4C7bzj53jq80/yk3Aku7usSv7D/Y5DVtSm7LoGcpXLR7Ldz+j423RbFeMKAyKfj4jaM
-         Edag==
-X-Forwarded-Encrypted: i=1; AL+hErErpS2rhS5CoBuZbQTxmrpAB3uF9YJEQ6cpe2eZT77zniud18XnTK5KKJ3KByTwzN+wz2eGQXpUvhfEMNc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+0kCJ5Ldy+/zSIGvcSMbg99q0hHCsiowyUWsmaXmWG4uooKmxK
-	LaAeACAz+ygZMulpI11v35KvmYAzJwtM9lo3UX/+56ghlq4N/fWL8OxqYwNTKUflKhUIB1LVd1T
-	XUN/n7RUTGYTVL2VlDTR29iuefhgz2yY3AInuxUt3
-X-Gm-Gg: AYBFou3vCgEcu4MW6HLr2xSRF5ouYkRkOu6YN28fwBw470/VkcmwxAexnfIO0DmDt4C
-	CxAQ3qe47qS/96tuYpkUxyaFn4aJJGGtuqq0Uh+8omRLIO/zK6qAv0F7ZTbb7wFFtvgAFF1EBW8
-	aosnzxnfqs1OOqVT5ZBZsdhwwqeOWDux0HmGFkVO8Rb3ROfrcksR/Zuy39+xtK8iSs+l6yD4wY2
-	phIyQiZqGnmtL58FN/zoezTsF59y5ftF27KP2PSOv74EdHNKsSgyFw9e8RGRKAT6+/D4Ur6aZVp
-	R5AdPNomlz6qSBOtg3xdO3lm0LGsWUNQOd/CVvAmjp55Jc5og1toqr7rLbstTvTVhfCa0QQ8POu
-	Acr8Qdm2U2DFpkBpnpdkSFAY/2q41+hJKGDOp7ep4Osj5/cWiryyDa789v40NBlxpD2uHNVumo+
-	x+5u6oJZ82Io8LCMKAoksXvCboV4vYl9zZqU/2x8zHdUlP7oHVNOJG2Q==
-X-Received: by 2002:aa7:c4ec:0:b0:6b1:aa31:a627 with SMTP id
- 4fb4d7f45d1cf-6ba03730308mr28151a12.4.1795043133405; Wed, 18 Nov 2026
- 15:05:33 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795043141; x=1795647941;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=CClaM17d8fZmvymfnrpm1hCIobp2fJDyOViMllLO/qU=;
+        b=v4E5YOi9XVmZoIPLBZVcLbRCfjvB4q/lzmkacba824YjRnQcutA+Lbw8ZwzUucqZMg
+         TBnwNHTp3f587Qi3oFLaBoflL31yHnGO3DLIbOoO4WW0IPnNKw9+V44OezcKA/HENK1t
+         XuX40ljeOiYr4j4UzYjimyAezmNzhj2MRw+4n1RI2JotwMaVMw0TaceeXfi5nCgcHuoZ
+         40+VMWeidrW3rD4S0DwdCdOeCazEtsps5FZoHv7+e+ejNbnCNhFu+kmpH7CbcEwcAJCT
+         mwWsIwQUpW8McgcSr9ta7/r6Vi6fS+WPViDTjM4uu0AHVkNyaOqShlBN4dBjxUDlWlZm
+         v9MQ==
+X-Forwarded-Encrypted: i=1; AL+hErEZbLCt0H4/XQa1il7SgoLzcej3/OYEm8RgCqiUr2XZZgEORUYBU/P/wphNpQh42CgNMqz2oELnOXfibgM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Qtj0tyr3DCzVD2sluB/FOW2FwwV2nlTYRnL3ERfJ6rvT39n4H
+	anuA97ka3X3SsLtocW1mNKe+fGMFMJZnwsyGRHRNhgst99Rvxicyd30s
+X-Gm-Gg: AYBFou3IzfT6UthGk1YGt2+i52q47+DymGlIFEXsI4nQq23oXDArfIcrwSWsSzuKg1q
+	1JA35lYNLvrua7ZWgLpt1bU57l397l4mcBtFGrMgwLYeoKBmKOGJCZKDsHXVT2b8Y8pG8JLwTor
+	YJKU/rmnrDgLQfrzJz9X6jSqL+K0UtXEHm0pmeLZpMoNeUS88xsyu+OcXmy6kmwOfs9V5q31cjY
+	rWfmvfLSsy+TaeNXypVdtmTVu5eH8J/EcroN6oJZmde1TbFnp6MkW9Vt8B7J4b0FKDLlve6pE0r
+	vPMzbtqbWCbwmeNn+xQUjdwwV5WL83Zb2B0tE3qsLOEfXFXuK8jnRrha0991A1Cojs1s5BJc6sj
+	x5UewgKcdILTclwEuA7NrejxwsLpDcU2N+PMPa+MKHefEGD8lZLzrQAx5Ze4F99Kxhvp5B2Nf8u
+	zglimekptD8pBblcDAzG4DM1mArGuCyBho/IuOiM2Br41Si2YEwRuCYgpFyhvKYORCX5mER9EGJ
+	Tm9royKR48SkRVckQIEF2rNLx9WQGaAwwAMbVS70c7Svz8G112phodm28mqTJq0CPV7XAPWoFuw
+	HzNan9Y7E/3TWyQJwtttMoYNLBEo43AYLlG5ECLj6iAVbhdj8+wyJjlUlF7AWQ==
+X-Received: by 2002:a05:6820:a510:20b0:71a:eb23:a7d1 with SMTP id 006d021491bc7-71b1864ee8dmr2434637eaf.53.1795043141166;
+        Wed, 18 Nov 2026 15:05:41 -0800 (PST)
+Received: from localhost ([2a03:2880:10ff:41::])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4b744126dfdsm3565223fac.10.2026.11.18.15.05.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 15:05:40 -0800 (PST)
+From: Joshua Hahn <joshua.hahnjy@gmail.com>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	David Hildenbrand <david@kernel.org>
+Cc: Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Brendan Jackman <brendan.jackman@linux.dev>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Zi Yan <ziy@nvidia.com>,
+	Qi Zheng <qi.zheng@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Dev Jain <dev.jain@arm.com>,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	kernel-team@meta.com
+Subject: [PATCH v3 1/2] mm/page_alloc: move the kswapd node skip check into a helper
+Date: Wed, 18 Nov 2026 15:05:34 -0800
+Message-ID: <20261118230539.3789231-2-joshua.hahnjy@gmail.com>
+X-Mailer: git-send-email 2.53.1
+In-Reply-To: <20261118230539.3789231-1-joshua.hahnjy@gmail.com>
+References: <20261118230539.3789231-1-joshua.hahnjy@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,24 +111,106 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117180310.921701-1-chang.seok.bae@intel.com> <20261117180310.921701-15-chang.seok.bae@intel.com>
-In-Reply-To: <20261117180310.921701-15-chang.seok.bae@intel.com>
-From: Jim Mattson <jmattson@google.com>
-Date: Wed, 18 Nov 2026 15:05:19 -0800
-X-Gm-Features: AclHuK-SYB8IAK6eB4nGogyFLTmyTBaFT6vPSQiVW5NZq17xLmZCqU7xs_dCPY8
-Message-ID: <CALMp9eTMywUdKiOwUwSw4Dg8Fgy9ZoRamthQatj_2ZqiERQfFg@mail.gmail.com>
-Subject: Re: [PATCH v9 14/20] KVM: x86: Document EVEX-prefix not implemented
-To: "Chang S. Bae" <chang.seok.bae@intel.com>
-Cc: seanjc@google.com, pbonzini@redhat.com, kvm@vger.kernel.org, 
-	x86@kernel.org, linux-kernel@vger.kernel.org, zhao1.liu@intel.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 17, 2026 at 10:32=E2=80=AFAM Chang S. Bae <chang.seok.bae@intel=
-.com> wrote:
->
-> The opcode is already marked as not implemented. Add a comment for clarit=
-y.
->
-> Signed-off-by: Chang S. Bae <chang.seok.bae@intel.com>
-Reviewed-by: Jim Mattson <jmattson@google.com>
+get_page_from_freelist() checks many conditions for each zone, often
+with a big comment block explaining the conditions.
+
+Move the kswapd check and its comment into should_skip_kswapd_zone() to
+make the zone iteration cleaner to read.
+
+While moving this, also resolve a checkpatch warning which complains of
+a waitqueue_active() call with no corresponding comment explaining why
+the lockless use is OK in this case.
+
+No functional change intended.
+
+Reviewed-by: SJ Park <sj@kernel.org>
+Reviewed-by: Chris Down <chris@chrisdown.name>
+Reviewed-by: Zi Yan <ziy@nvidia.com>
+Reviewed-by: Gregory Price <gourry@gourry.net>
+Reviewed-by: Dev Jain <dev.jain@arm.com>
+Tested-by: Chris Down <chris@chrisdown.name>
+Signed-off-by: Joshua Hahn <joshua.hahnjy@gmail.com>
+---
+ mm/page_alloc.c | 49 +++++++++++++++++++++++++++++++------------------
+ 1 file changed, 31 insertions(+), 18 deletions(-)
+
+diff --git a/mm/page_alloc.c b/mm/page_alloc.c
+index 9e1261521b6a3..e7a7863e381ab 100644
+--- a/mm/page_alloc.c
++++ b/mm/page_alloc.c
+@@ -3785,6 +3785,34 @@ static inline unsigned int alloc_flags_cma(gfp_t gfp_mask)
+ 	return ALLOC_DEFAULT;
+ }
+ 
++/*
++ * If kswapd is already active on a node and the zone is below its kswapd
++ * watermark for this request, keep looking for other nodes that might be idle.
++ * This can happen if another process has NUMA bindings and is causing kswapd
++ * wakeups on only some nodes. Avoid accidental "node_reclaim_mode"-like
++ * behavior in this case.
++ */
++static inline bool
++should_skip_kswapd_zone(struct zone *zone, unsigned int order,
++			const struct alloc_context *ac, gfp_t gfp_mask)
++{
++	unsigned long mark;
++
++	/*
++	 * This means kswapd is asleep, so don't skip the zone. This is a
++	 * lockless check, since a stale result only affects zone selection.
++	 */
++	if (waitqueue_active(&zone->zone_pgdat->kswapd_wait))
++		return false;
++
++	if (sysctl_numa_balancing_mode & NUMA_BALANCING_MEMORY_TIERING)
++		mark = promo_wmark_pages(zone);
++	else
++		mark = high_wmark_pages(zone);
++	return !zone_watermark_fast(zone, order, mark, ac->highest_zoneidx,
++				    0, gfp_mask);
++}
++
+ /*
+  * get_page_from_freelist goes through the zonelist trying to allocate
+  * a page.
+@@ -3796,9 +3824,6 @@ get_page_from_freelist(gfp_t gfp_mask, unsigned int order, int alloc_flags,
+ 	struct zoneref *z;
+ 	struct zone *zone;
+ 	struct pglist_data *last_pgdat = NULL;
+-	enum zone_watermarks kswapd_watermark =
+-		sysctl_numa_balancing_mode & NUMA_BALANCING_MEMORY_TIERING ?
+-		WMARK_PROMO : WMARK_HIGH;
+ 	bool last_pgdat_dirty_ok = false;
+ 	bool no_fallback;
+ 	bool skip_kswapd_nodes = nr_online_nodes > 1;
+@@ -3865,22 +3890,10 @@ get_page_from_freelist(gfp_t gfp_mask, unsigned int order, int alloc_flags,
+ 			}
+ 		}
+ 
+-		/*
+-		 * If kswapd is already active on a node and the zone is below
+-		 * its kswapd watermark for this request, keep looking for
+-		 * other nodes that might be idle. This can happen if another
+-		 * process has NUMA bindings and is causing kswapd wakeups on
+-		 * only some nodes. Avoid accidental "node_reclaim_mode"-like
+-		 * behavior in this case.
+-		 */
+ 		if (skip_kswapd_nodes &&
+-		    !waitqueue_active(&zone->zone_pgdat->kswapd_wait)) {
+-			mark = wmark_pages(zone, kswapd_watermark);
+-			if (!zone_watermark_fast(zone, order, mark,
+-					ac->highest_zoneidx, 0, gfp_mask)) {
+-				skipped_kswapd_nodes = true;
+-				continue;
+-			}
++		    should_skip_kswapd_zone(zone, order, ac, gfp_mask)) {
++			skipped_kswapd_nodes = true;
++			continue;
+ 		}
+ 
+ 		cond_accept_memory(zone, order, alloc_flags);
+-- 
+2.53.1-Meta
+
