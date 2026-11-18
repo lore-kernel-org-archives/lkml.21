@@ -1,100 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794991601;
-	b=GX6UXunYjbpD0Obmmy9rxTdl1gDsOdEgRrRebGlwP8uq+5yGjOlepHe1bhB/ImoHCqRa
-	 jYaXWT079hyydBvdt5di6pwoiuaiyMCOElc9yIlim28YHvA4qpInKtGhKiKpemybQ9OzQ
-	 8kttD8A0LNDtGS72hGG7VsZI755eaM1GT3iL3HcnlWNuKhQJZSnf86n24um+fqJvexB27
-	 4vVl/eHluQMWvgwhM1+rmMb4jeaceW5bprJH4oKmvEGeZvIlzDTm9RIJMIvUu7PD9D7Ec
-	 hU7BY3ooLTwHFfDiEPYD3NoAvkV5jGFqxWZ9ZppPscge0M9IVHjtaCHN7qEn3X/pmeA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794991601;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=/qDOWgOn8mFmbMn9GBQQa8f/i72Iyr5wPvGMAomQO28=;
-	b=Zrsu58yULarZ4KEWhPsmxrIkedE6eProQKp/neMou5C4+kgLjAgRk1XUhzLgIdDl9X4J
-	 mXecQb32/2tH0DwPWA35kDInJYMKkHNRyxus0gT3bn0bANUxuLCLhTX4tQN8rCteLZjlm
-	 aXebbPu0oPc2OH4q0Ot3wZ6E9mn78RJgS2iDcKQQ86t474X6NsHCn9brBdBFnB5UXPAFP
-	 gCvR5qRIVYo8//l0fr5KaNFQZ1Zwb1IGBxVZCw7770KePk2m7A+dVIra0Go3wzqoDx/5N
-	 La7A19021cy44bablMS7yOf294c60WLYmmap4GpZkLYggrN6LpPr3KSOmzX4YdOuNBw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S0e554dH;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794991656;
+	b=0PMDVy1GNSwEawllNcgoKzqmxbECFfXEPj7zDR2I/7b17KVscuOhlsZitDhpviwCm1mB
+	 QXHBeO1TF4Qzvdhg/cc8h92cLBTuQckiuzPFjn0XNbPKMuiJC+zFdrrosX9QvrOJ+8HZV
+	 1dBz4j0dHjzE6oeEt8K1NeWRLoTTpyO6OAG9MjnhXfwfF8+lHKGW6WlZffIDlm7EohWyZ
+	 eQnrSWMe53lwwSMibTMrF5S9kxe8stAoIlcnx0tBb3jS1dIkOzf1FqK1004BQuq+IWKEp
+	 NLnZmQMekKPUCKh/j63xOoYDLvzwm6YjLmYXPKIyt0Hik/wVN38DWMlhQ2HJnSvDt7Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794991656;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=kGrHNZsv8k17WyDtcN0KoKiEb8AAC/oHWu//7fo5faM=;
+	b=DpugTZWrR9ZpMXXiSOmvgMa8eVReSoYgfB96LTRMuU4Ej/tTV7U8+vwVMWuaSESIuWd3
+	 hWbzu7WnykL6Lt00ZiJulXjR8gwrNQYicZBlkFkKHixsRfilASDcUE1iyMUWhbeuaodg8
+	 Ox7+MXZ9cIOfXvsBj6s38u3Sko56wZctJQI5X0vfF9BNcQ7A+LnutYEyG8ErJztZ0R2lQ
+	 p7hYxhLRxUA1Ug+ryerSMkEk1tzuOcjn6TjFh8b+tTobFGd0hOK5OAPQ47OSKEwd8wzxm
+	 E3OxeVFV1GrIoqaHnFRek80Khgr6fvO94HX0JGWEZGmWMorchuYua0jlmRRFaypSi6w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=SefnjUk3;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A73F606A31C;
-	Wed, 18 Nov 2026 08:46:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5EE1606A32A;
+	Wed, 18 Nov 2026 08:47:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5EE1606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S0e554dH
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=90.182.112.124
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794991601;
-	b=MnB6SLOBSgo+4R3oGP2I1r150u6DWV2JnxYUCvBGgJnboij0+LvdPCAJtDIufEn0vOIl
-	 Fv7YnaFDozGpS3x135Wku5mcKxCS+lB/RWPVtNzqzf86/0Y+xRjwlxYRGq7KuK+Y9RXro
-	 H3UhASQhAKWQjmdGg3AaCKkzCFLkuhBkwsB5iBA60b3S0MVUBdGgznCdWD0uFwje9mJMt
-	 D+z06s1g1fScwV8bydipB9ypAvx0pPEPny/k6ePry509B7vDKHUnEUGUP/TSpopVxyWMD
-	 1H1UVkmTGwDGLrCHR6RTIF+wYE42g3WCIafhqcmsvlst/27Is41j3ikNU8Su4ff3RsA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794991601;
-	h=DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:In-Reply-To:
-	 References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=/qDOWgOn8mFmbMn9GBQQa8f/i72Iyr5wPvGMAomQO28=;
-	b=Exg5bDANeq24AFuYgu4qM6WtI/2m/O/Nj8aW9njNMO1o5gGXgWO/cJ0/xk2oQitDIVVi
-	 4Dnom+/fNP2XppRsxxXQpEEdHAL+FUOo3tExvY0vHX7e12sX15sraBt1GIKva3xRqT7xQ
-	 nLuq+1EdlL4nXu0CNSIEFo3QZFJ/MTQMwWdL8FFAZ1EfErW9RqqksxjhQ4oQ4Yvey9nEu
-	 ls2SxpukZ8wF5TI5IMOyDuymXj140eZHjqZuhncIiftxwkbsHvAhZV360SbnZCDniAeuU
-	 fVWGkUzLe8LxJQygqca99sfTiFWnasL+VAioX+nyMR+A0rONC3juuLcBYZhF66H72IQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=90.182.112.124
-Received: from localhost (90-182-112-124.rcp.o2.cz [90.182.112.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPSA id 0F8481F000C4;
-	Wed, 18 Nov 2026 08:46:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794991600;
-	bh=/qDOWgOn8mFmbMn9GBQQa8f/i72Iyr5wPvGMAomQO28=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=S0e554dHPu21NsC390huysZw5iGFp9W3m3GBKMry0NphjlCP9zdCuFlpRslFPsdyf
-	 xIEKi8J3BTbbWGGcjnsD9fjffBYY1KDjo/aP3xSDjODMI13iKL6Qp3s1Tn7SIZDI/M
-	 98iEG6xJGLhROPh23zRNkE5o/Y5HzRgdgal6A3Q6Q8ToE1RiIttXxyltjYEVclySpa
-	 5EnlkJNEWjuHq0H9Fu8FI1roTmh6ZQhAOQmKx7Wx0leK0/V1vc5/qXasRDzqsvoocc
-	 xs+sQEaLPcpnji0G97wLj10y11vPcpBvONO/Gu2oLFL5sGDnxP3G9TBGAqqUcPsE89
-	 ANGyqW4E5LzTA==
-Date: Wed, 18 Nov 2026 09:46:29 +0100
-From: Joshua Crofts <crofts@kernel.org>
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: linux-iio@vger.kernel.org, David Lechner <dlechner@baylibre.com>, Nuno
- =?ISO-8859-1?Q?S=E1?= <nuno.sa@analog.com>, Andy Shevchenko
- <andy@kernel.org>, linux-kernel@vger.kernel.org, Martin Tuma
- <martin.tuma@digiteqautomotive.com>, Mauro Carvalho Chehab
- <mchehab@kernel.org>, linux-media@vger.kernel.org, Gustavo Silva
- <gustavograzs@gmail.com>, Marcelo Schmitt <marcelo.schmitt@analog.com>,
- Antoniu Miclaus <antoniu.miclaus@analog.com>, Michael Hennerich
- <Michael.Hennerich@analog.com>, Ramona Alexandra Nechita
- <ramona.nechita@analog.com>, Tomislav Denis <tomislav.denis@avl.com>, Jorge
- Marques <jorge.marques@analog.com>, Petre Rodan
- <petre.rodan@subdimension.ro>, Dan Robertson <dan@dlrobertson.com>,
- Jianping Shen <Jianping.Shen@de.bosch.com>, Gwendal Grignou
- <gwendal@chromium.org>, Maxwell Doose <maxwell@maxwelld.cc>, Tomasz
- Duszynski <tduszyns@gmail.com>, Esben Haabendal <esben@geanix.com>, Narcisa
- Ana Maria Vasile <narcisaanamaria12@gmail.com>, Jiri Kosina
- <jikos@kernel.org>, Srinivas Pandruvada
- <srinivas.pandruvada@linux.intel.com>, Vasileios Amoiridis
- <vassilisamir@gmail.com>, Abhash Jha <abhashkumarjha123@gmail.com>,
- Puranjay Mohan <puranjay@kernel.org>, Nishant Malpani
- <nish.malpani25@gmail.com>, Oleksij Rempel <o.rempel@pengutronix.de>, Linus
- Walleij <linusw@kernel.org>, Jonathan Cameron
- <jonathan.cameron@oss.qualcomm.com>
-Subject: Re: [PATCH 00/35] iio: closing default trigger handling leaks
-Message-ID: <20261118094629.00007514@kernel.org>
-In-Reply-To: <20261116014823.3132576-1-jic23@kernel.org>
-References: <20261116014823.3132576-1-jic23@kernel.org>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=SefnjUk3
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 3DE0E4E4160A;
+	Wed, 18 Nov 2026 08:47:34 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 1107D5FE9B;
+	Wed, 18 Nov 2026 08:47:34 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id ED02411BC0B1A;
+	Wed, 18 Nov 2026 09:47:28 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1794991653; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=kGrHNZsv8k17WyDtcN0KoKiEb8AAC/oHWu//7fo5faM=;
+	b=SefnjUk3W69idot9zlT4yJ6DKWi198Tgr1TgEoP1D48Q04zWbpCJZjGgCen4SwBPVj4ljf
+	/yEc5B4h7eMQxoBBvjOCc8vFCmdXgNxXbQ/IOTdXu2/lBr5NoO22F9tMShnqbvThwWk4++
+	JUNOnk7jleWX0Y+Y+3htuXY5KEj/tp2U8MuO2H8lmPX1pFW2fnQYFrSolgPSOgvva1n7dO
+	Khu9BQsdc8WSUq5l33NU6LEB+MxV3t8JAEEQQqtOejFev1xDk2O1IQNcvsfZs61x0NPPQ7
+	g6oefbEVfytz21Eo9SnxDoHzGt7mUwxYLYe8VO3pH/W7qf8WODOm0jpAL/mBCQ==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Simon Wunderlich <sw@simonwunderlich.de>
+Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
+ <vigneshr@ti.com>,  linux-mtd@lists.infradead.org,  Rob Herring
+ <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor
+ Dooley <conor+dt@kernel.org>,  devicetree@vger.kernel.org,  Thomas
+ Bogendoerfer <tsbogend@alpha.franken.de>,  linux-mips@vger.kernel.org,
+  Hauke Mehrtens <hauke@hauke-m.de>,  Aleksander Jan Bajkowski
+ <olek2@wp.pl>,  John Crispin <john@phrozen.org>,  Sebastien Decourriere
+ <sebtx452@gmail.com>,  Yangtao Li <frank.li@vivo.com>,
+  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/5] dt-bindings: mtd: Add lantiq,nor
+In-Reply-To: <5155531.6YUMPnJmAY@prime> (Simon Wunderlich's message of "Tue,
+	17 Nov 2026 17:45:36 +0100")
+References: <20261114100608.3432120-1-sw@simonwunderlich.de>
+	<20261114100608.3432120-3-sw@simonwunderlich.de>
+	<87fqwzn3tq.fsf@bootlin.com> <5155531.6YUMPnJmAY@prime>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Wed, 18 Nov 2026 09:47:28 +0100
+Message-ID: <87qzgijzkv.fsf@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,54 +80,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Mon, 16 Nov 2026 01:47:48 +0000
-Jonathan Cameron <jic23@kernel.org> wrote:
 
-> From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-> 
-> Note this is compile tested only!  I definitely want a few people
-> to test that I didn't break everything.
-> 
-> This is the first part of what I think is a long term solution to the
-> currently really fragile ordering constraints around setting default
-> triggers. Today these are set by iio_dev->trig = iio_trigger_get(trig).
-> The reference is only released on the iio_dev.release callback and
-> only if we have set the mode to include one that means there might be
-> a trigger set. That mode set only occurs when a buffer is registered.
-> Thus trigger release only works if we have already registered a buffer.
-> 
-> One solution would be to reorder so that the default trigger is always
-> set after the buffer registration (we have had various recent proposed
-> patches to do that for individual drivers) but that is non obvious and
-> fragile.
-> 
-> The solution here is easier to reason about. Decouple the setting
-> of the default trigger from the acquisition of a reference. Thus
-> we can acquire the reference in iio_device_register() when we know
-> all the conditions for it's release have been achieved.
-> So that's all we do in this part 1 series.
-> 
-> Part 2 will address immutable triggers and those that are effectively
-> immutable but predate that logic. That is those that set a one to one
-> relationship between device and trigger.  That change is rather less
-> mechanical than this one and 35 patches is really a bit big anyway
-> even if most of them are small!
-> 
-> Part 3 and beyond will move to a situation where the iio_dev->trig
-> will become opaque. That should stop anyone manipulating that directly.
-> I have a few related cunning plans to test out before we get to that,
-> not because the particular challenge is hard, but because they will
-> trample on the same code.
-> 
+> About physmap: you were right, and this was actually a great hint. I test=
+ed on=20
+> the my RS123: with the EBU swap that its boot loader enables, the flash i=
+s=20
+> simply a plain CFI flash. With compatible =3D "cfi-flash" and the generic=
+ physmap=20
+> driver, probing, reads (identical to what lantiq-flash reads, unaligned r=
+eads=20
+> included), erase and write all work. So this board needs no lantiq-flash =
+change=20
+> at all, and I'm dropping patches 2 to 5. There won't be a v2.
+>
+> Turning lantiq-flash itself into a physmap variant for the boards with th=
+e=20
+> classic U-Boot setup would probably be the cleaner model, but I don't hav=
+e=20
+> such a board to test it, so I'm leaving that alone for now.
+>
+> Thank you again!
+>      Simon
 
-I went through the set and only have one nit (an incorrect fixes tag),
-otherwise seems fine.
+Excellent, thanks for the feedback!
 
-Reviewed-by: Joshua Crofts <crofts@kernel.org>
-
--- 
-Kind regards,
-Joshua Crofts
+Miqu=C3=A8l
