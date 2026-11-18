@@ -1,87 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795019403;
-	b=QyKO2UBCbe7pMKcj/Xq21BhnQarMmmZvcjAcAHXCInYRFjuYx9YtGT1aAX4fmFON5oou
-	 OlBiomQ2pIw07WidcKGdBM55zSgYH1uCaj7qnfaU3UrYd4lsyjdJHKFD6vD5zMpKSGKNZ
-	 x4FLGfWor+bZ2snsrx0PD83fBU7Pow/NUGyUbvbnImUFHiHMiSqsrAa/b6jUVJGXQDIcF
-	 eEkrh6Xgk60lMFLm+mLofwYOM3Lb8gekGxLmizp2AqVvZsqfYf9EvQrKs1dvR1/nsdkaR
-	 jEpqRIfky3x9XwdC90gehL4CCBKwSGz/xwJ01pPzd4+kW+YP6hDTvVqLY94EScJ652w==
+	t=1795019404;
+	b=3hKCBj0xDumUHVyGkE5CPUm9Flh6t1jLkBu+EG/9JeHkbCof44ZsFiMQjwFlp1BXM7Bv
+	 0oEk1iwKgmyHfQw2OhC60hHCDT9uxmoAKtFTNV/AA31MhVzWYZrqosam0299A5EvyIZT+
+	 n1YmaZyAiU2ppsczP0F9E08H5VSSS/qKn58SWwIY5lk3KaRtTlwhEFQjMIWTPVBArok4q
+	 FE6vFo0CkGD060BxEwC3dZ3SNwu/xuN+oXcqdRpMx0d5HULIZHbeXq9Tc5Vh561YIt48W
+	 J9HbrwxEEN5fRy555Nw7/co7lifYf85l5rEN/1n2CEHKf6K8STAg93/ADcskPTDTp7g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795019403;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795019404;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=++mNA/ATFG+JHWKfnq2DLe8hXRW/WLweLbt37GPodEU=;
-	b=c7NXeoutWc86hBF6gaerO+rBCV8bxX1/PgSyknbqytPnIdwyUySwXriPzoDrif1+6mcF
-	 kgoczicTOksiDmUPT/4QzPi7qtyz1OY5V5tu5j5CfjfmS2xUN4S2tL1+Uv5uT0JMnZ0gD
-	 qE26PXL+ioDIjaVQsMaRqh8B84npLfLotzurGIi15C6GDC9LkO2QIN0g/olhbK8jzy87J
-	 IulQJ9qmE1quqn+yy0XwWdvrFpCAny8pCcBcYxkwMfq1IcUG8RVOrt78GxXDRNfPVuN9Y
-	 pVDUY6Zd0sqmJe+L8SmiqGv7jZtVXK3IT9UqfdTAirEfLOCQuF8MnHd+THCFJfXCV/A==
+	bh=XqjkmMfgNZGBMzqUNuESUkbxBno+SUpnXC2EkRATNvQ=;
+	b=GoB51N66SuW5mjoqRdHrFM7LO+vdqkas7Hu/KbSCkqy0XBN1oxazS60eUn5xOxkvhxtw
+	 RUIjir3y5azDJKkfAvD35c7wBr66Xaa/QLYDydBiWAo4vtGvLZvQi3psFhqJMKmNt3b+e
+	 /6JCVdLrbEX//zSuit1ROMOQd41BEjS1BqiRGhfgJXVKu8PVJ3ftI/LEQTE369Ewp9LJg
+	 RBPBRjmqtLriHrp3wrzMCc7kPLp0erYYZJ5fv9oCawQVKciSZCFEKZ5pRKIsBeTXFkJmb
+	 cU0RKHUe8xf4twe6fM0ThrU/CTMyxSgQXEJ0u6keUB7xzSq0TNj/c+GRgbPcR5/td6w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linaro.org;
 	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=tjZIAzXX;
-	arc=none smtp.remote-ip=209.85.221.48
-Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=Vy+e7XXW;
+	arc=none smtp.remote-ip=209.85.221.53
+Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8AFE60A263D
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:30:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8AFE60A263D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CECDC60A261F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:29:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CECDC60A261F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=tjZIAzXX
-Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-4a42b34e930so957118f8f.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:30:02 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=Vy+e7XXW
+Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-48e09aa5264so691000f8f.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:29:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795019401; x=1795624201; darn=vger.kernel.org;
+        d=linaro.org; s=google; t=1795019397; x=1795624197; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=++mNA/ATFG+JHWKfnq2DLe8hXRW/WLweLbt37GPodEU=;
-        b=tjZIAzXXo7Qc2tcqNCatr32uUr50tnaCysbm4XPzAIEAOhwN5hLin/BEeoWWtp3i4z
-         r4uvMZPixtUY2Tx6ooeWULcsBL1mHcEHSMEPN8bX7qgciIgW/U2HPEVtGN3kmCwjdHDB
-         CMeLYpKhkaEumysZVLqdJ/fVi01BSoJ1Aelz8T2WdJCA0YJ8jb8JFqhv3wB2oI3N1NGs
-         34+nL43nmZIGSz4gGSgKQcqczcX2lR9fHzw2KNEkm/Er4bLmb6pg4kExkvY7qgx5I+7m
-         EoIoS4RDhY4DPuUv84BXLW4RfvMDHUG1SM7XnTnJHiGXUB+yYHIL9/JwulGVtTw3/R4G
-         B9JQ==
+        bh=XqjkmMfgNZGBMzqUNuESUkbxBno+SUpnXC2EkRATNvQ=;
+        b=Vy+e7XXW0pN2gfvhsLmJ/6EuzVd4ve2EwwSC91+KhZzJzsm4PxbO/08l7QGjiF/2ao
+         ZocZMbuwmKdgRp6WoTdNkKI5AXIvoxUowMT1iINq2Jz1REUPrPls+vBGd+pOBxprRupr
+         CbbvlXvWFULM/HYU7uSAJ83oyGvA6ebgXFZ4aDRqlYlY1/9qrBmEyz3fBTGisfqSE0Bg
+         dHiIPNHtHLg9lE91uruGqAdUlGDVy5UIq4HwvzEK+aSn0RwdIRQG6auA+Blyf/2bYUpt
+         493T4nKuSB/xcwSc5g1vuWoO7s3+al3fR3ZHOja43O4nIQpUX9sI1ku0zFyOxjLgVGNC
+         MlFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795019401; x=1795624201;
+        d=1e100.net; s=20260707; t=1795019397; x=1795624197;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=++mNA/ATFG+JHWKfnq2DLe8hXRW/WLweLbt37GPodEU=;
-        b=hwc9ALGi0u03FNXqtsu9ssue7XVpHTfS3TUujfPnmkyQ6Z9oSX3s57BQtc9y3KoPef
-         YlIMWi1fDXRIBMVd4mbh0PIP+3smkUwI8dZpQsoQUeWnK9QdTFOMaay29TSjuHDB6Nct
-         zMKeqkbAiypdFU2FWW3CIt6/mgXJWlSx9nUw7wKNjlGU+wgxTcajYXDFnY1Pc9b1aT7B
-         2CEf8tLwe0qJAjXw6JXqP4LI2r546K0PLpZYwm+tUJPJWodQsGwD4omtt4zD6M9c6Ybx
-         ReE/o+a9uyXXTjrQHjB7TTMG4TzJFPNqq62OMDmuPjW5NEZ7NiAC+8pmiSrhrsSNXg4+
-         8kyg==
-X-Forwarded-Encrypted: i=1; AL+hErHnQIHTqQi0EggKXy/a8bYuoCcq6S/H7ZvBpn9EAsGhvv6bcSsfgnvqRmOLBKlpHdjC5N65MtkTSC+yN2A=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Pdr7JhRR7zIfYQcR2AshUuks3VXoBEdm40WRnSnHYag0Z5p8a
-	QieLrGbHFtMQ+iUbfMP2fY/rY49WM/TAetSfyQRzTnSVh4GzjayvvuO1V2eLNxxa0VE=
-X-Gm-Gg: AZFdTZcLYEwg82+MV5nmssGo+WZNrzz1A6npcUsjCYCK+Yi4VwjM5qpUmXTKEup06R4
-	V0JuCp3fhXWecMDQ5pzXAClR+Gu82w1Ty0dxsCI8lUASNuIFZaZQDuxdFnYZs7i1xo99LJOTKuI
-	b/muRwsAv3jPdf3+S6E4QEJFAjDdNSQI0FQLJZNBXquIW4x+VEz+ih3YcHA7bPej3rsWYKMbLvb
-	CKwZN5rLOKUMhQ3A1IShoZZ+nQpX4YpBLDsBM1tJPgftRGBxEiBMfpGAOZjNelo/Rz3jUCR5ZrW
-	QwGyqxL2ASdq39CPI1Q4CyK5sBb3J/d5JfvB8s3wQwNPy3IHLcZ5jEAyXiFVHG/EEBx3OIxdziG
-	f+rjas+Yn9Q1EqoBtnl6x9KYa/xybdeTMdXVp8cyP1MjcV9xRtDocSuYyeJjoDGG+Y+MovaQED9
-	HUep0lemZenWCcAGbynoy7n02BUVs8ylM4V8uNMDGgzGW8Gga+LiyloLZz9YpwWsarYtpI3uJW2
-	d8k7iZZAGMM+ccv5BINqQB08xbjqqmTmERxFSjFY80zyPaAOisiKezEy0bt99oVq3jz0g/hJrn8
-	D7lNjk31YaVOpTEcHUmC0vKxB2bVIhIe
-X-Received: by 2002:a5d:5f45:0:b0:4a7:a8f:527a with SMTP id ffacd0b85a97d-4a70a8f55cfmr5263386f8f.7.1795019401089;
-        Wed, 18 Nov 2026 08:30:01 -0800 (PST)
+        bh=XqjkmMfgNZGBMzqUNuESUkbxBno+SUpnXC2EkRATNvQ=;
+        b=OGBMEHLZiUUrERsrjmGi10d6dnKgooWDh3tkDOK3nBYqxyQTQjQoJi5vSf/qKkxeA+
+         0WmczVgHbzm83iRGXJTDrFWebHA515pbFsPSM9cMMGroJ/M8BadDxzEVEGYAZXi4zHRe
+         cbRLi5e/1j1MVOjW0XjTqpsYetzJoeqZcahN+sTin2ySy/SHYn+4V4teifJubxspypTs
+         Tin4ATe+OZfVPNkGkU3xdo/TDVY3R+wCEvT6ZKHAeS9RK70mmIFgPzRXycZN8mIyI3RJ
+         0F+H9xFmkfY9zmKfcE+FYDuGOfTQF4lMP/iZ0G4DN+FHJiFbLm7KQwSi2YmTr5DYvnUo
+         XCIQ==
+X-Forwarded-Encrypted: i=1; AL+hErE3e2KcjJiCaH3K3ML/N+FDNqQJzfW8AZD/r6NPQSfaXAldYjU1+bjUKT4n7+ybfUylPI9iq0iAfs4uHeA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/Vu7SoEB1pCPzmiBkcVsZ9z5ayrNTz5L5IIvGfNqM/1hIThYyE
+	6XWGVt2Rr+s2baBDlv4E82PcfAluEKnYsXiDfPuE52KGZGzHMKXtCLs/j2u4aK6cFoQ=
+X-Gm-Gg: AYBFou0xXr7BMi1n2UiDgTl2q2cJxYNvu1g1uLRGpNObaypiv5q6Su2s7umN0LnLRRm
+	R8b0PLjrO1x/djtCe72MKnzjChozhjcv+28T1XLj3waZhqqyC462SFpPcnPMR6OM8j3OUlnNICB
+	ulnL4evIG9qsmA/o8d78oE+3giJHECHSnX5pkAORDBI2zsJOFqTv+rkMMfvp5lkOIRfHlVKX6DF
+	zyC1WBv5WVtu2lUV3ib/ZG3E8Hf5J07621wWN8OSCLAVNK4WP25OEMZ0FOgoqloTd07fM0KawVQ
+	1ztUef9DnzmnblmWZa/UE3OcNLzCKukeBYuW1YttgARSR2/Z1stQCb4XI59VWVZUe39/y49lRQR
+	J/pnJDsN5iq3/rznJhE4z74LTjfJ5K5Zl5jPd/XffE2IbYKU/DMWEvNFQAv+6mJXeoAqMH2iB9u
+	iGxR1y3JV+JCMi59CMPAdrgqUkWePFq7VAQMXg2yu41qCo2IaGRU2vm/vBpXaP0Rgsbx/AEF/ep
+	2LiHH/QerdfDCnTTmguA+S04oUmBcAUikUF9DmC2ujwd3ZrEiyU6yuXb626C+BKjV9E8H0UfgCn
+	MwrGYFdrFAp4bWdTBmfv2+M4EJn2DPxv
+X-Received: by 2002:a05:600c:83ca:b0:4bb:60b1:4409 with SMTP id 5b1f17b1804b1-4bb7da26fb7mr62550495e9.19.1795019397271;
+        Wed, 18 Nov 2026 08:29:57 -0800 (PST)
 Received: from pop-os.local ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a654a8c23bsm4980927f8f.12.2026.11.18.08.29.59
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a654a8c23bsm4980927f8f.12.2026.11.18.08.29.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 08:30:00 -0800 (PST)
+        Wed, 18 Nov 2026 08:29:56 -0800 (PST)
 From: James Clark <james.clark@linaro.org>
-Date: Wed, 18 Nov 2026 16:29:34 +0000
-Subject: [PATCH 12/34] perf cs-etm: Track sched out events
+Date: Wed, 18 Nov 2026 16:29:31 +0000
+Subject: [PATCH 09/34] perf cs-etm: arm-spe: Report error if default clock
+ isn't used
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,7 +94,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-james-coresight-jit-v1-12-dad4d90747f6@linaro.org>
+Message-Id: <20261118-james-coresight-jit-v1-9-dad4d90747f6@linaro.org>
 References: <20261118-james-coresight-jit-v1-0-dad4d90747f6@linaro.org>
 In-Reply-To: <20261118-james-coresight-jit-v1-0-dad4d90747f6@linaro.org>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
@@ -107,37 +108,45 @@ Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
  James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.15.2
 
-The sched in event might be dropped due to a full ringbuffer, so the
-sched out event is still useful information if that thread is going to
-be seen again. Call machine__findnew_thread() unconditionally as it's
-harmless to do it twice for the same thread.
+Coresight already reported an error if a different clock was used, but
+this also applies to SPE so add the same error there.
 
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- tools/perf/util/cs-etm.c | 10 ----------
- 1 file changed, 10 deletions(-)
+ tools/perf/arch/arm/util/cs-etm.c    | 2 +-
+ tools/perf/arch/arm64/util/arm-spe.c | 6 ++++++
+ 2 files changed, 7 insertions(+), 1 deletion(-)
 
-diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index 67e3e2becd0f..1e1ff6cc8a5e 100644
---- a/tools/perf/util/cs-etm.c
-+++ b/tools/perf/util/cs-etm.c
-@@ -3018,16 +3018,6 @@ static int cs_etm__process_itrace_start(struct cs_etm_auxtrace *etm,
- static int cs_etm__process_switch_cpu_wide(struct cs_etm_auxtrace *etm,
- 					   union perf_event *event)
- {
--	bool out = event->header.misc & PERF_RECORD_MISC_SWITCH_OUT;
--
--	/*
--	 * SWITCH_IN events carry the next process to be switched out while
--	 * SWITCH_OUT events carry the process to be switched in.  As such
--	 * we don't care about IN events.
--	 */
--	if (!out)
--		return 0;
--
- 	return cs_etm__associate_tid(etm, event->context_switch.next_prev_pid,
- 				     event->context_switch.next_prev_tid);
- }
+diff --git a/tools/perf/arch/arm/util/cs-etm.c b/tools/perf/arch/arm/util/cs-etm.c
+index 809da6f1a892..5a64c17cf254 100644
+--- a/tools/perf/arch/arm/util/cs-etm.c
++++ b/tools/perf/arch/arm/util/cs-etm.c
+@@ -365,7 +365,7 @@ static int cs_etm_recording_options(struct auxtrace_record *itr,
+ 		return ret;
+ 
+ 	if (opts->use_clockid) {
+-		pr_err("Cannot use clockid (-k option) with %s\n",
++		pr_err("Cannot use clockid (-k option) with %s, can only correlate samples with the default clock.\n",
+ 		       CORESIGHT_ETM_PMU_NAME);
+ 		return -EINVAL;
+ 	}
+diff --git a/tools/perf/arch/arm64/util/arm-spe.c b/tools/perf/arch/arm64/util/arm-spe.c
+index 53899c7de846..834419f04617 100644
+--- a/tools/perf/arch/arm64/util/arm-spe.c
++++ b/tools/perf/arch/arm64/util/arm-spe.c
+@@ -416,6 +416,12 @@ static int arm_spe_recording_options(struct auxtrace_record *itr,
+ 				       evsel->pmu->name);
+ 				return -EINVAL;
+ 			}
++
++			if (opts->use_clockid) {
++				pr_err("Cannot use clockid (-k option) with %s, can only correlate samples with the default clock.\n",
++				       evsel->pmu->name);
++				return -EINVAL;
++			}
+ 		}
+ 	}
+ 
 
 -- 
 2.43.0
