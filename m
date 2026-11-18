@@ -1,61 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795023569;
-	b=RNwTHq7M0kN7llYuhIy2KDj/C/VCbErUg40+PVlxjlHyiFfqJxYYuOfDdHNCm40J4tg/
-	 Vr5xErVF+LgHRVhLrf5I4OMIMhJjv/Y2lhc4czHC8K3UdDKjxGhCMuBR/HfpHjoJPPjru
-	 plykskZlC17E5HBYk18EjgyvbSnNL13bFWxDH11+JFWA0iS4N/6PofW6H4PNnVTTUgXBV
-	 FSB4aQpCoIaLlgPPEjp4pfTUx6BkHDrwHCcr1vvd1bjVst0UD1GYrt6/TnL1uP1iA/nup
-	 TyrfcrR3KQGrjloAo/oM+881UZOiyAUaJwTY+D6GPHi5XMLAheWgBe0PwaZ+zvcd9OA==
+	t=1795023591;
+	b=QjA0El+KIdLq2wSHv4AMSgw7ZyNbRa9U3uFjIyrn+ZqydIn4Kztj2Hf4rFrW7lvv3Pkl
+	 uadwXAgQTrnLaD2OYbnPAXZshaaUnPulDpQ7zK4jqNZFyo350qFeYDtYF12c71YOUmVkj
+	 QO0sJ11PNUJaJYztF7O04/SNvnTK5CQyCDRlYEV6asAAe4dQrtURQdkL3ewxS9mlaC7sO
+	 mYUI4jztKYJ98rqGESFe1MQhbjOeEyqYhp6KzLCjeKGgKXlPiBc2ddb7cA+lE19kyUGsh
+	 VQaVZg4eWZ1WLFkUwuHlpP8LUh0Fn+5z5Os72NuXQzdMQFgZsKked0c7rXelf0uq5uQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795023569;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=+PqVG7MhQmqTP/NdjYjEGqbld94Z8cH2TJptRWQDgKk=;
-	b=IIYCB/Q9WAiuinlMFsa5PljSV/w6wMYxSX+f2oa86s4y8RKUdRQZxo2hX7DUijpSh4pO
-	 NmvwdKuF6H7Zcnq75dhR+28z/OTJKEQB6juiQ2qP52VXx9PdeMNC0Say+J8RpIXwhr9Qd
-	 OSovI1bcLcjnaDYTnKo2RRy2jcjs3jIFgdallN3CWn4wpx3PPLDFQ6bokMDQAGv4UvYm+
-	 B3NQ0Ox9nQYTLxXdUUqigUyq5ONY11AyTAk2lwz0rl5gzgQix7rzVoYhtJJetdy4UNXF6
-	 w4Pt/OUo2wiheLdoTVI/TtKI+xUKnitgH2G+4yzkieGC0wPCe2NQQGJicepRo4XcOhg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795023591;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=GXgX0kwAKKbNvo3NPPaYNQlo5gTekPgN9S8xFmR9pC4=;
+	b=UUxm3Kp0MC1nZSPPMtGe8nxD5FaL3oj6uZjgNpia/+hrkhG/jXdApt3PlCD8cPKyQFC4
+	 luehYVz0vbOTykaPrK2zZ07Fxj0JT77pLZrBXEp7WUsLzcWSear2bXj8w1bjhNBgYSflT
+	 Wbq2moplHmy7u5kby08aBiLLoI+urR4XxaJR3yNtEQm1asaS6b13usYGi13sMetPEpIiJ
+	 uYddhfeqeEtH6j89sL4BiMnH3DDYtgDXYFoedqzWeGDMqDqxbX6JdK9WFl03kVi8f1R6u
+	 tWPGGFp82NPqLuwh+JsDvM2vj5p//s4R+CCGXIHMKhZ7dar51/B9ZrVtCdQNh44HIPg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=odIgW2cI;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="MgL+/cDE";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5ED5760A260B;
-	Wed, 18 Nov 2026 17:39:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20537606A325;
+	Wed, 18 Nov 2026 17:39:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=odIgW2cI
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 143DA1F000C6;
-	Wed, 18 Nov 2026 17:39:28 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MgL+/cDE
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2FEA1F000C5;
+	Wed, 18 Nov 2026 17:39:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795023569;
-	bh=+PqVG7MhQmqTP/NdjYjEGqbld94Z8cH2TJptRWQDgKk=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=odIgW2cIK1uIca3UKHc10d/MsJGgadnbcRypsrdIZS6AmwCf4LwwvP0nRXorWL7h3
-	 3DgeePmQDMgHgHLnSye5tf1JkH1yUE96s8MFPauWtAk7NQztHjWlR76ug+8kuI09aL
-	 maV0xakpsIbbLgSINnZmNf65Eac8ZqlQGpwNUs0NgjAI2hMhwRNwNtE6KCJ6Cr0nZC
-	 jvYCbjU9ULS+hwTSKMvusP7Pl4Bl9zdouNiVt819iN/iwN7vqjurt7IFkMDJwx/6qF
-	 IKiMT1yLdtFFZ1T5sdudZ/fs7GTQsuRJ97Dtl0deBd5QrVFmwNbM6E1mxFKLHweyJ4
-	 HZHt6CClVp0XA==
-Subject:
- Re: [PATCH] net: prevent receive header offset overflow during decapsulation
-From: netdev-bot+sashiko@kernel.org
-To: carges@cloudflare.com
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, dsahern@kernel.org, idosch@nvidia.com,
- june@cloudflare.com, danjones@cloudflare.com, jbrandeburg@cloudflare.com,
- josef@toxicpanda.com, mason@kernel.org, kernel-team@cloudflare.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, stable@kernel.org
-Date: Wed, 18 Nov 2026 17:39:27 +0000
-Message-ID: <179502356763.3136.15330216541876894208@kernel.org>
-In-Reply-To: <20261118-prevent_rx_header_offset_overflow-v1-1-92a5be55f994@cloudflare.com>
-References: <20261118-prevent_rx_header_offset_overflow-v1-1-92a5be55f994@cloudflare.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795023591;
+	bh=GXgX0kwAKKbNvo3NPPaYNQlo5gTekPgN9S8xFmR9pC4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=MgL+/cDEI6lfuLt6Bm1sQe72ACFlWQSD+tf9hUPzKJa5oqr5YkbI01+tZs8L9YkL6
+	 EgAwoHqmqYCdRpmnOeU3yzui3vCpvV6RyTnz+zO9y4JzOJ2kbXnhfol+H22IyP/Pyt
+	 8BpcPlNmgLo41dH5W6dLoaJfkEs6MMBVEDvxH416CALTsNR0Heud4hf/EpZK5gaWBP
+	 Gxw4ZyrgB1F30IwE2SZbPyHOPcPYAb1ToDQdkq8XCTsriwOZBk02CpBSEV8rjffthK
+	 RGRq7PnvX9b6z+L7aU6KjNsvz3X8X+W4A98OoIn+8AeALOaJMj7fH64/DEihZSi9nE
+	 iPNB1Wk97+HGQ==
+Date: Wed, 18 Nov 2026 17:39:46 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Marcelo Schmitt <marcelo.schmitt@analog.com>
+Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux@analog.com, jic23@kernel.org,
+	Michael.Hennerich@analog.com, nuno.sa@analog.com,
+	eblanc@baylibre.com, dlechner@baylibre.com, andy@kernel.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	olivier.moysan@foss.st.com, marcelo.schmitt1@gmail.com
+Subject: Re: [PATCH v1 4/5] dt-bindings: iio: adc: Add ADA4355
+Message-ID: <20261118-liver-decompose-434eedb257b8@spud>
+References: <cover.1795003864.git.marcelo.schmitt@analog.com>
+ <c7be62089d2b54dbf7fb57cdea189bdb1cade7c5.1795003864.git.marcelo.schmitt@analog.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,125 +61,184 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="7KeiSr613VEX3nr7"
+Content-Disposition: inline
+In-Reply-To: <c7be62089d2b54dbf7fb57cdea189bdb1cade7c5.1795003864.git.marcelo.schmitt@analog.com>
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+--7KeiSr613VEX3nr7
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
+On Wed, Nov 18, 2026 at 10:04:13AM -0300, Marcelo Schmitt wrote:
+> The ADA4355 is an integrated analog front-end and 14-bit analog-to-digital
+> converter with a serial LVDS data interface.
+>=20
+> Document how to describe ADA4355 devices in device tree.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Please explain why the 4356 differs rom the 4355 such that it cannot use
+a fallback compatible.
 
-- [High] The new SKB_MAX_RX_HEADROOM (32 KiB) checks run in only three
-  places: when __netif_receive_skb_core() is entered…
+Thanks,
+Conor.
+pw-bot: changes-requested
+>=20
+> Signed-off-by: Marcelo Schmitt <marcelo.schmitt@analog.com>
+> ---
+>  .../bindings/iio/adc/adi,ada4355.yaml         | 104 ++++++++++++++++++
+>  MAINTAINERS                                   |   7 ++
+>  2 files changed, 111 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/iio/adc/adi,ada4355=
+=2Eyaml
+>=20
+> diff --git a/Documentation/devicetree/bindings/iio/adc/adi,ada4355.yaml b=
+/Documentation/devicetree/bindings/iio/adc/adi,ada4355.yaml
+> new file mode 100644
+> index 000000000000..d169619fef25
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/iio/adc/adi,ada4355.yaml
+> @@ -0,0 +1,104 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/iio/adc/adi,ada4355.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Analog Devices Transimpedance Current to Bits Receiver
+> +
+> +maintainers:
+> +  - Marcelo Schmitt <marcelo.schmitt@analog.com>
+> +
+> +description: |
+> +  ADA4355 programmable transimpedance, current to bits receiver and simi=
+lar data
+> +  converters.
+> +  Specifications can be found at:
+> +    https://www.analog.com/media/en/technical-documentation/data-sheets/=
+ada4355.pdf
+> +    https://www.analog.com/media/en/technical-documentation/data-sheets/=
+ada4356.pdf
+> +
+> +$ref: /schemas/spi/spi-peripheral-props.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - adi,ada4355
+> +      - adi,ada4356
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  spi-max-frequency:
+> +    maximum: 50000000
+> +
+> +  spi-3wire: true
+> +
+> +  spi-cpha: true
+> +
+> +  vcc-supply:
+> +    description: 3.3V power supply.
+> +
+> +  vea-supply:
+> +    description: 1.8V analog power supply to ADC.
+> +
+> +  ved-supply:
+> +    description: 1.8V digital power supply to ADC.
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  adi,vld-en-gpios:
+> +    description: GPIO connected to the VLDEN pin for VLD output enable.
+> +
+> +  adi,gsel-gpios:
+> +    description:
+> +      GPIOs connected to the GSEL0 and GSEL1 pins, in that order, for
+> +      transimpedance gain selection.
+> +    minItems: 2
+> +    maxItems: 2
+> +
+> +  adi,lfp-gpios:
+> +    description:
+> +      GPIO connected to FSEL for internal low pass filter bandwidth sele=
+ction.
+> +
+> +  io-backends:
+> +    description:
+> +      The AXI ADC IP block connected to the D+/- and DCO+/- lines of the
+> +      ADC. An example backend can be found at
+> +      http://analogdevicesinc.github.io/hdl/projects/pulsar_lvds/index.h=
+tml.
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - vcc-supply
+> +  - spi-3wire
+> +  - spi-cpha
+> +  - clocks
+> +  - adi,vld-en-gpios
+> +  - adi,gsel-gpios
+> +  - adi,lfp-gpios
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/gpio/gpio.h>
+> +    spi {
+> +        #address-cells =3D <1>;
+> +        #size-cells =3D <0>;
+> +
+> +        adc@0 {
+> +            compatible =3D "adi,ada4355";
+> +            reg =3D <0>;
+> +            spi-max-frequency =3D <100000>;
+> +            spi-3wire;
+> +            spi-cpha;
+> +            vcc-supply =3D <&supply_3_3V>;
+> +            clocks =3D <&ref_clk>;
+> +            adi,vld-en-gpios =3D <&gpio0 89 GPIO_ACTIVE_HIGH>;
+> +            adi,gsel-gpios =3D <&gpio0 86 GPIO_ACTIVE_HIGH>,
+> +                             <&gpio0 87 GPIO_ACTIVE_HIGH>;
+> +            adi,lfp-gpios =3D <&gpio0 88 GPIO_ACTIVE_HIGH>;
+> +            io-backends =3D <&axi_adc>;
+> +        };
+> +    };
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 02015eaec312..692f1e6d56ec 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -1794,6 +1794,13 @@ W:	https://ez.analog.com/linux-software-drivers
+>  F:	Documentation/devicetree/bindings/iio/amplifiers/adi,ada4250.yaml
+>  F:	drivers/iio/amplifiers/ada4250.c
+> =20
+> +ANALOG DEVICES INC ADA4355 DRIVER
+> +M:	Marcelo Schmitt <marcelo.schmitt@analog.com>
+> +L:	linux-iio@vger.kernel.org
+> +S:	Supported
+> +W:	https://ez.analog.com/linux-software-drivers
+> +F:	Documentation/devicetree/bindings/iio/adc/adi,ada4355.yaml
+> +
+>  ANALOG DEVICES INC ADE9000 DRIVER
+>  M:	Antoniu Miclaus <antoniu.miclaus@analog.com>
+>  L:	linux-iio@vger.kernel.org
+> --=20
+> 2.39.2
+>=20
 
---
+--7KeiSr613VEX3nr7
+Content-Type: application/pgp-signature; name=signature.asc
 
-net: prevent receive header offset overflow during decapsulation
+-----BEGIN PGP SIGNATURE-----
 
-This patch limits receive headroom to 32 KiB (SKB_MAX_RX_HEADROOM). The
-goal is to keep the 16-bit skb header offsets from being truncated after
-repeated decapsulation. The check runs on entry to
-__netif_receive_skb_core() and at the resubmit points of
-ip_protocol_deliver_rcu() and ip6_protocol_deliver_rcu(), and drops
-packets with the new SKB_RX_HEADROOM drop reason.
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCav3i4QAKCRB4tDGHoIJi
+0lGIAPwL9Ok5CfhDaHPz6PfDM55YstB+pHs1BtlXH5AZpuz9hQEA5xfUN54c7i+w
+8XAvs4w2rW37d7epckopz1ZegBBy1QA=
+=iCcF
+-----END PGP SIGNATURE-----
 
-[ ... ]
-
-> diff --git a/net/core/dev.c b/net/core/dev.c
-> index 3c58db732761a..6140fd9d11cd0 100644
-> --- a/net/core/dev.c
-> +++ b/net/core/dev.c
-> @@ -6223,6 +6223,10 @@ static int __netif_receive_skb_core(struct sk_buff **pskb, bool pfmemalloc,
->  	trace_netif_receive_skb(skb);
->  
->  	orig_dev = skb->dev;
-> +	if (unlikely(skb_headroom(skb) > SKB_MAX_RX_HEADROOM)) {
-> +		drop_reason = SKB_DROP_REASON_SKB_RX_HEADROOM;
-> +		goto drop;
-> +	}
-
-[Severity: High]
-
-This check runs once, when __netif_receive_skb_core() is entered. That is
-before the another_round label, sch_handle_ingress(), vlan_do_receive()
-and the rx_handler call.
-
-Can headers stripped later in the same receive pass still push the 16-bit
-header offsets past U16_MAX?
-
-For example, tc act_mpls with TCA_MPLS_ACT_POP calls skb_mpls_pop() once
-per action. Each call stores the current headroom into the u16 header
-fields:
-
-net/core/skbuff.c:skb_mpls_pop() {
-    ...
-	__skb_pull(skb, MPLS_HLEN);
-	skb_reset_mac_header(skb);
-	skb_set_network_header(skb, mac_len);
-    ...
-}
-
-Outside CONFIG_DEBUG_NET, the only guard in those helpers is
-DEBUG_NET_WARN_ON_ONCE(), so the value gets truncated silently.
-
-The number of pops per pass doesn't look bounded:
-
-  - a filter can hold up to 32 actions
-  - a filter whose action control is continue returns a negative result,
-    and __tcf_classify() moves on to the next tcf_proto without counting
-    it toward max_reclassify_loop (that limit only covers the
-    TC_ACT_RECLASSIFY / TC_ACT_GOTO_CHAIN reset path)
-  - about 512 matchall or flower filters with 32 pops each comes to
-    roughly 16K pops in one pass
-
-veth_setup() sets dev->max_mtu = ETH_MAX_MTU. A frame of about 65.5 KB
-carrying about 16K MPLS labels, sent with AF_PACKET on one veth end, would
-reach __netif_receive_skb_core() on the peer with about 30 bytes of
-headroom and pass this check.
-
-tc ingress could then pop the labels while skb_ensure_writable() keeps
-pulling data from the frags into the linear head. At some point
-mac_header and network_header would wrap past U16_MAX.
-
-After the wrap, the remaining skb_mpls_pop() calls would run memmove(),
-skb_postpull_rcsum() and skb_mod_eth_type() at the truncated offsets.
-ip_rcv_core() would then read ip_hdr() from stale bytes and set
-transport_header from that position. L4 code could then misparse the
-packet, for example in tcp_data_queue():
-
-	__skb_pull(skb, tcp_hdr(skb)->doff * 4);
-
-Here doff comes from the wrong bytes, so could this wrap skb->len or hit
-the BUG() in __skb_pull()?
-
-This setup needs only CAP_NET_ADMIN and CAP_NET_RAW in a netns owned by a
-user namespace.
-
-Similar in-pass header strips look possible elsewhere:
-
-  - openvswitch pop_mpls with recirculation, where
-    ovs_dp_process_packet() runs again without re-entering
-    __netif_receive_skb_core()
-  - bpf_skb_adjust_room() shrinking, which adds len directly to
-    mac_header and network_header
-
-The commit message says:
-
-    Together, these checks
-    prevent 16-bit header-offset truncation in cases of repeated
-    decapsulation.
-
-Is that still accurate given these paths?
-
-Would it be more robust to bound the offset where it is stored, either in
-the skb_set_*_header() / skb_reset_*_header() helpers or in the pop/shrink
-helpers, instead of only at the chosen re-entry points?
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118-prevent_rx_header_offset_overflow-v1-1-92a5be55f994%40cloudflare.com
+--7KeiSr613VEX3nr7--
