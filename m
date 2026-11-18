@@ -1,94 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794998400;
-	b=rPx56zfZjMtlZCf29Vi7CY0MylsCMn+4l09eHeNoVumaQHXe62gM/ZuNxET+x1swLwEI
-	 bmJ8TJsVw4EiDXQwmvs6wFGKR/MvyiaCk0Ykb9ZlxZzv09QgbNw3KvNRjsFldShwBgbIW
-	 lV2hROuX3zOgHO83AuYt90EtBtagytLL/Qn7IHbvZLZPMu6/YunORik5poafRd3FcrIcF
-	 e/tCUqW/hcr/g0HJvSjaB3LKpRItDRzXhtvxJPgqnbF4B0w3YaJqQ6aFiUJC+ZpaUJ3xt
-	 aaftcT+Om4hHiyr0X7wUCaRWPEyt2Y/7KCJzoR3A9UQBHJVLo5wdhT3znYiuHjesd3g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794998400;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
-	 User-Agent:MIME-Version;
-	bh=Is/Xjej6ADaYpv7YxcowFZl8o9RxTiehNx4Z4i/N32g=;
-	b=Vej+oZyILBWxQQAYqAP1uXwnfEJH1iAjnNqVPaS28ezGMJbawqhEha1frGhyDYfnIW3l
-	 bdLubX4zhAkiHkbfLn9sNOowxaEB8kEWYX8XN75eP7ZGJLTKicmb+uBpbhiVJivtdZT9i
-	 Ah0pfuUFBL1Rx6f26ReZaHZavGKwNgarzwRBjmjxQMNeBnzcrtub0imsPVdPy7QIQbiz3
-	 aAa30ZB8rkldeMPwnhaO4F/UJmoAR/u3/kjKd3JSRRot8FJt8ryIAac6yLBvdFXG9hxhz
-	 s3UVGZRfyXmR9rdXFesOaso2wSFPUkCIUMIF0nN1Hv/4J5ZTajFAlCnRJTU+0HpNCWw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pengutronix.de;
-	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b="E/GnAvcA";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794998396;
+	b=5U6dcrSCi87ZciFoL36AG3xjixOf8hsQI+jHtDZcBw7PYIEf420A0EXjnZgAmSqU17ph
+	 DZKtdPZJ1yzzDsTng11ajdwlAqE+QdBudAWL1a55Hdm1Tp/NRoeueJRs5K1tod5jscLUh
+	 F7AaLNpt7/4ooc/CHKWRFF2etZlKQY7ZGTaN6Ycsvf8yazqtMU7smNkKJiNOfbVd+stqZ
+	 BsF6WKb7A36hjiP0twilCRhLXDp0+B5jyxwd1bY/E1OD9nScLHebxtUUjfU0G5EMaBXDP
+	 EObklRnt7zMOlZcB45xZAeFZDFaE4aHtKVAZgMMR1Fd1bFLcmy+lHlAjkrwNrVQWfyA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794998396;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=gBoWaO2BpC7nFhli8/O/xwsvCcPKI30OlLn0Mx8JuFM=;
+	b=bZ7AHeZf6DgizQ6CQCEuQyNEWPQm20CHwvc6ZtGApZp6zdf5vPoPiPjSDW8KDSQ+o2UR
+	 4lPsfGnO3ch2uer20sMWn7tf8/E13U9Jw9Al9g2nOglE3E6ABTiSm6FbHxBWl/zNs7Po/
+	 ROf8a/AoQ38AOrNtccRi1WpOrlhrjN3NMVgWS7R8ArgUb5vvDJqgyHrOYgg4fgYSyn9VC
+	 8dPMAWRlKjVJOIrEcte1TI0/WqkjslLKW4o/G3joCmcjbwFeNqVYI+EGuCrbUqaOFmo6C
+	 cFnwtHH8Ic4qDzDvVMFXyokH0r0f2dbzorItztIyLbSrD8wJvwTsa8H2DbgI2Eyd4FQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kZMEFJi6;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68F45606A32A;
-	Wed, 18 Nov 2026 10:39:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 68F45606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D84D5606A32F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:39:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=E/GnAvcA
-Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
-	(Authenticated sender: pza@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id DD95A200878;
-	Wed, 18 Nov 2026 11:39:57 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1794998397;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Is/Xjej6ADaYpv7YxcowFZl8o9RxTiehNx4Z4i/N32g=;
-	b=E/GnAvcAB7wIoGgCFhZ6ArRkq2vpgI0TEixnQG/sPauxDqX5ginvHdyQn3/Z6HlchzVgUj
-	xTctZAYyMhJoHnOg9ToFVIGkVOUKOATzDOv8ip0y6sbxRTrlxmZifbRrGyX8AfTR5BpuIR
-	Y/L92mY9WjP1O+JP7HD1POg1An6qPTOE6UO7o7Qc3O9mHUrO1sCWJNwplxuNVrtu6jweEO
-	qM68bYilGIK+HpH8Lxh5dt23HgUZb6d9QvsVuE/nLd6VCWsWog3v92hkC5YTGbL5xwAcXp
-	A/rVOT7nuV9TZAshsRbhWYjNXu0rRdehqbvoOURWgaFV6qYxuUQSODEIgxVAAg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1794998397;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Is/Xjej6ADaYpv7YxcowFZl8o9RxTiehNx4Z4i/N32g=;
-	b=G7DOJ0d78CCHrJaRYwLbO83fU8GXwXgL9SO2TxzpFbhQwb4ZeyADi5TbKmvf+ElQhbE1wv
-	//6xy79MAE4XNyDa2ftEH+lYCa7uqoI2cvpsgz5lTnJdgRtexIMxRx3+onnpAoLsjWnoeb
-	/CJQKRr+fsVc7SET+mk7V7ah2XgJh7zOUhXVguHiZAck6kc5NK823sJTzdEzIOQ3dYWtG/
-	kqsgi+5z4KO+tQGjVyoBlSIQJwVtGuptLST+3zdhmmB5JSBnPh/ZDtbO0mjqlVpF8yi7eU
-	+iqnbn6Ihrzb9UEbEL3+XzNK5qPkfB6gPXhgttAZhfwReRFeGcSwaz7mEgzQig==
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1794998397; a=rsa-sha256;
-	cv=none;
-	b=GzE+QoI/KqlGQ4VhyjAx71km+eSWXKnFhULQcrl+x8amwMnULwo17haGckk0Lk0J9fqdol
-	JNVPPZ7s+GiBN2680blVqgOUKf0in6lXSFr0KjHNRnkGMLFzywppfR1bgQIdK/2eYpX5sO
-	BF1jGQ3PfAizafEdp1EdGdoEVPdPF97bPqyOYrD/KaFCQ2IB/y9Fqg8/enAO9C9W2km14r
-	ogonOVhU7l6/O1WTUzVVeuc1jfrj5Aki+5gsgstM4MpKrDqZqADcSELjtdn4iFH6TtspaF
-	9F2hRaoqpSTIqCaOvNGtjv3r07wcci19Kq1RYIC+37Qjh/+L7agLwbiD4RGLuw==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=pza@pengutronix.de smtp.mailfrom=p.zabel@pengutronix.de
-Message-ID: <5f38e679926affa46ee96bf431510dd0a0ddf36c.camel@pengutronix.de>
-Subject: Re: [PATCH v2 6/6] reset: starfive: Add StarFive JHB100 System-0
- reset driver
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Changhuang Liang <changhuang.liang@starfivetech.com>, Brian Masney	
- <bmasney@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, Stephen
- Boyd	 <sboyd@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-  Conor Dooley <conor+dt@kernel.org>, linux-clk@vger.kernel.org,
- linux-kernel@vger.kernel.org, 	linux-riscv@lists.infradead.org, Hal Feng
- <hal.feng@starfivetech.com>
-Date: Wed, 18 Nov 2026 11:39:57 +0100
-In-Reply-To: <20261118100523.11395-7-changhuang.liang@starfivetech.com>
-References: <20261118100523.11395-1-changhuang.liang@starfivetech.com>
-	 <20261118100523.11395-7-changhuang.liang@starfivetech.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kZMEFJi6
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9132F1F000CE
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:39:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794998396;
+	bh=gBoWaO2BpC7nFhli8/O/xwsvCcPKI30OlLn0Mx8JuFM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=kZMEFJi6YvZYZEoA6tjjUn6+nPNpMa++glv5pA/Fd93mEFIBpqdWHz5JqxhSqJXto
+	 zOVD1ZNdrOU259d5HGphMDN5GPc7BtcVWSW9AMa5w7FYgfcVMU0+eWkDNQkJcbPQ13
+	 5J0icKUCF1LHroq0HP9gwYBDde0odFIHgWX5deFGj1BxiEEP3uSwYsRxIqfW+FWm2f
+	 o86mi1xTcT1Dv5/oRmsosGx7OFOQ9ImwOx6NLSWa0Bbv5eCnxHnT1ugv5EfIVfoEPL
+	 36QsqS0Ts9bUddRudDXfmdjYwxY8eDhK+q0GHaVIh4JjImNK3OLgEMk/Z3pibjTpmB
+	 Yc+z0ZF0ZX9cw==
+Received: by mail-oo1-f52.google.com with SMTP id 006d021491bc7-71aea92f666so512419eaf.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:39:56 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHSIpTK5x/OI5Jbj3ZmHSWyrC+svj5GsKbtfL3QhtG7LqIDCfyGRMi55snZTxyU/L80Pi9MJDwwxqCxgJs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8zYX8T6YZKKauWTXbo851XM9RctsuwE58YUBBWT1C41IqoNuXu
+	6gqy9gAMm9kHxsHsPPp9YMAp85a52f7bdpCLyJFha6At9GjHJwPPqYDZpJxXKC8XgBXSj+z0vSL
+	VO4Fhbh8x52IomMfA+8WS3YTGUNvfvAA=
+X-Received: by 2002:a05:6820:2306:b0:70b:8148:94f with SMTP id
+ 006d021491bc7-71b18610c01mr1159744eaf.76.1794998395684; Wed, 18 Nov 2026
+ 02:39:55 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,22 +59,121 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261116024056.1274402-1-bsdhenrymartin@gmail.com>
+ <20261118100729.jn66g5cvdkspoqjc@DEN-DL-M70577.microsemi.net> <CAL4Wiip+hBuFcdyZPrJ+T-rKrwyfNTXDu9MUirPn4XtDpa3nZA@mail.gmail.com>
+In-Reply-To: <CAL4Wiip+hBuFcdyZPrJ+T-rKrwyfNTXDu9MUirPn4XtDpa3nZA@mail.gmail.com>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Wed, 18 Nov 2026 11:39:44 +0100
+X-Gmail-Original-Message-ID: <CAL4WiiqAB6sbiGnRuOqaA-TBuMi8kFPSt6SDtuj0+FpU36k-yw@mail.gmail.com>
+X-Gm-Features: AclHuK9VaZOgPE54qY8a9OdI1oZgonXk27f25PRd6DD4-jtXavC-2_khlA46Uno
+Message-ID: <CAL4WiiqAB6sbiGnRuOqaA-TBuMi8kFPSt6SDtuj0+FpU36k-yw@mail.gmail.com>
+Subject: Re: [PATCH] net: fix uninitialized heap leak in multicast address dumps
+To: Daniel Machon <daniel.machon@microchip.com>
+Cc: Henry Martin <bsdhenrymartin@gmail.com>, Paolo Abeni <pabeni@redhat.com>, 
+	"David S . Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Simon Horman <horms@kernel.org>, 
+	Stanislav Fomichev <sdf.kernel@gmail.com>, Nicolas Dichtel <nicolas.dichtel@6wind.com>, 
+	Yuyang Huang <sigefriedhyy@gmail.com>, 
+	Aleksandr Loktionov <aleksandr.loktionov@intel.com>, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Mi, 2026-11-18 at 02:05 -0800, Changhuang Liang wrote:
-> Add the auxiliary reset driver for the StarFive JHB100 SoC. It binds to
-> the auxiliary devices registered by the JHB100 clock generator drivers
-> and uses the register base handed over as platform data.
->=20
-> Start with the System-0 clock and reset generator (SYS0CRG). Its reset
-> IDs do not map one-to-one to the hardware reset bits, so the controller
-> is registered with a reset ID map.
->=20
-> The other JHB100 reset controllers are added by follow-up patches, each
-> right after the clock driver of the same CRG.
->=20
-> Signed-off-by: Changhuang Liang <changhuang.liang@starfivetech.com>
+Le mer. 18 nov. 2026 =C3=A0 11:38, Eric Dumazet <edumazet@kernel.org> a =C3=
+=A9crit :
+>
+> Le mer. 18 nov. 2026 =C3=A0 11:07, Daniel Machon
+> <daniel.machon@microchip.com> a =C3=A9crit :
+> >
+> > Hi,
+> >
+> > > __hw_addr_create() allocates entries with kmalloc() and initializes
+> > > only addr_len bytes of ha->addr. Dump paths emit entries using the
+> > > current dev->addr_len, which can grow after the entry was created:
+> > > tun's TUNSETLINK changes a device from ARPHRD_NONE (addr_len 0) to
+> > > ARPHRD_IP6GRE (addr_len 16). Both the RTM_GETMULTICAST dump and
+> > > /proc/net/dev_mcast then emit up to 16 bytes of never-written slab
+> > > memory per entry.
+> > >
+> > > This discloses leftover kernel heap contents to anyone reading those
+> > > interfaces.
+> > >
+> > > Zero the tail of ha->addr at creation time, so dumps can only emit
+> > > initialized bytes.
+> > >
+> > > Cc: stable@vger.kernel.org
+> > > Fixes: a748ee242681 ("net: move address list functions to a separate =
+file")
+> > > Link: https://lists.openwall.net/linux-kernel/2026/09/10/320
+> > > Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
+> > > ---
+> > >  net/core/dev_addr_lists.c | 5 +++++
+> > >  1 file changed, 5 insertions(+)
+> > >
+> > > diff --git a/net/core/dev_addr_lists.c b/net/core/dev_addr_lists.c
+> > > index d827cc21867b..53a2dfa2706c 100644
+> > > --- a/net/core/dev_addr_lists.c
+> > > +++ b/net/core/dev_addr_lists.c
+> > > @@ -100,6 +100,11 @@ __hw_addr_create(const unsigned char *addr, int =
+addr_len,
+> > >       if (!ha)
+> > >               return NULL;
+> > >       memcpy(ha->addr, addr, addr_len);
+> > > +     /* Entries are dumped with the current dev->addr_len, which can=
+ grow
+> > > +      * after creation (e.g. tun TUNSETLINK), so never leave the tai=
+l
+> > > +      * uninitialized.
+> > > +      */
+> > > +     memset(ha->addr + addr_len, 0, MAX_ADDR_LEN - addr_len);
+> > >       ha->type =3D addr_type;
+> > >       ha->refcount =3D 1;
+> > >       ha->global_use =3D global;
+> > > --
+> > > 2.43.7
+> > >
+> >
+> > Looks right.
+> >
+> > Just a thought, I think switching to kzalloc, like so:
+> >
+> > +       ha =3D kzalloc(alloc_size, GFP_ATOMIC);
+> >
+> > Would give you the same fix, and you would get rid of that extra tail l=
+ength
+> > arithmetic.
+> >
+> > Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
+>
+> I agree with Daniel, kzalloc() would be simpler here, this is not
+> fast path. You can then remove the "ha->sync_cnt =3D 0;" line.
+>
+> This is fine as a hardening measure, but the root cause is in tun:
+>
+> bonding and team both call dev_uc_flush() and dev_mc_flush() when
+> they change dev->type and dev->addr_len. TUNSETLINK does not, so
+> entries created with the old addr_len stay in dev->uc and dev->mc,
+> in an rb-tree which is now searched with a different key length.
+>
+> I think TUNSETLINK should flush both lists, in a separate patch.
 
-Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+Something like:
 
-regards
-Philipp
+diff --git a/drivers/net/tun.c b/drivers/net/tun.c
+index d4870bdc156f..f675e5469cfd 100644
+--- a/drivers/net/tun.c
++++ b/drivers/net/tun.c
+@@ -3387,6 +3387,9 @@ static long __tun_chr_ioctl(struct file *file,
+unsigned int cmd,
+                                           "Refused to change device type\n=
+");
+                                break;
+                        }
++                       /* Addresses were added with the old dev->addr_len.=
+ */
++                       dev_uc_flush(tun->dev);
++                       dev_mc_flush(tun->dev);
+                        tun->dev->type =3D (int) arg;
+                        tun->dev->addr_len =3D tun_get_addr_len(tun->dev->t=
+ype);
+                        netif_info(tun, drv, tun->dev, "linktype set to %d\=
+n",
