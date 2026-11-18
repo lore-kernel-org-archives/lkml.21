@@ -1,68 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794992986;
-	b=btptwSKDHRzKBGKtmNfOHWjdkbCktnqgKCDrmtGypstCvqLDLkApv9XlS8x7FA83xVNy
-	 nXeyYeQUZCtkpL+Q81SH/yL8n/XpDS+r/w47Zm6H3kje/tL9+ROnFwQQ2O0qi616mIovd
-	 mnzI3bkgdSPzUOHQc1QABoCabpf+wn2fseqm+plrRjYt5yUHuCAIcwRJGSUi7UPOh1sGR
-	 GiM1fKNqgcWzOL72zEK2XvLpUwW4AYr6dMyzp3WoDsMkdqFLB0tw0rfqZJQAxiQcajUJA
-	 IPz+XGDpc3tAJ0j5asiV0eP+ER564CU1KSjPCb1bRIHPTZMubMVuN5TgAnAOzDbq6rQ==
+	t=1794992991;
+	b=C0Oe9nqFS/KhhceTinQd6436GfYL/WMbGy4v/8S3CokdKwtFKNEFdc6SIz69+8fw2JSJ
+	 l6SJVRlhCTzdz1p3g2+iFCCgfY80GxlM3oJhXfHmpzg78IBgc0j+fCyCj4h12OOrmsJ4J
+	 0C/vOgNn8TA/igtKmB05sd7sIi87K1LCEVb7Avf5fKvDn00PuTMtINJaToSdVNcQt3fjg
+	 dEwM2CsdSSumWoaNTOLjOwMc4/B3g89wiD53fvPsEk646p+WyK8Hu3bharo5ayDSIvFpu
+	 l0elNXN5zopzawWQdAkjrd6lV/GCDc4rIQ3vfltNrIQYhCtR9oYmvYPBgC91ysPu6hQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794992986;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=UCFK2XrxT4aYumhmLixld0RBAVN3HTGK74ZaNmsbpF8=;
-	b=tNXoUSNUi8vBKaYdtN1OEjuEi5gicS24wYnQVQe5CuSxAiL6oJcxKMrQcrhH9bCtgbER
-	 +Fzi6gYpzwv0dNxeMiMrfQcceySNPsHpEjpYnDX1j7pHODOPSCV87MI896F5OXLuw9yOp
-	 tvjS2SVHKuG+Ly5gmQ4U8MJ45Rg7JtpLANZpk/89lhXc0nN2av1PUhYLa07amypAwp1j9
-	 Q3oDZu8BGbh/R9NYM9ZIdVI2HfcLyb2gfMY5PRMztggrasrBxo0gJwv/8ttITy/yZ9j6v
-	 X1bHsTA8SdKuHMyUK4slPFZFy+HqNZkrSnEPOFGxLg5KukhZyD7Mpzw+c1wQtjCechQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794992991;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=hLxB5eM2GADtf8HMSLKcmmAhVcOP6ftbHnMk3D4lq+4=;
+	b=sJbGR+cdT2HapEaDcNL/jK/R7LZDZYNJzqjXAXN1TPm24WzMnIjJ+2gFEgPzf9JuQJyM
+	 znCEELBMBuA7fkg+z/AhT2OCzB9hGW6KhgtOjjCf05aeJJH2uRN6ipmw+7B14quz8MuiN
+	 eX9f8cMBl/9tKR7/1B/IDhIeshfsbqYEIad9T4YAxVCf2oZa9CUATEM4irw3ecwNOJXOp
+	 ziPDHT6bsbdvblZq8lzGQaYUrqm45NwIWThtaNEz3d/3uS5lae0FhlZIxauMYFIy4c81Z
+	 RbWUpi8c7jV7TJJaDu+OVe68IBh2RPJ1g6J5NgtNbYivg3tq7YmcpClh4pmonqFIzjw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=DlSl4ORP;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id A6A89606A31C;
-	Wed, 18 Nov 2026 09:09:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6A89606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=GDMVrPqm;
+	arc=none smtp.remote-ip=220.197.31.4
+Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FCFD606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:09:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9FCFD606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=DlSl4ORP
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 75E2A1596;
-	Wed, 18 Nov 2026 01:09:41 -0800 (PST)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EDB283F673;
-	Wed, 18 Nov 2026 01:09:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1794992984; bh=eSz0PxGeBD26st5Qjfax1QZdj5MFOwsoVrD4nzHQPhE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DlSl4ORPTXrotbsKlAhxDE48kJ0JGL6ujGN1vMNgdmYl3DQ3KXQAoJ9yZSyxKIgoe
-	 j0XLNhCqYcr3Nl6UFGeBFOCgwc7X4cjPyGZK5ocYiRRqpYUCat1na6NhoBQnqMD5r9
-	 Co2fHoUKkTN/0dEsQRTpRvwL2wEsLHyFnt/H6NYU=
-Date: Wed, 18 Nov 2026 09:09:33 +0000
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, linux-doc@vger.kernel.org,
-	sudeep.holla@kernel.org, james.quinlan@broadcom.com,
-	f.fainelli@gmail.com, vincent.guittot@linaro.org,
-	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
-	d-gole@ti.com, elif.topuz@arm.com, lukasz.luba@arm.com,
-	philip.radford@arm.com, david@kernel.org,
-	souvik.chakravarty@arm.com, leitao@kernel.org, kas@kernel.org,
-	puranjay@kernel.org, usama.arif@linux.dev, kernel-team@meta.com
-Subject: Re: [PATCH v15 10/35] firmware: arm_scmi: Add Telemetry resources
- enumeration
-Message-ID: <av1rTY1cZjRbxzD6@pluto>
-References: <20261109091221.2532706-1-cristian.marussi@arm.com>
- <20261109091221.2532706-11-cristian.marussi@arm.com>
- <20261112100145.00000560@oss.qualcomm.com>
- <avYZ2t_GoT7BN2nU@pluto>
- <20261116133638.00006cc3@oss.qualcomm.com>
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=GDMVrPqm
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=hL
+	xB5eM2GADtf8HMSLKcmmAhVcOP6ftbHnMk3D4lq+4=; b=GDMVrPqmfVoNhIAV+6
+	dSAUXobLiMQ4lqTaqNZgoEiDy847WSwPcQX3ouzB1h6EbfX2rZeBk1UVQHpTRwuB
+	k2OzDo2dZaIFujXtwoC9YSWFQEjGqZqeT1yryUPgYR5IesEKD60TikaetluvHDix
+	8l+2P4mElRWmUuVeyxGMsIIOs=
+Received: from localhost.localdomain (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id PigvCgC3xC1Pa_1qPhPuGg--.62323S4;
+	Wed, 18 Nov 2026 17:09:37 +0800 (CST)
+From: Xuewen Wang <wangxuewen_ky@163.com>
+To: linkinjeon@kernel.org,
+	hyc.lee@gmail.com,
+	liubaolin12138@163.com
+Cc: ntfs@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Xuewen Wang <wangxuewen@kylinos.cn>,
+	Baolin Liu <liubaolin@kylinos.cn>
+Subject: [PATCH v6 18/37] ntfs: report attribute record update and cleanup failures
+Date: Wed, 18 Nov 2026 17:06:42 +0800
+Message-Id: <20261118090701.1858849-19-wangxuewen_ky@163.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20261118090701.1858849-1-wangxuewen_ky@163.com>
+References: <20261118090701.1858849-1-wangxuewen_ky@163.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,142 +66,406 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261116133638.00006cc3@oss.qualcomm.com>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:PigvCgC3xC1Pa_1qPhPuGg--.62323S4
+X-Coremail-Antispam: 1Uf129KBjvAXoW3tr43uFWUZF43CrW3Aw4kXrb_yoW8JF17Zo
+	W3Zr4Yyw4v9w1UAw1093WDXF9xZa98G3y8JrW5Aw4DA3Z2q3WDC34fJ347Gayruw4Ygrs0
+	gw1xtws5ZFn3Ary7n29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
+	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUwa0PDUUUU
+X-CM-SenderInfo: pzdqw5pxhzv0xbn1qiywtou0bp/xtbCzhEJ8Wr9a1EA2wAA3R
 
-On Mon, Nov 16, 2026 at 01:36:38PM -0800, Jonathan Cameron wrote:
-> On Thu, 12 Nov 2026 19:56:10 +0000
-> Cristian Marussi <cristian.marussi@arm.com> wrote:
-> 
+From: Xuewen Wang <wangxuewen@kylinos.cn>
 
-Hi,
+Attribute creation, removal and relocation can fail after modifying
+metadata without reporting the incomplete update. Report failed record
+restoration, cluster release and cleanup, preserving the initiating
+error separately from recovery failures.
 
-> > On Thu, Nov 12, 2026 at 10:01:45AM -0800, Jonathan Cameron wrote:
-> > > On Mon,  9 Nov 2026 09:11:56 +0000
-> > > Cristian Marussi <cristian.marussi@arm.com> wrote:
-> > >   
-> > > > Add basic Telemetry allocation and initialization routines, introducing and
-> > > > wiring-up the logic needed to enumerate all the SCMI Telemetry resources
-> > > > optionally using a lazy on-demand scheme: this approach factors in the
-> > > > flexibility needed to minimize the amount of initialization work based on
-> > > > the effective access pattern used by the upper layer ABI.
-> > > > 
-> > > > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>  
-> > > 
-> > > Hi Cristian,
-> > > 
-> > > This stretches across the patch set but first elements related to it are
-> > > in this patch.  How do we handle larger values of de_data_sz?
-> > >   
-> > 
-> > We dont. This was somethig that was on my todo list initially, but then
-> > I realized that there was NO FW-side plan to actually implement anything
-> > larger than 64bit.
-> 
-> Understood, some set of firmware that you have isn't doing this. I don't
-> necessarily mind not supporting it initially but like the other features
-> it is very useful to have an implementation to make sure it doesn't break
-> the ABI. I don't want to go through a 'move to version 2 ABI if you want
-> this feature' path.
->
+Include interrupted removal after clusters or records have been freed.
+Retain best-effort removal behavior and ordinary early allocation errors;
+the earlier cluster-count fix keeps successful deallocation from being
+reported as a failure.
 
-Agreed that it would be better if avoided.
+Let record removal report its own failures without repeating the same
+report in the outer attribute-removal loop.
+
+Reviewed-by: Baolin Liu <liubaolin@kylinos.cn>
+Signed-off-by: Xuewen Wang <wangxuewen@kylinos.cn>
+---
+Changes in v6:
+Rebase onto the updated ntfs-next; retain the v5 reporting behavior.
+
+Validation:
+- Compiled and linked the NTFS module object with W=1 at this stage.
+
+ fs/ntfs/attrib.c | 134 +++++++++++++++++++++++++++++++++++------------
+ 1 file changed, 100 insertions(+), 34 deletions(-)
+
+diff --git a/fs/ntfs/attrib.c b/fs/ntfs/attrib.c
+index a6750863d795..60d134688371 100644
+--- a/fs/ntfs/attrib.c
++++ b/fs/ntfs/attrib.c
+@@ -2595,7 +2595,6 @@ int ntfs_resident_attr_record_add(struct ntfs_inode *ni, __le32 type,
+ 		goto put_err_out;
+ 	}
+ 	if (err != -ENOENT) {
+-		err = -EIO;
+ 		goto put_err_out;
+ 	}
+ 	a = ctx->attr;
+@@ -2646,7 +2645,9 @@ int ntfs_resident_attr_record_add(struct ntfs_inode *ni, __le32 type,
+ 	if (type != AT_ATTRIBUTE_LIST && NInoAttrList(base_ni)) {
+ 		err = ntfs_attrlist_entry_add(ni, a);
+ 		if (err) {
+-			ntfs_attr_record_resize(m, a, 0);
++			if (ntfs_attr_record_resize(m, a, 0))
++				ntfs_report_file_metadata_error(VFS_I(base_ni),
++								-EFSCORRUPTED);
+ 			mark_mft_record_dirty(ctx->ntfs_ino);
+ 			ntfs_debug("Failed add attribute entry to ATTRIBUTE_LIST.\n");
+ 			goto put_err_out;
+@@ -2674,6 +2675,7 @@ static int ntfs_non_resident_attr_record_add(struct ntfs_inode *ni, __le32 type,
+ 		__le16 *name, u8 name_len, s64 lowest_vcn, int dataruns_size,
+ 		__le16 flags)
+ {
++	int report_err = 0;
+ 	struct ntfs_attr_search_ctx *ctx;
+ 	u32 length;
+ 	struct attr_record *a;
+@@ -2719,7 +2721,6 @@ static int ntfs_non_resident_attr_record_add(struct ntfs_inode *ni, __le32 type,
+ 	}
+ 	if (err != -ENOENT) {
+ 		pr_err("ntfs_attr_find failed\n");
+-		err = -EIO;
+ 		goto put_err_out;
+ 	}
+ 	a = ctx->attr;
+@@ -2774,7 +2775,8 @@ static int ntfs_non_resident_attr_record_add(struct ntfs_inode *ni, __le32 type,
+ 		err = ntfs_attrlist_entry_add(ni, a);
+ 		if (err) {
+ 			pr_err("Failed add attr entry to attrlist\n");
+-			ntfs_attr_record_resize(m, a, 0);
++			if (ntfs_attr_record_resize(m, a, 0))
++				report_err = -EFSCORRUPTED;
+ 			goto put_err_out;
+ 		}
+ 	}
+@@ -2788,9 +2790,12 @@ static int ntfs_non_resident_attr_record_add(struct ntfs_inode *ni, __le32 type,
+ 	err = ntfs_attr_lookup(type, name, name_len, ic,
+ 				lowest_vcn, NULL, 0, ctx);
+ 	if (err) {
++		if (err == -ENOENT) {
++			err = -EFSCORRUPTED;
++			report_err = -EFSCORRUPTED;
++		}
+ 		pr_err("%s: attribute lookup failed\n", __func__);
+-		ntfs_attr_put_search_ctx(ctx);
+-		return err;
++		goto put_err_out;
  
-> Let's just say I hit this for a reason. Whether that reason makes it into
-> a production firmware is an open question at the moment.
-> 
-> FWIW I have both QEMU based emulation (I'm working through the process to be
-> able to share that) and the changes to fit in via what I think is the
-> cleanest ABI change. Kernel / userspace change below.
-> I modified this from my original proposal to take into account the
-> desire to add it later (even if to me it smells like papering over a bug
-> rather than adding a feature!).  See below for what that required.
-> Not only shmti is tested.  The LLM found bugs in it's own fast channel
-> code, so take that with a pinch of salt!
->
+ 	}
+ 	offset = (u8 *)ctx->attr - (u8 *)ctx->mrec;
+@@ -2798,6 +2803,8 @@ static int ntfs_non_resident_attr_record_add(struct ntfs_inode *ni, __le32 type,
+ 	return offset;
+ put_err_out:
+ 	ntfs_attr_put_search_ctx(ctx);
++	if (report_err)
++		ntfs_report_file_metadata_error(VFS_I(base_ni), report_err);
+ 	return err;
+ }
+ 
+@@ -2810,6 +2817,7 @@ static int ntfs_non_resident_attr_record_add(struct ntfs_inode *ni, __le32 type,
+  */
+ int ntfs_attr_record_rm(struct ntfs_attr_search_ctx *ctx)
+ {
++	int report_err = 0;
+ 	struct ntfs_inode *base_ni, *ni;
+ 	__le32 type;
+ 	int err;
+@@ -2829,8 +2837,10 @@ int ntfs_attr_record_rm(struct ntfs_attr_search_ctx *ctx)
+ 
+ 	/* Remove attribute itself. */
+ 	if (ntfs_attr_record_resize(ctx->mrec, ctx->attr, 0)) {
++		report_err = -EFSCORRUPTED;
+ 		ntfs_debug("Couldn't remove attribute record. Bug or damaged MFT record.\n");
+-		return -EIO;
++		err = -EFSCORRUPTED;
++		goto out;
+ 	}
+ 	mark_mft_record_dirty(ni);
+ 
+@@ -2841,8 +2851,9 @@ int ntfs_attr_record_rm(struct ntfs_attr_search_ctx *ctx)
+ 	if (NInoAttrList(base_ni) && type != AT_ATTRIBUTE_LIST) {
+ 		err = ntfs_attrlist_entry_rm(ctx);
+ 		if (err) {
++			report_err = err;
+ 			ntfs_debug("Couldn't delete record from $ATTRIBUTE_LIST.\n");
+-			return err;
++			goto out;
+ 		}
+ 	}
+ 
+@@ -2857,19 +2868,21 @@ int ntfs_attr_record_rm(struct ntfs_attr_search_ctx *ctx)
+ 	/* Free MFT record, if it doesn't contain attributes. */
+ 	if (le32_to_cpu(ctx->mrec->bytes_in_use) -
+ 			le16_to_cpu(ctx->mrec->attrs_offset) == 8) {
+-		if (ntfs_mft_record_free(ni->vol, ni)) {
++		err = ntfs_mft_record_free(ni->vol, ni);
++		if (err) {
++			report_err = err;
+ 			ntfs_debug("Couldn't free MFT record.\n");
+-			return -EIO;
++			goto out;
+ 		}
+ 		/* Remove done if we freed base inode. */
+ 		if (ni == base_ni)
+-			return 0;
++			goto done;
+ 		ntfs_inode_close(ni);
+ 		ctx->ntfs_ino = ni = NULL;
+ 	}
+ 
+ 	if (type == AT_ATTRIBUTE_LIST || !NInoAttrList(base_ni))
+-		return 0;
++		goto done;
+ 
+ 	/* Remove attribute list if we don't need it any more. */
+ 	if (!ntfs_attrlist_need(base_ni)) {
+@@ -2877,10 +2890,15 @@ int ntfs_attr_record_rm(struct ntfs_attr_search_ctx *ctx)
+ 		struct inode *attr_vi;
+ 
+ 		ntfs_attr_reinit_search_ctx(ctx);
+-		if (ntfs_attr_lookup(AT_ATTRIBUTE_LIST, NULL, 0, CASE_SENSITIVE,
+-					0, NULL, 0, ctx)) {
++		err = ntfs_attr_lookup(AT_ATTRIBUTE_LIST, NULL, 0, CASE_SENSITIVE,
++				       0, NULL, 0, ctx);
++		if (err) {
++			if (err == -ENOENT) {
++				err = -EFSCORRUPTED;
++				report_err = -EFSCORRUPTED;
++			}
+ 			ntfs_debug("Couldn't find attribute list. Succeed anyway.\n");
+-			return 0;
++			goto done;
+ 		}
+ 		/* Deallocate clusters. */
+ 		if (ctx->attr->non_resident) {
+@@ -2890,17 +2908,22 @@ int ntfs_attr_record_rm(struct ntfs_attr_search_ctx *ctx)
+ 			al_rl = ntfs_mapping_pairs_decompress(base_ni->vol,
+ 					ctx->attr, NULL, &new_rl_count);
+ 			if (IS_ERR(al_rl)) {
++				if (PTR_ERR(al_rl) != -ENOMEM)
++					report_err = -EFSCORRUPTED;
+ 				ntfs_debug("Couldn't decompress attribute list runlist. Succeed anyway.\n");
+-				return 0;
++				goto done;
+ 			}
+-			if (ntfs_cluster_free_from_rl(base_ni->vol, al_rl))
++			err = ntfs_cluster_free_from_rl(base_ni->vol, al_rl);
++			if (err) {
++				ntfs_report_file_metadata_error(VFS_I(base_ni), err);
+ 				ntfs_debug("Leaking clusters! Run chkdsk. Couldn't free clusters from attribute list runlist.\n");
++			}
+ 			kvfree(al_rl);
+ 		}
+ 		/* Remove attribute record itself. */
+ 		if (ntfs_attr_record_rm(ctx)) {
+ 			ntfs_debug("Couldn't remove attribute list. Succeed anyway.\n");
+-			return 0;
++			goto done;
+ 		}
+ 
+ 		na.mft_no = VFS_I(base_ni)->i_ino;
+@@ -2916,7 +2939,13 @@ int ntfs_attr_record_rm(struct ntfs_attr_search_ctx *ctx)
+ 		}
+ 
+ 	}
+-	return 0;
++
++done:
++	err = 0;
++out:
++	if (report_err)
++		ntfs_report_file_metadata_error(VFS_I(base_ni), report_err);
++	return err;
+ }
+ 
+ /*
+@@ -2950,7 +2979,7 @@ int ntfs_attr_add(struct ntfs_inode *ni, __le32 type,
+ {
+ 	struct super_block *sb;
+ 	u32 attr_rec_size;
+-	int err, i, offset;
++	int err, i, offset, rollback_err;
+ 	bool is_resident;
+ 	bool can_be_non_resident = false;
+ 	struct ntfs_inode *attr_ni;
+@@ -3027,7 +3056,7 @@ int ntfs_attr_add(struct ntfs_inode *ni, __le32 type,
+ retry:
+ 	ni_mrec = map_mft_record(ni);
+ 	if (IS_ERR(ni_mrec)) {
+-		err = -EIO;
++		err = PTR_ERR(ni_mrec);
+ 		goto err_out;
+ 	}
+ 
+@@ -3050,7 +3079,7 @@ int ntfs_attr_add(struct ntfs_inode *ni, __le32 type,
+ 		attr_ni = ni->ext.extent_ntfs_inos[i];
+ 		ni_mrec = map_mft_record(attr_ni);
+ 		if (IS_ERR(ni_mrec)) {
+-			err = -EIO;
++			err = PTR_ERR(ni_mrec);
+ 			goto err_out;
+ 		}
+ 
+@@ -3116,18 +3145,31 @@ int ntfs_attr_add(struct ntfs_inode *ni, __le32 type,
+ 	attr_vi = ntfs_attr_iget(VFS_I(ni), type, name, name_len);
+ 	if (IS_ERR(attr_vi)) {
+ 		err = PTR_ERR(attr_vi);
++		if (err == -ENOENT) {
++			err = -EFSCORRUPTED;
++			ntfs_report_file_metadata_error(VFS_I(ni),
++							-EFSCORRUPTED);
++		}
+ 		ntfs_error(sb, "Failed to open just added attribute");
+ 		goto rm_attr_err_out;
+ 	}
+ 	attr_ni = NTFS_I(attr_vi);
+ 
+ 	/* Resize and set attribute value. */
+-	if (ntfs_attr_truncate(attr_ni, size) ||
+-		(val && (ntfs_inode_attr_pwrite(attr_vi, 0, size, val, false) != size))) {
+-		err = -EIO;
++	err = ntfs_attr_truncate(attr_ni, size);
++	if (!err && val) {
++		s64 written = ntfs_inode_attr_pwrite(attr_vi, 0, size, val, false);
++
++		if (written != size)
++			err = written < 0 ? written : -EIO;
++	}
++	if (err) {
+ 		ntfs_error(sb, "Failed to initialize just added attribute");
+-		if (ntfs_attr_rm(attr_ni))
++		rollback_err = ntfs_attr_rm(attr_ni);
++		if (rollback_err) {
++			ntfs_report_file_metadata_error(VFS_I(ni), rollback_err);
+ 			ntfs_error(sb, "Failed to remove just added attribute");
++		}
+ 		iput(attr_vi);
+ 		goto err_out;
+ 	}
+@@ -3138,12 +3180,18 @@ int ntfs_attr_add(struct ntfs_inode *ni, __le32 type,
+ 	/* Remove just added attribute. */
+ 	ni_mrec = map_mft_record(attr_ni);
+ 	if (!IS_ERR(ni_mrec)) {
+-		if (ntfs_attr_record_resize(ni_mrec,
+-					(struct attr_record *)((u8 *)ni_mrec + offset), 0))
++		struct attr_record *a = (struct attr_record *)((u8 *)ni_mrec + offset);
++
++		rollback_err = ntfs_attr_record_resize(ni_mrec, a, 0);
++		if (rollback_err) {
++			ntfs_report_file_metadata_error(VFS_I(ni), rollback_err);
+ 			ntfs_error(sb, "Failed to remove just added attribute #2");
++		}
+ 		unmap_mft_record(attr_ni);
+-	} else
++	} else {
++		ntfs_report_file_metadata_error(VFS_I(ni), PTR_ERR(ni_mrec));
+ 		pr_err("EIO when try to remove new added attr\n");
++	}
+ 
+ free_err_out:
+ 	/* Free MFT record, if it doesn't contain attributes. */
+@@ -3155,13 +3203,18 @@ int ntfs_attr_add(struct ntfs_inode *ni, __le32 type,
+ 			le16_to_cpu(ni_mrec->attrs_offset);
+ 		unmap_mft_record(attr_ni);
+ 		if (attr_size == 8) {
+-			if (ntfs_mft_record_free(attr_ni->vol, attr_ni))
++			rollback_err = ntfs_mft_record_free(attr_ni->vol, attr_ni);
++			if (rollback_err) {
++				ntfs_report_file_metadata_error(VFS_I(ni), rollback_err);
+ 				ntfs_error(sb, "Failed to free MFT record");
++			}
+ 			if (attr_ni->nr_extents < 0)
+ 				ntfs_inode_close(attr_ni);
+ 		}
+-	} else
++	} else {
++		ntfs_report_file_metadata_error(VFS_I(ni), PTR_ERR(ni_mrec));
+ 		pr_err("EIO when testing mft record is free-able\n");
++	}
+ 
+ err_out:
+ 	return err;
+@@ -3725,7 +3778,7 @@ int ntfs_attr_record_move_away(struct ntfs_attr_search_ctx *ctx, int extra)
+ 			ntfs_error(sb, "Can not map mft record for mft_no %lld",
+ 					(unsigned long long)ni->mft_no);
+ 			mutex_unlock(&base_ni->extent_lock);
+-			return -EIO;
++			return PTR_ERR(m);
+ 		}
+ 		if (le32_to_cpu(m->bytes_allocated) -
+ 		    le32_to_cpu(m->bytes_in_use) < le32_to_cpu(ctx->attr->length) + extra) {
+@@ -3760,11 +3813,16 @@ int ntfs_attr_record_move_away(struct ntfs_attr_search_ctx *ctx, int extra)
+ 
+ 	err = ntfs_attr_record_move_to(ctx, ni);
+ 	if (err) {
++		int free_err;
++
+ 		ntfs_error(sb, "Couldn't move attribute to MFT record");
+-		if (ntfs_mft_record_free(base_ni->vol, ni))
++		free_err = ntfs_mft_record_free(base_ni->vol, ni);
++		if (free_err) {
++			ntfs_report_file_metadata_error(VFS_I(base_ni), free_err);
+ 			ntfs_error(sb, "Couldn't free empty MFT record");
+-		else
++		} else {
+ 			ntfs_inode_close(ni);
++		}
+ 	}
+ 
+ 	return err;
+@@ -5633,6 +5691,7 @@ int ntfs_attr_rm(struct ntfs_inode *ni)
+ 	struct ntfs_attr_search_ctx *ctx;
+ 	int err = 0, ret = 0;
+ 	s64 freed = 0;
++	bool removed = false;
+ 	struct ntfs_inode *base_ni;
+ 	struct super_block *sb = ni->vol->sb;
+ 
+@@ -5657,6 +5716,7 @@ int ntfs_attr_rm(struct ntfs_inode *ni)
+ 		freed = ntfs_cluster_free(ni, 0, -1, ctx);
+ 		if (freed < 0) {
+ 			ret = freed;
++			ntfs_report_file_metadata_error(VFS_I(base_ni), ret);
+ 			ntfs_error(sb,
+ 				"Failed to free cluster allocation. Leaving inconstant metadata.\n");
+ 		}
+@@ -5666,6 +5726,8 @@ int ntfs_attr_rm(struct ntfs_inode *ni)
+ 	/* Search for attribute extents and remove them all. */
+ 	ctx = ntfs_attr_get_search_ctx(base_ni, NULL);
+ 	if (IS_ERR(ctx)) {
++		if (freed > 0)
++			ntfs_report_file_metadata_error(VFS_I(base_ni), PTR_ERR(ctx));
+ 		ntfs_error(sb, "%s: Failed to get search context", __func__);
+ 		return PTR_ERR(ctx);
+ 	}
+@@ -5676,11 +5738,15 @@ int ntfs_attr_rm(struct ntfs_inode *ni)
+ 			ntfs_error(sb,
+ 				"Failed to remove attribute extent. Leaving inconstant metadata.\n");
+ 			ret = err;
++		} else {
++			removed = true;
+ 		}
+ 		ntfs_attr_reinit_search_ctx(ctx);
+ 	}
+ 	ntfs_attr_put_search_ctx(ctx);
+ 	if (err != -ENOENT) {
++		if (freed > 0 || removed)
++			ntfs_report_file_metadata_error(VFS_I(base_ni), err);
+ 		ntfs_error(sb, "Attribute lookup failed. Probably leaving inconstant metadata.\n");
+ 		ret = err;
+ 	}
+-- 
+2.51.0
 
-I skimmed through your patch and it is mostly in line with what I was
-imagining (not even protyped though), i.e. in a nutshell
-
- - an ABI feature bit to add MUTIWORD support
- - a flag bit to activate this feature on all _READ IOCTLs at will
- - a repurpose of the pad field in scmi_tlm_sample
-
-What I find awkward is the usage of pad as an index: that will expose
-a lot of duplicate data since all DEs multi-words are now scattered
-through a number of sample with the same ID and TS, and a bit cumbersome
-to handle in userspace to reconstruct the multi-word value.
-
-My non-tested-nor-prototyped idea was instead to repurpose the pad field
-as a length, so as to pack all the multi-words payload as the trailing
-part of a flexible array member (an extrnal array really being an ABI)
-and use a single structure to read a complete DE.
-
-In this case the problem would be to maintain backward compatibility
-with the current scmi_tlm_de_sample.
-
-At first I was thinking that we could simply introduce a new alternative
-scmi_tlm_de_multi_sample structure that is used in place of the current
-scmi_tlm_de_sample ONLY when feataure bits is available AND requested: so
-userspace knows that when sets flag.MULTIWORD it has to use the
-multi-word structure in input where pad is a length and there are multipe vals.
-
-While this would work for all the bulk ops since they take a __u64 pointer
-to a payload structure really (so it does NOT really matter what they are
-carrying as long as it is consistent with the advertised feature bits and
-request flag),  it CANNOT work for DE_READ where scmi_tlm_de_sample is
-used directly...so a change in the current, not-merged, ABI would be
-needed anyway....
-
-Then...I thought that maybe we dont even need this...and this part could be
-judged horrific maybe, so feel free to stop reading if your eyes starts
-bleeding :P
-
-Currently we have
-
-struct scmi_tlm_de_sample {                                                      
-        __u32 id;                                                                
-        __u32 pad;                                                               
-        __u64 tstamp;                                                            
-        __u64 val;                                                               
-};                     
-
-with pad being unused and the whole structure that can be used alone
-or packed into a container struct.
-
-WHAT IF... when MULTIWORD feature is enabled AND requested we repurpose
-the meaning NOT ONLY of <pad> but also of <val> and use this latter NOT
-as a payload for a single value returned but as a pointer to an external
-array of words counted by pad ?
-
-The structure size remains the same, while its interpretation vary based
-on the requested flag when such feature is available.
-
-It may be a bit cumbersome still on userspace for bulk requests since
-scmi_tlm_batch will contain a pointer to an array of possibly varied
-sized items, so item_sz represents the common basic scmi_tlm_de_sample
-size which in turn carries the sizing inside the repurposed <pad>
-field inside for each single sample item
-
-...so you can anyway check the provided user-input sizes it is just
-scattered all over and as a consequence also the user provided data
-would have to be a bit fragmented since 
-
- - batch points to an array of scmi_tlm_de_sample sized by items_sz
- - each sample in turn points to its array of values sized by <pad>
- - you can really mix both kind of DEs in the same request: some
-   can carry the single word value embedded in val, multiwords can
-   point to teh <pad> sized external array.
-
-...mmm sort of start liking this hoorr...or I am missing something ?
-
-... O_o ... it would need a tad of documentation of course ...
-
-If you have not fainted in despair, I (and some LLM) could prototype
-something like this in one of the next series ... certainly not in V16.
-
-... thoughts ? insults ? :P
-
-Thanks,
-Cristian
