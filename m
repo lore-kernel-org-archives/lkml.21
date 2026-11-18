@@ -1,68 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.92.39.34
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794996001;
-	b=0umCpiqsWoAyv50VBS5ExT1klDQ23YVEuzKhE0sWjHgSe465pGAq4CXwSNMdcYmq2JnR
-	 N8hNEAGE07Y0Jl7L7alTnQvvFYM4WbQhgjz+SO9xYXhObBD8z55+sqYRUei8qFhLdIyLH
-	 OFKWhos6Kf2FEeTOr/UjrpYaoOpA0tPtv/jStMLUFtyjvhDKDHvFnIlIN19LZSJP+ICyc
-	 unNTqAo5I+nekBF166iugwIAHUsTDcZPW1PJpmc9fo7s6pkhhJuT+dlqwwxiaERWGuE0G
-	 KvAqpDntf6IE4mjMLX1W0hKtUUnCyN2+aRoI4ByPlGq0rVJ/IUEpnhQxFts0NQuz6PQ==
+	t=1794996027;
+	b=tyHlclRmZ2gP4qVPhch3UDA0R/h2i0oRbivwsVh8xp+HFCCqYzOLLUTOC8p/6GrBlqeO
+	 WomhmUI5EO/8stqpAymINW+A0OPaEQaSycxEvwKQZyWgHFA4Kr2VnlxmmtCosBy4OBcCF
+	 PDB4S7N8i1OX/Lykv3zut7bo2AKOgMmJ+bTM8HLKOHpTq/RGN4UzmKvMNrL/quM8MsfOL
+	 vmUgEsMznAQv7s2lg+rUDNPRcjRiZ/mmWBzW9M0Mt98XX+/8HrZOP4Xm1uBP9mKjvdBSX
+	 ODgDNO4qMLd2lC/tFh7zFsJgM2m9gwyjjFJw+ZuTgHLbl1a2n4kclZxCC4t0ld0b76w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794996001;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=lhcfRT8eI0DM+C2zEBL/75QjU+nlkIKJUJYGmyhthQM=;
-	b=mky0SZd5Epq4EVxyhAXBAcDlNPIS7WBobw3K/x5IwKkiZT26oyA+Lc2b7oN5XKyEIz+r
-	 +26/zioCQu3XGnVBmdphtZGfmro7/byDT7ESKHQjQKFiM9BaT2VW4uXeIBpiKCJyVNfmw
-	 S1kBexGCEPTJnTTjVaCWE9oB3moi4pz3TlIln5Rv1yL+2+D0s4P3KsDCVm7h00JOLQ4I8
-	 Whb+sDcDRMlmoC3UwlAvsxzyjCZ3WiqGD/w52AY6/ac7/S39bL5ZaSWYcDlMP/PW+xdOo
-	 5Ks9vwqJqjJuM9ASeV6K2PO3DbA+4aVXoDgb6LCHzIK3AYUlAEfV5n364IMuSHhDDag==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794996027;
+	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
+	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:X-QQ-SENDSIZE:
+	 Feedback-ID:X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=gE+8GEkhiQjCVNt58Aswex/BStQyLxbPhNALcBXdKZU=;
+	b=JGTIJA0Xqa5q4ujNr9k5bFux92Y2hEght664tykey6OP3fL8NimgmKQUK+QEJDRZ70t2
+	 v9HQfMoUgIRI/9Yw+HupFNoxnDKE30iXRJA48IF2PTWmfE5OV4YWPJYgVtjC4XgeNTDiF
+	 4cfA1KyyisB0UDUIVsOAge4TAISaTnpq2RtOZpbvxz/LFv6HHCZJFbC8nwYT+7ySCcq6z
+	 rKdaUGfuXFoJW5fUda37LBeAYH7xgytJNDtaXTjIlAK1KYAdgkKhDQVK1AuA3l/bxLDri
+	 vE65FezQtXDiYW7LzYDQezKsf4MBILSBr5BLLdAruXKcJ8Ql10jQxUx/fWDN8pv2IsA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=vEwZlfsg;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=linux.spacemit.com;
+	spf=none smtp.mailfrom=linux.spacemit.com;
+	dkim=pass header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=so8kePXX;
+	arc=none smtp.remote-ip=54.92.39.34
+Received: from smtpbgjp3.qq.com (smtpbgjp3.qq.com [54.92.39.34])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60247606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:00:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 60247606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF53F606A32C;
+	Wed, 18 Nov 2026 10:00:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DF53F606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=linux.spacemit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=linux.spacemit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=vEwZlfsg
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 0781A1A16D1
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:00:00 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id C8C955FE9B;
-	Wed, 18 Nov 2026 09:59:59 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 163BA11BC0EE3;
-	Wed, 18 Nov 2026 10:59:57 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1794995999; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=lhcfRT8eI0DM+C2zEBL/75QjU+nlkIKJUJYGmyhthQM=;
-	b=vEwZlfsg6wAWVqVcdn+L5GqquVth4TzV1ntiNPJadhsPjzACTPY71X8lO5sbluY0+vq3jx
-	LvXsCGi0pdwL2+Du7599YQs4V7oVw3HdH/dh5ncImJkfB/CiCKYWTCoxzUoDkq27RXxZBH
-	rYxtaJjBePejsEV+/2foYbS0K+f2SgUYstNa9RbcKnaCkZ6HS0grC+5IF65DIUOCejQOhq
-	cRKfT3WoPOOJzDYDgnRXgpTTxSJw7re8UHb9+INQvkj3Iz+rsRd064zVbOvl7C0VH0iqoc
-	VM+uGRjg9IvERbwHY9rNn3ke4y+1pkNHN6KJa+2LadAOnRbxYBx8IGMQ41qieg==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
- <vigneshr@ti.com>,  linux-mtd@lists.infradead.org,
-  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] mtd: rawnand: propagate BBT read transport errors
-In-Reply-To: <20261103-submit-rawnand-bbt-read-error-v1-v1-1-2ff0abffaf2e@gmail.com>
-	(James Hilliard's message of "Tue, 03 Nov 2026 23:03:39 -0700")
-References: <20261103-submit-rawnand-bbt-read-error-v1-v1-1-2ff0abffaf2e@gmail.com>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Wed, 18 Nov 2026 10:59:57 +0100
-Message-ID: <87a4n6jw82.fsf@bootlin.com>
+	dkim=pass (1024-bit key) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=so8kePXX
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1794995962;
+	bh=gE+8GEkhiQjCVNt58Aswex/BStQyLxbPhNALcBXdKZU=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=so8kePXXHRypKZVceMcjV/jbHYViLPMhOi8gOs8BP86Dvle/bVthdnNPQYDQvWCgJ
+	 yVCwbiag3L9tLWVH3QBiL2dEfUL124spgbA7QWl0DJpa517ZbsaDpDHOJyGk8r8V4d
+	 dMOCVHUchYnzRtk3IF3mrtJ99MQabf32zqclAi8s=
+X-QQ-mid: esmtpgz13t1794995955t2c2fa096
+X-QQ-Originating-IP: kXND7tW+yULMcxeWAiHy4oMknukShfEgdiMgPHresxI=
+Received: from [192.168.1.100] ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 18 Nov 2026 17:59:12 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 5513837278433707905
+EX-QQ-RecipientCnt: 20
+Message-ID: <361218E417AE4AE5+e47a92b4-850d-4a36-9e4b-6f5f62c8b379@linux.spacemit.com>
+Date: Wed, 18 Nov 2026 17:59:12 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,36 +61,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 7/9] riscv: dts: spacemit: enable USB2.0 controllers on
+ BananaPi F3
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
+ Xu Yang <xu.yang_2@nxp.com>, Peng Fan <peng.fan@nxp.com>,
+ Peter Chen <peter.chen@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev
+References: <20261117-b4-spacemit-k1-usb2-v5-0-52c3829cca69@linux.spacemit.com>
+ <20261117-b4-spacemit-k1-usb2-v5-7-52c3829cca69@linux.spacemit.com>
+ <18756bf6-3eef-4de8-a091-c5218458fd99@kernel.org>
+Content-Language: en-US
+From: Junzhong Pan <panjunzhong@linux.spacemit.com>
+In-Reply-To: <18756bf6-3eef-4de8-a091-c5218458fd99@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz5b-2
+X-QQ-XMAILINFO: NcfXIs+Ms1qH7EEllHGrSeSohN7d2J/lmg6HBn1lBNC5NV7ipzSmg3GQ
+	y0Gsm0/8d/cddtTuzcQzDeXwy6pAc5wBVP0xMX4gsRaI3twHCCKu96QeudpRjGfQXOTFQlb
+	tQIeObuo8zWsNB5OJq49Wu4At06FsGUCLdKHaepuSwjDiez6GNBrTL6KdupU4WcgBGizYIc
+	8pp8DhKTc6llXfr/LZTxf0y0CxM1+v+ARQyKaZJqd+NsDJgoewjAgeEylj/Z3sMw0jb81Ez
+	YW1/Db8heU5HW7MzWhr7a+aea9Pr4Bqx6P7d5NJowTDPv011zN84Lw/HVrGrF7mOh925WZp
+	nuCjUA1RKpNSsVyvyhsBsHunp142JJ5QcnxZo64m3e30SNoWAFun1zW5wUdZgqUJ+Fg37QT
+	Yu2IjOTiryeXYmyJN536MALpzW8eS6EwB7Vnfqbcu/Ssjhtcc6TcuRh0c7VYob9oZyyTfKT
+	9K2kvDTR7gZ/8CKU3xLw+OqZGuVihuKSgEQcUzjKEUmzNcP/bCHOKNnOabrb7XmV8uuEk6D
+	9vwfluEtPc7grLOxuyBAY0YmWDcme8mW9XZQzYxz8DijuVV5fWJct5XIwjmruFYu7qISFSP
+	zj/V5dGdqHsiz50PHKHyKW3UsrsjElvZ8xr4D2oZnO1t4tc53nxTQJl5gP/FekVDLqn6uTc
+	J6EaXUKrRD8om+pWeRkW8L55JcE6OvU93isRBMDHuEezBiS2UpGDUAO0ahZOTIYqk408wjS
+	h81AHht1sOlB+dGKH3AyR6tezvlANIamR9pEdXEoNIPkYzSoI33Tk5yO3gPMuzmAoQ2IvKp
+	O0N5Vz8PT8EwCbCuCYKk5sghnKZjc20TDfYJ0kM77lRECdke3z0rfZIFWluVYz1OZWFUByo
+	Lut+tQz/i7chQxEh2iPRC+eaS2Y4fOgvLRFnkTJtIS1zgQ4NXuSytO0AOGhQvcjzWQ19FHA
+	xmctMS2bozsmRoO0A1D1pEFJnhtyUF5ibfIatgN3bRZjQBTg7lwQrIOLgiNQNgb6PDsn38J
+	TFbyNbhvaPAxQ+UPeUXo/tg3olhGsKCK7uuhEBJ/NLtaiHEU+ah3eG9eHFdgE=
+X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
+X-QQ-RECHKSPAM: 0
 
-On 03/11/2026 at 23:03:39 -07, James Hilliard <james.hilliard1@gmail.com> w=
-rote:
+On 11/18/2026 4:18 PM, Krzysztof Kozlowski wrote:
+> On 17/11/2026 13:38, Junzhong Pan wrote:
+>> On BananaPi F3, usb2_0 is connected to a Type-C connector at device
+>> mode by default. This port have no VBUS supply capability, thus host
+>> mode only works with self-powered device or hub. User could switch the
+>> role in sysfs.
+>>
+>> And the usb2_1 is connected to the USB2.0 pins of the Mini PCIe slot to
+>> support cellular modules.
+>>
+>> Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+>> Reviewed-by: Yixun Lan <dlan@kernel.org>
+>> Signed-off-by: Junzhong Pan <panjunzhong@linux.spacemit.com>
+> 
+> DTS cannot be combined in this patchset and must be split. Don't mix
+> patches from independent subsystems when you send something explicitly
+> targeting only one subsystem.
+> See also: Documentation/devicetree/bindings/submitting-patches.rst
+> 
 
-> check_create() handles uncorrectable ECC errors by invalidating the
-> affected BBT copy and handles corrected errors by scheduling a rewrite.
-> Other read_abs_bbt() failures are ignored, allowing initialization to
-> succeed with missing entries in the RAM table or to rewrite a table that
-> was not completely read.
->
-> Return non-ECC read errors from both the selected table and the second
-> unversioned copy before updating versions or writing tables. A transport
-> failure does not establish that the selected table is corrupt or that an
-> older mirror contains all of its bad-block information. Preserve the
-> existing ECC-specific recovery paths.
+Thanks for pointing this out! I'll split them in the next revision.
 
-Be honest, you did not read that back. I don't think one would guess the
-big picture by reading this. Here is a proposal:
+> 
+> Best regards,
+> Krzysztof
+> 
 
-```
-ECC failures have dedicated recovery paths: -EBADMSG invalidates the
-affected copy and -EUCLEAN schedules a scrub. Any other read error
-(typically an I/O error) would be unhandled and leave the RAM table
-incomplete.
-
-Make sure those errors are propagated.
-```
-
-Thanks,
-Miqu=C3=A8l
+Best regards,
+Junzhong Pan
