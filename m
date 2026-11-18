@@ -1,92 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795019853;
-	b=FAlGNA8UXZXAZDRE80jUYFqCUjmsdLqS5LPkAmhcTZOkGiJeZAFWKkjQRLCA7/Dr2Che
-	 dvFG8l65UuSSR49Ab3KhU1vuc949S9vvWGfyPkhmqSLxbc2JPGcR4oGwgTNNs1mRv/FHN
-	 K3Td9Ei/DuBHCUnCQCLMKwyuCfXq8DQrXyCLPMCnNMYjtAOeVnJCn5ERWGJbqOPCLMO2r
-	 xJ8OxBfw5TJNrr2huhIBwL8RLMEtxgcaIeIYBpbUWl9kVMWoos25cXiqpdlm2sgd13G/E
-	 B0izMFkGcdow7QQpGRhcUywSYqW7eEeYWdpe3FgUS3pyWi99UlMti2m5OGDXrjeRdJA==
+	t=1795019893;
+	b=oq5keM2GG2nsHnoL0HtS3TSel/y1r/sPQxNBBXDn17S+vBIY+nsrGEu+Nv8SRXA+26MD
+	 DXTyHerhzYki0OD82BE+HHvVvMxozR65yJlf7jMaairNBi5oi+UyUSLIeRkhffEW7VXou
+	 +Y2VISnTATfy6wdQWyiKZFDFGYqu+M6el3pxck/8kUbM+L8jMYRxo9v2EWeKjVNZKzGWQ
+	 u5wgCNC6y1w3AjsPjTYE1v56yanac8t7GHQjXrg5xgPRXFAkpmXp5oECr2o1JeSvvuiYs
+	 49PF43/yneYL44HXMoAbRESD2cMsutyuUQB/mokVdrS56YrxOXZ5b3fgxZ03SCIJbnQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795019853;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-TM-AS-GCONF:X-Proofpoint-Reinject:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=IQkSVCRpKXlz2wAUUW6oVrrYgE18ROiSv0y8Fi8zF2g=;
-	b=04j33BErTwLqBOnBGKKFAfQ9BL0kvBmbI74HJYHNz3HWLeoNYNZRH9hrevxD773Of5eq
-	 OP1UyzMah/Yzj2If11MvN6wgQh64sNDuogwHOYeeuXhKPIpmc9p4WzYQhKlq8XUwFSuoK
-	 tWEjc8hl2nPIpVWEoT4KxcMmfOyrzz/1yijktmcXVRaEuNgI9OPoZuSTMVnY31C/S81b/
-	 ig46L81eRv3+0DzP3UU8iEee7fKrSxpJxI+8smMuP/USOMAfWaybH8Ins0ex1A9Tt/tRs
-	 OnU0To3MwPuX8tPiCh8RsDOzGXx6ZtFQPxCqJYfLyAX9hcpUDPAMcVryKylTPieDG/Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795019893;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=V7mJeiSJCVTjraIciJJrP4E+euyuUY8Iim8ikHfaISQ=;
+	b=IAOl/JgdjLQf/F3LNY9z8TeMJucO5hjkhKWPRT/1K1/lK99pBsiLWghjosNGMjN9pSjp
+	 mXP/b2hZo2JriakfpsAT5hLwd+7Lz4U+OyXDtK1TMEwlccZvxde3CUQbkHe6asUx6EiXw
+	 BbVofZ3UkAMgZ0epsVnZXxK4I83v3MaO0v9jNJ8kwqQlCxH8Nsn2UIoCyIeNR75iaUC8g
+	 dlT2ZzErd5SiViLjRDOubyVN2FON1NT6ln4XPxQyTdJrfqIAG+LHrLXdWQLMY3nUlP0J9
+	 BXxc4lC5sZoTOzNf9JNMEwbgASw87/snp86Rz5+7K4hwTKKvIK5T8NGepf5Y1DxKs7A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=Da4ME3gN;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=uK7X0Dfo;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=xPoOYmXL;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3790E60A2619
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:37:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3790E60A2619
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23F88606A32A;
+	Wed, 18 Nov 2026 16:38:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 23F88606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=Da4ME3gN
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIDQUMu1196083;
-	Wed, 18 Nov 2026 16:37:17 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=IQkSVCRpKXlz2wAUU
-	W6oVrrYgE18ROiSv0y8Fi8zF2g=; b=Da4ME3gNSp4vPJcGyS0t5I3eDyTCcMG/F
-	ywaSMKKm4ylZcRoaV7mW1kerk+zHWEYNFqkPP8pzzrDKWy3iIsv6utTI4IqvrY/q
-	jkIlCi4ibOj8uLZuWiXUTKsv8sXKMTsaa2S+L6mvI64bMXFy9vlbo9eWAsMw6NHs
-	80QXNuJ+8pmGT4MQQY9vXdB5S2X94ifZ09NvMlTndvR5lcPTp0iUmiEDVWVuhKVy
-	7d1j+NL/WZCwq9+9KT77UhTKEtHQp9aYKGxzbh0Y25SiIZ4lOdIYuT3PIQ2kzvZi
-	Wy322Isa/OJ8kDqsHHekSsO2neq/BlRsobUerMo6ZbNeC2SsXiD8A==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105wubu6-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 18 Nov 2026 16:37:16 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIDZ4ft3470745;
-	Wed, 18 Nov 2026 16:37:16 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4hyxwt95m0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 18 Nov 2026 16:37:16 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AIGbCZf40501592
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 18 Nov 2026 16:37:12 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 0D4C72004E;
-	Wed, 18 Nov 2026 16:37:12 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id DEA2A20040;
-	Wed, 18 Nov 2026 16:37:07 +0000 (GMT)
-Received: from li-7bb28a4c-2dab-11b2-a85c-887b5c60d769.ibm.com.com (unknown [9.39.19.105])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 18 Nov 2026 16:37:07 +0000 (GMT)
-From: Shrikanth Hegde <sshegde@linux.ibm.com>
-To: linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-        driver-core@lists.linux.dev
-Cc: sshegde@linux.ibm.com, christophe.leroy@csgroup.eu, maddy@linux.ibm.com,
-        gregkh@linuxfoundation.org, rafael@kernel.org, dakr@kernel.org,
-        johan@kernel.org, sudeep.holla@kernel.org, ritesh.list@gmail.com,
-        tim.c.chen@linux.intel.com, yu.c.chen@intel.com
-Subject: [PATCH 5/5] sched/topology: Remove stale comment around llc_bytes on powerpc
-Date: Wed, 18 Nov 2026 22:06:39 +0530
-Message-ID: <20261118163639.890546-6-sshegde@linux.ibm.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261118163639.890546-1-sshegde@linux.ibm.com>
-References: <20261118163639.890546-1-sshegde@linux.ibm.com>
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=uK7X0Dfo;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=xPoOYmXL
+Date: Wed, 18 Nov 2026 17:38:07 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795019889;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=V7mJeiSJCVTjraIciJJrP4E+euyuUY8Iim8ikHfaISQ=;
+	b=uK7X0DfoIne69g0yXQMBSJNgig84GmBBKama+JLaaIgkazJp4dm7/JhP9xlkk/EJkg6Kxk
+	uTdLoXMhELgIzbvQIvq1MqK2XRP9hqqJM+3p0KvuPyx//hnV/jjPrhVivmyKDWzKVh0EuO
+	C53YdqQSxGuFeE4eMegPyfCPckZS3M8NB7GrdOgBZbtQdzFEsTZqehRxJjiWw3MPhHxrdA
+	YyAzOR2mMVZpe3hgXacPfGVHQJn1uFTNxbAqoEMheYzL1D2Tekn1g0mUz1L/7ZFBhtNE6d
+	jYBfTdk/WzeKpJQ8usQrFm2odvYdCflhH1MYhvvDGhL1OsNDo5RYMlokrvDeew==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795019889;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=V7mJeiSJCVTjraIciJJrP4E+euyuUY8Iim8ikHfaISQ=;
+	b=xPoOYmXLPL31H1HUpE17x11g4ZXHh1c+tvwXldjILuUsoFXpNOMA66/hVut9Cb8dzQKDmT
+	ZgYgAMbg/EqS0cAw==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Cc: peterz@infradead.org, tglx@kernel.org, mingo@redhat.com,
+	linux-kernel@vger.kernel.org, will@kernel.org, boqun@kernel.org,
+	longman@redhat.com, rostedt@goodmis.org, clrkwllms@kernel.org,
+	dvhart@infradead.org, dave@stgolabs.net, andrealmeid@igalia.com,
+	shuah@kernel.org, juri.lelli@redhat.com,
+	linux-rt-devel@lists.linux.dev, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v2 5/5] locking/ww_mutex/test: Time an ABBA with both
+ owners running
+Message-ID: <20261118163807.75hxTxGn@linutronix.de>
+References: <20261108141347.1525532-1-mathieu.desnoyers@efficios.com>
+ <20261108141347.1525532-6-mathieu.desnoyers@efficios.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,65 +79,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-ORIG-GUID: m6nDFlsq9S7iVvEI9LtZRjpWRtnbxPEQ
-X-Proofpoint-GUID: 2fZ_eomm9B5EjOoJmwjzgtGQ9yzyBNtE
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA2NSBTYWx0ZWRfX3Duo12XLtzmH
- 4Z/VPjRV9xXGmjDXqp6Rh1gFMZ3mKa7fYN/L/v2msqwNqeBxe3zlW6TYiTQp9I2vT9yUe9//ChC
- 8B7Z3pL7sexFnKKeQenGpknbcrYU9TLQlArCAS+Pqs7caFa/QHJQo1qUsjoVjKugppcKzY66Lt+
- A/RL/Q0c5TCfI6fSGa4N1U1tfyeZRfBq+pGBaLJPgS8TwYtc3u/X4agyJxg4oeG/B7YQic1oCE5
- yNhMmw5m3yIOLFHhYR+PSlIVzGMf4ipM3lXv3KVGRr47vaELEjS7nnlcCQDE+/KjySZxHPIFhME
- oqSEVf4eAy8kWRIjzEfkOsyn0MwEYTiD74tnU2bLId/7j+A9hQAR/NwyddWhoNq5Fyk35Ub6GqY
- HjvXYjrjhfEgMCBSZKFVPg//UUTiDFFqfTgiKRUmNHY7YLSx88R7X1i7cTsBbVv4s6IKiO+uPEw
- ShmJlXH6TdOH58pRnaQ==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA2NSBTYWx0ZWRfX02BjtLqNfM9F
- D/1brfC6CSnbkelFWgGJp4+o4mYho3T7uhOmKXrf/RAz9ylL8TDrFklXLqIpKwSdnbjbm8N2S5Y
- B2oV7dElpQ15eJWeCykTwuEkiWaobt8=
-X-Authority-Analysis: v=2.4 cv=K+m3jCWI c=1 sm=1 tr=0 ts=6afdd43d cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8 a=Do6pITyv6I5m7piumJAA:9
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-18_04,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 bulkscore=0 clxscore=1015 adultscore=0 spamscore=0
- priorityscore=1501 impostorscore=0 phishscore=0 lowpriorityscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611180065
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20261108141347.1525532-6-mathieu.desnoyers@efficios.com>
 
-PowerPC now populates generic cacheinfo, allowing
-get_effective_llc_bytes() to obtain the LLC size.
+On 2026-11-08 09:13:47 [-0500], Mathieu Desnoyers wrote:
+> In the ABBA cases of test-ww_mutex, an owner never keeps running while
+> the other context blocks on it. With PREEMPT_RT, a ww_mutex waiter
+> spins while its owner runs. The wound that resolves an ABBA reaches the
+> waiter through a wakeup.
+>=20
+> Add a wound-wait case where both contexts keep running. Each one runs
+> on its own CPU at SCHED_FIFO. The younger context holds B and blocks on
+> A. The older context holds A, then blocks on B, which wounds the
+> younger one. The older context must get B within 10ms on average, over
+> 10 rounds.
+>=20
+> On v7.4-rc1 with PREEMPT_RT, the case fails every time. The two
+> contexts spin on each other until the fair server preempts them, after
+> 950ms by default. With "locking/rtmutex: Stop spinning on the owner
+> when the waiter is woken", earlier in this series, the older context
+> gets B in microseconds. Without PREEMPT_RT, the case passes with or
+> without that fix.
 
-Remove the comment stating that get_effective_llc_bytes() always
-returns zero on PowerPC.
+This is the ww_mutex equivalent of the futex case on PREEMPT_RT. I got
+lightly distracted by the -35/-EDEADLK error it always returns.
+Something that we might have since v5.16-rc1=E2=80=A6
 
-Signed-off-by: Shrikanth Hegde <sshegde@linux.ibm.com>
----
- kernel/sched/topology.c | 7 -------
- 1 file changed, 7 deletions(-)
+Anyway.=20
+Since both (ww-mutex and futex) use the same code I am tempted to say
+that one test case might be enough.
 
-diff --git a/kernel/sched/topology.c b/kernel/sched/topology.c
-index 99878da03bce..6d4e4a32bc4e 100644
---- a/kernel/sched/topology.c
-+++ b/kernel/sched/topology.c
-@@ -1001,13 +1001,6 @@ void sched_cache_active_set(void)
-  * Update the bottom sched_domain's llc_bytes for @cpus sharing a physical
-  * LLC. Called from cacheinfo_cpu_online() or
-  * cacheinfo_cpu_pre_down() with cpu hotplug lock held.
-- *
-- * Note: get_effective_llc_bytes() returns 0 on PowerPC.
-- * thus cache aware scheduling is disabled on PowerPC for
-- * now. PowerPC does not use the generic cacheinfo framework --
-- * it has its own cacheinfo with a separate struct cache hierarchy
-- * and does not populates the per-CPU struct cpu_cacheinfo array
-- * that get_cpu_cacheinfo_llc() reads.
-  */
- void sched_update_llc_bytes(const struct cpumask *cpus)
- {
--- 
-2.54.0
+But in case we want this,
+Tested-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
+> Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+
+
+Sebastian
