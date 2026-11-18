@@ -1,98 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.195
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795005439;
-	b=TideL2xBxdCIAzXjByrrhFRouTbLxxgIP0RjLkxzz4Xd87GNBL3k8g4c0NpOsy7tXckV
-	 IEZbhNT5Js0IzSUHMKjnV7jLBTkavQqyw3jgWWX4gpNtrRJ5sJkx+6wsKfZa5zKAzP32e
-	 7EnzeV9hWeNE3mxz98CSotroofvZCdH6m79lhOWNAtkj8od8H5o9n9qdo4zZdlgIbKJ4E
-	 ispUhuVGZumaaeNqaCX1QFOHCqBe5BApQN9t9X/f3X/0AoeuN/1DYW9oKuopd63H+k9l6
-	 YPC0CVzoAE+pRXVtSC+N4TbX/+0MrOp60/e0vOcCjefIxXDlvS4sDCPGKt5LPxye8ow==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795005439;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type;
-	bh=ULKfBiyPUodGwChJ6W1HqXCemItu/hB9DisezQMSBXg=;
-	b=dIUa5XRx+JTeKFP4rZRCi5SKxI3uYVH2Qk5wlRCpEKxKzob+5kr8Ad+dhgVsLAJTI/oq
-	 z6HKfCEfdgdT9YhDKjQNnFy0ZCeoS+2tTylJmk0RU5lM+v9HiuywSm+Oiat/q2Z21jHgW
-	 gS5zBsbnZUd2hi8UUrj8oxnbfWXtX8g0/CjYULtwS9gU/XklU76ulCfLWAI+rN+83YW7k
-	 v34B/L5kHUzcgIIzQm1Ps2zUFIttygNDyI7FJZWASOzB26z8NGu0w1Le7HJP/vO+8mVKZ
-	 7MLj0q7svqWXEkFzxC5hs+comBClMx3K3Ez9eZa318Q7H7FBCZ3V5iWWu+xDyQgoYew==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dVJtkTPx;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.195
-Received: from mail-lj1-f195.google.com (mail-lj1-f195.google.com [209.85.208.195])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795005467;
+	b=rttkXgQcDawnfodp9uQcdrybkHejMM7pholsEOUWqD8SmW4ooI5uP0WvrSGz8o03QNJT
+	 AcvU93nPsSEdK+Uglz513PZOe8u140wy5p1bfDH+n032cvAWYQVGeC8K6Nl6T5iIgumHp
+	 7gz55wSWf0PaEwwIM+JXvSJydw6v8LML9SNA4MUfAUDQyVr9jySrNQzcjxTrZ58l1acHd
+	 phDhGICoaSNBk99IlL1XWwmrmD5pycuSrKxxDizhnXqojKhDdkmWH8EkKlhZLFwN9MAeE
+	 DDLXu0bUQqHIWcv3g4Wu9pmV1cWXLflC7HoqVzGD6kCM1knbPX5W2JnEBynaknTiklw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795005467;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=N5CGwXkDYC7ZHZF12AdVjIxEK6seoaUVe8eVp3p/csI=;
+	b=j7fVlcpVl2rsLrupQaqlOiHCtpOu3eQu7SXmEqQxkLEns6EKf41dEGd5zFxRnd7rTA9j
+	 Cq8X473EuqP4RQTKlIafDPCz8Avco6N95xJbwEYeWQUBWZ1kAzcWrf7u4G3z/5t+dXdbB
+	 w+zjF+nnuvcvbHmFLMheJ5d13R9x2Qk9Ysxa37MW0CgJxemzZVxwx0R52I6n7AeGWOgsP
+	 Jjy3DKMWb/mu9yHEmfRnkiPcRmtkyYZMe2R2Pc6WlqakeY6EUdTK+CrAF9RoWXLRpw02j
+	 9kDbYF7N/R5QCDfM92OIGxRTUlZDDY+LEHGm9XFkGjmsDrCnMRHqxXt5doLbrEaHijw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YzqS5r0S;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5BE6C606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:37:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5BE6C606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6626606A320;
+	Wed, 18 Nov 2026 12:37:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dVJtkTPx
-Received: by mail-lj1-f195.google.com with SMTP id 38308e7fff4ca-3ada7d53082so8637101fa.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:37:19 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795005437; cv=none;
-        d=google.com; s=arc-20260327;
-        b=gr9oZn6DUVbM6SzdatxHptoJvJrnWrw8Y+iWfl6cV1AlGWpCf65/K/GVESSehxqsoB
-         u3KGoBiXZElEJirLWTQaU7e/8mbkKbWprW0GfmI6FTXJlqxvQsSr7HTpqkakzNshauX/
-         f/5q9ls9B6vV2FFX7BKpncPsIZ1HNUK0iEI43zA4Zi4eEAuvc4pymGf4V/FWpQpUT9pq
-         XIbikS56K8n8tDFrQ63xQyEsEDZEu5/Ody3OK9WhoKBYcQ88Qb7sZr5IiNgUxSMG0cRf
-         94Oa/7N6An4MvFCMaqteTFLFQ+ANAAvSxW+meMe0io8XUeEhwm9HZO6Lng63TkCIUvN2
-         mkgg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=ULKfBiyPUodGwChJ6W1HqXCemItu/hB9DisezQMSBXg=;
-        fh=aTVHGZ9TLnktBNb5NBUV/C6Qwux33ZHEwlDHbSe6tPw=;
-        b=o1Lrv/DP5gzvnBXyd6O1e/CqQqT3auk9vNtzup1Cbb0S65OP9/qptXXv5Waer2+ZMB
-         S6UUixIZOQN6EU/MAWB4FBwGlRD6JqNQcrod8OWyFrEqVvGKLJULz8h/tpuvtk5vcx1x
-         VjI49ElO8Ed04cVAwOHQGW2nu5Lgy9TP7Y0ze+Du9uSnNaHbOYRDVMt/RP3WVLbKonjI
-         3FhhNcFRZU69iOeGs8nDf3jwtWLJfLpekYrwdR1v5W9WicQTuuREMbtTa49vVaRoGio7
-         v5cuRouvrZ8MZ2QPUhpavn8nWYhRL4cpbfdEoo61At0axOmZrBji26lbdkMdZXfy0+tP
-         vLwA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795005437; x=1795610237; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ULKfBiyPUodGwChJ6W1HqXCemItu/hB9DisezQMSBXg=;
-        b=dVJtkTPx7SFaGLYaTzOJgPTPGvqndDUB7dzBI93C6wfJ7/MnKUPhLC8M37JUzYEdrv
-         hhG8X9S2FUfxbEswDSEua4qpBHz4DzNwbvV4CrDaMw4uJ+D8DGQihtN8BwBQ91jXzgEr
-         D4eJu4rBohLdR2VF0z3EnGSe6OyX+2PvoY06CGRQXzQyOalttjtAahTExs5a6D7Uw38K
-         O6OFflqCjejEiqlwjP1h/rw10gNwHO1ZyuKlMyLWn83sRWMI6r/RnAUn2WOU+vWyeXQ6
-         MLx4ScAI/8OeRb4bthsSfkHWsJJnpvCLdZBeQ9VHC6PAOU92/3gI7fpobLMH0HOppzuo
-         PugA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795005437; x=1795610237;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=ULKfBiyPUodGwChJ6W1HqXCemItu/hB9DisezQMSBXg=;
-        b=bEs21JZRgZMBar2MglfwExcod0WurtBK2fd+D+vLIzWWJ4J1RkubNTDfLNaF1Fz4gD
-         r38YEWFQ712j7ob/yobdxClRiysWNdTVE0pA6rUq+oXrGGPCY1LY8beq5vkL1+JQDt6f
-         8WqtNfAmRWGevR496rJ9BzlTqnz8LJr6TCysZn7vRCqFDFbED2gBJt9duE6nDXazJ+/e
-         45MJI+ub9FofobMEQiyBlNfG5a+fkvnZemTMyFXUITpXva3QCY9sbWEzehKQQAxly0FL
-         UtyD+dofqAWz4ZpXC375mHMHGLMGrS/WB27pFDhiTuFuPiNNNNf5D2QrUbUETB6v0Cwf
-         9kbw==
-X-Forwarded-Encrypted: i=1; AL+hErHYrd2Ly4dIekCRh0tEjd0BbLbtHNawefqwNojyrvUvYwQnxWnDHofryWs58OeKUOiLi4QH5q7PhZYmvTc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z90WKYvuAiJmfEnKPu9+7RfszPsuKToMw5CfetNa+oUDff0vw8K
-	nkMrHhTTC1SxhJDWIHVIrU6ED+cg4dBmyk1d5GGIKbHVS/9iB8I4LzLsNX1eTELFwghskIGavdc
-	JNQL0H4cL9dSar/S6yT874OJEt49H7gHvE3wu0TDgfj6k
-X-Gm-Gg: AYBFou2RR6FhDuHQXkUb7op5FiDiNMINgSokrPF9GnCe8mUnRBIMKkfi3v7k4SoB1zk
-	4tWSf1n7+hoEKyrz3hbTZtmDgOr4CYS6QDnG7VhlkNIt+dLeWzgs68nGB3+tOmqAQfYt7UDVgGw
-	84hn4NfdrSyrhT+qp6EZlF9G5fBqyKFLp1+4qyAX3xXSkjYOM2AAVfBPiD53GRRMTNtJiJtpCnB
-	te1J3ht9MpB0/uVf5MNVkNALak+2X34N1VfQ2jllNQVojZ+Od+2i7RF8LEKqWk5O2cTgIjwDgRC
-	J9SxAykXeIXVcaghkPmsBQYzma4/921gIE8KjopyRqA0cXoFnmAEJCPh012sH/0MrATHJmfcP2C
-	JxfpoYXJ9ylabMK00XTLgdfIY1q3Ew8BgN1hD55nfGWIZo6MuJFVcl0Exwp7xb0pWi2klNH7xkd
-	LdKtnFsiGOWojyhNM=
-X-Received: by 2002:a05:651c:a14c:b0:3ae:c43:d892 with SMTP id
- 38308e7fff4ca-3ae5c91dd47mr17035981fa.1.1795005437159; Wed, 18 Nov 2026
- 04:37:17 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YzqS5r0S
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBD621F000C4;
+	Wed, 18 Nov 2026 12:37:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795005467;
+	bh=N5CGwXkDYC7ZHZF12AdVjIxEK6seoaUVe8eVp3p/csI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=YzqS5r0SUs/wsxWZsq5PkMXx1btPUd6pNUmdAZRrxFjDvPs4/67ZtV+EplWQsoJQh
+	 Y0ekpMB//ArEyiOCEoFEBRDQIi6vqSsYSqiJab6aKIRxu+k25YlrSCUkSy5drmC2c9
+	 0EU44tZPQFYmLg7aq3PKtDmO6t8K7Cq4Lfvg8STljzUYNtaAUGpVBzpy/bMv6sW2eO
+	 zgUIftfyqoSCSZo1z+ooOwmg+eDs5+zbl6Kowxcata+cfPfXGOW+s96GBlvRHkU2OW
+	 yWT5PlPwY5uOd1KDJ3D97celi7EyezXs8A7KNu/mtHliFixfv5BwqVEUpsJcHxt8Vv
+	 l6IQUNu7DVkzQ==
+Message-ID: <f3d38cc6-112a-4d48-b0e6-f26d7819aa1b@kernel.org>
+Date: Wed, 18 Nov 2026 13:37:40 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,126 +51,93 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: Zheng Zheng <fengaojigui88@gmail.com>
-Date: Wed, 18 Nov 2026 20:37:03 +0800
-X-Gm-Features: AclHuK882m7RkIPXulNkPGmJF5W6vqJWzBXr7PYXZHgIM8IyUvzbKABo3YeYs70
-Message-ID: <CAO-4RZ1DiPS2+=3WPxRGSEajO=dnsfYi4zDyjcVp3LBy2670AQ@mail.gmail.com>
-Subject: [BUG] WARNING in kernfs_remove_by_name_ns (fs/kernfs/dir.c:1784, v7.4-rc3)
-To: dsterba@suse.com, mason@kernel.org
-Cc: gregkh@linuxfoundation.org, tj@kernel.org, linux-btrfs@vger.kernel.org, 
-	driver-core@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/2] dt-bindings: iio: proximity: semtech: add myself
+ as maintainer
+To: Arnav Kapoor <kapoorarnav43@gmail.com>,
+ Jonathan Cameron <jic23@kernel.org>
+Cc: Gwendal Grignou <gwendal@chromium.org>,
+ Daniel Campello <campello@chromium.org>,
+ Andy Shevchenko <andriy.shevchenko@intel.com>,
+ David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+ linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261117172612.25535-1-kapoorarnav43@gmail.com>
+ <20261117172612.25535-2-kapoorarnav43@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261117172612.25535-2-kapoorarnav43@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Hi David, Chris, Greg, Tejun,
+On 17/11/2026 18:26, Arnav Kapoor wrote:
+> I'm adding a reviewer entry for the Semtech SX9xxx proximity drivers to
+> MAINTAINERS. Add myself to the maintainers of their bindings as well,
+> so changes to them reach me.
+> 
 
-We found a reproducible WARNING in the kernfs/sysfs removal path on
-v7.4-rc3 with syzkaller. It is triggered while enabling Btrfs quotas and is
-stable on fresh VMs.
+Why? Same comments as for cover letter. Looks premature, you were just a
+few months ago sending multiple same patches, clearly not even checking
+what you are about to send:
 
-The archive and reproducer are here:
+https://lore.kernel.org/all/20260624044610.69708-1-kapoorarnav43@gmail.com/
 
-  https://github.com/Zheng-zheng-codes/kernfs-remove-by-name-ns-warning
-  commit 1d8c9a81d3f812c9ea320afba737bb4be8643ed4
+https://lore.kernel.org/all/20260624042543.38925-1-kapoorarnav43@gmail.com/
 
-Warning
--------
+Your patches were never even built by you:
 
-The warning is preceded by a kobject allocation failure for the Btrfs
-`qgroups` sysfs kobject:
+https://lore.kernel.org/all/20260621045340.65872-1-kapoorarnav43@gmail.com/
 
-  kobject: kobject_add_internal failed for qgroups (error: -12 parent:
-d1a4d035-71e5-4764-8138-3b7234c5bdf5)
-  ------------[ cut here ]------------
-  kernfs: can not remove 'enabled', no directory
-  WARNING: fs/kernfs/dir.c:1784 at
-kernfs_remove_by_name_ns+0x10b/0x120 fs/kernfs/dir.c:1784, CPU#1:
-syz.7.1656/40887
-  Modules linked in: crc32c_cryptoapi(E) cifs(E) smbdirect(E)
-rdma_cm(E) iw_cm(E) ib_cm(E) nbd(E) ext2(E) smc(E) ib_core(E)
-dm_multipath(E)
-  CPU: 1 UID: 0 PID: 40887 Comm: syz.7.1656 Tainted: G            EL
-   7.4.0-rc3-kernsight-kasan #1 PREEMPT(full)
-  Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.15.0-1
-04/01/2014
-  RIP: 0010:kernfs_remove_by_name_ns+0x10e/0x120 fs/kernfs/dir.c:1784
-  RSP: 0018:ffa00000064479c0 EFLAGS: 00010293
-  Call Trace:
-   <TASK>
-   kernfs_remove_by_name include/linux/kernfs.h:644 [inline]
-   remove_files+0x9b/0x1c0 fs/sysfs/group.c:28
-   sysfs_remove_group+0x90/0x1b0 fs/sysfs/group.c:328
-   sysfs_remove_groups fs/sysfs/group.c:352 [inline]
-   sysfs_remove_groups+0x65/0xb0 fs/sysfs/group.c:344
-   __kobject_del+0x89/0x220 lib/kobject.c:595
-   kobject_del lib/kobject.c:627 [inline]
-   kobject_del+0x40/0x60 lib/kobject.c:619
-   btrfs_sysfs_del_qgroups+0x156/0x230 fs/btrfs/sysfs.c:2463
-   btrfs_sysfs_add_qgroups+0x1c2/0x230 fs/btrfs/sysfs.c:2502
-   btrfs_quota_enable+0x2e7/0x1ce0 fs/btrfs/qgroup.c:1034
-   btrfs_ioctl_quota_ctl fs/btrfs/ioctl.c:3605 [inline]
-   btrfs_ioctl+0x46d4/0x5e10 fs/btrfs/ioctl.c:5663
-   __x64_sys_ioctl+0x194/0x210 fs/ioctl.c:584
-   do_syscall_64+0x132/0x7c0 arch/x86/entry/syscall_64.c:89
-   entry_SYSCALL_64_after_hwframe+0x77/0x7f
-   </TASK>
+Building code is... well, we do not have to even discuss that. You were
+simply sending LLM slop.
 
-Important annotations
---------------------
+LLM slop senders are not maintainers. It's doing everything opposite to
+maintainers.
 
-- The first line is the Btrfs qgroups kobject add failure with `-ENOMEM`
-  (`error: -12`). This `-ENOMEM` is triggered by the reproducer's `failslab`
-  fault injection, not by a real memory shortage. The warning is then emitted
-  from the cleanup path trying to remove the `enabled` file from a sysfs group
-  that was never fully created.
-- The call path is:
-  `BTRFS_IOC_QUOTA_CTL` -> `btrfs_quota_enable()` ->
-  `btrfs_sysfs_add_qgroups()` -> `btrfs_sysfs_del_qgroups()` ->
-  `sysfs_remove_groups()` -> `remove_files()` -> `kernfs_remove_by_name()`.
-- `kernfs_remove_by_name_ns()` warns when the target node cannot be found;
-  here it cannot find `enabled` under the qgroups directory.
-- The warning becomes a panic because the test kernel boots with
-  `panic_on_warn=1`. This may be a cleanup-path warning after an injected
-  allocation failure rather than memory corruption; we have not confirmed a
-  root cause or a fix.
-- The warning is user-triggerable through Btrfs quota control, but we are not
-  claiming it is a security issue.
-
-How to reproduce
-----------------
-
-The recipe reproduces on a fresh, unmodified VM; no state snapshot is needed.
-
-  git clone https://github.com/Zheng-zheng-codes/kernfs-remove-by-name-ns-warning
-  cd kernfs-remove-by-name-ns-warning
-
-  # boot the v7.4-rc3 kernel with the supplied config and guest image
-
-  # in the guest, as root:
-  syz-execprog -procs=8 -threaded -repeat=0 \
-      -executor ./syz-executor reproducer/repro.kernsight.prog
-
-`-repeat=0` repeats until the warning fires; the external runs hit in 43 s
-and 45 s. The recipe has 76 entries (75 replay programs followed by the
-testcase).
-
-Verification:
-
-- Main Kernsight pipeline: `confirmed=true`, `status=verified`,
-  2026-11-18T05:11:34Z, 75 replay programs, fresh-VM 2/2.
-- Independent external fresh-VM verification: 2/2, target hit after 43 s and
-  45 s; serial logs are in `external-verify/serial-1.log` and
-  `external-verify/serial-2.log`.
-- C reproducer: not generated; the syzkaller recipe is the primary
-  reproducer.
-
-Kernel/guest details:
-
-  kernel: v7.4-rc3, bzImage sha256
-    0c16409f8aec508ac44a63e631c2bd352536401f3fd0856df1d839fb953a1882
-  guest: Debian trixie x86_64, 6 GiB RAM, 4 vCPU, QEMU/KVM
-  boot: oops=panic panic_on_warn=1
-  config: CONFIG_KASAN=y, CONFIG_PROVE_LOCKING=y, CONFIG_BTRFS_FS=y
-
-Thanks,
-Zheng
+Best regards,
+Krzysztof
