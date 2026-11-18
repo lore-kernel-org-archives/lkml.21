@@ -1,54 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.241
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795005654;
-	b=ZcP1iDZn3TWB+HhjuPikd/dl4zqWftFTlNC8RYZWdOOByRfTELaaZERVgBQ2lqjkH9vU
-	 R/hi4s04MVPxwxONzjA96nKmQq1gP++c9WdP7NmO+xxkGQktUZmPP3r4etTp+trZ+1Il4
-	 ehKcgaX0R/7CLkVM4FdBzwwlhStcID+O0WrIZprWs3azT5kq7n1sRij+CJ5hkanEdWkmt
-	 1NBiQ5PzJefGRa8QQ47a1wlE/VEkEbQyEnz/NLC8aRw1yDtACsDRGGi0EE50QZF2VJUvd
-	 8ra5P+FjjVfp3Me+NerACKLa/nVNQIT/x7IPkKrFnjgFqpCFgrU0oeKEgi+HV0N8sZg==
+	t=1795005698;
+	b=yZWW1dVg8MOO83F9ANgMJi2yhD9kwoOFUin8nA+yv0j7sSk1T6s+tt7IH6cJs3GW36+j
+	 SKadRcr+oBevrnoiTy1gVFTJbmD6uxd5FekaAOmo1kLij5Iy1KxJjIyVMv3NrGtYhjGe2
+	 vVPsX+B2be7FxLiPN+24jccbUy5jw2CHaYSyPvaoQA+WH0gg2BuXpA5gWsf7K+MuaovTG
+	 XYTMk7SoCHS5EfGpaFB8eBpVRpHG1mkp5JZxTb+lAxQS93hiKXPvwm+KadK0i5hFqcpQT
+	 MCDrnms2uHbDV1iK/51WLuUO4pDHTgGBtVXkkE1p1OioQtyLo3tnd8sJq2RKr2yRkmg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795005654;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=+DLN0JMXOURk9LMg8DghKgivG2ddXrTqZRTmBWRD2Jw=;
-	b=3+M7VoyuthM52zCTQEXzFkPkqawtF3mEIYqQdjcPa6QNvqrwFs+F3aQ3s9ErPqfspYJ6
-	 o9MKX30YwOQDybCvosQOd14I43dQJZiW/EEEcii2hmw60uo41WbTHSRLEj7U8mdOQn1Vi
-	 imuFYNRbg5R5su0S8N8271g/3QGvWqajK2JckVT+WPqBhbAN5DV5hEbkTth/zTj66nJyr
-	 /fob5T5Rx02Pjvjh7PE+eywbEKbFL19C4TsIdCF86KSBpJGRhJsccpiBY6QL7TlmO/DYQ
-	 +5VX4Rjm7bcS/wWE/86deEDBT8b5IFhPdqHQZBYW5gnyyCMd5r9I2bah/On3qKZ4/lA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795005698;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=NcboF+7Ibrmdu8GyKDhEBakGgWL/6zJDq2Y724rkq5A=;
+	b=YujAei5WkGUVkatxLS48wjYWytEQ3zCNm+iZl02PtjT2lMVOXjYqV4fBlbWDWdhq9V2D
+	 OtGXhz608qFSCvAtZ3OPrhBimEFE8GRGC5w6OdtzdPD/zPAfup6X+I+0OomLN3mgq6Y2Q
+	 UYAN1BGNvJEMjnlyEkJzQq+VFgddosbTrX4s20CYYDGQZcpsgtB2g/hr+uEkMtS/t67vi
+	 A9B4ZtY3IH9RoPhf2RaBVZVJbpb+vmr9e8Z7gx6cfnWC/EABRNujUL3PQ6v6BDwZWhkIN
+	 3RxfdYB++SG00yIxoyfsARzps9ZUGRgXey5mtDED+ybN6mgPO8MpEBwGqd4QygDOdmw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=uI+UrJyX;
-	arc=none smtp.remote-ip=95.215.58.241
-Received: from mta1.migadu.com (out-241.mta1.migadu.com [95.215.58.241])
+	dmarc=fail header.from=isslab.korea.ac.kr;
+	spf=none smtp.mailfrom=isslab.korea.ac.kr;
+	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="WhBlZ/yZ";
+	arc=none smtp.remote-ip=209.85.214.171
+Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com [209.85.214.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 710B7606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:40:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 710B7606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1B0660A2613
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:41:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A1B0660A2613
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=uI+UrJyX
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=+DLN0JMXOURk9LMg8DghKgivG2ddXrTqZRTmBWRD2Jw=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795005651; v=1; x=1795610451;
- b=uI+UrJyXttLNS1sYG+bob3FLC3DmK3e754C0htpYNGq37gWu4SqvlQO9d/qdn3UyYaxFxSN3
- +Ntit0vhyZ20cOpL5hR3w55I7xbr64OTekpHjX74L7/SSAwfQheCSz7NwFMvesxoH9J5gXGsZ4O
- YbaGUlYWOY59oH8UwXL35cGE=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 715f28141b795e02;
-	Wed, 18 Nov 2026 12:40:48 +0000
-X-Mizu-Trace-ID: 715f28141b795e02
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <8b1622a7-3494-4a0d-8913-c8cf4eae43fc@linux.dev>
-Date: Wed, 18 Nov 2026 20:40:41 +0800
+	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=WhBlZ/yZ
+Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2e9ae391a05so5261285ad.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:41:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795005697; x=1795610497; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=NcboF+7Ibrmdu8GyKDhEBakGgWL/6zJDq2Y724rkq5A=;
+        b=WhBlZ/yZxXcYb7YarQ2nn7UczKWtdcgeVeO+6ldy4EOoIJYb3YZaZjC095fV/8pbmq
+         HpSqbZts9dPVoEn09rFZQjsDt+8hRqjfo4Kud5wn2XWfdbl+8FfVmf3C/LhFUy4DfGfw
+         PYuafEvTsrjWCHjhNXlROmzP3yATggGmR1Z90hI4dbi70UxIvZvY4kNp+9YicdHv0lcW
+         kS6ZG1VuO3rip22fP9h4OXQFVsfM4UjzP+C4NosqMqpKRy1xwFchvF/ijdHsTp8u3/1V
+         cylXYxcVXggW4BbND0xySCXoCZvrVe8FBZIo7Eur1e5grb1wtbxfD6Q/6ERJbJuPa1uQ
+         cbwQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795005697; x=1795610497;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NcboF+7Ibrmdu8GyKDhEBakGgWL/6zJDq2Y724rkq5A=;
+        b=S3n0T1O873vaSS9spzKnkfMbB/jFTloewJDX+pJT8Aytz8l7w2rUGrQmHXpad1nokD
+         dEC7ocWn5FX1Tw4Ed/qttGiGNsC5jOT7TfI2aseFdElZBB80wKC9Zba3itPZFRy2MCX+
+         TCHvwy3TsCsMedii4ZtxQIEQZRQBqDK8CySHJn66CMrfRfZh79H4wtdfBPXSCLJ2D1Qb
+         +qk7xozHOJee70wlrnFeN7La3sVW1Uqc16cNsRK2xMRdlfIJA6NDciuy3jX6XpACsfS0
+         k9qqk05zOPXVZoK9Nk922ZxdR1XygbK/W1an300nAp5+EWdAjjb+/KlA55L+SuDq40u3
+         WhCg==
+X-Forwarded-Encrypted: i=1; AL+hErFwjhn/he6P31f4cIeQq7hG6/CcqffSf8weuJin182dw/6PbncYZ2hNFti91EZU/LzFqvQS+A0vVLXqMFw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+OopsIjJzcNXeS5/jYjZvG5/4u4h0RGPrzlKDqZ3ZIASuODLEc
+	6mDvrvGVaUVH/q+684R01eQL30Ikq7XBSExgyHeEjxyJInDXeiNx+m9YDDZt3GL49UI=
+X-Gm-Gg: AZFdTZdvOcOSOevJk2swHb93+R6ejv+2i86D0HfUl/Gf51Oc7UaHo9z879+MgZSLjBr
+	0pbMP1T1LU9GKNRZv08vxtBoovMWLAUobgnMgmOR6uUQEawKrC5oiPu4OlOKQlAL1I6jIN7gb0N
+	utwxYqWEikUU+oP35jpbk3FvUwdlO6MYXc/9dufGy3DRmmH2eO5HHCtSxZtA+3+/fSCWNX3aIGG
+	Prz7gBJXWtGeJ62wU0Nt/tl40DLuU1Ase+2UuepcKYZBW2WZteDEvCK3gTZx4Yt9TrwiqAOws8K
+	KwmhfB0WP/tdshL6x+44EJiFBua89mLvWq+Tvodi9+hiRtUEw+nLbZmoq+zQv9qHGf+tricjnl0
+	bRKtHb4IqGCLnbRDmfdoKUfJ5a4TbQ1j3wauCBuqlqQGQLEM+U1y3cBhB0v3ldakpYRU55et00M
+	oyPzw5BtXfo8YkSUDRZYveeTMcc+VdCwWZ4mFVuNU8YdLFJdmWZZW02ZNNdF7VRq6RfkFod/R7z
+	hp+5duK+CVLmyEBiaA1NtqvBZprVniVmnnJtHNjXtCHuUsO3ToEuArIm+Tb3TH70FtkdkVqwAo1
+	XAGWvyaT0xHX5AXt6cv5wxLhypT2/ViPBP4Ggy1pPmKvKapnAzY0qaPnzGrztt5r/gDKBs4Oyha
+	Qv1pv7QHW8BSuWSxaNyjcnCTtfKiWUxxKKQHdSQ==
+X-Received: by 2002:a17:903:4b4f:b0:2e5:41d6:178c with SMTP id d9443c01a7336-2eff754479emr17857265ad.33.1795005697064;
+        Wed, 18 Nov 2026 04:41:37 -0800 (PST)
+Received: from localhost.localdomain ([2406:5900:1044:110c:e78e:f7f0:2120:34e7])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff611630asm12923485ad.17.2026.11.18.04.41.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 04:41:36 -0800 (PST)
+From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+To: gregkh@linuxfoundation.org,
+	linux-usb@vger.kernel.org
+Cc: Thinh.Nguyen@synopsys.com,
+	bigeasy@linutronix.de,
+	target-devel@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 0/3] usb: gadget: f_tcm: fix infoleak, sleep, and UAF in the BOT completion path
+Date: Wed, 18 Nov 2026 21:41:25 +0900
+Message-ID: <20261118124125.2428233-1-yhlee@isslab.korea.ac.kr>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261013073328.2936318-1-yhlee@isslab.korea.ac.kr>
+References: <20261013073328.2936318-1-yhlee@isslab.korea.ac.kr>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,77 +102,11 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [BUG] tcp: shift-out-of-bounds in inet_csk_rto_backoff() for an
- orphaned zero-window probe
-To: Eric Dumazet <edumazet@kernel.org>, Kyuwon Cho <kyuwoncho18@gmail.com>
-Cc: Neal Cardwell <ncardwell@google.com>,
- Kuniyuki Iwashima <kuniyu@google.com>, "David S. Miller"
- <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Cambda Zhu <cambda@linux.alibaba.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <179499954853.1440581.6627074959099619480@gmail.com>
- <CAL4WiiouZZ46QRp5K6MYK=vevKXYLzd_p049qVVf=w+9L8d96Q@mail.gmail.com>
-From: Jiayuan Chen <jiayuan.chen@linux.dev>
-In-Reply-To: <CAL4WiiouZZ46QRp5K6MYK=vevKXYLzd_p049qVVf=w+9L8d96Q@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
+This is superseded by v8:
+  https://lore.kernel.org/all/20261118124005.2428068-1-yhlee@isslab.korea.ac.kr/
 
-On 11/18/26 8:12 PM, Eric Dumazet wrote:
-> Le mer. 18 nov. 2026 à 11:59, Kyuwon Cho <kyuwoncho18@gmail.com> a écrit :
->> Hi Eric, Neal,
->>
->> While testing v7.4-rc3 with an LLM-guided test generator that we are
->> developing as a research prototype, we found that an orphaned socket
->> that keeps sending zero-window probes makes inet_csk_rto_backoff()
->> shift by 64 or more. An unprivileged user can set this up in its own
->> user and network namespace:
-> Thanks for the report and the reproducer.
->
-> This is a known issue, a fix is under review:
->
-> [PATCH net v2 2/2] tcp: fix shift-out-of-bounds in inet_csk_rto_backoff()
-> https://lore.kernel.org/netdev/20261026123244.239766-2-jiayuan.chen@linux.dev/
->
-> It limits the shift to 32 in inet_csk_rto_backoff() itself, so it
-> covers both callers: tcp_ld_RTO_revert(), which is where Jiayuan hit
-> the splat, and the orphan check in tcp_probe_timer() from your report.
->
->> We found no earlier report of this call site.
-> Searching lore for the function name would have found it:
->
-> https://lore.kernel.org/netdev/?q=inet_csk_rto_backoff
->
-> Please do this before sending a report, especially for findings
-> coming from automated tools.
->
-> Note that the netns sysctls are not needed. tcp_retransmit_timer()
-> increments icsk_backoff without any limit, so TCP_USER_TIMEOUT and
-> TCP_RTO_MAX_MS on a socket with a silent peer are enough to get
-> icsk_backoff above 63, then an ICMP unreachable reaches the shift
-> from tcp_ld_RTO_revert().
->
->> On x86 the shift count is masked, so from 64 on alive can come out true
->> again and the orphan keeps probing instead of being aborted.
-> Right, and this starts before 64: with icsk_rto == 200, the u64
-> is already zero when icsk_backoff reaches 61.
->
-> Jiayuan, I have not seen a v3 addressing Neal's feedback.
->
-> When you send it, could you please add:
->
-> Reported-by: Kyuwon Cho <kyuwoncho18@gmail.com>
-> Closes: https://lore.kernel.org/netdev/179499954853.1440581.6627074959099619480@gmail.com/
->
-> and mention the zero window probe path in the changelog ?
-
-
-Sure I can do that.
-
->
-> Kyuwon, it would be nice if you could test Jiayuan's patch with your
-> reproducer and send a Tested-by: tag in that thread.
->
-> Thanks.
+Best regards,
+Yehyeong Lee
