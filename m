@@ -1,52 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795019149;
-	b=pqgGnnmi1imVPls5NWPchu1JAD39slGpOq4f2J0tHtqcd5+HWQxZiMip0X8srHvwAxO3
-	 KvbmYAkuLGhZ/Bx2tAbaXy5N3rzRSS9/zsfv+ZKFTPoB1nRXpRboi7hY3HwG67E2GpeB0
-	 lzqLBBksPGePkXWKPtFo2k75R/+s19BoGzCRnAIJ1AheUijjP++jr0y6U1qhzWgu6cNcE
-	 7MpHaaZV6JzeFM3sKpTRUmdGfMIudxc/HyBcxwZrZGxn5I3o8LcRWH8UaiYpapPFN2hPY
-	 PYxnYmfwMgu8vfZ2W+++MqUvwmAoTnMFIZ6ajvv5YmRRkmGcpbhwg28hDC5qR9aldeg==
+	t=1795019295;
+	b=yNE9VQrlZDsBFJ2QyupdLl6Lfa8BJ8sVCQqiZhkJhDPvJqzd26bgK3Vl3aCT6nbHfFFx
+	 Y1xNyvN2/5KsC+xT7VzuRSXcgmc9Oy/1VLXQP5OO8Dl//5lidreoAWr8x9Fwx7D1KUyrK
+	 WPPRcggUif7Affa4lSZWKau6edD+WwTH+2FqIeBHKhDToWZPvFkOajfs/iQEtlyV33eG7
+	 kOXgk3UC2SJ0J8GE4WG2oeYl6LuicDagcUoA7nDvseWJmnf7g3ahGXuZmHun0ZYBL+WFt
+	 Gl24cteeEkb4kNMfQw/Fdvn4We1qm814FteNkl0INDhNTV+7MaRsOWimHWXRvszFTeg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795019149;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=5H8PSkVDex+QRhjYafGVEPRpclEzemLgL58kmtAzVlI=;
-	b=JvcjaW685qM7byhOdHKj0kGYf0uEPnYFbiOMC38Jl2xeAfUWky4h1iIvM24dfGNyg5kf
-	 PjsfwFnhddSgFdA9EJcQ/9W8D2Yyg0XAN8LWXW0I3XgnBPqaGufly7ObD1Wxw1YVNvUaQ
-	 Q9bB/3q669cTXmLNJUVk3t+fcztIxnb06/TcvmVYhZ0TnL9Ct6BgsnCM1lpa7J4LjOJ8w
-	 pZhlI14eA15IOlh9zGfWyCwzqvJRAEocI7ZScgtx7JjHY2BFJ+JOgjivGdBKiRauGYZs4
-	 8PcdOdCLGeDaQyGJWwZNqckwcLHn4u1TBWoW8hMHpXURFYEZyi+IkSM2AZCiwESTg2Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795019295;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=QuOoANZ8hChXmnk+D4HOljpYAuIPsGom8C5JI4EqOIA=;
+	b=KbURUvV+qc6AC8nJYJirgHvwgMAHpvXHoQidtRkjeadKQa/jcYOUFzDIjn0Y8SvNjFFk
+	 JRrQh09CA3MybgLufE1o1n2YyDAQ5BG7SJvdcmpduTxbterrxH1LfBmx+FDOKgIW/HMJy
+	 NASfACi6UZVYf3Jxnd/OPxGYr2kX2R6jPur8I4DvMCepc8+OrBZqWcb6P7MDYnDcx92D4
+	 dc4EdEMHzph7jX3Wp9P9AorLKUolfhx6oLRwUkprEvKID7mBzOFfQCKyeSst2Q+tcLMsn
+	 ZIFtbhvVp5eCWt6PMgphl9i8rJ59KJgSipppPXVJsCTqzjX27ISlnrZ2b+jijwjVkLA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=owMnxlIC;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4704A606A325;
-	Wed, 18 Nov 2026 16:25:48 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=upju8KOf;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 0185B60A2619
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:28:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0185B60A2619
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=owMnxlIC
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B4031F000C4;
-	Wed, 18 Nov 2026 16:25:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795019148;
-	bh=5H8PSkVDex+QRhjYafGVEPRpclEzemLgL58kmtAzVlI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=owMnxlICEwJk+ETmJz7BBDWR3vkgUmTi8OzDsVPUVyU5015AJBg+eD5d6z3xq1gHC
-	 um8avSd4PdfuLtJzHF2YiramSqDta9xxBiA9hhnwSef2Dq/U3oq15agn6mWhofauhR
-	 sLC+TjcYnz3FrNnE0hxShhL6T7euNS5QzPvwszOLoeGmHCb6o5dBiGkNEfnn344yU3
-	 xloX0zQ9crglIWtdSd2cA/nHrr4zBM7sRYHD0G0C53mBTFo5zv9i5qBsFw8nFxwTB6
-	 UUmjyVQG+figJYUs5d+1dlfErxWJ24xNgBceHlrBP58BDLX9nDYC9jRloSnk/mxpz9
-	 rsUFrssCzCiVg==
-Date: Wed, 18 Nov 2026 10:25:47 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Gokulkrishna Sekar <gokulkrishnasr@gmail.com>
-Cc: linux-pci@vger.kernel.org, bhelgaas@google.com,
-	mika.westerberg@linux.intel.com, linux-kernel@vger.kernel.org,
-	Gokulkrishna Sekar <Gokulkrishna.Sekar@harman.com>
-Subject: Re: [PATCH] PCI: Encode corrected PCIe port type with FIELD_PREP()
-Message-ID: <20261118162547.GA597321@bhelgaas>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=upju8KOf
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4AFA9143D;
+	Wed, 18 Nov 2026 08:28:03 -0800 (PST)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 42FBA3F673;
+	Wed, 18 Nov 2026 08:28:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795019286; bh=6Cc3/L/EkFsV4cpEwdGr/GoAJIUVzESLRiO77LL1sto=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=upju8KOfyoRVKgl0BNh8Kg4gn4vcnI6W9Zq3xt8ufdl6cGJpJz3j018OQ29r9Slrd
+	 f1pFw8KEspQx/CW+vz67JWDyyyRGj8lcUgbvqppKIoF3XtMukExy8P689/SMhLuTiK
+	 AeSNpHz/FZC3QKxoZWzS3SvtO5aB8yVOVB3aJCiQ=
+Message-ID: <691a76a5-7b22-4c2a-8861-3581791a01c0@arm.com>
+Date: Wed, 18 Nov 2026 16:28:02 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,67 +53,236 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118153505.95686-1-Gokulkrishna.Sekar@harman.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/8] arm_mpam: resctrl: Add a helper to find the
+ component counting an event
+To: Reinette Chatre <reinette.chatre@intel.com>, james.morse@arm.com,
+ Dave.Martin@arm.com, fenghuay@nvidia.com, ruanjinjie@huawei.com
+Cc: tony.luck@intel.com, yu.c.chen@intel.com, babu.moger@amd.com,
+ fustini@kernel.org, tan.shaopeng@fujitsu.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ patches@lists.linux.dev
+References: <cover.1794283825.git.reinette.chatre@intel.com>
+ <8635f50f938afbe3f58dcd69966c2dd45e2394cd.1794283825.git.reinette.chatre@intel.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <8635f50f938afbe3f58dcd69966c2dd45e2394cd.1794283825.git.reinette.chatre@intel.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 18, 2026 at 03:35:05PM +0000, Gokulkrishna Sekar wrote:
-> set_pcie_port_type() validates PCIe port topology and corrects
-> invalid upstream/downstream port type information in the cached
-> pcie_flags_reg value.
+Hi Reinette,
+
+On 10/11/2026 04:19, Reinette Chatre wrote:
+> resctrl_arch_cntr_read() and resctrl_arch_reset_cntr() both drive the
+> monitors MPAM pre-allocated for bandwidth counting. Each starts with the
+> same sequence: check that MPAM is enabled, reject cache occupancy and
+> events without a class, then take the component counting the event from
+> the monitoring domain.
 > 
-> When performing these corrections, the code clears the
-> PCI_EXP_FLAGS_TYPE field but writes PCI_EXP_TYPE_UPSTREAM or
-> PCI_EXP_TYPE_DOWNSTREAM directly into pcie_flags_reg. The
-> PCI_EXP_TYPE_* values are decoded port type numbers, not values
-> encoded for the PCI_EXP_FLAGS_TYPE bitfield, so the corrected type
-> is stored in the wrong bit position.
+> The duplicated sequence has to be kept in sync by hand. Only the failure
+> handling differs: one reports the failure to its caller while the other
+> has no way to do so.
 > 
-> As a result, the cached port type may not match the corrected
-> topology and subsequent users of pcie_flags_reg can observe an
-> incorrect PCIe device type.
-
-Looks like subsequent users would think the device was a PCIe Endpoint
-(PCI_EXP_TYPE_ENDPOINT==0x0) instead of an Upstream or Downstream
-Port, but only for devices that claim to be the wrong type in the
-first place, so it probably doesn't actually affect many systems.
-
-But it seems like a candidate for stable anyway.
-
-> Use FIELD_PREP(PCI_EXP_FLAGS_TYPE, ...) when updating the cached
-> field so the corrected port type is encoded consistently with the
-> format used in the PCI Express Capabilities Register.
+> Add find_mbwu_mon_comp() to locate the component, returning an error
+> pointer on the failures both callers test for. Ignore that error in
+> resctrl_arch_reset_cntr(), which cannot report it.
 > 
-> Fixes: ca78410403dd ("PCI: Get rid of dev->has_secondary_link flag")
-> Signed-off-by: Gokulkrishna Sekar <Gokulkrishna.Sekar@harman.com>
+> No functional change intended.
+> 
+> Suggested-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> Signed-off-by: Reinette Chatre <reinette.chatre@intel.com>
 > ---
->  drivers/pci/probe.c | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
+> Changes since RFC v2:
+> - New patch.
+> ---
+>  drivers/resctrl/mpam_resctrl.c | 62 ++++++++++++++++++++++------------
+>  1 file changed, 41 insertions(+), 21 deletions(-)
 > 
-> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
-> index 9a178e0e5f7f..7b09a4463097 100644
-> --- a/drivers/pci/probe.c
-> +++ b/drivers/pci/probe.c
-> @@ -1674,7 +1674,8 @@ void set_pcie_port_type(struct pci_dev *pdev)
->  		if (pcie_downstream_port(parent)) {
->  			pci_info(pdev, "claims to be downstream port but is acting as upstream port, correcting type\n");
->  			pdev->pcie_flags_reg &= ~PCI_EXP_FLAGS_TYPE;
-> -			pdev->pcie_flags_reg |= PCI_EXP_TYPE_UPSTREAM;
-> +			pdev->pcie_flags_reg |= FIELD_PREP(PCI_EXP_FLAGS_TYPE,
-> +							   PCI_EXP_TYPE_UPSTREAM);
->  		}
->  	} else if (type == PCI_EXP_TYPE_UPSTREAM) {
->  		/*
-> @@ -1685,7 +1686,8 @@ void set_pcie_port_type(struct pci_dev *pdev)
->  		if (pci_pcie_type(parent) == PCI_EXP_TYPE_UPSTREAM) {
->  			pci_info(pdev, "claims to be upstream port but is acting as downstream port, correcting type\n");
->  			pdev->pcie_flags_reg &= ~PCI_EXP_FLAGS_TYPE;
-> -			pdev->pcie_flags_reg |= PCI_EXP_TYPE_DOWNSTREAM;
-> +			pdev->pcie_flags_reg |= FIELD_PREP(PCI_EXP_FLAGS_TYPE,
-> +							   PCI_EXP_TYPE_DOWNSTREAM);
->  		}
->  	}
+> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+> index 5468367776e2..1b1e724ae040 100644
+> --- a/drivers/resctrl/mpam_resctrl.c
+> +++ b/drivers/resctrl/mpam_resctrl.c
+> @@ -7,6 +7,7 @@
+>  #include <linux/cacheinfo.h>
+>  #include <linux/cpu.h>
+>  #include <linux/cpumask.h>
+> +#include <linux/err.h>
+>  #include <linux/errno.h>
+>  #include <linux/limits.h>
+>  #include <linux/list.h>
+> @@ -541,26 +542,51 @@ int resctrl_arch_rmid_read(struct rdt_resource *r, struct rdt_domain_hdr *hdr,
+>  				 closid, rmid, val);
 >  }
-> -- 
-> 2.56.1
-> 
+>  
+> -/* MBWU counters when in ABMC mode */
+> -int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
+> -			   u32 closid, u32 rmid, int mon_idx,
+> -			   enum resctrl_event_id eventid, u64 *val)
+> +/*
+> + * find_mbwu_mon_comp() - Find the component counting @eventid in a domain
+> + * @d:		The monitoring domain to search.
+> + * @eventid:	The event to find the counting component for.
+> + *
+> + * The counters reached through this component are the monitors MPAM
+> + * pre-allocated for bandwidth counting. Cache occupancy is not counted by> + * those monitors, it is read on demand via resctrl_arch_rmid_read().
+> + *
+> + * Return: the component counting @eventid in @d, or an error pointer when
+> + * MPAM is disabled, when @eventid is cache occupancy, or when no class was
+> + * picked to count @eventid.
+> + */
+> +static struct mpam_component *find_mbwu_mon_comp(struct rdt_l3_mon_domain *d,
+> +						 enum resctrl_event_id eventid)
+
+I find this a somewhat strange helper. It's operation is not mbwu specific except for its rejection
+of CSU events and it doesn't support the similar code in resctrl_arch_rmid_read(). Something a bit
+more general that just finds the monitoring component is easier to understand for me.
+
+What do you think of something like the change below? (The baseline is unhelpful, as it's your
+series with the first patch removed and the build fixed but hopefully it illustrates the idea well
+enough.)
+
+$ git diff
+diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+index c14343fb5a95..343b4fd351f6 100644
+--- a/drivers/resctrl/mpam_resctrl.c
++++ b/drivers/resctrl/mpam_resctrl.c
+@@ -510,12 +510,20 @@ static int read_mon_cdp_safe(struct mpam_resctrl_mon *mon, struct mpam_component
+                          CDP_NONE, closid, rmid, val);
+ }
+
++static struct mpam_component * find_mon_comp(struct rdt_domain_hdr *hdr,
++                                            enum resctrl_event_id eventid)
++{
++       struct mpam_resctrl_mon_dom *l3_dom;
++
++       l3_dom = container_of(hdr, struct mpam_resctrl_mon_dom, resctrl_mon_dom.hdr);
++       return l3_dom->mon_comp[eventid];
++}
++
+ /* MBWU when not in ABMC mode (not supported), and CSU counters. */
+ int resctrl_arch_rmid_read(struct rdt_resource *r, struct rdt_domain_hdr *hdr,
+                           u32 closid, u32 rmid, enum resctrl_event_id eventid,
+                           void *arch_priv, u64 *val, void *arch_mon_ctx)
+ {
+-       struct mpam_resctrl_mon_dom *l3_dom;
+        struct mpam_component *mon_comp;
+        u32 mon_idx = *(u32 *)arch_mon_ctx;
+        enum mpam_device_features mon_type;
+@@ -529,8 +537,7 @@ int resctrl_arch_rmid_read(struct rdt_resource *r, struct rdt_domain_hdr *hdr,
+        if (eventid >= QOS_NUM_EVENTS || !mon->class)
+                return -EINVAL;
+
+-       l3_dom = container_of(hdr, struct mpam_resctrl_mon_dom, resctrl_mon_dom.hdr);
+-       mon_comp = l3_dom->mon_comp[eventid];
++       mon_comp = find_mon_comp(hdr, eventid);
+
+        if (eventid != QOS_L3_OCCUP_EVENT_ID)
+                return -EINVAL;
+@@ -547,7 +554,6 @@ int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
+                           enum resctrl_event_id eventid, u64 *val)
+ {
+        struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
+-       struct mpam_resctrl_dom *l3_dom;
+        struct mpam_component *mon_comp;
+
+        if (!mpam_is_enabled())
+@@ -556,8 +562,7 @@ int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
+        if (eventid == QOS_L3_OCCUP_EVENT_ID || !mon->class)
+                return -EINVAL;
+
+-       l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
+-       mon_comp = l3_dom->mon_comp[eventid];
++       mon_comp = find_mon_comp(&d->hdr, eventid);
+
+        return read_mon_cdp_safe(mon, mon_comp, mpam_feat_msmon_mbwu,
+                                 USE_PRE_ALLOCATED, closid, rmid, val);
+@@ -604,7 +609,6 @@ void resctrl_arch_reset_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d
+                             enum resctrl_event_id eventid)
+ {
+        struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
+-       struct mpam_resctrl_dom *l3_dom;
+        struct mpam_component *mon_comp;
+
+        if (!mpam_is_enabled())
+@@ -613,8 +617,7 @@ void resctrl_arch_reset_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d
+        if (eventid == QOS_L3_OCCUP_EVENT_ID || !mon->class)
+                return;
+
+-       l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
+-       mon_comp = l3_dom->mon_comp[eventid];
++       mon_comp = find_mon_comp(&d->hdr, eventid);
+
+        reset_mon_cdp_safe(mon, mon_comp, USE_PRE_ALLOCATED, closid, rmid);
+ }
+
+
+Thanks,
+
+Ben
+
+>  {
+> -	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
+>  	struct mpam_resctrl_dom *l3_dom;
+> -	struct mpam_component *mon_comp;
+> +	struct mpam_resctrl_mon *mon;
+>  
+>  	if (!mpam_is_enabled())
+> -		return -EINVAL;
+> +		return ERR_PTR(-EINVAL);
+>  
+> +	mon = &mpam_resctrl_counters[eventid];
+>  	if (eventid == QOS_L3_OCCUP_EVENT_ID || !mon->class)
+> -		return -EINVAL;
+> +		return ERR_PTR(-EINVAL);
+>  
+>  	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
+> -	mon_comp = l3_dom->mon_comp[eventid];
+>  
+> -	return read_mon_cdp_safe(mon, mon_comp, mpam_feat_msmon_mbwu,
+> -				 USE_PRE_ALLOCATED, closid, rmid, val);
+> +	return l3_dom->mon_comp[eventid];
+> +}
+> +
+> +/* MBWU counters when in ABMC mode */
+> +int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
+> +			   u32 closid, u32 rmid, int mon_idx,
+> +			   enum resctrl_event_id eventid, u64 *val)
+> +{
+> +	struct mpam_component *mon_comp;
+> +
+> +	mon_comp = find_mbwu_mon_comp(d, eventid);
+> +	if (IS_ERR(mon_comp))
+> +		return PTR_ERR(mon_comp);
+> +
+> +	return read_mon_cdp_safe(&mpam_resctrl_counters[eventid], mon_comp,
+> +				 mpam_feat_msmon_mbwu, USE_PRE_ALLOCATED,
+> +				 closid, rmid, val);
+>  }
+>  
+>  static void __reset_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
+> @@ -603,20 +629,14 @@ void resctrl_arch_reset_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d
+>  			     u32 closid, u32 rmid, int cntr_id,
+>  			     enum resctrl_event_id eventid)
+>  {
+> -	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
+> -	struct mpam_resctrl_dom *l3_dom;
+>  	struct mpam_component *mon_comp;
+>  
+> -	if (!mpam_is_enabled())
+> +	mon_comp = find_mbwu_mon_comp(d, eventid);
+> +	if (IS_ERR(mon_comp))
+>  		return;
+>  
+> -	if (eventid == QOS_L3_OCCUP_EVENT_ID || !mon->class)
+> -		return;
+> -
+> -	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
+> -	mon_comp = l3_dom->mon_comp[eventid];
+> -
+> -	reset_mon_cdp_safe(mon, mon_comp, USE_PRE_ALLOCATED, closid, rmid);
+> +	reset_mon_cdp_safe(&mpam_resctrl_counters[eventid], mon_comp,
+> +			   USE_PRE_ALLOCATED, closid, rmid);
+>  }
+>  
+>  /*
+
